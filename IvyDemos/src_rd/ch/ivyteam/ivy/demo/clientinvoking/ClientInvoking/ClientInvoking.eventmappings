@@ -1,0 +1,7 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2008-10-01 10:36:26 | 4.1.0.26923 | 1.0
+~.btnOpenBrowser@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A29F1AD47A8679/11A2A83153E79BAA
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11A29F1AD47A8679/11A29F1B594F421F
+~.btnOpenFile@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A29F1AD47A8679/11A2A8AA7E0515F4
+~@RD_METHODCALL[updateContent(ch.ivyteam.ivy.demo.clientinvoking.FileOpsResult)]--->ch.ivyteam.ivy.process.ProcessStart:11A29F1AD47A8679/11A345B152468CBE
+~.btnWriteFile@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A29F1AD47A8679/11A33B15F55DCBD7

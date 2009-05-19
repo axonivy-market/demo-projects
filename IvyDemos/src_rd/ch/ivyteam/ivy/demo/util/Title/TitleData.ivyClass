@@ -1,0 +1,5 @@
+TitleData #class
+ch.ivyteam.ivy.demo.util.Title #namespace
+iconUri String #field
+title String #field
+subtitle String #field

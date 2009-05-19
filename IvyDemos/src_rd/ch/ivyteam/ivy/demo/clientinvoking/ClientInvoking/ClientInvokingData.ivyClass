@@ -1,0 +1,4 @@
+ClientInvokingData #class
+ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking #namespace
+websites List<ch.ivyteam.ivy.demo.clientinvoking.Website> #field
+fileresult ch.ivyteam.ivy.demo.clientinvoking.FileOpsResult #field

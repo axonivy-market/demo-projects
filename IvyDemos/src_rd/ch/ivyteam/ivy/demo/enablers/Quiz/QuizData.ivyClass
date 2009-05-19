@@ -1,0 +1,5 @@
+QuizData #class
+ch.ivyteam.ivy.demo.enablers.Quiz #namespace
+question3data Tree #field
+question2data List<String> #field
+correct Boolean #field

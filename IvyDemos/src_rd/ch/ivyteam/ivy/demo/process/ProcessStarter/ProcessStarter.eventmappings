@@ -1,0 +1,8 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2008-03-26 12:50:11 | 4.0.0.15100 | 1.0
+~.loginButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:118CB700DF77F3F4/118EAEB033A818D7 # ProcessStarterProcess.mod/login
+~.closePanelHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:118CB700DF77F3F4/118CB810D0121C31
+~.showCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:118CB700DF77F3F4/118CC6360FAC6842
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:118CB700DF77F3F4/118CB806AAAF2CBB
+~.startButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:118CB700DF77F3F4/0118CB80CD988DA3
+~.exitHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:118CB700DF77F3F4/118CB811E0818574

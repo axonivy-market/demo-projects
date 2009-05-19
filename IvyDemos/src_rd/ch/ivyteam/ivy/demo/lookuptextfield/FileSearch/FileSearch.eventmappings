@@ -1,0 +1,4 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2008-08-12 10:53:56 | 4.0.0.15100 | 1.0
+~@RD_METHODCALL[startWithFileList(List<java.io.File>)]--->ch.ivyteam.ivy.process.ProcessStart:11BB5F943EDD5FEA/11BB5F945D1A616E
+~.showButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11BB5F943EDD5FEA/11BB601D28A68315

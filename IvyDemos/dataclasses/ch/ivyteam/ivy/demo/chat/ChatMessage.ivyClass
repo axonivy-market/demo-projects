@@ -1,0 +1,6 @@
+ChatMessage #class
+ch.ivyteam.ivy.demo.chat #namespace
+user String #field
+user PERSISTENT #fieldModifier
+msg String #field
+msg PERSISTENT #fieldModifier
