@@ -1,0 +1,3 @@
+ErrorDetailDialogData #class
+ch.ivyteam.ivy.addons.commondialogs.ErrorDetailDialog #namespace
+errorStackTrace String #field

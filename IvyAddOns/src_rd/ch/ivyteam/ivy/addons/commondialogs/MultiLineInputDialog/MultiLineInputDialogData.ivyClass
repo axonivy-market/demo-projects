@@ -1,0 +1,8 @@
+MultiLineInputDialogData #class
+ch.ivyteam.ivy.addons.commondialogs.MultiLineInputDialog #namespace
+question String #field
+inputString String #field
+buttons List<String> #field
+pressedButton String #field
+defaultButton String #field
+defaultButton PERSISTENT #fieldModifier

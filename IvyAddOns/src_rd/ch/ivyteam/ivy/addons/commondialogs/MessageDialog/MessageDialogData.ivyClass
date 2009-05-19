@@ -1,0 +1,4 @@
+MessageDialogData #class
+ch.ivyteam.ivy.addons.commondialogs.MessageDialog #namespace
+messageText String #field
+messageTitle String #field

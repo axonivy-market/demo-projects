@@ -1,0 +1,8 @@
+SingleLineInputDialogData #class
+ch.ivyteam.ivy.addons.commondialogs.SingleLineInputDialog #namespace
+question String #field
+inputString String #field
+buttons List<String> #field
+pressedButton String #field
+defaultButton String #field
+defaultButton PERSISTENT #fieldModifier

@@ -1,0 +1,7 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2009-05-19 14:51:29 | 4.1.0.27714 | 1.0
+~.loginButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1181284475030FD6/11812DC43473EE7C
+~@RD_METHODCALL[login()]--->ch.ivyteam.ivy.process.ProcessStart:1181284475030FD6/11812DC187F6133F
+~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1181284475030FD6/11812DC4AC93ACC0
+~@RD_METHODCALL[loginAndSelectSessionLanguage()]--->ch.ivyteam.ivy.process.ProcessStart:1181284475030FD6/11E3F6181BC96A9E
+~.passwordPasswordField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1181284475030FD6/11812DC43473EE7C

@@ -1,0 +1,5 @@
+ErrorDialogData #class
+ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #namespace
+error java.lang.Throwable #field
+showCopyButton Boolean #field
+showDetailButton Boolean #field

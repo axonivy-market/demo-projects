@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" provider="IvyTeam AG" name="IvyAddOns" version="1" id="ch.ivyteam.ivy.addons">
+    <description>This library contains various add-on components and helper artefacts that can be used to develop Xpert.ivy projects.&#xD;
+&#xD;
+Some examples:&#xD;
+	- Common Rich Dialogs&#xD;
+	- Dynamic Rich Dialog&#xD;
+	- XML Serialization for Data classes&#xD;
+	- ...&#xD;
+&#xD;
+See Xpert.ivy AddOns Documentation (in Xpert.ivy Designer goto Help &gt; Help Contents &gt; Xpert.ivy AddOns).&#xD;
+&#xD;
+Demos:&#xD;
+	Some Demos of this projects' contents and features are available from the Xpert.ivy Demos project, which is also part of the &#xD;
+	Xpert.ivy Designer distribution. Simply import the IvyDemos project from the &lt;XPERTIVY_HOME&gt;/applications/samples folder&#xD;
+	into your workspace.&#xD;
+&#xD;
+Usage in Designer:&#xD;
+	Simply define this library as a required library for your own project and use it's parts.&#xD;
+&#xD;
+Usage on Server:&#xD;
+	The AddOns project can be selected on the server to be automatically generated/added to a new Application.</description>
+</ns2:library>

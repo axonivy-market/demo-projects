@@ -1,0 +1,4 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2008-09-23 09:43:10 | 4.0.0.15100 | 1.0
+~@RD_METHODCALL[askInput(String,String,List<String>)]--->ch.ivyteam.ivy.process.ProcessStart:118122EB8FB3ED37/118121E168071765
+~@RD_METHODCALL[askInput(String,String,List<String>,String)]--->ch.ivyteam.ivy.process.ProcessStart:118122EB8FB3ED37/11C8E28C28A7B014

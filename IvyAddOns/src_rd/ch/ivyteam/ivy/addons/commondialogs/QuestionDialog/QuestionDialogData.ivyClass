@@ -1,0 +1,9 @@
+QuestionDialogData #class
+ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #namespace
+icon String #field
+questionText String #field
+buttons List<String> #field
+pressedButton String #field
+questionTitle String #field
+defaultButton String #field
+defaultButton PERSISTENT #fieldModifier

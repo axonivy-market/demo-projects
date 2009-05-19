@@ -1,0 +1,12 @@
+LoginDialogData #class
+ch.ivyteam.ivy.addons.commondialogs.LoginDialog #namespace
+userName String #field
+password String #field
+error ch.ivyteam.ivy.security.AuthenticationException #field
+successful Boolean #field
+supportedLanguagesList List<java.util.Locale> #field
+supportedLanguagesList PERSISTENT #fieldModifier
+prefferedUserSessionLanguageIndex Number #field
+prefferedUserSessionLanguageIndex PERSISTENT #fieldModifier
+sessionLanguageSelectionVisible Boolean #field
+sessionLanguageSelectionVisible PERSISTENT #fieldModifier
