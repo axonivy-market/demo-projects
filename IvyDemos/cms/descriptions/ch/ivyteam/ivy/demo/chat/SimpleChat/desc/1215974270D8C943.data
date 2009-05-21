@@ -1,0 +1,3 @@
+A simple chat application.
+
+Start this Rich Dialog with multiple user sessions, (i.e. in different Browsers) to see to the full extent what it does: exchange messages across user sessions and multiple machines, using the SystemEvent framework of Xpert.ivy.

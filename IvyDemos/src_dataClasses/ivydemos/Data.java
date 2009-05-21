@@ -11,6 +11,29 @@ package ivydemos;
 public class Data extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 0L;
+  private static final long serialVersionUID = -7899237678146601232L;
+
+  /**
+   * List of demo Rich Dialog id's.
+   */
+  private transient ch.ivyteam.ivy.scripting.objects.List<java.lang.String> demos;
+
+  /**
+   * Gets the field demos.
+   * @return the value of the field demos; may be null.
+   */
+  public ch.ivyteam.ivy.scripting.objects.List<java.lang.String> getDemos()
+  {
+    return demos;
+  }
+
+  /**
+   * Sets the field demos.
+   * @param _demos the new value of the field demos.
+   */
+  public void setDemos(ch.ivyteam.ivy.scripting.objects.List<java.lang.String> _demos)
+  {
+    demos = _demos;
+  }
 
 }

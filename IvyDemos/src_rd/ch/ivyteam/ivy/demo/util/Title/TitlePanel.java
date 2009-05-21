@@ -35,7 +35,7 @@ private RLabel subtitleLabel = null;
   {
         RFiller verticalFiller = new RFiller();
         verticalFiller.setStyle("verticalGlue");
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(305,175));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(305,70));
         this.setStyleProperties("{/backgroundColor {/b \"255\"/r \"255\"/g \"255\"}/opaque \"true\"}");
         this.add(getTitleLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getSubtitleLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));

@@ -1,0 +1,1 @@
+Shows how to upload an image (File) from the client to the server. The uploaded file is displayed in the application and optionally stored in a temporary file.
