@@ -2,10 +2,8 @@ package ch.ivyteam.ivy.addons.commondialogs.QuestionDialog;
 
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHtmlPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridLayoutPane;
 
 /**
