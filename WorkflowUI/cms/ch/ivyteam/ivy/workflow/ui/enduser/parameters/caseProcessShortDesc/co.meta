@@ -1,0 +1,4 @@
+co: name={caseProcessShortDesc} description={} changed={2008-07-30 10:33:46 GMT} changedby={tistc} visualorder={0} guid={11A9BA129D1D2ADD} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11A9BA129D153EAC} datatype={} isdefault={true} langid={en} description={} validfrom={2008-06-18 12:23:27 GMT} validto={} changed={2008-06-18 12:26:29 GMT} changedby={tirib} properties={} id={}
+val: guid={11B69CC62939AAF3} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:12:27 GMT} validto={} changed={2008-07-28 13:12:35 GMT} changedby={cb} properties={} id={}
+val: guid={11B7387C1AA687EA} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:33:41 GMT} validto={} changed={2008-07-30 10:33:46 GMT} changedby={tistc} properties={} id={}

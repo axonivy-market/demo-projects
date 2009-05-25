@@ -1,0 +1,4 @@
+co: name={customVarcharField} description={} changed={2008-08-01 16:39:05 GMT} changedby={tirib} visualorder={0} guid={11B46713F57AD002} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B46713F579F70A} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 13:01:14 GMT} validto={} changed={2008-07-21 16:26:11 GMT} changedby={tirib} properties={} id={}
+val: guid={11B738D7DAFCF6C6} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:39:57 GMT} validto={} changed={2008-07-30 10:40:07 GMT} changedby={tistc} properties={} id={}
+val: guid={11B69D8F0F37F2F9} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:26:09 GMT} validto={} changed={2008-08-01 16:39:05 GMT} changedby={tirib} properties={} id={}

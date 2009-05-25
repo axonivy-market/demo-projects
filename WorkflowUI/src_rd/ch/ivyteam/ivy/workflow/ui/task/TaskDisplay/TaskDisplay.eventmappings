@@ -1,0 +1,28 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2009-05-04 12:03:49 | 4.1.0.27714 | 1.0
+~.taskNotesTaskPane@EXPANSION[EXPANDED]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118C1E2505A9216C
+~.cancelTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/1205BDFF970279BD # TaskDisplayProcess.mod/cancelTask
+~.delegateTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118EB694AFDBA1B7
+~@RD_BROADCAST[xivyTaskNotesChanged]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118EFCE4CD5CCF69
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/11B7A82C0DBAE332
+~.exitButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118EB8463A07C44A
+~@RD_BROADCAST[ivy_systemevent_workflow_task_changed]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/11E40E845FE6609C
+~.caseGlobalInformationTaskPane@EXPANSION[EXPANDED]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118C1E2505A9216C
+~@RD_METHODCALL[getTaskIdentifier()]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118E5FE0435A97FC
+~.startTaskToggleButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118BD7D1B6D995AF
+~.caseNotesTaskPane@EXPANSION[EXPANDED]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118C1E2505A9216C
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/116A9C07145A35CE
+~.caseCustomFieldsTaskPane@EXPANSION[EXPANDED]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118C1E2505A9216C
+~.taskInformationTaskPane@EXPANSION[EXPANDED]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118C1E2505A9216C
+~.refreshTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118C1E2505A9216C
+~@RD_BROADCAST[xivyCaseNotesChanged]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118EFCE2455D7B9A
+~.taskDetailButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/12057E93680AF66F # TaskDisplayProcess.mod/taskDetailInfo
+~.parkTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118EB5DB6F66B87A
+~.caseBusinessInformationTaskPane@EXPANSION[EXPANDED]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118C1E2505A9216C
+~@RD_METHODCALL[refresh()]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118E5F311E7C94E5
+~.taskCustomFieldsTaskPane@EXPANSION[EXPANDED]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118C1E2505A9216C
+~@RD_METHODCALL[close()]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118C672C7FC9B4FC
+~@RD_METHODCALL[start(ch.ivyteam.ivy.workflow.ITask,Boolean,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/11850D8CF1E93548
+~@RD_BROADCAST[xivyTaskDone]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118C2C4A5D8A19A4
+~@RD_METHODCALL[setTask(ch.ivyteam.ivy.workflow.ITask)]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/116E86F43DDC86FA
+~@RD_BROADCAST[xivyTaskDelegated]--->ch.ivyteam.ivy.process.ProcessStart:116A9BF16D47762C/118C63B937FB9980

@@ -1,0 +1,4 @@
+CaseTaskParametersEditData #class
+ch.ivyteam.ivy.workflow.ui.common.CaseTaskParametersEdit #namespace
+hasUserSetPropertyPermission Boolean #field
+hasUserReadPropertyPermission Boolean #field

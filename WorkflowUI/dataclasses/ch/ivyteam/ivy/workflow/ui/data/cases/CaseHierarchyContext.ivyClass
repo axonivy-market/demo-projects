@@ -1,0 +1,10 @@
+CaseHierarchyContext #class
+ch.ivyteam.ivy.workflow.ui.data.cases #namespace
+propertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
+propertyFilter 'The filter built according to the case hierarchy selection' #fieldComment
+title String #field
+title 'Title to display as tab''s title' #fieldComment
+icon String #field
+icon 'Icon to display as tab''s icon (will be used asap that display widget handle it)' #fieldComment
+toolTipText String #field
+toolTipText 'Tool tip text to display as tab''s tooltip text (will be used asap that display widget handle it)' #fieldComment

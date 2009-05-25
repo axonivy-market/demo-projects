@@ -1,0 +1,46 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2009-05-04 10:59:03 | 4.1.0.27714 | 1.0
+~.delegateTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE5EA710FB1B8
+~.findTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168B156EC627FDE
+~.startTaskUnderThisTabMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116A0E226E35360E
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168B153651C96FA
+~.parkTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE60D53BB777D
+~.informOnTaskOnSiblingTabMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118C22345A17837B
+~.resetTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A0856682016BF4
+~@RD_METHODCALL[getDisplayId()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1189D75281BC256E
+~.delegateTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE5EA710FB1B8
+~.tasksTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A0591A096BF4F3
+~.closeButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118EB87984A5A5A8 # TaskDisplayListProcess.mod/close
+~.findButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A6D1CCD4AB222D
+~@RD_METHODCALL[refresh()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11B2C29E18858E15
+~.startTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116A0E226E35360E
+~.businessCreatorTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168C59F197FF1E6
+~.resetTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A0856682016BF4
+~.findTaskGoButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168C59F197FF1E6
+~.destroyTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A085A17A139EA8
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11AE8E7F33044A1E
+~.parkTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE60D53BB777D
+~.countTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168C59F197FF1E6
+~.refreshTaskListButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168CA38A597F980
+~.businessMainContactTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168C59F197FF1E6
+~.refreshTaskListMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168CA38A597F980
+~.returnAllFoundTasksCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A7307DA9F4D640
+~.setTaskBlockingDelayDateButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A06D4293CB465C
+~.taskNameOrCaseNameCriteriaTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A6D1CCD4AB222D
+~@RD_METHODCALL[findTasksByCase(ch.ivyteam.ivy.workflow.ICase)]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11B40754687FB16D
+~@RD_METHODCALL[caseIsInitialized()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11B3DADB5466EF52
+~.tasksTable@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116A4E0E799A14D1
+~@RD_BROADCAST[ivy_systemevent_workflow_task_changed]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11E4147805919F81
+~.setTaskExpiryDateButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A06D4212D900B5
+~@RD_METHODCALL[close()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1189E88D7EEAAAB4
+~.findTaskCancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116A02A82789CBB6
+~@RD_BROADCAST[xivyRefreshTaskList]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118C650A535D72B2
+~.informOnTaskUnderThisTabMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116A4E0E799A14D1
+~@RD_METHODCALL[start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11B2C397226E51AC
+~.findTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168C59F197FF1E6
+~.taskActivatorTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168C59F197FF1E6
+~.informOnTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116A4E0E799A14D1
+~@RD_BROADCAST[xivyTaskDelegated]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118EBEE8542826BA
+~.startTaskOnSiblingTabMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118C223601C9E2B6
+~.destroyTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A085A17A139EA8
+~.taskStageTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168C59F197FF1E6

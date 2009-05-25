@@ -1,0 +1,12 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2008-08-01 20:13:44 | 4.0.0.25740 | 1.0
+~.securityMemberNameTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116CEFE82C810489/118A2F3B1C7F0B15
+~.roleRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116CEFE82C810489/118A3191E074E39D
+~.userRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116CEFE82C810489/118A319393EE62E5
+~.securityMembersList@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116CEFE82C810489/116E8D87E48524D6
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:116CEFE82C810489/116E88EC54DC4591
+~@RD_METHODCALL[startAndChooseSecurityMember()]--->ch.ivyteam.ivy.process.ProcessStart:116CEFE82C810489/116ED8242B3D312F
+~.okButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116CEFE82C810489/116E8D87E48524D6
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:116CEFE82C810489/11B7F6CC1EEE734F # SecurityMemberSelectProcess.mod/onLoad
+~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:116CEFE82C810489/116E8D8879F3D82C
+~.securityMemberNameTextField@KEY[]--->ch.ivyteam.ivy.process.ProcessStart:116CEFE82C810489/118A2F3B1C7F0B15

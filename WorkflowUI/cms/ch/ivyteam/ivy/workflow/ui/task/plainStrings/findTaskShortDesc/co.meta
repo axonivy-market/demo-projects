@@ -1,0 +1,4 @@
+co: name={findTaskShortDesc} description={} changed={2008-07-30 10:52:47 GMT} changedby={tistc} visualorder={0} guid={11AE8D62BDB9A039} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B69DE71C8E1C4D} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:32:10 GMT} validto={} changed={2008-07-28 13:32:22 GMT} changedby={cb} properties={} id={}
+val: guid={11B739913BF46B65} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:52:36 GMT} validto={} changed={2008-07-30 10:52:47 GMT} changedby={tistc} properties={} id={}
+val: guid={11AE8D62BDB5EEAF} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-03 12:12:07 GMT} validto={} changed={2008-07-03 12:12:24 GMT} changedby={tirib} properties={} id={}

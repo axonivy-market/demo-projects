@@ -1,0 +1,4 @@
+Data #class
+workflowui #namespace
+authentificationSuccessful Boolean #field
+authentificationSuccessful 'User successfully authentificated to the Ivy' #fieldComment

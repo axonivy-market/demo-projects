@@ -1,0 +1,6 @@
+WorkflowEventsDisplayListData #class
+ch.ivyteam.ivy.workflow.ui.common.WorkflowEventsDisplayList #namespace
+footerMessage String #field
+caseWorkflowEvents List<ch.ivyteam.ivy.workflow.IWorkflowEvent> #field
+fCase ch.ivyteam.ivy.workflow.ICase #field
+loadDataAtStart Boolean #field

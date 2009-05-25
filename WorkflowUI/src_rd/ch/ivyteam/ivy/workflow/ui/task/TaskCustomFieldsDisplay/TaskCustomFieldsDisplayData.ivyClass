@@ -1,0 +1,3 @@
+TaskCustomFieldsDisplayData #class
+ch.ivyteam.ivy.workflow.ui.task.TaskCustomFieldsDisplay #namespace
+task ch.ivyteam.ivy.workflow.ITask #field

@@ -1,0 +1,4 @@
+co: name={taskStageLongDesc} description={} changed={2009-05-19 10:34:21 GMT} changedby={bb} visualorder={0} guid={11A9A692E1433369} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B7388D06BDBB89} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:34:50 GMT} validto={} changed={2008-08-01 12:38:29 GMT} changedby={tirib} properties={} id={}
+val: guid={11A9A692E143B4FB} datatype={} isdefault={true} langid={en} description={} validfrom={2008-06-18 06:42:41 GMT} validto={} changed={2009-05-19 10:11:23 GMT} changedby={bb} properties={} id={}
+val: guid={11B69CEA04A86D61} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:14:53 GMT} validto={} changed={2009-05-19 10:34:21 GMT} changedby={bb} properties={} id={}

@@ -1,0 +1,4 @@
+co: name={parkTaskShortDesc} description={} changed={2009-04-08 10:54:52 GMT} changedby={bb} visualorder={0} guid={11AE8D979222841A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11AE8D97922C11DD} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-03 12:15:43 GMT} validto={} changed={2009-04-08 10:54:52 GMT} changedby={bb} properties={} id={}
+val: guid={11B69E116A3F0169} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:35:03 GMT} validto={} changed={2008-07-28 13:35:38 GMT} changedby={cb} properties={} id={}
+val: guid={11B73A041B3EFA0A} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 11:00:27 GMT} validto={} changed={2008-12-15 12:31:09 GMT} changedby={tirib} properties={} id={}

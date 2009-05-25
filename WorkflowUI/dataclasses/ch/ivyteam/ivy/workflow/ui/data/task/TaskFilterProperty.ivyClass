@@ -1,0 +1,5 @@
+TaskFilterProperty #class
+ch.ivyteam.ivy.workflow.ui.data.task #namespace
+property ch.ivyteam.ivy.workflow.TaskProperty #field
+relationalOperator ch.ivyteam.logicalexpression.RelationalOperator #field
+value String #field

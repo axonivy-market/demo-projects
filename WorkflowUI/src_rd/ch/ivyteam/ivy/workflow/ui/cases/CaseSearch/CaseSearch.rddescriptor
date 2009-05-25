@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <acceptedBroadcast>
+        <name>ivy_systemevent_workflow_case_changed</name>
+        <description></description>
+        <attachment>
+            <name>workflowSystemEventParameter</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.WorkflowSystemEventParameter</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <method>
+        <name>isRunningCaseMode</name>
+        <description></description>
+        <outputParameter>
+            <name>aRunningCaseMode</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>initializeCaseHierarchyLayoutPrefferedIndex</name>
+        <description></description>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>aMultipleCaseListMode</name>
+            <description>Defines if the the multiples instances of task list should be loaded or just one.</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>aDestinationDisplay</name>
+            <description>Get as a parameter and used to specify the destination display widget for</description>
+            <parameterType>ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>aRunningCaseMode</name>
+            <description>It defines if it is a running case mode, otherwise is finished case mode</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>aHasWfAdministratorPermissions</name>
+            <description>It defines if a session user has a workflow administrator permissions</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>11A9B75F7A685E3A</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

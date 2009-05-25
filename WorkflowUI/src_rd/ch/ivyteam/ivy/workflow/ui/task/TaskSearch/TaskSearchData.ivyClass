@@ -1,0 +1,70 @@
+TaskSearchData #class
+ch.ivyteam.ivy.workflow.ui.task.TaskSearch #namespace
+filterEnabled Boolean #field
+filterCollapsed Boolean #field
+msg String #field
+tasksHierarchyLayoutTree Tree #field
+sortByPriority Boolean #field
+sortByPriority 'Used for define if the tasks hierarchy layout should be rendered including the tasks priority as the first level.' #fieldComment
+tasksList List<ch.ivyteam.ivy.workflow.ITask> #field
+propertiesList List<ch.ivyteam.ivy.workflow.TaskProperty> #field
+codesList List<java.lang.Object> #field
+busDateTimeStartIGroup List<ch.ivyteam.ivy.persistence.IGroup> #field
+taskAvailableFilters ch.ivyteam.ivy.workflow.ui.data.task.TaskAvailableFilters #field
+taskAvailableFilters 'It contains the filters defined by user that could be enabled or not' #fieldComment
+taskHierarchyFilterSelectionConfirmed Boolean #field
+attachment java.lang.Object #field
+attachment 'This is the attachment tree object recieved from rd event ' #fieldComment
+treeLoadEvent ch.ivyteam.ivy.richdialog.component.event.TreeLoadEvent #field
+treeLoadEvent 'Catch the tree load event' #fieldComment
+taskHierarchyContext ch.ivyteam.ivy.workflow.ui.data.task.TaskHierarchyContext #field
+taskHierarchyContext 'The object that will be sent will RD Event "taskHierarchySelected". It includes:
+the property filter, 
+the title, 
+icon, 
+toolTipText,
+
+to display on the dynamicly created tab on the tasklist' #fieldComment
+questionDialogPressedButtonResult String #field
+questionDialogPressedButtonResult 'The pressed button as the result of QuestionDialog ' #fieldComment
+footerMessage String #field
+footerMessage 'Message to display to the user at the footer label' #fieldComment
+securityMember ch.ivyteam.ivy.security.ISecurityMember #field
+securityMember 'The selected tasks to delegate will be assigned to this ISecurityMember. ISecurityMemeber is base interface for IUser and IRole' #fieldComment
+securityMemberSelected Boolean #field
+securityMemberSelected 'Defines if some security member has been selected with modal dialog or not (used for task delegate action)' #fieldComment
+destinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
+destinationDisplay 'Get as a parameter and used to specify the destination display widget for: 
+- load of instance of task list,
+- load of selected task (info mode or start requested mode).
+' #fieldComment
+multipleTaskListMode Boolean #field
+multipleTaskListMode 'Defines if the the multiples instances of task list should be loaded or just one.' #fieldComment
+taskAlreadyLoadedOnDisplay Boolean #field
+taskAlreadyLoadedOnDisplay 'Defines if the selected task has been already loaded on parent or child display widget' #fieldComment
+selectedTask ch.ivyteam.ivy.workflow.ITask #field
+unclassifiedTasksTitle String #field
+unclassifiedTasksTitle 'Text to display at the Process category for all tasks that have not the Process Category Code defined on the Case information level.' #fieldComment
+taskHierarchyLayoutSelectedIndex Number #field
+taskHierarchyLayoutSelectedIndex 'The index of task hierarchy layout that should be displayed. This value could be get from the Workflow User settings.' #fieldComment
+hasWfAdministratorPermissions Boolean #field
+hasWfAdministratorPermissions 'It defines if a session user has a workflow administrator permissions' #fieldComment
+filterDefined Boolean #field
+filterDefined 'Inform if the user has defined the filter (case, business or taks information) or not' #fieldComment
+runningTaskMode Boolean #field
+runningTaskMode 'If true, then find "running tasks", otherwise, find "finished tasks"' #fieldComment
+taskDisplayMode Number #field
+taskDisplayMode '0=your tasks, 1=team tasks, 2=all env. tasks (wf admin mode)' #fieldComment
+taskStatesPropertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
+taskStatesPropertyFilter 'It defines the state(s) of the tasks to display cosidering the running mode and task display mode' #fieldComment
+hasPermissionDelegateTasks Boolean #field
+hasPermissionDelegateTasks 'Permission to delegate the tasks' #fieldComment
+hasPermisionRoleTreeNavigation Boolean #field
+hasPermisionRoleTreeNavigation 'Permission to read the list of roles that the session user belong to' #fieldComment
+confirmation String #field
+confirmation 'Text get from CMS to be used as windows title' #fieldComment
+invalidSelection String #field
+invalidSelection 'Text get from CMS to be used as message "Invalid selection"' #fieldComment
+taskDelegateWindowTitle String #field
+exception java.lang.Exception #field
+exception 'It contains the error if the task action fails' #fieldComment

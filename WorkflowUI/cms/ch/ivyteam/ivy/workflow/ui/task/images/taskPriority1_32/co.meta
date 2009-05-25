@@ -1,0 +1,2 @@
+co: name={taskPriority1_32} description={} changed={2008-07-09 15:44:51 GMT} changedby={tirib} visualorder={0} guid={11B087F177A92A27} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+val: guid={11B087F1789D3DD1} datatype={} isdefault={true} langid={en} description={} validfrom={2007-12-05 12:38:20 GMT} validto={} changed={2008-07-09 15:44:51 GMT} changedby={tirib} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@1708ac} id={}

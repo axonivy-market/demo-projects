@@ -1,0 +1,4 @@
+co: name={runningCasesLongDesc} description={} changed={2008-07-30 08:17:49 GMT} changedby={tistc} visualorder={0} guid={11AE3FEA1983269F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B6D94B8F117B80} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 06:50:07 GMT} validto={} changed={2008-07-29 06:50:43 GMT} changedby={cb} properties={} id={}
+val: guid={11B730ADF83AFF45} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 08:17:17 GMT} validto={} changed={2008-07-30 08:17:49 GMT} changedby={tistc} properties={} id={}
+val: guid={11AE3FEA198BD8AA} datatype={} isdefault={true} langid={en} description={} validfrom={2008-05-01 11:03:55 GMT} validto={} changed={2008-07-02 14:12:14 GMT} changedby={tirib} properties={} id={}

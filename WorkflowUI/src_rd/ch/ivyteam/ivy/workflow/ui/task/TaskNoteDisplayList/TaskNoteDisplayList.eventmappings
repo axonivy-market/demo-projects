@@ -1,0 +1,13 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2008-08-01 17:30:55 | 4.0.0.25740 | 1.0
+~.addNoteButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:118AE1702EBE67A1/118ADB53D66C046C
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:118AE1702EBE67A1/118AD9B8366C0E79
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:118AE1702EBE67A1/11B45C6915FFBE65 # TaskNoteDisplayListProcess.mod/onLoad
+~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:118AE1702EBE67A1/118ADB919AC68901
+~@RD_METHODCALL[taskIsInitialized()]--->ch.ivyteam.ivy.process.ProcessStart:118AE1702EBE67A1/11A017D8308B4727
+~@RD_METHODCALL[setTask(ch.ivyteam.ivy.workflow.ITask)]--->ch.ivyteam.ivy.process.ProcessStart:118AE1702EBE67A1/118AD9BA3DA39ED3
+~@RD_METHODCALL[start(ch.ivyteam.ivy.workflow.ITask,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:118AE1702EBE67A1/1194BF80C6BD7E9C
+~@RD_METHODCALL[refresh()]--->ch.ivyteam.ivy.process.ProcessStart:118AE1702EBE67A1/118AD9B9DD93683E
+~.okButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:118AE1702EBE67A1/118ADB9107AACAF7
+~.deleteNoteButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:118AE1702EBE67A1/118E6A74F859323B
+~.taskNotesTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:118AE1702EBE67A1/118E691FC3D42FFF

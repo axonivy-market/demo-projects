@@ -1,0 +1,2 @@
+co: name={caseStateRUNNING16} description={} changed={2009-04-23 20:09:55 GMT} changedby={tirib} visualorder={0} guid={120D4989473D0604} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+val: guid={120D49894B254AC9} datatype={} isdefault={true} langid={en} description={} validfrom={2007-12-05 12:45:32 GMT} validto={} changed={2009-04-23 20:09:10 GMT} changedby={tirib} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@d966} id={}

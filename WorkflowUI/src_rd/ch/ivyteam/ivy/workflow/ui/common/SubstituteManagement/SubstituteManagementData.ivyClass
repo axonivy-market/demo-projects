@@ -1,0 +1,8 @@
+SubstituteManagementData #class
+ch.ivyteam.ivy.workflow.ui.common.SubstituteManagement #namespace
+userList List<ch.ivyteam.ivy.security.IUser> #field
+roleList List<ch.ivyteam.ivy.security.IRole> #field
+remark String #field
+substituteList List<ch.ivyteam.ivy.security.IUserSubstitute> #field
+errorMessage String #field
+userNameLoggedOn String #field

@@ -1,0 +1,25 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2008-04-11 11:29:30 | 4.0.0.25050 | 1.0
+~.businessStartTimestampRelationalOperatorComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F91F30DE25451
+~.caseSubTypeRelationalOperatorComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F91CBBF8BC186
+~.caseSubTypesComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F91CBBF8BC186
+~.cancelFilterButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/11812C58BC8C1718
+~.businessMainContactsComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F9206157B6C8D
+~.caseTypeRelationalOperatorComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F91B044570539
+~.taskNameRelationalOperatorComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F921CA43E8521
+~@RD_METHODCALL[resetTaskHierarchyFilters()]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/11830CDA79547D69
+~.businessStartTimestampsComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F91F30DE25451
+~.caseProcessCategoryRelationalOperatorComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F9199D6E9CDD7
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/1180DF02C4299C2B
+~.caseTypesComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F91B044570539
+~.caseProcessCategoriesComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F9199D6E9CDD7
+~.taskKindRelationalOperatorComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F9229454FEF57
+~.taskNamesComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F921CA43E8521
+~.applyFilterButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/11812C52DF42B92B
+~.businessCreatorUsersComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/11812AD2553C2E3F
+~.businessMainContactRelationalOperatorComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F9206157B6C8D
+~.caseProcessesComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F91A8E00EE211
+~.taskKindsComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F9229454FEF57
+~@RD_METHODCALL[filterConsideringTaskStates(java.util.EnumSet)]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/118FA6B5DF6E0B8B
+~.caseProcessRelationalOperatorComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117F91A8E00EE211
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:117E5609EB0214E7/117E57D2D2EBB8DD

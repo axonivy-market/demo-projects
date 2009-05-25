@@ -1,0 +1,4 @@
+co: name={youDefinedFollowingFilters} description={} changed={2008-07-30 09:24:29 GMT} changedby={tistc} visualorder={0} guid={11B4B610160B7C3B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B4B61017FAF253} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-22 15:26:33 GMT} validto={} changed={2008-07-22 15:27:15 GMT} changedby={tirib} properties={} id={}
+val: guid={11B6DCC4226F9D11} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 07:50:47 GMT} validto={} changed={2008-07-29 09:02:02 GMT} changedby={cb} properties={} id={}
+val: guid={11B731AA8A6D8BFC} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 08:34:31 GMT} validto={} changed={2008-07-30 09:24:29 GMT} changedby={tistc} properties={} id={}

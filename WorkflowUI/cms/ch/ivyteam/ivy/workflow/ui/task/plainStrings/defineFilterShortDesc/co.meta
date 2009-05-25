@@ -1,0 +1,4 @@
+co: name={defineFilterShortDesc} description={} changed={2009-04-08 10:54:02 GMT} changedby={bb} visualorder={0} guid={11AE438D7648D903} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B69DC9480D7135} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:30:08 GMT} validto={} changed={2009-04-08 10:54:02 GMT} changedby={bb} properties={} id={}
+val: guid={11AE438D764816E3} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 11:17:57 GMT} validto={} changed={2008-07-02 14:41:56 GMT} changedby={tirib} properties={} id={}
+val: guid={11B73955AFD539F9} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:48:32 GMT} validto={} changed={2008-07-30 10:48:48 GMT} changedby={tistc} properties={} id={}

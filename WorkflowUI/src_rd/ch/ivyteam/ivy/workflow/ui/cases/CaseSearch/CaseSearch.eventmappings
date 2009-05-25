@@ -1,0 +1,30 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2009-04-27 16:43:06 | 4.1.0.27714 | 1.0
+~.defineFilterHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11B02C6D9A66EB58
+~.findYourCasesRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AB61156DE337C2
+~@RD_BROADCAST[ivy_systemevent_workflow_case_changed]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11E45FC772CCDCC7
+~.informOnCaseButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ADEF3A84644DB8
+~.loadCaseListButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ACA59A2BCAD1C6
+~.caseFiltersSelectRDC@RD_EVENT[filterDefinitionConfirmed]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11B02C6D9A6AB699
+~@RD_METHODCALL[initializeCaseHierarchyLayoutPrefferedIndex()]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/120E7FB4EC3F82AE
+~.destroyCaseMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ADF4A5A6D381BC
+~.expandAllMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11E456C63043A6F1
+~.caseFiltersSelectRDC@RD_EVENT[filterDefinitionCanceled]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11B02C6D9A6CFDC8
+~.findAllEnvironmentCasesRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AB61176BA4488C
+~.caseHierarchyLayoutTree@TREE_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ADED5FE475E81F
+~.informOnCaseMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ADEF3A84644DB8
+~@RD_METHODCALL[isRunningCaseMode()]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AC432EBF67E27F
+~.caseHierarchyLayoutSelectRDC@RD_EVENT[caseHierarchyLayoutSelected]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AB5A0B6496A867
+~.applyFilterToggleButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11B0348993A39376
+~.refreshButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AB5A0B6496A867
+~.destroyCaseButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ADF4A5A6D381BC
+~.findInvolvedCasesByRoleRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AB61160C1CCBD4
+~.loadCaseListMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ACA59A2BCAD1C6
+~.refreshCaseListMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AB5A0B6496A867
+~.caseHierarchyLayoutTree@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ADEF3A84644DB8
+~@RD_METHODCALL[start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AC3F5F94D5900C
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11A9B75F890E6929
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AC0501E4A8E488
+~.expandAllButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11E456C63043A6F1
+~.caseHierarchyLayoutTree@TREE_LOAD[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AC55E486080498
+~.sortByPriorityCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ABB3474C13F239

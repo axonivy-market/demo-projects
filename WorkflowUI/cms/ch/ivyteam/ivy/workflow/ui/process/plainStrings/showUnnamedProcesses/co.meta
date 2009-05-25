@@ -1,0 +1,4 @@
+co: name={showUnnamedProcesses} description={} changed={2009-04-08 10:46:16 GMT} changedby={bb} visualorder={0} guid={11DD95E85755F07F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11DD95F02B36F326} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-11-26 15:16:01 GMT} validto={} changed={2008-11-26 15:17:49 GMT} changedby={tirib} properties={} id={}
+val: guid={11DD95E85752F3BB} datatype={} isdefault={true} langid={en} description={} validfrom={2008-11-26 15:15:29 GMT} validto={} changed={2008-11-26 15:17:49 GMT} changedby={tirib} properties={} id={}
+val: guid={1206750C4BE8A4EB} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-02 14:52:07 GMT} validto={} changed={2009-04-08 10:46:16 GMT} changedby={bb} properties={} id={}

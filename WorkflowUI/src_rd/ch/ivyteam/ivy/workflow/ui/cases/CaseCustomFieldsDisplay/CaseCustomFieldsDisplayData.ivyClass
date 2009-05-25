@@ -1,0 +1,3 @@
+CaseCustomFieldsDisplayData #class
+ch.ivyteam.ivy.workflow.ui.cases.CaseCustomFieldsDisplay #namespace
+fCase ch.ivyteam.ivy.workflow.ICase #field

@@ -1,0 +1,4 @@
+co: name={intermediateEventInformation} description={} changed={2009-05-11 15:08:39 GMT} changedby={bb} visualorder={0} guid={11B7ED4D72FAE39C} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B7ED4D73E90455} datatype={} isdefault={true} langid={en} description={} validfrom={2008-08-01 15:13:42 GMT} validto={} changed={2008-08-01 15:14:37 GMT} changedby={tirib} properties={} id={}
+val: guid={120856BFF5687088} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-08 11:10:28 GMT} validto={} changed={2009-05-11 15:08:39 GMT} changedby={bb} properties={} id={}
+val: guid={11B7ED4ED3712F1D} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-08-01 15:13:48 GMT} validto={} changed={2008-08-01 15:14:37 GMT} changedby={tirib} properties={} id={}

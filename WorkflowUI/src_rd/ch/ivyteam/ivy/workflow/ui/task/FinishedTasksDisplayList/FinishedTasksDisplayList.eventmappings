@@ -1,0 +1,10 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2008-05-19 21:50:22 | 4.0.0.25521 | 1.0
+~.findWorkedOnTasksRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:011951CBE518463E/11A02B49A2B4178E # FinishedTasksDisplayListProcess.mod/findWorkedOnTasksModeSelected
+~@RD_METHODCALL[close()]--->ch.ivyteam.ivy.process.ProcessStart:011951CBE518463E/119528CFBC537D23
+~.refreshTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:011951CBE518463E/119526C327C277A1
+~@RD_METHODCALL[refresh()]--->ch.ivyteam.ivy.process.ProcessStart:011951CBE518463E/11951F3988DCD10F
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:011951CBE518463E/11951E6446A47A0F
+~.findWorkedOnTasksByRoleRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:011951CBE518463E/11A02B4A501229BD # FinishedTasksDisplayListProcess.mod/findWorkedOnTasksByRoleModeSelected
+~.closeButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:011951CBE518463E/1195292F246A2F84
+

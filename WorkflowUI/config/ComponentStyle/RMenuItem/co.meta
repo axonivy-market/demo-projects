@@ -1,0 +1,2 @@
+co: name={RMenuItem} description={RMenuItem Look and Feel} changed={2007-07-03 13:58:04 GMT} changedby={kvg} visualorder={0} guid={11C89939C0221753} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}
+val: guid={11C89939C02FE3C5} datatype={} isdefault={true} langid={en} description={} validfrom={2005-11-07 16:43:00 GMT} validto={} changed={2008-01-28 14:06:49 GMT} changedby={kvg} properties={###r#n##Mon Jan 28 15:06:49 CET 2008#r#nconfig.ui.path=Style/Component Widgets#r#n} id={}

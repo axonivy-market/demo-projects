@@ -1,0 +1,3 @@
+<html><b>Setzt das Ablaufdatum des selektierten Aufgaben</b><br>
+Kann auf null gesetzt werden, falls die Aufgabe nicht deaktiviert werden soll.<br>
+Ist das neue Ablaufsdatum älter als das aktuelle wird die Aufgabe sofort deaktiviert. Diese Methode betrifft keine Aufgaben, welche bereits abgelaufen sind.</html>

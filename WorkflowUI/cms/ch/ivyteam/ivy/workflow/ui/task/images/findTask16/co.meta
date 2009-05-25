@@ -1,0 +1,2 @@
+co: name={findTask16} description={} changed={2008-07-03 13:19:58 GMT} changedby={tirib} visualorder={0} guid={11AE9140AD8F078E} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+val: guid={11AE9140AE889767} datatype={} isdefault={true} langid={en} description={} validfrom={2007-12-12 12:28:10 GMT} validto={} changed={2008-07-03 13:19:58 GMT} changedby={tirib} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@72285c90} id={}

@@ -1,0 +1,4 @@
+TaskCategoryFilter #class
+ch.ivyteam.ivy.workflow.ui.data.task #namespace
+category ch.ivyteam.ivy.workflow.ui.data.task.TaskHierarchyTreeNodeValue #field
+relationalOperator ch.ivyteam.logicalexpression.RelationalOperator #field
