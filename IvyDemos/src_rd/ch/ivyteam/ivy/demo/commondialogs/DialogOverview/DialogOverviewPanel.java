@@ -4,6 +4,7 @@ import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
+import ch.ivyteam.ivy.demo.util.Title.TitlePanel;
 
 /**
  * RichDialog panel implementation for DemoPanel.
@@ -24,6 +25,7 @@ private RButton errorDialogButton = null;
 private RButton loginDialogButton = null;
 private RButton messageDialogLongButton = null;
 private RButton questionDialogLongButton = null;
+private TitlePanel titlePanel = null;
   
   /**
    * Create a new instance of DemoPanel
@@ -40,7 +42,9 @@ private RButton questionDialogLongButton = null;
    */
   public void initialize()
   {
-        this.add(getButtonPane(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(333,356));
+        this.add(getButtonPane(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getTitlePanel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
 /**
@@ -55,7 +59,8 @@ private RGridLayoutPane getButtonPane() {
 		buttonPane.setColumns(1);
 		buttonPane.setRows(0);
 		buttonPane.setVgap(5);
-		buttonPane.setStyle("buttons");
+		buttonPane.setStyle("border-all");
+		buttonPane.setStyleProperties("{/weightY \"1\"/weightX \"1\"}");
 		buttonPane.add(getMessageDialogButton());
 		buttonPane.add(getMessageDialogLongButton());
 		buttonPane.add(getQuestionDialogButton());
@@ -179,4 +184,18 @@ private RButton getQuestionDialogLongButton() {
 	}
 	return questionDialogLongButton;
 }
+
+/**
+ * This method initializes titlePanel	
+ * 	
+ * @return ch.ivyteam.ivy.demo.util.Title.TitlePanel	
+ */
+private TitlePanel getTitlePanel() {
+	if (titlePanel == null) {
+		titlePanel = new TitlePanel();
+		titlePanel.setName("titlePanel");
+		titlePanel.setStyle("fill-horiz");
+	}
+	return titlePanel;
 }
+}  //  @jve:decl-index=0:visual-constraint="10,10"

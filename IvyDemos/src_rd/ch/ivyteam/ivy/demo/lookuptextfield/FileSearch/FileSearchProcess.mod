@@ -36,7 +36,7 @@ out.path="";
 ' #txt
 Fs0 f0 outParameterDecl '<> result;
 ' #txt
-Fs0 f0 embeddedRdInitializations '{/titlePanel {/fieldName "titlePanel"/startMethod "startInitialized(String,String,String)"/parameterMapping "param.iconUri=\"/Images/harddisk_large\";\nparam.title=\"File Search\";\nparam.subtitle=\"Search a list of \"+callParam.fileList.size()+\" files from the hard disk.\";\n"/initScript "\""}}' #txt
+Fs0 f0 embeddedRdInitializations '{/titlePanel {/fieldName "titlePanel"/startMethod "startInitialized(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/demo/icons/large/harddisk\";\nparam.title=\"File Search\";\nparam.subtitle=\"Search a list of \"+callParam.fileList.size()+\" files from the hard disk.\";\n"/initScript "\""}}' #txt
 Fs0 f0 90 40 20 20 13 0 #rect
 Fs0 f0 @|RichDialogInitStartIcon #fIcon
 Fs0 @RichDialogProcessEnd f1 '' #zField

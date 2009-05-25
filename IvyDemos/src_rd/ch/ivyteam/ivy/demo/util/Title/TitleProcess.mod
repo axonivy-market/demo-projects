@@ -22,7 +22,7 @@ Ws0 f0 method start() #txt
 Ws0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
-Ws0 f0 inParameterMapAction 'out.iconUri="/Images/question_large";
+Ws0 f0 inParameterMapAction 'out.iconUri="/ch/ivyteam/ivy/demo/icons/large/question";
 out.subtitle="The title of this component has not been initialized.";
 out.title="I have no title";
 ' #txt

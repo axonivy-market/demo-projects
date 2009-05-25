@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 19 15:16:36 CEST 2009]
+[>Created: Mon May 25 12:19:43 CEST 2009]
 118133C242862941 3.11 #module
 >Proto >Proto Collection #zClass
 Ds0 DemoProcess Big #zClass
@@ -179,11 +179,6 @@ Ds0 f10 @|RichDialogProcessEndIcon #fIcon
 Ds0 f11 type ch.ivyteam.ivy.demo.commondialogs.DialogOverview.DialogOverviewData #txt
 Ds0 f11 555 307 26 26 14 0 #rect
 Ds0 f11 @|RichDialogProcessEndIcon #fIcon
-Ds0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Ds0 f12 targetWindow NEW #txt
 Ds0 f12 targetDisplay TOP #txt
 Ds0 f12 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
@@ -209,13 +204,13 @@ title=Message Demo
 Ds0 f12 isAsynch false #txt
 Ds0 f12 isInnerRd true #txt
 Ds0 f12 isDialog true #txt
-Ds0 f12 22 244 36 24 20 -2 #rect
-Ds0 f12 @|RichDialogIcon #fIcon
-Ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
+Ds0 f12 22 244 36 24 20 -2 #rect
+Ds0 f12 @|RichDialogIcon #fIcon
 Ds0 f13 targetWindow NEW #txt
 Ds0 f13 targetDisplay TOP #txt
 Ds0 f13 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -244,13 +239,13 @@ title=Question Dialog
 Ds0 f13 isAsynch false #txt
 Ds0 f13 isInnerRd true #txt
 Ds0 f13 isDialog true #txt
-Ds0 f13 94 244 36 24 20 -2 #rect
-Ds0 f13 @|RichDialogIcon #fIcon
-Ds0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
+Ds0 f13 94 244 36 24 20 -2 #rect
+Ds0 f13 @|RichDialogIcon #fIcon
 Ds0 f14 targetWindow NEW #txt
 Ds0 f14 targetDisplay TOP #txt
 Ds0 f14 richDialogId ch.ivyteam.ivy.addons.commondialogs.SingleLineInputDialog #txt
@@ -279,13 +274,13 @@ title=Single Line Input Demo
 Ds0 f14 isAsynch false #txt
 Ds0 f14 isInnerRd true #txt
 Ds0 f14 isDialog true #txt
-Ds0 f14 166 244 36 24 20 -2 #rect
-Ds0 f14 @|RichDialogIcon #fIcon
-Ds0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
+Ds0 f14 166 244 36 24 20 -2 #rect
+Ds0 f14 @|RichDialogIcon #fIcon
 Ds0 f15 targetWindow NEW #txt
 Ds0 f15 targetDisplay TOP #txt
 Ds0 f15 richDialogId ch.ivyteam.ivy.addons.commondialogs.MultiLineInputDialog #txt
@@ -314,13 +309,13 @@ title=Multi Line Input Demo
 Ds0 f15 isAsynch false #txt
 Ds0 f15 isInnerRd true #txt
 Ds0 f15 isDialog true #txt
-Ds0 f15 398 244 36 24 20 -2 #rect
-Ds0 f15 @|RichDialogIcon #fIcon
-Ds0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
+Ds0 f15 398 244 36 24 20 -2 #rect
+Ds0 f15 @|RichDialogIcon #fIcon
 Ds0 f16 targetWindow NEW #txt
 Ds0 f16 targetDisplay TOP #txt
 Ds0 f16 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
@@ -347,13 +342,13 @@ title=Error Demo
 Ds0 f16 isAsynch false #txt
 Ds0 f16 isInnerRd true #txt
 Ds0 f16 isDialog true #txt
-Ds0 f16 478 244 36 24 20 -2 #rect
-Ds0 f16 @|RichDialogIcon #fIcon
-Ds0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
+Ds0 f16 478 244 36 24 20 -2 #rect
+Ds0 f16 @|RichDialogIcon #fIcon
 Ds0 f17 targetWindow NEW #txt
 Ds0 f17 targetDisplay TOP #txt
 Ds0 f17 richDialogId ch.ivyteam.ivy.addons.commondialogs.LoginDialog #txt
@@ -376,6 +371,11 @@ title=Login Demo
 Ds0 f17 isAsynch false #txt
 Ds0 f17 isInnerRd true #txt
 Ds0 f17 isDialog true #txt
+Ds0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ds0 f17 550 244 36 24 20 -2 #rect
 Ds0 f17 @|RichDialogIcon #fIcon
 Ds0 f18 expr out #txt
@@ -420,11 +420,6 @@ Ds0 f30 actionTable 'out=in;
 ' #txt
 Ds0 f30 246 166 20 20 13 0 #rect
 Ds0 f30 @|RichDialogProcessStartIcon #fIcon
-Ds0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Ds0 f31 targetWindow NEW #txt
 Ds0 f31 targetDisplay TOP #txt
 Ds0 f31 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -462,6 +457,11 @@ title=Question Dialog
 Ds0 f31 isAsynch false #txt
 Ds0 f31 isInnerRd true #txt
 Ds0 f31 isDialog true #txt
+Ds0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ds0 f31 318 244 36 24 20 -2 #rect
 Ds0 f31 @|RichDialogIcon #fIcon
 Ds0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -484,11 +484,6 @@ Ds0 f32 @|RichDialogProcessStartIcon #fIcon
 Ds0 f33 type ch.ivyteam.ivy.demo.commondialogs.DialogOverview.DialogOverviewData #txt
 Ds0 f33 323 307 26 26 14 0 #rect
 Ds0 f33 @|RichDialogProcessEndIcon #fIcon
-Ds0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Ds0 f34 targetWindow NEW #txt
 Ds0 f34 targetDisplay TOP #txt
 Ds0 f34 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
@@ -524,6 +519,11 @@ title=Message Demo
 Ds0 f34 isAsynch false #txt
 Ds0 f34 isInnerRd true #txt
 Ds0 f34 isDialog true #txt
+Ds0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ds0 f34 238 244 36 24 20 -2 #rect
 Ds0 f34 @|RichDialogIcon #fIcon
 Ds0 f35 type ch.ivyteam.ivy.demo.commondialogs.DialogOverview.DialogOverviewData #txt
@@ -537,13 +537,6 @@ Ds0 f39 expr out #txt
 Ds0 f39 336 268 336 307 #arcP
 Ds0 f38 expr out #txt
 Ds0 f38 336 138 336 244 #arcP
-Ds0 f41 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f41 guid 11C75AFE48F6A59E #txt
 Ds0 f41 type ch.ivyteam.ivy.demo.commondialogs.DialogOverview.DialogOverviewData #txt
 Ds0 f41 method start() #txt
@@ -551,6 +544,16 @@ Ds0 f41 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 <> param = methodEvent.getInputArguments();
 ' #txt
 Ds0 f41 outParameterDecl '<> result;
+' #txt
+Ds0 f41 embeddedRdInitializations '{/titlePanel {/fieldName "titlePanel"/startMethod "startInitialized(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/demo/icons/large/window_dialog\";\nparam.title=\"Common RichDialogs Demo\";\nparam.subtitle=\"Demonstrates reusable application dialogs.\";\n"/initScript ""}}' #txt
+Ds0 f41 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
 ' #txt
 Ds0 f41 30 14 20 20 13 0 #rect
 Ds0 f41 @|RichDialogInitStartIcon #fIcon

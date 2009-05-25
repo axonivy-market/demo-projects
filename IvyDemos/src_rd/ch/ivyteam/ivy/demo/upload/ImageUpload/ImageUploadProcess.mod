@@ -23,7 +23,7 @@ Us0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 <> param = methodEvent.getInputArguments();
 ' #txt
 Us0 f0 inParameterMapAction 'out.message="Nothing uploaded yet.";
-out.statusIconUri="/Images/unknown";
+out.statusIconUri="/ch/ivyteam/ivy/demo/icons/normal/unknown";
 ' #txt
 Us0 f0 outParameterDecl '<> result;
 ' #txt
@@ -91,7 +91,7 @@ Us0 f8 inParameterMapAction 'out.message=param.msg;
 out.uploadResult=param.success;
 out.uploadedTempFile=param.file;
 ' #txt
-Us0 f8 inActionCode 'out.statusIconUri = param.success ? "/Images/ok" : "/Images/not_ok";' #txt
+Us0 f8 inActionCode 'out.statusIconUri = param.success ? "/ch/ivyteam/ivy/demo/icons/normal/ok" : "/ch/ivyteam/ivy/demo/icons/normal/not_ok";' #txt
 Us0 f8 outParameterDecl '<> result;
 ' #txt
 Us0 f8 214 102 20 20 17 -7 #rect
@@ -173,7 +173,7 @@ Us0 f13 inParameterMapAction 'out.createdIcon=param.icon;
 out.message=param.msg;
 out.uploadResult=param.success;
 ' #txt
-Us0 f13 inActionCode 'out.statusIconUri = param.success ? "/Images/ok" : "/Images/not_ok";' #txt
+Us0 f13 inActionCode 'out.statusIconUri = param.success ? "/ch/ivyteam/ivy/demo/icons/normal/ok" : "/ch/ivyteam/ivy/demo/icons/normal/not_ok";' #txt
 Us0 f13 outParameterDecl '<> result;
 ' #txt
 Us0 f13 214 294 20 20 19 -4 #rect

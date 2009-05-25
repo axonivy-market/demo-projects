@@ -66,7 +66,7 @@ private RLabel getTitleLabel() {
 		titleLabel = new RLabel();
 		titleLabel.setText("Search");
 		titleLabel.setStyleProperties("{/font {/name \"Arial\"/size \"14\"/style \"BOLD\"}/anchor \"WEST\"/insetsBottom \"5\"/insetsTop \"5\"/insetsRight \"5\"/fill \"BOTH\"/insetsLeft \"5\"/weightX \"1\"}");
-		titleLabel.setIconUri("<%=ivy.cms.cr(\"/Images/search\")%>");
+		titleLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/demo/icons/normal/search\")%>");
 		titleLabel.setAlignmentY(0.0F);
 		titleLabel.setBackground(new Color(239, 239, 239));
 		titleLabel.setName("titleLabel");

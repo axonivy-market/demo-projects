@@ -1,5 +1,5 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2007-11-13 15:05:05 | 4.0.0.23131 | 1.0
+# 2009-05-25 12:28:27 | 4.1.0.27714 | 1.0
 ~@RD_METHODCALL[objectsDropped(List<java.lang.Object>,java.lang.Object,String)]--->ch.ivyteam.ivy.process.ProcessStart:11638902C7032414/1163937837E894DD
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11638902C7032414/1163893DEA3918DE
-~.resetButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11638902C7032414/1163920E762D3B76 # SimpleDndProcess.mod/reset
+~.resetButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11638902C7032414/1163920E762D3B76

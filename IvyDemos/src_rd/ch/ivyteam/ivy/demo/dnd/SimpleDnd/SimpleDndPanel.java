@@ -8,6 +8,7 @@ import ch.ivyteam.ivy.richdialog.widgets.components.RTree;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextArea;
+import ch.ivyteam.ivy.demo.util.Title.TitlePanel;
 
 /**
  * RichDialog panel implementation for SimpleDndPanel.
@@ -28,6 +29,7 @@ private RScrollPane scrollPaneLog = null;
 private RTextArea textAreaLog = null;
 private TreeDndTransferHandler dndTransferHandler;
 private RButton resetButton = null;
+private TitlePanel titlePanel = null;
   
   /**
    * Create a new instance of SimpleDndPanel
@@ -46,10 +48,11 @@ private RButton resetButton = null;
   public void initialize()
   {
         this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(647,426));
-        this.add(getScrollPaneLeft(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getScrollPaneRight(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getButtonPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.WEST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getScrollPaneLog(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getScrollPaneLeft(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getScrollPaneRight(), new com.ulcjava.base.application.GridBagConstraints(1, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getButtonPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 6, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.WEST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getScrollPaneLog(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getTitlePanel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
 /**
@@ -62,6 +65,7 @@ private RScrollPane getScrollPaneLeft() {
 		scrollPaneLeft = new RScrollPane();
 		scrollPaneLeft.setName("scrollPaneLeft");
 		scrollPaneLeft.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
+		scrollPaneLeft.setStyle("border-all");
 		scrollPaneLeft.setViewPortView(getTreeLeft());
 	}
 	return scrollPaneLeft;
@@ -77,6 +81,7 @@ private RScrollPane getScrollPaneRight() {
 		scrollPaneRight = new RScrollPane();
 		scrollPaneRight.setName("scrollPaneRight");
 		scrollPaneRight.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
+		scrollPaneRight.setStyle("border-all");
 		scrollPaneRight.setViewPortView(getTreeRight());
 	}
 	return scrollPaneRight;
@@ -92,7 +97,7 @@ private RTree getTreeLeft() {
 		treeLeft = new RTree();
 		treeLeft.setName("treeLeft");
 		treeLeft.setDragEnabled(true);
-		treeLeft.setModelConfiguration("{/showTableheader true /autoTableheader false /showtooltip false /showIcons true /version \"2.0\"/columns {{/patterns {{/result \"result=node.value\"/version \"2.0\"/icon \"result=IF(node.info == \\\"left\\\",\\\"/Images/left\\\", \\\"/Images/right\\\")\"/patternMode \"ALL\"/patternValue \"default\"}}}}}");
+		treeLeft.setModelConfiguration("{/showTableheader true /autoTableheader false /showtooltip false /showIcons true /version \"2.0\"/columns {{/patterns {{/result \"result=node.value\"/version \"2.0\"/icon \"result=IF(node.info == \\\"left\\\",\\\"/ch/ivyteam/ivy/demo/icons/normal/left\\\", \\\"/ch/ivyteam/ivy/demo/icons/normal/right\\\")\"/patternMode \"ALL\"/patternValue \"default\"}}}}}");
 		treeLeft.setTransferHandler(dndTransferHandler);
 	}
 	return treeLeft;
@@ -108,7 +113,7 @@ private RTree getTreeRight() {
 		treeRight = new RTree();
 		treeRight.setName("treeRight");
 		treeRight.setDragEnabled(true);
-		treeRight.setModelConfiguration("{/showTableheader true /autoTableheader false /showtooltip false /showIcons true /version \"2.0\"/columns {{/patterns {{/result \"result=node.value\"/version \"2.0\"/icon \"result=IF(node.info == \\\"left\\\",\\\"/Images/left\\\", \\\"/Images/right\\\")\"/patternMode \"ALL\"/patternValue \"default\"}}}}}");
+		treeRight.setModelConfiguration("{/showTableheader true /autoTableheader false /showtooltip false /showIcons true /version \"2.0\"/columns {{/patterns {{/result \"result=node.value\"/version \"2.0\"/icon \"result=IF(node.info == \\\"left\\\",\\\"/ch/ivyteam/ivy/demo/icons/normal/left\\\", \\\"/ch/ivyteam/ivy/demo/icons/normal/right\\\")\"/patternMode \"ALL\"/patternValue \"default\"}}}}}");
 		treeRight.setTransferHandler(dndTransferHandler);
 	}
 	return treeRight;
@@ -138,6 +143,7 @@ private RScrollPane getScrollPaneLog() {
 		scrollPaneLog = new RScrollPane();
 		scrollPaneLog.setName("scrollPaneLog");
 		scrollPaneLog.setStyleProperties("{/fill \"BOTH\"/weightY \"0.3\"}");
+		scrollPaneLog.setStyle("border-all");
 		scrollPaneLog.setViewPortView(getTextAreaLog());
 	}
 	return scrollPaneLog;
@@ -171,5 +177,19 @@ private RButton getResetButton() {
 		resetButton.setText("Reset");
 	}
 	return resetButton;
+}
+
+/**
+ * This method initializes titlePanel	
+ * 	
+ * @return ch.ivyteam.ivy.demo.util.Title.TitlePanel	
+ */
+private TitlePanel getTitlePanel() {
+	if (titlePanel == null) {
+		titlePanel = new TitlePanel();
+		titlePanel.setName("titlePanel");
+		titlePanel.setStyle("fill-horiz");
+	}
+	return titlePanel;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

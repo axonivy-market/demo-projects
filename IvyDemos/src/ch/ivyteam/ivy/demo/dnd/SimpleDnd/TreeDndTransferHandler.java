@@ -1,6 +1,5 @@
 package ch.ivyteam.ivy.demo.dnd.SimpleDnd;
 
-import ch.ivyteam.ivy.demo.dnd.SimpleDnd.SimpleDndPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTree;
 import ch.ivyteam.ivy.scripting.objects.List;
 import ch.ivyteam.ivy.scripting.objects.Tree;
@@ -12,6 +11,7 @@ import com.ulcjava.base.application.dnd.TransferHandler;
 import com.ulcjava.base.application.dnd.Transferable;
 import com.ulcjava.base.application.tree.TreePath;
 
+@SuppressWarnings("serial")
 public class TreeDndTransferHandler extends TransferHandler 
 {
 	/** The panel on which this transfer handler is used */
@@ -51,7 +51,7 @@ public class TreeDndTransferHandler extends TransferHandler
 			RTree targetTree = (RTree) treeDropData.getTree();
 			TreePath droppedTreePath = treeDropData.getTreePaths()[0];
 
-			List sourceNodes = List.create();
+			List<Object> sourceNodes = List.create();
 			for (TreePath path : draggedTreePathes)
 			{
 				sourceNodes.add(sourceTree.getTreeNodeForPath(path));

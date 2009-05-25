@@ -54,6 +54,7 @@ private RTextArea descriptionTextArea = null;
 private RHyperlink finishHyperlink = null;
 private RButton startDemoButton = null;
 private RButton finishApplicationButton = null;
+private RLabel demoListTitleLabel = null;
 
 	/**
 	 * Calculates the id of a panel's RichDialog. 
@@ -85,10 +86,11 @@ private RButton finishApplicationButton = null;
         listWidthFiller1.setStyleProperties("{/usePreferredSizeAsExactSize \"true\"/preferredSizeWidth \"120\"/preferredSizeHeight \"0\"}");
         this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(575,298));
         this.add(getTitlePanel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getTabbedPane(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 4, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getListScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(listWidthFiller1, new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getFinishApplicationButton(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getTabbedPane(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 5, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getListScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(listWidthFiller1, new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getFinishApplicationButton(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getDemoListTitleLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
 /**
@@ -164,12 +166,12 @@ private RGridBagLayoutPane getDetailsPane() {
 	if (detailsPane == null) {
 		detailsPane = new RGridBagLayoutPane();
 		detailsPane.setName("detailsPane");
-		detailsPane.add(getIdLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		detailsPane.add(getDescriptionLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		detailsPane.add(getNameLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		detailsPane.add(getIdTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		detailsPane.add(getNameTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		detailsPane.add(getDescriptionScroller(), new com.ulcjava.base.application.GridBagConstraints(1, 2, 1, 3, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		detailsPane.add(getIdLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		detailsPane.add(getDescriptionLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		detailsPane.add(getNameLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		detailsPane.add(getIdTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		detailsPane.add(getNameTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		detailsPane.add(getDescriptionScroller(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 3, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		detailsPane.add(getStartDemoButton(), new com.ulcjava.base.application.GridBagConstraints(2, 0, 1, 3, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		detailsPane.setName("detailsPane");
 	}
@@ -246,6 +248,7 @@ private RMenuItem getShowDetailsAction() {
 	if (showDetailsAction == null) {
 		showDetailsAction = new RMenuItem();
 		showDetailsAction.setText("Show Details");
+		showDetailsAction.setIconUri("\"/ch/ivyteam/ivy/demo/icons/normal/about\"");
 		showDetailsAction.setName("showDetailsAction");
 	}
 	return showDetailsAction;
@@ -260,6 +263,7 @@ private RMenuItem getRunDemoAction() {
 	if (runDemoAction == null) {
 		runDemoAction = new RMenuItem();
 		runDemoAction.setText("Run Demo");
+		runDemoAction.setIconUri("\"/ch/ivyteam/ivy/demo/icons/normal/play\"");
 		runDemoAction.setName("runDemoAction");
 	}
 	return runDemoAction;
@@ -404,6 +408,7 @@ private RButton getStartDemoButton() {
 		startDemoButton.setText("Run this Demo");
 		startDemoButton.setStyle("border-all");
 		startDemoButton.setStyleProperties("{/anchor \"NORTH\"}");
+		startDemoButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/demo/icons/normal/play\") %>");
 		startDemoButton.setName("startDemoButton");
 	}
 	return startDemoButton;
@@ -417,11 +422,27 @@ private RButton getStartDemoButton() {
 private RButton getFinishApplicationButton() {
 	if (finishApplicationButton == null) {
 		finishApplicationButton = new RButton();
-		finishApplicationButton.setText("Close Application");
+		finishApplicationButton.setText("Exit");
 		finishApplicationButton.setStyle("border-left-bottom-right");
-		finishApplicationButton.setStyleProperties("{/fill \"VERTICAL\"}");
+		finishApplicationButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/demo/icons/normal/exit\") %>");
+		finishApplicationButton.setStyleProperties("{/fill \"HORIZONTAL\"}");
 		finishApplicationButton.setName("finishApplicationButton");
 	}
 	return finishApplicationButton;
+}
+
+/**
+ * This method initializes demoListTitleLabel	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
+ */
+private RLabel getDemoListTitleLabel() {
+	if (demoListTitleLabel == null) {
+		demoListTitleLabel = new RLabel();
+		demoListTitleLabel.setText("Available Demos:");
+		demoListTitleLabel.setStyle("fill-horiz-north-border");
+		demoListTitleLabel.setName("demoListTitleLabel");
+	}
+	return demoListTitleLabel;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

@@ -29,6 +29,8 @@ private RFlowLayoutPane bottomPane = null;
 private RHyperlink logoutHyperlink = null;
 private RTextArea chatTextArea = null;
 private RButton sendButton = null;
+private RHyperlink loginHyperlink = null;
+private RLabel sepLabel = null;
 /**
    * Create a new instance of SimpleChatPanel
    */
@@ -62,6 +64,7 @@ private TitlePanel getTitlePanel() {
 	if (titlePanel == null) {
 		titlePanel = new TitlePanel();
 		titlePanel.setName("titlePanel");
+		titlePanel.setStyle("fill-horiz");
 		titlePanel.setPreferredSize(null);
 	}
 	return titlePanel;
@@ -77,6 +80,7 @@ private RScrollPane getMessageScrollPane() {
 		messageScrollPane = new RScrollPane();
 		messageScrollPane.setName("messageScrollPane");
 		messageScrollPane.setStyleProperties("{/weightY \"1\"}");
+		messageScrollPane.setStyle("fill-both-border");
 		messageScrollPane.setViewPortView(getChatTextArea());
 	}
 	return messageScrollPane;
@@ -91,7 +95,7 @@ private RLabel getMessageLabel() {
 	if (messageLabel == null) {
 		messageLabel = new RLabel();
 		messageLabel.setText("Your message:");
-		messageLabel.setStyle("border-full");
+		messageLabel.setStyle("border-top-left-bottom");
 		messageLabel.setName("messageLabel");
 	}
 	return messageLabel;
@@ -108,6 +112,7 @@ private RTextField getMessageTextField() {
 		messageTextField.setText("Hello!");
 		messageTextField.setStyleProperties("{/insetsBottom \"5\"/insetsTop \"5\"/insetsRight \"5\"/fill \"HORIZONTAL\"/weightX \"1\"}");
 		messageTextField.setToolTipText("<html>Hit <i>Enter</i> to send your message.");
+		messageTextField.setStyle("border-all");
 		messageTextField.setName("messageTextField");
 	}
 	return messageTextField;
@@ -123,6 +128,8 @@ private RFlowLayoutPane getBottomPane() {
 		bottomPane = new RFlowLayoutPane();
 		bottomPane.setName("bottomPane");
 		bottomPane.setStyleProperties("{/hgap \"5\"/alignment \"RIGHT\"}");
+		bottomPane.add(getLoginHyperlink());
+		bottomPane.add(getSepLabel());
 		bottomPane.add(getLogoutHyperlink());
 	}
 	return bottomPane;
@@ -171,5 +178,33 @@ private RButton getSendButton() {
 		sendButton.setName("sendButton");
 	}
 	return sendButton;
+}
+
+/**
+ * This method initializes loginHyperlink	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getLoginHyperlink() {
+	if (loginHyperlink == null) {
+		loginHyperlink = new RHyperlink();
+		loginHyperlink.setText("Log in");
+		loginHyperlink.setName("loginHyperlink");
+	}
+	return loginHyperlink;
+}
+
+/**
+ * This method initializes sepLabel	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
+ */
+private RLabel getSepLabel() {
+	if (sepLabel == null) {
+		sepLabel = new RLabel();
+		sepLabel.setText("|");
+		sepLabel.setName("sepLabel");
+	}
+	return sepLabel;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

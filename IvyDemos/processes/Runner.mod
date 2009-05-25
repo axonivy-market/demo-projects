@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu May 21 09:54:38 CEST 2009]
+[>Created: Mon May 25 22:02:57 CEST 2009]
 1215975017F13818 3.11 #module
 >Proto >Proto Collection #zClass
 Rr0 Runner Big #zClass
@@ -23,21 +23,31 @@ Rr0 @PushWFArc f6 '' #zField
 Rr0 @InfoButton f7 '' #zField
 Rr0 @AnnotationArc f8 '' #zField
 >Proto Rr0 Rr0 Runner #zField
+Rr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>run demo runner</name>
+        <nameStyle>15,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Rr0 f0 @C|.responsibility Everybody #txt
 Rr0 f0 outLink demoRunner.ivp #txt
 Rr0 f0 type ivydemos.Data #txt
 Rr0 f0 template "" #txt
 Rr0 f0 templateWizard '#
-#Wed May 20 18:06:40 CEST 2009
+#Mon May 25 22:02:54 CEST 2009
 ' #txt
 Rr0 f0 taskData '#
-#Wed May 20 18:06:40 CEST 2009
+#Mon May 25 22:02:54 CEST 2009
 .DESC=The DemoRunner application shows a list of all available Demos and allows you to select and start them.
 .SHOW=1
 .WFU=0
-.NAM=<font color\=''red''>Start the DemoRunner</font>
+.NAM=Start the DemoRunner
 ' #txt
 Rr0 f0 caseData '#
-#Wed May 20 18:06:40 CEST 2009
+#Mon May 25 22:02:54 CEST 2009
 subType.code=
 businessMilestone.timestamp=
 mainContact.id=
@@ -54,37 +64,18 @@ businessCreator.user=
 businessStart.timestamp=
 process.code=
 type.name=
-businessObject.name=
 type.code=
-businessObject.code=
+businessObject.name=
 correspondent.id=
+businessObject.code=
 case.name=
 mainContact.folder.id=
-subType.name=
 case.description=
+subType.name=
 ' #txt
 Rr0 f0 showInStartList 1 #txt
-Rr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>run demo runner</name>
-        <nameStyle>15,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Rr0 f0 @C|.responsibility Everybody #txt
 Rr0 f0 67 123 26 26 14 0 #rect
 Rr0 f0 @|StartRequestIcon #fIcon
-Rr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>define demo ID''s</name>
-        <nameStyle>16,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Rr0 f1 actionDecl 'ivydemos.Data out;
 ' #txt
 Rr0 f1 actionTable 'out=in;
@@ -106,19 +97,19 @@ demoIds = [
 ];
 out.demos = demoIds;' #txt
 Rr0 f1 type ivydemos.Data #txt
-Rr0 f1 62 172 36 24 20 8 #rect
-Rr0 f1 @|StepIcon #fIcon
-Rr0 f2 expr out #txt
-Rr0 f2 80 149 80 172 #arcP
-Rr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Rr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>open demo runner</name>
+        <name>define demo ID''s</name>
         <nameStyle>16,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Rr0 f1 62 172 36 24 20 8 #rect
+Rr0 f1 @|StepIcon #fIcon
+Rr0 f2 expr out #txt
+Rr0 f2 80 149 80 172 #arcP
 Rr0 f3 targetWindow NEW #txt
 Rr0 f3 targetDisplay TOP #txt
 Rr0 f3 richDialogId ch.ivyteam.ivy.demo.runner.DemoRunner #txt
@@ -131,8 +122,8 @@ Rr0 f3 responseActionDecl 'ivydemos.Data out;
 ' #txt
 Rr0 f3 responseMappingAction 'out=in;
 ' #txt
-Rr0 f3 windowConfiguration '#Thu May 21 00:12:21 CEST 2009
-height=600
+Rr0 f3 windowConfiguration '#Mon May 25 12:40:26 CEST 2009
+height=700
 maximized=false
 centered=true
 close_after_last_rd=true
@@ -143,6 +134,15 @@ title=Demo Runner
 Rr0 f3 isAsynch false #txt
 Rr0 f3 isInnerRd false #txt
 Rr0 f3 isDialog false #txt
+Rr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>open demo runner</name>
+        <nameStyle>16,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Rr0 f3 62 228 36 24 20 -2 #rect
 Rr0 f3 @|RichDialogIcon #fIcon
 Rr0 f4 expr out #txt

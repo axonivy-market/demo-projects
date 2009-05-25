@@ -10,26 +10,26 @@ import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.richdialog.exec.ProcessStartConfiguration;
 import ch.ivyteam.ivy.richdialog.exec.application.DisplayConfigurationFactory;
-import ch.ivyteam.ivy.richdialog.exec.application.IDisplayConfiguration;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
+import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RPasswordField;
+import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
 import ch.ivyteam.ivy.workflow.IProcessStart;
 
+import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.DefaultListModel;
 import com.ulcjava.base.application.ULCList;
-import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
-import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
-import ch.ivyteam.ivy.richdialog.widgets.components.RPasswordField;
-import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.border.ULCTitledBorder;
-import com.ulcjava.base.application.util.Font;
 import com.ulcjava.base.application.util.Color;
+import com.ulcjava.base.application.util.Font;
+import ch.ivyteam.ivy.demo.util.Title.TitlePanel;
 
 /**
  * RichDialog panel implementation for StartAProcessPanel.
@@ -43,7 +43,6 @@ implements IRichDialogPanel
   private static final long serialVersionUID = 1L;
 private RButton startButton = null;
 private ULCList startableProcessesList = null;
-private RLabel titleLabel = null;
 private RTabbedDisplay myTabbedDisplay = null;
 private RHyperlink exitHyperlink = null;
 
@@ -53,8 +52,6 @@ private RHyperlink exitHyperlink = null;
 	private RCheckBox showCheckBox = null;
 	private RScrollPane myScrollPane = null;
 	private RLabel infoLabel = null;
-	private RGridBagLayoutPane header = null;
-	private RLabel subtitleLabel = null;
 	private RGridBagLayoutPane loginPanel = null;
 	private RLabel loginLabel = null;
 	private RTextField loginTextField = null;
@@ -62,6 +59,7 @@ private RHyperlink exitHyperlink = null;
 	private RPasswordField passwordTextField = null;
 	private RButton loginButton = null;
 	private RLabel loginStatusValueLabel = null;
+	private TitlePanel titlePanel = null;
   
   /**
    * Create a new instance of StartAProcessPanel
@@ -78,17 +76,17 @@ private RHyperlink exitHyperlink = null;
    */
   public void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(580,548));
-        this.add(getStartButton(), new com.ulcjava.base.application.GridBagConstraints(0, 7, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.SOUTHWEST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(5,5,5,5), 0, 0));
-        this.add(getExitHyperlink(), new com.ulcjava.base.application.GridBagConstraints(4, 3, 1, 1, 0.0, -1, com.ulcjava.base.application.GridBagConstraints.SOUTHEAST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(5,0,3,5), 0, 0));
-        this.add(getMyTabbedDisplay(), new com.ulcjava.base.application.GridBagConstraints(1, 4, 4, 4, 1.0, 1.0, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.BOTH, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getClosePanelHyperlink(), new com.ulcjava.base.application.GridBagConstraints(2, 3, 1, 1, 1.0, -1, com.ulcjava.base.application.GridBagConstraints.SOUTHEAST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(5,0,3,5), 0, 0));
-        this.add(getSepLabel(), new com.ulcjava.base.application.GridBagConstraints(3, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.SOUTHEAST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(5,0,3,5), 0, 0));
-        this.add(getShowCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 6, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.WEST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getMyScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 1, 1, -1, 1.0, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.BOTH, new com.ulcjava.base.application.util.Insets(5,5,5,5), 0, 0));
-        this.add(getInfoLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.SOUTHWEST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,5,3,0), 0, 0));
-        this.add(getHeader(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 5, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getLoginPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 5, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(629,476));
+        this.add(getStartButton(), new com.ulcjava.base.application.GridBagConstraints(0, 8, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.SOUTHWEST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(5,5,5,5), 0, 0));
+        this.add(getExitHyperlink(), new com.ulcjava.base.application.GridBagConstraints(4, 4, 1, 1, 0.0, -1, com.ulcjava.base.application.GridBagConstraints.SOUTHEAST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(5,0,3,5), 0, 0));
+        this.add(getMyTabbedDisplay(), new com.ulcjava.base.application.GridBagConstraints(1, 5, 4, 4, 1.0, 1.0, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.BOTH, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getClosePanelHyperlink(), new com.ulcjava.base.application.GridBagConstraints(2, 4, 1, 1, 1.0, -1, com.ulcjava.base.application.GridBagConstraints.SOUTHEAST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(5,0,3,5), 0, 0));
+        this.add(getSepLabel(), new com.ulcjava.base.application.GridBagConstraints(3, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.SOUTHEAST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(5,0,3,5), 0, 0));
+        this.add(getShowCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 7, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.WEST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getMyScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 6, 1, 1, -1, 1.0, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.BOTH, new com.ulcjava.base.application.util.Insets(5,5,5,5), 0, 0));
+        this.add(getInfoLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.SOUTHWEST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,5,3,0), 0, 0));
+        this.add(getLoginPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 5, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getTitlePanel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 5, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
 /**
@@ -100,7 +98,7 @@ private RButton getStartButton() {
 	if (startButton == null) {
 		startButton = new RButton();
 		startButton.setText("Start selected process");
-		startButton.setIconUri("<%=ivy.cms.cr(\"/Images/play\")%>");
+		startButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/demo/icons/normal/play\")%>");
 		startButton.setName("startButton");
 	}
 	return startButton;
@@ -117,23 +115,6 @@ private ULCList getStartableProcessesList() {
 		startableProcessesList.setName("startableProcessesList");
 	}
 	return startableProcessesList;
-}
-
-/**
- * This method initializes titleLabel	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
- */
-private RLabel getTitleLabel() {
-	if (titleLabel == null) {
-		titleLabel = new RLabel();
-		titleLabel.setText("Start a process");
-		titleLabel.setStyleProperties("{/insetsLeft \"5\"/insetsRight \"5\"/font {/name \"Arial\"/size \"24\"/style \"BOLD\"}/anchor \"WEST\"/insetsTop \"5\"/insetsBottom \"5\"/weightX \"1\"/fill \"HORIZONTAL\"}");
-		titleLabel.setIconUri("<%=ivy.cms.cr(\"/Images/gear_run_large\")%>");
-		titleLabel.setStyle("border-full");
-		titleLabel.setName("titleLabel");
-	}
-	return titleLabel;
 }
 
 /**
@@ -290,7 +271,7 @@ private RHyperlink getExitHyperlink() {
 		if (myScrollPane == null) {
 			myScrollPane = new RScrollPane();
 			myScrollPane.setName("myScrollPane");
-			myScrollPane.setStyleProperties("{/weightY \"1\"/weightX \"0\"}");
+			myScrollPane.setStyleProperties("{/insetsTop \"0\"/weightY \"1\"/weightX \"0\"}");
 			myScrollPane.setViewPortView(getStartableProcessesList());
 		}
 		return myScrollPane;
@@ -311,38 +292,6 @@ private RHyperlink getExitHyperlink() {
 	}
 
 	/**
-	 * This method initializes header	
-	 * 	
-	 * @return ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane	
-	 */
-	private RGridBagLayoutPane getHeader() {
-		if (header == null) {
-			header = new RGridBagLayoutPane();
-			header.setName("header");
-			header.setStyleProperties("{/backgroundColor {/b \"255\"/r \"255\"/g \"255\"}/fill \"HORIZONTAL\"/weightX \"1\"}");
-			header.add(getTitleLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.WEST, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-			header.add(getSubtitleLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		}
-		return header;
-	}
-
-	/**
-	 * This method initializes subtitleLabel	
-	 * 	
-	 * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
-	 */
-	private RLabel getSubtitleLabel() {
-		if (subtitleLabel == null) {
-			subtitleLabel = new RLabel();
-			subtitleLabel.setText("Start any process available on the server with appropriate user rights.");
-			subtitleLabel.setStyle("border-left-right-bottom");
-			subtitleLabel.setStyleProperties("{/anchor \"WEST\"}");
-			subtitleLabel.setName("subtitleLabel");
-		}
-		return subtitleLabel;
-	}
-
-	/**
 	 * This method initializes loginPanel	
 	 * 	
 	 * @return ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane	
@@ -352,6 +301,7 @@ private RHyperlink getExitHyperlink() {
 			loginPanel = new RGridBagLayoutPane();
 			loginPanel.setName("loginPanel");
 			loginPanel.setBorder(BorderFactory.createTitledBorder(null, "Login", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 11), new Color(12, 74, 124)));
+			loginPanel.setStyle("fill-horiz-border");
 			loginPanel.add(getLoginLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 			loginPanel.add(getLoginTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 			loginPanel.add(getPasswordLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
@@ -453,5 +403,19 @@ private RHyperlink getExitHyperlink() {
 			loginStatusValueLabel.setName("loginStatusValueLabel");
 		}
 		return loginStatusValueLabel;
+	}
+
+	/**
+	 * This method initializes titlePanel	
+	 * 	
+	 * @return ch.ivyteam.ivy.demo.util.Title.TitlePanel	
+	 */
+	private TitlePanel getTitlePanel() {
+		if (titlePanel == null) {
+			titlePanel = new TitlePanel();
+			titlePanel.setName("titlePanel");
+			titlePanel.setStyle("fill-horiz");
+		}
+		return titlePanel;
 	}
 }  //  @jve:decl-index=0:visual-constraint="10,10"

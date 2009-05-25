@@ -90,6 +90,8 @@ private TitlePanel getTitlePanel() {
 		titlePanel.setName("titlePanel");
 		titlePanel.setPreferredSize(null);
 		titlePanel.setStyleProperties("{/backgroundColor {/b \"255\"/r \"255\"/g \"255\"}/anchor \"NORTH\"/opaque \"true\"}");
+		titlePanel.setStyle("fill-horiz");
+		titlePanel.setName("titlePanel");
 	}
 	return titlePanel;
 }
@@ -103,7 +105,7 @@ private RLabel getQuestionLabel1() {
 	if (questionLabel1 == null) {
 		questionLabel1 = new RLabel();
 		questionLabel1.setText("What is the name of the poker hand containing three of a kind and a pair? ");
-		questionLabel1.setIconUri("/Images/question");
+		questionLabel1.setIconUri("/ch/ivyteam/ivy/demo/icons/normal/question");
 		questionLabel1.setStyle("left-fill-horiz-border");
 		questionLabel1.setName("questionLabel1");
 	}
@@ -119,7 +121,7 @@ private RLabel getQuestionLabel2() {
 	if (questionLabel2 == null) {
 		questionLabel2 = new RLabel();
 		questionLabel2.setText("Who was the 43rd president of the united states?");
-		questionLabel2.setIconUri("/Images/question");
+		questionLabel2.setIconUri("/ch/ivyteam/ivy/demo/icons/normal/question");
 		questionLabel2.setStyle("left-fill-horiz-border");
 		questionLabel2.setName("questionLabel2");
 	}
@@ -135,7 +137,7 @@ private RLabel getQuestionLabel3() {
 	if (questionLabel3 == null) {
 		questionLabel3 = new RLabel();
 		questionLabel3.setText("In which country is Timbuktu?");
-		questionLabel3.setIconUri("<%= ivy.cms.cr(\"/Images/question\") %>");
+		questionLabel3.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/demo/icons/normal/question\") %>");
 		questionLabel3.setStyle("left-fill-horiz-border");
 		questionLabel3.setName("questionLabel3");
 	}
@@ -151,7 +153,7 @@ private RLabel getQuestionLabel4() {
 	if (questionLabel4 == null) {
 		questionLabel4 = new RLabel();
 		questionLabel4.setText("What is (are) the correct name(s) for 8 bits in computer science?");
-		questionLabel4.setIconUri("<%= ivy.cms.cr(\"/Images/question\") %>");
+		questionLabel4.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/demo/icons/normal/question\") %>");
 		questionLabel4.setStyle("left-fill-horiz-border");
 		questionLabel4.setName("questionLabel4");
 	}
@@ -213,7 +215,8 @@ private RScrollPane getQuestion2scroller() {
 	if (question2scroller == null) {
 		question2scroller = new RScrollPane();
 		question2scroller.setName("question2scroller");
-		question2scroller.setStyleProperties("{/weightY \"1\"}");
+		question2scroller.setName("question2scroller");
+		question2scroller.setStyle("fill-both");
 		question2scroller.setViewPortView(getQuestion2answer());
 	}
 	return question2scroller;
@@ -241,7 +244,7 @@ private RButton getVerifyButton() {
 	if (verifyButton == null) {
 		verifyButton = new RButton();
 		verifyButton.setText("Tell me if I'm right");
-		verifyButton.setIconUri("<%= ivy.cms.cr(\"/Images/lamp\") %>");
+		verifyButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/demo/icons/normal/lamp\") %>");
 		verifyButton.setStyleProperties("{/insetsBottom \"5\"/insetsRight \"5\"}");
 		verifyButton.setName("verifyButton");
 	}
@@ -257,7 +260,8 @@ private RScrollPane getQuestion3scroller() {
 	if (question3scroller == null) {
 		question3scroller = new RScrollPane();
 		question3scroller.setName("question3scroller");
-		question3scroller.setStyleProperties("{/weightY \"1\"}");
+		question3scroller.setName("question3scroller");
+		question3scroller.setStyle("fill-both");
 		question3scroller.setViewPortView(getQuestion3answer());
 	}
 	return question3scroller;

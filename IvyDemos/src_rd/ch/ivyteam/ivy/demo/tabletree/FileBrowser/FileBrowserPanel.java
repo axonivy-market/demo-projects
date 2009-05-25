@@ -58,7 +58,7 @@ private RLabel getTitleLabel() {
 	if (titleLabel == null) {
 		titleLabel = new RLabel();
 		titleLabel.setText("File Browser");
-		titleLabel.setIconUri("<%= ivy.cms.cr(\"/Images/harddisk_large\") %>");
+		titleLabel.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/demo/icons/large/harddisk\") %>");
 		titleLabel.setStyleProperties("{/backgroundColor {/b \"255\"/r \"255\"/g \"255\"}/font {/name \"Arial\"/size \"28\"/style \"BOLD\"}/fill \"HORIZONTAL\"/weightX \"1\"}");
 		titleLabel.setIconTextGap(20);
 		titleLabel.setStyle("border-full");
@@ -139,7 +139,7 @@ private RTableTree getFileTableTree() {
 	if (fileTableTree == null) {
 		fileTableTree = new RTableTree();
 		fileTableTree.setName("fileTableTree");
-		fileTableTree.setModelConfiguration("{/showTableheader true /autoTableheader false /showtooltip false /showIcons true /dynamicTreeLoadMode \"LOAD_FOR_RENDER_PARENT\"/version \"2.0\"/columns {{/patterns {{/result \"result=node.info.equalsIgnoreCase(\\\"drive\\\") ? \\r\\n(value as java.io.File).getAbsolutePath() :\\r\\n(value as java.io.File).getName()\"/version \"2.0\"/tooltip \"\"/icon \"result=\\\"/Images/\\\" + node.info\"/header \"Path\"/field \"\"/columnWidth \"300\"/patternMode \"ALL\"/patternValue \"default\"}}}{/patterns {{/result \"result=(value as java.io.File).isDirectory() ? (value as java.io.File).list().size().toString() + \\\" Files\\\" : (value as java.io.File).length().toString() + \\\" Bytes\\\"\"/version \"2.0\"/icon \"\"/header \"Size\"/patternMode \"ALL\"/patternValue \"default\"}}}}}");
+		fileTableTree.setModelConfiguration("{/showTableheader true /autoTableheader false /showtooltip false /showIcons true /dynamicTreeLoadMode \"LOAD_FOR_RENDER_PARENT\"/version \"3.0\"/columns {{/patterns {{/result \"result=node.info.equalsIgnoreCase(\\\"drive\\\") ? \\r\\n(value as java.io.File).getAbsolutePath() :\\r\\n(value as java.io.File).getName()\"/version \"3.0\"/tooltip \"\"/icon \"result=\\\"/ch/ivyteam/ivy/demo/icons/normal/\\\" + node.info\"/header \"\\\"Path\\\"\"/field \"\"/columnWidth \"300\"/patternMode \"ALL\"/patternValue \"default\"}}}{/patterns {{/result \"result=(value as java.io.File).isDirectory() ? (value as java.io.File).list().size().toString() + \\\" Files\\\" : (value as java.io.File).length().toString() + \\\" Bytes\\\"\"/version \"3.0\"/icon \"\"/header \"\\\"Size\\\"\"/patternMode \"ALL\"/patternValue \"default\"}}}}}");
 	}
 	return fileTableTree;
 }
@@ -153,7 +153,7 @@ private RComboBox getDriveComboBox() {
 	if (driveComboBox == null) {
 		driveComboBox = new RComboBox();
 		driveComboBox.setName("driveComboBox");
-		driveComboBox.setModelConfiguration("{/result \"result=entry.getAbsolutePath()\"/version \"2.0\"/icon \"result=ivy.cms.cr(\\\"/Images/drive\\\")\"/tooltip \"\"/emptyTableText \"no drives found on server\"}");
+		driveComboBox.setModelConfiguration("{/result \"result=entry.getAbsolutePath()\"/version \"2.0\"/icon \"result=ivy.cms.cr(\\\"/ch/ivyteam/ivy/demo/icons/normal/drive\\\")\"/tooltip \"\"/emptyTableText \"no drives found on server\"}");
 		driveComboBox.setStyleProperties("{/anchor \"WEST\"}");
 	}
 	return driveComboBox;

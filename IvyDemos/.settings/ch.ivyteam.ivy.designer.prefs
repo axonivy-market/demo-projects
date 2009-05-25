@@ -1,5 +1,11 @@
-#Mon May 18 14:37:10 CEST 2009
+#Mon May 25 22:26:55 CEST 2009
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=ivydemos.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=ivydemos
+ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:useProjectSettings=true
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:ANIMATION_FOLLOWING_MODE=FOLLOW_ONLY_OPEN_PROCESSES
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:EXECUTE_INTERMEDIATE_EVENT_BEANS=true
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:EXECUTE_START_EVENT_BEANS=true
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:EXTENAL_BROWSER=false
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:useProjectSettings=true
 ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=6
 eclipse.preferences.version=1

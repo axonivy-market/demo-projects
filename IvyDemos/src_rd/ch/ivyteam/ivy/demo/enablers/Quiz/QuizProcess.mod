@@ -26,7 +26,7 @@ Fs0 f0 inParameterMapAction 'out.correct=false;
 ' #txt
 Fs0 f0 outParameterDecl '<> result;
 ' #txt
-Fs0 f0 embeddedRdInitializations '{/titlePanel {/fieldName "titlePanel"/startMethod "startInitialized(String,String,String)"/parameterMapping "param.iconUri=\"/Images/brain_large\";\nparam.title=\"Quiz\";\nparam.subtitle=\"Please select an answer for each question\";\n"/initScript ""}}' #txt
+Fs0 f0 embeddedRdInitializations '{/titlePanel {/fieldName "titlePanel"/startMethod "startInitialized(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/demo/icons/large/brain\";\nparam.title=\"Quiz\";\nparam.subtitle=\"Please select an answer for each question\";\n"/initScript ""}}' #txt
 Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -214,7 +214,7 @@ Fs0 f14 actionCode 'import com.ulcjava.base.application.util.Color;
 
 // show result text
 panel.resultLabel.foreground = Color.green.darker();
-panel.resultLabel.iconUri = "/Images/ok";
+panel.resultLabel.iconUri = "/ch/ivyteam/ivy/demo/icons/normal/ok";
 panel.resultLabel.text = "Congratulatins! All answers correct.";' #txt
 Fs0 f14 type ch.ivyteam.ivy.demo.enablers.Quiz.QuizData #txt
 Fs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -253,7 +253,7 @@ Fs0 f16 actionCode 'import com.ulcjava.base.application.util.Color;
 
 // show result text
 panel.resultLabel.foreground = Color.red;
-panel.resultLabel.iconUri = "/Images/not_ok";
+panel.resultLabel.iconUri = "/ch/ivyteam/ivy/demo/icons/normal/not_ok";
 panel.resultLabel.text = "Something is still wrong! Try again.";
 
 // reset selection

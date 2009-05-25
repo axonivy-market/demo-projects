@@ -93,7 +93,7 @@ private RButton getLoadButton() {
 		loadButton = new RButton();
 		loadButton.setText("Upload");
 		loadButton.setStyleProperties("{/insetsBottom \"5\"/insetsTop \"5\"/fill \"HORIZONTAL\"/insetsRight \"5\"/insetsLeft \"5\"}");
-		loadButton.setIconUri("<%= ivy.cms.cr(\"/Images/arrowUp\") %>");
+		loadButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/demo/icons/normal/arrow_up\") %>");
 		loadButton.setName("loadButton");
 	}
 	return loadButton;
@@ -125,7 +125,7 @@ private RLabel getShowLabel() {
 		showLabel.setText("");
 		showLabel.setHorizontalAlignment(ULCTextField.CENTER);
 		showLabel.setHorizontalTextPosition(ULCLabel.CENTER);
-		showLabel.setIconUri("<%= ivy.cms.cr(\"/Images/unknown\") %>");
+		showLabel.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/demo/icons/normal/unknown\") %>");
 		showLabel.setName("showLabel");
 	}
 	return showLabel;
