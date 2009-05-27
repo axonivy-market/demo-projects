@@ -1,4 +1,6 @@
 IvyAddOns/classes
+IvyAddOns/log
+IvyAddOns/src_dataClasses
 IvyDemos/classes
 WorkflowUI/*.log
 WorkflowUI/classes
