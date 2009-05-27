@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed May 27 21:55:27 CEST 2009]
+[>Created: Wed May 27 23:05:41 CEST 2009]
 1180E439FFBB432D 3.11 #module
 >Proto >Proto Collection #zClass
 Qs0 QuestionDialogProcess Big #zClass
@@ -97,7 +97,7 @@ Qs0 f6 actionCode 'import com.ulcjava.base.application.util.HTMLUtilities;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 
 panel.buttonPane.setRows(1);
-panel.buttonPane.setColumns(in.buttons.size());
+panel.buttonPane.setColumns(in.actionCommandsForButtons.size());
 
 RButton button;
 for (int i=0; i<in.actionCommandsForButtons.size(); i++)
