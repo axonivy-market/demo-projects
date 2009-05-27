@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 19 13:50:22 CEST 2009]
+[>Created: Wed May 27 21:44:50 CEST 2009]
 1180E624C69827DC 3.11 #module
 >Proto >Proto Collection #zClass
 Es0 ErrorDialogProcess Big #zClass
@@ -34,15 +34,6 @@ Es0 @RichDialogProcessStep f16 '' #zField
 Es0 @PushWFArc f17 '' #zField
 Es0 @PushWFArc f2 '' #zField
 >Proto Es0 Es0 ErrorDialogProcess #zField
-Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>showError(Throwable,Boolean,Boolean)</name>
-        <nameStyle>36,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Es0 f0 guid 1180E6FD55B71527 #txt
 Es0 f0 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
 Es0 f0 method showError(java.lang.Throwable,Boolean,Boolean) #txt
@@ -56,10 +47,19 @@ out.showDetailButton=param.showDetailButton;
 Es0 f0 outParameterDecl '<> result;
 ' #txt
 Es0 f0 embeddedRdInitializations '* ' #txt
-Es0 f0 54 38 20 20 13 0 #rect
+Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>showError(Throwable,Boolean,Boolean)</name>
+        <nameStyle>36,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Es0 f0 54 62 20 20 13 0 #rect
 Es0 f0 @|RichDialogInitStartIcon #fIcon
 Es0 f1 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
-Es0 f1 51 139 26 26 14 0 #rect
+Es0 f1 51 163 26 26 14 0 #rect
 Es0 f1 @|RichDialogProcessEndIcon #fIcon
 Es0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -76,7 +76,7 @@ Es0 f3 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogDa
 ' #txt
 Es0 f3 actionTable 'out=in;
 ' #txt
-Es0 f3 62 222 20 20 13 0 #rect
+Es0 f3 334 70 20 20 13 0 #rect
 Es0 f3 @|RichDialogProcessStartIcon #fIcon
 Es0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -93,7 +93,7 @@ Es0 f4 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogDa
 ' #txt
 Es0 f4 actionTable 'out=in;
 ' #txt
-Es0 f4 166 222 20 20 13 0 #rect
+Es0 f4 438 70 20 20 13 0 #rect
 Es0 f4 @|RichDialogProcessStartIcon #fIcon
 Es0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -110,25 +110,20 @@ Es0 f5 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogDa
 ' #txt
 Es0 f5 actionTable 'out=in;
 ' #txt
-Es0 f5 406 222 20 20 13 0 #rect
+Es0 f5 662 70 20 20 13 0 #rect
 Es0 f5 @|RichDialogProcessStartIcon #fIcon
 Es0 f6 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
 Es0 f6 guid 1180E702B2429D3B #txt
-Es0 f6 403 315 26 26 14 0 #rect
+Es0 f6 659 163 26 26 14 0 #rect
 Es0 f6 @|RichDialogEndIcon #fIcon
 Es0 f7 expr out #txt
-Es0 f7 416 242 416 315 #arcP
+Es0 f7 672 90 672 163 #arcP
 Es0 f8 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
-Es0 f8 163 315 26 26 14 0 #rect
+Es0 f8 435 163 26 26 14 0 #rect
 Es0 f8 @|RichDialogProcessEndIcon #fIcon
 Es0 f9 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
-Es0 f9 59 315 26 26 14 0 #rect
+Es0 f9 331 163 26 26 14 0 #rect
 Es0 f9 @|RichDialogProcessEndIcon #fIcon
-Es0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Es0 f12 targetWindow NEW #txt
 Es0 f12 targetDisplay TOP #txt
 Es0 f12 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDetailDialog #txt
@@ -153,12 +148,17 @@ title=Error Details
 Es0 f12 isAsynch false #txt
 Es0 f12 isInnerRd true #txt
 Es0 f12 isDialog true #txt
-Es0 f12 54 268 36 24 20 -2 #rect
+Es0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
+Es0 f12 326 116 36 24 20 -2 #rect
 Es0 f12 @|RichDialogIcon #fIcon
 Es0 f13 expr out #txt
-Es0 f13 72 242 72 268 #arcP
+Es0 f13 344 90 344 116 #arcP
 Es0 f10 expr out #txt
-Es0 f10 72 292 72 315 #arcP
+Es0 f10 344 140 344 163 #arcP
 Es0 f14 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData out;
 ' #txt
 Es0 f14 actionTable 'out=in;
@@ -167,18 +167,19 @@ Es0 f14 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #tx
 Es0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>How to write to client clipboard?</name>
+        <name>how to write to
+client clipboard?</name>
         <nameStyle>33,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Es0 f14 158 268 36 24 20 -2 #rect
+Es0 f14 430 116 36 24 20 -2 #rect
 Es0 f14 @|RichDialogProcessStepIcon #fIcon
 Es0 f15 expr out #txt
-Es0 f15 176 242 176 268 #arcP
+Es0 f15 448 90 448 116 #arcP
 Es0 f11 expr out #txt
-Es0 f11 176 292 176 315 #arcP
+Es0 f11 448 140 448 163 #arcP
 Es0 f16 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData out;
 ' #txt
 Es0 f16 actionTable 'out=in;
@@ -194,12 +195,25 @@ Es0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f16 46 92 36 24 20 -2 #rect
+Es0 f16 46 116 36 24 20 -2 #rect
 Es0 f16 @|RichDialogProcessStepIcon #fIcon
 Es0 f17 expr out #txt
-Es0 f17 64 58 64 92 #arcP
+Es0 f17 64 82 64 116 #arcP
 Es0 f2 expr out #txt
-Es0 f2 64 116 64 139 #arcP
+Es0 f2 64 140 64 163 #arcP
+>Proto Es0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <swimlaneLabel>Start methods</swimlaneLabel>
+        <swimlaneLabel>Events</swimlaneLabel>
+        <swimlaneLabel></swimlaneLabel>
+    </language>
+    <swimlaneSize>300</swimlaneSize>
+    <swimlaneSize>421</swimlaneSize>
+    <swimlaneColor>-16724941</swimlaneColor>
+    <swimlaneColor>-16764007</swimlaneColor>
+</elementInfo>
+' #txt
 >Proto Es0 .type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
 >Proto Es0 .processKind RICH_DIALOG #txt
 >Proto Es0 .ui2RdDataAction 'out.showCopyButton=panel.copyButton.visible;

@@ -58,8 +58,8 @@ private RButton getOkButton() {
 	if (okButton == null) {
 		okButton = new RButton();
 		okButton.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/addons/strings/buttons/ok\") %>");
-		okButton.setStyleProperties("{/usePreferredSizeAsExactSize \"true\"/preferredSizeWidth \"70\"/fill \"NONE\"/preferredSizeHeight \"23\"}");
 		okButton.setStyle("border-all");
+		okButton.setStyleProperties("{/preferredSizeWidth \"70\"/fill \"NONE\"/preferredSizeHeight \"27\"}");
 		okButton.setName("okButton");
 	}
 	return okButton;
