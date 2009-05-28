@@ -4218,7 +4218,7 @@ for destroy a case</name>
 ' #txt
 Cs0 f92 targetWindow NEW #txt
 Cs0 f92 targetDisplay TOP #txt
-Cs0 f92 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.QuestionDialog #txt
+Cs0 f92 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
 Cs0 f92 startMethod askQuestionWithTitle(String,String,String,List<String>) #txt
 Cs0 f92 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f92 panelName <%=in.confirmation%> #txt
@@ -4398,7 +4398,7 @@ error dialog</name>
 ' #txt
 Cs0 f182 targetWindow NEW #txt
 Cs0 f182 targetDisplay TOP #txt
-Cs0 f182 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.ErrorDialog #txt
+Cs0 f182 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
 Cs0 f182 startMethod showError(java.lang.Throwable,Boolean,Boolean) #txt
 Cs0 f182 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f182 requestActionDecl '<java.lang.Throwable error, Boolean showCopyButton, Boolean showDetailButton> param;' #txt

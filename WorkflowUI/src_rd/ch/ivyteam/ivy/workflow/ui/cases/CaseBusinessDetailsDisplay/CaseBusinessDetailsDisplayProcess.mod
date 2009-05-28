@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu May 14 15:26:14 CEST 2009]
+[>Created: Thu May 28 16:35:44 CEST 2009]
 118A7E4692FBC41C 3.11 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseBusinessDetailsDisplayProcess Big #zClass
@@ -33,15 +33,6 @@ Cs0 @RichDialogProcessStep f11 '' #zField
 Cs0 @PushWFArc f13 '' #zField
 Cs0 @PushWFArc f10 '' #zField
 >Proto Cs0 Cs0 CaseBusinessDetailsDisplayProcess #zField
-Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f0 guid 118A8CF9702F1A25 #txt
 Cs0 f0 type ch.ivyteam.ivy.workflow.ui.cases.CaseBusinessDetailsDisplay.CaseBusinessDetailsDisplayData #txt
 Cs0 f0 method start() #txt
@@ -53,17 +44,17 @@ Cs0 f0 inParameterMapAction 'out.fCase=null;
 Cs0 f0 outParameterDecl '<> result;
 ' #txt
 Cs0 f0 embeddedRdInitializations '* ' #txt
-Cs0 f0 78 126 20 20 13 0 #rect
-Cs0 f0 @|RichDialogInitStartIcon #fIcon
-Cs0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(ICase)</name>
-        <nameStyle>12,5,6,9
+        <name>start()</name>
+        <nameStyle>7,5,6,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f0 78 126 20 20 13 0 #rect
+Cs0 f0 @|RichDialogInitStartIcon #fIcon
 Cs0 f1 guid 118A8CFB58C1A08B #txt
 Cs0 f1 type ch.ivyteam.ivy.workflow.ui.cases.CaseBusinessDetailsDisplay.CaseBusinessDetailsDisplayData #txt
 Cs0 f1 method start(ch.ivyteam.ivy.workflow.ICase) #txt
@@ -75,6 +66,15 @@ Cs0 f1 inParameterMapAction 'out.fCase=param.aCase;
 Cs0 f1 outParameterDecl '<> result;
 ' #txt
 Cs0 f1 embeddedRdInitializations '* ' #txt
+Cs0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(ICase)</name>
+        <nameStyle>12,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f1 278 134 20 20 13 0 #rect
 Cs0 f1 @|RichDialogInitStartIcon #fIcon
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -130,11 +130,6 @@ Cs0 f17 expr out #txt
 Cs0 f17 376 154 101 432 #arcP
 Cs0 f17 1 376 432 #addKink
 Cs0 f17 0 0.9195892509952022 0 0 #arcLabel
-Cs0 f2 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseBusinessDetailsDisplay.CaseBusinessDetailsDisplayData out;
-' #txt
-Cs0 f2 actionTable 'out=in;
-' #txt
-Cs0 f2 type ch.ivyteam.ivy.workflow.ui.cases.CaseBusinessDetailsDisplay.CaseBusinessDetailsDisplayData #txt
 Cs0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -146,6 +141,11 @@ and fires the updatabinding (rdData2ui)</name>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f2 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseBusinessDetailsDisplay.CaseBusinessDetailsDisplayData out;
+' #txt
+Cs0 f2 actionTable 'out=in;
+' #txt
+Cs0 f2 type ch.ivyteam.ivy.workflow.ui.cases.CaseBusinessDetailsDisplay.CaseBusinessDetailsDisplayData #txt
 Cs0 f2 502 276 36 24 20 -2 #rect
 Cs0 f2 @|RichDialogProcessStepIcon #fIcon
 Cs0 f3 expr out #txt
@@ -197,6 +197,16 @@ Cs0 f8 actionTable 'out=in;
 ' #txt
 Cs0 f8 150 230 20 20 13 0 #rect
 Cs0 f8 @|RichDialogProcessStartIcon #fIcon
+Cs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>set the titled border 
+with CMS entries</name>
+        <nameStyle>39,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f11 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseBusinessDetailsDisplay.CaseBusinessDetailsDisplayData out;
 ' #txt
 Cs0 f11 actionTable 'out=in;
@@ -221,16 +231,6 @@ Cs0 f11 actionCode 'import com.ulcjava.base.application.border.ULCTitledBorder;
 (panel.otherGridBagLayoutPane.getBorder() as ULCTitledBorder).setTitle(
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/businessOther"));' #txt
 Cs0 f11 type ch.ivyteam.ivy.workflow.ui.cases.CaseBusinessDetailsDisplay.CaseBusinessDetailsDisplayData #txt
-Cs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set the titled border 
-with CMS entries</name>
-        <nameStyle>39,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f11 142 308 36 24 20 -2 #rect
 Cs0 f11 @|RichDialogProcessStepIcon #fIcon
 Cs0 f13 expr out #txt
@@ -241,8 +241,6 @@ Cs0 f10 1 160 432 #addKink
 Cs0 f10 0 0.8702957035841375 0 0 #arcLabel
 >Proto Cs0 .type ch.ivyteam.ivy.workflow.ui.cases.CaseBusinessDetailsDisplay.CaseBusinessDetailsDisplayData #txt
 >Proto Cs0 .processKind RICH_DIALOG #txt
->Proto Cs0 .ui2RdDataAction '"" + out.#fCase.#businessPriority=panel.priorityTextField.text;
-' #txt
 >Proto Cs0 .rdData2UIAction 'panel.businessCreatorLabel.visible=(in.#fCase.#businessCreatorUser is initialized);
 panel.businessCreatorUserLabel.visible=(in.#fCase.#businessCreatorUser is initialized);
 panel.businessCreatorUserTextField.text=in.#fCase.#businessCreatorUser;
@@ -288,8 +286,7 @@ panel.dateTimeStartTextField.text=(in.#fCase.#businessStartTimestamp is initiali
 panel.dateTimeStartTextField.visible=(in.#fCase.#businessStartTimestamp is initialized);
 panel.priorityLabel.visible=(in.#fCase.#businessPriority is initialized);
 panel.priorityTextField.text="" + in.#fCase.#businessPriority;
-panel.priorityTextField.visible=(in.#fCase.#priority is initialized);
-panel.priorityTextField.text="" + in.#fCase.#businessPriority;
+panel.priorityTextField.visible=(in.#fCase.#businessPriority is initialized);
 ' #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
 >Proto Cs0 '' #fIcon

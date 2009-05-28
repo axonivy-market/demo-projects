@@ -65,7 +65,7 @@ private RMenuItem startMenuItem = null;
    */
   public void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(298,418));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(200,418));
         this.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(12, 74, 124), 1), "Process Start List", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.BOLD, 11), new Color(12, 74, 124)));
         this.add(getScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getFooterLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 4, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));

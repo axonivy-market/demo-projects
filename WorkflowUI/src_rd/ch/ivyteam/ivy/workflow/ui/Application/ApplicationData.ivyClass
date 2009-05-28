@@ -2,3 +2,5 @@ ApplicationData #class
 ch.ivyteam.ivy.workflow.ui.Application #namespace
 userGuideFileChoserReturn ch.ivyteam.ivy.workflow.ui.utils.FileChoserReturn #field
 userGuideFileChoserReturn 'It is used to provide the user guide document to the end user' #fieldComment
+s String #field
+s PERSISTENT #fieldModifier

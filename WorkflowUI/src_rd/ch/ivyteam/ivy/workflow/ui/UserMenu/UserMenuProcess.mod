@@ -806,7 +806,7 @@ Us0 f44 886 262 20 20 13 0 #rect
 Us0 f44 @|RichDialogProcessStartIcon #fIcon
 Us0 f46 targetWindow NEW #txt
 Us0 f46 targetDisplay TOP #txt
-Us0 f46 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.MessageDialog #txt
+Us0 f46 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Us0 f46 startMethod showMessageWithTitle(String,String) #txt
 Us0 f46 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f46 panelName Information #txt

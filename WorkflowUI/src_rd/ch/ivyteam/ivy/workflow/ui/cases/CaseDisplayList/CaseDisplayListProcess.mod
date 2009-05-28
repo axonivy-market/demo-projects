@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon May 04 10:56:02 CEST 2009]
+[>Created: Thu May 28 15:51:54 CEST 2009]
 119A42FA47DC0EC8 3.11 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDisplayListProcess Big #zClass
@@ -152,6 +152,18 @@ Cs0 f1 @|RichDialogInitStartIcon #fIcon
 Cs0 f2 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f2 99 427 26 26 14 0 #rect
 Cs0 f2 @|RichDialogProcessEndIcon #fIcon
+Cs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>find cases 
+according to 
+display mode
+</name>
+        <nameStyle>39,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f4 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
 ' #txt
 Cs0 f4 actionTable 'out=in;
@@ -215,25 +227,26 @@ out.cases.addAll(casesList);
 
 out.footerMessage = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/found") + " " + 
 										in.cases.size() + " " +
-										ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/case") + (in.cases.size() > 0? "s": "");
+										(in.cases.size() == 1 ? ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/case") 
+																					: ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/cases"));
 
 
 ' #txt
 Cs0 f4 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Cs0 f4 94 260 36 24 20 -2 #rect
+Cs0 f4 @|RichDialogProcessStepIcon #fIcon
+Cs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>find cases 
-according to 
-display mode
-</name>
-        <nameStyle>39,9
+        <name>build the display ids
+define the permissions (case read, case destroy),
+set confirmation text,
+register for the system events Workflow</name>
+        <nameStyle>134,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f4 94 260 36 24 20 -2 #rect
-Cs0 f4 @|RichDialogProcessStepIcon #fIcon
 Cs0 f7 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
 ' #txt
 Cs0 f7 actionTable 'out=in;
@@ -258,18 +271,6 @@ out.confirmation = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/c
 // register to System events of Workflow category
 ivy.rd.subscribeToSystemEvents(SystemEventCategory.WORKFLOW);' #txt
 Cs0 f7 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>build the display ids
-define the permissions (case read, case destroy),
-set confirmation text,
-register for the system events Workflow</name>
-        <nameStyle>134,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f7 94 172 36 24 20 -2 #rect
 Cs0 f7 @|RichDialogProcessStepIcon #fIcon
 Cs0 f8 expr out #txt
@@ -280,9 +281,6 @@ Cs0 f9 expr out #txt
 Cs0 f9 176 90 130 184 #arcP
 Cs0 f9 1 176 184 #addKink
 Cs0 f9 1 0.1151278918803634 0 0 #arcLabel
-Cs0 f6 guid 119A4A80FB8A5F66 #txt
-Cs0 f6 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f6 method refresh() #txt
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -290,19 +288,15 @@ Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f6 guid 119A4A80FB8A5F66 #txt
+Cs0 f6 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
+Cs0 f6 method refresh() #txt
 Cs0 f6 398 70 20 20 13 0 #rect
 Cs0 f6 @|RichDialogMethodStartIcon #fIcon
 Cs0 f10 expr out #txt
 Cs0 f10 408 90 130 272 #arcP
 Cs0 f10 1 408 272 #addKink
 Cs0 f10 1 0.0032357713869754236 0 0 #arcLabel
-Cs0 f11 guid 119A4A883123F67D #txt
-Cs0 f11 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f11 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
-' #txt
-Cs0 f11 actionTable 'out=in;
-' #txt
-Cs0 f11 actionCode panel.getPanelAPI().unload(); #txt
 Cs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -312,6 +306,13 @@ Cs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f11 guid 119A4A883123F67D #txt
+Cs0 f11 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
+Cs0 f11 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
+' #txt
+Cs0 f11 actionTable 'out=in;
+' #txt
+Cs0 f11 actionCode panel.getPanelAPI().unload(); #txt
 Cs0 f11 982 70 20 20 13 0 #rect
 Cs0 f11 @|RichDialogProcessStartIcon #fIcon
 Cs0 f12 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
@@ -319,12 +320,6 @@ Cs0 f12 979 427 26 26 14 0 #rect
 Cs0 f12 @|RichDialogProcessEndIcon #fIcon
 Cs0 f13 expr out #txt
 Cs0 f13 992 90 992 427 #arcP
-Cs0 f14 guid 119A4AB3CDD9C7A6 #txt
-Cs0 f14 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
-' #txt
-Cs0 f14 actionTable 'out=in;
-' #txt
 Cs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -334,18 +329,18 @@ Cs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f14 guid 119A4AB3CDD9C7A6 #txt
+Cs0 f14 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
+Cs0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
+' #txt
+Cs0 f14 actionTable 'out=in;
+' #txt
 Cs0 f14 454 70 20 20 13 0 #rect
 Cs0 f14 @|RichDialogProcessStartIcon #fIcon
 Cs0 f15 expr out #txt
 Cs0 f15 464 90 130 272 #arcP
 Cs0 f15 1 464 272 #addKink
 Cs0 f15 1 0.12146579266162444 0 0 #arcLabel
-Cs0 f16 guid 119A4C070753787A #txt
-Cs0 f16 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f16 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
-' #txt
-Cs0 f16 actionTable 'out=in;
-' #txt
 Cs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -355,19 +350,18 @@ Cs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f16 guid 119A4C070753787A #txt
+Cs0 f16 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
+Cs0 f16 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
+' #txt
+Cs0 f16 actionTable 'out=in;
+' #txt
 Cs0 f16 886 70 20 20 13 0 #rect
 Cs0 f16 @|RichDialogProcessStartIcon #fIcon
 Cs0 f17 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f17 guid 119A4C0793FAE29A #txt
 Cs0 f17 883 427 26 26 14 0 #rect
 Cs0 f17 @|RichDialogEndIcon #fIcon
-Cs0 f19 guid 119C28D71BD977A9 #txt
-Cs0 f19 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f19 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
-' #txt
-Cs0 f19 actionTable 'out=in;
-' #txt
-Cs0 f19 actionCode 'out.selectedDestinationDisplay = panel.caseDisplayTabbedDisplay;' #txt
 Cs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -377,18 +371,18 @@ Cs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f19 guid 119C28D71BD977A9 #txt
+Cs0 f19 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
+Cs0 f19 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
+' #txt
+Cs0 f19 actionTable 'out=in;
+' #txt
+Cs0 f19 actionCode 'out.selectedDestinationDisplay = panel.caseDisplayTabbedDisplay;' #txt
 Cs0 f19 102 510 20 20 13 0 #rect
 Cs0 f19 @|RichDialogProcessStartIcon #fIcon
 Cs0 f20 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f20 99 867 26 26 14 0 #rect
 Cs0 f20 @|RichDialogProcessEndIcon #fIcon
-Cs0 f22 guid 119C294D123A469B #txt
-Cs0 f22 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f22 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
-' #txt
-Cs0 f22 actionTable 'out=in;
-' #txt
-Cs0 f22 actionCode 'out.selectedDestinationDisplay = in.caseDisplayListParentDisplay;' #txt
 Cs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -398,8 +392,26 @@ Cs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f22 guid 119C294D123A469B #txt
+Cs0 f22 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
+Cs0 f22 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
+' #txt
+Cs0 f22 actionTable 'out=in;
+' #txt
+Cs0 f22 actionCode 'out.selectedDestinationDisplay = in.caseDisplayListParentDisplay;' #txt
 Cs0 f22 158 542 20 20 13 0 #rect
 Cs0 f22 @|RichDialogProcessStartIcon #fIcon
+Cs0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>define the destination display
+and check if case already loaded
+if yes, refresh it</name>
+        <nameStyle>82,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f24 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
 ' #txt
 Cs0 f24 actionTable 'out=in;
@@ -440,17 +452,6 @@ for (int i=0; i< componentsList.size(); i++)
 	
 }' #txt
 Cs0 f24 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>define the destination display
-and check if case already loaded
-if yes, refresh it</name>
-        <nameStyle>82,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f24 94 652 36 24 20 -2 #rect
 Cs0 f24 @|RichDialogProcessStepIcon #fIcon
 Cs0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -498,6 +499,16 @@ Cs0 f29 98 706 28 28 14 0 #rect
 Cs0 f29 @|AlternativeIcon #fIcon
 Cs0 f30 expr out #txt
 Cs0 f30 112 676 112 706 #arcP
+Cs0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>load the 
+case details</name>
+        <nameStyle>22,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f31 targetWindow THIS #txt
 Cs0 f31 targetDisplay <%=in.selectedDestinationDisplay.getDisplayId()%> #txt
 Cs0 f31 richDialogId ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay #txt
@@ -518,16 +529,6 @@ use_default=true
 Cs0 f31 isAsynch true #txt
 Cs0 f31 isInnerRd true #txt
 Cs0 f31 isDialog false #txt
-Cs0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>load the 
-case details</name>
-        <nameStyle>22,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f31 94 772 36 24 20 -2 #rect
 Cs0 f31 @|RichDialogIcon #fIcon
 Cs0 f32 expr in #txt
@@ -549,12 +550,6 @@ Cs0 f33 126 720 125 880 #arcP
 Cs0 f33 1 248 720 #addKink
 Cs0 f33 2 248 880 #addKink
 Cs0 f33 1 0.4159959148479911 0 0 #arcLabel
-Cs0 f38 guid 11A08EF0B1A8D34B #txt
-Cs0 f38 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f38 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
-' #txt
-Cs0 f38 actionTable 'out=in;
-' #txt
 Cs0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -563,6 +558,12 @@ Cs0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
+' #txt
+Cs0 f38 guid 11A08EF0B1A8D34B #txt
+Cs0 f38 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
+Cs0 f38 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
+' #txt
+Cs0 f38 actionTable 'out=in;
 ' #txt
 Cs0 f38 454 510 20 20 13 0 #rect
 Cs0 f38 @|RichDialogProcessStartIcon #fIcon
@@ -579,6 +580,17 @@ Cs0 f41 450 554 28 28 14 0 #rect
 Cs0 f41 @|AlternativeIcon #fIcon
 Cs0 f42 expr out #txt
 Cs0 f42 464 530 464 554 #arcP
+Cs0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>destroy the
+selected case
+and update the list of cases</name>
+        <nameStyle>54,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f43 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
 ' #txt
 Cs0 f43 actionTable 'out=in;
@@ -603,17 +615,6 @@ catch (Exception ex)
 }
 ' #txt
 Cs0 f43 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>destroy the
-selected case
-and update the list of cases</name>
-        <nameStyle>54,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f43 446 756 36 24 23 -28 #rect
 Cs0 f43 @|RichDialogProcessStepIcon #fIcon
 Cs0 f45 expr in #txt
@@ -621,12 +622,6 @@ Cs0 f45 478 568 477 880 #arcP
 Cs0 f45 1 784 568 #addKink
 Cs0 f45 2 784 880 #addKink
 Cs0 f45 1 0.3553683707309892 0 0 #arcLabel
-Cs0 f46 guid 11A08FA18A39B90B #txt
-Cs0 f46 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f46 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
-' #txt
-Cs0 f46 actionTable 'out=in;
-' #txt
 Cs0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -636,8 +631,19 @@ Cs0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f46 guid 11A08FA18A39B90B #txt
+Cs0 f46 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
+Cs0 f46 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
+' #txt
+Cs0 f46 actionTable 'out=in;
+' #txt
 Cs0 f46 862 510 20 20 13 0 #rect
 Cs0 f46 @|RichDialogProcessStartIcon #fIcon
+Cs0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Cs0 f47 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
 ' #txt
 Cs0 f47 actionTable 'out=in;
@@ -662,19 +668,8 @@ panel.destroyCaseButton.enabled = selectedCase.getState().equals(CaseState.CREAT
 
 ' #txt
 Cs0 f47 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Cs0 f47 854 700 36 24 20 -2 #rect
 Cs0 f47 @|RichDialogProcessStepIcon #fIcon
-Cs0 f50 guid 11A2733FAE51A255 #txt
-Cs0 f50 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f50 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
-' #txt
-Cs0 f50 actionTable 'out=in;
-' #txt
 Cs0 f50 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -684,8 +679,23 @@ Cs0 f50 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f50 guid 11A2733FAE51A255 #txt
+Cs0 f50 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
+Cs0 f50 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
+' #txt
+Cs0 f50 actionTable 'out=in;
+' #txt
 Cs0 f50 310 302 20 20 13 0 #rect
 Cs0 f50 @|RichDialogProcessStartIcon #fIcon
+Cs0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>isRunningCasesMode()</name>
+        <nameStyle>20,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f52 guid 11ACA7395025E4AC #txt
 Cs0 f52 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f52 method isRunningCasesMode() #txt
@@ -696,24 +706,12 @@ Cs0 f52 outParameterDecl '<java.lang.Boolean aRunningCasesMode> result;
 ' #txt
 Cs0 f52 outParameterMapAction 'result.aRunningCasesMode=in.runningCasesMode;
 ' #txt
-Cs0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>isRunningCasesMode()</name>
-        <nameStyle>20,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f52 494 302 20 20 13 0 #rect
 Cs0 f52 @|RichDialogMethodStartIcon #fIcon
 Cs0 f53 expr out #txt
 Cs0 f53 504 322 125 440 #arcP
 Cs0 f53 1 504 440 #addKink
 Cs0 f53 1 0.3065055049415917 0 0 #arcLabel
-Cs0 f54 guid 11ACA838872138BD #txt
-Cs0 f54 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f54 method close() #txt
 Cs0 f54 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -721,6 +719,9 @@ Cs0 f54 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f54 guid 11ACA838872138BD #txt
+Cs0 f54 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
+Cs0 f54 method close() #txt
 Cs0 f54 926 110 20 20 13 0 #rect
 Cs0 f54 @|RichDialogMethodStartIcon #fIcon
 Cs0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -752,9 +753,19 @@ Cs0 f44 @|RichDialogProcessEndIcon #fIcon
 Cs0 f56 expr out #txt
 Cs0 f56 872 724 872 867 #arcP
 Cs0 f56 0 0.9069236757369171 0 0 #arcLabel
+Cs0 f174 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>infom the user
+permission denied</name>
+        <nameStyle>32,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f174 targetWindow NEW #txt
 Cs0 f174 targetDisplay TOP #txt
-Cs0 f174 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.MessageDialog #txt
+Cs0 f174 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Cs0 f174 startMethod showMessageWithTitle(String,String) #txt
 Cs0 f174 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f174 requestActionDecl '<String aMessageTitle, String aMessageText> param;' #txt
@@ -777,16 +788,6 @@ title=Information
 Cs0 f174 isAsynch false #txt
 Cs0 f174 isInnerRd true #txt
 Cs0 f174 isDialog true #txt
-Cs0 f174 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>infom the user
-permission denied</name>
-        <nameStyle>32,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f174 686 812 36 24 20 -2 #rect
 Cs0 f174 @|RichDialogIcon #fIcon
 Cs0 f49 expr in #txt
@@ -797,6 +798,17 @@ Cs0 f37 expr out #txt
 Cs0 f37 704 836 477 880 #arcP
 Cs0 f37 1 704 880 #addKink
 Cs0 f37 1 0.2037354223333722 0 0 #arcLabel
+Cs0 f89 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>build popup menu 
+text, icons, titled border with
+CMS resources </name>
+        <nameStyle>64,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f89 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
 ' #txt
 Cs0 f89 actionTable 'out=in;
@@ -825,17 +837,6 @@ panel.destroyCaseMenuItem.setToolTipText(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui
 panel.destroyCaseMenuItem.setIconUri("/ch/ivyteam/ivy/workflow/ui/case/images/destroyCase16");
 ' #txt
 Cs0 f89 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f89 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>build popup menu 
-text, icons, titled border with
-CMS resources </name>
-        <nameStyle>64,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f89 302 372 36 24 20 -2 #rect
 Cs0 f89 @|RichDialogProcessStepIcon #fIcon
 Cs0 f57 expr out #txt
@@ -845,9 +846,6 @@ Cs0 f51 expr out #txt
 Cs0 f51 320 396 125 440 #arcP
 Cs0 f51 1 320 440 #addKink
 Cs0 f51 1 0.3735938815273156 0 0 #arcLabel
-Cs0 f58 actionCode panel.fireCloseCaseDisplayList(); #txt
-Cs0 f58 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f58 fireEvent closeCaseDisplayList() #txt
 Cs0 f58 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -858,6 +856,9 @@ Cs0 f58 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f58 actionCode panel.fireCloseCaseDisplayList(); #txt
+Cs0 f58 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
+Cs0 f58 fireEvent closeCaseDisplayList() #txt
 Cs0 f58 878 292 36 24 20 -2 #rect
 Cs0 f58 @|RichDialogFireEventIcon #fIcon
 Cs0 f59 expr out #txt
@@ -866,6 +867,15 @@ Cs0 f18 expr out #txt
 Cs0 f18 933 129 899 292 #arcP
 Cs0 f60 expr out #txt
 Cs0 f60 904 316 984 429 #arcP
+Cs0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>findCaseByName</name>
+        <nameStyle>14,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f55 guid 11E36ED810E5980E #txt
 Cs0 f55 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f55 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
@@ -923,15 +933,6 @@ out.footerMessage = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/
 										ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/case") + (out.filteredCases.size() > 0? "s": "");
 
 ' #txt
-Cs0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>findCaseByName</name>
-        <nameStyle>14,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f55 686 78 20 20 13 0 #rect
 Cs0 f55 @|RichDialogProcessStartIcon #fIcon
 Cs0 f61 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
@@ -939,14 +940,6 @@ Cs0 f61 683 283 26 26 14 0 #rect
 Cs0 f61 @|RichDialogProcessEndIcon #fIcon
 Cs0 f62 expr out #txt
 Cs0 f62 696 98 696 283 #arcP
-Cs0 f205 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
-' #txt
-Cs0 f205 actionTable 'out=in;
-' #txt
-Cs0 f205 actionCode 'out.filteredCases.clear();
-
-out.filteredCases.addAll(in.cases);' #txt
-Cs0 f205 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f205 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -957,15 +950,33 @@ and add it all cases</name>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f205 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
+' #txt
+Cs0 f205 actionTable 'out=in;
+' #txt
+Cs0 f205 actionCode 'out.filteredCases.clear();
+
+out.filteredCases.addAll(in.cases);' #txt
+Cs0 f205 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f205 94 356 36 24 20 -2 #rect
 Cs0 f205 @|RichDialogProcessStepIcon #fIcon
 Cs0 f63 expr out #txt
 Cs0 f63 112 284 112 356 #arcP
 Cs0 f3 expr out #txt
 Cs0 f3 112 380 112 427 #arcP
+Cs0 f92 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>confirmation 
+for destroy a case</name>
+        <nameStyle>32,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f92 targetWindow NEW #txt
 Cs0 f92 targetDisplay TOP #txt
-Cs0 f92 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.QuestionDialog #txt
+Cs0 f92 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
 Cs0 f92 startMethod askQuestionWithTitle(String,String,String,List<String>) #txt
 Cs0 f92 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f92 panelName <%=in.confirmation%> #txt
@@ -995,7 +1006,9 @@ title=<%\\=in.confirmation%>
 Cs0 f92 isAsynch true #txt
 Cs0 f92 isInnerRd true #txt
 Cs0 f92 isDialog true #txt
-Cs0 f92 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Cs0 f92 2406 884 36 24 20 -2 #rect
+Cs0 f92 @|RichDialogIcon #fIcon
+Cs0 f64 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>confirmation 
@@ -1005,11 +1018,9 @@ for destroy a case</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f92 2406 884 36 24 20 -2 #rect
-Cs0 f92 @|RichDialogIcon #fIcon
 Cs0 f64 targetWindow NEW #txt
 Cs0 f64 targetDisplay TOP #txt
-Cs0 f64 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.QuestionDialog #txt
+Cs0 f64 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
 Cs0 f64 startMethod askQuestionWithTitle(String,String,String,List<String>) #txt
 Cs0 f64 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f64 panelName <%=in.confirmation%> #txt
@@ -1037,16 +1048,6 @@ title=<%\\=in.confirmation%>
 Cs0 f64 isAsynch false #txt
 Cs0 f64 isInnerRd true #txt
 Cs0 f64 isDialog true #txt
-Cs0 f64 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>confirmation 
-for destroy a case</name>
-        <nameStyle>32,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f64 446 660 36 24 20 -2 #rect
 Cs0 f64 @|RichDialogIcon #fIcon
 Cs0 f65 expr in #txt
@@ -1178,9 +1179,19 @@ Cs0 f40 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f40 464 822 464 867 #arcP
+Cs0 f182 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>show
+error dialog</name>
+        <nameStyle>17,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f182 targetWindow NEW #txt
 Cs0 f182 targetDisplay TOP #txt
-Cs0 f182 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.ErrorDialog #txt
+Cs0 f182 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
 Cs0 f182 startMethod showError(java.lang.Throwable,Boolean,Boolean) #txt
 Cs0 f182 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f182 requestActionDecl '<java.lang.Throwable error, Boolean showCopyButton, Boolean showDetailButton> param;' #txt
@@ -1209,16 +1220,6 @@ title=Error
 Cs0 f182 isAsynch false #txt
 Cs0 f182 isInnerRd true #txt
 Cs0 f182 isDialog true #txt
-Cs0 f182 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>show
-error dialog</name>
-        <nameStyle>17,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f182 550 828 36 24 20 -2 #rect
 Cs0 f182 @|RichDialogIcon #fIcon
 Cs0 f77 expr in #txt

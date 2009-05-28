@@ -83,7 +83,7 @@ private RFlowLayoutPane caseDisplayModeFlowLayoutPane = null;
    */
   private void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(453,584));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(300,584));
         this.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(12, 74, 124), 1), " Case list search ", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.BOLD, 11), new Color(12, 74, 124)));
         this.add(getFooterLabel(), com.ulcjava.base.application.ULCBorderLayoutPane.SOUTH);
         this.add(getCaseHierarchyLayoutScrollPane(), com.ulcjava.base.application.ULCBorderLayoutPane.CENTER);
@@ -214,7 +214,7 @@ private CaseFiltersSelectPanel getCaseFiltersSelectRDC() {
 		caseFiltersSelectRDC = new CaseFiltersSelectPanel();
 		caseFiltersSelectRDC.setName("caseFiltersSelectRDC");
 		caseFiltersSelectRDC.setName("caseFiltersSelectRDC");
-		caseFiltersSelectRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(330,510));
+		caseFiltersSelectRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(200,510));
 	}
 	return caseFiltersSelectRDC;
 }

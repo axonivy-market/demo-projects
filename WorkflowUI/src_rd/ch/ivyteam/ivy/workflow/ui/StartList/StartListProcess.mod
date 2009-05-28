@@ -296,7 +296,7 @@ Ss0 f16 expr out #txt
 Ss0 f16 512 50 512 243 #arcP
 Ss0 f17 targetWindow NEW #txt
 Ss0 f17 targetDisplay TOP #txt
-Ss0 f17 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.ErrorDialog #txt
+Ss0 f17 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
 Ss0 f17 startMethod showError(java.lang.Throwable,Boolean,Boolean) #txt
 Ss0 f17 type ch.ivyteam.ivy.workflow.ui.StartList.StartListData #txt
 Ss0 f17 requestActionDecl '<java.lang.Throwable error, Boolean showCopyButton, Boolean showDetailButton> param;' #txt

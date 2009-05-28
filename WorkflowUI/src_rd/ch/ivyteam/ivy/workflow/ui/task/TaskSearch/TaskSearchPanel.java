@@ -87,7 +87,7 @@ private RFlowLayoutPane taskDisplayFlowLayoutPane = null;
    */
   public void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(423,600));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(300,600));
         this.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(12, 74, 124), 1), "Task List", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.BOLD, 11), new Color(12, 74, 124)));
         this.add(getViewPrefsAndSearchGridBagLayoutPane(), com.ulcjava.base.application.ULCBorderLayoutPane.NORTH);
         this.add(getFooterLabel(), com.ulcjava.base.application.ULCBorderLayoutPane.SOUTH);
@@ -467,7 +467,7 @@ private TaskFiltersSelectPanel getTaskFiltersSelectRDC() {
 		taskFiltersSelectRDC = new TaskFiltersSelectPanel();
 		taskFiltersSelectRDC.setName("taskFiltersSelectRDC");
 		taskFiltersSelectRDC.setName("taskFiltersSelectRDC");
-		taskFiltersSelectRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(330,525));
+		taskFiltersSelectRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(200,525));
 	}
 	return taskFiltersSelectRDC;
 }

@@ -1,4 +1,4 @@
-co: name={downloadAndOpenUserGuide} description={} changed={2009-05-13 15:17:54 GMT} changedby={bb} visualorder={0} guid={120E7879DE1EE4A7} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={120E7879DF0EF32B} datatype={} isdefault={true} langid={en} description={} validfrom={2009-04-27 12:23:25 GMT} validto={} changed={2009-04-27 12:36:31 GMT} changedby={tirib} properties={} id={}
+co: name={downloadAndOpenUserGuide} description={} changed={2009-05-28 11:31:19 GMT} changedby={bb} visualorder={0} guid={120E7879DE1EE4A7} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={120E7879DF0EF32B} datatype={} isdefault={true} langid={en} description={} validfrom={2009-04-27 12:23:25 GMT} validto={} changed={2009-05-28 11:00:14 GMT} changedby={bb} properties={} id={}
 val: guid={120E787A89FD9DEE} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-04-27 12:23:28 GMT} validto={} changed={2009-04-27 12:36:31 GMT} changedby={tirib} properties={} id={}
-val: guid={1213A8B71154C3EB} datatype={} isdefault={false} langid={de} description={} validfrom={2009-05-13 15:16:05 GMT} validto={} changed={2009-05-13 15:17:54 GMT} changedby={bb} properties={} id={}
+val: guid={1213A8B71154C3EB} datatype={} isdefault={false} langid={de} description={} validfrom={2009-05-13 15:16:05 GMT} validto={} changed={2009-05-28 11:31:19 GMT} changedby={bb} properties={} id={}

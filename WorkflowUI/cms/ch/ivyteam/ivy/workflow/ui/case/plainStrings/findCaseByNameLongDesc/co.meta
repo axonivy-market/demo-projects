@@ -1,3 +1,4 @@
-co: name={findCaseByNameLongDesc} description={} changed={2008-12-14 19:15:02 GMT} changedby={tirib} visualorder={0} guid={11E36EB4A1AD9F91} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+co: name={findCaseByNameLongDesc} description={} changed={2009-05-28 13:13:58 GMT} changedby={bb} visualorder={0} guid={11E36EB4A1AD9F91} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
 val: guid={11E36EB6D7080521} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-12-14 19:14:05 GMT} validto={} changed={2008-12-14 19:14:30 GMT} changedby={tirib} properties={} id={}
+val: guid={1218759F7DC214C9} datatype={} isdefault={false} langid={de} description={} validfrom={2009-05-28 13:12:48 GMT} validto={} changed={2009-05-28 13:13:58 GMT} changedby={bb} properties={} id={}
 val: guid={11E36EB4A1A4B56D} datatype={} isdefault={true} langid={en} description={} validfrom={2008-12-14 19:13:56 GMT} validto={} changed={2008-12-14 19:15:02 GMT} changedby={tirib} properties={} id={}

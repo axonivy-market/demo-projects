@@ -23,6 +23,7 @@ import ch.ivyteam.ivy.workflow.ui.task.ie.IntermediateEventDisplay.IntermediateE
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RCardPane;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
+import com.ulcjava.base.application.util.Color;
 
 /**
  * RichDialog panel implementation for TaskInformationDisplayPanel.
@@ -88,7 +89,7 @@ private RTabbedPane taskExecutionPane = null;
    */
   public void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(461,439));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(646,796));
         this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(730,809));
         this.add(getTaskActionsToolBar(), com.ulcjava.base.application.ULCBorderLayoutPane.NORTH);
         this.add(getFooterLabel(), com.ulcjava.base.application.ULCBorderLayoutPane.SOUTH);
@@ -107,7 +108,7 @@ private RTaskPane getCaseNotesTaskPane() {
 		caseNotesTaskPane.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
 		caseNotesTaskPane.setSpecial(false);
 		caseNotesTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/annotations\")%>");
-		caseNotesTaskPane.setExpanded(false);
+		caseNotesTaskPane.setExpanded(true);
 		caseNotesTaskPane.add(getCaseNoteDisplayListRDC());
 	}
 	return caseNotesTaskPane;
@@ -159,7 +160,7 @@ private CaseCategorizationDetailsDisplayPanel getCaseCategorizationDetailsDispla
 	if (caseCategorizationDetailsDisplayRDC == null) {
 		caseCategorizationDetailsDisplayRDC = new CaseCategorizationDetailsDisplayPanel();
 		caseCategorizationDetailsDisplayRDC.setName("caseCategorizationDetailsDisplayRDC");
-		caseCategorizationDetailsDisplayRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,525));
+		caseCategorizationDetailsDisplayRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,550));
 	}
 	return caseCategorizationDetailsDisplayRDC;
 }
@@ -187,7 +188,7 @@ private RSplitPane getTaskDetailsSplitPane() {
 	if (taskDetailsSplitPane == null) {
 		taskDetailsSplitPane = new RSplitPane();
 		taskDetailsSplitPane.setName("taskDetailsSplitPane");
-		taskDetailsSplitPane.setDividerLocation(500);
+		taskDetailsSplitPane.setDividerLocation(450);
 		taskDetailsSplitPane.setLeftComponent(getTaskDetailsScrollPane());
 		taskDetailsSplitPane.setRightComponent(getTaskNotesScrollPane());
 		taskDetailsSplitPane.setStyleProperties("{/dividerLocation \"0.6\"}");
@@ -204,7 +205,7 @@ private RSplitPane getCaseDetailsSplitPane() {
 	if (caseDetailsSplitPane == null) {
 		caseDetailsSplitPane = new RSplitPane();
 		caseDetailsSplitPane.setName("caseDetailsSplitPane");
-		caseDetailsSplitPane.setDividerLocation(500);
+		caseDetailsSplitPane.setDividerLocation(450);
 		caseDetailsSplitPane.setLeftComponent(getCaseDetailsScrollPane());
 		caseDetailsSplitPane.setRightComponent(getCaseNotesScrollPane());
 		caseDetailsSplitPane.setStyleProperties("{/dividerLocation \"0.6\"}");
@@ -309,7 +310,8 @@ private CaseNoteDisplayListPanel getCaseNoteDisplayListRDC() {
 	if (caseNoteDisplayListRDC == null) {
 		caseNoteDisplayListRDC = new CaseNoteDisplayListPanel();
 		caseNoteDisplayListRDC.setName("caseNoteDisplayListRDC");
-		caseNoteDisplayListRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,500));
+		caseNoteDisplayListRDC.setForeground(Color.darkGray);
+		caseNoteDisplayListRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,550));
 	}
 	return caseNoteDisplayListRDC;
 }
@@ -401,7 +403,7 @@ private RTaskPane getTaskNotesTaskPane() {
 		taskNotesTaskPane = new RTaskPane();
 		taskNotesTaskPane.setName("taskNotesTaskPane");
 		taskNotesTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/annotations\")%>");
-		taskNotesTaskPane.setExpanded(false);
+		taskNotesTaskPane.setExpanded(true);
 		taskNotesTaskPane.add(getTaskNoteDisplayListRDC());
 	}
 	return taskNotesTaskPane;
@@ -460,7 +462,7 @@ private TaskNoteDisplayListPanel getTaskNoteDisplayListRDC() {
 	if (taskNoteDisplayListRDC == null) {
 		taskNoteDisplayListRDC = new TaskNoteDisplayListPanel();
 		taskNoteDisplayListRDC.setName("taskNoteDisplayListRDC");
-		taskNoteDisplayListRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,500));
+		taskNoteDisplayListRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,550));
 	}
 	return taskNoteDisplayListRDC;
 }

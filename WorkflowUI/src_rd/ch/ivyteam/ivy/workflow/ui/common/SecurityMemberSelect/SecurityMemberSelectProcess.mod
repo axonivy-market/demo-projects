@@ -439,7 +439,7 @@ Ds0 f19 488 230 488 292 #arcP
 Ds0 @RichDialog f21 '' #zField
 Ds0 f21 targetWindow NEW #txt
 Ds0 f21 targetDisplay TOP #txt
-Ds0 f21 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.MessageDialog #txt
+Ds0 f21 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Ds0 f21 startMethod showMessageWithTitle(String,String) #txt
 Ds0 f21 type ch.ivyteam.ivy.workflow.ui.common.SecurityMemberSelect.SecurityMemberSelectData #txt
 Ds0 f21 panelName 'Permission denied' #txt
@@ -488,7 +488,7 @@ Ds0 f25 0 0.714891470163533 0 0 #arcLabel
 Ds0 @RichDialog f26 '' #zField
 Ds0 f26 targetWindow NEW #txt
 Ds0 f26 targetDisplay TOP #txt
-Ds0 f26 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.MessageDialog #txt
+Ds0 f26 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Ds0 f26 startMethod showMessageWithTitle(String,String) #txt
 Ds0 f26 type ch.ivyteam.ivy.workflow.ui.common.SecurityMemberSelect.SecurityMemberSelectData #txt
 Ds0 f26 panelName 'Permission denied' #txt

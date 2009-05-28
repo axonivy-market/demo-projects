@@ -31,7 +31,7 @@ private RComboBox caseHierarchyLayoutComboBox = null;
    */
   private void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(224,25));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(200,25));
         this.add(getCaseHierarchyLayoutComboBox(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 

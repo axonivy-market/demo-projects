@@ -14,6 +14,8 @@ import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
 
 import com.ulcjava.base.application.ULCFlowLayoutPane;
+import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
+import ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem;
 
 /**
  * RichDialog panel implementation for ApplicationDynamicWayPanel.
@@ -41,6 +43,8 @@ private RLabel environmentLabel = null;
 private RLabel onLabel = null;
 private RHyperlink helpHyperlink = null;
 private RLabel aLabel1 = null;
+private RPopupMenu helpPopupMenu = null;  //  @jve:decl-index=0:visual-constraint="631,275"
+private RMenuItem downloadHelpMenuItem = null;
 /**
    * Create a new instance of ApplicationDynamicWayPanel
    */
@@ -70,6 +74,9 @@ private RCardDisplay getWestCardDisplay() {
 	if (westCardDisplay == null) {
 		westCardDisplay = new RCardDisplay();
 		westCardDisplay.setName("westCardDisplay");
+		westCardDisplay.setPreferredSize(new com.ulcjava.base.application.util.Dimension(200,20));
+		westCardDisplay.setMinimumSize(new com.ulcjava.base.application.util.Dimension(200,20));
+		westCardDisplay.setMaximumSize(new com.ulcjava.base.application.util.Dimension(400,20));
 		westCardDisplay.setDisplayId("workflowUiWestDisplay");
 		westCardDisplay.setName("westCardDisplay");
 	}
@@ -135,7 +142,7 @@ private RSplitPane getTaskSearchAndTaskListSplitPane() {
 		taskSearchAndTaskListSplitPane = new RSplitPane();
 		taskSearchAndTaskListSplitPane.setName("taskSearchAndTaskListSplitPane");
 		taskSearchAndTaskListSplitPane.setStyleProperties("{/dividerLocation \"0.3\"/weightY \"1\"/weightX \"1\"}");
-		taskSearchAndTaskListSplitPane.setDividerLocation(358);
+		taskSearchAndTaskListSplitPane.setDividerLocation(200);
 		taskSearchAndTaskListSplitPane.setName("taskSearchAndTaskListSplitPane");
 		taskSearchAndTaskListSplitPane.setRightComponent(getTaskListBorderLayoutPane());
 		taskSearchAndTaskListSplitPane.setLeftComponent(getWestCardDisplay());
@@ -153,6 +160,7 @@ private RBorderLayoutPane getTaskListBorderLayoutPane() {
 		taskListBorderLayoutPane = new RBorderLayoutPane();
 		taskListBorderLayoutPane.setName("taskListBorderLayoutPane");
 		taskListBorderLayoutPane.setStyleProperties("{/insetsTop \"6\"/weightY \"1\"/weightX \"1\"}");
+		taskListBorderLayoutPane.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,20));
 		taskListBorderLayoutPane.setName("taskListBorderLayoutPane");
 		taskListBorderLayoutPane.add(getActionsFlowLayoutPane(), com.ulcjava.base.application.ULCBorderLayoutPane.SOUTH);
 		taskListBorderLayoutPane.add(getCenterTabbedDisplay(), com.ulcjava.base.application.ULCBorderLayoutPane.CENTER);
@@ -241,7 +249,7 @@ private RHyperlink getLogoutHyperlink() {
 	if (logoutHyperlink == null) {
 		logoutHyperlink = new RHyperlink();
 		logoutHyperlink.setText(" <%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/logoutShortDesc\")%> ");
-		logoutHyperlink.setStyleProperties("{/anchor \"CENTER\"/insetsTop \"0\"/insetsLeft \"0\"}");
+		logoutHyperlink.setStyleProperties("{/anchor \"CENTER\"/insetsTop \"4\"/insetsLeft \"0\"}");
 		logoutHyperlink.setName("logoutHyperlink");
 		logoutHyperlink.setToolTipText(" <%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/logoutLongDesc\")%> ");
 		logoutHyperlink.setName("logoutHyperlink");
@@ -307,7 +315,8 @@ private RHyperlink getHelpHyperlink() {
 		helpHyperlink.setStyleProperties("{/anchor \"CENTER\"/insetsTop \"0\"/insetsRight \"5\"/insetsLeft \"5\"}");
 		helpHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/help/images/help24\")%>");
 		helpHyperlink.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/help/images/help32\")%>");
-		helpHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/help/plainStrings/downloadAndOpenUserGuide\")%>");
+		helpHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/help/plainStrings/openUserGuide\")%>");
+		helpHyperlink.setComponentPopupMenu(getHelpPopupMenu());
 		helpHyperlink.setName("helpHyperlink");
 	}
 	return helpHyperlink;
@@ -326,5 +335,33 @@ private RLabel getALabel1() {
 		aLabel1.setText(" | ");
 	}
 	return aLabel1;
+}
+
+/**
+ * This method initializes helpPopupMenu	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu	
+ */
+private RPopupMenu getHelpPopupMenu() {
+	if (helpPopupMenu == null) {
+		helpPopupMenu = new RPopupMenu();
+		helpPopupMenu.setName("helpPopupMenu");
+		helpPopupMenu.add(getDownloadHelpMenuItem());
+	}
+	return helpPopupMenu;
+}
+
+/**
+ * This method initializes downloadHelpMenuItem	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem	
+ */
+private RMenuItem getDownloadHelpMenuItem() {
+	if (downloadHelpMenuItem == null) {
+		downloadHelpMenuItem = new RMenuItem();
+		downloadHelpMenuItem.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/help/plainStrings/downloadAndOpenUserGuide\")%>");
+		downloadHelpMenuItem.setName("downloadHelpMenuItem");
+	}
+	return downloadHelpMenuItem;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

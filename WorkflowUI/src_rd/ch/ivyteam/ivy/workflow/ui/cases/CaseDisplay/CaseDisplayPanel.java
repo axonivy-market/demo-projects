@@ -96,7 +96,7 @@ private RSplitPane getCaseDetailsSplitPane() {
 	if (caseDetailsSplitPane == null) {
 		caseDetailsSplitPane = new RSplitPane();
 		caseDetailsSplitPane.setName("caseDetailsSplitPane");
-		caseDetailsSplitPane.setDividerLocation(500);
+		caseDetailsSplitPane.setDividerLocation(450);
 		caseDetailsSplitPane.setStyleProperties("{/dividerLocation \"0.65\"}");
 		caseDetailsSplitPane.setName("caseDetailsSplitPane");
 		caseDetailsSplitPane.setRightComponent(getCaseNotesScrollPane());
@@ -267,7 +267,7 @@ private RTaskPane getCaseNotesTaskPane() {
 		caseNotesTaskPane.setName("caseNotesTaskPane");
 		caseNotesTaskPane.setSpecial(false);
 		caseNotesTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/annotations\")%>");
-		caseNotesTaskPane.setExpanded(false);
+		caseNotesTaskPane.setExpanded(true);
 		caseNotesTaskPane.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
 		caseNotesTaskPane.add(getCaseNoteDisplayListRDC());
 	}
@@ -283,7 +283,7 @@ private CaseNoteDisplayListPanel getCaseNoteDisplayListRDC() {
 	if (caseNoteDisplayListRDC == null) {
 		caseNoteDisplayListRDC = new CaseNoteDisplayListPanel();
 		caseNoteDisplayListRDC.setName("caseNoteDisplayListRDC");
-		caseNoteDisplayListRDC.setPreferredSize(new Dimension(20, 500));
+		caseNoteDisplayListRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,540));
 	}
 	return caseNoteDisplayListRDC;
 }

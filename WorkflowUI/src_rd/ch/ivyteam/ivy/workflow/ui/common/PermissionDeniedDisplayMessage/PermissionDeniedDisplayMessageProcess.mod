@@ -89,7 +89,7 @@ Ps0 f6 272 66 272 116 #arcP
 Ps0 @RichDialog f174 '' #zField
 Ps0 f174 targetWindow NEW #txt
 Ps0 f174 targetDisplay TOP #txt
-Ps0 f174 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.MessageDialog #txt
+Ps0 f174 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Ps0 f174 startMethod showMessageWithTitle(String,String) #txt
 Ps0 f174 type ch.ivyteam.ivy.workflow.ui.common.PermissionDeniedDisplayMessage.PermissionDeniedDisplayMessageData #txt
 Ps0 f174 panelName <%=in.title%> #txt

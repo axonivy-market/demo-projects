@@ -1300,7 +1300,7 @@ permission denied</name>
 ' #txt
 Ts0 f11 targetWindow NEW #txt
 Ts0 f11 targetDisplay TOP #txt
-Ts0 f11 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.MessageDialog #txt
+Ts0 f11 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Ts0 f11 startMethod showMessageWithTitle(String,String) #txt
 Ts0 f11 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f11 requestActionDecl '<String aMessageTitle, String aMessageText> param;' #txt
@@ -1708,7 +1708,7 @@ permission denied</name>
 ' #txt
 Ts0 f89 targetWindow NEW #txt
 Ts0 f89 targetDisplay TOP #txt
-Ts0 f89 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.MessageDialog #txt
+Ts0 f89 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Ts0 f89 startMethod showMessageWithTitle(String,String) #txt
 Ts0 f89 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f89 requestActionDecl '<String aMessageTitle, String aMessageText> param;' #txt

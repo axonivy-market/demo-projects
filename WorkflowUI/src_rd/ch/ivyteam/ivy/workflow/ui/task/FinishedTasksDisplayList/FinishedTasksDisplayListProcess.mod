@@ -272,7 +272,7 @@ denied permission</name>
 ' #txt
 Fs0 f21 targetWindow NEW #txt
 Fs0 f21 targetDisplay TOP #txt
-Fs0 f21 richDialogId ch.ivyteam.ivy.richdialog.common.dialogs.MessageDialog #txt
+Fs0 f21 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Fs0 f21 startMethod showMessageWithTitle(String,String) #txt
 Fs0 f21 type ch.ivyteam.ivy.workflow.ui.task.FinishedTasksDisplayList.FinishedTasksDisplayListData #txt
 Fs0 f21 panelName 'Permission denied' #txt
