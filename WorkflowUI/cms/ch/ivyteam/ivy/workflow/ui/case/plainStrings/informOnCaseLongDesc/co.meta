@@ -1,4 +1,4 @@
-co: name={informOnCaseLongDesc} description={} changed={2008-08-01 13:27:29 GMT} changedby={tirib} visualorder={0} guid={11ADE863B84DC347} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={informOnCaseLongDesc} description={} changed={2009-06-02 15:09:22 GMT} changedby={bb} visualorder={0} guid={11ADE863B84DC347} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={11B6D8FB32A3A84F} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 06:44:38 GMT} validto={} changed={2008-07-29 06:45:47 GMT} changedby={cb} properties={} id={}
-val: guid={11ADE863B8498341} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 12:08:36 GMT} validto={} changed={2008-07-02 12:53:38 GMT} changedby={tirib} properties={} id={}
+val: guid={11ADE863B8498341} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 12:08:36 GMT} validto={} changed={2009-06-02 15:09:22 GMT} changedby={bb} properties={} id={}
 val: guid={11B73073305768BF} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 08:13:16 GMT} validto={} changed={2008-08-01 13:27:29 GMT} changedby={tirib} properties={} id={}
