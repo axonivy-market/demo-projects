@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu May 28 15:49:57 CEST 2009]
+[>Created: Thu Jun 04 12:16:43 CEST 2009]
 1175F14B3894BBC3 3.11 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskSearchProcess Big #zClass
@@ -242,6 +242,15 @@ Ts0 @RichDialogProcessStep f195 '' #zField
 Ts0 @PushWFArc f203 '' #zField
 Ts0 @PushWFArc f133 '' #zField
 >Proto Ts0 Ts0 TaskSearchProcess #zField
+Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f0 guid 1175F221618771FB #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f0 method start() #txt
@@ -256,15 +265,6 @@ out.taskDisplayMode=1;
 Ts0 f0 outParameterDecl '<> result;
 ' #txt
 Ts0 f0 embeddedRdInitializations '{/taskHierarchyLayoutSelectRDC {/fieldName "taskHierarchyLayoutSelectRDC"/startMethod "start(Number)"/parameterMapping "param.aTaskHierarchyLayoutPrefferedIndex=1;\n"/initScript ""}/taskFiltersSelectRDC {/fieldName "taskFiltersSelectRDC"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
-Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f0 134 62 20 20 13 0 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2538,6 +2538,15 @@ Ts0 f77 isInnerRd true #txt
 Ts0 f77 isDialog false #txt
 Ts0 f77 342 1244 36 24 20 -2 #rect
 Ts0 f77 @|RichDialogIcon #fIcon
+Ts0 f81 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(Boolean, RTabbedDisplay, Boolean,Boolean)</name>
+        <nameStyle>47,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f81 guid 1190F07193BE2E61 #txt
 Ts0 f81 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f81 method start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean) #txt
@@ -2579,15 +2588,6 @@ out.multipleTaskListMode =
 Ts0 f81 outParameterDecl '<> result;
 ' #txt
 Ts0 f81 embeddedRdInitializations '{/taskHierarchyLayoutSelectRDC {/fieldName "taskHierarchyLayoutSelectRDC"/startMethod "start()"/parameterMapping ""/initScript "\n/*\nimport ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;\nBoolean hasUserReadPropertyPermission = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_PROPERTY);\n\nparam.aTaskHierarchyLayoutPrefferedIndex = \n\t(hasUserReadPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).length() > 0)?\n\tivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).toNumber():\n\tivy.cms.co(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_CMS_DEFAULT_VALUE).toNumber();\n*/\t"}/taskFiltersSelectRDC {/fieldName "taskFiltersSelectRDC"/startMethod "start(Boolean,Number)"/parameterMapping "param.aRunningTaskMode=in.runningTaskMode;\nparam.aTaskDisplayMode=1;\n"/initScript ""}}' #txt
-Ts0 f81 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(Boolean, RTabbedDisplay, Boolean,Boolean)</name>
-        <nameStyle>47,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f81 214 62 20 20 13 0 #rect
 Ts0 f81 @|RichDialogInitStartIcon #fIcon
 Ts0 f84 expr out #txt
@@ -3568,7 +3568,7 @@ Ts0 f7 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out
 Ts0 f7 actionTable 'out=in;
 ' #txt
 Ts0 f7 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.task.TaskAvailableFilters;
-import ch.ivyteam.ivy.richdialog.exec.RdPanelEvent;
+import ch.ivyteam.ivy.richdialog.exec.restricted.RdPanelEvent;
 
 
 Object attachment = (event as RdPanelEvent).getAttachment();
