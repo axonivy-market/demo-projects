@@ -148,7 +148,7 @@ private RTaskPane getCaseGlobalInformationTaskPane() {
 		caseGlobalInformationTaskPane.setName("caseGlobalInformationTaskPane");
 		caseGlobalInformationTaskPane.setSpecial(true);
 		caseGlobalInformationTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseCategorizationDetails\")%>");
-		caseGlobalInformationTaskPane.setExpanded(true);
+		caseGlobalInformationTaskPane.setCollapsed(false);
 		caseGlobalInformationTaskPane.add(getCaseCategorizationDetailsDisplayRDC());
 	}
 	return caseGlobalInformationTaskPane;
@@ -178,7 +178,7 @@ private RTaskPane getCaseBusinessInformationTaskPane() {
 		caseBusinessInformationTaskPane = new RTaskPane();
 		caseBusinessInformationTaskPane.setName("caseBusinessInformationTaskPane");
 		caseBusinessInformationTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseBusinessDetails\")%>");
-		caseBusinessInformationTaskPane.setExpanded(false);
+		caseBusinessInformationTaskPane.setCollapsed(false);
 		caseBusinessInformationTaskPane.add(getCaseBusinessDetailsDisplayRDC());
 	}
 	return caseBusinessInformationTaskPane;
@@ -208,7 +208,7 @@ private RTaskPane getCaseCustomFieldsTaskPane() {
 		caseCustomFieldsTaskPane = new RTaskPane();
 		caseCustomFieldsTaskPane.setName("caseCustomFieldsTaskPane");
 		caseCustomFieldsTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseCustomFieldsDetails\")%>");
-		caseCustomFieldsTaskPane.setExpanded(false);
+		caseCustomFieldsTaskPane.setCollapsed(true);
 		caseCustomFieldsTaskPane.add(getCaseCustomFieldsDisplayRDC());
 	}
 	return caseCustomFieldsTaskPane;
@@ -267,7 +267,7 @@ private RTaskPane getCaseNotesTaskPane() {
 		caseNotesTaskPane.setName("caseNotesTaskPane");
 		caseNotesTaskPane.setSpecial(false);
 		caseNotesTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/annotations\")%>");
-		caseNotesTaskPane.setExpanded(true);
+		caseNotesTaskPane.setCollapsed(false);
 		caseNotesTaskPane.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
 		caseNotesTaskPane.add(getCaseNoteDisplayListRDC());
 	}

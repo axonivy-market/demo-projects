@@ -108,7 +108,7 @@ private RTaskPane getCaseNotesTaskPane() {
 		caseNotesTaskPane.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
 		caseNotesTaskPane.setSpecial(false);
 		caseNotesTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/annotations\")%>");
-		caseNotesTaskPane.setExpanded(true);
+		caseNotesTaskPane.setCollapsed(false);
 		caseNotesTaskPane.add(getCaseNoteDisplayListRDC());
 	}
 	return caseNotesTaskPane;
@@ -145,7 +145,7 @@ private RTaskPane getCaseGlobalInformationTaskPane() {
 		caseGlobalInformationTaskPane.setName("caseGlobalInformationTaskPane");
 		caseGlobalInformationTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseCategorizationDetails\")%>");
 		caseGlobalInformationTaskPane.setSpecial(true);
-		caseGlobalInformationTaskPane.setExpanded(true);
+		caseGlobalInformationTaskPane.setCollapsed(false);
 		caseGlobalInformationTaskPane.add(getCaseCategorizationDetailsDisplayRDC());
 	}
 	return caseGlobalInformationTaskPane;
@@ -223,7 +223,7 @@ private RTaskPane getCaseBusinessInformationTaskPane() {
 		caseBusinessInformationTaskPane = new RTaskPane();
 		caseBusinessInformationTaskPane.setName("caseBusinessInformationTaskPane");
 		caseBusinessInformationTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseBusinessDetails\")%>");
-		caseBusinessInformationTaskPane.setExpanded(false);
+		caseBusinessInformationTaskPane.setCollapsed(true);
 		caseBusinessInformationTaskPane.add(getCaseBusinessDetailsDisplayRDC());
 	}
 	return caseBusinessInformationTaskPane;
@@ -239,7 +239,7 @@ private RTaskPane getCaseCustomFieldsTaskPane() {
 		caseCustomFieldsTaskPane = new RTaskPane();
 		caseCustomFieldsTaskPane.setName("caseCustomFieldsTaskPane");
 		caseCustomFieldsTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseCustomFieldsDetails\")%>");
-		caseCustomFieldsTaskPane.setExpanded(false);
+		caseCustomFieldsTaskPane.setCollapsed(true);
 		caseCustomFieldsTaskPane.add(getCaseCustomFieldsDisplayRDC());
 	}
 	return caseCustomFieldsTaskPane;
@@ -387,7 +387,7 @@ private RTaskPane getTaskInformationTaskPane() {
 		taskInformationTaskPane.setName("taskInformationTaskPane");
 		taskInformationTaskPane.setSpecial(true);
 		taskInformationTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskParametersShortDesc\")%>");
-		taskInformationTaskPane.setExpanded(true);
+		taskInformationTaskPane.setCollapsed(false);
 		taskInformationTaskPane.add(getTaskInformationDetailsDisplayRDC());
 	}
 	return taskInformationTaskPane;
@@ -403,7 +403,7 @@ private RTaskPane getTaskNotesTaskPane() {
 		taskNotesTaskPane = new RTaskPane();
 		taskNotesTaskPane.setName("taskNotesTaskPane");
 		taskNotesTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/annotations\")%>");
-		taskNotesTaskPane.setExpanded(true);
+		taskNotesTaskPane.setCollapsed(false);
 		taskNotesTaskPane.add(getTaskNoteDisplayListRDC());
 	}
 	return taskNotesTaskPane;
@@ -433,7 +433,7 @@ private RTaskPane getTaskCustomFieldsTaskPane() {
 		taskCustomFieldsTaskPane = new RTaskPane();
 		taskCustomFieldsTaskPane.setName("taskCustomFieldsTaskPane");
 		taskCustomFieldsTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskCustomFieldsDetails\")%>");
-		taskCustomFieldsTaskPane.setExpanded(false);
+		taskCustomFieldsTaskPane.setCollapsed(true);
 		taskCustomFieldsTaskPane.add(getTaskCustomFieldsDisplayRDC());
 	}
 	return taskCustomFieldsTaskPane;
@@ -600,7 +600,7 @@ private RTaskPane getIntermediateEventTaskPane() {
 		intermediateEventTaskPane = new RTaskPane();
 		intermediateEventTaskPane.setName("intermediateEventTaskPane");
 		intermediateEventTaskPane.setTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/intermediateEventInformation\")%>");
-		intermediateEventTaskPane.setExpanded(false);
+		intermediateEventTaskPane.setCollapsed(true);
 		intermediateEventTaskPane.add(getIntermediateEventDisplayRDC());
 	}
 	return intermediateEventTaskPane;
