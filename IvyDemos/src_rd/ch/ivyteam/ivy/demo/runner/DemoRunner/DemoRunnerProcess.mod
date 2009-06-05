@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon May 25 21:44:20 CEST 2009]
+[>Created: Thu Jun 04 15:54:21 CEST 2009]
 12159193B3CDF810 3.11 #module
 >Proto >Proto Collection #zClass
 Ds0 DemoStarterProcess Big #zClass
@@ -33,7 +33,6 @@ Ds0 @Alternative f18 '' #zField
 Ds0 @PushWFArc f19 '' #zField
 Ds0 @PushWFArc f20 '' #zField
 Ds0 @PushWFArc f14 '' #zField
-Ds0 @PushWFArc f1 '' #zField
 Ds0 @RichDialog f2 '' #zField
 Ds0 @Alternative f21 '' #zField
 Ds0 @Alternative f22 '' #zField
@@ -65,6 +64,7 @@ Ds0 @PushWFArc f23 '' #zField
 Ds0 @PushWFArc f49 '' #zField
 Ds0 @PushWFArc f31 '' #zField
 Ds0 @PushWFArc f8 '' #zField
+Ds0 @PushWFArc f50 '' #zField
 >Proto Ds0 Ds0 DemoStarterProcess #zField
 Ds0 f0 guid 12159193B6A4A0AD #txt
 Ds0 f0 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
@@ -105,7 +105,8 @@ for (String rd : in.demoRichDialogs)
 	}
 	demo.richDialogId = rd;
 	demo.cmsUri = "/descriptions/" + rd.replaceAll("\\.","/");
-	demo.simpleName = rd.substring(rd.lastIndexOf(".")+1);
+	demo.simpleName = ivy.cms.co(demo.cmsUri + "/name" ).trim();
+	rd.substring(rd.lastIndexOf(".")+1);
 	out.demos.add(demo);
 }' #txt
 Ds0 f3 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
@@ -272,11 +273,6 @@ Ds0 f20 3 216 384 #addKink
 Ds0 f20 1 0.545782582006836 0 0 #arcLabel
 Ds0 f14 expr in #txt
 Ds0 f14 208 238 208 268 #arcP
-Ds0 f1 expr out #txt
-Ds0 f1 48 100 250 168 #arcP
-Ds0 f1 1 48 128 #addKink
-Ds0 f1 2 224 128 #addKink
-Ds0 f1 1 0.5413474046972035 0 0 #arcLabel
 Ds0 f2 targetWindow THIS #txt
 Ds0 f2 targetDisplay demoRunnerDisplay #txt
 Ds0 f2 richDialogId IvyScript://in.selectedDemo.richDialogId #txt
@@ -654,6 +650,11 @@ Ds0 f31 0 0.30382127106782203 0 0 #arcLabel
 Ds0 f8 expr out #txt
 Ds0 f8 478 368 445 368 #arcP
 Ds0 f8 0 0.4993959553021845 0 0 #arcLabel
+Ds0 f50 expr out #txt
+Ds0 f50 48 100 292 308 #arcP
+Ds0 f50 1 48 128 #addKink
+Ds0 f50 2 224 128 #addKink
+Ds0 f50 1 0.5413474046972035 0 0 #arcLabel
 >Proto Ds0 .ui2RdDataAction 'out.selectedDemo=panel.demoList.selectedListEntry as ch.ivyteam.ivy.demo.runner.Demo;
 ' #txt
 >Proto Ds0 .rdData2UIAction 'panel.demoList.listData=in.demos;
@@ -678,8 +679,6 @@ Ds0 f18 out f20 tail #connect
 Ds0 f20 head f9 mainIn #connect
 Ds0 f18 out f14 tail #connect
 Ds0 f14 head f13 mainIn #connect
-Ds0 f3 mainOut f1 tail #connect
-Ds0 f1 head f11 in #connect
 Ds0 f5 mainOut f24 tail #connect
 Ds0 f24 head f21 in #connect
 Ds0 f25 head f7 mainIn #connect
@@ -714,3 +713,5 @@ Ds0 f2 mainOut f31 tail #connect
 Ds0 f31 head f46 mainIn #connect
 Ds0 f46 mainOut f8 tail #connect
 Ds0 f8 head f7 mainIn #connect
+Ds0 f3 mainOut f50 tail #connect
+Ds0 f50 head f16 mainIn #connect

@@ -22,6 +22,7 @@ import com.ulcjava.base.application.util.Color;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.border.ULCBevelBorder;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RGridLayoutPane;
 
 /**
  * RichDialog panel implementation for DemoStarterPanel.
@@ -55,6 +56,7 @@ private RHyperlink finishHyperlink = null;
 private RButton startDemoButton = null;
 private RButton finishApplicationButton = null;
 private RLabel demoListTitleLabel = null;
+private RGridBagLayoutPane listPane = null;
 
 	/**
 	 * Calculates the id of a panel's RichDialog. 
@@ -82,15 +84,10 @@ private RLabel demoListTitleLabel = null;
    */
   private void initialize()
   {
-        RFiller listWidthFiller1 = new RFiller();
-        listWidthFiller1.setStyleProperties("{/usePreferredSizeAsExactSize \"true\"/preferredSizeWidth \"120\"/preferredSizeHeight \"0\"}");
         this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(575,298));
         this.add(getTitlePanel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getTabbedPane(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 5, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getListScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(listWidthFiller1, new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getFinishApplicationButton(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getDemoListTitleLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getListPane(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
 /**
@@ -103,9 +100,9 @@ private RScrollPane getListScrollPane() {
 		listScrollPane = new RScrollPane();
 		listScrollPane.setName("listScrollPane");
 		listScrollPane.setStyle("fill-vert-border");
-		listScrollPane.setStyleProperties("{/fill \"BOTH\"}");
-		listScrollPane.setName("listScrollPane");
+		listScrollPane.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
 		listScrollPane.setViewPortView(getDemoList());
+		listScrollPane.setName("listScrollPane");
 	}
 	return listScrollPane;
 }
@@ -119,6 +116,7 @@ private RList getDemoList() {
 	if (demoList == null) {
 		demoList = new RList();
 		demoList.setName("demoList");
+		demoList.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
 		demoList.setComponentPopupMenu(getActionMenu());
 		demoList.setModelConfiguration("{/result \"result=\\\" \\\"+entry.simpleName\"/version \"3.0\"/icon \"\"/tooltip \"result=entry.richDialogId\"}");
 	}
@@ -444,5 +442,22 @@ private RLabel getDemoListTitleLabel() {
 		demoListTitleLabel.setName("demoListTitleLabel");
 	}
 	return demoListTitleLabel;
+}
+
+/**
+ * This method initializes listPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane	
+ */
+private RGridBagLayoutPane getListPane() {
+	if (listPane == null) {
+		listPane = new RGridBagLayoutPane();
+		listPane.setName("listPane");
+		listPane.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"0.25\"}");
+		listPane.add(getDemoListTitleLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		listPane.add(getListScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		listPane.add(getFinishApplicationButton(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+	}
+	return listPane;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon May 25 12:13:52 CEST 2009]
+[>Created: Thu Jun 04 16:26:18 CEST 2009]
 11A29F1AD47A8679 3.11 #module
 >Proto >Proto Collection #zClass
 Cs0 ClientInvokingProcess Big #zClass
@@ -56,7 +56,7 @@ out.websites.add(flash);
 
 Website video = new Website();
 video.name="Video";
-video.url="http://de.youtube.com/watch?v=MEd154qrFV8";
+video.url="http://www.youtube.com/watch?v=4iSqxCDfPtY";
 out.websites.add(video);' #txt
 Cs0 f0 outParameterDecl '<> result;
 ' #txt
@@ -77,15 +77,6 @@ Cs0 f1 87 137 26 26 14 0 #rect
 Cs0 f1 @|RichDialogProcessEndIcon #fIcon
 Cs0 f2 expr out #txt
 Cs0 f2 100 60 100 137 #arcP
-Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>OpenWebsite</name>
-        <nameStyle>11,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f3 guid 11A2A83153E79BAA #txt
 Cs0 f3 type ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData #txt
 Cs0 f3 actionDecl 'ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData out;
@@ -97,6 +88,15 @@ Cs0 f3 actionCode 'import ch.ivyteam.ivy.demo.clientinvoking.Website;
 Website website = panel.comboUrls.getSelectedListEntry() as Website;
 
 com.ulcjava.base.application.ClientContext.showDocument(website.url);' #txt
+Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>OpenWebsite</name>
+        <nameStyle>11,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f3 206 46 20 20 13 0 #rect
 Cs0 f3 @|RichDialogProcessStartIcon #fIcon
 Cs0 f4 type ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData #txt
@@ -104,6 +104,13 @@ Cs0 f4 203 139 26 26 14 0 #rect
 Cs0 f4 @|RichDialogProcessEndIcon #fIcon
 Cs0 f5 expr out #txt
 Cs0 f5 216 66 216 139 #arcP
+Cs0 f6 guid 11A2A8AA7E0515F4 #txt
+Cs0 f6 type ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData #txt
+Cs0 f6 actionDecl 'ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData out;
+' #txt
+Cs0 f6 actionTable 'out=in;
+' #txt
+Cs0 f6 actionCode ch.ivyteam.ivy.demo.clientinvoking.FileHandling.readFile(panel); #txt
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -113,13 +120,6 @@ Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f6 guid 11A2A8AA7E0515F4 #txt
-Cs0 f6 type ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData #txt
-Cs0 f6 actionDecl 'ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData out;
-' #txt
-Cs0 f6 actionTable 'out=in;
-' #txt
-Cs0 f6 actionCode ch.ivyteam.ivy.demo.clientinvoking.FileHandling.readFile(panel); #txt
 Cs0 f6 334 46 20 20 13 0 #rect
 Cs0 f6 @|RichDialogProcessStartIcon #fIcon
 Cs0 f7 type ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData #txt
@@ -127,6 +127,14 @@ Cs0 f7 331 139 26 26 14 0 #rect
 Cs0 f7 @|RichDialogProcessEndIcon #fIcon
 Cs0 f8 expr out #txt
 Cs0 f8 344 66 344 139 #arcP
+Cs0 f9 guid 11A33B15F55DCBD7 #txt
+Cs0 f9 type ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData #txt
+Cs0 f9 actionDecl 'ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData out;
+' #txt
+Cs0 f9 actionTable 'out=in;
+' #txt
+Cs0 f9 actionCode 'import ch.ivyteam.ivy.demo.clientinvoking.FileHandling;
+FileHandling.writeFile(panel.TextArea.text, panel);' #txt
 Cs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -136,14 +144,6 @@ Cs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f9 guid 11A33B15F55DCBD7 #txt
-Cs0 f9 type ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData #txt
-Cs0 f9 actionDecl 'ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData out;
-' #txt
-Cs0 f9 actionTable 'out=in;
-' #txt
-Cs0 f9 actionCode 'import ch.ivyteam.ivy.demo.clientinvoking.FileHandling;
-FileHandling.writeFile(panel.TextArea.text, panel);' #txt
 Cs0 f9 438 46 20 20 13 0 #rect
 Cs0 f9 @|RichDialogProcessStartIcon #fIcon
 Cs0 f10 type ch.ivyteam.ivy.demo.clientinvoking.ClientInvoking.ClientInvokingData #txt
