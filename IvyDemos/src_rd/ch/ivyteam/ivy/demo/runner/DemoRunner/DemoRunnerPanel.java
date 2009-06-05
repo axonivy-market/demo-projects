@@ -3,7 +3,7 @@ package ch.ivyteam.ivy.demo.runner.DemoRunner;
 import ch.ivyteam.ivy.demo.util.Title.TitlePanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
+import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RList;
@@ -18,11 +18,9 @@ import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
 
-import com.ulcjava.base.application.util.Color;
-import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.border.ULCBevelBorder;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RGridLayoutPane;
+import com.ulcjava.base.application.util.Color;
 
 /**
  * RichDialog panel implementation for DemoStarterPanel.
