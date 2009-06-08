@@ -1,0 +1,8 @@
+ContactDemoData #class
+ch.ivyteam.ivy.demo.dynamicrd.ContactDemo #namespace
+fullName String #field
+contact1 businessdata.SimpleContact #field
+contact2 businessdata.SimpleContact #field
+contact2 PERSISTENT #fieldModifier
+myDisplayId String #field
+myDisplayId PERSISTENT #fieldModifier

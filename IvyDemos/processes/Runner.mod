@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon May 25 22:02:57 CEST 2009]
-1215975017F13818 3.11 #module
+[>Created: Mon Jun 08 15:08:36 CEST 2009]
+1215975017F13818 3.12 #module
 >Proto >Proto Collection #zClass
 Rr0 Runner Big #zClass
 Rr0 B #cInfo
@@ -76,6 +76,15 @@ subType.name=
 Rr0 f0 showInStartList 1 #txt
 Rr0 f0 67 123 26 26 14 0 #rect
 Rr0 f0 @|StartRequestIcon #fIcon
+Rr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>define demo ID''s</name>
+        <nameStyle>16,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Rr0 f1 actionDecl 'ivydemos.Data out;
 ' #txt
 Rr0 f1 actionTable 'out=in;
@@ -93,23 +102,24 @@ demoIds = [
 	"ch.ivyteam.ivy.demo.process.ProcessStarter",
 	"ch.ivyteam.ivy.demo.search.ListSearch/special",
 	"ch.ivyteam.ivy.demo.tabletree.FileBrowser",
-	"ch.ivyteam.ivy.demo.upload.ImageUpload"
+	"ch.ivyteam.ivy.demo.upload.ImageUpload",
+	"ch.ivyteam.ivy.demo.dynamicrd.ContactDemo"
 ];
 out.demos = demoIds;' #txt
 Rr0 f1 type ivydemos.Data #txt
-Rr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Rr0 f1 62 172 36 24 20 8 #rect
+Rr0 f1 @|StepIcon #fIcon
+Rr0 f2 expr out #txt
+Rr0 f2 80 149 80 172 #arcP
+Rr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>define demo ID''s</name>
+        <name>open demo runner</name>
         <nameStyle>16,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Rr0 f1 62 172 36 24 20 8 #rect
-Rr0 f1 @|StepIcon #fIcon
-Rr0 f2 expr out #txt
-Rr0 f2 80 149 80 172 #arcP
 Rr0 f3 targetWindow NEW #txt
 Rr0 f3 targetDisplay TOP #txt
 Rr0 f3 richDialogId ch.ivyteam.ivy.demo.runner.DemoRunner #txt
@@ -134,15 +144,6 @@ title=Demo Runner
 Rr0 f3 isAsynch false #txt
 Rr0 f3 isInnerRd false #txt
 Rr0 f3 isDialog false #txt
-Rr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>open demo runner</name>
-        <nameStyle>16,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Rr0 f3 62 228 36 24 20 -2 #rect
 Rr0 f3 @|RichDialogIcon #fIcon
 Rr0 f4 expr out #txt

@@ -1,0 +1,7 @@
+DynamicDialogWrapperData #class
+ch.ivyteam.ivy.demo.dynamicrd.DynamicDialogWrapper #namespace
+fullName String #field
+xmlFile File #field
+contact businessdata.SimpleContact #field
+dynamicDialog ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel #field
+dynamicDialog PERSISTENT #fieldModifier

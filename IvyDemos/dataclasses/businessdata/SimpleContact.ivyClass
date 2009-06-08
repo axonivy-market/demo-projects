@@ -1,0 +1,7 @@
+SimpleContact #class
+businessdata #namespace
+title String #field
+title PERSISTENT #fieldModifier
+firstName String #field
+lastName String #field
+address businessdata.Address #field

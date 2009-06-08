@@ -1,0 +1,5 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2009-06-08 15:49:19 | 4.1.1.29035 | 1.0
+~.Button@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11EB0BDD6A32E57E/11EB0E966FACFAAA
+~@RD_METHODCALL[lastNameChanged(ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel,String)]--->ch.ivyteam.ivy.process.ProcessStart:11EB0BDD6A32E57E/11EB19B86CB38BF8
+~@RD_METHODCALL[start(ch.ivyteam.ivy.scripting.objects.CompositeObject,List<String>)]--->ch.ivyteam.ivy.process.ProcessStart:11EB0BDD6A32E57E/11EB0C163825CAEC

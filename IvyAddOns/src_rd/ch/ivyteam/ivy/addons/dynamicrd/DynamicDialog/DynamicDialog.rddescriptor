@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <method>
+        <name>getValue</name>
+        <description>Gets an object that is filled with all data that are used by DynamicDialog.</description>
+        <outputParameter>
+            <name>value</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>getComponent</name>
+        <description>Retrieves a specific component on DynamicDialog. A absolute or relative fully qualified name should be used.&#xD;
+Absolute fully qualified name : /a/b/c&#xD;
+Relative fully qualifed name : /a/b/d/e/../../c --&gt; /a/b/c&#xD;
+Relative qualified names are useful because we can create them from a received qualified name by concatenation.</description>
+        <inputParameter>
+            <name>fullName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>component</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.Component</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>setFocus</name>
+        <description></description>
+    </method>
+    <method>
+        <name>validate</name>
+        <description>Checks all the fields and update icons if the validation failed.</description>
+    </method>
+    <method>
+        <name>setValue</name>
+        <description>Puts the content of the object into the DynamicDialog fields.</description>
+        <inputParameter>
+            <name>value</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setFocusOnFirstError</name>
+        <description>Sets the focus to the first component that have a validation error.</description>
+    </method>
+    <method>
+        <name>serializeXML</name>
+        <description>Serializes the DynamicDialog content into an XML file.</description>
+        <inputParameter>
+            <name>filename</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>isValid</name>
+        <description>Returns true if all the data visible in DynamicDialog pass the validation.</description>
+        <outputParameter>
+            <name>result</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>isBlocked</name>
+        <description>Returns true if a field that uses a blocking validation has a validation error.</description>
+        <outputParameter>
+            <name>result</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>getFieldComponent</name>
+        <description>Retrieves a specific field component on DynamicDialog.</description>
+        <inputParameter>
+            <name>fullName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>fieldComponent</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.FieldComponent</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>object</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>cmsContext</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>dataclassFullName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>object</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>staticRelation</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.StaticRelation</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start&#xD;
+This method can not be changed or deleted!&#xD;
+Do nothing. Doesn't use it!</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>object</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>cmsContext</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>databaseConfiguration</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>11C32DE20DA750A0</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>true</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>
