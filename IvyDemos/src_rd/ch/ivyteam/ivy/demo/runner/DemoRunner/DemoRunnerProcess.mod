@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Jun 04 15:54:21 CEST 2009]
-12159193B3CDF810 3.11 #module
+[>Created: Wed Jun 17 16:38:45 CEST 2009]
+12159193B3CDF810 3.12 #module
 >Proto >Proto Collection #zClass
 Ds0 DemoStarterProcess Big #zClass
 Ds0 RD #cInfo
@@ -66,17 +66,6 @@ Ds0 @PushWFArc f31 '' #zField
 Ds0 @PushWFArc f8 '' #zField
 Ds0 @PushWFArc f50 '' #zField
 >Proto Ds0 Ds0 DemoStarterProcess #zField
-Ds0 f0 guid 12159193B6A4A0AD #txt
-Ds0 f0 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
-Ds0 f0 method start(List<String>) #txt
-Ds0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<List<java.lang.String> demoRichDialogIds> param = methodEvent.getInputArguments();
-' #txt
-Ds0 f0 inParameterMapAction 'out.demoRichDialogs=param.demoRichDialogIds;
-' #txt
-Ds0 f0 outParameterDecl '<> result;
-' #txt
-Ds0 f0 embeddedRdInitializations '{/titlePanel {/fieldName "titlePanel"/startMethod "startInitialized(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/demo/icons/large/gear_run\";\nparam.title=\"Demo Runner\";\nparam.subtitle=\"Shows and runs Xpert.ivy Demos\";\n"/initScript ""}}' #txt
 Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -86,8 +75,29 @@ Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f0 guid 12159193B6A4A0AD #txt
+Ds0 f0 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
+Ds0 f0 method start(List<String>) #txt
+Ds0 f0 disableUIEvents false #txt
+Ds0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<List<java.lang.String> demoRichDialogIds> param = methodEvent.getInputArguments();
+' #txt
+Ds0 f0 inParameterMapAction 'out.demoRichDialogs=param.demoRichDialogIds;
+' #txt
+Ds0 f0 outParameterDecl '<> result;
+' #txt
+Ds0 f0 embeddedRdInitializations '{/titlePanel {/fieldName "titlePanel"/startMethod "startInitialized(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/demo/icons/large/gear_run\";\nparam.title=\"Demo Runner\";\nparam.subtitle=\"Shows and runs Xpert.ivy Demos\";\n"/initScript ""}}' #txt
 Ds0 f0 38 30 20 20 13 0 #rect
 Ds0 f0 @|RichDialogInitStartIcon #fIcon
+Ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>calculate demos</name>
+        <nameStyle>15,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f3 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
 ' #txt
 Ds0 f3 actionTable 'out=in;
@@ -110,26 +120,10 @@ for (String rd : in.demoRichDialogs)
 	out.demos.add(demo);
 }' #txt
 Ds0 f3 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
-Ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>calculate demos</name>
-        <nameStyle>15,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f3 30 76 36 24 20 -2 #rect
 Ds0 f3 @|RichDialogProcessStepIcon #fIcon
 Ds0 f4 expr out #txt
 Ds0 f4 48 50 48 76 #arcP
-Ds0 f5 guid 1215EB6F653464BF #txt
-Ds0 f5 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
-Ds0 f5 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
-' #txt
-Ds0 f5 actionTable 'out=in;
-' #txt
-Ds0 f5 actionCode 'panel.tabbedPane.selectedComponent = panel.runnerPane;' #txt
 Ds0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -139,15 +133,15 @@ Ds0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f5 guid 1215EB6F653464BF #txt
+Ds0 f5 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
+Ds0 f5 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
+' #txt
+Ds0 f5 actionTable 'out=in;
+' #txt
+Ds0 f5 actionCode 'panel.tabbedPane.selectedComponent = panel.runnerPane;' #txt
 Ds0 f5 422 30 20 20 13 0 #rect
 Ds0 f5 @|RichDialogProcessStartIcon #fIcon
-Ds0 f6 guid 1215EB715A2B02DF #txt
-Ds0 f6 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
-Ds0 f6 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
-' #txt
-Ds0 f6 actionTable 'out=in;
-' #txt
-Ds0 f6 actionCode 'panel.tabbedPane.selectedComponent = panel.detailsPane;' #txt
 Ds0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -157,6 +151,13 @@ Ds0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f6 guid 1215EB715A2B02DF #txt
+Ds0 f6 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
+Ds0 f6 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
+' #txt
+Ds0 f6 actionTable 'out=in;
+' #txt
+Ds0 f6 actionCode 'panel.tabbedPane.selectedComponent = panel.detailsPane;' #txt
 Ds0 f6 246 30 20 20 13 0 #rect
 Ds0 f6 @|RichDialogProcessStartIcon #fIcon
 Ds0 f7 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
@@ -165,7 +166,6 @@ Ds0 f7 @|RichDialogProcessEndIcon #fIcon
 Ds0 f9 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f9 243 355 26 26 14 0 #rect
 Ds0 f9 @|RichDialogProcessEndIcon #fIcon
-Ds0 f11 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -175,16 +175,9 @@ Ds0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f11 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f11 242 162 28 28 13 -24 #rect
 Ds0 f11 @|AlternativeIcon #fIcon
-Ds0 f13 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
-' #txt
-Ds0 f13 actionTable 'out=in;
-' #txt
-Ds0 f13 actionCode 'panel.idTextField.text = in.selectedDemo.richDialogId;
-panel.nameTextField.text = ivy.cms.co(in.selectedDemo.cmsUri+"/name");
-panel.descriptionTextArea.text = ivy.cms.co(in.selectedDemo.cmsUri+"/desc");' #txt
-Ds0 f13 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -194,20 +187,20 @@ Ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f13 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
+' #txt
+Ds0 f13 actionTable 'out=in;
+' #txt
+Ds0 f13 actionCode 'panel.idTextField.text = in.selectedDemo.richDialogId;
+panel.nameTextField.text = ivy.cms.co(in.selectedDemo.cmsUri+"/name");
+panel.descriptionTextArea.text = ivy.cms.co(in.selectedDemo.cmsUri+"/desc");' #txt
+Ds0 f13 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f13 190 268 36 24 20 -2 #rect
 Ds0 f13 @|RichDialogProcessStepIcon #fIcon
 Ds0 f10 expr out #txt
 Ds0 f10 208 292 243 363 #arcP
 Ds0 f10 1 208 352 #addKink
 Ds0 f10 0 0.6934503549591993 0 0 #arcLabel
-Ds0 f16 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
-' #txt
-Ds0 f16 actionTable 'out=in;
-' #txt
-Ds0 f16 actionCode 'panel.idTextField.text = "";
-panel.nameTextField.text = "";
-panel.descriptionTextArea.text = "";' #txt
-Ds0 f16 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -217,6 +210,14 @@ Ds0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f16 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
+' #txt
+Ds0 f16 actionTable 'out=in;
+' #txt
+Ds0 f16 actionCode 'panel.idTextField.text = "";
+panel.nameTextField.text = "";
+panel.descriptionTextArea.text = "";' #txt
+Ds0 f16 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f16 278 308 36 24 20 -2 #rect
 Ds0 f16 @|RichDialogProcessStepIcon #fIcon
 Ds0 f17 expr in #txt
@@ -238,7 +239,6 @@ Ds0 f15 1 296 368 #addKink
 Ds0 f15 0 0.6689398619616459 0 0 #arcLabel
 Ds0 f12 expr out #txt
 Ds0 f12 256 50 256 162 #arcP
-Ds0 f18 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -248,6 +248,7 @@ Ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f18 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f18 194 210 28 28 14 0 #rect
 Ds0 f18 @|AlternativeIcon #fIcon
 Ds0 f19 expr in #txt
@@ -273,6 +274,15 @@ Ds0 f20 3 216 384 #addKink
 Ds0 f20 1 0.545782582006836 0 0 #arcLabel
 Ds0 f14 expr in #txt
 Ds0 f14 208 238 208 268 #arcP
+Ds0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start generic</name>
+        <nameStyle>13,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f2 targetWindow THIS #txt
 Ds0 f2 targetDisplay demoRunnerDisplay #txt
 Ds0 f2 richDialogId IvyScript://in.selectedDemo.richDialogId #txt
@@ -290,18 +300,8 @@ use_default=true
 Ds0 f2 isAsynch true #txt
 Ds0 f2 isInnerRd true #txt
 Ds0 f2 isDialog false #txt
-Ds0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start generic</name>
-        <nameStyle>13,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f2 526 300 36 24 10 17 #rect
 Ds0 f2 @|RichDialogIcon #fIcon
-Ds0 f21 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -311,9 +311,9 @@ Ds0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f21 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f21 418 82 28 28 13 -24 #rect
 Ds0 f21 @|AlternativeIcon #fIcon
-Ds0 f22 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -323,6 +323,7 @@ Ds0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f22 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f22 530 210 28 28 13 -23 #rect
 Ds0 f22 @|AlternativeIcon #fIcon
 Ds0 f24 expr out #txt
@@ -341,7 +342,6 @@ Ds0 f25 418 96 419 368 #arcP
 Ds0 f25 1 376 96 #addKink
 Ds0 f25 2 376 368 #addKink
 Ds0 f25 1 0.03676470588235294 -11 0 #arcLabel
-Ds0 f26 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -351,6 +351,7 @@ Ds0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f26 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f26 762 210 28 28 -26 -39 #rect
 Ds0 f26 @|AlternativeIcon #fIcon
 Ds0 f27 expr in #txt
@@ -378,6 +379,15 @@ Ds0 f28 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ds0 f28 544 238 544 300 #arcP
 Ds0 f28 0 0.5 12 0 #arcLabel
+Ds0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>FileSearch</name>
+        <nameStyle>10,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f29 targetWindow THIS #txt
 Ds0 f29 targetDisplay demoRunnerDisplay #txt
 Ds0 f29 richDialogId ch.ivyteam.ivy.demo.lookuptextfield.FileSearch #txt
@@ -397,15 +407,6 @@ use_default=true
 Ds0 f29 isAsynch true #txt
 Ds0 f29 isInnerRd true #txt
 Ds0 f29 isDialog false #txt
-Ds0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>FileSearch</name>
-        <nameStyle>10,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f29 662 300 36 24 3 18 #rect
 Ds0 f29 @|RichDialogIcon #fIcon
 Ds0 f30 expr in #txt
@@ -413,6 +414,15 @@ Ds0 f30 outCond 'in.selectedDemo.richDialogId == "ch.ivyteam.ivy.demo.lookuptext
 Ds0 f30 766 228 680 300 #arcP
 Ds0 f30 1 680 264 #addKink
 Ds0 f30 0 0.8038186259118668 0 0 #arcLabel
+Ds0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>ListSearch</name>
+        <nameStyle>10,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f32 targetWindow THIS #txt
 Ds0 f32 targetDisplay demoRunnerDisplay #txt
 Ds0 f32 richDialogId ch.ivyteam.ivy.demo.search.ListSearch #txt
@@ -441,27 +451,12 @@ use_default=true
 Ds0 f32 isAsynch true #txt
 Ds0 f32 isInnerRd true #txt
 Ds0 f32 isDialog false #txt
-Ds0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>ListSearch</name>
-        <nameStyle>10,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f32 758 300 36 24 5 19 #rect
 Ds0 f32 @|RichDialogIcon #fIcon
 Ds0 f33 expr in #txt
 Ds0 f33 outCond 'in.selectedDemo.richDialogId == "ch.ivyteam.ivy.demo.search.ListSearch"' #txt
 Ds0 f33 776 238 776 300 #arcP
 Ds0 f33 0 0.557912253607124 0 0 #arcLabel
-Ds0 f35 guid 121621B398ECC5DF #txt
-Ds0 f35 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
-Ds0 f35 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
-' #txt
-Ds0 f35 actionTable 'out=in;
-' #txt
 Ds0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -471,17 +466,17 @@ Ds0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f35 guid 121621B398ECC5DF #txt
+Ds0 f35 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
+Ds0 f35 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
+' #txt
+Ds0 f35 actionTable 'out=in;
+' #txt
 Ds0 f35 766 30 20 20 13 0 #rect
 Ds0 f35 @|RichDialogProcessStartIcon #fIcon
 Ds0 f36 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f36 763 115 26 26 14 0 #rect
 Ds0 f36 @|RichDialogProcessEndIcon #fIcon
-Ds0 f38 guid 12162242F49AD682 #txt
-Ds0 f38 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
-Ds0 f38 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
-' #txt
-Ds0 f38 actionTable 'out=in;
-' #txt
 Ds0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -491,6 +486,12 @@ Ds0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f38 guid 12162242F49AD682 #txt
+Ds0 f38 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
+Ds0 f38 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
+' #txt
+Ds0 f38 actionTable 'out=in;
+' #txt
 Ds0 f38 38 174 20 20 13 0 #rect
 Ds0 f38 @|RichDialogProcessStartIcon #fIcon
 Ds0 f39 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
@@ -499,7 +500,6 @@ Ds0 f39 35 235 26 26 14 0 #rect
 Ds0 f39 @|RichDialogEndIcon #fIcon
 Ds0 f40 expr out #txt
 Ds0 f40 48 194 48 235 #arcP
-Ds0 f41 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f41 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -509,6 +509,7 @@ Ds0 f41 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f41 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f41 458 138 28 28 14 -21 #rect
 Ds0 f41 @|AlternativeIcon #fIcon
 Ds0 f42 expr in #txt
@@ -525,6 +526,16 @@ Ds0 f42 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ds0 f42 446 96 472 138 #arcP
 Ds0 f42 1 472 96 #addKink
 Ds0 f42 1 0.21428571428571427 14 0 #arcLabel
+Ds0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>bring
+forward</name>
+        <nameStyle>13,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f44 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
 ' #txt
 Ds0 f44 actionTable 'out=in;
@@ -542,28 +553,10 @@ for (IRichDialogPanel p : panel.demoRunnerDisplay.getPanels())
 	}
 }' #txt
 Ds0 f44 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
-Ds0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>bring
-forward</name>
-        <nameStyle>13,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f44 414 236 36 24 5 16 #rect
 Ds0 f44 @|RichDialogProcessStepIcon #fIcon
 Ds0 f43 expr out #txt
 Ds0 f43 432 260 432 355 #arcP
-Ds0 f46 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
-' #txt
-Ds0 f46 actionTable 'out=in;
-' #txt
-Ds0 f46 actionCode '// add "loaded" mark
-out.loadedDemos.add(in.selectedDemo.richDialogId);
-' #txt
-Ds0 f46 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -573,12 +566,30 @@ Ds0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f46 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
+' #txt
+Ds0 f46 actionTable 'out=in;
+' #txt
+Ds0 f46 actionCode '// add "loaded" mark
+out.loadedDemos.add(in.selectedDemo.richDialogId);
+' #txt
+Ds0 f46 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f46 478 356 36 24 -33 21 #rect
 Ds0 f46 @|RichDialogProcessStepIcon #fIcon
 Ds0 f47 expr out #txt
 Ds0 f47 776 324 514 368 #arcP
 Ds0 f47 1 776 368 #addKink
 Ds0 f47 1 0.3952333288402513 0 0 #arcLabel
+Ds0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>unload 
+mark unloaded</name>
+        <nameStyle>21,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f34 actionDecl 'ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData out;
 ' #txt
 Ds0 f34 actionTable 'out=in;
@@ -596,16 +607,6 @@ if (#p is initialized)
 	out.loadedDemos.remove(panel.getRichDialogIdFromPanel(p));
 }' #txt
 Ds0 f34 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
-Ds0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>unload 
-mark unloaded</name>
-        <nameStyle>21,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f34 758 68 36 24 25 -15 #rect
 Ds0 f34 @|RichDialogProcessStepIcon #fIcon
 Ds0 f48 expr out #txt
@@ -655,7 +656,7 @@ Ds0 f50 48 100 292 308 #arcP
 Ds0 f50 1 48 128 #addKink
 Ds0 f50 2 224 128 #addKink
 Ds0 f50 1 0.5413474046972035 0 0 #arcLabel
->Proto Ds0 .ui2RdDataAction 'out.selectedDemo=panel.demoList.selectedListEntry as ch.ivyteam.ivy.demo.runner.Demo;
+>Proto Ds0 .ui2RdDataAction 'out.selectedDemo=panel.demoList.#selectedListEntry as ch.ivyteam.ivy.demo.runner.Demo;
 ' #txt
 >Proto Ds0 .rdData2UIAction 'panel.demoList.listData=in.demos;
 ' #txt
