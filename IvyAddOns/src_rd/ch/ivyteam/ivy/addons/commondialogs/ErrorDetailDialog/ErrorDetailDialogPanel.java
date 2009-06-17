@@ -35,6 +35,7 @@ private RButton okButton = null;
    */
   public void initialize()
   {
+        this.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
         this.add(getDetailScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getOkButton(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
@@ -65,6 +66,7 @@ private RTextArea getDetailTextArea() {
 		detailTextArea.setText("RTextArea");
 		detailTextArea.setColumns(40);
 		detailTextArea.setRows(20);
+		detailTextArea.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
 		detailTextArea.setName("detailTextArea");
 	}
 	return detailTextArea;

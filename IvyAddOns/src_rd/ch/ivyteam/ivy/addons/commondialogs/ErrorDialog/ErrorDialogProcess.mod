@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed May 27 21:44:50 CEST 2009]
-1180E624C69827DC 3.11 #module
+[>Created: Wed Jun 17 15:40:51 CEST 2009]
+1180E624C69827DC 3.12 #module
 >Proto >Proto Collection #zClass
 Es0 ErrorDialogProcess Big #zClass
 Es0 RD #cInfo
@@ -34,9 +34,19 @@ Es0 @RichDialogProcessStep f16 '' #zField
 Es0 @PushWFArc f17 '' #zField
 Es0 @PushWFArc f2 '' #zField
 >Proto Es0 Es0 ErrorDialogProcess #zField
+Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>showError(Throwable,Boolean,Boolean)</name>
+        <nameStyle>36,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Es0 f0 guid 1180E6FD55B71527 #txt
 Es0 f0 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
 Es0 f0 method showError(java.lang.Throwable,Boolean,Boolean) #txt
+Es0 f0 disableUIEvents false #txt
 Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Throwable error,java.lang.Boolean showCopyButton,java.lang.Boolean showDetailButton> param = methodEvent.getInputArguments();
 ' #txt
@@ -47,15 +57,6 @@ out.showDetailButton=param.showDetailButton;
 Es0 f0 outParameterDecl '<> result;
 ' #txt
 Es0 f0 embeddedRdInitializations '* ' #txt
-Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>showError(Throwable,Boolean,Boolean)</name>
-        <nameStyle>36,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Es0 f0 54 62 20 20 13 0 #rect
 Es0 f0 @|RichDialogInitStartIcon #fIcon
 Es0 f1 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
@@ -124,7 +125,11 @@ Es0 f8 @|RichDialogProcessEndIcon #fIcon
 Es0 f9 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
 Es0 f9 331 163 26 26 14 0 #rect
 Es0 f9 @|RichDialogProcessEndIcon #fIcon
-Es0 f12 targetWindow NEW #txt
+Es0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Es0 f12 targetDisplay TOP #txt
 Es0 f12 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDetailDialog #txt
 Es0 f12 startMethod showDetailError(java.lang.Throwable) #txt
@@ -136,34 +141,16 @@ Es0 f12 responseActionDecl 'ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.Erro
 ' #txt
 Es0 f12 responseMappingAction 'out=in;
 ' #txt
-Es0 f12 windowConfiguration '#Tue May 19 13:50:20 CEST 2009
-height=0
-maximized=false
-centered=true
-close_after_last_rd=true
-resizable=true
-width=0
-title=Error Details
-' #txt
+Es0 f12 windowConfiguration '{/title "Error Details"/width 800 /height 600 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 Es0 f12 isAsynch false #txt
 Es0 f12 isInnerRd true #txt
 Es0 f12 isDialog true #txt
-Es0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Es0 f12 326 116 36 24 20 -2 #rect
 Es0 f12 @|RichDialogIcon #fIcon
 Es0 f13 expr out #txt
 Es0 f13 344 90 344 116 #arcP
 Es0 f10 expr out #txt
 Es0 f10 344 140 344 163 #arcP
-Es0 f14 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData out;
-' #txt
-Es0 f14 actionTable 'out=in;
-' #txt
-Es0 f14 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
 Es0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -174,18 +161,30 @@ client clipboard?</name>
     </language>
 </elementInfo>
 ' #txt
+Es0 f14 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData out;
+' #txt
+Es0 f14 actionTable 'out=in;
+' #txt
+Es0 f14 actionCode 'import ch.ivyteam.ivy.ulc.server.ClientUtil;
+
+String errorMessage;
+if (in.error.getMessage() != null)
+{
+	errorMessage = in.error.getMessage();
+}
+else
+{
+	errorMessage = in.error.getClass().getSimpleName();
+}
+ClientUtil.copyToClipboard(errorMessage);
+' #txt
+Es0 f14 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
 Es0 f14 430 116 36 24 20 -2 #rect
 Es0 f14 @|RichDialogProcessStepIcon #fIcon
 Es0 f15 expr out #txt
 Es0 f15 448 90 448 116 #arcP
 Es0 f11 expr out #txt
 Es0 f11 448 140 448 163 #arcP
-Es0 f16 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData out;
-' #txt
-Es0 f16 actionTable 'out=in;
-' #txt
-Es0 f16 actionCode panel.getRootPane().setDefaultButton(panel.okButton); #txt
-Es0 f16 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
 Es0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -195,6 +194,12 @@ Es0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Es0 f16 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData out;
+' #txt
+Es0 f16 actionTable 'out=in;
+' #txt
+Es0 f16 actionCode panel.getRootPane().setDefaultButton(panel.okButton); #txt
+Es0 f16 type ch.ivyteam.ivy.addons.commondialogs.ErrorDialog.ErrorDialogData #txt
 Es0 f16 46 116 36 24 20 -2 #rect
 Es0 f16 @|RichDialogProcessStepIcon #fIcon
 Es0 f17 expr out #txt
