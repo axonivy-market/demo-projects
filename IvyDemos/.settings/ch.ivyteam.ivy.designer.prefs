@@ -1,11 +1,14 @@
-#Fri Jun 05 11:24:53 CEST 2009
+#Wed Jun 10 10:45:56 CEST 2009
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=ivydemos.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=ivydemos
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:useProjectSettings=true
-ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:ANIMATION_FOLLOWING_MODE=FOLLOW_ONLY_OPEN_PROCESSES
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:ACTIVATE_PROCESS_DATA_HISTORY=true
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:ANIMATION_FOLLOWING_MODE=FOLLOW_ALL_PROCESSES
 ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:EXECUTE_INTERMEDIATE_EVENT_BEANS=true
 ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:EXECUTE_START_EVENT_BEANS=true
 ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:EXTENAL_BROWSER=false
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:NUMBER_OF_EXECUTIONS_FOR_WHICH_TO_KEEP_PROCESS_DATA_IN_HISTORY=10
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:NUMBER_OF_REQUESTS_FOR_WHICH_TO_KEEP_PROCESS_DATA_IN_HISTORY=10
 ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:useProjectSettings=true
 ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=7
 eclipse.preferences.version=1

@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Jul 21 17:01:03 CEST 2008]
-11A9628F93B4B493 3.10 #module
+[>Created: Thu Jun 18 15:38:04 CEST 2009]
+11A9628F93B4B493 3.12 #module
 >Proto >Proto Collection #zClass
 Fs0 FileBrowserProcess Big #zClass
 Fs0 RD #cInfo
@@ -16,9 +16,27 @@ Fs0 @TextInP .resExport .resExport #zField
 Fs0 @TextInP .type .type #zField
 Fs0 @TextInP .processKind .processKind #zField
 Fs0 @RichDialogInitStart f0 '' #zField
+Fs0 @RichDialogProcessEnd f1 '' #zField
+Fs0 @RichDialogProcessStep f3 '' #zField
+Fs0 @PushWFArc f4 '' #zField
+Fs0 @PushWFArc f2 '' #zField
+Fs0 @RichDialogProcessStart f5 '' #zField
+Fs0 @RichDialogProcessEnd f6 '' #zField
+Fs0 @InfoButton f10 '' #zField
+Fs0 @AnnotationArc f11 '' #zField
+Fs0 @PushWFArc f7 '' #zField
+Fs0 @InfoButton f8 '' #zField
+Fs0 @RichDialogProcessStart f9 '' #zField
+Fs0 @RichDialogProcessEnd f12 '' #zField
+Fs0 @PushWFArc f13 '' #zField
+Fs0 @InfoButton f14 '' #zField
+Fs0 @AnnotationArc f15 '' #zField
+Fs0 @InfoButton f16 '' #zField
+>Proto Fs0 Fs0 FileBrowserProcess #zField
 Fs0 f0 guid 11A9628FA16BA901 #txt
 Fs0 f0 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
 Fs0 f0 method start() #txt
+Fs0 f0 disableUIEvents false #txt
 Fs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -33,11 +51,9 @@ Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Fs0 f0 94 126 20 20 13 0 #rect
 Fs0 f0 @|RichDialogInitStartIcon #fIcon
-Fs0 @RichDialogProcessEnd f1 '' #zField
 Fs0 f1 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
 Fs0 f1 91 227 26 26 14 0 #rect
 Fs0 f1 @|RichDialogProcessEndIcon #fIcon
-Fs0 @RichDialogProcessStep f3 '' #zField
 Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -53,7 +69,17 @@ Fs0 f3 actionDecl 'ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData out
 Fs0 f3 actionTable 'out=in;
 ' #txt
 Fs0 f3 actionCode '// get data
-out.drives = java.io.File.listRoots();
+List<java.io.File> drives = java.io.File.listRoots();
+for (java.io.File file : drives)
+{
+	// Do not add the disk drive, leads to a windows exception if no disk is inserted.
+	if (!"A:\\".equals(file.getAbsolutePath())
+	 && !"a:\\".equals(file.getAbsolutePath()))
+	{
+		out.drives.add(file);
+	}
+}
+
 out.rootDir = new Tree(out.drives.get(0), "drive");
 
 // must set already here, so that we can chose index to select
@@ -62,13 +88,19 @@ panel.driveComboBox.setSelectedIndex(0);' #txt
 Fs0 f3 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
 Fs0 f3 86 172 36 24 24 -16 #rect
 Fs0 f3 @|RichDialogProcessStepIcon #fIcon
-Fs0 @PushWFArc f4 '' #zField
 Fs0 f4 expr out #txt
 Fs0 f4 104 146 104 172 #arcP
-Fs0 @PushWFArc f2 '' #zField
 Fs0 f2 expr out #txt
 Fs0 f2 104 196 104 227 #arcP
-Fs0 @RichDialogProcessStart f5 '' #zField
+Fs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>tree_load</name>
+        <nameStyle>9,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Fs0 f5 guid 11A9637F23A304CC #txt
 Fs0 f5 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
 Fs0 f5 actionDecl 'ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData out;
@@ -93,22 +125,11 @@ if (parent.isDirectory())
 	}
 }
 // else do nothing' #txt
-Fs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>tree_load</name>
-        <nameStyle>9,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f5 214 126 20 20 13 0 #rect
 Fs0 f5 @|RichDialogProcessStartIcon #fIcon
-Fs0 @RichDialogProcessEnd f6 '' #zField
 Fs0 f6 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
 Fs0 f6 211 227 26 26 14 0 #rect
 Fs0 f6 @|RichDialogProcessEndIcon #fIcon
-Fs0 @InfoButton f10 '' #zField
 Fs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -122,12 +143,9 @@ or nothing (if file)</name>
 Fs0 f10 143 19 147 42 -68 -16 #rect
 Fs0 f10 @|IBIcon #fIcon
 Fs0 f10 -985168|-1|-16777216 #nodeStyle
-Fs0 @AnnotationArc f11 '' #zField
 Fs0 f11 215 61 217 128 #arcP
-Fs0 @PushWFArc f7 '' #zField
 Fs0 f7 expr out #txt
 Fs0 f7 224 146 224 227 #arcP
-Fs0 @InfoButton f8 '' #zField
 Fs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -141,15 +159,6 @@ Fs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Fs0 f8 484 227 184 42 -87 -16 #rect
 Fs0 f8 @|IBIcon #fIcon
 Fs0 f8 -7484683|-1|-16777216 #nodeStyle
-Fs0 @RichDialogProcessStart f9 '' #zField
-Fs0 f9 guid 11A969D754983DDC #txt
-Fs0 f9 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
-Fs0 f9 actionDecl 'ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData out;
-' #txt
-Fs0 f9 actionTable 'out=in;
-' #txt
-Fs0 f9 actionCode 'java.io.File selectedRoot = panel.driveComboBox.selectedListEntry as java.io.File;
-out.rootDir = new Tree(selectedRoot, "drive");' #txt
 Fs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -159,16 +168,21 @@ Fs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Fs0 f9 guid 11A969D754983DDC #txt
+Fs0 f9 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
+Fs0 f9 actionDecl 'ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData out;
+' #txt
+Fs0 f9 actionTable 'out=in;
+' #txt
+Fs0 f9 actionCode 'java.io.File selectedRoot = panel.driveComboBox.selectedListEntry as java.io.File;
+out.rootDir = new Tree(selectedRoot, "drive");' #txt
 Fs0 f9 318 126 20 20 13 0 #rect
 Fs0 f9 @|RichDialogProcessStartIcon #fIcon
-Fs0 @RichDialogProcessEnd f12 '' #zField
 Fs0 f12 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
 Fs0 f12 315 227 26 26 14 0 #rect
 Fs0 f12 @|RichDialogProcessEndIcon #fIcon
-Fs0 @PushWFArc f13 '' #zField
 Fs0 f13 expr out #txt
 Fs0 f13 328 146 328 227 #arcP
-Fs0 @InfoButton f14 '' #zField
 Fs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -182,9 +196,7 @@ to selected drive</name>
 Fs0 f14 319 19 99 42 -44 -16 #rect
 Fs0 f14 @|IBIcon #fIcon
 Fs0 f14 -985168|-1|-16777216 #nodeStyle
-Fs0 @AnnotationArc f15 '' #zField
 Fs0 f15 367 61 326 126 #arcP
-Fs0 @InfoButton f16 '' #zField
 Fs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -238,6 +250,13 @@ on expand parent : fastest : children are only loaded on demand (but [+] handle 
 Fs0 f16 38 291 628 330 -309 -160 #rect
 Fs0 f16 @|IBIcon #fIcon
 Fs0 f16 -993312|-1|-16777216 #nodeStyle
+>Proto Fs0 .rdData2UIAction 'panel.fileTableTree.tableTreeData=in.rootDir;
+panel.driveComboBox.listData=in.drives;
+' #txt
+>Proto Fs0 .type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
+>Proto Fs0 .processKind RICH_DIALOG #txt
+>Proto Fs0 -8 -8 16 16 16 26 #rect
+>Proto Fs0 '' #fIcon
 Fs0 f0 mainOut f4 tail #connect
 Fs0 f4 head f3 mainIn #connect
 Fs0 f3 mainOut f2 tail #connect
@@ -250,11 +269,3 @@ Fs0 f9 mainOut f13 tail #connect
 Fs0 f13 head f12 mainIn #connect
 Fs0 f14 ao f15 tail #connect
 Fs0 f15 head f9 @CG|ai #connect
->Proto Fs0 Fs0 FileBrowserProcess #zField
->Proto Fs0 .rdData2UIAction 'panel.fileTableTree.tableTreeData=in.rootDir;
-panel.driveComboBox.listData=in.drives;
-' #txt
->Proto Fs0 .type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
->Proto Fs0 .processKind RICH_DIALOG #txt
->Proto Fs0 -8 -8 16 16 16 26 #rect
->Proto Fs0 '' #fIcon
