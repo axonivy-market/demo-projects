@@ -255,7 +255,7 @@ public abstract class Component
         if (component5 instanceof RTaskPane)
         {
           taskPane = (RTaskPane) component5;
-          taskPane.setExpanded(true);
+          taskPane.setCollapsed(false);          
         }
         component5.scrollToVisible();
       }

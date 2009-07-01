@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jun 08 15:08:36 CEST 2009]
+[>Created: Fri Jun 26 15:44:57 CEST 2009]
 1215975017F13818 3.12 #module
 >Proto >Proto Collection #zClass
 Rr0 Runner Big #zClass
@@ -23,16 +23,6 @@ Rr0 @PushWFArc f6 '' #zField
 Rr0 @InfoButton f7 '' #zField
 Rr0 @AnnotationArc f8 '' #zField
 >Proto Rr0 Rr0 Runner #zField
-Rr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>run demo runner</name>
-        <nameStyle>15,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Rr0 f0 @C|.responsibility Everybody #txt
 Rr0 f0 outLink demoRunner.ivp #txt
 Rr0 f0 type ivydemos.Data #txt
 Rr0 f0 template "" #txt
@@ -74,17 +64,18 @@ case.description=
 subType.name=
 ' #txt
 Rr0 f0 showInStartList 1 #txt
-Rr0 f0 67 123 26 26 14 0 #rect
-Rr0 f0 @|StartRequestIcon #fIcon
-Rr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Rr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>define demo ID''s</name>
-        <nameStyle>16,9
+        <name>run demo runner</name>
+        <nameStyle>15,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Rr0 f0 @C|.responsibility Everybody #txt
+Rr0 f0 67 123 26 26 14 0 #rect
+Rr0 f0 @|StartRequestIcon #fIcon
 Rr0 f1 actionDecl 'ivydemos.Data out;
 ' #txt
 Rr0 f1 actionTable 'out=in;
@@ -103,10 +94,22 @@ demoIds = [
 	"ch.ivyteam.ivy.demo.search.ListSearch/special",
 	"ch.ivyteam.ivy.demo.tabletree.FileBrowser",
 	"ch.ivyteam.ivy.demo.upload.ImageUpload",
-	"ch.ivyteam.ivy.demo.dynamicrd.ContactDemo"
+	"ch.ivyteam.ivy.demo.dynamicrd.ContactDemo",
+	"ch.ivyteam.ivy.demo.table.CustomTableCellWidgets",
+	"ch.ivyteam.ivy.demo.pollingtimer.UserInterfaceRefresh",
+  "ch.ivyteam.ivy.demo.validation.ValidationDemo"
 ];
 out.demos = demoIds;' #txt
 Rr0 f1 type ivydemos.Data #txt
+Rr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>define demo ID''s</name>
+        <nameStyle>16,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Rr0 f1 62 172 36 24 20 8 #rect
 Rr0 f1 @|StepIcon #fIcon
 Rr0 f2 expr out #txt

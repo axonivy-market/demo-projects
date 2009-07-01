@@ -31,7 +31,7 @@ public class StartConfigurationCreator {
 		IDisplayConfiguration displayConfig;
 		TaskStartConfiguration taskStartConfig;
 
-		displayConfig = DisplayConfigurationFactory.createForSelfWindow(displayId, richDialogPanel);
+		displayConfig = DisplayConfigurationFactory.createForThisWindow(displayId, richDialogPanel);
 		taskStartConfig = new TaskStartConfiguration(task, displayConfig);
 		Ivy.rd().startTask(taskStartConfig);
 	}
@@ -47,7 +47,7 @@ public class StartConfigurationCreator {
 		IDisplayConfiguration displayConfig;
 		ProcessStartConfiguration processStartConfig;
 
-		displayConfig = DisplayConfigurationFactory.createForSelfWindow(displayId, richDialogPanel);
+		displayConfig = DisplayConfigurationFactory.createForThisWindow(displayId, richDialogPanel);
 		processStartConfig = new ProcessStartConfiguration(processStart, displayConfig);
 		
 		Ivy.rd().startProcess(processStartConfig);

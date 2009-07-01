@@ -23,7 +23,13 @@ import ch.ivyteam.ivy.scripting.objects.CompositeObject;
 import com.ulcjava.base.application.GridBagConstraints;
 import com.ulcjava.base.application.ULCContainer;
 
-public class DynamicDialogPanel extends BinaryRichDialogGridBagPanel implements IRichDialogPanel
+/**
+ * NOTE: This is a binary RichDialog. It is not intended to be loaded and/or edited
+ * with the VisualEditor.
+ */
+public class DynamicDialogPanel 
+extends BinaryRichDialogGridBagPanel 
+implements IRichDialogPanel
 {
   private static final long serialVersionUID = 845523074893733115L;
 

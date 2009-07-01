@@ -244,7 +244,7 @@ private RMenuItem getShowDetailsAction() {
 	if (showDetailsAction == null) {
 		showDetailsAction = new RMenuItem();
 		showDetailsAction.setText("Show Details");
-		showDetailsAction.setIconUri("\"/ch/ivyteam/ivy/demo/icons/normal/about\"");
+		showDetailsAction.setIconUri("/ch/ivyteam/ivy/demo/icons/normal/about");
 		showDetailsAction.setName("showDetailsAction");
 	}
 	return showDetailsAction;
@@ -259,7 +259,7 @@ private RMenuItem getRunDemoAction() {
 	if (runDemoAction == null) {
 		runDemoAction = new RMenuItem();
 		runDemoAction.setText("Run Demo");
-		runDemoAction.setIconUri("\"/ch/ivyteam/ivy/demo/icons/normal/play\"");
+		runDemoAction.setIconUri("/ch/ivyteam/ivy/demo/icons/normal/play");
 		runDemoAction.setName("runDemoAction");
 	}
 	return runDemoAction;
@@ -404,7 +404,7 @@ private RButton getStartDemoButton() {
 		startDemoButton.setText("Run this Demo");
 		startDemoButton.setStyle("border-all");
 		startDemoButton.setStyleProperties("{/anchor \"NORTH\"}");
-		startDemoButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/demo/icons/normal/play\") %>");
+		startDemoButton.setIconUri("/ch/ivyteam/ivy/demo/icons/normal/play");
 		startDemoButton.setName("startDemoButton");
 	}
 	return startDemoButton;

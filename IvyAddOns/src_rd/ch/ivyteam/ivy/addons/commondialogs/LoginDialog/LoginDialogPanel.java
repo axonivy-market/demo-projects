@@ -168,7 +168,7 @@ private RGridLayoutPane getButtonPane() {
 		buttonPane.setName("buttonPane");
 		buttonPane.setStyle("buttons");
 		buttonPane.setHgap(5);
-		buttonPane.setStyleProperties("{/anchor \"SOUTH\"/insetsBottom \"5\"/insetsTop \"5\"/weightY \"1\"}");
+		buttonPane.setStyleProperties("{/anchor \"SOUTHEAST\"/insetsBottom \"5\"/insetsTop \"5\"/insetsRight \"5\"/insetsLeft \"5\"}");
 		buttonPane.add(getLoginButton());
 		buttonPane.add(getCancelButton());
 	}

@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed May 27 21:45:48 CEST 2009]
-1180E72D324A3BE5 3.11 #module
+[>Created: Wed Jun 24 15:42:13 CEST 2009]
+1180E72D324A3BE5 3.12 #module
 >Proto >Proto Collection #zClass
 Es0 ErrorDetailDialogProcess Big #zClass
 Es0 RD #cInfo
@@ -27,6 +27,7 @@ Es0 @PushWFArc f5 '' #zField
 Es0 f0 guid 1180E75DFA8E606F #txt
 Es0 f0 type ch.ivyteam.ivy.addons.commondialogs.ErrorDetailDialog.ErrorDetailDialogData #txt
 Es0 f0 method showDetailError(java.lang.Throwable) #txt
+Es0 f0 disableUIEvents false #txt
 Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Throwable error> param = methodEvent.getInputArguments();
 ' #txt
@@ -54,6 +55,12 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Es0 f0 54 38 20 20 13 0 #rect
 Es0 f0 @|RichDialogInitStartIcon #fIcon
+Es0 f1 guid 1180E75E9B47C51C #txt
+Es0 f1 type ch.ivyteam.ivy.addons.commondialogs.ErrorDetailDialog.ErrorDetailDialogData #txt
+Es0 f1 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.ErrorDetailDialog.ErrorDetailDialogData out;
+' #txt
+Es0 f1 actionTable 'out=in;
+' #txt
 Es0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -63,20 +70,14 @@ Es0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f1 guid 1180E75E9B47C51C #txt
-Es0 f1 type ch.ivyteam.ivy.addons.commondialogs.ErrorDetailDialog.ErrorDetailDialogData #txt
-Es0 f1 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.ErrorDetailDialog.ErrorDetailDialogData out;
-' #txt
-Es0 f1 actionTable 'out=in;
-' #txt
-Es0 f1 430 46 20 20 13 0 #rect
+Es0 f1 254 46 20 20 13 0 #rect
 Es0 f1 @|RichDialogProcessStartIcon #fIcon
 Es0 f2 type ch.ivyteam.ivy.addons.commondialogs.ErrorDetailDialog.ErrorDetailDialogData #txt
 Es0 f2 guid 1180E76072C5B80E #txt
-Es0 f2 427 163 26 26 14 0 #rect
+Es0 f2 251 163 26 26 14 0 #rect
 Es0 f2 @|RichDialogEndIcon #fIcon
 Es0 f3 expr out #txt
-Es0 f3 440 66 440 163 #arcP
+Es0 f3 264 66 264 163 #arcP
 Es0 f4 type ch.ivyteam.ivy.addons.commondialogs.ErrorDetailDialog.ErrorDetailDialogData #txt
 Es0 f4 51 163 26 26 14 0 #rect
 Es0 f4 @|RichDialogProcessEndIcon #fIcon
@@ -108,8 +109,8 @@ Es0 f5 64 116 64 163 #arcP
         <swimlaneLabel>Events</swimlaneLabel>
         <swimlaneLabel></swimlaneLabel>
     </language>
-    <swimlaneSize>300</swimlaneSize>
-    <swimlaneSize>300</swimlaneSize>
+    <swimlaneSize>212</swimlaneSize>
+    <swimlaneSize>122</swimlaneSize>
     <swimlaneColor>-16724941</swimlaneColor>
     <swimlaneColor>-16764007</swimlaneColor>
 </elementInfo>

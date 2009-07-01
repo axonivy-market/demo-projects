@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <method>
+        <name>setFocusOnFirstError</name>
+        <description>Sets the focus to the first component that have a validation error.</description>
+    </method>
+    <method>
+        <name>serializeXML</name>
+        <description>Serializes the DynamicDialog content into an XML file.</description>
+        <inputParameter>
+            <name>filename</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
         <name>getValue</name>
         <description>Gets an object that is filled with all data that are used by DynamicDialog.</description>
         <outputParameter>
@@ -9,6 +23,44 @@
             <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
+    </method>
+    <method>
+        <name>isValid</name>
+        <description>Returns true if all the data visible in DynamicDialog pass the validation.</description>
+        <outputParameter>
+            <name>result</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>validate</name>
+        <description>Checks all the fields and update icons if the validation failed.</description>
+    </method>
+    <method>
+        <name>setFocus</name>
+        <description></description>
+    </method>
+    <method>
+        <name>isBlocked</name>
+        <description>Returns true if a field that uses a blocking validation has a validation error.</description>
+        <outputParameter>
+            <name>result</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>setValue</name>
+        <description>Puts the content of the object into the DynamicDialog fields.</description>
+        <inputParameter>
+            <name>value</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
     </method>
     <method>
         <name>getComponent</name>
@@ -24,60 +76,11 @@ Relative qualified names are useful because we can create them from a received q
         </inputParameter>
         <outputParameter>
             <name>component</name>
-            <description></description>
-            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.Component</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </outputParameter>
-    </method>
-    <method>
-        <name>setFocus</name>
-        <description></description>
-    </method>
-    <method>
-        <name>validate</name>
-        <description>Checks all the fields and update icons if the validation failed.</description>
-    </method>
-    <method>
-        <name>setValue</name>
-        <description>Puts the content of the object into the DynamicDialog fields.</description>
-        <inputParameter>
-            <name>value</name>
-            <description></description>
-            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </method>
-    <method>
-        <name>setFocusOnFirstError</name>
-        <description>Sets the focus to the first component that have a validation error.</description>
-    </method>
-    <method>
-        <name>serializeXML</name>
-        <description>Serializes the DynamicDialog content into an XML file.</description>
-        <inputParameter>
-            <name>filename</name>
-            <description></description>
-            <parameterType>String</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </method>
-    <method>
-        <name>isValid</name>
-        <description>Returns true if all the data visible in DynamicDialog pass the validation.</description>
-        <outputParameter>
-            <name>result</name>
-            <description></description>
-            <parameterType>Boolean</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </outputParameter>
-    </method>
-    <method>
-        <name>isBlocked</name>
-        <description>Returns true if a field that uses a blocking validation has a validation error.</description>
-        <outputParameter>
-            <name>result</name>
-            <description></description>
-            <parameterType>Boolean</parameterType>
+            <description>Retrieves a specific component on DynamicDialog. A absolute or relative fully qualified name should be used.&#xD;
+Absolute fully qualified name : /a/b/c&#xD;
+Relative fully qualifed name : /a/b/d/e/../../c --&gt; /a/b/c&#xD;
+Relative qualified names are useful because we can create them from a received qualified name by concatenation.</description>
+            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.Component</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
     </method>
@@ -92,11 +95,39 @@ Relative qualified names are useful because we can create them from a received q
         </inputParameter>
         <outputParameter>
             <name>fieldComponent</name>
-            <description></description>
-            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.FieldComponent</parameterType>
+            <description>Retrieves a specific field component on DynamicDialog.</description>
+            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.FieldComponent</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
     </method>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>object</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>cmsContext</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>databaseConfiguration</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start&#xD;
+This method can not be changed or deleted!&#xD;
+Do nothing. Doesn't use it!</description>
+    </startMethod>
     <startMethod>
         <name>start</name>
         <description></description>
@@ -131,35 +162,7 @@ Relative qualified names are useful because we can create them from a received q
         <inputParameter>
             <name>staticRelation</name>
             <description></description>
-            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.StaticRelation</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </startMethod>
-    <startMethod>
-        <name>start</name>
-        <description>Default Rich Dialog start&#xD;
-This method can not be changed or deleted!&#xD;
-Do nothing. Doesn't use it!</description>
-    </startMethod>
-    <startMethod>
-        <name>start</name>
-        <description></description>
-        <inputParameter>
-            <name>object</name>
-            <description></description>
-            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-        <inputParameter>
-            <name>cmsContext</name>
-            <description></description>
-            <parameterType>List&lt;String&gt;</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-        <inputParameter>
-            <name>databaseConfiguration</name>
-            <description></description>
-            <parameterType>String</parameterType>
+            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.StaticRelation</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </startMethod>

@@ -3,15 +3,16 @@ package ch.ivyteam.ivy.workflow.ui.task.TaskDisplay;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
+import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RToggleButton;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RCardPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RSplitPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTabbedPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTaskPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTaskPaneContainer;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RToolBar;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
 import ch.ivyteam.ivy.workflow.ui.cases.CaseBusinessDetailsDisplay.CaseBusinessDetailsDisplayPanel;
 import ch.ivyteam.ivy.workflow.ui.cases.CaseCategorizationDetailsDisplay.CaseCategorizationDetailsDisplayPanel;
 import ch.ivyteam.ivy.workflow.ui.cases.CaseCustomFieldsDisplay.CaseCustomFieldsDisplayPanel;
@@ -20,9 +21,7 @@ import ch.ivyteam.ivy.workflow.ui.task.TaskCustomFieldsDisplay.TaskCustomFieldsD
 import ch.ivyteam.ivy.workflow.ui.task.TaskInformationDetailsDisplay.TaskInformationDetailsDisplayPanel;
 import ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListPanel;
 import ch.ivyteam.ivy.workflow.ui.task.ie.IntermediateEventDisplay.IntermediateEventDisplayPanel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RCardPane;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
+
 import com.ulcjava.base.application.util.Color;
 
 /**

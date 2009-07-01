@@ -972,7 +972,7 @@ private RTextField getCountTextField() {
 	if (countTextField == null) {
 		countTextField = new RTextField();
 		countTextField.setText("1000");
-		countTextField.setValidationConfiguration("#\n#Mon Jun 09 17:34:19 CEST 2008\nversion=1.0\nvalidationConfigName=NumberInt\nmandatory=false\n");
+		countTextField.setValidation("#\n#Mon Jun 09 17:34:19 CEST 2008\nversion=1.0\nvalidationConfigName=NumberInt\nmandatory=false\n");
 		countTextField.setEnabled(false);
 		countTextField.setColumns(7);
 		countTextField.setStyleProperties("{/fill \"NONE\"}");

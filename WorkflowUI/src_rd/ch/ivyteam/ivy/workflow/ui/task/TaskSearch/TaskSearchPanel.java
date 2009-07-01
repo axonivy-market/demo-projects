@@ -11,6 +11,7 @@ import ch.ivyteam.ivy.richdialog.widgets.components.RToggleButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTree;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RCollapsiblePane;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RToolBar;
@@ -18,15 +19,14 @@ import ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
 import ch.ivyteam.ivy.workflow.ui.task.TaskFiltersSelect.TaskFiltersSelectPanel;
 import ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectPanel;
+
 import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.ULCButtonGroup;
+import com.ulcjava.base.application.ULCFlowLayoutPane;
 import com.ulcjava.base.application.border.ULCTitledBorder;
 import com.ulcjava.base.application.util.Color;
-import com.ulcjava.base.application.util.Font;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
-import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import com.ulcjava.base.application.util.ComponentOrientation;
-import com.ulcjava.base.application.ULCFlowLayoutPane;
+import com.ulcjava.base.application.util.Font;
 
 /**
  * RichDialog panel implementation for TaskSearchPanel.

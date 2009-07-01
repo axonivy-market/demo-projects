@@ -1,33 +1,22 @@
 package ch.ivyteam.ivy.workflow.ui.StartList;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
-import com.ulcjava.base.application.BorderFactory;
-import com.ulcjava.base.application.DefaultListModel;
-import com.ulcjava.base.application.border.ULCTitledBorder;
-import com.ulcjava.base.application.util.Font;
-import com.ulcjava.base.application.util.Color;
-import ch.ivyteam.ivy.richdialog.widgets.components.RList;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
-import com.ulcjava.base.application.ULCListSelectionModel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RToggleButton;
-import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
-import ch.ivyteam.ivy.workflow.IProcessStart;
-import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
+import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RList;
+import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RSplitPane;
-import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem;
+import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
+
+import com.ulcjava.base.application.BorderFactory;
+import com.ulcjava.base.application.ULCListSelectionModel;
+import com.ulcjava.base.application.border.ULCTitledBorder;
+import com.ulcjava.base.application.util.Color;
+import com.ulcjava.base.application.util.Font;
 
 /**
  * RichDialog panel implementation for StartListPanel.
@@ -43,7 +32,6 @@ private RList startList = null;
 private RScrollPane ScrollPane = null;
 private RTextField searchTextField = null;
 private RButton searchButton = null;
-private Map<String, IProcessStart> processStarts;
 private RLabel footerLabel = null;
 private RLabel findLabel = null;
 private RCheckBox showNoNameCheckBox = null;

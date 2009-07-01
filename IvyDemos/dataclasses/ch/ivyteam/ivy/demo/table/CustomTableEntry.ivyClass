@@ -1,0 +1,17 @@
+CustomTableEntry #class
+ch.ivyteam.ivy.demo.table #namespace
+CustomTableEntry #dbTableName
+simpleText String #field
+simpleText PERSISTENT #fieldModifier
+buttonTitle String #field
+buttonTitle PERSISTENT #fieldModifier
+booleanValue Boolean #field
+booleanValue PERSISTENT #fieldModifier
+comboBoxEntry ch.ivyteam.ivy.demo.table.CustomTableComboBoxEntry #field
+comboBoxEntry PERSISTENT #fieldModifier
+comboBoxEntryKey Number #field
+comboBoxEntryKey PERSISTENT #fieldModifier
+comboBoxRecord Record #field
+comboBoxRecord PERSISTENT #fieldModifier
+comboBoxRecordKey Number #field
+comboBoxRecordKey PERSISTENT #fieldModifier

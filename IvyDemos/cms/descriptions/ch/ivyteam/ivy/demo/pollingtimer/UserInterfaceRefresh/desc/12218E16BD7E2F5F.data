@@ -1,0 +1,1 @@
+A simple demo application that shows how to use ULCPollingTimers in conjunction with the IvyAddOn project's PollingTimerUtils to update an user interface either during a long work task (e.g. by using a progress bar) or periodically, if data is changing in the background (e.g. if some database tables are updated externally).

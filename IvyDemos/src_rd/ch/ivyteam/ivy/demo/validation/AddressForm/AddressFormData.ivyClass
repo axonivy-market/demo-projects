@@ -1,0 +1,6 @@
+AddressFormData #class
+ch.ivyteam.ivy.demo.validation.AddressForm #namespace
+AdressFormData #dbTableName
+Data ch.ivyteam.ivy.demo.validation.Person #field
+Data Data #dbFieldName
+Data PERSISTENT #fieldModifier

@@ -3,6 +3,7 @@ package ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
+import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTable;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
@@ -14,12 +15,8 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RToolBar;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
-import com.ulcjava.base.application.BorderFactory;
+
 import com.ulcjava.base.application.ULCSplitPane;
-import com.ulcjava.base.application.border.ULCTitledBorder;
-import com.ulcjava.base.application.util.Color;
-import com.ulcjava.base.application.util.Font;
-import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import com.ulcjava.base.application.ULCTable;
 
 /**
