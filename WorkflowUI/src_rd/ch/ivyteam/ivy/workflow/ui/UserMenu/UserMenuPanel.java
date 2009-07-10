@@ -423,7 +423,7 @@ private RLabel getTasksLabel() {
 	if (tasksLabel == null) {
 		tasksLabel = new RLabel();
 		tasksLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/tasks\")%>");
-		tasksLabel.setStyle("info");
+		tasksLabel.setStyle("smallTitle");
 		tasksLabel.setBorder(null);
 		tasksLabel.setStyleProperties("{/foregroundColor {/b \"124\"/r \"12\"/g \"74\"}}");
 		tasksLabel.setName("tasksLabel");
@@ -440,7 +440,7 @@ private RLabel getCasesLabel() {
 	if (casesLabel == null) {
 		casesLabel = new RLabel();
 		casesLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/cases\")%>");
-		casesLabel.setStyle("info");
+		casesLabel.setStyle("smallTitle");
 		casesLabel.setBorder(null);
 		casesLabel.setStyleProperties("{/foregroundColor {/b \"124\"/r \"12\"/g \"74\"}}");		
 		casesLabel.setName("casesLabel");
@@ -457,7 +457,7 @@ private RLabel getAdministrationLabel() {
 	if (administrationLabel == null) {
 		administrationLabel = new RLabel();
 		administrationLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/administration\")%>");
-		administrationLabel.setStyle("info");
+		administrationLabel.setStyle("smallTitle");
 		administrationLabel.setBorder(null);
 		administrationLabel.setStyleProperties("{/foregroundColor {/b \"124\"/r \"12\"/g \"74\"}}");
 		administrationLabel.setName("administrationLabel");
@@ -475,7 +475,7 @@ private RLabel getSecurityLabel() {
 		securityLabel = new RLabel();
 		securityLabel.setName("securityLabel");
 		securityLabel.setVisible(false);
-		securityLabel.setStyle("info");
+		securityLabel.setStyle("smallTitle");
 		securityLabel.setBorder(null);
 		securityLabel.setStyleProperties("{/foregroundColor {/b \"124\"/r \"12\"/g \"74\"}}");
 		securityLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/security/plainStrings/security\")%>");
@@ -492,7 +492,7 @@ private RLabel getProcessesLabel() {
 	if (processesLabel == null) {
 		processesLabel = new RLabel();
 		processesLabel.setName("processesLabel");
-		processesLabel.setStyle("info");
+		processesLabel.setStyle("smallTitle");
 		processesLabel.setBorder(null);
 		processesLabel.setStyleProperties("{/foregroundColor {/b \"124\"/r \"12\"/g \"74\"}}");
 		processesLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/process/plainStrings/processes\")%>");

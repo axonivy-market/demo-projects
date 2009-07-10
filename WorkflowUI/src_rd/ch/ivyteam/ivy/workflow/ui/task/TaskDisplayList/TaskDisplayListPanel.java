@@ -1259,6 +1259,7 @@ private RButton getCloseButton() {
 		closeButton.setVisible(true);
 		closeButton.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
 		closeButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close24\")%>");
+		closeButton.setStyleProperties("{/insetsRight \"2\"}");
 		closeButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
 	}
 	return closeButton;

@@ -1,16 +1,15 @@
 package ch.ivyteam.ivy.demo.validation.AddressMain;
 
+import ch.ivyteam.ivy.demo.validation.AddressForm.AddressFormPanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RGridLayoutPane;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
-import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
-import ch.ivyteam.ivy.demo.validation.AddressForm.AddressFormPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RErrorHeader;
+import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
+
 import com.ulcjava.base.application.util.Font;
-import ch.ivyteam.ivy.demo.util.Title.TitlePanel;
 
 /**
  * RichDialog panel implementation for AdresMainPanel.

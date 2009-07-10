@@ -17,6 +17,7 @@ import com.ulcjava.base.application.ULCListSelectionModel;
 import com.ulcjava.base.application.border.ULCTitledBorder;
 import com.ulcjava.base.application.util.Color;
 import com.ulcjava.base.application.util.Font;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RToolBar;
 
 /**
  * RichDialog panel implementation for StartListPanel.
@@ -38,6 +39,8 @@ private RCheckBox showNoNameCheckBox = null;
 private RGridBagLayoutPane optionsGridBagLayoutPane = null;
 private RPopupMenu startListPopupMenu = null;  //  @jve:decl-index=0:visual-constraint="215,7"
 private RMenuItem startMenuItem = null;
+private RToolBar startToolBar = null;
+private RButton stratButton = null;
 /**
    * Create a new instance of StartListPanel
    */
@@ -58,6 +61,7 @@ private RMenuItem startMenuItem = null;
         this.add(getScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getFooterLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 4, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getOptionsGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(2, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getStartToolBar(), new com.ulcjava.base.application.GridBagConstraints(2, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
 /**
@@ -69,7 +73,7 @@ private RList getStartList() {
 	if (startList == null) {
 		startList = new RList();
 		startList.setName("startList");
-		startList.setModelConfiguration("{/result \"result=\\\"<html><b>\\\" + \\r\\nIF(entry.getName().length() > 0, IF(entry.getName().length() > 40,entry.getName().substring(0,40) + \\\"...\\\", entry.getName()), IF(entry.getUserFriendlyRequestPath().length() > 40,entry.getUserFriendlyRequestPath().substring(0,40) + \\\"...\\\", entry.getUserFriendlyRequestPath()))\\r\\n+ \\\"</b><br>\\\" + entry.getDescription()\"/version \"3.0\"/icon \"result=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/task/images/startTask24\\\")\"/tooltip \"result=\\\"<html>\\\" +\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/description\\\") + \\\": \\\" + IF(!entry.getDescription().matches(\\\"\\\"), entry.getDescription(), ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/process/plainStrings/noDescriptionGiven\\\")) + \\r\\n\\\"<b><br/>\\\" + ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/ivyProjectName\\\") + \\\": \\\" + entry.getProcessModelVersion().getProcessModel().getName()\"/emptyTableText \"\"}");
+		startList.setModelConfiguration("{/result \"result=\\\"<html><b>\\\" + \\r\\nIF(entry.getName().length() > 0, IF(entry.getName().length() > 40,entry.getName().substring(0,40) + \\\"...\\\", entry.getName()), IF(entry.getUserFriendlyRequestPath().length() > 40,entry.getUserFriendlyRequestPath().substring(0,40) + \\\"...\\\", entry.getUserFriendlyRequestPath()))\\r\\n+ \\\"</b><br>\\\" + entry.getDescription()\"/version \"3.0\"/icon \"result=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/task/images/startTask16\\\")\"/tooltip \"result=\\\"<html>\\\" +\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/description\\\") + \\\": \\\" + IF(!entry.getDescription().matches(\\\"\\\"), entry.getDescription(), ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/process/plainStrings/noDescriptionGiven\\\")) + \\r\\n\\\"<b><br/>\\\" + ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/ivyProjectName\\\") + \\\": \\\" + entry.getProcessModelVersion().getProcessModel().getName()\"/emptyTableText \"\"}");
 		startList.setSelectionMode(ULCListSelectionModel.SINGLE_SELECTION);
 		startList.setOpaque(false);
 		startList.setVisibleRowCount(20);
@@ -89,8 +93,7 @@ private RScrollPane getScrollPane() {
 	if (ScrollPane == null) {
 		ScrollPane = new RScrollPane();
 		ScrollPane.setName("ScrollPane");
-		ScrollPane.setStyleProperties("{/anchor \"NORTHWEST\"/weightY \"1\"/weightX \"1\"}");
-		ScrollPane.setBorder(BorderFactory.createTitledBorder(null, "Process starts", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 11), new Color(12, 74, 124)));
+		ScrollPane.setStyleProperties("{/anchor \"NORTHWEST\"/insetsLeft \"2\"/weightY \"1\"/weightX \"1\"}");
 		ScrollPane.setViewPortView(getStartList());
 	}
 	return ScrollPane;
@@ -178,6 +181,7 @@ private RGridBagLayoutPane getOptionsGridBagLayoutPane() {
 		optionsGridBagLayoutPane = new RGridBagLayoutPane();
 		optionsGridBagLayoutPane.setName("optionsGridBagLayoutPane");
 		optionsGridBagLayoutPane.setBorder(BorderFactory.createTitledBorder(null, "Filter Options", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 11), new Color(23, 64, 140)));
+		optionsGridBagLayoutPane.setStyleProperties("{/insetsLeft \"2\"}");
 		optionsGridBagLayoutPane.add(getFindLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		optionsGridBagLayoutPane.add(getSearchButton(), new com.ulcjava.base.application.GridBagConstraints(2, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		optionsGridBagLayoutPane.add(getShowNoNameCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
@@ -212,6 +216,37 @@ private RMenuItem getStartMenuItem() {
 		startMenuItem.setText("Start Process");
 	}
 	return startMenuItem;
+}
+
+/**
+ * This method initializes startToolBar	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RToolBar	
+ */
+private RToolBar getStartToolBar() {
+	if (startToolBar == null) {
+		startToolBar = new RToolBar();
+		startToolBar.setName("startToolBar");
+		startToolBar.setStyleProperties("{/insetsLeft \"2\"}");
+		startToolBar.add(getStratButton());
+	}
+	return startToolBar;
+}
+
+/**
+ * This method initializes stratButton	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
+ */
+private RButton getStratButton() {
+	if (stratButton == null) {
+		stratButton = new RButton();
+		stratButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/startTask24\")%>");
+		stratButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/process/plainStrings/menuStartProcess\")%>");
+		stratButton.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/startTask32\")%>");
+		stratButton.setName("stratButton");
+	}
+	return stratButton;
 }
 
 }  //  @jve:decl-index=0:visual-constraint="10,10"

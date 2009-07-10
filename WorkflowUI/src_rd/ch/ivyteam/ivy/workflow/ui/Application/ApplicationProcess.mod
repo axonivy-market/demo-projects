@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu May 28 12:36:47 CEST 2009]
-117CB5CD6E5F88C6 3.11 #module
+[>Created: Wed Jul 08 12:21:29 CEST 2009]
+117CB5CD6E5F88C6 3.12 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
 As0 RD #cInfo
@@ -39,6 +39,7 @@ As0 @PushWFArc f19 '' #zField
 As0 f0 guid 117CB6042DDA3F70 #txt
 As0 f0 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f0 method start() #txt
+As0 f0 disableUIEvents false #txt
 As0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -79,8 +80,9 @@ As0 f10 actionCode 'import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel
 
 if (panel.centerTabbedDisplay.#selectedComponent != null)
 {
-	IRichDialogPanel currentPanel = panel.centerTabbedDisplay.#selectedComponent as IRichDialogPanel;
-	currentPanel.getPanelAPI().unload();
+	panel.centerTabbedDisplay.remove(panel.centerTabbedDisplay.#selectedComponent);
+/*	IRichDialogPanel currentPanel = panel.centerTabbedDisplay.#selectedComponent as IRichDialogPanel;	
+	currentPanel.getPanelAPI().unload();*/
 }' #txt
 As0 f10 214 46 20 20 13 0 #rect
 As0 f10 @|RichDialogProcessStartIcon #fIcon
@@ -143,7 +145,8 @@ As0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f3 actionTable 'out=in;
 ' #txt
-As0 f3 actionCode ivy.session.logoutSessionUser(); #txt
+As0 f3 actionCode 'panel.centerTabbedDisplay.removeAll();
+ivy.session.logoutSessionUser(ivy.task.getIdentifier());' #txt
 As0 f3 382 46 20 20 13 0 #rect
 As0 f3 @|RichDialogProcessStartIcon #fIcon
 As0 f5 expr out #txt

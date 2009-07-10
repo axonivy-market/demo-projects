@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu May 28 16:16:08 CEST 2009]
-117CB4CDADC9E332 3.11 #module
+[>Created: Wed Jul 08 17:37:37 CEST 2009]
+117CB4CDADC9E332 3.12 #module
 >Proto >Proto Collection #zClass
 Ly0 LoadApplicationStaticWay Big #zClass
 Ly0 B #cInfo
@@ -83,16 +83,7 @@ Ly0 f0 @|StartRequestIcon #fIcon
 Ly0 f1 type workflowui.Data #txt
 Ly0 f1 163 435 26 26 14 0 #rect
 Ly0 f1 @|EndIcon #fIcon
-Ly0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Workflow UI</name>
-        <nameStyle>11,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ly0 f3 targetWindow NEW #txt
+Ly0 f3 targetWindow NEW:card: #txt
 Ly0 f3 targetDisplay TOP #txt
 Ly0 f3 richDialogId ch.ivyteam.ivy.workflow.ui.Application #txt
 Ly0 f3 startMethod start() #txt
@@ -103,32 +94,23 @@ Ly0 f3 responseActionDecl 'workflowui.Data out;
 ' #txt
 Ly0 f3 responseMappingAction 'out=in;
 ' #txt
-Ly0 f3 windowConfiguration '#Thu May 28 12:22:56 CEST 2009
-height=1000
-maximized=false
-centered=true
-close_after_last_rd=true
-resizable=true
-width=1200
-title=Xpert.Ivy Workflow UI
-' #txt
+Ly0 f3 windowConfiguration '{/title "Xpert.Ivy Workflow UI"/width 1200 /height 900 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 Ly0 f3 isAsynch false #txt
 Ly0 f3 isInnerRd false #txt
 Ly0 f3 isDialog false #txt
-Ly0 f3 158 348 36 24 20 -2 #rect
-Ly0 f3 @|RichDialogIcon #fIcon
-Ly0 f2 expr out #txt
-Ly0 f2 176 372 176 435 #arcP
-Ly0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ly0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>load Workflow UI 
-login dialog</name>
-        <nameStyle>30,9
+        <name>Workflow UI</name>
+        <nameStyle>11,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ly0 f3 158 348 36 24 20 -2 #rect
+Ly0 f3 @|RichDialogIcon #fIcon
+Ly0 f2 expr out #txt
+Ly0 f2 176 372 176 435 #arcP
 Ly0 f5 targetWindow NEW #txt
 Ly0 f5 targetDisplay TOP #txt
 Ly0 f5 richDialogId ch.ivyteam.ivy.addons.commondialogs.LoginDialog #txt
@@ -153,6 +135,16 @@ title=Xpert.Ivy Workflow UI
 Ly0 f5 isAsynch false #txt
 Ly0 f5 isInnerRd false #txt
 Ly0 f5 isDialog false #txt
+Ly0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>load Workflow UI 
+login dialog</name>
+        <nameStyle>30,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ly0 f5 158 188 36 24 20 -2 #rect
 Ly0 f5 @|RichDialogIcon #fIcon
 Ly0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

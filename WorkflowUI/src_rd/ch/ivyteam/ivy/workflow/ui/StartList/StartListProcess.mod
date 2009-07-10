@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue May 05 18:02:40 CEST 2009]
-119491E98A4A71B7 3.11 #module
+[>Created: Wed Jul 08 17:26:29 CEST 2009]
+119491E98A4A71B7 3.12 #module
 >Proto >Proto Collection #zClass
 Ss0 StartListProcess Big #zClass
 Ss0 RD #cInfo
@@ -41,6 +41,7 @@ Ss0 @PushWFArc f21 '' #zField
 Ss0 f0 guid 1194923FF289C8F3 #txt
 Ss0 f0 type ch.ivyteam.ivy.workflow.ui.StartList.StartListData #txt
 Ss0 f0 method start() #txt
+Ss0 f0 disableUIEvents false #txt
 Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -124,15 +125,6 @@ Ss0 f4 expr out #txt
 Ss0 f4 72 50 72 101 #arcP
 Ss0 f2 expr out #txt
 Ss0 f2 72 123 72 243 #arcP
-Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startProcess</name>
-        <nameStyle>12,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ss0 f5 guid 119492C089B8FAA4 #txt
 Ss0 f5 type ch.ivyteam.ivy.workflow.ui.StartList.StartListData #txt
 Ss0 f5 actionDecl 'ch.ivyteam.ivy.workflow.ui.StartList.StartListData out;
@@ -161,20 +153,20 @@ catch (Exception e)
 {
 	out.exception = e;	
 }' #txt
+Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startProcess</name>
+        <nameStyle>12,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f5 606 30 20 20 13 0 #rect
 Ss0 f5 @|RichDialogProcessStartIcon #fIcon
 Ss0 f6 type ch.ivyteam.ivy.workflow.ui.StartList.StartListData #txt
 Ss0 f6 603 243 26 26 14 0 #rect
 Ss0 f6 @|RichDialogProcessEndIcon #fIcon
-Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>toggleShowProperties</name>
-        <nameStyle>20,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ss0 f8 guid 1198AD228381C945 #txt
 Ss0 f8 type ch.ivyteam.ivy.workflow.ui.StartList.StartListData #txt
 Ss0 f8 actionDecl 'ch.ivyteam.ivy.workflow.ui.StartList.StartListData out;
@@ -192,6 +184,15 @@ if(panel.noNamedToggleButton.isSelected()){
 }
 
 */' #txt
+Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>toggleShowProperties</name>
+        <nameStyle>20,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f8 254 30 20 20 13 0 #rect
 Ss0 f8 @|RichDialogProcessStartIcon #fIcon
 Ss0 f10 expr out #txt
@@ -199,6 +200,12 @@ Ss0 f10 264 50 72 101 #arcP
 Ss0 f10 1 264 80 #addKink
 Ss0 f10 2 72 80 #addKink
 Ss0 f10 1 0.4861111111111111 0 0 #arcLabel
+Ss0 f9 guid 1198AF348A23A0BC #txt
+Ss0 f9 type ch.ivyteam.ivy.workflow.ui.StartList.StartListData #txt
+Ss0 f9 actionDecl 'ch.ivyteam.ivy.workflow.ui.StartList.StartListData out;
+' #txt
+Ss0 f9 actionTable 'out=in;
+' #txt
 Ss0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -207,12 +214,6 @@ Ss0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ss0 f9 guid 1198AF348A23A0BC #txt
-Ss0 f9 type ch.ivyteam.ivy.workflow.ui.StartList.StartListData #txt
-Ss0 f9 actionDecl 'ch.ivyteam.ivy.workflow.ui.StartList.StartListData out;
-' #txt
-Ss0 f9 actionTable 'out=in;
 ' #txt
 Ss0 f9 374 30 20 20 13 0 #rect
 Ss0 f9 @|RichDialogProcessStartIcon #fIcon
@@ -224,6 +225,7 @@ Ss0 f11 1 0.5293671760956539 0 0 #arcLabel
 Ss0 f12 guid 11A9B8D99F1AD970 #txt
 Ss0 f12 type ch.ivyteam.ivy.workflow.ui.StartList.StartListData #txt
 Ss0 f12 method start(String) #txt
+Ss0 f12 disableUIEvents false #txt
 Ss0 f12 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.String aDisplayId> param = methodEvent.getInputArguments();
 ' #txt
@@ -248,15 +250,6 @@ Ss0 f13 160 50 72 101 #arcP
 Ss0 f13 1 160 80 #addKink
 Ss0 f13 2 72 80 #addKink
 Ss0 f13 1 0.46888853413051373 0 0 #arcLabel
-Ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>onLoad</name>
-        <nameStyle>6,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ss0 f14 guid 11DD95BFD82F1247 #txt
 Ss0 f14 type ch.ivyteam.ivy.workflow.ui.StartList.StartListData #txt
 Ss0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.StartList.StartListData out;
@@ -270,14 +263,9 @@ Ss0 f14 actionCode 'import com.ulcjava.base.application.border.ULCTitledBorder;
 if (panel.getBorder() instanceof ULCTitledBorder)
 {
 	(panel.getBorder() as 
-		ULCTitledBorder).setTitle(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/process/plainStrings/processStartList"));
-}
-
-if (panel.ScrollPane.getBorder() instanceof ULCTitledBorder)
-{
-	(panel.ScrollPane.getBorder() as 
 		ULCTitledBorder).setTitle(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/process/plainStrings/startableProcessesShortDesc"));
 }
+
 
 if (panel.optionsGridBagLayoutPane.getBorder() instanceof ULCTitledBorder)
 {
@@ -287,6 +275,15 @@ if (panel.optionsGridBagLayoutPane.getBorder() instanceof ULCTitledBorder)
 
 panel.startMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/process/plainStrings/menuStartProcess");
 panel.startMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/startTask16");' #txt
+Ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>onLoad</name>
+        <nameStyle>6,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f14 502 30 20 20 13 0 #rect
 Ss0 f14 @|RichDialogProcessStartIcon #fIcon
 Ss0 f15 type ch.ivyteam.ivy.workflow.ui.StartList.StartListData #txt

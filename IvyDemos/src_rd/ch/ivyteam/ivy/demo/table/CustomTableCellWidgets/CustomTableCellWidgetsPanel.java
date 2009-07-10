@@ -1,18 +1,17 @@
 package ch.ivyteam.ivy.demo.table.CustomTableCellWidgets;
 
+import ch.ivyteam.ivy.demo.util.Title.TitlePanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
-import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RList;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTable;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
+import ch.ivyteam.ivy.richdialog.widgets.components.customrenderers.RBooleanCellWidget;
 import ch.ivyteam.ivy.richdialog.widgets.components.customrenderers.RButtonCellWidget;
 import ch.ivyteam.ivy.richdialog.widgets.components.customrenderers.RComboBoxCellWidget;
-import ch.ivyteam.ivy.richdialog.widgets.components.customrenderers.RBooleanCellWidget;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
+
 import com.ulcjava.base.application.ULCTable;
-import ch.ivyteam.ivy.richdialog.widgets.components.RHtmlPane;
-import ch.ivyteam.ivy.richdialog.widgets.components.RList;
-import ch.ivyteam.ivy.demo.util.Title.TitlePanel;
 
 /**
  * RichDialog panel implementation for CustomTableCellWidgetsPanel.

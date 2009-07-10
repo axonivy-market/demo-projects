@@ -403,7 +403,7 @@ private RLabel getBusinessStartTimestampLabel() {
 		businessStartTimestampLabel = new RLabel();
 		businessStartTimestampLabel.setName("businessStartTimestampLabel");
 		businessStartTimestampLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/BUSINESS_START_TIMESTAMP16\")%>");
-		businessStartTimestampLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/businessStartTimestamp/plainStrings/businessStartTimestamp\")%>\n");
+		businessStartTimestampLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/businessStartTimestamp/plainStrings/businessTimestamp\")%>\n");
 	}
 	return businessStartTimestampLabel;
 }

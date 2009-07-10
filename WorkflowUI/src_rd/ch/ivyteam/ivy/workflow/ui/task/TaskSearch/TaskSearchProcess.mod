@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Jun 04 12:16:43 CEST 2009]
-1175F14B3894BBC3 3.11 #module
+[>Created: Thu Jul 09 12:38:43 CEST 2009]
+1175F14B3894BBC3 3.12 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskSearchProcess Big #zClass
 Ts0 RD #cInfo
@@ -44,7 +44,6 @@ Ts0 @RichDialogProcessStep f186 '' #zField
 Ts0 @Alternative f188 '' #zField
 Ts0 @PushWFArc f190 '' #zField
 Ts0 @PushWFArc f162 '' #zField
-Ts0 @PushWFArc f20 '' #zField
 Ts0 @RichDialog f36 '' #zField
 Ts0 @Alternative f55 '' #zField
 Ts0 @PushWFArc f57 '' #zField
@@ -241,19 +240,12 @@ Ts0 @PushWFArc f223 '' #zField
 Ts0 @RichDialogProcessStep f195 '' #zField
 Ts0 @PushWFArc f203 '' #zField
 Ts0 @PushWFArc f133 '' #zField
+Ts0 @PushWFArc f228 '' #zField
 >Proto Ts0 Ts0 TaskSearchProcess #zField
-Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f0 guid 1175F221618771FB #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f0 method start() #txt
+Ts0 f0 disableUIEvents false #txt
 Ts0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -265,8 +257,23 @@ out.taskDisplayMode=1;
 Ts0 f0 outParameterDecl '<> result;
 ' #txt
 Ts0 f0 embeddedRdInitializations '{/taskHierarchyLayoutSelectRDC {/fieldName "taskHierarchyLayoutSelectRDC"/startMethod "start(Number)"/parameterMapping "param.aTaskHierarchyLayoutPrefferedIndex=1;\n"/initScript ""}/taskFiltersSelectRDC {/fieldName "taskFiltersSelectRDC"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
+Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f0 134 62 20 20 13 0 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
+Ts0 f3 guid 1175F2242B61EBF8 #txt
+Ts0 f3 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f3 actionTable 'out=in;
+' #txt
 Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -276,17 +283,22 @@ Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f3 guid 1175F2242B61EBF8 #txt
-Ts0 f3 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f3 actionTable 'out=in;
-' #txt
 Ts0 f3 1902 30 20 20 13 0 #rect
 Ts0 f3 @|RichDialogProcessStartIcon #fIcon
 Ts0 f4 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f4 1899 243 26 26 14 0 #rect
 Ts0 f4 @|RichDialogProcessEndIcon #fIcon
+Ts0 f14 guid 117A1701BB17D093 #txt
+Ts0 f14 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f14 actionTable 'out=in;
+' #txt
+Ts0 f14 actionCode 'out.taskHierarchyLayoutSelectedIndex = 
+	panel.taskHierarchyLayoutSelectRDC.getSelectedTaskHierarchyLayoutIndex();
+	
+// reset fully expanded mode
+out.taskHierarchyFullyExpanded= false;' #txt
 Ts0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -296,19 +308,12 @@ Ts0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f14 guid 117A1701BB17D093 #txt
-Ts0 f14 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f14 actionTable 'out=in;
-' #txt
-Ts0 f14 actionCode 'out.taskHierarchyLayoutSelectedIndex = 
-	panel.taskHierarchyLayoutSelectRDC.getSelectedTaskHierarchyLayoutIndex();' #txt
 Ts0 f14 1318 30 20 20 13 0 #rect
 Ts0 f14 @|RichDialogProcessStartIcon #fIcon
 Ts0 f15 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f15 1315 587 26 26 14 0 #rect
 Ts0 f15 @|RichDialogProcessEndIcon #fIcon
+Ts0 f16 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -316,15 +321,14 @@ Ts0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f16 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f16 1314 306 28 28 325 -41 #rect
 Ts0 f16 @|AlternativeIcon #fIcon
+Ts0 f30 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f30 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f30 1314 218 28 28 14 0 #rect
 Ts0 f30 @|AlternativeIcon #fIcon
 Ts0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -411,15 +415,6 @@ priority ON</name>
 Ts0 f38 1342 232 1424 252 #arcP
 Ts0 f38 1 1424 232 #addKink
 Ts0 f38 0 0.5365853658536586 0 0 #arcLabel
-Ts0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>loadTasksByTaskHierarchySelection</name>
-        <nameStyle>33,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f46 guid 117AC276F6716306 #txt
 Ts0 f46 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f46 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
@@ -430,6 +425,15 @@ Ts0 f46 actionCode 'out.taskHierarchyContext.setIcon("");
 out.taskHierarchyContext.setPropertyFilter(null);
 out.taskHierarchyContext.setTitle("All tasks");
 out.taskHierarchyContext.setToolTipText("");
+' #txt
+Ts0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>loadTasksByTaskHierarchySelection</name>
+        <nameStyle>33,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
 ' #txt
 Ts0 f46 350 726 20 20 13 0 #rect
 Ts0 f46 @|RichDialogProcessStartIcon #fIcon
@@ -502,12 +506,12 @@ if (selectedTree.value instanceof TaskHierarchyTreeNodeValue)
 Ts0 f49 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f49 342 1044 36 24 20 -2 #rect
 Ts0 f49 @|RichDialogProcessStepIcon #fIcon
+Ts0 f28 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f28 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f28 346 890 28 28 14 0 #rect
 Ts0 f28 @|AlternativeIcon #fIcon
 Ts0 f68 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -542,12 +546,12 @@ Ts0 f17 1 1424 304 #addKink
 Ts0 f17 1 0.09424384851448732 0 0 #arcLabel
 Ts0 f27 expr in #txt
 Ts0 f27 1328 246 1328 306 #arcP
+Ts0 f42 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f42 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f42 1314 162 28 28 14 0 #rect
 Ts0 f42 @|AlternativeIcon #fIcon
 Ts0 f43 expr out #txt
@@ -561,6 +565,13 @@ Ts0 f154 expr in #txt
 Ts0 f154 outCond 'in.taskHierarchyLayoutSelectedIndex < 0 || in.taskHierarchyLayoutSelectedIndex > 6' #txt
 Ts0 f154 1342 176 1467 176 #arcP
 Ts0 f154 0 0.4503252571144769 0 0 #arcLabel
+Ts0 f11 guid 11865F41E1BF67C0 #txt
+Ts0 f11 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f11 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f11 actionTable 'out=in;
+' #txt
+Ts0 f11 actionCode 'out.treeLoadEvent = event as ch.ivyteam.ivy.richdialog.component.event.TreeLoadEvent;' #txt
 Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -570,13 +581,6 @@ Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f11 guid 11865F41E1BF67C0 #txt
-Ts0 f11 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f11 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f11 actionTable 'out=in;
-' #txt
-Ts0 f11 actionCode 'out.treeLoadEvent = event as ch.ivyteam.ivy.richdialog.component.event.TreeLoadEvent;' #txt
 Ts0 f11 1046 726 20 20 13 0 #rect
 Ts0 f11 @|RichDialogProcessStartIcon #fIcon
 Ts0 f18 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
@@ -686,12 +690,12 @@ for (int i=0; i<result.size(); i++)
 Ts0 f186 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f186 1038 1012 36 24 20 -2 #rect
 Ts0 f186 @|RichDialogProcessStepIcon #fIcon
+Ts0 f188 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f188 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f188 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f188 1042 770 28 28 14 0 #rect
 Ts0 f188 @|AlternativeIcon #fIcon
 Ts0 f190 expr in #txt
@@ -701,8 +705,6 @@ Ts0 f190 2 1416 1120 #addKink
 Ts0 f190 1 0.21557090204391338 0 0 #arcLabel
 Ts0 f162 expr out #txt
 Ts0 f162 1056 746 1056 770 #arcP
-Ts0 f20 expr out #txt
-Ts0 f20 1056 1036 1056 1107 #arcP
 Ts0 f36 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -749,12 +751,12 @@ Ts0 f36 isInnerRd true #txt
 Ts0 f36 isDialog true #txt
 Ts0 f36 718 972 36 24 20 -2 #rect
 Ts0 f36 @|RichDialogIcon #fIcon
+Ts0 f55 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f55 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f55 722 1034 28 28 14 0 #rect
 Ts0 f55 @|AlternativeIcon #fIcon
 Ts0 f57 expr out #txt
@@ -2305,6 +2307,12 @@ Ts0 f179 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f179 1314 320 680 404 #arcP
 Ts0 f179 1 680 320 #addKink
 Ts0 f179 0 0.6647058823529411 0 0 #arcLabel
+Ts0 f1 guid 1190DFC3C057CAB3 #txt
+Ts0 f1 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f1 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f1 actionTable 'out=in;
+' #txt
 Ts0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2314,18 +2322,19 @@ Ts0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f1 guid 1190DFC3C057CAB3 #txt
-Ts0 f1 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f1 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f1 actionTable 'out=in;
-' #txt
 Ts0 f1 1518 38 20 20 13 0 #rect
 Ts0 f1 @|RichDialogProcessStartIcon #fIcon
 Ts0 f2 expr out #txt
 Ts0 f2 1528 58 1346 120 #arcP
 Ts0 f2 1 1528 120 #addKink
 Ts0 f2 0 0.8776120585055484 0 0 #arcLabel
+Ts0 f22 guid 1190E012A03F0F56 #txt
+Ts0 f22 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f22 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f22 actionTable 'out=in;
+' #txt
+Ts0 f22 actionCode 'out.footerMessage = "";' #txt
 Ts0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2335,24 +2344,17 @@ Ts0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f22 guid 1190E012A03F0F56 #txt
-Ts0 f22 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f22 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f22 actionTable 'out=in;
-' #txt
-Ts0 f22 actionCode 'out.footerMessage = "";' #txt
 Ts0 f22 2134 726 20 20 13 0 #rect
 Ts0 f22 @|RichDialogProcessStartIcon #fIcon
 Ts0 f25 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f25 2131 1187 26 26 14 0 #rect
 Ts0 f25 @|RichDialogProcessEndIcon #fIcon
+Ts0 f31 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f31 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f31 2130 778 28 28 14 0 #rect
 Ts0 f31 @|AlternativeIcon #fIcon
 Ts0 f32 expr out #txt
@@ -2419,12 +2421,12 @@ Ts0 f45 isInnerRd true #txt
 Ts0 f45 isDialog true #txt
 Ts0 f45 2126 916 36 24 20 -2 #rect
 Ts0 f45 @|RichDialogIcon #fIcon
+Ts0 f59 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f59 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f59 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f59 2130 962 28 28 14 0 #rect
 Ts0 f59 @|AlternativeIcon #fIcon
 Ts0 f64 expr out #txt
@@ -2495,12 +2497,12 @@ Ts0 f73 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ts0 f73 2144 990 2144 1020 #arcP
+Ts0 f75 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f75 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f75 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f75 346 1106 28 28 14 0 #rect
 Ts0 f75 @|AlternativeIcon #fIcon
 Ts0 f77 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2538,18 +2540,10 @@ Ts0 f77 isInnerRd true #txt
 Ts0 f77 isDialog false #txt
 Ts0 f77 342 1244 36 24 20 -2 #rect
 Ts0 f77 @|RichDialogIcon #fIcon
-Ts0 f81 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(Boolean, RTabbedDisplay, Boolean,Boolean)</name>
-        <nameStyle>47,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f81 guid 1190F07193BE2E61 #txt
 Ts0 f81 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f81 method start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean) #txt
+Ts0 f81 disableUIEvents false #txt
 Ts0 f81 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Boolean aMultipleTaskListMode,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aDestinationDisplay,java.lang.Boolean aRunningTaskMode,java.lang.Boolean aHasWfAdministratorPermissions> param = methodEvent.getInputArguments();
 ' #txt
@@ -2588,6 +2582,15 @@ out.multipleTaskListMode =
 Ts0 f81 outParameterDecl '<> result;
 ' #txt
 Ts0 f81 embeddedRdInitializations '{/taskHierarchyLayoutSelectRDC {/fieldName "taskHierarchyLayoutSelectRDC"/startMethod "start()"/parameterMapping ""/initScript "\n/*\nimport ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;\nBoolean hasUserReadPropertyPermission = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_PROPERTY);\n\nparam.aTaskHierarchyLayoutPrefferedIndex = \n\t(hasUserReadPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).length() > 0)?\n\tivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).toNumber():\n\tivy.cms.co(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_CMS_DEFAULT_VALUE).toNumber();\n*/\t"}/taskFiltersSelectRDC {/fieldName "taskFiltersSelectRDC"/startMethod "start(Boolean,Number)"/parameterMapping "param.aRunningTaskMode=in.runningTaskMode;\nparam.aTaskDisplayMode=1;\n"/initScript ""}}' #txt
+Ts0 f81 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(Boolean, RTabbedDisplay, Boolean,Boolean)</name>
+        <nameStyle>47,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f81 214 62 20 20 13 0 #rect
 Ts0 f81 @|RichDialogInitStartIcon #fIcon
 Ts0 f84 expr out #txt
@@ -2647,6 +2650,13 @@ required</name>
 Ts0 f95 373 1121 552 1156 #arcP
 Ts0 f95 1 552 1136 #addKink
 Ts0 f95 0 0.7882600880183475 0 2 #arcLabel
+Ts0 f21 guid 11913F35F499D7A1 #txt
+Ts0 f21 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f21 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f21 actionTable 'out=in;
+' #txt
+Ts0 f21 actionCode 'out.footerMessage = "";' #txt
 Ts0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2656,24 +2666,17 @@ Ts0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f21 guid 11913F35F499D7A1 #txt
-Ts0 f21 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f21 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f21 actionTable 'out=in;
-' #txt
-Ts0 f21 actionCode 'out.footerMessage = "";' #txt
 Ts0 f21 1534 726 20 20 13 0 #rect
 Ts0 f21 @|RichDialogProcessStartIcon #fIcon
 Ts0 f44 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f44 1531 1163 26 26 14 0 #rect
 Ts0 f44 @|RichDialogProcessEndIcon #fIcon
+Ts0 f52 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f52 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f52 1530 762 28 28 14 0 #rect
 Ts0 f52 @|AlternativeIcon #fIcon
 Ts0 f53 expr out #txt
@@ -2755,12 +2758,12 @@ for (int i=0; i< componentsList.size(); i++)
 Ts0 f48 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f48 1526 932 36 24 20 -2 #rect
 Ts0 f48 @|RichDialogProcessStepIcon #fIcon
+Ts0 f102 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f102 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f102 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f102 1530 994 28 28 14 0 #rect
 Ts0 f102 @|AlternativeIcon #fIcon
 Ts0 f103 expr out #txt
@@ -2845,12 +2848,12 @@ Ts0 f108 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ts0 f108 1544 790 1544 836 #arcP
+Ts0 f109 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f109 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f109 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f109 1530 874 28 28 14 0 #rect
 Ts0 f109 @|AlternativeIcon #fIcon
 Ts0 f111 expr out #txt
@@ -2872,6 +2875,13 @@ Ts0 f115 expr in #txt
 Ts0 f115 1558 888 1760 940 #arcP
 Ts0 f115 1 1760 888 #addKink
 Ts0 f115 0 0.5811020698509343 0 0 #arcLabel
+Ts0 f112 guid 119140995E3210DF #txt
+Ts0 f112 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f112 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f112 actionTable 'out=in;
+' #txt
+Ts0 f112 actionCode 'out.footerMessage = "";' #txt
 Ts0 f112 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2881,24 +2891,17 @@ Ts0 f112 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f112 guid 119140995E3210DF #txt
-Ts0 f112 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f112 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f112 actionTable 'out=in;
-' #txt
-Ts0 f112 actionCode 'out.footerMessage = "";' #txt
 Ts0 f112 1878 726 20 20 13 0 #rect
 Ts0 f112 @|RichDialogProcessStartIcon #fIcon
 Ts0 f113 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f113 1875 1163 26 26 14 0 #rect
 Ts0 f113 @|RichDialogProcessEndIcon #fIcon
+Ts0 f116 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f116 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f116 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f116 1874 770 28 28 14 0 #rect
 Ts0 f116 @|AlternativeIcon #fIcon
 Ts0 f117 expr out #txt
@@ -3018,12 +3021,12 @@ Ts0 f114 1870 940 36 24 21 -13 #rect
 Ts0 f114 @|RichDialogProcessStepIcon #fIcon
 Ts0 f120 expr out #txt
 Ts0 f120 1888 892 1888 940 #arcP
+Ts0 f126 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f126 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f126 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f126 1874 994 28 28 14 0 #rect
 Ts0 f126 @|AlternativeIcon #fIcon
 Ts0 f127 expr out #txt
@@ -3079,8 +3082,8 @@ Ts0 f130 1 0.2461383694341651 0 0 #arcLabel
 Ts0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>empty RD step</name>
-        <nameStyle>13,9
+        <name>dummy</name>
+        <nameStyle>5,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -3121,12 +3124,12 @@ Ts0 f132 expr out #txt
 Ts0 f132 2040 428 1346 528 #arcP
 Ts0 f132 1 2040 528 #addKink
 Ts0 f132 1 0.39978779704285744 0 0 #arcLabel
+Ts0 f5 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f5 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f5 1042 930 28 28 14 0 #rect
 Ts0 f5 @|AlternativeIcon #fIcon
 Ts0 f145 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3258,12 +3261,12 @@ Ts0 f147 expr out #txt
 Ts0 f147 1208 1028 1068 1118 #arcP
 Ts0 f147 1 1208 1104 #addKink
 Ts0 f147 1 0.3299800381305926 0 0 #arcLabel
+Ts0 f148 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f148 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f148 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f148 346 970 28 28 14 0 #rect
 Ts0 f148 @|AlternativeIcon #fIcon
 Ts0 f151 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3343,6 +3346,12 @@ Ts0 f150 1 552 1112 #addKink
 Ts0 f150 1 0.26522136531608226 0 0 #arcLabel
 Ts0 f34 expr in #txt
 Ts0 f34 360 998 360 1044 #arcP
+Ts0 f136 guid 119E2F5EE885BF4A #txt
+Ts0 f136 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f136 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f136 actionTable 'out=in;
+' #txt
 Ts0 f136 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3352,23 +3361,17 @@ Ts0 f136 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f136 guid 119E2F5EE885BF4A #txt
-Ts0 f136 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f136 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f136 actionTable 'out=in;
-' #txt
 Ts0 f136 1046 1174 20 20 13 0 #rect
 Ts0 f136 @|RichDialogProcessStartIcon #fIcon
 Ts0 f139 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f139 1043 1419 26 26 14 0 #rect
 Ts0 f139 @|RichDialogProcessEndIcon #fIcon
+Ts0 f141 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f141 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f141 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f141 1042 1258 28 28 14 0 #rect
 Ts0 f141 @|AlternativeIcon #fIcon
 Ts0 f155 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3495,12 +3498,12 @@ Ts0 f168 expr out #txt
 Ts0 f168 1232 1364 1069 1432 #arcP
 Ts0 f168 1 1232 1432 #addKink
 Ts0 f168 1 0.13018536977597953 0 0 #arcLabel
+Ts0 f169 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f169 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f169 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f169 1042 1210 28 28 14 0 #rect
 Ts0 f169 @|AlternativeIcon #fIcon
 Ts0 f170 expr out #txt
@@ -3512,6 +3515,7 @@ Ts0 f87 expr in #txt
 Ts0 f87 1558 776 1760 940 #arcP
 Ts0 f87 1 1760 776 #addKink
 Ts0 f87 0 0.9789552249755253 0 0 #arcLabel
+Ts0 f172 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f172 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3522,7 +3526,6 @@ delegate the tasks</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f172 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f172 2130 850 28 28 14 0 #rect
 Ts0 f172 @|AlternativeIcon #fIcon
 Ts0 f56 expr in #txt
@@ -3552,15 +3555,6 @@ selected tree.node is a ITask type</name>
 ' #txt
 Ts0 f173 2144 806 2144 850 #arcP
 Ts0 f173 0 0.26666666666666666 17 0 #arcLabel
-Ts0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>filterDefinitionConfirmed</name>
-        <nameStyle>25,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f7 guid 11A129AA4D827C4C #txt
 Ts0 f7 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f7 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
@@ -3577,12 +3571,31 @@ if (attachment instanceof TaskAvailableFilters)
 {
 	out.filterDefined = true;
 	out.taskAvailableFilters = attachment as TaskAvailableFilters;
-}' #txt
+}
+
+
+// reset fully expanded mode
+out.taskHierarchyFullyExpanded= false;' #txt
+Ts0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>filterDefinitionConfirmed</name>
+        <nameStyle>25,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f7 2222 30 20 20 13 0 #rect
 Ts0 f7 @|RichDialogProcessStartIcon #fIcon
 Ts0 f10 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f10 2059 243 26 26 14 0 #rect
 Ts0 f10 @|RichDialogProcessEndIcon #fIcon
+Ts0 f13 guid 11A129B373A71E8A #txt
+Ts0 f13 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f13 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f13 actionTable 'out=in;
+' #txt
 Ts0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3591,12 +3604,6 @@ Ts0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f13 guid 11A129B373A71E8A #txt
-Ts0 f13 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f13 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f13 actionTable 'out=in;
 ' #txt
 Ts0 f13 2062 30 20 20 13 0 #rect
 Ts0 f13 @|RichDialogProcessStartIcon #fIcon
@@ -3621,6 +3628,16 @@ Ts0 f100 2054 164 36 24 20 -2 #rect
 Ts0 f100 @|RichDialogProcessStepIcon #fIcon
 Ts0 f12 expr out #txt
 Ts0 f12 2072 188 2072 243 #arcP
+Ts0 f37 guid 11A12AB513F1FB3E #txt
+Ts0 f37 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f37 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f37 actionTable 'out=in;
+' #txt
+Ts0 f37 actionCode '
+// reset fully expanded mode
+out.taskHierarchyFullyExpanded= false;
+' #txt
 Ts0 f37 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3629,12 +3646,6 @@ Ts0 f37 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f37 guid 11A12AB513F1FB3E #txt
-Ts0 f37 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f37 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f37 actionTable 'out=in;
 ' #txt
 Ts0 f37 1582 38 20 20 13 0 #rect
 Ts0 f37 @|RichDialogProcessStartIcon #fIcon
@@ -3758,6 +3769,12 @@ Ts0 f184 1894 172 36 24 20 -2 #rect
 Ts0 f184 @|RichDialogProcessStepIcon #fIcon
 Ts0 f6 expr out #txt
 Ts0 f6 1912 196 1912 243 #arcP
+Ts0 f41 guid 11AE3ADCCD99E297 #txt
+Ts0 f41 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f41 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f41 actionTable 'out=in;
+' #txt
 Ts0 f41 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3766,12 +3783,6 @@ Ts0 f41 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f41 guid 11AE3ADCCD99E297 #txt
-Ts0 f41 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f41 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f41 actionTable 'out=in;
 ' #txt
 Ts0 f41 470 62 20 20 13 0 #rect
 Ts0 f41 @|RichDialogProcessStartIcon #fIcon
@@ -3875,6 +3886,16 @@ Ts0 f50 expr out #txt
 Ts0 f50 480 236 157 544 #arcP
 Ts0 f50 1 480 544 #addKink
 Ts0 f50 1 0.06538650631982346 0 0 #arcLabel
+Ts0 f189 guid 11B0DB6D312529DD #txt
+Ts0 f189 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f189 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f189 actionTable 'out=in;
+' #txt
+Ts0 f189 actionCode 'out.taskDisplayMode = 0;
+
+// reset fully expanded mode
+out.taskHierarchyFullyExpanded= false;' #txt
 Ts0 f189 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3884,15 +3905,18 @@ Ts0 f189 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f189 guid 11B0DB6D312529DD #txt
-Ts0 f189 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f189 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f189 actionTable 'out=in;
-' #txt
-Ts0 f189 actionCode 'out.taskDisplayMode = 0;' #txt
 Ts0 f189 1670 38 20 20 13 0 #rect
 Ts0 f189 @|RichDialogProcessStartIcon #fIcon
+Ts0 f192 guid 11B0DB6E6F8F8A9A #txt
+Ts0 f192 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f192 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f192 actionTable 'out=in;
+' #txt
+Ts0 f192 actionCode 'out.taskDisplayMode = 2;
+
+// reset fully expanded mode
+out.taskHierarchyFullyExpanded= false;' #txt
 Ts0 f192 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3902,15 +3926,18 @@ Ts0 f192 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f192 guid 11B0DB6E6F8F8A9A #txt
-Ts0 f192 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f192 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f192 actionTable 'out=in;
-' #txt
-Ts0 f192 actionCode 'out.taskDisplayMode = 2;' #txt
 Ts0 f192 1742 86 20 20 13 0 #rect
 Ts0 f192 @|RichDialogProcessStartIcon #fIcon
+Ts0 f191 guid 11B0DB6FB0C461B2 #txt
+Ts0 f191 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f191 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f191 actionTable 'out=in;
+' #txt
+Ts0 f191 actionCode 'out.taskDisplayMode = 1;
+
+// reset fully expanded mode
+out.taskHierarchyFullyExpanded= false;' #txt
 Ts0 f191 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3920,21 +3947,14 @@ Ts0 f191 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f191 guid 11B0DB6FB0C461B2 #txt
-Ts0 f191 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f191 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f191 actionTable 'out=in;
-' #txt
-Ts0 f191 actionCode 'out.taskDisplayMode = 1;' #txt
 Ts0 f191 1710 62 20 20 13 0 #rect
 Ts0 f191 @|RichDialogProcessStartIcon #fIcon
+Ts0 f196 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f196 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f196 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f196 346 1194 28 28 14 0 #rect
 Ts0 f196 @|AlternativeIcon #fIcon
 Ts0 f78 expr in #txt
@@ -4020,12 +4040,12 @@ of all tasks!</name>
 ' #txt
 Ts0 f85 736 1062 736 1108 #arcP
 Ts0 f85 0 0.4894883718303329 0 0 #arcLabel
+Ts0 f88 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f88 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f88 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f88 346 786 28 28 14 0 #rect
 Ts0 f88 @|AlternativeIcon #fIcon
 Ts0 f90 expr out #txt
@@ -4060,20 +4080,20 @@ is not root</name>
 ' #txt
 Ts0 f97 360 918 360 970 #arcP
 Ts0 f97 0 0.2826086956521739 -6 1 #arcLabel
+Ts0 f29 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f29 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f29 1042 842 28 28 14 0 #rect
 Ts0 f29 @|AlternativeIcon #fIcon
+Ts0 f149 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f149 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f149 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f149 1194 882 28 28 14 0 #rect
 Ts0 f149 @|AlternativeIcon #fIcon
 Ts0 f193 expr in #txt
@@ -4294,6 +4314,15 @@ Ts0 f86 2158 976 2157 1200 #arcP
 Ts0 f86 1 2328 976 #addKink
 Ts0 f86 2 2328 1200 #addKink
 Ts0 f86 1 0.2874856085758458 0 0 #arcLabel
+Ts0 f65 guid 11DABEDD95854A4D #txt
+Ts0 f65 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f65 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f65 actionTable 'out=in;
+' #txt
+Ts0 f65 actionCode 'panel.tasksHierarchyLayoutTree.expandAll();
+out.taskHierarchyFullyExpanded = true;
+' #txt
 Ts0 f65 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -4303,17 +4332,10 @@ Ts0 f65 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f65 guid 11DABEDD95854A4D #txt
-Ts0 f65 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f65 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f65 actionTable 'out=in;
-' #txt
-Ts0 f65 actionCode panel.tasksHierarchyLayoutTree.expandAll(); #txt
-Ts0 f65 2366 30 20 20 13 0 #rect
+Ts0 f65 2382 30 20 20 13 0 #rect
 Ts0 f65 @|RichDialogProcessStartIcon #fIcon
 Ts0 f66 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f66 2363 275 26 26 14 0 #rect
+Ts0 f66 2379 275 26 26 14 0 #rect
 Ts0 f66 @|RichDialogProcessEndIcon #fIcon
 Ts0 f198 expr in #txt
 Ts0 f198 2158 864 2157 1200 #arcP
@@ -4321,16 +4343,7 @@ Ts0 f198 1 2424 864 #addKink
 Ts0 f198 2 2424 1200 #addKink
 Ts0 f198 1 0.08069454644900985 0 0 #arcLabel
 Ts0 f202 expr out #txt
-Ts0 f202 2376 50 2376 275 #arcP
-Ts0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>ivy_systemevent_workflow_task_changed</name>
-        <nameStyle>37,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
+Ts0 f202 2392 50 2392 275 #arcP
 Ts0 f67 guid 11E458210559B162 #txt
 Ts0 f67 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f67 broadcast ivy_systemevent_workflow_task_changed #txt
@@ -4340,11 +4353,13 @@ Ts0 f67 actionTable 'out=in;
 ' #txt
 Ts0 f67 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowSystemEventParameter;
 import ch.ivyteam.ivy.workflow.ITask;
+import ch.ivyteam.ivy.workflow.TaskState;
 import java.util.Iterator;
 
 
 Number broadcastedTaskStateChangedTaskId = param.workflowSystemEventParameter.getIdentifiers().get(0) as Number;
-	
+
+ivy.log.info("wf system event:"+param.workflowSystemEventParameter.getIdentifiers());	
 
 if (panel.tasksHierarchyLayoutTree.getSelectedTreeNode() != null && 
 	panel.tasksHierarchyLayoutTree.getSelectedTreeNode().getValue() instanceof ITask)
@@ -4352,10 +4367,18 @@ if (panel.tasksHierarchyLayoutTree.getSelectedTreeNode() != null &&
 	// the currently selected ITask tree node should be updated
 	ITask selectedTask = panel.tasksHierarchyLayoutTree.getSelectedTreeNode().getValue() as ITask;
 
-
 	if (selectedTask.getIdentifier().compareTo(broadcastedTaskStateChangedTaskId) == 0)
 	{
 		panel.tasksHierarchyLayoutTree.getSelectedTreeNode().treeValueChanged();		
+		// update button availability according to the task state
+		Boolean startAndDelegateTaskToEnable = selectedTask.getState().equals(TaskState.SUSPENDED) || selectedTask.getState().equals(TaskState.PARKED);
+		// start task button
+		panel.startTaskButton.enabled = startAndDelegateTaskToEnable && (in.taskDisplayMode != 2);
+		panel.startTaskMenuItem.enabled = panel.startTaskButton.enabled;
+		
+		// delegate task button
+		panel.delegateTaskButton.enabled = (startAndDelegateTaskToEnable && (in.hasPermissionDelegateTasks || in.hasWfAdministratorPermissions));
+		panel.delegateTaskMenuItem.enabled = panel.delegateTaskButton.enabled;
 	}
 }
 else
@@ -4382,6 +4405,15 @@ else
 
 
 ' #txt
+Ts0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>ivy_systemevent_workflow_task_changed</name>
+        <nameStyle>37,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f67 2510 70 20 20 13 0 #rect
 Ts0 f67 @|RichDialogBroadcastStartIcon #fIcon
 Ts0 f174 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
@@ -4399,9 +4431,11 @@ then task node will be updated</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f209 2556 12 24 24 10 0 #rect
+Ts0 f209 2591 11 371 42 -180 -16 #rect
 Ts0 f209 @|IBIcon #fIcon
-Ts0 f210 2556 24 2525 71 #arcP
+Ts0 f209 -985168|-1|-16777216 #nodeStyle
+Ts0 f210 2590 32 2528 74 #arcP
+Ts0 f212 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f212 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -4411,7 +4445,6 @@ Ts0 f212 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f212 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f212 722 890 28 28 -50 -31 #rect
 Ts0 f212 @|AlternativeIcon #fIcon
 Ts0 f213 expr in #txt
@@ -4459,6 +4492,7 @@ Ts0 f216 750 904 754 1116 #arcP
 Ts0 f216 1 896 904 #addKink
 Ts0 f216 2 896 1088 #addKink
 Ts0 f216 1 0.22822035794617 0 0 #arcLabel
+Ts0 f215 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f215 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -4468,7 +4502,6 @@ Ts0 f215 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f215 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f215 2130 1090 28 28 14 0 #rect
 Ts0 f215 @|AlternativeIcon #fIcon
 Ts0 f217 expr out #txt
@@ -4536,6 +4569,10 @@ Ts0 f219 expr in #txt
 Ts0 f219 2158 1104 2248 1132 #arcP
 Ts0 f219 1 2248 1104 #addKink
 Ts0 f219 0 0.6761540741249316 0 0 #arcLabel
+Ts0 f221 guid 120E8753A7E125B8 #txt
+Ts0 f221 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f221 method initializeTaskHierarchyLayoutPrefferedIndex() #txt
+Ts0 f221 disableUIEvents false #txt
 Ts0 f221 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -4543,9 +4580,6 @@ Ts0 f221 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f221 guid 120E8753A7E125B8 #txt
-Ts0 f221 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f221 method initializeTaskHierarchyLayoutPrefferedIndex() #txt
 Ts0 f221 710 62 20 20 13 0 #rect
 Ts0 f221 @|RichDialogMethodStartIcon #fIcon
 Ts0 f222 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
@@ -4618,6 +4652,9 @@ Ts0 f133 expr out #txt
 Ts0 f133 2232 140 2090 176 #arcP
 Ts0 f133 1 2232 176 #addKink
 Ts0 f133 1 0.3359627562226201 0 0 #arcLabel
+Ts0 f228 expr out #txt
+Ts0 f228 1056 1036 1056 1107 #arcP
+Ts0 f228 0 0.28694024010156505 0 0 #arcLabel
 >Proto Ts0 .type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 >Proto Ts0 .processKind RICH_DIALOG #txt
 >Proto Ts0 .ui2RdDataAction 'out.filterEnabled=panel.applyFilterToggleButton.selected;
@@ -4743,8 +4780,6 @@ Ts0 f42 out f19 tail #connect
 Ts0 f190 head f18 mainIn #connect
 Ts0 f11 mainOut f162 tail #connect
 Ts0 f162 head f188 in #connect
-Ts0 f186 mainOut f20 tail #connect
-Ts0 f20 head f18 mainIn #connect
 Ts0 f36 mainOut f57 tail #connect
 Ts0 f57 head f55 in #connect
 Ts0 f58 head f47 mainIn #connect
@@ -4968,3 +5003,5 @@ Ts0 f7 mainOut f203 tail #connect
 Ts0 f203 head f195 mainIn #connect
 Ts0 f195 mainOut f133 tail #connect
 Ts0 f133 head f100 mainIn #connect
+Ts0 f186 mainOut f228 tail #connect
+Ts0 f228 head f18 mainIn #connect
