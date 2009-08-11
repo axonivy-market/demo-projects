@@ -38,6 +38,7 @@ private RGridBagLayoutPane taskConfigurationGridBagLayoutPane = null;
 private RGridBagLayoutPane caseConfigurationGridBagLayoutPane = null;
 private RLabel caseHierarchyLayoutLabel = null;
 private RButton okButton = null;
+private RCheckBox taskAutoHideMenuCheckBox = null;
 /**
    * Create a new instance of CaseTaskParametersEditPanel
    */
@@ -53,7 +54,7 @@ private RButton okButton = null;
    */
   private void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(253,177));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(253,290));
         this.setBorder(BorderFactory.createTitledBorder(null, "Layout Configuration", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 11), new Color(23, 64, 140)));
         this.add(getConfigurationTabbedPane(), com.ulcjava.base.application.ULCBorderLayoutPane.CENTER);
         this.add(getOkButton(), com.ulcjava.base.application.ULCBorderLayoutPane.SOUTH);
@@ -187,7 +188,8 @@ private RGridBagLayoutPane getTaskConfigurationGridBagLayoutPane() {
 		taskConfigurationGridBagLayoutPane.add(getTaskHierarchyLayoutLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		taskConfigurationGridBagLayoutPane.add(getTasksHierarchyLayoutSelectRDC(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		taskConfigurationGridBagLayoutPane.add(getIsMultipleTaskListCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskConfigurationGridBagLayoutPane.add(aFiller1, new com.ulcjava.base.application.GridBagConstraints(0, 6, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskConfigurationGridBagLayoutPane.add(aFiller1, new com.ulcjava.base.application.GridBagConstraints(0, 7, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskConfigurationGridBagLayoutPane.add(getTaskAutoHideMenuCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 6, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return taskConfigurationGridBagLayoutPane;
 }
@@ -240,5 +242,19 @@ private RButton getOkButton() {
 		okButton.setName("okButton");
 	}
 	return okButton;
+}
+
+/**
+ * This method initializes taskAutoHideMenuCheckBox	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox	
+ */
+private RCheckBox getTaskAutoHideMenuCheckBox() {
+	if (taskAutoHideMenuCheckBox == null) {
+		taskAutoHideMenuCheckBox = new RCheckBox();
+		taskAutoHideMenuCheckBox.setName("taskAutoHideMenuCheckBox");
+		taskAutoHideMenuCheckBox.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/autoHideMenuMode\")%>");
+	}
+	return taskAutoHideMenuCheckBox;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"
