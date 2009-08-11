@@ -13,6 +13,10 @@ public class UserPropertyKeys {
 	 */	
 	
 	
+	//TIFAM - Auto hide menu user param - 11.08.2009
+	public static final String MENU_AUTO_HIDE_PROPERTY_KEY = "xivy.workflow.ui.params.menuAutoHide";
+	public static final String MENU_AUTO_HIDE__PROPERTY_CMS_DEFAULT_VALUE = "/ch/ivyteam/ivy/workflow/ui/task/parameters/menuAutoHide";
+	
 	public static final String TASKS_SORTED_BY_PRIORITY_PROPERTY_KEY = "xivy.workflow.ui.params.tasksSortedByPriority";
 	public static final String TASKS_SORTED_BY_PRIORITY_PROPERTY_CMS_DEFAULT_VALUE = "/ch/ivyteam/ivy/workflow/ui/task/parameters/tasksSortedByPriority";
 	
