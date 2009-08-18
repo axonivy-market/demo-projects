@@ -31,3 +31,9 @@ exception 'It contains the error raised during the task actions' #fieldComment
 taskIsExecuting Boolean #field
 taskIsExecuting 'Flag for button enable control. True if tasl loaded on execution display.' #fieldComment
 taskIsExecuting PERSISTENT #fieldModifier
+autoHideMenuParameter String #field
+autoHideMenuParameter PERSISTENT #fieldModifier
+selectedComponentTaskState ch.ivyteam.ivy.workflow.TaskState #field
+selectedComponentTaskState PERSISTENT #fieldModifier
+pressedButtonToDoWithTask String #field
+pressedButtonToDoWithTask PERSISTENT #fieldModifier

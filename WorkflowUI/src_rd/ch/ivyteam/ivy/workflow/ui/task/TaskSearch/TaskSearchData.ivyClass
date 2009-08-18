@@ -71,3 +71,5 @@ exception 'It contains the error if the task action fails' #fieldComment
 taskHierarchyFullyExpanded Boolean #field
 taskHierarchyFullyExpanded 'A flag to remember the fullyExpanded mode.' #fieldComment
 taskHierarchyFullyExpanded PERSISTENT #fieldModifier
+autoHideMenuParameter String #field
+autoHideMenuParameter PERSISTENT #fieldModifier

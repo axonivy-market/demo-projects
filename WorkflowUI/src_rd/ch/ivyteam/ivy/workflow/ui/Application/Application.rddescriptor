@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
+    <acceptedBroadcast>
+        <name>xivyTaskStarted</name>
+        <description></description>
+        <attachment>
+            <name>task</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ITask</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>ivy_systemevent_workflow_task_changed</name>
+        <description></description>
+        <attachment>
+            <name>aWorkflowSystemEventParameter</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.WorkflowSystemEventParameter</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
     <startMethod>
         <name>start</name>
         <description>Default Rich Dialog start

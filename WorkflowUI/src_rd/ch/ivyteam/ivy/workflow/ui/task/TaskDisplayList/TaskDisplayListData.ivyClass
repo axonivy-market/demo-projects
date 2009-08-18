@@ -65,3 +65,5 @@ questionText String #field
 questionWindowTitle String #field
 exception java.lang.Exception #field
 exception 'It contains the error raised by the task action(s)' #fieldComment
+autoHideMenuParameter String #field
+selectedComponentTaskState ch.ivyteam.ivy.workflow.TaskState #field

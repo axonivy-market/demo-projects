@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <acceptedBroadcast>
-        <name>xivyTaskDelegated</name>
+        <name>xivyTaskNotesChanged</name>
         <description></description>
         <attachment>
             <name>aTaskIdentifier</name>
@@ -11,7 +11,7 @@
         </attachment>
     </acceptedBroadcast>
     <acceptedBroadcast>
-        <name>xivyTaskNotesChanged</name>
+        <name>xivyTaskDelegated</name>
         <description></description>
         <attachment>
             <name>aTaskIdentifier</name>
@@ -31,16 +31,6 @@
         </attachment>
     </acceptedBroadcast>
     <acceptedBroadcast>
-        <name>xivyTaskDone</name>
-        <description></description>
-        <attachment>
-            <name>aTaskIdentifier</name>
-            <description></description>
-            <parameterType>Number</parameterType>
-            <nullPermitted>true</nullPermitted>
-        </attachment>
-    </acceptedBroadcast>
-    <acceptedBroadcast>
         <name>xivyCaseNotesChanged</name>
         <description></description>
         <attachment>
@@ -50,6 +40,20 @@
             <nullPermitted>true</nullPermitted>
         </attachment>
     </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>xivyTaskDone</name>
+        <description></description>
+        <attachment>
+            <name>aTaskIdentifier</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <method>
+        <name>refresh</name>
+        <description></description>
+    </method>
     <method>
         <name>getTaskIdentifier</name>
         <description></description>
@@ -59,6 +63,10 @@
             <parameterType>Number</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
+    </method>
+    <method>
+        <name>close</name>
+        <description></description>
     </method>
     <method>
         <name>setTask</name>
@@ -71,12 +79,14 @@
         </inputParameter>
     </method>
     <method>
-        <name>close</name>
+        <name>getTask</name>
         <description></description>
-    </method>
-    <method>
-        <name>refresh</name>
-        <description></description>
+        <outputParameter>
+            <name>task</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ITask</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
     </method>
     <startMethod>
         <name>start</name>
@@ -105,6 +115,17 @@
         <description>Default Rich Dialog start
 This method can not be changed or deleted!</description>
     </startMethod>
+    <firedEvent>
+        <name>xivyTaskStarted</name>
+        <description></description>
+        <scope>APPLICATION</scope>
+        <attachment>
+            <name>task</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ITask</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
     <firedEvent>
         <name>xivyTaskDelegated</name>
         <description></description>

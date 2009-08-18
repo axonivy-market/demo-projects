@@ -1,4 +1,0 @@
-co: name={alreadyOneTaskRunning} description={} changed={2009-08-12 08:23:48 CEST} changedby={tifam} visualorder={0} guid={1230D43B64D5AD24} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1230D44D7F95D7C5} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-12 08:21:38 CEST} validto={} changed={2009-08-12 08:23:48 CEST} changedby={tifam} properties={} id={}
-val: guid={1230D43B67C27747} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-12 08:20:24 CEST} validto={} changed={2009-08-12 08:21:38 CEST} changedby={tifam} properties={} id={}
-val: guid={1230D44F574AD215} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-12 08:21:46 CEST} validto={} changed={2009-08-12 08:21:46 CEST} changedby={tifam} properties={} id={}
