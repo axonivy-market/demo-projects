@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Aug 17 14:34:40 CEST 2009]
+[>Created: Fri Aug 21 14:27:25 CEST 2009]
 117CB5CD6E5F88C6 3.12 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
@@ -90,6 +90,11 @@ As0 @RichDialogProcessEnd f41 '' #zField
 As0 @PushWFArc f56 '' #zField
 As0 @PushWFArc f57 '' #zField
 As0 @PushWFArc f12 '' #zField
+As0 @RichDialogProcessStart f35 '' #zField
+As0 @RichDialog f58 '' #zField
+As0 @RichDialogProcessEnd f59 '' #zField
+As0 @PushWFArc f60 '' #zField
+As0 @PushWFArc f61 '' #zField
 >Proto As0 As0 ApplicationDynamicWayProcess #zField
 As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -115,6 +120,12 @@ As0 f0 @|RichDialogInitStartIcon #fIcon
 As0 f1 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f1 1475 331 26 26 14 0 #rect
 As0 f1 @|RichDialogProcessEndIcon #fIcon
+As0 f10 guid 11865D6ABF73D83D #txt
+As0 f10 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f10 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f10 actionTable 'out=in;
+' #txt
 As0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -123,12 +134,6 @@ As0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-As0 f10 guid 11865D6ABF73D83D #txt
-As0 f10 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f10 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
-' #txt
-As0 f10 actionTable 'out=in;
 ' #txt
 As0 f10 262 46 20 20 -69 -45 #rect
 As0 f10 @|RichDialogProcessStartIcon #fIcon
@@ -170,8 +175,16 @@ As0 f4 expr out #txt
 As0 f4 1488 236 1488 331 #arcP
 As0 f2 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f2 guid 119E91A712C9C2ED #txt
-As0 f2 1635 339 26 26 14 0 #rect
+As0 f2 1635 331 26 26 14 0 #rect
 As0 f2 @|RichDialogEndIcon #fIcon
+As0 f3 guid 119E91A82DA720BA #txt
+As0 f3 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f3 actionTable 'out=in;
+' #txt
+As0 f3 actionCode 'panel.centerTabbedDisplay.removeAll();
+ivy.session.logoutSessionUser(ivy.task.getIdentifier());' #txt
 As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -181,18 +194,16 @@ As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f3 guid 119E91A82DA720BA #txt
-As0 f3 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
-' #txt
-As0 f3 actionTable 'out=in;
-' #txt
-As0 f3 actionCode 'panel.centerTabbedDisplay.removeAll();
-ivy.session.logoutSessionUser(ivy.task.getIdentifier());' #txt
 As0 f3 1638 70 20 20 -37 -33 #rect
 As0 f3 @|RichDialogProcessStartIcon #fIcon
 As0 f5 expr out #txt
-As0 f5 1648 90 1648 339 #arcP
+As0 f5 1648 90 1648 331 #arcP
+As0 f6 guid 120E4EC0AE555B10 #txt
+As0 f6 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f6 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f6 actionTable 'out=in;
+' #txt
 As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -202,17 +213,21 @@ As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f6 guid 120E4EC0AE555B10 #txt
-As0 f6 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f6 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
-' #txt
-As0 f6 actionTable 'out=in;
-' #txt
 As0 f6 1974 62 20 20 13 0 #rect
 As0 f6 @|RichDialogProcessStartIcon #fIcon
 As0 f7 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f7 1747 331 26 26 14 0 #rect
 As0 f7 @|RichDialogProcessEndIcon #fIcon
+As0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>choose the folder
+and save the user guide pdf file</name>
+        <nameStyle>50,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f9 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f9 actionTable 'out=in;
@@ -266,20 +281,15 @@ try{
 	endUserSelectedFilePath = "";
 }' #txt
 As0 f9 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>choose the folder
-and save the user guide pdf file</name>
-        <nameStyle>50,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 As0 f9 1742 188 36 24 20 -2 #rect
 As0 f9 @|RichDialogProcessStepIcon #fIcon
 As0 f8 expr out #txt
 As0 f8 1760 212 1760 331 #arcP
+As0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 As0 f15 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f15 actionTable 'out=in;
@@ -287,17 +297,18 @@ As0 f15 actionTable 'out=in;
 As0 f15 actionCode 'com.ulcjava.base.application.ClientContext.showDocument(ivy.html.coref("/ch/ivyteam/ivy/workflow/ui/help/userGuide"));
 out.s = ivy.html.coref("/ch/ivyteam/ivy/workflow/ui/help/userGuide");' #txt
 As0 f15 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 As0 f15 1966 188 36 24 20 -2 #rect
 As0 f15 @|RichDialogProcessStepIcon #fIcon
 As0 f17 expr out #txt
 As0 f17 1966 212 1770 336 #arcP
 As0 f18 expr out #txt
 As0 f18 1984 82 1984 188 #arcP
+As0 f14 guid 12186BA6D8D98FD3 #txt
+As0 f14 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f14 actionTable 'out=in;
+' #txt
 As0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -306,12 +317,6 @@ As0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-As0 f14 guid 12186BA6D8D98FD3 #txt
-As0 f14 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
-' #txt
-As0 f14 actionTable 'out=in;
 ' #txt
 As0 f14 1750 70 20 20 13 0 #rect
 As0 f14 @|RichDialogProcessStartIcon #fIcon
@@ -339,6 +344,16 @@ As0 f21 @|RichDialogBroadcastStartIcon #fIcon
 As0 f22 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f22 2326 374 20 20 13 0 #rect
 As0 f22 @|RichDialogProcessEndIcon #fIcon
+As0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>set divider location depends
+on auto hide menu parameter</name>
+        <nameStyle>56,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f23 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f23 actionTable 'out=in;
@@ -369,16 +384,6 @@ if(autoHideMenuValue.equalsIgnoreCase("true"))
 	}
 	' #txt
 As0 f23 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set divider location depends
-on auto hide menu parameter</name>
-        <nameStyle>56,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 As0 f23 2223 172 34 24 -193 -17 #rect
 As0 f23 @|RichDialogProcessStepIcon #fIcon
 As0 f24 expr out #txt
@@ -387,6 +392,15 @@ As0 f25 expr out #txt
 As0 f25 2240 196 2327 378 #arcP
 As0 f25 1 2240 328 #addKink
 As0 f25 0 0.8374065015171033 0 0 #arcLabel
+As0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>reset divider location</name>
+        <nameStyle>22,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f26 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f26 actionTable 'out=in;
@@ -438,15 +452,6 @@ if(autoHideMenuValue.equalsIgnoreCase("true"))
 
 	' #txt
 As0 f26 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>reset divider location</name>
-        <nameStyle>22,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 As0 f26 2454 164 36 24 21 -10 #rect
 As0 f26 @|RichDialogProcessStepIcon #fIcon
 As0 f28 expr out #txt
@@ -474,15 +479,6 @@ As0 f20 2462 62 21 20 -97 -29 #rect
 As0 f20 @|RichDialogBroadcastStartIcon #fIcon
 As0 f27 expr out #txt
 As0 f27 2471 81 2472 164 #arcP
-As0 f29 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
-' #txt
-As0 f29 actionTable 'out=in;
-' #txt
-As0 f29 actionCode '//TIFAM - 12.in.2009
-import ch.ivyteam.ivy.event.SystemEventCategory ;
-// register to System events of Workflow category
-ivy.rd.subscribeToSystemEvents(SystemEventCategory.WORKFLOW) ;' #txt
-As0 f29 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -493,6 +489,15 @@ Event Handler</name>
     </language>
 </elementInfo>
 ' #txt
+As0 f29 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f29 actionTable 'out=in;
+' #txt
+As0 f29 actionCode '//TIFAM - 12.in.2009
+import ch.ivyteam.ivy.event.SystemEventCategory ;
+// register to System events of Workflow category
+ivy.rd.subscribeToSystemEvents(SystemEventCategory.WORKFLOW) ;' #txt
+As0 f29 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f29 1470 132 36 24 229 149 #rect
 As0 f29 @|RichDialogProcessStepIcon #fIcon
 As0 f30 expr out #txt
@@ -523,7 +528,6 @@ As0 f167 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 As0 f167 254 444 36 24 20 -2 #rect
 As0 f167 @|RichDialogIcon #fIcon
-As0 f175 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f175 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -531,15 +535,9 @@ As0 f175 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+As0 f175 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f175 258 498 28 28 23 -18 #rect
 As0 f175 @|AlternativeIcon #fIcon
-As0 f173 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
-' #txt
-As0 f173 actionTable 'out=in;
-' #txt
-As0 f173 actionCode '//TIFAM - 13.08.2009 - park current task
-ivy.wf.findTask(in.currentTaskId).reset() ;' #txt
-As0 f173 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f173 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -550,6 +548,13 @@ Task</name>
     </language>
 </elementInfo>
 ' #txt
+As0 f173 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f173 actionTable 'out=in;
+' #txt
+As0 f173 actionCode '//TIFAM - 13.08.2009 - park current task
+ivy.wf.findTask(in.currentTaskId).reset() ;' #txt
+As0 f173 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f173 318 556 36 24 21 -15 #rect
 As0 f173 @|RichDialogProcessStepIcon #fIcon
 As0 f176 expr out #txt
@@ -568,7 +573,6 @@ As0 f174 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 As0 f174 286 512 336 556 #arcP
 As0 f174 1 336 512 #addKink
 As0 f174 0 0.84 0 -13 #arcLabel
-As0 f36 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f36 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -578,6 +582,7 @@ As0 f36 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+As0 f36 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f36 258 394 28 28 -108 -10 #rect
 As0 f36 @|AlternativeIcon #fIcon
 As0 f31 expr in #txt
@@ -593,14 +598,6 @@ As0 f31 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 As0 f31 272 422 272 444 #arcP
 As0 f31 0 0.3333333333333333 -18 0 #arcLabel
-As0 f38 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
-' #txt
-As0 f38 actionTable 'out=in;
-' #txt
-As0 f38 actionCode '//TIFAM - 13.08.2009 - park current task
-ivy.session.parkTask(ivy.wf.findTask(in.currentTaskId)) ;
-' #txt
-As0 f38 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -611,6 +608,14 @@ Task</name>
     </language>
 </elementInfo>
 ' #txt
+As0 f38 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f38 actionTable 'out=in;
+' #txt
+As0 f38 actionCode '//TIFAM - 13.08.2009 - park current task
+ivy.session.parkTask(ivy.wf.findTask(in.currentTaskId)) ;
+' #txt
+As0 f38 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f38 190 556 36 24 -55 -17 #rect
 As0 f38 @|RichDialogProcessStepIcon #fIcon
 As0 f39 expr in #txt
@@ -626,6 +631,11 @@ As0 f39 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 As0 f39 258 512 208 556 #arcP
 As0 f39 1 208 512 #addKink
 As0 f39 0 0.8 0 -12 #arcLabel
+As0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 As0 f44 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f44 actionTable 'out=in;
@@ -650,16 +660,10 @@ if (selectedComponent instanceof TaskDisplayPanel)
 
 ' #txt
 As0 f44 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 As0 f44 254 164 36 24 20 -2 #rect
 As0 f44 @|RichDialogProcessStepIcon #fIcon
 As0 f37 expr out #txt
 As0 f37 272 188 272 394 #arcP
-As0 f43 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -669,6 +673,7 @@ As0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+As0 f43 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f43 258 106 28 28 13 -25 #rect
 As0 f43 @|AlternativeIcon #fIcon
 As0 f45 expr in #txt
@@ -683,6 +688,15 @@ As0 f45 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 As0 f45 272 134 272 164 #arcP
 As0 f45 0 0.3333333333333333 -15 0 #arcLabel
+As0 f49 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>unload the Rich Dialog</name>
+        <nameStyle>22,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f49 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f49 actionTable 'out=in;
@@ -696,15 +710,6 @@ if (panel.centerTabbedDisplay.#selectedComponent != null)
 	currentPanel.getPanelAPI().unload();
 }' #txt
 As0 f49 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f49 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>unload the Rich Dialog</name>
-        <nameStyle>22,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 As0 f49 254 636 36 24 -152 -7 #rect
 As0 f49 @|RichDialogProcessStepIcon #fIcon
 As0 f50 expr out #txt
@@ -753,7 +758,6 @@ As0 f264 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 As0 f264 1046 428 36 24 20 -2 #rect
 As0 f264 @|RichDialogIcon #fIcon
-As0 f277 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f277 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -763,9 +767,9 @@ As0 f277 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+As0 f277 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f277 1050 266 28 28 20 -12 #rect
 As0 f277 @|AlternativeIcon #fIcon
-As0 f265 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f265 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -775,9 +779,9 @@ As0 f265 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+As0 f265 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f265 1050 362 28 28 -117 -10 #rect
 As0 f265 @|AlternativeIcon #fIcon
-As0 f254 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f254 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -785,8 +789,19 @@ As0 f254 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+As0 f254 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f254 1050 482 28 28 23 -18 #rect
 As0 f254 @|AlternativeIcon #fIcon
+As0 f263 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Park
+Task</name>
+        <nameStyle>9,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f263 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f263 actionTable 'out=in;
@@ -806,18 +821,18 @@ if (childSelectedComponent instanceof TaskDisplayPanel)
 
 ' #txt
 As0 f263 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f263 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+As0 f263 982 540 36 24 -55 -17 #rect
+As0 f263 @|RichDialogProcessStepIcon #fIcon
+As0 f262 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Park
+        <name>Cancel
 Task</name>
-        <nameStyle>9,9
+        <nameStyle>11,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-As0 f263 982 540 36 24 -55 -17 #rect
-As0 f263 @|RichDialogProcessStepIcon #fIcon
 As0 f262 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f262 actionTable 'out=in;
@@ -839,18 +854,13 @@ ivy.log.debug("Current task ID : " + (childSelectedComponent as TaskDisplayPanel
 
 ' #txt
 As0 f262 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f262 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Cancel
-Task</name>
-        <nameStyle>11,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 As0 f262 1110 540 36 24 21 -15 #rect
 As0 f262 @|RichDialogProcessStepIcon #fIcon
+As0 f258 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 As0 f258 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f258 actionTable 'out=in;
@@ -875,11 +885,6 @@ if (childSelectedComponent instanceof TaskDisplayPanel)
 
 ' #txt
 As0 f258 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f258 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 As0 f258 1046 316 36 24 20 -2 #rect
 As0 f258 @|RichDialogProcessStepIcon #fIcon
 As0 f266 expr out #txt
@@ -926,7 +931,6 @@ As0 f269 1 1000 496 #addKink
 As0 f269 0 1.0 0 -14 #arcLabel
 As0 f270 expr out #txt
 As0 f270 1064 340 1064 362 #arcP
-As0 f32 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -937,6 +941,7 @@ RunningTaskDisplayList</name>
     </language>
 </elementInfo>
 ' #txt
+As0 f32 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f32 554 218 28 28 13 -45 #rect
 As0 f32 @|AlternativeIcon #fIcon
 As0 f33 expr in #txt
@@ -967,6 +972,15 @@ As0 f46 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 As0 f46 568 246 290 655 #arcP
 As0 f46 1 568 768 #addKink
 As0 f46 0 0.04608294930875576 -15 0 #arcLabel
+As0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>get child component</name>
+        <nameStyle>19,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f52 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f52 actionTable 'out=in;
@@ -979,15 +993,6 @@ in.childSelectedComponent = (panel.centerTabbedDisplay.getSelectedComponent() as
 
 ' #txt
 As0 f52 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>get child component</name>
-        <nameStyle>19,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 As0 f52 990 220 36 24 -46 -37 #rect
 As0 f52 @|RichDialogProcessStepIcon #fIcon
 As0 f34 expr out #txt
@@ -1022,6 +1027,15 @@ As0 f62 expr out #txt
 As0 f62 272 660 272 747 #arcP
 As0 f40 expr out #txt
 As0 f40 272 66 272 106 #arcP
+As0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>unload tabbed RD</name>
+        <nameStyle>16,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f47 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f47 actionTable 'out=in;
@@ -1037,15 +1051,6 @@ if (in.#childSelectedComponent != null)
 	currentPanel.getPanelAPI().unload();
 	}' #txt
 As0 f47 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>unload tabbed RD</name>
-        <nameStyle>16,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 As0 f47 1046 652 36 24 -49 -39 #rect
 As0 f47 @|RichDialogProcessStepIcon #fIcon
 As0 f55 expr out #txt
@@ -1092,6 +1097,50 @@ As0 f12 1 896 280 #addKink
 As0 f12 2 896 576 #addKink
 As0 f12 3 448 576 #addKink
 As0 f12 0 0.2808988764044944 0 -16 #arcLabel
+As0 f35 guid 1233CEBDFDB278AF #txt
+As0 f35 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f35 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f35 actionTable 'out=in;
+' #txt
+As0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>showAbout</name>
+        <nameStyle>9,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f35 1646 390 20 20 13 0 #rect
+As0 f35 @|RichDialogProcessStartIcon #fIcon
+As0 f58 targetDisplay TOP #txt
+As0 f58 richDialogId ch.ivyteam.ivy.workflow.ui.AboutBox #txt
+As0 f58 startMethod start() #txt
+As0 f58 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f58 requestActionDecl '<> param;' #txt
+As0 f58 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f58 responseMappingAction 'out=in;
+' #txt
+As0 f58 windowConfiguration '{/title "About"/width 400 /height 300 /centered true /resizable false /maximized false /close_after_last_rd true }' #txt
+As0 f58 isAsynch false #txt
+As0 f58 isInnerRd true #txt
+As0 f58 isDialog true #txt
+As0 f58 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
+As0 f58 1638 476 36 24 20 -2 #rect
+As0 f58 @|RichDialogIcon #fIcon
+As0 f59 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f59 1646 550 20 20 13 0 #rect
+As0 f59 @|RichDialogProcessEndIcon #fIcon
+As0 f60 expr out #txt
+As0 f60 1656 410 1656 476 #arcP
+As0 f61 expr out #txt
+As0 f61 1656 500 1656 550 #arcP
 >Proto As0 .type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 >Proto As0 .processKind RICH_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
@@ -1172,3 +1221,7 @@ As0 f57 head f47 mainIn #connect
 As0 f277 out f12 tail #connect
 As0 f12 head f49 mainIn #connect
 As0 f277 out f54 tail #connect
+As0 f35 mainOut f60 tail #connect
+As0 f60 head f58 mainIn #connect
+As0 f58 mainOut f61 tail #connect
+As0 f61 head f59 mainIn #connect

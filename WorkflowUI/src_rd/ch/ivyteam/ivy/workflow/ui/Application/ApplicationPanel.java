@@ -45,6 +45,7 @@ private RHyperlink helpHyperlink = null;
 private RLabel aLabel1 = null;
 private RPopupMenu helpPopupMenu = null;  //  @jve:decl-index=0:visual-constraint="631,275"
 private RMenuItem downloadHelpMenuItem = null;
+private RHyperlink aboutHyperlink = null;
 /**
    * Create a new instance of ApplicationDynamicWayPanel
    */
@@ -202,8 +203,9 @@ private RBoxPane getHeaderBoxPane() {
 		headerBoxPane.set(2, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getWelcomeLabel());
 		headerBoxPane.set(5, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getEnvironmentLabel());
 		headerBoxPane.set(4, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getOnLabel());
-		headerBoxPane.set(10, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getHelpHyperlink());
+		headerBoxPane.set(11, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getHelpHyperlink());
 		headerBoxPane.set(9, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getALabel1());
+		headerBoxPane.set(10, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getAboutHyperlink());
 	}
 	return headerBoxPane;
 }
@@ -314,7 +316,6 @@ private RHyperlink getHelpHyperlink() {
 		helpHyperlink = new RHyperlink();
 		helpHyperlink.setStyleProperties("{/anchor \"CENTER\"/insetsTop \"0\"/insetsRight \"5\"/insetsLeft \"5\"}");
 		helpHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/help/images/help24\")%>");
-		helpHyperlink.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/help/images/help32\")%>");
 		helpHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/help/plainStrings/openUserGuide\")%>");
 		helpHyperlink.setComponentPopupMenu(getHelpPopupMenu());
 		helpHyperlink.setName("helpHyperlink");
@@ -363,5 +364,21 @@ private RMenuItem getDownloadHelpMenuItem() {
 		downloadHelpMenuItem.setName("downloadHelpMenuItem");
 	}
 	return downloadHelpMenuItem;
+}
+
+/**
+ * This method initializes aboutHyperlink	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getAboutHyperlink() {
+	if (aboutHyperlink == null) {
+		aboutHyperlink = new RHyperlink();
+		aboutHyperlink.setStyleProperties("{/anchor \"CENTER\"/insetsTop \"0\"/insetsRight \"5\"/insetsLeft \"5\"}");
+		aboutHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/about/images/about24\")%>");
+		aboutHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/about/plainStrings/aboutLabel\")%>");
+		aboutHyperlink.setName("aboutHyperlink");
+	}
+	return aboutHyperlink;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"
