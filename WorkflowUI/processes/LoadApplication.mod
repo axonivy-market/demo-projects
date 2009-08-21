@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 08 17:37:37 CEST 2009]
+[>Created: Fri Aug 21 12:09:43 CEST 2009]
 117CB4CDADC9E332 3.12 #module
 >Proto >Proto Collection #zClass
 Ly0 LoadApplicationStaticWay Big #zClass
@@ -27,31 +27,20 @@ Ly0 @PushWFArc f11 '' #zField
 Ly0 @PushWFArc f10 '' #zField
 Ly0 @PushWFArc f9 '' #zField
 >Proto Ly0 Ly0 LoadApplicationStaticWay #zField
-Ly0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start1</name>
-        <nameStyle>6,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ly0 f0 @C|.responsibility Everybody #txt
 Ly0 f0 outLink WorkflowUI.ivp #txt
 Ly0 f0 type workflowui.Data #txt
 Ly0 f0 template "" #txt
 Ly0 f0 templateWizard '#
-#Tue Aug 05 15:20:23 CEST 2008
+#Fri Aug 21 12:09:41 CEST 2009
 ' #txt
 Ly0 f0 taskData '#
-#Tue Aug 05 15:20:23 CEST 2008
+#Fri Aug 21 12:09:41 CEST 2009
 .DESC=It loads WorkflowUI application and then gives you a possibility to start a processes, \ncreate cases and work on the tasks
 .SHOW=1
 .WFU=0
-.NAM=Load WorkflowUI application
 ' #txt
 Ly0 f0 caseData '#
-#Tue Aug 05 15:20:23 CEST 2008
+#Fri Aug 21 12:09:41 CEST 2009
 subType.code=
 businessMilestone.timestamp=
 mainContact.id=
@@ -68,21 +57,40 @@ businessCreator.user=
 businessStart.timestamp=
 process.code=
 type.name=
-type.code=
 businessObject.name=
-correspondent.id=
+type.code=
 businessObject.code=
+correspondent.id=
 case.name=
 mainContact.folder.id=
-case.description=
 subType.name=
+case.description=
 ' #txt
 Ly0 f0 showInStartList 1 #txt
+Ly0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start1</name>
+        <nameStyle>6,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ly0 f0 @C|.responsibility Everybody #txt
 Ly0 f0 163 67 26 26 14 0 #rect
 Ly0 f0 @|StartRequestIcon #fIcon
 Ly0 f1 type workflowui.Data #txt
 Ly0 f1 163 435 26 26 14 0 #rect
 Ly0 f1 @|EndIcon #fIcon
+Ly0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Workflow UI</name>
+        <nameStyle>11,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ly0 f3 targetWindow NEW:card: #txt
 Ly0 f3 targetDisplay TOP #txt
 Ly0 f3 richDialogId ch.ivyteam.ivy.workflow.ui.Application #txt
@@ -98,19 +106,20 @@ Ly0 f3 windowConfiguration '{/title "Xpert.Ivy Workflow UI"/width 1200 /height 9
 Ly0 f3 isAsynch false #txt
 Ly0 f3 isInnerRd false #txt
 Ly0 f3 isDialog false #txt
-Ly0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Workflow UI</name>
-        <nameStyle>11,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ly0 f3 158 348 36 24 20 -2 #rect
 Ly0 f3 @|RichDialogIcon #fIcon
 Ly0 f2 expr out #txt
 Ly0 f2 176 372 176 435 #arcP
+Ly0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>load Workflow UI 
+login dialog</name>
+        <nameStyle>30,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ly0 f5 targetWindow NEW #txt
 Ly0 f5 targetDisplay TOP #txt
 Ly0 f5 richDialogId ch.ivyteam.ivy.addons.commondialogs.LoginDialog #txt
@@ -135,16 +144,6 @@ title=Xpert.Ivy Workflow UI
 Ly0 f5 isAsynch false #txt
 Ly0 f5 isInnerRd false #txt
 Ly0 f5 isDialog false #txt
-Ly0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>load Workflow UI 
-login dialog</name>
-        <nameStyle>30,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ly0 f5 158 188 36 24 20 -2 #rect
 Ly0 f5 @|RichDialogIcon #fIcon
 Ly0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
