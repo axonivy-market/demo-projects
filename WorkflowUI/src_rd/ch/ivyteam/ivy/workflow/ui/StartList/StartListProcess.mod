@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 08 17:26:29 CEST 2009]
+[>Created: Fri Aug 21 11:32:25 CEST 2009]
 119491E98A4A71B7 3.12 #module
 >Proto >Proto Collection #zClass
 Ss0 StartListProcess Big #zClass
@@ -71,6 +71,8 @@ Ss0 f3 actionTable 'out=in;
 Ss0 f3 actionCode 'import ch.ivyteam.ivy.richdialog.exec.ProcessStartConfiguration;
 import ch.ivyteam.ivy.workflow.IProcessStart;
 import ch.ivyteam.ivy.workflow.ui.utils.SortProcessStartsUtil;
+import ch.ivyteam.ivy.workflow.ui.sudo.GetProcessModelVersionState;
+import ch.ivyteam.ivy.security.SecurityManagerFactory;
 
 String name;
 String description;
@@ -82,25 +84,30 @@ out.startNames.clear();
 for (IProcessStart start : ivy.session.getStartableProcessStarts())
 {
 		
-    name = start.getName().toUpperCase();
-		description = start.getDescription().toUpperCase();
-		pmName = start.getProcessModelVersion().getProcessModel().getName().toUpperCase();
-
-    if (name is initialized){
-		if(!in.searchUnnamed){
-			if(name.length() > 0){
-				if(name.contains(searchAsUpperCase) || description.contains(searchAsUpperCase) || pmName.contains(searchAsUpperCase)){
-					out.startNames.add(start);
-				}
-			}
-		}else{
-			if(name.length() > 0){
-				if(name.contains(searchAsUpperCase) || description.contains(searchAsUpperCase) || pmName.contains(searchAsUpperCase)){
-					out.startNames.add(start);
+		Boolean stateActiv = SecurityManagerFactory.getSecurityManager().executeAsSystem(
+                new GetProcessModelVersionState(start.getProcessModelVersion())) as Boolean;
+		if(stateActiv)
+		{
+	    name = start.getName().toUpperCase();
+			description = start.getDescription().toUpperCase();
+			pmName = start.getProcessModelVersion().getProcessModel().getName().toUpperCase();
+	
+	    if (name is initialized){
+			if(!in.searchUnnamed){
+				if(name.length() > 0){
+					if(name.contains(searchAsUpperCase) || description.contains(searchAsUpperCase) || pmName.contains(searchAsUpperCase)){
+						out.startNames.add(start);
+					}
 				}
 			}else{
-				if(start.getUserFriendlyRequestPath().replaceAll("/"," ").toUpperCase().contains(searchAsUpperCase)){
-					out.startNames.add(start);
+				if(name.length() > 0){
+					if(name.contains(searchAsUpperCase) || description.contains(searchAsUpperCase) || pmName.contains(searchAsUpperCase)){
+						out.startNames.add(start);
+					}
+				}else{
+					if(start.getUserFriendlyRequestPath().replaceAll("/"," ").toUpperCase().contains(searchAsUpperCase)){
+						out.startNames.add(start);
+					}
 				}
 			}
 		}
@@ -291,7 +298,11 @@ Ss0 f15 499 243 26 26 14 0 #rect
 Ss0 f15 @|RichDialogProcessEndIcon #fIcon
 Ss0 f16 expr out #txt
 Ss0 f16 512 50 512 243 #arcP
-Ss0 f17 targetWindow NEW #txt
+Ss0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ss0 f17 targetDisplay TOP #txt
 Ss0 f17 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
 Ss0 f17 startMethod showError(java.lang.Throwable,Boolean,Boolean) #txt
@@ -313,23 +324,10 @@ Ss0 f17 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.StartList.StartListData o
 ' #txt
 Ss0 f17 responseMappingAction 'out=in;
 ' #txt
-Ss0 f17 windowConfiguration '#Sun Apr 26 22:53:48 CEST 2009
-height=0
-maximized=false
-centered=true
-close_after_last_rd=true
-resizable=true
-width=0
-title=Error
-' #txt
+Ss0 f17 windowConfiguration '{/title "Error"/width 0 /height 0 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 Ss0 f17 isAsynch false #txt
 Ss0 f17 isInnerRd true #txt
 Ss0 f17 isDialog true #txt
-Ss0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Ss0 f17 598 164 36 24 20 -2 #rect
 Ss0 f17 @|RichDialogIcon #fIcon
 Ss0 f7 expr out #txt

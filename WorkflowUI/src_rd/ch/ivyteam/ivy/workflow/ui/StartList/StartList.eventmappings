@@ -1,9 +1,11 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2009-05-05 17:33:15 | 4.1.0.27714 | 1.0
-~.startList@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119491E98A4A71B7/119492C089B8FAA4
-~.searchTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119491E98A4A71B7/1198AF348A23A0BC
+# 2009-08-21 11:49:31 | 4.1.1.29621 | 1.0
+~.stratButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119491E98A4A71B7/119492C089B8FAA4 # StartListProcess.mod/startProcess
+~.startMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119491E98A4A71B7/119492C089B8FAA4
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:119491E98A4A71B7/1194923FF289C8F3
+~.searchTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119491E98A4A71B7/1198AF348A23A0BC
+~.startList@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119491E98A4A71B7/119492C089B8FAA4
 ~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:119491E98A4A71B7/11DD95BFD82F1247
+~.showNoNameCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119491E98A4A71B7/1198AD228381C945 # StartListProcess.mod/toggleShowProperties
 ~@RD_METHODCALL[start(String)]--->ch.ivyteam.ivy.process.ProcessStart:119491E98A4A71B7/11A9B8D99F1AD970
-~.startMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119491E98A4A71B7/119492C089B8FAA4 # StartListProcess.mod/startProcess
 ~.searchButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119491E98A4A71B7/1198AF348A23A0BC
