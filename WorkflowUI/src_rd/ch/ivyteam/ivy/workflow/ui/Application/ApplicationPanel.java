@@ -43,7 +43,7 @@ private RLabel environmentLabel = null;
 private RLabel onLabel = null;
 private RHyperlink helpHyperlink = null;
 private RLabel aLabel1 = null;
-private RPopupMenu helpPopupMenu = null;  //  @jve:decl-index=0:visual-constraint="631,275"
+private RPopupMenu helpPopupMenu = null;  //  @jve:decl-index=0:visual-constraint="607,261"
 private RMenuItem downloadHelpMenuItem = null;
 private RHyperlink aboutHyperlink = null;
 /**
