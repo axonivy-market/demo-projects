@@ -170,7 +170,7 @@ public class ProjectAdvisor
 			buf.append('.');
 			buf.append(fAdvisorProperties.getProperty("MinorVersion", "?"));
 			buf.append('.');
-			buf.append(fAdvisorProperties.getProperty("PatchNumber", "?"));
+			buf.append(fAdvisorProperties.getProperty("PatchVersion", "?"));
 			if (includeRevisionNumber)
 			{
 				buf.append('.');
