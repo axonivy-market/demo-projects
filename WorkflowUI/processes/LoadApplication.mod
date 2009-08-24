@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Aug 21 12:09:43 CEST 2009]
+[>Created: Mon Aug 24 10:03:34 CEST 2009]
 117CB4CDADC9E332 3.12 #module
 >Proto >Proto Collection #zClass
 Ly0 LoadApplicationStaticWay Big #zClass
@@ -82,15 +82,6 @@ Ly0 f0 @|StartRequestIcon #fIcon
 Ly0 f1 type workflowui.Data #txt
 Ly0 f1 163 435 26 26 14 0 #rect
 Ly0 f1 @|EndIcon #fIcon
-Ly0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Workflow UI</name>
-        <nameStyle>11,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ly0 f3 targetWindow NEW:card: #txt
 Ly0 f3 targetDisplay TOP #txt
 Ly0 f3 richDialogId ch.ivyteam.ivy.workflow.ui.Application #txt
@@ -102,24 +93,23 @@ Ly0 f3 responseActionDecl 'workflowui.Data out;
 ' #txt
 Ly0 f3 responseMappingAction 'out=in;
 ' #txt
-Ly0 f3 windowConfiguration '{/title "Xpert.Ivy Workflow UI"/width 1200 /height 900 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
+Ly0 f3 windowConfiguration '{/title "Xpert.Ivy Workflow UI"/width 1200 /height 900 /centered true /resizable true /maximized true /close_after_last_rd true }' #txt
 Ly0 f3 isAsynch false #txt
 Ly0 f3 isInnerRd false #txt
 Ly0 f3 isDialog false #txt
-Ly0 f3 158 348 36 24 20 -2 #rect
-Ly0 f3 @|RichDialogIcon #fIcon
-Ly0 f2 expr out #txt
-Ly0 f2 176 372 176 435 #arcP
-Ly0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ly0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>load Workflow UI 
-login dialog</name>
-        <nameStyle>30,9
+        <name>Workflow UI</name>
+        <nameStyle>11,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ly0 f3 158 348 36 24 20 -2 #rect
+Ly0 f3 @|RichDialogIcon #fIcon
+Ly0 f2 expr out #txt
+Ly0 f2 176 372 176 435 #arcP
 Ly0 f5 targetWindow NEW #txt
 Ly0 f5 targetDisplay TOP #txt
 Ly0 f5 richDialogId ch.ivyteam.ivy.addons.commondialogs.LoginDialog #txt
@@ -144,14 +134,24 @@ title=Xpert.Ivy Workflow UI
 Ly0 f5 isAsynch false #txt
 Ly0 f5 isInnerRd false #txt
 Ly0 f5 isDialog false #txt
+Ly0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>load Workflow UI 
+login dialog</name>
+        <nameStyle>30,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ly0 f5 158 188 36 24 20 -2 #rect
 Ly0 f5 @|RichDialogIcon #fIcon
+Ly0 f7 type workflowui.Data #txt
 Ly0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ly0 f7 type workflowui.Data #txt
 Ly0 f7 162 258 28 28 14 0 #rect
 Ly0 f7 @|AlternativeIcon #fIcon
 Ly0 f8 expr out #txt
@@ -169,12 +169,12 @@ successful</name>
 </elementInfo>
 ' #txt
 Ly0 f4 176 286 176 348 #arcP
+Ly0 f16 type workflowui.Data #txt
 Ly0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ly0 f16 type workflowui.Data #txt
 Ly0 f16 162 130 28 28 14 0 #rect
 Ly0 f16 @|AlternativeIcon #fIcon
 Ly0 f6 expr in #txt
