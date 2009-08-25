@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Aug 24 10:03:34 CEST 2009]
+[>Created: Tue Aug 25 11:21:12 CEST 2009]
 117CB4CDADC9E332 3.12 #module
 >Proto >Proto Collection #zClass
 Ly0 LoadApplicationStaticWay Big #zClass
@@ -93,7 +93,7 @@ Ly0 f3 responseActionDecl 'workflowui.Data out;
 ' #txt
 Ly0 f3 responseMappingAction 'out=in;
 ' #txt
-Ly0 f3 windowConfiguration '{/title "Xpert.Ivy Workflow UI"/width 1200 /height 900 /centered true /resizable true /maximized true /close_after_last_rd true }' #txt
+Ly0 f3 windowConfiguration '{/title "Xpert.Ivy Workflow UI"/width 1024 /height 760 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 Ly0 f3 isAsynch false #txt
 Ly0 f3 isInnerRd false #txt
 Ly0 f3 isDialog false #txt
