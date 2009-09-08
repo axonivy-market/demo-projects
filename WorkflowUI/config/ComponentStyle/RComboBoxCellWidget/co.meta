@@ -1,0 +1,2 @@
+co: name={RComboBoxCellWidget} description={RComboBoxCellWidget Look and Feel} changed={2009-08-31 14:50:00 GMT} changedby={fsa} visualorder={2} guid={1237080BBCB9C948} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}
+val: guid={1237080BBCB3CDD2} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-31 10:50:00 GMT} validto={} changed={2009-08-31 14:51:00 GMT} changedby={fsa} properties={###r#n##Mon Jan 28 15:06:50 CET 2008#r#nconfig.ui.path=Style/Component Widgets#r#n} id={}
