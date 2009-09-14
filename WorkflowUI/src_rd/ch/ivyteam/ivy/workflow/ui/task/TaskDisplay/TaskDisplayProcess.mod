@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Aug 17 15:15:02 CEST 2009]
+[>Created: Mon Sep 14 16:41:04 CEST 2009]
 116A9BF16D47762C 3.12 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -204,6 +204,15 @@ Ts0 @RichDialog f143 '' #zField
 Ts0 @PushWFArc f178 '' #zField
 Ts0 @PushWFArc f163 '' #zField
 >Proto Ts0 Ts0 TaskInformationDisplayProcess #zField
+Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f0 guid 116A9C07145A35CE #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f0 method start() #txt
@@ -214,15 +223,6 @@ Ts0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 Ts0 f0 outParameterDecl '<> result;
 ' #txt
 Ts0 f0 embeddedRdInitializations '{/caseBusinessDetailsDisplayRDC {/fieldName "caseBusinessDetailsDisplayRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/taskInformationDetailsDisplayRDC {/fieldName "taskInformationDetailsDisplayRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/caseNoteDisplayListRDC {/fieldName "caseNoteDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/caseCustomFieldsDisplayRDC {/fieldName "caseCustomFieldsDisplayRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/taskCustomFieldsDisplayRDC {/fieldName "taskCustomFieldsDisplayRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/taskNoteDisplayListRDC {/fieldName "taskNoteDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/caseCategorizationDetailsDisplayRDC {/fieldName "caseCategorizationDetailsDisplayRDC"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
-Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f0 62 86 20 20 13 0 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f1 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
@@ -275,6 +275,15 @@ Ts0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f22 446 86 20 20 13 0 #rect
 Ts0 f22 @|RichDialogMethodStartIcon #fIcon
+Ts0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(ITask, Boolean,Boolean)</name>
+        <nameStyle>29,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f14 guid 11850D8CF1E93548 #txt
 Ts0 f14 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f14 method start(ch.ivyteam.ivy.workflow.ITask,Boolean,Boolean) #txt
@@ -290,15 +299,6 @@ out.taskIdentifier=param.aTask.getIdentifier();
 Ts0 f14 outParameterDecl '<> result;
 ' #txt
 Ts0 f14 embeddedRdInitializations '{/caseBusinessDetailsDisplayRDC {/fieldName "caseBusinessDetailsDisplayRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ICase)"/parameterMapping "param.aCase=callParam.aTask.getCase();\n"/initScript ""}/taskInformationDetailsDisplayRDC {/fieldName "taskInformationDetailsDisplayRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/caseNoteDisplayListRDC {/fieldName "caseNoteDisplayListRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ICase,Boolean)"/parameterMapping "param.aCase=in.task.getCase();\nparam.aLoadDataAtStart=false;\n"/initScript ""}/caseCustomFieldsDisplayRDC {/fieldName "caseCustomFieldsDisplayRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/taskCustomFieldsDisplayRDC {/fieldName "taskCustomFieldsDisplayRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/taskNoteDisplayListRDC {/fieldName "taskNoteDisplayListRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ITask,Boolean)"/parameterMapping "param.aTask=in.task;\nparam.aLoadDataAtStart=false;\n"/initScript ""}/intermediateEventDisplayRDC {/fieldName "intermediateEventDisplayRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/caseCategorizationDetailsDisplayRDC {/fieldName "caseCategorizationDetailsDisplayRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ICase)"/parameterMapping "param.aCase=callParam.aTask.getCase();\n"/initScript ""}}' #txt
-Ts0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(ITask, Boolean,Boolean)</name>
-        <nameStyle>29,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f14 214 86 20 20 13 0 #rect
 Ts0 f14 @|RichDialogInitStartIcon #fIcon
 Ts0 f25 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
@@ -415,6 +415,13 @@ Ts0 f46 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f46 216 510 216 546 #arcP
 Ts0 f46 0 0.0 -51 -17 #arcLabel
+Ts0 f48 actionDecl 'ch.ivyteam.ivy.workflow.ITask task;
+' #txt
+Ts0 f48 actionTable 'task=in.task;
+' #txt
+Ts0 f48 actionCode panel.fireXivyTaskStarted(task); #txt
+Ts0 f48 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
+Ts0 f48 fireEvent xivyTaskStarted(ch.ivyteam.ivy.workflow.ITask) #txt
 Ts0 f48 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -425,13 +432,6 @@ Ts0 f48 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f48 actionDecl 'ch.ivyteam.ivy.workflow.ITask task;
-' #txt
-Ts0 f48 actionTable 'task=in.task;
-' #txt
-Ts0 f48 actionCode panel.fireXivyTaskStarted(task); #txt
-Ts0 f48 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
-Ts0 f48 fireEvent xivyTaskStarted(ch.ivyteam.ivy.workflow.ITask) #txt
 Ts0 f48 198 796 36 24 -110 5 #rect
 Ts0 f48 @|RichDialogFireEventIcon #fIcon
 Ts0 f39 expr out #txt
@@ -1032,6 +1032,13 @@ and choose the security member</name>
 ' #txt
 Ts0 f131 2102 180 36 24 20 -2 #rect
 Ts0 f131 @|RichDialogIcon #fIcon
+Ts0 f133 actionDecl 'Number aTaskIdentifier;
+' #txt
+Ts0 f133 actionTable 'aTaskIdentifier=in.task.getIdentifier();
+' #txt
+Ts0 f133 actionCode panel.fireXivyTaskParked(aTaskIdentifier); #txt
+Ts0 f133 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
+Ts0 f133 fireEvent xivyTaskParked(Number) #txt
 Ts0 f133 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1042,13 +1049,6 @@ Ts0 f133 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f133 actionDecl 'Number aTaskIdentifier;
-' #txt
-Ts0 f133 actionTable 'aTaskIdentifier=in.task.getIdentifier();
-' #txt
-Ts0 f133 actionCode panel.fireXivyTaskParked(aTaskIdentifier); #txt
-Ts0 f133 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
-Ts0 f133 fireEvent xivyTaskParked(Number) #txt
 Ts0 f133 1870 324 36 24 20 -2 #rect
 Ts0 f133 @|RichDialogFireEventIcon #fIcon
 Ts0 f135 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData out;
@@ -1106,6 +1106,13 @@ selected</name>
 </elementInfo>
 ' #txt
 Ts0 f136 2120 246 2120 292 #arcP
+Ts0 f140 actionDecl 'Number aTaskIdentifier;
+' #txt
+Ts0 f140 actionTable 'aTaskIdentifier=in.task.getIdentifier();
+' #txt
+Ts0 f140 actionCode panel.fireXivyTaskDelegated(aTaskIdentifier); #txt
+Ts0 f140 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
+Ts0 f140 fireEvent xivyTaskDelegated(Number) #txt
 Ts0 f140 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1116,13 +1123,6 @@ Ts0 f140 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f140 actionDecl 'Number aTaskIdentifier;
-' #txt
-Ts0 f140 actionTable 'aTaskIdentifier=in.task.getIdentifier();
-' #txt
-Ts0 f140 actionCode panel.fireXivyTaskDelegated(aTaskIdentifier); #txt
-Ts0 f140 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
-Ts0 f140 fireEvent xivyTaskDelegated(Number) #txt
 Ts0 f140 2102 340 36 24 20 -2 #rect
 Ts0 f140 @|RichDialogFireEventIcon #fIcon
 Ts0 f142 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData out;
@@ -1421,7 +1421,9 @@ Ts0 f53 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f53 2120 110 2120 130 #arcP
 Ts0 f21 expr in #txt
-Ts0 f21 outCond '(in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.SUSPENDED) || in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.PARKED))' #txt
+Ts0 f21 outCond '(in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.SUSPENDED) 
+	|| in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.PARKED)
+		|| in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.UNASSIGNED))' #txt
 Ts0 f21 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2216,7 +2218,8 @@ in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.CREATED)||
 in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.FAILED) ||
 in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.READY_FOR_JOIN));
 panel.delegateTaskButton.enabled=in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.SUSPENDED)||
- in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.PARKED);
+ in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.PARKED)||
+  in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.UNASSIGNED);
 panel.footerLabel.text=in.footerMessage;
 panel.intermediateEventTaskPane.visible=in.hasWfAdministratorPermissions && in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.WAITING_FOR_INTERMEDIATE_EVENT);
 panel.parkTaskButton.enabled=in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.RESUMED);

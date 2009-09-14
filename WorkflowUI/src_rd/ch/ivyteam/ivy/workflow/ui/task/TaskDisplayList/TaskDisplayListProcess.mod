@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Aug 17 15:51:02 CEST 2009]
+[>Created: Mon Sep 14 17:42:21 CEST 2009]
 1168625F1BC1155F 3.12 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -276,6 +276,15 @@ Ts0 @PushWFArc f72 '' #zField
 Ts0 @PushWFArc f261 '' #zField
 Ts0 @PushWFArc f257 '' #zField
 >Proto Ts0 Ts0 TaskDisplayListProcess #zField
+Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f0 guid 1168B153651C96FA #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f0 method start() #txt
@@ -290,15 +299,6 @@ out.taskDisplayModeText="";
 Ts0 f0 outParameterDecl '<> result;
 ' #txt
 Ts0 f0 embeddedRdInitializations '* ' #txt
-Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f0 70 78 20 20 13 0 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f1 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -1115,8 +1115,8 @@ try
 		panel.fireXivyTaskDelegated(currentTask.getIdentifier());
 		
 		// remove the task from the task list
-		currentTaskIndexInTheTasks = in.filteredTasks.indexOf(currentTask);
-		out.filteredTasks.removeAt(currentTaskIndexInTheTasks);
+		//currentTaskIndexInTheTasks = in.filteredTasks.indexOf(currentTask);
+		//out.filteredTasks.removeAt(currentTaskIndexInTheTasks);
 	}
 }
 catch (Exception ex)
@@ -1131,10 +1131,8 @@ Ts0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>do the loop and
 delegate each task,
-fire the bcevent &quot;xivyTaskDelegated&quot;
-remove the delegated tasks
-from task list</name>
-        <nameStyle>114,9
+fire the bcevent &quot;xivyTaskDelegated&quot;</name>
+        <nameStyle>72,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -1358,6 +1356,13 @@ Ts0 f105 102 1004 36 24 20 -2 #rect
 Ts0 f105 @|RichDialogIcon #fIcon
 Ts0 f70 expr out #txt
 Ts0 f70 120 1028 120 1067 #arcP
+Ts0 f42 guid 118C650A535D72B2 #txt
+Ts0 f42 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f42 broadcast xivyRefreshTaskList #txt
+Ts0 f42 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f42 actionTable 'out=in;
+' #txt
 Ts0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1366,13 +1371,6 @@ Ts0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f42 guid 118C650A535D72B2 #txt
-Ts0 f42 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f42 broadcast xivyRefreshTaskList #txt
-Ts0 f42 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f42 actionTable 'out=in;
 ' #txt
 Ts0 f42 534 182 20 20 13 0 #rect
 Ts0 f42 @|RichDialogBroadcastStartIcon #fIcon
@@ -1685,6 +1683,14 @@ Ts0 f130 expr out #txt
 Ts0 f130 1432 820 1228 998 #arcP
 Ts0 f130 1 1432 976 #addKink
 Ts0 f130 0 0.9508766700823038 0 0 #arcLabel
+Ts0 f135 guid 118EBEE8542826BA #txt
+Ts0 f135 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f135 broadcast xivyTaskDelegated #txt
+Ts0 f135 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f135 actionTable 'out=in;
+out.broadcastedTaskIdentifier=param.aTaskIdentifier;
+' #txt
 Ts0 f135 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1693,14 +1699,6 @@ Ts0 f135 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f135 guid 118EBEE8542826BA #txt
-Ts0 f135 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f135 broadcast xivyTaskDelegated #txt
-Ts0 f135 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f135 actionTable 'out=in;
-out.broadcastedTaskIdentifier=param.aTaskIdentifier;
 ' #txt
 Ts0 f135 590 630 20 20 13 0 #rect
 Ts0 f135 @|RichDialogBroadcastStartIcon #fIcon
@@ -1773,14 +1771,22 @@ iterator = in.filteredTasks.iterator();
 
 out.footerMessage = "";
 
-while (iterator.hasNext() && !found)
+// do not remove the delagate task if user is WfAmdin and taskDisplayMode is "all tasks"
+if(!in.hasWfAdministratorPermissions || in.taskDisplayMode!=2)
 {
-	currentTask = iterator.next() as ITask;
-	if (currentTask.getIdentifier() == in.broadcastedTaskIdentifier)
+	while (iterator.hasNext() && !found)
 	{
-		out.filteredTasks.remove(currentTask);
-		found = true;		
-	}   
+		currentTask = iterator.next() as ITask;
+		if (currentTask.getIdentifier() == in.broadcastedTaskIdentifier)
+		{
+			// remove it if the current user is not allowed to start the delegated task
+			if(!currentTask.getActivator().isMember(ivy.session,false))
+			{
+				out.filteredTasks.remove(currentTask);
+			}	
+			found = true;		
+		}
+	}	   
 }
 ' #txt
 Ts0 f119 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -1859,7 +1865,9 @@ if (panel.tasksTable.getSelectedListEntry() != null & panel.tasksTable.getSelect
 
 	// delegate task
 	panel.delegateTaskButton.enabled = ((in.hasPermissionDelegateTasks || in.hasWfAdministratorPermissions) && 
-																			(currentTask.getState().equals(TaskState.SUSPENDED) || currentTask.getState().equals(TaskState.PARKED)));
+																			(currentTask.getState().equals(TaskState.SUSPENDED) 
+																				|| currentTask.getState().equals(TaskState.PARKED)
+																				|| currentTask.getState().equals(TaskState.UNASSIGNED)));
 	panel.delegateTaskMenuItem.enabled = panel.delegateTaskButton.enabled;
 
 	
@@ -2765,6 +2773,15 @@ Ts0 f111 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f111 502 150 20 20 13 0 #rect
 Ts0 f111 @|RichDialogMethodStartIcon #fIcon
+Ts0 f113 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(Boolean, RTabbedDisplay,IPropertyFilter,Number,Boolean)</name>
+        <nameStyle>61,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f113 guid 11B2C397226E51AC #txt
 Ts0 f113 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f113 method start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
@@ -2783,15 +2800,6 @@ out.taskListParentDisplayId=param.aTaskDisplayListParentDisplay.displayId;
 Ts0 f113 outParameterDecl '<> result;
 ' #txt
 Ts0 f113 embeddedRdInitializations '* ' #txt
-Ts0 f113 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(Boolean, RTabbedDisplay,IPropertyFilter,Number,Boolean)</name>
-        <nameStyle>61,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f113 134 78 20 20 13 0 #rect
 Ts0 f113 @|RichDialogInitStartIcon #fIcon
 Ts0 f114 expr out #txt
@@ -3282,6 +3290,14 @@ Ts0 f225 1238 1256 981 1536 #arcP
 Ts0 f225 1 1360 1256 #addKink
 Ts0 f225 2 1360 1536 #addKink
 Ts0 f225 1 0.9432801396712388 0 0 #arcLabel
+Ts0 f226 guid 11E4147805919F81 #txt
+Ts0 f226 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f226 broadcast ivy_systemevent_workflow_task_changed #txt
+Ts0 f226 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f226 actionTable 'out=in;
+out.broadcastedTaskIdentifier=param.aWorkflowSystemEventParameter.getIdentifiers().get(0) as Number;
+' #txt
 Ts0 f226 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3290,14 +3306,6 @@ Ts0 f226 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f226 guid 11E4147805919F81 #txt
-Ts0 f226 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f226 broadcast ivy_systemevent_workflow_task_changed #txt
-Ts0 f226 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f226 actionTable 'out=in;
-out.broadcastedTaskIdentifier=param.aWorkflowSystemEventParameter.getIdentifiers().get(0) as Number;
 ' #txt
 Ts0 f226 422 534 20 20 13 0 #rect
 Ts0 f226 @|RichDialogBroadcastStartIcon #fIcon
