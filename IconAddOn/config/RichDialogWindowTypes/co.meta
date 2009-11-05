@@ -1,2 +1,0 @@
-co: name={RichDialogWindowTypes} description={IvyScript Boolean Format} changed={2008-02-19 13:58:04 GMT} changedby={kvg} visualorder={0} guid={1211A94D500CB18A} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}
-val: guid={1211A94D500DA4A5} datatype={} isdefault={true} langid={en} description={} validfrom={2005-11-07 16:43:00 GMT} validto={} changed={2008-02-19 13:59:32 GMT} changedby={kvg} properties={###r#n##Mon Jan 28 14:59:32 CET 2008#r#nconfig.ui.name=Window Types#r#n} id={}
