@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" provider="xpertline.ch" name="IconAddOn" version="1" id="ch.xpertline.ivy.iconaddon">
+    <description>This library contains a collection of common icons in various sizes to use in Xpert.line ivy projects. </description>
+</ns2:library>
