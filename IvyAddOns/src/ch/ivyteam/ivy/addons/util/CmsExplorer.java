@@ -44,7 +44,7 @@ public class CmsExplorer
 
     try
     {
-      object = Ivy.cms().getContentObject(uri, true);
+      object = Ivy.cms().findContentObject(uri);
 
       if (handler.startNode(object, object.getName(), uri))
       {
