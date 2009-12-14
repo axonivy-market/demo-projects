@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns2:library xmlns:ns2="http://www.ivyteam.com/library/" provider="IvyTeam AG" name="IvyDemos" version="1" id="ch.ivyteam.ivy.demo">
-    <description>This library provides demos for some Xpert.ivy concepts and is based on the IvyAddOns project. Note, that the demos contained here are provided "as is" and NOT INTENDED FOR PRODUCTIVE USAGE.</description>
+    <description>This library provides demos for many Xpert.ivy concepts, components and features.&#xD;
+&#xD;
+DISCLAIMER&#xD;
+&#xD;
+The artefacts in this project are provided &quot;as is&quot; and are NOT INTENDED FOR PRODUCTIVE USAGE.</description>
     <requiredLibrary id="ch.ivyteam.ivy.addons"/>
 </ns2:library>

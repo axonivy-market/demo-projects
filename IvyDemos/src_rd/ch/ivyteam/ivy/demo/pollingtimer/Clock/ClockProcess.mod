@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri May 22 00:20:54 CEST 2009]
-11999C6F2931E28A 3.11 #module
+[>Created: Mon Nov 23 14:35:12 CET 2009]
+11999C6F2931E28A 3.13 #module
 >Proto >Proto Collection #zClass
 Ms0 ManyClientStresserProcess Big #zClass
 Ms0 RD #cInfo
@@ -34,10 +34,14 @@ Ms0 @PushWFArc f15 '' #zField
 Ms0 @RichDialogProcessEnd f16 '' #zField
 Ms0 @PushWFArc f17 '' #zField
 Ms0 @InfoButton f23 '' #zField
+Ms0 @RichDialogProcessStart f18 '' #zField
+Ms0 @RichDialogEnd f19 '' #zField
+Ms0 @PushWFArc f20 '' #zField
 >Proto Ms0 Ms0 ManyClientStresserProcess #zField
 Ms0 f0 guid 11994EA94E4B34A4 #txt
 Ms0 f0 type ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData #txt
 Ms0 f0 method start() #txt
+Ms0 f0 disableUIEvents false #txt
 Ms0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -79,6 +83,14 @@ Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ms0 f3 166 30 20 20 13 0 #rect
 Ms0 f3 @|RichDialogProcessStartIcon #fIcon
+Ms0 f4 actionDecl 'ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData out;
+' #txt
+Ms0 f4 actionTable 'out=in;
+' #txt
+Ms0 f4 actionCode 'panel.getTimer().setRepeats(panel.CheckBox.selected);
+panel.getTimer().setDelay(in.interval);
+panel.getTimer().start();' #txt
+Ms0 f4 type ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData #txt
 Ms0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -88,14 +100,6 @@ Ms0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f4 actionDecl 'ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData out;
-' #txt
-Ms0 f4 actionTable 'out=in;
-' #txt
-Ms0 f4 actionCode 'panel.getTimer().setRepeats(panel.CheckBox.selected);
-panel.getTimer().setDelay(in.interval);
-panel.getTimer().start();' #txt
-Ms0 f4 type ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData #txt
 Ms0 f4 158 108 36 24 20 -2 #rect
 Ms0 f4 @|RichDialogProcessStepIcon #fIcon
 Ms0 f5 expr out #txt
@@ -122,6 +126,12 @@ Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ms0 f8 358 30 20 20 13 0 #rect
 Ms0 f8 @|RichDialogProcessStartIcon #fIcon
+Ms0 f9 actionDecl 'ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData out;
+' #txt
+Ms0 f9 actionTable 'out=in;
+' #txt
+Ms0 f9 actionCode panel.getTimer().stop(); #txt
+Ms0 f9 type ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData #txt
 Ms0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -131,12 +141,6 @@ Ms0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f9 actionDecl 'ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData out;
-' #txt
-Ms0 f9 actionTable 'out=in;
-' #txt
-Ms0 f9 actionCode panel.getTimer().stop(); #txt
-Ms0 f9 type ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData #txt
 Ms0 f9 350 108 36 24 20 -2 #rect
 Ms0 f9 @|RichDialogProcessStepIcon #fIcon
 Ms0 f10 expr out #txt
@@ -163,6 +167,13 @@ Ms0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ms0 f13 526 30 20 20 13 0 #rect
 Ms0 f13 @|RichDialogProcessStartIcon #fIcon
+Ms0 f14 actionDecl 'ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData out;
+' #txt
+Ms0 f14 actionTable 'out=in;
+' #txt
+Ms0 f14 actionCode 'panel.getTimer().setRepeats(panel.CheckBox.selected);
+panel.getTimer().start();' #txt
+Ms0 f14 type ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData #txt
 Ms0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -172,13 +183,6 @@ Ms0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f14 actionDecl 'ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData out;
-' #txt
-Ms0 f14 actionTable 'out=in;
-' #txt
-Ms0 f14 actionCode 'panel.getTimer().setRepeats(panel.CheckBox.selected);
-panel.getTimer().start();' #txt
-Ms0 f14 type ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData #txt
 Ms0 f14 518 108 36 24 20 -2 #rect
 Ms0 f14 @|RichDialogProcessStepIcon #fIcon
 Ms0 f15 expr out #txt
@@ -199,16 +203,43 @@ events in Xpert.ivy. Do not use other timer
 classes), as they are not synchronized with
  the RD UI thread.
 
+One important note, do stop the timer before 
+the panel is unloaded, see the unload event.
+
 Please be aware, that a decent Timer 
 probably widget will be delivered in future.</name>
-        <nameStyle>376,9
+        <nameStyle>468,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f23 376 285 273 199 -129 -93 #rect
+Ms0 f23 376 284 273 233 -129 -93 #rect
 Ms0 f23 @|IBIcon #fIcon
 Ms0 f23 -7484683|-1|-16777216 #nodeStyle
+Ms0 f18 guid 12521318A3D49B26 #txt
+Ms0 f18 type ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData #txt
+Ms0 f18 actionDecl 'ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData out;
+' #txt
+Ms0 f18 actionTable 'out=in;
+' #txt
+Ms0 f18 actionCode panel.getTimer().stop(); #txt
+Ms0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>RD_Unload</name>
+        <nameStyle>9,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ms0 f18 166 238 20 20 13 0 #rect
+Ms0 f18 @|RichDialogProcessStartIcon #fIcon
+Ms0 f19 type ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData #txt
+Ms0 f19 guid 1252131BF479EBB1 #txt
+Ms0 f19 166 302 20 20 13 0 #rect
+Ms0 f19 @|RichDialogEndIcon #fIcon
+Ms0 f20 expr out #txt
+Ms0 f20 176 258 176 302 #arcP
 >Proto Ms0 .type ch.ivyteam.ivy.demo.pollingtimer.Clock.ClockData #txt
 >Proto Ms0 .processKind RICH_DIALOG #txt
 >Proto Ms0 .ui2RdDataAction 'out.interval=panel.TextField.valueAsNumber;
@@ -231,3 +262,5 @@ Ms0 f13 mainOut f15 tail #connect
 Ms0 f15 head f14 mainIn #connect
 Ms0 f14 mainOut f17 tail #connect
 Ms0 f17 head f16 mainIn #connect
+Ms0 f18 mainOut f20 tail #connect
+Ms0 f20 head f19 mainIn #connect
