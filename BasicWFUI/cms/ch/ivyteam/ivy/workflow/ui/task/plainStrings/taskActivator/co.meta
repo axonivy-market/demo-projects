@@ -1,0 +1,4 @@
+co: name={taskActivator} description={} changed={2009-05-13 12:26:39 GMT} changedby={bb} visualorder={0} guid={11B0CDF5A0F7E948} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B0CDF5A3E71BE2} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-10 12:08:28 GMT} validto={} changed={2008-07-10 12:08:42 GMT} changedby={tirib} properties={} id={}
+val: guid={11B73AB0C6519A38} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 11:12:14 GMT} validto={} changed={2008-07-30 11:12:44 GMT} changedby={tistc} properties={} id={}
+val: guid={11B69E55FB651093} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:39:44 GMT} validto={} changed={2009-05-13 12:26:39 GMT} changedby={bb} properties={} id={}

@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Jun 18 15:38:04 CEST 2009]
-11A9628F93B4B493 3.12 #module
+[>Created: Tue Dec 22 14:50:23 CET 2009]
+11A9628F93B4B493 3.13 #module
 >Proto >Proto Collection #zClass
 Fs0 FileBrowserProcess Big #zClass
 Fs0 RD #cInfo
@@ -92,15 +92,6 @@ Fs0 f4 expr out #txt
 Fs0 f4 104 146 104 172 #arcP
 Fs0 f2 expr out #txt
 Fs0 f2 104 196 104 227 #arcP
-Fs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>tree_load</name>
-        <nameStyle>9,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f5 guid 11A9637F23A304CC #txt
 Fs0 f5 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
 Fs0 f5 actionDecl 'ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData out;
@@ -113,7 +104,7 @@ TreeLoadEvent ev = event as TreeLoadEvent;
 Tree nodeToExpand = ev.getTreeNode();
 java.io.File parent = nodeToExpand.value as java.io.File;
 
-if (parent.isDirectory())
+if (parent.isDirectory() && parent.listFiles()!=null)
 {
 	for (java.io.File child : parent.listFiles())
 	{
@@ -125,6 +116,15 @@ if (parent.isDirectory())
 	}
 }
 // else do nothing' #txt
+Fs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>tree_load</name>
+        <nameStyle>9,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Fs0 f5 214 126 20 20 13 0 #rect
 Fs0 f5 @|RichDialogProcessStartIcon #fIcon
 Fs0 f6 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
@@ -159,6 +159,14 @@ Fs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Fs0 f8 484 227 184 42 -87 -16 #rect
 Fs0 f8 @|IBIcon #fIcon
 Fs0 f8 -7484683|-1|-16777216 #nodeStyle
+Fs0 f9 guid 11A969D754983DDC #txt
+Fs0 f9 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
+Fs0 f9 actionDecl 'ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData out;
+' #txt
+Fs0 f9 actionTable 'out=in;
+' #txt
+Fs0 f9 actionCode 'java.io.File selectedRoot = panel.driveComboBox.selectedListEntry as java.io.File;
+out.rootDir = new Tree(selectedRoot, "drive");' #txt
 Fs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -168,14 +176,6 @@ Fs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f9 guid 11A969D754983DDC #txt
-Fs0 f9 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt
-Fs0 f9 actionDecl 'ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData out;
-' #txt
-Fs0 f9 actionTable 'out=in;
-' #txt
-Fs0 f9 actionCode 'java.io.File selectedRoot = panel.driveComboBox.selectedListEntry as java.io.File;
-out.rootDir = new Tree(selectedRoot, "drive");' #txt
 Fs0 f9 318 126 20 20 13 0 #rect
 Fs0 f9 @|RichDialogProcessStartIcon #fIcon
 Fs0 f12 type ch.ivyteam.ivy.demo.tabletree.FileBrowser.FileBrowserData #txt

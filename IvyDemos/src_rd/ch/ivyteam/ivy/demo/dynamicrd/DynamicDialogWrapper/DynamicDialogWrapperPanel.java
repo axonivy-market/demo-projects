@@ -4,6 +4,9 @@ import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for ContactPanel.
@@ -16,7 +19,7 @@ implements IRichDialogPanel
   /** Serial version id */
   private static final long serialVersionUID = 1L;
 private RButton Button = null;
-private DynamicDialogPanel dynamicDialogPanel = null;
+@EmbeddedRichDialog(DynamicDialogPanel.class) private ULCContainer dynamicDialogPanel = null;
   
   /**
    * Create a new instance of ContactPanel
@@ -59,11 +62,11 @@ private RButton getButton() {
  * 	
  * @return ch.xpertline.ticommon.ria.binaryComponents.DynamicDialog.DynamicDialogPanel	
  */
-private DynamicDialogPanel getDynamicDialogPanel()
+private ULCContainer getDynamicDialogPanel() 
 {
   if (dynamicDialogPanel == null)
   {
-    dynamicDialogPanel = new DynamicDialogPanel();
+    dynamicDialogPanel = RichDialogPanelFactory.create(DynamicDialogPanel.class);
     dynamicDialogPanel.setName("dynamicDialogPanel");
   }
   return dynamicDialogPanel;

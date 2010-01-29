@@ -15,6 +15,9 @@ import com.ulcjava.base.application.util.Dimension;
 import com.ulcjava.base.application.ULCFlowLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for TasksFiltersSelectPanel.
@@ -56,7 +59,7 @@ private RComboBox businessMainContactRelationalOperatorComboBox = null;
 private RComboBox taskNameRelationalOperatorComboBox = null;
 private RComboBox taskKindRelationalOperatorComboBox = null;
 private RComboBox businessCreatorUserRelationalOperatorComboBox = null;
-private HeaderPanel headerRDC = null;
+@EmbeddedRichDialog(HeaderPanel.class) private ULCContainer headerRDC = null;
 private RGridBagLayoutPane tasksFiltersGridBagLayoutPane = null;
 /**
    * Create a new instance of TasksFiltersSelectPanel
@@ -542,9 +545,9 @@ private RComboBox getBusinessCreatorUserRelationalOperatorComboBox() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel	
  */
-private HeaderPanel getHeaderRDC() {
+private ULCContainer getHeaderRDC()  {
 	if (headerRDC == null) {
-		headerRDC = new HeaderPanel();
+		headerRDC = RichDialogPanelFactory.create(HeaderPanel.class);
 		headerRDC.setName("headerRDC");
 		headerRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,75));
 	}

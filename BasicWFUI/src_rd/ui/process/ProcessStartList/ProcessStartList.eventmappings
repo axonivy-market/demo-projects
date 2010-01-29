@@ -1,0 +1,10 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2009-12-23 16:34:00 | 4.1.2.31345 | 1.0
+~.Table@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125211004EB75BAE/124FCB0D83131C5D
+~@RD_METHODCALL[refresh()]--->ch.ivyteam.ivy.process.ProcessStart:125211004EB75BAE/125A24ADC49D402A
+~.startProcessMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125211004EB75BAE/124FCB0D83131C5D # ProcessStartListProcess.mod/RD_Event_StartProcess
+~.startButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125211004EB75BAE/124FCB0D83131C5D
+~.Hyperlink@CLICKED[]--->ch.ivyteam.ivy.process.ProcessStart:125211004EB75BAE/125BC160E4F20554 # ProcessStartListProcess.mod/RD_Event_Refresh
+~.Button@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125211004EB75BAE/124FD30175EE0477
+~@RD_METHODCALL[startInPanel(ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel)]--->ch.ivyteam.ivy.process.ProcessStart:125211004EB75BAE/124FC8F48B7ED55A
+~@RD_BROADCAST[wfUserChanged]--->ch.ivyteam.ivy.process.ProcessStart:125211004EB75BAE/125BC0C71D77E44F

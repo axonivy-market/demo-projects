@@ -1,0 +1,4 @@
+co: name={eMailNotification} description={} changed={2009-04-02 14:22:56 GMT} changedby={bb} visualorder={0} guid={11CE7310E81575E8} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={1206735A10285EE0} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-02 14:22:29 GMT} validto={} changed={2009-04-02 14:22:56 GMT} changedby={bb} properties={} id={}
+val: guid={11CE7313C96AEBFB} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-10-10 14:37:55 GMT} validto={} changed={2008-10-10 14:38:02 GMT} changedby={tirib} properties={} id={}
+val: guid={11CE7310E811F8F8} datatype={} isdefault={true} langid={en} description={} validfrom={2008-10-10 14:37:43 GMT} validto={} changed={2008-10-10 14:37:55 GMT} changedby={tirib} properties={} id={}

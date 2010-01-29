@@ -1,0 +1,1 @@
+<FORM NAME="formLinkB" METHOD='POST' ACTION='<%=ivy.html.ref("LinkB.ivp")%>' > <INPUT  TYPE="SUBMIT" VALUE="Abbrechen"></FORM>

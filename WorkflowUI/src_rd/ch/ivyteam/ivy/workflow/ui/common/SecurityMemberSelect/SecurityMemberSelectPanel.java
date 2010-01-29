@@ -19,6 +19,9 @@ import com.ulcjava.base.application.ULCFlowLayoutPane;
 import com.ulcjava.base.application.border.ULCTitledBorder;
 import com.ulcjava.base.application.util.Color;
 import com.ulcjava.base.application.util.Font;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for DelegateTaskSelectPanel.
@@ -34,7 +37,7 @@ private RFlowLayoutPane actionsFlowLayoutPane = null;
 private RButton okButton = null;
 private RButton cancelButton = null;
 private RScrollPane securityMembersScrollPane = null;
-private HeaderPanel headerRDC = null;
+@EmbeddedRichDialog(HeaderPanel.class) private ULCContainer headerRDC = null;
 private RBorderLayoutPane securityMembersBorderLayoutPane = null;
 private RToolBar refreshRolesToolBar = null;
 private RList securityMembersList = null;
@@ -139,9 +142,9 @@ private RScrollPane getSecurityMembersScrollPane() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel	
  */
-private HeaderPanel getHeaderRDC() {
+private ULCContainer getHeaderRDC()  {
 	if (headerRDC == null) {
-		headerRDC = new HeaderPanel();
+		headerRDC = RichDialogPanelFactory.create(HeaderPanel.class);
 		headerRDC.setName("headerRDC");
 		headerRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,75));
 		headerRDC.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");

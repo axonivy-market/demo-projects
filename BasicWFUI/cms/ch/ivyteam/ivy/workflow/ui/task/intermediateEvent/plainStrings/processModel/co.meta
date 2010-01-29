@@ -1,0 +1,3 @@
+co: name={processModel} description={} changed={2009-04-23 13:10:25 GMT} changedby={tirib} visualorder={0} guid={120D318AA68E5C26} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={120D318B71AAE8F0} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-04-23 13:09:53 GMT} validto={} changed={2009-04-23 13:10:25 GMT} changedby={tirib} properties={} id={}
+val: guid={120D318AA78273FB} datatype={} isdefault={true} langid={en} description={} validfrom={2009-04-23 13:09:50 GMT} validto={} changed={2009-04-23 13:10:25 GMT} changedby={tirib} properties={} id={}

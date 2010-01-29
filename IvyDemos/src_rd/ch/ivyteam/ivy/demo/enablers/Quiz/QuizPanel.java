@@ -14,6 +14,9 @@ import ch.ivyteam.ivy.richdialog.widgets.components.RTree;
 import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import com.ulcjava.base.application.ULCButtonGroup;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for FavouritesSelectorPanel.
@@ -25,7 +28,7 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private TitlePanel titlePanel = null;
+@EmbeddedRichDialog(TitlePanel.class) private ULCContainer titlePanel = null;
 private RLabel questionLabel1 = null;
 private RLabel questionLabel2 = null;
 private RLabel questionLabel3 = null;
@@ -84,9 +87,9 @@ private ULCButtonGroup q1group = null;  //  @jve:decl-index=0:visual-constraint=
  * 	
  * @return ch.ivyteam.ivy.demo.util.WizardTitle.TitlePanel	
  */
-private TitlePanel getTitlePanel() {
+private ULCContainer getTitlePanel()  {
 	if (titlePanel == null) {
-		titlePanel = new TitlePanel();
+		titlePanel = RichDialogPanelFactory.create(TitlePanel.class);
 		titlePanel.setName("titlePanel");
 		titlePanel.setPreferredSize(null);
 		titlePanel.setStyleProperties("{/backgroundColor {/b \"255\"/r \"255\"/g \"255\"}/anchor \"NORTH\"/opaque \"true\"}");

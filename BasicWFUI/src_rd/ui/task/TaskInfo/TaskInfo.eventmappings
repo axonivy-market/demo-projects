@@ -1,0 +1,5 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2009-12-31 12:19:35 | 4.1.2.31487 | 1.0
+~.closeButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125E01F5818792DF/125E46F49C5514ED # TaskInfoProcess.mod/RD_Event_Exit
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:125E01F5818792DF/125E01F5847947EB
+~@RD_METHODCALL[start(ch.ivyteam.ivy.workflow.ITask)]--->ch.ivyteam.ivy.process.ProcessStart:125E01F5818792DF/125E021BFC364FB9

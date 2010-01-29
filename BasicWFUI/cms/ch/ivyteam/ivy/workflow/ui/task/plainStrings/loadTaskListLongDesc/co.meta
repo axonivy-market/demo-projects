@@ -1,0 +1,4 @@
+co: name={loadTaskListLongDesc} description={} changed={2009-04-02 14:12:49 GMT} changedby={bb} visualorder={0} guid={11AE3AFEF0DF17CB} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11AE3AFEF2C420EB} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 12:04:41 GMT} validto={} changed={2008-07-02 12:12:50 GMT} changedby={tirib} properties={} id={}
+val: guid={11B739ACCCAC9535} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:54:29 GMT} validto={} changed={2008-07-30 10:55:29 GMT} changedby={tistc} properties={} id={}
+val: guid={11B6DA2F95C4A290} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 07:05:41 GMT} validto={} changed={2009-04-02 14:12:49 GMT} changedby={bb} properties={} id={}

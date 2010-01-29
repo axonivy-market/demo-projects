@@ -1,0 +1,280 @@
+div#Header
+{
+    background-color: #000032;
+    width: 100%;
+}
+
+div#NavigationBar
+{
+    background-color: #6B6B6B;
+    width: 100%;
+    padding: 3px 0;
+//    margin: -2px 0px 0px 0px;
+}
+
+div#ContentArea /* Contains the panel and the left navigation */
+{
+    background-image: url(images/left_nav_bg3.png);
+    background-repeat: repeat-y;
+    margin-top: 2px;
+}
+
+div#Caption
+{
+  background-color: #EAEAEA;
+  margin-left: 0px;
+  margin-bottom: 5px;
+}
+
+div#Footer
+{
+  color: #808080;
+  border-top: 1px #E8E8E8 solid;
+  padding: 2px 4px 5px 4px;
+  margin-top: 3px;
+  clear: both;
+}
+
+div#LeftNavigation
+{
+  float: left;
+  width: 160px;
+  padding-left: 4px;
+  
+}
+
+div#Content
+{
+    padding: 0 4px; 
+    margin-left: 160px;
+    padding-bottom: 30px;
+}
+
+div#Message
+{
+    border: 1px #00FF00 solid;
+    background-color: #BBFFBB;
+    padding: 4px 4px 4px 4px; 
+    margin-left: 160px;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+div#Warning
+{
+    border: 1px #FF0000 solid;
+    background-color: #FFBBBB;
+    padding: 4px 4px 4px 4px; 
+    margin-left: 160px;
+    margin-bottom: 8px;
+}
+
+
+/* Top navigation */
+ul.TopNavigation
+{
+    margin: 0;
+    padding: 4px 0 5px 10px;    
+}
+
+ul.LanguageSelection
+{
+    float: right;
+}
+
+ul.TopNavigation li
+{
+    display:inline;
+    margin-right: 30px;
+}
+
+ul.LanguageSelection li
+{
+    margin-right: 5px;
+}
+
+ul.TopNavigation a
+{
+    font-size: 11px;
+    color: white;
+    font-weight: bold;
+} 
+
+ul.TopNavigation a:link, ul.TopNavigation a:visited
+{
+    text-decoration: none;
+} 
+
+ul.TopNavigation a:hover, ul.TopNavigation a:active
+{
+    text-decoration: underline;
+} 
+
+/* Left navigation */
+ul.LeftNavigationNodes
+{
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+    width: 150px;
+}
+
+ul.LeftNavigationNodes li
+{
+    margin: 2px 0;
+    padding: 2px 0;
+    background-color: #EAEAEA;
+    color: black;       
+}
+
+
+body 
+{
+  font-size: 11px;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+  
+td, th 
+{
+  font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+}
+
+th
+{
+  font-weight: bold;
+  background-color: #032143;
+  color: white;
+}
+
+h1
+{
+
+}
+
+h2
+{
+  margin: 0;
+  padding: 2px 4px;
+  color: #000032;
+  font-size: 14px;
+}
+
+h3
+{
+  color: #000032;
+  width: 100%;
+  padding-bottom: 1px;
+  margin-bottom: 3px;
+  border-bottom: 1px #000032 solid;
+  font-size: 14px;
+}
+
+h4
+{
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+a
+{
+  color: #575757;
+}
+
+a:visited, a:link
+{
+  text-decoration: none;
+}
+
+a:active, a:hover 
+{
+  text-decoration: underline;
+}
+
+table.PmvInfo
+{
+    
+}
+
+table.PmvInfo tr
+{
+  vertical-align: top;
+}
+
+table.PmvInfo th
+{
+  background-color: transparent;
+  color: black;
+  text-align: left;
+  padding-right: 10px;
+  font-weight: normal;
+}
+
+table.ProcessStarts
+{
+
+}
+
+table.ProcessStarts td
+{
+  padding-bottom: 1px;
+  padding-right: 2px;
+}
+
+img 
+{
+	border: 0;
+}
+
+.iconCell
+{
+	width: 20px;	
+	text-align: center;
+	align: center;
+	valign: center;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.resultTable { 
+  border-width: 0px 0px 0px 0px;
+}
+
+.resultHeaderTable{ 
+  border-width: 0px 0px 0px 0px;
+}
+
+.actionTable {
+  background-color: #FFFFFF;
+}
+
+.action {
+  background-color: #E8E8E8;
+  font-weight: bold;
+}
+
+.evenRow {
+  background-color: #e8e8e8;
+}
+
+.oddRow {
+  background-color: #FFFFFF;
+}
+
+.formRequired {
+  font-weight: bold;
+  background-color: #e8e8e8;
+}
+
+input, select, textarea {
+	font-size: 11px; 
+	border: 1px solid gray;
+}
+
+.noBorder
+{
+    border: 0;
+}

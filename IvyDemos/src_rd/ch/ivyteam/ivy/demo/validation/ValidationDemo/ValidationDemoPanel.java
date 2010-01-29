@@ -6,6 +6,9 @@ import ch.ivyteam.ivy.demo.util.Title.TitlePanel;
 import ch.ivyteam.ivy.demo.validation.AddressMain.AddressMainPanel;
 import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.util.Color;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for ValidationDemoPanel.
@@ -17,8 +20,8 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private TitlePanel titlePanel = null;
-private AddressMainPanel addressMainPanel = null;
+@EmbeddedRichDialog(TitlePanel.class) private ULCContainer titlePanel = null;
+@EmbeddedRichDialog(AddressMainPanel.class) private ULCContainer addressMainPanel = null;
   
   /**
    * Create a new instance of ValidationDemoPanel
@@ -45,10 +48,11 @@ private AddressMainPanel addressMainPanel = null;
  * 	
  * @return ch.ivyteam.ivy.demo.util.Title.TitlePanel	
  */
-private TitlePanel getTitlePanel() {
+private ULCContainer getTitlePanel()  {
 	if (titlePanel == null) {
-		titlePanel = new TitlePanel();
+		titlePanel = RichDialogPanelFactory.create(TitlePanel.class);
 		titlePanel.setName("titlePanel");
+		titlePanel.setBorder(BorderFactory.createLineBorder(Color.gray, 1));
 		titlePanel.setStyle("fill-horiz");
 	}
 	return titlePanel;
@@ -59,11 +63,10 @@ private TitlePanel getTitlePanel() {
  * 	
  * @return ch.ivyteam.ivy.demo.validation.AddressMain.AddressMainPanel	
  */
-private AddressMainPanel getAddressMainPanel() {
+private ULCContainer getAddressMainPanel()  {
 	if (addressMainPanel == null) {
-		addressMainPanel = new AddressMainPanel();
+		addressMainPanel = RichDialogPanelFactory.create(AddressMainPanel.class);
 		addressMainPanel.setName("addressMainPanel");
-		addressMainPanel.setBorder(BorderFactory.createLineBorder(Color.gray, 2));
 		addressMainPanel.setStyle("fill-both-border");
 	}
 	return addressMainPanel;

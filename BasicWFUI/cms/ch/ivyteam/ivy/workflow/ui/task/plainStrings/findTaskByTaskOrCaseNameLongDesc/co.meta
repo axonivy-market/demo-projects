@@ -1,0 +1,4 @@
+co: name={findTaskByTaskOrCaseNameLongDesc} description={} changed={2009-04-08 11:16:02 GMT} changedby={bb} visualorder={0} guid={11B7EF95096CC510} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={11B7EF95096BD93E} datatype={} isdefault={true} langid={en} description={} validfrom={2008-08-01 15:53:33 GMT} validto={} changed={2008-08-01 15:55:52 GMT} changedby={tirib} properties={} id={}
+val: guid={120856E1C4B3717A} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-08 11:12:47 GMT} validto={} changed={2009-04-08 11:16:02 GMT} changedby={bb} properties={} id={}
+val: guid={11B7EFA7DFA97C40} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-08-01 15:54:50 GMT} validto={} changed={2008-08-01 18:48:44 GMT} changedby={tirib} properties={} id={}

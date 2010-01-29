@@ -12,12 +12,16 @@ import ch.ivyteam.ivy.richdialog.widgets.components.customrenderers.RComboBoxCel
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 
 import com.ulcjava.base.application.ULCTable;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for CustomTableCellWidgetsPanel.
  * @author <%=author%>
  * @since <%=date%>
  */
+@SuppressWarnings("all")
 public class CustomTableCellWidgetsPanel extends RichDialogGridBagPanel 
 implements IRichDialogPanel 
 { 
@@ -34,7 +38,7 @@ private RComboBoxCellWidget recordComboBoxCellWidget = null;  //  @jve:decl-inde
 private RComboBoxCellWidget recordKeyComboBoxCellWidget = null;  //  @jve:decl-index=0:visual-constraint="295,269"
 private RScrollPane logScrollPane = null;
 private RList logList = null;
-private TitlePanel titlePanel = null;
+@EmbeddedRichDialog(TitlePanel.class) private ULCContainer titlePanel = null;
 /**
    * Create a new instance of CustomTableCellWidgetsPanel
    */
@@ -222,9 +226,9 @@ private RList getLogList() {
  * 	
  * @return ch.ivyteam.ivy.demo.util.Title.TitlePanel	
  */
-private TitlePanel getTitlePanel() {
+private ULCContainer getTitlePanel()  {
 	if (titlePanel == null) {
-		titlePanel = new TitlePanel();
+		titlePanel = RichDialogPanelFactory.create(TitlePanel.class);
 		titlePanel.setName("titlePanel");
 		titlePanel.setStyleProperties("{/fill \"HORIZONTAL\"}");
 	}

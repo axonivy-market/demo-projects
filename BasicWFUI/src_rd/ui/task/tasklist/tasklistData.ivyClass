@@ -1,0 +1,8 @@
+tasklistData #class
+ui.task.tasklist #namespace
+tasks List<ch.ivyteam.ivy.workflow.ITask> #field
+tasks PERSISTENT #fieldModifier
+parentPanel ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel #field
+parentPanel PERSISTENT #fieldModifier
+selectedTask ch.ivyteam.ivy.workflow.ITask #field
+selectedTask PERSISTENT #fieldModifier

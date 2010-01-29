@@ -1,2 +1,1 @@
-co: name={RTree} description={RTree Look and Feel} changed={2007-07-03 13:58:04 GMT} changedby={cst} visualorder={17} guid={114DFE9DAE48D6B1} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}
-val: guid={114DFE9DAE4DC4E7} datatype={} isdefault={true} langid={en} description={} validfrom={2005-11-07 16:43:00 GMT} validto={} changed={2008-01-28 14:06:55 GMT} changedby={kvg} properties={###r#n##Mon Jan 28 15:06:55 CET 2008#r#nconfig.ui.path=Style/Component Widgets#r#n} id={}
+co: name={RTree} description={RTree Look and Feel} changed={2010-01-08 09:30:24 GMT} changedby={} visualorder={17} guid={114DFE9DAE48D6B1} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}

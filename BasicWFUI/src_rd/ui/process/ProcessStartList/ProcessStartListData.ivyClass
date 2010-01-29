@@ -1,0 +1,8 @@
+ProcessStartListData #class
+ui.process.ProcessStartList #namespace
+starts List<ch.ivyteam.ivy.workflow.IProcessStart> #field
+starts PERSISTENT #fieldModifier
+parentPanel ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel #field
+parentPanel PERSISTENT #fieldModifier
+selectedStart ch.ivyteam.ivy.workflow.IProcessStart #field
+selectedStart PERSISTENT #fieldModifier

@@ -1,3 +1,6 @@
-#Fri Jun 26 15:51:08 CEST 2009
+#Thu Jan 28 09:51:01 CET 2010
+insetsTop=5
+insetsRight=5
 fill=HORIZONTAL
+insetsLeft=5
 weightX=1

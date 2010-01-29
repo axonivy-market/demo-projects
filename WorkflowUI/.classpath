@@ -5,7 +5,7 @@
 	<classpathentry kind="src" path="src_ws"/>
 	<classpathentry kind="src" path="src_dataClasses"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="IVY_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="IVY_CONTAINER"/>
 	<classpathentry kind="con" path="ULC_CONTAINER"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

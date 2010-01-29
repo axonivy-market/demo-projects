@@ -1,0 +1,1 @@
+<html><b>Park the selected running task</b><br>Reset the task information at it's state when the task has been started. Task state must be CREATED or RESUMED.</html>

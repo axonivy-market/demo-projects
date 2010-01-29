@@ -16,6 +16,9 @@ import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.border.ULCTitledBorder;
 import com.ulcjava.base.application.util.Color;
 import com.ulcjava.base.application.util.Font;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for UserInterfaceRefreshPanel.
@@ -27,7 +30,7 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private TitlePanel titlePanel = null;
+@EmbeddedRichDialog(TitlePanel.class) private ULCContainer titlePanel = null;
 private RGridBagLayoutPane progressPane = null;
 private RGridBagLayoutPane refeshPane = null;
 private RProgressBar progressBar = null;
@@ -67,9 +70,9 @@ private RButton updateProgressButton = null;
  * 	
  * @return ch.ivyteam.ivy.demo.util.Title.TitlePanel	
  */
-private TitlePanel getTitlePanel() {
+private ULCContainer getTitlePanel()  {
 	if (titlePanel == null) {
-		titlePanel = new TitlePanel();
+		titlePanel = RichDialogPanelFactory.create(TitlePanel.class);
 		titlePanel.setName("titlePanel");
 		titlePanel.setStyle("fill-horiz");
 	}

@@ -9,6 +9,9 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for TaskDateSelectPanel.
@@ -22,7 +25,7 @@ implements IRichDialogPanel
   private static final long serialVersionUID = 1L;
 private RLabel dateLabel = null;
 private RDatePicker taskDatePicker = null;
-private HeaderPanel headerRDC = null;
+@EmbeddedRichDialog(HeaderPanel.class) private ULCContainer headerRDC = null;
 private RFlowLayoutPane actionsFlowLayoutPane = null;
 private RCheckBox disableDateSettingCheckBox = null;
 private RButton okButton = null;
@@ -89,9 +92,9 @@ private RDatePicker getTaskDatePicker() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel	
  */
-private HeaderPanel getHeaderRDC() {
+private ULCContainer getHeaderRDC()  {
 	if (headerRDC == null) {
-		headerRDC = new HeaderPanel();
+		headerRDC = RichDialogPanelFactory.create(HeaderPanel.class);
 		headerRDC.setName("headerRDC");
 		headerRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,125));
 		headerRDC.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");

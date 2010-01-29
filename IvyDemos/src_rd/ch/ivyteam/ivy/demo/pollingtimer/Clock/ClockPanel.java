@@ -18,6 +18,9 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import com.ulcjava.base.application.ULCPollingTimer;
 import com.ulcjava.base.application.event.ActionEvent;
 import com.ulcjava.base.application.event.IActionListener;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for ManyClientStresserPanel.
@@ -37,7 +40,7 @@ private ULCPollingTimer timer = null;  //  @jve:decl-index=0:
 private RLabel Label1 = null;
 private RTextField TextField = null;
 private RCheckBox CheckBox = null;
-private TitlePanel titlePanel = null;
+@EmbeddedRichDialog(TitlePanel.class) private ULCContainer titlePanel = null;
 private RFlowLayoutPane buttonPane = null;
 private RGridBagLayoutPane centerPane = null;
 /**
@@ -175,9 +178,9 @@ private RCheckBox getCheckBox() {
  * 	
  * @return ch.ivyteam.ivy.demo.util.Title.TitlePanel	
  */
-private TitlePanel getTitlePanel() {
+private ULCContainer getTitlePanel()  {
 	if (titlePanel == null) {
-		titlePanel = new TitlePanel();
+		titlePanel = RichDialogPanelFactory.create(TitlePanel.class);
 		titlePanel.setName("titlePanel");
 		titlePanel.setStyle("fill-horiz");
 	}

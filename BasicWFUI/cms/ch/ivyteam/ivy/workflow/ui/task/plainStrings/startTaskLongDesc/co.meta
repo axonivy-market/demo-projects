@@ -1,0 +1,4 @@
+co: name={startTaskLongDesc} description={} changed={2009-05-28 12:05:32 GMT} changedby={bb} visualorder={0} guid={11AE3D899E147379} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={11B6DAC2900DD02C} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 07:15:44 GMT} validto={} changed={2009-05-28 12:05:32 GMT} changedby={bb} properties={} id={}
+val: guid={11B73AA4934A23B4} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 11:11:24 GMT} validto={} changed={2008-08-01 12:08:15 GMT} changedby={tirib} properties={} id={}
+val: guid={11AE3D899E12843D} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 12:56:40 GMT} validto={} changed={2009-04-08 13:02:16 GMT} changedby={bb} properties={} id={}

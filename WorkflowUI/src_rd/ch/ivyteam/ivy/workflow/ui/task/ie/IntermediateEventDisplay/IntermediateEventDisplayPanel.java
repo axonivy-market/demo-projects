@@ -10,6 +10,9 @@ import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.border.ULCTitledBorder;
 import com.ulcjava.base.application.util.Color;
 import com.ulcjava.base.application.util.Font;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for IntermediateEventDisplayPanel.
@@ -27,7 +30,7 @@ private RLabel eventTimeStampLabel = null;
 private RTextField eventTimestampTextField = null;
 private RLabel identifierLabel = null;
 private RTextField identifierTextField = null;
-private IntermediateEventElementDisplayPanel intermediateEventElementDisplayRDC = null;
+@EmbeddedRichDialog(IntermediateEventElementDisplayPanel.class) private ULCContainer intermediateEventElementDisplayRDC = null;
 private RLabel resultObjectLabel = null;
 private RTextField resultObjectTextField = null;
 private RLabel stateLabel = null;
@@ -173,9 +176,9 @@ private RTextField getIdentifierTextField() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.task.ie.IntermediateEventElementDisplay.IntermediateEventElementDisplayPanel	
  */
-private IntermediateEventElementDisplayPanel getIntermediateEventElementDisplayRDC() {
+private ULCContainer getIntermediateEventElementDisplayRDC()  {
 	if (intermediateEventElementDisplayRDC == null) {
-		intermediateEventElementDisplayRDC = new IntermediateEventElementDisplayPanel();
+		intermediateEventElementDisplayRDC = RichDialogPanelFactory.create(IntermediateEventElementDisplayPanel.class);
 		intermediateEventElementDisplayRDC.setName("intermediateEventElementDisplayRDC");
 		intermediateEventElementDisplayRDC.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
 		intermediateEventElementDisplayRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,225));

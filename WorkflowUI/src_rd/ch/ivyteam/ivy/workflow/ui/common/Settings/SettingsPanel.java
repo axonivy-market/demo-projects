@@ -22,6 +22,9 @@ import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.border.ULCTitledBorder;
 import com.ulcjava.base.application.util.Color;
 import com.ulcjava.base.application.util.Font;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for SettingsPanel.
@@ -33,7 +36,7 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private HeaderPanel header = null;
+@EmbeddedRichDialog(HeaderPanel.class) private ULCContainer header = null;
 private RGridBagLayoutPane passwordGridBagLayoutPane = null;
 private RGridBagLayoutPane emailGridBagLayoutPane = null;
 private RLabel oldPasswordLabel = null;
@@ -48,7 +51,7 @@ private RComboBox languageComboBox = null;
 private RLabel errorLabel = null;
 private RButton saveButton = null;
 private RLabel loggedInAsLabel = null;
-private CaseTaskParametersEditPanel caseTaskParametersEditRDC = null;
+@EmbeddedRichDialog(CaseTaskParametersEditPanel.class) private ULCContainer caseTaskParametersEditRDC = null;
 private RButton changePasswordButton = null;
 private RCollapsiblePane changePasswordCollapsiblePane = null;
 private RBoxPane changePasswordBoxPane = null;
@@ -89,9 +92,9 @@ private RLabel emailNotificationLanguageLabel = null;
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel	
  */
-private HeaderPanel getHeader() {
+private ULCContainer getHeader()  {
 	if (header == null) {
-		header = new HeaderPanel();
+		header = RichDialogPanelFactory.create(HeaderPanel.class);
 		header.setName("header");
 		header.setStyleProperties("{/weightX \"1\"}");
 	}
@@ -338,9 +341,9 @@ private RLabel getLoggedInAsLabel() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.common.CaseTaskParametersEdit.CaseTaskParametersEditPanel	
  */
-private CaseTaskParametersEditPanel getCaseTaskParametersEditRDC() {
+private ULCContainer getCaseTaskParametersEditRDC()  {
 	if (caseTaskParametersEditRDC == null) {
-		caseTaskParametersEditRDC = new CaseTaskParametersEditPanel();
+		caseTaskParametersEditRDC = RichDialogPanelFactory.create(CaseTaskParametersEditPanel.class);
 		caseTaskParametersEditRDC.setName("caseTaskParametersEditRDC");
 		caseTaskParametersEditRDC.setName("caseTaskParametersEditRDC");
 	}

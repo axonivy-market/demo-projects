@@ -1,0 +1,4 @@
+co: name={taskDisplayMode1} description={} changed={2009-05-05 13:00:18 GMT} changedby={bb} visualorder={0} guid={12110DC41E186E67} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12110DC42202C33D} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 11:13:48 GMT} validto={} changed={2009-05-05 13:00:18 GMT} changedby={bb} properties={} id={}
+val: guid={12110DC4201675A6} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:40:29 GMT} validto={} changed={2009-05-05 13:00:18 GMT} changedby={bb} properties={} id={}
+val: guid={12110DC423092877} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 11:15:22 GMT} validto={} changed={2009-05-05 13:00:18 GMT} changedby={bb} properties={} id={}

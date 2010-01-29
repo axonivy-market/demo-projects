@@ -1,0 +1,4 @@
+co: name={businessStartTimeLongDesc} description={} changed={2009-04-02 14:48:06 GMT} changedby={bb} visualorder={0} guid={11A970DDD85C9C7D} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B69CB56E2DAAE2} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:11:18 GMT} validto={} changed={2009-04-02 14:48:06 GMT} changedby={bb} properties={} id={}
+val: guid={11B738578B4D4AF7} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:31:11 GMT} validto={} changed={2008-07-30 10:31:37 GMT} changedby={tistc} properties={} id={}
+val: guid={11A970DDD851F6C2} datatype={} isdefault={true} langid={en} description={} validfrom={2008-06-17 15:04:05 GMT} validto={} changed={2008-06-18 06:40:38 GMT} changedby={tirib} properties={} id={}

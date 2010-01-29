@@ -1,0 +1,8 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2008-07-21 15:08:30 | 4.0.0.25740 | 1.0
+~@RD_METHODCALL[start(ch.ivyteam.ivy.workflow.ICase)]--->ch.ivyteam.ivy.process.ProcessStart:125E013E7BD762EF/118AD855B924A263
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:125E013E7BD762EF/11B45B9E1B13F887 # CaseCustomFieldsDisplayProcess.mod/onLoad
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:125E013E7BD762EF/118AD85529ADB7D3
+~@RD_METHODCALL[caseIsInitialized()]--->ch.ivyteam.ivy.process.ProcessStart:125E013E7BD762EF/11A012A42ABB660A
+~@RD_METHODCALL[refresh()]--->ch.ivyteam.ivy.process.ProcessStart:125E013E7BD762EF/118AD85C88382405
+~@RD_METHODCALL[setCase(ch.ivyteam.ivy.workflow.ICase)]--->ch.ivyteam.ivy.process.ProcessStart:125E013E7BD762EF/118AD85D3405771D

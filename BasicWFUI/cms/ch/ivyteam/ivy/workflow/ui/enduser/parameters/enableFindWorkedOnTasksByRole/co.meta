@@ -1,0 +1,4 @@
+co: name={enableFindWorkedOnTasksByRole} description={} changed={2008-07-30 10:34:42 GMT} changedby={tistc} visualorder={0} guid={11A065BE573B68EE} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11A065BE587D69EF} datatype={} isdefault={true} langid={en} description={} validfrom={2008-05-20 12:44:23 GMT} validto={} changed={2008-05-20 12:53:19 GMT} changedby={tirib} properties={} id={}
+val: guid={11B69CE2B4A30F8D} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:14:23 GMT} validto={} changed={2008-07-28 13:14:29 GMT} changedby={cb} properties={} id={}
+val: guid={11B73888B538251B} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:34:33 GMT} validto={} changed={2008-07-30 10:34:42 GMT} changedby={tistc} properties={} id={}

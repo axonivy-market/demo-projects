@@ -1,0 +1,4 @@
+co: name={chooseTaskHierarchyLayout} description={} changed={2009-04-08 13:22:49 GMT} changedby={bb} visualorder={0} guid={11AE372D3DBE3074} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B7393753640EAD} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:46:28 GMT} validto={} changed={2009-04-08 13:22:48 GMT} changedby={bb} properties={} id={}
+val: guid={11B69DB818C8BF89} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:28:57 GMT} validto={} changed={2009-04-08 13:22:49 GMT} changedby={bb} properties={} id={}
+val: guid={11AE372D3EB1FD45} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 11:05:30 GMT} validto={} changed={2009-04-08 13:21:53 GMT} changedby={bb} properties={} id={}

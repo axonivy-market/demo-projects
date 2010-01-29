@@ -5,6 +5,9 @@ import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RSplitPane;
 import ch.ivyteam.ivy.workflow.ui.common.AbsenceManagement.AbsenceManagementPanel;
 import ch.ivyteam.ivy.workflow.ui.common.SubstituteManagement.SubstituteManagementPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for absenceSubstituteWrapperPanel.
@@ -17,8 +20,8 @@ implements IRichDialogPanel
   /** Serial version id */
   private static final long serialVersionUID = 1L;
 private RSplitPane SplitPane = null;
-private AbsenceManagementPanel absence = null;
-private SubstituteManagementPanel substitute = null;
+@EmbeddedRichDialog(AbsenceManagementPanel.class) private ULCContainer absence = null;
+@EmbeddedRichDialog(SubstituteManagementPanel.class) private ULCContainer substitute = null;
   
   /**
    * Create a new instance of absenceSubstituteWrapperPanel
@@ -60,9 +63,9 @@ private RSplitPane getSplitPane() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.common.AbsenceManagement.AbsenceManagementPanel	
  */
-private AbsenceManagementPanel getAbsence() {
+private ULCContainer getAbsence()  {
 	if (absence == null) {
-		absence = new AbsenceManagementPanel();
+		absence = RichDialogPanelFactory.create(AbsenceManagementPanel.class);
 		absence.setName("absence");
 	}
 	return absence;
@@ -73,9 +76,9 @@ private AbsenceManagementPanel getAbsence() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.common.SubstituteManagement.SubstituteManagementPanel	
  */
-private SubstituteManagementPanel getSubstitute() {
+private ULCContainer getSubstitute()  {
 	if (substitute == null) {
-		substitute = new SubstituteManagementPanel();
+		substitute = RichDialogPanelFactory.create(SubstituteManagementPanel.class);
 		substitute.setName("substitute");
 	}
 	return substitute;

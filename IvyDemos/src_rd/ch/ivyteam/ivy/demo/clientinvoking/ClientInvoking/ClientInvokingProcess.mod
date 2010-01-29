@@ -51,7 +51,7 @@ out.websites.add(pdf);
 
 Website flash = new Website();
 flash.name="Flash";
-flash.url="http://www.soreco.ch/ivy/pro/soreco/WebSite/introivy2.swf";
+flash.url="http://www.xpertline.ch/swf_content/de/business%20process%20management.swf";
 out.websites.add(flash);
 
 Website video = new Website();

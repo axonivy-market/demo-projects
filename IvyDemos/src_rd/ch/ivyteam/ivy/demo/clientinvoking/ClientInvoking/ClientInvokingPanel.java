@@ -12,6 +12,9 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTabbedPane;
 
 import com.ulcjava.base.application.util.Color;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for ClientInvokingPanel.
@@ -33,7 +36,7 @@ private RButton btnOpenFile = null;
 private RButton btnWriteFile = null;
 private RScrollPane ScrollPane = null;
 private RLabel lblResult = null;
-private TitlePanel titlePanel = null;
+@EmbeddedRichDialog(TitlePanel.class) private ULCContainer titlePanel = null;
 /**
    * Create a new instance of ClientInvokingPanel
    */
@@ -219,9 +222,9 @@ private RLabel getLblResult() {
  * 	
  * @return ch.ivyteam.ivy.demo.util.Title.TitlePanel	
  */
-private TitlePanel getTitlePanel() {
+private ULCContainer getTitlePanel()  {
 	if (titlePanel == null) {
-		titlePanel = new TitlePanel();
+		titlePanel = RichDialogPanelFactory.create(TitlePanel.class);
 		titlePanel.setName("titlePanel");
 		titlePanel.setStyle("fill-horiz");
 	}

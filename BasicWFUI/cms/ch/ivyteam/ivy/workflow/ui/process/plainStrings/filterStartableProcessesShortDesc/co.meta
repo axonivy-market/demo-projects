@@ -1,0 +1,4 @@
+co: name={filterStartableProcessesShortDesc} description={} changed={2009-05-05 14:46:39 GMT} changedby={bb} visualorder={0} guid={120855BA7772B265} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={120855BA7C541E68} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:17:35 GMT} validto={} changed={2009-04-08 11:01:01 GMT} changedby={bb} properties={} id={}
+val: guid={120855BA7A5E3DCB} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:28:50 GMT} validto={} changed={2009-04-08 10:53:52 GMT} changedby={bb} properties={} id={}
+val: guid={120855BA7D43CA9E} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 13:43:41 GMT} validto={} changed={2009-05-05 14:46:39 GMT} changedby={bb} properties={} id={}

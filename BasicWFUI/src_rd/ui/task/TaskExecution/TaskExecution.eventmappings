@@ -1,0 +1,9 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2009-12-30 15:31:53 | 4.1.2.31487 | 1.0
+~@RD_METHODCALL[startTask(ch.ivyteam.ivy.workflow.ITask)]--->ch.ivyteam.ivy.process.ProcessStart:125BC4949448C7B9/125BC6881751D9E4
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:125BC4949448C7B9/124FC8F48B7ED55A
+~@RD_BROADCAST[ivy_systemevent_workflow_task_changed]--->ch.ivyteam.ivy.process.ProcessStart:125BC4949448C7B9/125C00A2821F9B1C
+~.resetButton1@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125BC4949448C7B9/125DF25E3B6E8555
+~.notesButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125BC4949448C7B9/125DF678E0CE27DE # TaskExecutionProcess.mod/RD_Event_TaskNotes
+~.resumeButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125BC4949448C7B9/125DF59F6CBD398C
+~.parkButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125BC4949448C7B9/125DF230FDE60487

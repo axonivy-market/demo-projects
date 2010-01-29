@@ -5,6 +5,9 @@ import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel;
 import com.ulcjava.base.application.util.Dimension;
 import ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for RunningTaskDisplayListPanel.
@@ -16,8 +19,8 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private HeaderPanel headerRDC = null;
-private TaskDisplayListPanel taskDisplayListRDC = null;
+@EmbeddedRichDialog(HeaderPanel.class) private ULCContainer headerRDC = null;
+@EmbeddedRichDialog(TaskDisplayListPanel.class) private ULCContainer taskDisplayListRDC = null;
   
   /**
    * Create a new instance of RunningTaskDisplayListPanel
@@ -44,9 +47,9 @@ private TaskDisplayListPanel taskDisplayListRDC = null;
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel	
  */
-private HeaderPanel getHeaderRDC() {
+private ULCContainer getHeaderRDC()  {
 	if (headerRDC == null) {
-		headerRDC = new HeaderPanel();
+		headerRDC = RichDialogPanelFactory.create(HeaderPanel.class);
 		headerRDC.setName("headerRDC");
 		headerRDC.setPreferredSize(new Dimension(20, 75));
 	}
@@ -58,9 +61,9 @@ private HeaderPanel getHeaderRDC() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListPanel	
  */
-private TaskDisplayListPanel getTaskDisplayListRDC() {
+private ULCContainer getTaskDisplayListRDC()  {
 	if (taskDisplayListRDC == null) {
-		taskDisplayListRDC = new TaskDisplayListPanel();
+		taskDisplayListRDC = RichDialogPanelFactory.create(TaskDisplayListPanel.class);
 		taskDisplayListRDC.setName("taskDisplayListRDC");
 	}
 	return taskDisplayListRDC;

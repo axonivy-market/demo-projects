@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Jun 26 16:02:15 CEST 2009]
-120EB8BF4273C3CD 3.12 #module
+[>Created: Thu Jan 28 09:53:55 CET 2010]
+120EB8BF4273C3CD 3.13 #module
 >Proto >Proto Collection #zClass
 As0 AdressFormProcess Big #zClass
 As0 RD #cInfo
@@ -51,13 +51,13 @@ As0 f3 actionDecl 'ch.ivyteam.ivy.demo.validation.AddressForm.AddressFormData ou
 ' #txt
 As0 f3 actionTable 'out=in;
 ' #txt
-As0 f3 actionCode 'import ch.ivyteam.ivy.ulc.server.validation.IValidator;
+As0 f3 actionCode 'import ch.ivyteam.ivy.demo.validation.PlzUtils;
+import ch.ivyteam.ivy.ulc.server.validation.IValidator;
 
-
-if ((in.Data.Zip >0) && (in.Data.Zip != 6304))
+if ((in.Data.Zip >0) && (!PlzUtils.getUtils().extists(in.Data.Zip)))
 {
 	IValidator validator = ivy.rd.getValidator(panel.Zip_RTextField);
-  validator.showErrorMessage("This is not the zip of Zug (6304).",in.Data.Zip);
+  validator.showErrorMessage(in.Data.Zip.format() + " is not a valid Swiss zip code.", in.Data.Zip);
 }' #txt
 As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

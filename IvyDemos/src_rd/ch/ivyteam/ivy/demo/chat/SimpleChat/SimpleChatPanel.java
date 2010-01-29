@@ -10,6 +10,9 @@ import ch.ivyteam.ivy.richdialog.widgets.components.RTextArea;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for SimpleChatPanel.
@@ -21,7 +24,7 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private TitlePanel titlePanel = null;
+@EmbeddedRichDialog(TitlePanel.class) private ULCContainer titlePanel = null;
 private RScrollPane messageScrollPane = null;
 private RLabel messageLabel = null;
 private RTextField messageTextField = null;
@@ -60,9 +63,9 @@ private RLabel sepLabel = null;
  * 	
  * @return ch.ivyteam.ivy.demo.util.Title.TitlePanel	
  */
-private TitlePanel getTitlePanel() {
+private ULCContainer getTitlePanel()  {
 	if (titlePanel == null) {
-		titlePanel = new TitlePanel();
+		titlePanel = RichDialogPanelFactory.create(TitlePanel.class);
 		titlePanel.setName("titlePanel");
 		titlePanel.setStyle("fill-horiz");
 		titlePanel.setPreferredSize(null);

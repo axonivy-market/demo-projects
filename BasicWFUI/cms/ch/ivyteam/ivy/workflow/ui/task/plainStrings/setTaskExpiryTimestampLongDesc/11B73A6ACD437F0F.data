@@ -1,0 +1,1 @@
+<html><b>Définis la date d'expiration de la tâche</b><br>Définis la date d'expiration de la tâche. La valeur NULL empêche l'expiration de la tâche.<br>Si la nouvelle date d'expiration est plus ancienne que la date courante, la tâche expire immédiatement. Ceci n'a aucun effet sur les tâches déjà expirées.</html>

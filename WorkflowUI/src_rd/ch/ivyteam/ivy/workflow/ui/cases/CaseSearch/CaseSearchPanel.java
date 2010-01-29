@@ -25,6 +25,9 @@ import com.ulcjava.base.application.util.Color;
 import com.ulcjava.base.application.util.Font;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
 import com.ulcjava.base.application.ULCFlowLayoutPane;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for CaseSearchPanel.
@@ -43,9 +46,9 @@ private RCheckBox sortByPriorityCheckBox = null;
 private RBoxPane filterBoxPane = null;
 private RToggleButton applyFilterToggleButton = null;
 private RCollapsiblePane caseFiltersSelectCollapsiblePane = null;
-private CaseFiltersSelectPanel caseFiltersSelectRDC = null;
+@EmbeddedRichDialog(CaseFiltersSelectPanel.class) private ULCContainer caseFiltersSelectRDC = null;
 private RToolBar caseActionsToolBar = null;
-private CaseHierarchyLayoutSelectPanel caseHierarchyLayoutSelectRDC = null;
+@EmbeddedRichDialog(CaseHierarchyLayoutSelectPanel.class) private ULCContainer caseHierarchyLayoutSelectRDC = null;
 private RButton refreshButton = null;
 private RButton informOnCaseButton = null;
 private RButton destroyCaseButton = null;
@@ -209,9 +212,9 @@ private RCollapsiblePane getCaseFiltersSelectCollapsiblePane() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.task.TaskFiltersSelect.CaseBusinessAndTaskFiltersSelectPanel	
  */
-private CaseFiltersSelectPanel getCaseFiltersSelectRDC() {
+private ULCContainer getCaseFiltersSelectRDC()  {
 	if (caseFiltersSelectRDC == null) {
-		caseFiltersSelectRDC = new CaseFiltersSelectPanel();
+		caseFiltersSelectRDC = RichDialogPanelFactory.create(CaseFiltersSelectPanel.class);
 		caseFiltersSelectRDC.setName("caseFiltersSelectRDC");
 		caseFiltersSelectRDC.setName("caseFiltersSelectRDC");
 		caseFiltersSelectRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(200,510));
@@ -244,9 +247,9 @@ private RToolBar getCaseActionsToolBar() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectPanel	
  */
-private CaseHierarchyLayoutSelectPanel getCaseHierarchyLayoutSelectRDC() {
+private ULCContainer getCaseHierarchyLayoutSelectRDC()  {
 	if (caseHierarchyLayoutSelectRDC == null) {
-		caseHierarchyLayoutSelectRDC = new CaseHierarchyLayoutSelectPanel();
+		caseHierarchyLayoutSelectRDC = RichDialogPanelFactory.create(CaseHierarchyLayoutSelectPanel.class);
 		caseHierarchyLayoutSelectRDC.setName("caseHierarchyLayoutSelectRDC");
 	}
 	return caseHierarchyLayoutSelectRDC;

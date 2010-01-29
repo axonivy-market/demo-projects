@@ -18,6 +18,9 @@ import ch.ivyteam.ivy.workflow.ui.common.WorkflowEventsDisplayList.WorkflowEvent
 import com.ulcjava.base.application.util.Dimension;
 import ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 
 /**
@@ -35,20 +38,20 @@ private RSplitPane caseDetailsSplitPane = null;
 private RScrollPane caseDetailsScrollPane = null;
 private RTaskPaneContainer caseDetailsTaskPaneContainer = null;
 private RTaskPane caseGlobalInformationTaskPane = null;
-private CaseCategorizationDetailsDisplayPanel caseCategorizationDetailsDisplayRDC = null;
+@EmbeddedRichDialog(CaseCategorizationDetailsDisplayPanel.class) private ULCContainer caseCategorizationDetailsDisplayRDC = null;
 private RTaskPane caseBusinessInformationTaskPane = null;
-private CaseBusinessDetailsDisplayPanel caseBusinessDetailsDisplayRDC = null;
+@EmbeddedRichDialog(CaseBusinessDetailsDisplayPanel.class) private ULCContainer caseBusinessDetailsDisplayRDC = null;
 private RTaskPane caseCustomFieldsTaskPane = null;
-private CaseCustomFieldsDisplayPanel caseCustomFieldsDisplayRDC = null;
+@EmbeddedRichDialog(CaseCustomFieldsDisplayPanel.class) private ULCContainer caseCustomFieldsDisplayRDC = null;
 private RScrollPane caseNotesScrollPane = null;
 private RTaskPaneContainer caseNotesTaskPaneContainer = null;
 private RTaskPane caseNotesTaskPane = null;
-private CaseNoteDisplayListPanel caseNoteDisplayListRDC = null;
-private WorkflowEventsDisplayListPanel workflowEventsDisplayListRDC = null;
+@EmbeddedRichDialog(CaseNoteDisplayListPanel.class) private ULCContainer caseNoteDisplayListRDC = null;
+@EmbeddedRichDialog(WorkflowEventsDisplayListPanel.class) private ULCContainer workflowEventsDisplayListRDC = null;
 private RToolBar actionsToolBar = null;
 private RButton refreshButton = null;
 private RButton exitButton = null;
-private TaskDisplayListPanel taskDisplayListRDC = null;
+@EmbeddedRichDialog(TaskDisplayListPanel.class) private ULCContainer taskDisplayListRDC = null;
 
 /**
    * Create a new instance of CaseDisplayPanel
@@ -159,9 +162,9 @@ private RTaskPane getCaseGlobalInformationTaskPane() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.cases.CaseCategorizationDetailsDisplay.CaseCategorizationDetailsDisplayPanel	
  */
-private CaseCategorizationDetailsDisplayPanel getCaseCategorizationDetailsDisplayRDC() {
+private ULCContainer getCaseCategorizationDetailsDisplayRDC()  {
 	if (caseCategorizationDetailsDisplayRDC == null) {
-		caseCategorizationDetailsDisplayRDC = new CaseCategorizationDetailsDisplayPanel();
+		caseCategorizationDetailsDisplayRDC = RichDialogPanelFactory.create(CaseCategorizationDetailsDisplayPanel.class);
 		caseCategorizationDetailsDisplayRDC.setName("caseCategorizationDetailsDisplayRDC");
 		caseCategorizationDetailsDisplayRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,540));
 	}
@@ -189,9 +192,9 @@ private RTaskPane getCaseBusinessInformationTaskPane() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.cases.CaseBusinessDetailsDisplay.CaseBusinessDetailsDisplayPanel	
  */
-private CaseBusinessDetailsDisplayPanel getCaseBusinessDetailsDisplayRDC() {
+private ULCContainer getCaseBusinessDetailsDisplayRDC()  {
 	if (caseBusinessDetailsDisplayRDC == null) {
-		caseBusinessDetailsDisplayRDC = new CaseBusinessDetailsDisplayPanel();
+		caseBusinessDetailsDisplayRDC = RichDialogPanelFactory.create(CaseBusinessDetailsDisplayPanel.class);
 		caseBusinessDetailsDisplayRDC.setName("caseBusinessDetailsDisplayRDC");
 		caseBusinessDetailsDisplayRDC.setPreferredSize(new Dimension(20, 525));
 	}
@@ -219,9 +222,9 @@ private RTaskPane getCaseCustomFieldsTaskPane() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.cases.CaseCustomFieldsDisplay.CaseCustomFieldsDisplayPanel	
  */
-private CaseCustomFieldsDisplayPanel getCaseCustomFieldsDisplayRDC() {
+private ULCContainer getCaseCustomFieldsDisplayRDC()  {
 	if (caseCustomFieldsDisplayRDC == null) {
-		caseCustomFieldsDisplayRDC = new CaseCustomFieldsDisplayPanel();
+		caseCustomFieldsDisplayRDC = RichDialogPanelFactory.create(CaseCustomFieldsDisplayPanel.class);
 		caseCustomFieldsDisplayRDC.setName("caseCustomFieldsDisplayRDC");
 		caseCustomFieldsDisplayRDC.setPreferredSize(new Dimension(20, 440));
 	}
@@ -279,9 +282,9 @@ private RTaskPane getCaseNotesTaskPane() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListPanel	
  */
-private CaseNoteDisplayListPanel getCaseNoteDisplayListRDC() {
+private ULCContainer getCaseNoteDisplayListRDC()  {
 	if (caseNoteDisplayListRDC == null) {
-		caseNoteDisplayListRDC = new CaseNoteDisplayListPanel();
+		caseNoteDisplayListRDC = RichDialogPanelFactory.create(CaseNoteDisplayListPanel.class);
 		caseNoteDisplayListRDC.setName("caseNoteDisplayListRDC");
 		caseNoteDisplayListRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,540));
 	}
@@ -293,9 +296,9 @@ private CaseNoteDisplayListPanel getCaseNoteDisplayListRDC() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.common.WorkflowEventsDisplayList.WorkflowEventsDisplayListPanel	
  */
-private WorkflowEventsDisplayListPanel getWorkflowEventsDisplayListRDC() {
+private ULCContainer getWorkflowEventsDisplayListRDC()  {
 	if (workflowEventsDisplayListRDC == null) {
-		workflowEventsDisplayListRDC = new WorkflowEventsDisplayListPanel();
+		workflowEventsDisplayListRDC = RichDialogPanelFactory.create(WorkflowEventsDisplayListPanel.class);
 		workflowEventsDisplayListRDC.setName("workflowEventsDisplayListRDC");
 	}
 	return workflowEventsDisplayListRDC;
@@ -358,9 +361,9 @@ private RButton getExitButton() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListPanel	
  */
-private TaskDisplayListPanel getTaskDisplayListRDC() {
+private ULCContainer getTaskDisplayListRDC()  {
 	if (taskDisplayListRDC == null) {
-		taskDisplayListRDC = new TaskDisplayListPanel();
+		taskDisplayListRDC = RichDialogPanelFactory.create(TaskDisplayListPanel.class);
 		taskDisplayListRDC.setName("taskDisplayListRDC");
 	}
 	return taskDisplayListRDC;

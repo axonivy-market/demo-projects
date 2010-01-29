@@ -16,6 +16,9 @@ import com.ulcjava.base.application.ULCButtonGroup;
 import com.ulcjava.base.application.border.ULCTitledBorder;
 import com.ulcjava.base.application.util.Color;
 import com.ulcjava.base.application.util.Font;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for FinishedTasksDisplayListPanel.
@@ -29,7 +32,7 @@ implements IRichDialogPanel
   private static final long serialVersionUID = 1L;
 private RLabel footerLabel = null;
 private RBoxPane searchTaskBoxPane = null;
-private HeaderPanel headerRDC = null;
+@EmbeddedRichDialog(HeaderPanel.class) private ULCContainer headerRDC = null;
 private RToolBar taskActionsToolBar = null;
 private RButton refreshTaskButton = null;
 private RButton findTaskButton = null;
@@ -99,9 +102,9 @@ private RBoxPane getSearchTaskBoxPane() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel	
  */
-private HeaderPanel getHeaderRDC() {
+private ULCContainer getHeaderRDC()  {
 	if (headerRDC == null) {
-		headerRDC = new HeaderPanel();
+		headerRDC = RichDialogPanelFactory.create(HeaderPanel.class);
 		headerRDC.setName("headerRDC");
 		headerRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,100));
 	}

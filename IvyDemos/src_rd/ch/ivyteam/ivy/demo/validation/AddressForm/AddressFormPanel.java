@@ -8,6 +8,7 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RGridLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RRadioButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RComboBox;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButtonGroup;
+import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 
 /**
  * RichDialog panel implementation for AdressFormPanel.
@@ -33,12 +34,12 @@ private RLabel Name_RLabel = null;
 private RTextField Name_RTextField = null;
 private RLabel Title_RLabel = null;
 private RLabel languageSkillsLabel = null;
-private RGridLayoutPane languageSkillsGridLayoutPane = null;
 private RRadioButton basicRadioButton = null;
 private RRadioButton intermediateRadioButton = null;
 private RRadioButton expertRadioButton = null;
 private RComboBox titleComboBox = null;
-private RButtonGroup languageButtonGroup = null;  //  @jve:decl-index=0:visual-constraint="247,257"
+private RButtonGroup languageButtonGroup = null;  //  @jve:decl-index=0:visual-constraint="246,310"
+private RGridLayoutPane radioPane = null;
 /**
    * Create a new instance of AdressFormPanel
    */
@@ -54,23 +55,26 @@ private RButtonGroup languageButtonGroup = null;  //  @jve:decl-index=0:visual-c
    */
   private void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(348,191));
+        RFiller filler = new RFiller();
+        filler.setStyle("verticalGlue");
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(356,263));
         this.add(getZip_RLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getZip_RTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getCity_RLabel(), new com.ulcjava.base.application.GridBagConstraints(2, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getCity_RTextField(), new com.ulcjava.base.application.GridBagConstraints(3, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getStreet_RLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getStreet_RTextField(), new com.ulcjava.base.application.GridBagConstraints(2, 4, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getBirth_RLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getBirth_RTextField(), new com.ulcjava.base.application.GridBagConstraints(2, 3, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getFirstName_RLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getFirstName_RTextField(), new com.ulcjava.base.application.GridBagConstraints(2, 2, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getName_RLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getName_RTextField(), new com.ulcjava.base.application.GridBagConstraints(2, 1, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getTitle_RLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getLanguageSkillsLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 6, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getLanguageSkillsGridLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(2, 6, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getTitleComboBox(), new com.ulcjava.base.application.GridBagConstraints(2, 0, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getStreet_RLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getStreet_RTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 4, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getBirth_RLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getBirth_RTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getFirstName_RLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getFirstName_RTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 2, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getName_RLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getName_RTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getTitle_RLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getLanguageSkillsLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 6, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getTitleComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getRadioPane(), new com.ulcjava.base.application.GridBagConstraints(1, 6, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(filler, new com.ulcjava.base.application.GridBagConstraints(0, 7, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
 /**
@@ -101,6 +105,8 @@ private RTextField getZip_RTextField() {
 		Zip_RTextField.setName("Zip_RTextField");
 		Zip_RTextField.setStyle("adressField");
 		Zip_RTextField.setValidation("NumberZip");
+		Zip_RTextField.setColumns(5);
+		Zip_RTextField.setStyleProperties("{/weightX \"0\"}");
 		Zip_RTextField.setMandatory(true);
 	}
 	return Zip_RTextField;
@@ -298,24 +304,6 @@ private RLabel getLanguageSkillsLabel() {
 }
 
 /**
- * This method initializes languageSkillsGridLayoutPane	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.containers.RGridLayoutPane	
- */
-private RGridLayoutPane getLanguageSkillsGridLayoutPane() {
-	if (languageSkillsGridLayoutPane == null) {
-		languageSkillsGridLayoutPane = new RGridLayoutPane();
-		languageSkillsGridLayoutPane.setName("languageSkillsGridLayoutPane");
-		languageSkillsGridLayoutPane.setColumns(1);
-		languageSkillsGridLayoutPane.setRows(3);
-		languageSkillsGridLayoutPane.add(getBasicRadioButton());
-		languageSkillsGridLayoutPane.add(getIntermediateRadioButton());
-		languageSkillsGridLayoutPane.add(getExpertRadioButton());
-	}
-	return languageSkillsGridLayoutPane;
-}
-
-/**
  * This method initializes basicRadioButton	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RRadioButton	
@@ -370,6 +358,7 @@ private RComboBox getTitleComboBox() {
 		titleComboBox = new RComboBox();
 		titleComboBox.setName("titleComboBox");
 		titleComboBox.setModelConfiguration("{/result \"result=ivy.cms.co(\\\"/ch/ivyteam/ivy/demo/validation/Title/\\\" + entry.toString() + \\\"/name\\\")\"/version \"3.0\"/icon \"\"}");
+		titleComboBox.setStyle("adressField");
 		titleComboBox.setStyleProperties("{/insetsRight \"5\"/fill \"HORIZONTAL\"/weightX \"1\"}");
 	}
 	return titleComboBox;
@@ -385,5 +374,25 @@ private RButtonGroup getLanguageButtonGroup() {
 		languageButtonGroup = new RButtonGroup();
 	}
 	return languageButtonGroup;
+}
+
+/**
+ * This method initializes radioPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RGridLayoutPane	
+ */
+private RGridLayoutPane getRadioPane() {
+	if (radioPane == null) {
+		radioPane = new RGridLayoutPane();
+		radioPane.setName("radioPane");
+		radioPane.setVgap(2);
+		radioPane.setRows(3);
+		radioPane.setColumns(1);
+		radioPane.setStyleProperties("{/insetsRight \"5\"/fill \"HORIZONTAL\"/insetsLeft \"5\"}");
+		radioPane.add(getBasicRadioButton());
+		radioPane.add(getExpertRadioButton());
+		radioPane.add(getIntermediateRadioButton());
+	}
+	return radioPane;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

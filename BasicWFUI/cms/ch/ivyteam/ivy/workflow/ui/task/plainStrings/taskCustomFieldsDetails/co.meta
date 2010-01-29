@@ -1,0 +1,4 @@
+co: name={taskCustomFieldsDetails} description={} changed={2009-05-14 13:37:01 GMT} changedby={bb} visualorder={0} guid={11B7ED8EF86268B1} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B7ED8EF9591E7E} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 12:32:34 GMT} validto={} changed={2009-05-14 13:37:01 GMT} changedby={bb} properties={} id={}
+val: guid={11B7ED8EFE3E1F74} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 07:35:51 GMT} validto={} changed={2008-08-01 15:18:11 GMT} changedby={tirib} properties={} id={}
+val: guid={11B7ED8EFC4BF521} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-09 12:30:09 GMT} validto={} changed={2008-08-01 15:18:11 GMT} changedby={tirib} properties={} id={}

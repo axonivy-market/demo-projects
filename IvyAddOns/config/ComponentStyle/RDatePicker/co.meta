@@ -1,2 +1,1 @@
-co: name={RDatePicker} description={RDatePicker Look and Feel} changed={2007-07-03 13:58:04 GMT} changedby={tkis} visualorder={0} guid={116F8801BEC8D6B1} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}
-val: guid={116F8801BEDDC4E7} datatype={} isdefault={true} langid={en} description={} validfrom={2005-11-07 16:43:00 GMT} validto={} changed={2008-01-28 14:06:50 GMT} changedby={kvg} properties={###r#n##Mon Jan 28 15:06:50 CET 2008#r#nconfig.ui.path=Style/Component Widgets#r#n} id={}
+co: name={RDatePicker} description={RDatePicker Look and Feel} changed={2010-01-08 09:30:21 GMT} changedby={} visualorder={0} guid={116F8801BEC8D6B1} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}

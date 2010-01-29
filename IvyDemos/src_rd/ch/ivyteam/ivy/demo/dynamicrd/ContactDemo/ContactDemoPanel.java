@@ -4,6 +4,9 @@ import ch.ivyteam.ivy.demo.util.Title.TitlePanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for ContactPanel.
@@ -16,7 +19,7 @@ implements IRichDialogPanel
   /** Serial version id */
   private static final long serialVersionUID = 1L;
 private RTabbedDisplay TabbedDisplay = null;
-private TitlePanel titlePanel = null;
+@EmbeddedRichDialog(TitlePanel.class) private ULCContainer titlePanel = null;
 /**
    * Create a new instance of ContactPanel
    */
@@ -58,9 +61,9 @@ private RTabbedDisplay getTabbedDisplay() {
  * 	
  * @return ch.ivyteam.ivy.demo.util.Title.TitlePanel	
  */
-private TitlePanel getTitlePanel() {
+private ULCContainer getTitlePanel()  {
 	if (titlePanel == null) {
-		titlePanel = new TitlePanel();
+		titlePanel = RichDialogPanelFactory.create(TitlePanel.class);
 		titlePanel.setName("titlePanel");
 		titlePanel.setStyle("fill-horiz");
 		titlePanel.setName("titlePanel");

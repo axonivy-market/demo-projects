@@ -15,6 +15,9 @@ import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.border.ULCTitledBorder;
 import com.ulcjava.base.application.util.Color;
 import com.ulcjava.base.application.util.Font;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for CaseTaskParametersEditPanel.
@@ -28,10 +31,10 @@ implements IRichDialogPanel
   private static final long serialVersionUID = 1L;
 private RLabel taskHierarchyLayoutLabel = null;
 private RCheckBox tasksSortByPriorityCheckBox = null;
-private TaskHierarchyLayoutSelectPanel tasksHierarchyLayoutSelectRDC = null;
+@EmbeddedRichDialog(TaskHierarchyLayoutSelectPanel.class) private ULCContainer tasksHierarchyLayoutSelectRDC = null;
 private RCheckBox isMultipleTaskListCheckBox = null;
 private RCheckBox casesSortByPriorityCheckBox = null;
-private CaseHierarchyLayoutSelectPanel casesHierarchyLayoutSelectRDC = null;
+@EmbeddedRichDialog(CaseHierarchyLayoutSelectPanel.class) private ULCContainer casesHierarchyLayoutSelectRDC = null;
 private RCheckBox isMultipleCaseListCheckBox = null;
 private RTabbedPane configurationTabbedPane = null;
 private RGridBagLayoutPane taskConfigurationGridBagLayoutPane = null;
@@ -94,9 +97,9 @@ private RCheckBox getTasksSortByPriorityCheckBox() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectPanel	
  */
-private TaskHierarchyLayoutSelectPanel getTasksHierarchyLayoutSelectRDC() {
+private ULCContainer getTasksHierarchyLayoutSelectRDC()  {
 	if (tasksHierarchyLayoutSelectRDC == null) {
-		tasksHierarchyLayoutSelectRDC = new TaskHierarchyLayoutSelectPanel();
+		tasksHierarchyLayoutSelectRDC = RichDialogPanelFactory.create(TaskHierarchyLayoutSelectPanel.class);
 		tasksHierarchyLayoutSelectRDC.setName("tasksHierarchyLayoutSelectRDC");
 	}
 	return tasksHierarchyLayoutSelectRDC;
@@ -135,9 +138,9 @@ private RCheckBox getCasesSortByPriorityCheckBox() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectPanel	
  */
-private CaseHierarchyLayoutSelectPanel getCasesHierarchyLayoutSelectRDC() {
+private ULCContainer getCasesHierarchyLayoutSelectRDC()  {
 	if (casesHierarchyLayoutSelectRDC == null) {
-		casesHierarchyLayoutSelectRDC = new CaseHierarchyLayoutSelectPanel();
+		casesHierarchyLayoutSelectRDC = RichDialogPanelFactory.create(CaseHierarchyLayoutSelectPanel.class);
 		casesHierarchyLayoutSelectRDC.setName("casesHierarchyLayoutSelectRDC");
 	}
 	return casesHierarchyLayoutSelectRDC;

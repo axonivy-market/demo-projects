@@ -1,0 +1,6 @@
+loginData #class
+ui.basic.login #namespace
+name String #field
+name PERSISTENT #fieldModifier
+pw String #field
+pw PERSISTENT #fieldModifier

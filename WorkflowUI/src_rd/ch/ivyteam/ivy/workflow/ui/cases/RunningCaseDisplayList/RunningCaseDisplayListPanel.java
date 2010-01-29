@@ -5,6 +5,9 @@ import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListPanel;
 import ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for RunningCaseDisplayListPanel.
@@ -17,8 +20,8 @@ implements IRichDialogPanel
   /** Serial version id */
   private static final long serialVersionUID = 1L;
 private RBoxPane headerBoxPane = null;
-private HeaderPanel headerRDC = null;
-private CaseDisplayListPanel caseDisplayListRDC = null;
+@EmbeddedRichDialog(HeaderPanel.class) private ULCContainer headerRDC = null;
+@EmbeddedRichDialog(CaseDisplayListPanel.class) private ULCContainer caseDisplayListRDC = null;
 /**
    * Create a new instance of RunningCaseDisplayListPanel
    */
@@ -58,9 +61,9 @@ private RBoxPane getHeaderBoxPane() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel	
  */
-private HeaderPanel getHeaderRDC() {
+private ULCContainer getHeaderRDC()  {
 	if (headerRDC == null) {
-		headerRDC = new HeaderPanel();
+		headerRDC = RichDialogPanelFactory.create(HeaderPanel.class);
 		headerRDC.setName("headerRDC");
 		headerRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,75));
 		headerRDC.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
@@ -73,9 +76,9 @@ private HeaderPanel getHeaderRDC() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListPanel	
  */
-private CaseDisplayListPanel getCaseDisplayListRDC() {
+private ULCContainer getCaseDisplayListRDC()  {
 	if (caseDisplayListRDC == null) {
-		caseDisplayListRDC = new CaseDisplayListPanel();
+		caseDisplayListRDC = RichDialogPanelFactory.create(CaseDisplayListPanel.class);
 		caseDisplayListRDC.setName("caseDisplayListRDC");
 	}
 	return caseDisplayListRDC;

@@ -1,0 +1,4 @@
+co: name={customDecimalField} description={} changed={2008-08-01 16:38:47 GMT} changedby={tirib} visualorder={0} guid={11B46713F198002F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B46713F2922902} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 13:01:30 GMT} validto={} changed={2008-07-21 16:26:11 GMT} changedby={tirib} properties={} id={}
+val: guid={11B69D475D51AEC3} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:21:16 GMT} validto={} changed={2008-08-01 16:38:47 GMT} changedby={tirib} properties={} id={}
+val: guid={11B738BE07A56CE5} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:38:11 GMT} validto={} changed={2008-07-30 10:38:23 GMT} changedby={tistc} properties={} id={}

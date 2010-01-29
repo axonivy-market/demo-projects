@@ -21,6 +21,9 @@ import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
 import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.border.ULCBevelBorder;
 import com.ulcjava.base.application.util.Color;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for DemoStarterPanel.
@@ -34,7 +37,7 @@ implements IRichDialogPanel
   private static final long serialVersionUID = 1L;
 private RScrollPane listScrollPane = null;
 private RList demoList = null;
-private TitlePanel titlePanel = null;
+@EmbeddedRichDialog(TitlePanel.class) private ULCContainer titlePanel = null;
 private RTabbedPane tabbedPane = null;
 private RGridBagLayoutPane detailsPane = null;
 private RBorderLayoutPane runnerPane = null;
@@ -126,9 +129,9 @@ private RList getDemoList() {
  * 	
  * @return ch.ivyteam.ivy.demo.util.Title.TitlePanel	
  */
-private TitlePanel getTitlePanel() {
+private ULCContainer getTitlePanel()  {
 	if (titlePanel == null) {
-		titlePanel = new TitlePanel();
+		titlePanel = RichDialogPanelFactory.create(TitlePanel.class);
 		titlePanel.setName("titlePanel");
 		titlePanel.setStyle("fill-horiz");
 	}

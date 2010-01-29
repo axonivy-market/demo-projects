@@ -7,6 +7,9 @@ import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RList;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for MultiSelectPanel.
@@ -21,10 +24,10 @@ implements IRichDialogPanel
 private RList listSource = null;
 private RButton btnMove = null;
 private RList listTarget = null;
-private TitlePanel titlePanel = null;
+@EmbeddedRichDialog(TitlePanel.class) private ULCContainer titlePanel = null;
 private RScrollPane sourceScroller = null;
 private RScrollPane targetScroller = null;
-private InnerListPanel innerListPanel = null;
+@EmbeddedRichDialog(InnerListPanel.class) private ULCContainer innerListPanel = null;
   
   /**
    * Create a new instance of MultiSelectPanel
@@ -95,9 +98,9 @@ private RList getListTarget() {
  * 	
  * @return ch.ivyteam.ivy.demo.util.Title.TitlePanel	
  */
-private TitlePanel getTitlePanel() {
+private ULCContainer getTitlePanel()  {
 	if (titlePanel == null) {
-		titlePanel = new TitlePanel();
+		titlePanel = RichDialogPanelFactory.create(TitlePanel.class);
 		titlePanel.setName("titlePanel");
 		titlePanel.setStyle("fill-horiz");
 	}
@@ -139,9 +142,9 @@ private RScrollPane getTargetScroller() {
  * 	
  * @return ch.ivyteam.ivy.demo.multiselect.InnerList.InnerListPanel	
  */
-private InnerListPanel getInnerListPanel() {
+private ULCContainer getInnerListPanel()  {
 	if (innerListPanel == null) {
-		innerListPanel = new InnerListPanel();
+		innerListPanel = RichDialogPanelFactory.create(InnerListPanel.class);
 		innerListPanel.setName("innerListPanel");
 		innerListPanel.setStyleProperties("{/insetsTop \"0\"}");
 		innerListPanel.setStyle("fill-horiz-border");

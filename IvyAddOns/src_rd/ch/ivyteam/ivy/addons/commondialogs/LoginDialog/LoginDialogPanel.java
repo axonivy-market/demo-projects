@@ -12,6 +12,7 @@ import ch.ivyteam.ivy.security.AuthenticationException;
 import ch.ivyteam.ivy.security.ISession;
 import ch.ivyteam.security.Password;
 import ch.ivyteam.ivy.richdialog.widgets.components.RComboBox;
+import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 
 /**
  * RichDialog panel implementation for LoginDialogPanel.
@@ -50,7 +51,7 @@ private RComboBox sessionLanguagesComboBox = null;
    */
   public void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(407,194));
+        RFiller filler = new RFiller();
         this.add(getXpertlineIconLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getIconLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 5, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getUserNameLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
@@ -60,6 +61,7 @@ private RComboBox sessionLanguagesComboBox = null;
         this.add(getButtonPane(), new com.ulcjava.base.application.GridBagConstraints(2, 8, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getSessionLanguageLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 6, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getSessionLanguagesComboBox(), new com.ulcjava.base.application.GridBagConstraints(2, 6, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(filler, new com.ulcjava.base.application.GridBagConstraints(2, 7, 1, 1, -1, 1.0D, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
 /**

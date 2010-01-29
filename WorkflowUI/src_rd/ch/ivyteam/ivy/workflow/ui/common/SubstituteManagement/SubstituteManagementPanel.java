@@ -22,6 +22,9 @@ import com.ulcjava.base.application.ULCTable;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem;
 import ch.ivyteam.ivy.richdialog.widgets.components.RRadioButton;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for SubstituteManagementPanel.
@@ -33,7 +36,7 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private HeaderPanel header = null;
+@EmbeddedRichDialog(HeaderPanel.class) private ULCContainer header = null;
 private RToolBar substituteToolBar = null;
 private RButton addButton = null;
 private RButton deleteButton = null;
@@ -84,9 +87,9 @@ private RButton exitButton = null;
  * 	
  * @return ch.xpertline.common.ria.component.Header.HeaderPanel	
  */
-private HeaderPanel getHeader() {
+private ULCContainer getHeader()  {
 	if (header == null) {
-		header = new HeaderPanel();
+		header = RichDialogPanelFactory.create(HeaderPanel.class);
 		header.setName("header");
 		header.setStyleProperties("{/weightX \"1\"}");
 	}

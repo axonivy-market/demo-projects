@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<userConfig>
+    <user>
+        <username>wma</username>
+        <password>testPW</password>
+        <role>GR_BEVE_SichAdmin</role>
+        <role>GR_BEVE_Messaging</role>
+        <role>GR_BEVE_PKI</role>
+    </user>
+    <user>
+        <username>testPKI</username>
+    </user>
+</userConfig>

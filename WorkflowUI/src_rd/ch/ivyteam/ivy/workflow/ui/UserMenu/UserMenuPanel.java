@@ -18,6 +18,9 @@ import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.border.ULCTitledBorder;
 import com.ulcjava.base.application.util.Color;
 import com.ulcjava.base.application.util.Font;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for UserMenuPanel.
@@ -36,7 +39,7 @@ private RTaskPane userMenuTaskPane = null;
 private RTaskPaneContainer userMenuTaskPaneContainer = null;
 private RCardPane userMenuElementsCardPane = null;
 private RBoxPane emptyBoxPane = null;
-private TaskSearchPanel runningTaskSearchRDC = null;
+@EmbeddedRichDialog(TaskSearchPanel.class) private ULCContainer runningTaskSearchRDC = null;
 private RHyperlink runningCasesHyperlink = null;
 private RHyperlink finishedCasesHyperlink = null;
 private RHyperlink startingProcessesHyperlink = null;
@@ -52,11 +55,11 @@ private RLabel casesLabel = null;
 private RLabel administrationLabel = null;
 private RLabel securityLabel = null;
 private RLabel processesLabel = null;
-private StartListPanel startList = null;
-private SettingsPanel settings = null;
-private CaseSearchPanel runningCaseSearchRDC = null;
-private CaseSearchPanel finishedCaseSearchRDC = null;
-private TaskSearchPanel finishedTaskSearchRDC = null;
+@EmbeddedRichDialog(StartListPanel.class) private ULCContainer startList = null;
+@EmbeddedRichDialog(SettingsPanel.class) private ULCContainer settings = null;
+@EmbeddedRichDialog(CaseSearchPanel.class) private ULCContainer runningCaseSearchRDC = null;
+@EmbeddedRichDialog(CaseSearchPanel.class) private ULCContainer finishedCaseSearchRDC = null;
+@EmbeddedRichDialog(TaskSearchPanel.class) private ULCContainer finishedTaskSearchRDC = null;
 private RLabel footerLabel = null;
 /**
    * Create a new instance of UserMenuPanel
@@ -248,9 +251,9 @@ private RBoxPane getEmptyBoxPane() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchPanel	
  */
-private TaskSearchPanel getRunningTaskSearchRDC() {
+private ULCContainer getRunningTaskSearchRDC()  {
 	if (runningTaskSearchRDC == null) {
-		runningTaskSearchRDC = new TaskSearchPanel();
+		runningTaskSearchRDC = RichDialogPanelFactory.create(TaskSearchPanel.class);
 		runningTaskSearchRDC.setName("runningTaskSearchRDC");
 	}
 	return runningTaskSearchRDC;
@@ -505,9 +508,9 @@ private RLabel getProcessesLabel() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.StartList.StartListPanel	
  */
-private StartListPanel getStartList() {
+private ULCContainer getStartList()  {
 	if (startList == null) {
-		startList = new StartListPanel();
+		startList = RichDialogPanelFactory.create(StartListPanel.class);
 		startList.setName("startList");
 	}
 	return startList;
@@ -518,9 +521,9 @@ private StartListPanel getStartList() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsPanel	
  */
-private SettingsPanel getSettings() {
+private ULCContainer getSettings()  {
 	if (settings == null) {
-		settings = new SettingsPanel();
+		settings = RichDialogPanelFactory.create(SettingsPanel.class);
 		settings.setName("settings");
 	}
 	return settings;
@@ -531,9 +534,9 @@ private SettingsPanel getSettings() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchPanel	
  */
-private CaseSearchPanel getRunningCaseSearchRDC() {
+private ULCContainer getRunningCaseSearchRDC()  {
 	if (runningCaseSearchRDC == null) {
-		runningCaseSearchRDC = new CaseSearchPanel();
+		runningCaseSearchRDC = RichDialogPanelFactory.create(CaseSearchPanel.class);
 		runningCaseSearchRDC.setName("runningCaseSearchRDC");
 	}
 	return runningCaseSearchRDC;
@@ -544,9 +547,9 @@ private CaseSearchPanel getRunningCaseSearchRDC() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchPanel	
  */
-private CaseSearchPanel getFinishedCaseSearchRDC() {
+private ULCContainer getFinishedCaseSearchRDC()  {
 	if (finishedCaseSearchRDC == null) {
-		finishedCaseSearchRDC = new CaseSearchPanel();
+		finishedCaseSearchRDC = RichDialogPanelFactory.create(CaseSearchPanel.class);
 		finishedCaseSearchRDC.setName("finishedCaseSearchRDC");
 	}
 	return finishedCaseSearchRDC;
@@ -557,9 +560,9 @@ private CaseSearchPanel getFinishedCaseSearchRDC() {
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchPanel	
  */
-private TaskSearchPanel getFinishedTaskSearchRDC() {
+private ULCContainer getFinishedTaskSearchRDC()  {
 	if (finishedTaskSearchRDC == null) {
-		finishedTaskSearchRDC = new TaskSearchPanel();
+		finishedTaskSearchRDC = RichDialogPanelFactory.create(TaskSearchPanel.class);
 		finishedTaskSearchRDC.setName("finishedTaskSearchRDC");
 	}
 	return finishedTaskSearchRDC;

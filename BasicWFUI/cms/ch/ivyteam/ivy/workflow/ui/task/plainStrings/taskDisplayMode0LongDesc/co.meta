@@ -1,0 +1,4 @@
+co: name={taskDisplayMode0LongDesc} description={} changed={2009-05-28 12:47:31 GMT} changedby={bb} visualorder={0} guid={11B0DAC32ACF6A86} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B0DAC32CB6436B} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 11:35:22 GMT} validto={} changed={2009-05-28 12:47:31 GMT} changedby={bb} properties={} id={}
+val: guid={11B73ACD05CC5D0B} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 11:14:10 GMT} validto={} changed={2008-07-30 11:15:21 GMT} changedby={tistc} properties={} id={}
+val: guid={11B6DAD5B1C2B0AE} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 07:17:02 GMT} validto={} changed={2009-05-28 12:47:31 GMT} changedby={bb} properties={} id={}
