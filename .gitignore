@@ -1,6 +1,7 @@
 BasicWFUI/classes
 BasicWFUI/logs
 BasicWFUI/src_dataClasses/*
+HtmlWFUI/src_dataClasses/*
 IvyAddOns/classes
 IvyAddOns/logs
 IvyAddOns/src_dataClasses/*
