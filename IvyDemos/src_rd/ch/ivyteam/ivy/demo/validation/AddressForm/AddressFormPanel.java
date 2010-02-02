@@ -204,7 +204,7 @@ private RTextField getBirth_RTextField() {
 		Birth_RTextField.setName("Birth_RTextField");
 		Birth_RTextField.setStyle("adressField");
 		Birth_RTextField.setValidation("Date_ddMMyyyy");
-		Birth_RTextField.setMandatory(false);
+		Birth_RTextField.setMandatory(true);
 	}
 	return Birth_RTextField;
 }

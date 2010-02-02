@@ -1,0 +1,26 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2009-11-05 08:39:18 | 4.1.1.29621 | 1.0
+~@RD_METHODCALL[setTemplatePath(String)]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A1DC65E6812CA
+~@RD_METHODCALL[close()]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A45414C487872
+~@RD_METHODCALL[getDocumentTemplateObject()]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A5C2EF68F8B8A
+~@RD_METHODCALL[getMergeFieldsList()]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A1DBF5691495E
+~.letterNameTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A4A0E3473E7D6
+~@RD_METHODCALL[setShowAdvancedOptions(Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A461DDE41DE26
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A0A1812656503
+~.letterNameTextField@VALUE_CHANGED[]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A4A0E3473E7D6
+~@RD_METHODCALL[getOutputPath()]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A5C953CEF0F8C
+~@RD_METHODCALL[makeTheLetter(String,String,String,String)]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A42059384346D
+~@RD_METHODCALL[setInfoLabelText(String)]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A3F938F2A403D
+~.makeDocButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A451D8C5F754F
+~@RD_METHODCALL[getTemplatePath()]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A1DC15B38A27F
+~@RD_METHODCALL[start(List<ch.ivyteam.ivy.addons.docfactory.TemplateMergeField>)]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A1DBBC6710879
+~@RD_METHODCALL[setMergeFieldsList(List<ch.ivyteam.ivy.addons.docfactory.TemplateMergeField>)]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A1DC2E8AD1103
+~@RD_METHODCALL[setButtonsVisible(Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A3F82987478D6
+~@RD_METHODCALL[getButtonsVisible()]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A3F7A00599A59
+~@RD_METHODCALL[start(String,Boolean,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A45F77CF9A662
+~.closeButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A454ED739EBA9
+~@RD_METHODCALL[start(String,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A45F6C949002C
+~@RD_METHODCALL[setOutputPath(String)]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A5C9611D99DFE
+~@RD_METHODCALL[start(String)]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A1DBCC0724901
+~@RD_METHODCALL[getInfoLabelText()]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A3F7D974DC91A
+~.letterNameTextField@KEY[]--->ch.ivyteam.ivy.process.ProcessStart:124A0A18116D9EA3/124A4A0E3473E7D6

@@ -1,0 +1,30 @@
+WriteSerialLetterToMany #class
+ch.ivyteam.ivy.addons.docfactory #namespace
+listOfMergeFieldsList List<List<ch.ivyteam.ivy.addons.docfactory.TemplateMergeField>> #field
+listOfMergeFieldsList 'Each List of MergerFields List represents one Letter. Each MergeFields has a name and a value. The name is the Name of the mergeField in the template, The value will replace the corresponding MergeField in the template.' #fieldComment
+documentFactory ch.ivyteam.ivy.addons.docfactory.BaseDocFactory #field
+documentFactory 'The document factory object that is responsible of the documents generation' #fieldComment
+fileOperationMessage ch.ivyteam.ivy.addons.docfactory.FileOperationMessage #field
+fileOperationMessage 'This Object is the result of the Letters creation. If its Type is 1 (SUCCESS_MESSAGE) than its Files field contains all the created java.io.File during the mail merge.' #fieldComment
+mergeFieldsList List<ch.ivyteam.ivy.addons.docfactory.TemplateMergeField> #field
+mergeFieldsList 'For intern use' #fieldComment
+templatePath String #field
+templatePath 'The path of the template (document model) used for the letter creation' #fieldComment
+oneDocument Boolean #field
+oneDocument 'IF true we insert all the letters in One Document (easy to print for example)' #fieldComment
+oneDocumentName String #field
+oneDocumentName 'The name of the single document (if needed)' #fieldComment
+oneDocumentPath String #field
+oneDocumentPath 'The outputpath of the single document (if needed)' #fieldComment
+oneDocumentFormat String #field
+oneDocumentFormat 'The desired output format of the single document (default will be "doc")' #fieldComment
+manyDocuments Boolean #field
+manyDocuments 'IF true each letter is going to be saved in a single document (easy to print for example)' #fieldComment
+manyDocumentsName String #field
+manyDocumentsName 'The name of each single documents (each output path should be indicated in each List of TemplateMergeFields, in a MergeFeld named "destinationPath")' #fieldComment
+manyDocumentsFormat String #field
+manyDocumentsFormat 'The format of each single documents (default will be "doc")' #fieldComment
+templateDocumentsList List<ch.ivyteam.ivy.addons.docfactory.DocumentTemplate> #field
+templateDocumentsList 'this is a list of TemplateDocuments. Each one can be transformed into a final letter.' #fieldComment
+listofFileOperationMessages List<ch.ivyteam.ivy.addons.docfactory.FileOperationMessage> #field
+listofFileOperationMessages 'Will be returned after the File generation occured.' #fieldComment

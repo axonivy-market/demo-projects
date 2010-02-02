@@ -1,0 +1,18 @@
+DocFactoryData #class
+ch.ivyteam.ivy.demo.docfactory.DocFactory #namespace
+documentFactory ch.ivyteam.ivy.addons.docfactory.BaseDocFactory #field
+templatePath String #field
+listOfMergeFieldsList List<List<ch.ivyteam.ivy.addons.docfactory.TemplateMergeField>> #field
+mergeFieldsList List<ch.ivyteam.ivy.addons.docfactory.TemplateMergeField> #field
+fileOperationMessage ch.ivyteam.ivy.addons.docfactory.FileOperationMessage #field
+fileOperationMessage 'used to get the serial letter from writeLetter callable' #fieldComment
+documentTemplatesList List<ch.ivyteam.ivy.addons.docfactory.DocumentTemplate> #field
+documentTemplatesList 'Used  to build all the corrspondants letters' #fieldComment
+lettersNb Number #field
+listFileOperationMessage List<ch.ivyteam.ivy.addons.docfactory.FileOperationMessage> #field
+listFileOperationMessage 'used to get the resulting separated letters written from writeLetter callable' #fieldComment
+templateExists Boolean #field
+templateExists 'used to check if the indicated template exists' #fieldComment
+mergeFieldsInTemplate List<ch.ivyteam.ivy.addons.docfactory.TemplateMergeField> #field
+message String #field
+title String #field

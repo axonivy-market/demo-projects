@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Jun 26 15:44:57 CEST 2009]
-1215975017F13818 3.12 #module
+[>Created: Tue Jan 26 13:53:57 CET 2010]
+1215975017F13818 3.13 #module
 >Proto >Proto Collection #zClass
 Rr0 Runner Big #zClass
 Rr0 B #cInfo
@@ -97,7 +97,8 @@ demoIds = [
 	"ch.ivyteam.ivy.demo.dynamicrd.ContactDemo",
 	"ch.ivyteam.ivy.demo.table.CustomTableCellWidgets",
 	"ch.ivyteam.ivy.demo.pollingtimer.UserInterfaceRefresh",
-  "ch.ivyteam.ivy.demo.validation.ValidationDemo"
+  "ch.ivyteam.ivy.demo.validation.ValidationDemo",
+	"ch.ivyteam.ivy.demo.docfactory.DocFactory"
 ];
 out.demos = demoIds;' #txt
 Rr0 f1 type ivydemos.Data #txt
