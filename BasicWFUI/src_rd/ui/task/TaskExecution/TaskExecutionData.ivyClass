@@ -1,0 +1,8 @@
+TaskExecutionData #class
+ui.task.TaskExecution #namespace
+parentPanel ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel #field
+parentPanel PERSISTENT #fieldModifier
+selectedTask ch.ivyteam.ivy.workflow.ITask #field
+selectedTask PERSISTENT #fieldModifier
+wfEventParam ch.ivyteam.ivy.workflow.WorkflowSystemEventParameter #field
+wfEventParam PERSISTENT #fieldModifier

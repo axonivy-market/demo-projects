@@ -1,0 +1,3 @@
+co: name={resume} description={} changed={2010-02-22 15:24:58 CET} changedby={bb} visualorder={0} guid={12521BFA9DB98885} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126F610E3E795A2C} datatype={} isdefault={false} langid={de} description={} validfrom={2010-02-22 15:24:47 CET} validto={} changed={2010-02-22 15:24:58 CET} changedby={bb} properties={} id={}
+val: guid={12521BFA9DB5C4F0} datatype={} isdefault={true} langid={en} description={} validfrom={2009-11-23 16:53:46 CET} validto={} changed={2010-02-22 15:07:11 CET} changedby={bb} properties={} id={}

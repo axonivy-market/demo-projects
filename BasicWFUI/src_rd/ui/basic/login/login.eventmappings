@@ -1,0 +1,7 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2009-12-23 16:20:09 | 4.1.2.31345 | 1.0
+~.closeButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125214E54EDD7E14/12521981712C1DE8
+~.logoutHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125214E54EDD7E14/125218A10132894F
+~.loginButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125214E54EDD7E14/125215FD82D15F34
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:125214E54EDD7E14/125214E550C82C5C
+~.PasswordField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125214E54EDD7E14/125215FD82D15F34 # loginProcess.mod/RD_Event_Start1

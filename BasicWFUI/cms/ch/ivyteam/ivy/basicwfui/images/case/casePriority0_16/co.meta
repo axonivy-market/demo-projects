@@ -1,0 +1,2 @@
+co: name={casePriority0_16} description={} changed={2010-02-24 12:13:40 CET} changedby={bb} visualorder={0} guid={126FFAEA3FB20561} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+val: guid={126FFAEA3FBC5DF2} datatype={} isdefault={true} langid={en} description={} validfrom={2007-12-05 13:35:02 CET} validto={} changed={2010-02-24 12:13:40 CET} changedby={bb} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@d80e} id={}

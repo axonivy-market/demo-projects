@@ -1,0 +1,3 @@
+co: name={taskPark} description={} changed={2010-02-24 16:11:20 CET} changedby={bb} visualorder={0} guid={127007F61126DD22} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={127007F613191CCF} datatype={} isdefault={false} langid={de} description={} validfrom={2010-02-24 15:44:47 CET} validto={} changed={2010-02-24 16:11:20 CET} changedby={bb} properties={} id={}
+val: guid={127007F6140E4E3F} datatype={} isdefault={true} langid={en} description={} validfrom={2010-02-24 15:41:00 CET} validto={} changed={2010-02-24 16:05:51 CET} changedby={bb} properties={} id={}

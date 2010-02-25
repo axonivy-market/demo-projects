@@ -1,0 +1,4 @@
+co: name={noteCreationTimestamp} description={} changed={2010-02-22 17:20:59 CET} changedby={bb} visualorder={0} guid={126F66295A7D888C} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126F66295B72C7FD} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 09:27:02 CEST} validto={} changed={2010-02-22 17:20:59 CET} changedby={bb} properties={} id={}
+val: guid={126F66295C6C87DE} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-20 17:01:50 CEST} validto={} changed={2010-02-22 16:54:01 CET} changedby={bb} properties={} id={}
+val: guid={126F66295A796A6C} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:21:10 CEST} validto={} changed={2010-02-22 16:54:01 CET} changedby={bb} properties={} id={}

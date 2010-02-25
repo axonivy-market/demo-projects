@@ -1,0 +1,4 @@
+co: name={milestone} description={} changed={2010-02-22 17:58:22 CET} changedby={bb} visualorder={0} guid={126F6944929D4F08} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126F6944939FA6E7} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 14:19:35 CEST} validto={} changed={2010-02-22 17:48:18 CET} changedby={bb} properties={} id={}
+val: guid={126F694495850497} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 15:47:59 CEST} validto={} changed={2010-02-22 17:48:18 CET} changedby={bb} properties={} id={}
+val: guid={126F6944948ED5A9} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 13:47:13 CEST} validto={} changed={2010-02-22 17:48:18 CET} changedby={bb} properties={} id={}

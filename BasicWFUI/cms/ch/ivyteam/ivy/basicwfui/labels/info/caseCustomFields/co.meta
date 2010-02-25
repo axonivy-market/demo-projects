@@ -1,0 +1,3 @@
+co: name={caseCustomFields} description={} changed={2010-02-24 15:08:05 CET} changedby={bb} visualorder={0} guid={125E0284C1196225} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126F602788048C5C} datatype={} isdefault={false} langid={de} description={} validfrom={2010-02-22 15:09:02 CET} validto={} changed={2010-02-24 15:08:05 CET} changedby={bb} properties={} id={}
+val: guid={125E0284C11D1E64} datatype={} isdefault={true} langid={en} description={} validfrom={2009-12-30 16:15:55 CET} validto={} changed={2009-12-30 16:17:41 CET} changedby={bb} properties={} id={}

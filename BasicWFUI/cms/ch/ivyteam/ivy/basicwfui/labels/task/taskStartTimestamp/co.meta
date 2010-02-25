@@ -1,0 +1,4 @@
+co: name={taskStartTimestamp} description={} changed={2010-02-24 11:50:25 GMT} changedby={bb} visualorder={0} guid={126FFD04ADC28DA3} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126FFD04ADCA7B4D} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 11:31:21 GMT} validto={} changed={2010-02-24 11:50:25 GMT} changedby={bb} properties={} id={}
+val: guid={126FFD04AEC1F802} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:55:51 GMT} validto={} changed={2010-02-24 11:50:25 GMT} changedby={bb} properties={} id={}
+val: guid={126FFD04AFB7906B} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-10 09:42:25 GMT} validto={} changed={2010-02-24 11:50:25 GMT} changedby={bb} properties={} id={}

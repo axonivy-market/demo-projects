@@ -1,0 +1,4 @@
+co: name={businessOther} description={} changed={2010-02-24 15:22:31 CET} changedby={bb} visualorder={0} guid={126FFCC4C841576F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126FFCC4C84A05AB} datatype={} isdefault={true} langid={en} description={} validfrom={2009-04-20 16:25:20 CEST} validto={} changed={2010-02-24 12:46:04 CET} changedby={bb} properties={} id={}
+val: guid={126FFCC4CA319464} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-04-20 16:25:29 CEST} validto={} changed={2010-02-24 12:46:04 CET} changedby={bb} properties={} id={}
+val: guid={126FFCC4C93837FD} datatype={} isdefault={false} langid={de} description={} validfrom={2009-05-13 15:29:49 CEST} validto={} changed={2010-02-24 15:22:31 CET} changedby={bb} properties={} id={}

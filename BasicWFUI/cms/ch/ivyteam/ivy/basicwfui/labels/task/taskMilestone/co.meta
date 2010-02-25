@@ -1,0 +1,4 @@
+co: name={taskMilestone} description={} changed={2010-02-24 12:42:14 CET} changedby={bb} visualorder={0} guid={126FFC83BD0B0FED} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126FFC83BFF1599D} datatype={} isdefault={false} langid={de} description={} validfrom={2009-05-11 17:31:20 CEST} validto={} changed={2010-02-24 12:42:14 CET} changedby={bb} properties={} id={}
+val: guid={126FFC83BDF22994} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-05-11 17:31:31 CEST} validto={} changed={2010-02-24 12:41:37 CET} changedby={bb} properties={} id={}
+val: guid={126FFC83BEFD82E2} datatype={} isdefault={true} langid={en} description={} validfrom={2009-05-11 17:31:01 CEST} validto={} changed={2010-02-24 12:41:37 CET} changedby={bb} properties={} id={}

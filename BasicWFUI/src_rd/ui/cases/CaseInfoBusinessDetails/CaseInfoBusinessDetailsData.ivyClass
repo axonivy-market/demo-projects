@@ -1,0 +1,3 @@
+CaseInfoBusinessDetailsData #class
+ui.cases.CaseInfoBusinessDetails #namespace
+fCase ch.ivyteam.ivy.workflow.ICase #field

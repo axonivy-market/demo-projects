@@ -1,0 +1,4 @@
+co: name={correspondentContact} description={} changed={2010-02-24 15:13:36 CET} changedby={bb} visualorder={0} guid={126F69527C02B0DC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126F69527C0726B9} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 13:35:13 CEST} validto={} changed={2010-02-22 17:49:15 CET} changedby={bb} properties={} id={}
+val: guid={126F69527DF681FE} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 14:20:42 CEST} validto={} changed={2010-02-24 15:13:36 CET} changedby={bb} properties={} id={}
+val: guid={126F69527CF8D315} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 15:48:29 CEST} validto={} changed={2010-02-22 17:49:15 CET} changedby={bb} properties={} id={}

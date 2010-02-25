@@ -1,0 +1,3 @@
+co: name={priority} description={} changed={2010-02-24 11:36:50 GMT} changedby={bb} visualorder={0} guid={126FFC3D844306E0} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126FFC3D84429EC6} datatype={} isdefault={true} langid={en} description={} validfrom={2009-04-22 14:06:56 GMT} validto={} changed={2010-02-24 11:36:50 GMT} changedby={bb} properties={} id={}
+val: guid={126FFC3D85388204} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-04-22 14:07:11 GMT} validto={} changed={2010-02-24 11:36:50 GMT} changedby={bb} properties={} id={}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <acceptedBroadcast>
+        <name>wfUserChanged</name>
+        <description></description>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>ivy_systemevent_workflow_task_changed</name>
+        <description></description>
+        <attachment>
+            <name>eventParam</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.WorkflowSystemEventParameter</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <method>
+        <name>refresh</name>
+        <description></description>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>startInPanel</name>
+        <description></description>
+        <inputParameter>
+            <name>parentPanel</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>12520943DCB27937</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

@@ -1,0 +1,4 @@
+co: name={customDecimalFields} description={} changed={2010-02-24 15:18:49 CET} changedby={bb} visualorder={0} guid={126F6961D3A27A19} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126F6961D4A9638F} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 15:01:30 CEST} validto={} changed={2010-02-22 17:50:18 CET} changedby={bb} properties={} id={}
+val: guid={126F6961D5A3907D} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:21:26 CEST} validto={} changed={2010-02-24 15:18:49 CET} changedby={bb} properties={} id={}
+val: guid={126F6961D3A100F8} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 12:38:26 CEST} validto={} changed={2010-02-22 17:50:18 CET} changedby={bb} properties={} id={}

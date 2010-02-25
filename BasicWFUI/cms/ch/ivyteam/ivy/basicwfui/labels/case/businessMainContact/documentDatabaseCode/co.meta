@@ -1,0 +1,4 @@
+co: name={documentDatabaseCode} description={} changed={2010-02-22 16:46:54 GMT} changedby={bb} visualorder={0} guid={126F6930110F9D1D} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126F693013FE715F} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 11:27:39 GMT} validto={} changed={2010-02-22 16:46:54 GMT} changedby={bb} properties={} id={}
+val: guid={126F693012046F12} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 13:42:07 GMT} validto={} changed={2010-02-22 16:46:54 GMT} changedby={bb} properties={} id={}
+val: guid={126F6930130FF014} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 12:13:07 GMT} validto={} changed={2010-02-22 16:46:54 GMT} changedby={bb} properties={} id={}

@@ -1,0 +1,132 @@
+[Ivy]
+[>Created: Thu Feb 25 17:41:47 CET 2010]
+1252083511F3E2B3 3.14 #module
+>Proto >Proto Collection #zClass
+mn0 main Big #zClass
+mn0 B #cInfo
+mn0 #process
+mn0 @TextInP .xml .xml #zField
+mn0 @TextInP .responsibility .responsibility #zField
+mn0 @MessageFlowInP-0n messageIn messageIn #zField
+mn0 @MessageFlowOutP-0n messageOut messageOut #zField
+mn0 @AnnotationInP-0n ai ai #zField
+mn0 @TextInP .resExport .resExport #zField
+mn0 @TextInP .type .type #zField
+mn0 @TextInP .processKind .processKind #zField
+mn0 @StartRequest f0 '' #zField
+mn0 @EndTask f1 '' #zField
+mn0 @RichDialog f2 '' #zField
+mn0 @PushWFArc f3 '' #zField
+mn0 @PushWFArc f4 '' #zField
+mn0 @InfoButton f5 '' #zField
+>Proto mn0 mn0 main #zField
+mn0 f0 outLink start1.ivp #txt
+mn0 f0 type basicwfui.Data #txt
+mn0 f0 actionDecl 'basicwfui.Data out;' #txt
+mn0 f0 requestEnabled true #txt
+mn0 f0 triggerEnabled false #txt
+mn0 f0 callSignature start1() #txt
+mn0 f0 startName basicWFUI #txt
+mn0 f0 taskData '#
+#Thu Feb 25 17:36:32 CET 2010
+.DESC=
+.NAM=basicWFUI
+' #txt
+mn0 f0 caseData '#
+#Wed Feb 24 15:37:00 CET 2010
+subType.code=
+businessMilestone.timestamp=
+mainContact.id=
+mainContact.name=
+processCategory.name=
+processCategory.code=
+businessPriority=
+mainContact.docDb.code=
+mainContact.type=
+businessObject.folder.id=
+businessObject.docDb.code=
+process.name=
+businessCreator.user=
+businessStart.timestamp=
+process.code=
+type.name=
+businessObject.name=
+type.code=
+businessObject.code=
+correspondent.id=
+case.name=
+mainContact.folder.id=
+subType.name=
+case.description=
+' #txt
+mn0 f0 showInStartList 1 #txt
+mn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start1</name>
+        <nameStyle>6,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+mn0 f0 @C|.responsibility Everybody #txt
+mn0 f0 67 43 26 26 14 0 #rect
+mn0 f0 @|StartRequestIcon #fIcon
+mn0 f1 type basicwfui.Data #txt
+mn0 f1 67 179 26 26 14 0 #rect
+mn0 f1 @|EndIcon #fIcon
+mn0 f2 targetWindow NEW:card: #txt
+mn0 f2 targetDisplay TOP #txt
+mn0 f2 richDialogId ui.basic.main #txt
+mn0 f2 startMethod start() #txt
+mn0 f2 type basicwfui.Data #txt
+mn0 f2 requestActionDecl '<> param;' #txt
+mn0 f2 responseActionDecl 'basicwfui.Data out;
+' #txt
+mn0 f2 responseMappingAction 'out=in;
+' #txt
+mn0 f2 windowConfiguration '{/title "Xpert.ivy Workflow"/width 1000 /height 800 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
+mn0 f2 isAsynch false #txt
+mn0 f2 isInnerRd false #txt
+mn0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>call BasicWFUI</name>
+        <nameStyle>14,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+mn0 f2 62 108 36 24 20 -2 #rect
+mn0 f2 @|RichDialogIcon #fIcon
+mn0 f3 expr out #txt
+mn0 f3 80 69 80 108 #arcP
+mn0 f4 expr out #txt
+mn0 f4 80 132 80 179 #arcP
+mn0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Implements a basic Worklow UI Application with a task list and a process start list.
+Content Messages include DE and EN 
+</name>
+        <nameStyle>121,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+mn0 f5 19 235 458 58 -224 -24 #rect
+mn0 f5 @|IBIcon #fIcon
+mn0 f5 -985168|-1|-16777216 #nodeStyle
+>Proto mn0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
+>Proto mn0 .type basicwfui.Data #txt
+>Proto mn0 .processKind NORMAL #txt
+>Proto mn0 0 0 32 24 18 0 #rect
+>Proto mn0 @|BIcon #fIcon
+mn0 f0 mainOut f3 tail #connect
+mn0 f3 head f2 mainIn #connect
+mn0 f2 mainOut f4 tail #connect
+mn0 f4 head f1 mainIn #connect

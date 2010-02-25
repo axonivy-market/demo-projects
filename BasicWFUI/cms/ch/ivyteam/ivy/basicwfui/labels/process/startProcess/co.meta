@@ -1,0 +1,3 @@
+co: name={startProcess} description={} changed={2010-02-22 15:22:53 CET} changedby={bb} visualorder={0} guid={12521A861864D74D} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126F60F04B6E0916} datatype={} isdefault={false} langid={de} description={} validfrom={2010-02-22 15:22:44 CET} validto={} changed={2010-02-22 15:22:53 CET} changedby={bb} properties={} id={}
+val: guid={12521A86186CCFF2} datatype={} isdefault={true} langid={en} description={} validfrom={2009-11-23 16:28:20 CET} validto={} changed={2010-02-22 15:06:46 CET} changedby={bb} properties={} id={}

@@ -1,0 +1,2 @@
+co: name={BUSINESS_CREATOR_USER16} description={} changed={2010-02-24 11:13:40 GMT} changedby={bb} visualorder={0} guid={126FFAEA2C395F17} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+val: guid={126FFAEA2D33089E} datatype={} isdefault={true} langid={en} description={} validfrom={2008-01-30 16:47:49 GMT} validto={} changed={2010-02-24 11:13:40 GMT} changedby={bb} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@a8f9505e} id={}

@@ -1,0 +1,4 @@
+co: name={taskExpiryTimestamp} description={} changed={2010-02-24 11:42:31 GMT} changedby={bb} visualorder={0} guid={126FFC90DA287EAA} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126FFC90DA2E6CCD} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-10 09:42:48 GMT} validto={} changed={2010-02-24 11:42:31 GMT} changedby={bb} properties={} id={}
+val: guid={126FFC90DB1BDF43} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 11:28:38 GMT} validto={} changed={2010-02-24 11:42:31 GMT} changedby={bb} properties={} id={}
+val: guid={126FFC90DC1AE949} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:41:36 GMT} validto={} changed={2010-02-24 11:42:31 GMT} changedby={bb} properties={} id={}
