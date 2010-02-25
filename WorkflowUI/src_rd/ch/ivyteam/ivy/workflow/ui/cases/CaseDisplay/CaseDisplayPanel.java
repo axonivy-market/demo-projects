@@ -21,6 +21,7 @@ import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import com.ulcjava.base.application.ULCContainer;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
+import ch.ivyteam.ivy.workflow.ui.archive.PageArchiveList.PageArchiveListPanel;
 
 
 /**
@@ -52,6 +53,10 @@ private RToolBar actionsToolBar = null;
 private RButton refreshButton = null;
 private RButton exitButton = null;
 @EmbeddedRichDialog(TaskDisplayListPanel.class) private ULCContainer taskDisplayListRDC = null;
+@EmbeddedRichDialog(PageArchiveListPanel.class) private ULCContainer pageArchiveListRDC = null;
+
+
+
 
 /**
    * Create a new instance of CaseDisplayPanel
@@ -86,6 +91,7 @@ private RTabbedPane getCaseDisplayTabbedPane() {
 		caseDisplayTabbedPane.addTab("Case details", null, getCaseDetailsSplitPane(), null);
 		caseDisplayTabbedPane.addTab("Case workflow events", null, getWorkflowEventsDisplayListRDC(), null);
 		caseDisplayTabbedPane.addTab("Tasks", null, getTaskDisplayListRDC(), null);
+		caseDisplayTabbedPane.addTab("Archive", null, getPageArchiveListPanel(), null);
 	}
 	return caseDisplayTabbedPane;
 }
@@ -367,6 +373,19 @@ private ULCContainer getTaskDisplayListRDC()  {
 		taskDisplayListRDC.setName("taskDisplayListRDC");
 	}
 	return taskDisplayListRDC;
+}
+
+/**
+ * This method initializes taskDisplayListRDC	
+ * 	
+ * @return ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListPanel	
+ */
+private ULCContainer getPageArchiveListPanel()  {
+	if (pageArchiveListRDC == null) {
+		pageArchiveListRDC = RichDialogPanelFactory.create(PageArchiveListPanel.class);
+		pageArchiveListRDC.setName("pageArchiveListRDC");
+	}
+	return pageArchiveListRDC;
 }
 
 

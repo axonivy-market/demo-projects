@@ -1,0 +1,4 @@
+co: name={refreshPageArchiveListShortDesc} description={} changed={2010-02-23 09:13:53 CET} changedby={fs} visualorder={0} guid={126F6617BD5379AD} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126F6637C3C8E3A9} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-02-22 16:55:00 CET} validto={} changed={2010-02-22 16:55:16 CET} changedby={fs} properties={} id={}
+val: guid={126F6617BD52894A} datatype={} isdefault={true} langid={en} description={} validfrom={2010-02-22 16:52:48 CET} validto={} changed={2010-02-22 16:53:58 CET} changedby={fs} properties={} id={}
+val: guid={126F6638832D9BF1} datatype={} isdefault={false} langid={de} description={} validfrom={2010-02-22 16:55:03 CET} validto={} changed={2010-02-22 16:55:16 CET} changedby={fs} properties={} id={}

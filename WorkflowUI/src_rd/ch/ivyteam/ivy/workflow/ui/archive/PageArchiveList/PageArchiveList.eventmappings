@@ -1,0 +1,15 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-02-22 17:46:07 | 4.1.0.15100 | 1.0
+~@RD_METHODCALL[start(ch.ivyteam.ivy.workflow.ITask)]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126DC1FE75A4700D
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126DC19580F7932B
+~.taskFilterComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126DC3B7619FAFC5
+~.openExternalBlankMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126DC6D734BC4DE6 # PageArchiveListProcess.mod/openPageArchive
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126F65F202F64226 # PageArchiveListProcess.mod/onLoad
+~@RD_METHODCALL[getTask()]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126DC21562BFA0E1
+~@RD_METHODCALL[setCase(ch.ivyteam.ivy.workflow.ICase)]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126DC2159D5442FD
+~@RD_METHODCALL[getCase()]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126DC215234C407F
+~@RD_METHODCALL[setTask(ch.ivyteam.ivy.workflow.ITask)]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126DC215D8E8514C
+~.pageArchiveTable@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126DC6D734BC4DE6
+~.refreshMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126F691A60722D55 # PageArchiveListProcess.mod/reload
+~@RD_METHODCALL[start(ch.ivyteam.ivy.workflow.ICase)]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126DC1FDA0C28DBA
+~@RD_METHODCALL[reload()]--->ch.ivyteam.ivy.process.ProcessStart:126DC1957928F6DB/126DC292292A4A61
