@@ -1,4 +1,0 @@
-co: name={caseHierarchyLayout5ShortDesc} description={} changed={2009-05-14 13:38:49 GMT} changedby={bb} visualorder={0} guid={11B025D155BB45C0} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B025D155BB0864} datatype={} isdefault={true} langid={en} description={} validfrom={2008-06-20 15:11:32 GMT} validto={} changed={2008-07-08 11:09:59 GMT} changedby={tirib} properties={} id={}
-val: guid={11B69B9718C1D38E} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 12:51:45 GMT} validto={} changed={2009-05-14 13:38:49 GMT} changedby={bb} properties={} id={}
-val: guid={11B72FC1CC4212F6} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 08:01:09 GMT} validto={} changed={2008-07-30 08:01:27 GMT} changedby={tistc} properties={} id={}

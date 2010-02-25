@@ -1,4 +1,0 @@
-co: name={nodeType} description={} changed={2009-04-02 14:41:02 GMT} changedby={bb} visualorder={0} guid={11B0C52C7DBF90B0} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B7314DB8BA3A96} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 08:28:11 GMT} validto={} changed={2008-07-30 08:28:17 GMT} changedby={tistc} properties={} id={}
-val: guid={11B6DC58C093A9F1} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 07:43:27 GMT} validto={} changed={2009-04-02 14:41:02 GMT} changedby={bb} properties={} id={}
-val: guid={11B0C52C7EAC03A4} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-10 09:34:56 GMT} validto={} changed={2008-07-10 09:35:07 GMT} changedby={tirib} properties={} id={}

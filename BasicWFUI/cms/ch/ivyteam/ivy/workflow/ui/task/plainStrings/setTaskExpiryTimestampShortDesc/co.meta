@@ -1,4 +1,0 @@
-co: name={setTaskExpiryTimestampShortDesc} description={} changed={2009-04-08 11:06:57 GMT} changedby={bb} visualorder={0} guid={11AE8DC6A4E2A22A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11AE8DC6A5E27392} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-03 12:18:56 GMT} validto={} changed={2008-07-03 12:19:39 GMT} changedby={tirib} properties={} id={}
-val: guid={11B69E4996AB1B1A} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:38:53 GMT} validto={} changed={2009-04-08 11:06:57 GMT} changedby={bb} properties={} id={}
-val: guid={11B73AA09DAE8AA1} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 11:11:08 GMT} validto={} changed={2008-08-01 17:38:11 GMT} changedby={tirib} properties={} id={}

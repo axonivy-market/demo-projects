@@ -1,4 +1,0 @@
-co: name={defineFilterLongDesc} description={} changed={2009-05-14 13:36:38 GMT} changedby={bb} visualorder={0} guid={11AE437098986FB5} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={11AE43709897788A} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 14:39:05 GMT} validto={} changed={2008-07-02 14:42:14 GMT} changedby={tirib} properties={} id={}
-val: guid={11B6D9EB1E18E69C} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 07:01:01 GMT} validto={} changed={2009-05-14 13:36:38 GMT} changedby={bb} properties={} id={}
-val: guid={11B73941BA7BC28E} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:47:11 GMT} validto={} changed={2008-07-30 10:48:30 GMT} changedby={tistc} properties={} id={}

@@ -1,3 +1,0 @@
-<html><b>Reset the selected task</b><br>Resets a task the workflow session user is working on.<br>
-A task that is in state TaskState.CREATED is in state TaskState.ZOMBIE afterwards<br>
-A task that is in state TaskState.RESUMED or TaskState.PARKED is in state TaskState.SUSPENDED or TaskState.UNASSIGNED afterwards.</html>

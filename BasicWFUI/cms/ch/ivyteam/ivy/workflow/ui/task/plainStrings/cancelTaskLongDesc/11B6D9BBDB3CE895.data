@@ -1,3 +1,0 @@
-<html><b>Zurücksetzen der selektierten Aufgabe</b><br>Setzt die Aufgabe zur Wiederaufnahme zurück.<br>
-Eine Aufgabe mit dem Status ERSTELLT geht in den Zustand ZOMBIE über.<br>
-Eine Aufgabe mit dem Status WIEDERAUFGENOMMEN oder PARKIERT geht in den Status ERLEDIGT oder UNZUGEWIESEN über.</html>

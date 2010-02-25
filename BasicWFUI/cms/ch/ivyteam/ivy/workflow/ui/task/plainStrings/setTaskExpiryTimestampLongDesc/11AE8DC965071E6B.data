@@ -1,1 +1,0 @@
-<html><b>Set expiry date time on selected task</b><br>Sets the expiry timestamp of the task. Can set to null if expiry of this task should be disabled.<br>If new expiry timestamp is older than current time the task is expired immediately. This method has no effect if the task was already expired.</html>

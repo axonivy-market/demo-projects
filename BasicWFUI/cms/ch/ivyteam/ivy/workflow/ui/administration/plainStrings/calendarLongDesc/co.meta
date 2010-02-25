@@ -1,4 +1,0 @@
-co: name={calendarLongDesc} description={} changed={2009-04-02 14:20:44 GMT} changedby={bb} visualorder={0} guid={11AE40AF9FFE7C53} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={11B6F083928DB6AF} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 13:35:54 GMT} validto={} changed={2008-07-29 13:36:04 GMT} changedby={tistc} properties={} id={}
-val: guid={11B698A8481ADA3C} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 12:00:30 GMT} validto={} changed={2009-04-02 14:20:44 GMT} changedby={bb} properties={} id={}
-val: guid={11AE40AF9FFED5EF} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 13:51:42 GMT} validto={} changed={2009-04-02 14:20:44 GMT} changedby={bb} properties={} id={}

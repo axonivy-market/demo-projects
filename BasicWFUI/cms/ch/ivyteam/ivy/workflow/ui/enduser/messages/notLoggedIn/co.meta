@@ -1,4 +1,0 @@
-co: name={notLoggedIn} description={} changed={2008-07-31 07:10:29 GMT} changedby={tistc} visualorder={0} guid={1198B39D85CAE16B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1198B3A1323E855C} datatype={} isdefault={false} langid={de} description={} validfrom={2008-04-26 14:54:09 GMT} validto={} changed={2008-04-26 14:54:16 GMT} changedby={rstr} properties={} id={}
-val: guid={11B77F3C35EB6F93} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-31 07:10:08 GMT} validto={} changed={2008-07-31 07:10:29 GMT} changedby={tistc} properties={} id={}
-val: guid={1198B39D86CFD8EA} datatype={} isdefault={true} langid={en} description={} validfrom={2008-04-26 14:53:54 GMT} validto={} changed={2008-04-26 14:54:09 GMT} changedby={rstr} properties={} id={}

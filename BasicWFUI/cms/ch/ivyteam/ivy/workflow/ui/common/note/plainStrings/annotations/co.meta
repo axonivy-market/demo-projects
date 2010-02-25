@@ -1,4 +1,0 @@
-co: name={annotations} description={} changed={2009-04-02 14:28:57 GMT} changedby={bb} visualorder={0} guid={11B41657F0CC0506} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B6DB5C8E9220CA} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 07:26:14 GMT} validto={} changed={2009-04-02 14:28:57 GMT} changedby={bb} properties={} id={}
-val: guid={11B41657F0C1E7DC} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-09 12:31:04 GMT} validto={} changed={2008-07-20 16:55:15 GMT} changedby={tirib} properties={} id={}
-val: guid={11B730DD4A76BEB1} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 08:20:31 GMT} validto={} changed={2008-07-30 08:20:31 GMT} changedby={tistc} properties={} id={}

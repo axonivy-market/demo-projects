@@ -1,4 +1,0 @@
-TaskInfoDetailsData #class
-ui.task.TaskInfoDetails #namespace
-task ch.ivyteam.ivy.workflow.ITask #field
-task 'Task to display' #fieldComment

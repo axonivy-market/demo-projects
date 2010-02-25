@@ -1,4 +1,0 @@
-co: name={customTimestampFields} description={} changed={2008-08-01 16:38:34 GMT} changedby={tirib} visualorder={0} guid={11B45B76CB9C8173} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B6F32B7A3CED83} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 14:22:19 GMT} validto={} changed={2008-07-29 14:22:24 GMT} changedby={tistc} properties={} id={}
-val: guid={11B45B76CB996E04} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 13:02:07 GMT} validto={} changed={2008-07-28 14:21:45 GMT} changedby={cb} properties={} id={}
-val: guid={11B6A0BC5765B5FB} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 14:21:41 GMT} validto={} changed={2008-08-01 16:38:34 GMT} changedby={tirib} properties={} id={}

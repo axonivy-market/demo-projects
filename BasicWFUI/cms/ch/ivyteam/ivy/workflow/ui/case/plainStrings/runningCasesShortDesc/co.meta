@@ -1,4 +1,0 @@
-co: name={runningCasesShortDesc} description={} changed={2008-07-30 08:18:01 GMT} changedby={tistc} visualorder={0} guid={11AE3FE25E1D81BF} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B69C69BAED7A2F} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:06:08 GMT} validto={} changed={2008-07-29 06:50:51 GMT} changedby={cb} properties={} id={}
-val: guid={11AE3FE260090799} datatype={} isdefault={true} langid={en} description={} validfrom={2008-05-01 11:04:14 GMT} validto={} changed={2008-07-02 13:37:41 GMT} changedby={tirib} properties={} id={}
-val: guid={11B730B679F18D88} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 08:17:52 GMT} validto={} changed={2008-07-30 08:18:01 GMT} changedby={tistc} properties={} id={}

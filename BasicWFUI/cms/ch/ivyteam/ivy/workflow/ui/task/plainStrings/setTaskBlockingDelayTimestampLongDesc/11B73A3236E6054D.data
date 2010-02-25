@@ -1,1 +1,0 @@
-<html><b>Définis le délai d'attente de la tâche sélectionnée</b><br>Définis le temps d'attente de la tâche. Il peut être définis avec la valeur NULL pour modifier immédiatement le statut de la tâche à 'DELAYED'.<br>Cette méthode n'a aucun effet sur les tâches déjà en statut 'DELAYED'.</html>

@@ -1,4 +1,0 @@
-co: name={fileSaveCanceled} description={} changed={2009-05-28 10:57:27 GMT} changedby={bb} visualorder={0} guid={120E77DC7DFD3528} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12186DDE4F2EF494} datatype={} isdefault={false} langid={de} description={} validfrom={2009-05-28 10:57:17 GMT} validto={} changed={2009-05-28 10:57:27 GMT} changedby={bb} properties={} id={}
-val: guid={120E77DC7DF7F2DD} datatype={} isdefault={true} langid={en} description={} validfrom={2009-04-27 12:12:41 GMT} validto={} changed={2009-04-27 12:12:52 GMT} changedby={tirib} properties={} id={}
-val: guid={120E77DF3C2F65DC} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-04-27 12:12:52 GMT} validto={} changed={2009-04-27 12:14:06 GMT} changedby={tirib} properties={} id={}
