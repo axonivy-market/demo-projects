@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Feb 25 17:41:47 CET 2010]
-1252083511F3E2B3 3.14 #module
+[>Created: Wed Feb 24 17:06:41 CET 2010]
+1252083511F3E2B3 3.13 #module
 >Proto >Proto Collection #zClass
 mn0 main Big #zClass
 mn0 B #cInfo
@@ -20,16 +20,26 @@ mn0 @PushWFArc f3 '' #zField
 mn0 @PushWFArc f4 '' #zField
 mn0 @InfoButton f5 '' #zField
 >Proto mn0 mn0 main #zField
+mn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start1</name>
+        <nameStyle>6,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+mn0 f0 @C|.responsibility Everybody #txt
 mn0 f0 outLink start1.ivp #txt
 mn0 f0 type basicwfui.Data #txt
-mn0 f0 actionDecl 'basicwfui.Data out;' #txt
-mn0 f0 requestEnabled true #txt
-mn0 f0 triggerEnabled false #txt
-mn0 f0 callSignature start1() #txt
-mn0 f0 startName basicWFUI #txt
+mn0 f0 template "" #txt
+mn0 f0 templateWizard '#
+#Wed Feb 24 15:37:00 CET 2010
+' #txt
 mn0 f0 taskData '#
-#Thu Feb 25 17:36:32 CET 2010
-.DESC=
+#Wed Feb 24 15:37:00 CET 2010
+.SHOW=1
+.WFU=0
 .NAM=basicWFUI
 ' #txt
 mn0 f0 caseData '#
@@ -60,21 +70,20 @@ subType.name=
 case.description=
 ' #txt
 mn0 f0 showInStartList 1 #txt
-mn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start1</name>
-        <nameStyle>6,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-mn0 f0 @C|.responsibility Everybody #txt
 mn0 f0 67 43 26 26 14 0 #rect
 mn0 f0 @|StartRequestIcon #fIcon
 mn0 f1 type basicwfui.Data #txt
 mn0 f1 67 179 26 26 14 0 #rect
 mn0 f1 @|EndIcon #fIcon
+mn0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>call BasicWFUI</name>
+        <nameStyle>14,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 mn0 f2 targetWindow NEW:card: #txt
 mn0 f2 targetDisplay TOP #txt
 mn0 f2 richDialogId ui.basic.main #txt
@@ -88,15 +97,6 @@ mn0 f2 responseMappingAction 'out=in;
 mn0 f2 windowConfiguration '{/title "Xpert.ivy Workflow"/width 1000 /height 800 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 mn0 f2 isAsynch false #txt
 mn0 f2 isInnerRd false #txt
-mn0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>call BasicWFUI</name>
-        <nameStyle>14,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 mn0 f2 62 108 36 24 20 -2 #rect
 mn0 f2 @|RichDialogIcon #fIcon
 mn0 f3 expr out #txt
