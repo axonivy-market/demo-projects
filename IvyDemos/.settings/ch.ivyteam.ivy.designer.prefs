@@ -1,4 +1,4 @@
-#Fri Dec 18 14:08:17 CET 2009
+#Fri Feb 19 12:42:32 CET 2010
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=ivydemos.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=ivydemos
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:useProjectSettings=true
@@ -10,5 +10,5 @@ ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:EXTENAL_BROWSER
 ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:NUMBER_OF_EXECUTIONS_FOR_WHICH_TO_KEEP_PROCESS_DATA_IN_HISTORY=10
 ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:NUMBER_OF_REQUESTS_FOR_WHICH_TO_KEEP_PROCESS_DATA_IN_HISTORY=10
 ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:useProjectSettings=true
-ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=8
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=9
 eclipse.preferences.version=1

@@ -1,6 +1,14 @@
-#Tue Dec 22 15:01:27 CET 2009
+#Fri Feb 19 12:42:53 CET 2010
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=workflowui.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=workflowui
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:useProjectSettings=true
-ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=8
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:ACTIVATE_PROCESS_DATA_HISTORY=true
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:ANIMATION_FOLLOWING_MODE=FOLLOW_ALL_PROCESSES
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:EXECUTE_INTERMEDIATE_EVENT_BEANS=true
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:EXECUTE_START_EVENT_BEANS=true
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:EXTENAL_BROWSER=false
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:NUMBER_OF_EXECUTIONS_FOR_WHICH_TO_KEEP_PROCESS_DATA_IN_HISTORY=10
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:NUMBER_OF_REQUESTS_FOR_WHICH_TO_KEEP_PROCESS_DATA_IN_HISTORY=10
+ch.ivyteam.ivy.designer.preferences.ProcessEnginePreferencePage\:useProjectSettings=true
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=9
 eclipse.preferences.version=1

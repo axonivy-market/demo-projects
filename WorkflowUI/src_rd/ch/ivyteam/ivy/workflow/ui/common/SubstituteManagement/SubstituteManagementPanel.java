@@ -216,7 +216,7 @@ private RTable getSubstituteTable() {
 		substituteTable.setModelConfiguration("{/showTableheader \"true\"/autoTableheader \"false\"/showtooltip \"false\"/showIcons \"false\"/version \"2.0\"/emptyTableText \"n/a\"/columns {{/result \"result=entry.getSubstituteUser().getName()\"/version \"2.0\"/tooltip \"\"/icon \"\"/header \"User\"/field \"\"/columnWidth \"100\"}{/result \"result=entry.getSubstituteUser().fullName\"/version \"2.0\"/tooltip \"\"/icon \"\"/header \"Full name\"/field \"\"/columnWidth \"150\"}{/result \"result=IF(entry.isPersonallyOnly(),\\r\\n\\\"for direct usertasks only\\\",\\r\\nentry.getSubstitutionRole().getName() + \\\" \\\" +\\r\\nentry.getSubstitutionRole().getDisplayName())\"/version \"2.0\"/tooltip \"\"/icon \"\"/header \"Role\"/field \"\"/columnWidth \"150\"}{/result \"result=entry.getDescription()\"/version \"2.0\"/tooltip \"\"/icon \"\"/header \"Remark\"/field \"\"/columnWidth \"350\"}}}");
 		substituteTable.setAutoResizeMode(ULCTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
 		substituteTable.setBackground(Color.white);
-		substituteTable.setComponentPopupMenu(getTablePopupMenu());
+		substituteTable.setComponentPopupMenu(null);
 		substituteTable.setSortable(true);
 	}
 	return substituteTable;

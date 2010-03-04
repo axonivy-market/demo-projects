@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 19 09:43:01 CET 2010]
+[>Created: Fri Feb 19 12:42:02 CET 2010]
 125550AEC10AE7A1 3.13 #module
 >Proto >Proto Collection #zClass
 Ss0 SimpleHtmlWfProcess Big #zClass
@@ -101,11 +101,6 @@ Ss0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ss0 f1 @C|.responsibility Everybody #txt
 Ss0 f1 54 124 36 24 20 -2 #rect
 Ss0 f1 @|PageIcon #fIcon
-Ss0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Ss0 f2 actionDecl 'htmlwfui.Data out;
 ' #txt
 Ss0 f2 actionTable 'out=in1;
@@ -181,6 +176,11 @@ taskDefinitions.add(taskDef);
 ' #txt
 Ss0 f2 type htmlwfui.Data #txt
 Ss0 f2 template "" #txt
+Ss0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ss0 f2 58 186 28 28 14 0 #rect
 Ss0 f2 @|TaskSwitchIcon #fIcon
 Ss0 f3 expr out #txt
@@ -254,6 +254,7 @@ Ss0 f11 0 0.824168763059249 0 0 #arcLabel
 Ss0 f12 expr data #txt
 Ss0 f12 outCond ivp=="LinkA.ivp" #txt
 Ss0 f12 176 284 176 355 #arcP
+>Proto Ss0 .type htmlwfui.Data #txt
 >Proto Ss0 .processKind NORMAL #txt
 >Proto Ss0 0 0 32 24 18 0 #rect
 >Proto Ss0 @|BIcon #fIcon

@@ -1,0 +1,4 @@
+co: name={passwordNotChanged} description={} changed={2010-02-15 16:17:59 CET} changedby={bb} visualorder={0} guid={126D2341EA589EEC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126D235159CD6A16} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-02-15 16:17:59 CET} validto={} changed={2010-02-15 16:17:59 CET} changedby={bb} properties={} id={}
+val: guid={126D2341EB46343F} datatype={} isdefault={true} langid={en} description={} validfrom={2010-02-15 16:16:56 CET} validto={} changed={2010-02-15 16:17:59 CET} changedby={bb} properties={} id={}
+val: guid={126D2346DCBCBE23} datatype={} isdefault={false} langid={de} description={} validfrom={2010-02-15 16:17:16 CET} validto={} changed={2010-02-15 16:17:59 CET} changedby={bb} properties={} id={}

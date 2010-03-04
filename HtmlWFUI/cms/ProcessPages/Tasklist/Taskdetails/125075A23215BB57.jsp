@@ -84,12 +84,19 @@
 				":" + taskStartDate.get(Calendar.SECOND);
 	String taskStartUri = task.getFullRequestPath();
 	boolean canDelegate = ivySession.hasPermission(securityDescriptor, IPermission.DELEGATE_TASKS);
+	boolean canPark = ivySession.hasPermission(securityDescriptor, IPermission.PARK_TASKS);
 %>
 
 <br />
 <table class=detailTable width="100%">
 	<tr>
 		<td class="labelTd"><a href="/ivy/pro/<%=taskStartUri%>?taskId=<%=taskId%>"><%=ivy.cms.co("/images/start")%> Aufnehmen</a></td>
+		<%
+			if(canPark)
+			{
+				out.write("<td class='labelTd'><a href=" + ivy.html.ref("LinkB.ivp") + ">"+ivy.cms.co("/images/park")+"Parken</a></td>");
+			}
+		%>
 		<%
 			if(canDelegate)
 			{

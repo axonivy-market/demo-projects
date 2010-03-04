@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 26 13:53:57 CET 2010]
+[>Created: Fri Feb 19 12:42:32 CET 2010]
 1215975017F13818 3.13 #module
 >Proto >Proto Collection #zClass
 Rr0 Runner Big #zClass
@@ -23,6 +23,16 @@ Rr0 @PushWFArc f6 '' #zField
 Rr0 @InfoButton f7 '' #zField
 Rr0 @AnnotationArc f8 '' #zField
 >Proto Rr0 Rr0 Runner #zField
+Rr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>run demo runner</name>
+        <nameStyle>15,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Rr0 f0 @C|.responsibility Everybody #txt
 Rr0 f0 outLink demoRunner.ivp #txt
 Rr0 f0 type ivydemos.Data #txt
 Rr0 f0 template "" #txt
@@ -64,16 +74,6 @@ case.description=
 subType.name=
 ' #txt
 Rr0 f0 showInStartList 1 #txt
-Rr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>run demo runner</name>
-        <nameStyle>15,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Rr0 f0 @C|.responsibility Everybody #txt
 Rr0 f0 67 123 26 26 14 0 #rect
 Rr0 f0 @|StartRequestIcon #fIcon
 Rr0 f1 actionDecl 'ivydemos.Data out;
@@ -115,15 +115,6 @@ Rr0 f1 62 172 36 24 20 8 #rect
 Rr0 f1 @|StepIcon #fIcon
 Rr0 f2 expr out #txt
 Rr0 f2 80 149 80 172 #arcP
-Rr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>open demo runner</name>
-        <nameStyle>16,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Rr0 f3 targetWindow NEW #txt
 Rr0 f3 targetDisplay TOP #txt
 Rr0 f3 richDialogId ch.ivyteam.ivy.demo.runner.DemoRunner #txt
@@ -148,6 +139,15 @@ title=Demo Runner
 Rr0 f3 isAsynch false #txt
 Rr0 f3 isInnerRd false #txt
 Rr0 f3 isDialog false #txt
+Rr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>open demo runner</name>
+        <nameStyle>16,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Rr0 f3 62 228 36 24 20 -2 #rect
 Rr0 f3 @|RichDialogIcon #fIcon
 Rr0 f4 expr out #txt
@@ -176,6 +176,7 @@ Rr0 f7 -657956|-1|-16777216 #nodeStyle
 Rr0 f8 400 141 98 184 #arcP
 Rr0 f8 1 304 184 #addKink
 Rr0 f8 0 0.4235915679700597 0 0 #arcLabel
+>Proto Rr0 .type ivydemos.Data #txt
 >Proto Rr0 .processKind NORMAL #txt
 >Proto Rr0 0 0 32 24 18 0 #rect
 >Proto Rr0 @|BIcon #fIcon

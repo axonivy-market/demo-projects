@@ -182,7 +182,7 @@ private RTable getAbsenceTable() {
 		absenceTable.setName("absenceTable");
 		absenceTable.setModelConfiguration("{/showTableheader \"true\"/autoTableheader \"false\"/showtooltip \"false\"/showIcons \"true\"/emptyTableText \"n/a\"/version \"2.0\"/columns {{/result \"result=(entry.getStartTimestamp() as Date).format(\\\"short\\\")\"/version \"2.0\"/tooltip \"\"/icon \"result=\\\"/ch/ivyteam/ivy/workflow/ui/common/images/calendarUp16\\\"\"/header \"Start\"/field \"\"/columnWidth \"10\"/columnStyle \"\"}{/result \"result=(entry.getStopTimestamp() as Date).format(\\\"short\\\")\"/version \"2.0\"/tooltip \"\"/icon \"result=\\\"/ch/ivyteam/ivy/workflow/ui/common/images/calendarDown16\\\"\"/header \"End\"/field \"\"/columnWidth \"10\"}{/result \"result=entry.getDescription()\"/version \"2.0\"/tooltip \"\"/icon \"\"/header \"Description\"/field \"\"}}}");
 		absenceTable.setAutoResizeMode(ULCTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
-		absenceTable.setComponentPopupMenu(getAbsenceListPopupMenu());
+		absenceTable.setComponentPopupMenu(null);
 		absenceTable.setSortable(true);
 	}
 	return absenceTable;

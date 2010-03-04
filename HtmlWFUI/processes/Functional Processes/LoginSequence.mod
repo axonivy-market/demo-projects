@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Dec 04 12:01:16 CET 2009]
-1255931DE19D4C24 3.12 #module
+[>Created: Fri Feb 19 12:42:02 CET 2010]
+1255931DE19D4C24 3.13 #module
 >Proto >Proto Collection #zClass
 Le0 LoginSequence Big #zClass
 Le0 B #cInfo
@@ -28,15 +28,6 @@ Le0 @PushWFArc f5 '' #zField
 Le0 @PushWFArc f2 '' #zField
 Le0 @PushWFArc f6 '' #zField
 >Proto Le0 Le0 LoginSequence #zField
-Le0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>check Login</name>
-        <nameStyle>11,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Le0 f0 inParamDecl '<htmlwfui.Data in> param;' #txt
 Le0 f0 inParamTable 'out=param.in;
 ' #txt
@@ -48,11 +39,26 @@ Le0 f0 actionDecl 'htmlwfui.Data out;
 ' #txt
 Le0 f0 callSignature 'check Login(htmlwfui.Data)' #txt
 Le0 f0 type htmlwfui.Data #txt
+Le0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>check Login</name>
+        <nameStyle>11,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Le0 f0 219 35 26 26 14 0 #rect
 Le0 f0 @|StartSubIcon #fIcon
 Le0 f1 type htmlwfui.Data #txt
 Le0 f1 219 323 26 26 14 0 #rect
 Le0 f1 @|EndSubIcon #fIcon
+Le0 f21 actionDecl 'htmlwfui.Data out;
+' #txt
+Le0 f21 actionTable 'out=in.clone();
+' #txt
+Le0 f21 actionCode 'ivy.log.info(ivy.session.loginSessionUser(in.username, in.password));' #txt
+Le0 f21 type htmlwfui.Data #txt
 Le0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -62,35 +68,19 @@ Le0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Le0 f21 actionDecl 'htmlwfui.Data out;
-' #txt
-Le0 f21 actionTable 'out=in.clone();
-' #txt
-Le0 f21 actionCode 'ivy.log.info(ivy.session.loginSessionUser(in.username, in.password));' #txt
-Le0 f21 type htmlwfui.Data #txt
 Le0 f21 134 220 36 24 -22 15 #rect
 Le0 f21 @|StepIcon #fIcon
+Le0 f14 type htmlwfui.Data #txt
 Le0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Le0 f14 type htmlwfui.Data #txt
 Le0 f14 218 170 28 28 14 0 #rect
 Le0 f14 @|AlternativeIcon #fIcon
 Le0 f19 type htmlwfui.Data #txt
 Le0 f19 51 259 26 26 14 0 #rect
 Le0 f19 @|EndIcon #fIcon
-Le0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Login Dialog</name>
-        <nameStyle>12,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Le0 f16 @C|.responsibility Everybody #txt
 Le0 f16 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 Le0 f16 outLinks "LinkA.ivp","LinkB.ivp" #txt
 Le0 f16 template "Login_Dialog.ivd" #txt
@@ -101,6 +91,16 @@ Le0 f16 templateWizard '#
 #Wed Nov 18 08:05:38 CET 2009
 ' #txt
 Le0 f16 pageArchivingActivated false #txt
+Le0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Login Dialog</name>
+        <nameStyle>12,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Le0 f16 @C|.responsibility Everybody #txt
 Le0 f16 46 172 36 24 -19 -36 #rect
 Le0 f16 @|PageIcon #fIcon
 Le0 f20 expr data #txt
@@ -114,6 +114,14 @@ Le0 f18 170 221 223 189 #arcP
 Le0 f3 expr in #txt
 Le0 f3 outCond '! ivy.session.isSessionUserUnknown()' #txt
 Le0 f3 232 198 232 323 #arcP
+Le0 f4 actionDecl 'htmlwfui.Data out;
+' #txt
+Le0 f4 actionTable 'out=in;
+out.appname=ivy.wf.getApplication().getName();
+out.request=ivy.request;
+out.wfSession=ivy.session;
+' #txt
+Le0 f4 type htmlwfui.Data #txt
 Le0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -123,20 +131,12 @@ Le0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Le0 f4 actionDecl 'htmlwfui.Data out;
-' #txt
-Le0 f4 actionTable 'out=in;
-out.appname=ivy.wf.getApplication().getName();
-out.request=ivy.request;
-out.wfSession=ivy.session;
-' #txt
-Le0 f4 type htmlwfui.Data #txt
-Le0 f4 214 92 36 24 28 -12 #rect
+Le0 f4 214 100 36 24 28 -12 #rect
 Le0 f4 @|StepIcon #fIcon
 Le0 f5 expr out #txt
-Le0 f5 232 61 232 92 #arcP
+Le0 f5 232 61 232 100 #arcP
 Le0 f2 expr out #txt
-Le0 f2 232 116 232 170 #arcP
+Le0 f2 232 124 232 170 #arcP
 Le0 f6 expr in #txt
 Le0 f6 219 185 82 184 #arcP
 >Proto Le0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -144,6 +144,7 @@ Le0 f6 219 185 82 184 #arcP
     <language/>
 </elementInfo>
 ' #txt
+>Proto Le0 .type htmlwfui.Data #txt
 >Proto Le0 .processKind CALLABLE_SUB #txt
 >Proto Le0 0 0 32 24 18 0 #rect
 >Proto Le0 @|BIcon #fIcon
