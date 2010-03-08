@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Aug 25 11:30:20 CEST 2009]
-117CB4CDADC9E332 3.12 #module
+[>Created: Mon Mar 08 11:44:44 CET 2010]
+117CB4CDADC9E332 3.14 #module
 >Proto >Proto Collection #zClass
 Ly0 LoadApplicationStaticWay Big #zClass
 Ly0 B #cInfo
@@ -29,15 +29,16 @@ Ly0 @PushWFArc f9 '' #zField
 >Proto Ly0 Ly0 LoadApplicationStaticWay #zField
 Ly0 f0 outLink WorkflowUI.ivp #txt
 Ly0 f0 type workflowui.Data #txt
-Ly0 f0 template "" #txt
-Ly0 f0 templateWizard '#
-#Fri Aug 21 12:09:41 CEST 2009
-' #txt
+Ly0 f0 actionDecl 'workflowui.Data out;' #txt
+Ly0 f0 requestEnabled true #txt
+Ly0 f0 triggerEnabled false #txt
+Ly0 f0 callSignature WorkflowUI() #txt
+Ly0 f0 startDescription 'It loads WorkflowUI application and then gives you a possibility to start a processes, 
+create cases and work on the tasks' #txt
 Ly0 f0 taskData '#
-#Fri Aug 21 12:09:41 CEST 2009
+#Mon Mar 08 10:38:56 CET 2010
 .DESC=It loads WorkflowUI application and then gives you a possibility to start a processes, \ncreate cases and work on the tasks
-.SHOW=1
-.WFU=0
+.NAM=
 ' #txt
 Ly0 f0 caseData '#
 #Fri Aug 21 12:09:41 CEST 2009
@@ -202,6 +203,7 @@ Ly0 f9 190 272 189 448 #arcP
 Ly0 f9 1 296 272 #addKink
 Ly0 f9 2 296 448 #addKink
 Ly0 f9 1 0.2976842735771422 0 0 #arcLabel
+>Proto Ly0 .type workflowui.Data #txt
 >Proto Ly0 .processKind NORMAL #txt
 >Proto Ly0 0 0 32 24 18 0 #rect
 >Proto Ly0 @|BIcon #fIcon
