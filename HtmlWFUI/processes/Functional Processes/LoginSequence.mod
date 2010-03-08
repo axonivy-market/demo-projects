@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Feb 19 12:42:02 CET 2010]
-1255931DE19D4C24 3.13 #module
+[>Created: Mon Mar 08 11:08:26 CET 2010]
+1255931DE19D4C24 3.14 #module
 >Proto >Proto Collection #zClass
 Le0 LoginSequence Big #zClass
 Le0 B #cInfo
@@ -131,12 +131,12 @@ Le0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Le0 f4 214 100 36 24 28 -12 #rect
+Le0 f4 214 92 36 24 28 -12 #rect
 Le0 f4 @|StepIcon #fIcon
 Le0 f5 expr out #txt
-Le0 f5 232 61 232 100 #arcP
+Le0 f5 232 61 232 92 #arcP
 Le0 f2 expr out #txt
-Le0 f2 232 124 232 170 #arcP
+Le0 f2 232 116 232 170 #arcP
 Le0 f6 expr in #txt
 Le0 f6 219 185 82 184 #arcP
 >Proto Le0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

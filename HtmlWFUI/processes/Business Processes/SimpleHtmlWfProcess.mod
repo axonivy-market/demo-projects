@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Feb 19 12:42:02 CET 2010]
-125550AEC10AE7A1 3.13 #module
+[>Created: Mon Mar 08 11:08:26 CET 2010]
+125550AEC10AE7A1 3.14 #module
 >Proto >Proto Collection #zClass
 Ss0 SimpleHtmlWfProcess Big #zClass
 Ss0 B #cInfo
@@ -27,26 +27,16 @@ Ss0 @PushWFArc f10 '' #zField
 Ss0 @PushWFArc f11 '' #zField
 Ss0 @PushWFArc f12 '' #zField
 >Proto Ss0 Ss0 SimpleHtmlWfProcess #zField
-Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start1</name>
-        <nameStyle>6,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f0 @C|.responsibility Everybody #txt
 Ss0 f0 outLink start1.ivp #txt
 Ss0 f0 type htmlwfui.Data #txt
-Ss0 f0 template "" #txt
-Ss0 f0 templateWizard '#
-#Thu Dec 03 16:03:34 CET 2009
-' #txt
+Ss0 f0 actionDecl 'htmlwfui.Data out;' #txt
+Ss0 f0 requestEnabled true #txt
+Ss0 f0 triggerEnabled false #txt
+Ss0 f0 callSignature start1() #txt
+Ss0 f0 startName 'Simple HTML WF Process' #txt
 Ss0 f0 taskData '#
-#Thu Dec 03 16:03:34 CET 2009
-.SHOW=1
-.WFU=0
+#Mon Mar 08 10:38:27 CET 2010
+.DESC=
 .NAM=Simple HTML WF Process
 ' #txt
 Ss0 f0 caseData '#
@@ -77,6 +67,16 @@ subType.name=
 case.description=
 ' #txt
 Ss0 f0 showInStartList 1 #txt
+Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start1</name>
+        <nameStyle>6,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f0 @C|.responsibility Everybody #txt
 Ss0 f0 59 59 26 26 14 0 #rect
 Ss0 f0 @|StartRequestIcon #fIcon
 Ss0 f1 outTypes "htmlwfui.Data" #txt
