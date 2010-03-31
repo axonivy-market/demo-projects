@@ -45,6 +45,39 @@ This method can not be changed or deleted!</description>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </startMethod>
+    <firedEvent>
+        <name>thirdparty_ivychat_logoff</name>
+        <description></description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>msg</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.demo.chat.ChatMessage</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>thirdparty_ivychat_message</name>
+        <description></description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>msg</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.demo.chat.ChatMessage</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>thirdparty_ivychat_logon</name>
+        <description></description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>msg</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.demo.chat.ChatMessage</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
     <property>
         <name>guid</name>
         <value>11CF5FAA292D4138</value>
