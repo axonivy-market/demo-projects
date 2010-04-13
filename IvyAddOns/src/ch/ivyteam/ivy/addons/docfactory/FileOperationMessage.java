@@ -2,7 +2,9 @@ package ch.ivyteam.ivy.addons.docfactory;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
+
+import ch.ivyteam.ivy.scripting.objects.List;
+
 
 /**
  * @author ec
@@ -16,7 +18,7 @@ public class FileOperationMessage {
 	/** the message that is returned by the operation*/
 	private String message;
 	/** the Files taht can be implied, created ect... by the operation*/
-	private ArrayList<java.io.File> files;
+	private List<java.io.File> files;
 	/** the type of the message (SUCCESS_MESSAGE, ERROR_MESSAGE, INFORMATION_MESSAGE)*/
 	private int type;
 	/** */
@@ -33,7 +35,7 @@ public class FileOperationMessage {
 	 * and as an information message
 	 */
 	public FileOperationMessage() {
-		this("", new ArrayList<java.io.File>(), 3);
+		this("", List.create(java.io.File.class), 3);
 		
 	}
 
@@ -43,7 +45,7 @@ public class FileOperationMessage {
 	 * @param _files
 	 * @param _type
 	 */
-	public FileOperationMessage(String _message, ArrayList<File> _files, int _type) {
+	public FileOperationMessage(String _message, List<File> _files, int _type) {
 		super();
 		if(_message!= null)
 		{
@@ -58,7 +60,7 @@ public class FileOperationMessage {
 			this.files = _files;
 		}else
 		{
-			this.files= new ArrayList<java.io.File>();
+			this.files= List.create(java.io.File.class);
 		}
 		
 		if( 0 <_type &&  _type < 4)
@@ -75,10 +77,10 @@ public class FileOperationMessage {
 	/**
 	 * @return the files
 	 */
-	public ArrayList<java.io.File> getFiles() {
+	public List<java.io.File> getFiles() {
 		if(this.files==null)
 		{
-			this.files= new ArrayList<java.io.File>();
+			this.files= List.create(java.io.File.class);
 		}
 		return files;
 	}
@@ -86,13 +88,14 @@ public class FileOperationMessage {
 	/**
 	 * @param _files the files to set
 	 */
-	public void setFiles(ArrayList<java.io.File> _files) {
+	public void setFiles(List<java.io.File> _files) {
 		if(_files != null)
 		{
-			this.files = _files;
+			this.files.clear();
+			this.files.addAll(_files);
 		}else
 		{
-			this.files= new ArrayList<java.io.File>();
+			this.files= List.create(java.io.File.class);
 		}
 	}
 
@@ -102,7 +105,7 @@ public class FileOperationMessage {
 	public void emptyFileList(){
 		if(this.files==null)
 		{
-			this.files= new ArrayList<java.io.File>();
+			this.files= List.create(java.io.File.class);
 		}
 		else
 		{
@@ -154,10 +157,10 @@ public class FileOperationMessage {
      * add files to the list
      * @param _files
      */
-    public void addFiles(List<java.io.File> _files){
+    public void addFiles(ArrayList<java.io.File> _files){
     	if(this.files==null)
 		{
-			this.files= new ArrayList<java.io.File>();
+			this.files= List.create(java.io.File.class);
 		}
     	if(_files!=null)
     	{

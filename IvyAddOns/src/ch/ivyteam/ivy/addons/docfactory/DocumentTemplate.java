@@ -1,8 +1,6 @@
 
 package ch.ivyteam.ivy.addons.docfactory;
 
-import java.util.ArrayList;
-
 import ch.ivyteam.ivy.scripting.objects.List;
 
 /**
@@ -77,7 +75,7 @@ public class DocumentTemplate {
 		
 		this.fileOperationMessage= new FileOperationMessage();
 		this.fileOperationMessage.setMessage("");
-		this.fileOperationMessage.setFiles(new ArrayList<java.io.File>());
+		this.fileOperationMessage.setFiles(List.create(java.io.File.class));
 		this.fileOperationMessage.setType(FileOperationMessage.INFORMATION_MESSAGE);
 	}
 	

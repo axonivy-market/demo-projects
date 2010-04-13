@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jan 28 14:12:30 CET 2010]
+[>Created: Mon Mar 15 15:31:22 CET 2010]
 1249C400BC3D817F 3.13 #module
 >Proto >Proto Collection #zClass
 Ds0 DocFactoryProcess Big #zClass
@@ -67,6 +67,15 @@ Ds0 @RichDialogProcessStep f46 '' #zField
 Ds0 @PushWFArc f48 '' #zField
 Ds0 @PushWFArc f13 '' #zField
 >Proto Ds0 Ds0 DocFactoryProcess #zField
+Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f0 guid 1249C400BF264099 #txt
 Ds0 f0 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f0 method start() #txt
@@ -77,26 +86,11 @@ Ds0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 Ds0 f0 outParameterDecl '<> result;
 ' #txt
 Ds0 f0 embeddedRdInitializations '{/titlePanel {/fieldName "titlePanel"/startMethod "startInitialized(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/demo/icons/large/documents_gear\";\nparam.title=\"Letter Generator\";\nparam.subtitle=\"Demonstrates the usage of the DocFactory framework\";\n"/initScript ""}}' #txt
-Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f0 110 38 20 20 13 0 #rect
 Ds0 f0 @|RichDialogInitStartIcon #fIcon
 Ds0 f1 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f1 110 566 20 20 13 0 #rect
 Ds0 f1 @|RichDialogProcessEndIcon #fIcon
-Ds0 f3 guid 124A02771202A69C #txt
-Ds0 f3 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f3 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
-' #txt
-Ds0 f3 actionTable 'out=in;
-' #txt
 Ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -106,16 +100,14 @@ Ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f3 guid 124A02771202A69C #txt
+Ds0 f3 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
+Ds0 f3 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
+' #txt
+Ds0 f3 actionTable 'out=in;
+' #txt
 Ds0 f3 390 62 20 20 -54 -32 #rect
 Ds0 f3 @|RichDialogProcessStartIcon #fIcon
-Ds0 f4 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
-' #txt
-Ds0 f4 actionTable 'out=in;
-' #txt
-Ds0 f4 actionCode 'out.lettersNb=in.lettersNb+1;
-panel.templateTaskPane.setCollapsed(true);
-panel.templateButton.setEnabled(false);' #txt
-Ds0 f4 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -126,10 +118,28 @@ disable template chooser button</name>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f4 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
+' #txt
+Ds0 f4 actionTable 'out=in;
+' #txt
+Ds0 f4 actionCode 'out.lettersNb=in.lettersNb+1;
+panel.templateTaskPane.setCollapsed(true);
+panel.templateButton.setEnabled(false);' #txt
+Ds0 f4 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f4 382 124 36 24 20 -2 #rect
 Ds0 f4 @|RichDialogProcessStepIcon #fIcon
 Ds0 f5 expr out #txt
 Ds0 f5 400 82 400 124 #arcP
+Ds0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>set the documentFactory
+Object</name>
+        <nameStyle>30,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f7 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
 ' #txt
 Ds0 f7 actionTable 'out=in;
@@ -143,18 +153,18 @@ panel.Button1.setEnabled(false);
 
 ' #txt
 Ds0 f7 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f7 102 140 36 24 20 -2 #rect
+Ds0 f7 @|RichDialogProcessStepIcon #fIcon
+Ds0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>set the documentFactory
-Object</name>
+        <name>displays a new 
+Template Panel</name>
         <nameStyle>30,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f7 102 140 36 24 20 -2 #rect
-Ds0 f7 @|RichDialogProcessStepIcon #fIcon
 Ds0 f10 targetWindow THIS #txt
 Ds0 f10 targetDisplay EXISTING:default_display #txt
 Ds0 f10 richDialogId ch.ivyteam.ivy.demo.docfactory.TemplatePanel #txt
@@ -174,16 +184,6 @@ Ds0 f10 windowConfiguration '* ' #txt
 Ds0 f10 isAsynch true #txt
 Ds0 f10 isInnerRd true #txt
 Ds0 f10 isDialog false #txt
-Ds0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>displays a new 
-Template Panel</name>
-        <nameStyle>30,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f10 382 180 36 24 24 -17 #rect
 Ds0 f10 @|RichDialogIcon #fIcon
 Ds0 f11 expr out #txt
@@ -191,12 +191,6 @@ Ds0 f11 400 148 400 180 #arcP
 Ds0 f12 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f12 390 270 20 20 13 0 #rect
 Ds0 f12 @|RichDialogProcessEndIcon #fIcon
-Ds0 f14 guid 124A5E7FBE15227F #txt
-Ds0 f14 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f14 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
-' #txt
-Ds0 f14 actionTable 'out=in;
-' #txt
 Ds0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -206,14 +200,14 @@ Ds0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f14 guid 124A5E7FBE15227F #txt
+Ds0 f14 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
+Ds0 f14 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
+' #txt
+Ds0 f14 actionTable 'out=in;
+' #txt
 Ds0 f14 390 334 20 20 13 0 #rect
 Ds0 f14 @|RichDialogProcessStartIcon #fIcon
-Ds0 f17 guid 124A5EF25348F323 #txt
-Ds0 f17 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f17 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
-' #txt
-Ds0 f17 actionTable 'out=in;
-' #txt
 Ds0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -223,14 +217,14 @@ Ds0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f17 guid 124A5EF25348F323 #txt
+Ds0 f17 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
+Ds0 f17 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
+' #txt
+Ds0 f17 actionTable 'out=in;
+' #txt
 Ds0 f17 710 62 20 20 13 0 #rect
 Ds0 f17 @|RichDialogProcessStartIcon #fIcon
-Ds0 f18 guid 124A5EF627CA5F1C #txt
-Ds0 f18 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f18 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
-' #txt
-Ds0 f18 actionTable 'out=in;
-' #txt
 Ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -240,14 +234,14 @@ Ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f18 guid 124A5EF627CA5F1C #txt
+Ds0 f18 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
+Ds0 f18 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
+' #txt
+Ds0 f18 actionTable 'out=in;
+' #txt
 Ds0 f18 806 454 20 20 -29 -29 #rect
 Ds0 f18 @|RichDialogProcessStartIcon #fIcon
-Ds0 f19 guid 124A5EF954480299 #txt
-Ds0 f19 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f19 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
-' #txt
-Ds0 f19 actionTable 'out=in;
-' #txt
 Ds0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -257,8 +251,24 @@ Ds0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f19 guid 124A5EF954480299 #txt
+Ds0 f19 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
+Ds0 f19 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
+' #txt
+Ds0 f19 actionTable 'out=in;
+' #txt
 Ds0 f19 518 454 20 20 -30 -28 #rect
 Ds0 f19 @|RichDialogProcessStartIcon #fIcon
+Ds0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>If none of the checkbox is selected
+disables the create letter button</name>
+        <nameStyle>69,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f20 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
 ' #txt
 Ds0 f20 actionTable 'out=in;
@@ -276,16 +286,6 @@ if(in.lettersNb==0){
 	panel.Button1.setEnabled(false);
 }' #txt
 Ds0 f20 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>If none of the checkbox is selected
-disables the create letter button</name>
-        <nameStyle>69,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f20 798 500 36 24 20 -2 #rect
 Ds0 f20 @|RichDialogProcessStepIcon #fIcon
 Ds0 f21 expr out #txt
@@ -295,6 +295,16 @@ Ds0 f22 806 558 20 20 13 0 #rect
 Ds0 f22 @|RichDialogProcessEndIcon #fIcon
 Ds0 f23 expr out #txt
 Ds0 f23 816 524 816 558 #arcP
+Ds0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>If none of the checkbox is selected
+disables the create letter button</name>
+        <nameStyle>69,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f24 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
 ' #txt
 Ds0 f24 actionTable 'out=in;
@@ -310,16 +320,6 @@ if(in.lettersNb==0){
 	panel.Button1.setEnabled(false);
 }' #txt
 Ds0 f24 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>If none of the checkbox is selected
-disables the create letter button</name>
-        <nameStyle>69,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f24 510 508 36 24 20 -2 #rect
 Ds0 f24 @|RichDialogProcessStepIcon #fIcon
 Ds0 f25 expr out #txt
@@ -329,6 +329,16 @@ Ds0 f26 518 558 20 20 13 0 #rect
 Ds0 f26 @|RichDialogProcessEndIcon #fIcon
 Ds0 f27 expr out #txt
 Ds0 f27 528 532 528 558 #arcP
+Ds0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>WriteSerialLetter
+ToManyCorrespondents</name>
+        <nameStyle>38,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f28 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f28 processCall 'Functional Processes/writeSerialLetterToManyCorrespondents:writeSerialLettersToManyCorrespondents(String,List<ch.ivyteam.ivy.addons.docfactory.DocumentTemplate>,Boolean,Boolean,String,String)' #txt
 Ds0 f28 doCall true #txt
@@ -346,22 +356,22 @@ Ds0 f28 responseMappingAction 'out=in;
 out.fileOperationMessage=result.FileOperationMessage;
 out.listFileOperationMessage=result.listOfFileOperationMessages;
 ' #txt
-Ds0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>WriteSerialLetter
-ToManyCorrespondents</name>
-        <nameStyle>38,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f28 702 172 36 24 20 -19 #rect
 Ds0 f28 @|CallSubIcon #fIcon
 Ds0 f28 -14336|-1|-16777216 #nodeStyle
 Ds0 f30 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f30 710 366 20 20 13 0 #rect
 Ds0 f30 @|RichDialogProcessEndIcon #fIcon
+Ds0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>make the List of 
+DocumentTemplate</name>
+        <nameStyle>34,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f9 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
 ' #txt
 Ds0 f9 actionTable 'out=in;
@@ -378,22 +388,23 @@ for(ULCComponent ulc : ulcs){
 }
 ' #txt
 Ds0 f9 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>make the List of 
-DocumentTemplate</name>
-        <nameStyle>34,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f9 702 116 36 24 20 -16 #rect
 Ds0 f9 @|RichDialogProcessStepIcon #fIcon
 Ds0 f32 expr out #txt
 Ds0 f32 720 82 720 116 #arcP
 Ds0 f29 expr out #txt
 Ds0 f29 720 140 720 172 #arcP
+Ds0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>we set the template
+with the per default 
+inserted doc template in the cms</name>
+        <nameStyle>74,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f33 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
 ' #txt
 Ds0 f33 actionTable 'out=in;
@@ -426,22 +437,10 @@ if(f.exists()){
 	
 }' #txt
 Ds0 f33 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>we set the template
-with the per default 
-inserted doc template in the cms</name>
-        <nameStyle>74,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f33 102 196 36 24 20 -22 #rect
 Ds0 f33 @|RichDialogProcessStepIcon #fIcon
 Ds0 f34 expr out #txt
 Ds0 f34 120 164 120 196 #arcP
-Ds0 f35 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -452,10 +451,16 @@ CMS exists?</name>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f35 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f35 106 258 28 28 19 -11 #rect
 Ds0 f35 @|AlternativeIcon #fIcon
 Ds0 f36 expr out #txt
 Ds0 f36 120 220 120 258 #arcP
+Ds0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ds0 f16 targetWindow NEW:card: #txt
 Ds0 f16 targetDisplay TOP #txt
 Ds0 f16 richDialogId ch.ivyteam.ivy.addons.commondialogs.SingleLineInputDialog #txt
@@ -473,14 +478,9 @@ Ds0 f16 responseMappingAction 'out=in;
 out.templatePath=result.inputString;
 ' #txt
 Ds0 f16 windowConfiguration '{/title "\"Enter the path from the template\""/width 0 /height 0 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
-Ds0 f16 isAsynch true #txt
+Ds0 f16 isAsynch false #txt
 Ds0 f16 isInnerRd true #txt
 Ds0 f16 isDialog false #txt
-Ds0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Ds0 f16 102 332 36 24 20 -2 #rect
 Ds0 f16 @|RichDialogIcon #fIcon
 Ds0 f37 expr in #txt
@@ -509,7 +509,6 @@ Ds0 f38 106 272 110 576 #arcP
 Ds0 f38 1 64 272 #addKink
 Ds0 f38 2 64 576 #addKink
 Ds0 f38 1 0.40386026754962945 0 0 #arcLabel
-Ds0 f39 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -519,10 +518,22 @@ Ds0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f39 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f39 106 378 28 28 11 3 #rect
 Ds0 f39 @|AlternativeIcon #fIcon
 Ds0 f40 expr out #txt
 Ds0 f40 120 356 120 378 #arcP
+Ds0 f41 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>if indicated template
+exists, enables the button,
+else, disables the buttons.</name>
+        <nameStyle>77,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f41 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
 ' #txt
 Ds0 f41 actionTable 'out=in;
@@ -548,17 +559,6 @@ if(file.exists()){
 	panel.Button1.setEnabled(false);
 }' #txt
 Ds0 f41 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f41 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>if indicated template
-exists, enables the button,
-else, disables the buttons.</name>
-        <nameStyle>77,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f41 102 436 36 24 29 -26 #rect
 Ds0 f41 @|RichDialogProcessStepIcon #fIcon
 Ds0 f42 expr in #txt
@@ -582,12 +582,6 @@ Ds0 f6 134 392 130 576 #arcP
 Ds0 f6 1 304 392 #addKink
 Ds0 f6 2 304 576 #addKink
 Ds0 f6 1 0.20254230475648052 0 0 #arcLabel
-Ds0 f15 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
-' #txt
-Ds0 f15 actionTable 'out=in;
-' #txt
-Ds0 f15 actionCode ivy.session.loginSessionUser("Developer","Developer"); #txt
-Ds0 f15 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -599,12 +593,28 @@ Rights</name>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f15 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
+' #txt
+Ds0 f15 actionTable 'out=in;
+' #txt
+Ds0 f15 actionCode ivy.session.loginSessionUser("Developer","Developer"); #txt
+Ds0 f15 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f15 102 84 36 24 24 -18 #rect
 Ds0 f15 @|RichDialogProcessStepIcon #fIcon
 Ds0 f44 expr out #txt
 Ds0 f44 120 58 120 84 #arcP
 Ds0 f8 expr out #txt
 Ds0 f8 120 108 120 140 #arcP
+Ds0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>displays result
+Message</name>
+        <nameStyle>23,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f47 targetWindow NEW:card: #txt
 Ds0 f47 targetDisplay TOP #txt
 Ds0 f47 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
@@ -620,20 +630,19 @@ Ds0 f47 responseMappingAction 'out=in;
 Ds0 f47 windowConfiguration '{/title "<%=in.title%>"/width 0 /height 0 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 Ds0 f47 isAsynch true #txt
 Ds0 f47 isInnerRd true #txt
-Ds0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>displays result
-Message</name>
-        <nameStyle>23,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f47 702 284 36 24 25 -17 #rect
 Ds0 f47 @|RichDialogIcon #fIcon
 Ds0 f31 expr out #txt
 Ds0 f31 720 308 720 366 #arcP
+Ds0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>do the result Message</name>
+        <nameStyle>21,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f55 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
 ' #txt
 Ds0 f55 actionTable 'out=in;
@@ -677,27 +686,12 @@ if(panel.oneDocCheckBox.isSelected() && panel.SeparatedocumentsCheckBox.isSelect
 	out.title="Information";
 }' #txt
 Ds0 f55 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>do the result Message</name>
-        <nameStyle>21,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f55 702 228 36 24 20 -2 #rect
 Ds0 f55 @|RichDialogProcessStepIcon #fIcon
 Ds0 f56 expr out #txt
 Ds0 f56 720 196 720 228 #arcP
 Ds0 f45 expr out #txt
 Ds0 f45 720 252 720 284 #arcP
-Ds0 f46 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
-' #txt
-Ds0 f46 actionTable 'out=in;
-' #txt
-Ds0 f46 actionCode panel.Button1.setEnabled(true); #txt
-Ds0 f46 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -707,6 +701,12 @@ Ds0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f46 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
+' #txt
+Ds0 f46 actionTable 'out=in;
+' #txt
+Ds0 f46 actionCode panel.Button1.setEnabled(true); #txt
+Ds0 f46 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
 Ds0 f46 382 220 36 24 20 -2 #rect
 Ds0 f46 @|RichDialogProcessStepIcon #fIcon
 Ds0 f48 expr out #txt
