@@ -1,8 +1,4 @@
-<<<<<<< .mine
-#Mon Mar 08 11:25:22 CET 2010
-=======
 #Mon Mar 08 12:31:05 CET 2010
->>>>>>> .r32295
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=ivydemos.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=ivydemos
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:useProjectSettings=true
