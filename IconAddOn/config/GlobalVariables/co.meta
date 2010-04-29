@@ -1,2 +1,1 @@
-co: name={Global Variables} description={IvyScript String Format} changed={2008-02-19 13:58:04 GMT} changedby={mde} visualorder={0} guid={12066570F19B2B46} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}
-val: guid={12066570F19327CA} datatype={} isdefault={true} langid={en} description={} validfrom={2005-11-07 16:43:00 GMT} validto={} changed={2008-02-19 13:59:32 GMT} changedby={mde} properties={###r#n##Mon Jan 28 14:59:32 CET 2008#r#nconfig.ui.name=Global Variables#r#n} id={}
+co: name={GlobalVariables} description={IvyScript String Format} changed={2010-04-29 07:23:44 GMT} changedby={} visualorder={0} guid={12066570F19B2B46} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}

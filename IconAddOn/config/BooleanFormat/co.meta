@@ -1,2 +1,1 @@
-co: name={BooleanFormat} description={IvyScript Boolean Format} changed={2008-02-19 13:58:04 GMT} changedby={kvg} visualorder={0} guid={11831C1F8C0FE4B0} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}
-val: guid={11831C1F8C0F7C51} datatype={} isdefault={true} langid={en} description={} validfrom={2005-11-07 16:43:00 GMT} validto={} changed={2008-02-19 13:59:32 GMT} changedby={kvg} properties={###r#n##Mon Jan 28 14:59:32 CET 2008#r#nconfig.ui.path=Formats#r#nconfig.ui.name=Boolean#r#n} id={}
+co: name={BooleanFormat} description={IvyScript Boolean Format} changed={2010-04-29 07:23:43 GMT} changedby={} visualorder={0} guid={11831C1F8C0FE4B0} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}

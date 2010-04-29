@@ -1,2 +1,1 @@
-co: name={Environments} description={Environments} changed={2008-02-19 13:58:04 GMT} changedby={mde} visualorder={0} guid={120A9EE3149B7C9E} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}
-val: guid={120A9EE31498698C} datatype={} isdefault={true} langid={en} description={} validfrom={2005-11-07 16:43:00 GMT} validto={} changed={2008-02-19 13:59:32 GMT} changedby={mde} properties={###r#n##Mon Jan 28 14:59:32 CET 2008#r#nconfig.ui.name=Environments#r#n} id={}
+co: name={Environments} description={Environments} changed={2010-04-29 07:23:44 GMT} changedby={} visualorder={0} guid={120A9EE3149B7C9E} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}
