@@ -40,6 +40,7 @@ private RLabel messageTitleLabel = null;
   public void initialize()
   {
 //        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(443,132));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(340,134));
         RFiller hSpacer = new RFiller();
         hSpacer.setStyleProperties("{/minimumSizeWidth \"280\"/preferredSizeWidth \"280\"/minimumSizeHeight \"1\"/preferredSizeHeight \"1\"}");
         this.add(getOkButton(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
@@ -92,7 +93,7 @@ private RHtmlPane getMessageTextHtmlPane() {
 		messageTextHtmlPane.setName("messageTextHtmlPane");
 		messageTextHtmlPane.setStyle("fill-horiz-north-border");
 		messageTextHtmlPane.setFocusable(false);
-		messageTextHtmlPane.setStyleProperties("{/weightY \"1\"}");
+		messageTextHtmlPane.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"}");
 		messageTextHtmlPane.setMaximumSize(new Dimension(600, Integer.MAX_VALUE));
 	}
 	return messageTextHtmlPane;
