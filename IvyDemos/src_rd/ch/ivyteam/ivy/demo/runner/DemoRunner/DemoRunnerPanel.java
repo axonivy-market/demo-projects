@@ -102,6 +102,8 @@ private RScrollPane getListScrollPane() {
 		listScrollPane.setName("listScrollPane");
 		listScrollPane.setStyle("fill-vert-border");
 		listScrollPane.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
+		listScrollPane.setPreferredSize(new com.ulcjava.base.application.util.Dimension(150,0));
+		listScrollPane.setMinimumSize(new com.ulcjava.base.application.util.Dimension(150,0));
 		listScrollPane.setViewPortView(getDemoList());
 		listScrollPane.setName("listScrollPane");
 	}
@@ -454,7 +456,7 @@ private RGridBagLayoutPane getListPane() {
 	if (listPane == null) {
 		listPane = new RGridBagLayoutPane();
 		listPane.setName("listPane");
-		listPane.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"0.25\"}");
+		listPane.setStyleProperties("{/fill \"VERTICAL\"/weightY \"1\"/weightX \"0\"}");
 		listPane.add(getDemoListTitleLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		listPane.add(getListScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		listPane.add(getFinishApplicationButton(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));

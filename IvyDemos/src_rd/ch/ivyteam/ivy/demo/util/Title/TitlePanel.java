@@ -4,6 +4,7 @@ import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
+import com.ulcjava.base.application.util.Color;
 
 /**
  * RichDialog panel implementation for WizardTitlePanel.
@@ -33,13 +34,21 @@ private RLabel subtitleLabel = null;
    */
   private void initialize()
   {
+        RFiller lineFiller = new RFiller();
+        lineFiller.setMinimumSize(new com.ulcjava.base.application.util.Dimension(1,1));
+        lineFiller.setMaximumSize(new com.ulcjava.base.application.util.Dimension(1,1));
+        lineFiller.setOpaque(true);
+        lineFiller.setBackground(Color.gray);
+        lineFiller.setPreferredSize(new com.ulcjava.base.application.util.Dimension(1,1));
         RFiller verticalFiller = new RFiller();
         verticalFiller.setStyle("verticalGlue");
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(305,70));
-        this.setStyleProperties("{/backgroundColor {/b \"255\"/r \"255\"/g \"255\"}/opaque \"true\"}");
-        this.add(getTitleLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getSubtitleLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(verticalFiller, new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+          this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(400,80));
+        this.setMinimumSize(new com.ulcjava.base.application.util.Dimension(0,80));
+      this.setStyleProperties("{/backgroundColor {/b \"255\"/r \"255\"/g \"255\"}/opaque \"true\"}");
+        this.add(getTitleLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getSubtitleLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(verticalFiller, new com.ulcjava.base.application.GridBagConstraints(1, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(lineFiller, new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 1, 1.0D, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.HORIZONTAL, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
 /**

@@ -1,0 +1,4 @@
+WebBrowserData #class
+ch.ivyteam.ivy.demo.webbrowser.WebBrowser #namespace
+backEnabled Boolean #field
+forwardEnabled Boolean #field

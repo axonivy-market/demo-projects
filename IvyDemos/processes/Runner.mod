@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Feb 19 12:42:32 CET 2010]
+[>Created: Tue Jun 08 13:52:42 CEST 2010]
 1215975017F13818 3.13 #module
 >Proto >Proto Collection #zClass
 Rr0 Runner Big #zClass
@@ -76,6 +76,15 @@ subType.name=
 Rr0 f0 showInStartList 1 #txt
 Rr0 f0 67 123 26 26 14 0 #rect
 Rr0 f0 @|StartRequestIcon #fIcon
+Rr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>define demo ID''s</name>
+        <nameStyle>16,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Rr0 f1 actionDecl 'ivydemos.Data out;
 ' #txt
 Rr0 f1 actionTable 'out=in;
@@ -98,24 +107,16 @@ demoIds = [
 	"ch.ivyteam.ivy.demo.table.CustomTableCellWidgets",
 	"ch.ivyteam.ivy.demo.pollingtimer.UserInterfaceRefresh",
   "ch.ivyteam.ivy.demo.validation.ValidationDemo",
-	"ch.ivyteam.ivy.demo.docfactory.DocFactory"
+	"ch.ivyteam.ivy.demo.docfactory.DocFactory",
+	"ch.ivyteam.ivy.demo.webbrowser.WebBrowser"
 ];
 out.demos = demoIds;' #txt
 Rr0 f1 type ivydemos.Data #txt
-Rr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>define demo ID''s</name>
-        <nameStyle>16,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Rr0 f1 62 172 36 24 20 8 #rect
 Rr0 f1 @|StepIcon #fIcon
 Rr0 f2 expr out #txt
 Rr0 f2 80 149 80 172 #arcP
-Rr0 f3 targetWindow NEW #txt
+Rr0 f3 targetWindow NEW:card: #txt
 Rr0 f3 targetDisplay TOP #txt
 Rr0 f3 richDialogId ch.ivyteam.ivy.demo.runner.DemoRunner #txt
 Rr0 f3 startMethod start(List<String>) #txt
@@ -127,15 +128,7 @@ Rr0 f3 responseActionDecl 'ivydemos.Data out;
 ' #txt
 Rr0 f3 responseMappingAction 'out=in;
 ' #txt
-Rr0 f3 windowConfiguration '#Mon May 25 12:40:26 CEST 2009
-height=700
-maximized=false
-centered=true
-close_after_last_rd=true
-resizable=true
-width=800
-title=Demo Runner
-' #txt
+Rr0 f3 windowConfiguration '{/title "Demo Runner"/width 800 /height 700 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 Rr0 f3 isAsynch false #txt
 Rr0 f3 isInnerRd false #txt
 Rr0 f3 isDialog false #txt
@@ -143,7 +136,7 @@ Rr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>open demo runner</name>
-        <nameStyle>16,9
+        <nameStyle>16,7,9
 </nameStyle>
     </language>
 </elementInfo>
