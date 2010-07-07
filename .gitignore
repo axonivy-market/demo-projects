@@ -13,4 +13,5 @@ IvyDemos/src_dataClasses/*
 WorkflowUI/*.log
 WorkflowUI/classes
 WorkflowUI/logs
+WorkflowUI/logs/*
 WorkflowUI/src_dataClasses/*
