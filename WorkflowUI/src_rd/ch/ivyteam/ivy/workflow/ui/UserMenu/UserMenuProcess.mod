@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Jun 24 16:56:43 CEST 2009]
-11898D6F2E86E751 3.12 #module
+[>Created: Fri Jun 25 17:53:05 CEST 2010]
+11898D6F2E86E751 3.14 #module
 >Proto >Proto Collection #zClass
 Us0 UserMenuProcess Big #zClass
 Us0 RD #cInfo
@@ -29,22 +29,8 @@ Us0 @PushWFArc f11 '' #zField
 Us0 @PushWFArc f5 '' #zField
 Us0 @RichDialogProcessStart f21 '' #zField
 Us0 @PushWFArc f22 '' #zField
-Us0 @RichDialogProcessStep f23 '' #zField
 Us0 @RichDialogProcessStart f24 '' #zField
-Us0 @Alternative f25 '' #zField
-Us0 @RichDialog f26 '' #zField
-Us0 @PushWFArc f27 '' #zField
-Us0 @PushWFArc f28 '' #zField
-Us0 @PushWFArc f29 '' #zField
 Us0 @RichDialogProcessStart f32 '' #zField
-Us0 @RichDialogProcessStep f33 '' #zField
-Us0 @RichDialog f34 '' #zField
-Us0 @Alternative f35 '' #zField
-Us0 @PushWFArc f37 '' #zField
-Us0 @PushWFArc f38 '' #zField
-Us0 @RichDialogProcessStart f41 '' #zField
-Us0 @PushWFArc f42 '' #zField
-Us0 @PushWFArc f36 '' #zField
 Us0 @RichDialogProcessStart f57 '' #zField
 Us0 @PushWFArc f62 '' #zField
 Us0 @RichDialogProcessStart f63 '' #zField
@@ -67,15 +53,24 @@ Us0 @PushWFArc f47 '' #zField
 Us0 @PushWFArc f45 '' #zField
 Us0 @RichDialogProcessStart f48 '' #zField
 Us0 @PushWFArc f49 '' #zField
-Us0 @PushWFArc f50 '' #zField
-Us0 @PushWFArc f40 '' #zField
-Us0 @PushWFArc f39 '' #zField
-Us0 @PushWFArc f31 '' #zField
 Us0 @RichDialogProcessStep f51 '' #zField
 Us0 @RichDialogProcessEnd f52 '' #zField
 Us0 @PushWFArc f54 '' #zField
-Us0 @RichDialogProcessStart f30 '' #zField
-Us0 @PushWFArc f53 '' #zField
+Us0 @RichDialogProcessStep f55 '' #zField
+Us0 @RichDialogProcessStart f56 '' #zField
+Us0 @PushWFArc f58 '' #zField
+Us0 @Alternative f59 '' #zField
+Us0 @RichDialog f60 '' #zField
+Us0 @PushWFArc f67 '' #zField
+Us0 @PushWFArc f68 '' #zField
+Us0 @PushWFArc f69 '' #zField
+Us0 @PushWFArc f61 '' #zField
+Us0 @PushWFArc f70 '' #zField
+Us0 @PushWFArc f27 '' #zField
+Us0 @RichDialogBroadcastStart f23 '' #zField
+Us0 @PushWFArc f25 '' #zField
+Us0 @InfoButton f26 '' #zField
+Us0 @AnnotationArc f28 '' #zField
 >Proto Us0 Us0 UserMenuProcess #zField
 Us0 f0 guid 11898E4DF4D450B5 #txt
 Us0 f0 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
@@ -149,7 +144,7 @@ ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),
  ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);' #txt
 Us0 f6 outParameterDecl '<> result;
 ' #txt
-Us0 f6 embeddedRdInitializations '{/finishedCaseSearchRDC {/fieldName "finishedCaseSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleCaseListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningCaseMode = false;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"}/settings {/fieldName "settings"/startMethod "start()"/parameterMapping ""/initScript ""}/runningTaskSearchRDC {/fieldName "runningTaskSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleTaskListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningTaskMode = true;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"}/runningCaseSearchRDC {/fieldName "runningCaseSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleCaseListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningCaseMode = true;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"}/startList {/fieldName "startList"/startMethod "start(String)"/parameterMapping "param.aDisplayId=in.destinationDisplay.getDisplayId();\n"/initScript ""}/finishedTaskSearchRDC {/fieldName "finishedTaskSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleTaskListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningTaskMode = false;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"}}' #txt
+Us0 f6 embeddedRdInitializations '{/finishedCaseSearchRDC {/fieldName "finishedCaseSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleCaseListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningCaseMode = false;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"}/runningTaskSearchRDC {/fieldName "runningTaskSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleTaskListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningTaskMode = true;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"}/finishedTaskSearchRDC {/fieldName "finishedTaskSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleTaskListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningTaskMode = false;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"}/runningCaseSearchRDC {/fieldName "runningCaseSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleCaseListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningCaseMode = true;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"}/startList {/fieldName "startList"/startMethod "start(String)"/parameterMapping "param.aDisplayId=in.destinationDisplay.getDisplayId();\n"/initScript ""}}' #txt
 Us0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -161,22 +156,10 @@ Us0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Us0 f6 182 126 20 20 13 0 #rect
 Us0 f6 @|RichDialogInitStartIcon #fIcon
-Us0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>make the menu entries 
-visible or not (wf administrator or not)
-register to the system event 
-footer message to empty
-</name>
-        <nameStyle>118,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Us0 f8 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
 ' #txt
 Us0 f8 actionTable 'out=in;
+out.alreadyLoadedOnDisplay=new java.util.HashMap();
 ' #txt
 Us0 f8 actionCode 'import ch.ivyteam.ivy.event.SystemEventCategory;
 
@@ -195,6 +178,19 @@ out.footerTextMessage = "";
 out.footerToolTipTextMessage = "";
 ' #txt
 Us0 f8 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
+Us0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>make the menu entries 
+visible or not (wf administrator or not)
+register to the system event 
+footer message to empty
+</name>
+        <nameStyle>118,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Us0 f8 110 220 36 24 17 4 #rect
 Us0 f8 @|RichDialogProcessStepIcon #fIcon
 Us0 f9 expr out #txt
@@ -205,6 +201,13 @@ Us0 f2 1 192 232 #addKink
 Us0 f2 0 0.8246512861264338 0 0 #arcLabel
 Us0 f7 expr out #txt
 Us0 f7 128 244 128 411 #arcP
+Us0 f10 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
+' #txt
+Us0 f10 actionTable 'out=in;
+' #txt
+Us0 f10 actionCode 'panel.userMenuTaskPane.collapsed = false;
+panel.userMenuTaskPane.collapsed = true;' #txt
+Us0 f10 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -215,13 +218,6 @@ user menu</name>
     </language>
 </elementInfo>
 ' #txt
-Us0 f10 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
-' #txt
-Us0 f10 actionTable 'out=in;
-' #txt
-Us0 f10 actionCode 'panel.userMenuTaskPane.collapsed = false;
-panel.userMenuTaskPane.collapsed = true;' #txt
-Us0 f10 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f10 334 428 36 24 -19 18 #rect
 Us0 f10 @|RichDialogProcessStepIcon #fIcon
 Us0 f11 expr out #txt
@@ -259,66 +255,14 @@ Us0 f22 326 232 334 440 #arcP
 Us0 f22 1 304 232 #addKink
 Us0 f22 2 304 440 #addKink
 Us0 f22 1 0.6348266410120326 0 0 #arcLabel
-Us0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set the task pane title
-acc. to the selection
-load absence mgmt
-(if loaded refresh)</name>
-        <nameStyle>83,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Us0 f23 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
-' #txt
-Us0 f23 actionTable 'out=in;
-' #txt
-Us0 f23 actionCode 'import ch.ivyteam.ivy.workflow.ui.common.AbsenceManagement.AbsenceManagementPanel;
-import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
-
-// set the user menu title to inform the current selection and expanded to false 
-// panel.userMenuTaskPane.setTitle(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/userMenuShortDesc") + " (" + panel.substitutesHyperlink.getText() + ")");
-
-
-List<ULCComponent> componentsList;
-
-
-// display under this tab
-componentsList = in.destinationDisplay.getComponents().toList();
-
-
-// reset the flag (task found on display to false)
-out.absenceManagmentAlreadyLoadedOnDisplay = false;
-
-for (int i=0; i< componentsList.size(); i++)
-{
-	ULCComponent currentComponent = componentsList.get(i);
-	
-	if (currentComponent instanceof AbsenceManagementPanel)
-	{
-		// finished tasks RD has been already loaded
-		// it should be selected
-		out.destinationDisplay.setSelectedComponent(currentComponent);
-		out.absenceManagmentAlreadyLoadedOnDisplay = true;
-
-		// exit from the loop
-		i = componentsList.size();
-	}
-	
-}' #txt
-Us0 f23 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f23 590 156 36 24 25 -13 #rect
-Us0 f23 @|RichDialogProcessStepIcon #fIcon
 Us0 f24 guid 119999C290E7B3DE #txt
 Us0 f24 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f24 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
 ' #txt
 Us0 f24 actionTable 'out=in;
+out.panelToLoad.optionalPanelDisplayName=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/absenceShortDesc");
+out.panelToLoad.richDialogId=ch.ivyteam.ivy.workflow.ui.common.AbsenceManagement.AbsenceManagementPanel.class.getPackage().getName();
 ' #txt
-Us0 f24 actionCode panel.userMenuElementsCardPane.setSelectedComponent(panel.emptyBoxPane); #txt
 Us0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -328,64 +272,16 @@ Us0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Us0 f24 598 110 20 20 13 0 #rect
+Us0 f24 534 110 20 20 13 0 #rect
 Us0 f24 @|RichDialogProcessStartIcon #fIcon
-Us0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
-Us0 f25 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f25 594 226 28 28 14 0 #rect
-Us0 f25 @|AlternativeIcon #fIcon
-Us0 f26 targetWindow THIS #txt
-Us0 f26 targetDisplay <%=in.destinationDisplay.getDisplayId()%> #txt
-Us0 f26 richDialogId ch.ivyteam.ivy.workflow.ui.common.AbsenceManagement #txt
-Us0 f26 startMethod start() #txt
-Us0 f26 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f26 panelName 'Absence management' #txt
-Us0 f26 requestActionDecl '<> param;' #txt
-Us0 f26 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
-' #txt
-Us0 f26 responseMappingAction 'out=in;
-' #txt
-Us0 f26 windowConfiguration '#Fri May 01 13:11:29 CEST 2009
-use_default=true
-' #txt
-Us0 f26 isAsynch true #txt
-Us0 f26 isInnerRd true #txt
-Us0 f26 isDialog false #txt
-Us0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
-Us0 f26 590 300 36 24 20 -2 #rect
-Us0 f26 @|RichDialogIcon #fIcon
-Us0 f27 expr out #txt
-Us0 f27 608 130 608 156 #arcP
-Us0 f28 expr out #txt
-Us0 f28 608 180 608 226 #arcP
-Us0 f29 expr in #txt
-Us0 f29 outCond !in.absenceManagmentAlreadyLoadedOnDisplay #txt
-Us0 f29 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>absence mgmt
-not loaded yet</name>
-        <nameStyle>27,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Us0 f29 608 254 608 300 #arcP
 Us0 f32 guid 11999AC996C1819B #txt
 Us0 f32 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f32 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
 ' #txt
 Us0 f32 actionTable 'out=in;
+out.panelToLoad.optionalPanelDisplayName=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/substitutesShortDesc");
+out.panelToLoad.richDialogId=ch.ivyteam.ivy.workflow.ui.common.SubstituteManagement.SubstituteManagementPanel.class.getPackage().getName();
 ' #txt
-Us0 f32 actionCode panel.userMenuElementsCardPane.setSelectedComponent(panel.emptyBoxPane); #txt
 Us0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -395,141 +291,8 @@ Us0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Us0 f32 814 110 20 20 13 0 #rect
+Us0 f32 558 150 20 20 13 0 #rect
 Us0 f32 @|RichDialogProcessStartIcon #fIcon
-Us0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set the task pane title
-acc. to the selection
-load substitute management 
-(if loaded refresh)</name>
-        <nameStyle>93,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Us0 f33 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
-' #txt
-Us0 f33 actionTable 'out=in;
-' #txt
-Us0 f33 actionCode 'import ch.ivyteam.ivy.workflow.ui.common.SubstituteManagement.SubstituteManagementPanel;
-import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
-
-
-
-
-// set the user menu title to inform the current selection and expanded to false 
-//panel.userMenuTaskPane.setTitle(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/userMenuShortDesc") + " (" + panel.substitutesHyperlink.getText() + ")");
-
-
-
-List<ULCComponent> componentsList;
-
-
-// display under this tab
-componentsList = in.destinationDisplay.getComponents().toList();
-
-
-// reset the flag (task found on display to false)
-out.substituteManagmentAlreadyLoadedOnDisplay = false;
-
-for (int i=0; i< componentsList.size(); i++)
-{
-	ULCComponent currentComponent = componentsList.get(i);
-	
-	if (currentComponent instanceof SubstituteManagementPanel)
-	{
-		// finished tasks RD has been already loaded
-		// it should be selected
-		out.destinationDisplay.setSelectedComponent(currentComponent);
-		out.substituteManagmentAlreadyLoadedOnDisplay = true;
-
-		// exit from the loop
-		i = componentsList.size();
-	}
-	
-}' #txt
-Us0 f33 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f33 806 156 36 24 20 -2 #rect
-Us0 f33 @|RichDialogProcessStepIcon #fIcon
-Us0 f34 targetWindow THIS #txt
-Us0 f34 targetDisplay <%=in.destinationDisplay.getDisplayId()%> #txt
-Us0 f34 richDialogId ch.ivyteam.ivy.workflow.ui.common.SubstituteManagement #txt
-Us0 f34 startMethod start() #txt
-Us0 f34 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f34 panelName 'Substitute management' #txt
-Us0 f34 requestActionDecl '<> param;' #txt
-Us0 f34 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
-' #txt
-Us0 f34 responseMappingAction 'out=in;
-' #txt
-Us0 f34 windowConfiguration '#Fri May 01 13:12:16 CEST 2009
-use_default=true
-' #txt
-Us0 f34 isAsynch true #txt
-Us0 f34 isInnerRd true #txt
-Us0 f34 isDialog false #txt
-Us0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
-Us0 f34 806 300 36 24 20 -2 #rect
-Us0 f34 @|RichDialogIcon #fIcon
-Us0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
-Us0 f35 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f35 810 226 28 28 14 0 #rect
-Us0 f35 @|AlternativeIcon #fIcon
-Us0 f37 expr out #txt
-Us0 f37 824 180 824 226 #arcP
-Us0 f38 expr in #txt
-Us0 f38 outCond !in.substituteManagmentAlreadyLoadedOnDisplay #txt
-Us0 f38 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>substitute mgmt
-not loaded yet</name>
-        <nameStyle>30,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Us0 f38 824 254 824 300 #arcP
-Us0 f41 guid 11999B13192FD987 #txt
-Us0 f41 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f41 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
-' #txt
-Us0 f41 actionTable 'out=in;
-' #txt
-Us0 f41 actionCode 'panel.userMenuElementsCardPane.setSelectedComponent(panel.settings);
-
-// set the user menu title to inform the current selection and expanded to false 
-//panel.userMenuTaskPane.setTitle(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/userMenuShortDesc") + " (" + panel.settingsHyperlink.getText() + ")");
-' #txt
-Us0 f41 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>showSettings</name>
-        <nameStyle>12,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Us0 f41 326 254 20 20 10 0 #rect
-Us0 f41 @|RichDialogProcessStartIcon #fIcon
-Us0 f42 expr out #txt
-Us0 f42 326 264 334 440 #arcP
-Us0 f42 1 304 264 #addKink
-Us0 f42 2 304 440 #addKink
-Us0 f42 1 0.6985457523123239 0 0 #arcLabel
-Us0 f36 expr out #txt
-Us0 f36 824 130 824 156 #arcP
 Us0 f57 guid 11AC4F6A88B99CF6 #txt
 Us0 f57 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f57 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
@@ -653,15 +416,6 @@ Us0 f12 222 310 20 20 13 0 #rect
 Us0 f12 @|RichDialogProcessStartIcon #fIcon
 Us0 f13 expr out #txt
 Us0 f13 224 327 137 414 #arcP
-Us0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>ivy_systemevent_workflow_case_created</name>
-        <nameStyle>37,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Us0 f14 guid 1207B74D67233A74 #txt
 Us0 f14 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f14 broadcast ivy_systemevent_workflow_case_created #txt
@@ -700,11 +454,21 @@ while (casesIterator.hasNext() && !found)
 		found = true;
 	}
 }' #txt
+Us0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>ivy_systemevent_workflow_case_created</name>
+        <nameStyle>37,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Us0 f14 1118 102 20 20 13 0 #rect
 Us0 f14 @|RichDialogBroadcastStartIcon #fIcon
 Us0 f15 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f15 1115 379 26 26 14 0 #rect
 Us0 f15 @|RichDialogProcessEndIcon #fIcon
+Us0 f17 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -714,20 +478,10 @@ Us0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Us0 f17 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f17 1114 170 28 28 14 0 #rect
 Us0 f17 @|AlternativeIcon #fIcon
 Us0 f18 expr out #txt
 Us0 f18 1128 122 1128 170 #arcP
-Us0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>build the footer message</name>
-        <nameStyle>24,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Us0 f19 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
 ' #txt
 Us0 f19 actionTable 'out=in;
@@ -769,6 +523,15 @@ out.footerToolTipTextMessage = title + caseDetails;
 out.footerTextMessage = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseCreatedShortDesc");
 ' #txt
 Us0 f19 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
+Us0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>build the footer message</name>
+        <nameStyle>24,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Us0 f19 1110 252 36 24 20 -2 #rect
 Us0 f19 @|RichDialogProcessStepIcon #fIcon
 Us0 f20 expr in #txt
@@ -824,7 +587,7 @@ Us0 f46 responseMappingAction 'out=in;
 Us0 f46 windowConfiguration '#Fri Apr 24 17:02:38 CEST 2009
 use_default=true
 ' #txt
-Us0 f46 isAsynch false #txt
+Us0 f46 isAsynch true #txt
 Us0 f46 isInnerRd true #txt
 Us0 f46 isDialog true #txt
 Us0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -862,24 +625,13 @@ Us0 f49 expr out #txt
 Us0 f49 984 306 914 368 #arcP
 Us0 f49 1 984 368 #addKink
 Us0 f49 1 0.05066689691311281 0 0 #arcLabel
-Us0 f50 expr in #txt
-Us0 f50 810 240 437 440 #arcP
-Us0 f50 1 784 240 #addKink
-Us0 f50 2 784 440 #addKink
-Us0 f50 2 0.3541074547459491 0 0 #arcLabel
-Us0 f40 expr out #txt
-Us0 f40 824 324 437 440 #arcP
-Us0 f40 1 824 440 #addKink
-Us0 f40 1 0.44940459846825515 0 0 #arcLabel
-Us0 f39 expr in #txt
-Us0 f39 594 240 437 440 #arcP
-Us0 f39 1 544 240 #addKink
-Us0 f39 2 544 440 #addKink
-Us0 f39 2 0.4864722790872087 0 0 #arcLabel
-Us0 f31 expr out #txt
-Us0 f31 608 324 437 440 #arcP
-Us0 f31 1 608 440 #addKink
-Us0 f31 1 0.41675608213254894 0 0 #arcLabel
+Us0 f51 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
+' #txt
+Us0 f51 actionTable 'out=in;
+' #txt
+Us0 f51 actionCode 'panel.userMenuElementsCardPane.setSelectedComponent(panel.emptyBoxPane);
+panel.userMenuTaskPane.setExpanded(true);' #txt
+Us0 f51 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f51 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -889,13 +641,6 @@ Us0 f51 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Us0 f51 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
-' #txt
-Us0 f51 actionTable 'out=in;
-' #txt
-Us0 f51 actionCode 'panel.userMenuElementsCardPane.setSelectedComponent(panel.emptyBoxPane);
-panel.userMenuTaskPane.setExpanded(true);' #txt
-Us0 f51 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f51 110 580 36 24 20 -2 #rect
 Us0 f51 @|RichDialogProcessStepIcon #fIcon
 Us0 f52 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
@@ -903,25 +648,179 @@ Us0 f52 115 643 26 26 14 0 #rect
 Us0 f52 @|RichDialogProcessEndIcon #fIcon
 Us0 f54 expr out #txt
 Us0 f54 128 604 128 643 #arcP
-Us0 f30 guid 1210C1810FEA40A4 #txt
-Us0 f30 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f30 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
+Us0 f55 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
 ' #txt
-Us0 f30 actionTable 'out=in;
+Us0 f55 actionTable 'out=in;
 ' #txt
-Us0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Us0 f55 actionCode 'import ch.ivyteam.ivy.workflow.ui.common.AbsenceManagement.AbsenceManagementPanel;
+import com.ulcjava.base.application.ULCComponent;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+
+// 1. set empty pane below settings menu
+panel.userMenuElementsCardPane.setSelectedComponent(panel.emptyBoxPane);
+
+// 2. set the user menu title to inform the current selection and expanded to false 
+// panel.userMenuTaskPane.setTitle(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/userMenuShortDesc") + " (" + panel.substitutesHyperlink.getText() + ")");
+
+// 3. infer "already loaded" state for panel to load
+out.alreadyLoadedOnDisplay.put(in.panelToLoad.richDialogId, false); // clear state
+List<ULCComponent> componentsList = in.destinationDisplay.getComponents().toList();
+String currentComponentRichDialogId;
+for (ULCComponent currentComponent : componentsList)
+{
+	currentComponentRichDialogId = currentComponent.getClass().getPackage().getName(); // id = panel package
+	if (in.panelToLoad.richDialogId == currentComponentRichDialogId)
+	{
+		out.alreadyLoadedOnDisplay.put(in.panelToLoad.richDialogId, true); // already loaded
+		out.destinationDisplay.setSelectedComponent(currentComponent);  // select (bring to front)
+		break;
+	}
+}' #txt
+Us0 f55 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
+Us0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>resetUserMenuHome</name>
-        <nameStyle>17,5,7,9
+        <name>- set empty user menu elements pane
+- set &quot;already loaded&quot; state for panel to load</name>
+        <nameStyle>36,7
+46,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Us0 f30 118 502 20 20 13 0 #rect
-Us0 f30 @|RichDialogProcessStartIcon #fIcon
-Us0 f53 expr out #txt
-Us0 f53 128 522 128 580 #arcP
+Us0 f55 574 260 36 24 20 -2 #rect
+Us0 f55 @|RichDialogProcessStepIcon #fIcon
+Us0 f56 guid 1296FA829B5AE440 #txt
+Us0 f56 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
+Us0 f56 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
+' #txt
+Us0 f56 actionTable 'out=in;
+out.panelToLoad.optionalPanelDisplayName=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/settingsShortDesc");
+out.panelToLoad.richDialogId=ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsPanel.class.getPackage().getName();
+' #txt
+Us0 f56 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>loadSettings</name>
+        <nameStyle>12,5,6
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Us0 f56 582 182 20 20 13 0 #rect
+Us0 f56 @|RichDialogProcessStartIcon #fIcon
+Us0 f58 expr out #txt
+Us0 f58 592 202 592 260 #arcP
+Us0 f59 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
+Us0 f59 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>already loaded?</name>
+        <nameStyle>15,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Us0 f59 578 330 28 28 25 -7 #rect
+Us0 f59 @|AlternativeIcon #fIcon
+Us0 f60 targetWindow THIS #txt
+Us0 f60 targetDisplay EXISTING:<%=in.destinationDisplay.getDisplayId()%> #txt
+Us0 f60 richDialogId IvyScript://in.panelToLoad.richDialogId #txt
+Us0 f60 startMethod start() #txt
+Us0 f60 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
+Us0 f60 panelName <%=in.panelToLoad.optionalPanelDisplayName%> #txt
+Us0 f60 requestActionDecl '<> param;' #txt
+Us0 f60 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
+' #txt
+Us0 f60 responseMappingAction 'out=in;
+' #txt
+Us0 f60 windowConfiguration '* ' #txt
+Us0 f60 isAsynch true #txt
+Us0 f60 isInnerRd true #txt
+Us0 f60 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>load selected rd</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Us0 f60 574 388 36 24 26 -2 #rect
+Us0 f60 @|RichDialogIcon #fIcon
+Us0 f67 expr out #txt
+Us0 f67 592 284 592 330 #arcP
+Us0 f68 expr out #txt
+Us0 f68 592 412 437 440 #arcP
+Us0 f68 1 592 440 #addKink
+Us0 f68 1 0.38300435215715106 0 0 #arcLabel
+Us0 f69 expr in #txt
+Us0 f69 outCond 'in.alreadyLoadedOnDisplay.get(in.panelToLoad.richDialogId) as Boolean' #txt
+Us0 f69 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Us0 f69 578 344 437 440 #arcP
+Us0 f69 1 544 344 #addKink
+Us0 f69 2 544 440 #addKink
+Us0 f69 0 0.6470588235294118 0 -10 #arcLabel
+Us0 f61 expr in #txt
+Us0 f61 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>no</name>
+        <nameStyle>2,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Us0 f61 592 358 592 388 #arcP
+Us0 f70 expr out #txt
+Us0 f70 544 130 578 260 #arcP
+Us0 f70 1 544 232 #addKink
+Us0 f70 0 0.9823661953369547 0 0 #arcLabel
+Us0 f27 expr out #txt
+Us0 f27 568 170 585 260 #arcP
+Us0 f27 1 568 232 #addKink
+Us0 f27 1 0.011433205470630339 0 0 #arcLabel
+Us0 f23 guid 1296FCDF74CD5FFB #txt
+Us0 f23 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
+Us0 f23 broadcast resetUserMenu #txt
+Us0 f23 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
+' #txt
+Us0 f23 actionTable 'out=in;
+' #txt
+Us0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>resetUserMenu</name>
+        <nameStyle>13,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Us0 f23 118 518 20 20 13 0 #rect
+Us0 f23 @|RichDialogBroadcastStartIcon #fIcon
+Us0 f25 expr out #txt
+Us0 f25 128 538 128 580 #arcP
+Us0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>May be sent by settings panel</name>
+        <nameStyle>29,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Us0 f26 75 475 171 26 -80 -8 #rect
+Us0 f26 @|IBIcon #fIcon
+Us0 f26 -657956|-657956|-16777216 #nodeStyle
+Us0 f28 159 501 119 522 #arcP
 >Proto Us0 .rdData2UIAction 'panel.calendarHyperlink.visible=false;
 panel.cleanHyperlink.visible=false;
 panel.footerLabel.text=in.footerTextMessage;
@@ -947,20 +846,6 @@ Us0 f10 mainOut f5 tail #connect
 Us0 f5 head f4 mainIn #connect
 Us0 f21 mainOut f22 tail #connect
 Us0 f22 head f10 mainIn #connect
-Us0 f24 mainOut f27 tail #connect
-Us0 f27 head f23 mainIn #connect
-Us0 f23 mainOut f28 tail #connect
-Us0 f28 head f25 in #connect
-Us0 f25 out f29 tail #connect
-Us0 f29 head f26 mainIn #connect
-Us0 f33 mainOut f37 tail #connect
-Us0 f37 head f35 in #connect
-Us0 f35 out f38 tail #connect
-Us0 f38 head f34 mainIn #connect
-Us0 f41 mainOut f42 tail #connect
-Us0 f42 head f10 mainIn #connect
-Us0 f32 mainOut f36 tail #connect
-Us0 f36 head f33 mainIn #connect
 Us0 f57 mainOut f62 tail #connect
 Us0 f62 head f10 mainIn #connect
 Us0 f63 mainOut f64 tail #connect
@@ -983,15 +868,23 @@ Us0 f46 mainOut f45 tail #connect
 Us0 f45 head f4 mainIn #connect
 Us0 f48 mainOut f49 tail #connect
 Us0 f49 head f46 mainIn #connect
-Us0 f35 out f50 tail #connect
-Us0 f50 head f4 mainIn #connect
-Us0 f34 mainOut f40 tail #connect
-Us0 f40 head f4 mainIn #connect
-Us0 f25 out f39 tail #connect
-Us0 f39 head f4 mainIn #connect
-Us0 f26 mainOut f31 tail #connect
-Us0 f31 head f4 mainIn #connect
 Us0 f51 mainOut f54 tail #connect
 Us0 f54 head f52 mainIn #connect
-Us0 f30 mainOut f53 tail #connect
-Us0 f53 head f51 mainIn #connect
+Us0 f56 mainOut f58 tail #connect
+Us0 f58 head f55 mainIn #connect
+Us0 f55 mainOut f67 tail #connect
+Us0 f67 head f59 in #connect
+Us0 f60 mainOut f68 tail #connect
+Us0 f68 head f4 mainIn #connect
+Us0 f59 out f69 tail #connect
+Us0 f69 head f4 mainIn #connect
+Us0 f59 out f61 tail #connect
+Us0 f61 head f60 mainIn #connect
+Us0 f24 mainOut f70 tail #connect
+Us0 f70 head f55 mainIn #connect
+Us0 f32 mainOut f27 tail #connect
+Us0 f27 head f55 mainIn #connect
+Us0 f23 mainOut f25 tail #connect
+Us0 f25 head f51 mainIn #connect
+Us0 f26 ao f28 tail #connect
+Us0 f28 head f23 @CG|ai #connect

@@ -1,6 +1,8 @@
 package ch.ivyteam.ivy.workflow.ui.UserMenu;
 
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
@@ -12,15 +14,13 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RTaskPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTaskPaneContainer;
 import ch.ivyteam.ivy.workflow.ui.StartList.StartListPanel;
 import ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchPanel;
-import ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsPanel;
 import ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchPanel;
+
 import com.ulcjava.base.application.BorderFactory;
+import com.ulcjava.base.application.ULCContainer;
 import com.ulcjava.base.application.border.ULCTitledBorder;
 import com.ulcjava.base.application.util.Color;
 import com.ulcjava.base.application.util.Font;
-import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
-import com.ulcjava.base.application.ULCContainer;
-import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for UserMenuPanel.
@@ -56,7 +56,6 @@ private RLabel administrationLabel = null;
 private RLabel securityLabel = null;
 private RLabel processesLabel = null;
 @EmbeddedRichDialog(StartListPanel.class) private ULCContainer startList = null;
-@EmbeddedRichDialog(SettingsPanel.class) private ULCContainer settings = null;
 @EmbeddedRichDialog(CaseSearchPanel.class) private ULCContainer runningCaseSearchRDC = null;
 @EmbeddedRichDialog(CaseSearchPanel.class) private ULCContainer finishedCaseSearchRDC = null;
 @EmbeddedRichDialog(TaskSearchPanel.class) private ULCContainer finishedTaskSearchRDC = null;
@@ -225,7 +224,6 @@ private RCardPane getUserMenuElementsCardPane() {
 		userMenuElementsCardPane.addCard("emptyBoxPane", getEmptyBoxPane());
 		userMenuElementsCardPane.addCard("runningTaskSearchRDC", getRunningTaskSearchRDC());
 		userMenuElementsCardPane.addCard("startList", getStartList());
-		userMenuElementsCardPane.addCard("settings", getSettings());
 		userMenuElementsCardPane.addCard("runningCaseSearchRDC", getRunningCaseSearchRDC());
 		userMenuElementsCardPane.addCard("finishedCaseSearchRDC", getFinishedCaseSearchRDC());
 		userMenuElementsCardPane.addCard("finishedTaskSearchRDC", getFinishedTaskSearchRDC());
@@ -514,19 +512,6 @@ private ULCContainer getStartList()  {
 		startList.setName("startList");
 	}
 	return startList;
-}
-
-/**
- * This method initializes settings	
- * 	
- * @return ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsPanel	
- */
-private ULCContainer getSettings()  {
-	if (settings == null) {
-		settings = RichDialogPanelFactory.create(SettingsPanel.class);
-		settings.setName("settings");
-	}
-	return settings;
 }
 
 /**

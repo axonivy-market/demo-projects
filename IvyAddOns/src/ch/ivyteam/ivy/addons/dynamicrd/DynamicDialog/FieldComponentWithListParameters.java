@@ -14,7 +14,12 @@ import ch.ivyteam.ivy.addons.util.StringUtil;
  */
 abstract public class FieldComponentWithListParameters extends FieldComponentParameters
 {
-  public static final String EMPTY_VALUE = " ";
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = -3515239392218660791L;
+
+public static final String EMPTY_VALUE = " ";
 
   public static String getQuery(Configuration configuration, List<String> cmsContexts, boolean isSorted)
   {

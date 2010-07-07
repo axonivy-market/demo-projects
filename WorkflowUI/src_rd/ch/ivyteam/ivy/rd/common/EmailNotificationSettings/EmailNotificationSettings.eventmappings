@@ -1,0 +1,17 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-07-05 10:43:16 | 4.1.0.15100 | 1.0
+~.appSettingsRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F3BC84FB1E3D
+~.thuCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F3BC84FB1E3D
+~.sunCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F3BC84FB1E3D
+~@RD_METHODCALL[getLanguage()]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/129926BC158E17EB
+~.friCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F3BC84FB1E3D
+~.tueCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F3BC84FB1E3D
+~@RD_METHODCALL[start(ch.ivyteam.ivy.security.IEMailNotificationSettings,java.util.Locale)]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1296F93C34EADB35
+~.doNotSendCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F3BC84FB1E3D
+~@RD_METHODCALL[getSettings()]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F39FB9554879
+~@RD_METHODCALL[start(ch.ivyteam.ivy.security.IUserEMailNotificationSettings,java.util.Locale,ch.ivyteam.ivy.security.IEMailNotificationSettings,java.util.Locale)]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F753F54B5010
+~.alwaysSendCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F3BC84FB1E3D
+~.wedCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F3BC84FB1E3D
+~.satCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F3BC84FB1E3D
+~.customSettingsRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F3BC84FB1E3D
+~.monCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1296F93C3323A403/1297F3BC84FB1E3D

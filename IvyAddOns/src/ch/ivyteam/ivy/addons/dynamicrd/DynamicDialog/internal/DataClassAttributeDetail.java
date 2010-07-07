@@ -45,7 +45,8 @@ public class DataClassAttributeDetail implements Comparable<DataClassAttributeDe
 
   transient public Hashtable<String, PropertyDescriptor> propertyDescriptors = null;
 
-  transient public Class propertyType = null;
+  @SuppressWarnings("unchecked")
+transient public Class propertyType = null;
 
   public String propertyTypeClassName;
 
@@ -57,7 +58,8 @@ public class DataClassAttributeDetail implements Comparable<DataClassAttributeDe
 
   transient public Method writeText = null;
 
-  public DataClassAttributeDetail(List<String> _cmsContexts, String _name,
+  @SuppressWarnings("unchecked")
+public DataClassAttributeDetail(List<String> _cmsContexts, String _name,
           DataClassAttributeDetail parentAttributeDetail, Object object, FeatureDescriptor feature,
           PropertyDescriptor descriptionProperty)
   {
@@ -173,7 +175,8 @@ public class DataClassAttributeDetail implements Comparable<DataClassAttributeDe
     updateMethods(targetObject, null);
   }
 
-  private void updateMethods(Object targetObject,
+  @SuppressWarnings("unchecked")
+private void updateMethods(Object targetObject,
           Hashtable<String, PropertyDescriptor> parentPropertyDescriptors)
   {
     BeanInfo beanInfo;

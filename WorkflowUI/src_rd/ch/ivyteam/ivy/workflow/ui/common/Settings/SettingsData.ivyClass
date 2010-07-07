@@ -3,9 +3,6 @@ ch.ivyteam.ivy.workflow.ui.common.Settings #namespace
 oldPassword String #field
 newPassword String #field
 confirmPassword String #field
-dailyTask Boolean #field
-newTask Boolean #field
-language java.util.List #field
-selectedLanguage String #field
 error String #field
 loggedInAs String #field
+emailSettings ch.ivyteam.ivy.security.IUserEMailNotificationSettings #field

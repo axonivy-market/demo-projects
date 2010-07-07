@@ -1,7 +1,8 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2010-02-15 15:51:57 | 4.1.2.31980 | 1.0
+# 2010-07-05 12:18:06 | 4.1.0.15100 | 1.0
 ~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:11989D8A7D57C7CA/119B84D252B782C4
-~.saveButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11989D8A7D57C7CA/11989E29DB2D45AB
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11989D8A7D57C7CA/11B70775058C5285
+~.updatePWButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11989D8A7D57C7CA/126D213F18A86CCE
 ~.changePasswordButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11989D8A7D57C7CA/11B703F21D65DE7D
-~.updatePWButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11989D8A7D57C7CA/126D213F18A86CCE # SettingsProcess.mod/update PW 
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11989D8A7D57C7CA/11B70775058C5285
+~.exitButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11989D8A7D57C7CA/1298DF49A85A852E
+~.saveButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11989D8A7D57C7CA/11989E29DB2D45AB

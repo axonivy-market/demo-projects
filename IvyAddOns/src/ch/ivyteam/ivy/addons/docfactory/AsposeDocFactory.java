@@ -46,7 +46,6 @@ import com.aspose.words.SectionStart;
 public class AsposeDocFactory extends BaseDocFactory{
 
 	/** The supportedFormat in this implementation of the BaseDocFactory */
-	@SuppressWarnings("hiding")
 	static final public String[] supportedOutputFormats = new String[] {"doc", "docx", "html", "txt"};
 
 	/** Aspose.Word Document objects used to perform the document merge (letter generation with MergeFields)*/
@@ -1056,7 +1055,7 @@ public class AsposeDocFactory extends BaseDocFactory{
 	 * @return the java.io.File taht was generated.
 	 * @throws Exception
 	 */
-	@SuppressWarnings({ "restriction", "static-access" })
+	@SuppressWarnings({ "static-access" })
 	private java.io.File doMailMerge(ArrayList<TemplateMergeField> parameters) throws Exception{
 		File file=null;
 		String [] paramName= new String[parameters.size()];
@@ -1126,7 +1125,6 @@ public class AsposeDocFactory extends BaseDocFactory{
 	 * @param dstDoc : The destination document where to append to
 	 * @param srcDoc : The source document.
 	 */
-	@SuppressWarnings("restriction")
 	private void AppendDoc(Document dstDoc, Document srcDoc) throws Exception
 	{
 		// Loop through all sections in the source document.
@@ -1174,7 +1172,6 @@ public class AsposeDocFactory extends BaseDocFactory{
 	 * @param _doc the aspose Word Document Object
 	 * @return the ArrayList<String> of the MergeFields
 	 */
-	@SuppressWarnings("restriction")
 	public String[] getTemplateFields(Document _doc){
 		String [] templateFields=null;
 		try {
@@ -1193,7 +1190,6 @@ public class AsposeDocFactory extends BaseDocFactory{
 	 * @return the ArrayList<String> of the MergeFields
 	 */
 	@Override
-	@SuppressWarnings("restriction")
 	public ArrayList<String> getTemplateFields(String templatePath){
 
 		ArrayList<String> templateFields=new ArrayList<String>();
@@ -1217,7 +1213,6 @@ public class AsposeDocFactory extends BaseDocFactory{
 	 * @param templatePath the template path
 	 * @return the ArrayList<String> of the MergeFields
 	 */
-	@SuppressWarnings("restriction")
 	public static ArrayList<String> getFields(String templatePath){
 
 		ArrayList<String> templateFields=new ArrayList<String>();

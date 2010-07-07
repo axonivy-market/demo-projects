@@ -86,7 +86,6 @@ private ULCContainer getHeader()  {
 	if (header == null) {
 		header = RichDialogPanelFactory.create(HeaderPanel.class);
 		header.setName("header");
-		header.setToolTipText("\n");
 		header.setStyleProperties("{/weightX \"1\"}");
 	}
 	return header;

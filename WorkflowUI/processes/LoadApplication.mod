@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Mar 08 11:44:44 CET 2010]
+[>Created: Wed Jul 07 10:33:28 CEST 2010]
 117CB4CDADC9E332 3.14 #module
 >Proto >Proto Collection #zClass
 Ly0 LoadApplicationStaticWay Big #zClass
@@ -94,7 +94,7 @@ Ly0 f3 responseActionDecl 'workflowui.Data out;
 ' #txt
 Ly0 f3 responseMappingAction 'out=in;
 ' #txt
-Ly0 f3 windowConfiguration '{/title "Xpert.Ivy Workflow UI"/width 1024 /height 700 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
+Ly0 f3 windowConfiguration '{/title "Xpert.Ivy Workflow UI"/width 1024 /height 750 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 Ly0 f3 isAsynch false #txt
 Ly0 f3 isInnerRd false #txt
 Ly0 f3 isDialog false #txt
@@ -102,7 +102,7 @@ Ly0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Workflow UI</name>
-        <nameStyle>11,9
+        <nameStyle>11,7,9
 </nameStyle>
     </language>
 </elementInfo>

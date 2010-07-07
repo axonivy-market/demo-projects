@@ -46,9 +46,10 @@ public class DataClassInstanceExplorer
     handler.endDocument();
   }
 
-  private void explore(Object object, String name, String path)
+  @SuppressWarnings("unchecked")
+private void explore(Object object, String name, String path)
   {
-    Class clazz;
+    Class<? extends Object> clazz;
 
     clazz = object.getClass();
 

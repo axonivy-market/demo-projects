@@ -37,6 +37,7 @@ public class DataClassExplorer
    * 
    * @param clazz class that should be explored
    */
+@SuppressWarnings("unchecked")
 public void explore(Class clazz)
   {
     handler.startDocument();
@@ -44,7 +45,8 @@ public void explore(Class clazz)
     handler.endDocument();
   }
 
-  private void explore(Class clazz, String name, String path, PropertyDescriptor property)
+  @SuppressWarnings("unchecked")
+private void explore(Class clazz, String name, String path, PropertyDescriptor property)
   {
     if (!clazz.equals(Class.class))
     {

@@ -1,0 +1,11 @@
+PanelToLoad #class
+ch.ivyteam.ivy.workflow.ui.data.common #namespace
+richDialogId String #field
+richDialogId 'the id of the rich dialog to load' #fieldComment
+richDialogId PERSISTENT #fieldModifier
+title String #field
+title 'title of panel to show' #fieldComment
+title PERSISTENT #fieldModifier
+optionalPanelDisplayName String #field
+optionalPanelDisplayName 'the name that will be used as optional panel display name' #fieldComment
+optionalPanelDisplayName PERSISTENT #fieldModifier

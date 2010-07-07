@@ -6,7 +6,8 @@ import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.DataClassAttribute
 
 public class IvyDataClass
 {
-  public static Object createDataClassInstance(Object targetObject, DataClassAttributeDetail attributeDetail)
+  @SuppressWarnings("unchecked")
+public static Object createDataClassInstance(Object targetObject, DataClassAttributeDetail attributeDetail)
   {
     Object subDataClassInstance = null;
     try

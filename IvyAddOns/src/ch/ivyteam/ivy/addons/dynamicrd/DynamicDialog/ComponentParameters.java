@@ -13,169 +13,166 @@ import ch.ivyteam.ivy.environment.Ivy;
  * @author Patrick Joly, TI-Informatique
  * @since 12.09.2008
  */
-abstract public class ComponentParameters implements Serializable
-{
-  protected List<String> cmsContexts = null;
+abstract public class ComponentParameters implements Serializable {
+	/** */
+	private static final long serialVersionUID = -6903694755971481928L;
 
-  protected Configuration configuration;
+	protected List<String> cmsContexts = null;
 
-  private boolean enabled;
+	protected Configuration configuration;
 
-  private boolean focusable;
+	private boolean enabled;
 
-  private String fullName = null;
+	private boolean focusable;
 
-  private String initMethod;
+	private String fullName = null;
 
-  private String name = null;
+	private String initMethod;
 
-  private boolean newColumn;
+	private String name = null;
 
-  private String titleRef;
+	private boolean newColumn;
 
-  private boolean visible;
+	private String titleRef;
 
-  public ComponentParameters(Configuration _configuration, List<String> _cmsContexts, String _name,
-          String _fullName)
-  {
-    super();
+	private boolean visible;
 
-    cmsContexts = _cmsContexts;
-    name = _name;
-    fullName = _fullName;
-    configuration = _configuration;
+	public ComponentParameters(Configuration _configuration,
+			List<String> _cmsContexts, String _name, String _fullName) {
+		super();
 
-    visible = Cms.coAsBoolean(_cmsContexts, KnownParameters.VISIBLE_PARAMETER, true);
+		cmsContexts = _cmsContexts;
+		name = _name;
+		fullName = _fullName;
+		configuration = _configuration;
 
-    enabled = Cms.coAsBoolean(_cmsContexts, KnownParameters.ENABLED_PARAMETER, true);
+		visible = Cms.coAsBoolean(_cmsContexts,
+				KnownParameters.VISIBLE_PARAMETER, true);
 
-    titleRef = Cms.cr(_cmsContexts, KnownParameters.LABEL_STRING);
+		enabled = Cms.coAsBoolean(_cmsContexts,
+				KnownParameters.ENABLED_PARAMETER, true);
 
-    initMethod = Cms.co(_cmsContexts, KnownParameters.INIT_METHOD_PARAMETER);
+		titleRef = Cms.cr(_cmsContexts, KnownParameters.LABEL_STRING);
 
-    if (isContainer())
-    {
-      focusable = Cms.coAsBoolean(_cmsContexts, KnownParameters.FOCUSABLE_PARAMETER, false);
-    }
-    else
-    {
-      focusable = Cms.coAsBoolean(_cmsContexts, KnownParameters.FOCUSABLE_PARAMETER, true);
-    }
+		initMethod = Cms
+				.co(_cmsContexts, KnownParameters.INIT_METHOD_PARAMETER);
 
-    newColumn = Cms.co(_cmsContexts, KnownParameters.NEW_COLUMN_PARAMETER).equals("1") ? true : false;
-  }
+		if (isContainer()) {
+			focusable = Cms.coAsBoolean(_cmsContexts,
+					KnownParameters.FOCUSABLE_PARAMETER, false);
+		} else {
+			focusable = Cms.coAsBoolean(_cmsContexts,
+					KnownParameters.FOCUSABLE_PARAMETER, true);
+		}
 
-  /**
-   * Gets the CMS contexts.
-   * 
-   * @return CMS contexts
-   * 
-   * @see Cms
-   */
-  public List<String> getCmsContexts()
-  {
-    return cmsContexts;
-  }
+		newColumn = Cms.co(_cmsContexts, KnownParameters.NEW_COLUMN_PARAMETER)
+				.equals("1") ? true : false;
+	}
 
-  /**
-   * Gets the component type.
-   * 
-   * @return component type
-   */
-  abstract public ComponentTypeEnum getComponentType();
+	/**
+	 * Gets the CMS contexts.
+	 * 
+	 * @return CMS contexts
+	 * 
+	 * @see Cms
+	 */
+	public List<String> getCmsContexts() {
+		return cmsContexts;
+	}
 
-  /**
-   * Gets the fully qualified component's name. This name uniquely identifies a component and these
-   * parameters.
-   * 
-   * @return fully qualified name
-   */
-  public String getFullName()
-  {
-    return fullName;
-  }
+	/**
+	 * Gets the component type.
+	 * 
+	 * @return component type
+	 */
+	abstract public ComponentTypeEnum getComponentType();
 
-  /**
-   * Gets the UI logic method name that should be invoked while the init time.
-   * 
-   * @return UI logic method name
-   */
-  public String getInitMethod()
-  {
-    return initMethod;
-  }
+	/**
+	 * Gets the fully qualified component's name. This name uniquely identifies
+	 * a component and these parameters.
+	 * 
+	 * @return fully qualified name
+	 */
+	public String getFullName() {
+		return fullName;
+	}
 
-  /**
-   * Gets the attribute's name related to this component.
-   * 
-   * @return name
-   */
-  public String getName()
-  {
-    return name;
-  }
+	/**
+	 * Gets the UI logic method name that should be invoked while the init time.
+	 * 
+	 * @return UI logic method name
+	 */
+	public String getInitMethod() {
+		return initMethod;
+	}
 
-  /**
-   * Gets the title of the component. The title acts as label in field component and acts as frame border
-   * title with container.
-   * 
-   * @return title
-   */
-  public String getTitle()
-  {
-    String result;
+	/**
+	 * Gets the attribute's name related to this component.
+	 * 
+	 * @return name
+	 */
+	public String getName() {
+		return name;
+	}
 
-    if (titleRef != null && !titleRef.equals(""))
-    {
-      result = Ivy.cms().co(titleRef);
-    }
-    else
-    {
-      result = name;
-    }
-    return result;
-  }
+	/**
+	 * Gets the title of the component. The title acts as label in field
+	 * component and acts as frame border title with container.
+	 * 
+	 * @return title
+	 */
+	public String getTitle() {
+		String result;
 
-  /**
-   * Returns whether this component's parameters describe a container.
-   * 
-   * @return true if the component's parameters describe a container; false otherwise
-   */
-  abstract public boolean isContainer();
+		if (titleRef != null && !titleRef.equals("")) {
+			result = Ivy.cms().co(titleRef);
+		} else {
+			result = name;
+		}
+		return result;
+	}
 
-  public boolean isEnabled()
-  {
-    return enabled;
-  }
+	/**
+	 * Returns whether this component's parameters describe a container.
+	 * 
+	 * @return true if the component's parameters describe a container; false
+	 *         otherwise
+	 */
+	abstract public boolean isContainer();
 
-  /**
-   * Returns whether the component that is described by this parameters can be focused.
-   * 
-   * @return true if this component is focusable, false otherwise.
-   */
-  public boolean isFocusable()
-  {
-    return focusable;
-  }
+	public boolean isEnabled() {
+		return enabled;
+	}
 
-  /**
-   * Retrurns whether the component that is described by this parameters is on the top of a new column.
-   * 
-   * @return true if this component is on the top of a new column, false otherwise.
-   */
-  public boolean isNewColumn()
-  {
-    return newColumn;
-  }
+	/**
+	 * Returns whether the component that is described by this parameters can be
+	 * focused.
+	 * 
+	 * @return true if this component is focusable, false otherwise.
+	 */
+	public boolean isFocusable() {
+		return focusable;
+	}
 
-  /**
-   * Returns whether the component that is described by this parameters is visible.
-   * 
-   * @return true if this component is visible, false otherwise.
-   */
-  public boolean isVisible()
-  {
-    return visible;
-  }
+	/**
+	 * Retrurns whether the component that is described by this parameters is on
+	 * the top of a new column.
+	 * 
+	 * @return true if this component is on the top of a new column, false
+	 *         otherwise.
+	 */
+	public boolean isNewColumn() {
+		return newColumn;
+	}
+
+	/**
+	 * Returns whether the component that is described by this parameters is
+	 * visible.
+	 * 
+	 * @return true if this component is visible, false otherwise.
+	 */
+	public boolean isVisible() {
+		return visible;
+	}
 
 }

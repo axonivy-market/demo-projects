@@ -130,7 +130,8 @@ public class SerializeDataClass
     return value;
   }
 
-  protected static void introspectionXMLSerialization(Object object, Element node, Document doc)
+  @SuppressWarnings("unchecked")
+protected static void introspectionXMLSerialization(Object object, Element node, Document doc)
   {
     if (object != null)
     {
@@ -412,7 +413,8 @@ public class SerializeDataClass
     xmlSerialization(object, attributeDetail, document.getDocumentElement(), document);
   }
 
-  protected void xmlSerialization(Object object, DataClassAttributeDetail attributeDetail, Element node,
+  @SuppressWarnings("unchecked")
+protected void xmlSerialization(Object object, DataClassAttributeDetail attributeDetail, Element node,
           Document document)
   {
     Element element;

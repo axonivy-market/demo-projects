@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Feb 16 17:40:18 CET 2010]
-11989D8A7D57C7CA 3.13 #module
+[>Created: Tue Jul 06 16:05:13 CEST 2010]
+11989D8A7D57C7CA 3.14 #module
 >Proto >Proto Collection #zClass
 Ss0 SettingsProcess Big #zClass
 Ss0 RD #cInfo
@@ -45,10 +45,20 @@ Ss0 @PushWFArc f33 '' #zField
 Ss0 @PushWFArc f31 '' #zField
 Ss0 @PushWFArc f34 '' #zField
 Ss0 @PushWFArc f5 '' #zField
+Ss0 @RichDialogProcessStart f7 '' #zField
+Ss0 @RichDialogEnd f10 '' #zField
+Ss0 @PushWFArc f12 '' #zField
 >Proto Ss0 Ss0 SettingsProcess #zField
 Ss0 f1 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
 Ss0 f1 43 363 26 26 14 0 #rect
 Ss0 f1 @|RichDialogProcessEndIcon #fIcon
+Ss0 f3 guid 11989E29DB2D45AB #txt
+Ss0 f3 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
+Ss0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
+' #txt
+Ss0 f3 actionTable 'out=in;
+out.error="";
+' #txt
 Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -58,91 +68,63 @@ Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f3 guid 11989E29DB2D45AB #txt
-Ss0 f3 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
-Ss0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
-' #txt
-Ss0 f3 actionTable 'out=in;
-out.error="";
-' #txt
 Ss0 f3 358 38 20 20 13 0 #rect
 Ss0 f3 @|RichDialogProcessStartIcon #fIcon
 Ss0 f4 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
 Ss0 f4 211 371 26 26 14 0 #rect
 Ss0 f4 @|RichDialogProcessEndIcon #fIcon
-Ss0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>update user items</name>
-        <nameStyle>17,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ss0 f6 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
 ' #txt
 Ss0 f6 actionTable 'out=in;
 ' #txt
-Ss0 f6 actionCode 'import ch.ivyteam.ivy.security.*;
-import java.util.EnumSet;
+Ss0 f6 actionCode 'import ch.ivyteam.ivy.security.IUserEMailNotificationSettings;
+import ch.ivyteam.ivy.security.IUser;
 
-	//set eMail notification fields
-	if(in.dailyTask && in.newTask){
-		IUser myNotification = ivy.session.getSessionUser().setEMailNotificationKind(EnumSet.of(EMailNotificationKind.DAILY_WORKFLOW_TASKS_SUMMARY, EMailNotificationKind.ON_NEW_WORKFLOW_WORK_TASKS));
-	} else if(in.dailyTask){
-		IUser myNotification = ivy.session.getSessionUser().setEMailNotificationKind(EnumSet.of(EMailNotificationKind.DAILY_WORKFLOW_TASKS_SUMMARY));
-	} else if(in.newTask){
-		IUser myNotification = ivy.session.getSessionUser().setEMailNotificationKind(EnumSet.of(EMailNotificationKind.ON_NEW_WORKFLOW_WORK_TASKS));
-	}
-	//set eMail language
-	if(panel.languageComboBox.selectedIndex >= 0){
-		ivy.session.getSessionUser().setEMailLanguage(new java.util.Locale(in.selectedLanguage));
-	}
-	
-	
-	//set properties
-	panel.caseTaskParametersEditRDC.save();
-	
-	
-	ivy.log.debug(ivy.session.getSessionUser().getEMailNotificationKind());
-' #txt
+panel.caseTaskParametersEditRDC.save();
+
+// set user properties
+ivy.session.getSessionUser().setEMailNotificationSettings(panel.emailNotificationSettingsPanel.getSettings() as IUserEMailNotificationSettings);
+
+// set language
+ivy.session.getSessionUser().setEMailLanguage(panel.emailNotificationSettingsPanel.getLanguage());' #txt
 Ss0 f6 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
-Ss0 f6 350 116 36 24 20 -2 #rect
-Ss0 f6 @|RichDialogProcessStepIcon #fIcon
-Ss0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ss0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
-    <language/>
+    <language>
+        <name>update user data</name>
+        <nameStyle>16,7,9
+</nameStyle>
+    </language>
 </elementInfo>
 ' #txt
+Ss0 f6 350 116 36 24 20 -2 #rect
+Ss0 f6 @|RichDialogProcessStepIcon #fIcon
 Ss0 f13 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
 ' #txt
 Ss0 f13 actionTable 'out=in;
 ' #txt
 Ss0 f13 actionCode 'import java.util.Iterator;
 
-out.language = ivy.cms.getSupportedLanguages();
 if(!ivy.session.isSessionUserUnknown()){
 	out.loggedInAs = ivy.session.getSessionUser().getFullName() +" ["+ ivy.session.getSessionUser().getName() + "]";
-
-	for ( Iterator i = ivy.session.getSessionUser().getEMailNotificationKind().iterator(); i.hasNext(); )
-	{
-		String notification = i.next().toString();
-		ivy.log.info(notification);
-		if (notification.equals("DAILY_WORKFLOW_TASKS_SUMMARY")){
-			out.dailyTask = true;
-		}
-		if(notification.equals("ON_NEW_WORKFLOW_WORK_TASKS")){
-			out.newTask = true;
-		}
-	}
-	
 }else{
 	out.loggedInAs = "<html><b>You are not logged in</b>";
 }
 ' #txt
 Ss0 f13 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
+Ss0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ss0 f13 38 204 36 24 20 -2 #rect
 Ss0 f13 @|RichDialogProcessStepIcon #fIcon
+Ss0 f2 guid 119B84D252B782C4 #txt
+Ss0 f2 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
+Ss0 f2 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
+' #txt
+Ss0 f2 actionTable 'out=in;
+' #txt
 Ss0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -152,16 +134,17 @@ Ss0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f2 guid 119B84D252B782C4 #txt
-Ss0 f2 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
-Ss0 f2 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
-' #txt
-Ss0 f2 actionTable 'out=in;
-' #txt
 Ss0 f2 118 38 20 20 13 0 #rect
 Ss0 f2 @|RichDialogProcessStartIcon #fIcon
 Ss0 f16 expr out #txt
 Ss0 f16 56 228 56 363 #arcP
+Ss0 f17 guid 11B703F21D65DE7D #txt
+Ss0 f17 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
+Ss0 f17 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
+' #txt
+Ss0 f17 actionTable 'out=in;
+' #txt
+Ss0 f17 actionCode 'panel.changePasswordCollapsiblePane.collapsed = !panel.changePasswordCollapsiblePane.collapsed;' #txt
 Ss0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -171,13 +154,6 @@ Ss0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f17 guid 11B703F21D65DE7D #txt
-Ss0 f17 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
-Ss0 f17 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
-' #txt
-Ss0 f17 actionTable 'out=in;
-' #txt
-Ss0 f17 actionCode 'panel.changePasswordCollapsiblePane.collapsed = !panel.changePasswordCollapsiblePane.collapsed;' #txt
 Ss0 f17 214 38 20 20 13 0 #rect
 Ss0 f17 @|RichDialogProcessStartIcon #fIcon
 Ss0 f19 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
@@ -191,15 +167,6 @@ Ss0 f20 expr out #txt
 Ss0 f20 224 58 224 116 #arcP
 Ss0 f18 expr out #txt
 Ss0 f18 224 140 224 371 #arcP
-Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ss0 f0 guid 11B70775058C5285 #txt
 Ss0 f0 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
 Ss0 f0 method start() #txt
@@ -209,33 +176,38 @@ Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 Ss0 f0 outParameterDecl '<> result;
 ' #txt
-Ss0 f0 embeddedRdInitializations '{/caseTaskParametersEditRDC {/fieldName "caseTaskParametersEditRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/header {/fieldName "header"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
-Ss0 f0 46 38 20 20 13 0 #rect
-Ss0 f0 @|RichDialogInitStartIcon #fIcon
-Ss0 f14 expr out #txt
-Ss0 f14 56 58 56 204 #arcP
-Ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ss0 f0 embeddedRdInitializations '{/emailNotificationSettingsPanel {/fieldName "emailNotificationSettingsPanel"/startMethod "start(ch.ivyteam.ivy.security.IUserEMailNotificationSettings,java.util.Locale,ch.ivyteam.ivy.security.IEMailNotificationSettings,java.util.Locale)"/parameterMapping "param.userSettings=ivy.session.getSessionUser().eMailNotificationSettings;\nparam.userLanguage=ivy.session.getSessionUser().getEMailLanguage();\nparam.applicationDefaultSettings=ivy.request.getApplication().defaultEMailNotifcationSettings;\nparam.applicationDefaultLanguage=ivy.request.getApplication().defaultEMailLanguage;\n"/initScript ""}/caseTaskParametersEditRDC {/fieldName "caseTaskParametersEditRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/header {/fieldName "header"/startMethod "start(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/workflow/ui/common/images/user_settings48\";\n"/initScript "param.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/settingsShortDesc\");\nparam.text = \"<html>\" + ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/settingsLongDesc\");"}}' #txt
+Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>set the text 
-on titled border</name>
-        <nameStyle>30,9
+        <name>start()</name>
+        <nameStyle>7,5,6,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ss0 f0 46 38 20 20 13 0 #rect
+Ss0 f0 @|RichDialogInitStartIcon #fIcon
+Ss0 f14 expr out #txt
+Ss0 f14 56 58 56 204 #arcP
 Ss0 f21 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
 ' #txt
 Ss0 f21 actionTable 'out=in;
 ' #txt
 Ss0 f21 actionCode 'import com.ulcjava.base.application.border.ULCTitledBorder;
 
-(panel.getBorder() as ULCTitledBorder).setTitle(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/settingsShortDesc"));
-
-(panel.emailGridBagLayoutPane.getBorder() as ULCTitledBorder).setTitle(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/eMailNotification"));
-
 (panel.passwordGridBagLayoutPane.getBorder() as ULCTitledBorder).setTitle(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/password"));' #txt
 Ss0 f21 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
+Ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>set the text 
+on titled border</name>
+        <nameStyle>30,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f21 110 116 36 24 10 9 #rect
 Ss0 f21 @|RichDialogProcessStepIcon #fIcon
 Ss0 f22 expr out #txt
@@ -245,6 +217,9 @@ Ss0 f15 expr out #txt
 Ss0 f15 128 140 74 216 #arcP
 Ss0 f15 1 128 216 #addKink
 Ss0 f15 0 0.9119141258889715 0 0 #arcLabel
+Ss0 f25 actionCode panel.fireResetUserMenu(); #txt
+Ss0 f25 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
+Ss0 f25 fireEvent resetUserMenu() #txt
 Ss0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -254,26 +229,15 @@ Ss0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f25 actionCode panel.fireResetUserMenu(); #txt
-Ss0 f25 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
-Ss0 f25 fireEvent resetUserMenu() #txt
-Ss0 f25 294 364 36 24 -19 20 #rect
+Ss0 f25 350 228 36 24 25 -11 #rect
 Ss0 f25 @|RichDialogFireEventIcon #fIcon
 Ss0 f24 expr out #txt
-Ss0 f24 368 140 330 376 #arcP
-Ss0 f24 1 368 376 #addKink
-Ss0 f24 1 0.25061576354679804 0 0 #arcLabel
+Ss0 f24 368 140 368 228 #arcP
+Ss0 f24 0 0.8960707993240085 0 0 #arcLabel
 Ss0 f11 expr out #txt
-Ss0 f11 294 378 236 382 #arcP
-Ss0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>check old pw</name>
-        <nameStyle>12,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
+Ss0 f11 368 252 236 381 #arcP
+Ss0 f11 1 368 352 #addKink
+Ss0 f11 1 0.13182920346467605 0 0 #arcLabel
 Ss0 f23 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
 ' #txt
 Ss0 f23 actionTable 'out=in;
@@ -285,8 +249,24 @@ Ss0 f23 actionCode 'if(!ivy.session.checkPassword(in.oldPassword))
 
 ' #txt
 Ss0 f23 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
+Ss0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>check old pw</name>
+        <nameStyle>12,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f23 614 116 36 24 28 -12 #rect
 Ss0 f23 @|RichDialogProcessStepIcon #fIcon
+Ss0 f26 guid 126D213F18A86CCE #txt
+Ss0 f26 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
+Ss0 f26 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
+' #txt
+Ss0 f26 actionTable 'out=in;
+out.error="";
+' #txt
 Ss0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -296,15 +276,9 @@ Ss0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f26 guid 126D213F18A86CCE #txt
-Ss0 f26 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
-Ss0 f26 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
-' #txt
-Ss0 f26 actionTable 'out=in;
-out.error="";
-' #txt
 Ss0 f26 622 38 20 20 13 0 #rect
 Ss0 f26 @|RichDialogProcessStartIcon #fIcon
+Ss0 f27 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
 Ss0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -314,18 +288,8 @@ Ss0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f27 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
 Ss0 f27 618 202 28 28 14 0 #rect
 Ss0 f27 @|AlternativeIcon #fIcon
-Ss0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>update pw</name>
-        <nameStyle>9,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ss0 f28 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
 ' #txt
 Ss0 f28 actionTable 'out=in;
@@ -350,6 +314,15 @@ Ss0 f28 actionCode '	//change password
 		panel.newPasswordTextField.text="";	
 ' #txt
 Ss0 f28 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
+Ss0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>update pw</name>
+        <nameStyle>9,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f28 710 260 36 24 20 -2 #rect
 Ss0 f28 @|RichDialogProcessStepIcon #fIcon
 Ss0 f29 expr out #txt
@@ -368,22 +341,38 @@ Ss0 f34 expr out #txt
 Ss0 f34 717 284 638 368 #arcP
 Ss0 f5 expr out #txt
 Ss0 f5 368 58 368 116 #arcP
+Ss0 f7 guid 1298DF49A85A852E #txt
+Ss0 f7 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
+Ss0 f7 actionDecl 'ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData out;
+' #txt
+Ss0 f7 actionTable 'out=in;
+' #txt
+Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>exit</name>
+        <nameStyle>4,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f7 494 46 20 20 13 0 #rect
+Ss0 f7 @|RichDialogProcessStartIcon #fIcon
+Ss0 f10 type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
+Ss0 f10 guid 1298DF4D99C776BB #txt
+Ss0 f10 494 166 20 20 13 0 #rect
+Ss0 f10 @|RichDialogEndIcon #fIcon
+Ss0 f12 expr out #txt
+Ss0 f12 504 66 504 166 #arcP
 >Proto Ss0 .type ch.ivyteam.ivy.workflow.ui.common.Settings.SettingsData #txt
 >Proto Ss0 .processKind RICH_DIALOG #txt
->Proto Ss0 .ui2RdDataAction 'out.dailyTask=panel.dailyTaskSummaryCheckBox.selected;
-out.newTask=panel.onNewTaskCheckBox.selected;
-out.confirmPassword=panel.confirmTextField.text;
-out.selectedLanguage=panel.languageComboBox.selectedListEntry.toString();
+>Proto Ss0 .ui2RdDataAction 'out.confirmPassword=panel.confirmTextField.text;
 out.newPassword=panel.newPasswordTextField.text;
 out.oldPassword=panel.oldPasswordTextField.text;
 ' #txt
->Proto Ss0 .rdData2UIAction 'panel.dailyTaskSummaryCheckBox.selected=in.dailyTask;
-panel.errorLabel.text=in.error;
-panel.languageComboBox.listData=in.language.toArray().toList();
+>Proto Ss0 .rdData2UIAction 'panel.errorLabel.text=in.error;
 panel.loggedInAsLabel.text=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/loggedInAs") + 
 in.loggedInAs;
-panel.onNewTaskCheckBox.selected=in.newTask;
-panel.emailGridBagLayoutPane.visible=false;
 ' #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
 >Proto Ss0 '' #fIcon
@@ -415,3 +404,5 @@ Ss0 f28 mainOut f34 tail #connect
 Ss0 f34 head f32 mainIn #connect
 Ss0 f3 mainOut f5 tail #connect
 Ss0 f5 head f6 mainIn #connect
+Ss0 f7 mainOut f12 tail #connect
+Ss0 f12 head f10 mainIn #connect

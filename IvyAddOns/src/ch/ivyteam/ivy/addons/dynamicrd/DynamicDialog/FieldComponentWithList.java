@@ -103,7 +103,7 @@ abstract public class FieldComponentWithList extends FieldComponent
     return result == null ? -1 : result;
   }
 
-  private NoSuchMethodException getNoSuchMethodException(String methodName, Class clazz)
+  private NoSuchMethodException getNoSuchMethodException(String methodName, Class<? extends FieldComponentWithList> clazz)
   {
     return new NoSuchMethodException("Not implemented method " + methodName + " on class " + clazz.getName());
   }

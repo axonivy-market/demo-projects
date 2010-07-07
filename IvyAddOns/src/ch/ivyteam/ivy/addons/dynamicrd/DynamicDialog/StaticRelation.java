@@ -160,7 +160,8 @@ public class StaticRelation
     }
   }
 
-  private List<DataClassAttributeDetail> create(Object targetObject,
+  @SuppressWarnings("unchecked")
+private List<DataClassAttributeDetail> create(Object targetObject,
           DataClassAttributeDetail parentAttributeDetail, List<String> cmsContexts)
   {
     BeanInfo beanInfo;

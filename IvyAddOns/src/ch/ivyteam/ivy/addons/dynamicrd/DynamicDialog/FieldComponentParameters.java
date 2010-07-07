@@ -12,136 +12,137 @@ import ch.ivyteam.ivy.environment.Ivy;
  * @author Patrick Joly, TI-Informatique
  * @since 12.09.2008
  */
-abstract public class FieldComponentParameters extends ComponentParameters
-{
-  protected Boolean blockingValidation;
+abstract public class FieldComponentParameters extends ComponentParameters {
+	private static final long serialVersionUID = 7727360094532734660L;
 
-  protected String defaultValue;
+	protected Boolean blockingValidation;
 
-  protected String errorIconUrl;
+	protected String defaultValue;
 
-  protected String fieldStyle;
+	protected String errorIconUrl;
 
-  protected String focusGainedMethod;
+	protected String fieldStyle;
 
-  protected String focusLostMethod;
+	protected String focusGainedMethod;
 
-  protected String iconStyle;
+	protected String focusLostMethod;
 
-  protected String labelStyle;
+	protected String iconStyle;
 
-  protected boolean mandatory;
+	protected String labelStyle;
 
-  protected String mandatoryIconUrl;
+	protected boolean mandatory;
 
-  protected String transparentIconUrl;
+	protected String mandatoryIconUrl;
 
-  protected String validationToolTip = null;
+	protected String transparentIconUrl;
 
-  protected String valueChangedMethod;
+	protected String validationToolTip = null;
 
-  public FieldComponentParameters(Configuration configuration, List<String> cmsContexts, String name,
-          String fullName, ContainerParameters parentContainerParameters)
-  {
-    super(configuration, cmsContexts, name, fullName);
+	protected String valueChangedMethod;
 
-    mandatory = Cms.coAsBoolean(cmsContexts, KnownParameters.MANDATORY_PARAMETER, false);
+	public FieldComponentParameters(Configuration configuration,
+			List<String> cmsContexts, String name, String fullName,
+			ContainerParameters parentContainerParameters) {
+		super(configuration, cmsContexts, name, fullName);
 
-    blockingValidation = Cms.coAsBoolean(cmsContexts, KnownParameters.BLOCKING_VALIDATION_PARAMETER, false);
+		mandatory = Cms.coAsBoolean(cmsContexts,
+				KnownParameters.MANDATORY_PARAMETER, false);
 
-    mandatoryIconUrl = Ivy.cms().cr(KnownParameters.MANDATORY_ICON);
+		blockingValidation = Cms.coAsBoolean(cmsContexts,
+				KnownParameters.BLOCKING_VALIDATION_PARAMETER, false);
 
-    errorIconUrl = Ivy.cms().cr(KnownParameters.ERROR_ICON);
+		mandatoryIconUrl = Ivy.cms().cr(KnownParameters.MANDATORY_ICON);
 
-    transparentIconUrl = Ivy.cms().cr(KnownParameters.TRANSPARENT_ICON);
+		errorIconUrl = Ivy.cms().cr(KnownParameters.ERROR_ICON);
 
-    valueChangedMethod = Cms.co(cmsContexts, KnownParameters.VALUE_CHANGED_METHOD_PARAMETER);
+		transparentIconUrl = Ivy.cms().cr(KnownParameters.TRANSPARENT_ICON);
 
-    focusLostMethod = Cms.co(cmsContexts, KnownParameters.FOCUS_LOST_METHOD_PARAMETER);
+		valueChangedMethod = Cms.co(cmsContexts,
+				KnownParameters.VALUE_CHANGED_METHOD_PARAMETER);
 
-    focusGainedMethod = Cms.co(cmsContexts, KnownParameters.FOCUS_GAINED_METHOD_PARAMETER);
+		focusLostMethod = Cms.co(cmsContexts,
+				KnownParameters.FOCUS_LOST_METHOD_PARAMETER);
 
-    defaultValue = Cms.co(cmsContexts, KnownParameters.DEFAULT_VALUE_PARAMETER);
-    defaultValue = StringUtil.substitute(defaultValue, configuration.getValueSubstitutions(), "%", "%");
+		focusGainedMethod = Cms.co(cmsContexts,
+				KnownParameters.FOCUS_GAINED_METHOD_PARAMETER);
 
-    labelStyle = Cms.co(getCmsContexts(), KnownParameters.LABEL_STYLE_PARAMETER,
-            parentContainerParameters.labelStyle);
+		defaultValue = Cms.co(cmsContexts,
+				KnownParameters.DEFAULT_VALUE_PARAMETER);
+		defaultValue = StringUtil.substitute(defaultValue, configuration
+				.getValueSubstitutions(), "%", "%");
 
-    iconStyle = Cms.co(getCmsContexts(), KnownParameters.ICON_STYLE_PARAMETER,
-            parentContainerParameters.iconStyle);
+		labelStyle = Cms.co(getCmsContexts(),
+				KnownParameters.LABEL_STYLE_PARAMETER,
+				parentContainerParameters.labelStyle);
 
-    fieldStyle = Cms.co(getCmsContexts(), KnownParameters.FIELD_STYLE_PARAMETER,
-            parentContainerParameters.fieldStyle);
-  }
+		iconStyle = Cms.co(getCmsContexts(),
+				KnownParameters.ICON_STYLE_PARAMETER,
+				parentContainerParameters.iconStyle);
 
-  protected String getErrorIconUrl()
-  {
-    return errorIconUrl;
-  }
+		fieldStyle = Cms.co(getCmsContexts(),
+				KnownParameters.FIELD_STYLE_PARAMETER,
+				parentContainerParameters.fieldStyle);
+	}
 
-  protected String getFieldStyle()
-  {
-    return fieldStyle;
-  }
+	protected String getErrorIconUrl() {
+		return errorIconUrl;
+	}
 
-  protected String getFocusGainedMethod()
-  {
-    return focusGainedMethod;
-  }
+	protected String getFieldStyle() {
+		return fieldStyle;
+	}
 
-  protected String getFocusLostMethod()
-  {
-    return focusLostMethod;
-  }
+	protected String getFocusGainedMethod() {
+		return focusGainedMethod;
+	}
 
-  protected String getIconStyle()
-  {
-    return iconStyle;
-  }
+	protected String getFocusLostMethod() {
+		return focusLostMethod;
+	}
 
-  protected String getLabelStyle()
-  {
-    return labelStyle;
-  }
+	protected String getIconStyle() {
+		return iconStyle;
+	}
 
-  protected String getMandatoryIconUrl()
-  {
-    return mandatoryIconUrl;
-  }
+	protected String getLabelStyle() {
+		return labelStyle;
+	}
 
-  protected String getTransparentIconUrl()
-  {
-    return transparentIconUrl;
-  }
+	protected String getMandatoryIconUrl() {
+		return mandatoryIconUrl;
+	}
 
-  protected String getValueChangedMethod()
-  {
-    return valueChangedMethod;
-  }
+	protected String getTransparentIconUrl() {
+		return transparentIconUrl;
+	}
 
-  @Override
-  public boolean isContainer()
-  {
-    return false;
-  }
+	protected String getValueChangedMethod() {
+		return valueChangedMethod;
+	}
 
-  /**
-   * Returns whether the content of the component that is described by this parameters is mandatory.
-   * 
-   * @return true if this the content is mandatory, false otherwise.
-   */
-  public boolean isMandatory()
-  {
-    return mandatory;
-  }
+	@Override
+	public boolean isContainer() {
+		return false;
+	}
 
-  /**
-   * Returns whether the content of the component that is described by this parameters should be valid to pass to the next step.
-   * 
-   * @return true if this the content should be valid, false otherwise.
-   */
-  public boolean isValidationBlocking()
-  {
-    return blockingValidation;
-  }
+	/**
+	 * Returns whether the content of the component that is described by this
+	 * parameters is mandatory.
+	 * 
+	 * @return true if this the content is mandatory, false otherwise.
+	 */
+	public boolean isMandatory() {
+		return mandatory;
+	}
+
+	/**
+	 * Returns whether the content of the component that is described by this
+	 * parameters should be valid to pass to the next step.
+	 * 
+	 * @return true if this the content should be valid, false otherwise.
+	 */
+	public boolean isValidationBlocking() {
+		return blockingValidation;
+	}
 }

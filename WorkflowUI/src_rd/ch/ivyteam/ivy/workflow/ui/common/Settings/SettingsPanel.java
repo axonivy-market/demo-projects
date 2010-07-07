@@ -1,17 +1,19 @@
 package ch.ivyteam.ivy.workflow.ui.common.Settings;
 
 import ch.ivyteam.ivy.persistence.PersistencyException;
+import ch.ivyteam.ivy.rd.common.EmailNotificationSettings.EmailNotificationSettingsPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
-import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
-import ch.ivyteam.ivy.richdialog.widgets.components.RComboBox;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RPasswordField;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RCollapsiblePane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RToolBar;
 import ch.ivyteam.ivy.security.AuthenticationException;
 import ch.ivyteam.ivy.security.ISession;
 import ch.ivyteam.ivy.workflow.ui.common.CaseTaskParametersEdit.CaseTaskParametersEditPanel;
@@ -19,12 +21,10 @@ import ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel;
 import ch.ivyteam.security.Password;
 
 import com.ulcjava.base.application.BorderFactory;
+import com.ulcjava.base.application.ULCContainer;
 import com.ulcjava.base.application.border.ULCTitledBorder;
 import com.ulcjava.base.application.util.Color;
 import com.ulcjava.base.application.util.Font;
-import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
-import com.ulcjava.base.application.ULCContainer;
-import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for SettingsPanel.
@@ -38,16 +38,12 @@ implements IRichDialogPanel
   private static final long serialVersionUID = 1L;
 @EmbeddedRichDialog(HeaderPanel.class) private ULCContainer header = null;
 private RGridBagLayoutPane passwordGridBagLayoutPane = null;
-private RGridBagLayoutPane emailGridBagLayoutPane = null;
 private RLabel oldPasswordLabel = null;
 private RLabel newPasswordLabel = null;
 private RLabel confirmNewPasswordLabel = null;
 private RPasswordField oldPasswordTextField = null;
 private RPasswordField newPasswordTextField = null;
 private RPasswordField confirmTextField = null;
-private RCheckBox dailyTaskSummaryCheckBox = null;
-private RCheckBox onNewTaskCheckBox = null;
-private RComboBox languageComboBox = null;
 private RLabel errorLabel = null;
 private RButton saveButton = null;
 private RLabel loggedInAsLabel = null;
@@ -55,8 +51,10 @@ private RLabel loggedInAsLabel = null;
 private RButton changePasswordButton = null;
 private RCollapsiblePane changePasswordCollapsiblePane = null;
 private RBoxPane changePasswordBoxPane = null;
-private RLabel emailNotificationLanguageLabel = null;
 private RButton updatePWButton = null;
+private @EmbeddedRichDialog(EmailNotificationSettingsPanel.class) ULCContainer emailNotificationSettingsPanel = null;
+private RToolBar settingsToolBar = null;
+private RButton exitButton = null;
 /**
    * Create a new instance of SettingsPanel
    */
@@ -76,16 +74,14 @@ private RButton updatePWButton = null;
         verticalFiller.setStyleProperties("{/fill \"VERTICAL\"/weightY \"1\"}");
         RFiller Filler2 = new RFiller();
         Filler2.setStyle("verticalGlue");
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(240,512));
-        this.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(12, 74, 124), 1), " Settings ", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.BOLD, 11), new Color(12, 74, 124)));
         this.add(getHeader(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getPasswordGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getEmailGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getErrorLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getSaveButton(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(Filler2, new com.ulcjava.base.application.GridBagConstraints(0, 8, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getCaseTaskParametersEditRDC(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(verticalFiller, new com.ulcjava.base.application.GridBagConstraints(0, 7, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getPasswordGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getErrorLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 8, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(Filler2, new com.ulcjava.base.application.GridBagConstraints(0, 11, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getCaseTaskParametersEditRDC(), new com.ulcjava.base.application.GridBagConstraints(0, 6, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(verticalFiller, new com.ulcjava.base.application.GridBagConstraints(0, 10, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getEmailNotificationSettingsPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getSettingsToolBar(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
 /**
@@ -120,24 +116,6 @@ private RGridBagLayoutPane getPasswordGridBagLayoutPane() {
 		passwordGridBagLayoutPane.add(getChangePasswordCollapsiblePane(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return passwordGridBagLayoutPane;
-}
-
-/**
- * This method initializes emailGridBagLayoutPane	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane	
- */
-private RGridBagLayoutPane getEmailGridBagLayoutPane() {
-	if (emailGridBagLayoutPane == null) {
-		emailGridBagLayoutPane = new RGridBagLayoutPane();
-		emailGridBagLayoutPane.setName("emailGridBagLayoutPane");
-		emailGridBagLayoutPane.setBorder(BorderFactory.createTitledBorder(null, "eMail notification", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 11), new Color(12, 74, 124)));
-		emailGridBagLayoutPane.add(getDailyTaskSummaryCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		emailGridBagLayoutPane.add(getOnNewTaskCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		emailGridBagLayoutPane.add(getLanguageComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		emailGridBagLayoutPane.add(getEmailNotificationLanguageLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-	}
-	return emailGridBagLayoutPane;
 }
 
 /**
@@ -228,51 +206,6 @@ private RPasswordField getConfirmTextField() {
 }
 
 /**
- * This method initializes dailyTaskSummaryCheckBox	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox	
- */
-private RCheckBox getDailyTaskSummaryCheckBox() {
-	if (dailyTaskSummaryCheckBox == null) {
-		dailyTaskSummaryCheckBox = new RCheckBox();
-		dailyTaskSummaryCheckBox.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/dailyTaskSummary\")%>");
-		dailyTaskSummaryCheckBox.setStyleProperties("{/insetsLeft \"3\"}");
-		dailyTaskSummaryCheckBox.setName("dailyTaskSummaryCheckBox");
-	}
-	return dailyTaskSummaryCheckBox;
-}
-
-/**
- * This method initializes onNewTaskCheckBox	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox	
- */
-private RCheckBox getOnNewTaskCheckBox() {
-	if (onNewTaskCheckBox == null) {
-		onNewTaskCheckBox = new RCheckBox();
-		onNewTaskCheckBox.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/onNewTask\")%>");
-		onNewTaskCheckBox.setStyleProperties("{/insetsLeft \"3\"}");
-		onNewTaskCheckBox.setName("onNewTaskCheckBox");
-	}
-	return onNewTaskCheckBox;
-}
-
-/**
- * This method initializes languageComboBox	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RComboBox	
- */
-private RComboBox getLanguageComboBox() {
-	if (languageComboBox == null) {
-		languageComboBox = new RComboBox();
-		languageComboBox.setName("languageComboBox");
-		languageComboBox.setStyleProperties("{/weightX \"1\"}");
-		languageComboBox.setModelConfiguration("{/result \"\"/version \"2.0\"/icon \"\"/tooltip \"\"}");
-	}
-	return languageComboBox;
-}
-
-/**
  * This method initializes errorLabel	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
@@ -295,9 +228,10 @@ private RLabel getErrorLabel() {
 private RButton getSaveButton() {
 	if (saveButton == null) {
 		saveButton = new RButton();
-		saveButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/save\")%>");
-		saveButton.setStyleProperties("{/anchor \"NORTHEAST\"}");
 		saveButton.setName("saveButton");
+		saveButton.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/save32\")%>");
+		saveButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/save24\")%>");
+		saveButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/save\")%>");
 	}
 	return saveButton;
 }
@@ -359,9 +293,9 @@ private ULCContainer getCaseTaskParametersEditRDC()  {
 private RButton getChangePasswordButton() {
 	if (changePasswordButton == null) {
 		changePasswordButton = new RButton();
-		changePasswordButton.setStyleProperties("{/fill \"NONE\"}");
 		changePasswordButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/changePassword\")%>");
 		changePasswordButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/changePassword\")%>");
+		changePasswordButton.setStyleProperties("{/anchor \"WEST\"/minimumSizeWidth \"130\"/weightX \"0.2\"}");
 		changePasswordButton.setName("changePasswordButton");
 	}
 	return changePasswordButton;
@@ -403,21 +337,6 @@ private RBoxPane getChangePasswordBoxPane() {
 }
 
 /**
- * This method initializes emailNotificationLanguageLabel	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
- */
-private RLabel getEmailNotificationLanguageLabel() {
-	if (emailNotificationLanguageLabel == null) {
-		emailNotificationLanguageLabel = new RLabel();
-		emailNotificationLanguageLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/emailLanguage\")%>");
-		emailNotificationLanguageLabel.setStyleProperties("{/weightX \"1\"}");
-		emailNotificationLanguageLabel.setName("emailNotificationLanguageLabel");
-	}
-	return emailNotificationLanguageLabel;
-}
-
-/**
  * This method initializes updatePWButton	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
@@ -430,5 +349,52 @@ private RButton getUpdatePWButton() {
 		updatePWButton.setName("updatePWButton");
 	}
 	return updatePWButton;
+}
+
+/**
+ * This method initializes emailNotificationSettingsPanel	
+ * 	
+ * @return ch.ivyteam.ivy.rd.common.EmailNotificationSettings.EmailNotificationSettingsPanel	
+ */
+private ULCContainer getEmailNotificationSettingsPanel() {
+	if (emailNotificationSettingsPanel == null) {
+		emailNotificationSettingsPanel = new EmailNotificationSettingsPanel();
+		emailNotificationSettingsPanel.setName("emailNotificationSettingsPanel");
+	}
+	return emailNotificationSettingsPanel;
+}
+
+/**
+ * This method initializes ToolBar	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RToolBar	
+ */
+private RToolBar getSettingsToolBar() {
+	if (settingsToolBar == null) {
+		RFiller Filler1 = new RFiller();
+		settingsToolBar = new RToolBar();
+		settingsToolBar.setFloatable(false);
+		settingsToolBar.setName("settingsToolBar");
+		settingsToolBar.add(getSaveButton());
+		settingsToolBar.add(Filler1);
+		settingsToolBar.add(getExitButton());
+	}
+	return settingsToolBar;
+}
+/**
+ * This method initializes exitButton	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
+ */
+private RButton getExitButton() {
+	if (exitButton == null) {
+		exitButton = new RButton();
+		exitButton.setName("exitButton");
+		exitButton.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
+		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close24\")%>");
+		exitButton.setStyleProperties("{/minimumSizeHeight \"32\"}");
+		exitButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
+	}
+	return exitButton;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"
