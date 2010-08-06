@@ -29,4 +29,3 @@ documentTemplate ch.ivyteam.ivy.addons.docfactory.DocumentTemplate #field
 documentTemplate 'This object contains all the necessary informations to be able to generate one document after Templte Mail merging' #fieldComment
 counter Number #field
 displayId String #field
-displayId PERSISTENT #fieldModifier

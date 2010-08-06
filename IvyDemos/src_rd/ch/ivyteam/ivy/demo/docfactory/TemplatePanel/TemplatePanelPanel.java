@@ -229,7 +229,6 @@ private RListDisplay getListDisplay() {
 	if (ListDisplay == null) {
 		ListDisplay = new RListDisplay();
 		ListDisplay.setName("ListDisplay");
-		ListDisplay.setDisplayId("docFactoryDisplay");
 	}
 	return ListDisplay;
 }
