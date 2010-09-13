@@ -6,9 +6,19 @@
         <description>Default Rich Dialog start
 This method can not be changed or deleted!</description>
     </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Performs an amount of work, then closes itself.</description>
+        <inputParameter>
+            <name>amountOfWork</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
     <property>
         <name>guid</name>
-        <value>1221863888DD8DB3</value>
+        <value>12AF1BDC12D494F0</value>
         <readOnly>true</readOnly>
     </property>
     <property>

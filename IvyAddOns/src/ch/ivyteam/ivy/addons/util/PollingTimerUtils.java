@@ -44,6 +44,7 @@ public final class PollingTimerUtils {
 	 * simply invoke <code>start()</code> on the returned instance at a later point of time.
 	 * @param buttonToClick the button to click once
 	 * @return the created new {@link ULCPollingTimer} instance for the given button
+	 * @deprecated use <code>ivy.rd.clickDeferred(RButton)</code> instead
 	 */
 	@SuppressWarnings("serial")
 	public static final ULCPollingTimer clickOnce(final RButton buttonToClick)

@@ -4,8 +4,6 @@ rand java.util.Random #field
 rand PERSISTENT #fieldModifier
 workCount Number #field
 workCount PERSISTENT #fieldModifier
-progressUpdate com.ulcjava.base.application.ULCPollingTimer #field
-progressUpdate PERSISTENT #fieldModifier
 autoRefresher com.ulcjava.base.application.ULCPollingTimer #field
 autoRefresher PERSISTENT #fieldModifier
 listData List<Number> #field

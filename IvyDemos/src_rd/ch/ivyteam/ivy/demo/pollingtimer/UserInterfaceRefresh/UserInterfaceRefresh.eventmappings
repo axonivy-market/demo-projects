@@ -1,7 +1,7 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2009-06-25 21:09:22 | 4.1.0.15100 | 1.0
+# 2010-09-08 17:26:46 | 4.1.0.15100 | 1.0
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1221863890AD7BFD/12218638A9168E89
-~.doAutoRefreshCheckBox@VALUE_CHANGED[]--->ch.ivyteam.ivy.process.ProcessStart:1221863890AD7BFD/12218B8D79CAC583 # UserInterfaceRefreshProcess.mod/toggleAutoRefresh
-~.updateProgressButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1221863890AD7BFD/12218B8EA888EEEF # UserInterfaceRefreshProcess.mod/doWorkPart
-~.doRefreshButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1221863890AD7BFD/12218B8F3136743C # UserInterfaceRefreshProcess.mod/doRefreshList
-~.startProgressButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1221863890AD7BFD/12218B8CC527B564 # UserInterfaceRefreshProcess.mod/startProgress
+~.startWorkButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1221863890AD7BFD/12AF1DBBD1A62FD7 # UserInterfaceRefreshProcess.mod/run_progress_dialog
+~.doRefreshButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1221863890AD7BFD/12218B8F3136743C
+~.startProgressButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1221863890AD7BFD/12218B8CC527B564
+~.doAutoRefreshCheckBox@VALUE_CHANGED[]--->ch.ivyteam.ivy.process.ProcessStart:1221863890AD7BFD/12218B8D79CAC583

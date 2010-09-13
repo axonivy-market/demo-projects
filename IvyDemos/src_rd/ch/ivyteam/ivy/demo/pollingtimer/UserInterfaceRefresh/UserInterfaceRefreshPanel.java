@@ -19,6 +19,7 @@ import com.ulcjava.base.application.util.Font;
 import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import com.ulcjava.base.application.ULCContainer;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
+import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
 
 /**
  * RichDialog panel implementation for UserInterfaceRefreshPanel.
@@ -43,6 +44,11 @@ private RLabel autoRefreshInfoLabel = null;
 private RFlowLayoutPane invisibleButtonsPane = null;
 private RButton doRefreshButton = null;
 private RButton updateProgressButton = null;
+private RGridBagLayoutPane progressDialogPane = null;
+private RLabel progressDialogInfoLabel = null;
+private RLabel workLabel = null;
+private RTextField workTextField = null;
+private RButton startWorkButton = null;
 /**
    * Create a new instance of UserInterfaceRefreshPanel
    */
@@ -58,11 +64,12 @@ private RButton updateProgressButton = null;
    */
   private void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(402,357));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(402,454));
         this.add(getTitlePanel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getProgressPane(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getRefeshPane(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getInvisibleButtonsPane(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getRefeshPane(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getInvisibleButtonsPane(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getProgressDialogPane(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
 /**
@@ -153,7 +160,7 @@ private RButton getStartProgressButton() {
 private RLabel getProgressInfoLabel() {
 	if (progressInfoLabel == null) {
 		progressInfoLabel = new RLabel();
-		progressInfoLabel.setText("<html>Click on start to run the progress bar. For each percent of progress \nan UI process is invoked.");
+		progressInfoLabel.setText("<html>Click on start to run the progress bar. For each percent of progress a short part of a long running UI process is executed and the UI is updated.");
 		progressInfoLabel.setStyle("left-fill-horiz-border");
 		progressInfoLabel.setName("progressInfoLabel");
 	}
@@ -259,5 +266,88 @@ private RButton getUpdateProgressButton() {
 		updateProgressButton.setName("updateProgressButton");
 	}
 	return updateProgressButton;
+}
+
+/**
+ * This method initializes progressDialogPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane	
+ */
+private RGridBagLayoutPane getProgressDialogPane() {
+	if (progressDialogPane == null) {
+		progressDialogPane = new RGridBagLayoutPane();
+		progressDialogPane.setName("progressDialogPane");
+		progressDialogPane.setBorder(BorderFactory.createTitledBorder(null, "Progress-Dialog Demo", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 11), new Color(23, 64, 140)));
+		progressDialogPane.setStyle("fill-horiz-border");
+		progressDialogPane.add(getProgressDialogInfoLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 4, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		progressDialogPane.add(getWorkLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		progressDialogPane.add(getWorkTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		progressDialogPane.add(getStartWorkButton(), new com.ulcjava.base.application.GridBagConstraints(2, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+	}
+	return progressDialogPane;
+}
+
+/**
+ * This method initializes progressDialogInfoLabel	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
+ */
+private RLabel getProgressDialogInfoLabel() {
+	if (progressDialogInfoLabel == null) {
+		progressDialogInfoLabel = new RLabel();
+		progressDialogInfoLabel.setText("<html>Enter amount of work to be done \nand click on start. This will open a (modal) \nprogress dialog to perform the specified work.\nThe dialog will automatically close when finished. ");
+		progressDialogInfoLabel.setStyle("fill-northwest-border");
+		progressDialogInfoLabel.setName("progressDialogInfoLabel");
+	}
+	return progressDialogInfoLabel;
+}
+
+/**
+ * This method initializes workLabel	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
+ */
+private RLabel getWorkLabel() {
+	if (workLabel == null) {
+		workLabel = new RLabel();
+		workLabel.setText("How much work should I do?");
+		workLabel.setStyle("border-full");
+		workLabel.setStyleProperties("{/anchor \"CENTER\"}");
+		workLabel.setName("workLabel");
+	}
+	return workLabel;
+}
+
+/**
+ * This method initializes workTextField	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RTextField	
+ */
+private RTextField getWorkTextField() {
+	if (workTextField == null) {
+		workTextField = new RTextField();
+		workTextField.setText("100");
+		workTextField.setStyle("fill-horiz-north");
+		workTextField.setStyleProperties("{/anchor \"CENTER\"}");
+		workTextField.setMandatory(true);
+		workTextField.setValidation("NumberIntPositive");
+		workTextField.setName("workTextField");
+	}
+	return workTextField;
+}
+
+/**
+ * This method initializes startWorkButton	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
+ */
+private RButton getStartWorkButton() {
+	if (startWorkButton == null) {
+		startWorkButton = new RButton();
+		startWorkButton.setText("Start working!");
+		startWorkButton.setStyle("border-all");
+		startWorkButton.setName("startWorkButton");
+	}
+	return startWorkButton;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"
