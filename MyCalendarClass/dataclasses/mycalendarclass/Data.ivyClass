@@ -1,6 +1,0 @@
-Data #class
-testcalenderclass #namespace
-du Duration #field
-du PERSISTENT #fieldModifier
-dt DateTime #field
-dt PERSISTENT #fieldModifier
