@@ -1,1 +1,0 @@
-{/description "Numbers 0 to 100"/validationMessage "Invalid input (expected whole number in range 0..100)"/validationState "Error"/datatypeConfig {/isInteger "false"/min 0 /max 100 /useGrouping "false"/minFractionDigits 0 /maxFractionDigits 0 /displayLeadingZeroes "false"/decimalSeparator "0"/groupingSeparator "0"}/format "integer"}

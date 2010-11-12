@@ -1,4 +1,0 @@
-co: name={folderId} description={} changed={2010-02-22 16:46:54 GMT} changedby={bb} visualorder={0} guid={126F693014FF85E0} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={126F693014FE1257} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 13:42:37 GMT} validto={} changed={2010-02-22 16:46:54 GMT} changedby={bb} properties={} id={}
-val: guid={126F693014F2D05E} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 12:14:00 GMT} validto={} changed={2010-02-22 16:46:54 GMT} changedby={bb} properties={} id={}
-val: guid={126F693015E52F4E} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 11:28:10 GMT} validto={} changed={2010-02-22 16:46:54 GMT} changedby={bb} properties={} id={}

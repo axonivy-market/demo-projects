@@ -1,4 +1,0 @@
-co: name={customVarcharField} description={} changed={2010-02-24 15:19:25 CET} changedby={bb} visualorder={0} guid={126F6961DA83BAFF} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={126F6961DA858B33} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 12:39:57 CEST} validto={} changed={2010-02-22 17:50:18 CET} changedby={bb} properties={} id={}
-val: guid={126F6961DA8BE1D1} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 15:01:14 CEST} validto={} changed={2010-02-22 17:50:18 CET} changedby={bb} properties={} id={}
-val: guid={126F6961DB72FF67} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:26:09 CEST} validto={} changed={2010-02-24 15:19:25 CET} changedby={bb} properties={} id={}

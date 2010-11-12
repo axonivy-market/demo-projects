@@ -1,8 +1,0 @@
-{
-  /description "Single character string"
-  /validationMessage "Invalid input (expected single character)"
-  /validationState "Error"
-  /datatypeConfig {
-    /maxLength 1
-  }
-}

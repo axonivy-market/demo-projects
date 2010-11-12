@@ -1,4 +1,0 @@
-co: name={customTimestampField} description={} changed={2010-02-24 15:19:35 CET} changedby={bb} visualorder={0} guid={126F6961D69E7F0E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={126F6961D6958D6F} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 15:02:07 CEST} validto={} changed={2010-02-22 17:50:18 CET} changedby={bb} properties={} id={}
-val: guid={126F6961D6925290} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 12:39:20 CEST} validto={} changed={2010-02-22 17:50:18 CET} changedby={bb} properties={} id={}
-val: guid={126F6961D79D99AB} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:21:48 CEST} validto={} changed={2010-02-24 15:19:35 CET} changedby={bb} properties={} id={}

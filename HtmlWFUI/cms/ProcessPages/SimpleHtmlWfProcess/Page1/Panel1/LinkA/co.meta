@@ -1,2 +1,0 @@
-co: name={LinkA} description={} changed={2009-12-03 16:01:00 CET} changedby={bb} visualorder={0} guid={125550EBC458B5BE} parentguid={} typeguid={E6AFEA1F2184828C} id={} parentid={} typeid={}
-val: guid={125550EBC8487FE6} datatype={} isdefault={true} langid={en} description={} validfrom={2009-12-03 16:00:46 CET} validto={} changed={2009-12-03 16:01:00 CET} changedby={bb} properties={###r#n##Thu Dec 03 16:01:00 CET 2009#r#n.KIND=textlink#r#n.LINK=&raquo; weiterleiten#r#n.LREF=<%\=ivy.html.ref("LinkA.ivp")%>#r#n.SBMT=#r#n} id={}

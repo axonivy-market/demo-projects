@@ -1,7 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2010-02-25 14:38:32 | 4.1.2.32129 | 1.0
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:125209F6A592E2B5/125209F6A698762C
-~.exitHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125209F6A592E2B5/1270495943A76BAB # mainProcess.mod/RD_Event_Start1
-~.processstartlistHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125209F6A592E2B5/125213D21FF8905D
-~.loginHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125209F6A592E2B5/1252180F5FBAC34A
-~.tasklistHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125209F6A592E2B5/12520BD7434E23AF

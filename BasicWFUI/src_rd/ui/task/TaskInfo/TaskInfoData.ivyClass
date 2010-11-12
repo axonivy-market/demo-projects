@@ -1,4 +1,0 @@
-TaskInfoData #class
-ui.task.TaskInfo #namespace
-info String #field
-info PERSISTENT #fieldModifier

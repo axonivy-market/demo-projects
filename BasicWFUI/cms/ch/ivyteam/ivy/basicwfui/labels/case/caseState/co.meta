@@ -1,4 +1,0 @@
-co: name={caseState} description={} changed={2010-02-24 11:54:44 GMT} changedby={bb} visualorder={0} guid={126FFD43C976C43F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={126FFD43CA7E50B8} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 08:06:20 GMT} validto={} changed={2010-02-24 11:54:44 GMT} changedby={bb} properties={} id={}
-val: guid={126FFD43CB6E426A} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-10 09:37:48 GMT} validto={} changed={2010-02-24 11:54:44 GMT} changedby={bb} properties={} id={}
-val: guid={126FFD43CC6261EB} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 12:58:36 GMT} validto={} changed={2010-02-24 11:54:44 GMT} changedby={bb} properties={} id={}
