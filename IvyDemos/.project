@@ -16,6 +16,11 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+			<name>ch.ivyteam.ivy.designer.process.ui.ivyWebServiceProcessClassBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
 			<name>ch.ivyteam.ivy.designer.ide.ivyModelValidationBuilder</name>
 			<arguments>
 			</arguments>

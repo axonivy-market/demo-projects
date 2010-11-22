@@ -67,6 +67,7 @@ public class FileHandling {
 				}
 			}
 
+			@SuppressWarnings("unchecked")
 			public void onSuccess(InputStream[] ins, String[] filePaths, String[] fileNames) {
 				Ivy.log().info("Upload was success");
 				if (ins.length == 0)
