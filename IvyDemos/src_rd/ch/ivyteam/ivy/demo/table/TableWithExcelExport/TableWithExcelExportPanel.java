@@ -3,11 +3,9 @@ package ch.ivyteam.ivy.demo.table.TableWithExcelExport;
 import ch.ivyteam.ivy.addons.widgets.RTableWithExcelExport;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTable;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
-import ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem;
-import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
-import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 
 /**
  * RichDialog panel implementation for RTableExcelExportTestPanel.
@@ -18,9 +16,7 @@ public class TableWithExcelExportPanel extends RichDialogGridBagPanel
 implements IRichDialogPanel 
 { 
   /** Serial version id */
-  private static final long serialVersionUID = 1L;
-private RPopupMenu PopupMenu = null;  //  @jve:decl-index=0:visual-constraint="475,135"
-private RMenuItem MenuItem = null;
+private static final long serialVersionUID = 1L;
 private RTable Table = null;
 private RScrollPane ScrollPane = null;
 private RLabel Label = null;
@@ -43,34 +39,6 @@ private RLabel Label = null;
         this.add(getLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
-
-/**
- * This method initializes PopupMenu    
- *      
- * @return ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu   
- */
-private RPopupMenu getPopupMenu() {
-        if (PopupMenu == null) {
-                PopupMenu = new RPopupMenu();
-                PopupMenu.setName("PopupMenu");
-                PopupMenu.add(getMenuItem());
-        }
-        return PopupMenu;
-}
-
-/**
- * This method initializes MenuItem     
- *      
- * @return ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem    
- */
-private RMenuItem getMenuItem() {
-        if (MenuItem == null) {
-                MenuItem = new RMenuItem();
-                MenuItem.setText("Do Nothing");
-                MenuItem.setName("MenuItem");
-        }
-        return MenuItem;
-}
 
 /**
  * This method initializes Table	
