@@ -1,0 +1,37 @@
+EmailContainer #class
+'This Class represents an Email object. Usefull to manipulate Emails in coordination with the Desktop ULC integration from the JDIC Package.
+It can be used to send Emial with the eMail Ivy Step' #classComment
+ch.ivyteam.ivy.addons.filemanager #namespace
+to List<String> #field
+to 'the list of receivers email addresses' #fieldComment
+cc List<String> #field
+cc 'the list of cc email addresses' #fieldComment
+bcc List<String> #field
+bcc 'the list of bcc email addresses' #fieldComment
+subject String #field
+subject 'the subject of the email' #fieldComment
+body String #field
+body 'the body of the email' #fieldComment
+attachmentsFromOutside Boolean #field
+attachmentsFromOutside 'if true, the list of attachments may comes with the call of the mail method, else, if you use this Object in the FileManagement System, the selected Files are going to be sent as attachment.' #fieldComment
+attachments List<java.io.File> #field
+attachments 'the list of attachments (list of java File)' #fieldComment
+ivyAttachments List<File> #field
+ivyAttachments 'the list of attachments as Ivy Files' #fieldComment
+ivyAttachments PERSISTENT #fieldModifier
+id Number #field
+id 'Can be used in system event or application broadcast events' #fieldComment
+userId String #field
+userId 'Ivy User Id' #fieldComment
+userName String #field
+userName 'Ivy User Name' #fieldComment
+userEmail String #field
+userEmail 'Ivy User Email' #fieldComment
+toAsString String #field
+toAsString 'to list as String list each email address separated by ;' #fieldComment
+ccAsString String #field
+ccAsString 'cc list as String list each email address separated by ;' #fieldComment
+bccAsString String #field
+bccAsString 'bcc list as String list each email address separated by ;' #fieldComment
+fromAsString String #field
+fromAsString 'frm list as String list each email address separated by ;' #fieldComment

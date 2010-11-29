@@ -9,13 +9,17 @@ import java.util.List;
  * @author Patrick Joly, TI-Informatique
  * @since 30.01.2009
  */
-public class RecordsetUtil
+public final class RecordsetUtil
 {
+  private RecordsetUtil()
+  {
+  }
+
   /**
    * Transforms a List<List<String>> into a List<String[]>.
    * 
    * @param stringListList recordset of type List<List<String>>
-   * @return
+   * @return the transformed recordset
    */
   public static List<String[]> getRecordset(List<List<String>> stringListList)
   {

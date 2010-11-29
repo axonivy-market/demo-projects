@@ -1,7 +1,5 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
-
 import com.ulcjava.base.application.ULCComponent;
 import com.ulcjava.base.application.ULCContainer;
 
@@ -11,78 +9,87 @@ import com.ulcjava.base.application.ULCContainer;
  * @author Patrick Joly, TI-Informatique
  * @since 13.10.2008
  */
-public class InsideContainer extends Container
+public class InsideContainer extends ComplexComponent
 {
-
-  protected ULCContainer parentContainer = null;
-
-  public InsideContainer(DynamicDialogPanel panel, Container _parentContainer, ULCContainer ulcContainer,
-          ContainerParameters _parameters, Integer height)
+  /**
+   * Constructs a new InsideContainer object.
+   * 
+   * @param panel dynamic dialog panel
+   * @param parentContainer parent container
+   * @param parameters parameters
+   * @param index position when component is in a list
+   */
+  protected InsideContainer(DynamicDialogPanel panel, ComplexComponent parentContainer,
+          ComplexComponentParameters parameters, int index)
   {
-    super(panel, _parentContainer, ulcContainer, _parameters, height);
-
-    parameters = _parameters;
-    parentContainer = ulcContainer;
+    super(panel, parentContainer, parameters, index);
+    setCreateFiller(false);
   }
 
   @Override
-  protected boolean createFiller()
-  {
-    return true;
-  }
-
-  @Override
-  public ULCComponent getLastMainComponent()
+  public final ULCComponent getLastMainComponent()
   {
     return getMainComponent();
   }
 
   @Override
-  public ULCComponent getMainComponent()
+  public final ULCComponent getMainComponent()
   {
-    return parentContainer;
+    return getUlcContainer();
   }
 
   @Override
-  public ContainerParameters getParameters()
+  public final ComplexComponentParameters getParameters()
   {
-    return (ContainerParameters) parameters;
+    return (ComplexComponentParameters) getComponentParameters();
   }
 
   @Override
-  public ULCContainer getUlcContainer()
+  public final ULCContainer getUlcContainer()
   {
-    return parentContainer;
+    ComplexComponent parent;
+    ULCContainer result;
+
+    parent = getParentContainer();
+    if (parent != null)
+    {
+      result = parent.getUlcContainer();
+    }
+    else
+    {
+      result = getPanel();
+    }
+    return result;
   }
 
   @Override
-  public void initialize(Position pos, Container previousContainer)
+  protected final void initialize(final Position pos, ComplexComponent previousContainer)
   {
     super.initialize(pos);
   }
 
   @Override
-  public boolean isFocusable()
+  public final boolean isFocusable()
   {
     return false;
   }
 
   @Override
-  public void setFocusable(boolean b)
+  public final void setFocusable(boolean b)
   {
     // Nothing to do
   }
 
   @Override
-  protected void applyStyles()
+  protected final void applyComponentStyle()
   {
     // Nothing to do
   }
 
   @Override
-  protected void updateEnabledChildren()
+  protected final void updateEnabledChildren()
   {
-    for (Component component : children)
+    for (Component component : getChildren())
     {
       component.setParentEnabled(isEnabled());
     }
@@ -90,18 +97,25 @@ public class InsideContainer extends Container
   }
 
   @Override
-  protected void updateVisibleChildren()
+  protected final boolean useParentContainer()
   {
-    for (Component component : children)
-    {
-      component.setParentVisible(isVisible());
-    }
-    super.updateVisibleChildren();
+    return true;
   }
 
   @Override
-  public boolean useParentContainer()
+  protected final Position getStartPos(Position pos)
   {
-    return true;
+    return pos;
+  }
+
+  @Override
+  public final String getLabel()
+  {
+    return null;
+  }
+
+  @Override
+  public final void setLabel(String value)
+  {
   }
 }

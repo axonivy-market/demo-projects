@@ -1,0 +1,4 @@
+co: name={rootFolderCannotDelete} description={} changed={2009-09-04 13:55:06 CEST} changedby={ec} visualorder={0} guid={12384E6A0ABCEFAF} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={12384E6DE608F96F} datatype={} isdefault={false} langid={de} description={} validfrom={2009-09-04 13:53:25 CEST} validto={} changed={2009-09-04 13:54:33 CEST} changedby={ec} properties={} id={}
+val: guid={12384E7E6E72DEEF} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-09-04 13:54:33 CEST} validto={} changed={2009-09-04 13:55:06 CEST} changedby={ec} properties={} id={}
+val: guid={12384E6A0AB125F2} datatype={} isdefault={true} langid={en} description={} validfrom={2009-09-04 13:53:10 CEST} validto={} changed={2009-09-04 13:53:25 CEST} changedby={ec} properties={} id={}

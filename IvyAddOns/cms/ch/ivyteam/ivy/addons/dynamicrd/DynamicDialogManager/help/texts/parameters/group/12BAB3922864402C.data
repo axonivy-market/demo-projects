@@ -1,0 +1,2 @@
+Asks dynamic dialog to not create a container for this complex attribute, but to reuse the parent.<br />
+Child fields are displayed like siblings fields.

@@ -1,45 +1,73 @@
 package ch.ivyteam.ivy.addons.util;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import ch.ivyteam.ivy.addons.sudo.InvokeDBQuerySudo;
-import ch.ivyteam.ivy.security.SecurityManagerFactory;
 
-public class IvyDatabase
+/**
+ * This helper class can execute sql query through ivy db configurtion.
+ * 
+ * @author Patrick Joly, TI-Informatique
+ * @since 03.10.2008
+ */
+public final class IvyDatabase
 {
-  static protected Hashtable<String, List<String[]>> queries = null;
+  private static Map<String, List<String[]>> queries = null;
 
-  static protected String configuration = null;
+  private static String configuration = null;
 
-  static public void setConfiguration(String value)
+  private IvyDatabase()
+  {
+  }
+
+  /**
+   * Defines a default db configuration to use. This configuration is shared through all PMV of the
+   * applicaiton.
+   * 
+   * @param value ivy db configuration name
+   */
+  @Deprecated
+  public static void setConfiguration(String value)
   {
     configuration = value;
   }
 
-  static public List<String[]> invokeConstantDBQuery(String query)
+  /**
+   * Executes a SQL query and cache the resulting recordset.
+   * 
+   * @param query SQL query to execute
+   * @return result recordset
+   * @throws AddonsException
+   */
+  public static List<String[]> invokeConstantDBQuery(String query) throws AddonsException
+  {
+    return invokeConstantDBQuery(query, configuration);
+  }
+
+  /**
+   * Executes a SQL query and cache the resulting recordset.
+   * 
+   * @param query SQL query to execute
+   * @param configuration ivy db configuration name
+   * @return result recordset
+   * @throws AddonsException
+   */
+  public static List<String[]> invokeConstantDBQuery(String query, String configuration)
+          throws AddonsException
   {
     List<String[]> result;
 
     if (queries == null)
     {
-      queries = new Hashtable<String, List<String[]>>();
+      queries = new HashMap<String, List<String[]>>();
     }
 
     result = queries.get(query);
     if (result == null)
     {
-      try
-      {
-		// THIS METHOD USES NON-PUBLIC API CLASSES AND METHODS!
-		// COPY AT OWN RISK (API IS NOT GUARANTEED TO BE STABLE)
-        result = SecurityManagerFactory.getSecurityManager().executeAsSystem(
-                new InvokeDBQuerySudo(query, configuration));
-      }
-      catch (Exception e)
-      {
-        throw new AddonsException(e);
-      }
+      result = InvokeDBQuerySudo.executeQuery(query, configuration);
 
       if (result != null)
       {
@@ -49,7 +77,10 @@ public class IvyDatabase
     return result;
   }
 
-  static public void expireAllConstantDBQuery()
+  /**
+   * Clears the cache that stores the last queries results.
+   */
+  public static void expireAllConstantDBQuery()
   {
     queries = null;
   }

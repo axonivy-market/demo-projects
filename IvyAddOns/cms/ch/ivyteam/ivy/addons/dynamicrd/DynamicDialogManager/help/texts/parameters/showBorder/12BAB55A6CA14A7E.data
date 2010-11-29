@@ -1,0 +1,2 @@
+If <span class="constant">false</span>, the border of the container is not drawn.<br />
+This parameter does not work with all widgets.

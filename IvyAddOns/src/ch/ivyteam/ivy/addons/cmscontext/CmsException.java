@@ -1,6 +1,6 @@
 package ch.ivyteam.ivy.addons.cmscontext;
 
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogException;
+import ch.ivyteam.ivy.addons.util.AddonsException;
 
 /**
  * Exception that is thrown by CMS context methods.
@@ -8,7 +8,7 @@ import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogException;
  * @author Patrick Joly, TI-Informatique
  * @since 03.06.2009
  */
-public class CmsException extends DynamicDialogException
+public class CmsException extends AddonsException
 {
   private static final long serialVersionUID = 1741029292395781378L;
 
@@ -21,5 +21,4 @@ public class CmsException extends DynamicDialogException
   {
     super(message);
   }
-
 }

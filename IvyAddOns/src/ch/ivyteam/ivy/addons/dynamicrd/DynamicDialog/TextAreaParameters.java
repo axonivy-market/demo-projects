@@ -3,7 +3,7 @@ package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 import java.util.List;
 
 import ch.ivyteam.ivy.addons.cmscontext.Cms;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType.ComponentTypeEnum;
+import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType;
 
 /**
  * This is parameter class of fields that use a RLookupTextField.
@@ -11,35 +11,44 @@ import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType.ComponentType
  * @author Patrick Joly, TI-Informatique
  * @since 14.09.2008
  */
-public class TextAreaParameters extends FieldComponentParameters
+class TextAreaParameters extends FieldComponentParameters
 {
   private static final long serialVersionUID = 5722902723612113059L;
 
-  protected Integer maxLength = Integer.MAX_VALUE;
+  private int rows;
 
-  public int rows;
+  private String scrollPaneStyle;
 
-  public String scrollPaneStyle;
-
-  public TextAreaParameters(Configuration configuration, List<String> cmsContexts, String name,
-          String fullName, ContainerParameters parentContainerParameters)
+  protected TextAreaParameters(List<String> cmsContexts, String name,
+          String fullName, ComplexComponentParameters parentContainerParameters, Integer position, Class<?> clazz)
   {
-    super(configuration, cmsContexts, name, fullName, parentContainerParameters);
+    super(cmsContexts, name, fullName, parentContainerParameters, position, clazz);
 
     rows = Cms.coAsNumber(cmsContexts, KnownParameters.ROW_PARAMETER, 0).intValue();
 
     scrollPaneStyle = Cms.co(getCmsContexts(), KnownParameters.SCROLL_PANE_STYLE_PARAMETER,
-            parentContainerParameters.scrollPaneStyle);
+            parentContainerParameters.getScrollPaneStyle());
   }
 
   @Override
-  public ComponentTypeEnum getComponentType()
+  public ComponentType getComponentType()
   {
-    return ComponentType.ComponentTypeEnum.TEXT_AREA;
+    return ComponentType.TEXT_AREA;
   }
 
   public String getScrollPaneStyle()
   {
     return scrollPaneStyle;
+  }
+
+  protected final int getRows()
+  {
+    return rows;
+  }
+
+  @Override
+  protected final boolean isEditableByDefault()
+  {
+    return false;
   }
 }

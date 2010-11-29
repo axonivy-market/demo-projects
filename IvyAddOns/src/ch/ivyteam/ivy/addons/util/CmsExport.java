@@ -1,28 +1,30 @@
 package ch.ivyteam.ivy.addons.util;
 
 /**
- * Export a CMS branch into an XML file.
+ * Exports a CMS branch into an XML file.
+ * 
+ * @deprecated This is provided for compatibility only. Please use the new Cms2LinearXml class,
+ * @see Cms2LinearXml
  * 
  * @author Patrick Joly, TI-Informatique
  * @since 29.05.2009
  */
-public class CmsExport
+@Deprecated
+public final class CmsExport
 {
+  private CmsExport()
+  {
+  }
+
   /**
    * Exports the specified CMS branch.
    * 
    * @param fileName xml file to produce
    * @param uri starting point of the export
+   * @throws AddonsException
    */
-  static public void export(String fileName, String uri)
+  public static void export(String fileName, String uri) throws AddonsException
   {
-    CmsExplorer explorer;
-    Cms2LinearXmlExploreHandler handler;
-
-    handler = new Cms2LinearXmlExploreHandler(fileName);
-    explorer = new CmsExplorer(handler);
-
-    explorer.explore(uri);
+    Cms2LinearXml.convert(fileName, uri);
   }
-
 }

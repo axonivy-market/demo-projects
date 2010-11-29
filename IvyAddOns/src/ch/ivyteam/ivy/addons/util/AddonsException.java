@@ -1,12 +1,12 @@
 package ch.ivyteam.ivy.addons.util;
 
 /**
- * Runtime exception that is thrown by DynamicDialog.
+ * Runtime exception that is thrown by Addons components.
  * 
  * @author Patrick Joly, TI-Informatique
  * @since 26.05.2009
  */
-public class AddonsException extends RuntimeException
+public class AddonsException extends Exception
 {
   private static final long serialVersionUID = 5313922591773236026L;
 
@@ -28,5 +28,16 @@ public class AddonsException extends RuntimeException
   public AddonsException(String message)
   {
     super(message);
+  }
+
+  /**
+   * Creates a new exception that encapsulates another one with a specific message.
+   * 
+   * @param message message that describes the exception
+   * @param cause initial cause
+   */
+  public AddonsException(String message, Throwable cause)
+  {
+    super(message, cause);
   }
 }

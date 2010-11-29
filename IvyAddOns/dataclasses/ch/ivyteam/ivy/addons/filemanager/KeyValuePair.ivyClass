@@ -1,0 +1,7 @@
+KeyValuePair #class
+'This DataClass represents a key/value pair like a java Map.Entry.' #classComment
+ch.ivyteam.ivy.addons.filemanager #namespace
+key java.lang.Object #field
+key 'the key of the key/value pair java.lang.Object' #fieldComment
+value java.lang.Object #field
+value 'the value of the key/value pair java.lang.Object' #fieldComment

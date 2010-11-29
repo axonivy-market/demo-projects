@@ -1,0 +1,5 @@
+If <span class="constant">true</span>, the background color of the field is set to the background color of its container.<br />
+The field seems to be transparent (but it is not).<br />
+<img src="#img#parameters/showFieldBorder1"/><br />
+In this image <span class="parameter">showFieldBorder</span> is <span class="constant">false</span> and <span class="parameter">transparentBackground</span> is <span class="constant">true</span>.<br />
+The default value is <span class="constant">false</span>

@@ -14,30 +14,52 @@ import ch.ivyteam.ivy.db.IExternalDatabase;
 import ch.ivyteam.ivy.db.IExternalDatabaseApplicationContext;
 import ch.ivyteam.ivy.db.IExternalDatabaseRuntimeConnection;
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.persistence.PersistencyException;
+import ch.ivyteam.ivy.security.SecurityManagerFactory;
 
 /**
- * Uses JDBC connection with the Ivy db configuration through a Callable. Useful with
- * SecurityManagerFactory.getSecurityManager().executeAsSystem.
+ * Uses JDBC connection with the Ivy db configuration.
  * 
  * @author Patrick Joly, TI-Informatique
  * @since 02.06.2009
  */
-public class InvokeDBQuerySudo implements Callable<List<String[]>>
+public final class InvokeDBQuerySudo implements Callable<List<String[]>>
 {
   private String query;
 
   private String dbConfigName;
 
-  public InvokeDBQuerySudo(String _query, String _dbConfigName)
+  private InvokeDBQuerySudo()
   {
-    query = _query;
-    dbConfigName = _dbConfigName;
   }
 
-  public List<String[]> call() throws Exception
+  /**
+   * Constructs a ProcessModelVersion object that can be used with
+   * SecurityManagerFactory.getSecurityManager().executeAsSystem.
+   * @see SecurityManagerFactory#getSecurityManager()
+   * 
+   * @deprecated Prefers using static method executeQuery.
+   * @see #executeQuery(String, String)
+   * 
+   * @param query sql query
+   * @param configuration ivy db configuration
+   * @return result recordset
+   * @throws AddonsException
+   */
+  @Deprecated
+  public InvokeDBQuerySudo(String query, String configuration)
   {
-	// THIS METHOD USES NON-PUBLIC API CLASSES AND METHODS!
-	// COPY AT OWN RISK (API IS NOT GUARANTEED TO BE STABLE)
+    this.query = query;
+    this.dbConfigName = configuration;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public final List<String[]> call() throws PersistencyException, SQLException, AddonsException
+  {
+    // THIS METHOD USES NON-PUBLIC API CLASSES AND METHODS!
+    // COPY AT OWN RISK (API IS NOT GUARANTEED TO BE STABLE)
     IExternalDatabaseApplicationContext context;
     IExternalDatabase database;
     IExternalDatabaseRuntimeConnection connection;
@@ -51,10 +73,12 @@ public class InvokeDBQuerySudo implements Callable<List<String[]>>
     List<String[]> result;
 
     result = null;
+    statement = null;
+    resultSet = null;
 
     // get a connection from the environment
-    context = (IExternalDatabaseApplicationContext) Ivy.wf().getApplication().getAdapter(
-            IExternalDatabaseApplicationContext.class);
+    context = (IExternalDatabaseApplicationContext) Ivy.session().getWorkflowContext().getApplication()
+            .getAdapter(IExternalDatabaseApplicationContext.class);
     database = context.getExternalDatabase(dbConfigName);
     connection = database.getAndLockConnection();
 
@@ -90,9 +114,44 @@ public class InvokeDBQuerySudo implements Callable<List<String[]>>
     }
     finally
     {
+      if (resultSet != null)
+      {
+        resultSet.close();
+      }
+      if (statement != null)
+      {
+        statement.close();
+      }
       // give back the connection to the environment
       database.giveBackAndUnlockConnection(connection);
     }
+    return result;
+  }
+
+  /**
+   * Executes a SQL query through an Ivy db connection.
+   * 
+   * @param query sql query
+   * @param configuration ivy db configuration
+   * @return result recordset
+   * @throws AddonsException
+   */
+  public static List<String[]> executeQuery(String query, String configuration) throws AddonsException
+  {
+    List<String[]> result;
+
+    try
+    {
+      // THIS METHOD USES NON-PUBLIC API CLASSES AND METHODS!
+      // COPY AT OWN RISK (API IS NOT GUARANTEED TO BE STABLE)
+      result = SecurityManagerFactory.getSecurityManager().executeAsSystem(
+              new InvokeDBQuerySudo(query, configuration));
+    }
+    catch (Exception e)
+    {
+      throw new AddonsException(e);
+    }
+
     return result;
   }
 }

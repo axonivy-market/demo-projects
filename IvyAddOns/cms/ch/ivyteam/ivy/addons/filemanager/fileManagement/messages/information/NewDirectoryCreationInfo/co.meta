@@ -1,0 +1,4 @@
+co: name={NewDirectoryCreationInfo} description={} changed={2009-09-04 13:48:04 CEST} changedby={ec} visualorder={0} guid={12370DB017436B35} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={12370DB4A7310CDB} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-31 16:28:22 CEST} validto={} changed={2009-09-04 13:48:04 CEST} changedby={ec} properties={} id={}
+val: guid={12370DB0174A96B2} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-31 16:28:04 CEST} validto={} changed={2009-08-31 16:30:49 CEST} changedby={ec} properties={} id={}
+val: guid={12370DD85D7EF416} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-31 16:30:49 CEST} validto={} changed={2009-08-31 16:31:42 CEST} changedby={ec} properties={} id={}

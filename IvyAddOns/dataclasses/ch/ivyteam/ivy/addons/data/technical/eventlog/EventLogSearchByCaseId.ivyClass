@@ -1,0 +1,4 @@
+EventLogSearchByCaseId #class
+'This DC is used to search an event list.' #classComment
+ch.ivyteam.ivy.addons.data.technical.eventlog #namespace
+caseId Number #field

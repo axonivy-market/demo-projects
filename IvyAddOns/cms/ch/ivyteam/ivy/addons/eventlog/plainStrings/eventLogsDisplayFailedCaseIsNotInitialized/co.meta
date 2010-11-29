@@ -1,0 +1,3 @@
+co: name={eventLogsDisplayFailedCaseIsNotInitialized} description={} changed={2010-04-29 11:40:59 GMT} changedby={tirib} visualorder={0} guid={128495C2BBF81595} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={128495C366E42450} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-04-29 11:38:19 GMT} validto={} changed={2010-04-29 11:40:20 GMT} changedby={tirib} properties={} id={}
+val: guid={128495C2BDEBBCCA} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-29 11:38:16 GMT} validto={} changed={2010-04-29 11:38:16 GMT} changedby={tirib} properties={} id={}

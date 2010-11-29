@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <description>This RDC allows choosing among three action about files: edit-show, print, cancel&#xD;
+it returns the choosed action in form of a String:&#xD;
+&quot;edit&quot; if edit/show pressed&#xD;
+&quot;print&quot; if print pressed&#xD;
+&quot;cancel&quot; if cancel pressed</description>
+    <method>
+        <name>_close</name>
+        <description>Called from the CTRL + W or ESCAPE Key event</description>
+    </method>
+    <method>
+        <name>_print</name>
+        <description>Called from the CTRL + P Key event</description>
+    </method>
+    <method>
+        <name>_edit</name>
+        <description>Called from the CTRL + E Key event</description>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start&#xD;
+This method can not be changed or deleted!&#xD;
+DO NOT USE</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Starts with a custom Label,&#xD;
+Returns the choosed Action:&#xD;
+&quot;edit&quot; if edit/show pressed&#xD;
+&quot;print&quot; if print pressed&#xD;
+&quot;cancel&quot; if cancel pressed</description>
+        <inputParameter>
+            <name>label</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>returnedAction</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>128D9ECDA2C3B6E8</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

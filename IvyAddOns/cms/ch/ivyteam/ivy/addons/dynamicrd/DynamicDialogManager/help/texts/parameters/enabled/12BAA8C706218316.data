@@ -1,0 +1,2 @@
+If <span class="constant">true</span>, the component is enabled, it can receive focus and the user can interact with it or can fill it when it is a field.<br />
+The default value is <span class="constant">true</span>

@@ -1,0 +1,3 @@
+co: name={eventLogs} description={} changed={2010-04-29 12:51:17 GMT} changedby={tirib} visualorder={0} guid={128499E96BDE29C6} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={128499ECC82A1459} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-04-29 12:51:03 GMT} validto={} changed={2010-04-29 12:51:16 GMT} changedby={tirib} properties={} id={}
+val: guid={128499E96ECBAF18} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-29 12:50:49 GMT} validto={} changed={2010-04-29 12:51:03 GMT} changedby={tirib} properties={} id={}

@@ -14,31 +14,32 @@ import ch.ivyteam.ivy.persistence.PersistencyException;
  */
 public class CmsExplorer
 {
-  private ExploreHandler handler;
+  private ExploreHandler<IContentObject> handler;
 
   /**
-   * Creates an CMS explorer with a specific handler.
+   * Creates a CMS explorer with a specific handler.
    * 
-   * @param _handler handle that should be used
+   * @param handler handle that should be used
    */
-  public CmsExplorer(ExploreHandler _handler)
+  public CmsExplorer(ExploreHandler<IContentObject> handler)
   {
-    handler = _handler;
+    this.handler = handler;
   }
 
   /**
    * Explores all the node descending from a starting uri and call the corresponding handler's method.
    * 
    * @param uri start uri for exploring
+   * @throws AddonsException 
    */
-  public void explore(String uri)
+  public final void explore(String uri) throws AddonsException
   {
     handler.startDocument();
-    explore(uri, null);
+    exploreNode(uri);
     handler.endDocument();
   }
 
-  private void explore(String uri, IContentObject parentObject)
+  private void exploreNode(String uri) throws AddonsException
   {
     IContentObject object;
 
@@ -51,7 +52,7 @@ public class CmsExplorer
 
         for (IContentObject child : object.getChildren())
         {
-          explore(child.getUri(), object);
+          exploreNode(child.getUri());
         }
       }
       handler.endNode(object, object.getName(), uri);
@@ -70,5 +71,4 @@ public class CmsExplorer
     }
 
   }
-
 }

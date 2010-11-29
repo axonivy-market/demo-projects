@@ -1,0 +1,4 @@
+co: name={selectFolder} description={} changed={2010-01-05 12:03:35 CET} changedby={ec} visualorder={0} guid={125FE255EDC7452C} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={125FE273580F5EBD} datatype={} isdefault={false} langid={de} description={} validfrom={2010-01-05 12:03:20 CET} validto={} changed={2010-01-05 12:03:35 CET} changedby={ec} properties={} id={}
+val: guid={125FE272E0D551BF} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-01-05 12:03:18 CET} validto={} changed={2010-01-05 12:03:35 CET} changedby={ec} properties={} id={}
+val: guid={125FE255EEB2D322} datatype={} isdefault={true} langid={en} description={} validfrom={2010-01-05 12:01:19 CET} validto={} changed={2010-01-05 12:03:18 CET} changedby={ec} properties={} id={}

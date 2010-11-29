@@ -1,12 +1,14 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
-import ch.ivyteam.ivy.richdialog.widgets.components.RLookupTextField;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.InsideLookupTextFilter;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-import com.ulcjava.base.application.GridBagConstraints;
+import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.InsideLookupTextFilter;
+import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.richdialog.widgets.components.RLookupTextField;
+
 import com.ulcjava.base.application.ULCComponent;
-import com.ulcjava.base.application.ULCContainer;
+import com.ulcjava.base.application.util.ULCIcon;
 
 /**
  * This is the implementation of fields that use a RLookupTextField.
@@ -18,33 +20,43 @@ public class LookupTextField extends FieldComponentWithList
 {
   private RLookupTextField lookupTextField = null;
 
-  public LookupTextField(DynamicDialogPanel panel, Container parentContainer, ULCContainer ulcContainer,
-          LookupTextFieldParameters parameters)
+  private boolean editable;
+
+  /**
+   * Constructs a new LookupTextField object.
+   * 
+   * @param panel dynamic dialog panel
+   * @param parentContainer parent container
+   * @param parameters parameters
+   * @param index position when component is in a list
+   */
+  protected LookupTextField(DynamicDialogPanel panel, ComplexComponent parentContainer,
+          LookupTextFieldParameters parameters, int index)
   {
-    super(panel, parentContainer, ulcContainer, parameters);
+    super(panel, parentContainer, parameters, index);
+
+    editable = getParameters().isEditable();
   }
 
   @Override
-  public void focusGained(String method)
+  public final void focusLost()
   {
-    super.focusGained(method);
-  }
-
-  @Override
-  public void focusLost(String method)
-  {
+    if (!isEditable() && lookupTextField.getSelectedListEntry() == null)
+    {
+      lookupTextField.setValueAsString("");
+    }
     validate();
-    super.focusLost(method);
+    super.focusLost();
   }
 
   @Override
-  public String getDisplayedText()
+  protected final String getDisplayedText()
   {
     return lookupTextField.getText();
   }
 
   @Override
-  public ULCComponent getLastMainComponent()
+  public final ULCComponent getLastMainComponent()
   {
     return getMainComponent();
   }
@@ -54,79 +66,86 @@ public class LookupTextField extends FieldComponentWithList
     if (lookupTextField == null)
     {
       lookupTextField = new RLookupTextField();
-      lookupTextField.setName(parameters.getName() + "LookupTextField");
+      lookupTextField.setName(getParameters().getName() + "LookupTextField");
       lookupTextField.setFilter(new InsideLookupTextFilter());
+
+      lookupTextField.addValueChangedListener(new ValueChangedListener(this, true));
+
+      lookupTextField.addFocusListener(new FocusListener(this));
+
+      lookupTextField.setSelectAllOnFocusGained(getParameters().isSelectAllOnFocusGained());
+
+      // TODO Force selection doesn't seem to work. Try it with 4.2 it should be OK
+      // Call setForcedSelection with isEditable has parameter
+
+      if (getParameters().isIconVisible())
+      {
+        try
+        {
+          lookupTextField.setIndicatorIcon(new ULCIcon(new URL(Ivy.html().coref(
+                  "/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/icons/LookupTextField16"))));
+        }
+        catch (MalformedURLException e)
+        {
+          Ivy.log().error("Set LookupTextField Icon : " + e.getMessage());
+        }
+      }
+
+      getUlcComponents().add(lookupTextField);
     }
     return lookupTextField;
   }
 
   @Override
-  public ULCComponent getMainComponent()
+  public final ULCComponent getMainComponent()
   {
     return lookupTextField;
   }
 
   @Override
-  public LookupTextFieldParameters getParameters()
+  public final LookupTextFieldParameters getParameters()
   {
-    return (LookupTextFieldParameters) parameters;
+    return (LookupTextFieldParameters) getComponentParameters();
   }
 
   @Override
-  protected int getSelectedIndex()
+  protected final int getSelectedIndex()
   {
-    Integer index;
+    Object object;
 
-    index = getValueIndex(lookupTextField.getValueAsString());
+    object = lookupTextField.getSelectedListEntry();
 
-    return index == null ? -1 : index;
+    return object == null ? -1 : getValueIndex(object.toString());
   }
 
   @Override
-  public void initialize(Position pos)
-  {
-    GridBagConstraints constraints;
-
-    constraints = new GridBagConstraints();
-    constraints.setGridX(pos.getPosX() + 1);
-    constraints.setGridY(pos.getPosY() + 0);
-    ulcContainer.add(getLookupTextField(), constraints);
-
-    ulcComponents.add(lookupTextField);
-
-    super.initialize(pos);
-
-    lookupTextField.addValueChangedListener(new ValueChangedListener(this, getParameters()
-            .getValueChangedMethod()));
-
-    lookupTextField.addFocusListener(new FocusListener(this, getParameters().getFocusGainedMethod(),
-            getParameters().getFocusLostMethod()));
-  }
-
-  @Override
-  public boolean isFocusable()
+  public final boolean isFocusable()
   {
     return lookupTextField.isFocusable();
   }
 
   @Override
-  public void setDisplayedText(String text)
+  public final void setDisplayedText(String text)
   {
-    lookupTextField.setText(text);
+    lookupTextField.setValueAsString(text);
   }
 
   @Override
-  public void setFocusable(boolean b)
+  public final void setFocusable(boolean b)
   {
     lookupTextField.setFocusable(b);
   }
 
   @Override
-  protected void setListData(ch.ivyteam.ivy.scripting.objects.List<String> lookupTextFieldData)
+  protected final void setListData(ch.ivyteam.ivy.scripting.objects.List<String> lookupTextFieldData)
   {
+    boolean isEnabled;
     try
     {
+      // Without that LookupTextField becomes enabled when the list data is changed
+      isEnabled = lookupTextField.isEnabled();
       lookupTextField.setListData(lookupTextFieldData);
+      lookupTextField.setEnabled(isEnabled);
     }
     catch (Exception e)
     {
@@ -135,12 +154,12 @@ public class LookupTextField extends FieldComponentWithList
   }
 
   @Override
-  protected void setSelectedIndex(int index)
+  protected final void setSelectedIndex(int index)
   {
     String value;
     String[] record;
 
-    value = "";
+    value = null;
 
     if (index != -1)
     {
@@ -150,32 +169,87 @@ public class LookupTextField extends FieldComponentWithList
         value = record[1];
       }
     }
-    lookupTextField.setText(value);
-  }
-
-  @Override
-  protected void applyStyles()
-  {
-    super.applyStyles();
-    lookupTextField.setStyle("field");
-  }
-
-  @Override
-  public boolean validate()
-  {
-    boolean valid;
-
-    if (getParameters().editable)
+    if (value != lookupTextField.getSelectedListEntry()
+            || (value == null && !lookupTextField.getValueAsString().equals("")))
     {
-      valid = TextValidation.validate(this, isMandatory(), getParameters().getTextValidationParameters());
+      lookupTextField.setSelectedListEntry(value);
+    }
+  }
 
-      updateIcon(valid);
+  @Override
+  protected final void applyFieldStyles()
+  {
+    lookupTextField.setStyle(getParameters().getFieldStyle());
+
+    if (getParameters().getColumns() != 0)
+    {
+      lookupTextField.setColumns(getParameters().getColumns());
+      addStyleProperties(lookupTextField, "fill", "NONE");
+      addStyleProperties(lookupTextField, "weightX", "");
     }
     else
     {
-      valid = super.validate();
+      setWeightX(lookupTextField);
+    }
+  }
+
+  @Override
+  public final boolean validate()
+  {
+    boolean valid;
+
+    if (editable)
+    {
+      valid = TextValidation.validate(this, isMandatory(), getParameters().getTextValidationParameters());
+
+      validationDone(valid);
+    }
+    else
+    {
+      valid = validateList();
+      if (!valid && !getDisplayedText().equals(""))
+      {
+        lookupTextField.setSelectedListEntry(null);
+        valid = validateList();
+      }
     }
 
     return valid;
+  }
+
+  @Override
+  protected final ULCComponent getFieldComponent()
+  {
+    return getLookupTextField();
+  }
+
+  @Override
+  public final void setEditable(boolean b)
+  {
+    editable = b;
+  }
+
+  @Override
+  protected final boolean isEditable()
+  {
+    return editable;
+  }
+
+  @Override
+  public final void valueChanged()
+  {
+    super.valueChanged();
+  }
+
+  @Override
+  protected final boolean isFillable()
+  {
+    return true;
+  }
+
+  @Override
+  protected boolean isBackgroundColorChangedAllowed()
+  {
+    return true;
   }
 }

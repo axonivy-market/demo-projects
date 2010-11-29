@@ -1,10 +1,13 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import ch.ivyteam.ivy.addons.cmscontext.Cms;
+import ch.ivyteam.ivy.environment.Ivy;
 
 /**
  * This is parameter class of validation mechanism.
@@ -12,38 +15,38 @@ import ch.ivyteam.ivy.addons.cmscontext.Cms;
  * @author Patrick Joly, TI-Informatique
  * @since 18.02.2009
  */
-public class TextValidationParameters implements Serializable
+class TextValidationParameters implements Serializable
 {
   private static final String ALLOWED_CHARS = "allowedChars";
-
-  private static final String DATE_VALIDATION_REGEX = "^[0-9]{1,2}.[0-9]{1,2}.[0-9]{4}";
 
   private static final String LENGTH = "length";
 
   private static final String NUMBER_VALIDATION_REGEX = "^[0-9.]*$";
 
+  private static final String INTEGER_VALIDATION_REGEX = "^[0-9]*$";
+
   private static final long serialVersionUID = 28176537784750846L;
 
   private static final String VALIDATION = "validation";
 
-  protected String allowedChars = null;
+  private static final String DATE_VALIDATION_REGEX = "^[0-9%c]*$";
 
-  protected Boolean isDate = false;
+  private static final String DATE_SEPARATOR = "./-";
 
-  protected Boolean isNumber = false;
+  private String allowedChars = null;
 
-  protected Integer maxLength = Integer.MAX_VALUE;
+  private boolean date = false;
 
-  protected List<String> validations;
+  private Integer maxLength = Integer.MAX_VALUE;
 
-  public TextValidationParameters(List<String> cmsContexts, String name, String fullName, Boolean _isNumber,
-          Boolean _isDate)
+  private List<String> validations;
+
+  protected TextValidationParameters(List<String> cmsContexts, boolean number, boolean integer, boolean date)
   {
     String validationUri;
     String validationParameterUri;
 
-    isDate = _isDate;
-    isNumber = _isNumber;
+    this.date = date;
 
     validationUri = "";
     validationParameterUri = Cms.cr(cmsContexts, KnownParameters.VALIDATION_PARAMETER);
@@ -73,29 +76,44 @@ public class TextValidationParameters implements Serializable
       }
     }
 
-    if (_isNumber)
+    if (number && (allowedChars == null || allowedChars.equals("")))
     {
-      if (allowedChars == null || allowedChars.equals(""))
-      {
-        allowedChars = NUMBER_VALIDATION_REGEX;
-      }
+      allowedChars = NUMBER_VALIDATION_REGEX;
     }
 
-    if (_isDate)
+    if (integer && (allowedChars == null || allowedChars.equals("")))
     {
-      if (allowedChars == null || allowedChars.equals(""))
+      allowedChars = INTEGER_VALIDATION_REGEX;
+    }
+
+    if (date && (allowedChars == null || allowedChars.equals("")))
+    {
+      DateFormat dateFormat;
+      String separator;
+
+      dateFormat = SimpleDateFormat.getDateInstance(SimpleDateFormat.SHORT, Ivy.session()
+              .getFormattingLocale());
+
+      separator = "";
+      if (dateFormat instanceof SimpleDateFormat)
       {
-        allowedChars = NUMBER_VALIDATION_REGEX;
-        validations = new ArrayList<String>();
-        validations.add(DATE_VALIDATION_REGEX);
+        SimpleDateFormat simpleDateFormat = (SimpleDateFormat) dateFormat;
+
+        separator = simpleDateFormat.toPattern().replaceAll("[a-zA-Z]", "");
       }
+      if (separator.equals(""))
+      {
+        separator = DATE_SEPARATOR;
+      }
+      allowedChars = String.format(DATE_VALIDATION_REGEX, new Object[] {separator.charAt(0)});
+      validations = new ArrayList<String>();
     }
   }
 
   /**
    * Gets the regex that is validated while typing.
    * 
-   * @return allowed char while typing.
+   * @return allowed char while typing
    */
   public String getAllowedChars()
   {
@@ -122,23 +140,8 @@ public class TextValidationParameters implements Serializable
     return validations;
   }
 
-  /**
-   * Gets if the content should represent a date.
-   * 
-   * @return true if the field should represent a date; false otherwise
-   */
-  public Boolean isDate()
+  protected final boolean isDate()
   {
-    return isDate;
-  }
-
-  /**
-   * Gets if the content should represent a number.
-   * 
-   * @return true if the field should represent a number; false otherwise
-   */
-  public Boolean isNumber()
-  {
-    return isNumber;
+    return date;
   }
 }

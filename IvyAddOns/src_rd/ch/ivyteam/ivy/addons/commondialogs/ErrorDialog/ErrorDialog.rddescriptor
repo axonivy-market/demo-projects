@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <startMethod>
-        <name>start</name>
-        <description>Default Rich Dialog start
-This method can not be changed or deleted!</description>
-    </startMethod>
-    <startMethod>
         <name>showError</name>
         <description></description>
         <inputParameter>
             <name>error</name>
             <description></description>
             <parameterType>java.lang.Throwable</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>showCopyButton</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>showDetailButton</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>showError</name>
+        <description>Show the error details wrapped in the IvyResultStatus object.</description>
+        <inputParameter>
+            <name>ivyResultStatus</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.data.technical.IvyResultStatus</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
         <inputParameter>

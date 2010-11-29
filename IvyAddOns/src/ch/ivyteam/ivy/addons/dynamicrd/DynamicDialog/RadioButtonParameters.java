@@ -3,7 +3,7 @@ package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 import java.util.List;
 
 import ch.ivyteam.ivy.addons.cmscontext.Cms;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType.ComponentTypeEnum;
+import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType;
 
 /**
  * This is parameter class of fields that use a RRadioButton.
@@ -11,25 +11,25 @@ import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType.ComponentType
  * @author Patrick Joly, TI-Informatique
  * @since 14.09.2008
  */
-public class RadioButtonParameters extends FieldComponentWithListParameters
+class RadioButtonParameters extends FieldComponentWithListParameters
 {
   private static final long serialVersionUID = -7107387295598984475L;
 
-  protected String insideContainerStyle;
+  private String insideContainerStyle;
 
-  public RadioButtonParameters(Configuration configuration, List<String> cmsContexts, String name,
-          String fullName, List<String[]> recordsetRef, ContainerParameters parentContainerParameters)
+  protected RadioButtonParameters(List<String> cmsContexts, String name, String fullName,
+          List<String[]> recordsetRef, ComplexComponentParameters parentContainerParameters, Integer position, Class<?> clazz, String defaultDBConfig)
   {
-    super(configuration, cmsContexts, name, fullName, recordsetRef, parentContainerParameters);
+    super(cmsContexts, name, fullName, recordsetRef, parentContainerParameters, position, clazz, defaultDBConfig);
 
     insideContainerStyle = Cms.co(getCmsContexts(), KnownParameters.INSIDE_CONTAINER_STYLE_PARAMETER,
-            parentContainerParameters.radioContainerStyle);
+            parentContainerParameters.getRadioContainerStyle());
   }
 
   @Override
-  public ComponentTypeEnum getComponentType()
+  public ComponentType getComponentType()
   {
-    return ComponentType.ComponentTypeEnum.RADIO_BUTTON;
+    return ComponentType.RADIO_BUTTON;
   }
 
   protected String getInsideContainerStyle()
@@ -39,6 +39,12 @@ public class RadioButtonParameters extends FieldComponentWithListParameters
 
   @Override
   protected boolean hasEmptyValue()
+  {
+    return false;
+  }
+
+  @Override
+  protected final boolean isEditableByDefault()
   {
     return false;
   }

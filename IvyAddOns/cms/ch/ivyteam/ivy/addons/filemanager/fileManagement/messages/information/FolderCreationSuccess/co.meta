@@ -1,0 +1,4 @@
+co: name={FolderCreationSuccess} description={} changed={2009-08-31 17:27:14 CEST} changedby={ec} visualorder={0} guid={123711070F2BF981} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={123711070F29BB8B} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-31 17:26:26 CEST} validto={} changed={2009-08-31 17:26:41 CEST} changedby={ec} properties={} id={}
+val: guid={1237110AF1464702} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-31 17:26:41 CEST} validto={} changed={2009-08-31 17:26:55 CEST} changedby={ec} properties={} id={}
+val: guid={1237110E2496073F} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-31 17:26:55 CEST} validto={} changed={2009-08-31 17:27:14 CEST} changedby={ec} properties={} id={}

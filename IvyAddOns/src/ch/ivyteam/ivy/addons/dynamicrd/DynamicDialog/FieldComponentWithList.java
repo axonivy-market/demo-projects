@@ -1,15 +1,13 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.List;
-
-import com.ulcjava.base.application.ULCContainer;
+import java.util.Map;
 
 import ch.ivyteam.ivy.scripting.objects.Date;
 import ch.ivyteam.ivy.scripting.objects.DateTime;
 import ch.ivyteam.ivy.scripting.objects.Duration;
 import ch.ivyteam.ivy.scripting.objects.Time;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
 
 /**
  * Base class for all field components that propose choices.
@@ -17,30 +15,37 @@ import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
  * @author Patrick Joly, TI-Informatique
  * @since 14.09.2008
  */
-abstract public class FieldComponentWithList extends FieldComponent
+public abstract class FieldComponentWithList extends FieldComponent
 {
-  protected Hashtable<String, Integer> keyIndex = null;
+  private Map<String, Integer> keyIndex = null;
 
-  protected List<String[]> recordset = null;
+  private List<String[]> recordset = null;
 
-  protected Hashtable<String, Integer> valueIndex = null;
+  private Map<String, Integer> valueIndex = null;
 
-  public FieldComponentWithList(DynamicDialogPanel panel, Container parentContainer, ULCContainer ulcContainer,
-          FieldComponentWithListParameters parameters)
+  private String storedValue;
+
+  protected FieldComponentWithList(DynamicDialogPanel panel, ComplexComponent parentContainer,
+          FieldComponentWithListParameters parameters, int index)
   {
-    super(panel, parentContainer, ulcContainer, parameters);
+    super(panel, parentContainer, parameters, index);
 
     recordset = getParameters().getRecordset();
+    if (recordset != null && recordset.isEmpty())
+    {
+      recordset = null;
+    }
+    storedValue = null;
   }
 
-  final protected void fill()
+  protected final void fill()
   {
     if (recordset != null && isFillable())
     {
       ch.ivyteam.ivy.scripting.objects.List<String> widgetData = ch.ivyteam.ivy.scripting.objects.List
               .create(String.class);
 
-      if (getParameters().hasEmptyValue())
+      if (getParameters().hasEmptyValue() || recordset.isEmpty())
       {
         widgetData.add(FieldComponentWithListParameters.EMPTY_VALUE);
       }
@@ -53,13 +58,13 @@ abstract public class FieldComponentWithList extends FieldComponent
     }
   }
 
-  protected void fillKeyValueIndex()
+  protected final void fillKeyValueIndex()
   {
     int index;
     index = 0;
 
-    keyIndex = new Hashtable<String, Integer>();
-    valueIndex = new Hashtable<String, Integer>();
+    keyIndex = new HashMap<String, Integer>();
+    valueIndex = new HashMap<String, Integer>();
 
     if (recordset != null)
     {
@@ -81,14 +86,10 @@ abstract public class FieldComponentWithList extends FieldComponent
     }
   }
 
-  
   /**
    * @return The value displayed by the field
    */
-  public String getDisplayedText()
-  {
-    throw new DynamicDialogException(getNoSuchMethodException("getDisplayedText", getClass()));
-  }
+  protected abstract String getDisplayedText();
 
   protected Integer getKeyIndex(String key)
   {
@@ -103,38 +104,36 @@ abstract public class FieldComponentWithList extends FieldComponent
     return result == null ? -1 : result;
   }
 
-  private NoSuchMethodException getNoSuchMethodException(String methodName, Class<? extends FieldComponentWithList> clazz)
-  {
-    return new NoSuchMethodException("Not implemented method " + methodName + " on class " + clazz.getName());
-  }
-
   @Override
-  abstract public FieldComponentWithListParameters getParameters();
+  public abstract FieldComponentWithListParameters getParameters();
 
   protected String[] getRecord(int index)
   {
     String[] result;
+    int usedIndex;
+
+    usedIndex = index;
 
     result = null;
 
-    if (getParameters().hasEmptyValue() && index >= 0)
+    if (getParameters().hasEmptyValue() && usedIndex >= 0)
     {
       // Index 0 is the empty value and not the first value of the
       // recordset
-      index--;
+      usedIndex--;
     }
 
-    if (index != -1)
+    if (usedIndex != -1 && usedIndex < recordset.size())
     {
-      result = recordset.get(index);
+      result = recordset.get(usedIndex);
     }
     return result;
   }
 
-  abstract protected int getSelectedIndex();
+  protected abstract int getSelectedIndex();
 
   @Override
-  public String[] getSelectedRecord()
+  public final String[] getSelectedRecord()
   {
     int index;
     String[] result;
@@ -145,7 +144,7 @@ abstract public class FieldComponentWithList extends FieldComponent
   }
 
   @Override
-  public String getText()
+  public final String getText()
   {
     String[] record;
     String result;
@@ -156,13 +155,17 @@ abstract public class FieldComponentWithList extends FieldComponent
     if (record != null)
     {
       if (record.length == 1)
+      {
         result = record[0];
+      }
       if (record.length >= 2)
+      {
         result = record[1];
+      }
     }
     else
     {
-      if (getParameters().editable)
+      if (getParameters().isEditable())
       {
         result = getDisplayedText();
       }
@@ -171,31 +174,31 @@ abstract public class FieldComponentWithList extends FieldComponent
   }
 
   @Override
-  final public Object getValue()
+  public final Object getValue()
   {
     return getValueAsString();
   }
 
   @Override
-  final public Date getValueAsDate()
+  public final Date getValueAsDate()
   {
     return null;
   }
 
   @Override
-  final public DateTime getValueAsDateTime()
+  public final DateTime getValueAsDateTime()
   {
     return null;
   }
 
   @Override
-  final public Duration getValueAsDuration()
+  public final Duration getValueAsDuration()
   {
     return null;
   }
 
   @Override
-  final public Number getValueAsNumber()
+  public final Number getValueAsNumber()
   {
     Number result;
     String value;
@@ -219,7 +222,7 @@ abstract public class FieldComponentWithList extends FieldComponent
   }
 
   @Override
-  final public String getValueAsString()
+  public final String getValueAsString()
   {
     String[] record;
     String result;
@@ -229,18 +232,34 @@ abstract public class FieldComponentWithList extends FieldComponent
     record = getSelectedRecord();
 
     if (record != null && record.length >= 1)
+    {
       return record[0];
+    }
+    if (recordset == null)
+    {
+      return storedValue;
+    }
 
     return result;
   }
 
   @Override
-  final public Time getValueAsTime()
+  public final Time getValueAsTime()
   {
     return null;
   }
 
-  protected Integer getValueIndex(String value)
+  @Override
+  public final Boolean getValueAsBoolean()
+  {
+    Number n;
+
+    n = getValueAsNumber();
+
+    return n.intValue() >= 1 ? true : false;
+  }
+
+  protected final Integer getValueIndex(String value)
   {
     Integer result;
 
@@ -255,135 +274,143 @@ abstract public class FieldComponentWithList extends FieldComponent
   }
 
   @Override
-  public void initialize(Position pos)
+  protected final void postInitializeField()
   {
     fill();
-
-    super.initialize(pos);
   }
 
-  protected boolean isEmptyValue()
+  protected final boolean isEmptyValue()
   {
     return getValueAsString().equals(FieldComponentWithListParameters.EMPTY_VALUE);
   }
 
-  protected boolean isFillable()
-  {
-    return true;
-  }
+  protected abstract boolean isFillable();
 
   /**
    * This method only works with field that can be edited.
    * 
    * @param text The value that the field should display
    */
-  public void setDisplayedText(String text)
-  {
-    throw new DynamicDialogException(getNoSuchMethodException("setDisplayedText", getClass()));
-  }
+  public abstract void setDisplayedText(String text);
 
   @Override
-  final public void setKeyValue(List<String[]> _recordset)
+  public final void setKeyValue(List<String[]> recordset)
   {
-    recordset = _recordset;
+    this.recordset = recordset;
     keyIndex = null;
     valueIndex = null;
 
     fill();
+
+    setValueAsString(storedValue);
   }
 
-  protected void setListData(ch.ivyteam.ivy.scripting.objects.List<String> comboData)
+  protected abstract void setListData(ch.ivyteam.ivy.scripting.objects.List<String> comboData);
 
-  {
-    throw new DynamicDialogException(getNoSuchMethodException("setListData", getClass()));
-  }
-
-  abstract protected void setSelectedIndex(int index);
+  protected abstract void setSelectedIndex(int index);
 
   @Override
-  final public void setValue(Object o, String text)
+  public final void setValue(Object o, String text)
   {
     setValueAsString(o.toString(), text);
   }
 
   @Override
-  final public void setValueAsDate(Date d, String text)
+  public final void setValueAsDate(Date d, String text)
   {
     return;
   }
 
   @Override
-  final public void setValueAsDateTime(DateTime d, String text)
+  public final void setValueAsDateTime(DateTime d, String text)
   {
     return;
   }
 
   @Override
-  final public void setValueAsDuration(Duration d, String text)
+  public final void setValueAsDuration(Duration d, String text)
   {
     return;
   }
 
   @Override
-  final public void setValueAsNumber(Number n, String text)
+  public final void setValueAsNumber(Number n, String text)
   {
     setValueAsString(n == null || n.longValue() == -1 ? null : n.toString(), text);
   }
 
   @Override
-  final public void setValueAsString(String s, String text)
+  public final void setValueAsString(String s, String text)
   {
     Integer index;
 
     index = -1;
 
-    if (s != null)
+    storedValue = s;
+
+    if (s != null && !s.equals(""))
     {
       index = getKeyIndex(s);
 
       index = index == null ? -1 : index;
-
-      setSelectedIndex(index);
     }
+    setSelectedIndex(index);
 
-    if (index == -1)
+    if (index == -1 && getParameters().isEditable() && text != null)
     {
-      if (getParameters().editable)
-      {
-        if (text != null)
-        {
-          setDisplayedText(text);
-        }
-      }
+      setDisplayedText(text);
     }
   }
 
   @Override
-  final public void setValueAsTime(Time d, String text)
+  public final void setValueAsTime(Time d, String text)
   {
     return;
   }
 
   @Override
-  public boolean validate()
+  public final void setValueAsBoolean(Boolean b, String text)
+  {
+    setValueAsNumber(b ? 1 : 0);
+  }
+
+  protected final boolean validateList()
   {
     String value;
     boolean result;
 
     value = getValueAsString();
 
-    result = valid;
+    result = isValid();
 
-    if (isMandatory())
+    if (isMandatory() && value.length() == 0)
     {
-      if (value.length() == 0)
-      {
-        result = false;
-      }
+      result = false;
     }
 
-    updateIcon(result);
+    validationDone(result);
 
     return result;
+  }
+
+  protected final List<String[]> getRecordset()
+  {
+    return recordset;
+  }
+
+  @Override
+  public void valueChanged()
+  {
+    inlineValidation();
+
+    super.valueChanged();
+  }
+
+  private void inlineValidation()
+  {
+    if (!isFirstValidation())
+    {
+      validate();
+    }
   }
 }

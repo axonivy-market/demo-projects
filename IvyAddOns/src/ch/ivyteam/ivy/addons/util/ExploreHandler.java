@@ -6,7 +6,7 @@ package ch.ivyteam.ivy.addons.util;
  * @author Patrick Joly, TI-Informatique
  * @since 29.05.2009
  */
-public class ExploreHandler
+public class ExploreHandler<T>
 {
   /**
    * Method called every time that the explorer class enters a new node.
@@ -15,8 +15,9 @@ public class ExploreHandler
    * @param name name of the object
    * @param qualifiedName fully qualified name of the object
    * @return true if the current node should be explored too, false otherwise
+   * @throws AddonsException 
    */
-  public boolean startNode(Object object, String name, String qualifiedName)
+  public boolean startNode(T object, String name, String qualifiedName) throws AddonsException
   {
     return true;
   }
@@ -28,23 +29,35 @@ public class ExploreHandler
    * @param name name of the object
    * @param qualifiedName fully qualified name of the object
    */
-  public void endNode(Object object, String name, String uri)
+  public void endNode(T object, String name, String uri)
   {
+  }
 
+  /**
+   * Method called after the endNode to ask to the handler if the same node should be explored again. Calling
+   * this method is not mandatory. Some explorer classes don't use it.
+   * 
+   * @return true if the same node should be explored again, false otherwise
+   */
+  public boolean redoSameNode()
+  {
+    return false;
   }
 
   /**
    * Method called at the begin of the exploring.
+   * @throws AddonsException 
    */
-  public void startDocument()
+  public void startDocument() throws AddonsException
   {
 
   }
 
   /**
    * Method called when the exploring is finished.
+   * @throws AddonsException 
    */
-  public void endDocument()
+  protected void endDocument() throws AddonsException
   {
 
   }

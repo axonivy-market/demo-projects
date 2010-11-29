@@ -1,11 +1,12 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
+import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
 
 import com.ulcjava.base.application.ULCComponent;
 import com.ulcjava.base.application.ULCContainer;
@@ -16,15 +17,14 @@ import com.ulcjava.base.application.ULCContainer;
  * @author Patrick Joly, TI-Informatique
  * @since 15.09.2008
  */
-public class Invocation
+public final class Invocation
 {
-  protected static Object[] callMethod(IRichDialogPanel dialogPanel, String method)
-          throws InvocationTargetException, NoSuchMethodException
+  private Invocation()
   {
-    return callMethod(dialogPanel, method, new Object[0]);
   }
 
-  protected static Object[] callMethod(IRichDialogPanel dialogPanel, String method, Object[] params)
+  @SuppressWarnings("restriction")
+  private static Object[] callMethod(IRichDialogPanel dialogPanel, String method, Object[] params)
           throws InvocationTargetException, NoSuchMethodException
   {
     Object[] result;
@@ -33,7 +33,14 @@ public class Invocation
 
     if (dialogPanel != null)
     {
-      result = dialogPanel.getPanelAPI().callMethod(method, params);
+      try
+      {
+        result = dialogPanel.getPanelAPI().callMethod(method, params);
+      }
+      catch (ch.ivyteam.ivy.scripting.restricted.resume.SuspendedMethodCallSignal e)
+      {
+        // Nothing to do
+      }
     }
 
     return result;
@@ -43,19 +50,20 @@ public class Invocation
    * Searches which panel should be invoked. The parent panel of DynamicDialog and its children are added to
    * the list.
    * 
-   * @param container container from where the target is serached
+   * @param panel dynamic dialog panel from where the target is searched
    * @return panel list of targets
    */
-  static public Vector<IRichDialogPanel> getInvocationTargets(ULCContainer container)
+  public static List<IRichDialogPanel> getInvocationTargets(DynamicDialogPanel panel)
   {
     IRichDialogPanel parent;
-    Vector<IRichDialogPanel> dialogPanels;
+    List<IRichDialogPanel> dialogPanels;
     ULCContainer temp;
 
-    dialogPanels = new Vector<IRichDialogPanel>();
+    dialogPanels = new ArrayList<IRichDialogPanel>();
     parent = null;
-    temp = container;
+    temp = panel;
 
+    dialogPanels.add(panel);
     do
     {
       temp = temp.getParent();
@@ -73,31 +81,35 @@ public class Invocation
 
       for (ULCComponent component : parent.getPanelAPI().getPanelAsUlcContainer().getComponents())
       {
-        if (component instanceof IRichDialogPanel)
+        if (component instanceof IRichDialogPanel && component != panel)
         {
           dialogPanels.add((IRichDialogPanel) component);
         }
       }
     }
-
+    for (ULCComponent component : panel.getControllerDisplay().getComponents())
+    {
+      if (component instanceof IRichDialogPanel)
+      {
+        dialogPanels.add((IRichDialogPanel) component);
+      }
+    }
     return dialogPanels;
   }
 
   /**
-   * Invokes the specified UI method with its params. Only invokes the first method found in the panels given.
+   * Invokes the specified UI method with its parameters. Only invokes the first method found in the panels given.
    * 
    * @param method UI method name
    * @param params UI method params
    * @param dialogPanels panel list
    * @throws InvocationTargetException
    */
-  static public void invoke(String method, Object[] params, Vector<IRichDialogPanel> dialogPanels)
+  public static void invoke(String method, Object[] params, List<IRichDialogPanel> dialogPanels)
           throws InvocationTargetException
   {
     boolean methodFound;
     NoSuchMethodException noSuchMethodException;
-    // if (parent == null)
-    // parent = getParent(container);
 
     methodFound = false;
     noSuchMethodException = null;
@@ -117,7 +129,7 @@ public class Invocation
         }
       }
     }
-    if (methodFound == false)
+    if (!methodFound)
     {
       Ivy.log().debug(
               noSuchMethodException != null ? noSuchMethodException.getLocalizedMessage()

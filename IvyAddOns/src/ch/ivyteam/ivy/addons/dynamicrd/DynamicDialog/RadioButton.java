@@ -1,13 +1,14 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
+import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.VisualDebugGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RRadioButton;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
+import ch.ivyteam.ivy.scripting.objects.List;
 
 import com.ulcjava.base.application.GridBagConstraints;
 import com.ulcjava.base.application.ULCButtonGroup;
 import com.ulcjava.base.application.ULCComponent;
-import com.ulcjava.base.application.ULCContainer;
+import com.ulcjava.base.application.util.Color;
 
 /**
  * This is the implementation of fields that use a RRadioButton.
@@ -25,66 +26,67 @@ public class RadioButton extends FieldComponentWithList
 
   private RRadioButton[] radioButtons = null;
 
-  public RadioButton(DynamicDialogPanel panel, Container parentContainer, ULCContainer ulcContainer,
-          RadioButtonParameters parameters)
+  /**
+   * Constructs a new RadioButton object.
+   * 
+   * @param panel dynamic dialog panel
+   * @param parentContainer parent container
+   * @param parameters parameters
+   * @param index position when component is in a list
+   */
+  protected RadioButton(DynamicDialogPanel panel, ComplexComponent parentContainer,
+          RadioButtonParameters parameters, int index)
   {
-    super(panel, parentContainer, ulcContainer, parameters);
+    super(panel, parentContainer, parameters, index);
 
     lastSelectedIndex = -1;
   }
 
   @Override
-  public void focusGained(String method)
-  {
-    super.focusGained(method);
-  }
-
-  @Override
-  public void focusLost(String method)
+  public final void focusLost()
   {
     validate();
-    super.focusLost(method);
-  }
-
-  protected ULCButtonGroup getButtonGroup(int index)
-  {
-    if (radioButtonGroup == null)
-    {
-      radioButtonGroup = new ULCButtonGroup();
-    }
-    return radioButtonGroup;
+    super.focusLost();
   }
 
   @Override
-  public ULCComponent getLastMainComponent()
+  public final ULCComponent getLastMainComponent()
   {
-    return radioButtons[radioButtons.length - 1];
+    return radioButtons != null ? radioButtons[radioButtons.length - 1] : null;
   }
 
   @Override
-  public ULCComponent getMainComponent()
+  public final ULCComponent getMainComponent()
   {
-    return radioButtons[0];
+    return radioButtons != null ? radioButtons[0] : null;
   }
 
   @Override
-  public RadioButtonParameters getParameters()
+  public final RadioButtonParameters getParameters()
   {
-    return (RadioButtonParameters) parameters;
+    return (RadioButtonParameters) getComponentParameters();
   }
 
-  private RRadioButton getRadioButton(int index)
+  private RRadioButton getRadioButton(int index, String text)
   {
     if (radioButtons[index] == null)
     {
       radioButtons[index] = new RRadioButton();
-      radioButtons[index].setName(parameters.getName() + "RadioButton" + index);
+      radioButtons[index].setName(getParameters().getName() + "RadioButton" + index);
       radioButtons[index].setGroup(getRadioButtonGroup());
+
+      radioButtons[index].setText(text);
+
+      radioButtons[index].addValueChangedListener(new ValueChangedListener(this, true));
+
+      radioButtons[index].addFocusListener(new FocusListener(this));
+
+      getUlcComponents().add(radioButtons[index]);
     }
     return radioButtons[index];
   }
 
-  protected ULCButtonGroup getRadioButtonGroup()
+  protected final ULCButtonGroup getRadioButtonGroup()
   {
     if (radioButtonGroup == null)
     {
@@ -94,7 +96,7 @@ public class RadioButton extends FieldComponentWithList
   }
 
   @Override
-  protected int getSelectedIndex()
+  protected final int getSelectedIndex()
   {
     int result = -1;
     int index = 0;
@@ -111,50 +113,38 @@ public class RadioButton extends FieldComponentWithList
     return result;
   }
 
-  @Override
-  public void initialize(Position pos)
+  private RGridBagLayoutPane getGridBag()
   {
     GridBagConstraints constraints;
     int index;
 
-    constraints = new GridBagConstraints();
-    constraints.setGridX(pos.getPosX() + 1);
-    constraints.setGridY(pos.getPosY() + 0);
-    gridBag = new RGridBagLayoutPane();
-    gridBag.setName(parameters.getName());
-
-    ulcContainer.add(gridBag, constraints);
-
-    radioButtons = new RRadioButton[recordset.size()];
-
-    index = 0;
-    for (String[] record : recordset)
+    if (gridBag == null)
     {
-      constraints = new GridBagConstraints();
-      constraints.setGridX(index);
-      constraints.setGridY(0);
-      gridBag.add(getRadioButton(index), constraints);
+      gridBag = new VisualDebugGridBagLayoutPane();
+      gridBag.setName(getParameters().getName());
 
-      radioButtons[index].setText(record[1]);
+      if (getRecordset() != null)
+      {
+        radioButtons = new RRadioButton[getRecordset().size()];
 
-      ulcComponents.add(radioButtons[index]);
+        index = 0;
+        for (String[] record : getRecordset())
+        {
+          constraints = new GridBagConstraints();
+          constraints.setGridX(index);
+          constraints.setGridY(0);
+          gridBag.add(getRadioButton(index, record[1]), constraints);
 
-      index++;
+          index++;
+        }
+      }
+      getUlcComponents().add(gridBag);
     }
-    super.initialize(pos);
-
-    for (RRadioButton radioButton : radioButtons)
-    {
-      radioButton.addValueChangedListener(new ValueChangedListener(this, getParameters()
-              .getValueChangedMethod()));
-
-      radioButton.addFocusListener(new FocusListener(this, getParameters().getFocusGainedMethod(),
-              getParameters().getFocusLostMethod()));
-    }
+    return gridBag;
   }
 
   @Override
-  public boolean isFocusable()
+  public final boolean isFocusable()
   {
     boolean result = true;
     for (RRadioButton r : radioButtons)
@@ -165,13 +155,13 @@ public class RadioButton extends FieldComponentWithList
   }
 
   @Override
-  protected boolean isFillable()
+  protected final boolean isFillable()
   {
     return false;
   }
 
   @Override
-  public void setFocusable(boolean b)
+  public final void setFocusable(boolean b)
   {
     for (RRadioButton r : radioButtons)
     {
@@ -180,28 +170,30 @@ public class RadioButton extends FieldComponentWithList
   }
 
   @Override
-  protected void setSelectedIndex(int index)
+  protected final void setSelectedIndex(int index)
   {
     for (int i = 0; i < radioButtons.length; i++)
     {
       radioButtons[i].setSelected(i == index);
     }
-    index = index++;
   }
 
   @Override
-  protected void applyStyles()
+  protected final void applyFieldStyles()
   {
-    super.applyStyles();
     for (RRadioButton r : radioButtons)
     {
       r.setStyle(getParameters().getFieldStyle());
     }
-    gridBag.setStyle(getParameters().getInsideContainerStyle());
+    getGridBag().setStyle(getParameters().getInsideContainerStyle());
+
+    setWeightX(getGridBag());
+    
+    setInsetsSettingsTarget(getGridBag());
   }
 
   @Override
-  protected void valueChanged(String method)
+  public final void valueChanged()
   {
     int index;
 
@@ -209,9 +201,57 @@ public class RadioButton extends FieldComponentWithList
 
     if (index != lastSelectedIndex && index != -1)
     {
-      super.valueChanged(method);
+      super.valueChanged();
     }
 
     lastSelectedIndex = index;
+  }
+
+  @Override
+  protected final ULCComponent getFieldComponent()
+  {
+    return getGridBag();
+  }
+
+  @Override
+  protected final void setBackground(Color color)
+  {
+    // Nothing to do
+  }
+
+  @Override
+  public final void setDisplayedText(String text)
+  {
+    throw new DynamicDialogException(getNoSuchMethodException("setDisplayedText", getClass()));
+  }
+
+  @Override
+  protected void setListData(List<String> comboData)
+  {
+    throw new DynamicDialogException(getNoSuchMethodException("setListData", getClass()));
+  }
+
+  @Override
+  public boolean validate()
+  {
+    return validateList();
+  }
+
+  @Override
+  protected final boolean isEditable()
+  {
+    return false;
+  }
+
+  @Override
+  protected String getDisplayedText()
+  {
+    throw new DynamicDialogException(getNoSuchMethodException("getDisplayedText", getClass()));
+  }
+
+  @Override
+  protected boolean isBackgroundColorChangedAllowed()
+  {
+    return false;
   }
 }

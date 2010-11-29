@@ -12,64 +12,87 @@ public class Position
 
   private int posY;
 
+  private int maxPosX;
+
+  private int maxPosY;
+
   /**
    * Creates an object with X and Y initialised to 0.
    */
   public Position()
   {
-    posX = 0;
-    posY = 0;
+    this(0, 0);
   }
 
   /**
    * Creates an initialised Position object.
    * 
-   * @param _posX X position
-   * @param _posY Y position
+   * @param posX X position
+   * @param posY Y position
    */
-  public Position(int _posX, int _posY)
+  public Position(int posX, int posY)
   {
-    posX = _posX;
-    posY = _posY;
+    this.posX = posX;
+    this.posY = posY;
+    maxPosX = posX;
+    maxPosY = posY;
   }
 
   /**
-   * Get the X position.
+   * Gets the X position.
    * 
    * @return X value
    */
-  public int getPosX()
+  public final int getPosX()
   {
     return posX;
   }
 
   /**
-   * Get the Y position.
+   * Gets the Y position.
    * 
    * @return Y value
    */
-  public int getPosY()
+  public final int getPosY()
   {
     return posY;
   }
 
   /**
-   * Change the X position.
+   * Changes the X position.
    * 
    * @param value new X value
    */
-  public void setPosX(int value)
+  public final void setPosX(int value)
   {
     posX = value;
+    if (posX > maxPosX)
+    {
+      maxPosX = posX;
+    }
   }
 
   /**
-   * Change the Y position.
+   * Changes the Y position.
    * 
    * @param value new Y value
    */
-  public void setPosY(int value)
+  public final void setPosY(int value)
   {
     posY = value;
+    if (posY > maxPosY)
+    {
+      maxPosY = posY;
+    }
+  }
+
+  public final int getMaxPosX()
+  {
+    return maxPosX;
+  }
+
+  public final int getMaxPosY()
+  {
+    return maxPosY;
   }
 }

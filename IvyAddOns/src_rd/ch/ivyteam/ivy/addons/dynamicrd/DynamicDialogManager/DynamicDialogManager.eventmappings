@@ -1,0 +1,25 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-09-07 00:10:26 | 4.1.1.31367 | 1.0
+~.selectDCLookupTextField@VALUE_CHANGED[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/124C42E8E5D2D4C0
+~.refreshMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/1247B912C80440D1
+~.upMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/1247B9136D1E4A54
+~.removeMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/1247B913152F131C
+~.selectDCLookupTextField@FOCUS[LOST]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/124C42E8E5D2D4C0
+~.filterMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/1254E5A77AFE8213
+~.parameterTableTree@TREE_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/12548B999FBFC82A
+~@RD_METHODCALL[getEnabledActions(com.ulcjava.base.application.tree.TreePath)]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/1247BAE2C98DCD31
+~.selectDCComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/124C42E8E5D2D4C0
+~@RD_METHODCALL[updateDisplayedCmsContext()]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/124E09AAF1B9C8C5
+~@DISPLAY[UNLOAD]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/1254EE5FCF43D71F
+~@RD_METHODCALL[valueChanged(com.ulcjava.base.application.tree.TreePath)]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/124951C4B38B303D
+~.downMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/1247B913E0414E4C
+~@RD_METHODCALL[updateTree()]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/124B1F9B8406B391
+~@RD_BROADCAST[selectedDDFieldChange]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/1247FE3E5474DA81
+~@RD_METHODCALL[close()]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/12AE90FE64F54EEA
+~.cmsContextList@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/124814FF3DD472D3
+~.refreshDDButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/12526087F349DAAC
+~.attributeTableTree@TREE_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/124D96AF814C44AB
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/1245201CC39C1E4B
+~.logonButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/1254EF6AD6CA0574
+~.parametersFilter@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/1254E5A77AFE8213
+~.comboLookupToggleButton@VALUE_CHANGED[]--->ch.ivyteam.ivy.process.ProcessStart:12495B5A297FD530/124C50DFACC55D82

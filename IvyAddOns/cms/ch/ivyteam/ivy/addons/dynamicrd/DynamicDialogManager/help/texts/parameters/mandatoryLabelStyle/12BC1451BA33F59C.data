@@ -1,0 +1,4 @@
+Defines the style in Ivy Configuration applied to the label of mandatory fields.<br />
+The style should be defined in <span class="parameter">RLabel</span> or <span class="parameter">General</span>.<br />
+The default value is is the value used for <span class="parameter">labelStyle</span>.<br />
+When defined on a container, all the children inherit this value.

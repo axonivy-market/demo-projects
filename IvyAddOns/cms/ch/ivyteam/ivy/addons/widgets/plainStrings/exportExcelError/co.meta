@@ -1,0 +1,3 @@
+co: name={exportExcelError} description={} changed={2010-05-17 08:12:25 GMT} changedby={tipaj} visualorder={0} guid={128A551EDCC4A8C1} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={128A5521C1697A56} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-17 08:12:21 GMT} validto={} changed={2010-05-17 08:12:25 GMT} changedby={tipaj} properties={} id={}
+val: guid={128A551EDCC434E8} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-17 08:12:09 GMT} validto={} changed={2010-05-17 08:12:21 GMT} changedby={tipaj} properties={} id={}

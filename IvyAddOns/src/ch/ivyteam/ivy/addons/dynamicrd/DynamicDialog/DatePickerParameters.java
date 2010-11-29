@@ -2,7 +2,7 @@ package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
 import java.util.List;
 
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType.ComponentTypeEnum;
+import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType;
 
 /**
  * This is parameter class of fields that use a DatePicker.
@@ -10,19 +10,25 @@ import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType.ComponentType
  * @author Patrick Joly, TI-Informatique
  * @since 29.12.2008
  */
-public class DatePickerParameters extends FieldComponentParameters
+class DatePickerParameters extends FieldComponentParameters
 {
   private static final long serialVersionUID = -6843588913231643452L;
 
-  public DatePickerParameters(Configuration configuration, List<String> cmsContexts, String name,
-          String fullName, ContainerParameters parentContainerParameters)
+  protected DatePickerParameters(List<String> cmsContexts, String name, String fullName,
+          ComplexComponentParameters parentContainerParameters, Integer position, Class<?> clazz)
   {
-    super(configuration, cmsContexts, name, fullName, parentContainerParameters);
+    super(cmsContexts, name, fullName, parentContainerParameters, position, clazz);
   }
 
   @Override
-  public ComponentTypeEnum getComponentType()
+  public ComponentType getComponentType()
   {
-    return ComponentType.ComponentTypeEnum.DATE_PICKER;
+    return ComponentType.DATE_PICKER;
+  }
+
+  @Override
+  protected final boolean isEditableByDefault()
+  {
+    return false;
   }
 }

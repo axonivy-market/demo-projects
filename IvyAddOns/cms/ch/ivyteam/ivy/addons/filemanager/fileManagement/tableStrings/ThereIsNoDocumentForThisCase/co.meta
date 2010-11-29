@@ -1,0 +1,4 @@
+co: name={ThereIsNoDocumentForThisCase} description={} changed={2010-01-07 07:21:11 CET} changedby={ec} visualorder={0} guid={12258FCD5A170AAC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={122A6FCAA36D5B10} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-07-23 11:41:32 CEST} validto={} changed={2009-07-23 11:41:32 CEST} changedby={xtrans} properties={} id={}
+val: guid={12278A128FB7EFF9} datatype={} isdefault={false} langid={en} description={} validfrom={2009-07-14 11:39:03 CEST} validto={} changed={2009-07-14 11:39:03 CEST} changedby={xtrans} properties={} id={}
+val: guid={12258FCD5D0E85C9} datatype={} isdefault={true} langid={de} description={} validfrom={2009-07-08 08:11:20 CEST} validto={} changed={2009-07-08 08:11:20 CEST} changedby={} properties={} id={}

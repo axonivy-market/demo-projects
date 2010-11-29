@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <method>
-        <name>setFocusOnFirstError</name>
-        <description>Sets the focus to the first component that have a validation error.</description>
+        <name>serializeXML</name>
+        <description></description>
+        <inputParameter>
+            <name>fileName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
     </method>
     <method>
-        <name>serializeXML</name>
-        <description>Serializes the DynamicDialog content into an XML file.</description>
+        <name>loadController</name>
+        <description></description>
         <inputParameter>
-            <name>filename</name>
+            <name>controllerName</name>
             <description></description>
             <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
@@ -16,31 +22,13 @@
     </method>
     <method>
         <name>getValue</name>
-        <description>Gets an object that is filled with all data that are used by DynamicDialog.</description>
+        <description></description>
         <outputParameter>
             <name>value</name>
             <description></description>
-            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <parameterType>Object</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
-    </method>
-    <method>
-        <name>isValid</name>
-        <description>Returns true if all the data visible in DynamicDialog pass the validation.</description>
-        <outputParameter>
-            <name>result</name>
-            <description></description>
-            <parameterType>Boolean</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </outputParameter>
-    </method>
-    <method>
-        <name>validate</name>
-        <description>Checks all the fields and update icons if the validation failed.</description>
-    </method>
-    <method>
-        <name>setFocus</name>
-        <description></description>
     </method>
     <method>
         <name>isBlocked</name>
@@ -53,40 +41,118 @@
         </outputParameter>
     </method>
     <method>
-        <name>setValue</name>
-        <description>Puts the content of the object into the DynamicDialog fields.</description>
-        <inputParameter>
-            <name>value</name>
-            <description></description>
-            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </method>
-    <method>
-        <name>getComponent</name>
-        <description>Retrieves a specific component on DynamicDialog. A absolute or relative fully qualified name should be used.&#xD;
-Absolute fully qualified name : /a/b/c&#xD;
-Relative fully qualifed name : /a/b/d/e/../../c --&gt; /a/b/c&#xD;
-Relative qualified names are useful because we can create them from a received qualified name by concatenation.</description>
+        <name>entryValidationConfirmation</name>
+        <description></description>
         <inputParameter>
             <name>fullName</name>
             <description></description>
             <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
+    </method>
+    <method>
+        <name>setValue</name>
+        <description></description>
+        <inputParameter>
+            <name>value</name>
+            <description></description>
+            <parameterType>Object</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>entryEditingMessage</name>
+        <description></description>
+    </method>
+    <method>
+        <name>close</name>
+        <description></description>
+        <inputParameter>
+            <name>dd</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>fullName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setFocusOnFirstError</name>
+        <description>Sets the focus to the first component that have a validation error.</description>
+    </method>
+    <method>
+        <name>ok</name>
+        <description></description>
+        <inputParameter>
+            <name>dd</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>fullName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>validateAndClose</name>
+        <description></description>
+        <inputParameter>
+            <name>dd</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>fullName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>isValid</name>
+        <description>Returns true if all the data visible in DynamicDialog pass the validation.</description>
         <outputParameter>
-            <name>component</name>
-            <description>Retrieves a specific component on DynamicDialog. A absolute or relative fully qualified name should be used.&#xD;
-Absolute fully qualified name : /a/b/c&#xD;
-Relative fully qualifed name : /a/b/d/e/../../c --&gt; /a/b/c&#xD;
-Relative qualified names are useful because we can create them from a received qualified name by concatenation.</description>
-            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.Component</parameterType>
+            <name>result</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
     </method>
     <method>
+        <name>entryBlockedValidationMessage</name>
+        <description></description>
+    </method>
+    <method>
+        <name>validate</name>
+        <description></description>
+    </method>
+    <method>
+        <name>cancel</name>
+        <description></description>
+        <inputParameter>
+            <name>dd</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>fullName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
         <name>getFieldComponent</name>
-        <description>Retrieves a specific field component on DynamicDialog.</description>
+        <description></description>
         <inputParameter>
             <name>fullName</name>
             <description></description>
@@ -95,18 +161,48 @@ Relative qualified names are useful because we can create them from a received q
         </inputParameter>
         <outputParameter>
             <name>fieldComponent</name>
-            <description>Retrieves a specific field component on DynamicDialog.</description>
+            <description></description>
             <parameterType>ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.FieldComponent</parameterType>
-            <nullPermitted>false</nullPermitted>
+            <nullPermitted>true</nullPermitted>
         </outputParameter>
+    </method>
+    <method>
+        <name>getComponent</name>
+        <description></description>
+        <inputParameter>
+            <name>fullName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>component</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.Component</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>deleteEntryConfirmation</name>
+        <description></description>
+        <inputParameter>
+            <name>fullName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>invalidateCache</name>
+        <description></description>
     </method>
     <startMethod>
         <name>start</name>
         <description></description>
         <inputParameter>
-            <name>object</name>
+            <name>value</name>
             <description></description>
-            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <parameterType>java.lang.Object</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
         <inputParameter>
@@ -115,18 +211,18 @@ Relative qualified names are useful because we can create them from a received q
             <parameterType>List&lt;String&gt;</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
-        <inputParameter>
-            <name>databaseConfiguration</name>
+        <outputParameter>
+            <name>result</name>
             <description></description>
             <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </startMethod>
-    <startMethod>
-        <name>start</name>
-        <description>Default Rich Dialog start&#xD;
-This method can not be changed or deleted!&#xD;
-Do nothing. Doesn't use it!</description>
+        </outputParameter>
+        <outputParameter>
+            <name>object</name>
+            <description></description>
+            <parameterType>java.lang.Object</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
     </startMethod>
     <startMethod>
         <name>start</name>
@@ -143,6 +239,52 @@ Do nothing. Doesn't use it!</description>
             <parameterType>List&lt;String&gt;</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
+        <outputParameter>
+            <name>result</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+        <outputParameter>
+            <name>object</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>object</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>cmsContext</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>classMap</name>
+            <description></description>
+            <parameterType>java.util.Map</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>result</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+        <outputParameter>
+            <name>object</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
     </startMethod>
     <startMethod>
         <name>start</name>
@@ -165,10 +307,27 @@ Do nothing. Doesn't use it!</description>
             <parameterType>ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.StaticRelation</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
+        <outputParameter>
+            <name>result</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+        <outputParameter>
+            <name>object</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
     </startMethod>
     <property>
         <name>guid</name>
-        <value>11C32DE20DA750A0</value>
+        <value>1253032DA23EF305</value>
         <readOnly>true</readOnly>
     </property>
     <property>
@@ -178,7 +337,7 @@ Do nothing. Doesn't use it!</description>
     </property>
     <property>
         <name>binary</name>
-        <value>true</value>
+        <value>false</value>
         <readOnly>true</readOnly>
     </property>
 </richDialogDescriptor>

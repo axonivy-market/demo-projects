@@ -1,0 +1,2 @@
+Defines a method that should be called when the component is constructed.<br />
+This method is called after the UI construction but before the fields receive their value.

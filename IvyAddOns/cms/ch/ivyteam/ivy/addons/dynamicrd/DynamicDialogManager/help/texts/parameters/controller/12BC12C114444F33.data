@@ -1,0 +1,2 @@
+Defines the fully qualified RDC name of a controller that should be loaded.<br />
+A controller is a RDC that have an empty panel. Methods invoked from DynamicDialog are searched in all loaded controllers, in the parent RDC and in all siblings of DynamicDialog.

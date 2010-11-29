@@ -5,31 +5,84 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import ch.ivyteam.ivy.addons.cmscontext.CmsException;
+import ch.ivyteam.ivy.addons.util.AddonsException;
 import ch.ivyteam.ivy.addons.util.StringUtil;
+import ch.ivyteam.ivy.cm.IContentManagementSystem;
+import ch.ivyteam.ivy.environment.EnvironmentNotAvailableException;
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.persistence.PersistencyException;
 
 /**
- * This class extends CMS fonctionalities with a multi-uri search mechanism.
+ * This class extends CMS fonctionalities with a multi-uri search mechanism. It permits some inheritance
+ * fonctionnalities in the CMS.
  * 
  * @author Patrick Joly, TI-Informatique
  * @since 15.10.2008
  */
-public class Cms
+public final class Cms
 {
+  /**
+   * Singleton class that avoid the double check locking.
+   * {@link http://en.wikipedia.org/wiki/Double-checked_locking}
+   */
+  private static final class COBlankCache
+  {
+    private COBlankCache()
+    {
+    }
+
+    private static Set<String> instance = new HashSet<String>();
+
+    protected static Set<String> getInstance()
+    {
+      return instance;
+    }
+  }
+
+  /**
+   * Singleton class that avoid the double check locking.
+   * {@link http://en.wikipedia.org/wiki/Double-checked_locking}
+   */
+  private static final class CRBlankCache
+  {
+    private CRBlankCache()
+    {
+    }
+
+    private static Set<String> instance = new HashSet<String>();
+
+    protected static Set<String> getInstance()
+    {
+      return instance;
+    }
+  }
+
+  private Cms()
+  {
+  }
+
   private static class KeyValueComparator implements Comparator<String[]>
   {
     public int compare(String[] o1, String[] o2)
     {
       if (o1 == o2)
+      {
         return 0;
-
+      }
       if (o1.length >= 2 && o2.length >= 2)
+      {
         return o1[1].compareTo(o2[1]);
+      }
       else if (o1.length >= 1 && o2.length >= 1)
+      {
         return o1[0].compareTo(o2[0]);
+      }
 
       return 0;
     }
@@ -37,38 +90,110 @@ public class Cms
 
   private static final String CMS_COLUMN_SEPARATOR = ";";
 
-  private static final String CMS_CONTEXT = "cmsContext";
+  public static final String CMS_CONTEXT = "cmsContext";
 
   private static final String CMS_KEY = "key";
 
-  private static final String CMS_PATH_ROOT = "/";
+  public static final String CMS_URI_ROOT = "/";
 
-  private static final String CMS_PATH_SEPARATOR = "/";
+  public static final String CMS_URI_SEPARATOR = "/";
 
   private static final String CMS_VALUE = "value";
 
-  private static final String INEXISTANT_NODE_PREFIX = "X";
+  public static final String INEXISTANT_NODE_PREFIX = "X";
+
+  public static final String SPECIFIC_ENVIRONMENT_NODE_NAME = "env";
+
+  public static final String SPECIFIC_ENVIRONMENT_URI = CMS_URI_SEPARATOR + SPECIFIC_ENVIRONMENT_NODE_NAME
+          + CMS_URI_SEPARATOR;
 
   /**
+   * Returns the value of the ContentObject through the CMScontext mechanism.
+   * @see ch.ivyteam.ivy.cm.IContentManagementSystem#co(String)
+   * 
    * @param contexts CMS context list
-   * @param cmsKey Suffix that is searched
-   * @return 
+   * @param cmsKey suffix that is searched
+   * @return the obtained string value
    */
   public static String co(List<String> contexts, String cmsKey)
   {
-    return co(contexts, cmsKey, null);
+    return co(contexts, cmsKey, Ivy.cms());
   }
 
+  /**
+   * Returns the value of the ContentObject through the CMScontext mechanism.
+   * @see ch.ivyteam.ivy.cm.IContentManagementSystem#co(String)
+   * 
+   * @param contexts CMS context list
+   * @param cmsKey suffix that is searched
+   * @param cms Content Management System to use
+   * @return the obtained string value
+   */
+  public static String co(List<String> contexts, String cmsKey, IContentManagementSystem cms)
+  {
+    return co(contexts, cmsKey, null, cms);
+  }
+
+  /**
+   * Returns the value of the ContentObject through the CMScontext mechanism. When no value is found, the
+   * default value is used.
+   * 
+   * @param contexts CMS context list
+   * @param cmsKey suffix that is searched
+   * @param defaultValue value that is returned if nothing is found in the CMS
+   * @return the obtained string value
+   */
   public static String co(List<String> contexts, String cmsKey, String defaultValue)
   {
-    return getCmsString(contexts, cmsKey, defaultValue, false);
+    return co(contexts, cmsKey, defaultValue, Ivy.cms());
   }
 
+  /**
+   * Returns the value of the ContentObject through the CMScontext mechanism. When no value is found, the
+   * default value is used.
+   * 
+   * @param contexts CMS context list
+   * @param cmsKey suffix that is searched
+   * @param defaultValue value that is returned if nothing is found in the CMS
+   * @param cms Content Management System to use
+   * @return the obtained string value
+   */
+  public static String co(List<String> contexts, String cmsKey, String defaultValue,
+          IContentManagementSystem cms)
+  {
+    return getCmsString(contexts, cmsKey, defaultValue, false, cms);
+  }
+
+  /**
+   * Returns the value of the ContentObject through the CMScontext mechanism. When no value is found, the
+   * default value is used. The returned value is evaluated as boolean. 1-->true; false otherwise.
+   * 
+   * @param contexts CMS context list
+   * @param cmsKey suffix that is searched
+   * @param defaultValue value that is returned if nothing is found in the CMS
+   * @return the obtained boolean value
+   */
   public static boolean coAsBoolean(List<String> contexts, String cmsKey, boolean defaultValue)
+  {
+    return coAsBoolean(contexts, cmsKey, defaultValue, Ivy.cms());
+  }
+
+  /**
+   * Returns the value of the ContentObject through the CMScontext mechanism. When no value is found, the
+   * default value is used. The returned value is evaluated as boolean. 1-->true; false otherwise.
+   * 
+   * @param contexts CMS context list
+   * @param cmsKey suffix that is searched
+   * @param defaultValue value that is returned if nothing is found in the CMS
+   * @param cms Content Management System to use
+   * @return the obtained boolean value
+   */
+  public static boolean coAsBoolean(List<String> contexts, String cmsKey, boolean defaultValue,
+          IContentManagementSystem cms)
   {
     boolean result;
     String temp;
-    temp = co(contexts, cmsKey);
+    temp = co(contexts, cmsKey, cms);
 
     if (defaultValue)
     {
@@ -81,11 +206,36 @@ public class Cms
     return result;
   }
 
+  /**
+   * Returns the value of the ContentObject through the CMScontext mechanism. When no value is found, the
+   * default value is used. The returned value is evaluated as Number.
+   * 
+   * @param contexts CMS context list
+   * @param cmsKey suffix that is searched
+   * @param defaultValue value that is returned if nothing is found in the CMS
+   * @return the obtained value
+   */
   public static Number coAsNumber(List<String> contexts, String cmsKey, Number defaultValue)
+  {
+    return coAsNumber(contexts, cmsKey, defaultValue, Ivy.cms());
+  }
+
+  /**
+   * Returns the value of the ContentObject through the CMScontext mechanism. When no value is found, the
+   * default value is used. The returned value is evaluated as Number.
+   * 
+   * @param contexts CMS context list
+   * @param cmsKey suffix that is searched
+   * @param defaultValue value that is returned if nothing is found in the CMS
+   * @param cms Content Management System to use
+   * @return the obtained value
+   */
+  public static Number coAsNumber(List<String> contexts, String cmsKey, Number defaultValue,
+          IContentManagementSystem cms)
   {
     Number result;
     String temp;
-    temp = co(contexts, cmsKey);
+    temp = co(contexts, cmsKey, cms);
 
     result = defaultValue;
 
@@ -104,73 +254,56 @@ public class Cms
     return result;
   }
 
-  // public static RecordsetByLocale getCmsRecordSetByLocale(List<String> contexts, String subContext,
-  // Boolean isSorted, boolean getReference)
-  // {
-  // String path;
-  // RecordsetByLocale result;
-  // List<Locale> locales;
-  // Locale currentLocale;
-  // NumberFormat nf;
-  //
-  // currentLocale = IvyLanguage.getSessionLanguage();
-  //
-  // locales = IvyLanguage.getSupportedLanguages();
-  //
-  // result = null;
-  //
-  // nf = NumberFormat.getInstance();
-  // nf.setMinimumIntegerDigits(3);
-  //
-  // path = findCmsPath(contexts, subContext + CMS_PATH_SEPARATOR + CMS_KEY + nf.format(1));
-  // if (!path.equals("") && locales != null)
-  // {
-  // path += CMS_PATH_SEPARATOR + subContext;
-  // result = new RecordsetByLocale();
-  //
-  // for (Locale locale : locales)
-  // {
-  // IvyLanguage.setSessionLanguage(locale);
-  // result.put(locale, getCmsRecordSet(isSorted, getReference, path));
-  // }
-  // }
-  //
-  // IvyLanguage.setSessionLanguage(currentLocale);
-  //
-  // return result;
-  // }
-
-  // public static RecordsetByLocale coRecordSetByLocale(List<String> contexts, String key, Boolean isSorted)
-  // {
-  // return getCmsRecordSetByLocale(contexts, key, isSorted, false);
-  // }
-  //
+  /**
+   * Returns the list of value found through the CMScontext mechanism. In that mechanism, a list is a set of
+   * content values that have as name the key name suffixed with with 3 digits. <br />
+   * It permits in one call to read many values in the CMS. (<code>value001 - value002 - value003 - ...</code>)
+   * 
+   * @param contexts CMS context list
+   * @param key suffix that is searched
+   * @return the obtained value list
+   */
   public static List<String> coList(List<String> contexts, String key)
+  {
+    return coList(contexts, key, Ivy.cms());
+  }
+
+  /**
+   * Returns the list of value found through the CMScontext mechanism. In that mechanism, a list is a set of
+   * content values that have as name the key name suffixed with with 3 digits. <br />
+   * It permits in one call to read many values in the CMS. (<code>value001 - value002 - value003 - ...</code>)
+   * 
+   * @param contexts CMS context list
+   * @param key suffix that is searched
+   * @param cms Content Management System to use
+   * @return the obtained value list
+   */
+  public static List<String> coList(List<String> contexts, String key, IContentManagementSystem cms)
   {
     NumberFormat nf = NumberFormat.getInstance();
     Integer currentIndex;
     List<String> list = new ArrayList<String>();
     String cmsIndex;
-    String path;
+    String uri;
     String value;
-    String currentPath;
+    String currentURI;
 
     currentIndex = 0;
     nf.setMinimumIntegerDigits(3);
 
-    path = findCmsPath(contexts, key + nf.format(1));
+    uri = findURI(contexts, key + nf.format(1), cms);
     while (true)
     {
       cmsIndex = nf.format(++currentIndex);
 
-      currentPath = getCms(path + CMS_PATH_SEPARATOR + key + cmsIndex, true);
-      if (currentPath.equals(""))
+      currentURI = getCms(uri + CMS_URI_SEPARATOR + key + cmsIndex, true, cms);
+      if (currentURI.equals(""))
       {
         break;
       }
-      value = getCms(currentPath, false);
+      value = getCms(currentURI, false, cms);
 
-      if (value == "")
+      if (value.equals(""))
       {
         break;
       }
@@ -182,6 +315,12 @@ public class Cms
 
   public static List<String[]> coRecordSet(List<String[]> recordsetRef, boolean isSorted)
   {
+    return coRecordSet(recordsetRef, isSorted, Ivy.cms());
+  }
+
+  public static List<String[]> coRecordSet(List<String[]> recordsetRef, boolean isSorted,
+          IContentManagementSystem cms)
+  {
     List<String[]> result;
     List<String> newRecord;
 
@@ -191,7 +330,7 @@ public class Cms
     {
       newRecord = new ArrayList<String>();
       newRecord.add(record[0]);
-      newRecord.addAll(getValues(record[1]));
+      newRecord.addAll(getValues(record[1], cms));
       result.add(newRecord.toArray(new String[0]));
     }
     if (isSorted)
@@ -204,9 +343,15 @@ public class Cms
 
   public static List<String[]> coRecordSet(List<String> contexts, String subContext, boolean isSorted)
   {
+    return coRecordSet(contexts, subContext, isSorted, Ivy.cms());
+  }
+
+  public static List<String[]> coRecordSet(List<String> contexts, String subContext, boolean isSorted,
+          IContentManagementSystem cms)
+  {
     List<String[]> result;
 
-    result = getCmsRecordSet(contexts, subContext, false);
+    result = getCmsRecordSet(contexts, subContext, false, cms);
     if (isSorted)
     {
       Collections.sort(result, new KeyValueComparator());
@@ -215,17 +360,45 @@ public class Cms
     return result;
   }
 
+  /**
+   * Returns the uri of the ContentObject through the CMScontext mechanism.
+   * @see ch.ivyteam.ivy.cm.IContentManagementSystem#co(String)
+   * 
+   * @param contexts CMS context list
+   * @param cmsKey suffix that is searched
+   * @return the obtained string value
+   */
   public static String cr(List<String> contexts, String cmsKey)
   {
-    return getCmsString(contexts, cmsKey, null, true);
+    return cr(contexts, cmsKey, Ivy.cms());
+  }
+
+  /**
+   * Returns the uri of the ContentObject through the CMScontext mechanism.
+   * @see ch.ivyteam.ivy.cm.IContentManagementSystem#co(String)
+   * 
+   * @param contexts CMS context list
+   * @param cmsKey suffix that is searched
+   * @param cms Content Management System to use
+   * @return the obtained string value
+   */
+  public static String cr(List<String> contexts, String cmsKey, IContentManagementSystem cms)
+  {
+    return getCmsString(contexts, cmsKey, null, true, cms);
   }
 
   public static List<String[]> crRecordSet(List<String> contexts, String subContext)
   {
-    return getCmsRecordSet(contexts, subContext, true);
+    return crRecordSet(contexts, subContext, Ivy.cms());
   }
 
-  public static String findCmsPath(List<String> contexts, String cmsKey)
+  public static List<String[]> crRecordSet(List<String> contexts, String subContext,
+          IContentManagementSystem cms)
+  {
+    return getCmsRecordSet(contexts, subContext, true, cms);
+  }
+
+  private static String findURI(List<String> contexts, String cmsKey, IContentManagementSystem cms)
   {
     String context;
     String s;
@@ -241,9 +414,11 @@ public class Cms
 
       // Exclude inexsitant nodes
       if (context.length() == 0 || context.startsWith(INEXISTANT_NODE_PREFIX))
+      {
         continue;
+      }
 
-      s = getCms(context + CMS_PATH_SEPARATOR + cmsKey, true);
+      s = getCms(context + CMS_URI_SEPARATOR + cmsKey, true, cms);
 
       if (!s.equals(""))
       {
@@ -255,109 +430,217 @@ public class Cms
     return result;
   }
 
-  public static String getCms(String cmsPath, boolean getReference)
+  /**
+   * Returns the uri or the value of the ContentObject read from CMS.
+   * 
+   * @param uri CMS uri to read
+   * @param getReference if true the uri of the ContentObject is returned; otherwise the value is returned
+   * @param cms Content Management System to use
+   * @return the uri or the value of the ContentObject.
+   */
+  public static String getCms(String uri, boolean getReference)
+  {
+    return getCms(uri, getReference, Ivy.cms());
+  }
+
+  /**
+   * Returns the uri or the value of the ContentObject read from CMS.
+   * 
+   * @param uri CMS uri to read
+   * @param getReference if true the uri of the ContentObject is returned; otherwise the value is returned
+   * @return the uri or the value of the ContentObject.
+   */
+  public static String getCms(String uri, boolean getReference, IContentManagementSystem cms)
   {
     String result;
+    String cleanURI;
 
-    result = null;
+    result = "";
+    cleanURI = uri;
 
-    cmsPath = StringUtil.cleanUpPath(cmsPath);
+    cleanURI = StringUtil.cleanUpPath(cleanURI);
 
     if (getReference)
     {
-      result = Ivy.cms().cr(cmsPath);
+      if (!CRBlankCache.getInstance().contains(cleanURI))
+      {
+        result = cms.cr(cleanURI);
+        if (result.equals(""))
+        {
+          CRBlankCache.getInstance().add(cleanURI);
+        }
+      }
     }
     else
     {
-      result = Ivy.cms().co(cmsPath);
-    }
+      if (!COBlankCache.getInstance().contains(cleanURI))
+      {
+        // Only read value that are not in COBlankCache
+        result = cms.co(cleanURI);
+        if (result.equals(""))
+        {
+          COBlankCache.getInstance().add(cleanURI);
+        }
+        if (result.contains("%"))
+        {
+          Pattern p;
 
+          p = Pattern.compile("%(.*?)(?=%)");
+          Matcher m = p.matcher(result);
+
+          while (m.find())
+          {
+            // TODO test with inexistant gloval variable
+            if (Ivy.var().get(m.group(1)) != null)
+            {
+              result = result.replaceFirst("%" + m.group(1) + "%", Ivy.var().get(m.group(1)));
+              m = p.matcher(result);
+            }
+          }
+        }
+      }
+    }
     if (result.equals("null"))
+    {
       result = "";
+    }
 
     return result;
   }
 
-  public static List<String> getCmsContexts(List<String> contexts)
+  /**
+   * Re-interprets the CMScontext to complete it with new <code>cmsContext</code> value found.
+   * 
+   * @param contexts CMS context list
+   * @return the updated CMS context list
+   * @throws AddonsException
+   */
+  public static List<String> getCmsContexts(List<String> contexts) throws AddonsException
   {
-    return getCmsContexts(null, contexts);
+    return getCmsContexts(contexts, Ivy.cms());
+
   }
 
-  // public static StringByLocale coByLocale(List<String> contexts, String cmsKey)
-  // {
-  // return coByLocale(contexts, cmsKey, null);
-  // }
-  //
-  // public static StringByLocale coByLocale(List<String> contexts, String cmsKey, String defaultValue)
-  // {
-  // List<Locale> locales;
-  // StringByLocale result;
-  // Locale currentLocale;
-  //
-  // result = null;
-  //
-  // currentLocale = null;
-  //
-  // locales = null;
-  //
-  // locales = IvyLanguage.getSupportedLanguages();
-  //
-  // currentLocale = IvyLanguage.getSessionLanguage();
-  //
-  // result = new StringByLocale();
-  // for (Locale locale : locales)
-  // {
-  // IvyLanguage.setSessionLanguage(locale);
-  // result.put(locale, getCmsString(contexts, cmsKey, defaultValue, false));
-  // }
-  //
-  // IvyLanguage.setSessionLanguage(currentLocale);
-  //
-  // return result;
-  // }
+  /**
+   * Re-interprets the CMScontext to complete it with new <code>cmsContext</code> value found.
+   * 
+   * @param contexts CMS context list
+   * @param cms Content Management System to use
+   * @return the updated CMS context list
+   * @throws AddonsException
+   */
+  public static List<String> getCmsContexts(List<String> contexts, IContentManagementSystem cms)
+          throws AddonsException
+  {
+    return getCmsContexts(null, contexts, cms);
+  }
 
-  public static List<String> getCmsContexts(String subContext, List<String> _contexts)
+  /**
+   * Add a suffix to each entry of the CMS context and re-interprets its to complete with new
+   * <code>cmsContext</code> values found in that folder.
+   * 
+   * @param subContext suffix added to each entry
+   * @param contexts CMS context list
+   * @return the updated CMS context list
+   * @throws AddonsException
+   */
+  public static List<String> getCmsContexts(String subContext, List<String> contexts) throws AddonsException
+  {
+    return getCmsContexts(subContext, contexts, Ivy.cms());
+  }
+
+  /**
+   * Add a suffix to each entry of the CMS context and re-interprets its to complete with new
+   * <code>cmsContext</code> values found in that folder.
+   * 
+   * @param subContext suffix added to each entry
+   * @param contexts CMS context list
+   * @param cms Content Management System to use
+   * @return the updated CMS context list
+   * @throws AddonsException
+   */
+  public static List<String> getCmsContexts(String subContext, List<String> contexts,
+          IContentManagementSystem cms) throws AddonsException
   {
     String context;
     String oldContext;
-    String cmsContextPath;
+    String envContext;
+    String contextURI;
+    String environment;
+    boolean usesEnvironment;
     boolean exists;
-    List<String> contexts;
-    contexts = new ArrayList<String>();
+    List<String> usedContexts;
+    usedContexts = new ArrayList<String>();
 
-    if (subContext != null && !subContext.equals(""))
+    environment = Ivy.session().getActiveEnvironment();
+    usesEnvironment = true;
+    if (environment == null || environment.equals(""))
     {
-      if (_contexts.isEmpty())
+      try
       {
-        contexts.add(CMS_PATH_SEPARATOR + subContext);
+        environment = Ivy.session().getWorkflowContext().getApplication().getActiveEnvironment();
+      }
+      catch (EnvironmentNotAvailableException e)
+      {
+        throw new AddonsException(e);
+      }
+      catch (PersistencyException e)
+      {
+        throw new AddonsException(e);
+      }
+      if (environment == null || environment.equals(""))
+      {
+        usesEnvironment = false;
       }
     }
 
-    for (int i = _contexts.size() - 1; i >= 0; i--)
+    if (subContext != null && !subContext.equals("") && contexts.isEmpty())
     {
-      context = _contexts.get(i);
+      usedContexts.add(CMS_URI_SEPARATOR + subContext);
+    }
+
+    for (int i = contexts.size() - 1; i >= 0; i--)
+    {
+      context = contexts.get(i);
+
+      if (context.startsWith(SPECIFIC_ENVIRONMENT_URI))
+      {
+        continue;
+      }
       if (subContext != null && !subContext.equals(""))
       {
-        context += CMS_PATH_SEPARATOR + subContext;
+        context += CMS_URI_SEPARATOR + subContext;
       }
 
       if (context.startsWith(INEXISTANT_NODE_PREFIX))
       {
-        contexts.add(0, context);
+        usedContexts.add(0, context);
       }
       else
       {
         // Exclude inexistant nodes
         exists = false;
-        if (!Ivy.cms().cr(context).equals(""))
+        if (!cms.cr(context).equals(""))
         {
           exists = true;
         }
 
         context = exists ? context : INEXISTANT_NODE_PREFIX + context;
-        if (!isPathAlreadyPresent(context, contexts))
+        if (!isURIAlreadyPresent(context, usedContexts))
         {
-          contexts.add(0, context);
+          if (exists && usesEnvironment)
+          {
+            envContext = SPECIFIC_ENVIRONMENT_URI + environment + context;
+            if (cms.cr(envContext).equals(""))
+            {
+              envContext = INEXISTANT_NODE_PREFIX + envContext;
+            }
+            if (!isURIAlreadyPresent(envContext, usedContexts))
+            {
+              usedContexts.add(0, envContext);
+            }
+          }
+          usedContexts.add(0, context);
         }
 
         if (exists)
@@ -366,67 +649,68 @@ public class Cms
           {
             oldContext = context;
 
-            cmsContextPath = getCms(context + CMS_PATH_SEPARATOR + CMS_CONTEXT, true);
-            if (cmsContextPath.equals(""))
+            contextURI = getCms(context + CMS_URI_SEPARATOR + CMS_CONTEXT, true, cms);
+            if (contextURI.equals(""))
             {
               break;
             }
 
-            context = getCms(cmsContextPath, false);
+            context = getCms(contextURI, false, cms);
             if (context.equals(""))
             {
               break;
             }
 
-            if (!context.startsWith(CMS_PATH_ROOT))
+            if (!context.startsWith(CMS_URI_ROOT))
             {
-              context = oldContext + CMS_PATH_SEPARATOR + context;
+              context = oldContext + CMS_URI_SEPARATOR + context;
 
               context = StringUtil.cleanUpPath(context);
             }
-            
-            if (getCms(context, true).equals("")) {
-              throw new CmsException("Could not access the CMS uri '" + context + "' used by uri '" + cmsContextPath + "'");
+
+            if (getCms(context, true, cms).equals(""))
+            {
+              throw new CmsException("Could not access the CMS uri '" + context + "' used by uri '"
+                      + contextURI + "'");
             }
 
-            if (!isPathAlreadyPresent(context, contexts))
+            if (!isURIAlreadyPresent(context, usedContexts))
             {
-              contexts.add(0, context);
+              usedContexts.add(0, context);
             }
           }
         }
       }
     }
-    return contexts;
+    return usedContexts;
   }
 
-  private static List<String[]> getCmsRecordSet(List<String> contexts, String subContext, boolean getReference)
+  private static List<String[]> getCmsRecordSet(List<String> contexts, String subContext,
+          boolean getReference, IContentManagementSystem cms)
   {
-    String path;
+    String uri;
     NumberFormat nf;
 
     nf = NumberFormat.getInstance();
     nf.setMinimumIntegerDigits(3);
-    path = findCmsPath(contexts, subContext + CMS_PATH_SEPARATOR + CMS_KEY + nf.format(1));
-    if (path != null && !path.equals(""))
+    uri = findURI(contexts, subContext + CMS_URI_SEPARATOR + CMS_KEY + nf.format(1), cms);
+    if (uri != null && !uri.equals(""))
     {
-      path += CMS_PATH_SEPARATOR + subContext;
+      uri += CMS_URI_SEPARATOR + subContext;
     }
 
-    return getCmsRecordSet(path, getReference);
+    return getCmsRecordSet(uri, getReference, cms);
   }
 
-  // private static List<String[]> getCmsRecordSet(Boolean isSorted, boolean getReference, String path)
-  private static List<String[]> getCmsRecordSet(String path, boolean getReference)
+  private static List<String[]> getCmsRecordSet(String uri, boolean getReference, IContentManagementSystem cms)
   {
     Integer currentIndex;
     String cmsIndex;
     String key;
     List<String[]> result;
-    String value;
     NumberFormat nf;
     List<String> record;
-    String currentPath;
+    String currentURI;
 
     result = new ArrayList<String[]>();
     currentIndex = 0;
@@ -440,46 +724,43 @@ public class Cms
 
       cmsIndex = nf.format(++currentIndex);
 
-      currentPath = getCms(path + CMS_PATH_SEPARATOR + CMS_KEY + cmsIndex, true);
-      if (currentPath.equals(""))
+      currentURI = getCms(uri + CMS_URI_SEPARATOR + CMS_KEY + cmsIndex, true, cms);
+      if (currentURI.equals(""))
       {
         break;
       }
-      key = getCms(currentPath, false);
+      key = getCms(currentURI, false, cms);
 
       record.add(key);
 
-      value = getCms(path + CMS_PATH_SEPARATOR + CMS_VALUE + cmsIndex, getReference);
+      currentURI = getCms(uri + CMS_URI_SEPARATOR + CMS_VALUE + cmsIndex, true, cms);
 
       if (getReference)
       {
-        record.add(value);
+        record.add(currentURI);
       }
       else
       {
-        record.addAll(getValues(value));
+        record.addAll(getValues(currentURI, cms));
       }
 
       result.add(record.toArray(new String[0]));
     }
-    // if (isSorted)
-    // {
-    // Collections.sort(result, new KeyValueComparator());
-    // }
+
     return result.size() > 0 ? result : null;
   }
 
-  public static String getCmsString(List<String> contexts, String cmsKey, String defaultValue,
-          boolean getReference)
+  private static String getCmsString(List<String> contexts, String cmsKey, String defaultValue,
+          boolean getReference, IContentManagementSystem cms)
   {
-    String path;
+    String uri;
     String value;
 
-    path = findCmsPath(contexts, cmsKey);
+    uri = findURI(contexts, cmsKey, cms);
 
-    if (!path.equals(""))
+    if (!uri.equals(""))
     {
-      value = getCms(path + CMS_PATH_SEPARATOR + cmsKey, getReference);
+      value = getCms(uri + CMS_URI_SEPARATOR + cmsKey, getReference, cms);
     }
     else
     {
@@ -494,13 +775,13 @@ public class Cms
     return value;
   }
 
-  protected static List<String> getValues(String path)
+  protected static List<String> getValues(String uri, IContentManagementSystem cms)
   {
     // TODO Allow the use of something different than semi-colon. Get it from CMS ?
-    return Arrays.asList(getCms(path, false).split(CMS_COLUMN_SEPARATOR));
+    return Arrays.asList(getCms(uri, false, cms).split(CMS_COLUMN_SEPARATOR));
   }
 
-  private static boolean isPathAlreadyPresent(String context, List<String> contexts)
+  private static boolean isURIAlreadyPresent(String context, List<String> contexts)
   {
     boolean found;
     // Check if already present
@@ -514,5 +795,27 @@ public class Cms
       }
     }
     return found;
+  }
+
+  /**
+   * CMS context machanism keeps in a cache all empty value read from the CMS. This method permits to remove
+   * one specific entry from the cache.
+   * 
+   * @param uri CMS uri to invalidate
+   */
+  public static void invalidate(String uri)
+  {
+    COBlankCache.getInstance().remove(uri);
+    CRBlankCache.getInstance().remove(uri);
+  }
+
+  /**
+   * CMS context machanism keeps in a cache all empty value read from the CMS. This method permits to clear
+   * the full cache.
+   */
+  public static void invalidate()
+  {
+    COBlankCache.getInstance().clear();
+    CRBlankCache.getInstance().clear();
   }
 }

@@ -1,0 +1,2 @@
+Defines the key that is stored in data class attribute.<br />
+<span class="parameter">key</span> and <span class="parameter">value</span> are defined in pair. <span class="parameter">value</span> is the displayed value while <span class="parameter">key</span> is the data stored.

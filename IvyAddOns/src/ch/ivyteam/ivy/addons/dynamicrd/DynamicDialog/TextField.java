@@ -1,8 +1,8 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
@@ -10,11 +10,10 @@ import ch.ivyteam.ivy.scripting.objects.Date;
 import ch.ivyteam.ivy.scripting.objects.DateTime;
 import ch.ivyteam.ivy.scripting.objects.Duration;
 import ch.ivyteam.ivy.scripting.objects.Time;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
 
-import com.ulcjava.base.application.GridBagConstraints;
 import com.ulcjava.base.application.ULCComponent;
-import com.ulcjava.base.application.ULCContainer;
+import com.ulcjava.base.application.event.ActionEvent;
+import com.ulcjava.base.application.event.IActionListener;
 import com.ulcjava.base.application.event.IKeyListener;
 import com.ulcjava.base.application.event.KeyEvent;
 
@@ -26,58 +25,55 @@ import com.ulcjava.base.application.event.KeyEvent;
  */
 public class TextField extends FieldComponent
 {
+  private RTextField textField = null;
 
-  protected boolean firstValidation = true;
-
-  protected RTextField textField = null;
-
-  public TextField(DynamicDialogPanel panel, Container parentContainer, ULCContainer ulcContainer,
-          TextFieldParameters _parameters)
+  /**
+   * Constructs a new TextField object.
+   * 
+   * @param panel dynamic dialog panel
+   * @param parentContainer parent container
+   * @param parameters parameters
+   * @param index position when component is in a list
+   */
+  protected TextField(DynamicDialogPanel panel, ComplexComponent parentContainer,
+          TextFieldParameters parameters, int index)
   {
-    super(panel, parentContainer, ulcContainer, _parameters);
-
-    parameters = _parameters;
+    super(panel, parentContainer, parameters, index);
   }
 
   @Override
-  public void focusGained(String method)
-  {
-    super.focusGained(method);
-  }
-
-  @Override
-  public void focusLost(String method)
+  public final void focusLost()
   {
     validate();
-    super.focusLost(method);
+    super.focusLost();
   }
 
   @Override
-  public ULCComponent getLastMainComponent()
+  public final ULCComponent getLastMainComponent()
   {
     return getMainComponent();
   }
 
   @Override
-  public ULCComponent getMainComponent()
+  public final ULCComponent getMainComponent()
   {
     return textField;
   }
 
   @Override
-  public TextFieldParameters getParameters()
+  public final TextFieldParameters getParameters()
   {
-    return (TextFieldParameters) parameters;
+    return (TextFieldParameters) getComponentParameters();
   }
 
   @Override
-  public String[] getSelectedRecord()
+  public final String[] getSelectedRecord()
   {
     return null;
   }
 
   @Override
-  public String getText()
+  public final String getText()
   {
     return getValueAsString();
   }
@@ -87,24 +83,78 @@ public class TextField extends FieldComponent
     if (textField == null)
     {
       textField = new RTextField();
-      textField.setName(parameters.getName() + "TextField");
+      textField.setName(getParameters().getName() + "TextField");
+
+      // It seems that without this listener the ValueChangedListener is not
+      // invoked when something is typed inside the textfield
+      textField.addKeyListener(new IKeyListener()
+        {
+          private static final long serialVersionUID = -3251482348103155014L;
+
+          /**
+           * {@inheritDoc}
+           */
+          public void keyTyped(KeyEvent arg0)
+          {
+            // Nothing
+          }
+        });
+
+      if (!getParameters().getButtonActionMethod().equals(""))
+      {
+        textField.addActionListener(new IActionListener()
+          {
+            private static final long serialVersionUID = -3249100169254592270L;
+
+            /**
+             * {@inheritDoc}
+             */
+            public void actionPerformed(ActionEvent arg0)
+            {
+              invoke(getParameters().getButtonActionMethod());
+            }
+          });
+
+      }
+
+      textField.addValueChangedListener(new ValueChangedListener(this, false));
+
+      textField.addFocusListener(new FocusListener(this));
+
+      textField.setEditable(getParameters().isEditable());
+
+      textField.setSelectAllOnFocusGained(getParameters().isSelectAllOnFocusGained());
+
+      getUlcComponents().add(textField);
     }
     return textField;
   }
 
   @Override
-  public Object getValue()
+  public final Object getValue()
   {
     return textField.getValue();
   }
 
   @Override
-  public Date getValueAsDate()
+  public final Date getValueAsDate()
   {
-    SimpleDateFormat format;
+    if (getParameters().isOldStyleValidation())
+    {
+      return getValueAsDateOldStyle();
+    }
+    else
+    {
+      return textField.getValueAsDate();
+    }
+  }
+
+  private Date getValueAsDateOldStyle()
+  {
+    DateFormat format;
     java.util.Date date;
 
-    format = new SimpleDateFormat("dd.MM.yyyy");
+    format = getDateFormat();
     format.setLenient(false);
 
     try
@@ -120,19 +170,58 @@ public class TextField extends FieldComponent
   }
 
   @Override
-  public DateTime getValueAsDateTime()
+  public final DateTime getValueAsDateTime()
   {
-    return new DateTime(getValueAsString());
+    if (getParameters().isOldStyleValidation())
+    {
+      return getValueAsDateTimeOldStyle();
+    }
+    else
+    {
+      return textField.getValueAsDateTime();
+    }
+  }
+
+  private DateTime getValueAsDateTimeOldStyle()
+  {
+    DateFormat format;
+    java.util.Date dateTime;
+
+    format = getDateTimeFormat();
+    format.setLenient(false);
+
+    try
+    {
+      dateTime = format.parse(getValueAsString());
+    }
+    catch (ParseException e)
+    {
+      dateTime = null;
+    }
+
+    return dateTime == null ? null : new DateTime(dateTime);
   }
 
   @Override
-  public Duration getValueAsDuration()
+  public final Duration getValueAsDuration()
   {
     return new Duration(getValueAsNumber().longValue());
   }
 
   @Override
-  public Number getValueAsNumber()
+  public final Number getValueAsNumber()
+  {
+    if (getParameters().isOldStyleValidation())
+    {
+      return getValueAsNumberOldStyle();
+    }
+    else
+    {
+      return textField.getValueAsNumber();
+    }
+  }
+
+  private Number getValueAsNumberOldStyle()
   {
     Number value;
 
@@ -149,168 +238,290 @@ public class TextField extends FieldComponent
   }
 
   @Override
-  public String getValueAsString()
+  public final String getValueAsString()
   {
-    return textField.getText();
+    if (getParameters().isOldStyleValidation())
+    {
+      return textField.getText();
+    }
+    else
+    {
+      return textField.getValueAsString();
+    }
   }
 
   @Override
-  public Time getValueAsTime()
+  public final Time getValueAsTime()
   {
-    return new Time(getValueAsString());
+    if (getParameters().isOldStyleValidation())
+    {
+      return getValueAsTimeOldStyle();
+    }
+    else
+    {
+      return textField.getValueAsTime();
+    }
+  }
+
+  private Time getValueAsTimeOldStyle()
+  {
+    String s;
+
+    s = getValueAsString();
+    if (s.equals(""))
+    {
+      return Time.UNINITIALIZED_TIME;
+    }
+    else
+    {
+      return new Time(getValueAsString());
+    }
   }
 
   @Override
-  public void initialize(Position pos)
+  public final Boolean getValueAsBoolean()
   {
-    GridBagConstraints constraints;
+    String s;
 
-    constraints = new GridBagConstraints();
-    constraints.setGridX(pos.getPosX() + 1);
-    constraints.setGridY(pos.getPosY() + 0);
-    ulcContainer.add(getTextField(), constraints);
+    s = getValueAsString();
 
-    ulcComponents.add(textField);
-
-    super.initialize(pos);
-
-    // It seems that without this listener the ValueChangedListener is not
-    // invoked when something is typed inside the textfield
-    textField.addKeyListener(new IKeyListener()
-      {
-        private static final long serialVersionUID = -3251482348103155014L;
-
-        public void keyTyped(KeyEvent arg0)
-        {
-          // Nothing
-
-        }
-      });
-
-    textField
-            .addValueChangedListener(new ValueChangedListener(this, getParameters().getValueChangedMethod()));
-
-    textField.addFocusListener(new FocusListener(this, getParameters().getFocusGainedMethod(),
-            getParameters().getFocusLostMethod()));
+    return s.equals("") || s.equals("0") || s.equals("false") ? false : true;
   }
 
   private boolean inlineValidate()
   {
     boolean valid;
 
-    valid = TextValidation.inlineValidate(this, isMandatory(), firstValidation, getParameters()
-            .getTextValidationParameters());
+    if (getParameters().isOldStyleValidation())
+    {
+      valid = TextValidation.inlineValidate(this, isMandatory(), isFirstValidation(), getParameters()
+              .getTextValidationParameters());
+    }
+    else
+    {
+      valid = validate();
+    }
 
-    updateIcon(valid);
+    updateIconAndBackground(valid);
 
     return valid;
   }
 
   @Override
-  public boolean isFocusable()
+  public final boolean isFocusable()
   {
     return textField.isFocusable();
   }
 
   @Override
-  public void setFocusable(boolean b)
+  public final void setFocusable(boolean b)
   {
     textField.setFocusable(b);
   }
 
   @Override
-  public void setKeyValue(List<String[]> keyValue)
+  public final void setKeyValue(List<String[]> keyValue)
   {
     // Nothing to do
   }
 
   @Override
-  protected void applyStyles()
+  protected final void applyFieldStyles()
   {
-    super.applyStyles();
-
     TextFieldParameters parameters;
 
     parameters = getParameters();
 
-    textField.setStyle(parameters.getFieldStyle());
+    getTextField().setStyle(parameters.getFieldStyle());
     if (parameters.getColumns() != 0)
     {
-      textField.setColumns(parameters.getColumns());
+      getTextField().setColumns(parameters.getColumns());
+      addStyleProperties(getTextField(), "fill", "NONE");
+      addStyleProperties(getTextField(), "weightX", "");
+    }
+    else
+    {
+      setWeightX(getTextField());
+    }
+
+    if (!getParameters().isOldStyleValidation())
+    {
+      // TODO How to work with mandatory fields with the included Ivy validation mechanism
+      textField.setValidation(getParameters().getValidation());
     }
   }
 
   @Override
-  public void setValue(Object o, String text)
+  public final void setValue(Object o, String text)
   {
-    setValueAsString(o.toString());
+    if (getParameters().isOldStyleValidation())
+    {
+      setValueAsString(o.toString());
+    }
+    else
+    {
+      textField.setValue(o);
+    }
   }
 
   @Override
-  public void setValueAsDate(Date d, String text)
+  public final void setValueAsDate(Date d, String text)
   {
-    setValueAsString(d == null || d.equals(new Date(1, 1, 1)) ? "" : d.format("dd.MM.yyyy"), text);
+    if (getParameters().isOldStyleValidation())
+    {
+      setValueAsString(d == null || d == Date.UNINITIALIZED_DATE ? "" : getDateFormat().format(d.toDate()),
+              text);
+    }
+    else
+    {
+      textField.setValueAsDate(d);
+    }
   }
 
   @Override
-  public void setValueAsDateTime(DateTime d, String text)
+  public final void setValueAsDateTime(DateTime dt, String text)
   {
-    setValueAsString(d.toString(), text);
+    if (getParameters().isOldStyleValidation())
+    {
+      setValueAsString(dt == null || dt == DateTime.UNINITIALIZED_DATE_TIME ? "" : getDateTimeFormat()
+              .format(dt.toDate()), text);
+    }
+    else
+    {
+      textField.setValueAsDateTime(dt);
+    }
   }
 
   @Override
-  public void setValueAsDuration(Duration d, String text)
+  public final void setValueAsDuration(Duration d, String text)
   {
     setValueAsNumber(d.toNumber(), text);
   }
 
   @Override
-  public void setValueAsNumber(Number n, String text)
+  public final void setValueAsNumber(Number n, String text)
   {
-    setValueAsString(n.toString());
-  }
-
-  @Override
-  public void setValueAsString(String s, String text)
-  {
-    if (getParameters().isDate && s.equals("now"))
+    if (getParameters().isOldStyleValidation())
     {
-      setValueAsDate(new Date(), text);
+      setValueAsString(n.toString());
     }
     else
     {
-      textField.setText(s);
+      textField.setValueAsNumber(n);
     }
   }
 
   @Override
-  public void setValueAsTime(Time t, String text)
+  public final void setValueAsString(String s, String text)
   {
-    setValueAsString(t.toString(), text);
+    if (s.equals("now"))
+    {
+      if (getParameters().isAssignableFromDate())
+      {
+        setValueAsDate(new Date(), text);
+      }
+      if (getParameters().isAssignableFromDateTime())
+      {
+        setValueAsDateTime(new DateTime(), text);
+      }
+    }
+    else
+    {
+      if (getParameters().isOldStyleValidation())
+      {
+        textField.setText(s);
+      }
+      else
+      {
+        textField.setValueAsString(s);
+      }
+    }
   }
 
   @Override
-  public boolean validate()
+  public final void setValueAsTime(Time t, String text)
+  {
+    if (getParameters().isOldStyleValidation())
+    {
+      setValueAsString(t.toString(), text);
+    }
+    else
+    {
+      textField.setValueAsTime(t);
+    }
+  }
+
+  @Override
+  public final void setValueAsBoolean(Boolean b, String text)
+  {
+    setValueAsString(b.toString(), text);
+  }
+
+  @Override
+  public final boolean validate()
   {
     boolean result;
 
-    result = valid;
+    result = isValid();
 
-    if (!TextValidation.validate(this, isMandatory(), getParameters().getTextValidationParameters()))
-      result = false;
+    if (getParameters().isOldStyleValidation())
+    {
+      if (!TextValidation.validate(this, isMandatory(), getParameters().getTextValidationParameters()))
+      {
+        result = false;
+      }
+    }
+    else
+    {
+      if (getPanel().getRdContext().getValidator(textField).hasErrors())
+      {
+        result = false;
+      }
+    }
 
-    updateIcon(result);
-
-    firstValidation = false;
+    validationDone(result);
 
     return result;
   }
 
   @Override
-  protected void valueChanged(String method)
+  public final void valueChanged()
   {
     inlineValidate();
 
-    super.valueChanged(method);
+    super.valueChanged();
+  }
+
+  @Override
+  protected final ULCComponent getFieldComponent()
+  {
+    return getTextField();
+  }
+
+  @Override
+  public final void setEditable(boolean b)
+  {
+    getTextField().setEditable(b);
+  }
+
+  @Override
+  protected final boolean isEditable()
+  {
+    return getTextField().isEditable();
+  }
+
+  @Override
+  protected void postInitializeField()
+  {
+    if (getParameters().isBackgroundTransparent())
+    {
+      textField.setBackground(textField.getParent().getBackground());
+    }
+  }
+
+  @Override
+  protected boolean isBackgroundColorChangedAllowed()
+  {
+    return true;
   }
 }

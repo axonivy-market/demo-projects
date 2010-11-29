@@ -8,8 +8,12 @@ import ch.ivyteam.ivy.scripting.objects.Date;
  * @author Patrick Joly, TI-Informatique
  * @since 18.02.2009
  */
-public class TextValidation
+public final class TextValidation
 {
+  private TextValidation()
+  {
+  }
+
   /**
    * Validates only the allowed chars. Uses it to validate field content while typing.
    * 
@@ -19,7 +23,7 @@ public class TextValidation
    * @param parameters field parameters
    * @return true if the field content is valid; false otherwise
    */
-  static public boolean inlineValidate(FieldComponent fieldComponent, boolean mandatory,
+  public static boolean inlineValidate(FieldComponent fieldComponent, boolean mandatory,
           Boolean firstValidation, TextValidationParameters parameters)
   {
     boolean valid;
@@ -30,22 +34,17 @@ public class TextValidation
     valid = true;
     if (firstValidation)
     {
-      if (value.length() > parameters.getMaxLength())
+      valid &= checkMaxLength(parameters, value);
+
+      if (parameters.getAllowedChars() != null && !parameters.getAllowedChars().equals("")
+              && !value.matches("^" + parameters.getAllowedChars() + "$"))
       {
         valid = false;
-      }
-
-      if (parameters.getAllowedChars() != null && !parameters.getAllowedChars().equals(""))
-      {
-        if (!value.matches("^" + parameters.getAllowedChars() + "$"))
-        {
-          valid = false;
-        }
       }
     }
     else
     {
-      valid = validate(fieldComponent, mandatory, parameters);
+      valid = validate(fieldComponent, mandatory, parameters, true);
     }
 
     return valid;
@@ -59,8 +58,14 @@ public class TextValidation
    * @param parameters field parameters
    * @return true if the field content is valid; false otherwise
    */
-  static public boolean validate(FieldComponent fieldComponent, boolean mandatory,
+  public static boolean validate(FieldComponent fieldComponent, boolean mandatory,
           TextValidationParameters parameters)
+  {
+    return validate(fieldComponent, mandatory, parameters, false);
+  }
+
+  private static boolean validate(FieldComponent fieldComponent, boolean mandatory,
+          TextValidationParameters parameters, boolean inline)
   {
     boolean valid;
     String value;
@@ -71,57 +76,96 @@ public class TextValidation
 
     valid = true;
 
-    if (!mandatory && value.length() == 0)
+    if (mandatory || value.length() != 0)
     {
-      // Nothing to do - the result is valid
-    }
-    else
-    {
-      if (value.length() > parameters.getMaxLength())
-      {
-        valid = false;
-      }
-
-      if (parameters.getValidations() != null)
-      {
-        for (String s : parameters.getValidations())
-        {
-          if (!value.matches(s))
-          {
-            valid = false;
-            break;
-          }
-        }
-      }
-      if (parameters.allowedChars != null)
-      {
-        if (!value.matches(parameters.allowedChars))
-        {
-          valid = false;
-        }
-      }
-      if (mandatory && value.length() == 0)
-      {
-        valid = false;
-      }
-
       if (parameters.isDate() && value.length() != 0)
       {
-        if (valueAsDate == null)
-        {
-          valid = false;
-        }
+        valid &= checkDate(fieldComponent, inline, valueAsDate);
       }
-
-      if (parameters.isNumber && value.length() != 0)
+      else
       {
-        if (parameters == null)
-        {
-          valid = false;
-        }
+        valid &= checkMaxLength(parameters, value) && checkValidation(parameters, value)
+                && checkContent(parameters, value) && checkMandatory(mandatory, value);
       }
     }
 
+    return valid;
+  }
+
+  private static boolean checkMandatory(boolean mandatory, String value)
+  {
+    boolean valid;
+
+    valid = true;
+
+    if (mandatory && value.length() == 0)
+    {
+      valid = false;
+    }
+    return valid;
+  }
+
+  private static boolean checkDate(FieldComponent fieldComponent, boolean inline, Date valueAsDate)
+  {
+    boolean valid;
+
+    valid = true;
+
+    if (valueAsDate == null)
+    {
+      valid = false;
+    }
+    else if (!inline)
+    {
+      fieldComponent.setValueAsDate(valueAsDate);
+    }
+    return valid;
+  }
+
+  private static boolean checkContent(TextValidationParameters parameters, String value)
+  {
+    boolean valid;
+
+    valid = true;
+
+    if (parameters.getAllowedChars() != null && !value.matches(parameters.getAllowedChars()))
+    {
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  private static boolean checkValidation(TextValidationParameters parameters, String value)
+  {
+    boolean valid;
+
+    valid = true;
+
+    if (parameters.getValidations() != null)
+    {
+      for (String s : parameters.getValidations())
+      {
+        if (!value.matches(s))
+        {
+          valid = false;
+          break;
+        }
+      }
+    }
+    return valid;
+  }
+
+  private static boolean checkMaxLength(TextValidationParameters parameters, String value)
+  {
+    boolean valid;
+
+    valid = true;
+
+    if (value.length() > parameters.getMaxLength())
+    {
+      valid = false;
+    }
     return valid;
   }
 

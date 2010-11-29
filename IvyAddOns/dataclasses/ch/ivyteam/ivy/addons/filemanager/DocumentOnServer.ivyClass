@@ -1,0 +1,30 @@
+DocumentOnServer #class
+'The dataclass DocumentOnServer represents a java file uploaded by a user on the server.
+Its elements are the fields found in the DB table used to store the FIles''informations.' #classComment
+ch.ivyteam.ivy.addons.filemanager #namespace
+fileID String #field
+fileID 'Id of the File' #fieldComment
+path String #field
+path 'path on the server' #fieldComment
+filename String #field
+filename 'name of the file' #fieldComment
+fileSize String #field
+fileSize 'size of the file' #fieldComment
+userID String #field
+userID 'User who created the file' #fieldComment
+creationDate String #field
+creationDate 'Date of creation represented as a String' #fieldComment
+creationTime String #field
+creationTime 'time of creation represented as a String' #fieldComment
+modificationUserID String #field
+modificationUserID 'User who modified the File at last' #fieldComment
+modificationDate String #field
+modificationDate 'Date of last Modification  represented as a String' #fieldComment
+modificationTime String #field
+modificationTime 'Time of last Modification  represented as a String' #fieldComment
+locked String #field
+locked 'Tells if the file is currently edited by an another user' #fieldComment
+lockingUserID String #field
+lockingUserID 'The user who currently edits this File' #fieldComment
+description String #field
+description 'The description of the document' #fieldComment

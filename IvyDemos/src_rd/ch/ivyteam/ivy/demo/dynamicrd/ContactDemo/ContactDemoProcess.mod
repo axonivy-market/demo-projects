@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Jun 08 16:00:30 CEST 2009]
-11EB0BDD6A32E57E 3.12 #module
+[>Created: Tue Oct 05 14:04:20 CEST 2010]
+11EB0BDD6A32E57E 3.13.1 #module
 >Proto >Proto Collection #zClass
 Cs0 ContactProcess Big #zClass
 Cs0 RD #cInfo
@@ -28,6 +28,11 @@ Cs0 @AnnotationArc f7 '' #zField
 Cs0 @RichDialogProcessStep f8 '' #zField
 Cs0 @PushWFArc f9 '' #zField
 Cs0 @PushWFArc f4 '' #zField
+Cs0 @RichDialogProcessStart f10 '' #zField
+Cs0 @RichDialogProcessEnd f12 '' #zField
+Cs0 @RichDialog f14 '' #zField
+Cs0 @PushWFArc f15 '' #zField
+Cs0 @PushWFArc f17 '' #zField
 >Proto Cs0 Cs0 ContactProcess #zField
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -169,6 +174,54 @@ Cs0 f9 expr out #txt
 Cs0 f9 96 58 96 100 #arcP
 Cs0 f4 expr out #txt
 Cs0 f4 96 124 96 156 #arcP
+Cs0 f10 guid 12B7C46588B1F6EF #txt
+Cs0 f10 type ch.ivyteam.ivy.demo.dynamicrd.ContactDemo.ContactDemoData #txt
+Cs0 f10 actionDecl 'ch.ivyteam.ivy.demo.dynamicrd.ContactDemo.ContactDemoData out;
+' #txt
+Cs0 f10 actionTable 'out=in;
+' #txt
+Cs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>launchManager</name>
+        <nameStyle>13,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f10 462 70 20 20 13 0 #rect
+Cs0 f10 @|RichDialogProcessStartIcon #fIcon
+Cs0 f12 type ch.ivyteam.ivy.demo.dynamicrd.ContactDemo.ContactDemoData #txt
+Cs0 f12 462 238 20 20 13 0 #rect
+Cs0 f12 @|RichDialogProcessEndIcon #fIcon
+Cs0 f14 targetWindow NEW:card: #txt
+Cs0 f14 targetDisplay TOP #txt
+Cs0 f14 richDialogId ch.ivyteam.ivy.addons.dynamicrd.DynamicDialogManager #txt
+Cs0 f14 startMethod start() #txt
+Cs0 f14 type ch.ivyteam.ivy.demo.dynamicrd.ContactDemo.ContactDemoData #txt
+Cs0 f14 requestActionDecl '<> param;' #txt
+Cs0 f14 responseActionDecl 'ch.ivyteam.ivy.demo.dynamicrd.ContactDemo.ContactDemoData out;
+' #txt
+Cs0 f14 responseMappingAction 'out=in;
+' #txt
+Cs0 f14 windowConfiguration '* ' #txt
+Cs0 f14 isAsynch true #txt
+Cs0 f14 isInnerRd true #txt
+Cs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start DynamicDialogManager</name>
+        <nameStyle>26,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f14 454 132 36 24 20 -2 #rect
+Cs0 f14 @|RichDialogIcon #fIcon
+Cs0 f15 expr out #txt
+Cs0 f15 472 90 472 132 #arcP
+Cs0 f17 expr out #txt
+Cs0 f17 472 156 472 238 #arcP
 >Proto Cs0 .type ch.ivyteam.ivy.demo.dynamicrd.ContactDemo.ContactDemoData #txt
 >Proto Cs0 .processKind RICH_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
@@ -185,3 +238,7 @@ Cs0 f0 mainOut f9 tail #connect
 Cs0 f9 head f8 mainIn #connect
 Cs0 f8 mainOut f4 tail #connect
 Cs0 f4 head f3 mainIn #connect
+Cs0 f10 mainOut f15 tail #connect
+Cs0 f15 head f14 mainIn #connect
+Cs0 f14 mainOut f17 tail #connect
+Cs0 f17 head f12 mainIn #connect

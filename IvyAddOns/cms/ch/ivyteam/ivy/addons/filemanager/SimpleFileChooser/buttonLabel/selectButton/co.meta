@@ -1,0 +1,4 @@
+co: name={selectButton} description={} changed={2009-07-26 18:31:47 CEST} changedby={rstr} visualorder={0} guid={122B7E4CFA64D620} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={122B7E4CFA666D94} datatype={} isdefault={true} langid={en} description={} validfrom={2009-07-26 18:29:01 CEST} validto={} changed={2009-07-26 18:30:42 CEST} changedby={rstr} properties={} id={}
+val: guid={122B7E70429BBCE7} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-07-26 18:31:26 CEST} validto={} changed={2009-07-26 18:31:47 CEST} changedby={rstr} properties={} id={}
+val: guid={122B7E65A2E6E683} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-26 18:30:42 CEST} validto={} changed={2009-07-26 18:31:26 CEST} changedby={rstr} properties={} id={}

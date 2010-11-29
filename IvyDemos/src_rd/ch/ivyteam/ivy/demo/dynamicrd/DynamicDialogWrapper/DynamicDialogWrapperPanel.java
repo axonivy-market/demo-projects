@@ -7,6 +7,7 @@ import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import com.ulcjava.base.application.ULCContainer;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 
 /**
  * RichDialog panel implementation for ContactPanel.
@@ -20,6 +21,7 @@ implements IRichDialogPanel
   private static final long serialVersionUID = 1L;
 private RButton Button = null;
 @EmbeddedRichDialog(DynamicDialogPanel.class) private ULCContainer dynamicDialogPanel = null;
+private RScrollPane ScrollPane = null;
   
   /**
    * Create a new instance of ContactPanel
@@ -38,7 +40,7 @@ private RButton Button = null;
   {
         this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(597,345));
         this.add(getButton(), com.ulcjava.base.application.ULCBorderLayoutPane.SOUTH);
-        this.add(getDynamicDialogPanel(), com.ulcjava.base.application.ULCBorderLayoutPane.CENTER);
+        this.add(getScrollPane(), com.ulcjava.base.application.ULCBorderLayoutPane.CENTER);
   }
 
 /**
@@ -70,5 +72,22 @@ private ULCContainer getDynamicDialogPanel()
     dynamicDialogPanel.setName("dynamicDialogPanel");
   }
   return dynamicDialogPanel;
+}
+
+/**
+ * This method initializes ScrollPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane	
+ */
+private RScrollPane getScrollPane()
+{
+  if (ScrollPane == null)
+  {
+    ScrollPane = new RScrollPane();
+    ScrollPane.setName("ScrollPane");
+    ScrollPane.setStyleProperties("{/verticalScrollBarPolicy \"AS_NEEDED\"/horizontalScrollBarPolicy \"NEVER\"/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
+    ScrollPane.setViewPortView(getDynamicDialogPanel());
+  }
+  return ScrollPane;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

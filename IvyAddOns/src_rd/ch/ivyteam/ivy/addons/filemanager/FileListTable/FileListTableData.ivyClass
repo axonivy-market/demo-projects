@@ -1,0 +1,68 @@
+FileListTableData #class
+'this File Table lists all the Files that are under a specified directory (path) on the server.It is linked with an indexation system
+' #classComment
+ch.ivyteam.ivy.addons.filemanager.FileListTable #namespace
+documentsInDb List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+documentsInDb 'the list of the documentOnServer Objects that are listed by the indexation service' #fieldComment
+documentsList List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+documentsList 'the List of Document on server that are physically presents on the server File System, should be the same as previous' #fieldComment
+path String #field
+path 'The path where we have to look for the files' #fieldComment
+selectedDocumentOnServer ch.ivyteam.ivy.addons.filemanager.DocumentOnServer #field
+selectedDocumentOnServer 'the current selected documentOnServer Object' #fieldComment
+selectedDocumentOnServerList List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+selectedDocumentOnServerList 'list of selected documents if multipleSellectionAllowed is true' #fieldComment
+multipleSelectionAllowed Boolean #field
+multipleSelectionAllowed 'if true, then the user can select multiple documents in the table' #fieldComment
+filesList List<java.io.File> #field
+filesList 'the list of the Files that are under the server path' #fieldComment
+selectedFile java.io.File #field
+selectedFile 'the current selected File' #fieldComment
+selectedFilesList List<java.io.File> #field
+selectedFilesList 'list of selected Files if multipleSellectionAllowed is true' #fieldComment
+fileManagementHandler ch.ivyteam.ivy.addons.filemanager.database.AbstractFileManagementHandler #field
+fileManagementHandler 'The file management Handler that make the connexion to the indexation system' #fieldComment
+uploadManager ch.ivyteam.ivy.addons.filemanager.FileUploadHandler #field
+uploadManager 'File Upload Handler to be able to upload files' #fieldComment
+returnedMessage ch.ivyteam.ivy.addons.filemanager.ReturnedMessage #field
+returnedMessage 'Objects used to get the response of some actions on the server File System' #fieldComment
+today String #field
+today 'the current date' #fieldComment
+time String #field
+time 'the current time' #fieldComment
+tmpFile java.io.File #field
+tmpFile 'File object used as tmp object for some actions' #fieldComment
+tmpString String #field
+tmpString 'String object used as tmp object for some actions' #fieldComment
+returnedCode Number #field
+returnedCode 'number that is given by the OptionPane when the user have to meet decisions' #fieldComment
+tmpFilesList List<java.io.File> #field
+tmpFilesList 'List of tmp Files' #fieldComment
+tmpDocumentOnServersList List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+tmpDocumentOnServersList 'List of tmp DocumentOnServer Objects' #fieldComment
+userTempDirectoryPath String #field
+userTempDirectoryPath 'the temp user directory path (local)' #fieldComment
+tmpBoolean Boolean #field
+tmpBoolean 'temp boolean Object' #fieldComment
+isToolbarVisible Boolean #field
+isToolbarVisible 'tells if the toolbar is visible, through databinding' #fieldComment
+windowTitle String #field
+windowTitle 'intern variable for windows titles' #fieldComment
+osUserName String #field
+osUserName 'the OS User Name (Client OS)' #fieldComment
+ivyConnexionDBName String #field
+ivyConnexionDBName 'The Ivy DB connection friendly name' #fieldComment
+DbTableName String #field
+DbTableName 'The table Name used to  store the Files informations.' #fieldComment
+schemaName String #field
+schemaName '*This parameter is only supported for PostgreSQL. It indicates the schemata that contains the table. Default is "public".' #fieldComment
+panelId Number #field
+panelId 'Unique panel Id to filter the System Events.' #fieldComment
+updateList Boolean #field
+updateList 'internal use' #fieldComment
+iconSize String #field
+iconSize 'used to set the icon size' #fieldComment
+errorUtil ch.ivyteam.ivy.addons.filemanager.ErrorUtil #field
+errorUtil 'used as event param in errorOccurred broadcast' #fieldComment
+incomingErrorUtil ch.ivyteam.ivy.addons.filemanager.ErrorUtil #field
+incomingErrorUtil 'used as incoming event param in errorOccurred broadcast' #fieldComment

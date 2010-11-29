@@ -3,16 +3,16 @@ package ch.ivyteam.ivy.addons.commondialogs.LoginDialog;
 import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
-import ch.ivyteam.ivy.richdialog.widgets.components.RPasswordField;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RGridLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
+import ch.ivyteam.ivy.richdialog.widgets.components.RComboBox;
+import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
+import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RPasswordField;
+import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RGridLayoutPane;
 import ch.ivyteam.ivy.security.AuthenticationException;
 import ch.ivyteam.ivy.security.ISession;
 import ch.ivyteam.security.Password;
-import ch.ivyteam.ivy.richdialog.widgets.components.RComboBox;
-import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 
 /**
  * RichDialog panel implementation for LoginDialogPanel.
@@ -35,6 +35,8 @@ private RButton loginButton = null;
 private RButton cancelButton = null;
 private RLabel sessionLanguageLabel = null;
 private RComboBox sessionLanguagesComboBox = null;
+private RLabel environmentLabel = null;
+private RComboBox allowedEnvironmentsComboBox = null;
   
   /**
    * Create a new instance of LoginDialogPanel
@@ -52,16 +54,19 @@ private RComboBox sessionLanguagesComboBox = null;
   public void initialize()
   {
         RFiller filler = new RFiller();
-        this.add(getXpertlineIconLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getIconLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 5, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getUserNameLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getPasswordLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getUserNameTextField(), new com.ulcjava.base.application.GridBagConstraints(2, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getPasswordPasswordField(), new com.ulcjava.base.application.GridBagConstraints(2, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(407,194));
+        this.add(getIconLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 8, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getUserNameLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getPasswordLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getUserNameTextField(), new com.ulcjava.base.application.GridBagConstraints(2, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getPasswordPasswordField(), new com.ulcjava.base.application.GridBagConstraints(2, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getButtonPane(), new com.ulcjava.base.application.GridBagConstraints(2, 8, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getSessionLanguageLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 6, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getSessionLanguagesComboBox(), new com.ulcjava.base.application.GridBagConstraints(2, 6, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(filler, new com.ulcjava.base.application.GridBagConstraints(2, 7, 1, 1, -1, 1.0D, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getSessionLanguageLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getSessionLanguagesComboBox(), new com.ulcjava.base.application.GridBagConstraints(2, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getEnvironmentLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getXpertlineIconLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getAllowedEnvironmentsComboBox(), new com.ulcjava.base.application.GridBagConstraints(2, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(filler, new com.ulcjava.base.application.GridBagConstraints(2, 7, 1, 1, -1, 1.0D, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));       
   }
 
 /**
@@ -106,7 +111,7 @@ private RLabel getUserNameLabel() {
 		userNameLabel = new RLabel();
 		userNameLabel.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/addons/strings/labels/userName\") %>");
 		userNameLabel.setStyle("border-top-left-bottom");
-		userNameLabel.setStyleProperties("{/anchor \"WEST\"}");
+		userNameLabel.setStyleProperties("{/anchor \"WEST\"/fill \"HORIZONTAL\"/weightX \"0.25\"}");
 		userNameLabel.setName("userNameLabel");
 	}
 	return userNameLabel;
@@ -239,7 +244,7 @@ private RLabel getSessionLanguageLabel() {
 		sessionLanguageLabel.setName("sessionLanguageLabel");
 		sessionLanguageLabel.setStyle("border-top-left-bottom");
 		sessionLanguageLabel.setStyleProperties("{/anchor \"WEST\"}");
-		sessionLanguageLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/strings/labels/sessionLanguage\")%>");
+		sessionLanguageLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/strings/labels/sessionLanguage\")%>\n");
 	}
 	return sessionLanguageLabel;
 }
@@ -257,5 +262,35 @@ private RComboBox getSessionLanguagesComboBox() {
 		sessionLanguagesComboBox.setStyle("fill-horiz-north-border");
 	}
 	return sessionLanguagesComboBox;
+}
+
+/**
+ * This method initializes environmentLabel	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
+ */
+private RLabel getEnvironmentLabel() {
+	if (environmentLabel == null) {
+		environmentLabel = new RLabel();
+		environmentLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/strings/labels/environment\")%>");
+		environmentLabel.setStyle("border-top-left-bottom");
+		environmentLabel.setStyleProperties("{/anchor \"WEST\"}");
+		environmentLabel.setName("environmentLabel");
+	}
+	return environmentLabel;
+}
+
+/**
+ * This method initializes allowedEnvironmentsComboBox	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RComboBox	
+ */
+private RComboBox getAllowedEnvironmentsComboBox() {
+	if (allowedEnvironmentsComboBox == null) {
+		allowedEnvironmentsComboBox = new RComboBox();
+		allowedEnvironmentsComboBox.setName("allowedEnvironmentsComboBox");
+		allowedEnvironmentsComboBox.setStyle("fill-horiz-north-border");
+	}
+	return allowedEnvironmentsComboBox;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

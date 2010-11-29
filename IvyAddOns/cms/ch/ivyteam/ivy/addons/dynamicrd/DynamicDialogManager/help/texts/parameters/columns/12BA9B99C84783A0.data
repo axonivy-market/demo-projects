@@ -1,0 +1,3 @@
+Defines the number of chars that the field can diplay.<br />
+It permits to give the width of the field, but it does not block the typing.<br />
+This parameter does not work with all widgets.

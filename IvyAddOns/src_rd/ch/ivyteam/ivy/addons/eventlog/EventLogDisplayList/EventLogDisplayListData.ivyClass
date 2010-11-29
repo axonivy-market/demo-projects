@@ -1,0 +1,11 @@
+EventLogDisplayListData #class
+ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList #namespace
+eventLogs List<ch.ivyteam.ivy.addons.data.technical.eventlog.EventLog> #field
+eventLogs 'The event logs to hadle and display on UI.' #fieldComment
+wfCase ch.ivyteam.ivy.workflow.ICase #field
+wfCase 'The case for which event logs have to be displayed.' #fieldComment
+ivyResultStatus ch.ivyteam.ivy.addons.data.technical.IvyResultStatus #field
+windowTitle String #field
+windowTitle 'It containts the title to display on the Rich Dialog (error message, message, etc).' #fieldComment
+silentMode Boolean #field
+silentMode 'If false, then display the error dialog to the user; otherwise no error dialog to the end user...' #fieldComment

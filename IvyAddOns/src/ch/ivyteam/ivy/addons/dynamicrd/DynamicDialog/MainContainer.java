@@ -1,9 +1,5 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
-
-import com.ulcjava.base.application.ULCContainer;
-
 /**
  * This is the implementation of pseudo containers that represent the DynamicDialog's main container.
  * 
@@ -12,15 +8,18 @@ import com.ulcjava.base.application.ULCContainer;
  */
 public class MainContainer extends InsideContainer
 {
-  public MainContainer(DynamicDialogPanel panel, ULCContainer ulcContainer, ContainerParameters parameters,
-          Integer height)
+  /**
+   * Constructs a new MainContainer object.
+   * 
+   * @param panel dynamic dialog panel
+   * @param parentContainer parent container
+   * @param parameters parameters
+   * @param index position when component is in a list
+   */
+  protected MainContainer(DynamicDialogPanel panel, ComplexComponentParameters parameters, int index)
   {
-    super(panel, null, ulcContainer, parameters, height);
-  }
+    super(panel, null, parameters, index);
 
-  @Override
-  protected boolean createFiller()
-  {
-    return true;
+    setCreateFiller(true);
   }
 }

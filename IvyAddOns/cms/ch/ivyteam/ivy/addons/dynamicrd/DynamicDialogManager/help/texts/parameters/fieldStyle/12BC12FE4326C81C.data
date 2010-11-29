@@ -1,0 +1,4 @@
+Defines the style in Ivy Configuration applied to the widget used to edit a value.<br />
+The style should be defined in the type corresponding to the displayed field or <span class="parameter">General</span>.<br />
+The default value is 'field'.<br />
+When defined on a container, all the children inherit this value.

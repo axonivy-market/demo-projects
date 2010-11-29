@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <description>This RDC implements the ULC/UI Desktop Extension that uses the Desktop Object from the Java 6 java.wat.Desktop Class.&#xD;
+It allows performing client side advanced actions like file editing/opening/printing, ...&#xD;
+It uses the FileEditorChecker for the edition mechanism.</description>
+    <tags>JDIC, File edit, print, email</tags>
+    <method>
+        <name>printFiles</name>
+        <description>Print a list o Files on the user default printer</description>
+        <inputParameter>
+            <name>files</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setClientApplicationTempDir</name>
+        <description>get the path of the application temp dir located into the user default temp directory</description>
+        <inputParameter>
+            <name>clientApplicationTempDir</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>isFilePrintable</name>
+        <description>Aks the DesktopHandler UI if a File is printable.&#xD;
+The Callback Method IsFilePrintable is going to be called as soon as the UI object has sent its response.</description>
+        <inputParameter>
+            <name>file</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_getUserTempDirCallBack</name>
+        <description>Callback method called as soon as the Client half Object sends the user temp directory from the user Java VM&#xD;
+System properties.</description>
+        <inputParameter>
+            <name>userTempDir</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_getUserNameCallBack</name>
+        <description>Callback method called as soon as the Client half Object sends the user name from the user Java VM&#xD;
+System properties.&#xD;
+</description>
+        <inputParameter>
+            <name>username</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>editFile</name>
+        <description>Download and open the choosed File in edit mode. Download to the client temp path.&#xD;
+A timer process will then start to check if the file was modified.&#xD;
+If so, the file will be transparently and automatically uploaded on the server.</description>
+        <inputParameter>
+            <name>file</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setTableVisible</name>
+        <description>set the table visible or not.&#xD;
+If table visible : the RD will be shown, else it will be hidden.</description>
+        <inputParameter>
+            <name>visible</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getTableVisible</name>
+        <description>Get the visibility property of the editedFile Table list. If visible, the RD will be visible. If this table is not visible, the RD will be invisible.</description>
+        <outputParameter>
+            <name>visible</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>mail</name>
+        <description>open the Email Client default Program with the Email informations. Those informations are:&#xD;
+TO Email Addresses List&#xD;
+CC Email Addresses List&#xD;
+BCC Email Addresses List&#xD;
+Email subject,&#xD;
+Email Body&#xD;
+List of Files as attachement. WARNING =&gt; until now, the Java 6 Desktop Class doesn't alolow adding files as attachments. This feature will not work.</description>
+        <inputParameter>
+            <name>subject</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>to</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>cc</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>bcc</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>body</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>attachments</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>mail</name>
+        <description>open the Email Client default Program with the EmailContainer informations. Those informations are:&#xD;
+TO Email Addresses List&#xD;
+CC Email Addresses List&#xD;
+BCC Email Addresses List&#xD;
+Email subject,&#xD;
+Email Body&#xD;
+List of Files as attachement.  WARNING =&gt; until now, the Java 6 Desktop Class doesn't alolow adding files as attachments. This feature will not work.</description>
+        <inputParameter>
+            <name>emailContainer</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.EmailContainer</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>mail</name>
+        <description>open the email default program</description>
+    </method>
+    <method>
+        <name>getEditCheckPeriod</name>
+        <description>returns the number of millisecunds &#xD;
+between two check between the edited Files on Client and Server</description>
+        <outputParameter>
+            <name>editCheckPeriod</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>forceUnlock</name>
+        <description>force to unlock the selected Files.&#xD;
+The list of the Files to unlock is coming as a List of DocumentOnServer Objects.&#xD;
+(See the DataClass ch.ivyteam.ivy.addons.filemenager.DocumentOnServer)&#xD;
+The Files are not going to be checked after unlocking.</description>
+        <inputParameter>
+            <name>listOfDoumentsonServer</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>openFile</name>
+        <description>Open the choosed File. (download it to the client temp path)</description>
+        <inputParameter>
+            <name>file</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_newTempDirCreated</name>
+        <description>Called back when the UI Object userTempDirectoryManager has created the desired temp directory&#xD;
+under the user default temp dir.</description>
+        <inputParameter>
+            <name>tempDirPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>editFiles</name>
+        <description>Opens all the files in the given list in edition mode</description>
+        <inputParameter>
+            <name>files</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getClientTempPath</name>
+        <description>get the temp path on the client side</description>
+        <outputParameter>
+            <name>clientTempPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>openFileAndCheckForChanges</name>
+        <description>The communication between the Java 6 Desktop Class and the Client OS, has sometimes some problems.&#xD;
+Some File types that should be recognized as Editable are not.&#xD;
+So we never will be able to edit some filestypes.&#xD;
+As workaround to this problem, if a File is not locked: &#xD;
+If editable, we edit it as usual.&#xD;
+If not editable from Java6 point of view, we open it with the referenced &quot;read only&quot; program and check&#xD;
+for changes between client and server. &#xD;
+This method make this second option possible.&#xD;
+</description>
+        <inputParameter>
+            <name>file</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getEditedFileList</name>
+        <description>get the list of the FileCouple objects that are currently edited (couple of File server /client)</description>
+        <outputParameter>
+            <name>fileList</name>
+            <description>get the list of the FileCouple objects that are currently edited (couple of File server /client)</description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.FileCouple&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>_callBackIsFileEditable</name>
+        <description>Method called back when the UI Client half object has sent its response&#xD;
+if a File is editable or not</description>
+        <inputParameter>
+            <name>isFileEditable</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_DesktopException</name>
+        <description>Callback Method only&#xD;
+Called whenever an error happens in a Desktop action (edit, openFile, mail...)&#xD;
+it fires the desktopException event</description>
+        <inputParameter>
+            <name>errorMessage</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setUserName</name>
+        <description>set the user Name, usefull if the user name is not taken from the OS,&#xD;
+but from the Application itself (ApplicationContext for example).</description>
+        <inputParameter>
+            <name>userName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>openBrowser</name>
+        <description>open the Client default Browser to the given URL (String)</description>
+        <inputParameter>
+            <name>www</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>removeFileToEdit</name>
+        <description>Remove a File from the list of the files to be edited and checked.&#xD;
+If the List of the edited Files is empty, the timer that checks&#xD;
+the consistancy between server Files and client Files will be stopped.</description>
+        <inputParameter>
+            <name>fileToRemove</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>printFile</name>
+        <description>Print the given File on the user default printer</description>
+        <inputParameter>
+            <name>file</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_callBackIsFilePrintable</name>
+        <description>Method called back when the UI Client half object has sent its response&#xD;
+if a File is printable or not</description>
+        <inputParameter>
+            <name>isFilePrintable</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setEmailParamList</name>
+        <description>set the param list for email with prefilled fields.</description>
+        <inputParameter>
+            <name>emailParams</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getClientApplicationTempDir</name>
+        <description>returns the path of the application temp dir located into the user default temp directory</description>
+        <outputParameter>
+            <name>clientApplicationTempDir</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>unLockSelectedDocumentsOnServer</name>
+        <description>unlock the selected Files&#xD;
+The Files are not going to be checked after unlocking.</description>
+        <inputParameter>
+            <name>listOfFilesToUnlock</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getOSUserName</name>
+        <description>Returns the OS user Name given by the OS environnement from the user.&#xD;
+If it fails returns &quot;default User&quot;</description>
+        <outputParameter>
+            <name>OSUserName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>setEditCheckPeriod</name>
+        <description>Set the number of millisecunds between two check between the edited Files on Client and Server</description>
+        <inputParameter>
+            <name>editCheckPeriod</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getEmailParamList</name>
+        <description>get the actual param list that is going to be used for email (subject, body, to, cc, bcc, attachments)</description>
+        <outputParameter>
+            <name>emailParams</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>setClientTempPath</name>
+        <description>set the client temp path</description>
+        <inputParameter>
+            <name>clientTempPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>isFileEditable</name>
+        <description>Aks the DesktopHandler UI if a File is editable.&#xD;
+The Callback Method IsFileEditable is going to be called as soon as the UI object has sent its response.</description>
+        <inputParameter>
+            <name>file</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getUserTempDir</name>
+        <description>Returns the user temp directory.&#xD;
+It tries to get it from the user system environnement.&#xD;
+If it fails returns blank.</description>
+        <outputParameter>
+            <name>userTempDir</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>mailWithParameters</name>
+        <description>open the email default program with its fields prefilled with the List of parameters&#xD;
+The list of parameters should contain the following paramers in this EXACT order:&#xD;
+String subject, String body, String to, String cc, String bcc, String attachements.&#xD;
+The String attachments is a list of path from Files at Client side.&#xD;
+ WARNING =&gt; until now, the Java 6 Desktop Class doesn't alolow adding files as attachments. This feature will not work.</description>
+        <inputParameter>
+            <name>listOfParameters</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <startMethod>
+        <name>startVisible</name>
+        <description>Start method with visibility boolean.&#xD;
+If boolean is true, a table with the actual edited Files will be shown.&#xD;
+The user can manually tells on wich Files he is still working.</description>
+        <inputParameter>
+            <name>visible</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startWithClientTempDirectory</name>
+        <description>Starts with the name of the client temp directory used to download and edit the files.&#xD;
+The client temp dir is going to be created into the user default temp dir.&#xD;
+For example if you give &quot;ivy/temp&quot; as parameter,&#xD;
+a directory is going to be created at [user temp dir]/ivy/temp&#xD;
+All the Files that are going to be opened or edited are going to be downloaded into this directory.</description>
+        <inputParameter>
+            <name>clientTempDirectory</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <firedEvent>
+        <name>desktopException</name>
+        <description>Fires Envent if a Desktop Exception was thrown.</description>
+        <attachment>
+            <name>errorMessage</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>unlockFiles</name>
+        <description>Fires Event to tells wich Files have to be unlocked</description>
+        <attachment>
+            <name>listOfFileToUnlock</name>
+            <description></description>
+            <parameterType>List&lt;ch.xpertline.common.ria.component.FileCouple&gt;</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>userTemDirChanged</name>
+        <description>Fired as soon as the callback Method _getUserTempDirCallBack is called&#xD;
+It gives to the parent subscriber the User Temp Directory.</description>
+        <attachment>
+            <name>userTempDir</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>isFileEditableReported</name>
+        <description></description>
+        <attachment>
+            <name>isFileEditable</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>fileModifiedReported</name>
+        <description>event sent whenever the FileCoupleChecker reports a Modified File.&#xD;
+The overlying program can then trace the changes.</description>
+        <attachment>
+            <name>fileModified</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>osUserNameChanged</name>
+        <description>Fired as soon as the callback Method _getUserNameCallBack is called&#xD;
+It gives to the parent subscriber the User Name of the OS.</description>
+        <attachment>
+            <name>osUserName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <property>
+        <name>guid</name>
+        <value>125F850DA67D6A67</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

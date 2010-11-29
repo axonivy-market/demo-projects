@@ -1,0 +1,6 @@
+FileUploadPreparerData #class
+ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer #namespace
+filesToUpload List<java.io.File> #field
+selectedFiles List<java.io.File> #field
+serverPath String #field
+filesChoosed List<java.io.File> #field

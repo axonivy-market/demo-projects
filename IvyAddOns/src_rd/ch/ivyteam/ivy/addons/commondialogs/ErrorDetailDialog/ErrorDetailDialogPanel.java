@@ -5,6 +5,7 @@ import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextArea;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
+import ch.ivyteam.ivy.richdialog.widgets.components.RHtmlPane;
 
 /**
  * RichDialog panel implementation for ErrorDetailDialogPanel.
@@ -19,8 +20,7 @@ implements IRichDialogPanel
 private RScrollPane detailScrollPane = null;
 private RTextArea detailTextArea = null;
 private RButton okButton = null;
-  
-  /**
+/**
    * Create a new instance of ErrorDetailDialogPanel
    */
   public ErrorDetailDialogPanel()
@@ -63,10 +63,11 @@ private RScrollPane getDetailScrollPane() {
 private RTextArea getDetailTextArea() {
 	if (detailTextArea == null) {
 		detailTextArea = new RTextArea();
-		detailTextArea.setText("RTextArea");
+		detailTextArea.setText("Error details");
 		detailTextArea.setColumns(40);
 		detailTextArea.setRows(20);
 		detailTextArea.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
+		detailTextArea.setEditable(false);
 		detailTextArea.setName("detailTextArea");
 	}
 	return detailTextArea;
@@ -82,6 +83,8 @@ private RButton getOkButton() {
 		okButton = new RButton();
 		okButton.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/addons/strings/buttons/ok\") %>");
 		okButton.setStyle("border-left-bottom-right");
+		okButton.setStyleProperties("{/anchor \"CENTER\"}");
+		okButton.setPreferredSize(new com.ulcjava.base.application.util.Dimension(75,25));
 		okButton.setName("okButton");
 	}
 	return okButton;

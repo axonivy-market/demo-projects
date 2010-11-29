@@ -1,0 +1,4 @@
+Defines the style in Ivy Configuration applied to the example label.<br />
+The style should be defined in <span class="parameter">RLabel</span> or <span class="parameter">General</span>.<br />
+The default value is 'exampleLabel'.<br />
+When defined on a container, all the children inherit this value.

@@ -1,0 +1,3 @@
+Defines the whole SQL query used to create the list used in a <span class="widget">ComboBox</span> or other.<br />
+This parameter allows definition of a SQL query that is used to fill the widget.<br />
+SQL query result created by this mechanism are stored in a cache. The query is not executed again.

@@ -3,7 +3,6 @@ package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 import java.util.List;
 
 import ch.ivyteam.ivy.addons.cmscontext.Cms;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType.ComponentTypeEnum;
 
 /**
  * This is parameter class of fields that use a RLookupTextField.
@@ -11,41 +10,84 @@ import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType.ComponentType
  * @author Patrick Joly, TI-Informatique
  * @since 12.09.2008
  */
-public class TextFieldParameters extends FieldComponentParameters
+class TextFieldParameters extends FieldComponentParameters
 {
   private static final long serialVersionUID = 8013106510784613082L;
 
-  protected int columns;
-
-  protected Boolean isDate = false;
-
   private TextValidationParameters textValidationParameters;
 
-  public TextFieldParameters(Configuration configuration, List<String> cmsContexts, String name,
-          String fullName, Boolean isNumber, Boolean _isDate, ContainerParameters parentContainerParameters)
+  private boolean oldStyleValidation;
+
+  private String validation;
+  
+  private boolean backgroundTransparent;
+
+  protected TextFieldParameters(List<String> cmsContexts, String name, String fullName,
+          ComplexComponentParameters parentContainerParameters, Integer position, Class<?> clazz)
   {
-    super(configuration, cmsContexts, name, fullName, parentContainerParameters);
+    super(cmsContexts, name, fullName, parentContainerParameters, position, clazz);
 
-    textValidationParameters = new TextValidationParameters(cmsContexts, name, fullName, isNumber, _isDate);
+    backgroundTransparent = Cms.coAsBoolean(cmsContexts, KnownParameters.BACKGROUND_TRANSPARENT_PARAMETER, false);
+    
+    validation = Cms.co(cmsContexts, KnownParameters.VALIDATION_PARAMETER);
+    oldStyleValidation = Cms.coAsBoolean(cmsContexts, KnownParameters.OLD_STYLE_VALIDATION_PARAMETER, true);
 
-    columns = Cms.coAsNumber(cmsContexts, KnownParameters.COLUMNS_PARAMETERS, 0).intValue();
-
-    isDate = _isDate;
-  }
-
-  public int getColumns()
-  {
-    return columns;
+    if (validation.startsWith(Cms.CMS_URI_ROOT) || (oldStyleValidation && validation.equals("")))
+    {
+      textValidationParameters = new TextValidationParameters(cmsContexts, isAssignableFromNumber(),
+              isAssignableFromInteger(), isAssignableFromDate());
+      oldStyleValidation = true;
+    }
+    else
+    {
+      if (validation.equals(""))
+      {
+        if (isAssignableFromNumber())
+        {
+          validation = "NumberIntPositive";
+        }
+        else if (isAssignableFromDate())
+        {
+          validation = "Date_ddMMyyyy";
+        }
+        else if (isAssignableFromDateTime())
+        {
+          validation = "DateTime_long";
+        }
+      }
+      oldStyleValidation = false;
+    }
   }
 
   @Override
-  public ComponentTypeEnum getComponentType()
+  public ComponentType getComponentType()
   {
-    return ComponentType.ComponentTypeEnum.TEXT_FIELD;
+    return ComponentType.TEXT_FIELD;
   }
 
   public TextValidationParameters getTextValidationParameters()
   {
     return textValidationParameters;
+  }
+
+  @Override
+  protected final boolean isEditableByDefault()
+  {
+    return true;
+  }
+
+  public boolean isOldStyleValidation()
+  {
+    return oldStyleValidation;
+  }
+
+  public String getValidation()
+  {
+    return validation;
+  }
+
+  protected final boolean isBackgroundTransparent()
+  {
+    return backgroundTransparent;
   }
 }

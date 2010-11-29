@@ -1,0 +1,4 @@
+co: name={showHiddeFolderTree} description={} changed={2009-10-02 14:18:47 CEST} changedby={ec} visualorder={0} guid={121C50A5D47EB98F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12278AF9AA1AB7E8} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-14 11:54:50 CEST} validto={} changed={2009-10-02 14:18:47 CEST} changedby={ec} properties={} id={}
+val: guid={121C50A5D761BD38} datatype={} isdefault={true} langid={en} description={} validfrom={2009-06-09 14:42:19 CEST} validto={} changed={2009-06-09 14:45:23 CEST} changedby={ec} properties={} id={}
+val: guid={122A7788776EC732} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-07-23 13:56:49 CEST} validto={} changed={2009-10-02 14:18:47 CEST} changedby={ec} properties={} id={}

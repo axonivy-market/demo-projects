@@ -1,0 +1,4 @@
+co: name={Action} description={1090806004} changed={2010-10-15 06:54:56 CEST} changedby={ec} visualorder={15} guid={410AA90C9DF34184} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={3379D541A2E54D14} datatype={} isdefault={false} langid={fr} description={} validfrom={2007-06-06 09:09:45 CEST} validto={} changed={2007-06-06 09:11:25 CEST} changedby={bh} properties={} id={}
+val: guid={AF19999A99DB4724} datatype={} isdefault={true} langid={de} description={} validfrom={2007-06-06 09:09:05 CEST} validto={} changed={2007-06-06 09:16:09 CEST} changedby={bh} properties={} id={}
+val: guid={4E0D5CD8A8EE4216} datatype={} isdefault={false} langid={en} description={} validfrom={2007-06-06 09:09:49 CEST} validto={} changed={2007-06-06 09:10:06 CEST} changedby={bh} properties={} id={}

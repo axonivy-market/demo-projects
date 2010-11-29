@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <description>This RDC implements the FILECOUPLECHECKER ULC UI extension to be able to manage the File edition.&#xD;
+It is used in the DesktopHandler RDC.&#xD;
+It doesn't display any GUI.</description>
+    <tags>File, file edition, fileCouple</tags>
+    <method>
+        <name>getCheckPeriod</name>
+        <description>returns the checkPeriod in milliseconds&#xD;
+The checkPeriod is the time between two check for changes on the Files&#xD;
+at client side.</description>
+        <outputParameter>
+            <name>checkPeriod</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>_fileModified</name>
+        <description>Callback Method&#xD;
+Called back whenever a File is modified. Every modification can be traced.</description>
+        <inputParameter>
+            <name>modifiedFile</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>startFileCheck</name>
+        <description>Restart or start the File Check at client side</description>
+    </method>
+    <method>
+        <name>stopFileCheck</name>
+        <description>stop the File Check at client side</description>
+    </method>
+    <method>
+        <name>setCheckPeriod</name>
+        <description>Sets the checkPeriod in milliseconds&#xD;
+The checkPeriod is the time between two check for changes on the Files&#xD;
+at client side.</description>
+        <inputParameter>
+            <name>checkPeriod</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getFileCouplesList</name>
+        <description>Returns the list of the FileCouple that are currently edited.&#xD;
+A FileCouple object has 4 Fields:&#xD;
+serverFile: the File on the server&#xD;
+serverAdler32: the checksum of the File on the server&#xD;
+clientFile: the File on the client&#xD;
+clientAdler32: the checksum of the File on the client (this field is not used at that time)</description>
+        <outputParameter>
+            <name>fileCoupleLists</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.FileCouple&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>setFileCouplesList</name>
+        <description>Sets the list of the FileCouple that are currently edited.&#xD;
+Doing that will reset the list of the FileCouples at Client side and restart its Timer&#xD;
+A FileCouple object has 4 Fields:&#xD;
+serverFile: the File on the server&#xD;
+serverAdler32: the checksum of the File on the server&#xD;
+clientFile: the File on the client&#xD;
+clientAdler32: the checksum of the File on the client (this field is not used at that time)</description>
+        <inputParameter>
+            <name>fileCoupleLists</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.FileCouple&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <firedEvent>
+        <name>fileModified</name>
+        <description>Event sent whenever a File is modified. the Parent RD subscriber can then trace this change.</description>
+        <attachment>
+            <name>modifiedFile</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <property>
+        <name>guid</name>
+        <value>125F987FBCF26AB6</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

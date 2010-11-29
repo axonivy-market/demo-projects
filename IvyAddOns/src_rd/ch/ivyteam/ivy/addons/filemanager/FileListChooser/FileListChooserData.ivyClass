@@ -1,0 +1,14 @@
+FileListChooserData #class
+ch.ivyteam.ivy.addons.filemanager.FileListChooser #namespace
+documentsList List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+documentsList 'the List of Document on server' #fieldComment
+path String #field
+path 'The path where we have to look for the files' #fieldComment
+selectedDocumentOnServer ch.ivyteam.ivy.addons.filemanager.DocumentOnServer #field
+selectedDocumentOnServer 'the current selected documentOnServer Object' #fieldComment
+selectedFile java.io.File #field
+selectedFile 'the current selected File' #fieldComment
+pattern String #field
+pattern PERSISTENT #fieldModifier
+filteredDcoumentsList List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+filteredDcoumentsList PERSISTENT #fieldModifier

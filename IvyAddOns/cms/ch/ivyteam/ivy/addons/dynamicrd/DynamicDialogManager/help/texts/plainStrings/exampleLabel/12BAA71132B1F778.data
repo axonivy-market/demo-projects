@@ -1,0 +1,5 @@
+Defines an alternative label that is displayed under the label (the label covers this one).<br />
+<img src="#img#plainStrings/exampleLabel1"/><br />
+<b>Warning</b><br />
+<span class="parameter">label</span> and <span class="parameter">example</span> are placed on the same position.<br />
+Styles properties given to the label filler, the label and the example label should permit this display.

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <description>This RDC represents a File chooser in form of a combobox.&#xD;
+You can start it with a path an you get a list of all the files.</description>
+    <method>
+        <name>getSelectedFile</name>
+        <description>Return the selected DocumentOnServer Object as a java.io.File</description>
+        <outputParameter>
+            <name>selectedFile</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>setPath</name>
+        <description>set the path where to look at the files.&#xD;
+The Combobox list will be automatically refreshed with the new file list of the new path.</description>
+        <inputParameter>
+            <name>path</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setPattern</name>
+        <description>set the pattern</description>
+        <inputParameter>
+            <name>pattern</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>filter</name>
+        <description>filter the list of Files found with the given pattern&#xD;
+The result is a refresh with the filtered list</description>
+        <inputParameter>
+            <name>pattern</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>refresh</name>
+        <description>refresh the combobox list</description>
+    </method>
+    <method>
+        <name>getPath</name>
+        <description>Return the current path directory where the files are listed in the combobox</description>
+        <outputParameter>
+            <name>path</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>getSelectedDocument</name>
+        <description>returns the currently selected DocumentOnServer Object&#xD;
+This object just contains the following informations: filename, path and size. The rest is null.</description>
+        <outputParameter>
+            <name>selectedDocument</name>
+            <description>returns the currently selected DocumentOnServer Object&#xD;
+This object just contains the following informations: filename, path and size. The rest is null.</description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.DocumentOnServer</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>startWithPath</name>
+        <description>Start with the path that is going to be listed</description>
+        <inputParameter>
+            <name>path</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startWithPathAndPatternFilter</name>
+        <description>Start with the path that is going to be listed&#xD;
+and a pattern that will filter the list of displayed files.</description>
+        <inputParameter>
+            <name>path</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>pattern</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <firedEvent>
+        <name>fileSelectionChanged</name>
+        <description>@Subscribers event sent whenever the selected File changes. It sends a DocumentOnServer Object.&#xD;
+This object just contains the following informations: filename, path and size. The rest is null.&#xD;
+</description>
+        <attachment>
+            <name>selectedDocumentOnServer</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.DocumentOnServer</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <property>
+        <name>guid</name>
+        <value>125FD643F033BF41</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

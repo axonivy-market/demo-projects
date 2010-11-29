@@ -1,0 +1,4 @@
+Defines the style in Ivy Configuration applied to the container displaying the attribute.<br />
+The style should be defined in the type corresponding to the displayed container or <span class="parameter">General</span>.<br />
+The default value is 'container'.<br />
+All the children inherit this value.

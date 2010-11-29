@@ -9,11 +9,8 @@ import ch.ivyteam.ivy.scripting.objects.Date;
 import ch.ivyteam.ivy.scripting.objects.DateTime;
 import ch.ivyteam.ivy.scripting.objects.Duration;
 import ch.ivyteam.ivy.scripting.objects.Time;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
 
-import com.ulcjava.base.application.GridBagConstraints;
 import com.ulcjava.base.application.ULCComponent;
-import com.ulcjava.base.application.ULCContainer;
 
 /**
  * This is the implementation of fields that use a DatePicker.
@@ -23,194 +20,202 @@ import com.ulcjava.base.application.ULCContainer;
  */
 public class DatePicker extends FieldComponent
 {
-  protected RDatePicker datePicker = null;
+  private RDatePicker datePicker = null;
 
-  public DatePicker(DynamicDialogPanel panel, Container parentContainer, ULCContainer ulcContainer,
-          DatePickerParameters _parameters)
+  /**
+   * Constructs a new DatePicker object.
+   * 
+   * @param panel dynamic dialog panel
+   * @param parentContainer parent container
+   * @param parameters parameters
+   * @param index position when component is in a list
+   */
+  protected DatePicker(DynamicDialogPanel panel, ComplexComponent parentContainer,
+          DatePickerParameters parameters, int index)
   {
-    super(panel, parentContainer, ulcContainer, _parameters);
-
-    parameters = _parameters;
+    super(panel, parentContainer, parameters, index);
   }
 
   @Override
-  public void focusGained(String method)
-  {
-    super.focusGained(method);
-  }
-
-  @Override
-  public void focusLost(String method)
+  public final void focusLost()
   {
     validate();
-    super.focusLost(method);
+    super.focusLost();
   }
 
   @Override
-  public ULCComponent getLastMainComponent()
+  public final ULCComponent getLastMainComponent()
   {
     return getMainComponent();
   }
 
   @Override
-  public ULCComponent getMainComponent()
+  public final ULCComponent getMainComponent()
   {
     return datePicker;
   }
 
   @Override
-  public DatePickerParameters getParameters()
+  public final DatePickerParameters getParameters()
   {
-    return (DatePickerParameters) parameters;
+    return (DatePickerParameters) getComponentParameters();
   }
 
   @Override
-  public String[] getSelectedRecord()
+  public final String[] getSelectedRecord()
   {
     return null;
   }
 
   @Override
-  public String getText()
+  public final String getText()
   {
     return getValueAsString();
   }
 
-  private RDatePicker getTextField()
+  private RDatePicker getDatePicker()
   {
+    SimpleDateFormat simpleFormat;
+
     if (datePicker == null)
     {
       datePicker = new RDatePicker();
-      datePicker.setName(parameters.getName() + "DatePicker");
+      datePicker.setName(getParameters().getName() + "DatePicker");
+
+      datePicker.addValueChangedListener(new ValueChangedListener(this, true));
+
+      datePicker.addFocusListener(new FocusListener(this));
+
+      simpleFormat = getDateFormat();
+      datePicker.setFormats(new SimpleDateFormat[] {simpleFormat});
+
+      getUlcComponents().add(datePicker);
     }
     return datePicker;
   }
 
   @Override
-  public Object getValue()
+  public final Object getValue()
   {
     return datePicker.getValueAsDate();
   }
 
   @Override
-  public Date getValueAsDate()
+  public final Date getValueAsDate()
   {
-    return datePicker.getValueAsDate();
+    Date date;
+
+    // .getValueAsDate doesn't return null if the content is empty
+    date = datePicker.getValueAsDate();
+
+    return date == Date.UNINITIALIZED_DATE ? null : date;
   }
 
   @Override
-  public DateTime getValueAsDateTime()
+  public final DateTime getValueAsDateTime()
   {
     return new DateTime(getValueAsString());
   }
 
   @Override
-  public Duration getValueAsDuration()
+  public final Duration getValueAsDuration()
   {
     return new Duration(getValueAsNumber().longValue());
   }
 
   @Override
-  public Number getValueAsNumber()
+  public final Number getValueAsNumber()
   {
-    return getValueAsDate().toNumber();
+    Date date;
+
+    date = getValueAsDate();
+    return date == null ? null : date.toNumber();
   }
 
   @Override
-  public String getValueAsString()
+  public final String getValueAsString()
   {
     SimpleDateFormat format;
+    Date date;
 
+    // TODO Update date format
     format = new SimpleDateFormat("dd.MM.yyyy");
     format.setLenient(false);
 
-    return format.format(getValueAsDate().toDate());
+    date = getValueAsDate();
+    return date == null ? "" : format.format(date.toDate());
   }
 
   @Override
-  public Time getValueAsTime()
+  public final Time getValueAsTime()
   {
     return new Time(getValueAsString());
   }
 
   @Override
-  public void initialize(Position pos)
+  public final Boolean getValueAsBoolean()
   {
-    GridBagConstraints constraints;
-
-    constraints = new GridBagConstraints();
-    constraints.setGridX(pos.getPosX() + 1);
-    constraints.setGridY(pos.getPosY() + 0);
-    ulcContainer.add(getTextField(), constraints);
-
-    ulcComponents.add(datePicker);
-
-    super.initialize(pos);
-
-    // datePicker.addActionListener(new ActionListener(this,
-    // getParameters().getValueChangedMethod()));
-
-    datePicker.addFocusListener(new FocusListener(this, getParameters().getFocusGainedMethod(),
-            getParameters().getFocusLostMethod()));
+    return null;
   }
 
   @Override
-  public boolean isFocusable()
+  public final boolean isFocusable()
   {
     return datePicker.isFocusable();
   }
 
   @Override
-  public void setFocusable(boolean b)
+  public final void setFocusable(boolean b)
   {
     datePicker.setFocusable(b);
   }
 
   @Override
-  public void setKeyValue(List<String[]> keyValue)
+  public final void setKeyValue(List<String[]> keyValue)
   {
     // Nothing to do
   }
 
   @Override
-  protected void applyStyles()
+  protected final void applyFieldStyles()
   {
-    super.applyStyles();
     datePicker.setStyle(getParameters().getFieldStyle());
+
+    setWeightX(datePicker);
   }
 
   @Override
-  public void setValue(Object o, String text)
+  public final void setValue(Object o, String text)
   {
     // Nothing to do
   }
 
   @Override
-  public void setValueAsDate(Date d, String text)
+  public final void setValueAsDate(Date d, String text)
   {
     datePicker.setValueAsDate(d);
   }
 
   @Override
-  public void setValueAsDateTime(DateTime d, String text)
+  public final void setValueAsDateTime(DateTime d, String text)
   {
     setValueAsString(d.toString(), text);
   }
 
   @Override
-  public void setValueAsDuration(Duration d, String text)
+  public final void setValueAsDuration(Duration d, String text)
   {
     setValueAsNumber(d.toNumber(), text);
   }
 
   @Override
-  public void setValueAsNumber(Number n, String text)
+  public final void setValueAsNumber(Number n, String text)
   {
     setValueAsDate(new Date(new java.util.Date(n.longValue())));
   }
 
   @Override
-  public void setValueAsString(String s, String text)
+  public final void setValueAsString(String s, String text)
   {
     Date date;
 
@@ -222,12 +227,13 @@ public class DatePicker extends FieldComponent
     {
       SimpleDateFormat format;
 
+      // TODO Update date format
       format = new SimpleDateFormat("dd.MM.yyyy");
       format.setLenient(false);
 
       try
       {
-        date = new Date(format.parse(getValueAsString()));
+        date = new Date(format.parse(s));
       }
       catch (ParseException e)
       {
@@ -238,30 +244,55 @@ public class DatePicker extends FieldComponent
   }
 
   @Override
-  public void setValueAsTime(Time t, String text)
+  public final void setValueAsTime(Time t, String text)
   {
     setValueAsString(t.toString(), text);
   }
 
   @Override
-  public boolean validate()
+  public final void setValueAsBoolean(Boolean b, String text)
+  {
+    // Nothing to do
+  }
+
+  @Override
+  public final boolean validate()
   {
     boolean valid;
 
     valid = true;
-    if (isMandatory() && datePicker.getValueAsDate() == null)
+
+    if (isMandatory() && getValueAsDate() == null)
     {
       valid = false;
     }
 
-    updateIcon(valid);
+    validationDone(valid);
 
     return valid;
   }
 
   @Override
-  protected void valueChanged(String method)
+  protected final ULCComponent getFieldComponent()
   {
-    super.valueChanged(method);
+    return getDatePicker();
+  }
+
+  @Override
+  protected final boolean isEditable()
+  {
+    return false;
+  }
+
+  @Override
+  protected void postInitializeField()
+  {
+    // Nothing to do
+  }
+
+  @Override
+  protected boolean isBackgroundColorChangedAllowed()
+  {
+    return true;
   }
 }

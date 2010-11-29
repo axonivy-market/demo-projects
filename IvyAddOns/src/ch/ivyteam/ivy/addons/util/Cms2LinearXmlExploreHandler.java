@@ -3,6 +3,7 @@ package ch.ivyteam.ivy.addons.util;
 import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -25,6 +26,7 @@ import ch.ivyteam.ivy.persistence.PersistencyException;
 /**
  * Handler class used with CmsExplorer to export the CMS to an XML file.<br />
  * The file produced look like :<br />
+ * 
  * <pre>
  *  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
  *  &lt;IvyCms&gt;
@@ -32,9 +34,14 @@ import ch.ivyteam.ivy.persistence.PersistencyException;
  *    ...
  * </pre>
  * 
+ * @deprecated This handler is directly included into the class Cms2LinearXml. Please use public methods of
+ *             that class to do the same job.
+ * @see Cms2LinearXml
+ * 
  * @author Patrick Joly, TI-Informatique
  * @since 29.05.2009
  */
+@Deprecated
 public class Cms2LinearXmlExploreHandler extends ExploreHandler
 {
   private String fileName;
@@ -52,43 +59,50 @@ public class Cms2LinearXmlExploreHandler extends ExploreHandler
   public void endDocument()
   {
     StreamResult streamResult;
+    BufferedOutputStream bufferedOutputStream;
+
+    bufferedOutputStream = null;
     try
     {
-      streamResult = new StreamResult(new BufferedOutputStream(new FileOutputStream(fileName)));
-    }
-    catch (FileNotFoundException e)
-    {
-        throw new AddonsException(e);
-    }
-    DOMSource domSource = new DOMSource(xmldoc);
-    TransformerFactory transformerFactory = TransformerFactory.newInstance();
-    Transformer transformer;
-    try
-    {
+      bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(fileName));
+      streamResult = new StreamResult(bufferedOutputStream);
+      DOMSource domSource = new DOMSource(xmldoc);
+      TransformerFactory transformerFactory = TransformerFactory.newInstance();
+      Transformer transformer;
       transformer = transformerFactory.newTransformer();
+
+      transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+
+      transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+      transformer.transform(domSource, streamResult);
     }
     catch (TransformerConfigurationException e)
     {
-      throw new AddonsException(e);
-    }
-
-    transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-
-    transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-    try
-    {
-      transformer.transform(domSource, streamResult);
+      throw new AddonsRuntimeException(e);
     }
     catch (TransformerException e)
     {
-      throw new AddonsException(e);
+      throw new AddonsRuntimeException(e);
     }
-
-  }
-
-  @Override
-  public void endNode(Object object, String name, String uri)
-  {
+    catch (FileNotFoundException e)
+    {
+      throw new AddonsRuntimeException(e);
+    }
+    finally
+    {
+      if (bufferedOutputStream != null)
+      {
+        try
+        {
+          bufferedOutputStream.flush();
+          bufferedOutputStream.close();
+        }
+        catch (IOException e)
+        {
+          throw new AddonsRuntimeException(e);
+        }
+      }
+    }
   }
 
   @Override
@@ -102,7 +116,7 @@ public class Cms2LinearXmlExploreHandler extends ExploreHandler
     }
     catch (ParserConfigurationException e)
     {
-      throw new AddonsException(e);
+      throw new AddonsRuntimeException(e);
     }
     xmldoc = builder.newDocument();
 
@@ -128,7 +142,6 @@ public class Cms2LinearXmlExploreHandler extends ExploreHandler
         for (IContentObjectValue contentObjectValue : contentObject.getValues())
         {
           objectElement = xmldoc.createElement("object");
-          rootElement.appendChild(objectElement);
 
           objectElement.setAttribute("name", name);
           objectElement.setAttribute("uri", uri);
@@ -137,12 +150,14 @@ public class Cms2LinearXmlExploreHandler extends ExploreHandler
 
           objectElement.setTextContent(contentObjectValue.getContentAsString());
           objectElement.setAttribute("lang", contentObjectValue.getLanguage().getLanguage());
+
+          rootElement.appendChild(objectElement);
         }
       }
     }
     catch (PersistencyException e)
     {
-      throw new AddonsException(e);
+      throw new AddonsRuntimeException(e);
     }
     return true;
   }

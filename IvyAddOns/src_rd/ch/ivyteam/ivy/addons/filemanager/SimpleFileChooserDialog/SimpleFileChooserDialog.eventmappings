@@ -1,0 +1,16 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-10-11 14:31:14 | 4.1.2.32567 | 1.0
+~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/1223C2F27664F76D
+~@RD_METHODCALL[_uploadDone(List<java.io.File>)]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/12B2DCF578593218
+~@RD_METHODCALL[_close()]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/12B9B45F3E5AB46B
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/1223BBAF0B7B8784
+~@RD_METHODCALL[start(String,String,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/128B98D3200575CD
+~@RD_METHODCALL[start(String)]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/1223C2E5ABF450E9
+~@RD_METHODCALL[_askForOverwriteFiles(ch.ivyteam.ivy.addons.filemanager.ReturnedMessage)]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/128B9DC1608E56B4
+~.uploadButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/128B5FB2D0AAFD6E
+~.previewButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/12925613436290EC
+~@RD_METHODCALL[_uploadDone(ch.ivyteam.ivy.addons.filemanager.ReturnedMessage)]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/128B94A86BA64AE4
+~@RD_METHODCALL[_uploadError(ch.ivyteam.ivy.addons.filemanager.ReturnedMessage)]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/128B98EC4A8358F2
+~.fileListChooserPanel@RD_EVENT[fileSelectionChanged]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/122F3EA5CC997B1E
+~@RD_METHODCALL[start(String,String)]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/1223C586F109C517
+~.chooseButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125FE384C5BE80F0/1223C2F12D42CBD6

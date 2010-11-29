@@ -2,7 +2,8 @@ package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
 import java.util.List;
 
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType.ComponentTypeEnum;
+import ch.ivyteam.ivy.addons.cmscontext.Cms;
+import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType;
 
 /**
  * This is the parameters of containers that uses a RGridBagLayoutPane.
@@ -10,20 +11,29 @@ import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentType.ComponentType
  * @author Patrick Joly, TI-Informatique
  * @since 12.09.2008
  */
-public class GridBagLayoutPaneParameters extends ContainerParameters
+class GridBagLayoutPaneParameters extends ContainerParameters
 {
-  private static final long serialVersionUID = -2451605960696627834L;
+  private boolean showBorder;
 
-  public GridBagLayoutPaneParameters(Configuration configuration, List<String> cmsContexts, String name,
-          String fullName, ContainerParameters parentContainerParameters)
+  protected GridBagLayoutPaneParameters(List<String> cmsContexts, String name, String fullName,
+          ComplexComponentParameters parentContainerParameters, Integer position, Class clazz)
   {
-    super(configuration, cmsContexts, name, fullName, parentContainerParameters);
+    super(cmsContexts, name, fullName, parentContainerParameters, position, clazz);
+    
+    showBorder = Cms.coAsBoolean(cmsContexts, KnownParameters.SHOW_BORDER_PARAMETER, true);
   }
 
+  private static final long serialVersionUID = -2451605960696627834L;
+
   @Override
-  public ComponentTypeEnum getComponentType()
+  public ComponentType getComponentType()
   {
-    return ComponentTypeEnum.GRID_BAG_LAYOUT_PANE;
+    return ComponentType.GRID_BAG_LAYOUT_PANE;
+  }
+
+  protected boolean showBorder()
+  {
+    return showBorder;
   }
 
 }

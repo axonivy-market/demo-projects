@@ -73,6 +73,8 @@ private RTextArea getErrorMessageTextArea() {
 		errorMessageTextArea.setColumns(30);
 		errorMessageTextArea.setEditable(false);
 		errorMessageTextArea.setStyle("fill-horiz-north-border");
+		errorMessageTextArea.setWrapStyleWord(true);
+		errorMessageTextArea.setLineWrap(true);
 		errorMessageTextArea.setName("errorMessageTextArea");
 	}
 	return errorMessageTextArea;

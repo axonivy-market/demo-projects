@@ -1,0 +1,20 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-10-11 12:58:31 | 4.1.2.32567 | 1.0
+~.downloadButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/121E391332FCF055
+~@RD_METHODCALL[disableActionButtons()]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/121E38AC71DA66FA
+~@RD_METHODCALL[startWithIvySystemDb(java.io.File)]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/12AC35A834F1CF7F
+~.editButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/121E390C551AF393
+~.closeButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/121E3921736486F2
+~.printButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/121E390F3F38BB28
+~@RD_METHODCALL[_print()]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/12B9ACC8793BFC04
+~@RD_BROADCAST[openFileManager]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/12B9AF0B7A6439D3
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/121E36CF8DC15FC4
+~.fileManagementButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/121E391E20C2F6DF
+~@RD_BROADCAST[downloadFiles]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/12B9AD0A8DB866C5
+~@RD_METHODCALL[_download()]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/12B9ACB547220941
+~@RD_METHODCALL[_openFileManager()]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/12B9AF02CA61D8CB
+~@RD_METHODCALL[_cancel()]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/12B9ACB29CA9DB92
+~@RD_METHODCALL[_edit()]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/12B9ACB6A91A5744
+~@RD_METHODCALL[start(String,String,String,java.io.File)]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/1277618304226ED7
+~.desktopHandlerPanel@RD_EVENT[isFileEditableReported]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/124FD19E306F3D76
+~@RD_METHODCALL[start(java.io.File)]--->ch.ivyteam.ivy.process.ProcessStart:125F9B9E8C5A4087/121E388A68A8CA85

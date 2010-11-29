@@ -13,8 +13,11 @@ import com.canoo.ulc.community.lookuptextfield.application.filter.AbstractRegExp
  * @author Patrick Joly, TI-Informatique
  * @since 15.09.2008
  */
-public class BeginLookupTextFilter extends AbstractRegExpStringFilter
+public final class BeginLookupTextFilter extends AbstractRegExpStringFilter
 {
+  /**
+   * Constructs a new BeginLookupTextFilter object.
+   */
   public BeginLookupTextFilter()
   {
     super(Perl5Compiler.CASE_INSENSITIVE_MASK | Perl5Compiler.SINGLELINE_MASK);
@@ -33,8 +36,10 @@ public class BeginLookupTextFilter extends AbstractRegExpStringFilter
   @Override
   public void setPattern(String pattern)
   {
-    pattern = (pattern != null) ? pattern : "";
-    String perl5pattern = Perl5Compiler.quotemeta(pattern);
+    String usedPattern;
+
+    usedPattern = (pattern != null) ? pattern : "";
+    String perl5pattern = Perl5Compiler.quotemeta(usedPattern);
     super.setPattern("^" + perl5pattern);
   }
 }

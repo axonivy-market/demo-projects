@@ -1,11 +1,10 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
 import ch.ivyteam.ivy.richdialog.widgets.components.RComboBox;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
 
-import com.ulcjava.base.application.GridBagConstraints;
+import com.ulcjava.base.application.IComboBoxModel;
 import com.ulcjava.base.application.ULCComponent;
-import com.ulcjava.base.application.ULCContainer;
+import com.ulcjava.base.application.ULCComboBox.IKeySelectionManager;
 
 /**
  * This is the implementation of fields that use a RComboBox.
@@ -15,25 +14,63 @@ import com.ulcjava.base.application.ULCContainer;
  */
 public class ComboBox extends FieldComponentWithList
 {
+  private final class KeySelectionManager implements IKeySelectionManager
+  {
+    // That code comes from
+    // http://www.canoo.com/ulc/developerzone/apidoc/application/com/ulcjava/base/application/ULCComboBox.html#setKeySelectionManager%28com.ulcjava.base.application.ULCComboBox.IKeySelectionManager%29
+    private static final int MAX_DELAY = 1000;
+
+    private long fLastMillis = 0;
+
+    private StringBuffer fLastEnteredChars = new StringBuffer();
+
+    /**
+     * {@inheritDoc}
+     */
+    public int selectionForKey(char keyChar, IComboBoxModel model)
+    {
+      {
+        if (System.currentTimeMillis() - fLastMillis > MAX_DELAY)
+        {
+          fLastEnteredChars.setLength(0);
+        }
+        fLastMillis = System.currentTimeMillis();
+        fLastEnteredChars.append(keyChar);
+        for (int i = 0; i < model.getSize(); i++)
+        {
+          String item = model.getElementAt(i).toString().toLowerCase();
+          String typedKeys = fLastEnteredChars.toString().toLowerCase();
+          if (item.startsWith(typedKeys))
+          {
+            return i;
+          }
+        }
+        return -1;
+      }
+    }
+  }
+
   private RComboBox comboBox = null;
 
-  public ComboBox(DynamicDialogPanel panel, Container parentContainer, ULCContainer ulcContainer,
-          ComboBoxParameters parameters)
+  /**
+   * Constructs a new ComboBox object.
+   * 
+   * @param panel dynamic dialog panel
+   * @param parentContainer parent container
+   * @param parameters parameters
+   * @param index position when component is in a list
+   */
+  protected ComboBox(DynamicDialogPanel panel, ComplexComponent parentContainer,
+          ComboBoxParameters parameters, int index)
   {
-    super(panel, parentContainer, ulcContainer, parameters);
+    super(panel, parentContainer, parameters, index);
   }
 
   @Override
-  public void focusGained(String method)
-  {
-    super.focusGained(method);
-  }
-
-  @Override
-  public void focusLost(String method)
+  public final void focusLost()
   {
     validate();
-    super.focusLost(method);
+    super.focusLost();
   }
 
   private RComboBox getComboBox()
@@ -41,74 +78,61 @@ public class ComboBox extends FieldComponentWithList
     if (comboBox == null)
     {
       comboBox = new RComboBox();
-      comboBox.setName(parameters.getName() + "ComboBox");
-      // comboBox.setModelConfiguration("{/result \"\"/version \"3.0\"/icon \"\"/tooltip \"result=null\"}");
+      comboBox.setName(getParameters().getName() + "ComboBox");
+
+      comboBox.addActionListener(new ActionListener(this));
+
+      comboBox.addFocusListener(new FocusListener(this));
+
+      comboBox.setKeySelectionManager(new KeySelectionManager());
+
+      getUlcComponents().add(comboBox);
     }
     return comboBox;
   }
 
   @Override
-  public ULCComponent getLastMainComponent()
+  public final ULCComponent getLastMainComponent()
   {
     return getMainComponent();
   }
 
   @Override
-  public ULCComponent getMainComponent()
+  public final ULCComponent getMainComponent()
   {
     return comboBox;
   }
 
   @Override
-  public ComboBoxParameters getParameters()
+  public final ComboBoxParameters getParameters()
   {
-    return (ComboBoxParameters) parameters;
+    return (ComboBoxParameters) getComponentParameters();
   }
 
   @Override
-  protected int getSelectedIndex()
+  protected final int getSelectedIndex()
   {
     return comboBox.getSelectedIndex();
   }
 
   @Override
-  public void initialize(Position pos)
-  {
-    GridBagConstraints constraints;
-
-    constraints = new GridBagConstraints();
-    constraints.setGridX(pos.getPosX() + 1);
-    constraints.setGridY(pos.getPosY() + 0);
-    ulcContainer.add(getComboBox(), constraints);
-
-    ulcComponents.add(comboBox);
-
-    super.initialize(pos);
-
-    comboBox.addActionListener(new ActionListener(this, getParameters().getValueChangedMethod()));
-
-    comboBox.addFocusListener(new FocusListener(this, getParameters().getFocusGainedMethod(), getParameters()
-            .getFocusLostMethod()));
-  }
-
-  @Override
-  public boolean isFocusable()
+  public final boolean isFocusable()
   {
     return comboBox.isFocusable();
   }
 
   @Override
-  public void setFocusable(boolean b)
+  public final void setFocusable(boolean b)
   {
-    comboBox.setFocusable(b);
+    getComboBox().setFocusable(b);
   }
 
   @Override
-  protected void setListData(ch.ivyteam.ivy.scripting.objects.List<String> comboData)
+  protected final void setListData(ch.ivyteam.ivy.scripting.objects.List<String> comboData)
   {
     try
     {
-      comboBox.setListData(comboData);
+      getComboBox().setListData(comboData);
     }
     catch (Exception e)
     {
@@ -117,15 +141,65 @@ public class ComboBox extends FieldComponentWithList
   }
 
   @Override
-  protected void setSelectedIndex(int index)
+  protected final void setSelectedIndex(int index)
   {
-    comboBox.setSelectedIndex(index);
+    getComboBox().setSelectedIndex(index);
   }
 
   @Override
-  protected void applyStyles()
+  protected final void applyFieldStyles()
   {
-    super.applyStyles();
-    comboBox.setStyle(getParameters().getFieldStyle());
+    getComboBox().setStyle(getParameters().getFieldStyle());
+
+    setWeightX(getComboBox());
+  }
+
+  @Override
+  protected final void action()
+  {
+    super.action();
+    valueChanged();
+  }
+
+  @Override
+  protected final ULCComponent getFieldComponent()
+  {
+    return getComboBox();
+  }
+
+  @Override
+  public final void setDisplayedText(String text)
+  {
+    throw new DynamicDialogException(getNoSuchMethodException("setDisplayedText", getClass()));
+  }
+
+  @Override
+  protected final boolean isFillable()
+  {
+    return true;
+  }
+
+  @Override
+  public boolean validate()
+  {
+    return validateList();
+  }
+
+  @Override
+  protected final boolean isEditable()
+  {
+    return false;
+  }
+
+  @Override
+  protected String getDisplayedText()
+  {
+    throw new DynamicDialogException(getNoSuchMethodException("getDisplayedText", getClass()));
+  }
+
+  @Override
+  protected boolean isBackgroundColorChangedAllowed()
+  {
+    return false;
   }
 }

@@ -1,8 +1,8 @@
 package ch.ivyteam.ivy.addons.util;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * String utilities.
@@ -10,14 +10,18 @@ import java.util.List;
  * @author Patrick Joly, TI-Informatique
  * @since 23.10.2008
  */
-public class StringUtil
+public final class StringUtil
 {
+  private StringUtil()
+  {
+  }
+
   /**
-   * Clean up a string as it was a unix fs path.<br />
-   * <code>/root/a/b/../c becomes /root/a/c</code>
+   * Cleans up a string as it was a unix fs path.<br />
+   * <code>/root/a/b/../c</code> becomes <code>/root/a/c</code>
    * 
    * @param fullPath path to clean up
-   * @return
+   * @return cleaned up path
    */
   public static String cleanUpPath(String fullPath)
   {
@@ -70,17 +74,27 @@ public class StringUtil
    */
   public static String join(List<String> list, String separator)
   {
+    String usedSeparator;
+
+    usedSeparator = separator;
+
     if (list == null)
+    {
       return "";
-    if (separator == null)
-      separator = "";
+    }
+    if (usedSeparator == null)
+    {
+      usedSeparator = "";
+    }
 
     StringBuffer buf = new StringBuffer();
     for (int i = 0; i < list.size(); i++)
     {
       buf.append(list.get(i));
       if (i < list.size() - 1)
-        buf.append(separator);
+      {
+        buf.append(usedSeparator);
+      }
     }
 
     return buf.toString();
@@ -95,9 +109,9 @@ public class StringUtil
    * @param hash values to subst
    * @param startMarker begin mark of the string to replace
    * @param endMarker end mark of the string to replace
-   * @return
+   * @return new string with substitutions done
    */
-  public static String substitute(String source, Hashtable<String, String> hash, String startMarker,
+  public static String substitute(String source, Map<String, String> hash, String startMarker,
           String endMarker)
   {
     String result;
@@ -115,4 +129,55 @@ public class StringUtil
     return result;
   }
 
+  /**
+   * Builds the relative path separing 2 absolute pathes.
+   * 
+   * @param from absolute path from where the relative path should be found
+   * @param to absolute path to where the relative path should point
+   * @param separator string used between two items
+   * @return relative path to go from <code>from</code> to <code>to</code>
+   */
+  public static String buildRelativePath(String from, String to, String separator)
+  {
+    StringBuffer result;
+    String[] splitedFrom;
+    String[] splitedTo;
+    int min;
+    int count;
+
+    splitedFrom = from.split(separator);
+    splitedTo = to.split(separator);
+
+    min = splitedFrom.length;
+    min = min < splitedTo.length ? min : splitedTo.length;
+
+    // Finds the common part
+    for (count = 0; count < min; count++)
+    {
+      if (!splitedFrom[count].equals(splitedTo[count]))
+      {
+        break;
+      }
+    }
+
+    result = new StringBuffer();
+
+    // Finds relative path to the common part
+    for (int i = 0; i < splitedFrom.length - count; i++)
+    {
+      result.append("..");
+      result.append(separator);
+    }
+
+    // Add relative part from the common part
+    for (int i = count; i < splitedTo.length; i++)
+    {
+      result.append(splitedTo[i]);
+      if (i < splitedTo.length - 1)
+      {
+        result.append(separator);
+      }
+    }
+    return result.toString();
+  }
 }

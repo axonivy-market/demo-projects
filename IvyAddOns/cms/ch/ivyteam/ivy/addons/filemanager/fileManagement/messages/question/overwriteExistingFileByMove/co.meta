@@ -1,0 +1,4 @@
+co: name={overwriteExistingFileByMove} description={} changed={2009-08-31 15:43:02 CEST} changedby={ec} visualorder={0} guid={12370A00402D11C9} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={12370A0C905FBA3E} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-31 15:24:28 CEST} validto={} changed={2009-08-31 15:43:02 CEST} changedby={ec} properties={} id={}
+val: guid={12370A0040275881} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-31 15:23:38 CEST} validto={} changed={2009-08-31 15:43:02 CEST} changedby={ec} properties={} id={}
+val: guid={12370A1C7B7C2A89} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-31 15:25:33 CEST} validto={} changed={2009-08-31 15:43:02 CEST} changedby={ec} properties={} id={}

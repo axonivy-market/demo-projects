@@ -1,12 +1,13 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
+import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.VisualDebugGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
 
 import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.GridBagConstraints;
 import com.ulcjava.base.application.ULCComponent;
 import com.ulcjava.base.application.ULCContainer;
+import com.ulcjava.base.application.border.ULCTitledBorder;
 
 /**
  * This is the implementation of containers that uses a RGridBagLayoutPane.
@@ -14,91 +15,136 @@ import com.ulcjava.base.application.ULCContainer;
  * @author Patrick Joly, TI-Informatique
  * @since 12.09.2008
  */
-public class GridBagLayoutPane extends Container
+public class GridBagLayoutPane extends ComplexComponent
 {
 
-  protected RGridBagLayoutPane gridBag = null;
+  private RGridBagLayoutPane gridBag = null;
 
-  public GridBagLayoutPane(DynamicDialogPanel panel, Container container, ULCContainer ulcContainer,
-          GridBagLayoutPaneParameters _parameters, Integer height)
+  /**
+   * Constructs a new GridBagLayoutPane object.
+   * 
+   * @param panel dynamic dialog panel
+   * @param parentContainer parent container
+   * @param parameters parameters
+   * @param index position when component is in a list
+   */
+  protected GridBagLayoutPane(DynamicDialogPanel panel, ComplexComponent container,
+          GridBagLayoutPaneParameters parameters, int index)
   {
-    super(panel, container, ulcContainer, _parameters, height);
-
-    parameters = _parameters;
+    super(panel, container, parameters, index);
   }
 
   @Override
-  protected void applyStyles()
+  protected final void applyComponentStyle()
   {
-    super.applyStyles();
     gridBag.setStyle(getParameters().getContainerStyle());
+
+    setWeightX(gridBag);
   }
 
   private RGridBagLayoutPane getGridBag()
   {
     if (gridBag == null)
     {
-      gridBag = new RGridBagLayoutPane();
-      gridBag.setBorder(BorderFactory.createTitledBorder(null, parameters.getTitle()));
-      gridBag.setName(parameters.getName());
+      gridBag = new VisualDebugGridBagLayoutPane();
+      if (getParameters().showBorder())
+      {
+        gridBag.setBorder(BorderFactory.createTitledBorder(null, getParameters().getTitle()));
+      }
+      gridBag.setName(getParameters().getName());
+
+      getUlcComponents().add(gridBag);
     }
     return gridBag;
   }
 
   @Override
-  public ULCComponent getLastMainComponent()
+  public final ULCComponent getLastMainComponent()
   {
     return getMainComponent();
   }
 
   @Override
-  public ULCComponent getMainComponent()
+  public final ULCComponent getMainComponent()
   {
     return gridBag;
   }
 
   @Override
-  public GridBagLayoutPaneParameters getParameters()
+  public final GridBagLayoutPaneParameters getParameters()
   {
-    return (GridBagLayoutPaneParameters) parameters;
+    return (GridBagLayoutPaneParameters) getComponentParameters();
   }
 
   @Override
-  public ULCContainer getUlcContainer()
+  public final ULCContainer getUlcContainer()
   {
     return gridBag;
   }
 
   @Override
-  public void initialize(Position pos, Container previousContainer)
+  protected final void initialize(final Position pos, ComplexComponent previousContainer)
   {
-    super.initialize(pos, previousContainer);
-
     GridBagConstraints constraints;
 
     constraints = new GridBagConstraints();
     constraints.setGridX(pos.getPosX() + 0);
     constraints.setGridY(pos.getPosY() + 0);
-    constraints.setGridHeight(height);
-    constraints.setGridWidth(3);
-    ulcContainer.add(getGridBag(), constraints);
-
-    ulcComponents.add(getGridBag());
+    constraints.setGridWidth(getParameters().getGridWidth() * GRID_BAG_COLUMN_WIDTH);
+    getParentContainer().add(getGridBag(), constraints);
 
     super.initialize(pos);
 
-    pos.setPosY(pos.getPosY() + 1 + height);
+    pos.setPosY(pos.getPosY() + 1);
   }
 
   @Override
-  public boolean isFocusable()
+  public final boolean isFocusable()
   {
     return false;
   }
 
   @Override
-  public void setFocusable(boolean b)
+  public final void setFocusable(boolean b)
   {
     // Nothing to do
+  }
+
+  @Override
+  public final String getLabel()
+  {
+    String result;
+
+    result = null;
+    if (gridBag.getBorder() instanceof ULCTitledBorder)
+    {
+      ULCTitledBorder border = (ULCTitledBorder) gridBag.getBorder();
+
+      result = border.getTitle();
+    }
+    return result;
+  }
+
+  @Override
+  public final void setLabel(String value)
+  {
+    if (gridBag.getBorder() instanceof ULCTitledBorder)
+    {
+      ULCTitledBorder border = (ULCTitledBorder) gridBag.getBorder();
+
+      border.setTitle(value);
+    }
+  }
+
+  @Override
+  protected final boolean useParentContainer()
+  {
+    return false;
+  }
+
+  @Override
+  protected final Position getStartPos(Position pos)
+  {
+    return new Position();
   }
 }

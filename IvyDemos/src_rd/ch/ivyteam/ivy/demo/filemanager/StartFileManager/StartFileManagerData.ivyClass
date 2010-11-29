@@ -1,0 +1,10 @@
+StartFileManagerData #class
+ch.ivyteam.ivy.demo.filemanager.StartFileManager #namespace
+pathOnTheServer String #field
+pathOnTheServer PERSISTENT #fieldModifier
+databaseConfigName String #field
+databaseConfigName PERSISTENT #fieldModifier
+tableName String #field
+tableName PERSISTENT #fieldModifier
+SchemaName String #field
+SchemaName PERSISTENT #fieldModifier

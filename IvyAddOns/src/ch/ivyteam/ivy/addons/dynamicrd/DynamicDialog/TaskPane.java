@@ -1,9 +1,9 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
+import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.VisualDebugGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTaskPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTaskPaneContainer;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
 
 import com.ulcjava.base.application.GridBagConstraints;
 import com.ulcjava.base.application.ULCComponent;
@@ -15,60 +15,72 @@ import com.ulcjava.base.application.ULCContainer;
  * @author Patrick Joly, TI-Informatique
  * @since 12.09.2008
  */
-public class TaskPane extends Container
+public class TaskPane extends ComplexComponent
 {
-  protected RGridBagLayoutPane gridBag = null;
+  private RGridBagLayoutPane gridBag = null;
 
-  protected RTaskPane taskPane = null;
+  private RTaskPane taskPane = null;
 
-  public TaskPane(DynamicDialogPanel panel, Container parentContainer, ULCContainer ulcContainer,
-          TaskPaneParameters _parameters, Integer height)
+  private RTaskPaneContainer taskPaneContainer;
+
+  /**
+   * Constructs a new TaskPane object.
+   * 
+   * @param panel dynamic dialog panel
+   * @param parentContainer parent container
+   * @param parameters parameters
+   * @param index position when component is in a list
+   */
+  protected TaskPane(DynamicDialogPanel panel, ComplexComponent parentContainer,
+          TaskPaneParameters parameters, int index)
   {
-    super(panel, parentContainer, ulcContainer, _parameters, height);
-
-    parameters = _parameters;
+    super(panel, parentContainer, parameters, index);
   }
 
   @Override
-  protected void applyStyles()
+  protected final void applyComponentStyle()
   {
     gridBag.setStyle(getParameters().getInsideContainerStyle());
     taskPane.setStyle(getParameters().getContainerStyle());
+    if (taskPaneContainer != null)
+    {
+      taskPaneContainer.setStyle(getParameters().getContainerStyle());
+    }
+
+    setWeightX(taskPane);
   }
 
   @Override
-  public ULCComponent getLastMainComponent()
+  public final ULCComponent getLastMainComponent()
   {
     return getMainComponent();
   }
 
   @Override
-  public ULCComponent getMainComponent()
+  public final ULCComponent getMainComponent()
   {
     return taskPane;
   }
 
   @Override
-  public TaskPaneParameters getParameters()
+  public final TaskPaneParameters getParameters()
   {
-    return (TaskPaneParameters) parameters;
+    return (TaskPaneParameters) getComponentParameters();
   }
 
   @Override
-  public ULCContainer getUlcContainer()
+  public final ULCContainer getUlcContainer()
   {
     return gridBag;
   }
 
   @Override
-  public void initialize(Position pos, Container previousContainer)
+  protected final void initialize(final Position pos, ComplexComponent previousContainer)
   {
-    super.initialize(pos, previousContainer);
-
-    RTaskPaneContainer taskPaneContainer;
+    RTaskPaneContainer usedTaskPaneContainer;
     ULCContainer container;
 
-    taskPaneContainer = null;
+    usedTaskPaneContainer = null;
     if (previousContainer != null)
     {
       // Get the GridBagLayout
@@ -83,54 +95,104 @@ public class TaskPane extends Container
           container = container.getParent();
           if (container instanceof RTaskPaneContainer)
           {
-            taskPaneContainer = (RTaskPaneContainer) container;
+            usedTaskPaneContainer = (RTaskPaneContainer) container;
           }
         }
       }
     }
 
-    if (taskPaneContainer == null)
+    if (usedTaskPaneContainer == null)
     {
       GridBagConstraints constraints;
 
-      taskPaneContainer = new RTaskPaneContainer();
-      taskPaneContainer.setName(parameters.getName());
-
       constraints = new GridBagConstraints();
-
       constraints.setGridX(pos.getPosX());
       constraints.setGridY(pos.getPosY());
-      constraints.setGridWidth(3);
-      constraints.setGridHeight(height);
-      ulcContainer.add(taskPaneContainer, constraints);
+      constraints.setGridWidth(getParameters().getGridWidth() * GRID_BAG_COLUMN_WIDTH);
 
-      pos.setPosY(pos.getPosY() + 1 + height);
+      usedTaskPaneContainer = getTaskPaneContainer();
+      getParentContainer().add(usedTaskPaneContainer, constraints);
+
+      pos.setPosY(pos.getPosY() + 1);
     }
 
-    taskPane = new RTaskPane();
-    taskPane.setTitle(getParameters().getTitle());
-    taskPane.setName(parameters.getName());
-    taskPaneContainer.add(taskPane);
-
-    gridBag = new RGridBagLayoutPane();
-    gridBag.setName(parameters.getName());
-    taskPane.add(gridBag);
-
-    ulcComponents.add(taskPane);
-    ulcComponents.add(gridBag);
+    usedTaskPaneContainer.add(getTaskPane());
 
     super.initialize(pos);
   }
 
+  private RGridBagLayoutPane getGridBag()
+  {
+    if (gridBag == null)
+    {
+      gridBag = new VisualDebugGridBagLayoutPane();
+      gridBag.setName(getParameters().getName() + "GridBag");
+
+      getUlcComponents().add(gridBag);
+    }
+    return gridBag;
+  }
+
+  private RTaskPane getTaskPane()
+  {
+    if (taskPane == null)
+    {
+      taskPane = new RTaskPane();
+      taskPane.setTitle(getParameters().getTitle());
+      taskPane.setName(getParameters().getName() + "TaskPane");
+
+      taskPane.add(getGridBag());
+
+      getUlcComponents().add(taskPane);
+    }
+    return taskPane;
+  }
+
+  private RTaskPaneContainer getTaskPaneContainer()
+  {
+    if (taskPaneContainer == null)
+    {
+      taskPaneContainer = new RTaskPaneContainer();
+      taskPaneContainer.setName(getParameters().getName() + "TaskPaneContainer");
+
+      // TODO Add property to manage setSingleTaskPaneOpen
+    }
+    return taskPaneContainer;
+  }
+
   @Override
-  public boolean isFocusable()
+  public final boolean isFocusable()
   {
     return taskPane.isFocusable();
   }
 
   @Override
-  public void setFocusable(boolean b)
+  public final void setFocusable(boolean b)
   {
     taskPane.setFocusable(b);
+  }
+
+  @Override
+  public final void setLabel(String value)
+  {
+    taskPane.setTitle(value);
+  }
+
+  @Override
+  public final String getLabel()
+  {
+    return taskPane.getTitle();
+  }
+
+  @Override
+  protected final boolean useParentContainer()
+  {
+    return false;
+  }
+
+  @Override
+  protected final Position getStartPos(Position pos)
+  {
+    return new Position();
   }
 }

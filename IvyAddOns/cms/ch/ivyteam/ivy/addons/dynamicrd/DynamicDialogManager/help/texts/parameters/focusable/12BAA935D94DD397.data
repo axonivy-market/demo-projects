@@ -1,0 +1,2 @@
+If <span class="constant">false</span>, the component can not receive the focus.<br />
+The default value is <span class="constant">true</span>

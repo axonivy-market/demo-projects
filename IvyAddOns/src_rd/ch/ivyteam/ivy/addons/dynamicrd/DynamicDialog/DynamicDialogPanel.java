@@ -1,349 +1,672 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.Component;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentFactory;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ComponentParameters;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.Container;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.ContainerParameters;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.FieldComponent;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.Position;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.StaticRelation;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.DataClassAttributeDetail;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.RuntimeRelations;
+import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.DynamicDialogCacheEntry;
+import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.Invocation;
+import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.TreeNode;
+import ch.ivyteam.ivy.addons.util.AddonsException;
 import ch.ivyteam.ivy.addons.util.StringUtil;
-import ch.ivyteam.ivy.addons.xmlserialization.SerializeDataClass;
+import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.richdialog.exec.IRichDialogContext;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
-import ch.ivyteam.ivy.richdialog.rdpanels.BinaryRichDialogGridBagPanel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
-import ch.ivyteam.ivy.scripting.objects.CompositeObject;
+import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
 
-import com.ulcjava.base.application.GridBagConstraints;
-import com.ulcjava.base.application.ULCContainer;
+import com.ulcjava.base.application.ULCComponent;
+import com.ulcjava.base.application.ULCFrame;
+import com.ulcjava.base.application.ULCRootPane;
+import com.ulcjava.base.application.event.FocusEvent;
+import com.ulcjava.base.application.event.IFocusListener;
+import com.ulcjava.base.application.util.Dimension;
 
 /**
- * NOTE: This is a binary RichDialog. It is not intended to be loaded and/or edited
- * with the VisualEditor.
+ * RichDialog panel implementation for DynamicDialogNewPanel.
+ * 
+ * @author <%=author%>
+ * @since <%=date%>
  */
-public class DynamicDialogPanel 
-extends BinaryRichDialogGridBagPanel 
-implements IRichDialogPanel
+public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichDialogPanel
 {
-  private static final long serialVersionUID = 845523074893733115L;
+  private Map<String, Component> componentMap;
 
-  private RuntimeRelations runtimeRelations = null; // @jve:decl-index=0:
+  private List<Component> componentList;
 
-  private StaticRelation staticRelation = null;
+  private List<String> cmsContext;
 
+  private Class ddObjectClass; // @jve:decl-index=0:
+
+  private TreeNode<ComponentParameters> parameterTree;
+
+  private IRichDialogContext rdContext; // @jve:decl-index=0:
+
+  private String dbConfig;
+
+  private String prefix;
+
+  private String ddMethodParameter;
+
+  private Set<String> controllers;
+
+  /** Serial version id */
+  private static final long serialVersionUID = 1L;
+
+  private RButton closeButton = null;
+
+  private RButton reloadButton = null;
+
+  private Class<? extends Object> clazz;
+
+  private RCardDisplay controllerCardDisplay = null;
+
+  private List<IRichDialogPanel> dialogPanels = null;
+
+  private Map<String, Object> inexistantAttributeValues;
+
+  private ULCComponent focusReceiverComponent;
+
+  private Map<String, Class<?>> classMap;
+
+  /**
+   * Create a new instance of DynamicDialogPanel
+   */
   public DynamicDialogPanel()
   {
     super();
+
+    controllers = new HashSet<String>();
+    inexistantAttributeValues = new HashMap<String, Object>();
+
+    initialize();
   }
 
-  private void constructUI(Container parentContainer, ULCContainer ulcContainer, boolean useParentContainer,
-          Position pos, List<DataClassAttributeDetail> attributeDetails)
+  /**
+   * This method initializes DynamicDialogNewPanel
+   * 
+   * @return void
+   */
+  private void initialize()
   {
-    Component lastComponent;
-    FieldComponent fieldComponent;
-    ComponentParameters parameters;
-    Container container;
-    RuntimeRelations.RuntimeRelationItem relation;
+    this.setStyleProperties("{/weightY \"1\"/weightX \"1\"}");
 
-    if (!useParentContainer || pos == null)
+    this.add(getCloseButton(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1,
+            com.ulcjava.base.application.GridBagConstraints.CENTER,
+            com.ulcjava.base.application.GridBagConstraints.NONE,
+            new com.ulcjava.base.application.util.Insets(0, 0, 0, 0), 0, 0));
+    this.add(getReloadButton(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1,
+            com.ulcjava.base.application.GridBagConstraints.CENTER,
+            com.ulcjava.base.application.GridBagConstraints.NONE,
+            new com.ulcjava.base.application.util.Insets(0, 0, 0, 0), 0, 0));
+    this.add(getControllerDisplay(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1,
+            com.ulcjava.base.application.GridBagConstraints.CENTER,
+            com.ulcjava.base.application.GridBagConstraints.NONE,
+            new com.ulcjava.base.application.util.Insets(0, 0, 0, 0), 0, 0));
+  }
+
+  public void start(Object value, IRichDialogContext rdContext, DynamicDialogCacheEntry entry)
+          throws AddonsException
+  {
+    this.ddObjectClass = value.getClass();
+    this.rdContext = rdContext;
+
+    this.cmsContext = entry.getCmsContexts();
+    this.classMap = entry.getClassMap();
+    this.dbConfig = entry.getDbConfig();
+    this.parameterTree = entry.getParameterTree();
+
+    constructUI(value);
+
+    ULCRootPane root;
+    ULCFrame frame;
+
+    this.getParent().setPreferredSize(this.getPreferredSize());
+    root = this.getRootPane();
+
+    if (root instanceof ULCFrame)
     {
-      pos = new Position();
+      frame = (ULCFrame) root;
+      if (frame.getSize().equals(new Dimension(0, 0)))
+      {
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+      }
+    }
+  }
+
+  @Deprecated
+  public void start(String prefix, Object value, StaticRelation staticRelation, IRichDialogContext rdContext)
+          throws AddonsException
+  {
+    ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.StaticRelation.Item item;
+
+    this.prefix = prefix;
+    this.ddObjectClass = value.getClass();
+    this.rdContext = rdContext;
+
+    item = staticRelation.get(prefix);
+    this.cmsContext = item.cmsContexts;
+    this.parameterTree = item.attributeDetail;
+    this.dbConfig = item.dbConfig;
+
+    constructUI(value);
+  }
+  
+  public static DynamicDialogCacheEntry constructParameters(Class clazz, List<String> cmsContext,
+          String defaultDBConfig, String prefix, final Map<String, Class<?>> classMap)
+  {
+    TreeNode<ComponentParameters> parameterTree;
+    try
+    {
+      parameterTree = DynamicDialogParametersBuilder.build(clazz, cmsContext,
+              new ArrayList<TreeNode<ComponentParameters>>(), defaultDBConfig, prefix, classMap);
+    }
+    catch (AddonsException e)
+    {
+      throw new DynamicDialogException(e);
     }
 
-    lastComponent = null;
-    for (DataClassAttributeDetail attributeDetail : attributeDetails)
+    return new DynamicDialogCacheEntry(defaultDBConfig, parameterTree, cmsContext, classMap, clazz);
+  }
+
+  private void constructUI(Object value) throws AddonsException
+  {
+    clazz = value.getClass();
+    componentMap = new HashMap<String, Component>();
+    componentList = new ArrayList<Component>();
+
+    add(getFocusReceiverComponent());
+
+    controllers.clear();
+    this.getControllerDisplay().removeAll();
+
+    DynamicDialogBuilder.build(parameterTree, this, new Position(0, 1), componentMap, componentList, -1);
+
+    for (String controller : controllers)
     {
-      relation = runtimeRelations.get(attributeDetail.fullName);
-
-      parameters = staticRelation.get(attributeDetail.fullName).getComponentParameters();
-
-      if (parameters.isContainer())
+      try
       {
-        if (parameters.isNewColumn())
-        {
-          parentContainer.newColumn(pos);
-        }
-        container = ComponentFactory.CreateContainer(this, parentContainer, ulcContainer,
-                (ContainerParameters) parameters, 1);
-
-        if (relation != null)
-        {
-          relation.component = container;
-        }
-
-        container.initialize(pos,
-                lastComponent != null && lastComponent instanceof Container ? (Container) lastComponent
-                        : null);
-
-        constructUI(container, container.getUlcContainer(), container.useParentContainer(), pos,
-                attributeDetail.children);
-
-        lastComponent = container;
+        this.getPanelAPI().callMethod("loadController", new Object[] {controller});
       }
-      else
+      catch (InvocationTargetException e)
       {
-        fieldComponent = ComponentFactory.CreateComponent(this, parentContainer, ulcContainer, parameters);
+        throw new DynamicDialogException(e);
+      }
+      catch (NoSuchMethodException e)
+      {
+        throw new DynamicDialogException(e);
+      }
+    }
 
-        if (fieldComponent != null)
+    callInit(componentList);
+
+    applyStyles(componentList);
+    setTabulationOrder();
+
+    setDDValue(value);
+
+    callPostStartup(componentList);
+  }
+
+  private ULCComponent getFocusReceiverComponent()
+  {
+    if (focusReceiverComponent == null)
+    {
+      focusReceiverComponent = new RButton();
+      focusReceiverComponent.setPreferredSize(new Dimension(0, 0));
+      focusReceiverComponent.addFocusListener(new IFocusListener()
         {
-          fieldComponent.initialize(pos);
+          private static final long serialVersionUID = 7951844947976547151L;
 
-          if (relation != null)
+          public void focusGained(FocusEvent arg0)
           {
-            relation.component = fieldComponent;
+            // Nothing to do
           }
 
-          // dynamicRelation.setValue(relation);
-          // component.setValue(attributeDetail.read.invoke(relation.getTargetObject(),
-          // new Object[] {}));
+          public void focusLost(FocusEvent arg0)
+          {
+            focusReceiverComponent.setFocusable(false);
+            focusReceiverComponent.setVisible(false);
+          }
+        });
+    }
+    return focusReceiverComponent;
+  }
+
+  public void applyStyles(List<Component> componentList)
+  {
+    for (Component component : componentList)
+    {
+      component.applyStyles();
+    }
+  }
+
+  private void construct(Object value) throws AddonsException
+  {
+    parameterTree = constructParameters(ddObjectClass, cmsContext, dbConfig, prefix, classMap)
+            .getParameterTree();
+    constructUI(value);
+  }
+
+  public void setTabulationOrder()
+  {
+    // Doesn't work if there is a DatePicker
+    // Component last;
+    //
+    // last = null;
+    // for (Component component : componentList)
+    // {
+    // if (component.isFocusable())
+    // {
+    // if (last != null)
+    // {
+    // last.getLastMainComponent().setNextFocusableComponent(component.getMainComponent());
+    // }
+    // last = component;
+    // }
+    // }
+  }
+
+  protected void callInit(List<Component> componentList)
+  {
+    for (Component component : componentList)
+    {
+      if (component.isMethodCallAllowed())
+      {
+        if (component instanceof FieldComponent)
+        {
+          FieldComponent fieldComponent;
+
+          fieldComponent = (FieldComponent) component;
+
+          if (!fieldComponent.getDefaultValue().equals(""))
+          {
+            fieldComponent.useDefaultValue();
+          }
+        }
+        if (!component.getParameters().getInitMethod().equals(""))
+        {
+          component.init();
         }
       }
     }
-    // finalizeContainer(pos, ulcContainer, useParentContainer);
   }
 
-  private void constructUI(DataClassAttributeDetail attributeDetail)
+  private void callPostStartup(List<Component> componentList)
   {
-    ArrayList<DataClassAttributeDetail> attributeDetails;
-
-    attributeDetails = new ArrayList<DataClassAttributeDetail>();
-
-    attributeDetails.add(attributeDetail);
-
-    constructUI(null, this, false, null, attributeDetails);
-  }
-
-  public Component getComponent(String fullName)
-  {
-    Component component;
-    RuntimeRelations.RuntimeRelationItem relation;
-
-    fullName = StringUtil.cleanUpPath(fullName);
-
-    component = null;
-    if (!fullName.equals(""))
+    for (Component component : componentList)
     {
-      relation = runtimeRelations.get(fullName);
-      if (relation != null)
+      if (component.isMethodCallAllowed())
       {
-        component = relation.component;
+        if (!component.getParameters().getPostStartupMethod().equals(""))
+        {
+          component.postStartup();
+        }
       }
     }
-    return component;
   }
 
-  public CompositeObject getValue()
+  public void setDDValue(Object value) throws AddonsException
   {
-    return runtimeRelations == null ? null : runtimeRelations.getValue();
+    setDDValue(value, false);
   }
 
-  public FieldComponent getFieldComponent(String fullName)
+  private void setDDValue(Object value, boolean construction) throws AddonsException
+  {
+    DynamicDialogMapper.setValue(value, componentMap, inexistantAttributeValues, getPrefix(), !construction,
+            getClassMap());
+  }
+
+  public void reload() throws AddonsException
+  {
+    Object value;
+    value = getDDValue();
+    for (ULCComponent c : getComponents())
+    {
+      if (c != getCloseButton() && c != getReloadButton())
+      {
+        this.remove(c);
+      }
+    }
+    construct(value);
+  }
+
+  public Object getDDValue()
+  {
+    return DynamicDialogMapper.getValue(componentMap, inexistantAttributeValues, ddObjectClass, getPrefix(),
+            getClassMap());
+  }
+
+  public Class getDDObjectClass()
+  {
+    return this.ddObjectClass;
+  }
+
+  public String getPrefix()
+  {
+    return prefix == null ? "" : prefix;
+  }
+
+  public String[] getCmsContext()
+  {
+    return cmsContext.toArray(new String[] {});
+  }
+
+  public Component getDDComponent(String fullName)
+  {
+    return componentMap.get(StringUtil.cleanUpPath(fullName));
+  }
+
+  public FieldComponent getDDFieldComponent(String fullName)
   {
     Component component;
     FieldComponent fieldComponent;
 
     fieldComponent = null;
-    component = getComponent(fullName);
-    if (component != null && component instanceof FieldComponent)
+
+    component = getDDComponent(fullName);
+    if (component instanceof FieldComponent)
     {
       fieldComponent = (FieldComponent) component;
     }
+
     return fieldComponent;
   }
 
-  protected void invokePostInitialisationMethods(List<DataClassAttributeDetail> attributeDetails)
+  public Boolean isDDValid()
   {
-    RuntimeRelations.RuntimeRelationItem relation;
-    FieldComponent fieldComponent;
-    Component component;
+    return validate(false, false);
+  }
 
-    if (attributeDetails != null)
+  public Boolean isDDBlocked()
+  {
+    return !validate(true, false);
+  }
+
+  public void ddValidate()
+  {
+    validate(false, false);
+  }
+
+  public Boolean isDDValid(String prefix)
+  {
+    return validate(false, false, prefix);
+  }
+
+  public Boolean isDDBlocked(String prefix)
+  {
+    return !validate(true, false, prefix);
+  }
+
+  public void ddValidate(String prefix)
+  {
+    validate(false, false, prefix);
+  }
+
+  protected void clearDDValidation(String prefix)
+  {
+    for (Component component : componentList)
     {
-      for (DataClassAttributeDetail attribute : attributeDetails)
+      if (component.getFullName().startsWith(prefix))
       {
-        relation = runtimeRelations.get(attribute.fullName);
-        if (relation != null)
+        if (component instanceof FieldComponent)
         {
-          invokePostInitialisationMethods(attribute.children);
+          FieldComponent fieldComponent = (FieldComponent) component;
 
-          component = relation.component;
-          if (component != null)
+          fieldComponent.clearValidation();
+          fieldComponent.updateIconAndBackground(true);
+        }
+      }
+    }
+  }
+
+  protected void requestFocus(String prefix)
+  {
+    for (Component component : componentList)
+    {
+      if (component.getFullName().startsWith(prefix))
+      {
+        if (component instanceof FieldComponent)
+        {
+          FieldComponent fieldComponent = (FieldComponent) component;
+
+          fieldComponent.requestFocus();
+          break;
+        }
+      }
+    }
+  }
+
+  public void setDDFocusOnFirstError()
+  {
+    validate(false, true);
+  }
+
+  private Boolean validate(boolean checkBlocking, boolean setFocus)
+  {
+    return validate(checkBlocking, setFocus, "");
+  }
+
+  private Boolean validate(boolean checkBlocking, boolean setFocus, String prefix)
+  {
+    Boolean result;
+
+    result = true;
+    for (Component component : componentList)
+    {
+      if (component.getFullName().startsWith(prefix))
+      {
+        if (component instanceof FieldComponent)
+        {
+          FieldComponent fieldComponent = (FieldComponent) component;
+
+          if (fieldComponent.isVisible() && !fieldComponent.validate())
           {
-            component.init();
+            result = checkBlocking ? !fieldComponent.getParameters().isValidationBlocking() : false;
+
+            if (!result && setFocus)
+            {
+              fieldComponent.requestFocus();
+            }
           }
-          fieldComponent = relation.getFieldComponent();
-          if (fieldComponent != null)
+        }
+      }
+    }
+    return result;
+  }
+
+  protected IRichDialogContext getRdContext()
+  {
+    return rdContext;
+  }
+
+  public void setDefaultDBConfig(String dbConfig)
+  {
+    this.dbConfig = dbConfig;
+  }
+
+  public String getDefaultDBConfig()
+  {
+    return dbConfig;
+  }
+
+  public void clearDDMethodParameter()
+  {
+    ddMethodParameter = null;
+  }
+
+  public void setDDMethodParameter(String s)
+  {
+    ddMethodParameter = s;
+
+  }
+
+  public String getDDMethodParameter()
+  {
+    return ddMethodParameter;
+  }
+
+  // public void dispose()
+  // {
+  // ULCFrame frame;
+  // ULCRootPane root;
+  //
+  // root = this.getRootPane();
+  //
+  // root.setName("root");
+  // if (root instanceof ULCFrame)
+  // {
+  // frame = (ULCFrame) root;
+  // frame.setName("frame");
+  // frame.dispose();
+  // }
+  // }
+
+  /**
+   * This method initializes closeButton
+   * 
+   * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton
+   */
+  public RButton getCloseButton()
+  {
+    if (closeButton == null)
+    {
+      closeButton = new RButton();
+      closeButton.setText("closeButton");
+      closeButton.setName("closeButton");
+      closeButton.setPreferredSize(new Dimension(0, 0));
+      closeButton.setVisible(false);
+    }
+    return closeButton;
+  }
+
+  /**
+   * This method initializes Button
+   * 
+   * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton
+   */
+  public RButton getReloadButton()
+  {
+    if (reloadButton == null)
+    {
+      reloadButton = new RButton();
+      reloadButton.setText("reloadButton");
+      reloadButton.setName("reloadButton");
+      reloadButton.setPreferredSize(new Dimension(0, 0));
+      reloadButton.setVisible(false);
+    }
+    return reloadButton;
+  }
+
+  protected Map<String, Component> getComponentMap()
+  {
+    return componentMap;
+  }
+
+  protected Map<String, Component> getComponentParameterMap()
+  {
+    return componentMap;
+  }
+
+  public List<Component> getComponentList()
+  {
+    return componentList;
+  }
+
+  public Class<?> getDisplayedClass()
+  {
+    return clazz;
+  }
+
+  /**
+   * This method initializes CardDisplay
+   * 
+   * @return ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay
+   */
+  public RCardDisplay getControllerDisplay()
+  {
+    if (controllerCardDisplay == null)
+    {
+      controllerCardDisplay = new RCardDisplay();
+      controllerCardDisplay.setDisplayId("DDControllerDisplay");
+      controllerCardDisplay.setVisible(false);
+      controllerCardDisplay.setName("controllerCardDisplay");
+    }
+    return controllerCardDisplay;
+  }
+
+  protected void addController(String controller)
+  {
+    if (controller != null && !controller.equals(""))
+    {
+      controllers.add(controller);
+    }
+  }
+
+  protected void invoke(String method, String fullName)
+  {
+    Object[] params;
+    String[] splitResult;
+
+    if (method != null && !method.equals(""))
+    {
+      if (dialogPanels == null)
+      {
+        dialogPanels = Invocation.getInvocationTargets(this);
+      }
+
+      clearDDMethodParameter();
+      if (method.contains(":"))
+      {
+        splitResult = method.split(":", 2);
+        setDDMethodParameter(splitResult[1]);
+        method = splitResult[0];
+      }
+      try
+      {
+        params = new Object[] {this, fullName};
+        Invocation.invoke(method, params, dialogPanels);
+      }
+      catch (InvocationTargetException e)
+      {
+        try
+        {
+          params = new Object[] {fullName};
+          Invocation.invoke(method, params, dialogPanels);
+        }
+        catch (InvocationTargetException e2)
+        {
+          try
           {
-            fieldComponent.valueChanged();
+            Invocation.invoke(method, new Object[0], dialogPanels);
+          }
+          catch (InvocationTargetException e3)
+          {
+            Ivy.log().debug("Unable to invoke method : " + method);
           }
         }
       }
     }
   }
 
-  public Boolean isBlocked()
+  protected final Map<String, Object> getInexistantAttributeValues()
   {
-    return validateAndFocus(runtimeRelations.getRootStaticRelation().getAttributeDetail().children, false)[1];
+    return inexistantAttributeValues;
   }
 
-  public Boolean isValid()
+  public Map<String, Class<?>> getClassMap()
   {
-    return validateAndFocus(runtimeRelations.getRootStaticRelation().getAttributeDetail().children, false)[0];
+    return classMap;
   }
 
-  public void serializeXML(String fileName)
+  public TreeNode<ComponentParameters> getParameterTree()
   {
-    SerializeDataClass s;
-
-    s = new SerializeDataClass(runtimeRelations.getStaticRelation());
-
-    s.serializeXML(getValue(), runtimeRelations.getAttributeDetail());
-    s.saveDocument(fileName);
-  }
-
-  public void setFocus()
-  {
-    getNextFocusableComponent().requestFocus();
-  }
-
-  public void setFocusOnFirstError()
-  {
-    validateAndFocus(runtimeRelations.getRootStaticRelation().getAttributeDetail().children, true);
-  }
-
-  public void setValue(CompositeObject object)
-  {
-    runtimeRelations.setValue(object.deepClone());
-  }
-
-  public void start()
-  {
-  }
-
-  public void start(CompositeObject object, ch.ivyteam.ivy.scripting.objects.List<String> cmsContext)
-  {
-    start(object, cmsContext, null);
-  }
-
-  public void start(CompositeObject object, ch.ivyteam.ivy.scripting.objects.List<String> cmsContext,
-          String databaseConfiguration)
-  {
-    StaticRelation staticRelation;
-    String fullName;
-
-    fullName = "Object";
-
-    staticRelation = new StaticRelation();
-
-    staticRelation.create(object, fullName, cmsContext, databaseConfiguration);
-
-    start(fullName, object, staticRelation);
-  }
-
-  public void start(String fullName, CompositeObject object, StaticRelation _staticRelation)
-  {
-    GridBagConstraints constraints;
-    RFiller filler;
-
-    fullName = StringUtil.cleanUpPath(fullName);
-
-    runtimeRelations = new RuntimeRelations(fullName, _staticRelation);
-
-    runtimeRelations.linkObjectToRelation(object.deepClone());
-
-    staticRelation = _staticRelation;
-
-    constraints = new GridBagConstraints();
-    constraints.setGridX(0);
-    constraints.setGridY(0);
-    constraints.setGridWidth(3);
-    constraints.setWeightX(1);
-    filler = new RFiller();
-    add(filler, constraints);
-
-    // constructUI(null, this, false, null, dynamicRelation
-    // .getRootStaticRelation().getAttributeDetail().children);
-    constructUI(runtimeRelations.getRootStaticRelation().getAttributeDetail());
-
-    invokePostInitialisationMethods(runtimeRelations.getRootStaticRelation().getAttributeDetail().children);
-  }
-
-  public Boolean[] validate()
-  {
-    return validateAndFocus(runtimeRelations.getRootStaticRelation().getAttributeDetail().children, false);
-  }
-
-  protected Boolean[] validateAndFocus(DataClassAttributeDetail attributeDetail, boolean setFocus)
-  {
-    RuntimeRelations.RuntimeRelationItem relation;
-    FieldComponent fieldComponent;
-    Boolean isValid;
-    Boolean isBlocked;
-
-    isValid = true;
-    isBlocked = false;
-
-    if (attributeDetail != null)
-    {
-      relation = runtimeRelations.get(attributeDetail.fullName);
-      if (relation != null)
-      {
-        fieldComponent = relation.getFieldComponent();
-        if (fieldComponent != null)
-        {
-          isValid = fieldComponent.validate();
-
-          isBlocked = !isValid && fieldComponent.getParameters().isValidationBlocking();
-
-          if (!isValid && setFocus)
-          {
-            fieldComponent.setFocus();
-          }
-        }
-      }
-    }
-
-    return new Boolean[] {isValid, isBlocked};
-  }
-
-  protected Boolean[] validateAndFocus(List<DataClassAttributeDetail> attributeDetails, boolean setFocus)
-  {
-    Boolean isValid;
-    Boolean isBlocked;
-    RuntimeRelations.RuntimeRelationItem relation;
-    Component component;
-    Boolean[] temp;
-
-    isValid = true;
-    isBlocked = false;
-
-    if (attributeDetails != null)
-    {
-      for (DataClassAttributeDetail attribute : attributeDetails)
-      {
-        relation = runtimeRelations.get(attribute.fullName);
-        if (relation != null)
-        {
-          component = relation.component;
-          if (component != null && component.isVisible())
-          {
-            temp = validateAndFocus(attribute.children, setFocus);
-            isValid &= temp[0];
-            isBlocked |= temp[1];
-
-            temp = validateAndFocus(attribute, setFocus);
-            isValid &= temp[0];
-            isBlocked |= temp[1];
-          }
-        }
-      }
-    }
-    return new Boolean[] {isValid, isBlocked};
+    return parameterTree;
   }
 }

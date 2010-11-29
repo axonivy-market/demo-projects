@@ -8,12 +8,8 @@ import ch.ivyteam.ivy.scripting.objects.Date;
 import ch.ivyteam.ivy.scripting.objects.DateTime;
 import ch.ivyteam.ivy.scripting.objects.Duration;
 import ch.ivyteam.ivy.scripting.objects.Time;
-import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel;
 
-import com.ulcjava.base.application.GridBagConstraints;
 import com.ulcjava.base.application.ULCComponent;
-import com.ulcjava.base.application.ULCContainer;
-import com.ulcjava.base.application.ULCScrollPane;
 import com.ulcjava.base.application.event.IKeyListener;
 import com.ulcjava.base.application.event.KeyEvent;
 
@@ -26,49 +22,49 @@ import com.ulcjava.base.application.event.KeyEvent;
 public class TextArea extends FieldComponent
 {
 
-  protected boolean firstValidation = true;
+  private boolean firstValidation = true;
 
-  protected RScrollPane scrollPane = null;
+  private RScrollPane scrollPane = null;
 
-  protected RTextArea textArea = null;
+  private RTextArea textArea = null;
 
-  public TextArea(DynamicDialogPanel panel, Container parentContainer, ULCContainer ulcContainer,
-          TextAreaParameters _parameters)
+  /**
+   * Constructs a new TextArea object.
+   * 
+   * @param panel dynamic dialog panel
+   * @param parentContainer parent container
+   * @param parameters parameters
+   * @param index position when component is in a list
+   */
+  protected TextArea(DynamicDialogPanel panel, ComplexComponent parentContainer,
+          TextAreaParameters parameters, int index)
   {
-    super(panel, parentContainer, ulcContainer, _parameters);
-
-    parameters = _parameters;
+    super(panel, parentContainer, parameters, index);
   }
 
   @Override
-  public void focusGained(String method)
-  {
-    super.focusGained(method);
-  }
-
-  @Override
-  public void focusLost(String method)
+  public final void focusLost()
   {
     validate();
-    super.focusLost(method);
+    super.focusLost();
   }
 
   @Override
-  public ULCComponent getLastMainComponent()
+  public final ULCComponent getLastMainComponent()
   {
     return getMainComponent();
   }
 
   @Override
-  public ULCComponent getMainComponent()
+  public final ULCComponent getMainComponent()
   {
     return textArea;
   }
 
   @Override
-  public TextAreaParameters getParameters()
+  public final TextAreaParameters getParameters()
   {
-    return (TextAreaParameters) parameters;
+    return (TextAreaParameters) getComponentParameters();
   }
 
   private RScrollPane getScrollPane()
@@ -78,21 +74,21 @@ public class TextArea extends FieldComponent
       scrollPane = new RScrollPane();
       scrollPane.setName("ScrollPane");
       scrollPane.setFocusable(false);
-      scrollPane.setHorizontalScrollBarPolicy(ULCScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-      // scrollPane.setBackground(new Color(244, 247, 255));
       scrollPane.setViewPortView(getTextArea());
+
+      getUlcComponents().add(scrollPane);
     }
     return scrollPane;
   }
 
   @Override
-  public String[] getSelectedRecord()
+  public final String[] getSelectedRecord()
   {
     return null;
   }
 
   @Override
-  public String getText()
+  public final String getText()
   {
     return getValueAsString();
   }
@@ -104,48 +100,69 @@ public class TextArea extends FieldComponent
     if (textArea == null)
     {
       textArea = new RTextArea();
-      textArea.setName(parameters.getName() + "TextField");
+      textArea.setName(getParameters().getName() + "TextField");
 
-      rows = getParameters().rows;
+      rows = getParameters().getRows();
 
       if (rows == 0)
       {
         rows = 3;
       }
       textArea.setRows(rows);
-      // TODO Actually setLineWrap(true) produces some scrollpane side effect. An issue is open to IvyTeam.
-      // textArea.setLineWrap(true);
+      // TODO Actually line wrap produces some scrollpane side effect.
+      // See issue #19939
+      // set line wrap to true true;
 
+      textArea.addValueChangedListener(new ValueChangedListener(this, false));
+
+      textArea.addFocusListener(new FocusListener(this));
+
+      // It seems that without this listener the ValueChangedListener is not
+      // invoked when something is typed inside the textfield
+      textArea.addKeyListener(new IKeyListener()
+        {
+          private static final long serialVersionUID = -3251482348103155014L;
+
+          /**
+           * {@inheritDoc}
+           */
+          public void keyTyped(KeyEvent arg0)
+          {
+            // Nothing
+          }
+        });
+
+      getUlcComponents().add(textArea);
     }
     return textArea;
   }
 
   @Override
-  public Object getValue()
+  public final Object getValue()
   {
     return getValueAsString();
   }
 
   @Override
-  public Date getValueAsDate()
+  public final Date getValueAsDate()
   {
     return null;
   }
 
   @Override
-  public DateTime getValueAsDateTime()
+  public final DateTime getValueAsDateTime()
   {
     return new DateTime(getValueAsString());
   }
 
   @Override
-  public Duration getValueAsDuration()
+  public final Duration getValueAsDuration()
   {
     return new Duration(getValueAsNumber().longValue());
   }
 
   @Override
-  public Number getValueAsNumber()
+  public final Number getValueAsNumber()
   {
     Integer value;
 
@@ -164,51 +181,25 @@ public class TextArea extends FieldComponent
   }
 
   @Override
-  public String getValueAsString()
+  public final String getValueAsString()
   {
     return textArea.getText();
   }
 
   @Override
-  public Time getValueAsTime()
+  public final Time getValueAsTime()
   {
     return new Time(getValueAsString());
   }
 
   @Override
-  public void initialize(Position pos)
+  public final Boolean getValueAsBoolean()
   {
-    GridBagConstraints constraints;
+    String s;
 
-    constraints = new GridBagConstraints();
-    constraints.setGridX(pos.getPosX() + 1);
-    constraints.setGridY(pos.getPosY() + 0);
-    ulcContainer.add(getScrollPane(), constraints);
+    s = getValueAsString();
 
-    // container.add(getTextArea(), constraints);
-
-    ulcComponents.add(textArea);
-    ulcComponents.add(scrollPane);
-
-    super.initialize(pos);
-
-    textArea.addValueChangedListener(new ValueChangedListener(this, getParameters().getValueChangedMethod()));
-
-    textArea.addFocusListener(new FocusListener(this, getParameters().getFocusGainedMethod(), getParameters()
-            .getFocusLostMethod()));
-
-    // It seems that without this listener the ValueChangedListener is not
-    // invoked when something is typed inside the textfield
-    textArea.addKeyListener(new IKeyListener()
-      {
-        private static final long serialVersionUID = -3251482348103155014L;
-
-        public void keyTyped(KeyEvent arg0)
-        {
-          // Nothing
-
-        }
-      });
+    return s.equals("") || s.equals("0") || s.equals("false") ? false : true;
   }
 
   private boolean inlineValidate()
@@ -216,11 +207,7 @@ public class TextArea extends FieldComponent
     boolean valid;
 
     valid = true;
-    if (firstValidation)
-    {
-      // Nothing to do
-    }
-    else
+    if (!firstValidation)
     {
       valid = validate();
     }
@@ -229,111 +216,133 @@ public class TextArea extends FieldComponent
   }
 
   @Override
-  public boolean isFocusable()
+  public final boolean isFocusable()
   {
     return textArea.isFocusable();
   }
 
   @Override
-  public void setFocusable(boolean b)
+  public final void setFocusable(boolean b)
   {
     textArea.setFocusable(b);
   }
 
   @Override
-  public void setKeyValue(List<String[]> keyValue)
+  public final void setKeyValue(List<String[]> keyValue)
   {
     // Nothing to do
   }
 
   @Override
-  protected void applyStyles()
+  protected final void applyFieldStyles()
   {
-    super.applyStyles();
     textArea.setStyle(getParameters().getFieldStyle());
     scrollPane.setStyle(getParameters().getScrollPaneStyle());
+
+    setWeightX(scrollPane);
   }
 
   @Override
-  public void setValue(Object o, String text)
+  public final void setValue(Object o, String text)
   {
     // Nothing to do
   }
 
   @Override
-  public void setValueAsDate(Date d, String text)
+  public final void setValueAsDate(Date d, String text)
   {
     // Nothing to do
   }
 
   @Override
-  public void setValueAsDateTime(DateTime d, String text)
+  public final void setValueAsDateTime(DateTime d, String text)
   {
     // Nothing to do
   }
 
   @Override
-  public void setValueAsDuration(Duration d, String text)
+  public final void setValueAsDuration(Duration d, String text)
   {
     // Nothing to do
   }
 
   @Override
-  public void setValueAsNumber(Number n, String text)
+  public final void setValueAsNumber(Number n, String text)
   {
     setValueAsString(n.toString(), text);
   }
 
   @Override
-  public void setValueAsString(String s, String text)
+  public final void setValueAsString(String s, String text)
   {
     textArea.setText(s);
   }
 
   @Override
-  public void setValueAsTime(Time t, String text)
+  public final void setValueAsTime(Time t, String text)
   {
     // Nothing to do
   }
 
   @Override
-  public boolean validate()
+  public final void setValueAsBoolean(Boolean b, String text)
+  {
+    // Nothing to do
+  }
+
+  @Override
+  public final boolean validate()
   {
     String value;
     boolean result;
 
-    value = textArea.getText();
+    value = getTextArea().getText();
 
-    result = valid;
-    if (!isMandatory() && value.length() == 0)
+    if (value == null)
     {
-      // Nothing to do - the result is valid
-    }
-    else
-    {
-      // if (value.length() > getParameters().getMaxLength()) {
-      // valid = false;
-      // }
-      if (isMandatory() && value.length() == 0)
-      {
-        result = false;
-      }
-
-      firstValidation = false;
+      value = "";
     }
 
-    updateIcon(result);
+    result = isValid();
+    if (isMandatory() && value.length() == 0)
+    {
+      result = false;
+    }
 
-    firstValidation = false;
+    validationDone(result);
 
     return result;
   }
 
   @Override
-  protected void valueChanged(String method)
+  public final void valueChanged()
   {
     inlineValidate();
 
-    super.valueChanged(method);
+    super.valueChanged();
+  }
+
+  @Override
+  protected final ULCComponent getFieldComponent()
+  {
+    return getScrollPane();
+  }
+
+  @Override
+  protected final boolean isEditable()
+  {
+    return false;
+  }
+
+  @Override
+  protected void postInitializeField()
+  {
+    // Nothing to do
+  }
+
+  @Override
+  protected boolean isBackgroundColorChangedAllowed()
+  {
+    return true;
   }
 }
