@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Nov 30 10:05:35 CET 2010]
-125FE384C5BE80F0 3.14 #module
+[>Created: Tue Nov 30 16:18:38 CET 2010]
+125FE384C5BE80F0 3.15 #module
 >Proto >Proto Collection #zClass
 Fs0 FileChooserDialogProcess Big #zClass
 Fs0 RD #cInfo
@@ -224,10 +224,15 @@ Fs0 f16 expr out #txt
 Fs0 f16 100 60 100 92 #arcP
 Fs0 f17 targetWindow NEW:card: #txt
 Fs0 f17 targetDisplay TOP #txt
-Fs0 f17 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
-Fs0 f17 startMethod start() #txt
+Fs0 f17 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
+Fs0 f17 startMethod askQuestion(String,String,List<String>,String) #txt
 Fs0 f17 type ch.ivyteam.ivy.addons.filemanager.SimpleFileChooserDialog.SimpleFileChooserDialogData #txt
-Fs0 f17 requestActionDecl '<> param;' #txt
+Fs0 f17 requestActionDecl '<String icon, String question, List<String> buttons, String defaultButton> param;' #txt
+Fs0 f17 requestMappingAction 'param.icon="error";
+param.question=in.error;
+param.buttons=[ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/ok")];
+param.defaultButton=ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/ok");
+' #txt
 Fs0 f17 responseActionDecl 'ch.ivyteam.ivy.addons.filemanager.SimpleFileChooserDialog.SimpleFileChooserDialogData out;
 ' #txt
 Fs0 f17 responseMappingAction 'out=in;
