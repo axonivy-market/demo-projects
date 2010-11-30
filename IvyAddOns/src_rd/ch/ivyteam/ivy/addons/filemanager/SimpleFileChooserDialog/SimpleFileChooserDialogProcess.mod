@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Oct 11 14:31:24 CEST 2010]
-125FE384C5BE80F0 3.13 #module
+[>Created: Tue Nov 30 10:05:35 CET 2010]
+125FE384C5BE80F0 3.14 #module
 >Proto >Proto Collection #zClass
 Fs0 FileChooserDialogProcess Big #zClass
 Fs0 RD #cInfo
@@ -222,13 +222,12 @@ Fs0 f2 82 92 36 24 20 -2 #rect
 Fs0 f2 @|RichDialogProcessStepIcon #fIcon
 Fs0 f16 expr out #txt
 Fs0 f16 100 60 100 92 #arcP
+Fs0 f17 targetWindow NEW:card: #txt
 Fs0 f17 targetDisplay TOP #txt
-Fs0 f17 richDialogId ch.xpertline.common.ria.component.ErrorDialog #txt
-Fs0 f17 startMethod showError(String) #txt
+Fs0 f17 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
+Fs0 f17 startMethod start() #txt
 Fs0 f17 type ch.ivyteam.ivy.addons.filemanager.SimpleFileChooserDialog.SimpleFileChooserDialogData #txt
-Fs0 f17 requestActionDecl '<String errorMessage> param;' #txt
-Fs0 f17 requestMappingAction 'param.errorMessage=in.error;
-' #txt
+Fs0 f17 requestActionDecl '<> param;' #txt
 Fs0 f17 responseActionDecl 'ch.ivyteam.ivy.addons.filemanager.SimpleFileChooserDialog.SimpleFileChooserDialogData out;
 ' #txt
 Fs0 f17 responseMappingAction 'out=in;
@@ -237,11 +236,12 @@ Fs0 f17 windowConfiguration '{/title "<%=in.windowTitle%>"/width 400 /height 300
 Fs0 f17 isAsynch false #txt
 Fs0 f17 isInnerRd true #txt
 Fs0 f17 isDialog true #txt
+Fs0 f17 userContext '* ' #txt
 Fs0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>error</name>
-        <nameStyle>5,9
+        <nameStyle>5,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -444,15 +444,6 @@ Fs0 f36 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Fs0 f36 750 388 36 24 20 -2 #rect
 Fs0 f36 @|RichDialogProcessStepIcon #fIcon
-Fs0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>_uploadDone()</name>
-        <nameStyle>13,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f38 guid 128B94A86BA64AE4 #txt
 Fs0 f38 type ch.ivyteam.ivy.addons.filemanager.SimpleFileChooserDialog.SimpleFileChooserDialogData #txt
 Fs0 f38 method _uploadDone(ch.ivyteam.ivy.addons.filemanager.ReturnedMessage) #txt
@@ -463,6 +454,15 @@ Fs0 f38 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 Fs0 f38 inParameterMapAction 'out.returnedMessage=param.returnedMessage;
 ' #txt
 Fs0 f38 outParameterDecl '<> result;
+' #txt
+Fs0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>_uploadDone()</name>
+        <nameStyle>13,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
 ' #txt
 Fs0 f38 758 334 20 20 13 0 #rect
 Fs0 f38 @|RichDialogMethodStartIcon #fIcon
@@ -507,15 +507,6 @@ Fs0 f42 expr out #txt
 Fs0 f42 192 354 114 376 #arcP
 Fs0 f42 1 192 376 #addKink
 Fs0 f42 1 0.3039399518421458 0 0 #arcLabel
-Fs0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>_uploadError(ReturnedMessage)</name>
-        <nameStyle>29,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f43 guid 128B98EC4A8358F2 #txt
 Fs0 f43 type ch.ivyteam.ivy.addons.filemanager.SimpleFileChooserDialog.SimpleFileChooserDialogData #txt
 Fs0 f43 method _uploadError(ch.ivyteam.ivy.addons.filemanager.ReturnedMessage) #txt
@@ -526,6 +517,15 @@ Fs0 f43 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 Fs0 f43 inParameterMapAction 'out.returnedMessage=param.returnedMessage;
 ' #txt
 Fs0 f43 outParameterDecl '<> result;
+' #txt
+Fs0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>_uploadError(ReturnedMessage)</name>
+        <nameStyle>29,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
 ' #txt
 Fs0 f43 758 38 20 20 -45 -33 #rect
 Fs0 f43 @|RichDialogMethodStartIcon #fIcon
@@ -574,15 +574,6 @@ Fs0 f49 expr out #txt
 Fs0 f49 768 58 768 84 #arcP
 Fs0 f45 expr out #txt
 Fs0 f45 768 108 768 132 #arcP
-Fs0 f50 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>_askForOverwriteFiles(ReturnedMessage)</name>
-        <nameStyle>38,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f50 guid 128B9DC1608E56B4 #txt
 Fs0 f50 type ch.ivyteam.ivy.addons.filemanager.SimpleFileChooserDialog.SimpleFileChooserDialogData #txt
 Fs0 f50 method _askForOverwriteFiles(ch.ivyteam.ivy.addons.filemanager.ReturnedMessage) #txt
@@ -593,6 +584,15 @@ Fs0 f50 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 Fs0 f50 inParameterMapAction 'out.returnedMessage=param.returnedMessage;
 ' #txt
 Fs0 f50 outParameterDecl '<> result;
+' #txt
+Fs0 f50 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>_askForOverwriteFiles(ReturnedMessage)</name>
+        <nameStyle>38,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
 ' #txt
 Fs0 f50 934 38 20 20 13 0 #rect
 Fs0 f50 @|RichDialogMethodStartIcon #fIcon
@@ -724,15 +724,6 @@ Fs0 f65 542 606 20 20 13 0 #rect
 Fs0 f65 @|RichDialogProcessEndIcon #fIcon
 Fs0 f66 expr out #txt
 Fs0 f66 552 564 552 606 #arcP
-Fs0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>_uploadDone(List&lt;File&gt;)</name>
-        <nameStyle>23,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f67 guid 12B2DCF578593218 #txt
 Fs0 f67 type ch.ivyteam.ivy.addons.filemanager.SimpleFileChooserDialog.SimpleFileChooserDialogData #txt
 Fs0 f67 method _uploadDone(List<java.io.File>) #txt
@@ -744,10 +735,23 @@ Fs0 f67 inParameterMapAction 'out.returnedMessage.files=param.uploadedFiles;
 ' #txt
 Fs0 f67 outParameterDecl '<> result;
 ' #txt
+Fs0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>_uploadDone(List&lt;File&gt;)</name>
+        <nameStyle>23,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Fs0 f67 838 390 20 20 13 0 #rect
 Fs0 f67 @|RichDialogMethodStartIcon #fIcon
 Fs0 f68 expr out #txt
 Fs0 f68 838 400 786 400 #arcP
+Fs0 f69 guid 12B9B45F3E5AB46B #txt
+Fs0 f69 type ch.ivyteam.ivy.addons.filemanager.SimpleFileChooserDialog.SimpleFileChooserDialogData #txt
+Fs0 f69 method _close() #txt
+Fs0 f69 disableUIEvents false #txt
 Fs0 f69 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -755,10 +759,6 @@ Fs0 f69 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f69 guid 12B9B45F3E5AB46B #txt
-Fs0 f69 type ch.ivyteam.ivy.addons.filemanager.SimpleFileChooserDialog.SimpleFileChooserDialogData #txt
-Fs0 f69 method _close() #txt
-Fs0 f69 disableUIEvents false #txt
 Fs0 f69 558 54 20 20 13 0 #rect
 Fs0 f69 @|RichDialogMethodStartIcon #fIcon
 Fs0 f70 expr out #txt
