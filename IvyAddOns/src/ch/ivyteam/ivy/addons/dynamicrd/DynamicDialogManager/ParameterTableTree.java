@@ -267,7 +267,7 @@ class ParameterTableTree extends RTableTree
       integerEditor = new ULCTextField();
 
       dataType = new ULCNumberDataType();
-      dataType.setInteger(true);
+      dataType.setClassType(Integer.class);
 
       integerEditor.setDataType(dataType);
     }
