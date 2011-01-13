@@ -1,13 +1,13 @@
 package ch.ivyteam.ivy.addons.restricted.resources;
 
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
 import ch.ivyteam.ivy.addons.filemanager.FileHandler;
 import ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerPanel;
+import ch.ivyteam.ivy.addons.restricted.util.PublicAPIHelper;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.workflow.ICase;
 
