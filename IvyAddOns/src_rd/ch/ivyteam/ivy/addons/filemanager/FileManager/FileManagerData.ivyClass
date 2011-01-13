@@ -126,3 +126,8 @@ incomingErrorUtil ch.ivyteam.ivy.addons.filemanager.ErrorUtil #field
 incomingErrorUtil 'encapsulates the errors and exceptions that can occur in operations. Comes in the errorOccurred broadcast event.' #fieldComment
 samePanelFlag Boolean #field
 samePanelFlag 'used in some broadcast events to check if the event was launched in the same panel.' #fieldComment
+roundedCornerIconsMode Boolean #field
+roundedCornerIconsMode 'If true then tolbars with iPhone icons like are displayed, otherwise the "normal" icons are displayed.' #fieldComment
+readOnlyMode Boolean #field
+readOnlyMode 'If true then the edit/credit/remove/ toolbar actions will be disabled.' #fieldComment
+readOnlyMode PERSISTENT #fieldModifier

@@ -13,7 +13,7 @@
     </method>
     <method>
         <name>setWfCase</name>
-        <description></description>
+        <description>It sets the case and load all events related to the specified ICase.</description>
         <inputParameter>
             <name>wfCase</name>
             <description></description>
@@ -33,18 +33,30 @@ False value is used for WFUI integration...</description>
         </inputParameter>
     </method>
     <method>
-        <name>setWfCase</name>
-        <description></description>
+        <name>setDisplayMode</name>
+        <description>It sets the display mode as following:&#xD;
+0=all events, 1=only business events</description>
         <inputParameter>
-            <name>events</name>
+            <name>displayMode</name>
             <description></description>
-            <parameterType>List&lt;ch.ivyteam.ivy.addons.data.technical.eventlog.EventLog&gt;</parameterType>
+            <parameterType>Number</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
+    <method>
+        <name>getDisplayMode</name>
+        <description>It returns the display mode as following:&#xD;
+0=all events, 1=only business events</description>
+        <outputParameter>
+            <name>displayMode</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
     <startMethod>
         <name>start</name>
-        <description></description>
+        <description>It starts and load all events related to the specified ICase.</description>
         <inputParameter>
             <name>wfCase</name>
             <description></description>
@@ -56,6 +68,16 @@ False value is used for WFUI integration...</description>
         <name>start</name>
         <description>Default Rich Dialog start
 This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>startWithBusinessEventsOnly</name>
+        <description>It starts and load all business events related to the specified ICase.</description>
+        <inputParameter>
+            <name>wfCase</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ICase</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
     </startMethod>
     <property>
         <name>guid</name>

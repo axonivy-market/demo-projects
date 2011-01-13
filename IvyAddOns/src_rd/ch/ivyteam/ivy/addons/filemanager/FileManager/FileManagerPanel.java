@@ -45,6 +45,8 @@ import com.ulcjava.base.application.ULCTable;
 import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import com.ulcjava.base.application.ULCContainer;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
+import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 
 
 /**
@@ -120,6 +122,22 @@ private AbstractAction closeAction = null;  //  @jve:decl-index=0:
 private AbstractAction copyFilesAction;  //  @jve:decl-index=0:
 private AbstractAction pasteFilesAction;  //  @jve:decl-index=0:
 private AbstractAction renameFileAction;  //  @jve:decl-index=0:
+private RBoxPane serverDirectoriesToolBar2BoxPane = null;
+private RHyperlink makeNewDirAtRoot2Button = null;
+private RHyperlink deleteDir2Button = null;
+private RHyperlink refreshDirs2Button = null;
+private RHyperlink downloadAllFiles2Button = null;
+private RHyperlink toogleFileListing2Button = null;
+private RBoxPane fileActionsToolBar2BoxPane = null;
+private RHyperlink zip2Button = null;
+private RHyperlink edit2Button = null;
+private RHyperlink upload2Button = null;
+private RHyperlink download2Button = null;
+private RHyperlink print2Button = null;
+private RHyperlink newCopy2Button = null;
+private RHyperlink delete2Button = null;
+private RHyperlink mail2Button = null;
+private RHyperlink refreshSelectedFolder2Button = null;
 /**
    * Create a new instance of FileManagerPanePanel
    */
@@ -1350,8 +1368,9 @@ private RGridBagLayoutPane getFilesGridBagLayoutPane() {
 		filesGridBagLayoutPane = new RGridBagLayoutPane();
 		filesGridBagLayoutPane.setName("filesGridBagLayoutPane");
 		filesGridBagLayoutPane.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
-		filesGridBagLayoutPane.add(getToolbarGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		filesGridBagLayoutPane.add(getFilesTableScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		filesGridBagLayoutPane.add(getToolbarGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		filesGridBagLayoutPane.add(getFilesTableScrollPane(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		filesGridBagLayoutPane.add(getFileActionsToolBar2BoxPane(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 4, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return filesGridBagLayoutPane;
 }
@@ -1417,6 +1436,7 @@ private RGridBagLayoutPane getButtonsGridBagLayoutPane() {
 		buttonsGridBagLayoutPane.setName("buttonsGridBagLayoutPane");
 		buttonsGridBagLayoutPane.setStyleProperties("{/anchor \"EAST\"/fill \"HORIZONTAL\"/weightX \"1\"}");
 		buttonsGridBagLayoutPane.add(getButtonGroupGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		buttonsGridBagLayoutPane.add(getServerDirectoriesToolBar2BoxPane(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return buttonsGridBagLayoutPane;
 }
@@ -1460,6 +1480,292 @@ private RMenuItem getPasteMenuItemTable() {
 		pasteMenuItemTable.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/Paste\")%>");
 	}
 	return pasteMenuItemTable;
+}
+
+/**
+ * This method initializes serverDirectoriesToolBar2BoxPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane	
+ */
+private RBoxPane getServerDirectoriesToolBar2BoxPane() {
+	if (serverDirectoriesToolBar2BoxPane == null) {
+		RFiller hFiller2 = new RFiller();
+		hFiller2.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
+		serverDirectoriesToolBar2BoxPane = new RBoxPane();
+		serverDirectoriesToolBar2BoxPane.setName("serverDirectoriesToolBar2BoxPane");
+		serverDirectoriesToolBar2BoxPane.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
+		serverDirectoriesToolBar2BoxPane.set(0, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getMakeNewDirAtRoot2Button());
+		serverDirectoriesToolBar2BoxPane.set(1, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getDeleteDir2Button());
+		serverDirectoriesToolBar2BoxPane.set(3, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getRefreshDirs2Button());
+		serverDirectoriesToolBar2BoxPane.set(2, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getDownloadAllFiles2Button());
+		serverDirectoriesToolBar2BoxPane.set(5, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getToogleFileListing2Button());
+		serverDirectoriesToolBar2BoxPane.set(6, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, hFiller2);
+	}
+	return serverDirectoriesToolBar2BoxPane;
+}
+
+/**
+ * This method initializes makeNewDirAtRoot2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getMakeNewDirAtRoot2Button() {
+	if (makeNewDirAtRoot2Button == null) {
+		makeNewDirAtRoot2Button = new RHyperlink();
+		makeNewDirAtRoot2Button.setName("makeNewDirAtRoot2Button");
+		makeNewDirAtRoot2Button.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/makeNewDir\")%>\n");
+		makeNewDirAtRoot2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/folderAdd/32\") %>");
+		makeNewDirAtRoot2Button.setStyle("toolBarButton");
+		makeNewDirAtRoot2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/makeNewDir\")%>");
+	}
+	return makeNewDirAtRoot2Button;
+}
+
+/**
+ * This method initializes deleteDir2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getDeleteDir2Button() {
+	if (deleteDir2Button == null) {
+		deleteDir2Button = new RHyperlink();
+		deleteDir2Button.setName("deleteDir2Button");
+		deleteDir2Button.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/delete\") %>");
+		deleteDir2Button.setStyle("toolBarButton");
+		deleteDir2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/delete/32\") %>");
+		deleteDir2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/deleteFolder\")%>");
+	}
+	return deleteDir2Button;
+}
+
+/**
+ * This method initializes refreshDirs2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getRefreshDirs2Button() {
+	if (refreshDirs2Button == null) {
+		refreshDirs2Button = new RHyperlink();
+		refreshDirs2Button.setName("refreshDirs2Button");
+		refreshDirs2Button.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/refresh\")%>");
+		refreshDirs2Button.setStyle("toolBarButton");
+		refreshDirs2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/refresh/32\") %>");
+		refreshDirs2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/refreshAll\")%>");
+	}
+	return refreshDirs2Button;
+}
+
+/**
+ * This method initializes downloadAllFiles2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getDownloadAllFiles2Button() {
+	if (downloadAllFiles2Button == null) {
+		downloadAllFiles2Button = new RHyperlink();
+		downloadAllFiles2Button.setName("downloadAllFiles2Button");
+		downloadAllFiles2Button.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/download\")%>");
+		downloadAllFiles2Button.setStyle("toolBarButton");
+		downloadAllFiles2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/downloadAllFiles/32\") %>");
+		downloadAllFiles2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/downloadContentOfFolder\")%>");
+	}
+	return downloadAllFiles2Button;
+}
+
+/**
+ * This method initializes toogleFileListing2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getToogleFileListing2Button() {
+	if (toogleFileListing2Button == null) {
+		toogleFileListing2Button = new RHyperlink();
+		toogleFileListing2Button.setName("toogleFileListing2Button");
+		toogleFileListing2Button.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/showAll\")%>");
+		toogleFileListing2Button.setStyle("toolBarButton");
+		toogleFileListing2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/folderDisplayAllDocuments/32\") %>");
+		toogleFileListing2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/toogleFileListing\")%>");
+	}
+	return toogleFileListing2Button;
+}
+
+/**
+ * This method initializes fileActionsToolBar2BoxPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane	
+ */
+private RBoxPane getFileActionsToolBar2BoxPane() {
+	if (fileActionsToolBar2BoxPane == null) {
+		RFiller hFiller3 = new RFiller();
+		hFiller3.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
+		fileActionsToolBar2BoxPane = new RBoxPane();
+		fileActionsToolBar2BoxPane.setName("fileActionsToolBar2BoxPane");
+		fileActionsToolBar2BoxPane.setStyleProperties("{/fill \"HORIZONTAL\"}");
+		fileActionsToolBar2BoxPane.set(19, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getZip2Button());
+		fileActionsToolBar2BoxPane.set(1, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getEdit2Button());
+		fileActionsToolBar2BoxPane.set(2, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getUpload2Button());
+		fileActionsToolBar2BoxPane.set(3, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getDownload2Button());
+		fileActionsToolBar2BoxPane.set(4, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getPrint2Button());
+		fileActionsToolBar2BoxPane.set(5, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getNewCopy2Button());
+		fileActionsToolBar2BoxPane.set(6, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getDelete2Button());
+		fileActionsToolBar2BoxPane.set(18, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getMail2Button());
+		fileActionsToolBar2BoxPane.set(22, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getRefreshSelectedFolder2Button());
+		fileActionsToolBar2BoxPane.set(23, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, hFiller3);
+	}
+	return fileActionsToolBar2BoxPane;
+}
+
+/**
+ * This method initializes zip2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getZip2Button() {
+	if (zip2Button == null) {
+		zip2Button = new RHyperlink();
+		zip2Button.setName("zip2Button");
+		zip2Button.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/zip\") %>");
+		zip2Button.setStyle("toolBarButton");
+		zip2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/zip/32\") %>");
+		zip2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/zipFiles\")%>");
+	}
+	return zip2Button;
+}
+
+/**
+ * This method initializes edit2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getEdit2Button() {
+	if (edit2Button == null) {
+		edit2Button = new RHyperlink();
+		edit2Button.setName("edit2Button");
+		edit2Button.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/edit\")%>");
+		edit2Button.setStyle("toolBarButton");
+		edit2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/edit/32\") %>");
+		edit2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/edit\")%>");
+	}
+	return edit2Button;
+}
+
+/**
+ * This method initializes upload2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getUpload2Button() {
+	if (upload2Button == null) {
+		upload2Button = new RHyperlink();
+		upload2Button.setName("upload2Button");
+		upload2Button.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/upload\")%>");
+		upload2Button.setStyle("toolBarButton");
+		upload2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/import/32\") %>");
+		upload2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/upload\")%>");
+	}
+	return upload2Button;
+}
+
+/**
+ * This method initializes download2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getDownload2Button() {
+	if (download2Button == null) {
+		download2Button = new RHyperlink();
+		download2Button.setName("download2Button");
+		download2Button.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/download\")%>");
+		download2Button.setStyle("toolBarButton");
+		download2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/export/32\") %>");
+		download2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/download\")%>");
+	}
+	return download2Button;
+}
+
+/**
+ * This method initializes print2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getPrint2Button() {
+	if (print2Button == null) {
+		print2Button = new RHyperlink();
+		print2Button.setName("print2Button");
+		print2Button.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/print\")%>");
+		print2Button.setStyle("toolBarButton");
+		print2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/print/32\") %>");
+		print2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/print\")%>");
+	}
+	return print2Button;
+}
+
+/**
+ * This method initializes newCopy2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getNewCopy2Button() {
+	if (newCopy2Button == null) {
+		newCopy2Button = new RHyperlink();
+		newCopy2Button.setName("newCopy2Button");
+		newCopy2Button.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/copy\") %>");
+		newCopy2Button.setStyle("toolBarButton");
+		newCopy2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/copy/32\") %>");
+		newCopy2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/copyFiles\")%>");
+	}
+	return newCopy2Button;
+}
+
+/**
+ * This method initializes delete2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getDelete2Button() {
+	if (delete2Button == null) {
+		delete2Button = new RHyperlink();
+		delete2Button.setName("delete2Button");
+		delete2Button.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/delete\") %>");
+		delete2Button.setStyle("toolBarButton");
+		delete2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/delete/32\") %>");
+		delete2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/deleteFiles\")%>");
+	}
+	return delete2Button;
+}
+
+/**
+ * This method initializes mail2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getMail2Button() {
+	if (mail2Button == null) {
+		mail2Button = new RHyperlink();
+		mail2Button.setName("mail2Button");
+		mail2Button.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/eMail\") %>");
+		mail2Button.setStyle("toolBarButton");
+		mail2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/mail/32\") %>");
+		mail2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/eMail\")%>");
+	}
+	return mail2Button;
+}
+
+/**
+ * This method initializes refreshSelectedFolder2Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getRefreshSelectedFolder2Button() {
+	if (refreshSelectedFolder2Button == null) {
+		refreshSelectedFolder2Button = new RHyperlink();
+		refreshSelectedFolder2Button.setName("refreshSelectedFolder2Button");
+		refreshSelectedFolder2Button.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/refresh\") %>");
+		refreshSelectedFolder2Button.setStyle("toolBarButton");
+		refreshSelectedFolder2Button.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/addons/roundCornerIcons/refresh/32\") %>");
+		refreshSelectedFolder2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/refresh\")%>");
+	}
+	return refreshSelectedFolder2Button;
 }
 
 

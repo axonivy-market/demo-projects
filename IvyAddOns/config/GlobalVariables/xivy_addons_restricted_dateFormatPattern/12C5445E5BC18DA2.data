@@ -1,0 +1,1 @@
+{/value "dd.MM.yyyy"/description "Date pattern used in order to format dates displayed to the end user.\nIt could be event date, etc."/environments * }

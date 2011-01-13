@@ -700,6 +700,16 @@ Return true if locked, else false</description>
         </outputParameter>
     </method>
     <method>
+        <name>enableRoundCornerIconsMode</name>
+        <description></description>
+        <inputParameter>
+            <name>enable</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
         <name>setClientTempDir</name>
         <description>This method allows to set the client temp directory.&#xD;
 It should come automatically from the embedded DesktopHandler RD.&#xD;
@@ -811,6 +821,16 @@ Returns a returnedMessage.</description>
             <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
+    </method>
+    <method>
+        <name>enableReadOnlyMode</name>
+        <description></description>
+        <inputParameter>
+            <name>enable</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
     </method>
     <startMethod>
         <name>startAsPathChooser</name>
@@ -1098,32 +1118,6 @@ By clicking on the OK button, the RDC gives the choosed path back, else, empty s
         </outputParameter>
     </startMethod>
     <firedEvent>
-        <name>SE_renameFile</name>
-        <description></description>
-        <scope>SYSTEM</scope>
-        <attachment>
-            <name>uniquePanelId</name>
-            <description></description>
-            <parameterType>Number</parameterType>
-            <nullPermitted>true</nullPermitted>
-        </attachment>
-    </firedEvent>
-    <firedEvent>
-        <name>SE_fileLocked</name>
-        <description>System Event sent whenever a File is locked.&#xD;
-This ables the other users to refresh their list.&#xD;
-The FileListTable sends/catches this Event too.&#xD;
-It sends a list of parameters: the FileManager unique PanelId Data and &#xD;
-the locked DocumentOnServer Object.</description>
-        <scope>SYSTEM</scope>
-        <attachment>
-            <name>panelIdAndDocumentOnServer</name>
-            <description></description>
-            <parameterType>List</parameterType>
-            <nullPermitted>true</nullPermitted>
-        </attachment>
-    </firedEvent>
-    <firedEvent>
         <name>SE_fileRenamed</name>
         <description>fired whenever a FIle is successfully renamed. &#xD;
 Parameters: the renamed documentOnServer. &#xD;
@@ -1157,28 +1151,6 @@ In such a case it tries to delete the selected directory.</description>
         </attachment>
     </firedEvent>
     <firedEvent>
-        <name>errorOccurred</name>
-        <description></description>
-        <scope>APPLICATION</scope>
-        <attachment>
-            <name>errorUtil</name>
-            <description></description>
-            <parameterType>ch.ivyteam.ivy.addons.filemanager.ErrorUtil</parameterType>
-            <nullPermitted>true</nullPermitted>
-        </attachment>
-    </firedEvent>
-    <firedEvent>
-        <name>SE_FilesUnlocked</name>
-        <description>Fired whenever the user unlock a list of  java.io.File</description>
-        <scope>SYSTEM</scope>
-        <attachment>
-            <name>files</name>
-            <description></description>
-            <parameterType>List&lt;java.io.File&gt;</parameterType>
-            <nullPermitted>true</nullPermitted>
-        </attachment>
-    </firedEvent>
-    <firedEvent>
         <name>SE_DocumentsUnlocked</name>
         <description>Fired whenever the user unlock a list of documentOnServer Objects</description>
         <scope>SYSTEM</scope>
@@ -1204,6 +1176,79 @@ In such a case it tries to delete the selected files.</description>
         </attachment>
     </firedEvent>
     <firedEvent>
+        <name>SE_DocumentsDeleted</name>
+        <description>Sent whenever one user deletes some files.&#xD;
+The panel catches this event and refresh the table if the path is the same as the focused Directory.</description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>documentsPathANdPanelID</name>
+            <description></description>
+            <parameterType>List</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>SE_FilesDeleted</name>
+        <description>sent when files deleted from a Directory.&#xD;
+Parameters: Ivy application Name, panelID as String to be able to filter the incoming events&#xD;
+path of the directory where the files were deleted</description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>applicationName_panelID_dirPath</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>SE_renameFile</name>
+        <description></description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>uniquePanelId</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>SE_fileLocked</name>
+        <description>System Event sent whenever a File is locked.&#xD;
+This ables the other users to refresh their list.&#xD;
+The FileListTable sends/catches this Event too.&#xD;
+It sends a list of parameters: the FileManager unique PanelId Data and &#xD;
+the locked DocumentOnServer Object.</description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>panelIdAndDocumentOnServer</name>
+            <description></description>
+            <parameterType>List</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>errorOccurred</name>
+        <description></description>
+        <scope>APPLICATION</scope>
+        <attachment>
+            <name>errorUtil</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ErrorUtil</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>SE_FilesUnlocked</name>
+        <description>Fired whenever the user unlock a list of  java.io.File</description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>files</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
         <name>filesCopied</name>
         <description>@APPLICATION: Sent when the user copy some Files in the RTable.&#xD;
 This will inform the other FileManager Panels that can be opened in the same &#xD;
@@ -1218,18 +1263,6 @@ This Event sends the FileManager unique PanelId data so that only other FileMana
         </attachment>
     </firedEvent>
     <firedEvent>
-        <name>SE_DocumentsDeleted</name>
-        <description>Sent whenever one user deletes some files.&#xD;
-The panel catches this event and refresh the table if the path is the same as the focused Directory.</description>
-        <scope>SYSTEM</scope>
-        <attachment>
-            <name>documentsPathANdPanelID</name>
-            <description></description>
-            <parameterType>List</parameterType>
-            <nullPermitted>true</nullPermitted>
-        </attachment>
-    </firedEvent>
-    <firedEvent>
         <name>pasteFiles</name>
         <description>see the _pasteFiles method documentation</description>
         <scope>APPLICATION</scope>
@@ -1237,19 +1270,6 @@ The panel catches this event and refresh the table if the path is the same as th
             <name>uniquePanelId</name>
             <description></description>
             <parameterType>Number</parameterType>
-            <nullPermitted>true</nullPermitted>
-        </attachment>
-    </firedEvent>
-    <firedEvent>
-        <name>SE_FilesDeleted</name>
-        <description>sent when files deleted from a Directory.&#xD;
-Parameters: Ivy application Name, panelID as String to be able to filter the incoming events&#xD;
-path of the directory where the files were deleted</description>
-        <scope>SYSTEM</scope>
-        <attachment>
-            <name>applicationName_panelID_dirPath</name>
-            <description></description>
-            <parameterType>List&lt;String&gt;</parameterType>
             <nullPermitted>true</nullPermitted>
         </attachment>
     </firedEvent>
