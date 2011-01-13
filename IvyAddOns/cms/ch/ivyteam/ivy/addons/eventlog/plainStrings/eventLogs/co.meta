@@ -1,3 +1,4 @@
-co: name={eventLogs} description={} changed={2010-04-29 12:51:17 GMT} changedby={tirib} visualorder={0} guid={128499E96BDE29C6} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={128499ECC82A1459} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-04-29 12:51:03 GMT} validto={} changed={2010-04-29 12:51:16 GMT} changedby={tirib} properties={} id={}
-val: guid={128499E96ECBAF18} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-29 12:50:49 GMT} validto={} changed={2010-04-29 12:51:03 GMT} changedby={tirib} properties={} id={}
+co: name={eventLogs} description={} changed={2010-11-23 16:29:48 CET} changedby={rwei} visualorder={0} guid={128499E96BDE29C6} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={128499ECC82A1459} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-04-29 14:51:03 CEST} validto={} changed={2010-04-29 14:51:16 CEST} changedby={tirib} properties={} id={}
+val: guid={12C795AC2D34C3E1} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:29:40 CET} validto={} changed={2010-11-23 16:29:48 CET} changedby={rwei} properties={} id={}
+val: guid={128499E96ECBAF18} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-29 14:50:49 CEST} validto={} changed={2010-04-29 14:51:03 CEST} changedby={tirib} properties={} id={}

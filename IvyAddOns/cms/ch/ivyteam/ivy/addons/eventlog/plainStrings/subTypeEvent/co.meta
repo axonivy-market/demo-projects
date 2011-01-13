@@ -1,3 +1,4 @@
-co: name={subTypeEvent} description={} changed={2010-05-04 15:30:52 CEST} changedby={tirib} visualorder={0} guid={12848FB2771C598A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12848FB2781CE736} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-29 11:52:18 CEST} validto={} changed={2010-04-29 11:53:30 CEST} changedby={tirib} properties={} id={}
+co: name={subTypeEvent} description={} changed={2010-11-23 16:32:48 CET} changedby={rwei} visualorder={0} guid={12848FB2771C598A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={12848FBB52B215FE} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-04-29 11:52:55 CEST} validto={} changed={2010-05-04 15:30:52 CEST} changedby={tirib} properties={} id={}
+val: guid={12C795D6E4A4A90E} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:32:35 CET} validto={} changed={2010-11-23 16:32:48 CET} changedby={rwei} properties={} id={}
+val: guid={12848FB2781CE736} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-29 11:52:18 CEST} validto={} changed={2010-04-29 11:53:30 CEST} changedby={tirib} properties={} id={}

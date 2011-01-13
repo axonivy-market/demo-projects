@@ -1,3 +1,4 @@
-co: name={eventLogError} description={} changed={2010-05-07 13:14:57 CEST} changedby={tirib} visualorder={0} guid={12872784ADD3AD6D} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={128727867DB4C52B} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-07 13:13:33 CEST} validto={} changed={2010-05-07 13:14:56 CEST} changedby={tirib} properties={} id={}
+co: name={eventLogError} description={} changed={2010-11-23 16:30:10 CET} changedby={rwei} visualorder={0} guid={12872784ADD3AD6D} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12C795B230C5D5ED} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:30:04 CET} validto={} changed={2010-11-23 16:30:10 CET} changedby={rwei} properties={} id={}
 val: guid={12872784AFCBBAFE} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-07 13:13:25 CEST} validto={} changed={2010-05-07 13:14:57 CEST} changedby={tirib} properties={} id={}
+val: guid={128727867DB4C52B} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-07 13:13:33 CEST} validto={} changed={2010-05-07 13:14:56 CEST} changedby={tirib} properties={} id={}
