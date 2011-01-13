@@ -380,7 +380,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			return 0;
 		}
 		//build dthe SQL Query with the keyValue pairs and the list of conditions
-		StringBuilder sql=new StringBuilder("UPDATE "+tableName+" SET");
+		StringBuilder sql=new StringBuilder("UPDATE "+this.tableNameSpace+" SET");
 
 		for(KeyValuePair kvp: _KVP){
 			//sql.append(" "+kvp.getKey().toString()+"='"+escapeForMSSQL(kvp.getValue().toString())+"', ");
@@ -771,7 +771,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 				{
 					stmt.setString(1, "");
 					stmt.setString(2, _user.trim());
-					stmt.setString(3, folderPath);
+					stmt.setString(3, folderPath+"%");
 					stmt.setString(4, folderPath+"%/%");
 					stmt.executeUpdate();
 				}

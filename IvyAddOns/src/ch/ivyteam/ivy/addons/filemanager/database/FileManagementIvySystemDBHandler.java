@@ -671,7 +671,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 					{
 						stmt.setString(1, "");
 						stmt.setString(2, _user.trim());
-						stmt.setString(3, folderPath);
+						stmt.setString(3, folderPath+"%");
 						stmt.setString(4, folderPath+"%/%");
 						stmt.executeUpdate();
 					}
