@@ -1,0 +1,4 @@
+co: name={mandatoryerrormessage} description={} changed={2010-11-05 09:03:12 GMT} changedby={tirib} visualorder={0} guid={12C1B457204BFE2C} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12C1B45853D28FB9} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-05 09:02:09 GMT} validto={} changed={2010-11-05 09:03:12 GMT} changedby={tirib} properties={} id={}
+val: guid={12C1B457207A55E8} datatype={} isdefault={true} langid={en} description={} validfrom={2010-11-05 09:02:04 GMT} validto={} changed={2010-11-05 09:03:12 GMT} changedby={tirib} properties={} id={}
+val: guid={12C1B459019F91C0} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-11-05 09:02:12 GMT} validto={} changed={2010-11-05 09:03:12 GMT} changedby={tirib} properties={} id={}

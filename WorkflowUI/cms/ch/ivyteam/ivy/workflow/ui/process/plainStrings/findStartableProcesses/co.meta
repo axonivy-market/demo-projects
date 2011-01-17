@@ -1,0 +1,4 @@
+co: name={findStartableProcesses} description={} changed={2009-05-05 14:45:51 GMT} changedby={bb} visualorder={0} guid={11DD982F46C4F412} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11DD98397A196FF9} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-11-26 15:55:59 GMT} validto={} changed={2008-11-26 15:56:17 GMT} changedby={tirib} properties={} id={}
+val: guid={12067308814FEFDD} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-02 14:16:55 GMT} validto={} changed={2009-05-05 14:45:51 GMT} changedby={bb} properties={} id={}
+val: guid={11DD982F47C2BA73} datatype={} isdefault={true} langid={en} description={} validfrom={2008-11-26 15:55:17 GMT} validto={} changed={2009-04-02 14:51:36 GMT} changedby={bb} properties={} id={}

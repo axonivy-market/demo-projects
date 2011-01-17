@@ -1,0 +1,1 @@
+{/description "Boolean value 1 or 0"/validationMessage "Invalid value (expected 1 or 0)"/validationState "Error"/datatypeConfig {/isInteger "true"/min 0 /max 1 /useGrouping "false"/minFractionDigits -1 /maxFractionDigits -1 /displayLeadingZeroes "false"/decimalSeparator "0"/groupingSeparator "0"}/format "integer"}

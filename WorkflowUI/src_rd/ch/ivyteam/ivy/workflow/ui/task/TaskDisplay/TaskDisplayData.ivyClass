@@ -1,0 +1,48 @@
+TaskDisplayData #class
+ch.ivyteam.ivy.workflow.ui.task.TaskDisplay #namespace
+task ch.ivyteam.ivy.workflow.ITask #field
+taskIdentifier Number #field
+taskExecutionDisplayId String #field
+taskExecutionDisplayId 'The displayId where the task will be executed' #fieldComment
+startTaskRequested Boolean #field
+startTaskRequested 'The start task execution is requested or not. Flag used in following use cases: 
+Use case 1 
+a) see task details
+b) start task
+
+Use case 2
+a) start task directly from task list' #fieldComment
+broadcastedTaskIdentifiers List<Number> #field
+broadcastedTaskIdentifiers 'The task identifiers of tasks that changed their state.' #fieldComment
+footerMessage String #field
+footerMessage 'attribute used to show the messages at the footer label to the user' #fieldComment
+securityMemberToDelegate ch.ivyteam.ivy.security.ISecurityMember #field
+securityMemberToDelegate 'Security member (IRole or IUser) that this task will be delegated' #fieldComment
+broadcastedCaseIdentifier Number #field
+broadcastedCaseIdentifier 'The case identifier that could be recieved from RD Events' #fieldComment
+securityMemberToDelegateSelected Boolean #field
+hasWfAdministratorPermissions Boolean #field
+hasWfAdministratorPermissions 'It defines if a session user has a workflow administrator permissions' #fieldComment
+hasPermissionDelegateTasks Boolean #field
+hasPermissionDelegateTasks 'Permission to delegate a task to role or user' #fieldComment
+taskDelegateWindowTitle String #field
+exception java.lang.Exception #field
+exception 'It contains the error raised during the task actions' #fieldComment
+taskIsExecuting Boolean #field
+taskIsExecuting 'Flag for button enable control. True if tasl loaded on execution display.' #fieldComment
+autoHideMenuParameter String #field
+selectedComponentTaskState ch.ivyteam.ivy.workflow.TaskState #field
+pressedButtonToDoWithTask String #field
+taskInformationAlreadyLoaded Boolean #field
+taskInformationAlreadyLoaded 'If true, then the task details are already loaded, otherwise false.' #fieldComment
+windowTitle String #field
+broadcastedTaskAssignedToSelf1Identifier Number #field
+broadcastedTaskAssignedToSelf1Identifier 'If the process contains next task assigned to SELF1, then it will contain the identifier of the next task assigned to SELF1.' #fieldComment
+documentsDisplayId String #field
+documentsDisplayId 'Id where case documents will be displayed.' #fieldComment
+annotationsDisplayId String #field
+annotationsDisplayId 'Id where case and task annotations will be displayed.' #fieldComment
+eventsDisplayId String #field
+eventsDisplayId 'Id where event logs will be displayed.' #fieldComment
+detailsDisplayId String #field
+detailsDisplayId 'Id where case and task details will be displayed.' #fieldComment

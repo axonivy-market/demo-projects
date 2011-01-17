@@ -1,0 +1,4 @@
+EventsWrapperData #class
+ch.ivyteam.ivy.workflow.ui.task.EventsWrapper #namespace
+wfCase ch.ivyteam.ivy.workflow.ICase #field
+wfCase 'Case for which event logs has to be displayed.' #fieldComment

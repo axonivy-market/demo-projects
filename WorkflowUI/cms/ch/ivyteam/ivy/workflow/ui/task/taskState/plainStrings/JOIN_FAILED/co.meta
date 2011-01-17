@@ -1,0 +1,4 @@
+co: name={JOIN_FAILED} description={} changed={2010-11-23 16:17:04 CET} changedby={rwei} visualorder={0} guid={128DFEC951DD9189} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12C794EFAAA35421} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:16:47 CET} validto={} changed={2010-11-23 16:17:04 CET} changedby={rwei} properties={} id={}
+val: guid={128DFEC951DE59A2} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-28 18:32:44 CEST} validto={} changed={2010-05-28 19:19:03 CEST} changedby={tirib} properties={} id={}
+val: guid={128DFEC951D59A4D} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-28 18:32:59 CEST} validto={} changed={2010-05-28 19:19:03 CEST} changedby={tirib} properties={} id={}

@@ -1,0 +1,10 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2009-04-27 18:33:28 | 4.1.0.27714 | 1.0
+~@RD_METHODCALL[start(Number)]--->ch.ivyteam.ivy.process.ProcessStart:11A9B7CC5D63A2D6/11AA691970EB2FFD
+~@RD_METHODCALL[getSelectionEnabled()]--->ch.ivyteam.ivy.process.ProcessStart:11A9B7CC5D63A2D6/11E3F54B270522FD
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:11A9B7CC5D63A2D6/11AA691BC7824B17
+~@RD_METHODCALL[getSelectedCaseHierarchyLayoutIndex()]--->ch.ivyteam.ivy.process.ProcessStart:11A9B7CC5D63A2D6/11AA69986AC80FE9
+~@RD_METHODCALL[setSelectionEnabled(Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:11A9B7CC5D63A2D6/11E3F54BA50DA970
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11A9B7CC5D63A2D6/11A9B7CC6A11CFEF
+~@RD_METHODCALL[setSelectedCaseHierarchyLayoutIndex(Number)]--->ch.ivyteam.ivy.process.ProcessStart:11A9B7CC5D63A2D6/11AA6998D3414B19
+~.caseHierarchyLayoutComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B7CC5D63A2D6/11AA69642AC7EA84

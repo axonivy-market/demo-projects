@@ -1,0 +1,9 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2011-01-17 11:11:28 | 4.2.0.35322 | 1.0
+~@RD_BROADCAST[deleteSelectedFiles]--->ch.ivyteam.ivy.process.ProcessStart:12D7A786BCFAFC3B/12D93753662BB890
+~@RD_METHODCALL[refresh()]--->ch.ivyteam.ivy.process.ProcessStart:12D7A786BCFAFC3B/12D7A88ED20413B6
+~@RD_METHODCALL[start(ch.ivyteam.ivy.workflow.ICase)]--->ch.ivyteam.ivy.process.ProcessStart:12D7A786BCFAFC3B/12D7A8590CA88EC8
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12D7A786BCFAFC3B/116A9C07145A35CE
+~@RD_METHODCALL[_createDefaultDirectories()]--->ch.ivyteam.ivy.process.ProcessStart:12D7A786BCFAFC3B/12D7AC2BDC94BB21
+~@RD_BROADCAST[fileUploaded]--->ch.ivyteam.ivy.process.ProcessStart:12D7A786BCFAFC3B/12D9367D711AF5FE
+~@RD_METHODCALL[_updateTabTitle()]--->ch.ivyteam.ivy.process.ProcessStart:12D7A786BCFAFC3B/12D7ACEAFCECBCCF

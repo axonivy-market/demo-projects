@@ -1,0 +1,4 @@
+co: name={openArchivePageShortDesc} description={} changed={2011-01-12 11:03:29 CET} changedby={tirib} visualorder={0} guid={126F68B6AD312E17} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={126F68BC42D8D4C2} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-02-22 17:38:59 CET} validto={} changed={2011-01-12 11:03:29 CET} changedby={tirib} properties={} id={}
+val: guid={126F68BCF1AD2D44} datatype={} isdefault={false} langid={de} description={} validfrom={2010-02-22 17:39:02 CET} validto={} changed={2011-01-12 11:03:29 CET} changedby={tirib} properties={} id={}
+val: guid={126F68B6AE33F6EC} datatype={} isdefault={true} langid={en} description={} validfrom={2010-02-22 17:38:37 CET} validto={} changed={2011-01-12 11:03:29 CET} changedby={tirib} properties={} id={}

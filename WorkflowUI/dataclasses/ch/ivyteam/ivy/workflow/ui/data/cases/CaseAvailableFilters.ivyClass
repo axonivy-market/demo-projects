@@ -1,0 +1,41 @@
+CaseAvailableFilters #class
+'Defines the list of available filters that could be defined on cases
+It is based on the case, business and task information.' #classComment
+ch.ivyteam.ivy.workflow.ui.data.cases #namespace
+caseNameFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseFilterProperty #field
+caseNameFilterIsDefined Boolean #field
+businessStartTimestampFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseFilterProperty #field
+businessStartTimestampFilterIsDefined Boolean #field
+businessMilestoneTimestampFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseFilterProperty #field
+businessMilestoneTimestampFilterIsDefined Boolean #field
+businessCreatorUserFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseFilterProperty #field
+businessCreatorUserFilterIsDefined Boolean #field
+caseProcessCategoriesFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseCategoryFilter #field
+caseProcessCategoriesFilterIsDefined Boolean #field
+caseProcessCategoriesFilterIsDefined 'Describe if the filter has been created for caseProcessCategoriesFilter' #fieldComment
+caseProcessesFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseCategoryFilter #field
+caseProcessesFilterIsDefined Boolean #field
+caseProcessesFilterIsDefined 'Describe if the filter has been created for caseProcessFilter' #fieldComment
+caseTypesFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseCategoryFilter #field
+caseTypesFilterIsDefined Boolean #field
+caseTypesFilterIsDefined 'Describe if the filter has been created for caseTypeFilter' #fieldComment
+caseSubTypesFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseCategoryFilter #field
+caseSubTypesFilterIsDefined Boolean #field
+caseSubTypesFilterIsDefined 'Describe if the filter has been created for caseSubTypeFilter' #fieldComment
+propertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
+propertyFilter 'Resume the selected filters.
+Recieved task property filter that is used to filter only the tasks with specified task states' #fieldComment
+businessMainContactTypeFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseFilterProperty #field
+businessMainContactTypeFilterIsDefined Boolean #field
+businessMainContactIdFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseFilterProperty #field
+businessMainContactIdFilterIsDefined Boolean #field
+businessMainContactNameFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseFilterProperty #field
+businessMainContactNameFilterIsDefined Boolean #field
+businessCorrespondentContactIdFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseFilterProperty #field
+businessCorrespondentContactIdFilterIsDefined Boolean #field
+businessObjectCodeFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseFilterProperty #field
+businessObjectCodeFilterIsDefined Boolean #field
+businessObjectNameFilter ch.ivyteam.ivy.workflow.ui.data.cases.CaseFilterProperty #field
+businessObjectNameFilterIsDefined Boolean #field
+caseDisplayMode Number #field
+caseDisplayMode '0=involved cases (your cases), 1=involved cases by role (team cases), 2=all env. cases (wf admin mode)' #fieldComment

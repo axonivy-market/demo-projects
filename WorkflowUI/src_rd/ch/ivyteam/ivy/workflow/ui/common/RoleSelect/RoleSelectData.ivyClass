@@ -1,0 +1,3 @@
+RoleSelectData #class
+ch.ivyteam.ivy.workflow.ui.common.RoleSelect #namespace
+rolesList List<ch.ivyteam.ivy.security.IRole> #field

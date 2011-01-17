@@ -1,0 +1,3 @@
+co: name={timeoutTaskStartElementId} description={} changed={2010-09-07 13:11:52 CEST} changedby={tirib} visualorder={0} guid={120D324FF0678F6C} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={120D324FF156E6DE} datatype={} isdefault={true} langid={en} description={} validfrom={2009-04-23 15:23:18 CEST} validto={} changed={2009-04-23 15:24:32 CEST} changedby={tirib} properties={} id={}
+val: guid={120D325513D27AF5} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-04-23 15:23:39 CEST} validto={} changed={2010-09-07 13:11:52 CEST} changedby={tirib} properties={} id={}

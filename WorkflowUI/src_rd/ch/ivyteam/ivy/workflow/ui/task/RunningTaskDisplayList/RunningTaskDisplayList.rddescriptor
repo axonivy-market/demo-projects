@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <method>
+        <name>refresh</name>
+        <description></description>
+    </method>
+    <method>
+        <name>close</name>
+        <description></description>
+        <outputParameter>
+            <name>closeCanceled</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>aRunningTaskMode</name>
+            <description>true: it should display only running tasks, otherwise finished tasks: Administration: display all tasks except finished</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>aTaskDisplayListParentDisplay</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>aPropertyFilter</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.IPropertyFilter</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>aTaskDisplayMode</name>
+            <description>0=your tasks, 1=team tasks, 2=all env. tasks (wf admin mode)</description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>aHasWfAdministratorPermissions</name>
+            <description>It defines if the session user has the workflow administrator permissions</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>11B2C0E8BABF1CF4</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

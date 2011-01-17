@@ -1,0 +1,4 @@
+co: name={taskKindCode} description={} changed={2010-11-23 16:46:13 CET} changedby={rwei} visualorder={0} guid={12936B408FF4D16C} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12936B4091E4F319} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 13:29:15 CEST} validto={} changed={2010-06-14 15:54:48 CEST} changedby={tirib} properties={} id={}
+val: guid={12C7968B633B51D3} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:44:54 CET} validto={} changed={2010-11-23 16:46:13 CET} changedby={rwei} properties={} id={}
+val: guid={12936B4094DE66CA} datatype={} isdefault={true} langid={en} description={} validfrom={2008-02-15 10:22:51 CET} validto={} changed={2010-06-14 15:54:48 CEST} changedby={tirib} properties={} id={}

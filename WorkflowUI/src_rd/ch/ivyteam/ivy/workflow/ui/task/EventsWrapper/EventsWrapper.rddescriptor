@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <description>It shows the case event logs as part of task details overview.</description>
+    <autoScreenshot>false</autoScreenshot>
+    <method>
+        <name>_updateTabTitle</name>
+        <description>It set the parent's tab title and add the bullet if&#xD;
+there is event logs availables related to specified case.</description>
+    </method>
+    <method>
+        <name>refresh</name>
+        <description></description>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>It shows event logs related to the specified case.</description>
+        <inputParameter>
+            <name>wfCase</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ICase</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>12D7A78EFE9B9072</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

@@ -1,0 +1,23 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-06-14 22:27:35 | 4.1.1.31367 | 1.0
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A115DFF492F5A8
+~.businessObjectCodeTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A123BC1A0EA372
+~.businessMainContactNameTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A123BC1A0EA372
+~.businessMainContactIdTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A123BC1A0EA372
+~.businessMainContactTypeTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A123BC1A0EA372 # CaseFiltersSelectProcess.mod/filterDefinitionConfirmed
+~.caseProcessesComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A1179DE8B1D633
+~@RD_METHODCALL[start(ch.ivyteam.ivy.workflow.IPropertyFilter)]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11B02EB06B33C33F
+~@RD_METHODCALL[refreshCaseProcessCategories()]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A115528E4CAAAC
+~.caseTypesComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A11D9D713F03D8
+~.cancelDefineFilterButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A125EB50662D93
+~.defineFilterButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A123BC1A0EA372
+~.businessObjectNameTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A123BC1A0EA372 # CaseFiltersSelectProcess.mod/filterDefinitionConfirmed
+~.businessCorrespondentContactIdTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A123BC1A0EA372 # CaseFiltersSelectProcess.mod/filterDefinitionConfirmed
+~@RD_METHODCALL[setCaseDisplayMode(Number)]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11B02E1276AC08EA
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A10DBA2429029F
+~.caseTypeRelationalOperatorComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A11D9D713F03D8
+~.caseProcessCategoryRelationalOperatorComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A116107E899DE1
+~.caseNameTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A123BC1A0EA372
+~.businessCreatorUserTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A123BC1A0EA372
+~.caseProcessCategoriesComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A116107E899DE1
+~.caseProcessRelationalOperatorComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11AE9CE89D43B950/11A1179DE8B1D633

@@ -1,0 +1,2 @@
+co: name={PROCESS_CATEGORY_CODE16} description={} changed={2010-08-26 14:06:57 CEST} changedby={tirib} visualorder={0} guid={11B07E602C12D6B0} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+val: guid={11B07E602D1C29D7} datatype={} isdefault={true} langid={en} description={} validfrom={2008-01-30 17:35:53 CET} validto={} changed={2010-08-26 14:06:57 CEST} changedby={tirib} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@d4ee} id={}

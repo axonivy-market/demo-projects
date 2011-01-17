@@ -1,0 +1,46 @@
+CaseSearchData #class
+ch.ivyteam.ivy.workflow.ui.cases.CaseSearch #namespace
+footerMessage String #field
+runningCaseMode Boolean #field
+runningCaseMode 'If true, then find "running cases", otherwise, find "finished cases"' #fieldComment
+caseHierarchyLayoutTree Tree #field
+sortByPriority Boolean #field
+caseStatePropertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
+caseStatePropertyFilter 'The case state that should be included. If runningCaseMode then Case state equals "RUNNING", otherwise "FINISHED"' #fieldComment
+filterEnabled Boolean #field
+unclassifiedCaseTitle String #field
+caseAvailableFilters ch.ivyteam.ivy.workflow.ui.data.cases.CaseAvailableFilters #field
+caseAvailableFilters 'filter set by the user according to the case data; it could be defined, and then enabled/disabled' #fieldComment
+caseDisplayMode Number #field
+caseDisplayMode '0=involved cases (your cases), 1=involved cases by role (team cases), 2=all env. cases (wf admin mode)' #fieldComment
+caseHierarchyLayoutSelectedIndex Number #field
+caseHierarchyLayoutSelectedIndex 'The index of case hierarchy layout that should be displayed. This value could be get from the Workflow User settings.' #fieldComment
+hasWfAdministratorPermissions Boolean #field
+hasWfAdministratorPermissions 'It defines if the session user has a workflow administrator permissions' #fieldComment
+multipleCaseListMode Boolean #field
+multipleCaseListMode 'Defines if the the multiples instances of case list should be loaded or just one.' #fieldComment
+destinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
+destinationDisplay 'Get as a parameter and used to specify the destination display widget for' #fieldComment
+treeLoadEvent ch.ivyteam.ivy.richdialog.component.event.TreeLoadEvent #field
+caseHierarchyContext ch.ivyteam.ivy.workflow.ui.data.cases.CaseHierarchyContext #field
+caseHierarchyContext 'The object that will be sent will RD Event "caseHierarchySelected".' #fieldComment
+selectedCase ch.ivyteam.ivy.workflow.ICase #field
+selectedCase 'The currently selected ICase instance (used for loadCaseInformation, destroyCase, etc)' #fieldComment
+caseAlreadyLoadedOnDisplay Boolean #field
+caseAlreadyLoadedOnDisplay 'Defines if the selected case has been already loaded on display widget' #fieldComment
+hasPermissionCaseRead Boolean #field
+hasPermissionCaseRead 'Defines if current session user has or not the permission to read the case''s data' #fieldComment
+hasPermissionCaseDestroy Boolean #field
+hasPermissionCaseDestroy 'Defines if current session user has or not the permission to destroy the case''' #fieldComment
+hasPermissionCaseCategoryReadAll Boolean #field
+hasPermissionCaseCategoryReadAll 'Defines if current session user has or not the permission to read the case''s categories for build the case hierarchy layouts' #fieldComment
+filterDefined Boolean #field
+filterDefined 'It informs if a user defined his filter' #fieldComment
+confirmation String #field
+confirmation 'Used as a windows title for destroy case question' #fieldComment
+questionDialogPressedButton String #field
+questionDialogPressedButton 'It defines which button has been pressed on the Question Dialog: ["yes", "no"]' #fieldComment
+exception java.lang.Exception #field
+exception 'It contains the error raised during the destroy case' #fieldComment
+tabTitle String #field
+tabTitle 'Title to show on the tab (dynamically loaded case)' #fieldComment

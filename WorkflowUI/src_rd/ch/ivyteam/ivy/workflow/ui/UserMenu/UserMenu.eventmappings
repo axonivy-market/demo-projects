@@ -1,0 +1,14 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2011-01-11 16:29:40 | 4.2.0.34986 | 1.0
+~.finishedTasksHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11B3584EAAEF2660
+~.startingProcessesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11952DFDAC1FEC98
+~.finishedCasesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11AC4F90661EFB95
+~@RD_METHODCALL[start(ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay)]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11898E916E47860B
+~.substitutesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11999AC996C1819B
+~.runningTasksHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11898E4F9F92111B
+~.absenceHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/119999C290E7B3DE
+~.managedTeamsHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/12A4427998E28157
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11898E4DF4D450B5
+~.emailNotificationHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/12D75AD1C01197DC # UserMenuProcess.mod/loadEmailNotification
+~@RD_BROADCAST[ivy_systemevent_workflow_case_created]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/1207B74D67233A74
+~.runningCasesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11AC4F6A88B99CF6

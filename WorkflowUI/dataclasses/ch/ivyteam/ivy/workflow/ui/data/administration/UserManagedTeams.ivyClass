@@ -1,0 +1,5 @@
+UserManagedTeams #class
+ch.ivyteam.ivy.workflow.ui.data.administration #namespace
+user ch.ivyteam.ivy.security.IUser #field
+userManagedTeams String #field
+userManagedTeams 'list of managing roles of the user' #fieldComment

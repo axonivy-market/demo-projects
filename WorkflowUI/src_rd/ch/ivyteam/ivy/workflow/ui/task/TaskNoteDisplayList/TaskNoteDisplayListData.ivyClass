@@ -1,0 +1,7 @@
+TaskNoteDisplayListData #class
+ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList #namespace
+task ch.ivyteam.ivy.workflow.ITask #field
+loadDataAtStart Boolean #field
+loadDataAtStart 'If the data should be loaded at RD start' #fieldComment
+taskNotes List<ch.ivyteam.ivy.workflow.INote> #field
+currentNote ch.ivyteam.ivy.workflow.INote #field

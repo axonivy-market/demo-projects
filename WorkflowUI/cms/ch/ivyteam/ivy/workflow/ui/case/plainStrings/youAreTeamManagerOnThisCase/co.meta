@@ -1,0 +1,3 @@
+co: name={youAreTeamManagerOnThisCase} description={} changed={2010-07-28 16:24:31 CEST} changedby={tirib} visualorder={0} guid={12A1970288BC5F05} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12A1970289649D5C} datatype={} isdefault={true} langid={en} description={} validfrom={2010-07-28 16:23:55 CEST} validto={} changed={2010-07-28 16:24:07 CEST} changedby={tirib} properties={} id={}
+val: guid={12A19705ADE1B906} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-07-28 16:24:07 CEST} validto={} changed={2010-07-28 16:24:30 CEST} changedby={tirib} properties={} id={}

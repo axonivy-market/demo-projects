@@ -1,0 +1,4 @@
+CaseBusinessDetailsDisplayData #class
+ch.ivyteam.ivy.workflow.ui.cases.CaseBusinessDetailsDisplay #namespace
+fCase ch.ivyteam.ivy.workflow.ICase #field
+hasWfAdministratorPermissions Boolean #field

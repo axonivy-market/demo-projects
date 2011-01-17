@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <firedEvent>
+        <name>showWorkflowUIUserGuideRequested</name>
+        <description></description>
+    </firedEvent>
+    <firedEvent>
+        <name>logoutSessionUserRequested</name>
+        <description></description>
+    </firedEvent>
+    <firedEvent>
+        <name>showAboutRequested</name>
+        <description></description>
+    </firedEvent>
+    <firedEvent>
+        <name>showSettingsRequested</name>
+        <description></description>
+    </firedEvent>
+    <property>
+        <name>guid</name>
+        <value>128B577C8558B8DC</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

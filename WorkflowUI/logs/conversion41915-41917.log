@@ -1,0 +1,9 @@
+# Conversion log for project 'WorkflowUI' from version 41915 to 41917
+# Created on 13.01.2011 12:34:58
+13.01.2011 12:34:58 : New Task  : Checking if project default data class and namespace are set...
+13.01.2011 12:34:58 : Info      : Default namespace already defined.
+13.01.2011 12:34:58 : Info      : Default data class already defined.
+13.01.2011 12:34:58 : New Task  : Converting CallSub elements.
+13.01.2011 12:34:58 : New Task  : Converting StartSub elements.
+13.01.2011 12:34:58 : New Task  : Update project version to actual version 41917.
+13.01.2011 12:34:58 : New Task  : Finished conversion of project WorkflowUI.

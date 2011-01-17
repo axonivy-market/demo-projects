@@ -1,0 +1,4 @@
+co: name={filterCaseList} description={} changed={2009-04-08 11:03:09 GMT} changedby={bb} visualorder={0} guid={11AE37C7252EFC07} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11AE37C7262741AE} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 11:16:01 GMT} validto={} changed={2008-07-02 11:16:32 GMT} changedby={tirib} properties={} id={}
+val: guid={11AE44EE3FB66994} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-02 15:05:52 GMT} validto={} changed={2008-07-02 15:06:08 GMT} changedby={tirib} properties={} id={}
+val: guid={11B69C377FF22A82} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:02:42 GMT} validto={} changed={2009-04-08 11:03:09 GMT} changedby={bb} properties={} id={}

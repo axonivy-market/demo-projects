@@ -1,0 +1,4 @@
+co: name={businessMilestoneDateTimeLong} description={} changed={2010-11-23 15:32:13 CET} changedby={rwei} visualorder={0} guid={12921BA8D793806E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12921BA8D7948A63} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 15:47:59 CEST} validto={} changed={2010-06-10 14:09:24 CEST} changedby={tirib} properties={} id={}
+val: guid={12921BA8D796CEE1} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 13:47:13 CEST} validto={} changed={2010-11-23 15:32:13 CET} changedby={rwei} properties={} id={}
+val: guid={12C790816D784BF4} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 14:59:22 CET} validto={} changed={2010-11-23 15:32:13 CET} changedby={rwei} properties={} id={}

@@ -1,0 +1,4 @@
+co: name={uncategorizedTasks} description={} changed={2008-07-30 11:31:16 GMT} changedby={tistc} visualorder={0} guid={11B02F110A86693A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B69F4D80849C98} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:56:38 GMT} validto={} changed={2008-07-28 13:57:09 GMT} changedby={cb} properties={} id={}
+val: guid={11B02F110D7B1661} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-05-22 15:45:30 GMT} validto={} changed={2008-07-08 13:51:37 GMT} changedby={tirib} properties={} id={}
+val: guid={11B02F110A878510} datatype={} isdefault={true} langid={en} description={} validfrom={2008-05-22 15:44:18 GMT} validto={} changed={2008-07-08 13:51:37 GMT} changedby={tirib} properties={} id={}

@@ -1,0 +1,4 @@
+DocumentsWrapperData #class
+ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper #namespace
+wfCase ch.ivyteam.ivy.workflow.ICase #field
+wfCase 'The case for which documents has to be displayed.' #fieldComment

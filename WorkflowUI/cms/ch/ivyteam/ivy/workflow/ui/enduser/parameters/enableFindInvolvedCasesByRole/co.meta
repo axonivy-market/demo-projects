@@ -1,0 +1,4 @@
+co: name={enableFindInvolvedCasesByRole} description={} changed={2008-07-30 10:34:30 GMT} changedby={tistc} visualorder={0} guid={11A065E0B943EC9B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11A065E0B941B7F2} datatype={} isdefault={true} langid={en} description={} validfrom={2008-05-20 12:46:44 GMT} validto={} changed={2008-05-20 12:53:15 GMT} changedby={tirib} properties={} id={}
+val: guid={11B738867BEE7C7B} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:34:24 GMT} validto={} changed={2008-07-30 10:34:30 GMT} changedby={tistc} properties={} id={}
+val: guid={11B69CDB84D44D92} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:13:54 GMT} validto={} changed={2008-07-28 13:14:20 GMT} changedby={cb} properties={} id={}

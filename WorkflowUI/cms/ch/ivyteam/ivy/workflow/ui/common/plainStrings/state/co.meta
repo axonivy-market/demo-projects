@@ -1,0 +1,4 @@
+co: name={state} description={} changed={2010-06-10 14:11:17 GMT} changedby={tirib} visualorder={0} guid={1292233597C2D47C} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={1292233598B667D7} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 08:06:20 GMT} validto={} changed={2010-06-10 14:11:17 GMT} changedby={tirib} properties={} id={}
+val: guid={1292233598BEBA67} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 12:58:36 GMT} validto={} changed={2010-06-10 14:11:17 GMT} changedby={tirib} properties={} id={}
+val: guid={1292233598B4F12E} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-10 09:37:48 GMT} validto={} changed={2010-06-10 14:11:17 GMT} changedby={tirib} properties={} id={}

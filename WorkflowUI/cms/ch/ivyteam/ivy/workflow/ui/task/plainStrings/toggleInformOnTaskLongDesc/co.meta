@@ -1,0 +1,4 @@
+co: name={toggleInformOnTaskLongDesc} description={} changed={2010-10-06 14:46:37 CEST} changedby={tirib} visualorder={0} guid={12B818FFC20644B4} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12B818FFC501CEB3} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 12:53:36 CEST} validto={} changed={2010-10-06 14:46:37 CEST} changedby={tirib} properties={} id={}
+val: guid={12B818FFC2E7249B} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 14:08:36 CEST} validto={} changed={2010-10-06 14:46:37 CEST} changedby={tirib} properties={} id={}
+val: guid={12B818FFC3EEFBB9} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 09:04:31 CEST} validto={} changed={2010-10-06 14:46:37 CEST} changedby={tirib} properties={} id={}

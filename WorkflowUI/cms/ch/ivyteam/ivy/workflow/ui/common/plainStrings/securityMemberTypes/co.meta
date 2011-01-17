@@ -1,0 +1,4 @@
+co: name={securityMemberTypes} description={} changed={2009-04-02 14:43:08 GMT} changedby={bb} visualorder={0} guid={11B7F6B71EE8AFAE} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12067485ECD7433D} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-02 14:42:57 GMT} validto={} changed={2009-04-02 14:43:08 GMT} changedby={bb} properties={} id={}
+val: guid={11B7F6B92865BB6C} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-08-01 17:58:21 GMT} validto={} changed={2008-08-01 17:58:51 GMT} changedby={tirib} properties={} id={}
+val: guid={11B7F6B71EEBA802} datatype={} isdefault={true} langid={en} description={} validfrom={2008-08-01 17:58:12 GMT} validto={} changed={2008-08-01 17:58:51 GMT} changedby={tirib} properties={} id={}

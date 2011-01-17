@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <description>It shows the task and case annotations as part of task details overview.</description>
+    <autoScreenshot>false</autoScreenshot>
+    <acceptedBroadcast>
+        <name>xivyTaskNotesChanged</name>
+        <description></description>
+        <attachment>
+            <name>aTaskIdentifier</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>xivyCaseNotesChanged</name>
+        <description></description>
+        <attachment>
+            <name>aCaseIdentifier</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <method>
+        <name>refresh</name>
+        <description></description>
+    </method>
+    <method>
+        <name>_updateTabTitle</name>
+        <description>It set the parent's tab title and add the bullet if&#xD;
+there is annotations on task or on case.</description>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>It shows the case and task annotation according&#xD;
+to the received task.</description>
+        <inputParameter>
+            <name>aTask</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ITask</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>12D7A77963542109</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

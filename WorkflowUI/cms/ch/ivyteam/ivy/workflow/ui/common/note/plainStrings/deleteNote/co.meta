@@ -1,0 +1,4 @@
+co: name={deleteNote} description={} changed={2010-11-23 16:35:55 CET} changedby={rwei} visualorder={0} guid={11B40E86F7C16D7A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B6DB5F97CD28D7} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 09:26:27 CEST} validto={} changed={2010-11-23 16:35:55 CET} changedby={rwei} properties={} id={}
+val: guid={11B40E86F7C456A7} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-20 16:36:50 CEST} validto={} changed={2010-09-02 10:49:42 CEST} changedby={tirib} properties={} id={}
+val: guid={11B730DEDCD1DBA7} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:20:37 CEST} validto={} changed={2010-09-02 10:49:54 CEST} changedby={tirib} properties={} id={}

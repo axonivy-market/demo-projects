@@ -1,0 +1,4 @@
+co: name={customTimestampFields} description={} changed={2010-11-23 16:09:53 CET} changedby={rwei} visualorder={0} guid={11B46713F486D9A5} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B46713F48DB007} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 15:02:07 CEST} validto={} changed={2008-07-28 15:23:22 CEST} changedby={cb} properties={} id={}
+val: guid={11B69D515CDFB371} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:21:57 CEST} validto={} changed={2010-11-23 16:09:53 CET} changedby={rwei} properties={} id={}
+val: guid={11B738D2C6242A75} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 12:39:36 CEST} validto={} changed={2008-07-30 12:39:53 CEST} changedby={tistc} properties={} id={}

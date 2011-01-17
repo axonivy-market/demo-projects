@@ -1,0 +1,3 @@
+co: name={destroyTaskFailed} description={} changed={2009-04-26 22:18:59 GMT} changedby={tirib} visualorder={0} guid={120E481878FE3EC9} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={120E481979D6ACC4} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-04-26 22:17:59 GMT} validto={} changed={2009-04-26 22:18:59 GMT} changedby={tirib} properties={} id={}
+val: guid={120E481878F88BEC} datatype={} isdefault={true} langid={en} description={} validfrom={2009-04-26 22:17:55 GMT} validto={} changed={2009-04-26 22:18:13 GMT} changedby={tirib} properties={} id={}

@@ -1,0 +1,4 @@
+co: name={caseWorkflowEventsShortDesc} description={} changed={2010-09-07 09:57:26 CEST} changedby={tirib} visualorder={0} guid={12AEB32E1D58D1E3} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12AEB32E1E5BA94B} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-09 14:22:57 CEST} validto={} changed={2010-09-07 09:57:26 CEST} changedby={tirib} properties={} id={}
+val: guid={12AEB32E1F497EE5} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:00:35 CEST} validto={} changed={2010-09-07 09:57:14 CEST} changedby={tirib} properties={} id={}
+val: guid={12AEB32E2131AA03} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:07:30 CEST} validto={} changed={2010-09-07 09:57:26 CEST} changedby={tirib} properties={} id={}

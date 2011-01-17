@@ -1,0 +1,4 @@
+co: name={UNASSIGNED} description={} changed={2010-11-23 16:21:46 CET} changedby={rwei} visualorder={0} guid={128DFEC957A2DCC3} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12C79535E62D8E1A} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:21:35 CET} validto={} changed={2010-11-23 16:21:46 CET} changedby={rwei} properties={} id={}
+val: guid={128DFEC957A1B601} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-28 18:32:44 CEST} validto={} changed={2010-05-28 19:19:03 CEST} changedby={tirib} properties={} id={}
+val: guid={128DFEC957AC518D} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-28 18:32:59 CEST} validto={} changed={2010-05-28 19:19:03 CEST} changedby={tirib} properties={} id={}

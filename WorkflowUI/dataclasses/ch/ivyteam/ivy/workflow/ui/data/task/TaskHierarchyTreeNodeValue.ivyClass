@@ -1,0 +1,8 @@
+TaskHierarchyTreeNodeValue #class
+ch.ivyteam.ivy.workflow.ui.data.task #namespace
+property ch.ivyteam.ivy.workflow.TaskProperty #field
+property 'ex: TaskProperty.PROCESS_CATEGORY_CODE' #fieldComment
+categoryCode String #field
+categoryCode 'ITask''s category code, ex: task.getProcessCategoryCode(), task.getProcessCode(), etc.' #fieldComment
+categoryName String #field
+categoryName 'ITask''s category name, ex: task.getProcessCategoryName(), task.getProcessName(), etc.' #fieldComment

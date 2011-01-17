@@ -1,0 +1,8 @@
+TaskHierarchyLayoutSelectData #class
+ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect #namespace
+tasksHierarchyLayoutsList List<ch.ivyteam.ivy.workflow.ui.data.common.HierarchyLayout> #field
+tasksHierarchyLayoutsList 'This will use the CMS String resources in order to build the list of choice of tasks hierarchy layouts' #fieldComment
+taskHierarchyLayoutPrefferedIndex Number #field
+taskHierarchyLayoutPrefferedIndex 'This index will be recieved from Workflow User settings' #fieldComment
+selectionEnabled Boolean #field
+selectionEnabled PERSISTENT #fieldModifier

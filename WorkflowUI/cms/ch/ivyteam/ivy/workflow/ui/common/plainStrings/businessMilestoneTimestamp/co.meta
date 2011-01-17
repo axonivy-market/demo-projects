@@ -1,0 +1,4 @@
+co: name={businessMilestoneTimestamp} description={} changed={2010-07-30 11:49:43 CEST} changedby={tirib} visualorder={0} guid={1291300674EDEDC7} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={129179C30B28D299} datatype={} isdefault={false} langid={de} description={} validfrom={2010-06-08 14:49:58 CEST} validto={} changed={2010-06-08 14:50:28 CEST} changedby={tirib} properties={} id={}
+val: guid={1291300675ECCE64} datatype={} isdefault={true} langid={en} description={} validfrom={2010-06-07 17:21:20 CEST} validto={} changed={2010-06-08 14:50:29 CEST} changedby={tirib} properties={} id={}
+val: guid={129179C3A95C0DE3} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-06-08 14:50:01 CEST} validto={} changed={2010-07-30 11:49:43 CEST} changedby={tirib} properties={} id={}

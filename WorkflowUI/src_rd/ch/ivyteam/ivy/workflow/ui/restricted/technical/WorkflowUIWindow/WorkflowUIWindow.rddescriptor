@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <method>
+        <name>_windowClosingRequested</name>
+        <description>It loads the confirmation dialog (exit the WFUI?) with yes, no options. If yes, then logout session user.</description>
+    </method>
+    <method>
+        <name>_startProcess</name>
+        <description></description>
+        <inputParameter>
+            <name>displayId</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>richDialogPanel</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>processStart</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.IProcessStart</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>128B5701AF0267AA</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

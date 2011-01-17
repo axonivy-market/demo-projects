@@ -1,0 +1,5 @@
+TaskCustomFieldsDisplayData #class
+ch.ivyteam.ivy.workflow.ui.task.TaskCustomFieldsDisplay #namespace
+task ch.ivyteam.ivy.workflow.ITask #field
+customFieldsLabels ch.ivyteam.ivy.workflow.ui.data.restricted.common.CustomFieldsLabels #field
+customFieldsLabels 'Task custom fields labels' #fieldComment

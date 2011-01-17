@@ -1,0 +1,4 @@
+co: name={tasksHierarchyLayout4ShortDesc} description={} changed={2010-05-17 16:39:21 CEST} changedby={tirib} visualorder={0} guid={11B025EBC359E6C2} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B69EF2A96C7C76} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:50:26 CEST} validto={} changed={2009-05-05 14:53:16 CEST} changedby={bb} properties={} id={}
+val: guid={11B025EBC45162FB} datatype={} isdefault={true} langid={en} description={} validfrom={2008-02-04 16:37:08 CET} validto={} changed={2010-05-17 16:39:21 CEST} changedby={tirib} properties={} id={}
+val: guid={11B73C16B431B8CC} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 13:36:40 CEST} validto={} changed={2010-05-17 16:39:21 CEST} changedby={tirib} properties={} id={}

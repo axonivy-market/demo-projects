@@ -1,0 +1,4 @@
+co: name={processes} description={} changed={2010-05-27 10:28:11 CEST} changedby={tirib} visualorder={0} guid={11AE4190E4E4B450} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11AE41941A3947B8} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-02 16:07:17 CEST} validto={} changed={2010-05-27 10:28:11 CEST} changedby={tirib} properties={} id={}
+val: guid={11AE4190E5E4F176} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 16:07:04 CEST} validto={} changed={2008-07-02 16:07:17 CEST} changedby={tirib} properties={} id={}
+val: guid={11B69D070A1B72D9} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:16:52 CEST} validto={} changed={2008-07-28 15:17:02 CEST} changedby={cb} properties={} id={}

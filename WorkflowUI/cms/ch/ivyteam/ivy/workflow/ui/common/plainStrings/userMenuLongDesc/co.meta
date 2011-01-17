@@ -1,0 +1,4 @@
+co: name={userMenuLongDesc} description={} changed={2009-04-02 14:45:50 GMT} changedby={bb} visualorder={0} guid={11AE40F1861A90BC} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={11AE40F186111341} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 13:56:12 GMT} validto={} changed={2008-07-02 14:14:48 GMT} changedby={tirib} properties={} id={}
+val: guid={11B7318D7516CFE2} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 08:32:32 GMT} validto={} changed={2008-07-30 08:33:32 GMT} changedby={tistc} properties={} id={}
+val: guid={11B6DCA5B9CEB4F8} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 07:48:43 GMT} validto={} changed={2009-04-02 14:45:50 GMT} changedby={bb} properties={} id={}

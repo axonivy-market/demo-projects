@@ -1,0 +1,4 @@
+co: name={startableProcessesLongDesc} description={} changed={2010-05-27 10:27:24 CEST} changedby={tirib} visualorder={0} guid={11AE407CB6C7EF9C} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={11AE407CB7B1C0A4} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 15:48:13 CEST} validto={} changed={2010-05-27 10:27:24 CEST} changedby={tirib} properties={} id={}
+val: guid={11B6D98D15CF5A3B} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 08:54:36 CEST} validto={} changed={2008-07-29 08:55:28 CEST} changedby={cb} properties={} id={}
+val: guid={11B73555ECD75A3F} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 11:38:39 CEST} validto={} changed={2010-05-27 10:26:16 CEST} changedby={tirib} properties={} id={}

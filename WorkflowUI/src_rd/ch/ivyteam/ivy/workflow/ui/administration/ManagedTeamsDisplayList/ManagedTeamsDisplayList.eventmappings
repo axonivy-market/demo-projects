@@ -1,0 +1,6 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-08-06 13:46:08 | 4.1.1.31367 | 1.0
+~.exitButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A4698EBFC9D238/12A443084535F54A # ManagedTeamsDisplayListProcess.mod/cancel
+~.okButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A4698EBFC9D238/12A442FDADB847E8
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12A4698EBFC9D238/12A43EF5B1247D8C
+~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A4698EBFC9D238/12A443084535F54A

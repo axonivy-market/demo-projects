@@ -1,0 +1,4 @@
+co: name={ZOMBIE} description={} changed={2010-11-23 16:13:58 CET} changedby={rwei} visualorder={0} guid={128E009F09DEC424} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={128E009F09D1BE0B} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-28 18:32:44 CEST} validto={} changed={2010-05-28 19:51:07 CEST} changedby={tirib} properties={} id={}
+val: guid={128F3F0557960FAD} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-06-01 16:35:33 CEST} validto={} changed={2010-06-01 16:35:41 CEST} changedby={tirib} properties={} id={}
+val: guid={12C794C6374E8F63} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:13:58 CET} validto={} changed={2010-11-23 16:13:58 CET} changedby={rwei} properties={} id={}

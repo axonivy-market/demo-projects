@@ -1,0 +1,4 @@
+co: name={loadTaskListLongDesc} description={} changed={2010-09-06 13:06:27 CEST} changedby={tirib} visualorder={0} guid={11AE3AFEF0DF17CB} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11AE3AFEF2C420EB} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 14:04:41 CEST} validto={} changed={2010-09-06 13:06:10 CEST} changedby={tirib} properties={} id={}
+val: guid={11B739ACCCAC9535} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 12:54:29 CEST} validto={} changed={2010-09-06 13:06:10 CEST} changedby={tirib} properties={} id={}
+val: guid={11B6DA2F95C4A290} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 09:05:41 CEST} validto={} changed={2010-09-06 13:06:27 CEST} changedby={tirib} properties={} id={}

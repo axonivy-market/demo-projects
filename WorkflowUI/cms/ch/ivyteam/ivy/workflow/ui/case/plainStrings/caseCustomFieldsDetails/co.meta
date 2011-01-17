@@ -1,0 +1,4 @@
+co: name={caseCustomFieldsDetails} description={} changed={2010-05-19 17:22:28 CEST} changedby={tirib} visualorder={0} guid={11B07CCD775422CD} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B69A7E1B9F13BE} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 14:32:34 CEST} validto={} changed={2009-05-14 15:34:42 CEST} changedby={bb} properties={} id={}
+val: guid={11B07CCD784A0CBA} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-09 14:30:09 CEST} validto={} changed={2010-05-19 17:22:28 CEST} changedby={tirib} properties={} id={}
+val: guid={11B72E4F333F1E22} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 09:35:51 CEST} validto={} changed={2010-05-19 17:22:28 CEST} changedby={tirib} properties={} id={}

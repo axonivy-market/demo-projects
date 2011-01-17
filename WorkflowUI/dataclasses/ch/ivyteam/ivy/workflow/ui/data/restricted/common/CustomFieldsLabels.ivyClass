@@ -1,0 +1,18 @@
+CustomFieldsLabels #class
+'It contains the labels to display for the Case or Task custom fields.' #classComment
+ch.ivyteam.ivy.workflow.ui.data.restricted.common #namespace
+customVarcharField1Label String #field
+customVarcharField2Label String #field
+customVarcharField3Label String #field
+customVarcharField4Label String #field
+customVarcharField5Label String #field
+customDecimalField1Label String #field
+customDecimalField2Label String #field
+customDecimalField3Label String #field
+customDecimalField4Label String #field
+customDecimalField5Label String #field
+customTimestampField1Label String #field
+customTimestampField2Label String #field
+customTimestampField3Label String #field
+customTimestampField4Label String #field
+customTimestampField5Label String #field

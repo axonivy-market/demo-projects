@@ -1,0 +1,32 @@
+TaskHierarchyFilters #class
+ch.ivyteam.ivy.workflow.ui.data.task #namespace
+caseProcessCategoriesFilter ch.ivyteam.ivy.workflow.ui.data.task.TaskCategoryFilter #field
+caseProcessCategoriesFilterIsDefined Boolean #field
+caseProcessCategoriesFilterIsDefined 'Describe if the filter has been created for caseProcessCategoriesFilter' #fieldComment
+caseProcessesFilter ch.ivyteam.ivy.workflow.ui.data.task.TaskCategoryFilter #field
+caseProcessesFilterIsDefined Boolean #field
+caseProcessesFilterIsDefined 'Describe if the filter has been created for caseProcessFilter' #fieldComment
+caseTypesFilter ch.ivyteam.ivy.workflow.ui.data.task.TaskCategoryFilter #field
+caseTypesFilterIsDefined Boolean #field
+caseTypesFilterIsDefined 'Describe if the filter has been created for caseTypeFilter' #fieldComment
+caseSubTypesFilter ch.ivyteam.ivy.workflow.ui.data.task.TaskCategoryFilter #field
+caseSubTypesFilterIsDefined Boolean #field
+caseSubTypesFilterIsDefined 'Describe if the filter has been created for caseSubTypeFilter' #fieldComment
+businessDateTimeStartsFilter ch.ivyteam.ivy.workflow.ui.data.task.TaskCategoryFilter #field
+businessDateTimeStartsFilterIsDefined Boolean #field
+businessDateTimeStartsFilterIsDefined 'Describe if the filter has been created for businessDateTimeStartsFilter' #fieldComment
+businessMainContactsFilter ch.ivyteam.ivy.workflow.ui.data.task.TaskCategoryFilter #field
+businessMainContactsFilterIsDefined Boolean #field
+businessMainContactsFilterIsDefined 'Describe if the filter has been created for businessMainContactsFilter' #fieldComment
+taskNamesFilter ch.ivyteam.ivy.workflow.ui.data.task.TaskCategoryFilter #field
+taskNamesFilterIsDefined Boolean #field
+taskNamesFilterIsDefined 'Describe if the filter has been created for taskNamesFilter' #fieldComment
+taskKindsFilter ch.ivyteam.ivy.workflow.ui.data.task.TaskCategoryFilter #field
+taskKindsFilterIsDefined Boolean #field
+taskKindsFilterIsDefined 'Describe if the filter has been created for taskKindsFilter' #fieldComment
+businessCreatorUsersFilter ch.ivyteam.ivy.workflow.ui.data.task.TaskCategoryFilter #field
+businessCreatorUsersFilterIsDefined Boolean #field
+businessCreatorUsersFilterIsDefined 'Describe if the filter has been created for businessCreatorUsersFilter' #fieldComment
+propertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
+propertyFilter 'Resume the selected filters.
+Recieved task property filter that is used to filter only the tasks with specified task states' #fieldComment

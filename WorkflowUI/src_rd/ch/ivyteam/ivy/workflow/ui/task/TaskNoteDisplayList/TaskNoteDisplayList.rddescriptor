@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <autoScreenshot>true</autoScreenshot>
+    <method>
+        <name>refresh</name>
+        <description></description>
+    </method>
+    <method>
+        <name>setTask</name>
+        <description></description>
+        <inputParameter>
+            <name>aTask</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ITask</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>taskIsInitialized</name>
+        <description></description>
+        <outputParameter>
+            <name>isInitialized</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>The caseIdentifier will be used to find the case and display its data</description>
+        <inputParameter>
+            <name>aTask</name>
+            <description>The task to display</description>
+            <parameterType>ch.ivyteam.ivy.workflow.ITask</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>aLoadDataAtStart</name>
+            <description>It defines if the case's data should be loaded at the RD start or not</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <firedEvent>
+        <name>xivyTaskNotesChanged</name>
+        <description>Fire the RD Event each time when: &#xD;
+- the task note is created, &#xD;
+- the task note has been deleted.</description>
+        <scope>APPLICATION</scope>
+        <attachment>
+            <name>aTaskIdentifier</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <property>
+        <name>guid</name>
+        <value>118AE170232BE092</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

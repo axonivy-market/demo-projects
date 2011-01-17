@@ -1,0 +1,4 @@
+co: name={customVarcharField} description={} changed={2010-11-23 16:08:04 CET} changedby={rwei} visualorder={0} guid={11B46713F57AD002} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B69D8F0F37F2F9} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:26:09 CEST} validto={} changed={2010-11-23 16:08:04 CET} changedby={rwei} properties={} id={}
+val: guid={11B738D7DAFCF6C6} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 12:39:57 CEST} validto={} changed={2008-07-30 12:40:07 CEST} changedby={tistc} properties={} id={}
+val: guid={11B46713F579F70A} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 15:01:14 CEST} validto={} changed={2008-07-21 18:26:11 CEST} changedby={tirib} properties={} id={}

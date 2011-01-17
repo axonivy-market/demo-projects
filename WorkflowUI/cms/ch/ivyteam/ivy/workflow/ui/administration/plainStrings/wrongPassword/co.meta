@@ -1,0 +1,4 @@
+co: name={wrongPassword} description={} changed={2008-10-10 14:30:33 GMT} changedby={tirib} visualorder={0} guid={11CE72A7E255A4D4} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11CE72A7E5434627} datatype={} isdefault={false} langid={de} description={} validfrom={2008-04-26 09:38:44 GMT} validto={} changed={2008-10-10 14:30:33 GMT} changedby={tirib} properties={} id={}
+val: guid={11CE72A7E25B319F} datatype={} isdefault={true} langid={en} description={} validfrom={2008-04-26 09:37:54 GMT} validto={} changed={2008-10-10 14:30:33 GMT} changedby={tirib} properties={} id={}
+val: guid={11CE72A7E83F69DE} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 08:50:42 GMT} validto={} changed={2008-10-10 14:30:33 GMT} changedby={tirib} properties={} id={}

@@ -1,0 +1,12 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-09-16 11:38:51 | 4.1.1.31367 | 1.0
+~.descTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198AC930B34DDE8
+~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/12A333B1D13C3420
+~.exitButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/12061AD988EAC0E3
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198ABD3DECFDD60
+~.startDatePicker@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/12A37D2E575B0F5A
+~.deleteButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198ADADD5CB5C0C
+~.deleteMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198ADADD5CB5C0C
+~.absenceTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198AE6A9324CDF0
+~.addButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198AE1D23E153E4
+~.okButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198AC930B34DDE8

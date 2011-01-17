@@ -1,0 +1,4 @@
+co: name={3} description={} changed={2010-11-23 16:15:10 CET} changedby={rwei} visualorder={0} guid={12921F8EF42BCEE1} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12C794D27A97F5C6} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:14:48 CET} validto={} changed={2010-11-23 16:15:10 CET} changedby={rwei} properties={} id={}
+val: guid={12921F8EF52C6800} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-17 22:19:15 CEST} validto={} changed={2010-06-10 15:07:29 CEST} changedby={tirib} properties={} id={}
+val: guid={12921F8EF52D66B1} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-17 22:17:26 CEST} validto={} changed={2010-06-10 15:07:29 CEST} changedby={tirib} properties={} id={}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <acceptedBroadcast>
+        <name>ivy_systemevent_workflow_case_changed</name>
+        <description></description>
+        <attachment>
+            <name>workflowSystemEventParameter</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.WorkflowSystemEventParameter</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <method>
+        <name>setCase</name>
+        <description></description>
+        <inputParameter>
+            <name>aCase</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ICase</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>The caseIdentifier will be used to find the case and display its data</description>
+        <inputParameter>
+            <name>aCase</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ICase</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>129830871D873159</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

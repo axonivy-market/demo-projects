@@ -1,0 +1,4 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-06-23 16:37:09 | 4.1.1.31367 | 1.0
+~.webBannerHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:129653262B4670B1/129653B69BDBE07F # DefaultWebBannerDisplayProcess.mod/loadXpertLineWebSite
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:129653262B4670B1/1296532636014763

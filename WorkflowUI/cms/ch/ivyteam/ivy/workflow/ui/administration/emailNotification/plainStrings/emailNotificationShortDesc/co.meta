@@ -1,0 +1,3 @@
+co: name={emailNotificationShortDesc} description={} changed={2011-01-11 16:09:14 CET} changedby={tirib} visualorder={0} guid={12D759E3AE13775A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12D759E3AEAAE92F} datatype={} isdefault={true} langid={en} description={} validfrom={2011-01-11 16:07:40 CET} validto={} changed={2011-01-11 16:08:25 CET} changedby={tirib} properties={} id={}
+val: guid={12D759EC74ACF64F} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-01-11 16:08:16 CET} validto={} changed={2011-01-11 16:09:14 CET} changedby={tirib} properties={} id={}

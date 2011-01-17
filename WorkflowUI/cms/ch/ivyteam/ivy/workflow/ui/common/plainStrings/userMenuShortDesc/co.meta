@@ -1,0 +1,4 @@
+co: name={userMenuShortDesc} description={} changed={2010-05-27 10:19:05 CEST} changedby={tirib} visualorder={0} guid={11AE40EF49DF9CEA} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B7319CA6CA0AFE} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:33:34 CEST} validto={} changed={2010-05-27 10:19:05 CEST} changedby={tirib} properties={} id={}
+val: guid={11AE40EF49DA4878} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 15:56:02 CEST} validto={} changed={2010-05-27 10:19:05 CEST} changedby={tirib} properties={} id={}
+val: guid={11B6DCC0D7DF5407} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 09:50:34 CEST} validto={} changed={2010-05-27 10:19:05 CEST} changedby={tirib} properties={} id={}

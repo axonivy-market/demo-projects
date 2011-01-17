@@ -1,0 +1,4 @@
+co: name={eventDate} description={} changed={2010-05-28 22:17:12 CEST} changedby={tirib} visualorder={0} guid={128E08F7E9E2998B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={128E08F7ECDC8CB5} datatype={} isdefault={true} langid={en} description={} validfrom={2008-11-26 11:21:43 CET} validto={} changed={2010-05-28 22:17:00 CEST} changedby={tirib} properties={} id={}
+val: guid={128E08F7EAEF0FF9} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-11-26 11:22:47 CET} validto={} changed={2010-05-28 22:17:00 CEST} changedby={tirib} properties={} id={}
+val: guid={128E08F7E9E4977F} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-02 16:44:05 CEST} validto={} changed={2010-05-28 22:17:00 CEST} changedby={tirib} properties={} id={}

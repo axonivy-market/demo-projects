@@ -1,0 +1,8 @@
+Data #class
+workflowui #namespace
+authentificationSuccessful Boolean #field
+authentificationSuccessful 'User successfully authentificated to the Ivy' #fieldComment
+windowTitle String #field
+windowTitle 'Title to display as Window''s title' #fieldComment
+functionsRichDialogFullName String #field
+functionsRichDialogFullName 'The Rich Dialog full name (namespace & name) to load dynamically at the "Functions" tab. It will be placed at same level as Tasks tab.' #fieldComment

@@ -1,0 +1,8 @@
+HierarchyLayout #class
+ch.ivyteam.ivy.workflow.ui.data.common #namespace
+shortDescription String #field
+shortDescription 'This attribute will be populate with the CMS short description of the taks hierarhy layout. 
+Will be used for text property value.' #fieldComment
+longDescription String #field
+longDescription 'This attribute will be populate with the CMS long description of the taks hierarhy layout; 
+Will be used as tooltip property value.' #fieldComment

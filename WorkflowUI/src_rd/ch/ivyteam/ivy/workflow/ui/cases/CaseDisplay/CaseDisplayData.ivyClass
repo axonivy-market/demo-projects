@@ -1,0 +1,5 @@
+CaseDisplayData #class
+ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay #namespace
+fCase ch.ivyteam.ivy.workflow.ICase #field
+broadcastedCaseIdentifier Number #field
+broadcastedCaseIdentifier 'The case identifier that could be recieved from RD Events' #fieldComment

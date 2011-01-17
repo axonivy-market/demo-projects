@@ -1,0 +1,4 @@
+co: name={customDecimalField} description={} changed={2010-11-23 16:06:50 CET} changedby={rwei} visualorder={0} guid={11B45B5D86DA91B7} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={11B6F1482AA8A903} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 15:49:19 CEST} validto={} changed={2008-07-29 15:54:00 CEST} changedby={tistc} properties={} id={}
+val: guid={11B45B5D86D9F3F9} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-21 15:01:30 CEST} validto={} changed={2008-07-21 15:02:16 CEST} changedby={tirib} properties={} id={}
+val: guid={11B699E15FDAF767} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 14:21:52 CEST} validto={} changed={2010-11-23 16:06:50 CET} changedby={rwei} properties={} id={}

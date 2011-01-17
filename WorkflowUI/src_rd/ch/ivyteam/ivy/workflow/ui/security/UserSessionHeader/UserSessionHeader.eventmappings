@@ -1,0 +1,5 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-07-28 00:21:03 | 4.1.1.31367 | 1.0
+~.helpHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:128B577C874984E4/128B57E185C709EF
+~.settingsHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:128B577C874984E4/12A15F835E9601CE # UserSessionHeaderProcess.mod/showSettingsRequested
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:128B577C874984E4/128B577C893B428D

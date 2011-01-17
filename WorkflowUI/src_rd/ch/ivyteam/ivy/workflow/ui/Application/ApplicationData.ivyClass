@@ -1,0 +1,20 @@
+ApplicationData #class
+ch.ivyteam.ivy.workflow.ui.Application #namespace
+userGuideCoref String #field
+initialDividerPosition Number #field
+currentTaskId Number #field
+broadcastedTasks List #field
+title String #field
+title 'Title for the tab Functions' #fieldComment
+taskHierarchyContext ch.ivyteam.ivy.workflow.ui.data.task.TaskHierarchyContext #field
+taskHierarchyContext 'Needed to load at Rich Dialog Load event the running tasks' #fieldComment
+destinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
+destinationDisplay 'Needed to load at Rich Dialog Load event the running tasks' #fieldComment
+taskDisplayMode Number #field
+taskDisplayMode 'Needed to load at Rich Dialog Load event the running tasks: 0=your tasks, 1=team tasks, 2=all env. tasks (wf admin mode)' #fieldComment
+closeCanceled Boolean #field
+sessionUserResumedTasks List<ch.ivyteam.ivy.workflow.ITask> #field
+sessionUserResumedTasksIterator java.util.Iterator #field
+pressedButton String #field
+pressedButton 'End user pressed button on Question Dialog.' #fieldComment
+sessionUserResumedTask ch.ivyteam.ivy.workflow.ITask #field

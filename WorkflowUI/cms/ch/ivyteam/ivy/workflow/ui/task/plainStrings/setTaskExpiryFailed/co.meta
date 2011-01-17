@@ -1,0 +1,3 @@
+co: name={setTaskExpiryFailed} description={} changed={2009-04-26 22:15:42 GMT} changedby={tirib} visualorder={0} guid={120E47EAD65AD907} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={120E47EF9638326B} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-04-26 22:15:07 GMT} validto={} changed={2009-04-26 22:15:42 GMT} changedby={tirib} properties={} id={}
+val: guid={120E47EAD65CCC20} datatype={} isdefault={true} langid={en} description={} validfrom={2009-04-26 22:14:48 GMT} validto={} changed={2009-04-26 22:15:29 GMT} changedby={tirib} properties={} id={}
