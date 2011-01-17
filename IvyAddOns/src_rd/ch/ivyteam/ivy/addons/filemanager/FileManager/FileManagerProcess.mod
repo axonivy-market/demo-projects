@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Nov 15 11:31:46 CET 2010]
-125FE583DB581114 3.13.1 #module
+[>Created: Mon Jan 17 17:06:28 CET 2011]
+125FE583DB581114 3.15 #module
 >Proto >Proto Collection #zClass
 us0 updownloadPaneProcess Big #zClass
 us0 RD #cInfo
@@ -806,15 +806,6 @@ us0 @RichDialogMethodStart f787 '' #zField
 us0 @RichDialogProcessEnd f788 '' #zField
 us0 @PushWFArc f789 '' #zField
 >Proto us0 us0 updownloadPaneProcess #zField
-us0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f0 guid 11D3EC39343F50E1 #txt
 us0 f0 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f0 method start() #txt
@@ -832,6 +823,15 @@ out.isTreeVisible=true;
 us0 f0 outParameterDecl '<> result;
 ' #txt
 us0 f0 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
+us0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f0 174 118 20 20 13 0 #rect
 us0 f0 @|RichDialogInitStartIcon #fIcon
 us0 f1 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -908,15 +908,6 @@ subscribes to System Event</name>
 ' #txt
 us0 f3 166 509 36 23 -183 -32 #rect
 us0 f3 @|RichDialogProcessStepIcon #fIcon
-us0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Upload a file</name>
-        <nameStyle>13,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f5 guid 11D3ECBE28E494B6 #txt
 us0 f5 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f5 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -926,6 +917,15 @@ us0 f5 actionTable 'out=in;
 us0 f5 actionCode 'out.returnedMessage.text="";
 panel.ProgressBar.setIndeterminate(true);
 out.progressText="";' #txt
+us0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Upload a file</name>
+        <nameStyle>13,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f5 1198 638 20 20 -25 -31 #rect
 us0 f5 @|RichDialogProcessStartIcon #fIcon
 us0 f6 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -1036,15 +1036,6 @@ File indexing system</name>
 ' #txt
 us0 f15 3766 468 36 24 27 -25 #rect
 us0 f15 @|RichDialogProcessStepIcon #fIcon
-us0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>download selected Files</name>
-        <nameStyle>23,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f17 guid 11D42758DEB45FD8 #txt
 us0 f17 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f17 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -1072,8 +1063,24 @@ if(in.#downloadHandler!=null&& in.selectedDocument.filename!=""){
 	}
 	
 }' #txt
+us0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>download selected Files</name>
+        <nameStyle>23,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f17 1302 638 20 20 -28 -31 #rect
 us0 f17 @|RichDialogProcessStartIcon #fIcon
+us0 f18 guid 11D42EE9868EE3A0 #txt
+us0 f18 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f18 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f18 actionTable 'out=in;
+' #txt
+us0 f18 actionCode in.progressUnit=-1; #txt
 us0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1083,13 +1090,6 @@ us0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f18 guid 11D42EE9868EE3A0 #txt
-us0 f18 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f18 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f18 actionTable 'out=in;
-' #txt
-us0 f18 actionCode in.progressUnit=-1; #txt
 us0 f18 1222 846 20 20 -48 -24 #rect
 us0 f18 @|RichDialogProcessStartIcon #fIcon
 us0 f19 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -1146,15 +1146,6 @@ us0 f22 1232 908 1232 931 #arcP
 us0 f25 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f25 1299 691 26 26 14 0 #rect
 us0 f25 @|RichDialogProcessEndIcon #fIcon
-us0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startWithServerPath(String)</name>
-        <nameStyle>27,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f34 guid 11D4343AE72A9CC1 #txt
 us0 f34 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f34 method startWithServerPath(String) #txt
@@ -1173,8 +1164,25 @@ out.serverPath=param.serverPath;
 us0 f34 outParameterDecl '<> result;
 ' #txt
 us0 f34 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
+us0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startWithServerPath(String)</name>
+        <nameStyle>27,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f34 238 142 20 20 15 -8 #rect
 us0 f34 @|RichDialogInitStartIcon #fIcon
+us0 f27 guid 11D438D57924C5D9 #txt
+us0 f27 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f27 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f27 actionTable 'out=in;
+' #txt
+us0 f27 actionCode 'in.progressUnit=-1;
+out.windowTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/windowTitles/confirmdeleteDir");' #txt
 us0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1184,14 +1192,6 @@ us0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f27 guid 11D438D57924C5D9 #txt
-us0 f27 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f27 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f27 actionTable 'out=in;
-' #txt
-us0 f27 actionCode 'in.progressUnit=-1;
-out.windowTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/windowTitles/confirmdeleteDir");' #txt
 us0 f27 974 134 20 20 -42 -31 #rect
 us0 f27 @|RichDialogProcessStartIcon #fIcon
 us0 f28 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -1336,16 +1336,6 @@ us0 f74 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 us0 f74 4606 798 20 20 -181 -29 #rect
 us0 f74 @|RichDialogMethodStartIcon #fIcon
-us0 f75 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Ask if replace the
-existing file on the server</name>
-        <nameStyle>46,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f75 targetWindow NEW:card: #txt
 us0 f75 targetDisplay TOP #txt
 us0 f75 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -1367,6 +1357,16 @@ us0 f75 windowConfiguration '{/title "Warning"/width 0 /height 0 /centered true 
 us0 f75 isAsynch false #txt
 us0 f75 isInnerRd true #txt
 us0 f75 isDialog true #txt
+us0 f75 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Ask if replace the
+existing file on the server</name>
+        <nameStyle>46,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f75 4598 964 36 24 24 -16 #rect
 us0 f75 @|RichDialogIcon #fIcon
 us0 f75 -985168|-1|-16777216 #nodeStyle
@@ -1387,15 +1387,6 @@ us0 f78 4616 988 4616 1002 #arcP
 us0 f81 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f81 4603 1195 26 26 14 0 #rect
 us0 f81 @|RichDialogProcessEndIcon #fIcon
-us0 f85 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Ask</name>
-        <nameStyle>3,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f85 targetWindow NEW:card: #txt
 us0 f85 targetDisplay TOP #txt
 us0 f85 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -1417,6 +1408,15 @@ us0 f85 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /ce
 us0 f85 isAsynch false #txt
 us0 f85 isInnerRd true #txt
 us0 f85 isDialog true #txt
+us0 f85 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Ask</name>
+        <nameStyle>3,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f85 966 196 36 24 22 -7 #rect
 us0 f85 @|RichDialogIcon #fIcon
 us0 f85 -985168|-1|-16777216 #nodeStyle
@@ -1512,6 +1512,12 @@ us0 f106 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 us0 f106 4616 1030 4616 1076 #arcP
 us0 f106 0 0.22580645161290322 0 0 #arcLabel
+us0 f116 guid 11D4DCC4107AFD90 #txt
+us0 f116 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f116 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f116 actionTable 'out=in;
+' #txt
 us0 f116 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1520,12 +1526,6 @@ us0 f116 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-us0 f116 guid 11D4DCC4107AFD90 #txt
-us0 f116 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f116 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f116 actionTable 'out=in;
 ' #txt
 us0 f116 750 726 20 20 -71 -11 #rect
 us0 f116 @|RichDialogProcessStartIcon #fIcon
@@ -1551,6 +1551,13 @@ us0 f121 3770 408 3771 592 #arcP
 us0 f121 1 3704 408 #addKink
 us0 f121 2 3704 592 #addKink
 us0 f121 1 0.8575546111881776 0 0 #arcLabel
+us0 f122 guid 11D53743C81FC390 #txt
+us0 f122 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f122 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f122 actionTable 'out=in;
+' #txt
+us0 f122 actionCode in.selectedFolderOnServer.path=in.serverPath; #txt
 us0 f122 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1560,13 +1567,6 @@ us0 f122 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f122 guid 11D53743C81FC390 #txt
-us0 f122 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f122 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f122 actionTable 'out=in;
-' #txt
-us0 f122 actionCode in.selectedFolderOnServer.path=in.serverPath; #txt
 us0 f122 838 598 20 20 -15 -33 #rect
 us0 f122 @|RichDialogProcessStartIcon #fIcon
 us0 f44 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -1621,15 +1621,6 @@ us0 f127 2451 155 26 26 14 0 #rect
 us0 f127 @|RichDialogProcessEndIcon #fIcon
 us0 f128 expr out #txt
 us0 f128 2464 114 2464 155 #arcP
-us0 f53 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startWithServerPathAndShowTree(String,ApplicationContext,Boolean)</name>
-        <nameStyle>65,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f53 guid 11D66E760E6E980E #txt
 us0 f53 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f53 method startWithServerPathAndShowTree(String,Boolean) #txt
@@ -1646,17 +1637,17 @@ out.serverPath=param.serverPath;
 us0 f53 outParameterDecl '<> result;
 ' #txt
 us0 f53 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
-us0 f53 238 206 20 20 12 -10 #rect
-us0 f53 @|RichDialogInitStartIcon #fIcon
-us0 f92 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+us0 f53 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>show/hide Tree</name>
-        <nameStyle>14,5,6,9
+        <name>startWithServerPathAndShowTree(String,ApplicationContext,Boolean)</name>
+        <nameStyle>65,5,6,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+us0 f53 238 206 20 20 12 -10 #rect
+us0 f53 @|RichDialogInitStartIcon #fIcon
 us0 f92 guid 11D678B90A9EFC22 #txt
 us0 f92 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f92 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -1669,6 +1660,15 @@ us0 f92 actionCode 'if(in.isTreeVisible){
 else{
 	in.isTreeVisible=true;
 }
+' #txt
+us0 f92 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>show/hide Tree</name>
+        <nameStyle>14,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
 ' #txt
 us0 f92 2118 438 20 20 -24 -43 #rect
 us0 f92 @|RichDialogProcessStartIcon #fIcon
@@ -1815,6 +1815,9 @@ us0 f94 3939 235 26 26 14 0 #rect
 us0 f94 @|RichDialogProcessEndIcon #fIcon
 us0 f23 expr out #txt
 us0 f23 1312 658 1312 691 #arcP
+us0 f26 actionCode panel.fireFileUploaded(); #txt
+us0 f26 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f26 fireEvent fileUploaded() #txt
 us0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1824,9 +1827,6 @@ us0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f26 actionCode panel.fireFileUploaded(); #txt
-us0 f26 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f26 fireEvent fileUploaded() #txt
 us0 f26 3766 532 36 24 20 -2 #rect
 us0 f26 @|RichDialogFireEventIcon #fIcon
 us0 f12 expr out #txt
@@ -1856,15 +1856,6 @@ us0 f33 @|RichDialogMethodStartIcon #fIcon
 us0 f115 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f115 4459 195 26 26 14 0 #rect
 us0 f115 @|RichDialogProcessEndIcon #fIcon
-us0 f150 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>download to temp</name>
-        <nameStyle>16,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f150 guid 11D96118A6725A12 #txt
 us0 f150 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f150 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -1875,6 +1866,15 @@ us0 f150 actionCode 'import ch.ivyteam.ivy.addons.filemanager.FileHandler;
 
 java.io.File f = new java.io.File (in.selectedDocument.path, in.clientTempDirPath);
 FileHandler.download(f);' #txt
+us0 f150 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>download to temp</name>
+        <nameStyle>16,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f150 1422 638 20 20 -35 -33 #rect
 us0 f150 @|RichDialogProcessStartIcon #fIcon
 us0 f151 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -1950,15 +1950,6 @@ us0 f158 expr out #txt
 us0 f158 2264 620 2264 644 #arcP
 us0 f159 expr out #txt
 us0 f159 2264 668 2264 691 #arcP
-us0 f160 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startWithServerPathAndWithClientTempDirAndShowTree(String,String,ApplicationContext,Boolean)</name>
-        <nameStyle>92,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f160 guid 11DA9E8966AF6777 #txt
 us0 f160 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f160 method startWithServerPathAndWithClientTempDirAndShowTree(String,String,Boolean) #txt
@@ -1975,6 +1966,15 @@ out.serverPath=param.serverPath;
 us0 f160 outParameterDecl '<> result;
 ' #txt
 us0 f160 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
+us0 f160 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startWithServerPathAndWithClientTempDirAndShowTree(String,String,ApplicationContext,Boolean)</name>
+        <nameStyle>92,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f160 238 238 20 20 13 -9 #rect
 us0 f160 @|RichDialogInitStartIcon #fIcon
 us0 f162 guid 11DA9EB0D478D637 #txt
@@ -2212,6 +2212,13 @@ us0 f185 2699 171 26 26 14 0 #rect
 us0 f185 @|RichDialogProcessEndIcon #fIcon
 us0 f186 expr out #txt
 us0 f186 2712 155 2712 171 #arcP
+us0 f187 guid 11E266B093A206B7 #txt
+us0 f187 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f187 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f187 actionTable 'out=in;
+' #txt
+us0 f187 actionCode panel.desktopHandlerPanel.setTableVisible(!panel.desktopHandlerPanel.getTableVisible()); #txt
 us0 f187 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2221,13 +2228,6 @@ us0 f187 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f187 guid 11E266B093A206B7 #txt
-us0 f187 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f187 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f187 actionTable 'out=in;
-' #txt
-us0 f187 actionCode panel.desktopHandlerPanel.setTableVisible(!panel.desktopHandlerPanel.getTableVisible()); #txt
 us0 f187 1062 854 20 20 -61 -32 #rect
 us0 f187 @|RichDialogProcessStartIcon #fIcon
 us0 f188 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -2235,6 +2235,14 @@ us0 f188 1059 907 26 26 14 0 #rect
 us0 f188 @|RichDialogProcessEndIcon #fIcon
 us0 f189 expr out #txt
 us0 f189 1072 874 1072 907 #arcP
+us0 f190 guid 11E266F60B7C1BDB #txt
+us0 f190 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f190 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f190 actionTable 'out=in;
+out.isFileEditable=false;
+' #txt
+us0 f190 actionCode 'in.fileToEdit = new java.io.File(in.selectedDocument.path);' #txt
 us0 f190 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2244,14 +2252,6 @@ us0 f190 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f190 guid 11E266F60B7C1BDB #txt
-us0 f190 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f190 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f190 actionTable 'out=in;
-out.isFileEditable=false;
-' #txt
-us0 f190 actionCode 'in.fileToEdit = new java.io.File(in.selectedDocument.path);' #txt
 us0 f190 1166 62 20 20 -16 -30 #rect
 us0 f190 @|RichDialogProcessStartIcon #fIcon
 us0 f191 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -2293,16 +2293,6 @@ us0 f73 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 us0 f73 1290 218 28 28 -62 -19 #rect
 us0 f73 @|AlternativeIcon #fIcon
-us0 f201 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Ask if open in 
-read only Mode</name>
-        <nameStyle>30,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f201 targetWindow NEW:card: #txt
 us0 f201 targetDisplay TOP #txt
 us0 f201 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -2324,6 +2314,16 @@ us0 f201 windowConfiguration '{/title "Warning"/width 0 /height 0 /centered true
 us0 f201 isAsynch false #txt
 us0 f201 isInnerRd true #txt
 us0 f201 isDialog true #txt
+us0 f201 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Ask if open in 
+read only Mode</name>
+        <nameStyle>30,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f201 1414 220 36 24 18 -17 #rect
 us0 f201 @|RichDialogIcon #fIcon
 us0 f201 -985168|-1|-16777216 #nodeStyle
@@ -2341,6 +2341,12 @@ us0 f203 1418 282 28 28 4 -35 #rect
 us0 f203 @|AlternativeIcon #fIcon
 us0 f204 expr out #txt
 us0 f204 1432 244 1432 282 #arcP
+us0 f205 guid 11E447BF8696BEA3 #txt
+us0 f205 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f205 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f205 actionTable 'out=in;
+' #txt
 us0 f205 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2349,12 +2355,6 @@ us0 f205 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-us0 f205 guid 11E447BF8696BEA3 #txt
-us0 f205 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f205 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f205 actionTable 'out=in;
 ' #txt
 us0 f205 1558 222 20 20 -36 -31 #rect
 us0 f205 @|RichDialogProcessStartIcon #fIcon
@@ -2405,15 +2405,6 @@ us0 f211 1555 347 26 26 14 0 #rect
 us0 f211 @|RichDialogProcessEndIcon #fIcon
 us0 f212 expr out #txt
 us0 f212 1568 308 1568 347 #arcP
-us0 f215 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>unlock Files</name>
-        <nameStyle>12,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f215 guid 11E44AB51B132D31 #txt
 us0 f215 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f215 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -2435,17 +2426,17 @@ if(e.getParameter() instanceof List<FileCouple>){
 }
 
 panel.refreshActualSelectedFolder();' #txt
-us0 f215 1502 606 20 20 -23 -33 #rect
-us0 f215 @|RichDialogProcessStartIcon #fIcon
-us0 f227 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+us0 f215 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Change temp Dir</name>
-        <nameStyle>15,5,6,9
+        <name>unlock Files</name>
+        <nameStyle>12,5,6,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+us0 f215 1502 606 20 20 -23 -33 #rect
+us0 f215 @|RichDialogProcessStartIcon #fIcon
 us0 f227 guid 11E454903325E8BD #txt
 us0 f227 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f227 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -2461,6 +2452,15 @@ if(e.getParameter() instanceof String){
 }
 
 ' #txt
+us0 f227 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Change temp Dir</name>
+        <nameStyle>15,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f227 1894 38 20 20 -36 -28 #rect
 us0 f227 @|RichDialogProcessStartIcon #fIcon
 us0 f228 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -2468,15 +2468,6 @@ us0 f228 1891 99 26 26 14 0 #rect
 us0 f228 @|RichDialogProcessEndIcon #fIcon
 us0 f229 expr out #txt
 us0 f229 1904 58 1904 99 #arcP
-us0 f230 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>changeUserName</name>
-        <nameStyle>14,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f230 guid 11E454BBE55F1836 #txt
 us0 f230 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f230 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -2495,6 +2486,15 @@ if(e.getParameter() instanceof String){
 }
 
 ' #txt
+us0 f230 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>changeUserName</name>
+        <nameStyle>14,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f230 1894 158 20 20 -39 -28 #rect
 us0 f230 @|RichDialogProcessStartIcon #fIcon
 us0 f231 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -2502,6 +2502,13 @@ us0 f231 1891 219 26 26 14 0 #rect
 us0 f231 @|RichDialogProcessEndIcon #fIcon
 us0 f232 expr out #txt
 us0 f232 1904 178 1904 219 #arcP
+us0 f198 guid 11E45CB66D56EC59 #txt
+us0 f198 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f198 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f198 actionTable 'out=in;
+' #txt
+us0 f198 actionCode out.windowTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/windowTitles/copyFileInNewFile"); #txt
 us0 f198 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2511,18 +2518,18 @@ us0 f198 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f198 guid 11E45CB66D56EC59 #txt
-us0 f198 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f198 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f198 actionTable 'out=in;
-' #txt
-us0 f198 actionCode out.windowTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/windowTitles/copyFileInNewFile"); #txt
 us0 f198 1726 1078 20 20 -37 -32 #rect
 us0 f198 @|RichDialogProcessStartIcon #fIcon
 us0 f234 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f234 1803 1179 26 26 14 0 #rect
 us0 f234 @|RichDialogProcessEndIcon #fIcon
+us0 f239 guid 11E48B5A05732BAE #txt
+us0 f239 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f239 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f239 actionTable 'out=in;
+' #txt
+us0 f239 actionCode out.windowTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/windowTitles/information"); #txt
 us0 f239 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2532,24 +2539,8 @@ us0 f239 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f239 guid 11E48B5A05732BAE #txt
-us0 f239 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f239 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f239 actionTable 'out=in;
-' #txt
-us0 f239 actionCode out.windowTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/windowTitles/information"); #txt
 us0 f239 1806 214 20 20 -37 -32 #rect
 us0 f239 @|RichDialogProcessStartIcon #fIcon
-us0 f240 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Shows UserId and TempDir</name>
-        <nameStyle>24,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f240 targetWindow NEW:card: #txt
 us0 f240 targetDisplay TOP #txt
 us0 f240 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
@@ -2565,6 +2556,15 @@ us0 f240 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f240 isAsynch false #txt
 us0 f240 isInnerRd true #txt
 us0 f240 isDialog true #txt
+us0 f240 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Shows UserId and TempDir</name>
+        <nameStyle>24,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f240 1798 268 36 24 22 -7 #rect
 us0 f240 @|RichDialogIcon #fIcon
 us0 f241 expr out #txt
@@ -2574,15 +2574,6 @@ us0 f242 1803 323 26 26 14 0 #rect
 us0 f242 @|RichDialogProcessEndIcon #fIcon
 us0 f243 expr out #txt
 us0 f243 1816 292 1816 323 #arcP
-us0 f244 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Ask for new version Name</name>
-        <nameStyle>24,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f244 targetWindow NEW:card: #txt
 us0 f244 targetDisplay TOP #txt
 us0 f244 richDialogId ch.ivyteam.ivy.addons.commondialogs.SingleLineInputDialog #txt
@@ -2603,6 +2594,15 @@ us0 f244 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f244 isAsynch false #txt
 us0 f244 isInnerRd true #txt
 us0 f244 isDialog true #txt
+us0 f244 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Ask for new version Name</name>
+        <nameStyle>24,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f244 1718 1132 36 24 -143 -34 #rect
 us0 f244 @|RichDialogIcon #fIcon
 us0 f244 -985168|-1|-16777216 #nodeStyle
@@ -2650,15 +2650,6 @@ us0 f199 1722 1410 28 28 14 0 #rect
 us0 f199 @|AlternativeIcon #fIcon
 us0 f235 expr out #txt
 us0 f235 1736 1380 1736 1410 #arcP
-us0 f250 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Ask If Overwrite</name>
-        <nameStyle>16,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f250 targetWindow NEW:card: #txt
 us0 f250 targetDisplay TOP #txt
 us0 f250 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -2681,19 +2672,18 @@ us0 f250 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f250 isAsynch false #txt
 us0 f250 isInnerRd true #txt
 us0 f250 isDialog true #txt
-us0 f250 1718 1508 36 24 16 5 #rect
-us0 f250 @|RichDialogIcon #fIcon
-us0 f250 -985168|-1|-16777216 #nodeStyle
-us0 f252 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+us0 f250 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Shows Error
- Message</name>
-        <nameStyle>20,9
+        <name>Ask If Overwrite</name>
+        <nameStyle>16,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+us0 f250 1718 1508 36 24 16 5 #rect
+us0 f250 @|RichDialogIcon #fIcon
+us0 f250 -985168|-1|-16777216 #nodeStyle
 us0 f252 targetWindow NEW #txt
 us0 f252 targetDisplay TOP #txt
 us0 f252 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -2713,6 +2703,16 @@ us0 f252 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f252 isAsynch true #txt
 us0 f252 isInnerRd true #txt
 us0 f252 isDialog true #txt
+us0 f252 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Shows Error
+ Message</name>
+        <nameStyle>20,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f252 1630 1476 36 24 -90 -20 #rect
 us0 f252 @|RichDialogIcon #fIcon
 us0 f252 -65536|-1|-16777216 #nodeStyle
@@ -2763,15 +2763,6 @@ us0 f262 1722 1706 28 28 14 -29 #rect
 us0 f262 @|AlternativeIcon #fIcon
 us0 f263 expr out #txt
 us0 f263 1736 1668 1736 1706 #arcP
-us0 f264 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Shows Error Message</name>
-        <nameStyle>19,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f264 targetWindow NEW:card: #txt
 us0 f264 targetDisplay TOP #txt
 us0 f264 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -2791,6 +2782,15 @@ us0 f264 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f264 isAsynch false #txt
 us0 f264 isInnerRd true #txt
 us0 f264 isDialog true #txt
+us0 f264 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Shows Error Message</name>
+        <nameStyle>19,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f264 1654 1772 36 24 31 -6 #rect
 us0 f264 @|RichDialogIcon #fIcon
 us0 f264 -65536|-1|-16777216 #nodeStyle
@@ -2858,15 +2858,6 @@ us0 f273 1902 1428 36 24 -34 -52 #rect
 us0 f273 @|RichDialogProcessStepIcon #fIcon
 us0 f257 expr in #txt
 us0 f257 1749 1425 1902 1438 #arcP
-us0 f277 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>unLockSelectedFiles</name>
-        <nameStyle>19,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f277 guid 11E498DAE43CF912 #txt
 us0 f277 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f277 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -2882,6 +2873,15 @@ for(DocumentOnServer doc: panel.filesTable.selectedListEntries){
 
 panel.desktopHandlerPanel.unLockSelectedDocumentsOnServer(in.selectedDocuments);
 ' #txt
+us0 f277 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>unLockSelectedFiles</name>
+        <nameStyle>19,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f277 1606 606 20 20 -37 -29 #rect
 us0 f277 @|RichDialogProcessStartIcon #fIcon
 us0 f278 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -2889,15 +2889,6 @@ us0 f278 1603 651 26 26 14 0 #rect
 us0 f278 @|RichDialogProcessEndIcon #fIcon
 us0 f279 expr out #txt
 us0 f279 1616 626 1616 651 #arcP
-us0 f280 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>force unlock selected Files</name>
-        <nameStyle>27,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f280 guid 11E498EBEDA97565 #txt
 us0 f280 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f280 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -2912,6 +2903,15 @@ for(DocumentOnServer doc: panel.filesTable.selectedListEntries){
 }
 
 panel.desktopHandlerPanel.forceUnlock(in.selectedDocuments);' #txt
+us0 f280 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>force unlock selected Files</name>
+        <nameStyle>27,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f280 1606 718 20 20 -53 -30 #rect
 us0 f280 @|RichDialogProcessStartIcon #fIcon
 us0 f281 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -2959,15 +2959,6 @@ us0 f290 970 386 28 28 15 -18 #rect
 us0 f290 @|AlternativeIcon #fIcon
 us0 f291 expr out #txt
 us0 f291 984 364 984 386 #arcP
-us0 f292 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Display Message</name>
-        <nameStyle>15,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f292 targetWindow NEW:card: #txt
 us0 f292 targetDisplay TOP #txt
 us0 f292 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
@@ -2984,6 +2975,15 @@ us0 f292 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f292 isAsynch false #txt
 us0 f292 isInnerRd true #txt
 us0 f292 isDialog true #txt
+us0 f292 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Display Message</name>
+        <nameStyle>15,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f292 966 492 36 24 -119 -9 #rect
 us0 f292 @|RichDialogIcon #fIcon
 us0 f292 -985168|-1|-16777216 #nodeStyle
@@ -3093,17 +3093,6 @@ us0 f329 4602 858 28 28 8 -29 #rect
 us0 f329 @|AlternativeIcon #fIcon
 us0 f330 expr out #txt
 us0 f330 4616 818 4616 858 #arcP
-us0 f331 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>tells the user
-the file exists and 
-is currently edited</name>
-        <nameStyle>55,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f331 targetWindow NEW:card: #txt
 us0 f331 targetDisplay TOP #txt
 us0 f331 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -3123,6 +3112,17 @@ us0 f331 windowConfiguration '{/title "The File is locked"/width 0 /height 0 /ce
 us0 f331 isAsynch false #txt
 us0 f331 isInnerRd true #txt
 us0 f331 isDialog true #txt
+us0 f331 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>tells the user
+the file exists and 
+is currently edited</name>
+        <nameStyle>55,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f331 4486 964 36 24 -125 -25 #rect
 us0 f331 @|RichDialogIcon #fIcon
 us0 f331 -985168|-1|-16777216 #nodeStyle
@@ -3211,15 +3211,6 @@ us0 f341 3051 131 26 26 14 0 #rect
 us0 f341 @|RichDialogProcessEndIcon #fIcon
 us0 f342 expr out #txt
 us0 f342 3064 114 3064 131 #arcP
-us0 f343 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>fileModified</name>
-        <nameStyle>12,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f343 guid 11E8D090292C69A8 #txt
 us0 f343 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f343 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -3242,6 +3233,15 @@ if(e.getParameter() instanceof java.io.File){
 	panel.fireErrorOccurred(in.errorUtil);
 }
 }' #txt
+us0 f343 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>fileModified</name>
+        <nameStyle>12,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f343 1718 38 20 20 -23 -27 #rect
 us0 f343 @|RichDialogProcessStartIcon #fIcon
 us0 f346 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -3287,15 +3287,6 @@ us0 f351 expr in #txt
 us0 f351 1736 1206 1736 1228 #arcP
 us0 f349 expr out #txt
 us0 f349 1736 1252 1736 1298 #arcP
-us0 f352 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Shows Error Message</name>
-        <nameStyle>19,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f352 targetWindow NEW:card: #txt
 us0 f352 targetDisplay TOP #txt
 us0 f352 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -3315,6 +3306,15 @@ us0 f352 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f352 isAsynch false #txt
 us0 f352 isInnerRd true #txt
 us0 f352 isDialog true #txt
+us0 f352 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Shows Error Message</name>
+        <nameStyle>19,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f352 1830 1300 36 24 25 -8 #rect
 us0 f352 @|RichDialogIcon #fIcon
 us0 f352 -65536|-1|-16777216 #nodeStyle
@@ -3397,6 +3397,13 @@ us0 f359 3187 707 26 26 14 0 #rect
 us0 f359 @|RichDialogProcessEndIcon #fIcon
 us0 f360 expr out #txt
 us0 f360 3200 676 3200 707 #arcP
+us0 f361 guid 11EB17DDCC0AC783 #txt
+us0 f361 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f361 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f361 actionTable 'out=in;
+' #txt
+us0 f361 actionCode out.windowTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/windowTitles/enterNewDirectoryName"); #txt
 us0 f361 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3406,24 +3413,8 @@ us0 f361 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f361 guid 11EB17DDCC0AC783 #txt
-us0 f361 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f361 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f361 actionTable 'out=in;
-' #txt
-us0 f361 actionCode out.windowTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/windowTitles/enterNewDirectoryName"); #txt
 us0 f361 1766 694 20 20 -36 -30 #rect
 us0 f361 @|RichDialogProcessStartIcon #fIcon
-us0 f362 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Ask new name</name>
-        <nameStyle>12,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f362 targetWindow NEW:card: #txt
 us0 f362 targetDisplay TOP #txt
 us0 f362 richDialogId ch.ivyteam.ivy.addons.commondialogs.SingleLineInputDialog #txt
@@ -3444,6 +3435,15 @@ us0 f362 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f362 isAsynch false #txt
 us0 f362 isInnerRd true #txt
 us0 f362 isDialog true #txt
+us0 f362 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Ask new name</name>
+        <nameStyle>12,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f362 1758 740 36 24 20 -2 #rect
 us0 f362 @|RichDialogIcon #fIcon
 us0 f362 -985168|-1|-16777216 #nodeStyle
@@ -3497,15 +3497,6 @@ us0 f373 1763 907 26 26 14 0 #rect
 us0 f373 @|RichDialogProcessEndIcon #fIcon
 us0 f374 expr out #txt
 us0 f374 1776 876 1776 907 #arcP
-us0 f375 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Shows Error Message</name>
-        <nameStyle>19,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f375 targetWindow NEW:card: #txt
 us0 f375 targetDisplay TOP #txt
 us0 f375 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -3525,6 +3516,15 @@ us0 f375 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f375 isAsynch false #txt
 us0 f375 isInnerRd true #txt
 us0 f375 isDialog true #txt
+us0 f375 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Shows Error Message</name>
+        <nameStyle>19,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f375 3062 580 36 24 -87 -35 #rect
 us0 f375 @|RichDialogIcon #fIcon
 us0 f375 -65536|-1|-16777216 #nodeStyle
@@ -3717,15 +3717,6 @@ us0 f381 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 us0 f381 2720 678 2720 708 #arcP
-us0 f382 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>error message</name>
-        <nameStyle>13,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f382 targetWindow NEW:card: #txt
 us0 f382 targetDisplay TOP #txt
 us0 f382 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -3745,6 +3736,15 @@ us0 f382 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f382 isAsynch false #txt
 us0 f382 isInnerRd true #txt
 us0 f382 isDialog true #txt
+us0 f382 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>error message</name>
+        <nameStyle>13,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f382 2862 652 36 24 20 -2 #rect
 us0 f382 @|RichDialogIcon #fIcon
 us0 f382 -65536|-1|-16777216 #nodeStyle
@@ -3759,6 +3759,12 @@ us0 f386 expr out #txt
 us0 f386 2880 676 2738 720 #arcP
 us0 f386 1 2880 720 #addKink
 us0 f386 1 0.15800764167490755 0 0 #arcLabel
+us0 f387 guid 11EB53CBAE7DBC6A #txt
+us0 f387 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f387 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f387 actionTable 'out=in;
+' #txt
 us0 f387 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3768,23 +3774,8 @@ us0 f387 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f387 guid 11EB53CBAE7DBC6A #txt
-us0 f387 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f387 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f387 actionTable 'out=in;
-' #txt
 us0 f387 1998 686 20 20 -34 -30 #rect
 us0 f387 @|RichDialogProcessStartIcon #fIcon
-us0 f393 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>ask to confirm</name>
-        <nameStyle>14,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f393 targetWindow NEW:card: #txt
 us0 f393 targetDisplay TOP #txt
 us0 f393 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -3806,6 +3797,15 @@ us0 f393 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f393 isAsynch false #txt
 us0 f393 isInnerRd true #txt
 us0 f393 isDialog true #txt
+us0 f393 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>ask to confirm</name>
+        <nameStyle>14,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f393 1990 868 36 24 20 -2 #rect
 us0 f393 @|RichDialogIcon #fIcon
 us0 f393 -985168|-1|-16777216 #nodeStyle
@@ -3921,15 +3921,6 @@ us0 f404 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 us0 f404 1994 778 28 28 14 0 #rect
 us0 f404 @|AlternativeIcon #fIcon
-us0 f405 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>error message</name>
-        <nameStyle>13,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f405 targetWindow NEW:card: #txt
 us0 f405 targetDisplay TOP #txt
 us0 f405 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -3949,6 +3940,15 @@ us0 f405 windowConfiguration '{/title "Error"/width 0 /height 0 /centered true /
 us0 f405 isAsynch false #txt
 us0 f405 isInnerRd true #txt
 us0 f405 isDialog true #txt
+us0 f405 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>error message</name>
+        <nameStyle>13,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f405 2094 780 36 24 -42 15 #rect
 us0 f405 @|RichDialogIcon #fIcon
 us0 f405 -65536|-1|-16777216 #nodeStyle
@@ -3981,15 +3981,6 @@ us0 f417 expr in #txt
 us0 f417 2734 568 2766 568 #arcP
 us0 f412 expr out #txt
 us0 f412 2802 568 2867 568 #arcP
-us0 f419 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>download content of directory</name>
-        <nameStyle>29,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f419 guid 11EB58926D29F7A5 #txt
 us0 f419 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f419 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -4011,6 +4002,15 @@ else{
 	in.returnedMessage.text=ivy.cms.co("/ch/xpertline/common/ria/component/fileManagement/messages/information/selectedDirectoryEmpty");
 	in.returnedMessage.type=FileHandler.INFORMATION_MESSAGE;
 }' #txt
+us0 f419 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>download content of directory</name>
+        <nameStyle>29,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f419 1430 742 20 20 -54 -28 #rect
 us0 f419 @|RichDialogProcessStartIcon #fIcon
 us0 f420 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -4231,15 +4231,6 @@ us0 f434 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 us0 f434 4890 456 4784 556 #arcP
 us0 f434 1 4784 456 #addKink
 us0 f434 0 0.27358490566037735 0 -13 #arcLabel
-us0 f435 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Ask what to do</name>
-        <nameStyle>14,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f435 targetWindow NEW:card: #txt
 us0 f435 targetDisplay TOP #txt
 us0 f435 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -4262,6 +4253,15 @@ us0 f435 windowConfiguration '{/title "<%=in.windowTitle%>"/width 500 /height 25
 us0 f435 isAsynch false #txt
 us0 f435 isInnerRd true #txt
 us0 f435 isDialog true #txt
+us0 f435 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Ask what to do</name>
+        <nameStyle>14,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f435 5086 492 36 24 -105 -6 #rect
 us0 f435 @|RichDialogIcon #fIcon
 us0 f435 -985168|-1|-16777216 #nodeStyle
@@ -4416,15 +4416,6 @@ us0 f452 @|AlternativeIcon #fIcon
 us0 f453 expr in #txt
 us0 f453 4634 384 4582 384 #arcP
 us0 f453 0 0.7576692504412407 0 0 #arcLabel
-us0 f455 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Error</name>
-        <nameStyle>5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f455 targetWindow NEW:card: #txt
 us0 f455 targetDisplay TOP #txt
 us0 f455 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -4444,6 +4435,15 @@ us0 f455 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f455 isAsynch false #txt
 us0 f455 isInnerRd true #txt
 us0 f455 isDialog true #txt
+us0 f455 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Error</name>
+        <nameStyle>5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f455 4550 492 36 24 20 -2 #rect
 us0 f455 @|RichDialogIcon #fIcon
 us0 f455 -65536|-1|-16777216 #nodeStyle
@@ -4474,15 +4474,6 @@ us0 f462 0 0.6747959571670371 0 0 #arcLabel
 us0 f460 expr out #txt
 us0 f460 4550 560 4509 560 #arcP
 us0 f460 0 0.44427157237405074 0 0 #arcLabel
-us0 f467 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startWithServerPathAndIsRecursivetAndShowTree(String,Boolean,ApplicationContext,Boolean)</name>
-        <nameStyle>88,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f467 guid 11EBB991F2E68963 #txt
 us0 f467 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f467 method startWithServerPathAndIsRecursiveAndShowTree(String,Boolean,Boolean) #txt
@@ -4498,6 +4489,15 @@ out.serverPath=param.serverPath;
 us0 f467 outParameterDecl '<> result;
 ' #txt
 us0 f467 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
+us0 f467 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startWithServerPathAndIsRecursivetAndShowTree(String,Boolean,ApplicationContext,Boolean)</name>
+        <nameStyle>88,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f467 238 270 20 20 13 0 #rect
 us0 f467 @|RichDialogInitStartIcon #fIcon
 us0 f175 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -4604,6 +4604,13 @@ us0 f470 2403 1019 26 26 14 0 #rect
 us0 f470 @|RichDialogProcessEndIcon #fIcon
 us0 f471 expr out #txt
 us0 f471 2416 1002 2416 1019 #arcP
+us0 f473 guid 11ED3CBB378B6FDB #txt
+us0 f473 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f473 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f473 actionTable 'out=in;
+' #txt
+us0 f473 actionCode panel.setIsRecursive(!in.isRecursive); #txt
 us0 f473 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -4613,13 +4620,6 @@ us0 f473 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f473 guid 11ED3CBB378B6FDB #txt
-us0 f473 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f473 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f473 actionTable 'out=in;
-' #txt
-us0 f473 actionCode panel.setIsRecursive(!in.isRecursive); #txt
 us0 f473 1990 166 20 20 -31 -26 #rect
 us0 f473 @|RichDialogProcessStartIcon #fIcon
 us0 f474 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -4750,16 +4750,6 @@ us0 f224 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 us0 f224 4554 384 4446 384 #arcP
 us0 f224 0 0.3235294117647059 0 -1 #arcLabel
-us0 f225 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>tells that some 
-files were not moved</name>
-        <nameStyle>37,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f225 targetWindow NEW:card: #txt
 us0 f225 targetDisplay TOP #txt
 us0 f225 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
@@ -4776,6 +4766,16 @@ us0 f225 windowConfiguration '{/title "<%=in.windowTitle%>"/width 450 /height 15
 us0 f225 isAsynch false #txt
 us0 f225 isInnerRd true #txt
 us0 f225 isDialog true #txt
+us0 f225 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>tells that some 
+files were not moved</name>
+        <nameStyle>37,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f225 4414 484 36 24 8 -49 #rect
 us0 f225 @|RichDialogIcon #fIcon
 us0 f225 -985168|-1|-16777216 #nodeStyle
@@ -4833,15 +4833,6 @@ us0 f494 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 us0 f494 3206 230 20 20 -46 -31 #rect
 us0 f494 @|RichDialogMethodStartIcon #fIcon
-us0 f513 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>copy Files</name>
-        <nameStyle>10,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f513 guid 11ED95C2B7BDD5B8 #txt
 us0 f513 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f513 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -4857,20 +4848,20 @@ if(!in.copiedDocuments.isEmpty()){
 }else{
 	in.copyOn=false;
 }' #txt
+us0 f513 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>copy Files</name>
+        <nameStyle>10,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f513 926 990 20 20 -23 -30 #rect
 us0 f513 @|RichDialogProcessStartIcon #fIcon
 us0 f514 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f514 923 1123 26 26 14 0 #rect
 us0 f514 @|RichDialogProcessEndIcon #fIcon
-us0 f516 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Paste</name>
-        <nameStyle>5,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f516 guid 11ED95E211BB06C2 #txt
 us0 f516 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f516 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -4892,6 +4883,15 @@ else{
 			in.responseBoolean=false;
 	}
 }*/' #txt
+us0 f516 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Paste</name>
+        <nameStyle>5,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f516 1142 958 20 20 -12 -30 #rect
 us0 f516 @|RichDialogProcessStartIcon #fIcon
 us0 f519 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -5241,15 +5241,6 @@ us0 f40 971 683 26 26 14 0 #rect
 us0 f40 @|RichDialogProcessEndIcon #fIcon
 us0 f50 expr out #txt
 us0 f50 984 620 984 683 #arcP
-us0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startWithServerPathAndFileManagementHandler(String,AbstractFileManagementHandler)</name>
-        <nameStyle>81,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f52 guid 11F5FC089E86DEF1 #txt
 us0 f52 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f52 method startWithServerPathAndFileManagementHandler(String,ch.ivyteam.ivy.addons.filemanager.database.AbstractFileManagementHandler) #txt
@@ -5266,20 +5257,17 @@ out.serverPath=param.serverPath;
 us0 f52 outParameterDecl '<> result;
 ' #txt
 us0 f52 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
-us0 f52 238 174 20 20 13 0 #rect
-us0 f52 @|RichDialogInitStartIcon #fIcon
-us0 f99 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+us0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>startWithServerPath
-AndFileManagementHandler
-AndIsRecursive
-AndShowTree(String,AbstractFileManagementHandler,Boolean,ApplicationContext,Boolean)</name>
-        <nameStyle>144,5,6,9
+        <name>startWithServerPathAndFileManagementHandler(String,AbstractFileManagementHandler)</name>
+        <nameStyle>81,5,6,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+us0 f52 238 174 20 20 13 0 #rect
+us0 f52 @|RichDialogInitStartIcon #fIcon
 us0 f99 guid 11F5FC117241ED1E #txt
 us0 f99 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f99 method startWithServerPathAndFileManagementHandlerAndIsRecursiveAndShowTree(String,ch.ivyteam.ivy.addons.filemanager.database.AbstractFileManagementHandler,Boolean,Boolean) #txt
@@ -5296,6 +5284,18 @@ out.serverPath=param.serverPath;
 us0 f99 outParameterDecl '<> result;
 ' #txt
 us0 f99 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
+us0 f99 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startWithServerPath
+AndFileManagementHandler
+AndIsRecursive
+AndShowTree(String,AbstractFileManagementHandler,Boolean,ApplicationContext,Boolean)</name>
+        <nameStyle>144,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f99 134 54 20 20 13 0 #rect
 us0 f99 @|RichDialogInitStartIcon #fIcon
 us0 f117 guid 11F5FC4BC829D19A #txt
@@ -5694,6 +5694,12 @@ us0 f297 3219 131 26 26 14 0 #rect
 us0 f297 @|RichDialogProcessEndIcon #fIcon
 us0 f298 expr out #txt
 us0 f298 3232 114 3232 131 #arcP
+us0 f299 guid 120667533EA41579 #txt
+us0 f299 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f299 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f299 actionTable 'out=in;
+' #txt
 us0 f299 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -5703,25 +5709,10 @@ us0 f299 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f299 guid 120667533EA41579 #txt
-us0 f299 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f299 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f299 actionTable 'out=in;
-' #txt
 us0 f299 750 926 20 20 13 0 #rect
 us0 f299 @|RichDialogProcessStartIcon #fIcon
 us0 f300 expr out #txt
 us0 f300 760 926 760 804 #arcP
-us0 f302 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>printFile</name>
-        <nameStyle>9,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f302 guid 120C262EB26F4439 #txt
 us0 f302 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f302 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -5736,6 +5727,15 @@ if(panel.#filesTable.getSelectedListEntry()!=null && panel.filesTable.getSelecte
 	
 	panel.desktopHandlerPanel.printFile(new java.io.File(doc.path));
 }
+' #txt
+us0 f302 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>printFile</name>
+        <nameStyle>9,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
 ' #txt
 us0 f302 1094 62 20 20 13 0 #rect
 us0 f302 @|RichDialogProcessStartIcon #fIcon
@@ -5876,15 +5876,6 @@ us0 f317 2386 1674 28 28 14 0 #rect
 us0 f317 @|AlternativeIcon #fIcon
 us0 f318 expr out #txt
 us0 f318 2400 1650 2400 1674 #arcP
-us0 f321 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Ask For the zip Name</name>
-        <nameStyle>20,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f321 targetWindow NEW:card: #txt
 us0 f321 targetDisplay TOP #txt
 us0 f321 richDialogId ch.ivyteam.ivy.addons.commondialogs.SingleLineInputDialog #txt
@@ -5905,6 +5896,15 @@ us0 f321 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f321 isAsynch false #txt
 us0 f321 isInnerRd true #txt
 us0 f321 isDialog true #txt
+us0 f321 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Ask For the zip Name</name>
+        <nameStyle>20,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f321 2382 1764 36 24 20 -2 #rect
 us0 f321 @|RichDialogIcon #fIcon
 us0 f321 -985168|-1|-16777216 #nodeStyle
@@ -5983,11 +5983,6 @@ us0 f463 2326 1948 36 24 -23 -35 #rect
 us0 f463 @|RichDialogProcessStepIcon #fIcon
 us0 f465 expr in #txt
 us0 f465 2386 1960 2362 1960 #arcP
-us0 f466 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 us0 f466 targetWindow NEW #txt
 us0 f466 targetDisplay TOP #txt
 us0 f466 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -6007,6 +6002,11 @@ us0 f466 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f466 isAsynch true #txt
 us0 f466 isInnerRd true #txt
 us0 f466 isDialog true #txt
+us0 f466 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 us0 f466 2262 1948 36 24 20 -2 #rect
 us0 f466 @|RichDialogIcon #fIcon
 us0 f466 -65536|-1|-16777216 #nodeStyle
@@ -6030,6 +6030,12 @@ us0 f479 2414 1832 2413 2080 #arcP
 us0 f479 1 2536 1832 #addKink
 us0 f479 2 2536 2080 #addKink
 us0 f479 1 0.37890525117926527 0 0 #arcLabel
+us0 f344 guid 121D2EC1E4BC52C3 #txt
+us0 f344 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f344 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f344 actionTable 'out=in;
+' #txt
 us0 f344 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -6038,12 +6044,6 @@ us0 f344 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-us0 f344 guid 121D2EC1E4BC52C3 #txt
-us0 f344 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f344 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f344 actionTable 'out=in;
 ' #txt
 us0 f344 2110 1630 20 20 -6 -34 #rect
 us0 f344 @|RichDialogProcessStartIcon #fIcon
@@ -6145,15 +6145,6 @@ us0 f320 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 us0 f320 2400 1974 2400 2004 #arcP
 us0 f431 expr out #txt
 us0 f431 2400 2028 2400 2067 #arcP
-us0 f486 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startAsPathChooser(String)</name>
-        <nameStyle>26,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f486 guid 121ECC3E323F08FF #txt
 us0 f486 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f486 method startAsPathChooser(String) #txt
@@ -6173,6 +6164,15 @@ us0 f486 outParameterDecl '<java.lang.String choosedPath> result;
 us0 f486 outParameterMapAction 'result.choosedPath=in.pathChooserReturn;
 ' #txt
 us0 f486 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "startVisible(Boolean)"/parameterMapping "param.visible=false;\n"/initScript ""}}' #txt
+us0 f486 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startAsPathChooser(String)</name>
+        <nameStyle>26,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f486 342 334 20 20 13 0 #rect
 us0 f486 @|RichDialogInitStartIcon #fIcon
 us0 f487 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -6204,6 +6204,13 @@ us0 f487 238 308 36 24 -64 9 #rect
 us0 f487 @|RichDialogProcessStepIcon #fIcon
 us0 f488 expr out #txt
 us0 f488 342 341 274 325 #arcP
+us0 f495 guid 121ECCB3C821D160 #txt
+us0 f495 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f495 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f495 actionTable 'out=in;
+' #txt
+us0 f495 actionCode 'out.pathChooserReturn = in.selectedFolderOnServer.path;' #txt
 us0 f495 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -6213,15 +6220,15 @@ us0 f495 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f495 guid 121ECCB3C821D160 #txt
-us0 f495 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f495 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f495 actionTable 'out=in;
-' #txt
-us0 f495 actionCode 'out.pathChooserReturn = in.selectedFolderOnServer.path;' #txt
 us0 f495 694 1318 20 20 -38 -36 #rect
 us0 f495 @|RichDialogProcessStartIcon #fIcon
+us0 f496 guid 121ECCB8283CD1EF #txt
+us0 f496 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f496 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f496 actionTable 'out=in;
+' #txt
+us0 f496 actionCode out.pathChooserReturn=""; #txt
 us0 f496 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -6231,13 +6238,6 @@ us0 f496 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f496 guid 121ECCB8283CD1EF #txt
-us0 f496 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f496 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f496 actionTable 'out=in;
-' #txt
-us0 f496 actionCode out.pathChooserReturn=""; #txt
 us0 f496 806 1318 20 20 -53 -36 #rect
 us0 f496 @|RichDialogProcessStartIcon #fIcon
 us0 f497 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -6535,15 +6535,6 @@ us0 f581 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 us0 f581 3766 860 36 24 20 -2 #rect
 us0 f581 @|RichDialogProcessStepIcon #fIcon
-us0 f583 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>ask if overwrite</name>
-        <nameStyle>16,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f583 targetWindow NEW:card: #txt
 us0 f583 targetDisplay TOP #txt
 us0 f583 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -6565,6 +6556,15 @@ us0 f583 windowConfiguration '{/title "<%=in.windowTitle%>"/width 500 /height 30
 us0 f583 isAsynch false #txt
 us0 f583 isInnerRd true #txt
 us0 f583 isDialog true #txt
+us0 f583 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>ask if overwrite</name>
+        <nameStyle>16,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f583 3766 924 36 24 20 -2 #rect
 us0 f583 @|RichDialogIcon #fIcon
 us0 f583 -985168|-1|-16777216 #nodeStyle
@@ -6922,6 +6922,12 @@ us0 f623 1736 1438 1736 1468 #arcP
 us0 f623 0 0.5227272727272727 17 0 #arcLabel
 us0 f251 expr out #txt
 us0 f251 1736 1492 1736 1508 #arcP
+us0 f628 guid 1239D542A6AE2CD3 #txt
+us0 f628 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f628 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f628 actionTable 'out=in;
+' #txt
 us0 f628 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -6930,12 +6936,6 @@ us0 f628 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-us0 f628 guid 1239D542A6AE2CD3 #txt
-us0 f628 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f628 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f628 actionTable 'out=in;
 ' #txt
 us0 f628 534 1054 20 20 13 0 #rect
 us0 f628 @|RichDialogProcessStartIcon #fIcon
@@ -6977,17 +6977,6 @@ us0 f631 534 1158 20 20 13 0 #rect
 us0 f631 @|RichDialogProcessEndIcon #fIcon
 us0 f632 expr out #txt
 us0 f632 544 1124 544 1158 #arcP
-us0 f634 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startWithServerPath
-AndIvyDbConnectionName
-AndDbTableName(String,String,String)</name>
-        <nameStyle>79,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f634 guid 1239D613DB15DE1C #txt
 us0 f634 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f634 method startWithServerPathAndIvyDbConnectionNameAndDbTableName(String,String,String) #txt
@@ -7006,6 +6995,17 @@ out.serverPath=param.serverPath;
 us0 f634 outParameterDecl '<> result;
 ' #txt
 us0 f634 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
+us0 f634 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startWithServerPath
+AndIvyDbConnectionName
+AndDbTableName(String,String,String)</name>
+        <nameStyle>79,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f634 246 398 20 20 13 -9 #rect
 us0 f634 @|RichDialogInitStartIcon #fIcon
 us0 f637 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -7053,6 +7053,13 @@ us0 f640 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 us0 f640 1432 310 1322 496 #arcP
 us0 f640 1 1432 496 #addKink
 us0 f640 0 0.3304842483812081 0 0 #arcLabel
+us0 f214 actionDecl 'List panelIdAndDocumentOnServer;
+' #txt
+us0 f214 actionTable 'panelIdAndDocumentOnServer=[in.panelId, in.selectedDocument];
+' #txt
+us0 f214 actionCode panel.fireSE_fileLocked(panelIdAndDocumentOnServer); #txt
+us0 f214 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f214 fireEvent SE_fileLocked(List) #txt
 us0 f214 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -7062,13 +7069,6 @@ us0 f214 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f214 actionDecl 'List panelIdAndDocumentOnServer;
-' #txt
-us0 f214 actionTable 'panelIdAndDocumentOnServer=[in.panelId, in.selectedDocument];
-' #txt
-us0 f214 actionCode panel.fireSE_fileLocked(panelIdAndDocumentOnServer); #txt
-us0 f214 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f214 fireEvent SE_fileLocked(List) #txt
 us0 f214 1286 444 36 24 20 -2 #rect
 us0 f214 @|RichDialogFireEventIcon #fIcon
 us0 f641 expr out #txt
@@ -7147,6 +7147,12 @@ us0 f651 5366 152 5362 296 #arcP
 us0 f651 1 5440 152 #addKink
 us0 f651 2 5440 296 #addKink
 us0 f651 1 0.3004318342397848 0 0 #arcLabel
+us0 f652 guid 1245703A69A22C7D #txt
+us0 f652 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f652 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f652 actionTable 'out=in;
+' #txt
 us0 f652 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -7155,12 +7161,6 @@ us0 f652 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-us0 f652 guid 1245703A69A22C7D #txt
-us0 f652 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f652 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f652 actionTable 'out=in;
 ' #txt
 us0 f652 1950 1118 20 20 13 0 #rect
 us0 f652 @|RichDialogProcessStartIcon #fIcon
@@ -7303,15 +7303,6 @@ us0 f664 expr out #txt
 us0 f664 2280 1236 2280 1254 #arcP
 us0 f666 expr out #txt
 us0 f666 2358 1224 2298 1224 #arcP
-us0 f665 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>fileEditableReported</name>
-        <nameStyle>20,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f665 guid 12470C7BEA8F153A #txt
 us0 f665 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f665 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -7324,6 +7315,15 @@ in.isFileEditable=false;
 if(e.getParameter() != null && e.getParameter() instanceof boolean){
 	in.isFileEditable = e.getParameter() as boolean;
 }' #txt
+us0 f665 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>fileEditableReported</name>
+        <nameStyle>20,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f665 1294 46 20 20 -71 -29 #rect
 us0 f665 @|RichDialogProcessStartIcon #fIcon
 us0 f668 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -7367,17 +7367,6 @@ us0 f667 1290 98 28 28 4 -41 #rect
 us0 f667 @|AlternativeIcon #fIcon
 us0 f56 expr out #txt
 us0 f56 1304 180 1304 218 #arcP
-us0 f673 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Inform the user
-that open in read
- only mode</name>
-        <nameStyle>44,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f673 targetWindow NEW:card: #txt
 us0 f673 targetDisplay TOP #txt
 us0 f673 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
@@ -7395,6 +7384,17 @@ us0 f673 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f673 isAsynch false #txt
 us0 f673 isInnerRd true #txt
 us0 f673 isDialog true #txt
+us0 f673 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Inform the user
+that open in read
+ only mode</name>
+        <nameStyle>44,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f673 1454 100 36 24 -44 -66 #rect
 us0 f673 @|RichDialogIcon #fIcon
 us0 f673 -985168|-1|-16777216 #nodeStyle
@@ -7796,18 +7796,6 @@ us0 f698 expr out #txt
 us0 f698 1256 396 1286 456 #arcP
 us0 f698 1 1256 456 #addKink
 us0 f698 0 0.8449574367770217 0 0 #arcLabel
-us0 f699 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startWithServerPath
-AndIvyDbConnectionName
-AndDbTableName
-AndDBSchemaName(String,String,String,String)</name>
-        <nameStyle>102,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f699 guid 126E0B8E11912075 #txt
 us0 f699 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f699 method startWithServerPathAndIvyDbConnectionNameAndDbTableNameAndDBSchemaName(String,String,String,String) #txt
@@ -7827,22 +7815,24 @@ out.serverPath=param.serverPath;
 us0 f699 outParameterDecl '<> result;
 ' #txt
 us0 f699 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
+us0 f699 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startWithServerPath
+AndIvyDbConnectionName
+AndDbTableName
+AndDBSchemaName(String,String,String,String)</name>
+        <nameStyle>102,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f699 486 470 20 20 14 -51 #rect
 us0 f699 @|RichDialogInitStartIcon #fIcon
 us0 f700 expr out #txt
 us0 f700 486 480 195 420 #arcP
 us0 f700 1 248 480 #addKink
 us0 f700 0 0.5058167104889034 0 0 #arcLabel
-us0 f701 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startAsPathChooserWithDBInformations
-(String,String,String,String)</name>
-        <nameStyle>66,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f701 guid 1274D78EDEF27C2A #txt
 us0 f701 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f701 method startAsPathChooserWithDBInformations(String,String,String,String) #txt
@@ -7865,6 +7855,16 @@ us0 f701 outParameterDecl '<java.lang.String choosedPath> result;
 us0 f701 outParameterMapAction 'result.choosedPath=in.pathChooserReturn;
 ' #txt
 us0 f701 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
+us0 f701 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startAsPathChooserWithDBInformations
+(String,String,String,String)</name>
+        <nameStyle>66,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f701 342 302 20 20 13 -7 #rect
 us0 f701 @|RichDialogInitStartIcon #fIcon
 us0 f702 expr out #txt
@@ -7942,6 +7942,13 @@ copiedFiles</name>
 ' #txt
 us0 f707 1422 1028 36 24 20 -2 #rect
 us0 f707 @|RichDialogProcessStepIcon #fIcon
+us0 f708 actionDecl 'Number panelId;
+' #txt
+us0 f708 actionTable 'panelId=in.panelId;
+' #txt
+us0 f708 actionCode panel.fireFilesCopied(panelId); #txt
+us0 f708 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f708 fireEvent filesCopied(Number) #txt
 us0 f708 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -7953,28 +7960,12 @@ Application</name>
     </language>
 </elementInfo>
 ' #txt
-us0 f708 actionDecl 'Number panelId;
-' #txt
-us0 f708 actionTable 'panelId=in.panelId;
-' #txt
-us0 f708 actionCode panel.fireFilesCopied(panelId); #txt
-us0 f708 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f708 fireEvent filesCopied(Number) #txt
 us0 f708 918 1084 36 24 19 2 #rect
 us0 f708 @|RichDialogFireEventIcon #fIcon
 us0 f709 expr out #txt
 us0 f709 936 1060 936 1084 #arcP
 us0 f515 expr out #txt
 us0 f515 936 1108 936 1123 #arcP
-us0 f710 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>filesCopied</name>
-        <nameStyle>11,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f710 guid 128F27E79C73AE3A #txt
 us0 f710 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f710 broadcast filesCopied #txt
@@ -7986,6 +7977,15 @@ us0 f710 actionCode 'if(param.panelId != in.panelId){
 	out.filesCopiedInThisPanel=false;
 	in.copyOn=true;
 }' #txt
+us0 f710 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>filesCopied</name>
+        <nameStyle>11,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f710 838 1086 20 20 -75 -11 #rect
 us0 f710 @|RichDialogBroadcastStartIcon #fIcon
 us0 f711 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -8004,15 +8004,6 @@ us0 f713 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 us0 f713 1166 1040 1422 1040 #arcP
-us0 f717 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startWithServerPathAndUseIvySystemDB(String)</name>
-        <nameStyle>44,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f717 guid 1299CEB234E382B8 #txt
 us0 f717 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f717 method startWithServerPathAndUseIvySystemDB(String) #txt
@@ -8031,6 +8022,15 @@ out.serverPath=param.serverPath;
 us0 f717 outParameterDecl '<> result;
 ' #txt
 us0 f717 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "startVisible(Boolean)"/parameterMapping "param.visible=false;\n"/initScript ""}}' #txt
+us0 f717 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startWithServerPathAndUseIvySystemDB(String)</name>
+        <nameStyle>44,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f717 30 14 20 20 11 -4 #rect
 us0 f717 @|RichDialogInitStartIcon #fIcon
 us0 f718 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -8059,15 +8059,6 @@ us0 f720 expr out #txt
 us0 f720 40 116 166 408 #arcP
 us0 f720 1 40 408 #addKink
 us0 f720 0 0.7633209874301173 0 0 #arcLabel
-us0 f721 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startAsPathChooserWithIvySystemDb(String)</name>
-        <nameStyle>41,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f721 guid 1299CEE9D1048323 #txt
 us0 f721 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f721 method startAsPathChooserWithIvySystemDb(String) #txt
@@ -8087,6 +8078,15 @@ us0 f721 outParameterDecl '<java.lang.String choosedPath> result;
 us0 f721 outParameterMapAction 'result.choosedPath=in.pathChooserReturn;
 ' #txt
 us0 f721 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
+us0 f721 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startAsPathChooserWithIvySystemDb(String)</name>
+        <nameStyle>41,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f721 342 366 20 20 13 0 #rect
 us0 f721 @|RichDialogInitStartIcon #fIcon
 us0 f722 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -8270,18 +8270,6 @@ us0 f576 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 us0 f576 1190 1348 36 24 5 -32 #rect
 us0 f576 @|RichDialogProcessStepIcon #fIcon
-us0 f577 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>inform the user
-that some files could not
-be copied</name>
-        <nameStyle>16,7,9
-35,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f577 targetWindow NEW:card: #txt
 us0 f577 targetDisplay TOP #txt
 us0 f577 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
@@ -8298,6 +8286,18 @@ us0 f577 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /c
 us0 f577 isAsynch false #txt
 us0 f577 isInnerRd true #txt
 us0 f577 isDialog true #txt
+us0 f577 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>inform the user
+that some files could not
+be copied</name>
+        <nameStyle>16,7,9
+35,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f577 1070 1348 36 24 -155 -25 #rect
 us0 f577 @|RichDialogIcon #fIcon
 us0 f577 -985168|-1|-16777216 #nodeStyle
@@ -8376,6 +8376,13 @@ us0 f732 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 us0 f732 1190 168 1286 168 #arcP
+us0 f738 actionDecl 'Number uniquePanelId;
+' #txt
+us0 f738 actionTable 'uniquePanelId=in.panelId;
+' #txt
+us0 f738 actionCode panel.fireDeleteSelectedFolder(uniquePanelId); #txt
+us0 f738 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f738 fireEvent deleteSelectedFolder(Number) #txt
 us0 f738 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -8387,13 +8394,6 @@ APP</name>
     </language>
 </elementInfo>
 ' #txt
-us0 f738 actionDecl 'Number uniquePanelId;
-' #txt
-us0 f738 actionTable 'uniquePanelId=in.panelId;
-' #txt
-us0 f738 actionCode panel.fireDeleteSelectedFolder(uniquePanelId); #txt
-us0 f738 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f738 fireEvent deleteSelectedFolder(Number) #txt
 us0 f738 1958 540 36 24 27 -13 #rect
 us0 f738 @|RichDialogFireEventIcon #fIcon
 us0 f740 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -8485,6 +8485,14 @@ us0 f751 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 us0 f751 864 222 864 275 #arcP
+us0 f51 guid 12B953A13635696B #txt
+us0 f51 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f51 broadcast deleteSelectedFolder #txt
+us0 f51 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f51 actionTable 'out=in;
+out.responseBoolean=in.panelId==param.uniquePanelId;
+' #txt
 us0 f51 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -8493,14 +8501,6 @@ us0 f51 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-us0 f51 guid 12B953A13635696B #txt
-us0 f51 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f51 broadcast deleteSelectedFolder #txt
-us0 f51 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f51 actionTable 'out=in;
-out.responseBoolean=in.panelId==param.uniquePanelId;
 ' #txt
 us0 f51 2086 614 20 20 -53 -27 #rect
 us0 f51 @|RichDialogBroadcastStartIcon #fIcon
@@ -8685,16 +8685,6 @@ us0 f534 outCond in.errorUtil.errorOccurred #txt
 us0 f534 198 768 326 768 #arcP
 us0 f36 expr in #txt
 us0 f36 184 782 184 804 #arcP
-us0 f464 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>tells that no
-files were not moved</name>
-        <nameStyle>34,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f464 targetWindow NEW:card: #txt
 us0 f464 targetDisplay TOP #txt
 us0 f464 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
@@ -8711,6 +8701,16 @@ us0 f464 windowConfiguration '{/title "<%=in.windowTitle%>"/width 450 /height 15
 us0 f464 isAsynch false #txt
 us0 f464 isInnerRd true #txt
 us0 f464 isDialog true #txt
+us0 f464 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>tells that no
+files were not moved</name>
+        <nameStyle>34,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f464 4774 308 36 24 8 -49 #rect
 us0 f464 @|RichDialogIcon #fIcon
 us0 f464 -985168|-1|-16777216 #nodeStyle
@@ -8718,15 +8718,6 @@ us0 f484 expr out #txt
 us0 f484 4746 320 4774 320 #arcP
 us0 f493 expr out #txt
 us0 f493 4810 320 4835 320 #arcP
-us0 f539 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>SE_fileLocked</name>
-        <nameStyle>13,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f539 guid 12BAC26573518ED3 #txt
 us0 f539 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f539 broadcast SE_fileLocked #txt
@@ -8770,10 +8761,27 @@ if(l.size()==2 && l.get(0) instanceof Number && l.get(1) instanceof DocumentOnSe
 }
 
 ' #txt
+us0 f539 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>SE_fileLocked</name>
+        <nameStyle>13,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f539 5342 86 20 20 13 0 #rect
 us0 f539 @|RichDialogBroadcastStartIcon #fIcon
 us0 f541 expr out #txt
 us0 f541 5352 106 5352 138 #arcP
+us0 f269 guid 12BAE17CC203CFB6 #txt
+us0 f269 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f269 broadcast errorOccurred #txt
+us0 f269 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f269 actionTable 'out=in;
+out.incomingErrorUtil=param.errorUtil;
+' #txt
 us0 f269 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -8783,18 +8791,18 @@ us0 f269 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f269 guid 12BAE17CC203CFB6 #txt
-us0 f269 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f269 broadcast errorOccurred #txt
-us0 f269 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f269 actionTable 'out=in;
-out.incomingErrorUtil=param.errorUtil;
-' #txt
 us0 f269 5342 350 20 20 13 0 #rect
 us0 f269 @|RichDialogBroadcastStartIcon #fIcon
 us0 f408 expr out #txt
 us0 f408 5352 370 5352 410 #arcP
+us0 f537 guid 12BAE1E286DCC819 #txt
+us0 f537 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f537 broadcast deleteSelectedFiles #txt
+us0 f537 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f537 actionTable 'out=in;
+out.responseBoolean=in.panelId==param.uniquePanelId;
+' #txt
 us0 f537 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -8804,18 +8812,17 @@ us0 f537 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f537 guid 12BAE1E286DCC819 #txt
-us0 f537 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f537 broadcast deleteSelectedFiles #txt
-us0 f537 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f537 actionTable 'out=in;
-out.responseBoolean=in.panelId==param.uniquePanelId;
-' #txt
 us0 f537 854 78 20 20 13 0 #rect
 us0 f537 @|RichDialogBroadcastStartIcon #fIcon
 us0 f538 expr out #txt
 us0 f538 864 98 864 194 #arcP
+us0 f542 actionDecl 'Number uniquePanelId;
+' #txt
+us0 f542 actionTable 'uniquePanelId=in.panelId;
+' #txt
+us0 f542 actionCode panel.fireDeleteSelectedFiles(uniquePanelId); #txt
+us0 f542 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f542 fireEvent deleteSelectedFiles(Number) #txt
 us0 f542 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -8827,13 +8834,6 @@ APP</name>
     </language>
 </elementInfo>
 ' #txt
-us0 f542 actionDecl 'Number uniquePanelId;
-' #txt
-us0 f542 actionTable 'uniquePanelId=in.panelId;
-' #txt
-us0 f542 actionCode panel.fireDeleteSelectedFiles(uniquePanelId); #txt
-us0 f542 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f542 fireEvent deleteSelectedFiles(Number) #txt
 us0 f542 718 148 36 24 -51 16 #rect
 us0 f542 @|RichDialogFireEventIcon #fIcon
 us0 f543 expr in #txt
@@ -8850,15 +8850,6 @@ us0 f543 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 us0 f543 736 102 736 148 #arcP
 us0 f544 expr out #txt
 us0 f544 736 172 736 238 #arcP
-us0 f545 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Show Error Message</name>
-        <nameStyle>18,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f545 targetWindow NEW:card: #txt
 us0 f545 targetDisplay TOP #txt
 us0 f545 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
@@ -8877,6 +8868,15 @@ us0 f545 responseMappingAction 'out=in;
 us0 f545 windowConfiguration '{/title "<%=in.incomingErrorUtil.message%>"/width 600 /height 150 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 us0 f545 isAsynch false #txt
 us0 f545 isInnerRd true #txt
+us0 f545 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Show Error Message</name>
+        <nameStyle>18,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f545 5334 468 36 24 20 -2 #rect
 us0 f545 @|RichDialogIcon #fIcon
 us0 f546 expr in #txt
@@ -8893,15 +8893,6 @@ us0 f546 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 us0 f546 5352 438 5352 468 #arcP
 us0 f448 expr out #txt
 us0 f448 5352 492 5352 534 #arcP
-us0 f535 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>SE_DocumentsUnlocked</name>
-        <nameStyle>20,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f535 guid 12BCF80819ADE64A #txt
 us0 f535 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f535 broadcast SE_DocumentsUnlocked #txt
@@ -8929,20 +8920,20 @@ if(!in.documentsInDb.isEmpty()){
 		out.documentsInDb.addAll(l);
 	}
 }' #txt
+us0 f535 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>SE_DocumentsUnlocked</name>
+        <nameStyle>20,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f535 5350 622 20 20 -66 -25 #rect
 us0 f535 @|RichDialogBroadcastStartIcon #fIcon
 us0 f536 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f536 5350 686 20 20 13 0 #rect
 us0 f536 @|RichDialogProcessEndIcon #fIcon
-us0 f548 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>SE_FilesUnlocked</name>
-        <nameStyle>16,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f548 guid 12BCF883DA0EA60A #txt
 us0 f548 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f548 broadcast SE_FilesUnlocked #txt
@@ -8971,6 +8962,15 @@ if(!in.documentsInDb.isEmpty()){
 	}
 }
 ' #txt
+us0 f548 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>SE_FilesUnlocked</name>
+        <nameStyle>16,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f548 5462 622 20 20 13 0 #rect
 us0 f548 @|RichDialogBroadcastStartIcon #fIcon
 us0 f549 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -8980,15 +8980,6 @@ us0 f553 expr out #txt
 us0 f553 5360 642 5360 686 #arcP
 us0 f550 expr out #txt
 us0 f550 5472 642 5472 678 #arcP
-us0 f547 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>SE_DocumentsDeleted</name>
-        <nameStyle>19,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f547 guid 12BD0130C642E9E5 #txt
 us0 f547 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f547 broadcast SE_DocumentsDeleted #txt
@@ -9004,6 +8995,15 @@ if(param.DocumentsPathAndPanelID.size()==2 && param.DocumentsPathAndPanelID.get(
 	}
 	
 }' #txt
+us0 f547 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>SE_DocumentsDeleted</name>
+        <nameStyle>19,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f547 5462 734 20 20 13 0 #rect
 us0 f547 @|RichDialogBroadcastStartIcon #fIcon
 us0 f551 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -9108,6 +9108,13 @@ us0 f565 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 us0 f565 1406 886 20 20 13 0 #rect
 us0 f565 @|RichDialogMethodStartIcon #fIcon
+us0 f566 actionDecl 'Number uniquePanelId;
+' #txt
+us0 f566 actionTable 'uniquePanelId=in.panelId;
+' #txt
+us0 f566 actionCode panel.firePasteFiles(uniquePanelId); #txt
+us0 f566 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f566 fireEvent pasteFiles(Number) #txt
 us0 f566 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -9117,13 +9124,6 @@ us0 f566 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f566 actionDecl 'Number uniquePanelId;
-' #txt
-us0 f566 actionTable 'uniquePanelId=in.panelId;
-' #txt
-us0 f566 actionCode panel.firePasteFiles(uniquePanelId); #txt
-us0 f566 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f566 fireEvent pasteFiles(Number) #txt
 us0 f566 1398 932 36 24 20 -2 #rect
 us0 f566 @|RichDialogFireEventIcon #fIcon
 us0 f567 expr out #txt
@@ -9133,6 +9133,14 @@ us0 f568 1406 982 20 20 13 0 #rect
 us0 f568 @|RichDialogProcessEndIcon #fIcon
 us0 f569 expr out #txt
 us0 f569 1416 956 1416 982 #arcP
+us0 f571 guid 12BD923171D4E876 #txt
+us0 f571 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f571 broadcast pasteFiles #txt
+us0 f571 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f571 actionTable 'out=in;
+out.samePanelFlag=in.panelId==param.uniquePanelId;
+' #txt
 us0 f571 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -9141,14 +9149,6 @@ us0 f571 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-us0 f571 guid 12BD923171D4E876 #txt
-us0 f571 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f571 broadcast pasteFiles #txt
-us0 f571 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f571 actionTable 'out=in;
-out.samePanelFlag=in.panelId==param.uniquePanelId;
 ' #txt
 us0 f571 1334 934 20 20 -26 -23 #rect
 us0 f571 @|RichDialogBroadcastStartIcon #fIcon
@@ -9213,6 +9213,12 @@ us0 f644 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 us0 f644 1358 992 1406 992 #arcP
+us0 f646 guid 12BDA703390C87EE #txt
+us0 f646 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f646 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f646 actionTable 'out=in;
+' #txt
 us0 f646 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -9221,12 +9227,6 @@ us0 f646 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-us0 f646 guid 12BDA703390C87EE #txt
-us0 f646 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f646 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f646 actionTable 'out=in;
 ' #txt
 us0 f646 1366 1286 20 20 -29 -28 #rect
 us0 f646 @|RichDialogProcessStartIcon #fIcon
@@ -9342,11 +9342,6 @@ us0 f737 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 us0 f737 1384 1358 1487 1428 #arcP
-us0 f746 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 us0 f746 targetWindow NEW:card: #txt
 us0 f746 targetDisplay TOP #txt
 us0 f746 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
@@ -9362,6 +9357,11 @@ us0 f746 responseMappingAction 'out=in;
 us0 f746 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 us0 f746 isAsynch false #txt
 us0 f746 isInnerRd true #txt
+us0 f746 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 us0 f746 1486 1476 36 24 20 -2 #rect
 us0 f746 @|RichDialogIcon #fIcon
 us0 f747 expr out #txt
@@ -9376,15 +9376,6 @@ us0 f756 1366 1590 20 20 13 0 #rect
 us0 f756 @|RichDialogProcessEndIcon #fIcon
 us0 f757 expr out #txt
 us0 f757 1376 1556 1376 1590 #arcP
-us0 f758 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>SE_fileRenamed</name>
-        <nameStyle>14,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f758 guid 12BDAAC2C5313D1E #txt
 us0 f758 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f758 broadcast SE_fileRenamed #txt
@@ -9431,6 +9422,15 @@ param.renamedDocumentOnServer_SelectedFolderOnServer_PanelId.get(2) instanceof N
 }catch(Throwable t){
 	ivy.log.error("Error in SE_fileRename",t);
 	}' #txt
+us0 f758 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>SE_fileRenamed</name>
+        <nameStyle>14,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f758 5222 726 20 20 13 0 #rect
 us0 f758 @|RichDialogBroadcastStartIcon #fIcon
 us0 f759 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -9438,15 +9438,6 @@ us0 f759 5222 790 20 20 13 0 #rect
 us0 f759 @|RichDialogProcessEndIcon #fIcon
 us0 f760 expr out #txt
 us0 f760 5232 746 5232 790 #arcP
-us0 f761 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Ask for new Name</name>
-        <nameStyle>16,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f761 targetWindow NEW:card: #txt
 us0 f761 targetDisplay TOP #txt
 us0 f761 richDialogId ch.ivyteam.ivy.addons.filemanager.FileNameDialog #txt
@@ -9466,6 +9457,15 @@ out.stringVariable=result.fileName;
 us0 f761 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 us0 f761 isAsynch false #txt
 us0 f761 isInnerRd true #txt
+us0 f761 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Ask for new Name</name>
+        <nameStyle>16,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f761 1358 1420 36 24 -112 5 #rect
 us0 f761 @|RichDialogIcon #fIcon
 us0 f761 -985168|-1|-16777216 #nodeStyle
@@ -9500,6 +9500,13 @@ us0 f767 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 us0 f767 1166 1462 20 20 -31 -26 #rect
 us0 f767 @|RichDialogMethodStartIcon #fIcon
+us0 f768 actionDecl 'Number uniquePanelId;
+' #txt
+us0 f768 actionTable 'uniquePanelId=in.panelId;
+' #txt
+us0 f768 actionCode panel.fireSE_renameFile(uniquePanelId); #txt
+us0 f768 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f768 fireEvent SE_renameFile(Number) #txt
 us0 f768 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -9509,13 +9516,6 @@ us0 f768 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f768 actionDecl 'Number uniquePanelId;
-' #txt
-us0 f768 actionTable 'uniquePanelId=in.panelId;
-' #txt
-us0 f768 actionCode panel.fireSE_renameFile(uniquePanelId); #txt
-us0 f768 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f768 fireEvent SE_renameFile(Number) #txt
 us0 f768 1158 1524 36 24 20 -2 #rect
 us0 f768 @|RichDialogFireEventIcon #fIcon
 us0 f769 expr out #txt
@@ -9554,6 +9554,14 @@ us0 f776 1166 1582 20 20 13 0 #rect
 us0 f776 @|RichDialogProcessEndIcon #fIcon
 us0 f777 expr out #txt
 us0 f777 1176 1548 1176 1582 #arcP
+us0 f770 guid 12BDDD0C5A62A45F #txt
+us0 f770 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f770 broadcast SE_renameFile #txt
+us0 f770 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
+' #txt
+us0 f770 actionTable 'out=in;
+out.samePanelFlag=in.panelId==param.uniquePanelId;
+' #txt
 us0 f770 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -9562,14 +9570,6 @@ us0 f770 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-us0 f770 guid 12BDDD0C5A62A45F #txt
-us0 f770 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f770 broadcast SE_renameFile #txt
-us0 f770 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
-' #txt
-us0 f770 actionTable 'out=in;
-out.samePanelFlag=in.panelId==param.uniquePanelId;
 ' #txt
 us0 f770 1462 1222 20 20 13 0 #rect
 us0 f770 @|RichDialogBroadcastStartIcon #fIcon
@@ -9604,15 +9604,6 @@ us0 f780 actionTable 'out=in;
 us0 f780 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f780 4046 564 36 24 20 -2 #rect
 us0 f780 @|RichDialogProcessStepIcon #fIcon
-us0 f781 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>SE_FilesDeleted</name>
-        <nameStyle>15,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 us0 f781 guid 12BDEFBD2E2716AF #txt
 us0 f781 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f781 broadcast SE_FilesDeleted #txt
@@ -9632,6 +9623,15 @@ if(param.applicationName_panelID_dirPath.size()==3){
 			//do nothing
 	}
 }' #txt
+us0 f781 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>SE_FilesDeleted</name>
+        <nameStyle>15,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 us0 f781 5558 86 20 20 -35 -25 #rect
 us0 f781 @|RichDialogBroadcastStartIcon #fIcon
 us0 f782 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -9726,6 +9726,7 @@ panel.filesTable.listData=in.documentsInDb;
 panel.fileToolbarPane.visible=in.isToolbarVisible;
 panel.fileToolbarPane2.visible=in.isToolbarVisible;
 panel.fileToolbarPane3.visible=in.isToolbarVisible;
+panel.mail2Button.visible=false;
 panel.makeNewDirAtRoot2Button.enabled=!in.readOnlyMode;
 panel.newCopy2Button.enabled=!in.readOnlyMode;
 panel.newDirAtRootMenuItem.visible=in.advancedActionsEnabled;
@@ -9744,13 +9745,15 @@ ivy.cms.cr("/ch/ivyteam/ivy/addons/icons/close/16"), ivy.cms.cr("/ch/ivyteam/ivy
 panel.statusLabel.text=IF(in.#returnedMessage!=null || in.returnedMessage.text.trim()!="",
 in.returnedMessage.text,
 "");
+panel.toogleFileListing2Button.text=IF (!in.isRecursive, 
+	ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/showAll"), 
+	ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/showFolder"));
 panel.toogleRecursiveMenuItem.text=IF(in.isRecursive,
 "Only show the files directly under the selected directory",
 "Show all the files that are under the selected directory path structure");
 panel.toolbarGridBagLayoutPane.visible=!in.roundedCornerIconsMode;
 panel.upload2Button.enabled=!in.readOnlyMode;
 panel.zip2Button.enabled=!in.readOnlyMode;
-panel.mail2Button.visible=false;
 ' #txt
 >Proto us0 .type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 >Proto us0 .processKind RICH_DIALOG #txt

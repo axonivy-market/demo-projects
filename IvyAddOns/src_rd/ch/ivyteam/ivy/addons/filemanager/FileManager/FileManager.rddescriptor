@@ -3,6 +3,7 @@
     <description>This RDC is the most complete FileManager Dialog. It encapsulates a DesktopHandler to be able to performs advanced client side operations with the JDIC ULC Integration.&#xD;
 Those operations are: edit, print, mail, open.&#xD;
  It allows managing the folder' structure of the given entry path: you can create new folders, download folders containment, delete folders, zip files, copy files, delete/upload/download files....</description>
+    <autoScreenshot>true</autoScreenshot>
     <acceptedBroadcast>
         <name>SE_renameFile</name>
         <description>See _renameFile() method documentation</description>
