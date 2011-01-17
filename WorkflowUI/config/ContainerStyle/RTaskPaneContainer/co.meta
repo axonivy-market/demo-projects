@@ -1,2 +1,0 @@
-co: name={RTaskPaneContainer} description={RTaskPaneContainer Look and Feel} changed={2007-07-03 13:58:04 GMT} changedby={tkis} visualorder={0} guid={114DFE4DCFA8D6B1} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}
-val: guid={114DFE4DCFCDC4E7} datatype={} isdefault={true} langid={en} description={} validfrom={2005-11-07 16:43:00 GMT} validto={} changed={2008-01-28 14:05:46 GMT} changedby={kvg} properties={###r#n##Mon Jan 28 15:05:46 CET 2008#r#nconfig.ui.path=Style/Container Widgets#r#n} id={}

@@ -1,3 +1,0 @@
-<html><b>Initialiser la tâche sélectionnée</b><br>Remet la tâche en cours de l'utilisateur dans son état initial<br>
-Une tâche en statut "CREATED" passe en statut "ZOMBIE"<br>
-Une tâche en statut "RESUMED" ou "PARKED" en statut "SUSPENDED" ou "UNASSIGNED".</html>

@@ -1,4 +1,0 @@
-co: name={caseDisplayMode2LongDesc} description={} changed={2009-05-11 15:03:33 GMT} changedby={bb} visualorder={0} guid={11ADE684DA6C7B6F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11ADE684DA626108} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 11:35:55 GMT} validto={} changed={2009-05-11 15:03:33 GMT} changedby={bb} properties={} id={}
-val: guid={11B6D86F9C4C8CE8} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 06:35:07 GMT} validto={} changed={2009-05-07 16:22:39 GMT} changedby={bb} properties={} id={}
-val: guid={11B72EB20FC25C36} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 07:42:36 GMT} validto={} changed={2008-07-30 07:44:57 GMT} changedby={tistc} properties={} id={}

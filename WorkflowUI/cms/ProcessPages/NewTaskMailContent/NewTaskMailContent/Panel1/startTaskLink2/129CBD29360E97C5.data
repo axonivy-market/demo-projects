@@ -1,3 +1,0 @@
-<P>
-<A href="<%=ivy.html.taskstartref(in.task)%>"><%=ivy.cms.co("/ProcessPages/NewTaskMailContent/NewTaskMailContent/Panel1/startLinkImage")%></A>
-</P>

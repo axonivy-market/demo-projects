@@ -1,4 +1,0 @@
-co: name={destroyTaskLongDesc} description={} changed={2009-04-02 14:10:03 GMT} changedby={bb} visualorder={0} guid={11AE8E0A5ED9A74A} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={11AE8E0A5FC91372} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-03 12:23:34 GMT} validto={} changed={2008-07-03 12:23:40 GMT} changedby={tirib} properties={} id={}
-val: guid={11B6DA050ACC18AD} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 07:02:47 GMT} validto={} changed={2009-04-02 14:10:03 GMT} changedby={bb} properties={} id={}
-val: guid={11B7397085FA0BBE} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:50:22 GMT} validto={} changed={2008-07-30 10:51:08 GMT} changedby={tistc} properties={} id={}

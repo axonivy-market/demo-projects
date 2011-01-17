@@ -1,4 +1,0 @@
-co: name={taskDescription} description={} changed={2008-07-30 11:12:48 GMT} changedby={tistc} visualorder={0} guid={11B0C578E83F1E27} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B69E58500FD676} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:39:54 GMT} validto={} changed={2008-07-28 13:40:00 GMT} changedby={cb} properties={} id={}
-val: guid={11B0C578E83B7952} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-10 09:40:09 GMT} validto={} changed={2008-07-10 09:41:57 GMT} changedby={tirib} properties={} id={}
-val: guid={11B73AB90E7B24BE} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 11:12:48 GMT} validto={} changed={2008-07-30 11:12:48 GMT} changedby={tistc} properties={} id={}

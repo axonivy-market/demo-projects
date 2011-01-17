@@ -1,4 +1,0 @@
-co: name={logoutShortDesc} description={} changed={2008-07-30 08:27:04 GMT} changedby={tistc} visualorder={0} guid={11B2BC55B09E4E25} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B2BC58E1F55CD9} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-16 12:08:32 GMT} validto={} changed={2008-07-16 12:08:43 GMT} changedby={tirib} properties={} id={}
-val: guid={11B2BC55B18B16B0} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-16 12:08:18 GMT} validto={} changed={2008-07-16 12:08:29 GMT} changedby={tirib} properties={} id={}
-val: guid={11B6DC3F6699FD6D} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 07:41:43 GMT} validto={} changed={2008-07-29 07:42:38 GMT} changedby={cb} properties={} id={}

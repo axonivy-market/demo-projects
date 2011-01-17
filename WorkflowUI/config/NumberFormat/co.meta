@@ -1,2 +1,0 @@
-co: name={NumberFormat} description={IvyScript Number Format} changed={2008-01-30 13:58:04 GMT} changedby={kvg} visualorder={0} guid={117CA11B48CAD870} parentguid={} typeguid={1065A70221F5F227} id={} parentid={} typeid={}
-val: guid={117CA43999EE3151} datatype={} isdefault={true} langid={en} description={} validfrom={2005-11-07 16:43:00 GMT} validto={} changed={2008-01-28 13:59:32 GMT} changedby={kvg} properties={###r#n##Mon Jan 28 14:59:32 CET 2008#r#nconfig.ui.path=Formats#r#nconfig.ui.name=Number#r#n} id={}

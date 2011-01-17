@@ -1,7 +1,0 @@
-CaseHierarchyTreeNodeValue #class
-ch.ivyteam.ivy.workflow.ui.data.cases #namespace
-property ch.ivyteam.ivy.workflow.CaseProperty #field
-categoryCode String #field
-categoryCode 'ICase''s category code, ex: case.getProcessCategoryCode(), case.getProcessCode(), etc.' #fieldComment
-categoryName String #field
-categoryName 'ICase''s category name, ex: case.getProcessCategoryName(), case.getProcessName(), etc.' #fieldComment

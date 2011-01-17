@@ -1,4 +1,0 @@
-co: name={confirmNewPassword} description={} changed={2009-04-02 14:21:42 GMT} changedby={bb} visualorder={0} guid={11CE7230ADCDEB95} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11CE7233BBFC1B2E} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-10-10 14:22:38 GMT} validto={} changed={2008-10-10 14:23:44 GMT} changedby={tirib} properties={} id={}
-val: guid={1206734C1F38D107} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-02 14:21:32 GMT} validto={} changed={2009-04-02 14:21:42 GMT} changedby={bb} properties={} id={}
-val: guid={11CE7230AEBAE71C} datatype={} isdefault={true} langid={en} description={} validfrom={2008-10-10 14:22:25 GMT} validto={} changed={2008-10-10 14:23:44 GMT} changedby={tirib} properties={} id={}

@@ -1,8 +1,0 @@
-RunningTaskDisplayListData #class
-ch.ivyteam.ivy.workflow.ui.task.RunningTaskDisplayList #namespace
-taskDisplayListParentDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
-propertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
-taskDisplayMode Number #field
-taskDisplayMode '0=your tasks, 1=team tasks, 2=all env. tasks (wf admin mode)' #fieldComment
-runningTaskMode Boolean #field
-hasWfAdministratorPermissions Boolean #field

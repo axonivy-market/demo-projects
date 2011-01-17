@@ -1,4 +1,0 @@
-co: name={findTaskLongDesc} description={} changed={2008-07-30 10:52:35 GMT} changedby={tistc} visualorder={0} guid={11AE8D645ADB883A} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={11B739874EF9F205} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:51:56 GMT} validto={} changed={2008-07-30 10:52:34 GMT} changedby={tistc} properties={} id={}
-val: guid={11B6DA100C99294D} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 07:03:32 GMT} validto={} changed={2008-07-29 07:04:04 GMT} changedby={cb} properties={} id={}
-val: guid={11AE8D645AD4CDA9} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-03 12:12:14 GMT} validto={} changed={2008-07-03 12:12:36 GMT} changedby={tirib} properties={} id={}

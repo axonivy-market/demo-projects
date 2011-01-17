@@ -1,5 +1,0 @@
-HeaderData #class
-ch.ivyteam.ivy.workflow.ui.common.Header #namespace
-iconUri String #field
-title String #field
-text String #field

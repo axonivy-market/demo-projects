@@ -1,6 +1,0 @@
-<table cellspacing="0" cellpadding="2" border="0" width="332">
-  <tr>
-    <td width="32"><a href="<%=ivy.html.taskstartref(in.task)%>"><%=ivy.cms.co("/ProcessPages/NewTaskMailContent/NewTaskMailContent/Panel1/startLinkImage")%></a></td>
-    <td width="300"><a href="<%=ivy.html.taskstartref(in.task)%>">Start</a></td>
-  </tr>
-</table>

@@ -1,7 +1,0 @@
-NoteDisplayListData #class
-ch.ivyteam.ivy.workflow.ui.common.NoteDisplayList #namespace
-task ch.ivyteam.ivy.workflow.ITask #field
-taskNotes List<ch.ivyteam.ivy.workflow.INote> #field
-caseNotes List<ch.ivyteam.ivy.workflow.INote> #field
-currentNote ch.ivyteam.ivy.workflow.INote #field
-tabToShow com.ulcjava.base.application.ULCComponent #field

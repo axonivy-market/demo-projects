@@ -1,4 +1,0 @@
-co: name={dailySummary} description={} changed={2010-06-30 08:53:18 CEST} changedby={cst} visualorder={0} guid={1297E1C2BFFD7664} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1297E1D7ABE83FA9} datatype={} isdefault={false} langid={de} description={} validfrom={2010-06-28 12:32:16 CEST} validto={} changed={2010-06-28 12:36:29 CEST} changedby={kvg} properties={} id={}
-val: guid={1297E1C2C031024E} datatype={} isdefault={true} langid={en} description={} validfrom={2010-06-28 12:31:02 CEST} validto={} changed={2010-06-29 16:34:10 CEST} changedby={cst} properties={} id={}
-val: guid={129846138522388E} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-06-29 17:44:10 CEST} validto={} changed={2010-06-30 08:53:18 CEST} changedby={cst} properties={} id={}

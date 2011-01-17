@@ -1,9 +1,0 @@
-TaskDateSelectData #class
-ch.ivyteam.ivy.workflow.ui.task.TaskDateSelect #namespace
-title String #field
-text String #field
-selectedDate java.util.Date #field
-disabledSelectionDate Boolean #field
-pressedButton String #field
-dateToSelect Number #field
-dateToSelect '0=Task expiry datetime, 1=Task blocking delay timestamp' #fieldComment

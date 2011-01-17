@@ -1,4 +1,0 @@
-co: name={fileSaveSuccessful} description={} changed={2009-05-28 10:56:23 GMT} changedby={bb} visualorder={0} guid={120E77B00344FC46} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12186DCDD76B999F} datatype={} isdefault={false} langid={de} description={} validfrom={2009-05-28 10:56:10 GMT} validto={} changed={2009-05-28 10:56:23 GMT} changedby={bb} properties={} id={}
-val: guid={120E77B0BEC5AB11} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-04-27 12:09:42 GMT} validto={} changed={2009-04-27 12:20:09 GMT} changedby={tirib} properties={} id={}
-val: guid={120E77B0044994CC} datatype={} isdefault={true} langid={en} description={} validfrom={2009-04-27 12:09:39 GMT} validto={} changed={2009-04-27 12:11:10 GMT} changedby={tirib} properties={} id={}

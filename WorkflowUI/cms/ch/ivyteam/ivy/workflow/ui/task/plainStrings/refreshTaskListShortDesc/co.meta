@@ -1,4 +1,0 @@
-co: name={refreshTaskListShortDesc} description={} changed={2008-08-01 12:10:55 GMT} changedby={tirib} visualorder={0} guid={11AE3D4A45447EF3} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B69E1E953D1D52} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:35:57 GMT} validto={} changed={2008-08-01 12:10:55 GMT} changedby={tirib} properties={} id={}
-val: guid={11AE3D4A464933E8} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 12:28:44 GMT} validto={} changed={2008-07-02 12:52:21 GMT} changedby={tirib} properties={} id={}
-val: guid={11B73A1045719D60} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 11:01:17 GMT} validto={} changed={2008-07-30 11:01:23 GMT} changedby={tistc} properties={} id={}

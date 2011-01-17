@@ -1,6 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2009-05-04 10:42:12 | 4.1.0.27714 | 1.0
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1199E3C12A2FEF93/1199E414380C2BA7
-~.caseDisplayListRDC@RD_EVENT[closeCaseDisplayList]--->ch.ivyteam.ivy.process.ProcessStart:1199E3C12A2FEF93/11DABD4A561EF26D
-~@RD_METHODCALL[start(ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:1199E3C12A2FEF93/119C271BFBBCE033
-~@RD_METHODCALL[refresh()]--->ch.ivyteam.ivy.process.ProcessStart:1199E3C12A2FEF93/119BEB6F22072FAC

@@ -1,8 +1,0 @@
-CaseHierarchyLayoutSelectData #class
-ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect #namespace
-caseHierarchyLayoutsList List<ch.ivyteam.ivy.workflow.ui.data.common.HierarchyLayout> #field
-caseHierarchyLayoutsList 'This will use the CMS String resources in order to build the list of choice of case hierarchy layouts' #fieldComment
-caseHierarchyLayoutPrefferedIndex Number #field
-caseHierarchyLayoutPrefferedIndex 'This index will be recieved from Workflow User settings' #fieldComment
-selectionEnabled Boolean #field
-selectionEnabled PERSISTENT #fieldModifier

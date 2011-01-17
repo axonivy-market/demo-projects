@@ -1,4 +1,0 @@
-co: name={security} description={} changed={2008-07-30 10:37:47 GMT} changedby={tistc} visualorder={0} guid={11AE41A8B69FD3F3} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B738B61A54E229} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:37:39 GMT} validto={} changed={2008-07-30 10:37:47 GMT} changedby={tistc} properties={} id={}
-val: guid={11AE41A8B69220DC} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 14:08:42 GMT} validto={} changed={2008-07-02 14:08:46 GMT} changedby={tirib} properties={} id={}
-val: guid={11B69D30A325AE9C} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:19:43 GMT} validto={} changed={2008-07-28 13:19:49 GMT} changedby={cb} properties={} id={}

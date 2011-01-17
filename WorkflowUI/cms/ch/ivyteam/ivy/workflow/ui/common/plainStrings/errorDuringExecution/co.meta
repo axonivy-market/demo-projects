@@ -1,3 +1,0 @@
-co: name={errorDuringExecution} description={} changed={2009-04-26 19:40:39 GMT} changedby={tirib} visualorder={0} guid={120E3EC5A79A45C7} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={120E3EC5AA85DE30} datatype={} isdefault={true} langid={en} description={} validfrom={2009-04-26 19:34:58 GMT} validto={} changed={2009-04-26 19:40:39 GMT} changedby={tirib} properties={} id={}
-val: guid={120E3ECEBAD6E18F} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-04-26 19:35:36 GMT} validto={} changed={2009-04-26 19:40:39 GMT} changedby={tirib} properties={} id={}

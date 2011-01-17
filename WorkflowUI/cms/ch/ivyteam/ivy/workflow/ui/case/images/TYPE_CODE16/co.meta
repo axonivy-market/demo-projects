@@ -1,2 +1,0 @@
-co: name={TYPE_CODE16} description={} changed={2008-07-09 12:58:16 GMT} changedby={tirib} visualorder={0} guid={11B07E692ADCA428} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
-val: guid={11B07E692AD74DC7} datatype={} isdefault={true} langid={en} description={} validfrom={2008-01-30 16:36:43 GMT} validto={} changed={2008-07-09 12:58:16 GMT} changedby={tirib} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@d86a} id={}

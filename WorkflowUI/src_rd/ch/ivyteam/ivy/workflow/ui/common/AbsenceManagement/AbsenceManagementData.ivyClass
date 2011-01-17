@@ -1,8 +1,0 @@
-AbsenceManagementData #class
-ch.ivyteam.ivy.workflow.ui.common.AbsenceManagement #namespace
-absenceList List<ch.ivyteam.ivy.security.IUserAbsence> #field
-start Date #field
-end Date #field
-description String #field
-absence ch.ivyteam.ivy.security.IUserAbsence #field
-errorMessage String #field

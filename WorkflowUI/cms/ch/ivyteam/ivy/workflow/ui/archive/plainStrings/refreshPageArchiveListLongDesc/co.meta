@@ -1,4 +1,0 @@
-co: name={refreshPageArchiveListLongDesc} description={} changed={2010-02-23 09:14:22 CET} changedby={fs} visualorder={0} guid={126F6615784780F1} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={126F663D170C0F15} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-02-22 16:55:21 CET} validto={} changed={2010-02-22 17:05:50 CET} changedby={fs} properties={} id={}
-val: guid={126F6615794A0237} datatype={} isdefault={true} langid={en} description={} validfrom={2010-02-22 16:52:39 CET} validto={} changed={2010-02-22 17:05:50 CET} changedby={fs} properties={} id={}
-val: guid={126F663DAA8ED538} datatype={} isdefault={false} langid={de} description={} validfrom={2010-02-22 16:55:24 CET} validto={} changed={2010-02-22 17:34:59 CET} changedby={fs} properties={} id={}

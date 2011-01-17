@@ -1,7 +1,0 @@
-CaseNoteDisplayListData #class
-ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList #namespace
-fCase ch.ivyteam.ivy.workflow.ICase #field
-loadDataAtStart Boolean #field
-loadDataAtStart 'If the data should be loaded at RD start' #fieldComment
-caseNotes List<ch.ivyteam.ivy.workflow.INote> #field
-currentNote ch.ivyteam.ivy.workflow.INote #field

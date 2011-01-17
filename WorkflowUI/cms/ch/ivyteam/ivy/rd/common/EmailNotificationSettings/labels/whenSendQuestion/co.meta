@@ -1,4 +1,0 @@
-co: name={whenSendQuestion} description={} changed={2010-07-05 12:02:35 CEST} changedby={cst} visualorder={0} guid={1297E1AE29638535} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1297E233E51EC7CD} datatype={} isdefault={false} langid={de} description={} validfrom={2010-06-28 12:38:26 CEST} validto={} changed={2010-07-05 12:02:35 CEST} changedby={cst} properties={} id={}
-val: guid={1297E1AE29A76FCF} datatype={} isdefault={true} langid={en} description={} validfrom={2010-06-28 12:29:38 CEST} validto={} changed={2010-06-28 12:38:45 CEST} changedby={kvg} properties={} id={}
-val: guid={1298792A3609C4F9} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-06-30 08:37:01 CEST} validto={} changed={2010-06-30 08:51:09 CEST} changedby={cst} properties={} id={}

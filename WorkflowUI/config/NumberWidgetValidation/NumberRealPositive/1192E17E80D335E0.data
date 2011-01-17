@@ -1,1 +1,0 @@
-{/description "Positive decimal number"/validationMessage "Invalid input (expected positive decimal number)"/validationState "Error"/datatypeConfig {/isInteger "false"/min 0 /useGrouping "true"/minFractionDigits 0 /maxFractionDigits 3 /displayLeadingZeroes "false"/decimalSeparator "0"/groupingSeparator "0"}/format "number"}

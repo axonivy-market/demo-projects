@@ -1,4 +1,0 @@
-CaseCategoryFilter #class
-ch.ivyteam.ivy.workflow.ui.data.cases #namespace
-category ch.ivyteam.ivy.workflow.ui.data.cases.CaseHierarchyTreeNodeValue #field
-relationalOperator ch.ivyteam.logicalexpression.RelationalOperator #field

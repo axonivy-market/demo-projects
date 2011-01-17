@@ -1,4 +1,0 @@
-co: name={dailyTaskSummary} description={} changed={2009-04-02 14:22:06 GMT} changedby={bb} visualorder={0} guid={11CE73B7614165DA} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1206734FA96D803A} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-02 14:21:46 GMT} validto={} changed={2009-04-02 14:22:06 GMT} changedby={bb} properties={} id={}
-val: guid={11CE73B76147E000} datatype={} isdefault={true} langid={en} description={} validfrom={2008-10-10 14:49:05 GMT} validto={} changed={2008-10-10 14:49:58 GMT} changedby={tirib} properties={} id={}
-val: guid={11CE73BABCA69AE6} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-10-10 14:49:19 GMT} validto={} changed={2008-10-10 14:49:58 GMT} changedby={tirib} properties={} id={}

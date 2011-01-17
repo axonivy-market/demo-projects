@@ -1,4 +1,0 @@
-co: name={destroyTaskShortDesc} description={} changed={2009-04-08 12:14:38 GMT} changedby={bb} visualorder={0} guid={11AE8E08B60CFF36} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B69DD3B0073494} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:30:51 GMT} validto={} changed={2009-04-08 12:14:38 GMT} changedby={bb} properties={} id={}
-val: guid={11AE8E08B60382C1} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-03 12:23:27 GMT} validto={} changed={2008-08-01 16:28:16 GMT} changedby={tirib} properties={} id={}
-val: guid={11B7397C4D9466BC} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:51:10 GMT} validto={} changed={2008-08-01 16:28:16 GMT} changedby={tirib} properties={} id={}

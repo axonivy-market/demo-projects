@@ -1,4 +1,0 @@
-co: name={ivyProjectName} description={} changed={2009-04-02 14:39:04 GMT} changedby={bb} visualorder={0} guid={11DD997521B51CDC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1206744885980011} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-02 14:38:45 GMT} validto={} changed={2009-04-02 14:39:04 GMT} changedby={bb} properties={} id={}
-val: guid={11DD997B5C728939} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-11-26 16:17:57 GMT} validto={} changed={2008-11-26 16:18:07 GMT} changedby={tirib} properties={} id={}
-val: guid={11DD997522BAE7C3} datatype={} isdefault={true} langid={en} description={} validfrom={2008-11-26 16:17:32 GMT} validto={} changed={2008-11-26 16:17:57 GMT} changedby={tirib} properties={} id={}

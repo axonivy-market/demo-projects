@@ -1,4 +1,0 @@
-co: name={filterDisabledLongDesc} description={} changed={2010-06-28 12:28:19 CEST} changedby={kvg} visualorder={0} guid={11AE37FE2C1E4D41} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={11B6DBDBC5C8CDF1} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 09:34:55 CEST} validto={} changed={2010-06-28 12:28:19 CEST} changedby={kvg} properties={} id={}
-val: guid={11B730FD941BC315} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:22:43 CEST} validto={} changed={2010-06-28 12:28:19 CEST} changedby={kvg} properties={} id={}
-val: guid={11AE37FE2D01BF89} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 13:19:46 CEST} validto={} changed={2010-06-28 12:28:19 CEST} changedby={kvg} properties={} id={}

@@ -1,8 +1,0 @@
-SecurityMemberSelectData #class
-ch.ivyteam.ivy.workflow.ui.common.SecurityMemberSelect #namespace
-securityMember ch.ivyteam.ivy.security.ISecurityMember #field
-securityMembersList List<ch.ivyteam.ivy.security.ISecurityMember> #field
-securityMemberName String #field
-securityMemberSelected Boolean #field
-securityMembersFilteredList List<ch.ivyteam.ivy.security.ISecurityMember> #field
-footerMessage String #field

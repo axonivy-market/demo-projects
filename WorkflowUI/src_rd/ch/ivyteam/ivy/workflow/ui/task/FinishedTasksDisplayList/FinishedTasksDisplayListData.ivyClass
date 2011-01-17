@@ -1,6 +1,0 @@
-FinishedTasksDisplayListData #class
-ch.ivyteam.ivy.workflow.ui.task.FinishedTasksDisplayList #namespace
-tasks List<ch.ivyteam.ivy.workflow.ITask> #field
-tasks 'done tasks' #fieldComment
-footerMessage String #field
-findWorkedOnTasksMode Boolean #field
