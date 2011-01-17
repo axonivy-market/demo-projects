@@ -61,7 +61,7 @@ private ULCContainer getCaseNoteDisplayListRDC()  {
 		caseNoteDisplayListRDC = RichDialogPanelFactory.create(CaseNoteDisplayListPanel.class);
 		caseNoteDisplayListRDC.setName("caseNoteDisplayListRDC");
 		caseNoteDisplayListRDC.setStyleProperties("{/weightY \"1\"/weightX \"1\"}");
-		caseNoteDisplayListRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(450,425));
+		caseNoteDisplayListRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(300,300));
 		caseNoteDisplayListRDC.setForeground(Color.darkGray);
 	}
 	return caseNoteDisplayListRDC;
@@ -76,7 +76,7 @@ private ULCContainer getTaskNoteDisplayListRDC()  {
 	if (taskNoteDisplayListRDC == null) {
 		taskNoteDisplayListRDC = RichDialogPanelFactory.create(TaskNoteDisplayListPanel.class);
 		taskNoteDisplayListRDC.setName("taskNoteDisplayListRDC");
-		taskNoteDisplayListRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(450,425));
+		taskNoteDisplayListRDC.setPreferredSize(new com.ulcjava.base.application.util.Dimension(300,300));
 		taskNoteDisplayListRDC.setStyleProperties("{/weightY \"1\"/weightX \"1\"}");
 	}
 	return taskNoteDisplayListRDC;

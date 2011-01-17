@@ -249,12 +249,12 @@ private RTableWithExcelExport getTaskNotesTable() {
 		taskNotesTable = new RTableWithExcelExport();
 		taskNotesTable.setName("taskNotesTable");
 		taskNotesTable.setAutoResizeMode(ULCTable.AUTO_RESIZE_NEXT_COLUMN);
-		taskNotesTable.setPreferredScrollableViewportSize(new Dimension(450, 200));
+		taskNotesTable.setPreferredScrollableViewportSize(new com.ulcjava.base.application.util.Dimension(250,200));
 		taskNotesTable.setSelectionMode(ULCListSelectionModel.SINGLE_SELECTION);
 		taskNotesTable.setSortable(true);
 		taskNotesTable.setModelConfiguration("{/showTableheader true /autoTableheader false /showtooltip true /showIcons false /version \"3.0\"/emptyTableText \"\"/columns {{/result \"result=entry.getIdentifier()\"/version \"3.0\"/tooltip \"result=entry.getIdentifier()\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/noteId\\\")\"/field \"\"/columnWidth \"100\"}{/result \"result=entry.getMessage()\"/version \"3.0\"/tooltip \"result=entry.getMessage()\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/noteText\\\")\"/field \"\"/columnWidth \"450\"}{/result \"result=entry.getWritterName()\"/version \"3.0\"/tooltip \"result=entry.getWritterName()\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/noteWritter\\\")\"/field \"\"/columnWidth \"200\"}{/result \"result=entry.getCreationTimestamp().format()\"/version \"3.0\"/tooltip \"result=entry.getCreationTimestamp().format()\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/noteCreationTimestamp\\\")\"/field \"\"}}}");
 		taskNotesTable.setRowHeight(20);
-		taskNotesTable.setPreferredSize(new com.ulcjava.base.application.util.Dimension(250,175));
+		taskNotesTable.setPreferredSize(new com.ulcjava.base.application.util.Dimension(250,200));
 	}
 	return taskNotesTable;
 }

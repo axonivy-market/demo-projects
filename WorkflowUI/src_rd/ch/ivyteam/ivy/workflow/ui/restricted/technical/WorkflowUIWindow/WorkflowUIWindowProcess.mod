@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Nov 15 13:58:31 CET 2010]
-128B5701B1FDD6EF 3.13.1 #module
+[>Created: Mon Jan 17 16:20:05 CET 2011]
+128B5701B1FDD6EF 3.15 #module
 >Proto >Proto Collection #zClass
 Ws0 WorkflowUIWindowProcess Big #zClass
 Ws0 RD #cInfo
@@ -71,13 +71,6 @@ Ws0 @PushWFArc f51 '' #zField
 Ws0 @PushWFArc f34 '' #zField
 Ws0 @PushWFArc f55 '' #zField
 >Proto Ws0 Ws0 WorkflowUIWindowProcess #zField
-Ws0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-    </language>
-</elementInfo>
-' #txt
 Ws0 f0 guid 128B5701B5E5F4EF #txt
 Ws0 f0 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
 Ws0 f0 method start() #txt
@@ -86,6 +79,13 @@ Ws0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 <> param = methodEvent.getInputArguments();
 ' #txt
 Ws0 f0 outParameterDecl '<> result;
+' #txt
+Ws0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+    </language>
+</elementInfo>
 ' #txt
 Ws0 f0 78 38 20 20 13 0 #rect
 Ws0 f0 @|RichDialogInitStartIcon #fIcon
@@ -99,16 +99,6 @@ Ws0 f6 @|RichDialogEndIcon #fIcon
 Ws0 f12 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
 Ws0 f12 446 294 20 20 13 0 #rect
 Ws0 f12 @|RichDialogProcessEndIcon #fIcon
-Ws0 f58 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>show 
-about</name>
-        <nameStyle>11,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ws0 f58 targetWindow NEW #txt
 Ws0 f58 targetDisplay TOP #txt
 Ws0 f58 richDialogId IvyScript://ch.ivyteam.ivy.addons.commondialogs.AboutDialog #txt
@@ -123,8 +113,24 @@ Ws0 f58 windowConfiguration '{/title "About"/width 400 /height 300 /centered tru
 Ws0 f58 isAsynch false #txt
 Ws0 f58 isInnerRd true #txt
 Ws0 f58 isDialog true #txt
+Ws0 f58 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>show 
+about</name>
+        <nameStyle>11,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ws0 f58 1166 156 36 24 20 -2 #rect
 Ws0 f58 @|RichDialogIcon #fIcon
+Ws0 f14 guid 128B58FA131B870C #txt
+Ws0 f14 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
+Ws0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
+' #txt
+Ws0 f14 actionTable 'out=in;
+' #txt
 Ws0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -134,12 +140,6 @@ Ws0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f14 guid 128B58FA131B870C #txt
-Ws0 f14 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
-Ws0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
-' #txt
-Ws0 f14 actionTable 'out=in;
-' #txt
 Ws0 f14 1174 46 20 20 13 0 #rect
 Ws0 f14 @|RichDialogProcessStartIcon #fIcon
 Ws0 f15 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
@@ -147,6 +147,12 @@ Ws0 f15 1174 278 20 20 13 0 #rect
 Ws0 f15 @|RichDialogProcessEndIcon #fIcon
 Ws0 f17 expr out #txt
 Ws0 f17 1184 180 1184 278 #arcP
+Ws0 f18 guid 128B5907D879F086 #txt
+Ws0 f18 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
+Ws0 f18 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
+' #txt
+Ws0 f18 actionTable 'out=in;
+' #txt
 Ws0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -155,12 +161,6 @@ Ws0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ws0 f18 guid 128B5907D879F086 #txt
-Ws0 f18 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
-Ws0 f18 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
-' #txt
-Ws0 f18 actionTable 'out=in;
 ' #txt
 Ws0 f18 1286 46 20 20 13 0 #rect
 Ws0 f18 @|RichDialogProcessStartIcon #fIcon
@@ -192,15 +192,6 @@ Ws0 f22 expr out #txt
 Ws0 f22 1296 66 1296 156 #arcP
 Ws0 f20 expr out #txt
 Ws0 f20 1296 180 1296 278 #arcP
-Ws0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>load</name>
-        <nameStyle>4,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ws0 f23 guid 128BA9DF91EA6F89 #txt
 Ws0 f23 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
 Ws0 f23 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
@@ -210,6 +201,15 @@ Ws0 f23 actionTable 'out=in;
 Ws0 f23 actionCode '
 // setun closing action
 panel.setUpCloseHandler();' #txt
+Ws0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>load</name>
+        <nameStyle>4,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ws0 f23 878 38 20 20 13 0 #rect
 Ws0 f23 @|RichDialogProcessStartIcon #fIcon
 Ws0 f24 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
@@ -303,16 +303,6 @@ Ws0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ws0 f29 874 210 28 28 14 0 #rect
 Ws0 f29 @|AlternativeIcon #fIcon
-Ws0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>load default
-web banner</name>
-        <nameStyle>23,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ws0 f32 targetWindow THIS #txt
 Ws0 f32 targetDisplay EXISTING:<%=in.workflowUIWindowNorthDisplayId%> #txt
 Ws0 f32 richDialogId ch.ivyteam.ivy.workflow.ui.restricted.technical.DefaultWebBannerDisplay #txt
@@ -327,6 +317,16 @@ Ws0 f32 windowConfiguration '* ' #txt
 Ws0 f32 isAsynch true #txt
 Ws0 f32 isInnerRd true #txt
 Ws0 f32 isDialog false #txt
+Ws0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>load default
+web banner</name>
+        <nameStyle>23,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ws0 f32 958 260 36 24 20 -2 #rect
 Ws0 f32 @|RichDialogIcon #fIcon
 Ws0 f33 expr in #txt
@@ -349,17 +349,17 @@ Ws0 f35 actionTable 'out=in;
 Ws0 f35 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UniqueDisplayIdFactory;
 
 
-out.workflowUIWindowCenterDisplayId = "workflowUIWindowCenterDisplayId" + UniqueDisplayIdFactory.buildTaskListDisplayId();
+out.workflowUIWindowCenterDisplayId = "workflowUICenterDisplayId";
 panel.workflowUIWindowCenterDisplay.displayId = out.workflowUIWindowCenterDisplayId;
 
-out.workflowUIWindowNorthDisplayId = "workflowUIWindowNorthDisplayId" + UniqueDisplayIdFactory.buildTaskListDisplayId();
+out.workflowUIWindowNorthDisplayId = "workflowUINorthDisplayId";
 panel.workflowUIWindowNorthDisplay.displayId = out.workflowUIWindowNorthDisplayId;' #txt
 Ws0 f35 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
 Ws0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>define display ids</name>
-        <nameStyle>18,9
+        <nameStyle>18,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -460,6 +460,12 @@ Ws0 f44 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ws0 f44 456 174 456 294 #arcP
+Ws0 f3 guid 1296A7DEAC2FC506 #txt
+Ws0 f3 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
+Ws0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
+' #txt
+Ws0 f3 actionTable 'out=in;
+' #txt
 Ws0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -468,12 +474,6 @@ Ws0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ws0 f3 guid 1296A7DEAC2FC506 #txt
-Ws0 f3 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
-Ws0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
-' #txt
-Ws0 f3 actionTable 'out=in;
 ' #txt
 Ws0 f3 782 38 20 20 13 0 #rect
 Ws0 f3 @|RichDialogProcessStartIcon #fIcon
@@ -603,6 +603,12 @@ Ws0 f13 expr out #txt
 Ws0 f13 792 58 474 95 #arcP
 Ws0 f13 1 792 80 #addKink
 Ws0 f13 1 0.43596374799624255 0 0 #arcLabel
+Ws0 f26 guid 12A15F94D8DE4145 #txt
+Ws0 f26 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
+Ws0 f26 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
+' #txt
+Ws0 f26 actionTable 'out=in;
+' #txt
 Ws0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -611,12 +617,6 @@ Ws0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ws0 f26 guid 12A15F94D8DE4145 #txt
-Ws0 f26 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
-Ws0 f26 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
-' #txt
-Ws0 f26 actionTable 'out=in;
 ' #txt
 Ws0 f26 1510 46 20 20 13 0 #rect
 Ws0 f26 @|RichDialogProcessStartIcon #fIcon
@@ -628,11 +628,6 @@ Ws0 f45 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ws0 f45 1510 278 20 20 13 0 #rect
 Ws0 f45 @|RichDialogProcessEndIcon #fIcon
-Ws0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Ws0 f47 targetDisplay TOP #txt
 Ws0 f47 richDialogId ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit #txt
 Ws0 f47 startMethod start() #txt
@@ -647,6 +642,11 @@ Ws0 f47 windowConfiguration '{/title "<%=in.title%>"/width 700 /height 400 /cent
 Ws0 f47 isAsynch false #txt
 Ws0 f47 isInnerRd true #txt
 Ws0 f47 isDialog true #txt
+Ws0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ws0 f47 1502 156 36 24 20 -2 #rect
 Ws0 f47 @|RichDialogIcon #fIcon
 Ws0 f48 expr out #txt
