@@ -65,7 +65,7 @@ private RCardDisplay detailsDisplay = null;
 private RHyperlink getStartTaskToggleButton() {
 	if (startTaskToggleButton == null) {
 		startTaskToggleButton = new RHyperlink();
-		startTaskToggleButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/startTask32\")%>");
+		startTaskToggleButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/start32\")%>");
 		startTaskToggleButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskLongDesc\")%>");
 		startTaskToggleButton.setEnabled(false);
 		startTaskToggleButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskShortDesc\")%>");
@@ -100,7 +100,7 @@ private RHyperlink getParkTaskButton() {
 		parkTaskButton.setName("parkTaskButton");
 		parkTaskButton.setVisible(true);
 		parkTaskButton.setStyle("toolBarButton");
-		parkTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/parkTask32\")%>");
+		parkTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/park32\")%>");
 		parkTaskButton.setEnabled(false);
 		parkTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskShortDesc\")%>");
 		parkTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskLongDesc\")%>");
@@ -118,7 +118,7 @@ private RHyperlink getDelegateTaskButton() {
 		delegateTaskButton = new RHyperlink();
 		delegateTaskButton.setName("delegateTaskButton");
 		delegateTaskButton.setStyle("toolBarButton");
-		delegateTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/delegateTask32\")%>");
+		delegateTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/delegate32\")%>");
 		delegateTaskButton.setEnabled(false);
 		delegateTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskShortDesc\")%>");
 		delegateTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskLongDesc\")%>\n");

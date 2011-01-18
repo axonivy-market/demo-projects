@@ -240,7 +240,7 @@ private RHyperlink getStartTaskButton() {
 		startTaskButton = new RHyperlink();
 		startTaskButton.setName("startTaskButton");
 		startTaskButton.setStyle("toolBarButton");
-		startTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/startTask32\")%>");
+		startTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/start32\")%>");
 		startTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskLongDesc\")%>");
 		startTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskShortDesc\")%>");
 		startTaskButton.setEnabled(false);
@@ -258,7 +258,7 @@ private RHyperlink getDelegateTaskButton() {
 		delegateTaskButton = new RHyperlink();
 		delegateTaskButton.setName("delegateTaskButton");
 		delegateTaskButton.setStyle("toolBarButton");
-		delegateTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/delegateTask32\")%>");
+		delegateTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/delegate32\")%>");
 		delegateTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskLongDesc\")%>");
 		delegateTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskShortDesc\")%>");
 		delegateTaskButton.setEnabled(false);
@@ -277,7 +277,7 @@ private RHyperlink getInformOnTaskButton() {
 		informOnTaskButton.setName("informOnTaskButton");
 		informOnTaskButton.setVisible(true);
 		informOnTaskButton.setStyle("toolBarButton");
-		informOnTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/informOnTask32\")%>");
+		informOnTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/detail32\")%>");
 		informOnTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/informOnTaskLongDesc\")%>\n");
 		informOnTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/informOnTaskShortDesc\")%>");
 		informOnTaskButton.setEnabled(false);
@@ -402,7 +402,7 @@ private ULCContainer getTaskFiltersSelectRDC()  {
 private RHyperlink getLoadTaskListButton() {
 	if (loadTaskListButton == null) {
 		loadTaskListButton = new RHyperlink();
-		loadTaskListButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/loadTaskList32\")%>");
+		loadTaskListButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/showList32\")%>");
 		loadTaskListButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/loadTaskListLongDesc\")%>");
 		loadTaskListButton.setEnabled(false);
 		loadTaskListButton.setStyle("toolBarButton");

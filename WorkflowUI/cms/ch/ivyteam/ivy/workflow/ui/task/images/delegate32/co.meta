@@ -1,0 +1,2 @@
+co: name={delegate32} description={} changed={2011-01-18 11:13:43 CET} changedby={tirib} visualorder={0} guid={11AE3A5C6B536681} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+val: guid={11AE3A5C6C55AEF2} datatype={} isdefault={true} langid={en} description={} validfrom={2007-11-07 16:46:41 CET} validto={} changed={2010-08-25 15:51:14 CEST} changedby={tirib} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@177509} id={}

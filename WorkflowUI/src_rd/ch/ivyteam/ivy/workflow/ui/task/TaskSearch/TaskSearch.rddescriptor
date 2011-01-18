@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
+    <autoScreenshot>true</autoScreenshot>
     <acceptedBroadcast>
         <name>ivy_systemevent_workflow_task_changed</name>
         <description></description>
