@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
+    <autoScreenshot>true</autoScreenshot>
+    <acceptedBroadcast>
+        <name>ivy_systemevent_workflow_case_changed</name>
+        <description></description>
+        <attachment>
+            <name>workflowSystemEventParameter</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.WorkflowSystemEventParameter</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
     <method>
         <name>refresh</name>
         <description></description>
@@ -52,16 +63,6 @@ This method can not be changed or deleted!</description>
         <name>closeCaseDisplayList</name>
         <description></description>
     </firedEvent>
-       <acceptedBroadcast>
-        <name>ivy_systemevent_workflow_case_changed</name>
-        <description></description>
-        <attachment>
-            <name>workflowSystemEventParameter</name>
-            <description></description>
-            <parameterType>ch.ivyteam.ivy.workflow.WorkflowSystemEventParameter</parameterType>
-            <nullPermitted>true</nullPermitted>
-        </attachment>
-    </acceptedBroadcast>
     <property>
         <name>guid</name>
         <value>119A42FA41F63DF1</value>

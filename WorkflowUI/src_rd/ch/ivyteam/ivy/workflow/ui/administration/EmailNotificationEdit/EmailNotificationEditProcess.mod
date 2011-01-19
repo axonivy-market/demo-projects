@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 11 16:19:21 CET 2011]
+[>Created: Wed Jan 19 10:12:04 CET 2011]
 12D758693D01BBB8 3.15 #module
 >Proto >Proto Collection #zClass
 Es0 EmailNotificationEditProcess Big #zClass
@@ -52,7 +52,7 @@ out.selectedEmailLanguage=param.#emailLanguage;
 ' #txt
 Es0 f0 outParameterDecl '<> result;
 ' #txt
-Es0 f0 embeddedRdInitializations '{/headerRDC {/fieldName "headerRDC"/startMethod "start(String,String,String)"/parameterMapping ""/initScript "param.iconUri = \"/ch/ivyteam/ivy/workflow/ui/administration/emailNotification/images/emailNotification48\";\nparam.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/emailNotification/plainStrings/emailNotificationShortDesc\");\nparam.text = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/emailNotification/plainStrings/emailNotificationLongDesc\");"/userContext * }}' #txt
+Es0 f0 embeddedRdInitializations '{/headerRDC {/fieldName "headerRDC"/startMethod "start(String,String,String)"/parameterMapping ""/initScript "param.iconUri = \"/ch/ivyteam/ivy/workflow/ui/administration/images/emailNotification48\";\nparam.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/emailNotification/plainStrings/emailNotificationShortDesc\");\nparam.text = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/emailNotification/plainStrings/emailNotificationLongDesc\");"/userContext * }}' #txt
 Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -232,7 +232,7 @@ out.userEmailSettings=param.#userSettings;
 ' #txt
 Es0 f13 outParameterDecl '<> result;
 ' #txt
-Es0 f13 embeddedRdInitializations '{/headerRDC {/fieldName "headerRDC"/startMethod "start(String,String,String)"/parameterMapping ""/initScript "param.iconUri = \"/ch/ivyteam/ivy/workflow/ui/administration/emailNotification/images/emailNotification48\";\nparam.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/emailNotification/plainStrings/emailNotificationShortDesc\");\nparam.text = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/emailNotification/plainStrings/emailNotificationLongDesc\");"/userContext * }}' #txt
+Es0 f13 embeddedRdInitializations '{/headerRDC {/fieldName "headerRDC"/startMethod "start(String,String,String)"/parameterMapping ""/initScript "param.iconUri = \"/ch/ivyteam/ivy/workflow/ui/administration/images/emailNotification48\";\nparam.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/emailNotification/plainStrings/emailNotificationShortDesc\");\nparam.text = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/emailNotification/plainStrings/emailNotificationLongDesc\");"/userContext * }}' #txt
 Es0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

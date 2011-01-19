@@ -1,11 +1,11 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2010-09-20 15:47:25 | 4.1.1.31367 | 1.0
-~.deleteMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/119910778BC6E4A6
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/11990B668C81AC8B
-~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/12A3730BE472051E
-~.exitButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/12061AEAA28312E4
-~.addButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/11990C09536F6D63
-~.roleLookupTextField@FOCUS[GAINED]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/12B2F65100ADFC9A # SubstituteDisplayListProcess.mod/selectSubstitueRoles
-~.substituteTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/11990C155E6866FB
+# 2011-01-19 09:53:42 | 4.2.0.35322 | 1.0
 ~.saveButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/11990C34EB9A20CD
+~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/12A3730BE472051E
+~.roleLookupTextField@FOCUS[GAINED]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/12B2F65100ADFC9A
+~.addButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/11990C09536F6D63
 ~.deleteButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/119910778BC6E4A6
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/11990B668C81AC8B
+~.substituteTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/11990C155E6866FB
+~.exitButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/12061AEAA28312E4
+~.deleteMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A19679D334BA22/119910778BC6E4A6

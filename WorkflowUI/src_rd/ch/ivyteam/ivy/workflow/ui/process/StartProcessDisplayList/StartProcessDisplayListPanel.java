@@ -5,7 +5,6 @@ import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
-import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RList;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
@@ -72,7 +71,7 @@ private RList getStartList() {
 	if (startList == null) {
 		startList = new RList();
 		startList.setName("startList");
-		startList.setModelConfiguration("{/result \"result=\\\"<html>\\\" + \\r\\nIF(entry.getName().length() > 0, \\\"<b>\\\" + entry.getName() + \\\"</b><br>\\\", \\\"<b>\\\" + entry.getUserFriendlyRequestPath() + \\\"</b><br>\\\") + \\r\\nIF(entry.getDescription().length() > 0, entry.getDescription(), \\\"\\\")\"/version \"3.0\"/icon \"result=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/process/images/process32\\\")\"/tooltip \"result=\\\"<html>\\\" + \\r\\nIF(entry.getName().length() > 0, \\\"<b>\\\" + entry.getName() + \\\"</b><br>\\\", \\\"<b>\\\" + entry.getUserFriendlyRequestPath() + \\\"</b><br>\\\") + \\r\\nIF(entry.getDescription().length() > 0, entry.getDescription() + \\\"<br>\\\", \\\"\\\") +\\r\\nIF(entry.getName().length() > 0, entry.getUserFriendlyRequestPath(), \\\"\\\")\"/emptyTableText \"\"}");
+		startList.setModelConfiguration("{/result \"result=\\\"<html>\\\" + \\r\\nIF(entry.getName().length() > 0, \\\"<b>\\\" + entry.getName() + \\\"</b><br>\\\", \\\"<b>\\\" + entry.getUserFriendlyRequestPath() + \\\"</b><br>\\\") + \\r\\nIF(entry.getDescription().length() > 0, entry.getDescription(), \\\"\\\")\"/version \"3.0\"/icon \"result=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/process/images/processStart32\\\")\"/tooltip \"result=\\\"<html>\\\" + \\r\\nIF(entry.getName().length() > 0, \\\"<b>\\\" + entry.getName() + \\\"</b><br>\\\", \\\"<b>\\\" + entry.getUserFriendlyRequestPath() + \\\"</b><br>\\\") + \\r\\nIF(entry.getDescription().length() > 0, entry.getDescription() + \\\"<br>\\\", \\\"\\\") +\\r\\nIF(entry.getName().length() > 0, entry.getUserFriendlyRequestPath(), \\\"\\\")\"/emptyTableText \"\"}");
 		startList.setSelectionMode(ULCListSelectionModel.SINGLE_SELECTION);
 		startList.setOpaque(false);
 		startList.setVisibleRowCount(20);
@@ -167,7 +166,7 @@ private RMenuItem getStartMenuItem() {
 private RButton getStratButton() {
 	if (stratButton == null) {
 		stratButton = new RButton();
-		stratButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/process/images/process32\")%>");
+		stratButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/process/images/processStart32\")%>");
 		stratButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/process/plainStrings/menuStartProcess\")%>");
 		stratButton.setVisible(false);
 		stratButton.setName("stratButton");

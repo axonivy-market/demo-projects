@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Nov 15 17:14:06 CET 2010]
-12A19679D334BA22 3.13.1 #module
+[>Created: Wed Jan 19 09:53:43 CET 2011]
+12A19679D334BA22 3.15 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstituteManagementProcess Big #zClass
 Ss0 RD #cInfo
@@ -43,15 +43,6 @@ Ss0 @RichDialogProcessStart f17 '' #zField
 Ss0 @RichDialogProcessEnd f25 '' #zField
 Ss0 @PushWFArc f26 '' #zField
 >Proto Ss0 Ss0 SubstituteManagementProcess #zField
-Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ss0 f0 guid 11990B668C81AC8B #txt
 Ss0 f0 type ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData #txt
 Ss0 f0 method start() #txt
@@ -61,23 +52,21 @@ Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 Ss0 f0 outParameterDecl '<> result;
 ' #txt
-Ss0 f0 embeddedRdInitializations '{/header {/fieldName "header"/startMethod "start(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/workflow/ui/common/images/substitute48\";\n"/initScript "param.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/substitutesShortDesc\");\nparam.text = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/substitutesLongDesc\");"}}' #txt
+Ss0 f0 embeddedRdInitializations '{/header {/fieldName "header"/startMethod "start(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/workflow/ui/administration/images/substitute48\";\n"/initScript "param.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/substitutesShortDesc\");\nparam.text = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/substitutesLongDesc\");"/userContext * }}' #txt
+Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f0 62 54 20 20 13 0 #rect
 Ss0 f0 @|RichDialogInitStartIcon #fIcon
 Ss0 f1 type ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData #txt
 Ss0 f1 59 267 26 26 14 0 #rect
 Ss0 f1 @|RichDialogProcessEndIcon #fIcon
-Ss0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>load the available substitutes
-try to update the tab''s bullet</name>
-        <nameStyle>9,7,9
-52,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ss0 f2 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData out;
 ' #txt
 Ss0 f2 actionTable 'out=in;
@@ -136,6 +125,17 @@ if (parent instanceof ULCTabbedPane && (parent as ULCTabbedPane).getSelectedComp
 	
 }' #txt
 Ss0 f2 type ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData #txt
+Ss0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>load the available substitutes
+try to update the tab''s bullet</name>
+        <nameStyle>9,7,9
+52,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f2 54 188 36 24 20 -2 #rect
 Ss0 f2 @|RichDialogProcessStepIcon #fIcon
 Ss0 f3 expr out #txt
@@ -333,6 +333,7 @@ Ss0 f21 582 182 20 20 13 0 #rect
 Ss0 f21 @|RichDialogProcessEndIcon #fIcon
 Ss0 f22 expr out #txt
 Ss0 f22 592 74 592 182 #arcP
+Ss0 f15 type ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData #txt
 Ss0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -342,7 +343,6 @@ Ss0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f15 type ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData #txt
 Ss0 f15 298 122 28 28 14 0 #rect
 Ss0 f15 @|AlternativeIcon #fIcon
 Ss0 f16 expr out #txt

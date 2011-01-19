@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Sep 20 14:41:15 CEST 2010]
-12A196714EFC9E34 3.12 #module
+[>Created: Wed Jan 19 09:53:20 CET 2011]
+12A196714EFC9E34 3.15 #module
 >Proto >Proto Collection #zClass
 As0 AbsenceManagementProcess Big #zClass
 As0 RD #cInfo
@@ -46,15 +46,6 @@ As0 @RichDialogProcessStep f31 '' #zField
 As0 @PushWFArc f32 '' #zField
 As0 @PushWFArc f8 '' #zField
 >Proto As0 As0 AbsenceManagementProcess #zField
-As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 As0 f0 guid 1198ABD3DECFDD60 #txt
 As0 f0 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
 As0 f0 method start() #txt
@@ -67,7 +58,16 @@ out.start=new Date().add(new Duration(0,0,1,0,0,0));
 ' #txt
 As0 f0 outParameterDecl '<> result;
 ' #txt
-As0 f0 embeddedRdInitializations '{/header {/fieldName "header"/startMethod "start(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/workflow/ui/common/images/absence48\";\n"/initScript "param.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/absenceShortDesc\");\nparam.text = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/absenceLongDesc\");\n"}}' #txt
+As0 f0 embeddedRdInitializations '{/header {/fieldName "header"/startMethod "start(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/workflow/ui/administration/images/absence48\";\n"/initScript "param.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/absenceShortDesc\");\nparam.text = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/absenceLongDesc\");\n"/userContext * }}' #txt
+As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f0 38 46 20 20 13 0 #rect
 As0 f0 @|RichDialogInitStartIcon #fIcon
 As0 f1 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
@@ -122,6 +122,12 @@ As0 f4 expr out #txt
 As0 f4 48 66 48 132 #arcP
 As0 f2 expr out #txt
 As0 f2 48 156 48 203 #arcP
+As0 f5 guid 1198AC930B34DDE8 #txt
+As0 f5 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
+As0 f5 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
+' #txt
+As0 f5 actionTable 'out=in;
+' #txt
 As0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -131,23 +137,8 @@ As0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f5 guid 1198AC930B34DDE8 #txt
-As0 f5 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
-As0 f5 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
-' #txt
-As0 f5 actionTable 'out=in;
-' #txt
 As0 f5 318 46 20 20 13 0 #rect
 As0 f5 @|RichDialogProcessStartIcon #fIcon
-As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>delete Absence</name>
-        <nameStyle>14,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 As0 f6 guid 1198ADADD5CB5C0C #txt
 As0 f6 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
 As0 f6 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
@@ -169,12 +160,29 @@ for (Object userAbsence: userAbsences)
 	}
 	
 }' #txt
+As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>delete Absence</name>
+        <nameStyle>14,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f6 174 46 20 20 13 0 #rect
 As0 f6 @|RichDialogProcessStartIcon #fIcon
 As0 f7 expr out #txt
 As0 f7 184 66 66 141 #arcP
 As0 f7 1 184 120 #addKink
 As0 f7 1 0.354074536532317 0 0 #arcLabel
+As0 f9 guid 1198AE1D23E153E4 #txt
+As0 f9 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
+As0 f9 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
+' #txt
+As0 f9 actionTable 'out=in;
+' #txt
+As0 f9 actionCode '
+' #txt
 As0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -184,28 +192,11 @@ As0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f9 guid 1198AE1D23E153E4 #txt
-As0 f9 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
-As0 f9 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
-' #txt
-As0 f9 actionTable 'out=in;
-' #txt
-As0 f9 actionCode '
-' #txt
 As0 f9 502 46 20 20 13 0 #rect
 As0 f9 @|RichDialogProcessStartIcon #fIcon
 As0 f10 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
 As0 f10 499 211 26 26 14 0 #rect
 As0 f10 @|RichDialogProcessEndIcon #fIcon
-As0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>enableDelete</name>
-        <nameStyle>12,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 As0 f12 guid 1198AE6A9324CDF0 #txt
 As0 f12 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
 As0 f12 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
@@ -215,12 +206,27 @@ As0 f12 actionTable 'out=in;
 As0 f12 actionCode 'if(panel.absenceTable.getSelectedListEntry() instanceof ch.ivyteam.ivy.security.IUserAbsence){
 	panel.deleteButton.enabled = true;
 	}' #txt
+As0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>enableDelete</name>
+        <nameStyle>12,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f12 838 46 20 20 13 0 #rect
 As0 f12 @|RichDialogProcessStartIcon #fIcon
 As0 f17 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
 As0 f17 guid 12061AD5D7A35B2D #txt
 As0 f17 939 211 26 26 14 0 #rect
 As0 f17 @|RichDialogEndIcon #fIcon
+As0 f18 guid 12061AD988EAC0E3 #txt
+As0 f18 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
+As0 f18 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
+' #txt
+As0 f18 actionTable 'out=in;
+' #txt
 As0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -230,16 +236,16 @@ As0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f18 guid 12061AD988EAC0E3 #txt
-As0 f18 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
-As0 f18 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
-' #txt
-As0 f18 actionTable 'out=in;
-' #txt
 As0 f18 942 46 20 20 13 0 #rect
 As0 f18 @|RichDialogProcessStartIcon #fIcon
 As0 f19 expr out #txt
 As0 f19 952 66 952 211 #arcP
+As0 f21 guid 12A333B1D13C3420 #txt
+As0 f21 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
+As0 f21 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
+' #txt
+As0 f21 actionTable 'out=in;
+' #txt
 As0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -248,12 +254,6 @@ As0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-As0 f21 guid 12A333B1D13C3420 #txt
-As0 f21 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
-As0 f21 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
-' #txt
-As0 f21 actionTable 'out=in;
 ' #txt
 As0 f21 606 46 20 20 13 0 #rect
 As0 f21 @|RichDialogProcessStartIcon #fIcon
@@ -317,6 +317,13 @@ As0 f23 342 96 60 215 #arcP
 As0 f23 1 432 96 #addKink
 As0 f23 2 432 192 #addKink
 As0 f23 1 0.7692554606649319 0 0 #arcLabel
+As0 f28 guid 12A37D2E575B0F5A #txt
+As0 f28 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
+As0 f28 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
+' #txt
+As0 f28 actionTable 'out=in;
+' #txt
+As0 f28 actionCode 'out.end = in.start;' #txt
 As0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -326,13 +333,6 @@ As0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f28 guid 12A37D2E575B0F5A #txt
-As0 f28 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
-As0 f28 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
-' #txt
-As0 f28 actionTable 'out=in;
-' #txt
-As0 f28 actionCode 'out.end = in.start;' #txt
 As0 f28 686 46 20 20 13 0 #rect
 As0 f28 @|RichDialogProcessStartIcon #fIcon
 As0 f29 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt

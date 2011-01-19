@@ -87,7 +87,7 @@ private RHyperlink getAddNoteButton() {
 		addNoteButton = new RHyperlink();
 		addNoteButton.setName("addNoteButton");
 		addNoteButton.setStyle("toolBarButton");
-		addNoteButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/note/images/addNote32\")%>");
+		addNoteButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/note/images/add32\")%>");
 		addNoteButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/add\")%>");
 		addNoteButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/addNote\")%>");
 	}
@@ -104,7 +104,7 @@ private RHyperlink getDeleteNoteButton() {
 		deleteNoteButton = new RHyperlink();
 		deleteNoteButton.setName("deleteNoteButton");
 		deleteNoteButton.setStyle("toolBarButton");
-		deleteNoteButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/note/images/deleteNote32\")%>");
+		deleteNoteButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/note/images/delete32\")%>");
 		deleteNoteButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/remove\")%>");
 		deleteNoteButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/deleteNote\")%>");
 	}

@@ -123,7 +123,7 @@ private RHyperlink getStopAutomaticTasksExecutionToggleHyperlink() {
 		stopAutomaticTasksExecutionToggleHyperlink = new RHyperlink();
 		stopAutomaticTasksExecutionToggleHyperlink.setName("stopAutomaticTasksExecutionToggleHyperlink");
 		stopAutomaticTasksExecutionToggleHyperlink.setStyle("toolBarButton");
-		stopAutomaticTasksExecutionToggleHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/stopAutostartTasks32\")%>");
+		stopAutomaticTasksExecutionToggleHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/stopAutostart32\")%>");
 		stopAutomaticTasksExecutionToggleHyperlink.setVisible(false);
 		stopAutomaticTasksExecutionToggleHyperlink.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/stopAutoStartTasksShortDesc\")%>\n");
 		stopAutomaticTasksExecutionToggleHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/stopAutoStartTasksLongDesc\")%>\n");

@@ -268,7 +268,7 @@ private RHyperlink getDestroyCaseButton() {
 		destroyCaseButton = new RHyperlink();
 		destroyCaseButton.setName("destroyCaseButton");
 		destroyCaseButton.setStyle("toolBarButton");
-		destroyCaseButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/destroyCase32\") %>");
+		destroyCaseButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/destroy32\") %>");
 		destroyCaseButton.setEnabled(false);
 		destroyCaseButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseShortDesc\")%>");
 		destroyCaseButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseLongDesc\")%>");
@@ -287,7 +287,7 @@ private RHyperlink getInformOnCaseButton() {
 		informOnCaseButton.setEnabled(false);
 		informOnCaseButton.setVisible(true);
 		informOnCaseButton.setStyle("toolBarButton");
-		informOnCaseButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/informOnCase32\") %>");		
+		informOnCaseButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/detail32\") %>");		
 		informOnCaseButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/informOnCaseLongDesc\")%>");
 		informOnCaseButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/informOnCaseShortDesc\")%>");
 		informOnCaseButton.setName("informOnCaseButton");

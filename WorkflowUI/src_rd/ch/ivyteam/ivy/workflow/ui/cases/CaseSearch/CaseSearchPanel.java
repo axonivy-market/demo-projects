@@ -266,7 +266,7 @@ private RHyperlink getInformOnCaseButton() {
 		informOnCaseButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/informOnCaseLongDesc\")%>");
 		informOnCaseButton.setVisible(true);
 		informOnCaseButton.setStyle("toolBarButton");
-		informOnCaseButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/informOnCase32\") %>");
+		informOnCaseButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/detail32\") %>");
 		informOnCaseButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/informOnCaseShortDesc\")%>");
 		informOnCaseButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/informOnCaseLongDesc\")%>");
 		informOnCaseButton.setName("informOnCaseButton");
@@ -285,7 +285,7 @@ private RHyperlink getDestroyCaseButton() {
 		destroyCaseButton.setEnabled(false);
 		destroyCaseButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseLongDesc\")%>");
 		destroyCaseButton.setStyle("toolBarButton");
-		destroyCaseButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/destroyCase32\") %>");
+		destroyCaseButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/destroy32\") %>");
 		destroyCaseButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseShortDesc\")%>");
 		destroyCaseButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseLongDesc\")%>");
 		destroyCaseButton.setName("destroyCaseButton");
@@ -388,7 +388,7 @@ private RTree getCaseHierarchyLayoutTree() {
 private RHyperlink getLoadCaseListButton() {
 	if (loadCaseListButton == null) {
 		loadCaseListButton = new RHyperlink();
-		loadCaseListButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/loadCaseList32\") %>");
+		loadCaseListButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/showList32\") %>");
 		loadCaseListButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/loadCaseListLongDesc\")%>");
 		loadCaseListButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/loadCaseListLongDesc\")%>");
 		loadCaseListButton.setEnabled(false);
