@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Dec 01 10:45:45 CET 2010]
-1168625F1BC1155F 3.13.1 #module
+[>Created: Wed Jan 19 16:01:01 CET 2011]
+1168625F1BC1155F 3.15 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
 Ts0 RD #cInfo
@@ -350,6 +350,12 @@ Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f1 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f1 67 459 26 26 14 0 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
+Ts0 f11 guid 1168CA38A597F980 #txt
+Ts0 f11 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f11 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f11 actionTable 'out=in;
+' #txt
 Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -359,14 +365,16 @@ Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f11 guid 1168CA38A597F980 #txt
-Ts0 f11 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f11 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f11 actionTable 'out=in;
-' #txt
 Ts0 f11 454 126 20 20 13 0 #rect
 Ts0 f11 @|RichDialogProcessStartIcon #fIcon
+Ts0 f28 guid 116A0E226E35360E #txt
+Ts0 f28 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f28 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f28 actionTable 'out=in;
+' #txt
+Ts0 f28 actionCode '// define valid display
+out.selectedTaskDisplayId = in.taskListChildrenDisplayId;' #txt
 Ts0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -376,19 +384,18 @@ Ts0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f28 guid 116A0E226E35360E #txt
-Ts0 f28 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f28 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f28 actionTable 'out=in;
-' #txt
-Ts0 f28 actionCode '// define valid display
-out.selectedTaskDisplayId = in.taskListChildrenDisplayId;' #txt
 Ts0 f28 2334 182 20 20 13 0 #rect
 Ts0 f28 @|RichDialogProcessStartIcon #fIcon
 Ts0 f29 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f29 2283 763 26 26 14 0 #rect
 Ts0 f29 @|RichDialogProcessEndIcon #fIcon
+Ts0 f33 guid 116A4E0E799A14D1 #txt
+Ts0 f33 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f33 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f33 actionTable 'out=in;
+out.selectedTaskDisplayId=in.taskListChildrenDisplayId;
+' #txt
 Ts0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -398,18 +405,18 @@ Ts0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f33 guid 116A4E0E799A14D1 #txt
-Ts0 f33 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f33 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f33 actionTable 'out=in;
-out.selectedTaskDisplayId=in.taskListChildrenDisplayId;
-' #txt
 Ts0 f33 1830 206 20 20 13 0 #rect
 Ts0 f33 @|RichDialogProcessStartIcon #fIcon
 Ts0 f36 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f36 1827 643 26 26 14 0 #rect
 Ts0 f36 @|RichDialogProcessEndIcon #fIcon
+Ts0 f22 guid 116CE5EA710FB1B8 #txt
+Ts0 f22 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f22 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f22 actionTable 'out=in;
+out.securityMember=null;
+' #txt
 Ts0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -419,18 +426,17 @@ Ts0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f22 guid 116CE5EA710FB1B8 #txt
-Ts0 f22 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f22 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f22 actionTable 'out=in;
-out.securityMember=null;
-' #txt
 Ts0 f22 2830 326 20 20 13 0 #rect
 Ts0 f22 @|RichDialogProcessStartIcon #fIcon
 Ts0 f23 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f23 2827 779 26 26 14 0 #rect
 Ts0 f23 @|RichDialogProcessEndIcon #fIcon
+Ts0 f25 guid 116CE60D53BB777D #txt
+Ts0 f25 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f25 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f25 actionTable 'out=in;
+' #txt
 Ts0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -439,12 +445,6 @@ Ts0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f25 guid 116CE60D53BB777D #txt
-Ts0 f25 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f25 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f25 actionTable 'out=in;
 ' #txt
 Ts0 f25 2726 878 20 20 13 0 #rect
 Ts0 f25 @|RichDialogProcessStartIcon #fIcon
@@ -1032,6 +1032,13 @@ Ts0 f58 1852 282 1853 656 #arcP
 Ts0 f58 1 1960 296 #addKink
 Ts0 f58 2 1960 656 #addKink
 Ts0 f58 1 0.45970145375293403 0 0 #arcLabel
+Ts0 f92 guid 118C22345A17837B #txt
+Ts0 f92 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f92 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f92 actionTable 'out=in;
+out.selectedTaskDisplayId=in.taskListParentDisplayId;
+' #txt
 Ts0 f92 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1041,15 +1048,15 @@ Ts0 f92 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f92 guid 118C22345A17837B #txt
-Ts0 f92 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f92 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f92 actionTable 'out=in;
-out.selectedTaskDisplayId=in.taskListParentDisplayId;
-' #txt
 Ts0 f92 1894 238 20 20 13 0 #rect
 Ts0 f92 @|RichDialogProcessStartIcon #fIcon
+Ts0 f99 guid 118C223601C9E2B6 #txt
+Ts0 f99 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f99 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f99 actionTable 'out=in;
+out.selectedTaskDisplayId=in.taskListParentDisplayId;
+' #txt
 Ts0 f99 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1058,13 +1065,6 @@ Ts0 f99 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f99 guid 118C223601C9E2B6 #txt
-Ts0 f99 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f99 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f99 actionTable 'out=in;
-out.selectedTaskDisplayId=in.taskListParentDisplayId;
 ' #txt
 Ts0 f99 2334 214 20 20 13 0 #rect
 Ts0 f99 @|RichDialogProcessStartIcon #fIcon
@@ -1360,6 +1360,12 @@ Ts0 f120 1854 464 1852 654 #arcP
 Ts0 f120 1 1904 464 #addKink
 Ts0 f120 2 1904 648 #addKink
 Ts0 f120 1 0.47026520291019663 0 0 #arcLabel
+Ts0 f126 guid 118EB87984A5A5A8 #txt
+Ts0 f126 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f126 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f126 actionTable 'out=in;
+' #txt
 Ts0 f126 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1368,12 +1374,6 @@ Ts0 f126 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f126 guid 118EB87984A5A5A8 #txt
-Ts0 f126 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f126 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f126 actionTable 'out=in;
 ' #txt
 Ts0 f126 1494 38 20 20 13 0 #rect
 Ts0 f126 @|RichDialogProcessStartIcon #fIcon
@@ -1540,6 +1540,12 @@ Ts0 f149 expr out #txt
 Ts0 f149 3696 92 3380 311 #arcP
 Ts0 f149 1 3696 296 #addKink
 Ts0 f149 0 0.8573899370988516 0 0 #arcLabel
+Ts0 f151 guid 11A0591A096BF4F3 #txt
+Ts0 f151 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f151 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f151 actionTable 'out=in;
+' #txt
 Ts0 f151 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1548,12 +1554,6 @@ Ts0 f151 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f151 guid 11A0591A096BF4F3 #txt
-Ts0 f151 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f151 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f151 actionTable 'out=in;
 ' #txt
 Ts0 f151 2926 878 20 20 13 0 #rect
 Ts0 f151 @|RichDialogProcessStartIcon #fIcon
@@ -1773,6 +1773,12 @@ Ts0 f160 expr out #txt
 Ts0 f160 3104 500 2852 791 #arcP
 Ts0 f160 1 3104 776 #addKink
 Ts0 f160 0 0.9181230687456964 0 0 #arcLabel
+Ts0 f161 guid 11A06D4212D900B5 #txt
+Ts0 f161 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f161 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f161 actionTable 'out=in;
+' #txt
 Ts0 f161 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1782,14 +1788,14 @@ Ts0 f161 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f161 guid 11A06D4212D900B5 #txt
-Ts0 f161 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f161 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f161 actionTable 'out=in;
-' #txt
 Ts0 f161 1510 878 20 20 13 0 #rect
 Ts0 f161 @|RichDialogProcessStartIcon #fIcon
+Ts0 f162 guid 11A06D4293CB465C #txt
+Ts0 f162 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f162 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f162 actionTable 'out=in;
+' #txt
 Ts0 f162 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1798,12 +1804,6 @@ Ts0 f162 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f162 guid 11A06D4293CB465C #txt
-Ts0 f162 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f162 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f162 actionTable 'out=in;
 ' #txt
 Ts0 f162 1774 878 20 20 13 0 #rect
 Ts0 f162 @|RichDialogProcessStartIcon #fIcon
@@ -2103,6 +2103,12 @@ and task instance</name>
 Ts0 f190 1784 958 1784 1004 #arcP
 Ts0 f180 expr out #txt
 Ts0 f180 1784 1028 1784 1052 #arcP
+Ts0 f191 guid 11A0856682016BF4 #txt
+Ts0 f191 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f191 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f191 actionTable 'out=in;
+' #txt
 Ts0 f191 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2111,12 +2117,6 @@ Ts0 f191 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f191 guid 11A0856682016BF4 #txt
-Ts0 f191 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f191 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f191 actionTable 'out=in;
 ' #txt
 Ts0 f191 2046 878 20 20 13 0 #rect
 Ts0 f191 @|RichDialogProcessStartIcon #fIcon
@@ -2169,6 +2169,12 @@ Ts0 f198 2070 944 2069 1368 #arcP
 Ts0 f198 1 2224 944 #addKink
 Ts0 f198 2 2224 1368 #addKink
 Ts0 f198 1 0.46827506590861234 0 0 #arcLabel
+Ts0 f199 guid 11A085A17A139EA8 #txt
+Ts0 f199 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f199 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f199 actionTable 'out=in;
+' #txt
 Ts0 f199 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2177,12 +2183,6 @@ Ts0 f199 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f199 guid 11A085A17A139EA8 #txt
-Ts0 f199 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f199 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f199 actionTable 'out=in;
 ' #txt
 Ts0 f199 2302 878 20 20 13 0 #rect
 Ts0 f199 @|RichDialogProcessStartIcon #fIcon
@@ -2261,15 +2261,6 @@ Ts0 f206 80 340 80 404 #arcP
 Ts0 f206 0 0.7145526639437965 0 0 #arcLabel
 Ts0 f86 expr out #txt
 Ts0 f86 80 428 80 459 #arcP
-Ts0 f60 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>findTasks</name>
-        <nameStyle>9,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f60 guid 11A6D1CCD4AB222D #txt
 Ts0 f60 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f60 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
@@ -2291,6 +2282,9 @@ if (out.tasks.size() > 0)
 	for(ITask currentTask: in.tasks)
 	{
 		if (patternOnName.matcher(currentTask.getName()).matches() || 
+					patternOnName.matcher("" + currentTask.getIdentifier()).matches() ||
+					
+					patternOnName.matcher("" + currentTask.getCase().getIdentifier()).matches() ||
 					patternOnName.matcher(currentTask.getCase().getName()).matches() ||
 					
 					patternOnName.matcher(currentTask.getCase().getProcessCategoryCode()).matches() || 
@@ -2346,6 +2340,15 @@ out.footerMessage = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/
 
 
 ' #txt
+Ts0 f60 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>findTasks</name>
+        <nameStyle>9,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f60 2726 326 20 20 13 0 #rect
 Ts0 f60 @|RichDialogProcessStartIcon #fIcon
 Ts0 f208 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -2353,6 +2356,12 @@ Ts0 f208 2723 459 26 26 14 0 #rect
 Ts0 f208 @|RichDialogProcessEndIcon #fIcon
 Ts0 f209 expr out #txt
 Ts0 f209 2736 346 2736 459 #arcP
+Ts0 f39 guid 11AE8E7F33044A1E #txt
+Ts0 f39 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f39 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f39 actionTable 'out=in;
+' #txt
 Ts0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2361,12 +2370,6 @@ Ts0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f39 guid 11AE8E7F33044A1E #txt
-Ts0 f39 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f39 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f39 actionTable 'out=in;
 ' #txt
 Ts0 f39 1566 46 20 20 13 0 #rect
 Ts0 f39 @|RichDialogProcessStartIcon #fIcon
@@ -3932,15 +3935,6 @@ Ts0 f262 expr out #txt
 Ts0 f262 1272 292 1218 420 #arcP
 Ts0 f262 1 1272 408 #addKink
 Ts0 f262 0 0.810086836473021 0 0 #arcLabel
-Ts0 f254 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>toggleAutomaticTasksExecution</name>
-        <nameStyle>29,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f254 guid 128D46F6DFE11C93 #txt
 Ts0 f254 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f254 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
@@ -3951,6 +3945,15 @@ Ts0 f254 actionCode '// refresh the task list and
 // enable the automatic tasks execution mode only if task list is not empty
 panel.refresh();
 out.automaticTasksExecutionMode = !in.tasks.isEmpty();' #txt
+Ts0 f254 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>toggleAutomaticTasksExecution</name>
+        <nameStyle>29,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f254 2470 54 20 20 11 1 #rect
 Ts0 f254 @|RichDialogProcessStartIcon #fIcon
 Ts0 f266 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -4215,6 +4218,13 @@ already loaded</name>
 Ts0 f280 1840 478 1840 524 #arcP
 Ts0 f62 expr out #txt
 Ts0 f62 1840 548 1840 588 #arcP
+Ts0 f281 guid 1295FBAF087F9806 #txt
+Ts0 f281 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f281 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f281 actionTable 'out=in;
+' #txt
+Ts0 f281 actionCode 'out.selectedTaskDisplayId = in.taskListParentDisplayId;' #txt
 Ts0 f281 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -4224,13 +4234,6 @@ Ts0 f281 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f281 guid 1295FBAF087F9806 #txt
-Ts0 f281 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f281 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f281 actionTable 'out=in;
-' #txt
-Ts0 f281 actionCode 'out.selectedTaskDisplayId = in.taskListParentDisplayId;' #txt
 Ts0 f281 2094 174 20 20 13 0 #rect
 Ts0 f281 @|RichDialogProcessStartIcon #fIcon
 Ts0 f282 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
