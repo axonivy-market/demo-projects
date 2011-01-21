@@ -1,2 +1,2 @@
-co: name={SUB_TYPE_CODE16} description={} changed={2010-08-26 14:08:07 CEST} changedby={tirib} visualorder={0} guid={11B07E65D553400C} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+co: name={subType16} description={} changed={2011-01-21 11:07:13 CET} changedby={tirib} visualorder={0} guid={11B07E65D553400C} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
 val: guid={11B07E65D74CC69A} datatype={} isdefault={true} langid={en} description={} validfrom={2008-01-30 17:37:00 CET} validto={} changed={2010-08-26 14:08:07 CEST} changedby={tirib} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@72118faf} id={}

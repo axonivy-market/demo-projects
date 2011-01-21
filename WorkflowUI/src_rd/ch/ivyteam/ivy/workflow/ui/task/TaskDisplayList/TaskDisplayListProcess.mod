@@ -2399,37 +2399,37 @@ panel.informOnTaskOnSiblingTabMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workfl
 
 panel.startTaskOnSiblingTabMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskShortDesc");
 // panel.startTaskOnSiblingTabMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskLongDesc");
-panel.startTaskOnSiblingTabMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/startTask16");
+panel.startTaskOnSiblingTabMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/start16");
 
 
 panel.parkTaskMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskShortDesc");
 // panel.parkTaskMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskLongDesc");
-// panel.parkTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/parkTask16");
+// panel.parkTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/park16");
 
 
 panel.delegateTaskMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskShortDesc");
 // panel.delegateTaskMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskLongDesc");
-// panel.delegateTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/delegateTask16");
+// panel.delegateTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/delegate16");
 
 
 panel.setTaskExpiryDateMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskExpiryTimestampShortDesc");
 // panel.setTaskExpiryDateMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskExpiryTimestampLongDesc");
-// panel.setTaskExpiryDateMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/setTaskExpiryTimestamp16");
+// panel.setTaskExpiryDateMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/setExpiry16");
 
 
 panel.setTaskBlockingDelayDateMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskBlockingDelayTimestampShortDesc");
 // panel.setTaskBlockingDelayDateMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskBlockingDelayTimestampLongDesc");
-// panel.setTaskBlockingDelayDateMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/setTaskBlockingDelayTimestamp16");
+// panel.setTaskBlockingDelayDateMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/setBlockingDelay16");
 
 
 panel.resetTaskMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/cancelTaskShortDesc");
 // panel.resetTaskMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/cancelTaskLongDesc");
-// panel.resetTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/cancelTask16");
+// panel.resetTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/reset16");
 
 
 panel.destroyTaskMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/destroyTaskShortDesc");
 // panel.destroyTaskMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/destroyTaskLongDesc");
-// panel.destroyTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/destroyTask16");
+// panel.destroyTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/destroy16");
 
 
 // if parent display not defined, then use the existing one

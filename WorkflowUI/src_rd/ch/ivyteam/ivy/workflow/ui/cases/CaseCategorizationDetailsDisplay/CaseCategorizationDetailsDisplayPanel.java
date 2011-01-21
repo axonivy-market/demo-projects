@@ -131,7 +131,7 @@ private RLabel getCaseProcessCategoryLabel() {
 	if (caseProcessCategoryLabel == null) {
 		caseProcessCategoryLabel = new RLabel();
 		caseProcessCategoryLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseProcessCategoryName\")%>");
-		caseProcessCategoryLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/PROCESS_CATEGORY_CODE16\")%>");
+		caseProcessCategoryLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/processCategory16\")%>");
 		caseProcessCategoryLabel.setName("caseProcessCategoryLabel");
 	}
 	return caseProcessCategoryLabel;
@@ -146,7 +146,7 @@ private RLabel getCaseTypeLabel() {
 	if (caseTypeLabel == null) {
 		caseTypeLabel = new RLabel();
 		caseTypeLabel.setName("caseTypeLabel");
-		caseTypeLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/TYPE_CODE16\")%>");
+		caseTypeLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/type16\")%>");
 		caseTypeLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseTypeName\")%>");
 		caseTypeLabel.setName("caseTypeLabel");
 	}
@@ -339,7 +339,7 @@ private RLabel getCaseProcessLabel() {
 	if (caseProcessLabel == null) {
 		caseProcessLabel = new RLabel();
 		caseProcessLabel.setName("caseProcessLabel");
-		caseProcessLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/PROCESS_CODE16\")%>");
+		caseProcessLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/process16\")%>");
 		caseProcessLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseProcessName\")%>");
 	}
 	return caseProcessLabel;
@@ -387,7 +387,7 @@ private RLabel getCaseSubTypeLabel() {
 	if (caseSubTypeLabel == null) {
 		caseSubTypeLabel = new RLabel();
 		caseSubTypeLabel.setName("caseSubTypeLabel");
-		caseSubTypeLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/SUB_TYPE_CODE16\")%>");
+		caseSubTypeLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/subType16\")%>");
 		caseSubTypeLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseSubTypeName\")%>");
 	}
 	return caseSubTypeLabel;
@@ -419,7 +419,7 @@ private RLabel getBusinessStartTimestampLabel() {
 	if (businessStartTimestampLabel == null) {
 		businessStartTimestampLabel = new RLabel();
 		businessStartTimestampLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/startedAt\")%>");
-		businessStartTimestampLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/BUSINESS_START_TIMESTAMP16\")%>");
+		businessStartTimestampLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/businessStart16\")%>");
 		businessStartTimestampLabel.setName("businessStartTimestampLabel");
 	}
 	return businessStartTimestampLabel;
@@ -540,7 +540,7 @@ private RLabel getCaseStartedByLabel() {
 	if (caseStartedByLabel == null) {
 		caseStartedByLabel = new RLabel();
 		caseStartedByLabel.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/otherBusinessData/plainStrings/businessCreatorUserShort\") %>");
-		caseStartedByLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/BUSINESS_CREATOR_USER16\")%>");
+		caseStartedByLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/businessCreatorUser16\")%>");
 		caseStartedByLabel.setName("caseStartedByLabel");
 	}
 	return caseStartedByLabel;
@@ -572,7 +572,7 @@ private RLabel getBusinessMilestoneTimestampLabel() {
 	if (businessMilestoneTimestampLabel == null) {
 		businessMilestoneTimestampLabel = new RLabel();
 		businessMilestoneTimestampLabel.setName("businessMilestoneTimestampLabel");
-		businessMilestoneTimestampLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/BUSINESS_START_TIMESTAMP16\")%>");
+		businessMilestoneTimestampLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/businessStart16\")%>");
 		businessMilestoneTimestampLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/businessMilestoneTimestamp\")%>");
 	}
 	return businessMilestoneTimestampLabel;

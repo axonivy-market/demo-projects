@@ -79,7 +79,7 @@ private RLabel getBusinessMainContactLabel() {
 	if (businessMainContactLabel == null) {
 		businessMainContactLabel = new RLabel();
 		businessMainContactLabel.setName("businessMainContactLabel");
-		businessMainContactLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/BUSINESS_MAIN_CONTACT_ID16\")%>");
+		businessMainContactLabel.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/businessContact16\")%>");
 		businessMainContactLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/businessMainContact/plainStrings/businessMainContact\")%>");
 	}
 	return businessMainContactLabel;

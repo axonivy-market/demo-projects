@@ -3721,17 +3721,17 @@ panel.caseDetailsMenuItem.setText(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/p
 
 panel.startTaskMenuItem.setText(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskShortDesc"));
 // panel.startTaskMenuItem.setToolTipText(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskLongDesc"));
-panel.startTaskMenuItem.setIconUri("/ch/ivyteam/ivy/workflow/ui/task/images/startTask16");
+panel.startTaskMenuItem.setIconUri("/ch/ivyteam/ivy/workflow/ui/task/images/start16");
 
 
 panel.delegateTaskMenuItem.setText(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskShortDesc"));
 // panel.delegateTaskMenuItem.setToolTipText(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskLongDesc"));
-// panel.delegateTaskMenuItem.setIconUri("/ch/ivyteam/ivy/workflow/ui/task/images/delegateTask16");
+// panel.delegateTaskMenuItem.setIconUri("/ch/ivyteam/ivy/workflow/ui/task/images/delegate16");
 
 
 panel.expandAllTasksMenuItem.setText(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/expandAllTasksShortDesc"));
 // panel.expandAllTasksMenuItem.setToolTipText(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/expandAllTasksLongDesc"));
-// panel.expandAllTasksMenuItem.setIconUri(ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/expandAllTasks16"));
+// panel.expandAllTasksMenuItem.setIconUri(ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/common/images/expandAll32"));
 
 
 
