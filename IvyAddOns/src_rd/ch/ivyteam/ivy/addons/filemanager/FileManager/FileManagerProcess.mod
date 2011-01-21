@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 17 17:06:28 CET 2011]
+[>Created: Fri Jan 21 16:50:38 CET 2011]
 125FE583DB581114 3.15 #module
 >Proto >Proto Collection #zClass
 us0 updownloadPaneProcess Big #zClass
@@ -345,7 +345,6 @@ us0 @RichDialogProcessEnd f508 '' #zField
 us0 @RichDialogProcessStep f579 '' #zField
 us0 @PushWFArc f80 '' #zField
 us0 @PushWFArc f454 '' #zField
-us0 @PushWFArc f580 '' #zField
 us0 @RichDialogMethodStart f584 '' #zField
 us0 @RichDialogProcessStep f472 '' #zField
 us0 @PushWFArc f585 '' #zField
@@ -365,7 +364,6 @@ us0 @PushWFArc f61 '' #zField
 us0 @RichDialogProcessEnd f14 '' #zField
 us0 @PushWFArc f62 '' #zField
 us0 @RichDialogProcessEnd f63 '' #zField
-us0 @PushWFArc f64 '' #zField
 us0 @PushWFArc f65 '' #zField
 us0 @RichDialogProcessStep f66 '' #zField
 us0 @PushWFArc f67 '' #zField
@@ -384,7 +382,6 @@ us0 @PushWFArc f37 '' #zField
 us0 @PushWFArc f38 '' #zField
 us0 @PushWFArc f39 '' #zField
 us0 @RichDialogProcessEnd f40 '' #zField
-us0 @PushWFArc f50 '' #zField
 us0 @RichDialogInitStart f52 '' #zField
 us0 @RichDialogInitStart f99 '' #zField
 us0 @RichDialogMethodStart f117 '' #zField
@@ -396,7 +393,6 @@ us0 @RichDialogMethodStart f169 '' #zField
 us0 @RichDialogProcessStep f170 '' #zField
 us0 @PushWFArc f171 '' #zField
 us0 @RichDialogProcessEnd f173 '' #zField
-us0 @PushWFArc f174 '' #zField
 us0 @RichDialogMethodStart f172 '' #zField
 us0 @RichDialogProcessStep f192 '' #zField
 us0 @PushWFArc f194 '' #zField
@@ -805,6 +801,18 @@ us0 @PushWFArc f786 '' #zField
 us0 @RichDialogMethodStart f787 '' #zField
 us0 @RichDialogProcessEnd f788 '' #zField
 us0 @PushWFArc f789 '' #zField
+us0 @RichDialogFireEvent f790 '' #zField
+us0 @PushWFArc f791 '' #zField
+us0 @PushWFArc f174 '' #zField
+us0 @RichDialogFireEvent f792 '' #zField
+us0 @PushWFArc f793 '' #zField
+us0 @PushWFArc f580 '' #zField
+us0 @RichDialogFireEvent f794 '' #zField
+us0 @PushWFArc f795 '' #zField
+us0 @PushWFArc f64 '' #zField
+us0 @RichDialogFireEvent f796 '' #zField
+us0 @PushWFArc f797 '' #zField
+us0 @PushWFArc f50 '' #zField
 >Proto us0 us0 updownloadPaneProcess #zField
 us0 f0 guid 11D3EC39343F50E1 #txt
 us0 f0 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
@@ -4735,7 +4743,7 @@ files were moved</name>
     </language>
 </elementInfo>
 ' #txt
-us0 f223 4418 370 28 28 -82 -56 #rect
+us0 f223 4346 370 28 28 -82 -56 #rect
 us0 f223 @|AlternativeIcon #fIcon
 us0 f224 expr in #txt
 us0 f224 outCond in.consistancyOK #txt
@@ -4748,7 +4756,7 @@ us0 f224 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f224 4554 384 4446 384 #arcP
+us0 f224 4554 384 4374 384 #arcP
 us0 f224 0 0.3235294117647059 0 -1 #arcLabel
 us0 f225 targetWindow NEW:card: #txt
 us0 f225 targetDisplay TOP #txt
@@ -4776,7 +4784,7 @@ files were not moved</name>
     </language>
 </elementInfo>
 ' #txt
-us0 f225 4414 484 36 24 8 -49 #rect
+us0 f225 4342 484 36 24 8 -49 #rect
 us0 f225 @|RichDialogIcon #fIcon
 us0 f225 -985168|-1|-16777216 #nodeStyle
 us0 f456 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -4938,18 +4946,16 @@ us0 f579 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f579 4414 548 36 24 -138 16 #rect
+us0 f579 4342 548 36 24 -138 16 #rect
 us0 f579 @|RichDialogProcessStepIcon #fIcon
 us0 f80 expr out #txt
-us0 f80 4432 508 4432 548 #arcP
+us0 f80 4360 508 4360 548 #arcP
 us0 f454 expr in #txt
 us0 f454 outCond in.filesUnpossibleToMove.size()==0 #txt
-us0 f454 4418 384 4414 560 #arcP
-us0 f454 1 4360 384 #addKink
-us0 f454 2 4360 560 #addKink
+us0 f454 4346 384 4342 560 #arcP
+us0 f454 1 4288 384 #addKink
+us0 f454 2 4288 560 #addKink
 us0 f454 1 0.40264264247267284 0 0 #arcLabel
-us0 f580 expr out #txt
-us0 f580 4450 560 4483 560 #arcP
 us0 f584 guid 11EDF26AA8C360DC #txt
 us0 f584 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f584 method refreshActualSelectedFolder() #txt
@@ -5126,10 +5132,8 @@ us0 f14 @|RichDialogProcessEndIcon #fIcon
 us0 f62 expr out #txt
 us0 f62 1512 626 1512 651 #arcP
 us0 f63 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f63 2275 1475 26 26 14 0 #rect
+us0 f63 2275 1515 26 26 14 0 #rect
 us0 f63 @|RichDialogProcessEndIcon #fIcon
-us0 f64 expr out #txt
-us0 f64 2288 1452 2288 1475 #arcP
 us0 f65 expr out #txt
 us0 f65 2912 850 2912 883 #arcP
 us0 f66 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
@@ -5239,8 +5243,6 @@ us0 f39 1 0.5116120497769995 0 0 #arcLabel
 us0 f40 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f40 971 683 26 26 14 0 #rect
 us0 f40 @|RichDialogProcessEndIcon #fIcon
-us0 f50 expr out #txt
-us0 f50 984 620 984 683 #arcP
 us0 f52 guid 11F5FC089E86DEF1 #txt
 us0 f52 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f52 method startWithServerPathAndFileManagementHandler(String,ch.ivyteam.ivy.addons.filemanager.database.AbstractFileManagementHandler) #txt
@@ -5369,7 +5371,7 @@ us0 f169 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-us0 f169 2278 806 20 20 -40 -29 #rect
+us0 f169 2454 686 20 20 -40 -29 #rect
 us0 f169 @|RichDialogMethodStartIcon #fIcon
 us0 f170 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
 ' #txt
@@ -5428,15 +5430,13 @@ Refresh the Table</name>
     </language>
 </elementInfo>
 ' #txt
-us0 f170 2270 868 36 24 20 -25 #rect
+us0 f170 2446 748 36 24 20 -25 #rect
 us0 f170 @|RichDialogProcessStepIcon #fIcon
 us0 f171 expr out #txt
-us0 f171 2288 826 2288 868 #arcP
+us0 f171 2464 706 2464 748 #arcP
 us0 f173 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
-us0 f173 2275 923 26 26 14 0 #rect
+us0 f173 2451 883 26 26 14 0 #rect
 us0 f173 @|RichDialogProcessEndIcon #fIcon
-us0 f174 expr out #txt
-us0 f174 2288 892 2288 923 #arcP
 us0 f172 guid 11F87F43B461C9F4 #txt
 us0 f172 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f172 method selectFolderOnServer(String) #txt
@@ -7683,12 +7683,12 @@ us0 f690 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-us0 f690 4414 420 36 24 20 -2 #rect
+us0 f690 4342 420 36 24 20 -2 #rect
 us0 f690 @|RichDialogProcessStepIcon #fIcon
 us0 f691 expr in #txt
-us0 f691 4432 398 4432 420 #arcP
+us0 f691 4360 398 4360 420 #arcP
 us0 f226 expr out #txt
-us0 f226 4432 444 4432 484 #arcP
+us0 f226 4360 444 4360 484 #arcP
 us0 f692 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData out;
 ' #txt
 us0 f692 actionTable 'out=in;
@@ -9691,6 +9691,95 @@ us0 f788 3182 1022 20 20 13 0 #rect
 us0 f788 @|RichDialogProcessEndIcon #fIcon
 us0 f789 expr out #txt
 us0 f789 3192 978 3192 1022 #arcP
+us0 f790 actionDecl 'Number numberOfFilesInSelectedDirectory;
+' #txt
+us0 f790 actionTable 'numberOfFilesInSelectedDirectory=in.documentsInDb.size();
+' #txt
+us0 f790 actionCode panel.fireFilesAdded(numberOfFilesInSelectedDirectory); #txt
+us0 f790 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f790 fireEvent filesAdded(Number) #txt
+us0 f790 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>filesAdded@SUBSC</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+us0 f790 2446 812 36 24 20 -2 #rect
+us0 f790 @|RichDialogFireEventIcon #fIcon
+us0 f791 expr out #txt
+us0 f791 2464 772 2464 812 #arcP
+us0 f174 expr out #txt
+us0 f174 2464 836 2464 883 #arcP
+us0 f792 actionDecl 'Number numberOfFilesInSelectedDirectory;
+' #txt
+us0 f792 actionTable 'numberOfFilesInSelectedDirectory=in.documentsInDb.size();
+' #txt
+us0 f792 actionCode panel.fireFilesDeleted(numberOfFilesInSelectedDirectory); #txt
+us0 f792 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f792 fireEvent filesDeleted(Number) #txt
+us0 f792 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>filesDeleted
+@SUBSC</name>
+        <nameStyle>19,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+us0 f792 4414 548 36 24 20 -2 #rect
+us0 f792 @|RichDialogFireEventIcon #fIcon
+us0 f793 expr out #txt
+us0 f793 4378 560 4414 560 #arcP
+us0 f580 expr out #txt
+us0 f580 4450 560 4483 560 #arcP
+us0 f794 actionDecl 'Number numberOfFilesInSelectedDirectory;
+' #txt
+us0 f794 actionTable 'numberOfFilesInSelectedDirectory=in.documentsInDb.size();
+' #txt
+us0 f794 actionCode panel.fireFilesAdded(numberOfFilesInSelectedDirectory); #txt
+us0 f794 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f794 fireEvent filesAdded(Number) #txt
+us0 f794 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>filesAdded@SUBSC</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+us0 f794 2270 1468 36 24 20 -2 #rect
+us0 f794 @|RichDialogFireEventIcon #fIcon
+us0 f795 expr out #txt
+us0 f795 2288 1452 2288 1468 #arcP
+us0 f64 expr out #txt
+us0 f64 2288 1492 2288 1515 #arcP
+us0 f796 actionDecl 'Number numberOfFilesInSelectedDirectory;
+' #txt
+us0 f796 actionTable 'numberOfFilesInSelectedDirectory=in.documentsInDb.size();
+' #txt
+us0 f796 actionCode panel.fireFilesDeleted(numberOfFilesInSelectedDirectory); #txt
+us0 f796 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
+us0 f796 fireEvent filesDeleted(Number) #txt
+us0 f796 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>filesDeleted@SUBSC</name>
+        <nameStyle>18,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+us0 f796 966 636 36 24 20 -2 #rect
+us0 f796 @|RichDialogFireEventIcon #fIcon
+us0 f797 expr out #txt
+us0 f797 984 620 984 636 #arcP
+us0 f50 expr out #txt
+us0 f50 984 660 984 683 #arcP
 >Proto us0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -10011,8 +10100,6 @@ us0 f225 mainOut f80 tail #connect
 us0 f80 head f579 mainIn #connect
 us0 f223 out f454 tail #connect
 us0 f454 head f579 mainIn #connect
-us0 f579 mainOut f580 tail #connect
-us0 f580 head f458 mainIn #connect
 us0 f469 mainOut f585 tail #connect
 us0 f585 head f472 mainIn #connect
 us0 f472 mainOut f586 tail #connect
@@ -10031,8 +10118,6 @@ us0 f59 mainOut f61 tail #connect
 us0 f61 head f346 mainIn #connect
 us0 f215 mainOut f62 tail #connect
 us0 f62 head f14 mainIn #connect
-us0 f306 mainOut f64 tail #connect
-us0 f64 head f63 mainIn #connect
 us0 f588 mainOut f65 tail #connect
 us0 f65 head f592 mainIn #connect
 us0 f494 mainOut f67 tail #connect
@@ -10060,16 +10145,12 @@ us0 f37 head f49 in #connect
 us0 f292 mainOut f38 tail #connect
 us0 f38 head f95 in #connect
 us0 f39 head f95 in #connect
-us0 f31 mainOut f50 tail #connect
-us0 f50 head f40 mainIn #connect
 us0 f117 mainOut f120 tail #connect
 us0 f120 head f119 mainIn #connect
 us0 f118 mainOut f148 tail #connect
 us0 f148 head f119 mainIn #connect
 us0 f169 mainOut f171 tail #connect
 us0 f171 head f170 mainIn #connect
-us0 f170 mainOut f174 tail #connect
-us0 f174 head f173 mainIn #connect
 us0 f172 mainOut f194 tail #connect
 us0 f194 head f192 mainIn #connect
 us0 f192 mainOut f196 tail #connect
@@ -10507,3 +10588,19 @@ us0 f784 mainOut f786 tail #connect
 us0 f786 head f785 mainIn #connect
 us0 f787 mainOut f789 tail #connect
 us0 f789 head f788 mainIn #connect
+us0 f170 mainOut f791 tail #connect
+us0 f791 head f790 mainIn #connect
+us0 f790 mainOut f174 tail #connect
+us0 f174 head f173 mainIn #connect
+us0 f579 mainOut f793 tail #connect
+us0 f793 head f792 mainIn #connect
+us0 f792 mainOut f580 tail #connect
+us0 f580 head f458 mainIn #connect
+us0 f306 mainOut f795 tail #connect
+us0 f795 head f794 mainIn #connect
+us0 f794 mainOut f64 tail #connect
+us0 f64 head f63 mainIn #connect
+us0 f31 mainOut f797 tail #connect
+us0 f797 head f796 mainIn #connect
+us0 f796 mainOut f50 tail #connect
+us0 f50 head f40 mainIn #connect

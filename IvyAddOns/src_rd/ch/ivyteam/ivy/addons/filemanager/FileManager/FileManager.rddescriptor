@@ -1274,6 +1274,26 @@ This Event sends the FileManager unique PanelId data so that only other FileMana
             <nullPermitted>true</nullPermitted>
         </attachment>
     </firedEvent>
+    <firedEvent>
+        <name>filesDeleted</name>
+        <description></description>
+        <attachment>
+            <name>numberOfFilesInSelectedDirectory</name>
+            <description>The number of the rest of the files in the selected directory</description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>filesAdded</name>
+        <description></description>
+        <attachment>
+            <name>numberOfFilesInSelectedDirectory</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </attachment>
+    </firedEvent>
     <property>
         <name>guid</name>
         <value>125FE583DB5ECFDC</value>
