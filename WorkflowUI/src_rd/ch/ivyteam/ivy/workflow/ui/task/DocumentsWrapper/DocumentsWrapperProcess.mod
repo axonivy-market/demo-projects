@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 17 11:11:32 CET 2011]
+[>Created: Fri Jan 21 16:39:04 CET 2011]
 12D7A786BCFAFC3B 3.15 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -40,13 +40,11 @@ Ts0 @PushWFArc f17 '' #zField
 Ts0 @RichDialogProcessStep f20 '' #zField
 Ts0 @PushWFArc f21 '' #zField
 Ts0 @PushWFArc f7 '' #zField
-Ts0 @RichDialogBroadcastStart f22 '' #zField
 Ts0 @RichDialogProcessEnd f23 '' #zField
 Ts0 @RichDialogProcessStep f25 '' #zField
-Ts0 @PushWFArc f26 '' #zField
 Ts0 @PushWFArc f24 '' #zField
-Ts0 @RichDialogBroadcastStart f27 '' #zField
-Ts0 @PushWFArc f28 '' #zField
+Ts0 @RichDialogProcessStart f22 '' #zField
+Ts0 @PushWFArc f26 '' #zField
 >Proto Ts0 Ts0 TaskInformationDisplayProcess #zField
 Ts0 f0 guid 116A9C07145A35CE #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData #txt
@@ -135,7 +133,7 @@ Ts0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f2 694 54 20 20 13 0 #rect
 Ts0 f2 @|RichDialogMethodStartIcon #fIcon
 Ts0 f3 type ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData #txt
-Ts0 f3 694 182 20 20 13 0 #rect
+Ts0 f3 694 166 20 20 13 0 #rect
 Ts0 f3 @|RichDialogProcessEndIcon #fIcon
 Ts0 f5 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData out;
 ' #txt
@@ -169,9 +167,9 @@ Ts0 f5 @|RichDialogProcessStepIcon #fIcon
 Ts0 f6 expr out #txt
 Ts0 f6 704 74 704 100 #arcP
 Ts0 f4 expr out #txt
-Ts0 f4 704 124 704 182 #arcP
+Ts0 f4 704 124 704 166 #arcP
 Ts0 f11 type ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData #txt
-Ts0 f11 342 174 20 20 13 0 #rect
+Ts0 f11 342 158 20 20 13 0 #rect
 Ts0 f11 @|RichDialogProcessEndIcon #fIcon
 Ts0 f10 guid 12D7AC2BDC94BB21 #txt
 Ts0 f10 type ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData #txt
@@ -201,7 +199,7 @@ Ts0 f13 @|RichDialogProcessStepIcon #fIcon
 Ts0 f14 expr out #txt
 Ts0 f14 352 74 352 108 #arcP
 Ts0 f12 expr out #txt
-Ts0 f12 352 132 352 174 #arcP
+Ts0 f12 352 132 352 158 #arcP
 Ts0 f15 guid 12D7ACEAFCECBCCF #txt
 Ts0 f15 type ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData #txt
 Ts0 f15 method _updateTabTitle() #txt
@@ -216,7 +214,7 @@ Ts0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f15 526 54 20 20 13 0 #rect
 Ts0 f15 @|RichDialogMethodStartIcon #fIcon
 Ts0 f16 type ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData #txt
-Ts0 f16 526 182 20 20 13 0 #rect
+Ts0 f16 526 166 20 20 13 0 #rect
 Ts0 f16 @|RichDialogProcessEndIcon #fIcon
 Ts0 f18 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData out;
 ' #txt
@@ -258,7 +256,7 @@ Ts0 f18 @|RichDialogProcessStepIcon #fIcon
 Ts0 f19 expr out #txt
 Ts0 f19 536 74 536 108 #arcP
 Ts0 f17 expr out #txt
-Ts0 f17 536 132 536 182 #arcP
+Ts0 f17 536 132 536 166 #arcP
 Ts0 f20 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData out;
 ' #txt
 Ts0 f20 actionTable 'out=in;
@@ -283,24 +281,8 @@ Ts0 f21 expr out #txt
 Ts0 f21 136 116 136 140 #arcP
 Ts0 f7 expr out #txt
 Ts0 f7 136 164 136 203 #arcP
-Ts0 f22 guid 12D9367D711AF5FE #txt
-Ts0 f22 type ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData #txt
-Ts0 f22 broadcast fileUploaded #txt
-Ts0 f22 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData out;
-' #txt
-Ts0 f22 actionTable 'out=in;
-' #txt
-Ts0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>fileUploaded</name>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f22 1006 46 20 20 13 0 #rect
-Ts0 f22 @|RichDialogBroadcastStartIcon #fIcon
 Ts0 f23 type ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData #txt
-Ts0 f23 1006 182 20 20 13 0 #rect
+Ts0 f23 974 166 20 20 13 0 #rect
 Ts0 f23 @|RichDialogProcessEndIcon #fIcon
 Ts0 f25 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData out;
 ' #txt
@@ -317,43 +299,42 @@ Ts0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f25 998 100 36 24 20 -2 #rect
+Ts0 f25 966 100 36 24 20 -2 #rect
 Ts0 f25 @|RichDialogProcessStepIcon #fIcon
-Ts0 f26 expr out #txt
-Ts0 f26 1016 66 1016 100 #arcP
 Ts0 f24 expr out #txt
-Ts0 f24 1016 124 1016 182 #arcP
-Ts0 f27 guid 12D93753662BB890 #txt
-Ts0 f27 type ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData #txt
-Ts0 f27 broadcast deleteSelectedFiles #txt
-Ts0 f27 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData out;
+Ts0 f24 984 124 984 166 #arcP
+Ts0 f22 guid 12DA939C2A8607C2 #txt
+Ts0 f22 type ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData #txt
+Ts0 f22 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.DocumentsWrapper.DocumentsWrapperData out;
 ' #txt
-Ts0 f27 actionTable 'out=in;
+Ts0 f22 actionTable 'out=in;
 ' #txt
-Ts0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ts0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>deleteSelectedFiles</name>
+        <name>updateTabTitle</name>
+        <nameStyle>14,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f27 1118 46 20 20 13 0 #rect
-Ts0 f27 @|RichDialogBroadcastStartIcon #fIcon
-Ts0 f28 expr out #txt
-Ts0 f28 1119 60 1034 103 #arcP
+Ts0 f22 974 54 20 20 13 0 #rect
+Ts0 f22 @|RichDialogProcessStartIcon #fIcon
+Ts0 f26 expr out #txt
+Ts0 f26 984 74 984 100 #arcP
 >Proto Ts0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <swimlaneLabel>Start methods</swimlaneLabel>
         <swimlaneLabel>Private methods</swimlaneLabel>
         <swimlaneLabel>Methods</swimlaneLabel>
-        <swimlaneLabel>Accepted broadcasts</swimlaneLabel>
+        <swimlaneLabel>Events</swimlaneLabel>
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneSize>323</swimlaneSize>
     <swimlaneSize>333</swimlaneSize>
-    <swimlaneSize>307</swimlaneSize>
-    <swimlaneSize>310</swimlaneSize>
+    <swimlaneSize>279</swimlaneSize>
+    <swimlaneSize>180</swimlaneSize>
     <swimlaneColor>-16711732</swimlaneColor>
     <swimlaneColor>-16737844</swimlaneColor>
     <swimlaneColor>-16737844</swimlaneColor>
@@ -384,9 +365,7 @@ Ts0 f63 mainOut f21 tail #connect
 Ts0 f21 head f20 mainIn #connect
 Ts0 f20 mainOut f7 tail #connect
 Ts0 f7 head f1 mainIn #connect
-Ts0 f22 mainOut f26 tail #connect
-Ts0 f26 head f25 mainIn #connect
 Ts0 f25 mainOut f24 tail #connect
 Ts0 f24 head f23 mainIn #connect
-Ts0 f27 mainOut f28 tail #connect
-Ts0 f28 head f25 mainIn #connect
+Ts0 f22 mainOut f26 tail #connect
+Ts0 f26 head f25 mainIn #connect

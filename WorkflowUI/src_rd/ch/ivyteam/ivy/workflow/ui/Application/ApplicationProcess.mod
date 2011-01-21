@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jan 14 10:15:52 CET 2011]
+[>Created: Fri Jan 21 13:49:58 CET 2011]
 117CB5CD6E5F88C6 3.15 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
@@ -61,7 +61,7 @@ As0 @PushWFArc f46 '' #zField
 As0 @RichDialogProcessStep f48 '' #zField
 As0 @PushWFArc f49 '' #zField
 As0 @PushWFArc f31 '' #zField
-As0 @RichDialogProcessEnd f9 '' #zField
+As0 @RichDialogEnd f41 '' #zField
 As0 @PushWFArc f10 '' #zField
 As0 @PushWFArc f15 '' #zField
 >Proto As0 As0 ApplicationDynamicWayProcess #zField
@@ -645,9 +645,10 @@ As0 f49 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 As0 f49 368 222 368 244 #arcP
 As0 f31 expr out #txt
 As0 f31 368 268 368 292 #arcP
-As0 f9 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f9 534 222 20 20 13 0 #rect
-As0 f9 @|RichDialogProcessEndIcon #fIcon
+As0 f41 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f41 guid 12DA884C8EA1E296 #txt
+As0 f41 502 262 20 20 13 0 #rect
+As0 f41 @|RichDialogEndIcon #fIcon
 As0 f10 expr in #txt
 As0 f10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -658,9 +659,9 @@ As0 f10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f10 382 152 544 222 #arcP
-As0 f10 1 544 152 #addKink
-As0 f10 0 0.7231896030994086 0 0 #arcLabel
+As0 f10 382 208 512 262 #arcP
+As0 f10 1 512 208 #addKink
+As0 f10 0 0.6123833388845563 0 0 #arcLabel
 As0 f15 expr in #txt
 As0 f15 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -671,9 +672,9 @@ As0 f15 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f15 382 208 544 222 #arcP
-As0 f15 1 544 208 #addKink
-As0 f15 0 0.6123833388845563 0 0 #arcLabel
+As0 f15 382 152 512 262 #arcP
+As0 f15 1 512 152 #addKink
+As0 f15 0 0.7231896030994086 0 0 #arcLabel
 >Proto As0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -741,7 +742,7 @@ As0 f43 out f49 tail #connect
 As0 f49 head f48 mainIn #connect
 As0 f48 mainOut f31 tail #connect
 As0 f31 head f19 mainIn #connect
-As0 f12 out f10 tail #connect
-As0 f10 head f9 mainIn #connect
-As0 f43 out f15 tail #connect
-As0 f15 head f9 mainIn #connect
+As0 f43 out f10 tail #connect
+As0 f10 head f41 mainIn #connect
+As0 f12 out f15 tail #connect
+As0 f15 head f41 mainIn #connect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jan 12 12:04:45 CET 2011]
+[>Created: Fri Jan 21 17:03:50 CET 2011]
 119C23018068C697 3.15 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDisplayProcess Big #zClass
@@ -561,8 +561,9 @@ Cs0 f32 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayData #txt
 Cs0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>create case directories</name>
-        <nameStyle>23,7,9
+        <name>create case directories,
+update tab title</name>
+        <nameStyle>41,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -596,8 +597,8 @@ Cs0 f5 actionTable 'out=in;
 Cs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>updateDocumentsTab</name>
-        <nameStyle>18,5,7,9
+        <name>updateDocumentsTabTitle</name>
+        <nameStyle>23,5,7,9
 </nameStyle>
     </language>
 </elementInfo>

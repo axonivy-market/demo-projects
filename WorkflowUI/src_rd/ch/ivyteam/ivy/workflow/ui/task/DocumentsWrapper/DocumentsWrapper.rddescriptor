@@ -2,20 +2,6 @@
 <richDialogDescriptor>
     <description>It shows the case documents as part of task details overview.</description>
     <autoScreenshot>false</autoScreenshot>
-    <acceptedBroadcast>
-        <name>fileUploaded</name>
-        <description>When FileManager broadcast accepted, it will update the bullet on tab if possible. </description>
-    </acceptedBroadcast>
-    <acceptedBroadcast>
-        <name>deleteSelectedFiles</name>
-        <description>When FileManager broadcast accepted, it will update the bullet on tab if possible. </description>
-        <attachment>
-            <name>uniquePanelId</name>
-            <description></description>
-            <parameterType>Number</parameterType>
-            <nullPermitted>true</nullPermitted>
-        </attachment>
-    </acceptedBroadcast>
     <method>
         <name>refresh</name>
         <description></description>
