@@ -482,7 +482,6 @@ public class Table extends ListComponent
     editorComponents = new ArrayList<ITableCellEditor>();
   }
 
-  @SuppressWarnings("restriction")
   protected void removeActionPerformed()
   {
     if (getTable().getSelectedListEntry() != null && getParameters().isDeleteConfirmationNeeded())

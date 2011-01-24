@@ -150,7 +150,7 @@ public class SerializeXML
       Element element;
       Method method;
       Object attribute;
-      Class propertyType;
+      Class<?> propertyType;
       String value;
 
       for (PropertyDescriptor f : beanInfo.getPropertyDescriptors())
@@ -185,9 +185,9 @@ public class SerializeXML
         value = getValue(attribute, false);
         if (value == null)
         {
-          if (attribute instanceof Iterable)
+          if (attribute instanceof Iterable<?>)
           {
-            for (Object o : (Iterable) attribute)
+            for (Object o : (Iterable<?>) attribute)
             {
               Element item;
               item = doc.createElement(ITEM);
@@ -464,7 +464,7 @@ public class SerializeXML
             {
               if (child.getValue().isList())
               {
-                Iterable list = (Iterable) childObject;
+                Iterable<?> list = (Iterable<?>) childObject;
 
                 for (Object itemObject : list)
                 {

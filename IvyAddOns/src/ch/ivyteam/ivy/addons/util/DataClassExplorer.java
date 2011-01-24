@@ -19,6 +19,7 @@ import ch.ivyteam.ivy.addons.restricted.util.TypeCategory;
  * @author Patrick Joly, TI-Informatique
  * @since 02.06.2009
  */
+@SuppressWarnings("unchecked")
 public final class DataClassExplorer<T extends Object>
 {
   private ExploreHandler<T> handler;
@@ -66,7 +67,6 @@ public final class DataClassExplorer<T extends Object>
    * @param handler handler that should be used.
    * @throws AddonsException
    */
-  @SuppressWarnings("unchecked")
   @Deprecated
   public DataClassExplorer(ExploreHandler handler) throws AddonsException
   {
@@ -107,7 +107,6 @@ public final class DataClassExplorer<T extends Object>
     handler.endDocument();
   }
 
-  @SuppressWarnings("unchecked")
   private void explore(Class<?> attributeClass, Class<?> parentClass, String name, String path,
           PropertyDescriptor property) throws AddonsException
   {

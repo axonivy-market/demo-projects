@@ -23,7 +23,8 @@ abstract class ListComponentParameters extends ComplexComponentParameters
 
   private TreeNode<ComponentParameters> parameterTree;
 
-  protected ListComponentParameters(List<String> cmsContexts, String name, String fullName,
+  @SuppressWarnings("unchecked")
+protected ListComponentParameters(List<String> cmsContexts, String name, String fullName,
           ComplexComponentParameters parentContainerParameters, Integer position,
           TreeNode<ComponentParameters> parameters, Class clazz)
   {

@@ -23,6 +23,7 @@ import ch.ivyteam.ivy.scripting.objects.Tree;
  * @author Patrick Joly, TI-Informatique
  * @since 04.11.2009
  */
+@SuppressWarnings("unchecked")
 public final class EncapsulationTreeHelper
 {
   private EncapsulationTreeHelper()
@@ -68,7 +69,6 @@ public final class EncapsulationTreeHelper
    * @return a tree object that contains the attribute hiearchy or null if the class can not be loaded
    * @throws AddonsException
    */
-  @SuppressWarnings("unchecked")
   public static Tree fillTree(Class clazz, List<String> rootCmsContext, IContentManagementSystem cms,
           Map classMap) throws AddonsException
   {

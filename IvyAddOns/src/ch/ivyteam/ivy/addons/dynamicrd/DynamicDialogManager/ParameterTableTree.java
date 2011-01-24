@@ -241,7 +241,8 @@ class ParameterTableTree extends RTableTree
     return new CellEditor();
   }
 
-  private ULCTextField getNumberEditor()
+  @SuppressWarnings("unchecked")
+private ULCTextField getNumberEditor()
   {
     ULCNumberDataType dataType;
 
@@ -258,7 +259,8 @@ class ParameterTableTree extends RTableTree
     return numberEditor;
   }
 
-  private ULCTextField getIntegerEditor()
+  @SuppressWarnings("unchecked")
+private ULCTextField getIntegerEditor()
   {
     ULCNumberDataType dataType;
 

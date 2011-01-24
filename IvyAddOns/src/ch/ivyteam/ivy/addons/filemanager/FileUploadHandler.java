@@ -1121,7 +1121,6 @@ public class FileUploadHandler<T extends ULCComponent & IRichDialogPanel>
 				{
 					onFailureCall(reason);
 				}
-				@SuppressWarnings("unchecked")
 				public void onSuccess(InputStream ins[], String filePaths[], String fileNames[])
 				{
 					for(java.io.File f: files)

@@ -76,7 +76,6 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
       super(new GridLayout(4, 2));
     }
 
-    @SuppressWarnings("restriction")
     public void setEnvironment(IProcessExtensionConfigurationEditorEnvironment env)
     {
       editorDatabasecConfig = env.createIvyScriptEditor(null, null, "String");

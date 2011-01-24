@@ -10,7 +10,8 @@ import java.util.List;
  */
 abstract class ContainerParameters extends ComplexComponentParameters
 {
-  protected ContainerParameters(List<String> cmsContexts, String name, String fullName,
+@SuppressWarnings("unchecked")
+protected ContainerParameters(List<String> cmsContexts, String name, String fullName,
           ComplexComponentParameters parentContainerParameters, Integer position, Class clazz)
   {
     super(cmsContexts, name, fullName, parentContainerParameters, position, clazz);

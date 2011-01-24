@@ -72,7 +72,6 @@ public class XMLFileStartEventBean implements IProcessStartEventBean
       super(new GridLayout(4, 2));
     }
 
-    @SuppressWarnings("restriction")
     public void setEnvironment(IProcessExtensionConfigurationEditorEnvironment env)
     {
       editorFolder = env.createIvyScriptEditor(null, null, "String");

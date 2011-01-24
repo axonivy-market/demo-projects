@@ -17,6 +17,7 @@ import ch.ivyteam.ivy.scripting.objects.Date;
  * @author Patrick Joly, TI-Informatique
  * @since 01.10.2008
  */
+@SuppressWarnings("unchecked")
 public final class ComponentParameterFactory
 {
   private ComponentParameterFactory()

@@ -29,7 +29,8 @@ public final class InvokeDBQuerySudo implements Callable<List<String[]>>
 
   private String dbConfigName;
 
-  private InvokeDBQuerySudo()
+  @SuppressWarnings("unused")
+private InvokeDBQuerySudo()
   {
   }
 

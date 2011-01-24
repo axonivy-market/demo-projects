@@ -146,7 +146,7 @@ public final class DataClass2Xml extends ExploreHandler<Object>
     if (object != null)
     {
       node = nodes.pop();
-      if (object.equals(lastObject) && !(object instanceof Iterable))
+      if (object.equals(lastObject) && !(object instanceof Iterable<?>))
       {
         node.setTextContent(object.toString());
       }

@@ -145,7 +145,8 @@ public final class ParameterTreeHelper
    * @return a tree that contains all the parameters
    * @throws PersistencyException
    */
-  public static Tree fillTree(String cmsPath, List<String> cmsContext, Class clazz, boolean showAdvanced,
+  @SuppressWarnings("unchecked")
+public static Tree fillTree(String cmsPath, List<String> cmsContext, Class clazz, boolean showAdvanced,
           Tree selectedNode, IContentManagementSystem cms) throws PersistencyException
   {
     Tree tree;
@@ -1292,7 +1293,6 @@ public final class ParameterTreeHelper
    * @param cms Ivy content management to used
    * @return help content
    */
-  @SuppressWarnings("restriction")
   public static String getHelpContent(TreePath path, IContentManagementSystem cms)
   {
     String content;

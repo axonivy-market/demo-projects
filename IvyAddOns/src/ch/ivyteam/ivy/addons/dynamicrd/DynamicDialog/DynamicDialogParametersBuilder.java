@@ -18,6 +18,7 @@ import ch.ivyteam.ivy.addons.util.DataClassExplorer;
 import ch.ivyteam.ivy.addons.util.ExploreHandler;
 import ch.ivyteam.ivy.addons.util.StringUtil;
 
+@SuppressWarnings("unchecked")
 final class DynamicDialogParametersBuilder
 {
   /**
@@ -31,7 +32,8 @@ final class DynamicDialogParametersBuilder
   {
   }
 
-  protected static TreeNode<ComponentParameters> build(Class clazz, List<String> cmsContext,
+
+protected static TreeNode<ComponentParameters> build(Class clazz, List<String> cmsContext,
           String defaultDBConfig, String prefix, final Map<String, Class<?>> classMap) throws AddonsException
   {
     return build(clazz, cmsContext, new ArrayList<TreeNode<ComponentParameters>>(), defaultDBConfig, prefix,

@@ -17,7 +17,8 @@ public final class GetModelVersionSudo implements Callable<Integer>
 {
   private IProcessModelVersion processModelVersion;
 
-  private GetModelVersionSudo()
+  @SuppressWarnings("unused")
+private GetModelVersionSudo()
   {
   }
 

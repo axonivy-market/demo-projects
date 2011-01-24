@@ -10,6 +10,7 @@ import java.util.Map;
  * @author Patrick Joly, TI-Informatique
  * @since 04.11.2009
  */
+@SuppressWarnings("unchecked")
 public class EncapsulationTreeNodeValue implements java.io.Serializable
 {
   private static final long serialVersionUID = -532912885820702140L;

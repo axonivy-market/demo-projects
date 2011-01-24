@@ -136,7 +136,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 	 * @return an ArrayList of {@link DocumentOnServer} Objects. Each DocumentOnServer object represents a File with several informations (name, path, size, creationdate, creationUser...)
 	 * @throws Exception 
 	 */
-	@SuppressWarnings("unchecked")
 	public ArrayList<DocumentOnServer> getDocumentsInPath(String _path, boolean _isrecursive) throws Exception{
 		if(_path==null || _path.trim().length()==0)
 		{

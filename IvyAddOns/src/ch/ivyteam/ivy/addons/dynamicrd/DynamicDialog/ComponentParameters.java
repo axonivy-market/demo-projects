@@ -76,7 +76,8 @@ public abstract class ComponentParameters implements Comparable<ComponentParamet
 
   private int insetsLeft;
 
-  protected ComponentParameters(List<String> cmsContexts, String name, String fullName,
+  @SuppressWarnings("unchecked")
+protected ComponentParameters(List<String> cmsContexts, String name, String fullName,
           ComplexComponentParameters parentContainerParameters, Integer position, Class clazz)
   {
     super();

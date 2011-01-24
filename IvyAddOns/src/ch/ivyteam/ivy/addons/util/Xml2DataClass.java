@@ -23,6 +23,7 @@ import ch.ivyteam.ivy.scripting.objects.Time;
  * @author Patrick Joly, TI-Informatique
  * @since 03.11.2009
  */
+@SuppressWarnings("unchecked")
 public final class Xml2DataClass extends ExploreHandler<Class>
 {
   private Node xmlNode;
@@ -74,7 +75,6 @@ public final class Xml2DataClass extends ExploreHandler<Class>
     explorer.explore(object.getClass());
   }
 
-  @SuppressWarnings("unchecked")
   @Override
   public boolean startNode(Class propertyType, String name, String qualifiedName) throws AddonsException
   {

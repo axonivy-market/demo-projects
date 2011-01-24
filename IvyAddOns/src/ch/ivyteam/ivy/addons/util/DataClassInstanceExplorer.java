@@ -19,6 +19,7 @@ import ch.ivyteam.ivy.addons.restricted.util.TypeCategory.TypeCategoryEnum;
  * @author Patrick Joly, TI-Informatique
  * @since 02.06.2009
  */
+@SuppressWarnings("unchecked")
 public final class DataClassInstanceExplorer extends ExploreHandler<Object>
 {
   private ExploreHandler<Object> handler;

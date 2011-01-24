@@ -29,6 +29,7 @@ public abstract class AbstractFileManagementHandler {
 	 * get the Class Object of the current AbstractFileManagementHandler implementation Class
 	 * @return the class Object of the current AbstractFileManagementHandler implementation Class
 	 */
+	@SuppressWarnings("unchecked")
 	public abstract Class getFileManagementHandlerClass();
 
 	/**

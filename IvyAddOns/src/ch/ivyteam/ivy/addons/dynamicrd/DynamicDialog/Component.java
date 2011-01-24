@@ -175,7 +175,7 @@ public abstract class Component
               IPermission.ADMINISTRATE_WORKFLOW))
       {
 
-        SystemEvent event = new SystemEvent<FieldChangeEventParameters>(SystemEventCategory.THIRD_PARTY,
+        SystemEvent<FieldChangeEventParameters> event = new SystemEvent<FieldChangeEventParameters>(SystemEventCategory.THIRD_PARTY,
                 "selectedDDFieldChange", new FieldChangeEventParameters(this, Ivy.cms()));
         Ivy.session().getWorkflowContext().getApplication().sendSystemEvent(event);
       }
@@ -600,7 +600,8 @@ public abstract class Component
 
   protected abstract void initializeComponent(Position pos);
 
-  protected final NoSuchMethodException getNoSuchMethodException(String methodName, Class clazz)
+  @SuppressWarnings("unchecked")
+protected final NoSuchMethodException getNoSuchMethodException(String methodName, Class clazz)
   {
     return new NoSuchMethodException("Not implemented method " + methodName + " on class " + clazz.getName());
   }

@@ -14,6 +14,7 @@ class ParameterTableTreeModel extends DefaultTableTreeModel
             Type.STRING)), new String[] {"Parameter", "Value"});
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public final Class getColumnClass(int columnIndex)
   {

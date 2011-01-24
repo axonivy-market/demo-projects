@@ -13,6 +13,7 @@ import ch.ivyteam.ivy.environment.Ivy;
  * @author Patrick Joly, TI-Informatique
  * @since 23.07.2010
  */
+@SuppressWarnings("unchecked")
 public abstract class ComplexComponentParameters extends ComponentParameters
 {
   public static final int NB_BUTTONS = 10;

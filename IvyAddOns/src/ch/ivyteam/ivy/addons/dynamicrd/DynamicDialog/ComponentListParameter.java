@@ -16,7 +16,8 @@ class ComponentListParameter extends ListComponentParameters
 {
   private static final long serialVersionUID = 2263989296889572694L;
 
-  protected ComponentListParameter(List<String> cmsContexts, String name, String fullName,
+  @SuppressWarnings("unchecked")
+protected ComponentListParameter(List<String> cmsContexts, String name, String fullName,
           ComplexComponentParameters parentContainerParameters, Integer position,
           TreeNode<ComponentParameters> parameters, Class clazz)
   {

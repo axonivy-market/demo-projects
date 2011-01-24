@@ -141,12 +141,12 @@ public class ZipHandler {
 				//Open Zip file for reading
 		      	 ZipFile zipFile = new ZipFile(zip, ZipFile.OPEN_READ);
 		      	 //Create an enumeration of the entries in the zip file
-		      	 Enumeration zipFileEntries = zipFile.entries();
+		      	 Enumeration<? extends ZipEntry> zipFileEntries = zipFile.entries();
 
 		      	 // Process each entry
 		      	 while (zipFileEntries.hasMoreElements())
 		      	 {
-		      		ZipEntry entry = (ZipEntry) zipFileEntries.nextElement();
+		      		ZipEntry entry = zipFileEntries.nextElement();
 		      		
 		      		files.add(entry.getName());
 		      	 }

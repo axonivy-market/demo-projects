@@ -29,7 +29,7 @@ class TableParameters extends ListComponentParameters
 
   protected TableParameters(List<String> cmsContexts, String name, String fullName,
           ComplexComponentParameters parentContainerParameters, Integer position,
-          TreeNode<ComponentParameters> parameters, Class clazz)
+          TreeNode<ComponentParameters> parameters, Class<?> clazz)
   {
     super(cmsContexts, name, fullName, parentContainerParameters, position, parameters, clazz);
 

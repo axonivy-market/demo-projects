@@ -15,7 +15,7 @@ class TabbedPaneParameters extends ContainerParameters
   private static final long serialVersionUID = -8692141675398148936L;
 
   protected TabbedPaneParameters(List<String> cmsContexts, String name, String fullName,
-          ComplexComponentParameters parentContainerParameters, Integer position, Class clazz)
+          ComplexComponentParameters parentContainerParameters, Integer position, Class<?> clazz)
   {
     super(cmsContexts, name, fullName, parentContainerParameters, position, clazz);
   }

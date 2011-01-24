@@ -767,6 +767,7 @@ public TransferHandler getTransferHandler() {
 				
 			}
 
+			@SuppressWarnings("unchecked")
 			@Override
 			public boolean importData(ULCComponent arg0, Transferable arg1) {
 				Object o = arg1.getTransferData(DataFlavor.DROP_FLAVOR);

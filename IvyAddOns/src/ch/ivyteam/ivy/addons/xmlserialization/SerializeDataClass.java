@@ -20,7 +20,8 @@ public class SerializeDataClass
 {
   private SerializeXML serializeXML;
 
-  private SerializeDataClass()
+  @SuppressWarnings("unused")
+private SerializeDataClass()
   {
   }
 

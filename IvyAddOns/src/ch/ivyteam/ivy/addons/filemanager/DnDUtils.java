@@ -25,6 +25,7 @@ import com.ulcjava.base.application.tree.TreePath;
  *@since 01.01.2010
  *Used by the FileManager for DnD
  */
+@SuppressWarnings("unchecked")
 public class DnDUtils {
 	
 	public static class DnDTransferData
@@ -72,7 +73,6 @@ public class DnDUtils {
 		return getDnDTransferData(transferData, DataFlavor.DRAG_FLAVOR);
 	}
 	
-	@SuppressWarnings("unchecked")
 	private static DnDTransferData getDnDTransferData(final Transferable transferData, final DataFlavor flavor)
 	{
 		if(transferData == null)
@@ -127,7 +127,6 @@ public class DnDUtils {
 		return result;
 	}
 	
-	@SuppressWarnings("unchecked")
 	private static List getTableTreeValues(final DnDTableTreeData data)
 	{
 		RTableTree tree = (RTableTree) data.getTableTree();
@@ -152,7 +151,6 @@ public class DnDUtils {
 		
 	}
 
-	@SuppressWarnings("unchecked")
 	private static List getLabelValue(final DnDLabelData data)
 	{
 		List values = new LinkedList();
@@ -160,7 +158,6 @@ public class DnDUtils {
 		return values;
 	}
 
-	@SuppressWarnings("unchecked")
 	private static List getTextValue(final DnDTextData data)
 	{
 		List values = new LinkedList();
@@ -179,7 +176,6 @@ public class DnDUtils {
 		return values;
 	}
 
-	@SuppressWarnings("unchecked")
 	private static List getTreeValues(final DnDTreeData data)
 	{
 		TreePath[] paths = data.getTreePaths();
