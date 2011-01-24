@@ -158,7 +158,7 @@ private RHyperlink getExitHyperlink() {
 			{
 				Ivy.rd().startProcess(
 						new ProcessStartConfiguration(start, 
-								DisplayConfigurationFactory.createForThisWindow("ch.ivyteam.processstarter.display", this)));
+								DisplayConfigurationFactory.createForThisWindow("ch.ivyteam.processstarter.display")));
 			}
 			else
 			{
