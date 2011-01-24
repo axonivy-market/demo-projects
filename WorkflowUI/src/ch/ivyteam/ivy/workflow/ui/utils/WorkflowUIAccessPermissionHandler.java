@@ -45,6 +45,7 @@ import ch.ivyteam.logicalexpression.RelationalOperator;
  * @since 2007/08/01
  * 
  */
+@SuppressWarnings("unchecked")
 public class WorkflowUIAccessPermissionHandler
 {
 
