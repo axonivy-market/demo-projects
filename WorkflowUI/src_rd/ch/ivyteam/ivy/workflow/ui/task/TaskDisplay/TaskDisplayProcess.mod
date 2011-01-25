@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jan 14 14:32:32 CET 2011]
+[>Created: Tue Jan 25 09:59:32 CET 2011]
 116A9BF16D47762C 3.15 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -135,19 +135,14 @@ Ts0 @PushWFArc f60 '' #zField
 Ts0 @PushWFArc f9 '' #zField
 Ts0 @RichDialogUiSync f61 '' #zField
 Ts0 @RichDialog f63 '' #zField
-Ts0 @PushWFArc f69 '' #zField
 Ts0 @RichDialogUiSync f70 '' #zField
-Ts0 @PushWFArc f82 '' #zField
 Ts0 @RichDialog f84 '' #zField
 Ts0 @PushWFArc f85 '' #zField
 Ts0 @RichDialogUiSync f90 '' #zField
-Ts0 @PushWFArc f103 '' #zField
 Ts0 @RichDialog f106 '' #zField
 Ts0 @PushWFArc f109 '' #zField
 Ts0 @RichDialog f114 '' #zField
-Ts0 @PushWFArc f39 '' #zField
 Ts0 @RichDialogUiSync f132 '' #zField
-Ts0 @PushWFArc f134 '' #zField
 Ts0 @PushWFArc f115 '' #zField
 Ts0 @RichDialogUiSync f15 '' #zField
 Ts0 @RichDialog f25 '' #zField
@@ -201,6 +196,11 @@ Ts0 @PushWFArc f42 '' #zField
 Ts0 @RichDialogProcessStep f26 '' #zField
 Ts0 @PushWFArc f43 '' #zField
 Ts0 @PushWFArc f44 '' #zField
+Ts0 @PushWFArc f103 '' #zField
+Ts0 @PushWFArc f48 '' #zField
+Ts0 @PushWFArc f50 '' #zField
+Ts0 @PushWFArc f39 '' #zField
+Ts0 @PushWFArc f45 '' #zField
 >Proto Ts0 Ts0 TaskInformationDisplayProcess #zField
 Ts0 f0 guid 116A9C07145A35CE #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
@@ -1549,14 +1549,10 @@ documents</name>
 ' #txt
 Ts0 f63 1070 252 36 24 20 -2 #rect
 Ts0 f63 @|RichDialogIcon #fIcon
-Ts0 f69 expr out #txt
-Ts0 f69 1088 237 1088 252 #arcP
 Ts0 f70 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f70 guid 12D7F313FB856450 #txt
 Ts0 f70 1075 291 26 26 13 0 #rect
 Ts0 f70 @|RichDialogUiSyncIcon #fIcon
-Ts0 f82 expr out #txt
-Ts0 f82 1088 276 1088 291 #arcP
 Ts0 f84 targetWindow THIS #txt
 Ts0 f84 targetDisplay EXISTING:<%=in.annotationsDisplayId%> #txt
 Ts0 f84 richDialogId ch.ivyteam.ivy.workflow.ui.task.AnnotationsWrapper #txt
@@ -1595,8 +1591,6 @@ Ts0 f90 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f90 guid 12D7F3393C18FB4E #txt
 Ts0 f90 1075 371 26 26 13 0 #rect
 Ts0 f90 @|RichDialogUiSyncIcon #fIcon
-Ts0 f103 expr out #txt
-Ts0 f103 1088 356 1088 371 #arcP
 Ts0 f106 targetWindow THIS #txt
 Ts0 f106 targetDisplay EXISTING:<%=in.eventsDisplayId%> #txt
 Ts0 f106 richDialogId ch.ivyteam.ivy.workflow.ui.task.EventsWrapper #txt
@@ -1663,14 +1657,10 @@ task details</name>
 ' #txt
 Ts0 f114 1070 492 36 24 20 -2 #rect
 Ts0 f114 @|RichDialogIcon #fIcon
-Ts0 f39 expr out #txt
-Ts0 f39 1088 516 1088 539 #arcP
 Ts0 f132 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f132 guid 12D7F34F743A760F #txt
 Ts0 f132 1075 451 26 26 13 0 #rect
 Ts0 f132 @|RichDialogUiSyncIcon #fIcon
-Ts0 f134 expr out #txt
-Ts0 f134 1088 436 1088 451 #arcP
 Ts0 f115 expr out #txt
 Ts0 f115 1088 477 1088 492 #arcP
 Ts0 f15 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
@@ -2232,6 +2222,16 @@ Ts0 f43 1277 131 1106 172 #arcP
 Ts0 f43 0 0.27472050808278337 0 0 #arcLabel
 Ts0 f44 expr out #txt
 Ts0 f44 1088 188 1088 211 #arcP
+Ts0 f103 expr out #txt
+Ts0 f103 1088 237 1088 252 #arcP
+Ts0 f48 expr out #txt
+Ts0 f48 1088 516 1088 539 #arcP
+Ts0 f50 expr out #txt
+Ts0 f50 1088 276 1088 291 #arcP
+Ts0 f39 expr out #txt
+Ts0 f39 1088 356 1088 371 #arcP
+Ts0 f45 expr out #txt
+Ts0 f45 1088 436 1088 451 #arcP
 >Proto Ts0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2378,20 +2378,10 @@ Ts0 f60 head f57 mainIn #connect
 Ts0 f7 out f17 tail #connect
 Ts0 f79 out f9 tail #connect
 Ts0 f9 head f58 mainIn #connect
-Ts0 f61 mainOut f69 tail #connect
-Ts0 f69 head f63 mainIn #connect
-Ts0 f63 mainOut f82 tail #connect
-Ts0 f82 head f70 mainIn #connect
 Ts0 f70 mainOut f85 tail #connect
 Ts0 f85 head f84 mainIn #connect
-Ts0 f84 mainOut f103 tail #connect
-Ts0 f103 head f90 mainIn #connect
 Ts0 f90 mainOut f109 tail #connect
 Ts0 f109 head f106 mainIn #connect
-Ts0 f114 mainOut f39 tail #connect
-Ts0 f39 head f38 mainIn #connect
-Ts0 f106 mainOut f134 tail #connect
-Ts0 f134 head f132 mainIn #connect
 Ts0 f132 mainOut f115 tail #connect
 Ts0 f115 head f114 mainIn #connect
 Ts0 f30 mainOut f36 tail #connect
@@ -2451,3 +2441,13 @@ Ts0 f43 head f26 mainIn #connect
 Ts0 f73 out f5 tail #connect
 Ts0 f26 mainOut f44 tail #connect
 Ts0 f44 head f61 mainIn #connect
+Ts0 f61 mainOut f103 tail #connect
+Ts0 f103 head f63 mainIn #connect
+Ts0 f114 mainOut f48 tail #connect
+Ts0 f48 head f38 mainIn #connect
+Ts0 f63 mainOut f50 tail #connect
+Ts0 f50 head f70 mainIn #connect
+Ts0 f84 mainOut f39 tail #connect
+Ts0 f39 head f90 mainIn #connect
+Ts0 f106 mainOut f45 tail #connect
+Ts0 f45 head f132 mainIn #connect
