@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue May 18 13:01:52 CEST 2010]
-1181284475030FD6 3.12 #module
+[>Created: Thu Feb 10 16:22:39 CET 2011]
+1181284475030FD6 3.15 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginDialogProcess Big #zClass
 Ls0 RD #cInfo
@@ -57,15 +57,6 @@ Ls0 @PushWFArc f31 '' #zField
 Ls0 @PushWFArc f10 '' #zField
 Ls0 @PushWFArc f8 '' #zField
 >Proto Ls0 Ls0 LoginDialogProcess #zField
-Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>login()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ls0 f0 guid 11812DC187F6133F #txt
 Ls0 f0 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f0 method login() #txt
@@ -84,11 +75,26 @@ Ls0 f0 outParameterDecl '<java.lang.Boolean successful> result;
 Ls0 f0 outParameterMapAction 'result.successful=in.successful;
 ' #txt
 Ls0 f0 embeddedRdInitializations '* ' #txt
+Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>login()</name>
+        <nameStyle>7,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ls0 f0 46 46 20 20 13 0 #rect
 Ls0 f0 @|RichDialogInitStartIcon #fIcon
 Ls0 f1 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f1 43 523 26 26 14 0 #rect
 Ls0 f1 @|RichDialogProcessEndIcon #fIcon
+Ls0 f3 guid 11812DC43473EE7C #txt
+Ls0 f3 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
+Ls0 f3 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
+' #txt
+Ls0 f3 actionTable 'out=in;
+' #txt
 Ls0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -98,14 +104,14 @@ Ls0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f3 guid 11812DC43473EE7C #txt
-Ls0 f3 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
-Ls0 f3 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
-' #txt
-Ls0 f3 actionTable 'out=in;
-' #txt
 Ls0 f3 614 46 20 20 13 0 #rect
 Ls0 f3 @|RichDialogProcessStartIcon #fIcon
+Ls0 f4 guid 11812DC4AC93ACC0 #txt
+Ls0 f4 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
+Ls0 f4 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
+' #txt
+Ls0 f4 actionTable 'out=in;
+' #txt
 Ls0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -114,12 +120,6 @@ Ls0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ls0 f4 guid 11812DC4AC93ACC0 #txt
-Ls0 f4 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
-Ls0 f4 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
-' #txt
-Ls0 f4 actionTable 'out=in;
 ' #txt
 Ls0 f4 1014 46 20 20 13 0 #rect
 Ls0 f4 @|RichDialogProcessStartIcon #fIcon
@@ -133,6 +133,12 @@ Ls0 f7 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f7 guid 11812DCB6702ACDB #txt
 Ls0 f7 611 523 26 26 14 0 #rect
 Ls0 f7 @|RichDialogEndIcon #fIcon
+Ls0 f9 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
+' #txt
+Ls0 f9 actionTable 'out=in;
+' #txt
+Ls0 f9 actionCode 'in.error = panel.login(ivy.session, in.userName, in.password);' #txt
+Ls0 f9 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -142,12 +148,6 @@ Ls0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f9 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
-' #txt
-Ls0 f9 actionTable 'out=in;
-' #txt
-Ls0 f9 actionCode 'in.error = panel.login(ivy.session, in.userName, in.password);' #txt
-Ls0 f9 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f9 606 228 36 24 20 -2 #rect
 Ls0 f9 @|RichDialogProcessStepIcon #fIcon
 Ls0 f11 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
@@ -183,14 +183,15 @@ Ls0 f14 responseActionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.Logi
 Ls0 f14 responseMappingAction 'out=in;
 ' #txt
 Ls0 f14 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
-Ls0 f14 isAsynch true #txt
+Ls0 f14 isAsynch false #txt
 Ls0 f14 isInnerRd true #txt
 Ls0 f14 isDialog false #txt
+Ls0 f14 userContext '* ' #txt
 Ls0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>show error</name>
-        <nameStyle>10,9
+        <nameStyle>10,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -200,16 +201,6 @@ Ls0 f14 @|RichDialogIcon #fIcon
 Ls0 f16 expr out #txt
 Ls0 f16 808 476 808 523 #arcP
 Ls0 f16 0 0.48815400549469334 0 0 #arcLabel
-Ls0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set successful,
-session language</name>
-        <nameStyle>32,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ls0 f17 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
 ' #txt
 Ls0 f17 actionTable 'out=in;
@@ -229,6 +220,16 @@ if (panel.sessionLanguagesComboBox.getSelectedListEntry() != null &&
 	ivy.session.setContentLocale(selectedSessionLanguage);
 }' #txt
 Ls0 f17 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
+Ls0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>set successful,
+session language</name>
+        <nameStyle>32,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ls0 f17 606 364 36 24 20 -2 #rect
 Ls0 f17 @|RichDialogProcessStepIcon #fIcon
 Ls0 f18 expr in #txt
@@ -243,6 +244,12 @@ Ls0 f18 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ls0 f18 624 326 624 364 #arcP
+Ls0 f21 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
+' #txt
+Ls0 f21 actionTable 'out=in;
+' #txt
+Ls0 f21 actionCode panel.getRootPane().setDefaultButton(panel.loginButton); #txt
+Ls0 f21 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -253,27 +260,12 @@ button</name>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f21 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
-' #txt
-Ls0 f21 actionTable 'out=in;
-' #txt
-Ls0 f21 actionCode panel.getRootPane().setDefaultButton(panel.loginButton); #txt
-Ls0 f21 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f21 38 324 36 24 20 -2 #rect
 Ls0 f21 @|RichDialogProcessStepIcon #fIcon
 Ls0 f20 expr out #txt
 Ls0 f20 56 348 56 523 #arcP
 Ls0 f23 expr out #txt
 Ls0 f23 56 66 56 324 #arcP
-Ls0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>loginAndSelectSessionLanguage()</name>
-        <nameStyle>31,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ls0 f2 guid 11E3F6181BC96A9E #txt
 Ls0 f2 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f2 method loginAndSelectSessionLanguage() #txt
@@ -289,17 +281,17 @@ Ls0 f2 outParameterDecl '<java.lang.Boolean successful> result;
 Ls0 f2 outParameterMapAction 'result.successful=in.successful;
 ' #txt
 Ls0 f2 embeddedRdInitializations '* ' #txt
-Ls0 f2 134 46 20 20 13 0 #rect
-Ls0 f2 @|RichDialogInitStartIcon #fIcon
-Ls0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ls0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>loadAllowedEnvironments</name>
-        <nameStyle>23,5,7,9
+        <name>loginAndSelectSessionLanguage()</name>
+        <nameStyle>31,5,6,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ls0 f2 134 46 20 20 13 0 #rect
+Ls0 f2 @|RichDialogInitStartIcon #fIcon
 Ls0 f22 guid 1284EC13DFDD5E11 #txt
 Ls0 f22 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f22 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
@@ -316,6 +308,15 @@ if (in.allowedEnvironmentsSelectionVisible)
 
 	out.selectedEnvironmentIndex = !out.allowedEnvironments.isEmpty()? 0: -1;
 }' #txt
+Ls0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>loadAllowedEnvironments</name>
+        <nameStyle>23,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ls0 f22 1070 46 20 20 13 0 #rect
 Ls0 f22 @|RichDialogProcessStartIcon #fIcon
 Ls0 f24 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
@@ -323,15 +324,6 @@ Ls0 f24 1070 526 20 20 13 0 #rect
 Ls0 f24 @|RichDialogProcessEndIcon #fIcon
 Ls0 f25 expr out #txt
 Ls0 f25 1080 66 1080 526 #arcP
-Ls0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>loginAndSelectSessionLanguageAndEnvironment()</name>
-        <nameStyle>45,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ls0 f26 guid 1284F2CC4F77B412 #txt
 Ls0 f26 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f26 method loginAndSelectSessionLanguageAndEnvironment() #txt
@@ -344,19 +336,17 @@ Ls0 f26 outParameterDecl '<java.lang.Boolean successful> result;
 ' #txt
 Ls0 f26 outActionCode 'result.successful = in.successful;' #txt
 Ls0 f26 embeddedRdInitializations '* ' #txt
-Ls0 f26 326 46 20 20 13 0 #rect
-Ls0 f26 @|RichDialogInitStartIcon #fIcon
-Ls0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ls0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>build the
-list of available 
-session languages</name>
-        <nameStyle>46,9
+        <name>loginAndSelectSessionLanguageAndEnvironment()</name>
+        <nameStyle>45,5,6,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ls0 f26 326 46 20 20 13 0 #rect
+Ls0 f26 @|RichDialogInitStartIcon #fIcon
 Ls0 f28 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
 ' #txt
 Ls0 f28 actionTable 'out=in;
@@ -399,6 +389,17 @@ for (int i=0; i<out.supportedLanguagesList.size(); i++)
 	out.prefferedUserSessionLanguageIndex = prefferedUserSessionLanguageCountryIndex != -1? prefferedUserSessionLanguageCountryIndex: prefferedUserSessionLanguageIndex;
 }' #txt
 Ls0 f28 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
+Ls0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>build the
+list of available 
+session languages</name>
+        <nameStyle>46,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ls0 f28 126 188 36 24 20 -2 #rect
 Ls0 f28 @|RichDialogProcessStepIcon #fIcon
 Ls0 f29 expr out #txt
@@ -425,7 +426,7 @@ successful?</name>
 ' #txt
 Ls0 f27 610 162 28 28 11 -31 #rect
 Ls0 f27 @|AlternativeIcon #fIcon
-Ls0 f32 targetWindow NEW #txt
+Ls0 f32 targetWindow NEW:card: #txt
 Ls0 f32 targetDisplay TOP #txt
 Ls0 f32 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Ls0 f32 startMethod showMessage(String) #txt
@@ -440,18 +441,25 @@ Ls0 f32 windowConfiguration '{/title "<%=in.windowTitle%>"/width 400 /height 150
 Ls0 f32 isAsynch false #txt
 Ls0 f32 isInnerRd true #txt
 Ls0 f32 isDialog true #txt
+Ls0 f32 userContext '* ' #txt
 Ls0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>show error
 message</name>
-        <nameStyle>18,9
+        <nameStyle>18,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
 Ls0 f32 886 284 36 24 20 -2 #rect
 Ls0 f32 @|RichDialogIcon #fIcon
+Ls0 f37 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
+' #txt
+Ls0 f37 actionTable 'out=in;
+' #txt
+Ls0 f37 actionCode 'out.windowTitle = ivy.cms.co("/ch/ivyteam/ivy/addons/strings/labels/loginFailed");' #txt
+Ls0 f37 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f37 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -462,12 +470,6 @@ windows title</name>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f37 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
-' #txt
-Ls0 f37 actionTable 'out=in;
-' #txt
-Ls0 f37 actionCode 'out.windowTitle = ivy.cms.co("/ch/ivyteam/ivy/addons/strings/labels/loginFailed");' #txt
-Ls0 f37 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f37 790 404 36 24 20 -2 #rect
 Ls0 f37 @|RichDialogProcessStepIcon #fIcon
 Ls0 f38 expr in #txt
@@ -485,6 +487,12 @@ Ls0 f38 1 808 312 #addKink
 Ls0 f38 0 0.7414335424923689 0 0 #arcLabel
 Ls0 f15 expr out #txt
 Ls0 f15 808 428 808 452 #arcP
+Ls0 f39 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
+' #txt
+Ls0 f39 actionTable 'out=in;
+' #txt
+Ls0 f39 actionCode 'out.windowTitle = ivy.cms.co("/ch/ivyteam/ivy/addons/strings/labels/setActiveEnvironmentFailedTitle");' #txt
+Ls0 f39 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -495,12 +503,6 @@ windows title</name>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f39 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
-' #txt
-Ls0 f39 actionTable 'out=in;
-' #txt
-Ls0 f39 actionCode 'out.windowTitle = ivy.cms.co("/ch/ivyteam/ivy/addons/strings/labels/setActiveEnvironmentFailedTitle");' #txt
-Ls0 f39 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
 Ls0 f39 886 236 36 24 20 -2 #rect
 Ls0 f39 @|RichDialogProcessStepIcon #fIcon
 Ls0 f40 expr in #txt
@@ -509,15 +511,6 @@ Ls0 f40 1 904 176 #addKink
 Ls0 f40 0 0.6763527073249864 0 0 #arcLabel
 Ls0 f33 expr out #txt
 Ls0 f33 904 260 904 284 #arcP
-Ls0 f36 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>try to set environment</name>
-        <nameStyle>22,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ls0 f36 actionDecl 'ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData out;
 ' #txt
 Ls0 f36 actionTable 'out=in;
@@ -542,6 +535,15 @@ if (in.allowedEnvironmentsSelectionVisible && !in.allowedEnvironments.isEmpty())
 	ivy.log.info("Assigned active environment is {0} at the {1} user session...", activeEnvironment, in.userName);
 }' #txt
 Ls0 f36 type ch.ivyteam.ivy.addons.commondialogs.LoginDialog.LoginDialogData #txt
+Ls0 f36 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>try to set environment</name>
+        <nameStyle>22,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ls0 f36 606 92 36 24 20 -2 #rect
 Ls0 f36 @|RichDialogProcessStepIcon #fIcon
 Ls0 f42 expr out #txt
