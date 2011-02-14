@@ -1,0 +1,28 @@
+TaskDetail #class
+htmlwfui #namespace
+activator String #field
+activator PERSISTENT #fieldModifier
+activatorIsUser String #field
+activatorIsUser PERSISTENT #fieldModifier
+delay DateTime #field
+delay PERSISTENT #fieldModifier
+delayStr String #field
+delayStr PERSISTENT #fieldModifier
+desc String #field
+desc PERSISTENT #fieldModifier
+exp DateTime #field
+exp PERSISTENT #fieldModifier
+expStr String #field
+expStr PERSISTENT #fieldModifier
+id String #field
+id PERSISTENT #fieldModifier
+name String #field
+name PERSISTENT #fieldModifier
+prio String #field
+prio PERSISTENT #fieldModifier
+start String #field
+start PERSISTENT #fieldModifier
+state String #field
+state PERSISTENT #fieldModifier
+url String #field
+url PERSISTENT #fieldModifier

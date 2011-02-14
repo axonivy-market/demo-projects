@@ -1,0 +1,18 @@
+#Fri Jan 07 09:38:26 CET 2011
+default.sort.value=-1
+table.default.page.size.value=50
+table.source=in.tasks
+col8=\#Fri Jan 07 09\:38\:26 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getEndTimestamp().getYear()>1 ? it.getEndTimestamp().format("short") \\\: ""\r\nname.value\=Erledigt\r\n
+col7=\#Fri Jan 07 09\:38\:26 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getExpiryTimestamp().getYear()>1 ? it.getExpiryTimestamp().format("short") \\\: ""\r\nname.value\=Bearbeitungsfrist\r\n
+col6=\#Fri Jan 07 09\:38\:26 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getStartTimestamp().format("short")\r\nname.value\=Erstellt\r\n
+col5=\#Fri Jan 07 09\:38\:26 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getActivatorName()\r\nname.value\=Verantwortlich\r\n
+footer.show.value=false
+col4=\#Fri Jan 07 09\:38\:26 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getWorkerUserName()\r\nname.value\=Benutzer\r\n
+table.empty.value=leere Aufgaben History
+col3=\#Fri Jan 07 09\:38\:26 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getName()\r\nname.value\=Name\r\n
+col2=\#Fri Jan 07 09\:38\:26 CET 2011\r\nsort.value\=true\r\ncondition.value\=\r\nbody.value\=it.getState()\r\nname.value\=Status\r\n
+header.show.value=true
+col1=\#Fri Jan 07 09\:38\:26 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getPriority()\r\nname.value\=Prio\r\n
+table.caption.value=
+col0=\#Fri Jan 07 09\:38\:26 CET 2011\r\nsort.value\=false\r\nbody.td\=\\\#Mon Dec 06 13\\\:58\\\:14 CET 2010\\r\\nalign\\\=center\\r\\n\r\nbody.value\="<img src\\\='"+ivy.cms.cr("/images/task")+"' title\\\='Details Task["+it.getIdentifier()+"]'>"\r\nlink.value\=\\\#Fri Dec 17 14\\\:02\\\:09 CET 2010\\r\\nivp\\\=LinkE.ivp\\r\\nrow.index\\\=in.temp.n\\r\\n\r\nname.value\=\\\#\r\n
+auto.header.value=true

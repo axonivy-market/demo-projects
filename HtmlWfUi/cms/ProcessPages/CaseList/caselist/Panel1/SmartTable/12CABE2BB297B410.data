@@ -1,0 +1,15 @@
+#Mon Jan 17 12:00:27 CET 2011
+default.sort.value=-1
+table.default.page.size.value=50
+table.source=in.cases
+col5=\#Mon Jan 17 12\:00\:27 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getStartTimestamp().format()\r\nheader.th\=\\\#Mon Jan 17 12\\\:00\\\:27 CET 2011\\r\\nwidth\\\=120\\r\\n\r\nheader.value\=Startdatum\r\nname.value\=getStartTimestamp()\r\n
+footer.show.value=false
+col4=\#Mon Jan 17 12\:00\:27 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getCreatorUserName()\r\nheader.th\=\\\#Fri Jan 14 11\\\:26\\\:53 CET 2011\\r\\nwidth\\\=100\\r\\n\r\nheader.value\=Ersteller\r\nname.value\=getCreatorUserName()\r\n
+table.empty.value=keine Eintr&auml;ge
+col3=\#Mon Jan 17 12\:00\:27 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getProcessCategoryCode()\r\nheader.th\=\\\#Fri Jan 14 11\\\:26\\\:53 CET 2011\\r\\nwidth\\\=100\\r\\n\r\nheader.value\=Kategorie\r\nname.value\=getProcessCategoryCode()\r\n
+col2=\#Mon Jan 17 12\:00\:27 CET 2011\r\nbody.td\=\\\#Fri Jan 07 09\\\:34\\\:54 CET 2011\\r\\ntitle\\\=Details Case[it.getIdentifier()]\\r\\n\r\nsort.value\=true\r\nbody.value\="<span title\\\='Details Case["+it.getIdentifier()+"]'>"+ value\r\nlink.value\=\\\#Fri Jan 07 09\\\:34\\\:54 CET 2011\\r\\nivp\\\=LinkB.ivp\\r\\nrow.index\\\=in.temp.n\\r\\n\r\nheader.th\=\\\#Mon Jan 17 12\\\:00\\\:02 CET 2011\\r\\nwidth\\\=300\\r\\n\r\nheader.value\=Name\r\nname.value\=name\r\n
+header.show.value=true
+col1=\#Mon Jan 17 12\:00\:27 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getState()\r\nheader.th\=\\\#Mon Jan 17 12\\\:00\\\:13 CET 2011\\r\\nwidth\\\=80\\r\\n\r\nheader.value\=Status\r\nname.value\=getStatus()\r\n
+table.caption.value=
+col0=\#Mon Jan 17 12\:00\:27 CET 2011\r\nsort.value\=false\r\nbody.td\=\\\#Mon Dec 13 14\\\:18\\\:05 CET 2010\\r\\nalign\\\=center\\r\\n\r\nbody.value\="<img src\\\='"+ivy.cms.cr("/images/case") +"'title\\\='Details Case["+it.getIdentifier()+"]'>"\r\nlink.value\=\\\#Fri Jan 07 09\\\:34\\\:54 CET 2011\\r\\nivp\\\=LinkB.ivp\\r\\nrow.index\\\=in.temp.n\\r\\n\r\nheader.value\=\\\#\r\nheader.th\=\\\#Fri Jan 07 10\\\:56\\\:59 CET 2011\\r\\nwidth\\\=20\\r\\n\r\nname.value\=getIdentifier()\r\n
+auto.header.value=false

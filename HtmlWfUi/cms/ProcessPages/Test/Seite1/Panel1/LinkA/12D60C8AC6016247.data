@@ -1,0 +1,17 @@
+<FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'  >
+<!--ivyform--><table BORDER="0"><tr >
+<td ><!--i.ttemp.n-->temp.n</td>
+<td ><!--i.atemp.n--><%=ivy.html.menu("in.temp.processes","temp$n",0,"in.temp.n")%></td>
+</tr>
+<tr >
+</tr>
+<tr >
+</tr>
+<tr >
+<td ><!--i.submit-->
+<INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="Submit"></td>
+</tr>
+
+
+
+</table></FORM>

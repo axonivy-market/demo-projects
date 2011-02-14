@@ -1,0 +1,3 @@
+<P>
+<%=ivy.html.get("in.temp.caption")=="my_cases" ? ivy.cms.co("/messages/txtMyCases") : ivy.cms.co("/messages/txtAdminCases")%>
+</P>

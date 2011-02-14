@@ -1,0 +1,8 @@
+# Conversion log for project 'SnbWFUI' from version 41,910 to 41,915
+# Created on 20.12.2010 08:47:57
+20.12.2010 08:47:58 : New Task  : Asserting default deployment descriptor...
+20.12.2010 08:47:58 : Info      : Deployment descriptor exists already, no conversion needed.
+20.12.2010 08:47:58 : New Task  : Asserting web content folder...
+20.12.2010 08:47:58 : Info      : Web content folder exists already, no conversion needed.
+20.12.2010 08:47:58 : New Task  : Update project version to actual version 41915.
+20.12.2010 08:47:58 : New Task  : Finished conversion of project SnbWFUI.

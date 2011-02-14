@@ -1,0 +1,24 @@
+<FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'  >
+<!--ivyform--><table BORDER="0"><tr >
+<td ><!--i.tusername-->Benutzername</td>
+<td ><!--i.ausername--><INPUT TYPE="TEXT" NAME="username"  VALUE="<%=ivy.html.get("in.username")%>"></td>
+</tr>
+<tr >
+<td ><!--i.tpassword-->Passwort</td>
+<td ><!--i.apassword--><INPUT TYPE="PASSWORD" NAME="password" VALUE="<%=in.password%>"></td>
+</tr>
+<tr >
+<td ></td>
+<td ><!--i.submit-->
+<INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="Login"></td>
+</tr>
+<tr >
+<td ><script language = "javascript">
+document.formLinkA.username.focus();
+</script></td>
+</tr>
+
+
+
+
+</table></FORM>

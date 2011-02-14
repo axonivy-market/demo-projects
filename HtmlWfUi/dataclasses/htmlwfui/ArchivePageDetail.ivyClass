@@ -1,0 +1,8 @@
+ArchivePageDetail #class
+htmlwfui #namespace
+name String #field
+name PERSISTENT #fieldModifier
+ref String #field
+ref PERSISTENT #fieldModifier
+id Number #field
+id PERSISTENT #fieldModifier

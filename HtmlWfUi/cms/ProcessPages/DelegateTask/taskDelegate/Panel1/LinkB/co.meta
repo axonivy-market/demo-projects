@@ -1,0 +1,2 @@
+co: name={LinkB} description={} changed={2010-12-06 10:56:02 CET} changedby={powersob} visualorder={0} guid={12CBB1BFCFBFC9F6} parentguid={} typeguid={E6AFEA1F2184828C} id={} parentid={} typeid={}
+val: guid={12CBB1BFD0B22180} datatype={} isdefault={true} langid={en} description={} validfrom={2010-06-24 14:32:56 CEST} validto={} changed={2010-12-06 10:56:02 CET} changedby={powersob} properties={###r#n##Thu Jun 24 14:33:08 CEST 2010#r#n.KIND=button#r#n.LINK=Zur&uuml;ck zu Aufgaben Details#r#n.LREF=<%\=ivy.html.ref("LinkB.ivp")%>#r#n.SBMT=#r#n} id={}

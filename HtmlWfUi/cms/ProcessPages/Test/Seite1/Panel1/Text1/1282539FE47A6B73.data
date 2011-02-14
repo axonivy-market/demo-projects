@@ -1,0 +1,6 @@
+<P>
+ein text ü
+</P>
+<P>
+ein process data attribute <%=ivy.html.get("in.note")%> 
+</P>

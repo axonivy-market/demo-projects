@@ -1,0 +1,3 @@
+<P>
+<%=ivy.html.getObject("in.tmpTask")!=null ? ivy.cms.co("/messages/captionTaskPageArchive") : ivy.cms.co("/messages/captionCasePageArchive") %>
+</P>

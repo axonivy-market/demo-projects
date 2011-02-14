@@ -1,0 +1,34 @@
+<FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'  >
+<!--ivyform--><table BORDER="0"><tr >
+<td ><!--i.tn-->n</td>
+<td ><!--i.an--><INPUT TYPE="TEXT" NAME="n"  VALUE="<%=ivy.html.get("in.n")%>"></td>
+</tr>
+<tr >
+<td ><!--i.ts-->s</td>
+<td ><!--i.as--><INPUT TYPE="TEXT" NAME="s"  VALUE="<%=ivy.html.get("in.s")%>"></td>
+</tr>
+
+
+
+<tr>
+<td><!--i.tt-->Do</td><td><!--i.at--><INPUT TYPE="CHECKBOX" NAME="t" VALUE="true"   ><INPUT TYPE="hidden" NAME="t" VALUE="false" ></td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table></FORM>
