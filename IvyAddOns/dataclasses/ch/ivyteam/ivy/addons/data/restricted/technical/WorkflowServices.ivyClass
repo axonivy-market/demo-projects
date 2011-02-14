@@ -5,3 +5,5 @@ wfCase 'The case on which managing roles will be defined' #fieldComment
 ivyResultStatus ch.ivyteam.ivy.addons.data.technical.IvyResultStatus #field
 managedTeam String #field
 managedTeam 'Managed team to set' #fieldComment
+managedTeams List<String> #field
+managedTeams 'List of managed teams to set' #fieldComment

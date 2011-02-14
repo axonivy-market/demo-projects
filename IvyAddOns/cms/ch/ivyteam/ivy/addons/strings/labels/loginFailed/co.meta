@@ -1,3 +1,4 @@
-co: name={loginFailed} description={} changed={2010-05-03 12:35:15 GMT} changedby={tirib} visualorder={0} guid={1285E292C0A48D4F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1285E292C1A24D30} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-03 12:34:36 GMT} validto={} changed={2010-05-03 12:35:14 GMT} changedby={tirib} properties={} id={}
-val: guid={1285E293BD976436} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-03 12:34:40 GMT} validto={} changed={2010-05-03 12:35:15 GMT} changedby={tirib} properties={} id={}
+co: name={loginFailed} description={} changed={2011-02-11 10:43:14 CET} changedby={tirib} visualorder={0} guid={1285E292C0A48D4F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={1285E292C1A24D30} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-03 14:34:36 CEST} validto={} changed={2011-02-11 10:43:13 CET} changedby={tirib} properties={} id={}
+val: guid={1285E293BD976436} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-03 14:34:40 CEST} validto={} changed={2011-02-11 10:43:13 CET} changedby={tirib} properties={} id={}
+val: guid={12E10454F35904BB} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-10 16:51:41 CET} validto={} changed={2011-02-11 10:43:13 CET} changedby={tirib} properties={} id={}

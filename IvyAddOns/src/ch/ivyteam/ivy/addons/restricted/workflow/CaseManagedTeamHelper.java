@@ -3,6 +3,7 @@ package ch.ivyteam.ivy.addons.restricted.workflow;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.concurrent.Callable;
 
 import ch.ivyteam.ivy.addons.data.technical.IvyResultStatus;
@@ -11,6 +12,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.security.IUser;
 import ch.ivyteam.ivy.workflow.ICase;
+import ch.ivyteam.ivy.workflow.ITask;
 
 /**
  * 
@@ -30,14 +32,14 @@ public class CaseManagedTeamHelper {
 	
 	/**
 	 * It sets case managed teams value to the case data 
-	 * without permission restriction
+	 * without permission restriction. Each additional team is comma separated.
 	 * 
-	 * @param caseManagedTeam is new value to set
+	 * @param caseManagedTeams is list of managed teams to set.
 	 * @param wfCase is the case on which data has to be modified
-	 * @return true if sucessful, otherwise false
+	 * @return true if successful, otherwise false
 	 * @throws Exception  
 	 */
-	public static IvyResultStatus setCaseManagedTeam(final ICase wfCase, final String caseManagedTeam)
+	public static IvyResultStatus setCaseManagedTeams(final ICase wfCase, final List<String> caseManagedTeams)
     {
 		IvyResultStatus ivyResultStatus = new IvyResultStatus();
 		ivyResultStatus.setSuccessful(true);
@@ -45,11 +47,18 @@ public class CaseManagedTeamHelper {
         try {
             Boolean successful = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>(){
                 public Boolean call() throws Exception {
-                	if (caseManagedTeam.length() > 0)
+                	if (caseManagedTeams.size() > 0)
                 	{
-                		// set the managed team to the case
-                		Ivy.log().info("Case {0} has now managed team {1} set.", wfCase.getIdentifier(), caseManagedTeam);
-		            	wfCase.setCustomVarCharField5(caseManagedTeam);
+                		String caseManagedTeamsAsString = "";
+                		for(String managedTeam: caseManagedTeams)
+                			caseManagedTeamsAsString += managedTeam + ",";
+                		
+                		// remove the last character ','
+                		caseManagedTeamsAsString = caseManagedTeamsAsString.substring(0, caseManagedTeamsAsString.length()-1);
+                		
+                		// set the managed teams to the case
+                		Ivy.log().info("Case {0}-{1} has now managed teams {2} set.", wfCase.getIdentifier(), wfCase.getName(), caseManagedTeams);
+		            	wfCase.setCustomVarCharField5(caseManagedTeamsAsString);
 		            	return true;
                 	}
                 	else
@@ -94,15 +103,16 @@ public class CaseManagedTeamHelper {
 	 * without permission restriction
 	 * 
 	 * @param wfCase from which data has to be get
-	 * @return the managed team available on the case; if no data, then the empty string is returned
+	 * @return the managed teams available on the case. If there is several teams, they are comma separated.If no data, then the empty string is returned.
 	 * @throws Exception
 	 */
-	public static String getCaseManagedTeam(final ICase wfCase) throws Exception
+	public static String getCaseManagedTeams(final ICase wfCase) throws Exception
     {
         try {
             return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>(){
                 public String call() throws Exception {
-                	return wfCase.getCustomVarCharField5() != null? wfCase.getCustomVarCharField5(): "";   
+                	String customVarCharField5 = wfCase.getCustomVarCharField5();
+                	return customVarCharField5 != null? customVarCharField5: "";   
                 }
             });
 
@@ -112,6 +122,67 @@ public class CaseManagedTeamHelper {
         }
     }
 	
+	
+	/**
+	 * It get case managed teams value from the case data
+	 * without permission restriction
+	 * 
+	 * @param wfCase from which data has to be get
+	 * @return the managed teams available on the case. If there is several teams, they are comma separated.If no data, then the empty string is returned.
+	 * @throws Exception
+	 */
+	public static List<String> getCaseManagedTeamsAsList(final ICase wfCase) throws Exception
+    {
+        try {
+            return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<String>>(){
+                public List<String> call() throws Exception {
+                	String propValue = "";
+    	            String propValueArray[] = null;
+                	List<String> managedTeams = new ArrayList<String>();
+                	
+                	propValue = wfCase.getCustomVarCharField5();
+    	            if (propValue != null && propValue.length() > 0)
+    	            {
+    	              propValueArray = propValue.split(",");
+    	              managedTeams = Arrays.asList(propValueArray);
+    	            }
+                	return managedTeams;   
+                }
+            });
+
+        } catch (Exception e)
+        {
+        	throw new Exception("Error during getting the managed teams on case " + wfCase.getIdentifier(), e);
+        }
+    }
+	
+	
+	
+	/**
+	 * It get task managed team from task data 
+	 * without permission restriction
+	 * 
+	 * @param wfTask
+	 *					from which data has to be get		 					
+	 * @return
+	 *					the managed teams available on the task. If no data, then the empty string is returned. 					
+	 * @throws Exception
+	 */
+	private static String getTaskManagedTeam(final ITask wfTask) throws Exception
+	{
+        try {
+            return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>(){
+                public String call() throws Exception {
+                	String customVarCharField5 = wfTask.getCustomVarCharField5();
+                	return customVarCharField5 != null? customVarCharField5: "";   
+                }
+            });
+
+        } catch (Exception e)
+        {
+        	throw new Exception("Error during getting the managed teams on task " + wfTask.getIdentifier(), e);
+        }		
+	}
 	
 	
 	
@@ -133,7 +204,10 @@ public class CaseManagedTeamHelper {
 	 * It returns the user's managed teams as a list
 	 * 
 	 * @param user
-	 * @return list of user's managed teams
+	 * 				session user for which managed teams to find.
+	 * @return 
+	 * 				list of user's managed teams. If no data, the empty list is returned.
+	 * 
 	 * @throws EnvironmentNotAvailableException
 	 * @throws PersistencyException
 	 * @throws Exception
@@ -213,9 +287,12 @@ public class CaseManagedTeamHelper {
 	  /**
 	   * It set the user's managed teams with string value
 	   * 
-	   * @param user from which data has to be set
-	   * @param managedTeams a list of managed teams as a string value comma separated to set
-	   * @return true if operation successful; otherwise false
+	   * @param user 
+	   * 					from which data has to be set
+	   * @param managedTeams 
+	   * 					a list of managed teams as a string value comma separated to set
+	   * @return 
+	   * 					true if operation successful; otherwise false
 	   * @throws EnvironmentNotAvailableException
 	   * @throws PersistencyException
 	   * @throws Exception
@@ -229,8 +306,10 @@ public class CaseManagedTeamHelper {
 	        {
 	          public Boolean call() throws Exception
 	          {
-	        	  user.setProperty(MANAGED_TEAMS_PROPERTY_KEY, managedTeams);
-	        	  Ivy.log().debug("User {0} has now {1} as managed teams value.", user.getName(), managedTeams);
+	        	  // remove the white spaces
+	        	  String teams = normaliseManagedTeams(managedTeams);
+	        	  user.setProperty(MANAGED_TEAMS_PROPERTY_KEY, teams);
+	        	  Ivy.log().debug("User {0} has now <{1}> as managed teams value.", user.getName(), teams);
 	        	  return true;
 	          }
 	        });
@@ -240,5 +319,75 @@ public class CaseManagedTeamHelper {
 	    	throw new Exception("Error during setting the managed teams on user " + Ivy.session().getSessionUserName(), e);
 	    }
 	  }
+	  
+	  
+	  /**
+	   * It tells if the session user is team manager for that task AND its case 
+	   * 
+	   * @param wfTask
+	   * 				task (and case that task belongs to ) on which check has to be done. 
+	   * @return
+	   * 				true if user is team manager on the task AND on the case, otherwise false.
+	 * @throws Exception 
+	   */
+	  public static Boolean isSessionUserTeamManagerOnWfTask(ITask wfTask) throws Exception
+	  {
+		  Boolean result = false;		  
+		  List<String> sessionUserManagedTeams = null;
+		  String wfTaskManagedTeam = null;
+		  List<String> wfCaseManagedTeams = null;
+		  
+		  if (Ivy.session().isSessionUserUnknown())
+			  return result;
+		  
+		  // get the list of managed teams of the user
+		  sessionUserManagedTeams = getSessionUserManagedTeamsAsList();		  
+		  if (sessionUserManagedTeams.isEmpty())
+			  return result;
+
+		  // get the managed team on task
+		  wfTaskManagedTeam = getTaskManagedTeam(wfTask);
+		  if (wfTaskManagedTeam.length() < 0)
+			  return result;
+		  
+		  // get the managed teams on case
+		  wfCaseManagedTeams = getCaseManagedTeamsAsList(wfTask.getCase());
+		  if (wfCaseManagedTeams.isEmpty())
+			  return result;
+		  
+		  
+		  // run through session user managed teams and find out if he is manager on the task AND on its case
+		  for (String sessionUserManagedTeam: sessionUserManagedTeams)
+		  {
+			  if (wfTaskManagedTeam.equals(sessionUserManagedTeam) && 
+					  	wfCaseManagedTeams.contains(sessionUserManagedTeam))
+			  {
+				  // the session user is manager on task AND on case
+				  result = true;
+				  break;
+			  }
+		  }
+		  
+		  return result;
+	  }
+	  
+	  /** 
+	   * It returns a string of comma separated managed teams without spaces (leading, central, trailing)
+	   * 
+	   * @param managedTeams
+	   * 					list of managed teams to normalise
+	   * @return
+	   * 					list of comma separated managed teams without spaces.
+	   */
+	  private static String normaliseManagedTeams(String managedTeams) {
+		  StringTokenizer st = new StringTokenizer(managedTeams," ",false);
+		  String normalisedManagedTeams="";
+		  
+		  while (st.hasMoreElements()) 
+			  normalisedManagedTeams += st.nextToken().trim();
+		  
+		  return normalisedManagedTeams;
+		}
+
 	  
 }

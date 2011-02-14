@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Nov 16 17:21:05 CET 2010]
-1284D7DC62A3BA67 3.13.1 #module
+[>Created: Tue Feb 08 09:31:09 CET 2011]
+1284D7DC62A3BA67 3.15 #module
 >Proto >Proto Collection #zClass
 Es0 EventLogDisplayListProcess Big #zClass
 Es0 RD #cInfo
@@ -54,15 +54,6 @@ Es0 @RichDialogProcessEnd f37 '' #zField
 Es0 @PushWFArc f38 '' #zField
 Es0 @PushWFArc f39 '' #zField
 >Proto Es0 Es0 EventLogDisplayListProcess #zField
-Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Es0 f0 guid 12844DD6E1FC7357 #txt
 Es0 f0 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f0 method start() #txt
@@ -74,20 +65,20 @@ Es0 f0 inActionCode 'out.eventLogs = [];' #txt
 Es0 f0 outParameterDecl '<> result;
 ' #txt
 Es0 f0 embeddedRdInitializations '* ' #txt
+Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Es0 f0 190 46 20 20 13 0 #rect
 Es0 f0 @|RichDialogInitStartIcon #fIcon
 Es0 f1 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f1 190 470 20 20 13 0 #rect
 Es0 f1 @|RichDialogProcessEndIcon #fIcon
-Es0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(ICase)</name>
-        <nameStyle>12,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Es0 f3 guid 1284947F445EC90C #txt
 Es0 f3 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f3 method start(ch.ivyteam.ivy.workflow.ICase) #txt
@@ -95,8 +86,7 @@ Es0 f3 disableUIEvents true #txt
 Es0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <ch.ivyteam.ivy.workflow.ICase wfCase> param = methodEvent.getInputArguments();
 ' #txt
-Es0 f3 inActionCode '
-// this is all events display mode
+Es0 f3 inActionCode '// this is all events display mode
 out.displayMode = 0;
 
 if (param.#wfCase is initialized)
@@ -111,6 +101,15 @@ else
 Es0 f3 outParameterDecl '<> result;
 ' #txt
 Es0 f3 embeddedRdInitializations '* ' #txt
+Es0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(ICase)</name>
+        <nameStyle>12,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Es0 f3 326 46 20 20 13 0 #rect
 Es0 f3 @|RichDialogInitStartIcon #fIcon
 Es0 f7 guid 128494D2F14F43E9 #txt
@@ -148,9 +147,7 @@ Es0 f8 disableUIEvents false #txt
 Es0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <ch.ivyteam.ivy.workflow.ICase wfCase> param = methodEvent.getInputArguments();
 ' #txt
-Es0 f8 inActionCode '// set the display mode to "all events"
-out.displayMode = 0;
-
+Es0 f8 inActionCode '
 // set the case
 if (param.#wfCase is initialized)
 {
@@ -177,6 +174,7 @@ Es0 f8 @|RichDialogMethodStartIcon #fIcon
 Es0 f9 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f9 326 470 20 20 13 0 #rect
 Es0 f9 @|RichDialogProcessEndIcon #fIcon
+Es0 f2 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -186,7 +184,6 @@ Es0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f2 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f2 322 122 28 28 14 0 #rect
 Es0 f2 @|AlternativeIcon #fIcon
 Es0 f12 expr out #txt
@@ -242,6 +239,7 @@ events</name>
 Es0 f16 326 140 264 212 #arcP
 Es0 f16 1 264 160 #addKink
 Es0 f16 1 0.46153846153846156 3 0 #arcLabel
+Es0 f17 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -254,19 +252,8 @@ and NOT silent mode?</name>
     </language>
 </elementInfo>
 ' #txt
-Es0 f17 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f17 322 346 28 28 12 -19 #rect
 Es0 f17 @|AlternativeIcon #fIcon
-Es0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>show 
-ErrorDialog</name>
-        <nameStyle>17,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Es0 f19 targetDisplay TOP #txt
 Es0 f19 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
 Es0 f19 startMethod showError(ch.ivyteam.ivy.addons.data.technical.IvyResultStatus,Boolean,Boolean) #txt
@@ -286,6 +273,16 @@ Es0 f19 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /ce
 Es0 f19 isAsynch false #txt
 Es0 f19 isInnerRd true #txt
 Es0 f19 isDialog true #txt
+Es0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>show 
+ErrorDialog</name>
+        <nameStyle>17,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Es0 f19 470 412 36 24 20 -2 #rect
 Es0 f19 @|RichDialogIcon #fIcon
 Es0 f21 expr out #txt
@@ -294,6 +291,13 @@ Es0 f21 1 488 464 #addKink
 Es0 f21 1 0.14711653590268986 0 0 #arcLabel
 Es0 f4 expr out #txt
 Es0 f4 200 66 200 470 #arcP
+Es0 f14 actionDecl 'ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData out;
+' #txt
+Es0 f14 actionTable 'out=in;
+' #txt
+Es0 f14 actionCode 'ivy.log.error("Event logs display {0}.",
+							ivy.cms.co("/ch/ivyteam/ivy/addons/eventlog/plainStrings/eventLogsDisplayFailedCaseIsNotInitialized"));' #txt
+Es0 f14 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -306,13 +310,6 @@ display warning on the log</name>
     </language>
 </elementInfo>
 ' #txt
-Es0 f14 actionDecl 'ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData out;
-' #txt
-Es0 f14 actionTable 'out=in;
-' #txt
-Es0 f14 actionCode 'ivy.log.error("Event logs display {0}.",
-							ivy.cms.co("/ch/ivyteam/ivy/addons/eventlog/plainStrings/eventLogsDisplayFailedCaseIsNotInitialized"));' #txt
-Es0 f14 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f14 582 316 36 24 20 -2 #rect
 Es0 f14 @|RichDialogProcessStepIcon #fIcon
 Es0 f5 expr out #txt
@@ -373,6 +370,15 @@ Es0 f25 @|RichDialogProcessEndIcon #fIcon
 Es0 f26 expr out #txt
 Es0 f26 1056 66 1056 158 #arcP
 Es0 f26 0 0.49171150495909915 0 0 #arcLabel
+Es0 f24 actionDecl 'ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData out;
+' #txt
+Es0 f24 actionTable 'out=in;
+' #txt
+Es0 f24 actionCode 'if (!out.ivyResultStatus.successful)
+{
+	out.eventLogs.clear();
+}' #txt
+Es0 f24 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -383,30 +389,12 @@ clear list</name>
     </language>
 </elementInfo>
 ' #txt
-Es0 f24 actionDecl 'ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData out;
-' #txt
-Es0 f24 actionTable 'out=in;
-' #txt
-Es0 f24 actionCode 'if (!out.ivyResultStatus.successful)
-{
-	out.eventLogs.clear();
-}' #txt
-Es0 f24 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f24 318 276 36 24 20 -2 #rect
 Es0 f24 @|RichDialogProcessStepIcon #fIcon
 Es0 f27 expr out #txt
 Es0 f27 278 236 323 276 #arcP
 Es0 f18 expr out #txt
 Es0 f18 336 300 336 346 #arcP
-Es0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startWithBusinessEventsOnly(ICase)</name>
-        <nameStyle>34,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Es0 f31 guid 12C548D933113C6D #txt
 Es0 f31 type ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListData #txt
 Es0 f31 method startWithBusinessEventsOnly(ch.ivyteam.ivy.workflow.ICase) #txt
@@ -430,6 +418,15 @@ else
 Es0 f31 outParameterDecl '<> result;
 ' #txt
 Es0 f31 embeddedRdInitializations '* ' #txt
+Es0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startWithBusinessEventsOnly(ICase)</name>
+        <nameStyle>34,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Es0 f31 462 46 20 20 13 0 #rect
 Es0 f31 @|RichDialogInitStartIcon #fIcon
 Es0 f32 expr out #txt

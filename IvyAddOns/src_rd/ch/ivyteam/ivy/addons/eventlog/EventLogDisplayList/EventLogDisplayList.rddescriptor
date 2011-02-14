@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <description>The Rich Dialog displays the list of event logs get from EventLogServices.</description>
+    <autoScreenshot>true</autoScreenshot>
     <method>
         <name>getWfCase</name>
         <description></description>
