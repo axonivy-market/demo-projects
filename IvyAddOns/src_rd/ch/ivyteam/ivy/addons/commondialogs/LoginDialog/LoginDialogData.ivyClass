@@ -15,5 +15,3 @@ allowedEnvironmentsSelectionVisible Boolean #field
 allowedEnvironmentsSelectionVisible 'If true then the list of allowed environments is displayed on the ui.' #fieldComment
 setActiveEnvironmentException Exception #field
 setActiveEnvironmentException 'The exception catched during the session.setActiveEnvironment Public API call' #fieldComment
-windowTitle String #field
-windowTitle 'The windows title for error, message dialog.' #fieldComment
