@@ -1,0 +1,6 @@
+<P>
+Hi <B>{0}</B>,
+</P>
+<P>
+you are connected to <B>{1}</B> Ivy application and active environment is <B>{2}</B>.
+</P>

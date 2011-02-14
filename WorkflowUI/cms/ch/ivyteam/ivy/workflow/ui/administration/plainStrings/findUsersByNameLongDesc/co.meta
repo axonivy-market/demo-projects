@@ -1,0 +1,4 @@
+co: name={findUsersByNameLongDesc} description={} changed={2011-02-09 14:40:25 CET} changedby={tirib} visualorder={0} guid={12E0AA5F55366E6A} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={12E0AA5F5D6E9A25} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-12-14 20:14:05 CET} validto={} changed={2011-02-09 14:40:25 CET} changedby={tirib} properties={} id={}
+val: guid={12E0AA5F5AD9987A} datatype={} isdefault={true} langid={en} description={} validfrom={2008-12-14 20:13:56 CET} validto={} changed={2011-02-09 14:40:25 CET} changedby={tirib} properties={} id={}
+val: guid={12E0AA5F5BC6C0E7} datatype={} isdefault={false} langid={de} description={} validfrom={2009-05-28 15:12:48 CEST} validto={} changed={2011-02-09 14:40:25 CET} changedby={tirib} properties={} id={}

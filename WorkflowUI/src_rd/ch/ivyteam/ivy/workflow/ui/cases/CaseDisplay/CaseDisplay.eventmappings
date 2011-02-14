@@ -1,12 +1,12 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-01-21 17:04:55 | 4.2.0.35322 | 1.0
+# 2011-02-07 17:34:55 | 4.2.0.35335 | 1.0
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/119C2655307CB251
-~.fileManagerRDC@RD_EVENT[filesAdded]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/129A6F7504EDB9A2 # CaseDisplayProcess.mod/updateDocumentsTabTitle
+~.fileManagerRDC@RD_EVENT[filesAdded]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/129A6F7504EDB9A2
 ~@RD_METHODCALL[refresh()]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/119C2A4C9C24DDD5
 ~@RD_BROADCAST[xivyCaseNotesChanged]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/128DE3AB3875949B
 ~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/11B07C6D87C9D076
 ~@RD_METHODCALL[start(ch.ivyteam.ivy.workflow.ICase,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay)]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/119C2655B7589E81
-~.fileManagerRDC@RD_EVENT[filesDeleted]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/129A6F7504EDB9A2 # CaseDisplayProcess.mod/updateDocumentsTabTitle
-~.caseDisplayTabbedPane@SELECTION_CHANGED[]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/119C375F9DC90CCF
 ~@RD_METHODCALL[getCaseIdentifier()]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/119C2A4C0E28A78A
+~.caseDisplayTabbedPane@SELECTION_CHANGED[]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/119C375F9DC90CCF
+~.fileManagerRDC@RD_EVENT[filesDeleted]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/129A6F7504EDB9A2
 ~.exitButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119C23018068C697/119C3858019F192E

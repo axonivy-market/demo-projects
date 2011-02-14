@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Jun 15 16:03:01 CEST 2010]
-11AE9CE89D43B950 3.12 #module
+[>Created: Thu Feb 10 11:33:12 CET 2011]
+11AE9CE89D43B950 3.15 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseBusinessAndTaskFiltersSelectProcess Big #zClass
 Cs0 RD #cInfo
@@ -133,11 +133,14 @@ out.caseNameRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperat
 out.caseDisplayMode = 0;
 
 // categories relational operators
-out.caseProcessCategoriesRelationalOperatorsList = [RelationalOperator.EQUAL, RelationalOperator.UNEQUAL];
+
+out.caseProcessCategoriesRelationalOperatorsList = [RelationalOperator.EQUAL, RelationalOperator.UNEQUAL];
 
 // processes relational operators
-out.caseProcessesRelationalOperatorsList = [RelationalOperator.EQUAL, RelationalOperator.UNEQUAL];
-
+
+out.caseProcessesRelationalOperatorsList = [RelationalOperator.EQUAL, RelationalOperator.UNEQUAL];
+
+
 // types relational operators
 out.caseTypesRelationalOperatorsList = [RelationalOperator.EQUAL, RelationalOperator.UNEQUAL];
 
@@ -236,7 +239,7 @@ CaseHierarchyTreeNodeValue processCategoryTreeNodeValue;
 // add the element "ALL" to list
 processCategoryTreeNodeValue  = new CaseHierarchyTreeNodeValue();
 processCategoryTreeNodeValue.property = CaseProperty.PROCESS_CATEGORY_CODE;
-processCategoryTreeNodeValue.categoryCode = null;
+processCategoryTreeNodeValue.categoryCode = "";
 processCategoryTreeNodeValue.categoryName = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/all");
 
 out.caseProcessCategoriesList.add(processCategoryTreeNodeValue);
@@ -249,7 +252,7 @@ for (IGroup category: categoriesIGroup)
    processCategoryTreeNodeValue.property = CaseProperty.PROCESS_CATEGORY_CODE;
    processCategoryTreeNodeValue.categoryCode = elementOfCategoriesICase.getProcessCategoryCode();
    processCategoryTreeNodeValue.categoryName = (elementOfCategoriesICase.getProcessCategoryName() is initialized? elementOfCategoriesICase.getProcessCategoryName(): 
-																								(elementOfCategoriesICase.getProcessCategoryCode() is initialized? processCategoryTreeNodeValue.categoryCode: ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/uncategorizedCases").toString()));
+																								(elementOfCategoriesICase.getProcessCategoryCode() is initialized? ""+processCategoryTreeNodeValue.categoryCode: ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/uncategorizedCases").toString()));
 
    out.caseProcessCategoriesList.add(processCategoryTreeNodeValue) ;
 }
@@ -381,7 +384,8 @@ caseProcessesIGroup.clear();
 
 //
 propertyFilter = ivy.wf.createCasePropertyFilter(selectedParentCategoryTreeNodeValue.property, selectedParentRelationalOperator, selectedParentCategoryTreeNodeValue.categoryCode);
-propertyFilter = propertyFilter.and(in.caseStatePropertyFilter);
+
+propertyFilter = propertyFilter.and(in.caseStatePropertyFilter);
 
 if (in.caseDisplayMode == 0)
 {
@@ -412,7 +416,7 @@ out.caseProcessesList = [];
 CaseHierarchyTreeNodeValue processTreeNodeValue;
    processTreeNodeValue = new CaseHierarchyTreeNodeValue();
    processTreeNodeValue.property = CaseProperty.PROCESS_CODE;
-   processTreeNodeValue.categoryCode = null;
+   processTreeNodeValue.categoryCode = "";
    processTreeNodeValue.categoryName = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/all");
 out.caseProcessesList.add(processTreeNodeValue); 
 
@@ -517,7 +521,7 @@ out.caseProcessesList.clear();
 CaseHierarchyTreeNodeValue processTreeNodeValue;
    processTreeNodeValue = new CaseHierarchyTreeNodeValue();
    processTreeNodeValue.property = CaseProperty.PROCESS_CODE;
-   processTreeNodeValue.categoryCode = null;
+   processTreeNodeValue.categoryCode = "";
    processTreeNodeValue.categoryName = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/all");
 
 out.caseProcessesList.add(processTreeNodeValue); ' #txt
@@ -571,7 +575,7 @@ out.caseTypesList.clear();
 CaseHierarchyTreeNodeValue caseTypeTreeNodeValue;
    caseTypeTreeNodeValue = new CaseHierarchyTreeNodeValue();
    caseTypeTreeNodeValue.property = CaseProperty.TYPE_CODE;
-   caseTypeTreeNodeValue.categoryCode = null;
+   caseTypeTreeNodeValue.categoryCode = "";
    caseTypeTreeNodeValue.categoryName = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/all");
 
 out.caseTypesList.add(caseTypeTreeNodeValue); ' #txt
@@ -595,7 +599,8 @@ Cs0 f75 actionTable 'out=in;
 ' #txt
 Cs0 f75 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.cases.CaseHierarchyTreeNodeValue;
 
-import ch.ivyteam.ivy.workflow.CaseProperty;
+
+import ch.ivyteam.ivy.workflow.CaseProperty;
 import ch.ivyteam.ivy.workflow.ICase;
 import ch.ivyteam.ivy.workflow.IPropertyFilter;
 import ch.ivyteam.ivy.persistence.IGroup;
@@ -616,7 +621,8 @@ RelationalOperator selectedCaseProcessCategoryRelationalOperator  = (panel.caseP
 CaseHierarchyTreeNodeValue selectedCaseProcessCategoryTreeNodeValue = panel.caseProcessCategoriesComboBox.selectedListEntry as CaseHierarchyTreeNodeValue;
 
 propertyFilter = ivy.wf.createCasePropertyFilter(selectedCaseProcessCategoryTreeNodeValue.property, selectedCaseProcessCategoryRelationalOperator, selectedCaseProcessCategoryTreeNodeValue.categoryCode);
-
+
+
 
 // read the case process
 RelationalOperator selectedCaseProcessRelationalOperator  = (panel.caseProcessRelationalOperatorComboBox.selectedListEntry as RelationalOperator);
@@ -660,7 +666,7 @@ out.caseTypesList = [];
    CaseHierarchyTreeNodeValue caseTypeTreeNodeValue;
    caseTypeTreeNodeValue = new CaseHierarchyTreeNodeValue();
    caseTypeTreeNodeValue.property = CaseProperty.TYPE_CODE;
-   caseTypeTreeNodeValue.categoryCode = null;
+   caseTypeTreeNodeValue.categoryCode = "";
    caseTypeTreeNodeValue.categoryName = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/all");
 
    out.caseTypesList.add(caseTypeTreeNodeValue);
@@ -876,7 +882,7 @@ else
    CaseHierarchyTreeNodeValue caseSubTypeTreeNodeValue;
    caseSubTypeTreeNodeValue = new CaseHierarchyTreeNodeValue();
    caseSubTypeTreeNodeValue.property = CaseProperty.SUB_TYPE_CODE;
-   caseSubTypeTreeNodeValue.categoryCode = null;
+   caseSubTypeTreeNodeValue.categoryCode = "";
    caseSubTypeTreeNodeValue.categoryName = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/all");
       
    out.caseSubTypesList.add(caseSubTypeTreeNodeValue);
@@ -957,7 +963,7 @@ out.caseSubTypesList.clear();
 CaseHierarchyTreeNodeValue caseSubTypeTreeNodeValue;
    caseSubTypeTreeNodeValue = new CaseHierarchyTreeNodeValue();
    caseSubTypeTreeNodeValue.property = CaseProperty.SUB_TYPE_CODE;
-   caseSubTypeTreeNodeValue.categoryCode = null;
+   caseSubTypeTreeNodeValue.categoryCode = "";
    caseSubTypeTreeNodeValue.categoryName = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/all");
 
 out.caseSubTypesList.add(caseSubTypeTreeNodeValue); ' #txt
@@ -1163,7 +1169,7 @@ if (panel.businessStartTimestampDatePicker.getValueAsDate() is initialized)
 {
 	out.caseAvailableFilters.businessStartTimestampFilter.property = CaseProperty.BUSINESS_START_TIMESTAMP;
 	out.caseAvailableFilters.businessStartTimestampFilter.relationalOperator = RelationalOperator.EQUAL_OR_LARGER;
-	out.caseAvailableFilters.businessStartTimestampFilter.value = new Date(panel.businessStartTimestampDatePicker.getDate()).toString();
+	out.caseAvailableFilters.businessStartTimestampFilter.value = panel.businessStartTimestampDatePicker.getValueAsDate();
 	
 	IPropertyFilter businessStartTimestampPropertyFilter = 
 						ivy.wf.createCasePropertyFilter(out.caseAvailableFilters.businessStartTimestampFilter.property,
@@ -1188,7 +1194,7 @@ if (panel.businessMilestoneTimestampDatePicker.getValueAsDate() is initialized)
 {
 	out.caseAvailableFilters.businessMilestoneTimestampFilter.property = CaseProperty.BUSINESS_MILESTONE_TIMESTAMP;
 	out.caseAvailableFilters.businessMilestoneTimestampFilter.relationalOperator = RelationalOperator.EQUAL_OR_LARGER;
-	out.caseAvailableFilters.businessMilestoneTimestampFilter.value = new Date(panel.businessMilestoneTimestampDatePicker.getDate()).toString();
+	out.caseAvailableFilters.businessMilestoneTimestampFilter.value = panel.businessMilestoneTimestampDatePicker.getValueAsDate();
 	
 	IPropertyFilter businessMilestoneTimestampPropertyFilter = 
 						ivy.wf.createCasePropertyFilter(out.caseAvailableFilters.businessMilestoneTimestampFilter.property,
@@ -1234,13 +1240,13 @@ else
 
 
 // read the case process category and build the filter
-if (panel.caseProcessCategoriesComboBox.getSelectedListEntry() != null &&
-	!(panel.caseProcessCategoriesComboBox.getSelectedListEntry() as CaseHierarchyTreeNodeValue).categoryCode.equals("")) 		
+if (panel.caseProcessCategoriesComboBox.getSelectedListEntry() != null && !"".equals((panel.caseProcessCategoriesComboBox.getSelectedListEntry() as CaseHierarchyTreeNodeValue).getCategoryCode())) 		
 {
 
 		// normal case process category
 		RelationalOperator selectedCaseProcessCategoryRelationalOperator  = (panel.caseProcessCategoryRelationalOperatorComboBox.getSelectedListEntry() as RelationalOperator);
 		CaseHierarchyTreeNodeValue selectedCaseProcessCategoryTreeNodeValue = panel.caseProcessCategoriesComboBox.getSelectedListEntry() as CaseHierarchyTreeNodeValue;
+		
 		// build the category filter
 		CaseCategoryFilter caseProcessCategoryFilter = new CaseCategoryFilter();
 		caseProcessCategoryFilter.category = selectedCaseProcessCategoryTreeNodeValue;
@@ -1291,10 +1297,11 @@ else
 
 
 // read the case process for given category and build the filter
-if (panel.caseProcessesComboBox.getSelectedListEntry() != null && !(panel.caseProcessesComboBox.getSelectedListEntry() as CaseHierarchyTreeNodeValue).categoryCode.equals(""))
+if (panel.caseProcessesComboBox.getSelectedListEntry() != null && !"".equals((panel.caseProcessesComboBox.getSelectedListEntry() as CaseHierarchyTreeNodeValue).getCategoryCode()))
 {
 	RelationalOperator selectedCaseProcessRelationalOperator  = (panel.caseProcessRelationalOperatorComboBox.getSelectedListEntry() as RelationalOperator);
 	CaseHierarchyTreeNodeValue selectedCaseProcessTreeNodeValue = panel.caseProcessesComboBox.getSelectedListEntry() as CaseHierarchyTreeNodeValue;
+	
 	// build the category filter
 	CaseCategoryFilter caseProcessesFilter = new CaseCategoryFilter();
 	caseProcessesFilter.category = selectedCaseProcessTreeNodeValue;
@@ -1316,11 +1323,12 @@ else
 
 
 // read the case type for given process and build the filter
-if (panel.caseTypesComboBox.getSelectedListEntry() != null && !(panel.caseTypesComboBox.getSelectedListEntry() as CaseHierarchyTreeNodeValue).categoryCode.equals(""))
+if (panel.caseTypesComboBox.getSelectedListEntry() != null && !"".equals((panel.caseTypesComboBox.getSelectedListEntry() as CaseHierarchyTreeNodeValue).getCategoryCode()))
 {
 	RelationalOperator selectedCaseTypeRelationalOperator  = (panel.caseTypeRelationalOperatorComboBox.getSelectedListEntry() as RelationalOperator);
 	CaseHierarchyTreeNodeValue selectedCaseTypeTreeNodeValue = panel.caseTypesComboBox.getSelectedListEntry() as CaseHierarchyTreeNodeValue;
-	// build the category filter
+	
+	// build the category filter	
 	CaseCategoryFilter caseTypesFilter = new CaseCategoryFilter();
 	caseTypesFilter.category = selectedCaseTypeTreeNodeValue;
 	caseTypesFilter.relationalOperator = selectedCaseTypeRelationalOperator;
@@ -1340,10 +1348,11 @@ else
 
 
 // read the case sub type for given case type and build the filter and build the filter
-if (panel.caseSubTypesComboBox.getSelectedListEntry() != null && !(panel.caseSubTypesComboBox.getSelectedListEntry() as CaseHierarchyTreeNodeValue).categoryCode.equals(""))
+if (panel.caseSubTypesComboBox.getSelectedListEntry() != null && !"".equals((panel.caseSubTypesComboBox.getSelectedListEntry() as CaseHierarchyTreeNodeValue).getCategoryCode()))
 {
 	RelationalOperator selectedCaseSubTypeRelationalOperator  = (panel.caseSubTypeRelationalOperatorComboBox.getSelectedListEntry() as RelationalOperator);
 	CaseHierarchyTreeNodeValue selectedCaseSubTypeTreeNodeValue = panel.caseSubTypesComboBox.getSelectedListEntry() as CaseHierarchyTreeNodeValue;
+	
 	// build the category filter
 	CaseCategoryFilter caseSubTypesFilter = new CaseCategoryFilter();
 	caseSubTypesFilter.category = selectedCaseSubTypeTreeNodeValue;
@@ -1503,7 +1512,7 @@ Cs0 f54 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>buld the filters</name>
-        <nameStyle>16,9
+        <nameStyle>16,7,9
 </nameStyle>
     </language>
 </elementInfo>

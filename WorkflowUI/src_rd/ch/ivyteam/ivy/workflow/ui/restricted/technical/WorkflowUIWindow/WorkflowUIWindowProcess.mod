@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 17 16:20:05 CET 2011]
+[>Created: Fri Feb 04 11:41:58 CET 2011]
 128B5701B1FDD6EF 3.15 #module
 >Proto >Proto Collection #zClass
 Ws0 WorkflowUIWindowProcess Big #zClass
@@ -628,6 +628,7 @@ Ws0 f45 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ws0 f45 1510 278 20 20 13 0 #rect
 Ws0 f45 @|RichDialogProcessEndIcon #fIcon
+Ws0 f47 targetWindow NEW:card: #txt
 Ws0 f47 targetDisplay TOP #txt
 Ws0 f47 richDialogId ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit #txt
 Ws0 f47 startMethod start() #txt
@@ -638,10 +639,11 @@ Ws0 f47 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.Work
 ' #txt
 Ws0 f47 responseMappingAction 'out=in;
 ' #txt
-Ws0 f47 windowConfiguration '{/title "<%=in.title%>"/width 700 /height 400 /centered true /resizable false /maximized false /close_after_last_rd true }' #txt
+Ws0 f47 windowConfiguration '{/title "<%=in.title%>"/width 700 /height 400 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 Ws0 f47 isAsynch false #txt
 Ws0 f47 isInnerRd true #txt
 Ws0 f47 isDialog true #txt
+Ws0 f47 userContext '* ' #txt
 Ws0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>

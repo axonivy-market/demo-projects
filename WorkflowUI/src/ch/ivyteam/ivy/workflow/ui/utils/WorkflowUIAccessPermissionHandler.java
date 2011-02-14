@@ -40,7 +40,7 @@ import ch.ivyteam.logicalexpression.RelationalOperator;
  * 
  * @author tirib 
  * This tool class help to simplify the access to the Ivy API according to the fact if the
- *         currentyl authentificated user is workflow user (IWorkflowSession) or workflow administrator
+ *         currently logged in user is workflow user (IWorkflowSession) or workflow administrator
  *         (IWorfkflowContext)
  * @since 2007/08/01
  * 
@@ -450,7 +450,7 @@ public class WorkflowUIAccessPermissionHandler
       case 1:
     	//
         // team cases
-    	  List<IRole> userRoles = Ivy.session().getSessionUser().getRoles();
+    	List<IRole> userRoles = Ivy.session().getSessionUser().getRoles();
     	
         List<IGroup<ICase>> involvedCasesByRoleCategories = Ivy.session().findInvolvedCasesByRoleCategories(
                 userRoles, categoryFilter, categoryProperty,
@@ -750,20 +750,21 @@ public class WorkflowUIAccessPermissionHandler
     // define the filter based on user property value managed teams
     // and the cases custom varchar field 5		  
     IPropertyFilter<CaseProperty> userTeamManagedCasesFilter = null;
+    String searchCriteria = "";
     for (String managedTeam : userManagedTeams)
-    {    	
+    {  
+    	searchCriteria = "%" + managedTeam + "%";
     	if (userTeamManagedCasesFilter == null)
     	{
-    		Ivy.log().debug("Create case property filter {0} {1} {2}.", 
-    				CaseProperty.CUSTOM_VARCHAR_FIELD_5, RelationalOperator.EQUAL, managedTeam);
-    		userTeamManagedCasesFilter = 
-    			Ivy.wf().createCasePropertyFilter(CaseProperty.CUSTOM_VARCHAR_FIELD_5, RelationalOperator.EQUAL, managedTeam);
+    		Ivy.log().debug("Create case property filter {0} {1} {2}.", CaseProperty.CUSTOM_VARCHAR_FIELD_5, RelationalOperator.LIKE, searchCriteria);
+//    		userTeamManagedCasesFilter = Ivy.wf().createCasePropertyFilter(CaseProperty.CUSTOM_VARCHAR_FIELD_5, RelationalOperator.EQUAL, managedTeam);
+    		userTeamManagedCasesFilter = Ivy.wf().createCasePropertyFilter(CaseProperty.CUSTOM_VARCHAR_FIELD_5, RelationalOperator.LIKE, searchCriteria);
     	}
     	else
     	{
-    		Ivy.log().debug("Add OR case property filter {0} {1} {2}.", 
-    				CaseProperty.CUSTOM_VARCHAR_FIELD_5, RelationalOperator.EQUAL, managedTeam);
-    		userTeamManagedCasesFilter = userTeamManagedCasesFilter.or(CaseProperty.CUSTOM_VARCHAR_FIELD_5, RelationalOperator.EQUAL, managedTeam);
+    		Ivy.log().debug("Add OR case property filter {0} {1} {2}.", CaseProperty.CUSTOM_VARCHAR_FIELD_5, RelationalOperator.LIKE, searchCriteria);
+//    		userTeamManagedCasesFilter = userTeamManagedCasesFilter.or(CaseProperty.CUSTOM_VARCHAR_FIELD_5, RelationalOperator.EQUAL, managedTeam);
+    		userTeamManagedCasesFilter = userTeamManagedCasesFilter.or(CaseProperty.CUSTOM_VARCHAR_FIELD_5, RelationalOperator.LIKE, searchCriteria);
     	}    	
     }
 
@@ -1643,7 +1644,7 @@ public class WorkflowUIAccessPermissionHandler
   
   
   /**
-   * It returns a list of human users of Ivy application
+   * It returns a list of "human" users of Ivy application (without SYSTEM user)
    * 
    * @return
    * 		list of users; if no data, it return empty list
@@ -1668,6 +1669,21 @@ public class WorkflowUIAccessPermissionHandler
 	        		  }
 	        	  }
 	        	  
+	        	  // sort the list by user name
+	        	  Collections.sort(humanUsers, new Comparator<IUser> ()
+					{
+						public int compare(IUser user1, IUser user2)
+						{
+							int result = -1; 
+							try {
+								result = (user1.getName()).compareTo(user2.getName());
+							} catch (PersistencyException e) {
+								e.printStackTrace();
+							}
+							return result;
+						}
+					});
+	        	  
 	        	  return humanUsers; 
 	          }
 	        });
@@ -1684,7 +1700,7 @@ public class WorkflowUIAccessPermissionHandler
   /**
    * 
    * It returns all users of Ivy application
-   * @return list of users; if no data, it return empty list
+   * @return list of users; if no data, it returns empty list
    */
   public static List<IUser> getWfUsers()
   {

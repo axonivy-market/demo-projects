@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 25 09:59:32 CET 2011]
+[>Created: Thu Feb 10 13:06:07 CET 2011]
 116A9BF16D47762C 3.15 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -912,14 +912,15 @@ for (Number taskId: out.broadcastedTaskIdentifiers)
 // if the param.aWorkflowSystemEventParameter.getIdentifiers() is like
 // [127, 129]
 // where 127 changed to DONE and 129 changed to RESUMED 
-// and both tasks belongs to the same case
+// and both tasks belongs to the same case as the current task does
 // keep the 129 as broadcastedTaskAssignedToSelf1Identifier
 if (out.broadcastedTaskIdentifiers.size() == 2)
 {
 	ITask taskA = WorkflowUIAccessPermissionHandler.wfFindTaskAsSystemUser(out.broadcastedTaskIdentifiers.get(0));
 	ITask taskB = WorkflowUIAccessPermissionHandler.wfFindTaskAsSystemUser(out.broadcastedTaskIdentifiers.get(1));
 	
-	if (taskA.getCase().getIdentifier().equals(taskB.getCase().getIdentifier()) && 
+	if (taskA.getCase().getIdentifier().equals(taskB.getCase().getIdentifier()) &&
+			in.task.getCase().getIdentifier().equals(taskA.getCase().getIdentifier()) && 			
 			taskA.getState().compareTo(TaskState.DONE) == 0 && taskB.getState().compareTo(TaskState.RESUMED) == 0)
 	{
 		out.broadcastedTaskAssignedToSelf1Identifier = out.broadcastedTaskIdentifiers.get(1);	

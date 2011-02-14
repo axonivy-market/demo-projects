@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Jul 28 00:14:40 CEST 2010]
-128B577C874984E4 3.12 #module
+[>Created: Fri Feb 04 10:32:16 CET 2011]
+128B577C874984E4 3.15 #module
 >Proto >Proto Collection #zClass
 Us0 UserSessionHeaderProcess Big #zClass
 Us0 RD #cInfo
@@ -189,6 +189,11 @@ Us0 f12 736 156 736 198 #arcP
 ' #txt
 >Proto Us0 .type ch.ivyteam.ivy.workflow.ui.security.UserSessionHeader.UserSessionHeaderData #txt
 >Proto Us0 .processKind RICH_DIALOG #txt
+>Proto Us0 .rdData2UIAction 'panel.userHyperlink.toolTipText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/security/plainStrings/sessionUserSummaryInformation", 
+			[	"username", ivy.request.getApplication().getName(), 
+				("".equals(ivy.session.getActiveEnvironment())? "Default": ivy.session.getActiveEnvironment()),
+				ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper.getSessionUserManagedTeamsAsString(ivy.session.getSessionUser()) ]);
+' #txt
 >Proto Us0 -8 -8 16 16 16 26 #rect
 >Proto Us0 '' #fIcon
 Us0 f0 mainOut f2 tail #connect

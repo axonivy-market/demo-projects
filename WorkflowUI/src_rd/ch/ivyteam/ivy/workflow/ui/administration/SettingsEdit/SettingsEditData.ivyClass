@@ -1,11 +1,6 @@
 SettingsEditData #class
 ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit #namespace
-dailyTask Boolean #field
-newTask Boolean #field
-language java.util.List #field
-selectedLanguage String #field
 error String #field
-loggedInAs String #field
 hasUserSetOwnPropertyPermission Boolean #field
 hasUserReadOwnPropertyPermission Boolean #field
 windowTitle String #field

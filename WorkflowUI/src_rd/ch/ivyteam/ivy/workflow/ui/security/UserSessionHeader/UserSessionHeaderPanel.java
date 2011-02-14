@@ -6,6 +6,7 @@ import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
 
 import com.ulcjava.base.application.util.Color;
+import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 
 /**
  * RichDialog panel implementation for UserSessionHeaderPanel.
@@ -20,6 +21,7 @@ implements IRichDialogPanel
 private RHyperlink helpHyperlink = null;
 private RHyperlink aboutHyperlink = null;
 private RHyperlink settingsHyperlink = null;
+private RHyperlink userHyperlink = null;
 /**
    * Create a new instance of UserSessionHeaderPanel
    */
@@ -38,11 +40,16 @@ private RHyperlink settingsHyperlink = null;
    */
   private void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(73,40));
+        RFiller horizontalFiller = new RFiller();
+        horizontalFiller.setStyleProperties("{/weightX \"1\"}");
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(102,40));
         this.setBackground(Color.white);
-        this.add(getHelpHyperlink(), new com.ulcjava.base.application.GridBagConstraints(2, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getAboutHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getSettingsHyperlink(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(160,34));
+        this.add(getHelpHyperlink(), new com.ulcjava.base.application.GridBagConstraints(4, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getAboutHyperlink(), new com.ulcjava.base.application.GridBagConstraints(3, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getSettingsHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(getUserHyperlink(), new com.ulcjava.base.application.GridBagConstraints(2, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+        this.add(horizontalFiller, new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
 /**
@@ -55,8 +62,9 @@ private RHyperlink getHelpHyperlink() {
 		helpHyperlink = new RHyperlink();
 		helpHyperlink.setName("helpHyperlink");
 		helpHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/help/plainStrings/openUserGuide\")%>\n");
-		helpHyperlink.setStyleProperties("{/anchor \"CENTER\"/insetsBottom \"5\"/insetsTop \"5\"/fill \"NONE\"/insetsRight \"5\"/insetsLeft \"0\"}");
 		helpHyperlink.setOpaque(false);
+		helpHyperlink.setStyle("sessionHeaderHyperlink");
+		helpHyperlink.setStyleProperties("{/insetsRight \"10\"}");
 		helpHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/help/images/help24\")%>");
 	}
 	return helpHyperlink;
@@ -74,7 +82,7 @@ private RHyperlink getAboutHyperlink() {
 		aboutHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/about/images/about24\")%>");
 		aboutHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/about/plainStrings/aboutLabel\")%>");
 		aboutHyperlink.setOpaque(false);
-		aboutHyperlink.setStyleProperties("{/anchor \"CENTER\"/insetsBottom \"5\"/insetsTop \"5\"/fill \"NONE\"/insetsRight \"0\"/insetsLeft \"0\"}");
+		aboutHyperlink.setStyle("sessionHeaderHyperlink");
 		aboutHyperlink.setVisible(false);
 	}
 	return aboutHyperlink;
@@ -90,10 +98,26 @@ private RHyperlink getSettingsHyperlink() {
 		settingsHyperlink = new RHyperlink();
 		settingsHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/administration/images/settings16\")%>");
 		settingsHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/settingsShortDesc\")%>");
-		settingsHyperlink.setStyleProperties("{/anchor \"CENTER\"/insetsBottom \"5\"/insetsTop \"5\"/insetsRight \"5\"/insetsLeft \"5\"}");
+		settingsHyperlink.setStyle("sessionHeaderHyperlink");
 		settingsHyperlink.setName("settingsHyperlink");
 	}
 	return settingsHyperlink;
+}
+
+/**
+ * This method initializes userHyperlink	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getUserHyperlink() {
+	if (userHyperlink == null) {
+		userHyperlink = new RHyperlink();
+		userHyperlink.setStyle("sessionHeaderHyperlink");
+		userHyperlink.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/security/images/user16\") %>");
+		userHyperlink.setVisible(false);
+		userHyperlink.setName("userHyperlink");
+	}
+	return userHyperlink;
 }
 
 }  //  @jve:decl-index=0:visual-constraint="10,10"

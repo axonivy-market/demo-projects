@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jan 19 16:01:01 CET 2011]
+[>Created: Wed Feb 09 14:15:39 CET 2011]
 1168625F1BC1155F 3.15 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -78,9 +78,6 @@ Ts0 @RichDialogProcessStart f126 '' #zField
 Ts0 @Alternative f128 '' #zField
 Ts0 @PushWFArc f129 '' #zField
 Ts0 @PushWFArc f24 '' #zField
-Ts0 @RichDialogProcessStep f131 '' #zField
-Ts0 @PushWFArc f132 '' #zField
-Ts0 @PushWFArc f46 '' #zField
 Ts0 @RichDialogProcessStep f133 '' #zField
 Ts0 @PushWFArc f134 '' #zField
 Ts0 @PushWFArc f130 '' #zField
@@ -94,12 +91,8 @@ Ts0 @RichDialogProcessEnd f152 '' #zField
 Ts0 @RichDialogProcessStep f154 '' #zField
 Ts0 @PushWFArc f155 '' #zField
 Ts0 @PushWFArc f153 '' #zField
-Ts0 @RichDialog f156 '' #zField
 Ts0 @Alternative f157 '' #zField
-Ts0 @PushWFArc f158 '' #zField
 Ts0 @PushWFArc f43 '' #zField
-Ts0 @PushWFArc f159 '' #zField
-Ts0 @PushWFArc f160 '' #zField
 Ts0 @RichDialogProcessStart f161 '' #zField
 Ts0 @RichDialogProcessStart f162 '' #zField
 Ts0 @RichDialogProcessEnd f163 '' #zField
@@ -235,14 +228,10 @@ Ts0 @PushWFArc f248 '' #zField
 Ts0 @PushWFArc f249 '' #zField
 Ts0 @RichDialogProcessStep f250 '' #zField
 Ts0 @RichDialog f251 '' #zField
-Ts0 @Alternative f252 '' #zField
 Ts0 @Alternative f253 '' #zField
 Ts0 @PushWFArc f255 '' #zField
-Ts0 @PushWFArc f256 '' #zField
-Ts0 @PushWFArc f259 '' #zField
 Ts0 @PushWFArc f260 '' #zField
 Ts0 @PushWFArc f72 '' #zField
-Ts0 @PushWFArc f257 '' #zField
 Ts0 @Alternative f3 '' #zField
 Ts0 @RichDialogProcessStep f5 '' #zField
 Ts0 @PushWFArc f8 '' #zField
@@ -270,7 +259,6 @@ Ts0 @RichDialogProcessEnd f266 '' #zField
 Ts0 @Alternative f267 '' #zField
 Ts0 @PushWFArc f269 '' #zField
 Ts0 @RichDialogProcessStep f68 '' #zField
-Ts0 @PushWFArc f271 '' #zField
 Ts0 @PushWFArc f272 '' #zField
 Ts0 @PushWFArc f263 '' #zField
 Ts0 @RichDialogProcessStep f264 '' #zField
@@ -283,8 +271,6 @@ Ts0 @PushWFArc f95 '' #zField
 Ts0 @RichDialogProcessStep f75 '' #zField
 Ts0 @PushWFArc f276 '' #zField
 Ts0 @PushWFArc f275 '' #zField
-Ts0 @RichDialogProcessStep f277 '' #zField
-Ts0 @PushWFArc f261 '' #zField
 Ts0 @RichDialogProcessStep f279 '' #zField
 Ts0 @PushWFArc f280 '' #zField
 Ts0 @PushWFArc f62 '' #zField
@@ -303,7 +289,6 @@ Ts0 @PushWFArc f274 '' #zField
 Ts0 @Alternative f295 '' #zField
 Ts0 @PushWFArc f296 '' #zField
 Ts0 @PushWFArc f297 '' #zField
-Ts0 @PushWFArc f286 '' #zField
 Ts0 @RichDialogProcessEnd f289 '' #zField
 Ts0 @RichDialogMethodStart f278 '' #zField
 Ts0 @RichDialogProcessStep f299 '' #zField
@@ -321,6 +306,19 @@ Ts0 @PushWFArc f140 '' #zField
 Ts0 @RichDialogProcessStep f6 '' #zField
 Ts0 @PushWFArc f47 '' #zField
 Ts0 @PushWFArc f294 '' #zField
+Ts0 @PushWFArc f261 '' #zField
+Ts0 @Alternative f252 '' #zField
+Ts0 @PushWFArc f256 '' #zField
+Ts0 @PushWFArc f257 '' #zField
+Ts0 @RichDialogProcessStep f301 '' #zField
+Ts0 @PushWFArc f311 '' #zField
+Ts0 @PushWFArc f271 '' #zField
+Ts0 @PushWFArc f307 '' #zField
+Ts0 @PushWFArc f259 '' #zField
+Ts0 @PushWFArc f46 '' #zField
+Ts0 @RichDialogProcessStep f131 '' #zField
+Ts0 @PushWFArc f132 '' #zField
+Ts0 @PushWFArc f156 '' #zField
 >Proto Ts0 Ts0 TaskDisplayListProcess #zField
 Ts0 f0 guid 1168B153651C96FA #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -387,7 +385,7 @@ Ts0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f28 2334 182 20 20 13 0 #rect
 Ts0 f28 @|RichDialogProcessStartIcon #fIcon
 Ts0 f29 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f29 2283 763 26 26 14 0 #rect
+Ts0 f29 2283 747 26 26 14 0 #rect
 Ts0 f29 @|RichDialogProcessEndIcon #fIcon
 Ts0 f33 guid 116A4E0E799A14D1 #txt
 Ts0 f33 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -446,10 +444,10 @@ Ts0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f25 2726 878 20 20 13 0 #rect
+Ts0 f25 2670 878 20 20 13 0 #rect
 Ts0 f25 @|RichDialogProcessStartIcon #fIcon
 Ts0 f26 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f26 2723 1315 26 26 14 0 #rect
+Ts0 f26 2667 1123 26 26 14 0 #rect
 Ts0 f26 @|RichDialogProcessEndIcon #fIcon
 Ts0 f30 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
@@ -510,10 +508,10 @@ fire the bcevent &quot;xivyTaskParked&quot;</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f30 2718 1036 36 24 20 -2 #rect
+Ts0 f30 2662 948 36 24 20 -2 #rect
 Ts0 f30 @|RichDialogProcessStepIcon #fIcon
 Ts0 f38 expr out #txt
-Ts0 f38 2736 898 2736 1036 #arcP
+Ts0 f38 2680 898 2680 948 #arcP
 Ts0 f41 targetDisplay TOP #txt
 Ts0 f41 richDialogId ch.ivyteam.ivy.workflow.ui.security.SecurityMemberSelect #txt
 Ts0 f41 startMethod startAndChooseSecurityMember() #txt
@@ -539,7 +537,7 @@ and choose the security member</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f41 2822 476 36 24 20 -2 #rect
+Ts0 f41 2822 540 36 24 20 -2 #rect
 Ts0 f41 @|RichDialogIcon #fIcon
 Ts0 f49 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
@@ -760,7 +758,7 @@ Ts0 f59 @|RichDialogProcessEndIcon #fIcon
 Ts0 f61 expr out #txt
 Ts0 f61 440 586 440 747 #arcP
 Ts0 f37 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f37 3355 299 26 26 14 0 #rect
+Ts0 f37 3683 139 26 26 14 0 #rect
 Ts0 f37 @|RichDialogProcessEndIcon #fIcon
 Ts0 f65 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
@@ -854,7 +852,7 @@ Ts0 f79 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f79 2494 348 36 24 20 -2 #rect
+Ts0 f79 2622 348 36 24 20 -2 #rect
 Ts0 f79 @|RichDialogProcessStepIcon #fIcon
 Ts0 f80 expr in #txt
 Ts0 f80 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -866,19 +864,19 @@ Ts0 f80 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f80 2310 312 2512 348 #arcP
-Ts0 f80 1 2512 312 #addKink
+Ts0 f80 2310 312 2640 348 #arcP
+Ts0 f80 1 2640 312 #addKink
 Ts0 f80 0 0.710471366366112 0 0 #arcLabel
 Ts0 f71 expr out #txt
-Ts0 f71 2512 372 2308 773 #arcP
-Ts0 f71 1 2512 728 #addKink
+Ts0 f71 2640 372 2309 760 #arcP
+Ts0 f71 1 2640 760 #addKink
 Ts0 f71 0 0.7065989631614573 0 0 #arcLabel
 Ts0 f81 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f81 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>task can be started?</name>
-        <nameStyle>20,9
+        <nameStyle>20,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -904,7 +902,7 @@ automatic tasks execution</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f84 2422 596 36 24 20 -2 #rect
+Ts0 f84 2566 548 36 24 20 -2 #rect
 Ts0 f84 @|RichDialogProcessStepIcon #fIcon
 Ts0 f85 expr in #txt
 Ts0 f85 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -916,13 +914,12 @@ Ts0 f85 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f85 2310 400 2447 596 #arcP
-Ts0 f85 1 2464 400 #addKink
-Ts0 f85 2 2464 568 #addKink
-Ts0 f85 1 0.39918827196348805 0 0 #arcLabel
+Ts0 f85 2310 400 2584 548 #arcP
+Ts0 f85 1 2584 400 #addKink
+Ts0 f85 1 0.13243466505030052 0 0 #arcLabel
 Ts0 f83 expr out #txt
-Ts0 f83 2440 620 2307 770 #arcP
-Ts0 f83 1 2440 712 #addKink
+Ts0 f83 2584 572 2308 759 #arcP
+Ts0 f83 1 2584 752 #addKink
 Ts0 f83 1 0.09048507202068115 0 0 #arcLabel
 Ts0 f2 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
@@ -974,7 +971,7 @@ fire the bcevent &quot;xivyTaskDelegated&quot;</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f2 2822 596 36 24 20 -2 #rect
+Ts0 f2 2822 652 36 24 20 -2 #rect
 Ts0 f2 @|RichDialogProcessStepIcon #fIcon
 Ts0 f40 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -986,10 +983,10 @@ Ts0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f40 2826 362 28 28 14 0 #rect
+Ts0 f40 2826 370 28 28 14 0 #rect
 Ts0 f40 @|AlternativeIcon #fIcon
 Ts0 f44 expr out #txt
-Ts0 f44 2840 346 2840 362 #arcP
+Ts0 f44 2840 346 2840 370 #arcP
 Ts0 f34 targetWindow THIS #txt
 Ts0 f34 targetDisplay EXISTING:<%=in.selectedTaskDisplayId%> #txt
 Ts0 f34 richDialogId ch.ivyteam.ivy.workflow.ui.task.TaskDisplay #txt
@@ -1159,21 +1156,22 @@ Ts0 f105 windowConfiguration '* ' #txt
 Ts0 f105 isAsynch true #txt
 Ts0 f105 isInnerRd true #txt
 Ts0 f105 isDialog false #txt
+Ts0 f105 userContext '* ' #txt
 Ts0 f105 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>load the Rich Dialog
-with task to start
-to specified display id</name>
-        <nameStyle>63,9
+        <name>load TaskDisplay
+and start task</name>
+        <nameStyle>17,7,9
+14,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f105 2278 684 36 24 20 -2 #rect
+Ts0 f105 2278 692 36 24 20 -2 #rect
 Ts0 f105 @|RichDialogIcon #fIcon
 Ts0 f70 expr out #txt
-Ts0 f70 2296 708 2296 763 #arcP
+Ts0 f70 2296 716 2296 747 #arcP
 Ts0 f42 guid 118C650A535D72B2 #txt
 Ts0 f42 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f42 broadcast xivyRefreshTaskList #txt
@@ -1267,7 +1265,7 @@ Ts0 f73 2278 436 36 24 20 -14 #rect
 Ts0 f73 @|RichDialogProcessStepIcon #fIcon
 Ts0 f74 expr in #txt
 Ts0 f74 outCond '(in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.SUSPENDED) == 0 || in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.PARKED) == 0) &&
-(in.taskDisplayMode == 0 || in.taskDisplayMode == 1)' #txt
+(in.taskDisplayMode == 0 || in.taskDisplayMode == 1 || ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(in.selectedTask))' #txt
 Ts0 f74 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1388,10 +1386,10 @@ Ts0 f128 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f128 2826 530 28 28 14 0 #rect
+Ts0 f128 2826 594 28 28 14 0 #rect
 Ts0 f128 @|AlternativeIcon #fIcon
 Ts0 f129 expr out #txt
-Ts0 f129 2840 500 2840 530 #arcP
+Ts0 f129 2840 564 2840 594 #arcP
 Ts0 f24 expr in #txt
 Ts0 f24 outCond in.securityMemberSelected #txt
 Ts0 f24 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1403,58 +1401,35 @@ Ts0 f24 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f24 2840 558 2840 596 #arcP
-Ts0 f131 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f131 actionTable 'out=in;
-' #txt
-Ts0 f131 actionCode 'out.footerMessage = "Invalid selection";' #txt
-Ts0 f131 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f131 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>inform
-the user</name>
-        <nameStyle>15,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f131 3126 404 36 24 20 -2 #rect
-Ts0 f131 @|RichDialogProcessStepIcon #fIcon
-Ts0 f132 expr in #txt
-Ts0 f132 2854 376 3144 404 #arcP
-Ts0 f132 1 3144 376 #addKink
-Ts0 f132 1 0.28047265414484485 0 0 #arcLabel
-Ts0 f46 expr out #txt
-Ts0 f46 3144 428 2853 792 #arcP
-Ts0 f46 1 3144 792 #addKink
-Ts0 f46 0 0.822006485091491 0 0 #arcLabel
+Ts0 f24 2840 622 2840 652 #arcP
 Ts0 f133 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
 Ts0 f133 actionTable 'out=in;
 ' #txt
-Ts0 f133 actionCode 'out.footerMessage = "No role or user has been selected. Delegate task canceled.";' #txt
+Ts0 f133 actionCode 'ivy.log.info("No role or user has been selected. Delegate task {0}-{1} by {2} canceled.",
+						in.selectedTask.getIdentifier(),
+						in.selectedTask.getName(),
+						ivy.session.getSessionUserName());' #txt
 Ts0 f133 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f133 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>inform
 the user</name>
-        <nameStyle>15,9
+        <nameStyle>15,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f133 3038 588 36 24 20 -2 #rect
+Ts0 f133 3070 628 36 24 20 -2 #rect
 Ts0 f133 @|RichDialogProcessStepIcon #fIcon
 Ts0 f134 expr in #txt
-Ts0 f134 2854 544 3056 588 #arcP
-Ts0 f134 1 3056 544 #addKink
+Ts0 f134 2854 608 3088 628 #arcP
+Ts0 f134 1 3088 608 #addKink
 Ts0 f134 0 0.5319693068644793 0 0 #arcLabel
 Ts0 f130 expr out #txt
-Ts0 f130 3056 612 2852 790 #arcP
-Ts0 f130 1 3056 768 #addKink
+Ts0 f130 3088 652 2852 790 #arcP
+Ts0 f130 1 3088 768 #addKink
 Ts0 f130 0 0.9508766700823038 0 0 #arcLabel
 Ts0 f135 guid 118EBEE8542826BA #txt
 Ts0 f135 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -1537,9 +1512,8 @@ Ts0 f150 expr out #txt
 Ts0 f150 3696 50 3696 68 #arcP
 Ts0 f150 0 0.8041288016850019 0 0 #arcLabel
 Ts0 f149 expr out #txt
-Ts0 f149 3696 92 3380 311 #arcP
-Ts0 f149 1 3696 296 #addKink
-Ts0 f149 0 0.8573899370988516 0 0 #arcLabel
+Ts0 f149 3696 92 3696 139 #arcP
+Ts0 f149 0 0.4983121001942044 0 0 #arcLabel
 Ts0 f151 guid 11A0591A096BF4F3 #txt
 Ts0 f151 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f151 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
@@ -1558,61 +1532,146 @@ Ts0 f151 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f151 2926 878 20 20 13 0 #rect
 Ts0 f151 @|RichDialogProcessStartIcon #fIcon
 Ts0 f152 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f152 2923 1315 26 26 14 0 #rect
+Ts0 f152 2923 1123 26 26 14 0 #rect
 Ts0 f152 @|RichDialogProcessEndIcon #fIcon
 Ts0 f154 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
 Ts0 f154 actionTable 'out=in;
 ' #txt
-Ts0 f154 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
+Ts0 f154 actionCode 'import ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper;
+import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
 import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.TaskState;
 
 
 if (panel.tasksTable.getSelectedListEntry() != null & panel.tasksTable.getSelectedListEntry() instanceof ITask)
 {
-	ITask currentTask = panel.tasksTable.getSelectedListEntry() as ITask;
-	
+	ITask currentTask = panel.tasksTable.getSelectedListEntry() as ITask;	
 	in.filteredTasks.elementChangedAt(in.filteredTasks.indexOf(currentTask));
 	
+	// is user team manager on this task?
+	Boolean isSessionUserTeamManagerOnWfTask = CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(currentTask);
+	
+	//----------------------
 	// information on task
-	panel.informOnTaskButton.enabled = true;
+	//----------------------
+	Boolean enableTaskDetails = false;
+	if (in.taskDisplayMode >= 0 && in.taskDisplayMode <= 2)
+	{
+		// my tasks, team tasks or all tasks (wf admin) modes
+		enableTaskDetails = true;
+	}
+	else if (in.taskDisplayMode == -1 && isSessionUserTeamManagerOnWfTask)
+	{
+		// this is tasks of case display mode
+		// if the session user is team manager on the task and the case then he can see task details
+		enableTaskDetails = true;
+	}
+	panel.informOnTaskButton.enabled = enableTaskDetails;
 	panel.informOnTaskOnSiblingTabMenuItem.enabled = panel.informOnTaskButton.enabled;
 
+	//----------------------
 	// start task
-	panel.startTaskButton.enabled = (in.taskDisplayMode == 2)?
-																			false:
-																			(currentTask.getState().equals(TaskState.SUSPENDED) || currentTask.getState().equals(TaskState.PARKED));
-
+	//----------------------
+	Boolean enableStartTask = false;
+	if (in.taskDisplayMode == -1)
+	{
+		// this is tasks of case display mode
+		// if the session user is team manager on the task and the case, 
+		// then he can "execute instead of" the "normal" activator
+		ivy.log.debug("Is session user team manager on the task? <{0}>.", isSessionUserTeamManagerOnWfTask);
+		enableStartTask = (currentTask.getState().equals(TaskState.SUSPENDED) || currentTask.getState().equals(TaskState.PARKED)) && isSessionUserTeamManagerOnWfTask;
+	}else if (in.taskDisplayMode == 0 || in.taskDisplayMode == 1)
+	{
+		// this is my tasks or team tasks display mode
+		enableStartTask = currentTask.getState().equals(TaskState.SUSPENDED) || currentTask.getState().equals(TaskState.PARKED);
+	}
+	else if (in.taskDisplayMode == 2)
+	{
+		// this is all tasks (wf administrator) display mode
+		enableStartTask = false;
+	}
+	ivy.log.debug("Current task display mode is <{0}>, start task enabled? <{1}>.", in.taskDisplayMode, enableStartTask);
+	panel.startTaskButton.enabled = enableStartTask;	
 	panel.startTaskOnSiblingTabMenuItem.enabled = panel.startTaskButton.enabled;
 
 
+	//----------------------
 	// park task
-	panel.parkTaskButton.enabled = currentTask.getState().equals(TaskState.RESUMED);
+	//----------------------
+	Boolean enableParkTask = false;
+	if (in.taskDisplayMode == 0 || in.taskDisplayMode == 1)
+	{
+		// my tasks or team tasks mode
+		// task can be parked only by the person who started it
+		enableParkTask = currentTask.getState().equals(TaskState.RESUMED) && currentTask.getWorkerUserName().equals(ivy.session.getSessionUserName());
+	}
+	else if (in.taskDisplayMode == 2)
+	{
+		// all tasks mode (wf administrator)
+		// wf admin can always park task
+		enableParkTask = currentTask.getState().equals(TaskState.RESUMED);
+	}
+	
+	panel.parkTaskButton.enabled = enableParkTask;
 	panel.parkTaskMenuItem.enabled = panel.parkTaskButton.enabled;
 
 
+	//----------------------
 	// delegate task
-	panel.delegateTaskButton.enabled = ((in.hasPermissionDelegateTasks || in.hasWfAdministratorPermissions) && 
+	//----------------------
+	Boolean enableDelegateTask = false;
+	if (in.taskDisplayMode == 0 || in.taskDisplayMode == 1)
+	{
+		// my tasks or team tasks mode
+		// user can delegate if he has permission and if task could be delegated
+		enableDelegateTask = in.hasPermissionDelegateTasks && 
 																			(currentTask.getState().equals(TaskState.SUSPENDED) 
 																				|| currentTask.getState().equals(TaskState.PARKED)
-																				|| currentTask.getState().equals(TaskState.UNASSIGNED)));
+																				|| currentTask.getState().equals(TaskState.UNASSIGNED));
+	}
+	else if (in.taskDisplayMode == 2)
+	{
+		// all tasks mode (wf admin)
+		// wf admin can delegate task if it could be delegated
+		enableDelegateTask = in.hasWfAdministratorPermissions && 
+																			(currentTask.getState().equals(TaskState.SUSPENDED) 
+																				|| currentTask.getState().equals(TaskState.PARKED)
+																				|| currentTask.getState().equals(TaskState.UNASSIGNED));
+	}
+	else if (in.taskDisplayMode == -1)
+	{
+		// tasks of case mode
+		// user can delegate the task only he has permission and he is team manager of it and if task could be delegated
+		enableDelegateTask = in.hasPermissionDelegateTasks && isSessionUserTeamManagerOnWfTask && 
+																			(currentTask.getState().equals(TaskState.SUSPENDED) 
+																				|| currentTask.getState().equals(TaskState.PARKED)
+																				|| currentTask.getState().equals(TaskState.UNASSIGNED));
+	}
+	
+	panel.delegateTaskButton.enabled = enableDelegateTask;
 	panel.delegateTaskMenuItem.enabled = panel.delegateTaskButton.enabled;
 
-	
+
+	//----------------------	
 	// set expiry date
+	//----------------------
 	panel.setTaskExpiryDateButton.enabled = (in.hasWfAdministratorPermissions && currentTask.getExpiryTimestamp() is initialized);
 	panel.setTaskExpiryDateMenuItem.enabled = panel.setTaskExpiryDateButton.enabled;
 
-	
+
+	//----------------------	
 	// set blocking delay date
+	//----------------------
 	panel.setTaskBlockingDelayDateButton.enabled = (in.hasWfAdministratorPermissions && 
 																									(currentTask.getDelayTimestamp() is initialized) && currentTask.getState().equals(TaskState.SUSPENDED));
 	panel.setTaskBlockingDelayDateMenuItem.enabled = panel.setTaskBlockingDelayDateButton.enabled;
 
 
+	//----------------------
 	// reset the task
-	// AssertionError: State of Task must be one of the following values RESUMED, CREATED, PARKED, READY_FOR_JOIN but is DELAYED
+	//----------------------	
+	// State of Task must be one of the following values RESUMED, CREATED, PARKED, READY_FOR_JOIN
 	panel.resetTaskButton.enabled = (in.hasWfAdministratorPermissions && 
 																		(currentTask.getState().equals(TaskState.CREATED) || 
 																		currentTask.getState().equals(TaskState.RESUMED) ||
@@ -1621,8 +1680,9 @@ if (panel.tasksTable.getSelectedListEntry() != null & panel.tasksTable.getSelect
 	panel.resetTaskMenuItem.enabled = panel.resetTaskButton.enabled;		
 					
 
-																		
+	//----------------------
 	// destroy the task
+	//----------------------
 	panel.destroyTaskButton.enabled = (in.hasWfAdministratorPermissions && 
 																		(currentTask.getState().equals(TaskState.DELAYED) ||
 																		currentTask.getState().equals(TaskState.SUSPENDED) ||
@@ -1683,49 +1743,12 @@ acc. to the table selection</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f154 2918 1052 36 24 21 2 #rect
+Ts0 f154 2918 964 36 24 21 2 #rect
 Ts0 f154 @|RichDialogProcessStepIcon #fIcon
 Ts0 f155 expr out #txt
-Ts0 f155 2936 898 2936 1052 #arcP
+Ts0 f155 2936 898 2936 964 #arcP
 Ts0 f153 expr out #txt
-Ts0 f153 2936 1076 2936 1315 #arcP
-Ts0 f156 targetWindow NEW #txt
-Ts0 f156 targetDisplay TOP #txt
-Ts0 f156 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
-Ts0 f156 startMethod showMessageWithTitle(String,String) #txt
-Ts0 f156 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f156 requestActionDecl '<String aMessageTitle, String aMessageText> param;' #txt
-Ts0 f156 requestMappingAction 'param.aMessageTitle="Permission denied to delegate the tasks";
-param.aMessageText="You don''t have the permission called ''" + ch.ivyteam.ivy.security.IPermission.DELEGATE_TASKS.getName() + "'' that will gives you possibility to do that action. \nContact your Workflow Administrator for that.";
-' #txt
-Ts0 f156 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f156 responseMappingAction 'out=in;
-' #txt
-Ts0 f156 windowConfiguration '#Tue May 20 14:09:30 CEST 2008
-height=200
-maximized=false
-centered=true
-close_after_last_rd=true
-resizable=true
-width=550
-title=Information
-' #txt
-Ts0 f156 isAsynch false #txt
-Ts0 f156 isInnerRd true #txt
-Ts0 f156 isDialog true #txt
-Ts0 f156 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>inform the user
-permission denied</name>
-        <nameStyle>33,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f156 3086 476 36 24 20 -2 #rect
-Ts0 f156 @|RichDialogIcon #fIcon
+Ts0 f153 2936 988 2936 1123 #arcP
 Ts0 f157 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f157 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -1738,23 +1761,10 @@ he is team manager of case?</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f157 2826 410 28 28 14 0 #rect
+Ts0 f157 2826 474 28 28 14 0 #rect
 Ts0 f157 @|AlternativeIcon #fIcon
-Ts0 f158 expr in #txt
-Ts0 f158 outCond 'panel.tasksTable.#selectedListEntries != null' #txt
-Ts0 f158 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>yes</name>
-        <nameStyle>3,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f158 2840 390 2840 410 #arcP
 Ts0 f43 expr in #txt
-Ts0 f43 outCond 'ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.DELEGATE_TASKS) || 
-(in.#aCase is initialized && ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.isSessionUserTeamManagerOfCaseAsSystemUser(in.aCase))' #txt
+Ts0 f43 outCond 'in.hasPermissionDelegateTasks || (in.#aCase is initialized && ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(in.selectedTask))' #txt
 Ts0 f43 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1764,15 +1774,7 @@ Ts0 f43 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f43 2840 438 2840 476 #arcP
-Ts0 f159 expr in #txt
-Ts0 f159 2854 424 3104 476 #arcP
-Ts0 f159 1 3104 424 #addKink
-Ts0 f159 0 0.564897361812016 0 0 #arcLabel
-Ts0 f160 expr out #txt
-Ts0 f160 3104 500 2852 791 #arcP
-Ts0 f160 1 3104 776 #addKink
-Ts0 f160 0 0.9181230687456964 0 0 #arcLabel
+Ts0 f43 2840 502 2840 540 #arcP
 Ts0 f161 guid 11A06D4212D900B5 #txt
 Ts0 f161 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f161 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
@@ -2349,13 +2351,13 @@ Ts0 f60 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f60 2726 326 20 20 13 0 #rect
+Ts0 f60 2766 326 20 20 13 0 #rect
 Ts0 f60 @|RichDialogProcessStartIcon #fIcon
 Ts0 f208 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f208 2723 459 26 26 14 0 #rect
+Ts0 f208 2763 459 26 26 14 0 #rect
 Ts0 f208 @|RichDialogProcessEndIcon #fIcon
 Ts0 f209 expr out #txt
-Ts0 f209 2736 346 2736 459 #arcP
+Ts0 f209 2776 346 2776 459 #arcP
 Ts0 f39 guid 11AE8E7F33044A1E #txt
 Ts0 f39 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f39 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
@@ -2998,10 +3000,10 @@ Ts0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f19 2722 1138 28 28 14 0 #rect
+Ts0 f19 2666 1034 28 28 14 0 #rect
 Ts0 f19 @|AlternativeIcon #fIcon
 Ts0 f31 expr out #txt
-Ts0 f31 2736 1060 2736 1138 #arcP
+Ts0 f31 2680 972 2680 1034 #arcP
 Ts0 f27 expr in #txt
 Ts0 f27 outCond 'in.#exception == null' #txt
 Ts0 f27 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3013,7 +3015,7 @@ Ts0 f27 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f27 2736 1166 2736 1315 #arcP
+Ts0 f27 2680 1062 2680 1123 #arcP
 Ts0 f35 targetWindow NEW #txt
 Ts0 f35 targetDisplay TOP #txt
 Ts0 f35 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
@@ -3055,15 +3057,15 @@ error dialog</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f35 2814 1204 36 24 20 -2 #rect
+Ts0 f35 2758 1076 36 24 20 -2 #rect
 Ts0 f35 @|RichDialogIcon #fIcon
 Ts0 f66 expr in #txt
-Ts0 f66 2750 1152 2832 1204 #arcP
-Ts0 f66 1 2832 1152 #addKink
+Ts0 f66 2694 1048 2776 1076 #arcP
+Ts0 f66 1 2776 1048 #addKink
 Ts0 f66 1 0.16116133066661872 0 0 #arcLabel
 Ts0 f107 expr out #txt
-Ts0 f107 2832 1228 2749 1328 #arcP
-Ts0 f107 1 2832 1328 #addKink
+Ts0 f107 2776 1100 2693 1136 #arcP
+Ts0 f107 1 2776 1136 #addKink
 Ts0 f107 0 0.7614934725566147 0 0 #arcLabel
 Ts0 f108 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f108 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3075,10 +3077,10 @@ Ts0 f108 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f108 2826 690 28 28 14 0 #rect
+Ts0 f108 2826 706 28 28 14 0 #rect
 Ts0 f108 @|AlternativeIcon #fIcon
 Ts0 f109 expr out #txt
-Ts0 f109 2840 620 2840 690 #arcP
+Ts0 f109 2840 676 2840 706 #arcP
 Ts0 f109 0 0.9690956827408201 0 0 #arcLabel
 Ts0 f118 expr in #txt
 Ts0 f118 outCond 'in.#exception == null' #txt
@@ -3091,7 +3093,7 @@ Ts0 f118 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f118 2840 718 2840 779 #arcP
+Ts0 f118 2840 734 2840 779 #arcP
 Ts0 f136 targetWindow NEW #txt
 Ts0 f136 targetDisplay TOP #txt
 Ts0 f136 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
@@ -3133,14 +3135,14 @@ error dialog</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f136 2902 732 36 24 20 -2 #rect
+Ts0 f136 2902 740 36 24 20 -2 #rect
 Ts0 f136 @|RichDialogIcon #fIcon
 Ts0 f227 expr in #txt
-Ts0 f227 2854 704 2920 732 #arcP
-Ts0 f227 1 2920 704 #addKink
+Ts0 f227 2854 720 2920 740 #arcP
+Ts0 f227 1 2920 720 #addKink
 Ts0 f227 0 0.7253141469135801 0 0 #arcLabel
 Ts0 f228 expr out #txt
-Ts0 f228 2920 756 2852 788 #arcP
+Ts0 f228 2920 764 2852 788 #arcP
 Ts0 f228 1 2920 768 #addKink
 Ts0 f228 1 0.31722231981890764 0 0 #arcLabel
 Ts0 f230 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -3481,7 +3483,7 @@ menu parameter</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f250 2278 556 36 24 24 -15 #rect
+Ts0 f250 2278 540 36 24 24 -15 #rect
 Ts0 f250 @|RichDialogProcessStepIcon #fIcon
 Ts0 f251 targetDisplay TOP #txt
 Ts0 f251 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
@@ -3509,62 +3511,24 @@ info</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f251 2190 708 36 24 26 -19 #rect
+Ts0 f251 2518 676 36 24 26 -19 #rect
 Ts0 f251 @|RichDialogIcon #fIcon
-Ts0 f252 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f252 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>more than one
-task running ?</name>
-        <nameStyle>28,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f252 2194 594 28 28 -37 -50 #rect
-Ts0 f252 @|AlternativeIcon #fIcon
 Ts0 f253 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f253 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Is auto hide 
-menu mode ?</name>
-        <nameStyle>25,9
+        <name>Is auto hide menu mode AND
+more than one task running ?</name>
+        <nameStyle>27,7,9
+28,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f253 2282 594 28 28 22 -5 #rect
+Ts0 f253 2282 578 28 28 17 -18 #rect
 Ts0 f253 @|AlternativeIcon #fIcon
 Ts0 f255 expr out #txt
-Ts0 f255 2296 580 2296 594 #arcP
-Ts0 f256 expr in #txt
-Ts0 f256 outCond in.autoHideMenuParameter.equalsIgnoreCase("true") #txt
-Ts0 f256 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>yes</name>
-        <nameStyle>3,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f256 2282 608 2222 608 #arcP
-Ts0 f256 0 0.38333333333333336 0 -11 #arcLabel
-Ts0 f259 expr in #txt
-Ts0 f259 outCond 'ivy.session.findResumedWorkTasks(0,-1).size() > 0' #txt
-Ts0 f259 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>yes</name>
-        <nameStyle>3,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f259 2208 622 2208 708 #arcP
-Ts0 f259 0 0.24074074074074073 -15 0 #arcLabel
+Ts0 f255 2296 564 2296 578 #arcP
 Ts0 f260 expr in #txt
 Ts0 f260 outCond !in.taskAlreadyLoadedOnDisplay #txt
 Ts0 f260 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3576,25 +3540,12 @@ Ts0 f260 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f260 2296 518 2296 556 #arcP
+Ts0 f260 2296 518 2296 540 #arcP
 Ts0 f260 0 0.4090909090909091 -1 0 #arcLabel
 Ts0 f72 expr out #txt
-Ts0 f72 2208 732 2283 776 #arcP
-Ts0 f72 1 2208 776 #addKink
+Ts0 f72 2536 700 2308 759 #arcP
+Ts0 f72 1 2536 744 #addKink
 Ts0 f72 1 0.32576426159715605 0 0 #arcLabel
-Ts0 f257 expr in #txt
-Ts0 f257 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>no</name>
-        <nameStyle>2,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f257 2212 618 2278 696 #arcP
-Ts0 f257 1 2240 696 #addKink
-Ts0 f257 0 0.8907420013614704 13 -4 #arcLabel
 Ts0 f3 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -4006,8 +3957,6 @@ Ts0 f68 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f68 2278 252 36 24 20 -2 #rect
 Ts0 f68 @|RichDialogProcessStepIcon #fIcon
-Ts0 f271 expr out #txt
-Ts0 f271 2296 276 2296 298 #arcP
 Ts0 f272 expr out #txt
 Ts0 f272 2344 234 2314 261 #arcP
 Ts0 f272 1 2344 256 #addKink
@@ -4082,9 +4031,8 @@ Ts0 f64 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f64 3326 152 3368 299 #arcP
-Ts0 f64 1 3368 152 #addKink
-Ts0 f64 1 0.385965755678749 0 0 #arcLabel
+Ts0 f64 3326 152 3683 152 #arcP
+Ts0 f64 0 0.385965755678749 0 0 #arcLabel
 Ts0 f265 expr out #txt
 Ts0 f265 2480 292 2309 311 #arcP
 Ts0 f265 1 2480 304 #addKink
@@ -4101,7 +4049,7 @@ Ts0 f268 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ts0 f268 2480 246 2480 268 #arcP
-Ts0 f268 0 0.8661633874432263 0 0 #arcLabel
+Ts0 f268 0 0.4090909090909091 -1 0 #arcLabel
 Ts0 f95 expr in #txt
 Ts0 f95 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -4112,8 +4060,8 @@ Ts0 f95 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f95 2310 504 2440 596 #arcP
-Ts0 f95 1 2440 504 #addKink
+Ts0 f95 2310 504 2584 548 #arcP
+Ts0 f95 1 2584 504 #addKink
 Ts0 f95 1 0.08474281781158338 0 0 #arcLabel
 Ts0 f75 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
@@ -4154,31 +4102,6 @@ Ts0 f276 3312 166 3312 220 #arcP
 Ts0 f275 expr out #txt
 Ts0 f275 3294 232 2494 232 #arcP
 Ts0 f275 0 0.7799929569241365 0 0 #arcLabel
-Ts0 f277 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f277 actionTable 'out=in;
-' #txt
-Ts0 f277 actionCode '// ensure that bottom par is visible
-if (in.selectedTaskDisplayId.equals(in.taskListChildrenDisplayId))
-{
-	double dividerLocation  = 0.0;
-	panel.taskListAndTaskInformationSplitPane.setDividerLocation(dividerLocation);
-}' #txt
-Ts0 f277 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f277 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>if needed, 
-ensure that under this tab display is visible</name>
-        <nameStyle>57,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f277 2342 636 36 24 20 -2 #rect
-Ts0 f277 @|RichDialogProcessStepIcon #fIcon
-Ts0 f261 expr out #txt
-Ts0 f261 2344 660 2312 684 #arcP
 Ts0 f279 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
 Ts0 f279 actionTable 'out=in;
@@ -4377,18 +4300,6 @@ Ts0 f297 2494 104 2491 229 #arcP
 Ts0 f297 1 2544 104 #addKink
 Ts0 f297 2 2544 216 #addKink
 Ts0 f297 1 0.3563845837716993 0 0 #arcLabel
-Ts0 f286 expr in #txt
-Ts0 f286 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>no</name>
-        <nameStyle>2,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f286 2296 622 2296 684 #arcP
-Ts0 f286 0 0.2037037037037037 -12 0 #arcLabel
 Ts0 f289 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f289 542 750 20 20 13 0 #rect
 Ts0 f289 @|RichDialogProcessEndIcon #fIcon
@@ -4532,6 +4443,134 @@ Ts0 f47 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f47 2480 118 2480 140 #arcP
 Ts0 f294 expr out #txt
 Ts0 f294 2480 164 2480 180 #arcP
+Ts0 f261 expr in #txt
+Ts0 f261 outCond '"true".equals(in.autoHideMenuParameter) && ivy.session.findResumedWorkTasks(0,-1).size() > 0' #txt
+Ts0 f261 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f261 2310 592 2536 676 #arcP
+Ts0 f261 1 2536 592 #addKink
+Ts0 f261 1 0.48333333333333334 1 0 #arcLabel
+Ts0 f252 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f252 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>team manager 
+execute task instead of...?</name>
+        <nameStyle>41,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f252 2282 634 28 28 12 -33 #rect
+Ts0 f252 @|AlternativeIcon #fIcon
+Ts0 f256 expr in #txt
+Ts0 f256 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>no</name>
+        <nameStyle>2,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f256 2296 606 2296 634 #arcP
+Ts0 f256 0 0.2037037037037037 -12 0 #arcLabel
+Ts0 f257 expr in #txt
+Ts0 f257 2296 662 2296 692 #arcP
+Ts0 f301 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f301 actionTable 'out=in;
+' #txt
+Ts0 f301 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
+
+ivy.log.info("Team manager {0} start task {1} instead of {2} activator.",
+							ivy.session.getSessionUserName(), 
+							"" + in.selectedTask.getIdentifier() + (in.selectedTask.getName() is initialized? "-" + in.selectedTask.getName(): ""),
+							in.selectedTask.getActivatorName());
+							
+WorkflowUIAccessPermissionHandler.delegateTaskAsSystemUser(in.selectedTask, ivy.session.getSessionUser());' #txt
+Ts0 f301 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f301 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>delegate to 
+session user</name>
+        <nameStyle>25,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f301 2430 692 36 24 20 -2 #rect
+Ts0 f301 @|RichDialogProcessStepIcon #fIcon
+Ts0 f311 expr out #txt
+Ts0 f311 2430 704 2314 704 #arcP
+Ts0 f311 0 0.5122310677637647 0 0 #arcLabel
+Ts0 f271 expr out #txt
+Ts0 f271 2296 276 2296 298 #arcP
+Ts0 f307 expr in #txt
+Ts0 f307 outCond 'in.taskDisplayMode == -1 && ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(in.selectedTask)' #txt
+Ts0 f307 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f307 2310 648 2448 692 #arcP
+Ts0 f307 1 2448 648 #addKink
+Ts0 f307 0 1.0 0 6 #arcLabel
+Ts0 f259 expr in #txt
+Ts0 f259 2854 384 2853 792 #arcP
+Ts0 f259 1 3176 384 #addKink
+Ts0 f259 2 3176 792 #addKink
+Ts0 f259 2 0.763043585414502 0 0 #arcLabel
+Ts0 f46 expr in #txt
+Ts0 f46 2854 488 2852 791 #arcP
+Ts0 f46 1 3160 488 #addKink
+Ts0 f46 2 3160 776 #addKink
+Ts0 f46 1 0.20061072523043413 0 0 #arcLabel
+Ts0 f131 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f131 actionTable 'out=in;
+' #txt
+Ts0 f131 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
+
+out.selectedTask = panel.tasksTable.getSelectedListEntry() as ITask;' #txt
+Ts0 f131 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f131 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>get selected task</name>
+        <nameStyle>17,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f131 2822 428 36 24 20 -2 #rect
+Ts0 f131 @|RichDialogProcessStepIcon #fIcon
+Ts0 f132 expr in #txt
+Ts0 f132 outCond 'panel.tasksTable.#selectedListEntries != null' #txt
+Ts0 f132 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f132 2840 398 2840 428 #arcP
+Ts0 f156 expr out #txt
+Ts0 f156 2840 452 2840 474 #arcP
 >Proto Ts0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -4557,24 +4596,25 @@ Ts0 f294 2480 164 2480 180 #arcP
 out.nameCriteria=panel.taskNameOrCaseNameCriteriaTextField.text;
 out.selectedTaskObject=panel.tasksTable.getSelectedListEntry();
 ' #txt
->Proto Ts0 .rdData2UIAction 'panel.automaticTasksExecutionToggleButton.visible=in.runningTaskMode && !(in.#aCase is initialized);
+>Proto Ts0 .rdData2UIAction 'panel.automaticTasksExecutionToggleButton.visible=in.runningTaskMode && (in.taskDisplayMode == 0 || in.taskDisplayMode == 1);
 panel.delegateTaskButton.visible=in.runningTaskMode;
 panel.delegateTaskMenuItem.visible=in.runningTaskMode;
-panel.destroyTaskButton.visible=in.hasWfAdministratorPermissions && in.runningTaskMode;
+panel.destroyTaskButton.visible=in.hasWfAdministratorPermissions && in.taskDisplayMode == 2 && in.runningTaskMode;
 panel.destroyTaskMenuItem.visible=in.runningTaskMode;
 panel.footerLabel.text=in.footerMessage;
-panel.parkTaskButton.visible=in.runningTaskMode && !(in.#aCase is initialized);
+panel.parkTaskButton.visible=in.runningTaskMode && in.taskDisplayMode != -1;
 panel.parkTaskMenuItem.visible=in.runningTaskMode && !(in.#aCase is initialized);
-panel.resetTaskButton.visible=in.hasWfAdministratorPermissions && in.runningTaskMode;
+panel.resetTaskButton.visible=in.hasWfAdministratorPermissions && in.taskDisplayMode == 2 && in.runningTaskMode;
 panel.resetTaskMenuItem.visible=in.runningTaskMode;
-panel.setTaskBlockingDelayDateButton.visible=in.hasWfAdministratorPermissions && in.runningTaskMode;
+panel.setTaskBlockingDelayDateButton.visible=in.hasWfAdministratorPermissions && in.taskDisplayMode == 2 && in.runningTaskMode;
 panel.setTaskBlockingDelayDateMenuItem.visible=in.runningTaskMode;
-panel.setTaskExpiryDateButton.visible=in.hasWfAdministratorPermissions && in.runningTaskMode;
+panel.setTaskExpiryDateButton.visible=in.hasWfAdministratorPermissions &&  in.taskDisplayMode == 2 && in.runningTaskMode;
 panel.setTaskExpiryDateMenuItem.visible=in.runningTaskMode;
-panel.startTaskButton.visible=in.runningTaskMode && !(in.#aCase is initialized);
+panel.startTaskButton.visible=in.runningTaskMode && (in.taskDisplayMode == 0 || in.taskDisplayMode == 1 || in.taskDisplayMode == -1);
 panel.startTaskOnSiblingTabMenuItem.visible=in.runningTaskMode && !(in.#aCase is initialized);
 panel.tasksTable.listData=in.filteredTasks;
 panel.automaticTasksExecutionToggleButton.selected=in.automaticTasksExecutionMode;
+panel.informOnTaskButton.visible=in.taskDisplayMode >=0 && in.taskDisplayMode <=2;
 ' #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
 >Proto Ts0 '' #fIcon
@@ -4621,9 +4661,6 @@ Ts0 f41 mainOut f129 tail #connect
 Ts0 f129 head f128 in #connect
 Ts0 f128 out f24 tail #connect
 Ts0 f24 head f2 mainIn #connect
-Ts0 f132 head f131 mainIn #connect
-Ts0 f131 mainOut f46 tail #connect
-Ts0 f46 head f23 mainIn #connect
 Ts0 f128 out f134 tail #connect
 Ts0 f134 head f133 mainIn #connect
 Ts0 f133 mainOut f130 tail #connect
@@ -4638,15 +4675,8 @@ Ts0 f151 mainOut f155 tail #connect
 Ts0 f155 head f154 mainIn #connect
 Ts0 f154 mainOut f153 tail #connect
 Ts0 f153 head f152 mainIn #connect
-Ts0 f40 out f158 tail #connect
-Ts0 f158 head f157 in #connect
-Ts0 f40 out f132 tail #connect
 Ts0 f157 out f43 tail #connect
 Ts0 f43 head f41 mainIn #connect
-Ts0 f157 out f159 tail #connect
-Ts0 f159 head f156 mainIn #connect
-Ts0 f156 mainOut f160 tail #connect
-Ts0 f160 head f23 mainIn #connect
 Ts0 f167 mainOut f170 tail #connect
 Ts0 f170 head f169 in #connect
 Ts0 f169 out f172 tail #connect
@@ -4801,16 +4831,10 @@ Ts0 f165 mainOut f249 tail #connect
 Ts0 f249 head f192 mainIn #connect
 Ts0 f250 mainOut f255 tail #connect
 Ts0 f255 head f253 in #connect
-Ts0 f253 out f256 tail #connect
-Ts0 f256 head f252 in #connect
-Ts0 f252 out f259 tail #connect
-Ts0 f259 head f251 mainIn #connect
 Ts0 f32 out f260 tail #connect
 Ts0 f260 head f250 mainIn #connect
 Ts0 f251 mainOut f72 tail #connect
 Ts0 f72 head f29 mainIn #connect
-Ts0 f252 out f257 tail #connect
-Ts0 f257 head f105 mainIn #connect
 Ts0 f3 out f8 tail #connect
 Ts0 f8 head f5 mainIn #connect
 Ts0 f5 mainOut f14 tail #connect
@@ -4836,8 +4860,6 @@ Ts0 f258 head f15 mainIn #connect
 Ts0 f15 mainOut f262 tail #connect
 Ts0 f262 head f207 mainIn #connect
 Ts0 f269 head f266 mainIn #connect
-Ts0 f68 mainOut f271 tail #connect
-Ts0 f271 head f67 in #connect
 Ts0 f99 mainOut f272 tail #connect
 Ts0 f272 head f68 mainIn #connect
 Ts0 f28 mainOut f263 tail #connect
@@ -4857,8 +4879,6 @@ Ts0 f276 head f75 mainIn #connect
 Ts0 f270 out f64 tail #connect
 Ts0 f75 mainOut f275 tail #connect
 Ts0 f275 head f267 in #connect
-Ts0 f277 mainOut f261 tail #connect
-Ts0 f261 head f105 mainIn #connect
 Ts0 f100 out f280 tail #connect
 Ts0 f280 head f279 mainIn #connect
 Ts0 f100 out f120 tail #connect
@@ -4879,8 +4899,6 @@ Ts0 f274 head f267 in #connect
 Ts0 f254 mainOut f296 tail #connect
 Ts0 f296 head f295 in #connect
 Ts0 f297 head f267 in #connect
-Ts0 f253 out f286 tail #connect
-Ts0 f286 head f105 mainIn #connect
 Ts0 f278 mainOut f300 tail #connect
 Ts0 f300 head f299 mainIn #connect
 Ts0 f299 mainOut f298 tail #connect
@@ -4904,3 +4922,23 @@ Ts0 f47 head f6 mainIn #connect
 Ts0 f295 out f297 tail #connect
 Ts0 f6 mainOut f294 tail #connect
 Ts0 f294 head f293 mainIn #connect
+Ts0 f253 out f261 tail #connect
+Ts0 f261 head f251 mainIn #connect
+Ts0 f253 out f256 tail #connect
+Ts0 f256 head f252 in #connect
+Ts0 f257 head f105 mainIn #connect
+Ts0 f301 mainOut f311 tail #connect
+Ts0 f311 head f105 mainIn #connect
+Ts0 f68 mainOut f271 tail #connect
+Ts0 f271 head f67 in #connect
+Ts0 f252 out f307 tail #connect
+Ts0 f307 head f301 mainIn #connect
+Ts0 f252 out f257 tail #connect
+Ts0 f259 head f23 mainIn #connect
+Ts0 f157 out f46 tail #connect
+Ts0 f46 head f23 mainIn #connect
+Ts0 f40 out f132 tail #connect
+Ts0 f132 head f131 mainIn #connect
+Ts0 f40 out f259 tail #connect
+Ts0 f131 mainOut f156 tail #connect
+Ts0 f156 head f157 in #connect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jan 19 15:32:52 CET 2011]
+[>Created: Tue Feb 08 17:21:06 CET 2011]
 119A42FA47DC0EC8 3.15 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDisplayListProcess Big #zClass
@@ -875,7 +875,9 @@ if (out.cases.size() > 0)
 					patternOnName.matcher(currentCase.getTypeName()).matches() ||
 					
 					patternOnName.matcher(currentCase.getSubTypeCode()).matches() ||					
-					patternOnName.matcher(currentCase.getSubTypeName()).matches()
+					patternOnName.matcher(currentCase.getSubTypeName()).matches() ||
+					
+					patternOnName.matcher(currentCase.getCustomVarCharField5()).matches()
 			)
 		{
 			out.filteredCases.add(currentCase);
