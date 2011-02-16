@@ -1,2 +1,3 @@
-co: name={processmodel} description={} changed={2011-01-14 16:22:14 CET} changedby={powersob} visualorder={0} guid={12D851E766525981} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={processmodel} description={} changed={2011-02-15 15:46:19 CET} changedby={bb} visualorder={0} guid={12D851E766525981} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={12D851E76658A55B} datatype={} isdefault={true} langid={de} description={} validfrom={2011-01-14 16:22:02 CET} validto={} changed={2011-01-14 16:22:14 CET} changedby={powersob} properties={} id={}
+val: guid={12E29C942A4D94D6} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-15 15:46:12 CET} validto={} changed={2011-02-15 15:46:19 CET} changedby={bb} properties={} id={}

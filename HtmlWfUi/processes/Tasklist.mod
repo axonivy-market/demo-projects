@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 17 11:53:04 CET 2011]
+[>Created: Tue Feb 15 17:40:00 CET 2011]
 125016DE17A534EB 3.15 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
@@ -46,7 +46,9 @@ Tt0 f0 actionTable 'out=in.clone();
 out.request=ivy.request;
 out.wfSession=ivy.session;
 ' #txt
-Tt0 f0 actionCode 'import java.util.EnumSet;
+Tt0 f0 actionCode 'import ch.ivyteam.ivy.security.ISecurityMember;
+import htmlwfui.TaskDetail;
+import java.util.EnumSet;
 import ch.ivyteam.ivy.workflow.PropertyOrder;
 import ch.ivyteam.ivy.workflow.TaskState;
 import ch.ivyteam.ivy.workflow.TaskProperty;
@@ -63,7 +65,33 @@ List<ITask> tasks = queryResult.getResultList();
 out.tasks = tasks;
 
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl","/ivy/pro/"+ivy.wf.getApplication().getName()+"/HtmlWFUI/125016DE17A534EB/start1.ivp");' #txt
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl","/ivy/pro/"+ivy.wf.getApplication().getName()+"/HtmlWFUI/125016DE17A534EB/start1.ivp");
+
+for (int t=0; t<tasks.size(); t++)
+{
+		// ivy4 tasks
+				ITask task = tasks.get(t);
+				TaskDetail taskDetail = new TaskDetail();
+
+				ISecurityMember taskActivator = task.getActivator();
+				taskDetail.activator=taskActivator.getMemberName();
+				taskDetail.activatorIsUser=(task.getActivator() != null && task.getActivator().isUser());
+				taskDetail.delay = task.getDelayTimestamp();
+				taskDetail.desc = task.getDescription() != null ? task.getDescription() : "";
+				taskDetail.exp = task.getExpiryTimestamp();
+				taskDetail.id = task.getIdentifier();
+				taskDetail.name = task.getName();
+				taskDetail.prio = task.getPriority().intValue();
+				taskDetail.prioName = task.getPriority().toString();
+				taskDetail.isIvy4Task = true;
+				taskDetail.start = task.getStartTimestamp();
+				taskDetail.state = task.getState().intValue();
+				taskDetail.stateName=task.getState().toString();
+				String prefixRIARedirect = ("RIA".equals(task.getCustomVarCharField1())||"RIA".equals(task.getCase().getCustomVarCharField1())) ? "/ivy/wf/start_redirect.jsp?startUrl=" : "" ;
+				taskDetail.url = prefixRIARedirect+"/ivy/pro/"+task.getFullRequestPath()+"?taskId="+task.getIdentifier();
+		
+				out.taskList.add(taskDetail);
+}' #txt
 Tt0 f0 type htmlwfui.Data #txt
 Tt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -75,16 +103,16 @@ setReturnUrl</name>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f0 30 204 36 24 24 -8 #rect
+Tt0 f0 30 164 36 24 22 -5 #rect
 Tt0 f0 @|StepIcon #fIcon
 Tt0 f3 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 Tt0 f3 outLinks "LinkA.ivp","LinkB.ivp" #txt
-Tt0 f3 template "taskliste.ivc" #txt
+Tt0 f3 template "taskList.ivc" #txt
 Tt0 f3 type htmlwfui.Data #txt
 Tt0 f3 skipLink skip.ivp #txt
 Tt0 f3 sortLink sort.ivp #txt
 Tt0 f3 templateWizard '#
-#Fri Dec 03 10:31:08 CET 2010
+#Tue Feb 15 14:56:52 CET 2011
 ' #txt
 Tt0 f3 pageArchivingActivated false #txt
 Tt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -180,11 +208,13 @@ Tt0 f25 actionDecl 'htmlwfui.Data out;
 ' #txt
 Tt0 f25 actionTable 'out=in.clone();
 ' #txt
-Tt0 f25 actionCode 'if(in.#tmpTaskId!=null)
+Tt0 f25 actionCode 'htmlwfui.TaskDetail selectedTask = in.taskList.get(in.temp.n);
+
+if(selectedTask.isIvy4Task)
 { // an xivy4 task selected 
 	for(int i = 0; i < in.tasks.size(); i++)
 	{
-		if(in.tmpTaskId == in.tasks.get(i).getIdentifier())
+		if(selectedTask.id == in.tasks.get(i).getIdentifier())
 		{
 			out.tmpTask = in.tasks.get(i);
 			out.tempCase = in.tasks.get(i).getCase();
@@ -193,19 +223,13 @@ Tt0 f25 actionCode 'if(in.#tmpTaskId!=null)
 		}	
 	}
 }
-if(in.#tmpTask3Id!=null)
-{
-	// an xivy3 task	
-  for(int i3 = 0; i3 < in.ivy3Tasks.size(); i3++)
-	{
-		if(in.tmpTask3Id.equals((in.ivy3Tasks.get(i3) as htmlwfui.TaskDetail).getId()))
-		{
-			out.tmpTaskDetail = (in.ivy3Tasks.get(i3) as htmlwfui.TaskDetail);
-			out.tmpTask = null;
-			break;
-		}	
-	}
-}' #txt
+else 
+{ // an xivy3 task selected 
+	out.tmpTask3Id = selectedTask.id.toString();
+	out.tmpTaskDetail = selectedTask;
+	out.tmpTask = null;
+}
+out.tmpTaskDetail = selectedTask;' #txt
 Tt0 f25 type htmlwfui.Data #txt
 Tt0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -217,7 +241,7 @@ Details</name>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f25 206 268 36 24 -22 -50 #rect
+Tt0 f25 206 268 36 24 28 -15 #rect
 Tt0 f25 @|StepIcon #fIcon
 Tt0 f26 expr data #txt
 Tt0 f26 outCond ivp=="LinkB.ivp" #txt
@@ -232,7 +256,7 @@ Tt0 f27 206 344 54 292 #arcP
 Tt0 f27 1 80 344 #addKink
 Tt0 f27 0 0.6361311570249065 0 0 #arcLabel
 Tt0 f30 expr out #txt
-Tt0 f30 48 228 48 267 #arcP
+Tt0 f30 48 188 48 267 #arcP
 Tt0 f14 type htmlwfui.Data #txt
 Tt0 f14 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
 Tt0 f14 doCall true #txt
@@ -342,7 +366,7 @@ Tt0 f9 440 396 242 344 #arcP
 Tt0 f9 1 440 344 #addKink
 Tt0 f9 1 0.3442802434312135 0 0 #arcLabel
 Tt0 f2 expr out #txt
-Tt0 f2 48 116 48 204 #arcP
+Tt0 f2 48 116 48 164 #arcP
 >Proto Tt0 .type htmlwfui.Data #txt
 >Proto Tt0 .processKind NORMAL #txt
 >Proto Tt0 0 0 32 24 18 0 #rect

@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Dec 17 15:10:33 CET 2010]
-12CE49F6249CB06F 3.14 #module
+[>Created: Fri Jan 21 13:46:00 CET 2011]
+12E298DC97ADC471 3.15 #module
 >Proto >Proto Collection #zClass
 Cy0 PageArchive Big #zClass
 Cy0 B #cInfo
@@ -52,7 +52,7 @@ Cy0 f18 86 282 28 28 14 0 #rect
 Cy0 f18 @|AlternativeIcon #fIcon
 Cy0 f4 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 Cy0 f4 outLinks "LinkA.ivp","LinkB.ivp" #txt
-Cy0 f4 template "pageArchive.ivd" #txt
+Cy0 f4 template "pageArchive.ivc" #txt
 Cy0 f4 type htmlwfui.Data #txt
 Cy0 f4 skipLink skip.ivp #txt
 Cy0 f4 sortLink sort.ivp #txt
@@ -77,7 +77,7 @@ Cy0 f8 actionDecl 'htmlwfui.Data out;
 Cy0 f8 actionTable 'out=in.clone();
 ' #txt
 Cy0 f8 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowPriority;
-out.tmpTask.setOriginalPriority(WorkflowPriority.valueOf(WorkflowPriority.class, in.tmpTaskDetail.prio) as WorkflowPriority);
+out.tmpTask.setOriginalPriority(WorkflowPriority.valueOf(WorkflowPriority.class, in.tmpTaskDetail.prioName) as WorkflowPriority);
 
 if(in.tmpTaskDetail.delay.toNumber()>0)
 {

@@ -1,2 +1,3 @@
-co: name={taskExpiry} description={} changed={2010-11-05 13:51:31 CET} changedby={powersob} visualorder={0} guid={1284EC02E6E41BCB} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1284EC02E6E8BA77} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-16 11:02:53 CET} validto={} changed={2010-11-05 13:51:31 CET} changedby={powersob} properties={} id={}
+co: name={taskExpiry} description={} changed={2011-02-15 13:05:46 CET} changedby={bb} visualorder={0} guid={1284EC02E6E41BCB} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12E293646B426C04} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 13:05:30 CET} validto={} changed={2011-02-15 13:05:46 CET} changedby={bb} properties={} id={}
+val: guid={1284EC02E6E8BA77} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-16 11:02:53 CET} validto={} changed={2011-02-15 13:05:46 CET} changedby={bb} properties={} id={}

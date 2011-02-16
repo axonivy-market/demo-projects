@@ -36,23 +36,23 @@
 <form action="<%=ivy.html.ref("LinkA.ivp")%>" method="post">
 	<table>
 		<tr>
-			<td class="labelTd" WIDTH="80%">Erstelle Bemerkung f&uuml;r</td>
+			<td class="labelTd" WIDTH="80%"><%=ivy.cms.co("/labels/addNote")%></td>
 			<% if(ivy.html.get("in.noteFor").equals("task")) {%>
-				<td><input type="radio" CHECKED style="border:0;" name="noteFor" value="task">Aufgabe</input></td>
-				<td><input type="radio"  style="border:0;" name="noteFor" value="case">Fall</input></td>
+				<td><input type="radio" CHECKED style="border:0;" name="noteFor" value="task"><%=ivy.cms.co("/labels/task")%></input></td>
+				<td><input type="radio"  style="border:0;" name="noteFor" value="case"><%=ivy.cms.co("/labels/case")%></input></td>
 			<% } else {%>
-				<td><input type="radio" CHECKED style="border:0;" name="noteFor" value="case">Fall</input></td>
-				<td><input type="radio" DISABLED style="border:0;" name="noteFor" value="task">Aufgabe</input></td>
+				<td><input type="radio" CHECKED style="border:0;" name="noteFor" value="case"><%=ivy.cms.co("/labels/case")%></input></td>
+				<td><input type="radio" DISABLED style="border:0;" name="noteFor" value="task"><%=ivy.cms.co("/labels/task")%></input></td>
 			<% } %>
 			<tr>
 		</tr>
 		<tr>
-			<td class="labelTd">Bemerkung</td>
+			<td class="labelTd"><%=ivy.cms.co("/labels/text")%></td>
 			<td COLSPAN="3"><textarea rows="10" cols="50" name="note"></textarea></input></td>
 		</tr>
 		<tr>
 			<td>
-			<td COLSPAN="2"><input type="submit" class="button" value="Speichern"></td>
+			<td COLSPAN="2"><input type="submit" class="button" value="<%=ivy.cms.co("/labels/saveButton")%>"></td>
 		</tr>
 	</table>
 </form>

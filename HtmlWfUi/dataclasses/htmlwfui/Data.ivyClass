@@ -44,3 +44,5 @@ tempCase ch.ivyteam.ivy.workflow.ICase #field
 tempCase PERSISTENT #fieldModifier
 pageArchives List<htmlwfui.ArchivePageDetail> #field
 pageArchives PERSISTENT #fieldModifier
+taskList List<htmlwfui.TaskDetail> #field
+taskList PERSISTENT #fieldModifier

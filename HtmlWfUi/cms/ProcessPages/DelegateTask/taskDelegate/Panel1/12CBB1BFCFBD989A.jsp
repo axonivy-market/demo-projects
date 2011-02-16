@@ -65,7 +65,7 @@
 <form action="<%=ivy.html.ref("LinkA.ivp")%>" method="POST">
 	<table>
 		<tr>
-			<td class="labelTd" ROWSPAN="2">Verantwortlich</td>
+			<td class="labelTd" ROWSPAN="2"><%=ivy.cms.co("/labels/taskResponsible")%></td>
 			<td>
 				<%
 					if(taskActivatorIsUser){
@@ -128,7 +128,7 @@
 		<tr>
 			<td></td>
 			<td COLSPAN ="3">
-				<input type="submit" name="submit" value="Delegieren">
+				<input type="submit" name="submit" value="<%=ivy.cms.co("/labels/taskDelegate")%>">
 			</td>
 	</table>
 </form>

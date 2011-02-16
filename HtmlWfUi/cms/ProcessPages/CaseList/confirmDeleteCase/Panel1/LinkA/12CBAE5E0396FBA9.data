@@ -1,6 +1,6 @@
 <FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'   ONSUBMIT="return checkformLinkA();">
 <!--ivyform--><table BORDER="0"><tr >
-<td CLASS="labelTd"><!--i.ttemp.ok-->Workflow löschen</td>
+<td CLASS="labelTd"><!--i.ttemp.ok--><%=ivy.cms.co("/labels/caseDelete")%></td>
 <td ><!--i.atemp.ok--><INPUT TYPE="CHECKBOX" NAME="temp$ok" VALUE="true"   ><INPUT TYPE="hidden" NAME="temp$ok" VALUE="false" ></td>
 </tr>
 <tr >
@@ -14,7 +14,7 @@ function checkformLinkA()
     && checkboxChecked(document.formLinkA.temp$ok,"Das Löschen mit der Checkbox bestätigen.","<%=ivy.request.getContentLocale().getLanguage()%>"));
 }
 </SCRIPT>
-<INPUT STYLE='width="100"' TYPE="SUBMIT" NAME="Submit" VALUE="Löschen">
+<INPUT STYLE='width="100"' TYPE="SUBMIT" NAME="Submit" VALUE="<%=ivy.cms.co("/labels/deleteButton")%>">
 </td>
 </tr>
 

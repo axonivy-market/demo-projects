@@ -1,2 +1,3 @@
-co: name={taskStart} description={} changed={2010-11-05 13:49:33 CET} changedby={powersob} visualorder={0} guid={127666CD8106D82B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={127666CD88D85230} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-16 11:02:41 CET} validto={} changed={2010-11-05 13:49:33 CET} changedby={powersob} properties={} id={}
+co: name={taskStart} description={} changed={2011-02-15 15:52:39 CET} changedby={bb} visualorder={0} guid={127666CD8106D82B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={127666CD88D85230} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-16 11:02:41 CET} validto={} changed={2011-02-15 15:52:39 CET} changedby={bb} properties={} id={}
+val: guid={12E29CF1268736D9} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 15:51:57 CET} validto={} changed={2011-02-15 15:52:39 CET} changedby={bb} properties={} id={}

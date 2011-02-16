@@ -2,7 +2,7 @@
 <%@ page import="ch.ivyteam.ivy.workflow.IProcessStart"%>
 <% session.setAttribute("ch.ivy.snbWFUI.history", "processlist");%>
 	<div>
-		<h3>Prozesse</h3>
+		<h3><%=ivy.cms.co("/labels/processes")%></h3>
 		<hr>	
 
 	<%	
@@ -12,7 +12,7 @@
 	 
 	  if (starts == null || starts.size() == 0)
 	  {
-			out.write("<p>Keine Prozesse gefunden</p>");	    
+			out.write("<p>"+ivy.cms.co("/labels/noItemsFound")+"</p>");	    
 	  }
 	  else
 	  {

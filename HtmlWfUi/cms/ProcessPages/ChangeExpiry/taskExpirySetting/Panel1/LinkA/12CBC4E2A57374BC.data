@@ -1,17 +1,17 @@
 <FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'   ONSUBMIT="return checkformLinkA();">
 <!--ivyform--><table BORDER="0"><tr >
-<td CLASS="labelTd"><!--i.ttmpTaskDetail.exp-->Bearbeitungsfrist</td>
+<td CLASS="labelTd"><!--i.ttmpTaskDetail.exp--><%=ivy.cms.co("/labels/taskExpiry")%></td>
 <td ><!--i.atmpTaskDetail.exp--><INPUT TYPE="TEXT" NAME="tmpTaskDetail$exp"  VALUE="<%=ivy.html.getFormValue("in.tmpTaskDetail.exp is initialized ? in.tmpTaskDetail.exp.format(\"dd.MM.yyyy HH:mm\") : \"\"")%>"></td>
 <td >Eingabe des bis-Datums im Format dd.mm.yyyy hh:mm</td>
 </tr>
 <tr >
-<td CLASS="labelTd"><!--i.ttmpTaskDetail.delay-->Sperrfrist</td>
+<td CLASS="labelTd"><!--i.ttmpTaskDetail.delay--><%=ivy.cms.co("/labels/taskDelay")%></td>
 <td ><!--i.atmpTaskDetail.delay--><INPUT TYPE="TEXT" NAME="tmpTaskDetail$delay" DISABLED="true"  VALUE="<%=ivy.html.getFormValue("in.tmpTaskDetail.delay is initialized ? in.tmpTaskDetail.delay.format(\"dd.MM.yyyy HH:mm\") : \"\"")%>"></td>
 <td >Eingabe des "gesperrt bis"-Datums im Format dd.mm.yyyy hh:mm
 <br>Die Sperrfrist kann nur geändert werden, wenn die Aufgabe im Zustand DELAYED ist.</td>
 </tr>
 <tr >
-<td CLASS="labelTd"><!--i.ttmpTaskDetail.prio-->Prio</td>
+<td CLASS="labelTd"><!--i.ttmpTaskDetail.prio--><%=ivy.cms.co("/labels/taskPrio")%></td>
 <td ><!--i.atmpTaskDetail.prio--><%=ivy.html.menu("\"@_;EXCEPTION;EXCEPTION_LOW;LOW_NORMAL;NORMAL_HIGH;HIGH_\"","tmpTaskDetail$prio",0,"in.tmpTaskDetail.prio")%></td>
 </tr>
 <tr >
@@ -25,7 +25,7 @@ function checkformLinkA()
     && _Empty(document.formLinkA.tmpTaskDetail$prio,null,"<%=ivy.request.getContentLocale().getLanguage()%>"));
 }
 </SCRIPT>
-<INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="Speichern">
+<INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="<%=ivy.cms.co("/labels/saveButton")%>">
 </td>
 </tr>
 

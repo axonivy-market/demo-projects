@@ -1,2 +1,3 @@
-co: name={taskOk} description={} changed={2010-05-11 09:26:44 CEST} changedby={powersob} visualorder={0} guid={12743697E5F54E5E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12743697EBBE71D1} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-09 15:52:19 CET} validto={} changed={2010-05-11 09:26:44 CEST} changedby={powersob} properties={} id={}
+co: name={taskOk} description={} changed={2011-02-15 15:49:22 CET} changedby={bb} visualorder={0} guid={12743697E5F54E5E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12743697EBBE71D1} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-09 15:52:19 CET} validto={} changed={2011-02-15 15:49:22 CET} changedby={bb} properties={} id={}
+val: guid={12E29CC0E7C23B10} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 15:49:13 CET} validto={} changed={2011-02-15 15:49:22 CET} changedby={bb} properties={} id={}

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 14 09:59:27 CET 2011]
+[>Created: Wed Feb 16 15:07:12 CET 2011]
 12C97DB1B1EA5971 3.15 #module
 >Proto >Proto Collection #zClass
 Rt0 CaseList Big #zClass
@@ -73,15 +73,15 @@ import ch.ivyteam.ivy.persistence.IQueryResult;
 import javax.servlet.http.HttpServletRequest;
 
 IPropertyFilter cpfilter = ivy.wf.createCasePropertyFilter(CaseProperty.CREATOR_USER_NAME, RelationalOperator.EQUAL, ivy.session.getSessionUserName());
-if(in.temp.catFilter!="Alle")
+if(in.temp.catFilter!=ivy.cms.co("/labels/all"))
 {
 	cpfilter = cpfilter.and(CaseProperty.PROCESS_CATEGORY_CODE,RelationalOperator.EQUAL,in.temp.catFilter);	
 }
-if(in.temp.procFilter!="Alle")
+if(in.temp.procFilter!=ivy.cms.co("/labels/all"))
 {
 	cpfilter = cpfilter.and(CaseProperty.PROCESS_CODE,RelationalOperator.EQUAL,in.temp.procFilter);	
 }
-if(in.temp.statFilter!="Alle")
+if(in.temp.statFilter!=ivy.cms.co("/labels/all"))
 {
 	if(in.temp.statFilter=="RUNNING")
 	{
@@ -108,7 +108,7 @@ IQueryResult queryResult = ivy.wf.findCases(
 out.cases = queryResult.getResultList();
 
 out.temp.processes.clear();
-out.temp.processes.add(["Alle","Alle","Alle"]);
+out.temp.processes.add([ivy.cms.co("/labels/all"),ivy.cms.co("/labels/all"),ivy.cms.co("/labels/all")]);
 
 for(ICase case: queryResult.getResultList())
 {
@@ -383,15 +383,15 @@ import javax.servlet.http.HttpServletRequest;
 
 IPropertyFilter cpfilter = ivy.wf.createCasePropertyFilter(CaseProperty.STATE, RelationalOperator.UNEQUAL, CaseState.CREATED.intValue());
 
-if(in.temp.catFilter!="Alle")
+if(in.temp.catFilter!=ivy.cms.co("/labels/all"))
 {
 	cpfilter = cpfilter.and(CaseProperty.PROCESS_CATEGORY_CODE,RelationalOperator.EQUAL,in.temp.catFilter);	
 }
-if(in.temp.procFilter!="Alle")
+if(in.temp.procFilter!=ivy.cms.co("/labels/all"))
 {
 	cpfilter = cpfilter.and(CaseProperty.PROCESS_CODE,RelationalOperator.EQUAL,in.temp.procFilter);	
 }
-if(in.temp.statFilter!="Alle")
+if(in.temp.statFilter!=ivy.cms.co("/labels/all"))
 {
 	if(in.temp.statFilter=="RUNNING")
 	{
@@ -416,7 +416,7 @@ IQueryResult queryResult = ivy.wf.findCases(
 	null, 0, -1 ,true);
 	
 out.temp.processes.clear();	
-out.temp.processes.add(["Alle","Alle","Alle"]);
+out.temp.processes.add([ivy.cms.co("/labels/all"),ivy.cms.co("/labels/all"),ivy.cms.co("/labels/all")]);
 
 if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW))
 { // WorkflowAdmin can administrate all cases
@@ -676,13 +676,13 @@ out.temp.caption="my_cases";
 Rt0 f38 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
 
 out.temp.statFilter = CaseState.RUNNING.toString();
-out.temp.catFilter = "Alle";
-out.temp.procFilter = "Alle";
+out.temp.catFilter = ivy.cms.co("/labels/all");
+out.temp.procFilter = ivy.cms.co("/labels/all");
 
-out.temp.categories = ["Alle"];
-out.temp.processes.addColumn("Code",["Alle"]).addColumn("Name",["Alle"]).addColumn("Cat",["Alle"]);;
-out.temp.processesCombo.addColumn("Code",["Alle"]).addColumn("Name",["Alle"]).addColumn("Cat",["Alle"]);
-out.temp.states = ["Alle", CaseState.RUNNING.toString(),CaseState.DONE.toString(), CaseState.DESTROYED.toString(), CaseState.ZOMBIE.toString()];
+out.temp.categories = [ivy.cms.co("/labels/all")];
+out.temp.processes.addColumn("Code",[ivy.cms.co("/labels/all")]).addColumn("Name",[ivy.cms.co("/labels/all")]).addColumn("Cat",[ivy.cms.co("/labels/all")]);
+out.temp.processesCombo.addColumn("Code",[ivy.cms.co("/labels/all")]).addColumn("Name",[ivy.cms.co("/labels/all")]).addColumn("Cat",[ivy.cms.co("/labels/all")]);
+out.temp.states = [ivy.cms.co("/labels/all"), CaseState.RUNNING.toString(),CaseState.DONE.toString(), CaseState.DESTROYED.toString(), CaseState.ZOMBIE.toString()];
 ' #txt
 Rt0 f38 type htmlwfui.Data #txt
 Rt0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -707,13 +707,13 @@ out.temp.caption="admin_cases";
 Rt0 f40 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
 
 out.temp.statFilter = CaseState.RUNNING.toString();
-out.temp.catFilter = "Alle";
-out.temp.procFilter = "Alle";
+out.temp.catFilter = ivy.cms.co("/labels/all");
+out.temp.procFilter = ivy.cms.co("/labels/all");
 
-out.temp.categories = ["Alle"];
-out.temp.processes.addColumn("Code",["Alle"]).addColumn("Name",["Alle"]).addColumn("Cat",["Alle"]);;
-out.temp.processesCombo.addColumn("Code",["Alle"]).addColumn("Name",["Alle"]).addColumn("Cat",["Alle"]);
-out.temp.states = ["Alle", CaseState.RUNNING.toString(),CaseState.DONE.toString(), CaseState.DESTROYED.toString(), CaseState.ZOMBIE.toString()];' #txt
+out.temp.categories = [ivy.cms.co("/labels/all")];
+out.temp.processes.addColumn("Code",[ivy.cms.co("/labels/all")]).addColumn("Name",[ivy.cms.co("/labels/all")]).addColumn("Cat",[ivy.cms.co("/labels/all")]);
+out.temp.processesCombo.addColumn("Code",[ivy.cms.co("/labels/all")]).addColumn("Name",[ivy.cms.co("/labels/all")]).addColumn("Cat",[ivy.cms.co("/labels/all")]);
+out.temp.states = [ivy.cms.co("/labels/all"), CaseState.RUNNING.toString(),CaseState.DONE.toString(), CaseState.DESTROYED.toString(), CaseState.ZOMBIE.toString()];' #txt
 Rt0 f40 type htmlwfui.Data #txt
 Rt0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -750,7 +750,7 @@ Rt0 f7 actionDecl 'htmlwfui.Data out;
 ' #txt
 Rt0 f7 actionTable 'out=in;
 ' #txt
-Rt0 f7 actionCode 'if(in.temp.catFilter=="Alle")
+Rt0 f7 actionCode 'if(in.temp.catFilter==ivy.cms.co("/labels/all"))
 {
 	out.temp.processesCombo=in.temp.processes.clone();
 }	

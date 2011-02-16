@@ -86,16 +86,19 @@
 	{
 		// selected xivy3 task
 		htmlwfui.TaskDetail task3 = (htmlwfui.TaskDetail)ivy.html.getObject("in.tmpTaskDetail");
-		taskId =task3.getId();
+		taskId =""+task3.getId();
 		taskName = task3.getName();
 	 	taskBeschreibung = task3.getDesc();
-		taskStateId = task3.getState();
-		taskStateDescription = ivy.cms.co("/wflabels/state/" + taskStateId);
-		taskPriorityId = task3.getPrio();
-		taskPriorityName = ivy.cms.co("/wflabels/prio/" + taskPriorityId);
+		taskStateId = ""+task3.getState();
+		taskStateDescription =task3.getStateName();
+		taskPriorityId = ""+task3.getPrio();
+		taskPriorityName =  task3.getPrioName();
 	 	taskActivatorName = task3.getActivator() ;
-		taskActivatorIsUser = "1".equals(task3.getActivatorIsUser());
-		taskStartDate = task3.getStart();
+		taskActivatorIsUser =task3.getActivatorIsUser();
+		//taskStartDate = task3.getStart() != null ? formatter.format(task3.getStart()) : "";
+		taskStartDate = task3.getStart() != null ? ""+task3.getStart() :"";
+		taskExpDate=task3.getExp()!=null ? ""+task3.getExp() :"";
+		taskDelayDate=task3.getExp()!=null ?""+task3.getDelay() :"";		
 		taskStartUri = task3.getUrl();
    		canDelegate = false;
            canPark = false;
@@ -183,11 +186,11 @@
 <%
 	if(task!=null && task.getCase().hasNotes()){
 		List <INote> notes = task.getCase().getNotes();	
-		out.write("<h3>"+ivy.cms.co("/labels/caseNotes")+"</h3>");
+		out.write("<h3>"+ivy.cms.co("/labels/notes")+"</h3>");
 		for(INote note : notes) {
 				out.write("<b>" + formatter.format(note.getCreationTimestamp()) + " ");
 				out.write(note.getWritterName() + ":</b><br />");
-				out.write(note.getMessage() + "<br />");
+				out.write(ivy.html.escape(note.getMessage()) + "<br />");
 		}
 		out.write("<br />");
 	}
@@ -197,7 +200,7 @@
 		for(INote note : notes) {
 				out.write("<b>" + formatter.format(note.getCreationTimestamp()) + " ");
 				out.write(note.getWritterName() + ":</b><br />");
-				out.write(note.getMessage() + "<br />");
+				out.write(ivy.html.escape(note.getMessage()) + "<br />");
 		}
 	}
 %>

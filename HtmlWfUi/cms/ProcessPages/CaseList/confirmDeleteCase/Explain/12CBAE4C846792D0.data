@@ -1,3 +1,3 @@
 <P>
-Soll der laufende Workflow <B><%=ivy.html.get("in.tempCase.name")%></B> - CaseId[<%=ivy.html.get("in.tempCase.getIdentifier()")%>] inklusive den Aufgaben gelöscht werden? 
+Confirmt to delete the workflow <B><%=ivy.html.get("in.tempCase.name")%></B> - CaseId[<%=ivy.html.get("in.tempCase.getIdentifier()")%>] and its open tasks.
 </P>
