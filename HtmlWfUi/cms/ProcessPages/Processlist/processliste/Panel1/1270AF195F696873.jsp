@@ -1,6 +1,5 @@
 <%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivyjsp --><%@ page import="java.util.List"%>
 <%@ page import="ch.ivyteam.ivy.workflow.IProcessStart"%>
-<% session.setAttribute("ch.ivy.snbWFUI.history", "processlist");%>
 	<div>
 		<h3><%=ivy.cms.co("/labels/processes")%></h3>
 		<hr>	

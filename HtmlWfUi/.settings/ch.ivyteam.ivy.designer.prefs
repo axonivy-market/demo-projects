@@ -1,5 +1,5 @@
-#Mon Jan 17 10:24:48 CET 2011
+#Thu Feb 17 11:17:23 CET 2011
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=htmlwfui.Data
-ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=snbwfui
+ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=htmlwfui
 ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=41917
 eclipse.preferences.version=1

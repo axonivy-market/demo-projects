@@ -1,8 +1,0 @@
-# Conversion log for project 'SnbWFUI' from version 9 to 41,904
-# Created on 09.08.2010 16:11:35
-09.08.2010 16:11:35 : New Task  : Converting configurations:
-09.08.2010 16:11:35 : Info      : Adding smart table default configuration ...
-09.08.2010 16:11:35 : Info      : Clearing configuration classes cache...
-09.08.2010 16:11:35 : Info      : Converted configurations successfully.
-09.08.2010 16:11:35 : New Task  : Update project version to actual version 41904.
-09.08.2010 16:11:35 : New Task  : Finished conversion of project SnbWFUI.
