@@ -5,11 +5,11 @@ String urlToStart=ivy.html.get("in.temp.url");
 %>
 <html>
 <head> 
-<title>Workflow redirect</title> 
+<title>Xpert.ivy Workflow</title> 
 <META  http-equiv="refresh" content="0; URL=<%=urlToStart%>">
 </head> 
 <body>
-Workflow Home<br>
-<a href="<%=urlToStart%>">Click here if not loading automatically</a>
+Workflow redirect<br>
+<a href="<%=urlToStart%>">Click here if page is not loaded automatically</a>
 </body>
 </html>

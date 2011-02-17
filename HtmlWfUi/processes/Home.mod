@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Feb 17 12:12:02 CET 2011]
-127AE76143E89C91 3.15 #module
+[>Created: Thu Feb 17 14:37:21 CET 2011]
+127AE76143E89C91 3.16 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
 He0 B #cInfo
@@ -113,7 +113,7 @@ He0 f11 actionDecl 'htmlwfui.Data out;
 He0 f11 actionTable 'out=in;
 ' #txt
 He0 f11 actionCode 'ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl", ivy.html.startref("127AE76143E89C91/DefaultEndPage.ivp"));' #txt
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl", ivy.html.startref("127AE76143E89C91/start1.ivp"));' #txt
 He0 f11 type htmlwfui.Data #txt
 He0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

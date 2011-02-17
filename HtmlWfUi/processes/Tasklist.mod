@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Feb 17 12:06:40 CET 2011]
-125016DE17A534EB 3.15 #module
+[>Created: Thu Feb 17 16:55:55 CET 2011]
+125016DE17A534EB 3.16 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
 Tt0 B #cInfo
@@ -36,9 +36,12 @@ Tt0 @PushWFArc f8 '' #zField
 Tt0 @PushWFArc f9 '' #zField
 Tt0 @PushWFArc f2 '' #zField
 Tt0 @PushWFArc f6 '' #zField
+Tt0 @Page f16 '' #zField
+Tt0 @PushWFArc f17 '' #zField
+Tt0 @PushWFArc f18 '' #zField
 >Proto Tt0 Tt0 Tasklist #zField
 Tt0 f5 type htmlwfui.Data #txt
-Tt0 f5 115 355 26 26 14 0 #rect
+Tt0 f5 139 355 26 26 14 0 #rect
 Tt0 f5 @|EndIcon #fIcon
 Tt0 f0 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -87,7 +90,7 @@ for (int t=0; t<tasks.size(); t++)
 				taskDetail.start = task.getStartTimestamp();
 				taskDetail.state = task.getState().intValue();
 				taskDetail.stateName=task.getState().toString();
-				String prefixRIARedirect = ("RIA".equals(task.getCustomVarCharField1())||"RIA".equals(task.getCase().getCustomVarCharField1())) ? "/ivy/wf/start_redirect.jsp?startUrl=" : "" ;
+				String prefixRIARedirect = "";
 				taskDetail.url = prefixRIARedirect+"/ivy/pro/"+task.getFullRequestPath()+"?taskId="+task.getIdentifier();
 		
 				out.taskList.add(taskDetail);
@@ -103,10 +106,10 @@ setReturnUrl</name>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f0 110 156 36 24 22 -5 #rect
+Tt0 f0 134 156 36 24 22 -5 #rect
 Tt0 f0 @|StepIcon #fIcon
-Tt0 f3 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
-Tt0 f3 outLinks "LinkB.ivp","LinkA.ivp" #txt
+Tt0 f3 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
+Tt0 f3 outLinks "LinkB.ivp","LinkA.ivp","LinkC.ivp" #txt
 Tt0 f3 template "taskList.ivc" #txt
 Tt0 f3 type htmlwfui.Data #txt
 Tt0 f3 skipLink skip.ivp #txt
@@ -125,7 +128,7 @@ Tt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Tt0 f3 @C|.responsibility Everybody #txt
-Tt0 f3 110 220 36 25 20 0 #rect
+Tt0 f3 134 220 36 25 20 0 #rect
 Tt0 f3 @|PageIcon #fIcon
 Tt0 f1 outLink start1.ivp #txt
 Tt0 f1 type htmlwfui.Data #txt
@@ -177,7 +180,7 @@ Tt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Tt0 f1 @C|.responsibility Everybody #txt
-Tt0 f1 115 27 26 26 14 0 #rect
+Tt0 f1 139 27 26 26 14 0 #rect
 Tt0 f1 @|StartRequestIcon #fIcon
 Tt0 f23 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
 Tt0 f23 outLinks "LinkA.ivp","LinkB.ivp","LinkC.ivp","LinkD.ivp" #txt
@@ -242,18 +245,17 @@ Tt0 f25 270 220 36 24 28 -15 #rect
 Tt0 f25 @|StepIcon #fIcon
 Tt0 f26 expr data #txt
 Tt0 f26 outCond ivp=="LinkB.ivp" #txt
-Tt0 f26 146 231 270 232 #arcP
+Tt0 f26 170 231 270 232 #arcP
 Tt0 f26 0 0.8226392979110723 0 0 #arcLabel
 Tt0 f24 expr out #txt
 Tt0 f24 288 244 288 292 #arcP
 Tt0 f24 0 0.729879361412707 0 0 #arcLabel
 Tt0 f27 expr data #txt
 Tt0 f27 outCond ivp=="LinkA.ivp" #txt
-Tt0 f27 270 304 137 244 #arcP
-Tt0 f27 1 176 304 #addKink
-Tt0 f27 0 0.6361311570249065 0 0 #arcLabel
+Tt0 f27 270 294 170 241 #arcP
+Tt0 f27 0 0.28662004769589106 0 0 #arcLabel
 Tt0 f30 expr out #txt
-Tt0 f30 128 180 128 219 #arcP
+Tt0 f30 152 180 152 219 #arcP
 Tt0 f14 type htmlwfui.Data #txt
 Tt0 f14 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
 Tt0 f14 doCall true #txt
@@ -274,10 +276,10 @@ Tt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f14 110 92 36 24 20 -2 #rect
+Tt0 f14 134 92 36 24 20 -2 #rect
 Tt0 f14 @|CallSubIcon #fIcon
 Tt0 f15 expr out #txt
-Tt0 f15 128 53 128 92 #arcP
+Tt0 f15 152 53 152 92 #arcP
 Tt0 f11 type htmlwfui.Data #txt
 Tt0 f11 processCall 'Functional Processes/AddNote:call(htmlwfui.Data)' #txt
 Tt0 f11 doCall true #txt
@@ -305,9 +307,8 @@ Tt0 f12 expr data #txt
 Tt0 f12 outCond ivp=="LinkC.ivp" #txt
 Tt0 f12 306 315 374 357 #arcP
 Tt0 f13 expr out #txt
-Tt0 f13 392 356 306 304 #arcP
-Tt0 f13 1 392 304 #addKink
-Tt0 f13 0 0.31709394207360503 0 0 #arcLabel
+Tt0 f13 374 357 306 315 #arcP
+Tt0 f13 0 0.08668512349902316 0 0 #arcLabel
 Tt0 f10 type htmlwfui.Data #txt
 Tt0 f10 processCall 'Functional Processes/DelegateTask:call(htmlwfui.Data)' #txt
 Tt0 f10 doCall true #txt
@@ -328,17 +329,15 @@ Tt0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f10 270 356 36 24 21 3 #rect
+Tt0 f10 270 356 36 24 29 0 #rect
 Tt0 f10 @|CallSubIcon #fIcon
 Tt0 f22 expr data #txt
 Tt0 f22 outCond ivp=="LinkB.ivp" #txt
 Tt0 f22 288 316 288 356 #arcP
 Tt0 f22 0 0.6481254980617335 0 0 #arcLabel
 Tt0 f4 expr out #txt
-Tt0 f4 270 368 270 308 #arcP
-Tt0 f4 1 208 368 #addKink
-Tt0 f4 2 208 320 #addKink
-Tt0 f4 1 0.7611959175330122 0 0 #arcLabel
+Tt0 f4 288 356 288 316 #arcP
+Tt0 f4 0 0.5690849254537531 0 0 #arcLabel
 Tt0 f7 actionDecl 'htmlwfui.Data out;
 ' #txt
 Tt0 f7 actionTable 'out=in;
@@ -360,14 +359,42 @@ Tt0 f8 expr data #txt
 Tt0 f8 outCond ivp=="LinkD.ivp" #txt
 Tt0 f8 306 309 486 363 #arcP
 Tt0 f9 expr out #txt
-Tt0 f9 504 356 306 304 #arcP
-Tt0 f9 1 504 304 #addKink
-Tt0 f9 1 0.15241315129014188 0 0 #arcLabel
+Tt0 f9 486 363 306 309 #arcP
+Tt0 f9 0 0.20493149233676253 0 0 #arcLabel
 Tt0 f2 expr out #txt
-Tt0 f2 128 116 128 156 #arcP
+Tt0 f2 152 116 152 156 #arcP
 Tt0 f6 expr data #txt
 Tt0 f6 outCond ivp=="LinkA.ivp" #txt
-Tt0 f6 128 244 128 355 #arcP
+Tt0 f6 152 244 152 355 #arcP
+Tt0 f16 outTypes "htmlwfui.Data" #txt
+Tt0 f16 outLinks "LinkA.ivp" #txt
+Tt0 f16 template "start_redirect.jsp" #txt
+Tt0 f16 type htmlwfui.Data #txt
+Tt0 f16 skipLink skip.ivp #txt
+Tt0 f16 sortLink sort.ivp #txt
+Tt0 f16 templateWizard '#
+#Thu Feb 17 16:40:26 CET 2011
+' #txt
+Tt0 f16 pageArchivingActivated false #txt
+Tt0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startRedirect</name>
+        <nameStyle>13
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Tt0 f16 @C|.responsibility Everybody #txt
+Tt0 f16 30 220 36 24 -27 15 #rect
+Tt0 f16 @|PageIcon #fIcon
+Tt0 f17 expr data #txt
+Tt0 f17 outCond ivp=="LinkC.ivp" #txt
+Tt0 f17 134 231 66 232 #arcP
+Tt0 f18 expr data #txt
+Tt0 f18 outCond ivp=="LinkA.ivp" #txt
+Tt0 f18 66 221 134 179 #arcP
+Tt0 f18 0 0.43327785107273215 0 0 #arcLabel
 >Proto Tt0 .type htmlwfui.Data #txt
 >Proto Tt0 .processKind NORMAL #txt
 >Proto Tt0 0 0 32 24 18 0 #rect
@@ -398,3 +425,7 @@ Tt0 f2 head f0 mainIn #connect
 Tt0 f3 out f26 tail #connect
 Tt0 f3 out f6 tail #connect
 Tt0 f6 head f5 mainIn #connect
+Tt0 f3 out f17 tail #connect
+Tt0 f17 head f16 mainIn #connect
+Tt0 f16 out f18 tail #connect
+Tt0 f18 head f0 mainIn #connect
