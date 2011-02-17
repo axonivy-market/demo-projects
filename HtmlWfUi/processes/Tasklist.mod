@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 15 17:40:00 CET 2011]
+[>Created: Thu Feb 17 09:01:04 CET 2011]
 125016DE17A534EB 3.15 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
@@ -65,7 +65,7 @@ List<ITask> tasks = queryResult.getResultList();
 out.tasks = tasks;
 
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl","/ivy/pro/"+ivy.wf.getApplication().getName()+"/HtmlWFUI/125016DE17A534EB/start1.ivp");
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("125016DE17A534EB/start1.ivp"));
 
 for (int t=0; t<tasks.size(); t++)
 {
@@ -96,9 +96,9 @@ Tt0 f0 type htmlwfui.Data #txt
 Tt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>get Xivy4 Tasks
+        <name>get Tasks
 setReturnUrl</name>
-        <nameStyle>28,9
+        <nameStyle>22,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -338,9 +338,10 @@ Tt0 f22 outCond ivp=="LinkB.ivp" #txt
 Tt0 f22 224 356 224 396 #arcP
 Tt0 f22 0 0.6481254980617335 0 0 #arcLabel
 Tt0 f4 expr out #txt
-Tt0 f4 206 408 215 356 #arcP
+Tt0 f4 206 408 206 350 #arcP
 Tt0 f4 1 176 408 #addKink
-Tt0 f4 1 0.41898486518530165 0 0 #arcLabel
+Tt0 f4 2 176 360 #addKink
+Tt0 f4 1 0.7611959175330122 0 0 #arcLabel
 Tt0 f7 actionDecl 'htmlwfui.Data out;
 ' #txt
 Tt0 f7 actionTable 'out=in;

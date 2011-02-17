@@ -24,20 +24,25 @@
 		</div>
 		<div id="LeftNavigation">
 
-			<a href="/ivy/pro/<%=ivy.html.get("in.appname")%>/HtmlWFUI/127AE76143E89C91/start1.ivp" target="_top"><%=ivy.cms.co("/navLabels/home")%></a><br><br> 
-			<a href="/ivy/pro/<%=ivy.html.get("in.appname")%>/HtmlWFUI/1270ADF72FF4AFF3/start1.ivp" target="_top"><%=ivy.cms.co("/navLabels/processList")%></a> <br><br>
-			<a href="/ivy/pro/<%=ivy.html.get("in.appname")%>/HtmlWFUI/125016DE17A534EB/start1.ivp" target="_top"><%=ivy.cms.co("/navLabels/taskList")%></a><br><br>
+			<a href='<%=ivy.html.startref("127AE76143E89C91/DefaultEndPage.ivp")%>'><%=ivy.cms.co("/navLabels/home")%></a><br><br> 
+			<a href='<%=ivy.html.startref("1270ADF72FF4AFF3/start1.ivp")%>'><%=ivy.cms.co("/navLabels/processList")%></a> <br><br>
+			<a href='<%=ivy.html.startref("125016DE17A534EB/start1.ivp")%>'><%=ivy.cms.co("/navLabels/taskList")%></a><br><br>
 			<hr>
-			<a href="/ivy/pro/<%=ivy.html.get("in.appname")%>/HtmlWFUI/12C97DB1B1EA5971/start1.ivp" target="_top"><%=ivy.cms.co("/navLabels/caseHistory")%></a><br><br>
-			<a href="/ivy/pro/<%=ivy.html.get("in.appname")%>/HtmlWFUI/12E297F287736665/start1.ivp" target="_top"><%=ivy.cms.co("/navLabels/taskHistory")%></a><br><br>
-			<a href="/ivy/pro/<%=ivy.html.get("in.appname")%>/HtmlWFUI/12C97DB1B1EA5971/start2.ivp" target="_top"><%=ivy.cms.co("/navLabels/admin")%></a><br>
+			<a href='<%=ivy.html.startref("12C97DB1B1EA5971/start1.ivp")%>'><%=ivy.cms.co("/navLabels/caseHistory")%></a><br><br>
+			<a href='<%=ivy.html.startref("12E297F287736665/start1.ivp")%>'><%=ivy.cms.co("/navLabels/taskHistory")%></a><br><br>
+			<hr>
+			<a href='<%=ivy.html.startref("12C97DB1B1EA5971/start2.ivp")%>'><%=ivy.cms.co("/navLabels/admin")%></a><br><br>
+			<a href='<%=ivy.html.ref("LinkB.ivp")%>' target="_top"><%=ivy.cms.co("/navLabels/logout")%></a><br>
 		</div>
 
 		<div id="CenterPage">	
 			<div id="CaseHeader">
 				<h1><%=ivy.content("Caption","String")%></h1>
 				<table><tr><td width="450"><%=ivy.content("Explain","Text")%></td>
-				<td ><%=ivy.cms.co("/htmlabels/loginAs")%>&nbsp;<%=ivy.html.get("in.username")%>
+				<%if(!ivy.session.isSessionUserUnknown())
+				{%>
+					<td ><%=ivy.cms.co("/htmlabels/loginAs")%>&nbsp;<%=ivy.html.get("in.username")%>
+				<%}%>
 				</tr></table>
 				
 			</div>
