@@ -26,3 +26,5 @@ processesCombo Recordset #field
 processesCombo PERSISTENT #fieldModifier
 url String #field
 url PERSISTENT #fieldModifier
+mode String #field
+mode PERSISTENT #fieldModifier

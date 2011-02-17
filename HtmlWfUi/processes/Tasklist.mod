@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 17 09:01:04 CET 2011]
+[>Created: Thu Feb 17 12:06:40 CET 2011]
 125016DE17A534EB 3.15 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
@@ -17,7 +17,6 @@ Tt0 @EndTask f5 '' #zField
 Tt0 @GridStep f0 '' #zField
 Tt0 @Page f3 '' #zField
 Tt0 @StartRequest f1 '' #zField
-Tt0 @PushWFArc f6 '' #zField
 Tt0 @Page f23 '' #zField
 Tt0 @GridStep f25 '' #zField
 Tt0 @PushWFArc f26 '' #zField
@@ -36,9 +35,10 @@ Tt0 @GridStep f7 '' #zField
 Tt0 @PushWFArc f8 '' #zField
 Tt0 @PushWFArc f9 '' #zField
 Tt0 @PushWFArc f2 '' #zField
+Tt0 @PushWFArc f6 '' #zField
 >Proto Tt0 Tt0 Tasklist #zField
 Tt0 f5 type htmlwfui.Data #txt
-Tt0 f5 35 387 26 26 14 0 #rect
+Tt0 f5 115 355 26 26 14 0 #rect
 Tt0 f5 @|EndIcon #fIcon
 Tt0 f0 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -103,10 +103,10 @@ setReturnUrl</name>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f0 30 164 36 24 22 -5 #rect
+Tt0 f0 110 156 36 24 22 -5 #rect
 Tt0 f0 @|StepIcon #fIcon
 Tt0 f3 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
-Tt0 f3 outLinks "LinkA.ivp","LinkB.ivp" #txt
+Tt0 f3 outLinks "LinkB.ivp","LinkA.ivp" #txt
 Tt0 f3 template "taskList.ivc" #txt
 Tt0 f3 type htmlwfui.Data #txt
 Tt0 f3 skipLink skip.ivp #txt
@@ -125,7 +125,7 @@ Tt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Tt0 f3 @C|.responsibility Everybody #txt
-Tt0 f3 30 268 36 25 20 0 #rect
+Tt0 f3 110 220 36 25 20 0 #rect
 Tt0 f3 @|PageIcon #fIcon
 Tt0 f1 outLink start1.ivp #txt
 Tt0 f1 type htmlwfui.Data #txt
@@ -177,11 +177,8 @@ Tt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Tt0 f1 @C|.responsibility Everybody #txt
-Tt0 f1 35 27 26 26 14 0 #rect
+Tt0 f1 115 27 26 26 14 0 #rect
 Tt0 f1 @|StartRequestIcon #fIcon
-Tt0 f6 expr data #txt
-Tt0 f6 outCond ivp=="LinkA.ivp" #txt
-Tt0 f6 48 292 48 387 #arcP
 Tt0 f23 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
 Tt0 f23 outLinks "LinkA.ivp","LinkB.ivp","LinkC.ivp","LinkD.ivp" #txt
 Tt0 f23 template "taskDetail.ivc" #txt
@@ -202,7 +199,7 @@ Tt0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Tt0 f23 @C|.responsibility Everybody #txt
-Tt0 f23 206 332 36 24 17 -20 #rect
+Tt0 f23 270 292 36 24 17 -20 #rect
 Tt0 f23 @|PageIcon #fIcon
 Tt0 f25 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -241,22 +238,22 @@ Details</name>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f25 206 268 36 24 28 -15 #rect
+Tt0 f25 270 220 36 24 28 -15 #rect
 Tt0 f25 @|StepIcon #fIcon
 Tt0 f26 expr data #txt
 Tt0 f26 outCond ivp=="LinkB.ivp" #txt
-Tt0 f26 66 279 206 280 #arcP
+Tt0 f26 146 231 270 232 #arcP
 Tt0 f26 0 0.8226392979110723 0 0 #arcLabel
 Tt0 f24 expr out #txt
-Tt0 f24 224 292 224 332 #arcP
+Tt0 f24 288 244 288 292 #arcP
 Tt0 f24 0 0.729879361412707 0 0 #arcLabel
 Tt0 f27 expr data #txt
 Tt0 f27 outCond ivp=="LinkA.ivp" #txt
-Tt0 f27 206 344 54 292 #arcP
-Tt0 f27 1 80 344 #addKink
+Tt0 f27 270 304 137 244 #arcP
+Tt0 f27 1 176 304 #addKink
 Tt0 f27 0 0.6361311570249065 0 0 #arcLabel
 Tt0 f30 expr out #txt
-Tt0 f30 48 188 48 267 #arcP
+Tt0 f30 128 180 128 219 #arcP
 Tt0 f14 type htmlwfui.Data #txt
 Tt0 f14 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
 Tt0 f14 doCall true #txt
@@ -277,10 +274,10 @@ Tt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f14 30 92 36 24 20 -2 #rect
+Tt0 f14 110 92 36 24 20 -2 #rect
 Tt0 f14 @|CallSubIcon #fIcon
 Tt0 f15 expr out #txt
-Tt0 f15 48 53 48 92 #arcP
+Tt0 f15 128 53 128 92 #arcP
 Tt0 f11 type htmlwfui.Data #txt
 Tt0 f11 processCall 'Functional Processes/AddNote:call(htmlwfui.Data)' #txt
 Tt0 f11 doCall true #txt
@@ -302,14 +299,14 @@ Tt0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f11 310 396 36 24 25 -2 #rect
+Tt0 f11 374 356 36 24 25 -2 #rect
 Tt0 f11 @|CallSubIcon #fIcon
 Tt0 f12 expr data #txt
 Tt0 f12 outCond ivp=="LinkC.ivp" #txt
-Tt0 f12 242 355 310 397 #arcP
+Tt0 f12 306 315 374 357 #arcP
 Tt0 f13 expr out #txt
-Tt0 f13 328 396 242 344 #arcP
-Tt0 f13 1 328 344 #addKink
+Tt0 f13 392 356 306 304 #arcP
+Tt0 f13 1 392 304 #addKink
 Tt0 f13 0 0.31709394207360503 0 0 #arcLabel
 Tt0 f10 type htmlwfui.Data #txt
 Tt0 f10 processCall 'Functional Processes/DelegateTask:call(htmlwfui.Data)' #txt
@@ -331,16 +328,16 @@ Tt0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f10 206 396 36 24 21 3 #rect
+Tt0 f10 270 356 36 24 21 3 #rect
 Tt0 f10 @|CallSubIcon #fIcon
 Tt0 f22 expr data #txt
 Tt0 f22 outCond ivp=="LinkB.ivp" #txt
-Tt0 f22 224 356 224 396 #arcP
+Tt0 f22 288 316 288 356 #arcP
 Tt0 f22 0 0.6481254980617335 0 0 #arcLabel
 Tt0 f4 expr out #txt
-Tt0 f4 206 408 206 350 #arcP
-Tt0 f4 1 176 408 #addKink
-Tt0 f4 2 176 360 #addKink
+Tt0 f4 270 368 270 308 #arcP
+Tt0 f4 1 208 368 #addKink
+Tt0 f4 2 208 320 #addKink
 Tt0 f4 1 0.7611959175330122 0 0 #arcLabel
 Tt0 f7 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -357,24 +354,24 @@ Tt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f7 422 396 36 24 20 -2 #rect
+Tt0 f7 486 356 36 24 20 -2 #rect
 Tt0 f7 @|StepIcon #fIcon
 Tt0 f8 expr data #txt
 Tt0 f8 outCond ivp=="LinkD.ivp" #txt
-Tt0 f8 242 349 422 403 #arcP
+Tt0 f8 306 309 486 363 #arcP
 Tt0 f9 expr out #txt
-Tt0 f9 440 396 242 344 #arcP
-Tt0 f9 1 440 344 #addKink
-Tt0 f9 1 0.3442802434312135 0 0 #arcLabel
+Tt0 f9 504 356 306 304 #arcP
+Tt0 f9 1 504 304 #addKink
+Tt0 f9 1 0.15241315129014188 0 0 #arcLabel
 Tt0 f2 expr out #txt
-Tt0 f2 48 116 48 164 #arcP
+Tt0 f2 128 116 128 156 #arcP
+Tt0 f6 expr data #txt
+Tt0 f6 outCond ivp=="LinkA.ivp" #txt
+Tt0 f6 128 244 128 355 #arcP
 >Proto Tt0 .type htmlwfui.Data #txt
 >Proto Tt0 .processKind NORMAL #txt
 >Proto Tt0 0 0 32 24 18 0 #rect
 >Proto Tt0 @|BIcon #fIcon
-Tt0 f3 out f6 tail #connect
-Tt0 f6 head f5 mainIn #connect
-Tt0 f3 out f26 tail #connect
 Tt0 f26 head f25 mainIn #connect
 Tt0 f25 mainOut f24 tail #connect
 Tt0 f24 head f23 mainIn #connect
@@ -398,3 +395,6 @@ Tt0 f7 mainOut f9 tail #connect
 Tt0 f9 head f23 mainIn #connect
 Tt0 f14 mainOut f2 tail #connect
 Tt0 f2 head f0 mainIn #connect
+Tt0 f3 out f26 tail #connect
+Tt0 f3 out f6 tail #connect
+Tt0 f6 head f5 mainIn #connect

@@ -24,7 +24,7 @@
 		</div>
 		<div id="LeftNavigation">
 
-			<a href='<%=ivy.html.startref("127AE76143E89C91/DefaultEndPage.ivp")%>'><%=ivy.cms.co("/navLabels/home")%></a><br><br> 
+			<a href='<%=ivy.html.startref("127AE76143E89C91/start1.ivp")%>'><%=ivy.cms.co("/navLabels/home")%></a><br><br> 
 			<a href='<%=ivy.html.startref("1270ADF72FF4AFF3/start1.ivp")%>'><%=ivy.cms.co("/navLabels/processList")%></a> <br><br>
 			<a href='<%=ivy.html.startref("125016DE17A534EB/start1.ivp")%>'><%=ivy.cms.co("/navLabels/taskList")%></a><br><br>
 			<hr>

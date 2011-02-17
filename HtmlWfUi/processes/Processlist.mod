@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 16 17:54:10 CET 2011]
+[>Created: Thu Feb 17 12:06:37 CET 2011]
 1270ADF72FF4AFF3 3.15 #module
 >Proto >Proto Collection #zClass
 Pt0 Processlist Big #zClass
@@ -16,12 +16,12 @@ Pt0 @MessageFlowOutP-0n messageOut messageOut #zField
 Pt0 @StartRequest f0 '' #zField
 Pt0 @Page f1 '' #zField
 Pt0 @EndTask f2 '' #zField
-Pt0 @PushWFArc f4 '' #zField
 Pt0 @GridStep f20 '' #zField
 Pt0 @PushWFArc f3 '' #zField
 Pt0 @CallSub f6 '' #zField
 Pt0 @PushWFArc f7 '' #zField
 Pt0 @PushWFArc f5 '' #zField
+Pt0 @PushWFArc f4 '' #zField
 >Proto Pt0 Pt0 Processlist #zField
 Pt0 f0 outLink start1.ivp #txt
 Pt0 f0 type htmlwfui.Data #txt
@@ -73,7 +73,7 @@ Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f0 @C|.responsibility Everybody #txt
-Pt0 f0 68 35 25 26 14 0 #rect
+Pt0 f0 140 35 25 26 14 0 #rect
 Pt0 f0 @|StartRequestIcon #fIcon
 Pt0 f1 outTypes "htmlwfui.Data" #txt
 Pt0 f1 outLinks "LinkA.ivp" #txt
@@ -91,14 +91,11 @@ Pt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f1 @C|.responsibility Everybody #txt
-Pt0 f1 62 220 36 24 20 -2 #rect
+Pt0 f1 134 228 36 24 20 -2 #rect
 Pt0 f1 @|PageIcon #fIcon
 Pt0 f2 type htmlwfui.Data #txt
-Pt0 f2 67 299 26 26 14 0 #rect
+Pt0 f2 139 315 26 26 14 0 #rect
 Pt0 f2 @|EndIcon #fIcon
-Pt0 f4 expr data #txt
-Pt0 f4 outCond ivp=="LinkA.ivp" #txt
-Pt0 f4 80 244 80 299 #arcP
 Pt0 f20 actionDecl 'htmlwfui.Data out;
 ' #txt
 Pt0 f20 actionTable 'out=in;
@@ -118,10 +115,10 @@ setReturnUrl</name>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f20 62 156 36 24 28 -12 #rect
+Pt0 f20 134 156 36 24 28 -12 #rect
 Pt0 f20 @|StepIcon #fIcon
 Pt0 f3 expr out #txt
-Pt0 f3 80 180 80 220 #arcP
+Pt0 f3 152 180 152 228 #arcP
 Pt0 f6 type htmlwfui.Data #txt
 Pt0 f6 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
 Pt0 f6 doCall true #txt
@@ -142,21 +139,24 @@ Pt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f6 62 92 36 24 20 -2 #rect
+Pt0 f6 134 92 36 24 20 -2 #rect
 Pt0 f6 @|CallSubIcon #fIcon
 Pt0 f7 expr out #txt
-Pt0 f7 79 60 80 92 #arcP
+Pt0 f7 151 60 152 92 #arcP
 Pt0 f5 expr out #txt
-Pt0 f5 80 116 80 156 #arcP
+Pt0 f5 152 116 152 156 #arcP
+Pt0 f4 expr data #txt
+Pt0 f4 outCond ivp=="LinkA.ivp" #txt
+Pt0 f4 152 252 152 315 #arcP
 >Proto Pt0 .type htmlwfui.Data #txt
 >Proto Pt0 .processKind NORMAL #txt
 >Proto Pt0 0 0 32 24 18 0 #rect
 >Proto Pt0 @|BIcon #fIcon
-Pt0 f1 out f4 tail #connect
-Pt0 f4 head f2 mainIn #connect
 Pt0 f20 mainOut f3 tail #connect
 Pt0 f3 head f1 mainIn #connect
 Pt0 f0 mainOut f7 tail #connect
 Pt0 f7 head f6 mainIn #connect
 Pt0 f6 mainOut f5 tail #connect
 Pt0 f5 head f20 mainIn #connect
+Pt0 f1 out f4 tail #connect
+Pt0 f4 head f2 mainIn #connect
