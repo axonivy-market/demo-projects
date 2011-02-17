@@ -13,7 +13,6 @@ import ch.ivyteam.ivy.environment.Ivy;
  * @author Patrick Joly, TI-Informatique
  * @since 23.07.2010
  */
-@SuppressWarnings("unchecked")
 public abstract class ComplexComponentParameters extends ComponentParameters
 {
   public static final int NB_BUTTONS = 10;
@@ -78,7 +77,7 @@ public abstract class ComplexComponentParameters extends ComponentParameters
   private boolean selectAllOnFocusGained;
 
   protected ComplexComponentParameters(List<String> cmsContexts, String name, String fullName,
-          ComplexComponentParameters parentContainerParameters, Integer position, Class clazz)
+          ComplexComponentParameters parentContainerParameters, Integer position, Class<?> clazz)
   {
     super(cmsContexts, name, fullName, parentContainerParameters, position, clazz);
 

@@ -15,12 +15,11 @@ class GridBagLayoutPaneParameters extends ContainerParameters
 {
   private boolean showBorder;
 
-  @SuppressWarnings("unchecked")
-protected GridBagLayoutPaneParameters(List<String> cmsContexts, String name, String fullName,
-          ComplexComponentParameters parentContainerParameters, Integer position, Class clazz)
+  protected GridBagLayoutPaneParameters(List<String> cmsContexts, String name, String fullName,
+          ComplexComponentParameters parentContainerParameters, Integer position, Class<?> clazz)
   {
     super(cmsContexts, name, fullName, parentContainerParameters, position, clazz);
-    
+
     showBorder = Cms.coAsBoolean(cmsContexts, KnownParameters.SHOW_BORDER_PARAMETER, true);
   }
 

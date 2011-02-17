@@ -1,15 +1,25 @@
 package ch.ivyteam.ivy.addons.eventlog.data.technical;
 
 /**
- * Defines the severity of an event log.
+ * Defines the status of an event log. Usually, only event log entries that have 'MESSAGE' as type have a
+ * status.
  * 
  * @author Patrick Joly, TI-Informatique
- * @since 21.05.2010
+ * @since 08.11.2010
  */
-public enum EventLogSeverity
+public enum EventLogStatus
 {
-  /** Event log priority */
-  INFO(0), WARNING(1), ERROR(2), FATAL(3);
+  /** Event log message not yet read by the frame work */
+  WAITING(0),
+
+  /** Event log message not yet consumed */
+  PENDING(1),
+
+  /** Event log message that is processing */
+  PROCESSING(2),
+
+  /** Event log messaged that is processed */
+  PROCESSED(3);
 
   /** The value of the enum */
   private int value;
@@ -18,7 +28,7 @@ public enum EventLogSeverity
    * Constructor
    * @param _value the value
    */
-  private EventLogSeverity(int _value)
+  private EventLogStatus(int _value)
   {
     value = _value;
   }
@@ -37,11 +47,11 @@ public enum EventLogSeverity
    * @param value the int value
    * @return the enum value
    */
-  public static EventLogSeverity valueOf(int value)
+  public static EventLogStatus valueOf(int value)
   {
-    EventLogSeverity[] values;
+    EventLogStatus[] values;
 
-    values = EventLogSeverity.values();
+    values = EventLogStatus.values();
     for (int pos = 0; pos < values.length; pos++)
     {
       if (values[pos].intValue() == value)

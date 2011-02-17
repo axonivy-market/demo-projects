@@ -60,6 +60,10 @@ public final class DataClassFactory
       {
         object = List.create();
       }
+      else if (clazz.isEnum())
+      {
+        object = null;
+      }
       else
       {
         object = clazz.newInstance();

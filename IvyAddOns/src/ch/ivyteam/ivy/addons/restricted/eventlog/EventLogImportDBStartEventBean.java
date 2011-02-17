@@ -6,9 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.swing.JLabel;
@@ -16,6 +14,9 @@ import javax.swing.JPanel;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
+import ch.ivyteam.ivy.addons.data.technical.eventlog.EventLogData;
+import ch.ivyteam.ivy.addons.eventlog.data.technical.EventLogSeverity;
+import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.application.ReleaseState;
 import ch.ivyteam.ivy.db.IExternalDatabase;
 import ch.ivyteam.ivy.db.IExternalDatabaseApplicationContext;
@@ -26,7 +27,11 @@ import ch.ivyteam.ivy.process.eventstart.IProcessStartEventBeanConfigurationEdit
 import ch.ivyteam.ivy.process.eventstart.IProcessStartEventBeanRuntime;
 import ch.ivyteam.ivy.process.extension.IIvyScriptEditor;
 import ch.ivyteam.ivy.process.extension.IProcessExtensionConfigurationEditorEnvironment;
+import ch.ivyteam.ivy.scripting.objects.Date;
+import ch.ivyteam.ivy.scripting.objects.Time;
 import ch.ivyteam.ivy.service.ServiceException;
+import ch.ivyteam.ivy.workflow.IWorkflowContext;
+import ch.ivyteam.ivy.workflow.WorkflowNavigationUtil;
 import ch.ivyteam.log.Logger;
 import ch.ivyteam.util.Flag;
 
@@ -34,7 +39,7 @@ import ch.ivyteam.util.Flag;
  * The class EventLogImportDBStartEventBean reads the external shared eventlog database and fires an ivy event
  * for each new eventlog.
  * 
- * @author Barreiro François-Xavier, TI-Informatique
+ * @author Barreiro François-Xavier, Patrick Joly, TI-Informatique
  * @since 11.06.2010
  */
 public class EventLogImportDBStartEventBean implements IProcessStartEventBean
@@ -65,7 +70,9 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
    */
   public static class Editor extends JPanel implements IProcessStartEventBeanConfigurationEditorEx
   {
-    private IIvyScriptEditor editorDatabasecConfig;
+    private IIvyScriptEditor editorDatabaseConfig;
+
+    private IIvyScriptEditor editorDatabaseConfigEnable;
 
     private IIvyScriptEditor editorPollTimeIntervall;
 
@@ -78,11 +85,14 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
 
     public void setEnvironment(IProcessExtensionConfigurationEditorEnvironment env)
     {
-      editorDatabasecConfig = env.createIvyScriptEditor(null, null, "String");
+      editorDatabaseConfig = env.createIvyScriptEditor(null, null, "String");
+      editorDatabaseConfigEnable = env.createIvyScriptEditor(null, null, "String");
       editorPollTimeIntervall = env.createIvyScriptEditor(null, null, "Long");
 
       add(new JLabel("Global variable name with database configuration."));
-      add(editorDatabasecConfig.getComponent());
+      add(editorDatabaseConfig.getComponent());
+      add(new JLabel("Global variable name that says if this start event element is enable."));
+      add(editorDatabaseConfigEnable.getComponent());
       add(new JLabel("Poll Time Intervall (milliseconds)."));
       add(editorPollTimeIntervall.getComponent());
     }
@@ -91,9 +101,11 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
     {
       StringTokenizer st = new StringTokenizer(config, "|");
       if (st.hasMoreElements())
-        editorDatabasecConfig.setText(st.nextElement().toString());
+        editorDatabaseConfig.setText(st.nextElement().toString());
       if (st.hasMoreElements())
         editorPollTimeIntervall.setText(st.nextElement().toString());
+      if (st.hasMoreElements())
+        editorDatabaseConfigEnable.setText(st.nextElement().toString());
     }
 
     public Component getComponent()
@@ -103,7 +115,8 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
 
     public String getConfiguration()
     {
-      return editorDatabasecConfig.getText() + "|" + editorPollTimeIntervall.getText();
+      return editorDatabaseConfig.getText() + "|" + editorPollTimeIntervall.getText() + "|"
+              + editorDatabaseConfigEnable.getText();
     }
 
     public boolean acceptInput()
@@ -139,6 +152,8 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
 
       String globalVariableDatabaseConfig = null;
 
+      String globalVariableDatabaseConfigEnable = null;
+
       // logger.info("EventLogImportDBStartEventBean - Configuration : " + configuration, getName());
 
       StringTokenizer st = new StringTokenizer(configuration, "|");
@@ -147,6 +162,15 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
 
       if (st.hasMoreElements())
         pollTimeIntervall = Long.parseLong(st.nextElement().toString());
+
+      globalVariableDatabaseConfigEnable = "";
+      if (st.hasMoreElements())
+        globalVariableDatabaseConfigEnable = st.nextElement().toString().replaceAll("\"", "");
+
+      if (globalVariableDatabaseConfigEnable == null || "".equals(globalVariableDatabaseConfigEnable))
+      {
+        enableStartEventBean = true;
+      }
 
       logger.info("EventLogImportDBStartEventBean - Set Poll Time Intervall (" + pollTimeIntervall
               + ") milliseconds.", getName());
@@ -175,7 +199,7 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
           dbConfigName = element.getValue();
         }
 
-        if (element.getName().equals("eventLogImportDatabaseEnabled"))
+        if (globalVariableDatabaseConfigEnable.equals(element.getName()))
         {
           enableStartEventBean = Boolean.parseBoolean(element.getValue());
         }
@@ -198,7 +222,7 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
       {
         logger
                 .info(
-                        "EventLogImportDBStartEventBean - Start Event Bean Disabled. Set the global varibale \"eventLogImportDatabaseEnabled\" to True to enable the Event Log Import DB feature.",
+                        "EventLogImportDBStartEventBean - Start Event Bean Disabled. Set the global varibale \"" + globalVariableDatabaseConfigEnable + "\" to True to enable the Event Log Import DB feature.",
                         getName());
         logger.info("XMLFileStartEventBean - Set Poll Time Intervall (0) milliseconds.", getName());
         eventRuntime.setPollTimeInterval(0L);
@@ -209,7 +233,7 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
       isError = true;
       logger
               .error(
-                      "EventLogImportDBStartEventBean - Error initalizing start event bean, database configuration defined on global variables configuration ("
+                      "EventLogImportDBStartEventBean - Error initializing start event bean, database configuration defined on global variables configuration ("
                               + configuration + ") cannot be set. Exception : " + e.getMessage(), getName());
       logger.info("XMLFileStartEventBean - Set Poll Time Intervall (0) milliseconds.", getName());
       eventRuntime.setPollTimeInterval(0L);
@@ -244,6 +268,7 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
     long processed = 0;
     java.sql.Connection jdbcConnection = null;
     IExternalDatabaseRuntimeConnection connection = null;
+    EventLogData eventLogData;
 
     if (!enableStartEventBean)
       return;
@@ -276,7 +301,6 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
       oneThreadIsProcessingFiles.setValue(true);
       try
       {
-
         connection = database.getAndLockConnection();
         jdbcConnection = connection.getDatabaseConnection();
 
@@ -298,96 +322,126 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
           {
             if (updateEventLog(jdbcConnection, rs.getLong(1)) > 0)
             {
-              Map<String, Object> results = new HashMap<String, Object>();
+              eventLogData = new EventLogData();
 
-              String server = rs.getString(6);
-              String application = rs.getString(7);
-              String tower = rs.getString(8);
-              String module = rs.getString(9);
-              String environment = rs.getString(10);
-              String groupId = rs.getString(11);
-              String eventDate = rs.getString(12);
-              ;
-              String eventTime = rs.getString(13);
-              String userName = rs.getString(14);
-              String initiator = rs.getString(15);
-              String source = rs.getString(16);
-              String severity = rs.getString(17);
-              String objectId = rs.getString(18);
-              String context = rs.getString(19);
-              String isBusinessEvent = rs.getString(20);
-              String eventType = rs.getString(21);
-              String eventSubType = rs.getString(22);
-              String userComment = rs.getString(23);
-              String errorCode = rs.getString(24);
-              String message = rs.getString(25);
-              String eventData = getEventLogData(jdbcConnection, eventLogId);
+              String value;
+              java.sql.Date date;
+              java.sql.Time time;
+              int integer;
 
-              if (server != null)
-                results.put("server", server.trim());
+              value = getString(rs, 6);
+              if (!rs.wasNull())
+              {
+                eventLogData.setServer(value);
+              }
+              value = getString(rs, 7);
+              if (!rs.wasNull())
+              {
+                eventLogData.setApplication(value);
+              }
+              if ("".equals(value)) // || rs.wasNull() implicit
+              {
+                eventLogData.setApplication(eventRuntime.getProcessModelVersion().getApplication().getName());
+              }
+              value = getString(rs, 8);
+              if (!rs.wasNull())
+              {
+                eventLogData.setTower(value);
+              }
+              value = getString(rs, 9);
+              if (!rs.wasNull())
+              {
+                eventLogData.setModule(value);
+              }
+              value = getString(rs, 10);
+              if (!rs.wasNull())
+              {
+                eventLogData.setEnvironment(value);
+              }
+              value = getString(rs, 11);
+              if (!rs.wasNull())
+              {
+                eventLogData.setGroupId(value);
+              }
+              date = rs.getDate(12);
+              if (!rs.wasNull())
+              {
+                eventLogData.setEventDate(new Date(date));
+              }
+              time = rs.getTime(13);
+              if (!rs.wasNull())
+              {
+                eventLogData.setEventTime(new Time(time));
+              }
+              value = getString(rs, 14);
+              if (!rs.wasNull())
+              {
+                eventLogData.setUserName(value);
+              }
+              value = getString(rs, 15);
+              if (!rs.wasNull())
+              {
+                eventLogData.setInitiator(value);
+              }
+              value = getString(rs, 16);
+              if (!rs.wasNull())
+              {
+                eventLogData.setSource(value);
+              }
+              integer = rs.getInt(17);
+              if (!rs.wasNull())
+              {
+                eventLogData.setSeverity(EventLogSeverity.valueOf(integer));
+              }
+              value = getString(rs, 18);
+              if (!rs.wasNull())
+              {
+                eventLogData.setObjectId(value);
+              }
+              value = getString(rs, 19);
+              if (!rs.wasNull())
+              {
+                eventLogData.setContext(value);
+              }
+              integer = rs.getInt(20);
+              if (!rs.wasNull())
+              {
+                eventLogData.setIsBusinessEvent(integer != 0);
+              }
+              value = getString(rs, 21);
+              if (!rs.wasNull())
+              {
+                eventLogData.setEventType(value);
+              }
+              value = getString(rs, 22);
+              if (!rs.wasNull())
+              {
+                eventLogData.setEventSubType(value);
+              }
+              value = getString(rs, 23);
+              if (!rs.wasNull())
+              {
+                eventLogData.setUserComment(value);
+              }
+              value = getString(rs, 24);
+              if (!rs.wasNull())
+              {
+                eventLogData.setErrorCode(value);
+              }
+              value = getString(rs, 25);
+              if (!rs.wasNull())
+              {
+                eventLogData.setMessage(value);
+              }
+              value = getEventLogData(jdbcConnection, eventLogId);
+              if (value != null)
+              {
+                eventLogData.setEventData(value);
+              }
 
-              if (application != null)
-                results.put("application", application.trim());
+              // Insert event log into Ivy
+              EventLogHelper.createEventLog(eventLogData, false, getWorkflowContext());
 
-              if (tower != null)
-                results.put("tower", tower.trim());
-
-              if (module != null)
-                results.put("module", module.trim());
-
-              if (environment != null)
-                results.put("environment", environment.trim());
-
-              if (groupId != null)
-                results.put("groupId", groupId.trim());
-
-              if (initiator != null)
-                results.put("initiator", initiator.trim());
-
-              if (eventDate != null)
-                results.put("eventDate", eventDate.trim());
-
-              if (eventTime != null)
-                results.put("eventTime", eventTime.trim());
-
-              if (userName != null)
-                results.put("userName", userName.trim());
-
-              if (source != null)
-                results.put("source", source.trim());
-
-              if (severity != null)
-                results.put("severity", severity.trim());
-
-              if (objectId != null)
-                results.put("objectId", objectId.trim());
-
-              if (context != null)
-                results.put("context", context.trim());
-
-              if (isBusinessEvent != null)
-                results.put("isBusinessEvent", isBusinessEvent.trim());
-
-              if (eventType != null)
-                results.put("eventType", eventType.trim());
-
-              if (eventSubType != null)
-                results.put("eventSubType", eventSubType.trim());
-
-              if (userComment != null)
-                results.put("userComment", userComment.trim());
-
-              if (errorCode != null)
-                results.put("errorCode", errorCode.trim());
-
-              if (message != null)
-                results.put("message", message.trim());
-
-              if (eventData != null)
-                results.put("eventData", eventData.trim());
-
-              // Fire Start Event Request
-              eventRuntime.fireProcessStartEventRequest(null, "", results);
               processed++;
 
               // Delete Records
@@ -399,7 +453,7 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
           {
             errors++;
             logger.error("EventLogImportDBStartEventBean - Exception processing eventlogId (" + eventLogId
-                    + ") - " + e.getMessage());
+                    + ") - " + e.getMessage(), e);
             updateErrorEventLog(jdbcConnection, eventLogId);
           }
         }
@@ -434,6 +488,11 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
           database.giveBackAndUnlockConnection(connection);
       }
     }
+  }
+
+  private String getString(ResultSet rs, int column) throws SQLException
+  {
+    return rs.getString(column).trim();
   }
 
   private String getEventLogData(Connection connection, long eventLogId) throws SQLException
@@ -510,4 +569,15 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
     }
   }
 
+  /**
+   * Get a workflow context.
+   * 
+   * @return the workflow context of the application
+   * @throws PersistencyException
+   */
+  private IWorkflowContext getWorkflowContext() throws PersistencyException
+  {
+    IApplication application = eventRuntime.getProcessModelVersion().getApplication();
+    return WorkflowNavigationUtil.getWorkflowContext(application);
+  }
 }

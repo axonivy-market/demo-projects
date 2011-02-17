@@ -19,7 +19,6 @@ import ch.ivyteam.ivy.addons.restricted.util.TypeCategory.TypeCategoryEnum;
  * @author Patrick Joly, TI-Informatique
  * @since 02.06.2009
  */
-@SuppressWarnings("unchecked")
 public final class DataClassInstanceExplorer extends ExploreHandler<Object>
 {
   private ExploreHandler<Object> handler;
@@ -119,7 +118,7 @@ public final class DataClassInstanceExplorer extends ExploreHandler<Object>
     public boolean redoSameNode()
     {
       boolean result;
-      Iterator iterator;
+      Iterator<?> iterator;
 
       result = false;
       if (!stack.empty())
@@ -147,7 +146,7 @@ public final class DataClassInstanceExplorer extends ExploreHandler<Object>
       boolean result;
       Object attribute;
       PropertyDescriptor property;
-      Iterator iterator;
+      Iterator<?> iterator;
       Pair parentPair;
       TypeCategoryEnum category;
       Boolean create;
@@ -177,15 +176,15 @@ public final class DataClassInstanceExplorer extends ExploreHandler<Object>
         {
           attribute = rootObject;
         }
-        else if (parentPair.getObject() instanceof Iterable && parentPair.getIterator() != null)
+        else if (parentPair.getObject() instanceof Iterable<?> && parentPair.getIterator() != null)
         {
           attribute = parentPair.getIterator().next();
         }
       }
       result = attribute != null;
-      if (attribute instanceof Iterable)
+      if (attribute instanceof Iterable<?>)
       {
-        iterator = ((Iterable) attribute).iterator();
+        iterator = ((Iterable<?>) attribute).iterator();
         result = iterator.hasNext();
       }
 
@@ -277,16 +276,16 @@ public final class DataClassInstanceExplorer extends ExploreHandler<Object>
   {
     private Object object;
 
-    private Iterator iterator;
+    private Iterator<?> iterator;
 
-    private Pair(Object object, Iterator iterator)
+    private Pair(Object object, Iterator<?> iterator)
     {
       super();
       this.object = object;
       this.iterator = iterator;
     }
 
-    protected Iterator getIterator()
+    protected Iterator<?> getIterator()
     {
       return iterator;
     }

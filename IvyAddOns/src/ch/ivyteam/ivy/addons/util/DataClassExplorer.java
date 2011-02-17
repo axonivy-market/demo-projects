@@ -50,10 +50,10 @@ public final class DataClassExplorer<T extends Object>
    * @param handler handler that should be used
    * @throws AddonsException
    */
-  public static DataClassExplorer<Class> createClassExplorer(ExploreHandler<Class> handler)
+  public static DataClassExplorer<Class<?>> createClassExplorer(ExploreHandler<Class<?>> handler)
           throws AddonsException
   {
-    return new DataClassExplorer<Class>(handler, Class.class);
+    return new DataClassExplorer<Class<?>>(handler, Class.class);
   }
 
   
@@ -100,7 +100,7 @@ public final class DataClassExplorer<T extends Object>
    * @param clazz class that should be explored
    * @throws AddonsException
    */
-  public void explore(Class clazz) throws AddonsException
+  public void explore(Class<?> clazz) throws AddonsException
   {
     handler.startDocument();
     explore(clazz, null, "", "", null);
@@ -165,9 +165,12 @@ public final class DataClassExplorer<T extends Object>
       case LIST:
         ParameterizedType parameterizedType;
 
-        parameterizedType = (ParameterizedType) property.getReadMethod().getGenericReturnType();
+        if (property != null)
+        {
+          parameterizedType = (ParameterizedType) property.getReadMethod().getGenericReturnType();
 
-        explore((Class) parameterizedType.getActualTypeArguments()[0], parentClass, "item", path, null);
+          explore((Class<?>) parameterizedType.getActualTypeArguments()[0], parentClass, "item", path, null);
+        }
         break;
       case COMPLEX:
         exploreComplexType(clazz, path);

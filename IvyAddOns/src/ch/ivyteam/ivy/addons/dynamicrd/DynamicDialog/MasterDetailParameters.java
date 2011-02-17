@@ -15,10 +15,9 @@ class MasterDetailParameters extends TableParameters
 {
   private static final long serialVersionUID = 2722121770925266842L;
 
-  @SuppressWarnings("unchecked")
-protected MasterDetailParameters(List<String> cmsContexts, String name, String fullName,
+  protected MasterDetailParameters(List<String> cmsContexts, String name, String fullName,
           ComplexComponentParameters parentContainerParameters, Integer position,
-          TreeNode<ComponentParameters> parameters, Class clazz)
+          TreeNode<ComponentParameters> parameters, Class<?> clazz)
   {
     super(cmsContexts, name, fullName, parentContainerParameters, position, parameters, clazz);
   }

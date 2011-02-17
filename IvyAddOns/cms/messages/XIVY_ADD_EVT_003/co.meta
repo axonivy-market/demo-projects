@@ -1,0 +1,3 @@
+co: name={XIVY_ADD_EVT_003} description={} changed={2010-11-18 17:34:18 CET} changedby={tipaj} visualorder={0} guid={12C5FD58AC35BE31} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12C5FD58ACF82A3C} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-04 12:53:01 CEST} validto={} changed={2010-11-18 17:34:18 CET} changedby={tipaj} properties={} id={}
+val: guid={12C5FD58AE15CCB0} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-04 12:39:03 CEST} validto={} changed={2010-11-18 17:34:18 CET} changedby={tipaj} properties={} id={}

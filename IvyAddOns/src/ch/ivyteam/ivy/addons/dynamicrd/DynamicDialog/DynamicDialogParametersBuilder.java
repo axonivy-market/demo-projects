@@ -18,7 +18,6 @@ import ch.ivyteam.ivy.addons.util.DataClassExplorer;
 import ch.ivyteam.ivy.addons.util.ExploreHandler;
 import ch.ivyteam.ivy.addons.util.StringUtil;
 
-@SuppressWarnings("unchecked")
 final class DynamicDialogParametersBuilder
 {
   /**
@@ -32,19 +31,18 @@ final class DynamicDialogParametersBuilder
   {
   }
 
-
-protected static TreeNode<ComponentParameters> build(Class clazz, List<String> cmsContext,
+  protected static TreeNode<ComponentParameters> build(Class<?> clazz, List<String> cmsContext,
           String defaultDBConfig, String prefix, final Map<String, Class<?>> classMap) throws AddonsException
   {
     return build(clazz, cmsContext, new ArrayList<TreeNode<ComponentParameters>>(), defaultDBConfig, prefix,
             classMap);
   }
 
-  protected static TreeNode<ComponentParameters> build(Class clazz, List<String> cmsContext,
+  protected static TreeNode<ComponentParameters> build(Class<?> clazz, List<String> cmsContext,
           final List<TreeNode<ComponentParameters>> componentParameterList, String defaultDBConfig,
           String prefix, final Map<String, Class<?>> classMap) throws AddonsException
   {
-    DataClassExplorer<Class> explorer;
+    DataClassExplorer<Class<?>> explorer;
     ParametersBuildHandler handler;
 
     handler = new ParametersBuildHandler(Cms.getCmsContexts(cmsContext), clazz, componentParameterList,
@@ -106,7 +104,7 @@ protected static TreeNode<ComponentParameters> build(Class clazz, List<String> c
     }
   }
 
-  private static final class ParametersBuildHandler extends ExploreHandler<Class>
+  private static final class ParametersBuildHandler extends ExploreHandler<Class<?>>
   {
     private Stack<TreeNode<ComponentParameters>> stack;
 
@@ -116,7 +114,7 @@ protected static TreeNode<ComponentParameters> build(Class clazz, List<String> c
 
     private TreeNode<ComponentParameters> root;
 
-    private Class rootClass;
+    private Class<?> rootClass;
 
     private List<TreeNode<ComponentParameters>> componentParameterList;
 
@@ -124,7 +122,7 @@ protected static TreeNode<ComponentParameters> build(Class clazz, List<String> c
 
     private String prefix;
 
-    private ParametersBuildHandler(List<String> cmsContext, Class clazz,
+    private ParametersBuildHandler(List<String> cmsContext, Class<?> clazz,
             final List<TreeNode<ComponentParameters>> componentParameterList, String defaultDBConfig,
             String prefix)
     {
@@ -149,7 +147,7 @@ protected static TreeNode<ComponentParameters> build(Class clazz, List<String> c
     }
 
     @Override
-    public boolean startNode(Class clazz, String name, String qualifiedName) throws AddonsException
+    public boolean startNode(Class<?> clazz, String name, String qualifiedName) throws AddonsException
     {
       TreeNode<ComponentParameters> parent;
       Class<?> parentClass;
@@ -162,7 +160,7 @@ protected static TreeNode<ComponentParameters> build(Class clazz, List<String> c
       boolean isBaseAttribute;
       String elementName;
       String prefixedQualifiedName;
-      Class elementClass;
+      Class<?> elementClass;
 
       elementName = name;
       prefixedQualifiedName = qualifiedName;
@@ -254,7 +252,7 @@ protected static TreeNode<ComponentParameters> build(Class clazz, List<String> c
     }
 
     @Override
-    public void endNode(Class object, String name, String uri)
+    public void endNode(Class<?> object, String name, String uri)
     {
       TreeNode<ComponentParameters> node;
 

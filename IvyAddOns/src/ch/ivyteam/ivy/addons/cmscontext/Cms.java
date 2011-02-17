@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,8 +21,8 @@ import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.persistence.PersistencyException;
 
 /**
- * This class extends CMS fonctionalities with a multi-uri search mechanism. It permits some inheritance
- * fonctionnalities in the CMS.
+ * This class extends CMS functionalities with a multi-uri search mechanism. It permits some inheritance
+ * functionalities in the CMS.
  * 
  * @author Patrick Joly, TI-Informatique
  * @since 15.10.2008
@@ -29,7 +31,7 @@ public final class Cms
 {
   /**
    * Singleton class that avoid the double check locking.
-   * {@link http://en.wikipedia.org/wiki/Double-checked_locking}
+   * @see <a href="http://en.wikipedia.org/wiki/Double-checked_locking">Wikipedia</a>
    */
   private static final class COBlankCache
   {
@@ -37,17 +39,37 @@ public final class Cms
     {
     }
 
-    private static Set<String> instance = new HashSet<String>();
+    private static Map<IContentManagementSystem, Set<String>> instance = new HashMap<IContentManagementSystem, Set<String>>();
 
-    protected static Set<String> getInstance()
+    protected static Set<String> getInstance(IContentManagementSystem cms)
     {
-      return instance;
+      if (!instance.containsKey(cms))
+      {
+        synchronized (Cms.class)
+        {
+          instance.put(cms, new HashSet<String>());
+        }
+      }
+      return instance.get(cms);
+    }
+
+    protected static void clear()
+    {
+      instance.clear();
+    }
+
+    protected static synchronized void remove(String uri)
+    {
+      for (Set<String> set : instance.values())
+      {
+        set.remove(uri);
+      }
     }
   }
 
   /**
    * Singleton class that avoid the double check locking.
-   * {@link http://en.wikipedia.org/wiki/Double-checked_locking}
+   * @see <a href="http://en.wikipedia.org/wiki/Double-checked_locking">Wikipedia</a>
    */
   private static final class CRBlankCache
   {
@@ -55,11 +77,31 @@ public final class Cms
     {
     }
 
-    private static Set<String> instance = new HashSet<String>();
+    private static Map<IContentManagementSystem, Set<String>> instance = new HashMap<IContentManagementSystem, Set<String>>();
 
-    protected static Set<String> getInstance()
+    protected static Set<String> getInstance(IContentManagementSystem cms)
     {
-      return instance;
+      if (!instance.containsKey(cms))
+      {
+        synchronized (Cms.class)
+        {
+          instance.put(cms, new HashSet<String>());
+        }
+      }
+      return instance.get(cms);
+    }
+
+    protected static void clear()
+    {
+      instance.clear();
+    }
+
+    protected static synchronized void remove(String uri)
+    {
+      for (Set<String> set : instance.values())
+      {
+        set.remove(uri);
+      }
     }
   }
 
@@ -462,24 +504,24 @@ public final class Cms
 
     if (getReference)
     {
-      if (!CRBlankCache.getInstance().contains(cleanURI))
+      if (!CRBlankCache.getInstance(cms).contains(cleanURI))
       {
         result = cms.cr(cleanURI);
         if (result.equals(""))
         {
-          CRBlankCache.getInstance().add(cleanURI);
+          CRBlankCache.getInstance(cms).add(cleanURI);
         }
       }
     }
     else
     {
-      if (!COBlankCache.getInstance().contains(cleanURI))
+      if (!COBlankCache.getInstance(cms).contains(cleanURI))
       {
         // Only read value that are not in COBlankCache
         result = cms.co(cleanURI);
         if (result.equals(""))
         {
-          COBlankCache.getInstance().add(cleanURI);
+          COBlankCache.getInstance(cms).add(cleanURI);
         }
         if (result.contains("%"))
         {
@@ -490,11 +532,17 @@ public final class Cms
 
           while (m.find())
           {
-            // TODO test with inexistant gloval variable
-            if (Ivy.var().get(m.group(1)) != null)
+            try
             {
-              result = result.replaceFirst("%" + m.group(1) + "%", Ivy.var().get(m.group(1)));
-              m = p.matcher(result);
+              if (Ivy.var().get(m.group(1)) != null)
+              {
+                result = result.replaceFirst("%" + m.group(1) + "%", Ivy.var().get(m.group(1)));
+                m = p.matcher(result);
+              }
+            }
+            catch (Exception e)
+            {
+              // Nothing to do
             }
           }
         }
@@ -777,7 +825,6 @@ public final class Cms
 
   protected static List<String> getValues(String uri, IContentManagementSystem cms)
   {
-    // TODO Allow the use of something different than semi-colon. Get it from CMS ?
     return Arrays.asList(getCms(uri, false, cms).split(CMS_COLUMN_SEPARATOR));
   }
 
@@ -805,8 +852,8 @@ public final class Cms
    */
   public static void invalidate(String uri)
   {
-    COBlankCache.getInstance().remove(uri);
-    CRBlankCache.getInstance().remove(uri);
+    COBlankCache.remove(uri);
+    CRBlankCache.remove(uri);
   }
 
   /**
@@ -815,7 +862,7 @@ public final class Cms
    */
   public static void invalidate()
   {
-    COBlankCache.getInstance().clear();
-    CRBlankCache.getInstance().clear();
+    COBlankCache.clear();
+    CRBlankCache.clear();
   }
 }

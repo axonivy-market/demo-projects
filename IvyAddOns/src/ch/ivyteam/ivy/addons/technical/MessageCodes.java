@@ -11,7 +11,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 public enum MessageCodes
 {
 
-  XIVY_ADD_EVT_001, XIVY_ADD_EVT_002;
+  XIVY_ADD_EVT_001, XIVY_ADD_EVT_002, XIVY_ADD_EVT_003;
 
   /**
    * The method checks for each enum value there is the message in the CMS

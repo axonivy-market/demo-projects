@@ -41,9 +41,8 @@ import ch.ivyteam.ivy.persistence.PersistencyException;
  * @author Patrick Joly, TI-Informatique
  * @since 29.05.2009
  */
-@SuppressWarnings("unchecked")
 @Deprecated
-public class Cms2LinearXmlExploreHandler extends ExploreHandler
+public class Cms2LinearXmlExploreHandler extends ExploreHandler<Object>
 {
   private String fileName;
 

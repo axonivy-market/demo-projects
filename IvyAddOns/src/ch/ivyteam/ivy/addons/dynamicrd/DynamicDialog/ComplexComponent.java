@@ -42,10 +42,11 @@ abstract class ComplexComponent extends Component
   private boolean createFiller;
 
   @Override
-  protected void updateEnabledChildren()
+  protected final void updateEnabledChildren()
   {
     for (Component c : this.children)
     {
+      c.setParentEnabled(isEnabled());
       c.updateEnabled();
     }
   }
@@ -284,16 +285,16 @@ abstract class ComplexComponent extends Component
           southEastButton.add(buttonParameters);
       }
     }
-    fillButtonBar(pos, getNorthButtonBar(), northWestButton, northEastButton);
+    fillButtonBar(pos.getMaxPosX(), getStartPos(pos).getPosY(), getNorthButtonBar(), northWestButton, northEastButton);
 
-    if (fillButtonBar(pos, getSouthButtonBar(), southWestButton, southEastButton))
+    if (fillButtonBar(pos.getMaxPosX(), pos.getPosY(), getSouthButtonBar(), southWestButton, southEastButton))
     {
       pos.setPosY(pos.getPosY() + 1);
     }
     applyButtonStyles();
   }
 
-  private boolean fillButtonBar(Position pos, RGridBagLayoutPane buttonBar,
+  private boolean fillButtonBar(int maxPosX, int posY, RGridBagLayoutPane buttonBar,
           List<ContainerButtonParameters> westButtons, List<ContainerButtonParameters> eastButtons)
   {
     GridBagConstraints constraints;
@@ -304,8 +305,8 @@ abstract class ComplexComponent extends Component
     {
       constraints = new GridBagConstraints();
       constraints.setGridX(0);
-      constraints.setGridY(pos.getMaxPosY());
-      constraints.setGridWidth(pos.getMaxPosX() + GRID_BAG_COLUMN_WIDTH);
+      constraints.setGridY(posY);
+      constraints.setGridWidth(maxPosX + GRID_BAG_COLUMN_WIDTH);
       constraints.setFill(GridBagConstraints.HORIZONTAL);
       getUlcContainer().add(buttonBar, constraints);
 

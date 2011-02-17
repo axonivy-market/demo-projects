@@ -23,8 +23,7 @@ import ch.ivyteam.ivy.scripting.objects.Time;
  * @author Patrick Joly, TI-Informatique
  * @since 03.11.2009
  */
-@SuppressWarnings("unchecked")
-public final class Xml2DataClass extends ExploreHandler<Class>
+public final class Xml2DataClass extends ExploreHandler<Class<?>>
 {
   private Node xmlNode;
 
@@ -67,7 +66,7 @@ public final class Xml2DataClass extends ExploreHandler<Class>
           throws AddonsException
   {
     Xml2DataClass handler;
-    DataClassExplorer explorer;
+    DataClassExplorer<?> explorer;
 
     handler = new Xml2DataClass(xmlNode, tagNameSubstitutions, object);
     explorer = DataClassExplorer.createClassExplorer(handler);
@@ -75,6 +74,7 @@ public final class Xml2DataClass extends ExploreHandler<Class>
     explorer.explore(object.getClass());
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public boolean startNode(Class propertyType, String name, String qualifiedName) throws AddonsException
   {
@@ -93,7 +93,15 @@ public final class Xml2DataClass extends ExploreHandler<Class>
       parentElement = elements.peek();
     }
 
-    xmlCurrentNode = findNode(name, parentElement);
+    if (parentObject instanceof List)
+    {
+      List list = (List) parentObject;
+      xmlCurrentNode = findNode(name, parentElement, list.size());
+    }
+    else
+    {
+      xmlCurrentNode = findNode(name, parentElement);
+    }
 
     if (parentObject == null)
     {
@@ -117,7 +125,6 @@ public final class Xml2DataClass extends ExploreHandler<Class>
       if (parentObject instanceof List)
       {
         List list = (List) parentObject;
-        xmlCurrentNode = findNode(name, parentElement, list.size());
         list.add(value);
       }
       else
@@ -205,7 +212,6 @@ public final class Xml2DataClass extends ExploreHandler<Class>
     }
     else if (propertyType.isAssignableFrom(Date.class))
     {
-      // TODO is that possible without a formatter
       value = new Date(textValue);
     }
     else if (propertyType.isAssignableFrom(Time.class))
@@ -219,6 +225,17 @@ public final class Xml2DataClass extends ExploreHandler<Class>
     else if (propertyType.isAssignableFrom(Duration.class))
     {
       value = new Duration(textValue);
+    }
+    else if (propertyType.isEnum())
+    {
+      for (Object constant : propertyType.getEnumConstants())
+      {
+        if (constant.toString().equals(textValue))
+        {
+          value = constant;
+          break;
+        }
+      }
     }
     // Ignore other types
     return value;
@@ -252,7 +269,7 @@ public final class Xml2DataClass extends ExploreHandler<Class>
   }
 
   @Override
-  public void endNode(Class propertyType, String name, String uri)
+  public void endNode(Class<?> propertyType, String name, String uri)
   {
     objects.pop();
     elements.pop();
@@ -271,9 +288,9 @@ public final class Xml2DataClass extends ExploreHandler<Class>
     if (!objects.empty())
     {
       parent = objects.peek();
-      if (parent instanceof List)
+      if (parent instanceof List<?>)
       {
-        List list = (List) parent;
+        List<?> list = (List<?>) parent;
         if (elements.peek().getElementsByTagName("item").getLength() != list.size())
         {
           result = true;

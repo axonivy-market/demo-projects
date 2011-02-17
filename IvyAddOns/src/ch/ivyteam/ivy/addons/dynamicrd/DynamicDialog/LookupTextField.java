@@ -75,7 +75,8 @@ public class LookupTextField extends FieldComponentWithList
 
       lookupTextField.setSelectAllOnFocusGained(getParameters().isSelectAllOnFocusGained());
 
-      // TODO Force selection doesn't seem to work. Try it with 4.2 it should be OK
+      // TODO Force selection doesn't seem to work. Try it with new Ivy version.
+      // See issue #21609
       // Call setForcedSelection with isEditable has parameter
 
       if (getParameters().isIconVisible())

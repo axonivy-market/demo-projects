@@ -87,23 +87,13 @@ public class InsideContainer extends ComplexComponent
   }
 
   @Override
-  protected final void updateEnabledChildren()
-  {
-    for (Component component : getChildren())
-    {
-      component.setParentEnabled(isEnabled());
-    }
-    super.updateEnabledChildren();
-  }
-
-  @Override
   protected final boolean useParentContainer()
   {
     return true;
   }
 
   @Override
-  protected final Position getStartPos(Position pos)
+  protected Position getStartPos(Position pos)
   {
     return pos;
   }

@@ -292,9 +292,8 @@ final class DynamicDialogMapper
 
   }
 
-  @SuppressWarnings("unchecked")
-protected static Object getValue(Map<String, Component> componentMap,
-          Map<String, Object> inexistantAttributeValues, Class clazz, String prefix,
+  protected static Object getValue(Map<String, Component> componentMap,
+          Map<String, Object> inexistantAttributeValues, Class<?> clazz, String prefix,
           Map<String, Class<?>> classMap)
   {
     Object value;
@@ -315,9 +314,8 @@ protected static Object getValue(Map<String, Component> componentMap,
     return getValue(value, componentMap, inexistantAttributeValues, clazz, prefix, classMap);
   }
 
-  @SuppressWarnings("unchecked")
-protected static Object getValue(Object value, Map<String, Component> componentMap,
-          Map<String, Object> inexistantAttributeValues, Class clazz, String prefix,
+  protected static Object getValue(Object value, Map<String, Component> componentMap,
+          Map<String, Object> inexistantAttributeValues, Class<?> clazz, String prefix,
           Map<String, Class<?>> classMap)
   {
     DataClassExplorer<PropertyDescriptor> explorer;

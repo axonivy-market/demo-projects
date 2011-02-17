@@ -30,7 +30,7 @@ public final class InvokeDBQuerySudo implements Callable<List<String[]>>
   private String dbConfigName;
 
   @SuppressWarnings("unused")
-private InvokeDBQuerySudo()
+  private InvokeDBQuerySudo()
   {
   }
 
@@ -44,8 +44,6 @@ private InvokeDBQuerySudo()
    * 
    * @param query sql query
    * @param configuration ivy db configuration
-   * @return result recordset
-   * @throws AddonsException
    */
   @Deprecated
   public InvokeDBQuerySudo(String query, String configuration)

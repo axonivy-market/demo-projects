@@ -10,14 +10,13 @@ import java.util.Map;
  * @author Patrick Joly, TI-Informatique
  * @since 04.11.2009
  */
-@SuppressWarnings("unchecked")
 public class EncapsulationTreeNodeValue implements java.io.Serializable
 {
   private static final long serialVersionUID = -532912885820702140L;
 
   private List<String> cmsContext;
 
-  private Class clazz;
+  private Class<?> clazz;
 
   private String name;
 
@@ -27,7 +26,7 @@ public class EncapsulationTreeNodeValue implements java.io.Serializable
 
   private String qualifiedName;
 
-  protected EncapsulationTreeNodeValue(String name, Class clazz, Boolean isLeaf, List<String> cmsContext,
+  protected EncapsulationTreeNodeValue(String name, Class<?> clazz, Boolean isLeaf, List<String> cmsContext,
           Map<String, String> cmsMap, String qualifiedName)
   {
     super();
@@ -44,7 +43,7 @@ public class EncapsulationTreeNodeValue implements java.io.Serializable
    * 
    * @return class
    */
-  public final Class getClazz()
+  public final Class<?> getClazz()
   {
     return clazz;
   }
@@ -74,7 +73,7 @@ public class EncapsulationTreeNodeValue implements java.io.Serializable
    * 
    * @param clazz class
    */
-  public final void setClazz(Class clazz)
+  public final void setClazz(Class<?> clazz)
   {
     this.clazz = clazz;
   }

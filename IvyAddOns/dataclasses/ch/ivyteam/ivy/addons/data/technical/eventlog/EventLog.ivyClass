@@ -13,3 +13,4 @@ eventLogCase ch.ivyteam.ivy.addons.data.technical.eventlog.EventLogCase #field
 eventLogCase 'Event log entry case detail.' #fieldComment
 eventLogTask ch.ivyteam.ivy.addons.data.technical.eventlog.EventLogTask #field
 eventLogTask 'Event log entry task detail.' #fieldComment
+status ch.ivyteam.ivy.addons.eventlog.data.technical.EventLogStatus #field

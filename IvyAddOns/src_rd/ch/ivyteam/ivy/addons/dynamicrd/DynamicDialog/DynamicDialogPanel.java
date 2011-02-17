@@ -42,7 +42,7 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
 
   private List<String> cmsContext;
 
-  private Class ddObjectClass; // @jve:decl-index=0:
+  private Class<?> ddObjectClass; // @jve:decl-index=0:
 
   private TreeNode<ComponentParameters> parameterTree;
 
@@ -74,6 +74,9 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
   private ULCComponent focusReceiverComponent;
 
   private Map<String, Class<?>> classMap;
+
+  @SuppressWarnings("restriction")
+  private ch.ivyteam.ivy.project.IIvyProject project;
 
   /**
    * Create a new instance of DynamicDialogPanel
@@ -111,11 +114,13 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
             new com.ulcjava.base.application.util.Insets(0, 0, 0, 0), 0, 0));
   }
 
-  public void start(Object value, IRichDialogContext rdContext, DynamicDialogCacheEntry entry)
+  @SuppressWarnings("restriction")
+  public void start(Object value, IRichDialogContext rdContext, ch.ivyteam.ivy.project.IIvyProject project, DynamicDialogCacheEntry entry)
           throws AddonsException
   {
     this.ddObjectClass = value.getClass();
     this.rdContext = rdContext;
+    this.project = project;
 
     this.cmsContext = entry.getCmsContexts();
     this.classMap = entry.getClassMap();
@@ -141,8 +146,9 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
     }
   }
 
+  @SuppressWarnings("restriction")
   @Deprecated
-  public void start(String prefix, Object value, StaticRelation staticRelation, IRichDialogContext rdContext)
+  public void start(String prefix, Object value, StaticRelation staticRelation, IRichDialogContext rdContext, ch.ivyteam.ivy.project.IIvyProject project)
           throws AddonsException
   {
     ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.StaticRelation.Item item;
@@ -150,6 +156,7 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
     this.prefix = prefix;
     this.ddObjectClass = value.getClass();
     this.rdContext = rdContext;
+    this.project = project;
 
     item = staticRelation.get(prefix);
     this.cmsContext = item.cmsContexts;
@@ -159,7 +166,7 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
     constructUI(value);
   }
   
-  public static DynamicDialogCacheEntry constructParameters(Class clazz, List<String> cmsContext,
+  public static DynamicDialogCacheEntry constructParameters(Class<?> clazz, List<String> cmsContext,
           String defaultDBConfig, String prefix, final Map<String, Class<?>> classMap)
   {
     TreeNode<ComponentParameters> parameterTree;
@@ -187,7 +194,7 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
     controllers.clear();
     this.getControllerDisplay().removeAll();
 
-    DynamicDialogBuilder.build(parameterTree, this, new Position(0, 1), componentMap, componentList, -1);
+    DynamicDialogBuilder.build(parameterTree, this, new Position(), componentMap, componentList, -1);
 
     for (String controller : controllers)
     {
@@ -344,7 +351,7 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
             getClassMap());
   }
 
-  public Class getDDObjectClass()
+  public Class<?> getDDObjectClass()
   {
     return this.ddObjectClass;
   }
@@ -669,5 +676,18 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
   public TreeNode<ComponentParameters> getParameterTree()
   {
     return parameterTree;
+  }
+
+  @SuppressWarnings("restriction")
+  public ch.ivyteam.ivy.project.IIvyProject getProject()
+  {
+    return project;
+  }
+  
+  @Override
+  public void setEnabled(boolean enabled)
+  {
+    super.setEnabled(enabled);
+    this.getDDComponent(getPrefix() + "/").setEnabled(enabled);
   }
 }

@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Oct 19 00:43:29 CEST 2010]
-12495B5A297FD530 3.13.1 #module
+[>Created: Wed Feb 16 08:09:57 CET 2011]
+12495B5A297FD530 3.15 #module
 >Proto >Proto Collection #zClass
 Ts0 TableTreeDialogProcess Big #zClass
 Ts0 RD #cInfo
@@ -233,15 +233,6 @@ Ts0 f28 @|RichDialogProcessEndIcon #fIcon
 Ts0 f29 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialogManager.DynamicDialogManagerData #txt
 Ts0 f29 1078 422 20 20 13 0 #rect
 Ts0 f29 @|RichDialogProcessEndIcon #fIcon
-Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>getEnabledActions(TreePath)</name>
-        <nameStyle>27,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f4 guid 1247BAE2C98DCD31 #txt
 Ts0 f4 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialogManager.DynamicDialogManagerData #txt
 Ts0 f4 method getEnabledActions(com.ulcjava.base.application.tree.TreePath) #txt
@@ -254,6 +245,15 @@ Ts0 f4 inParameterMapAction 'out.path=param.path;
 Ts0 f4 outParameterDecl '<java.util.Hashtable hash> result;
 ' #txt
 Ts0 f4 outParameterMapAction 'result.hash=in.flags;
+' #txt
+Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>getEnabledActions(TreePath)</name>
+        <nameStyle>27,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
 ' #txt
 Ts0 f4 438 46 20 20 13 0 #rect
 Ts0 f4 @|RichDialogMethodStartIcon #fIcon
@@ -568,15 +568,6 @@ Ts0 f59 expr out #txt
 Ts0 f59 888 298 888 348 #arcP
 Ts0 f60 expr out #txt
 Ts0 f60 888 372 888 422 #arcP
-Ts0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>valueChanged(TreePath)</name>
-        <nameStyle>22,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f14 guid 124951C4B38B303D #txt
 Ts0 f14 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialogManager.DynamicDialogManagerData #txt
 Ts0 f14 method valueChanged(com.ulcjava.base.application.tree.TreePath) #txt
@@ -587,6 +578,15 @@ Ts0 f14 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 Ts0 f14 inParameterMapAction 'out.path=param.path;
 ' #txt
 Ts0 f14 outParameterDecl '<> result;
+' #txt
+Ts0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>valueChanged(TreePath)</name>
+        <nameStyle>22,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
 ' #txt
 Ts0 f14 438 278 20 20 13 0 #rect
 Ts0 f14 @|RichDialogMethodStartIcon #fIcon
@@ -626,15 +626,6 @@ Ts0 f58 expr out #txt
 Ts0 f58 448 298 448 348 #arcP
 Ts0 f39 expr out #txt
 Ts0 f39 448 372 448 422 #arcP
-Ts0 f61 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>updateTree()</name>
-        <nameStyle>12,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f61 guid 124B1F9B8406B391 #txt
 Ts0 f61 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialogManager.DynamicDialogManagerData #txt
 Ts0 f61 method updateTree() #txt
@@ -643,6 +634,15 @@ Ts0 f61 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 <> param = methodEvent.getInputArguments();
 ' #txt
 Ts0 f61 outParameterDecl '<> result;
+' #txt
+Ts0 f61 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>updateTree()</name>
+        <nameStyle>12,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
 ' #txt
 Ts0 f61 622 278 20 20 13 0 #rect
 Ts0 f61 @|RichDialogMethodStartIcon #fIcon
@@ -968,6 +968,10 @@ Ts0 f70 expr out #txt
 Ts0 f70 784 628 784 662 #arcP
 Ts0 f48 expr out #txt
 Ts0 f48 784 580 784 604 #arcP
+Ts0 f16 guid 124E09AAF1B9C8C5 #txt
+Ts0 f16 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialogManager.DynamicDialogManagerData #txt
+Ts0 f16 method updateDisplayedCmsContext() #txt
+Ts0 f16 disableUIEvents false #txt
 Ts0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -975,10 +979,6 @@ Ts0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f16 guid 124E09AAF1B9C8C5 #txt
-Ts0 f16 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialogManager.DynamicDialogManagerData #txt
-Ts0 f16 method updateDisplayedCmsContext() #txt
-Ts0 f16 disableUIEvents false #txt
 Ts0 f16 438 510 20 20 13 0 #rect
 Ts0 f16 @|RichDialogMethodStartIcon #fIcon
 Ts0 f18 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialogManager.DynamicDialogManagerData #txt
@@ -1448,6 +1448,10 @@ Ts0 f113 63 316 64 340 #arcP
 Ts0 f36 expr out #txt
 Ts0 f36 1288 74 1288 116 #arcP
 Ts0 f36 0 0.7209558791038956 0 0 #arcLabel
+Ts0 f114 guid 12AE90FE64F54EEA #txt
+Ts0 f114 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialogManager.DynamicDialogManagerData #txt
+Ts0 f114 method close() #txt
+Ts0 f114 disableUIEvents false #txt
 Ts0 f114 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1455,10 +1459,6 @@ Ts0 f114 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f114 guid 12AE90FE64F54EEA #txt
-Ts0 f114 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialogManager.DynamicDialogManagerData #txt
-Ts0 f114 method close() #txt
-Ts0 f114 disableUIEvents false #txt
 Ts0 f114 582 102 20 20 13 0 #rect
 Ts0 f114 @|RichDialogMethodStartIcon #fIcon
 Ts0 f115 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialogManager.DynamicDialogManagerData #txt
@@ -1565,7 +1565,7 @@ if (#path != null) {
 	}
 }
 panel.helpHtmlPane.setText(content);
-ivy.log.debug(content);' #txt
+' #txt
 Ts0 f17 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialogManager.DynamicDialogManagerData #txt
 Ts0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

@@ -1,5 +1,7 @@
 package ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.KnownParameters.LayoutType;
@@ -21,6 +23,7 @@ import com.ulcjava.base.application.border.ULCEmptyBorder;
 import com.ulcjava.base.application.event.ActionEvent;
 import com.ulcjava.base.application.event.IActionListener;
 import com.ulcjava.base.application.util.Color;
+import com.ulcjava.base.application.util.ULCIcon;
 
 /**
  * Base class for all field components.
@@ -32,9 +35,15 @@ public abstract class FieldComponent extends Component
 {
   private static final String DEFAULT_ERROR_COLOR = "#ffd7d7";
 
+  private static final String DEFAULT_MANDATORY_COLOR = "#ebebff";
+
   private static Color errorBackgroundColor;
 
+  private static Color mandatoryBackgroundColor;
+
   private static final String SYSTEM_VALIDATION_ERROR_BACKGROUND = "/system/validation/errorbackground";
+
+  private static final String SYSTEM_VALIDATION_MANDATORY_BACKGROUND = "/system/validation/mandatorybackground";
 
   private RButton button = null;
 
@@ -57,6 +66,12 @@ public abstract class FieldComponent extends Component
   private ULCAbstractBorder oldBorder;
 
   private boolean valid = true;
+
+  private ULCIcon transparentIcon;
+
+  private ULCIcon mandatoryIcon;
+
+  private ULCIcon errorIcon;
 
   enum NextToState
   {
@@ -235,7 +250,7 @@ public abstract class FieldComponent extends Component
    * 
    * @return validation icon label widget
    */
-  private RLabel getIconLabelWidget()
+  protected RLabel getIconLabelWidget()
   {
     if (iconLabel == null)
     {
@@ -607,6 +622,19 @@ public abstract class FieldComponent extends Component
       setFieldBorderVisible(false);
     }
 
+    if (!isOldStyleValidation())
+    {
+      try
+      {
+        errorIcon = new ULCIcon(new URL(Ivy.html().coref(getParameters().getErrorIconUrl())));
+        mandatoryIcon = new ULCIcon(new URL(Ivy.html().coref(getParameters().getMandatoryIconUrl())));
+        transparentIcon = new ULCIcon(new URL(Ivy.html().coref(getParameters().getTransparentIconUrl())));
+      }
+      catch (MalformedURLException e)
+      {
+        Ivy.log().error("Load FieldComponent validation icons : " + e.getMessage());
+      }
+    }
     postInitializeField();
 
     updateIconAndBackground(true);
@@ -948,10 +976,47 @@ public abstract class FieldComponent extends Component
     }
   }
 
+  protected boolean isOldStyleValidation()
+  {
+    return true;
+  }
+
   protected void updateIconAndBackground(boolean valid)
+  {
+    ULCIcon icon;
+
+    if (isOldStyleValidation())
+    {
+      updateIconAndBackgroundOldStyle(valid);
+    }
+    else
+    {
+      if (iconLabel != null)
+      {
+        if (isMandatory())
+        {
+          icon = mandatoryIcon;
+        }
+        else
+        {
+          icon = transparentIcon;
+        }
+
+        iconLabel.setIcon(icon);
+        if (!firstValidation)
+        {
+          icon = errorIcon;
+        }
+        iconLabel.setDisabledIcon(icon);
+      }
+    }
+  }
+
+  protected void updateIconAndBackgroundOldStyle(boolean valid)
   {
     String iconUri;
     String errorBackgroundUri;
+    String mandatoryBackgroundUri;
     String color;
 
     if (defaultBackgroundColor == null)
@@ -971,6 +1036,21 @@ public abstract class FieldComponent extends Component
       {
         errorBackgroundColor = new Color(Integer.parseInt(color.substring(1, 3), 16), Integer.parseInt(color
                 .substring(3, 5), 16), Integer.parseInt(color.substring(5, 7), 16));
+      }
+    }
+    if (mandatoryBackgroundColor == null)
+    {
+      mandatoryBackgroundUri = Ivy.cms().cr(SYSTEM_VALIDATION_MANDATORY_BACKGROUND);
+      color = DEFAULT_MANDATORY_COLOR;
+      if (!mandatoryBackgroundUri.equals(""))
+      {
+        color = Ivy.cms().co(mandatoryBackgroundUri);
+      }
+
+      if (color.startsWith("#") && color.length() >= 7)
+      {
+        mandatoryBackgroundColor = new Color(Integer.parseInt(color.substring(1, 3), 16), Integer.parseInt(
+                color.substring(3, 5), 16), Integer.parseInt(color.substring(5, 7), 16));
       }
     }
 
@@ -997,7 +1077,7 @@ public abstract class FieldComponent extends Component
     {
       if (valid)
       {
-        setBackground(defaultBackgroundColor);
+        setBackground(isMandatory() ? mandatoryBackgroundColor : defaultBackgroundColor);
       }
       else
       {
@@ -1035,12 +1115,14 @@ public abstract class FieldComponent extends Component
     updateIconAndBackground(isValid);
   }
 
+  @Override
   protected final void updateVisibleChildren()
   {
     // Nothing to do
   }
 
-  protected void updateEnabledChildren()
+  @Override
+  protected final void updateEnabledChildren()
   {
     // Nothing to do
   }

@@ -1,19 +1,12 @@
 EventLogServices #class
 ch.ivyteam.ivy.addons.data.restricted.technical #namespace
-eventLog ch.ivyteam.ivy.addons.data.technical.eventlog.EventLog #field
-eventLog 'Case identifier.' #fieldComment
-eventLogCase ch.ivyteam.ivy.addons.data.technical.eventlog.EventLogCase #field
-eventLogCase 'The event logs to return to as part of the result.' #fieldComment
 ivyResultStatus ch.ivyteam.ivy.addons.data.technical.IvyResultStatus #field
-tableName String #field
+eventLog ch.ivyteam.ivy.addons.data.technical.eventlog.EventLog #field
 eventLogs List<ch.ivyteam.ivy.addons.data.technical.eventlog.EventLog> #field
-readListQuery String #field
-readListQuery PERSISTENT #fieldModifier
+caseId Number #field
+taskId Number #field
+eventLogId Number #field
+newStatus ch.ivyteam.ivy.addons.eventlog.data.technical.EventLogStatus #field
+createWithHistory Boolean #field
 readListId Number #field
-readListId PERSISTENT #fieldModifier
 events List<ch.ivyteam.ivy.workflow.eventlog.IEventLog> #field
-events PERSISTENT #fieldModifier
-caseHistory ch.ivyteam.ivy.workflow.eventlog.IEventLogCaseHistory #field
-caseHistory PERSISTENT #fieldModifier
-taskHistory ch.ivyteam.ivy.workflow.eventlog.IEventLogTaskHistory #field
-taskHistory PERSISTENT #fieldModifier

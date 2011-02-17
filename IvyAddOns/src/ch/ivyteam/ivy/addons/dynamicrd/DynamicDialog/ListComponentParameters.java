@@ -13,6 +13,8 @@ import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.TreeNode;
  */
 abstract class ListComponentParameters extends ComplexComponentParameters
 {
+  private static final long serialVersionUID = -369061185675883538L;
+
   private boolean showTableHeader;
 
   private boolean autoTableHeader;
@@ -23,10 +25,9 @@ abstract class ListComponentParameters extends ComplexComponentParameters
 
   private TreeNode<ComponentParameters> parameterTree;
 
-  @SuppressWarnings("unchecked")
-protected ListComponentParameters(List<String> cmsContexts, String name, String fullName,
+  protected ListComponentParameters(List<String> cmsContexts, String name, String fullName,
           ComplexComponentParameters parentContainerParameters, Integer position,
-          TreeNode<ComponentParameters> parameters, Class clazz)
+          TreeNode<ComponentParameters> parameters, Class<?> clazz)
   {
     super(cmsContexts, name, fullName, parentContainerParameters, position, clazz);
 

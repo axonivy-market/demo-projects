@@ -14,9 +14,8 @@ class TaskPaneParameters extends ContainerParameters
 {
   private static final long serialVersionUID = -1220506840587405573L;
 
-  @SuppressWarnings("unchecked")
-protected TaskPaneParameters(List<String> cmsContexts, String name, String fullName,
-          ComplexComponentParameters parentContainerParameters, Integer position, Class clazz)
+  protected TaskPaneParameters(List<String> cmsContexts, String name, String fullName,
+          ComplexComponentParameters parentContainerParameters, Integer position, Class<?> clazz)
   {
     super(cmsContexts, name, fullName, parentContainerParameters, position, clazz);
   }

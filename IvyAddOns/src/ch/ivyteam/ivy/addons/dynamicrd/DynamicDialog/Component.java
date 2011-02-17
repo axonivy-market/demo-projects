@@ -360,7 +360,7 @@ public abstract class Component
   /**
    * Sets whether this component is focusable.
    * 
-   * @param true if this component should be focusable; false otherwise
+   * @param value true if this component should be focusable; false otherwise
    */
   protected abstract void setFocusable(boolean value);
 
@@ -400,6 +400,10 @@ public abstract class Component
       if (!(component instanceof ULCScrollPane))
       {
         component.setEnabled(isEnabled && isParentEnabled);
+      }
+      else
+      {
+        component.setEnabled(true);
       }
     }
 
@@ -600,8 +604,7 @@ public abstract class Component
 
   protected abstract void initializeComponent(Position pos);
 
-  @SuppressWarnings("unchecked")
-protected final NoSuchMethodException getNoSuchMethodException(String methodName, Class clazz)
+  protected final NoSuchMethodException getNoSuchMethodException(String methodName, Class<?> clazz)
   {
     return new NoSuchMethodException("Not implemented method " + methodName + " on class " + clazz.getName());
   }

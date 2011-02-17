@@ -111,7 +111,7 @@ public class TextArea extends FieldComponent
       textArea.setRows(rows);
       // TODO Actually line wrap produces some scrollpane side effect.
       // See issue #19939
-      // set line wrap to true true;
+      // set line wrap to true;
 
       textArea.addValueChangedListener(new ValueChangedListener(this, false));
 

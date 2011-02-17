@@ -10,9 +10,10 @@ import java.util.List;
  */
 abstract class ContainerParameters extends ComplexComponentParameters
 {
-@SuppressWarnings("unchecked")
-protected ContainerParameters(List<String> cmsContexts, String name, String fullName,
-          ComplexComponentParameters parentContainerParameters, Integer position, Class clazz)
+  private static final long serialVersionUID = -326951498408536685L;
+
+  protected ContainerParameters(List<String> cmsContexts, String name, String fullName,
+          ComplexComponentParameters parentContainerParameters, Integer position, Class<?> clazz)
   {
     super(cmsContexts, name, fullName, parentContainerParameters, position, clazz);
   }

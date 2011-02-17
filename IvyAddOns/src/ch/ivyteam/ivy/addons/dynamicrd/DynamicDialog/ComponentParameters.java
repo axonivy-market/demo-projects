@@ -14,6 +14,8 @@ import ch.ivyteam.ivy.environment.Ivy;
  */
 public abstract class ComponentParameters implements Comparable<ComponentParameters>, Serializable
 {
+  private static final long serialVersionUID = 3091521723916028261L;
+
   private List<String> cmsContexts = null;
 
   private boolean enabled;
@@ -76,9 +78,8 @@ public abstract class ComponentParameters implements Comparable<ComponentParamet
 
   private int insetsLeft;
 
-  @SuppressWarnings("unchecked")
-protected ComponentParameters(List<String> cmsContexts, String name, String fullName,
-          ComplexComponentParameters parentContainerParameters, Integer position, Class clazz)
+  protected ComponentParameters(List<String> cmsContexts, String name, String fullName,
+          ComplexComponentParameters parentContainerParameters, Integer position, Class<?> clazz)
   {
     super();
 

@@ -244,28 +244,12 @@ final class DynamicDialogBuilder
     Component lastComponent;
     ComponentParameters parameters;
     Position usedPosition;
-    boolean addFiller;
 
     lastContainer = null;
-    addFiller = false;
 
     usedPosition = parentContainer.getStartPos(pos);
 
-    for (TreeNode<ComponentParameters> child : parameterTree)
-    {
-      parameters = child.getValue();
-
-      if (parameters instanceof FieldComponentParameters)
-      {
-        addFiller = true;
-        break;
-      }
-    }
-    addFiller = true;
-    if (addFiller)
-    {
-      parentContainer.addFillers(usedPosition);
-    }
+    parentContainer.addFillers(usedPosition);
 
     for (TreeNode<ComponentParameters> child : parameterTree)
     {

@@ -22,7 +22,8 @@ public final class ContentObjectSystemSudo
   {
   }
 
-  // TODO Change it for 4.2. APIs used no more throw a permission exception
+  // TODO APIs findContentObjectValue and getContentObjectValue should no more throw a permission exception.
+  // Try to remove executeAsSystem.
 
   /**
    * Call ivy.cms.getContentObject as system user.

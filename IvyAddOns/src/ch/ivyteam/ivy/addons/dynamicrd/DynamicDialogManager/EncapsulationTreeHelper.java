@@ -41,9 +41,9 @@ public final class EncapsulationTreeHelper
    * @throws AddonsException
    */
   public static Tree fillTree(String dataClassName, ClassLoader classLoader, IContentManagementSystem cms,
-          Map classMap) throws AddonsException
+          Map<String, Class<?>> classMap) throws AddonsException
   {
-    Class clazz;
+    Class<?> clazz;
     Tree tree;
 
     tree = null;
@@ -69,7 +69,7 @@ public final class EncapsulationTreeHelper
    * @return a tree object that contains the attribute hiearchy or null if the class can not be loaded
    * @throws AddonsException
    */
-  public static Tree fillTree(Class clazz, List<String> rootCmsContext, IContentManagementSystem cms,
+  public static Tree fillTree(Class<?> clazz, List<String> rootCmsContext, IContentManagementSystem cms,
           Map classMap) throws AddonsException
   {
     Tree tree;
@@ -111,7 +111,7 @@ public final class EncapsulationTreeHelper
     return value;
   }
 
-  private static final class Handler extends ExploreHandler<Class>
+  private static final class Handler extends ExploreHandler<Class<?>>
   {
     private Stack<Tree> stack;
 
@@ -133,7 +133,7 @@ public final class EncapsulationTreeHelper
     }
 
     @Override
-    public boolean startNode(Class clazz, String name, String qualifiedName) throws AddonsException
+    public boolean startNode(Class<?> clazz, String name, String qualifiedName) throws AddonsException
     {
       Tree node;
       List<String> cmsContext;
@@ -230,7 +230,7 @@ public final class EncapsulationTreeHelper
     }
 
     @Override
-    public void endNode(Class clazz, String name, String uri)
+    public void endNode(Class<?> clazz, String name, String uri)
     {
       Tree node;
       EncapsulationTreeNodeValue value;

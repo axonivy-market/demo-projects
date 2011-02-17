@@ -145,8 +145,7 @@ public final class ParameterTreeHelper
    * @return a tree that contains all the parameters
    * @throws PersistencyException
    */
-  @SuppressWarnings("unchecked")
-public static Tree fillTree(String cmsPath, List<String> cmsContext, Class clazz, boolean showAdvanced,
+  public static Tree fillTree(String cmsPath, List<String> cmsContext, Class<?> clazz, boolean showAdvanced,
           Tree selectedNode, IContentManagementSystem cms) throws PersistencyException
   {
     Tree tree;

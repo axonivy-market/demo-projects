@@ -10,9 +10,8 @@ import java.util.List;
  */
 class InsideContainerParameters extends ContainerParameters
 {
-  @SuppressWarnings("unchecked")
-protected InsideContainerParameters(List<String> cmsContexts, String name, String fullName,
-          ComplexComponentParameters parentContainerParameters, Integer position, Class clazz)
+  protected InsideContainerParameters(List<String> cmsContexts, String name, String fullName,
+          ComplexComponentParameters parentContainerParameters, Integer position, Class<?> clazz)
   {
     super(cmsContexts, name, fullName, parentContainerParameters, position, clazz);
   }

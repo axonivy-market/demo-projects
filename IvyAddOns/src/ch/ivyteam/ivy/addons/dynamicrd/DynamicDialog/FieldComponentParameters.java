@@ -15,6 +15,8 @@ import ch.ivyteam.ivy.scripting.objects.DateTime;
  */
 abstract class FieldComponentParameters extends ComponentParameters
 {
+  private static final long serialVersionUID = -7781477816108805538L;
+
   private boolean blockingValidation;
 
   private String defaultValue;

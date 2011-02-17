@@ -14,6 +14,8 @@ import ch.ivyteam.ivy.addons.util.IvyDatabase;
  */
 abstract class FieldComponentWithListParameters extends FieldComponentParameters
 {
+  private static final long serialVersionUID = -3575641951301683975L;
+
   protected static final String EMPTY_VALUE = " ";
 
   private boolean isSorted;

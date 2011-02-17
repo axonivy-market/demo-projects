@@ -145,8 +145,8 @@ class ParameterTableTree extends RTableTree
         }
         catch (Exception e)
         {
-          throw new AddonsRuntimeException("Unable to invoke method : " + VALUE_CHANGED_METHOD_NAME + "(TreePath)",
-                  e);
+          throw new AddonsRuntimeException("Unable to invoke method : " + VALUE_CHANGED_METHOD_NAME
+                  + "(TreePath)", e);
         }
       }
     }
@@ -189,8 +189,7 @@ class ParameterTableTree extends RTableTree
 
   private DefaultTableTreeCellRenderer defaultRenderer = null;
 
-  private static final String VALUE_CHANGED_METHOD_NAME = "valueChanged";
-;
+  private static final String VALUE_CHANGED_METHOD_NAME = "valueChanged";;
 
   protected ParameterTableTree()
   {
@@ -241,16 +240,15 @@ class ParameterTableTree extends RTableTree
     return new CellEditor();
   }
 
-  @SuppressWarnings("unchecked")
-private ULCTextField getNumberEditor()
+  private ULCTextField getNumberEditor()
   {
-    ULCNumberDataType dataType;
+    ULCNumberDataType<Number> dataType;
 
     if (numberEditor == null)
     {
       numberEditor = new ULCTextField();
 
-      dataType = new ULCNumberDataType();
+      dataType = new ULCNumberDataType<Number>();
       dataType.setMinFractionDigits(0);
       dataType.setMaxFractionDigits(5);
 
@@ -259,16 +257,15 @@ private ULCTextField getNumberEditor()
     return numberEditor;
   }
 
-  @SuppressWarnings("unchecked")
-private ULCTextField getIntegerEditor()
+  private ULCTextField getIntegerEditor()
   {
-    ULCNumberDataType dataType;
+    ULCNumberDataType<Integer> dataType;
 
     if (integerEditor == null)
     {
       integerEditor = new ULCTextField();
 
-      dataType = new ULCNumberDataType();
+      dataType = new ULCNumberDataType<Integer>();
       dataType.setClassType(Integer.class);
 
       integerEditor.setDataType(dataType);

@@ -17,7 +17,6 @@ import ch.ivyteam.ivy.scripting.objects.Date;
  * @author Patrick Joly, TI-Informatique
  * @since 01.10.2008
  */
-@SuppressWarnings("unchecked")
 public final class ComponentParameterFactory
 {
   private ComponentParameterFactory()
@@ -54,7 +53,7 @@ public final class ComponentParameterFactory
 
   public static final String LAZY_FIELD = "LazyField";
 
-  protected static ComponentParameters createParametersComponent(String name, Class clazz,
+  protected static ComponentParameters createParametersComponent(String name, Class<?> clazz,
           ComplexComponentParameters parentParameters, List<String> cmsContexts, String fullName,
           Integer position, TreeNode<ComponentParameters> parameterTree, String defaultDBConfig)
   {
@@ -62,7 +61,7 @@ public final class ComponentParameterFactory
             parameterTree, defaultDBConfig, Cms.co(cmsContexts, KnownParameters.WIDGET_PARAMETER));
   }
 
-  protected static ComponentParameters createParametersComponent(String name, Class clazz,
+  protected static ComponentParameters createParametersComponent(String name, Class<?> clazz,
           ComplexComponentParameters parentParameters, List<String> cmsContexts, String fullName,
           Integer position, TreeNode<ComponentParameters> parameterTree, String defaultDBConfig,
           String widgetName)
@@ -153,7 +152,7 @@ public final class ComponentParameterFactory
     return component;
   }
 
-  private static ComponentType getComponentType(Class clazz, String widgetName, ComponentType componentType)
+  private static ComponentType getComponentType(Class<?> clazz, String widgetName, ComponentType componentType)
   {
     ComponentType result;
 
@@ -231,7 +230,7 @@ public final class ComponentParameterFactory
     return result;
   }
 
-  private static ComponentType chooseFieldWidget(Class clazz, List<String> cmsContexts,
+  private static ComponentType chooseFieldWidget(Class<?> clazz, List<String> cmsContexts,
           List<String[]> recordsetRef, String defaultDBConfig)
   {
     int size;

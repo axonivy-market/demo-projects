@@ -22,4 +22,10 @@ public class MainContainer extends InsideContainer
 
     setCreateFiller(true);
   }
+  
+  @Override
+  protected final Position getStartPos(Position pos)
+  {
+    return new Position();
+  }
 }

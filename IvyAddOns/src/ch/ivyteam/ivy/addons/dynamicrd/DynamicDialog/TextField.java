@@ -78,6 +78,12 @@ public class TextField extends FieldComponent
     return getValueAsString();
   }
 
+  @Override
+  protected boolean isOldStyleValidation()
+  {
+    return getParameters().isOldStyleValidation();
+  }
+
   private RTextField getTextField()
   {
     if (textField == null)
@@ -85,21 +91,24 @@ public class TextField extends FieldComponent
       textField = new RTextField();
       textField.setName(getParameters().getName() + "TextField");
 
-      // It seems that without this listener the ValueChangedListener is not
-      // invoked when something is typed inside the textfield
-      textField.addKeyListener(new IKeyListener()
-        {
-          private static final long serialVersionUID = -3251482348103155014L;
-
-          /**
-           * {@inheritDoc}
-           */
-          public void keyTyped(KeyEvent arg0)
+      if (isOldStyleValidation() || !getParameters().getValueChangedMethod().equals(""))
+      {
+        // It seems that without this listener the ValueChangedListener is not
+        // invoked when something is typed inside the textfield
+        textField.addKeyListener(new IKeyListener()
           {
-            // Nothing
-          }
-        });
+            private static final long serialVersionUID = -3251482348103155014L;
 
+            /**
+             * {@inheritDoc}
+             */
+            public void keyTyped(KeyEvent arg0)
+            {
+              // Nothing
+            }
+          });
+        textField.addValueChangedListener(new ValueChangedListener(this, false));
+      }
       if (!getParameters().getButtonActionMethod().equals(""))
       {
         textField.addActionListener(new IActionListener()
@@ -116,8 +125,6 @@ public class TextField extends FieldComponent
           });
 
       }
-
-      textField.addValueChangedListener(new ValueChangedListener(this, false));
 
       textField.addFocusListener(new FocusListener(this));
 
@@ -139,7 +146,7 @@ public class TextField extends FieldComponent
   @Override
   public final Date getValueAsDate()
   {
-    if (getParameters().isOldStyleValidation())
+    if (isOldStyleValidation())
     {
       return getValueAsDateOldStyle();
     }
@@ -172,7 +179,7 @@ public class TextField extends FieldComponent
   @Override
   public final DateTime getValueAsDateTime()
   {
-    if (getParameters().isOldStyleValidation())
+    if (isOldStyleValidation())
     {
       return getValueAsDateTimeOldStyle();
     }
@@ -211,7 +218,7 @@ public class TextField extends FieldComponent
   @Override
   public final Number getValueAsNumber()
   {
-    if (getParameters().isOldStyleValidation())
+    if (isOldStyleValidation())
     {
       return getValueAsNumberOldStyle();
     }
@@ -240,7 +247,7 @@ public class TextField extends FieldComponent
   @Override
   public final String getValueAsString()
   {
-    if (getParameters().isOldStyleValidation())
+    if (isOldStyleValidation())
     {
       return textField.getText();
     }
@@ -253,7 +260,7 @@ public class TextField extends FieldComponent
   @Override
   public final Time getValueAsTime()
   {
-    if (getParameters().isOldStyleValidation())
+    if (isOldStyleValidation())
     {
       return getValueAsTimeOldStyle();
     }
@@ -288,23 +295,16 @@ public class TextField extends FieldComponent
     return s.equals("") || s.equals("0") || s.equals("false") ? false : true;
   }
 
-  private boolean inlineValidate()
+  private void inlineValidate()
   {
     boolean valid;
 
-    if (getParameters().isOldStyleValidation())
+    if (isOldStyleValidation())
     {
       valid = TextValidation.inlineValidate(this, isMandatory(), isFirstValidation(), getParameters()
               .getTextValidationParameters());
+      updateIconAndBackground(valid);
     }
-    else
-    {
-      valid = validate();
-    }
-
-    updateIconAndBackground(valid);
-
-    return valid;
   }
 
   @Override
@@ -343,18 +343,12 @@ public class TextField extends FieldComponent
     {
       setWeightX(getTextField());
     }
-
-    if (!getParameters().isOldStyleValidation())
-    {
-      // TODO How to work with mandatory fields with the included Ivy validation mechanism
-      textField.setValidation(getParameters().getValidation());
-    }
   }
 
   @Override
   public final void setValue(Object o, String text)
   {
-    if (getParameters().isOldStyleValidation())
+    if (isOldStyleValidation())
     {
       setValueAsString(o.toString());
     }
@@ -367,7 +361,7 @@ public class TextField extends FieldComponent
   @Override
   public final void setValueAsDate(Date d, String text)
   {
-    if (getParameters().isOldStyleValidation())
+    if (isOldStyleValidation())
     {
       setValueAsString(d == null || d == Date.UNINITIALIZED_DATE ? "" : getDateFormat().format(d.toDate()),
               text);
@@ -381,7 +375,7 @@ public class TextField extends FieldComponent
   @Override
   public final void setValueAsDateTime(DateTime dt, String text)
   {
-    if (getParameters().isOldStyleValidation())
+    if (isOldStyleValidation())
     {
       setValueAsString(dt == null || dt == DateTime.UNINITIALIZED_DATE_TIME ? "" : getDateTimeFormat()
               .format(dt.toDate()), text);
@@ -401,7 +395,7 @@ public class TextField extends FieldComponent
   @Override
   public final void setValueAsNumber(Number n, String text)
   {
-    if (getParameters().isOldStyleValidation())
+    if (isOldStyleValidation())
     {
       setValueAsString(n.toString());
     }
@@ -427,7 +421,7 @@ public class TextField extends FieldComponent
     }
     else
     {
-      if (getParameters().isOldStyleValidation())
+      if (isOldStyleValidation())
       {
         textField.setText(s);
       }
@@ -441,7 +435,7 @@ public class TextField extends FieldComponent
   @Override
   public final void setValueAsTime(Time t, String text)
   {
-    if (getParameters().isOldStyleValidation())
+    if (isOldStyleValidation())
     {
       setValueAsString(t.toString(), text);
     }
@@ -461,10 +455,15 @@ public class TextField extends FieldComponent
   public final boolean validate()
   {
     boolean result;
+    
+    if (!isOldStyleValidation())
+    {
+      textField.setMandatory(isMandatory());
+    }
 
     result = isValid();
 
-    if (getParameters().isOldStyleValidation())
+    if (isOldStyleValidation())
     {
       if (!TextValidation.validate(this, isMandatory(), getParameters().getTextValidationParameters()))
       {
@@ -517,6 +516,14 @@ public class TextField extends FieldComponent
     {
       textField.setBackground(textField.getParent().getBackground());
     }
+
+    if (!isOldStyleValidation())
+    {
+      textField.setValidation(getParameters().getValidation());
+      getIconLabelWidget().setEnabler(textField);
+      textField.setMandatory(isMandatory());
+    }
+    updateIconAndBackground(true);
   }
 
   @Override
