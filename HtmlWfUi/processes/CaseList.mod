@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 17 16:55:55 CET 2011]
+[>Created: Thu Feb 17 17:19:48 CET 2011]
 12C97DB1B1EA5971 3.16 #module
 >Proto >Proto Collection #zClass
 Rt0 CaseList Big #zClass
@@ -107,7 +107,8 @@ if(in.temp.statFilter!=ivy.cms.co("/labels/all"))
 
 IQueryResult queryResult = ivy.wf.findCases(
 	cpfilter,
-	null, 0, -1 ,true);
+	PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
+	0, -1 ,true);
 
 out.cases = queryResult.getResultList();
 
@@ -417,7 +418,8 @@ if(in.temp.statFilter!=ivy.cms.co("/labels/all"))
 
 IQueryResult queryResult = ivy.wf.findCases(
 	cpfilter,
-	null, 0, -1 ,true);
+	PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
+	0, -1 ,true);
 	
 out.temp.processes.clear();	
 out.temp.processes.add([ivy.cms.co("/labels/all"),ivy.cms.co("/labels/all"),ivy.cms.co("/labels/all")]);

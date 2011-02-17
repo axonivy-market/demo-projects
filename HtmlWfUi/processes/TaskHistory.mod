@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 17 15:59:56 CET 2011]
+[>Created: Thu Feb 17 17:18:30 CET 2011]
 12E297F287736665 3.16 #module
 >Proto >Proto Collection #zClass
 Rt0 TaskHistory Big #zClass
@@ -72,7 +72,8 @@ if(in.temp.statFilter!="Alle")
 
 IQueryResult queryResult = ivy.wf.findTasks(
 	cpfilter,
-	null, 0, -1 ,true);
+	PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING),
+	0, -1 ,true);
 
 out.tasks = queryResult.getResultList();
 

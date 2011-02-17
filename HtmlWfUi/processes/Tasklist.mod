@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 17 16:55:55 CET 2011]
+[>Created: Thu Feb 17 17:19:51 CET 2011]
 125016DE17A534EB 3.16 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
@@ -45,8 +45,8 @@ Tt0 f5 139 355 26 26 14 0 #rect
 Tt0 f5 @|EndIcon #fIcon
 Tt0 f0 actionDecl 'htmlwfui.Data out;
 ' #txt
-Tt0 f0 actionTable 'out=in.clone();
-out.request=ivy.request;
+Tt0 f0 actionTable 'out.request=ivy.request;
+out.username=in.username;
 out.wfSession=ivy.session;
 ' #txt
 Tt0 f0 actionCode 'import ch.ivyteam.ivy.security.ISecurityMember;
@@ -72,7 +72,6 @@ r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.
 
 for (int t=0; t<tasks.size(); t++)
 {
-		// ivy4 tasks
 				ITask task = tasks.get(t);
 				TaskDetail taskDetail = new TaskDetail();
 
@@ -90,8 +89,7 @@ for (int t=0; t<tasks.size(); t++)
 				taskDetail.start = task.getStartTimestamp();
 				taskDetail.state = task.getState().intValue();
 				taskDetail.stateName=task.getState().toString();
-				String prefixRIARedirect = "";
-				taskDetail.url = prefixRIARedirect+"/ivy/pro/"+task.getFullRequestPath()+"?taskId="+task.getIdentifier();
+				taskDetail.url = "/ivy/pro/"+task.getFullRequestPath()+"?taskId="+task.getIdentifier();
 		
 				out.taskList.add(taskDetail);
 }' #txt
