@@ -9,6 +9,7 @@ String urlToStart=ivy.html.get("in.temp.url");
 <META  http-equiv="refresh" content="0; URL=<%=urlToStart%>">
 </head> 
 <body>
-<a href="<%=urlToStart%>">click here</a>
+Workflow Home<br>
+<a href="<%=urlToStart%>">Click here if not loading automatically</a>
 </body>
 </html>
