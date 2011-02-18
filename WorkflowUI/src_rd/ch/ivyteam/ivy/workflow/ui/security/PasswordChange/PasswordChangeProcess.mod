@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Jul 27 23:32:37 CEST 2010]
-12A14665C984A175 3.12 #module
+[>Created: Fri Feb 18 15:44:25 CET 2011]
+12A14665C984A175 3.15 #module
 >Proto >Proto Collection #zClass
 Ss0 SettingsProcess Big #zClass
 Ss0 RD #cInfo
@@ -32,16 +32,17 @@ Ss0 @Alternative f30 '' #zField
 Ss0 @PushWFArc f31 '' #zField
 Ss0 @RichDialogProcessStep f32 '' #zField
 Ss0 @PushWFArc f33 '' #zField
-Ss0 @RichDialog f35 '' #zField
-Ss0 @PushWFArc f36 '' #zField
-Ss0 @PushWFArc f34 '' #zField
 Ss0 @RichDialogEnd f37 '' #zField
 Ss0 @RichDialog f3 '' #zField
-Ss0 @PushWFArc f4 '' #zField
 Ss0 @PushWFArc f5 '' #zField
+Ss0 @PushWFArc f6 '' #zField
+Ss0 @Alternative f7 '' #zField
+Ss0 @PushWFArc f8 '' #zField
+Ss0 @PushWFArc f4 '' #zField
+Ss0 @PushWFArc f9 '' #zField
 >Proto Ss0 Ss0 SettingsProcess #zField
 Ss0 f1 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
-Ss0 f1 43 363 26 26 14 0 #rect
+Ss0 f1 43 147 26 26 14 0 #rect
 Ss0 f1 @|RichDialogProcessEndIcon #fIcon
 Ss0 f0 guid 11B70775058C5285 #txt
 Ss0 f0 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
@@ -65,7 +66,7 @@ Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ss0 f0 46 38 20 20 13 0 #rect
 Ss0 f0 @|RichDialogInitStartIcon #fIcon
 Ss0 f2 expr out #txt
-Ss0 f2 56 58 56 363 #arcP
+Ss0 f2 56 58 56 147 #arcP
 Ss0 f13 guid 12A146DE5A487AC8 #txt
 Ss0 f13 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
 Ss0 f13 actionDecl 'ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData out;
@@ -101,14 +102,14 @@ Ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ss0 f14 582 38 20 20 13 0 #rect
 Ss0 f14 @|RichDialogProcessStartIcon #fIcon
 Ss0 f15 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
-Ss0 f15 350 366 20 20 13 0 #rect
+Ss0 f15 374 366 20 20 13 0 #rect
 Ss0 f15 @|RichDialogProcessEndIcon #fIcon
 Ss0 f23 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
 Ss0 f23 guid 12A146F953528CE6 #txt
-Ss0 f23 582 366 20 20 13 0 #rect
+Ss0 f23 582 158 20 20 13 0 #rect
 Ss0 f23 @|RichDialogEndIcon #fIcon
 Ss0 f26 expr out #txt
-Ss0 f26 592 58 592 366 #arcP
+Ss0 f26 592 58 592 158 #arcP
 Ss0 f21 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
 Ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -120,44 +121,53 @@ is correct?</name>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f21 186 98 28 28 14 0 #rect
+Ss0 f21 186 82 28 28 14 0 #rect
 Ss0 f21 @|AlternativeIcon #fIcon
 Ss0 f22 expr out #txt
-Ss0 f22 200 58 200 98 #arcP
+Ss0 f22 200 58 200 82 #arcP
+Ss0 f27 targetWindow NEW:card: #txt
 Ss0 f27 targetDisplay TOP #txt
-Ss0 f27 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
-Ss0 f27 startMethod showMessage(String) #txt
+Ss0 f27 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
+Ss0 f27 startMethod showError(java.lang.Throwable,Boolean,Boolean) #txt
 Ss0 f27 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
-Ss0 f27 requestActionDecl '<String message> param;' #txt
-Ss0 f27 requestActionCode 'param.message = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/invalideOldPassword");' #txt
+Ss0 f27 requestActionDecl '<java.lang.Throwable error, Boolean showCopyButton, Boolean showDetailButton> param;' #txt
+Ss0 f27 requestActionCode 'String changePasswordFailed = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/changePasswordFailed");
+param.error = new Exception(changePasswordFailed);
+param.showCopyButton = false;
+param.showDetailButton = false;
+
+// log the error
+ivy.log.error("User {0} tried to change password but without succes {1}.", 
+							ivy.session.getSessionUserName(),
+							in.#error is initialized? in.error: "");' #txt
 Ss0 f27 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData out;
 ' #txt
 Ss0 f27 responseMappingAction 'out=in;
 ' #txt
-Ss0 f27 windowConfiguration '* ' #txt
+Ss0 f27 windowConfiguration '{/title "<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/changePassword\")%>"/width 0 /height 0 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 Ss0 f27 isAsynch false #txt
 Ss0 f27 isInnerRd true #txt
 Ss0 f27 isDialog true #txt
+Ss0 f27 userContext '* ' #txt
 Ss0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>the current 
-password is not correct</name>
-        <nameStyle>36,7,9
+        <name>change password failed
+log and display message</name>
+        <nameStyle>46,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f27 398 156 36 24 20 -2 #rect
+Ss0 f27 366 268 36 24 20 -2 #rect
 Ss0 f27 @|RichDialogIcon #fIcon
 Ss0 f28 expr in #txt
-Ss0 f28 214 112 416 156 #arcP
-Ss0 f28 1 416 112 #addKink
+Ss0 f28 214 96 384 268 #arcP
+Ss0 f28 1 384 96 #addKink
 Ss0 f28 0 0.9208052000315107 0 0 #arcLabel
 Ss0 f29 expr out #txt
-Ss0 f29 416 180 370 376 #arcP
-Ss0 f29 1 416 376 #addKink
-Ss0 f29 1 0.016206997950474113 0 0 #arcLabel
+Ss0 f29 384 292 384 366 #arcP
+Ss0 f29 0 0.016206997950474113 0 0 #arcLabel
 Ss0 f30 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
 Ss0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -170,7 +180,7 @@ confirm password?</name>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f30 186 162 28 28 13 2 #rect
+Ss0 f30 186 146 28 28 13 2 #rect
 Ss0 f30 @|AlternativeIcon #fIcon
 Ss0 f31 expr in #txt
 Ss0 f31 outCond ivy.session.checkPassword(in.oldPassword) #txt
@@ -183,12 +193,19 @@ Ss0 f31 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f31 200 126 200 162 #arcP
+Ss0 f31 200 110 200 146 #arcP
 Ss0 f32 actionDecl 'ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData out;
 ' #txt
 Ss0 f32 actionTable 'out=in;
 ' #txt
-Ss0 f32 actionCode ivy.session.getSessionUser().setPassword(in.newPassword.trim()); #txt
+Ss0 f32 actionCode 'try
+{
+	ivy.session.getSessionUser().setPassword(in.newPassword.trim());
+}
+catch (Exception ex)
+{
+		out.setError(ex);
+}' #txt
 Ss0 f32 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
 Ss0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -213,74 +230,72 @@ Ss0 f33 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f33 200 190 200 228 #arcP
-Ss0 f35 targetDisplay TOP #txt
-Ss0 f35 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
-Ss0 f35 startMethod showMessage(String) #txt
-Ss0 f35 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
-Ss0 f35 requestActionDecl '<String message> param;' #txt
-Ss0 f35 requestActionCode 'param.message = ivy.cms.co("ch/ivyteam/ivy/workflow/ui/administration/plainStrings/wrongPassword");' #txt
-Ss0 f35 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData out;
-' #txt
-Ss0 f35 responseMappingAction 'out=in;
-' #txt
-Ss0 f35 windowConfiguration '* ' #txt
-Ss0 f35 isAsynch false #txt
-Ss0 f35 isInnerRd true #txt
-Ss0 f35 isDialog true #txt
-Ss0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>the new and confirm
-password are not equal</name>
-        <nameStyle>42,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f35 342 220 36 24 20 -2 #rect
-Ss0 f35 @|RichDialogIcon #fIcon
-Ss0 f36 expr in #txt
-Ss0 f36 214 176 360 220 #arcP
-Ss0 f36 1 360 176 #addKink
-Ss0 f36 1 0.3933840776812564 0 0 #arcLabel
-Ss0 f34 expr out #txt
-Ss0 f34 360 244 360 366 #arcP
-Ss0 f34 0 0.48988664616293365 0 0 #arcLabel
+Ss0 f33 200 174 200 228 #arcP
 Ss0 f37 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
 Ss0 f37 guid 12A147B66ECF1213 #txt
 Ss0 f37 190 366 20 20 13 0 #rect
 Ss0 f37 @|RichDialogEndIcon #fIcon
+Ss0 f3 targetWindow NEW:card: #txt
 Ss0 f3 targetDisplay TOP #txt
 Ss0 f3 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Ss0 f3 startMethod showMessage(String) #txt
 Ss0 f3 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
 Ss0 f3 requestActionDecl '<String message> param;' #txt
-Ss0 f3 requestActionCode 'param.message = "Password changed sucessfuly.";' #txt
+Ss0 f3 requestActionCode 'param.message = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/changePasswordSuccessful");' #txt
 Ss0 f3 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData out;
 ' #txt
 Ss0 f3 responseMappingAction 'out=in;
 ' #txt
-Ss0 f3 windowConfiguration '* ' #txt
+Ss0 f3 windowConfiguration '{/title "<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/changePassword\")%>"/width 0 /height 0 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 Ss0 f3 isAsynch false #txt
 Ss0 f3 isInnerRd true #txt
 Ss0 f3 isDialog true #txt
+Ss0 f3 userContext '* ' #txt
 Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Password changed
- sucessfuly</name>
-        <nameStyle>28,7,9
+        <name>change password successful</name>
+        <nameStyle>26,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f3 182 284 36 24 20 -2 #rect
+Ss0 f3 182 324 36 24 20 -2 #rect
 Ss0 f3 @|RichDialogIcon #fIcon
-Ss0 f4 expr out #txt
-Ss0 f4 200 252 200 284 #arcP
 Ss0 f5 expr out #txt
-Ss0 f5 200 308 200 366 #arcP
+Ss0 f5 200 348 200 366 #arcP
+Ss0 f6 expr in #txt
+Ss0 f6 214 160 384 268 #arcP
+Ss0 f6 1 384 160 #addKink
+Ss0 f6 1 0.3933840776812564 0 0 #arcLabel
+Ss0 f7 type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
+Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>successful?</name>
+        <nameStyle>11,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f7 186 266 28 28 14 0 #rect
+Ss0 f7 @|AlternativeIcon #fIcon
+Ss0 f8 expr out #txt
+Ss0 f8 200 252 200 266 #arcP
+Ss0 f4 expr in #txt
+Ss0 f4 outCond '!in.#error is initialized' #txt
+Ss0 f4 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f4 200 294 200 324 #arcP
+Ss0 f9 expr in #txt
+Ss0 f9 214 280 366 280 #arcP
 >Proto Ss0 .type ch.ivyteam.ivy.workflow.ui.security.PasswordChange.PasswordChangeData #txt
 >Proto Ss0 .processKind RICH_DIALOG #txt
 >Proto Ss0 .ui2RdDataAction 'out.confirmPassword=panel.confirmTextField.text;
@@ -303,11 +318,13 @@ Ss0 f31 head f30 in #connect
 Ss0 f21 out f28 tail #connect
 Ss0 f30 out f33 tail #connect
 Ss0 f33 head f32 mainIn #connect
-Ss0 f30 out f36 tail #connect
-Ss0 f36 head f35 mainIn #connect
-Ss0 f35 mainOut f34 tail #connect
-Ss0 f34 head f15 mainIn #connect
-Ss0 f32 mainOut f4 tail #connect
-Ss0 f4 head f3 mainIn #connect
 Ss0 f3 mainOut f5 tail #connect
 Ss0 f5 head f37 mainIn #connect
+Ss0 f30 out f6 tail #connect
+Ss0 f6 head f27 mainIn #connect
+Ss0 f32 mainOut f8 tail #connect
+Ss0 f8 head f7 in #connect
+Ss0 f7 out f4 tail #connect
+Ss0 f4 head f3 mainIn #connect
+Ss0 f7 out f9 tail #connect
+Ss0 f9 head f27 mainIn #connect

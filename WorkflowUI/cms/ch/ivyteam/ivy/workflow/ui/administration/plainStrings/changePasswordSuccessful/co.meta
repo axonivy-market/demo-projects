@@ -1,0 +1,4 @@
+co: name={changePasswordSuccessful} description={} changed={2011-02-18 15:32:11 CET} changedby={tirib} visualorder={0} guid={12E392DBA8C914AC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12E392DBAC286F30} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-18 15:27:11 CET} validto={} changed={2011-02-18 15:32:11 CET} changedby={tirib} properties={} id={}
+val: guid={12E392DBAE58D93E} datatype={} isdefault={true} langid={en} description={} validfrom={2011-02-18 15:26:42 CET} validto={} changed={2011-02-18 15:32:11 CET} changedby={tirib} properties={} id={}
+val: guid={12E392DBAD1D8A21} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-02-18 15:27:08 CET} validto={} changed={2011-02-18 15:32:11 CET} changedby={tirib} properties={} id={}
