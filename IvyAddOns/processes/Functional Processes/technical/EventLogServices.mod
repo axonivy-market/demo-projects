@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 16 08:04:32 CET 2011]
+[>Created: Fri Feb 18 15:13:38 CET 2011]
 12844EFAEBB78898 3.15 #module
 >Proto >Proto Collection #zClass
 Es0 EventLogServices Big #zClass
@@ -37,12 +37,10 @@ Es0 @PushWFArc f5 '' #zField
 Es0 @StartSub f17 '' #zField
 Es0 @PushWFArc f18 '' #zField
 Es0 @StartSub f21 '' #zField
-Es0 @GridStep f23 '' #zField
 Es0 @EndSub f24 '' #zField
 Es0 @GridStep f26 '' #zField
-Es0 @PushWFArc f27 '' #zField
 Es0 @PushWFArc f31 '' #zField
-Es0 @PushWFArc f32 '' #zField
+Es0 @PushWFArc f22 '' #zField
 >Proto Es0 Es0 EventLogServices #zField
 Es0 f0 inParamDecl '<ch.ivyteam.ivy.addons.data.technical.eventlog.EventLogSearchByCaseId searchByCaseId> param;' #txt
 Es0 f0 inParamTable 'out.caseId=param.searchByCaseId.caseId;
@@ -441,102 +439,6 @@ Es0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Es0 f21 467 27 26 26 14 0 #rect
 Es0 f21 @|StartSubIcon #fIcon
-Es0 f23 actionDecl 'ch.ivyteam.ivy.addons.data.restricted.technical.EventLogServices out;
-' #txt
-Es0 f23 actionTable 'out=in;
-' #txt
-Es0 f23 actionCode 'import ch.ivyteam.ivy.addons.technical.MessageCodes;
-import ch.ivyteam.ivy.addons.data.technical.IvyResultStatusSeverity;
-import ch.ivyteam.ivy.workflow.eventlog.EventLogSeverity;
-import ch.ivyteam.ivy.addons.data.technical.eventlog.EventLog;
-import ch.ivyteam.ivy.workflow.eventlog.IEventLog;
-import ch.ivyteam.ivy.persistence.IQueryResult;
-import ch.ivyteam.ivy.workflow.eventlog.IEventLog;
-import ch.ivyteam.logicalexpression.RelationalOperator;
-import ch.ivyteam.ivy.workflow.eventlog.EventLogProperty;
-import ch.ivyteam.ivy.workflow.IPropertyFilter;
-
-EventLog ev;
-
-IPropertyFilter filter;
-IQueryResult result;
-
-
-try
-{
-	
-	for (IEventLog log : out.events)
-	{
-		ev = null;
-		ev.eventLogId = log.getIdentifier();
-		ev.timeStamp = log.getTimestamp();
-		ev.data.application = log.getApplicationName();
-		ev.data.context = log.getContext();
-		ev.data.environment = log.getEnvironment();
-		ev.data.errorCode = log.getErrorCode();
-		ev.data.eventData = log.getEventData();
-		ev.data.eventDate = log.getEventDate();
-		ev.data.eventTime = log.getEventTime();
-		ev.data.eventSubType = log.getEventSubType();
-		ev.data.eventType = log.getEventType();
-		ev.data.groupId = log.getGroupId();
-		ev.data.initiator = log.getInitiator();
-		ev.data.isBusinessEvent = log.isBusinessEvent();
-		ev.data.message = log.getMessage();
-		ev.data.module = log.getSubsystem();
-		ev.data.objectId = log.getObjectId();
-		ev.data.server = log.getServer();
-		ev.data.tower = log.getSystem();
-		ev.data.userComment = log.getUserComment();
-		ev.data.userName = log.getUserName();
-		if (log.getSeverity() == EventLogSeverity.FATAL)
-		{
-			ev.data.severity = ch.ivyteam.ivy.addons.eventlog.data.technical.EventLogSeverity.FATAL;
-		}
-		if (log.getSeverity() == EventLogSeverity.ERROR)
-		{
-			ev.data.severity = ch.ivyteam.ivy.addons.eventlog.data.technical.EventLogSeverity.ERROR;
-		}
-		if (log.getSeverity() == EventLogSeverity.WARNING)
-		{
-			ev.data.severity = ch.ivyteam.ivy.addons.eventlog.data.technical.EventLogSeverity.WARNING;
-		}
-		if (log.getSeverity() == EventLogSeverity.INFO)
-		{
-			ev.data.severity = ch.ivyteam.ivy.addons.eventlog.data.technical.EventLogSeverity.INFO;
-		}
-		ev.data.source = log.getSource();
-		
-		out.eventLogs.add(ev);
-	}
-	out.ivyResultStatus.successful = true;
-}
-catch (Exception e)
-{
-	out.ivyResultStatus.severity = IvyResultStatusSeverity.FATAL;
-	out.ivyResultStatus.successful = false;
-	out.ivyResultStatus.javaException = e;
-	out.ivyResultStatus.detail = e.getClass().getName() + " - " + e.getMessage() + " - " + e.getCause();
-	out.ivyResultStatus.code = MessageCodes.XIVY_ADD_EVT_002.toString();
-	out.ivyResultStatus.message = ivy.cms.co("/messages/" + out.ivyResultStatus.code);
-	
-	ivy.log.error(out.ivyResultStatus.code + " - " + out.ivyResultStatus.message + " - " + out.ivyResultStatus.detail, e);
-}
-' #txt
-Es0 f23 type ch.ivyteam.ivy.addons.data.restricted.technical.EventLogServices #txt
-Es0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>do the loop
-and build result 
-list&lt;EventLog&gt;</name>
-        <nameStyle>44,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Es0 f23 462 172 36 24 20 -2 #rect
-Es0 f23 @|StepIcon #fIcon
 Es0 f24 type ch.ivyteam.ivy.addons.data.restricted.technical.EventLogServices #txt
 Es0 f24 467 267 26 26 14 0 #rect
 Es0 f24 @|EndSubIcon #fIcon
@@ -556,7 +458,9 @@ out.events.clear();
 try
 {
 	ICase wfCase = PublicAPIHelper.findCaseAsSystemUser(in.readListId);
-	out.events.addAll(EventLogHelper.findBusinessEventLogsAsSystemUser(wfCase));
+	out.eventLogs.clear();
+	out.eventLogs.addAll(EventLogHelper.findBusinessEventLogsAsSystemUser(wfCase));
+	out.ivyResultStatus.successful = true;
 }
 catch (Exception e)
 {
@@ -582,12 +486,10 @@ Es0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Es0 f26 462 116 36 24 20 -2 #rect
 Es0 f26 @|StepIcon #fIcon
-Es0 f27 expr out #txt
-Es0 f27 480 196 480 267 #arcP
 Es0 f31 expr out #txt
 Es0 f31 480 53 480 116 #arcP
-Es0 f32 expr out #txt
-Es0 f32 480 140 480 172 #arcP
+Es0 f22 expr out #txt
+Es0 f22 480 140 480 267 #arcP
 >Proto Es0 .type ch.ivyteam.ivy.addons.data.restricted.technical.EventLogServices #txt
 >Proto Es0 .processKind CALLABLE_SUB #txt
 >Proto Es0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -617,9 +519,7 @@ Es0 f15 mainOut f5 tail #connect
 Es0 f5 head f16 mainIn #connect
 Es0 f17 mainOut f18 tail #connect
 Es0 f18 head f6 mainIn #connect
-Es0 f23 mainOut f27 tail #connect
-Es0 f27 head f24 mainIn #connect
 Es0 f21 mainOut f31 tail #connect
 Es0 f31 head f26 mainIn #connect
-Es0 f26 mainOut f32 tail #connect
-Es0 f32 head f23 mainIn #connect
+Es0 f26 mainOut f22 tail #connect
+Es0 f22 head f24 mainIn #connect

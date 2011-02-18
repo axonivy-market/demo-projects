@@ -6,25 +6,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.concurrent.Callable;
-
-import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.ivy.persistence.PersistencyException;
-import ch.ivyteam.ivy.workflow.ICase;
-import ch.ivyteam.ivy.workflow.eventlog.IEventLog;
 
 import ch.ivyteam.ivy.addons.data.technical.eventlog.EventLog;
 import ch.ivyteam.ivy.addons.data.technical.eventlog.EventLogData;
 import ch.ivyteam.ivy.addons.eventlog.data.technical.EventLogSeverity;
 import ch.ivyteam.ivy.addons.eventlog.data.technical.EventLogStatus;
+import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.persistence.IQueryResult;
+import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.scripting.objects.Date;
 import ch.ivyteam.ivy.scripting.objects.DateTime;
 import ch.ivyteam.ivy.scripting.objects.Time;
+import ch.ivyteam.ivy.workflow.ICase;
 import ch.ivyteam.ivy.workflow.IPropertyFilter;
 import ch.ivyteam.ivy.workflow.IWorkflowContext;
 import ch.ivyteam.ivy.workflow.eventlog.EventLogDescription;
 import ch.ivyteam.ivy.workflow.eventlog.EventLogProperty;
+import ch.ivyteam.ivy.workflow.eventlog.IEventLog;
 import ch.ivyteam.log.Logger;
 import ch.ivyteam.logicalexpression.RelationalOperator;
 
@@ -43,45 +41,28 @@ public class EventLogHelper
    * 
    * @param wfCase case for which business events have to be found
    * @return list of business events, it could be empty, never null
+ * @throws PersistencyException 
    */
-  public static List<IEventLog> findBusinessEventLogsAsSystemUser(final ICase wfCase)
+  public static List<EventLog> findBusinessEventLogsAsSystemUser(final ICase wfCase) throws PersistencyException
   {
-    List<IEventLog> businessEventLogs = null;
+    List<IEventLog> eventLogs = null;
+    List<IEventLog> businessEventLogs = new ArrayList<IEventLog>();
 
-    try
+    // get all events that are related to that case
+    eventLogs = Ivy.wf().findEventLogs(wfCase);
+
+    for (IEventLog eventLog : eventLogs)
     {
-      businessEventLogs = Ivy.session().getSecurityContext().executeAsSystemUser(
-              new Callable<List<IEventLog>>()
-                {
-                  public List<IEventLog> call() throws Exception
-                  {
-
-                    List<IEventLog> eventLogs = null;
-                    List<IEventLog> filteredEventLogs = new ArrayList<IEventLog>();
-
-                    eventLogs = Ivy.wf().findEventLogs(wfCase);
-
-                    for (IEventLog eventLog : eventLogs)
-                    {
-                      if (eventLog.isBusinessEvent())
-                        filteredEventLogs.add(eventLog);
-                    }
-
-                    // sort the list
-                    sortByEventDateAndTime(filteredEventLogs);
-                    // return the result
-                    return filteredEventLogs;
-                  }
-                });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error(
-              "Error during the findBusinessEventLogsAsSystemUser(case): " + e.getMessage()
-                      + " case identifier: " + wfCase.getIdentifier(), e);
+      if (eventLog.isBusinessEvent())
+    	  businessEventLogs.add(eventLog);
     }
 
-    return businessEventLogs;
+    // sort the list
+    sortByEventDateAndTime(businessEventLogs);
+
+    // return the result as List<EventLog>    
+    return getEventLogs(businessEventLogs);
+   
   }
 
   /**
