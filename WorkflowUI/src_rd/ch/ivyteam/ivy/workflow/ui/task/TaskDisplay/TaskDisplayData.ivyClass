@@ -46,3 +46,5 @@ eventsDisplayId String #field
 eventsDisplayId 'Id where event logs will be displayed.' #fieldComment
 detailsDisplayId String #field
 detailsDisplayId 'Id where case and task details will be displayed.' #fieldComment
+caseDocumentsPath String #field
+caseDocumentsPath 'The path of task''s case documents. It is needed to update the "Documents" tab title.' #fieldComment

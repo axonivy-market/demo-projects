@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jan 14 11:44:25 CET 2011]
+[>Created: Fri Feb 18 17:27:23 CET 2011]
 12D7A779635E3439 3.15 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -86,7 +86,7 @@ Ts0 f14 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 Ts0 f14 inActionCode 'out.task = param.aTask;' #txt
 Ts0 f14 outParameterDecl '<> result;
 ' #txt
-Ts0 f14 embeddedRdInitializations '{/taskNoteDisplayListRDC {/fieldName "taskNoteDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/caseNoteDisplayListRDC {/fieldName "caseNoteDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }}' #txt
+Ts0 f14 embeddedRdInitializations '{/taskNoteDisplayListRDC {/fieldName "taskNoteDisplayListRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ITask,Boolean)"/parameterMapping ""/initScript "param.aTask = callParam.aTask;\nparam.aLoadDataAtStart = true;"/userContext * }/caseNoteDisplayListRDC {/fieldName "caseNoteDisplayListRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ICase,Boolean)"/parameterMapping ""/initScript "param.aCase = callParam.aTask.getCase();\nparam.aLoadDataAtStart = true;"/userContext * }}' #txt
 Ts0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

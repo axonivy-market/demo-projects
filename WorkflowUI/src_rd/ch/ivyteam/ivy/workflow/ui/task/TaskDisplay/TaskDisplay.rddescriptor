@@ -76,6 +76,10 @@
         <description>It starts the task on this Rich Dialog display.&#xD;
 This is private method.</description>
     </method>
+    <method>
+        <name>_refresh</name>
+        <description></description>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Create the Rich Dialog and populate it with the given task parameter</description>
