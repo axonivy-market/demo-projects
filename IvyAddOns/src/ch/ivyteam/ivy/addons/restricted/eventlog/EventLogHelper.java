@@ -64,7 +64,34 @@ public class EventLogHelper
     return getEventLogs(businessEventLogs);
    
   }
-
+  
+  
+  /**
+   * It returns true if case has business events; otherwise false.
+   * 
+   * @param wfCase case for which business events have to be found
+   * @return 
+ * @throws PersistencyException 
+   */
+  public static boolean caseContainsBusinessEventLogs(final ICase wfCase) throws PersistencyException
+  {
+	  boolean result = false;
+	  
+	  // get all events that are related to that case
+	  List<IEventLog> eventLogs = Ivy.wf().findEventLogs(wfCase);
+	
+	    for (IEventLog eventLog : eventLogs)
+	    {
+	      if (eventLog.isBusinessEvent())
+	      {
+	    	  result = true;
+	    	  break;
+	      }
+	    }
+	
+	 return result;
+  }
+  
   /**
    * It sorts the entries of the list based on the eventDate AND eventTime property of each entry
    * @param eventLogs is the list of editors to sort
