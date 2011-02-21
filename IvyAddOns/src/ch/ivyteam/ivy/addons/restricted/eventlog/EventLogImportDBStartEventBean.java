@@ -6,8 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
-import java.util.StringTokenizer;
+import java.util.Map;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,7 +17,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 
 import ch.ivyteam.ivy.addons.data.technical.eventlog.EventLogData;
 import ch.ivyteam.ivy.addons.eventlog.data.technical.EventLogSeverity;
-import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.application.ReleaseState;
 import ch.ivyteam.ivy.db.IExternalDatabase;
 import ch.ivyteam.ivy.db.IExternalDatabaseApplicationContext;
@@ -30,8 +30,6 @@ import ch.ivyteam.ivy.process.extension.IProcessExtensionConfigurationEditorEnvi
 import ch.ivyteam.ivy.scripting.objects.Date;
 import ch.ivyteam.ivy.scripting.objects.Time;
 import ch.ivyteam.ivy.service.ServiceException;
-import ch.ivyteam.ivy.workflow.IWorkflowContext;
-import ch.ivyteam.ivy.workflow.WorkflowNavigationUtil;
 import ch.ivyteam.log.Logger;
 import ch.ivyteam.util.Flag;
 
@@ -52,6 +50,8 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
   private Logger logger;
 
   private String dbConfigName = null;
+
+  private String attributeName = null;
 
   private IProcessStartEventBeanRuntime eventRuntime;
 
@@ -76,6 +76,8 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
 
     private IIvyScriptEditor editorPollTimeIntervall;
 
+    private IIvyScriptEditor editorAttributeName;
+
     private static final long serialVersionUID = 1L;
 
     public Editor()
@@ -88,6 +90,7 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
       editorDatabaseConfig = env.createIvyScriptEditor(null, null, "String");
       editorDatabaseConfigEnable = env.createIvyScriptEditor(null, null, "String");
       editorPollTimeIntervall = env.createIvyScriptEditor(null, null, "Long");
+      editorAttributeName = env.createIvyScriptEditor(null, null, "String");
 
       add(new JLabel("Global variable name with database configuration."));
       add(editorDatabaseConfig.getComponent());
@@ -95,17 +98,23 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
       add(editorDatabaseConfigEnable.getComponent());
       add(new JLabel("Poll Time Intervall (milliseconds)."));
       add(editorPollTimeIntervall.getComponent());
+      add(new JLabel("Name of the DC attribute that receives the event log data."));
+      add(editorAttributeName.getComponent());
     }
 
     public void setConfiguration(String config)
     {
-      StringTokenizer st = new StringTokenizer(config, "|");
-      if (st.hasMoreElements())
-        editorDatabaseConfig.setText(st.nextElement().toString());
-      if (st.hasMoreElements())
-        editorPollTimeIntervall.setText(st.nextElement().toString());
-      if (st.hasMoreElements())
-        editorDatabaseConfigEnable.setText(st.nextElement().toString());
+      String[] sp;
+
+      sp = config.split("\\|");
+      if (sp.length > 0)
+        editorDatabaseConfig.setText(sp[0]);
+      if (sp.length > 1)
+        editorPollTimeIntervall.setText(sp[1]);
+      if (sp.length > 2)
+        editorDatabaseConfigEnable.setText(sp[2]);
+      if (sp.length > 3)
+        editorAttributeName.setText(sp[3]);
     }
 
     public Component getComponent()
@@ -116,7 +125,7 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
     public String getConfiguration()
     {
       return editorDatabaseConfig.getText() + "|" + editorPollTimeIntervall.getText() + "|"
-              + editorDatabaseConfigEnable.getText();
+              + editorDatabaseConfigEnable.getText() + "|" + editorAttributeName.getText();
     }
 
     public boolean acceptInput()
@@ -147,7 +156,7 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
 
     try
     {
-      // Defaults Poll Time Intervall to every minute
+      // Defaults Poll Time Interval to every minute
       pollTimeIntervall = 60000L;
 
       String globalVariableDatabaseConfig = null;
@@ -156,16 +165,27 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
 
       // logger.info("EventLogImportDBStartEventBean - Configuration : " + configuration, getName());
 
-      StringTokenizer st = new StringTokenizer(configuration, "|");
-      if (st.hasMoreElements())
-        globalVariableDatabaseConfig = st.nextElement().toString().replaceAll("\"", "");
+      String[] sp;
 
-      if (st.hasMoreElements())
-        pollTimeIntervall = Long.parseLong(st.nextElement().toString());
-
+      sp = configuration.split("\\|");
+      if (sp.length > 0)
+      {
+        globalVariableDatabaseConfig = sp[0].replaceAll("\"", "");
+      }
+      if (sp.length > 1)
+      {
+        pollTimeIntervall = Long.parseLong(sp[1]);
+      }
+      if (sp.length > 2)
+      {
+        globalVariableDatabaseConfigEnable = sp[2].replaceAll("\"", "");
+      }
       globalVariableDatabaseConfigEnable = "";
-      if (st.hasMoreElements())
-        globalVariableDatabaseConfigEnable = st.nextElement().toString().replaceAll("\"", "");
+      attributeName = "event";
+      if (sp.length > 3)
+      {
+        attributeName = sp[3].replaceAll("\"", "");
+      }
 
       if (globalVariableDatabaseConfigEnable == null || "".equals(globalVariableDatabaseConfigEnable))
       {
@@ -220,10 +240,9 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
       }
       else
       {
-        logger
-                .info(
-                        "EventLogImportDBStartEventBean - Start Event Bean Disabled. Set the global varibale \"" + globalVariableDatabaseConfigEnable + "\" to True to enable the Event Log Import DB feature.",
-                        getName());
+        logger.info("EventLogImportDBStartEventBean - Start Event Bean Disabled. Set the global varibale \""
+                + globalVariableDatabaseConfigEnable
+                + "\" to True to enable the Event Log Import DB feature.", getName());
         logger.info("XMLFileStartEventBean - Set Poll Time Intervall (0) milliseconds.", getName());
         eventRuntime.setPollTimeInterval(0L);
       }
@@ -269,6 +288,7 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
     java.sql.Connection jdbcConnection = null;
     IExternalDatabaseRuntimeConnection connection = null;
     EventLogData eventLogData;
+    Map<String, Object> results;
 
     if (!enableStartEventBean)
       return;
@@ -439,8 +459,11 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
                 eventLogData.setEventData(value);
               }
 
-              // Insert event log into Ivy
-              EventLogHelper.createEventLog(eventLogData, false, getWorkflowContext());
+              results = new HashMap<String, Object>();
+              results.put(attributeName, eventLogData);
+
+              // Fire Start Event Request
+              eventRuntime.fireProcessStartEventRequest(null, "", results);
 
               processed++;
 
@@ -570,14 +593,14 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
   }
 
   /**
-   * Get a workflow context.
+   * Throws an exception with a given message. This method permit to throw an exception from IvyScript that
+   * doesn't permit that.
    * 
-   * @return the workflow context of the application
-   * @throws PersistencyException
+   * @param message message included in the exception
+   * @throws Exception
    */
-  private IWorkflowContext getWorkflowContext() throws PersistencyException
+  public static void throwException(String message) throws Exception
   {
-    IApplication application = eventRuntime.getProcessModelVersion().getApplication();
-    return WorkflowNavigationUtil.getWorkflowContext(application);
+    throw new Exception(message);
   }
 }
