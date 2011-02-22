@@ -1,3 +1,3 @@
-co: name={taskNotes} description={} changed={2011-02-15 17:47:54 CET} changedby={bb} visualorder={0} guid={12D84DE1F9BA8132} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12D84DE1F9BF7724} datatype={} isdefault={true} langid={en} description={} validfrom={2011-01-14 15:11:45 CET} validto={} changed={2011-01-14 15:11:49 CET} changedby={powersob} properties={} id={}
-val: guid={12E29CB96849272D} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-15 15:48:32 CET} validto={} changed={2011-02-15 17:47:54 CET} changedby={bb} properties={} id={}
+co: name={taskNotes} description={} changed={2011-02-22 14:23:32 CET} changedby={} visualorder={0} guid={12D84DE1F9BA8132} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12D84DE1F9BF7724} datatype={} isdefault={true} langid={en} description={} validfrom={2011-01-14 15:11:45 CET} validto={} changed={2011-02-22 14:23:32 CET} changedby={bb} properties={} id={}
+val: guid={12E4D89FD5193F32} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-22 14:23:10 CET} validto={} changed={2011-02-22 14:23:32 CET} changedby={bb} properties={} id={}

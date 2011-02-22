@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 17 17:19:51 CET 2011]
+[>Created: Tue Feb 22 14:39:46 CET 2011]
 125016DE17A534EB 3.16 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
@@ -39,6 +39,7 @@ Tt0 @PushWFArc f6 '' #zField
 Tt0 @Page f16 '' #zField
 Tt0 @PushWFArc f17 '' #zField
 Tt0 @PushWFArc f18 '' #zField
+Tt0 @PushWFArc f19 '' #zField
 >Proto Tt0 Tt0 Tasklist #zField
 Tt0 f5 type htmlwfui.Data #txt
 Tt0 f5 139 355 26 26 14 0 #rect
@@ -180,8 +181,8 @@ Tt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Tt0 f1 @C|.responsibility Everybody #txt
 Tt0 f1 139 27 26 26 14 0 #rect
 Tt0 f1 @|StartRequestIcon #fIcon
-Tt0 f23 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
-Tt0 f23 outLinks "LinkA.ivp","LinkB.ivp","LinkC.ivp","LinkD.ivp" #txt
+Tt0 f23 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
+Tt0 f23 outLinks "LinkA.ivp","LinkB.ivp","LinkC.ivp","LinkD.ivp","LinkE.ivp" #txt
 Tt0 f23 template "taskDetail.ivc" #txt
 Tt0 f23 type htmlwfui.Data #txt
 Tt0 f23 skipLink skip.ivp #txt
@@ -305,8 +306,9 @@ Tt0 f12 expr data #txt
 Tt0 f12 outCond ivp=="LinkC.ivp" #txt
 Tt0 f12 306 315 374 357 #arcP
 Tt0 f13 expr out #txt
-Tt0 f13 374 357 306 315 #arcP
-Tt0 f13 0 0.08668512349902316 0 0 #arcLabel
+Tt0 f13 374 363 300 316 #arcP
+Tt0 f13 1 336 352 #addKink
+Tt0 f13 0 0.19441866146645204 0 0 #arcLabel
 Tt0 f10 type htmlwfui.Data #txt
 Tt0 f10 processCall 'Functional Processes/DelegateTask:call(htmlwfui.Data)' #txt
 Tt0 f10 doCall true #txt
@@ -334,8 +336,9 @@ Tt0 f22 outCond ivp=="LinkB.ivp" #txt
 Tt0 f22 288 316 288 356 #arcP
 Tt0 f22 0 0.6481254980617335 0 0 #arcLabel
 Tt0 f4 expr out #txt
-Tt0 f4 288 356 288 316 #arcP
-Tt0 f4 0 0.5690849254537531 0 0 #arcLabel
+Tt0 f4 284 356 286 316 #arcP
+Tt0 f4 1 280 344 #addKink
+Tt0 f4 1 0.23302776239987094 0 0 #arcLabel
 Tt0 f7 actionDecl 'htmlwfui.Data out;
 ' #txt
 Tt0 f7 actionTable 'out=in;
@@ -357,8 +360,9 @@ Tt0 f8 expr data #txt
 Tt0 f8 outCond ivp=="LinkD.ivp" #txt
 Tt0 f8 306 309 486 363 #arcP
 Tt0 f9 expr out #txt
-Tt0 f9 486 363 306 309 #arcP
-Tt0 f9 0 0.20493149233676253 0 0 #arcLabel
+Tt0 f9 486 361 306 306 #arcP
+Tt0 f9 1 360 312 #addKink
+Tt0 f9 0 0.286468713894557 0 0 #arcLabel
 Tt0 f2 expr out #txt
 Tt0 f2 152 116 152 156 #arcP
 Tt0 f6 expr data #txt
@@ -393,6 +397,9 @@ Tt0 f18 expr data #txt
 Tt0 f18 outCond ivp=="LinkA.ivp" #txt
 Tt0 f18 66 221 134 179 #arcP
 Tt0 f18 0 0.43327785107273215 0 0 #arcLabel
+Tt0 f19 expr data #txt
+Tt0 f19 outCond ivp=="LinkE.ivp" #txt
+Tt0 f19 270 299 66 237 #arcP
 >Proto Tt0 .type htmlwfui.Data #txt
 >Proto Tt0 .processKind NORMAL #txt
 >Proto Tt0 0 0 32 24 18 0 #rect
@@ -427,3 +434,5 @@ Tt0 f3 out f17 tail #connect
 Tt0 f17 head f16 mainIn #connect
 Tt0 f16 out f18 tail #connect
 Tt0 f18 head f0 mainIn #connect
+Tt0 f23 out f19 tail #connect
+Tt0 f19 head f16 mainIn #connect

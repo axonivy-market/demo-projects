@@ -38,7 +38,7 @@
 	ISecurityDescriptor securityDescriptor = Ivyrequest.getApplication().getSecurityDescriptor();
 
 	String taskId ="";
-	String prefixRIARedirect = "";
+	//String prefixRIARedirect = "";
 	String taskName="";
 	String taskBeschreibung="";
 	String taskStateId="";
@@ -60,7 +60,7 @@
 	{ 
 		// selected xivy4 task
 		task = (ITask) ivy.html.getObject("in.tmpTask");
-		prefixRIARedirect = ("RIA".equals(task.getCustomVarCharField1()) ||"RIA".equals(task.getCase().getCustomVarCharField1())) ? "/ivy/wf/start_redirect.jsp?startUrl=" : "" ;
+		//prefixRIARedirect = ("RIA".equals(task.getCustomVarCharField1()) ||"RIA".equals(task.getCase().getCustomVarCharField1())) ? "/ivy/wf/start_redirect.jsp?startUrl=" : "" ;
 		taskId = ""+task.getIdentifier();
 		taskName = task.getName();
 	 	taskBeschreibung = task.getDescription();
@@ -73,7 +73,8 @@
 		taskActivatorIsUser = task.getActivator() != null && task.getActivator().isUser();
 		taskCase = task.getCase().getName() +" - CaseId["+task.getCase().getIdentifier()+"]";
 		taskStartDate = task.getStartTimestamp() != null ? formatter.format(task.getStartTimestamp()) : "";
-		taskStartUri = "/ivy/wf/start_redirect.jsp?startUrl=/ivy/pro/"+task.getFullRequestPath()+"?taskId="+taskId;
+		//taskStartUri = "/ivy/wf/start_redirect.jsp?startUrl=/ivy/pro/"+task.getFullRequestPath()+"?taskId="+taskId;
+		taskStartUri = ivy.html.ref("LinkE.ivp")+"&temp$url=/ivy/pro/"+task.getFullRequestPath()+"?taskId="+taskId;
 		taskExpDate = task.getExpiryTimestamp() != null ? formatter.format(task.getExpiryTimestamp()) : "";
 		taskDelayDate = task.getDelayTimestamp() != null ? formatter.format(task.getDelayTimestamp()) : "";
 		IWorkflowSession ivySession = (IWorkflowSession)ivy.html.getObject("in.wfSession");	
@@ -186,7 +187,7 @@
 <%
 	if(task!=null && task.getCase().hasNotes()){
 		List <INote> notes = task.getCase().getNotes();	
-		out.write("<h3>"+ivy.cms.co("/labels/notes")+"</h3>");
+		out.write("<h3>"+ivy.cms.co("/labels/caseNotes")+"</h3>");
 		for(INote note : notes) {
 				out.write("<b>" + formatter.format(note.getCreationTimestamp()) + " ");
 				out.write(note.getWritterName() + ":</b><br />");
