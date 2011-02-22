@@ -1,4 +1,6 @@
-<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivyjsp --><%@ page import="java.util.List"%>
+<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivypanel--><table >
+<tr >
+<td ><!--ivyjsp --><%@ page import="java.util.List"%>
 <%@ page import="ch.ivyteam.ivy.workflow.IProcessStart"%>
 	<div>
 		<h3><%=ivy.cms.co("/labels/processes")%></h3>
@@ -18,7 +20,7 @@
 			int i =0;
 	%>
 
-		<table class="resultTable" width="900">
+		<table class="resultTable" width="100%">
 		<tr><th  class="data"</th>				</tr>	
 	<%
 		for (IProcessStart start : starts)
@@ -27,7 +29,7 @@
 	%>		
 			<tr class="<%=i%2 == 0 ? "oddRow" : "evenRow"%>">	
 			<td width="20" valign="middle"><a href="/ivy/pro/<%=start.getFullRequestPath()%>"><img src='<%=ivy.cms.cr("/images/start")%>' title='<%=ivy.cms.co("/labels/startProcess")%>'></a></td>
-			<td width="900">
+			<td width="920">
 				<table><tr><td><a href="/ivy/pro/<%=start.getFullRequestPath()%>" title='<%=ivy.cms.co("/labels/startProcess")%>'><b><%=startName%></b></a></td>
 					</td></tr><tr><td><small><%=start.getDescription() %></small>
 				</td></tr></table>
@@ -40,4 +42,5 @@
 	%>
 		</table>
 	</div>
-<!--/ivyjsp -->
+<!--/ivyjsp --></td></tr>
+</table>

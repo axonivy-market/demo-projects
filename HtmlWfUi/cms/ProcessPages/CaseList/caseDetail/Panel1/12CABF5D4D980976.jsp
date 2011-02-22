@@ -1,4 +1,6 @@
-<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivyjsp --><%@ page import="java.util.EnumSet"%>
+<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivypanel--><table >
+<tr >
+<td ><!--ivyjsp --><%@ page import="java.util.EnumSet"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Calendar"%>
@@ -126,6 +128,9 @@
 <br />
 </div><br>
 <h3><%=ivy.cms.co("/labels/caseHistory")%></h3>
-<hr><!--/ivyjsp --><br>
-<%=ivy.cms.co("Panel1/SmartTable")%><br>
-<%=ivy.cms.co("Panel1/LinkA")%>
+<hr><!--/ivyjsp --></td></tr>
+<tr >
+<td ><%=ivy.cms.co("Panel1/SmartTable")%></td></tr>
+<tr >
+<td ><%=ivy.cms.co("Panel1/LinkA")%></td></tr>
+</table>
