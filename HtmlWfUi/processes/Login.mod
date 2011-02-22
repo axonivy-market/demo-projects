@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Feb 16 17:50:43 CET 2011]
-12E2EFDD83CB2D4C 3.15 #module
+[>Created: Tue Feb 22 11:41:11 CET 2011]
+12E2EFDD83CB2D4C 3.16 #module
 >Proto >Proto Collection #zClass
 Ln0 Login Big #zClass
 Ln0 B #cInfo
@@ -21,7 +21,7 @@ Ln0 @PushWFArc f3 '' #zField
 Ln0 @EndTask f7 '' #zField
 Ln0 @PushWFArc f8 '' #zField
 >Proto Ln0 Ln0 Login #zField
-Ln0 f0 outLink HtmlLoginPage.ivp #txt
+Ln0 f0 outLink DefaultLoginPage.ivp #txt
 Ln0 f0 type htmlwfui.Data #txt
 Ln0 f0 inParamDecl '<java.lang.String startUrl> param;' #txt
 Ln0 f0 inParamTable 'out.temp.url=param.startUrl;
@@ -31,11 +31,11 @@ Ln0 f0 actionDecl 'htmlwfui.Data out;
 Ln0 f0 guid 12E2EFDE42259A1E #txt
 Ln0 f0 requestEnabled true #txt
 Ln0 f0 triggerEnabled false #txt
-Ln0 f0 callSignature HtmlLoginPage(String) #txt
+Ln0 f0 callSignature DefaultLoginPage(String) #txt
 Ln0 f0 persist false #txt
 Ln0 f0 startName 'WF Login' #txt
 Ln0 f0 taskData '#
-#Wed Feb 16 17:50:41 CET 2011
+#Tue Feb 22 11:41:08 CET 2011
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -44,7 +44,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Ln0 f0 caseData '#
-#Wed Feb 16 17:50:41 CET 2011
+#Tue Feb 22 11:41:08 CET 2011
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -70,7 +70,7 @@ subType.name=
 type.code=
 type.name=
 ' #txt
-Ln0 f0 showInStartList 1 #txt
+Ln0 f0 showInStartList 0 #txt
 Ln0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskUpdDef.setExpiryActivator("Everybody");
@@ -80,8 +80,8 @@ engine.updateCurrentTask(taskUpdDef);
 Ln0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>HtmlLoginPage.ivp</name>
-        <nameStyle>17,5,7
+        <name>DefaultLoginPage.ivp</name>
+        <nameStyle>20,5,7
 </nameStyle>
     </language>
 </elementInfo>
