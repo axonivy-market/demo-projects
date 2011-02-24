@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 22 11:41:51 CET 2011]
+[>Created: Thu Feb 24 11:49:42 CET 2011]
 127AE76143E89C91 3.16 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -110,7 +110,7 @@ He0 f3 expr out #txt
 He0 f3 304 276 304 332 #arcP
 He0 f7 outLink DefaultEndPage.ivp #txt
 He0 f7 type htmlwfui.Data #txt
-He0 f7 inParamDecl '<java.lang.Number lastTaskId> param;' #txt
+He0 f7 inParamDecl '<java.lang.Number endedTaskId> param;' #txt
 He0 f7 actionDecl 'htmlwfui.Data out;
 ' #txt
 He0 f7 guid 12E2F5E4FE51B562 #txt
@@ -120,7 +120,7 @@ He0 f7 callSignature DefaultEndPage(Number) #txt
 He0 f7 persist false #txt
 He0 f7 startName 'WF End Page' #txt
 He0 f7 taskData '#
-#Tue Feb 22 11:41:48 CET 2011
+#Thu Feb 24 11:49:40 CET 2011
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -129,7 +129,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f7 caseData '#
-#Tue Feb 22 11:41:48 CET 2011
+#Thu Feb 24 11:49:40 CET 2011
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 22 11:41:11 CET 2011]
+[>Created: Thu Feb 24 11:48:15 CET 2011]
 12E2EFDD83CB2D4C 3.16 #module
 >Proto >Proto Collection #zClass
 Ln0 Login Big #zClass
@@ -23,8 +23,8 @@ Ln0 @PushWFArc f8 '' #zField
 >Proto Ln0 Ln0 Login #zField
 Ln0 f0 outLink DefaultLoginPage.ivp #txt
 Ln0 f0 type htmlwfui.Data #txt
-Ln0 f0 inParamDecl '<java.lang.String startUrl> param;' #txt
-Ln0 f0 inParamTable 'out.temp.url=param.startUrl;
+Ln0 f0 inParamDecl '<java.lang.String originalUrl> param;' #txt
+Ln0 f0 inParamTable 'out.temp.url=param.originalUrl;
 ' #txt
 Ln0 f0 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -35,7 +35,7 @@ Ln0 f0 callSignature DefaultLoginPage(String) #txt
 Ln0 f0 persist false #txt
 Ln0 f0 startName 'WF Login' #txt
 Ln0 f0 taskData '#
-#Tue Feb 22 11:41:08 CET 2011
+#Thu Feb 24 11:48:13 CET 2011
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -44,7 +44,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Ln0 f0 caseData '#
-#Tue Feb 22 11:41:08 CET 2011
+#Thu Feb 24 11:48:13 CET 2011
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
