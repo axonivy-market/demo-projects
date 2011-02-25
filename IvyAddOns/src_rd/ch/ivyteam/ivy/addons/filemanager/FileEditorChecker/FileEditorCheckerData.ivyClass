@@ -10,3 +10,5 @@ editedFilesNb Number #field
 editedFilesNb 'Nb of edited files' #fieldComment
 fileModified java.io.File #field
 fileModified 'last modified File' #fieldComment
+clientFileSeparator String #field
+clientFileSeparator 'the file separator at client side: "/" by Unix systems and "\" by Windows systems' #fieldComment

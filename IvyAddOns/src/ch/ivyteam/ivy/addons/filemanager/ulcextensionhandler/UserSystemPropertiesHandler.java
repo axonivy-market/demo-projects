@@ -27,7 +27,7 @@ public class UserSystemPropertiesHandler<T extends IRichDialogPanel> {
 	final ULCUserSystemProperties usp = new ULCUserSystemProperties();
 	final HashMap<String,String> properties = new HashMap<String,String>();
 	protected T parentRD;
-	public String getUserNameCallBack="", getUserTempDirCallBack="";
+	public String getUserNameCallBack="", getUserTempDirCallBack="", getClientFileSeparatorCallBack="";
 	
 	/**
 	 * Basic constructor, no callbackMethods
@@ -60,6 +60,30 @@ public class UserSystemPropertiesHandler<T extends IRichDialogPanel> {
 	}
 	
 	/**
+	 * Constructor with reference to parent Rich Dialog and to Callback Methods for userName and userTempDir<br>
+	 * It retrieves automatically the user system properties by calling the ULCUserSystemProperties.retrieveUserSystemProperties() method.<br>
+	 * @param _parent, the Parent RD implementing the IRichDialog Interface
+	 * @param _getUserNameCallBack, the name of the callback method for getting the userName
+	 * @param _getUserTempDirCallBack, the name of the callback method for getting the userTempDir
+	 * @param _getClientFileSeparatorCallBack, the name of the callback method for getting the ClientFileSeparator
+	 */
+	public UserSystemPropertiesHandler(T _parent, String _getUserNameCallBack, String _getUserTempDirCallBack, String _getClientFileSeparatorCallBack){
+		this.parentRD=_parent;
+		this.getUserNameCallBack= _getUserNameCallBack;
+		this.getUserTempDirCallBack=_getUserTempDirCallBack;
+		this.getClientFileSeparatorCallBack = _getClientFileSeparatorCallBack;
+		//This event is fired as soon as the Client half object returns its System properties
+		usp.addUserSystemPropertiesListener(
+				new UserSystemPropertiesListener(){
+					public void userProperties(UserSystemPropertiesEvent event){
+						//As soon we receive the properties, we set them
+						setProperties(event.getSystemProperties());
+					}
+			});
+		usp.retrieveUserSystemProperties();
+	}
+	
+	/**
 	 * Method used to call the user Java VM System Object to refresh the Properties
 	 */
 	public void resetProperties(){
@@ -77,9 +101,20 @@ public class UserSystemPropertiesHandler<T extends IRichDialogPanel> {
 		// the call back methods allow sending the username and tempDir to the parent Rich Dialog,
 		// as soon as they are available.
 		if(properties.containsKey("user.name"))
+		{
 			RDCallbackMethodHandler.callRDMethod(this.parentRD, this.getUserNameCallBack, new Object[] { properties.get("user.name") });
+		}
+		
 		if(properties.containsKey("java.io.tmpdir"))
+		{
 			RDCallbackMethodHandler.callRDMethod(this.parentRD, this.getUserTempDirCallBack, new Object[] { properties.get("java.io.tmpdir") });
+		}
+		
+		if(properties.containsKey("file.separator"))
+		{
+			RDCallbackMethodHandler.callRDMethod(this.parentRD, this.getClientFileSeparatorCallBack, new Object[] { properties.get("file.separator") });
+		}
+
 	}
 	
 	/**
@@ -129,6 +164,19 @@ public class UserSystemPropertiesHandler<T extends IRichDialogPanel> {
 			userDir=properties.get("user.name");
 		
 		return userDir;
+	}
+	
+	/**
+	 * 
+	 * @return the client side File separator "\" on windows and "/" on Unix - Mac OS Systems
+	 */
+	public String getClientFileSeparator(){
+		String sep=null;
+		if(properties.containsKey("file.separator"))
+		{
+			sep=properties.get("file.separator");
+		}
+		return sep;
 	}
 	
 	/**

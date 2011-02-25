@@ -44,3 +44,6 @@ clientApplicationTempDir String #field
 clientApplicationTempDir 'Temp dir used by the application as temporary folder at client side within the default user temporary directory.' #fieldComment
 www String #field
 www 'used to browse an URL' #fieldComment
+clientFileSeparator String #field
+clientFileSeparator 'the file separator at client side: "/" by Unix systems and "\" by Windows systems' #fieldComment
+clientFileSeparator PERSISTENT #fieldModifier

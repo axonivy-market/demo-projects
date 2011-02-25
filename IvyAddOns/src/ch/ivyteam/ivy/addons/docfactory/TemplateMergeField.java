@@ -12,7 +12,7 @@ package ch.ivyteam.ivy.addons.docfactory;
 public class TemplateMergeField {
 	/** The MergeField Name*/
 	private String mergeFieldName="";
-	/** The MergeField value that should be insterted into the Merge field*/
+	/** The MergeField value that should be inserted into the Merge field*/
 	private String mergeFieldValue="";
 	
 	/**
@@ -27,7 +27,7 @@ public class TemplateMergeField {
 	}
 	
 	/**
-	 * Get the Mergefield name
+	 * Get the Merge field name
 	 * @return the mergeFieldName
 	 */
 	public String getMergeFieldName() {
@@ -35,7 +35,7 @@ public class TemplateMergeField {
 	}
 	
 	/**
-	 * set the Mergefield name.
+	 * set the Merge field name.
 	 * @param mergeFieldName the mergeFieldName to set as String
 	 */
 	public void setMergeFieldName(String mergeFieldName) {

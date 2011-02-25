@@ -436,6 +436,16 @@ The String attachments is a list of path from Files at Client side.&#xD;
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
+    <method>
+        <name>_getClientFileSeparatorCallBack</name>
+        <description>Callback method called as soon as the Client half Object sends the file separator at client side: &quot;/&quot; by Unix systems and &quot;\&quot; by Windows systems</description>
+        <inputParameter>
+            <name>clientFileSeparator</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
     <startMethod>
         <name>startVisible</name>
         <description>Start method with visibility boolean.&#xD;
@@ -526,6 +536,17 @@ It gives to the parent subscriber the User Name of the OS.</description>
         <attachment>
             <name>osUserName</name>
             <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>clientFileSeparatorChanged</name>
+        <description>Fired as soon as the callback Method _getClientFileSeparatorCallBack is called&#xD;
+It gives to the parent subscriber the file separator at client side: &quot;/&quot; by Unix systems and &quot;\&quot; by Windows systems</description>
+        <attachment>
+            <name>clientFileSparator</name>
+            <description>the client File Separator specific to the Client OS: &quot;/&quot; on Unix Systems and &quot;\&quot; on Windows systems.</description>
             <parameterType>String</parameterType>
             <nullPermitted>true</nullPermitted>
         </attachment>

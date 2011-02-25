@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Nov 05 14:54:28 CET 2009]
-1249FCC8592E4E39 3.12 #module
+[>Created: Tue Feb 08 07:25:08 CET 2011]
+1249FCC8592E4E39 3.15 #module
 >Proto >Proto Collection #zClass
 ws0 writeSerialLetterToManyCorrespondants Big #zClass
 ws0 B #cInfo
@@ -26,15 +26,6 @@ ws0 @PushWFArc f3 '' #zField
 ws0 @PushWFArc f4 '' #zField
 ws0 @InfoButton f5 '' #zField
 >Proto ws0 ws0 writeSerialLetterToManyCorrespondants #zField
-ws0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>writeSerialLettersToManyCorrespondents</name>
-        <nameStyle>38,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 ws0 f0 inParamDecl '<java.lang.String optionalSingleDocumentOutputPath,List<ch.ivyteam.ivy.addons.docfactory.DocumentTemplate> documentTemplatesList,java.lang.Boolean allInOneDocument,java.lang.Boolean allInSeparatesDocuments,java.lang.String optionalSingleDocumentFormat,java.lang.String optionalSingleDocumentName> param;' #txt
 ws0 f0 inParamTable 'out.manyDocuments=param.allInSeparatesDocuments;
 out.oneDocument=param.allInOneDocument;
@@ -52,6 +43,15 @@ ws0 f0 actionDecl 'ch.ivyteam.ivy.addons.docfactory.WriteSerialLetterToMany out;
 ' #txt
 ws0 f0 callSignature writeSerialLettersToManyCorrespondents(String,List<ch.ivyteam.ivy.addons.docfactory.DocumentTemplate>,Boolean,Boolean,String,String) #txt
 ws0 f0 type ch.ivyteam.ivy.addons.docfactory.WriteSerialLetterToMany #txt
+ws0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>writeSerialLettersToManyCorrespondents</name>
+        <nameStyle>38,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 ws0 f0 323 59 26 26 -104 -39 #rect
 ws0 f0 @|StartSubIcon #fIcon
 ws0 f1 type ch.ivyteam.ivy.addons.docfactory.WriteSerialLetterToMany #txt
@@ -86,15 +86,6 @@ is going to generate one single letter.</name>
 ws0 f12 35 267 234 74 -112 -32 #rect
 ws0 f12 @|IBIcon #fIcon
 ws0 f12 -7484683|-1|-16777216 #nodeStyle
-ws0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>write the serial letter</name>
-        <nameStyle>23,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 ws0 f14 actionDecl 'ch.ivyteam.ivy.addons.docfactory.WriteSerialLetterToMany out;
 ' #txt
 ws0 f14 actionTable 'out=in;
@@ -108,17 +99,17 @@ if(in.oneDocument){
 	}
 }' #txt
 ws0 f14 type ch.ivyteam.ivy.addons.docfactory.WriteSerialLetterToMany #txt
-ws0 f14 318 188 36 24 22 -9 #rect
-ws0 f14 @|StepIcon #fIcon
-ws0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+ws0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>write the letters</name>
-        <nameStyle>17,9
+        <name>write the serial letter</name>
+        <nameStyle>23,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+ws0 f14 318 188 36 24 22 -9 #rect
+ws0 f14 @|StepIcon #fIcon
 ws0 f16 actionDecl 'ch.ivyteam.ivy.addons.docfactory.WriteSerialLetterToMany out;
 ' #txt
 ws0 f16 actionTable 'out=in;
@@ -140,8 +131,25 @@ if(in.manyDocuments){
 	
 }' #txt
 ws0 f16 type ch.ivyteam.ivy.addons.docfactory.WriteSerialLetterToMany #txt
+ws0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>write the letters</name>
+        <nameStyle>17,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 ws0 f16 318 292 36 24 22 -8 #rect
 ws0 f16 @|StepIcon #fIcon
+ws0 f9 actionDecl 'ch.ivyteam.ivy.addons.docfactory.WriteSerialLetterToMany out;
+' #txt
+ws0 f9 actionTable 'out=in;
+' #txt
+ws0 f9 actionCode 'import ch.ivyteam.ivy.addons.docfactory.BaseDocFactory;
+in.documentFactory= BaseDocFactory.getInstance();
+' #txt
+ws0 f9 type ch.ivyteam.ivy.addons.docfactory.WriteSerialLetterToMany #txt
 ws0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -151,14 +159,6 @@ ws0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-ws0 f9 actionDecl 'ch.ivyteam.ivy.addons.docfactory.WriteSerialLetterToMany out;
-' #txt
-ws0 f9 actionTable 'out=in;
-' #txt
-ws0 f9 actionCode 'import ch.ivyteam.ivy.addons.docfactory.BaseDocFactory;
-in.documentFactory= BaseDocFactory.getInstance();
-' #txt
-ws0 f9 type ch.ivyteam.ivy.addons.docfactory.WriteSerialLetterToMany #txt
 ws0 f9 318 116 36 24 20 -2 #rect
 ws0 f9 @|StepIcon #fIcon
 ws0 f10 expr out #txt
@@ -218,7 +218,7 @@ It contains the list of java.io.File objects created during the mail merge opera
     </language>
 </elementInfo>
 ' #txt
-ws0 f5 589 27 646 538 -318 -264 #rect
+ws0 f5 573 35 646 538 -318 -264 #rect
 ws0 f5 @|IBIcon #fIcon
 ws0 f5 -657956|-1|-16777216 #nodeStyle
 >Proto ws0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

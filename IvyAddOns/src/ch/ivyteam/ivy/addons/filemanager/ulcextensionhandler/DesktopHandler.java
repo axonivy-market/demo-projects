@@ -45,6 +45,8 @@ public class DesktopHandler<T extends IRichDialogPanel> {
 	 * returns if a given File is printable or not.<br>
 	 * This method has to accept a boolean as parameter.*/
 	String isFilePrintableCallbackMethod;
+	/** the file separator at client side: "/" by Unix systems and "\" by Windows systems, default is the windows' one */
+	private String clientFileSeparator = "\\";
 	/** the ULCXDesktop object*/
 	ULCXDesktop ULCDesktopObj = null;
 	ULCXJava6Desktop javaDesktop=null;
@@ -190,12 +192,12 @@ public class DesktopHandler<T extends IRichDialogPanel> {
     }
     
     /**
-     * Open the default mailing program at client side with prefilled fields
+     * Open the default mailing program at client side with pre filled fields
      * @param _subject: subject of the mail
      * @param _body: body of the mail
-     * @param _to: destination adresses of the email (, or ; separated)
-     * @param _cc: copy adresses of the email (, or ; separated)
-     * @param _bcc: invisible copy adresses of the email (, or ; separated)
+     * @param _to: destination addresses of the email (, or ; separated)
+     * @param _cc: copy addresses of the email (, or ; separated)
+     * @param _bcc: invisible copy addresses of the email (, or ; separated)
      * @param _attachments: The attachments are Files that must be present at client side
      */
     public void mailMessage(String _subject, String _body, String _to, String _cc, String _bcc, String _attachments){
@@ -210,7 +212,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
     }
     
     /**
-     * Open the default mailing program at client side with prefilled fields.<br>
+     * Open the default mailing program at client side with pre filled fields.<br>
      * An EmailContainer Object is given as parameter. This Class is an Ivy DataClass:<b>
      * ch.ivyteam.ivy.addons.filemanager.EmailContainer and it contains all the fields necessary to build a complete EMail.
      * @param _mailContainer
@@ -271,19 +273,15 @@ public class DesktopHandler<T extends IRichDialogPanel> {
     /**
      * Calls the isFileEditable method from the ULCXDesktop object.<br>
      * As soon as this object gets the client response,<br>
-     * the isFileEditable callback method from the parent RDC <br>
+     * the isFileEditable call back method from the parent RDC <br>
      * is going to be called with true if the file is editable,<br>
      * else with false.<br>
-     * @param _file the java.io.File that is going to be check wether it is editable or not.
+     * @param _file the java.io.File that is going to be check whether it is editable or not.
      */
     public void isFileEditable(java.io.File _file){
     	if(useJava6)
     	{
-    		
-    		
     		javaDesktop.isFileEditable(_file);
-    		
-    		Ivy.log().info("Call is file editable");
     	}else
     	{
     		ULCDesktopObj.isFileEditable(_file);
@@ -293,7 +291,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
     /**
      * Calls the isFilePrintable method from the ULCXDesktop object.<br>
      * As soon as this object gets the client response,<br>
-     * the isFilePrintable callback method from the parent RDC <br>
+     * the isFilePrintable call back method from the parent RDC <br>
      * is going to be called with true if the file is Printable,<br>
      * else with false.<br>
      * @param _file the java.io.File that is going to be check wether it is Printable or not.
@@ -359,6 +357,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
 	 * @param msg
 	 */
 	public final void sendErrorMessage(String msg){
+		Ivy.log().error(msg);
 		RDCallbackMethodHandler.callRDMethod(this.parentRD, this.errorMethodName, new Object[] { msg });
 	}
 	
@@ -415,5 +414,25 @@ public class DesktopHandler<T extends IRichDialogPanel> {
 	public void setIsFilePrintableCallbackMethod(
 			String _isFilePrintableCallbackMethod) {
 		this.isFilePrintableCallbackMethod = _isFilePrintableCallbackMethod;
+	}
+
+	/**
+	 * 
+	 * @return @return the client file separator
+	 */
+	public String getClientFileSeparator() {
+		return clientFileSeparator;
+	}
+
+	/**
+	 * set the client file separator to use
+	 * @param _clientFileSeparator
+	 */
+	public void setClientFileSeparator(String _clientFileSeparator) {
+		if(_clientFileSeparator == null || _clientFileSeparator.trim().length()==0)
+		{
+			_clientFileSeparator ="\\";
+		}
+		this.clientFileSeparator = _clientFileSeparator;
 	}
 }

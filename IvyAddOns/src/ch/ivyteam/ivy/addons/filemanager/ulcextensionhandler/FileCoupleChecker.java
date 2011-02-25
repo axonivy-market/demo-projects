@@ -13,6 +13,9 @@ import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.addons.filemanager.FileCouple;
 import ch.ivyteam.ivy.addons.filemanager.FileHandler;
 import ch.ivyteam.ivy.addons.util.RDCallbackMethodHandler;
+import ch.ivyteam.ivy.environment.Ivy;
+
+import org.apache.commons.lang.StringUtils;
 
 /**
  * @author ec<br>
@@ -63,7 +66,12 @@ public class FileCoupleChecker<T extends IRichDialogPanel>{
 	 * The period of the check for modified Files at client side. Per default 3000 ms (3 Seconds)
 	 */
 	int checkPeriod = 3000;
-	
+
+	/**
+	 * the file separator at client side: "/" by Unix systems and "\" by Windows systems, default is the windows' one
+	 */
+	String clientFileSeparator="\\";
+
 	/**
 	 * Default constructor
 	 *
@@ -91,9 +99,10 @@ public class FileCoupleChecker<T extends IRichDialogPanel>{
 				hash.clear();
 				hash.putAll(event.getFilesChecksums());
 				//after the HashMap of the changed client Files was updated, we upload those files on the server. 
+				Ivy.log().info("File changed reported");
 				uploadChangedFiles();
 			}
-        });
+		});
 	}
 	
 	/**
@@ -104,19 +113,41 @@ public class FileCoupleChecker<T extends IRichDialogPanel>{
 		// We put all the Client Files path in a Set to be able to iterate it.
 		Set<String> filesSet= hash.keySet();
 		Iterator<String> filesIterator = filesSet.iterator();
+
 		search:
-		while(filesIterator.hasNext()){
-			// for each changed File at client side, we search it in the fileCouples List. 
-			// If we find it we replace the corresponding server File by automatically uploading the client File.
-			File f = new File(filesIterator.next());
-			for(int i =0; i<fileCouples.size(); i++){
-				if(f.getPath().equals(fileCouples.get(i).getClientFile().getPath())){
-					FileHandler.upload(f, FileHandler.getFileDirectoryPath(fileCouples.get(i).getServerFile()));
-					RDCallbackMethodHandler.callRDMethod(this.parentRD, this.fileModifiedMethodName, new Object[] { fileCouples.get(i).getServerFile() });
-					continue search;
+			while(filesIterator.hasNext()){
+				// for each changed File at client side, we search it in the fileCouples List. 
+				// If we find it we replace the corresponding server File by automatically uploading the client File.
+				File f = new File(filesIterator.next());
+				//org.apache.commons.lang.StringUtils.replace(sample, "\"", "\"\"")
+				String fPath = f.getPath().contains("\\")?StringUtils.replace(f.getPath(),"\\", this.clientFileSeparator):
+					(f.getPath().contains("/")?StringUtils.replace(f.getPath(),"/", this.clientFileSeparator):
+						f.getPath());
+				Ivy.log().info("File changed reported: "+fPath);
+				for(int i =0; i<fileCouples.size(); i++)
+				{
+					String fcPath= fileCouples.get(i).getClientFile().getPath().contains("\\")?
+							StringUtils.replace(fileCouples.get(i).getClientFile().getPath(),"\\", this.clientFileSeparator):
+								(fileCouples.get(i).getClientFile().getPath().contains("/")?
+										StringUtils.replace(fileCouples.get(i).getClientFile().getPath(),"/", this.clientFileSeparator):
+											fileCouples.get(i).getClientFile().getPath());
+							Ivy.log().info("File changed reported: "+fcPath);
+							if(fPath.equals(fcPath))
+							{
+								String dirpath = null;
+								try{
+									dirpath= FileHandler.getFileDirectoryPath(fileCouples.get(i).getServerFile());
+								}catch(Exception _ex){
+									Ivy.log().error(_ex.getMessage(), _ex);
+								}
+								if(dirpath!=null){
+									FileHandler.upload(f, dirpath);
+									RDCallbackMethodHandler.callRDMethod(this.parentRD, this.fileModifiedMethodName, new Object[] { fileCouples.get(i).getServerFile() });
+								}
+								continue search;
+							}
 				}
 			}
-		}
 	}
 	
 	/**
@@ -131,7 +162,10 @@ public class FileCoupleChecker<T extends IRichDialogPanel>{
 		fileCouples.addAll(list);
 		for(int i=0; i<fileCouples.size(); i++){
 			fileCouples.get(i).setServerFileAdler32(FileHandler.getAdler32(fileCouples.get(i).getServerFile()));
-			serverFileCheckSumHashMap.put(fileCouples.get(i).getClientFile().getPath(), fileCouples.get(i).getServerFileAdler32().longValue());
+			String fcPath= fileCouples.get(i).getClientFile().getPath().contains("\\")?StringUtils.replace(fileCouples.get(i).getClientFile().getPath(),"\\", this.clientFileSeparator):
+				(fileCouples.get(i).getClientFile().getPath().contains("/")?StringUtils.replace(fileCouples.get(i).getClientFile().getPath(),"/", this.clientFileSeparator):
+					fileCouples.get(i).getClientFile().getPath());
+			serverFileCheckSumHashMap.put(fcPath, fileCouples.get(i).getServerFileAdler32().longValue());
 		}
 		fcc.setFileChecksumMap(serverFileCheckSumHashMap);
 	}
@@ -196,6 +230,26 @@ public class FileCoupleChecker<T extends IRichDialogPanel>{
 	public void stopFileCheck(){
 		fcc.stopClientTimer();
 	}
-	
-	
+
+	/**
+	 * 
+	 * @return the client file separator used by the FileCoupleChecker.<br>
+	 * the file separator at client side: "/" by Unix systems and "\" by Windows systems, default is the windows' one
+	 */
+	public String getClientFileSeparator() {
+		return clientFileSeparator;
+	}
+	/**
+	 * set the client file separator to use
+	 * @param _clientFileSeparator
+	 */
+	public void setClientFileSeparator(String _clientFileSeparator) {
+		if(_clientFileSeparator == null || _clientFileSeparator.trim().length()==0)
+		{
+			_clientFileSeparator ="\\";
+		}
+		this.clientFileSeparator = _clientFileSeparator;
+	}
+
+
 }

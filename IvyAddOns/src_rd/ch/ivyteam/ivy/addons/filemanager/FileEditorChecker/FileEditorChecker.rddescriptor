@@ -78,6 +78,17 @@ clientAdler32: the checksum of the File on the client (this field is not used at
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
+    <method>
+        <name>setClientFileSeparator</name>
+        <description>Set the file separator data: &quot;/&quot; by Unix systems and &quot;\&quot; by Windows systems.&#xD;
+This informations comes directly from the Client side with the UserSystemProperties ULC Extension.</description>
+        <inputParameter>
+            <name>clientFileSeparator</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Default Rich Dialog start

@@ -20,31 +20,31 @@ public abstract class RDCallbackMethodHandler {
 	/**
 	 * This method allows invoking a method on a RichDialog Panel from a java class or a java Object.<br>
 	 *<br>
-	 * @param RDPanel : the RD panel that wich method has to be called back.<br>
+	 * @param rdPanel : the RD panel that which method has to be called back.<br>
 	 *  The RDPanel has to implement ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel (RGridbagLayoutPane...)
 	 * @param methodName : the method that has to be called back
 	 * @param parameters : array of the parameters that have to be passed to the method
-	 * @return null if the callback method couldn't be called, or an array of Object that the Method in the RD interface should return.<br>
+	 * @return null if the call back method couldn't be called, or an array of Object that the Method in the RD interface should return.<br>
 	 * If the called method is void, it returns an empty array.
 	 */
-	public static Object[] callRDMethod(IRichDialogPanel RDPanel, String methodName, Object[] parameters){
+	public static Object[] callRDMethod(IRichDialogPanel rdPanel, String methodName, Object[] parameters){
 		Object[] ret = null;
 		
-			if(RDPanel!=null && methodName !=null && methodName.trim().length()>0){
+			if(rdPanel!=null && methodName !=null && methodName.trim().length()>0){
 				try {
-					ret = RDPanel.getPanelAPI().callMethod(methodName, parameters);
+					ret = rdPanel.getPanelAPI().callMethod(methodName, parameters);
 					
-				} catch (InvocationTargetException e) {
-					Ivy.log().error("InvocationTargetException "+e.getMessage());
-				} catch (NoSuchMethodException e) {
-					Ivy.log().error("NoSuchMethodException "+e.getMessage());
-				}catch(Exception e){
-					Ivy.log().error(e.getMessage());
-				}catch(Error e){
-					Ivy.log().error(e.getMessage());
+				} catch (InvocationTargetException _ex) {
+					Ivy.log().error("InvocationTargetException in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+				} catch (NoSuchMethodException _ex) {
+					Ivy.log().error("NoSuchMethodException in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+				}catch(Exception _ex){
+					Ivy.log().error("Exception in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+				}catch(Error _ex){
+					Ivy.log().error("Error in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
 				}
 			}else{
-				Ivy.log().error("One of the parameters was invalid ");
+				Ivy.log().error("One of the parameters was invalid in RDCallbackMethodHandler called from IRichDialogPanel...");
 			
 			}
 		
@@ -54,35 +54,34 @@ public abstract class RDCallbackMethodHandler {
 	/**
 	 * This method allows invoking a method on a ULCComponent Panel from a java class or a java Object.<br>
 	 *<br>
-	 * @param RDPanel : the RD panel that which method has to be called back.<br>
+	 * @param rdPanel : the RD panel that which method has to be called back.<br>
 	 *  The RDPanel has to implement ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel (RGridbagLayoutPane...)
 	 *  If this is not an IRichDialogPanel, the result will be null.
 	 * @param methodName : the method that has to be called back
 	 * @param parameters : array of the parameters that have to be passed to the method
-	 * @return null if the callback method couldn't be called, or an array of Object that the Method in the RD interface should return.<br>
+	 * @return null if the call back method couldn't be called, or an array of Object that the Method in the RD interface should return.<br>
 	 * If the called method is void, it returns an empty array.
 	 */
-	public static Object[] callRDMethodFromULCComponent(ULCComponent RDPanel, String methodName, Object[] parameters){
+	public static Object[] callRDMethodFromULCComponent(ULCComponent rdPanel, String methodName, Object[] parameters){
 		Object[] ret = null;
-		if(RDPanel!=null && methodName !=null && methodName.trim().length()>0){
-			if(!(RDPanel instanceof IRichDialogPanel)) {
-				//Ivy.log().debug(RDPanel.getClass().toString()+ " is not an IRichDialogPanel.");
+		if(rdPanel!=null && methodName !=null && methodName.trim().length()>0){
+			if(!(rdPanel instanceof IRichDialogPanel)) {
 				String s []= {"Not an IRichDialogPanel."};
 				return s;
 			}
 			else{
-				IRichDialogPanel iRich = (IRichDialogPanel)RDPanel;
+				IRichDialogPanel iRich = (IRichDialogPanel)rdPanel;
 				try {
 					ret = iRich.getPanelAPI().callMethod(methodName, parameters);
 					
-				} catch (InvocationTargetException e) {
-					Ivy.log().error("InvocationTargetException "+e);
-				} catch (NoSuchMethodException e) {
-					Ivy.log().error("NoSuchMethodException "+e);
-				}catch(Exception e){
-					Ivy.log().error(e.getMessage());
-				}catch(Error e){
-					Ivy.log().error(e.getMessage());
+				} catch (InvocationTargetException _ex) {
+					Ivy.log().error("InvocationTargetException in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+				} catch (NoSuchMethodException _ex) {
+					Ivy.log().error("NoSuchMethodException in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+				}catch(Exception _ex){
+					Ivy.log().error("Exception in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+				}catch(Error _ex){
+					Ivy.log().error("Error in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
 				}
 			}
 		}

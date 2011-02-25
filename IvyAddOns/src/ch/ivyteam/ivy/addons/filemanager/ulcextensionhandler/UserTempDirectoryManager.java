@@ -108,11 +108,11 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 			this.tempFileDirectoryManager.addTempFileDirectoryManagerListener(new TempFileDirectoryManagerListener(){
 				public void tempDirExists(TempFileDirectoryManagerEvent event) {
 					if(event.getTempDirExists()){
-						returnedDirPath = FileHandler.formatPathWithClientSeparator(event.getPathInTemp());
-						RDCallbackMethodHandler.callRDMethod(parentRD, rDCCallbackToGetNewCreatedTempDirPath, new Object[]{returnedDirPath});
+						returnedDirPath= event.getPathInTemp();
+						RDCallbackMethodHandler.callRDMethod(parentRD, rDCCallbackToGetNewCreatedTempDirPath, new Object[]{event.getPathInTemp()});
 						
 					}else{
-						RDCallbackMethodHandler.callRDMethod(parentRD, rDCCallbackError, new Object[]{});
+						RDCallbackMethodHandler.callRDMethod(parentRD, rDCCallbackError, new Object[]{event.getPathInTemp()});
 					}
 					
 				}

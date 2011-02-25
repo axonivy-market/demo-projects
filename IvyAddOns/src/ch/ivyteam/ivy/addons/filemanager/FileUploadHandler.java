@@ -84,7 +84,9 @@ public class FileUploadHandler<T extends ULCComponent & IRichDialogPanel>
         this(null, "", "", "","", "");
     }
     /**
-     * @param String filePath : this is the entry point into the server Filesystem
+     * Constructor for FileUploadHandler<br>
+     * A FileUploadHandler Object allows an ULCApplication to manage FileUploads from the client to the server<br>
+     * @param filePath : this is the entry point into the server Filesystem
      */
     public FileUploadHandler(String filePath)
     {
@@ -92,20 +94,19 @@ public class FileUploadHandler<T extends ULCComponent & IRichDialogPanel>
     }
    
     /**
-     * @param T ulcPane: the ULComponent implementing IRichDialogPanel that instanciates this Object<br>
-     * @param String errorMethode: the name of the method of the IRichDialogPanel Rich Dialog interface <br>
+     * Constructor for FileUploadHandler<br>
+     * A FileUploadHandler Object allows an ULCApplication to manage FileUploads from the client to the server<br>
+     * @param ulcPane: the ULComponent implementing IRichDialogPanel that instanciates this Object<br>
+     * @param errorMethode: the name of the method of the IRichDialogPanel Rich Dialog interface <br>
      * that manages error occured during the Upload process<br>
-     * @param String successMethode: the name of the method of the IRichDialogPanel Rich Dialog interface <br>
-     * that is called back if the Upload process succeed<br>
-     * @param  String uploadSuccessMethodName: the name of the method of the IRichDialogPanel Rich Dialog interface<br>
+     * @param uploadSuccessMethode: the name of the method of the IRichDialogPanel Rich Dialog interface<br>
      * that is called back to get the uploaded java.io.File<br>
-     * @param String askForChangeMethod: the name of the method of the IRichDialogPanel Rich Dialog interface<br>
+     * @param askForChangeMethod: the name of the method of the IRichDialogPanel Rich Dialog interface<br>
      * that is called back when a java.io.File to be uploaded already exits on the server<br>
-     * @param String progressMethod: the name of the method of the IRichDialogPanel Rich Dialog interface<br>
+     * @param progressMethod: the name of the method of the IRichDialogPanel Rich Dialog interface<br>
      * that is called back to follow the progress of the java.io.File Upload and download.<br>
-     * @param String filePath : this is the entry point into the server Filesystem<br>
+     * @param filePath: this is the entry point into the server Filesystem<br>
      * <b>Important :</b>if the filepath is null or is an empty String, it is going to be set to "uploadedFiles".
-     * 
      */
     public FileUploadHandler(T ulcPane, String errorMethode, String uploadSuccessMethode, String askForChangeMethod, String progressMethod, String filePath)
     {
@@ -1289,10 +1290,20 @@ public class FileUploadHandler<T extends ULCComponent & IRichDialogPanel>
     public ReturnedMessage deleteFileAndDirectoryIfNoFile(String filepath)
     {
     	java.io.File fileToDelete = new java.io.File(filepath);
-    	String dirPath = FileHandler.getFileDirectoryPath(fileToDelete);
+    	String dirPath=null;
+    	try{
+    		dirPath = FileHandler.getFileDirectoryPath(fileToDelete);
+    	}catch(Exception _ex){
+    		//do nothing here
+    	}
+    	
     	returnedMessage.setType(FileHandler.ERROR_MESSAGE);
         returnedMessage.setText("Begin of the method delete.");
         returnedMessage.setFile(null);
+        returnedMessage.setFiles(List.create(java.io.File.class));
+        if(dirPath==null){
+        	return returnedMessage;
+    	}
         returnedMessage = FileHandler.deleteFile(filepath);
         
         if(returnedMessage.getType().intValue()==FileHandler.ERROR_MESSAGE)

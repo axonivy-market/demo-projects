@@ -1,13 +1,14 @@
 
 package ch.ivyteam.ivy.addons.docfactory;
 
+import ch.ivyteam.ivy.scripting.objects.CompositeObject;
 import ch.ivyteam.ivy.scripting.objects.List;
 
 /**
  * @author ec<br>
  * @since 29.10.2009
  * This class represents a Document Template.<br>
- * It contains all the informations necessary to produce a new Document through Mailmerging.
+ * It contains all the informations necessary to produce a new Document through Mail merging.
  */
 public class DocumentTemplate {
 	
@@ -32,6 +33,12 @@ public class DocumentTemplate {
 	 * */
 	private List<TemplateMergeField> mergeFields= null;
 	
+	/**
+	 * Dataclass whose parameters are going to be taken to fill the merge fields of an office template.<br>
+	 * The names of the dataclass parameters have to be the same as the names of the fields in the templates.
+	 */
+	private CompositeObject data=null;
+	
 	/** the document factory used to parse the template and to perform the mailMerging.<br>
 	 * @see BaseDocFactory#getInstance()
 	 */
@@ -46,11 +53,11 @@ public class DocumentTemplate {
 	 * empty constructor
 	 */
 	public DocumentTemplate() {
-		this("","","","",null);
+		this("","","","",List.create(TemplateMergeField.class));
 	}
 
 	/**
-	 * Constructor, instanciate the DocumentTemplate's variable
+	 * Constructor, instantiate the DocumentTemplate's variable
 	 * @param _templatePath : the path where to find the template
 	 * @param _outputPath : the path where to save the new generated File
 	 * @param _outputName : the name of the new generated File
@@ -80,13 +87,44 @@ public class DocumentTemplate {
 	}
 	
 	/**
+	 * Constructor, instantiates the DocumentTemplate's variable
+	 * @param _templatePath : the path where to find the template
+	 * @param _outputPath : the path where to save the new generated File
+	 * @param _outputName : the name of the new generated File
+	 * @param _outputFormat : the format of the new generated File
+	 * @param _data : An initialised DataClass that contains the informations that should be inserted in the document.<br>
+	 * The merge fields of the template have to be the same as the names of the dataClass fields.
+	 * The key is the name of the mergeField that can be found in the template<br>
+	 * The value is the String that will replace the mergeField in the template during the template merging.
+	 */
+	public DocumentTemplate(String _templatePath, String _outputPath, String _outputName, String _outputFormat, CompositeObject _data) {
+		super();
+		this.templatePath = (_templatePath==null)?"":_templatePath;
+		this.outputPath = (_outputPath==null)?"":_outputPath;
+		this.outputName = (_outputName==null)?"":_outputName;
+		this.outputFormat = (_outputFormat==null)?"":_outputFormat;
+		if(_data == null)
+		{
+			this.mergeFields = List.create(TemplateMergeField.class);
+		}else
+		{
+			this.mergeFields =DataClassToMergefields.transformDataClassInMergeField(_data);
+		}
+		
+		this.fileOperationMessage= new FileOperationMessage();
+		this.fileOperationMessage.setMessage("");
+		this.fileOperationMessage.setFiles(List.create(java.io.File.class));
+		this.fileOperationMessage.setType(FileOperationMessage.INFORMATION_MESSAGE);
+	}
+	
+	/**
 	 * Try to generate the document with this objects variables.
-	 * @return the FileOperationMessage that results of the Doucment Factory mail Merge and File Creation
+	 * @return the FileOperationMessage that results of the Document Factory mail Merge and File Creation
 	 * @see BaseDocFactory#generateDocument(String, String, String, String, java.util.List)
 	 */
 	public FileOperationMessage generateDocument(){
 		if(this.documentFactory==null)
-		{//check if the document factory was already instanciated
+		{//check if the document factory was already instantiated
 			this.documentFactory=BaseDocFactory.getInstance();
 		}
 		this.fileOperationMessage = this.documentFactory.generateDocument(
@@ -125,6 +163,29 @@ public class DocumentTemplate {
 	 */
 	public void setMergeFields(List<TemplateMergeField> mergeFields) {
 		this.mergeFields = mergeFields;
+	}
+
+	/**
+	 * Set the Dataclass that has to be taken to fill the template's merge fields.
+	 * If the data is not null, the merge field List is going to be set with the list of the data parameters. 
+	 * @param _data the data to set
+	 */
+	public void setData(CompositeObject _data) {
+		this.data = _data;
+		if(_data == null)
+		{
+			this.mergeFields = List.create(TemplateMergeField.class);
+		}else
+		{
+			this.mergeFields =DataClassToMergefields.transformDataClassInMergeField(_data);
+		}
+	}
+	
+	/**
+	 * @return the data
+	 */
+	public CompositeObject getData() {
+		return data;
 	}
 
 	/**

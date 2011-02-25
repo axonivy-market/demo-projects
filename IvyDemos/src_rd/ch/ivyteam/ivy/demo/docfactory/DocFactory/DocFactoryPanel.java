@@ -40,6 +40,8 @@ private RTaskPane templateTaskPane = null;
 private RButton templateButton = null;
 private RLabel Label = null;
 private @EmbeddedRichDialog(TitlePanel.class) ULCContainer titlePanel = null;
+private RTaskPane personTaskPane = null;
+private RButton Button = null;
 /**
    * Create a new instance of DocFactoryPanel
    */
@@ -54,7 +56,7 @@ private @EmbeddedRichDialog(TitlePanel.class) ULCContainer titlePanel = null;
    */
   private void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(842,578));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(852,614));
         this.add(getLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getTabbedDisplay(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 2, 1, 1.0D, 1.0D, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.BOTH, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getTaskPaneContainer(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 4, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
@@ -166,6 +168,7 @@ private RTaskPaneContainer getTaskPaneContainer() {
 		TaskPaneContainer.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"}");
 		TaskPaneContainer.add(getMenuTaskPane());
 		TaskPaneContainer.add(getTemplateTaskPane());
+		TaskPaneContainer.add(getPersonTaskPane());
 	}
 	return TaskPaneContainer;
 }
@@ -256,6 +259,37 @@ private ULCContainer getTitlePanel() {
 		titlePanel.setPreferredSize(null);
 	}
 	return titlePanel;
+}
+
+/**
+ * This method initializes personTaskPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RTaskPane	
+ */
+private RTaskPane getPersonTaskPane() {
+	if (personTaskPane == null) {
+		personTaskPane = new RTaskPane();
+		personTaskPane.setName("personTaskPane");
+		personTaskPane.setTitle("<%= \"<html>Use a Dataclass (NEW!)\" %>");
+		personTaskPane.setToolTipText("<%= \"<html>This demo provides a Dataclass to the document factory.<br>The attributes from this dataclass are used as mergefields values for the office template. \"%>");
+		personTaskPane.add(getButton());
+	}
+	return personTaskPane;
+}
+
+/**
+ * This method initializes Button	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
+ */
+private RButton getButton() {
+	if (Button == null) {
+		Button = new RButton();
+		Button.setText("<%= \"<html> <p style=\\\"color:#001199;\\\"><b>Demo with a Dataclass</b></p>\nA Dataclass is used to fill <br>directly the template <br>mergefields\n</html>\" %>");
+		Button.setStyleProperties("{/font {/name \"Tahoma\"/size \"10\"/style \"PLAIN\"}}");
+		Button.setName("Button");
+	}
+	return Button;
 }
   
   

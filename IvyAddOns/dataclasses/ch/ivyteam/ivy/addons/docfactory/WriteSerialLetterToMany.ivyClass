@@ -2,6 +2,8 @@ WriteSerialLetterToMany #class
 ch.ivyteam.ivy.addons.docfactory #namespace
 listOfMergeFieldsList List<List<ch.ivyteam.ivy.addons.docfactory.TemplateMergeField>> #field
 listOfMergeFieldsList 'Each List of MergerFields List represents one Letter. Each MergeFields has a name and a value. The name is the Name of the mergeField in the template, The value will replace the corresponding MergeField in the template.' #fieldComment
+datas List<ch.ivyteam.ivy.scripting.objects.CompositeObject> #field
+datas 'List of An initialized DataClass that can be taken to fill the template''s fields: it can be used as alternative to a mergefields List. Each attribute of the dataClass will be transformed in a MergeField.' #fieldComment
 documentFactory ch.ivyteam.ivy.addons.docfactory.BaseDocFactory #field
 documentFactory 'The document factory object that is responsible of the documents generation' #fieldComment
 fileOperationMessage ch.ivyteam.ivy.addons.docfactory.FileOperationMessage #field

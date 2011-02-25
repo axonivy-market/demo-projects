@@ -46,7 +46,7 @@ import com.aspose.words.SectionStart;
 public class AsposeDocFactory extends BaseDocFactory{
 
 	/** The supportedFormat in this implementation of the BaseDocFactory */
-	static final public String[] supportedOutputFormats = new String[] {"doc", "docx", "html", "txt"};
+	static final public String[] supportedOutputFormats = new String[] {"doc", "docx", "html", "txt", "pdf"};
 
 	/** Aspose.Word Document objects used to perform the document merge (letter generation with MergeFields)*/
 	private Document doc, docDest;
@@ -152,16 +152,10 @@ public class AsposeDocFactory extends BaseDocFactory{
 				doc.save(this.outputPath+this.outputName+".docx", SaveFormat.DOCX);
 				file=new File(this.outputPath+this.outputName+".docx");
 				break;
-				/*Commented because we don't have bought the PDF API
-				case PDF_FORMAT:
-					doc.save(this.outputPath+this.basicFileName+".html", SaveFormat.HTML);
-					file=new File(this.outputPath+this.basicFileName+".html");
-					Pdf pdf = new Pdf();
-					pdf.bindHTML(new FileInputStream(file), file.toURL());
-					pdf.save(new FileOutputStream(new File(this.outputPath+this.basicFileName+".pdf")));
-					file=new File(this.outputPath+this.basicFileName+".pdf");
-					break;
-				 */
+			case PDF_FORMAT:
+				doc.save(this.outputPath+this.outputName+".pdf");
+				file=new File(this.outputPath+this.outputName+".pdf");
+				break;
 			case HTML_FORMAT:
 				doc.save(this.outputPath+this.outputName+".html", SaveFormat.HTML);
 				file=new File(this.outputPath+this.outputName+".html");
@@ -441,11 +435,11 @@ public class AsposeDocFactory extends BaseDocFactory{
 		for(int i=0; i<list.size();i++){
 			String s= list.get(i).getMergeFieldName();
 			if(s.startsWith("Image:") || s.startsWith("Image_"))
-			{//The mergefield name indicates an Image, we take only the second part of the name
+			{//The merge field name indicates an Image, we take only the second part of the name
 				paramName[i]=s.substring(6);
 			}
 			else
-			{//The mergefield is a text field
+			{//The merge field is a text field
 				paramName[i]=s;
 			}
 			paramValue[i]=list.get(i).getMergeFieldValue();
@@ -494,7 +488,7 @@ public class AsposeDocFactory extends BaseDocFactory{
 			fom.emptyFileList();
 		}
 		else
-		{ // we go through the list of Documentemplate Objects and make a new File with each of them
+		{ // we go through the list of Document template Objects and make a new File with each of them
 			Iterator<DocumentTemplate> iter = list.iterator();
 			ArrayList<java.io.File> files = new ArrayList<java.io.File>();
 			while(iter.hasNext())
@@ -513,16 +507,10 @@ public class AsposeDocFactory extends BaseDocFactory{
 						_doc.save(s+".docx", SaveFormat.DOCX);
 						file=new File(s+".docx");
 						break;
-						/*
 					case PDF_FORMAT:
-						doc.save(s+".html", SaveFormat.HTML);
-						file=new File(s+".html");
-						Pdf pdf = new Pdf();
-						pdf.bindHTML(new FileInputStream(file), file.toURL());
-						pdf.save(new FileOutputStream(new File(s+".pdf")));
+						_doc.save(s+".pdf");
 						file=new File(s+".pdf");
 						break;
-						 */
 					case HTML_FORMAT:
 						_doc.save(s+".html", SaveFormat.HTML);
 						file=new File(s+".html");
@@ -593,11 +581,11 @@ public class AsposeDocFactory extends BaseDocFactory{
 			for(int i=0; i<templateParamslist.size();i++){
 				String s= templateParamslist.get(i).getMergeFieldName();
 				if(s.startsWith("Image:") || s.startsWith("Image_"))
-				{//The mergefield name indicates an Image, we take only the second part of the name
+				{//The merge field name indicates an Image, we take only the second part of the name
 					paramName[i]=s.substring(6);
 				}
 				else
-				{//The mergefield is a text field
+				{//The merge field is a text field
 					paramName[i]=s;
 				}
 				paramValue[i]=templateParamslist.get(i).getMergeFieldValue();
@@ -630,16 +618,10 @@ public class AsposeDocFactory extends BaseDocFactory{
 					doc.save(outputPath+outputName+".docx", SaveFormat.DOCX);
 					file=new File(outputPath+outputName+".docx");
 					break;
-					/*
-							case PDF_FORMAT:
-								doc.save(outputPath+outputName+".html", SaveFormat.HTML);
-								file=new File(outputPath+outputName+".html");
-								Pdf pdf = new Pdf();
-								pdf.bindHTML(new FileInputStream(file), file.toURL());
-								pdf.save(new FileOutputStream(new File(outputPath+outputName+".pdf")));
-								file=new File(outputPath+outputName+".pdf");
-								break;
-					 */
+				case PDF_FORMAT:
+					doc.save(outputPath+outputName+".pdf");
+					file=new File(outputPath+outputName+".pdf");
+					break;
 				case HTML_FORMAT:
 					doc.save(outputPath+outputName+".html", SaveFormat.HTML);
 					file=new File(outputPath+outputName+".html");
@@ -698,7 +680,7 @@ public class AsposeDocFactory extends BaseDocFactory{
 			ArrayList<TemplateMergeField> templateParamslist =new ArrayList<TemplateMergeField>();
 			templateParamslist.addAll(iter.next());
 
-			String destinationPath;// the spezifisch destination path for this letter
+			String destinationPath;// the specific destination path for this letter
 
 			//get the name of the document
 			if(templateParamslist.get(0).getMergeFieldName().trim().equalsIgnoreCase("filename"))
@@ -717,17 +699,17 @@ public class AsposeDocFactory extends BaseDocFactory{
 				destinationPath= FileUtil.formatPathWithEndSeparator("ivy_RIA_files", true);
 			}
 
-			// We build parameters/values Arrays for Mailmerging methods.
+			// We build parameters/values Arrays for Mail merging methods.
 			String [] paramName= new String[templateParamslist.size()];
 			String [] paramValue= new String[templateParamslist.size()];
 			for(int i=0; i<templateParamslist.size();i++){
 				String s= templateParamslist.get(i).getMergeFieldName();
 				if(s.startsWith("Image:") || s.startsWith("Image_"))
-				{//The mergefield name indicates an Image, we take only the second part of the name
+				{//The merge field name indicates an Image, we take only the second part of the name
 					paramName[i]=s.substring(6);
 				}
 				else
-				{//The mergefield is a text field
+				{//The merge field is a text field
 					paramName[i]=s;
 				}
 				paramValue[i]=templateParamslist.get(i).getMergeFieldValue();
@@ -749,16 +731,10 @@ public class AsposeDocFactory extends BaseDocFactory{
 					doc.save(destinationPath+outputName+".docx", SaveFormat.DOCX);
 					file=new File(destinationPath+outputName+".docx");
 					break;
-					/*
-							case PDF_FORMAT:
-								doc.save(destinationPath+outputName+".html", SaveFormat.HTML);
-								file=new File(destinationPath+outputName+".html");
-								Pdf pdf = new Pdf();
-								pdf.bindHTML(new FileInputStream(file), file.toURL());
-								pdf.save(new FileOutputStream(new File(destinationPath+outputName+".pdf")));
-								file=new File(destinationPath+outputName+".pdf");
-								break;
-					 */
+				case PDF_FORMAT:
+					doc.save(outputPath+outputName+".pdf");
+					file=new File(outputPath+outputName+".pdf");
+					break;
 				case HTML_FORMAT:
 					doc.save(destinationPath+outputName+".html", SaveFormat.HTML);
 					file=new File(destinationPath+outputName+".html");
@@ -867,6 +843,10 @@ public class AsposeDocFactory extends BaseDocFactory{
 				docDest.save(this.outputPath+this.outputName+".docx", SaveFormat.DOCX);
 				file=new File(this.outputPath+this.outputName+".docx");
 				break;
+			case PDF_FORMAT:
+				docDest.save(this.outputPath+this.outputName+".pdf", SaveFormat.PDF);
+				file=new File(this.outputPath+this.outputName+".pdf");
+				break;
 			case HTML_FORMAT:
 				docDest.save(this.outputPath+this.outputName+".html", SaveFormat.HTML);
 				file=new File(this.outputPath+this.outputName+".html");
@@ -928,7 +908,7 @@ public class AsposeDocFactory extends BaseDocFactory{
 		final Iterator <DocumentTemplate> iter = list.iterator();
 		try 
 		{
-			// we do trhe mailMerge for the first DocumentTemplate
+			// we do the mailMerge for the first DocumentTemplate
 			docDest = this.doMailMerge(iter.next());
 			
 			//appends the rest of the documents to the first one
@@ -947,6 +927,10 @@ public class AsposeDocFactory extends BaseDocFactory{
 			case DOCX_FORMAT:
 				docDest.save(this.outputPath+_outputName+".docx", SaveFormat.DOCX);
 				file=new File(this.outputPath+_outputName+".docx");
+				break;
+			case PDF_FORMAT:
+				docDest.save(this.outputPath+_outputName+".pdf", SaveFormat.PDF);
+				file=new File(this.outputPath+_outputName+".pdf");
 				break;
 			case HTML_FORMAT:
 				docDest.save(this.outputPath+_outputName+".html", SaveFormat.HTML);
@@ -992,11 +976,11 @@ public class AsposeDocFactory extends BaseDocFactory{
 			TemplateMergeField tmf = iterator.next();
 			String s = tmf.getMergeFieldName();
 			if(s.startsWith("Image:") || s.startsWith("Image_"))
-			{//The mergefield name indicates an Image, we take only the second part of the name
+			{//The merge field name indicates an Image, we take only the second part of the name
 				paramName[i]=s.substring(6);
 			}
 			else
-			{//The mergefield is a text field
+			{//The merge field is a text field
 				paramName[i]=s;
 			}
 			
@@ -1030,11 +1014,11 @@ public class AsposeDocFactory extends BaseDocFactory{
 			TemplateMergeField tmf = iterator.next();
 			String s = tmf.getMergeFieldName();
 			if(s.startsWith("Image:") || s.startsWith("Image_"))
-			{//The mergefield name indicates an Image, we take only the second part of the name
+			{//The merge field name indicates an Image, we take only the second part of the name
 				paramName[i]=s.substring(6);
 			}
 			else
-			{//The mergefield is a text field
+			{//The merge field is a text field
 				paramName[i]=s;
 			}
 			
@@ -1055,7 +1039,7 @@ public class AsposeDocFactory extends BaseDocFactory{
 	 * @return the java.io.File taht was generated.
 	 * @throws Exception
 	 */
-	@SuppressWarnings({ "static-access" })
+	@SuppressWarnings({"static-access" })
 	private java.io.File doMailMerge(ArrayList<TemplateMergeField> parameters) throws Exception{
 		File file=null;
 		String [] paramName= new String[parameters.size()];
@@ -1063,11 +1047,11 @@ public class AsposeDocFactory extends BaseDocFactory{
 		for(int i=0; i<parameters.size();i++){
 			String s = parameters.get(i).getMergeFieldName();
 			if(s.startsWith("Image:") || s.startsWith("Image_"))
-			{//The mergefield name indicates an Image, we take only the second part of the name
+			{//The merge field name indicates an Image, we take only the second part of the name
 				paramName[i]=s.substring(6);
 			}
 			else
-			{//The mergefield is a text field
+			{//The merge field is a text field
 				paramName[i]=s;
 			}
 			
@@ -1091,16 +1075,10 @@ public class AsposeDocFactory extends BaseDocFactory{
 			doc.save(this.outputPath+this.outputName+".docx", SaveFormat.DOCX);
 			file=new File(this.outputPath+this.outputName+".docx");
 			break;
-			/*
 		case PDF_FORMAT:
-			doc.save(this.outputPath+this.basicFileName+".html", SaveFormat.HTML);
-			file=new File(this.outputPath+this.basicFileName+".html");
-			Pdf pdf = new Pdf();
-			pdf.bindHTML(new FileInputStream(file), file.toURL());
-			pdf.save(new FileOutputStream(new File(this.outputPath+this.basicFileName+".pdf")));
-			file=new File(this.outputPath+this.basicFileName+".pdf");
+			doc.save(outputPath+outputName+".pdf");
+			file=new File(outputPath+outputName+".pdf");
 			break;
-			 */
 		case HTML_FORMAT:
 			doc.save(this.outputPath+this.outputName+".html", SaveFormat.HTML);
 			file=new File(this.outputPath+this.outputName+".html");

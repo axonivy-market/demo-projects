@@ -29,8 +29,7 @@ public abstract class AbstractFileManagementHandler {
 	 * get the Class Object of the current AbstractFileManagementHandler implementation Class
 	 * @return the class Object of the current AbstractFileManagementHandler implementation Class
 	 */
-	@SuppressWarnings("unchecked")
-	public abstract Class getFileManagementHandlerClass();
+	public abstract Class<?> getFileManagementHandlerClass();
 
 	/**
 	 * Insert a List of java.io.File Objects into the File indexation storing System
@@ -56,8 +55,6 @@ public abstract class AbstractFileManagementHandler {
 	 */
 	public abstract int insertOneDocument(DocumentOnServer _document) throws Exception;
 
-
-
 	/**
 	 * Insert a  java.io.File Object into the File indexation storing System.
 	 * @param _file: java.io.File that has to be inserted into the File indexation storing System.
@@ -76,6 +73,7 @@ public abstract class AbstractFileManagementHandler {
 	 * @throws Exception
 	 */
 	public abstract boolean renameDocument(DocumentOnServer _doc, String _newName, String _userID) throws Exception;
+
 	/**
 	 * delete files from the File indexation storing System
 	 * @param _files the list of the java.io.File to delete
@@ -92,7 +90,6 @@ public abstract class AbstractFileManagementHandler {
 	 */
 	public abstract int deleteDocuments(List<DocumentOnServer> _documents) throws Exception;
 
-	
 	/**
 	 * get all the Files that are listed under a specified path<br>
 	 * @param _path: String representing the path of the directory that contains the files<br>
@@ -126,7 +123,7 @@ public abstract class AbstractFileManagementHandler {
 	 * Allows executing an update on documents with the given Key/Value pairs and conditions for filtering
 	 * @param _KVP: List<KeyValuePair> that represents the new values for the given properties (Keys)
 	 * @param _conditions: List<String> the list of the conditions to filter the update
-	 * @return a Recordset of the updated documents
+	 * @return a RecordSet of the updated documents
 	 * @throws Exception
 	 */
 	public abstract int updateDocuments(List<KeyValuePair> _KVP, List<String> _conditions) throws Exception;
@@ -242,7 +239,7 @@ public abstract class AbstractFileManagementHandler {
 	public abstract void unlockFilesEdited(String _path, String _user, boolean _recursive) throws Exception;
 
 	/**
-	 * This method cahnges the modification time with actual time, the modification date with current date and modification user with session user.
+	 * This method changes the modification time with actual time, the modification date with current date and modification user with session user.
 	 * @param _file the java.io.File that was modified
 	 * @param _userID the userID as String
 	 * @throws Exception

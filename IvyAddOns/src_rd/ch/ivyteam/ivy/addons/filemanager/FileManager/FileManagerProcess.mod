@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Jan 21 16:50:38 CET 2011]
-125FE583DB581114 3.15 #module
+[>Created: Wed Feb 23 09:13:20 CET 2011]
+125FE583DB581114 3.16 #module
 >Proto >Proto Collection #zClass
 us0 updownloadPaneProcess Big #zClass
 us0 RD #cInfo
@@ -5110,6 +5110,70 @@ us0 f59 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerDat
 ' #txt
 us0 f59 actionTable 'out=in;
 ' #txt
+us0 f59 actionCode 'import ch.ivyteam.ivy.addons.filemanager.KeyValuePair;
+import ch.ivyteam.ivy.addons.filemanager.FileHandler;
+import ch.ivyteam.ivy.addons.filemanager.DocumentOnServer;
+
+in.time=new Time().format();
+in.today =  new Date().format("d.M.yyyy");
+
+List<KeyValuePair> KVP = new List<KeyValuePair>();
+KeyValuePair kvp = new KeyValuePair();
+String newFileSize= FileHandler.getFileSize(new java.io.File(in.stringVariable));
+
+kvp.key="MODIFICATIONUSERID";
+kvp.value=in.applicationUserName;
+KVP.add(kvp);
+
+kvp = new KeyValuePair();
+kvp.key="MODIFICATIONDATE";
+kvp.value=in.today;
+KVP.add(kvp);
+
+kvp = new KeyValuePair();
+kvp.key="MODIFICATIONTIME";
+kvp.value=in.time;
+KVP.add(kvp);
+
+kvp = new KeyValuePair();
+kvp.key="FILESIZE";
+kvp.value=newFileSize;
+KVP.add(kvp);
+
+List<String> conditions = new List<String>();
+conditions.add("FILEPATH LIKE ''"+in.fileManagementHandler.escapeBackSlash(in.stringVariable)+"''");
+try{
+	if(in.fileManagementHandler.updateDocuments(KVP, conditions)>0){
+		Number i = 0;
+		for(DocumentOnServer doc: in.documentsInDb){
+			if(doc.path.equals(in.stringVariable)){
+				DocumentOnServer d = new DocumentOnServer();
+				d.creationDate=doc.creationDate;
+				d.creationTime=doc.creationTime;
+				d.userID= doc.userID;
+				d.locked=doc.locked;
+				d.lockingUserID=doc.lockingUserID;
+				d.filename=doc.filename;
+				d.fileID=doc.fileID;
+				d.path=doc.path;
+				d.fileSize=newFileSize;
+				d.modificationDate=in.today;
+				d.modificationTime=in.time;
+				d.modificationUserID=in.applicationUserName;
+				in.documentsInDb.removeAt(i);
+				in.documentsInDb.add(d);
+				break;
+			}
+			i++;
+		}
+	}
+}catch(Throwable t){
+	in.errorUtil.panelId = in.panelId;
+	in.errorUtil.errorOccurred=true;
+	in.errorUtil.throwable = t;
+	in.errorUtil.message =ivy.cms.co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/error/errorOccurred");
+	panel.fireErrorOccurred(in.errorUtil);
+}' #txt
 us0 f59 type ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerData #txt
 us0 f59 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
