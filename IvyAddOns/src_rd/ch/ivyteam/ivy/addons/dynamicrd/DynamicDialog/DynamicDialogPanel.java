@@ -33,7 +33,6 @@ import com.ulcjava.base.application.util.Dimension;
  * @author <%=author%>
  * @since <%=date%>
  */
-@SuppressWarnings("unchecked")
 public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichDialogPanel
 {
   private Map<String, Component> componentMap;
