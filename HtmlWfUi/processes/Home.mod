@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 24 11:49:42 CET 2011]
+[>Created: Wed Mar 02 17:03:55 CET 2011]
 127AE76143E89C91 3.16 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -111,6 +111,8 @@ He0 f3 304 276 304 332 #arcP
 He0 f7 outLink DefaultEndPage.ivp #txt
 He0 f7 type htmlwfui.Data #txt
 He0 f7 inParamDecl '<java.lang.Number endedTaskId> param;' #txt
+He0 f7 inParamTable 'out.tmpTaskId=param.endedTaskId;
+' #txt
 He0 f7 actionDecl 'htmlwfui.Data out;
 ' #txt
 He0 f7 guid 12E2F5E4FE51B562 #txt
@@ -120,7 +122,7 @@ He0 f7 callSignature DefaultEndPage(Number) #txt
 He0 f7 persist false #txt
 He0 f7 startName 'WF End Page' #txt
 He0 f7 taskData '#
-#Thu Feb 24 11:49:40 CET 2011
+#Wed Mar 02 17:03:52 CET 2011
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -129,7 +131,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f7 caseData '#
-#Thu Feb 24 11:49:40 CET 2011
+#Wed Mar 02 17:03:52 CET 2011
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -155,7 +157,7 @@ subType.name=
 type.code=
 type.name=
 ' #txt
-He0 f7 showInStartList 0 #txt
+He0 f7 showInStartList 1 #txt
 He0 f7 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskUpdDef.setExpiryActivator("Everybody");
@@ -190,16 +192,36 @@ He0 f20 actionDecl 'htmlwfui.Data out;
 ' #txt
 He0 f20 actionTable 'out=in;
 ' #txt
-He0 f20 actionCode 'ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
+He0 f20 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
+import ch.ivyteam.ivy.workflow.TaskState;
+import ch.ivyteam.ivy.workflow.ITask;
+ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
 out.temp.url=r.getHttpServletRequest().getSession().getAttribute("ch.ivy.wfui.returnUrl").toString();
 
-r.getHttpServletRequest().getSession().removeAttribute("ch.ivy.wfui.returnUrl");' #txt
+r.getHttpServletRequest().getSession().removeAttribute("ch.ivy.wfui.returnUrl");
+
+ITask finishedTask = ivy.wf.findTask(in.tmpTaskId);
+
+if(finishedTask!=null && finishedTask.getCase().getState()==CaseState.DONE)
+{
+		out.temp.msg = ivy.cms.co("/labels/processFinished");
+}
+else if(finishedTask!=null && finishedTask.getState()==TaskState.DONE)
+{
+		out.temp.msg = ivy.cms.co("/labels/taskFinished");
+}
+else
+{
+	out.temp.msg="";
+}
+' #txt
 He0 f20 type htmlwfui.Data #txt
 He0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>checkReturnUrl</name>
-        <nameStyle>14
+        <name>checkReturnUrl
+finished msg</name>
+        <nameStyle>27
 </nameStyle>
     </language>
 </elementInfo>
