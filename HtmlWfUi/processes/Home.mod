@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 02 17:03:55 CET 2011]
+[>Created: Wed Mar 02 17:36:06 CET 2011]
 127AE76143E89C91 3.16 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -122,7 +122,7 @@ He0 f7 callSignature DefaultEndPage(Number) #txt
 He0 f7 persist false #txt
 He0 f7 startName 'WF End Page' #txt
 He0 f7 taskData '#
-#Wed Mar 02 17:03:52 CET 2011
+#Wed Mar 02 17:36:02 CET 2011
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -131,7 +131,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f7 caseData '#
-#Wed Mar 02 17:03:52 CET 2011
+#Wed Mar 02 17:36:02 CET 2011
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -157,7 +157,7 @@ subType.name=
 type.code=
 type.name=
 ' #txt
-He0 f7 showInStartList 1 #txt
+He0 f7 showInStartList 0 #txt
 He0 f7 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskUpdDef.setExpiryActivator("Everybody");
