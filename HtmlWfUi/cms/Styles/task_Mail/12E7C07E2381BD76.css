@@ -1,0 +1,63 @@
+body 
+{
+	font-size: 10pt;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+  
+td,th 
+{
+	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+th
+{
+	text-align: left; 
+  color: white;
+}
+
+table.resulttable, table.resulttable td, table.resulttable th, table.resulttable tr
+{
+	border: 1px white solid;
+}
+				
+img
+{
+	border: 0;
+}
+
+a
+{
+  color: #575757;
+}
+
+a:visited, a:link
+{
+  text-decoration: none;
+}
+
+a:active, a:hover 
+{
+  text-decoration: underline;
+}
+
+
+.TitleBar
+{
+	color: white; 
+	font-weight: bold;
+}
+
+.Footer
+{
+	font-size: 8pt;
+}
+
+.HeaderText
+{
+	color: white;
+	font-size: 14pt;
+	font-weight: bold;
+}
