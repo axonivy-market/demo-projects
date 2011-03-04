@@ -1,3 +1,4 @@
 <P>
-The following processes are available.
+<B><%=ivy.html.get("in.temp.msg")%><BR>
+</B>The following processes are available.
 </P>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 04 16:30:01 CET 2011]
+[>Created: Fri Mar 04 16:42:02 CET 2011]
 127AE76143E89C91 3.16 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -215,6 +215,8 @@ if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().g
 			out.temp.msg = ivy.cms.co("/labels/taskFinished");
 	}
 }	
+
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.redirectMsg", out.temp.msg);
 ' #txt
 He0 f20 type htmlwfui.Data #txt
 He0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 04 16:29:49 CET 2011]
+[>Created: Fri Mar 04 16:38:30 CET 2011]
 1270ADF72FF4AFF3 3.16 #module
 >Proto >Proto Collection #zClass
 Pt0 Processlist Big #zClass
@@ -105,6 +105,15 @@ Pt0 f20 actionCode 'out.starts = ivy.session.getStartableProcessStarts();
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
 r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("1270ADF72FF4AFF3/start1.ivp"));
 
+Object msg = r.getHttpServletRequest().getSession().getAttribute("ch.ivy.wfui.redirectMsg");
+if(msg!=null)
+{
+	out.temp.msg= msg.toString();
+}
+else
+{
+	out.temp.msg="";
+}
 ' #txt
 Pt0 f20 type htmlwfui.Data #txt
 Pt0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
