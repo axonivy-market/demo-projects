@@ -1,1 +1,1 @@
-Benutzer <%=ivy.html.get("in.user.fullName")%>
+Workflow Benutzer: <%=ivy.html.get("in.user.getFullName()")%> [<%=ivy.html.get("in.user.getName()")%>]

@@ -1,16 +1,15 @@
-#Thu Mar 03 16:19:34 CET 2011
+#Fri Mar 04 16:02:37 CET 2011
 default.sort.value=-1
 table.default.page.size.value=
 table.source=in.tasks
-col6=\#Thu Mar 03 16\:19\:34 CET 2011\r\nbody.value\="<a title\\\=\\\\"Start\\\\" href\\\=\\\\"" + ivy.html.taskstartref(it)+ "\\\\"><img src\\\=\\\\"" + ivy.cms.cr("/images/start") + "\\\\"></a>"\r\nheader.th\=\\\#Mon Jul 19 11\\\:49\\\:42 CEST 2010\\r\\nwidth\\\=16\\r\\n\r\nname.value\=start\r\n
-col5=\#Thu Mar 03 16\:19\:34 CET 2011\r\nbody.value\=it.\\\#expiryTimestamp is initialized ? ivy.html.escape(it.expiryTimestamp.format()) \\\: ""\r\nheader.th\=\\\#Mon Jul 19 11\\\:49\\\:42 CEST 2010\\r\\nwidth\\\=15%\\r\\n\r\nheader.value\=Expiry\r\nname.value\=expirydate\r\n
+col5=\#Fri Mar 04 16\:02\:37 CET 2011\r\nbody.value\="<a title\\\=\\\\"Start\\\\" href\\\=\\\\"" + ivy.html.taskstartref(it)+ "\\\\"><img src\\\=\\\\"" + ivy.cms.cr("/images/start") + "\\\\"></a>"\r\nheader.th\=\\\#Mon Jul 19 11\\\:49\\\:42 CEST 2010\\r\\nwidth\\\=16\\r\\n\r\nname.value\=start\r\n
 footer.show.value=false
-col4=\#Thu Mar 03 16\:19\:34 CET 2011\r\nbody.value\=it.getStartTimestamp().format()\r\nheader.th\=\\\#Fri Jul 16 17\\\:09\\\:59 CEST 2010\\r\\nwidth\\\=15%\\r\\n\r\nheader.value\=Created\r\nname.value\=createddate\r\n
-table.empty.value=
-col3=\#Thu Mar 03 16\:19\:34 CET 2011\r\nbody.value\=(value as ch.ivyteam.ivy.security.ISecurityMember).getDisplayName()\r\nheader.value\=Responsible\r\nheader.th\=\\\#Fri Jul 16 17\\\:09\\\:59 CEST 2010\\r\\nwidth\\\=15%\\r\\n\r\nname.value\=activator\r\n
-col2=\#Thu Mar 03 16\:19\:34 CET 2011\r\nbody.value\=ivy.html.escape(value)\r\nheader.value\=Name\r\nheader.th\=\\\#Fri Jul 16 17\\\:09\\\:59 CEST 2010\\r\\nwidth\\\=55%\\r\\n\r\nname.value\=name\r\n
+col4=\#Fri Mar 04 16\:02\:37 CET 2011\r\nbody.value\=it.\\\#expiryTimestamp is initialized ? ivy.html.escape(it.expiryTimestamp.format()) \\\: ""\r\nheader.value\=<%\\\=ivy.cms.co("/labels/expiry")%>\r\nheader.th\=\\\#Mon Jul 19 11\\\:49\\\:42 CEST 2010\\r\\nwidth\\\=15%\\r\\n\r\nname.value\=expirydate\r\n
+table.empty.value=<%\=ivy.cms.co("/labels/noItemsFound")%>
+col3=\#Fri Mar 04 16\:02\:37 CET 2011\r\nbody.value\=it.getStartTimestamp().format()\r\nheader.value\=<%\\\=ivy.cms.co("/labels/created")%>\r\nheader.th\=\\\#Fri Jul 16 17\\\:09\\\:59 CEST 2010\\r\\nwidth\\\=15%\\r\\n\r\nname.value\=createddate\r\n
+col2=\#Fri Mar 04 16\:02\:37 CET 2011\r\nbody.value\=(value as ch.ivyteam.ivy.security.ISecurityMember).getMemberName()\r\nheader.th\=\\\#Fri Jul 16 17\\\:09\\\:59 CEST 2010\\r\\nwidth\\\=15%\\r\\n\r\nheader.value\=<%\\\=ivy.cms.co("/labels/responsible")%>\r\nname.value\=activator\r\n
 header.show.value=true
-col1=\#Thu Mar 03 16\:19\:34 CET 2011\r\nbody.value\="<img src\\\=\\\\"" + ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/taskState" + it.getState().name() + "16") + "\\\\">"\r\nheader.th\=\\\#Mon Jul 19 12\\\:12\\\:41 CEST 2010\\r\\nwidth\\\=16\\r\\n\r\nheader.value\=&nbsp;\r\nname.value\=state\r\n
+col1=\#Fri Mar 04 16\:02\:37 CET 2011\r\nbody.value\=ivy.html.escape(value)\r\nheader.th\=\\\#Fri Jul 16 17\\\:09\\\:59 CEST 2010\\r\\nwidth\\\=55%\\r\\n\r\nheader.value\=<%\\\=ivy.cms.co("/labels/name")%>\r\nname.value\=name\r\n
 table.caption.value=
-col0=\#Thu Mar 03 16\:19\:34 CET 2011\r\nsort.value\=false\r\ncondition.value\=\r\nbody.value\="<img src\\\=\\\\"" + ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/taskPriority" + it.getPriority().intValue() + "_16") + "\\\\">"\r\nheader.th\=\\\#Fri Jul 16 16\\\:45\\\:26 CEST 2010\\r\\nwidth\\\=16\\r\\n\r\nheader.value\=&nbsp;\r\nname.value\=priority\r\n
+col0=\#Fri Mar 04 16\:02\:37 CET 2011\r\nsort.value\=false\r\ncondition.value\=\r\nbody.value\="<img src\\\=\\\\"" + ivy.cms.cr("/images/priority/" + it.getPriority().intValue()) + "\\\\">"\r\nheader.value\=&nbsp;\r\nheader.th\=\\\#Fri Jul 16 16\\\:45\\\:26 CEST 2010\\r\\nwidth\\\=16\\r\\n\r\nname.value\=priority\r\n
 auto.header.value=false

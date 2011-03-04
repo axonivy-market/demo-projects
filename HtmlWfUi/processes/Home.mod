@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 02 17:36:06 CET 2011]
+[>Created: Fri Mar 04 16:30:01 CET 2011]
 127AE76143E89C91 3.16 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -122,7 +122,7 @@ He0 f7 callSignature DefaultEndPage(Number) #txt
 He0 f7 persist false #txt
 He0 f7 startName 'WF End Page' #txt
 He0 f7 taskData '#
-#Wed Mar 02 17:36:02 CET 2011
+#Fri Mar 04 15:52:45 CET 2011
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -131,7 +131,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f7 caseData '#
-#Wed Mar 02 17:36:02 CET 2011
+#Fri Mar 04 15:52:45 CET 2011
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -200,20 +200,21 @@ out.temp.url=r.getHttpServletRequest().getSession().getAttribute("ch.ivy.wfui.re
 
 r.getHttpServletRequest().getSession().removeAttribute("ch.ivy.wfui.returnUrl");
 
-ITask finishedTask = ivy.wf.findTask(in.tmpTaskId);
+out.temp.msg=ivy.cms.co("/labels/finished");
 
-if(finishedTask!=null && finishedTask.getCase().getState()==CaseState.DONE)
-{
-		out.temp.msg = ivy.cms.co("/labels/processFinished");
-}
-else if(finishedTask!=null && finishedTask.getState()==TaskState.DONE)
-{
-		out.temp.msg = ivy.cms.co("/labels/taskFinished");
-}
-else
-{
-	out.temp.msg="";
-}
+if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.TASK_READ))
+{	
+	// 	permission required to findTask
+	ITask finishedTask = ivy.wf.findTask(in.tmpTaskId);
+	if(finishedTask!=null && finishedTask.getCase().getState()==CaseState.DONE)
+	{
+			out.temp.msg = ivy.cms.co("/labels/processFinished");
+	}
+	else if(finishedTask!=null && finishedTask.getState()==TaskState.DONE)
+	{
+			out.temp.msg = ivy.cms.co("/labels/taskFinished");
+	}
+}	
 ' #txt
 He0 f20 type htmlwfui.Data #txt
 He0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -226,7 +227,7 @@ finished msg</name>
     </language>
 </elementInfo>
 ' #txt
-He0 f20 126 188 36 24 22 -8 #rect
+He0 f20 126 188 36 24 22 -16 #rect
 He0 f20 @|StepIcon #fIcon
 He0 f13 expr out #txt
 He0 f13 144 212 144 250 #arcP

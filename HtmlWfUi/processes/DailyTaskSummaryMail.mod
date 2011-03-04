@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 03 16:31:29 CET 2011]
+[>Created: Fri Mar 04 15:30:00 CET 2011]
 12E7BFEAB6F56A0A 3.16 #module
 >Proto >Proto Collection #zClass
 Dt0 DailyTaskSummaryMail Big #zClass
@@ -29,7 +29,7 @@ Dt0 f0 triggerEnabled false #txt
 Dt0 f0 callSignature MailNotification_DailyTaskSummary(Number) #txt
 Dt0 f0 persist false #txt
 Dt0 f0 taskData '#
-#Thu Mar 03 16:31:25 CET 2011
+#Fri Mar 04 15:29:58 CET 2011
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -38,7 +38,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Dt0 f0 caseData '#
-#Thu Mar 03 16:31:25 CET 2011
+#Fri Mar 04 15:29:58 CET 2011
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=

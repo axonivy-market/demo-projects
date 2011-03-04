@@ -1,7 +1,7 @@
 <%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%>
 <jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/> 
 <%
-	String startUrl=ivy.html.get("in.temp.url");
+	String startUrl=java.net.URLDecoder.decode(ivy.html.get("in.temp.url"), "UTF-8");
 	String taskListUrl=ivy.html.ref("LinkA.ivp");
 %>
 <html>

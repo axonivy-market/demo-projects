@@ -1,1 +1,1 @@
-<%=ivy.html.escape(in.task.getActivator().getDisplayName())%>
+<%=ivy.html.escape(in.task.getActivator().getMemberName())%>

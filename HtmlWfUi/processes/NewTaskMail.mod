@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 03 16:31:00 CET 2011]
+[>Created: Fri Mar 04 16:28:53 CET 2011]
 12E7BFEFCD6D0E30 3.16 #module
 >Proto >Proto Collection #zClass
 Nt0 NewTaskMail Big #zClass
@@ -29,7 +29,7 @@ Nt0 f0 triggerEnabled false #txt
 Nt0 f0 callSignature MailNotification_NewTask(Number,Number) #txt
 Nt0 f0 persist false #txt
 Nt0 f0 taskData '#
-#Thu Mar 03 16:24:57 CET 2011
+#Fri Mar 04 16:08:51 CET 2011
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -38,7 +38,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Nt0 f0 caseData '#
-#Thu Mar 03 16:24:57 CET 2011
+#Fri Mar 04 16:08:51 CET 2011
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -81,14 +81,14 @@ Nt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Nt0 f0 @C|.responsibility Everybody #txt
-Nt0 f0 155 35 26 26 14 0 #rect
+Nt0 f0 91 35 26 26 14 0 #rect
 Nt0 f0 @|StartRequestIcon #fIcon
 Nt0 f1 type htmlwfui.NewTaskMail #txt
 Nt0 f1 template "NewTaskMailContent.ivc" #txt
-Nt0 f1 155 107 26 26 14 0 #rect
+Nt0 f1 91 107 26 26 14 0 #rect
 Nt0 f1 @|EndRequestIcon #fIcon
 Nt0 f2 expr out #txt
-Nt0 f2 168 61 168 107 #arcP
+Nt0 f2 104 61 104 107 #arcP
 >Proto Nt0 .type htmlwfui.NewTaskMail #txt
 >Proto Nt0 .processKind NORMAL #txt
 >Proto Nt0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

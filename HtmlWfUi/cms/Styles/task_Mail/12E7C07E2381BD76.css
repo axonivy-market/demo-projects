@@ -15,7 +15,6 @@ td,th
 th
 {
 	text-align: left; 
-  color: white;
 }
 
 table.resulttable, table.resulttable td, table.resulttable th, table.resulttable tr
@@ -58,6 +57,6 @@ a:active, a:hover
 .HeaderText
 {
 	color: white;
-	font-size: 14pt;
+	font-size: 10pt;
 	font-weight: bold;
 }
