@@ -151,6 +151,7 @@ private RButton getChangePasswordButton() {
 		changePasswordButton = new RButton();
 		changePasswordButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/changePassword\")%>");
 		changePasswordButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/changePassword\")%>");
+		changePasswordButton.setStyleProperties("{/insetsTop \"6\"/insetsRight \"6\"}");
 		changePasswordButton.setName("changePasswordButton");
 	}
 	return changePasswordButton;
@@ -523,7 +524,7 @@ private RHtmlPane getSessionUserInformationHtmlPane() {
 		sessionUserInformationHtmlPane = new RHtmlPane();
 		sessionUserInformationHtmlPane.setFocusable(false);
 		sessionUserInformationHtmlPane.setName("sessionUserInformationHtmlPane");
-		sessionUserInformationHtmlPane.setStyleProperties("{/weightX \"1\"}");
+		sessionUserInformationHtmlPane.setStyleProperties("{/insetsTop \"3\"/weightX \"1\"}");
 		sessionUserInformationHtmlPane.setText("sessionUserInformationHtmlPane");
 	}
 	return sessionUserInformationHtmlPane;

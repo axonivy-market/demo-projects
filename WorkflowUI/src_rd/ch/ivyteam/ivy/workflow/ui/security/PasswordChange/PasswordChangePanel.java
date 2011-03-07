@@ -144,6 +144,7 @@ private RPasswordField getConfirmTextField() {
 		confirmTextField = new RPasswordField();
 		confirmTextField.setText("");
 		confirmTextField.setColumns(25);
+		confirmTextField.setStyleProperties("{/insetsBottom \"3\"}");
 		confirmTextField.setName("confirmTextField");
 	}
 	return confirmTextField;
