@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Feb 18 17:33:17 CET 2011]
-116A9BF16D47762C 3.15 #module
+[>Created: Mon Mar 07 14:34:15 CET 2011]
+116A9BF16D47762C 3.16 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
 Ts0 RD #cInfo
@@ -1975,17 +1975,16 @@ Ts0 f16 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData 
 ' #txt
 Ts0 f16 actionTable 'out=in;
 ' #txt
-Ts0 f16 actionCode 'import ch.ivyteam.ivy.addons.restricted.eventlog.EventLogHelper;
+Ts0 f16 actionCode 'import ch.ivyteam.ivy.addons.restricted.resources.ResourceServicesHelper;
+import ch.ivyteam.ivy.addons.restricted.eventlog.EventLogHelper;
 
 
 // Execution
 // nothing to update
 
 // Documents 
-java.io.File myDir = new java.io.File(in.caseDocumentsPath) ; 
-
 String documentsTitle = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/documents");
-if (myDir.isDirectory() && !myDir.listFiles().isEmpty())
+if (ResourceServicesHelper.folderContainsFiles(in.caseDocumentsPath))
 {
 	documentsTitle = documentsTitle + " \u2022";
 }
@@ -2023,10 +2022,10 @@ Ts0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f16 1294 172 36 24 20 -2 #rect
+Ts0 f16 1294 164 36 24 20 -2 #rect
 Ts0 f16 @|RichDialogProcessStepIcon #fIcon
 Ts0 f69 expr out #txt
-Ts0 f69 1312 196 1312 218 #arcP
+Ts0 f69 1312 188 1312 218 #arcP
 Ts0 f72 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f72 processCall 'Functional Processes/technical/ResourceServices:readCaseDocumentsPath(Number)' #txt
 Ts0 f72 doCall true #txt
@@ -2051,7 +2050,7 @@ Ts0 f72 @|CallSubIcon #fIcon
 Ts0 f82 expr out #txt
 Ts0 f82 1312 90 1312 116 #arcP
 Ts0 f64 expr out #txt
-Ts0 f64 1312 140 1312 172 #arcP
+Ts0 f64 1312 140 1312 164 #arcP
 Ts0 f10 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

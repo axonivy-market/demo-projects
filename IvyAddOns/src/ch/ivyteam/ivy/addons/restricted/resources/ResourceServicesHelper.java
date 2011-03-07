@@ -1,9 +1,13 @@
 package ch.ivyteam.ivy.addons.restricted.resources;
 
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import org.apache.commons.io.FileUtils;
 
 import ch.ivyteam.ivy.addons.filemanager.FileHandler;
 import ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerPanel;
@@ -352,6 +356,44 @@ public class ResourceServicesHelper {
 	{
 		return invalidDirectoryName.replaceAll(CHARACTERS_TO_REPLACE_PATTERN.pattern(), "");
 
+	}
+	
+	
+	/**
+	 * It returns true if the folder contains files, otherwise false. 
+	 * The check is done on all files including those in sub directories.
+	 * 
+	 * @param directoryPath
+	 * 				The absolute path of the directory on which search has to be done
+	 * @return
+	 * 
+	 */
+	public static Boolean folderContainsFiles(String directoryPath)
+	{
+		File myDir = new File(directoryPath) ; 
+		File currentFile = null;
+		Boolean containsFiles = false;
+		
+		if (myDir.isDirectory())
+		{
+			// get all files AND all sub directories are searched as well  
+			Iterator<File> iterator  = FileUtils.iterateFiles(myDir, null, true);
+
+			while (iterator.hasNext())
+			{
+				currentFile = iterator.next();
+				Ivy.log().debug("Analyzing the {0}-{1}.", 
+						(currentFile.isFile()? "File": "Directory"), 
+						currentFile.getAbsolutePath());
+				if (currentFile.isFile())
+				{
+					containsFiles = true;
+					break;
+				}
+			}
+		}
+
+		return containsFiles;
 	}
 	
 	

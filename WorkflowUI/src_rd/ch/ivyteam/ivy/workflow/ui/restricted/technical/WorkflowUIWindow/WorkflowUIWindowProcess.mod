@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Feb 04 11:41:58 CET 2011]
-128B5701B1FDD6EF 3.15 #module
+[>Created: Mon Mar 07 12:25:40 CET 2011]
+128B5701B1FDD6EF 3.16 #module
 >Proto >Proto Collection #zClass
 Ws0 WorkflowUIWindowProcess Big #zClass
 Ws0 RD #cInfo
@@ -32,13 +32,11 @@ Ws0 @RichDialogProcessStart f23 '' #zField
 Ws0 @RichDialogProcessEnd f24 '' #zField
 Ws0 @PushWFArc f27 '' #zField
 Ws0 @RichDialogProcessStep f16 '' #zField
-Ws0 @PushWFArc f28 '' #zField
 Ws0 @Alternative f29 '' #zField
 Ws0 @RichDialog f32 '' #zField
 Ws0 @PushWFArc f33 '' #zField
 Ws0 @RichDialogProcessStep f35 '' #zField
 Ws0 @PushWFArc f36 '' #zField
-Ws0 @PushWFArc f2 '' #zField
 Ws0 @RichDialogProcessStep f40 '' #zField
 Ws0 @Alternative f41 '' #zField
 Ws0 @RichDialogProcessStep f31 '' #zField
@@ -70,6 +68,12 @@ Ws0 @PushWFArc f53 '' #zField
 Ws0 @PushWFArc f51 '' #zField
 Ws0 @PushWFArc f34 '' #zField
 Ws0 @PushWFArc f55 '' #zField
+Ws0 @RichDialogProcessStep f25 '' #zField
+Ws0 @PushWFArc f54 '' #zField
+Ws0 @PushWFArc f28 '' #zField
+Ws0 @CallSub f56 '' #zField
+Ws0 @PushWFArc f57 '' #zField
+Ws0 @PushWFArc f2 '' #zField
 >Proto Ws0 Ws0 WorkflowUIWindowProcess #zField
 Ws0 f0 guid 128B5701B5E5F4EF #txt
 Ws0 f0 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
@@ -213,7 +217,7 @@ Ws0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ws0 f23 878 38 20 20 13 0 #rect
 Ws0 f23 @|RichDialogProcessStartIcon #fIcon
 Ws0 f24 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
-Ws0 f24 878 334 20 20 13 0 #rect
+Ws0 f24 878 398 20 20 13 0 #rect
 Ws0 f24 @|RichDialogProcessEndIcon #fIcon
 Ws0 f27 expr out #txt
 Ws0 f27 1184 66 1184 278 #arcP
@@ -287,10 +291,8 @@ functions</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f16 870 84 36 24 20 -2 #rect
+Ws0 f16 870 164 36 24 20 -2 #rect
 Ws0 f16 @|RichDialogProcessStepIcon #fIcon
-Ws0 f28 expr out #txt
-Ws0 f28 888 58 888 84 #arcP
 Ws0 f29 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
 Ws0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -301,7 +303,7 @@ Ws0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f29 874 210 28 28 14 0 #rect
+Ws0 f29 874 290 28 28 14 0 #rect
 Ws0 f29 @|AlternativeIcon #fIcon
 Ws0 f32 targetWindow THIS #txt
 Ws0 f32 targetDisplay EXISTING:<%=in.workflowUIWindowNorthDisplayId%> #txt
@@ -327,7 +329,7 @@ web banner</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f32 958 260 36 24 20 -2 #rect
+Ws0 f32 958 340 36 24 20 -2 #rect
 Ws0 f32 @|RichDialogIcon #fIcon
 Ws0 f33 expr in #txt
 Ws0 f33 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -339,37 +341,30 @@ Ws0 f33 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f33 902 224 976 260 #arcP
-Ws0 f33 1 976 224 #addKink
+Ws0 f33 902 304 976 340 #arcP
+Ws0 f33 1 976 304 #addKink
 Ws0 f33 0 0.7655925810092158 0 0 #arcLabel
 Ws0 f35 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
 ' #txt
 Ws0 f35 actionTable 'out=in;
 ' #txt
-Ws0 f35 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UniqueDisplayIdFactory;
-
-
-out.workflowUIWindowCenterDisplayId = "workflowUICenterDisplayId";
-panel.workflowUIWindowCenterDisplay.displayId = out.workflowUIWindowCenterDisplayId;
-
-out.workflowUIWindowNorthDisplayId = "workflowUINorthDisplayId";
+Ws0 f35 actionCode 'out.workflowUIWindowNorthDisplayId = "workflowUINorthDisplayId";
 panel.workflowUIWindowNorthDisplay.displayId = out.workflowUIWindowNorthDisplayId;' #txt
 Ws0 f35 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
 Ws0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>define display ids</name>
-        <nameStyle>18,7,9
+        <name>define north 
+display id</name>
+        <nameStyle>24,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f35 70 156 36 24 20 -2 #rect
+Ws0 f35 70 100 36 24 20 -2 #rect
 Ws0 f35 @|RichDialogProcessStepIcon #fIcon
 Ws0 f36 expr out #txt
-Ws0 f36 88 58 88 156 #arcP
-Ws0 f2 expr out #txt
-Ws0 f2 88 180 88 278 #arcP
+Ws0 f36 88 58 88 100 #arcP
 Ws0 f40 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
 ' #txt
 Ws0 f40 actionTable 'out=in;
@@ -736,12 +731,12 @@ banner</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f52 870 148 36 24 20 -2 #rect
+Ws0 f52 870 228 36 24 20 -2 #rect
 Ws0 f52 @|RichDialogProcessStepIcon #fIcon
 Ws0 f53 expr out #txt
-Ws0 f53 888 108 888 148 #arcP
+Ws0 f53 888 188 888 228 #arcP
 Ws0 f51 expr out #txt
-Ws0 f51 888 172 888 210 #arcP
+Ws0 f51 888 252 888 290 #arcP
 Ws0 f34 expr in #txt
 Ws0 f34 outCond in.webBannerProcessStartRequestPathFound #txt
 Ws0 f34 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -753,11 +748,59 @@ Ws0 f34 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f34 888 238 888 334 #arcP
+Ws0 f34 888 318 888 398 #arcP
 Ws0 f55 expr out #txt
-Ws0 f55 976 284 897 340 #arcP
-Ws0 f55 1 976 312 #addKink
+Ws0 f55 976 364 897 404 #arcP
+Ws0 f55 1 976 376 #addKink
 Ws0 f55 1 0.28149288778123105 0 0 #arcLabel
+Ws0 f25 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
+' #txt
+Ws0 f25 actionTable 'out=in;
+' #txt
+Ws0 f25 actionCode panel.workflowUIWindowCenterDisplay.setDisplayId(in.workflowUIWindowCenterDisplayId); #txt
+Ws0 f25 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
+Ws0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>apply the center display id 
+from global variable</name>
+        <nameStyle>49,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ws0 f25 870 100 36 24 20 -2 #rect
+Ws0 f25 @|RichDialogProcessStepIcon #fIcon
+Ws0 f54 expr out #txt
+Ws0 f54 888 58 888 100 #arcP
+Ws0 f28 expr out #txt
+Ws0 f28 888 124 888 164 #arcP
+Ws0 f56 type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
+Ws0 f56 processCall 'Functional Processes/technical/WorkflowServices:getWindowCenterDisplayId()' #txt
+Ws0 f56 doCall true #txt
+Ws0 f56 requestActionDecl '<> param;
+' #txt
+Ws0 f56 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData out;
+' #txt
+Ws0 f56 responseMappingAction 'out=in;
+out.workflowUIWindowCenterDisplayId=result.displayId;
+' #txt
+Ws0 f56 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>define center display id
+getWindowCenterDisplayId()</name>
+        <nameStyle>51,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ws0 f56 70 164 36 24 20 -2 #rect
+Ws0 f56 @|CallSubIcon #fIcon
+Ws0 f57 expr out #txt
+Ws0 f57 88 124 88 164 #arcP
+Ws0 f2 expr out #txt
+Ws0 f2 88 188 88 278 #arcP
 >Proto Ws0 .type ch.ivyteam.ivy.workflow.ui.restricted.technical.WorkflowUIWindow.WorkflowUIWindowData #txt
 >Proto Ws0 .processKind RICH_DIALOG #txt
 >Proto Ws0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -786,13 +829,9 @@ Ws0 f21 mainOut f20 tail #connect
 Ws0 f20 head f19 mainIn #connect
 Ws0 f14 mainOut f27 tail #connect
 Ws0 f27 head f15 mainIn #connect
-Ws0 f23 mainOut f28 tail #connect
-Ws0 f28 head f16 mainIn #connect
 Ws0 f33 head f32 mainIn #connect
 Ws0 f0 mainOut f36 tail #connect
 Ws0 f36 head f35 mainIn #connect
-Ws0 f35 mainOut f2 tail #connect
-Ws0 f2 head f1 mainIn #connect
 Ws0 f31 mainOut f43 tail #connect
 Ws0 f43 head f6 mainIn #connect
 Ws0 f41 out f44 tail #connect
@@ -828,3 +867,11 @@ Ws0 f34 head f24 mainIn #connect
 Ws0 f29 out f33 tail #connect
 Ws0 f32 mainOut f55 tail #connect
 Ws0 f55 head f24 mainIn #connect
+Ws0 f23 mainOut f54 tail #connect
+Ws0 f54 head f25 mainIn #connect
+Ws0 f25 mainOut f28 tail #connect
+Ws0 f28 head f16 mainIn #connect
+Ws0 f35 mainOut f57 tail #connect
+Ws0 f57 head f56 mainIn #connect
+Ws0 f56 mainOut f2 tail #connect
+Ws0 f2 head f1 mainIn #connect
