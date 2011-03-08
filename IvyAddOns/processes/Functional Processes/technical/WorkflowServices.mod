@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Mar 07 12:17:22 CET 2011]
+[>Created: Tue Mar 08 11:17:00 CET 2011]
 12A43AB40C151728 3.16 #module
 >Proto >Proto Collection #zClass
 Ws0 WorkflowServices Big #zClass
@@ -88,7 +88,7 @@ Ws0 f3 outParamTable 'result.ivyResultStatus=in.ivyResultStatus;
 ' #txt
 Ws0 f3 actionDecl 'ch.ivyteam.ivy.addons.data.restricted.technical.WorkflowServices out;
 ' #txt
-Ws0 f3 callSignature createCaseManagedTeam2(List<String>) #txt
+Ws0 f3 callSignature createCaseManagedTeams(List<String>) #txt
 Ws0 f3 type ch.ivyteam.ivy.addons.data.restricted.technical.WorkflowServices #txt
 Ws0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
