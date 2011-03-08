@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Sep 07 13:52:33 CEST 2010]
-11B2C491C48D8B91 3.12 #module
+[>Created: Tue Mar 08 08:39:33 CET 2011]
+11B2C491C48D8B91 3.16 #module
 >Proto >Proto Collection #zClass
 Rs0 RunningTaskDisplayListProcess Big #zClass
 Rs0 RD #cInfo
@@ -33,15 +33,6 @@ Rs0 @RichDialogProcessStart f14 '' #zField
 Rs0 @RichDialogProcessEnd f15 '' #zField
 Rs0 @PushWFArc f16 '' #zField
 >Proto Rs0 Rs0 RunningTaskDisplayListProcess #zField
-Rs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Rs0 f0 guid 11B2C0E8C763AE45 #txt
 Rs0 f0 type ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData #txt
 Rs0 f0 method start() #txt
@@ -52,20 +43,20 @@ Rs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 Rs0 f0 outParameterDecl '<> result;
 ' #txt
 Rs0 f0 embeddedRdInitializations '{/taskDisplayListRDC {/fieldName "taskDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/headerRDC {/fieldName "headerRDC"/startMethod "start(String,String,String)"/parameterMapping "param.iconUri=\"<%=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/enduser/images/finishedTasks48\\\")%>\";\nparam.title=\"<%=ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/enduser/plainStrings/finishedTasksShortDesc\\\")%>\";\nparam.text=\"<%=ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/finishedTasksLongDesc\\\")%>\";\n"/initScript ""}}' #txt
+Rs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Rs0 f0 86 46 20 20 13 0 #rect
 Rs0 f0 @|RichDialogInitStartIcon #fIcon
 Rs0 f1 type ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData #txt
 Rs0 f1 83 291 26 26 14 0 #rect
 Rs0 f1 @|RichDialogProcessEndIcon #fIcon
-Rs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(Boolean,RTabbedDisplay,IPropertyFilter,Number)</name>
-        <nameStyle>52,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Rs0 f3 guid 11B2C26EA70B4830 #txt
 Rs0 f3 type ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData #txt
 Rs0 f3 method start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
@@ -80,7 +71,16 @@ out.taskDisplayMode=param.aTaskDisplayMode;
 ' #txt
 Rs0 f3 outParameterDecl '<> result;
 ' #txt
-Rs0 f3 embeddedRdInitializations '{/taskDisplayListRDC {/fieldName "taskDisplayListRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)"/parameterMapping "param.aRunningTaskMode=callParam.aRunningTaskMode;\nparam.aTaskDisplayListParentDisplay=callParam.aTaskDisplayListParentDisplay;\nparam.aPropertyFilter=callParam.aPropertyFilter;\nparam.aTaskDisplayMode=callParam.aTaskDisplayMode;\nparam.aHasWfAdministratorPermissions=callParam.aHasWfAdministratorPermissions;\n"/initScript ""}/headerRDC {/fieldName "headerRDC"/startMethod "start(String,String,String)"/parameterMapping "param.iconUri=\"<%=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/task/images/runningTasks48\\\")%>\";\nparam.text=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskDisplayMode\" + callParam.aTaskDisplayMode + \"LongDesc\");\n"/initScript "\nparam.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/finishedTaskDisplayMode\" + callParam.aTaskDisplayMode + \"ShortDesc\");\n// ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskDisplayMode\" + callParam.aTaskDisplayMode + \"ShortDesc\")\n"}}' #txt
+Rs0 f3 embeddedRdInitializations '{/headerRDC {/fieldName "headerRDC"/startMethod "start(String,String,String)"/parameterMapping "param.iconUri=\"<%=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/task/images/finishedTasks48\\\")%>\";\nparam.text=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskDisplayMode\" + callParam.aTaskDisplayMode + \"LongDesc\");\n"/initScript "\nparam.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/finishedTaskDisplayMode\" + callParam.aTaskDisplayMode + \"ShortDesc\");\n// ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskDisplayMode\" + callParam.aTaskDisplayMode + \"ShortDesc\")\n"/userContext * }/taskDisplayListRDC {/fieldName "taskDisplayListRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)"/parameterMapping "param.aRunningTaskMode=callParam.aRunningTaskMode;\nparam.aTaskDisplayListParentDisplay=callParam.aTaskDisplayListParentDisplay;\nparam.aPropertyFilter=callParam.aPropertyFilter;\nparam.aTaskDisplayMode=callParam.aTaskDisplayMode;\nparam.aHasWfAdministratorPermissions=callParam.aHasWfAdministratorPermissions;\n"/initScript ""/userContext * }}' #txt
+Rs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(Boolean,RTabbedDisplay,IPropertyFilter,Number)</name>
+        <nameStyle>52,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Rs0 f3 182 46 20 20 13 0 #rect
 Rs0 f3 @|RichDialogInitStartIcon #fIcon
 Rs0 f5 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData out;
@@ -98,6 +98,10 @@ Rs0 f7 expr out #txt
 Rs0 f7 192 66 114 184 #arcP
 Rs0 f7 1 192 184 #addKink
 Rs0 f7 0 0.8654754700414173 0 0 #arcLabel
+Rs0 f4 guid 11B2C2AB5437D93C #txt
+Rs0 f4 type ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData #txt
+Rs0 f4 method refresh() #txt
+Rs0 f4 disableUIEvents false #txt
 Rs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -105,10 +109,6 @@ Rs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rs0 f4 guid 11B2C2AB5437D93C #txt
-Rs0 f4 type ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData #txt
-Rs0 f4 method refresh() #txt
-Rs0 f4 disableUIEvents false #txt
 Rs0 f4 470 54 20 20 13 0 #rect
 Rs0 f4 @|RichDialogMethodStartIcon #fIcon
 Rs0 f9 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData out;
@@ -136,6 +136,12 @@ Rs0 f8 expr out #txt
 Rs0 f8 480 140 114 184 #arcP
 Rs0 f8 1 480 184 #addKink
 Rs0 f8 1 0.3917343337662792 0 0 #arcLabel
+Rs0 f11 guid 11DABDEB8C99FE39 #txt
+Rs0 f11 type ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData #txt
+Rs0 f11 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData out;
+' #txt
+Rs0 f11 actionTable 'out=in;
+' #txt
 Rs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -145,12 +151,6 @@ Rs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rs0 f11 guid 11DABDEB8C99FE39 #txt
-Rs0 f11 type ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData #txt
-Rs0 f11 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData out;
-' #txt
-Rs0 f11 actionTable 'out=in;
-' #txt
 Rs0 f11 782 54 20 20 13 0 #rect
 Rs0 f11 @|RichDialogProcessStartIcon #fIcon
 Rs0 f12 type ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData #txt
@@ -159,6 +159,13 @@ Rs0 f12 779 259 26 26 14 0 #rect
 Rs0 f12 @|RichDialogEndIcon #fIcon
 Rs0 f13 expr out #txt
 Rs0 f13 792 74 792 259 #arcP
+Rs0 f14 guid 129603541C270497 #txt
+Rs0 f14 type ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData #txt
+Rs0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData out;
+' #txt
+Rs0 f14 actionTable 'out=in;
+' #txt
+Rs0 f14 actionCode panel.taskDisplayListRDC.close(); #txt
 Rs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -168,13 +175,6 @@ Rs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rs0 f14 guid 129603541C270497 #txt
-Rs0 f14 type ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData #txt
-Rs0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData out;
-' #txt
-Rs0 f14 actionTable 'out=in;
-' #txt
-Rs0 f14 actionCode panel.taskDisplayListRDC.close(); #txt
 Rs0 f14 654 54 20 20 13 0 #rect
 Rs0 f14 @|RichDialogProcessStartIcon #fIcon
 Rs0 f15 type ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList.FinishedTaskDisplayListData #txt
