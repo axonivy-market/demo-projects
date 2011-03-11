@@ -1,0 +1,6 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-12-07 14:21:27 | 4.1.2.32567 | 1.0
+~@RD_METHODCALL[setSeparatorText(String)]--->ch.ivyteam.ivy.process.ProcessStart:12CC0E82F08AE5F6/12CC0FD4296999C8
+~@RD_METHODCALL[getSeparatorText()]--->ch.ivyteam.ivy.process.ProcessStart:12CC0E82F08AE5F6/12CC0FCE8FFC306F
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12CC0E82F08AE5F6/12CC0E82FB5EB295
+~@RD_METHODCALL[start(String)]--->ch.ivyteam.ivy.process.ProcessStart:12CC0E82F08AE5F6/12CC0FCAF879EE9E
