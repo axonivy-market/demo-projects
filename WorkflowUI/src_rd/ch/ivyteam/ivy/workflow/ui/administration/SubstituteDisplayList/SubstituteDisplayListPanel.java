@@ -1,5 +1,7 @@
 package ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList;
 
+import java.net.URL;
+
 import ch.ivyteam.ivy.addons.widgets.RTableWithExcelExport;
 import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
@@ -67,6 +69,7 @@ private RLookupTextField roleLookupTextField = null;
 private RBoxPane roleBoxPane = null;
 private RBoxPane substituteActionsBoxPane = null;
 private RScrollPane remarkScrollPane = null;
+private String iconPath = "/ch/ivyteam/ivy/workflow/ui/administration/SubstituteDisplayList/zoom16.png";
 /**
    * Create a new instance of SubstituteManagementPanel
    */
@@ -492,7 +495,14 @@ private RLookupTextField getSubstituteLookupTextField() {
 		substituteLookupTextField.setText("");
 		substituteLookupTextField.setModelConfiguration("{/result \"result=entry.getName() + (entry.getFullName() is initialized? \\\" (\\\" + entry.getFullName() + \\\")\\\": \\\"\\\")\"/version \"3.0\"}");
 		substituteLookupTextField.setStyle("mandatoryLeftAlignedLookupTextField");
-		substituteLookupTextField.setIndicatorIcon(new ULCIcon(getClass().getResource("/ch/ivyteam/ivy/workflow/ui/administration/SubstituteDisplayList/zoom16.png")));
+		
+		URL iconUrl = getClass().getResource(iconPath);
+		if (iconUrl != null)
+		{
+			ULCIcon indicatorIcon = new ULCIcon(iconUrl);
+			substituteLookupTextField.setIndicatorIcon(indicatorIcon);
+		}
+
 		substituteLookupTextField.setName("substituteLookupTextField");
 	}
 	return substituteLookupTextField;
@@ -514,6 +524,13 @@ private RLookupTextField getRoleLookupTextField() {
 		roleLookupTextField.setStyle("mandatoryLeftAlignedLookupTextField");
 		roleLookupTextField.setEnabler(getRoleRadioButton());
 		roleLookupTextField.setIndicatorIcon(new ULCIcon(getClass().getResource("/ch/ivyteam/ivy/workflow/ui/administration/SubstituteDisplayList/zoom16.png")));
+		
+		URL iconUrl = getClass().getResource(iconPath);
+		if (iconUrl != null)
+		{
+			ULCIcon indicatorIcon = new ULCIcon(iconUrl);
+			roleLookupTextField.setIndicatorIcon(indicatorIcon);
+		}
 	}
 	return roleLookupTextField;
 }
