@@ -2,13 +2,12 @@
 <!--ivyform--><table BORDER="0"><tr >
 <td CLASS="labelTd"><!--i.ttmpTaskDetail.exp--><%=ivy.cms.co("/labels/taskExpiry")%></td>
 <td ><!--i.atmpTaskDetail.exp--><INPUT TYPE="TEXT" NAME="tmpTaskDetail$exp"  VALUE="<%=ivy.html.getFormValue("in.tmpTaskDetail.exp is initialized ? in.tmpTaskDetail.exp.format(\"dd.MM.yyyy HH:mm\") : \"\"")%>"></td>
-<td >Eingabe des bis-Datums im Format dd.mm.yyyy hh:mm</td>
+<td ><%=ivy.cms.co("/messages/txtSetExpiry")%></td>
 </tr>
 <tr >
 <td CLASS="labelTd"><!--i.ttmpTaskDetail.delay--><%=ivy.cms.co("/labels/taskDelay")%></td>
 <td ><!--i.atmpTaskDetail.delay--><INPUT TYPE="TEXT" NAME="tmpTaskDetail$delay" DISABLED="true"  VALUE="<%=ivy.html.getFormValue("in.tmpTaskDetail.delay is initialized ? in.tmpTaskDetail.delay.format(\"dd.MM.yyyy HH:mm\") : \"\"")%>"></td>
-<td >Eingabe des "gesperrt bis"-Datums im Format dd.mm.yyyy hh:mm
-<br>Die Sperrfrist kann nur geändert werden, wenn die Aufgabe im Zustand DELAYED ist.</td>
+<td ><%=ivy.cms.co("/messages/txtSetDelay")%></td>
 </tr>
 <tr >
 <td CLASS="labelTd"><!--i.ttmpTaskDetail.prio--><%=ivy.cms.co("/labels/taskPrio")%></td>
