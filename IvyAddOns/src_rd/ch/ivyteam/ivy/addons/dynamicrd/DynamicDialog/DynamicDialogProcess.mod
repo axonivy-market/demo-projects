@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Feb 08 15:50:06 CET 2011]
-1253032DA521D92D 3.12 #module
+[>Created: Mon Mar 14 09:49:06 CET 2011]
+1253032DA521D92D 3.16 #module
 >Proto >Proto Collection #zClass
 Ds0 DynamicDialogNewProcess Big #zClass
 Ds0 RD #cInfo
@@ -87,11 +87,6 @@ Ds0 @PushWFArc f41 '' #zField
 Ds0 @RichDialogProcessStart f39 '' #zField
 Ds0 @RichDialogProcessEnd f40 '' #zField
 Ds0 @PushWFArc f56 '' #zField
-Ds0 @RichDialogProcessEnd f64 '' #zField
-Ds0 @RichDialogMethodStart f67 '' #zField
-Ds0 @RichDialog f63 '' #zField
-Ds0 @PushWFArc f68 '' #zField
-Ds0 @PushWFArc f69 '' #zField
 Ds0 @RichDialogMethodStart f71 '' #zField
 Ds0 @RichDialogProcessEnd f70 '' #zField
 Ds0 @RichDialog f74 '' #zField
@@ -141,6 +136,16 @@ Ds0 @RichDialogProcessStep f124 '' #zField
 Ds0 @PushWFArc f126 '' #zField
 Ds0 @PushWFArc f13 '' #zField
 Ds0 @PushWFArc f19 '' #zField
+Ds0 @RichDialogProcessStart f125 '' #zField
+Ds0 @RichDialogProcessEnd f127 '' #zField
+Ds0 @PushWFArc f128 '' #zField
+Ds0 @RichDialog f129 '' #zField
+Ds0 @RichDialogProcessEnd f130 '' #zField
+Ds0 @RichDialogMethodStart f131 '' #zField
+Ds0 @RichDialogProcessStep f132 '' #zField
+Ds0 @PushWFArc f133 '' #zField
+Ds0 @PushWFArc f134 '' #zField
+Ds0 @PushWFArc f135 '' #zField
 >Proto Ds0 Ds0 DynamicDialogNewProcess #zField
 Ds0 f0 guid 1253032DA719BBD2 #txt
 Ds0 f0 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
@@ -195,17 +200,6 @@ Ds0 f3 @|RichDialogInitStartIcon #fIcon
 Ds0 f7 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f7 222 238 20 20 13 0 #rect
 Ds0 f7 @|RichDialogProcessEndIcon #fIcon
-Ds0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Constructs parameters or gets from cache
-Start DD</name>
-        <nameStyle>41,7,9
-8,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f9 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
 ' #txt
 Ds0 f9 actionTable 'out=in;
@@ -275,19 +269,21 @@ if (cacheLifeTime != 0)
 }
 panel.start(in.value, ivy.rd, ivy.request.getProject(), ddEntry);' #txt
 Ds0 f9 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
-Ds0 f9 214 148 36 24 20 -2 #rect
-Ds0 f9 @|RichDialogProcessStepIcon #fIcon
-Ds0 f10 expr out #txt
-Ds0 f10 167 95 220 148 #arcP
-Ds0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>getValue()</name>
-        <nameStyle>10,5,7,9
+        <name>Constructs parameters or gets from cache
+Start DD</name>
+        <nameStyle>41,7,9
+8,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f9 214 148 36 24 20 -2 #rect
+Ds0 f9 @|RichDialogProcessStepIcon #fIcon
+Ds0 f10 expr out #txt
+Ds0 f10 167 95 220 148 #arcP
 Ds0 f14 guid 125327DDF18A1F24 #txt
 Ds0 f14 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f14 method getValue() #txt
@@ -299,17 +295,17 @@ Ds0 f14 outParameterDecl '<java.lang.Object value> result;
 ' #txt
 Ds0 f14 outParameterMapAction 'result.value=panel.getDDValue();
 ' #txt
-Ds0 f14 635 75 26 26 13 5 #rect
-Ds0 f14 @|RichDialogMethodStartIcon #fIcon
-Ds0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>setValue(Object)</name>
-        <nameStyle>16,5,7,9
+        <name>getValue()</name>
+        <nameStyle>10,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f14 635 75 26 26 13 5 #rect
+Ds0 f14 @|RichDialogMethodStartIcon #fIcon
 Ds0 f15 guid 125327DE7362AF2D #txt
 Ds0 f15 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f15 method setValue(Object) #txt
@@ -321,7 +317,19 @@ Ds0 f15 inParameterMapAction 'out.value=param.value;
 ' #txt
 Ds0 f15 outParameterDecl '<> result;
 ' #txt
-Ds0 f15 outActionCode panel.setDDValue(in.value); #txt
+Ds0 f15 outActionCode 'if (in.isInitialized)
+{
+	panel.setDDValue(in.value);
+}' #txt
+Ds0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>setValue(Object)</name>
+        <nameStyle>16,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f15 779 75 26 26 16 0 #rect
 Ds0 f15 @|RichDialogMethodStartIcon #fIcon
 Ds0 f16 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
@@ -366,15 +374,6 @@ Ds0 f8 320 94 248 148 #arcP
 Ds0 f11 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f11 974 238 20 20 13 0 #rect
 Ds0 f11 @|RichDialogProcessEndIcon #fIcon
-Ds0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>serializeXML(String)</name>
-        <nameStyle>20,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f12 guid 1255A031CA6385C5 #txt
 Ds0 f12 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f12 method serializeXML(String) #txt
@@ -386,17 +385,17 @@ Ds0 f12 inParameterMapAction 'out.xmlFile=param.fileName;
 ' #txt
 Ds0 f12 outParameterDecl '<> result;
 ' #txt
-Ds0 f12 971 75 26 26 16 0 #rect
-Ds0 f12 @|RichDialogMethodStartIcon #fIcon
-Ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>getComponent(String)</name>
+        <name>serializeXML(String)</name>
         <nameStyle>20,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f12 971 75 26 26 16 0 #rect
+Ds0 f12 @|RichDialogMethodStartIcon #fIcon
 Ds0 f18 guid 1255A05251CFBC70 #txt
 Ds0 f18 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f18 method getComponent(String) #txt
@@ -410,17 +409,17 @@ Ds0 f18 outParameterDecl '<ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.Compone
 ' #txt
 Ds0 f18 outParameterMapAction 'result.component=in.component;
 ' #txt
-Ds0 f18 950 318 20 20 13 0 #rect
-Ds0 f18 @|RichDialogMethodStartIcon #fIcon
-Ds0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>getFieldComponent(String)</name>
-        <nameStyle>25,5,7,9
+        <name>getComponent(String)</name>
+        <nameStyle>20,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f18 950 318 20 20 13 0 #rect
+Ds0 f18 @|RichDialogMethodStartIcon #fIcon
 Ds0 f20 guid 1255A052BD37FAF0 #txt
 Ds0 f20 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f20 method getFieldComponent(String) #txt
@@ -434,6 +433,15 @@ Ds0 f20 outParameterDecl '<ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.FieldCo
 ' #txt
 Ds0 f20 outParameterMapAction 'result.fieldComponent=in.fieldComponent;
 ' #txt
+Ds0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>getFieldComponent(String)</name>
+        <nameStyle>25,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f20 1102 318 20 20 13 0 #rect
 Ds0 f20 @|RichDialogMethodStartIcon #fIcon
 Ds0 f21 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
@@ -442,49 +450,40 @@ Ds0 f21 @|RichDialogProcessEndIcon #fIcon
 Ds0 f22 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f22 1102 454 20 20 13 0 #rect
 Ds0 f22 @|RichDialogProcessEndIcon #fIcon
-Ds0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Ds0 f25 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
 ' #txt
 Ds0 f25 actionTable 'out=in;
 ' #txt
 Ds0 f25 actionCode 'out.component = panel.getDDComponent(in.fullName);' #txt
 Ds0 f25 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ds0 f25 942 380 36 24 20 -2 #rect
 Ds0 f25 @|RichDialogProcessStepIcon #fIcon
 Ds0 f26 expr out #txt
 Ds0 f26 960 338 960 380 #arcP
 Ds0 f23 expr out #txt
 Ds0 f23 960 404 960 454 #arcP
-Ds0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Ds0 f27 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
 ' #txt
 Ds0 f27 actionTable 'out=in;
 ' #txt
 Ds0 f27 actionCode 'out.fieldComponent = panel.getDDFieldComponent(in.fullName);' #txt
 Ds0 f27 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ds0 f27 1094 380 36 24 20 -2 #rect
 Ds0 f27 @|RichDialogProcessStepIcon #fIcon
 Ds0 f28 expr out #txt
 Ds0 f28 1112 338 1112 380 #arcP
 Ds0 f24 expr out #txt
 Ds0 f24 1112 404 1112 454 #arcP
-Ds0 f115 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>validate()</name>
-        <nameStyle>10,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f115 guid 125AC54171896B93 #txt
 Ds0 f115 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f115 method validate() #txt
@@ -495,20 +494,20 @@ Ds0 f115 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent metho
 Ds0 f115 outParameterDecl '<> result;
 ' #txt
 Ds0 f115 outActionCode panel.ddValidate(); #txt
+Ds0 f115 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>validate()</name>
+        <nameStyle>10,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f115 1118 526 20 20 13 0 #rect
 Ds0 f115 @|RichDialogMethodStartIcon #fIcon
 Ds0 f118 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f118 1030 646 20 20 13 0 #rect
 Ds0 f118 @|RichDialogProcessEndIcon #fIcon
-Ds0 f114 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>isValid()</name>
-        <nameStyle>9,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f114 guid 125AC541A8256DB1 #txt
 Ds0 f114 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f114 method isValid() #txt
@@ -520,20 +519,20 @@ Ds0 f114 outParameterDecl '<java.lang.Boolean result> result;
 ' #txt
 Ds0 f114 outParameterMapAction 'result.result=panel.isDDValid();
 ' #txt
+Ds0 f114 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>isValid()</name>
+        <nameStyle>9,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f114 1030 526 20 20 13 0 #rect
 Ds0 f114 @|RichDialogMethodStartIcon #fIcon
 Ds0 f117 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f117 950 646 20 20 13 0 #rect
 Ds0 f117 @|RichDialogProcessEndIcon #fIcon
-Ds0 f116 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>isBlocked()</name>
-        <nameStyle>11,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f116 guid 125AC541AE0A79BF #txt
 Ds0 f116 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f116 method isBlocked() #txt
@@ -544,6 +543,15 @@ Ds0 f116 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent metho
 Ds0 f116 outParameterDecl '<java.lang.Boolean result> result;
 ' #txt
 Ds0 f116 outParameterMapAction 'result.result=panel.isDDBlocked();
+' #txt
+Ds0 f116 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>isBlocked()</name>
+        <nameStyle>11,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
 ' #txt
 Ds0 f116 950 526 20 20 13 0 #rect
 Ds0 f116 @|RichDialogMethodStartIcon #fIcon
@@ -556,15 +564,6 @@ Ds0 f121 expr out #txt
 Ds0 f121 1040 546 1040 646 #arcP
 Ds0 f122 expr out #txt
 Ds0 f122 1128 546 1128 646 #arcP
-Ds0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>setFocusOnFirstError()</name>
-        <nameStyle>22,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f29 guid 125AC6A1BFF27F80 #txt
 Ds0 f29 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f29 method setFocusOnFirstError() #txt
@@ -575,6 +574,15 @@ Ds0 f29 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 Ds0 f29 outParameterDecl '<> result;
 ' #txt
 Ds0 f29 outActionCode panel.setDDFocusOnFirstError(); #txt
+Ds0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>setFocusOnFirstError()</name>
+        <nameStyle>22,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f29 1206 526 20 20 13 0 #rect
 Ds0 f29 @|RichDialogMethodStartIcon #fIcon
 Ds0 f30 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
@@ -613,23 +621,24 @@ Ds0 f32 @|RichDialogInitStartIcon #fIcon
 Ds0 f33 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f33 46 486 20 20 13 0 #rect
 Ds0 f33 @|RichDialogProcessEndIcon #fIcon
-Ds0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Ds0 f34 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
 ' #txt
 Ds0 f34 actionTable 'out=in;
 ' #txt
 Ds0 f34 actionCode 'panel.start(in.fullName, in.value, in.staticRelation, ivy.rd, ivy.request.getProject());' #txt
 Ds0 f34 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ds0 f34 38 380 36 24 20 -2 #rect
 Ds0 f34 @|RichDialogProcessStepIcon #fIcon
 Ds0 f35 expr out #txt
 Ds0 f35 56 330 56 380 #arcP
 Ds0 f36 expr out #txt
 Ds0 f36 56 404 56 486 #arcP
+Ds0 f43 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -639,7 +648,6 @@ Ds0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f43 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f43 1418 250 28 28 -106 -11 #rect
 Ds0 f43 @|AlternativeIcon #fIcon
 Ds0 f45 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
@@ -673,6 +681,13 @@ Ds0 f49 1518 364 36 24 20 -2 #rect
 Ds0 f49 @|RichDialogIcon #fIcon
 Ds0 f46 expr out #txt
 Ds0 f46 1518 386 1440 427 #arcP
+Ds0 f51 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f51 actionTable 'out=in;
+out.messageText=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/validationDialogMessage");
+out.messageTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/validationDialogTitle");
+' #txt
+Ds0 f51 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f51 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -682,26 +697,10 @@ Ds0 f51 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f51 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
-' #txt
-Ds0 f51 actionTable 'out=in;
-out.messageText=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/validationDialogMessage");
-out.messageTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/validationDialogTitle");
-' #txt
-Ds0 f51 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f51 1518 300 36 24 20 -2 #rect
 Ds0 f51 @|RichDialogProcessStepIcon #fIcon
 Ds0 f50 expr out #txt
 Ds0 f50 1536 324 1536 364 #arcP
-Ds0 f53 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>cancel(DynamicDialogPanel,String)</name>
-        <nameStyle>33,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f53 guid 1271F8E1586C4667 #txt
 Ds0 f53 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f53 method cancel(ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel,String) #txt
@@ -713,17 +712,17 @@ Ds0 f53 inParameterMapAction 'out.result="cancel";
 ' #txt
 Ds0 f53 outParameterDecl '<> result;
 ' #txt
-Ds0 f53 1294 78 20 20 13 0 #rect
-Ds0 f53 @|RichDialogMethodStartIcon #fIcon
-Ds0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f53 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>close(DynamicDialogPanel,String)</name>
-        <nameStyle>32,5,7,9
+        <name>cancel(DynamicDialogPanel,String)</name>
+        <nameStyle>33,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f53 1294 78 20 20 13 0 #rect
+Ds0 f53 @|RichDialogMethodStartIcon #fIcon
 Ds0 f38 guid 1271F8ED5B741A77 #txt
 Ds0 f38 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f38 method close(ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel,String) #txt
@@ -735,17 +734,17 @@ Ds0 f38 inParameterMapAction 'out.result="close";
 ' #txt
 Ds0 f38 outParameterDecl '<> result;
 ' #txt
-Ds0 f38 1318 110 20 20 13 -1 #rect
-Ds0 f38 @|RichDialogMethodStartIcon #fIcon
-Ds0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>ok(DynamicDialogPanel,String)</name>
-        <nameStyle>29,5,7,9
+        <name>close(DynamicDialogPanel,String)</name>
+        <nameStyle>32,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f38 1318 110 20 20 13 -1 #rect
+Ds0 f38 @|RichDialogMethodStartIcon #fIcon
 Ds0 f44 guid 1271F8FD65B24A74 #txt
 Ds0 f44 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f44 method ok(ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel,String) #txt
@@ -757,17 +756,17 @@ Ds0 f44 inParameterMapAction 'out.result="ok";
 ' #txt
 Ds0 f44 outParameterDecl '<> result;
 ' #txt
-Ds0 f44 1422 142 20 20 13 0 #rect
-Ds0 f44 @|RichDialogMethodStartIcon #fIcon
-Ds0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>validateAndClose(DynamicDialogPanel,String)</name>
-        <nameStyle>43,5,7,9
+        <name>ok(DynamicDialogPanel,String)</name>
+        <nameStyle>29,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f44 1422 142 20 20 13 0 #rect
+Ds0 f44 @|RichDialogMethodStartIcon #fIcon
 Ds0 f55 guid 1271F90031867A98 #txt
 Ds0 f55 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f55 method validateAndClose(ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel,String) #txt
@@ -780,12 +779,27 @@ Ds0 f55 inParameterMapAction 'out.result="validateAndClose";
 Ds0 f55 inActionCode " #txt
 Ds0 f55 outParameterDecl '<> result;
 ' #txt
+Ds0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>validateAndClose(DynamicDialogPanel,String)</name>
+        <nameStyle>43,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f55 1446 174 20 20 13 0 #rect
 Ds0 f55 @|RichDialogMethodStartIcon #fIcon
 Ds0 f47 expr in #txt
 Ds0 f47 1446 264 1536 300 #arcP
 Ds0 f47 1 1536 264 #addKink
 Ds0 f47 0 0.7331051323142665 0 0 #arcLabel
+Ds0 f48 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f48 actionTable 'out=in;
+out.result=panel.#dDMethodParameter is initialized ? panel.dDMethodParameter : in.result;
+' #txt
+Ds0 f48 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f48 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -795,18 +809,18 @@ Ds0 f48 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f48 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
-' #txt
-Ds0 f48 actionTable 'out=in;
-out.result=panel.#dDMethodParameter is initialized ? panel.dDMethodParameter : in.result;
-' #txt
-Ds0 f48 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f48 1414 212 36 24 20 -2 #rect
 Ds0 f48 @|RichDialogProcessStepIcon #fIcon
 Ds0 f52 expr out #txt
 Ds0 f52 1450 192 1439 212 #arcP
 Ds0 f57 expr out #txt
 Ds0 f57 1432 236 1432 250 #arcP
+Ds0 f59 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f59 actionTable 'out=in;
+out.result=panel.#dDMethodParameter is initialized ? panel.dDMethodParameter : in.result;
+' #txt
+Ds0 f59 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f59 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -816,18 +830,18 @@ Ds0 f59 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f59 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
-' #txt
-Ds0 f59 actionTable 'out=in;
-out.result=panel.#dDMethodParameter is initialized ? panel.dDMethodParameter : in.result;
-' #txt
-Ds0 f59 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f59 1286 148 36 24 20 -2 #rect
 Ds0 f59 @|RichDialogProcessStepIcon #fIcon
 Ds0 f61 expr out #txt
 Ds0 f61 1322 128 1311 148 #arcP
 Ds0 f62 expr out #txt
 Ds0 f62 1432 162 1432 212 #arcP
+Ds0 f37 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f37 actionTable 'out=in;
+' #txt
+Ds0 f37 actionCode panel.closeButton.doClick(); #txt
+Ds0 f37 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f37 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -837,12 +851,6 @@ Ds0 f37 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f37 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
-' #txt
-Ds0 f37 actionTable 'out=in;
-' #txt
-Ds0 f37 actionCode panel.closeButton.doClick(); #txt
-Ds0 f37 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f37 1414 324 36 24 -138 21 #rect
 Ds0 f37 @|RichDialogProcessStepIcon #fIcon
 Ds0 f54 expr in #txt
@@ -864,6 +872,12 @@ Ds0 f60 expr out #txt
 Ds0 f60 1304 172 1414 336 #arcP
 Ds0 f60 1 1304 336 #addKink
 Ds0 f60 0 0.9368720231383051 0 0 #arcLabel
+Ds0 f42 guid 127212CB786FD078 #txt
+Ds0 f42 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f42 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f42 actionTable 'out=in;
+' #txt
 Ds0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -872,12 +886,6 @@ Ds0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ds0 f42 guid 127212CB786FD078 #txt
-Ds0 f42 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
-Ds0 f42 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
-' #txt
-Ds0 f42 actionTable 'out=in;
 ' #txt
 Ds0 f42 1758 70 20 20 13 0 #rect
 Ds0 f42 @|RichDialogProcessStartIcon #fIcon
@@ -889,6 +897,13 @@ Ds0 f66 expr out #txt
 Ds0 f66 1768 90 1768 134 #arcP
 Ds0 f41 expr out #txt
 Ds0 f41 1304 98 1304 148 #arcP
+Ds0 f39 guid 12722DE87C4B2D45 #txt
+Ds0 f39 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f39 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f39 actionTable 'out=in;
+' #txt
+Ds0 f39 actionCode panel.reload(); #txt
 Ds0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -898,13 +913,6 @@ Ds0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f39 guid 12722DE87C4B2D45 #txt
-Ds0 f39 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
-Ds0 f39 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
-' #txt
-Ds0 f39 actionTable 'out=in;
-' #txt
-Ds0 f39 actionCode panel.reload(); #txt
 Ds0 f39 1758 198 20 20 13 0 #rect
 Ds0 f39 @|RichDialogProcessStartIcon #fIcon
 Ds0 f40 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
@@ -912,67 +920,6 @@ Ds0 f40 1758 254 20 20 13 0 #rect
 Ds0 f40 @|RichDialogProcessEndIcon #fIcon
 Ds0 f56 expr out #txt
 Ds0 f56 1768 218 1768 254 #arcP
-Ds0 f64 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
-Ds0 f64 1102 238 20 20 13 0 #rect
-Ds0 f64 @|RichDialogProcessEndIcon #fIcon
-Ds0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>loadController(String)</name>
-        <nameStyle>22,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ds0 f67 guid 12A3D801321EE84D #txt
-Ds0 f67 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
-Ds0 f67 method loadController(String) #txt
-Ds0 f67 disableUIEvents false #txt
-Ds0 f67 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String controllerName> param = methodEvent.getInputArguments();
-' #txt
-Ds0 f67 inParameterMapAction 'out.controllerName=param.controllerName;
-' #txt
-Ds0 f67 outParameterDecl '<> result;
-' #txt
-Ds0 f67 1102 126 20 20 13 0 #rect
-Ds0 f67 @|RichDialogMethodStartIcon #fIcon
-Ds0 f63 targetWindow THIS #txt
-Ds0 f63 targetDisplay EXISTING:DDControllerDisplay #txt
-Ds0 f63 richDialogId IvyScript://in.controllerName #txt
-Ds0 f63 startMethod start() #txt
-Ds0 f63 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
-Ds0 f63 requestActionDecl '<> param;' #txt
-Ds0 f63 responseActionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
-' #txt
-Ds0 f63 responseMappingAction 'out=in;
-' #txt
-Ds0 f63 windowConfiguration '* ' #txt
-Ds0 f63 isAsynch true #txt
-Ds0 f63 isInnerRd true #txt
-Ds0 f63 isDialog false #txt
-Ds0 f63 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Load the controller</name>
-        <nameStyle>19,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ds0 f63 1094 180 36 24 20 -2 #rect
-Ds0 f63 @|RichDialogIcon #fIcon
-Ds0 f68 expr out #txt
-Ds0 f68 1112 146 1112 180 #arcP
-Ds0 f69 expr out #txt
-Ds0 f69 1112 204 1112 238 #arcP
-Ds0 f71 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>deleteEntryConfirmation(String)</name>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f71 guid 12A47960D116DC31 #txt
 Ds0 f71 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f71 method deleteEntryConfirmation(String) #txt
@@ -983,6 +930,13 @@ Ds0 f71 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 Ds0 f71 inParameterMapAction 'out.fullName=param.fullName;
 ' #txt
 Ds0 f71 outParameterDecl '<> result;
+' #txt
+Ds0 f71 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>deleteEntryConfirmation(String)</name>
+    </language>
+</elementInfo>
 ' #txt
 Ds0 f71 1182 710 20 20 14 0 #rect
 Ds0 f71 @|RichDialogMethodStartIcon #fIcon
@@ -1019,15 +973,6 @@ Ds0 f74 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ds0 f74 1174 796 36 24 20 -2 #rect
 Ds0 f74 @|RichDialogIcon #fIcon
-Ds0 f78 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Remove the line</name>
-        <nameStyle>15,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f78 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
 ' #txt
 Ds0 f78 actionTable 'out=in;
@@ -1050,10 +995,26 @@ if (component instanceof Table)
 
 ' #txt
 Ds0 f78 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f78 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Remove the line</name>
+        <nameStyle>15,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f78 1174 868 36 24 21 -7 #rect
 Ds0 f78 @|RichDialogProcessStepIcon #fIcon
 Ds0 f76 expr out #txt
 Ds0 f76 1192 892 1192 910 #arcP
+Ds0 f80 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f80 actionTable 'out=in;
+out.messageText=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/deleteEntryMessage");
+out.messageTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/deleteEntryTitle");
+' #txt
+Ds0 f80 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f80 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1063,19 +1024,13 @@ Ds0 f80 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f80 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
-' #txt
-Ds0 f80 actionTable 'out=in;
-out.messageText=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/deleteEntryMessage");
-out.messageTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/deleteEntryTitle");
-' #txt
-Ds0 f80 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f80 1174 748 36 24 20 -2 #rect
 Ds0 f80 @|RichDialogProcessStepIcon #fIcon
 Ds0 f81 expr out #txt
 Ds0 f81 1192 730 1192 748 #arcP
 Ds0 f75 expr out #txt
 Ds0 f75 1192 772 1192 796 #arcP
+Ds0 f82 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f82 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1085,7 +1040,6 @@ Ds0 f82 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f82 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f82 1178 826 28 28 16 -6 #rect
 Ds0 f82 @|AlternativeIcon #fIcon
 Ds0 f83 expr out #txt
@@ -1107,13 +1061,6 @@ Ds0 f84 expr in #txt
 Ds0 f84 1185 847 1186 911 #arcP
 Ds0 f84 1 1160 872 #addKink
 Ds0 f84 1 0.14626316147159524 0 0 #arcLabel
-Ds0 f72 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>entryEditingMessage()</name>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f72 guid 12A56193CDD772CF #txt
 Ds0 f72 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f72 method entryEditingMessage() #txt
@@ -1123,8 +1070,22 @@ Ds0 f72 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 ' #txt
 Ds0 f72 outParameterDecl '<> result;
 ' #txt
+Ds0 f72 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>entryEditingMessage()</name>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f72 950 710 20 20 11 -5 #rect
 Ds0 f72 @|RichDialogMethodStartIcon #fIcon
+Ds0 f73 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f73 actionTable 'out=in;
+out.messageText=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/entryEditingMessage");
+out.messageTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/entryEditingTitle");
+' #txt
+Ds0 f73 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f73 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1134,13 +1095,6 @@ Ds0 f73 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f73 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
-' #txt
-Ds0 f73 actionTable 'out=in;
-out.messageText=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/entryEditingMessage");
-out.messageTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/entryEditingTitle");
-' #txt
-Ds0 f73 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f73 942 756 36 24 20 -2 #rect
 Ds0 f73 @|RichDialogProcessStepIcon #fIcon
 Ds0 f77 expr out #txt
@@ -1178,15 +1132,6 @@ Ds0 f87 expr out #txt
 Ds0 f87 960 780 960 804 #arcP
 Ds0 f88 expr out #txt
 Ds0 f88 960 828 960 854 #arcP
-Ds0 f89 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>blockedValidationMessage()</name>
-        <nameStyle>26,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f89 guid 12A61719D00594D0 #txt
 Ds0 f89 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f89 method entryBlockedValidationMessage() #txt
@@ -1196,17 +1141,17 @@ Ds0 f89 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 ' #txt
 Ds0 f89 outParameterDecl '<> result;
 ' #txt
-Ds0 f89 966 942 20 20 13 0 #rect
-Ds0 f89 @|RichDialogMethodStartIcon #fIcon
-Ds0 f90 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f89 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>entryValidationConfirmation(String)</name>
-        <nameStyle>35,5,7,9
+        <name>blockedValidationMessage()</name>
+        <nameStyle>26,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ds0 f89 966 942 20 20 13 0 #rect
+Ds0 f89 @|RichDialogMethodStartIcon #fIcon
 Ds0 f90 guid 12A6171A8A439763 #txt
 Ds0 f90 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f90 method entryValidationConfirmation(String) #txt
@@ -1217,6 +1162,15 @@ Ds0 f90 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 Ds0 f90 inParameterMapAction 'out.fullName=param.fullName;
 ' #txt
 Ds0 f90 outParameterDecl '<> result;
+' #txt
+Ds0 f90 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>entryValidationConfirmation(String)</name>
+        <nameStyle>35,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
 ' #txt
 Ds0 f90 1270 942 20 20 13 0 #rect
 Ds0 f90 @|RichDialogMethodStartIcon #fIcon
@@ -1249,6 +1203,13 @@ Ds0 f92 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ds0 f92 958 1036 36 24 20 -2 #rect
 Ds0 f92 @|RichDialogIcon #fIcon
+Ds0 f93 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f93 actionTable 'out=in;
+out.messageText=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/entryBlockedValidationMessage");
+out.messageTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/entryBlockedValidationTitle");
+' #txt
+Ds0 f93 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f93 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1258,13 +1219,6 @@ Ds0 f93 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f93 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
-' #txt
-Ds0 f93 actionTable 'out=in;
-out.messageText=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/entryBlockedValidationMessage");
-out.messageTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/entryBlockedValidationTitle");
-' #txt
-Ds0 f93 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f93 958 988 36 24 20 -2 #rect
 Ds0 f93 @|RichDialogProcessStepIcon #fIcon
 Ds0 f94 expr out #txt
@@ -1303,6 +1257,7 @@ Ds0 f97 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ds0 f97 1262 1028 36 24 20 -2 #rect
 Ds0 f97 @|RichDialogIcon #fIcon
+Ds0 f98 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f98 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1312,21 +1267,11 @@ Ds0 f98 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f98 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f98 1266 1058 28 28 16 -6 #rect
 Ds0 f98 @|AlternativeIcon #fIcon
 Ds0 f99 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f99 1270 1142 20 20 13 0 #rect
 Ds0 f99 @|RichDialogProcessEndIcon #fIcon
-Ds0 f100 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Save the entry</name>
-        <nameStyle>14,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f100 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
 ' #txt
 Ds0 f100 actionTable 'out=in;
@@ -1349,8 +1294,24 @@ if (component instanceof MasterDetail)
 
 ' #txt
 Ds0 f100 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f100 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Save the entry</name>
+        <nameStyle>14,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f100 1262 1100 36 24 21 -7 #rect
 Ds0 f100 @|RichDialogProcessStepIcon #fIcon
+Ds0 f101 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f101 actionTable 'out=in;
+out.messageText=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/entryValidationMessage");
+out.messageTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/entryValidationTitle");
+' #txt
+Ds0 f101 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f101 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1360,13 +1321,6 @@ Ds0 f101 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f101 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
-' #txt
-Ds0 f101 actionTable 'out=in;
-out.messageText=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/entryValidationMessage");
-out.messageTitle=ivy.cms.co("/ch/ivyteam/ivy/addons/dynamicrd/DynamicDialog/plainStrings/entryValidationTitle");
-' #txt
-Ds0 f101 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
 Ds0 f101 1262 980 36 24 20 -2 #rect
 Ds0 f101 @|RichDialogProcessStepIcon #fIcon
 Ds0 f102 expr out #txt
@@ -1424,6 +1378,10 @@ Ds0 f109 358 118 20 20 13 0 #rect
 Ds0 f109 @|RichDialogInitStartIcon #fIcon
 Ds0 f108 expr out #txt
 Ds0 f108 358 130 250 156 #arcP
+Ds0 f110 guid 12B7E3A9E459A1B2 #txt
+Ds0 f110 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f110 method invalidateCache() #txt
+Ds0 f110 disableUIEvents false #txt
 Ds0 f110 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1431,17 +1389,8 @@ Ds0 f110 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f110 guid 12B7E3A9E459A1B2 #txt
-Ds0 f110 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
-Ds0 f110 method invalidateCache() #txt
-Ds0 f110 disableUIEvents false #txt
 Ds0 f110 1518 518 20 20 13 0 #rect
 Ds0 f110 @|RichDialogMethodStartIcon #fIcon
-Ds0 f111 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Ds0 f111 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
 ' #txt
 Ds0 f111 actionTable 'out=in;
@@ -1454,6 +1403,11 @@ if (#group is initialized)
 	ivy.datacache.getApplicationCache().invalidateGroup(group);
 }' #txt
 Ds0 f111 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f111 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ds0 f111 1510 580 36 24 20 -2 #rect
 Ds0 f111 @|RichDialogProcessStepIcon #fIcon
 Ds0 f112 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
@@ -1463,15 +1417,6 @@ Ds0 f113 expr out #txt
 Ds0 f113 1528 538 1528 580 #arcP
 Ds0 f123 expr out #txt
 Ds0 f123 1528 604 1528 654 #arcP
-Ds0 f124 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Serialize content</name>
-        <nameStyle>17,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ds0 f124 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
 ' #txt
 Ds0 f124 actionTable 'out=in;
@@ -1485,6 +1430,15 @@ serializer.serializeXML(panel.getDDValue(),
 	panel.getParameterTree());
 serializer.saveDocument(in.xmlFile);' #txt
 Ds0 f124 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f124 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Serialize content</name>
+        <nameStyle>17,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ds0 f124 966 148 36 24 20 -2 #rect
 Ds0 f124 @|RichDialogProcessStepIcon #fIcon
 Ds0 f126 expr out #txt
@@ -1493,6 +1447,101 @@ Ds0 f13 expr out #txt
 Ds0 f13 984 172 984 238 #arcP
 Ds0 f19 expr out #txt
 Ds0 f19 792 101 792 238 #arcP
+Ds0 f125 guid 12EB38839FCDF28F #txt
+Ds0 f125 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f125 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f125 actionTable 'out=in;
+' #txt
+Ds0 f125 actionCode 'out.isInitialized = true;
+panel.onLoad(in.value);' #txt
+Ds0 f125 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>onLoad</name>
+        <nameStyle>6,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f125 1758 310 20 20 13 0 #rect
+Ds0 f125 @|RichDialogProcessStartIcon #fIcon
+Ds0 f127 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f127 1758 382 20 20 13 0 #rect
+Ds0 f127 @|RichDialogProcessEndIcon #fIcon
+Ds0 f128 expr out #txt
+Ds0 f128 1768 330 1768 382 #arcP
+Ds0 f129 targetWindow THIS #txt
+Ds0 f129 targetDisplay EXISTING:<%=in.controllerDisplayName%> #txt
+Ds0 f129 richDialogId IvyScript://in.controllerName #txt
+Ds0 f129 startMethod start() #txt
+Ds0 f129 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f129 requestActionDecl '<> param;' #txt
+Ds0 f129 responseActionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f129 responseMappingAction 'out=in;
+' #txt
+Ds0 f129 windowConfiguration '* ' #txt
+Ds0 f129 isAsynch true #txt
+Ds0 f129 isInnerRd true #txt
+Ds0 f129 isDialog false #txt
+Ds0 f129 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Load the controller</name>
+        <nameStyle>19,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f129 1102 196 36 24 20 -2 #rect
+Ds0 f129 @|RichDialogIcon #fIcon
+Ds0 f130 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f130 1110 238 20 20 13 0 #rect
+Ds0 f130 @|RichDialogProcessEndIcon #fIcon
+Ds0 f131 guid 12EB38C9B4063B53 #txt
+Ds0 f131 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f131 method loadController(String) #txt
+Ds0 f131 disableUIEvents false #txt
+Ds0 f131 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<java.lang.String controllerName> param = methodEvent.getInputArguments();
+' #txt
+Ds0 f131 inParameterMapAction 'out.controllerName=param.controllerName;
+' #txt
+Ds0 f131 outParameterDecl '<> result;
+' #txt
+Ds0 f131 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>loadController(String)</name>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f131 1110 126 20 20 13 0 #rect
+Ds0 f131 @|RichDialogMethodStartIcon #fIcon
+Ds0 f132 actionDecl 'ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData out;
+' #txt
+Ds0 f132 actionTable 'out=in;
+' #txt
+Ds0 f132 actionCode 'out.controllerDisplayName = panel.getControllerDisplayName();' #txt
+Ds0 f132 type ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogData #txt
+Ds0 f132 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Get display name</name>
+        <nameStyle>16,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f132 1102 156 36 24 20 -2 #rect
+Ds0 f132 @|RichDialogProcessStepIcon #fIcon
+Ds0 f133 expr out #txt
+Ds0 f133 1120 220 1120 238 #arcP
+Ds0 f134 expr out #txt
+Ds0 f134 1120 146 1120 156 #arcP
+Ds0 f135 expr out #txt
+Ds0 f135 1120 180 1120 196 #arcP
 >Proto Ds0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1573,10 +1622,6 @@ Ds0 f53 mainOut f41 tail #connect
 Ds0 f41 head f59 mainIn #connect
 Ds0 f39 mainOut f56 tail #connect
 Ds0 f56 head f40 mainIn #connect
-Ds0 f67 mainOut f68 tail #connect
-Ds0 f68 head f63 mainIn #connect
-Ds0 f63 mainOut f69 tail #connect
-Ds0 f69 head f64 mainIn #connect
 Ds0 f78 mainOut f76 tail #connect
 Ds0 f76 head f70 mainIn #connect
 Ds0 f71 mainOut f81 tail #connect
@@ -1625,3 +1670,11 @@ Ds0 f124 mainOut f13 tail #connect
 Ds0 f13 head f11 mainIn #connect
 Ds0 f15 mainOut f19 tail #connect
 Ds0 f19 head f17 mainIn #connect
+Ds0 f125 mainOut f128 tail #connect
+Ds0 f128 head f127 mainIn #connect
+Ds0 f129 mainOut f133 tail #connect
+Ds0 f133 head f130 mainIn #connect
+Ds0 f131 mainOut f134 tail #connect
+Ds0 f134 head f132 mainIn #connect
+Ds0 f132 mainOut f135 tail #connect
+Ds0 f135 head f129 mainIn #connect

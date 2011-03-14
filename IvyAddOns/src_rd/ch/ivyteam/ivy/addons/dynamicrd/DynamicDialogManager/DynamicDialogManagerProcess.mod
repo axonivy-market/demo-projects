@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Feb 16 08:09:57 CET 2011]
-12495B5A297FD530 3.15 #module
+[>Created: Mon Mar 14 14:25:15 CET 2011]
+12495B5A297FD530 3.16 #module
 >Proto >Proto Collection #zClass
 Ts0 TableTreeDialogProcess Big #zClass
 Ts0 RD #cInfo
@@ -505,6 +505,10 @@ index = panel.cmsContextList.getSelectedIndex();
 
 if (index >= 0 && index < in.cmsContext.size()) {
 	context = in.cmsContext.get(index);
+}
+else
+{
+	out.lastCmsContext = null;
 }
 
 if (!context.equals(out.lastCmsContext)) {

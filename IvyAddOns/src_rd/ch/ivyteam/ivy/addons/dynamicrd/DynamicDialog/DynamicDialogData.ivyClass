@@ -15,4 +15,5 @@ object Object #field
 answer String #field
 classMap java.util.Map #field
 xmlFile String #field
-xmlFile PERSISTENT #fieldModifier
+isInitialized Boolean #field
+controllerDisplayName String #field

@@ -12,12 +12,14 @@ import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.DynamicDialogCache
 import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.Invocation;
 import ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.internal.TreeNode;
 import ch.ivyteam.ivy.addons.util.AddonsException;
+import ch.ivyteam.ivy.addons.util.GuidGenerator;
 import ch.ivyteam.ivy.addons.util.StringUtil;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.richdialog.exec.IRichDialogContext;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RCardPane;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
 
 import com.ulcjava.base.application.ULCComponent;
@@ -70,12 +72,19 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
 
   private Map<String, Object> inexistantAttributeValues;
 
-  private ULCComponent focusReceiverComponent;
+  private RButton focusReceiverComponent;
 
   private Map<String, Class<?>> classMap;
 
   @SuppressWarnings("restriction")
   private ch.ivyteam.ivy.project.IIvyProject project;
+  
+  
+  private String controllerDisplayName;
+
+  private boolean isConstructed = false;
+
+  private RCardPane invisibleComponentsCardPane = null;
 
   /**
    * Create a new instance of DynamicDialogPanel
@@ -99,16 +108,8 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
   {
     this.setStyleProperties("{/weightY \"1\"/weightX \"1\"}");
 
-    this.add(getCloseButton(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1,
-            com.ulcjava.base.application.GridBagConstraints.CENTER,
-            com.ulcjava.base.application.GridBagConstraints.NONE,
-            new com.ulcjava.base.application.util.Insets(0, 0, 0, 0), 0, 0));
-    this.add(getReloadButton(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1,
-            com.ulcjava.base.application.GridBagConstraints.CENTER,
-            com.ulcjava.base.application.GridBagConstraints.NONE,
-            new com.ulcjava.base.application.util.Insets(0, 0, 0, 0), 0, 0));
-    this.add(getControllerDisplay(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1,
-            com.ulcjava.base.application.GridBagConstraints.CENTER,
+    this.add(getInvisibleComponentsCardPane(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1,
+            1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER,
             com.ulcjava.base.application.GridBagConstraints.NONE,
             new com.ulcjava.base.application.util.Insets(0, 0, 0, 0), 0, 0));
   }
@@ -182,7 +183,7 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
     return new DynamicDialogCacheEntry(defaultDBConfig, parameterTree, cmsContext, classMap, clazz);
   }
 
-  private void constructUI(Object value) throws AddonsException
+  private void constructUI(Object value)
   {
     clazz = value.getClass();
     componentMap = new HashMap<String, Component>();
@@ -211,9 +212,15 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
       }
     }
 
+    applyStyles(componentList);
+  }
+
+  public void onLoad(Object value) throws AddonsException
+  {
+    isConstructed = true;
+
     callInit(componentList);
 
-    applyStyles(componentList);
     setTabulationOrder();
 
     setDDValue(value);
@@ -227,6 +234,10 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
     {
       focusReceiverComponent = new RButton();
       focusReceiverComponent.setPreferredSize(new Dimension(0, 0));
+      focusReceiverComponent.setName("focusReceiverComponent");
+      focusReceiverComponent.setText("");
+      focusReceiverComponent.setBorderPainted(false);
+      focusReceiverComponent.setBackground(this.getBackground());
       focusReceiverComponent.addFocusListener(new IFocusListener()
         {
           private static final long serialVersionUID = 7951844947976547151L;
@@ -238,8 +249,7 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
 
           public void focusLost(FocusEvent arg0)
           {
-            focusReceiverComponent.setFocusable(false);
-            focusReceiverComponent.setVisible(false);
+            remove(focusReceiverComponent);
           }
         });
     }
@@ -259,6 +269,7 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
     parameterTree = constructParameters(ddObjectClass, cmsContext, dbConfig, prefix, classMap)
             .getParameterTree();
     constructUI(value);
+    onLoad(value);
   }
 
   public void setTabulationOrder()
@@ -334,13 +345,18 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
   {
     Object value;
     value = getDDValue();
+
+    isConstructed = false;
+
     for (ULCComponent c : getComponents())
     {
-      if (c != getCloseButton() && c != getReloadButton())
+      if (c != getInvisibleComponentsCardPane())
       {
         this.remove(c);
       }
     }
+    getControllerDisplay().removeAll();
+
     construct(value);
   }
 
@@ -601,7 +617,9 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
     if (controllerCardDisplay == null)
     {
       controllerCardDisplay = new RCardDisplay();
-      controllerCardDisplay.setDisplayId("DDControllerDisplay");
+      controllerDisplayName = "DDControllerDisplay_" + GuidGenerator.generateID();
+      controllerCardDisplay.setDisplayId(controllerDisplayName);
+      controllerCardDisplay.setName("controllerCardDisplay");
       controllerCardDisplay.setVisible(false);
       controllerCardDisplay.setName("controllerCardDisplay");
     }
@@ -621,6 +639,10 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
     Object[] params;
     String[] splitResult;
 
+    if (!isConstructed)
+    {
+      return;
+    }
     if (method != null && !method.equals(""))
     {
       if (dialogPanels == null)
@@ -688,5 +710,31 @@ public class DynamicDialogPanel extends RichDialogGridBagPanel implements IRichD
   {
     super.setEnabled(enabled);
     this.getDDComponent(getPrefix() + "/").setEnabled(enabled);
+  }
+
+  public final String getControllerDisplayName()
+  {
+    return controllerDisplayName;
+  }
+
+  /**
+   * This method initializes invisibleButtonCardPane
+   * 
+   * @return ch.ivyteam.ivy.richdialog.widgets.containers.RCardPane
+   */
+  private RCardPane getInvisibleComponentsCardPane()
+  {
+    if (invisibleComponentsCardPane == null)
+    {
+      invisibleComponentsCardPane = new RCardPane();
+      invisibleComponentsCardPane.setName("invisibleComponentsCardPane");
+      invisibleComponentsCardPane.setPreferredSize(new Dimension(0, 0));
+      invisibleComponentsCardPane.setVisible(false);
+
+      invisibleComponentsCardPane.add(getReloadButton());
+      invisibleComponentsCardPane.add(getCloseButton());
+      invisibleComponentsCardPane.add(getControllerDisplay());
+    }
+    return invisibleComponentsCardPane;
   }
 }
