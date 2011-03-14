@@ -1,2 +1,2 @@
-co: name={TaskList} description={} changed={2011-03-07 12:54:52 CET} changedby={bb} visualorder={0} guid={129DBA3F591FCAF2} parentguid={} typeguid={1065A70458AB226C} id={} parentid={} typeid={}
-val: guid={129DBA3F5AB44DDA} datatype={} isdefault={true} langid={en} description={} validfrom={2010-07-16 16:24:01 CEST} validto={} changed={2011-03-07 12:54:52 CET} changedby={bb} properties={renderer.config=mail} id={}
+co: name={TaskList} description={} changed={2011-03-14 12:35:49 CET} changedby={BB} visualorder={0} guid={129DBA3F591FCAF2} parentguid={} typeguid={1065A70458AB226C} id={} parentid={} typeid={}
+val: guid={129DBA3F5AB44DDA} datatype={} isdefault={true} langid={en} description={} validfrom={2010-07-16 16:24:01 CEST} validto={} changed={2011-03-14 12:35:49 CET} changedby={BB} properties={renderer.config=mail} id={}
