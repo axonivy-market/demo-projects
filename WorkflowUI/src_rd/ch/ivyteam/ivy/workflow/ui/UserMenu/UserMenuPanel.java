@@ -1,6 +1,9 @@
 package ch.ivyteam.ivy.workflow.ui.UserMenu;
 
+import ch.ivyteam.ivy.addons.common.technical.Separator.SeparatorPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
@@ -11,16 +14,13 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTaskPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTaskPaneContainer;
 import ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchPanel;
-import ch.ivyteam.ivy.workflow.ui.common.Separator.SeparatorPanel;
 import ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListPanel;
 import ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchPanel;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
 
 import com.ulcjava.base.application.BorderFactory;
-import com.ulcjava.base.application.util.Color;
-import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import com.ulcjava.base.application.ULCContainer;
-import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
+import com.ulcjava.base.application.util.Color;
 
 /**
  * RichDialog panel implementation for UserMenuPanel.

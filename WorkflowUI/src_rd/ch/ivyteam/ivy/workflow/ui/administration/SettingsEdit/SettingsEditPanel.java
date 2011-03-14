@@ -1,5 +1,6 @@
 package ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit;
 
+import ch.ivyteam.ivy.addons.common.technical.Separator.SeparatorPanel;
 import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
@@ -8,20 +9,19 @@ import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
+import ch.ivyteam.ivy.richdialog.widgets.components.RHtmlPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.security.AuthenticationException;
 import ch.ivyteam.ivy.security.ISession;
 import ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectPanel;
-import ch.ivyteam.ivy.workflow.ui.common.Separator.SeparatorPanel;
 import ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectPanel;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
 import ch.ivyteam.security.Password;
 
 import com.ulcjava.base.application.ULCContainer;
 import com.ulcjava.base.application.ULCFlowLayoutPane;
-import ch.ivyteam.ivy.richdialog.widgets.components.RHtmlPane;
 
 /**
  * RichDialog panel implementation for SettingsPanel.

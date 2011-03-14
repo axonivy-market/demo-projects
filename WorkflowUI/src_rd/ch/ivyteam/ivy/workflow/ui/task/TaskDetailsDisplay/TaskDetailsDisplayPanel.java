@@ -1,5 +1,6 @@
 package ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay;
 
+import ch.ivyteam.ivy.addons.common.technical.Separator.SeparatorPanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
@@ -10,8 +11,6 @@ import ch.ivyteam.ivy.richdialog.widgets.components.RTextArea;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
-import ch.ivyteam.ivy.workflow.ui.common.Separator.SeparatorPanel;
-
 import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.ULCContainer;
 

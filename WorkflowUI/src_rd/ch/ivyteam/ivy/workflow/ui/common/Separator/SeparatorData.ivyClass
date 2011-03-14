@@ -1,4 +1,0 @@
-SeparatorData #class
-ch.ivyteam.ivy.workflow.ui.common.Separator #namespace
-separatorText String #field
-separatorText 'Test to display on the seperator' #fieldComment

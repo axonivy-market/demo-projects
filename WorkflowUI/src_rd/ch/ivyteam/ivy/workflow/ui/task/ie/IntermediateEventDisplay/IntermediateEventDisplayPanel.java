@@ -1,5 +1,6 @@
 package ch.ivyteam.ivy.workflow.ui.task.ie.IntermediateEventDisplay;
 
+import ch.ivyteam.ivy.addons.common.technical.Separator.SeparatorPanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
@@ -8,7 +9,6 @@ import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
-import ch.ivyteam.ivy.workflow.ui.common.Separator.SeparatorPanel;
 import ch.ivyteam.ivy.workflow.ui.task.ie.IntermediateEventElementDisplay.IntermediateEventElementDisplayPanel;
 
 import com.ulcjava.base.application.ULCContainer;

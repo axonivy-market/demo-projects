@@ -3,9 +3,10 @@
     <description>A separator is a horizontal line that unifies the controls below it. Separators provide a simpler, cleaner look. &#xD;
 Suggestion: they work best when they span the full width of the surface. </description>
     <tags>separator</tags>
+    <autoScreenshot>true</autoScreenshot>
     <method>
         <name>getSeparatorText</name>
-        <description>It starts with text do display on the separator.</description>
+        <description>It returns the text displayed on separator.</description>
         <outputParameter>
             <name>separatorText</name>
             <description></description>
@@ -15,7 +16,7 @@ Suggestion: they work best when they span the full width of the surface. </descr
     </method>
     <method>
         <name>setSeparatorText</name>
-        <description></description>
+        <description>It sets the text to display on separator.</description>
         <inputParameter>
             <name>separatorText</name>
             <description></description>
@@ -30,7 +31,7 @@ This method can not be changed or deleted!</description>
     </startMethod>
     <startMethod>
         <name>start</name>
-        <description></description>
+        <description>It starts with the separater text to display.</description>
         <inputParameter>
             <name>separatorText</name>
             <description></description>
