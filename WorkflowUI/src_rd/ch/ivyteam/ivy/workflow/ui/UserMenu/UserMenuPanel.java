@@ -526,6 +526,7 @@ private RHyperlink getManagedTeamsHyperlink() {
 		managedTeamsHyperlink.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/managedTeamsShortDesc\")%>");
 		managedTeamsHyperlink.setName("managedTeamsHyperlink");
 		managedTeamsHyperlink.setUnclickedColor(new Color(0, 0, 0));
+		managedTeamsHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/managedTeamsLongDesc\")%>");
 		managedTeamsHyperlink.setClickedColor(new Color(0, 0, 0));
 	}
 	return managedTeamsHyperlink;
