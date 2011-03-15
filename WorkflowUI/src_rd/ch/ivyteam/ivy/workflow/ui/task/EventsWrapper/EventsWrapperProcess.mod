@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Jan 14 11:56:38 CET 2011]
-12D7A78EFE9A786D 3.15 #module
+[>Created: Tue Mar 15 21:08:11 CET 2011]
+12D7A78EFE9A786D 3.16 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
 Ts0 RD #cInfo
@@ -70,7 +70,7 @@ Ts0 f14 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 Ts0 f14 inActionCode 'out.wfCase = param.wfCase;' #txt
 Ts0 f14 outParameterDecl '<> result;
 ' #txt
-Ts0 f14 embeddedRdInitializations '{/eventLogDisplayListRDC {/fieldName "eventLogDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }}' #txt
+Ts0 f14 embeddedRdInitializations '{/eventLogDisplayListRDC {/fieldName "eventLogDisplayListRDC"/startMethod "startWithBusinessEventsOnly(ch.ivyteam.ivy.workflow.ICase)"/parameterMapping ""/initScript "param.wfCase = callParam.wfCase;"/userContext * }}' #txt
 Ts0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -202,17 +202,20 @@ if (parent is initialized && parent instanceof RCardDisplay)
 	
 	if (#grandParent is initialized && grandParent instanceof ULCTabbedPane)
 	{
-		ivy.log.debug("The parent is {0}, the grand parent {0} is ULCTabbedPane; updating the title...", parent.getName(), grandParent.getName());
+
 		
 		ULCTabbedPane grandParentAsTabbedPane = grandParent as ULCTabbedPane;
 		
 		String tabTitle = ivy.cms.co("/ch/ivyteam/ivy/addons/eventlog/plainStrings/eventLogs");
+
 		
 		if (!EventLogHelper.findBusinessEventLogsAsSystemUser(in.wfCase).isEmpty())
 		{
 			tabTitle = tabTitle + " \u2022";
 		}
-		
+		ivy.log.debug("The parent is {0}, the grand parent {1} is ULCTabbedPane; updating the title {2}", 
+										parent.getName(), grandParent.getName(), tabTitle);
+											
 		grandParentAsTabbedPane.setTitleAt(grandParentAsTabbedPane.indexOfComponent(parent), tabTitle);
 	}
 }

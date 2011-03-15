@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Mar 07 14:34:15 CET 2011]
+[>Created: Tue Mar 15 21:18:40 CET 2011]
 116A9BF16D47762C 3.16 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -2004,10 +2004,11 @@ panel.centerTabbedPane.setTitleAt(2, annotationsTitle);
 
 // Events
 String eventsTitle = ivy.cms.co("/ch/ivyteam/ivy/addons/eventlog/plainStrings/eventLogs");
-if (EventLogHelper.caseContainsBusinessEventLogs(in.task.getCase()))
+if (!EventLogHelper.findBusinessEventLogsAsSystemUser(in.task.getCase()).isEmpty())
 {
 	eventsTitle = eventsTitle + " \u2022";
 }
+panel.centerTabbedPane.setTitleAt(3, eventsTitle);
 
 
 // Details
