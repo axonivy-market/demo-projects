@@ -1,2 +1,2 @@
-co: name={ExplainText} description={} changed={2011-02-17 14:40:18 CET} changedby={bb} visualorder={0} guid={12E33D95B7433C71} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={12E33D95B94AD52D} datatype={} isdefault={true} langid={de} description={} validfrom={2011-02-17 14:40:06 CET} validto={} changed={2011-02-17 14:40:18 CET} changedby={bb} properties={} id={}
+co: name={ExplainText} description={} changed={2011-03-16 16:41:22 CET} changedby={tirib} visualorder={0} guid={12E33D95B7433C71} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={12E33D95B94AD52D} datatype={} isdefault={true} langid={de} description={} validfrom={2011-02-17 14:40:06 CET} validto={} changed={2011-03-16 16:41:22 CET} changedby={tirib} properties={} id={}

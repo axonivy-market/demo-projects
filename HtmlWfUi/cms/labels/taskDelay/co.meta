@@ -1,3 +1,4 @@
-co: name={taskDelay} description={} changed={2011-02-15 17:22:23 CET} changedby={bb} visualorder={0} guid={12E2A21000ABE208} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={taskDelay} description={} changed={2011-03-16 16:07:23 CET} changedby={tirib} visualorder={0} guid={12E2A21000ABE208} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12EBF34FA4E953CE} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 16:07:17 CET} validto={} changed={2011-03-16 16:07:23 CET} changedby={tirib} properties={} id={}
 val: guid={12E2A213909315B3} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-15 17:22:17 CET} validto={} changed={2011-02-15 17:22:23 CET} changedby={bb} properties={} id={}
 val: guid={12E2A21000A2FBF9} datatype={} isdefault={true} langid={de} description={} validfrom={2011-02-15 17:22:09 CET} validto={} changed={2011-02-15 17:22:23 CET} changedby={bb} properties={} id={}

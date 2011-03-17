@@ -1,3 +1,4 @@
-co: name={process} description={} changed={2011-02-15 15:46:04 CET} changedby={bb} visualorder={0} guid={12D851D593D5FD25} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={process} description={} changed={2011-03-16 14:41:52 CET} changedby={tirib} visualorder={0} guid={12D851D593D5FD25} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={12E29C907B2F84EF} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-15 15:45:58 CET} validto={} changed={2011-02-15 15:46:03 CET} changedby={bb} properties={} id={}
 val: guid={12D851D593D42067} datatype={} isdefault={true} langid={de} description={} validfrom={2011-01-14 16:20:49 CET} validto={} changed={2011-01-14 16:20:53 CET} changedby={powersob} properties={} id={}
+val: guid={12EBEE641A42830D} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 14:41:24 CET} validto={} changed={2011-03-16 14:41:52 CET} changedby={tirib} properties={} id={}

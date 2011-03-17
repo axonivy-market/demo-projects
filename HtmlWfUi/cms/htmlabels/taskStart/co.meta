@@ -1,3 +1,4 @@
-co: name={taskStart} description={} changed={2011-02-15 13:07:03 CET} changedby={bb} visualorder={0} guid={1284EC02E9D2AC1B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12E293773D92A075} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 13:06:54 CET} validto={} changed={2011-02-15 13:07:03 CET} changedby={bb} properties={} id={}
-val: guid={1284EC02E9D92BF1} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-16 11:02:41 CET} validto={} changed={2011-02-15 13:07:03 CET} changedby={bb} properties={} id={}
+co: name={taskStart} description={} changed={2011-03-17 09:46:38 CET} changedby={tirib} visualorder={0} guid={1284EC02E9D2AC1B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12E293773D92A075} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 13:06:54 CET} validto={} changed={2011-03-17 09:44:36 CET} changedby={tirib} properties={} id={}
+val: guid={12EBED54F9BC1334} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 14:22:53 CET} validto={} changed={2011-03-17 09:44:36 CET} changedby={tirib} properties={} id={}
+val: guid={1284EC02E9D92BF1} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-16 11:02:41 CET} validto={} changed={2011-03-17 09:46:38 CET} changedby={tirib} properties={} id={}

@@ -1,3 +1,4 @@
-co: name={formReset} description={} changed={2011-02-15 13:04:36 CET} changedby={bb} visualorder={0} guid={1284EC02E4FCA02D} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={formReset} description={} changed={2011-03-16 14:14:33 CET} changedby={tirib} visualorder={0} guid={1284EC02E4FCA02D} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12EBECD6D1889EAB} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 14:14:17 CET} validto={} changed={2011-03-16 14:14:33 CET} changedby={tirib} properties={} id={}
 val: guid={12E2935366D8573D} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 13:04:09 CET} validto={} changed={2011-02-15 13:04:36 CET} changedby={bb} properties={} id={}
 val: guid={1284EC02E4FBAA0F} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-07 15:20:36 CEST} validto={} changed={2011-02-15 13:04:36 CET} changedby={bb} properties={} id={}

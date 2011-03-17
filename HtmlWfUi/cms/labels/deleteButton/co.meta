@@ -1,3 +1,4 @@
-co: name={deleteButton} description={} changed={2011-02-15 17:29:16 CET} changedby={bb} visualorder={0} guid={12E2A274F7D5BF5E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={deleteButton} description={} changed={2011-03-16 14:33:11 CET} changedby={tirib} visualorder={0} guid={12E2A274F7D5BF5E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={12E2A274F7D433C5} datatype={} isdefault={true} langid={de} description={} validfrom={2011-02-15 17:29:02 CET} validto={} changed={2011-02-15 17:29:16 CET} changedby={bb} properties={} id={}
+val: guid={12EBEDE960DAF9AB} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 14:33:01 CET} validto={} changed={2011-03-16 14:33:11 CET} changedby={tirib} properties={} id={}
 val: guid={12E2A278589748EA} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-15 17:29:09 CET} validto={} changed={2011-02-15 17:29:16 CET} changedby={bb} properties={} id={}

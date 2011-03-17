@@ -1,3 +1,4 @@
-co: name={Caption} description={} changed={2011-03-03 16:10:12 CET} changedby={bb} visualorder={0} guid={129CB60C15E8189B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={Caption} description={} changed={2011-03-16 16:54:52 CET} changedby={tirib} visualorder={0} guid={129CB60C15E8189B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12EBF6070C9F88FB} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 16:54:41 CET} validto={} changed={2011-03-16 16:54:52 CET} changedby={tirib} properties={} id={}
 val: guid={129CB60C188B857C} datatype={} isdefault={true} langid={en} description={} validfrom={2010-07-13 12:36:42 CEST} validto={} changed={2010-07-13 12:54:09 CEST} changedby={rwei} properties={} id={}
 val: guid={12E7C44E37192545} datatype={} isdefault={false} langid={de} description={} validfrom={2011-03-03 16:09:53 CET} validto={} changed={2011-03-03 16:10:12 CET} changedby={bb} properties={} id={}

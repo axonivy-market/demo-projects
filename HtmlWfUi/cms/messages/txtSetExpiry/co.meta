@@ -1,3 +1,4 @@
-co: name={txtSetExpiry} description={} changed={2011-03-14 11:29:32 CET} changedby={BB} visualorder={0} guid={12EB3E634DAC93CA} parentguid={} typeguid={E6AFEA203ACD23E6} id={} parentid={} typeid={}
+co: name={txtSetExpiry} description={} changed={2011-03-17 09:54:44 CET} changedby={tirib} visualorder={0} guid={12EB3E634DAC93CA} parentguid={} typeguid={E6AFEA203ACD23E6} id={} parentid={} typeid={}
 val: guid={12EB3E634DA81BA3} datatype={} isdefault={true} langid={de} description={} validfrom={2011-03-14 11:25:31 CET} validto={} changed={2011-03-14 11:26:36 CET} changedby={BB} properties={} id={}
+val: guid={12EBF461E52B99FF} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 16:24:51 CET} validto={} changed={2011-03-17 09:54:44 CET} changedby={tirib} properties={} id={}
 val: guid={12EB3E73049DC59D} datatype={} isdefault={false} langid={en} description={} validfrom={2011-03-14 11:25:44 CET} validto={} changed={2011-03-14 11:29:32 CET} changedby={BB} properties={} id={}

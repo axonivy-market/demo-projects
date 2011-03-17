@@ -1,0 +1,3 @@
+<P>
+Confirmez la suppression du cas <B><%=ivy.html.get("in.tempCase.name")%></B> - Id du cas [<%=ivy.html.get("in.tempCase.getIdentifier()")%>] ainsi que ses tâches.
+</P>

@@ -1,3 +1,4 @@
-co: name={taskResumed} description={} changed={2011-02-17 16:45:28 CET} changedby={bb} visualorder={0} guid={12E3447FFAAE9D42} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12E3447FFB991E43} datatype={} isdefault={true} langid={de} description={} validfrom={2011-02-17 16:40:57 CET} validto={} changed={2011-02-17 16:45:28 CET} changedby={bb} properties={} id={}
+co: name={taskResumed} description={} changed={2011-03-16 14:20:27 CET} changedby={tirib} visualorder={0} guid={12E3447FFAAE9D42} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12EBED25B13EB8E5} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 14:19:40 CET} validto={} changed={2011-03-16 14:20:27 CET} changedby={tirib} properties={} id={}
 val: guid={12E3448723445C2E} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-17 16:41:14 CET} validto={} changed={2011-02-17 16:45:28 CET} changedby={bb} properties={} id={}
+val: guid={12E3447FFB991E43} datatype={} isdefault={true} langid={de} description={} validfrom={2011-02-17 16:40:57 CET} validto={} changed={2011-02-17 16:45:28 CET} changedby={bb} properties={} id={}

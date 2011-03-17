@@ -1,3 +1,4 @@
-co: name={delay} description={} changed={2011-02-15 15:44:02 CET} changedby={bb} visualorder={0} guid={12D84E7D3F4EE67A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={delay} description={} changed={2011-03-16 14:32:58 CET} changedby={tirib} visualorder={0} guid={12D84E7D3F4EE67A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12EBEDE6844B3296} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 14:32:50 CET} validto={} changed={2011-03-16 14:32:58 CET} changedby={tirib} properties={} id={}
 val: guid={12D84E7D3F494FE2} datatype={} isdefault={true} langid={en} description={} validfrom={2011-01-14 15:22:21 CET} validto={} changed={2011-02-15 15:44:02 CET} changedby={bb} properties={} id={}
 val: guid={12E29C72C6662860} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 15:43:53 CET} validto={} changed={2011-02-15 15:44:02 CET} changedby={bb} properties={} id={}
