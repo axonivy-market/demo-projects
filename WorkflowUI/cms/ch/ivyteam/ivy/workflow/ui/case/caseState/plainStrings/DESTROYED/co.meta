@@ -1,4 +1,4 @@
-co: name={DESTROYED} description={} changed={2010-11-23 16:12:31 CET} changedby={rwei} visualorder={0} guid={128E009EFB3652EA} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={DESTROYED} description={} changed={2011-03-16 17:27:47 CET} changedby={tirib} visualorder={0} guid={128E009EFB3652EA} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={128E009EFB31D5FB} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-28 18:32:44 CEST} validto={} changed={2010-05-28 19:51:07 CEST} changedby={tirib} properties={} id={}
-val: guid={128E009EFB311C4B} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-28 18:32:59 CEST} validto={} changed={2010-05-28 19:51:07 CEST} changedby={tirib} properties={} id={}
+val: guid={128E009EFB311C4B} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-28 18:32:59 CEST} validto={} changed={2011-03-16 17:27:47 CET} changedby={tirib} properties={} id={}
 val: guid={12C794ACBB848FF9} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:12:13 CET} validto={} changed={2010-11-23 16:12:31 CET} changedby={rwei} properties={} id={}
