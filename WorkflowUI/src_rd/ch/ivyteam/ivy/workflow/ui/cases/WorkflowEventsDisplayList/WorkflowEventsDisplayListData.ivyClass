@@ -1,5 +1,5 @@
 WorkflowEventsDisplayListData #class
 ch.ivyteam.ivy.workflow.ui.cases.WorkflowEventsDisplayList #namespace
 footerMessage String #field
-caseWorkflowEvents List<ch.ivyteam.ivy.workflow.IWorkflowEvent> #field
+caseWorkflowEvents List<ch.ivyteam.ivy.workflow.ui.data.restricted.cases.IWorkflowEventWrapper> #field
 fCase ch.ivyteam.ivy.workflow.ICase #field

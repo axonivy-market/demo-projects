@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Mar 15 21:18:40 CET 2011]
-116A9BF16D47762C 3.16 #module
+[>Created: Wed Mar 30 11:06:43 CEST 2011]
+116A9BF16D47762C 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
 Ts0 RD #cInfo
@@ -1421,10 +1421,11 @@ Ts0 f14 disableUIEvents true #txt
 Ts0 f14 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <ch.ivyteam.ivy.workflow.ITask aTask,java.lang.Boolean aStartTaskRequested,java.lang.Boolean aHasWfAdministratorPermissions> param = methodEvent.getInputArguments();
 ' #txt
-Ts0 f14 inParameterMapAction 'out.hasPermissionDelegateTasks=param.aHasWfAdministratorPermissions;
-out.startTaskRequested=param.aStartTaskRequested;
-out.task=param.aTask;
-out.taskIdentifier=param.aTask.getIdentifier();
+Ts0 f14 inActionCode 'out.hasWfAdministratorPermissions = param.aHasWfAdministratorPermissions;
+
+out.startTaskRequested = param.aStartTaskRequested;
+out.task = param.aTask;
+out.taskIdentifier = param.aTask.getIdentifier();
 ' #txt
 Ts0 f14 outParameterDecl '<> result;
 ' #txt

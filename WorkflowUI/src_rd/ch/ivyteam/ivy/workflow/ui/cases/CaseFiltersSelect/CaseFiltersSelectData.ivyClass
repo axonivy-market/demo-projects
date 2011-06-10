@@ -17,13 +17,10 @@ propertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
 propertyFilter 'Resume the selected filters.
 Recieved task property filter that is used to filter only the tasks with specified task states' #fieldComment
 businessMainContactTypeRelationalOperatorsList List<ch.ivyteam.logicalexpression.RelationalOperator> #field
-businessMainContactIdRelationalOperatorsList List<ch.ivyteam.logicalexpression.RelationalOperator> #field
-businessMainContactNameRelationalOperatorsList List<ch.ivyteam.logicalexpression.RelationalOperator> #field
 businessCorrespondentContactIdRelationalOperatorsList List<ch.ivyteam.logicalexpression.RelationalOperator> #field
 businessCorrespondentContactIdRelationalOperatorsList PERSISTENT #fieldModifier
 businessObjectCodeRelationalOperatorsList List<ch.ivyteam.logicalexpression.RelationalOperator> #field
 businessObjectCodeRelationalOperatorsList PERSISTENT #fieldModifier
-businessObjectNameRelationalOperatorsList List<ch.ivyteam.logicalexpression.RelationalOperator> #field
 businessCreatorUserRelationalOperatorsList List<ch.ivyteam.logicalexpression.RelationalOperator> #field
 caseNameRelationalOperatorsList List<ch.ivyteam.logicalexpression.RelationalOperator> #field
 caseDisplayMode Number #field

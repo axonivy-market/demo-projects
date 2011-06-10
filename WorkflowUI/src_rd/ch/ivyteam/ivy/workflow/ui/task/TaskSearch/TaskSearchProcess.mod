@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Feb 10 10:10:59 CET 2011]
-1175F14B3894BBC3 3.15 #module
+[>Created: Thu Jun 09 15:38:24 CEST 2011]
+1175F14B3894BBC3 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskSearchProcess Big #zClass
 Ts0 RD #cInfo
@@ -1100,7 +1100,7 @@ Ts0 f70 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData ou
 Ts0 f70 actionTable 'out=in;
 ' #txt
 Ts0 f70 actionCode 'import ch.ivyteam.ivy.persistence.OrderDirection;
-// Case process category name / BUSINESS_START_TIMESTAMP/ Business main contact name/Case process name
+// Case process category name / Task START_TIMESTAMP/ Business main contact name/Case process name
 
 
 import ch.ivyteam.ivy.workflow.ui.data.task.TaskHierarchyTreeNodeValue;
@@ -1113,13 +1113,13 @@ import ch.ivyteam.ivy.persistence.IGroup;
 
 
 List<IGroup> caseProcessCategoriesIGroup;
-List<IGroup> businessStartTimeStampsIGroup;
+List<IGroup> taskStartTimeStampsIGroup;
 List<IGroup> businessMainContactsIGroup;
 List<IGroup> caseProcessesIGroup;
 
 
 ITask elementOfCaseProcessCategoriesITask;
-ITask elementOfBusinessStartTimeStampsITask;
+ITask elementOfTaskStartTimeStampsITask;
 ITask elementOfBusinessMainContactsITask;
 ITask elementOfCaseProcessesITask;
 
@@ -1128,7 +1128,7 @@ IPropertyFilter filter;
 
 Tree rootTree = in.tasksHierarchyLayoutTree;
 Tree caseProcessCategoryTree;
-Tree businessStartTimeStampTree;
+Tree taskStartTimeStampTree;
 Tree businessMainContactTree;
 Tree caseProcessTree;
 List<Tree> parentsListOfTree = [];
@@ -1188,7 +1188,7 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
    caseProcessCategoryTree = currentParent.createChild(caseProcessCategoryTreeNodeValue, "PROCESS_CATEGORY_CODE");
 
 
-   businessStartTimeStampsIGroup.clear();
+   taskStartTimeStampsIGroup.clear();
 
    filter = ivy.wf.createTaskPropertyFilter(ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesITask.getProcessCategoryCode());
 
@@ -1207,24 +1207,24 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
 			filter = filter.and(ch.ivyteam.ivy.workflow.TaskProperty.PRIORITY, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, currentPriorityNodeValue.categoryCode);
 		}	
 
-   businessStartTimeStampsIGroup.addAll(WorkflowUIAccessPermissionHandler.findTaskCategories(filter, ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_START_TIMESTAMP, OrderDirection.DESCENDING, in.runningTaskMode, in.taskDisplayMode));
+   taskStartTimeStampsIGroup.addAll(WorkflowUIAccessPermissionHandler.findTaskCategories(filter, ch.ivyteam.ivy.workflow.TaskProperty.START_TIMESTAMP, OrderDirection.DESCENDING, in.runningTaskMode, in.taskDisplayMode));
 
 
-   for (IGroup businessStartTimeStamp: businessStartTimeStampsIGroup)
+   for (IGroup taskStartTimeStamp: taskStartTimeStampsIGroup)
    {
-      elementOfBusinessStartTimeStampsITask = businessStartTimeStamp.getFirstObjectInGroup() as ITask;
+      elementOfTaskStartTimeStampsITask = taskStartTimeStamp.getFirstObjectInGroup() as ITask;
 
-      TaskHierarchyTreeNodeValue businessStartTimeStampTreeNodeValue = new TaskHierarchyTreeNodeValue();
-      businessStartTimeStampTreeNodeValue.property = ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_START_TIMESTAMP;
-      businessStartTimeStampTreeNodeValue.categoryCode = elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp();
-      businessStartTimeStampTreeNodeValue.categoryName = (elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp() is initialized? elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp().format(ivy.var.xivy_workflow_ui_restricted_dateTimeFormatPattern): "") + " (" + businessStartTimeStamp.getNumberOfObjectsInGroup() + ")";
-      businessStartTimeStampTree = caseProcessCategoryTree.createChild(businessStartTimeStampTreeNodeValue,"BUSINESS_START_TIMESTAMP");
+      TaskHierarchyTreeNodeValue taskStartTimeStampTreeNodeValue = new TaskHierarchyTreeNodeValue();
+      taskStartTimeStampTreeNodeValue.property = ch.ivyteam.ivy.workflow.TaskProperty.START_TIMESTAMP;
+      taskStartTimeStampTreeNodeValue.categoryCode = elementOfTaskStartTimeStampsITask.getStartTimestamp();
+      taskStartTimeStampTreeNodeValue.categoryName = elementOfTaskStartTimeStampsITask.getStartTimestamp().format(ivy.var.xivy_workflow_ui_restricted_dateTimeFormatPattern) + " (" + taskStartTimeStamp.getNumberOfObjectsInGroup() + ")";
+      taskStartTimeStampTree = caseProcessCategoryTree.createChild(taskStartTimeStampTreeNodeValue,"START_TIMESTAMP");
 
    
       businessMainContactsIGroup.clear();
 
       filter = ivy.wf.createTaskPropertyFilter(ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesITask.getProcessCategoryCode()).and(
-                                                                           ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_START_TIMESTAMP, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp());
+                                                                           ch.ivyteam.ivy.workflow.TaskProperty.START_TIMESTAMP, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfTaskStartTimeStampsITask.getStartTimestamp());
 
 			// consider the task states
 			filter = filter.and(in.taskStatesPropertyFilter);
@@ -1252,13 +1252,13 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
          businessMainContactTreeNodeValue.property = ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_MAIN_CONTACT_ID;
          businessMainContactTreeNodeValue.categoryCode = elementOfBusinessMainContactsITask.getBusinessMainContactId() ;
          businessMainContactTreeNodeValue.categoryName = (elementOfBusinessMainContactsITask.getBusinessMainContactName() is initialized? elementOfBusinessMainContactsITask.getBusinessMainContactName(): "" + businessMainContactTreeNodeValue.categoryCode) + " (" + businessMainContact.getNumberOfObjectsInGroup() + ")";
-         businessMainContactTree = businessStartTimeStampTree.createChild(businessMainContactTreeNodeValue,"BUSINESS_MAIN_CONTACT_ID");      
+         businessMainContactTree = taskStartTimeStampTree.createChild(businessMainContactTreeNodeValue,"BUSINESS_MAIN_CONTACT_ID");      
 
 
          caseProcessesIGroup.clear();
 
          filter = ivy.wf.createTaskPropertyFilter(ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesITask.getProcessCategoryCode()).and(
-                                                                              ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_START_TIMESTAMP, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp()).and(
+                                                                              ch.ivyteam.ivy.workflow.TaskProperty.START_TIMESTAMP, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfTaskStartTimeStampsITask.getStartTimestamp()).and(
                                                                                  ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_MAIN_CONTACT_ID, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfBusinessMainContactsITask.getBusinessMainContactId());
 
 					// consider the task states
@@ -1302,10 +1302,10 @@ Ts0 f70 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Case process category name/
-BUSINESS_START_TIMESTAMP/ 
+Task START_TIMESTAMP/ 
 Business main contact name/
 Case process name</name>
-        <nameStyle>100,7,9
+        <nameStyle>96,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -1317,7 +1317,7 @@ Ts0 f82 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData ou
 Ts0 f82 actionTable 'out=in;
 ' #txt
 Ts0 f82 actionCode 'import ch.ivyteam.ivy.persistence.OrderDirection;
-// Case process category name / BUSINESS_START_TIMESTAMP / Case process name / Business main contact name
+// Case process category name / Task START_TIMESTAMP / Case process name / Business main contact name
 
 
 import ch.ivyteam.ivy.workflow.ui.data.task.TaskHierarchyTreeNodeValue;
@@ -1330,13 +1330,13 @@ import ch.ivyteam.ivy.persistence.IGroup;
 
 
 List<IGroup> caseProcessCategoriesIGroup;
-List<IGroup> businessStartTimeStampsIGroup;
+List<IGroup> taskStartTimeStampsIGroup;
 List<IGroup> caseProcessesIGroup;
 List<IGroup> businessMainContactsIGroup;
 
 
 ITask elementOfCaseProcessCategoriesITask;
-ITask elementOfBusinessStartTimeStampsITask;
+ITask elementOfTaskStartTimeStampsITask;
 ITask elementOfCaseProcessesITask;
 ITask elementOfBusinessMainContactsITask;
 
@@ -1346,7 +1346,7 @@ IPropertyFilter filter;
 
 Tree rootTree = in.tasksHierarchyLayoutTree;
 Tree caseProcessCategoryTree;
-Tree businessStartTimeStampTree;
+Tree taskStartTimeStampTree;
 Tree caseProcessTree;
 Tree businessMainContactTree;
 List<Tree> parentsListOfTree = [];
@@ -1408,7 +1408,7 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
    caseProcessCategoryTree = currentParent.createChild(caseProcessCategoryTreeNodeValue, "PROCESS_CATEGORY_CODE");
 
 
-   businessStartTimeStampsIGroup.clear();
+   taskStartTimeStampsIGroup.clear();
 
    filter = ivy.wf.createTaskPropertyFilter(ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesITask.getProcessCategoryCode());
 
@@ -1427,24 +1427,24 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
 			filter = filter.and(ch.ivyteam.ivy.workflow.TaskProperty.PRIORITY, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, currentPriorityNodeValue.categoryCode);
 		}
 
-   businessStartTimeStampsIGroup.addAll(WorkflowUIAccessPermissionHandler.findTaskCategories(filter, ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_START_TIMESTAMP, OrderDirection.DESCENDING, in.runningTaskMode, in.taskDisplayMode));
+   taskStartTimeStampsIGroup.addAll(WorkflowUIAccessPermissionHandler.findTaskCategories(filter, ch.ivyteam.ivy.workflow.TaskProperty.START_TIMESTAMP, OrderDirection.DESCENDING, in.runningTaskMode, in.taskDisplayMode));
 
 
-   for (IGroup businessStartTimeStamp: businessStartTimeStampsIGroup)
+   for (IGroup taskStartTimeStamp: taskStartTimeStampsIGroup)
    {
-      elementOfBusinessStartTimeStampsITask = businessStartTimeStamp.getFirstObjectInGroup() as ITask;
+      elementOfTaskStartTimeStampsITask = taskStartTimeStamp.getFirstObjectInGroup() as ITask;
 
-      TaskHierarchyTreeNodeValue businessStartTimeStampTreeNodeValue = new TaskHierarchyTreeNodeValue();
-      businessStartTimeStampTreeNodeValue.property = ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_START_TIMESTAMP;
-      businessStartTimeStampTreeNodeValue.categoryCode = elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp();
-      businessStartTimeStampTreeNodeValue.categoryName = (elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp() is initialized? elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp().format(ivy.var.xivy_workflow_ui_restricted_dateTimeFormatPattern): "") + " (" + businessStartTimeStamp.getNumberOfObjectsInGroup() + ")";
-      businessStartTimeStampTree = caseProcessCategoryTree.createChild(businessStartTimeStampTreeNodeValue,"BUSINESS_START_TIMESTAMP");
+      TaskHierarchyTreeNodeValue taskStartTimeStampTreeNodeValue = new TaskHierarchyTreeNodeValue();
+      taskStartTimeStampTreeNodeValue.property = ch.ivyteam.ivy.workflow.TaskProperty.START_TIMESTAMP;
+      taskStartTimeStampTreeNodeValue.categoryCode = elementOfTaskStartTimeStampsITask.getStartTimestamp();
+      taskStartTimeStampTreeNodeValue.categoryName = elementOfTaskStartTimeStampsITask.getStartTimestamp().format(ivy.var.xivy_workflow_ui_restricted_dateTimeFormatPattern) + " (" + taskStartTimeStamp.getNumberOfObjectsInGroup() + ")";
+      taskStartTimeStampTree = caseProcessCategoryTree.createChild(taskStartTimeStampTreeNodeValue,"START_TIMESTAMP");
    
 
       caseProcessesIGroup.clear();
 
       filter = ivy.wf.createTaskPropertyFilter(ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesITask.getProcessCategoryCode()).and(
-                                                                           ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_START_TIMESTAMP, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp());
+                                                                           ch.ivyteam.ivy.workflow.TaskProperty.START_TIMESTAMP, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfTaskStartTimeStampsITask.getStartTimestamp());
 
 			// consider the task states
 			filter = filter.and(in.taskStatesPropertyFilter);
@@ -1472,12 +1472,12 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
          caseProcessTreeNodeValue.property = ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CODE;
          caseProcessTreeNodeValue.categoryCode = elementOfCaseProcessesITask.getProcessCode();
          caseProcessTreeNodeValue.categoryName = (elementOfCaseProcessesITask.getProcessName() is initialized? elementOfCaseProcessesITask.getProcessName(): "" + caseProcessTreeNodeValue.categoryCode) + " (" + caseProcess.getNumberOfObjectsInGroup() + ")";
-         caseProcessTree = businessStartTimeStampTree.createChild(caseProcessTreeNodeValue, "PROCESS_CODE");
+         caseProcessTree = taskStartTimeStampTree.createChild(caseProcessTreeNodeValue, "PROCESS_CODE");
 
          businessMainContactsIGroup.clear();
 
          filter = ivy.wf.createTaskPropertyFilter(ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesITask.getProcessCategoryCode()).and(
-                                                                              ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_START_TIMESTAMP, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp()).and(
+                                                                              ch.ivyteam.ivy.workflow.TaskProperty.START_TIMESTAMP, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfTaskStartTimeStampsITask.getStartTimestamp()).and(
                                                                                  ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessesITask.getProcessCode());
 					// consider the task states
 					filter = filter.and(in.taskStatesPropertyFilter);
@@ -1522,10 +1522,10 @@ Ts0 f82 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Case process category name/
-BUSINESS_START_TIMESTAMP/ 
+Task START_TIMESTAMP/ 
 Case process name/
 Business main contact name</name>
-        <nameStyle>100,7,9
+        <nameStyle>96,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -1812,7 +1812,7 @@ Ts0 f177 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData o
 Ts0 f177 actionTable 'out=in;
 ' #txt
 Ts0 f177 actionCode 'import ch.ivyteam.ivy.persistence.OrderDirection;
-// Case process category name / Business creator user/ Business start time stamp / Case process name
+// Case process category name / Business creator user/ Task START_TIMESTAMP / Case process name
 
 
 import ch.ivyteam.ivy.workflow.ui.data.task.TaskHierarchyTreeNodeValue;
@@ -1826,14 +1826,14 @@ import ch.ivyteam.ivy.persistence.IGroup;
 
 List<IGroup> caseProcessCategoriesIGroup;
 List<IGroup> businessCreatorUsersIGroup;
-List<IGroup> businessStartTimeStampsIGroup;
+List<IGroup> taskStartTimeStampsIGroup;
 List<IGroup> caseProcessesIGroup;
 
 
 
 ITask elementOfCaseProcessCategoriesITask;
 ITask elementOfBusinessCreatorUsersITask;
-ITask elementOfBusinessStartTimeStampsITask;
+ITask elementOfTaskStartTimeStampsITask;
 ITask elementOfCaseProcessesITask;
 
 
@@ -1844,7 +1844,7 @@ IPropertyFilter filter;
 Tree rootTree = in.tasksHierarchyLayoutTree;
 Tree caseProcessCategoryTree;
 Tree businessCreatorUserTree;
-Tree businessStartTimeStampTree;
+Tree taskStartTimeStampTree;
 Tree caseProcessTree;
 List<Tree> parentsListOfTree = [];
 
@@ -1937,7 +1937,7 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
 
 
 
-      businessStartTimeStampsIGroup.clear();
+      taskStartTimeStampsIGroup.clear();
 
       filter = ivy.wf.createTaskPropertyFilter(ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesITask.getProcessCategoryCode()).and(
                                                                            ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_CREATOR_USER, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfBusinessCreatorUsersITask.getBusinessCreatorUser());
@@ -1957,25 +1957,25 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
 				filter = filter.and(ch.ivyteam.ivy.workflow.TaskProperty.PRIORITY, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, currentPriorityNodeValue.categoryCode);
 			}
 		
-      businessStartTimeStampsIGroup.addAll(WorkflowUIAccessPermissionHandler.findTaskCategories(filter, ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_START_TIMESTAMP, OrderDirection.DESCENDING, in.runningTaskMode, in.taskDisplayMode));
+      taskStartTimeStampsIGroup.addAll(WorkflowUIAccessPermissionHandler.findTaskCategories(filter, ch.ivyteam.ivy.workflow.TaskProperty.START_TIMESTAMP, OrderDirection.DESCENDING, in.runningTaskMode, in.taskDisplayMode));
 
 
-      for (IGroup businessStartTimeStamp: businessStartTimeStampsIGroup)
+      for (IGroup taskStartTimeStamp: taskStartTimeStampsIGroup)
       {
-         elementOfBusinessStartTimeStampsITask = businessStartTimeStamp.getFirstObjectInGroup() as ITask;
+         elementOfTaskStartTimeStampsITask = taskStartTimeStamp.getFirstObjectInGroup() as ITask;
 
-         TaskHierarchyTreeNodeValue businessStartTimeStampTreeNodeValue = new TaskHierarchyTreeNodeValue();
-         businessStartTimeStampTreeNodeValue.property = ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_START_TIMESTAMP;
-         businessStartTimeStampTreeNodeValue.categoryCode = elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp();
-         businessStartTimeStampTreeNodeValue.categoryName = (elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp() is initialized? elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp().format(ivy.var.xivy_workflow_ui_restricted_dateTimeFormatPattern): "") + " (" + businessStartTimeStamp.getNumberOfObjectsInGroup() + ")";
-         businessStartTimeStampTree = businessCreatorUserTree.createChild(businessStartTimeStampTreeNodeValue,"BUSINESS_START_TIMESTAMP");
+         TaskHierarchyTreeNodeValue taskStartTimeStampTreeNodeValue = new TaskHierarchyTreeNodeValue();
+         taskStartTimeStampTreeNodeValue.property = ch.ivyteam.ivy.workflow.TaskProperty.START_TIMESTAMP;
+         taskStartTimeStampTreeNodeValue.categoryCode = elementOfTaskStartTimeStampsITask.getStartTimestamp();
+         taskStartTimeStampTreeNodeValue.categoryName = elementOfTaskStartTimeStampsITask.getStartTimestamp().format(ivy.var.xivy_workflow_ui_restricted_dateTimeFormatPattern) + " (" + taskStartTimeStamp.getNumberOfObjectsInGroup() + ")";
+         taskStartTimeStampTree = businessCreatorUserTree.createChild(taskStartTimeStampTreeNodeValue,"START_TIMESTAMP");
    
 
          caseProcessesIGroup.clear();
 
          filter = ivy.wf.createTaskPropertyFilter(ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesITask.getProcessCategoryCode()).and(
                                                                               ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_CREATOR_USER, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfBusinessCreatorUsersITask.getBusinessCreatorUser()).and(
-                                                                                 ch.ivyteam.ivy.workflow.TaskProperty.BUSINESS_START_TIMESTAMP, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfBusinessStartTimeStampsITask.getBusinessStartTimestamp());
+                                                                                 ch.ivyteam.ivy.workflow.TaskProperty.START_TIMESTAMP, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfTaskStartTimeStampsITask.getStartTimestamp());
 				// consider the task states
 				filter = filter.and(in.taskStatesPropertyFilter);
 
@@ -2003,7 +2003,7 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
             caseProcessTreeNodeValue.property = ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CODE;
             caseProcessTreeNodeValue.categoryCode = elementOfCaseProcessesITask.getProcessCode();
             caseProcessTreeNodeValue.categoryName = (elementOfCaseProcessesITask.getProcessName() is initialized? elementOfCaseProcessesITask.getProcessName(): "" + caseProcessTreeNodeValue.categoryCode) + " (" + caseProcess.getNumberOfObjectsInGroup() + ")";
-            caseProcessTree = businessStartTimeStampTree.createChild(caseProcessTreeNodeValue, "PROCESS_CODE");
+            caseProcessTree = taskStartTimeStampTree.createChild(caseProcessTreeNodeValue, "PROCESS_CODE");
       
          }// end for case processes
       }// end for bus start time stamps
@@ -2020,9 +2020,9 @@ Ts0 f177 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Case process category name/
 Business creator user/
-Business start time stamp/
+Task START_TIMESTAMP/
 Case process name</name>
-        <nameStyle>95,7,9
+        <nameStyle>90,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -5078,86 +5078,67 @@ ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/youDefinedFollowingF
 "<table>" + 
 	
    "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskDisplayMode") + "</th><td>" + 
-    "= " + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskDisplayMode" + in.taskDisplayMode + "ShortDesc") +
+    ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskDisplayMode" + in.taskDisplayMode + "ShortDesc") +
    + "</td></tr>"
 
 +
 
 IF((in.taskAvailableFilters.taskNameFilterIsDefined), 
-   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/name").toString() + "</th><td>" + 
-	  (in.taskAvailableFilters.taskNameFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? "=":
-		(in.taskAvailableFilters.taskNameFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.taskAvailableFilters.taskNameFilter.relationalOperator.toString())) + 
-	  + " " + 
+   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/nameContains") + "</th><td>" + 	   
       in.taskAvailableFilters.taskNameFilter.value + "</td></tr>",
    "")
 +
 
 IF((in.taskAvailableFilters.taskStartTimestampFilterIsDefined), 
-   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/startedAt") + "</th><td>" + 
-      in.taskAvailableFilters.taskStartTimestampFilter.relationalOperator.toString() + " " + 
+   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/startedFrom") + "</th><td>" + 
       in.taskAvailableFilters.taskStartTimestampFilter.value + "</td></tr>",
    "")
-+
++ 
 
 IF((in.taskAvailableFilters.businessMilestoneTimestampFilterIsDefined), 
-   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/businessMilestoneTimestamp") + "</th><td>" + 
-      in.taskAvailableFilters.businessMilestoneTimestampFilter.relationalOperator.toString() + " " + 
+   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/toFinishBefore") + "</th><td>" + 
       in.taskAvailableFilters.businessMilestoneTimestampFilter.value + "</td></tr>",
    "")
-+  
++ 
 
 IF((in.taskAvailableFilters.businessCreatorUserFilterIsDefined), 
-   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/businessObject/plainStrings/codeShort") + "</th><td>" + 
-      (in.taskAvailableFilters.businessCreatorUserFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? "=":
-		(in.taskAvailableFilters.businessCreatorUserFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.taskAvailableFilters.businessCreatorUserFilter.relationalOperator.toString())) + " " +
+   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/otherBusinessData/plainStrings/businessCreatorUserShortContains") + "</th><td>" + 
       in.taskAvailableFilters.businessCreatorUserFilter.value + "</td></tr>",
    "")  
 + 
  
 IF((in.taskAvailableFilters.caseProcessCategoriesFilterIsDefined), 
    "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseProcessCategoryName") + "</th><td>" + 
-	  + (in.taskAvailableFilters.caseProcessCategoriesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.EQUAL) == 0? "=":
-			(in.taskAvailableFilters.caseProcessCategoriesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.taskAvailableFilters.caseProcessCategoriesFilter.relationalOperator.toString())) + " " + 
       in.taskAvailableFilters.caseProcessCategoriesFilter.category.categoryName + "</td></tr>",
    "")
 +
 
 IF ((in.taskAvailableFilters.caseProcessesFilterIsDefined),
    "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseProcessName") + "</th><td>" + 
-		(in.taskAvailableFilters.caseProcessesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.EQUAL) == 0? "=":
-			(in.taskAvailableFilters.caseProcessesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.taskAvailableFilters.caseProcessesFilter.relationalOperator.toString())) + " " +
       in.taskAvailableFilters.caseProcessesFilter.category.categoryName + "</td></tr>", 
    "")
 +
 
 IF ((in.taskAvailableFilters.caseTypesFilterIsDefined),
    "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseTypeName") + "</th><td>" + 
-	(in.taskAvailableFilters.caseTypesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.EQUAL) == 0? "=":
-		(in.taskAvailableFilters.caseTypesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.taskAvailableFilters.caseTypesFilter.relationalOperator.toString())) + " " +	
       in.taskAvailableFilters.caseTypesFilter.category.categoryName + "</td></tr>",
    "")
 +
 
 IF ((in.taskAvailableFilters.caseSubTypesFilterIsDefined),
    "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseSubTypeName") + "</th><td>" + 
-      (in.taskAvailableFilters.caseSubTypesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.EQUAL) == 0? "=":
-		(in.taskAvailableFilters.caseSubTypesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.taskAvailableFilters.caseSubTypesFilter.relationalOperator.toString())) + " " + 
       in.taskAvailableFilters.caseSubTypesFilter.category.categoryName + "</td></tr>", 
    "")
 +
 
 IF((in.taskAvailableFilters.businessMainContactIdFilterIsDefined), 
    "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/businessMainContact/plainStrings/idLong") + "</th><td>" + 
-	(in.taskAvailableFilters.businessMainContactIdFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? "=":
-		(in.taskAvailableFilters.businessMainContactIdFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.taskAvailableFilters.businessMainContactIdFilter.relationalOperator.toString())) + " " +
       in.taskAvailableFilters.businessMainContactIdFilter.value + "</td></tr>",
    "")
 +   
 
 IF((in.taskAvailableFilters.businessMainContactNameFilterIsDefined), 
-   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/businessMainContact/plainStrings/nameLong") + "</th><td>" + 
-   	(in.taskAvailableFilters.businessMainContactNameFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? "=":
-		(in.taskAvailableFilters.businessMainContactNameFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.taskAvailableFilters.businessMainContactNameFilter.relationalOperator.toString())) + " " + 
+   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/businessMainContact/plainStrings/nameContains") + "</th><td>" +    	
       in.taskAvailableFilters.businessMainContactNameFilter.value + "</td></tr>",
    "")
 +

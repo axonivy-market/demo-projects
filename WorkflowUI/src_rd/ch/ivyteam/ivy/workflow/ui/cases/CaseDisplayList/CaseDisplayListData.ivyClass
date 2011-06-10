@@ -4,7 +4,7 @@ onlyMyCases Boolean #field
 onlyMyCases 'Cases that I started' #fieldComment
 footerMessage String #field
 footerMessage 'It is used to display the messages to the user on the botom of the Rich Dialog Panel' #fieldComment
-cases List<ch.ivyteam.ivy.workflow.ICase> #field
+cases List<ch.ivyteam.ivy.workflow.ui.data.restricted.cases.ICaseWrapper> #field
 runningCaseMode Boolean #field
 runningCaseMode 'If true, then find "running cases", otherwise, find "finished cases"' #fieldComment
 propertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
@@ -24,7 +24,7 @@ caseDisplayModeText String #field
 caseDisplayModeText 'Text to display on gui that explain which is the case display mode' #fieldComment
 hasWfAdministratorPermissions Boolean #field
 hasWfAdministratorPermissions 'It defines if a session user has a workflow administrator permissions' #fieldComment
-filteredCases List<ch.ivyteam.ivy.workflow.ICase> #field
+filteredCases List<ch.ivyteam.ivy.workflow.ui.data.restricted.cases.ICaseWrapper> #field
 nameCriteria String #field
 nameCriteria 'Used for find a cases by case name on the displayed case list' #fieldComment
 confirmation String #field

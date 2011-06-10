@@ -1,1 +1,1 @@
-{/value "dd.MM.yyyy HH:mm"/description "Date and Time pattern used in order to format Java dates that WorkflowUI shows to the end user.\nIt could be task start timestamp, business start timestamp, etc."/environments * }
+{/value "dd.MM.yyyy HH:mm:ss"/description "Date and Time pattern used in order to format Java dates that WorkflowUI shows to the end user.\nIt could be task start timestamp, business start timestamp, etc."/environments * }

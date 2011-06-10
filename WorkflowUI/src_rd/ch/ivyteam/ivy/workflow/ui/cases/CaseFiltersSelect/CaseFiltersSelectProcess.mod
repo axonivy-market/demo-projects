@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Feb 10 11:33:12 CET 2011]
-11AE9CE89D43B950 3.15 #module
+[>Created: Thu Jun 09 14:37:50 CEST 2011]
+11AE9CE89D43B950 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseBusinessAndTaskFiltersSelectProcess Big #zClass
 Cs0 RD #cInfo
@@ -148,27 +148,16 @@ out.caseTypesRelationalOperatorsList = [RelationalOperator.EQUAL, RelationalOper
 out.caseSubTypesRelationalOperatorsList = [RelationalOperator.EQUAL, RelationalOperator.UNEQUAL];
 
 
-
 // business main contract type
 out.businessMainContactTypeRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperator.UNEQUAL];
-
-// business main contact id
-out.businessMainContactIdRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperator.UNEQUAL];
-
-// business main contact name
-out.businessMainContactNameRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperator.UNEQUAL];
-
-
+
+
 // business correspondent contact id
 out.businessCorrespondentContactIdRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperator.UNEQUAL];
 
 
 // business object code
 out.businessObjectCodeRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperator.UNEQUAL];
-
-
-// business object name
-out.businessObjectNameRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperator.UNEQUAL];
 
 
 // business creator user
@@ -180,7 +169,7 @@ Cs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>define relational operators
 and index to -1</name>
-        <nameStyle>43,9
+        <nameStyle>43,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -265,7 +254,7 @@ Cs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>build the list of 
 case process categories</name>
-        <nameStyle>42,9
+        <nameStyle>42,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -1046,24 +1035,19 @@ panel.caseProcessRelationalOperatorComboBox.setSelectedIndex(0);
 panel.caseTypeRelationalOperatorComboBox.setSelectedIndex(0);
 panel.caseSubTypeRelationalOperatorComboBox.setSelectedIndex(0);
 
-panel.caseNameRelationalOperatorsComboBox.setSelectedIndex(0);
 
-panel.businessMainContactTypeRelationalOperatorsComboBox.setSelectedIndex(0);
-panel.businessMainContactIdRelationalOperatorsComboBox.setSelectedIndex(0);
-panel.businessMainContactNameRelationalOperatorsComboBox.setSelectedIndex(0);
+panel.businessMainContactTypeRelationalOperatorsComboBox.setSelectedIndex(0);
 
 panel.businessCorrespondentContactIdRelationalOperatorsComboBox.setSelectedIndex(0);
 
 panel.businessObjectCodeRelationalOperatorsComboBox.setSelectedIndex(0);
-panel.businessObjectNameRelationalOperatorsComboBox.setSelectedIndex(0);
-
-panel.businessCreatorUserRelationalOperatorsComboBox.setSelectedIndex(0);' #txt
+' #txt
 Cs0 f19 type ch.ivyteam.ivy.workflow.ui.cases.CaseFiltersSelect.CaseFiltersSelectData #txt
 Cs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>rel operator to 0</name>
-        <nameStyle>17,9
+        <nameStyle>17,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -1143,10 +1127,8 @@ out.caseAvailableFilters = new CaseAvailableFilters();
 if (panel.caseNameTextField.getText().length() > 0)
 {
 	out.caseAvailableFilters.caseNameFilter.property = CaseProperty.NAME;
-	out.caseAvailableFilters.caseNameFilter.relationalOperator = panel.caseNameRelationalOperatorsComboBox.getSelectedListEntry() as RelationalOperator;
-	out.caseAvailableFilters.caseNameFilter.value = (out.caseAvailableFilters.caseNameFilter.relationalOperator.compareTo(RelationalOperator.LIKE) == 0)?
-																													"%" + panel.caseNameTextField.text + "%":
-																													panel.caseNameTextField.text;
+	out.caseAvailableFilters.caseNameFilter.relationalOperator = RelationalOperator.LIKE;
+	out.caseAvailableFilters.caseNameFilter.value = "%" + panel.caseNameTextField.text + "%";
 	
 	out.caseAvailableFilters.propertyFilter = (out.#caseAvailableFilters.#propertyFilter is initialized? 
 			out.caseAvailableFilters.propertyFilter.and(out.caseAvailableFilters.caseNameFilter.property, out.caseAvailableFilters.caseNameFilter.relationalOperator, out.caseAvailableFilters.caseNameFilter.value):
@@ -1193,7 +1175,7 @@ else
 if (panel.businessMilestoneTimestampDatePicker.getValueAsDate() is initialized)
 {
 	out.caseAvailableFilters.businessMilestoneTimestampFilter.property = CaseProperty.BUSINESS_MILESTONE_TIMESTAMP;
-	out.caseAvailableFilters.businessMilestoneTimestampFilter.relationalOperator = RelationalOperator.EQUAL_OR_LARGER;
+	out.caseAvailableFilters.businessMilestoneTimestampFilter.relationalOperator = RelationalOperator.EQUAL_OR_SMALLER;
 	out.caseAvailableFilters.businessMilestoneTimestampFilter.value = panel.businessMilestoneTimestampDatePicker.getValueAsDate();
 	
 	IPropertyFilter businessMilestoneTimestampPropertyFilter = 
@@ -1219,10 +1201,8 @@ else
 if (panel.businessCreatorUserTextField.getText().length() > 0)
 {
 	out.caseAvailableFilters.businessCreatorUserFilter.property = CaseProperty.BUSINESS_CREATOR_USER;
-	out.caseAvailableFilters.businessCreatorUserFilter.relationalOperator = panel.businessCreatorUserRelationalOperatorsComboBox.getSelectedListEntry() as RelationalOperator;
-	out.caseAvailableFilters.businessCreatorUserFilter.value = out.caseAvailableFilters.businessCreatorUserFilter.relationalOperator.compareTo(RelationalOperator.LIKE) == 0?
-																																			"%" + panel.businessCreatorUserTextField.text + "%":
-																																			panel.businessCreatorUserTextField.text;
+	out.caseAvailableFilters.businessCreatorUserFilter.relationalOperator = RelationalOperator.LIKE;
+	out.caseAvailableFilters.businessCreatorUserFilter.value = "%" + panel.businessCreatorUserTextField.text + "%";
 	
 	out.caseAvailableFilters.propertyFilter = out.#caseAvailableFilters.#propertyFilter is initialized? 
 			out.caseAvailableFilters.propertyFilter.and(out.caseAvailableFilters.businessCreatorUserFilter.property, out.caseAvailableFilters.businessCreatorUserFilter.relationalOperator, out.caseAvailableFilters.businessCreatorUserFilter.value):
@@ -1397,10 +1377,8 @@ else
 if (panel.businessMainContactIdTextField.getText().length() > 0)
 {
 	out.caseAvailableFilters.businessMainContactIdFilter.property = CaseProperty.BUSINESS_MAIN_CONTACT_ID;
-	out.caseAvailableFilters.businessMainContactIdFilter.relationalOperator = (panel.businessMainContactIdRelationalOperatorsComboBox.getSelectedListEntry() as RelationalOperator);
-	out.caseAvailableFilters.businessMainContactIdFilter.value = out.caseAvailableFilters.businessMainContactIdFilter.relationalOperator.compareTo(RelationalOperator.LIKE) == 0? 
-																																					"%" + panel.businessMainContactIdTextField.text + "%":
-																																					panel.businessMainContactIdTextField.text;
+	out.caseAvailableFilters.businessMainContactIdFilter.relationalOperator = RelationalOperator.EQUAL_IGNORE_CASE;
+	out.caseAvailableFilters.businessMainContactIdFilter.value = panel.businessMainContactIdTextField.text;
 	
 	out.caseAvailableFilters.propertyFilter = out.#caseAvailableFilters.#propertyFilter is initialized? 
 			out.caseAvailableFilters.propertyFilter.and(out.caseAvailableFilters.businessMainContactIdFilter.property, out.caseAvailableFilters.businessMainContactIdFilter.relationalOperator, out.caseAvailableFilters.businessMainContactIdFilter.value):
@@ -1419,10 +1397,8 @@ else
 if (panel.businessMainContactNameTextField.getText().length() > 0)
 {
 	out.caseAvailableFilters.businessMainContactNameFilter.property = CaseProperty.BUSINESS_MAIN_CONTACT_NAME;
-	out.caseAvailableFilters.businessMainContactNameFilter.relationalOperator = panel.businessMainContactNameRelationalOperatorsComboBox.getSelectedListEntry() as RelationalOperator;
-	out.caseAvailableFilters.businessMainContactNameFilter.value = out.caseAvailableFilters.businessMainContactNameFilter.relationalOperator.compareTo(RelationalOperator.LIKE) == 0?
-																																					"%" + panel.businessMainContactNameTextField.text + "%":
-																																					panel.businessMainContactNameTextField.text;
+	out.caseAvailableFilters.businessMainContactNameFilter.relationalOperator = RelationalOperator.LIKE;
+	out.caseAvailableFilters.businessMainContactNameFilter.value = "%" + panel.businessMainContactNameTextField.text + "%";
 	
 	out.caseAvailableFilters.propertyFilter = out.#caseAvailableFilters.#propertyFilter is initialized? 
 			out.caseAvailableFilters.propertyFilter.and(out.caseAvailableFilters.businessMainContactNameFilter.property, out.caseAvailableFilters.businessMainContactNameFilter.relationalOperator, out.caseAvailableFilters.businessMainContactNameFilter.value):
@@ -1485,10 +1461,8 @@ else
 if (panel.businessObjectNameTextField.getText().length() > 0)
 {
 	out.caseAvailableFilters.businessObjectNameFilter.property = CaseProperty.BUSINESS_OBJECT_NAME;
-	out.caseAvailableFilters.businessObjectNameFilter.relationalOperator = panel.businessObjectNameRelationalOperatorsComboBox.getSelectedListEntry() as RelationalOperator;
-	out.caseAvailableFilters.businessObjectNameFilter.value = out.caseAvailableFilters.businessObjectNameFilter.relationalOperator.compareTo(RelationalOperator.LIKE) == 0?
-																																				"%" + panel.businessObjectNameTextField.text + "%":
-																																				panel.businessObjectNameTextField.text;
+	out.caseAvailableFilters.businessObjectNameFilter.relationalOperator = RelationalOperator.LIKE;
+	out.caseAvailableFilters.businessObjectNameFilter.value = "%" + panel.businessObjectNameTextField.text + "%";
 
 	out.caseAvailableFilters.propertyFilter = out.#caseAvailableFilters.#propertyFilter is initialized? 
 		out.caseAvailableFilters.propertyFilter.and(out.caseAvailableFilters.businessObjectNameFilter.property, out.caseAvailableFilters.businessObjectNameFilter.relationalOperator, out.caseAvailableFilters.businessObjectNameFilter.value):
@@ -1618,12 +1592,8 @@ Cs0 f3 expr out #txt
 Cs0 f3 480 58 480 244 #arcP
 Cs0 f3 0 0.9405939487439562 0 0 #arcLabel
 >Proto Cs0 .rdData2UIAction 'panel.businessCorrespondentContactIdRelationalOperatorsComboBox.listData=in.businessCorrespondentContactIdRelationalOperatorsList;
-panel.businessCreatorUserRelationalOperatorsComboBox.listData=in.businessCreatorUserRelationalOperatorsList;
-panel.businessMainContactIdRelationalOperatorsComboBox.listData=in.businessMainContactIdRelationalOperatorsList;
-panel.businessMainContactNameRelationalOperatorsComboBox.listData=in.businessMainContactNameRelationalOperatorsList;
 panel.businessMainContactTypeRelationalOperatorsComboBox.listData=in.businessMainContactTypeRelationalOperatorsList;
 panel.businessObjectCodeRelationalOperatorsComboBox.listData=in.businessObjectCodeRelationalOperatorsList;
-panel.caseNameRelationalOperatorsComboBox.listData=in.caseNameRelationalOperatorsList;
 panel.caseProcessCategoriesComboBox.listData=in.caseProcessCategoriesList;
 panel.caseProcessCategoryRelationalOperatorComboBox.enabled=in.caseProcessCategoriesRelationalOperatorsEnabled;
 panel.caseProcessCategoryRelationalOperatorComboBox.listData=in.caseProcessCategoriesRelationalOperatorsList;
@@ -1636,7 +1606,6 @@ panel.caseSubTypesComboBox.listData=in.caseSubTypesList;
 panel.caseTypeRelationalOperatorComboBox.enabled=in.caseTypesRelationalOperatorsEnabled;
 panel.caseTypeRelationalOperatorComboBox.listData=in.caseTypesRelationalOperatorsList;
 panel.caseTypesComboBox.listData=in.caseTypesList;
-panel.businessObjectNameRelationalOperatorsComboBox.listData=in.businessObjectNameRelationalOperatorsList;
 ' #txt
 >Proto Cs0 .type ch.ivyteam.ivy.workflow.ui.cases.CaseFiltersSelect.CaseFiltersSelectData #txt
 >Proto Cs0 .processKind RICH_DIALOG #txt

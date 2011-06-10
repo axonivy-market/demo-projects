@@ -1,24 +1,24 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-02-08 17:11:46 | 4.2.0.35335 | 1.0
+# 2011-03-24 13:39:31 | 4.2.0.35989 | 1.0
 ~.startTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118C223601C9E2B6
 ~.parkTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE60D53BB777D
 ~.setTaskExpiryDateButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A06D4212D900B5
 ~.findTasksHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A6D1CCD4AB222D
 ~.startTaskOnSiblingTabMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118C223601C9E2B6
-~.refreshTaskListMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168CA38A597F980
 ~.delegateTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE5EA710FB1B8
+~.refreshTaskListMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168CA38A597F980
 ~@RD_BROADCAST[xivyTaskDelegated]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118EBEE8542826BA
 ~@RD_METHODCALL[_maximizeDisplay()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/12964E9CC20C3A21
-~.resetTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A0856682016BF4
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168B153651C96FA
+~.resetTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A0856682016BF4
 ~.taskNameOrCaseNameCriteriaTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A6D1CCD4AB222D
 ~@RD_METHODCALL[caseIsInitialized()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11B3DADB5466EF52
 ~@RD_METHODCALL[start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11B2C397226E51AC
 ~.automaticTasksExecutionToggleButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/128D46F6DFE11C93
 ~.tasksTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A0591A096BF4F3
 ~.informOnTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118C22345A17837B
-~.refreshTaskListButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168CA38A597F980
 ~.destroyTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A085A17A139EA8
+~.refreshTaskListButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1168CA38A597F980
 ~.setTaskBlockingDelayDateButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A06D4293CB465C
 ~@RD_METHODCALL[stopAutomaticTasksExecution()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1296045DA4BCB470
 ~.tasksTable@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1295FBAF087F9806
@@ -28,9 +28,8 @@
 ~@RD_METHODCALL[refresh()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11B2C29E18858E15
 ~@RD_METHODCALL[getDisplayId()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1189D75281BC256E
 ~.delegateTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE5EA710FB1B8
-~.destroyTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A085A17A139EA8
 ~@RD_METHODCALL[findTasksByCase(ch.ivyteam.ivy.workflow.ICase)]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11B40754687FB16D
-~@RD_METHODCALL[close()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1189E88D7EEAAAB4
-~.parkTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE60D53BB777D
+~.destroyTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A085A17A139EA8
 ~.informOnTaskOnSiblingTabMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118C22345A17837B
-~@RD_BROADCAST[xivyRefreshTaskList]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118C650A535D72B2
+~.parkTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE60D53BB777D
+~@RD_METHODCALL[close()]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/1189E88D7EEAAAB4

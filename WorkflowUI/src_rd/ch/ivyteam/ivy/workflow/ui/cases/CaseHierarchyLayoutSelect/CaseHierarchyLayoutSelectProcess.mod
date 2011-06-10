@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Apr 27 18:34:09 CEST 2009]
-11A9B7CC5D63A2D6 3.11 #module
+[>Created: Wed Mar 30 11:54:58 CEST 2011]
+11A9B7CC5D63A2D6 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseHierarchyLayoutSelectProcess Big #zClass
 Cs0 RD #cInfo
@@ -45,6 +45,7 @@ Cs0 @PushWFArc f24 '' #zField
 Cs0 f0 guid 11A9B7CC6A11CFEF #txt
 Cs0 f0 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
 Cs0 f0 method start() #txt
+Cs0 f0 disableUIEvents false #txt
 Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -64,11 +65,12 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f0 90 40 20 20 13 0 #rect
 Cs0 f0 @|RichDialogInitStartIcon #fIcon
 Cs0 f1 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
-Cs0 f1 91 315 26 26 14 0 #rect
+Cs0 f1 87 315 26 26 14 0 #rect
 Cs0 f1 @|RichDialogProcessEndIcon #fIcon
 Cs0 f3 guid 11AA691970EB2FFD #txt
 Cs0 f3 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
 Cs0 f3 method start(Number) #txt
+Cs0 f3 disableUIEvents false #txt
 Cs0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Number aCaseHierarchyLayoutPrefferedIndex> param = methodEvent.getInputArguments();
 ' #txt
@@ -145,23 +147,14 @@ by default selectionEnabled to true</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f4 86 172 36 24 20 -2 #rect
+Cs0 f4 82 172 36 24 20 -2 #rect
 Cs0 f4 @|RichDialogProcessStepIcon #fIcon
 Cs0 f5 expr out #txt
-Cs0 f5 100 59 104 172 #arcP
+Cs0 f5 100 60 100 172 #arcP
 Cs0 f2 expr out #txt
-Cs0 f2 104 196 104 315 #arcP
+Cs0 f2 100 196 100 315 #arcP
 Cs0 f6 expr out #txt
-Cs0 f6 194 56 112 172 #arcP
-Cs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>onLoad</name>
-        <nameStyle>6,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
+Cs0 f6 194 56 109 172 #arcP
 Cs0 f7 guid 11AA691BC7824B17 #txt
 Cs0 f7 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
 Cs0 f7 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData out;
@@ -172,6 +165,15 @@ Cs0 f7 actionCode 'if (!out.caseHierarchyLayoutsList.isEmpty())
 {
 	panel.caseHierarchyLayoutComboBox.setSelectedIndex(in.caseHierarchyLayoutPrefferedIndex);	
 }' #txt
+Cs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>onLoad</name>
+        <nameStyle>6,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f7 326 46 20 20 13 0 #rect
 Cs0 f7 @|RichDialogProcessStartIcon #fIcon
 Cs0 f8 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
@@ -182,6 +184,12 @@ Cs0 f9 336 66 336 315 #arcP
 Cs0 f14 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
 Cs0 f14 483 315 26 26 14 0 #rect
 Cs0 f14 @|RichDialogProcessEndIcon #fIcon
+Cs0 f13 guid 11AA69642AC7EA84 #txt
+Cs0 f13 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
+Cs0 f13 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData out;
+' #txt
+Cs0 f13 actionTable 'out=in;
+' #txt
 Cs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -191,20 +199,14 @@ Cs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f13 guid 11AA69642AC7EA84 #txt
-Cs0 f13 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
-Cs0 f13 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData out;
-' #txt
-Cs0 f13 actionTable 'out=in;
-' #txt
 Cs0 f13 486 46 20 20 13 0 #rect
 Cs0 f13 @|RichDialogProcessStartIcon #fIcon
+Cs0 f17 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
 Cs0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f17 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
 Cs0 f17 482 114 28 28 14 0 #rect
 Cs0 f17 @|AlternativeIcon #fIcon
 Cs0 f18 expr out #txt
@@ -247,6 +249,7 @@ Cs0 f21 1 0.4380226947074322 0 0 #arcLabel
 Cs0 f10 guid 11AA69986AC80FE9 #txt
 Cs0 f10 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
 Cs0 f10 method getSelectedCaseHierarchyLayoutIndex() #txt
+Cs0 f10 disableUIEvents false #txt
 Cs0 f10 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -268,6 +271,7 @@ Cs0 f10 @|RichDialogMethodStartIcon #fIcon
 Cs0 f11 guid 11AA6998D3414B19 #txt
 Cs0 f11 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
 Cs0 f11 method setSelectedCaseHierarchyLayoutIndex(Number) #txt
+Cs0 f11 disableUIEvents false #txt
 Cs0 f11 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Number index> param = methodEvent.getInputArguments();
 ' #txt
@@ -297,6 +301,7 @@ Cs0 f15 0 0.8350241758926275 0 0 #arcLabel
 Cs0 f22 guid 11E3F54B270522FD #txt
 Cs0 f22 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
 Cs0 f22 method getSelectionEnabled() #txt
+Cs0 f22 disableUIEvents false #txt
 Cs0 f22 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -318,6 +323,7 @@ Cs0 f22 @|RichDialogMethodStartIcon #fIcon
 Cs0 f23 guid 11E3F54BA50DA970 #txt
 Cs0 f23 type ch.ivyteam.ivy.workflow.ui.cases.CaseHierarchyLayoutSelect.CaseHierarchyLayoutSelectData #txt
 Cs0 f23 method setSelectionEnabled(Boolean) #txt
+Cs0 f23 disableUIEvents false #txt
 Cs0 f23 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Boolean enabled> param = methodEvent.getInputArguments();
 ' #txt

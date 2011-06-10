@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Feb 10 11:25:17 CET 2011]
-11A9B75F7E57BD13 3.15 #module
+[>Created: Thu Jun 09 16:23:16 CEST 2011]
+11A9B75F7E57BD13 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseSearchProcess Big #zClass
 Cs0 RD #cInfo
@@ -4037,66 +4037,52 @@ ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/youDefinedFollowingF
 "<table>" + 
 
 	"<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseDisplayMode") + "</th><td>" + 
-	"= " + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseDisplayMode" + in.caseAvailableFilters.caseDisplayMode +  "ShortDesc") + "</td></tr>" +  
+	+ ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseDisplayMode" + in.caseAvailableFilters.caseDisplayMode +  "ShortDesc") + "</td></tr>" +  
 
 IF((in.caseAvailableFilters.caseNameFilterIsDefined), 
-   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/name") + "</th><td>" + 
-      (in.caseAvailableFilters.caseNameFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? "=":
-			(in.caseAvailableFilters.caseNameFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.caseAvailableFilters.caseNameFilter.relationalOperator.toString())) + " " + 
+   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/nameContains") + "</th><td>" + 
       in.caseAvailableFilters.caseNameFilter.value + "<br>",
    "")
 +
 
 IF((in.caseAvailableFilters.businessStartTimestampFilterIsDefined), 
-   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/startedAt") + "</th><td>" + 
-      + in.caseAvailableFilters.businessStartTimestampFilter.relationalOperator + " " + 
+   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/startedFrom") + "</th><td>" + 
       in.caseAvailableFilters.businessStartTimestampFilter.value + "</td></tr>",
    "")
 +
    
 IF((in.caseAvailableFilters.businessMilestoneTimestampFilterIsDefined), 
-   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/businessMilestoneTimestamp") + "</th><td>" + 
-      + in.caseAvailableFilters.businessMilestoneTimestampFilter.relationalOperator + " " + 
+   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/toFinishBefore") + "</th><td>" + 
       in.caseAvailableFilters.businessMilestoneTimestampFilter.value + "</td></tr>",
    "")
 +
 
 IF((in.caseAvailableFilters.businessCreatorUserFilterIsDefined), 
-   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/otherBusinessData/plainStrings/businessCreatorUserShort") + "</th><td>" + 
-      (in.caseAvailableFilters.businessCreatorUserFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? "=":
-		(in.caseAvailableFilters.businessCreatorUserFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.caseAvailableFilters.businessCreatorUserFilter.relationalOperator.toString())) + " " + 
+   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/otherBusinessData/plainStrings/businessCreatorUserShortContains") + "</th><td>" + 
       in.caseAvailableFilters.businessCreatorUserFilter.value + "</td></tr>",
    "")
 + 
 
 IF((in.caseAvailableFilters.caseProcessCategoriesFilterIsDefined), 
    "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseProcessCategoryName") + "</th><td>" + 
-      (in.caseAvailableFilters.caseProcessCategoriesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.EQUAL) == 0? "=":
-		(in.caseAvailableFilters.caseProcessCategoriesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.caseAvailableFilters.caseProcessCategoriesFilter.relationalOperator.toString())) + " " + 
       in.caseAvailableFilters.caseProcessCategoriesFilter.category.categoryName + "</td></tr>",
    "")
 +
 
 IF ((in.caseAvailableFilters.caseProcessesFilterIsDefined),
    "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseProcessName") + "</th><td>" + 
-      (in.caseAvailableFilters.caseProcessesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.EQUAL) == 0? "=":
-		(in.caseAvailableFilters.caseProcessesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.caseAvailableFilters.caseProcessesFilter.relationalOperator.toString())) + " " + 
       in.caseAvailableFilters.caseProcessesFilter.category.categoryName + "</td></tr>", 
    "")
 +
 
 IF ((in.caseAvailableFilters.caseTypesFilterIsDefined),
    "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseTypeName") + "</th><td>" + 
-      (in.caseAvailableFilters.caseTypesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.EQUAL) == 0? "=":
-		(in.caseAvailableFilters.caseTypesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.caseAvailableFilters.caseTypesFilter.relationalOperator.toString())) + " " + 
       in.caseAvailableFilters.caseTypesFilter.category.categoryName + "</td></tr>",
    "")
 +
 
 IF ((in.caseAvailableFilters.caseSubTypesFilterIsDefined),
    "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseSubTypeName") + "</th><td>" + 
-      (in.caseAvailableFilters.caseSubTypesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.EQUAL) == 0? "=":
-		(in.caseAvailableFilters.caseSubTypesFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.caseAvailableFilters.caseSubTypesFilter.relationalOperator.toString())) + " " + 
       in.caseAvailableFilters.caseSubTypesFilter.category.categoryName + "</td></tr>", 
    "")
 +
@@ -4118,9 +4104,7 @@ IF((in.caseAvailableFilters.businessMainContactIdFilterIsDefined),
 +   
 
 IF((in.caseAvailableFilters.businessMainContactNameFilterIsDefined), 
-   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/businessMainContact/plainStrings/nameLong") + "</th><td>" + 
-      (in.caseAvailableFilters.businessMainContactNameFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? "=":
-		(in.caseAvailableFilters.businessMainContactNameFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.caseAvailableFilters.businessMainContactNameFilter.relationalOperator.toString())) + " " + 
+   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/businessMainContact/plainStrings/nameContains") + "</th><td>" + 
       in.caseAvailableFilters.businessMainContactNameFilter.value + "</td></tr>",
    "")
 +   
@@ -4142,9 +4126,7 @@ IF((in.caseAvailableFilters.businessObjectCodeFilterIsDefined),
 +
 
 IF((in.caseAvailableFilters.businessObjectNameFilterIsDefined), 
-   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/businessObject/plainStrings/nameShort") + "</th><td>" + 
-      (in.caseAvailableFilters.businessObjectNameFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? "=":
-		(in.caseAvailableFilters.businessObjectNameFilter.relationalOperator.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? "<>": in.caseAvailableFilters.businessObjectNameFilter.relationalOperator.toString())) + " " + 
+   "<tr><th align=''left''>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/businessObject/plainStrings/nameContains") + "</th><td>" + 
       in.caseAvailableFilters.businessObjectNameFilter.value + "</td></tr>",
    "")
 +

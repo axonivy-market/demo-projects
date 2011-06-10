@@ -131,6 +131,7 @@ private RCheckBox getDisableDateSettingCheckBox() {
 	if (disableDateSettingCheckBox == null) {
 		disableDateSettingCheckBox = new RCheckBox();
 		disableDateSettingCheckBox.setName("disableDateSettingCheckBox");
+		disableDateSettingCheckBox.setVisible(false);
 	}
 	return disableDateSettingCheckBox;
 }

@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Jan 19 09:53:43 CET 2011]
-12A19679D334BA22 3.15 #module
+[>Created: Fri Jun 10 10:08:25 CEST 2011]
+12A19679D334BA22 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstituteManagementProcess Big #zClass
 Ss0 RD #cInfo
@@ -18,7 +18,6 @@ Ss0 @TextInP .processKind .processKind #zField
 Ss0 @RichDialogInitStart f0 '' #zField
 Ss0 @RichDialogProcessEnd f1 '' #zField
 Ss0 @RichDialogProcessStep f2 '' #zField
-Ss0 @PushWFArc f3 '' #zField
 Ss0 @PushWFArc f4 '' #zField
 Ss0 @RichDialogProcessStart f5 '' #zField
 Ss0 @RichDialogProcessEnd f6 '' #zField
@@ -42,6 +41,9 @@ Ss0 @PushWFArc f24 '' #zField
 Ss0 @RichDialogProcessStart f17 '' #zField
 Ss0 @RichDialogProcessEnd f25 '' #zField
 Ss0 @PushWFArc f26 '' #zField
+Ss0 @RichDialogProcessStep f27 '' #zField
+Ss0 @PushWFArc f28 '' #zField
+Ss0 @PushWFArc f3 '' #zField
 >Proto Ss0 Ss0 SubstituteManagementProcess #zField
 Ss0 f0 guid 11990B668C81AC8B #txt
 Ss0 f0 type ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData #txt
@@ -71,58 +73,37 @@ Ss0 f2 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayLi
 ' #txt
 Ss0 f2 actionTable 'out=in;
 ' #txt
-Ss0 f2 actionCode 'import ch.ivyteam.ivy.security.IRole;
-import ch.ivyteam.ivy.security.IUser;
-import com.ulcjava.base.application.ULCTabbedPane;
+Ss0 f2 actionCode 'import com.ulcjava.base.application.ULCTabbedPane;
 import com.ulcjava.base.application.ULCContainer;
 
-//clear all lists
-out.userList.clear();
-out.roleList.clear();
-out.substituteList.clear();
-out.errorMessage = "";
 
-//load all lists
-if(!ivy.session.isSessionUserUnknown()){
-	for(IUser user : ivy.session.getSecurityContext().getUsers()){
-		
-		if(ivy.session.getSessionUser().getName().equals(user.getName()) || "SYSTEM".equals(user.getName())){
-			continue;
-		}
-		out.userList.add(user);
-	}
-	for(IRole role : ivy.session.getSessionUser().getRoles()){
-		if(role.getName().equals("Everybody")){
-			continue;
-		}
-		out.roleList.add(role);
-	}
+out.substituteList.clear();
+
+if (!ivy.session.isSessionUserUnknown())
+{
 	out.substituteList.addAll(ivy.session.getSessionUser().getSubstitutes());
 	out.userNameLoggedOn = ivy.session.getSessionUserName();
-} else {
-	out.errorMessage = "not logged on";
-	}
-
-panel.addCollapsiblePane.setCollapsed(true);
-panel.deleteButton.enabled = false;
-
-
-// reset the set values on UI
-out.remark = "";
-panel.substituteLookupTextField.setSelectedListEntry(null);
-panel.roleLookupTextField.setSelectedListEntry(null);
-
-
-// update the bullet on tab
-ULCContainer parent = panel.getParent();
-
-if (parent instanceof ULCTabbedPane && (parent as ULCTabbedPane).getSelectedComponent().equals(panel))
-{
-	int index = (parent as ULCTabbedPane).getSelectedIndex();
-	(parent as ULCTabbedPane).setTitleAt(index, 
-																				ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/substitutesShortDesc") + 
-																				(ivy.session.getSessionUser().getSubstitutes().isEmpty()? "": " \u2022"));
 	
+	panel.addCollapsiblePane.setCollapsed(true);
+	panel.deleteButton.enabled = false;
+	
+	// reset the set values on UI
+	out.remark = "";
+	panel.substituteLookupTextField.setSelectedListEntry(null);
+	panel.roleLookupTextField.setSelectedListEntry(null);
+	
+	
+	// update the bullet on tab
+	ULCContainer parent = panel.getParent();
+	
+	if (parent instanceof ULCTabbedPane && (parent as ULCTabbedPane).getSelectedComponent().equals(panel))
+	{
+		int index = (parent as ULCTabbedPane).getSelectedIndex();
+		(parent as ULCTabbedPane).setTitleAt(index, 
+																					ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/substitutesShortDesc") + 
+																					(ivy.session.getSessionUser().getSubstitutes().isEmpty()? "": " \u2022"));
+		
+	}
 }' #txt
 Ss0 f2 type ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData #txt
 Ss0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -138,8 +119,6 @@ try to update the tab''s bullet</name>
 ' #txt
 Ss0 f2 54 188 36 24 20 -2 #rect
 Ss0 f2 @|RichDialogProcessStepIcon #fIcon
-Ss0 f3 expr out #txt
-Ss0 f3 72 74 72 188 #arcP
 Ss0 f4 expr out #txt
 Ss0 f4 72 212 72 267 #arcP
 Ss0 f5 guid 11990C09536F6D63 #txt
@@ -207,40 +186,67 @@ import ch.ivyteam.ivy.security.IUser;
 //reset error message
 out.errorMessage = "";
 
-if (!ivy.session.isSessionUserUnknown()){
+ivy.log.debug("START setting substitute of user {0}.", ivy.session.isSessionUserUnknown()? "unknown": ivy.session.getSessionUserName());
 
-	// substitute for personal tasks
-	if (panel.personalRadioButton.isSelected()){
-			if (panel.substituteLookupTextField.getSelectedListEntry() instanceof IUser){
-					ivy.session.getSessionUser().createSubstitute(panel.substituteLookupTextField.selectedListEntry as IUser, null, out.remark);
-					out.remark = "";	
+
+if (!ivy.session.isSessionUserUnknown())
+{
+	try
+	{
+		// substitute for personal tasks
+		if (panel.personalRadioButton.isSelected()){
+			
+			ivy.log.debug("start substitute for personal tasks of user {0}.", ivy.session.getSessionUserName());
+	
+				if (panel.substituteLookupTextField.getSelectedListEntry() instanceof IUser){
+						ivy.session.getSessionUser().createSubstitute(panel.substituteLookupTextField.selectedListEntry as IUser, null, out.remark);
+						out.remark = "";	
+				}
+				
+		// substitute for the role
+		} else if(panel.roleRadioButton.isSelected()){
+			
+			ivy.log.debug("start substitute for roles of user {0}.", ivy.session.getSessionUserName());
+			
+			if (panel.substituteLookupTextField.getSelectedListEntry() instanceof IUser && panel.roleLookupTextField.getSelectedListEntry() instanceof IRole)
+				{
+						ivy.session.getSessionUser().createSubstitute(panel.substituteLookupTextField.selectedListEntry as IUser,panel.roleLookupTextField.selectedListEntry as IRole,out.remark);
+						out.remark = "";					
+				} else {
+					out.errorMessage = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/invalidEntry");
+		}
+					
+		// substitute for all my tasks
+		} else if (panel.personalAllRolesRadioButton.isSelected()){
+			
+			ivy.log.debug("start substitute for all user tasks of user {0}.", ivy.session.getSessionUserName() );
+	
+			//Delete all existing substitutions first
+			//Then add all roles and personal
+			for(IUserSubstitute substitute : in.substituteList){
+				ivy.session.getSessionUser().deleteSubstitute(substitute);
 			}
 			
-	// substitute for the role
-	} else if(panel.roleRadioButton.isSelected()){
-		if (panel.substituteLookupTextField.getSelectedListEntry() instanceof IUser && panel.roleLookupTextField.getSelectedListEntry() instanceof IRole)
-			{
-					ivy.session.getSessionUser().createSubstitute(panel.substituteLookupTextField.selectedListEntry as IUser,panel.roleLookupTextField.selectedListEntry as IRole,out.remark);
-					out.remark = "";					
-			} else {
-				out.errorMessage = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/invalidEntry");
-	}
-				
-	// substitute for all my tasks
-	} else if (panel.personalAllRolesRadioButton.isSelected()){
-		//Delete all existing substitutions first
-		//Then add all roles and personal
-		for(IUserSubstitute substitute : in.substituteList){
-			ivy.session.getSessionUser().deleteSubstitute(substitute);
+			ivy.log.debug("All substitutions are removed now of user {0}.", ivy.session.getSessionUserName());
+	
+			//add all roles
+			for(IRole role : in.roleList){
+				ivy.session.getSessionUser().createSubstitute(panel.substituteLookupTextField.selectedListEntry as IUser, role, out.remark);
+			}
+			
+			ivy.log.debug("Substitutions are done for roles of user {0}.", ivy.session.getSessionUserName());
+					
+			//add personal
+			ivy.session.getSessionUser().createSubstitute(panel.substituteLookupTextField.selectedListEntry as IUser, null, out.remark);
+					
 		}
-		//add all roles
-		for(IRole role : in.roleList){
-			ivy.session.getSessionUser().createSubstitute(panel.substituteLookupTextField.selectedListEntry as IUser, role, out.remark);
-		}
-		//add personal
-		ivy.session.getSessionUser().createSubstitute(panel.substituteLookupTextField.selectedListEntry as IUser, null, out.remark);
+		ivy.log.debug("END of setting substitute of user {0}.", ivy.session.getSessionUserName());
+	
 	}
-		
+	catch (Exception ex)
+	{
+		out.errorMessage = ex.getMessage();	
+	}		
 }' #txt
 Ss0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -251,7 +257,7 @@ Ss0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f10 302 54 20 20 13 0 #rect
+Ss0 f10 342 54 20 20 13 0 #rect
 Ss0 f10 @|RichDialogProcessStartIcon #fIcon
 Ss0 f12 guid 119910778BC6E4A6 #txt
 Ss0 f12 type ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData #txt
@@ -337,23 +343,19 @@ Ss0 f15 type ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.Sub
 Ss0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>entries are valid?</name>
-        <nameStyle>18,7,9
+        <name>errors?</name>
+        <nameStyle>7,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f15 298 122 28 28 14 0 #rect
+Ss0 f15 338 186 28 28 14 0 #rect
 Ss0 f15 @|AlternativeIcon #fIcon
 Ss0 f16 expr out #txt
-Ss0 f16 312 74 312 122 #arcP
+Ss0 f16 352 74 352 186 #arcP
 Ss0 f16 0 0.8981698867940205 0 0 #arcLabel
 Ss0 f11 expr in #txt
-Ss0 f11 outCond 'panel.substituteLookupTextField.getSelectedListEntry() is initialized &&
-(panel.personalRadioButton.isSelected() || 
-	(panel.roleRadioButton.isSelected() && panel.roleLookupTextField.getSelectedListEntry() is initialized) ||
-	panel.personalAllRolesRadioButton.isSelected()
-)' #txt
+Ss0 f11 outCond "".equals(in.errorMessage) #txt
 Ss0 f11 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -363,11 +365,10 @@ Ss0 f11 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f11 312 150 90 200 #arcP
-Ss0 f11 1 312 200 #addKink
-Ss0 f11 1 0.3298071058169641 0 0 #arcLabel
+Ss0 f11 338 200 90 200 #arcP
+Ss0 f11 0 0.3298071058169641 0 0 #arcLabel
 Ss0 f23 type ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData #txt
-Ss0 f23 358 270 20 20 13 0 #rect
+Ss0 f23 342 278 20 20 13 0 #rect
 Ss0 f23 @|RichDialogProcessEndIcon #fIcon
 Ss0 f24 expr in #txt
 Ss0 f24 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -379,9 +380,8 @@ Ss0 f24 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f24 326 136 368 270 #arcP
-Ss0 f24 1 368 136 #addKink
-Ss0 f24 1 0.3582089552238806 0 0 #arcLabel
+Ss0 f24 352 214 352 278 #arcP
+Ss0 f24 0 0.41791044776119396 0 0 #arcLabel
 Ss0 f17 guid 12B2F65100ADFC9A #txt
 Ss0 f17 type ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData #txt
 Ss0 f17 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData out;
@@ -405,6 +405,59 @@ Ss0 f25 910 198 20 20 13 0 #rect
 Ss0 f25 @|RichDialogProcessEndIcon #fIcon
 Ss0 f26 expr out #txt
 Ss0 f26 920 74 920 198 #arcP
+Ss0 f27 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData out;
+' #txt
+Ss0 f27 actionTable 'out=in;
+' #txt
+Ss0 f27 actionCode 'import ch.ivyteam.ivy.security.IRole;
+import ch.ivyteam.ivy.security.IUser;
+import com.ulcjava.base.application.ULCTabbedPane;
+import com.ulcjava.base.application.ULCContainer;
+
+//clear user list and role list
+out.userList.clear();
+out.roleList.clear();
+
+out.errorMessage = "";
+
+//load user list and role list
+if(!ivy.session.isSessionUserUnknown())
+{
+	for(IUser user : ivy.session.getSecurityContext().getUsers()){
+		if(ivy.session.getSessionUser().getName().equals(user.getName())){
+			continue;
+		}
+		out.userList.add(user);
+	}
+	for(IRole role : ivy.session.getSessionUser().getRoles()){
+		if(role.getName().equals("Everybody")){
+			continue;
+		}
+		out.roleList.add(role);
+	}
+} 
+else 
+{
+	out.errorMessage = "not logged on";
+}
+
+' #txt
+Ss0 f27 type ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListData #txt
+Ss0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>load user list and role list</name>
+        <nameStyle>28,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f27 54 116 36 24 20 -2 #rect
+Ss0 f27 @|RichDialogProcessStepIcon #fIcon
+Ss0 f28 expr out #txt
+Ss0 f28 72 74 72 116 #arcP
+Ss0 f3 expr out #txt
+Ss0 f3 72 140 72 188 #arcP
 >Proto Ss0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -433,8 +486,6 @@ panel.substituteTable.listData=in.substituteList;
 >Proto Ss0 .processKind RICH_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
 >Proto Ss0 '' #fIcon
-Ss0 f0 mainOut f3 tail #connect
-Ss0 f3 head f2 mainIn #connect
 Ss0 f2 mainOut f4 tail #connect
 Ss0 f4 head f1 mainIn #connect
 Ss0 f5 mainOut f7 tail #connect
@@ -455,3 +506,7 @@ Ss0 f15 out f24 tail #connect
 Ss0 f24 head f23 mainIn #connect
 Ss0 f17 mainOut f26 tail #connect
 Ss0 f26 head f25 mainIn #connect
+Ss0 f0 mainOut f28 tail #connect
+Ss0 f28 head f27 mainIn #connect
+Ss0 f27 mainOut f3 tail #connect
+Ss0 f3 head f2 mainIn #connect

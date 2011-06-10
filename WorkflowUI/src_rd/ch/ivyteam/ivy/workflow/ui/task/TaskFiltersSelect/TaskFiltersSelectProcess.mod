@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Feb 10 10:52:19 CET 2011]
-11A10DBA1E85BFC3 3.15 #module
+[>Created: Tue May 24 16:21:49 CEST 2011]
+11A10DBA1E85BFC3 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseBusinessAndTaskFiltersSelectProcess Big #zClass
 Cs0 RD #cInfo
@@ -129,10 +129,6 @@ Cs0 f10 actionCode 'import ch.ivyteam.logicalexpression.RelationalOperator;
 import ch.ivyteam.ivy.workflow.ui.data.task.TaskHierarchyTreeNodeValue;
 
 
-// task name
-out.taskNameRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperator.UNEQUAL];
-
-
 // categories relational operators
 out.caseProcessCategoriesRelationalOperatorsList = [RelationalOperator.EQUAL, RelationalOperator.UNEQUAL];
 
@@ -149,19 +145,6 @@ out.caseTypesRelationalOperatorsList = [RelationalOperator.EQUAL, RelationalOper
 out.caseSubTypesRelationalOperatorsList = [RelationalOperator.EQUAL, RelationalOperator.UNEQUAL];
 
 
-
-// business main contact id
-out.businessMainContactIdRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperator.UNEQUAL];
-
-// business main contact name
-out.businessMainContactNameRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperator.UNEQUAL];
-
-// business object code
-out.businessObjectCodeRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperator.UNEQUAL];
-
-// business creator user
-out.businessCreatorUserRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperator.UNEQUAL];
-
 // task stage
 out.taskKindCodeRelationalOperatorsList = [RelationalOperator.LIKE, RelationalOperator.UNEQUAL];' #txt
 Cs0 f10 type ch.ivyteam.ivy.workflow.ui.task.TaskFiltersSelect.TaskFiltersSelectData #txt
@@ -170,7 +153,7 @@ Cs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>define relational operators
 and index to -1</name>
-        <nameStyle>43,9
+        <nameStyle>43,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -937,19 +920,11 @@ Cs0 f19 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskFiltersSelect.TaskFilter
 ' #txt
 Cs0 f19 actionTable 'out=in;
 ' #txt
-Cs0 f19 actionCode 'panel.taskNameRelationalOperatorsComboBox.setSelectedIndex(0);
-
+Cs0 f19 actionCode '
 panel.caseProcessCategoryRelationalOperatorComboBox.setSelectedIndex(0);
 panel.caseProcessRelationalOperatorComboBox.setSelectedIndex(0);
 panel.caseTypeRelationalOperatorComboBox.setSelectedIndex(0);
 panel.caseSubTypeRelationalOperatorComboBox.setSelectedIndex(0);
-
-panel.businessMainContactIdRelationalOperatorsComboBox.setSelectedIndex(0);
-panel.businessMainContactNameRelationalOperatorsComboBox.setSelectedIndex(0);
-
-panel.businessObjectCodeRelationalOperatorsComboBox.setSelectedIndex(0);
-
-panel.businessCreatorUserRelationalOperatorsComboBox.setSelectedIndex(0);
 
 panel.taskKindCodeRelationalOperatorsComboBox.setSelectedIndex(0);' #txt
 Cs0 f19 type ch.ivyteam.ivy.workflow.ui.task.TaskFiltersSelect.TaskFiltersSelectData #txt
@@ -957,7 +932,7 @@ Cs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>rel operator to 0</name>
-        <nameStyle>17,9
+        <nameStyle>17,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -1037,10 +1012,8 @@ out.taskAvailableFilters = new TaskAvailableFilters();
 if (panel.taskNameTextField.getText().length() > 0)
 {
 	out.taskAvailableFilters.taskNameFilter.property = TaskProperty.NAME;
-	out.taskAvailableFilters.taskNameFilter.relationalOperator = (panel.taskNameRelationalOperatorsComboBox.getSelectedListEntry() as RelationalOperator);
-	out.taskAvailableFilters.taskNameFilter.value = out.taskAvailableFilters.taskNameFilter.relationalOperator.compareTo(RelationalOperator.LIKE) == 0?
-																																					"%" + panel.taskNameTextField.text + "%":
-																																					panel.taskNameTextField.text;
+	out.taskAvailableFilters.taskNameFilter.relationalOperator = RelationalOperator.LIKE;
+	out.taskAvailableFilters.taskNameFilter.value = "%" + panel.taskNameTextField.text + "%";
 	
 	out.taskAvailableFilters.propertyFilter = (out.#taskAvailableFilters.#propertyFilter is initialized? 
 			out.taskAvailableFilters.propertyFilter.and(out.taskAvailableFilters.taskNameFilter.property, out.taskAvailableFilters.taskNameFilter.relationalOperator, out.taskAvailableFilters.taskNameFilter.value):
@@ -1085,7 +1058,7 @@ else
 if (panel.businessMilestoneTimestampDatePicker.getValueAsDate() is initialized)
 {
 	out.taskAvailableFilters.businessMilestoneTimestampFilter.property = TaskProperty.BUSINESS_MILESTONE_TIMESTAMP;
-	out.taskAvailableFilters.businessMilestoneTimestampFilter.relationalOperator = RelationalOperator.EQUAL_OR_LARGER;
+	out.taskAvailableFilters.businessMilestoneTimestampFilter.relationalOperator = RelationalOperator.EQUAL_OR_SMALLER;
 	out.taskAvailableFilters.businessMilestoneTimestampFilter.value = panel.businessMilestoneTimestampDatePicker.getValueAsDate();
 	
 	
@@ -1240,10 +1213,8 @@ else
 if (panel.businessMainContactIdTextField.getText().length() > 0)
 {
 	out.taskAvailableFilters.businessMainContactIdFilter.property = TaskProperty.BUSINESS_MAIN_CONTACT_ID;
-	out.taskAvailableFilters.businessMainContactIdFilter.relationalOperator = (panel.businessMainContactIdRelationalOperatorsComboBox.getSelectedListEntry() as RelationalOperator);
-	out.taskAvailableFilters.businessMainContactIdFilter.value = out.taskAvailableFilters.businessMainContactIdFilter.relationalOperator.compareTo(RelationalOperator.LIKE) == 0?
-																																	"%" + panel.businessMainContactIdTextField.text + "%":
-																																	panel.businessMainContactIdTextField.text;
+	out.taskAvailableFilters.businessMainContactIdFilter.relationalOperator = RelationalOperator.EQUAL_IGNORE_CASE;
+	out.taskAvailableFilters.businessMainContactIdFilter.value = panel.businessMainContactIdTextField.text;
 	
 	out.taskAvailableFilters.propertyFilter = (out.#taskAvailableFilters.#propertyFilter is initialized? 
 			out.taskAvailableFilters.propertyFilter.and(out.taskAvailableFilters.businessMainContactIdFilter.property, out.taskAvailableFilters.businessMainContactIdFilter.relationalOperator, out.taskAvailableFilters.businessMainContactIdFilter.value):
@@ -1261,10 +1232,8 @@ else
 if (panel.businessMainContactNameTextField.getText().length() > 0)
 {
 	out.taskAvailableFilters.businessMainContactNameFilter.property = TaskProperty.BUSINESS_MAIN_CONTACT_NAME;
-	out.taskAvailableFilters.businessMainContactNameFilter.relationalOperator = (panel.businessMainContactNameRelationalOperatorsComboBox.getSelectedListEntry() as RelationalOperator);
-	out.taskAvailableFilters.businessMainContactNameFilter.value = out.taskAvailableFilters.businessMainContactNameFilter.relationalOperator.compareTo(RelationalOperator.LIKE) == 0?
-																																					"%" + panel.businessMainContactNameTextField.text + "%":
-																																					panel.businessMainContactNameTextField.text;
+	out.taskAvailableFilters.businessMainContactNameFilter.relationalOperator = RelationalOperator.LIKE;
+	out.taskAvailableFilters.businessMainContactNameFilter.value = "%" + panel.businessMainContactNameTextField.text + "%";
 	
 	out.taskAvailableFilters.propertyFilter = (out.#taskAvailableFilters.#propertyFilter is initialized? 
 			out.taskAvailableFilters.propertyFilter.and(out.taskAvailableFilters.businessMainContactNameFilter.property, out.taskAvailableFilters.businessMainContactNameFilter.relationalOperator, out.taskAvailableFilters.businessMainContactNameFilter.value):
@@ -1278,35 +1247,13 @@ else
 }
 
 
-// business object code
-if (panel.businessObjectCodeTextField.getText().length() > 0)
-{
-	out.taskAvailableFilters.businessObjectCodeFilter.property = TaskProperty.BUSINESS_OBJECT_CODE;
-	out.taskAvailableFilters.businessObjectCodeFilter.relationalOperator = (panel.businessObjectCodeRelationalOperatorsComboBox.getSelectedListEntry() as RelationalOperator);
-	out.taskAvailableFilters.businessObjectCodeFilter.value = out.taskAvailableFilters.businessObjectCodeFilter.relationalOperator.compareTo(RelationalOperator.LIKE) == 0?
-																																					"%" + panel.businessObjectCodeTextField.text + "%":
-																																					panel.businessObjectCodeTextField.text;
-	
-	out.taskAvailableFilters.propertyFilter = (out.#taskAvailableFilters.#propertyFilter is initialized? 
-			out.taskAvailableFilters.propertyFilter.and(out.taskAvailableFilters.businessObjectCodeFilter.property, out.taskAvailableFilters.businessObjectCodeFilter.relationalOperator, out.taskAvailableFilters.businessObjectCodeFilter.value):
-			ivy.wf.createTaskPropertyFilter(out.taskAvailableFilters.businessObjectCodeFilter.property, out.taskAvailableFilters.businessObjectCodeFilter.relationalOperator, out.taskAvailableFilters.businessObjectCodeFilter.value));
-	
-	out.taskAvailableFilters.businessObjectCodeFilterIsDefined = true;
-}
-else
-{
-	out.taskAvailableFilters.businessObjectCodeFilterIsDefined = false;	
-}
-
 
 // business creator user
 if (panel.businessCreatorUserTextField.getText().length() > 0)
 {
 	out.taskAvailableFilters.businessCreatorUserFilter.property = TaskProperty.BUSINESS_CREATOR_USER;
-	out.taskAvailableFilters.businessCreatorUserFilter.relationalOperator = panel.businessCreatorUserRelationalOperatorsComboBox.getSelectedListEntry() as RelationalOperator;
-	out.taskAvailableFilters.businessCreatorUserFilter.value = (out.taskAvailableFilters.businessCreatorUserFilter.relationalOperator.compareTo(RelationalOperator.LIKE) == 0)?
-																																			"%" + panel.businessCreatorUserTextField.text + "%":
-																																			panel.businessCreatorUserTextField.text;
+	out.taskAvailableFilters.businessCreatorUserFilter.relationalOperator = RelationalOperator.LIKE;
+	out.taskAvailableFilters.businessCreatorUserFilter.value = "%" + panel.businessCreatorUserTextField.text + "%";
 	
 	out.taskAvailableFilters.propertyFilter = (out.#taskAvailableFilters.#propertyFilter is initialized? 
 			out.taskAvailableFilters.propertyFilter.and(out.taskAvailableFilters.businessCreatorUserFilter.property, out.taskAvailableFilters.businessCreatorUserFilter.relationalOperator, out.taskAvailableFilters.businessCreatorUserFilter.value):
@@ -1480,11 +1427,7 @@ Cs0 f67 expr out #txt
 Cs0 f67 520 138 341 368 #arcP
 Cs0 f67 1 520 368 #addKink
 Cs0 f67 0 0.828098452192514 0 0 #arcLabel
->Proto Cs0 .rdData2UIAction 'panel.businessCreatorUserRelationalOperatorsComboBox.listData=in.businessCreatorUserRelationalOperatorsList;
-panel.businessMainContactIdRelationalOperatorsComboBox.listData=in.businessMainContactIdRelationalOperatorsList;
-panel.businessMainContactNameRelationalOperatorsComboBox.listData=in.businessMainContactNameRelationalOperatorsList;
-panel.businessObjectCodeRelationalOperatorsComboBox.listData=in.businessObjectCodeRelationalOperatorsList;
-panel.caseProcessCategoriesComboBox.listData=in.caseProcessCategoriesList;
+>Proto Cs0 .rdData2UIAction 'panel.caseProcessCategoriesComboBox.listData=in.caseProcessCategoriesList;
 panel.caseProcessCategoryRelationalOperatorComboBox.enabled=in.caseProcessCategoriesRelationalOperatorsEnabled;
 panel.caseProcessCategoryRelationalOperatorComboBox.listData=in.caseProcessCategoriesRelationalOperatorsList;
 panel.caseProcessesComboBox.listData=in.caseProcessesList;
@@ -1497,7 +1440,6 @@ panel.caseTypeRelationalOperatorComboBox.enabled=in.caseTypesRelationalOperators
 panel.caseTypeRelationalOperatorComboBox.listData=in.caseTypesRelationalOperatorsList;
 panel.caseTypesComboBox.listData=in.caseTypesList;
 panel.taskKindCodeRelationalOperatorsComboBox.listData=in.taskKindCodeRelationalOperatorsList;
-panel.taskNameRelationalOperatorsComboBox.listData=in.taskNameRelationalOperatorsList;
 ' #txt
 >Proto Cs0 .type ch.ivyteam.ivy.workflow.ui.task.TaskFiltersSelect.TaskFiltersSelectData #txt
 >Proto Cs0 .processKind RICH_DIALOG #txt

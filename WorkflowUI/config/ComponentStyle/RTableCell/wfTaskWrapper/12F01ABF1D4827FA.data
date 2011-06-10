@@ -1,0 +1,5 @@
+#Tue Mar 29 14:52:16 CEST 2011
+color=\#Thu Mar 24 13\:22\:46 CET 2011\r\nmacro\=<%\\\= IF ((entry as ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper).getBusinessMilestoneTimestamp() is initialized && (entry as ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper).getBusinessMilestoneTimestamp().getDate().compareTo(new Date()) \\\=\\\= -1, \\n\\t\\t\\t\\t\\t"\\\#FF0000", \\n\\t\\t\\t\\t\\tIF((entry as ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper).getBusinessMilestoneTimestamp() is initialized && ((entry as ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper).getBusinessMilestoneTimestamp().getDate().compareTo(new Date()) \\\=\\\= 0 || (entry as ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper).getBusinessMilestoneTimestamp().getDate().compareTo(new Date().add(new Duration(0,0,1,0,0,0))) \\\=\\\= 0), "\\\#FF8C00", null)) %>\r\n
+size=11
+style=BOLD
+family=TAHOMA

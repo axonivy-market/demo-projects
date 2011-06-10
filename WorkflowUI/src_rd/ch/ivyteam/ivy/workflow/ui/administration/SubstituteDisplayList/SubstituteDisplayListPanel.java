@@ -523,7 +523,6 @@ private RLookupTextField getRoleLookupTextField() {
 		roleLookupTextField.setStyleProperties("{/weightX \"1\"}");
 		roleLookupTextField.setStyle("mandatoryLeftAlignedLookupTextField");
 		roleLookupTextField.setEnabler(getRoleRadioButton());
-		roleLookupTextField.setIndicatorIcon(new ULCIcon(getClass().getResource("/ch/ivyteam/ivy/workflow/ui/administration/SubstituteDisplayList/zoom16.png")));
 		
 		URL iconUrl = getClass().getResource(iconPath);
 		if (iconUrl != null)

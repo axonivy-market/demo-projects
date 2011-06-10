@@ -55,17 +55,10 @@ private RDatePicker businessMilestoneTimestampDatePicker = null;
 private RTextField taskKindCodeTextField = null;
 private RLabel businessMainContactNameLabel = null;
 private RTextField businessMainContactNameTextField = null;
-private RComboBox businessMainContactIdRelationalOperatorsComboBox = null;
-private RComboBox businessMainContactNameRelationalOperatorsComboBox = null;
-private RComboBox businessCreatorUserRelationalOperatorsComboBox = null;
 private RComboBox taskKindCodeRelationalOperatorsComboBox = null;
-private RLabel businessObjectCodeLabel = null;
-private RComboBox businessObjectCodeRelationalOperatorsComboBox = null;
-private RTextField businessObjectCodeTextField = null;
 private RGridBagLayoutPane taskFiltersGridBagLayoutPane = null;
 private RLabel taskNameLabel = null;
 private RTextField taskNameTextField = null;
-private RComboBox taskNameRelationalOperatorsComboBox = null;
 private RLabel taskStartTimestampFromLabel = null;
 private RDatePicker taskStartTimestampUntilDatePicker = null;
 private RGridBagLayoutPane taskStageGridBagLayoutPane = null;
@@ -102,21 +95,22 @@ private RGridBagLayoutPane taskStageGridBagLayoutPane = null;
  */
 private RGridBagLayoutPane getBusinessFiltersGridBagLayoutPane() {
 	if (businessFiltersGridBagLayoutPane == null) {
+		RFiller hFiller = new RFiller();
+		hFiller.setPreferredSize(new com.ulcjava.base.application.util.Dimension(50,20));
+		hFiller.setStyleProperties("{/preferredSizeWidth \"50\"}");
 		RFiller aFiller = new RFiller();
 		aFiller.setStyle("horizontalStrut100");
+		aFiller.setStyleProperties("{/preferredSizeWidth \"120\"}");
 		businessFiltersGridBagLayoutPane = new RGridBagLayoutPane();
 		businessFiltersGridBagLayoutPane.setName("businessFiltersGridBagLayoutPane");
 		businessFiltersGridBagLayoutPane.add(getBusinessMainContactIdTextField(), new com.ulcjava.base.application.GridBagConstraints(3, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		businessFiltersGridBagLayoutPane.add(getBusinessMainContactNameLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		businessFiltersGridBagLayoutPane.add(getBusinessMainContactNameTextField(), new com.ulcjava.base.application.GridBagConstraints(3, 1, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		businessFiltersGridBagLayoutPane.add(aFiller, new com.ulcjava.base.application.GridBagConstraints(0, 7, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		businessFiltersGridBagLayoutPane.add(getBusinessObjectCodeLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		businessFiltersGridBagLayoutPane.add(getBusinessObjectCodeTextField(), new com.ulcjava.base.application.GridBagConstraints(3, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		businessFiltersGridBagLayoutPane.add(getBusinessMainContactIdLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		businessFiltersGridBagLayoutPane.add(getBusinessMainContactIdRelationalOperatorsComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		businessFiltersGridBagLayoutPane.add(getBusinessMainContactNameRelationalOperatorsComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		businessFiltersGridBagLayoutPane.add(getBusinessObjectCodeRelationalOperatorsComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-}
+		businessFiltersGridBagLayoutPane.add(hFiller, new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+	}
+
 	return businessFiltersGridBagLayoutPane;
 }
 
@@ -176,9 +170,12 @@ private RButton getCancelDefineFilterButton() {
  */
 private RGridBagLayoutPane getCaseCategorizationFiltersGridBagLayoutPane() {
 	if (caseCategorizationFiltersGridBagLayoutPane == null) {
+		RFiller hFiller2 = new RFiller();
+		hFiller2.setPreferredSize(new Dimension(50, 20));
+		hFiller2.setStyleProperties("{/preferredSizeWidth \"50\"}");
 		RFiller tasksFiltersFiller = new RFiller();
 		tasksFiltersFiller.setStyle("horizontalStrut100");
-		tasksFiltersFiller.setStyleProperties("{/preferredSizeWidth \"88\"}");
+		tasksFiltersFiller.setStyleProperties("{/preferredSizeWidth \"111\"}");
 		caseCategorizationFiltersGridBagLayoutPane = new RGridBagLayoutPane();
 		caseCategorizationFiltersGridBagLayoutPane.setBorder(BorderFactory.createTitledBorder(null, "", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 11), new Color(12, 74, 124)));
 		caseCategorizationFiltersGridBagLayoutPane.setName("caseCategorizationFiltersGridBagLayoutPane");
@@ -197,6 +194,7 @@ private RGridBagLayoutPane getCaseCategorizationFiltersGridBagLayoutPane() {
 		caseCategorizationFiltersGridBagLayoutPane.add(getCaseSubTypeRelationalOperatorComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		caseCategorizationFiltersGridBagLayoutPane.add(getCaseSubTypesComboBox(), new com.ulcjava.base.application.GridBagConstraints(2, 3, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		caseCategorizationFiltersGridBagLayoutPane.add(tasksFiltersFiller, new com.ulcjava.base.application.GridBagConstraints(0, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		caseCategorizationFiltersGridBagLayoutPane.add(hFiller2, new com.ulcjava.base.application.GridBagConstraints(1, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return caseCategorizationFiltersGridBagLayoutPane;
 }
@@ -397,7 +395,7 @@ private RLabel getBusinessMilestoneTimestampLabel() {
 		businessMilestoneTimestampLabel.setName("businessMilestoneTimestampLabel");
 		businessMilestoneTimestampLabel.setStyle("rightAlignedLabel");
 		businessMilestoneTimestampLabel.setName("businessMilestoneTimestampLabel");
-		businessMilestoneTimestampLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/businessMilestoneTimestamp\")%>\n");
+		businessMilestoneTimestampLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/toFinishBefore\")%>\n");
 	}
 	return businessMilestoneTimestampLabel;
 }
@@ -427,7 +425,7 @@ private RLabel getBusinessCreatorUserLabel() {
 		businessCreatorUserLabel = new RLabel();
 		businessCreatorUserLabel.setName("businessCreatorUserLabel");
 		businessCreatorUserLabel.setStyle("rightAlignedLabel");
-		businessCreatorUserLabel.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/otherBusinessData/plainStrings/businessCreatorUserShort\") %>");
+		businessCreatorUserLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/otherBusinessData/plainStrings/businessCreatorUserShortContains\")%>");
 	}
 	return businessCreatorUserLabel;
 }
@@ -517,7 +515,7 @@ private RLabel getBusinessMainContactNameLabel() {
 		businessMainContactNameLabel = new RLabel();
 		businessMainContactNameLabel.setName("businessMainContactNameLabel");
 		businessMainContactNameLabel.setStyle("rightAlignedLabel");
-		businessMainContactNameLabel.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/businessMainContact/plainStrings/nameLong\") %>");
+		businessMainContactNameLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/businessMainContact/plainStrings/nameContains\")%>");
 	}
 	return businessMainContactNameLabel;
 }
@@ -538,54 +536,6 @@ private RTextField getBusinessMainContactNameTextField() {
 }
 
 /**
- * This method initializes businessMainContactIdRelationalOperatorsComboBox	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RComboBox	
- */
-private RComboBox getBusinessMainContactIdRelationalOperatorsComboBox() {
-	if (businessMainContactIdRelationalOperatorsComboBox == null) {
-		businessMainContactIdRelationalOperatorsComboBox = new RComboBox();
-		businessMainContactIdRelationalOperatorsComboBox.setName("businessMainContactIdRelationalOperatorsComboBox");
-		businessMainContactIdRelationalOperatorsComboBox.setPreferredSize(new com.ulcjava.base.application.util.Dimension(50,20));
-			businessMainContactIdRelationalOperatorsComboBox.setModelConfiguration("{/result \"result=entry.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? \\\"=\\\":\\r\\n\\t(entry.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? \\\"<>\\\": entry.toString())\"/version \"3.0\"/icon \"\"/tooltip \"\"}");
-		businessMainContactIdRelationalOperatorsComboBox.setName("businessMainContactIdRelationalOperatorsComboBox");
-}
-	return businessMainContactIdRelationalOperatorsComboBox;
-}
-
-/**
- * This method initializes businessMainContactNameRelationalOperatorsComboBox	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RComboBox	
- */
-private RComboBox getBusinessMainContactNameRelationalOperatorsComboBox() {
-	if (businessMainContactNameRelationalOperatorsComboBox == null) {
-		businessMainContactNameRelationalOperatorsComboBox = new RComboBox();
-		businessMainContactNameRelationalOperatorsComboBox.setName("businessMainContactNameRelationalOperatorsComboBox");
-		businessMainContactNameRelationalOperatorsComboBox.setPreferredSize(new com.ulcjava.base.application.util.Dimension(50,20));
-			businessMainContactNameRelationalOperatorsComboBox.setModelConfiguration("{/result \"result=entry.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? \\\"=\\\":\\r\\n\\t(entry.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? \\\"<>\\\": entry.toString())\"/version \"3.0\"/icon \"\"/tooltip \"\"}");
-		businessMainContactNameRelationalOperatorsComboBox.setName("businessMainContactNameRelationalOperatorsComboBox");
-}
-	return businessMainContactNameRelationalOperatorsComboBox;
-}
-
-/**
- * This method initializes businessCreatorUserRelationalOperatorsComboBox	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RComboBox	
- */
-private RComboBox getBusinessCreatorUserRelationalOperatorsComboBox() {
-	if (businessCreatorUserRelationalOperatorsComboBox == null) {
-		businessCreatorUserRelationalOperatorsComboBox = new RComboBox();
-		businessCreatorUserRelationalOperatorsComboBox.setName("businessCreatorUserRelationalOperatorsComboBox");
-		businessCreatorUserRelationalOperatorsComboBox.setPreferredSize(new com.ulcjava.base.application.util.Dimension(50,20));
-			businessCreatorUserRelationalOperatorsComboBox.setModelConfiguration("{/result \"result=entry.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? \\\"=\\\":\\r\\n\\t(entry.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? \\\"<>\\\": entry.toString())\"/version \"3.0\"/icon \"\"/tooltip \"\"}");
-		businessCreatorUserRelationalOperatorsComboBox.setName("businessCreatorUserRelationalOperatorsComboBox");
-}
-	return businessCreatorUserRelationalOperatorsComboBox;
-}
-
-/**
  * This method initializes taskKindCodeRelationalOperatorsComboBox	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RComboBox	
@@ -602,76 +552,31 @@ private RComboBox getTaskKindCodeRelationalOperatorsComboBox() {
 
 
 /**
- * This method initializes businessObjectCodeLabel	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
- */
-private RLabel getBusinessObjectCodeLabel() {
-	if (businessObjectCodeLabel == null) {
-		businessObjectCodeLabel = new RLabel();
-		businessObjectCodeLabel.setName("businessObjectCodeLabel");
-		businessObjectCodeLabel.setVisible(false);
-		businessObjectCodeLabel.setStyle("rightAlignedLabel");
-		businessObjectCodeLabel.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/businessObject/plainStrings/codeShort\") %>");
-	}
-	return businessObjectCodeLabel;
-}
-
-/**
- * This method initializes businessObjectCodeRelationalOperatorsComboBox	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RComboBox	
- */
-private RComboBox getBusinessObjectCodeRelationalOperatorsComboBox() {
-	if (businessObjectCodeRelationalOperatorsComboBox == null) {
-		businessObjectCodeRelationalOperatorsComboBox = new RComboBox();
-		businessObjectCodeRelationalOperatorsComboBox.setName("businessObjectCodeRelationalOperatorsComboBox");
-		businessObjectCodeRelationalOperatorsComboBox.setModelConfiguration("{/result \"result=entry.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? \\\"=\\\":\\r\\n\\t(entry.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? \\\"<>\\\": entry.toString())\"/version \"3.0\"/icon \"\"/tooltip \"\"}");
-		businessObjectCodeRelationalOperatorsComboBox.setPreferredSize(new com.ulcjava.base.application.util.Dimension(50,20));
-		businessObjectCodeRelationalOperatorsComboBox.setVisible(false);
-	}
-	return businessObjectCodeRelationalOperatorsComboBox;
-}
-
-/**
- * This method initializes businessObjectCodeTextField	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RTextField	
- */
-private RTextField getBusinessObjectCodeTextField() {
-	if (businessObjectCodeTextField == null) {
-		businessObjectCodeTextField = new RTextField();
-		businessObjectCodeTextField.setName("businessObjectCodeTextField");
-		businessObjectCodeTextField.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
-		businessObjectCodeTextField.setVisible(false);
-		businessObjectCodeTextField.setText("");
-	}
-	return businessObjectCodeTextField;
-}
-
-/**
  * This method initializes taskFiltersGridBagLayoutPane	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane	
  */
 private RGridBagLayoutPane getTaskFiltersGridBagLayoutPane() {
 	if (taskFiltersGridBagLayoutPane == null) {
+		RFiller hFiller1 = new RFiller();
+		hFiller1.setPreferredSize(new Dimension(50, 20));
+		hFiller1.setStyleProperties("{/preferredSizeWidth \"50\"}");
 		RFiller taskFiltersFiller = new RFiller();
 		taskFiltersFiller.setStyle("horizontalStrut100");
+		taskFiltersFiller.setStyleProperties("{/preferredSizeWidth \"120\"}");
 		taskFiltersGridBagLayoutPane = new RGridBagLayoutPane();
 		taskFiltersGridBagLayoutPane.setName("taskFiltersGridBagLayoutPane");
 		taskFiltersGridBagLayoutPane.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
-		taskFiltersGridBagLayoutPane.add(getTaskNameLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskFiltersGridBagLayoutPane.add(getTaskNameTextField(), new com.ulcjava.base.application.GridBagConstraints(2, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskFiltersGridBagLayoutPane.add(taskFiltersFiller, new com.ulcjava.base.application.GridBagConstraints(0, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskFiltersGridBagLayoutPane.add(getTaskStartTimestampFromLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskFiltersGridBagLayoutPane.add(getTaskStartTimestampUntilDatePicker(), new com.ulcjava.base.application.GridBagConstraints(2, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskFiltersGridBagLayoutPane.add(getBusinessCreatorUserLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskFiltersGridBagLayoutPane.add(getBusinessCreatorUserTextField(), new com.ulcjava.base.application.GridBagConstraints(2, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskFiltersGridBagLayoutPane.add(getBusinessMilestoneTimestampLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskFiltersGridBagLayoutPane.add(getBusinessMilestoneTimestampDatePicker(), new com.ulcjava.base.application.GridBagConstraints(2, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskFiltersGridBagLayoutPane.add(getTaskNameRelationalOperatorsComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskFiltersGridBagLayoutPane.add(getBusinessCreatorUserRelationalOperatorsComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskFiltersGridBagLayoutPane.add(getTaskNameLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskFiltersGridBagLayoutPane.add(getTaskNameTextField(), new com.ulcjava.base.application.GridBagConstraints(2, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskFiltersGridBagLayoutPane.add(taskFiltersFiller, new com.ulcjava.base.application.GridBagConstraints(0, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskFiltersGridBagLayoutPane.add(getTaskStartTimestampFromLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskFiltersGridBagLayoutPane.add(getTaskStartTimestampUntilDatePicker(), new com.ulcjava.base.application.GridBagConstraints(2, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskFiltersGridBagLayoutPane.add(getBusinessCreatorUserLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskFiltersGridBagLayoutPane.add(getBusinessCreatorUserTextField(), new com.ulcjava.base.application.GridBagConstraints(2, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskFiltersGridBagLayoutPane.add(getBusinessMilestoneTimestampLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskFiltersGridBagLayoutPane.add(getBusinessMilestoneTimestampDatePicker(), new com.ulcjava.base.application.GridBagConstraints(2, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskFiltersGridBagLayoutPane.add(hFiller1, new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return taskFiltersGridBagLayoutPane;
 }
@@ -686,7 +591,7 @@ private RLabel getTaskNameLabel() {
 		taskNameLabel = new RLabel();
 		taskNameLabel.setName("taskNameLabel");
 		taskNameLabel.setStyle("rightAlignedLabel");
-		taskNameLabel.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/name\") %>");
+		taskNameLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/nameContains\")%>");
 	}
 	return taskNameLabel;
 }
@@ -707,21 +612,6 @@ private RTextField getTaskNameTextField() {
 }
 
 /**
- * This method initializes taskNameRelationalOperatorsComboBox	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RComboBox	
- */
-private RComboBox getTaskNameRelationalOperatorsComboBox() {
-	if (taskNameRelationalOperatorsComboBox == null) {
-		taskNameRelationalOperatorsComboBox = new RComboBox();
-		taskNameRelationalOperatorsComboBox.setName("taskNameRelationalOperatorsComboBox");
-		taskNameRelationalOperatorsComboBox.setPreferredSize(new com.ulcjava.base.application.util.Dimension(50,20));
-		taskNameRelationalOperatorsComboBox.setModelConfiguration("{/result \"result=entry.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.LIKE) == 0? \\\"=\\\":\\r\\n\\t(entry.compareTo(ch.ivyteam.logicalexpression.RelationalOperator.UNEQUAL) == 0? \\\"<>\\\": entry.toString())\"/version \"3.0\"/icon \"\"/tooltip \"\"}");
-	}
-	return taskNameRelationalOperatorsComboBox;
-}
-
-/**
  * This method initializes taskStartTimestampFromLabel	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
@@ -731,7 +621,7 @@ private RLabel getTaskStartTimestampFromLabel() {
 		taskStartTimestampFromLabel = new RLabel();
 		taskStartTimestampFromLabel.setName("taskStartTimestampFromLabel");
 		taskStartTimestampFromLabel.setStyle("rightAlignedLabel");
-		taskStartTimestampFromLabel.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/startedAt\") %>");
+		taskStartTimestampFromLabel.setText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/startedFrom\") %>");
 	}
 	return taskStartTimestampFromLabel;
 }
@@ -762,6 +652,7 @@ private RGridBagLayoutPane getTaskStageGridBagLayoutPane() {
 		taskStageFiller.setStyle("horizontalStrut100");
 		taskStageGridBagLayoutPane = new RGridBagLayoutPane();
 		taskStageGridBagLayoutPane.setName("taskStageGridBagLayoutPane");
+		taskStageGridBagLayoutPane.setVisible(false);
 		taskStageGridBagLayoutPane.add(getTaskKindCodeLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		taskStageGridBagLayoutPane.add(getTaskKindCodeRelationalOperatorsComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		taskStageGridBagLayoutPane.add(getTaskKindCodeTextField(), new com.ulcjava.base.application.GridBagConstraints(2, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
