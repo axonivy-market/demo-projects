@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jun 13 20:18:11 CEST 2011]
+[>Created: Tue Jun 14 01:26:30 CEST 2011]
 13078EA7DB36D162 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstituteManagementProcess Big #zClass
@@ -72,6 +72,10 @@ Ss0 @RichDialogProcessStart f42 '' #zField
 Ss0 @RichDialogEnd f54 '' #zField
 Ss0 @PushWFArc f58 '' #zField
 Ss0 @PushWFArc f59 '' #zField
+Ss0 @RichDialogMethodStart f2 '' #zField
+Ss0 @RichDialogProcessStep f39 '' #zField
+Ss0 @PushWFArc f60 '' #zField
+Ss0 @PushWFArc f32 '' #zField
 >Proto Ss0 Ss0 SubstituteManagementProcess #zField
 Ss0 f1 type ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData #txt
 Ss0 f1 51 267 26 26 14 0 #rect
@@ -536,13 +540,16 @@ Ss0 f47 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisp
 ' #txt
 Ss0 f47 actionTable 'out=in;
 ' #txt
-Ss0 f47 actionCode panel._loadUserSubstitutes(); #txt
+Ss0 f47 actionCode 'panel._loadUserSubstitutes();
+
+panel._updateBulletOnTab();' #txt
 Ss0 f47 type ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData #txt
 Ss0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>call _loadUserSubstitutes()</name>
-        <nameStyle>27,7
+        <name>call _loadUserSubstitutes()
+update bullet on tab</name>
+        <nameStyle>48,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -586,7 +593,7 @@ _loadUserSubstitutes()</name>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f49 342 148 36 24 20 -2 #rect
+Ss0 f49 342 156 36 24 20 -2 #rect
 Ss0 f49 @|RichDialogProcessStepIcon #fIcon
 Ss0 f53 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData out;
 ' #txt
@@ -604,10 +611,10 @@ _loadUserRoles()</name>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f53 342 244 36 24 20 -2 #rect
+Ss0 f53 342 220 36 24 20 -2 #rect
 Ss0 f53 @|RichDialogProcessStepIcon #fIcon
 Ss0 f4 expr out #txt
-Ss0 f4 360 268 360 294 #arcP
+Ss0 f4 360 244 360 294 #arcP
 Ss0 f55 type ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData #txt
 Ss0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -633,7 +640,7 @@ Ss0 f50 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f50 360 126 360 148 #arcP
+Ss0 f50 360 126 360 156 #arcP
 Ss0 f57 expr in #txt
 Ss0 f57 374 112 369 301 #arcP
 Ss0 f57 1 512 112 #addKink
@@ -683,7 +690,7 @@ Ss0 f14 @|RichDialogProcessStepIcon #fIcon
 Ss0 f18 expr out #txt
 Ss0 f18 192 74 192 108 #arcP
 Ss0 f44 expr out #txt
-Ss0 f44 360 172 360 244 #arcP
+Ss0 f44 360 180 360 220 #arcP
 Ss0 f51 expr out #txt
 Ss0 f51 192 132 192 164 #arcP
 Ss0 f19 expr out #txt
@@ -763,6 +770,49 @@ Ss0 f58 expr out #txt
 Ss0 f58 1776 66 1776 198 #arcP
 Ss0 f59 expr out #txt
 Ss0 f59 752 74 752 286 #arcP
+Ss0 f2 guid 1308B2A62516E7AE #txt
+Ss0 f2 type ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData #txt
+Ss0 f2 method _updateBulletOnTab() #txt
+Ss0 f2 disableUIEvents false #txt
+Ss0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>_updateBulletOnTab()</name>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f2 558 342 20 20 13 0 #rect
+Ss0 f2 @|RichDialogMethodStartIcon #fIcon
+Ss0 f39 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData out;
+' #txt
+Ss0 f39 actionTable 'out=in;
+' #txt
+Ss0 f39 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserSubstituteHelper;
+import com.ulcjava.base.application.ULCContainer;
+import com.ulcjava.base.application.ULCTabbedPane;
+
+
+// update the bullet on tab
+ULCContainer parent = panel.getParent();
+
+if (parent instanceof ULCTabbedPane && (parent as ULCTabbedPane).getSelectedComponent().equals(panel))
+{
+	int index = (parent as ULCTabbedPane).getSelectedIndex();
+	(parent as ULCTabbedPane).setTitleAt(index, 
+																				ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/substitutesShortDesc") + 
+																				(in.substituteList.isEmpty()? "": " \u2022"));
+	
+}' #txt
+Ss0 f39 type ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData #txt
+Ss0 f39 550 388 36 24 20 -2 #rect
+Ss0 f39 @|RichDialogProcessStepIcon #fIcon
+Ss0 f60 expr out #txt
+Ss0 f60 568 362 568 388 #arcP
+Ss0 f60 0 0.953438434993629 0 0 #arcLabel
+Ss0 f32 expr out #txt
+Ss0 f32 568 412 370 432 #arcP
+Ss0 f32 1 568 432 #addKink
+Ss0 f32 1 0.4142452948175632 0 0 #arcLabel
 >Proto Ss0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -842,3 +892,7 @@ Ss0 f42 mainOut f58 tail #connect
 Ss0 f58 head f54 mainIn #connect
 Ss0 f31 mainOut f59 tail #connect
 Ss0 f59 head f38 mainIn #connect
+Ss0 f2 mainOut f60 tail #connect
+Ss0 f60 head f39 mainIn #connect
+Ss0 f39 mainOut f32 tail #connect
+Ss0 f32 head f40 mainIn #connect

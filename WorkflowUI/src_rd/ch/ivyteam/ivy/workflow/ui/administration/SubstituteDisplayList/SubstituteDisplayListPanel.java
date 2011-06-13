@@ -1,11 +1,11 @@
 package ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList;
 
+import ch.ivyteam.ivy.addons.common.technical.Separator.SeparatorPanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
-import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RSplitPane;
@@ -15,7 +15,6 @@ import ch.ivyteam.ivy.workflow.ui.security.UserDisplayList.UserDisplayListPanel;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
 
 import com.ulcjava.base.application.ULCContainer;
-import ch.ivyteam.ivy.addons.common.technical.Separator.SeparatorPanel;
 
 /**
  * RichDialog panel implementation for SubstituteManagementPanel.

@@ -2,8 +2,18 @@
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
     <method>
+        <name>_loadUserAbsences</name>
+        <description></description>
+    </method>
+    <method>
+        <name>_updateBulletOnTab</name>
+        <description>It tries to update the tab's bullet: &#xD;
+if this component is inside the RTabbedDisplay, then it will&#xD;
+update the bullet according if user has absences or not.</description>
+    </method>
+    <method>
         <name>setUser</name>
-        <description>It sets the user for which substitutes are managed.</description>
+        <description>It sets the user for which absences are managed.</description>
         <inputParameter>
             <name>user</name>
             <description></description>
@@ -13,35 +23,13 @@
     </method>
     <method>
         <name>getUser</name>
-        <description>It returns the user for which substitutes are managed.</description>
+        <description>It returns the user for which absences are managed.</description>
         <outputParameter>
             <name>user</name>
             <description></description>
             <parameterType>ch.ivyteam.ivy.security.IUser</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
-    </method>
-    <method>
-        <name>_loadUserSubstitutes</name>
-        <description>It loads the list of substitutes of the user.</description>
-    </method>
-    <method>
-        <name>_loadUserRoles</name>
-        <description>It load all roles that user owns except Everybody.</description>
-    </method>
-    <method>
-        <name>setHeaderVisible</name>
-        <description></description>
-        <inputParameter>
-            <name>headerVisible</name>
-            <description></description>
-            <parameterType>Boolean</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </method>
-    <method>
-        <name>_updateBulletOnTab</name>
-        <description></description>
     </method>
     <startMethod>
         <name>start</name>
@@ -50,7 +38,7 @@ This method can not be changed or deleted!</description>
     </startMethod>
     <startMethod>
         <name>start</name>
-        <description></description>
+        <description>It displays the absences of the specified user</description>
         <inputParameter>
             <name>user</name>
             <description></description>
@@ -66,7 +54,7 @@ This method can not be changed or deleted!</description>
     </startMethod>
     <property>
         <name>guid</name>
-        <value>13078EA7DB3EB449</value>
+        <value>1308A975564E4210</value>
         <readOnly>true</readOnly>
     </property>
     <property>

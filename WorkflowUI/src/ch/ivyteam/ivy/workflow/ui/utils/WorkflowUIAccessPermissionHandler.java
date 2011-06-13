@@ -13,6 +13,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
+import java.util.regex.Pattern;
 
 import ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper;
 import ch.ivyteam.ivy.environment.EnvironmentNotAvailableException;
@@ -1757,6 +1758,47 @@ public class WorkflowUIAccessPermissionHandler
 	    {
 	      Ivy.log().error("Error during wf get users: " + e.getMessage(), e);
 	      return new ArrayList<IUser>();
+	    }
+  }
+  
+  
+  
+  public static Boolean filterUserList(final List<IUser> userList, final List<IUser> filteredUserList, final String nameCriteria)
+  {
+	    try
+	    {
+	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
+	        {
+	          public Boolean call() throws Exception
+	          {
+	        	  filteredUserList.clear();
+
+
+	        	  if (userList.size() > 0)
+	        	  {
+	        	  	Pattern patternOnName = Pattern.compile(".*" + nameCriteria + ".*", Pattern.CASE_INSENSITIVE);
+	        	  	
+	        	  	for(IUser user: userList)
+	        	  	{
+	        	  		if (patternOnName.matcher(user.getName()).matches() ||
+	        	  				(user.getFullName() != null && patternOnName.matcher(user.getFullName()).matches()))
+	        	  		{
+	        	  			filteredUserList.add(user);
+	        	  		}
+	        	  	}
+	        	  }
+	        	  else
+	        	  {
+	        	  	filteredUserList.addAll(userList);	
+	        	  }
+	        	  return true;
+	          }
+	        });
+	    }
+	    catch (Exception e)
+	    {
+	      Ivy.log().error("Error during filtering user list: " + e.getMessage(), e);
+	      return false;
 	    }
   }
   

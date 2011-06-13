@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jun 10 11:16:15 CEST 2011]
+[>Created: Tue Jun 14 00:24:56 CEST 2011]
 13078B15247E7E2E 3.17 #module
 >Proto >Proto Collection #zClass
 Us0 UserDisplayListProcess Big #zClass
@@ -163,30 +163,8 @@ Us0 f13 actionDecl 'ch.ivyteam.ivy.workflow.ui.security.UserDisplayList.UserDisp
 ' #txt
 Us0 f13 actionTable 'out=in;
 ' #txt
-Us0 f13 actionCode 'import ch.ivyteam.ivy.security.IUser;
-import ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams;
-import java.util.regex.Pattern;
-
-out.filteredUserList.clear();
-
-
-if (out.userList.size() > 0)
-{
-	Pattern patternOnName = Pattern.compile(".*" + in.nameCriteria + ".*", Pattern.CASE_INSENSITIVE);
-	
-	for(IUser userManagedTeams: in.userList)
-	{
-		if (patternOnName.matcher(userManagedTeams.getName()).matches() ||
-				patternOnName.matcher(userManagedTeams.getFullName()).matches())
-		{
-			out.filteredUserList.add(userManagedTeams);
-		}
-	}
-}
-else
-{
-	out.filteredUserList.addAll(in.userList);	
-}' #txt
+Us0 f13 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
+WorkflowUIAccessPermissionHandler.filterUserList(in.userList, in.filteredUserList, in.nameCriteria);' #txt
 Us0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

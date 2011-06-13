@@ -1,8 +1,3 @@
 AbsenceDisplayListData #class
 ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList #namespace
-absenceList List<ch.ivyteam.ivy.security.IUserAbsence> #field
-start Date #field
-end Date #field
-description String #field
-absence ch.ivyteam.ivy.security.IUserAbsence #field
-errorMessage String #field
+selectedUser ch.ivyteam.ivy.security.IUser #field

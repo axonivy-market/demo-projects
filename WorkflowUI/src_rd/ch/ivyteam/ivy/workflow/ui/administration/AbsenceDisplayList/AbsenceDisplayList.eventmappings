@@ -1,12 +1,5 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-01-19 09:53:18 | 4.2.0.35322 | 1.0
-~.okButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198AC930B34DDE8
-~.absenceTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198AE6A9324CDF0
-~.startDatePicker@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/12A37D2E575B0F5A
-~.descTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198AC930B34DDE8
+# 2011-06-14 00:04:21 | 4.2.0.35989 | 1.0
 ~.exitButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/12061AD988EAC0E3
-~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/12A333B1D13C3420
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198ABD3DECFDD60
-~.addButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198AE1D23E153E4
-~.deleteButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198ADADD5CB5C0C
-~.deleteMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198ADADD5CB5C0C
+~.userDisplayListRDC@RD_EVENT[userSelected]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1308AD7FE68F84EA # AbsenceDisplayListProcess.mod/loadUserAbsences
