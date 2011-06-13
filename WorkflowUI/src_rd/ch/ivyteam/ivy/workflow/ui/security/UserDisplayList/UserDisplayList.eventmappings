@@ -1,0 +1,6 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2011-06-10 11:18:42 | 4.2.0.35989 | 1.0
+~.findUserHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13078B15247E7E2E/13078CC8C99C7806 # UserDisplayListProcess.mod/findUsers
+~.userTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:13078B15247E7E2E/13078C47833B037B # UserDisplayListProcess.mod/userSelected
+~.userNameCriteriaTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13078B15247E7E2E/13078CC8C99C7806 # UserDisplayListProcess.mod/findUsers
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:13078B15247E7E2E/13078B1526379D30

@@ -1499,6 +1499,45 @@ public class WorkflowUIAccessPermissionHandler
   
   
   /**
+   * It returns the list of roles that user owns except Everybody
+   * 
+   * @return list of user roles
+   */
+  public static List<IRole> getUserRolesExceptEverybodyAsSystemUser(final IUser user)
+  {
+    List<IRole> result = null;
+    try
+    {
+      result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<IRole>>()
+        {
+          public List<IRole> call() throws Exception
+          {
+        	List<IRole> userRoles = user.getRoles();
+        	List<IRole> userRolesExceptEverybody = new ArrayList<IRole>();
+        	
+        	for(IRole role : userRoles){
+        		if(role.getName().equals("Everybody")){
+        			continue;
+        		}
+        		userRolesExceptEverybody.add(role);
+        	}
+        	
+        	Ivy.log().debug("User {0} owns {1} roles(s).", user, userRolesExceptEverybody);
+        	return userRolesExceptEverybody;
+          }
+        });
+    }
+    catch (Exception e)
+    {
+      Ivy.log().error("Error: " + e.getMessage(), e);
+    }
+
+    return result;
+  }
+  
+  
+  
+  /**
    * it find the task by its identifier using the ivy.wf interface
    * 
    * @param taskIdentifier

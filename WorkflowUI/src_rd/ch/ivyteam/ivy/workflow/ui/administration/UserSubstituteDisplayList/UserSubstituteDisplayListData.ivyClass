@@ -1,0 +1,11 @@
+UserSubstituteDisplayListData #class
+ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList #namespace
+userList List<ch.ivyteam.ivy.security.IUser> #field
+roleList List<ch.ivyteam.ivy.security.IRole> #field
+remark String #field
+substituteList List<ch.ivyteam.ivy.security.IUserSubstitute> #field
+errorMessage String #field
+user ch.ivyteam.ivy.security.IUser #field
+user 'The user for which substitutes are managed.' #fieldComment
+headerVisible Boolean #field
+headerVisible 'If true, then the header with icon, texts and exit button is displayed.' #fieldComment

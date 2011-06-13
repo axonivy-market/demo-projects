@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <autoScreenshot>true</autoScreenshot>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <firedEvent>
+        <name>userSelected</name>
+        <description></description>
+        <attachment>
+            <name>user</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.security.IUser</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <property>
+        <name>guid</name>
+        <value>13078B151E962451</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

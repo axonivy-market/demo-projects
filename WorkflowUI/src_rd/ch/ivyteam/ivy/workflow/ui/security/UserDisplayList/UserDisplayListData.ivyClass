@@ -1,0 +1,11 @@
+UserDisplayListData #class
+'It displays the list of user of the Ivy application' #classComment
+ch.ivyteam.ivy.workflow.ui.security.UserDisplayList #namespace
+userList List<ch.ivyteam.ivy.security.IUser> #field
+userList 'The list of users of the Ivy application.' #fieldComment
+selectedUser ch.ivyteam.ivy.security.IUser #field
+selectedUser 'The user is selected on the list.' #fieldComment
+filteredUserList List<ch.ivyteam.ivy.security.IUser> #field
+filteredUserList 'The list of filtered list of user of the Ivy application.' #fieldComment
+nameCriteria String #field
+nameCriteria 'The criteria used during search of users.' #fieldComment

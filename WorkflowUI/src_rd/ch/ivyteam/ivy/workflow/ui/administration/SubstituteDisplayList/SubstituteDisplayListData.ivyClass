@@ -1,8 +1,3 @@
 SubstituteDisplayListData #class
 ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList #namespace
-userList List<ch.ivyteam.ivy.security.IUser> #field
-roleList List<ch.ivyteam.ivy.security.IRole> #field
-remark String #field
-substituteList List<ch.ivyteam.ivy.security.IUserSubstitute> #field
-errorMessage String #field
-userNameLoggedOn String #field
+selectedUser ch.ivyteam.ivy.security.IUser #field
