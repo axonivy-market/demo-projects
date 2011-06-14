@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jun 14 00:48:12 CEST 2011]
+[>Created: Tue Jun 14 02:36:16 CEST 2011]
 11898D6F2E86E751 3.17 #module
 >Proto >Proto Collection #zClass
 Us0 UserMenuProcess Big #zClass
@@ -1263,7 +1263,10 @@ Us0 f76 requestActionDecl '<ch.ivyteam.ivy.security.IUser user, Boolean headerVi
 Us0 f76 requestMappingAction 'param.user=ivy.session.getSessionUser();
 param.headerVisible=true;
 ' #txt
-Us0 f76 requestActionCode 'in.windowTitle = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/substitutesShortDesc") + (ivy.session.getSessionUser().getSubstitutes().isEmpty()? "": " \u2022");' #txt
+Us0 f76 requestActionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserSubstituteHelper;
+
+in.windowTitle = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/substitutesShortDesc") + 
+									(UserSubstituteHelper.getSubstitutes(ivy.session.getSessionUser()).isEmpty()? "": " \u2022");' #txt
 Us0 f76 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
 ' #txt
 Us0 f76 responseMappingAction 'out=in;
@@ -1442,9 +1445,11 @@ Us0 f89 startMethod start(ch.ivyteam.ivy.security.IUser,Boolean) #txt
 Us0 f89 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f89 panelName <%=in.windowTitle%> #txt
 Us0 f89 requestActionDecl '<ch.ivyteam.ivy.security.IUser user, Boolean headerVisible> param;' #txt
-Us0 f89 requestActionCode 'param.user = ivy.session.getSessionUser();
+Us0 f89 requestActionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserAbsenceHelper;
+
+param.user = ivy.session.getSessionUser();
 param.headerVisible = true;
-in.windowTitle = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/absenceShortDesc") + (ivy.session.getSessionUser().getAbsences().isEmpty()? "": " \u2022");
+in.windowTitle = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/absenceShortDesc") + (UserAbsenceHelper.getAbsences(ivy.session.getSessionUser()).isEmpty()? "": " \u2022");
 ' #txt
 Us0 f89 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
 ' #txt
