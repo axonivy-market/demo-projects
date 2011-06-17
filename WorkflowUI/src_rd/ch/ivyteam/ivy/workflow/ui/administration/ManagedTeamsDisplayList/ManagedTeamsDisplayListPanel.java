@@ -22,6 +22,7 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.border.ULCEtchedBorder;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
+import com.ulcjava.base.application.ULCTable;
 
 /**
  * RichDialog panel implementation for ManagingRolesDisplayListPanel.
@@ -96,6 +97,7 @@ private RTableWithExcelExport getUsersManagingRolesTable() {
 		usersManagingRolesTable.setName("usersManagingRolesTable");
 		usersManagingRolesTable.setModelConfiguration("{/showTableheader true /autoTableheader false /showtooltip false /showIcons true /version \"3.0\"/columns {{/result \"result=\\\"<html><b>\\\" + entry.user.getName() + \\\"</b>\\\" + \\r\\n\\t(entry.user.getFullName() is initialized? \\\" (\\\" + entry.user.getFullName() + \\\")\\\": \\\"\\\")\"/version \"3.0\"/tooltip \"\"/icon \"result=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/security/images/user16\\\")\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/security/plainStrings/userShortDesc\\\")\"/field \"\"/editable \"\"/condition \"\"/columnWidth \"300\"/columnStyle \"labelLikeTableCell\"/cellWidget \"\"}{/result \"result=value\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/managedTeamsShortDesc\\\")\"/field \"userManagedTeams\"/editable \"true\"/condition \"\"/columnWidth \"500\"/cellWidget \"managingRolesTextFieldCellWidget\"}}}");
 		usersManagingRolesTable.setRowHeight(20);
+		usersManagingRolesTable.setAutoResizeMode(ULCTable.AUTO_RESIZE_LAST_COLUMN);
 		usersManagingRolesTable.setSortable(true);
 	}
 	return usersManagingRolesTable;

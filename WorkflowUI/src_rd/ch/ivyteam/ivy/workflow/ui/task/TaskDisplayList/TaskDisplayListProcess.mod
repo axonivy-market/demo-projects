@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 30 15:51:13 CEST 2011]
+[>Created: Fri Jun 17 14:04:54 CEST 2011]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -589,7 +589,9 @@ count = -1;	// get all results
 returnAllCount = true;
 
 // find 
+ivy.log.debug("START find tasks for user {0} in task display mode {1} is {2}.", ivy.session.getSessionUserName(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
 queryResult = WorkflowUIAccessPermissionHandler.findTasks(filter, order, startIndex, count, returnAllCount, in.runningTaskMode, in.taskDisplayMode);
+ivy.log.debug("STOP find tasks for user {0} in task display mode {1} is {2}.", ivy.session.getSessionUserName(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
 
 // results
 resultCount = queryResult.getResultCount(); // number of results returned
@@ -597,6 +599,7 @@ allCount = queryResult.getAllCount(); // number of all results found
 result.addAll(queryResult.getResultList());
 
 
+ivy.log.debug("START wrapping tasks for user {0} in task display mode {1} is {2}.", ivy.session.getSessionUserName(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
 out.tasks.clear();
 for (ITask wfTask: result)
 {
@@ -611,7 +614,7 @@ for (ITask wfTask: result)
 	
 	out.tasks.add(wfTaskWrapper);
 }
-
+ivy.log.debug("STOP wrapping tasks for user {0} in task display mode {1} is {2}.", ivy.session.getSessionUserName(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
 
 String task = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task").toString();
 String tasks = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/tasks").toString();

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jun 14 00:24:56 CEST 2011]
+[>Created: Fri Jun 17 14:52:18 CEST 2011]
 13078B15247E7E2E 3.17 #module
 >Proto >Proto Collection #zClass
 Us0 UserDisplayListProcess Big #zClass
@@ -61,7 +61,11 @@ out.userList = WorkflowUIAccessPermissionHandler.getWfHumanUsersAsSystemUser();
 
 // build the default filtered list
 out.filteredUserList.clear();
-out.filteredUserList.addAll(out.userList);' #txt
+out.filteredUserList.addAll(out.userList);
+
+// set the search user text
+in.nameCriteria = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/findUsersByNameShortDesc");
+' #txt
 Us0 f3 type ch.ivyteam.ivy.workflow.ui.security.UserDisplayList.UserDisplayListData #txt
 Us0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -183,7 +187,8 @@ Us0 f15 expr out #txt
 Us0 f15 584 58 584 246 #arcP
 >Proto Us0 .ui2RdDataAction 'out.nameCriteria=panel.userNameCriteriaTextField.valueAsString;
 ' #txt
->Proto Us0 .rdData2UIAction 'panel.userTable.listData=in.filteredUserList;
+>Proto Us0 .rdData2UIAction 'panel.userNameCriteriaTextField.valueAsString=in.nameCriteria;
+panel.userTable.listData=in.filteredUserList;
 ' #txt
 >Proto Us0 .type ch.ivyteam.ivy.workflow.ui.security.UserDisplayList.UserDisplayListData #txt
 >Proto Us0 .processKind RICH_DIALOG #txt

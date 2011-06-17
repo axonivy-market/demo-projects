@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Feb 09 14:54:08 CET 2011]
-12A4698EBFC9D238 3.15 #module
+[>Created: Fri Jun 17 14:52:44 CEST 2011]
+12A4698EBFC9D238 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 ManagingRolesDisplayListProcess Big #zClass
 Ms0 RD #cInfo
@@ -80,7 +80,10 @@ for (int i=0; i<users.size(); i++)
 }
 
 out.usersManagedTeamsFilteredList.clear();
-out.usersManagedTeamsFilteredList.addAll(out.usersManagedTeamsList);' #txt
+out.usersManagedTeamsFilteredList.addAll(out.usersManagedTeamsList);
+
+// set the seach users text
+in.nameCriteria = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/findUsersByNameShortDesc");' #txt
 Ms0 f3 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
 Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -231,12 +234,11 @@ Ms0 f14 328 58 328 238 #arcP
 ' #txt
 >Proto Ms0 .type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
 >Proto Ms0 .processKind RICH_DIALOG #txt
->Proto Ms0 .ui2RdDataAction 'out.usersManagedTeamsFilteredList=panel.usersManagingRolesTable.listData as List<ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams>;
-out.nameCriteria=panel.caseNameCriteriaTextField.text;
+>Proto Ms0 .ui2RdDataAction 'out.nameCriteria=panel.caseNameCriteriaTextField.text;
+out.usersManagedTeamsFilteredList=panel.usersManagingRolesTable.listData as List<ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams>;
 ' #txt
->Proto Ms0 .rdData2UIAction 'panel.caseNameCriteriaTextField.text=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/findUsersByNameShortDesc");
+>Proto Ms0 .rdData2UIAction 'panel.caseNameCriteriaTextField.text=in.nameCriteria;
 panel.usersManagingRolesTable.listData=in.usersManagedTeamsFilteredList;
-panel.caseNameCriteriaTextField.text=in.nameCriteria;
 ' #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
 >Proto Ms0 '' #fIcon
