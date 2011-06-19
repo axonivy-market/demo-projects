@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jun 17 14:04:54 CEST 2011]
+[>Created: Fri Jun 17 17:25:07 CEST 2011]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -449,8 +449,7 @@ Ts0 f30 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayL
 ' #txt
 Ts0 f30 actionTable 'out=in;
 ' #txt
-Ts0 f30 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
-import java.util.Iterator;
+Ts0 f30 actionCode 'import java.util.Iterator;
 import ch.ivyteam.ivy.workflow.ITask;
 
 
@@ -463,18 +462,17 @@ out.setException(null);
 
 try
 {
-	if (panel.tasksTable.#selectedListEntries != null && panel.tasksTable.selectedListEntry instanceof ITaskWrapper)
+	if (panel.tasksTable.#selectedListEntries != null && panel.tasksTable.selectedListEntry instanceof ITask)
 	{
 	
-	  out.selectedTasks = panel.tasksTable.selectedListEntries as List<ITaskWrapper>;
+	  out.selectedTasks = panel.tasksTable.selectedListEntries as List<ITask>;
 	
 		tasksIterator = out.selectedTasks.iterator();
 		
 		while (tasksIterator.hasNext())
 		{
 	      // State of Task must be one of the following values CREATED, RESUMED but not SUSPENDED
-				ITaskWrapper currentWfTaskWrapper = tasksIterator.next() as ITaskWrapper;
-	      ITask currentTask = currentWfTaskWrapper.wfTask;
+	      ITask currentTask = tasksIterator.next() as ITask;
 
 	
 	      if (currentTask.getState().equals(ch.ivyteam.ivy.workflow.TaskState.CREATED) || 
@@ -484,7 +482,7 @@ try
 	            ivy.session.parkTask(currentTask);
 	
 							// update the list of dispayed tasks
-							currentTaskIndexInTheSelectedList = in.filteredTasks.indexOf(currentWfTaskWrapper);
+							currentTaskIndexInTheSelectedList = in.filteredTasks.indexOf(currentTask);
 							out.filteredTasks.elementChangedAt(currentTaskIndexInTheSelectedList);
 							
 							// fire the broadcast event
@@ -546,9 +544,7 @@ Ts0 f49 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayL
 ' #txt
 Ts0 f49 actionTable 'out=in;
 ' #txt
-Ts0 f49 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
-
-import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
+Ts0 f49 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
 import ch.ivyteam.ivy.persistence.IQueryResult;
 import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.PropertyOrder;
@@ -599,22 +595,10 @@ allCount = queryResult.getAllCount(); // number of all results found
 result.addAll(queryResult.getResultList());
 
 
-ivy.log.debug("START wrapping tasks for user {0} in task display mode {1} is {2}.", ivy.session.getSessionUserName(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
+ivy.log.debug("START adding tasks for user {0} in task display mode {1} is {2}.", ivy.session.getSessionUserName(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
 out.tasks.clear();
-for (ITask wfTask: result)
-{
-	ITaskWrapper wfTaskWrapper = null;
-	wfTaskWrapper.wfTask = wfTask;
-	wfTaskWrapper.setBusinessMilestoneTimestamp(wfTask.getBusinessMilestoneTimestamp());
-  wfTaskWrapper.setCaseBusinessMilestoneTimestamp(wfTask.getCase().getBusinessMilestoneTimestamp());
-	wfTaskWrapper.setCaseBusinessStartTimestamp(wfTask.getCase().getBusinessStartTimestamp());
-	wfTaskWrapper.setExpiryTimestamp(wfTask.getExpiryTimestamp());
-	wfTaskWrapper.setStartTimestamp(wfTask.getStartTimestamp());	
-	wfTaskWrapper.setDelayTimestamp(wfTask.getDelayTimestamp());
-	
-	out.tasks.add(wfTaskWrapper);
-}
-ivy.log.debug("STOP wrapping tasks for user {0} in task display mode {1} is {2}.", ivy.session.getSessionUserName(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
+out.tasks.addAll(result);
+ivy.log.debug("STOP adding tasks for user {0} in task display mode {1} is {2}.", ivy.session.getSessionUserName(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
 
 String task = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task").toString();
 String tasks = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/tasks").toString();
@@ -762,12 +746,10 @@ Ts0 f65 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayL
 ' #txt
 Ts0 f65 actionTable 'out=in;
 ' #txt
-Ts0 f65 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
-import ch.ivyteam.ivy.workflow.ITask;
+Ts0 f65 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 import java.util.Iterator;
 
 Iterator iterator;
-ITaskWrapper currentWfTaskWrapper;
 ITask currentTask;
 
 Boolean found = false;
@@ -782,14 +764,13 @@ for (Number broadcastedTaskId: in.broadcastedTaskIdentifiers)
 
 	while (iterator.hasNext() && !found)
 	{
-		currentWfTaskWrapper = iterator.next() as ITaskWrapper;
-		currentTask = currentWfTaskWrapper.wfTask;
+		currentTask = iterator.next() as ITask;
 		
 		if (currentTask.getIdentifier() == broadcastedTaskId)
 		{
 			found = true;
-			taskIndexInTheList = in.filteredTasks.indexOf(currentWfTaskWrapper);
-			out.filteredTasks.elementChanged(currentWfTaskWrapper);
+			taskIndexInTheList = in.filteredTasks.indexOf(currentTask);
+			out.filteredTasks.elementChanged(currentTask);
 		}   
 	}
 }' #txt
@@ -928,12 +909,10 @@ Ts0 f2 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayLi
 ' #txt
 Ts0 f2 actionTable 'out=in;
 ' #txt
-Ts0 f2 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
-import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
+Ts0 f2 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
 import java.util.Iterator;
 import ch.ivyteam.ivy.workflow.ITask;
 
-ITaskWrapper currentWfTaskWrapper;
 ITask currentTask;
 Iterator tasksIterator;
 Number currentTaskIndexInTheTasks = -1;
@@ -944,12 +923,11 @@ out.setException(null);
 
 try
 {
-	out.selectedTasks = panel.tasksTable.selectedListEntries as List<ITaskWrapper>;
+	out.selectedTasks = panel.tasksTable.selectedListEntries as List<ITask>;
 	
 	for(int i=0; i<out.selectedTasks.size(); i++)
 	{		
-		currentWfTaskWrapper = out.selectedTasks.get(i);
-		currentTask = currentWfTaskWrapper.wfTask;
+		currentTask = out.selectedTasks.get(i);
 	
 		WorkflowUIAccessPermissionHandler.delegateTaskAsSystemUser(currentTask, in.securityMember);
 		
@@ -1077,11 +1055,9 @@ Ts0 f101 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplay
 ' #txt
 Ts0 f101 actionTable 'out=in;
 ' #txt
-Ts0 f101 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
+Ts0 f101 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 
-ITaskWrapper wfTaskWrapper = panel.tasksTable.getSelectedListEntry() as ITaskWrapper;
-out.selectedTask = wfTaskWrapper.wfTask;
-
+out.selectedTask = panel.tasksTable.getSelectedListEntry() as ITask;
 out.taskAlreadyLoadedOnDisplay = false;' #txt
 Ts0 f101 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f101 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1098,7 +1074,7 @@ task already loaded to false</name>
 Ts0 f101 1822 332 36 24 20 -2 #rect
 Ts0 f101 @|RichDialogProcessStepIcon #fIcon
 Ts0 f102 expr in #txt
-Ts0 f102 outCond 'panel.tasksTable.getSelectedListEntry() != null && panel.tasksTable.getSelectedListEntry() instanceof ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper' #txt
+Ts0 f102 outCond 'panel.tasksTable.getSelectedListEntry() != null && panel.tasksTable.getSelectedListEntry() instanceof ch.ivyteam.ivy.workflow.ITask' #txt
 Ts0 f102 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1451,12 +1427,10 @@ Ts0 f119 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplay
 ' #txt
 Ts0 f119 actionTable 'out=in;
 ' #txt
-Ts0 f119 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
-import ch.ivyteam.ivy.workflow.ITask;
+Ts0 f119 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 import java.util.Iterator;
 
 Iterator iterator;
-ITaskWrapper currentWfTaskWrapper;
 ITask currentTask;
 
 Boolean found = false;
@@ -1474,15 +1448,14 @@ if(!in.hasWfAdministratorPermissions || in.taskDisplayMode!=2)
 	{	
 		while (iterator.hasNext() && !found)
 		{
-			currentWfTaskWrapper = iterator.next() as ITaskWrapper;
-			currentTask = currentWfTaskWrapper.wfTask;
+			currentTask = iterator.next() as ITask;
 			
 			if (currentTask.getIdentifier() == broadcastedTaskId)
 			{
 				// remove it if the current user is not allowed to start the delegated task
 				if(!currentTask.getActivator().isMember(ivy.session,false))
 				{
-					out.filteredTasks.remove(currentWfTaskWrapper);
+					out.filteredTasks.remove(currentTask);
 				}	
 				found = true;		
 			}
@@ -1536,18 +1509,16 @@ Ts0 f154 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplay
 ' #txt
 Ts0 f154 actionTable 'out=in;
 ' #txt
-Ts0 f154 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
-import ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper;
+Ts0 f154 actionCode 'import ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper;
 import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
 import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.TaskState;
 
 
-if (panel.tasksTable.getSelectedListEntry() != null & panel.tasksTable.getSelectedListEntry() instanceof ITaskWrapper)
+if (panel.tasksTable.getSelectedListEntry() != null & panel.tasksTable.getSelectedListEntry() instanceof ITask)
 {
-	ITaskWrapper currentWfTaskWrapper = panel.tasksTable.getSelectedListEntry() as ITaskWrapper;
-	ITask currentTask = currentWfTaskWrapper.wfTask;
-	in.filteredTasks.elementChangedAt(in.filteredTasks.indexOf(currentWfTaskWrapper));
+	ITask currentTask = panel.tasksTable.getSelectedListEntry() as ITask;
+	in.filteredTasks.elementChangedAt(in.filteredTasks.indexOf(currentTask));
 	
 	// is user team manager on this task?
 	Boolean isSessionUserTeamManagerOnWfTask = CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(currentTask);
@@ -1858,50 +1829,17 @@ Ts0 f171 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplay
 ' #txt
 Ts0 f171 actionTable 'out=in;
 ' #txt
-Ts0 f171 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
-
-ITaskWrapper wfTaskWrapper = panel.tasksTable.getSelectedListEntry() as ITaskWrapper;
-
-// clear the current exception value
+Ts0 f171 actionCode '// clear the current exception value
 out.setException(null);
 
-	if (in.taskDateSelectDisabledSelectionDate)
-	{
-		in.selectedTask.setExpiryTimestamp(null);		
-	}
-	else
-	{
-		in.selectedTask.setExpiryTimestamp(in.taskDateSelectSelectedDate);		
-	}
-	
-	// update the property accordingly
-	wfTaskWrapper.setExpiryTimestamp(in.selectedTask.getExpiryTimestamp());
-	
-/*
-
-try
+if (in.taskDateSelectDisabledSelectionDate)
 {
-	if (in.taskDateSelectDisabledSelectionDate)
-	{
-		in.selectedTask.setExpiryTimestamp(null);		
-	}
-	else
-	{
-		in.selectedTask.setExpiryTimestamp(in.taskDateSelectSelectedDate);		
-	}
-	
-	// update the property accordingly
-	wfTaskWrapper.setExpiryTimestamp(in.selectedTask.getExpiryTimestamp());
-
+	in.selectedTask.setExpiryTimestamp(null);		
 }
-catch (Exception ex)
+else
 {
-	// 
-	ivy.log.debug("Error during the set expiry on task {0}-{1} trace: {2}.", in.selectedTask.getIdentifier(), in.selectedTask.getName(), ex);
-	out.exception = ex;	
-}
-
-*/' #txt
+	in.selectedTask.setExpiryTimestamp(in.taskDateSelectSelectedDate);		
+}' #txt
 Ts0 f171 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f171 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -2003,11 +1941,7 @@ Ts0 f183 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplay
 ' #txt
 Ts0 f183 actionTable 'out=in;
 ' #txt
-Ts0 f183 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
-
-ITaskWrapper wfTaskWrapper = panel.tasksTable.getSelectedListEntry() as ITaskWrapper;
-
-// clear the current exception value
+Ts0 f183 actionCode '// clear the current exception value
 out.setException(null);
 
 try
@@ -2019,9 +1953,7 @@ try
 	else
 	{
 		in.selectedTask.setDelayTimestamp(in.taskDateSelectSelectedDate);
-	}
-	
-	wfTaskWrapper.setDelayTimestamp(in.selectedTask.getDelayTimestamp());
+	}	
 	
 }
 catch(Exception ex)
@@ -2057,10 +1989,9 @@ Ts0 f187 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplay
 ' #txt
 Ts0 f187 actionTable 'out=in;
 ' #txt
-Ts0 f187 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
+Ts0 f187 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 
-ITaskWrapper wfTaskWrapper = panel.tasksTable.getSelectedListEntry() as ITaskWrapper;
-out.selectedTask = wfTaskWrapper.wfTask;
+out.selectedTask = panel.tasksTable.getSelectedListEntry() as ITask;
 	' #txt
 Ts0 f187 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f187 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2076,7 +2007,7 @@ selected task</name>
 Ts0 f187 1502 1004 36 24 20 -2 #rect
 Ts0 f187 @|RichDialogProcessStepIcon #fIcon
 Ts0 f188 expr in #txt
-Ts0 f188 outCond 'panel.tasksTable.getSelectedListEntry() != null && panel.tasksTable.getSelectedListEntry() instanceof ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper' #txt
+Ts0 f188 outCond 'panel.tasksTable.getSelectedListEntry() != null && panel.tasksTable.getSelectedListEntry() instanceof ch.ivyteam.ivy.workflow.ITask' #txt
 Ts0 f188 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2094,10 +2025,9 @@ Ts0 f189 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplay
 ' #txt
 Ts0 f189 actionTable 'out=in;
 ' #txt
-Ts0 f189 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
+Ts0 f189 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 
-ITaskWrapper wfTaskWrapper = panel.tasksTable.getSelectedListEntry() as ITaskWrapper;
-out.selectedTask = wfTaskWrapper.wfTask;' #txt
+out.selectedTask =  panel.tasksTable.getSelectedListEntry() as ITask;' #txt
 Ts0 f189 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f189 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -2112,7 +2042,7 @@ selected task</name>
 Ts0 f189 1766 1004 36 24 20 -2 #rect
 Ts0 f189 @|RichDialogProcessStepIcon #fIcon
 Ts0 f190 expr in #txt
-Ts0 f190 outCond 'panel.tasksTable.getSelectedListEntry() != null && panel.tasksTable.getSelectedListEntry() instanceof ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper' #txt
+Ts0 f190 outCond 'panel.tasksTable.getSelectedListEntry() != null && panel.tasksTable.getSelectedListEntry() instanceof ch.ivyteam.ivy.workflow.ITask' #txt
 Ts0 f190 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2272,8 +2202,8 @@ Ts0 f205 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplay
 ' #txt
 Ts0 f205 actionTable 'out=in;
 ' #txt
-Ts0 f205 actionCode 'out.filteredTasks.clear();
-
+Ts0 f205 actionCode '
+out.filteredTasks.clear();
 out.filteredTasks.addAll(in.tasks);' #txt
 Ts0 f205 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f205 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2299,8 +2229,7 @@ Ts0 f60 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayL
 ' #txt
 Ts0 f60 actionTable 'out=in;
 ' #txt
-Ts0 f60 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
-import ch.ivyteam.ivy.workflow.ITask;
+Ts0 f60 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 import java.util.regex.Pattern;
 import java.util.Locale;
 
@@ -2313,10 +2242,8 @@ if (out.tasks.size() > 0)
 	Pattern patternOnName = Pattern.compile(".*" + in.nameCriteria + ".*", Pattern.CASE_INSENSITIVE);
 	
 	
-	for(ITaskWrapper currentWfTaskWrapper: in.tasks)
-	{
-		ITask currentTask = currentWfTaskWrapper.wfTask;
-		
+	for(ITask currentTask: in.tasks)
+	{	
 		if (patternOnName.matcher(currentTask.getName()).matches() || 
 					patternOnName.matcher("" + currentTask.getIdentifier()).matches() ||
 					
@@ -2350,7 +2277,7 @@ if (out.tasks.size() > 0)
 					patternOnName.matcher(currentTask.getKindName()).matches()
 				)
 		{
-			out.filteredTasks.add(currentWfTaskWrapper);
+			out.filteredTasks.add(currentTask);
 		}
 	}
 }
@@ -2619,8 +2546,7 @@ Ts0 f55 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayL
 ' #txt
 Ts0 f55 actionTable 'out=in;
 ' #txt
-Ts0 f55 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
-import ch.ivyteam.ivy.workflow.ITask;
+Ts0 f55 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 import java.util.Locale;
 
 List<ITask> result;
@@ -2628,21 +2554,7 @@ result.clear();
 result.addAll(in.aCase.getTasks());
 
 out.tasks.clear();
-
-for (ITask wfTask: result)
-{
-	ITaskWrapper wfTaskWrapper = null;
-	wfTaskWrapper.wfTask = wfTask;
-	wfTaskWrapper.setBusinessMilestoneTimestamp(wfTask.getBusinessMilestoneTimestamp());
-  wfTaskWrapper.setCaseBusinessMilestoneTimestamp(wfTask.getCase().getBusinessMilestoneTimestamp());
-	wfTaskWrapper.setCaseBusinessStartTimestamp(wfTask.getCase().getBusinessStartTimestamp());
-	wfTaskWrapper.setExpiryTimestamp(wfTask.getExpiryTimestamp());
-	wfTaskWrapper.setStartTimestamp(wfTask.getStartTimestamp());
-	wfTaskWrapper.setDelayTimestamp(wfTask.getDelayTimestamp());	
-	
-	out.tasks.add(wfTaskWrapper);
-}
-
+out.tasks.addAll(result);
 
 String task = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task").toString();
 String tasks = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/tasks").toString();
@@ -2751,10 +2663,9 @@ Ts0 f147 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplay
 ' #txt
 Ts0 f147 actionTable 'out=in;
 ' #txt
-Ts0 f147 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
+Ts0 f147 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 
-ITaskWrapper wfTaskWrapper = panel.tasksTable.getSelectedListEntry() as ITaskWrapper;
-out.selectedTask = wfTaskWrapper.wfTask;' #txt
+out.selectedTask = panel.tasksTable.getSelectedListEntry() as ITask;' #txt
 Ts0 f147 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f147 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -2774,10 +2685,9 @@ Ts0 f197 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplay
 ' #txt
 Ts0 f197 actionTable 'out=in;
 ' #txt
-Ts0 f197 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
+Ts0 f197 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 
-ITaskWrapper wfTaskWrapper = panel.tasksTable.getSelectedListEntry() as ITaskWrapper;
-out.selectedTask = wfTaskWrapper.wfTask;' #txt
+out.selectedTask = panel.tasksTable.getSelectedListEntry() as ITask;' #txt
 Ts0 f197 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f197 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -2870,7 +2780,7 @@ and text</name>
 Ts0 f214 2038 996 36 24 20 -2 #rect
 Ts0 f214 @|RichDialogProcessStepIcon #fIcon
 Ts0 f215 expr in #txt
-Ts0 f215 outCond 'panel.tasksTable.getSelectedListEntry() != null && panel.tasksTable.getSelectedListEntry() instanceof ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper' #txt
+Ts0 f215 outCond 'panel.tasksTable.getSelectedListEntry() != null && panel.tasksTable.getSelectedListEntry() instanceof ch.ivyteam.ivy.workflow.ITask' #txt
 Ts0 f215 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3984,12 +3894,12 @@ Ts0 f68 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayL
 ' #txt
 Ts0 f68 actionTable 'out=in;
 ' #txt
-Ts0 f68 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
+Ts0 f68 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 
 if (in.#selectedTaskObject is initialized)
 {
-	ITaskWrapper wfTaskWrapper = in.selectedTaskObject as ITaskWrapper;
-	out.setSelectedTask(wfTaskWrapper.getWfTask());
+	ITask wfTask = in.selectedTaskObject as ITask;
+	out.setSelectedTask(wfTask);
 }' #txt
 Ts0 f68 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f68 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -4015,8 +3925,7 @@ Ts0 f264 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplay
 ' #txt
 Ts0 f264 actionTable 'out=in;
 ' #txt
-Ts0 f264 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
-import ch.ivyteam.ivy.workflow.TaskState;
+Ts0 f264 actionCode 'import ch.ivyteam.ivy.workflow.TaskState;
 import ch.ivyteam.ivy.workflow.ITask;
 
 // define valid display
@@ -4024,12 +3933,10 @@ out.selectedTaskDisplayId = in.taskListChildrenDisplayId;
 
 // get the first valid task
 ITask task;
-ITaskWrapper wfTaskWrapper;
 
 for (int i=out.automaticTasksExecutionModeCounter; i<in.filteredTasks.size(); i++)
 {
-	wfTaskWrapper = in.filteredTasks.get(i);
-	task = wfTaskWrapper.wfTask;
+	task = in.filteredTasks.get(i);
 	
 	if (task.getState().compareTo(TaskState.PARKED) == 0 || task.getState().compareTo(TaskState.SUSPENDED) == 0)
 	{
@@ -4591,10 +4498,9 @@ Ts0 f131 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplay
 ' #txt
 Ts0 f131 actionTable 'out=in;
 ' #txt
-Ts0 f131 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
+Ts0 f131 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 
-ITaskWrapper wfTaskWrapper = panel.tasksTable.getSelectedListEntry() as ITaskWrapper;
-out.selectedTask = wfTaskWrapper.wfTask;' #txt
+out.selectedTask = panel.tasksTable.getSelectedListEntry() as ITask;' #txt
 Ts0 f131 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f131 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
