@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jun 17 17:25:07 CEST 2011]
+[>Created: Sun Jun 19 14:51:57 CEST 2011]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -585,9 +585,9 @@ count = -1;	// get all results
 returnAllCount = true;
 
 // find 
-ivy.log.debug("START find tasks for user {0} in task display mode {1} is {2}.", ivy.session.getSessionUserName(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
+ivy.log.info("START find tasks for user {0} with session id {1} in task display mode {2} is {3}.", ivy.session.getSessionUserName(), ivy.session.getIdentifier(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
 queryResult = WorkflowUIAccessPermissionHandler.findTasks(filter, order, startIndex, count, returnAllCount, in.runningTaskMode, in.taskDisplayMode);
-ivy.log.debug("STOP find tasks for user {0} in task display mode {1} is {2}.", ivy.session.getSessionUserName(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
+ivy.log.info("STOP find tasks for user {0} with session id {1} in task display mode {2} is {3}.", ivy.session.getSessionUserName(), ivy.session.getIdentifier(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
 
 // results
 resultCount = queryResult.getResultCount(); // number of results returned
@@ -595,10 +595,10 @@ allCount = queryResult.getAllCount(); // number of all results found
 result.addAll(queryResult.getResultList());
 
 
-ivy.log.debug("START adding tasks for user {0} in task display mode {1} is {2}.", ivy.session.getSessionUserName(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
+ivy.log.info("START adding tasks for user {0} with session id {1} in task display mode {2} is {3}.", ivy.session.getSessionUserName(), ivy.session.getIdentifier(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
 out.tasks.clear();
 out.tasks.addAll(result);
-ivy.log.debug("STOP adding tasks for user {0} in task display mode {1} is {2}.", ivy.session.getSessionUserName(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
+ivy.log.info("STOP adding tasks for user {0} with session id {1} in task display mode {2} is {3}.", ivy.session.getSessionUserName(), ivy.session.getIdentifier(), in.taskDisplayMode, new DateTime().format("dd.MM.yyyy HH:mm:ss S"));
 
 String task = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task").toString();
 String tasks = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/tasks").toString();
