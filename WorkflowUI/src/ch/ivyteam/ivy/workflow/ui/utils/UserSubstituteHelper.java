@@ -141,7 +141,7 @@ public class UserSubstituteHelper {
 	        			  sessionUserName, 
 	        			  user.getName(), 
 	        			  userSubstitute.getSubstituteUser().getName(), 
-	        			  userSubstitute.isPersonallyOnly()? "personally": userSubstitute.getSubstitutionRole(), 
+	        			  userSubstitute.isPersonallyOnly()? "personally only": userSubstitute.getSubstitutionRole(), 
 	        			  userSubstitute.getDescription()); 
 	        	  
 	        	  user.deleteSubstitute(userSubstitute);

@@ -1,9 +1,9 @@
 TaskDisplayListData #class
 ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList #namespace
-tasks List<ch.ivyteam.ivy.workflow.ITask> #field
+tasks List<ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper> #field
 selectedTask ch.ivyteam.ivy.workflow.ITask #field
 selectedTaskObject Object #field
-selectedTasks List<ch.ivyteam.ivy.workflow.ITask> #field
+selectedTasks List<ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper> #field
 securityMember ch.ivyteam.ivy.security.ISecurityMember #field
 securityMember 'The selected tasks to delegate will be assigned to this ISecurityMember. ISecurityMemeber is base interface for IUser and IRole' #fieldComment
 originalPropertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
@@ -35,7 +35,7 @@ hasWfAdministratorPermissions 'It defines if a session user has workflow adminis
 taskDateSelectPressedButton String #field
 taskDateSelectDisabledSelectionDate Boolean #field
 taskDateSelectSelectedDate java.util.Date #field
-filteredTasks List<ch.ivyteam.ivy.workflow.ITask> #field
+filteredTasks List<ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper> #field
 nameCriteria String #field
 nameCriteria 'Used for find a tasks by task name or case name on the displayed task list' #fieldComment
 taskDisplayMode Number #field
