@@ -100,10 +100,12 @@ public class UserSubstituteHelper {
 	        {
 	          public IUserSubstitute call() throws Exception
 	          {
-	        	  Ivy.log().info("User " + sessionUserName + " created substitute for user " + user.getName() + ":" + 
-	        			  "substitute=" + mySubstitute.getName() + 
-	        			  ", forRole=" + forThisRole + 
-	        			  ", description=" + description);
+	        	  Ivy.log().info("User {0} creating substitute for user {1}: substitute={2}, forRole={3}, description={4}.",
+	        			  sessionUserName,
+	        			  user.getName(),
+	        			  mySubstitute.getName(),
+	        			  forThisRole,
+	        			  description);
 	        	  String fullDescription = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss").format(new Date()) + 
 	        	  							" " + sessionUserName +  
 	        	  							(description.length()>0? " - " + description: "");
@@ -134,11 +136,13 @@ public class UserSubstituteHelper {
 	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
 	        {
 	          public Boolean call() throws Exception
-	          {
-	        	  Ivy.log().info("User " + sessionUserName + " deletes substitute for user " + user.getName() + ":" + 
-	        			  "substitute=" + userSubstitute.getSubstituteUser().getName() + 
-	        			  ", forRole=" + userSubstitute.getSubstitutionRole() + 
-	        			  ", description=" + userSubstitute.getDescription());
+	          {	        	  
+	        	  Ivy.log().info("User {0} deletes substitute for user {1}: substitute={2}, forRole={3}, description={4}.",
+	        			  sessionUserName, 
+	        			  user.getName(), 
+	        			  userSubstitute.getSubstituteUser().getName(), 
+	        			  userSubstitute.isPersonallyOnly()? "personally": userSubstitute.getSubstitutionRole(), 
+	        			  userSubstitute.getDescription()); 
 	        	  
 	        	  user.deleteSubstitute(userSubstitute);
 	        	  return true;
