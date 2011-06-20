@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Jan 17 14:17:16 CET 2011]
-12A235154BB40481 3.15 #module
+[>Created: Mon Jun 20 22:56:57 CEST 2011]
+12A235154BB40481 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 StartListProcess Big #zClass
 Ss0 RD #cInfo
@@ -84,8 +84,75 @@ out.startNames.clear();
 
 for (IProcessStart start : ivy.session.getStartableProcessStarts())
 {
+	// do not include banner, custom tabs (functions), and wfui process start
+	// Ex. of requestPath: 1215975017F13818/demoRunner.ivp to split as two elements
+	// equals has to be done on second String (ex: demoRunner.ivp)
+	List requestPathStrings = start.getRequestPath().split("/");
+
+	// banner
+	ivy.log.debug("Looking for the {0} as banner process start request path.", start.getRequestPath());
+	if (ivy.var.xivy_workflow_ui_webBannerProcessStartLinkHREF.length() > 0 && ivy.var.xivy_workflow_ui_webBannerProcessStartLinkHREF.equals(requestPathStrings.get(1)))
+	{				
+		// request path from global variable found, skip it!
+		ivy.log.debug("Banner {0} found as {1}; skip it from startable process starts for user {2}.", 
+				ivy.var.xivy_workflow_ui_webBannerProcessStartLinkHREF,
+				start.getRequestPath(),
+				ivy.session.getSessionUserName());
+					
+				continue;
+	}
+	
+	
+	// custom "functions", it could be multiple process starts comma separated
+	if(ivy.var.xivy_workflow_ui_functionsProcessStartLinkHREF.length() > 0)
+	{
+		boolean found = false;
 		
-		Boolean stateActiv = SecurityManagerFactory.getSecurityManager().executeAsSystem(
+		List<String> functionsProcessStartRequestPaths = ivy.var.xivy_workflow_ui_functionsProcessStartLinkHREF.split(", ");
+	
+		for (String processStartRequestPath: functionsProcessStartRequestPaths)
+		{
+			ivy.log.debug("Looking for the {0} as function process start request path.", processStartRequestPath);
+			
+			if (processStartRequestPath.equals(requestPathStrings.get(1)))
+			{
+				// request path from functions global variable found; skip it
+				ivy.log.debug("Function {0} found as {1}; skip it from startable process starts for user {2}.", 
+						processStartRequestPath,
+						start.getRequestPath(),
+						ivy.session.getSessionUserName());
+				
+				found = true;
+				break;
+			}
+		}
+		
+		// if found go to next iteration
+		if (found)
+		{
+			continue;
+		}
+	}
+	
+	
+	// workflowUI process start
+	String wfuiProcessStartRequestPath = "WorkflowUI/start.ivp";
+	ivy.log.debug("Looking for the {0} as WorkflowUI process start request path.", start.getRequestPath());
+	if (wfuiProcessStartRequestPath.equals(start.getRequestPath()))
+	{
+		// request path from WFUI start process start; skip it
+		// request path from functions global variable found; skip it
+		ivy.log.debug("WFUI process start {0} found as {1}; skip it from startable process starts for user {2}.", 
+				wfuiProcessStartRequestPath,
+				start.getRequestPath(),
+				ivy.session.getSessionUserName());
+				
+		continue;
+	}
+	
+	
+		
+	Boolean stateActiv = SecurityManagerFactory.getSecurityManager().executeAsSystem(
                 new GetProcessModelVersionState(start.getProcessModelVersion())) as Boolean;
 		if(stateActiv)
 		{
@@ -122,7 +189,7 @@ Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>load startable processes</name>
-        <nameStyle>24,9
+        <nameStyle>24,7,9
 </nameStyle>
     </language>
 </elementInfo>

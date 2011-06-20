@@ -1,6 +1,6 @@
 [Ivy]
 [>Created: Fri Feb 18 15:20:10 CET 2011]
-128BA95BFF41EBC6 3.15 #module
+WorkflowUI 3.15 #module
 >Proto >Proto Collection #zClass
 WI0 WorkflowUI Big #zClass
 WI0 B #cInfo

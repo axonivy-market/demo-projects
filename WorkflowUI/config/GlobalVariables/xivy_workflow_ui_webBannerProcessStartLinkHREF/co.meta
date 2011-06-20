@@ -1,2 +1,2 @@
-co: name={xivy_workflow_ui_webBannerProcessStartLinkHREF} description={} changed={2010-11-15 12:57:41 GMT} changedby={tirib} visualorder={0} guid={12965838A38FF640} parentguid={} typeguid={1065A70222E84F59} id={} parentid={} typeid={}
-val: guid={12965838AB5DC6A4} datatype={} isdefault={true} langid={en} description={} validfrom={2010-06-23 15:53:26 GMT} validto={} changed={2010-11-15 12:57:41 GMT} changedby={tirib} properties={} id={}
+co: name={xivy_workflow_ui_webBannerProcessStartLinkHREF} description={} changed={2011-06-20 23:06:06 CEST} changedby={tirib} visualorder={0} guid={12965838A38FF640} parentguid={} typeguid={1065A70222E84F59} id={} parentid={} typeid={}
+val: guid={12965838AB5DC6A4} datatype={} isdefault={true} langid={en} description={} validfrom={2010-06-23 17:53:26 CEST} validto={} changed={2011-06-20 23:06:06 CEST} changedby={tirib} properties={} id={}
