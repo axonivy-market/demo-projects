@@ -12,10 +12,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 
-
+import ch.ivyteam.ivy.addons.filemanager.KeyValuePair;
 import ch.ivyteam.ivy.db.IExternalDatabase;
 import ch.ivyteam.ivy.db.IExternalDatabaseApplicationContext;
-import ch.ivyteam.ivy.db.IExternalDatabaseRuntimeConnection;
+import ch.ivyteam.ivy.db.IExternalDatabaseConnection;
 import ch.ivyteam.ivy.environment.EnvironmentNotAvailableException;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.persistence.PersistencyException;
@@ -23,7 +23,6 @@ import ch.ivyteam.ivy.persistence.db.DatabaseUtil;
 import ch.ivyteam.ivy.scripting.objects.List;
 import ch.ivyteam.ivy.scripting.objects.Record;
 import ch.ivyteam.ivy.scripting.objects.Recordset;
-import ch.ivyteam.ivy.addons.filemanager.KeyValuePair;
 
 /**
  * @author ec
@@ -83,7 +82,7 @@ public class IvyDBReuser {
 		"PRIMARY KEY (FILEID)"+
 		");";
 		IExternalDatabase database = getDatabase(_dbConnectionName);
-		IExternalDatabaseRuntimeConnection connection = database.getAndLockConnection();
+		IExternalDatabaseConnection connection = database.getAndLockConnection();
 		Connection jdbcConnection;
 		try
 		{
@@ -135,7 +134,7 @@ public class IvyDBReuser {
 		ArrayList<String> columns= new ArrayList<String>();
 		ResultSet rst =null;
 		IExternalDatabase database = getDatabase(_nameOfTheDatabaseConnection);
-		IExternalDatabaseRuntimeConnection connection = database.getAndLockConnection();
+		IExternalDatabaseConnection connection = database.getAndLockConnection();
 		Connection jdbcConnection;
 		try{
 			jdbcConnection=connection.getDatabaseConnection();
@@ -179,7 +178,7 @@ public class IvyDBReuser {
 			throw(new SQLException("Invalid Ivy Database connection Name","Connection to Database refused"));
 		}
 		IExternalDatabase database = getDatabase(_nameOfTheDatabaseConnection);
-		IExternalDatabaseRuntimeConnection connection = database.getAndLockConnection();
+		IExternalDatabaseConnection connection = database.getAndLockConnection();
 		Connection jdbcConnection;
 		ResultSet rst = null;
 		Recordset r= new Recordset();
@@ -238,7 +237,7 @@ public class IvyDBReuser {
 			throw(new SQLException("Invalid Ivy Database connection Name","Connection to Database refused"));
 		}
 		IExternalDatabase database = getDatabase(_nameOfTheDatabaseConnection);
-		IExternalDatabaseRuntimeConnection connection = database.getAndLockConnection();
+		IExternalDatabaseConnection connection = database.getAndLockConnection();
 		Connection jdbcConnection;
 		ResultSet rst = null;
 		Recordset r= new Recordset();
@@ -293,7 +292,7 @@ public class IvyDBReuser {
 			throw(new SQLException("Invalid Ivy Database connection Name","Connection to Database refused"));
 		}
 		IExternalDatabase database = getDatabase(_nameOfTheDatabaseConnection);
-		IExternalDatabaseRuntimeConnection connection = database.getAndLockConnection();
+		IExternalDatabaseConnection connection = database.getAndLockConnection();
 		Connection jdbcConnection;
 		Statement stmt =null;
 		int rows=0;
@@ -333,7 +332,7 @@ public class IvyDBReuser {
 			throw(new SQLException("Invalid Ivy Database connection Name","Connection to Database refused"));
 		}
 		IExternalDatabase database = getDatabase(_nameOfTheDatabaseConnection);
-		IExternalDatabaseRuntimeConnection connection = database.getAndLockConnection();
+		IExternalDatabaseConnection connection = database.getAndLockConnection();
 		Connection jdbcConnection;
 		int rows=0;
 		Statement stmt =null;
@@ -381,7 +380,7 @@ public class IvyDBReuser {
 			throw(new SQLException("Invalid Ivy Database connection Name","Connection to Database refused"));
 		}
 		IExternalDatabase database = getDatabase(_nameOfTheDatabaseConnection);
-		IExternalDatabaseRuntimeConnection connection = database.getAndLockConnection();
+		IExternalDatabaseConnection connection = database.getAndLockConnection();
 		Connection jdbcConnection;
 		int insertedIDs = 0;
 		Statement  stmt=null;
@@ -418,7 +417,7 @@ public class IvyDBReuser {
 			throw(new SQLException("Invalid Ivy Database connection Name","Connection to Database refused"));
 		}
 		IExternalDatabase database = getDatabase(_nameOfTheDatabaseConnection);
-		IExternalDatabaseRuntimeConnection connection = database.getAndLockConnection();
+		IExternalDatabaseConnection connection = database.getAndLockConnection();
 		Connection jdbcConnection;
 		ResultSet rst = null;
 		int insertedId = -1;
@@ -467,7 +466,7 @@ public class IvyDBReuser {
 			throw(new SQLException("Invalid Ivy Database connection Name","Connection to Database refused"));
 		}
 		IExternalDatabase database = getDatabase(_nameOfTheDatabaseConnection);
-		IExternalDatabaseRuntimeConnection connection = database.getAndLockConnection();
+		IExternalDatabaseConnection connection = database.getAndLockConnection();
 		Connection jdbcConnection;
 		ResultSet rst = null;
 		int insertedId = -1;
@@ -520,7 +519,7 @@ public class IvyDBReuser {
 			throw(new SQLException("Invalid Ivy Database connection Name","Connection to Database refused"));
 		}
 		IExternalDatabase database = getDatabase(_nameOfTheDatabaseConnection);
-		IExternalDatabaseRuntimeConnection connection = database.getAndLockConnection();
+		IExternalDatabaseConnection connection = database.getAndLockConnection();
 		Connection jdbcConnection;
 		int itemsDeleted=0;
 		Statement stmt=null;

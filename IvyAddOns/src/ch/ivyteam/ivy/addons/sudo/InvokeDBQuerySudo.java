@@ -12,7 +12,7 @@ import java.util.concurrent.Callable;
 import ch.ivyteam.ivy.addons.util.AddonsException;
 import ch.ivyteam.ivy.db.IExternalDatabase;
 import ch.ivyteam.ivy.db.IExternalDatabaseApplicationContext;
-import ch.ivyteam.ivy.db.IExternalDatabaseRuntimeConnection;
+import ch.ivyteam.ivy.db.IExternalDatabaseConnection;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.security.SecurityManagerFactory;
@@ -61,7 +61,7 @@ public final class InvokeDBQuerySudo implements Callable<List<String[]>>
     // COPY AT OWN RISK (API IS NOT GUARANTEED TO BE STABLE)
     IExternalDatabaseApplicationContext context;
     IExternalDatabase database;
-    IExternalDatabaseRuntimeConnection connection;
+    IExternalDatabaseConnection connection;
     Connection jdbcConnection;
 
     Statement statement;

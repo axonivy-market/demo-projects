@@ -16,7 +16,7 @@ import java.util.concurrent.Callable;
 import ch.ivyteam.db.jdbc.DatabaseUtil;
 import ch.ivyteam.ivy.db.IExternalDatabase;
 import ch.ivyteam.ivy.db.IExternalDatabaseApplicationContext;
-import ch.ivyteam.ivy.db.IExternalDatabaseRuntimeConnection;
+import ch.ivyteam.ivy.db.IExternalDatabaseConnection;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.Date;
 import ch.ivyteam.ivy.scripting.objects.List;
@@ -149,7 +149,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		List<Record> recordList= (List<Record>) List.create(Record.class);
 
 		String query="";
-		IExternalDatabaseRuntimeConnection connection = null;
+		IExternalDatabaseConnection connection = null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -227,7 +227,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		}
 		query.append(_conditions.get(numConditions));
 		//rset=IvySystemDBReuser.executeQuery(query.toString());
-		IExternalDatabaseRuntimeConnection connection = null;
+		IExternalDatabaseConnection connection = null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -286,7 +286,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		Recordset rset = null;
 		List<Record> recordList=null;
 		String query="";
-		IExternalDatabaseRuntimeConnection connection = null;
+		IExternalDatabaseConnection connection = null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -347,7 +347,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 	 * @throws Exception
 	 */
 	public void updateDocuments(String _query) throws Exception{
-		IExternalDatabaseRuntimeConnection connection = null;
+		IExternalDatabaseConnection connection = null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -395,7 +395,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		sql.append(_conditions.get(numConditions));
 		sql.trimToSize();
 		String _query = sql.toString();
-		IExternalDatabaseRuntimeConnection connection = null;
+		IExternalDatabaseConnection connection = null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -430,7 +430,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			_userID="";
 		}
 		int i=0;
-		IExternalDatabaseRuntimeConnection connection = null;
+		IExternalDatabaseConnection connection = null;
 		try {
 			
 			connection = getDatabase().getAndLockConnection();
@@ -474,7 +474,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		{
 			throw new Exception("File null or doesn't exist, or userID null in changeModificationInformations method.");
 		}
-		IExternalDatabaseRuntimeConnection connection = null;
+		IExternalDatabaseConnection connection = null;
 		try {
 			
 			connection = getDatabase().getAndLockConnection();
@@ -514,7 +514,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			throw new Exception("Invalid DocumentOnServer Object or invalid username in lockDocument method.");
 		}
 		boolean flag = false;	
-		IExternalDatabaseRuntimeConnection connection = null;
+		IExternalDatabaseConnection connection = null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -552,7 +552,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			throw new Exception("Invalid DocumentOnServer Object or invalid username in lockDocument method.");
 		}
 		boolean flag = false;	
-		IExternalDatabaseRuntimeConnection connection = null;
+		IExternalDatabaseConnection connection = null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -589,7 +589,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			throw new Exception("Invalid DocumentOnServer Object in unlockDocument method.");
 		}
 		boolean flag = false;
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -626,7 +626,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			throw new Exception("Invalid DocumentOnServer Object in unlockDocument method.");
 		}
 		boolean flag = false;
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -665,7 +665,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			throw new Exception("Invalid DocumentOnServer Object in unlockDocument method.");
 		}
 		boolean flag = false;
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -705,7 +705,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			throw new Exception("Invalid DocumentOnServer Object in unlockDocument method.");
 		}
 		boolean flag = false;
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -744,7 +744,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 	public void unlockFilesEdited(String _path, String _user, boolean _recursive)throws Exception {
 		String folderPath = escapeBackSlash(FileHandler.formatPathWithEndSeparator(_path, false));
 		String query="";
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -802,7 +802,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		String date = new Date().format("d.M.yyyy");
 		String time = new Time().format();
 
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -849,7 +849,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		String date = new Date().format("d.M.yyyy");
 		String time = new Time().format();
 
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -900,7 +900,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		String date = new Date().format("d.M.yyyy");
 		String time = new Time().format();
 
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -956,7 +956,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		String date = new Date().format("d.M.yyyy");
 		String time = new Time().format();
 
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -1003,7 +1003,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		{
 			return 0;
 		}
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		String base ="";
 		base= "DELETE FROM "+this.tableNameSpace+" WHERE FILEPATH LIKE ?"; 
 		try {
@@ -1039,7 +1039,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		{
 			return 0;
 		}
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		String base ="";
 		base= "DELETE FROM "+this.tableNameSpace+" WHERE FILEPATH LIKE ?"; 
 		try {
@@ -1073,7 +1073,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 	public boolean isFileLocked(java.io.File _file)throws Exception{
 		boolean retour = false;
 		String sql ="SELECT * FROM "+this.tableNameSpace+" WHERE LOCKED=1 AND FILEPATH LIKE ?";
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -1114,7 +1114,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		boolean retour = false;
 		String sql="SELECT * FROM "+this.tableNameSpace+" WHERE LOCKED=1 AND FILEPATH LIKE ? AND LOCKINGUSERID NOT LIKE ?";
 
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
@@ -1150,7 +1150,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 	public boolean isDocumentOnServerLocked(DocumentOnServer _doc)throws Exception{
 		boolean retour = false;
 		String sql ="SELECT * FROM "+this.tableNameSpace+" WHERE LOCKED=1 AND FILEPATH LIKE ?";
-		IExternalDatabaseRuntimeConnection connection=null;
+		IExternalDatabaseConnection connection=null;
 		try {
 			connection = getDatabase().getAndLockConnection();
 			Connection jdbcConnection=connection.getDatabaseConnection();
