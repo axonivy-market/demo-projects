@@ -20,7 +20,7 @@ import ch.ivyteam.ivy.addons.eventlog.data.technical.EventLogSeverity;
 import ch.ivyteam.ivy.application.ReleaseState;
 import ch.ivyteam.ivy.db.IExternalDatabase;
 import ch.ivyteam.ivy.db.IExternalDatabaseApplicationContext;
-import ch.ivyteam.ivy.db.IExternalDatabaseConnection;
+import ch.ivyteam.ivy.db.IExternalDatabaseRuntimeConnection;
 import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.process.eventstart.IProcessStartEventBean;
 import ch.ivyteam.ivy.process.eventstart.IProcessStartEventBeanConfigurationEditorEx;
@@ -286,7 +286,7 @@ public class EventLogImportDBStartEventBean implements IProcessStartEventBean
     long errors = 0;
     long processed = 0;
     java.sql.Connection jdbcConnection = null;
-    IExternalDatabaseConnection connection = null;
+    IExternalDatabaseRuntimeConnection connection = null;
     EventLogData eventLogData;
     Map<String, Object> results;
 
