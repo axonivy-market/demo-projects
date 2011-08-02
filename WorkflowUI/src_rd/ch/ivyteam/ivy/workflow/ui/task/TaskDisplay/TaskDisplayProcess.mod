@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 30 11:06:43 CEST 2011]
+[>Created: Tue Aug 02 17:08:50 CEST 2011]
 116A9BF16D47762C 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -1648,7 +1648,13 @@ Ts0 f151 @|RichDialogMethodStartIcon #fIcon
 Ts0 f152 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f152 358 438 20 20 13 0 #rect
 Ts0 f152 @|RichDialogProcessEndIcon #fIcon
+Ts0 f153 actionDecl 'ch.ivyteam.ivy.workflow.ITask task;
+' #txt
+Ts0 f153 actionTable 'task=in.task;
+' #txt
+Ts0 f153 actionCode panel.fireXivyTaskStarted(task); #txt
 Ts0 f153 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
+Ts0 f153 fireEvent xivyTaskStarted(ch.ivyteam.ivy.workflow.ITask) #txt
 Ts0 f153 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
