@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jun 21 00:27:27 CEST 2011]
+[>Created: Tue Aug 02 16:53:02 CEST 2011]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -45,7 +45,6 @@ Ts0 @PushWFArc f80 '' #zField
 Ts0 @PushWFArc f71 '' #zField
 Ts0 @Alternative f81 '' #zField
 Ts0 @RichDialogProcessStep f84 '' #zField
-Ts0 @PushWFArc f85 '' #zField
 Ts0 @PushWFArc f83 '' #zField
 Ts0 @RichDialogProcessStep f2 '' #zField
 Ts0 @Alternative f40 '' #zField
@@ -68,7 +67,6 @@ Ts0 @RichDialogProcessStep f73 '' #zField
 Ts0 @PushWFArc f74 '' #zField
 Ts0 @PushWFArc f69 '' #zField
 Ts0 @RichDialogProcessStep f96 '' #zField
-Ts0 @PushWFArc f97 '' #zField
 Ts0 @Alternative f100 '' #zField
 Ts0 @PushWFArc f106 '' #zField
 Ts0 @PushWFArc f120 '' #zField
@@ -315,6 +313,10 @@ Ts0 @PushWFArc f46 '' #zField
 Ts0 @RichDialogProcessStep f131 '' #zField
 Ts0 @PushWFArc f132 '' #zField
 Ts0 @PushWFArc f156 '' #zField
+Ts0 @Alternative f18 '' #zField
+Ts0 @PushWFArc f42 '' #zField
+Ts0 @PushWFArc f51 '' #zField
+Ts0 @PushWFArc f97 '' #zField
 >Proto Ts0 Ts0 TaskDisplayListProcess #zField
 Ts0 f0 guid 1168B153651C96FA #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -402,7 +404,7 @@ Ts0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f33 1830 206 20 20 13 0 #rect
 Ts0 f33 @|RichDialogProcessStartIcon #fIcon
 Ts0 f36 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f36 1827 643 26 26 14 0 #rect
+Ts0 f36 1827 707 26 26 14 0 #rect
 Ts0 f36 @|RichDialogProcessEndIcon #fIcon
 Ts0 f22 guid 116CE5EA710FB1B8 #txt
 Ts0 f22 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -907,19 +909,6 @@ automatic tasks execution</name>
 ' #txt
 Ts0 f84 2566 548 36 24 20 -2 #rect
 Ts0 f84 @|RichDialogProcessStepIcon #fIcon
-Ts0 f85 expr in #txt
-Ts0 f85 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>no</name>
-        <nameStyle>2,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f85 2310 400 2584 548 #arcP
-Ts0 f85 1 2584 400 #addKink
-Ts0 f85 1 0.13243466505030052 0 0 #arcLabel
 Ts0 f83 expr out #txt
 Ts0 f83 2584 572 2308 759 #arcP
 Ts0 f83 1 2584 752 #addKink
@@ -1028,14 +1017,14 @@ to specified display id</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f34 1822 588 36 24 20 -2 #rect
+Ts0 f34 1822 652 36 24 20 -2 #rect
 Ts0 f34 @|RichDialogIcon #fIcon
 Ts0 f63 expr out #txt
-Ts0 f63 1840 612 1840 643 #arcP
+Ts0 f63 1840 676 1840 707 #arcP
 Ts0 f58 expr in #txt
-Ts0 f58 1852 282 1853 656 #arcP
-Ts0 f58 1 1960 296 #addKink
-Ts0 f58 2 1960 656 #addKink
+Ts0 f58 1853 281 1853 720 #arcP
+Ts0 f58 1 2056 296 #addKink
+Ts0 f58 2 2056 720 #addKink
 Ts0 f58 1 0.45970145375293403 0 0 #arcLabel
 Ts0 f92 guid 118C22345A17837B #txt
 Ts0 f92 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -1332,24 +1321,22 @@ refresh it</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f96 1822 388 36 24 20 -2 #rect
+Ts0 f96 1822 452 36 24 20 -2 #rect
 Ts0 f96 @|RichDialogProcessStepIcon #fIcon
-Ts0 f97 expr out #txt
-Ts0 f97 1840 356 1840 388 #arcP
 Ts0 f100 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f100 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f100 1826 450 28 28 14 0 #rect
+Ts0 f100 1826 514 28 28 14 0 #rect
 Ts0 f100 @|AlternativeIcon #fIcon
 Ts0 f106 expr out #txt
-Ts0 f106 1840 412 1840 450 #arcP
+Ts0 f106 1840 476 1840 514 #arcP
 Ts0 f120 expr in #txt
-Ts0 f120 1854 464 1852 654 #arcP
-Ts0 f120 1 1904 464 #addKink
-Ts0 f120 2 1904 648 #addKink
+Ts0 f120 1854 528 1852 718 #arcP
+Ts0 f120 1 1904 528 #addKink
+Ts0 f120 2 1904 712 #addKink
 Ts0 f120 1 0.47026520291019663 0 0 #arcLabel
 Ts0 f126 guid 118EB87984A5A5A8 #txt
 Ts0 f126 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -4173,7 +4160,7 @@ ensure that under this tab display is visible</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f279 1822 524 36 24 20 -2 #rect
+Ts0 f279 1822 588 36 24 20 -2 #rect
 Ts0 f279 @|RichDialogProcessStepIcon #fIcon
 Ts0 f280 expr in #txt
 Ts0 f280 outCond !in.taskAlreadyLoadedOnDisplay #txt
@@ -4187,9 +4174,9 @@ already loaded</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f280 1840 478 1840 524 #arcP
+Ts0 f280 1840 542 1840 588 #arcP
 Ts0 f62 expr out #txt
-Ts0 f62 1840 548 1840 588 #arcP
+Ts0 f62 1840 612 1840 652 #arcP
 Ts0 f281 guid 1295FBAF087F9806 #txt
 Ts0 f281 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f281 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
@@ -4621,6 +4608,25 @@ Ts0 f132 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f132 2840 398 2840 428 #arcP
 Ts0 f156 expr out #txt
 Ts0 f156 2840 452 2840 474 #arcP
+Ts0 f18 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f18 1826 386 28 28 14 0 #rect
+Ts0 f18 @|AlternativeIcon #fIcon
+Ts0 f42 expr out #txt
+Ts0 f42 1840 356 1840 386 #arcP
+Ts0 f51 expr in #txt
+Ts0 f51 1840 414 1840 452 #arcP
+Ts0 f97 expr in #txt
+Ts0 f97 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>no</name>
+        <nameStyle>2,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f97 2282 400 1854 400 #arcP
+Ts0 f97 0 0.695735380159821 0 0 #arcLabel
 >Proto Ts0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -4677,7 +4683,6 @@ Ts0 f61 head f59 mainIn #connect
 Ts0 f80 head f79 mainIn #connect
 Ts0 f79 mainOut f71 tail #connect
 Ts0 f71 head f29 mainIn #connect
-Ts0 f85 head f84 mainIn #connect
 Ts0 f84 mainOut f83 tail #connect
 Ts0 f83 head f29 mainIn #connect
 Ts0 f22 mainOut f44 tail #connect
@@ -4699,11 +4704,8 @@ Ts0 f105 mainOut f70 tail #connect
 Ts0 f70 head f29 mainIn #connect
 Ts0 f81 out f74 tail #connect
 Ts0 f74 head f73 mainIn #connect
-Ts0 f81 out f85 tail #connect
 Ts0 f73 mainOut f69 tail #connect
 Ts0 f69 head f32 in #connect
-Ts0 f101 mainOut f97 tail #connect
-Ts0 f97 head f96 mainIn #connect
 Ts0 f96 mainOut f106 tail #connect
 Ts0 f106 head f100 in #connect
 Ts0 f120 head f36 mainIn #connect
@@ -4988,3 +4990,9 @@ Ts0 f132 head f131 mainIn #connect
 Ts0 f40 out f259 tail #connect
 Ts0 f131 mainOut f156 tail #connect
 Ts0 f156 head f157 in #connect
+Ts0 f101 mainOut f42 tail #connect
+Ts0 f42 head f18 in #connect
+Ts0 f18 out f51 tail #connect
+Ts0 f51 head f96 mainIn #connect
+Ts0 f81 out f97 tail #connect
+Ts0 f97 head f18 in #connect
