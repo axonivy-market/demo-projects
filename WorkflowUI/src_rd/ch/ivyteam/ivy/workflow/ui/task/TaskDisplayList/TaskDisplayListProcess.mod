@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Aug 02 16:53:02 CEST 2011]
+[>Created: Wed Aug 03 15:00:07 CEST 2011]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -791,6 +791,10 @@ for (Number broadcastedTaskId: in.broadcastedTaskIdentifiers)
 		{
 			found = true;
 			taskIndexInTheList = in.filteredTasks.indexOf(currentWfTaskWrapper);
+			ivy.log.debug("Task {0}-{1} changed its state to {2}.", 
+											currentWfTaskWrapper.wfTask.getIdentifier(),
+											currentWfTaskWrapper.wfTask.getName(),
+											currentWfTaskWrapper.wfTask.getState());
 			out.filteredTasks.elementChanged(currentWfTaskWrapper);
 		}   
 	}

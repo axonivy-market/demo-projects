@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Jan 18 09:17:37 CET 2011]
-12D9821DFCC25F93 3.15 #module
+[>Created: Wed Aug 03 14:54:11 CEST 2011]
+12D9821DFCC25F93 3.17 #module
 >Proto >Proto Collection #zClass
 Ws0 WorkflowUIStartServices Big #zClass
 Ws0 B #cInfo
@@ -62,7 +62,7 @@ Ws0 f26 responseActionDecl 'workflowui.Data out;
 ' #txt
 Ws0 f26 responseMappingAction 'out=in;
 ' #txt
-Ws0 f26 windowConfiguration '{/title "<%=in.windowTitle%>"/width 1280 /height 1024 /centered true /resizable true /maximized true /close_after_last_rd true }' #txt
+Ws0 f26 windowConfiguration '{/title "<%=in.windowTitle%>"/width 1280 /height 975 /centered true /resizable true /maximized true /close_after_last_rd true }' #txt
 Ws0 f26 isAsynch false #txt
 Ws0 f26 isInnerRd false #txt
 Ws0 f26 isDialog false #txt

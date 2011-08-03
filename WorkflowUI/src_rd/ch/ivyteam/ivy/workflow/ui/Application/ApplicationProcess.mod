@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Jan 25 09:45:19 CET 2011]
-117CB5CD6E5F88C6 3.15 #module
+[>Created: Wed Aug 03 15:13:09 CEST 2011]
+117CB5CD6E5F88C6 3.17 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
 As0 RD #cInfo
@@ -249,7 +249,8 @@ As0 f181 actionTable 'out=in;
 ' #txt
 As0 f181 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
 
-out.taskDisplayMode = 0;
+// team running tasks
+out.taskDisplayMode = 1;
 
 out.taskHierarchyContext.setPropertyFilter(WorkflowUIAccessPermissionHandler.getTaskStatesPropertyFilterByRunningModeAndTaskDisplayMode(true, out.taskDisplayMode));
 
