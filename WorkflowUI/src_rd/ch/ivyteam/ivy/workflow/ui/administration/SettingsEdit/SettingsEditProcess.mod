@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 17 10:46:25 CEST 2011]
+[>Created: Wed Aug 17 13:30:15 CEST 2011]
 12A146365AD40893 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SettingsProcess Big #zClass
@@ -305,10 +305,9 @@ Ss0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>save settings:
-tasks
-cases</name>
+tasks and cases</name>
         <nameStyle>15,7,9
-11,7,9
+15,7,9
 </nameStyle>
     </language>
 </elementInfo>

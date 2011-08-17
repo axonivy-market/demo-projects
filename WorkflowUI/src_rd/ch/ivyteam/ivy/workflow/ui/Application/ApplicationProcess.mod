@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 03 15:13:09 CEST 2011]
+[>Created: Wed Aug 17 13:35:00 CEST 2011]
 117CB5CD6E5F88C6 3.17 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
@@ -110,28 +110,9 @@ As0 f23 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
 
 String autoHideMenuValue ;
 out.initialDividerPosition = panel.applicationSplitPane.getDividerLocationRelative();
-
-//test if user has read property permission otherwise get CMS value
-if (ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_OWN_PROPERTY) && 
-		ivy.session.getSessionUser().getProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY).length() > 0)
-{
-	autoHideMenuValue = ivy.session.getSessionUser().getProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY) ;						
-	ivy.log.debug("Auto hide menu value for user {0} is {1}.", 
-								ivy.session.getSessionUser(), 
-								autoHideMenuValue);
-}
-else
-{	
-	autoHideMenuValue = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/parameters/menuAutoHide") ;
-	ivy.log.debug("Auto hide menu value is not defined for user {0}; the default value {0} is used.", 
-								ivy.session.getSessionUserName(), 
-								autoHideMenuValue);
-}
-	
-ivy.log.info("Auto hide value : " + autoHideMenuValue) ;
 	
 //test auto hide menu parameter value
-if(autoHideMenuValue.equalsIgnoreCase("true"))
+if(in.menuAutoHideMode)
 {
 	panel.applicationSplitPane.setDividerLocation(0) ;
 }
@@ -161,21 +142,9 @@ import ch.ivyteam.ivy.workflow.TaskState;
 //TIFAM - 11.08.2009 - store initial divider posision
 import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
 
-//TIFAM - 11.08.2009 - store initial divider posision
-String autoHideMenuValue ;
+
 String isCurrentTaskParkedOrDone = "false" ;
 TaskState currentTaskState ;
-
-//test if user has read property permission otherwise get CMS value
-if (ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_OWN_PROPERTY) && 
-		ivy.session.getSessionUser().getProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY) is initialized)
-{
-	autoHideMenuValue = ivy.session.getSessionUser().getProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY) ;						
-}
-else
-{
-	autoHideMenuValue = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/parameters/menuAutoHide") ;
-}
 	
 //check if currentTaskId part of system event and if it''s parked or done
 if(in.broadcastedTasks.contains(in.currentTaskId))
@@ -194,7 +163,7 @@ if(in.broadcastedTasks.contains(in.currentTaskId))
 } 
 	
 //test auto hide menu parameter value
-if(autoHideMenuValue.equalsIgnoreCase("true") && 
+if(in.menuAutoHideMode && 
 		(in.#initialDividerPosition is initialized && isCurrentTaskParkedOrDone.equalsIgnoreCase("true")))
 {
 	Double oldDividerLocation = panel.applicationSplitPane.getDividerLocation();
@@ -221,18 +190,27 @@ As0 f29 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f29 actionTable 'out=in;
 ' #txt
-As0 f29 actionCode '//TIFAM - 12.in.2009
+As0 f29 actionCode 'import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
+import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper;
+//TIFAM - 12.in.2009
 import ch.ivyteam.ivy.event.SystemEventCategory ;
 
 // register to System events of Workflow category
-ivy.rd.subscribeToSystemEvents(SystemEventCategory.WORKFLOW) ;' #txt
+ivy.rd.subscribeToSystemEvents(SystemEventCategory.WORKFLOW) ;
+
+
+// get the menu auto hide preference
+IUser sessionUser = ivy.session.getSessionUser();
+out.menuAutoHideMode = WorkflowUserPropertyHelper.getMenuAutoHidePreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY, out.menuAutoHideMode);' #txt
 As0 f29 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>register System
-Event Handler</name>
-        <nameStyle>29,7,9
+        <name>register System Event Handler
+get the menu auto hide preference</name>
+        <nameStyle>63,7,9
 </nameStyle>
     </language>
 </elementInfo>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 03 15:00:07 CEST 2011]
+[>Created: Wed Aug 17 13:32:45 CEST 2011]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -220,11 +220,8 @@ Ts0 @PushWFArc f247 '' #zField
 Ts0 @RichDialog f165 '' #zField
 Ts0 @PushWFArc f248 '' #zField
 Ts0 @PushWFArc f249 '' #zField
-Ts0 @RichDialogProcessStep f250 '' #zField
 Ts0 @RichDialog f251 '' #zField
 Ts0 @Alternative f253 '' #zField
-Ts0 @PushWFArc f255 '' #zField
-Ts0 @PushWFArc f260 '' #zField
 Ts0 @PushWFArc f72 '' #zField
 Ts0 @Alternative f3 '' #zField
 Ts0 @RichDialogProcessStep f5 '' #zField
@@ -317,6 +314,7 @@ Ts0 @Alternative f18 '' #zField
 Ts0 @PushWFArc f42 '' #zField
 Ts0 @PushWFArc f51 '' #zField
 Ts0 @PushWFArc f97 '' #zField
+Ts0 @PushWFArc f85 '' #zField
 >Proto Ts0 Ts0 TaskDisplayListProcess #zField
 Ts0 f0 guid 1168B153651C96FA #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -2514,6 +2512,17 @@ out.taskDisplayMode=param.aTaskDisplayMode;
 out.taskDisplayModeText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskDisplayMode" + param.aTaskDisplayMode + "LongDesc");
 out.taskListParentDisplayId=param.aTaskDisplayListParentDisplay.displayId;
 ' #txt
+Ts0 f113 inActionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
+import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper;
+
+
+// get the auto hide menu during task execution preference
+IUser sessionUser = ivy.session.getSessionUser();
+
+boolean enableAutoHideMenuMode = WorkflowUserPropertyHelper.getMenuAutoHidePreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY, enableAutoHideMenuMode);
+out.autoHideMenuParameter = enableAutoHideMenuMode.toString();' #txt
 Ts0 f113 outParameterDecl '<> result;
 ' #txt
 Ts0 f113 embeddedRdInitializations '* ' #txt
@@ -3492,35 +3501,6 @@ Ts0 f249 expr out #txt
 Ts0 f249 2360 1340 2069 1368 #arcP
 Ts0 f249 1 2360 1368 #addKink
 Ts0 f249 1 0.4280023872839779 0 0 #arcLabel
-Ts0 f250 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
-' #txt
-Ts0 f250 actionTable 'out=in;
-' #txt
-Ts0 f250 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
-
-//TIFAM - 12.08.2009 - store initial divider posision
-//test if user has read property permission otherwise get CMS value
-if (ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_PROPERTY) && ivy.session.getSessionUser().getProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY).length() > 0)
-	{
-	in.autoHideMenuParameter = ivy.session.getSessionUser().getProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY) ;						
-	}
-else
-	{
-	in.autoHideMenuParameter = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/parameters/menuAutoHide") ;
-	}' #txt
-Ts0 f250 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f250 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set auto hide 
-menu parameter</name>
-        <nameStyle>29,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f250 2278 540 36 24 24 -15 #rect
-Ts0 f250 @|RichDialogProcessStepIcon #fIcon
 Ts0 f251 targetDisplay TOP #txt
 Ts0 f251 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Ts0 f251 startMethod showMessage(String) #txt
@@ -3563,21 +3543,6 @@ more than one task running ?</name>
 ' #txt
 Ts0 f253 2282 578 28 28 17 -18 #rect
 Ts0 f253 @|AlternativeIcon #fIcon
-Ts0 f255 expr out #txt
-Ts0 f255 2296 564 2296 578 #arcP
-Ts0 f260 expr in #txt
-Ts0 f260 outCond !in.taskAlreadyLoadedOnDisplay #txt
-Ts0 f260 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>no</name>
-        <nameStyle>2,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f260 2296 518 2296 540 #arcP
-Ts0 f260 0 0.4090909090909091 -1 0 #arcLabel
 Ts0 f72 expr out #txt
 Ts0 f72 2536 700 2308 759 #arcP
 Ts0 f72 1 2536 744 #addKink
@@ -4631,6 +4596,19 @@ Ts0 f97 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f97 2282 400 1854 400 #arcP
 Ts0 f97 0 0.695735380159821 0 0 #arcLabel
+Ts0 f85 expr in #txt
+Ts0 f85 outCond !in.taskAlreadyLoadedOnDisplay #txt
+Ts0 f85 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>no</name>
+        <nameStyle>2,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f85 2296 518 2296 578 #arcP
+Ts0 f85 0 0.4090909090909091 -1 0 #arcLabel
 >Proto Ts0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -4881,10 +4859,6 @@ Ts0 f245 out f248 tail #connect
 Ts0 f248 head f165 mainIn #connect
 Ts0 f165 mainOut f249 tail #connect
 Ts0 f249 head f192 mainIn #connect
-Ts0 f250 mainOut f255 tail #connect
-Ts0 f255 head f253 in #connect
-Ts0 f32 out f260 tail #connect
-Ts0 f260 head f250 mainIn #connect
 Ts0 f251 mainOut f72 tail #connect
 Ts0 f72 head f29 mainIn #connect
 Ts0 f3 out f8 tail #connect
@@ -4924,7 +4898,6 @@ Ts0 f265 head f67 in #connect
 Ts0 f267 out f268 tail #connect
 Ts0 f268 head f264 mainIn #connect
 Ts0 f267 out f269 tail #connect
-Ts0 f32 out f95 tail #connect
 Ts0 f95 head f84 mainIn #connect
 Ts0 f270 out f276 tail #connect
 Ts0 f276 head f75 mainIn #connect
@@ -5000,3 +4973,6 @@ Ts0 f18 out f51 tail #connect
 Ts0 f51 head f96 mainIn #connect
 Ts0 f81 out f97 tail #connect
 Ts0 f97 head f18 in #connect
+Ts0 f32 out f85 tail #connect
+Ts0 f85 head f253 in #connect
+Ts0 f32 out f95 tail #connect

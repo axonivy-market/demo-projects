@@ -18,3 +18,5 @@ sessionUserResumedTasksIterator java.util.Iterator #field
 pressedButton String #field
 pressedButton 'End user pressed button on Question Dialog.' #fieldComment
 sessionUserResumedTask ch.ivyteam.ivy.workflow.ITask #field
+menuAutoHideMode Boolean #field
+menuAutoHideMode 'If true, then the menu on left side is hidden automatically during the task execution. Otherwise not.' #fieldComment

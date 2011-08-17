@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 17 11:38:18 CEST 2011]
+[>Created: Wed Aug 17 13:31:02 CEST 2011]
 1175F14B3894BBC3 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskSearchProcess Big #zClass
@@ -2538,9 +2538,9 @@ ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), U
 out.multipleTaskListMode = WorkflowUserPropertyHelper.getMultipleTaskListModePreference(sessionUser);
 ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY, out.multipleTaskListMode);
 
-boolean enableMultipleTaskListMode = WorkflowUserPropertyHelper.getMultipleTaskListModePreference(sessionUser);
-ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY, enableMultipleTaskListMode);
-out.autoHideMenuParameter = enableMultipleTaskListMode.toString();
+boolean enableautoHideMenuMode = WorkflowUserPropertyHelper.getMenuAutoHidePreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY, enableautoHideMenuMode);
+out.autoHideMenuParameter = enableautoHideMenuMode.toString();
 
 ' #txt
 Ts0 f81 outParameterDecl '<> result;

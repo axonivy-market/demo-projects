@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Aug 02 17:08:50 CEST 2011]
+[>Created: Wed Aug 17 13:58:48 CEST 2011]
 116A9BF16D47762C 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -144,10 +144,7 @@ Ts0 @RichDialog f155 '' #zField
 Ts0 @Alternative f156 '' #zField
 Ts0 @Alternative f157 '' #zField
 Ts0 @RichDialogProcessStep f158 '' #zField
-Ts0 @RichDialogProcessStep f159 '' #zField
 Ts0 @Alternative f170 '' #zField
-Ts0 @PushWFArc f187 '' #zField
-Ts0 @PushWFArc f188 '' #zField
 Ts0 @PushWFArc f189 '' #zField
 Ts0 @PushWFArc f190 '' #zField
 Ts0 @PushWFArc f191 '' #zField
@@ -209,6 +206,7 @@ Ts0 @RichDialogProcessStep f163 '' #zField
 Ts0 @PushWFArc f164 '' #zField
 Ts0 @PushWFArc f165 '' #zField
 Ts0 @PushWFArc f25 '' #zField
+Ts0 @PushWFArc f3 '' #zField
 >Proto Ts0 Ts0 TaskInformationDisplayProcess #zField
 Ts0 f0 guid 116A9C07145A35CE #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
@@ -1421,11 +1419,23 @@ Ts0 f14 disableUIEvents true #txt
 Ts0 f14 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <ch.ivyteam.ivy.workflow.ITask aTask,java.lang.Boolean aStartTaskRequested,java.lang.Boolean aHasWfAdministratorPermissions> param = methodEvent.getInputArguments();
 ' #txt
-Ts0 f14 inActionCode 'out.hasWfAdministratorPermissions = param.aHasWfAdministratorPermissions;
+Ts0 f14 inActionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
+import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper;
+out.hasWfAdministratorPermissions = param.aHasWfAdministratorPermissions;
 
 out.startTaskRequested = param.aStartTaskRequested;
 out.task = param.aTask;
 out.taskIdentifier = param.aTask.getIdentifier();
+
+// get the menu auto hide preference
+IUser sessionUser = ivy.session.getSessionUser();
+boolean enableautoHideMenuMode = WorkflowUserPropertyHelper.getMenuAutoHidePreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY, enableautoHideMenuMode);
+out.autoHideMenuParameter = enableautoHideMenuMode.toString();
+
+
+
 ' #txt
 Ts0 f14 outParameterDecl '<> result;
 ' #txt
@@ -1740,7 +1750,7 @@ task running ?</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f157 506 274 28 28 -37 -50 #rect
+Ts0 f157 506 250 28 28 -37 -50 #rect
 Ts0 f157 @|AlternativeIcon #fIcon
 Ts0 f158 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData out;
 ' #txt
@@ -1772,37 +1782,8 @@ and enable its tab and switch to it</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f158 350 332 36 24 24 -18 #rect
+Ts0 f158 350 308 36 24 24 -18 #rect
 Ts0 f158 @|RichDialogProcessStepIcon #fIcon
-Ts0 f159 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData out;
-' #txt
-Ts0 f159 actionTable 'out=in;
-' #txt
-Ts0 f159 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
-
-//TIFAM - 12.08.2009 - store initial divider posision
-//test if user has read property permission otherwise get CMS value
-if (ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_PROPERTY) && ivy.session.getSessionUser().getProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY).length() > 0)
-	{
-	in.autoHideMenuParameter = ivy.session.getSessionUser().getProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY) ;						
-	}
-else
-	{
-	in.autoHideMenuParameter = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/parameters/menuAutoHide") ;
-	}' #txt
-Ts0 f159 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
-Ts0 f159 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set auto hide 
-menu parameter</name>
-        <nameStyle>29,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f159 350 220 36 24 22 -14 #rect
-Ts0 f159 @|RichDialogProcessStepIcon #fIcon
 Ts0 f170 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f170 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -1813,25 +1794,8 @@ Ts0 f170 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f170 354 274 28 28 13 -21 #rect
+Ts0 f170 354 250 28 28 13 -21 #rect
 Ts0 f170 @|AlternativeIcon #fIcon
-Ts0 f187 expr in #txt
-Ts0 f187 outCond 'in.#task is initialized && (
-in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.SUSPENDED) ||
-in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.PARKED) || 
-in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.DELAYED))' #txt
-Ts0 f187 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>yes</name>
-        <nameStyle>3,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f187 368 198 368 220 #arcP
-Ts0 f188 expr out #txt
-Ts0 f188 368 244 368 274 #arcP
 Ts0 f189 expr in #txt
 Ts0 f189 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -1842,8 +1806,8 @@ Ts0 f189 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f189 516 298 386 344 #arcP
-Ts0 f189 1 496 344 #addKink
+Ts0 f189 516 274 386 320 #arcP
+Ts0 f189 1 496 320 #addKink
 Ts0 f189 1 0.25571391060333826 0 0 #arcLabel
 Ts0 f190 expr in #txt
 Ts0 f190 outCond in.autoHideMenuParameter.equalsIgnoreCase("true") #txt
@@ -1856,7 +1820,7 @@ Ts0 f190 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f190 382 288 506 288 #arcP
+Ts0 f190 382 264 506 264 #arcP
 Ts0 f191 expr in #txt
 Ts0 f191 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -1867,7 +1831,7 @@ Ts0 f191 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f191 368 302 368 332 #arcP
+Ts0 f191 368 278 368 308 #arcP
 Ts0 f192 expr in #txt
 Ts0 f192 outCond 'ivy.session.findResumedWorkTasks(0,-1).size() > 0' #txt
 Ts0 f192 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1879,9 +1843,9 @@ Ts0 f192 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f192 520 302 520 372 #arcP
+Ts0 f192 520 278 520 372 #arcP
 Ts0 f194 expr out #txt
-Ts0 f194 368 356 368 380 #arcP
+Ts0 f194 368 332 368 380 #arcP
 Ts0 f195 expr out #txt
 Ts0 f195 368 90 368 108 #arcP
 Ts0 f196 expr out #txt
@@ -2382,6 +2346,21 @@ Ts0 f25 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f25 1326 232 1448 268 #arcP
 Ts0 f25 1 1448 232 #addKink
 Ts0 f25 0 0.8982579809004124 0 0 #arcLabel
+Ts0 f3 expr in #txt
+Ts0 f3 outCond 'in.#task is initialized && (
+in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.SUSPENDED) ||
+in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.PARKED) || 
+in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.DELAYED))' #txt
+Ts0 f3 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f3 368 198 368 250 #arcP
 >Proto Ts0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -2527,10 +2506,6 @@ Ts0 f79 out f9 tail #connect
 Ts0 f9 head f58 mainIn #connect
 Ts0 f28 mainOut f150 tail #connect
 Ts0 f150 head f149 in #connect
-Ts0 f156 out f187 tail #connect
-Ts0 f187 head f159 mainIn #connect
-Ts0 f159 mainOut f188 tail #connect
-Ts0 f188 head f170 in #connect
 Ts0 f189 head f158 mainIn #connect
 Ts0 f170 out f190 tail #connect
 Ts0 f190 head f157 in #connect
@@ -2545,7 +2520,6 @@ Ts0 f151 mainOut f195 tail #connect
 Ts0 f195 head f154 mainIn #connect
 Ts0 f155 mainOut f196 tail #connect
 Ts0 f196 head f152 mainIn #connect
-Ts0 f156 out f197 tail #connect
 Ts0 f197 head f152 mainIn #connect
 Ts0 f153 mainOut f199 tail #connect
 Ts0 f199 head f152 mainIn #connect
@@ -2615,3 +2589,6 @@ Ts0 f163 mainOut f165 tail #connect
 Ts0 f165 head f133 mainIn #connect
 Ts0 f73 out f25 tail #connect
 Ts0 f25 head f2 mainIn #connect
+Ts0 f156 out f3 tail #connect
+Ts0 f3 head f170 in #connect
+Ts0 f156 out f197 tail #connect
