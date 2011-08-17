@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 09 16:23:16 CEST 2011]
+[>Created: Wed Aug 17 11:37:09 CEST 2011]
 11A9B75F7E57BD13 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseSearchProcess Big #zClass
@@ -2054,32 +2054,28 @@ Cs0 f53 inParameterMapAction 'out.destinationDisplay=param.aDestinationDisplay;
 out.hasWfAdministratorPermissions=param.aHasWfAdministratorPermissions;
 out.runningCaseMode=param.aRunningCaseMode;
 ' #txt
-Cs0 f53 inActionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
+Cs0 f53 inActionCode 'import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper;
+import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
 
-Boolean hasUserReadPropertyPermission = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_PROPERTY);
 
 // cases
-out.caseHierarchyLayoutSelectedIndex = 
-	(hasUserReadPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY) is initialized && ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).length() > 0)?
-		ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).toNumber():
-		ivy.cms.co(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_CMS_DEFAULT_VALUE).toNumber();
+IUser sessionUser = ivy.session.getSessionUser();
+
+int casesHierarchyLayoutIndex = WorkflowUserPropertyHelper.getCasesHierarchyLayoutIndexPreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY, casesHierarchyLayoutIndex);
+out.caseHierarchyLayoutSelectedIndex = (casesHierarchyLayoutIndex != -1? casesHierarchyLayoutIndex: 0);
 
 
-
-out.sortByPriority = 
-	(hasUserReadPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_KEY) is initialized && ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_KEY).length() > 0)?
-		"true".equals(ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_KEY)):
-		"true".equals(ivy.cms.co(UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_CMS_DEFAULT_VALUE));
+out.sortByPriority = WorkflowUserPropertyHelper.getCasesSortedByPriorityPreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_KEY, out.sortByPriority);
 
 
-
-out.multipleCaseListMode = 
-	(hasUserReadPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.IS_MULTIPLE_CASELIST_MODE_PROPERTY_KEY) is initialized && ivy.session.getSessionUser().getProperty(UserPropertyKeys.IS_MULTIPLE_CASELIST_MODE_PROPERTY_KEY).length() > 0)?
-		"true".equals(ivy.session.getSessionUser().getProperty(UserPropertyKeys.IS_MULTIPLE_CASELIST_MODE_PROPERTY_KEY)):
-		"true".equals(ivy.cms.co(UserPropertyKeys.IS_MULTIPLE_CASELIST_MODE_PROPERTY_CMS_DEFAULT_VALUE));' #txt
+out.multipleCaseListMode = WorkflowUserPropertyHelper.getMultipleCaseListModePreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.IS_MULTIPLE_CASELIST_MODE_PROPERTY_KEY, out.multipleCaseListMode);' #txt
 Cs0 f53 outParameterDecl '<> result;
 ' #txt
-Cs0 f53 embeddedRdInitializations '{/caseHierarchyLayoutSelectRDC {/fieldName "caseHierarchyLayoutSelectRDC"/startMethod "start()"/parameterMapping ""/initScript "\n/*\nimport ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;\n\nBoolean hasUserReadPropertyPermission = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_PROPERTY);\n\n// cases\nparam.aCaseHierarchyLayoutPrefferedIndex = \n\t(hasUserReadPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).length() > 0)?\n\tivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).toNumber():\n\tivy.cms.co(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_CMS_DEFAULT_VALUE).toNumber();\n*/"}/caseFiltersSelectRDC {/fieldName "caseFiltersSelectRDC"/startMethod "start(ch.ivyteam.ivy.workflow.IPropertyFilter)"/parameterMapping ""/initScript "// set case states property filter for case list\nparam.aCaseStateFilter = (in.runningCaseMode? \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tivy.wf.createCasePropertyFilter(ch.ivyteam.ivy.workflow.CaseProperty.STATE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, ch.ivyteam.ivy.workflow.CaseState.RUNNING.intValue()):\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tivy.wf.createCasePropertyFilter(ch.ivyteam.ivy.workflow.CaseProperty.STATE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, ch.ivyteam.ivy.workflow.CaseState.DONE.intValue()));"}}' #txt
+Cs0 f53 embeddedRdInitializations '{/caseFiltersSelectRDC {/fieldName "caseFiltersSelectRDC"/startMethod "start(ch.ivyteam.ivy.workflow.IPropertyFilter)"/parameterMapping ""/initScript "// set case states property filter for case list\nparam.aCaseStateFilter = (in.runningCaseMode? \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tivy.wf.createCasePropertyFilter(ch.ivyteam.ivy.workflow.CaseProperty.STATE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, ch.ivyteam.ivy.workflow.CaseState.RUNNING.intValue()):\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tivy.wf.createCasePropertyFilter(ch.ivyteam.ivy.workflow.CaseProperty.STATE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, ch.ivyteam.ivy.workflow.CaseState.DONE.intValue()));"/userContext * }/caseHierarchyLayoutSelectRDC {/fieldName "caseHierarchyLayoutSelectRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }}' #txt
 Cs0 f53 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3776,24 +3772,24 @@ Cs0 f189 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData 
 ' #txt
 Cs0 f189 actionTable 'out=in;
 ' #txt
-Cs0 f189 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
+Cs0 f189 actionCode 'import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper;
+import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
 
-Boolean hasUserReadPropertyPermission = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_PROPERTY);
+IUser sessionUser = ivy.session.getSessionUser();
 
-// cases
-panel.caseHierarchyLayoutSelectRDC.setSelectedCaseHierarchyLayoutIndex(
-	(hasUserReadPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).length() > 0)?
-		ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).toNumber():
-		ivy.cms.co(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_CMS_DEFAULT_VALUE).toNumber());
-		
-		panel.caseHierarchyLayoutTree.autoSelectFirstEntry  = true;' #txt
+int casesHierarchyLayoutIndex = WorkflowUserPropertyHelper.getCasesHierarchyLayoutIndexPreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY, casesHierarchyLayoutIndex);
+panel.caseHierarchyLayoutSelectRDC.selectedCaseHierarchyLayoutIndex = (casesHierarchyLayoutIndex != -1? casesHierarchyLayoutIndex: 0);
+
+panel.caseHierarchyLayoutTree.autoSelectFirstEntry  = true;' #txt
 Cs0 f189 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f189 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>initialize with preffered 
 case hierarchy layout index</name>
-        <nameStyle>54,9
+        <nameStyle>54,7,9
 </nameStyle>
     </language>
 </elementInfo>

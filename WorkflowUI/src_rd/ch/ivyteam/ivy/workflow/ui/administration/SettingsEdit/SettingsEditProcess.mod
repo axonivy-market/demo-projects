@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Feb 09 11:11:21 CET 2011]
-12A146365AD40893 3.15 #module
+[>Created: Wed Aug 17 10:46:25 CEST 2011]
+12A146365AD40893 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SettingsProcess Big #zClass
 Ss0 RD #cInfo
@@ -178,7 +178,10 @@ Ss0 f10 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.Setti
 ' #txt
 Ss0 f10 actionTable 'out=in;
 ' #txt
-Ss0 f10 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
+Ss0 f10 actionCode 'import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper;
+import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
+import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
 import ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper;
 
 
@@ -197,49 +200,40 @@ panel.sessionUserInformationHtmlPane.setText(sessionUserInformation);
 
 
 // get the user settings, if there is not, apply the cms parameters
+IUser sessionUser = ivy.session.getSessionUser();
+
 // tasks
-panel.tasksHierarchyLayoutSelectRDC.selectedTaskHierarchyLayoutIndex = 
-								(in.hasUserReadOwnPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).length() > 0)?
-									ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).toNumber():
-									ivy.cms.co(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_CMS_DEFAULT_VALUE).toNumber();
-
-
-panel.tasksSortByPriorityCheckBox.selected = 
-								(in.hasUserReadOwnPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_SORTED_BY_PRIORITY_PROPERTY_KEY).length() > 0)?
-									ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_SORTED_BY_PRIORITY_PROPERTY_KEY).equalsIgnoreCase("true"):
-									ivy.cms.co(UserPropertyKeys.TASKS_SORTED_BY_PRIORITY_PROPERTY_CMS_DEFAULT_VALUE).equalsIgnoreCase("true");
-
-
-panel.isMultipleTaskListCheckBox.selected = 
-								(in.hasUserReadOwnPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY).length() > 0)?
-									ivy.session.getSessionUser().getProperty(UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY).equalsIgnoreCase("true"):
-									ivy.cms.co(UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_CMS_DEFAULT_VALUE).equalsIgnoreCase("true");
+int tasksHierarchyLayoutIndex = WorkflowUserPropertyHelper.getTasksHierarchyLayoutIndexPreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY, tasksHierarchyLayoutIndex);
+panel.tasksHierarchyLayoutSelectRDC.selectedTaskHierarchyLayoutIndex = (tasksHierarchyLayoutIndex != -1? tasksHierarchyLayoutIndex: 0);
 									
-//TIFAM - 11.08.2009 - save auto hide menu parameter
-panel.taskAutoHideMenuCheckBox.selected = 
-								(in.hasUserReadOwnPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY).length() > 0)?
-									ivy.session.getSessionUser().getProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY).equalsIgnoreCase("true"):
-									ivy.cms.co(UserPropertyKeys.MENU_AUTO_HIDE__PROPERTY_CMS_DEFAULT_VALUE).equalsIgnoreCase("true");
-									
+boolean enableTasksSortedByPriorityMode = WorkflowUserPropertyHelper.getTasksSortedByPriorityPreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.TASKS_SORTED_BY_PRIORITY_PROPERTY_KEY, enableTasksSortedByPriorityMode);
+panel.tasksSortByPriorityCheckBox.selected = enableTasksSortedByPriorityMode;
+
+boolean enableMultipleTaskListMode = WorkflowUserPropertyHelper.getMultipleTaskListModePreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY, enableMultipleTaskListMode);
+panel.isMultipleTaskListCheckBox.selected = enableMultipleTaskListMode;
+						
+boolean enableMenuAutoHideMode = WorkflowUserPropertyHelper.getMenuAutoHidePreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY, enableMenuAutoHideMode);
+panel.taskAutoHideMenuCheckBox.selected = enableMenuAutoHideMode;
+
+
 
 
 // cases
-panel.casesHierarchyLayoutSelectRDC.selectedCaseHierarchyLayoutIndex = 
-								(in.hasUserReadOwnPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).length() > 0)?
-									ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).toNumber():
-									ivy.cms.co(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_CMS_DEFAULT_VALUE).toNumber();
+int casesHierarchyLayoutIndex = WorkflowUserPropertyHelper.getCasesHierarchyLayoutIndexPreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY, casesHierarchyLayoutIndex);
+panel.casesHierarchyLayoutSelectRDC.selectedCaseHierarchyLayoutIndex = (casesHierarchyLayoutIndex != -1? casesHierarchyLayoutIndex: 0);
 
+boolean enableCasesSortedByPriorityMode = WorkflowUserPropertyHelper.getCasesSortedByPriorityPreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_KEY, enableCasesSortedByPriorityMode);
+panel.casesSortByPriorityCheckBox.selected = enableCasesSortedByPriorityMode;
 
-panel.casesSortByPriorityCheckBox.selected = 
-								(in.hasUserReadOwnPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_KEY).length() > 0)?
-									ivy.session.getSessionUser().getProperty(UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_KEY).equalsIgnoreCase("true"):
-									ivy.cms.co(UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_CMS_DEFAULT_VALUE).equalsIgnoreCase("true");
-
-
-panel.isMultipleCaseListCheckBox.selected = 
-								(in.hasUserReadOwnPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.IS_MULTIPLE_CASELIST_MODE_PROPERTY_KEY).length() > 0)?
-									ivy.session.getSessionUser().getProperty(UserPropertyKeys.IS_MULTIPLE_CASELIST_MODE_PROPERTY_KEY).equalsIgnoreCase("true"):
-									ivy.cms.co(UserPropertyKeys.IS_MULTIPLE_CASELIST_MODE_PROPERTY_CMS_DEFAULT_VALUE).equalsIgnoreCase("true");																					' #txt
+boolean enableMultipleCaseListMode = WorkflowUserPropertyHelper.getMultipleCaseListModePreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.IS_MULTIPLE_CASELIST_MODE_PROPERTY_KEY, enableMultipleCaseListMode);
+panel.isMultipleCaseListCheckBox.selected = enableMultipleCaseListMode;' #txt
 Ss0 f10 type ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.SettingsEditData #txt
 Ss0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -276,22 +270,36 @@ Ss0 f24 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.Setti
 ' #txt
 Ss0 f24 actionTable 'out=in;
 ' #txt
-Ss0 f24 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
+Ss0 f24 actionCode 'import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper;
+import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
 
+IUser sessionUser = ivy.session.getSessionUser();
 
 // tasks
-ivy.session.getSessionUser().setProperty(UserPropertyKeys.TASKS_SORTED_BY_PRIORITY_PROPERTY_KEY, panel.tasksSortByPriorityCheckBox.selected.toString());
-ivy.session.getSessionUser().setProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY, panel.tasksHierarchyLayoutSelectRDC.getSelectedTaskHierarchyLayoutIndex().toString());
-ivy.session.getSessionUser().setProperty(UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY, panel.isMultipleTaskListCheckBox.selected.toString());
+ivy.log.debug("User {0} saves property {1} with value {2}.", sessionUser, UserPropertyKeys.TASKS_SORTED_BY_PRIORITY_PROPERTY_KEY, panel.tasksSortByPriorityCheckBox.selected);
+WorkflowUserPropertyHelper.setTasksSortedByPriorityPreference(sessionUser, panel.tasksSortByPriorityCheckBox.selected);
 
-//TIFAM - 11.08.2009 - save auto hide menu parameter
-ivy.session.getSessionUser().setProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY, panel.taskAutoHideMenuCheckBox.selected.toString());
+ivy.log.debug("User {0} saves property {1} with value {2}.", sessionUser, UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY, panel.tasksHierarchyLayoutSelectRDC.getSelectedTaskHierarchyLayoutIndex());
+WorkflowUserPropertyHelper.setTasksHierarchyLayoutIndexPreference(sessionUser, panel.tasksHierarchyLayoutSelectRDC.getSelectedTaskHierarchyLayoutIndex());
+
+ivy.log.debug("User {0} saves property {1} with value {2}.", sessionUser, UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY, panel.isMultipleTaskListCheckBox.selected);
+WorkflowUserPropertyHelper.setMultipleTaskListModePreference(sessionUser, panel.isMultipleTaskListCheckBox.selected);
+
+ivy.log.debug("User {0} saves property {1} with value {2}.", sessionUser, UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY, panel.taskAutoHideMenuCheckBox.selected);
+WorkflowUserPropertyHelper.setMenuAutoHidePreference(sessionUser, panel.taskAutoHideMenuCheckBox.selected);
+
 
 
 // cases
-ivy.session.getSessionUser().setProperty(UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_KEY, panel.casesSortByPriorityCheckBox.selected.toString());
-ivy.session.getSessionUser().setProperty(UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY, panel.casesHierarchyLayoutSelectRDC.getSelectedCaseHierarchyLayoutIndex().toString());
-ivy.session.getSessionUser().setProperty(UserPropertyKeys.IS_MULTIPLE_CASELIST_MODE_PROPERTY_KEY, panel.isMultipleCaseListCheckBox.selected.toString());' #txt
+ivy.log.debug("User {0} saves property {1} with value {2}.", sessionUser, UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_KEY, panel.casesSortByPriorityCheckBox.selected);
+WorkflowUserPropertyHelper.setCasesSortedByPriorityPreference(sessionUser, panel.casesSortByPriorityCheckBox.selected);
+
+ivy.log.debug("User {0} saves property {1} with value {2}.", sessionUser, UserPropertyKeys.CASES_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY, panel.casesHierarchyLayoutSelectRDC.getSelectedCaseHierarchyLayoutIndex());
+WorkflowUserPropertyHelper.setCasesHierarchyLayoutIndexPreference(sessionUser, panel.casesHierarchyLayoutSelectRDC.getSelectedCaseHierarchyLayoutIndex());
+
+ivy.log.debug("User {0} saves property {1} with value {2}.", sessionUser, UserPropertyKeys.IS_MULTIPLE_CASELIST_MODE_PROPERTY_KEY, panel.isMultipleCaseListCheckBox.selected);
+WorkflowUserPropertyHelper.setMultipleCaseListModePreference(sessionUser, panel.isMultipleCaseListCheckBox.selected);' #txt
 Ss0 f24 type ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.SettingsEditData #txt
 Ss0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -345,13 +353,13 @@ Ss0 f26 456 132 456 164 #arcP
 Ss0 f32 expr out #txt
 Ss0 f32 208 58 208 100 #arcP
 Ss0 f32 0 0.5140798111392898 0 0 #arcLabel
-Ss0 f22 targetWindow NEW #txt
+Ss0 f22 targetWindow NEW:card: #txt
 Ss0 f22 targetDisplay TOP #txt
 Ss0 f22 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Ss0 f22 startMethod showMessage(String) #txt
 Ss0 f22 type ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.SettingsEditData #txt
 Ss0 f22 requestActionDecl '<String message> param;' #txt
-Ss0 f22 requestActionCode 'in.windowTitle = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/settings");
+Ss0 f22 requestActionCode 'in.windowTitle = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/information");
 param.message = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/settingsWillByAppliedAtNextRestart");' #txt
 Ss0 f22 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.SettingsEditData out;
 ' #txt
@@ -361,6 +369,7 @@ Ss0 f22 windowConfiguration '{/title "<%=in.windowTitle%>"/width 0 /height 0 /ce
 Ss0 f22 isAsynch false #txt
 Ss0 f22 isInnerRd true #txt
 Ss0 f22 isDialog true #txt
+Ss0 f22 userContext '* ' #txt
 Ss0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

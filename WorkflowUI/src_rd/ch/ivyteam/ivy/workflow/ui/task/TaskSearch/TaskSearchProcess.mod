@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jul 01 15:23:55 CEST 2011]
+[>Created: Wed Aug 17 11:38:18 CEST 2011]
 1175F14B3894BBC3 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskSearchProcess Big #zClass
@@ -216,17 +216,13 @@ Ts0 @PushWFArc f133 '' #zField
 Ts0 @PushWFArc f228 '' #zField
 Ts0 @RichDialog f20 '' #zField
 Ts0 @Alternative f226 '' #zField
-Ts0 @RichDialogProcessStep f227 '' #zField
 Ts0 @Alternative f229 '' #zField
-Ts0 @PushWFArc f230 '' #zField
 Ts0 @PushWFArc f231 '' #zField
-Ts0 @PushWFArc f232 '' #zField
 Ts0 @PushWFArc f105 '' #zField
 Ts0 @PushWFArc f234 '' #zField
 Ts0 @PushWFArc f235 '' #zField
 Ts0 @PushWFArc f233 '' #zField
 Ts0 @InfoButton f236 '' #zField
-Ts0 @AnnotationArc f237 '' #zField
 Ts0 @Alternative f238 '' #zField
 Ts0 @PushWFArc f239 '' #zField
 Ts0 @PushWFArc f214 '' #zField
@@ -278,6 +274,7 @@ Ts0 @PushWFArc f261 '' #zField
 Ts0 @RichDialogProcessEnd f262 '' #zField
 Ts0 @PushWFArc f263 '' #zField
 Ts0 @PushWFArc f96 '' #zField
+Ts0 @PushWFArc f244 '' #zField
 >Proto Ts0 Ts0 TaskSearchProcess #zField
 Ts0 f0 guid 1175F221618771FB #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
@@ -2518,33 +2515,37 @@ out.hasWfAdministratorPermissions=param.aHasWfAdministratorPermissions;
 out.runningTaskMode=param.aRunningTaskMode;
 out.taskDisplayMode=1;
 ' #txt
-Ts0 f81 inActionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
+Ts0 f81 inActionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper;
+import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
 import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
 
 
 out.taskStatesPropertyFilter = WorkflowUIAccessPermissionHandler.getTaskStatesPropertyFilterByRunningModeAndTaskDisplayMode(out.runningTaskMode, out.taskDisplayMode);
-																								
-			
-Boolean hasUserReadPropertyPermission = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_OWN_PROPERTY);
 
-out.taskHierarchyLayoutSelectedIndex = 
-	(hasUserReadPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY) is initialized && ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).length() > 0)?
-		ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).toNumber():
-		ivy.cms.co(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_CMS_DEFAULT_VALUE).toNumber();
-	
-out.sortByPriority = 
-	(hasUserReadPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_SORTED_BY_PRIORITY_PROPERTY_KEY) is initialized && ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_SORTED_BY_PRIORITY_PROPERTY_KEY).length() > 0)?
-		"true".equals(ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_SORTED_BY_PRIORITY_PROPERTY_KEY)):
-		"true".equals(ivy.cms.co(UserPropertyKeys.TASKS_SORTED_BY_PRIORITY_PROPERTY_CMS_DEFAULT_VALUE));
-	
-out.multipleTaskListMode = 
-	(hasUserReadPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY) is initialized && ivy.session.getSessionUser().getProperty(UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY).length() > 0)?
-		"true".equals(ivy.session.getSessionUser().getProperty(UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY)):
-		"true".equals(ivy.cms.co(UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_CMS_DEFAULT_VALUE));
-	' #txt
+IUser sessionUser = ivy.session.getSessionUser();
+
+// get preferences
+int tasksHierarchyLayoutIndex = WorkflowUserPropertyHelper.getTasksHierarchyLayoutIndexPreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY, tasksHierarchyLayoutIndex);
+out.taskHierarchyLayoutSelectedIndex = (tasksHierarchyLayoutIndex != -1? tasksHierarchyLayoutIndex: 0);
+
+
+out.sortByPriority = WorkflowUserPropertyHelper.getTasksSortedByPriorityPreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.TASKS_SORTED_BY_PRIORITY_PROPERTY_KEY, out.sortByPriority);
+
+
+out.multipleTaskListMode = WorkflowUserPropertyHelper.getMultipleTaskListModePreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY, out.multipleTaskListMode);
+
+boolean enableMultipleTaskListMode = WorkflowUserPropertyHelper.getMultipleTaskListModePreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY, enableMultipleTaskListMode);
+out.autoHideMenuParameter = enableMultipleTaskListMode.toString();
+
+' #txt
 Ts0 f81 outParameterDecl '<> result;
 ' #txt
-Ts0 f81 embeddedRdInitializations '{/taskHierarchyLayoutSelectRDC {/fieldName "taskHierarchyLayoutSelectRDC"/startMethod "start()"/parameterMapping ""/initScript "\n/*\nimport ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;\nBoolean hasUserReadPropertyPermission = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_PROPERTY);\n\nparam.aTaskHierarchyLayoutPrefferedIndex = \n\t(hasUserReadPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).length() > 0)?\n\tivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).toNumber():\n\tivy.cms.co(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_CMS_DEFAULT_VALUE).toNumber();\n*/\t"}/taskFiltersSelectRDC {/fieldName "taskFiltersSelectRDC"/startMethod "start(Boolean,Number)"/parameterMapping "param.aRunningTaskMode=in.runningTaskMode;\nparam.aTaskDisplayMode=1;\n"/initScript ""}}' #txt
+Ts0 f81 embeddedRdInitializations '{/taskHierarchyLayoutSelectRDC {/fieldName "taskHierarchyLayoutSelectRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/taskFiltersSelectRDC {/fieldName "taskFiltersSelectRDC"/startMethod "start(Boolean,Number)"/parameterMapping "param.aRunningTaskMode=in.runningTaskMode;\nparam.aTaskDisplayMode=1;\n"/initScript ""/userContext * }}' #txt
 Ts0 f81 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -3610,7 +3611,7 @@ build the displayid for carddisplay filter,
 check the permissions,
 get the confirmation title from CMS,
 register the system events Workflow </name>
-        <nameStyle>154,9
+        <nameStyle>154,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -4398,14 +4399,14 @@ Ts0 f224 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData o
 ' #txt
 Ts0 f224 actionTable 'out=in;
 ' #txt
-Ts0 f224 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
-Boolean hasUserReadPropertyPermission = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_PROPERTY);
+Ts0 f224 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper;
+import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
 
-panel.taskHierarchyLayoutSelectRDC.setSelectedTaskHierarchyLayoutIndex(
-	(hasUserReadPropertyPermission && ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).length() > 0)?
-	ivy.session.getSessionUser().getProperty(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY).toNumber():
-	ivy.cms.co(UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_CMS_DEFAULT_VALUE).toNumber());
-	
+
+int tasksHierarchyLayoutIndex = WorkflowUserPropertyHelper.getTasksHierarchyLayoutIndexPreference(ivy.session.getSessionUser());
+ivy.log.debug("User {0} preference {1} has value {2}.", ivy.session.getSessionUserName(), UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY, tasksHierarchyLayoutIndex);
+panel.taskHierarchyLayoutSelectRDC.selectedTaskHierarchyLayoutIndex = (tasksHierarchyLayoutIndex != -1? tasksHierarchyLayoutIndex: 0);
+
 panel.tasksHierarchyLayoutTree.autoSelectFirstEntry  = true;' #txt
 Ts0 f224 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f224 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -4413,7 +4414,7 @@ Ts0 f224 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>initialize with preffered 
 task hierarchy layout index</name>
-        <nameStyle>54,9
+        <nameStyle>54,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -4505,35 +4506,6 @@ menu mode ?</name>
 ' #txt
 Ts0 f226 1938 1082 28 28 22 -5 #rect
 Ts0 f226 @|AlternativeIcon #fIcon
-Ts0 f227 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
-' #txt
-Ts0 f227 actionTable 'out=in;
-' #txt
-Ts0 f227 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
-
-//TIFAM - 12.08.2009 - store initial divider posision
-//test if user has read property permission otherwise get CMS value
-if (ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_PROPERTY) && ivy.session.getSessionUser().getProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY).length() > 0)
-	{
-	in.autoHideMenuParameter = ivy.session.getSessionUser().getProperty(UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY) ;						
-	}
-else
-	{
-	in.autoHideMenuParameter = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/parameters/menuAutoHide") ;
-	}' #txt
-Ts0 f227 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f227 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set auto hide 
-menu parameter</name>
-        <nameStyle>29,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f227 1934 1036 36 24 21 -15 #rect
-Ts0 f227 @|RichDialogProcessStepIcon #fIcon
 Ts0 f229 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f229 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -4547,8 +4519,6 @@ task running ?</name>
 ' #txt
 Ts0 f229 1810 1082 28 28 -37 -50 #rect
 Ts0 f229 @|AlternativeIcon #fIcon
-Ts0 f230 expr out #txt
-Ts0 f230 1952 1060 1952 1082 #arcP
 Ts0 f231 expr in #txt
 Ts0 f231 outCond in.autoHideMenuParameter.equalsIgnoreCase("true") #txt
 Ts0 f231 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -4562,20 +4532,6 @@ Ts0 f231 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f231 1938 1096 1838 1096 #arcP
 Ts0 f231 0 0.22 0 9 #arcLabel
-Ts0 f232 expr in #txt
-Ts0 f232 outCond !in.taskAlreadyLoadedOnDisplay #txt
-Ts0 f232 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>task is not
-already loaded to display</name>
-        <nameStyle>37,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f232 1952 1014 1952 1036 #arcP
-Ts0 f232 0 0.0 -78 -18 #arcLabel
 Ts0 f105 expr in #txt
 Ts0 f105 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -4630,9 +4586,6 @@ Auto hide menu implementations tests</name>
 Ts0 f236 2188 1404 24 24 22 -1 #rect
 Ts0 f236 @|IBIcon #fIcon
 Ts0 f236 -14336|-1|-16777216 #nodeStyle
-Ts0 f237 2188 1416 1970 1048 #arcP
-Ts0 f237 1 2184 1048 #addKink
-Ts0 f237 0 0.8120681631655791 0 0 #arcLabel
 Ts0 f238 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f238 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -5103,6 +5056,20 @@ Ts0 f96 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ts0 f96 2144 678 2144 714 #arcP
+Ts0 f244 expr in #txt
+Ts0 f244 outCond !in.taskAlreadyLoadedOnDisplay #txt
+Ts0 f244 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>task is not
+already loaded to display</name>
+        <nameStyle>37,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f244 1952 1014 1952 1082 #arcP
+Ts0 f244 0 0.0 -78 -18 #arcLabel
 >Proto Ts0 .type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 >Proto Ts0 .processKind RICH_DIALOG #txt
 >Proto Ts0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -5426,13 +5393,8 @@ Ts0 f195 mainOut f133 tail #connect
 Ts0 f133 head f100 mainIn #connect
 Ts0 f186 mainOut f228 tail #connect
 Ts0 f228 head f18 mainIn #connect
-Ts0 f227 mainOut f230 tail #connect
-Ts0 f230 head f226 in #connect
 Ts0 f226 out f231 tail #connect
 Ts0 f231 head f229 in #connect
-Ts0 f102 out f232 tail #connect
-Ts0 f232 head f227 mainIn #connect
-Ts0 f102 out f106 tail #connect
 Ts0 f226 out f105 tail #connect
 Ts0 f105 head f104 mainIn #connect
 Ts0 f234 head f104 mainIn #connect
@@ -5441,8 +5403,6 @@ Ts0 f235 head f20 mainIn #connect
 Ts0 f229 out f234 tail #connect
 Ts0 f20 mainOut f233 tail #connect
 Ts0 f233 head f44 mainIn #connect
-Ts0 f236 ao f237 tail #connect
-Ts0 f237 head f227 @CG|ai #connect
 Ts0 f3 mainOut f239 tail #connect
 Ts0 f239 head f238 in #connect
 Ts0 f238 out f214 tail #connect
@@ -5511,3 +5471,6 @@ Ts0 f88 out f263 tail #connect
 Ts0 f263 head f262 mainIn #connect
 Ts0 f259 out f96 tail #connect
 Ts0 f96 head f243 in #connect
+Ts0 f102 out f244 tail #connect
+Ts0 f244 head f226 in #connect
+Ts0 f102 out f106 tail #connect
