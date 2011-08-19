@@ -1,28 +1,29 @@
 package ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList;
 
 import ch.ivyteam.ivy.addons.widgets.RTableWithExcelExport;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
+import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
+import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
+import ch.ivyteam.ivy.richdialog.widgets.components.customrenderers.RButtonCellWidget;
 import ch.ivyteam.ivy.richdialog.widgets.components.customrenderers.RTextFieldCellWidget;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 import ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
 
-import com.ulcjava.base.application.ULCFlowLayoutPane;
-import com.ulcjava.base.application.util.Dimension;
-import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
-import com.ulcjava.base.application.ULCContainer;
-import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
-import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import com.ulcjava.base.application.BorderFactory;
-import com.ulcjava.base.application.border.ULCEtchedBorder;
-import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
+import com.ulcjava.base.application.ULCContainer;
+import com.ulcjava.base.application.ULCFlowLayoutPane;
 import com.ulcjava.base.application.ULCTable;
+import com.ulcjava.base.application.border.ULCEtchedBorder;
+import com.ulcjava.base.application.util.Dimension;
 
 /**
  * RichDialog panel implementation for ManagingRolesDisplayListPanel.
@@ -48,6 +49,7 @@ private RGridBagLayoutPane findCasesGridBagLayoutPane = null;
 private RBoxPane findBoxPane = null;
 private RTextField caseNameCriteriaTextField = null;
 private RHyperlink findCasesHyperlink = null;
+private RButtonCellWidget selectManagedTeamsButtonCellWidget = null;  //  @jve:decl-index=0:visual-constraint="910,166"
 /**
    * Create a new instance of ManagingRolesDisplayListPanel
    */
@@ -95,9 +97,9 @@ private RTableWithExcelExport getUsersManagingRolesTable() {
 	if (usersManagingRolesTable == null) {
 		usersManagingRolesTable = new RTableWithExcelExport();
 		usersManagingRolesTable.setName("usersManagingRolesTable");
-		usersManagingRolesTable.setModelConfiguration("{/showTableheader true /autoTableheader false /showtooltip false /showIcons true /version \"3.0\"/columns {{/result \"result=\\\"<html><b>\\\" + entry.user.getName() + \\\"</b>\\\" + \\r\\n\\t(entry.user.getFullName() is initialized? \\\" (\\\" + entry.user.getFullName() + \\\")\\\": \\\"\\\")\"/version \"3.0\"/tooltip \"\"/icon \"result=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/security/images/user16\\\")\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/security/plainStrings/userShortDesc\\\")\"/field \"\"/editable \"\"/condition \"\"/columnWidth \"300\"/columnStyle \"labelLikeTableCell\"/cellWidget \"\"}{/result \"result=value\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/managedTeamsShortDesc\\\")\"/field \"userManagedTeams\"/editable \"true\"/condition \"\"/columnWidth \"500\"/cellWidget \"managingRolesTextFieldCellWidget\"}}}");
+		usersManagingRolesTable.setModelConfiguration("{/showTableheader true /autoTableheader false /showtooltip false /showIcons true /version \"3.0\"/columns {{/result \"result=\\\"<html><b>\\\" + entry.user.getName() + \\\"</b>\\\" + \\r\\n\\t(entry.user.getFullName() is initialized? \\\" (\\\" + entry.user.getFullName() + \\\")\\\": \\\"\\\")\"/version \"3.0\"/tooltip \"\"/icon \"result=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/security/images/user16\\\")\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/security/plainStrings/userShortDesc\\\")\"/field \"\"/editable \"\"/condition \"\"/columnWidth \"300\"/columnStyle \"labelLikeTableCell\"/cellWidget \"\"}{/result \"result=value\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/managedTeamsShortDesc\\\")\"/field \"userManagedTeams\"/editable \"false\"/condition \"\"/columnWidth \"500\"/cellWidget \"managingRolesTextFieldCellWidget\"}{/result \"result=\\\"...\\\"\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/edit\\\")\"/field \"\"/editable \"\"/condition \"\"/columnWidth \"50\"/cellWidget \"selectManagedTeamsButtonCellWidget\"}}}");
 		usersManagingRolesTable.setRowHeight(20);
-		usersManagingRolesTable.setAutoResizeMode(ULCTable.AUTO_RESIZE_LAST_COLUMN);
+		usersManagingRolesTable.setAutoResizeMode(ULCTable.AUTO_RESIZE_OFF);
 		usersManagingRolesTable.setSortable(true);
 	}
 	return usersManagingRolesTable;
@@ -299,5 +301,19 @@ private RHyperlink getFindCasesHyperlink() {
 		findCasesHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/find\")%>");
 	}
 	return findCasesHyperlink;
+}
+
+/**
+ * This method initializes selectManagedTeamsButtonCellWidget	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.customrenderers.RButtonCellWidget	
+ */
+private RButtonCellWidget getSelectManagedTeamsButtonCellWidget() {
+	if (selectManagedTeamsButtonCellWidget == null) {
+		selectManagedTeamsButtonCellWidget = new RButtonCellWidget();
+		selectManagedTeamsButtonCellWidget.setText("...");
+		selectManagedTeamsButtonCellWidget.setName("selectManagedTeamsButtonCellWidget");
+	}
+	return selectManagedTeamsButtonCellWidget;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

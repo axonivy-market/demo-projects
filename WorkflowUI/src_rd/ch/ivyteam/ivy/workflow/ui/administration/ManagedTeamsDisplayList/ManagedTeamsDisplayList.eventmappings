@@ -1,8 +1,9 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-06-17 15:05:46 | 4.2.0.35989 | 1.0
+# 2011-08-19 14:19:08 | 4.2.0.37004 | 1.0
+~.selectManagedTeamsButtonCellWidget@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A4698EBFC9D238/131E1E3082AC818D # ManagedTeamsDisplayListProcess.mod/selectUserManagedTeams
 ~.okButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A4698EBFC9D238/12A442FDADB847E8
 ~.caseNameCriteriaTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A4698EBFC9D238/12E0AA92725DF2BB
+~.findCasesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A4698EBFC9D238/12E0AA92725DF2BB
 ~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A4698EBFC9D238/12A443084535F54A
 ~.exitButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A4698EBFC9D238/12A443084535F54A
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12A4698EBFC9D238/12A43EF5B1247D8C
-~.findCasesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A4698EBFC9D238/12E0AA92725DF2BB # ManagedTeamsDisplayListProcess.mod/findUsers

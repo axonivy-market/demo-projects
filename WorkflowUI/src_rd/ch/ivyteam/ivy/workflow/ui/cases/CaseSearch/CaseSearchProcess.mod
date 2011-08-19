@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 17 11:37:09 CEST 2011]
+[>Created: Fri Aug 19 13:45:21 CEST 2011]
 11A9B75F7E57BD13 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseSearchProcess Big #zClass
@@ -2749,11 +2749,6 @@ panel.expandAllMenuItem.setText(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/pla
 // panel.expandAllMenuItem.setToolTipText(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/expandAllCasesLongDesc"));
 // panel.expandAllMenuItem.setIconUri(ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/case/images/expandAllCases16"));
 
-
-
-// team cases
-Boolean enableFindInvolvedCasesByRole = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/parameters/enableFindInvolvedCasesByRole").equalsIgnoreCase("true");
-panel.findInvolvedCasesByRoleRadioButton.visible = enableFindInvolvedCasesByRole;
 
 
 // all environment''s cases

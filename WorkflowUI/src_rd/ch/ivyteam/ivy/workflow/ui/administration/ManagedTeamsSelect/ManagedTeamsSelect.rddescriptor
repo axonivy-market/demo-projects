@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <autoScreenshot>true</autoScreenshot>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>It returns the userManagedTeams input parameters with the defined comma separated roles as managed teams.</description>
+        <inputParameter>
+            <name>topLevelRole</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.security.IRole</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>userManagedTeams</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>userManagedTeams</name>
+            <description>It returns the userManagedTeams input parameters with the defined comma separated roles as managed teams.</description>
+            <parameterType>ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>131DD00091F93935</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

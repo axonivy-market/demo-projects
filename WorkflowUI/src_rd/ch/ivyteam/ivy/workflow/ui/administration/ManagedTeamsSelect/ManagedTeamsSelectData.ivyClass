@@ -1,0 +1,15 @@
+ManagedTeamsSelectData #class
+ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsSelect #namespace
+managedTeams Tree #field
+managedTeams PERSISTENT #fieldModifier
+topLevelRole ch.ivyteam.ivy.security.IRole #field
+topLevelRole PERSISTENT #fieldModifier
+loadTreeNode Tree #field
+loadTreeNode PERSISTENT #fieldModifier
+selectedTreeNode Tree #field
+selectedTreeNode PERSISTENT #fieldModifier
+userManagedTeams ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams #field
+userManagedTeams 'It is used to send back the user''s managed teams.' #fieldComment
+userManagedTeams PERSISTENT #fieldModifier
+userManagedTeamsAsList List<String> #field
+userManagedTeamsAsList PERSISTENT #fieldModifier

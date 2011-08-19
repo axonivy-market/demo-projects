@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jun 17 14:52:44 CEST 2011]
+[>Created: Fri Aug 19 16:26:19 CEST 2011]
 12A4698EBFC9D238 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 ManagingRolesDisplayListProcess Big #zClass
@@ -30,6 +30,11 @@ Ms0 @PushWFArc f10 '' #zField
 Ms0 @RichDialogProcessStart f12 '' #zField
 Ms0 @RichDialogProcessEnd f13 '' #zField
 Ms0 @PushWFArc f14 '' #zField
+Ms0 @RichDialogProcessStart f15 '' #zField
+Ms0 @RichDialogProcessEnd f16 '' #zField
+Ms0 @RichDialog f18 '' #zField
+Ms0 @PushWFArc f19 '' #zField
+Ms0 @PushWFArc f17 '' #zField
 >Proto Ms0 Ms0 ManagingRolesDisplayListProcess #zField
 Ms0 f0 guid 12A43EF5B1247D8C #txt
 Ms0 f0 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
@@ -59,7 +64,8 @@ Ms0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplay
 ' #txt
 Ms0 f3 actionTable 'out=in;
 ' #txt
-Ms0 f3 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams;
+Ms0 f3 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.SortHelper;
+import ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams;
 import ch.ivyteam.ivy.security.IUser;
 import ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper;
 import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
@@ -81,6 +87,8 @@ for (int i=0; i<users.size(); i++)
 
 out.usersManagedTeamsFilteredList.clear();
 out.usersManagedTeamsFilteredList.addAll(out.usersManagedTeamsList);
+// sort users
+SortHelper.sortUsersManagedTeams(out.usersManagedTeamsFilteredList);
 
 // set the seach users text
 in.nameCriteria = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/findUsersByNameShortDesc");' #txt
@@ -180,7 +188,8 @@ Ms0 f12 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDispla
 ' #txt
 Ms0 f12 actionTable 'out=in;
 ' #txt
-Ms0 f12 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams;
+Ms0 f12 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.SortHelper;
+import ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams;
 import java.util.regex.Pattern;
 
 out.usersManagedTeamsFilteredList.clear();
@@ -202,7 +211,10 @@ if (out.usersManagedTeamsList.size() > 0)
 else
 {
 	out.usersManagedTeamsFilteredList.addAll(in.usersManagedTeamsList);	
-}' #txt
+}
+
+// sort users
+SortHelper.sortUsersManagedTeams(out.usersManagedTeamsFilteredList);' #txt
 Ms0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -219,6 +231,56 @@ Ms0 f13 318 238 20 20 13 0 #rect
 Ms0 f13 @|RichDialogProcessEndIcon #fIcon
 Ms0 f14 expr out #txt
 Ms0 f14 328 58 328 238 #arcP
+Ms0 f15 guid 131E1E3082AC818D #txt
+Ms0 f15 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
+Ms0 f15 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData out;
+' #txt
+Ms0 f15 actionTable 'out=in;
+' #txt
+Ms0 f15 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams;
+
+out.selectedUserManagedTeams = panel.usersManagingRolesTable.getSelectedListEntry() as UserManagedTeams;' #txt
+Ms0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>selectUserManagedTeams</name>
+        <nameStyle>22,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ms0 f15 678 38 20 20 13 0 #rect
+Ms0 f15 @|RichDialogProcessStartIcon #fIcon
+Ms0 f16 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
+Ms0 f16 678 238 20 20 13 0 #rect
+Ms0 f16 @|RichDialogProcessEndIcon #fIcon
+Ms0 f18 targetWindow NEW:card: #txt
+Ms0 f18 targetDisplay TOP #txt
+Ms0 f18 richDialogId ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsSelect #txt
+Ms0 f18 startMethod start(ch.ivyteam.ivy.security.IRole,ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams) #txt
+Ms0 f18 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
+Ms0 f18 requestActionDecl '<ch.ivyteam.ivy.security.IRole topLevelRole, ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams userManagedTeams> param;' #txt
+Ms0 f18 requestActionCode '// TODO getTopLevelRole with helper
+param.topLevelRole = ivy.wf.getSecurityContext().getTopLevelRole();
+param.userManagedTeams = in.selectedUserManagedTeams;' #txt
+Ms0 f18 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData out;
+' #txt
+Ms0 f18 responseMappingAction 'out=in;
+' #txt
+Ms0 f18 responseActionCode 'out.selectedUserManagedTeams.userManagedTeams = result.userManagedTeams.userManagedTeams;
+
+// update the UI
+out.usersManagedTeamsFilteredList.elementChanged(out.selectedUserManagedTeams);' #txt
+Ms0 f18 windowConfiguration '{/title "<%=in.selectedUserManagedTeams.user.getName()%>"/width 0 /height 0 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
+Ms0 f18 isAsynch false #txt
+Ms0 f18 isInnerRd true #txt
+Ms0 f18 userContext '* ' #txt
+Ms0 f18 670 116 36 24 20 -2 #rect
+Ms0 f18 @|RichDialogIcon #fIcon
+Ms0 f19 expr out #txt
+Ms0 f19 688 58 688 116 #arcP
+Ms0 f17 expr out #txt
+Ms0 f17 688 140 688 238 #arcP
 >Proto Ms0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -227,7 +289,7 @@ Ms0 f14 328 58 328 238 #arcP
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneSize>261</swimlaneSize>
-    <swimlaneSize>422</swimlaneSize>
+    <swimlaneSize>604</swimlaneSize>
     <swimlaneColor>-16724839</swimlaneColor>
     <swimlaneColor>-16724890</swimlaneColor>
 </elementInfo>
@@ -254,3 +316,7 @@ Ms0 f6 mainOut f10 tail #connect
 Ms0 f10 head f9 mainIn #connect
 Ms0 f12 mainOut f14 tail #connect
 Ms0 f14 head f13 mainIn #connect
+Ms0 f15 mainOut f19 tail #connect
+Ms0 f19 head f18 mainIn #connect
+Ms0 f18 mainOut f17 tail #connect
+Ms0 f17 head f16 mainIn #connect
