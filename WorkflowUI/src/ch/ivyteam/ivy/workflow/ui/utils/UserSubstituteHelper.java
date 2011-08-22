@@ -19,7 +19,7 @@ public class UserSubstituteHelper {
 	 /**
 	  * if the user own this role then he can manager substitutes for all users
 	  */
-	 private final static String SUBSTITUTES_MANAGER_ROLE = "SUBSTITUTES_MANAGER";
+	 public final static String SUBSTITUTES_MANAGER_ROLE = "SUBSTITUTES_MANAGER";
 	 
 	/**
 	 * 

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Aug 19 16:46:07 CEST 2011]
+[>Created: Mon Aug 22 13:53:17 CEST 2011]
 131DD00091F5DBBB 3.17 #module
 >Proto >Proto Collection #zClass
 Rs0 ManagedTeamsSelectProcess Big #zClass
@@ -59,7 +59,9 @@ Rs0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsSelect.
 ' #txt
 Rs0 f3 actionTable 'out=in;
 ' #txt
-Rs0 f3 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.SortHelper;
+Rs0 f3 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserSubstituteHelper;
+import ch.ivyteam.ivy.workflow.ui.utils.UserAbsenceHelper;
+import ch.ivyteam.ivy.workflow.ui.utils.SortHelper;
 import ch.ivyteam.ivy.security.IRole;
 import ch.ivyteam.ivy.security.IUser;
 
@@ -80,6 +82,13 @@ for (IRole childRole : role.getChildRoles())
 								in.userManagedTeamsAsList, 
 								childRole.getName(),
 								in.userManagedTeamsAsList.contains(childRole.getName()));
+	
+	// do not consider the roles used by WFUI: 
+	if (UserAbsenceHelper.ABSENCES_MANAGER_ROLE.equals(childRole.getName()) || 
+			UserSubstituteHelper.SUBSTITUTES_MANAGER_ROLE.equalsIgnoreCase(childRole.getName()))
+	{
+		continue;
+	}
 	
 	own = in.userManagedTeamsAsList.contains(childRole.getName())? "Yes": "No";
 	

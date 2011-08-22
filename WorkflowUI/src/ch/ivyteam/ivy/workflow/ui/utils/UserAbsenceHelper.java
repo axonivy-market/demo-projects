@@ -22,7 +22,7 @@ public class UserAbsenceHelper {
 	 /**
 	  * if the user own this role then he can manager absences for all users
 	  */
-	 private final static String ABSENCES_MANAGER_ROLE = "ABSENCES_MANAGER";
+	 public final static String ABSENCES_MANAGER_ROLE = "ABSENCES_MANAGER";
 
 	/**
 	 * 
