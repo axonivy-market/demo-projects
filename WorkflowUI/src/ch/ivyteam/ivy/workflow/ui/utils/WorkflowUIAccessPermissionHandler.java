@@ -1802,4 +1802,31 @@ public class WorkflowUIAccessPermissionHandler
 	    }
   }
   
+  
+
+  /**
+   * It returns the external security system name without permission check
+   * 
+   * @return the external security system name
+   * 
+   */
+  public static String getExternalSecuritySystemNameAsSystemUser()
+  {
+	    try
+	    {
+	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
+	        {
+	          public String call() throws Exception
+	          {
+	        	  return Ivy.wf().getSecurityContext().getExternalSecuritySystemName();
+	          }
+	        });
+	    }
+	    catch (Exception e)
+	    {
+	      Ivy.log().error("Error during getExternalSecuritySystemName: " + e.getMessage(), e);
+	      return null;
+	    }
+  }
+  
 }

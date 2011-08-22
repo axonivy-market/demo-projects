@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Aug 22 16:54:52 CEST 2011]
+[>Created: Mon Aug 22 17:13:23 CEST 2011]
 12A146365AD40893 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SettingsProcess Big #zClass
@@ -409,7 +409,7 @@ Ss0 f6 56 58 56 251 #arcP
 panel.casesSeparatorRDC.separatorText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/cases");
 panel.casesSortByPriorityCheckBox.visible=false;
 panel.tasksSeparatorRDC.separatorText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/tasks");
-panel.changePasswordButton.enabled=!(ivy.session.getSecurityContext().getExternalSecuritySystemName() is initialized);
+panel.changePasswordButton.visible=!(ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.getExternalSecuritySystemNameAsSystemUser() is initialized);
 ' #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
 >Proto Ss0 '' #fIcon
