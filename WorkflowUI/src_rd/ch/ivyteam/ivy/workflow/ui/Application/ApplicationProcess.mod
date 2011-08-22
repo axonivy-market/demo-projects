@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 17 13:35:00 CEST 2011]
+[>Created: Mon Aug 22 14:34:09 CEST 2011]
 117CB5CD6E5F88C6 3.17 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
@@ -51,9 +51,6 @@ As0 @PushWFArc f46 '' #zField
 As0 @RichDialogProcessStep f48 '' #zField
 As0 @PushWFArc f49 '' #zField
 As0 @PushWFArc f31 '' #zField
-As0 @RichDialogEnd f41 '' #zField
-As0 @PushWFArc f10 '' #zField
-As0 @PushWFArc f15 '' #zField
 As0 @RichDialogInitStart f0 '' #zField
 As0 @PushWFArc f9 '' #zField
 As0 @RichDialogMethodStart f6 '' #zField
@@ -64,6 +61,11 @@ As0 @RichDialogBroadcastStart f21 '' #zField
 As0 @PushWFArc f24 '' #zField
 As0 @RichDialogBroadcastStart f20 '' #zField
 As0 @PushWFArc f27 '' #zField
+As0 @RichDialogProcessEnd f30 '' #zField
+As0 @RichDialogProcessStep f10 '' #zField
+As0 @PushWFArc f41 '' #zField
+As0 @PushWFArc f42 '' #zField
+As0 @PushWFArc f15 '' #zField
 >Proto As0 As0 ApplicationDynamicWayProcess #zField
 As0 f1 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f1 59 243 26 26 14 0 #rect
@@ -336,6 +338,7 @@ As0 f17 350 100 36 24 20 -2 #rect
 As0 f17 @|RichDialogProcessStepIcon #fIcon
 As0 f14 expr out #txt
 As0 f14 368 124 368 138 #arcP
+As0 f19 targetWindow NEW:card: #txt
 As0 f19 targetDisplay TOP #txt
 As0 f19 richDialogId ch.ivyteam.ivy.addons.commondialogs.QuestionDialog #txt
 As0 f19 startMethod askQuestion(String,String,List<String>) #txt
@@ -349,11 +352,13 @@ As0 f19 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationDa
 ' #txt
 As0 f19 responseMappingAction 'out=in;
 ' #txt
-As0 f19 responseActionCode 'out.pressedButton = result.pressedButton;' #txt
+As0 f19 responseActionCode 'out.pressedButton = result.pressedButton;
+out.closeCanceled = "cancel".equals(out.pressedButton);' #txt
 As0 f19 windowConfiguration '{/title "Question"/width 450 /height 150 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 As0 f19 isAsynch false #txt
 As0 f19 isInnerRd true #txt
 As0 f19 isDialog true #txt
+As0 f19 userContext '* ' #txt
 As0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -516,36 +521,6 @@ As0 f49 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 As0 f49 368 222 368 244 #arcP
 As0 f31 expr out #txt
 As0 f31 368 268 368 292 #arcP
-As0 f41 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f41 guid 12DA884C8EA1E296 #txt
-As0 f41 502 262 20 20 13 0 #rect
-As0 f41 @|RichDialogEndIcon #fIcon
-As0 f10 expr in #txt
-As0 f10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>no</name>
-        <nameStyle>2,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-As0 f10 382 208 512 262 #arcP
-As0 f10 1 512 208 #addKink
-As0 f10 0 0.6123833388845563 0 0 #arcLabel
-As0 f15 expr in #txt
-As0 f15 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>no</name>
-        <nameStyle>2,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-As0 f15 382 152 512 262 #arcP
-As0 f15 1 512 152 #addKink
-As0 f15 0 0.7231896030994086 0 0 #arcLabel
 As0 f0 guid 12DBC5335BE6AFC6 #txt
 As0 f0 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f0 method start() #txt
@@ -575,7 +550,7 @@ As0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 As0 f6 outParameterDecl '<java.lang.Boolean closeCanceled> result;
 ' #txt
-As0 f6 outActionCode 'result.closeCanceled = in.pressedButton.equals("cancel");' #txt
+As0 f6 outActionCode 'result.closeCanceled = in.closeCanceled;' #txt
 As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -651,6 +626,55 @@ As0 f20 1238 54 20 20 13 0 #rect
 As0 f20 @|RichDialogBroadcastStartIcon #fIcon
 As0 f27 expr out #txt
 As0 f27 1248 74 1248 100 #arcP
+As0 f30 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f30 534 262 20 20 13 0 #rect
+As0 f30 @|RichDialogProcessEndIcon #fIcon
+As0 f10 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f10 actionTable 'out=in;
+' #txt
+As0 f10 actionCode 'out.closeCanceled = false;' #txt
+As0 f10 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>set the 
+output attribute</name>
+        <nameStyle>25,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f10 526 220 36 24 20 -2 #rect
+As0 f10 @|RichDialogProcessStepIcon #fIcon
+As0 f41 expr in #txt
+As0 f41 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>no</name>
+        <nameStyle>2,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f41 382 152 544 220 #arcP
+As0 f41 1 544 152 #addKink
+As0 f41 0 0.7231896030994086 0 0 #arcLabel
+As0 f42 expr in #txt
+As0 f42 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>no</name>
+        <nameStyle>2,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f42 382 208 536 220 #arcP
+As0 f42 1 528 208 #addKink
+As0 f42 0 0.63891195171502 0 0 #arcLabel
+As0 f15 expr out #txt
+As0 f15 544 244 544 262 #arcP
 >Proto As0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -661,7 +685,7 @@ As0 f27 1248 74 1248 100 #arcP
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneSize>221</swimlaneSize>
-    <swimlaneSize>416</swimlaneSize>
+    <swimlaneSize>433</swimlaneSize>
     <swimlaneSize>337</swimlaneSize>
     <swimlaneSize>520</swimlaneSize>
     <swimlaneColor>-6697729</swimlaneColor>
@@ -708,10 +732,6 @@ As0 f43 out f49 tail #connect
 As0 f49 head f48 mainIn #connect
 As0 f48 mainOut f31 tail #connect
 As0 f31 head f19 mainIn #connect
-As0 f43 out f10 tail #connect
-As0 f10 head f41 mainIn #connect
-As0 f12 out f15 tail #connect
-As0 f15 head f41 mainIn #connect
 As0 f0 mainOut f9 tail #connect
 As0 f9 head f29 mainIn #connect
 As0 f6 mainOut f18 tail #connect
@@ -722,3 +742,9 @@ As0 f21 mainOut f24 tail #connect
 As0 f24 head f23 mainIn #connect
 As0 f20 mainOut f27 tail #connect
 As0 f27 head f26 mainIn #connect
+As0 f12 out f41 tail #connect
+As0 f41 head f10 mainIn #connect
+As0 f43 out f42 tail #connect
+As0 f42 head f10 mainIn #connect
+As0 f10 mainOut f15 tail #connect
+As0 f15 head f30 mainIn #connect
