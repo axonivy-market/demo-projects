@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Aug 22 13:26:03 CEST 2011]
+[>Created: Mon Aug 22 14:01:30 CEST 2011]
 116A9BF16D47762C 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -1386,8 +1386,7 @@ out.ivy_systemevent_workflow_task_changed_exitCondition =
 		ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.wfFindTaskAsSystemUser(in.broadcastedTaskAssignedToSelf1Identifier).getState().equals(ch.ivyteam.ivy.workflow.TaskState.DONE)) ||
 
 	// in other cases, task id is part of broacasted ids and its state is one of these: DONE, READY_FOR_JOIN, PARKED.
-	(in.broadcastedTaskIdentifiers.size() > 1 && 
-		!(in.#broadcastedTaskAssignedToSelf1Identifier is initialized) && 
+	(!(in.#broadcastedTaskAssignedToSelf1Identifier is initialized) && 
 		in.broadcastedTaskIdentifiers.contains(in.task.getIdentifier()) && 	
 		(in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.DONE) || in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.READY_FOR_JOIN) || in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.PARKED)));' #txt
 Ts0 f65 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt

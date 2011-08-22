@@ -27,7 +27,6 @@ implements IRichDialogPanel
   /** Serial version id */
   private static final long serialVersionUID = 1L;
 private RScrollPane rolesScrollPane = null;
-private RTableTree rolesTableTree = null;
 private RTableTree managedTeamsTableTree = null;
 private RFlowLayoutPane actionsFlowLayoutPane = null;
 private RButton okButton = null;
