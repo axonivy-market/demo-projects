@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Aug 22 13:13:01 CEST 2011]
+[>Created: Mon Aug 22 13:26:03 CEST 2011]
 116A9BF16D47762C 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -947,15 +947,13 @@ Ts0 f7 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>task done AND next task is assigned to self1 
-OR
-task is done or ready for join or parked?</name>
-        <nameStyle>90,7,9
+        <name>exit condition is ok?</name>
+        <nameStyle>21,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f7 3010 250 28 28 14 -23 #rect
+Ts0 f7 3010 266 28 28 14 -23 #rect
 Ts0 f7 @|AlternativeIcon #fIcon
 Ts0 f17 expr in #txt
 Ts0 f17 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -967,8 +965,8 @@ Ts0 f17 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f17 3038 264 3160 339 #arcP
-Ts0 f17 1 3160 264 #addKink
+Ts0 f17 3038 280 3160 339 #arcP
+Ts0 f17 1 3160 280 #addKink
 Ts0 f17 1 0.17499608409501777 0 0 #arcLabel
 Ts0 f18 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1420,7 +1418,7 @@ Ts0 f206 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f206 3024 174 3024 204 #arcP
 Ts0 f8 expr out #txt
-Ts0 f8 3024 228 3024 250 #arcP
+Ts0 f8 3024 228 3024 266 #arcP
 Ts0 f112 expr out #txt
 Ts0 f112 688 354 688 418 #arcP
 Ts0 f113 expr out #txt
@@ -1476,6 +1474,7 @@ Ts0 f58 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f58 2910 222 20 20 13 0 #rect
 Ts0 f58 @|RichDialogProcessEndIcon #fIcon
 Ts0 f60 expr in #txt
+Ts0 f60 outCond in.ivy_systemevent_workflow_task_changed_exitCondition #txt
 Ts0 f60 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1485,7 +1484,7 @@ Ts0 f60 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f60 3024 278 3024 342 #arcP
+Ts0 f60 3024 294 3024 342 #arcP
 Ts0 f60 0 0.48444796027833964 -1 0 #arcLabel
 Ts0 f9 expr in #txt
 Ts0 f9 2838 160 2920 222 #arcP
