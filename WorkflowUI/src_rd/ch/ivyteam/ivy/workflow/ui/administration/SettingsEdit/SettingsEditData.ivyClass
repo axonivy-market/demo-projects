@@ -1,6 +1,4 @@
 SettingsEditData #class
 ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit #namespace
 error String #field
-hasUserSetOwnPropertyPermission Boolean #field
-hasUserReadOwnPropertyPermission Boolean #field
 windowTitle String #field

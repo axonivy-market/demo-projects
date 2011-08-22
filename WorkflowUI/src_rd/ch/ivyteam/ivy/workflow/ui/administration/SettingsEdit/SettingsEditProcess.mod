@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 17 13:30:15 CEST 2011]
+[>Created: Mon Aug 22 16:54:52 CEST 2011]
 12A146365AD40893 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SettingsProcess Big #zClass
@@ -184,23 +184,22 @@ import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
 import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
 import ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper;
 
-
-out.hasUserSetOwnPropertyPermission = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_SET_OWN_PROPERTY);
-out.hasUserReadOwnPropertyPermission = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.USER_READ_OWN_PROPERTY);
+// get the user settings
+IUser sessionUser = ivy.session.getSessionUser();
 
 // set the session user information
+String sessionUserManagedTeams = CaseManagedTeamHelper.getSessionUserManagedTeamsAsString(sessionUser);
+ivy.log.debug("Session user {0} managed teams are {1}.", sessionUser, sessionUserManagedTeams);
+
 String sessionUserInformation = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/security/plainStrings/sessionUserSummaryInformation", 
 			["<b>" + ivy.session.getSessionUserName() + "</b>", ivy.request.getApplication().getName(), 
 				"".equals(ivy.session.getActiveEnvironment())? "Default": ivy.session.getActiveEnvironment() ]) +
 				
-				(ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper.getSessionUserManagedTeamsAsString(ivy.session.getSessionUser()).isEmpty()?
+				(sessionUserManagedTeams.isEmpty()?
 				"": ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/youAreTeamManagerOf")  + " <b>" + CaseManagedTeamHelper.getSessionUserManagedTeamsAsString(ivy.session.getSessionUser()) + "</b>.");
 									
 panel.sessionUserInformationHtmlPane.setText(sessionUserInformation);
 
-
-// get the user settings, if there is not, apply the cms parameters
-IUser sessionUser = ivy.session.getSessionUser();
 
 // tasks
 int tasksHierarchyLayoutIndex = WorkflowUserPropertyHelper.getTasksHierarchyLayoutIndexPreference(sessionUser);
@@ -406,15 +405,11 @@ Ss0 f6 expr out #txt
 Ss0 f6 56 58 56 251 #arcP
 >Proto Ss0 .type ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.SettingsEditData #txt
 >Proto Ss0 .processKind RICH_DIALOG #txt
->Proto Ss0 .rdData2UIAction 'panel.caseSettingsGridBagLayoutPane.enabled=in.hasUserSetOwnPropertyPermission;
-panel.caseSettingsGridBagLayoutPane.enabled=in.hasUserSetOwnPropertyPermission;
-panel.caseSortByPriorityLabel.visible=false;
+>Proto Ss0 .rdData2UIAction 'panel.caseSortByPriorityLabel.visible=false;
 panel.casesSeparatorRDC.separatorText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/cases");
 panel.casesSortByPriorityCheckBox.visible=false;
-panel.headerLabel.visible=!in.hasUserSetOwnPropertyPermission;
-panel.taskSettingsGridBagLayoutPane.enabled=in.hasUserSetOwnPropertyPermission;
-panel.taskSettingsGridBagLayoutPane.enabled=in.hasUserSetOwnPropertyPermission;
 panel.tasksSeparatorRDC.separatorText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/tasks");
+panel.changePasswordButton.enabled=!(ivy.session.getSecurityContext().getExternalSecuritySystemName() is initialized);
 ' #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
 >Proto Ss0 '' #fIcon

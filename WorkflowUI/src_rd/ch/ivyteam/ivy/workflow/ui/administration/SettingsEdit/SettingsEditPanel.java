@@ -49,7 +49,6 @@ private RLabel taskHierarchyLayoutLabel = null;
 @EmbeddedRichDialog(TaskHierarchyLayoutSelectPanel.class) private ULCContainer tasksHierarchyLayoutSelectRDC = null;
 private RCheckBox isMultipleTaskListCheckBox = null;
 private RCheckBox taskAutoHideMenuCheckBox = null;
-private RLabel headerLabel = null;
 @EmbeddedRichDialog(SeparatorPanel.class) private ULCContainer tasksSeparatorRDC = null;
 @EmbeddedRichDialog(SeparatorPanel.class) private ULCContainer casesSeparatorRDC = null;
 private RLabel sortByPriorityLabel = null;
@@ -86,7 +85,6 @@ private RHtmlPane sessionUserInformationHtmlPane = null;
         this.add(getTaskSettingsGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 10, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getCaseSettingsGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 13, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getActionsFlowLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 14, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-        this.add(getHeaderLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(verticalFiller, new com.ulcjava.base.application.GridBagConstraints(0, 15, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
   }
 
@@ -389,21 +387,6 @@ private RCheckBox getTaskAutoHideMenuCheckBox() {
 //		taskAutoHideMenuCheckBox.setSelectedIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/switchOn_48\") %>");
 	}
 	return taskAutoHideMenuCheckBox;
-}
-
-/**
- * This method initializes headerLabel	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
- */
-private RLabel getHeaderLabel() {
-	if (headerLabel == null) {
-		headerLabel = new RLabel();
-		headerLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/noSettingsPermission\")%>\n");
-		headerLabel.setStyle("warning");
-		headerLabel.setName("headerLabel");
-	}
-	return headerLabel;
 }
 
 /**
