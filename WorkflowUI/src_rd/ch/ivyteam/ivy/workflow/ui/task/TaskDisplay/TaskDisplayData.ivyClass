@@ -48,3 +48,5 @@ detailsDisplayId String #field
 detailsDisplayId 'Id where case and task details will be displayed.' #fieldComment
 caseDocumentsPath String #field
 caseDocumentsPath 'The path of task''s case documents. It is needed to update the "Documents" tab title.' #fieldComment
+ivy_systemevent_workflow_task_changed_exitCondition Boolean #field
+ivy_systemevent_workflow_task_changed_exitCondition 'The exit condition for the System Event Framework notification ivy_systemevent_workflow_task_changed' #fieldComment

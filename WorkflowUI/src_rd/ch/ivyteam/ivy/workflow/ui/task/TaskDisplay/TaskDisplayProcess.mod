@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 17 13:58:48 CEST 2011]
+[>Created: Mon Aug 22 13:13:01 CEST 2011]
 116A9BF16D47762C 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -947,16 +947,15 @@ Ts0 f7 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>(task is done or ready for join or parked and 
-	broadcasted identifiers size is 1 and it''s contains this task)
-or
-(broadcasted identifiers size is 1 and the task assigned to sefl1 is done)?</name>
-        <nameStyle>189,7,9
+        <name>task done AND next task is assigned to self1 
+OR
+task is done or ready for join or parked?</name>
+        <nameStyle>90,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f7 3010 250 28 28 14 0 #rect
+Ts0 f7 3010 250 28 28 14 -23 #rect
 Ts0 f7 @|AlternativeIcon #fIcon
 Ts0 f17 expr in #txt
 Ts0 f17 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1378,13 +1377,29 @@ Ts0 f65 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData 
 ' #txt
 Ts0 f65 actionTable 'out=in;
 ' #txt
-Ts0 f65 actionCode 'ivy.log.debug("Task {0} state is {1}.", in.task.getIdentifier(), in.task.getState());' #txt
+Ts0 f65 actionCode 'ivy.log.debug("Task {0} state is {1}.", in.task.getIdentifier(), in.task.getState());
+
+
+
+out.ivy_systemevent_workflow_task_changed_exitCondition = 
+	// this is not executed task followed by task assigned to self1 
+	(in.broadcastedTaskIdentifiers.size() == 1 && 
+		in.#broadcastedTaskAssignedToSelf1Identifier is initialized && 
+		ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.wfFindTaskAsSystemUser(in.broadcastedTaskAssignedToSelf1Identifier).getState().equals(ch.ivyteam.ivy.workflow.TaskState.DONE)) ||
+
+	// in other cases, task id is part of broacasted ids and its state is one of these: DONE, READY_FOR_JOIN, PARKED.
+	(in.broadcastedTaskIdentifiers.size() > 1 && 
+		!(in.#broadcastedTaskAssignedToSelf1Identifier is initialized) && 
+		in.broadcastedTaskIdentifiers.contains(in.task.getIdentifier()) && 	
+		(in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.DONE) || in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.READY_FOR_JOIN) || in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.PARKED)));' #txt
 Ts0 f65 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f65 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>printout the task state</name>
-        <nameStyle>23,9
+        <name>printout the task state
+build the exit condition</name>
+        <nameStyle>24,7,9
+24,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -1461,9 +1476,6 @@ Ts0 f58 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f58 2910 222 20 20 13 0 #rect
 Ts0 f58 @|RichDialogProcessEndIcon #fIcon
 Ts0 f60 expr in #txt
-Ts0 f60 outCond '(in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.DONE) || 
-in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.READY_FOR_JOIN) || in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.PARKED)) &&  (in.broadcastedTaskIdentifiers.size() == 1 && in.task.getIdentifier() == in.broadcastedTaskIdentifiers.get(0)) ||
-(in.broadcastedTaskIdentifiers.size() == 1 && in.#broadcastedTaskAssignedToSelf1Identifier is initialized && ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.wfFindTaskAsSystemUser(in.broadcastedTaskAssignedToSelf1Identifier).getState().equals(ch.ivyteam.ivy.workflow.TaskState.DONE))' #txt
 Ts0 f60 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
