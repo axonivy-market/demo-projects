@@ -507,7 +507,7 @@ private RHtmlPane getSessionUserInformationHtmlPane() {
 		sessionUserInformationHtmlPane = new RHtmlPane();
 		sessionUserInformationHtmlPane.setFocusable(false);
 		sessionUserInformationHtmlPane.setName("sessionUserInformationHtmlPane");
-		sessionUserInformationHtmlPane.setStyleProperties("{/insetsTop \"3\"/weightX \"1\"}");
+		sessionUserInformationHtmlPane.setStyleProperties("{/insetsTop \"3\"/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
 		sessionUserInformationHtmlPane.setText("sessionUserInformationHtmlPane");
 	}
 	return sessionUserInformationHtmlPane;

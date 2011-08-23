@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Aug 23 10:56:03 CEST 2011]
+[>Created: Tue Aug 23 11:18:00 CEST 2011]
 12A146365AD40893 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SettingsProcess Big #zClass
@@ -218,9 +218,9 @@ String sessionUserInformation = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/security
 			
 				"".equals(ivy.session.getActiveEnvironment())? "Default": ivy.session.getActiveEnvironment(), 
 				
-				(sessionUserRoles.isEmpty()? "": ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/youOwnTheRoles") + " <b>" + sessionUserRoles + "</b>"),
+				(sessionUserRoles.isEmpty()? "": " <b>" + sessionUserRoles + "</b>"),
 				
-				(sessionUserManagedTeams.isEmpty()? "n/a": ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/youAreTeamManagerOf")  + " <b>" + CaseManagedTeamHelper.getSessionUserManagedTeamsAsString(ivy.session.getSessionUser()) + "</b>.")]);
+				(sessionUserManagedTeams.isEmpty()? "n/a": " <b>" + CaseManagedTeamHelper.getSessionUserManagedTeamsAsString(ivy.session.getSessionUser()) + "</b>.")]);
 									
 panel.sessionUserInformationHtmlPane.setText(sessionUserInformation);
 
