@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Mar 07 12:25:40 CET 2011]
-128B5701B1FDD6EF 3.16 #module
+[>Created: Tue Aug 23 10:58:47 CEST 2011]
+128B5701B1FDD6EF 3.17 #module
 >Proto >Proto Collection #zClass
 Ws0 WorkflowUIWindowProcess Big #zClass
 Ws0 RD #cInfo
@@ -634,7 +634,7 @@ Ws0 f47 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.Work
 ' #txt
 Ws0 f47 responseMappingAction 'out=in;
 ' #txt
-Ws0 f47 windowConfiguration '{/title "<%=in.title%>"/width 700 /height 400 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
+Ws0 f47 windowConfiguration '{/title "<%=in.title%>"/width 800 /height 475 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 Ws0 f47 isAsynch false #txt
 Ws0 f47 isInnerRd true #txt
 Ws0 f47 isDialog true #txt

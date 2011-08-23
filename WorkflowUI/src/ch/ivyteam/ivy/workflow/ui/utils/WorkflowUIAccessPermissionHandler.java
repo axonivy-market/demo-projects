@@ -1830,4 +1830,31 @@ public class WorkflowUIAccessPermissionHandler
 	    }
   }
   
+  
+  /**
+   * It returns child roles of the role
+   * 
+   * @param role for which child roles should be returned
+   * 
+   * @return the list of roles
+   */
+  public static List<IRole> getChildRolesAsSystemUser(final IRole role)
+  {
+	    try
+	    {
+	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<IRole>>()
+	        {
+	          public List<IRole> call() throws Exception
+	          {
+	        	  return role.getChildRoles();
+	          }
+	        });
+	    }
+	    catch (Exception e)
+	    {
+	      Ivy.log().error("Error during getChildRolesAsSystemUser: " + e.getMessage(), e);
+	      return null;
+	    } 
+  }
+  
 }

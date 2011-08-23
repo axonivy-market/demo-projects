@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Aug 22 13:53:17 CEST 2011]
+[>Created: Tue Aug 23 09:53:42 CEST 2011]
 131DD00091F5DBBB 3.17 #module
 >Proto >Proto Collection #zClass
 Rs0 ManagedTeamsSelectProcess Big #zClass
@@ -59,7 +59,8 @@ Rs0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsSelect.
 ' #txt
 Rs0 f3 actionTable 'out=in;
 ' #txt
-Rs0 f3 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserSubstituteHelper;
+Rs0 f3 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
+import ch.ivyteam.ivy.workflow.ui.utils.UserSubstituteHelper;
 import ch.ivyteam.ivy.workflow.ui.utils.UserAbsenceHelper;
 import ch.ivyteam.ivy.workflow.ui.utils.SortHelper;
 import ch.ivyteam.ivy.security.IRole;
@@ -71,10 +72,10 @@ String own;
 List nodeValue;
 
 role = (in.loadTreeNode.value as List).get(0) as IRole;
-roles.addAll(role.getChildRoles());
+roles.addAll(WorkflowUIAccessPermissionHandler.getChildRolesAsSystemUser(role));
 SortHelper.sortRoles(roles);
 
-for (IRole childRole : role.getChildRoles())
+for (IRole childRole : WorkflowUIAccessPermissionHandler.getChildRolesAsSystemUser(role))
 {
 	// did the user is already team manager for that role?
 	ivy.log.debug("User {0} managed teams list {1} contains role {2}? {3}.", 

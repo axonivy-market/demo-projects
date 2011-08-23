@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Aug 23 08:35:19 CEST 2011]
+[>Created: Tue Aug 23 10:56:03 CEST 2011]
 12A146365AD40893 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SettingsProcess Big #zClass
@@ -28,9 +28,7 @@ Ss0 @PushWFArc f27 '' #zField
 Ss0 @RichDialogProcessStart f2 '' #zField
 Ss0 @RichDialogProcessStep f10 '' #zField
 Ss0 @PushWFArc f5 '' #zField
-Ss0 @Alternative f15 '' #zField
 Ss0 @RichDialogProcessStep f24 '' #zField
-Ss0 @PushWFArc f28 '' #zField
 Ss0 @RichDialogProcessStep f11 '' #zField
 Ss0 @PushWFArc f31 '' #zField
 Ss0 @PushWFArc f26 '' #zField
@@ -38,9 +36,8 @@ Ss0 @PushWFArc f32 '' #zField
 Ss0 @RichDialog f22 '' #zField
 Ss0 @PushWFArc f34 '' #zField
 Ss0 @PushWFArc f7 '' #zField
-Ss0 @PushWFArc f9 '' #zField
-Ss0 @PushWFArc f12 '' #zField
 Ss0 @PushWFArc f6 '' #zField
+Ss0 @PushWFArc f8 '' #zField
 >Proto Ss0 Ss0 SettingsProcess #zField
 Ss0 f1 type ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.SettingsEditData #txt
 Ss0 f1 43 251 26 26 14 0 #rect
@@ -178,7 +175,8 @@ Ss0 f10 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.Setti
 ' #txt
 Ss0 f10 actionTable 'out=in;
 ' #txt
-Ss0 f10 actionCode 'import ch.ivyteam.ivy.security.IUser;
+Ss0 f10 actionCode 'import ch.ivyteam.ivy.security.IRole;
+import ch.ivyteam.ivy.security.IUser;
 import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper;
 import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
 import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
@@ -193,16 +191,36 @@ ivy.log.debug("External security system name is {0}.", externalSecuritySystemNam
 panel.changePasswordButton.visible = "Xpert.ivy".equals(externalSecuritySystemName);
 
 
+//
 // set the session user information
+//
+
+// user''s roles
+String sessionUserRoles = "";
+for (IRole role: sessionUser.getRoles())
+{
+	sessionUserRoles += role.getName() + ",";
+}
+if (sessionUserRoles.endsWith(","))
+{
+	sessionUserRoles = sessionUserRoles.substring(0, sessionUserRoles.length()-1);
+}
+ivy.log.debug("User {0} onws the roles {1}.", sessionUser.getName(), sessionUserRoles);
+
+
+// user''s managed teams
 String sessionUserManagedTeams = CaseManagedTeamHelper.getSessionUserManagedTeamsAsString(sessionUser);
 ivy.log.debug("Session user {0} managed teams are {1}.", sessionUser, sessionUserManagedTeams);
 
+// summary with info: [session username, application, environement, roles, managed teams]
 String sessionUserInformation = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/security/plainStrings/sessionUserSummaryInformation", 
 			["<b>" + ivy.session.getSessionUserName() + "</b>", ivy.request.getApplication().getName(), 
-				"".equals(ivy.session.getActiveEnvironment())? "Default": ivy.session.getActiveEnvironment() ]) +
+			
+				"".equals(ivy.session.getActiveEnvironment())? "Default": ivy.session.getActiveEnvironment(), 
 				
-				(sessionUserManagedTeams.isEmpty()?
-				"": ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/youAreTeamManagerOf")  + " <b>" + CaseManagedTeamHelper.getSessionUserManagedTeamsAsString(ivy.session.getSessionUser()) + "</b>.");
+				(sessionUserRoles.isEmpty()? "": ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/youOwnTheRoles") + " <b>" + sessionUserRoles + "</b>"),
+				
+				(sessionUserManagedTeams.isEmpty()? "n/a": ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/youAreTeamManagerOf")  + " <b>" + CaseManagedTeamHelper.getSessionUserManagedTeamsAsString(ivy.session.getSessionUser()) + "</b>.")]);
 									
 panel.sessionUserInformationHtmlPane.setText(sessionUserInformation);
 
@@ -258,19 +276,6 @@ Ss0 f5 expr out #txt
 Ss0 f5 208 124 68 263 #arcP
 Ss0 f5 1 208 256 #addKink
 Ss0 f5 1 0.2029966286631347 0 0 #arcLabel
-Ss0 f15 type ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.SettingsEditData #txt
-Ss0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>user has 
-set property permission?</name>
-        <nameStyle>34,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f15 666 74 28 28 14 0 #rect
-Ss0 f15 @|AlternativeIcon #fIcon
 Ss0 f24 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.SettingsEditData out;
 ' #txt
 Ss0 f24 actionTable 'out=in;
@@ -317,20 +322,8 @@ tasks and cases</name>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f24 662 132 36 24 20 -2 #rect
+Ss0 f24 662 108 36 24 20 -2 #rect
 Ss0 f24 @|RichDialogProcessStepIcon #fIcon
-Ss0 f28 expr in #txt
-Ss0 f28 outCond in.hasUserSetOwnPropertyPermission #txt
-Ss0 f28 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>yes</name>
-        <nameStyle>3,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f28 680 102 680 132 #arcP
 Ss0 f11 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.SettingsEditData out;
 ' #txt
 Ss0 f11 actionTable 'out=in;
@@ -385,30 +378,16 @@ will be applied at next restart</name>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f22 662 188 36 24 20 -2 #rect
+Ss0 f22 662 164 36 24 20 -2 #rect
 Ss0 f22 @|RichDialogIcon #fIcon
 Ss0 f34 expr out #txt
-Ss0 f34 680 156 680 188 #arcP
+Ss0 f34 680 132 680 164 #arcP
 Ss0 f7 expr out #txt
-Ss0 f7 680 212 680 254 #arcP
-Ss0 f9 expr in #txt
-Ss0 f9 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>no</name>
-        <nameStyle>2,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f9 694 88 689 263 #arcP
-Ss0 f9 1 864 88 #addKink
-Ss0 f9 2 864 248 #addKink
-Ss0 f9 1 0.3484513511667232 0 0 #arcLabel
-Ss0 f12 expr out #txt
-Ss0 f12 680 58 680 74 #arcP
+Ss0 f7 680 188 680 254 #arcP
 Ss0 f6 expr out #txt
 Ss0 f6 56 58 56 251 #arcP
+Ss0 f8 expr out #txt
+Ss0 f8 680 58 680 108 #arcP
 >Proto Ss0 .type ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit.SettingsEditData #txt
 >Proto Ss0 .processKind RICH_DIALOG #txt
 >Proto Ss0 .rdData2UIAction 'panel.caseSortByPriorityLabel.visible=false;
@@ -424,8 +403,6 @@ Ss0 f19 mainOut f27 tail #connect
 Ss0 f27 head f20 mainIn #connect
 Ss0 f10 mainOut f5 tail #connect
 Ss0 f5 head f1 mainIn #connect
-Ss0 f15 out f28 tail #connect
-Ss0 f28 head f24 mainIn #connect
 Ss0 f17 mainOut f31 tail #connect
 Ss0 f31 head f11 mainIn #connect
 Ss0 f11 mainOut f26 tail #connect
@@ -436,9 +413,7 @@ Ss0 f24 mainOut f34 tail #connect
 Ss0 f34 head f22 mainIn #connect
 Ss0 f22 mainOut f7 tail #connect
 Ss0 f7 head f20 mainIn #connect
-Ss0 f15 out f9 tail #connect
-Ss0 f9 head f20 mainIn #connect
-Ss0 f3 mainOut f12 tail #connect
-Ss0 f12 head f15 in #connect
 Ss0 f0 mainOut f6 tail #connect
 Ss0 f6 head f1 mainIn #connect
+Ss0 f3 mainOut f8 tail #connect
+Ss0 f8 head f24 mainIn #connect
