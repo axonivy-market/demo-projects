@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Aug 22 17:13:23 CEST 2011]
+[>Created: Tue Aug 23 08:35:19 CEST 2011]
 12A146365AD40893 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SettingsProcess Big #zClass
@@ -186,6 +186,12 @@ import ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper;
 
 // get the user settings
 IUser sessionUser = ivy.session.getSessionUser();
+
+// the "Change Password" button is visible only on Ivy security system called "Xpert.ivy"; the LDAP based are not supported
+String externalSecuritySystemName = WorkflowUIAccessPermissionHandler.getExternalSecuritySystemNameAsSystemUser();
+ivy.log.debug("External security system name is {0}.", externalSecuritySystemName);
+panel.changePasswordButton.visible = "Xpert.ivy".equals(externalSecuritySystemName);
+
 
 // set the session user information
 String sessionUserManagedTeams = CaseManagedTeamHelper.getSessionUserManagedTeamsAsString(sessionUser);
@@ -409,7 +415,6 @@ Ss0 f6 56 58 56 251 #arcP
 panel.casesSeparatorRDC.separatorText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/cases");
 panel.casesSortByPriorityCheckBox.visible=false;
 panel.tasksSeparatorRDC.separatorText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/tasks");
-panel.changePasswordButton.visible=!(ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.getExternalSecuritySystemNameAsSystemUser() is initialized);
 ' #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
 >Proto Ss0 '' #fIcon

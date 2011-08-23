@@ -1805,9 +1805,9 @@ public class WorkflowUIAccessPermissionHandler
   
 
   /**
-   * It returns the external security system name without permission check
+   * It returns the external security system name without permission check 
    * 
-   * @return the external security system name
+   * @return the external security system name. For Ivy is: Xpert.ivy
    * 
    */
   public static String getExternalSecuritySystemNameAsSystemUser()
@@ -1819,6 +1819,7 @@ public class WorkflowUIAccessPermissionHandler
 	          public String call() throws Exception
 	          {
 	        	  return Ivy.wf().getSecurityContext().getExternalSecuritySystemName();
+	        	  
 	          }
 	        });
 	    }
