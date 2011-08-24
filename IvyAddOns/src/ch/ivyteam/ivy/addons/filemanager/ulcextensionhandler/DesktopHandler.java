@@ -6,7 +6,6 @@ import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.addons.filemanager.EmailContainer;
 import ch.ivyteam.ivy.addons.util.RDCallbackMethodHandler;
 import ch.ivyteam.ivy.environment.Ivy;
-import ch.xpertline.ulc.server.headless.ULCXDesktop;
 import ch.xpertline.ulc.server.headless.ULCXJava6Desktop;
 import ch.xpertline.ulc.server.headless.ULCXJava6Desktop.IsFileEditableReturnEvent;
 
@@ -25,11 +24,6 @@ import ch.xpertline.ulc.server.headless.ULCXJava6Desktop.IsFileEditableReturnEve
 public class DesktopHandler<T extends IRichDialogPanel> {
 	/** The parent Rich Dialog where the DesktopHandler object is used*/
 	protected T parentRD;
-	/**
-	 * if true the java 6 Desktop object will be used, else the JDIC package. By Default the java package will be used.
-	 * For better compatibility with java 64 bits versions.
-	 */
-	private boolean useJava6 = true;
 	/** The callback method from the parent Rich Dialog that is called in case of error.<br>
 	 * This method has to accept a String (message) as parameter.*/
 	
@@ -48,7 +42,6 @@ public class DesktopHandler<T extends IRichDialogPanel> {
 	/** the file separator at client side: "/" by Unix systems and "\" by Windows systems, default is the windows' one */
 	private String clientFileSeparator = "\\";
 	/** the ULCXDesktop object*/
-	ULCXDesktop ULCDesktopObj = null;
 	ULCXJava6Desktop javaDesktop=null;
 	
 	private long time;
@@ -94,10 +87,8 @@ public class DesktopHandler<T extends IRichDialogPanel> {
     	this.errorMethodName=_errorMethodName;
     	this.isFileEditableCallbackMethod = _isFileEditableCallbackMethod;
     	this.isFilePrintableCallbackMethod = _isFilePrintableCallbackMethod;
-    	this.useJava6 = _useJava6;
     	
-    	if(useJava6)
-    	{// we use the java 6 Desktop Class
+    
     		javaDesktop = new ULCXJava6Desktop();
     		javaDesktop.addOnDesktopExceptionListener(new ULCXJava6Desktop.OnDesktopExceptionListener(){
     			public void desktopException(ULCXJava6Desktop.OnDesktopExceptionEvent event) {
@@ -118,31 +109,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
     				sendIsFilePrintable(b);
     			}
     		});
-    	}
-    	else 
-    	{// We use the JDIC Package
-    		ULCDesktopObj = new ch.xpertline.ulc.server.headless.ULCXDesktop();
-        	
-        	
-    		ULCDesktopObj.addOnDesktopExceptionListener(new ULCXDesktop.OnDesktopExceptionListener(){
-    			public void desktopException(ULCXDesktop.OnDesktopExceptionEvent event) {
-    				sendErrorMessage(event.getDesktopExceptionMessage());
-    			}
-    		});
-    		ULCDesktopObj.addIsFileEditableReturnListener(new ULCXDesktop.IsFileEditableReturnListener(){
-    			public void fileEditable(ULCXDesktop.IsFileEditableReturnEvent event) {
-    				Boolean b = event.getIsFileEditable();
-    				sendIsFileEditable(b);
-    						
-    			}
-    		});
-    		ULCDesktopObj.addIsFilePrintableReturnListener(new ULCXDesktop.IsFilePrintableReturnListener(){
-    			public void filePrintable(ULCXDesktop.IsFilePrintableReturnEvent event) {
-    				Boolean b = event.getIsFilePrintable();
-    				sendIsFilePrintable(b);
-    			}
-    		});
-    	}
+    	
     }
     
     /**
@@ -150,15 +117,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
      * @param _file the java.io.File to open
      */
     public void openFile(File _file){
-    	if(useJava6)
-    	{
     		javaDesktop.openFile(_file);
-    	}
-    	else
-    	{
-    		ULCDesktopObj.openFile(_file);
-    	}
-    	
     }
     
     /**
@@ -166,14 +125,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
      * @param _file the java.io.File to edit
      */
     public void editFile(File _file){
-    	if(useJava6)
-    	{
     		javaDesktop.editFile(_file);
-    	}
-    	else
-    	{
-    		ULCDesktopObj.editFile(_file);
-    	}
     }
     
     /**
@@ -181,14 +133,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
      *
      */
     public void mail(){
-    	if(useJava6)
-    	{
     		javaDesktop.mail();
-    	}
-    	else
-    	{
-    		ULCDesktopObj.mail();
-    	}
     }
     
     /**
@@ -201,14 +146,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
      * @param _attachments: The attachments are Files that must be present at client side
      */
     public void mailMessage(String _subject, String _body, String _to, String _cc, String _bcc, String _attachments){
-    	if(useJava6)
-    	{
     		javaDesktop.mailMessage(_subject, _body, _to, _cc, _bcc, _attachments);
-    	}
-    	else
-    	{
-    		ULCDesktopObj.mailMessage(_subject, _body, _to, _cc, _bcc, _attachments);
-    	}
     }
     
     /**
@@ -227,8 +165,6 @@ public class DesktopHandler<T extends IRichDialogPanel> {
     		for(String s:_mailContainer.getCc()){cc+=s+";";}
     		for(String s:_mailContainer.getBcc()){bcc+=s+";";}
     		for(java.io.File f:_mailContainer.getAttachments()){attach+=f.getPath()+";";}
-    		if(useJava6)
-        	{
     			javaDesktop.mailMessage(
         				_mailContainer.getSubject(),
         				_mailContainer.getBody(),
@@ -236,17 +172,6 @@ public class DesktopHandler<T extends IRichDialogPanel> {
         				cc,
         				bcc,
         				attach);
-        	}
-        	else
-        	{
-        		ULCDesktopObj.mailMessage(
-        				_mailContainer.getSubject(),
-        				_mailContainer.getBody(),
-        				to,
-        				cc,
-        				bcc,
-        				attach);
-        	}
     	}else{
     		this.mail();
     	}
@@ -261,13 +186,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
     	if(! _www.trim().startsWith("http://")&& ! _www.trim().startsWith("https://") && ! _www.trim().startsWith("ftp://")){
     		_www = "http://"+_www;
     	}
-    	if(useJava6)
-    	{
     		javaDesktop.browse(_www);
-    	}else
-    	{
-    		ULCDesktopObj.browse(_www);
-    	}
     }
 
     /**
@@ -279,13 +198,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
      * @param _file the java.io.File that is going to be check whether it is editable or not.
      */
     public void isFileEditable(java.io.File _file){
-    	if(useJava6)
-    	{
     		javaDesktop.isFileEditable(_file);
-    	}else
-    	{
-    		ULCDesktopObj.isFileEditable(_file);
-    	}
     }
     
     /**
@@ -297,13 +210,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
      * @param _file the java.io.File that is going to be check wether it is Printable or not.
      */
     public void isFilePrintable(java.io.File _file){
-    	if(useJava6)
-    	{
     		javaDesktop.isFilePrintable(_file);
-    	}else
-    	{
-    		ULCDesktopObj.isFilePrintable(_file);
-    	}
     }
     
     /**
@@ -311,13 +218,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
      * @param _file
      */
     public void print(java.io.File _file){
-    	if(useJava6)
-    	{
     		javaDesktop.print(_file);
-    	}else
-    	{
-    		ULCDesktopObj.print(_file);
-    	}
     }
 
     /**
