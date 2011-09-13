@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Sep 21 15:35:32 CEST 2010]
-118AD9895BF10199 3.12 #module
+[>Created: Tue Sep 13 14:33:21 CEST 2011]
+118AD9895BF10199 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseNoteDisplayListProcess Big #zClass
 Cs0 RD #cInfo
@@ -165,16 +165,29 @@ Cs0 f4 @|RichDialogMethodStartIcon #fIcon
 Cs0 f6 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f6 43 363 26 26 14 0 #rect
 Cs0 f6 @|RichDialogProcessEndIcon #fIcon
+Cs0 f11 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f11 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f11 322 226 28 28 14 0 #rect
 Cs0 f11 @|AlternativeIcon #fIcon
 Cs0 f12 expr out #txt
 Cs0 f12 336 130 336 226 #arcP
+Cs0 f13 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
+' #txt
+Cs0 f13 actionTable 'out=in;
+' #txt
+Cs0 f13 actionCode 'out.caseNotes.clear();
+
+if (in.#fCase != null)
+{	
+	java.util.List notesList = in.fCase.getNotes();
+
+	out.caseNotes.addAll(notesList);
+}' #txt
+Cs0 f13 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -185,21 +198,6 @@ case annotations</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f13 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
-' #txt
-Cs0 f13 actionTable 'out=in;
-' #txt
-Cs0 f13 actionCode 'import ch.ivyteam.ivy.workflow.ui.restricted.utils.PublicAPIHelper;
-
-out.caseNotes.clear();
-
-if (in.#fCase != null)
-{	
-	java.util.List notesList = in.fCase.getNotes();
-
-	out.caseNotes.addAll(notesList);
-}' #txt
-Cs0 f13 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f13 126 276 36 24 20 -2 #rect
 Cs0 f13 @|RichDialogProcessStepIcon #fIcon
 Cs0 f15 expr in #txt
@@ -216,12 +214,12 @@ Cs0 f15 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f15 322 240 162 278 #arcP
 Cs0 f15 1 232 240 #addKink
 Cs0 f15 0 0.6712393931780533 0 0 #arcLabel
+Cs0 f17 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f17 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f17 130 154 28 28 14 0 #rect
 Cs0 f17 @|AlternativeIcon #fIcon
 Cs0 f18 expr out #txt
@@ -261,17 +259,6 @@ Cs0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cs0 f31 1654 118 20 20 13 0 #rect
 Cs0 f31 @|RichDialogProcessStartIcon #fIcon
-Cs0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>delete 
-the current
-selected note</name>
-        <nameStyle>33,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f40 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
 ' #txt
 Cs0 f40 actionTable 'out=in;
@@ -289,8 +276,25 @@ panel.refresh();
 
 ' #txt
 Cs0 f40 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
+Cs0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>delete 
+the current
+selected note</name>
+        <nameStyle>33,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f40 1374 253 36 23 20 -2 #rect
 Cs0 f40 @|RichDialogProcessStepIcon #fIcon
+Cs0 f34 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
+' #txt
+Cs0 f34 actionTable 'out=in;
+' #txt
+Cs0 f34 actionCode 'panel.addNoteCollapsiblePane.collapsed = true;' #txt
+Cs0 f34 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -300,22 +304,24 @@ Cs0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f34 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
-' #txt
-Cs0 f34 actionTable 'out=in;
-' #txt
-Cs0 f34 actionCode 'panel.addNoteCollapsiblePane.collapsed = true;' #txt
-Cs0 f34 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f34 1038 364 36 24 20 -2 #rect
 Cs0 f34 @|RichDialogProcessStepIcon #fIcon
+Cs0 f43 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f43 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f43 1650 210 28 28 14 0 #rect
 Cs0 f43 @|AlternativeIcon #fIcon
+Cs0 f24 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
+' #txt
+Cs0 f24 actionTable 'out=in;
+' #txt
+Cs0 f24 actionCode 'panel.addNoteCollapsiblePane.collapsed = false;
+
+' #txt
+Cs0 f24 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -326,26 +332,8 @@ property collapsed</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f24 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
-' #txt
-Cs0 f24 actionTable 'out=in;
-' #txt
-Cs0 f24 actionCode 'panel.addNoteCollapsiblePane.collapsed = false;
-
-' #txt
-Cs0 f24 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f24 814 268 36 24 20 -2 #rect
 Cs0 f24 @|RichDialogProcessStepIcon #fIcon
-Cs0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>get the 
-selected note</name>
-        <nameStyle>22,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f35 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
 ' #txt
 Cs0 f35 actionTable 'out=in;
@@ -379,6 +367,16 @@ panel.addNoteCollapsiblePane.collapsed = false;
 
 panel.footerLabel.text = "";' #txt
 Cs0 f35 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
+Cs0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>get the 
+selected note</name>
+        <nameStyle>22,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f35 1646 308 36 24 20 -2 #rect
 Cs0 f35 @|RichDialogProcessStepIcon #fIcon
 Cs0 f26 guid 118EA5959CB129E6 #txt
@@ -415,16 +413,6 @@ Cs0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cs0 f27 1286 126 20 20 13 0 #rect
 Cs0 f27 @|RichDialogProcessStartIcon #fIcon
-Cs0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>create 
-the note</name>
-        <nameStyle>16,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f28 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
 ' #txt
 Cs0 f28 actionTable 'out=in;
@@ -447,6 +435,16 @@ out.caseNotes.addAll(caseNotesListTmp);
 
 panel.footerLabel.text = "Note created.";' #txt
 Cs0 f28 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
+Cs0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>create 
+the note</name>
+        <nameStyle>16,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f28 1038 260 36 24 20 -2 #rect
 Cs0 f28 @|RichDialogProcessStepIcon #fIcon
 Cs0 f21 guid 118EA5959BCFA811 #txt
@@ -486,16 +484,6 @@ Cs0 f36 @|RichDialogProcessStartIcon #fIcon
 Cs0 f22 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f22 819 451 26 26 14 0 #rect
 Cs0 f22 @|RichDialogProcessEndIcon #fIcon
-Cs0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>clear the 
-note information</name>
-        <nameStyle>27,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f32 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
 ' #txt
 Cs0 f32 actionTable 'out=in;
@@ -518,14 +506,24 @@ panel.noteTextArea.requestFocus();
 
 panel.addNoteFlowLayoutPane.visible = true;' #txt
 Cs0 f32 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
+Cs0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>clear the 
+note information</name>
+        <nameStyle>27,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f32 814 404 36 24 20 -2 #rect
 Cs0 f32 @|RichDialogProcessStepIcon #fIcon
+Cs0 f38 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f38 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f38 1378 186 28 28 14 0 #rect
 Cs0 f38 @|AlternativeIcon #fIcon
 Cs0 f39 expr out #txt
@@ -578,6 +576,12 @@ Cs0 f48 1 1056 408 #addKink
 Cs0 f48 1 0.3687546692219806 0 0 #arcLabel
 Cs0 f50 expr out #txt
 Cs0 f50 832 292 832 404 #arcP
+Cs0 f33 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
+' #txt
+Cs0 f33 actionTable 'out=in;
+' #txt
+Cs0 f33 actionCode 'panel.footerLabel.text = "Invalid note selection to delete";' #txt
+Cs0 f33 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -588,12 +592,6 @@ the user</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f33 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
-' #txt
-Cs0 f33 actionTable 'out=in;
-' #txt
-Cs0 f33 actionCode 'panel.footerLabel.text = "Invalid note selection to delete";' #txt
-Cs0 f33 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f33 1478 220 36 24 20 -2 #rect
 Cs0 f33 @|RichDialogProcessStepIcon #fIcon
 Cs0 f51 expr in #txt
@@ -604,12 +602,12 @@ Cs0 f42 expr out #txt
 Cs0 f42 1496 244 844 463 #arcP
 Cs0 f42 1 1496 432 #addKink
 Cs0 f42 1 0.3959600409821321 0 0 #arcLabel
+Cs0 f52 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f52 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f52 1042 186 28 28 14 0 #rect
 Cs0 f52 @|AlternativeIcon #fIcon
 Cs0 f53 expr out #txt
@@ -627,6 +625,12 @@ is not empty</name>
 </elementInfo>
 ' #txt
 Cs0 f29 1056 214 1056 260 #arcP
+Cs0 f55 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
+' #txt
+Cs0 f55 actionTable 'out=in;
+' #txt
+Cs0 f55 actionCode 'panel.footerLabel.text = "It is not possible to create an empty note.";' #txt
+Cs0 f55 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -637,12 +641,6 @@ the user</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f55 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
-' #txt
-Cs0 f55 actionTable 'out=in;
-' #txt
-Cs0 f55 actionCode 'panel.footerLabel.text = "It is not possible to create an empty note.";' #txt
-Cs0 f55 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
 Cs0 f55 1150 228 36 24 20 -2 #rect
 Cs0 f55 @|RichDialogProcessStepIcon #fIcon
 Cs0 f56 expr in #txt
@@ -653,6 +651,13 @@ Cs0 f54 expr out #txt
 Cs0 f54 1168 252 844 462 #arcP
 Cs0 f54 1 1168 432 #addKink
 Cs0 f54 1 0.255855254857005 0 0 #arcLabel
+Cs0 f57 actionDecl 'Number aCaseIdentifier;
+' #txt
+Cs0 f57 actionTable 'aCaseIdentifier=in.fCase.getIdentifier();
+' #txt
+Cs0 f57 actionCode panel.fireXivyCaseNotesChanged(aCaseIdentifier); #txt
+Cs0 f57 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
+Cs0 f57 fireEvent xivyCaseNotesChanged(Number) #txt
 Cs0 f57 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -663,13 +668,6 @@ Cs0 f57 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f57 actionDecl 'Number aCaseIdentifier;
-' #txt
-Cs0 f57 actionTable 'aCaseIdentifier=in.fCase.getIdentifier();
-' #txt
-Cs0 f57 actionCode panel.fireXivyCaseNotesChanged(aCaseIdentifier); #txt
-Cs0 f57 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
-Cs0 f57 fireEvent xivyCaseNotesChanged(Number) #txt
 Cs0 f57 1038 308 36 24 20 -2 #rect
 Cs0 f57 @|RichDialogFireEventIcon #fIcon
 Cs0 f58 expr out #txt
@@ -729,16 +727,6 @@ Cs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cs0 f16 654 118 20 20 13 0 #rect
 Cs0 f16 @|RichDialogProcessStartIcon #fIcon
-Cs0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>build the border''s titles
-with cms entries</name>
-        <nameStyle>42,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f20 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData out;
 ' #txt
 Cs0 f20 actionTable 'out=in;
@@ -749,6 +737,16 @@ Cs0 f20 actionCode 'import com.ulcjava.base.application.border.ULCTitledBorder;
 (panel.noteDetailsEditGridBagLayoutPane.getBorder() as ULCTitledBorder).setTitle(
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/noteDetails"));' #txt
 Cs0 f20 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt
+Cs0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>build the border''s titles
+with cms entries</name>
+        <nameStyle>42,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f20 646 204 36 24 20 -2 #rect
 Cs0 f20 @|RichDialogProcessStepIcon #fIcon
 Cs0 f30 expr out #txt

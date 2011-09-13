@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 09 17:14:23 CEST 2011]
+[>Created: Tue Sep 13 14:33:59 CEST 2011]
 12A18D39B393044D 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseWorkflowEventsDisplayListProcess Big #zClass
@@ -72,11 +72,11 @@ Cs0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.WorkflowEventsDisplayList.Wo
 ' #txt
 Cs0 f3 actionTable 'out=in;
 ' #txt
-Cs0 f3 actionCode 'import ch.ivyteam.ivy.workflow.IWorkflowEvent;
+Cs0 f3 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
+import ch.ivyteam.ivy.workflow.IWorkflowEvent;
 import ch.ivyteam.ivy.workflow.ui.data.restricted.cases.IWorkflowEventWrapper;
-import ch.ivyteam.ivy.workflow.ui.restricted.utils.PublicAPIHelper;
 
-java.util.List listTmp = PublicAPIHelper.getWorkflowEventsAsSystemUser(in.fCase);
+java.util.List listTmp = WorkflowUIAccessPermissionHandler.getCaseWorkflowEventsAsSystemUser(in.fCase);
 
 out.caseWorkflowEvents.clear();
 

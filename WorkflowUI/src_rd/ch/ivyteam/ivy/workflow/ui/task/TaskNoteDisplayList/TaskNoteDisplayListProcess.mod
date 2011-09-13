@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Nov 22 16:42:29 CET 2010]
-118AE1702EBE67A1 3.13.1 #module
+[>Created: Tue Sep 13 14:34:28 CEST 2011]
+118AE1702EBE67A1 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseNoteDisplayListProcess Big #zClass
 Cs0 RD #cInfo
@@ -79,15 +79,6 @@ Cs0 @PushWFArc f10 '' #zField
 Cs0 @RichDialogProcessEnd f49 '' #zField
 Cs0 @PushWFArc f63 '' #zField
 >Proto Cs0 Cs0 CaseNoteDisplayListProcess #zField
-Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f0 guid 118AD9B8366C0E79 #txt
 Cs0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f0 method start() #txt
@@ -100,8 +91,21 @@ Cs0 f0 inParameterMapAction 'out.task=null;
 Cs0 f0 outParameterDecl '<> result;
 ' #txt
 Cs0 f0 embeddedRdInitializations '* ' #txt
+Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f0 38 110 20 20 13 0 #rect
 Cs0 f0 @|RichDialogInitStartIcon #fIcon
+Cs0 f3 guid 118AD9B9DD93683E #txt
+Cs0 f3 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
+Cs0 f3 method refresh() #txt
+Cs0 f3 disableUIEvents false #txt
 Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -109,21 +113,8 @@ Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f3 guid 118AD9B9DD93683E #txt
-Cs0 f3 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
-Cs0 f3 method refresh() #txt
-Cs0 f3 disableUIEvents false #txt
 Cs0 f3 310 118 20 20 13 0 #rect
 Cs0 f3 @|RichDialogMethodStartIcon #fIcon
-Cs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>seTask(ITask)</name>
-        <nameStyle>13,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f4 guid 118AD9BA3DA39ED3 #txt
 Cs0 f4 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f4 method setTask(ch.ivyteam.ivy.workflow.ITask) #txt
@@ -135,21 +126,41 @@ Cs0 f4 inParameterMapAction 'out.task=param.aTask;
 ' #txt
 Cs0 f4 outParameterDecl '<> result;
 ' #txt
+Cs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>seTask(ITask)</name>
+        <nameStyle>13,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f4 422 118 20 20 13 0 #rect
 Cs0 f4 @|RichDialogMethodStartIcon #fIcon
 Cs0 f6 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f6 35 347 26 26 14 0 #rect
 Cs0 f6 @|RichDialogProcessEndIcon #fIcon
+Cs0 f11 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f11 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f11 306 234 28 28 14 0 #rect
 Cs0 f11 @|AlternativeIcon #fIcon
 Cs0 f12 expr out #txt
 Cs0 f12 320 138 320 234 #arcP
+Cs0 f13 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
+' #txt
+Cs0 f13 actionTable 'out=in;
+' #txt
+Cs0 f13 actionCode 'if (out.#task != null)
+{
+	java.util.List notesList = in.task.getNotes();
+	out.taskNotes.clear();
+	out.taskNotes.addAll(notesList);
+}' #txt
+Cs0 f13 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -160,19 +171,6 @@ task annotations</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f13 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
-' #txt
-Cs0 f13 actionTable 'out=in;
-' #txt
-Cs0 f13 actionCode 'import ch.ivyteam.ivy.workflow.ui.restricted.utils.PublicAPIHelper;
-
-if (out.#task != null)
-{
-	java.util.List notesList = in.task.getNotes();
-	out.taskNotes.clear();
-	out.taskNotes.addAll(notesList);
-}' #txt
-Cs0 f13 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f13 118 276 36 24 20 -2 #rect
 Cs0 f13 @|RichDialogProcessStepIcon #fIcon
 Cs0 f15 expr in #txt
@@ -189,12 +187,12 @@ Cs0 f15 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f15 306 248 154 281 #arcP
 Cs0 f15 1 232 248 #addKink
 Cs0 f15 0 0.6978022801686959 0 0 #arcLabel
+Cs0 f17 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f17 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f17 122 170 28 28 14 0 #rect
 Cs0 f17 @|AlternativeIcon #fIcon
 Cs0 f14 expr in #txt
@@ -205,6 +203,12 @@ Cs0 f19 expr in #txt
 Cs0 f19 122 184 49 347 #arcP
 Cs0 f19 1 72 184 #addKink
 Cs0 f19 1 0.4315249048602644 0 0 #arcLabel
+Cs0 f21 guid 118ADB53D66C046C #txt
+Cs0 f21 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
+Cs0 f21 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
+' #txt
+Cs0 f21 actionTable 'out=in;
+' #txt
 Cs0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -214,17 +218,19 @@ Cs0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f21 guid 118ADB53D66C046C #txt
-Cs0 f21 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
-Cs0 f21 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
-' #txt
-Cs0 f21 actionTable 'out=in;
-' #txt
 Cs0 f21 854 110 20 20 13 0 #rect
 Cs0 f21 @|RichDialogProcessStartIcon #fIcon
 Cs0 f22 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f22 851 443 26 26 14 0 #rect
 Cs0 f22 @|RichDialogProcessEndIcon #fIcon
+Cs0 f24 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
+' #txt
+Cs0 f24 actionTable 'out=in;
+' #txt
+Cs0 f24 actionCode 'panel.addNoteCollapsiblePane.collapsed = false;
+
+' #txt
+Cs0 f24 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -235,16 +241,14 @@ property collapsed</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f24 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
-' #txt
-Cs0 f24 actionTable 'out=in;
-' #txt
-Cs0 f24 actionCode 'panel.addNoteCollapsiblePane.collapsed = false;
-
-' #txt
-Cs0 f24 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f24 846 268 36 24 20 -2 #rect
 Cs0 f24 @|RichDialogProcessStepIcon #fIcon
+Cs0 f26 guid 118ADB9107AACAF7 #txt
+Cs0 f26 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
+Cs0 f26 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
+' #txt
+Cs0 f26 actionTable 'out=in;
+' #txt
 Cs0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -254,14 +258,14 @@ Cs0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f26 guid 118ADB9107AACAF7 #txt
-Cs0 f26 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
-Cs0 f26 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
-' #txt
-Cs0 f26 actionTable 'out=in;
-' #txt
 Cs0 f26 1094 118 20 20 13 0 #rect
 Cs0 f26 @|RichDialogProcessStartIcon #fIcon
+Cs0 f27 guid 118ADB919AC68901 #txt
+Cs0 f27 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
+Cs0 f27 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
+' #txt
+Cs0 f27 actionTable 'out=in;
+' #txt
 Cs0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -271,24 +275,8 @@ Cs0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f27 guid 118ADB919AC68901 #txt
-Cs0 f27 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
-Cs0 f27 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
-' #txt
-Cs0 f27 actionTable 'out=in;
-' #txt
 Cs0 f27 1286 118 20 20 13 0 #rect
 Cs0 f27 @|RichDialogProcessStartIcon #fIcon
-Cs0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>create 
-the note</name>
-        <nameStyle>16,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f28 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
 ' #txt
 Cs0 f28 actionTable 'out=in;
@@ -309,18 +297,18 @@ out.taskNotes.addAll(taskNotesListTmp);
 
 panel.footerLabel.text = "Note created.";' #txt
 Cs0 f28 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
-Cs0 f28 1086 228 36 24 20 -2 #rect
-Cs0 f28 @|RichDialogProcessStepIcon #fIcon
-Cs0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Cs0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>clear the 
-note information</name>
-        <nameStyle>27,9
+        <name>create 
+the note</name>
+        <nameStyle>16,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Cs0 f28 1086 228 36 24 20 -2 #rect
+Cs0 f28 @|RichDialogProcessStepIcon #fIcon
 Cs0 f32 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
 ' #txt
 Cs0 f32 actionTable 'out=in;
@@ -342,8 +330,24 @@ panel.noteTextArea.requestFocus();
 
 panel.addNoteFlowLayoutPane.visible = true;' #txt
 Cs0 f32 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
+Cs0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>clear the 
+note information</name>
+        <nameStyle>27,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f32 846 396 36 24 20 -2 #rect
 Cs0 f32 @|RichDialogProcessStepIcon #fIcon
+Cs0 f31 guid 118E691FC3D42FFF #txt
+Cs0 f31 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
+Cs0 f31 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
+' #txt
+Cs0 f31 actionTable 'out=in;
+' #txt
 Cs0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -353,14 +357,14 @@ Cs0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f31 guid 118E691FC3D42FFF #txt
-Cs0 f31 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
-Cs0 f31 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
-' #txt
-Cs0 f31 actionTable 'out=in;
-' #txt
 Cs0 f31 1686 118 20 20 13 0 #rect
 Cs0 f31 @|RichDialogProcessStartIcon #fIcon
+Cs0 f36 guid 118E6A74F859323B #txt
+Cs0 f36 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
+Cs0 f36 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
+' #txt
+Cs0 f36 actionTable 'out=in;
+' #txt
 Cs0 f36 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -370,36 +374,19 @@ Cs0 f36 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f36 guid 118E6A74F859323B #txt
-Cs0 f36 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
-Cs0 f36 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
-' #txt
-Cs0 f36 actionTable 'out=in;
-' #txt
 Cs0 f36 1406 118 20 20 13 0 #rect
 Cs0 f36 @|RichDialogProcessStartIcon #fIcon
+Cs0 f38 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f38 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f38 1402 162 28 28 14 0 #rect
 Cs0 f38 @|AlternativeIcon #fIcon
 Cs0 f39 expr out #txt
 Cs0 f39 1416 138 1416 162 #arcP
 Cs0 f39 0 0.723598101685658 0 0 #arcLabel
-Cs0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>delete the 
-current
-selected note</name>
-        <nameStyle>33,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f40 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
 ' #txt
 Cs0 f40 actionTable 'out=in;
@@ -416,33 +403,34 @@ panel.refresh();
 
 ' #txt
 Cs0 f40 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
+Cs0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>delete the 
+current
+selected note</name>
+        <nameStyle>33,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f40 1398 245 36 23 20 -2 #rect
 Cs0 f40 @|RichDialogProcessStepIcon #fIcon
 Cs0 f41 expr in #txt
 Cs0 f41 outCond 'panel.taskNotesTable.getSelectedListEntry() != null' #txt
 Cs0 f41 1416 190 1416 244 #arcP
 Cs0 f41 0 0.8846092272187099 0 0 #arcLabel
+Cs0 f43 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f43 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f43 1682 226 28 28 14 0 #rect
 Cs0 f43 @|AlternativeIcon #fIcon
 Cs0 f44 expr out #txt
 Cs0 f44 1696 138 1696 226 #arcP
 Cs0 f44 0 0.48490258970574446 0 0 #arcLabel
-Cs0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>get the 
-selected note</name>
-        <nameStyle>22,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f35 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
 ' #txt
 Cs0 f35 actionTable 'out=in;
@@ -475,6 +463,16 @@ panel.addNoteCollapsiblePane.collapsed = false;
 */
 panel.footerLabel.text = "";' #txt
 Cs0 f35 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
+Cs0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>get the 
+selected note</name>
+        <nameStyle>22,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f35 1678 308 36 24 20 -2 #rect
 Cs0 f35 @|RichDialogProcessStepIcon #fIcon
 Cs0 f45 expr in #txt
@@ -504,6 +502,12 @@ Cs0 f25 864 130 864 268 #arcP
 Cs0 f37 expr out #txt
 Cs0 f37 864 420 864 443 #arcP
 Cs0 f37 0 0.46686485242491615 0 0 #arcLabel
+Cs0 f34 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
+' #txt
+Cs0 f34 actionTable 'out=in;
+' #txt
+Cs0 f34 actionCode 'panel.addNoteCollapsiblePane.collapsed = true;' #txt
+Cs0 f34 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -513,12 +517,6 @@ Cs0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f34 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
-' #txt
-Cs0 f34 actionTable 'out=in;
-' #txt
-Cs0 f34 actionCode 'panel.addNoteCollapsiblePane.collapsed = true;' #txt
-Cs0 f34 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f34 1086 348 36 24 20 -2 #rect
 Cs0 f34 @|RichDialogProcessStepIcon #fIcon
 Cs0 f23 expr out #txt
@@ -531,6 +529,12 @@ Cs0 f48 1 1104 408 #addKink
 Cs0 f48 1 0.3687546692219806 0 0 #arcLabel
 Cs0 f50 expr out #txt
 Cs0 f50 864 292 864 396 #arcP
+Cs0 f33 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
+' #txt
+Cs0 f33 actionTable 'out=in;
+' #txt
+Cs0 f33 actionCode 'panel.footerLabel.text = "Invalid note selection to delete";' #txt
+Cs0 f33 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -541,12 +545,6 @@ the user</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f33 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
-' #txt
-Cs0 f33 actionTable 'out=in;
-' #txt
-Cs0 f33 actionCode 'panel.footerLabel.text = "Invalid note selection to delete";' #txt
-Cs0 f33 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f33 1518 236 36 24 20 -2 #rect
 Cs0 f33 @|RichDialogProcessStepIcon #fIcon
 Cs0 f51 expr in #txt
@@ -557,6 +555,12 @@ Cs0 f42 expr out #txt
 Cs0 f42 1536 260 876 455 #arcP
 Cs0 f42 1 1536 424 #addKink
 Cs0 f42 1 0.45747378339512 0 0 #arcLabel
+Cs0 f55 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
+' #txt
+Cs0 f55 actionTable 'out=in;
+' #txt
+Cs0 f55 actionCode 'panel.footerLabel.text = "It is not possible to create an empty note.";' #txt
+Cs0 f55 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -567,20 +571,14 @@ the user</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f55 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
-' #txt
-Cs0 f55 actionTable 'out=in;
-' #txt
-Cs0 f55 actionCode 'panel.footerLabel.text = "It is not possible to create an empty note.";' #txt
-Cs0 f55 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f55 1198 236 36 24 20 -2 #rect
 Cs0 f55 @|RichDialogProcessStepIcon #fIcon
+Cs0 f52 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f52 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f52 1090 162 28 28 14 0 #rect
 Cs0 f52 @|AlternativeIcon #fIcon
 Cs0 f53 expr out #txt
@@ -606,6 +604,13 @@ Cs0 f56 expr out #txt
 Cs0 f56 1216 260 876 454 #arcP
 Cs0 f56 1 1216 424 #addKink
 Cs0 f56 1 0.313898984769318 0 0 #arcLabel
+Cs0 f57 actionDecl 'Number aTaskIdentifier;
+' #txt
+Cs0 f57 actionTable 'aTaskIdentifier=in.task.getIdentifier();
+' #txt
+Cs0 f57 actionCode panel.fireXivyTaskNotesChanged(aTaskIdentifier); #txt
+Cs0 f57 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
+Cs0 f57 fireEvent xivyTaskNotesChanged(Number) #txt
 Cs0 f57 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -616,13 +621,6 @@ Cs0 f57 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f57 actionDecl 'Number aTaskIdentifier;
-' #txt
-Cs0 f57 actionTable 'aTaskIdentifier=in.task.getIdentifier();
-' #txt
-Cs0 f57 actionCode panel.fireXivyTaskNotesChanged(aTaskIdentifier); #txt
-Cs0 f57 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
-Cs0 f57 fireEvent xivyTaskNotesChanged(Number) #txt
 Cs0 f57 1086 284 36 24 20 -2 #rect
 Cs0 f57 @|RichDialogFireEventIcon #fIcon
 Cs0 f58 expr out #txt
@@ -639,15 +637,6 @@ Cs0 f7 expr out #txt
 Cs0 f7 136 300 60 357 #arcP
 Cs0 f7 1 136 344 #addKink
 Cs0 f7 0 0.686927388582642 0 0 #arcLabel
-Cs0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(ITask,Boolean)</name>
-        <nameStyle>20,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f1 guid 1194BF80C6BD7E9C #txt
 Cs0 f1 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f1 method start(ch.ivyteam.ivy.workflow.ITask,Boolean) #txt
@@ -661,6 +650,15 @@ out.task=param.aTask;
 Cs0 f1 outParameterDecl '<> result;
 ' #txt
 Cs0 f1 embeddedRdInitializations '* ' #txt
+Cs0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(ITask,Boolean)</name>
+        <nameStyle>20,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f1 126 118 20 20 13 0 #rect
 Cs0 f1 @|RichDialogInitStartIcon #fIcon
 Cs0 f2 expr out #txt
@@ -671,15 +669,6 @@ Cs0 f5 expr out #txt
 Cs0 f5 432 138 334 248 #arcP
 Cs0 f5 1 432 248 #addKink
 Cs0 f5 0 0.9671538165019362 0 0 #arcLabel
-Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>taskIsInitialized()</name>
-        <nameStyle>19,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f8 guid 11A017D8308B4727 #txt
 Cs0 f8 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
 Cs0 f8 method taskIsInitialized() #txt
@@ -691,8 +680,23 @@ Cs0 f8 outParameterDecl '<java.lang.Boolean isInitialized> result;
 ' #txt
 Cs0 f8 outParameterMapAction 'result.isInitialized=(in.#task != null);
 ' #txt
+Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>taskIsInitialized()</name>
+        <nameStyle>19,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f8 526 118 20 20 13 0 #rect
 Cs0 f8 @|RichDialogMethodStartIcon #fIcon
+Cs0 f18 guid 11B45C6915FFBE65 #txt
+Cs0 f18 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
+Cs0 f18 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
+' #txt
+Cs0 f18 actionTable 'out=in;
+' #txt
 Cs0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -702,24 +706,8 @@ Cs0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f18 guid 11B45C6915FFBE65 #txt
-Cs0 f18 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
-Cs0 f18 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
-' #txt
-Cs0 f18 actionTable 'out=in;
-' #txt
 Cs0 f18 702 110 20 20 13 0 #rect
 Cs0 f18 @|RichDialogProcessStartIcon #fIcon
-Cs0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set titles on borders 
-with cms entries</name>
-        <nameStyle>39,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f20 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData out;
 ' #txt
 Cs0 f20 actionTable 'out=in;
@@ -730,6 +718,16 @@ Cs0 f20 actionCode 'import com.ulcjava.base.application.border.ULCTitledBorder;
 (panel.noteDetailsEditGridBagLayoutPane.getBorder() as ULCTitledBorder).setTitle(
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/noteDetails"));' #txt
 Cs0 f20 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
+Cs0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>set titles on borders 
+with cms entries</name>
+        <nameStyle>39,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f20 694 164 36 24 20 -2 #rect
 Cs0 f20 @|RichDialogProcessStepIcon #fIcon
 Cs0 f60 expr out #txt
