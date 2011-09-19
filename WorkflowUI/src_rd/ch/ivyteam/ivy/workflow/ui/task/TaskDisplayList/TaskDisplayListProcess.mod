@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 15 14:17:25 CEST 2011]
+[>Created: Mon Sep 19 17:34:06 CEST 2011]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -315,6 +315,7 @@ Ts0 @PushWFArc f42 '' #zField
 Ts0 @PushWFArc f51 '' #zField
 Ts0 @PushWFArc f97 '' #zField
 Ts0 @PushWFArc f85 '' #zField
+Ts0 @RichDialogProcessStep f115 '' #zField
 >Proto Ts0 Ts0 TaskDisplayListProcess #zField
 Ts0 f0 guid 1168B153651C96FA #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -1531,195 +1532,243 @@ import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
 import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.TaskState;
 
-
-if (panel.tasksTable.getSelectedListEntry() != null & panel.tasksTable.getSelectedListEntry() instanceof ITaskWrapper)
+if (panel.tasksTable.getSelectedListEntries() is initialized)
 {
-	ITaskWrapper currentWfTaskWrapper = panel.tasksTable.getSelectedListEntry() as ITaskWrapper;
-	ITask currentTask = currentWfTaskWrapper.wfTask;
-	in.filteredTasks.elementChangedAt(in.filteredTasks.indexOf(currentWfTaskWrapper));
+	List<ITaskWrapper> selectedWfTaskWrappers;
+	selectedWfTaskWrappers.clear();
+	selectedWfTaskWrappers.addAll(panel.tasksTable.getSelectedListEntries());
 	
-	// is user team manager on this task?
-	Boolean isSessionUserTeamManagerOnWfTask = CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(currentTask);
+	ITask currentTask;
+	Boolean isSessionUserTeamManagerOnWfTask = false;
 	
-	//----------------------
-	// information on task
-	//----------------------
-	Boolean enableTaskDetails = false;
-	if (in.taskDisplayMode >= 0 && in.taskDisplayMode <= 2)
+	Boolean enableTaskDetails = true;
+	Boolean enableStartTask = true;
+	Boolean enableParkTask = true;
+	Boolean enableDelegateTask = true;
+	Boolean enableSetExpiryDate = true;
+	Boolean enableSetBlockingDelay = true;
+	Boolean enableResetTask = true;
+	Boolean enableDestroyTask = true;
+	
+	//
+	// task display modes are:
+	// -1=get all tasks of the case, 0=your tasks, 1=team tasks, 2=all env. tasks (wf admin mode), 3=any query
+	//
+			
+	for (ITaskWrapper currentWfTaskWrapper: selectedWfTaskWrappers)
 	{
-		// my tasks, team tasks or all tasks (wf admin) modes
-		enableTaskDetails = true;
-	}
-	else if (in.taskDisplayMode == -1 && isSessionUserTeamManagerOnWfTask)
-	{
-		// this is tasks of case display mode
-		// if the session user is team manager on the task and the case then he can see task details
-		enableTaskDetails = true;
-	}
+
+		currentTask = currentWfTaskWrapper.wfTask;
+		
+		// is user team manager on this task?
+		isSessionUserTeamManagerOnWfTask = CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(currentTask);
+
+		//----------------------
+		// task details			
+		//----------------------
+		if (enableTaskDetails)
+		{
+			if (
+					(in.taskDisplayMode == -1 && isSessionUserTeamManagerOnWfTask) ||					
+					(in.taskDisplayMode >= 0 && in.taskDisplayMode <= 2) ||
+					(in.taskDisplayMode == 3 && (isSessionUserTeamManagerOnWfTask || in.hasWfAdministratorPermissions))
+					)
+			{
+				enableTaskDetails = true;
+			}
+			else
+			{
+				enableTaskDetails = false;
+			}				
+		}
+
+			
+		//----------------------
+		// start task
+		//----------------------
+		if (enableStartTask)
+		{
+			if ((currentTask.getState().equals(TaskState.SUSPENDED) || currentTask.getState().equals(TaskState.PARKED)) &&
+						(
+							(in.taskDisplayMode == -1 & isSessionUserTeamManagerOnWfTask) ||
+							(in.taskDisplayMode == 0 || in.taskDisplayMode == 1) ||
+							(in.taskDisplayMode == 3 && (in.hasWfAdministratorPermissions || isSessionUserTeamManagerOnWfTask))
+						)
+					)
+			{
+				enableStartTask = true;
+			}
+			else
+			{
+				enableStartTask = false;
+			}
+		}
+
+		//----------------------
+		// park task
+		//----------------------
+		if (enableParkTask)
+		{
+			if (currentTask.getState().equals(TaskState.RESUMED) && 
+						(
+							(in.taskDisplayMode == -1 & isSessionUserTeamManagerOnWfTask) ||
+							((in.taskDisplayMode == 0 || in.taskDisplayMode == 1) && currentTask.getWorkerUserName().equals(ivy.session.getSessionUserName())) ||
+							(in.taskDisplayMode == 2 && in.hasWfAdministratorPermissions) ||
+							(in.taskDisplayMode == 3 && (in.hasWfAdministratorPermissions || isSessionUserTeamManagerOnWfTask))
+						)
+					)
+			{
+				enableParkTask = true;
+			}
+			else
+			{
+				enableParkTask = false;
+			}
+		}
+		
+		//----------------------
+		// delegate task
+		//----------------------
+		if (enableDelegateTask)
+		{
+			if ((currentTask.getState().equals(TaskState.SUSPENDED) || currentTask.getState().equals(TaskState.PARKED) || currentTask.getState().equals(TaskState.UNASSIGNED)) &&
+						(
+							(in.taskDisplayMode == -1 && in.hasPermissionDelegateTasks && isSessionUserTeamManagerOnWfTask) ||
+							((in.taskDisplayMode == 0 || in.taskDisplayMode == 1) && in.hasPermissionDelegateTasks) ||
+							(in.taskDisplayMode == 2 && in.hasWfAdministratorPermissions) ||
+							(in.taskDisplayMode == 3 && (in.hasWfAdministratorPermissions || isSessionUserTeamManagerOnWfTask))
+						)
+					)
+			{
+				enableDelegateTask = true;
+			}
+			else
+			{
+				enableDelegateTask = false;
+			}
+		}
+		
+		//----------------------	
+		// set expiry date
+		//----------------------
+		if (enableSetExpiryDate)
+		{
+			if ((currentTask.getDelayTimestamp() is initialized) && currentTask.getState().equals(TaskState.DELAYED) && 
+						(
+							(in.taskDisplayMode == 2 && in.hasWfAdministratorPermissions) || 
+							(in.taskDisplayMode == 3 && (in.hasWfAdministratorPermissions || isSessionUserTeamManagerOnWfTask))
+						)
+					)
+			{
+				enableSetExpiryDate = true;	
+			}
+			else
+			{
+				enableSetExpiryDate = false;	
+			}						
+		}
+		
+		//-------------------------	
+		// set blocking delay date
+		//-------------------------
+		if (enableSetBlockingDelay)
+		{
+			if ((currentTask.getDelayTimestamp() is initialized) && currentTask.getState().equals(TaskState.DELAYED) &&
+							(in.taskDisplayMode == 2 && in.hasWfAdministratorPermissions) || 
+							(in.taskDisplayMode == 3 && (in.hasWfAdministratorPermissions || isSessionUserTeamManagerOnWfTask))
+					)
+			{
+				enableSetBlockingDelay = true;
+			}
+			else
+			{
+				enableSetBlockingDelay = false;	
+			}			
+		}
+
+		//----------------------
+		// reset the task
+		//----------------------
+		if (enableResetTask)
+		{
+			if ((	currentTask.getState().equals(TaskState.CREATED) || currentTask.getState().equals(TaskState.RESUMED) ||
+						currentTask.getState().equals(TaskState.PARKED) || currentTask.getState().equals(TaskState.READY_FOR_JOIN)) &&
+							(in.taskDisplayMode == 2 && in.hasWfAdministratorPermissions) || 
+							(in.taskDisplayMode == 3 && (in.hasWfAdministratorPermissions || isSessionUserTeamManagerOnWfTask))
+					)
+			{
+				enableResetTask = true;	
+			}
+			else
+			{
+				enableResetTask = false;	
+			}
+		}
+
+		//----------------------
+		// destroy the task
+		//----------------------
+		if (enableDestroyTask)
+		{
+			if ((currentTask.getState().equals(TaskState.DELAYED) ||
+																			currentTask.getState().equals(TaskState.SUSPENDED) ||
+																			currentTask.getState().equals(TaskState.PARKED) ||
+																			currentTask.getState().equals(TaskState.RESUMED) ||
+																			currentTask.getState().equals(TaskState.UNASSIGNED) ||
+																			currentTask.getState().equals(TaskState.FAILED) ||
+																			currentTask.getState().equals(TaskState.READY_FOR_JOIN) ||
+																			currentTask.getState().equals(TaskState.JOINING) ||
+																			currentTask.getState().equals(TaskState.JOIN_FAILED) ||
+																			currentTask.getState().equals(TaskState.CREATED)) &&
+								(in.taskDisplayMode == 2 && in.hasWfAdministratorPermissions) || 
+								(in.taskDisplayMode == 3 && (in.hasWfAdministratorPermissions || isSessionUserTeamManagerOnWfTask))
+				)	
+			{
+				enableDestroyTask = true;
+			}
+			else
+			{
+				enableDestroyTask = false;
+			}
+		}		
+								
+	}// end for
+	
+	
+	// enable/disable buttons according to the selection entries on task list
+	
+	// task details
 	panel.informOnTaskButton.enabled = enableTaskDetails;
 	panel.informOnTaskOnSiblingTabMenuItem.enabled = panel.informOnTaskButton.enabled;
-
-	//----------------------
+	
 	// start task
-	//----------------------
-	Boolean enableStartTask = false;
-	if (in.taskDisplayMode == -1)
-	{
-		// this is tasks of case display mode
-		// if the session user is team manager on the task and the case, 
-		// then he can "execute instead of" the "normal" activator
-		ivy.log.debug("Is session user team manager on the task? <{0}>.", isSessionUserTeamManagerOnWfTask);
-		enableStartTask = (currentTask.getState().equals(TaskState.SUSPENDED) || currentTask.getState().equals(TaskState.PARKED)) && isSessionUserTeamManagerOnWfTask;
-	}else if (in.taskDisplayMode == 0 || in.taskDisplayMode == 1)
-	{
-		// this is my tasks or team tasks display mode
-		enableStartTask = currentTask.getState().equals(TaskState.SUSPENDED) || currentTask.getState().equals(TaskState.PARKED);
-	}
-	else if (in.taskDisplayMode == 2)
-	{
-		// this is all tasks (wf administrator) display mode
-		enableStartTask = false;
-	}
-	ivy.log.debug("Current task display mode is <{0}>, start task enabled? <{1}>.", in.taskDisplayMode, enableStartTask);
 	panel.startTaskButton.enabled = enableStartTask;	
 	panel.startTaskOnSiblingTabMenuItem.enabled = panel.startTaskButton.enabled;
-
-
-	//----------------------
-	// park task
-	//----------------------
-	Boolean enableParkTask = false;
-	if (in.taskDisplayMode == 0 || in.taskDisplayMode == 1)
-	{
-		// my tasks or team tasks mode
-		// task can be parked only by the person who started it
-		enableParkTask = currentTask.getState().equals(TaskState.RESUMED) && currentTask.getWorkerUserName().equals(ivy.session.getSessionUserName());
-	}
-	else if (in.taskDisplayMode == 2)
-	{
-		// all tasks mode (wf administrator)
-		// wf admin can always park task
-		enableParkTask = currentTask.getState().equals(TaskState.RESUMED);
-	}
 	
+	// park task
 	panel.parkTaskButton.enabled = enableParkTask;
 	panel.parkTaskMenuItem.enabled = panel.parkTaskButton.enabled;
-
-
-	//----------------------
-	// delegate task
-	//----------------------
-	Boolean enableDelegateTask = false;
-	if (in.taskDisplayMode == 0 || in.taskDisplayMode == 1)
-	{
-		// my tasks or team tasks mode
-		// user can delegate if he has permission and if task could be delegated
-		enableDelegateTask = in.hasPermissionDelegateTasks && 
-																			(currentTask.getState().equals(TaskState.SUSPENDED) 
-																				|| currentTask.getState().equals(TaskState.PARKED)
-																				|| currentTask.getState().equals(TaskState.UNASSIGNED));
-	}
-	else if (in.taskDisplayMode == 2)
-	{
-		// all tasks mode (wf admin)
-		// wf admin can delegate task if it could be delegated
-		enableDelegateTask = in.hasWfAdministratorPermissions && 
-																			(currentTask.getState().equals(TaskState.SUSPENDED) 
-																				|| currentTask.getState().equals(TaskState.PARKED)
-																				|| currentTask.getState().equals(TaskState.UNASSIGNED));
-	}
-	else if (in.taskDisplayMode == -1)
-	{
-		// tasks of case mode
-		// user can delegate the task only he has permission and he is team manager of it and if task could be delegated
-		enableDelegateTask = in.hasPermissionDelegateTasks && isSessionUserTeamManagerOnWfTask && 
-																			(currentTask.getState().equals(TaskState.SUSPENDED) 
-																				|| currentTask.getState().equals(TaskState.PARKED)
-																				|| currentTask.getState().equals(TaskState.UNASSIGNED));
-	}
 	
+	// delegate task
 	panel.delegateTaskButton.enabled = enableDelegateTask;
 	panel.delegateTaskMenuItem.enabled = panel.delegateTaskButton.enabled;
-
-
-	//----------------------	
+	
 	// set expiry date
-	//----------------------
-	panel.setTaskExpiryDateButton.enabled = (in.hasWfAdministratorPermissions && currentTask.getExpiryTimestamp() is initialized && currentTask.getState().equals(TaskState.SUSPENDED));
-	panel.setTaskExpiryDateMenuItem.enabled = panel.setTaskExpiryDateButton.enabled;
-
-
-	//----------------------	
+	panel.setTaskExpiryDateButton.enabled = enableSetExpiryDate;
+	panel.setTaskExpiryDateMenuItem.enabled = enableSetExpiryDate;
+	
 	// set blocking delay date
-	//----------------------
-	panel.setTaskBlockingDelayDateButton.enabled = (in.hasWfAdministratorPermissions && 
-																									(currentTask.getDelayTimestamp() is initialized) && currentTask.getState().equals(TaskState.DELAYED));
-	panel.setTaskBlockingDelayDateMenuItem.enabled = panel.setTaskBlockingDelayDateButton.enabled;
-
-
-	//----------------------
+	panel.setTaskBlockingDelayDateButton.enabled = enableSetBlockingDelay;
+	panel.setTaskBlockingDelayDateMenuItem.enabled = enableSetBlockingDelay;
+	
 	// reset the task
-	//----------------------	
-	// State of Task must be one of the following values RESUMED, CREATED, PARKED, READY_FOR_JOIN
-	panel.resetTaskButton.enabled = (in.hasWfAdministratorPermissions && 
-																		(currentTask.getState().equals(TaskState.CREATED) || 
-																		currentTask.getState().equals(TaskState.RESUMED) ||
-																		currentTask.getState().equals(TaskState.PARKED) || 
-																		currentTask.getState().equals(TaskState.READY_FOR_JOIN)));
-	panel.resetTaskMenuItem.enabled = panel.resetTaskButton.enabled;		
-					
-
-	//----------------------
-	// destroy the task
-	//----------------------
-	panel.destroyTaskButton.enabled = (in.hasWfAdministratorPermissions && 
-																		(currentTask.getState().equals(TaskState.DELAYED) ||
-																		currentTask.getState().equals(TaskState.SUSPENDED) ||
-																		currentTask.getState().equals(TaskState.PARKED) ||
-																		currentTask.getState().equals(TaskState.RESUMED) ||
-																		currentTask.getState().equals(TaskState.UNASSIGNED) ||
-																		currentTask.getState().equals(TaskState.FAILED) ||
-																		currentTask.getState().equals(TaskState.READY_FOR_JOIN) ||
-																		currentTask.getState().equals(TaskState.JOINING) ||
-																		currentTask.getState().equals(TaskState.JOIN_FAILED) ||
-																		currentTask.getState().equals(TaskState.CREATED)));
-
-	panel.destroyTaskMenuItem.enabled = panel.destroyTaskButton.enabled;
-
-}
-else
-{
-	// information on task
-	panel.informOnTaskButton.enabled = false;
-	panel.informOnTaskOnSiblingTabMenuItem.enabled = false;
-	
-	// start task
-	panel.startTaskButton.enabled = false;																
-	panel.startTaskOnSiblingTabMenuItem.enabled = false;
-	
-	// park task
-	panel.parkTaskButton.enabled = false;
-	panel.parkTaskMenuItem.enabled = false;
-
-	// delegate task
-	panel.delegateTaskButton.enabled = false;	
-	panel.delegateTaskMenuItem.enabled = false;
-	
-	// set expiry date
-	panel.setTaskExpiryDateButton.enabled = false;
-	panel.setTaskExpiryDateMenuItem.enabled = false;
-	
-	// set blocking delay date
-	panel.setTaskBlockingDelayDateButton.enabled = false;
-	panel.setTaskBlockingDelayDateMenuItem.enabled = false;
-	
-	// cancel the task
-	panel.resetTaskButton.enabled = false;
-	panel.resetTaskMenuItem.enabled = false;
+	panel.resetTaskButton.enabled = enableResetTask;
+	panel.resetTaskMenuItem.enabled = enableResetTask;
 	
 	// destroy the task
-	panel.destroyTaskButton.enabled = false;
-	panel.destroyTaskMenuItem.enabled = false;	
+	panel.destroyTaskButton.enabled = enableDestroyTask;
+	panel.destroyTaskMenuItem.enabled = enableDestroyTask;
+	
 }' #txt
 Ts0 f154 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f154 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1733,12 +1782,12 @@ acc. to the table selection</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f154 2918 964 36 24 21 2 #rect
+Ts0 f154 2918 988 36 24 21 2 #rect
 Ts0 f154 @|RichDialogProcessStepIcon #fIcon
 Ts0 f155 expr out #txt
-Ts0 f155 2936 898 2936 964 #arcP
+Ts0 f155 2936 898 2936 988 #arcP
 Ts0 f153 expr out #txt
-Ts0 f153 2936 988 2936 1123 #arcP
+Ts0 f153 2936 1012 2936 1123 #arcP
 Ts0 f157 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f157 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -2407,55 +2456,34 @@ Ts0 f89 actionCode 'import com.ulcjava.base.application.border.ULCTitledBorder;
 
 
 panel.refreshTaskListMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/refreshTaskListShortDesc");
-// panel.refreshTaskListMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/refreshTaskListLongDesc");
 // panel.refreshTaskListMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/refreshTaskList16");
 
-
-
 panel.findTaskMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/findTaskShortDesc");
-// panel.findTaskMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/findTaskLongDesc");
 // panel.findTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/findTask16");
 
-
 panel.informOnTaskOnSiblingTabMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/informOnTaskShortDesc");
-																							
-// panel.informOnTaskOnSiblingTabMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/informOnTaskLongDesc") ;
 // panel.informOnTaskOnSiblingTabMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/informOnTask16");
 
-
 panel.startTaskOnSiblingTabMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskShortDesc");
-// panel.startTaskOnSiblingTabMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskLongDesc");
 panel.startTaskOnSiblingTabMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/start16");
 
-
 panel.parkTaskMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskShortDesc");
-// panel.parkTaskMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskLongDesc");
 // panel.parkTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/park16");
 
-
 panel.delegateTaskMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskShortDesc");
-// panel.delegateTaskMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskLongDesc");
 // panel.delegateTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/delegate16");
 
-
 panel.setTaskExpiryDateMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskExpiryTimestampShortDesc");
-// panel.setTaskExpiryDateMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskExpiryTimestampLongDesc");
 // panel.setTaskExpiryDateMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/setExpiry16");
 
-
 panel.setTaskBlockingDelayDateMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskBlockingDelayTimestampShortDesc");
-// panel.setTaskBlockingDelayDateMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskBlockingDelayTimestampLongDesc");
 // panel.setTaskBlockingDelayDateMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/setBlockingDelay16");
 
-
 panel.resetTaskMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/cancelTaskShortDesc");
-// panel.resetTaskMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/cancelTaskLongDesc");
 // panel.resetTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/reset16");
 
 
 panel.destroyTaskMenuItem.text = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/destroyTaskShortDesc");
-// panel.destroyTaskMenuItem.toolTipText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/destroyTaskLongDesc");
-// panel.destroyTaskMenuItem.iconUri = ivy.cms.cr("/ch/ivyteam/ivy/workflow/ui/task/images/destroy16");
 
 
 // if parent display not defined, then use the existing one
@@ -4610,6 +4638,220 @@ Ts0 f85 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f85 2296 518 2296 578 #arcP
 Ts0 f85 0 0.4090909090909091 -1 0 #arcLabel
+Ts0 f115 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
+' #txt
+Ts0 f115 actionTable 'out=in;
+' #txt
+Ts0 f115 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
+import ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper;
+import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
+import ch.ivyteam.ivy.workflow.ITask;
+import ch.ivyteam.ivy.workflow.TaskState;
+
+
+if (panel.tasksTable.getSelectedListEntry() != null & panel.tasksTable.getSelectedListEntry() instanceof ITaskWrapper)
+{
+	ITaskWrapper currentWfTaskWrapper = panel.tasksTable.getSelectedListEntry() as ITaskWrapper;
+	ITask currentTask = currentWfTaskWrapper.wfTask;
+	in.filteredTasks.elementChangedAt(in.filteredTasks.indexOf(currentWfTaskWrapper));
+	
+	// is user team manager on this task?
+	Boolean isSessionUserTeamManagerOnWfTask = CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(currentTask);
+	
+	//----------------------
+	// information on task
+	//----------------------
+	Boolean enableTaskDetails = false;
+	if (in.taskDisplayMode >= 0 && in.taskDisplayMode <= 2)
+	{
+		// my tasks, team tasks or all tasks (wf admin) modes
+		enableTaskDetails = true;
+	}
+	else if (in.taskDisplayMode == -1 && isSessionUserTeamManagerOnWfTask)
+	{
+		// this is tasks of case display mode
+		// if the session user is team manager on the task and the case then he can see task details
+		enableTaskDetails = true;
+	}
+	panel.informOnTaskButton.enabled = enableTaskDetails;
+	panel.informOnTaskOnSiblingTabMenuItem.enabled = panel.informOnTaskButton.enabled;
+
+	//----------------------
+	// start task
+	//----------------------
+	Boolean enableStartTask = false;
+	if (in.taskDisplayMode == -1)
+	{
+		// this is tasks of case display mode
+		// if the session user is team manager on the task and the case, 
+		// then he can "execute instead of" the "normal" activator
+		ivy.log.debug("Is session user team manager on the task? <{0}>.", isSessionUserTeamManagerOnWfTask);
+		enableStartTask = (currentTask.getState().equals(TaskState.SUSPENDED) || currentTask.getState().equals(TaskState.PARKED)) && isSessionUserTeamManagerOnWfTask;
+	}else if (in.taskDisplayMode == 0 || in.taskDisplayMode == 1)
+	{
+		// this is my tasks or team tasks display mode
+		enableStartTask = currentTask.getState().equals(TaskState.SUSPENDED) || currentTask.getState().equals(TaskState.PARKED);
+	}
+	else if (in.taskDisplayMode == 2)
+	{
+		// this is all tasks (wf administrator) display mode
+		enableStartTask = false;
+	}
+	ivy.log.debug("Current task display mode is <{0}>, start task enabled? <{1}>.", in.taskDisplayMode, enableStartTask);
+	panel.startTaskButton.enabled = enableStartTask;	
+	panel.startTaskOnSiblingTabMenuItem.enabled = panel.startTaskButton.enabled;
+
+
+	//----------------------
+	// park task
+	//----------------------
+	Boolean enableParkTask = false;
+	if (in.taskDisplayMode == 0 || in.taskDisplayMode == 1)
+	{
+		// my tasks or team tasks mode
+		// task can be parked only by the person who started it
+		enableParkTask = currentTask.getState().equals(TaskState.RESUMED) && currentTask.getWorkerUserName().equals(ivy.session.getSessionUserName());
+	}
+	else if (in.taskDisplayMode == 2)
+	{
+		// all tasks mode (wf administrator)
+		// wf admin can always park task
+		enableParkTask = currentTask.getState().equals(TaskState.RESUMED);
+	}
+	
+	panel.parkTaskButton.enabled = enableParkTask;
+	panel.parkTaskMenuItem.enabled = panel.parkTaskButton.enabled;
+
+
+	//----------------------
+	// delegate task
+	//----------------------
+	Boolean enableDelegateTask = false;
+	if (in.taskDisplayMode == 0 || in.taskDisplayMode == 1)
+	{
+		// my tasks or team tasks mode
+		// user can delegate if he has permission and if task could be delegated
+		enableDelegateTask = in.hasPermissionDelegateTasks && 
+																			(currentTask.getState().equals(TaskState.SUSPENDED) 
+																				|| currentTask.getState().equals(TaskState.PARKED)
+																				|| currentTask.getState().equals(TaskState.UNASSIGNED));
+	}
+	else if (in.taskDisplayMode == 2)
+	{
+		// all tasks mode (wf admin)
+		// wf admin can delegate task if it could be delegated
+		enableDelegateTask = in.hasWfAdministratorPermissions && 
+																			(currentTask.getState().equals(TaskState.SUSPENDED) 
+																				|| currentTask.getState().equals(TaskState.PARKED)
+																				|| currentTask.getState().equals(TaskState.UNASSIGNED));
+	}
+	else if (in.taskDisplayMode == -1)
+	{
+		// tasks of case mode
+		// user can delegate the task only he has permission and he is team manager of it and if task could be delegated
+		enableDelegateTask = in.hasPermissionDelegateTasks && isSessionUserTeamManagerOnWfTask && 
+																			(currentTask.getState().equals(TaskState.SUSPENDED) 
+																				|| currentTask.getState().equals(TaskState.PARKED)
+																				|| currentTask.getState().equals(TaskState.UNASSIGNED));
+	}
+	
+	panel.delegateTaskButton.enabled = enableDelegateTask;
+	panel.delegateTaskMenuItem.enabled = panel.delegateTaskButton.enabled;
+
+
+	//----------------------	
+	// set expiry date
+	//----------------------
+	panel.setTaskExpiryDateButton.enabled = (in.hasWfAdministratorPermissions && currentTask.getExpiryTimestamp() is initialized && currentTask.getState().equals(TaskState.SUSPENDED));
+	panel.setTaskExpiryDateMenuItem.enabled = panel.setTaskExpiryDateButton.enabled;
+
+
+	//----------------------	
+	// set blocking delay date
+	//----------------------
+	panel.setTaskBlockingDelayDateButton.enabled = (in.hasWfAdministratorPermissions && 
+																									(currentTask.getDelayTimestamp() is initialized) && currentTask.getState().equals(TaskState.DELAYED));
+	panel.setTaskBlockingDelayDateMenuItem.enabled = panel.setTaskBlockingDelayDateButton.enabled;
+
+
+	//----------------------
+	// reset the task
+	//----------------------	
+	// State of Task must be one of the following values RESUMED, CREATED, PARKED, READY_FOR_JOIN
+	panel.resetTaskButton.enabled = (in.hasWfAdministratorPermissions && 
+																		(currentTask.getState().equals(TaskState.CREATED) || 
+																		currentTask.getState().equals(TaskState.RESUMED) ||
+																		currentTask.getState().equals(TaskState.PARKED) || 
+																		currentTask.getState().equals(TaskState.READY_FOR_JOIN)));
+	panel.resetTaskMenuItem.enabled = panel.resetTaskButton.enabled;		
+					
+
+	//----------------------
+	// destroy the task
+	//----------------------
+	panel.destroyTaskButton.enabled = (in.hasWfAdministratorPermissions && 
+																		(currentTask.getState().equals(TaskState.DELAYED) ||
+																		currentTask.getState().equals(TaskState.SUSPENDED) ||
+																		currentTask.getState().equals(TaskState.PARKED) ||
+																		currentTask.getState().equals(TaskState.RESUMED) ||
+																		currentTask.getState().equals(TaskState.UNASSIGNED) ||
+																		currentTask.getState().equals(TaskState.FAILED) ||
+																		currentTask.getState().equals(TaskState.READY_FOR_JOIN) ||
+																		currentTask.getState().equals(TaskState.JOINING) ||
+																		currentTask.getState().equals(TaskState.JOIN_FAILED) ||
+																		currentTask.getState().equals(TaskState.CREATED)));
+
+	panel.destroyTaskMenuItem.enabled = panel.destroyTaskButton.enabled;
+
+}
+else
+{
+	// information on task
+	panel.informOnTaskButton.enabled = false;
+	panel.informOnTaskOnSiblingTabMenuItem.enabled = false;
+	
+	// start task
+	panel.startTaskButton.enabled = false;																
+	panel.startTaskOnSiblingTabMenuItem.enabled = false;
+	
+	// park task
+	panel.parkTaskButton.enabled = false;
+	panel.parkTaskMenuItem.enabled = false;
+
+	// delegate task
+	panel.delegateTaskButton.enabled = false;	
+	panel.delegateTaskMenuItem.enabled = false;
+	
+	// set expiry date
+	panel.setTaskExpiryDateButton.enabled = false;
+	panel.setTaskExpiryDateMenuItem.enabled = false;
+	
+	// set blocking delay date
+	panel.setTaskBlockingDelayDateButton.enabled = false;
+	panel.setTaskBlockingDelayDateMenuItem.enabled = false;
+	
+	// cancel the task
+	panel.resetTaskButton.enabled = false;
+	panel.resetTaskMenuItem.enabled = false;
+	
+	// destroy the task
+	panel.destroyTaskButton.enabled = false;
+	panel.destroyTaskMenuItem.enabled = false;	
+}' #txt
+Ts0 f115 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
+Ts0 f115 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>update buttons
+and popup menu items
+acc. to the table selection</name>
+        <nameStyle>63,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f115 3110 988 36 24 21 2 #rect
+Ts0 f115 @|RichDialogProcessStepIcon #fIcon
 >Proto Ts0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -4636,24 +4878,23 @@ out.nameCriteria=panel.taskNameOrCaseNameCriteriaTextField.text;
 out.selectedTaskObject=panel.tasksTable.getSelectedListEntry();
 ' #txt
 >Proto Ts0 .rdData2UIAction 'panel.automaticTasksExecutionToggleButton.visible=in.runningTaskMode && (in.taskDisplayMode == 0 || in.taskDisplayMode == 1);
-panel.delegateTaskButton.visible=in.runningTaskMode;
+panel.delegateTaskButton.visible=in.runningTaskMode && in.taskDisplayMode != -1;
 panel.delegateTaskMenuItem.visible=in.runningTaskMode;
-panel.destroyTaskButton.visible=in.hasWfAdministratorPermissions && in.taskDisplayMode == 2 && in.runningTaskMode;
+panel.destroyTaskButton.visible=in.hasWfAdministratorPermissions && in.runningTaskMode && (in.taskDisplayMode == 2 || in.taskDisplayMode == 3);
 panel.destroyTaskMenuItem.visible=in.runningTaskMode;
 panel.footerLabel.text=in.footerMessage;
 panel.parkTaskButton.visible=in.runningTaskMode && in.taskDisplayMode != -1;
 panel.parkTaskMenuItem.visible=in.runningTaskMode && !(in.#aCase is initialized);
-panel.resetTaskButton.visible=in.hasWfAdministratorPermissions && in.taskDisplayMode == 2 && in.runningTaskMode;
+panel.resetTaskButton.visible=in.hasWfAdministratorPermissions && in.runningTaskMode && (in.taskDisplayMode == 2 || in.taskDisplayMode == 3);
 panel.resetTaskMenuItem.visible=in.runningTaskMode;
-panel.setTaskBlockingDelayDateButton.visible=in.hasWfAdministratorPermissions && in.taskDisplayMode == 2 && in.runningTaskMode;
+panel.setTaskBlockingDelayDateButton.visible=in.hasWfAdministratorPermissions && in.runningTaskMode && (in.taskDisplayMode == 2 || in.taskDisplayMode == 3);
 panel.setTaskBlockingDelayDateMenuItem.visible=in.runningTaskMode;
-panel.setTaskExpiryDateButton.visible=in.hasWfAdministratorPermissions &&  in.taskDisplayMode == 2 && in.runningTaskMode;
+panel.setTaskExpiryDateButton.visible=in.hasWfAdministratorPermissions && in.runningTaskMode && (in.taskDisplayMode == 2 || in.taskDisplayMode == 3);
 panel.setTaskExpiryDateMenuItem.visible=in.runningTaskMode;
-panel.startTaskButton.visible=in.runningTaskMode && (in.taskDisplayMode == 0 || in.taskDisplayMode == 1 || in.taskDisplayMode == -1);
+panel.startTaskButton.visible=in.runningTaskMode && (in.taskDisplayMode != 2);
 panel.startTaskOnSiblingTabMenuItem.visible=in.runningTaskMode && !(in.#aCase is initialized);
 panel.tasksTable.listData=in.filteredTasks;
 panel.automaticTasksExecutionToggleButton.selected=in.automaticTasksExecutionMode;
-panel.informOnTaskButton.visible=in.taskDisplayMode >=0 && in.taskDisplayMode <=2;
 ' #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
 >Proto Ts0 '' #fIcon

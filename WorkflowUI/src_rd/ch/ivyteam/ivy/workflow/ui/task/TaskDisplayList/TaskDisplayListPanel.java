@@ -229,7 +229,7 @@ private RTableWithExcelExport getTasksTable() {
 		tasksTable.setSortable(true);
 		tasksTable.setName("tasksTable");
 		tasksTable.setPreferredScrollableViewportSize(new com.ulcjava.base.application.util.Dimension(1920,80));
-		tasksTable.setSelectionMode(ULCListSelectionModel.SINGLE_SELECTION);
+		tasksTable.setSelectionMode(ULCListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		tasksTable.setRowHeight(20);
 		tasksTable.setName("tasksTable");
 		tasksTable.setComponentPopupMenu(getTaskListPopupMenu());
