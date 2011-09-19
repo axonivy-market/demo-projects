@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Aug 23 10:58:47 CEST 2011]
+[>Created: Mon Sep 19 13:54:19 CEST 2011]
 1327137DCDCE6676 3.17 #module
 >Proto >Proto Collection #zClass
 Ws0 StandaloneWorkflowUIWindowProcess Big #zClass
@@ -259,7 +259,6 @@ try
 					{
 						// request path from global variable found!
 						ivy.log.debug("Found process start request path{0} name{1}, starting of it...", processStart.getRequestPath(), processStart.getName());
-						//StartConfigurationCreator.startProcess(panel.workflowUIWindowCenterDisplay.displayId, panel, processStart);
 						functionProcessStarts.add(processStart);
 						break;
 					}

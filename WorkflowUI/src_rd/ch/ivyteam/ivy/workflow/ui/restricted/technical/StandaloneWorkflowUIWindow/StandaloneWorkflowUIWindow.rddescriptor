@@ -4,28 +4,6 @@
         <name>_windowClosingRequested</name>
         <description>It loads the confirmation dialog (exit the WFUI?) with yes, no options. If yes, then logout session user.</description>
     </method>
-    <method>
-        <name>_startProcess</name>
-        <description></description>
-        <inputParameter>
-            <name>displayId</name>
-            <description></description>
-            <parameterType>String</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-        <inputParameter>
-            <name>richDialogPanel</name>
-            <description></description>
-            <parameterType>ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-        <inputParameter>
-            <name>processStart</name>
-            <description></description>
-            <parameterType>ch.ivyteam.ivy.workflow.IProcessStart</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </method>
     <startMethod>
         <name>start</name>
         <description>Default Rich Dialog start
