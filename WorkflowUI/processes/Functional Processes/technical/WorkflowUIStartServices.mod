@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 19 10:47:14 CEST 2011]
+[>Created: Mon Sep 19 11:24:45 CEST 2011]
 12D9821DFCC25F93 3.17 #module
 >Proto >Proto Collection #zClass
 Ws0 WorkflowUIStartServices Big #zClass
@@ -200,24 +200,25 @@ Ws0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>This is a standalone mode that:
 - ensure that the user is logged in
-- load the &quot;Application&quot; Rich Dialog on new WorkflowUIWindow
+- load the &quot;Application&quot; Rich Dialog on new StandaloneWorkflowUIWindow
 
-The WorkflowUIWindow will then:
+The StandaloneWorkflowUIWindow will then:
 - load custom tabs on center display
-- load banner (default of the customized) on north display</name>
+- load banner (default of the customized) on north display
+- handle the closing of main window.</name>
         <nameStyle>9,7
 16,0,7
-104,7
-32,7
-96,7
+114,7
+42,7
+133,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f11 272 75 320 122 -155 -56 #rect
+Ws0 f11 265 67 414 138 -202 -64 #rect
 Ws0 f11 @|IBIcon #fIcon
 Ws0 f11 -1|-1|-16777216 #nodeStyle
-Ws0 f12 272 136 125 136 #arcP
+Ws0 f12 265 136 125 136 #arcP
 Ws0 f14 inParamTable 'out.authentificationSuccessful=!ivy.session.isSessionUserUnknown();
 ' #txt
 Ws0 f14 outParamDecl '<java.lang.Boolean authentificationSuccessful> result;
@@ -235,10 +236,10 @@ Ws0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f14 715 123 26 26 14 0 #rect
+Ws0 f14 699 123 26 26 14 0 #rect
 Ws0 f14 @|StartSubIcon #fIcon
 Ws0 f15 type workflowui.Data #txt
-Ws0 f15 715 427 26 26 14 0 #rect
+Ws0 f15 699 427 26 26 14 0 #rect
 Ws0 f15 @|EndSubIcon #fIcon
 Ws0 f17 targetWindow NEW:tabbed: #txt
 Ws0 f17 targetDisplay TOP #txt
@@ -269,7 +270,7 @@ Ws0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f17 710 372 36 24 19 -2 #rect
+Ws0 f17 694 372 36 24 19 -2 #rect
 Ws0 f17 @|RichDialogIcon #fIcon
 Ws0 f19 type workflowui.Data #txt
 Ws0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -281,7 +282,7 @@ Ws0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f19 714 178 28 28 14 0 #rect
+Ws0 f19 698 178 28 28 14 0 #rect
 Ws0 f19 @|AlternativeIcon #fIcon
 Ws0 f22 expr in #txt
 Ws0 f22 outCond !ivy.session.isSessionUserUnknown() #txt
@@ -294,12 +295,12 @@ Ws0 f22 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f22 728 206 728 372 #arcP
+Ws0 f22 712 206 712 372 #arcP
 Ws0 f22 0 0.43844096528022913 0 0 #arcLabel
 Ws0 f24 expr out #txt
-Ws0 f24 728 149 728 178 #arcP
+Ws0 f24 712 149 712 178 #arcP
 Ws0 f25 expr out #txt
-Ws0 f25 728 396 728 427 #arcP
+Ws0 f25 712 396 712 427 #arcP
 Ws0 f30 expr in #txt
 Ws0 f30 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -310,30 +311,32 @@ Ws0 f30 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f30 742 192 740 436 #arcP
-Ws0 f30 1 824 192 #addKink
-Ws0 f30 2 824 416 #addKink
+Ws0 f30 726 192 724 436 #arcP
+Ws0 f30 1 808 192 #addKink
+Ws0 f30 2 808 416 #addKink
 Ws0 f30 1 0.42292548290683946 0 0 #arcLabel
 Ws0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>This is embedded mode where:
 - the caller must ensure that the user is logged in
-- only the &quot;Application&quot; Rich Dialog is loaded in new card window
+- the &quot;Application&quot; Rich Dialog is loaded as new tab
+- custom tabs are loaded on center display beside &quot;Application&quot; tab
 
-Since the WorkflowUIWindow is not loaded, the caller must find the way 
-to provide to the end user the settings and user guide.</name>
+The caller must find the way to :
+- provide to the end user the settings and user guide,
+- handle the closing of main window and ask *Application&quot; and custom tabs to close.</name>
         <nameStyle>8,7
 13,0,7
-254,7
+354,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f13 880 83 401 106 -195 -48 #rect
+Ws0 f13 869 67 470 138 -230 -64 #rect
 Ws0 f13 @|IBIcon #fIcon
 Ws0 f13 -1|-1|-16777216 #nodeStyle
-Ws0 f18 879 136 741 136 #arcP
+Ws0 f18 869 136 725 136 #arcP
 >Proto Ws0 .type workflowui.Data #txt
 >Proto Ws0 .processKind CALLABLE_SUB #txt
 >Proto Ws0 0 0 32 24 18 0 #rect
