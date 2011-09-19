@@ -20,6 +20,16 @@
             <nullPermitted>true</nullPermitted>
         </attachment>
     </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>xivyAnyQueryTaskListRequested</name>
+        <description>It accepts broadcast and load a task list that fits to that parameter criteria.</description>
+        <attachment>
+            <name>parameter</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ui.data.task.AnyQueryTaskListParameter</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
     <method>
         <name>close</name>
         <description></description>
@@ -34,6 +44,16 @@
         <name>start</name>
         <description>Default Rich Dialog start
 This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>standAloneMode</name>
+            <description>If true then this Rich Dialog is started as &quot;WFUI stand alone application&quot;, otherwise is &quot;embedded&quot; mode.</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
     </startMethod>
     <property>
         <name>guid</name>

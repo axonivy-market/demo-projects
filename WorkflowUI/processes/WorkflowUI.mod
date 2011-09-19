@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Feb 18 15:20:10 CET 2011]
-WorkflowUI 3.15 #module
+[>Created: Fri Sep 16 09:53:05 CEST 2011]
+WorkflowUI 3.17 #module
 >Proto >Proto Collection #zClass
 WI0 WorkflowUI Big #zClass
 WI0 B #cInfo
@@ -23,7 +23,7 @@ WI0 f11 type workflowui.Data #txt
 WI0 f11 123 187 26 26 14 0 #rect
 WI0 f11 @|EndIcon #fIcon
 WI0 f13 type workflowui.Data #txt
-WI0 f13 processCall 'Functional Processes/technical/WorkflowUIStartServices:call()' #txt
+WI0 f13 processCall 'Functional Processes/technical/WorkflowUIStartServices:startInStandaloneMode()' #txt
 WI0 f13 doCall true #txt
 WI0 f13 requestActionDecl '<> param;
 ' #txt
@@ -35,9 +35,9 @@ out.authentificationSuccessful=result.authentificationSuccessful;
 WI0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>call
-WorkflowUIStartServices</name>
-        <nameStyle>28,5,7
+        <name>start WFUI in 
+standalone mode</name>
+        <nameStyle>30,5,7
 </nameStyle>
     </language>
 </elementInfo>

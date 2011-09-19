@@ -20,3 +20,10 @@ pressedButton 'End user pressed button on Question Dialog.' #fieldComment
 sessionUserResumedTask ch.ivyteam.ivy.workflow.ITask #field
 menuAutoHideMode Boolean #field
 menuAutoHideMode 'If true, then the menu on left side is hidden automatically during the task execution. Otherwise not.' #fieldComment
+receivedAnyQueryTaskListParameter ch.ivyteam.ivy.workflow.ui.data.task.AnyQueryTaskListParameter #field
+hasWfAdministratorPermissions Boolean #field
+hasWfAdministratorPermissions 'It defines how the Ivy API will be called : workflow administrator using the IWorkflowContext or workflow user using the IWorkflowSession.' #fieldComment
+multipleTaskListMode Boolean #field
+multipleTaskListMode 'If true then the multiples instances of task list could be displayed at same time otherwise just one.' #fieldComment
+standAloneMode Boolean #field
+standAloneMode 'If true then this Rich Dialog is started as "WFUI stand alone application", otherwise is "embedded" mode.' #fieldComment

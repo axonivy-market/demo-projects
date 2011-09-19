@@ -39,7 +39,7 @@ filteredTasks List<ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper>
 nameCriteria String #field
 nameCriteria 'Used for find a tasks by task name or case name on the displayed task list' #fieldComment
 taskDisplayMode Number #field
-taskDisplayMode '0=your tasks, 1=team tasks, 2=all env. tasks (wf admin mode), -1=get all tasks of the case' #fieldComment
+taskDisplayMode '-1=get all tasks of the case, 0=your tasks, 1=team tasks, 2=all env. tasks (wf admin mode), 3=any query' #fieldComment
 runningTaskMode Boolean #field
 taskDisplayListParentDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
 taskDisplayModeText String #field

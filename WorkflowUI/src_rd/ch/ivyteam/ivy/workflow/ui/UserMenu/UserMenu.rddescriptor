@@ -25,6 +25,18 @@ This method can not be changed or deleted!</description>
             <parameterType>ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
+        <inputParameter>
+            <name>hasWFAdminPermissions</name>
+            <description>It defines how the Ivy API will be called : workflow administrator using the IWorkflowContext or workflow user using the IWorkflowSession.</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>standAloneMode</name>
+            <description>If true then this Rich Dialog is started as &quot;WFUI stand alone application&quot;, otherwise is &quot;embedded&quot; mode.</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
     </startMethod>
     <firedEvent>
         <name>showAboutRequested</name>

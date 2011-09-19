@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 17 13:32:45 CEST 2011]
+[>Created: Thu Sep 15 14:17:25 CEST 2011]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -726,7 +726,7 @@ register System events of Workflow category</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f21 62 164 36 24 20 -2 #rect
+Ts0 f21 62 140 36 24 20 -2 #rect
 Ts0 f21 @|RichDialogProcessStepIcon #fIcon
 Ts0 f20 guid 1189D75281BC256E #txt
 Ts0 f20 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -1434,7 +1434,7 @@ Ts0 f135 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f135 3686 30 20 20 13 0 #rect
 Ts0 f135 @|RichDialogBroadcastStartIcon #fIcon
 Ts0 f87 expr out #txt
-Ts0 f87 80 98 80 164 #arcP
+Ts0 f87 80 98 80 140 #arcP
 Ts0 f87 0 0.5241792439081309 0 0 #arcLabel
 Ts0 f119 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
@@ -1685,31 +1685,33 @@ if (panel.tasksTable.getSelectedListEntry() != null & panel.tasksTable.getSelect
 																		currentTask.getState().equals(TaskState.CREATED)));
 
 	panel.destroyTaskMenuItem.enabled = panel.destroyTaskButton.enabled;
-																		
+
 }
 else
 {
 	// information on task
 	panel.informOnTaskButton.enabled = false;
-	panel.informOnTaskOnSiblingTabMenuItem.enabled = panel.informOnTaskButton.enabled;
+	panel.informOnTaskOnSiblingTabMenuItem.enabled = false;
 	
 	// start task
 	panel.startTaskButton.enabled = false;																
-	panel.startTaskOnSiblingTabMenuItem.enabled = panel.startTaskButton.enabled;
+	panel.startTaskOnSiblingTabMenuItem.enabled = false;
 	
 	// park task
 	panel.parkTaskButton.enabled = false;
-	panel.parkTaskMenuItem.enabled = panel.parkTaskButton.enabled;
+	panel.parkTaskMenuItem.enabled = false;
 
 	// delegate task
 	panel.delegateTaskButton.enabled = false;	
-	panel.delegateTaskMenuItem.enabled = panel.delegateTaskButton.enabled;
+	panel.delegateTaskMenuItem.enabled = false;
 	
 	// set expiry date
 	panel.setTaskExpiryDateButton.enabled = false;
+	panel.setTaskExpiryDateMenuItem.enabled = false;
 	
 	// set blocking delay date
 	panel.setTaskBlockingDelayDateButton.enabled = false;
+	panel.setTaskBlockingDelayDateMenuItem.enabled = false;
 	
 	// cancel the task
 	panel.resetTaskButton.enabled = false;
@@ -1717,8 +1719,7 @@ else
 	
 	// destroy the task
 	panel.destroyTaskButton.enabled = false;
-	panel.destroyTaskMenuItem.enabled = panel.destroyTaskButton.enabled;
-	
+	panel.destroyTaskMenuItem.enabled = false;	
 }' #txt
 Ts0 f154 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f154 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2538,8 +2539,8 @@ Ts0 f113 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f113 134 78 20 20 13 0 #rect
 Ts0 f113 @|RichDialogInitStartIcon #fIcon
 Ts0 f114 expr out #txt
-Ts0 f114 144 98 98 176 #arcP
-Ts0 f114 1 144 176 #addKink
+Ts0 f114 144 98 98 152 #arcP
+Ts0 f114 1 144 152 #addKink
 Ts0 f114 1 0.007622397463515455 0 0 #arcLabel
 Ts0 f9 guid 11B3DADB5466EF52 #txt
 Ts0 f9 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
@@ -2577,7 +2578,7 @@ Ts0 f56 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f56 66 258 28 28 14 0 #rect
 Ts0 f56 @|AlternativeIcon #fIcon
 Ts0 f88 expr out #txt
-Ts0 f88 80 188 80 258 #arcP
+Ts0 f88 80 164 80 258 #arcP
 Ts0 f110 expr in #txt
 Ts0 f110 outCond 'in.#originalPropertyFilter is initialized' #txt
 Ts0 f110 80 286 80 316 #arcP

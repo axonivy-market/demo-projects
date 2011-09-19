@@ -1,0 +1,11 @@
+AnyQueryTaskListParameter #class
+'It represents the parameter used in order to make display any query on the task list Rich Dialog.' #classComment
+ch.ivyteam.ivy.workflow.ui.data.task #namespace
+title String #field
+title 'Title to display on the TaskList.' #fieldComment
+text String #field
+text 'Text to display on the TaskList.' #fieldComment
+criterias ch.ivyteam.ivy.workflow.IPropertyFilter #field
+criterias 'Task list will find all taks that fit to this criteria(s).' #fieldComment
+tabTitle String #field
+tabTitle 'The title of the dynamically added task list as a new tab on the display.' #fieldComment

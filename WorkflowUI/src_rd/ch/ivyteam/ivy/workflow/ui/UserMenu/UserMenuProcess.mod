@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jun 14 02:36:16 CEST 2011]
+[>Created: Thu Sep 15 10:26:09 CEST 2011]
 11898D6F2E86E751 3.17 #module
 >Proto >Proto Collection #zClass
 Us0 UserMenuProcess Big #zClass
@@ -169,25 +169,23 @@ Us0 f4 363 411 26 26 14 0 #rect
 Us0 f4 @|RichDialogProcessEndIcon #fIcon
 Us0 f6 guid 11898E916E47860B #txt
 Us0 f6 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f6 method start(ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay) #txt
+Us0 f6 method start(ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean) #txt
 Us0 f6 disableUIEvents false #txt
 Us0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aDestinationDisplay> param = methodEvent.getInputArguments();
+<ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aDestinationDisplay,java.lang.Boolean hasWFAdminPermissions,java.lang.Boolean standAloneMode> param = methodEvent.getInputArguments();
 ' #txt
 Us0 f6 inParameterMapAction 'out.destinationDisplay=param.aDestinationDisplay;
 ' #txt
-Us0 f6 inActionCode 'out.hasWfAdministratorPermissions = 
-ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),
- ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);' #txt
+Us0 f6 inActionCode 'out.destinationDisplay = param.aDestinationDisplay;
+out.hasWfAdministratorPermissions = param.hasWFAdminPermissions;
+out.standAloneMode = param.standAloneMode;' #txt
 Us0 f6 outParameterDecl '<> result;
 ' #txt
-Us0 f6 embeddedRdInitializations '{/finishedCaseSearchRDC {/fieldName "finishedCaseSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleCaseListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningCaseMode = false;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"}/tasksSeparatorPanel {/fieldName "tasksSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""}/securitySeparatorPanel {/fieldName "securitySeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""}/runningTaskSearchRDC {/fieldName "runningTaskSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleTaskListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningTaskMode = true;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"}/runningCaseSearchRDC {/fieldName "runningCaseSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleCaseListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningCaseMode = true;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"}/administrationSeparatorPanel {/fieldName "administrationSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""}/startList {/fieldName "startList"/startMethod "start(String)"/parameterMapping "param.aDisplayId=in.destinationDisplay.getDisplayId();\n"/initScript ""}/finishedTaskSearchRDC {/fieldName "finishedTaskSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleTaskListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningTaskMode = false;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"}/casesSeparatorPanel {/fieldName "casesSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""}/processesSeparatorPanel {/fieldName "processesSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""}}' #txt
+Us0 f6 embeddedRdInitializations '{/finishedCaseSearchRDC {/fieldName "finishedCaseSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleCaseListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningCaseMode = false;\nparam.aHasWfAdministratorPermissions = callParam.hasWFAdminPermissions;"/userContext * }/administrationSeparatorPanel {/fieldName "administrationSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/runningTaskSearchRDC {/fieldName "runningTaskSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleTaskListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningTaskMode = true;\nparam.aHasWfAdministratorPermissions = callParam.hasWFAdminPermissions;"/userContext * }/securitySeparatorPanel {/fieldName "securitySeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/processesSeparatorPanel {/fieldName "processesSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/casesSeparatorPanel {/fieldName "casesSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/tasksSeparatorPanel {/fieldName "tasksSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/finishedTaskSearchRDC {/fieldName "finishedTaskSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleTaskListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningTaskMode = false;\nparam.aHasWfAdministratorPermissions = callParam.hasWFAdminPermissions;"/userContext * }/runningCaseSearchRDC {/fieldName "runningCaseSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleCaseListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningCaseMode = true;\nparam.aHasWfAdministratorPermissions = callParam.hasWFAdminPermissions;"/userContext * }/startList {/fieldName "startList"/startMethod "start(String)"/parameterMapping "param.aDisplayId=in.destinationDisplay.getDisplayId();\n"/initScript ""/userContext * }}' #txt
 Us0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(RTabbedDisplay)</name>
-        <nameStyle>21,5,6,9
-</nameStyle>
+        <name>start(RTabbedDisplay,Boolean,Boolean)</name>
     </language>
 </elementInfo>
 ' #txt
@@ -1485,6 +1483,9 @@ Us0 f92 1 1112 280 #addKink
 Us0 f92 2 1112 424 #addKink
 Us0 f92 2 0.2718255145477266 0 0 #arcLabel
 >Proto Us0 .rdData2UIAction 'panel.administrationSeparatorPanel.separatorText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/administration");
+panel.bamHyperlink.visible=in.standAloneMode;
+panel.BAMSeparatorPanel.separatorText="BAM";
+panel.BAMSeparatorPanel.visible=in.standAloneMode;
 panel.casesSeparatorPanel.separatorText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/cases");
 panel.footerLabel.text=in.footerTextMessage;
 panel.footerLabel.toolTipText=in.footerToolTipTextMessage;
@@ -1504,12 +1505,15 @@ panel.userSecurityHyperlink.visible=false;
     <language>
         <swimlaneLabel>Start methods</swimlaneLabel>
         <swimlaneLabel>Events</swimlaneLabel>
+        <swimlaneLabel>Accepted Broadcasts</swimlaneLabel>
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneSize>294</swimlaneSize>
     <swimlaneSize>1817</swimlaneSize>
+    <swimlaneSize>309</swimlaneSize>
     <swimlaneColor>-16724839</swimlaneColor>
     <swimlaneColor>-16724890</swimlaneColor>
+    <swimlaneColor>-6697729</swimlaneColor>
 </elementInfo>
 ' #txt
 >Proto Us0 -8 -8 16 16 16 26 #rect

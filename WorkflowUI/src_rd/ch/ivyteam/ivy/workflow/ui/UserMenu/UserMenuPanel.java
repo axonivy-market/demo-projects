@@ -59,6 +59,8 @@ private RLabel footerLabel = null;
 @EmbeddedRichDialog(SeparatorPanel.class) private ULCContainer securitySeparatorPanel = null;
 private RHyperlink managedTeamsHyperlink = null;
 private RHyperlink emailNotificationHyperlink = null;
+private @EmbeddedRichDialog(SeparatorPanel.class) ULCContainer BAMSeparatorPanel = null;
+private RHyperlink bamHyperlink = null;
 /**
    * Create a new instance of UserMenuPanel
    */
@@ -91,6 +93,8 @@ private RHyperlink emailNotificationHyperlink = null;
  */
 private RGridBagLayoutPane getUserMenuGridBagLayoutPane() {
 	if (userMenuGridBagLayoutPane == null) {
+		RFiller userMenuFiller1111 = new RFiller();
+		userMenuFiller1111.setStyle("strutW25H10");
 		RFiller verticalFiller = new RFiller();
 		verticalFiller.setStyleProperties("{/fill \"VERTICAL\"/weightY \"1\"}");
 		RFiller Filler = new RFiller();
@@ -117,19 +121,22 @@ private RGridBagLayoutPane getUserMenuGridBagLayoutPane() {
 		userMenuGridBagLayoutPane.add(userMenuFiller1, new com.ulcjava.base.application.GridBagConstraints(0, 12, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		userMenuGridBagLayoutPane.add(getStartingProcessesHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 17, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		userMenuGridBagLayoutPane.add(userMenuFiller11, new com.ulcjava.base.application.GridBagConstraints(0, 18, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		userMenuGridBagLayoutPane.add(getSubstitutesHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 26, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		userMenuGridBagLayoutPane.add(getAbsenceHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 25, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		userMenuGridBagLayoutPane.add(getUserSecurityHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 40, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		userMenuGridBagLayoutPane.add(getRoleSecurityHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 41, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		userMenuGridBagLayoutPane.add(userMenuFiller111, new com.ulcjava.base.application.GridBagConstraints(0, 35, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		userMenuGridBagLayoutPane.add(getSubstitutesHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 27, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		userMenuGridBagLayoutPane.add(getAbsenceHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 26, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		userMenuGridBagLayoutPane.add(getUserSecurityHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 42, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		userMenuGridBagLayoutPane.add(getRoleSecurityHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 43, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		userMenuGridBagLayoutPane.add(userMenuFiller111, new com.ulcjava.base.application.GridBagConstraints(0, 21, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		userMenuGridBagLayoutPane.add(getTasksSeparatorPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		userMenuGridBagLayoutPane.add(getCasesSeparatorPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 8, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		userMenuGridBagLayoutPane.add(getProcessesSeparatorPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 16, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		userMenuGridBagLayoutPane.add(getAdministrationSeparatorPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 24, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		userMenuGridBagLayoutPane.add(getSecuritySeparatorPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 39, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		userMenuGridBagLayoutPane.add(getManagedTeamsHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 28, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		userMenuGridBagLayoutPane.add(verticalFiller, new com.ulcjava.base.application.GridBagConstraints(0, 43, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		userMenuGridBagLayoutPane.add(getEmailNotificationHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 27, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		userMenuGridBagLayoutPane.add(getSecuritySeparatorPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 41, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		userMenuGridBagLayoutPane.add(getManagedTeamsHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 29, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		userMenuGridBagLayoutPane.add(verticalFiller, new com.ulcjava.base.application.GridBagConstraints(0, 45, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		userMenuGridBagLayoutPane.add(getEmailNotificationHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 28, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		userMenuGridBagLayoutPane.add(getBamHyperlink(), new com.ulcjava.base.application.GridBagConstraints(1, 20, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		userMenuGridBagLayoutPane.add(getBAMSeparatorPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 19, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		userMenuGridBagLayoutPane.add(userMenuFiller1111, new com.ulcjava.base.application.GridBagConstraints(0, 33, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return userMenuGridBagLayoutPane;
 }
@@ -547,5 +554,36 @@ private RHyperlink getEmailNotificationHyperlink() {
 		emailNotificationHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/emailNotification/plainStrings/emailNotificationLongDesc\")%>");
 	}
 	return emailNotificationHyperlink;
+}
+
+/**
+ * This method initializes BAMSeparatorPanel, an embedded RichDialog.
+ * The created object might have a different type than the declared
+ * class due to overriding.
+ * @returns com.ulcjava.base.application.ULCContainer 
+ */
+private ULCContainer getBAMSeparatorPanel() {
+	if (BAMSeparatorPanel == null) {
+		BAMSeparatorPanel = RichDialogPanelFactory.create(SeparatorPanel.class);
+		BAMSeparatorPanel.setName("BAMSeparatorPanel");
+	}
+	return BAMSeparatorPanel;
+}
+
+/**
+ * This method initializes bamHyperlink	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
+ */
+private RHyperlink getBamHyperlink() {
+	if (bamHyperlink == null) {
+		bamHyperlink = new RHyperlink();
+		bamHyperlink.setName("bamHyperlink");
+		bamHyperlink.setText("BAM");
+		bamHyperlink.setClickedColor(new Color(0, 0, 0));
+		bamHyperlink.setUnclickedColor(new Color(0, 0, 0));
+		bamHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/absenceLongDesc\")%>");
+	}
+	return bamHyperlink;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

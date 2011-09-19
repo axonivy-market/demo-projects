@@ -80,7 +80,7 @@ This method can not be changed or deleted!</description>
     </startMethod>
     <startMethod>
         <name>start</name>
-        <description></description>
+        <description>It loads task list according to the filter and display mode.</description>
         <inputParameter>
             <name>aRunningTaskMode</name>
             <description>true: find runnging tasks, otherwise find finished tasks</description>
@@ -101,7 +101,7 @@ This method can not be changed or deleted!</description>
         </inputParameter>
         <inputParameter>
             <name>aTaskDisplayMode</name>
-            <description>0=your tasks, 1=team tasks, 2=all env. tasks (wf admin mode)</description>
+            <description>-1=get all tasks of the case, 0=your tasks, 1=team tasks, 2=all env. tasks (wf admin mode), 3=any query</description>
             <parameterType>Number</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>

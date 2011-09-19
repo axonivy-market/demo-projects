@@ -301,18 +301,19 @@ public class WorkflowUIAccessPermissionHandler
    * @param startIndex
    * @param count
    * @param returnAllCount
-   * @param runningTaskMode if true then only "running tasks" will be returned; othewise "finished tasks"
+   * @param runningTaskMode if true then only "running tasks" will be returned; otherwise "finished tasks"
    * @param taskDisplayMode where 
    * 		<ul>
    * 			<li>0 stands for your tasks</li>
    *			<li>1 stands for team tasks</li>
-   *			<li>2 stands for all application tasks (ivy.wf) </li> 	
+   *			<li>2 stands for all application tasks (ivy.wf)</li>
+   *			<li>3 any query tasks: it means find all tasks that fit to the received criteria (property filter)</li> 	
    * 		</ul>
    * @return
    * @throws Exception
    */
-  public static IQueryResult<ITask> findTasks(IPropertyFilter<TaskProperty> filter, List order,
-          int startIndex, int count, boolean returnAllCount, boolean runningTaskMode, int taskDisplayMode)
+  public static IQueryResult<ITask> findTasks(final IPropertyFilter<TaskProperty> filter, final List order,
+          final int startIndex, final int count, final boolean returnAllCount, boolean runningTaskMode, int taskDisplayMode)
           throws Exception
   {
 
@@ -334,6 +335,17 @@ public class WorkflowUIAccessPermissionHandler
       case 2:
         // all applications's tasks
         return Ivy.wf().findTasks(filter, order, startIndex, count, returnAllCount);
+        
+      case 3:
+    	  // any query tasks: it means find all tasks that fit to the received criteria (property filter)
+    	  IQueryResult<ITask> queryResult = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<IQueryResult<ITask>>()
+    		        {
+              public IQueryResult<ITask> call() throws Exception
+              {
+            	  return Ivy.wf().findTasks(filter, order, startIndex, count, returnAllCount);
+              }
+            });
+    	  return queryResult;
 
       default:
         return null;
@@ -351,6 +363,7 @@ public class WorkflowUIAccessPermissionHandler
     return INCLUDE_RUNNING_TASK_STATE;
   }
 
+  
   
   public static int getTaskIdentifierAsSystemUser(final ITask wfTask)
   {

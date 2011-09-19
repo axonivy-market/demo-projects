@@ -14,3 +14,5 @@ footerToolTipTextMessage String #field
 windowTitle String #field
 rdAlreadyLoadedOnDisplay Boolean #field
 rdAlreadyLoadedOnDisplay 'Defines if the given rich dialog is already loaded on the display' #fieldComment
+standAloneMode Boolean #field
+standAloneMode 'If true then this Rich Dialog is started as "WFUI stand alone application", otherwise is "embedded" mode.' #fieldComment
