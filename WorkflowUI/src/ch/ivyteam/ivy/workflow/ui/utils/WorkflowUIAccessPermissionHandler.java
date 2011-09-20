@@ -1,8 +1,5 @@
 package ch.ivyteam.ivy.workflow.ui.utils;
 
-/**
- * Xpert.Ivy
- */
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -39,7 +36,7 @@ import ch.ivyteam.logicalexpression.RelationalOperator;
 
 /**
  * 
- * @author tirib 
+ * @author tirib, TI-Informatique 
  * This tool class help to simplify the access to the Ivy API according to the fact if the
  *         currently logged in user is workflow user (IWorkflowSession) or workflow administrator
  *         (IWorfkflowContext)
@@ -365,11 +362,9 @@ public class WorkflowUIAccessPermissionHandler
 
   
   
-  public static int getTaskIdentifierAsSystemUser(final ITask wfTask)
+  public static int getTaskIdentifierAsSystemUser(final ITask wfTask) throws EnvironmentNotAvailableException, Exception
   {
     int result = -1;
-    try
-    {
       result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Integer>()
         {
           public Integer call() throws Exception
@@ -377,11 +372,6 @@ public class WorkflowUIAccessPermissionHandler
             return wfTask.getIdentifier();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
     return result;
   }
 
@@ -391,12 +381,12 @@ public class WorkflowUIAccessPermissionHandler
    * 
    * @param wfTask
    * @param securityMember
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
   public static void setTaskExpiryActivatorAsSystemUser(final ITask wfTask,
-          final ISecurityMember securityMember)
+          final ISecurityMember securityMember) throws EnvironmentNotAvailableException, Exception
   {
-    try
-    {
       Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
         {
           public Boolean call() throws Exception
@@ -405,18 +395,12 @@ public class WorkflowUIAccessPermissionHandler
             return true;
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
   }
 
   public static void setTaskOriginalActivatorAsSystemUser(final ITask wfTask,
-          final ISecurityMember securityMember)
+          final ISecurityMember securityMember) throws EnvironmentNotAvailableException, Exception
   {
-    try
-    {
+
       Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
         {
           public Boolean call() throws Exception
@@ -425,11 +409,6 @@ public class WorkflowUIAccessPermissionHandler
             return true;
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
   }
 
   
@@ -617,17 +596,16 @@ public class WorkflowUIAccessPermissionHandler
    * @param caseGroupToFind
    * @param categoryProperty
    * @return
-   * @throws PersistencyException
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
   private static boolean containsCaseGroupBasedOnCaseCategory(final List<IGroup<ICase>> caseGroups,
           final IGroup<ICase> caseGroupToFind, final CaseProperty categoryProperty)
-          throws PersistencyException
+          throws EnvironmentNotAvailableException, Exception
   {
 
     boolean result = false;
 
-    try
-    {
       result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
         {
           public Boolean call() throws Exception
@@ -688,11 +666,7 @@ public class WorkflowUIAccessPermissionHandler
             return false;
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
+
     return result;
   }
 
@@ -704,16 +678,16 @@ public class WorkflowUIAccessPermissionHandler
    * @param categoryPropertyOrder
    * @param runningCaseMode
    * @return
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
   public static List<IGroup<ICase>> findUserManagedTeamsCaseCategoriesAsSystemUser(
 		  final IPropertyFilter<CaseProperty> categoryFilter,
           final List<String> userManagedTeams, final CaseProperty categoryProperty,
-          final OrderDirection categoryPropertyOrder, final boolean runningCaseMode)
+          final OrderDirection categoryPropertyOrder, final boolean runningCaseMode) throws EnvironmentNotAvailableException, Exception
   {
     List<IGroup<ICase>> teamManagerCaseCategories = new ArrayList<IGroup<ICase>>();
 
-    try
-    {
       teamManagerCaseCategories = Ivy.session().getSecurityContext().executeAsSystemUser(
               new Callable<List<IGroup<ICase>>>()
                 {
@@ -727,12 +701,7 @@ public class WorkflowUIAccessPermissionHandler
                 });
 
       return teamManagerCaseCategories;
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-      return teamManagerCaseCategories;
-    }
+
   }
 
   
@@ -919,16 +888,16 @@ public class WorkflowUIAccessPermissionHandler
    * @param returnAllCount
    * @param runningCaseMode
    * @return
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
   public static IQueryResult<ICase> findUserManagedTeamsCasesAsSystemUser(
           final IPropertyFilter<CaseProperty> contextFilter, final List<String> userManagedTeams,
           final List<PropertyOrder<CaseProperty>> order, final int startIndex, final int count,
-          final Boolean returnAllCount, final boolean runningCaseMode)
+          final Boolean returnAllCount, final boolean runningCaseMode) throws EnvironmentNotAvailableException, Exception
   {
     IQueryResult<ICase> sessionUserManagedTeamsCases = null;
 
-    try
-    {
       sessionUserManagedTeamsCases = Ivy.session().getSecurityContext().executeAsSystemUser(
               new Callable<IQueryResult<ICase>>()
                 {
@@ -941,117 +910,73 @@ public class WorkflowUIAccessPermissionHandler
                 });
 
       return sessionUserManagedTeamsCases;
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-      return sessionUserManagedTeamsCases;
-    }
   }
   
 
   
-  public static String getCaseProcessCategoryNameAsSystemUser(final ICase wfCase)
+  public static String getCaseProcessCategoryNameAsSystemUser(final ICase wfCase) throws EnvironmentNotAvailableException, Exception
   {
-    String description = null;
-    try
-    {
-      description = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
+    String description = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
         {
           public String call() throws Exception
           {
             return wfCase.getProcessCategoryName();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return description;
   }
 
-  public static String getCaseProcessNameAsSystemUser(final ICase wfCase)
+  public static String getCaseProcessNameAsSystemUser(final ICase wfCase) throws EnvironmentNotAvailableException, Exception
   {
-    String description = null;
-    try
-    {
-      description = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
+    String description = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
         {
           public String call() throws Exception
           {
             return wfCase.getProcessName();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return description;
   }
 
-  public static String getCaseTypeNameAsSystemUser(final ICase wfCase)
+  public static String getCaseTypeNameAsSystemUser(final ICase wfCase) throws EnvironmentNotAvailableException, Exception
   {
-    String description = null;
-    try
-    {
-      description = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
+    String description = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
         {
           public String call() throws Exception
           {
             return wfCase.getTypeName();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return description;
   }
 
-  public static String getCaseSubTypeNameAsSystemUser(final ICase wfCase)
+  
+  public static String getCaseSubTypeNameAsSystemUser(final ICase wfCase) throws EnvironmentNotAvailableException, Exception
   {
-    String description = null;
-    try
-    {
-      description = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
+    String description = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
         {
           public String call() throws Exception
           {
             return wfCase.getSubTypeName();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return description;
   }
 
-  public static String getCaseDescriptionAsSystemUser(final ICase wfCase)
+  
+  public static String getCaseDescriptionAsSystemUser(final ICase wfCase) throws EnvironmentNotAvailableException, Exception
   {
-    String description = null;
-    try
-    {
-      description = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
+    String description = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
         {
           public String call() throws Exception
           {
             return wfCase.getDescription();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return description;
   }
@@ -1060,13 +985,12 @@ public class WorkflowUIAccessPermissionHandler
    * It returns the case property value trought the system user permissions
    * @param wfCase is the case on which the method is invoked
    * @return case identifier
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static Object getCasePropertyValueAsSystemUser(final ICase wfCase, final CaseProperty caseProperty)
+  public static Object getCasePropertyValueAsSystemUser(final ICase wfCase, final CaseProperty caseProperty) throws EnvironmentNotAvailableException, Exception
   {
-    Object value = null;
-    try
-    {
-      value = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Object>()
+    Object value = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Object>()
         {
           public Object call() throws Exception
           {
@@ -1239,11 +1163,6 @@ public class WorkflowUIAccessPermissionHandler
             return null;
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return value;
   }
@@ -1253,13 +1172,13 @@ public class WorkflowUIAccessPermissionHandler
    * whitout permission restriction
    * @param wfCase
    * @return list of events
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static List<IWorkflowEvent> getCaseWorkflowEventsAsSystemUser(final ICase wfCase)
+  public static List<IWorkflowEvent> getCaseWorkflowEventsAsSystemUser(final ICase wfCase) throws EnvironmentNotAvailableException, Exception
   {
     List<IWorkflowEvent> workflowEvents = null;
 
-    try
-    {
       workflowEvents = Ivy.session().getSecurityContext().executeAsSystemUser(
               new Callable<List<IWorkflowEvent>>()
                 {
@@ -1268,11 +1187,6 @@ public class WorkflowUIAccessPermissionHandler
                     return wfCase.getWorkflowEvents();
                   }
                 });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return workflowEvents;
   }
@@ -1284,12 +1198,12 @@ public class WorkflowUIAccessPermissionHandler
    * 
    * @param workflowEvent
    * @return workflow event's timestamp
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static Date getWorkflowEventTimestampAsSystemUser(final IWorkflowEvent workflowEvent)
+  public static Date getWorkflowEventTimestampAsSystemUser(final IWorkflowEvent workflowEvent) throws EnvironmentNotAvailableException, Exception
   {
     Date result = null;
-    try
-    {
       result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Date>()
         {
           public Date call() throws Exception
@@ -1297,11 +1211,6 @@ public class WorkflowUIAccessPermissionHandler
             return workflowEvent.getEventTimestamp();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return result;
   }
@@ -1312,12 +1221,12 @@ public class WorkflowUIAccessPermissionHandler
    * 
    * @param workflowEvent
    * @return workflow event's kind name
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static String getWorkflowEventKindNameAsSystemUser(final IWorkflowEvent workflowEvent)
+  public static String getWorkflowEventKindNameAsSystemUser(final IWorkflowEvent workflowEvent) throws EnvironmentNotAvailableException, Exception
   {
     String result = null;
-    try
-    {
       result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
         {
           public String call() throws Exception
@@ -1325,11 +1234,6 @@ public class WorkflowUIAccessPermissionHandler
             return workflowEvent.getEventKind().name();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return result;
   }
@@ -1340,12 +1244,12 @@ public class WorkflowUIAccessPermissionHandler
    * 
    * @param workflowEvent
    * @return
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static String getWorkflowEventUserNameAsSystemUser(final IWorkflowEvent workflowEvent)
+  public static String getWorkflowEventUserNameAsSystemUser(final IWorkflowEvent workflowEvent) throws EnvironmentNotAvailableException, Exception
   {
     String result = null;
-    try
-    {
       result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
         {
           public String call() throws Exception
@@ -1353,11 +1257,6 @@ public class WorkflowUIAccessPermissionHandler
             return workflowEvent.getUserName();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return result;
   }
@@ -1368,12 +1267,12 @@ public class WorkflowUIAccessPermissionHandler
    * 
    * @param workflowEvent
    * @return
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static Boolean getWorkflowEventIsTaskEventAsSystemUser(final IWorkflowEvent workflowEvent)
+  public static Boolean getWorkflowEventIsTaskEventAsSystemUser(final IWorkflowEvent workflowEvent) throws EnvironmentNotAvailableException, Exception
   {
     Boolean result = null;
-    try
-    {
       result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
         {
           public Boolean call() throws Exception
@@ -1381,11 +1280,6 @@ public class WorkflowUIAccessPermissionHandler
             return workflowEvent.isTaskEvent();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return result;
   }
@@ -1395,12 +1289,12 @@ public class WorkflowUIAccessPermissionHandler
    * 
    * @param workflowEvent
    * @return
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static Integer getWorkflowEventTaskIdEventAsSystemUser(final IWorkflowEvent workflowEvent)
+  public static Integer getWorkflowEventTaskIdEventAsSystemUser(final IWorkflowEvent workflowEvent) throws EnvironmentNotAvailableException, Exception
   {
     Integer result = null;
-    try
-    {
       result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Integer>()
         {
           public Integer call() throws Exception
@@ -1408,20 +1302,13 @@ public class WorkflowUIAccessPermissionHandler
             return workflowEvent.getTask().getIdentifier();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return result;
   }
 
-  public static String getWorkflowEventTaskNameEventAsSystemUser(final IWorkflowEvent workflowEvent)
+  public static String getWorkflowEventTaskNameEventAsSystemUser(final IWorkflowEvent workflowEvent) throws EnvironmentNotAvailableException, Exception
   {
     String result = null;
-    try
-    {
       result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
         {
           public String call() throws Exception
@@ -1429,20 +1316,15 @@ public class WorkflowUIAccessPermissionHandler
             return workflowEvent.getTask().getName();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
+
 
     return result;
   }
 
-  public static List<String> getWorkflowEventAdditionalInfoAsSystemUser(final IWorkflowEvent workflowEvent)
+  public static List<String> getWorkflowEventAdditionalInfoAsSystemUser(final IWorkflowEvent workflowEvent) throws EnvironmentNotAvailableException, Exception
   {
     List<String> result = null;
-    try
-    {
+
       result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<String>>()
         {
           public List<String> call() throws Exception
@@ -1450,11 +1332,7 @@ public class WorkflowUIAccessPermissionHandler
             return workflowEvent.getAdditionalInfo();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
+
 
     return result;
   }
@@ -1462,12 +1340,12 @@ public class WorkflowUIAccessPermissionHandler
   /**
    * It returns all roles, flat in the Enumeration without any hierarchy with System User permission.
    * @return enumeration with all roles
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static List<IRole> wfGetRolesAsSystemUser()
+  public static List<IRole> wfGetRolesAsSystemUser() throws EnvironmentNotAvailableException, Exception
   {
     List<IRole> result = null;
-    try
-    {
       result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<IRole>>()
         {
           public List<IRole> call() throws Exception
@@ -1476,11 +1354,6 @@ public class WorkflowUIAccessPermissionHandler
             return Ivy.wf().getSecurityContext().getRoles();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return result;
   }
@@ -1488,12 +1361,12 @@ public class WorkflowUIAccessPermissionHandler
   /**
    * Gets all users with System User permission.
    * @return enumeration with all users
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static List<IUser> wfGetUsersAsSystemUser()
+  public static List<IUser> wfGetUsersAsSystemUser() throws EnvironmentNotAvailableException, Exception
   {
     List<IUser> result = null;
-    try
-    {
       result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<IUser>>()
         {
           public List<IUser> call() throws Exception
@@ -1502,11 +1375,6 @@ public class WorkflowUIAccessPermissionHandler
             return Ivy.wf().getSecurityContext().getUsers();
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return result;
   }
@@ -1516,12 +1384,12 @@ public class WorkflowUIAccessPermissionHandler
    * It returns the list of roles that user owns except Everybody
    * 
    * @return list of user roles
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static List<IRole> getUserRolesExceptEverybodyAsSystemUser(final IUser user)
+  public static List<IRole> getUserRolesExceptEverybodyAsSystemUser(final IUser user) throws EnvironmentNotAvailableException, Exception
   {
     List<IRole> result = null;
-    try
-    {
       result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<IRole>>()
         {
           public List<IRole> call() throws Exception
@@ -1540,11 +1408,6 @@ public class WorkflowUIAccessPermissionHandler
         	return userRolesExceptEverybody;
           }
         });
-    }
-    catch (Exception e)
-    {
-      Ivy.log().error("Error: " + e.getMessage(), e);
-    }
 
     return result;
   }
@@ -1556,24 +1419,19 @@ public class WorkflowUIAccessPermissionHandler
    * 
    * @param taskIdentifier
    * @return
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static ITask wfFindTaskAsSystemUser(final int taskIdentifier)
+  public static ITask wfFindTaskAsSystemUser(final int taskIdentifier) throws EnvironmentNotAvailableException, Exception
   {
 	  ITask result = null;
-	    try
-	    {
-	      result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<ITask>()
+	  result = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<ITask>()
 	        {
 	          public ITask call() throws Exception
 	          {	            
 	            return Ivy.wf().findTask(taskIdentifier);
 	          }
 	        });
-	    }
-	    catch (Exception e)
-	    {
-	      Ivy.log().error("Error: " + e.getMessage(), e);
-	    }
 	    
 	    return result;
   }
@@ -1586,11 +1444,11 @@ public class WorkflowUIAccessPermissionHandler
    * 
    * @param task
    * @param securityMember
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static void delegateTaskAsSystemUser(final ITask task, final ISecurityMember securityMember)
+  public static void delegateTaskAsSystemUser(final ITask task, final ISecurityMember securityMember) throws EnvironmentNotAvailableException, Exception
   {
-	    try
-	    {
 	      Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
 	        {
 	          public Boolean call() throws Exception
@@ -1606,12 +1464,6 @@ public class WorkflowUIAccessPermissionHandler
 	      		return true;
 	          }
 	        });
-	    }
-	    catch (Exception e)
-	    {
-	      Ivy.log().error("Error during the task delegation: " + e.getMessage(), e);
-	    }
-	    
   }
   
   
@@ -1620,11 +1472,11 @@ public class WorkflowUIAccessPermissionHandler
    * it reset the task as system user
    * 
    * @param task 
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static void resetTaskAsSystemUser(final ITask task)
+  public static void resetTaskAsSystemUser(final ITask task) throws EnvironmentNotAvailableException, Exception
   {
-	    try
-	    {
 	      Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
 	        {
 	          public Boolean call() throws Exception
@@ -1632,13 +1484,7 @@ public class WorkflowUIAccessPermissionHandler
 	      		task.reset();
 	      		return true;
 	          }
-	        });
-	    }
-	    catch (Exception e)
-	    {
-	      Ivy.log().error("Error during the task reset: " + e.getMessage(), e);
-	    }
-	    
+	        });    
   } 
   
   
@@ -1646,11 +1492,11 @@ public class WorkflowUIAccessPermissionHandler
    * It returns the task's page archives 
    * @param task
    * @return
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static List<IPageArchive> getTaskPageArchivesAsSystemUser(final ITask task)
+  public static List<IPageArchive> getTaskPageArchivesAsSystemUser(final ITask task) throws EnvironmentNotAvailableException, Exception
   {
-	    try
-	    {
 	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<IPageArchive>>()
 	        {
 	          public List<IPageArchive> call() throws Exception
@@ -1658,12 +1504,6 @@ public class WorkflowUIAccessPermissionHandler
 	      		return task.getPageArchives();
 	          }
 	        });
-	    }
-	    catch (Exception e)
-	    {
-	      Ivy.log().error("Error during the get task page archives: " + e.getMessage(), e);
-	      return new ArrayList<IPageArchive>();
-	    }
   }
   
   
@@ -1672,11 +1512,11 @@ public class WorkflowUIAccessPermissionHandler
    * It returns the case's page archives 
    * @param wfCase
    * @return
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static List<IPageArchive> getCasePageArchivesAsSystemUser(final ICase wfCase)
+  public static List<IPageArchive> getCasePageArchivesAsSystemUser(final ICase wfCase) throws EnvironmentNotAvailableException, Exception
   {
-	    try
-	    {
 	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<IPageArchive>>()
 	        {
 	          public List<IPageArchive> call() throws Exception
@@ -1684,12 +1524,6 @@ public class WorkflowUIAccessPermissionHandler
 	      		return wfCase.getPageArchives();
 	          }
 	        });
-	    }
-	    catch (Exception e)
-	    {
-	      Ivy.log().error("Error during the get case page archives: " + e.getMessage(), e);
-	      return new ArrayList<IPageArchive>();
-	    }
   }
   
   
@@ -1701,12 +1535,12 @@ public class WorkflowUIAccessPermissionHandler
    * 
    * @return
    * 		list of users; if no data, it return empty list
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static List<IUser> getWfHumanUsersAsSystemUser()
+  public static List<IUser> getWfHumanUsersAsSystemUser() throws EnvironmentNotAvailableException, Exception
   {
 	  // "SYSTEM".equals(user.getName()
-	    try
-	    {
 	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<IUser>>()
 	        {
 	          public List<IUser> call() throws Exception
@@ -1739,14 +1573,7 @@ public class WorkflowUIAccessPermissionHandler
 	        	  
 	        	  return humanUsers; 
 	          }
-	        });
-	    }
-	    catch (Exception e)
-	    {
-	      Ivy.log().error("Error during wf get human users: " + e.getMessage(), e);
-	      return new ArrayList<IUser>();
-	    }
-	  
+	        });	  
   }
   
 
@@ -1754,11 +1581,11 @@ public class WorkflowUIAccessPermissionHandler
    * 
    * It returns all users of Ivy application
    * @return list of users; if no data, it returns empty list
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static List<IUser> getWfUsers()
+  public static List<IUser> getWfUsers() throws EnvironmentNotAvailableException, Exception
   {
-	    try
-	    {
 	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<IUser>>()
 	        {
 	          public List<IUser> call() throws Exception
@@ -1766,20 +1593,12 @@ public class WorkflowUIAccessPermissionHandler
 	        	  return Ivy.wf().getSecurityContext().getUsers();
 	          }
 	        });
-	    }
-	    catch (Exception e)
-	    {
-	      Ivy.log().error("Error during wf get users: " + e.getMessage(), e);
-	      return new ArrayList<IUser>();
-	    }
   }
   
   
   
-  public static Boolean filterUserList(final List<IUser> userList, final List<IUser> filteredUserList, final String nameCriteria)
+  public static Boolean filterUserList(final List<IUser> userList, final List<IUser> filteredUserList, final String nameCriteria) throws EnvironmentNotAvailableException, Exception
   {
-	    try
-	    {
 	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
 	        {
 	          public Boolean call() throws Exception
@@ -1807,12 +1626,7 @@ public class WorkflowUIAccessPermissionHandler
 	        	  return true;
 	          }
 	        });
-	    }
-	    catch (Exception e)
-	    {
-	      Ivy.log().error("Error during filtering user list: " + e.getMessage(), e);
-	      return false;
-	    }
+
   }
   
   
@@ -1821,12 +1635,12 @@ public class WorkflowUIAccessPermissionHandler
    * It returns the external security system name without permission check 
    * 
    * @return the external security system name. For Ivy is: Xpert.ivy
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    * 
    */
-  public static String getExternalSecuritySystemNameAsSystemUser()
+  public static String getExternalSecuritySystemNameAsSystemUser() throws EnvironmentNotAvailableException, Exception
   {
-	    try
-	    {
 	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<String>()
 	        {
 	          public String call() throws Exception
@@ -1835,12 +1649,7 @@ public class WorkflowUIAccessPermissionHandler
 	        	  
 	          }
 	        });
-	    }
-	    catch (Exception e)
-	    {
-	      Ivy.log().error("Error during getExternalSecuritySystemName: " + e.getMessage(), e);
-	      return null;
-	    }
+
   }
   
   
@@ -1850,11 +1659,11 @@ public class WorkflowUIAccessPermissionHandler
    * @param role for which child roles should be returned
    * 
    * @return the list of roles
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static List<IRole> getChildRolesAsSystemUser(final IRole role)
+  public static List<IRole> getChildRolesAsSystemUser(final IRole role) throws EnvironmentNotAvailableException, Exception
   {
-	    try
-	    {
 	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<IRole>>()
 	        {
 	          public List<IRole> call() throws Exception
@@ -1862,12 +1671,125 @@ public class WorkflowUIAccessPermissionHandler
 	        	  return role.getChildRoles();
 	          }
 	        });
-	    }
-	    catch (Exception e)
-	    {
-	      Ivy.log().error("Error during getChildRolesAsSystemUser: " + e.getMessage(), e);
-	      return null;
-	    } 
+  }
+  
+  /**
+   * 
+   * It returns boolean value needed to enable actions for the "Any query " task list mode. 
+   * It returns true if this task is done and the user worked on
+   *  
+   * @param user
+   * @param task
+   * @return
+   * @throws PersistencyException 
+   */
+  public static boolean userHasWorkedOnTask(IUser user, ITask task) throws PersistencyException
+  {
+	  boolean result = false;
+	  
+	  if ((task.getState().equals(TaskState.DONE) || task.getState().equals(TaskState.READY_FOR_JOIN)) && 
+			  user.getName().equals(task.getWorkerUserName()))
+	  {
+		  result = true;
+	  }
+	  
+	  return result;
+  }
+  
+  /**
+   * 
+   * It returns boolean value needed to enable actions for the "Any query " task list mode. 
+   * It returns true if this task is in to be executed state and the user could work on (task is part of his task list)
+   *  
+   * @param user
+   * @param task
+   * @return
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
+   */
+  public static boolean userIsTaskActivatorCandidate(final IUser user, final ITask task) throws EnvironmentNotAvailableException, Exception
+  {	  
+	  
+      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
+  	        {
+  	          public Boolean call() throws Exception
+  	          {
+					boolean result = false;
+					List<IRole> roles = user.getRoles();
+				  
+					List<String> activatorNames = new ArrayList<String>();
+				  	  
+					// add the # before the user name (it's actual Ivy task activator naming convention)
+					activatorNames.add("#" + user.getName());	  
+				  
+					for (IRole role: roles)
+						activatorNames.add(role.getName());
+				  
+					Ivy.log().debug("Activator names are {0} and task activator name is {1}.", 
+						  			activatorNames, task.getActivatorName());
+				  
+					if (task.getState().equals(TaskState.SUSPENDED) || task.getState().equals(TaskState.PARKED) && 
+						  activatorNames.contains(task.getActivatorName()))
+					{
+						result = true;
+					}
+			  
+					return result;
+  	          }
+  	        });
+  }
+  
+  
+  /**
+   * It returns a list of ordered security members (set of roles and users)
+   * @return
+   * @throws EnvironmentNotAvailableException
+   * @throws Exception
+   */
+  public static List<ISecurityMember> getAllSecurityMembersAsSystemUser() throws EnvironmentNotAvailableException, Exception
+  {
+	  return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<ISecurityMember>>()
+	  	        {
+	  	          public List<ISecurityMember> call() throws Exception
+	  	          {
+	  	        	  List<ISecurityMember> securityMembers = new ArrayList<ISecurityMember>();
+	  	        	  securityMembers.addAll(Ivy.session().getSecurityContext().getRoles());
+	  	        	  
+		        	  List<IUser> allUsers = Ivy.wf().getSecurityContext().getUsers(); 
+		        	  List<IUser> humanUsers = new ArrayList<IUser>();
+		        	  
+		        	  for(IUser user: allUsers)
+		        	  {
+		        		  if (!"SYSTEM".equals(user.getName()))
+		        		  {
+		        			  humanUsers.add(user);
+		        		  }
+		        	  }
+	  	        	  
+	  	        	  securityMembers.addAll(humanUsers);
+
+	  	        	  // sort the list by member name
+		        	  Collections.sort(securityMembers, new Comparator<ISecurityMember> ()
+						{
+							public int compare(ISecurityMember securityMember1, ISecurityMember securityMember2)							
+							{
+								int compareResult = -1; 
+								try {
+									String name1 = securityMember1.isUser()? ((IUser)securityMember1).getName(): securityMember1.getMemberName();
+									String name2 = securityMember2.isUser()? ((IUser)securityMember2).getName(): securityMember2.getMemberName();									
+									compareResult = name1.compareTo(name2);
+								} catch (PersistencyException e) {
+									e.printStackTrace();
+								}
+
+								return compareResult;
+							}
+						});
+	  	        	  
+	  	        	  return securityMembers;
+	  	          }
+	  	        }); 
+	  
   }
   
 }

@@ -4,9 +4,9 @@ import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
-import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RRadioButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTree;
@@ -46,21 +46,21 @@ private RCollapsiblePane caseFiltersSelectCollapsiblePane = null;
 @EmbeddedRichDialog(CaseFiltersSelectPanel.class) private ULCContainer caseFiltersSelectRDC = null;
 private RToolBar caseActionsToolBar = null;
 @EmbeddedRichDialog(CaseHierarchyLayoutSelectPanel.class) private ULCContainer caseHierarchyLayoutSelectRDC = null;
-private RHyperlink refreshButton = null;
-private RHyperlink informOnCaseButton = null;
-private RHyperlink destroyCaseButton = null;
+private RButton refreshButton = null;
+private RButton informOnCaseButton = null;
+private RButton destroyCaseButton = null;
 private ULCButtonGroup casesDisplayModesButtonGroup = null;  //  @jve:decl-index=0:visual-constraint="537,20"
 private RRadioButton findYourCasesRadioButton = null;
 private RRadioButton findInvolvedCasesByRoleRadioButton = null;
 private RRadioButton findAllEnvironmentCasesRadioButton = null;
 private RTree caseHierarchyLayoutTree = null;
-private RHyperlink loadCaseListButton = null;
+private RButton loadCaseListButton = null;
 private RPopupMenu caseHierarchyLayoutPopupMenu = null;  //  @jve:decl-index=0:visual-constraint="535,74"
 private RMenuItem loadCaseListMenuItem = null;
 private RMenuItem refreshCaseListMenuItem = null;
 private RMenuItem informOnCaseMenuItem = null;
 private RMenuItem destroyCaseMenuItem = null;
-private RHyperlink expandAllButton = null;
+private RButton expandAllButton = null;
 private RMenuItem expandAllMenuItem = null;
 private RGridBagLayoutPane viewGridBagLayoutPane = null;
 private RCheckBox caseFiltersToggleButton = null;
@@ -240,9 +240,9 @@ private ULCContainer getCaseHierarchyLayoutSelectRDC()  {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getRefreshButton() {
+private RButton getRefreshButton() {
 	if (refreshButton == null) {
-		refreshButton = new RHyperlink();
+		refreshButton = new RButton();
 		refreshButton.setName("refreshButton");
 		refreshButton.setStyle("toolBarButton");
 		refreshButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/refresh32\")%>");
@@ -250,6 +250,7 @@ private RHyperlink getRefreshButton() {
 		refreshButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/refreshCaseListShortDesc\")%>");
 		refreshButton.setEnabled(true);
 		refreshButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/refreshCaseListLongDesc\")%>");
+		refreshButton.setBorderPainted(false);
 	}
 	return refreshButton;
 }
@@ -259,9 +260,9 @@ private RHyperlink getRefreshButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getInformOnCaseButton() {
+private RButton getInformOnCaseButton() {
 	if (informOnCaseButton == null) {
-		informOnCaseButton = new RHyperlink();
+		informOnCaseButton = new RButton();
 		informOnCaseButton.setEnabled(false);
 		informOnCaseButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/informOnCaseLongDesc\")%>");
 		informOnCaseButton.setVisible(true);
@@ -270,6 +271,7 @@ private RHyperlink getInformOnCaseButton() {
 		informOnCaseButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/informOnCaseShortDesc\")%>");
 		informOnCaseButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/informOnCaseLongDesc\")%>");
 		informOnCaseButton.setName("informOnCaseButton");
+		informOnCaseButton.setBorderPainted(false);
 	}
 	return informOnCaseButton;
 }
@@ -279,9 +281,9 @@ private RHyperlink getInformOnCaseButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getDestroyCaseButton() {
+private RButton getDestroyCaseButton() {
 	if (destroyCaseButton == null) {
-		destroyCaseButton = new RHyperlink();
+		destroyCaseButton = new RButton();
 		destroyCaseButton.setEnabled(false);
 		destroyCaseButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseLongDesc\")%>");
 		destroyCaseButton.setStyle("toolBarButton");
@@ -289,6 +291,7 @@ private RHyperlink getDestroyCaseButton() {
 		destroyCaseButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseShortDesc\")%>");
 		destroyCaseButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseLongDesc\")%>");
 		destroyCaseButton.setName("destroyCaseButton");
+		destroyCaseButton.setBorderPainted(false);
 	}
 	return destroyCaseButton;
 }
@@ -385,9 +388,9 @@ private RTree getCaseHierarchyLayoutTree() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getLoadCaseListButton() {
+private RButton getLoadCaseListButton() {
 	if (loadCaseListButton == null) {
-		loadCaseListButton = new RHyperlink();
+		loadCaseListButton = new RButton();
 		loadCaseListButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/showList32\") %>");
 		loadCaseListButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/loadCaseListLongDesc\")%>");
 		loadCaseListButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/loadCaseListLongDesc\")%>");
@@ -395,6 +398,7 @@ private RHyperlink getLoadCaseListButton() {
 		loadCaseListButton.setStyle("toolBarButton");
 		loadCaseListButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/loadCaseListShortDesc\")%>");
 		loadCaseListButton.setName("loadCaseListButton");
+		loadCaseListButton.setBorderPainted(false);
 	}
 	return loadCaseListButton;
 }
@@ -482,14 +486,15 @@ private RMenuItem getDestroyCaseMenuItem() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getExpandAllButton() {
+private RButton getExpandAllButton() {
 	if (expandAllButton == null) {
-		expandAllButton = new RHyperlink();
+		expandAllButton = new RButton();
 		expandAllButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/expandAllCasesLongDesc\")%>");
 		expandAllButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/expandAll32\")%>");
 		expandAllButton.setStyle("toolBarButton");
 		expandAllButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/expandAllCasesShortDesc\")%>");
 		expandAllButton.setName("expandAllButton");
+		expandAllButton.setBorderPainted(false);
 	}
 	return expandAllButton;
 }

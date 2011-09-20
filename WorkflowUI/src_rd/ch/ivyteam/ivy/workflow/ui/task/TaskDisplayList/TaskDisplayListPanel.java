@@ -3,6 +3,7 @@ package ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList;
 import ch.ivyteam.ivy.addons.widgets.RTableWithExcelExport;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
@@ -34,11 +35,11 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private RHyperlink refreshTaskListButton = null;
-private RHyperlink startTaskButton = null;
-private RHyperlink parkTaskButton = null;
-private RHyperlink delegateTaskButton = null;
-private RHyperlink informOnTaskButton = null;
+private RButton refreshTaskListButton = null;
+private RButton startTaskButton = null;
+private RButton parkTaskButton = null;
+private RButton delegateTaskButton = null;
+private RButton informOnTaskButton = null;
 private RBoxPane searchTaskBoxPane = null;
 private RScrollPane tasksScrollPane = null;
 private RTableWithExcelExport tasksTable = null;
@@ -55,10 +56,10 @@ private RMenuItem findTaskMenuItem = null;
 private RMenuItem parkTaskMenuItem = null;
 private RMenuItem delegateTaskMenuItem = null;
 private RFlowLayoutPane taskDetailsActionsFlowLayoutPane = null;
-private RHyperlink setTaskExpiryDateButton = null;
-private RHyperlink setTaskBlockingDelayDateButton = null;
-private RHyperlink resetTaskButton = null;
-private RHyperlink destroyTaskButton = null;
+private RButton setTaskExpiryDateButton = null;
+private RButton setTaskBlockingDelayDateButton = null;
+private RButton resetTaskButton = null;
+private RButton destroyTaskButton = null;
 private RTextField taskNameOrCaseNameCriteriaTextField = null;
 private RMenuItem setTaskExpiryDateMenuItem = null;
 private RMenuItem setTaskBlockingDelayDateMenuItem = null;
@@ -66,7 +67,7 @@ private RMenuItem resetTaskMenuItem = null;
 private RMenuItem destroyTaskMenuItem = null;
 private RGridBagLayoutPane findTasksGridBagLayoutPane = null;
 private RHyperlink findTasksHyperlink = null;
-private RHyperlink automaticTasksExecutionToggleButton = null;
+private RButton automaticTasksExecutionToggleButton = null;
 private RPopupMenu.RSeparator aMenuSeparator = null;
 private RPopupMenu.RSeparator aMenuSeparator2 = null;
 private RBoxPane findBoxPane = null;
@@ -97,14 +98,16 @@ private RBoxPane taskActionsBoxPane = null;
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getRefreshTaskListButton() {
+private RButton getRefreshTaskListButton() {
 	if (refreshTaskListButton == null) {
-		refreshTaskListButton = new RHyperlink();
+		refreshTaskListButton = new RButton();
 		refreshTaskListButton.setName("refreshTaskListButton");
 		refreshTaskListButton.setStyle("toolBarButton");
 		refreshTaskListButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/refreshTaskListLongDesc\")%>");
 		refreshTaskListButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/refreshTaskListShortDesc\")%>");
 		refreshTaskListButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/refresh32\")%>");
+		refreshTaskListButton.setName("refreshTaskListButton");
+		refreshTaskListButton.setBorderPainted(false);
 	}
 	return refreshTaskListButton;
 }
@@ -114,15 +117,17 @@ private RHyperlink getRefreshTaskListButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getStartTaskButton() {
+private RButton getStartTaskButton() {
 	if (startTaskButton == null) {
-		startTaskButton = new RHyperlink();
+		startTaskButton = new RButton();
 		startTaskButton.setName("startTaskButton");
 		startTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskLongDesc\")%>");
 		startTaskButton.setStyle("toolBarButton");
 		startTaskButton.setEnabled(false);
 		startTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskShortDesc\")%>");
 		startTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/start32\")%>");
+		startTaskButton.setName("startTaskButton");
+		startTaskButton.setBorderPainted(false);
 	}
 	return startTaskButton;
 }
@@ -132,9 +137,9 @@ private RHyperlink getStartTaskButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getParkTaskButton() {
+private RButton getParkTaskButton() {
 	if (parkTaskButton == null) {
-		parkTaskButton = new RHyperlink();
+		parkTaskButton = new RButton();
 		parkTaskButton.setName("parkTaskButton");
 		parkTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskLongDesc\")%>");
 		parkTaskButton.setVisible(true);
@@ -142,6 +147,8 @@ private RHyperlink getParkTaskButton() {
 		parkTaskButton.setEnabled(false);
 		parkTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskShortDesc\")%>");
 		parkTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/park32\")%>");
+		parkTaskButton.setName("parkTaskButton");
+		parkTaskButton.setBorderPainted(false);
 	}
 	return parkTaskButton;
 }
@@ -151,15 +158,17 @@ private RHyperlink getParkTaskButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getDelegateTaskButton() {
+private RButton getDelegateTaskButton() {
 	if (delegateTaskButton == null) {
-		delegateTaskButton = new RHyperlink();
+		delegateTaskButton = new RButton();
 		delegateTaskButton.setName("delegateTaskButton");
 		delegateTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskLongDesc\")%>");
 		delegateTaskButton.setStyle("toolBarButton");
 		delegateTaskButton.setEnabled(false);
 		delegateTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskShortDesc\")%>");
 		delegateTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/delegate32\")%>");
+		delegateTaskButton.setName("delegateTaskButton");
+		delegateTaskButton.setBorderPainted(false);
 	}
 	return delegateTaskButton;
 }
@@ -169,15 +178,17 @@ private RHyperlink getDelegateTaskButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getInformOnTaskButton() {
+private RButton getInformOnTaskButton() {
 	if (informOnTaskButton == null) {
-		informOnTaskButton = new RHyperlink();
+		informOnTaskButton = new RButton();
 		informOnTaskButton.setName("informOnTaskButton");
 		informOnTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/informOnTaskLongDesc\")%>");
 		informOnTaskButton.setStyle("toolBarButton");
 		informOnTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/detail32\")%>");
 		informOnTaskButton.setEnabled(false);
 		informOnTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/informOnTaskShortDesc\")%>");
+		informOnTaskButton.setName("informOnTaskButton");
+		informOnTaskButton.setBorderPainted(false);
 		informOnTaskButton.setVisible(true);
 	}
 	return informOnTaskButton;
@@ -349,6 +360,7 @@ private RMenuItem getInformOnTaskOnSiblingTabMenuItem() {
 	if (informOnTaskOnSiblingTabMenuItem == null) {
 		informOnTaskOnSiblingTabMenuItem = new RMenuItem();
 		informOnTaskOnSiblingTabMenuItem.setText("Open task information on sibling tab");
+		informOnTaskOnSiblingTabMenuItem.setName("informOnTaskOnSiblingTabMenuItem");
 		informOnTaskOnSiblingTabMenuItem.setEnabled(false);
 		informOnTaskOnSiblingTabMenuItem.setName("informOnTaskOnSiblingTabMenuItem");
 	}
@@ -364,6 +376,7 @@ private RMenuItem getStartTaskOnSiblingTabMenuItem() {
 	if (startTaskOnSiblingTabMenuItem == null) {
 		startTaskOnSiblingTabMenuItem = new RMenuItem();
 		startTaskOnSiblingTabMenuItem.setText("Start task on sibling tab");
+		startTaskOnSiblingTabMenuItem.setName("startTaskOnSiblingTabMenuItem");
 		startTaskOnSiblingTabMenuItem.setEnabled(false);
 		startTaskOnSiblingTabMenuItem.setName("startTaskOnSiblingTabMenuItem");
 	}
@@ -380,6 +393,7 @@ private RMenuItem getRefreshTaskListMenuItem() {
 		refreshTaskListMenuItem = new RMenuItem();
 		refreshTaskListMenuItem.setText("Refresh");
 		refreshTaskListMenuItem.setName("refreshTaskListMenuItem");
+		refreshTaskListMenuItem.setName("refreshTaskListMenuItem");
 	}
 	return refreshTaskListMenuItem;
 }
@@ -393,6 +407,7 @@ private RMenuItem getFindTaskMenuItem() {
 	if (findTaskMenuItem == null) {
 		findTaskMenuItem = new RMenuItem();
 		findTaskMenuItem.setText("Find tasks");
+		findTaskMenuItem.setName("findTaskMenuItem");
 		findTaskMenuItem.setEnabled(true);
 		findTaskMenuItem.setVisible(false);
 		findTaskMenuItem.setName("findTaskMenuItem");
@@ -409,6 +424,7 @@ private RMenuItem getParkTaskMenuItem() {
 	if (parkTaskMenuItem == null) {
 		parkTaskMenuItem = new RMenuItem();
 		parkTaskMenuItem.setText("Park");
+		parkTaskMenuItem.setName("parkTaskMenuItem");
 		parkTaskMenuItem.setEnabled(false);
 		parkTaskMenuItem.setName("parkTaskMenuItem");
 	}
@@ -424,6 +440,7 @@ private RMenuItem getDelegateTaskMenuItem() {
 	if (delegateTaskMenuItem == null) {
 		delegateTaskMenuItem = new RMenuItem();
 		delegateTaskMenuItem.setText("Delegate");
+		delegateTaskMenuItem.setName("delegateTaskMenuItem");
 		delegateTaskMenuItem.setEnabled(false);
 		delegateTaskMenuItem.setName("delegateTaskMenuItem");
 	}
@@ -449,15 +466,17 @@ private RFlowLayoutPane getTaskDetailsActionsFlowLayoutPane() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getSetTaskExpiryDateButton() {
+private RButton getSetTaskExpiryDateButton() {
 	if (setTaskExpiryDateButton == null) {
-		setTaskExpiryDateButton = new RHyperlink();
+		setTaskExpiryDateButton = new RButton();
 		setTaskExpiryDateButton.setEnabled(false);
 		setTaskExpiryDateButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskExpiryTimestampLongDesc\")%>");
 		setTaskExpiryDateButton.setStyle("toolBarButton");
 		setTaskExpiryDateButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/setExpiry32\")%>");
 		setTaskExpiryDateButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskExpiryTimestampShortDesc\")%>");
 		setTaskExpiryDateButton.setName("setTaskExpiryDateButton");
+		setTaskExpiryDateButton.setName("setTaskExpiryDateButton");
+		setTaskExpiryDateButton.setBorderPainted(false);
 	}
 	return setTaskExpiryDateButton;
 }
@@ -467,15 +486,17 @@ private RHyperlink getSetTaskExpiryDateButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getSetTaskBlockingDelayDateButton() {
+private RButton getSetTaskBlockingDelayDateButton() {
 	if (setTaskBlockingDelayDateButton == null) {
-		setTaskBlockingDelayDateButton = new RHyperlink();
+		setTaskBlockingDelayDateButton = new RButton();
 		setTaskBlockingDelayDateButton.setEnabled(false);
 		setTaskBlockingDelayDateButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskBlockingDelayTimestampLongDesc\")%>");
 		setTaskBlockingDelayDateButton.setStyle("toolBarButton");
 		setTaskBlockingDelayDateButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/setBlockingDelay32\")%>");
 		setTaskBlockingDelayDateButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskBlockingDelayTimestampShortDesc\")%>");
 		setTaskBlockingDelayDateButton.setName("setTaskBlockingDelayDateButton");
+		setTaskBlockingDelayDateButton.setName("setTaskBlockingDelayDateButton");
+		setTaskBlockingDelayDateButton.setBorderPainted(false);
 	}
 	return setTaskBlockingDelayDateButton;
 }
@@ -485,15 +506,17 @@ private RHyperlink getSetTaskBlockingDelayDateButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getResetTaskButton() {
+private RButton getResetTaskButton() {
 	if (resetTaskButton == null) {
-		resetTaskButton = new RHyperlink();
+		resetTaskButton = new RButton();
 		resetTaskButton.setEnabled(false);
 		resetTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/cancelTaskLongDesc\")%>");
 		resetTaskButton.setStyle("toolBarButton");
 		resetTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/reset32\")%>");
 		resetTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/cancelTaskShortDesc\")%>\n");
 		resetTaskButton.setName("resetTaskButton");
+		resetTaskButton.setName("resetTaskButton");
+		resetTaskButton.setBorderPainted(false);
 	}
 	return resetTaskButton;
 }
@@ -503,15 +526,17 @@ private RHyperlink getResetTaskButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getDestroyTaskButton() {
+private RButton getDestroyTaskButton() {
 	if (destroyTaskButton == null) {
-		destroyTaskButton = new RHyperlink();
+		destroyTaskButton = new RButton();
 		destroyTaskButton.setEnabled(false);
 		destroyTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/destroyTaskLongDesc\")%>");
 		destroyTaskButton.setStyle("toolBarButton");
 		destroyTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/destroy32\")%>");
 		destroyTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/destroyTaskShortDesc\")%>");
 		destroyTaskButton.setName("destroyTaskButton");
+		destroyTaskButton.setName("destroyTaskButton");
+		destroyTaskButton.setBorderPainted(false);
 	}
 	return destroyTaskButton;
 }
@@ -546,6 +571,7 @@ private RMenuItem getSetTaskExpiryDateMenuItem() {
 		setTaskExpiryDateMenuItem.setEnabled(false);
 		setTaskExpiryDateMenuItem.setText("Set task expiry date");
 		setTaskExpiryDateMenuItem.setName("setTaskExpiryDateMenuItem");
+		setTaskExpiryDateMenuItem.setName("setTaskExpiryDateMenuItem");
 	}
 	return setTaskExpiryDateMenuItem;
 }
@@ -560,6 +586,7 @@ private RMenuItem getSetTaskBlockingDelayDateMenuItem() {
 		setTaskBlockingDelayDateMenuItem = new RMenuItem();
 		setTaskBlockingDelayDateMenuItem.setEnabled(false);
 		setTaskBlockingDelayDateMenuItem.setText("Set task blocking delay date");
+		setTaskBlockingDelayDateMenuItem.setName("setTaskBlockingDelayDateMenuItem");
 		setTaskBlockingDelayDateMenuItem.setName("setTaskBlockingDelayDateMenuItem");
 	}
 	return setTaskBlockingDelayDateMenuItem;
@@ -576,6 +603,7 @@ private RMenuItem getResetTaskMenuItem() {
 		resetTaskMenuItem.setEnabled(false);
 		resetTaskMenuItem.setText("Reset");
 		resetTaskMenuItem.setName("resetTaskMenuItem");
+		resetTaskMenuItem.setName("resetTaskMenuItem");
 	}
 	return resetTaskMenuItem;
 }
@@ -590,6 +618,7 @@ private RMenuItem getDestroyTaskMenuItem() {
 		destroyTaskMenuItem = new RMenuItem();
 		destroyTaskMenuItem.setEnabled(false);
 		destroyTaskMenuItem.setText("Destroy");
+		destroyTaskMenuItem.setName("destroyTaskMenuItem");
 		destroyTaskMenuItem.setName("destroyTaskMenuItem");
 	}
 	return destroyTaskMenuItem;
@@ -621,6 +650,7 @@ private RHyperlink getFindTasksHyperlink() {
 	if (findTasksHyperlink == null) {
 		findTasksHyperlink = new RHyperlink();
 		findTasksHyperlink.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/view24\") %>");
+		findTasksHyperlink.setName("findTasksHyperlink");
 		findTasksHyperlink.setStyleProperties("{/backgroundColor {/b \"255\"/r \"255\"/g \"255\"}/insetsTop \"0\"/insetsRight \"0\"/insetsLeft \"0\"}");
 		findTasksHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/find\")%>");
 		findTasksHyperlink.setName("findTasksHyperlink");
@@ -633,14 +663,17 @@ private RHyperlink getFindTasksHyperlink() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getAutomaticTasksExecutionToggleButton() {
+private RButton getAutomaticTasksExecutionToggleButton() {
 	if (automaticTasksExecutionToggleButton == null) {
-		automaticTasksExecutionToggleButton = new RHyperlink();
+		automaticTasksExecutionToggleButton = new RButton();
 		automaticTasksExecutionToggleButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/autoStartTasksLongDesc\")%>\n");
 		automaticTasksExecutionToggleButton.setStyle("toolBarButton");
 		automaticTasksExecutionToggleButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/autostart32\")%>");
 		automaticTasksExecutionToggleButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/autoStartTasksShortDesc\")%>\n\n");
 		automaticTasksExecutionToggleButton.setName("automaticTasksExecutionToggleButton");
+		automaticTasksExecutionToggleButton.setEnabled(true);
+		automaticTasksExecutionToggleButton.setName("automaticTasksExecutionToggleButton");
+		automaticTasksExecutionToggleButton.setBorderPainted(false);
 	}
 	return automaticTasksExecutionToggleButton;
 }

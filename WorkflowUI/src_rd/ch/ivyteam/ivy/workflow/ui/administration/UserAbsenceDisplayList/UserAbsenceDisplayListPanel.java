@@ -3,12 +3,13 @@ package ch.ivyteam.ivy.workflow.ui.administration.UserAbsenceDisplayList;
 import java.awt.event.KeyEvent;
 
 import ch.ivyteam.ivy.addons.widgets.RTableWithExcelExport;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RDatePicker;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
-import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
@@ -22,13 +23,11 @@ import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
 import ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
 
+import com.ulcjava.base.application.BorderFactory;
+import com.ulcjava.base.application.ULCContainer;
 import com.ulcjava.base.application.ULCFlowLayoutPane;
 import com.ulcjava.base.application.ULCListSelectionModel;
 import com.ulcjava.base.application.ULCTable;
-import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
-import com.ulcjava.base.application.ULCContainer;
-import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
-import com.ulcjava.base.application.BorderFactory;
 
 /**
  * RichDialog panel implementation for AbsenceManagementPanel.
@@ -42,8 +41,8 @@ implements IRichDialogPanel
   private static final long serialVersionUID = 1L;
 @EmbeddedRichDialog(HeaderPanel.class) private ULCContainer header = null;
 private RToolBar absenceToolBar = null;
-private RHyperlink addButton = null;
-private RHyperlink deleteButton = null;
+private RButton addButton = null;
+private RButton deleteButton = null;
 private RCollapsiblePane addCollapsiblePane = null;
 private RScrollPane absenceScrollPane = null;
 private RTableWithExcelExport absenceTable = null;
@@ -58,7 +57,7 @@ private RButton okButton = null;
 private RLabel errorMessageLabel = null;
 private RPopupMenu absenceListPopupMenu = null;
 private RMenuItem deleteMenuItem = null;
-private RHyperlink exitButton = null;
+private RButton exitButton = null;
 private RFlowLayoutPane actionsFlowLayoutPane = null;
 private RButton cancelButton = null;
 private RBoxPane headerBoxPane = null;
@@ -128,14 +127,15 @@ private RToolBar getAbsenceToolBar() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getAddButton() {
+private RButton getAddButton() {
 	if (addButton == null) {
-		addButton = new RHyperlink();
+		addButton = new RButton();
 		addButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/add32\")%>");
 		addButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/addAbsence\")%>");
 		addButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/add\")%>\n");
 		addButton.setStyle("toolBarButton");
 		addButton.setName("addButton");
+		addButton.setBorderPainted(false);
 	}
 	return addButton;
 }
@@ -145,14 +145,15 @@ private RHyperlink getAddButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getDeleteButton() {
+private RButton getDeleteButton() {
 	if (deleteButton == null) {
-		deleteButton = new RHyperlink();
+		deleteButton = new RButton();
 		deleteButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/delete32\")%>");
 		deleteButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/removeAbsence\")%>");
 		deleteButton.setStyle("toolBarButton");
 		deleteButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/remove\")%>");
 		deleteButton.setName("deleteButton");
+		deleteButton.setBorderPainted(false);
 	}
 	return deleteButton;
 }
@@ -395,14 +396,15 @@ private RMenuItem getDeleteMenuItem() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getExitButton() {
+private RButton getExitButton() {
 	if (exitButton == null) {
-		exitButton = new RHyperlink();
+		exitButton = new RButton();
 		exitButton.setName("exitButton");
 		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
 		exitButton.setStyleProperties("{/insetsRight \"3\"}");
 		exitButton.setStyle("toolBarButton");
 		exitButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
+		exitButton.setBorderPainted(false);
 	}
 	return exitButton;
 }

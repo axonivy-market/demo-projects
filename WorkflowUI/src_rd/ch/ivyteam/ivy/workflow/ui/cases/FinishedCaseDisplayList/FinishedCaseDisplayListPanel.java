@@ -1,15 +1,16 @@
 package ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList;
 
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
+import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListPanel;
 import ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
-import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+
 import com.ulcjava.base.application.ULCContainer;
-import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for FinishedCaseDisplayListPanel.
@@ -24,7 +25,7 @@ implements IRichDialogPanel
 private RBoxPane headerBoxPane = null;
 @EmbeddedRichDialog(HeaderPanel.class) private ULCContainer headerRDC = null;
 @EmbeddedRichDialog(CaseDisplayListPanel.class) private ULCContainer caseDisplayListRDC = null;
-private RHyperlink closeHyperlink = null;
+private RButton closeHyperlink = null;
 /**
    * Create a new instance of FinishedCaseDisplayListPanel
    */
@@ -96,14 +97,15 @@ private ULCContainer getCaseDisplayListRDC()  {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getCloseHyperlink() {
+private RButton getCloseHyperlink() {
 	if (closeHyperlink == null) {
-		closeHyperlink = new RHyperlink();
+		closeHyperlink = new RButton();
 		closeHyperlink.setName("closeHyperlink");
 		closeHyperlink.setStyleProperties("{/insetsRight \"3\"}");
 		closeHyperlink.setStyle("toolBarButton");
 		closeHyperlink.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
 		closeHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
+		closeHyperlink.setBorderPainted(false);
 	}
 	return closeHyperlink;
 }

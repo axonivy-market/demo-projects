@@ -1,15 +1,16 @@
 package ch.ivyteam.ivy.workflow.ui.task.RunningTaskDisplayList;
 
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
+import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel;
 import ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListPanel;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
-import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+
 import com.ulcjava.base.application.ULCContainer;
-import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 
 /**
  * RichDialog panel implementation for RunningTaskDisplayListPanel.
@@ -24,8 +25,8 @@ implements IRichDialogPanel
 @EmbeddedRichDialog(HeaderPanel.class) private ULCContainer headerRDC = null;
 @EmbeddedRichDialog(TaskDisplayListPanel.class) private ULCContainer taskDisplayListRDC = null;
 private RBoxPane headerBoxPane = null;
-private RHyperlink closeHyperlink = null;
-private RHyperlink stopAutomaticTasksExecutionToggleHyperlink = null;
+private RButton closeHyperlink = null;
+private RButton stopAutomaticTasksExecutionToggleHyperlink = null;
   
   /**
    * Create a new instance of RunningTaskDisplayListPanel
@@ -100,15 +101,16 @@ private RBoxPane getHeaderBoxPane() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getCloseHyperlink() {
+private RButton getCloseHyperlink() {
 	if (closeHyperlink == null) {
-		closeHyperlink = new RHyperlink();
+		closeHyperlink = new RButton();
 		closeHyperlink.setName("closeHyperlink");
 		closeHyperlink.setStyleProperties("{/insetsRight \"3\"}");
 		closeHyperlink.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
 		closeHyperlink.setStyle("toolBarButton");
 		closeHyperlink.setName("closeHyperlink");
 		closeHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
+		closeHyperlink.setBorderPainted(false);
 	}
 	return closeHyperlink;
 }
@@ -118,15 +120,16 @@ private RHyperlink getCloseHyperlink() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RToggleButton	
  */
-private RHyperlink getStopAutomaticTasksExecutionToggleHyperlink() {
+private RButton getStopAutomaticTasksExecutionToggleHyperlink() {
 	if (stopAutomaticTasksExecutionToggleHyperlink == null) {
-		stopAutomaticTasksExecutionToggleHyperlink = new RHyperlink();
+		stopAutomaticTasksExecutionToggleHyperlink = new RButton();
 		stopAutomaticTasksExecutionToggleHyperlink.setName("stopAutomaticTasksExecutionToggleHyperlink");
 		stopAutomaticTasksExecutionToggleHyperlink.setStyle("toolBarButton");
 		stopAutomaticTasksExecutionToggleHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/stopAutostart32\")%>");
 		stopAutomaticTasksExecutionToggleHyperlink.setVisible(false);
 		stopAutomaticTasksExecutionToggleHyperlink.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/stopAutoStartTasksShortDesc\")%>\n");
 		stopAutomaticTasksExecutionToggleHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/stopAutoStartTasksLongDesc\")%>\n");
+		stopAutomaticTasksExecutionToggleHyperlink.setBorderPainted(false);
 	}
 	return stopAutomaticTasksExecutionToggleHyperlink;
 }

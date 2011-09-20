@@ -5,7 +5,7 @@ import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
+import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RSplitPane;
@@ -27,7 +27,7 @@ implements IRichDialogPanel
   /** Serial version id */
   private static final long serialVersionUID = 1L;
 @EmbeddedRichDialog(HeaderPanel.class) private ULCContainer header = null;
-private RHyperlink exitButton = null;
+private RButton exitButton = null;
 private RBoxPane headerBoxPane = null;
 private @EmbeddedRichDialog(UserDisplayListPanel.class) ULCContainer userDisplayListRDC = null;
 private RGridBagLayoutPane substitutesAndAbsencesGridBagLayoutPane = null;
@@ -77,14 +77,15 @@ private ULCContainer getHeader()  {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getExitButton() {
+private RButton getExitButton() {
 	if (exitButton == null) {
-		exitButton = new RHyperlink();
+		exitButton = new RButton();
 		exitButton.setName("exitButton");
 		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
 		exitButton.setStyleProperties("{/insetsRight \"3\"}");
 		exitButton.setStyle("toolBarButton");
 		exitButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
+		exitButton.setBorderPainted(false);
 	}
 	return exitButton;
 }

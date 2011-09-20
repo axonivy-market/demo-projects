@@ -1,31 +1,29 @@
 package ch.ivyteam.ivy.workflow.ui.administration.EmailNotificationEdit;
 
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
-import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
-import com.ulcjava.base.application.BorderFactory;
-import com.ulcjava.base.application.border.ULCTitledBorder;
-import com.ulcjava.base.application.util.Font;
-import com.ulcjava.base.application.util.Color;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
-import ch.ivyteam.ivy.richdialog.widgets.components.RRadioButton;
+import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButtonGroup;
 import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
-import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
-import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RGridLayoutPane;
-import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
 import ch.ivyteam.ivy.richdialog.widgets.components.RComboBox;
-import com.ulcjava.base.application.util.Dimension;
-import com.ulcjava.base.application.ULCFlowLayoutPane;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
-import ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel;
-import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
-import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
-import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
+import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RRadioButton;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
+import ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel;
+
+import com.ulcjava.base.application.BorderFactory;
+import com.ulcjava.base.application.ULCContainer;
+import com.ulcjava.base.application.ULCFlowLayoutPane;
+import com.ulcjava.base.application.border.ULCTitledBorder;
+import com.ulcjava.base.application.util.Color;
+import com.ulcjava.base.application.util.Dimension;
+import com.ulcjava.base.application.util.Font;
 
 /**
  * <p>EmailNotificationSettingsPanel is a rich dialog panel implementation.
@@ -67,7 +65,7 @@ private RButton okButton = null;
 private RButton cancelButton = null;
 private RBoxPane headerBoxPane = null;
 private @EmbeddedRichDialog(HeaderPanel.class) ULCContainer headerRDC = null;
-private RHyperlink exitButton = null;
+private RButton exitButton = null;
 /**
    * Create a new instance of EmailNotificationSettingsPanel
    */
@@ -531,14 +529,15 @@ private ULCContainer getHeaderRDC() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
  */
-private RHyperlink getExitButton() {
+private RButton getExitButton() {
 	if (exitButton == null) {
-		exitButton = new RHyperlink();
+		exitButton = new RButton();
 		exitButton.setName("exitButton");
 		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
 		exitButton.setStyle("toolBarButton");
 		exitButton.setStyleProperties("{/insetsRight \"3\"}");
 		exitButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
+		exitButton.setBorderPainted(false);
 	}
 	return exitButton;
 }

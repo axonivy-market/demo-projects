@@ -5,7 +5,6 @@ import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
-import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextArea;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
@@ -34,8 +33,8 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private RHyperlink addNoteButton = null;
-private RHyperlink deleteNoteButton = null;
+private RButton addNoteButton = null;
+private RButton deleteNoteButton = null;
 private RCollapsiblePane addNoteCollapsiblePane = null;
 private RScrollPane caseNotesScrollPane = null;
 private RTableWithExcelExport caseNotesTable = null;
@@ -82,14 +81,15 @@ this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(300,222));
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getAddNoteButton() {
+private RButton getAddNoteButton() {
 	if (addNoteButton == null) {
-		addNoteButton = new RHyperlink();
+		addNoteButton = new RButton();
 		addNoteButton.setName("addNoteButton");
 		addNoteButton.setStyle("toolBarButton");
 		addNoteButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/note/images/add32\")%>");
 		addNoteButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/add\")%>");
 		addNoteButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/addNote\")%>");
+		addNoteButton.setBorderPainted(false);
 	}
 	return addNoteButton;
 }
@@ -99,14 +99,15 @@ private RHyperlink getAddNoteButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getDeleteNoteButton() {
+private RButton getDeleteNoteButton() {
 	if (deleteNoteButton == null) {
-		deleteNoteButton = new RHyperlink();
+		deleteNoteButton = new RButton();
 		deleteNoteButton.setName("deleteNoteButton");
 		deleteNoteButton.setStyle("toolBarButton");
 		deleteNoteButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/note/images/delete32\")%>");
 		deleteNoteButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/remove\")%>");
 		deleteNoteButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/deleteNote\")%>");
+		deleteNoteButton.setBorderPainted(false);
 	}
 	return deleteNoteButton;
 }

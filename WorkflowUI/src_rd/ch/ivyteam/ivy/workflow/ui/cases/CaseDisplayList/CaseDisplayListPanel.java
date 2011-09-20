@@ -3,6 +3,7 @@ package ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList;
 import ch.ivyteam.ivy.addons.widgets.RTableWithExcelExport;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
@@ -32,7 +33,7 @@ implements IRichDialogPanel
   /** Serial version id */
   private static final long serialVersionUID = 1L;
 private RToolBar caseActionsToolBar = null;
-private RHyperlink refreshButton = null;
+private RButton refreshButton = null;
 private RSplitPane casesSplitPane = null;
 private RScrollPane casesScrollPane = null;
 private RTableWithExcelExport casesTable = null;
@@ -43,8 +44,8 @@ private RPopupMenu caseActionsPopupMenu = null;  //  @jve:decl-index=0:visual-co
 private RMenuItem informOnCaseOnSiblingTabMenuItem = null;
 private RMenuItem refreshMenuItem = null;
 private RBoxPane headerBoxPane = null;
-private RHyperlink destroyCaseButton = null;
-private RHyperlink informOnCaseButton = null;
+private RButton destroyCaseButton = null;
+private RButton informOnCaseButton = null;
 private RMenuItem destroyCaseMenuItem = null;
 private RGridBagLayoutPane findCasesGridBagLayoutPane = null;
 private RTextField caseNameCriteriaTextField = null;
@@ -93,14 +94,15 @@ private RToolBar getCaseActionsToolBar() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getRefreshButton() {
+private RButton getRefreshButton() {
 	if (refreshButton == null) {
-		refreshButton = new RHyperlink();
+		refreshButton = new RButton();
 		refreshButton.setName("refreshButton");
 		refreshButton.setStyle("toolBarButton");
 		refreshButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/refresh32\")%>");
 		refreshButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/refreshCaseListShortDesc\")%>");
 		refreshButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/refreshCaseListLongDesc\")%>");
+		refreshButton.setBorderPainted(false);
 	}
 	return refreshButton;
 }
@@ -263,15 +265,16 @@ private RBoxPane getHeaderBoxPane() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getDestroyCaseButton() {
+private RButton getDestroyCaseButton() {
 	if (destroyCaseButton == null) {
-		destroyCaseButton = new RHyperlink();
+		destroyCaseButton = new RButton();
 		destroyCaseButton.setName("destroyCaseButton");
 		destroyCaseButton.setStyle("toolBarButton");
 		destroyCaseButton.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/case/images/destroy32\") %>");
 		destroyCaseButton.setEnabled(false);
 		destroyCaseButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseShortDesc\")%>");
 		destroyCaseButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseLongDesc\")%>");
+		destroyCaseButton.setBorderPainted(false);
 	}
 	return destroyCaseButton;
 }
@@ -281,9 +284,9 @@ private RHyperlink getDestroyCaseButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getInformOnCaseButton() {
+private RButton getInformOnCaseButton() {
 	if (informOnCaseButton == null) {
-		informOnCaseButton = new RHyperlink();
+		informOnCaseButton = new RButton();
 		informOnCaseButton.setEnabled(false);
 		informOnCaseButton.setVisible(true);
 		informOnCaseButton.setStyle("toolBarButton");
@@ -291,6 +294,7 @@ private RHyperlink getInformOnCaseButton() {
 		informOnCaseButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/informOnCaseLongDesc\")%>");
 		informOnCaseButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/informOnCaseShortDesc\")%>");
 		informOnCaseButton.setName("informOnCaseButton");
+		informOnCaseButton.setBorderPainted(false);
 	}
 	return informOnCaseButton;
 }

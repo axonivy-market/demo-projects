@@ -3,11 +3,12 @@ package ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList;
 import java.net.URL;
 
 import ch.ivyteam.ivy.addons.widgets.RTableWithExcelExport;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
-import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLookupTextField;
 import ch.ivyteam.ivy.richdialog.widgets.components.RRadioButton;
@@ -19,17 +20,15 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
+import ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
 
 import com.ulcjava.base.application.ULCButtonGroup;
+import com.ulcjava.base.application.ULCContainer;
 import com.ulcjava.base.application.ULCTable;
 import com.ulcjava.base.application.util.Color;
-import com.ulcjava.base.application.util.ULCIcon;
-import ch.ivyteam.ivy.workflow.ui.common.Header.HeaderPanel;
-import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
-import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
-import com.ulcjava.base.application.ULCContainer;
 import com.ulcjava.base.application.util.Dimension;
+import com.ulcjava.base.application.util.ULCIcon;
 
 /**
  * RichDialog panel implementation for SubstituteManagementPanel.
@@ -41,8 +40,8 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private RHyperlink addButton = null;
-private RHyperlink deleteButton = null;
+private RButton addButton = null;
+private RButton deleteButton = null;
 private RCollapsiblePane addCollapsiblePane = null;
 private RGridBagLayoutPane addGridBagLayoutPane = null;
 private RScrollPane ScrollPane = null;
@@ -69,7 +68,7 @@ private RScrollPane remarkScrollPane = null;
 private String iconPath = "/ch/ivyteam/ivy/workflow/ui/administration/UserSubstituteDisplayList/zoom16.png";
 private RBoxPane headerBoxPane = null;
 private @EmbeddedRichDialog(HeaderPanel.class) ULCContainer header = null;
-private RHyperlink exitButton = null;
+private RButton exitButton = null;
 /**
    * Create a new instance of SubstituteManagementPanel
    */
@@ -102,14 +101,15 @@ private RHyperlink exitButton = null;
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getAddButton() {
+private RButton getAddButton() {
 	if (addButton == null) {
-		addButton = new RHyperlink();
+		addButton = new RButton();
 		addButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/add32\")%>");
 		addButton.setToolTipText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/addSubstitute\") %>");
 		addButton.setStyle("toolBarButton");
 		addButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/add\")%>");
 		addButton.setName("addButton");
+		addButton.setBorderPainted(false);
 	}
 	return addButton;
 }
@@ -119,14 +119,15 @@ private RHyperlink getAddButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getDeleteButton() {
+private RButton getDeleteButton() {
 	if (deleteButton == null) {
-		deleteButton = new RHyperlink();
+		deleteButton = new RButton();
 		deleteButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/delete32\")%>");
 		deleteButton.setToolTipText("<%= ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/removeSubstitute\") %>");
 		deleteButton.setStyle("toolBarButton");
 		deleteButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/remove\")%>");
 		deleteButton.setName("deleteButton");
+		deleteButton.setBorderPainted(false);
 	}
 	return deleteButton;
 }
@@ -563,14 +564,15 @@ private ULCContainer getHeader() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
  */
-private RHyperlink getExitButton() {
+private RButton getExitButton() {
 	if (exitButton == null) {
-		exitButton = new RHyperlink();
+		exitButton = new RButton();
 		exitButton.setName("exitButton");
 		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
 		exitButton.setStyle("toolBarButton");
 		exitButton.setStyleProperties("{/insetsRight \"3\"}");
 		exitButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
+		exitButton.setBorderPainted(false);
 	}
 	return exitButton;
 }

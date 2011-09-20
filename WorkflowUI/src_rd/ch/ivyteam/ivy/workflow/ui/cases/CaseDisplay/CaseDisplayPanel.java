@@ -2,10 +2,12 @@ package ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay;
 
 import ch.ivyteam.ivy.addons.eventlog.EventLogDisplayList.EventLogDisplayListPanel;
 import ch.ivyteam.ivy.addons.filemanager.FileManager.FileManagerPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
-import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTabbedPane;
@@ -14,12 +16,11 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RTaskPaneContainer;
 import ch.ivyteam.ivy.workflow.ui.cases.CaseDetailsDisplay.CaseDetailsDisplayPanel;
 import ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListPanel;
 import ch.ivyteam.ivy.workflow.ui.cases.WorkflowEventsDisplayList.WorkflowEventsDisplayListPanel;
+import ch.ivyteam.ivy.workflow.ui.formarchive.FormArchiveDisplayList.FormArchiveDisplayListPanel;
 import ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListPanel;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
-import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+
 import com.ulcjava.base.application.ULCContainer;
-import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
-import ch.ivyteam.ivy.workflow.ui.formarchive.FormArchiveDisplayList.FormArchiveDisplayListPanel;
 
 
 /**
@@ -36,7 +37,7 @@ private RTabbedPane caseDisplayTabbedPane = null;
 private RTaskPaneContainer caseNotesTaskPaneContainer = null;
 private RTaskPane caseNotesTaskPane = null;
 @EmbeddedRichDialog(CaseNoteDisplayListPanel.class) private ULCContainer caseNoteDisplayListRDC = null;
-private RHyperlink exitButton = null;
+private RButton exitButton = null;
 @EmbeddedRichDialog(TaskDisplayListPanel.class) private ULCContainer taskDisplayListRDC = null;
 private FileManagerPanel fileManagerRDC = null;
 private EventLogDisplayListPanel eventLogDisplayListRDC = null;
@@ -144,13 +145,14 @@ private ULCContainer getCaseNoteDisplayListRDC()  {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getExitButton() {
+private RButton getExitButton() {
 	if (exitButton == null) {
-		exitButton = new RHyperlink();
+		exitButton = new RButton();
 		exitButton.setName("exitButton");
 		exitButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
 		exitButton.setStyle("toolBarButton");
 		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
+		exitButton.setBorderPainted(false);
 	}
 	return exitButton;
 }

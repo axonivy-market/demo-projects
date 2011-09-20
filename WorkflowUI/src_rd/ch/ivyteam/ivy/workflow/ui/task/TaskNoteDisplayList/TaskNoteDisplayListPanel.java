@@ -34,8 +34,8 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private RHyperlink addNoteButton = null;
-private RHyperlink deleteNoteButton = null;
+private RButton addNoteButton = null;
+private RButton deleteNoteButton = null;
 private RCollapsiblePane addNoteCollapsiblePane = null;
 private RFlowLayoutPane addNoteFlowLayoutPane = null;
 private RButton okButton = null;
@@ -82,14 +82,15 @@ private RBoxPane noteActionsBoxPane = null;
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getAddNoteButton() {
+private RButton getAddNoteButton() {
 	if (addNoteButton == null) {
-		addNoteButton = new RHyperlink();
+		addNoteButton = new RButton();
 		addNoteButton.setName("addNoteButton");
 		addNoteButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/note/images/add32\")%>");
 		addNoteButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/add\")%>");
 		addNoteButton.setStyle("toolBarButton");
 		addNoteButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/addNote\")%>");
+		addNoteButton.setBorderPainted(false);
 	}
 	return addNoteButton;
 }
@@ -99,14 +100,15 @@ private RHyperlink getAddNoteButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getDeleteNoteButton() {
+private RButton getDeleteNoteButton() {
 	if (deleteNoteButton == null) {
-		deleteNoteButton = new RHyperlink();
+		deleteNoteButton = new RButton();
 		deleteNoteButton.setName("deleteNoteButton");
 		deleteNoteButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/note/images/delete32\")%>");
 		deleteNoteButton.setStyle("toolBarButton");
 		deleteNoteButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/remove\")%>\n");
 		deleteNoteButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/note/plainStrings/deleteNote\")%>");
+		deleteNoteButton.setBorderPainted(false);
 	}
 	return deleteNoteButton;
 }

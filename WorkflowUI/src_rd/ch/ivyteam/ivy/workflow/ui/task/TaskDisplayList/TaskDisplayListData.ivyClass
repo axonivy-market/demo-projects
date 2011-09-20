@@ -4,6 +4,7 @@ tasks List<ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper> #field
 selectedTask ch.ivyteam.ivy.workflow.ITask #field
 selectedTaskObject Object #field
 selectedTasks List<ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper> #field
+selectedTasks 'The list of tasks selected by user on UI.' #fieldComment
 securityMember ch.ivyteam.ivy.security.ISecurityMember #field
 securityMember 'The selected tasks to delegate will be assigned to this ISecurityMember. ISecurityMemeber is base interface for IUser and IRole' #fieldComment
 originalPropertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field

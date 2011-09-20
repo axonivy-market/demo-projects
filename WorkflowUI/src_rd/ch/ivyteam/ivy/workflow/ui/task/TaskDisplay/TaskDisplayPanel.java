@@ -2,8 +2,8 @@ package ch.ivyteam.ivy.workflow.ui.task.TaskDisplay;
 
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
-import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTabbedPane;
@@ -20,11 +20,11 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private RHyperlink startTaskToggleButton = null;
+private RButton startTaskToggleButton = null;
 private RLabel footerLabel = null;
-private RHyperlink parkTaskButton = null;
-private RHyperlink delegateTaskButton = null;
-private RHyperlink exitButton = null;
+private RButton parkTaskButton = null;
+private RButton delegateTaskButton = null;
+private RButton exitButton = null;
 private RCardDisplay taskExecutionDisplay = null;
 private RBoxPane taskActionsBoxPane = null;
 private RTabbedPane centerTabbedPane = null;
@@ -62,15 +62,16 @@ private RCardDisplay detailsDisplay = null;
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RToggleButton	
  */
-private RHyperlink getStartTaskToggleButton() {
+private RButton getStartTaskToggleButton() {
 	if (startTaskToggleButton == null) {
-		startTaskToggleButton = new RHyperlink();
+		startTaskToggleButton = new RButton();
 		startTaskToggleButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/start32\")%>");
 		startTaskToggleButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskLongDesc\")%>");
 		startTaskToggleButton.setEnabled(false);
 		startTaskToggleButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/startTaskShortDesc\")%>");
 		startTaskToggleButton.setStyle("toolBarButton");
 		startTaskToggleButton.setName("startTaskToggleButton");
+		startTaskToggleButton.setBorderPainted(false);
 	}
 	return startTaskToggleButton;
 }
@@ -94,9 +95,9 @@ private RLabel getFooterLabel() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getParkTaskButton() {
+private RButton getParkTaskButton() {
 	if (parkTaskButton == null) {
-		parkTaskButton = new RHyperlink();
+		parkTaskButton = new RButton();
 		parkTaskButton.setName("parkTaskButton");
 		parkTaskButton.setVisible(true);
 		parkTaskButton.setStyle("toolBarButton");
@@ -104,6 +105,7 @@ private RHyperlink getParkTaskButton() {
 		parkTaskButton.setEnabled(false);
 		parkTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskShortDesc\")%>");
 		parkTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskLongDesc\")%>");
+		parkTaskButton.setBorderPainted(false);
 	}
 	return parkTaskButton;
 }
@@ -113,15 +115,16 @@ private RHyperlink getParkTaskButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getDelegateTaskButton() {
+private RButton getDelegateTaskButton() {
 	if (delegateTaskButton == null) {
-		delegateTaskButton = new RHyperlink();
+		delegateTaskButton = new RButton();
 		delegateTaskButton.setName("delegateTaskButton");
 		delegateTaskButton.setStyle("toolBarButton");
 		delegateTaskButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/task/images/delegate32\")%>");
 		delegateTaskButton.setEnabled(false);
 		delegateTaskButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskShortDesc\")%>");
 		delegateTaskButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskLongDesc\")%>\n");
+		delegateTaskButton.setBorderPainted(false);
 	}
 	return delegateTaskButton;
 }
@@ -131,13 +134,14 @@ private RHyperlink getDelegateTaskButton() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RHyperlink getExitButton() {
+private RButton getExitButton() {
 	if (exitButton == null) {
-		exitButton = new RHyperlink();
+		exitButton = new RButton();
 		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
 		exitButton.setStyle("toolBarButton");
 		exitButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
 		exitButton.setName("exitButton");
+		exitButton.setBorderPainted(false);
 	}
 	return exitButton;
 }
