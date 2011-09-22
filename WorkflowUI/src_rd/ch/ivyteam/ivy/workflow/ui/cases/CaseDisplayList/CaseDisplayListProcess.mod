@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Mar 29 16:52:31 CEST 2011]
+[>Created: Wed Sep 21 13:12:24 CEST 2011]
 119A42FA47DC0EC8 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDisplayListProcess Big #zClass
@@ -125,10 +125,10 @@ Cs0 f0 38 70 20 20 13 0 #rect
 Cs0 f0 @|RichDialogInitStartIcon #fIcon
 Cs0 f1 guid 119A48768E591E42 #txt
 Cs0 f1 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f1 method start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
+Cs0 f1 method start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
 Cs0 f1 disableUIEvents false #txt
 Cs0 f1 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.Boolean aRunningCaseMode,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aCaseDisplayListParentDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter aPropertyFilter,java.lang.Number aCaseDisplayMode,java.lang.Boolean aHasWfAdministratorPermissions> param = methodEvent.getInputArguments();
+<java.lang.Boolean aRunningCaseMode,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aCaseDisplayListParentDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter aPropertyFilter,java.lang.Number aCaseDisplayMode,java.lang.Boolean aHasWfAdministratorPermissions> param = methodEvent.getInputArguments();
 ' #txt
 Cs0 f1 inParameterMapAction 'out.caseDisplayListParentDisplay=param.aCaseDisplayListParentDisplay;
 out.caseDisplayMode=param.aCaseDisplayMode;
@@ -143,8 +143,8 @@ Cs0 f1 embeddedRdInitializations '* ' #txt
 Cs0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(Boolean, RTabbedDisplay, IPropertyFilter, Number,Boolean)</name>
-        <nameStyle>63,5,6,9
+        <name>start(Boolean,RCloseableTabbedDisplay,IPropertyFilter,Number,Boolean)</name>
+        <nameStyle>69,5,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -227,7 +227,7 @@ Cs0 f7 actionTable 'out=in;
 Cs0 f7 actionCode 'import ch.ivyteam.ivy.event.SystemEventCategory;
 
 import ch.ivyteam.ivy.workflow.ui.utils.UniqueDisplayIdFactory;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 
 out.caseDisplayListChildrenDisplayId = "xivyCaseDisplayId" + UniqueDisplayIdFactory.buildTaskListDisplayId();
 panel.caseDisplayTabbedDisplay.displayId = out.caseDisplayListChildrenDisplayId;
@@ -352,7 +352,7 @@ Cs0 f19 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplay
 ' #txt
 Cs0 f19 actionTable 'out=in;
 ' #txt
-Cs0 f19 actionCode 'out.selectedDestinationDisplay = panel.caseDisplayTabbedDisplay;' #txt
+Cs0 f19 actionCode 'out.selectedDestinationDisplay = panel.caseDisplayTabbedDisplay; ' #txt
 Cs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -373,7 +373,7 @@ Cs0 f22 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplay
 ' #txt
 Cs0 f22 actionTable 'out=in;
 ' #txt
-Cs0 f22 actionCode 'out.selectedDestinationDisplay = in.caseDisplayListParentDisplay;' #txt
+Cs0 f22 actionCode 'out.selectedDestinationDisplay = in.caseDisplayListParentDisplay; ' #txt
 Cs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -392,7 +392,7 @@ Cs0 f24 actionTable 'out=in;
 Cs0 f24 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.cases.ICaseWrapper;
 import ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayPanel;
 import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 import ch.ivyteam.ivy.workflow.ICase;
 
 
@@ -500,10 +500,10 @@ Cs0 f30 832 556 832 586 #arcP
 Cs0 f31 targetWindow THIS #txt
 Cs0 f31 targetDisplay EXISTING:<%=in.selectedDestinationDisplay.getDisplayId()%> #txt
 Cs0 f31 richDialogId ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay #txt
-Cs0 f31 startMethod start(ch.ivyteam.ivy.workflow.ICase,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay) #txt
+Cs0 f31 startMethod start(ch.ivyteam.ivy.workflow.ICase,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay) #txt
 Cs0 f31 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f31 panelName <%=in.tabTitle%> #txt
-Cs0 f31 requestActionDecl '<ch.ivyteam.ivy.workflow.ICase aCase, ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aParentDisplay> param;' #txt
+Cs0 f31 requestActionDecl '<ch.ivyteam.ivy.workflow.ICase aCase, ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aParentDisplay> param;' #txt
 Cs0 f31 requestMappingAction 'param.aCase=in.selectedCase;
 param.aParentDisplay=in.caseDisplayListParentDisplay;
 ' #txt

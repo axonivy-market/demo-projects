@@ -27,7 +27,6 @@ implements IRichDialogPanel
   /** Serial version id */
   private static final long serialVersionUID = 1L;
 @EmbeddedRichDialog(HeaderPanel.class) private ULCContainer header = null;
-private RButton exitButton = null;
 private RBoxPane headerBoxPane = null;
 private RSplitPane usersAndAbsencesSplitPane = null;
 private @EmbeddedRichDialog(UserDisplayListPanel.class) ULCContainer userDisplayListRDC = null;
@@ -74,24 +73,6 @@ private ULCContainer getHeader()  {
 }
 
 /**
- * This method initializes exitButton	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
- */
-private RButton getExitButton() {
-	if (exitButton == null) {
-		exitButton = new RButton();
-		exitButton.setName("exitButton");
-		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
-		exitButton.setStyleProperties("{/insetsRight \"3\"}");
-		exitButton.setStyle("toolBarButton");
-		exitButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
-		exitButton.setBorderPainted(false);
-	}
-	return exitButton;
-}
-
-/**
  * This method initializes headerBoxPane	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane	
@@ -102,7 +83,6 @@ private RBoxPane getHeaderBoxPane() {
 		headerBoxPane.setName("headerBoxPane");
 		headerBoxPane.setStyleProperties("{/weightX \"1\"}");
 		headerBoxPane.set(0, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getHeader());
-		headerBoxPane.set(1, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getExitButton());
 	}
 	return headerBoxPane;
 }

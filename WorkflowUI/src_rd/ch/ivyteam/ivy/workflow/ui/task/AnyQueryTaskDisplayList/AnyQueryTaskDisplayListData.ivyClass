@@ -1,6 +1,6 @@
 AnyQueryTaskDisplayListData #class
 ch.ivyteam.ivy.workflow.ui.task.AnyQueryTaskDisplayList #namespace
-taskDisplayListParentDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
+taskDisplayListParentDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay #field
 propertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
 taskDisplayMode Number #field
 taskDisplayMode '-1=get all tasks of the case, 0=your tasks, 1=team tasks, 2=all env. tasks (wf admin mode), 3=any query' #fieldComment

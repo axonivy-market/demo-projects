@@ -25,6 +25,10 @@
         <name>refresh</name>
         <description></description>
     </method>
+    <method>
+        <name>close</name>
+        <description></description>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Default Rich Dialog start
@@ -42,7 +46,7 @@ This method can not be changed or deleted!</description>
         <inputParameter>
             <name>aParentDisplay</name>
             <description></description>
-            <parameterType>ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay</parameterType>
+            <parameterType>ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </startMethod>

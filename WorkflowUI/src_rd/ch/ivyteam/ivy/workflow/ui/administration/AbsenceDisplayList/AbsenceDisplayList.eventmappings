@@ -1,5 +1,5 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-06-14 00:04:21 | 4.2.0.35989 | 1.0
-~.exitButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/12061AD988EAC0E3
+# 2011-09-22 13:35:55 | 4.2.0.37454 | 1.0
+~@RD_METHODCALL[close()]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/13290EB5CEEEB1E6
+~.userDisplayListRDC@RD_EVENT[userSelected]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1308AD7FE68F84EA
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1198ABD3DECFDD60
-~.userDisplayListRDC@RD_EVENT[userSelected]--->ch.ivyteam.ivy.process.ProcessStart:12A196714EFC9E34/1308AD7FE68F84EA # AbsenceDisplayListProcess.mod/loadUserAbsences

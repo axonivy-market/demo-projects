@@ -19,7 +19,7 @@ hasWfAdministratorPermissions Boolean #field
 hasWfAdministratorPermissions 'It defines if the session user has a workflow administrator permissions' #fieldComment
 multipleCaseListMode Boolean #field
 multipleCaseListMode 'Defines if the the multiples instances of case list should be loaded or just one.' #fieldComment
-destinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
+destinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay #field
 destinationDisplay 'Get as a parameter and used to specify the destination display widget for' #fieldComment
 treeLoadEvent ch.ivyteam.ivy.richdialog.component.event.TreeLoadEvent #field
 caseHierarchyContext ch.ivyteam.ivy.workflow.ui.data.cases.CaseHierarchyContext #field

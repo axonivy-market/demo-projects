@@ -24,7 +24,6 @@ private RButton startTaskToggleButton = null;
 private RLabel footerLabel = null;
 private RButton parkTaskButton = null;
 private RButton delegateTaskButton = null;
-private RButton exitButton = null;
 private RCardDisplay taskExecutionDisplay = null;
 private RBoxPane taskActionsBoxPane = null;
 private RTabbedPane centerTabbedPane = null;
@@ -130,23 +129,6 @@ private RButton getDelegateTaskButton() {
 }
 
 /**
- * This method initializes exitButton	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
- */
-private RButton getExitButton() {
-	if (exitButton == null) {
-		exitButton = new RButton();
-		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
-		exitButton.setStyle("toolBarButton");
-		exitButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
-		exitButton.setName("exitButton");
-		exitButton.setBorderPainted(false);
-	}
-	return exitButton;
-}
-
-/**
  * This method initializes taskExecutionDisplay	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay	
@@ -175,7 +157,6 @@ private RBoxPane getTaskActionsBoxPane() {
 		taskActionsBoxPane.set(0, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getStartTaskToggleButton());
 		taskActionsBoxPane.set(1, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getParkTaskButton());
 		taskActionsBoxPane.set(2, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getDelegateTaskButton());
-		taskActionsBoxPane.set(5, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getExitButton());
 		taskActionsBoxPane.set(3, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, hFiller);
 	}
 	return taskActionsBoxPane;

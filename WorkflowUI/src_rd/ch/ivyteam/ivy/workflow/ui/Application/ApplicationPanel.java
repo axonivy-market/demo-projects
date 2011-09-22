@@ -7,8 +7,9 @@ import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBorderLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RSplitPane;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
+import com.ulcjava.base.application.ULCTabbedPane;
 
 /**
  * RichDialog panel implementation for ApplicationDynamicWayPanel.
@@ -21,7 +22,7 @@ implements IRichDialogPanel
   /** Serial version id */
   private static final long serialVersionUID = 1L;
 private RCardDisplay westCardDisplay = null;
-private RTabbedDisplay centerTabbedDisplay = null;
+private RCloseableTabbedDisplay centerTabbedDisplay = null;
 private RSplitPane applicationSplitPane = null;
 private RBorderLayoutPane taskListBorderLayoutPane = null;
 /**
@@ -69,12 +70,14 @@ private RCardDisplay getWestCardDisplay() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay	
  */
-private RTabbedDisplay getCenterTabbedDisplay() {
+private RCloseableTabbedDisplay getCenterTabbedDisplay() {
 	if (centerTabbedDisplay == null) {
-		centerTabbedDisplay = new RTabbedDisplay();
+		centerTabbedDisplay = new RCloseableTabbedDisplay();
 		centerTabbedDisplay.setName("centerTabbedDisplay");
 		centerTabbedDisplay.setDisplayId("workflowUiCenterDisplay");
+		centerTabbedDisplay.setTabLayoutPolicy(ULCTabbedPane.SCROLL_TAB_LAYOUT);
 		centerTabbedDisplay.setName("centerTabbedDisplay");
+		centerTabbedDisplay.setTabCloseIconUri("/ch/ivyteam/ivy/workflow/ui/common/images/close16");
 	}
 	return centerTabbedDisplay;
 }

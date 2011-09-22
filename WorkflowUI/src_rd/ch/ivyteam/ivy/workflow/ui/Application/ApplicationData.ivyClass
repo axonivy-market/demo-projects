@@ -8,7 +8,7 @@ title String #field
 title 'Title for the tab Functions' #fieldComment
 taskHierarchyContext ch.ivyteam.ivy.workflow.ui.data.task.TaskHierarchyContext #field
 taskHierarchyContext 'Needed to load at Rich Dialog Load event the running tasks' #fieldComment
-destinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
+destinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay #field
 destinationDisplay 'Needed to load at Rich Dialog Load event the running tasks' #fieldComment
 taskDisplayMode Number #field
 taskDisplayMode 'Needed to load at Rich Dialog Load event the running tasks: 0=your tasks, 1=team tasks, 2=all env. tasks (wf admin mode)' #fieldComment
@@ -27,3 +27,4 @@ multipleTaskListMode Boolean #field
 multipleTaskListMode 'If true then the multiples instances of task list could be displayed at same time otherwise just one.' #fieldComment
 standAloneMode Boolean #field
 standAloneMode 'If true then this Rich Dialog is started as "WFUI stand alone application", otherwise is "embedded" mode.' #fieldComment
+tabClosingRequestEvent ch.ivyteam.ivy.ulc.server.TabClosingRequestEvent #field

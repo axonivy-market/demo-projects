@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Sep 20 15:03:36 CEST 2011]
+[>Created: Thu Sep 22 17:04:18 CEST 2011]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -454,6 +454,8 @@ Iterator tasksIterator;
 // clear the current exception value
 out.setException(null);
 
+Number currentTaskIndexInTheSelectedList = -1; 
+
 try
 {
 		tasksIterator = out.selectedTasks.iterator();
@@ -469,10 +471,10 @@ try
 	      {
 							// park the task
 	            ivy.session.parkTask(currentTask);
-							
-							// fire the broadcast event
-							// no needed anymore with 4.1
-							// panel.fireXivyTaskParked(currentTask.getIdentifier());
+	
+						// update the list of displayed tasks
+						currentTaskIndexInTheSelectedList = in.filteredTasks.indexOf(currentWfTaskWrapper);
+						out.filteredTasks.elementChangedAt(currentTaskIndexInTheSelectedList);	
 	      }			
 		}// end while
 	
@@ -640,7 +642,7 @@ Ts0 f21 actionTable 'out=in;
 ' #txt
 Ts0 f21 actionCode 'import ch.ivyteam.ivy.event.SystemEventCategory;
 import ch.ivyteam.ivy.workflow.ui.utils.UniqueDisplayIdFactory;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 
 
 out.taskListChildrenDisplayId = "xivyTaskDisplayId" + UniqueDisplayIdFactory.buildTaskListDisplayId();
@@ -909,6 +911,8 @@ ITask currentTask;
 // clear the current exception value
 out.setException(null);
 
+Number currentTaskIndexInTheSelectedList = -1;
+
 
 try
 {
@@ -921,6 +925,11 @@ try
 		
 		// fire the bcevent that task has been delegated
 		panel.fireXivyTaskDelegated(currentTask.getIdentifier());
+		
+		// update the list of displayed tasks
+		currentTaskIndexInTheSelectedList = in.filteredTasks.indexOf(taskWrapper);
+		out.filteredTasks.elementChangedAt(currentTaskIndexInTheSelectedList);
+								
 	}
 }
 catch (Exception ex)
@@ -1149,10 +1158,10 @@ Ts0 f73 actionTable 'out=in;
 ' #txt
 Ts0 f73 actionCode 'import ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayPanel;
 import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 
 
-RTabbedDisplay selectedTabbedDisplay;
+RCloseableTabbedDisplay selectedTabbedDisplay;
 List<ULCComponent> componentsList;
 
 
@@ -1165,7 +1174,7 @@ if (in.selectedTaskDisplayId.equals(in.taskListParentDisplayId))
 else
 {
 	// display under this tab
-	selectedTabbedDisplay = panel.taskDisplayTabbedDisplay as RTabbedDisplay;
+	selectedTabbedDisplay = panel.taskDisplayTabbedDisplay as RCloseableTabbedDisplay;
 	componentsList = panel.taskDisplayTabbedDisplay.getComponents().toList();
 }
 
@@ -1205,7 +1214,7 @@ Ts0 f73 2278 436 36 24 20 -14 #rect
 Ts0 f73 @|RichDialogProcessStepIcon #fIcon
 Ts0 f74 expr in #txt
 Ts0 f74 outCond '(in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.SUSPENDED) == 0 || in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.PARKED) == 0) &&
-(in.taskDisplayMode == 0 || in.taskDisplayMode == 1 || ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(in.selectedTask))' #txt
+(ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.userIsTaskActivatorCandidate(ivy.session.getSessionUser(),in.selectedTask) || ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(in.selectedTask))' #txt
 Ts0 f74 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1223,12 +1232,12 @@ Ts0 f96 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayL
 ' #txt
 Ts0 f96 actionTable 'out=in;
 ' #txt
-Ts0 f96 actionCode 'import ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayPanel;
+Ts0 f96 actionCode 'import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
+import ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayPanel;
 import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
 
 
-RTabbedDisplay selectedTabbedDisplay;
+RCloseableTabbedDisplay selectedTabbedDisplay;
 List<ULCComponent> componentsList;
 
 
@@ -1241,7 +1250,7 @@ if (in.selectedTaskDisplayId.equals(in.taskListParentDisplayId))
 else
 {
 	// display under this tab
-	selectedTabbedDisplay = panel.taskDisplayTabbedDisplay as RTabbedDisplay;
+	selectedTabbedDisplay = panel.taskDisplayTabbedDisplay as RCloseableTabbedDisplay;
 	componentsList = panel.taskDisplayTabbedDisplay.getComponents().toList();
 }
 
@@ -2074,12 +2083,18 @@ import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
 // clear the current exception value
 out.setException(null);
 
+Number currentTaskIndexInTheSelectedList = -1;
+
 try
 {
 	for (ITaskWrapper taskWrapper: in.selectedTasks)
 	{
 		ITask selectedTask = taskWrapper.wfTask;		
 		selectedTask.reset();
+		
+		// update the list of displayed tasks
+		currentTaskIndexInTheSelectedList = in.filteredTasks.indexOf(taskWrapper);
+		out.filteredTasks.elementChangedAt(currentTaskIndexInTheSelectedList);		
 	}
 }
 catch (Exception ex)
@@ -2153,12 +2168,18 @@ import ch.ivyteam.ivy.workflow.ui.data.restricted.task.ITaskWrapper;
 // clear the current exception value
 out.setException(null);
 
+Number currentTaskIndexInTheSelectedList = -1;
+
 try
 {
 	for (ITaskWrapper taskWrapper: in.selectedTasks)
 	{
 		ITask selectedTask = taskWrapper.wfTask;
-		selectedTask.destroy();		
+		selectedTask.destroy();	
+		
+		// update the list of displayed tasks
+		currentTaskIndexInTheSelectedList = in.filteredTasks.indexOf(taskWrapper);
+		out.filteredTasks.elementChangedAt(currentTaskIndexInTheSelectedList);			
 	}
 }
 catch (Exception ex)
@@ -2403,22 +2424,22 @@ Ts0 f111 494 158 20 20 13 0 #rect
 Ts0 f111 @|RichDialogMethodStartIcon #fIcon
 Ts0 f113 guid 11B2C397226E51AC #txt
 Ts0 f113 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f113 method start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
+Ts0 f113 method start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
 Ts0 f113 disableUIEvents false #txt
 Ts0 f113 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.Boolean aRunningTaskMode,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aTaskDisplayListParentDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter aPropertyFilter,java.lang.Number aTaskDisplayMode,java.lang.Boolean aHasWfAdministratorPermissions> param = methodEvent.getInputArguments();
-' #txt
-Ts0 f113 inParameterMapAction 'out.hasWfAdministratorPermissions=param.aHasWfAdministratorPermissions;
-out.originalPropertyFilter=param.aPropertyFilter;
-out.runningTaskMode=param.aRunningTaskMode;
-out.taskDisplayListParentDisplay=param.aTaskDisplayListParentDisplay;
-out.taskDisplayMode=param.aTaskDisplayMode;
-out.taskDisplayModeText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskDisplayMode" + param.aTaskDisplayMode + "LongDesc");
-out.taskListParentDisplayId=param.aTaskDisplayListParentDisplay.displayId;
+<java.lang.Boolean aRunningTaskMode,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aTaskDisplayListParentDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter aPropertyFilter,java.lang.Number aTaskDisplayMode,java.lang.Boolean aHasWfAdministratorPermissions> param = methodEvent.getInputArguments();
 ' #txt
 Ts0 f113 inActionCode 'import ch.ivyteam.ivy.workflow.ui.utils.UserPropertyKeys;
 import ch.ivyteam.ivy.security.IUser;
 import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper;
+
+out.hasWfAdministratorPermissions = param.aHasWfAdministratorPermissions;
+out.originalPropertyFilter = param.aPropertyFilter;
+out.runningTaskMode = param.aRunningTaskMode;
+out.taskDisplayListParentDisplay = param.aTaskDisplayListParentDisplay;
+out.taskDisplayMode = param.aTaskDisplayMode;
+out.taskDisplayModeText = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskDisplayMode" + param.aTaskDisplayMode + "LongDesc");
+out.taskListParentDisplayId = param.aTaskDisplayListParentDisplay.displayId;
 
 
 // get the auto hide menu during task execution preference
@@ -2433,9 +2454,7 @@ Ts0 f113 embeddedRdInitializations '* ' #txt
 Ts0 f113 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(Boolean, RTabbedDisplay,IPropertyFilter,Number,Boolean)</name>
-        <nameStyle>61,5,6,9
-</nameStyle>
+        <name>start(Boolean,RCloseableTabbedDisplay,IPropertyFilter,Number,Boolean)</name>
     </language>
 </elementInfo>
 ' #txt

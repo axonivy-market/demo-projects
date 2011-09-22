@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 15 14:10:53 CEST 2011]
+[>Created: Thu Sep 22 16:55:40 CEST 2011]
 117CB5CD6E5F88C6 3.17 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
@@ -70,10 +70,20 @@ As0 @PushWFArc f50 '' #zField
 As0 @RichDialogBroadcastStart f28 '' #zField
 As0 @RichDialogProcessEnd f51 '' #zField
 As0 @RichDialog f53 '' #zField
-As0 @PushWFArc f54 '' #zField
 As0 @PushWFArc f52 '' #zField
 As0 @RichDialogInitStart f55 '' #zField
 As0 @PushWFArc f56 '' #zField
+As0 @RichDialogProcessStart f57 '' #zField
+As0 @RichDialogProcessEnd f58 '' #zField
+As0 @RichDialogProcessStep f60 '' #zField
+As0 @PushWFArc f61 '' #zField
+As0 @PushWFArc f59 '' #zField
+As0 @Alternative f62 '' #zField
+As0 @PushWFArc f63 '' #zField
+As0 @PushWFArc f54 '' #zField
+As0 @RichDialogProcessStep f64 '' #zField
+As0 @PushWFArc f65 '' #zField
+As0 @PushWFArc f66 '' #zField
 >Proto As0 As0 ApplicationDynamicWayProcess #zField
 As0 f1 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f1 59 243 26 26 14 0 #rect
@@ -81,10 +91,10 @@ As0 f1 @|RichDialogProcessEndIcon #fIcon
 As0 f13 targetWindow THIS #txt
 As0 f13 targetDisplay EXISTING:workflowUiWestDisplay #txt
 As0 f13 richDialogId ch.ivyteam.ivy.workflow.ui.UserMenu #txt
-As0 f13 startMethod start(ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean) #txt
+As0 f13 startMethod start(ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,Boolean,Boolean) #txt
 As0 f13 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f13 panelName 'Workflow UI menu' #txt
-As0 f13 requestActionDecl '<ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aDestinationDisplay, Boolean hasWFAdminPermissions, Boolean standAloneMode> param;' #txt
+As0 f13 requestActionDecl '<ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aDestinationDisplay, Boolean hasWFAdminPermissions, Boolean standAloneMode> param;' #txt
 As0 f13 requestActionCode 'param.aDestinationDisplay = panel.centerTabbedDisplay;
 param.hasWFAdminPermissions = in.hasWfAdministratorPermissions;
 param.standAloneMode = in.standAloneMode;' #txt
@@ -110,7 +120,7 @@ on westDisplay</name>
 As0 f13 54 180 36 24 20 -2 #rect
 As0 f13 @|RichDialogIcon #fIcon
 As0 f22 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f22 1086 222 20 20 13 0 #rect
+As0 f22 1166 222 20 20 13 0 #rect
 As0 f22 @|RichDialogProcessEndIcon #fIcon
 As0 f23 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
@@ -138,10 +148,10 @@ on auto hide menu parameter</name>
     </language>
 </elementInfo>
 ' #txt
-As0 f23 1079 108 34 24 21 -15 #rect
+As0 f23 1159 108 34 24 21 -15 #rect
 As0 f23 @|RichDialogProcessStepIcon #fIcon
 As0 f25 expr out #txt
-As0 f25 1096 132 1096 222 #arcP
+As0 f25 1176 132 1176 222 #arcP
 As0 f25 0 0.4757491676510102 0 0 #arcLabel
 As0 f26 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
@@ -190,7 +200,7 @@ As0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f26 1310 100 36 24 21 -10 #rect
+As0 f26 1390 100 36 24 21 -10 #rect
 As0 f26 @|RichDialogProcessStepIcon #fIcon
 As0 f29 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
@@ -256,8 +266,8 @@ As0 f181 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>consider the task states,
-build the &quot;Running|Finished Tasks&quot; title</name>
-        <nameStyle>66,7,9
+build the &quot;Running tasks&quot; title</name>
+        <nameStyle>57,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -267,20 +277,16 @@ As0 f181 @|RichDialogProcessStepIcon #fIcon
 As0 f77 targetWindow THIS #txt
 As0 f77 targetDisplay EXISTING:<%=in.destinationDisplay.getDisplayId()%> #txt
 As0 f77 richDialogId ch.ivyteam.ivy.workflow.ui.task.RunningTaskDisplayList #txt
-As0 f77 startMethod start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
+As0 f77 startMethod start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
 As0 f77 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f77 panelName <%=in.taskHierarchyContext.title%> #txt
-As0 f77 requestActionDecl '<Boolean aRunningTaskMode, ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aTaskDisplayListParentDisplay, ch.ivyteam.ivy.workflow.IPropertyFilter aPropertyFilter, Number aTaskDisplayMode, Boolean aHasWfAdministratorPermissions> param;' #txt
+As0 f77 requestActionDecl '<Boolean aRunningTaskMode, ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aTaskDisplayListParentDisplay, ch.ivyteam.ivy.workflow.IPropertyFilter aPropertyFilter, Number aTaskDisplayMode, Boolean aHasWfAdministratorPermissions> param;' #txt
 As0 f77 requestActionCode 'param.aRunningTaskMode = true;
-
 param.aTaskDisplayListParentDisplay = panel.centerTabbedDisplay;
-
 param.aPropertyFilter = in.taskHierarchyContext.propertyFilter;
 // my tasks
 param.aTaskDisplayMode = in.taskDisplayMode;
-
-param.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),
- ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);' #txt
+param.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);' #txt
 As0 f77 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f77 responseMappingAction 'out=in;
@@ -289,12 +295,13 @@ As0 f77 windowConfiguration '* ' #txt
 As0 f77 isAsynch true #txt
 As0 f77 isInnerRd true #txt
 As0 f77 isDialog false #txt
+As0 f77 userContext '* ' #txt
 As0 f77 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>load
 running task list</name>
-        <nameStyle>22,9
+        <nameStyle>22,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -304,10 +311,10 @@ As0 f77 @|RichDialogIcon #fIcon
 As0 f5 expr out #txt
 As0 f5 784 132 784 156 #arcP
 As0 f2 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f2 774 230 20 20 13 0 #rect
+As0 f2 774 222 20 20 13 0 #rect
 As0 f2 @|RichDialogProcessEndIcon #fIcon
 As0 f3 expr out #txt
-As0 f3 784 180 784 230 #arcP
+As0 f3 784 180 784 222 #arcP
 As0 f3 0 0.49533681551418535 0 0 #arcLabel
 As0 f8 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f8 630 438 20 20 13 0 #rect
@@ -616,10 +623,10 @@ As0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f21 1086 54 20 20 13 0 #rect
+As0 f21 1166 54 20 20 13 0 #rect
 As0 f21 @|RichDialogBroadcastStartIcon #fIcon
 As0 f24 expr out #txt
-As0 f24 1096 74 1096 108 #arcP
+As0 f24 1176 74 1176 108 #arcP
 As0 f20 guid 12DBC58313D91843 #txt
 As0 f20 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f20 broadcast ivy_systemevent_workflow_task_changed #txt
@@ -637,10 +644,10 @@ As0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f20 1318 54 20 20 13 0 #rect
+As0 f20 1398 54 20 20 13 0 #rect
 As0 f20 @|RichDialogBroadcastStartIcon #fIcon
 As0 f27 expr out #txt
-As0 f27 1328 74 1328 100 #arcP
+As0 f27 1408 74 1408 100 #arcP
 As0 f30 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f30 614 262 20 20 13 0 #rect
 As0 f30 @|RichDialogProcessEndIcon #fIcon
@@ -691,10 +698,10 @@ As0 f42 0 0.63891195171502 0 0 #arcLabel
 As0 f15 expr out #txt
 As0 f15 624 244 624 262 #arcP
 As0 f47 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f47 1318 230 20 20 13 0 #rect
+As0 f47 1398 214 20 20 13 0 #rect
 As0 f47 @|RichDialogProcessEndIcon #fIcon
 As0 f50 expr out #txt
-As0 f50 1328 124 1328 230 #arcP
+As0 f50 1408 124 1408 214 #arcP
 As0 f50 0 0.1960608132519369 0 0 #arcLabel
 As0 f28 guid 132631281B54F7B0 #txt
 As0 f28 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
@@ -713,18 +720,18 @@ As0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f28 1086 334 20 20 13 0 #rect
+As0 f28 1166 278 20 20 13 0 #rect
 As0 f28 @|RichDialogBroadcastStartIcon #fIcon
 As0 f51 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f51 1086 566 20 20 13 0 #rect
+As0 f51 1166 518 20 20 13 0 #rect
 As0 f51 @|RichDialogProcessEndIcon #fIcon
 As0 f53 targetWindow THIS #txt
 As0 f53 targetDisplay EXISTING:workflowUiCenterDisplay #txt
 As0 f53 richDialogId ch.ivyteam.ivy.workflow.ui.task.AnyQueryTaskDisplayList #txt
-As0 f53 startMethod start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.ui.data.task.AnyQueryTaskListParameter,Number,Boolean) #txt
+As0 f53 startMethod start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.ui.data.task.AnyQueryTaskListParameter,Number,Boolean) #txt
 As0 f53 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f53 panelName <%=in.receivedAnyQueryTaskListParameter.tabTitle%> #txt
-As0 f53 requestActionDecl '<Boolean aRunningTaskMode, ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aTaskDisplayListParentDisplay, ch.ivyteam.ivy.workflow.ui.data.task.AnyQueryTaskListParameter aAnyQueryTaskListParameter, Number aTaskDisplayMode, Boolean aHasWfAdministratorPermissions> param;' #txt
+As0 f53 requestActionDecl '<Boolean aRunningTaskMode, ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aTaskDisplayListParentDisplay, ch.ivyteam.ivy.workflow.ui.data.task.AnyQueryTaskListParameter aAnyQueryTaskListParameter, Number aTaskDisplayMode, Boolean aHasWfAdministratorPermissions> param;' #txt
 As0 f53 requestActionCode 'param.aRunningTaskMode = true;
 param.aTaskDisplayListParentDisplay = panel.centerTabbedDisplay;
 param.aAnyQueryTaskListParameter = in.receivedAnyQueryTaskListParameter;
@@ -752,12 +759,10 @@ received task criterias</name>
     </language>
 </elementInfo>
 ' #txt
-As0 f53 1078 476 36 24 20 -2 #rect
+As0 f53 1158 452 36 24 20 -2 #rect
 As0 f53 @|RichDialogIcon #fIcon
-As0 f54 expr out #txt
-As0 f54 1096 354 1096 476 #arcP
 As0 f52 expr out #txt
-As0 f52 1096 500 1096 566 #arcP
+As0 f52 1176 476 1176 518 #arcP
 As0 f55 guid 1326C1F1D50F5DDD #txt
 As0 f55 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f55 method start(Boolean) #txt
@@ -782,6 +787,131 @@ As0 f55 134 62 20 20 13 0 #rect
 As0 f55 @|RichDialogInitStartIcon #fIcon
 As0 f56 expr out #txt
 As0 f56 136 78 86 124 #arcP
+As0 f57 guid 13291187E51E4E7D #txt
+As0 f57 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f57 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f57 actionTable 'out=in;
+' #txt
+As0 f57 actionCode 'import ch.ivyteam.ivy.ulc.server.TabClosingRequestEvent;
+
+in.tabClosingRequestEvent = event as TabClosingRequestEvent;' #txt
+As0 f57 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>tabClosingRequested</name>
+        <nameStyle>19,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f57 774 286 20 20 13 0 #rect
+As0 f57 @|RichDialogProcessStartIcon #fIcon
+As0 f58 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f58 774 518 20 20 13 0 #rect
+As0 f58 @|RichDialogProcessEndIcon #fIcon
+As0 f60 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f60 actionTable 'out=in;
+' #txt
+As0 f60 actionCode '// cancel the closing request
+in.tabClosingRequestEvent.cancel();
+
+// invoke the close rd method on the selected component
+panel.centerTabbedDisplay.getSelectedPanel().getPanelAPI().callMethod("close", []);
+' #txt
+As0 f60 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f60 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>cancel the tab closing event and 
+invoke the close method on selected panel</name>
+        <nameStyle>29,7
+46,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f60 766 404 36 24 20 -2 #rect
+As0 f60 @|RichDialogProcessStepIcon #fIcon
+As0 f61 expr out #txt
+As0 f61 784 306 784 404 #arcP
+As0 f59 expr out #txt
+As0 f59 784 428 784 518 #arcP
+As0 f62 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f62 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>is multiple task list mode?</name>
+        <nameStyle>27,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f62 1162 338 28 28 14 0 #rect
+As0 f62 @|AlternativeIcon #fIcon
+As0 f63 expr out #txt
+As0 f63 1176 298 1176 338 #arcP
+As0 f54 expr in #txt
+As0 f54 outCond in.multipleTaskListMode #txt
+As0 f54 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f54 1176 366 1176 452 #arcP
+As0 f64 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f64 actionTable 'out=in;
+' #txt
+As0 f64 actionCode 'import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.workflow.ui.task.AnyQueryTaskDisplayList.AnyQueryTaskDisplayListPanel;
+
+
+List<IRichDialogPanel> panels = panel.centerTabbedDisplay.getPanels();
+
+for (IRichDialogPanel rdPanel: panels)
+{
+	if (rdPanel instanceof AnyQueryTaskDisplayListPanel)
+	{
+		rdPanel.getPanelAPI().callMethod("close", []);
+	}
+}' #txt
+As0 f64 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f64 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>remove all already loaded
+any query task list</name>
+        <nameStyle>26,7
+19,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f64 1286 404 36 24 20 -2 #rect
+As0 f64 @|RichDialogProcessStepIcon #fIcon
+As0 f65 expr in #txt
+As0 f65 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>no</name>
+        <nameStyle>2,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f65 1190 352 1304 404 #arcP
+As0 f65 1 1304 352 #addKink
+As0 f65 0 0.6422038333125714 0 0 #arcLabel
+As0 f66 expr out #txt
+As0 f66 1304 428 1194 464 #arcP
+As0 f66 1 1304 464 #addKink
+As0 f66 1 0.23782812110955578 0 0 #arcLabel
 >Proto As0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -793,8 +923,8 @@ As0 f56 136 78 86 124 #arcP
     </language>
     <swimlaneSize>299</swimlaneSize>
     <swimlaneSize>433</swimlaneSize>
-    <swimlaneSize>337</swimlaneSize>
-    <swimlaneSize>636</swimlaneSize>
+    <swimlaneSize>400</swimlaneSize>
+    <swimlaneSize>550</swimlaneSize>
     <swimlaneColor>-6697729</swimlaneColor>
     <swimlaneColor>-16737895</swimlaneColor>
     <swimlaneColor>-6697729</swimlaneColor>
@@ -855,9 +985,19 @@ As0 f10 mainOut f15 tail #connect
 As0 f15 head f30 mainIn #connect
 As0 f26 mainOut f50 tail #connect
 As0 f50 head f47 mainIn #connect
-As0 f28 mainOut f54 tail #connect
-As0 f54 head f53 mainIn #connect
 As0 f53 mainOut f52 tail #connect
 As0 f52 head f51 mainIn #connect
 As0 f55 mainOut f56 tail #connect
 As0 f56 head f29 mainIn #connect
+As0 f57 mainOut f61 tail #connect
+As0 f61 head f60 mainIn #connect
+As0 f60 mainOut f59 tail #connect
+As0 f59 head f58 mainIn #connect
+As0 f28 mainOut f63 tail #connect
+As0 f63 head f62 in #connect
+As0 f62 out f54 tail #connect
+As0 f54 head f53 mainIn #connect
+As0 f62 out f65 tail #connect
+As0 f65 head f64 mainIn #connect
+As0 f64 mainOut f66 tail #connect
+As0 f66 head f53 mainIn #connect

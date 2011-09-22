@@ -15,7 +15,7 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RSplitPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RToolBar;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
 
@@ -47,7 +47,7 @@ private RLabel footerLabel = null;
 private RToolBar taskActionsToolBar = null;
 private RBorderLayoutPane taskListBorderLayoutPane = null;
 private RSplitPane taskListAndTaskInformationSplitPane = null;
-private RTabbedDisplay taskDisplayTabbedDisplay = null;
+private RCloseableTabbedDisplay taskDisplayTabbedDisplay = null;
 private RPopupMenu taskListPopupMenu = null;  //  @jve:decl-index=0:visual-constraint="891,388"
 private RMenuItem informOnTaskOnSiblingTabMenuItem = null;
 private RMenuItem startTaskOnSiblingTabMenuItem = null;
@@ -318,9 +318,9 @@ private RSplitPane getTaskListAndTaskInformationSplitPane() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay	
  */
-private RTabbedDisplay getTaskDisplayTabbedDisplay() {
+private RCloseableTabbedDisplay getTaskDisplayTabbedDisplay() {
 	if (taskDisplayTabbedDisplay == null) {
-		taskDisplayTabbedDisplay = new RTabbedDisplay();
+		taskDisplayTabbedDisplay = new RCloseableTabbedDisplay();
 		taskDisplayTabbedDisplay.setName("taskDisplayTabbedDisplay");
 	}
 	return taskDisplayTabbedDisplay;

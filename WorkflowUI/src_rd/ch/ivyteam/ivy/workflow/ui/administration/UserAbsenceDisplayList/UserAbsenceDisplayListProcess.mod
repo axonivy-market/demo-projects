@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jun 14 01:24:10 CEST 2011]
+[>Created: Thu Sep 22 14:21:18 CEST 2011]
 1308A975564BB7D8 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AbsenceManagementProcess Big #zClass
@@ -23,9 +23,6 @@ As0 @RichDialogProcessStart f6 '' #zField
 As0 @RichDialogProcessStart f9 '' #zField
 As0 @RichDialogProcessEnd f10 '' #zField
 As0 @RichDialogProcessStart f12 '' #zField
-As0 @RichDialogEnd f17 '' #zField
-As0 @RichDialogProcessStart f18 '' #zField
-As0 @PushWFArc f19 '' #zField
 As0 @RichDialogProcessStart f21 '' #zField
 As0 @RichDialogProcessStep f22 '' #zField
 As0 @PushWFArc f24 '' #zField
@@ -66,6 +63,9 @@ As0 @RichDialogProcessStep f49 '' #zField
 As0 @PushWFArc f50 '' #zField
 As0 @PushWFArc f34 '' #zField
 As0 @PushWFArc f51 '' #zField
+As0 @RichDialogMethodStart f38 '' #zField
+As0 @RichDialogEnd f52 '' #zField
+As0 @PushWFArc f53 '' #zField
 >Proto As0 As0 AbsenceManagementProcess #zField
 As0 f0 guid 1198ABD3DECFDD60 #txt
 As0 f0 type ch.ivyteam.ivy.workflow.ui.administration.UserAbsenceDisplayList.UserAbsenceDisplayListData #txt
@@ -219,29 +219,6 @@ As0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 As0 f12 1526 46 20 20 13 0 #rect
 As0 f12 @|RichDialogProcessStartIcon #fIcon
-As0 f17 type ch.ivyteam.ivy.workflow.ui.administration.UserAbsenceDisplayList.UserAbsenceDisplayListData #txt
-As0 f17 guid 12061AD5D7A35B2D #txt
-As0 f17 1627 219 26 26 14 0 #rect
-As0 f17 @|RichDialogEndIcon #fIcon
-As0 f18 guid 12061AD988EAC0E3 #txt
-As0 f18 type ch.ivyteam.ivy.workflow.ui.administration.UserAbsenceDisplayList.UserAbsenceDisplayListData #txt
-As0 f18 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.UserAbsenceDisplayList.UserAbsenceDisplayListData out;
-' #txt
-As0 f18 actionTable 'out=in;
-' #txt
-As0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>exit</name>
-        <nameStyle>4,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-As0 f18 1630 46 20 20 13 0 #rect
-As0 f18 @|RichDialogProcessStartIcon #fIcon
-As0 f19 expr out #txt
-As0 f19 1640 66 1640 219 #arcP
 As0 f21 guid 12A333B1D13C3420 #txt
 As0 f21 type ch.ivyteam.ivy.workflow.ui.administration.UserAbsenceDisplayList.UserAbsenceDisplayListData #txt
 As0 f21 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.UserAbsenceDisplayList.UserAbsenceDisplayListData out;
@@ -634,6 +611,25 @@ As0 f51 expr out #txt
 As0 f51 136 116 66 165 #arcP
 As0 f51 1 136 152 #addKink
 As0 f51 0 0.8436199544411794 0 0 #arcLabel
+As0 f38 guid 13290F80F7A364A5 #txt
+As0 f38 type ch.ivyteam.ivy.workflow.ui.administration.UserAbsenceDisplayList.UserAbsenceDisplayListData #txt
+As0 f38 method close() #txt
+As0 f38 disableUIEvents false #txt
+As0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>close()</name>
+    </language>
+</elementInfo>
+' #txt
+As0 f38 318 318 20 20 13 0 #rect
+As0 f38 @|RichDialogMethodStartIcon #fIcon
+As0 f52 type ch.ivyteam.ivy.workflow.ui.administration.UserAbsenceDisplayList.UserAbsenceDisplayListData #txt
+As0 f52 guid 13290F819E16C213 #txt
+As0 f52 318 430 20 20 13 0 #rect
+As0 f52 @|RichDialogEndIcon #fIcon
+As0 f53 expr out #txt
+As0 f53 328 338 328 430 #arcP
 >Proto As0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -666,8 +662,6 @@ panel.startDatePicker.valueAsDate=in.start;
 >Proto As0 .processKind RICH_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
 >Proto As0 '' #fIcon
-As0 f18 mainOut f19 tail #connect
-As0 f19 head f17 mainIn #connect
 As0 f22 mainOut f24 tail #connect
 As0 f24 head f10 mainIn #connect
 As0 f21 mainOut f25 tail #connect
@@ -710,3 +704,5 @@ As0 f49 mainOut f34 tail #connect
 As0 f34 head f1 mainIn #connect
 As0 f4 mainOut f51 tail #connect
 As0 f51 head f49 mainIn #connect
+As0 f38 mainOut f53 tail #connect
+As0 f53 head f52 mainIn #connect

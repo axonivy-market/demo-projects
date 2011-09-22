@@ -37,7 +37,7 @@
         <inputParameter>
             <name>aDestinationDisplay</name>
             <description>Get as a parameter and used to specify the destination display widget for</description>
-            <parameterType>ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay</parameterType>
+            <parameterType>ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
         <inputParameter>

@@ -1,6 +1,6 @@
 UserMenuData #class
 ch.ivyteam.ivy.workflow.ui.UserMenu #namespace
-destinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
+destinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay #field
 destinationDisplay 'Get as a parameter and used to specify the destination display if for: ' #fieldComment
 hasWfAdministratorPermissions Boolean #field
 hasWfAdministratorPermissions 'It defines how the Ivy API will be called : workflow administrator using the IWorkflowContext or workflow user using the IWorkflowSession.' #fieldComment

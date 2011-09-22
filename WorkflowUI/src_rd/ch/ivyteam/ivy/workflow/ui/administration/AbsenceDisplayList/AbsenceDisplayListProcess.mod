@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jun 14 00:05:06 CEST 2011]
+[>Created: Thu Sep 22 13:36:18 CEST 2011]
 12A196714EFC9E34 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AbsenceManagementProcess Big #zClass
@@ -18,12 +18,12 @@ As0 @TextInP .processKind .processKind #zField
 As0 @RichDialogInitStart f0 '' #zField
 As0 @RichDialogProcessEnd f1 '' #zField
 As0 @RichDialogEnd f17 '' #zField
-As0 @RichDialogProcessStart f18 '' #zField
-As0 @PushWFArc f19 '' #zField
 As0 @PushWFArc f2 '' #zField
 As0 @RichDialogProcessStart f3 '' #zField
 As0 @RichDialogProcessEnd f4 '' #zField
 As0 @PushWFArc f5 '' #zField
+As0 @RichDialogMethodStart f6 '' #zField
+As0 @PushWFArc f7 '' #zField
 >Proto As0 As0 AbsenceManagementProcess #zField
 As0 f0 guid 1198ABD3DECFDD60 #txt
 As0 f0 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
@@ -51,27 +51,8 @@ As0 f1 51 203 26 26 14 0 #rect
 As0 f1 @|RichDialogProcessEndIcon #fIcon
 As0 f17 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
 As0 f17 guid 12061AD5D7A35B2D #txt
-As0 f17 347 203 26 26 14 0 #rect
+As0 f17 211 203 26 26 14 0 #rect
 As0 f17 @|RichDialogEndIcon #fIcon
-As0 f18 guid 12061AD988EAC0E3 #txt
-As0 f18 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
-As0 f18 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData out;
-' #txt
-As0 f18 actionTable 'out=in;
-' #txt
-As0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>exit</name>
-        <nameStyle>4,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-As0 f18 350 46 20 20 13 0 #rect
-As0 f18 @|RichDialogProcessStartIcon #fIcon
-As0 f19 expr out #txt
-As0 f19 360 66 360 203 #arcP
 As0 f2 expr out #txt
 As0 f2 64 66 64 203 #arcP
 As0 f3 guid 1308AD7FE68F84EA #txt
@@ -99,23 +80,46 @@ As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f3 198 46 20 20 13 0 #rect
+As0 f3 366 46 20 20 13 0 #rect
 As0 f3 @|RichDialogProcessStartIcon #fIcon
 As0 f4 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
-As0 f4 198 206 20 20 13 0 #rect
+As0 f4 366 206 20 20 13 0 #rect
 As0 f4 @|RichDialogProcessEndIcon #fIcon
 As0 f5 expr out #txt
-As0 f5 208 66 208 206 #arcP
+As0 f5 376 66 376 206 #arcP
+As0 f6 guid 13290EB5CEEEB1E6 #txt
+As0 f6 type ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListData #txt
+As0 f6 method close() #txt
+As0 f6 disableUIEvents false #txt
+As0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+As0 f6 outParameterDecl '<> result;
+' #txt
+As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>close()</name>
+    </language>
+</elementInfo>
+' #txt
+As0 f6 214 46 20 20 13 0 #rect
+As0 f6 @|RichDialogMethodStartIcon #fIcon
+As0 f7 expr out #txt
+As0 f7 224 66 224 203 #arcP
 >Proto As0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <swimlaneLabel>Start methods</swimlaneLabel>
+        <swimlaneLabel>Methods</swimlaneLabel>
         <swimlaneLabel>Events</swimlaneLabel>
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneSize>150</swimlaneSize>
-    <swimlaneSize>264</swimlaneSize>
+    <swimlaneSize>150</swimlaneSize>
+    <swimlaneSize>224</swimlaneSize>
     <swimlaneColor>-16711732</swimlaneColor>
+    <swimlaneColor>-16724788</swimlaneColor>
     <swimlaneColor>-3355393</swimlaneColor>
 </elementInfo>
 ' #txt
@@ -123,9 +127,9 @@ As0 f5 208 66 208 206 #arcP
 >Proto As0 .processKind RICH_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
 >Proto As0 '' #fIcon
-As0 f18 mainOut f19 tail #connect
-As0 f19 head f17 mainIn #connect
 As0 f0 mainOut f2 tail #connect
 As0 f2 head f1 mainIn #connect
 As0 f3 mainOut f5 tail #connect
 As0 f5 head f4 mainIn #connect
+As0 f6 mainOut f7 tail #connect
+As0 f7 head f17 mainIn #connect

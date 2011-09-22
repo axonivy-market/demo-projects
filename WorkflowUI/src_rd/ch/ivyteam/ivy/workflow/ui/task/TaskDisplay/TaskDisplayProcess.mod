@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Aug 22 14:01:30 CEST 2011]
+[>Created: Thu Sep 22 16:28:18 CEST 2011]
 116A9BF16D47762C 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -59,7 +59,6 @@ Ts0 @RichDialogEnd f129 '' #zField
 Ts0 @RichDialogProcessEnd f119 '' #zField
 Ts0 @RichDialogProcessEnd f125 '' #zField
 Ts0 @PushWFArc f130 '' #zField
-Ts0 @RichDialogProcessStart f120 '' #zField
 Ts0 @RichDialog f11 '' #zField
 Ts0 @Alternative f12 '' #zField
 Ts0 @PushWFArc f13 '' #zField
@@ -113,7 +112,6 @@ Ts0 @PushWFArc f184 '' #zField
 Ts0 @PushWFArc f186 '' #zField
 Ts0 @RichDialogProcessEnd f193 '' #zField
 Ts0 @PushWFArc f204 '' #zField
-Ts0 @PushWFArc f205 '' #zField
 Ts0 @RichDialogEnd f210 '' #zField
 Ts0 @PushWFArc f71 '' #zField
 Ts0 @RichDialogProcessStep f65 '' #zField
@@ -754,23 +752,6 @@ Ts0 f125 @|RichDialogProcessEndIcon #fIcon
 Ts0 f130 expr out #txt
 Ts0 f130 2232 228 2232 283 #arcP
 Ts0 f130 0 0.4182708839231334 0 0 #arcLabel
-Ts0 f120 guid 118EB8463A07C44A #txt
-Ts0 f120 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
-Ts0 f120 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData out;
-' #txt
-Ts0 f120 actionTable 'out=in;
-' #txt
-Ts0 f120 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>close</name>
-        <nameStyle>5,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f120 990 318 20 20 -15 -36 #rect
-Ts0 f120 @|RichDialogProcessStartIcon #fIcon
 Ts0 f11 targetWindow NEW #txt
 Ts0 f11 targetDisplay TOP #txt
 Ts0 f11 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
@@ -1361,10 +1342,6 @@ Ts0 f204 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f204 702 536 880 630 #arcP
 Ts0 f204 1 880 536 #addKink
 Ts0 f204 1 0.10981499853660062 0 0 #arcLabel
-Ts0 f205 expr out #txt
-Ts0 f205 1000 338 701 431 #arcP
-Ts0 f205 1 1000 400 #addKink
-Ts0 f205 1 0.18248407047134302 0 0 #arcLabel
 Ts0 f210 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f210 guid 12927317941C4346 #txt
 Ts0 f210 38 230 20 20 13 0 #rect
@@ -2492,8 +2469,6 @@ Ts0 f169 out f186 tail #connect
 Ts0 f186 head f173 mainIn #connect
 Ts0 f169 out f204 tail #connect
 Ts0 f204 head f193 mainIn #connect
-Ts0 f120 mainOut f205 tail #connect
-Ts0 f205 head f182 in #connect
 Ts0 f0 mainOut f71 tail #connect
 Ts0 f71 head f210 mainIn #connect
 Ts0 f18 out f206 tail #connect

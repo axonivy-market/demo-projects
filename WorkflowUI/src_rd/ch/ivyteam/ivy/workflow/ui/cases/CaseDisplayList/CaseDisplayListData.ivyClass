@@ -11,11 +11,11 @@ propertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
 propertyFilter 'According to "mode" will consider the case''s state "running" or "finished"' #fieldComment
 caseDisplayListChildrenDisplayId String #field
 caseDisplayListChildrenDisplayId 'This display id is generated automaticly at the start of the Rich Dialog' #fieldComment
-caseDisplayListParentDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
+caseDisplayListParentDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay #field
 caseDisplayListParentDisplay 'This display is get from parent display at the start of the Rich Dialog' #fieldComment
 alreadyLoadedOnDisplay Boolean #field
 selectedCase ch.ivyteam.ivy.workflow.ICase #field
-selectedDestinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
+selectedDestinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay #field
 caseDisplayMode Number #field
 caseDisplayMode '0=involved cases (your cases), 1=involved cases by role (team cases), 2=all env. cases (wf admin mode)' #fieldComment
 hasPermissionCaseRead Boolean #field

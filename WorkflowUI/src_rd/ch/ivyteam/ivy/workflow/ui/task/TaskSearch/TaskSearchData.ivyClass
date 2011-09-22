@@ -33,7 +33,7 @@ securityMember ch.ivyteam.ivy.security.ISecurityMember #field
 securityMember 'The selected tasks to delegate will be assigned to this ISecurityMember. ISecurityMemeber is base interface for IUser and IRole' #fieldComment
 securityMemberSelected Boolean #field
 securityMemberSelected 'Defines if some security member has been selected with modal dialog or not (used for task delegate action)' #fieldComment
-destinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
+destinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay #field
 destinationDisplay 'Get as a parameter and used to specify the destination display widget for: 
 - load of instance of task list,
 - load of selected task (info mode or start requested mode).

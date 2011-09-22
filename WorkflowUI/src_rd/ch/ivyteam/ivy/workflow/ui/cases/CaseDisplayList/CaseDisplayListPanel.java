@@ -14,7 +14,7 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RSplitPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RToolBar;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
 
@@ -39,7 +39,7 @@ private RScrollPane casesScrollPane = null;
 private RTableWithExcelExport casesTable = null;
 private RBorderLayoutPane casesBorderLayoutPane = null;
 private RLabel footerLabel = null;
-private RTabbedDisplay caseDisplayTabbedDisplay = null;
+private RCloseableTabbedDisplay caseDisplayTabbedDisplay = null;
 private RPopupMenu caseActionsPopupMenu = null;  //  @jve:decl-index=0:visual-constraint="695,175"
 private RMenuItem informOnCaseOnSiblingTabMenuItem = null;
 private RMenuItem refreshMenuItem = null;
@@ -192,9 +192,9 @@ private RLabel getFooterLabel() {
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay	
  */
-private RTabbedDisplay getCaseDisplayTabbedDisplay() {
+private RCloseableTabbedDisplay getCaseDisplayTabbedDisplay() {
 	if (caseDisplayTabbedDisplay == null) {
-		caseDisplayTabbedDisplay = new RTabbedDisplay();
+		caseDisplayTabbedDisplay = new RCloseableTabbedDisplay();
 		caseDisplayTabbedDisplay.setName("caseDisplayTabbedDisplay");
 	}
 	return caseDisplayTabbedDisplay;

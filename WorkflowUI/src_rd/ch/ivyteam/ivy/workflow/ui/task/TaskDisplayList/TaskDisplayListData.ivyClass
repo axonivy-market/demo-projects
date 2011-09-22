@@ -42,7 +42,7 @@ nameCriteria 'Used for find a tasks by task name or case name on the displayed t
 taskDisplayMode Number #field
 taskDisplayMode '-1=get all tasks of the case, 0=your tasks, 1=team tasks, 2=all env. tasks (wf admin mode), 3=any query' #fieldComment
 runningTaskMode Boolean #field
-taskDisplayListParentDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay #field
+taskDisplayListParentDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay #field
 taskDisplayModeText String #field
 aCase ch.ivyteam.ivy.workflow.ICase #field
 aCase 'It defines the case object for which the tasks should be loaded' #fieldComment

@@ -1,8 +1,7 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-09-15 10:10:12 | 4.2.0.37004 | 1.0
+# 2011-09-21 13:02:35 | 4.2.0.37454 | 1.0
 ~.startingProcessesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11952DFDAC1FEC98
 ~.finishedCasesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11AC4F90661EFB95
-~@RD_METHODCALL[start(ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11898E916E47860B
 ~.substitutesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11999AC996C1819B
 ~.absenceHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/119999C290E7B3DE
 ~.managedTeamsHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/12A4427998E28157
@@ -10,5 +9,6 @@
 ~.runningCasesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11AC4F6A88B99CF6
 ~.finishedTasksHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11B3584EAAEF2660
 ~.runningTasksHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11898E4F9F92111B
+~@RD_METHODCALL[start(ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,Boolean,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11898E916E47860B
 ~.emailNotificationHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/12D75AD1C01197DC
 ~@RD_BROADCAST[ivy_systemevent_workflow_case_created]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/1207B74D67233A74

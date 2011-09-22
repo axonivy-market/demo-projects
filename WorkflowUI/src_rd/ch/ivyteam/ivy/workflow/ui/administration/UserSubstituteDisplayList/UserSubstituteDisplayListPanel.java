@@ -68,7 +68,6 @@ private RScrollPane remarkScrollPane = null;
 private String iconPath = "/ch/ivyteam/ivy/workflow/ui/administration/UserSubstituteDisplayList/zoom16.png";
 private RBoxPane headerBoxPane = null;
 private @EmbeddedRichDialog(HeaderPanel.class) ULCContainer header = null;
-private RButton exitButton = null;
 /**
    * Create a new instance of SubstituteManagementPanel
    */
@@ -538,7 +537,6 @@ private RBoxPane getHeaderBoxPane() {
 		headerBoxPane.setName("headerBoxPane");
 		headerBoxPane.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
 		headerBoxPane.set(0, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getHeader());
-		headerBoxPane.set(1, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getExitButton());
 	}
 	return headerBoxPane;
 }
@@ -557,23 +555,5 @@ private ULCContainer getHeader() {
 		header.setPreferredSize(new Dimension(20, 75));
 	}
 	return header;
-}
-
-/**
- * This method initializes exitButton	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
- */
-private RButton getExitButton() {
-	if (exitButton == null) {
-		exitButton = new RButton();
-		exitButton.setName("exitButton");
-		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
-		exitButton.setStyle("toolBarButton");
-		exitButton.setStyleProperties("{/insetsRight \"3\"}");
-		exitButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
-		exitButton.setBorderPainted(false);
-	}
-	return exitButton;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

@@ -57,7 +57,6 @@ private RButton okButton = null;
 private RLabel errorMessageLabel = null;
 private RPopupMenu absenceListPopupMenu = null;
 private RMenuItem deleteMenuItem = null;
-private RButton exitButton = null;
 private RFlowLayoutPane actionsFlowLayoutPane = null;
 private RButton cancelButton = null;
 private RBoxPane headerBoxPane = null;
@@ -392,24 +391,6 @@ private RMenuItem getDeleteMenuItem() {
 }
 
 /**
- * This method initializes exitButton	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
- */
-private RButton getExitButton() {
-	if (exitButton == null) {
-		exitButton = new RButton();
-		exitButton.setName("exitButton");
-		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
-		exitButton.setStyleProperties("{/insetsRight \"3\"}");
-		exitButton.setStyle("toolBarButton");
-		exitButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
-		exitButton.setBorderPainted(false);
-	}
-	return exitButton;
-}
-
-/**
  * This method initializes actionsFlowLayoutPane	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane	
@@ -450,7 +431,6 @@ private RBoxPane getHeaderBoxPane() {
 		headerBoxPane = new RBoxPane();
 		headerBoxPane.setName("headerBoxPane");
 		headerBoxPane.set(0, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getHeader());
-		headerBoxPane.set(1, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getExitButton());
 	}
 	return headerBoxPane;
 }

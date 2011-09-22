@@ -6,7 +6,6 @@ import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
-import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
@@ -37,7 +36,6 @@ private RTabbedPane caseDisplayTabbedPane = null;
 private RTaskPaneContainer caseNotesTaskPaneContainer = null;
 private RTaskPane caseNotesTaskPane = null;
 @EmbeddedRichDialog(CaseNoteDisplayListPanel.class) private ULCContainer caseNoteDisplayListRDC = null;
-private RButton exitButton = null;
 @EmbeddedRichDialog(TaskDisplayListPanel.class) private ULCContainer taskDisplayListRDC = null;
 private FileManagerPanel fileManagerRDC = null;
 private EventLogDisplayListPanel eventLogDisplayListRDC = null;
@@ -141,23 +139,6 @@ private ULCContainer getCaseNoteDisplayListRDC()  {
 }
 
 /**
- * This method initializes exitButton	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
- */
-private RButton getExitButton() {
-	if (exitButton == null) {
-		exitButton = new RButton();
-		exitButton.setName("exitButton");
-		exitButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
-		exitButton.setStyle("toolBarButton");
-		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
-		exitButton.setBorderPainted(false);
-	}
-	return exitButton;
-}
-
-/**
  * This method initializes taskDisplayListRDC	
  * 	
  * @return ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListPanel	
@@ -248,7 +229,6 @@ private RBoxPane getCasActionsBoxPane() {
 		casActionsBoxPane = new RBoxPane();
 		casActionsBoxPane.setName("casActionsBoxPane");
 		casActionsBoxPane.setStyleProperties("{/weightX \"1\"}");
-		casActionsBoxPane.set(2, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getExitButton());
 		casActionsBoxPane.set(0, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, hFiller);
 	}
 	return casActionsBoxPane;

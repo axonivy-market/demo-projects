@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Jan 19 10:12:04 CET 2011]
-12D758693D01BBB8 3.15 #module
+[>Created: Thu Sep 22 13:43:14 CEST 2011]
+12D758693D01BBB8 3.17 #module
 >Proto >Proto Collection #zClass
 Es0 EmailNotificationEditProcess Big #zClass
 Es0 RD #cInfo
@@ -37,6 +37,9 @@ Es0 @RichDialogEnd f22 '' #zField
 Es0 @PushWFArc f23 '' #zField
 Es0 @RichDialogProcessStart f20 '' #zField
 Es0 @PushWFArc f21 '' #zField
+Es0 @RichDialogMethodStart f24 '' #zField
+Es0 @RichDialogEnd f25 '' #zField
+Es0 @PushWFArc f26 '' #zField
 >Proto Es0 Es0 EmailNotificationEditProcess #zField
 Es0 f0 guid 1296F93C34EADB35 #txt
 Es0 f0 type ch.ivyteam.ivy.workflow.ui.administration.EmailNotificationEdit.EmailNotificationEditData #txt
@@ -127,13 +130,13 @@ Es0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f5 350 126 20 20 13 0 #rect
+Es0 f5 310 126 20 20 13 0 #rect
 Es0 f5 @|RichDialogMethodStartIcon #fIcon
 Es0 f6 type ch.ivyteam.ivy.workflow.ui.administration.EmailNotificationEdit.EmailNotificationEditData #txt
-Es0 f6 350 230 20 20 13 0 #rect
+Es0 f6 310 230 20 20 13 0 #rect
 Es0 f6 @|RichDialogProcessEndIcon #fIcon
 Es0 f7 expr out #txt
-Es0 f7 360 146 360 230 #arcP
+Es0 f7 320 146 320 230 #arcP
 Es0 f8 guid 1297F3BC84FB1E3D #txt
 Es0 f8 type ch.ivyteam.ivy.workflow.ui.administration.EmailNotificationEdit.EmailNotificationEditData #txt
 Es0 f8 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.EmailNotificationEdit.EmailNotificationEditData out;
@@ -149,7 +152,7 @@ Es0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f8 678 126 20 20 13 0 #rect
+Es0 f8 702 126 20 20 13 0 #rect
 Es0 f8 @|RichDialogProcessStartIcon #fIcon
 Es0 f9 type ch.ivyteam.ivy.workflow.ui.administration.EmailNotificationEdit.EmailNotificationEditData #txt
 Es0 f9 54 366 20 20 13 0 #rect
@@ -211,8 +214,8 @@ weekdays up-binding</name>
 Es0 f11 46 300 36 24 24 -13 #rect
 Es0 f11 @|RichDialogProcessStepIcon #fIcon
 Es0 f12 expr out #txt
-Es0 f12 688 146 82 312 #arcP
-Es0 f12 1 688 312 #addKink
+Es0 f12 712 146 82 312 #arcP
+Es0 f12 1 712 312 #addKink
 Es0 f12 1 0.45476912464717417 0 0 #arcLabel
 Es0 f10 expr out #txt
 Es0 f10 64 324 64 366 #arcP
@@ -326,13 +329,13 @@ Es0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f16 462 126 20 20 13 0 #rect
+Es0 f16 422 126 20 20 13 0 #rect
 Es0 f16 @|RichDialogMethodStartIcon #fIcon
 Es0 f17 type ch.ivyteam.ivy.workflow.ui.administration.EmailNotificationEdit.EmailNotificationEditData #txt
-Es0 f17 462 230 20 20 13 0 #rect
+Es0 f17 422 230 20 20 13 0 #rect
 Es0 f17 @|RichDialogProcessEndIcon #fIcon
 Es0 f18 expr out #txt
-Es0 f18 472 146 472 230 #arcP
+Es0 f18 432 146 432 230 #arcP
 Es0 f19 expr out #txt
 Es0 f19 64 58 64 116 #arcP
 Es0 f4 guid 12D759463DA40642 #txt
@@ -387,6 +390,25 @@ Es0 f21 expr out #txt
 Es0 f21 824 146 769 308 #arcP
 Es0 f21 1 824 288 #addKink
 Es0 f21 0 0.7187464006195793 0 0 #arcLabel
+Es0 f24 guid 13290F2322F513B5 #txt
+Es0 f24 type ch.ivyteam.ivy.workflow.ui.administration.EmailNotificationEdit.EmailNotificationEditData #txt
+Es0 f24 method close() #txt
+Es0 f24 disableUIEvents false #txt
+Es0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>close()</name>
+    </language>
+</elementInfo>
+' #txt
+Es0 f24 550 126 20 20 13 0 #rect
+Es0 f24 @|RichDialogMethodStartIcon #fIcon
+Es0 f25 type ch.ivyteam.ivy.workflow.ui.administration.EmailNotificationEdit.EmailNotificationEditData #txt
+Es0 f25 guid 13290F23EE584596 #txt
+Es0 f25 550 230 20 20 13 0 #rect
+Es0 f25 @|RichDialogEndIcon #fIcon
+Es0 f26 expr out #txt
+Es0 f26 560 146 560 230 #arcP
 >Proto Es0 .ui2RdDataAction 'out.emailSettings.sendOnNewWorkTasks=panel.alwaysSendCheckBox.selected;
 out.emailSettings.notificationDisabled=panel.doNotSendCheckBox.selected;
 out.selectedEmailLanguage=panel.languageComboBox.selectedListEntry as java.util.Locale;
@@ -407,7 +429,7 @@ panel.languageComboBox.selectedListEntry=in.selectedEmailLanguage;
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneSize>292</swimlaneSize>
-    <swimlaneSize>306</swimlaneSize>
+    <swimlaneSize>381</swimlaneSize>
     <swimlaneSize>323</swimlaneSize>
     <swimlaneColor>-16737997</swimlaneColor>
     <swimlaneColor>-16737844</swimlaneColor>
@@ -436,3 +458,5 @@ Es0 f4 mainOut f23 tail #connect
 Es0 f23 head f22 mainIn #connect
 Es0 f20 mainOut f21 tail #connect
 Es0 f21 head f22 mainIn #connect
+Es0 f24 mainOut f26 tail #connect
+Es0 f26 head f25 mainIn #connect

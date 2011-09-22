@@ -32,7 +32,7 @@ This method can not be changed or deleted!</description>
         <inputParameter>
             <name>aTaskDisplayListParentDisplay</name>
             <description></description>
-            <parameterType>ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay</parameterType>
+            <parameterType>ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
         <inputParameter>

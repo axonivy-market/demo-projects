@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 15 10:26:09 CEST 2011]
+[>Created: Wed Sep 21 13:02:37 CEST 2011]
 11898D6F2E86E751 3.17 #module
 >Proto >Proto Collection #zClass
 Us0 UserMenuProcess Big #zClass
@@ -169,10 +169,10 @@ Us0 f4 363 411 26 26 14 0 #rect
 Us0 f4 @|RichDialogProcessEndIcon #fIcon
 Us0 f6 guid 11898E916E47860B #txt
 Us0 f6 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f6 method start(ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean) #txt
+Us0 f6 method start(ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,Boolean,Boolean) #txt
 Us0 f6 disableUIEvents false #txt
 Us0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aDestinationDisplay,java.lang.Boolean hasWFAdminPermissions,java.lang.Boolean standAloneMode> param = methodEvent.getInputArguments();
+<ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aDestinationDisplay,java.lang.Boolean hasWFAdminPermissions,java.lang.Boolean standAloneMode> param = methodEvent.getInputArguments();
 ' #txt
 Us0 f6 inParameterMapAction 'out.destinationDisplay=param.aDestinationDisplay;
 ' #txt
@@ -181,11 +181,11 @@ out.hasWfAdministratorPermissions = param.hasWFAdminPermissions;
 out.standAloneMode = param.standAloneMode;' #txt
 Us0 f6 outParameterDecl '<> result;
 ' #txt
-Us0 f6 embeddedRdInitializations '{/finishedCaseSearchRDC {/fieldName "finishedCaseSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleCaseListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningCaseMode = false;\nparam.aHasWfAdministratorPermissions = callParam.hasWFAdminPermissions;"/userContext * }/administrationSeparatorPanel {/fieldName "administrationSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/runningTaskSearchRDC {/fieldName "runningTaskSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleTaskListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningTaskMode = true;\nparam.aHasWfAdministratorPermissions = callParam.hasWFAdminPermissions;"/userContext * }/securitySeparatorPanel {/fieldName "securitySeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/processesSeparatorPanel {/fieldName "processesSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/casesSeparatorPanel {/fieldName "casesSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/tasksSeparatorPanel {/fieldName "tasksSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/finishedTaskSearchRDC {/fieldName "finishedTaskSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleTaskListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningTaskMode = false;\nparam.aHasWfAdministratorPermissions = callParam.hasWFAdminPermissions;"/userContext * }/runningCaseSearchRDC {/fieldName "runningCaseSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleCaseListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningCaseMode = true;\nparam.aHasWfAdministratorPermissions = callParam.hasWFAdminPermissions;"/userContext * }/startList {/fieldName "startList"/startMethod "start(String)"/parameterMapping "param.aDisplayId=in.destinationDisplay.getDisplayId();\n"/initScript ""/userContext * }}' #txt
+Us0 f6 embeddedRdInitializations '{/finishedCaseSearchRDC {/fieldName "finishedCaseSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleCaseListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningCaseMode = false;\nparam.aHasWfAdministratorPermissions = callParam.hasWFAdminPermissions;"/userContext * }/BAMSeparatorPanel {/fieldName "BAMSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/administrationSeparatorPanel {/fieldName "administrationSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/runningTaskSearchRDC {/fieldName "runningTaskSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleTaskListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningTaskMode = true;\nparam.aHasWfAdministratorPermissions = callParam.hasWFAdminPermissions;"/userContext * }/securitySeparatorPanel {/fieldName "securitySeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/processesSeparatorPanel {/fieldName "processesSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/casesSeparatorPanel {/fieldName "casesSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/tasksSeparatorPanel {/fieldName "tasksSeparatorPanel"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/finishedTaskSearchRDC {/fieldName "finishedTaskSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleTaskListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningTaskMode = false;\nparam.aHasWfAdministratorPermissions = callParam.hasWFAdminPermissions;"/userContext * }/runningCaseSearchRDC {/fieldName "runningCaseSearchRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,Boolean,Boolean)"/parameterMapping ""/initScript "param.aMultipleCaseListMode = false;\nparam.aDestinationDisplay = callParam.aDestinationDisplay;\nparam.aRunningCaseMode = true;\nparam.aHasWfAdministratorPermissions = callParam.hasWFAdminPermissions;"/userContext * }/startList {/fieldName "startList"/startMethod "start(String)"/parameterMapping "param.aDisplayId=in.destinationDisplay.getDisplayId();\n"/initScript ""/userContext * }}' #txt
 Us0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(RTabbedDisplay,Boolean,Boolean)</name>
+        <name>start(RCloseableTabbedDisplay,Boolean,Boolean)</name>
     </language>
 </elementInfo>
 ' #txt
@@ -286,7 +286,7 @@ Us0 f23 actionTable 'out=in;
 ' #txt
 Us0 f23 actionCode 'import ch.ivyteam.ivy.workflow.ui.administration.AbsenceDisplayList.AbsenceDisplayListPanel;
 import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 
 // set the user menu title to inform the current selection and expanded to false 
 // panel.userMenuTaskPane.setTitle(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/userMenuShortDesc") + " (" + panel.substitutesHyperlink.getText() + ")");
@@ -419,7 +419,7 @@ Us0 f33 actionTable 'out=in;
 ' #txt
 Us0 f33 actionCode 'import ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList.SubstituteDisplayListPanel;
 import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 
 
 
@@ -975,7 +975,7 @@ Us0 f13 actionTable 'out=in;
 ' #txt
 Us0 f13 actionCode 'import ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListPanel;
 import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 
 
 List<ULCComponent> componentsList;
@@ -1030,7 +1030,7 @@ Us0 f59 actionTable 'out=in;
 Us0 f59 actionCode 'import ch.ivyteam.ivy.workflow.ui.administration.EmailNotificationEdit.EmailNotificationEditPanel;
 
 import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 
 
 
@@ -1200,7 +1200,7 @@ Us0 f75 actionTable 'out=in;
 Us0 f75 actionCode 'import ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListPanel;
 
 import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 
 
 
@@ -1371,7 +1371,7 @@ Us0 f84 actionTable 'out=in;
 ' #txt
 Us0 f84 actionCode 'import ch.ivyteam.ivy.workflow.ui.administration.UserAbsenceDisplayList.UserAbsenceDisplayListPanel;
 import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 
 // set the user menu title to inform the current selection and expanded to false 
 // panel.userMenuTaskPane.setTitle(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/userMenuShortDesc") + " (" + panel.substitutesHyperlink.getText() + ")");

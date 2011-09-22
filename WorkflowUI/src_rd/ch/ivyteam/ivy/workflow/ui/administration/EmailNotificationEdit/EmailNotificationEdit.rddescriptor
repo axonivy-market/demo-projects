@@ -21,6 +21,10 @@
             <nullPermitted>true</nullPermitted>
         </outputParameter>
     </method>
+    <method>
+        <name>close</name>
+        <description></description>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Default Rich Dialog start

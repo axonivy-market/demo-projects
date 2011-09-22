@@ -43,7 +43,6 @@ private RButton cancelButton = null;
 private RTextFieldCellWidget managingRolesTextFieldCellWidget = null;  //  @jve:decl-index=0:visual-constraint="819,259"
 private RBoxPane headerBoxPane = null;
 @EmbeddedRichDialog(HeaderPanel.class) private ULCContainer headerRDC = null;
-private RButton exitButton = null;
 private RBoxPane managedTeamsActionsBoxPane = null;
 private RGridBagLayoutPane findCasesGridBagLayoutPane = null;
 private RBoxPane findBoxPane = null;
@@ -177,8 +176,7 @@ private RBoxPane getHeaderBoxPane() {
 		headerBoxPane.setName("headerBoxPane");
 		headerBoxPane.setPreferredSize(new com.ulcjava.base.application.util.Dimension(20,100));
 		headerBoxPane.set(0, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getHeaderRDC());
-		headerBoxPane.set(1, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getExitButton());
-		headerBoxPane.set(0, 1, 2, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getManagedTeamsActionsBoxPane());
+		headerBoxPane.set(0, 1, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getManagedTeamsActionsBoxPane());
 	}
 	return headerBoxPane;
 }
@@ -197,24 +195,6 @@ private ULCContainer getHeaderRDC()  {
 		headerRDC.setPreferredSize(new Dimension(20, 75));
 	}
 	return headerRDC;
-}
-
-/**
- * This method initializes exitButton	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
- */
-private RButton getExitButton() {
-	if (exitButton == null) {
-		exitButton = new RButton();
-		exitButton.setName("exitButton");
-		exitButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
-		exitButton.setStyle("toolBarButton");
-		exitButton.setStyleProperties("{/insetsRight \"3\"}");
-		exitButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
-		exitButton.setBorderPainted(false);
-	}
-	return exitButton;
 }
 
 /**

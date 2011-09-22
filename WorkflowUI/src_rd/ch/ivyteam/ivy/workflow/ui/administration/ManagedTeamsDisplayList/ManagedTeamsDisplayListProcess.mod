@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Aug 19 16:26:19 CEST 2011]
+[>Created: Thu Sep 22 13:44:49 CEST 2011]
 12A4698EBFC9D238 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 ManagingRolesDisplayListProcess Big #zClass
@@ -35,6 +35,9 @@ Ms0 @RichDialogProcessEnd f16 '' #zField
 Ms0 @RichDialog f18 '' #zField
 Ms0 @PushWFArc f19 '' #zField
 Ms0 @PushWFArc f17 '' #zField
+Ms0 @RichDialogMethodStart f20 '' #zField
+Ms0 @RichDialogEnd f21 '' #zField
+Ms0 @PushWFArc f22 '' #zField
 >Proto Ms0 Ms0 ManagingRolesDisplayListProcess #zField
 Ms0 f0 guid 12A43EF5B1247D8C #txt
 Ms0 f0 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
@@ -58,7 +61,7 @@ Ms0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ms0 f0 90 40 20 20 13 0 #rect
 Ms0 f0 @|RichDialogInitStartIcon #fIcon
 Ms0 f1 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
-Ms0 f1 90 238 20 20 13 0 #rect
+Ms0 f1 90 214 20 20 13 0 #rect
 Ms0 f1 @|RichDialogProcessEndIcon #fIcon
 Ms0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData out;
 ' #txt
@@ -103,12 +106,12 @@ their managing roles</name>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f3 82 140 36 24 20 -2 #rect
+Ms0 f3 82 124 36 24 20 -2 #rect
 Ms0 f3 @|RichDialogProcessStepIcon #fIcon
 Ms0 f4 expr out #txt
-Ms0 f4 100 60 100 140 #arcP
+Ms0 f4 100 60 100 124 #arcP
 Ms0 f2 expr out #txt
-Ms0 f2 100 164 100 238 #arcP
+Ms0 f2 100 148 100 214 #arcP
 Ms0 f5 guid 12A442FDADB847E8 #txt
 Ms0 f5 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
 Ms0 f5 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData out;
@@ -124,7 +127,7 @@ Ms0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f5 446 38 20 20 13 0 #rect
+Ms0 f5 654 38 20 20 13 0 #rect
 Ms0 f5 @|RichDialogProcessStartIcon #fIcon
 Ms0 f8 guid 12A443084535F54A #txt
 Ms0 f8 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
@@ -141,15 +144,15 @@ Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f8 582 38 20 20 13 0 #rect
+Ms0 f8 790 38 20 20 13 0 #rect
 Ms0 f8 @|RichDialogProcessStartIcon #fIcon
 Ms0 f9 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
 Ms0 f9 guid 12A4430A941E3B6F #txt
-Ms0 f9 446 238 20 20 13 0 #rect
+Ms0 f9 654 214 20 20 13 0 #rect
 Ms0 f9 @|RichDialogEndIcon #fIcon
 Ms0 f7 expr out #txt
-Ms0 f7 592 58 465 246 #arcP
-Ms0 f7 1 592 232 #addKink
+Ms0 f7 800 58 673 222 #arcP
+Ms0 f7 1 800 200 #addKink
 Ms0 f7 0 0.7846712287201104 0 0 #arcLabel
 Ms0 f6 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData out;
 ' #txt
@@ -176,12 +179,12 @@ its managing roles</name>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f6 438 140 36 24 20 -2 #rect
+Ms0 f6 646 140 36 24 20 -2 #rect
 Ms0 f6 @|RichDialogProcessStepIcon #fIcon
 Ms0 f11 expr out #txt
-Ms0 f11 456 58 456 140 #arcP
+Ms0 f11 664 58 664 140 #arcP
 Ms0 f10 expr out #txt
-Ms0 f10 456 164 456 238 #arcP
+Ms0 f10 664 164 664 214 #arcP
 Ms0 f12 guid 12E0AA92725DF2BB #txt
 Ms0 f12 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
 Ms0 f12 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData out;
@@ -224,13 +227,13 @@ Ms0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f12 318 38 20 20 13 0 #rect
+Ms0 f12 526 38 20 20 13 0 #rect
 Ms0 f12 @|RichDialogProcessStartIcon #fIcon
 Ms0 f13 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
-Ms0 f13 318 238 20 20 13 0 #rect
+Ms0 f13 526 214 20 20 13 0 #rect
 Ms0 f13 @|RichDialogProcessEndIcon #fIcon
 Ms0 f14 expr out #txt
-Ms0 f14 328 58 328 238 #arcP
+Ms0 f14 536 58 536 214 #arcP
 Ms0 f15 guid 131E1E3082AC818D #txt
 Ms0 f15 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
 Ms0 f15 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData out;
@@ -249,10 +252,10 @@ Ms0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f15 678 38 20 20 13 0 #rect
+Ms0 f15 886 38 20 20 13 0 #rect
 Ms0 f15 @|RichDialogProcessStartIcon #fIcon
 Ms0 f16 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
-Ms0 f16 678 238 20 20 13 0 #rect
+Ms0 f16 886 214 20 20 13 0 #rect
 Ms0 f16 @|RichDialogProcessEndIcon #fIcon
 Ms0 f18 targetWindow NEW:card: #txt
 Ms0 f18 targetDisplay TOP #txt
@@ -275,22 +278,44 @@ Ms0 f18 windowConfiguration '{/title "<%=in.selectedUserManagedTeams.user.getNam
 Ms0 f18 isAsynch false #txt
 Ms0 f18 isInnerRd true #txt
 Ms0 f18 userContext '* ' #txt
-Ms0 f18 670 116 36 24 20 -2 #rect
+Ms0 f18 878 116 36 24 20 -2 #rect
 Ms0 f18 @|RichDialogIcon #fIcon
 Ms0 f19 expr out #txt
-Ms0 f19 688 58 688 116 #arcP
+Ms0 f19 896 58 896 116 #arcP
 Ms0 f17 expr out #txt
-Ms0 f17 688 140 688 238 #arcP
+Ms0 f17 896 140 896 214 #arcP
+Ms0 f20 guid 13290F341BCE934C #txt
+Ms0 f20 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
+Ms0 f20 method close() #txt
+Ms0 f20 disableUIEvents false #txt
+Ms0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>close()</name>
+    </language>
+</elementInfo>
+' #txt
+Ms0 f20 334 46 20 20 13 0 #rect
+Ms0 f20 @|RichDialogMethodStartIcon #fIcon
+Ms0 f21 type ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList.ManagedTeamsDisplayListData #txt
+Ms0 f21 guid 13290F35524CC261 #txt
+Ms0 f21 334 214 20 20 13 0 #rect
+Ms0 f21 @|RichDialogEndIcon #fIcon
+Ms0 f22 expr out #txt
+Ms0 f22 344 66 344 214 #arcP
 >Proto Ms0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <swimlaneLabel>Start methods</swimlaneLabel>
+        <swimlaneLabel>Methods</swimlaneLabel>
         <swimlaneLabel>Events</swimlaneLabel>
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneSize>261</swimlaneSize>
+    <swimlaneSize>198</swimlaneSize>
     <swimlaneSize>604</swimlaneSize>
     <swimlaneColor>-16724839</swimlaneColor>
+    <swimlaneColor>-16724788</swimlaneColor>
     <swimlaneColor>-16724890</swimlaneColor>
 </elementInfo>
 ' #txt
@@ -320,3 +345,5 @@ Ms0 f15 mainOut f19 tail #connect
 Ms0 f19 head f18 mainIn #connect
 Ms0 f18 mainOut f17 tail #connect
 Ms0 f17 head f16 mainIn #connect
+Ms0 f20 mainOut f22 tail #connect
+Ms0 f22 head f21 mainIn #connect

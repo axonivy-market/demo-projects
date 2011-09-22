@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 17 13:31:02 CEST 2011]
+[>Created: Thu Sep 22 16:36:21 CEST 2011]
 1175F14B3894BBC3 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskSearchProcess Big #zClass
@@ -222,7 +222,6 @@ Ts0 @PushWFArc f105 '' #zField
 Ts0 @PushWFArc f234 '' #zField
 Ts0 @PushWFArc f235 '' #zField
 Ts0 @PushWFArc f233 '' #zField
-Ts0 @InfoButton f236 '' #zField
 Ts0 @Alternative f238 '' #zField
 Ts0 @PushWFArc f239 '' #zField
 Ts0 @PushWFArc f214 '' #zField
@@ -2469,34 +2468,32 @@ Ts0 f75 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f75 1258 1098 28 28 14 0 #rect
 Ts0 f75 @|AlternativeIcon #fIcon
 Ts0 f77 targetWindow THIS #txt
-Ts0 f77 targetDisplay <%=in.destinationDisplay.getDisplayId()%> #txt
+Ts0 f77 targetDisplay EXISTING:<%=in.destinationDisplay.getDisplayId()%> #txt
 Ts0 f77 richDialogId ch.ivyteam.ivy.workflow.ui.task.RunningTaskDisplayList #txt
-Ts0 f77 startMethod start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
+Ts0 f77 startMethod start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
 Ts0 f77 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f77 panelName <%=in.taskHierarchyContext.title%> #txt
-Ts0 f77 requestActionDecl '<Boolean aRunningTaskMode, ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aTaskDisplayListParentDisplay, ch.ivyteam.ivy.workflow.IPropertyFilter aPropertyFilter, Number aTaskDisplayMode, Boolean aHasWfAdministratorPermissions> param;' #txt
-Ts0 f77 requestMappingAction 'param.aRunningTaskMode=in.runningTaskMode;
-param.aTaskDisplayListParentDisplay=in.destinationDisplay;
-param.aPropertyFilter=in.taskHierarchyContext.propertyFilter;
-param.aTaskDisplayMode=in.taskDisplayMode;
-param.aHasWfAdministratorPermissions=in.hasWfAdministratorPermissions;
-' #txt
+Ts0 f77 requestActionDecl '<Boolean aRunningTaskMode, ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aTaskDisplayListParentDisplay, ch.ivyteam.ivy.workflow.IPropertyFilter aPropertyFilter, Number aTaskDisplayMode, Boolean aHasWfAdministratorPermissions> param;' #txt
+Ts0 f77 requestActionCode 'param.aRunningTaskMode = in.runningTaskMode;
+param.aTaskDisplayListParentDisplay = in.destinationDisplay;
+param.aPropertyFilter = in.taskHierarchyContext.propertyFilter;
+param.aTaskDisplayMode = in.taskDisplayMode;
+param.aHasWfAdministratorPermissions = in.hasWfAdministratorPermissions;' #txt
 Ts0 f77 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
 ' #txt
 Ts0 f77 responseMappingAction 'out=in;
 ' #txt
-Ts0 f77 windowConfiguration '#Fri Jul 18 18:14:48 CEST 2008
-use_default=true
-' #txt
+Ts0 f77 windowConfiguration '* ' #txt
 Ts0 f77 isAsynch true #txt
 Ts0 f77 isInnerRd true #txt
 Ts0 f77 isDialog false #txt
+Ts0 f77 userContext '* ' #txt
 Ts0 f77 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>load
 running task list</name>
-        <nameStyle>22,9
+        <nameStyle>22,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -2505,10 +2502,10 @@ Ts0 f77 1254 1236 36 24 20 -2 #rect
 Ts0 f77 @|RichDialogIcon #fIcon
 Ts0 f81 guid 1190F07193BE2E61 #txt
 Ts0 f81 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f81 method start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean) #txt
+Ts0 f81 method start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,Boolean,Boolean) #txt
 Ts0 f81 disableUIEvents true #txt
 Ts0 f81 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.Boolean aMultipleTaskListMode,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aDestinationDisplay,java.lang.Boolean aRunningTaskMode,java.lang.Boolean aHasWfAdministratorPermissions> param = methodEvent.getInputArguments();
+<java.lang.Boolean aMultipleTaskListMode,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aDestinationDisplay,java.lang.Boolean aRunningTaskMode,java.lang.Boolean aHasWfAdministratorPermissions> param = methodEvent.getInputArguments();
 ' #txt
 Ts0 f81 inParameterMapAction 'out.destinationDisplay=param.aDestinationDisplay;
 out.hasWfAdministratorPermissions=param.aHasWfAdministratorPermissions;
@@ -2549,9 +2546,7 @@ Ts0 f81 embeddedRdInitializations '{/taskHierarchyLayoutSelectRDC {/fieldName "t
 Ts0 f81 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(Boolean, RTabbedDisplay, Boolean,Boolean)</name>
-        <nameStyle>47,5,6,9
-</nameStyle>
+        <name>start(Boolean,RCloseableTabbedDisplay,Boolean,Boolean)</name>
     </language>
 </elementInfo>
 ' #txt
@@ -2671,12 +2666,12 @@ Ts0 f48 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData ou
 ' #txt
 Ts0 f48 actionTable 'out=in;
 ' #txt
-Ts0 f48 actionCode 'import ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayPanel;
+Ts0 f48 actionCode 'import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
+import ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayPanel;
 import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
 
 
-RTabbedDisplay selectedTabbedDisplay = in.destinationDisplay;
+RCloseableTabbedDisplay selectedTabbedDisplay = in.destinationDisplay;
 List<ULCComponent> componentsList;
 
 
@@ -2924,12 +2919,12 @@ Ts0 f114 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData o
 ' #txt
 Ts0 f114 actionTable 'out=in;
 ' #txt
-Ts0 f114 actionCode 'import ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayPanel;
+Ts0 f114 actionCode 'import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
+import ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayPanel;
 import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
 
 
-RTabbedDisplay selectedTabbedDisplay = in.destinationDisplay;
+RCloseableTabbedDisplay selectedTabbedDisplay = in.destinationDisplay;
 List<ULCComponent> componentsList;
 
 
@@ -3576,7 +3571,7 @@ import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
 import ch.ivyteam.ivy.workflow.IPropertyFilter;
 
 import ch.ivyteam.ivy.workflow.ui.utils.UniqueDisplayIdFactory;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 
 
 
@@ -3860,34 +3855,32 @@ Ts0 f78 expr in #txt
 Ts0 f78 outCond in.runningTaskMode #txt
 Ts0 f78 1272 1214 1272 1236 #arcP
 Ts0 f76 targetWindow THIS #txt
-Ts0 f76 targetDisplay <%=in.destinationDisplay.getDisplayId()%> #txt
+Ts0 f76 targetDisplay EXISTING:<%=in.destinationDisplay.getDisplayId()%> #txt
 Ts0 f76 richDialogId ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList #txt
-Ts0 f76 startMethod start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
+Ts0 f76 startMethod start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
 Ts0 f76 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f76 panelName <%=in.taskHierarchyContext.title%> #txt
-Ts0 f76 requestActionDecl '<Boolean aRunningTaskMode, ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aTaskDisplayListParentDisplay, ch.ivyteam.ivy.workflow.IPropertyFilter aPropertyFilter, Number aTaskDisplayMode, Boolean aHasWfAdministratorPermissions> param;' #txt
-Ts0 f76 requestMappingAction 'param.aRunningTaskMode=in.runningTaskMode;
-param.aTaskDisplayListParentDisplay=in.destinationDisplay;
-param.aPropertyFilter=in.taskHierarchyContext.propertyFilter;
-param.aTaskDisplayMode=in.taskDisplayMode;
-param.aHasWfAdministratorPermissions=in.hasWfAdministratorPermissions;
-' #txt
+Ts0 f76 requestActionDecl '<Boolean aRunningTaskMode, ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aTaskDisplayListParentDisplay, ch.ivyteam.ivy.workflow.IPropertyFilter aPropertyFilter, Number aTaskDisplayMode, Boolean aHasWfAdministratorPermissions> param;' #txt
+Ts0 f76 requestActionCode 'param.aRunningTaskMode = in.runningTaskMode;
+param.aTaskDisplayListParentDisplay = in.destinationDisplay;
+param.aPropertyFilter = in.taskHierarchyContext.propertyFilter;
+param.aTaskDisplayMode = in.taskDisplayMode;
+param.aHasWfAdministratorPermissions = in.hasWfAdministratorPermissions;' #txt
 Ts0 f76 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
 ' #txt
 Ts0 f76 responseMappingAction 'out=in;
 ' #txt
-Ts0 f76 windowConfiguration '#Fri Jul 18 18:15:14 CEST 2008
-use_default=true
-' #txt
+Ts0 f76 windowConfiguration '* ' #txt
 Ts0 f76 isAsynch true #txt
 Ts0 f76 isInnerRd true #txt
 Ts0 f76 isDialog false #txt
+Ts0 f76 userContext '* ' #txt
 Ts0 f76 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>load
 finished task list</name>
-        <nameStyle>23,9
+        <nameStyle>23,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -4573,19 +4566,6 @@ Ts0 f235 0 0.14102564102564102 -21 -1 #arcLabel
 Ts0 f233 expr out #txt
 Ts0 f233 1842 1214 1939 1244 #arcP
 Ts0 f233 0 0.6561214372765557 0 0 #arcLabel
-Ts0 f236 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>TIFAM - 12.08.2009
-Auto hide menu implementations tests</name>
-        <nameStyle>55,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f236 2188 1404 24 24 22 -1 #rect
-Ts0 f236 @|IBIcon #fIcon
-Ts0 f236 -14336|-1|-16777216 #nodeStyle
 Ts0 f238 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f238 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -4852,12 +4832,12 @@ Ts0 f212 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData o
 ' #txt
 Ts0 f212 actionTable 'out=in;
 ' #txt
-Ts0 f212 actionCode 'import ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayPanel;
+Ts0 f212 actionCode 'import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
+import ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayPanel;
 import com.ulcjava.base.application.ULCComponent;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
 
 
-RTabbedDisplay selectedTabbedDisplay = in.destinationDisplay;
+RCloseableTabbedDisplay selectedTabbedDisplay = in.destinationDisplay;
 List<ULCComponent> componentsList;
 
 
@@ -4923,10 +4903,10 @@ Ts0 f252 2808 244 2808 282 #arcP
 Ts0 f253 targetWindow THIS #txt
 Ts0 f253 targetDisplay EXISTING:<%=in.destinationDisplay.displayId%> #txt
 Ts0 f253 richDialogId ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay #txt
-Ts0 f253 startMethod start(ch.ivyteam.ivy.workflow.ICase,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay) #txt
+Ts0 f253 startMethod start(ch.ivyteam.ivy.workflow.ICase,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay) #txt
 Ts0 f253 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f253 panelName <%=in.tabTitle%> #txt
-Ts0 f253 requestActionDecl '<ch.ivyteam.ivy.workflow.ICase aCase, ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aParentDisplay> param;' #txt
+Ts0 f253 requestActionDecl '<ch.ivyteam.ivy.workflow.ICase aCase, ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aParentDisplay> param;' #txt
 Ts0 f253 requestActionCode 'import ch.ivyteam.ivy.workflow.ICase;
 
 param.aCase = in.selectedTask.getCase();
@@ -4946,6 +4926,7 @@ Ts0 f253 windowConfiguration '* ' #txt
 Ts0 f253 isAsynch true #txt
 Ts0 f253 isInnerRd true #txt
 Ts0 f253 isDialog false #txt
+Ts0 f253 userContext '* ' #txt
 Ts0 f253 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jun 14 01:26:30 CEST 2011]
+[>Created: Thu Sep 22 14:17:30 CEST 2011]
 13078EA7DB36D162 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstituteManagementProcess Big #zClass
@@ -68,14 +68,14 @@ Ss0 @PushWFArc f3 '' #zField
 Ss0 @RichDialogMethodStart f28 '' #zField
 Ss0 @RichDialogProcessEnd f40 '' #zField
 Ss0 @PushWFArc f41 '' #zField
-Ss0 @RichDialogProcessStart f42 '' #zField
-Ss0 @RichDialogEnd f54 '' #zField
-Ss0 @PushWFArc f58 '' #zField
 Ss0 @PushWFArc f59 '' #zField
 Ss0 @RichDialogMethodStart f2 '' #zField
 Ss0 @RichDialogProcessStep f39 '' #zField
 Ss0 @PushWFArc f60 '' #zField
 Ss0 @PushWFArc f32 '' #zField
+Ss0 @RichDialogMethodStart f61 '' #zField
+Ss0 @RichDialogEnd f62 '' #zField
+Ss0 @PushWFArc f63 '' #zField
 >Proto Ss0 Ss0 SubstituteManagementProcess #zField
 Ss0 f1 type ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData #txt
 Ss0 f1 51 267 26 26 14 0 #rect
@@ -745,29 +745,6 @@ Ss0 f40 350 422 20 20 13 0 #rect
 Ss0 f40 @|RichDialogProcessEndIcon #fIcon
 Ss0 f41 expr out #txt
 Ss0 f41 360 370 360 422 #arcP
-Ss0 f42 guid 130891634084BFF1 #txt
-Ss0 f42 type ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData #txt
-Ss0 f42 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData out;
-' #txt
-Ss0 f42 actionTable 'out=in;
-' #txt
-Ss0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>exit</name>
-        <nameStyle>4,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f42 1766 46 20 20 13 0 #rect
-Ss0 f42 @|RichDialogProcessStartIcon #fIcon
-Ss0 f54 type ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData #txt
-Ss0 f54 guid 13089163F0BACA71 #txt
-Ss0 f54 1766 198 20 20 13 0 #rect
-Ss0 f54 @|RichDialogEndIcon #fIcon
-Ss0 f58 expr out #txt
-Ss0 f58 1776 66 1776 198 #arcP
 Ss0 f59 expr out #txt
 Ss0 f59 752 74 752 286 #arcP
 Ss0 f2 guid 1308B2A62516E7AE #txt
@@ -813,6 +790,25 @@ Ss0 f32 expr out #txt
 Ss0 f32 568 412 370 432 #arcP
 Ss0 f32 1 568 432 #addKink
 Ss0 f32 1 0.4142452948175632 0 0 #arcLabel
+Ss0 f61 guid 13290F95616D3F3D #txt
+Ss0 f61 type ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData #txt
+Ss0 f61 method close() #txt
+Ss0 f61 disableUIEvents false #txt
+Ss0 f61 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>close()</name>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f61 742 342 20 20 13 0 #rect
+Ss0 f61 @|RichDialogMethodStartIcon #fIcon
+Ss0 f62 type ch.ivyteam.ivy.workflow.ui.administration.UserSubstituteDisplayList.UserSubstituteDisplayListData #txt
+Ss0 f62 guid 13290F96098925AC #txt
+Ss0 f62 742 422 20 20 13 0 #rect
+Ss0 f62 @|RichDialogEndIcon #fIcon
+Ss0 f63 expr out #txt
+Ss0 f63 752 362 752 422 #arcP
 >Proto Ss0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -888,11 +884,11 @@ Ss0 f45 mainOut f3 tail #connect
 Ss0 f3 head f1 mainIn #connect
 Ss0 f28 mainOut f41 tail #connect
 Ss0 f41 head f40 mainIn #connect
-Ss0 f42 mainOut f58 tail #connect
-Ss0 f58 head f54 mainIn #connect
 Ss0 f31 mainOut f59 tail #connect
 Ss0 f59 head f38 mainIn #connect
 Ss0 f2 mainOut f60 tail #connect
 Ss0 f60 head f39 mainIn #connect
 Ss0 f39 mainOut f32 tail #connect
 Ss0 f32 head f40 mainIn #connect
+Ss0 f61 mainOut f63 tail #connect
+Ss0 f63 head f62 mainIn #connect

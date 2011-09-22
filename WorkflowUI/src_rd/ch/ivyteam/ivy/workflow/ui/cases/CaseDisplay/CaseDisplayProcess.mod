@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Feb 07 17:34:57 CET 2011]
-119C23018068C697 3.15 #module
+[>Created: Thu Sep 22 14:08:20 CEST 2011]
+119C23018068C697 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDisplayProcess Big #zClass
 Cs0 RD #cInfo
@@ -28,9 +28,6 @@ Cs0 @PushWFArc f15 '' #zField
 Cs0 @PushWFArc f13 '' #zField
 Cs0 @RichDialogProcessStart f20 '' #zField
 Cs0 @PushWFArc f21 '' #zField
-Cs0 @RichDialogProcessStart f22 '' #zField
-Cs0 @RichDialogEnd f23 '' #zField
-Cs0 @PushWFArc f24 '' #zField
 Cs0 @RichDialogProcessStart f25 '' #zField
 Cs0 @RichDialogProcessStep f27 '' #zField
 Cs0 @PushWFArc f19 '' #zField
@@ -67,6 +64,9 @@ Cs0 @RichDialogProcessStep f4 '' #zField
 Cs0 @PushWFArc f34 '' #zField
 Cs0 @PushWFArc f31 '' #zField
 Cs0 @PushWFArc f41 '' #zField
+Cs0 @RichDialogMethodStart f44 '' #zField
+Cs0 @RichDialogEnd f53 '' #zField
+Cs0 @PushWFArc f54 '' #zField
 >Proto Cs0 Cs0 CaseDisplayProcess #zField
 Cs0 f0 guid 119C2655307CB251 #txt
 Cs0 f0 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayData #txt
@@ -91,16 +91,16 @@ Cs0 f0 38 70 20 20 13 0 #rect
 Cs0 f0 @|RichDialogInitStartIcon #fIcon
 Cs0 f1 guid 119C2655B7589E81 #txt
 Cs0 f1 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayData #txt
-Cs0 f1 method start(ch.ivyteam.ivy.workflow.ICase,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay) #txt
+Cs0 f1 method start(ch.ivyteam.ivy.workflow.ICase,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay) #txt
 Cs0 f1 disableUIEvents false #txt
 Cs0 f1 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.ivy.workflow.ICase aCase,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aParentDisplay> param = methodEvent.getInputArguments();
+<ch.ivyteam.ivy.workflow.ICase aCase,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aParentDisplay> param = methodEvent.getInputArguments();
 ' #txt
 Cs0 f1 inParameterMapAction 'out.fCase=param.aCase;
 ' #txt
 Cs0 f1 outParameterDecl '<> result;
 ' #txt
-Cs0 f1 embeddedRdInitializations '{/taskDisplayListRDC {/fieldName "taskDisplayListRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)"/parameterMapping "param.aRunningTaskMode=true;\nparam.aTaskDisplayListParentDisplay=callParam.aParentDisplay;\nparam.aTaskDisplayMode=-1;\nparam.aHasWfAdministratorPermissions=ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);\n"/initScript ""/userContext * }/workflowEventsDisplayListRDC {/fieldName "workflowEventsDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/caseNoteDisplayListRDC {/fieldName "caseNoteDisplayListRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ICase,Boolean)"/parameterMapping "param.aCase=callParam.aCase;\nparam.aLoadDataAtStart=false;\n"/initScript ""/userContext * }/caseDetailsDisplayRDC {/fieldName "caseDetailsDisplayRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ICase)"/parameterMapping ""/initScript "param.aCase = in.fCase;"/userContext * }/eventLogDisplayListRDC {/fieldName "eventLogDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/formArchiveDisplayListRDC {/fieldName "formArchiveDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/fileManagerRDC {/fieldName "fileManagerRDC"/startMethod "startWithServerPathAndUseIvySystemDB(String)"/parameterMapping ""/initScript "import ch.ivyteam.ivy.addons.restricted.resources.ResourceServicesHelper;\n\n// param.serverPath = \"\";\nparam.serverPath = ResourceServicesHelper.readCaseDocumentsPath(in.fCase.getIdentifier());\n"/userContext * }}' #txt
+Cs0 f1 embeddedRdInitializations '{/taskDisplayListRDC {/fieldName "taskDisplayListRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)"/parameterMapping ""/initScript "param.aRunningTaskMode = true;\nparam.aTaskDisplayListParentDisplay = callParam.aParentDisplay;\nparam.aTaskDisplayMode = -1;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"/userContext * }/workflowEventsDisplayListRDC {/fieldName "workflowEventsDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/caseNoteDisplayListRDC {/fieldName "caseNoteDisplayListRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ICase,Boolean)"/parameterMapping ""/initScript "param.aCase = callParam.aCase;\nparam.aLoadDataAtStart = false;"/userContext * }/caseDetailsDisplayRDC {/fieldName "caseDetailsDisplayRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ICase)"/parameterMapping ""/initScript "param.aCase = in.fCase;"/userContext * }/eventLogDisplayListRDC {/fieldName "eventLogDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/formArchiveDisplayListRDC {/fieldName "formArchiveDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/fileManagerRDC {/fieldName "fileManagerRDC"/startMethod "startWithServerPathAndUseIvySystemDB(String)"/parameterMapping ""/initScript "import ch.ivyteam.ivy.addons.restricted.resources.ResourceServicesHelper;\n\n// param.serverPath = \"\";\nparam.serverPath = ResourceServicesHelper.readCaseDocumentsPath(in.fCase.getIdentifier());\n"/userContext * }}' #txt
 Cs0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -217,29 +217,6 @@ Cs0 f21 expr out #txt
 Cs0 f21 896 82 629 151 #arcP
 Cs0 f21 1 896 136 #addKink
 Cs0 f21 1 0.033938722103950804 0 0 #arcLabel
-Cs0 f22 guid 119C3858019F192E #txt
-Cs0 f22 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayData #txt
-Cs0 f22 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayData out;
-' #txt
-Cs0 f22 actionTable 'out=in;
-' #txt
-Cs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>close</name>
-        <nameStyle>5,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Cs0 f22 1270 46 20 20 13 0 #rect
-Cs0 f22 @|RichDialogProcessStartIcon #fIcon
-Cs0 f23 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayData #txt
-Cs0 f23 guid 119C38585D56E043 #txt
-Cs0 f23 1267 99 26 26 14 0 #rect
-Cs0 f23 @|RichDialogEndIcon #fIcon
-Cs0 f24 expr out #txt
-Cs0 f24 1280 66 1280 99 #arcP
 Cs0 f25 guid 11B07C6D87C9D076 #txt
 Cs0 f25 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayData #txt
 Cs0 f25 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayData out;
@@ -298,7 +275,7 @@ Cs0 f27 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayData
 ' #txt
 Cs0 f27 actionTable 'out=in;
 ' #txt
-Cs0 f27 actionCode 'import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
+Cs0 f27 actionCode 'import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 
 panel.taskDisplayListRDC.findTasksByCase(in.fCase);
 
@@ -687,6 +664,25 @@ Cs0 f41 630 152 628 351 #arcP
 Cs0 f41 1 1480 176 #addKink
 Cs0 f41 2 1480 344 #addKink
 Cs0 f41 1 0.053641223136268755 0 0 #arcLabel
+Cs0 f44 guid 132910919A2B5666 #txt
+Cs0 f44 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayData #txt
+Cs0 f44 method close() #txt
+Cs0 f44 disableUIEvents false #txt
+Cs0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>close()</name>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f44 414 62 20 20 13 0 #rect
+Cs0 f44 @|RichDialogMethodStartIcon #fIcon
+Cs0 f53 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayData #txt
+Cs0 f53 guid 13291092664D5F24 #txt
+Cs0 f53 414 134 20 20 13 0 #rect
+Cs0 f53 @|RichDialogEndIcon #fIcon
+Cs0 f54 expr out #txt
+Cs0 f54 424 82 424 134 #arcP
 >Proto Cs0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -715,8 +711,6 @@ Cs0 f14 out f13 tail #connect
 Cs0 f13 head f12 mainIn #connect
 Cs0 f20 mainOut f21 tail #connect
 Cs0 f21 head f14 in #connect
-Cs0 f22 mainOut f24 tail #connect
-Cs0 f24 head f23 mainIn #connect
 Cs0 f27 mainOut f19 tail #connect
 Cs0 f19 head f9 mainIn #connect
 Cs0 f28 head f27 mainIn #connect
@@ -761,3 +755,5 @@ Cs0 f14 out f31 tail #connect
 Cs0 f31 head f4 mainIn #connect
 Cs0 f14 out f41 tail #connect
 Cs0 f41 head f9 mainIn #connect
+Cs0 f44 mainOut f54 tail #connect
+Cs0 f54 head f53 mainIn #connect

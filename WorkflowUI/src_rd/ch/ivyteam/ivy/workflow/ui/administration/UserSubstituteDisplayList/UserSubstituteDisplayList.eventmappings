@@ -1,18 +1,18 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-06-14 00:41:08 | 4.2.0.35989 | 1.0
+# 2011-09-22 14:17:25 | 4.2.0.37454 | 1.0
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/130796BC4F9CF871
 ~@RD_METHODCALL[_updateBulletOnTab()]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/1308B2A62516E7AE
 ~@RD_METHODCALL[_loadUserRoles()]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/130795BA1A4FD0CA
 ~@RD_METHODCALL[getUser()]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/13078FAAA5D3E9DD
 ~.deleteMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/119910778BC6E4A6
+~@RD_METHODCALL[close()]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/13290F95616D3F3D
 ~.addButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/11990C09536F6D63
 ~@RD_METHODCALL[start(ch.ivyteam.ivy.security.IUser,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/1307949D474F4267
-~.substituteTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/11990C155E6866FB
 ~@RD_METHODCALL[setHeaderVisible(Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/13089137751CAFF3
+~.substituteTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/11990C155E6866FB
 ~.deleteButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/119910778BC6E4A6
 ~.saveButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/11990C34EB9A20CD
-~@RD_METHODCALL[_loadUserSubstitutes()]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/13078FB2346B6A1E
 ~.roleLookupTextField@FOCUS[GAINED]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/12B2F65100ADFC9A
-~.exitButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/130891634084BFF1
+~@RD_METHODCALL[_loadUserSubstitutes()]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/13078FB2346B6A1E
 ~@RD_METHODCALL[setUser(ch.ivyteam.ivy.security.IUser)]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/13078FA9B8158827
 ~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13078EA7DB36D162/12A3730BE472051E

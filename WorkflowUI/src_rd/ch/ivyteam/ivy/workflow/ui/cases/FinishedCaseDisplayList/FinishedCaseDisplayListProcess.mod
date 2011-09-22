@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Sep 07 14:03:34 CEST 2010]
-1199E38F3CE5247C 3.12 #module
+[>Created: Thu Sep 22 14:10:04 CEST 2011]
+1199E38F3CE5247C 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FinishedCaseDisplayListProcess Big #zClass
 Fs0 RD #cInfo
@@ -29,18 +29,9 @@ Fs0 @PushWFArc f11 '' #zField
 Fs0 @RichDialogInitStart f8 '' #zField
 Fs0 @PushWFArc f12 '' #zField
 Fs0 @RichDialogEnd f13 '' #zField
-Fs0 @RichDialogProcessStart f14 '' #zField
+Fs0 @RichDialogMethodStart f14 '' #zField
 Fs0 @PushWFArc f15 '' #zField
 >Proto Fs0 Fs0 FinishedCaseDisplayListProcess #zField
-Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f0 guid 119A41C46D04C543 #txt
 Fs0 f0 type ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData #txt
 Fs0 f0 method start() #txt
@@ -51,11 +42,24 @@ Fs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 Fs0 f0 outParameterDecl '<> result;
 ' #txt
 Fs0 f0 embeddedRdInitializations '{/caseDisplayListRDC {/fieldName "caseDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""}/headerRDC {/fieldName "headerRDC"/startMethod "start(String,String,String)"/parameterMapping "param.iconUri=\"<%=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/case/images/finishedCases48\\\")%>\";\nparam.title=\"<%=ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/finishedCasesShortDesc\\\")%>\";\nparam.text=\"<%=ivy.cms.co(\\\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/finishedCasesLongDesc\\\")%>\";\n"/initScript ""}}' #txt
+Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Fs0 f0 38 78 20 20 13 0 #rect
 Fs0 f0 @|RichDialogInitStartIcon #fIcon
 Fs0 f1 type ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData #txt
 Fs0 f1 35 355 26 26 14 0 #rect
 Fs0 f1 @|RichDialogProcessEndIcon #fIcon
+Fs0 f3 guid 119BE7D59DFB59BF #txt
+Fs0 f3 type ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData #txt
+Fs0 f3 method refresh() #txt
+Fs0 f3 disableUIEvents false #txt
 Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -63,12 +67,14 @@ Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f3 guid 119BE7D59DFB59BF #txt
-Fs0 f3 type ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData #txt
-Fs0 f3 method refresh() #txt
-Fs0 f3 disableUIEvents false #txt
 Fs0 f3 390 78 20 20 13 0 #rect
 Fs0 f3 @|RichDialogMethodStartIcon #fIcon
+Fs0 f4 guid 119BE7D65C69C085 #txt
+Fs0 f4 type ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData #txt
+Fs0 f4 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData out;
+' #txt
+Fs0 f4 actionTable 'out=in;
+' #txt
 Fs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -77,12 +83,6 @@ Fs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Fs0 f4 guid 119BE7D65C69C085 #txt
-Fs0 f4 type ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData #txt
-Fs0 f4 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData out;
-' #txt
-Fs0 f4 actionTable 'out=in;
 ' #txt
 Fs0 f4 582 78 20 20 13 0 #rect
 Fs0 f4 @|RichDialogProcessStartIcon #fIcon
@@ -126,21 +126,12 @@ Fs0 f11 expr out #txt
 Fs0 f11 592 98 418 168 #arcP
 Fs0 f11 1 592 168 #addKink
 Fs0 f11 1 0.07189652213353165 0 0 #arcLabel
-Fs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(RTabbedDisplay, IPropertyFilter, Number,Boolean)</name>
-        <nameStyle>54,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f8 guid 119C26E340310735 #txt
 Fs0 f8 type ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData #txt
-Fs0 f8 method start(ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
+Fs0 f8 method start(ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
 Fs0 f8 disableUIEvents false #txt
 Fs0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay aCaseDisplayListParentDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter aPropertyFilter,java.lang.Number aCaseDisplayMode,java.lang.Boolean aHasWfAdministratorPermissions> param = methodEvent.getInputArguments();
+<ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aCaseDisplayListParentDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter aPropertyFilter,java.lang.Number aCaseDisplayMode,java.lang.Boolean aHasWfAdministratorPermissions> param = methodEvent.getInputArguments();
 ' #txt
 Fs0 f8 inParameterMapAction 'out.caseDisplayListParentDisplay=param.aCaseDisplayListParentDisplay;
 out.caseDisplayMode=param.aCaseDisplayMode;
@@ -149,7 +140,14 @@ out.propertyFilter=param.aPropertyFilter;
 ' #txt
 Fs0 f8 outParameterDecl '<> result;
 ' #txt
-Fs0 f8 embeddedRdInitializations '{/caseDisplayListRDC {/fieldName "caseDisplayListRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)"/parameterMapping "param.aRunningCaseMode=false;\nparam.aCaseDisplayListParentDisplay=callParam.aCaseDisplayListParentDisplay;\nparam.aPropertyFilter=callParam.aPropertyFilter;\nparam.aCaseDisplayMode=callParam.aCaseDisplayMode;\nparam.aHasWfAdministratorPermissions=callParam.aHasWfAdministratorPermissions;\n"/initScript ""}/headerRDC {/fieldName "headerRDC"/startMethod "start(String,String,String)"/parameterMapping "param.iconUri=\"<%=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/case/images/finishedCases48\\\")%>\";\nparam.text=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseDisplayMode\" + callParam.aCaseDisplayMode + \"LongDesc\");\n"/initScript "param.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/finishedCaseDisplayMode\" + callParam.aCaseDisplayMode + \"ShortDesc\");\n\n// ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseDisplayMode\" + callParam.aCaseDisplayMode + \"ShortDesc\")"}}' #txt
+Fs0 f8 embeddedRdInitializations '{/headerRDC {/fieldName "headerRDC"/startMethod "start(String,String,String)"/parameterMapping ""/initScript "param.iconUri = \"<%=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/case/images/finishedCases48\\\")%>\";\nparam.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/finishedCaseDisplayMode\" + callParam.aCaseDisplayMode + \"ShortDesc\");\nparam.text = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseDisplayMode\" + callParam.aCaseDisplayMode + \"LongDesc\");"/userContext * }/caseDisplayListRDC {/fieldName "caseDisplayListRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)"/parameterMapping ""/initScript "param.aRunningCaseMode = false;\nparam.aCaseDisplayListParentDisplay = callParam.aCaseDisplayListParentDisplay;\nparam.aPropertyFilter = callParam.aPropertyFilter;\nparam.aCaseDisplayMode = callParam.aCaseDisplayMode;\nparam.aHasWfAdministratorPermissions = callParam.aHasWfAdministratorPermissions;"/userContext * }}' #txt
+Fs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(RCloseableTabbedDisplay,IPropertyFilter,Number,Boolean)</name>
+    </language>
+</elementInfo>
+' #txt
 Fs0 f8 102 78 20 20 13 0 #rect
 Fs0 f8 @|RichDialogInitStartIcon #fIcon
 Fs0 f12 expr out #txt
@@ -158,27 +156,23 @@ Fs0 f12 1 112 232 #addKink
 Fs0 f12 0 0.6688407801290683 0 0 #arcLabel
 Fs0 f13 type ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData #txt
 Fs0 f13 guid 11DABCAF75A9CD39 #txt
-Fs0 f13 715 347 26 26 14 0 #rect
+Fs0 f13 435 363 26 26 14 0 #rect
 Fs0 f13 @|RichDialogEndIcon #fIcon
+Fs0 f14 guid 132910ABCBB7B766 #txt
+Fs0 f14 type ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData #txt
+Fs0 f14 method close() #txt
+Fs0 f14 disableUIEvents false #txt
 Fs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>close</name>
-        <nameStyle>5,5,6,9
-</nameStyle>
+        <name>close()</name>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f14 guid 11DABCB050646930 #txt
-Fs0 f14 type ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData #txt
-Fs0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData out;
-' #txt
-Fs0 f14 actionTable 'out=in;
-' #txt
-Fs0 f14 718 78 20 20 13 0 #rect
-Fs0 f14 @|RichDialogProcessStartIcon #fIcon
+Fs0 f14 438 246 20 20 13 0 #rect
+Fs0 f14 @|RichDialogMethodStartIcon #fIcon
 Fs0 f15 expr out #txt
-Fs0 f15 728 98 728 347 #arcP
+Fs0 f15 448 266 448 363 #arcP
 >Proto Fs0 .type ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList.FinishedCaseDisplayListData #txt
 >Proto Fs0 .processKind RICH_DIALOG #txt
 >Proto Fs0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

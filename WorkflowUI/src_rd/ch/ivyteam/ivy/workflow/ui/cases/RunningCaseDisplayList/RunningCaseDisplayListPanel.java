@@ -26,7 +26,6 @@ implements IRichDialogPanel
 private RBoxPane headerBoxPane = null;
 @EmbeddedRichDialog(HeaderPanel.class) private ULCContainer headerRDC = null;
 @EmbeddedRichDialog(CaseDisplayListPanel.class) private ULCContainer caseDisplayListRDC = null;
-private RButton closeHyperlink = null;
 /**
    * Create a new instance of RunningCaseDisplayListPanel
    */
@@ -61,7 +60,6 @@ private RBoxPane getHeaderBoxPane() {
 		headerBoxPane.setName("headerBoxPane");
 		headerBoxPane.setName("headerBoxPane");
 		headerBoxPane.set(0, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getHeaderRDC());
-		headerBoxPane.set(1, 0, 1, 1, com.ulcjava.base.shared.IDefaults.BOX_LEFT_CENTER, getCloseHyperlink());
 	}
 	return headerBoxPane;
 }
@@ -92,23 +90,5 @@ private ULCContainer getCaseDisplayListRDC()  {
 		caseDisplayListRDC.setName("caseDisplayListRDC");
 	}
 	return caseDisplayListRDC;
-}
-
-/**
- * This method initializes closeHyperlink	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
- */
-private RButton getCloseHyperlink() {
-	if (closeHyperlink == null) {
-		closeHyperlink = new RButton();
-		closeHyperlink.setName("closeHyperlink");
-		closeHyperlink.setStyleProperties("{/insetsRight \"3\"}");
-		closeHyperlink.setStyle("toolBarButton");
-		closeHyperlink.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/close\")%>");
-		closeHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/close32\")%>");
-		closeHyperlink.setBorderPainted(false);
-	}
-	return closeHyperlink;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

@@ -1,11 +1,12 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-08-17 13:33:00 | 4.2.0.35989 | 1.0
+# 2011-09-21 13:01:43 | 4.2.0.37454 | 1.0
 ~.taskFiltersToggleButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/1175F2242B61EBF8
+~@RD_METHODCALL[start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,Boolean,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/1190F07193BE2E61
 ~.loadTaskListMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/117AC276F6716306
 ~.delegateTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/1190E012A03F0F56
 ~.findTeamTasksRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/11B0DB6FB0C461B2
-~.informOnTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/119140995E3210DF
 ~.caseDetailsMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/12AC844F14C4C6E1
+~.informOnTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/119140995E3210DF
 ~.startTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/11913F35F499D7A1
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/1175F221618771FB
 ~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/11AE3ADCCD99E297
@@ -20,7 +21,6 @@
 ~.taskHierarchyLayoutSelectRDC@RD_EVENT[taskHierarchyLayoutSelected]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/117A1701BB17D093
 ~.startTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/11913F35F499D7A1
 ~.tasksHierarchyLayoutTree@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/1295AF3BF902887A
-~@RD_METHODCALL[start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay,Boolean,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/1190F07193BE2E61
 ~.expandAllButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/11DABEDD95854A4D
 ~.loadTaskListButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/117AC276F6716306
 ~@RD_BROADCAST[ivy_systemevent_workflow_task_changed]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/11E458210559B162
