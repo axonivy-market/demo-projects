@@ -103,6 +103,7 @@ private RGridBagLayoutPane getUserMenuGridBagLayoutPane() {
 		Filler.setBorder(BorderFactory.createLineBorder(new Color(102, 102, 255), 1));
 		RFiller userMenuFiller111 = new RFiller();
 		userMenuFiller111.setStyle("strutW25H10");
+		userMenuFiller111.setVisible(false);
 		RFiller userMenuFiller11 = new RFiller();
 		userMenuFiller11.setStyle("strutW25H10");
 		RFiller userMenuFiller1 = new RFiller();
@@ -566,6 +567,7 @@ private ULCContainer getBAMSeparatorPanel() {
 	if (BAMSeparatorPanel == null) {
 		BAMSeparatorPanel = RichDialogPanelFactory.create(SeparatorPanel.class);
 		BAMSeparatorPanel.setName("BAMSeparatorPanel");
+		BAMSeparatorPanel.setVisible(false);
 	}
 	return BAMSeparatorPanel;
 }
@@ -582,6 +584,7 @@ private RHyperlink getBamHyperlink() {
 		bamHyperlink.setText("BAM");
 		bamHyperlink.setClickedColor(new Color(0, 0, 0));
 		bamHyperlink.setUnclickedColor(new Color(0, 0, 0));
+		bamHyperlink.setVisible(false);
 		bamHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/absenceLongDesc\")%>");
 	}
 	return bamHyperlink;
