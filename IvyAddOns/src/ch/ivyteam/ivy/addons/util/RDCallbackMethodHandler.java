@@ -32,16 +32,17 @@ public abstract class RDCallbackMethodHandler {
 		
 			if(rdPanel!=null && methodName !=null && methodName.trim().length()>0){
 				try {
+					
 					ret = rdPanel.getPanelAPI().callMethod(methodName, parameters);
 					
 				} catch (InvocationTargetException _ex) {
-					Ivy.log().error("InvocationTargetException in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+					Ivy.log().error("InvocationTargetException in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				} catch (NoSuchMethodException _ex) {
-					Ivy.log().error("NoSuchMethodException in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+					Ivy.log().error("NoSuchMethodException in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}catch(Exception _ex){
-					Ivy.log().error("Exception in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+					Ivy.log().error("Exception in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}catch(Error _ex){
-					Ivy.log().error("Error in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+					Ivy.log().error("Error in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}
 			}else{
 				Ivy.log().error("One of the parameters was invalid in RDCallbackMethodHandler called from IRichDialogPanel...");
@@ -75,13 +76,13 @@ public abstract class RDCallbackMethodHandler {
 					ret = iRich.getPanelAPI().callMethod(methodName, parameters);
 					
 				} catch (InvocationTargetException _ex) {
-					Ivy.log().error("InvocationTargetException in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+					Ivy.log().error("InvocationTargetException in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				} catch (NoSuchMethodException _ex) {
-					Ivy.log().error("NoSuchMethodException in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+					Ivy.log().error("NoSuchMethodException in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}catch(Exception _ex){
-					Ivy.log().error("Exception in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+					Ivy.log().error("Exception in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}catch(Error _ex){
-					Ivy.log().error("Error in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage(), _ex);
+					Ivy.log().error("Error in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}
 			}
 		}

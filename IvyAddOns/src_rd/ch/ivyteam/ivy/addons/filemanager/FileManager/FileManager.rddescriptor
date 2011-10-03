@@ -833,6 +833,101 @@ Returns a returnedMessage.</description>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
+    <method>
+        <name>uploadFiles</name>
+        <description>upload the list of files denoted by the List of paths at client side to the server.&#xD;
+The destination is given by the targetPath parameter.&#xD;
+If this path is not an existing directory or is not included into the FileManager serverPath,&#xD;
+then the upload target will be the actual selected directory on the FileManager Gui.&#xD;
+&#xD;
+Returns the list of successfully uploaded Files.</description>
+        <inputParameter>
+            <name>filesPath</name>
+            <description>the list of client side files pathes to be uploaded</description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>targetPath</name>
+            <description>The server side path where the files has to be uploaded. If this path is empty, the actual selected directory will be taken as target.</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>filesUpload</name>
+            <description>The list of the files pathes that were successfully uploaded</description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>selectTreePath</name>
+        <description>Select the given ULC TreePath. If the TreePath is not visible or doesn't exit, nothing changes.</description>
+        <inputParameter>
+            <name>treePathToBeSelected</name>
+            <description>the ULC TreePath to be selected.</description>
+            <parameterType>com.ulcjava.base.application.tree.TreePath</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_changeUploadButtonState</name>
+        <description>Used in the Upload process.&#xD;
+As soon as the user starts an upload, the upload button should be disabled until the upload is finished.&#xD;
+This method is used to change the Upload button and menu item state to disabled when the upload starts, &#xD;
+and to enabled as soon the upload is finished or cancelled.</description>
+        <inputParameter>
+            <name>enabled</name>
+            <description>If true, the upload button will be enable, else disabled</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_onDownloadSuccess</name>
+        <description>FOR CALLBACK USE ONLY&#xD;
+This methods allows a FileDownloadHandler Object to call the RDProcess back, when an action succeed on a List of java.io.File..&#xD;
+The Object returned is a FileOperationMessage Object.&#xD;
+To be able to call this method back, the FileDownloadHandler has to be instantiated with a reference to this method, &#xD;
+or the method has to be referenced dynamically with the setSuccessMethodName method of the  FileDownloadHandler&#xD;
+See ch.xpertline.updownload.FileDownloadHandler javadoc.</description>
+        <inputParameter>
+            <name>fileOperationMessage</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.docfactory.FileOperationMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setFileUploadMaxSize</name>
+        <description>Set the max File Size allowed for upload in Kb. If this number is not set or under or equal to zero, than there will be no limit to file upload.</description>
+        <inputParameter>
+            <name>fileUploadMaxSize</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getFileUploadMaxSize</name>
+        <description>return the max size allowed for File Upload in Kb. If it is not set or under or equal to zero, than  it means there is no limit</description>
+        <outputParameter>
+            <name>fileUploadMaxSize</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>_filesSelectedForUpload</name>
+        <description>Callback method used from uploadHandler class to inform the Panel that the user has selected some files for upload.</description>
+        <inputParameter>
+            <name>selectedFiles</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
     <startMethod>
         <name>startAsPathChooser</name>
         <description>start the RDC as Path chooser. The user will be able to make a new directory, no actions on Files are possible.&#xD;
@@ -910,11 +1005,10 @@ The DBTableName is the Table name where the files informations are going to be s
     </startMethod>
     <startMethod>
         <name>startWithServerPathAndWithClientTempDirAndShowTree</name>
-        <description>Application start mit serverPath, ClientTempDir, ApplicationContext and show Tree. &#xD;
+        <description>Application start mit serverPath, ClientTempDir and show Tree. &#xD;
 The server path is the root directory in the server file system where the documents are going to be uploaded and found.&#xD;
 ClientTempDir: This is the File Temporary Directory at Client side. Used for automatic download,&#xD;
 like ones for File edit.&#xD;
-ApplicationContext Object for Application settings like XHRM UserID.&#xD;
 Boolean ShowTree: the visibility propertie of the Directory TreePane.</description>
         <inputParameter>
             <name>serverPath</name>
@@ -955,11 +1049,10 @@ This method can not be changed or deleted!</description>
     </startMethod>
     <startMethod>
         <name>startWithServerPathAndFileManagementHandlerAndIsRecursiveAndShowTree</name>
-        <description>Application start with serverPath and isRecursive and ApplicationContext and show Tree. &#xD;
+        <description>Application start with serverPath and isRecursive and show Tree. &#xD;
 The server path is the root directory in the server file system where the documents are going to be uploaded and found.&#xD;
 A FileManagementHandler extends AbstractFileManagementHandler&#xD;
 isRecursive: if true the documents are searched recursively under the serverpath.&#xD;
-ApplicationContext Object for Application settings like XHRM UserID.&#xD;
 Boolean ShowTree: the visibility propertie of the Directory TreePane.</description>
         <inputParameter>
             <name>serverPath</name>
@@ -1007,10 +1100,9 @@ the files on the server. The indexation system contains all the properties avail
     </startMethod>
     <startMethod>
         <name>startWithServerPathAndIsRecursiveAndShowTree</name>
-        <description>Application start with serverPath and isRecursive and ApplicationContext and show Tree. &#xD;
+        <description>Application start with serverPath and isRecursive and show Tree. &#xD;
 The server path is the root directory in the server file system where the documents are going to be uploaded and found.&#xD;
 isRecursive: if true the documents are searched recursively under the serverpath.&#xD;
-ApplicationContext Object for Application settings like XHRM UserID.&#xD;
 Boolean ShowTree: the visibility propertie of the Directory TreePane.</description>
         <inputParameter>
             <name>serverPath</name>
@@ -1052,9 +1144,8 @@ Here the Filemanager Table is automatically created and located into the Ivy Sys
     </startMethod>
     <startMethod>
         <name>startWithServerPathAndShowTree</name>
-        <description>Application start mit serverPath and ApplicationContext and show Tree. &#xD;
+        <description>Application start mit serverPath and show Tree. &#xD;
 The server path is the root directory in the server file system where the documents are going to be uploaded and found.&#xD;
-ApplicationContext Object for Application settings like XHRM UserID.&#xD;
 Boolean ShowTree: the visibility propertie of the Directory TreePane.</description>
         <inputParameter>
             <name>serverPath</name>
@@ -1292,6 +1383,17 @@ This Event sends the FileManager unique PanelId data so that only other FileMana
             <description></description>
             <parameterType>Number</parameterType>
             <nullPermitted>false</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>documentSelectionChanged</name>
+        <description>Sent whenever the user documents selection changes.&#xD;
+@SUBSCRIBERS</description>
+        <attachment>
+            <name>selectedDocuments</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
+            <nullPermitted>true</nullPermitted>
         </attachment>
     </firedEvent>
     <property>

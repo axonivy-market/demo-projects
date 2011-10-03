@@ -4,8 +4,11 @@ import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RScrollPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTable;
+
+import com.ulcjava.base.application.ULCComponent;
 import com.ulcjava.base.application.ULCTable;
 import ch.ivyteam.ivy.addons.filemanager.DesktopHandler.DesktopHandlerPanel;
+import ch.ivyteam.ivy.addons.util.RDCallbackMethodHandler;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
@@ -14,7 +17,13 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
 import com.ulcjava.base.application.ULCFlowLayoutPane;
 import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import com.ulcjava.base.application.ULCContainer;
+import com.ulcjava.base.application.dnd.DataFlavor;
+import com.ulcjava.base.application.dnd.DnDFileListData;
+import com.ulcjava.base.application.dnd.TransferHandler;
+import com.ulcjava.base.application.dnd.Transferable;
+
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
+import ch.ivyteam.ivy.scripting.objects.List;
 
 /**
  * RichDialog panel implementation for FileListTablePanel.
@@ -38,6 +47,7 @@ private RButton openButton = null;
 private RButton deleteButton = null;
 private RTextField enablerTextField = null;
 private RFlowLayoutPane ToolbarFlowLayoutPane = null;
+private TransferHandler filesTableTransferHandler;  //  @jve:decl-index=0:
 /**
    * Create a new instance of FileListTablePanel
    */
@@ -77,10 +87,60 @@ private RTable getFileListTable() {
 		fileListTable.setStyle("field");
 		fileListTable.setRowHeight(20);
 		fileListTable.setDragEnabled(true);
+		fileListTable.setTransferHandler(getFilesTableTransferHandler());
 		fileListTable.setComponentPopupMenu(getTablePopupMenu());
 		fileListTable.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
 	}
 	return fileListTable;
+}
+
+/**
+ * 
+ * @return the transferHandler for the files table
+ */
+private TransferHandler getFilesTableTransferHandler(){
+	final IRichDialogPanel panel = this;
+
+	if(filesTableTransferHandler==null){
+		filesTableTransferHandler = new TransferHandler(){
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 2947690723197732172L;
+
+			@Override
+			public void exportDone(ULCComponent sourceComponent,
+					Transferable _transferable, int dropAction) {
+				//Do nothing
+			}
+
+			@Override
+			public boolean importData(ULCComponent targetComponent,
+					Transferable _transferable) {
+
+				Object sourceObj = _transferable.getTransferData(DataFlavor.DRAG_FLAVOR);
+				boolean b = false;
+				if(sourceObj instanceof DnDFileListData)
+				{
+					DnDFileListData listData = (DnDFileListData) sourceObj;
+					List<String> droppedFiles = List.create(String.class);
+					String[] l = listData.getFileNames();
+					for(int i =0; i<l.length; i++){
+						droppedFiles.add(l[i].replace("\\", "/"));
+					}
+					Object [] param = new Object[1];
+					param[0]= droppedFiles;
+					RDCallbackMethodHandler.callRDMethod(panel, "_uploadFilesFromOSDnD", param);
+					b=true;
+				}
+				return b;
+			}
+
+		
+		};
+	}
+	return filesTableTransferHandler;
 }
 
 /**

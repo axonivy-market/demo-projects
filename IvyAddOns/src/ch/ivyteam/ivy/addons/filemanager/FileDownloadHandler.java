@@ -22,6 +22,7 @@ import java.util.List;
 
 import ch.ivyteam.ivy.addons.docfactory.FileOperationMessage;
 import ch.ivyteam.ivy.addons.util.RDCallbackMethodHandler;
+import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 
 import com.ulcjava.base.application.ClientContext;
@@ -52,7 +53,7 @@ import com.ulcjava.base.shared.FileChooserConfig;
  * 
  * The source path on the Server is determined by an intern private String variable. <br>
  * The server path variable is given at the instantiation within the constructor, or can be later changed with the setServerPath method.
- * For security purposes, if the server path is set to null or points to the root of the server, it takes automatically a default value (“uploadedFiles”).
+ * For security purposes, if the server path is set to null or points to the root of the server, it takes automatically a default value (ï¿½uploadedFilesï¿½).
  * 
  */
 public class FileDownloadHandler<T extends ULCComponent & IRichDialogPanel> {
@@ -464,6 +465,7 @@ public class FileDownloadHandler<T extends ULCComponent & IRichDialogPanel> {
 								fileOperationMessage.setType(FileOperationMessage.SUCCESS_MESSAGE);
 		                        fileOperationMessage.setMessage("The Files were successfully downloaded.");
 		                        fileOperationMessage.emptyFileList();
+		                        Ivy.log().info("Download successful");
 		                        RDCallbackMethodHandler.callRDMethod(ulcPane, downloadSuccessMethodeName, new Object[] { fileOperationMessage });
 							}
 						}//end if else

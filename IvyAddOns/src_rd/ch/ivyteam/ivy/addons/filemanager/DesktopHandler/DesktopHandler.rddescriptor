@@ -446,6 +446,31 @@ The String attachments is a list of path from Files at Client side.&#xD;
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
+    <method>
+        <name>openDocumentOnServerAndCheckForChanges</name>
+        <description>Opens a documentOnServer at client side&#xD;
+and checks for eventual changes every 3 seconds.&#xD;
+If the java.io.File of the documentOnServer is set, then we open/edit it,&#xD;
+else if the Ivy File of the documetnOnServer is setted then we open/edit this File.</description>
+        <inputParameter>
+            <name>documentOnServer</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.DocumentOnServer</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>printDocumentOnServer</name>
+        <description>Print the document on server Object at client side.&#xD;
+If the java.io.File of the documentOnServer is set, then we print it,&#xD;
+else if the Ivy File of the documetnOnServer is setted then we print this File.</description>
+        <inputParameter>
+            <name>documentOnServer</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.DocumentOnServer</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
     <startMethod>
         <name>startVisible</name>
         <description>Start method with visibility boolean.&#xD;

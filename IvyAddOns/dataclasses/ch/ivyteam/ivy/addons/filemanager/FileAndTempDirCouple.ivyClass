@@ -8,3 +8,5 @@ file 'the file that will be edited or opened' #fieldComment
 isFileEditable Boolean #field
 isFileEditable 'if true the file is going to be opened with the default "Edit" Client program, else with the default "open" program' #fieldComment
 isFileEditable PERSISTENT #fieldModifier
+documentOnServer ch.ivyteam.ivy.addons.filemanager.DocumentOnServer #field
+documentOnServer PERSISTENT #fieldModifier

@@ -1,5 +1,5 @@
 FolderOnServer #class
-'The FolederOnServer dataclass represents a File DIRECTORY on the server' #classComment
+'The FolderOnServer dataclass represents a File DIRECTORY on the server' #classComment
 ch.ivyteam.ivy.addons.filemanager #namespace
 name String #field
 name 'Ordner name' #fieldComment

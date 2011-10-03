@@ -15,6 +15,8 @@ errorMessage String #field
 errorMessage 'error message' #fieldComment
 fileToWorkWith java.io.File #field
 fileToWorkWith 'the file to edit or open (at the server side)' #fieldComment
+documentOnServerToWorkWith ch.ivyteam.ivy.addons.filemanager.DocumentOnServer #field
+documentOnServerToWorkWith 'the documentOnServer to edit or open (at the server side)' #fieldComment
 editCheckPeriod Number #field
 editCheckPeriod 'number of millisecunds between two check between the edited Files on Client and Server default is 10000' #fieldComment
 fileToDeleteFromCheck java.io.File #field
@@ -46,4 +48,3 @@ www String #field
 www 'used to browse an URL' #fieldComment
 clientFileSeparator String #field
 clientFileSeparator 'the file separator at client side: "/" by Unix systems and "\" by Windows systems' #fieldComment
-clientFileSeparator PERSISTENT #fieldModifier

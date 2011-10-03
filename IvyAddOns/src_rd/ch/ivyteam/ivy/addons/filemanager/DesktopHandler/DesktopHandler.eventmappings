@@ -1,5 +1,5 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-02-23 07:47:59 | 4.2.0.35805 | 1.0
+# 2011-05-24 09:23:13 | 4.3.0.36331 | 1.0
 ~@RD_METHODCALL[setClientTempPath(String)]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/11E20E0E4AD76A1D
 ~.fileEditorCheckerPanel@RD_EVENT[fileModified]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/11E8D0044582C100
 ~@RD_METHODCALL[openFileAndCheckForChanges(java.io.File)]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/126AC1E262850A49
@@ -34,11 +34,13 @@
 ~@RD_METHODCALL[_getUserTempDirCallBack(String)]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/11E451FE94A46377
 ~@RD_METHODCALL[_newTempDirCreated(String)]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/12451D3D1FE937EA
 ~@RD_METHODCALL[_getUserNameCallBack(String)]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/11E451F87364E245
+~@RD_METHODCALL[printDocumentOnServer(ch.ivyteam.ivy.addons.filemanager.DocumentOnServer)]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/13020E29F2FD9AB9
 ~@RD_METHODCALL[getClientTempPath()]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/11E20D8DC0F20905
 ~@RD_METHODCALL[printFile(java.io.File)]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/120C25EF9A6B2E23
 ~@RD_METHODCALL[mailWithParameters(List<String>)]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/11E20DA1FCC491C2
 ~@RD_METHODCALL[setTableVisible(Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/11E26530B3EFE0DB
 ~@RD_METHODCALL[forceUnlock(List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer>)]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/11E498BA948EAA2A
+~@RD_METHODCALL[openDocumentOnServerAndCheckForChanges(ch.ivyteam.ivy.addons.filemanager.DocumentOnServer)]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/1300C71DF9C90201
 ~@RD_METHODCALL[getEditedFileList()]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/11E20D8FD9FE0681
 ~@RD_METHODCALL[getClientApplicationTempDir()]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/125F9B74E2AFE84B
 ~@RD_METHODCALL[_callBackIsFileEditable(Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:125F850DA67753A5/12470AC9EECD878D

@@ -10,6 +10,8 @@ import com.ulcjava.base.application.AbstractAction;
 import com.ulcjava.base.application.ULCComponent;
 
 import com.ulcjava.base.application.dnd.DataFlavor;
+import com.ulcjava.base.application.dnd.DnDFileListData;
+import com.ulcjava.base.application.dnd.DnDTableData;
 import com.ulcjava.base.application.dnd.DnDTreeData;
 import com.ulcjava.base.application.dnd.TransferHandler;
 import com.ulcjava.base.application.dnd.Transferable;
@@ -35,6 +37,7 @@ import ch.ivyteam.ivy.addons.filemanager.DocumentOnServer;
 import ch.ivyteam.ivy.addons.filemanager.DesktopHandler.DesktopHandlerPanel;
 
 import ch.ivyteam.ivy.addons.filemanager.DnDUtils;
+import ch.ivyteam.ivy.addons.util.RDCallbackMethodHandler;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
@@ -47,6 +50,7 @@ import com.ulcjava.base.application.ULCContainer;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
+import ch.ivyteam.ivy.scripting.objects.List;
 
 
 /**
@@ -82,6 +86,7 @@ private RMenuItem newDirAtRootMenuItem = null;
 private RMenuItem deleteDirectoryMenuItem = null;
 private RMenuItem downloadDirContentMenuItem = null;
 private TransferHandler transferHandler=null;
+private TransferHandler filesTableTransferHandler=null; 
 private RMenuItem toogleRecursiveMenuItem = null;
 private RMenuItem copyMenuItem = null;
 private RMenuItem pasteMenuItem = null;
@@ -101,7 +106,7 @@ private RGridBagLayoutPane GridBagLayoutPane = null;
 private RButton refreshDirsButton = null;
 private RButton downloadAllFilesButton = null;
 private RButton toogleFileListingButton = null;
-private RButton zipButton = null;
+private RButton pasteButton = null;
 private RMenuItem zipMenuItem = null;
 private RFlowLayoutPane pathChooserFlowLayoutPane = null;
 private RButton okButton = null;
@@ -138,6 +143,7 @@ private RHyperlink newCopy2Button = null;
 private RHyperlink delete2Button = null;
 private RHyperlink mail2Button = null;
 private RHyperlink refreshSelectedFolder2Button = null;
+private RMenuItem setDescriptionMenuItem = null;
 /**
    * Create a new instance of FileManagerPanePanel
    */
@@ -198,19 +204,68 @@ private RTable getFilesTable() {
 		filesTable.setName("filesTable");
 		filesTable.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
 		filesTable.setSortable(true);
-		filesTable.setModelConfiguration("{/showTableheader \"true\"/autoTableheader \"false\"/showtooltip \"true\"/showIcons \"true\"/emptyTableText \"Keine Datei / Aucun Fichier / No File\"/version \"3.0\"/columns {{/result \"result=IF(entry.locked.trim().equals(\\\"1\\\"),entry.lockingUserID,\\\"\\\")\"/version \"3.0\"/tooltip \"result=IF(!entry.locked.trim().equals(\\\"1\\\"),ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/fileUnlocked\\\"),\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/thisFile\\\")+\\\" \\\"+entry.filename+\\\" \\\" + \\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/isEditedBy\\\")+\\\" \\\"+entry.lockingUserID)\"/icon \"result=IF(!entry.locked.trim().equals(\\\"1\\\"),ivy.cms.cr(\\\"/ch/ivyteam/ivy/addons/icons/file/16\\\"),\\r\\nivy.cms.cr(\\\"/ch/ivyteam/ivy/addons/icons/lock/16\\\"))\"/header \"\\\"\\\"\"/field \"\"/editable \"\"/condition \"\"/columnWidth \"18\"/columnStyle \"\"/cellWidget \"\"}{/result \"result=entry.filename\"/version \"3.0\"/tooltip \"result=\\\"<html><b>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/fileDetails\\\")+\\\"</b><br>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/createdBy\\\")+\\\" \\\"+entry.userID+\\\"<br>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/creationDate\\\")+\\\" \\\"+entry.creationDate.toDate().format(\\\"dd-MM-yyyy\\\")+\\\"<br>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/creationTime\\\")+\\\" \\\"+entry.creationTime+\\\"<br>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/lastModifiedBy\\\")+\\\" \\\"+entry.modificationUserID+\\\"<br>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/lastModifiedOn\\\")+\\\" \\\"+entry.modificationDate.toDate().format(\\\"dd-MM-yyyy\\\")+\\\"<br>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/modificationTime\\\")+\\\" \\\"+entry.modificationTime+\\\"<br>\\\"+\\r\\n\\\"</html>\\\"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/fileName\\\")\"/field \"\"/editable \"\"/columnWidth \"150\"/columnStyle \"\"}{/result \"result=entry.fileSize\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/fileSize\\\")\"/field \"\"/editable \"\"/columnWidth \"80\"/columnStyle \"\"}{/result \"result=entry.path\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/path\\\")\"/field \"\"/editable \"\"/condition \"false\"/columnWidth \"70\"}{/result \"result=entry.userID\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/createdBy\\\")\"/field \"\"/editable \"\"/condition \"true\"/columnWidth \"70\"}{/result \"result=entry.creationDate.toDate().format(\\\"dd-MM-yyyy\\\")\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/creationDate\\\")\"/field \"\"/editable \"\"/condition \"\"/columnWidth \"70\"/columnStyle \"alignCenter\"}{/result \"result=entry.creationTime\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/creationTime\\\")\"/field \"\"/editable \"\"/condition \"true\"/columnWidth \"70\"/columnStyle \"alignCenter\"}{/result \"result=entry.modificationUserID\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/lastModifiedBy\\\")\"/field \"\"/editable \"\"/condition \"false\"/columnWidth \"165\"/columnStyle \"\"}{/result \"result=entry.modificationDate.toDate().format(\\\"dd-MM-yyyy\\\")\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/lastModifiedOn\\\")\"/field \"\"/editable \"\"/condition \"false\"/columnWidth \"165\"/columnStyle \"alignCenter\"}{/result \"result=entry.modificationTime\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/modificationTime\\\")\"/field \"\"/editable \"\"/condition \"false\"/columnWidth \"165\"/columnStyle \"alignCenter\"}}}");
+		filesTable.setModelConfiguration("{/showTableheader true /autoTableheader false /showtooltip true /showIcons true /emptyTableText \"Keine Datei / Aucun Fichier / No File\"/version \"3.0\"/columns {{/result \"result=IF(entry.locked.trim().equals(\\\"1\\\"),entry.lockingUserID,\\\"\\\")\"/version \"3.0\"/tooltip \"result=IF(!entry.locked.trim().equals(\\\"1\\\"),ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/fileUnlocked\\\"),\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/thisFile\\\")+\\\" \\\"+entry.filename+\\\" \\\" + \\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/isEditedBy\\\")+\\\" \\\"+entry.lockingUserID)\"/icon \"result=IF(!entry.locked.trim().equals(\\\"1\\\"),ivy.cms.cr(\\\"/ch/ivyteam/ivy/addons/icons/file/16\\\"),\\r\\nivy.cms.cr(\\\"/ch/ivyteam/ivy/addons/icons/lock/16\\\"))\"/header \"\\\"\\\"\"/field \"\"/editable \"\"/condition \"\"/columnWidth \"18\"/columnStyle \"\"/cellWidget \"\"}{/result \"result=entry.filename\"/version \"3.0\"/tooltip \"result=\\\"<html><b>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/fileDetails\\\")+\\\"</b><br>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/createdBy\\\")+\\\" \\\"+entry.userID+\\\"<br>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/creationDate\\\")+\\\" \\\"+entry.creationDate.toDate().format(\\\"dd-MM-yyyy\\\")+\\\"<br>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/creationTime\\\")+\\\" \\\"+entry.creationTime+\\\"<br>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/lastModifiedBy\\\")+\\\" \\\"+entry.modificationUserID+\\\"<br>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/lastModifiedOn\\\")+\\\" \\\"+entry.modificationDate.toDate().format(\\\"dd-MM-yyyy\\\")+\\\"<br>\\\"+\\r\\nivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/modificationTime\\\")+\\\" \\\"+entry.modificationTime+\\\"<br>\\\"+\\r\\nentry.description.replaceAll(\\\"\\\\n\\\", \\\"<br>\\\")+\\r\\n\\\"</html>\\\"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/fileName\\\")\"/field \"\"/editable \"\"/columnWidth \"150\"/columnStyle \"\"}{/result \"result=entry.fileSize\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/fileSize\\\")\"/field \"\"/editable \"\"/columnWidth \"80\"/columnStyle \"\"}{/result \"result=entry.path\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/path\\\")\"/field \"\"/editable \"\"/condition \"false\"/columnWidth \"70\"}{/result \"result=entry.userID\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/createdBy\\\")\"/field \"\"/editable \"\"/condition \"true\"/columnWidth \"70\"}{/result \"result=entry.creationDate.toDate().format(\\\"dd.MM.yyyy\\\")\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/creationDate\\\")\"/field \"\"/editable \"\"/condition \"\"/columnWidth \"70\"/columnStyle \"alignCenter\"}{/result \"result=entry.creationTime\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/creationTime\\\")\"/field \"\"/editable \"\"/condition \"true\"/columnWidth \"70\"/columnStyle \"alignCenter\"}{/result \"result=entry.modificationUserID\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/lastModifiedBy\\\")\"/field \"\"/editable \"\"/condition \"false\"/columnWidth \"165\"/columnStyle \"\"}{/result \"result=entry.modificationDate.toDate().format(\\\"dd-MM-yyyy\\\")\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/lastModifiedOn\\\")\"/field \"\"/editable \"\"/condition \"false\"/columnWidth \"165\"/columnStyle \"alignCenter\"}{/result \"result=entry.modificationTime\"/version \"3.0\"/tooltip \"\"/icon \"\"/header \"ivy.cms.co(\\\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/modificationTime\\\")\"/field \"\"/editable \"\"/condition \"false\"/columnWidth \"165\"/columnStyle \"alignCenter\"}}}");
 		filesTable.setRowHeight(22);
 		filesTable.setRowMargin(2);
 		filesTable.setFont(new Font("Tahoma", 0, 12));
 		filesTable.setAutoResizeMode(ULCTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
 		filesTable.setComponentPopupMenu(getServerFilePopupMenu());
 		filesTable.setDragEnabled(true);
+		filesTable.setTransferHandler(this.getFilesTableTransferHandler());
 		filesTable.registerKeyboardAction(getActionForDeleteFiles(), KeyStroke.getKeyStroke(KeyEvent.VK_DELETE,0), WHEN_FOCUSED);
 		filesTable.registerKeyboardAction(getCopyFilesAction(), KeyStroke.getKeyStroke(KeyEvent.VK_C,KeyEvent.CTRL_DOWN_MASK), WHEN_FOCUSED);
 		filesTable.registerKeyboardAction(getPasteFilesAction(), KeyStroke.getKeyStroke(KeyEvent.VK_V,KeyEvent.CTRL_DOWN_MASK), WHEN_FOCUSED);
 		filesTable.registerKeyboardAction(getRenameFileAction(), KeyStroke.getKeyStroke(KeyEvent.VK_F2,0), WHEN_FOCUSED);
 	}
 	return filesTable;
+}
+
+/**
+ * 
+ * @return the transferHandler for the files table
+ */
+private TransferHandler getFilesTableTransferHandler(){
+	final IRichDialogPanel panel = this;
+
+	if(filesTableTransferHandler==null){
+		filesTableTransferHandler = new TransferHandler(){
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 2947690723197732172L;
+
+			@Override
+			public void exportDone(ULCComponent sourceComponent,
+					Transferable _transferable, int dropAction) {
+				//Do nothing
+			}
+
+			@Override
+			public boolean importData(ULCComponent targetComponent,
+					Transferable _transferable) {
+
+				Object sourceObj = _transferable.getTransferData(DataFlavor.DRAG_FLAVOR);
+				boolean b = false;
+				if(sourceObj instanceof DnDFileListData)
+				{
+					DnDFileListData listData = (DnDFileListData) sourceObj;
+					List<String> droppedFiles = List.create(String.class);
+					String[] l = listData.getFileNames();
+					for(int i =0; i<l.length; i++){
+						droppedFiles.add(l[i].replace("\\", "/"));
+					}
+					Object [] param = new Object[2];
+					param[0]= droppedFiles;
+					param[1]="";
+					RDCallbackMethodHandler.callRDMethod(panel, "uploadFiles", param);
+					b=true;
+				}
+				return b;
+			}
+		};
+	}
+	return filesTableTransferHandler;
 }
 /**
  * This method initializes deleteFilesAction
@@ -373,6 +428,7 @@ private RPopupMenu getServerFilePopupMenu() {
 		ServerFilePopupMenu.add(getDownloadMenuItem());
 		ServerFilePopupMenu.add(getEditMenuItem());
 		ServerFilePopupMenu.add(getPrintMenuItem());
+		ServerFilePopupMenu.add(getSetDescriptionMenuItem());
 		ServerFilePopupMenu.add(getNewVersionMenuItem());
 		ServerFilePopupMenu.add(getCopyMenuItem());
 		ServerFilePopupMenu.add(getPasteMenuItemTable());
@@ -471,6 +527,132 @@ private RTree getOrdnersTree() {
 		ordnersTree.registerKeyboardAction(getPasteFilesAction(), KeyStroke.getKeyStroke(KeyEvent.VK_V,KeyEvent.CTRL_DOWN_MASK), WHEN_FOCUSED);
 	}
 	return ordnersTree;
+}
+
+/**
+ * build and return the transferHandler for the OrdnersTree
+ * @return
+ */
+private TransferHandler getTransferHandler() {
+	final FileManagerPanel panel = this;
+	if (transferHandler == null) {
+		transferHandler = new TransferHandler() {
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public int getSourceActions(ULCComponent comp) {
+				return TransferHandler.ACTION_COPY | TransferHandler.ACTION_MOVE | TransferHandler.ACTION_LINK;
+			}
+			
+			@Override
+			public int getTargetActions(ULCComponent comp) {
+				return TransferHandler.ACTION_COPY | TransferHandler.ACTION_MOVE | TransferHandler.ACTION_LINK;
+			}
+			@Override
+			public void exportDone(ULCComponent arg0, Transferable arg1, int arg2) {
+
+			}
+
+			@Override
+			public boolean importData(ULCComponent arg0, Transferable _transferable) {
+				Object sourceObj = _transferable.getTransferData(DataFlavor.DRAG_FLAVOR);
+				Object targetObj = _transferable.getTransferData(DataFlavor.DROP_FLAVOR);
+				String newPath=null;
+				String rootDir="";
+				boolean b = false;
+				TreePath treePath = null;
+				//first get the target directory path in the tree
+				if(targetObj!=null && targetObj instanceof DnDTreeData)
+				{
+					DnDTreeData target = (DnDTreeData) targetObj;
+					TreePath[] paths = target.getTreePaths();
+					newPath= "";
+					for(TreePath t: paths)
+					{
+						Object[] oo = t.getPath();
+						if(oo.length==1)
+						{
+							newPath="";
+							treePath = new TreePath(oo[0]);
+						}else
+						{
+
+							treePath = new TreePath(oo[0]);
+							rootDir = oo[0].toString()+"\\";
+							for(int i = 1; i<oo.length;i++)
+							{
+								newPath+=oo[i].toString()+"\\";
+								treePath = treePath.pathByAddingChild(oo[i]);
+							}
+						}
+					}
+					if(paths.length<1)
+					{
+						newPath=null;
+					}
+				}
+				//if the target path is not null we can initiate the DnD
+				if(newPath!=null)
+				{
+					
+					if(sourceObj instanceof DnDFileListData)
+					{//in case of external Files DnD
+						if(treePath!=null)
+						{//We try to select the destination Tree
+							Object [] treeParam = new Object[1];
+							treeParam[0]=treePath;
+							RDCallbackMethodHandler.callRDMethod(panel, "selectTreePath", treeParam);
+						}
+						DnDFileListData listData = (DnDFileListData) sourceObj;
+						List<String> droppedFiles = List.create(String.class);
+						String[] l = listData.getFileNames();
+						for(int i =0; i<l.length; i++){
+							droppedFiles.add(l[i].replace("\\", "/"));
+						}
+						Object [] param = new Object[2];
+						param[0]= droppedFiles;
+						param[1]=rootDir+newPath;
+						RDCallbackMethodHandler.callRDMethod(panel, "uploadFiles", param);
+						b=true;
+
+					}else if(sourceObj instanceof DnDTableData)
+					{// in case of dropped data from a Table -> typically from table containing DocumentOnServers
+						
+						java.util.List<?> values = DnDUtils.getDraggedValues(_transferable);
+						java.util.ArrayList<DocumentOnServer> docsToMove= new java.util.ArrayList<DocumentOnServer>();
+
+						for(Object ob: values){
+							if(ob instanceof DocumentOnServer){
+								DocumentOnServer doc = (DocumentOnServer) ob;
+								docsToMove.add(doc);
+							}
+						}
+						try{
+							if(treePath!=null)
+							{//We try to select the destination Tree
+								Ivy.log().info(treePath);
+								Object [] treeParam = new Object[1];
+								treeParam[0]=treePath;
+								RDCallbackMethodHandler.callRDMethod(panel, "selectTreePath", treeParam);
+							}
+							//panel.getPanelAPI().callMethod("_moveFile", new Object[]{newPath, docsToMove});
+							RDCallbackMethodHandler.callRDMethod(panel, "_moveFile", new Object[]{newPath, docsToMove});
+							
+							b=true;
+						}catch(Exception ex){
+							Ivy.log().error("Exception in Filemanager DnD ImportData: "+ex.getMessage(),ex);
+							b= false;
+						}catch(Throwable t){
+							Ivy.log().error("Throwable in Filemanager DnD ImportData: "+t.getMessage(),t);
+							b= false;
+						}
+					}
+				}
+				return b;
+			}
+		};
+	}
+	return transferHandler;
 }
 /**
  * This method initializes deleteDirectoryAction
@@ -745,80 +927,6 @@ private RMenuItem getDownloadDirContentMenuItem() {
 	return downloadDirContentMenuItem;
 }
 
-public TransferHandler getTransferHandler() {
-	final IRichDialogPanel panel = this;
-	if (transferHandler == null) {
-		transferHandler = new TransferHandler() {
-			private static final long serialVersionUID = 1L;
-			
-			@Override
-			public int getSourceActions(ULCComponent comp) {
-				return TransferHandler.ACTION_COPY;
-			}
-			
-			@Override
-			public int getTargetActions(ULCComponent comp) {
-				return TransferHandler.ACTION_COPY;
-			}
-			
-			
-			@Override
-			public void exportDone(ULCComponent arg0, Transferable arg1, int arg2) {
-				
-			}
-
-			@SuppressWarnings("unchecked")
-			@Override
-			public boolean importData(ULCComponent arg0, Transferable arg1) {
-				Object o = arg1.getTransferData(DataFlavor.DROP_FLAVOR);
-				String newPath="";
-				boolean b = false;
-				java.util.ArrayList<DocumentOnServer> docsToMove= new java.util.ArrayList<DocumentOnServer>();
-				if(o!=null && o instanceof DnDTreeData){
-					DnDTreeData target = (DnDTreeData) o;
-					TreePath[] paths = target.getTreePaths();
-					
-					for(TreePath t: paths){
-						Object[] oo = t.getPath();
-						if(oo.length==1){
-							newPath="";
-						}else{
-							for(int i = 1; i<oo.length;i++)
-								newPath+=oo[i].toString()+"\\";
-						}
-					}
-					if(paths.length<1)
-						newPath=null;
-				}
-				if(newPath!=null){
-					java.util.List values = DnDUtils.getDraggedValues(arg1);
-					
-					for(Object ob: values){
-						if(ob instanceof DocumentOnServer){
-							DocumentOnServer doc = (DocumentOnServer) ob;
-							docsToMove.add(doc);
-
-							//Ivy.log().debug(doc.getFilename()+" goes to "+newPath);
-						}
-					}
-					try{
-						panel.getPanelAPI().callMethod("_moveFile", new Object[]{newPath, docsToMove});
-						b=true;
-					}catch(Exception ex){
-						Ivy.log().debug("Exception in Filemanager DnD ImportData: "+ex.getMessage(),ex);
-						b= false;
-					}catch(Throwable t){
-						Ivy.log().debug("Throwable in Filemanager DnD ImportData: "+t.getMessage(),t);
-						b= false;
-					}
-				}
-				return b;
-			}
-
-		};
-	}
-	return transferHandler;
-}
 
 /**
  * This method initializes toogleRecursiveMenuItem	
@@ -916,7 +1024,7 @@ private RButton getUnlockButton() {
 		unlockButton.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/unlock/24\")%>");
 		unlockButton.setPressedIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/unlock/24\")%>");
 		unlockButton.setEnabler(getFileNameInvisibleTextField());
-		unlockButton.setStyleProperties("{/horizontalAlignment \"LEFT\"/font {/name \"Tahoma\"/size \"10\"/style \"PLAIN\"}/insetsBottom \"0\"/insetsTop \"0\"/fill \"HORIZONTAL\"/insetsRight \"0\"/insetsLeft \"0\"}");
+		unlockButton.setStyleProperties("{/horizontalAlignment \"LEFT\"/font {/name \"Tahoma\"/size \"10\"/style \"PLAIN\"}/insetsBottom \"0\"/insetsTop \"0\"/fill \"HORIZONTAL\"/insetsRight \"0\"/insetsLeft \"0\"/weightX \"1\"}");
 		unlockButton.setStyle("toolBarSmall");
 	}
 	return unlockButton;
@@ -937,7 +1045,7 @@ private RButton getDownloadButton() {
 		downloadButton.setStyle("toolBarSmall");
 		downloadButton.setPressedIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/down/24\")%>");
 		downloadButton.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/down/24\")%>");
-		downloadButton.setStyleProperties("{/horizontalAlignment \"LEFT\"/font {/name \"Tahoma\"/size \"10\"/style \"PLAIN\"}/insetsBottom \"0\"/insetsTop \"0\"/fill \"HORIZONTAL\"/insetsRight \"0\"/insetsLeft \"0\"}");
+		downloadButton.setStyleProperties("{/horizontalAlignment \"LEFT\"/font {/name \"Tahoma\"/size \"10\"/style \"PLAIN\"}/insetsBottom \"0\"/insetsTop \"0\"/fill \"HORIZONTAL\"/insetsRight \"0\"/insetsLeft \"0\"/weightX \"1\"}");
 		downloadButton.setEnabler(getFileNameInvisibleTextField());
 		downloadButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/down/16\")%>");
 	}
@@ -975,7 +1083,7 @@ private RButton getNewCopyButton() {
 		newCopyButton.setBorderPainted(false);
 		newCopyButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/copyFiles\")%>");
 		newCopyButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/copy\")%>");
-		newCopyButton.setStyleProperties("{/horizontalAlignment \"LEFT\"/font {/name \"Tahoma\"/size \"10\"/style \"PLAIN\"}/insetsBottom \"0\"/insetsTop \"0\"/insetsRight \"0\"/fill \"HORIZONTAL\"/insetsLeft \"0\"}");
+		newCopyButton.setStyleProperties("{/horizontalAlignment \"LEFT\"/font {/name \"Tahoma\"/size \"10\"/style \"PLAIN\"}/insetsBottom \"0\"/insetsTop \"0\"/fill \"HORIZONTAL\"/insetsRight \"0\"/insetsLeft \"0\"/weightX \"1\"}");
 		newCopyButton.setStyle("toolBarSmall");
 		newCopyButton.setPressedIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/copy/24\")%>");
 		newCopyButton.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/copy/24\")%>");
@@ -1180,25 +1288,25 @@ private RButton getToogleFileListingButton() {
 }
 
 /**
- * This method initializes zipButton	
+ * This method initializes pasteButton	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
  */
-private RButton getZipButton() {
-	if (zipButton == null) {
-		zipButton = new RButton();
-		zipButton.setName("zipButton");
-		zipButton.setBorderPainted(false);
-		zipButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/zipFiles\")%>");
-		zipButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/zip\")%>");
-		zipButton.setStyle("toolBarSmall");
-		zipButton.setPressedIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/zipArchive/24\")%>");
-		zipButton.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/zipArchive/24\")%>");
-		zipButton.setStyleProperties("{/horizontalAlignment \"LEFT\"/font {/name \"Tahoma\"/size \"10\"/style \"PLAIN\"}/insetsBottom \"0\"/insetsTop \"0\"/insetsRight \"0\"/fill \"HORIZONTAL\"/insetsLeft \"0\"}");
-		zipButton.setEnabler(getFileNameInvisibleTextField());
-		zipButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/zipArchive/16\")%>");
+private RButton getPasteButton() {
+	if (pasteButton == null) {
+		pasteButton = new RButton();
+		pasteButton.setName("pasteButton");
+		pasteButton.setBorderPainted(false);
+		pasteButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/pasteFiles\")%>");
+		pasteButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/Paste\")%>");
+		pasteButton.setStyle("toolBarSmall");
+		pasteButton.setPressedIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/copy/24\")%>");
+		pasteButton.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/copy/24\")%>");
+		pasteButton.setStyleProperties("{/horizontalAlignment \"LEFT\"/font {/name \"Tahoma\"/size \"10\"/style \"PLAIN\"}/insetsBottom \"0\"/insetsTop \"0\"/insetsRight \"0\"/fill \"HORIZONTAL\"/insetsLeft \"0\"}");
+		pasteButton.setEnabler(getFileNameInvisibleTextField());
+		pasteButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/copy/16\")%>");
 	}
-	return zipButton;
+	return pasteButton;
 }
 
 /**
@@ -1308,7 +1416,7 @@ private RGridBagLayoutPane getFileToolbarPane() {
 	fileToolbarPane = new RGridBagLayoutPane();
 		fileToolbarPane.setName("fileToolbarPane");
 		fileToolbarPane.setBorder(BorderFactory.createTitledBorder(null, "", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 11), new Color(23, 64, 140)));
-			fileToolbarPane.setStyleProperties("{/anchor \"WEST\"/fill \"VERTICAL\"/weightX \"1\"}");
+			fileToolbarPane.setStyleProperties("{/anchor \"WEST\"/fill \"BOTH\"/weightX \"1\"}");
 	fileToolbarPane.add(getUnlockButton(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 			fileToolbarPane.add(getEditButton(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 2, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		fileToolbarPane.add(Filler, new com.ulcjava.base.application.GridBagConstraints(1, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
@@ -1329,7 +1437,7 @@ private RGridBagLayoutPane getFileToolbarPane2() {
 		fileToolbarPane2 = new RGridBagLayoutPane();
 		fileToolbarPane2.setName("fileToolbarPane2");
 		fileToolbarPane2.setBorder(BorderFactory.createTitledBorder(null, "", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 11), new Color(23, 64, 140)));
-			fileToolbarPane2.setStyleProperties("{/anchor \"WEST\"/fill \"VERTICAL\"/weightX \"1\"}");
+			fileToolbarPane2.setStyleProperties("{/anchor \"WEST\"/fill \"BOTH\"/weightX \"1\"}");
 		fileToolbarPane2.add(getDeleteButton(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		fileToolbarPane2.add(Filler1, new com.ulcjava.base.application.GridBagConstraints(1, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		fileToolbarPane2.add(getUploadButton(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 2, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
@@ -1350,11 +1458,11 @@ private RGridBagLayoutPane getFileToolbarPane3() {
 		fileToolbarPane3 = new RGridBagLayoutPane();
 		fileToolbarPane3.setName("fileToolbarPane3");
 		fileToolbarPane3.setBorder(BorderFactory.createTitledBorder(null, "", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 11), new Color(23, 64, 140)));
-		fileToolbarPane3.setStyleProperties("{/anchor \"WEST\"/fill \"VERTICAL\"/weightY \"1\"/weightX \"1\"}");
+		fileToolbarPane3.setStyleProperties("{/anchor \"WEST\"/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
 		fileToolbarPane3.add(Filler2, new com.ulcjava.base.application.GridBagConstraints(2, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		fileToolbarPane3.add(getPrintButton(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 2, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		fileToolbarPane3.add(getNewCopyButton(), new com.ulcjava.base.application.GridBagConstraints(2, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		fileToolbarPane3.add(getZipButton(), new com.ulcjava.base.application.GridBagConstraints(2, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		fileToolbarPane3.add(getPasteButton(), new com.ulcjava.base.application.GridBagConstraints(2, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return fileToolbarPane3;
 }
@@ -1385,7 +1493,7 @@ private RGridBagLayoutPane getToolbarGridBagLayoutPane() {
 	if (toolbarGridBagLayoutPane == null) {
 		toolbarGridBagLayoutPane = new RGridBagLayoutPane();
 		toolbarGridBagLayoutPane.setName("toolbarGridBagLayoutPane");
-		toolbarGridBagLayoutPane.setStyleProperties("{/weightX \"0\"}");
+		toolbarGridBagLayoutPane.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"0\"}");
 		toolbarGridBagLayoutPane.add(getFileToolbarPane(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		toolbarGridBagLayoutPane.add(getFileToolbarPane3(), new com.ulcjava.base.application.GridBagConstraints(2, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		toolbarGridBagLayoutPane.add(getFileToolbarPane2(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
@@ -1478,6 +1586,7 @@ private RMenuItem getPasteMenuItemTable() {
 		pasteMenuItemTable = new RMenuItem();
 		pasteMenuItemTable.setName("pasteMenuItemTable");
 		pasteMenuItemTable.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/copy/16\")%>");
+		pasteMenuItemTable.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/pasteFiles\")%>");
 		pasteMenuItemTable.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tableStrings/Paste\")%>");
 	}
 	return pasteMenuItemTable;
@@ -1767,6 +1876,24 @@ private RHyperlink getRefreshSelectedFolder2Button() {
 		refreshSelectedFolder2Button.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/refresh\")%>");
 	}
 	return refreshSelectedFolder2Button;
+}
+
+/**
+ * This method initializes setDescriptionMenuItem	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem	
+ */
+private RMenuItem getSetDescriptionMenuItem() {
+	if (setDescriptionMenuItem == null) {
+		setDescriptionMenuItem = new RMenuItem();
+		setDescriptionMenuItem.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/setDescription\")%>");
+		setDescriptionMenuItem.setEnabled(false);
+		setDescriptionMenuItem.setToolTipText("");
+		setDescriptionMenuItem.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/attachedFile/16\")%>");
+		setDescriptionMenuItem.setEnabler(getFileNameInvisibleTextField());
+		setDescriptionMenuItem.setName("setDescriptionMenuItem");
+	}
+	return setDescriptionMenuItem;
 }
 
 

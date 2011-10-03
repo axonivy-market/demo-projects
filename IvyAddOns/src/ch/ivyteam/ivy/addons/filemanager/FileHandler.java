@@ -27,14 +27,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.Adler32;
 
-import org.apache.commons.lang.StringUtils;
-
 import ch.ivyteam.ivy.addons.docfactory.FileOperationMessage;
 import ch.ivyteam.ivy.addons.filemanager.DocumentOnServer;
 import ch.ivyteam.ivy.addons.filemanager.FolderOnServer;
 import ch.ivyteam.ivy.addons.filemanager.ReturnedMessage;
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.scripting.objects.Date;
 import ch.ivyteam.ivy.scripting.objects.List;
+import ch.ivyteam.ivy.scripting.objects.Time;
 import ch.ivyteam.ivy.scripting.objects.Tree;
 
 
@@ -69,80 +69,84 @@ public abstract class FileHandler
 	/**
 	 * Formats a given path in a path with the right system File.separator characters<br>
 	 * It doesn't check if there is a File.separator at the end of the path.
-	 * @param path
+	 * @param _path
 	 * @return formatted path with the system File.separator
 	 */
-	public static String formatPath(String path)
+	public static String formatPath(String _path)
 	{
-		if(path != null && !path.equals(""))
+		if(_path != null && !_path.equals(""))
 		{
-			path = StringUtils.replace(path,"\\", File.separator);
-			path = StringUtils.replace(path,"/", File.separator);
+			//path = path.replaceAll("\\\\", File.separator);
+			_path = org.apache.commons.lang.StringUtils.replace(_path,"\\", File.separator);
+			//path = path.replaceAll("/", File.separator);
+			_path = org.apache.commons.lang.StringUtils.replace(_path,"/", File.separator);
 		}
-		return path;
+		return _path;
 	}
 
 	/**
 	 * Formats a given path in a path with the right system File.separator characters<br>
 	 * It checks if there is a File.separator at the end of the path. If not it adds one.<br>
 	 * It checks if the directory exists, if not it makes it.
-	 * @param path
+	 * @param _path
 	 * @return formatted path with the system File.separator
 	 */
-	public static String formatPathWithEndSeparator(String path)
+	public static String formatPathWithEndSeparator(String _path)
 	{
-		if(path != null && !path.equals(""))
+		if(_path != null && !_path.equals(""))
 		{
-			path = StringUtils.replace(path, "\\", File.separator);
-			path = StringUtils.replace(path, "/", File.separator);
-			File serverDir = new File(path);
+//			path = path.replaceAll("\\\\", File.separator);
+			_path = org.apache.commons.lang.StringUtils.replace(_path,"\\", File.separator);
+			//path = path.replaceAll("/", File.separator);
+			_path = org.apache.commons.lang.StringUtils.replace(_path,"/", File.separator);
+			File serverDir = new File(_path);
 			if((serverDir.exists() && !serverDir.isDirectory()) || !serverDir.exists())
 				serverDir.mkdirs();
-			if(path.lastIndexOf(File.separator) != path.length() - 1) 
-				path=path+java.io.File.separator;
+			if(_path.lastIndexOf(File.separator) != _path.length() - 1) 
+				_path=_path+java.io.File.separator;
 		}
-		return path;
+		return _path;
 	}
 
 	/**
 	 * Formats a given path in a path with the right system File.separator characters<br>
 	 * It checks if there is a File.separator at the end of the path. If not it adds one.<br>
 	 * If the boolean argument is true, it checks if the directory exists and creates it if it doesn't exist.
-	 * @param path the path to format with the right end file separator
-	 * @param createDirIfNotExits boolean telling if has to check for the directory existence
+	 * @param _path the path to format with the right end file separator
+	 * @param _createDirIfNotExits boolean telling if has to check for the directory existence
 	 * @return formatted path with the system File.separator
 	 */
-	public static String formatPathWithEndSeparator(String path, boolean createDirIfNotExits)
+	public static String formatPathWithEndSeparator(String _path, boolean _createDirIfNotExits)
 	{
-		if(path != null && !path.equals(""))
+		if(_path != null && !_path.equals(""))
 		{
 
-			path = StringUtils.replace(path,"\\", File.separator);
-			path = StringUtils.replace(path,"/", File.separator);
-			if(createDirIfNotExits){
-				File serverDir = new File(path);
+			_path = org.apache.commons.lang.StringUtils.replace(_path,"\\", File.separator);
+			_path = org.apache.commons.lang.StringUtils.replace(_path,"/", File.separator);
+			if(_createDirIfNotExits){
+				File serverDir = new File(_path);
 				if((serverDir.exists() && !serverDir.isDirectory()) || !serverDir.exists())
 					serverDir.mkdirs();
 			}
-			if(path.lastIndexOf(File.separator) != path.length() - 1) 
+			if(_path.lastIndexOf(File.separator) != _path.length() - 1) 
 			{
-				path=path+java.io.File.separator;
+				_path=_path+java.io.File.separator;
 			}
 		}
-		return path;
+		return _path;
 	}
 
 	/**
 	 * 
-	 * @param path
+	 * @param _path
 	 * @return the path as String with the client side File separator
 	 */
-	public static String formatPathWithClientSeparator(String path){
-		String clientPath = path;
+	public static String formatPathWithClientSeparator(String _path){
+		String clientPath = _path;
 		String fileSeparator = getClientFileSeparator();
-		if(fileSeparator!=null && path != null && !path.trim().equalsIgnoreCase("")){
-			clientPath = StringUtils.replace(clientPath,"\\", File.separator);
-			clientPath = StringUtils.replace(clientPath,"/", File.separator);
+		if(fileSeparator!=null && _path != null && !_path.trim().equalsIgnoreCase("")){
+			clientPath = org.apache.commons.lang.StringUtils.replace(clientPath,"\\", File.separator);
+			clientPath = org.apache.commons.lang.StringUtils.replace(clientPath,"/", File.separator);
 			if(clientPath.lastIndexOf(fileSeparator) != clientPath.length() - 1) 
 				clientPath= clientPath+fileSeparator;
 		}
@@ -152,7 +156,7 @@ public abstract class FileHandler
 
 	/**
 	 * Deletes the File pointed by the given filepath
-	 * @param filepath The path of the File to delete.
+	 * @param _filepath The path of the File to delete.
 	 * @return ReturnedMessage: the returned message dataclass Object with message Type(SUCCESS_MESSAGE, ERROR_MESSAGE),<br>
 	 * message text and a reference to the deleted File. <br>
 	 * If returnedMessage.type==SUCCESS_MESSAGE then the file was deleted. <br>
@@ -160,36 +164,36 @@ public abstract class FileHandler
 	 * <b>Important :</b> in the case of an error, the file Field of the returnedMessage File will be null,<br>
 	 * so check this File in your Process before using it. In this case returnedMessage.type==ERROR_MESSAGE.
 	 */
-	public static ReturnedMessage deleteFile(String filepath)
+	public static ReturnedMessage deleteFile(String _filepath)
 	{
-		String file = formatPath(filepath);
+		String file = formatPath(_filepath);
 		ReturnedMessage message = new ReturnedMessage();
 		message.setFiles(List.create(java.io.File.class));
 		File fileToDelete = new File(file);
 		if(!fileToDelete.exists())
 		{
 			message.setType(Integer.valueOf(ERROR_MESSAGE));
-			message.setText("The File you want to delete doesn't exit.\n Wrong path : "+filepath);
+			message.setText("The File you want to delete doesn't exit.\n Wrong path : "+_filepath);
 			message.setFile(fileToDelete);
 			return message;
 		}
 		if(!fileToDelete.isFile())
 		{
 			message.setType(Integer.valueOf(ERROR_MESSAGE));
-			message.setText("The File you want to delete is not a file.\n Wrong path : "+filepath);
+			message.setText("The File you want to delete is not a file.\n Wrong path : "+_filepath);
 			message.setFile(fileToDelete);
 			return message;
 		}
 		if(fileToDelete.delete())
 		{
 			message.setType(Integer.valueOf(SUCCESS_MESSAGE));
-			message.setText("The following file has been deleted : "+filepath);
+			message.setText("The following file has been deleted : "+_filepath);
 			message.setFile(null);
 			return message;
 		} else
 		{
 			message.setType(Integer.valueOf(ERROR_MESSAGE));
-			message.setText("There was an error while deleting the following file:\n Wrong path : "+filepath);
+			message.setText("There was an error while deleting the following file:\n Wrong path : "+_filepath);
 			message.setFile(fileToDelete);
 			return message;
 		}
@@ -197,22 +201,22 @@ public abstract class FileHandler
 
 	/**
 	 * Deletes the files contained into the given List
-	 * @param filesList List of java.io.File to delete.
+	 * @param _filesList List of java.io.File to delete.
 	 * @return ReturnedMessage: the returned message dataclass Object with message Type(SUCCESS_MESSAGE, ERROR_MESSAGE),<br>
 	 * and message text. <br>
 	 * If returnedMessage.type==SUCCESS_MESSAGE then all the files were deleted. <br>
 	 * The File field of the ReturnedMessage is always null<br>
 	 * the file list of the returnedMessage contains the deleted Files
 	 */
-	public static ReturnedMessage deleteFiles(java.util.List <File> filesList)
+	public static ReturnedMessage deleteFiles(java.util.List <File> _filesList)
 	{
 		ReturnedMessage message = new ReturnedMessage();
 		message.setFile(null);
 		message.setFiles(List.create(java.io.File.class));
 		message.setType(SUCCESS_MESSAGE);
-		int nb=filesList.size();
+		int nb=_filesList.size();
 		ArrayList <String> fileNames = new ArrayList<String>();
-		for(File file: filesList){
+		for(File file: _filesList){
 			if(!file.isFile())
 			{
 				fileNames.add("NOT A FILE "+ file.toString());
@@ -246,7 +250,7 @@ public abstract class FileHandler
 
 	/**
 	 * Deletes the directory pointed by the given filepath
-	 * @param dirpath : The path of the directory to delete.
+	 * @param _dirpath : The path of the directory to delete.
 	 * @return ReturnedMessage: the returned message dataclass Object with message Type(SUCCESS_MESSAGE, ERROR_MESSAGE),<br>
 	 * message text and a reference to the deleted directory. <br>
 	 * If returnedMessage.type==SUCCESS_MESSAGE then the directory was deleted. <br>
@@ -254,9 +258,9 @@ public abstract class FileHandler
 	 * <b>Important :</b> in the case of an error, the file Field of the returnedMessage directory will be null,<br>
 	 * so check this File in your Process before using it. In this case returnedMessage.type==ERROR_MESSAGE.
 	 */
-	public static ReturnedMessage deleteDirectory(String dirpath)
+	public static ReturnedMessage deleteDirectory(String _dirpath)
 	{
-		String dir = formatPath(dirpath);
+		String dir = formatPath(_dirpath);
 		ReturnedMessage message = new ReturnedMessage();
 		message.setFiles(List.create(java.io.File.class));
 		File dirToDelete = new File(dir);
@@ -291,13 +295,13 @@ public abstract class FileHandler
 	/**
 	 * Try to delete the given directory and all the files and directories that are under this Directory.<br>
 	 * 
-	 * @param dirPath : the path of the directory to delete
+	 * @param _dirPath : the path of the directory to delete
 	 */
-	public static void deleteAllUnderDirectory(String dirPath){
-		if(dirPath != null && !dirPath.trim().equalsIgnoreCase("")){
+	public static void deleteAllUnderDirectory(String _dirPath){
+		if(_dirPath != null && !_dirPath.trim().equalsIgnoreCase("")){
 			try
 			{
-				String s = dirPath.replace("/", java.io.File.separator);
+				String s = _dirPath.replace("/", java.io.File.separator);
 				s= s.replace("\\", java.io.File.separator);
 
 
@@ -331,22 +335,22 @@ public abstract class FileHandler
 	 * For private use only.<br>
 	 * Recursive method to delete all the files and directories under a given java.io.File.<br>
 	 * The given File will be also deleted.
-	 * @param file : the java.io.File to delete
+	 * @param _file : the java.io.File to delete
 	 */
-	private static void deleteAll(java.io.File file){
+	private static void deleteAll(java.io.File _file){
 		try{
-			if(file!=null){
-				if(file.isDirectory() && file.listFiles().length==0)
+			if(_file!=null){
+				if(_file.isDirectory() && _file.listFiles().length==0)
 				{// f is a directory and is empty => delete it
-					file.delete();
+					_file.delete();
 				}
-				else if(!file.isDirectory())
+				else if(!_file.isDirectory())
 				{// f is not a directory => delete the file
-					file.delete();
+					_file.delete();
 				}
 				else
 				{// f is a directory and not empty => call recursively this method for each of his children
-					java.io.File[] files = file.listFiles();
+					java.io.File[] files = _file.listFiles();
 					for(java.io.File ff:files)
 						deleteAll(ff);
 				}
@@ -362,34 +366,34 @@ public abstract class FileHandler
 
 	/**
 	 * This method attempts to create the Directory pointed by the given dirpath
-	 * @param dirpath : The path of the directory to create.
+	 * @param _dirpath : The path of the directory to create.
 	 * @return ReturnedMessage: the returned message dataclass Object with message Type(SUCCESS_MESSAGE, ERROR_MESSAGE),<br>
 	 * message text and a reference to the created directory java.io.File Object. <br><br>
 	 * <b>Important :</b> in the case of an error, the returned File can be null, so check this File in your Process before using it.
 	 */
-	public static ReturnedMessage makeDirectory(String dirpath)
+	public static ReturnedMessage makeDirectory(String _dirpath)
 	{
-		String dir = formatPath(dirpath);
+		String dir = formatPath(_dirpath);
 		ReturnedMessage message = new ReturnedMessage();
 		message.setFiles(List.create(java.io.File.class));
 		File dirToCreate = new File(dir);
 		if(dirToCreate.isDirectory())
 		{
 			message.setType(ERROR_MESSAGE);
-			message.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/error/directoryNotCreatedBecauseExists")+"\n "+dirpath);
+			message.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/error/directoryNotCreatedBecauseExists")+"\n "+_dirpath);
 			message.setFile(null);
 			return message;
 		}
 		if(dirToCreate.mkdirs())
 		{
 			message.setType(SUCCESS_MESSAGE);
-			message.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/information/FolderCreationSuccess")+"\n "+dirpath);
+			message.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/information/FolderCreationSuccess")+"\n "+_dirpath);
 			message.setFile(dirToCreate);
 			return message;
 		} else
 		{
 			message.setType(ERROR_MESSAGE);
-			message.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/error/generalDirCreationError")+"\n "+dirpath);
+			message.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/error/generalDirCreationError")+"\n "+_dirpath);
 			message.setFile(null);
 			return message;
 		}
@@ -401,13 +405,18 @@ public abstract class FileHandler
 	 * The given File on the client will be uploaded to the given String serverPath.<br>
 	 * This process should be ASYNCHRONOUS<br>
 	 * <b>Important: </b>This method doesn't check if the File already exists on the server<br>
-	 * @param fileToUpload : the file java.io.File from the client to upload on the server.
-	 * @param serverPath : the path on the server where the File has to be downloaded
+	 * @param _fileToUpload : the file java.io.File from the client to upload on the server.
+	 * @param _serverPath : the path on the server where the File has to be downloaded
 	 * 
 	 */
-	public static void upload(final File fileToUpload, String serverPath){
+	public static void upload(final File _fileToUpload, String _serverPath){
+		if(_fileToUpload==null || _serverPath==null || _serverPath.trim().equals(""))
+		{
+			Ivy.log().error("One of the parameter is not valid in the FileHandler static uploadFile method.");
+			return;
+		}
 		//Control about server side file location
-		final StringBuilder path= new StringBuilder(formatPath(serverPath));
+		final StringBuilder path= new StringBuilder(formatPath(_serverPath));
 		String fileSeparator = ClientContext.getSystemProperty("file.separator");
 		if(fileSeparator==null || fileSeparator.trim().length()==0)
 		{
@@ -419,9 +428,11 @@ public abstract class FileHandler
 		if(path.lastIndexOf(File.separator) != path.length() - 1) 
 			path.append(java.io.File.separator);
 		
-		String filePath = fileToUpload.getPath().contains("\\")?fileToUpload.getPath().replace("\\", fileSeparator):
-			( fileToUpload.getPath().contains("/")?fileToUpload.getPath().replace("/", fileSeparator):
-				fileToUpload.getPath());
+		String filePath = _fileToUpload.getPath().contains("\\")?_fileToUpload.getPath().replace("\\", fileSeparator):
+			( _fileToUpload.getPath().contains("/")?_fileToUpload.getPath().replace("/", fileSeparator):
+				_fileToUpload.getPath());
+		
+		final String finalFilename= filePath.substring(filePath.lastIndexOf(fileSeparator)+1);
 		Ivy.log().info("File uploaded from Client from following path "+filePath);
 		ClientContext.setFileTransferMode(ClientContext.ASYNCHRONOUS_MODE);
 		ClientContext.loadFile(new IFileLoadHandler(){
@@ -436,7 +447,7 @@ public abstract class FileHandler
 				try{
 					Ivy.log().info("Try to File uploaded from Client To Server at "+path.toString());
 					BufferedInputStream preparedFile = new BufferedInputStream(ins[0]);
-					path.append(fileToUpload.getName());
+					path.append(finalFilename);
 					File serverFile = new File(path.toString());
 					Ivy.log().info("File uploaded from Client To Server at "+path.toString());
 					OutputStream server = new BufferedOutputStream(new FileOutputStream(serverFile));
@@ -464,12 +475,93 @@ public abstract class FileHandler
 	 * with the HTML-File name plus a point.<br>
 	 * @param _FiletoDownload File: the file from the Server to download
 	 * @param _clientPath : the client side path where we have to store the file
-	 * @return true if the download process was successfull, else false.
+	 * @return true if the download process was successful, else false.
 	 */
 	public static boolean download(final File _FiletoDownload, String _clientPath){
 
 		final StringBuilder sb = new StringBuilder();
+		
+		if(getFileExtension(_FiletoDownload.getName()).equalsIgnoreCase("html")|| getFileExtension(_FiletoDownload.getName()).equalsIgnoreCase("htm")){
+			ArrayList <File> files = new ArrayList<File>();
+			String fileDirPath=null;
+			try{
+				fileDirPath = getFileDirectoryPath(_FiletoDownload);
+			}catch(Exception _ex){
+				//do nothing
+			}
+			if(fileDirPath!=null){
+				files.addAll(getFilesWithPattern("\\.[0-9].*$",getFileNameWithoutExt(_FiletoDownload.getName()), fileDirPath));
+			}
+			if(files.size()>0){
+				download(files,_clientPath);
+			}
+		}
+		_clientPath= FileHandler.formatPathWithEndSeparator(_clientPath, false);
+		_clientPath= _clientPath+_FiletoDownload.getName();
+		_clientPath=org.apache.commons.lang.StringUtils.replace(_clientPath,"\\", "/");
+		
+		try {
+			ClientContext.storeFile(new IFileStoreHandler(){
+				public void onFailure(int reason, String description)
+				{
+					sb.append(false);
+					return;
+				}
 
+				public void prepareFile(OutputStream data) {
+					String fileOnServerPath= formatPath(_FiletoDownload.getPath());
+					File f = new File(fileOnServerPath);
+					if(!f.exists()){
+						this.onFailure(IFileStoreHandler.FAILED, "File not found");
+					}
+					try {
+						FileInputStream fis = new FileInputStream(f);
+						byte b[] = new byte[1024]; 
+						int c=0;
+						while((c= fis.read(b)) != -1){
+							data.write(b,0,c);
+						}
+						fis.close();
+						sb.append(true);
+					} catch (FileNotFoundException e) {
+						sb.append(false);
+						e.printStackTrace();
+					} catch (IOException ioe){
+						sb.append(false);
+					}
+				}
+
+				public void onSuccess(String filePath, String fileName){
+
+				}
+			},_clientPath);
+		} catch (Exception e) {
+			sb.append(false);
+		}
+		if(sb.toString().contains("false"))
+			return false;
+		else return true;
+	}
+	
+	/**
+	 * This method attempts to download automatically a File from the server,
+	 * to the client given clientPath<br>
+	 * If the File is an HTML File, it will download automatically all the attached media Files<br>
+	 * Those Media Files should be in the same directory like the HTML File and their name should begins<br>
+	 * with the HTML-File name plus a point.<br>
+	 * @param _FiletoDownload File: the file from the Server to download
+	 * @param _clientPath : the client side path where we have to store the file
+	 * @return true if the download process was successful, else false.
+	 */
+	public static boolean download(final File _FiletoDownload, String _clientPath, String _clientFileSeparator){
+
+		final StringBuilder sb = new StringBuilder();
+
+		if(_clientFileSeparator !=null &&_clientFileSeparator.trim().length()>0)
+		{
+			_clientPath = _clientPath.replace("\\", _clientFileSeparator);
+			_clientPath = _clientPath.replace("/", _clientFileSeparator);
+		}
 		if(getFileExtension(_FiletoDownload.getName()).equalsIgnoreCase("html")|| getFileExtension(_FiletoDownload.getName()).equalsIgnoreCase("htm")){
 			ArrayList <File> files = new ArrayList<File>();
 			String fileDirPath=null;
@@ -528,103 +620,26 @@ public abstract class FileHandler
 			return false;
 		else return true;
 	}
-	
-	/**
-	 * This method attempts to download automatically a File from the server,
-	 * to the client given clientPath<br>
-	 * If the File is an HTML File, it will download automatically all the attached media Files<br>
-	 * Those Media Files should be in the same directory like the HTML File and their name should begins<br>
-	 * with the HTML-File name plus a point.<br>
-	 * @param filetoDownload File: the file from the Server to download
-	 * @param clientPath : the client side path where we have to store the file
-	 * @return true if the download process was successfull, else false.
-	 */
-	public static boolean download(final File filetoDownload, String clientPath, String clientFileSeparator){
-
-		final StringBuilder sb = new StringBuilder();
-
-		if(clientFileSeparator !=null &&clientFileSeparator.trim().length()>0)
-		{
-			clientPath = clientPath.replace("\\", clientFileSeparator);
-			clientPath = clientPath.replace("/", clientFileSeparator);
-		}
-		if(getFileExtension(filetoDownload.getName()).equalsIgnoreCase("html")|| getFileExtension(filetoDownload.getName()).equalsIgnoreCase("htm")){
-			ArrayList <File> files = new ArrayList<File>();
-			String fileDirPath=null;
-			try{
-				fileDirPath = getFileDirectoryPath(filetoDownload);
-			}catch(Exception _ex){
-				//do nothing
-			}
-			if(fileDirPath!=null){
-				files.addAll(getFilesWithPattern("\\.[0-9].*$",getFileNameWithoutExt(filetoDownload.getName()), fileDirPath));
-			}
-			if(files.size()>0){
-				download(files,clientPath);
-			}
-		}
-		clientPath= clientPath+filetoDownload.getName();
-		try {
-			ClientContext.storeFile(new IFileStoreHandler(){
-				public void onFailure(int reason, String description)
-				{
-					sb.append(false);
-					return;
-				}
-
-				public void prepareFile(OutputStream data) {
-					String fileOnServerPath= formatPath(filetoDownload.getPath());
-					File f = new File(fileOnServerPath);
-					if(!f.exists()){
-						this.onFailure(IFileStoreHandler.FAILED, "File not found");
-					}
-					try {
-						FileInputStream fis = new FileInputStream(f);
-						byte b[] = new byte[1024]; 
-						int c=0;
-						while((c= fis.read(b)) != -1){
-							data.write(b,0,c);
-						}
-						fis.close();
-						sb.append(true);
-					} catch (FileNotFoundException e) {
-						sb.append(false);
-						e.printStackTrace();
-					} catch (IOException ioe){
-						sb.append(false);
-					}
-				}
-
-				public void onSuccess(String filePath, String fileName){
-
-				}
-			},clientPath);
-		} catch (Exception e) {
-			sb.append(false);
-		}
-		if(sb.toString().contains("false"))
-			return false;
-		else return true;
-	}
 
 	/**
 	 * This method attempts to download automatically a list of Files from the server,<br>
 	 * to the client given clientPath
-	 * @param filestoDownload Lsit<File>: the files from the Server to download
-	 * @param clientPath : the client side path where we have to store the files
-	 * @return true if the download process was successfull, else false.
+	 * @param _FilestoDownload Lsit<File>: the files from the Server to download
+	 * @param _clientPath : the client side path where we have to store the files
+	 * @return true if the download process was successful, else false.
 	 */
-	public static boolean download(final java.util.List<File> filestoDownload, String clientPath){
+	public static boolean download(final java.util.List<File> _FilestoDownload, String _clientPath){
 		final StringBuilder sb = new StringBuilder();
 		String fileSeparator = getClientFileSeparator();
 		if(fileSeparator!=null){
-			clientPath = clientPath.replaceAll("\\\\", fileSeparator);
-			clientPath = clientPath.replaceAll("/", fileSeparator);
-			if(clientPath.lastIndexOf(fileSeparator) != clientPath.length() - 1) 
-				clientPath= clientPath+fileSeparator;
+			_clientPath = _clientPath.replaceAll("\\\\", fileSeparator);
+			_clientPath = _clientPath.replaceAll("/", fileSeparator);
+			if(_clientPath.lastIndexOf(fileSeparator) != _clientPath.length() - 1){
+				_clientPath= _clientPath+fileSeparator;
+			}
 		}
-		for(final File file: filestoDownload){
-			String path = clientPath+file.getName();
+		for(final File file: _FilestoDownload){
+			String path = _clientPath+file.getName();
 
 			//File clientFile = new File(path.toString());
 			try {
@@ -728,17 +743,17 @@ public abstract class FileHandler
 	 * This Method allows creating a new version of a File with naming convention.<br>
 	 * The naming convention is that the files should end with "###" plus a number.<br>
 	 * The number is the version's number.
-	 * @param file
+	 * @param _file
 	 * @return the created java.io.File
 	 */
-	public static File makeNewVersion(File file){
-		Ivy.log().debug(file.getPath());
-		int greaterVersion = getGreaterVersionNumber(file);
-		String fileName= getFileNameWithoutExt(file.getName());
+	public static File makeNewVersion(File _file){
+		Ivy.log().debug(_file.getPath());
+		int greaterVersion = getGreaterVersionNumber(_file);
+		String fileName= getFileNameWithoutExt(_file.getName());
 		
 		String filedir= null;
 		try{
-			filedir= formatPathWithEndSeparator(getFileDirectoryPath(file));
+			filedir= formatPathWithEndSeparator(getFileDirectoryPath(_file));
 		}catch(Exception _ex){
 			// do nothing
 		}
@@ -751,10 +766,10 @@ public abstract class FileHandler
 		int nbPlace = fileName.lastIndexOf("###");
 		File newVersion=null;
 		if(greaterVersion==-1){
-			newVersion = new File(getFileNameWithoutExt(file.getPath())+"###1."+getFileExtension(file.getName()));
+			newVersion = new File(getFileNameWithoutExt(_file.getPath())+"###1."+getFileExtension(_file.getName()));
 			try {
 				if(newVersion.createNewFile()){
-					FileInputStream fis = new FileInputStream(file);
+					FileInputStream fis = new FileInputStream(_file);
 					FileOutputStream fos = new FileOutputStream(newVersion);
 					byte b[] = new byte[1024];
 					int c=0;
@@ -770,10 +785,10 @@ public abstract class FileHandler
 				Ivy.log().error(_ex.getMessage(),_ex);
 			}
 		} else if(greaterVersion==0){
-			newVersion = new File(getFileNameWithoutExt(file.getPath())+"1."+getFileExtension(file.getName()));
+			newVersion = new File(getFileNameWithoutExt(_file.getPath())+"1."+getFileExtension(_file.getName()));
 			try {
 				if(newVersion.createNewFile()){
-					FileInputStream fis = new FileInputStream(file);
+					FileInputStream fis = new FileInputStream(_file);
 					FileOutputStream fos = new FileOutputStream(newVersion);
 					byte b[] = new byte[1024];
 					int c=0;
@@ -792,11 +807,11 @@ public abstract class FileHandler
 			if(nbPlace==-1)
 				nbPlace=fileName.length();
 			int ver= greaterVersion+1;
-			String version= filedir+getFileNameWithoutExt(file.getName()).substring(0, nbPlace)+"###"+ver+"."+getFileExtension(file.getName());
+			String version= filedir+getFileNameWithoutExt(_file.getName()).substring(0, nbPlace)+"###"+ver+"."+getFileExtension(_file.getName());
 			newVersion = new File(version);
 			try {
 				if(newVersion.createNewFile()){
-					FileInputStream fis = new FileInputStream(file);
+					FileInputStream fis = new FileInputStream(_file);
 					FileOutputStream fos = new FileOutputStream(newVersion);
 					byte b[] = new byte[1024];
 					int c=0;
@@ -819,19 +834,19 @@ public abstract class FileHandler
 
 	/**
 	 * returns the content of a File as String
-	 * @param file : the File to be read
+	 * @param _file : the File to be read
 	 * @return the String Content of the File
 	 */
-	public static String getFileAsString(java.io.File file){
+	public static String getFileAsString(java.io.File _file){
 		String fileAsString ="";
-		if(!file.exists()){
-			Ivy.log().error("Error in ch.ivyteam.ivy.addons.filemanager.FileHandler getFileAsString(). The File "+file.getPath()+" doesn't exist.");
+		if(!_file.exists()){
+			Ivy.log().error("Error in ch.ivyteam.ivy.addons.filemanager.FileHandler getFileAsString(). The File "+_file.getPath()+" doesn't exist.");
 			return fileAsString;
 		}
 		try{
 			StringBuffer fileData = new StringBuffer();
 			BufferedReader reader = new BufferedReader(
-					new FileReader(file));
+					new FileReader(_file));
 			char[] buf = new char[1024];
 			int numRead=0;
 			while((numRead=reader.read(buf)) != -1){
@@ -849,12 +864,12 @@ public abstract class FileHandler
 
 	/**
 	 * For internal use only
-	 * @param file
+	 * @param _file
 	 * @return the greater file version number
 	 */
-	private static int getGreaterVersionNumber(File file){
+	private static int getGreaterVersionNumber(File _file){
 		int greaterVer =-1;
-		String fileName = getFileNameWithoutExt(file.getName());
+		String fileName = getFileNameWithoutExt(_file.getName());
 		int _place = fileName.lastIndexOf("###");
 		if(_place==-1)
 			_place=fileName.length();
@@ -864,7 +879,7 @@ public abstract class FileHandler
 		String pat ="###[0-9].*$";
 		String fileDir=null;
 		try{
-			fileDir=getFileDirectoryPath(file);
+			fileDir=getFileDirectoryPath(_file);
 		}catch(Exception _ex){
 			//do nothing here
 		}
@@ -897,17 +912,17 @@ public abstract class FileHandler
 	 * For example, if a HTML file named test.html contains test.001.jpeg and test.002.jpeg,<br>
 	 * it is easy to list those images with getFilesWithPattern("\\.[0-9].*$", "test", "")<br>
 	 * Of course the name of the images included in the file must follow the given pattern.
-	 * @param pat : the String pattern used to search the matching Files
-	 * @param p : the basic name of the file without extension
-	 * @param serverPath : the path where the file is stored
+	 * @param _pat : the String pattern used to search the matching Files
+	 * @param _p : the basic name of the file without extension
+	 * @param _serverPath : the path where the file is stored
 	 * @return an ArrayList of the File whose name match the pattern p+pat
 	 */
-	public static ArrayList<File> getFilesWithPattern(String pat, String p, String serverPath){
-		File files[] = getFiles(serverPath);
+	public static ArrayList<File> getFilesWithPattern(String _pat, String _p, String _serverPath){
+		File files[] = getFiles(_serverPath);
 		ArrayList<File> filesMatch = new ArrayList<File>();
 
 		//Pattern pattern = Pattern.compile(p+"\\.[0-9].*$");
-		Pattern pattern = Pattern.compile(p+pat);
+		Pattern pattern = Pattern.compile(_p+_pat);
 		for(File f: files){
 			Matcher m = pattern.matcher(f.getName());
 			if(m.matches()){
@@ -920,29 +935,29 @@ public abstract class FileHandler
 	/**
 	 * Makes a copy of the given File. The new File has the given parameter name<br>
 	 * If the boolean control parameter is set to true, the new creation will failed if the new File already exists.
-	 * @param fileToCopy File, the file to be copied
-	 * @param newName  String the name of the copy
-	 * @param controlIfExists  boolean, if true it will control if the new File already exists
+	 * @param _fileToCopy File, the file to be copied
+	 * @param _newName  String the name of the copy
+	 * @param _controlIfExists  boolean, if true it will control if the new File already exists
 	 * @return returnedMessage, the ReturnedMessage Object. If the Type is FileHandler.SUCCESS_MESSAGE, then all went fine.
 	 */
-	public static ReturnedMessage makeNewVersion(File fileToCopy, String newName, boolean controlIfExists){
+	public static ReturnedMessage makeNewVersion(File _fileToCopy, String _newName, boolean _controlIfExists){
 		ReturnedMessage returnedMessage = new ReturnedMessage();
 		returnedMessage.setFiles(List.create(java.io.File.class));
-		if(fileToCopy==null || newName==null)
+		if(_fileToCopy==null || _newName==null)
 		{
 			returnedMessage.setText("One of the parameter is null in makeNewVersion");
 			returnedMessage.setType(ERROR_MESSAGE);
 			returnedMessage.setFile(null);
 			return returnedMessage;
 		}
-		String ext= getFileExtension(fileToCopy.getName());
-		if(!ext.equalsIgnoreCase(getFileExtension(newName)))
+		String ext= getFileExtension(_fileToCopy.getName());
+		if(!ext.equalsIgnoreCase(getFileExtension(_newName)))
 		{
-			newName=newName+"."+ext;
+			_newName=_newName+"."+ext;
 		}
 		String fileDir= null;
 		try{
-			fileDir= getFileDirectoryPath(fileToCopy);
+			fileDir= getFileDirectoryPath(_fileToCopy);
 		}catch(Exception _ex){
 			// do nothing here
 		}
@@ -954,9 +969,9 @@ public abstract class FileHandler
 			return returnedMessage;
 		}
 		
-		File newFile=new File(formatPathWithEndSeparator(fileDir)+ newName);
+		File newFile=new File(formatPathWithEndSeparator(fileDir)+ _newName);
 		
-		if(controlIfExists && newFile.exists())
+		if(_controlIfExists && newFile.exists())
 		{
 			returnedMessage.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/information/fileAlreadyExists"));
 			returnedMessage.setType(ERROR_MESSAGE);
@@ -976,7 +991,7 @@ public abstract class FileHandler
 			try {
 				if(newFile.createNewFile())
 				{
-					FileInputStream fis = new FileInputStream(fileToCopy);
+					FileInputStream fis = new FileInputStream(_fileToCopy);
 					FileOutputStream fos = new FileOutputStream(newFile);
 					byte b[] = new byte[1024];
 					int c=0;
@@ -995,7 +1010,8 @@ public abstract class FileHandler
 					return returnedMessage;
 				}
 
-			} catch (IOException e) {
+			} catch (IOException e) 
+			{
 				returnedMessage.setText("IOException: "+e.getMessage());
 				returnedMessage.setType(ERROR_MESSAGE);
 				returnedMessage.setFile(newFile);
@@ -1010,16 +1026,16 @@ public abstract class FileHandler
 
 	/**
 	 * Moves a File and deletes the original File
-	 * @param fileToMove : The File to move
-	 * @param newPath : the new path where to copy the File
-	 * @param controlIfExists : if true will not overwrite the existing File
+	 * @param _fileToMove : The File to move
+	 * @param _newPath : the new path where to copy the File
+	 * @param _controlIfExists : if true will not overwrite the existing File
 	 * @return returnedMessage
 	 */
-	public static ReturnedMessage moveFile(File fileToMove, String newPath, boolean controlIfExists){
+	public static ReturnedMessage moveFile(File _fileToMove, String _newPath, boolean _controlIfExists){
 		ReturnedMessage returnedMessage = new ReturnedMessage();
 		returnedMessage.setFiles(List.create(java.io.File.class));
-		File movedFile=new File(formatPathWithEndSeparator(newPath)+ fileToMove.getName());
-		if(controlIfExists && movedFile.exists()){
+		File movedFile=new File(formatPathWithEndSeparator(_newPath)+ _fileToMove.getName());
+		if(_controlIfExists && movedFile.exists()){
 			returnedMessage.setText("The File you want to move already exists in the destination location, do you really want to overwrite it?");
 			returnedMessage.setType(INFORMATION_MESSAGE);
 			returnedMessage.setFile(movedFile);
@@ -1034,7 +1050,7 @@ public abstract class FileHandler
 				}
 			try {
 				if(movedFile.createNewFile()){
-					FileInputStream fis = new FileInputStream(fileToMove);
+					FileInputStream fis = new FileInputStream(_fileToMove);
 					FileOutputStream fos = new FileOutputStream(movedFile);
 					byte b[] = new byte[1024];
 					int c=0;
@@ -1043,7 +1059,7 @@ public abstract class FileHandler
 					}
 					fis.close();
 					fos.close();
-					fileToMove.delete();
+					_fileToMove.delete();
 				}else{
 					returnedMessage.setText("Error while writing the moved File. Please try later again.");
 					returnedMessage.setType(ERROR_MESSAGE);
@@ -1127,7 +1143,7 @@ public abstract class FileHandler
 	 * @param _fileToPaste : java.io.File the File to copy
 	 * @param _newPath : String the destination folder's path
 	 * @return returnedMessage: ReturnedMessage indicating the result of the operation,<br>
-	 * contains the list of successfull new created files.
+	 * contains the list of successful new created files.
 	 */
 	public static ReturnedMessage pasteCopiedFile(List<java.io.File> _filesToPaste, String _newPath){
 		ReturnedMessage returnedMessage = new ReturnedMessage();
@@ -1192,7 +1208,7 @@ public abstract class FileHandler
 
 	/**
 	 * Lists all the documents (Files that are not directories) that are recursively under the specified path.<br>
-	 * All the directories and subdirectories under the specified path are going to be listed.
+	 * All the directories and sub directories under the specified path are going to be listed.
 	 * @param givenPath String: The path to be listed
 	 * @return ArrayList<DocumentOnServer> : All the documents as DocumentOnServer Objects that are in the tree under the path.<br>
 	 * This arrayList can be directly used as List<DocumentOnServer> within the Ivy.designer 
@@ -1218,7 +1234,7 @@ public abstract class FileHandler
 
 	/**
 	 * Lists all the documents (Files that are not directories) that are directly under the specified path.<br>
-	 * The directories and subdirectories under the specified path are NOT going to be listed.
+	 * The directories and sub directories under the specified path are NOT going to be listed.
 	 * @param directory String: The path to be listed
 	 * @return ArrayList<DocumentOnServer> : All the documents as DocumentOnServer Objects that are directely in the path.<br>
 	 * This arrayList can be directly used as List<DocumentOnServer> within the Ivy.designer 
@@ -1226,20 +1242,29 @@ public abstract class FileHandler
 	public static ArrayList<DocumentOnServer> getDocumentsInDir(File directory)
 	{
 		ArrayList<DocumentOnServer>  al = new ArrayList<DocumentOnServer>();
-		if(!directory.exists() && !directory.isDirectory())
+		if(!directory.isDirectory())
+		{
 			return al;
+		}
+			
 		File files[] = directory.listFiles();
+		String today = new Date().format("dd.MM.yyyy");
+		String now = new Time().format();
 		for(int i = 0; i < files.length; i++)
 			if(files[i].isFile())
 			{
 				DocumentOnServer doc = new DocumentOnServer();
 				doc.setFileID("");
-				doc.setPath(files[i].getPath());
+				doc.setPath(files[i].getPath().replace("\\", "/"));
 				doc.setFilename(files[i].getName());
 				doc.setFileSize(getFileSize(files[i]));
-				doc.setUserID("");
-				doc.setCreationDate("00.00.0000");
-				doc.setCreationTime("00:00:00");
+				doc.setUserID("IVYSYSTEM");
+				doc.setCreationDate(today);
+				doc.setCreationTime(now);
+				doc.setModificationUserID("IVYSYSTEM");
+				doc.setModificationDate(today);
+				doc.setModificationTime(now);
+				doc.setDescription("");
 				al.add(doc);
 			}
 
@@ -1313,15 +1338,17 @@ public abstract class FileHandler
 		ArrayList<DocumentOnServer>  documentsDiff = new ArrayList<DocumentOnServer>();
 		for(DocumentOnServer doc: secondList){
 			boolean flag = false;
-			String pathToCheck = formatPath(doc.getPath());
+			String pathToCheck = doc.getPath();
 			for(DocumentOnServer doc2 : firstList){
-				if(pathToCheck.equals(formatPath(doc2.getPath()))){
+				if(pathToCheck.equals(doc2.getPath())){
 					flag=true;
 					break;
 				}
 			}
 			if(!flag)
+			{
 				documentsDiff.add(doc);
+			}
 		}
 
 		documentsDiff.trimToSize();
@@ -1580,13 +1607,13 @@ public abstract class FileHandler
 
 	/**
 	 * get the foleder Name with a given path
-	 * @param p the path
+	 * @param _p the path
 	 * @return the folder name corresponding to the given path
 	 */
-	public static String getFolderNameFromPath(String p){
+	public static String getFolderNameFromPath(String _p){
 		try{
 			String regex =File.separator;
-			String path= formatPathWithEndSeparator(p,false);
+			String path= formatPathWithEndSeparator(_p,false);
 
 			path = path.substring(0,path.length()-1);
 			//Ivy.log().info("Path is "+path +" "+ path.lastIndexOf(regex));
@@ -1678,7 +1705,7 @@ public abstract class FileHandler
 	}
 
 	/**
-	 * Returns the File extension from a given file name
+	 * Returns the File extension without "." from a given file name
 	 * @param fileName the string filename
 	 * @return the file extension
 	 */
@@ -1725,6 +1752,13 @@ public abstract class FileHandler
 	 * @throws exception in case of outOufBoundIndexException or in case of NullPointerException
 	 */
 	public static String getFileDirectoryPath(File file) throws Exception {
+		if(file == null){
+			return "";
+		}
+		if(file.getPath().lastIndexOf(File.separator) <=0)
+		{
+			return "";
+		}
 		String s = file.getPath().substring(0, file.getPath().lastIndexOf(File.separator));
 		return s;
 	}

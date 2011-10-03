@@ -66,3 +66,9 @@ errorUtil ch.ivyteam.ivy.addons.filemanager.ErrorUtil #field
 errorUtil 'used as event param in errorOccurred broadcast' #fieldComment
 incomingErrorUtil ch.ivyteam.ivy.addons.filemanager.ErrorUtil #field
 incomingErrorUtil 'used as incoming event param in errorOccurred broadcast' #fieldComment
+filesToUpload List<String> #field
+filesToUpload 'used in DnD operations for Files dragged from the Client OS into the RIA Application' #fieldComment
+filesToOverwrite List<java.io.File> #field
+filesToOverwrite 'used in DnD operations to determine wich files are going to be overwritten.' #fieldComment
+docsToOverwrite List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+docsToOverwrite 'used in DnD operations to determine wich documentOnServer objects are going to be overwritten.' #fieldComment

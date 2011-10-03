@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Feb 23 08:10:15 CET 2011]
-125F987FBCF8B3EC 3.16 #module
+[>Created: Fri May 20 10:41:05 CEST 2011]
+125F987FBCF8B3EC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FileEditorCheckerProcess Big #zClass
 Fs0 RD #cInfo
@@ -319,8 +319,10 @@ Fs0 f34 fireEvent fileModified(java.io.File) #txt
 Fs0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>fileModified(File)</name>
-        <nameStyle>18,9
+        <name>fileModified(File)
+@APP</name>
+        <nameStyle>19,7,9
+4,7,9
 </nameStyle>
     </language>
 </elementInfo>

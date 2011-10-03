@@ -48,7 +48,10 @@ clientTempDirPath 'the path of the client temp dirctory' #fieldComment
 returnedCode Number #field
 returnedCode 'Number Flag to store the response from the user for actions such as delete or replace a file.' #fieldComment
 selectedDocuments List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
-selectedDocuments 'List of selected Documents on the server in the table' #fieldComment
+selectedDocuments 'List of selected Documents on the server in the table, used in inner method' #fieldComment
+selectedDocumentsForParent List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+selectedDocumentsForParent 'List of selected Documents on the server in the table, reflect always the selected documents, used in the documentSelected RDEvent @SUBSC' #fieldComment
+selectedDocumentsForParent PERSISTENT #fieldModifier
 clientPathSeparator String #field
 clientPathSeparator 'the system path separator on the client (/ on UNIX,\ on Windows)' #fieldComment
 ListOfFileCoupleToUnlock List<ch.ivyteam.ivy.addons.filemanager.FileCouple> #field
@@ -89,6 +92,8 @@ fileToEdit java.io.File #field
 fileToEdit 'java.io.File used to store a File to be edited' #fieldComment
 filesToOverwrite List<java.io.File> #field
 filesToOverwrite 'stores a list of Files the user choosed to overwrtite in copy/paste, Dnd operatiions etc...' #fieldComment
+docsToOverwrite List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+docsToOverwrite 'stores a list of DocumentOnServer the user choosed to overwrtite in copy/paste, Dnd operatiions etc...' #fieldComment
 progressText String #field
 progressText 'the Text displayed on the progressBar' #fieldComment
 ivyConnexionDBName String #field
@@ -130,4 +135,11 @@ roundedCornerIconsMode Boolean #field
 roundedCornerIconsMode 'If true then tolbars with iPhone icons like are displayed, otherwise the "normal" icons are displayed.' #fieldComment
 readOnlyMode Boolean #field
 readOnlyMode 'If true then the edit/credit/remove/ toolbar actions will be disabled.' #fieldComment
-readOnlyMode PERSISTENT #fieldModifier
+filesToUpload List<String> #field
+filesToUpload 'List of paths of files to upload on the server. Used in Dnd operations.' #fieldComment
+selectedTreePath com.ulcjava.base.application.tree.TreePath #field
+selectedTreePath 'the selected TreePath' #fieldComment
+filesStoredInDB Boolean #field
+filesStoredInDB 'if true, we use a database BLOB to stores the files, else the files are physically stored on the file system from the server.' #fieldComment
+maxSizeFileUpload Number #field
+maxSizeFileUpload 'max File Size for upload in Kb. If under or equal to zero then no limit' #fieldComment

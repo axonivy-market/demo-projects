@@ -1,4 +1,4 @@
-co: name={NoFilesMovedBecauseLocked} description={} changed={2010-10-14 10:01:00 CEST} changedby={ec} visualorder={0} guid={12BA9BD6C95D6C03} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={12BA9BD6CB5DC240} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-31 15:55:29 CEST} validto={} changed={2010-10-14 10:01:00 CEST} changedby={ec} properties={} id={}
-val: guid={12BA9BD6CB5F4829} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-31 15:57:28 CEST} validto={} changed={2010-10-14 10:01:00 CEST} changedby={ec} properties={} id={}
-val: guid={12BA9BD6CA5A2D3F} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-31 15:55:48 CEST} validto={} changed={2010-10-14 10:01:00 CEST} changedby={ec} properties={} id={}
+co: name={NoFilesMovedBecauseLocked} description={} changed={2011-04-19 14:26:21 CEST} changedby={ec} visualorder={0} guid={12BA9BD6C95D6C03} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={12BA9BD6CA5A2D3F} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-31 15:55:48 CEST} validto={} changed={2011-04-19 14:26:21 CEST} changedby={ec} properties={} id={}
+val: guid={12BA9BD6CB5DC240} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-31 15:55:29 CEST} validto={} changed={2011-04-19 14:26:21 CEST} changedby={ec} properties={} id={}
+val: guid={12BA9BD6CB5F4829} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-31 15:57:28 CEST} validto={} changed={2011-04-19 14:26:21 CEST} changedby={ec} properties={} id={}

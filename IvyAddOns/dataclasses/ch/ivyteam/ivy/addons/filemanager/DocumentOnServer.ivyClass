@@ -28,3 +28,11 @@ lockingUserID String #field
 lockingUserID 'The user who currently edits this File' #fieldComment
 description String #field
 description 'The description of the document' #fieldComment
+extension String #field
+extension 'The file Extension' #fieldComment
+content Binary #field
+content 'The file content used in case of storage in database' #fieldComment
+ivyFile File #field
+ivyFile 'ivy File to be able to edit the corresponding File in case of DB storage.' #fieldComment
+javaFile java.io.File #field
+javaFile 'java io File, edit a physically stored File' #fieldComment

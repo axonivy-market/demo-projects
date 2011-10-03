@@ -143,6 +143,7 @@ public class FileCoupleChecker<T extends IRichDialogPanel>{
 								if(dirpath!=null){
 									FileHandler.upload(f, dirpath);
 									RDCallbackMethodHandler.callRDMethod(this.parentRD, this.fileModifiedMethodName, new Object[] { fileCouples.get(i).getServerFile() });
+									RDCallbackMethodHandler.callRDMethod(this.parentRD, this.fileModifiedMethodName, new Object[] { fileCouples.get(i)});
 								}
 								continue search;
 							}
@@ -188,7 +189,7 @@ public class FileCoupleChecker<T extends IRichDialogPanel>{
 	}
 
 	/**
-	 * Returns the last stand of the FileCouples with the actualisated checksums for the Files on the server
+	 * Returns the last stand of the FileCouples with the actualised checksums for the Files on the server
 	 * @return the ArrayList of the FileCouple that are currently edited.
 	 */
 	public ArrayList<FileCouple> computeFileServerChecksum(){

@@ -10,6 +10,7 @@ import ch.ivyteam.ivy.richdialog.widgets.components.RTree;
 
 import com.ulcjava.base.application.dnd.DataFlavor;
 import com.ulcjava.base.application.dnd.DnDData;
+import com.ulcjava.base.application.dnd.DnDFileListData;
 import com.ulcjava.base.application.dnd.DnDLabelData;
 import com.ulcjava.base.application.dnd.DnDListData;
 import com.ulcjava.base.application.dnd.DnDTableData;
@@ -116,6 +117,10 @@ public class DnDUtils {
 		{
 			result.values = getLabelValue((DnDLabelData) data);
 			result.data = (DnDLabelData) data;
+		}else if(data instanceof DnDFileListData)
+		{
+			result.values = getListFilesValues((DnDFileListData) data);
+			result.data = (DnDFileListData) data;
 		}
 		else
 		{
@@ -184,6 +189,15 @@ public class DnDUtils {
 		for(TreePath path : paths)
 		{
 			values.add(tree.getTreeNodeForPath(path).getValue());
+		}
+		return values;
+	}
+	
+	private static List getListFilesValues(final DnDFileListData data){
+		LinkedList values = new LinkedList();
+		String[] l = data.getFileNames();
+		for(int i =0; i<l.length; i++){
+			values.add(l[i].replace("\\", "/"));
 		}
 		return values;
 	}

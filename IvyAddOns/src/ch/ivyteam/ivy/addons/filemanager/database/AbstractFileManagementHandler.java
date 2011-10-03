@@ -8,8 +8,10 @@ import java.util.ArrayList;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.List;
+import ch.ivyteam.ivy.scripting.objects.Tree;
 import ch.ivyteam.ivy.addons.filemanager.KeyValuePair;
 import ch.ivyteam.ivy.addons.filemanager.DocumentOnServer;
+import ch.ivyteam.ivy.addons.filemanager.ReturnedMessage;
 
 /**
  * @author ec<br>
@@ -25,6 +27,36 @@ public abstract class AbstractFileManagementHandler {
 	public static final int XML_INDEXATION=2;
 	public static final int OTHER_INDEXATION=3;
 	public static int indexation_Type=DATABASE_INDEXATION; //default is the use of a database to store the indexation of the files
+	
+	/**
+	 * Flag indicating that the files' content is stored in files on the file system
+	 */
+	public static final int FILE_STORAGE_FILESYSTEM=1;
+	/**
+	 * Flag indicating that the files' content is stored in a database
+	 */
+	public static final int FILE_STORAGE_DATABASE=2;
+	/**
+	 * variable indicating what kind of file storage has been chosen: File System or Database.
+	 */
+	public static int file_content_storage_type = FILE_STORAGE_FILESYSTEM;
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static int getFile_content_storage_type() {
+		return file_content_storage_type;
+	}
+
+	/**
+	 * 
+	 * @param fileContentStorageType
+	 */
+	public static void setFile_content_storage_type(int fileContentStorageType) {
+		file_content_storage_type = fileContentStorageType;
+	}
+
 	/**
 	 * get the Class Object of the current AbstractFileManagementHandler implementation Class
 	 * @return the class Object of the current AbstractFileManagementHandler implementation Class
@@ -89,17 +121,51 @@ public abstract class AbstractFileManagementHandler {
 	 * @throws Exception
 	 */
 	public abstract int deleteDocuments(List<DocumentOnServer> _documents) throws Exception;
+	
+	/**
+	 * Returns the documentOnServer Object with its java.io.File attribute set with the corresponding File.<br>
+	 * If the Files are stored on the File System, then the java.io.File will be the existing File.<br>
+	 * If the File content is stored into a DB, a new non persistent Ivy File will be created with the content,<br>
+	 * and the corresponding java.io.File will be used to set the java.io.File attribute of the resulting documentOnServer.
+	 * @param _doc: the documentOnServer which java.io.File attribute should be set.
+	 * @return the documentOnServer Object with its java.io.File attribute set.
+	 * @throws Exception
+	 */
+	public abstract DocumentOnServer getDocumentOnServerWithJavaFile(DocumentOnServer _doc) throws Exception;
+	
+	/**
+	 * Returns the documentOnServer Object pointing to the given file path with its java.io.File attribute set with the corresponding File.<br>
+	 * If the Files are stored on the File System, then the java.io.File will be the existing File.<br>
+	 * If the File content is stored into a DB, a new non persistent Ivy File will be created with the content,<br>
+	 * and the corresponding java.io.File will be used to set the java.io.File attribute of the resulting documentOnServer.
+	 * @param _filePath: the File path as String.
+	 * @return the documentOnServer Object with its java.io.File attribute set. Can be null if no documentOnServer was found on this path.
+	 * @throws Exception
+	 */
+	public abstract DocumentOnServer getDocumentOnServerWithJavaFile(String _filePath) throws Exception;
 
 	/**
-	 * get all the Files that are listed under a specified path<br>
+	 * Get all the DocumentOnsErver Objects that are listed under a specified path<br>
 	 * @param _path: String representing the path of the directory that contains the files<br>
-	 * @param _isrecursive: boolean, if true, all the files in the tree structrure under the directory are going to be listed.<br>
+	 * @param _isrecursive: boolean, if true, all the files in the tree structure under the directory are going to be listed.<br>
 	 * If false, only the files directly under the directory are going to be listed
 	 * @return an ArrayList of {@link DocumentOnServer} Objects. Each DocumentOnServer object represents a File with several informations (name, path, size, creationdate, creationUser...)
 	 * @throws Exception
 	 */
 	public abstract ArrayList<DocumentOnServer> getDocumentsInPath(String _path, boolean _isRecursive) throws Exception;
 
+	/**
+	 * Get all the DocumentOnsErver Objects that are listed under a specified path.<br>
+	 * The java.io.File Attribute of each documentOnServer will be set with the existing java.io.File if it is stored on the FileSystem,<br>
+	 * or with the corresponding java.io.File of the non persistent Ivy File created with the File Content stored in the DB.
+	 * @param _path: String representing the path of the directory that contains the files<br>
+	 * @param _isrecursive: boolean, if true, all the files in the tree structure under the directory are going to be listed.<br>
+	 * If false, only the files directly under the directory are going to be listed
+	 * @return an ArrayList of {@link DocumentOnServer} Objects. Each DocumentOnServer object represents a File with several informations (name, path, size, creationdate, creationUser...)
+	 * @throws Exception
+	 */
+	public abstract ArrayList<DocumentOnServer> getDocumentsWithJavaFileInPath (String _path, boolean _isRecursive) throws Exception;
+	
 	/**
 	 * get all the DocumentOnServer with the use of filtering conditions.<br>
 	 * If you use a Database to store the file properties, the SQL query will be built with the given list of 'AND' conditions.<br>
@@ -209,13 +275,22 @@ public abstract class AbstractFileManagementHandler {
 	public abstract boolean isFileLockedByAnotherUser(java.io.File _file, String _user) throws Exception;
 
 	/**
-	 * Loof if a DocumentOnServer is actually locked by a user<br>
+	 * Looks if a DocumentOnServer is actually locked by a user<br>
 	 * If you don't have a locking System for File edition, just override this method with no action in it and return always false.
 	 * @param _doc: the DocumentOnServer to check
 	 * @return true if the DocumentOnServer is locked, else false
 	 * @throws Exception
 	 */
 	public abstract boolean isDocumentOnServerLocked(DocumentOnServer _doc) throws Exception;
+	
+	/**
+	 * Checks if a DocumentOnServer is actually locked by a user different from the specified user.<br>
+	 * @param _doc: the DocumentOnServer to check
+	 * @param _user the user who has not to lock the file
+	 * @return true if the DocumentOnServer is locked by another user as the given one, else false.
+	 * @throws Exception
+	 */
+	public abstract boolean isDocumentOnServerLocked(DocumentOnServer _doc, String _user) throws Exception;
 
 	/**
 	 * return all the locked documents under a given path
@@ -247,8 +322,112 @@ public abstract class AbstractFileManagementHandler {
 	public abstract void changeModificationInformations(java.io.File _file, String _userID) throws Exception;
 	
 	/**
+	 * this method allows getting a DocumentOnServer with the given Path
+	 * @param _filePath the filePath
+	 * @return the ch.ivyteam.ivy.addons.filemanager.DocumentOnServer corresponding to the given path.<br>
+	 */
+	public abstract DocumentOnServer getDocumentOnServer(String _filePath) throws Exception;
+	
+	
+	/**
+	 * Saves a ch.ivyteam.ivy.addons.filemanager.DocumentOnServer in the persistence System (File System, database...)
+	 * @param _document: the ch.ivyteam.ivy.addons.filemanager.DocumentOnServer to save
+	 * @param _fileDestinationPath: where to save the DocumentOnServer. If the destinationPath is the same than the DocumentOnServer Path the DocumentOnServer will be updated.<br>
+	 * If the destinationPath is different, this method can be used to MOVE a DocumentOnServer. Or it can be used to store the file in a database.
+	 * @return the saved ch.ivyteam.ivy.addons.filemanager.DocumentOnServer contained in the ch.ivyteam.ivy.addons.filemanager.ReturnedMessage object
+	 * @throws Exception
+	 */
+	public abstract ReturnedMessage saveDocumentOnServer(DocumentOnServer _document, String _fileDestinationPath) throws Exception;
+	
+	/**
+	 * Insert a list of copied ch.ivyteam.ivy.addons.filemanager.DocumentOnServer in the persistence System (File System, database...).
+	 * This methods adds a _CopyX at the end of the name of copied Files if they would have overwritten other existing files.
+	 * @param _document: the List<DocumentOnServer> copied objects to save
+	 * @param _fileDestinationPath: where to save the DocumentOnServer objects.<br>
+	 * @return the saved ch.ivyteam.ivy.addons.filemanager.DocumentOnServer objects contained in the ch.ivyteam.ivy.addons.filemanager.ReturnedMessage object
+	 * @throws Exception
+	 */
+	public abstract ReturnedMessage pasteCopiedDocumentOnServers(List<DocumentOnServer> _documents, String _fileDestinationPath) throws Exception;
+	
+	/**
+	 * Renames a document
+	 * @param _document: the ch.ivyteam.ivy.addons.filemanager.DocumentOnServer to be renamed
+	 * @param _newName: the new name as String
+	 * @return the renamed ch.ivyteam.ivy.addons.filemanager.DocumentOnServer contained in the ch.ivyteam.ivy.addons.filemanager.ReturnedMessage object
+	 * @throws Exception
+	 */
+	public abstract ReturnedMessage renameDocumentOnServer(DocumentOnServer _document, String _newName) throws Exception;
+	
+	
+	/**
+	 * Deletes a ch.ivyteam.ivy.addons.filemanager.DocumentOnServer.
+	 * @param _document ch.ivyteam.ivy.addons.filemanager.DocumentOnServer to delete
+	 * @return a ch.ivyteam.ivy.addons.filemanager.ReturnedMessage containing the type of result <br>
+	 * (ch.ivyteam.ivy.addons.filemanager.ReturnedMessage.SUCCESS_MESSAGE / ERROR_MESSAGE / INFORMATION_MESSAGE);
+	 */
+	public abstract ReturnedMessage deleteDocumentOnServer(DocumentOnServer _document) throws Exception;
+	
+	/**
+	 * Deletes a List of ch.ivyteam.ivy.addons.filemanager.DocumentOnServer.
+	 * @param _documents List of ch.ivyteam.ivy.addons.filemanager.DocumentOnServer to delete.
+	 * @return a ch.ivyteam.ivy.addons.filemanager.ReturnedMessage containing the type of result <br>
+	 * (ch.ivyteam.ivy.addons.filemanager.ReturnedMessage.SUCCESS_MESSAGE / ERROR_MESSAGE / INFORMATION_MESSAGE);
+	 * @throws Exception
+	 */
+	public abstract ReturnedMessage deleteDocumentOnServers(List<DocumentOnServer> _documents) throws Exception;
+	
+	/**
+	 * Returns the directory structure as a Tree under a parent folder.  
+	 * @param _rootPath the path of the root directory
+	 * @return the directory structure as a ch.ivyteam.ivy.scripting.objects.Tree
+	 */
+	public abstract Tree getDirectoryTree(String _rootPath) throws Exception;
+	
+	/**
+	 * Lists all the DocumentOnServer in a directory. All the listed DocumentOnServer are "real" files and not directories.
+	 * @param _directoryPath: the directory path to be parsed for files.
+	 * @param _listChildrenDirectories: boolean if true, all the files under the directory structure are going to be listed. <br>
+	 * Else only the files directly contained in the directory are going to listed.
+	 * @return : the list of ch.ivyteam.ivy.addons.filemanager.DocumentOnServer found in the directory.
+	 */
+	public abstract List<DocumentOnServer> getDocumentOnServersInDirectory(String _directoryPath, boolean _listChildrenDirectories) throws Exception;
+	
+	/**
+	 * Creates a new directory
+	 * @param _destinationPath
+	 * @param _newDirectoryName
+	 * @return a ch.ivyteam.ivy.addons.filemanager.ReturnedMessage containing the type of result <br>
+	 * (ch.ivyteam.ivy.addons.filemanager.ReturnedMessage.SUCCESS_MESSAGE / ERROR_MESSAGE / INFORMATION_MESSAGE);
+	 */
+	public abstract ReturnedMessage createDirectory(String _destinationPath, String _newDirectoryName) throws Exception;
+	
+	/**
+	 * Deletes the given directory and all the contained files and directories
+	 * @param _directoryPath : the path of the directory to delete
+	 * @return a ch.ivyteam.ivy.addons.filemanager.ReturnedMessage containing the type of result <br>
+	 * (ch.ivyteam.ivy.addons.filemanager.ReturnedMessage.SUCCESS_MESSAGE / ERROR_MESSAGE / INFORMATION_MESSAGE);
+	 */
+	public abstract ReturnedMessage deleteDirectory(String _directoryPath) throws Exception;
+	
+	/**
+	 * Renames a directory
+	 * @param _parentPath
+	 * @param _oldName
+	 * @param _newName
+	 * @return a ch.ivyteam.ivy.addons.filemanager.ReturnedMessage containing the type of result <br>
+	 * (ch.ivyteam.ivy.addons.filemanager.ReturnedMessage.SUCCESS_MESSAGE / ERROR_MESSAGE / INFORMATION_MESSAGE);
+	 */
+	public abstract ReturnedMessage renameDirectory(String _parentPath, String _oldName, String _newName) throws Exception;
+	
+	/**
+	 * Get the storage type where the files' content is going to be stored
+	 * @return
+	 */
+	public abstract int getFileStorageType();
+	
+	/**
 	 * Replaces all the backslashes through "/" in a String
-	 * All the file paths in the persistency system should use the "/" char as file separator
+	 * All the file paths in the persistence system should use the "/" char as file separator
 	 * @param _s the String (query) to treat
 	 * @return the String with all its backslashes replaced by "/" char
 	 */
@@ -258,6 +437,43 @@ public abstract class AbstractFileManagementHandler {
 			_s=_s.replaceAll("\\\\", "/");
 		}
 		return _s;
+	}
+	
+	/**
+	 * Formats a given path with "/" as separator<br>
+	 * so that it is always compatible for Windows, Linux and Mac OS.
+	 * It doesn't check if there is a File.separator at the end of the path.
+	 * @param _path
+	 * @return formatted path with the system File.separator
+	 */
+	public static String formatPath(String _path)
+	{
+		if(_path != null && !_path.equals(""))
+		{
+			_path = org.apache.commons.lang.StringUtils.replace(_path,"\\", "/");
+		}
+		return _path;
+	}
+	
+	/**
+	 * Formats a given directory path with "/" as separator<br>
+	 * so that it is always compatible for Windows, Linux and Mac OS.<br>
+	 * The resulting path ends always with "/"
+	 * @param _path
+	 * @return formatted path with "/"
+	 */
+	public static String formatPathForDirectory(String _path)
+	{
+		if(_path != null && !_path.trim().equals(""))
+		{
+			_path=_path.trim();
+			_path = org.apache.commons.lang.StringUtils.replace(_path,"\\", "/");
+			if(!_path.endsWith("/"))
+			{
+				_path=_path+"/";
+			}
+		}
+		return _path;
 	}
 
 	/**

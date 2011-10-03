@@ -5,6 +5,7 @@ All the files presents in a folder are listed into a DB system. The List from th
 At the start of the RDC a consistancy cjheck between the DB and the filesystem is going to be performed.&#xD;
 You can perform basic actions on the selected files: open / download / upload / delete</description>
     <tags>file list table</tags>
+    <autoScreenshot>true</autoScreenshot>
     <acceptedBroadcast>
         <name>SE_fileLocked</name>
         <description>Catch the System Event SE_fileLocked and update its list&#xD;
@@ -283,6 +284,17 @@ If True, the user will be able to select more then one File at a time.</descript
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
+    <method>
+        <name>_uploadFilesFromOSDnD</name>
+        <description>Used in DnD operations from Client OS to the RIA application.&#xD;
+Param: the list of the files paths to be uploaded from the client Computer.</description>
+        <inputParameter>
+            <name>clientFilesPathList</name>
+            <description>the list of DnD files Paths form the Client Computer</description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
     <startMethod>
         <name>startWithPath</name>
         <description>Start with &#xD;
@@ -488,6 +500,16 @@ sends the list of successfully uploaded Files.</description>
             <name>errorUtil</name>
             <description></description>
             <parameterType>ch.ivyteam.ivy.addons.filemanager.ErrorUtil</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>documentSelectionChanged</name>
+        <description></description>
+        <attachment>
+            <name>selectedDocumentOnServers</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
             <nullPermitted>true</nullPermitted>
         </attachment>
     </firedEvent>

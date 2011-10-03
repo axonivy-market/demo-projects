@@ -8,4 +8,9 @@ text 'the message' #fieldComment
 file java.io.File #field
 file 'File concerned by the action. Can be null' #fieldComment
 files List<java.io.File> #field
-files 'Lis of java.io.File concerned by the action' #fieldComment
+files 'List of java.io.File concerned by the action' #fieldComment
+documentOnServers List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+documentOnServers 'List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> concerned by the action ' #fieldComment
+documentOnServer ch.ivyteam.ivy.addons.filemanager.DocumentOnServer #field
+documentOnServer 'DocumentOnServer concerned by the action.' #fieldComment
+documentOnServer PERSISTENT #fieldModifier

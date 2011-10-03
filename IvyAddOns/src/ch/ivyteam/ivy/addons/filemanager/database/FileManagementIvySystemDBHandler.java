@@ -2,6 +2,8 @@
 package ch.ivyteam.ivy.addons.filemanager.database;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,15 +15,19 @@ import ch.ivyteam.ivy.scripting.objects.List;
 import ch.ivyteam.ivy.scripting.objects.Record;
 import ch.ivyteam.ivy.scripting.objects.Recordset;
 import ch.ivyteam.ivy.scripting.objects.Time;
+import ch.ivyteam.ivy.scripting.objects.Tree;
+import ch.ivyteam.ivy.addons.filemanager.FolderOnServer;
 import ch.ivyteam.ivy.addons.filemanager.KeyValuePair;
 import ch.ivyteam.ivy.addons.filemanager.DocumentOnServer;
 import ch.ivyteam.ivy.addons.filemanager.FileHandler;
+import ch.ivyteam.ivy.addons.filemanager.ReturnedMessage;
+import ch.ivyteam.ivy.environment.Ivy;
 
 /**
  * @author ec
  * @since 01.07.2010
  *	This class is the FileManager DB Handler with the Ivy System Database.
- *	It is used if the informations about the Files in the Filemanager are stored in a table located in the IvySystem DB.
+ *	It is used if the informations about the Files in the File manager are stored in a table located in the IvySystem DB.
  */
 @SuppressWarnings("restriction")
 public class FileManagementIvySystemDBHandler extends AbstractFileManagementHandler{
@@ -33,7 +39,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 	 * Please use this constructor if you are not sure of the Ivy DB TableName for the files.
 	 */
 	public FileManagementIvySystemDBHandler() {
-		this("IWA_UPLOADEDFILE");
+		this("IWA_UploadedFile");
 	}
 
 	/**
@@ -42,7 +48,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 	 */
 	public FileManagementIvySystemDBHandler(String _tableName) {
 		super();
-		this.tableName="IWA_UPLOADEDFILE";
+		this.tableName="IWA_UploadedFile";
 
 	}
 
@@ -53,7 +59,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 	 * Each condition should be written like : "FILEID > 1000", "FILENAME NOT LIKE 'test.doc'", "FILENAME LIKE 'test.doc'"...<br>
 	 * @param _conditions: List<String> representing the conditions to perform the search in the DB
 	 * @return an ArrayList of {@link DocumentOnServer} Objects.<br>
-	 * Each DocumentOnServer object represents a File with several informations (name, path, size, creationdate, creationUser...)
+	 * Each DocumentOnServer object represents a File with several informations (name, path, size, creation date, creationUser...)
 	 * @throws Exception 
 	 */
 	public ArrayList<DocumentOnServer> getDocuments(List<String> _conditions)throws Exception{
@@ -81,19 +87,19 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		if(rset!=null && recordList!=null){
 			for(Record rec: recordList){
 				DocumentOnServer doc = new DocumentOnServer();
-				doc.setFileID(rec.getField("FILEID").toString());
-				doc.setFilename(rec.getField("FILENAME").toString());
-				doc.setPath(rec.getField("FILEPATH").toString());
-				doc.setFileSize(rec.getField("FILESIZE").toString());
-				doc.setUserID(rec.getField("CREATIONUSERID").toString());
-				doc.setCreationDate(rec.getField("CREATIONDATE").toString());
-				doc.setCreationTime(rec.getField("CREATIONTIME").toString());
-				doc.setModificationUserID(rec.getField("MODIFICATIONUSERID").toString());
-				doc.setModificationDate(rec.getField("MODIFICATIONDATE").toString());
-				doc.setModificationTime(rec.getField("MODIFICATIONTIME").toString());
-				doc.setLocked(rec.getField("LOCKED").toString().equals("false")?"0":(rec.getField("LOCKED").toString().equals("true")?"1":rec.getField("LOCKED").toString()));
-				doc.setLockingUserID(rec.getField("LOCKINGUSERID").toString());
-				doc.setDescription(rec.getField("DESCRIPTION").toString());
+				doc.setFileID(rec.getField("FileId").toString());
+				doc.setFilename(rec.getField("FileName").toString());
+				doc.setPath(rec.getField("FilePath").toString());
+				doc.setFileSize(rec.getField("FileSize").toString());
+				doc.setUserID(rec.getField("CreationUserId").toString());
+				doc.setCreationDate(rec.getField("CreationDate").toString());
+				doc.setCreationTime(rec.getField("CreationTime").toString());
+				doc.setModificationUserID(rec.getField("ModificationUserId").toString());
+				doc.setModificationDate(rec.getField("ModificationDate").toString());
+				doc.setModificationTime(rec.getField("ModificationTime").toString());
+				doc.setLocked(rec.getField("Locked").toString().equals("false")?"0":(rec.getField("Locked").toString().equals("true")?"1":rec.getField("Locked").toString()));
+				doc.setLockingUserID(rec.getField("LockingUserId").toString());
+				doc.setDescription(rec.getField("Description").toString());
 				al.add(doc);
 			}
 		}
@@ -107,10 +113,10 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 	/**
 	 * Returns all the DocumentOnServer stores in the FileManager table of the Ivy System DB.<br>
 	 * @param _path: String representing the path of the directory that contains the files
-	 * @param _isrecursive: boolean, if true, all the files in the tree structrure under the directory are going to be listed.<br>
+	 * @param _isrecursive: boolean, if true, all the files in the tree structure under the directory are going to be listed.<br>
 	 * If false, only the files directly under the directory are going to be listed
 	 * @return an ArrayList of {@link DocumentOnServer} Objects.<br>
-	 * Each DocumentOnServer object represents a File with several informations (name, path, size, creationdate, creationUser...)
+	 * Each DocumentOnServer object represents a File with several informations (name, path, size, creation date, creationUser...)
 	 * @throws Exception 
 	 */
 	public ArrayList<DocumentOnServer> getDocumentsInPath(String _path, final boolean _isrecursive) throws Exception{
@@ -120,12 +126,12 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		String query="";
 		if(_isrecursive)
 		{
-			query="SELECT * FROM "+this.tableName+" WHERE FILEPATH LIKE ?";
+			query="SELECT * FROM "+this.tableName+" WHERE FilePath LIKE ?";
 		}
 		else
 		{
-			//query="SELECT * FROM "+this.tableName+" WHERE FILEPATH LIKE '"+folderPath+"%' AND FILEPATH NOT LIKE '"+folderPath+"%["+java.io.File.separator+"]%'";
-			query="SELECT * FROM "+this.tableName+" WHERE FILEPATH LIKE ? AND FILEPATH NOT LIKE ?";
+			//query="SELECT * FROM "+this.tableName+" WHERE FilePath LIKE '"+folderPath+"%' AND FilePath NOT LIKE '"+folderPath+"%["+java.io.File.separator+"]%'";
+			query="SELECT * FROM "+this.tableName+" WHERE FilePath LIKE ? AND FilePath NOT LIKE ?";
 		}
 		List<Record> recordList= (List<Record>) List.create(Record.class);
 
@@ -156,24 +162,75 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		if(rset!=null && recordList!=null){
 			for(Record rec: recordList){
 				DocumentOnServer doc = new DocumentOnServer();
-				doc.setFileID(rec.getField("FILEID").toString());
-				doc.setFilename(rec.getField("FILENAME").toString());
-				doc.setPath(rec.getField("FILEPATH").toString());
-				doc.setFileSize(rec.getField("FILESIZE").toString());
-				doc.setUserID(rec.getField("CREATIONUSERID").toString());
-				doc.setCreationDate(rec.getField("CREATIONDATE").toString());
-				doc.setCreationTime(rec.getField("CREATIONTIME").toString());
-				doc.setModificationUserID(rec.getField("MODIFICATIONUSERID").toString());
-				doc.setModificationDate(rec.getField("MODIFICATIONDATE").toString());
-				doc.setModificationTime(rec.getField("MODIFICATIONTIME").toString());
-				doc.setLocked(rec.getField("LOCKED").toString().equals("false")?"0":(rec.getField("LOCKED").toString().equals("true")?"1":rec.getField("LOCKED").toString()));
-				doc.setLockingUserID(rec.getField("LOCKINGUSERID").toString());
-				doc.setDescription(rec.getField("DESCRIPTION").toString());
+				doc.setFileID(rec.getField("FileId").toString());
+				doc.setFilename(rec.getField("FileName").toString());
+				doc.setPath(rec.getField("FilePath").toString());
+				doc.setFileSize(rec.getField("FileSize").toString());
+				doc.setUserID(rec.getField("CreationUserId").toString());
+				doc.setCreationDate(rec.getField("CreationDate").toString());
+				doc.setCreationTime(rec.getField("CreationTime").toString());
+				doc.setModificationUserID(rec.getField("ModificationUserId").toString());
+				doc.setModificationDate(rec.getField("ModificationDate").toString());
+				doc.setModificationTime(rec.getField("ModificationTime").toString());
+				doc.setLocked(rec.getField("Locked").toString().equals("false")?"0":(rec.getField("Locked").toString().equals("true")?"1":rec.getField("Locked").toString()));
+				doc.setLockingUserID(rec.getField("LockingUserId").toString());
+				doc.setDescription(rec.getField("Description").toString());
 				al.add(doc);
 			}
 		}
 		al.trimToSize();
 		return al;
+	}
+
+	@Override
+	public DocumentOnServer getDocumentOnServer(final String filePath)
+	throws Exception {
+		DocumentOnServer doc = new DocumentOnServer();
+		if(filePath==null || filePath.trim().equals("")){
+			return doc;
+		}
+		final String path =escapeBackSlash(filePath);
+		Recordset rset = null;
+		List<Record> recordList= (List<Record>) List.create(Record.class);
+
+		String query="SELECT * FROM "+this.tableName+" WHERE FilePath LIKE ?";
+		rset = IvySystemDBReuser.executePreparedStatement(query, 
+				new IPreparedStatementExecutable<Recordset>(){
+
+			public Recordset execute(PreparedStatement stmt) throws PersistencyException {
+				try{
+					stmt.setString(1, path);
+					return IvySystemDBReuser.executeStatement(stmt);
+				}catch(SQLException ex){
+					throw new PersistencyException(ex);
+				}
+			}
+		});
+		if(rset!=null)
+		{
+			recordList = rset.toList();
+		}
+		if(rset!=null && !recordList.isEmpty())
+		{
+			//we take the first one, normally just one
+			Record rec = recordList.get(0);
+
+			doc.setFileID(rec.getField("FileId").toString());
+			doc.setFilename(rec.getField("FileName").toString());
+			doc.setPath(rec.getField("FilePath").toString());
+			doc.setFileSize(rec.getField("FileSize").toString());
+			doc.setUserID(rec.getField("CreationUserId").toString());
+			doc.setCreationDate(rec.getField("CreationDate").toString());
+			doc.setCreationTime(rec.getField("CreationTime").toString());
+			doc.setModificationUserID(rec.getField("ModificationUserId").toString());
+			doc.setModificationDate(rec.getField("ModificationDate").toString());
+			doc.setModificationTime(rec.getField("ModificationTime").toString());
+			doc.setLocked(rec.getField("Locked").toString());
+			doc.setLockingUserID(rec.getField("LockingUserId").toString());
+			doc.setDescription(rec.getField("Description").toString());
+
+		}
+		return doc;
 	}
 
 
@@ -196,11 +253,11 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 
 		if(_isrecursive)
 		{
-			query="SELECT * FROM "+this.tableName+" WHERE LOCKED=1 AND FILEPATH LIKE ?";
+			query="SELECT * FROM "+this.tableName+" WHERE Locked=1 AND FilePath LIKE ?";
 		}else
 		{
-			//query="SELECT * FROM "+this.tableName+" WHERE LOCKED=1 AND FILEPATH LIKE '"+folderPath+"%' AND FILEPATH NOT LIKE '"+folderPath+"%["+java.io.File.separator+"]%'";
-			query="SELECT * FROM "+this.tableName+" WHERE LOCKED=1 AND FILEPATH LIKE ? AND FILEPATH NOT LIKE ?";
+			//query="SELECT * FROM "+this.tableName+" WHERE Locked=1 AND FilePath LIKE '"+folderPath+"%' AND FilePath NOT LIKE '"+folderPath+"%["+java.io.File.separator+"]%'";
+			query="SELECT * FROM "+this.tableName+" WHERE Locked=1 AND FilePath LIKE ? AND FilePath NOT LIKE ?";
 		}
 
 		rset = IvySystemDBReuser.executePreparedStatement(query, 
@@ -228,19 +285,19 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		if(rset!=null && recordList!=null){
 			for(Record rec: recordList){
 				DocumentOnServer doc = new DocumentOnServer();
-				doc.setFileID(rec.getField("FILEID").toString());
-				doc.setFilename(rec.getField("FILENAME").toString());
-				doc.setPath(rec.getField("FILEPATH").toString());
-				doc.setFileSize(rec.getField("FILESIZE").toString());
-				doc.setUserID(rec.getField("CREATIONUSERID").toString());
-				doc.setCreationDate(rec.getField("CREATIONDATE").toString());
-				doc.setCreationTime(rec.getField("CREATIONTIME").toString());
-				doc.setModificationUserID(rec.getField("MODIFICATIONUSERID").toString());
-				doc.setModificationDate(rec.getField("MODIFICATIONDATE").toString());
-				doc.setModificationTime(rec.getField("MODIFICATIONTIME").toString());
-				doc.setLocked(rec.getField("LOCKED").toString().equals("false")?"0":(rec.getField("LOCKED").toString().equals("true")?"1":rec.getField("LOCKED").toString()));
-				doc.setLockingUserID(rec.getField("LOCKINGUSERID").toString());
-				doc.setDescription(rec.getField("DESCRIPTION").toString());
+				doc.setFileID(rec.getField("FileId").toString());
+				doc.setFilename(rec.getField("FileName").toString());
+				doc.setPath(rec.getField("FilePath").toString());
+				doc.setFileSize(rec.getField("FileSize").toString());
+				doc.setUserID(rec.getField("CreationUserId").toString());
+				doc.setCreationDate(rec.getField("CreationDate").toString());
+				doc.setCreationTime(rec.getField("CreationTime").toString());
+				doc.setModificationUserID(rec.getField("ModificationUserId").toString());
+				doc.setModificationDate(rec.getField("ModificationDate").toString());
+				doc.setModificationTime(rec.getField("ModificationTime").toString());
+				doc.setLocked(rec.getField("Locked").toString().equals("false")?"0":(rec.getField("Locked").toString().equals("true")?"1":rec.getField("Locked").toString()));
+				doc.setLockingUserID(rec.getField("LockingUserId").toString());
+				doc.setDescription(rec.getField("Description").toString());
 				al.add(doc);
 			}
 		}
@@ -302,7 +359,21 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 				try{
 					int i = 1;
 					for(KeyValuePair kvp: _KVP){
+						/*
 						stmt.setString(i, kvp.getValue().toString());
+						i++;
+						 */
+						if(kvp.getValue() instanceof String){
+							stmt.setString(i, kvp.getValue().toString());
+						}else{
+							int n=0;
+							try{
+								n = Integer.parseInt(kvp.getValue().toString());
+							}catch(Exception ex){
+
+							}
+							stmt.setInt(i, n);
+						}
 						i++;
 					}
 					return new Integer(stmt.executeUpdate());
@@ -322,9 +393,9 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		{
 			return result;
 		}
-		
+
 		result =true;
-		String query= "UPDATE "+this.tableName+" SET FILENAME = ?, FILEPATH = ?, MODIFICATIONDATE = ?, MODIFICATIONTIME = ?, MODIFICATIONUSERID = ? WHERE FILEPATH LIKE ?";
+		String query= "UPDATE "+this.tableName+" SET FileName = ?, FilePath = ?, ModificationDate = ?, ModificationTime = ?, ModificationUserId = ? WHERE FilePath LIKE ?";
 		IvySystemDBReuser.executePreparedStatement(query, 
 				new IPreparedStatementExecutable<Boolean>(){
 
@@ -363,7 +434,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 			throw new Exception("File null or doesn't exist, or userID null in changeModificationInformations method.");
 		}
 
-		String query= "UPDATE "+this.tableName+" SET FILESIZE = ?, MODIFICATIONDATE = ?, MODIFICATIONTIME = ?, MODIFICATIONUSERID = ? WHERE FILEPATH LIKE ?";
+		String query= "UPDATE "+this.tableName+" SET FileSize = ?, ModificationDate = ?, ModificationTime = ?, ModificationUserId = ? WHERE FilePath LIKE ?";
 		IvySystemDBReuser.executePreparedStatement(query, 
 				new IPreparedStatementExecutable<Void>(){
 			public Void execute(PreparedStatement stmt) throws PersistencyException {
@@ -397,7 +468,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 			return flag;
 		}
 
-		String query = "UPDATE "+this.tableName+" SET LOCKED=1, LOCKINGUSERID= ? WHERE FILEPATH LIKE ? AND (LOCKINGUSERID LIKE ? OR LOCKED <> 1)";
+		String query = "UPDATE "+this.tableName+" SET Locked=1, LockingUserId= ? WHERE FilePath LIKE ? AND (LockingUserId LIKE ? OR Locked <> 1)";
 
 		flag = IvySystemDBReuser.executePreparedStatement(query, 
 				new IPreparedStatementExecutable<Boolean>(){
@@ -438,8 +509,8 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		{
 			return flag;
 		}
-//		String user= IvySystemDBReuser.escapeForMSSQL(userIn);
-		String query = "UPDATE "+this.tableName+" SET LOCKED=1, LOCKINGUSERID = ? WHERE FILEPATH LIKE ? AND (LOCKINGUSERID LIKE ? OR LOCKED <> 1)";
+		//		String user= IvySystemDBReuser.escapeForMSSQL(userIn);
+		String query = "UPDATE "+this.tableName+" SET Locked=1, LockingUserId = ? WHERE FilePath LIKE ? AND (LockingUserId LIKE ? OR Locked <> 1)";
 
 		flag = IvySystemDBReuser.executePreparedStatement(query, 
 				new IPreparedStatementExecutable<Boolean>(){
@@ -477,7 +548,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 			return flag;
 		}
 
-		String query = "UPDATE "+this.tableName+" SET LOCKED=0, LOCKINGUSERID= ? WHERE FILEPATH LIKE ?";
+		String query = "UPDATE "+this.tableName+" SET Locked=0, LockingUserId= ? WHERE FilePath LIKE ?";
 
 		flag = IvySystemDBReuser.executePreparedStatement(query, 
 				new IPreparedStatementExecutable<Boolean>(){
@@ -515,7 +586,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		{
 			return flag;
 		}
-		String query = "UPDATE "+this.tableName+" SET LOCKED=?, LOCKINGUSERID= ? WHERE FILEPATH LIKE ?";
+		String query = "UPDATE "+this.tableName+" SET Locked=?, LockingUserId= ? WHERE FilePath LIKE ?";
 
 		flag = IvySystemDBReuser.executePreparedStatement(query, 
 				new IPreparedStatementExecutable<Boolean>(){
@@ -558,7 +629,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 			return flag;
 		}
 
-		String query = "UPDATE "+this.tableName+" SET LOCKED=0, LOCKINGUSERID = ? WHERE FILEPATH LIKE ? AND LOCKINGUSERID LIKE ?";
+		String query = "UPDATE "+this.tableName+" SET Locked=0, LockingUserId = ? WHERE FilePath LIKE ? AND LockingUserId LIKE ?";
 		flag = IvySystemDBReuser.executePreparedStatement(query, 
 				new IPreparedStatementExecutable<Boolean>(){
 
@@ -598,7 +669,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		{
 			return flag;
 		}
-		String query = "UPDATE "+this.tableName+" SET LOCKED=0, LOCKINGUSERID= ? WHERE FILEPATH LIKE ? AND LOCKINGUSERID LIKE ?";
+		String query = "UPDATE "+this.tableName+" SET Locked=0, LockingUserId= ? WHERE FilePath LIKE ? AND LockingUserId LIKE ?";
 
 		flag = IvySystemDBReuser.executePreparedStatement(query, 
 				new IPreparedStatementExecutable<Boolean>(){
@@ -647,11 +718,11 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		String query="";
 		if(_recursive)
 		{
-			query="UPDATE "+ tableName + " SET LOCKED = 0, LOCKINGUSERID= ? WHERE LOCKINGUSERID LIKE ? AND FILEPATH LIKE ?";
+			query="UPDATE "+ tableName + " SET Locked = 0, LockingUserId= ? WHERE LockingUserId LIKE ? AND FilePath LIKE ?";
 		}else
 		{
-			//query="UPDATE "+ tableName + " SET LOCKED = 0 WHERE LOCKINGUSERID LIKE '"+user+"' AND FILEPATH LIKE '"+folderPath+"%' AND FILEPATH NOT LIKE '"+folderPath+"%["+java.io.File.separator+"]%'";
-			query="UPDATE "+ tableName + " SET LOCKED = 0, LOCKINGUSERID= ? WHERE LOCKINGUSERID LIKE ? AND FILEPATH LIKE ? AND FILEPATH NOT LIKE ?";
+			//query="UPDATE "+ tableName + " SET Locked = 0 WHERE LockingUserId LIKE '"+user+"' AND FilePath LIKE '"+folderPath+"%' AND FilePath NOT LIKE '"+folderPath+"%["+java.io.File.separator+"]%'";
+			query="UPDATE "+ tableName + " SET Locked = 0, LockingUserId= ? WHERE LockingUserId LIKE ? AND FilePath LIKE ? AND FilePath NOT LIKE ?";
 		}
 
 		IvySystemDBReuser.executePreparedStatement(query, 
@@ -703,7 +774,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		final String time = new Time().format();
 
 		insertedId = IvySystemDBReuser.executePreparedStatement("INSERT INTO "+this.tableName+
-				" (FILEID, FILENAME, FILEPATH, CREATIONUSERID, CREATIONDATE, CREATIONTIME, FILESIZE, LOCKED, LOCKINGUSERID, MODIFICATIONUSERID, MODIFICATIONDATE, MODIFICATIONTIME, DESCRIPTION) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", 
+				" (FileId, FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", 
 				new IPreparedStatementExecutable<Integer>(){
 
 			public Integer execute(PreparedStatement stmt) throws PersistencyException {
@@ -751,7 +822,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		}
 
 		insertedId = IvySystemDBReuser.executePreparedStatement("INSERT INTO "+this.tableName+
-				" (FILEID, FILENAME, FILEPATH, CREATIONUSERID, CREATIONDATE, CREATIONTIME, FILESIZE, LOCKED, LOCKINGUSERID, MODIFICATIONUSERID, MODIFICATIONDATE, MODIFICATIONTIME, DESCRIPTION) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", 
+				" (FileId, FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", 
 				new IPreparedStatementExecutable<Integer>(){
 
 			public Integer execute(PreparedStatement stmt) throws PersistencyException {
@@ -801,7 +872,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		this.deleteDocuments(_documents);
 
 		insertedIDs = IvySystemDBReuser.executePreparedStatement("INSERT INTO "+this.tableName+
-				" (FILEID,FILENAME, FILEPATH, CREATIONUSERID, CREATIONDATE, CREATIONTIME, FILESIZE, LOCKED, LOCKINGUSERID, MODIFICATIONUSERID, MODIFICATIONDATE, MODIFICATIONTIME, DESCRIPTION) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", 
+				" (FileId,FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", 
 				new IPreparedStatementExecutable<Integer>(){
 
 			public Integer execute(PreparedStatement stmt) throws PersistencyException {
@@ -857,7 +928,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		this.deleteFiles(_files);
 
 		insertedIDs = IvySystemDBReuser.executePreparedStatement("INSERT INTO "+this.tableName+
-				" (FILEID, FILENAME, FILEPATH, CREATIONUSERID, CREATIONDATE, CREATIONTIME, FILESIZE, LOCKED, LOCKINGUSERID, MODIFICATIONUSERID, MODIFICATIONDATE, MODIFICATIONTIME, DESCRIPTION) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", 
+				" (FileId, FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", 
 				new IPreparedStatementExecutable<Integer>(){
 
 			public Integer execute(PreparedStatement stmt) throws PersistencyException {
@@ -906,7 +977,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 			return 0;
 		}
 
-		Integer _int= IvySystemDBReuser.executePreparedStatement("DELETE FROM "+this.tableName+" WHERE FILEPATH LIKE ?", 
+		Integer _int= IvySystemDBReuser.executePreparedStatement("DELETE FROM "+this.tableName+" WHERE FilePath LIKE ?", 
 				new IPreparedStatementExecutable<Integer>()
 				{
 			public Integer execute(PreparedStatement stmt)
@@ -947,7 +1018,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		}
 		int deletedFiles=0;
 
-		Integer _int= IvySystemDBReuser.executePreparedStatement("DELETE FROM "+this.tableName+" WHERE FILEPATH LIKE ?", 
+		Integer _int= IvySystemDBReuser.executePreparedStatement("DELETE FROM "+this.tableName+" WHERE FilePath LIKE ?", 
 				new IPreparedStatementExecutable<Integer>()
 				{
 			public Integer execute(PreparedStatement stmt)
@@ -991,7 +1062,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		boolean retour = false;
 
 
-		Integer i=IvySystemDBReuser.executePreparedStatement("SELECT * FROM "+this.tableName+" WHERE LOCKED=1 AND FILEPATH LIKE ?", new IPreparedStatementExecutable<Integer>(){
+		Integer i=IvySystemDBReuser.executePreparedStatement("SELECT * FROM "+this.tableName+" WHERE Locked=1 AND FilePath LIKE ?", new IPreparedStatementExecutable<Integer>(){
 
 			public Integer execute(PreparedStatement stmt) throws PersistencyException {
 				try {
@@ -1030,7 +1101,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		}
 		boolean retour = false;
 
-		Integer i=IvySystemDBReuser.executePreparedStatement("SELECT * FROM "+this.tableName+" WHERE LOCKED=1 AND FILEPATH LIKE ? AND LOCKINGUSERID NOT LIKE ?", new IPreparedStatementExecutable<Integer>(){
+		Integer i=IvySystemDBReuser.executePreparedStatement("SELECT * FROM "+this.tableName+" WHERE Locked=1 AND FilePath LIKE ? AND LockingUserId NOT LIKE ?", new IPreparedStatementExecutable<Integer>(){
 
 			public Integer execute(PreparedStatement stmt) throws PersistencyException {
 				try {
@@ -1069,7 +1140,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		}
 		boolean retour = false;
 
-		Integer i=IvySystemDBReuser.executePreparedStatement("SELECT * FROM "+this.tableName+" WHERE LOCKED=1 AND FILEPATH LIKE ?", new IPreparedStatementExecutable<Integer>(){
+		Integer i=IvySystemDBReuser.executePreparedStatement("SELECT * FROM "+this.tableName+" WHERE Locked=1 AND FilePath LIKE ?", new IPreparedStatementExecutable<Integer>(){
 
 			public Integer execute(PreparedStatement stmt) throws PersistencyException {
 				try {
@@ -1089,6 +1160,38 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 			retour = true;
 		}
 
+		return retour;
+	}
+
+	@Override
+	public boolean isDocumentOnServerLocked(final DocumentOnServer _doc, final String _user)
+	throws Exception {
+		if(_doc == null || _doc.getPath().trim().equals("") || _user==null || _user.trim().equals(""))
+		{
+			return false;
+		}
+		boolean retour = false;
+
+		Integer i=IvySystemDBReuser.executePreparedStatement("SELECT * FROM "+this.tableName+" WHERE Locked=1 AND FilePath LIKE ? AND LockingUserId NOT LIKE ?", new IPreparedStatementExecutable<Integer>(){
+
+			public Integer execute(PreparedStatement stmt) throws PersistencyException {
+				try {
+					stmt.setString(1,escapeBackSlash(_doc.getPath()));
+					stmt.setString(2,_user.trim());
+					Recordset rst=IvySystemDBReuser.executeStatement(stmt);
+					return new Integer(rst.size());
+
+				} catch (SQLException ex) {
+					throw new PersistencyException(ex);
+				}
+
+			}
+
+		});
+		if(i.intValue()==1)
+		{
+			retour = true;
+		}
 		return retour;
 	}
 
@@ -1117,6 +1220,615 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		return this.getClass();
 	}
 
+	@Override
+	public ReturnedMessage createDirectory(String destinationPath,
+			String newDirectoryName) throws Exception {
+		if(destinationPath==null || newDirectoryName==null || newDirectoryName.trim().equals(""))
+		{
+			throw new IllegalArgumentException("One of the parameters in "+this.getClass().getName()+", method createDirectory(String destinationPath, String newDirectoryName) is not set.");
+		}
+		ReturnedMessage message = new ReturnedMessage();
+		message.setFiles(List.create(java.io.File.class));
+		java.io.File dir = new java.io.File(formatPathForDirectory(destinationPath)+newDirectoryName.trim());
+		if(dir.isDirectory())
+		{//already exists
+			message.setType(FileHandler.INFORMATION_MESSAGE);
+			message.setText("The directory to create already exists.");
+		}else
+		{
+			if(dir.mkdirs())
+			{//Creation successful
+				message.setType(FileHandler.SUCCESS_MESSAGE);
+				message.setText("The directory was successfuly created.");
+				message.setFile(dir);
+				message.getFiles().add(dir);
+			}else
+			{
+				message.setType(FileHandler.ERROR_MESSAGE);
+				message.setText("The directory could not be created.");
+			}
+		}
+		return message;
+	}
+
+	@Override
+	public ReturnedMessage deleteDirectory(String directoryPath)
+	throws Exception {
+		if(directoryPath==null || directoryPath.trim().equals(""))
+		{
+			throw new IllegalArgumentException("The 'directoryPath' parameter in "+this.getClass().getName()+", method deleteDirectory(String directoryPath) is not set.");
+		}
+		ReturnedMessage message = new ReturnedMessage();
+		message.setFiles(List.create(java.io.File.class));
+		java.io.File dir = new java.io.File(formatPathForDirectory(directoryPath));
+		if(!dir.isDirectory())
+		{//Not a directory
+			message.setType(FileHandler.INFORMATION_MESSAGE);
+			message.setText("The directory to delete does not exist.");
+		}else{
+			if(deleteDirStructure(dir))
+			{
+				message.setType(FileHandler.SUCCESS_MESSAGE);
+				message.setText("The directory and all its files were successfully deleted.");
+			}
+		}
+		return message;
+	}
+
+	/**
+	 * Private recursive method to delete all the files and directories contained in a given directory.
+	 * @param dir: the java.io.File object rep'resenting the directory to delete
+	 * @return true if success else false
+	 * @throws Exception
+	 */
+	private boolean deleteDirStructure(java.io.File dir) throws Exception{
+		boolean result = false;
+		if(dir!=null && dir.isDirectory())
+		{
+			//we list all the files and directories contained into the directory to delete
+			java.io.File[] files = dir.listFiles();
+			if(files!=null)
+			{
+				for(int i =0; i<files.length; i++)
+				{//for each file or directory found
+					if(files[i].isDirectory())
+					{//in case of a child directory we delete the child directory
+						deleteDirStructure(files[i]);
+					}else
+					{// in case of a file we directly delete the file
+						files[i].delete();
+					}
+				}
+				// here the directory should be empty
+				result=dir.delete();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public ReturnedMessage deleteDocumentOnServer(DocumentOnServer document)
+	throws Exception {
+		if(document==null)
+		{
+			throw new IllegalArgumentException("The 'document' parameter in "+this.getClass().getName()+", method deleteDocumentOnServer(DocumentOnServer document) is not set.");
+		}
+		ReturnedMessage message = new ReturnedMessage();
+		message.setFiles(List.create(java.io.File.class));
+
+		List<DocumentOnServer> l = List.create(DocumentOnServer.class);
+		l.add(document);
+		// we delete the document from DB
+		this.deleteDocuments(l);
+		//We delete the document from fileSystem
+		java.io.File file = new java.io.File(document.getPath());
+		if(file.delete())
+		{
+			message.setType(FileHandler.SUCCESS_MESSAGE);
+		}else
+		{
+			message.setType(FileHandler.ERROR_MESSAGE);
+		}
+		return message;
+	}
+
+	@Override
+	public ReturnedMessage deleteDocumentOnServers(
+			List<DocumentOnServer> documents) throws Exception {
+		if(documents==null)
+		{
+			throw new IllegalArgumentException("The 'documents' parameter in "+this.getClass().getName()+", method deleteDocumentOnServers(List<DocumentOnServer> documents) is not set.");
+		}
+		ReturnedMessage message = new ReturnedMessage();
+		message.setFiles(List.create(java.io.File.class));
+		//we delete the documents from DB
+		this.deleteDocuments(documents);
+		message.setType(FileHandler.SUCCESS_MESSAGE);
+		//we delete the documents from file system
+		for(DocumentOnServer doc: documents)
+		{
+			try{
+				java.io.File file = new java.io.File(doc.getPath());
+				file.delete();
+			}catch(Exception _ex){
+				Ivy.log().error(_ex.getMessage()+ " In method deleteDocumentOnServers(List<DocumentOnServer> documents) from "+this.getClass().getName());
+			}
+		}
+		return message;
+	}
+
+	@Override
+	public Tree getDirectoryTree(String rootPath) throws Exception {
+		Tree RDTree = new Tree();
+		String entryPath = formatPath(rootPath);
+		File dir = new File(entryPath);
+		if(!dir.exists())
+			dir.mkdirs();
+		FolderOnServer o = new FolderOnServer();
+		o.setName(dir.getName());
+		o.setPath(formatPath(dir.getPath()));
+		RDTree.setValue(o);
+		RDTree.setInfo(o.getName());
+		fillRDTree(entryPath, RDTree);
+		return RDTree;
+	}
+
+	/**
+	 * Recursive method used by the makeRDTree method
+	 * @param entryPoint
+	 * @param myTree
+	 */
+	private static void fillRDTree(String entryPoint, Tree myTree)
+	{
+		String entryPath = formatPath(entryPoint);
+		File dir = new File(entryPath);
+		if(!dir.exists() || !dir.isDirectory())
+		{
+			dir.mkdirs();
+			return;
+		}
+		int j = 0;
+		File files[] = dir.listFiles();
+		for(int i = 0; i < files.length; i++)
+			if(files[i].isDirectory())
+				j++;
+
+		if(j == 0)
+			return;
+		for(int i = 0; i < files.length; i++)
+			if(files[i].isDirectory())
+			{
+				FolderOnServer o = new FolderOnServer();
+				o.setName(files[i].getName());
+				o.setPath(formatPath(files[i].getPath()));
+				myTree.createChild(o, files[i].getName());
+				fillRDTree(files[i].getPath(), myTree.getLastChild());
+			}
+
+	}
+
+	public ReturnedMessage renameDirectory(String parentPath, String oldName,
+			String newName) throws Exception {
+		ReturnedMessage message = new ReturnedMessage();
+		message.setFiles(List.create(java.io.File.class));
+		if(parentPath==null || oldName== null || newName==null || oldName.trim().equals("") || newName.trim().equals("")){
+			message.setText("");
+			message.setType(FileHandler.ERROR_MESSAGE);
+		}
+		return message;
+	}
+
+	@Override
+	public ReturnedMessage renameDocumentOnServer(DocumentOnServer document,
+			String newName) throws Exception {
+		ReturnedMessage message = new ReturnedMessage();
+		message.setFiles(List.create(java.io.File.class));
+		if(document==null || document.getPath().trim().equals("") || document.getFilename().trim().equals("") || newName==null || newName.trim().equals("")){
+			message.setType(FileHandler.ERROR_MESSAGE);
+			message.setText("Unable to rename the given DocumentOnServer. One of the parameter is invalid in renameDocumentOnServer(DocumentOnServer document, String newName) in class "+this.getClass().getName());
+			return message;
+		}
+		java.io.File file = new java.io.File(document.getPath());
+		String ext = "."+FileHandler.getFileExtension(document.getPath());
+		String newDest ="";
+		if(document.getPath().contains("/"))
+		{
+			newDest= document.getPath().substring(0,document.getPath().lastIndexOf("/")+1)+newName+ext;
+		}
+		else
+		{
+			newDest= document.getPath().substring(0,document.getPath().lastIndexOf("\\")+1)+newName+ext;
+		}
+		java.io.File dest=new java.io.File(newDest);
+		if(file.renameTo(dest))
+		{
+			message.setType(FileHandler.SUCCESS_MESSAGE);
+			this.renameDocument(document, newName+ext, Ivy.session().getSessionUserName());
+			document.setPath(formatPath(dest.getPath()));
+			document.setFilename(newDest);
+			message.setDocumentOnServer(document);		
+		}else
+		{
+			message.setType(FileHandler.ERROR_MESSAGE);
+		}
+
+		return message;
+	}
+
+	@Override
+	public ReturnedMessage saveDocumentOnServer(DocumentOnServer document,
+			String fileDestinationPath) throws Exception {
+		ReturnedMessage message = new ReturnedMessage();
+		message.setFiles(List.create(java.io.File.class));
+
+		message.setType(FileHandler.SUCCESS_MESSAGE);
+
+		if(document==null || document.getPath()==null || document.getPath().trim().equals(""))
+		{
+			message.setType(FileHandler.ERROR_MESSAGE);
+			message.setText("Invalid DocumentOnServer object in saveDocumentOnServer method");
+			return message;
+		}
+
+		if(fileDestinationPath==null || fileDestinationPath.trim().equals(""))
+		{
+			fileDestinationPath=FileHandler.getFileDirectoryPath(new java.io.File(document.getPath()));
+		}
+
+		String date = new Date().format("d.M.yyyy");
+		String time = new Time().format();
+		String user = Ivy.session().getSessionUserName();
+		if(document.getCreationDate()==null || document.getCreationDate().trim().equals(""))
+		{
+			document.setCreationDate(date);
+		}
+		if(document.getCreationTime()==null || document.getCreationTime().trim().equals(""))
+		{
+			document.setCreationTime(time);
+		}
+		if(document.getModificationDate()==null || document.getModificationDate().trim().equals(""))
+		{
+			document.setModificationDate(date);
+		}
+		if(document.getModificationTime()==null || document.getModificationTime().trim().equals(""))
+		{
+			document.setModificationTime(time);
+		}
+		if(document.getUserID()==null || document.getUserID().trim().equals(""))
+		{
+			document.setUserID(user);
+		}
+		if(document.getModificationUserID()==null || document.getModificationUserID().trim().equals(""))
+		{
+			document.setModificationUserID(user);
+		}
+		if(document.getDescription()==null || document.getDescription().trim().equals(""))
+		{
+			document.setDescription("");
+		}
+
+		fileDestinationPath=formatPathForDirectory(fileDestinationPath);
+		String docPath = formatPathForDirectory(FileHandler.getFileDirectoryPath(new java.io.File(document.getPath())));
+		if(!docPath.equalsIgnoreCase(fileDestinationPath))
+		{
+			document.setPath(fileDestinationPath+document.getFilename());
+			message = FileHandler.moveFile(new java.io.File(docPath+document.getFilename()), fileDestinationPath, false);
+			Ivy.log().info("Message after moving : "+message.getText());
+		}
+		if(message.getType()==FileHandler.SUCCESS_MESSAGE)
+		{
+			int fileId = 0;
+			try{
+				fileId = Integer.parseInt(document.getFileID());
+			}catch(Exception ex){
+				fileId = 0;
+			}
+			if(fileId==0)
+			{
+				this.insertOneDocument(document);
+			}else{
+				List<KeyValuePair> _KVP = List.create(KeyValuePair.class);
+				KeyValuePair kvp = new KeyValuePair();
+
+				kvp = new KeyValuePair();
+				kvp.setKey("FileName");
+				kvp.setValue(document.getFilename());
+				_KVP.add(kvp);
+
+				kvp = new KeyValuePair();
+				kvp.setKey("FilePath");
+				kvp.setValue(document.getPath());
+				_KVP.add(kvp);
+
+				kvp = new KeyValuePair();
+				kvp.setKey("CreationUserId");
+				kvp.setValue(document.getUserID());
+				_KVP.add(kvp);
+
+				kvp = new KeyValuePair();
+				kvp.setKey("CreationDate");
+				kvp.setValue(document.getCreationDate());
+				_KVP.add(kvp);
+
+				kvp = new KeyValuePair();
+				kvp.setKey("CreationTime");
+				kvp.setValue(document.getCreationTime());
+				_KVP.add(kvp);
+
+				kvp = new KeyValuePair();
+				kvp.setKey("FileSize");
+				kvp.setValue(document.getFileSize());
+				_KVP.add(kvp);
+
+				kvp = new KeyValuePair();
+				kvp.setKey("Locked");
+				if(document.getLocked()==null || document.getLocked().equals("0"))
+				{
+					kvp.setValue(0);
+				}
+				else{
+					kvp.setValue(1);
+				}
+				_KVP.add(kvp);
+
+				kvp = new KeyValuePair();
+				kvp.setKey("LockingUserId");
+				kvp.setValue(document.getLockingUserID());
+				_KVP.add(kvp);
+
+				kvp = new KeyValuePair();
+				kvp.setKey("ModificationUserId");
+				kvp.setValue(document.getModificationUserID());
+				_KVP.add(kvp);
+
+				kvp = new KeyValuePair();
+				kvp.setKey("ModificationDate");
+				kvp.setValue(document.getModificationDate());
+				_KVP.add(kvp);
+
+				kvp = new KeyValuePair();
+				kvp.setKey("ModificationTime");
+				kvp.setValue(document.getModificationTime());
+				_KVP.add(kvp);
+
+				kvp = new KeyValuePair();
+				kvp.setKey("Description");
+				kvp.setValue(document.getDescription());
+				_KVP.add(kvp);
+
+				List<String> _conditions = List.create(String.class);
+				String con = "FileId = "+fileId;
+				_conditions.add(con);
+
+				for(KeyValuePair k:_KVP)
+				{
+					Ivy.log().info(k.getKey().toString()+": "+k.getValue().toString());
+				}
+
+				this.updateDocuments(_KVP, _conditions);
+				message.setDocumentOnServer(document);
+				message.setDocumentOnServers(List.create(DocumentOnServer.class));
+				message.getDocumentOnServers().add(document);
 
 
+			}
+		}
+		return message;
+	}
+
+
+	@Override
+	public List<DocumentOnServer> getDocumentOnServersInDirectory(
+			String directoryPath, boolean listChildrenDirectories)
+			throws Exception {
+		List<DocumentOnServer> liste = List.create(DocumentOnServer.class);
+		//List<DocumentOnServer> listeOnFS = List.create(DocumentOnServer.class);
+
+		List<DocumentOnServer> docsToDelete = List.create(DocumentOnServer.class);
+		if(directoryPath==null || directoryPath.trim().equals("")){
+			return liste;
+		}
+
+		//we get all the files from the DB - recursive
+		ArrayList<DocumentOnServer> listeInDB=this.getDocumentsInPath(directoryPath.trim(), true);
+
+		//we get all the files from the fileSystem
+		ArrayList<DocumentOnServer> listeOnFS = FileHandler.getDocumentsInPathAll(directoryPath.trim());
+
+		//we get the files in the directory
+		ArrayList<DocumentOnServer> docsInSelectedDir=FileHandler.getDocumentsInDir(new java.io.File(directoryPath));
+		if(docsInSelectedDir.size()>0){
+
+			List<DocumentOnServer> docsToAdd = List.create(DocumentOnServer.class);
+			//find the files on File System that are not registered in the DB
+			docsToAdd.addAll(FileHandler.getDocumentsListDiff(listeInDB,docsInSelectedDir));
+
+			if(docsToAdd.size()>0)
+			{
+				this.insertDocuments(docsToAdd);
+			}
+		}
+
+		//find the files registered in the DB but that are not on the File System
+		docsToDelete.addAll(FileHandler.getDocumentsListDiff(listeOnFS,listeInDB));
+		//delete theses files
+		if(docsToDelete.size()>0)
+		{
+			this.deleteDocuments(docsToDelete);
+		}
+
+		liste.addAll(this.getDocumentsInPath(directoryPath.trim(), listChildrenDirectories));
+		return liste;
+	}
+
+	@Override
+	public int getFileStorageType() {
+		return AbstractFileManagementHandler.FILE_STORAGE_FILESYSTEM;
+	}
+
+	@Override
+	public ReturnedMessage pasteCopiedDocumentOnServers(
+			List<DocumentOnServer> documents, String fileDestinationPath)
+	throws Exception {
+		ReturnedMessage message = new ReturnedMessage();
+		message.setFiles(List.create(java.io.File.class));
+		message.setDocumentOnServers(List.create(DocumentOnServer.class));
+		if(documents==null || fileDestinationPath==null || fileDestinationPath.trim().equals("")){
+			message.setType(FileHandler.ERROR_MESSAGE);
+			message.setText("Unable to paste the given DocumentOnServer objects. One of the parameter is invalid in pasteCopiedDocumentOnServers(List<DocumentOnServer> documents, String fileDestinationPath) in class "+this.getClass().getName());
+			return message;
+		}
+		List<DocumentOnServer> pasteDocs = List.create(DocumentOnServer.class);
+		String dest = formatPathForDirectory(fileDestinationPath);
+		String date = new Date().format("d.M.yyyy");
+		String time = new Time().format();
+		String user="IVYSYSTEM";
+
+		try{
+			user = Ivy.session().getSessionUserName();
+		}catch(Exception ex)
+		{
+			//do nothing
+		}
+
+		for(DocumentOnServer doc: documents)
+		{
+			int i = getNextCopiedFileNumber(doc.getFilename(),dest);
+			if(i<0)
+			{
+				continue;
+			}
+			java.io.File copiedFile = new java.io.File(formatPath(doc.getPath()));
+			if(copiedFile.isFile())
+			{
+				String newFile=dest;
+				String ext= FileHandler.getFileExtension(doc.getFilename());
+				if(i==0)
+				{
+					newFile+=doc.getFilename();
+				}else
+				{
+					newFile+=FileHandler.getFileNameWithoutExt(doc.getFilename())+"_Copy"+i+"."+ext;
+				}
+				FileInputStream fis=null;
+				FileOutputStream fos=null;
+				try{
+					java.io.File pasteFile=new java.io.File(newFile);
+
+					fis = new FileInputStream(copiedFile);
+					fos = new FileOutputStream(pasteFile);
+					byte b[] = new byte[1024];
+					int c=0;
+					while((c= fis.read(b)) != -1){
+						fos.write(b,0,c);
+					}
+					message.getFiles().add(pasteFile);
+					DocumentOnServer nDoc = new DocumentOnServer();
+					nDoc.setCreationDate(date);
+					nDoc.setCreationTime(time);
+					nDoc.setDescription("Copy of "+doc.getPath());
+					nDoc.setExtension(ext);
+					nDoc.setFilename(pasteFile.getName());
+					nDoc.setFileSize(doc.getFileSize());
+					nDoc.setLocked("0");
+					nDoc.setLockingUserID("");
+					nDoc.setModificationDate(date);
+					nDoc.setModificationTime(time);
+					nDoc.setModificationUserID(user);
+					nDoc.setPath(formatPath(pasteFile.getPath()));
+					nDoc.setUserID(user);
+					pasteDocs.add(nDoc);
+				}finally
+				{
+					if(fis!=null)
+					{
+						fis.close();
+					}
+					if(fos!=null)
+					{
+						fos.close();
+					}
+				}
+			}
+		}
+		insertDocuments(pasteDocs);
+		message.getDocumentOnServers().addAll(pasteDocs);
+		return message;
+	}
+
+	/**
+	 * 
+	 * @param fileName
+	 * @param dest
+	 * @return
+	 */
+	private int getNextCopiedFileNumber(String fileName, String dest){
+
+		if(fileName==null || fileName.trim().equals("") || dest==null || dest.trim().equals(""))
+		{
+			return -1;
+		}
+
+		if(!new File(dest+fileName).isFile())
+		{//the new file doesn't already exist
+			return 0;
+		}
+
+		String ext= FileHandler.getFileExtension(fileName);
+		String n = FileHandler.getFileNameWithoutExt(fileName)+"_Copy";
+		boolean exists=true;
+		int i=1;
+		while(exists)
+		{
+			if(new File(dest+ n+i+"."+ext).isFile())
+			{
+				i++;
+			}
+			else{
+				exists=false;
+			}
+		}
+
+		return i;
+	}
+
+	public DocumentOnServer getDocumentOnServerWithJavaFile(DocumentOnServer doc)
+	throws Exception {
+		if(doc==null || doc.getPath()==null || doc.getPath().trim().equals(""))
+		{
+			return doc;
+		}
+		String path = formatPath(doc.getPath().trim());
+		java.io.File f = new java.io.File(path);
+		if(f.isFile())
+		{
+			doc.setJavaFile(f);
+		}
+		return doc;
+	}
+
+	@Override
+	public DocumentOnServer getDocumentOnServerWithJavaFile(String filePath)
+	throws Exception {
+		if(filePath==null || filePath.trim().equals(""))
+		{
+			return null;
+		}
+		String path = formatPath(filePath.trim());
+
+		DocumentOnServer doc = this.getDocumentOnServer(path);
+		return getDocumentOnServerWithJavaFile(doc);
+
+	}
+
+	@Override
+	public ArrayList<DocumentOnServer> getDocumentsWithJavaFileInPath(
+			String path, boolean isRecursive) throws Exception {
+		ArrayList<DocumentOnServer> docs = this.getDocumentsInPath(path, isRecursive);
+		ArrayList<DocumentOnServer> documents = new ArrayList<DocumentOnServer>();
+		for(DocumentOnServer d : docs){
+			documents.add(this.getDocumentOnServerWithJavaFile(d));
+		}
+		return documents;
+	}
 }
