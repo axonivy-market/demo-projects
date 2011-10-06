@@ -1699,13 +1699,15 @@ public class FileUploadHandler<T extends ULCComponent & IRichDialogPanel>
 	 */
 	private void formatServerPath()
 	{
-		if(serverPath != null || !serverPath.equals("")){
+		if(serverPath != null && !serverPath.equals("")){
 			serverPath = serverPath.replace("\\", java.io.File.separator);
 			serverPath = serverPath.replace("/", java.io.File.separator);
 		
 			java.io.File serverDir = new java.io.File(serverPath);
-			if(serverDir.exists() && !serverDir.isDirectory() || !serverDir.exists())
+			if(!serverDir.isDirectory())
+			{
 				serverDir.mkdirs();
+			}
 			if(serverPath.lastIndexOf(java.io.File.separator) != serverPath.length() - 1) 
 				serverPath=serverPath+java.io.File.separator;
 		}

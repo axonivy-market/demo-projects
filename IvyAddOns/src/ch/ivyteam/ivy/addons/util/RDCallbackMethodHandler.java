@@ -45,7 +45,7 @@ public abstract class RDCallbackMethodHandler {
 					Ivy.log().error("Error in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}
 			}else{
-				Ivy.log().error("One of the parameters was invalid in RDCallbackMethodHandler called from IRichDialogPanel...");
+				Ivy.log().info("One of the parameters was invalid in RDCallbackMethodHandler called from IRichDialogPanel...");
 			
 			}
 		
@@ -82,7 +82,7 @@ public abstract class RDCallbackMethodHandler {
 				}catch(Exception _ex){
 					Ivy.log().error("Exception in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}catch(Error _ex){
-					Ivy.log().error("Error in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
+					Ivy.log().info("Error in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}
 			}
 		}
