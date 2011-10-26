@@ -49,7 +49,7 @@ final class DynamicDialogBinding
     }
     else if (clazz.isAssignableFrom(java.util.Date.class))
     {
-      result = fieldComponent.getValueAsDateTime().toDate();
+      result = fieldComponent.getValueAsDateTime().toJavaDate();
     }
     else if (clazz.isAssignableFrom(Number.class))
     {

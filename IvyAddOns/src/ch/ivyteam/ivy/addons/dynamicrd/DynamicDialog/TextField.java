@@ -363,7 +363,7 @@ public class TextField extends FieldComponent
   {
     if (isOldStyleValidation())
     {
-      setValueAsString(d == null || d == Date.UNINITIALIZED_DATE ? "" : getDateFormat().format(d.toDate()),
+      setValueAsString(d == null || d == Date.UNINITIALIZED_DATE ? "" : getDateFormat().format(d.toJavaDate()),
               text);
     }
     else
@@ -378,7 +378,7 @@ public class TextField extends FieldComponent
     if (isOldStyleValidation())
     {
       setValueAsString(dt == null || dt == DateTime.UNINITIALIZED_DATE_TIME ? "" : getDateTimeFormat()
-              .format(dt.toDate()), text);
+              .format(dt.toJavaDate()), text);
     }
     else
     {

@@ -240,15 +240,15 @@ public final class Cms2DataClass
 
             if (Date.class.isAssignableFrom(clazz))
             {
-              cmsValue = new SimpleDateFormat(ISO_8601_DATE_FORMAT).format(((Date) value).toDate());
+              cmsValue = new SimpleDateFormat(ISO_8601_DATE_FORMAT).format(((Date) value).toJavaDate());
             }
             else if (DateTime.class.isAssignableFrom(clazz))
             {
-              cmsValue = new SimpleDateFormat(ISO_8601_DATETIME_FORMAT).format(((DateTime) value).toDate());
+              cmsValue = new SimpleDateFormat(ISO_8601_DATETIME_FORMAT).format(((DateTime) value).toJavaDate());
             }
             else if (Time.class.isAssignableFrom(clazz))
             {
-              cmsValue = new SimpleDateFormat(ISO_8601_TIME_FORMAT).format(((Time) value).toDate());
+              cmsValue = new SimpleDateFormat(ISO_8601_TIME_FORMAT).format(((Time) value).toJavaDate());
             }
             else if (Duration.class.isAssignableFrom(clazz))
             {

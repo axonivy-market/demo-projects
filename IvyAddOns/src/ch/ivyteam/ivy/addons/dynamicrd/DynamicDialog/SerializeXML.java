@@ -103,18 +103,18 @@ public class SerializeXML
         if (attribute instanceof Date)
         {
           DateFormat format = detail ? Component.getDateFormat() : new SimpleDateFormat("yyyyMMdd");
-          value = format.format(((Date) attribute).toDate());
+          value = format.format(((Date) attribute).toJavaDate());
         }
         else if (attribute instanceof Time)
         {
           DateFormat format = detail ? DateFormat.getTimeInstance(DateFormat.MEDIUM) : new SimpleDateFormat(
                   "HHmmss");
-          value = format.format(((Time) attribute).toDate());
+          value = format.format(((Time) attribute).toJavaDate());
         }
         else if (attribute instanceof DateTime)
         {
           DateFormat format = new SimpleDateFormat(detail ? "HH:mm:ss dd.MM.yyyy" : "yyyyMMdd-HHmmss");
-          value = format.format(((DateTime) attribute).toDate());
+          value = format.format(((DateTime) attribute).toJavaDate());
         }
         else if (attribute instanceof Duration)
         {

@@ -156,7 +156,7 @@ public class EventLogHelper
     eventLogDescription.setEnvironment(eventLog.getEnvironment());
     eventLogDescription.setErrorCode(eventLog.getErrorCode());
     eventLogDescription.setEventDateAndTime(eventLog.getEventDate() == null ? null : eventLog.getEventDate()
-            .toDate(), eventLog.getEventTime() == null ? null : eventLog.getEventTime().toDate());
+            .toJavaDate(), eventLog.getEventTime() == null ? null : eventLog.getEventTime().toJavaDate());
     eventLogDescription.setGroupId(eventLog.getGroupId());
     eventLogDescription.setInitiator(eventLog.getInitiator());
     eventLogDescription.setObjectId(eventLog.getObjectId());

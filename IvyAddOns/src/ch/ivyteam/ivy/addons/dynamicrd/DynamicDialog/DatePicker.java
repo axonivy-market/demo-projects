@@ -143,7 +143,7 @@ public class DatePicker extends FieldComponent
     format.setLenient(false);
 
     date = getValueAsDate();
-    return date == null ? "" : format.format(date.toDate());
+    return date == null ? "" : format.format(date.toJavaDate());
   }
 
   @Override
