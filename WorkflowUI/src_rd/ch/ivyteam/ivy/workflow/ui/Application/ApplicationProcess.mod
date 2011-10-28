@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 22 16:55:40 CEST 2011]
+[>Created: Fri Oct 28 13:28:00 CEST 2011]
 117CB5CD6E5F88C6 3.17 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
@@ -818,7 +818,16 @@ As0 f60 actionCode '// cancel the closing request
 in.tabClosingRequestEvent.cancel();
 
 // invoke the close rd method on the selected component
-panel.centerTabbedDisplay.getSelectedPanel().getPanelAPI().callMethod("close", []);
+// and it does not exist call "unload"
+try
+{
+	panel.centerTabbedDisplay.getSelectedPanel().getPanelAPI().callMethod("close", []);
+}
+catch (Exception ex)
+{
+	panel.centerTabbedDisplay.getSelectedPanel().getPanelAPI().unload();
+}
+	
 ' #txt
 As0 f60 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f60 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
