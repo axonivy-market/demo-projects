@@ -57,6 +57,10 @@ private RLabel taskAutoHideMenuLabel = null;
 private RLabel caseSortByPriorityLabel = null;
 private RLabel isMultipleCaseListModeLabel = null;
 private RHtmlPane sessionUserInformationHtmlPane = null;
+private RLabel loadTaskListAtStartUpLabel = null;
+private RCheckBox loadTaskListAtStartUpCheckBox = null;
+private RLabel loadTaskTreeAtStartUpLabel = null;
+private RCheckBox loadTaskTreeAtStartUpCheckBox = null;
 /**
    * Create a new instance of SettingsPanel
    */
@@ -300,14 +304,18 @@ private RGridBagLayoutPane getTaskSettingsGridBagLayoutPane() {
 		taskSettingsGridBagLayoutPane.add(getTasksSortByPriorityCheckBox(), new com.ulcjava.base.application.GridBagConstraints(2, 3, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		taskSettingsGridBagLayoutPane.add(getTaskHierarchyLayoutLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		taskSettingsGridBagLayoutPane.add(getTasksHierarchyLayoutSelectRDC(), new com.ulcjava.base.application.GridBagConstraints(2, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskSettingsGridBagLayoutPane.add(getIsMultipleTaskListCheckBox(), new com.ulcjava.base.application.GridBagConstraints(2, 5, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskSettingsGridBagLayoutPane.add(aFiller1, new com.ulcjava.base.application.GridBagConstraints(1, 7, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskSettingsGridBagLayoutPane.add(getTaskAutoHideMenuCheckBox(), new com.ulcjava.base.application.GridBagConstraints(2, 6, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskSettingsGridBagLayoutPane.add(getIsMultipleTaskListCheckBox(), new com.ulcjava.base.application.GridBagConstraints(2, 6, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskSettingsGridBagLayoutPane.add(aFiller1, new com.ulcjava.base.application.GridBagConstraints(1, 8, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskSettingsGridBagLayoutPane.add(getTaskAutoHideMenuCheckBox(), new com.ulcjava.base.application.GridBagConstraints(2, 7, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		taskSettingsGridBagLayoutPane.add(userMenuFiller11, new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		taskSettingsGridBagLayoutPane.add(getSortByPriorityLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskSettingsGridBagLayoutPane.add(getIsMultipleTaskListLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		taskSettingsGridBagLayoutPane.add(getTaskAutoHideMenuLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 6, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskSettingsGridBagLayoutPane.add(getIsMultipleTaskListLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 6, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskSettingsGridBagLayoutPane.add(getTaskAutoHideMenuLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 7, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		taskSettingsGridBagLayoutPane.add(hFiller, new com.ulcjava.base.application.GridBagConstraints(3, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskSettingsGridBagLayoutPane.add(getLoadTaskListAtStartUpLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskSettingsGridBagLayoutPane.add(getLoadTaskListAtStartUpCheckBox(), new com.ulcjava.base.application.GridBagConstraints(2, 4, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskSettingsGridBagLayoutPane.add(getLoadTaskTreeAtStartUpLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		taskSettingsGridBagLayoutPane.add(getLoadTaskTreeAtStartUpCheckBox(), new com.ulcjava.base.application.GridBagConstraints(2, 5, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return taskSettingsGridBagLayoutPane;
 }
@@ -321,9 +329,7 @@ private RCheckBox getTasksSortByPriorityCheckBox() {
 	if (tasksSortByPriorityCheckBox == null) {
 		tasksSortByPriorityCheckBox = new RCheckBox();
 		tasksSortByPriorityCheckBox.setName("tasksSortByPriorityCheckBox");
-//		tasksSortByPriorityCheckBox.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/switchOff_48\") %>");
 		tasksSortByPriorityCheckBox.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/common/plainStrings/sortByPriority\")%>");
-//		tasksSortByPriorityCheckBox.setSelectedIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/switchOn_48\") %>");
 	}
 	return tasksSortByPriorityCheckBox;
 }
@@ -366,9 +372,7 @@ private RCheckBox getIsMultipleTaskListCheckBox() {
 	if (isMultipleTaskListCheckBox == null) {
 		isMultipleTaskListCheckBox = new RCheckBox();
 		isMultipleTaskListCheckBox.setName("isMultipleTaskListCheckBox");
-//		isMultipleTaskListCheckBox.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/switchOff_48\") %>");
 		isMultipleTaskListCheckBox.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/multipleTaskListMode\")%>");
-//		isMultipleTaskListCheckBox.setSelectedIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/switchOn_48\") %>");
 	}
 	return isMultipleTaskListCheckBox;
 }
@@ -382,9 +386,7 @@ private RCheckBox getTaskAutoHideMenuCheckBox() {
 	if (taskAutoHideMenuCheckBox == null) {
 		taskAutoHideMenuCheckBox = new RCheckBox();
 		taskAutoHideMenuCheckBox.setName("taskAutoHideMenuCheckBox");
-//		taskAutoHideMenuCheckBox.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/switchOff_48\") %>");
 		taskAutoHideMenuCheckBox.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/autoHideMenuMode\")%>");
-//		taskAutoHideMenuCheckBox.setSelectedIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/common/images/switchOn_48\") %>");
 	}
 	return taskAutoHideMenuCheckBox;
 }
@@ -511,5 +513,65 @@ private RHtmlPane getSessionUserInformationHtmlPane() {
 		sessionUserInformationHtmlPane.setText("sessionUserInformationHtmlPane");
 	}
 	return sessionUserInformationHtmlPane;
+}
+
+/**
+ * This method initializes loadTaskListAtStartUpLabel	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
+ */
+private RLabel getLoadTaskListAtStartUpLabel() {
+	if (loadTaskListAtStartUpLabel == null) {
+		loadTaskListAtStartUpLabel = new RLabel();
+		loadTaskListAtStartUpLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/loadTaskListAtStartup\")%>");
+		loadTaskListAtStartUpLabel.setStyle("rightAlignedLabel");
+		loadTaskListAtStartUpLabel.setVisible(false);
+		loadTaskListAtStartUpLabel.setName("loadTaskListAtStartUpLabel");
+	}
+	return loadTaskListAtStartUpLabel;
+}
+
+/**
+ * This method initializes loadTaskListAtStartUpCheckBox	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox	
+ */
+private RCheckBox getLoadTaskListAtStartUpCheckBox() {
+	if (loadTaskListAtStartUpCheckBox == null) {
+		loadTaskListAtStartUpCheckBox = new RCheckBox();
+		loadTaskListAtStartUpCheckBox.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/loadTaskListAtStartup\")%>");
+		loadTaskListAtStartUpCheckBox.setName("loadTaskListAtStartUpCheckBox");
+	}
+	return loadTaskListAtStartUpCheckBox;
+}
+
+/**
+ * This method initializes loadTaskTreeAtStartUpLabel	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
+ */
+private RLabel getLoadTaskTreeAtStartUpLabel() {
+	if (loadTaskTreeAtStartUpLabel == null) {
+		loadTaskTreeAtStartUpLabel = new RLabel();
+		loadTaskTreeAtStartUpLabel.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/loadTaskTreeAtStartup\")%>");
+		loadTaskTreeAtStartUpLabel.setStyle("rightAlignedLabel");
+		loadTaskTreeAtStartUpLabel.setVisible(false);
+		loadTaskTreeAtStartUpLabel.setName("loadTaskTreeAtStartUpLabel");
+	}
+	return loadTaskTreeAtStartUpLabel;
+}
+
+/**
+ * This method initializes loadTaskTreeAtStartUpCheckBox	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox	
+ */
+private RCheckBox getLoadTaskTreeAtStartUpCheckBox() {
+	if (loadTaskTreeAtStartUpCheckBox == null) {
+		loadTaskTreeAtStartUpCheckBox = new RCheckBox();
+		loadTaskTreeAtStartUpCheckBox.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/task/plainStrings/loadTaskTreeAtStartup\")%>");
+		loadTaskTreeAtStartUpCheckBox.setName("loadTaskTreeAtStartUpCheckBox");
+	}
+	return loadTaskTreeAtStartUpCheckBox;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

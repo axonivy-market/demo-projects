@@ -21,6 +21,7 @@ import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
 import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.ULCContainer;
 import com.ulcjava.base.application.util.Color;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
 
 /**
  * RichDialog panel implementation for UserMenuPanel.
@@ -37,9 +38,6 @@ private RHyperlink runningTasksHyperlink = null;
 private RHyperlink finishedTasksHyperlink = null;
 private RTaskPane userMenuTaskPane = null;
 private RTaskPaneContainer userMenuTaskPaneContainer = null;
-private RCardPane userMenuElementsCardPane = null;
-private RBoxPane emptyBoxPane = null;
-@EmbeddedRichDialog(TaskSearchPanel.class) private ULCContainer runningTaskSearchRDC = null;
 private RHyperlink runningCasesHyperlink = null;
 private RHyperlink finishedCasesHyperlink = null;
 private RHyperlink startingProcessesHyperlink = null;
@@ -47,10 +45,6 @@ private RHyperlink substitutesHyperlink = null;
 private RHyperlink absenceHyperlink = null;
 private RHyperlink userSecurityHyperlink = null;
 private RHyperlink roleSecurityHyperlink = null;
-@EmbeddedRichDialog(StartProcessDisplayListPanel.class) private ULCContainer startList = null;
-@EmbeddedRichDialog(CaseSearchPanel.class) private ULCContainer runningCaseSearchRDC = null;
-@EmbeddedRichDialog(CaseSearchPanel.class) private ULCContainer finishedCaseSearchRDC = null;
-@EmbeddedRichDialog(TaskSearchPanel.class) private ULCContainer finishedTaskSearchRDC = null;
 private RLabel footerLabel = null;
 @EmbeddedRichDialog(SeparatorPanel.class) private ULCContainer tasksSeparatorPanel = null;
 @EmbeddedRichDialog(SeparatorPanel.class) private ULCContainer casesSeparatorPanel = null;
@@ -61,6 +55,7 @@ private RHyperlink managedTeamsHyperlink = null;
 private RHyperlink emailNotificationHyperlink = null;
 private @EmbeddedRichDialog(SeparatorPanel.class) ULCContainer BAMSeparatorPanel = null;
 private RHyperlink bamHyperlink = null;
+private RCardDisplay userMenuCardDisplay = null;
 /**
    * Create a new instance of UserMenuPanel
    */
@@ -82,8 +77,8 @@ private RHyperlink bamHyperlink = null;
         this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(327,587));
         this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(337,567));
         this.add(getUserMenuTaskPaneContainer(), com.ulcjava.base.application.ULCBorderLayoutPane.NORTH);
-        this.add(getUserMenuElementsCardPane(), com.ulcjava.base.application.ULCBorderLayoutPane.CENTER);
         this.add(getFooterLabel(), com.ulcjava.base.application.ULCBorderLayoutPane.SOUTH);
+        this.add(getUserMenuCardDisplay(), com.ulcjava.base.application.ULCBorderLayoutPane.CENTER);
   }
 
 /**
@@ -212,61 +207,6 @@ private RTaskPaneContainer getUserMenuTaskPaneContainer() {
 }
 
 /**
- * This method initializes userMenuElementsCardPane	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.containers.RCardPane	
- */
-private RCardPane getUserMenuElementsCardPane() {
-	if (userMenuElementsCardPane == null) {
-		userMenuElementsCardPane = new RCardPane();
-		userMenuElementsCardPane.setName("userMenuElementsCardPane");
-		userMenuElementsCardPane.setStyleProperties("{/hgap \"8\"}");
-		userMenuElementsCardPane.setPreferredSize(new com.ulcjava.base.application.util.Dimension(100,100));
-		userMenuElementsCardPane.addCard("emptyBoxPane", getEmptyBoxPane());
-		userMenuElementsCardPane.addCard("runningTaskSearchRDC", getRunningTaskSearchRDC());
-		userMenuElementsCardPane.addCard("finishedTaskSearchRDC", getFinishedTaskSearchRDC());		
-		userMenuElementsCardPane.addCard("runningCaseSearchRDC", getRunningCaseSearchRDC());
-		userMenuElementsCardPane.addCard("finishedCaseSearchRDC", getFinishedCaseSearchRDC());		
-		userMenuElementsCardPane.addCard("startList", getStartList());
-		
-		// define the lazy loading
-		userMenuElementsCardPane.setPreloadAt("runningTaskSearchRDC", false);
-		userMenuElementsCardPane.setPreloadAt("finishedTaskSearchRDC", false);		
-		userMenuElementsCardPane.setPreloadAt("runningCaseSearchRDC", false);
-		userMenuElementsCardPane.setPreloadAt("finishedCaseSearchRDC", false);
-		userMenuElementsCardPane.setPreloadAt("startList", false);
-		
-	}
-	return userMenuElementsCardPane;
-}
-
-/**
- * This method initializes emptyBoxPane	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane	
- */
-private RBoxPane getEmptyBoxPane() {
-	if (emptyBoxPane == null) {
-		emptyBoxPane = new RBoxPane();
-		emptyBoxPane.setName("emptyBoxPane");
-	}
-	return emptyBoxPane;
-}
-
-/**
- * This method initializes runningTaskSearchRDC	
- * 	
- * @return ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchPanel	
- */
-private ULCContainer getRunningTaskSearchRDC()  {
-	if (runningTaskSearchRDC == null) {
-		runningTaskSearchRDC = RichDialogPanelFactory.create(TaskSearchPanel.class);
-		runningTaskSearchRDC.setName("runningTaskSearchRDC");
-	}
-	return runningTaskSearchRDC;
-}
-
-/**
  * This method initializes runningCasesHyperlink	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
@@ -388,58 +328,6 @@ private RHyperlink getRoleSecurityHyperlink() {
 		roleSecurityHyperlink.setClickedColor(new Color(0, 0, 0));
 	}
 	return roleSecurityHyperlink;
-}
-
-/**
- * This method initializes startList	
- * 	
- * @return ch.ivyteam.ivy.workflow.ui.StartList.StartListPanel	
- */
-private ULCContainer getStartList()  {
-	if (startList == null) {
-		startList = RichDialogPanelFactory.create(StartProcessDisplayListPanel.class);
-		startList.setName("startList");
-	}
-	return startList;
-}
-
-/**
- * This method initializes runningCaseSearchRDC	
- * 	
- * @return ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchPanel	
- */
-private ULCContainer getRunningCaseSearchRDC()  {
-	if (runningCaseSearchRDC == null) {
-		runningCaseSearchRDC = RichDialogPanelFactory.create(CaseSearchPanel.class);
-		runningCaseSearchRDC.setName("runningCaseSearchRDC");
-	}
-	return runningCaseSearchRDC;
-}
-
-/**
- * This method initializes finishedCaseSearchRDC	
- * 	
- * @return ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchPanel	
- */
-private ULCContainer getFinishedCaseSearchRDC()  {
-	if (finishedCaseSearchRDC == null) {
-		finishedCaseSearchRDC = RichDialogPanelFactory.create(CaseSearchPanel.class);
-		finishedCaseSearchRDC.setName("finishedCaseSearchRDC");
-	}
-	return finishedCaseSearchRDC;
-}
-
-/**
- * This method initializes finishedTaskSearchRDC	
- * 	
- * @return ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchPanel	
- */
-private ULCContainer getFinishedTaskSearchRDC()  {
-	if (finishedTaskSearchRDC == null) {
-		finishedTaskSearchRDC = RichDialogPanelFactory.create(TaskSearchPanel.class);
-		finishedTaskSearchRDC.setName("finishedTaskSearchRDC");
-	}
-	return finishedTaskSearchRDC;
 }
 
 /**
@@ -588,5 +476,19 @@ private RHyperlink getBamHyperlink() {
 		bamHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/absenceLongDesc\")%>");
 	}
 	return bamHyperlink;
+}
+
+/**
+ * This method initializes userMenuCardDisplay	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay	
+ */
+private RCardDisplay getUserMenuCardDisplay() {
+	if (userMenuCardDisplay == null) {
+		userMenuCardDisplay = new RCardDisplay();
+		userMenuCardDisplay.setName("userMenuCardDisplay");
+		userMenuCardDisplay.setDisplayId("userMenuDisplay");
+	}
+	return userMenuCardDisplay;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

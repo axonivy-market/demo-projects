@@ -1,15 +1,15 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-09-21 13:01:25 | 4.2.0.37454 | 1.0
+# 2011-11-03 15:04:49 | 4.2.0.37590 | 1.0
 ~.findInvolvedCasesByRoleRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AB61160C1CCBD4
 ~.refreshCaseListMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AB5A0B6496A867
 ~.destroyCaseMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ADF4A5A6D381BC
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11A9B75F890E6929
 ~.caseFiltersSelectRDC@RD_EVENT[filterDefinitionConfirmed]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11B02C6D9A6AB699
 ~.loadCaseListButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ACA59A2BCAD1C6
-~@RD_METHODCALL[isRunningCaseMode()]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AC432EBF67E27F
 ~.loadCaseListMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ACA59A2BCAD1C6
-~.findAllEnvironmentCasesRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AB61176BA4488C
+~@RD_METHODCALL[isRunningCaseMode()]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AC432EBF67E27F
 ~.refreshButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/1292753B9B02B3B1
+~.findAllEnvironmentCasesRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AB61176BA4488C
 ~.caseHierarchyLayoutTree@TREE_LOAD[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AC55E486080498
 ~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AC0501E4A8E488
 ~@RD_BROADCAST[ivy_systemevent_workflow_case_changed]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11E45FC772CCDCC7
@@ -17,13 +17,13 @@
 ~@RD_METHODCALL[start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,Boolean,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AC3F5F94D5900C
 ~.caseFiltersToggleButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11B02C6D9A66EB58
 ~.caseHierarchyLayoutTree@TREE_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ADED5FE475E81F
-~.expandAllMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11E456C63043A6F1
 ~.caseHierarchyLayoutSelectRDC@RD_EVENT[caseHierarchyLayoutSelected]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11AB5A0B6496A867
+~.expandAllMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11E456C63043A6F1
 ~.caseHierarchyLayoutTree@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ADEF3A84644DB8
 ~.expandAllButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11E456C63043A6F1
 ~.sortByPriorityCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ABB3474C13F239
 ~.informOnCaseMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ADEF3A84644DB8
-~@RD_METHODCALL[initializeCaseHierarchyLayoutPrefferedIndex()]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/120E7FB4EC3F82AE
 ~.caseFiltersSelectRDC@RD_EVENT[filterDefinitionCanceled]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11B02C6D9A6CFDC8
+~@RD_METHODCALL[initializeCaseHierarchyLayoutPrefferedIndex()]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/120E7FB4EC3F82AE
 ~.informOnCaseButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ADEF3A84644DB8
 ~.destroyCaseButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11A9B75F7E57BD13/11ADF4A5A6D381BC

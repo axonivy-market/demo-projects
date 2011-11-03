@@ -9,6 +9,10 @@ public class UserPropertyKeys {
 	
 	public static final String TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY = "xivy.workflow.ui.params.tasksHierarchyLayoutIndex";
 	
+	public static final String LOAD_TASK_LIST_AT_START_UP_PROPERTY_KEY = "xivy.workflow.ui.params.loadTaskListAtStartUp";
+	
+	public static final String LOAD_TASK_TREE_AT_START_UP_PROPERTY_KEY = "xivy.workflow.ui.params.loadTaskTreeAtStartUp";
+	
 	public static final String IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY = "xivy.workflow.ui.params.isMultipleTaskListMode";
 	
 	public static final String CASES_SORTED_BY_PRIORITY_PROPERTY_KEY = "xivy.workflow.ui.params.casesSortedByPriority";

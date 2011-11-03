@@ -94,6 +94,74 @@ public class WorkflowUserPropertyHelper {
 	}
 	
 	
+	
+	/**
+	 * It sets the preference if user would like to have running task list loaded automatically during the WFUI startup.
+	 * 
+	 * @param user is the one for which the preference has to be set
+	 * @param loadTaskListAtStartUp is the preference value; if true then the running task list will be loaded at WFUI startup; otherwise not
+	 * @return true if operation was successful
+	 * @throws EnvironmentNotAvailableException
+	 * @throws Exception
+	 */
+	public static boolean setLoadTaskListAtStartUpPreference(IUser user, Boolean loadTaskListAtStartUp) throws EnvironmentNotAvailableException, Exception
+	{
+		return setUserPropertyAsSystemUser(
+					user, 
+					UserPropertyKeys.LOAD_TASK_LIST_AT_START_UP_PROPERTY_KEY, 
+					loadTaskListAtStartUp.toString());
+	}
+	
+	/**
+	 * It returns the actual user preference regarding the running task list loading at WFUI startup.
+	 * 
+	 * @param user is the one for which the preference has to be get
+	 * @return true if operation was successful
+	 * @throws EnvironmentNotAvailableException
+	 * @throws Exception
+	 */
+	public static boolean getLoadTaskListAtStartUpPreference(IUser user) throws EnvironmentNotAvailableException, Exception
+	{
+		String propertyValue = getUserPropertyAsSystemUser(user, UserPropertyKeys.LOAD_TASK_LIST_AT_START_UP_PROPERTY_KEY);
+		
+		return "true".equals(propertyValue);
+	}
+	
+	/**
+	 * 
+	 * @param user is the one for which the preference has to be set
+	 * @param loadTaskTreeAtStartUp is the preference value; if true then the running task tree will be loaded at WFUI startup; otherwise not
+	 * @return true if operation was successful
+	 * @throws EnvironmentNotAvailableException
+	 * @throws Exception
+	 */
+	public static boolean setLoadTaskTreeAtStartUpPreference(IUser user, Boolean loadTaskTreeAtStartUp) throws EnvironmentNotAvailableException, Exception
+	{
+		return setUserPropertyAsSystemUser(
+					user, 
+					UserPropertyKeys.LOAD_TASK_TREE_AT_START_UP_PROPERTY_KEY, 
+					loadTaskTreeAtStartUp.toString());
+	}
+	
+	/**
+	 * It returns the actual user preference regarding the running task tree loading at WFUI startup.
+	 * 
+	 * @param user is the one for which the preference has to be get
+	 * @return true if operation was successful
+	 * @throws EnvironmentNotAvailableException
+	 * @throws Exception
+	 */
+	public static boolean getLoadTaskTreeAtStartUpPreference(IUser user) throws EnvironmentNotAvailableException, Exception
+	{
+		String propertyValue = getUserPropertyAsSystemUser(user, UserPropertyKeys.LOAD_TASK_TREE_AT_START_UP_PROPERTY_KEY);
+		
+		return "true".equals(propertyValue);
+	}
+	
+	
+	
+	
+	
 	/**
 	 * 
 	 * It sets the preference if user would like to have multiple task list displayed at same time (each task list is a additional tab)
@@ -162,7 +230,7 @@ public class WorkflowUserPropertyHelper {
 	 */
 	public static boolean getMenuAutoHidePreference(IUser user) throws EnvironmentNotAvailableException, Exception
 	{
-		String propertyValue = getUserPropertyAsSystemUser(user, UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY);
+		String propertyValue = getUserPropertyAsSystemUser(user, UserPropertyKeys.MENU_AUTO_HIDE_PROPERTY_KEY);	
 		
 		return "true".equals(propertyValue);
 	}
@@ -200,7 +268,7 @@ public class WorkflowUserPropertyHelper {
 	 */
 	public static boolean getCasesSortedByPriorityPreference(IUser user) throws EnvironmentNotAvailableException, Exception
 	{
-		String propertyValue = getUserPropertyAsSystemUser(user, UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_KEY);
+		String propertyValue = getUserPropertyAsSystemUser(user, UserPropertyKeys.CASES_SORTED_BY_PRIORITY_PROPERTY_KEY);		
 		
 		return "true".equals(propertyValue);
 	}

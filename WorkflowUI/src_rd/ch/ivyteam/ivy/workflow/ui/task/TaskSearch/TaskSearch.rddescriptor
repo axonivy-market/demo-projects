@@ -15,6 +15,20 @@
         <name>initializeTaskHierarchyLayoutPrefferedIndex</name>
         <description></description>
     </method>
+    <method>
+        <name>expand</name>
+        <description></description>
+    </method>
+    <method>
+        <name>isRunningTaskMode</name>
+        <description>If returns true that means &quot;running tasks&quot;, otherwise it means &quot;finished tasks&quot;.</description>
+        <outputParameter>
+            <name>runningMode</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
     <startMethod>
         <name>start</name>
         <description></description>

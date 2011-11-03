@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Oct 28 13:28:00 CEST 2011]
+[>Created: Thu Nov 03 17:01:15 CET 2011]
 117CB5CD6E5F88C6 3.17 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
@@ -26,7 +26,6 @@ As0 @PushWFArc f16 '' #zField
 As0 @PushWFArc f32 '' #zField
 As0 @RichDialogProcessStep f181 '' #zField
 As0 @RichDialog f77 '' #zField
-As0 @PushWFArc f5 '' #zField
 As0 @RichDialogProcessEnd f2 '' #zField
 As0 @PushWFArc f3 '' #zField
 As0 @RichDialogProcessEnd f8 '' #zField
@@ -84,6 +83,10 @@ As0 @PushWFArc f54 '' #zField
 As0 @RichDialogProcessStep f64 '' #zField
 As0 @PushWFArc f65 '' #zField
 As0 @PushWFArc f66 '' #zField
+As0 @Alternative f67 '' #zField
+As0 @PushWFArc f68 '' #zField
+As0 @PushWFArc f5 '' #zField
+As0 @PushWFArc f69 '' #zField
 >Proto As0 As0 ApplicationDynamicWayProcess #zField
 As0 f1 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f1 59 243 26 26 14 0 #rect
@@ -272,7 +275,7 @@ build the &quot;Running tasks&quot; title</name>
     </language>
 </elementInfo>
 ' #txt
-As0 f181 766 108 36 24 20 -2 #rect
+As0 f181 766 92 36 24 20 -2 #rect
 As0 f181 @|RichDialogProcessStepIcon #fIcon
 As0 f77 targetWindow THIS #txt
 As0 f77 targetDisplay EXISTING:<%=in.destinationDisplay.getDisplayId()%> #txt
@@ -306,15 +309,13 @@ running task list</name>
     </language>
 </elementInfo>
 ' #txt
-As0 f77 766 156 36 24 20 -2 #rect
+As0 f77 766 188 36 24 20 -2 #rect
 As0 f77 @|RichDialogIcon #fIcon
-As0 f5 expr out #txt
-As0 f5 784 132 784 156 #arcP
 As0 f2 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f2 774 222 20 20 13 0 #rect
+As0 f2 774 238 20 20 13 0 #rect
 As0 f2 @|RichDialogProcessEndIcon #fIcon
 As0 f3 expr out #txt
-As0 f3 784 180 784 222 #arcP
+As0 f3 784 212 784 238 #arcP
 As0 f3 0 0.49533681551418535 0 0 #arcLabel
 As0 f8 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f8 630 438 20 20 13 0 #rect
@@ -605,7 +606,7 @@ As0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 As0 f4 774 54 20 20 13 0 #rect
 As0 f4 @|RichDialogProcessStartIcon #fIcon
 As0 f7 expr out #txt
-As0 f7 784 74 784 108 #arcP
+As0 f7 784 74 784 92 #arcP
 As0 f21 guid 12DBC57969BB06BD #txt
 As0 f21 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f21 broadcast xivyTaskStarted #txt
@@ -921,6 +922,37 @@ As0 f66 expr out #txt
 As0 f66 1304 428 1194 464 #arcP
 As0 f66 1 1304 464 #addKink
 As0 f66 1 0.23782812110955578 0 0 #arcLabel
+As0 f67 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>load task list at startup?</name>
+        <nameStyle>26,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f67 770 138 28 28 14 0 #rect
+As0 f67 @|AlternativeIcon #fIcon
+As0 f68 expr out #txt
+As0 f68 784 116 784 138 #arcP
+As0 f5 expr in #txt
+As0 f5 outCond ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper.getLoadTaskListAtStartUpPreference(ivy.session.getSessionUser()) #txt
+As0 f5 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f5 784 166 784 188 #arcP
+As0 f69 expr in #txt
+As0 f69 798 152 793 247 #arcP
+As0 f69 1 944 152 #addKink
+As0 f69 2 944 232 #addKink
+As0 f69 1 0.1681625228791295 0 0 #arcLabel
 >Proto As0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -950,8 +982,6 @@ As0 f29 mainOut f16 tail #connect
 As0 f16 head f13 mainIn #connect
 As0 f13 mainOut f32 tail #connect
 As0 f32 head f1 mainIn #connect
-As0 f181 mainOut f5 tail #connect
-As0 f5 head f77 mainIn #connect
 As0 f77 mainOut f3 tail #connect
 As0 f3 head f2 mainIn #connect
 As0 f17 mainOut f14 tail #connect
@@ -1010,3 +1040,9 @@ As0 f62 out f65 tail #connect
 As0 f65 head f64 mainIn #connect
 As0 f64 mainOut f66 tail #connect
 As0 f66 head f53 mainIn #connect
+As0 f181 mainOut f68 tail #connect
+As0 f68 head f67 in #connect
+As0 f67 out f5 tail #connect
+As0 f5 head f77 mainIn #connect
+As0 f67 out f69 tail #connect
+As0 f69 head f2 mainIn #connect

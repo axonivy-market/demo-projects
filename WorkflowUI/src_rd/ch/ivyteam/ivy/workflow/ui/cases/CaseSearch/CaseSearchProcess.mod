@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Sep 21 17:01:36 CEST 2011]
+[>Created: Thu Nov 03 15:04:51 CET 2011]
 11A9B75F7E57BD13 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseSearchProcess Big #zClass
@@ -254,10 +254,10 @@ Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f3 1422 62 20 20 12 -17 #rect
+Cs0 f3 1518 62 20 20 12 -17 #rect
 Cs0 f3 @|RichDialogProcessStartIcon #fIcon
 Cs0 f4 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f4 1419 587 26 26 14 0 #rect
+Cs0 f4 1515 587 26 26 14 0 #rect
 Cs0 f4 @|RichDialogProcessEndIcon #fIcon
 Cs0 f6 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -265,7 +265,7 @@ Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f6 1418 322 28 28 14 0 #rect
+Cs0 f6 1514 322 28 28 14 0 #rect
 Cs0 f6 @|AlternativeIcon #fIcon
 Cs0 f10 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -478,12 +478,12 @@ Case sub type</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f10 838 412 36 24 20 -2 #rect
+Cs0 f10 934 412 36 24 20 -2 #rect
 Cs0 f10 @|RichDialogProcessStepIcon #fIcon
 Cs0 f11 expr in #txt
 Cs0 f11 outCond 'in.caseHierarchyLayoutSelectedIndex == 0' #txt
-Cs0 f11 1418 336 856 412 #arcP
-Cs0 f11 1 856 336 #addKink
+Cs0 f11 1514 336 952 412 #arcP
+Cs0 f11 1 952 336 #addKink
 Cs0 f11 0 0.7004937571257567 0 0 #arcLabel
 Cs0 f9 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -649,7 +649,7 @@ Case type/</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f9 1022 420 36 24 20 -2 #rect
+Cs0 f9 1118 420 36 24 20 -2 #rect
 Cs0 f9 @|RichDialogProcessStepIcon #fIcon
 Cs0 f12 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -815,7 +815,7 @@ Business main contact</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f12 1214 420 36 24 20 -2 #rect
+Cs0 f12 1310 420 36 24 20 -2 #rect
 Cs0 f12 @|RichDialogProcessStepIcon #fIcon
 Cs0 f13 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -993,7 +993,7 @@ Case process</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f13 1414 420 36 24 20 -2 #rect
+Cs0 f13 1510 420 36 24 20 -2 #rect
 Cs0 f13 @|RichDialogProcessStepIcon #fIcon
 Cs0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -1219,26 +1219,26 @@ Case process</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f14 1598 420 36 24 20 -2 #rect
+Cs0 f14 1694 420 36 24 20 -2 #rect
 Cs0 f14 @|RichDialogProcessStepIcon #fIcon
 Cs0 f15 expr in #txt
 Cs0 f15 outCond 'in.caseHierarchyLayoutSelectedIndex == 1' #txt
-Cs0 f15 1419 337 1040 420 #arcP
-Cs0 f15 1 1040 352 #addKink
+Cs0 f15 1515 337 1136 420 #arcP
+Cs0 f15 1 1136 352 #addKink
 Cs0 f15 0 0.7321248043353128 0 0 #arcLabel
 Cs0 f18 expr in #txt
 Cs0 f18 outCond 'in.caseHierarchyLayoutSelectedIndex == 2' #txt
-Cs0 f18 1420 338 1232 420 #arcP
-Cs0 f18 1 1232 360 #addKink
+Cs0 f18 1516 338 1328 420 #arcP
+Cs0 f18 1 1328 360 #addKink
 Cs0 f18 0 0.6920545645180359 0 0 #arcLabel
 Cs0 f20 expr in #txt
 Cs0 f20 outCond 'in.caseHierarchyLayoutSelectedIndex == 3' #txt
-Cs0 f20 1432 350 1432 420 #arcP
+Cs0 f20 1528 350 1528 420 #arcP
 Cs0 f20 0 0.32753262063191424 0 0 #arcLabel
 Cs0 f22 expr in #txt
 Cs0 f22 outCond 'in.caseHierarchyLayoutSelectedIndex == 4' #txt
-Cs0 f22 1444 339 1616 420 #arcP
-Cs0 f22 1 1616 376 #addKink
+Cs0 f22 1540 339 1712 420 #arcP
+Cs0 f22 1 1712 376 #addKink
 Cs0 f22 0 0.6350626509682887 0 0 #arcLabel
 Cs0 f24 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -1453,7 +1453,7 @@ Business main contact</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f24 1798 420 36 24 20 -2 #rect
+Cs0 f24 1894 420 36 24 20 -2 #rect
 Cs0 f24 @|RichDialogProcessStepIcon #fIcon
 Cs0 f25 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -1676,17 +1676,17 @@ Case process</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f25 1998 420 36 24 20 -2 #rect
+Cs0 f25 2094 420 36 24 20 -2 #rect
 Cs0 f25 @|RichDialogProcessStepIcon #fIcon
 Cs0 f26 expr in #txt
 Cs0 f26 outCond 'in.caseHierarchyLayoutSelectedIndex == 5' #txt
-Cs0 f26 1445 337 1816 420 #arcP
-Cs0 f26 1 1816 360 #addKink
+Cs0 f26 1541 337 1912 420 #arcP
+Cs0 f26 1 1912 360 #addKink
 Cs0 f26 0 0.6231640838022615 0 0 #arcLabel
 Cs0 f28 expr in #txt
 Cs0 f28 outCond 'in.caseHierarchyLayoutSelectedIndex == 6' #txt
-Cs0 f28 1446 336 2016 420 #arcP
-Cs0 f28 1 2016 352 #addKink
+Cs0 f28 1542 336 2112 420 #arcP
+Cs0 f28 1 2112 352 #addKink
 Cs0 f28 0 0.6180625399490141 0 0 #arcLabel
 Cs0 f30 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -1772,7 +1772,7 @@ Cs0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f32 1718 62 20 20 13 0 #rect
+Cs0 f32 1814 62 20 20 13 0 #rect
 Cs0 f32 @|RichDialogProcessStartIcon #fIcon
 Cs0 f33 guid 11AB61160C1CCBD4 #txt
 Cs0 f33 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -1790,7 +1790,7 @@ Cs0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f33 1854 62 20 20 13 0 #rect
+Cs0 f33 1950 62 20 20 13 0 #rect
 Cs0 f33 @|RichDialogProcessStartIcon #fIcon
 Cs0 f34 guid 11AB61176BA4488C #txt
 Cs0 f34 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -1808,7 +1808,7 @@ Cs0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f34 1990 62 20 20 13 0 #rect
+Cs0 f34 2086 62 20 20 13 0 #rect
 Cs0 f34 @|RichDialogProcessStartIcon #fIcon
 Cs0 f68 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -1829,10 +1829,10 @@ on the cases hierarchy layout tree</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f68 1414 140 36 24 8 11 #rect
+Cs0 f68 1510 140 36 24 8 11 #rect
 Cs0 f68 @|RichDialogProcessStepIcon #fIcon
 Cs0 f35 expr out #txt
-Cs0 f35 1432 82 1432 140 #arcP
+Cs0 f35 1528 82 1528 140 #arcP
 Cs0 f39 guid 11ABB3474C13F239 #txt
 Cs0 f39 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f39 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
@@ -1848,11 +1848,11 @@ Cs0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f39 1606 62 20 20 13 0 #rect
+Cs0 f39 1702 62 20 20 13 0 #rect
 Cs0 f39 @|RichDialogProcessStartIcon #fIcon
 Cs0 f40 expr out #txt
-Cs0 f40 1616 82 1450 152 #arcP
-Cs0 f40 1 1616 152 #addKink
+Cs0 f40 1712 82 1546 152 #arcP
+Cs0 f40 1 1712 152 #addKink
 Cs0 f40 1 0.3346589585634533 0 0 #arcLabel
 Cs0 f42 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1860,7 +1860,7 @@ Cs0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f42 1418 242 28 28 14 0 #rect
+Cs0 f42 1514 242 28 28 14 0 #rect
 Cs0 f42 @|AlternativeIcon #fIcon
 Cs0 f44 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -1946,7 +1946,7 @@ considering (ON/OFF) the user filter</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f44 1502 276 36 24 20 -2 #rect
+Cs0 f44 1598 276 36 24 20 -2 #rect
 Cs0 f44 @|RichDialogProcessStepIcon #fIcon
 Cs0 f45 expr in #txt
 Cs0 f45 outCond in.sortByPriority #txt
@@ -1960,27 +1960,27 @@ priority</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f45 1446 256 1520 276 #arcP
-Cs0 f45 1 1520 256 #addKink
+Cs0 f45 1542 256 1616 276 #arcP
+Cs0 f45 1 1616 256 #addKink
 Cs0 f45 0 0.7979555173134776 0 0 #arcLabel
 Cs0 f46 expr out #txt
-Cs0 f46 1520 300 1444 334 #arcP
-Cs0 f46 1 1520 320 #addKink
+Cs0 f46 1616 300 1540 334 #arcP
+Cs0 f46 1 1616 320 #addKink
 Cs0 f46 0 0.8687109049763829 0 0 #arcLabel
 Cs0 f7 expr in #txt
-Cs0 f7 1432 270 1432 322 #arcP
+Cs0 f7 1528 270 1528 322 #arcP
 Cs0 f47 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f47 1418 194 28 28 14 0 #rect
+Cs0 f47 1514 194 28 28 14 0 #rect
 Cs0 f47 @|AlternativeIcon #fIcon
 Cs0 f48 expr out #txt
-Cs0 f48 1432 164 1432 194 #arcP
+Cs0 f48 1528 164 1528 194 #arcP
 Cs0 f43 expr in #txt
-Cs0 f43 1432 222 1432 242 #arcP
+Cs0 f43 1528 222 1528 242 #arcP
 Cs0 f49 guid 11AC0501E4A8E488 #txt
 Cs0 f49 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f49 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
@@ -2019,7 +2019,7 @@ Cs0 f49 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f49 1014 46 20 20 13 0 #rect
+Cs0 f49 1110 46 20 20 13 0 #rect
 Cs0 f49 @|RichDialogProcessStartIcon #fIcon
 Cs0 f51 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -2075,15 +2075,17 @@ out.multipleCaseListMode = WorkflowUserPropertyHelper.getMultipleCaseListModePre
 ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.IS_MULTIPLE_CASELIST_MODE_PROPERTY_KEY, out.multipleCaseListMode);' #txt
 Cs0 f53 outParameterDecl '<> result;
 ' #txt
-Cs0 f53 embeddedRdInitializations '{/caseFiltersSelectRDC {/fieldName "caseFiltersSelectRDC"/startMethod "start(ch.ivyteam.ivy.workflow.IPropertyFilter)"/parameterMapping ""/initScript "// set case states property filter for case list\nparam.aCaseStateFilter = (in.runningCaseMode? \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tivy.wf.createCasePropertyFilter(ch.ivyteam.ivy.workflow.CaseProperty.STATE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, ch.ivyteam.ivy.workflow.CaseState.RUNNING.intValue()):\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tivy.wf.createCasePropertyFilter(ch.ivyteam.ivy.workflow.CaseProperty.STATE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, ch.ivyteam.ivy.workflow.CaseState.DONE.intValue()));"/userContext * }/caseHierarchyLayoutSelectRDC {/fieldName "caseHierarchyLayoutSelectRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }}' #txt
+Cs0 f53 embeddedRdInitializations '{/caseFiltersSelectRDC {/fieldName "caseFiltersSelectRDC"/startMethod "start(ch.ivyteam.ivy.workflow.IPropertyFilter)"/parameterMapping ""/initScript "// set case states property filter for case list\nparam.aCaseStateFilter = (in.runningCaseMode? \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tivy.wf.createCasePropertyFilter(ch.ivyteam.ivy.workflow.CaseProperty.STATE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, ch.ivyteam.ivy.workflow.CaseState.RUNNING.intValue()):\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tivy.wf.createCasePropertyFilter(ch.ivyteam.ivy.workflow.CaseProperty.STATE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, ch.ivyteam.ivy.workflow.CaseState.DONE.intValue()));"/userContext * }/caseHierarchyLayoutSelectRDC {/fieldName "caseHierarchyLayoutSelectRDC"/startMethod "start(Number)"/parameterMapping ""/initScript "import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper;\n\nint casesHierarchyLayoutIndex = WorkflowUserPropertyHelper.getCasesHierarchyLayoutIndexPreference(ivy.session.getSessionUser());\nparam.aCaseHierarchyLayoutPrefferedIndex = (casesHierarchyLayoutIndex != -1? casesHierarchyLayoutIndex: 0);\n"/userContext * }}' #txt
 Cs0 f53 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(Boolean,RCloseableTabbedDisplay,Boolean,Boolean)</name>
+        <nameStyle>54,5,6
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f53 166 54 20 20 -22 -31 #rect
+Cs0 f53 166 54 20 20 8 1 #rect
 Cs0 f53 @|RichDialogInitStartIcon #fIcon
 Cs0 f55 expr out #txt
 Cs0 f55 176 74 82 168 #arcP
@@ -2109,7 +2111,7 @@ Cs0 f54 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f54 422 54 20 20 13 0 #rect
+Cs0 f54 518 54 20 20 13 0 #rect
 Cs0 f54 @|RichDialogMethodStartIcon #fIcon
 Cs0 f57 guid 11AC55E486080498 #txt
 Cs0 f57 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -2127,10 +2129,10 @@ Cs0 f57 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f57 878 638 20 20 13 0 #rect
+Cs0 f57 974 638 20 20 13 0 #rect
 Cs0 f57 @|RichDialogProcessStartIcon #fIcon
 Cs0 f58 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f58 875 1051 26 26 14 0 #rect
+Cs0 f58 971 1051 26 26 14 0 #rect
 Cs0 f58 @|RichDialogProcessEndIcon #fIcon
 Cs0 f60 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f60 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2138,10 +2140,10 @@ Cs0 f60 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f60 874 706 28 28 14 0 #rect
+Cs0 f60 970 706 28 28 14 0 #rect
 Cs0 f60 @|AlternativeIcon #fIcon
 Cs0 f61 expr out #txt
-Cs0 f61 888 658 888 706 #arcP
+Cs0 f61 984 658 984 706 #arcP
 Cs0 f62 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f62 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -2152,7 +2154,7 @@ Cs0 f62 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f62 874 794 28 28 8 -21 #rect
+Cs0 f62 970 794 28 28 8 -21 #rect
 Cs0 f62 @|AlternativeIcon #fIcon
 Cs0 f63 expr in #txt
 Cs0 f63 outCond '(in.#treeLoadEvent!= null) && (in.treeLoadEvent.getTreeNode().value instanceof ch.ivyteam.ivy.workflow.ui.data.cases.CaseHierarchyTreeNodeValue)' #txt
@@ -2166,11 +2168,11 @@ and it is not a root node</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f63 888 734 888 794 #arcP
+Cs0 f63 984 734 984 794 #arcP
 Cs0 f64 expr in #txt
-Cs0 f64 902 720 901 1064 #arcP
-Cs0 f64 1 1320 720 #addKink
-Cs0 f64 2 1320 1064 #addKink
+Cs0 f64 998 720 997 1064 #arcP
+Cs0 f64 1 1416 720 #addKink
+Cs0 f64 2 1416 1064 #addKink
 Cs0 f64 1 0.28920835504972936 0 0 #arcLabel
 Cs0 f65 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -2259,7 +2261,7 @@ unclassified cases</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f65 1142 884 36 24 20 -2 #rect
+Cs0 f65 1238 884 36 24 20 -2 #rect
 Cs0 f65 @|RichDialogProcessStepIcon #fIcon
 Cs0 f66 expr in #txt
 Cs0 f66 outCond '(in.treeLoadEvent.getTreeNode().value as ch.ivyteam.ivy.workflow.ui.data.cases.CaseHierarchyTreeNodeValue).property.equals(ch.ivyteam.ivy.workflow.CaseProperty.PROCESS_CATEGORY_CODE) &&
@@ -2274,12 +2276,12 @@ Cs0 f66 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f66 902 808 1160 884 #arcP
-Cs0 f66 1 1160 808 #addKink
+Cs0 f66 998 808 1256 884 #arcP
+Cs0 f66 1 1256 808 #addKink
 Cs0 f66 1 0.5 32 0 #arcLabel
 Cs0 f67 expr out #txt
-Cs0 f67 1160 908 901 1064 #arcP
-Cs0 f67 1 1160 1064 #addKink
+Cs0 f67 1256 908 997 1064 #arcP
+Cs0 f67 1 1256 1064 #addKink
 Cs0 f67 0 0.9812125823658793 0 0 #arcLabel
 Cs0 f69 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -2378,12 +2380,12 @@ and created tree with node value ICase</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f69 870 884 36 24 21 -2 #rect
+Cs0 f69 966 884 36 24 21 -2 #rect
 Cs0 f69 @|RichDialogProcessStepIcon #fIcon
 Cs0 f70 expr in #txt
-Cs0 f70 888 822 888 884 #arcP
+Cs0 f70 984 822 984 884 #arcP
 Cs0 f59 expr out #txt
-Cs0 f59 888 908 888 1051 #arcP
+Cs0 f59 984 908 984 1051 #arcP
 Cs0 f71 guid 11ACA59A2BCAD1C6 #txt
 Cs0 f71 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f71 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
@@ -2399,10 +2401,10 @@ Cs0 f71 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f71 1422 638 20 20 13 0 #rect
+Cs0 f71 1518 638 20 20 13 0 #rect
 Cs0 f71 @|RichDialogProcessStartIcon #fIcon
 Cs0 f72 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f72 1419 1123 26 26 14 0 #rect
+Cs0 f72 1515 1123 26 26 14 0 #rect
 Cs0 f72 @|RichDialogProcessEndIcon #fIcon
 Cs0 f74 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f74 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2410,7 +2412,7 @@ Cs0 f74 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f74 1418 786 28 28 14 0 #rect
+Cs0 f74 1514 786 28 28 14 0 #rect
 Cs0 f74 @|AlternativeIcon #fIcon
 Cs0 f77 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f77 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2418,11 +2420,11 @@ Cs0 f77 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f77 1418 834 28 28 14 0 #rect
+Cs0 f77 1514 834 28 28 14 0 #rect
 Cs0 f77 @|AlternativeIcon #fIcon
 Cs0 f78 expr in #txt
 Cs0 f78 outCond 'panel.caseHierarchyLayoutTree.selectedTreeNode.getPath().size() > 1' #txt
-Cs0 f78 1432 814 1432 834 #arcP
+Cs0 f78 1528 814 1528 834 #arcP
 Cs0 f79 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
 Cs0 f79 actionTable 'out=in;
@@ -2474,7 +2476,7 @@ unclassified cases</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f79 1630 876 36 24 20 -2 #rect
+Cs0 f79 1726 876 36 24 20 -2 #rect
 Cs0 f79 @|RichDialogProcessStepIcon #fIcon
 Cs0 f80 expr in #txt
 Cs0 f80 outCond '(panel.caseHierarchyLayoutTree.selectedTreeNode.value as ch.ivyteam.ivy.workflow.ui.data.cases.CaseHierarchyTreeNodeValue).property.equals(ch.ivyteam.ivy.workflow.CaseProperty.PROCESS_CATEGORY_CODE) &&
@@ -2489,8 +2491,8 @@ is a &quot;uncategorized cases&quot;</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f80 1446 848 1648 876 #arcP
-Cs0 f80 1 1648 848 #addKink
+Cs0 f80 1542 848 1744 876 #arcP
+Cs0 f80 1 1744 848 #addKink
 Cs0 f80 0 0.8462265356532642 0 0 #arcLabel
 Cs0 f81 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f81 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2498,11 +2500,11 @@ Cs0 f81 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f81 1418 954 28 28 14 0 #rect
+Cs0 f81 1514 954 28 28 14 0 #rect
 Cs0 f81 @|AlternativeIcon #fIcon
 Cs0 f83 expr out #txt
-Cs0 f83 1648 900 1446 968 #arcP
-Cs0 f83 1 1648 968 #addKink
+Cs0 f83 1744 900 1542 968 #arcP
+Cs0 f83 1 1744 968 #addKink
 Cs0 f83 1 0.1622801463950738 0 0 #arcLabel
 Cs0 f84 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -2542,7 +2544,7 @@ instances</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f84 1630 996 36 24 20 -2 #rect
+Cs0 f84 1726 996 36 24 20 -2 #rect
 Cs0 f84 @|RichDialogProcessStepIcon #fIcon
 Cs0 f85 expr in #txt
 Cs0 f85 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2555,8 +2557,8 @@ mode required</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f85 1445 969 1648 996 #arcP
-Cs0 f85 1 1648 984 #addKink
+Cs0 f85 1541 969 1744 996 #arcP
+Cs0 f85 1 1744 984 #addKink
 Cs0 f85 0 0.6582142830146315 0 17 #arcLabel
 Cs0 f86 targetWindow THIS #txt
 Cs0 f86 targetDisplay EXISTING:<%=in.destinationDisplay.displayId%> #txt
@@ -2588,10 +2590,10 @@ running cases</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f86 1414 1076 36 24 20 -2 #rect
+Cs0 f86 1510 1076 36 24 20 -2 #rect
 Cs0 f86 @|RichDialogIcon #fIcon
 Cs0 f73 expr out #txt
-Cs0 f73 1432 1100 1432 1123 #arcP
+Cs0 f73 1528 1100 1528 1123 #arcP
 Cs0 f96 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
 Cs0 f96 actionTable 'out=in;
@@ -2659,23 +2661,23 @@ from root to selected Tree</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f96 1414 876 36 24 20 -2 #rect
+Cs0 f96 1510 876 36 24 20 -2 #rect
 Cs0 f96 @|RichDialogProcessStepIcon #fIcon
 Cs0 f97 expr in #txt
-Cs0 f97 1432 862 1432 876 #arcP
+Cs0 f97 1528 862 1528 876 #arcP
 Cs0 f82 expr out #txt
-Cs0 f82 1432 900 1432 954 #arcP
+Cs0 f82 1528 900 1528 954 #arcP
 Cs0 f98 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f98 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f98 1418 1026 28 28 14 0 #rect
+Cs0 f98 1514 1026 28 28 14 0 #rect
 Cs0 f98 @|AlternativeIcon #fIcon
 Cs0 f87 expr in #txt
 Cs0 f87 outCond in.runningCaseMode #txt
-Cs0 f87 1432 1054 1432 1076 #arcP
+Cs0 f87 1528 1054 1528 1076 #arcP
 Cs0 f88 targetWindow THIS #txt
 Cs0 f88 targetDisplay EXISTING:<%=in.destinationDisplay.displayId%> #txt
 Cs0 f88 richDialogId ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList #txt
@@ -2706,15 +2708,15 @@ finished cases</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f88 1630 1076 36 24 20 -2 #rect
+Cs0 f88 1726 1076 36 24 20 -2 #rect
 Cs0 f88 @|RichDialogIcon #fIcon
 Cs0 f101 expr in #txt
-Cs0 f101 1445 1041 1648 1076 #arcP
-Cs0 f101 1 1648 1056 #addKink
+Cs0 f101 1541 1041 1744 1076 #arcP
+Cs0 f101 1 1744 1056 #addKink
 Cs0 f101 0 0.6249219481659769 0 0 #arcLabel
 Cs0 f102 expr out #txt
-Cs0 f102 1648 1088 1444 1133 #arcP
-Cs0 f102 1 1648 1096 #addKink
+Cs0 f102 1744 1088 1540 1133 #arcP
+Cs0 f102 1 1744 1096 #addKink
 Cs0 f102 1 0.37721589804476763 0 0 #arcLabel
 Cs0 f89 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -2771,10 +2773,10 @@ display/hide administrator radio button</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f89 1006 124 36 24 20 -2 #rect
+Cs0 f89 1102 124 36 24 20 -2 #rect
 Cs0 f89 @|RichDialogProcessStepIcon #fIcon
 Cs0 f109 expr out #txt
-Cs0 f109 1024 66 1024 124 #arcP
+Cs0 f109 1120 66 1120 124 #arcP
 Cs0 f109 0 0.281762103998495 0 0 #arcLabel
 Cs0 f110 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f110 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2782,14 +2784,14 @@ Cs0 f110 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f110 1418 674 28 28 14 0 #rect
+Cs0 f110 1514 674 28 28 14 0 #rect
 Cs0 f110 @|AlternativeIcon #fIcon
 Cs0 f111 expr out #txt
-Cs0 f111 1432 658 1432 674 #arcP
+Cs0 f111 1528 658 1528 674 #arcP
 Cs0 f112 expr in #txt
-Cs0 f112 1446 688 1445 1136 #arcP
-Cs0 f112 1 1920 688 #addKink
-Cs0 f112 2 1920 1136 #addKink
+Cs0 f112 1542 688 1541 1136 #arcP
+Cs0 f112 1 2016 688 #addKink
+Cs0 f112 2 2016 1136 #addKink
 Cs0 f112 1 0.1488854958864925 0 0 #arcLabel
 Cs0 f113 guid 11ADED5FE475E81F #txt
 Cs0 f113 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -2806,10 +2808,10 @@ Cs0 f113 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f113 2102 654 20 20 13 0 #rect
+Cs0 f113 2198 654 20 20 13 0 #rect
 Cs0 f113 @|RichDialogProcessStartIcon #fIcon
 Cs0 f114 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f114 2099 1075 26 26 14 0 #rect
+Cs0 f114 2195 1075 26 26 14 0 #rect
 Cs0 f114 @|RichDialogProcessEndIcon #fIcon
 Cs0 f115 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f115 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2817,10 +2819,10 @@ Cs0 f115 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f115 2098 722 28 28 14 0 #rect
+Cs0 f115 2194 722 28 28 14 0 #rect
 Cs0 f115 @|AlternativeIcon #fIcon
 Cs0 f116 expr out #txt
-Cs0 f116 2112 674 2112 722 #arcP
+Cs0 f116 2208 674 2208 722 #arcP
 Cs0 f118 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
 Cs0 f118 actionTable 'out=in;
@@ -2860,10 +2862,10 @@ to Case</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f118 2094 892 36 24 20 -2 #rect
+Cs0 f118 2190 892 36 24 20 -2 #rect
 Cs0 f118 @|RichDialogProcessStepIcon #fIcon
 Cs0 f117 expr out #txt
-Cs0 f117 2112 916 2112 1075 #arcP
+Cs0 f117 2208 916 2208 1075 #arcP
 Cs0 f120 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
 Cs0 f120 actionTable 'out=in;
@@ -2890,11 +2892,11 @@ case hierarchy node</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f120 2214 932 36 24 20 -2 #rect
+Cs0 f120 2310 932 36 24 20 -2 #rect
 Cs0 f120 @|RichDialogProcessStepIcon #fIcon
 Cs0 f122 expr out #txt
-Cs0 f122 2232 956 2125 1088 #arcP
-Cs0 f122 1 2232 1088 #addKink
+Cs0 f122 2328 956 2221 1088 #arcP
+Cs0 f122 1 2328 1088 #addKink
 Cs0 f122 0 0.718641775952403 0 0 #arcLabel
 Cs0 f121 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f121 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2902,7 +2904,7 @@ Cs0 f121 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f121 2098 794 28 28 14 0 #rect
+Cs0 f121 2194 794 28 28 14 0 #rect
 Cs0 f121 @|AlternativeIcon #fIcon
 Cs0 f124 expr in #txt
 Cs0 f124 outCond 'panel.caseHierarchyLayoutTree.getSelectedTreeNode() != null' #txt
@@ -2916,7 +2918,7 @@ tree node != null</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f124 2112 750 2112 794 #arcP
+Cs0 f124 2208 750 2208 794 #arcP
 Cs0 f119 expr in #txt
 Cs0 f119 outCond 'panel.caseHierarchyLayoutTree.getSelectedTreeNode().value instanceof ch.ivyteam.ivy.workflow.ICase' #txt
 Cs0 f119 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2928,7 +2930,7 @@ Cs0 f119 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f119 2112 822 2112 892 #arcP
+Cs0 f119 2208 822 2208 892 #arcP
 Cs0 f125 expr in #txt
 Cs0 f125 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -2940,8 +2942,8 @@ but not a ICase type</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f125 2126 808 2232 932 #arcP
-Cs0 f125 1 2232 808 #addKink
+Cs0 f125 2222 808 2328 932 #arcP
+Cs0 f125 1 2328 808 #addKink
 Cs0 f125 0 0.7596214839282894 0 0 #arcLabel
 Cs0 f126 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -2969,15 +2971,15 @@ actions buttons</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f126 2318 988 36 24 20 -2 #rect
+Cs0 f126 2414 988 36 24 20 -2 #rect
 Cs0 f126 @|RichDialogProcessStepIcon #fIcon
 Cs0 f127 expr in #txt
-Cs0 f127 2126 736 2336 988 #arcP
-Cs0 f127 1 2336 736 #addKink
+Cs0 f127 2222 736 2432 988 #arcP
+Cs0 f127 1 2432 736 #addKink
 Cs0 f127 1 0.2085490996230524 0 0 #arcLabel
 Cs0 f123 expr out #txt
-Cs0 f123 2336 1012 2125 1088 #arcP
-Cs0 f123 1 2336 1088 #addKink
+Cs0 f123 2432 1012 2221 1088 #arcP
+Cs0 f123 1 2432 1088 #addKink
 Cs0 f123 0 0.9528348028852178 0 0 #arcLabel
 Cs0 f128 guid 11ADEF3A84644DB8 #txt
 Cs0 f128 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -2994,10 +2996,10 @@ Cs0 f128 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f128 2510 654 20 20 13 0 #rect
+Cs0 f128 2606 654 20 20 13 0 #rect
 Cs0 f128 @|RichDialogProcessStartIcon #fIcon
 Cs0 f129 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f129 2507 1075 26 26 14 0 #rect
+Cs0 f129 2603 1075 26 26 14 0 #rect
 Cs0 f129 @|RichDialogProcessEndIcon #fIcon
 Cs0 f131 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f131 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3005,10 +3007,10 @@ Cs0 f131 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f131 2506 690 28 28 14 0 #rect
+Cs0 f131 2602 690 28 28 14 0 #rect
 Cs0 f131 @|AlternativeIcon #fIcon
 Cs0 f132 expr out #txt
-Cs0 f132 2520 674 2520 690 #arcP
+Cs0 f132 2616 674 2616 690 #arcP
 Cs0 f133 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
 Cs0 f133 actionTable 'out=in;
@@ -3024,12 +3026,12 @@ Cs0 f133 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f133 2502 796 36 24 20 -2 #rect
+Cs0 f133 2598 796 36 24 20 -2 #rect
 Cs0 f133 @|RichDialogProcessStepIcon #fIcon
 Cs0 f135 expr in #txt
-Cs0 f135 2534 704 2533 1088 #arcP
-Cs0 f135 1 2816 704 #addKink
-Cs0 f135 2 2816 1088 #addKink
+Cs0 f135 2630 704 2629 1088 #arcP
+Cs0 f135 1 2912 704 #addKink
+Cs0 f135 2 2912 1088 #addKink
 Cs0 f135 1 0.42084049866237977 0 0 #arcLabel
 Cs0 f136 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -3085,20 +3087,20 @@ if yes , refresh it, otherwise load it</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f136 2502 852 36 24 20 -2 #rect
+Cs0 f136 2598 852 36 24 20 -2 #rect
 Cs0 f136 @|RichDialogProcessStepIcon #fIcon
 Cs0 f137 expr out #txt
-Cs0 f137 2520 820 2520 852 #arcP
+Cs0 f137 2616 820 2616 852 #arcP
 Cs0 f138 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f138 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f138 2506 914 28 28 14 0 #rect
+Cs0 f138 2602 914 28 28 14 0 #rect
 Cs0 f138 @|AlternativeIcon #fIcon
 Cs0 f139 expr out #txt
-Cs0 f139 2520 876 2520 914 #arcP
+Cs0 f139 2616 876 2616 914 #arcP
 Cs0 f140 targetWindow THIS #txt
 Cs0 f140 targetDisplay EXISTING:<%=in.destinationDisplay.displayId%> #txt
 Cs0 f140 richDialogId ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay #txt
@@ -3125,7 +3127,7 @@ Cs0 f140 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f140 2502 980 36 24 20 -2 #rect
+Cs0 f140 2598 980 36 24 20 -2 #rect
 Cs0 f140 @|RichDialogIcon #fIcon
 Cs0 f141 expr in #txt
 Cs0 f141 outCond !in.caseAlreadyLoadedOnDisplay #txt
@@ -3138,9 +3140,9 @@ Cs0 f141 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f141 2520 942 2520 980 #arcP
+Cs0 f141 2616 942 2616 980 #arcP
 Cs0 f130 expr out #txt
-Cs0 f130 2520 1004 2520 1075 #arcP
+Cs0 f130 2616 1004 2616 1075 #arcP
 Cs0 f142 expr in #txt
 Cs0 f142 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -3152,9 +3154,9 @@ and refreshed</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f142 2534 928 2533 1088 #arcP
-Cs0 f142 1 2624 928 #addKink
-Cs0 f142 2 2624 1088 #addKink
+Cs0 f142 2630 928 2629 1088 #arcP
+Cs0 f142 1 2720 928 #addKink
+Cs0 f142 2 2720 1088 #addKink
 Cs0 f142 1 0.29933833626150363 0 0 #arcLabel
 Cs0 f143 guid 11ADF4A5A6D381BC #txt
 Cs0 f143 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -3171,10 +3173,10 @@ Cs0 f143 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f143 2902 654 20 20 13 0 #rect
+Cs0 f143 2998 654 20 20 13 0 #rect
 Cs0 f143 @|RichDialogProcessStartIcon #fIcon
 Cs0 f144 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f144 2899 1075 26 26 14 0 #rect
+Cs0 f144 2995 1075 26 26 14 0 #rect
 Cs0 f144 @|RichDialogProcessEndIcon #fIcon
 Cs0 f146 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f146 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3182,10 +3184,10 @@ Cs0 f146 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f146 2898 690 28 28 14 0 #rect
+Cs0 f146 2994 690 28 28 14 0 #rect
 Cs0 f146 @|AlternativeIcon #fIcon
 Cs0 f147 expr out #txt
-Cs0 f147 2912 674 2912 690 #arcP
+Cs0 f147 3008 674 3008 690 #arcP
 Cs0 f148 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
 Cs0 f148 actionTable 'out=in;
@@ -3217,12 +3219,12 @@ update the current case hierarchy tree node</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f148 2894 940 36 24 22 -18 #rect
+Cs0 f148 2990 940 36 24 22 -18 #rect
 Cs0 f148 @|RichDialogProcessStepIcon #fIcon
 Cs0 f150 expr in #txt
-Cs0 f150 2926 704 2924 1087 #arcP
-Cs0 f150 1 3232 704 #addKink
-Cs0 f150 2 3232 1072 #addKink
+Cs0 f150 3022 704 3020 1087 #arcP
+Cs0 f150 1 3328 704 #addKink
+Cs0 f150 2 3328 1072 #addKink
 Cs0 f150 1 0.3349687085773761 0 0 #arcLabel
 Cs0 f145 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f145 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3230,7 +3232,7 @@ Cs0 f145 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f145 2898 770 28 28 14 0 #rect
+Cs0 f145 2994 770 28 28 14 0 #rect
 Cs0 f145 @|AlternativeIcon #fIcon
 Cs0 f152 expr in #txt
 Cs0 f152 outCond 'panel.caseHierarchyLayoutTree.getSelectedTreeNode() != null && 
@@ -3245,33 +3247,33 @@ and selection is a ICase type</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f152 2912 718 2912 770 #arcP
+Cs0 f152 3008 718 3008 770 #arcP
 Cs0 f155 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f155 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f155 2506 738 28 28 14 0 #rect
+Cs0 f155 2602 738 28 28 14 0 #rect
 Cs0 f155 @|AlternativeIcon #fIcon
 Cs0 f158 expr in #txt
 Cs0 f158 outCond 'panel.caseHierarchyLayoutTree.getSelectedTreeNode() != null && 
 panel.caseHierarchyLayoutTree.getSelectedTreeNode().value instanceof ch.ivyteam.ivy.workflow.ICase' #txt
-Cs0 f158 2520 718 2520 738 #arcP
+Cs0 f158 2616 718 2616 738 #arcP
 Cs0 f134 expr in #txt
 Cs0 f134 outCond in.hasPermissionCaseRead #txt
-Cs0 f134 2520 766 2520 796 #arcP
+Cs0 f134 2616 766 2616 796 #arcP
 Cs0 f38 expr out #txt
-Cs0 f38 1728 82 1450 152 #arcP
-Cs0 f38 1 1728 152 #addKink
+Cs0 f38 1824 82 1546 152 #arcP
+Cs0 f38 1 1824 152 #addKink
 Cs0 f38 1 0.3617086354357857 0 0 #arcLabel
 Cs0 f163 expr out #txt
-Cs0 f163 1864 82 1450 152 #arcP
-Cs0 f163 1 1864 152 #addKink
+Cs0 f163 1960 82 1546 152 #arcP
+Cs0 f163 1 1960 152 #addKink
 Cs0 f163 1 0.4201433628302493 0 0 #arcLabel
 Cs0 f164 expr out #txt
-Cs0 f164 2000 82 1450 152 #arcP
-Cs0 f164 1 2000 152 #addKink
+Cs0 f164 2096 82 1546 152 #arcP
+Cs0 f164 1 2096 152 #addKink
 Cs0 f164 1 0.0 0 0 #arcLabel
 Cs0 f184 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -3298,7 +3300,7 @@ if filter is currently enabled, disable it</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f184 2582 308 36 24 20 -2 #rect
+Cs0 f184 2678 308 36 24 20 -2 #rect
 Cs0 f184 @|RichDialogProcessStepIcon #fIcon
 Cs0 f37 guid 11B02C6D9A6CFDC8 #txt
 Cs0 f37 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -3316,7 +3318,7 @@ Cs0 f37 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f37 2174 46 20 20 13 0 #rect
+Cs0 f37 2270 46 20 20 13 0 #rect
 Cs0 f37 @|RichDialogProcessStartIcon #fIcon
 Cs0 f165 guid 11B02C6D9A66EB58 #txt
 Cs0 f165 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -3333,7 +3335,7 @@ Cs0 f165 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f165 2590 166 20 20 13 0 #rect
+Cs0 f165 2686 166 20 20 13 0 #rect
 Cs0 f165 @|RichDialogProcessStartIcon #fIcon
 Cs0 f166 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -3351,10 +3353,10 @@ the filter area</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f166 2166 116 36 24 20 -2 #rect
+Cs0 f166 2262 116 36 24 20 -2 #rect
 Cs0 f166 @|RichDialogProcessStepIcon #fIcon
 Cs0 f167 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f167 2587 379 26 26 14 0 #rect
+Cs0 f167 2683 379 26 26 14 0 #rect
 Cs0 f167 @|RichDialogProcessEndIcon #fIcon
 Cs0 f168 guid 11B02C6D9A6AB699 #txt
 Cs0 f168 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -3382,7 +3384,7 @@ Cs0 f168 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f168 2334 46 20 20 13 0 #rect
+Cs0 f168 2430 46 20 20 13 0 #rect
 Cs0 f168 @|RichDialogProcessStartIcon #fIcon
 Cs0 f170 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -3402,14 +3404,14 @@ filter enabled to false</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f170 2166 76 36 24 20 -2 #rect
+Cs0 f170 2262 76 36 24 20 -2 #rect
 Cs0 f170 @|RichDialogProcessStepIcon #fIcon
 Cs0 f173 expr out #txt
-Cs0 f173 2184 66 2184 76 #arcP
+Cs0 f173 2280 66 2280 76 #arcP
 Cs0 f174 expr out #txt
-Cs0 f174 2184 100 2184 116 #arcP
+Cs0 f174 2280 100 2280 116 #arcP
 Cs0 f175 expr out #txt
-Cs0 f175 2600 332 2600 379 #arcP
+Cs0 f175 2696 332 2696 379 #arcP
 Cs0 f176 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
 Cs0 f176 actionTable 'out=in;
@@ -3437,7 +3439,7 @@ build the prefix (Running|Finished cases)</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f176 1414 724 36 24 16 -8 #rect
+Cs0 f176 1510 724 36 24 16 -8 #rect
 Cs0 f176 @|RichDialogProcessStepIcon #fIcon
 Cs0 f177 expr in #txt
 Cs0 f177 outCond 'panel.caseHierarchyLayoutTree.getSelectedTreeNode() != null &&
@@ -3451,9 +3453,9 @@ Cs0 f177 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f177 1432 702 1432 724 #arcP
+Cs0 f177 1528 702 1528 724 #arcP
 Cs0 f75 expr out #txt
-Cs0 f75 1432 748 1432 786 #arcP
+Cs0 f75 1528 748 1528 786 #arcP
 Cs0 f91 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
 Cs0 f91 actionTable 'out=in;
@@ -3473,7 +3475,7 @@ of &quot;All cases&quot;</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f91 1774 876 36 24 20 -2 #rect
+Cs0 f91 1870 876 36 24 20 -2 #rect
 Cs0 f91 @|RichDialogProcessStepIcon #fIcon
 Cs0 f179 expr in #txt
 Cs0 f179 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3486,8 +3488,8 @@ is a root</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f179 1446 800 1792 876 #arcP
-Cs0 f179 1 1792 800 #addKink
+Cs0 f179 1542 800 1888 876 #arcP
+Cs0 f179 1 1888 800 #addKink
 Cs0 f179 0 0.5907649637008802 0 0 #arcLabel
 Cs0 f95 expr in #txt
 Cs0 f95 outCond in.multipleCaseListMode #txt
@@ -3501,14 +3503,14 @@ mode required</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f95 1432 982 1432 1026 #arcP
+Cs0 f95 1528 982 1528 1026 #arcP
 Cs0 f90 expr out #txt
-Cs0 f90 1648 1020 1446 1040 #arcP
-Cs0 f90 1 1648 1040 #addKink
+Cs0 f90 1744 1020 1542 1040 #arcP
+Cs0 f90 1 1744 1040 #addKink
 Cs0 f90 1 0.403812593187997 0 0 #arcLabel
 Cs0 f94 expr out #txt
-Cs0 f94 1792 900 1446 968 #arcP
-Cs0 f94 1 1792 968 #addKink
+Cs0 f94 1888 900 1542 968 #arcP
+Cs0 f94 1 1888 968 #addKink
 Cs0 f94 1 0.3139410645672364 0 0 #arcLabel
 Cs0 f92 targetWindow NEW #txt
 Cs0 f92 targetDisplay TOP #txt
@@ -3552,7 +3554,7 @@ for destroy a case</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f92 2894 844 36 24 20 -2 #rect
+Cs0 f92 2990 844 36 24 20 -2 #rect
 Cs0 f92 @|RichDialogIcon #fIcon
 Cs0 f99 expr in #txt
 Cs0 f99 outCond in.hasPermissionCaseDestroy #txt
@@ -3566,17 +3568,17 @@ case destroy ok</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f99 2912 798 2912 844 #arcP
+Cs0 f99 3008 798 3008 844 #arcP
 Cs0 f103 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f103 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Cs0 f103 2898 890 28 28 14 0 #rect
+Cs0 f103 2994 890 28 28 14 0 #rect
 Cs0 f103 @|AlternativeIcon #fIcon
 Cs0 f104 expr out #txt
-Cs0 f104 2912 868 2912 890 #arcP
+Cs0 f104 3008 868 3008 890 #arcP
 Cs0 f100 expr in #txt
 Cs0 f100 outCond in.questionDialogPressedButton.equalsIgnoreCase("yes") #txt
 Cs0 f100 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3588,11 +3590,11 @@ Cs0 f100 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f100 2912 918 2912 940 #arcP
+Cs0 f100 3008 918 3008 940 #arcP
 Cs0 f105 expr in #txt
-Cs0 f105 2926 904 2924 1085 #arcP
-Cs0 f105 1 3048 904 #addKink
-Cs0 f105 2 3048 1056 #addKink
+Cs0 f105 3022 904 3020 1085 #arcP
+Cs0 f105 1 3144 904 #addKink
+Cs0 f105 2 3144 1056 #addKink
 Cs0 f105 1 0.285958549015051 0 0 #arcLabel
 Cs0 f106 guid 11E456C63043A6F1 #txt
 Cs0 f106 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -3610,13 +3612,13 @@ Cs0 f106 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f106 2926 158 20 20 13 0 #rect
+Cs0 f106 3022 158 20 20 13 0 #rect
 Cs0 f106 @|RichDialogProcessStartIcon #fIcon
 Cs0 f107 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f107 2923 371 26 26 14 0 #rect
+Cs0 f107 3019 371 26 26 14 0 #rect
 Cs0 f107 @|RichDialogProcessEndIcon #fIcon
 Cs0 f108 expr out #txt
-Cs0 f108 2936 178 2936 371 #arcP
+Cs0 f108 3032 178 3032 371 #arcP
 Cs0 f149 guid 11E45FC772CCDCC7 #txt
 Cs0 f149 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f149 broadcast ivy_systemevent_workflow_case_changed #txt
@@ -3657,13 +3659,13 @@ Cs0 f149 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f149 3374 70 20 20 13 0 #rect
+Cs0 f149 3470 70 20 20 13 0 #rect
 Cs0 f149 @|RichDialogBroadcastStartIcon #fIcon
 Cs0 f151 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f151 3371 283 26 26 14 0 #rect
+Cs0 f151 3467 283 26 26 14 0 #rect
 Cs0 f151 @|RichDialogProcessEndIcon #fIcon
 Cs0 f178 expr out #txt
-Cs0 f178 3384 90 3384 283 #arcP
+Cs0 f178 3480 90 3480 283 #arcP
 Cs0 f180 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f180 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -3674,10 +3676,10 @@ Cs0 f180 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f180 2898 978 28 28 14 -10 #rect
+Cs0 f180 2994 978 28 28 14 -10 #rect
 Cs0 f180 @|AlternativeIcon #fIcon
 Cs0 f181 expr out #txt
-Cs0 f181 2912 964 2912 978 #arcP
+Cs0 f181 3008 964 3008 978 #arcP
 Cs0 f154 expr in #txt
 Cs0 f154 outCond 'in.#exception == null' #txt
 Cs0 f154 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3689,7 +3691,7 @@ Cs0 f154 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f154 2912 1006 2912 1075 #arcP
+Cs0 f154 3008 1006 3008 1075 #arcP
 Cs0 f182 targetWindow NEW #txt
 Cs0 f182 targetDisplay TOP #txt
 Cs0 f182 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
@@ -3731,12 +3733,12 @@ error dialog</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f182 2950 1028 36 24 20 -2 #rect
+Cs0 f182 3046 1028 36 24 20 -2 #rect
 Cs0 f182 @|RichDialogIcon #fIcon
 Cs0 f183 expr in #txt
-Cs0 f183 2920 998 2954 1028 #arcP
+Cs0 f183 3016 998 3050 1028 #arcP
 Cs0 f185 expr out #txt
-Cs0 f185 2954 1052 2921 1079 #arcP
+Cs0 f185 3050 1052 3017 1079 #arcP
 Cs0 f186 guid 120E7FB4EC3F82AE #txt
 Cs0 f186 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f186 method initializeCaseHierarchyLayoutPrefferedIndex() #txt
@@ -3755,10 +3757,10 @@ Cs0 f186 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f186 542 54 20 20 -37 -32 #rect
+Cs0 f186 638 54 20 20 9 7 #rect
 Cs0 f186 @|RichDialogMethodStartIcon #fIcon
 Cs0 f187 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f187 539 275 26 26 14 0 #rect
+Cs0 f187 635 275 26 26 14 0 #rect
 Cs0 f187 @|RichDialogProcessEndIcon #fIcon
 Cs0 f189 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -3786,12 +3788,12 @@ case hierarchy layout index</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f189 534 148 36 24 20 -2 #rect
+Cs0 f189 630 148 36 24 20 -2 #rect
 Cs0 f189 @|RichDialogProcessStepIcon #fIcon
 Cs0 f190 expr out #txt
-Cs0 f190 552 74 552 148 #arcP
+Cs0 f190 648 74 648 148 #arcP
 Cs0 f188 expr out #txt
-Cs0 f188 552 172 552 275 #arcP
+Cs0 f188 648 172 648 275 #arcP
 Cs0 f191 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
 Cs0 f191 actionTable 'out=in;
@@ -3818,14 +3820,14 @@ filter enabled to false</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f191 2326 76 36 24 20 -2 #rect
+Cs0 f191 2422 76 36 24 20 -2 #rect
 Cs0 f191 @|RichDialogProcessStepIcon #fIcon
 Cs0 f192 expr out #txt
-Cs0 f192 2344 66 2344 76 #arcP
+Cs0 f192 2440 66 2440 76 #arcP
 Cs0 f192 0 0.9031232173067381 0 0 #arcLabel
 Cs0 f171 expr out #txt
-Cs0 f171 2344 100 2202 128 #arcP
-Cs0 f171 1 2344 128 #addKink
+Cs0 f171 2440 100 2298 128 #arcP
+Cs0 f171 1 2440 128 #addKink
 Cs0 f171 1 0.29844628883517316 0 0 #arcLabel
 Cs0 f193 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -3843,15 +3845,15 @@ permission denied</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f193 2678 876 36 24 20 -2 #rect
+Cs0 f193 2774 876 36 24 20 -2 #rect
 Cs0 f193 @|RichDialogProcessStepIcon #fIcon
 Cs0 f161 expr in #txt
-Cs0 f161 2534 752 2696 876 #arcP
-Cs0 f161 1 2696 752 #addKink
+Cs0 f161 2630 752 2792 876 #arcP
+Cs0 f161 1 2792 752 #addKink
 Cs0 f161 0 0.7030924776439416 0 0 #arcLabel
 Cs0 f160 expr out #txt
-Cs0 f160 2696 900 2533 1088 #arcP
-Cs0 f160 1 2696 1088 #addKink
+Cs0 f160 2792 900 2629 1088 #arcP
+Cs0 f160 1 2792 1088 #addKink
 Cs0 f160 0 0.9468351354077693 0 0 #arcLabel
 Cs0 f159 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -3869,15 +3871,15 @@ permission denied</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f159 3086 932 36 24 20 -2 #rect
+Cs0 f159 3182 932 36 24 20 -2 #rect
 Cs0 f159 @|RichDialogProcessStepIcon #fIcon
 Cs0 f153 expr out #txt
-Cs0 f153 3104 956 2924 1086 #arcP
-Cs0 f153 1 3104 1064 #addKink
+Cs0 f153 3200 956 3020 1086 #arcP
+Cs0 f153 1 3200 1064 #addKink
 Cs0 f153 1 0.2473346949921866 0 0 #arcLabel
 Cs0 f195 expr in #txt
-Cs0 f195 2926 784 3104 932 #arcP
-Cs0 f195 1 3104 784 #addKink
+Cs0 f195 3022 784 3200 932 #arcP
+Cs0 f195 1 3200 784 #addKink
 Cs0 f195 0 0.7294135661252886 0 0 #arcLabel
 Cs0 f76 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f76 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3890,10 +3892,10 @@ is selected?</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f76 2586 218 28 28 14 0 #rect
+Cs0 f76 2682 218 28 28 14 0 #rect
 Cs0 f76 @|AlternativeIcon #fIcon
 Cs0 f156 expr out #txt
-Cs0 f156 2600 186 2600 218 #arcP
+Cs0 f156 2696 186 2696 218 #arcP
 Cs0 f93 expr in #txt
 Cs0 f93 outCond panel.caseFiltersToggleButton.isSelected() #txt
 Cs0 f93 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -3905,14 +3907,14 @@ Cs0 f93 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f93 2600 246 2600 308 #arcP
+Cs0 f93 2696 246 2696 308 #arcP
 Cs0 f157 expr out #txt
-Cs0 f157 2184 140 1450 152 #arcP
-Cs0 f157 1 2184 152 #addKink
+Cs0 f157 2280 140 1546 152 #arcP
+Cs0 f157 1 2280 152 #addKink
 Cs0 f157 1 0.48243559718969553 0 0 #arcLabel
 Cs0 f172 expr in #txt
-Cs0 f172 2586 232 2202 96 #arcP
-Cs0 f172 1 2512 232 #addKink
+Cs0 f172 2682 232 2298 96 #arcP
+Cs0 f172 1 2608 232 #addKink
 Cs0 f172 1 0.04019693874620635 0 0 #arcLabel
 Cs0 f36 guid 1292753B9B02B3B1 #txt
 Cs0 f36 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -3929,7 +3931,7 @@ Cs0 f36 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f36 1534 70 20 20 13 0 #rect
+Cs0 f36 1630 70 20 20 13 0 #rect
 Cs0 f36 @|RichDialogProcessStartIcon #fIcon
 Cs0 f169 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
@@ -3947,40 +3949,40 @@ of filters</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f169 1526 108 36 24 20 -2 #rect
+Cs0 f169 1622 108 36 24 20 -2 #rect
 Cs0 f169 @|RichDialogProcessStepIcon #fIcon
 Cs0 f194 expr out #txt
-Cs0 f194 1544 90 1544 108 #arcP
+Cs0 f194 1640 90 1640 108 #arcP
 Cs0 f162 expr out #txt
-Cs0 f162 1544 132 1450 151 #arcP
-Cs0 f162 1 1544 144 #addKink
+Cs0 f162 1640 132 1546 151 #arcP
+Cs0 f162 1 1640 144 #addKink
 Cs0 f162 1 0.34100031799904607 0 0 #arcLabel
 Cs0 f196 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f196 1418 538 28 28 14 0 #rect
+Cs0 f196 1514 538 28 28 14 0 #rect
 Cs0 f196 @|AlternativeIcon #fIcon
 Cs0 f197 expr out #txt
-Cs0 f197 1232 444 1420 550 #arcP
-Cs0 f197 1 1232 512 #addKink
+Cs0 f197 1328 444 1516 550 #arcP
+Cs0 f197 1 1328 512 #addKink
 Cs0 f197 1 0.27630520271975495 0 0 #arcLabel
 Cs0 f19 expr out #txt
-Cs0 f19 1040 444 1419 551 #arcP
-Cs0 f19 1 1040 528 #addKink
+Cs0 f19 1136 444 1515 551 #arcP
+Cs0 f19 1 1136 528 #addKink
 Cs0 f19 1 0.1978495288359874 0 0 #arcLabel
 Cs0 f17 expr out #txt
-Cs0 f17 856 436 1418 552 #arcP
-Cs0 f17 1 856 552 #addKink
+Cs0 f17 952 436 1514 552 #arcP
+Cs0 f17 1 952 552 #addKink
 Cs0 f17 1 0.3092412166948326 0 0 #arcLabel
 Cs0 f16 expr out #txt
-Cs0 f16 1616 444 1444 550 #arcP
-Cs0 f16 1 1616 512 #addKink
+Cs0 f16 1712 444 1540 550 #arcP
+Cs0 f16 1 1712 512 #addKink
 Cs0 f16 1 0.29670705027713784 0 0 #arcLabel
 Cs0 f23 expr out #txt
-Cs0 f23 1816 444 1445 551 #arcP
-Cs0 f23 1 1816 520 #addKink
+Cs0 f23 1912 444 1541 551 #arcP
+Cs0 f23 1 1912 520 #addKink
 Cs0 f23 1 0.33194152072124145 0 0 #arcLabel
 Cs0 f27 expr out #txt
-Cs0 f27 2016 444 1445 551 #arcP
-Cs0 f27 1 2016 528 #addKink
+Cs0 f27 2112 444 1541 551 #arcP
+Cs0 f27 1 2112 528 #addKink
 Cs0 f27 1 0.3609044357048956 0 0 #arcLabel
 Cs0 f29 expr in #txt
 Cs0 f29 outCond 'in.caseHierarchyLayoutSelectedIndex < 0 || in.caseHierarchyLayoutSelectedIndex > 6' #txt
@@ -3994,26 +3996,26 @@ has invalid value  &lt; 0 || &gt; 6</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f29 1446 208 1446 552 #arcP
-Cs0 f29 1 2192 208 #addKink
-Cs0 f29 2 2192 552 #addKink
+Cs0 f29 1542 208 1542 552 #arcP
+Cs0 f29 1 2288 208 #addKink
+Cs0 f29 2 2288 552 #addKink
 Cs0 f29 0 0.7472924187725631 0 -1 #arcLabel
 Cs0 f41 expr out #txt
-Cs0 f41 1432 444 1432 538 #arcP
+Cs0 f41 1528 444 1528 538 #arcP
 Cs0 f41 0 0.40592719056425014 0 0 #arcLabel
 Cs0 f21 expr in #txt
-Cs0 f21 1432 566 1432 587 #arcP
+Cs0 f21 1528 566 1528 587 #arcP
 Cs0 f5 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f5 1014 270 20 20 13 0 #rect
+Cs0 f5 1110 270 20 20 13 0 #rect
 Cs0 f5 @|RichDialogProcessEndIcon #fIcon
 Cs0 f8 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f8 422 278 20 20 13 0 #rect
+Cs0 f8 518 278 20 20 13 0 #rect
 Cs0 f8 @|RichDialogProcessEndIcon #fIcon
 Cs0 f198 expr out #txt
-Cs0 f198 432 74 432 278 #arcP
+Cs0 f198 528 74 528 278 #arcP
 Cs0 f198 0 0.25262471631581684 0 0 #arcLabel
 Cs0 f56 expr out #txt
-Cs0 f56 1024 148 1024 270 #arcP
+Cs0 f56 1120 148 1120 270 #arcP
 Cs0 f56 0 0.3476171239975997 0 0 #arcLabel
 >Proto Cs0 .type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 >Proto Cs0 .processKind RICH_DIALOG #txt
@@ -4139,7 +4141,7 @@ panel.sortByPriorityCheckBox.selected=in.sortByPriority;
         <swimlaneLabel>Accepted broadcasts</swimlaneLabel>
         <swimlaneLabel></swimlaneLabel>
     </language>
-    <swimlaneSize>398</swimlaneSize>
+    <swimlaneSize>487</swimlaneSize>
     <swimlaneSize>400</swimlaneSize>
     <swimlaneSize>2534</swimlaneSize>
     <swimlaneSize>358</swimlaneSize>

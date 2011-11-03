@@ -1,10 +1,9 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2009-04-27 18:53:24 | 4.1.0.27714 | 1.0
-~@RD_METHODCALL[setSelectionEnabled(Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/11E3F5B1D1475EF1
-~@RD_METHODCALL[getSelectedTaskHierarchyLayoutIndex()]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/1199E75343761531
-~@RD_METHODCALL[start(Number)]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/1199E9CFC35928CF
-~@RD_METHODCALL[setSelectedTaskHierarchyLayoutIndex(Number)]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/1199F7907B2A33F9
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/1199E6D3A852A3DF
+# 2011-11-03 13:57:04 | 4.2.0.37590 | 1.0
 ~@RD_METHODCALL[getSelectionEnabled()]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/11E3F5B142B4E733
+~@RD_METHODCALL[start(Number)]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/1199E9CFC35928CF
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/1199E6D3A852A3DF
+~@RD_METHODCALL[setSelectedTaskHierarchyLayoutIndex(Number)]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/1199F7907B2A33F9
+~@RD_METHODCALL[getSelectedTaskHierarchyLayoutIndex()]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/1199E75343761531
 ~.tasksHierarchyLayoutComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/1199E75186BD4E53
-~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/1199E903DDE48D57
+~@RD_METHODCALL[setSelectionEnabled(Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:1199E63AF7C91AD7/11E3F5B1D1475EF1

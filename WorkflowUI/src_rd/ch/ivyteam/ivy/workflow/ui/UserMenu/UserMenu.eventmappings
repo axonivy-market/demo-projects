@@ -1,5 +1,5 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-09-21 13:02:35 | 4.2.0.37454 | 1.0
+# 2011-11-03 15:25:53 | 4.2.0.37590 | 1.0
 ~.startingProcessesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11952DFDAC1FEC98
 ~.finishedCasesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11AC4F90661EFB95
 ~.substitutesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11898D6F2E86E751/11999AC996C1819B

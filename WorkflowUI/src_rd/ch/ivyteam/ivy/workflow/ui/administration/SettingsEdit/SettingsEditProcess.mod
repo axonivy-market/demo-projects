@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Aug 23 11:18:00 CEST 2011]
+[>Created: Thu Nov 03 17:17:42 CET 2011]
 12A146365AD40893 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SettingsProcess Big #zClass
@@ -234,6 +234,14 @@ boolean enableTasksSortedByPriorityMode = WorkflowUserPropertyHelper.getTasksSor
 ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.TASKS_SORTED_BY_PRIORITY_PROPERTY_KEY, enableTasksSortedByPriorityMode);
 panel.tasksSortByPriorityCheckBox.selected = enableTasksSortedByPriorityMode;
 
+boolean loadTaskListAtStartUp = WorkflowUserPropertyHelper.getLoadTaskListAtStartUpPreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.LOAD_TASK_LIST_AT_START_UP_PROPERTY_KEY, loadTaskListAtStartUp);
+panel.loadTaskListAtStartUpCheckBox.selected = loadTaskListAtStartUp;
+
+boolean loadTaskTreeAtStartUp = WorkflowUserPropertyHelper.getLoadTaskTreeAtStartUpPreference(sessionUser);
+ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.LOAD_TASK_TREE_AT_START_UP_PROPERTY_KEY, loadTaskTreeAtStartUp);
+panel.loadTaskTreeAtStartUpCheckBox.selected = loadTaskTreeAtStartUp;
+
 boolean enableMultipleTaskListMode = WorkflowUserPropertyHelper.getMultipleTaskListModePreference(sessionUser);
 ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY, enableMultipleTaskListMode);
 panel.isMultipleTaskListCheckBox.selected = enableMultipleTaskListMode;
@@ -292,6 +300,12 @@ WorkflowUserPropertyHelper.setTasksSortedByPriorityPreference(sessionUser, panel
 
 ivy.log.debug("User {0} saves property {1} with value {2}.", sessionUser, UserPropertyKeys.TASKS_HIERARCHY_LAYOUT_INDEX_PROPERTY_KEY, panel.tasksHierarchyLayoutSelectRDC.getSelectedTaskHierarchyLayoutIndex());
 WorkflowUserPropertyHelper.setTasksHierarchyLayoutIndexPreference(sessionUser, panel.tasksHierarchyLayoutSelectRDC.getSelectedTaskHierarchyLayoutIndex());
+
+ivy.log.debug("User {0} saves property {1} with value {2}.", sessionUser, UserPropertyKeys.LOAD_TASK_LIST_AT_START_UP_PROPERTY_KEY, panel.loadTaskListAtStartUpCheckBox.selected);
+WorkflowUserPropertyHelper.setLoadTaskListAtStartUpPreference(sessionUser, panel.loadTaskListAtStartUpCheckBox.selected);
+
+ivy.log.debug("User {0} saves property {1} with value {2}.", sessionUser, UserPropertyKeys.LOAD_TASK_TREE_AT_START_UP_PROPERTY_KEY, panel.loadTaskTreeAtStartUpCheckBox.selected);
+WorkflowUserPropertyHelper.setLoadTaskTreeAtStartUpPreference(sessionUser, panel.loadTaskTreeAtStartUpCheckBox.selected);
 
 ivy.log.debug("User {0} saves property {1} with value {2}.", sessionUser, UserPropertyKeys.IS_MULTIPLE_TASKLIST_MODE_PROPERTY_KEY, panel.isMultipleTaskListCheckBox.selected);
 WorkflowUserPropertyHelper.setMultipleTaskListModePreference(sessionUser, panel.isMultipleTaskListCheckBox.selected);

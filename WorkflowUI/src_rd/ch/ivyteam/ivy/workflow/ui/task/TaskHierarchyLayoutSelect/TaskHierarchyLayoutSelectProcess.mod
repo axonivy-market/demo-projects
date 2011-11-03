@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Apr 27 18:53:25 CEST 2009]
-1199E63AF7C91AD7 3.11 #module
+[>Created: Thu Nov 03 13:57:05 CET 2011]
+1199E63AF7C91AD7 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHierarchyLayoutSelectProcess Big #zClass
 Ts0 RD #cInfo
@@ -30,9 +30,6 @@ Ts0 @Alternative f12 '' #zField
 Ts0 @PushWFArc f13 '' #zField
 Ts0 @PushWFArc f10 '' #zField
 Ts0 @PushWFArc f14 '' #zField
-Ts0 @RichDialogProcessStart f15 '' #zField
-Ts0 @RichDialogProcessEnd f16 '' #zField
-Ts0 @PushWFArc f17 '' #zField
 Ts0 @RichDialogInitStart f18 '' #zField
 Ts0 @PushWFArc f19 '' #zField
 Ts0 @RichDialogMethodStart f20 '' #zField
@@ -45,6 +42,7 @@ Ts0 @PushWFArc f25 '' #zField
 Ts0 f0 guid 1199E6D3A852A3DF #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData #txt
 Ts0 f0 method start() #txt
+Ts0 f0 disableUIEvents false #txt
 Ts0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -129,6 +127,12 @@ Ts0 f4 expr out #txt
 Ts0 f4 104 82 104 204 #arcP
 Ts0 f2 expr out #txt
 Ts0 f2 104 228 104 331 #arcP
+Ts0 f5 guid 1199E75186BD4E53 #txt
+Ts0 f5 type ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData #txt
+Ts0 f5 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData out;
+' #txt
+Ts0 f5 actionTable 'out=in;
+' #txt
 Ts0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -137,12 +141,6 @@ Ts0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f5 guid 1199E75186BD4E53 #txt
-Ts0 f5 type ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData #txt
-Ts0 f5 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData out;
-' #txt
-Ts0 f5 actionTable 'out=in;
 ' #txt
 Ts0 f5 366 62 20 20 13 0 #rect
 Ts0 f5 @|RichDialogProcessStartIcon #fIcon
@@ -167,6 +165,7 @@ Ts0 f7 @|RichDialogProcessEndIcon #fIcon
 Ts0 f8 guid 1199E75343761531 #txt
 Ts0 f8 type ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData #txt
 Ts0 f8 method getSelectedTaskHierarchyLayoutIndex() #txt
+Ts0 f8 disableUIEvents false #txt
 Ts0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -191,12 +190,12 @@ Ts0 f9 1 616 352 #addKink
 Ts0 f9 0 0.8132013879756662 0 0 #arcLabel
 Ts0 f11 expr out #txt
 Ts0 f11 376 252 376 339 #arcP
+Ts0 f12 type ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData #txt
 Ts0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
 </elementInfo>
 ' #txt
-Ts0 f12 type ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData #txt
 Ts0 f12 362 130 28 28 14 0 #rect
 Ts0 f12 @|AlternativeIcon #fIcon
 Ts0 f13 expr out #txt
@@ -219,37 +218,10 @@ Ts0 f14 390 144 388 349 #arcP
 Ts0 f14 1 448 144 #addKink
 Ts0 f14 2 448 336 #addKink
 Ts0 f14 1 0.4382782980934161 0 0 #arcLabel
-Ts0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>onLoad</name>
-        <nameStyle>6,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f15 guid 1199E903DDE48D57 #txt
-Ts0 f15 type ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData #txt
-Ts0 f15 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData out;
-' #txt
-Ts0 f15 actionTable 'out=in;
-' #txt
-Ts0 f15 actionCode '/*
-if (!out.tasksHierarchyLayoutsList.isEmpty())
-{
-	panel.tasksHierarchyLayoutComboBox.setSelectedIndex(in.taskHierarchyLayoutPrefferedIndex);	
-}
-*/' #txt
-Ts0 f15 238 62 20 20 13 0 #rect
-Ts0 f15 @|RichDialogProcessStartIcon #fIcon
-Ts0 f16 type ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData #txt
-Ts0 f16 235 331 26 26 14 0 #rect
-Ts0 f16 @|RichDialogProcessEndIcon #fIcon
-Ts0 f17 expr out #txt
-Ts0 f17 248 82 248 331 #arcP
 Ts0 f18 guid 1199E9CFC35928CF #txt
 Ts0 f18 type ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData #txt
 Ts0 f18 method start(Number) #txt
+Ts0 f18 disableUIEvents false #txt
 Ts0 f18 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Number aTaskHierarchyLayoutPrefferedIndex> param = methodEvent.getInputArguments();
 ' #txt
@@ -274,6 +246,7 @@ Ts0 f19 163 81 109 204 #arcP
 Ts0 f20 guid 1199F7907B2A33F9 #txt
 Ts0 f20 type ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData #txt
 Ts0 f20 method setSelectedTaskHierarchyLayoutIndex(Number) #txt
+Ts0 f20 disableUIEvents false #txt
 Ts0 f20 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Number index> param = methodEvent.getInputArguments();
 ' #txt
@@ -302,6 +275,7 @@ Ts0 f21 1 0.21125612831951765 0 0 #arcLabel
 Ts0 f22 guid 11E3F5B142B4E733 #txt
 Ts0 f22 type ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData #txt
 Ts0 f22 method getSelectionEnabled() #txt
+Ts0 f22 disableUIEvents false #txt
 Ts0 f22 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -323,6 +297,7 @@ Ts0 f22 @|RichDialogMethodStartIcon #fIcon
 Ts0 f23 guid 11E3F5B1D1475EF1 #txt
 Ts0 f23 type ch.ivyteam.ivy.workflow.ui.task.TaskHierarchyLayoutSelect.TaskHierarchyLayoutSelectData #txt
 Ts0 f23 method setSelectionEnabled(Boolean) #txt
+Ts0 f23 disableUIEvents false #txt
 Ts0 f23 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Boolean selectionEnabled> param = methodEvent.getInputArguments();
 ' #txt
@@ -373,8 +348,6 @@ Ts0 f12 out f10 tail #connect
 Ts0 f10 head f6 mainIn #connect
 Ts0 f12 out f14 tail #connect
 Ts0 f14 head f7 mainIn #connect
-Ts0 f15 mainOut f17 tail #connect
-Ts0 f17 head f16 mainIn #connect
 Ts0 f18 mainOut f19 tail #connect
 Ts0 f19 head f3 mainIn #connect
 Ts0 f20 mainOut f21 tail #connect

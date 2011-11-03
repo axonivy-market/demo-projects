@@ -1,15 +1,16 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-09-21 13:01:43 | 4.2.0.37454 | 1.0
+# 2011-11-03 14:35:06 | 4.2.0.37590 | 1.0
 ~.taskFiltersToggleButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/1175F2242B61EBF8
 ~@RD_METHODCALL[start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,Boolean,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/1190F07193BE2E61
+~@RD_METHODCALL[isRunningTaskMode()]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/133698D07BD6370C
 ~.loadTaskListMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/117AC276F6716306
+~@RD_METHODCALL[expand()]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/133697D7378AF317
 ~.delegateTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/1190E012A03F0F56
 ~.findTeamTasksRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/11B0DB6FB0C461B2
-~.caseDetailsMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/12AC844F14C4C6E1
 ~.informOnTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/119140995E3210DF
+~.caseDetailsMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/12AC844F14C4C6E1
 ~.startTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/11913F35F499D7A1
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/1175F221618771FB
-~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/11AE3ADCCD99E297
 ~.findYourTasksRadioButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/11B0DB6D312529DD
 ~.expandAllTasksMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/11DABEDD95854A4D
 ~.delegateTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1175F14B3894BBC3/1190E012A03F0F56
