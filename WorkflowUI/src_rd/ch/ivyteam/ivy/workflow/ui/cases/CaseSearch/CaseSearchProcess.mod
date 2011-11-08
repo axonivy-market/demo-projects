@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 03 15:04:51 CET 2011]
+[>Created: Mon Nov 07 15:07:03 CET 2011]
 11A9B75F7E57BD13 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseSearchProcess Big #zClass
@@ -199,20 +199,20 @@ Cs0 @RichDialogProcessStart f36 '' #zField
 Cs0 @RichDialogProcessStep f169 '' #zField
 Cs0 @PushWFArc f194 '' #zField
 Cs0 @PushWFArc f162 '' #zField
-Cs0 @Alternative f196 '' #zField
-Cs0 @PushWFArc f197 '' #zField
-Cs0 @PushWFArc f19 '' #zField
-Cs0 @PushWFArc f17 '' #zField
-Cs0 @PushWFArc f16 '' #zField
-Cs0 @PushWFArc f23 '' #zField
-Cs0 @PushWFArc f27 '' #zField
-Cs0 @PushWFArc f29 '' #zField
-Cs0 @PushWFArc f41 '' #zField
-Cs0 @PushWFArc f21 '' #zField
 Cs0 @RichDialogProcessEnd f5 '' #zField
 Cs0 @RichDialogProcessEnd f8 '' #zField
 Cs0 @PushWFArc f198 '' #zField
 Cs0 @PushWFArc f56 '' #zField
+Cs0 @RichDialogProcessStep f50 '' #zField
+Cs0 @PushWFArc f199 '' #zField
+Cs0 @PushWFArc f197 '' #zField
+Cs0 @PushWFArc f17 '' #zField
+Cs0 @PushWFArc f19 '' #zField
+Cs0 @PushWFArc f16 '' #zField
+Cs0 @PushWFArc f41 '' #zField
+Cs0 @PushWFArc f23 '' #zField
+Cs0 @PushWFArc f27 '' #zField
+Cs0 @PushWFArc f21 '' #zField
 >Proto Cs0 Cs0 CaseSearchProcess #zField
 Cs0 f0 guid 11A9B75F890E6929 #txt
 Cs0 f0 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -257,7 +257,7 @@ Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f3 1518 62 20 20 12 -17 #rect
 Cs0 f3 @|RichDialogProcessStartIcon #fIcon
 Cs0 f4 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f4 1515 587 26 26 14 0 #rect
+Cs0 f4 1515 555 26 26 14 0 #rect
 Cs0 f4 @|RichDialogProcessEndIcon #fIcon
 Cs0 f6 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -302,6 +302,8 @@ Tree caseTypeTree;
 Tree caseSubTypeTree;
 List<Tree> parentsListOfTree;		// list of priorities nodes or just root node
 
+
+out.treesToExpandOnRender.clear();
 
 parentsListOfTree = [];
 
@@ -428,6 +430,8 @@ ivy.log.debug("The #{0} caseProcessCategory is {1}.", (caseProcessCategory.getFi
          caseTypeTreeNodeValue.categoryName = (elementOfCaseTypesICase.getTypeName() is initialized? elementOfCaseTypesICase.getTypeName(): "" + caseTypeTreeNodeValue.categoryCode);
          caseTypeTree = caseProcessTree.createChild(caseTypeTreeNodeValue,"TYPE_CODE");
 
+				 out.treesToExpandOnRender.add(caseTypeTree);
+					
          caseSubTypesIGroup.clear();
 
 
@@ -518,6 +522,8 @@ Tree caseTypeTree;
 List<Tree> parentsListOfTree;		// list of priorities nodes or just root node
 
 
+out.treesToExpandOnRender.clear();
+
 parentsListOfTree = [];
 
 if (in.sortByPriority)
@@ -600,6 +606,8 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
       caseProcessTreeNodeValue.categoryCode = elementOfCaseProcessesICase.getProcessCode();
       caseProcessTreeNodeValue.categoryName = (elementOfCaseProcessesICase.getProcessName() is initialized? elementOfCaseProcessesICase.getProcessName(): "" + caseProcessTreeNodeValue.categoryCode);
       caseProcessTree = caseProcessCategoryTree.createChild(caseProcessTreeNodeValue, "PROCESS_CODE");
+
+			out.treesToExpandOnRender.add(caseProcessTree);
 
       caseTypesIGroup.clear();
 
@@ -683,6 +691,8 @@ Tree businessMainContactTree;
 List<Tree> parentsListOfTree;		// list of priorities nodes or just root node
 
 
+out.treesToExpandOnRender.clear();
+
 parentsListOfTree = [];
 
 if (in.sortByPriority)
@@ -764,7 +774,7 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
       caseProcessTreeNodeValue.categoryName = (elementOfCaseProcessesICase.getProcessName() is initialized? elementOfCaseProcessesICase.getProcessName(): "" + caseProcessTreeNodeValue.categoryCode);
       caseProcessTree = caseProcessCategoryTree.createChild(caseProcessTreeNodeValue, "PROCESS_CODE");
 
-      
+      out.treesToExpandOnRender.add(caseProcessTree);
 
 
       filter = ivy.wf.createCasePropertyFilter(ch.ivyteam.ivy.workflow.CaseProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesICase.getProcessCategoryCode()).and(
@@ -850,6 +860,8 @@ Tree caseProcessTree;
 Tree businessMainContactTree;
 List<Tree> parentsListOfTree = [];
 
+
+out.treesToExpandOnRender.clear();
 
 
 if (in.sortByPriority)
@@ -941,6 +953,7 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
       businessMainContactTreeNodeValue.categoryName = (elementOfBusinessMainContactsICase.getBusinessMainContactName() is initialized? elementOfBusinessMainContactsICase.getBusinessMainContactName(): "" + businessMainContactTreeNodeValue.categoryCode);
       businessMainContactTree = caseProcessCategoryTree.createChild(businessMainContactTreeNodeValue,"BUSINESS_MAIN_CONTACT_ID");      
 
+			out.treesToExpandOnRender.add(businessMainContactTree);
 
       caseProcessesIGroup.clear();
 
@@ -1030,6 +1043,8 @@ Tree businessMainContactTree;
 Tree caseProcessTree;
 List<Tree> parentsListOfTree = [];
 
+
+out.treesToExpandOnRender.clear();
 
 if (in.sortByPriority)
 {
@@ -1158,6 +1173,7 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
          businessMainContactTree = businessStartTimeStampTree.createChild(businessMainContactTreeNodeValue,"BUSINESS_MAIN_CONTACT_ID");      
 
 
+				 out.treesToExpandOnRender.add(businessMainContactTree);
 
 
          filter = ivy.wf.createCasePropertyFilter(ch.ivyteam.ivy.workflow.CaseProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesICase.getProcessCategoryCode()).and(
@@ -1274,6 +1290,7 @@ Tree businessMainContactTree;
 Tree caseProcessTree;
 List<Tree> parentsListOfTree = [];
 
+out.treesToExpandOnRender.clear();
 
 if (in.sortByPriority)
 {
@@ -1404,6 +1421,7 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
             caseProcessTreeNodeValue.categoryName = (elementOfCaseProcessesICase.getProcessName() is initialized? elementOfCaseProcessesICase.getProcessName(): "" + caseProcessTreeNodeValue.categoryCode);
             caseProcessTree = businessStartTimeStampTree.createChild(caseProcessTreeNodeValue, "PROCESS_CODE");
 
+						out.treesToExpandOnRender.add(caseProcessTree);
 
 
 			      filter = ivy.wf.createCasePropertyFilter(ch.ivyteam.ivy.workflow.CaseProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesICase.getProcessCategoryCode()).and(
@@ -1491,6 +1509,9 @@ Tree businessCreatorUserTree;
 Tree businessStartTimeStampTree;
 Tree caseProcessTree;
 List<Tree> parentsListOfTree = [];
+
+
+out.treesToExpandOnRender.clear();
 
 
 if (in.sortByPriority)
@@ -1618,7 +1639,7 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
          businessStartTimeStampTreeNodeValue.categoryName = (elementOfBusinessStartTimeStampsICase.getBusinessStartTimestamp() is initialized? elementOfBusinessStartTimeStampsICase.getBusinessStartTimestamp().format(ivy.var.xivy_workflow_ui_restricted_dateTimeFormatPattern): "");
          businessStartTimeStampTree = businessCreatorUserTree.createChild(businessStartTimeStampTreeNodeValue,"BUSINESS_START_TIMESTAMP");
    
-
+				 out.treesToExpandOnRender.add(businessStartTimeStampTree);
 
          filter = ivy.wf.createCasePropertyFilter(ch.ivyteam.ivy.workflow.CaseProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesICase.getProcessCategoryCode()).and(
                                                                               ch.ivyteam.ivy.workflow.CaseProperty.BUSINESS_CREATOR_USER, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfBusinessCreatorUsersICase.getBusinessCreatorUser()).and(
@@ -3957,54 +3978,6 @@ Cs0 f162 expr out #txt
 Cs0 f162 1640 132 1546 151 #arcP
 Cs0 f162 1 1640 144 #addKink
 Cs0 f162 1 0.34100031799904607 0 0 #arcLabel
-Cs0 f196 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f196 1514 538 28 28 14 0 #rect
-Cs0 f196 @|AlternativeIcon #fIcon
-Cs0 f197 expr out #txt
-Cs0 f197 1328 444 1516 550 #arcP
-Cs0 f197 1 1328 512 #addKink
-Cs0 f197 1 0.27630520271975495 0 0 #arcLabel
-Cs0 f19 expr out #txt
-Cs0 f19 1136 444 1515 551 #arcP
-Cs0 f19 1 1136 528 #addKink
-Cs0 f19 1 0.1978495288359874 0 0 #arcLabel
-Cs0 f17 expr out #txt
-Cs0 f17 952 436 1514 552 #arcP
-Cs0 f17 1 952 552 #addKink
-Cs0 f17 1 0.3092412166948326 0 0 #arcLabel
-Cs0 f16 expr out #txt
-Cs0 f16 1712 444 1540 550 #arcP
-Cs0 f16 1 1712 512 #addKink
-Cs0 f16 1 0.29670705027713784 0 0 #arcLabel
-Cs0 f23 expr out #txt
-Cs0 f23 1912 444 1541 551 #arcP
-Cs0 f23 1 1912 520 #addKink
-Cs0 f23 1 0.33194152072124145 0 0 #arcLabel
-Cs0 f27 expr out #txt
-Cs0 f27 2112 444 1541 551 #arcP
-Cs0 f27 1 2112 528 #addKink
-Cs0 f27 1 0.3609044357048956 0 0 #arcLabel
-Cs0 f29 expr in #txt
-Cs0 f29 outCond 'in.caseHierarchyLayoutSelectedIndex < 0 || in.caseHierarchyLayoutSelectedIndex > 6' #txt
-Cs0 f29 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>case hierarchy layout index 
-has invalid value  &lt; 0 || &gt; 6</name>
-        <nameStyle>58,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Cs0 f29 1542 208 1542 552 #arcP
-Cs0 f29 1 2288 208 #addKink
-Cs0 f29 2 2288 552 #addKink
-Cs0 f29 0 0.7472924187725631 0 -1 #arcLabel
-Cs0 f41 expr out #txt
-Cs0 f41 1528 444 1528 538 #arcP
-Cs0 f41 0 0.40592719056425014 0 0 #arcLabel
-Cs0 f21 expr in #txt
-Cs0 f21 1528 566 1528 587 #arcP
 Cs0 f5 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f5 1110 270 20 20 13 0 #rect
 Cs0 f5 @|RichDialogProcessEndIcon #fIcon
@@ -4017,6 +3990,82 @@ Cs0 f198 0 0.25262471631581684 0 0 #arcLabel
 Cs0 f56 expr out #txt
 Cs0 f56 1120 148 1120 270 #arcP
 Cs0 f56 0 0.3476171239975997 0 0 #arcLabel
+Cs0 f50 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
+' #txt
+Cs0 f50 actionTable 'out=in;
+' #txt
+Cs0 f50 actionCode 'import com.ulcjava.base.application.tree.TreePath;
+
+// data 2 ui
+panel.caseHierarchyLayoutTree.setTreeData(out.caseHierarchyLayoutTree);
+
+// expand tree nodes
+List<TreePath> treePaths;
+
+for (Tree treeToExpand: out.treesToExpandOnRender)
+{
+	treePaths.add(panel.caseHierarchyLayoutTree.getTreePath(treeToExpand));
+}
+
+panel.caseHierarchyLayoutTree.expandPaths(treePaths, false);' #txt
+Cs0 f50 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
+Cs0 f50 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>data 2 ui
+expand nodes</name>
+        <nameStyle>22,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f50 1510 500 36 24 20 -2 #rect
+Cs0 f50 @|RichDialogProcessStepIcon #fIcon
+Cs0 f199 expr out #txt
+Cs0 f199 1328 444 1510 510 #arcP
+Cs0 f199 1 1328 488 #addKink
+Cs0 f199 1 0.27630520271975495 0 0 #arcLabel
+Cs0 f197 expr out #txt
+Cs0 f197 952 436 1510 512 #arcP
+Cs0 f197 1 952 512 #addKink
+Cs0 f197 1 0.3051922472662973 0 0 #arcLabel
+Cs0 f17 expr out #txt
+Cs0 f17 1136 444 1510 511 #arcP
+Cs0 f17 1 1136 496 #addKink
+Cs0 f17 1 0.1978495288359874 0 0 #arcLabel
+Cs0 f19 expr out #txt
+Cs0 f19 1712 444 1546 510 #arcP
+Cs0 f19 1 1712 488 #addKink
+Cs0 f19 1 0.29670705027713784 0 0 #arcLabel
+Cs0 f16 expr out #txt
+Cs0 f16 1528 444 1528 500 #arcP
+Cs0 f16 0 0.40592719056425014 0 0 #arcLabel
+Cs0 f41 expr out #txt
+Cs0 f41 1912 444 1546 511 #arcP
+Cs0 f41 1 1912 488 #addKink
+Cs0 f41 1 0.33194152072124145 0 0 #arcLabel
+Cs0 f23 expr out #txt
+Cs0 f23 2112 444 1546 511 #arcP
+Cs0 f23 1 2112 488 #addKink
+Cs0 f23 1 0.3609044357048956 0 0 #arcLabel
+Cs0 f27 expr in #txt
+Cs0 f27 outCond 'in.caseHierarchyLayoutSelectedIndex < 0 || in.caseHierarchyLayoutSelectedIndex > 6' #txt
+Cs0 f27 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>case hierarchy layout index 
+has invalid value  &lt; 0 || &gt; 6</name>
+        <nameStyle>58,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f27 1542 208 1546 512 #arcP
+Cs0 f27 1 2288 208 #addKink
+Cs0 f27 2 2288 496 #addKink
+Cs0 f27 0 0.6385472090307155 0 -1 #arcLabel
+Cs0 f21 expr out #txt
+Cs0 f21 1528 524 1528 555 #arcP
 >Proto Cs0 .type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 >Proto Cs0 .processKind RICH_DIALOG #txt
 >Proto Cs0 .ui2RdDataAction 'out.sortByPriority=panel.sortByPriorityCheckBox.selected;
@@ -4126,7 +4175,6 @@ IF((in.caseAvailableFilters.businessObjectNameFilterIsDefined),
    :
    
    ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/filterNotDefined"));
-panel.caseHierarchyLayoutTree.treeData=in.caseHierarchyLayoutTree;
 panel.destroyCaseButton.visible=in.runningCaseMode;
 panel.destroyCaseMenuItem.visible=in.runningCaseMode;
 panel.footerLabel.text=in.footerMessage;
@@ -4340,26 +4388,26 @@ Cs0 f36 mainOut f194 tail #connect
 Cs0 f194 head f169 mainIn #connect
 Cs0 f169 mainOut f162 tail #connect
 Cs0 f162 head f68 mainIn #connect
-Cs0 f12 mainOut f197 tail #connect
-Cs0 f197 head f196 in #connect
-Cs0 f9 mainOut f19 tail #connect
-Cs0 f19 head f196 in #connect
-Cs0 f10 mainOut f17 tail #connect
-Cs0 f17 head f196 in #connect
-Cs0 f14 mainOut f16 tail #connect
-Cs0 f16 head f196 in #connect
-Cs0 f24 mainOut f23 tail #connect
-Cs0 f23 head f196 in #connect
-Cs0 f25 mainOut f27 tail #connect
-Cs0 f27 head f196 in #connect
-Cs0 f47 out f29 tail #connect
-Cs0 f29 head f196 in #connect
-Cs0 f47 out f43 tail #connect
-Cs0 f13 mainOut f41 tail #connect
-Cs0 f41 head f196 in #connect
-Cs0 f196 out f21 tail #connect
-Cs0 f21 head f4 mainIn #connect
 Cs0 f54 mainOut f198 tail #connect
 Cs0 f198 head f8 mainIn #connect
 Cs0 f89 mainOut f56 tail #connect
 Cs0 f56 head f5 mainIn #connect
+Cs0 f12 mainOut f199 tail #connect
+Cs0 f199 head f50 mainIn #connect
+Cs0 f10 mainOut f197 tail #connect
+Cs0 f197 head f50 mainIn #connect
+Cs0 f9 mainOut f17 tail #connect
+Cs0 f17 head f50 mainIn #connect
+Cs0 f14 mainOut f19 tail #connect
+Cs0 f19 head f50 mainIn #connect
+Cs0 f13 mainOut f16 tail #connect
+Cs0 f16 head f50 mainIn #connect
+Cs0 f24 mainOut f41 tail #connect
+Cs0 f41 head f50 mainIn #connect
+Cs0 f25 mainOut f23 tail #connect
+Cs0 f23 head f50 mainIn #connect
+Cs0 f47 out f27 tail #connect
+Cs0 f27 head f50 mainIn #connect
+Cs0 f47 out f43 tail #connect
+Cs0 f50 mainOut f21 tail #connect
+Cs0 f21 head f4 mainIn #connect

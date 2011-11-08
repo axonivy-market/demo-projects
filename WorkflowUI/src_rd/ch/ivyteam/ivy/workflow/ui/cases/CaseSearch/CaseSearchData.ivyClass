@@ -4,6 +4,8 @@ footerMessage String #field
 runningCaseMode Boolean #field
 runningCaseMode 'If true, then find "running cases", otherwise, find "finished cases"' #fieldComment
 caseHierarchyLayoutTree Tree #field
+treesToExpandOnRender List<Tree> #field
+treesToExpandOnRender 'List of trees to expand during the startup/showing categories' #fieldComment
 sortByPriority Boolean #field
 caseStatePropertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
 caseStatePropertyFilter 'The case state that should be included. If runningCaseMode then Case state equals "RUNNING", otherwise "FINISHED"' #fieldComment

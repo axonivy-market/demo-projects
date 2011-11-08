@@ -4,6 +4,8 @@ filterEnabled Boolean #field
 filterCollapsed Boolean #field
 msg String #field
 tasksHierarchyLayoutTree Tree #field
+treesToExpandOnRender List<Tree> #field
+treesToExpandOnRender 'List of trees to expand during the startup/showing categories' #fieldComment
 sortByPriority Boolean #field
 sortByPriority 'Used for define if the tasks hierarchy layout should be rendered including the tasks priority as the first level.' #fieldComment
 tasksList List<ch.ivyteam.ivy.workflow.ITask> #field

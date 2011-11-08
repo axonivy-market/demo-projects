@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 03 14:47:54 CET 2011]
+[>Created: Mon Nov 07 14:35:38 CET 2011]
 1175F14B3894BBC3 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskSearchProcess Big #zClass
@@ -234,15 +234,6 @@ Ts0 @PushWFArc f246 '' #zField
 Ts0 @RichDialogProcessStep f247 '' #zField
 Ts0 @PushWFArc f248 '' #zField
 Ts0 @PushWFArc f101 '' #zField
-Ts0 @Alternative f249 '' #zField
-Ts0 @PushWFArc f250 '' #zField
-Ts0 @PushWFArc f251 '' #zField
-Ts0 @PushWFArc f79 '' #zField
-Ts0 @PushWFArc f131 '' #zField
-Ts0 @PushWFArc f61 '' #zField
-Ts0 @PushWFArc f110 '' #zField
-Ts0 @PushWFArc f121 '' #zField
-Ts0 @PushWFArc f132 '' #zField
 Ts0 @PushWFArc f24 '' #zField
 Ts0 @RichDialogProcessStart f50 '' #zField
 Ts0 @RichDialogProcessEnd f57 '' #zField
@@ -278,6 +269,15 @@ Ts0 @PushWFArc f230 '' #zField
 Ts0 @PushWFArc f135 '' #zField
 Ts0 @RichDialogMethodStart f232 '' #zField
 Ts0 @PushWFArc f236 '' #zField
+Ts0 @RichDialogProcessStep f237 '' #zField
+Ts0 @PushWFArc f264 '' #zField
+Ts0 @PushWFArc f131 '' #zField
+Ts0 @PushWFArc f79 '' #zField
+Ts0 @PushWFArc f251 '' #zField
+Ts0 @PushWFArc f132 '' #zField
+Ts0 @PushWFArc f61 '' #zField
+Ts0 @PushWFArc f110 '' #zField
+Ts0 @PushWFArc f121 '' #zField
 >Proto Ts0 Ts0 TaskSearchProcess #zField
 Ts0 f0 guid 1175F221618771FB #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
@@ -348,7 +348,7 @@ Ts0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f14 1518 30 20 20 13 0 #rect
 Ts0 f14 @|RichDialogProcessStartIcon #fIcon
 Ts0 f15 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f15 1515 587 26 26 14 0 #rect
+Ts0 f15 1515 531 26 26 14 0 #rect
 Ts0 f15 @|RichDialogProcessEndIcon #fIcon
 Ts0 f16 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 Ts0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -775,6 +775,8 @@ Tree businessMainContactTree;
 List<Tree> parentsListOfTree = [];
 
 
+out.treesToExpandOnRender.clear();
+
 
 if (in.sortByPriority)
 {
@@ -861,7 +863,8 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
       caseProcessTreeNodeValue.categoryName = (elementOfCaseProcessesITask.getProcessName() is initialized? elementOfCaseProcessesITask.getProcessName(): "" + caseProcessTreeNodeValue.categoryCode) + " (" + caseProcess.getNumberOfObjectsInGroup() + ")";
       caseProcessTree = caseProcessCategoryTree.createChild(caseProcessTreeNodeValue, "PROCESS_CODE");
 
-
+			out.treesToExpandOnRender.add(caseProcessTree);
+			
       businessMainContactsIGroup.clear();
 
       filter = ivy.wf.createTaskPropertyFilter(ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesITask.getProcessCategoryCode()).and(
@@ -955,6 +958,8 @@ Tree businessMainContactTree;
 List<Tree> parentsListOfTree = [];
 
 
+out.treesToExpandOnRender.clear();
+
 
 if (in.sortByPriority)
 {
@@ -1044,6 +1049,7 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
       businessMainContactTreeNodeValue.categoryName = (elementOfBusinessMainContactsITask.getBusinessMainContactName() is initialized? elementOfBusinessMainContactsITask.getBusinessMainContactName(): "" + businessMainContactTreeNodeValue.categoryCode) + " (" + businessMainContact.getNumberOfObjectsInGroup() + ")";
       businessMainContactTree = caseProcessCategoryTree.createChild(businessMainContactTreeNodeValue,"BUSINESS_MAIN_CONTACT_ID");      
 
+			out.treesToExpandOnRender.add(businessMainContactTree);
 
       caseProcessesIGroup.clear();
 
@@ -1136,6 +1142,8 @@ Tree businessMainContactTree;
 Tree caseProcessTree;
 List<Tree> parentsListOfTree = [];
 
+
+out.treesToExpandOnRender.clear();
 
 if (in.sortByPriority)
 {
@@ -1257,7 +1265,9 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
          businessMainContactTreeNodeValue.categoryName = (elementOfBusinessMainContactsITask.getBusinessMainContactName() is initialized? elementOfBusinessMainContactsITask.getBusinessMainContactName(): "" + businessMainContactTreeNodeValue.categoryCode) + " (" + businessMainContact.getNumberOfObjectsInGroup() + ")";
          businessMainContactTree = taskStartTimeStampTree.createChild(businessMainContactTreeNodeValue,"BUSINESS_MAIN_CONTACT_ID");      
 
-
+				
+				 out.treesToExpandOnRender.add(businessMainContactTree);
+				
          caseProcessesIGroup.clear();
 
          filter = ivy.wf.createTaskPropertyFilter(ch.ivyteam.ivy.workflow.TaskProperty.PROCESS_CATEGORY_CODE, ch.ivyteam.logicalexpression.RelationalOperator.EQUAL, elementOfCaseProcessCategoriesITask.getProcessCategoryCode()).and(
@@ -1354,6 +1364,8 @@ Tree caseProcessTree;
 Tree businessMainContactTree;
 List<Tree> parentsListOfTree = [];
 
+
+out.treesToExpandOnRender.clear();
 
 
 if (in.sortByPriority)
@@ -1476,6 +1488,8 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
          caseProcessTreeNodeValue.categoryCode = elementOfCaseProcessesITask.getProcessCode();
          caseProcessTreeNodeValue.categoryName = (elementOfCaseProcessesITask.getProcessName() is initialized? elementOfCaseProcessesITask.getProcessName(): "" + caseProcessTreeNodeValue.categoryCode) + " (" + caseProcess.getNumberOfObjectsInGroup() + ")";
          caseProcessTree = taskStartTimeStampTree.createChild(caseProcessTreeNodeValue, "PROCESS_CODE");
+				
+				 out.treesToExpandOnRender.add(caseProcessTree);
 
          businessMainContactsIGroup.clear();
 
@@ -1539,7 +1553,8 @@ Ts0 f156 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData o
 ' #txt
 Ts0 f156 actionTable 'out=in;
 ' #txt
-Ts0 f156 actionCode 'import ch.ivyteam.ivy.persistence.OrderDirection;
+Ts0 f156 actionCode 'import com.ulcjava.base.application.tree.TreePath;
+import ch.ivyteam.ivy.persistence.OrderDirection;
 // Case Process Category name/Case process name/Case type name/Task stage name
 
 import ch.ivyteam.ivy.workflow.ui.data.task.TaskHierarchyTreeNodeValue;
@@ -1570,6 +1585,8 @@ Tree caseTypeTree;
 Tree taskKindTree;
 List<Tree> parentsListOfTree = [];
 
+
+out.treesToExpandOnRender.clear();
 
 
 if (in.sortByPriority)
@@ -1694,6 +1711,9 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
          caseTypeTreeNodeValue.categoryCode = elementOfCaseTypesITask.getTypeCode();
          caseTypeTreeNodeValue.categoryName = (elementOfCaseTypesITask.getTypeName() is initialized? elementOfCaseTypesITask.getTypeName(): "" + caseTypeTreeNodeValue.categoryCode) + " (" + caseType.getNumberOfObjectsInGroup() + ")";
          caseTypeTree = caseProcessTree.createChild(caseTypeTreeNodeValue,"TYPE_CODE");
+
+					// remember the tree node to expand
+					out.treesToExpandOnRender.add(caseTypeTree);
 
          taskKindsIGroup.clear();
 
@@ -1852,6 +1872,8 @@ Tree caseProcessTree;
 List<Tree> parentsListOfTree = [];
 
 
+out.treesToExpandOnRender.clear();
+
 if (in.sortByPriority)
 {
 	parentsListOfTree.addAll(rootTree.getChildren());
@@ -1973,6 +1995,7 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
          taskStartTimeStampTreeNodeValue.categoryName = elementOfTaskStartTimeStampsITask.getStartTimestamp().format(ivy.var.xivy_workflow_ui_restricted_dateTimeFormatPattern) + " (" + taskStartTimeStamp.getNumberOfObjectsInGroup() + ")";
          taskStartTimeStampTree = businessCreatorUserTree.createChild(taskStartTimeStampTreeNodeValue,"START_TIMESTAMP");
    
+				 out.treesToExpandOnRender.add(taskStartTimeStampTree);
 
          caseProcessesIGroup.clear();
 
@@ -2078,7 +2101,7 @@ Tree caseSubTypeTree;
 List<Tree> parentsListOfTree;		// list of priorities nodes or just root node
 
 
-
+out.treesToExpandOnRender.clear();
 
 parentsListOfTree = [];
 
@@ -2206,6 +2229,8 @@ for (IGroup caseProcessCategory: caseProcessCategoriesIGroup)
          caseTypeTreeNodeValue.categoryCode = elementOfCaseTypesITask.getTypeCode();
          caseTypeTreeNodeValue.categoryName = (elementOfCaseTypesITask.getTypeName() is initialized? elementOfCaseTypesITask.getTypeName(): "" + caseTypeTreeNodeValue.categoryCode) + " (" + caseType.getNumberOfObjectsInGroup() + ")";
          caseTypeTree = caseProcessTree.createChild(caseTypeTreeNodeValue,"TYPE_CODE");
+
+				 out.treesToExpandOnRender.add(caseTypeTree);
 
          caseSubTypesIGroup.clear();
 
@@ -4693,38 +4718,6 @@ Ts0 f248 expr out #txt
 Ts0 f248 2056 1164 2056 1188 #arcP
 Ts0 f101 expr out #txt
 Ts0 f101 2056 1212 2056 1235 #arcP
-Ts0 f249 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f249 1514 522 28 28 14 0 #rect
-Ts0 f249 @|AlternativeIcon #fIcon
-Ts0 f250 expr in #txt
-Ts0 f250 1528 550 1528 587 #arcP
-Ts0 f251 expr out #txt
-Ts0 f251 1312 428 1516 534 #arcP
-Ts0 f251 1 1312 504 #addKink
-Ts0 f251 1 0.2959768313486882 0 0 #arcLabel
-Ts0 f79 expr out #txt
-Ts0 f79 1112 428 1515 535 #arcP
-Ts0 f79 1 1112 512 #addKink
-Ts0 f79 1 0.44181660623657804 0 0 #arcLabel
-Ts0 f131 expr out #txt
-Ts0 f131 880 428 1514 536 #arcP
-Ts0 f131 1 880 536 #addKink
-Ts0 f131 1 0.32864612654254743 0 0 #arcLabel
-Ts0 f61 expr out #txt
-Ts0 f61 1752 428 1540 534 #arcP
-Ts0 f61 1 1752 496 #addKink
-Ts0 f61 1 0.3506364700329271 0 0 #arcLabel
-Ts0 f110 expr out #txt
-Ts0 f110 2000 428 1541 535 #arcP
-Ts0 f110 1 2000 504 #addKink
-Ts0 f110 1 0.4027252706690888 0 0 #arcLabel
-Ts0 f121 expr out #txt
-Ts0 f121 2240 428 1542 536 #arcP
-Ts0 f121 1 2240 536 #addKink
-Ts0 f121 1 0.39978779704285744 0 0 #arcLabel
-Ts0 f132 expr out #txt
-Ts0 f132 1528 428 1528 522 #arcP
-Ts0 f132 0 0.36175915259836816 0 0 #arcLabel
 Ts0 f24 expr in #txt
 Ts0 f24 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -5115,6 +5108,67 @@ Ts0 f232 638 286 20 20 13 0 #rect
 Ts0 f232 @|RichDialogMethodStartIcon #fIcon
 Ts0 f236 expr out #txt
 Ts0 f236 639 302 528 386 #arcP
+Ts0 f237 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
+' #txt
+Ts0 f237 actionTable 'out=in;
+' #txt
+Ts0 f237 actionCode 'import com.ulcjava.base.application.tree.TreePath;
+
+// data 2 ui
+panel.tasksHierarchyLayoutTree.setTreeData(out.tasksHierarchyLayoutTree);
+
+// expand tree nodes
+List<TreePath> treePaths;
+
+for (Tree treeToExpand: out.treesToExpandOnRender)
+{
+	treePaths.add(panel.tasksHierarchyLayoutTree.getTreePath(treeToExpand));
+}
+
+panel.tasksHierarchyLayoutTree.expandPaths(treePaths, false);' #txt
+Ts0 f237 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f237 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>data 2 ui
+expand nodes</name>
+        <nameStyle>10,7
+12,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f237 1510 484 36 24 20 -2 #rect
+Ts0 f237 @|RichDialogProcessStepIcon #fIcon
+Ts0 f264 expr out #txt
+Ts0 f264 880 428 1510 496 #arcP
+Ts0 f264 1 880 496 #addKink
+Ts0 f264 1 0.32864612654254743 0 0 #arcLabel
+Ts0 f131 expr out #txt
+Ts0 f131 1112 428 1510 495 #arcP
+Ts0 f131 1 1112 480 #addKink
+Ts0 f131 1 0.44181660623657804 0 0 #arcLabel
+Ts0 f79 expr out #txt
+Ts0 f79 1312 428 1510 495 #arcP
+Ts0 f79 1 1312 480 #addKink
+Ts0 f79 1 0.2959768313486882 0 0 #arcLabel
+Ts0 f251 expr out #txt
+Ts0 f251 1528 428 1528 484 #arcP
+Ts0 f251 0 0.36175915259836816 0 0 #arcLabel
+Ts0 f132 expr out #txt
+Ts0 f132 1752 428 1546 495 #arcP
+Ts0 f132 1 1752 480 #addKink
+Ts0 f132 1 0.3506364700329271 0 0 #arcLabel
+Ts0 f61 expr out #txt
+Ts0 f61 2000 428 1546 495 #arcP
+Ts0 f61 1 2000 480 #addKink
+Ts0 f61 1 0.403015777823732 0 0 #arcLabel
+Ts0 f110 expr out #txt
+Ts0 f110 2240 428 1546 496 #arcP
+Ts0 f110 1 2240 496 #addKink
+Ts0 f110 1 0.3975006334968038 0 0 #arcLabel
+Ts0 f121 expr out #txt
+Ts0 f121 1528 508 1528 531 #arcP
 >Proto Ts0 .type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 >Proto Ts0 .processKind RICH_DIALOG #txt
 >Proto Ts0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -5236,7 +5290,6 @@ IF((in.taskAvailableFilters.taskKindCodeFilterIsDefined),
    :
    
    ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/noFilterDefined"));
-panel.tasksHierarchyLayoutTree.treeData=in.tasksHierarchyLayoutTree;
 panel.tasksSortedByPriorityCheckBox.selected=in.sortByPriority;
 ' #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -5464,22 +5517,6 @@ Ts0 f104 mainOut f248 tail #connect
 Ts0 f248 head f247 mainIn #connect
 Ts0 f247 mainOut f101 tail #connect
 Ts0 f101 head f44 mainIn #connect
-Ts0 f249 out f250 tail #connect
-Ts0 f250 head f15 mainIn #connect
-Ts0 f62 mainOut f251 tail #connect
-Ts0 f251 head f249 in #connect
-Ts0 f156 mainOut f79 tail #connect
-Ts0 f79 head f249 in #connect
-Ts0 f23 mainOut f131 tail #connect
-Ts0 f131 head f249 in #connect
-Ts0 f70 mainOut f61 tail #connect
-Ts0 f61 head f249 in #connect
-Ts0 f82 mainOut f110 tail #connect
-Ts0 f110 head f249 in #connect
-Ts0 f177 mainOut f121 tail #connect
-Ts0 f121 head f249 in #connect
-Ts0 f63 mainOut f132 tail #connect
-Ts0 f132 head f249 in #connect
 Ts0 f28 out f24 tail #connect
 Ts0 f24 head f51 mainIn #connect
 Ts0 f50 mainOut f89 tail #connect
@@ -5523,3 +5560,19 @@ Ts0 f227 mainOut f135 tail #connect
 Ts0 f135 head f55 mainIn #connect
 Ts0 f232 mainOut f236 tail #connect
 Ts0 f236 head f55 mainIn #connect
+Ts0 f23 mainOut f264 tail #connect
+Ts0 f264 head f237 mainIn #connect
+Ts0 f156 mainOut f131 tail #connect
+Ts0 f131 head f237 mainIn #connect
+Ts0 f62 mainOut f79 tail #connect
+Ts0 f79 head f237 mainIn #connect
+Ts0 f63 mainOut f251 tail #connect
+Ts0 f251 head f237 mainIn #connect
+Ts0 f70 mainOut f132 tail #connect
+Ts0 f132 head f237 mainIn #connect
+Ts0 f82 mainOut f61 tail #connect
+Ts0 f61 head f237 mainIn #connect
+Ts0 f177 mainOut f110 tail #connect
+Ts0 f110 head f237 mainIn #connect
+Ts0 f237 mainOut f121 tail #connect
+Ts0 f121 head f15 mainIn #connect
