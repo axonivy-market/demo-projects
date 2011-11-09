@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 03 17:11:17 CET 2011]
+[>Created: Wed Nov 09 15:24:36 CET 2011]
 11898D6F2E86E751 3.17 #module
 >Proto >Proto Collection #zClass
 Us0 UserMenuProcess Big #zClass
@@ -1915,9 +1915,9 @@ Us0 f127 @|RichDialogProcessEndIcon #fIcon
 Us0 f128 expr in #txt
 Us0 f128 48 302 48 406 #arcP
 >Proto Us0 .rdData2UIAction 'panel.administrationSeparatorPanel.separatorText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/administration");
-panel.bamHyperlink.visible=in.standAloneMode;
+panel.bamHyperlink.visible=in.standAloneMode && false;
 panel.BAMSeparatorPanel.separatorText="BAM";
-panel.BAMSeparatorPanel.visible=in.standAloneMode;
+panel.BAMSeparatorPanel.visible=in.standAloneMode && false;
 panel.casesSeparatorPanel.separatorText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/cases");
 panel.footerLabel.text=in.footerTextMessage;
 panel.footerLabel.toolTipText=in.footerToolTipTextMessage;

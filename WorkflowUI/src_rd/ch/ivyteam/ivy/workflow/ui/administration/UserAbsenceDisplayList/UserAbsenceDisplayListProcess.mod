@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 22 14:21:18 CEST 2011]
+[>Created: Wed Nov 09 15:21:29 CET 2011]
 1308A975564BB7D8 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AbsenceManagementProcess Big #zClass
@@ -589,14 +589,16 @@ As0 f49 actionDecl 'ch.ivyteam.ivy.workflow.ui.administration.UserAbsenceDisplay
 ' #txt
 As0 f49 actionTable 'out=in;
 ' #txt
-As0 f49 actionCode 'panel.addCollapsiblePane.collapsed = true;' #txt
+As0 f49 actionCode 'out.start = new Date();
+out.end = out.start;
+panel.addCollapsiblePane.collapsed = true;' #txt
 As0 f49 type ch.ivyteam.ivy.workflow.ui.administration.UserAbsenceDisplayList.UserAbsenceDisplayListData #txt
 As0 f49 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>callapse the
-add absence</name>
-        <nameStyle>24,7
+        <name>set start and end date by default
+callapse the add absence</name>
+        <nameStyle>58,7
 </nameStyle>
     </language>
 </elementInfo>

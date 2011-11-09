@@ -325,6 +325,7 @@ private RTextField getDescTextField() {
 		descTextField.setText("");
 		descTextField.setStyleProperties("{/fill \"HORIZONTAL\"/weightX \"1\"}");
 		descTextField.setStyle("displayedLeftAlignedTextField");
+		descTextField.setMandatory(true);
 		descTextField.setName("descTextField");
 	}
 	return descTextField;
