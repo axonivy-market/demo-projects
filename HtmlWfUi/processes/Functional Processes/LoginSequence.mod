@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Feb 16 17:53:04 CET 2011]
-127AF01D1868F1B6 3.15 #module
+[>Created: Wed Nov 16 09:43:39 CET 2011]
+127AF01D1868F1B6 3.17 #module
 >Proto >Proto Collection #zClass
 Le0 LoginSequence Big #zClass
 Le0 B #cInfo
@@ -83,7 +83,7 @@ Le0 f19 51 283 26 26 14 0 #rect
 Le0 f19 @|EndIcon #fIcon
 Le0 f16 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 Le0 f16 outLinks "LinkA.ivp","LinkB.ivp" #txt
-Le0 f16 template "Login_Dialog.ivc" #txt
+Le0 f16 template "/ProcessPages/LoginSequence/Login_Dialog.ivc" #txt
 Le0 f16 type htmlwfui.Data #txt
 Le0 f16 skipLink skip.ivp #txt
 Le0 f16 sortLink sort.ivp #txt
@@ -122,17 +122,12 @@ out.request=ivy.request;
 out.username=ivy.session.isSessionUserUnknown() ? "" : ivy.session.getSessionUserName();
 out.wfSession=ivy.session;
 ' #txt
-Le0 f4 actionCode 'ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.homeUrl",ivy.html.startref("127AE76143E89C91/DefaultEndPage.ivp"));
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.tasklistUrl",ivy.html.startref("125016DE17A534EB/start1.ivp"));
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.processlistUrl",ivy.html.startref("1270ADF72FF4AFF3/start1.ivp"));' #txt
 Le0 f4 type htmlwfui.Data #txt
 Le0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>inits
-setWFUIUrls in Session</name>
-        <nameStyle>28,9
+        <name>inits</name>
+        <nameStyle>5,7,9
 </nameStyle>
     </language>
 </elementInfo>

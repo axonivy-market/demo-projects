@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Feb 22 14:39:46 CET 2011]
-125016DE17A534EB 3.16 #module
+[>Created: Wed Nov 16 10:00:48 CET 2011]
+125016DE17A534EB 3.17 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
 Tt0 B #cInfo
@@ -69,7 +69,7 @@ List<ITask> tasks = queryResult.getResultList();
 out.tasks = tasks;
 
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("125016DE17A534EB/start1.ivp"));
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("125016DE17A534EB/DefaultTaskList.ivp"));
 
 for (int t=0; t<tasks.size(); t++)
 {
@@ -100,7 +100,7 @@ Tt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>get Tasks
 setReturnUrl</name>
-        <nameStyle>22,9
+        <nameStyle>22,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -109,7 +109,7 @@ Tt0 f0 134 156 36 24 22 -5 #rect
 Tt0 f0 @|StepIcon #fIcon
 Tt0 f3 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
 Tt0 f3 outLinks "LinkB.ivp","LinkA.ivp","LinkC.ivp" #txt
-Tt0 f3 template "taskList.ivc" #txt
+Tt0 f3 template "/ProcessPages/Tasklist/taskList.ivc" #txt
 Tt0 f3 type htmlwfui.Data #txt
 Tt0 f3 skipLink skip.ivp #txt
 Tt0 f3 sortLink sort.ivp #txt
@@ -129,52 +129,71 @@ Tt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Tt0 f3 @C|.responsibility Everybody #txt
 Tt0 f3 134 220 36 25 20 0 #rect
 Tt0 f3 @|PageIcon #fIcon
-Tt0 f1 outLink start1.ivp #txt
+Tt0 f1 outLink DefaultTaskListPage.ivp #txt
 Tt0 f1 type htmlwfui.Data #txt
-Tt0 f1 actionDecl 'htmlwfui.Data out;' #txt
+Tt0 f1 inParamDecl '<> param;' #txt
+Tt0 f1 actionDecl 'htmlwfui.Data out;
+' #txt
 Tt0 f1 requestEnabled true #txt
 Tt0 f1 triggerEnabled false #txt
-Tt0 f1 callSignature start1() #txt
-Tt0 f1 startName 'Start TaskList' #txt
+Tt0 f1 callSignature DefaultTaskListPage() #txt
+Tt0 f1 persist false #txt
+Tt0 f1 startName DefaultTaskListPage #txt
+Tt0 f1 startDescription 'This start is used to overwrite the default task list.' #txt
 Tt0 f1 taskData '#
-#Mon Nov 29 14:17:16 CET 2010
+#Wed Nov 16 10:00:45 CET 2011
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
 .DESC=
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
 .NAM=Start TaskList
+TaskTriggered.EXROL=Everybody
 ' #txt
 Tt0 f1 caseData '#
-#Fri Nov 26 11:07:05 CET 2010
-subType.code=
+#Wed Nov 16 10:00:45 CET 2011
+businessCreator.user=
 businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
 mainContact.id=
 mainContact.name=
-processCategory.name=
-processCategory.code=
-businessPriority=
-mainContact.docDb.code=
 mainContact.type=
-businessObject.folder.id=
-businessObject.docDb.code=
-process.name=
-businessCreator.user=
-businessStart.timestamp=
 process.code=
-type.name=
-type.code=
-businessObject.name=
-correspondent.id=
-businessObject.code=
-case.name=
-mainContact.folder.id=
-case.description=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
 subType.name=
+type.code=
+type.name=
 ' #txt
 Tt0 f1 showInStartList 0 #txt
+Tt0 f1 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
 Tt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>startTaskList</name>
-        <nameStyle>13,5,7,9
+        <name>DefaultTaskListPage</name>
+        <nameStyle>19,5,7,9
 </nameStyle>
+        <desc>This start is used to overwrite the default task list.
+Use /ivy/wf/taskList to call it.
+ivy.html.taskListRef() will return a link to this process.</desc>
     </language>
 </elementInfo>
 ' #txt
@@ -183,7 +202,7 @@ Tt0 f1 139 27 26 26 14 0 #rect
 Tt0 f1 @|StartRequestIcon #fIcon
 Tt0 f23 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
 Tt0 f23 outLinks "LinkA.ivp","LinkB.ivp","LinkC.ivp","LinkD.ivp","LinkE.ivp" #txt
-Tt0 f23 template "taskDetail.ivc" #txt
+Tt0 f23 template "/ProcessPages/Tasklist/taskDetail.ivc" #txt
 Tt0 f23 type htmlwfui.Data #txt
 Tt0 f23 skipLink skip.ivp #txt
 Tt0 f23 sortLink sort.ivp #txt

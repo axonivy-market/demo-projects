@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Feb 24 11:48:15 CET 2011]
-12E2EFDD83CB2D4C 3.16 #module
+[>Created: Wed Nov 16 10:04:26 CET 2011]
+12E2EFDD83CB2D4C 3.17 #module
 >Proto >Proto Collection #zClass
 Ln0 Login Big #zClass
 Ln0 B #cInfo
@@ -35,7 +35,7 @@ Ln0 f0 callSignature DefaultLoginPage(String) #txt
 Ln0 f0 persist false #txt
 Ln0 f0 startName 'WF Login' #txt
 Ln0 f0 taskData '#
-#Thu Feb 24 11:48:13 CET 2011
+#Wed Nov 16 10:04:24 CET 2011
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -44,7 +44,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Ln0 f0 caseData '#
-#Thu Feb 24 11:48:13 CET 2011
+#Wed Nov 16 10:04:24 CET 2011
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -83,6 +83,9 @@ Ln0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>DefaultLoginPage.ivp</name>
         <nameStyle>20,5,7
 </nameStyle>
+        <desc>This start is used to overwrite the default login.
+Use /ivy/wf/login to call it.
+This process is called whenever a login is required.</desc>
     </language>
 </elementInfo>
 ' #txt

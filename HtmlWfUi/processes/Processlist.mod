@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Mar 14 11:17:32 CET 2011]
-1270ADF72FF4AFF3 3.16 #module
+[>Created: Wed Nov 16 11:10:13 CET 2011]
+1270ADF72FF4AFF3 3.17 #module
 >Proto >Proto Collection #zClass
 Pt0 Processlist Big #zClass
 Pt0 B #cInfo
@@ -18,57 +18,74 @@ Pt0 @Page f1 '' #zField
 Pt0 @EndTask f2 '' #zField
 Pt0 @GridStep f20 '' #zField
 Pt0 @PushWFArc f3 '' #zField
-Pt0 @CallSub f6 '' #zField
-Pt0 @PushWFArc f7 '' #zField
-Pt0 @PushWFArc f5 '' #zField
 Pt0 @PushWFArc f4 '' #zField
+Pt0 @PushWFArc f8 '' #zField
 >Proto Pt0 Pt0 Processlist #zField
-Pt0 f0 outLink start1.ivp #txt
+Pt0 f0 outLink DefaultProcessStartListPage.ivp #txt
 Pt0 f0 type htmlwfui.Data #txt
-Pt0 f0 actionDecl 'htmlwfui.Data out;' #txt
+Pt0 f0 inParamDecl '<> param;' #txt
+Pt0 f0 actionDecl 'htmlwfui.Data out;
+' #txt
 Pt0 f0 requestEnabled true #txt
 Pt0 f0 triggerEnabled false #txt
-Pt0 f0 callSignature start1() #txt
-Pt0 f0 startName 'Start Processlist' #txt
+Pt0 f0 callSignature DefaultProcessStartListPage() #txt
+Pt0 f0 persist false #txt
+Pt0 f0 startName DefaultProcessStartListPage #txt
+Pt0 f0 startDescription 'This is used to overwrite the default process start list.' #txt
 Pt0 f0 taskData '#
-#Mon Nov 29 14:17:16 CET 2010
+#Wed Nov 16 10:01:21 CET 2011
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
 .DESC=
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
 .NAM=Start Processlist
 ' #txt
 Pt0 f0 caseData '#
-#Thu Jun 24 14:45:33 CEST 2010
-subType.code=
+#Wed Nov 16 10:01:21 CET 2011
+businessCreator.user=
 businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
 mainContact.id=
 mainContact.name=
-processCategory.name=
-processCategory.code=
-businessPriority=
-mainContact.docDb.code=
 mainContact.type=
-businessObject.folder.id=
-businessObject.docDb.code=
-process.name=
-businessCreator.user=
-businessStart.timestamp=
 process.code=
-type.name=
-type.code=
-businessObject.name=
-correspondent.id=
-businessObject.code=
-case.name=
-mainContact.folder.id=
-case.description=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
 subType.name=
+type.code=
+type.name=
 ' #txt
 Pt0 f0 showInStartList 0 #txt
+Pt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
 Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start1</name>
-        <nameStyle>6,5,7,9
+        <name>DefaultProcessStartListPage</name>
+        <nameStyle>27,5,7,9
 </nameStyle>
+        <desc>This start is used to overwrite the default process start list.
+Use /ivy/wf/processStartList to call it.
+ivy.html.processStartListRef() will return a link to this process.</desc>
     </language>
 </elementInfo>
 ' #txt
@@ -77,7 +94,7 @@ Pt0 f0 140 35 25 26 14 0 #rect
 Pt0 f0 @|StartRequestIcon #fIcon
 Pt0 f1 outTypes "htmlwfui.Data" #txt
 Pt0 f1 outLinks "LinkA.ivp" #txt
-Pt0 f1 template "processliste.ivc" #txt
+Pt0 f1 template "/ProcessPages/Processlist/processliste.ivc" #txt
 Pt0 f1 type htmlwfui.Data #txt
 Pt0 f1 skipLink skip.ivp #txt
 Pt0 f1 sortLink sort.ivp #txt
@@ -103,7 +120,7 @@ Pt0 f20 actionTable 'out=in;
 Pt0 f20 actionCode 'out.starts = ivy.session.getStartableProcessStarts();
 
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("1270ADF72FF4AFF3/start1.ivp"));
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("1270ADF72FF4AFF3/DefaultProcessStartList.ivp"));
 
 r.getHttpServletRequest().getSession().removeAttribute("ch.ivy.wfui.redirectMsg");
 Object msg = r.getHttpServletRequest().getSession().getAttribute("ch.ivy.wfui.redirectMsg");
@@ -117,7 +134,7 @@ Pt0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>collect processstarts
 setReturnUrl</name>
-        <nameStyle>34,9
+        <nameStyle>34,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -126,44 +143,18 @@ Pt0 f20 134 156 36 24 28 -12 #rect
 Pt0 f20 @|StepIcon #fIcon
 Pt0 f3 expr out #txt
 Pt0 f3 152 180 152 228 #arcP
-Pt0 f6 type htmlwfui.Data #txt
-Pt0 f6 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Pt0 f6 doCall true #txt
-Pt0 f6 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
-Pt0 f6 requestMappingAction 'param.in=in;
-' #txt
-Pt0 f6 responseActionDecl 'htmlwfui.Data out;
-' #txt
-Pt0 f6 responseMappingAction 'out=result.out;
-' #txt
-Pt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Check Login</name>
-        <nameStyle>11,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Pt0 f6 134 92 36 24 20 -2 #rect
-Pt0 f6 @|CallSubIcon #fIcon
-Pt0 f7 expr out #txt
-Pt0 f7 151 60 152 92 #arcP
-Pt0 f5 expr out #txt
-Pt0 f5 152 116 152 156 #arcP
 Pt0 f4 expr data #txt
 Pt0 f4 outCond ivp=="LinkA.ivp" #txt
 Pt0 f4 152 252 152 315 #arcP
+Pt0 f8 expr out #txt
+Pt0 f8 151 60 152 156 #arcP
 >Proto Pt0 .type htmlwfui.Data #txt
 >Proto Pt0 .processKind NORMAL #txt
 >Proto Pt0 0 0 32 24 18 0 #rect
 >Proto Pt0 @|BIcon #fIcon
 Pt0 f20 mainOut f3 tail #connect
 Pt0 f3 head f1 mainIn #connect
-Pt0 f0 mainOut f7 tail #connect
-Pt0 f7 head f6 mainIn #connect
-Pt0 f6 mainOut f5 tail #connect
-Pt0 f5 head f20 mainIn #connect
 Pt0 f1 out f4 tail #connect
 Pt0 f4 head f2 mainIn #connect
+Pt0 f0 mainOut f8 tail #connect
+Pt0 f8 head f20 mainIn #connect

@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Mar 04 16:42:02 CET 2011]
-127AE76143E89C91 3.16 #module
+[>Created: Wed Nov 16 12:29:26 CET 2011]
+127AE76143E89C91 3.17 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
 He0 B #cInfo
@@ -40,7 +40,7 @@ He0 @PushWFArc f23 '' #zField
 >Proto He0 He0 Home #zField
 He0 f1 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 He0 f1 outLinks "LinkA.ivp","LinkB.ivp" #txt
-He0 f1 template "home.ivc" #txt
+He0 f1 template "/ProcessPages/Home/home.ivc" #txt
 He0 f1 type htmlwfui.Data #txt
 He0 f1 skipLink skip.ivp #txt
 He0 f1 sortLink sort.ivp #txt
@@ -93,7 +93,7 @@ He0 f11 actionDecl 'htmlwfui.Data out;
 He0 f11 actionTable 'out=in;
 ' #txt
 He0 f11 actionCode 'ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl", ivy.html.startref("127AE76143E89C91/start1.ivp"));' #txt
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl", ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp"));' #txt
 He0 f11 type htmlwfui.Data #txt
 He0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -120,9 +120,9 @@ He0 f7 requestEnabled true #txt
 He0 f7 triggerEnabled false #txt
 He0 f7 callSignature DefaultEndPage(Number) #txt
 He0 f7 persist false #txt
-He0 f7 startName 'WF End Page' #txt
+He0 f7 startName DefaultEndPage #txt
 He0 f7 taskData '#
-#Fri Mar 04 15:52:45 CET 2011
+#Wed Nov 16 10:03:19 CET 2011
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -131,7 +131,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f7 caseData '#
-#Fri Mar 04 15:52:45 CET 2011
+#Wed Nov 16 10:03:19 CET 2011
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -170,6 +170,8 @@ He0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>DefaultEndPage</name>
         <nameStyle>14,5,7
 </nameStyle>
+        <desc>This start is used to overwrite the default end page.
+It will be called whenever process/task ends without a defined page.</desc>
     </language>
 </elementInfo>
 ' #txt
@@ -249,7 +251,7 @@ He0 f14 @|EndRequestIcon #fIcon
 He0 f15 expr in #txt
 He0 f15 outCond in.temp.url.length()>0 #txt
 He0 f15 144 278 144 315 #arcP
-He0 f16 outLink start1.ivp #txt
+He0 f16 outLink DefaultApplicationHomePage.ivp #txt
 He0 f16 type htmlwfui.Data #txt
 He0 f16 inParamDecl '<> param;' #txt
 He0 f16 actionDecl 'htmlwfui.Data out;
@@ -257,11 +259,11 @@ He0 f16 actionDecl 'htmlwfui.Data out;
 He0 f16 guid 12E3344F408D0C73 #txt
 He0 f16 requestEnabled true #txt
 He0 f16 triggerEnabled false #txt
-He0 f16 callSignature start1() #txt
+He0 f16 callSignature DefaultApplicationHomePage() #txt
 He0 f16 persist false #txt
-He0 f16 startName 'WF Home' #txt
+He0 f16 startName DefaultApplicationHomePage #txt
 He0 f16 taskData '#
-#Thu Feb 17 12:03:48 CET 2011
+#Wed Nov 16 12:29:23 CET 2011
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -270,7 +272,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f16 caseData '#
-#Thu Feb 17 12:03:48 CET 2011
+#Wed Nov 16 12:29:23 CET 2011
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -306,9 +308,12 @@ engine.updateCurrentTask(taskUpdDef);
 He0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>WF Home start1.ivp</name>
-        <nameStyle>18,5,7
+        <name>DefaultApplicationHomePage</name>
+        <nameStyle>26,5,7
 </nameStyle>
+        <desc>This start is used to overwrite the default application home.
+Use /ivy/wf/applicationHome to call it.
+ivy.html.applicationHomeRef() will return a link to this process.</desc>
     </language>
 </elementInfo>
 ' #txt
@@ -342,7 +347,7 @@ He0 f18 304 77 304 132 #arcP
 He0 f19 expr out #txt
 He0 f19 304 156 304 252 #arcP
 He0 f25 type htmlwfui.Data #txt
-He0 f25 template "AnonymousEndpage.ivc" #txt
+He0 f25 template "/ProcessPages/Home/AnonymousEndpage.ivc" #txt
 He0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
