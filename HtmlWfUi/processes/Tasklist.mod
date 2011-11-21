@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Nov 16 10:00:48 CET 2011]
+[>Created: Mon Nov 21 10:21:34 CET 2011]
 125016DE17A534EB 3.17 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
@@ -69,7 +69,7 @@ List<ITask> tasks = queryResult.getResultList();
 out.tasks = tasks;
 
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("125016DE17A534EB/DefaultTaskList.ivp"));
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("125016DE17A534EB/DefaultTaskListPage.ivp"));
 
 for (int t=0; t<tasks.size(); t++)
 {

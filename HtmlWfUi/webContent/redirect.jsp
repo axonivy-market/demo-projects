@@ -40,7 +40,7 @@ String tmpMsg=ivy.html.get("in.temp.msg");
 		<a href="<%=urlToStart%>"><%=ivy.cms.co("/htmlabels/clickHere")%></a>
 		<span id="back_links">	
 		<br>		
-		<p><%=ivy.cms.co("/htmlabels/backTo")%> <a style="font-size: 8pt;color: #333333;text-decoration: none;border: 0px;font-weight: bold;" href='javascript:location.replace("<%=ivy.html.startref("127AE76143E89C91/start1.ivp")%>")'>&raquo; <%=ivy.cms.co("/navLabels/home")%></a>
+		<p><%=ivy.cms.co("/htmlabels/backTo")%> <a style="font-size: 8pt;color: #333333;text-decoration: none;border: 0px;font-weight: bold;" href='javascript:location.replace("<%=ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp")%>")'>&raquo; <%=ivy.cms.co("/navLabels/home")%></a>
 		</span>
 	<%
     }
