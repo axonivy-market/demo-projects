@@ -1,0 +1,11 @@
+AnyQueryCaseListParameter #class
+'It represents the parameter used in order to make display any query on the case list Rich Dialog.' #classComment
+ch.ivyteam.ivy.workflow.ui.data.cases #namespace
+title String #field
+title 'Title to display on the case list.' #fieldComment
+text String #field
+text 'Text to display on the case list.' #fieldComment
+criterias ch.ivyteam.ivy.workflow.IPropertyFilter #field
+criterias 'Case list will find all cases that fit to this criteria(s).' #fieldComment
+tabTitle String #field
+tabTitle 'The title of the dynamically added case list as a new tab on the display.' #fieldComment

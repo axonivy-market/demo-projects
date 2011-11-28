@@ -5,6 +5,7 @@ import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RBorderLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTabbedPane;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
@@ -31,6 +32,8 @@ private RCardDisplay documentsDisplay = null;
 private RCardDisplay annotationsDisplay = null;
 private RCardDisplay eventLogsDisplay = null;
 private RCardDisplay detailsDisplay = null;
+private RBorderLayoutPane taskDisplayBorderLayoutPane = null;
+private RCardDisplay flowDisplayCardDisplay = null;
 /**
    * Create a new instance of TaskInformationDisplayPanel
    */
@@ -49,11 +52,9 @@ private RCardDisplay detailsDisplay = null;
    */
   public void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(646,600));
         this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(730,809));
-        this.add(getFooterLabel(), com.ulcjava.base.application.ULCBorderLayoutPane.SOUTH);
-        this.add(getTaskActionsBoxPane(), com.ulcjava.base.application.ULCBorderLayoutPane.NORTH);
-        this.add(getCenterTabbedPane(), com.ulcjava.base.application.ULCBorderLayoutPane.CENTER);
+        this.add(getTaskDisplayBorderLayoutPane(), com.ulcjava.base.application.ULCBorderLayoutPane.CENTER);
+        this.add(getFlowDisplayCardDisplay(), com.ulcjava.base.application.ULCBorderLayoutPane.NORTH);
   }
 
 /**
@@ -231,5 +232,34 @@ private RCardDisplay getDetailsDisplay() {
 		detailsDisplay.setName("detailsDisplay");
 	}
 	return detailsDisplay;
+}
+
+/**
+ * This method initializes taskDisplayBorderLayoutPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RBorderLayoutPane	
+ */
+private RBorderLayoutPane getTaskDisplayBorderLayoutPane() {
+	if (taskDisplayBorderLayoutPane == null) {
+		taskDisplayBorderLayoutPane = new RBorderLayoutPane();
+		taskDisplayBorderLayoutPane.setName("taskDisplayBorderLayoutPane");
+		taskDisplayBorderLayoutPane.add(getFooterLabel(), com.ulcjava.base.application.ULCBorderLayoutPane.SOUTH);
+		taskDisplayBorderLayoutPane.add(getTaskActionsBoxPane(), com.ulcjava.base.application.ULCBorderLayoutPane.NORTH);
+		taskDisplayBorderLayoutPane.add(getCenterTabbedPane(), com.ulcjava.base.application.ULCBorderLayoutPane.CENTER);
+	}
+	return taskDisplayBorderLayoutPane;
+}
+
+/**
+ * This method initializes flowDisplayCardDisplay	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay	
+ */
+private RCardDisplay getFlowDisplayCardDisplay() {
+	if (flowDisplayCardDisplay == null) {
+		flowDisplayCardDisplay = new RCardDisplay();
+		flowDisplayCardDisplay.setName("flowDisplayCardDisplay");
+	}
+	return flowDisplayCardDisplay;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

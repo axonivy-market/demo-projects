@@ -17,7 +17,7 @@ alreadyLoadedOnDisplay Boolean #field
 selectedCase ch.ivyteam.ivy.workflow.ICase #field
 selectedDestinationDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay #field
 caseDisplayMode Number #field
-caseDisplayMode '0=involved cases (your cases), 1=involved cases by role (team cases), 2=all env. cases (wf admin mode)' #fieldComment
+caseDisplayMode '0=involved cases (your cases), 1=involved cases by role (team cases), 2=all env. cases (wf admin mode), 3=any query' #fieldComment
 hasPermissionCaseRead Boolean #field
 hasPermissionCaseDestroy Boolean #field
 caseDisplayModeText String #field

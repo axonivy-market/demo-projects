@@ -31,6 +31,16 @@
             <nullPermitted>true</nullPermitted>
         </attachment>
     </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>xivyAnyQueryCaseListRequested</name>
+        <description>It accepts broadcast and load a case list that fits to that parameter criteria.</description>
+        <attachment>
+            <name>parameter</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ui.data.cases.AnyQueryCaseListParameter</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
     <method>
         <name>close</name>
         <description></description>

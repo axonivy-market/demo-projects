@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Jan 14 13:38:12 CET 2011]
-12985A17AEE78EF5 3.15 #module
+[>Created: Fri Nov 25 12:45:04 CET 2011]
+12985A17AEE78EF5 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsDisplayProcess Big #zClass
 Ts0 RD #cInfo
@@ -27,12 +27,14 @@ Ts0 @InfoButton f19 '' #zField
 Ts0 @AnnotationArc f20 '' #zField
 Ts0 @RichDialogProcessStep f4 '' #zField
 Ts0 @PushWFArc f2 '' #zField
-Ts0 @PushWFArc f6 '' #zField
 Ts0 @PushWFArc f8 '' #zField
 Ts0 @RichDialogProcessEnd f7 '' #zField
 Ts0 @PushWFArc f10 '' #zField
 Ts0 @PushWFArc f12 '' #zField
-Ts0 @PushWFArc f11 '' #zField
+Ts0 @RichDialogProcessStep f5 '' #zField
+Ts0 @PushWFArc f13 '' #zField
+Ts0 @PushWFArc f6 '' #zField
+Ts0 @PushWFArc f15 '' #zField
 >Proto Ts0 Ts0 TaskDetailsDisplayProcess #zField
 Ts0 f0 guid 1168C7DFD01F3BE3 #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay.TaskDetailsDisplayData #txt
@@ -55,10 +57,10 @@ Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f0 86 78 20 20 13 0 #rect
+Ts0 f0 30 78 20 20 13 0 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f3 type ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay.TaskDetailsDisplayData #txt
-Ts0 f3 83 251 26 26 14 0 #rect
+Ts0 f3 99 259 26 26 14 0 #rect
 Ts0 f3 @|RichDialogProcessEndIcon #fIcon
 Ts0 f9 guid 118ADDD29C756465 #txt
 Ts0 f9 type ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay.TaskDetailsDisplayData #txt
@@ -80,7 +82,7 @@ Ts0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f9 350 78 20 20 13 0 #rect
+Ts0 f9 454 78 20 20 13 0 #rect
 Ts0 f9 @|RichDialogMethodStartIcon #fIcon
 Ts0 f21 guid 118BDEDA209E5E6D #txt
 Ts0 f21 type ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay.TaskDetailsDisplayData #txt
@@ -98,7 +100,7 @@ Ts0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f21 534 78 20 20 13 0 #rect
+Ts0 f21 638 78 20 20 13 0 #rect
 Ts0 f21 @|RichDialogBroadcastStartIcon #fIcon
 Ts0 f26 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay.TaskDetailsDisplayData out;
 ' #txt
@@ -116,10 +118,10 @@ and fires the up databinding (rdData2ui)</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f26 526 140 36 24 20 -2 #rect
+Ts0 f26 630 140 36 24 20 -2 #rect
 Ts0 f26 @|RichDialogProcessStepIcon #fIcon
 Ts0 f14 expr out #txt
-Ts0 f14 544 98 544 140 #arcP
+Ts0 f14 648 98 648 140 #arcP
 Ts0 f14 0 0.7122978380369184 0 0 #arcLabel
 Ts0 f1 guid 1194BE8DC42AE51C #txt
 Ts0 f1 type ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay.TaskDetailsDisplayData #txt
@@ -142,7 +144,7 @@ Ts0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f1 158 78 20 20 13 0 #rect
+Ts0 f1 102 78 20 20 13 0 #rect
 Ts0 f1 @|RichDialogInitStartIcon #fIcon
 Ts0 f17 guid 11E46326FF259534 #txt
 Ts0 f17 type ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay.TaskDetailsDisplayData #txt
@@ -158,7 +160,7 @@ Ts0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f17 782 70 20 20 13 0 #rect
+Ts0 f17 886 70 20 20 13 0 #rect
 Ts0 f17 @|RichDialogBroadcastStartIcon #fIcon
 Ts0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -170,145 +172,237 @@ the databinding should load the latest data...</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f19 836 141 24 54 10 0 #rect
+Ts0 f19 940 141 24 54 10 0 #rect
 Ts0 f19 @|IBIcon #fIcon
-Ts0 f20 836 168 796 88 #arcP
+Ts0 f20 940 168 900 88 #arcP
 Ts0 f4 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay.TaskDetailsDisplayData out;
 ' #txt
 Ts0 f4 actionTable 'out=in;
 ' #txt
 Ts0 f4 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.CustomFieldsHelper;
 
-out.setCustomFieldsLabels(CustomFieldsHelper.getTaskCustomFieldsLabels(in.task, ivy.log));' #txt
+if (in.#task is initialized)
+{
+	out.setCustomFieldsLabels(CustomFieldsHelper.getTaskCustomFieldsLabels(in.task, ivy.log));
+}' #txt
 Ts0 f4 type ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay.TaskDetailsDisplayData #txt
 Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>build the custom fields labels</name>
-        <nameStyle>10,7,9
+        <name>build the 
+custom fields labels</name>
+        <nameStyle>11,7,9
 20,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f4 150 164 36 24 20 -2 #rect
+Ts0 f4 94 188 36 24 20 -2 #rect
 Ts0 f4 @|RichDialogProcessStepIcon #fIcon
 Ts0 f2 expr out #txt
-Ts0 f2 168 188 108 262 #arcP
-Ts0 f2 1 168 256 #addKink
-Ts0 f2 0 0.9660919912254498 0 0 #arcLabel
-Ts0 f6 expr out #txt
-Ts0 f6 168 98 168 164 #arcP
-Ts0 f6 0 0.755865520055364 0 0 #arcLabel
+Ts0 f2 112 212 112 259 #arcP
+Ts0 f2 0 0.4075585020511766 0 0 #arcLabel
 Ts0 f8 expr out #txt
-Ts0 f8 360 98 186 176 #arcP
-Ts0 f8 1 360 176 #addKink
+Ts0 f8 464 98 130 200 #arcP
+Ts0 f8 1 464 200 #addKink
 Ts0 f8 1 0.1433108194909679 0 0 #arcLabel
 Ts0 f7 type ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay.TaskDetailsDisplayData #txt
-Ts0 f7 534 254 20 20 13 0 #rect
+Ts0 f7 638 254 20 20 13 0 #rect
 Ts0 f7 @|RichDialogProcessEndIcon #fIcon
 Ts0 f10 expr out #txt
-Ts0 f10 792 90 553 263 #arcP
-Ts0 f10 1 792 240 #addKink
+Ts0 f10 896 90 657 263 #arcP
+Ts0 f10 1 896 240 #addKink
 Ts0 f10 1 0.2985192596620074 0 0 #arcLabel
 Ts0 f12 expr out #txt
-Ts0 f12 544 164 544 254 #arcP
+Ts0 f12 648 164 648 254 #arcP
 Ts0 f12 0 0.2973429828297244 0 0 #arcLabel
-Ts0 f11 expr out #txt
-Ts0 f11 96 98 96 251 #arcP
+Ts0 f5 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay.TaskDetailsDisplayData out;
+' #txt
+Ts0 f5 actionTable 'out=in;
+' #txt
+Ts0 f5 actionCode 'import ch.ivyteam.ivy.event.SystemEventCategory;
+import ch.ivyteam.ivy.security.IPermission;
+
+
+// register to the system events Workflow category
+ivy.rd.subscribeToSystemEvents(SystemEventCategory.WORKFLOW);
+
+
+out.hasWfAdministratorPermissions = 
+	ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), IPermission.ADMINISTRATE_WORKFLOW);' #txt
+Ts0 f5 type ch.ivyteam.ivy.workflow.ui.task.TaskDetailsDisplay.TaskDetailsDisplayData #txt
+Ts0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>register for the system events workflow
+check if user has wf admin permission</name>
+        <nameStyle>77,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f5 94 140 36 24 20 -2 #rect
+Ts0 f5 @|RichDialogProcessStepIcon #fIcon
+Ts0 f13 expr out #txt
+Ts0 f13 112 98 112 140 #arcP
+Ts0 f13 0 0.755865520055364 0 0 #arcLabel
+Ts0 f6 expr out #txt
+Ts0 f6 112 164 112 188 #arcP
+Ts0 f15 expr out #txt
+Ts0 f15 47 94 99 140 #arcP
 >Proto Ts0 .rdData2UIAction 'panel.businessMilestoneLabel.visible=in.#task is initialized && in.#task.getBusinessMilestoneTimestamp() is initialized;
 panel.businessMilestoneTextField.text=(in.#task is initialized && in.#task.getBusinessMilestoneTimestamp() is initialized)? in.task.businessMilestoneTimestamp.format(ivy.var.xivy_workflow_ui_restricted_dateFormatPattern): "";
 panel.businessMilestoneTextField.visible=in.#task is initialized && in.#task.getBusinessMilestoneTimestamp() is initialized;
 panel.customDecimalField1Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customDecimalField1Label is initialized?
 	in.customFieldsLabels.customDecimalField1Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customDecimalField") + " 1";
-panel.customDecimalField1Label.visible=(in.#task is initialized && in.#task.#customDecimalField1 is initialized);
+panel.customDecimalField1Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customDecimalField1 is initialized && in.#customFieldsLabels.#customDecimalField1Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customDecimalField1 is initialized));
 panel.customDecimalField1TextField.text=(in.#task is initialized && in.#task.#customDecimalField1 is initialized)? in.task.customDecimalField1.toString(): "";
-panel.customDecimalField1TextField.visible=(in.#task is initialized && in.#task.#customDecimalField1 is initialized);
+panel.customDecimalField1TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customDecimalField1 is initialized && in.#customFieldsLabels.#customDecimalField1Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customDecimalField1 is initialized));
 panel.customDecimalField2Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customDecimalField2Label is initialized? 
 	in.customFieldsLabels.customDecimalField2Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customDecimalField") + " 2";
-panel.customDecimalField2Label.visible=(in.#task is initialized && in.#task.#customDecimalField2 is initialized);
+panel.customDecimalField2Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customDecimalField2 is initialized && in.#customFieldsLabels.#customDecimalField2Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customDecimalField2 is initialized));
 panel.customDecimalField2TextField.text=(in.#task is initialized && in.#task.#customDecimalField2 is initialized)? in.task.customDecimalField2.toString(): "";
-panel.customDecimalField2TextField.visible=(in.#task is initialized && in.#task.#customDecimalField2 is initialized);
+panel.customDecimalField2TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customDecimalField2 is initialized && in.#customFieldsLabels.#customDecimalField2Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customDecimalField2 is initialized));
 panel.customDecimalField3Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customDecimalField3Label is initialized? 
 	in.customFieldsLabels.customDecimalField3Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customDecimalField") + " 3";
-panel.customDecimalField3Label.visible=(in.#task is initialized && in.#task.#customDecimalField3 is initialized);
+panel.customDecimalField3Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customDecimalField3 is initialized && in.#customFieldsLabels.#customDecimalField3Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customDecimalField3 is initialized));
 panel.customDecimalField3TextField.text=(in.#task is initialized && in.#task.#customDecimalField3 is initialized)? in.task.customDecimalField3.toString(): "";
-panel.customDecimalField3TextField.visible=(in.#task is initialized && in.#task.#customDecimalField3 is initialized);
+panel.customDecimalField3TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customDecimalField3 is initialized && in.#customFieldsLabels.#customDecimalField3Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customDecimalField3 is initialized));
 panel.customDecimalField4Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customDecimalField4Label is initialized? 
 	in.customFieldsLabels.customDecimalField4Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customDecimalField") + " 4";
-panel.customDecimalField4Label.visible=(in.#task is initialized && in.#task.#customDecimalField4 is initialized);
+panel.customDecimalField4Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customDecimalField4 is initialized && in.#customFieldsLabels.#customDecimalField4Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customDecimalField4 is initialized));
 panel.customDecimalField4TextField.text=(in.#task is initialized && in.#task.#customDecimalField4 is initialized)? in.task.customDecimalField4.toString(): "";
-panel.customDecimalField4TextField.visible=(in.#task is initialized && in.#task.#customDecimalField4 is initialized);
+panel.customDecimalField4TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customDecimalField4 is initialized && in.#customFieldsLabels.#customDecimalField4Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customDecimalField4 is initialized));
 panel.customDecimalField5Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customDecimalField5Label is initialized? 
 	in.customFieldsLabels.customDecimalField5Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customDecimalField") + " 5";
-panel.customDecimalField5Label.visible=(in.#task is initialized && in.#task.#customDecimalField5 is initialized);
+panel.customDecimalField5Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customDecimalField5 is initialized && in.#customFieldsLabels.#customDecimalField5Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customDecimalField5 is initialized));
 panel.customDecimalField5TextField.text=(in.#task is initialized && in.#task.#customDecimalField5 is initialized)? in.task.customDecimalField5.toString(): "";
-panel.customDecimalField5TextField.visible=(in.#task is initialized && in.#task.#customDecimalField5 is initialized);
+panel.customDecimalField5TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customDecimalField5 is initialized && in.#customFieldsLabels.#customDecimalField5Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customDecimalField5 is initialized));
 panel.customTimestampField1Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customTimestampField1Label is initialized? 
 	in.customFieldsLabels.customTimestampField1Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customTimestampField") + " 1";
-panel.customTimestampField1Label.visible=(in.#task is initialized && in.#task.#customTimestampField1 is initialized);
+panel.customTimestampField1Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customTimestampField1 is initialized && in.#customFieldsLabels.#customTimestampField1Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customTimestampField1 is initialized));
 panel.customTimestampField1TextField.text=(in.#task is initialized && in.#task.#customTimestampField1 is initialized)? in.task.customTimestampField1.toString(): "";
-panel.customTimestampField1TextField.visible=(in.#task is initialized && in.#task.#customTimestampField1 is initialized);
+panel.customTimestampField1TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customTimestampField1 is initialized && in.#customFieldsLabels.#customTimestampField1Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customTimestampField1 is initialized));
 panel.customTimestampField2Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customTimestampField2Label is initialized? 
 	in.customFieldsLabels.customTimestampField2Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customTimestampField") + " 2";
-panel.customTimestampField2Label.visible=(in.#task is initialized && in.#task.#customTimestampField2 is initialized);
+panel.customTimestampField2Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customTimestampField2 is initialized && in.#customFieldsLabels.#customTimestampField2Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customTimestampField2 is initialized));
 panel.customTimestampField2TextField.text=(in.#task is initialized && in.#task.#customTimestampField2 is initialized)? in.task.customTimestampField2.toString(): "";
-panel.customTimestampField2TextField.visible=(in.#task is initialized && in.#task.#customTimestampField2 is initialized);
+panel.customTimestampField2TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customTimestampField2 is initialized && in.#customFieldsLabels.#customTimestampField2Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customTimestampField2 is initialized));
 panel.customTimestampField3Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customTimestampField3Label is initialized? 
 	in.customFieldsLabels.customTimestampField3Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customTimestampField") + " 3";
-panel.customTimestampField3Label.visible=(in.#task is initialized && in.#task.#customTimestampField3 is initialized);
+panel.customTimestampField3Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customTimestampField3 is initialized && in.#customFieldsLabels.#customTimestampField3Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customTimestampField3 is initialized));
 panel.customTimestampField3TextField.text=(in.#task is initialized && in.#task.#customTimestampField3 is initialized)? in.task.customTimestampField3.toString(): "";
-panel.customTimestampField3TextField.visible=(in.#task is initialized && in.#task.#customTimestampField3 is initialized);
+panel.customTimestampField3TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customTimestampField3 is initialized && in.#customFieldsLabels.#customTimestampField3Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customTimestampField3 is initialized));
 panel.customTimestampField4Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customTimestampField4Label is initialized? 
 	in.customFieldsLabels.customTimestampField4Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customTimestampField") + " 4";
-panel.customTimestampField4Label.visible=(in.#task is initialized && in.#task.#customTimestampField4 is initialized);
+panel.customTimestampField4Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customTimestampField4 is initialized && in.#customFieldsLabels.#customTimestampField4Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customTimestampField4 is initialized));
 panel.customTimestampField4TextField.text=(in.#task is initialized && in.#task.#customTimestampField4 is initialized)? in.task.customTimestampField4.toString(): "";
-panel.customTimestampField4TextField.visible=(in.#task is initialized && in.#task.#customTimestampField4 is initialized);
+panel.customTimestampField4TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customTimestampField4 is initialized && in.#customFieldsLabels.#customTimestampField4Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customTimestampField4 is initialized));
 panel.customTimestampField5Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customTimestampField5Label is initialized? 
 	in.customFieldsLabels.customTimestampField5Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customTimestampField") + " 5";
-panel.customTimestampField5Label.visible=(in.#task is initialized && in.#task.#customTimestampField5 is initialized);
+panel.customTimestampField5Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customTimestampField5 is initialized && in.#customFieldsLabels.#customTimestampField5Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customTimestampField5 is initialized));
 panel.customTimestampField5TextField.text=(in.#task is initialized && in.#task.#customTimestampField5 is initialized)? in.task.customTimestampField5.toString(): "";
-panel.customTimestampField5TextField.visible=(in.#task is initialized && in.#task.#customTimestampField5 is initialized);
+panel.customTimestampField5TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customTimestampField5 is initialized && in.#customFieldsLabels.#customTimestampField5Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customTimestampField5 is initialized));
 panel.customVarcharField1Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customVarcharField1Label is initialized? 
 	in.customFieldsLabels.customVarcharField1Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customVarcharField") + " 1";
-panel.customVarcharField1Label.visible=(in.#task is initialized && in.#task.#customVarCharField1 is initialized);
+panel.customVarcharField1Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customVarCharField1 is initialized && in.#customFieldsLabels.#customVarcharField1Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customVarCharField1 is initialized));
 panel.customVarcharField1TextField.text=(in.#task is initialized && in.#task.#customVarCharField1 is initialized)? in.task.customVarCharField1: "";
-panel.customVarcharField1TextField.visible=(in.#task is initialized && in.#task.#customVarCharField1 is initialized);
+panel.customVarcharField1TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customVarCharField1 is initialized && in.#customFieldsLabels.#customVarcharField1Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customVarCharField1 is initialized));
 panel.customVarcharField2Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customVarcharField2Label is initialized? 
 	in.customFieldsLabels.customVarcharField2Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customVarcharField") + " 2";
-panel.customVarcharField2Label.visible=(in.#task is initialized && in.#task.#customVarCharField2 is initialized);
+panel.customVarcharField2Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customVarCharField2 is initialized && in.#customFieldsLabels.#customVarcharField2Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customVarCharField2 is initialized));
 panel.customVarcharField2TextField.text=(in.#task is initialized && in.#task.#customVarCharField2 is initialized)? in.task.customVarCharField2: "";
-panel.customVarcharField2TextField.visible=(in.#task is initialized && in.#task.#customVarCharField2 is initialized);
+panel.customVarcharField2TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customVarCharField2 is initialized && in.#customFieldsLabels.#customVarcharField2Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customVarCharField2 is initialized));
 panel.customVarcharField3Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customVarcharField3Label is initialized? 
 	in.customFieldsLabels.customVarcharField3Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customVarcharField") + " 3";
-panel.customVarcharField3Label.visible=(in.#task is initialized && in.#task.#customVarCharField3 is initialized);
+panel.customVarcharField3Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customVarCharField3 is initialized && in.#customFieldsLabels.#customVarcharField3Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customVarCharField3 is initialized));
 panel.customVarcharField3TextField.text=(in.#task is initialized && in.#task.#customVarCharField3 is initialized)? in.task.customVarCharField3: "";
-panel.customVarcharField3TextField.visible=(in.#task is initialized && in.#task.#customVarCharField3 is initialized);
+panel.customVarcharField3TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customVarCharField3 is initialized && in.#customFieldsLabels.#customVarcharField3Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customVarCharField3 is initialized));
 panel.customVarcharField4Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customVarcharField4Label is initialized? 
 	in.customFieldsLabels.customVarcharField4Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customVarcharField") + " 4";
-panel.customVarcharField4Label.visible=(in.#task is initialized && in.#task.#customVarCharField4 is initialized);
+panel.customVarcharField4Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customVarCharField4 is initialized && in.#customFieldsLabels.#customVarcharField4Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customVarCharField4 is initialized));
 panel.customVarcharField4TextField.text=(in.#task is initialized && in.#task.#customVarCharField4 is initialized)? in.task.customVarCharField4: "";
-panel.customVarcharField4TextField.visible=(in.#task is initialized && in.#task.#customVarCharField4 is initialized);
+panel.customVarcharField4TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customVarCharField4 is initialized && in.#customFieldsLabels.#customVarcharField4Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customVarCharField4 is initialized));
 panel.customVarcharField5Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customVarcharField5Label is initialized? 
 	in.customFieldsLabels.customVarcharField5Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/customField/plainStrings/customVarcharField") + " 5";
-panel.customVarcharField5Label.visible=(in.#task is initialized && in.#task.#customVarCharField5 is initialized);
+panel.customVarcharField5Label.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customVarCharField5 is initialized && in.#customFieldsLabels.#customVarcharField5Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customVarCharField5 is initialized));
 panel.customVarcharField5TextField.text=(in.#task is initialized && in.#task.#customVarCharField5 is initialized)? in.task.customVarCharField5: "";
-panel.customVarcharField5TextField.visible=(in.#task is initialized && in.#task.#customVarCharField5 is initialized);
+panel.customVarcharField5TextField.visible=in.#task is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#task.#customVarCharField5 is initialized && in.#customFieldsLabels.#customVarcharField5Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#task.#customVarCharField5 is initialized));
 panel.separatorPanel.separatorText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/taskCustomFieldsDetails");
 panel.separatorPanel.visible=in.#task is initialized && 
 (in.#task.#customVarCharField1 is initialized || 
@@ -373,7 +467,7 @@ panel.workerUserNameTextField.visible=in.#task is initialized && in.#task.getWor
         <swimlaneLabel>Broadcasts</swimlaneLabel>
         <swimlaneLabel></swimlaneLabel>
     </language>
-    <swimlaneSize>251</swimlaneSize>
+    <swimlaneSize>353</swimlaneSize>
     <swimlaneSize>243</swimlaneSize>
     <swimlaneSize>667</swimlaneSize>
     <swimlaneColor>-1</swimlaneColor>
@@ -391,13 +485,15 @@ Ts0 f19 ao f20 tail #connect
 Ts0 f20 head f17 @CG|ai #connect
 Ts0 f4 mainOut f2 tail #connect
 Ts0 f2 head f3 mainIn #connect
-Ts0 f1 mainOut f6 tail #connect
-Ts0 f6 head f4 mainIn #connect
 Ts0 f9 mainOut f8 tail #connect
 Ts0 f8 head f4 mainIn #connect
 Ts0 f17 mainOut f10 tail #connect
 Ts0 f10 head f7 mainIn #connect
 Ts0 f26 mainOut f12 tail #connect
 Ts0 f12 head f7 mainIn #connect
-Ts0 f0 mainOut f11 tail #connect
-Ts0 f11 head f3 mainIn #connect
+Ts0 f1 mainOut f13 tail #connect
+Ts0 f13 head f5 mainIn #connect
+Ts0 f5 mainOut f6 tail #connect
+Ts0 f6 head f4 mainIn #connect
+Ts0 f0 mainOut f15 tail #connect
+Ts0 f15 head f5 mainIn #connect

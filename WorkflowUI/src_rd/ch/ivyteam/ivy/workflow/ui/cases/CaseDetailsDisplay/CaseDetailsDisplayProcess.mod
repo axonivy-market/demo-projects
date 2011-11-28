@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Nov 30 15:20:24 CET 2010]
-129830871D8882E2 3.13.1 #module
+[>Created: Fri Nov 25 11:09:10 CET 2011]
+129830871D8882E2 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHeaderDisplayProcess Big #zClass
 Ts0 RD #cInfo
@@ -56,7 +56,7 @@ Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f0 102 78 20 20 13 0 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f4 type ch.ivyteam.ivy.workflow.ui.cases.CaseDetailsDisplay.CaseDetailsDisplayData #txt
-Ts0 f4 99 355 26 26 14 0 #rect
+Ts0 f4 99 283 26 26 14 0 #rect
 Ts0 f4 @|RichDialogProcessEndIcon #fIcon
 Ts0 f1 guid 1194CDB08E523727 #txt
 Ts0 f1 type ch.ivyteam.ivy.workflow.ui.cases.CaseDetailsDisplay.CaseDetailsDisplayData #txt
@@ -129,10 +129,10 @@ check if user has wf admin permission</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f17 158 212 36 24 20 -2 #rect
+Ts0 f17 158 140 36 24 20 -2 #rect
 Ts0 f17 @|RichDialogProcessStepIcon #fIcon
 Ts0 f18 expr out #txt
-Ts0 f18 176 98 176 212 #arcP
+Ts0 f18 176 98 176 140 #arcP
 Ts0 f18 0 0.7402173550498343 0 0 #arcLabel
 Ts0 f19 guid 11E4627095EC9C8B #txt
 Ts0 f19 type ch.ivyteam.ivy.workflow.ui.cases.CaseDetailsDisplay.CaseDetailsDisplayData #txt
@@ -184,27 +184,27 @@ Ts0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f2 158 284 36 24 20 -2 #rect
+Ts0 f2 158 212 36 24 20 -2 #rect
 Ts0 f2 @|RichDialogProcessStepIcon #fIcon
 Ts0 f6 expr out #txt
-Ts0 f6 176 308 124 364 #arcP
-Ts0 f6 1 176 352 #addKink
+Ts0 f6 176 236 124 292 #arcP
+Ts0 f6 1 176 280 #addKink
 Ts0 f6 1 0.12720477112517978 0 0 #arcLabel
 Ts0 f8 expr out #txt
-Ts0 f8 176 236 176 284 #arcP
+Ts0 f8 176 164 176 212 #arcP
 Ts0 f8 0 0.7278970683396531 0 0 #arcLabel
 Ts0 f3 expr out #txt
-Ts0 f3 496 98 194 296 #arcP
-Ts0 f3 1 496 296 #addKink
+Ts0 f3 496 98 194 224 #arcP
+Ts0 f3 1 496 224 #addKink
 Ts0 f3 0 0.9351397634777254 0 0 #arcLabel
 Ts0 f9 type ch.ivyteam.ivy.workflow.ui.cases.CaseDetailsDisplay.CaseDetailsDisplayData #txt
-Ts0 f9 662 350 20 20 13 0 #rect
+Ts0 f9 662 278 20 20 13 0 #rect
 Ts0 f9 @|RichDialogProcessEndIcon #fIcon
 Ts0 f10 expr out #txt
-Ts0 f10 672 90 672 350 #arcP
+Ts0 f10 672 90 672 278 #arcP
 Ts0 f10 0 0.2680821848312587 0 0 #arcLabel
 Ts0 f11 expr out #txt
-Ts0 f11 112 98 112 355 #arcP
+Ts0 f11 112 98 112 283 #arcP
 >Proto Ts0 .type ch.ivyteam.ivy.workflow.ui.cases.CaseDetailsDisplay.CaseDetailsDisplayData #txt
 >Proto Ts0 .processKind RICH_DIALOG #txt
 >Proto Ts0 .rdData2UIAction 'panel.businessMainContactDocumentDbCodeLabel.visible=in.#fCase is initialized && in.#fCase.#businessMainContactDocumentDatabaseCode is initialized && in.hasWfAdministratorPermissions;
@@ -326,93 +326,153 @@ panel.correspondentContactIdTextField.visible=(in.#fCase is initialized && in.#f
 panel.customDecimalField1Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customDecimalField1Label is initialized? 
 	in.customFieldsLabels.customDecimalField1Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customDecimalField") + " 1";
-panel.customDecimalField1Label.visible=(in.#fCase is initialized && in.#fCase.#customDecimalField1 is initialized);
+panel.customDecimalField1Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField1 is initialized && in.#customFieldsLabels.#customDecimalField1Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField1 is initialized));
 panel.customDecimalField1TextField.text=(in.#fCase is initialized && in.#fCase.#customDecimalField1 is initialized)? in.fCase.customDecimalField1.toString(): "";
-panel.customDecimalField1TextField.visible=(in.#fCase is initialized && in.#fCase.#customDecimalField1 is initialized);
+panel.customDecimalField1TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField1 is initialized && in.#customFieldsLabels.#customDecimalField1Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField1 is initialized));
 panel.customDecimalField2Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customDecimalField2Label is initialized? 
 	in.customFieldsLabels.customDecimalField2Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customDecimalField") + " 2";
-panel.customDecimalField2Label.visible=(in.#fCase is initialized && in.#fCase.#customDecimalField2 is initialized);
+panel.customDecimalField2Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField2 is initialized && in.#customFieldsLabels.#customDecimalField2Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField2 is initialized));
 panel.customDecimalField2TextField.text=(in.#fCase is initialized && in.#fCase.#customDecimalField2 is initialized)? in.fCase.customDecimalField2.toString(): "";
-panel.customDecimalField2TextField.visible=(in.#fCase is initialized && in.#fCase.#customDecimalField2 is initialized);
+panel.customDecimalField2TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField2 is initialized && in.#customFieldsLabels.#customDecimalField2Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField2 is initialized));
 panel.customDecimalField3Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customDecimalField3Label is initialized? 
 	in.customFieldsLabels.customDecimalField3Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customDecimalField") + " 3";
-panel.customDecimalField3Label.visible=(in.#fCase is initialized && in.#fCase.#customDecimalField3 is initialized);
+panel.customDecimalField3Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField3 is initialized && in.#customFieldsLabels.#customDecimalField3Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField3 is initialized));
 panel.customDecimalField3TextField.text=(in.#fCase is initialized && in.#fCase.#customDecimalField3 is initialized)? in.fCase.customDecimalField3.toString(): "";
-panel.customDecimalField3TextField.visible=(in.#fCase is initialized && in.#fCase.#customDecimalField3 is initialized);
+panel.customDecimalField3TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField3 is initialized && in.#customFieldsLabels.#customDecimalField3Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField3 is initialized));
 panel.customDecimalField4Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customDecimalField4Label is initialized? 
 	in.customFieldsLabels.customDecimalField4Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customDecimalField") + " 4";
-panel.customDecimalField4Label.visible=(in.#fCase is initialized && in.#fCase.#customDecimalField4 is initialized);
+panel.customDecimalField4Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField4 is initialized && in.#customFieldsLabels.#customDecimalField4Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField4 is initialized));
 panel.customDecimalField4TextField.text=(in.#fCase is initialized && in.#fCase.#customDecimalField4 is initialized)? in.fCase.customDecimalField4.toString(): "";
-panel.customDecimalField4TextField.visible=(in.#fCase is initialized && in.#fCase.#customDecimalField4 is initialized);
+panel.customDecimalField4TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField4 is initialized && in.#customFieldsLabels.#customDecimalField4Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField4 is initialized));
 panel.customDecimalField5Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customDecimalField5Label is initialized? 
 	in.customFieldsLabels.customDecimalField5Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customDecimalField") + " 5";
-panel.customDecimalField5Label.visible=(in.#fCase is initialized && in.#fCase.#customDecimalField5 is initialized);
+panel.customDecimalField5Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField5 is initialized && in.#customFieldsLabels.#customDecimalField5Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField5 is initialized));
 panel.customDecimalField5TextField.text=(in.#fCase is initialized && in.#fCase.#customDecimalField5 is initialized)? in.fCase.customDecimalField5.toString(): "";
-panel.customDecimalField5TextField.visible=(in.#fCase is initialized && in.#fCase.#customDecimalField5 is initialized);
+panel.customDecimalField5TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField5 is initialized && in.#customFieldsLabels.#customDecimalField5Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customDecimalField5 is initialized));
 panel.customTimestampField1Label.text=in.#customFieldsLabels is initialized && in.customFieldsLabels.customTimestampField1Label is initialized? 
 	in.customFieldsLabels.customTimestampField1Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customTimestampField") + " 1";
-panel.customTimestampField1Label.visible=(in.#fCase is initialized && in.#fCase.#customTimestampField1 is initialized);
+panel.customTimestampField1Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField1 is initialized && in.#customFieldsLabels.#customTimestampField1Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField1 is initialized));
 panel.customTimestampField1TextField.text=(in.#fCase is initialized && in.#fCase.#customTimestampField1 is initialized)? in.fCase.customTimestampField1.toString(): "";
-panel.customTimestampField1TextField.visible=(in.#fCase is initialized && in.#fCase.#customTimestampField1 is initialized);
+panel.customTimestampField1TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField1 is initialized && in.#customFieldsLabels.#customTimestampField1Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField1 is initialized));
 panel.customTimestampField2Label.text=in.#customFieldsLabels is initialized && in.customFieldsLabels.customTimestampField2Label is initialized? 
 	in.customFieldsLabels.customTimestampField2Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customTimestampField") + " 2";
-panel.customTimestampField2Label.visible=(in.#fCase is initialized && in.#fCase.#customTimestampField2 is initialized);
+panel.customTimestampField2Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField2 is initialized && in.#customFieldsLabels.#customTimestampField2Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField2 is initialized));
 panel.customTimestampField2TextField.text=(in.#fCase is initialized && in.#fCase.#customTimestampField2 is initialized)? in.fCase.customTimestampField2.toString(): "";
-panel.customTimestampField2TextField.visible=(in.#fCase is initialized && in.#fCase.#customTimestampField2 is initialized);
+panel.customTimestampField2TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField2 is initialized && in.#customFieldsLabels.#customTimestampField2Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField2 is initialized));
 panel.customTimestampField3Label.text=in.#customFieldsLabels is initialized && in.customFieldsLabels.customTimestampField3Label is initialized? 
 	in.customFieldsLabels.customTimestampField3Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customTimestampField") + " 3";
-panel.customTimestampField3Label.visible=(in.#fCase is initialized && in.#fCase.#customTimestampField3 is initialized);
+panel.customTimestampField3Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField3 is initialized && in.#customFieldsLabels.#customTimestampField3Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField3 is initialized));
 panel.customTimestampField3TextField.text=(in.#fCase is initialized && in.#fCase.#customTimestampField3 is initialized)? in.fCase.customTimestampField3.toString(): "";
-panel.customTimestampField3TextField.visible=(in.#fCase is initialized && in.#fCase.#customTimestampField3 is initialized);
+panel.customTimestampField3TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField3 is initialized && in.#customFieldsLabels.#customTimestampField3Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField3 is initialized));
 panel.customTimestampField4Label.text=in.#customFieldsLabels is initialized && in.customFieldsLabels.customTimestampField4Label is initialized? 
 	in.customFieldsLabels.customTimestampField4Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customTimestampField") + " 4";
-panel.customTimestampField4Label.visible=(in.#fCase is initialized && in.#fCase.#customTimestampField4 is initialized);
+panel.customTimestampField4Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField4 is initialized && in.#customFieldsLabels.#customTimestampField4Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField4 is initialized));
 panel.customTimestampField4TextField.text=(in.#fCase is initialized && in.#fCase.#customTimestampField4 is initialized)? in.fCase.customTimestampField4.toString(): "";
-panel.customTimestampField4TextField.visible=(in.#fCase is initialized && in.#fCase.#customTimestampField4 is initialized);
+panel.customTimestampField4TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField4 is initialized && in.#customFieldsLabels.#customTimestampField4Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField4 is initialized));
 panel.customTimestampField5Label.text=in.#customFieldsLabels is initialized && in.customFieldsLabels.customTimestampField5Label is initialized? 
 	in.customFieldsLabels.customTimestampField5Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customTimestampField") + " 5";
-panel.customTimestampField5Label.visible=(in.#fCase is initialized && in.#fCase.#customTimestampField5 is initialized);
+panel.customTimestampField5Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField5 is initialized && in.#customFieldsLabels.#customTimestampField5Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField5 is initialized));
 panel.customTimestampField5TextField.text=(in.#fCase is initialized && in.#fCase.#customTimestampField5 is initialized)? in.fCase.customTimestampField5.toString(): "";
-panel.customTimestampField5TextField.visible=(in.#fCase is initialized && in.#fCase.#customTimestampField5 is initialized);
+panel.customTimestampField5TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField5 is initialized && in.#customFieldsLabels.#customTimestampField5Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customTimestampField5 is initialized));
 panel.customVarcharField1Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customVarcharField1Label is initialized? 
 	in.customFieldsLabels.customVarcharField1Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customVarcharField") + " 1";
-panel.customVarcharField1Label.visible=(in.#fCase is initialized && in.#fCase.#customVarCharField1 is initialized);
+panel.customVarcharField1Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField1 is initialized && in.#customFieldsLabels.#customVarcharField1Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField1 is initialized));
 panel.customVarcharField1TextField.text=(in.#fCase is initialized && in.#fCase.#customVarCharField1 is initialized)? in.fCase.customVarCharField1: "";
-panel.customVarcharField1TextField.visible=(in.#fCase is initialized && in.#fCase.#customVarCharField1 is initialized);
+panel.customVarcharField1TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField1 is initialized && in.#customFieldsLabels.#customVarcharField1Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField1 is initialized));
 panel.customVarcharField2Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customVarcharField2Label is initialized? 
 	in.customFieldsLabels.customVarcharField2Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customVarcharField") + " 2";
-panel.customVarcharField2Label.visible=(in.#fCase is initialized && in.#fCase.#customVarCharField2 is initialized);
+panel.customVarcharField2Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField2 is initialized && in.#customFieldsLabels.#customVarcharField2Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField2 is initialized));
 panel.customVarcharField2TextField.text=(in.#fCase is initialized && in.#fCase.#customVarCharField2 is initialized)? in.fCase.customVarCharField2: "";
-panel.customVarcharField2TextField.visible=(in.#fCase is initialized && in.#fCase.#customVarCharField2 is initialized);
+panel.customVarcharField2TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField2 is initialized && in.#customFieldsLabels.#customVarcharField2Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField2 is initialized));
 panel.customVarcharField3Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customVarcharField3Label is initialized? 
 	in.customFieldsLabels.customVarcharField3Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customVarcharField") + " 3";
-panel.customVarcharField3Label.visible=(in.#fCase is initialized && in.#fCase.#customVarCharField3 is initialized);
+panel.customVarcharField3Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField3 is initialized && in.#customFieldsLabels.#customVarcharField3Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField3 is initialized));
 panel.customVarcharField3TextField.text=(in.#fCase is initialized && in.#fCase.#customVarCharField3 is initialized)? in.fCase.customVarCharField3: "";
-panel.customVarcharField3TextField.visible=(in.#fCase is initialized && in.#fCase.#customVarCharField3 is initialized);
+panel.customVarcharField3TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField3 is initialized && in.#customFieldsLabels.#customVarcharField3Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField3 is initialized));
 panel.customVarcharField4Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customVarcharField4Label is initialized? 
 	in.customFieldsLabels.customVarcharField4Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customVarcharField") + " 4";
-panel.customVarcharField4Label.visible=(in.#fCase is initialized && in.#fCase.#customVarCharField4 is initialized);
+panel.customVarcharField4Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField4 is initialized && in.#customFieldsLabels.#customVarcharField4Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField4 is initialized));
 panel.customVarcharField4TextField.text=(in.#fCase is initialized && in.#fCase.#customVarCharField4 is initialized)? in.fCase.customVarCharField4: "";
-panel.customVarcharField4TextField.visible=(in.#fCase is initialized && in.#fCase.#customVarCharField4 is initialized);
+panel.customVarcharField4TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField4 is initialized && in.#customFieldsLabels.#customVarcharField4Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField4 is initialized));
 panel.customVarcharField5Label.text=in.#customFieldsLabels is initialized && in.#customFieldsLabels.#customVarcharField5Label is initialized? 
 	in.customFieldsLabels.customVarcharField5Label:
 	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/customField/plainStrings/customVarcharField") + " 5";
-panel.customVarcharField5Label.visible=(in.#fCase is initialized && in.#fCase.#customVarCharField5 is initialized);
+panel.customVarcharField5Label.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField5 is initialized && in.#customFieldsLabels.#customVarcharField5Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField5 is initialized));
 panel.customVarcharField5TextField.text=(in.#fCase is initialized && in.#fCase.#customVarCharField5 is initialized)? in.fCase.customVarCharField5: "";
-panel.customVarcharField5TextField.visible=(in.#fCase is initialized && in.#fCase.#customVarCharField5 is initialized);
+panel.customVarcharField5TextField.visible=in.#fCase is initialized && 
+	((!in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField5 is initialized && in.#customFieldsLabels.#customVarcharField5Label is initialized) || 
+	(in.hasWfAdministratorPermissions && in.#fCase.#customVarCharField5 is initialized));
 panel.separatorRDC.separatorText=ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseCustomFieldsDetails");
 panel.separatorRDC.visible=in.#fCase is initialized && 
 (in.#fCase.#customVarCharField1 is initialized || 

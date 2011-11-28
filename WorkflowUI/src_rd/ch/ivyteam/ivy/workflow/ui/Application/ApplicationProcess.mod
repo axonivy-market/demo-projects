@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 03 17:01:15 CET 2011]
+[>Created: Thu Nov 24 11:25:02 CET 2011]
 117CB5CD6E5F88C6 3.17 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
@@ -54,7 +54,6 @@ As0 @PushWFArc f9 '' #zField
 As0 @RichDialogMethodStart f6 '' #zField
 As0 @PushWFArc f18 '' #zField
 As0 @RichDialogProcessStart f4 '' #zField
-As0 @PushWFArc f7 '' #zField
 As0 @RichDialogBroadcastStart f21 '' #zField
 As0 @PushWFArc f24 '' #zField
 As0 @RichDialogBroadcastStart f20 '' #zField
@@ -87,6 +86,19 @@ As0 @Alternative f67 '' #zField
 As0 @PushWFArc f68 '' #zField
 As0 @PushWFArc f5 '' #zField
 As0 @PushWFArc f69 '' #zField
+As0 @Alternative f70 '' #zField
+As0 @RichDialogProcessEnd f71 '' #zField
+As0 @RichDialog f72 '' #zField
+As0 @RichDialogProcessStep f73 '' #zField
+As0 @RichDialogBroadcastStart f74 '' #zField
+As0 @PushWFArc f75 '' #zField
+As0 @PushWFArc f76 '' #zField
+As0 @PushWFArc f78 '' #zField
+As0 @PushWFArc f79 '' #zField
+As0 @PushWFArc f80 '' #zField
+As0 @RichDialogUiSync f81 '' #zField
+As0 @PushWFArc f82 '' #zField
+As0 @PushWFArc f7 '' #zField
 >Proto As0 As0 ApplicationDynamicWayProcess #zField
 As0 f1 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f1 59 243 26 26 14 0 #rect
@@ -123,7 +135,7 @@ on westDisplay</name>
 As0 f13 54 180 36 24 20 -2 #rect
 As0 f13 @|RichDialogIcon #fIcon
 As0 f22 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f22 1166 222 20 20 13 0 #rect
+As0 f22 1078 222 20 20 13 0 #rect
 As0 f22 @|RichDialogProcessEndIcon #fIcon
 As0 f23 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
@@ -151,10 +163,10 @@ on auto hide menu parameter</name>
     </language>
 </elementInfo>
 ' #txt
-As0 f23 1159 108 34 24 21 -15 #rect
+As0 f23 1071 108 34 24 21 -15 #rect
 As0 f23 @|RichDialogProcessStepIcon #fIcon
 As0 f25 expr out #txt
-As0 f25 1176 132 1176 222 #arcP
+As0 f25 1088 132 1088 222 #arcP
 As0 f25 0 0.4757491676510102 0 0 #arcLabel
 As0 f26 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
@@ -203,7 +215,7 @@ As0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f26 1390 100 36 24 21 -10 #rect
+As0 f26 1302 100 36 24 21 -10 #rect
 As0 f26 @|RichDialogProcessStepIcon #fIcon
 As0 f29 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
@@ -226,6 +238,9 @@ ivy.log.debug("User {0} preference {1} has value {2}.", sessionUser.getName(), U
 
 // get multiple task list mode preference
 out.multipleTaskListMode = WorkflowUserPropertyHelper.getMultipleTaskListModePreference(sessionUser);
+
+// get multiple case list mode preference
+out.multipleCaseListMode = WorkflowUserPropertyHelper.getMultipleCaseListModePreference(sessionUser);
 
 // has the user wf admin permissions
 out.hasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);' #txt
@@ -275,7 +290,7 @@ build the &quot;Running tasks&quot; title</name>
     </language>
 </elementInfo>
 ' #txt
-As0 f181 766 92 36 24 20 -2 #rect
+As0 f181 766 148 36 24 20 -2 #rect
 As0 f181 @|RichDialogProcessStepIcon #fIcon
 As0 f77 targetWindow THIS #txt
 As0 f77 targetDisplay EXISTING:<%=in.destinationDisplay.getDisplayId()%> #txt
@@ -309,13 +324,13 @@ running task list</name>
     </language>
 </elementInfo>
 ' #txt
-As0 f77 766 188 36 24 20 -2 #rect
+As0 f77 766 252 36 24 20 -2 #rect
 As0 f77 @|RichDialogIcon #fIcon
 As0 f2 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f2 774 238 20 20 13 0 #rect
+As0 f2 774 302 20 20 13 0 #rect
 As0 f2 @|RichDialogProcessEndIcon #fIcon
 As0 f3 expr out #txt
-As0 f3 784 212 784 238 #arcP
+As0 f3 784 276 784 302 #arcP
 As0 f3 0 0.49533681551418535 0 0 #arcLabel
 As0 f8 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f8 630 438 20 20 13 0 #rect
@@ -605,8 +620,6 @@ As0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 As0 f4 774 54 20 20 13 0 #rect
 As0 f4 @|RichDialogProcessStartIcon #fIcon
-As0 f7 expr out #txt
-As0 f7 784 74 784 92 #arcP
 As0 f21 guid 12DBC57969BB06BD #txt
 As0 f21 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f21 broadcast xivyTaskStarted #txt
@@ -624,10 +637,10 @@ As0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f21 1166 54 20 20 13 0 #rect
+As0 f21 1078 54 20 20 13 0 #rect
 As0 f21 @|RichDialogBroadcastStartIcon #fIcon
 As0 f24 expr out #txt
-As0 f24 1176 74 1176 108 #arcP
+As0 f24 1088 74 1088 108 #arcP
 As0 f20 guid 12DBC58313D91843 #txt
 As0 f20 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f20 broadcast ivy_systemevent_workflow_task_changed #txt
@@ -645,10 +658,10 @@ As0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f20 1398 54 20 20 13 0 #rect
+As0 f20 1310 54 20 20 13 0 #rect
 As0 f20 @|RichDialogBroadcastStartIcon #fIcon
 As0 f27 expr out #txt
-As0 f27 1408 74 1408 100 #arcP
+As0 f27 1320 74 1320 100 #arcP
 As0 f30 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f30 614 262 20 20 13 0 #rect
 As0 f30 @|RichDialogProcessEndIcon #fIcon
@@ -699,10 +712,10 @@ As0 f42 0 0.63891195171502 0 0 #arcLabel
 As0 f15 expr out #txt
 As0 f15 624 244 624 262 #arcP
 As0 f47 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f47 1398 214 20 20 13 0 #rect
+As0 f47 1310 214 20 20 13 0 #rect
 As0 f47 @|RichDialogProcessEndIcon #fIcon
 As0 f50 expr out #txt
-As0 f50 1408 124 1408 214 #arcP
+As0 f50 1320 124 1320 214 #arcP
 As0 f50 0 0.1960608132519369 0 0 #arcLabel
 As0 f28 guid 132631281B54F7B0 #txt
 As0 f28 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
@@ -721,20 +734,19 @@ As0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f28 1166 278 20 20 13 0 #rect
+As0 f28 1078 278 20 20 13 0 #rect
 As0 f28 @|RichDialogBroadcastStartIcon #fIcon
 As0 f51 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f51 1166 518 20 20 13 0 #rect
+As0 f51 1078 518 20 20 13 0 #rect
 As0 f51 @|RichDialogProcessEndIcon #fIcon
 As0 f53 targetWindow THIS #txt
 As0 f53 targetDisplay EXISTING:workflowUiCenterDisplay #txt
 As0 f53 richDialogId ch.ivyteam.ivy.workflow.ui.task.AnyQueryTaskDisplayList #txt
-As0 f53 startMethod start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.ui.data.task.AnyQueryTaskListParameter,Number,Boolean) #txt
+As0 f53 startMethod start(ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.ui.data.task.AnyQueryTaskListParameter,Number,Boolean) #txt
 As0 f53 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f53 panelName <%=in.receivedAnyQueryTaskListParameter.tabTitle%> #txt
-As0 f53 requestActionDecl '<Boolean aRunningTaskMode, ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aTaskDisplayListParentDisplay, ch.ivyteam.ivy.workflow.ui.data.task.AnyQueryTaskListParameter aAnyQueryTaskListParameter, Number aTaskDisplayMode, Boolean aHasWfAdministratorPermissions> param;' #txt
-As0 f53 requestActionCode 'param.aRunningTaskMode = true;
-param.aTaskDisplayListParentDisplay = panel.centerTabbedDisplay;
+As0 f53 requestActionDecl '<ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aTaskDisplayListParentDisplay, ch.ivyteam.ivy.workflow.ui.data.task.AnyQueryTaskListParameter aAnyQueryTaskListParameter, Number aTaskDisplayMode, Boolean aHasWfAdministratorPermissions> param;' #txt
+As0 f53 requestActionCode 'param.aTaskDisplayListParentDisplay = panel.centerTabbedDisplay;
 param.aAnyQueryTaskListParameter = in.receivedAnyQueryTaskListParameter;
 // it''s the "any query mode" in order to display tasks that fit to criterias
 param.aTaskDisplayMode = 3;
@@ -760,10 +772,10 @@ received task criterias</name>
     </language>
 </elementInfo>
 ' #txt
-As0 f53 1158 452 36 24 20 -2 #rect
+As0 f53 1070 452 36 24 20 -2 #rect
 As0 f53 @|RichDialogIcon #fIcon
 As0 f52 expr out #txt
-As0 f52 1176 476 1176 518 #arcP
+As0 f52 1088 476 1088 518 #arcP
 As0 f55 guid 1326C1F1D50F5DDD #txt
 As0 f55 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f55 method start(Boolean) #txt
@@ -806,10 +818,10 @@ As0 f57 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f57 774 286 20 20 13 0 #rect
+As0 f57 774 382 20 20 13 0 #rect
 As0 f57 @|RichDialogProcessStartIcon #fIcon
 As0 f58 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
-As0 f58 774 518 20 20 13 0 #rect
+As0 f58 774 510 20 20 13 0 #rect
 As0 f58 @|RichDialogProcessEndIcon #fIcon
 As0 f60 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
@@ -842,12 +854,12 @@ invoke the close method on selected panel</name>
     </language>
 </elementInfo>
 ' #txt
-As0 f60 766 404 36 24 20 -2 #rect
+As0 f60 766 436 36 24 20 -2 #rect
 As0 f60 @|RichDialogProcessStepIcon #fIcon
 As0 f61 expr out #txt
-As0 f61 784 306 784 404 #arcP
+As0 f61 784 402 784 436 #arcP
 As0 f59 expr out #txt
-As0 f59 784 428 784 518 #arcP
+As0 f59 784 460 784 510 #arcP
 As0 f62 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f62 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -858,10 +870,10 @@ As0 f62 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f62 1162 338 28 28 14 0 #rect
+As0 f62 1074 338 28 28 14 0 #rect
 As0 f62 @|AlternativeIcon #fIcon
 As0 f63 expr out #txt
-As0 f63 1176 298 1176 338 #arcP
+As0 f63 1088 298 1088 338 #arcP
 As0 f54 expr in #txt
 As0 f54 outCond in.multipleTaskListMode #txt
 As0 f54 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -873,7 +885,7 @@ As0 f54 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f54 1176 366 1176 452 #arcP
+As0 f54 1088 366 1088 452 #arcP
 As0 f64 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f64 actionTable 'out=in;
@@ -903,7 +915,7 @@ any query task list</name>
     </language>
 </elementInfo>
 ' #txt
-As0 f64 1286 404 36 24 20 -2 #rect
+As0 f64 1150 388 36 24 20 -2 #rect
 As0 f64 @|RichDialogProcessStepIcon #fIcon
 As0 f65 expr in #txt
 As0 f65 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -915,13 +927,11 @@ As0 f65 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f65 1190 352 1304 404 #arcP
-As0 f65 1 1304 352 #addKink
-As0 f65 0 0.6422038333125714 0 0 #arcLabel
+As0 f65 1097 357 1150 389 #arcP
+As0 f65 0 0.44103154817851287 0 0 #arcLabel
 As0 f66 expr out #txt
-As0 f66 1304 428 1194 464 #arcP
-As0 f66 1 1304 464 #addKink
-As0 f66 1 0.23782812110955578 0 0 #arcLabel
+As0 f66 1153 412 1103 452 #arcP
+As0 f66 0 0.4257609131647338 0 0 #arcLabel
 As0 f67 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -932,10 +942,10 @@ As0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f67 770 138 28 28 14 0 #rect
+As0 f67 770 194 28 28 14 0 #rect
 As0 f67 @|AlternativeIcon #fIcon
 As0 f68 expr out #txt
-As0 f68 784 116 784 138 #arcP
+As0 f68 784 172 784 194 #arcP
 As0 f5 expr in #txt
 As0 f5 outCond ch.ivyteam.ivy.workflow.ui.utils.WorkflowUserPropertyHelper.getLoadTaskListAtStartUpPreference(ivy.session.getSessionUser()) #txt
 As0 f5 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -947,12 +957,147 @@ As0 f5 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f5 784 166 784 188 #arcP
+As0 f5 784 222 784 252 #arcP
 As0 f69 expr in #txt
-As0 f69 798 152 793 247 #arcP
-As0 f69 1 944 152 #addKink
-As0 f69 2 944 232 #addKink
+As0 f69 798 208 793 311 #arcP
+As0 f69 1 944 208 #addKink
+As0 f69 2 944 296 #addKink
 As0 f69 1 0.1681625228791295 0 0 #arcLabel
+As0 f70 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f70 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>is multiple case list mode?</name>
+        <nameStyle>27,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f70 1394 346 28 28 14 0 #rect
+As0 f70 @|AlternativeIcon #fIcon
+As0 f71 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f71 1398 526 20 20 13 0 #rect
+As0 f71 @|RichDialogProcessEndIcon #fIcon
+As0 f72 targetWindow THIS #txt
+As0 f72 targetDisplay EXISTING:workflowUiCenterDisplay #txt
+As0 f72 richDialogId ch.ivyteam.ivy.workflow.ui.cases.AnyQueryCaseDisplayList #txt
+As0 f72 startMethod start(ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.ui.data.cases.AnyQueryCaseListParameter,Number,Boolean) #txt
+As0 f72 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f72 panelName <%=in.receivedAnyQueryCaseListParameter.tabTitle%> #txt
+As0 f72 requestActionDecl '<ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay aCaseDisplayListParentDisplay, ch.ivyteam.ivy.workflow.ui.data.cases.AnyQueryCaseListParameter aAnyQueryCaseListParameter, Number aCaseDisplayMode, Boolean aHasWfAdministratorPermissions> param;' #txt
+As0 f72 requestActionCode 'param.aCaseDisplayListParentDisplay = panel.centerTabbedDisplay;
+param.aAnyQueryCaseListParameter = in.receivedAnyQueryCaseListParameter;
+// it''s the "any query mode" in order to display cases that fit to criterias
+param.aCaseDisplayMode = 3;
+param.aHasWfAdministratorPermissions = in.hasWfAdministratorPermissions;
+' #txt
+As0 f72 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f72 responseMappingAction 'out=in;
+' #txt
+As0 f72 windowConfiguration '* ' #txt
+As0 f72 isAsynch true #txt
+As0 f72 isInnerRd true #txt
+As0 f72 userContext '* ' #txt
+As0 f72 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>load case list
+that fits to the 
+received case criterias</name>
+        <nameStyle>15,7
+41,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f72 1390 460 36 24 20 -2 #rect
+As0 f72 @|RichDialogIcon #fIcon
+As0 f73 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f73 actionTable 'out=in;
+' #txt
+As0 f73 actionCode 'import ch.ivyteam.ivy.workflow.ui.cases.AnyQueryCaseDisplayList.AnyQueryCaseDisplayListPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+
+
+List<IRichDialogPanel> panels = panel.centerTabbedDisplay.getPanels();
+
+for (IRichDialogPanel rdPanel: panels)
+{
+	if (rdPanel instanceof AnyQueryCaseDisplayListPanel)
+	{
+		rdPanel.getPanelAPI().callMethod("close", []);
+	}
+}' #txt
+As0 f73 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f73 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>remove all already loaded
+any query task list</name>
+        <nameStyle>26,7
+19,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f73 1462 396 36 24 20 -2 #rect
+As0 f73 @|RichDialogProcessStepIcon #fIcon
+As0 f74 guid 133D50401A51187B #txt
+As0 f74 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f74 broadcast xivyAnyQueryCaseListRequested #txt
+As0 f74 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
+' #txt
+As0 f74 actionTable 'out=in;
+' #txt
+As0 f74 actionCode 'out.receivedAnyQueryCaseListParameter = param.parameter;' #txt
+As0 f74 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>xivyAnyQueryCaseListRequested</name>
+    </language>
+</elementInfo>
+' #txt
+As0 f74 1398 286 20 20 13 0 #rect
+As0 f74 @|RichDialogBroadcastStartIcon #fIcon
+As0 f75 expr out #txt
+As0 f75 1408 484 1408 526 #arcP
+As0 f76 expr out #txt
+As0 f76 1408 306 1408 346 #arcP
+As0 f78 expr in #txt
+As0 f78 outCond in.multipleCaseListMode #txt
+As0 f78 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f78 1408 374 1408 460 #arcP
+As0 f79 expr in #txt
+As0 f79 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>no</name>
+        <nameStyle>2,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f79 1416 366 1462 396 #arcP
+As0 f80 expr out #txt
+As0 f80 1467 420 1422 460 #arcP
+As0 f81 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f81 guid 133D51B2F17D055F #txt
+As0 f81 771 99 26 26 13 0 #rect
+As0 f81 @|RichDialogUiSyncIcon #fIcon
+As0 f82 expr out #txt
+As0 f82 784 74 784 99 #arcP
+As0 f7 expr out #txt
+As0 f7 784 125 784 148 #arcP
 >Proto As0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -963,9 +1108,9 @@ As0 f69 1 0.1681625228791295 0 0 #arcLabel
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneSize>299</swimlaneSize>
-    <swimlaneSize>433</swimlaneSize>
-    <swimlaneSize>400</swimlaneSize>
-    <swimlaneSize>550</swimlaneSize>
+    <swimlaneSize>434</swimlaneSize>
+    <swimlaneSize>313</swimlaneSize>
+    <swimlaneSize>660</swimlaneSize>
     <swimlaneColor>-6697729</swimlaneColor>
     <swimlaneColor>-16737895</swimlaneColor>
     <swimlaneColor>-6697729</swimlaneColor>
@@ -1010,8 +1155,6 @@ As0 f0 mainOut f9 tail #connect
 As0 f9 head f29 mainIn #connect
 As0 f6 mainOut f18 tail #connect
 As0 f18 head f17 mainIn #connect
-As0 f4 mainOut f7 tail #connect
-As0 f7 head f181 mainIn #connect
 As0 f21 mainOut f24 tail #connect
 As0 f24 head f23 mainIn #connect
 As0 f20 mainOut f27 tail #connect
@@ -1046,3 +1189,17 @@ As0 f67 out f5 tail #connect
 As0 f5 head f77 mainIn #connect
 As0 f67 out f69 tail #connect
 As0 f69 head f2 mainIn #connect
+As0 f72 mainOut f75 tail #connect
+As0 f75 head f71 mainIn #connect
+As0 f74 mainOut f76 tail #connect
+As0 f76 head f70 in #connect
+As0 f70 out f78 tail #connect
+As0 f78 head f72 mainIn #connect
+As0 f70 out f79 tail #connect
+As0 f79 head f73 mainIn #connect
+As0 f73 mainOut f80 tail #connect
+As0 f80 head f72 mainIn #connect
+As0 f4 mainOut f82 tail #connect
+As0 f82 head f81 mainIn #connect
+As0 f81 mainOut f7 tail #connect
+As0 f7 head f181 mainIn #connect

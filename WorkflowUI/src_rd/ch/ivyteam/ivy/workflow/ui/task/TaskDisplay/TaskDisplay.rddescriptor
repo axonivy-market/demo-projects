@@ -129,6 +129,19 @@ This method can not be changed or deleted!</description>
             <nullPermitted>true</nullPermitted>
         </attachment>
     </firedEvent>
+    <firedEvent>
+        <name>flowDisplayActivateTaskStageDrivenMode</name>
+        <description>It request the flow display creation steps based on the received ITask reference. &#xD;
+All find content objects will be done with ITask reference's CMS as starting point. &#xD;
+Remark: It only work if the FlowDisplay integration process start has been found in this application.</description>
+        <scope>CHILDREN</scope>
+        <attachment>
+            <name>task</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.workflow.ITask</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
     <property>
         <name>guid</name>
         <value>116A9BF1677DB548</value>

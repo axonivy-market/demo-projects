@@ -29,6 +29,7 @@ import ch.ivyteam.ivy.workflow.IPageArchive;
 import ch.ivyteam.ivy.workflow.IPropertyFilter;
 import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.IWorkflowEvent;
+import ch.ivyteam.ivy.workflow.IWorkflowSession;
 import ch.ivyteam.ivy.workflow.PropertyOrder;
 import ch.ivyteam.ivy.workflow.TaskProperty;
 import ch.ivyteam.ivy.workflow.TaskState;
@@ -771,38 +772,31 @@ public class WorkflowUIAccessPermissionHandler
    * 		<ul>
    * 			<li>0 stands for your cases</li>
    *			<li>1 stands for team cases</li>
-   *			<li>2 stands for all application cases (ivy.wf) </li> 	
+   *			<li>2 stands for all application cases (ivy.wf) </li>
+   *			<li>3 any query cases: it means find all cases that fit to the received criteria (property filter)</li> 	
    * 		</ul>
    * @param runningCaseMode
    * @return
  * @throws Exception 
    */
-  public static List<ICase> findCases(IPropertyFilter<CaseProperty> contextFilter,
-          List<PropertyOrder<CaseProperty>> order, int startIndex, int count, Boolean returnAllCount,
-          int caseDisplayMode, boolean runningCaseMode) throws Exception
+  public static List<ICase> findCases(final IPropertyFilter<CaseProperty> contextFilter,
+          final List<PropertyOrder<CaseProperty>> order, final int startIndex, final int count, final Boolean returnAllCount,
+          final int caseDisplayMode, final boolean runningCaseMode) throws Exception
   {
     List<ICase> foundCases = null;
-
-    // caseDisplayMode 0 : queryResult = ivy.session.findInvolvedCases(filter, order, startIndex, count,
-    // returnAllCount);
-    // caseDisplayMode 1 : queryResult =
-    // ivy.session.findInvolvedCasesByRole(ivy.session.getSessionUser().getRoles(), filter, order, startIndex,
-    // count, returnAllCount);
-    // caseDisplayMode 2 : queryResult = ivy.wf.findCases(filter, order, startIndex, count, returnAllCount);
+    IQueryResult<ICase> queryResult = null;
 
     switch (caseDisplayMode)
     {
-      case 0:
+      case 0:    	  
+    	// your cases
         foundCases = Ivy.session().findInvolvedCases(contextFilter, order, startIndex, count, returnAllCount).getResultList();
         return foundCases;
 
-      case 1:
-    	  
+      case 1:    	  
         // team cases (involved cases by role including the user's managed teams)
         // get involved cases by role     	  
-        IQueryResult<ICase> queryResult = 
-        	Ivy.session().findInvolvedCasesByRole(
-        			Ivy.session().getSessionUser().getRoles(), contextFilter, order, startIndex, count, returnAllCount);    
+    	queryResult = Ivy.session().findInvolvedCasesByRole(Ivy.session().getSessionUser().getRoles(), contextFilter, order, startIndex, count, returnAllCount);    
         
         List<ICase> involvedCasesByRoleList = queryResult.getResultList();
         Ivy.log().debug("Found {1} involved case(s) by role.", involvedCasesByRoleList.size());
@@ -850,8 +844,19 @@ public class WorkflowUIAccessPermissionHandler
         }
 
       case 2:
+    	// all cases
         foundCases = Ivy.wf().findCases(contextFilter, order, startIndex, count, returnAllCount).getResultList();
         return foundCases;
+        
+      case 3:    	  
+    	// any query tasks: it means find all tasks that fit to the received criteria (property filter)
+	   queryResult = Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<IQueryResult<ICase>>(){
+          public IQueryResult<ICase> call() throws Exception
+          {
+      	    return Ivy.wf().findCases(contextFilter, order, startIndex, count, returnAllCount);
+          }
+	   });
+	  return queryResult.getResultList();      	
 
       default:
         return foundCases;
@@ -1681,63 +1686,125 @@ public class WorkflowUIAccessPermissionHandler
    * @param user
    * @param task
    * @return
-   * @throws PersistencyException 
+ * @throws Exception 
+ * @throws EnvironmentNotAvailableException 
    */
-  public static boolean userHasWorkedOnTask(IUser user, ITask task) throws PersistencyException
+  public static boolean userHasWorkedOnTask(final IUser user, final ITask task) throws EnvironmentNotAvailableException, Exception
   {
-	  boolean result = false;
-	  
-	  if ((task.getState().equals(TaskState.DONE) || task.getState().equals(TaskState.READY_FOR_JOIN)) && 
-			  user.getName().equals(task.getWorkerUserName()))
-	  {
-		  result = true;
-	  }
-	  
-	  return result;
+	  return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
+        {
+  	          public Boolean call() throws Exception
+  	          {
+				  boolean result = false;
+				  
+				  if ((task.getState().equals(TaskState.DONE) || task.getState().equals(TaskState.READY_FOR_JOIN)) && 
+						  user.getName().equals(task.getWorkerUserName()))
+				  {
+					  result = true;
+				  }
+				  
+				  return result;
+  	          }
+        });
   }
   
   /**
    * 
    * It returns boolean value needed to enable actions for the "Any query " task list mode. 
-   * It returns true if this task is in to be executed state and the user could work on (task is part of his task list)
+   * It returns true if this task is in to be executed state and the user could work on (task is part of his task list), 
+   * see {@link IWorkflowSession#findWorkTasks(IPropertyFilter, List, int, int, boolean, EnumSet)}
    *  
-   * @param user
-   * @param task
+   * @param workflowSession
+   * @param wfTask
    * @return
- * @throws Exception 
- * @throws EnvironmentNotAvailableException 
+   * @throws Exception 
+   * @throws EnvironmentNotAvailableException 
    */
-  public static boolean userIsTaskActivatorCandidate(final IUser user, final ITask task) throws EnvironmentNotAvailableException, Exception
+  public static boolean userIsTaskActivatorCandidate(final IWorkflowSession workflowSession, final ITask wfTask) throws EnvironmentNotAvailableException, Exception
   {	  
 	  
       return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
   	        {
   	          public Boolean call() throws Exception
   	          {
-					boolean result = false;
-					List<IRole> roles = user.getRoles();
-				  
-					List<String> activatorNames = new ArrayList<String>();
-				  	  
-					// add the # before the user name (it's actual Ivy task activator naming convention)
-					activatorNames.add("#" + user.getName());	  
-				  
-					for (IRole role: roles)
-						activatorNames.add(role.getName());
-				  
-					Ivy.log().debug("Activator names are {0} and task activator name is {1}.", 
-						  			activatorNames, task.getActivatorName());
-				  
-					if (task.getState().equals(TaskState.SUSPENDED) || task.getState().equals(TaskState.PARKED) && 
-						  activatorNames.contains(task.getActivatorName()))
-					{
-						result = true;
-					}
-			  
-					return result;
+				boolean result = false;
+				
+				IPropertyFilter<TaskProperty> filter = null;
+                List<PropertyOrder<TaskProperty>> order = null;
+                int startIndex = 0;
+                int count = -1;
+                boolean returnAllCount = true;
+                EnumSet<TaskState> includeTaskStates = null;
+                IQueryResult<ITask> queryResult = null;
+                List<ITask> wfTasks = null;
+                
+                queryResult = workflowSession.findWorkTasks(filter, order, startIndex, count, returnAllCount, includeTaskStates);
+                wfTasks = queryResult.getResultList();
+                Ivy.log().debug("User {0} can work on {1} tasks.", workflowSession.getSessionUserName(), wfTasks.size());
+                
+                for (ITask actualWfTask: wfTasks)
+                {
+                	if (actualWfTask.getIdentifier() == wfTask.getIdentifier())
+                	{
+                		result = true;
+                		Ivy.log().debug("User {0} can work on task with id {1}.", workflowSession.getSessionUserName(), wfTask.getIdentifier());
+                		break;
+                	}
+                }				
+		  
+				return result;
   	          }
   	        });
   }
+  
+  
+  /**
+   * It returns true if the user is involved on case, see {@link IWorkflowSession#findInvolvedCases}  
+   * 
+   * @param workflowSession is the user's workflow session
+   * @param wfCase on which the check has to be done
+   * @return true if the user is involved; otherwise false
+   * 
+   * @throws EnvironmentNotAvailableException
+   * @throws Exception
+   */
+  public static boolean userIsInvolvedOnCase(final IWorkflowSession workflowSession, final ICase wfCase) throws EnvironmentNotAvailableException, Exception
+  {
+	  return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
+        {
+          public Boolean call() throws Exception
+          {
+        	  boolean userIsInvolvedOnCase = false;
+        	  IQueryResult<ICase> queryResult = null;
+        	  IPropertyFilter<CaseProperty> filter = null;
+              List<PropertyOrder<CaseProperty>> order = null;
+              int startIndex = 0;
+              int count = -1;
+              boolean returnAllCount = true;
+              List<ICase> wfCases = null;
+              
+        	  queryResult = workflowSession.findInvolvedCases(filter, order, startIndex, count, returnAllCount);
+        	  wfCases = queryResult.getResultList();
+        	  
+        	  Ivy.log().debug("Is user {0} involved on {1} cases also involved on case with id {2}.", workflowSession.getSessionUserName(), wfCases.size(), wfCase.getIdentifier());
+        	  
+        	  for (ICase actualCase: wfCases)
+        	  {
+        		  if (wfCase.getIdentifier() == actualCase.getIdentifier())
+				  {
+        			  userIsInvolvedOnCase = true;
+        			  Ivy.log().debug("User {0} is involved on case with id {2}.", workflowSession.getSessionUserName(), wfCase.getIdentifier());
+        			  break;        			  
+				  }
+        	  }        	          	  
+        	  
+        	  return userIsInvolvedOnCase;
+          }
+        });
+	  
+  }
+  
+  
   
   
   /**

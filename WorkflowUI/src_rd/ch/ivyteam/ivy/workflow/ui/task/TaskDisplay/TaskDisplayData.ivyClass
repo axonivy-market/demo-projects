@@ -50,3 +50,7 @@ caseDocumentsPath String #field
 caseDocumentsPath 'The path of task''s case documents. It is needed to update the "Documents" tab title.' #fieldComment
 ivy_systemevent_workflow_task_changed_exitCondition Boolean #field
 ivy_systemevent_workflow_task_changed_exitCondition 'The exit condition for the System Event Framework notification ivy_systemevent_workflow_task_changed' #fieldComment
+flowDisplayDisplayId String #field
+flowDisplayDisplayId 'Id there Flow display component will be loaded' #fieldComment
+operationSuccessful Boolean #field
+operationSuccessful 'True if the called method (Java ou what ever) returns true.' #fieldComment

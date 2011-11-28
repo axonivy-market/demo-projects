@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 19 13:54:19 CEST 2011]
+[>Created: Fri Nov 25 16:27:52 CET 2011]
 1327137DCDCE6676 3.17 #module
 >Proto >Proto Collection #zClass
 Ws0 StandaloneWorkflowUIWindowProcess Big #zClass
@@ -98,10 +98,10 @@ Ws0 f1 78 278 20 20 13 0 #rect
 Ws0 f1 @|RichDialogProcessEndIcon #fIcon
 Ws0 f6 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 Ws0 f6 guid 128B58A404C35958 #txt
-Ws0 f6 662 374 20 20 13 0 #rect
+Ws0 f6 758 374 20 20 13 0 #rect
 Ws0 f6 @|RichDialogEndIcon #fIcon
 Ws0 f12 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
-Ws0 f12 446 294 20 20 13 0 #rect
+Ws0 f12 542 294 20 20 13 0 #rect
 Ws0 f12 @|RichDialogProcessEndIcon #fIcon
 Ws0 f58 targetWindow NEW #txt
 Ws0 f58 targetDisplay TOP #txt
@@ -127,7 +127,7 @@ about</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f58 1166 156 36 24 20 -2 #rect
+Ws0 f58 1262 156 36 24 20 -2 #rect
 Ws0 f58 @|RichDialogIcon #fIcon
 Ws0 f14 guid 128B58FA131B870C #txt
 Ws0 f14 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
@@ -144,13 +144,13 @@ Ws0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f14 1174 46 20 20 13 0 #rect
+Ws0 f14 1270 46 20 20 13 0 #rect
 Ws0 f14 @|RichDialogProcessStartIcon #fIcon
 Ws0 f15 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
-Ws0 f15 1174 278 20 20 13 0 #rect
+Ws0 f15 1270 278 20 20 13 0 #rect
 Ws0 f15 @|RichDialogProcessEndIcon #fIcon
 Ws0 f17 expr out #txt
-Ws0 f17 1184 180 1184 278 #arcP
+Ws0 f17 1280 180 1280 278 #arcP
 Ws0 f18 guid 128B5907D879F086 #txt
 Ws0 f18 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 Ws0 f18 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
@@ -166,10 +166,10 @@ Ws0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f18 1286 46 20 20 13 0 #rect
+Ws0 f18 1382 46 20 20 13 0 #rect
 Ws0 f18 @|RichDialogProcessStartIcon #fIcon
 Ws0 f19 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
-Ws0 f19 1286 278 20 20 13 0 #rect
+Ws0 f19 1382 278 20 20 13 0 #rect
 Ws0 f19 @|RichDialogProcessEndIcon #fIcon
 Ws0 f21 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
 ' #txt
@@ -190,12 +190,12 @@ Ws0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f21 1278 156 36 24 20 -2 #rect
+Ws0 f21 1374 156 36 24 20 -2 #rect
 Ws0 f21 @|RichDialogProcessStepIcon #fIcon
 Ws0 f22 expr out #txt
-Ws0 f22 1296 66 1296 156 #arcP
+Ws0 f22 1392 66 1392 156 #arcP
 Ws0 f20 expr out #txt
-Ws0 f20 1296 180 1296 278 #arcP
+Ws0 f20 1392 180 1392 278 #arcP
 Ws0 f23 guid 128BA9DF91EA6F89 #txt
 Ws0 f23 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 Ws0 f23 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
@@ -214,64 +214,32 @@ Ws0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f23 878 38 20 20 13 0 #rect
+Ws0 f23 974 38 20 20 13 0 #rect
 Ws0 f23 @|RichDialogProcessStartIcon #fIcon
 Ws0 f24 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
-Ws0 f24 878 398 20 20 13 0 #rect
+Ws0 f24 974 398 20 20 13 0 #rect
 Ws0 f24 @|RichDialogProcessEndIcon #fIcon
 Ws0 f27 expr out #txt
-Ws0 f27 1184 66 1184 278 #arcP
+Ws0 f27 1280 66 1280 278 #arcP
 Ws0 f16 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
 ' #txt
 Ws0 f16 actionTable 'out=in;
 ' #txt
-Ws0 f16 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.StartConfigurationCreator;
-import ch.ivyteam.ivy.richdialog.exec.ProcessStartConfiguration;
+Ws0 f16 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.DataCache;
+import ch.ivyteam.ivy.workflow.ui.utils.StartConfigurationCreator;
 import ch.ivyteam.ivy.workflow.IProcessStart;
 
-List<IProcessStart> functionProcessStarts = new List<IProcessStart>();
-List<IProcessStart> sessionStartableProcessStarts = ivy.session.getStartableProcessStarts();
 
 try
 {
-	
 	// custom "functions" tab, it could be multiple process starts comma separated
 	if(ivy.var.xivy_workflow_ui_functionsProcessStartLinkHREF.length() > 0)
 	{
-		List<String> functionsProcessStartRequestPaths = ivy.var.xivy_workflow_ui_functionsProcessStartLinkHREF.split(", ");
-	
-		for (String processStartRequestPath: functionsProcessStartRequestPaths)
-		{
-			ivy.log.debug("Looking for the {0} as process start request path.", processStartRequestPath);
-			
-			for (IProcessStart processStart : sessionStartableProcessStarts)
-			{		
-					// Ex. of requestPath: 1215975017F13818/demoRunner.ivp to split as two elements
-					// equals has to be done on second String (ex: demoRunner.ivp)
-					List requestPathElements = processStart.getRequestPath().split("/");
-					
-					ivy.log.debug("Is process start request <{0}> equals to <{1}> ? {2}.", 
-													processStartRequestPath,
-													requestPathElements.get(1),
-													processStartRequestPath.equals(requestPathElements.get(1)));
-					
-					if (processStartRequestPath.equals(requestPathElements.get(1)))
-					{
-						// request path from global variable found!
-						ivy.log.debug("Found process start request path{0} name{1}, starting of it...", processStart.getRequestPath(), processStart.getName());
-						functionProcessStarts.add(processStart);
-						break;
-					}
-			}//for
-			
-		}//for
-		
+		List<IProcessStart> functionProcessStarts = DataCache.findFunctionProcessStarts(ivy.session, ivy.var.xivy_workflow_ui_functionsProcessStartLinkHREF);
 		// start the process starts
 		ivy.log.debug("Start function processes {0}.", functionProcessStarts);
 		StartConfigurationCreator.startMultipleProcesses(ivy.rd, panel.workflowUIWindowCenterDisplay.displayId, panel, functionProcessStarts);		
 	}
-	
-
 }
 catch (Exception e)
 {
@@ -290,7 +258,7 @@ functions</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f16 870 164 36 24 20 -2 #rect
+Ws0 f16 966 164 36 24 20 -2 #rect
 Ws0 f16 @|RichDialogProcessStepIcon #fIcon
 Ws0 f29 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 Ws0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -302,7 +270,7 @@ Ws0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f29 874 290 28 28 14 0 #rect
+Ws0 f29 970 290 28 28 14 0 #rect
 Ws0 f29 @|AlternativeIcon #fIcon
 Ws0 f32 targetWindow THIS #txt
 Ws0 f32 targetDisplay EXISTING:<%=in.workflowUIWindowNorthDisplayId%> #txt
@@ -328,7 +296,7 @@ web banner</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f32 958 340 36 24 20 -2 #rect
+Ws0 f32 1054 340 36 24 20 -2 #rect
 Ws0 f32 @|RichDialogIcon #fIcon
 Ws0 f33 expr in #txt
 Ws0 f33 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -340,8 +308,8 @@ Ws0 f33 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f33 902 304 976 340 #arcP
-Ws0 f33 1 976 304 #addKink
+Ws0 f33 998 304 1072 340 #arcP
+Ws0 f33 1 1072 304 #addKink
 Ws0 f33 0 0.7655925810092158 0 0 #arcLabel
 Ws0 f35 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
 ' #txt
@@ -408,7 +376,7 @@ close the WFUI Application</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f40 438 84 36 24 20 -2 #rect
+Ws0 f40 534 84 36 24 20 -2 #rect
 Ws0 f40 @|RichDialogProcessStepIcon #fIcon
 Ws0 f41 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 Ws0 f41 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -420,7 +388,7 @@ Ws0 f41 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f41 442 146 28 28 6 -19 #rect
+Ws0 f41 538 146 28 28 6 -19 #rect
 Ws0 f41 @|AlternativeIcon #fIcon
 Ws0 f31 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
 ' #txt
@@ -438,10 +406,10 @@ user session</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f31 654 316 36 24 20 -2 #rect
+Ws0 f31 750 316 36 24 20 -2 #rect
 Ws0 f31 @|RichDialogProcessStepIcon #fIcon
 Ws0 f43 expr out #txt
-Ws0 f43 672 340 672 374 #arcP
+Ws0 f43 768 340 768 374 #arcP
 Ws0 f44 expr in #txt
 Ws0 f44 outCond in.closeCanceled #txt
 Ws0 f44 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -453,7 +421,7 @@ Ws0 f44 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f44 456 174 456 294 #arcP
+Ws0 f44 552 174 552 294 #arcP
 Ws0 f3 guid 1296A7DEAC2FC506 #txt
 Ws0 f3 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 Ws0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
@@ -469,7 +437,7 @@ Ws0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f3 782 38 20 20 13 0 #rect
+Ws0 f3 878 38 20 20 13 0 #rect
 Ws0 f3 @|RichDialogProcessStartIcon #fIcon
 Ws0 f8 guid 1296A857D1D694E4 #txt
 Ws0 f8 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
@@ -487,7 +455,7 @@ Ws0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f8 446 38 20 20 13 0 #rect
+Ws0 f8 542 38 20 20 13 0 #rect
 Ws0 f8 @|RichDialogMethodStartIcon #fIcon
 Ws0 f5 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
 ' #txt
@@ -508,7 +476,7 @@ Rich Dialogs</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f5 526 188 36 24 20 -2 #rect
+Ws0 f5 622 188 36 24 20 -2 #rect
 Ws0 f5 @|RichDialogProcessStepIcon #fIcon
 Ws0 f9 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 Ws0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -520,14 +488,14 @@ Ws0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f9 530 250 28 28 14 0 #rect
+Ws0 f9 626 250 28 28 14 0 #rect
 Ws0 f9 @|AlternativeIcon #fIcon
 Ws0 f10 expr out #txt
-Ws0 f10 544 212 544 250 #arcP
+Ws0 f10 640 212 640 250 #arcP
 Ws0 f4 expr out #txt
-Ws0 f4 456 58 456 84 #arcP
+Ws0 f4 552 58 552 84 #arcP
 Ws0 f37 expr out #txt
-Ws0 f37 456 108 456 146 #arcP
+Ws0 f37 552 108 552 146 #arcP
 Ws0 f7 expr in #txt
 Ws0 f7 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -538,8 +506,8 @@ Ws0 f7 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f7 470 160 544 188 #arcP
-Ws0 f7 1 544 160 #addKink
+Ws0 f7 566 160 640 188 #arcP
+Ws0 f7 1 640 160 #addKink
 Ws0 f7 0 0.754734180593086 0 0 #arcLabel
 Ws0 f38 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
 ' #txt
@@ -561,7 +529,7 @@ Rich Dialog</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f38 526 316 36 24 20 -2 #rect
+Ws0 f38 622 316 36 24 20 -2 #rect
 Ws0 f38 @|RichDialogProcessStepIcon #fIcon
 Ws0 f39 expr in #txt
 Ws0 f39 outCond in.centerRichDialogPanelsIterator.hasNext() #txt
@@ -574,11 +542,11 @@ Ws0 f39 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f39 544 278 544 316 #arcP
+Ws0 f39 640 278 640 316 #arcP
 Ws0 f42 expr out #txt
-Ws0 f42 526 328 530 264 #arcP
-Ws0 f42 1 496 328 #addKink
-Ws0 f42 2 496 264 #addKink
+Ws0 f42 622 328 626 264 #arcP
+Ws0 f42 1 592 328 #addKink
+Ws0 f42 2 592 264 #addKink
 Ws0 f42 1 0.8627429653780683 0 0 #arcLabel
 Ws0 f11 expr in #txt
 Ws0 f11 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -590,12 +558,12 @@ Ws0 f11 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f11 558 264 672 316 #arcP
-Ws0 f11 1 672 264 #addKink
+Ws0 f11 654 264 768 316 #arcP
+Ws0 f11 1 768 264 #addKink
 Ws0 f11 0 0.7103221060912253 0 0 #arcLabel
 Ws0 f13 expr out #txt
-Ws0 f13 792 58 474 95 #arcP
-Ws0 f13 1 792 80 #addKink
+Ws0 f13 888 58 570 95 #arcP
+Ws0 f13 1 888 80 #addKink
 Ws0 f13 1 0.43596374799624255 0 0 #arcLabel
 Ws0 f26 guid 12A15F94D8DE4145 #txt
 Ws0 f26 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
@@ -612,7 +580,7 @@ Ws0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f26 1510 46 20 20 13 0 #rect
+Ws0 f26 1606 46 20 20 13 0 #rect
 Ws0 f26 @|RichDialogProcessStartIcon #fIcon
 Ws0 f45 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 Ws0 f45 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -620,7 +588,7 @@ Ws0 f45 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Ws0 f45 1510 278 20 20 13 0 #rect
+Ws0 f45 1606 278 20 20 13 0 #rect
 Ws0 f45 @|RichDialogProcessEndIcon #fIcon
 Ws0 f47 targetWindow NEW:card: #txt
 Ws0 f47 targetDisplay TOP #txt
@@ -643,12 +611,12 @@ Ws0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language/>
 </elementInfo>
 ' #txt
-Ws0 f47 1502 156 36 24 20 -2 #rect
+Ws0 f47 1598 156 36 24 20 -2 #rect
 Ws0 f47 @|RichDialogIcon #fIcon
 Ws0 f48 expr out #txt
-Ws0 f48 1520 66 1520 156 #arcP
+Ws0 f48 1616 66 1616 156 #arcP
 Ws0 f46 expr out #txt
-Ws0 f46 1520 180 1520 278 #arcP
+Ws0 f46 1616 180 1616 278 #arcP
 Ws0 f30 guid 12AF75B0A8B7AF5F #txt
 Ws0 f30 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 Ws0 f30 method _startProcess(String,ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel,ch.ivyteam.ivy.workflow.IProcessStart) #txt
@@ -670,20 +638,22 @@ Ws0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f30 214 38 20 20 13 0 #rect
+Ws0 f30 310 38 20 20 13 0 #rect
 Ws0 f30 @|RichDialogMethodStartIcon #fIcon
 Ws0 f49 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
-Ws0 f49 214 294 20 20 13 0 #rect
+Ws0 f49 310 294 20 20 13 0 #rect
 Ws0 f49 @|RichDialogProcessEndIcon #fIcon
 Ws0 f50 expr out #txt
-Ws0 f50 224 58 224 294 #arcP
+Ws0 f50 320 58 320 294 #arcP
 Ws0 f52 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
 ' #txt
 Ws0 f52 actionTable 'out=in;
 ' #txt
-Ws0 f52 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.StartConfigurationCreator;
+Ws0 f52 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.DataCache;
+import ch.ivyteam.ivy.workflow.ui.utils.StartConfigurationCreator;
 import ch.ivyteam.ivy.richdialog.exec.ProcessStartConfiguration;
 import ch.ivyteam.ivy.workflow.IProcessStart;
+
 
 try
 {	
@@ -691,22 +661,17 @@ try
 		// custom "web banner"
 	if (ivy.var.xivy_workflow_ui_webBannerProcessStartLinkHREF.length() > 0)
 	{
-		for (IProcessStart processStart : ivy.session.getStartableProcessStarts())
-		{		
-				// Ex. of requestPath: 1215975017F13818/demoRunner.ivp to split as two elements
-				// equals has to be done on second String (ex: demoRunner.ivp)
-				List requestPathStrings = processStart.getRequestPath().split("/");
-				
-				if (ivy.var.xivy_workflow_ui_webBannerProcessStartLinkHREF.equals(requestPathStrings.get(1)))
-				{
-					// request path from global variable found!
-					out.webBannerProcessStartRequestPathFound = true;
-					ivy.log.debug("Found process start request path{0} name{1}, starting of it...", processStart.getRequestPath(), processStart.getName());
-					StartConfigurationCreator.startProcess(panel.workflowUIWindowNorthDisplay.displayId, panel, processStart);
-					break;
-				}
+		IProcessStart processStart = DataCache.findWebBannerProcessStart(ivy.session, ivy.var.xivy_workflow_ui_webBannerProcessStartLinkHREF);
+		out.webBannerProcessStartRequestPathFound = true;
+		ivy.log.debug("Searching for {0}; found process start request path {1} name {2}, starting of it...", 
+										ivy.var.xivy_workflow_ui_webBannerProcessStartLinkHREF,
+										#processStart is initialized? processStart.getRequestPath(): "not found", 
+										#processStart is initialized? processStart.getName(): "not found");
+										
+		if (#processStart is initialized)
+		{
+			StartConfigurationCreator.startProcess(panel.workflowUIWindowNorthDisplay.displayId, panel, processStart);
 		}
-		
 	}
 }
 catch (Exception e)
@@ -730,12 +695,12 @@ banner</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f52 870 228 36 24 20 -2 #rect
+Ws0 f52 966 228 36 24 20 -2 #rect
 Ws0 f52 @|RichDialogProcessStepIcon #fIcon
 Ws0 f53 expr out #txt
-Ws0 f53 888 188 888 228 #arcP
+Ws0 f53 984 188 984 228 #arcP
 Ws0 f51 expr out #txt
-Ws0 f51 888 252 888 290 #arcP
+Ws0 f51 984 252 984 290 #arcP
 Ws0 f34 expr in #txt
 Ws0 f34 outCond in.webBannerProcessStartRequestPathFound #txt
 Ws0 f34 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -747,10 +712,10 @@ Ws0 f34 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f34 888 318 888 398 #arcP
+Ws0 f34 984 318 984 398 #arcP
 Ws0 f55 expr out #txt
-Ws0 f55 976 364 897 404 #arcP
-Ws0 f55 1 976 376 #addKink
+Ws0 f55 1072 364 993 404 #arcP
+Ws0 f55 1 1072 376 #addKink
 Ws0 f55 1 0.28149288778123105 0 0 #arcLabel
 Ws0 f25 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
 ' #txt
@@ -768,12 +733,12 @@ from global variable</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f25 870 100 36 24 20 -2 #rect
+Ws0 f25 966 100 36 24 20 -2 #rect
 Ws0 f25 @|RichDialogProcessStepIcon #fIcon
 Ws0 f54 expr out #txt
-Ws0 f54 888 58 888 100 #arcP
+Ws0 f54 984 58 984 100 #arcP
 Ws0 f28 expr out #txt
-Ws0 f28 888 124 888 164 #arcP
+Ws0 f28 984 124 984 164 #arcP
 Ws0 f56 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 Ws0 f56 processCall 'Functional Processes/technical/WorkflowServices:getWindowCenterDisplayId()' #txt
 Ws0 f56 doCall true #txt
@@ -810,7 +775,7 @@ Ws0 f2 88 188 88 278 #arcP
         <swimlaneLabel>Events</swimlaneLabel>
         <swimlaneLabel></swimlaneLabel>
     </language>
-    <swimlaneSize>207</swimlaneSize>
+    <swimlaneSize>284</swimlaneSize>
     <swimlaneSize>559</swimlaneSize>
     <swimlaneSize>903</swimlaneSize>
     <swimlaneColor>-6684673</swimlaneColor>

@@ -1,0 +1,8 @@
+AnyQueryCaseDisplayListData #class
+ch.ivyteam.ivy.workflow.ui.cases.AnyQueryCaseDisplayList #namespace
+caseDisplayListParentDisplay ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay #field
+propertyFilter ch.ivyteam.ivy.workflow.IPropertyFilter #field
+caseDisplayMode Number #field
+caseDisplayMode '0=involved cases (your cases), 1=involved cases by role (team cases), 2=all env. cases (wf admin mode)' #fieldComment
+hasWfAdministratorPermissions Boolean #field
+hasWfAdministratorPermissions 'It defines if a session user has a workflow administrator permissions' #fieldComment

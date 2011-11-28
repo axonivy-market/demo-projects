@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ch.ivyteam.ivy.workflow.ui.utils;
 
 import com.ulcjava.base.application.ULCPollingTimer;
@@ -39,7 +36,7 @@ public class StartConfigurationCreator {
 		
 		IDisplayConfiguration displayConfig;
 		TaskStartConfiguration taskStartConfig;
-
+		// TODO replace the deprecated method
 		displayConfig = DisplayConfigurationFactory.createForThisWindow(displayId, richDialogPanel);
 		taskStartConfig = new TaskStartConfiguration(task, displayConfig);
 		Ivy.rd().startTask(taskStartConfig);

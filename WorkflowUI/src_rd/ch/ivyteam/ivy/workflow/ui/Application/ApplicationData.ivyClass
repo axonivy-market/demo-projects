@@ -15,16 +15,19 @@ taskDisplayMode 'Needed to load at Rich Dialog Load event the running tasks: 0=y
 closeCanceled Boolean #field
 sessionUserResumedTasks List<ch.ivyteam.ivy.workflow.ITask> #field
 sessionUserResumedTasksIterator java.util.Iterator #field
-pressedButton String #field
-pressedButton 'End user pressed button on Question Dialog.' #fieldComment
 sessionUserResumedTask ch.ivyteam.ivy.workflow.ITask #field
-menuAutoHideMode Boolean #field
-menuAutoHideMode 'If true, then the menu on left side is hidden automatically during the task execution. Otherwise not.' #fieldComment
-receivedAnyQueryTaskListParameter ch.ivyteam.ivy.workflow.ui.data.task.AnyQueryTaskListParameter #field
-hasWfAdministratorPermissions Boolean #field
-hasWfAdministratorPermissions 'It defines how the Ivy API will be called : workflow administrator using the IWorkflowContext or workflow user using the IWorkflowSession.' #fieldComment
 multipleTaskListMode Boolean #field
 multipleTaskListMode 'If true then the multiples instances of task list could be displayed at same time otherwise just one.' #fieldComment
+pressedButton String #field
+pressedButton 'End user pressed button on Question Dialog.' #fieldComment
+menuAutoHideMode Boolean #field
+menuAutoHideMode 'If true, then the menu on left side is hidden automatically during the task execution. Otherwise not.' #fieldComment
+hasWfAdministratorPermissions Boolean #field
+hasWfAdministratorPermissions 'It defines how the Ivy API will be called : workflow administrator using the IWorkflowContext or workflow user using the IWorkflowSession.' #fieldComment
 standAloneMode Boolean #field
 standAloneMode 'If true then this Rich Dialog is started as "WFUI stand alone application", otherwise is "embedded" mode.' #fieldComment
 tabClosingRequestEvent ch.ivyteam.ivy.ulc.server.TabClosingRequestEvent #field
+receivedAnyQueryTaskListParameter ch.ivyteam.ivy.workflow.ui.data.task.AnyQueryTaskListParameter #field
+receivedAnyQueryCaseListParameter ch.ivyteam.ivy.workflow.ui.data.cases.AnyQueryCaseListParameter #field
+multipleCaseListMode Boolean #field
+multipleCaseListMode 'If true then the multiples instances of case list could be displayed at same time otherwise just one.' #fieldComment

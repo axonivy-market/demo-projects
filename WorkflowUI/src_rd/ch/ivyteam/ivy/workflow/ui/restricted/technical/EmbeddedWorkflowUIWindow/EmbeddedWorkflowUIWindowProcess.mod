@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 19 13:56:52 CEST 2011]
+[>Created: Fri Nov 25 16:28:18 CET 2011]
 13271335CD7B681D 3.17 #module
 >Proto >Proto Collection #zClass
 Ws0 EmbeddedWorkflowUIWindowProcess Big #zClass
@@ -94,53 +94,21 @@ Ws0 f16 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.EmbeddedWork
 ' #txt
 Ws0 f16 actionTable 'out=in;
 ' #txt
-Ws0 f16 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.StartConfigurationCreator;
-import ch.ivyteam.ivy.richdialog.exec.ProcessStartConfiguration;
+Ws0 f16 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.DataCache;
+import ch.ivyteam.ivy.workflow.ui.utils.StartConfigurationCreator;
 import ch.ivyteam.ivy.workflow.IProcessStart;
 
-List<IProcessStart> functionProcessStarts = new List<IProcessStart>();
-List<IProcessStart> sessionStartableProcessStarts = ivy.session.getStartableProcessStarts();
 
 try
-{	
+{
 	// custom "functions" tab, it could be multiple process starts comma separated
 	if(ivy.var.xivy_workflow_ui_functionsProcessStartLinkHREF.length() > 0)
 	{
-		List<String> functionsProcessStartRequestPaths = ivy.var.xivy_workflow_ui_functionsProcessStartLinkHREF.split(", ");
-	
-		for (String processStartRequestPath: functionsProcessStartRequestPaths)
-		{
-			ivy.log.debug("Looking for the {0} as process start request path.", processStartRequestPath);
-			
-			for (IProcessStart processStart : sessionStartableProcessStarts)
-			{		
-					// Ex. of requestPath: 1215975017F13818/demoRunner.ivp to split as two elements
-					// equals has to be done on second String (ex: demoRunner.ivp)
-					List requestPathElements = processStart.getRequestPath().split("/");
-					
-					ivy.log.debug("Is process start request <{0}> equals to <{1}> ? {2}.", 
-													processStartRequestPath,
-													requestPathElements.get(1),
-													processStartRequestPath.equals(requestPathElements.get(1)));
-					
-					if (processStartRequestPath.equals(requestPathElements.get(1)))
-					{
-						// request path from global variable found!
-						ivy.log.debug("Found process start request path{0} name{1}, starting of it...", processStart.getRequestPath(), processStart.getName());
-						//StartConfigurationCreator.startProcess(panel.workflowUIWindowCenterDisplay.displayId, panel, processStart);
-						functionProcessStarts.add(processStart);
-						break;
-					}
-			}//for
-			
-		}//for
-		
+		List<IProcessStart> functionProcessStarts = DataCache.findFunctionProcessStarts(ivy.session, ivy.var.xivy_workflow_ui_functionsProcessStartLinkHREF);
 		// start the process starts
 		ivy.log.debug("Start function processes {0}.", functionProcessStarts);
 		StartConfigurationCreator.startMultipleProcesses(ivy.rd, panel.workflowUIWindowCenterDisplay.displayId, panel, functionProcessStarts);		
 	}
-	
-
 }
 catch (Exception e)
 {

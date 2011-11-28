@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 22 17:04:18 CEST 2011]
+[>Created: Thu Nov 24 14:29:01 CET 2011]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -1524,7 +1524,7 @@ if (!selectedWfTaskWrappers.isEmpty())
 					(in.taskDisplayMode == -1 && isSessionUserTeamManagerOnWfTask) ||					
 					(in.taskDisplayMode >= 0 && in.taskDisplayMode <= 2) ||
 					(in.taskDisplayMode == 3 && (	WorkflowUIAccessPermissionHandler.userHasWorkedOnTask(sessionUser, currentTask) || 
-																				WorkflowUIAccessPermissionHandler.userIsTaskActivatorCandidate(sessionUser, currentTask) ||
+																				WorkflowUIAccessPermissionHandler.userIsTaskActivatorCandidate(ivy.session, currentTask) ||
 																				isSessionUserTeamManagerOnWfTask || 
 																				in.hasWfAdministratorPermissions))
 					)
@@ -1547,7 +1547,7 @@ if (!selectedWfTaskWrappers.isEmpty())
 						(
 							(in.taskDisplayMode == -1 && isSessionUserTeamManagerOnWfTask) ||
 							(in.taskDisplayMode == 0 || in.taskDisplayMode == 1) ||
-							(in.taskDisplayMode == 3 && (	WorkflowUIAccessPermissionHandler.userIsTaskActivatorCandidate(sessionUser, currentTask) || 
+							(in.taskDisplayMode == 3 && (	WorkflowUIAccessPermissionHandler.userIsTaskActivatorCandidate(ivy.session, currentTask) || 
 																						in.hasWfAdministratorPermissions || 
 																						isSessionUserTeamManagerOnWfTask))
 						)

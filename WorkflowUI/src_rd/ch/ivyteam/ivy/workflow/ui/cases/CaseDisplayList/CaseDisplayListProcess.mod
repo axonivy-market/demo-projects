@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Sep 21 13:12:24 CEST 2011]
+[>Created: Thu Nov 24 16:01:47 CET 2011]
 119A42FA47DC0EC8 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDisplayListProcess Big #zClass
@@ -643,26 +643,57 @@ Cs0 f47 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplay
 ' #txt
 Cs0 f47 actionTable 'out=in;
 ' #txt
-Cs0 f47 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.cases.ICaseWrapper;
+Cs0 f47 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler;
+import ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper;
+import ch.ivyteam.ivy.workflow.ui.data.restricted.cases.ICaseWrapper;
 import ch.ivyteam.ivy.workflow.ICase;
 import ch.ivyteam.ivy.workflow.CaseState;
 
 
+ICaseWrapper wfCaseWrapper = panel.casesTable.getSelectedListEntry() as ICaseWrapper;
+ICase wfCase = wfCaseWrapper.wfCase;
+// is user team manager on this case?
+Boolean isSessionUserTeamManagerOnWfCase = CaseManagedTeamHelper.isSessionUserTeamManagerOnWfCase(wfCase);
+Boolean enabled = false;
+
+
+//------------------
 // inform on case
-panel.informOnCaseButton.enabled = (panel.casesTable.getSelectedListEntry() != null);
+//------------------
+if (
+		(in.caseDisplayMode >= 0 || in.caseDisplayMode <= 2) ||
+		(in.caseDisplayMode == 3 && WorkflowUIAccessPermissionHandler.userIsInvolvedOnCase(ivy.session, wfCase) || 
+																	isSessionUserTeamManagerOnWfCase || 
+																	in.hasWfAdministratorPermissions)
+		)
+{
+	enabled = true;
+}
+else
+{
+	enabled = false;
+}
+panel.informOnCaseButton.enabled = enabled;
 panel.informOnCaseOnSiblingTabMenuItem.enabled = panel.informOnCaseButton.enabled;
 
-
-
+
+//------------------
 // destroy the case
-ICaseWrapper wfCaseWrapper = panel.casesTable.getSelectedListEntry() as ICaseWrapper;
-ICase selectedCase = wfCaseWrapper.wfCase;
-
-panel.destroyCaseButton.enabled = selectedCase.getState().equals(CaseState.CREATED) || selectedCase.getState().equals(CaseState.RUNNING);
-
-
-
-' #txt
+// selectedCase.getState().equals(CaseState.CREATED) || selectedCase.getState().equals(CaseState.RUNNING);
+//------------------
+if (
+		(wfCase.getState().equals(CaseState.CREATED) || wfCase.getState().equals(CaseState.RUNNING)) &&
+			((in.caseDisplayMode == 2) || (in.caseDisplayMode == 3 && in.hasWfAdministratorPermissions))
+		)
+{
+	enabled = true;
+}
+else
+{
+	enabled = false;
+}
+	
+panel.destroyCaseButton.enabled = enabled;' #txt
 Cs0 f47 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
