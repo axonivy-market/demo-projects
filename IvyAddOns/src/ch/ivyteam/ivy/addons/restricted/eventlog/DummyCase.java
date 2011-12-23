@@ -6,6 +6,8 @@ import java.util.List;
 import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.application.IProcessModel;
 import ch.ivyteam.ivy.persistence.PersistencyException;
+import ch.ivyteam.ivy.scripting.objects.BusinessDuration;
+import ch.ivyteam.ivy.scripting.objects.Duration;
 import ch.ivyteam.ivy.security.IUser;
 import ch.ivyteam.ivy.workflow.CaseState;
 import ch.ivyteam.ivy.workflow.ICase;
@@ -652,6 +654,18 @@ class DummyCase implements ICase
 
   @Override
   public void setAdditionalProperty(String name, String value) throws PersistencyException
+  {
+    throw new PersistencyException(new NoSuchMethodException("setAdditionalProperty(String"));
+  }
+
+  @Override
+  public BusinessDuration getBusinessRuntime()
+  {
+    throw new PersistencyException(new NoSuchMethodException("getBusinessRuntime()"));
+  }
+
+  @Override
+  public Duration getWorkingTime()
   {
     throw new PersistencyException(new NoSuchMethodException("setAdditionalProperty(String"));
   }
