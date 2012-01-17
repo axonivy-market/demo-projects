@@ -5,3 +5,39 @@ name String #field
 name 'Ordner name' #fieldComment
 path String #field
 path 'Ordner path' #fieldComment
+is_protected boolean #field
+is_protected 'default false. True if the security applies on the directory' #fieldComment
+cmrd List<String> #field
+cmrd 'List of Ivy Role names that have the right to manage the rights on this directory. Doesn''t apply if is_protected is false.' #fieldComment
+cod List<String> #field
+cod 'List of Ivy Role names that have the right to open and list this directory. Doesn''t apply if is_protected is false.' #fieldComment
+cud List<String> #field
+cud 'List of Ivy Role names that have the right to update this directory. Doesn''t apply if is_protected is false.' #fieldComment
+cdd List<String> #field
+cdd 'List of Ivy Role names that have the right to delete this directory. Doesn''t apply if is_protected is false.' #fieldComment
+cwf List<String> #field
+cwf 'List of Ivy Role names that have the right to write/rename/copy/upload files in this directory. Doesn''t apply if is_protected is false.' #fieldComment
+cdf List<String> #field
+cdf 'List of Ivy Role names that have the right to delete/move files in/from this directory. Doesn''t apply if is_protected is false.' #fieldComment
+id int #field
+id 'Unique identifier used if the directories are stored in a DB Table.' #fieldComment
+iconPath String #field
+iconPath 'the path to the Icon in the CMS' #fieldComment
+canUserManageRights boolean #field
+canUserManageRights 'true if the Ivy user have this right. Else false.' #fieldComment
+canUserOpenDir boolean #field
+canUserOpenDir 'true if the Ivy user have this right. Else false.' #fieldComment
+canUserUpdateDir boolean #field
+canUserUpdateDir 'true if the Ivy user have this right. Else false.' #fieldComment
+canUserDeleteDir boolean #field
+canUserDeleteDir 'true if the Ivy user have this right. Else false.' #fieldComment
+canUserWriteFiles boolean #field
+canUserWriteFiles 'true if the Ivy user have this right. Else false.' #fieldComment
+canUserDeleteFiles boolean #field
+canUserDeleteFiles 'true if the Ivy user have this right. Else false.' #fieldComment
+creationDate Date #field
+creationDate 'date of creation' #fieldComment
+creationTime Time #field
+creationTime 'time of creation' #fieldComment
+creationUser String #field
+creationUser 'Ivy username who has created the directory' #fieldComment

@@ -1,4 +1,4 @@
-co: name={showHiddeFoldersTree} description={} changed={2009-10-02 14:33:06 CEST} changedby={ec} visualorder={0} guid={124153A9F5E30F8A} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={124153BA5D4CC085} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-10-02 14:31:21 CEST} validto={} changed={2009-10-02 14:33:06 CEST} changedby={ec} properties={} id={}
-val: guid={124153A9F5E9A178} datatype={} isdefault={true} langid={en} description={} validfrom={2009-10-02 14:30:13 CEST} validto={} changed={2009-10-02 14:31:21 CEST} changedby={ec} properties={} id={}
-val: guid={124153BAEAEEAB68} datatype={} isdefault={false} langid={de} description={} validfrom={2009-10-02 14:31:23 CEST} validto={} changed={2009-10-02 14:33:06 CEST} changedby={ec} properties={} id={}
+co: name={showHiddeFoldersTree} description={} changed={2012-01-17 16:44:37 CET} changedby={ec} visualorder={0} guid={124153A9F5E30F8A} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={124153BAEAEEAB68} datatype={} isdefault={false} langid={de} description={} validfrom={2009-10-02 14:31:23 CEST} validto={} changed={2012-01-17 16:44:37 CET} changedby={ec} properties={} id={}
+val: guid={124153A9F5E9A178} datatype={} isdefault={true} langid={en} description={} validfrom={2009-10-02 14:30:13 CEST} validto={} changed={2012-01-17 16:44:37 CET} changedby={ec} properties={} id={}
+val: guid={124153BA5D4CC085} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-10-02 14:31:21 CEST} validto={} changed={2012-01-17 16:44:37 CET} changedby={ec} properties={} id={}

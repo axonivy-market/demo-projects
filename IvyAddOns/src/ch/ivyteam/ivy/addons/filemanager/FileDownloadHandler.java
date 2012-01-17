@@ -53,7 +53,7 @@ import com.ulcjava.base.shared.FileChooserConfig;
  * 
  * The source path on the Server is determined by an intern private String variable. <br>
  * The server path variable is given at the instantiation within the constructor, or can be later changed with the setServerPath method.
- * For security purposes, if the server path is set to null or points to the root of the server, it takes automatically a default value (�uploadedFiles�).
+ * For security purposes, if the server path is set to null or points to the root of the server, it takes automatically a default value (“uploadedFiles”).
  * 
  */
 public class FileDownloadHandler<T extends ULCComponent & IRichDialogPanel> {

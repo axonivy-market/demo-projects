@@ -19,7 +19,11 @@ at client side.</description>
     <method>
         <name>_fileModified</name>
         <description>Callback Method&#xD;
-Called back whenever a File is modified. Every modification can be traced.</description>
+Called back from fileCoupleCheker ULC/UI system whenever a File is modified. &#xD;
+Every modification can be traced.&#xD;
+This method fires two Events @SUBSCRIBERS: fileCouplemodified (if fileCouple corrsponding to the modified file can be found),&#xD;
+and fileModified.&#xD;
+</description>
         <inputParameter>
             <name>modifiedFile</name>
             <description></description>
@@ -101,6 +105,16 @@ This method can not be changed or deleted!</description>
             <name>modifiedFile</name>
             <description></description>
             <parameterType>java.io.File</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>fileCoupleModified</name>
+        <description>Event sent whenever a File is modified. the Parent RD subscriber can then trace this change.</description>
+        <attachment>
+            <name>fileCoupleModified</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.FileCouple</parameterType>
             <nullPermitted>true</nullPermitted>
         </attachment>
     </firedEvent>

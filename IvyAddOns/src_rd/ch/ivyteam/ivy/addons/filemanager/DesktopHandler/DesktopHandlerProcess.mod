@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Sat Aug 06 13:00:19 CEST 2011]
+[>Created: Thu Nov 03 10:42:03 EDT 2011]
 125F850DA67753A5 3.17 #module
 >Proto >Proto Collection #zClass
 Ds0 DesktopHandlerProcess Big #zClass
@@ -211,6 +211,7 @@ Ds0 @RichDialogProcessStep f192 '' #zField
 Ds0 @PushWFArc f193 '' #zField
 Ds0 @RichDialogProcessEnd f194 '' #zField
 Ds0 @PushWFArc f195 '' #zField
+Ds0 @AnnotationArc f196 '' #zField
 >Proto Ds0 Ds0 DesktopHandlerProcess #zField
 Ds0 f0 guid 11E20AE1BA5352AB #txt
 Ds0 f0 type ch.ivyteam.ivy.addons.filemanager.DesktopHandler.DesktopHandlerData #txt
@@ -1165,39 +1166,40 @@ Ds0 f94 actionCode 'import ch.ivyteam.ivy.addons.filemanager.FileHandler;
 import ch.ivyteam.ivy.addons.filemanager.DocumentOnServer;
 import ch.ivyteam.ivy.addons.filemanager.FileCouple;
 
-List <FileCouple> filesCouples= new List<FileCouple>();
+
 List <FileCouple> fcToRemove= new List<FileCouple>();
-for(DocumentOnServer doc: in.FilesToUnlock){
-	if(doc.lockingUserID.equalsIgnoreCase(in.osUserName)){
-		java.io.File f = new java.io.File(doc.path);
-		FileCouple fc = new FileCouple();
-		fc.serverFile=f;
-		filesCouples.add(fc);
-	}
-}
-//make the list of all the fc to remove
-for(FileCouple fc: filesCouples){
-	for(FileCouple fc2 : in.editedFileList){
-		if(fc.serverFile.getPath().equals(fc2.serverFile.getPath())){
-			//in.editedFileList.remove(fc2);
-			fcToRemove.add(fc2);
-			try{
-				String s =FileHandler.getFileDirectoryPath(fc2.clientFile);
-				if(s!=null && s.length()>0){
-					in.userTempDirectoryManager.deleteTempDir(FileHandler.getFileDirectoryPath(fc2.clientFile));
-				}
-			}catch(Throwable t){
-				// do nothing
+List <FileCouple> fcStillEdited= new List<FileCouple>();
+
+for(FileCouple fc : in.editedFileList)
+{
+	boolean found = false;
+	for(DocumentOnServer doc: in.FilesToUnlock)
+	{
+			if(fc.serverSidePath.equals(doc.path))
+			{
+					found=true;
+					fcToRemove.add(fc);
+					try
+					{
+						String s =FileHandler.getFileDirectoryPath(fc.clientFile);
+						if(s!=null && s.length()>0){
+							in.userTempDirectoryManager.deleteTempDir(s);
+						}
+					}catch(Throwable t){
+						// do nothing
+					}
+					break;
 			}
-			
-		}
+	}
+	if(!found)
+	{
+		fcStillEdited.add(fc);
 	}
 }
-for(FileCouple fc : fcToRemove){
-	in.editedFileList.remove(fc);
-}
+in.editedFileList.clear();
+in.editedFileList.addAll(fcStillEdited);
 panel.fileEditorCheckerPanel.setFileCouplesList(in.editedFileList);
-panel.fireUnlockFiles(filesCouples);' #txt
+panel.fireUnlockFiles(fcToRemove);' #txt
 Ds0 f94 type ch.ivyteam.ivy.addons.filemanager.DesktopHandler.DesktopHandlerData #txt
 Ds0 f94 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -1213,6 +1215,7 @@ Sends unLockFiles@SUBSC</name>
 ' #txt
 Ds0 f94 1430 148 36 24 20 -17 #rect
 Ds0 f94 @|RichDialogProcessStepIcon #fIcon
+Ds0 f94 -5972572|-1|-16777216 #nodeStyle
 Ds0 f95 expr out #txt
 Ds0 f95 1448 106 1448 148 #arcP
 Ds0 f96 type ch.ivyteam.ivy.addons.filemanager.DesktopHandler.DesktopHandlerData #txt
@@ -1289,11 +1292,18 @@ Ds0 f103 actionDecl 'ch.ivyteam.ivy.addons.filemanager.DesktopHandler.DesktopHan
 ' #txt
 Ds0 f103 actionTable 'out=in;
 ' #txt
-Ds0 f103 actionCode 'import ch.ivyteam.ivy.richdialog.exec.RdEvent;
+Ds0 f103 actionCode 'import ch.ivyteam.ivy.addons.filemanager.FileCouple;
+import ch.ivyteam.ivy.richdialog.exec.RdEvent;
 
 RdEvent e = event as RdEvent;
 if(e.getParameter() instanceof java.io.File){
 	panel.fireFileModifiedReported(e.getParameter() as java.io.File);
+}else if(e.getParameter() instanceof FileCouple){
+	
+	FileCouple fc = e.getParameter() as FileCouple;
+	ivy.log.info("filecouple changed reported "+fc.getServerSidePath());
+	ivy.log.info("filecouple inner Java File "+(fc.getReferencedDocumentOnServer()!=null && fc.getReferencedDocumentOnServer().getJavaFile()!=null?fc.getReferencedDocumentOnServer().getJavaFile().getPath():"NULL"));
+	panel.fireFileCoupleModifiedReported(e.getParameter() as FileCouple);
 }' #txt
 Ds0 f103 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -1304,23 +1314,27 @@ Ds0 f103 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f103 1438 358 20 20 -37 -37 #rect
+Ds0 f103 1438 334 20 20 -37 -30 #rect
 Ds0 f103 @|RichDialogProcessStartIcon #fIcon
 Ds0 f104 type ch.ivyteam.ivy.addons.filemanager.DesktopHandler.DesktopHandlerData #txt
 Ds0 f104 1435 395 26 26 14 0 #rect
 Ds0 f104 @|RichDialogProcessEndIcon #fIcon
 Ds0 f105 expr out #txt
-Ds0 f105 1448 378 1448 395 #arcP
+Ds0 f105 1448 354 1448 395 #arcP
 Ds0 f106 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Fires the fileModifiedReported Event</name>
-        <nameStyle>36,9
+        <name>Fires the fileModifiedReported Event @SUBSCRIBERS
+if the incoming parameter is a java.io.File
+OR
+fireFileCoupleModifiedReported Event @SUBSCRIBERS
+if the incoming parameter is a ch.ivyteam.ivy.addons.filemanager.FileCouple</name>
+        <nameStyle>222,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f106 1473 364 238 40 -104 -7 #rect
+Ds0 f106 1507 323 426 90 -208 -40 #rect
 Ds0 f106 @|IBIcon #fIcon
 Ds0 f106 -985168|-1|-16777216 #nodeStyle
 Ds0 f107 guid 11F7F76AA31F2186 #txt
@@ -1791,7 +1805,6 @@ Ds0 f148 expr out #txt
 Ds0 f148 440 1090 440 1124 #arcP
 Ds0 f149 guid 12470C241D2BA484 #txt
 Ds0 f149 type ch.ivyteam.ivy.addons.filemanager.DesktopHandler.DesktopHandlerData #txt
-Ds0 f149 method _privateIsFileEditable() #txt
 Ds0 f149 disableUIEvents false #txt
 Ds0 f149 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -1870,6 +1883,9 @@ if(!in.lastCreatedTempDir.trim().equalsIgnoreCase("")){
 			fc.serverFile=ftd.file;
 			if(ftd.#documentOnServer!=null){
 				fc.serverSidePath = ftd.documentOnServer.path;
+				fc.referencedDocumentOnServer = ftd.documentOnServer;
+			}else{
+				fc.serverSidePath=fc.serverFile.getPath();
 			}
 			fc.clientFile=file;
 			found=true;
@@ -2230,7 +2246,7 @@ if(in.#documentOnServerToWorkWith!=null &&
 	{// if the java File is not null it means that we work with a physically stored file
 		for(FileCouple f: in.editedFileList){
 			//we found that this file is currently edited
-			if(f.getServerFile().getPath().equals(in.documentOnServerToWorkWith.javaFile.getPath())){
+			if(f.serverSidePath.equals(in.documentOnServerToWorkWith.path)){
 				alreadyOpened = true;
 				//we open the file where she is
 				if(in.#DesktopHandlerObject!=null){
@@ -2246,7 +2262,7 @@ if(in.#documentOnServerToWorkWith!=null &&
 	{// we certainly work with files stored in DB => for the duration of the edition these files are transformed as non persistent ivy files.
 		for(FileCouple f: in.editedFileList){
 			//we found that this file is currently edited
-			if(f.getServerFile().getPath().equals(in.documentOnServerToWorkWith.ivyFile.getJavaFile().getPath())){
+			if(f.serverSidePath.equals(in.documentOnServerToWorkWith.path)){
 				alreadyOpened = true;
 				//we open the file where she is
 				if(in.#DesktopHandlerObject!=null){
@@ -2273,7 +2289,8 @@ if(in.#documentOnServerToWorkWith!=null &&
 		{// we certainly work with files stored in DB => for the duration of the edition these files are transformed as non persistent ivy files.
 			ftd.file = in.documentOnServerToWorkWith.ivyFile.getJavaFile();
 		}
-		
+		in.documentOnServerToWorkWith.locked="1";
+		in.documentOnServerToWorkWith.lockingUserID=ivy.session.getSessionUserName();
 		ftd.documentOnServer = in.documentOnServerToWorkWith.clone();
 		ftd.tempDirName = s;
 		ftd.isFileEditable = false;
@@ -2367,6 +2384,7 @@ Ds0 f194 702 374 20 20 13 0 #rect
 Ds0 f194 @|RichDialogProcessEndIcon #fIcon
 Ds0 f195 expr out #txt
 Ds0 f195 712 348 712 374 #arcP
+Ds0 f196 1507 368 1457 347 #arcP
 >Proto Ds0 .rdData2UIAction 'panel.fileEditedTable.listData=in.editedFileList;
 panel.visible=in.tableVisible;
 ' #txt
@@ -2544,3 +2562,5 @@ Ds0 f191 mainOut f193 tail #connect
 Ds0 f193 head f192 mainIn #connect
 Ds0 f192 mainOut f195 tail #connect
 Ds0 f195 head f194 mainIn #connect
+Ds0 f106 ao f196 tail #connect
+Ds0 f196 head f103 @CG|ai #connect

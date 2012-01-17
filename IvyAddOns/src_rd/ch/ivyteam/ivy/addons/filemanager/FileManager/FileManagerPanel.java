@@ -51,6 +51,7 @@ import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.scripting.objects.List;
+import ch.ivyteam.ivy.addons.filemanager.DirectorySecurityManager.DirectorySecurityManagerPanel;
 
 
 /**
@@ -144,6 +145,7 @@ private RHyperlink delete2Button = null;
 private RHyperlink mail2Button = null;
 private RHyperlink refreshSelectedFolder2Button = null;
 private RMenuItem setDescriptionMenuItem = null;
+private @EmbeddedRichDialog(DirectorySecurityManagerPanel.class) ULCContainer directorySecurityManagerPanel = null;
 /**
    * Create a new instance of FileManagerPanePanel
    */
@@ -470,7 +472,8 @@ private RMenuItem getDeleteMenuItem() {
 		deleteMenuItem.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/delete\")%>");
 		deleteMenuItem.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/delete/16\")%>");
 		deleteMenuItem.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/deleteFiles\")%>");
-		deleteMenuItem.setEnabler(getFileNameInvisibleTextField());
+		//deleteMenuItem.setEnabler(getFileNameInvisibleTextField());
+		deleteMenuItem.setEnabled(true);
 		deleteMenuItem.setName("deleteMenuItem");
 	}
 	return deleteMenuItem;
@@ -518,7 +521,7 @@ private RTree getOrdnersTree() {
 	if (ordnersTree == null) {
 		ordnersTree = new RTree();
 		ordnersTree.setName("ordnersTree");
-		ordnersTree.setModelConfiguration("{/dynamicTreeLoadMode \"LOAD_FOR_RENDER_PARENT\"/version \"3.0\"/showTableheader true /autoTableheader false /showtooltip false /showIcons true /emptyTableText \"\"/columns {{/patterns {{/result \"result=\\\"Folder\\\"\"/version \"3.0\"/icon \"result=ivy.cms.cr(\\\"/ch/ivyteam/ivy/addons/icons/folder/16\\\")\"/patternMode \"ALL\"/patternValue \"default\"}{/result \"result=entry.name\"/version \"3.0\"/patternMode \"INSTANCE\"/patternValue \"ch.ivyteam.ivy.addons.filemanager.FolderOnServer\"}}/version \"3.0\"}}}");
+		ordnersTree.setModelConfiguration("{/dynamicTreeLoadMode \"LOAD_FOR_RENDER_PARENT\"/version \"3.0\"/showTableheader true /autoTableheader false /showtooltip false /showIcons true /emptyTableText \"\"/columns {{/patterns {{/result \"result=\\\"Folder\\\"\"/version \"3.0\"/icon \"result=ivy.cms.cr(\\\"/ch/ivyteam/ivy/addons/icons/folder/16\\\")\"/patternMode \"ALL\"/patternValue \"default\"}{/result \"result=entry.name\"/version \"3.0\"/tooltip \"\"/icon \"result=ivy.cms.cr(\\\"/ch/ivyteam/ivy/addons/icons/square/16\\\")\"/patternMode \"INSTANCE\"/patternValue \"ch.ivyteam.ivy.addons.filemanager.LockedFolder\"}{/result \"result=entry.name\"/version \"3.0\"/icon \"\"/patternMode \"INSTANCE\"/patternValue \"ch.ivyteam.ivy.addons.filemanager.FolderOnServer\"}}/version \"3.0\"}}}");
 		ordnersTree.setComponentPopupMenu(getServerDirPopupMenu());
 		ordnersTree.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
 		//ordnersTree.setDragEnabled(true);
@@ -1109,8 +1112,9 @@ private RButton getDeleteButton() {
 		deleteButton.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/delete/24\")%>");
 		deleteButton.setStyleProperties("{/horizontalAlignment \"LEFT\"/font {/name \"Tahoma\"/size \"10\"/style \"PLAIN\"}/insetsBottom \"0\"/insetsTop \"0\"/insetsRight \"0\"/fill \"HORIZONTAL\"/insetsLeft \"0\"}");
 		deleteButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/delete/16\")%>");
+		deleteButton.setEnabled(true);
 		deleteButton.setText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/buttonLabels/deleteFiles\")%>");
-		deleteButton.setEnabler(getFileNameInvisibleTextField());
+		//deleteButton.setEnabler(getFileNameInvisibleTextField());
 		//deleteButton.registerKeyboardAction(getActionForDeleteButton(), KeyStroke.getKeyStroke(KeyEvent.VK_DELETE,0), WHEN_IN_FOCUSED_WINDOW);
 		
 	}
@@ -1221,6 +1225,7 @@ GridBagLayoutPane = new RGridBagLayoutPane();
 		GridBagLayoutPane.setName("GridBagLayoutPane");
 		GridBagLayoutPane.setStyleProperties("{/weightY \"1\"/weightX \"1\"}");
 			GridBagLayoutPane.add(getFilesGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+			GridBagLayoutPane.add(getDirectorySecurityManagerPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 
 	return GridBagLayoutPane;
@@ -1277,12 +1282,8 @@ private RButton getToogleFileListingButton() {
 		toogleFileListingButton = new RButton();
 		toogleFileListingButton.setBorderPainted(false);
 		toogleFileListingButton.setName("toogleFileListingButton");
-		toogleFileListingButton.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/addons/filemanager/fileManagement/tooltips/toogleFileListing\")%>");
 		toogleFileListingButton.setStyleProperties("{/horizontalAlignment \"LEFT\"}");
-		toogleFileListingButton.setPressedIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/fileSharing/24\")%>");
-		toogleFileListingButton.setRolloverIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/fileSharing/24\")%>");
 		toogleFileListingButton.setText(" ");
-		toogleFileListingButton.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/addons/icons/fileSharing/16\")%>");
 	}
 	return toogleFileListingButton;
 }
@@ -1894,6 +1895,22 @@ private RMenuItem getSetDescriptionMenuItem() {
 		setDescriptionMenuItem.setName("setDescriptionMenuItem");
 	}
 	return setDescriptionMenuItem;
+}
+
+/**
+ * This method initializes directorySecurityManagerPanel, an embedded RichDialog.
+ * The created object might have a different type than the declared
+ * class due to overriding.
+ * @returns com.ulcjava.base.application.ULCContainer 
+ */
+private ULCContainer getDirectorySecurityManagerPanel() {
+	if (directorySecurityManagerPanel == null) {
+		directorySecurityManagerPanel = RichDialogPanelFactory
+				.create(DirectorySecurityManagerPanel.class);
+		directorySecurityManagerPanel.setName("directorySecurityManagerPanel");
+		directorySecurityManagerPanel.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
+	}
+	return directorySecurityManagerPanel;
 }
 
 

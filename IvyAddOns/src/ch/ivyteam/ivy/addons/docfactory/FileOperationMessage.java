@@ -9,7 +9,7 @@ import ch.ivyteam.ivy.scripting.objects.List;
 /**
  * @author ec
  * @since 27.10.2009
- * THis class describes an object that can be returned after any operation on or about Files (java.io.File)<br>
+ * Tiis class describes an object that can be returned after any operation on or about Files (java.io.File)<br>
  * Such an operation can be an Upload, download, a letter generation with a document factory...
  *
  */
@@ -17,7 +17,7 @@ public class FileOperationMessage {
 	
 	/** the message that is returned by the operation*/
 	private String message;
-	/** the Files taht can be implied, created ect... by the operation*/
+	/** the Files that can be implied, created etc... by the operation*/
 	private List<java.io.File> files;
 	/** the type of the message (SUCCESS_MESSAGE, ERROR_MESSAGE, INFORMATION_MESSAGE)*/
 	private int type;
@@ -100,7 +100,7 @@ public class FileOperationMessage {
 	}
 
 	/**
-	 * Clears the files List
+	 * Clears the files List and creates the file list if it is null.
 	 */
 	public void emptyFileList(){
 		if(this.files==null)

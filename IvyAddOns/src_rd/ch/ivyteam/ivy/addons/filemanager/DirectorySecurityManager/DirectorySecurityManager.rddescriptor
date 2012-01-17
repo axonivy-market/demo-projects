@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <autoScreenshot>true</autoScreenshot>
+    <method>
+        <name>load</name>
+        <description>Load the roles Tree if not already done</description>
+    </method>
+    <method>
+        <name>mapSelectedIRoleRights</name>
+        <description></description>
+    </method>
+    <method>
+        <name>showError</name>
+        <description></description>
+    </method>
+    <method>
+        <name>setSelectedFolderOnServer</name>
+        <description></description>
+        <inputParameter>
+            <name>selectedFolderOnServer</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.FolderOnServer</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_makeSelectedChekBoxesConsistent</name>
+        <description></description>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>ivyDBConnexionName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>dirTableName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>schemaName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <firedEvent>
+        <name>hiddeMe</name>
+        <description></description>
+    </firedEvent>
+    <property>
+        <name>guid</name>
+        <value>132D1B65FD844730</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

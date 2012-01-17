@@ -12,6 +12,7 @@ import ch.ivyteam.ivy.scripting.objects.Tree;
 import ch.ivyteam.ivy.addons.filemanager.KeyValuePair;
 import ch.ivyteam.ivy.addons.filemanager.DocumentOnServer;
 import ch.ivyteam.ivy.addons.filemanager.ReturnedMessage;
+import ch.ivyteam.ivy.addons.filemanager.database.security.AbstractDirectorySecurityController;
 
 /**
  * @author ec<br>
@@ -64,13 +65,28 @@ public abstract class AbstractFileManagementHandler {
 	public abstract Class<?> getFileManagementHandlerClass();
 
 	/**
-	 * Insert a List of java.io.File Objects into the File indexation storing System
+	 * Insert a List of java.io.File Objects into the File indexation storing System.<br>
+	 * Has been marked as @deprecated because it doesn't fit the new needs of the new File Storage in DB, <br>
+	 * where the path will be different as the one from the java.io.File object.<br>
+	 * Please use insertFiles(List<java.io.File> _files, String _destinationPath, String _user) instead.<br>
+	 * This method will still be OK for file management on the server's file system.
 	 * @param _files: List<java.io.File> the files to add into the db
 	 * @param _user: String representation of the user who is performing this operation
 	 * @return the number of inserted Files
 	 * @throws Exception
 	 */
+	@Deprecated
 	public abstract int insertFiles(List<java.io.File> _files, String _user) throws Exception;
+	
+	/**
+	 * Insert a List of java.io.File Objects into the File storing System
+	 * @param _files: the java.io.File to be inserted
+	 * @param _destinationPath: the path where the files have to be stored
+	 * @param _user: the Ivy user name who performs this action. If it is not set (null or empty String), the Ivy.session().getUserName() will be used.
+	 * @return the number of inserted files
+	 * @throws Exception
+	 */
+	public abstract int insertFiles(List<java.io.File> _files, String _destinationPath, String _user) throws Exception;
 
 	/**
 	 * Insert a List of DocumentOnServer Objects into the File indexation storing System
@@ -89,13 +105,28 @@ public abstract class AbstractFileManagementHandler {
 
 	/**
 	 * Insert a  java.io.File Object into the File indexation storing System.
+	 * Has been marked as @deprecated because it doesn't fit the new needs of the new File Storage in DB, <br>
+	 * where the path will be different as the one from the java.io.File object.<br>
+	 * Please use insertFile(List<java.io.File> _files, String _destinationPath, String _user) instead.<br>
+	 * This method will still be OK for file management on the server's file system.
 	 * @param _file: java.io.File that has to be inserted into the File indexation storing System.
 	 * @param _user the user name who inserts the file
-	 * @return the number of inserted files
+	 * @return the number of inserted file
 	 * @throws Exception
 	 */
+	@Deprecated
 	public abstract int insertFile(java.io.File _file, String _user) throws Exception;
 
+	/**
+	 * Insert a  java.io.File Object into the File indexation storing System.
+	 * @param _file: java.io.File that has to be inserted
+	 * @param _destinationPath: where the File should go
+	 * @param _user: the Ivy user name who performs this action. If it is not set (null or empty String), the Ivy.session().getUserName() will be used.
+	 * @return the number of inserted file
+	 * @throws Exception
+	 */
+	public abstract int insertFile(java.io.File _file, String _destinationPath, String _user) throws Exception;
+	
 	/**
 	 * renames a DocumentOnServer Object in the file persistency system.
 	 * @param _doc the DocumentOnServer Object that will be renamed
@@ -340,6 +371,40 @@ public abstract class AbstractFileManagementHandler {
 	public abstract ReturnedMessage saveDocumentOnServer(DocumentOnServer _document, String _fileDestinationPath) throws Exception;
 	
 	/**
+	 * Moves a ch.ivyteam.ivy.addons.filemanager.DocumentOnServer in the persistence System (File System, database...)
+	 * @param _document: the ch.ivyteam.ivy.addons.filemanager.DocumentOnServer to save
+	 * @param _fileDestinationPath: where to save the DocumentOnServer. If the destinationPath is the same than the DocumentOnServer Path nothing happens.<br>
+	 * @return the moved ch.ivyteam.ivy.addons.filemanager.DocumentOnServer contained in the ch.ivyteam.ivy.addons.filemanager.ReturnedMessage object
+	 * @throws Exception
+	 */
+	public abstract ReturnedMessage moveDocumentOnServer(DocumentOnServer _document, String _fileDestinationPath) throws Exception;
+	
+	/**
+	 * Checks if a given DocumentOnServer already exists in a path.
+	 * @param _document: the DocumentOnServer object
+	 * @param _path: the path where to check
+	 * @return true if a documentOnServer with the name of the given DocumentOnServer is present in the given path. Else returns false.
+	 * @throws Exception
+	 */
+	public abstract boolean documentOnServerExists(DocumentOnServer _document, String _path) throws Exception;
+	
+	/**
+	 * Checks if a File denoted by the given path exists
+	 * @param _filePath: the filePath to check
+	 * @return: true if the file exists and false if not
+	 * @throws Exception
+	 */
+	public abstract boolean fileExists(String _filePath) throws Exception;
+	
+	/**
+	 * delete the file denoted by the given path
+	 * @param _filePath: the path from the file to delete
+	 * @return true if the file was deleted else false
+	 * @throws Exception
+	 */
+	public abstract boolean deleteFile(String _filePath) throws Exception;
+	
+	/**
 	 * Insert a list of copied ch.ivyteam.ivy.addons.filemanager.DocumentOnServer in the persistence System (File System, database...).
 	 * This methods adds a _CopyX at the end of the name of copied Files if they would have overwritten other existing files.
 	 * @param _document: the List<DocumentOnServer> copied objects to save
@@ -377,6 +442,41 @@ public abstract class AbstractFileManagementHandler {
 	public abstract ReturnedMessage deleteDocumentOnServers(List<DocumentOnServer> _documents) throws Exception;
 	
 	/**
+	 * Creates a ZIP File containing the given documentOnServer Objects
+	 * @param _documents: list of DocumentOnServer Objects to put in the ZIP file
+	 * @param _dirPath: the path of the parent directory where to put the ZIP
+	 * @param _zipName: the name of the ZIP file
+	 * @param _checkIfExists: if true, the method  will check if the zipFile exists. If so, the new ZIP will not be created,<br>
+	 * a ReturnedMasseage with the Information will be returned. If false, the ZIP will be created even if the file already exists.
+	 * @return a ch.ivyteam.ivy.addons.filemanager.ReturnedMessage containing the type of result <br>
+	 * (ch.ivyteam.ivy.addons.filemanager.ReturnedMessage.SUCCESS_MESSAGE / ERROR_MESSAGE / INFORMATION_MESSAGE);
+	 * @throws Exception
+	 */
+	public abstract ReturnedMessage zipDocumentOnServers(List<DocumentOnServer> _documents, String _dirPath, String _zipName, boolean _checkIfExists) throws Exception;
+	
+	/**
+	 * set the description on the file with the given path.<br>
+	 * The description is stored in the files table in the database.
+	 * @param _path: the path of the file
+	 * @param _description: the description
+	 * @return: a ch.ivyteam.ivy.addons.filemanager.ReturnedMessage containing the type of result <br>
+	 * (ch.ivyteam.ivy.addons.filemanager.ReturnedMessage.SUCCESS_MESSAGE / ERROR_MESSAGE / INFORMATION_MESSAGE);
+	 * @throws Exception
+	 */
+	public abstract ReturnedMessage setFileDescription(String _path, String _description) throws Exception;
+	
+	/**
+	 * set the description on the given documentOnServer object.<br>
+	 * The description is stored in the files table in the database.
+	 * @param _document: documentOnServer object which id or path has to be set.
+	 * @param _description: the description
+	 * @return: a ch.ivyteam.ivy.addons.filemanager.ReturnedMessage containing the type of result <br>
+	 * (ch.ivyteam.ivy.addons.filemanager.ReturnedMessage.SUCCESS_MESSAGE / ERROR_MESSAGE / INFORMATION_MESSAGE);
+	 * @throws Exception
+	 */
+	public abstract ReturnedMessage setFileDescription(DocumentOnServer _document, String _description) throws Exception;
+	
+	/**
 	 * Returns the directory structure as a Tree under a parent folder.  
 	 * @param _rootPath the path of the root directory
 	 * @return the directory structure as a ch.ivyteam.ivy.scripting.objects.Tree
@@ -402,7 +502,28 @@ public abstract class AbstractFileManagementHandler {
 	public abstract ReturnedMessage createDirectory(String _destinationPath, String _newDirectoryName) throws Exception;
 	
 	/**
-	 * Deletes the given directory and all the contained files and directories
+	 * tells if a directory denoted by the given path exists.
+	 * @param directoryPath: the directory path
+	 * @return true if it does exists, else false.<br>
+	 * Returns also false if the parameter is null or an empty String.
+	 * @throws Exception
+	 */
+	public abstract boolean directoryExists(String directoryPath) throws Exception;
+	
+	/**
+	 * Tells if a directory denoted by the given path is empty. <br>
+	 * If the directory contains at least one directory or one file it is not empty.
+	 * @param directoryPath: the directory path
+	 * @return true if the directory is empty, else false. Returns true if the directory doesn't exist.
+	 * @throws Exception: IllegalArgumentException if directoryPath is null or an empty String
+	 */
+	public abstract boolean isDirectoryEmpty(String directoryPath) throws Exception;
+	
+	/**
+	 * Deletes the given directory and all the contained files and directories.<br>
+	 * If the security is activated, it will check if the session user has the right to delete this directory.<br>
+	 * If not it will not delete the directory.<br>
+	 * 
 	 * @param _directoryPath : the path of the directory to delete
 	 * @return a ch.ivyteam.ivy.addons.filemanager.ReturnedMessage containing the type of result <br>
 	 * (ch.ivyteam.ivy.addons.filemanager.ReturnedMessage.SUCCESS_MESSAGE / ERROR_MESSAGE / INFORMATION_MESSAGE);
@@ -410,14 +531,33 @@ public abstract class AbstractFileManagementHandler {
 	public abstract ReturnedMessage deleteDirectory(String _directoryPath) throws Exception;
 	
 	/**
+	 * <b><h1>WARNING: USE THIS METHOD WITH CAUTION!</h1></b><br>
+	 * This method allows deleting a directory without checking if the session user has the right for it or not.<br>
+	 * It does not check if the directory is empty also.<br>
+	 * This method deletes the directory itself, all its sub-directories and all the contained files.<br>
+	 * Please use the isDirectoryEmpty method if you want to check if the directory contains other files or directories.
+	 * @param _path the directory path to delete
+	 * @return true if delete successful, else false
+	 * @throws Exception
+	 */
+	public abstract ReturnedMessage deleteDirectoryAsAdministrator(String _directoryPath) throws Exception;
+	
+	/**
 	 * Renames a directory
-	 * @param _parentPath
-	 * @param _oldName
-	 * @param _newName
+	 * @param _path: the path of the directory (includes the name of the directory to rename)
+	 * @param _newName: the new name
 	 * @return a ch.ivyteam.ivy.addons.filemanager.ReturnedMessage containing the type of result <br>
 	 * (ch.ivyteam.ivy.addons.filemanager.ReturnedMessage.SUCCESS_MESSAGE / ERROR_MESSAGE / INFORMATION_MESSAGE);
 	 */
-	public abstract ReturnedMessage renameDirectory(String _parentPath, String _oldName, String _newName) throws Exception;
+	public abstract ReturnedMessage renameDirectory(String _path, String _newName) throws Exception;
+	
+	/**
+	 * returns the FileManager Security Controller if applicable.<br>
+	 * If the Security controlling is not implemented, this method should return null.
+	 * @return the FileManager Security Controller if applicable, or null
+	 * @throws Exception
+	 */
+	public abstract AbstractDirectorySecurityController getSecurityController() throws Exception;
 	
 	/**
 	 * Get the storage type where the files' content is going to be stored
@@ -471,6 +611,37 @@ public abstract class AbstractFileManagementHandler {
 			if(!_path.endsWith("/"))
 			{
 				_path=_path+"/";
+			}
+		}
+		return _path;
+	}
+	
+	/**
+	 * Formats a given directory path with "/" as separator<br>
+	 * so that it is always compatible for Windows, Linux and Mac OS.<br>
+	 * The resulting path never ends or begins with "/"<br> 
+	 * Example: if you give "\\root\\test\\test1\\" the result will be "root/test/test1".
+	 * If you enter "//////", empty String "" will be returned..
+	 * @param _path
+	 * @return formatted path with "/"
+	 */
+	public static String formatPathForDirectoryWithoutLastSeparator(String _path)
+	{
+		if(_path != null && !_path.trim().equals(""))
+		{
+			_path=_path.trim();
+			_path = org.apache.commons.lang.StringUtils.replace(_path,"\\", "/");
+			while(_path.endsWith("/")&& _path.length()>1)
+			{
+				_path=_path.substring(0, _path.length()-1);
+			}
+			while(_path.startsWith("/") && _path.length()>1)
+			{
+				_path=_path.substring(1);
+			}
+			if(_path.startsWith("/"))
+			{
+				_path="";
 			}
 		}
 		return _path;

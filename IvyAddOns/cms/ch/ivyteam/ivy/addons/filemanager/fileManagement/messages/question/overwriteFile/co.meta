@@ -1,4 +1,4 @@
-co: name={overwriteFile} description={} changed={2010-01-06 07:25:48 CET} changedby={ec} visualorder={0} guid={12157E378B481F27} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={12157E378D36FD06} datatype={} isdefault={true} langid={en} description={} validfrom={2009-05-19 10:01:13 CEST} validto={} changed={2010-01-06 07:25:48 CET} changedby={ec} properties={} id={}
-val: guid={122A77898BCA0757} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-23 13:56:54 CEST} validto={} changed={2009-07-23 13:56:54 CEST} changedby={xtrans} properties={} id={}
-val: guid={122A7789A058FCA6} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-07-23 13:56:54 CEST} validto={} changed={2010-01-06 07:25:48 CET} changedby={ec} properties={} id={}
+co: name={overwriteFile} description={} changed={2012-01-17 16:43:40 CET} changedby={ec} visualorder={0} guid={12157E378B481F27} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={122A7789A058FCA6} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-07-23 13:56:54 CEST} validto={} changed={2012-01-17 16:43:39 CET} changedby={ec} properties={} id={}
+val: guid={122A77898BCA0757} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-23 13:56:54 CEST} validto={} changed={2012-01-17 16:43:40 CET} changedby={ec} properties={} id={}
+val: guid={12157E378D36FD06} datatype={} isdefault={true} langid={en} description={} validfrom={2009-05-19 10:01:13 CEST} validto={} changed={2012-01-17 16:43:40 CET} changedby={ec} properties={} id={}

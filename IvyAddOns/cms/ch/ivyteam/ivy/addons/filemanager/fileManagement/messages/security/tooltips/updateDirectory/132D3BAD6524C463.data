@@ -1,0 +1,6 @@
+<P>
+Gibt die Berechtigung das selektierte Verzeichnis zu verändern.<BR>
+Man kann das Verzeichnis umbennen oder Unterverzeichnisse kreieren.<BR>
+Es git automatisch die "öffnen das Verzeichnis" Berechtigung.<BR>
+Es ist nicht erlaubt das Verzeichnis zu löschen. 
+</P>

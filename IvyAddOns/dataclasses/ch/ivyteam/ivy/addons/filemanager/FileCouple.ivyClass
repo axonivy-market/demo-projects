@@ -12,3 +12,5 @@ clientFileAdler32 Number #field
 clientFileAdler32 'Adler32 Checksum from the File at client side (Not used at that time).' #fieldComment
 serverSidePath String #field
 serverSidePath 'If the File is stored in a DB, the "physical" java.io.File is surely contained in a temp directory during its edition. The serverFile path can differ from the serverSidePath.' #fieldComment
+referencedDocumentOnServer ch.ivyteam.ivy.addons.filemanager.DocumentOnServer #field
+referencedDocumentOnServer 'used to reference the documentOnServer object related to the file edited' #fieldComment

@@ -1,4 +1,5 @@
 WriteSerialLetter #class
+'This DataClass is used to create the document in the DocFactory.' #classComment
 ch.ivyteam.ivy.addons.docfactory #namespace
 documentFactory ch.ivyteam.ivy.addons.docfactory.BaseDocFactory #field
 documentFactory 'the docFactory object that is responsible of the documents generation' #fieldComment
@@ -18,3 +19,13 @@ fileOperationMessage ch.ivyteam.ivy.addons.docfactory.FileOperationMessage #fiel
 fileOperationMessage 'Object that will be returned by the docFactory Object after the file generation' #fieldComment
 documentTemplate ch.ivyteam.ivy.addons.docfactory.DocumentTemplate #field
 documentTemplate 'A documentTemplate can generate a letter by itself' #fieldComment
+tablesNamesList List<String> #field
+tablesNamesList 'If the template contains some table to fill through Mail Merge With regions, this is the list of those tables names in the template.' #fieldComment
+ListOfCompositeObjectsToFillTheTables List<List<ch.ivyteam.ivy.scripting.objects.CompositeObject>> #field
+ListOfCompositeObjectsToFillTheTables 'Each List of Composite Object represents the rows for a table (Mail Merge Regions). The CompositeObjects attributesNames are going to be  used to match the merge fields names of each tables.' #fieldComment
+ListOfRecordsets List<Recordset> #field
+ListOfRecordsets 'Each Recordset represents the rows for a table (Mail Merge Regions). The recordset fieldNames are going to be  used to match the merge fields names of each tables.' #fieldComment
+ListOfTableFieldsNames List<List<String>> #field
+ListOfTableFieldsNames 'Each List<String> represents the names of the merge Field in one table row. Used with the ListOfTableRows parameter.' #fieldComment
+ListOfTablesRows List<List<List<Object>>> #field
+ListOfTablesRows 'Each List<List<Object>> represents the rows destinated to fill one table. It is used with the ListOfTableFieldsNames parameter.' #fieldComment

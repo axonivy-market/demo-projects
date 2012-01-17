@@ -928,6 +928,81 @@ See ch.xpertline.updownload.FileDownloadHandler javadoc.</description>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
+    <method>
+        <name>getDocumentsWithSQLConditions</name>
+        <description>*** FOR ADVANCED USERS ONLY ***&#xD;
+Allows you to specify a list of SQL Query Conditions to be able to make a search on the FileManager Files DB.&#xD;
+For example getDocumentsWithSqlConditions([&quot;FilePath LIKE 'test/test1/%'&quot;, &quot;CreationUserId LIKE 'ec'&quot;]) &#xD;
+will return the list of all documents&#xD;
+under the specified path and created by the user ec.</description>
+        <inputParameter>
+            <name>conditions</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>foundDocuments</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>_onUploadSuccessForFilesInDB</name>
+        <description>FOR CALLBACK USE ONLY / USED IN CASE OF FILES STORED IN DB&#xD;
+This methods allows a FileUploadHandler Object to call the RDProcess back when files upload success.&#xD;
+The Object returned is a ReturnedMessage object. It contains the List of DocumentOnServer uploaded.&#xD;
+To be able to call this method back, the FileUploadHandler has to be instantiated with a reference to this method, &#xD;
+or the method has to be referenced dynamically with the setSuccessMethodName method of the FileUploadHandler&#xD;
+</description>
+        <inputParameter>
+            <name>returnedMessage</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_askIfOverwriteExistingDocumentsOnServer</name>
+        <description>intern callback method&#xD;
+used in DnD events to ask the user if some existing Files should be overwritten. &#xD;
+This callback method is used when the files are stored in the database and not in the file system.</description>
+        <inputParameter>
+            <name>choosedFiles</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>choosedDocs</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>documentsToOverwrite</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>destinationPathInDB</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getFileManagerSecurityController</name>
+        <description></description>
+        <outputParameter>
+            <name>fileManagerSecurityController</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.database.security.AbstractDirectorySecurityController</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
     <startMethod>
         <name>startAsPathChooser</name>
         <description>start the RDC as Path chooser. The user will be able to make a new directory, no actions on Files are possible.&#xD;
@@ -1208,6 +1283,64 @@ By clicking on the OK button, the RDC gives the choosed path back, else, empty s
             <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description>The entry Path of the FileManager</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>useIvySystemDB</name>
+            <description>If true, the files' informations are going to be stored in the Ivy System Database, if false you will use a separate external database (see ivyDBConnectionName, schemaName, FileTableName, DirTableName parameters)</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>ivyDBConnectionName</name>
+            <description>If use of external DB, this is the user friendly Ivy connection to the DB.</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>schemaName</name>
+            <description>If use of external DB with engine that supports Schemas like PostGreSQL</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>fileTableName</name>
+            <description>The name of the table that stores the informations relative to the files</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>fileContentTableName</name>
+            <description>The name of the table that stores the file content</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>dirTableName</name>
+            <description>The name of the table that stores the informations relative to the directories (only necessary if the files content is stored in the fileTable (see storeFilesInDB parameter)</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>storeFilesInDB</name>
+            <description>If true, the file content will be also stored in the fileTable. </description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>activateSecurity</name>
+            <description>If true, the security on the directories will be taken. The security Informations are stored in the dirTable. This only works for the moment with storeFilesInDB parameter to true. Parameter storeFilesInDB to false implies this parameter to false also.</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
     </startMethod>
     <firedEvent>
         <name>SE_fileRenamed</name>

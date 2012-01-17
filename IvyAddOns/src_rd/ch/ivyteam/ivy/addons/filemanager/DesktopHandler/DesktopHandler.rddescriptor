@@ -576,6 +576,17 @@ It gives to the parent subscriber the file separator at client side: &quot;/&quo
             <nullPermitted>true</nullPermitted>
         </attachment>
     </firedEvent>
+    <firedEvent>
+        <name>fileCoupleModifiedReported</name>
+        <description>event sent whenever the FileCoupleChecker reports a Modified FileCouple.&#xD;
+The overlying program can then traces the changes.</description>
+        <attachment>
+            <name>fileCouple</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.FileCouple</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
     <property>
         <name>guid</name>
         <value>125F850DA67D6A67</value>
