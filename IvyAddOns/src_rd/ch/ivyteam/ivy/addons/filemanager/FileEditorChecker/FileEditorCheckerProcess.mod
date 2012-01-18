@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 12 12:30:19 EDT 2011]
+[>Created: Fri May 20 10:41:05 CEST 2011]
 125F987FBCF8B3EC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FileEditorCheckerProcess Big #zClass
@@ -48,6 +48,7 @@ Fs0 @RichDialogMethodStart f31 '' #zField
 Fs0 @RichDialogProcessEnd f32 '' #zField
 Fs0 @RichDialogFireEvent f34 '' #zField
 Fs0 @PushWFArc f35 '' #zField
+Fs0 @PushWFArc f33 '' #zField
 Fs0 @RichDialogMethodStart f36 '' #zField
 Fs0 @PushWFArc f8 '' #zField
 Fs0 @RichDialogMethodStart f20 '' #zField
@@ -55,12 +56,6 @@ Fs0 @RichDialogProcessStep f37 '' #zField
 Fs0 @PushWFArc f38 '' #zField
 Fs0 @RichDialogProcessEnd f39 '' #zField
 Fs0 @PushWFArc f40 '' #zField
-Fs0 @RichDialogFireEvent f33 '' #zField
-Fs0 @PushWFArc f42 '' #zField
-Fs0 @Alternative f43 '' #zField
-Fs0 @PushWFArc f44 '' #zField
-Fs0 @PushWFArc f41 '' #zField
-Fs0 @PushWFArc f45 '' #zField
 >Proto Fs0 Fs0 FileEditorCheckerProcess #zField
 Fs0 f0 guid 11E259C2E7C3B828 #txt
 Fs0 f0 type ch.ivyteam.ivy.addons.filemanager.FileEditorChecker.FileEditorCheckerData #txt
@@ -298,19 +293,6 @@ Fs0 f31 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 ' #txt
 Fs0 f31 inParameterMapAction 'out.fileModified=param.modifiedFile;
 ' #txt
-Fs0 f31 inActionCode 'import ch.ivyteam.ivy.addons.filemanager.FileCouple;
-boolean found =false;
-for(FileCouple fc : out.fileCouplesList){
-	if(param.modifiedFile.getPath().equals(fc.getServerFile().getPath())){
-		found =true;
-		out.fileCoupleModified=fc;
-		break;
-	}
-}
-
-if(!found){
-	out.fileCoupleModified=null;
-}' #txt
 Fs0 f31 outParameterDecl '<> result;
 ' #txt
 Fs0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -325,7 +307,7 @@ Fs0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Fs0 f31 750 286 20 20 -36 -30 #rect
 Fs0 f31 @|RichDialogMethodStartIcon #fIcon
 Fs0 f32 type ch.ivyteam.ivy.addons.filemanager.FileEditorChecker.FileEditorCheckerData #txt
-Fs0 f32 747 499 26 26 14 0 #rect
+Fs0 f32 747 379 26 26 14 0 #rect
 Fs0 f32 @|RichDialogProcessEndIcon #fIcon
 Fs0 f34 actionDecl 'java.io.File modifiedFile;
 ' #txt
@@ -338,17 +320,19 @@ Fs0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>fileModified(File)
-@SUBSCRIBERS</name>
+@APP</name>
         <nameStyle>19,7,9
-12,7,9
+4,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f34 742 340 36 24 23 -20 #rect
+Fs0 f34 742 324 36 24 23 -8 #rect
 Fs0 f34 @|RichDialogFireEventIcon #fIcon
 Fs0 f35 expr out #txt
-Fs0 f35 760 306 760 340 #arcP
+Fs0 f35 760 306 760 324 #arcP
+Fs0 f33 expr out #txt
+Fs0 f33 760 348 760 379 #arcP
 Fs0 f36 guid 125F99D12D9BCFAE #txt
 Fs0 f36 type ch.ivyteam.ivy.addons.filemanager.FileEditorChecker.FileEditorCheckerData #txt
 Fs0 f36 method setFileCouplesList(List<ch.ivyteam.ivy.addons.filemanager.FileCouple>) #txt
@@ -410,58 +394,6 @@ Fs0 f39 342 542 20 20 13 0 #rect
 Fs0 f39 @|RichDialogProcessEndIcon #fIcon
 Fs0 f40 expr out #txt
 Fs0 f40 352 500 352 542 #arcP
-Fs0 f33 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileCouple fileCoupleModified;
-' #txt
-Fs0 f33 actionTable 'fileCoupleModified=in.fileCoupleModified;
-' #txt
-Fs0 f33 actionCode panel.fireFileCoupleModified(fileCoupleModified); #txt
-Fs0 f33 type ch.ivyteam.ivy.addons.filemanager.FileEditorChecker.FileEditorCheckerData #txt
-Fs0 f33 fireEvent fileCoupleModified(ch.ivyteam.ivy.addons.filemanager.FileCouple) #txt
-Fs0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>fileCoupleModified@
-SUBSCRIBERS</name>
-        <nameStyle>31
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Fs0 f33 742 436 36 24 20 -2 #rect
-Fs0 f33 @|RichDialogFireEventIcon #fIcon
-Fs0 f42 expr out #txt
-Fs0 f42 760 460 760 499 #arcP
-Fs0 f43 type ch.ivyteam.ivy.addons.filemanager.FileEditorChecker.FileEditorCheckerData #txt
-Fs0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>check if fileCoupleModified not null</name>
-        <nameStyle>36
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Fs0 f43 746 378 28 28 14 0 #rect
-Fs0 f43 @|AlternativeIcon #fIcon
-Fs0 f44 expr out #txt
-Fs0 f44 760 364 760 378 #arcP
-Fs0 f41 expr in #txt
-Fs0 f41 outCond 'in.#fileCoupleModified!=null' #txt
-Fs0 f41 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>NOT Null</name>
-        <nameStyle>8
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Fs0 f41 760 406 760 436 #arcP
-Fs0 f45 expr in #txt
-Fs0 f45 746 392 747 512 #arcP
-Fs0 f45 1 712 392 #addKink
-Fs0 f45 2 712 512 #addKink
-Fs0 f45 1 0.39419492545379203 0 0 #arcLabel
 >Proto Fs0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -506,17 +438,11 @@ Fs0 f27 mainOut f30 tail #connect
 Fs0 f30 head f28 mainIn #connect
 Fs0 f31 mainOut f35 tail #connect
 Fs0 f35 head f34 mainIn #connect
+Fs0 f34 mainOut f33 tail #connect
+Fs0 f33 head f32 mainIn #connect
 Fs0 f36 mainOut f8 tail #connect
 Fs0 f8 head f19 mainIn #connect
 Fs0 f20 mainOut f38 tail #connect
 Fs0 f38 head f37 mainIn #connect
 Fs0 f37 mainOut f40 tail #connect
 Fs0 f40 head f39 mainIn #connect
-Fs0 f33 mainOut f42 tail #connect
-Fs0 f42 head f32 mainIn #connect
-Fs0 f34 mainOut f44 tail #connect
-Fs0 f44 head f43 in #connect
-Fs0 f43 out f41 tail #connect
-Fs0 f41 head f33 mainIn #connect
-Fs0 f43 out f45 tail #connect
-Fs0 f45 head f32 mainIn #connect

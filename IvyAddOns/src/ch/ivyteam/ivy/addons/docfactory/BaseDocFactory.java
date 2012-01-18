@@ -5,16 +5,11 @@ package ch.ivyteam.ivy.addons.docfactory;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.List;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
-import ch.ivyteam.ivy.scripting.objects.CompositeObject;
-import ch.ivyteam.ivy.scripting.objects.Recordset;
 import ch.ivyteam.ivy.addons.docfactory.TemplateMergeField;
-
 
 /**
  * @author ec
@@ -195,7 +190,7 @@ public abstract class BaseDocFactory{
 	 * By convention, the name of each File is given by the first TemplateMergeField, which key name must be "filename".
 	 * @param templatePath : where to find the template
 	 * @param _outputPath : where to save the new generated File on the server
-	 * @param _outputFormat : format ".doc", ".docx", ".pdf", ".txt" or ".html" 
+	 * @param _outputFormat : format ".doc", ".docx", ".pdf", or ".html" 
 	 * @param list : List of List of parameters (TemplateMergeField objects). <br>
 	 * Each List of TemplateMergeField objects in the primary List will be turned into a new document.
 	 * @return The FileOperationMessage object containing the Type of the message (FileHandler.SUCCESS, ERROR, INFORMATION_MESSAGE),<br>
@@ -208,56 +203,13 @@ public abstract class BaseDocFactory{
 	 * By convention, the name of each File is given by the first TemplateMergeField, which key name must be "filename".<br>
 	 * By convention, the name of each destination folder is given by the second TemplateMergeField, which key name must be "destinationPath".<br>
 	 * @param templatePath : where to save the new generated File on the server
-	 * @param _outputFormat : format ".doc", ".docx", ".pdf", ".txt" or ".html"  
+	 * @param _outputFormat : format ".doc", ".docx", ".pdf", or ".html" 
 	 * @param list : List of List of parameters (TemplateMergeField objects). <br>
 	 * Each List of TemplateMergeField objects in the primary List will be turned into a new document.
 	 * @return The FileOperationMessage object containing the Type of the message (FileHandler.SUCCESS, ERROR, INFORMATION_MESSAGE),<br>
 	 *  the text of the message and null File Object<br>
 	 */
 	public abstract FileOperationMessage generateDocumentsWithDifferentDestination(String templatePath, String _outputFormat, List<List<TemplateMergeField>> list);
-	
-	
-	/**
-	 * Method to generate one document with merge mail. Mail Merge with regions supported.<br>
-	 * @param _templatePath: the template path that is used as document's model for the fields merging.
-	 * @param _outoutName: optional String for the name of the created document
-	 * @param _outputPath: optional String for the destination folder path
-	 * @param _outputFormat: format ".doc", ".docx", ".pdf", ".txt" or ".html" 
-	 * @param _mergefields: a List of ch.ivyteam.ivy.addons.docfactory.TemplateMergeField Objects for "normal" mail merge.
-	 * @param _tablesNamesAndFieldsmap: HashMap<String, List<CompositeObject>> HashMap containing the tables names (merge regions) from the template an the Lists of dataClasses Objects to feed the tables. 
-	 * @return The FileOperationMessage object containing the Type of the message (FileHandler.SUCCESS, ERROR, INFORMATION_MESSAGE),<br>
-	 *  the text of the message and null File Object<br>
-	 */
-	public abstract FileOperationMessage generateDocumentWithRegions(String _templatePath, String _outputName, String _outputPath, String _outputFormat, List<TemplateMergeField> _mergefields, HashMap<String, List<CompositeObject>> _tablesNamesAndFieldsmap);
-	
-	/**
-	 * Method to generate one document with merge mail. Mail Merge with regions supported.<br>
-	 * @param _templatePath: the template path that is used as document's model for the fields merging.
-	 * @param _outoutName: optional String for the name of the created document
-	 * @param _outputPath: optional String for the destination folder path
-	 * @param _outputFormat: format ".doc", ".docx", ".pdf", ".txt" or ".html" 
-	 * @param _mergefields: a List of ch.ivyteam.ivy.addons.docfactory.TemplateMergeField Objects for "normal" mail merge.
-	 * @param _hashtable: Hashtable<String, Recordset> each String is the table Name in  the template with its corresponding Recordset to feed the table. <br>
-	 * Each recordset column name should correspond to a merge region field name in its corresponding table.
-	 * @return The FileOperationMessage object containing the Type of the message (FileHandler.SUCCESS, ERROR, INFORMATION_MESSAGE),<br>
-	 *  the text of the message and null File Object<br>
-	 */
-	public abstract FileOperationMessage generateDocumentWithRegions(String _templatePath, String _outputName, String _outputPath, String _outputFormat, List<TemplateMergeField> _mergefields, Hashtable<String, Recordset> _hashtable);
-	
-	/**
-	 * Method to generate one document with merge mail. Mail Merge with regions supported.<br>
-	 * @param _templatePath: the template path that is used as document's model for the fields merging.
-	 * @param _outoutName: optional String for the name of the created document
-	 * @param _outputPath: optional String for the destination folder path
-	 * @param _outputFormat: format ".doc", ".docx", ".pdf", ".txt" or ".html" 
-	 * @param _mergefields: a List of ch.ivyteam.ivy.addons.docfactory.TemplateMergeField Objects for "normal" mail merge.
-	 * @param _tablesNames: list of String representing the table names in the template
-	 * @param _tables_fieldsNames: for each table a list of String representing each merge field with region name (column name)
-	 * @param tables_rowsValues: for each table a list of list of values (list of rows) to feed the corresponding table.
-	 * @return The FileOperationMessage object containing the Type of the message (FileHandler.SUCCESS, ERROR, INFORMATION_MESSAGE),<br>
-	 *  the text of the message and null File Object<br>
-	 */
-	public abstract FileOperationMessage generateDocumentWithRegions(String _templatePath, String _outputName, String _outputPath, String _outputFormat, List<TemplateMergeField> _mergefields, List<String> _tablesNames, List<List<String>> _tables_fieldsNames, List<List<List<Object>>> tables_rowsValues);
 	
 	/**
 	 * Method to generate one or more documents each one can be saved in a different destination folder.<br>

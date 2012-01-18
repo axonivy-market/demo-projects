@@ -1,4 +1,0 @@
-co: name={deleteFiles} description={} changed={2011-10-05 14:38:16 CEST} changedby={ec} visualorder={0} guid={132D411EBF935864} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={132D411EBF99E28C} datatype={} isdefault={false} langid={de} description={} validfrom={2011-10-05 12:48:38 CEST} validto={} changed={2011-10-05 14:38:16 CEST} changedby={ec} properties={} id={}
-val: guid={132D411EBF9C305E} datatype={} isdefault={true} langid={en} description={} validfrom={2011-10-05 12:45:10 CEST} validto={} changed={2011-10-05 14:38:16 CEST} changedby={ec} properties={} id={}
-val: guid={132D411EC093633D} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-10-05 12:48:34 CEST} validto={} changed={2011-10-05 14:38:16 CEST} changedby={ec} properties={} id={}

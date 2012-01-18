@@ -12,5 +12,3 @@ fileModified java.io.File #field
 fileModified 'last modified File' #fieldComment
 clientFileSeparator String #field
 clientFileSeparator 'the file separator at client side: "/" by Unix systems and "\" by Windows systems' #fieldComment
-fileCoupleModified ch.ivyteam.ivy.addons.filemanager.FileCouple #field
-fileCoupleModified 'the last modified FIle Couple' #fieldComment

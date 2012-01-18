@@ -138,7 +138,7 @@ public final class FileUtil {
      * check if a String is a valid file name.<br>
      * In the filename we don't accept \/:<>*?|", tab, backspace, returnline and null<br>
      * @param filename
-     * @return true if the given File name is valid, else false
+     * @return true if the gibven File name is valid, else false
      */
     public static boolean isFileNameValid(String filename){
     	boolean b = true;

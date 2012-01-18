@@ -1,4 +1,0 @@
-co: name={openDirectory} description={} changed={2011-10-05 13:05:23 CEST} changedby={ec} visualorder={0} guid={132D3AFDB4539C8A} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={132D3BAB83A84005} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-10-05 12:48:34 CEST} validto={} changed={2011-10-05 13:05:23 CEST} changedby={ec} properties={} id={}
-val: guid={132D3BAB859501D3} datatype={} isdefault={false} langid={de} description={} validfrom={2011-10-05 12:48:38 CEST} validto={} changed={2011-10-05 13:05:23 CEST} changedby={ec} properties={} id={}
-val: guid={132D3AFDB45D4270} datatype={} isdefault={true} langid={en} description={} validfrom={2011-10-05 12:45:10 CEST} validto={} changed={2011-10-05 12:57:02 CEST} changedby={ec} properties={} id={}

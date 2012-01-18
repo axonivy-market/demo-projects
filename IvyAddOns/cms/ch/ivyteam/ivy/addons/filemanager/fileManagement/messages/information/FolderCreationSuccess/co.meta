@@ -1,4 +1,4 @@
-co: name={FolderCreationSuccess} description={} changed={2012-01-17 16:42:59 CET} changedby={ec} visualorder={0} guid={123711070F2BF981} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={1237110E2496073F} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-31 17:26:55 CEST} validto={} changed={2012-01-17 16:42:59 CET} changedby={ec} properties={} id={}
-val: guid={1237110AF1464702} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-31 17:26:41 CEST} validto={} changed={2012-01-17 16:42:59 CET} changedby={ec} properties={} id={}
-val: guid={123711070F29BB8B} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-31 17:26:26 CEST} validto={} changed={2012-01-17 16:42:59 CET} changedby={ec} properties={} id={}
+co: name={FolderCreationSuccess} description={} changed={2011-04-19 07:23:18 CEST} changedby={ec} visualorder={0} guid={123711070F2BF981} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={1237110E2496073F} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-31 17:26:55 CEST} validto={} changed={2011-04-19 07:23:18 CEST} changedby={ec} properties={} id={}
+val: guid={1237110AF1464702} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-31 17:26:41 CEST} validto={} changed={2011-04-19 07:23:18 CEST} changedby={ec} properties={} id={}
+val: guid={123711070F29BB8B} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-31 17:26:26 CEST} validto={} changed={2011-04-19 07:23:18 CEST} changedby={ec} properties={} id={}

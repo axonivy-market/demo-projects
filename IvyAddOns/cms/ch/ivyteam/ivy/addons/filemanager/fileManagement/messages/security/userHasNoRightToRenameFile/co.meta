@@ -1,4 +1,0 @@
-co: name={userHasNoRightToRenameFile} description={} changed={2011-10-05 03:28:44 CEST} changedby={ec} visualorder={0} guid={132D1A5FA1C3CF68} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={132D1A5FA329F0B4} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-31 16:11:20 CEST} validto={} changed={2011-10-05 03:28:44 CEST} changedby={ec} properties={} id={}
-val: guid={132D1A5FA2182388} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-31 16:10:05 CEST} validto={} changed={2011-10-05 03:28:44 CEST} changedby={ec} properties={} id={}
-val: guid={132D1A5FA2A80FD4} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-31 16:08:39 CEST} validto={} changed={2011-10-05 03:28:44 CEST} changedby={ec} properties={} id={}

@@ -1,12 +1,12 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-09-08 11:01:18 | 4.2.0.35989 | 1.0
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/12181518EFF20514
-~.uploadButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218163E13187083
-~.deleteButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218168796D76D51
-~@RD_METHODCALL[setServerPath(String)]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218160D17A386B0
-~@RD_METHODCALL[uploadPreparedFiles()]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218160DDFDD084B
-~.filesTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218169FE8D42789
-~@RD_METHODCALL[start(String)]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218160837997FAC
-~@RD_METHODCALL[clear()]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218160C63FF4DC1
-~@RD_METHODCALL[_getChoosedFiles(List<java.io.File>)]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1324986575B22009
+# 2010-09-19 21:14:52 | 4.1.2.32567 | 1.0
 ~@RD_METHODCALL[uploadPreparedFiles(String)]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/12B2B6B3C348545D
+~.filesTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218169FE8D42789
+~@RD_METHODCALL[clear()]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218160C63FF4DC1
+~@RD_METHODCALL[setServerPath(String)]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218160D17A386B0
+~.deleteButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218168796D76D51
+~.uploadButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218163E13187083
+~@RD_METHODCALL[uploadPreparedFiles()]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218160DDFDD084B
+~@RD_METHODCALL[_getChoosedFiles(java.util.ArrayList)]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/12181FB02314C2AB
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/12181518EFF20514
+~@RD_METHODCALL[start(String)]--->ch.ivyteam.ivy.process.ProcessStart:125FDE1E1CFE410A/1218160837997FAC

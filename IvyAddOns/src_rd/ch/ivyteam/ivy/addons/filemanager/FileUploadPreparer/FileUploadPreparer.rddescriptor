@@ -22,22 +22,22 @@ In some processes a user has to choose some Files to upload on the server at a t
         </inputParameter>
     </method>
     <method>
+        <name>_getChoosedFiles</name>
+        <description>callbackMethod to get the choosed Files from UploadHandler.</description>
+        <inputParameter>
+            <name>choosedFiles</name>
+            <description></description>
+            <parameterType>java.util.ArrayList</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
         <name>uploadPreparedFiles</name>
         <description>upload the prechoosed Files at the given path on the server.</description>
         <inputParameter>
             <name>path</name>
             <description></description>
             <parameterType>String</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </method>
-    <method>
-        <name>_getChoosedFiles</name>
-        <description></description>
-        <inputParameter>
-            <name>files</name>
-            <description></description>
-            <parameterType>List&lt;java.io.File&gt;</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>

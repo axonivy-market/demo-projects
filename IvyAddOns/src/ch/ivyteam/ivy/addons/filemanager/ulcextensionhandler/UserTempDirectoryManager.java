@@ -15,11 +15,11 @@ import ch.xpertline.ulc.server.headless.ULCTempFileDirectoryManager.TempFileDire
  * @param <T> 
  */
 public class UserTempDirectoryManager<T extends IRichDialogPanel> {
-
+	
 	// The ULCExtension object responsible for managing the temp directories at client Side
 	ULCTempFileDirectoryManager tempFileDirectoryManager = null; 
 	// This directory is the directory under the client default temp where we work. 
-	// If it is empty String, we work at the root of the client default temp dir.
+	// If it is empty Stirng, we work at the root of the client default temp dir.
 	private String baseTempDir=""; 
 	// Ivy Panel RDC callback method to inform the calling RDC Process when a temp directory was made. 
 	// This method has to take the new temp dir path as String parameter.
@@ -31,7 +31,7 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 	private String returnedDirPath="";
 	// the calling IRichDialogPanel
 	protected T parentRD;
-
+	
 
 	/**
 	 * Default constructor
@@ -40,8 +40,8 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 	public UserTempDirectoryManager(){
 		this("", null, "", "");
 	}
-
-
+	
+	
 	/**
 	 * Constructor with baseTempDir. The baseTempdir is the path within the client temp directory where you are going to work.<br>
 	 * if it is null or empty String, you are going to work at the root of the client temp directory.
@@ -51,7 +51,7 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 	public UserTempDirectoryManager(String baseTempDir) {
 		this(baseTempDir, null, "", "");
 	}
-
+	
 	/**
 	 * Constructor with baseTempDir, parent RDC panel where this UserTempDirectoryManager Object is used,<br>
 	 * callbackToGetNewCreatedTempDirPath the name of the method of the parent RDC to call when a new directory was created,<br>
@@ -72,14 +72,14 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 			this.baseTempDir = baseTempDir;
 			this.formatBaseTempDir();
 		}
-		rDCCallbackToGetNewCreatedTempDirPath = callbackToGetNewCreatedTempDirPath!=null?callbackToGetNewCreatedTempDirPath:"";
-		rDCCallbackError = callbackError!=null?callbackError:"";
+		rDCCallbackToGetNewCreatedTempDirPath = callbackToGetNewCreatedTempDirPath;
+		rDCCallbackError = callbackError;
 		this.parentRD = parent;
 		this.makeBaseTempDir();
 	}
-
+	
 	/********************************** MOST IMPORTANT GETTER AND SETTER AND UTILITY METHODS ***********************************/
-
+	
 	/**
 	 * @return the name of the method of the parent RDC to call when a new directory was created
 	 */
@@ -102,29 +102,23 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 	 * @return the ULCTempFileDirectoryManager
 	 */
 	public ULCTempFileDirectoryManager getTempFileDirectoryManager() {
-
+		
 		if(this.tempFileDirectoryManager == null){
 			this.tempFileDirectoryManager = new ULCTempFileDirectoryManager();
 			this.tempFileDirectoryManager.addTempFileDirectoryManagerListener(new TempFileDirectoryManagerListener(){
 				public void tempDirExists(TempFileDirectoryManagerEvent event) {
 					if(event.getTempDirExists()){
 						returnedDirPath= event.getPathInTemp();
-						if(rDCCallbackToGetNewCreatedTempDirPath.length()>0)
-						{
-							RDCallbackMethodHandler.callRDMethod(parentRD, rDCCallbackToGetNewCreatedTempDirPath, new Object[]{event.getPathInTemp()});
-						}
-
+						RDCallbackMethodHandler.callRDMethod(parentRD, rDCCallbackToGetNewCreatedTempDirPath, new Object[]{event.getPathInTemp()});
+						
 					}else{
-						if(rDCCallbackError.length()>0)
-						{
-							RDCallbackMethodHandler.callRDMethod(parentRD, rDCCallbackError, new Object[]{event.getPathInTemp()});
-						}
+						RDCallbackMethodHandler.callRDMethod(parentRD, rDCCallbackError, new Object[]{event.getPathInTemp()});
 					}
-
+					
 				}
-
+				
 			});
-
+		
 		}
 		return this.tempFileDirectoryManager;
 	}
@@ -145,11 +139,11 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 	public void makeBaseTempDir(){
 		if(this.tempFileDirectoryManager==null)
 			this.getTempFileDirectoryManager();
-
+		
 		this.tempFileDirectoryManager.makeDirectory(this.baseTempDir);
-
+		
 	}
-
+	
 	/**
 	 * make the base temp directory in the client side default temp directory.<br>
 	 * The base temp dir is given as parameter
@@ -159,10 +153,10 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 		this.setBaseTempDir(_baseTempDir);
 		if(this.tempFileDirectoryManager==null)
 			this.getTempFileDirectoryManager();
-
+		
 		this.tempFileDirectoryManager.makeDirectory(this.baseTempDir);
 	}
-
+	
 	/**
 	 * try to create a new directory into the Client temp directory.<br>
 	 * @param dir : the path od the new directory. It is going to be created into the Client temp directory + the baseTempDir.
@@ -171,7 +165,7 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 		if(tempFileDirectoryManager==null) this.getTempFileDirectoryManager();
 		this.tempFileDirectoryManager.makeDirectory(this.baseTempDir+dir);
 	}
-
+	
 	/**
 	 * delete the given directory and all its children (other directories or files)<br>
 	 * the directory to delete is denoted by its path under the Client temp directory + baseTempDir.
@@ -180,9 +174,9 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 	public void deleteTempDir(String dir){
 		if(tempFileDirectoryManager==null) this.getTempFileDirectoryManager();
 		this.tempFileDirectoryManager.deleteAllUnderDirectory(this.baseTempDir+dir);
-
+		
 	}
-
+	
 	/**
 	 * private use: format the baseTempDir to be sure we have a EndSeparator at the end.
 	 * At client side, the right OS File.Separator is going to be used.
@@ -192,10 +186,10 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 		if(this.baseTempDir != null && !this.baseTempDir.trim().equalsIgnoreCase(""))
 			this.baseTempDir = FileHandler.formatPathWithEndSeparator(this.baseTempDir, false);
 	}
-
-
+	
+	
 	/******************************** REST OF GETTER AND SETTER ***************************************/
-
+	
 	/**
 	 * @return the base temp directory in the uclient default temp directory
 	 * 
@@ -214,7 +208,7 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 		this.baseTempDir = baseTempDir;
 		this.formatBaseTempDir();
 	}
-
+	
 
 	/**
 	 * @return the rDCCallbackError
@@ -254,6 +248,6 @@ public class UserTempDirectoryManager<T extends IRichDialogPanel> {
 	public void setParentRD(T parentRD) {
 		this.parentRD = parentRD;
 	}
-
+	
 
 }

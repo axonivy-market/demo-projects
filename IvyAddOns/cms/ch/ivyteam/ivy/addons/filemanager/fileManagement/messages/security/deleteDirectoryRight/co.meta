@@ -1,4 +1,0 @@
-co: name={deleteDirectoryRight} description={} changed={2011-10-05 12:43:13 CEST} changedby={ec} visualorder={0} guid={132D3AD98FEE65F3} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={132D3AD991DD4E06} datatype={} isdefault={true} langid={en} description={} validfrom={2011-10-05 12:40:52 CEST} validto={} changed={2011-10-05 12:43:13 CEST} changedby={ec} properties={} id={}
-val: guid={132D3AD992C72A0F} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-10-05 12:41:05 CEST} validto={} changed={2011-10-05 12:43:13 CEST} changedby={ec} properties={} id={}
-val: guid={132D3AD990DCD468} datatype={} isdefault={false} langid={de} description={} validfrom={2011-10-05 12:41:07 CEST} validto={} changed={2011-10-05 12:43:13 CEST} changedby={ec} properties={} id={}

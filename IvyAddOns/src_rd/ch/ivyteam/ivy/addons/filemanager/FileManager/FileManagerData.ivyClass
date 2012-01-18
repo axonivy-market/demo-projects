@@ -143,25 +143,3 @@ filesStoredInDB Boolean #field
 filesStoredInDB 'if true, we use a database BLOB to stores the files, else the files are physically stored on the file system from the server.' #fieldComment
 maxSizeFileUpload Number #field
 maxSizeFileUpload 'max File Size for upload in Kb. If under or equal to zero then no limit' #fieldComment
-docsForSearch List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
-docsForSearch 'Used in search results only (see getDocumentsWithSQLConditions(List<String>))' #fieldComment
-sqlSearchConditions List<String> #field
-sqlSearchConditions '(see getDocumentsWithSQLConditions(List<String>)' #fieldComment
-dirTableName String #field
-dirTableName 'Name of the table that stores the Infos about the directories in case of File content storage in DB.' #fieldComment
-dirTableName PERSISTENT #fieldModifier
-activateSecurity Boolean #field
-activateSecurity 'if true the security Management on the directories will be in action. It works only if the files are stored in DB.' #fieldComment
-IvySystemDB boolean #field
-IvySystemDB 'if true, the files infos are stored in the IvySystem DB.' #fieldComment
-fileContentTableName String #field
-fileContentTableName 'the name of the table that stores the files content. If not provided "FileManagerContent" will be used. Only necessary if you store the files content in the database.' #fieldComment
-fileContentTableName PERSISTENT #fieldModifier
-fileUploadInProgress Boolean #field
-fileUploadInProgress 'true if a file upload is currently running, else false.' #fieldComment
-fileListingButtonIconUri String #field
-fileListingButtonIconUri 'If user is fileManager Admin, then the file Listing button will be replaced by the security Manager button.' #fieldComment
-fileListingButtonIconUri24 String #field
-fileListingButtonIconUri24 'Rollover file listing/admin button icon Uri' #fieldComment
-isUserFileManagerAdmin boolean #field
-isUserFileManagerAdmin 'If true, the user has the role to be fileManager Admin. He has the possibility to manage the rights on the directories. I will see the admin button on top of the directories.' #fieldComment

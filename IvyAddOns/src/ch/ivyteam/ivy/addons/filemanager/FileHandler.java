@@ -1265,7 +1265,6 @@ public abstract class FileHandler
 				doc.setModificationDate(today);
 				doc.setModificationTime(now);
 				doc.setDescription("");
-				doc.setJavaFile(files[i]);
 				al.add(doc);
 			}
 
@@ -1668,7 +1667,7 @@ public abstract class FileHandler
 		StringBuffer size= new StringBuffer();
 		java.text.NumberFormat formatter = new java.text.DecimalFormat("#.###");
 
-		if(f == null || !f.exists())
+		if(!f.exists())
 			size.append("0 byte");
 		else{
 			long l = f.length();

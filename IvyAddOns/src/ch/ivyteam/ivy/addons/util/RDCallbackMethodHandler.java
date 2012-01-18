@@ -36,11 +36,9 @@ public abstract class RDCallbackMethodHandler {
 					ret = rdPanel.getPanelAPI().callMethod(methodName, parameters);
 					
 				} catch (InvocationTargetException _ex) {
-					//Just warn because we call "automatically" some callback methods that does not exist in every RDC.
-					Ivy.log().warn("InvocationTargetException in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
+					Ivy.log().error("InvocationTargetException in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				} catch (NoSuchMethodException _ex) {
-					//Just warn because we call "automatically" some callback methods that does not exist in every RDC.
-					Ivy.log().warn("NoSuchMethodException in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
+					Ivy.log().error("NoSuchMethodException in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}catch(Exception _ex){
 					Ivy.log().error("Exception in RDCallbackMethodHandler called from IRichDialogPanel "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}catch(Error _ex){
@@ -78,15 +76,13 @@ public abstract class RDCallbackMethodHandler {
 					ret = iRich.getPanelAPI().callMethod(methodName, parameters);
 					
 				} catch (InvocationTargetException _ex) {
-					//Just warn because we call "automatically" some callback methods that does not exist in every RDC.
-					Ivy.log().warn("InvocationTargetException in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
+					Ivy.log().error("InvocationTargetException in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				} catch (NoSuchMethodException _ex) {
-					//Just warn because we call "automatically" some callback methods that does not exist in every RDC.
-					Ivy.log().warn("NoSuchMethodException in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
+					Ivy.log().error("NoSuchMethodException in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}catch(Exception _ex){
 					Ivy.log().error("Exception in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}catch(Error _ex){
-					Ivy.log().error("Error in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
+					Ivy.log().info("Error in RDCallbackMethodHandler called from ULCComponent "+rdPanel.getName()+" on following callback method "+methodName+" ,"+_ex.getMessage());
 				}
 			}
 		}

@@ -21,8 +21,6 @@ import ch.ivyteam.ivy.addons.filemanager.KeyValuePair;
 import ch.ivyteam.ivy.addons.filemanager.DocumentOnServer;
 import ch.ivyteam.ivy.addons.filemanager.FileHandler;
 import ch.ivyteam.ivy.addons.filemanager.ReturnedMessage;
-import ch.ivyteam.ivy.addons.filemanager.ZipHandler;
-import ch.ivyteam.ivy.addons.filemanager.database.security.AbstractDirectorySecurityController;
 import ch.ivyteam.ivy.environment.Ivy;
 
 /**
@@ -71,20 +69,11 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		StringBuilder query=new StringBuilder("");
 
 		query.append("SELECT * FROM "+this.tableName+" WHERE ");
-		if(_conditions==null || _conditions.isEmpty())
-		{
-			return al;
+		int numConditions= _conditions.size()-1;
+		for(int i=0; i<numConditions;i++){
+			query.append(_conditions.get(i)+" AND ");
 		}
-		if(_conditions.size()==1)
-		{
-			query.append(_conditions.get(0));
-		}else{
-			int numConditions= _conditions.size()-1;
-			for(int i=0; i<numConditions;i++){
-				query.append(_conditions.get(i)+" AND ");
-			}
-			query.append(_conditions.get(numConditions));
-		}
+		query.append(_conditions.get(numConditions));
 		//rset=IvySystemDBReuser.executeQuery(query.toString());
 
 		rset = IvySystemDBReuser.executePreparedStatement(query.toString(), 
@@ -111,11 +100,6 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 				doc.setLocked(rec.getField("Locked").toString().equals("false")?"0":(rec.getField("Locked").toString().equals("true")?"1":rec.getField("Locked").toString()));
 				doc.setLockingUserID(rec.getField("LockingUserId").toString());
 				doc.setDescription(rec.getField("Description").toString());
-				try{
-					doc.setExtension(doc.getFilename().substring(doc.getFilename().lastIndexOf(".")+1));
-				}catch(Exception ex){
-					//Ignore the Exception here
-				}
 				al.add(doc);
 			}
 		}
@@ -191,11 +175,6 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 				doc.setLocked(rec.getField("Locked").toString().equals("false")?"0":(rec.getField("Locked").toString().equals("true")?"1":rec.getField("Locked").toString()));
 				doc.setLockingUserID(rec.getField("LockingUserId").toString());
 				doc.setDescription(rec.getField("Description").toString());
-				try{
-					doc.setExtension(doc.getFilename().substring(doc.getFilename().lastIndexOf(".")+1));
-				}catch(Exception ex){
-					//Ignore the Exception here
-				}
 				al.add(doc);
 			}
 		}
@@ -249,11 +228,6 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 			doc.setLocked(rec.getField("Locked").toString());
 			doc.setLockingUserID(rec.getField("LockingUserId").toString());
 			doc.setDescription(rec.getField("Description").toString());
-			try{
-				doc.setExtension(doc.getFilename().substring(doc.getFilename().lastIndexOf(".")+1));
-			}catch(Exception ex){
-				//Ignore the Exception here
-			}
 
 		}
 		return doc;
@@ -324,11 +298,6 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 				doc.setLocked(rec.getField("Locked").toString().equals("false")?"0":(rec.getField("Locked").toString().equals("true")?"1":rec.getField("Locked").toString()));
 				doc.setLockingUserID(rec.getField("LockingUserId").toString());
 				doc.setDescription(rec.getField("Description").toString());
-				try{
-					doc.setExtension(doc.getFilename().substring(doc.getFilename().lastIndexOf(".")+1));
-				}catch(Exception ex){
-					//Ignore the Exception here
-				}
 				al.add(doc);
 			}
 		}
@@ -795,16 +764,15 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 	 * @return 1 if success, else -1 if _file or _user are null or 0 if Exception thrown
 	 * @throws Exception 
 	 */
-	@Deprecated
 	public int insertFile(final java.io.File _file, final String _user)throws Exception {
 		int insertedId = -1;
 		if(_file== null || _user == null)
 		{
 			return insertedId;
 		}
-		final String date = new Date().format("dd.MM.yyyy");
+		final String date = new Date().format("d.M.yyyy");
 		final String time = new Time().format();
-		
+
 		insertedId = IvySystemDBReuser.executePreparedStatement("INSERT INTO "+this.tableName+
 				" (FileId, FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", 
 				new IPreparedStatementExecutable<Integer>(){
@@ -822,54 +790,6 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 					stmt.setString(8, "0");
 					stmt.setString(9, "");
 					stmt.setString(10, _user);
-					stmt.setString(11, date);
-					stmt.setString(12, time);
-					stmt.setString(13, "");
-					i= stmt.executeUpdate();
-				}catch(SQLException ex){
-					throw new PersistencyException(ex);
-				}
-				return new Integer(i);
-			}
-
-		});
-
-		return insertedId;
-
-	}
-	
-	@Override
-	public int insertFile(final java.io.File _file, String _destinationPath, String _user)throws Exception {
-		int insertedId = -1;
-		if(_file== null || _user == null)
-		{
-			return insertedId;
-		}
-		final String date = new Date().format("dd.MM.yyyy");
-		final String time = new Time().format();
-		if(_user==null || _user.trim().equals("")){
-			_user= Ivy.session().getSessionUserName();
-		}
-		final String destinationPath = formatPathForDirectory(_destinationPath);
-		final String user = _user;
-		
-		insertedId = IvySystemDBReuser.executePreparedStatement("INSERT INTO "+this.tableName+
-				" (FileId, FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", 
-				new IPreparedStatementExecutable<Integer>(){
-
-			public Integer execute(PreparedStatement stmt) throws PersistencyException {
-				int i = 0;
-				try{
-					stmt.setInt(1, IvySystemDBReuser.getNextFileID());
-					stmt.setString(2, _file.getName());
-					stmt.setString(3, destinationPath+_file.getName());
-					stmt.setString(4, user);
-					stmt.setString(5, date);
-					stmt.setString(6, time);
-					stmt.setString(7, FileHandler.getFileSize(_file));
-					stmt.setString(8, "0");
-					stmt.setString(9, "");
-					stmt.setString(10, user);
 					stmt.setString(11, date);
 					stmt.setString(12, time);
 					stmt.setString(13, "");
@@ -997,7 +917,6 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 	 * @return the number of inserted files
 	 * @throws Exception 
 	 */
-	@Deprecated
 	public int insertFiles(final List<java.io.File> _files, final String _userIn)throws Exception{
 
 		int insertedIDs = -1;
@@ -1015,7 +934,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 			public Integer execute(PreparedStatement stmt) throws PersistencyException {
 				int i=0;
 				for(java.io.File file:_files){
-					String date = new Date().format("dd.MM.yyyy");
+					String date = new Date().format("d.M.yyyy");
 					String time = new Time().format();
 					try{
 						stmt.setInt(1, IvySystemDBReuser.getNextFileID());
@@ -1045,59 +964,6 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		return insertedIDs;
 	}
 
-	@Override
-	public int insertFiles(final List<java.io.File> _files,String _destinationPath, String _user)throws Exception{
-
-		int insertedIDs = -1;
-		if(_files==null || _files.size()==0)
-		{
-			return insertedIDs;
-		}
-		// deletes the file that are already in the DB
-		this.deleteFiles(_files);
-		
-		if(_user==null || _user.trim().equals("")){
-			_user= Ivy.session().getSessionUserName();
-		}
-		final String destinationPath = formatPathForDirectory(_destinationPath);
-		final String user = _user;
-		
-		insertedIDs = IvySystemDBReuser.executePreparedStatement("INSERT INTO "+this.tableName+
-				" (FileId, FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", 
-				new IPreparedStatementExecutable<Integer>(){
-
-			public Integer execute(PreparedStatement stmt) throws PersistencyException {
-				int i=0;
-				for(java.io.File file:_files){
-					String date = new Date().format("dd.MM.yyyy");
-					String time = new Time().format();
-					try{
-						stmt.setInt(1, IvySystemDBReuser.getNextFileID());
-						stmt.setString(2, file.getName());
-						stmt.setString(3, destinationPath+file.getName());
-						stmt.setString(4, user);
-						stmt.setString(5, date);
-						stmt.setString(6, time);
-						stmt.setString(7, FileHandler.getFileSize(file));
-						stmt.setString(8, "0");
-						stmt.setString(9, "");
-						stmt.setString(10, user);
-						stmt.setString(11, date);
-						stmt.setString(12, time);
-						stmt.setString(13, "");
-						i=i+stmt.executeUpdate();
-					}
-					catch(SQLException ex){
-						throw new PersistencyException(ex);
-					}
-				}
-				return i;
-
-
-			}});
-
-		return insertedIDs;
-	}
 	/**
 	 * Deletes files entries from the DB
 	 * @param _files the list of the java.io.File to delete
@@ -1384,21 +1250,6 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		}
 		return message;
 	}
-	
-	@Override
-	public boolean directoryExists(String _dirPath) throws Exception
-	{
-		if(_dirPath==null || _dirPath.trim().equals(""))
-		{
-			return false;
-		}
-		_dirPath = formatPathForDirectoryWithoutLastSeparator(_dirPath);
-		if(new java.io.File(_dirPath).isDirectory()){
-			return true;
-		}else{
-			return false;
-		}
-	}
 
 	@Override
 	public ReturnedMessage deleteDirectory(String directoryPath)
@@ -1556,11 +1407,11 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 
 	}
 
-	public ReturnedMessage renameDirectory(String parentPath, 
+	public ReturnedMessage renameDirectory(String parentPath, String oldName,
 			String newName) throws Exception {
 		ReturnedMessage message = new ReturnedMessage();
 		message.setFiles(List.create(java.io.File.class));
-		if(parentPath==null ||  newName==null || newName.trim().equals("")){
+		if(parentPath==null || oldName== null || newName==null || oldName.trim().equals("") || newName.trim().equals("")){
 			message.setText("");
 			message.setType(FileHandler.ERROR_MESSAGE);
 		}
@@ -1624,7 +1475,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 			fileDestinationPath=FileHandler.getFileDirectoryPath(new java.io.File(document.getPath()));
 		}
 
-		String date = new Date().format("dd.MM.yyyy");
+		String date = new Date().format("d.M.yyyy");
 		String time = new Time().format();
 		String user = Ivy.session().getSessionUserName();
 		if(document.getCreationDate()==null || document.getCreationDate().trim().equals(""))
@@ -1656,13 +1507,12 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 			document.setDescription("");
 		}
 
-		fileDestinationPath=formatPath(fileDestinationPath);
-		String docPath = formatPathForDirectory(FileHandler.getFileDirectoryPath(new java.io.File(document.getPath())))+document.getFilename();
-		Ivy.log().info(fileDestinationPath +" vs "+docPath );
+		fileDestinationPath=formatPathForDirectory(fileDestinationPath);
+		String docPath = formatPathForDirectory(FileHandler.getFileDirectoryPath(new java.io.File(document.getPath())));
 		if(!docPath.equalsIgnoreCase(fileDestinationPath))
 		{
 			document.setPath(fileDestinationPath+document.getFilename());
-			message = FileHandler.moveFile(new java.io.File(docPath), fileDestinationPath, false);
+			message = FileHandler.moveFile(new java.io.File(docPath+document.getFilename()), fileDestinationPath, false);
 			Ivy.log().info("Message after moving : "+message.getText());
 		}
 		if(message.getType()==FileHandler.SUCCESS_MESSAGE)
@@ -1733,12 +1583,12 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 
 				kvp = new KeyValuePair();
 				kvp.setKey("ModificationDate");
-				kvp.setValue(date);
+				kvp.setValue(document.getModificationDate());
 				_KVP.add(kvp);
 
 				kvp = new KeyValuePair();
 				kvp.setKey("ModificationTime");
-				kvp.setValue(time);
+				kvp.setValue(document.getModificationTime());
 				_KVP.add(kvp);
 
 				kvp = new KeyValuePair();
@@ -1759,117 +1609,11 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 				message.setDocumentOnServer(document);
 				message.setDocumentOnServers(List.create(DocumentOnServer.class));
 				message.getDocumentOnServers().add(document);
+
+
 			}
 		}
 		return message;
-	}
-	
-	@Override
-	public ReturnedMessage setFileDescription(final String path, String description)
-			throws Exception {
-		ReturnedMessage message = new ReturnedMessage();
-		message.setType(FileHandler.SUCCESS_MESSAGE);
-		message.setFiles(List.create(java.io.File.class));
-		if(path==null || path.trim().equals(""))
-		{
-			message.setType(FileHandler.ERROR_MESSAGE);
-			message.setText("Unable to set the description. One of the parameter is invalid in setFileDescription(String path, String description) in class "+this.getClass().getName());
-			return message;
-		}
-		final String desc=description==null?"":description.trim();
-		
-		String query = "UPDATE "+this.tableName+" SET Description = ? WHERE FilePath LIKE ?";
-
-		int i = IvySystemDBReuser.executePreparedStatement(query, 
-				new IPreparedStatementExecutable<Integer>(){
-
-			public Integer execute(PreparedStatement stmt) throws PersistencyException {
-				int i =0;
-				try{
-					stmt.setString(1, desc);
-					stmt.setString(2, escapeBackSlash(path));
-					i = stmt.executeUpdate();
-
-				}catch (SQLException ex) {
-					throw new PersistencyException(ex);
-				}
-				return new Integer(i);
-			}
-		});
-		if(i<0){
-			message.setType(FileHandler.ERROR_MESSAGE);
-			message.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/error/fileNotfound")+" "+path);
-		}
-		return message;
-	}
-
-	@Override
-	public ReturnedMessage setFileDescription(DocumentOnServer document,
-			String description) throws Exception {
-		ReturnedMessage message = new ReturnedMessage();
-		message.setType(FileHandler.SUCCESS_MESSAGE);
-		message.setFiles(List.create(java.io.File.class));
-		if(document==null)
-		{
-			message.setType(FileHandler.ERROR_MESSAGE);
-			message.setText("Unable to set the description. One of the parameter is invalid in setFileDescription(DocumentOnServer document, String description) in class "+this.getClass().getName());
-			return message;
-		}
-		int id=0;
-		if(document.getFileID()!=null)
-		{
-			try{
-				id=Integer.parseInt(document.getFileID());
-			}catch(Exception ex){
-				
-			}
-		}
-		if(id<=0 && document.getPath()!=null){
-			DocumentOnServer doc=this.getDocumentOnServer(document.getPath());
-			if(doc.getFileID()!=null){
-				try{
-					id=Integer.parseInt(doc.getFileID());
-				}catch(Exception ex){
-					
-				}
-			}
-		}
-		if(id<=0){
-			message.setType(FileHandler.ERROR_MESSAGE);
-			message.setText("Unable to set the description. The DocumentOnServer parameter is invalid in setFileDescription(DocumentOnServer document, String description) in class "+this.getClass().getName());
-			return message;
-		}
-		final String desc=description==null?"":description.trim();
-		final int fid = id;
-		String query = "UPDATE "+this.tableName+" SET Description = ? WHERE FileId = ?";
-
-		int i = IvySystemDBReuser.executePreparedStatement(query, 
-				new IPreparedStatementExecutable<Integer>(){
-
-			public Integer execute(PreparedStatement stmt) throws PersistencyException {
-				int i =0;
-				try{
-					stmt.setString(1, desc);
-					stmt.setInt(2,fid);
-					i = stmt.executeUpdate();
-
-				}catch (SQLException ex) {
-					throw new PersistencyException(ex);
-				}
-				return new Integer(i);
-			}
-		});
-		if(i<0){
-			message.setType(FileHandler.ERROR_MESSAGE);
-			message.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/error/fileNotfound"));
-		}
-		return message;
-	}
-
-	@Override
-	public ReturnedMessage moveDocumentOnServer(DocumentOnServer doc, String destination) throws Exception
-	{
-		return this.saveDocumentOnServer(doc, destination);
 	}
 
 
@@ -1936,7 +1680,7 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		}
 		List<DocumentOnServer> pasteDocs = List.create(DocumentOnServer.class);
 		String dest = formatPathForDirectory(fileDestinationPath);
-		String date = new Date().format("dd.MM.yyyy");
+		String date = new Date().format("d.M.yyyy");
 		String time = new Time().format();
 		String user="IVYSYSTEM";
 
@@ -1993,11 +1737,6 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 					nDoc.setModificationUserID(user);
 					nDoc.setPath(formatPath(pasteFile.getPath()));
 					nDoc.setUserID(user);
-					try{
-						nDoc.setExtension(nDoc.getFilename().substring(nDoc.getFilename().lastIndexOf(".")+1));
-					}catch(Exception ex){
-						//Ignore the Exception here
-					}
 					pasteDocs.add(nDoc);
 				}finally
 				{
@@ -2092,118 +1831,4 @@ public class FileManagementIvySystemDBHandler extends AbstractFileManagementHand
 		}
 		return documents;
 	}
-
-	@Override
-	public boolean documentOnServerExists(DocumentOnServer document, String path)
-	throws Exception {
-		if(document== null || document.getFilename()==null || document.getFilename().trim().equals("") || path==null || path.trim().equals(""))
-		{
-			return false;
-		}
-		path=formatPathForDirectory(path);
-		java.io.File f = new java.io.File(path+document.getFilename().trim());
-
-		return f.isFile();
-	}
-
-	@Override
-	public boolean isDirectoryEmpty(String directoryPath) throws Exception {
-		if(directoryPath==null || directoryPath.trim().equals(""))
-		{
-			throw new IllegalArgumentException("Illegal directory Path in method isDirectoryEmpty(String directoryPath) in "+this.getClass().toString());
-		}
-		java.io.File dir = new java.io.File(directoryPath);
-		if(dir.isDirectory()){
-			return dir.list().length==0;
-		}
-		return true;
-	}
-	
-	public ReturnedMessage zipDocumentOnServers(
-			List<DocumentOnServer> documents, String dirPath, String zipName,
-			boolean checkIfExists) throws Exception {
-		ReturnedMessage message = new ReturnedMessage();
-		message.setFiles(List.create(java.io.File.class));
-		message.setDocumentOnServers(List.create(DocumentOnServer.class));
-		
-		if(dirPath == null || dirPath.trim().length()<=0 || documents==null || documents.size()==0)
-		{
-			throw new IllegalArgumentException("One of the parameter is not set in zipDocumentOnServers(List<DocumentOnServer> documents, String dirPath, String zipName,boolean checkIfExists) in "+ this.getClass());
-		}
-		
-		dirPath=formatPathForDirectory(dirPath);
-		zipName = zipName.endsWith(".zip")?zipName:zipName+".zip";
-		java.io.File zip = new java.io.File(dirPath+zipName);
-		boolean exists = zip.isFile();
-		
-		if(checkIfExists && exists){
-			message.setType(FileHandler.ERROR_MESSAGE);
-			message.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/error/zipfileAlreadyExistsCannotCreateIt"));
-			return message;
-		}else if(exists)
-		{
-			List<java.io.File> _files = List.create(java.io.File.class);
-			_files.add(zip);
-			this.deleteFiles(_files);
-		}
-		
-		ArrayList<java.io.File> zipFiles = new ArrayList<java.io.File>();
-		for(DocumentOnServer doc: documents)
-		{
-			zipFiles.add(new java.io.File(doc.getPath()));
-		}
-		zip=ZipHandler.makeZip(dirPath, zipName, zipFiles);
-		if(zip!=null && zip.isFile())
-		{
-			this.insertFile(zip, Ivy.session().getSessionUserName());
-			message.setType(FileHandler.SUCCESS_MESSAGE);
-			message.setFile(zip);
-		}else{
-			this.insertFile(zip, Ivy.session().getSessionUserName());
-			message.setType(FileHandler.ERROR_MESSAGE);
-		
-		}
-		return message;
-	}
-
-	@Override
-	public boolean fileExists(String filePath) throws Exception {
-		if(filePath == null || filePath.trim().equals(""))
-		{
-			return false;
-		}
-		filePath = formatPath(filePath);		
-		return new java.io.File(filePath).isFile();
-	}
-	
-	@Override
-	public boolean deleteFile(String _filepath) throws Exception{
-		
-		if(_filepath==null || _filepath.trim().equals(""))
-		{
-			return false;
-		}
-		_filepath = formatPath(_filepath);
-		java.io.File f = new java.io.File(_filepath);
-		if(!f.isFile())
-		{
-			return false;
-		}
-		return f.delete();
-	}
-
-	@Override
-	public AbstractDirectorySecurityController getSecurityController()
-			throws Exception {
-		
-		return null;
-	}
-
-	@Override
-	public ReturnedMessage deleteDirectoryAsAdministrator(String directoryPath)
-			throws Exception {
-		return this.deleteDirectory(directoryPath);
-	}
-	
-	
 }

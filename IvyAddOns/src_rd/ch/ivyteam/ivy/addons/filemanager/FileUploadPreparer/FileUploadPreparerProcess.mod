@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Sep 08 11:01:20 EDT 2011]
-125FDE1E1CFE410A 3.17 #module
+[>Created: Sun Sep 19 21:14:54 CEST 2010]
+125FDE1E1CFE410A 3.13 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadPreparerProcess Big #zClass
 Fs0 RD #cInfo
@@ -47,15 +47,22 @@ Fs0 @RichDialogProcessStep f29 '' #zField
 Fs0 @PushWFArc f30 '' #zField
 Fs0 @RichDialogProcessEnd f31 '' #zField
 Fs0 @PushWFArc f32 '' #zField
+Fs0 @RichDialogMethodStart f35 '' #zField
 Fs0 @RichDialogProcessStep f36 '' #zField
+Fs0 @PushWFArc f37 '' #zField
 Fs0 @RichDialogProcessEnd f38 '' #zField
 Fs0 @PushWFArc f39 '' #zField
 Fs0 @PushWFArc f22 '' #zField
 Fs0 @RichDialogMethodStart f33 '' #zField
 Fs0 @PushWFArc f34 '' #zField
-Fs0 @RichDialogMethodStart f40 '' #zField
-Fs0 @PushWFArc f41 '' #zField
 >Proto Fs0 Fs0 FileUploadPreparerProcess #zField
+Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+    </language>
+</elementInfo>
+' #txt
 Fs0 f0 guid 12181518EFF20514 #txt
 Fs0 f0 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
 Fs0 f0 method start() #txt
@@ -65,13 +72,6 @@ Fs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 Fs0 f0 outParameterDecl '<> result;
 ' #txt
-Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f0 54 54 20 20 13 0 #rect
 Fs0 f0 @|RichDialogInitStartIcon #fIcon
 Fs0 f1 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
@@ -79,6 +79,15 @@ Fs0 f1 51 155 26 26 14 0 #rect
 Fs0 f1 @|RichDialogProcessEndIcon #fIcon
 Fs0 f2 expr out #txt
 Fs0 f2 64 74 64 155 #arcP
+Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(String)</name>
+        <nameStyle>13,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Fs0 f3 guid 1218160837997FAC #txt
 Fs0 f3 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
 Fs0 f3 method start(String) #txt
@@ -91,23 +100,10 @@ Fs0 f3 inParameterMapAction 'out.serverPath=param.serverPath;
 Fs0 f3 outParameterDecl '<> result;
 ' #txt
 Fs0 f3 embeddedRdInitializations '* ' #txt
-Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(String)</name>
-        <nameStyle>13,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f3 158 54 20 20 13 0 #rect
 Fs0 f3 @|RichDialogInitStartIcon #fIcon
 Fs0 f4 expr out #txt
 Fs0 f4 160 71 73 158 #arcP
-Fs0 f5 guid 1218160C63FF4DC1 #txt
-Fs0 f5 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
-Fs0 f5 method clear() #txt
-Fs0 f5 disableUIEvents false #txt
 Fs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -115,8 +111,21 @@ Fs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Fs0 f5 guid 1218160C63FF4DC1 #txt
+Fs0 f5 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
+Fs0 f5 method clear() #txt
+Fs0 f5 disableUIEvents false #txt
 Fs0 f5 350 70 20 20 13 0 #rect
 Fs0 f5 @|RichDialogMethodStartIcon #fIcon
+Fs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>setServerPath(String)</name>
+        <nameStyle>21,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Fs0 f6 guid 1218160D17A386B0 #txt
 Fs0 f6 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
 Fs0 f6 method setServerPath(String) #txt
@@ -128,21 +137,8 @@ Fs0 f6 inParameterMapAction 'out.serverPath=param.serverPath;
 ' #txt
 Fs0 f6 outParameterDecl '<> result;
 ' #txt
-Fs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>setServerPath(String)</name>
-        <nameStyle>21,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f6 614 70 20 20 13 0 #rect
 Fs0 f6 @|RichDialogMethodStartIcon #fIcon
-Fs0 f7 guid 1218160DDFDD084B #txt
-Fs0 f7 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
-Fs0 f7 method uploadPreparedFiles() #txt
-Fs0 f7 disableUIEvents false #txt
 Fs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -150,6 +146,10 @@ Fs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Fs0 f7 guid 1218160DDFDD084B #txt
+Fs0 f7 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
+Fs0 f7 method uploadPreparedFiles() #txt
+Fs0 f7 disableUIEvents false #txt
 Fs0 f7 350 318 20 20 13 0 #rect
 Fs0 f7 @|RichDialogMethodStartIcon #fIcon
 Fs0 f8 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
@@ -157,15 +157,6 @@ Fs0 f8 611 123 26 26 14 0 #rect
 Fs0 f8 @|RichDialogProcessEndIcon #fIcon
 Fs0 f9 expr out #txt
 Fs0 f9 624 90 624 123 #arcP
-Fs0 f10 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
-' #txt
-Fs0 f10 actionTable 'out=in;
-' #txt
-Fs0 f10 actionCode 'out.filesToUpload.clear();
-out.selectedFiles.clear();
-out.filesChoosed.clear();
-out.serverPath="";' #txt
-Fs0 f10 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
 Fs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -175,6 +166,15 @@ Fs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Fs0 f10 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
+' #txt
+Fs0 f10 actionTable 'out=in;
+' #txt
+Fs0 f10 actionCode 'out.filesToUpload.clear();
+out.selectedFiles.clear();
+out.filesChoosed.clear();
+out.serverPath="";' #txt
+Fs0 f10 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
 Fs0 f10 342 124 36 24 23 -10 #rect
 Fs0 f10 @|RichDialogProcessStepIcon #fIcon
 Fs0 f11 expr out #txt
@@ -184,6 +184,16 @@ Fs0 f12 347 179 26 26 14 0 #rect
 Fs0 f12 @|RichDialogProcessEndIcon #fIcon
 Fs0 f13 expr out #txt
 Fs0 f13 360 148 360 179 #arcP
+Fs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>loop in the file list
+and upload each one to the serverPath</name>
+        <nameStyle>59,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Fs0 f14 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
 ' #txt
 Fs0 f14 actionTable 'out=in;
@@ -196,16 +206,6 @@ if(!in.serverPath.trim().equalsIgnoreCase("")){
 }
 ' #txt
 Fs0 f14 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
-Fs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>loop in the file list
-and upload each one to the serverPath</name>
-        <nameStyle>59,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f14 342 372 36 24 20 -11 #rect
 Fs0 f14 @|RichDialogProcessStepIcon #fIcon
 Fs0 f15 expr out #txt
@@ -215,12 +215,6 @@ Fs0 f16 347 427 26 26 14 0 #rect
 Fs0 f16 @|RichDialogProcessEndIcon #fIcon
 Fs0 f17 expr out #txt
 Fs0 f17 360 396 360 427 #arcP
-Fs0 f18 guid 1218163E13187083 #txt
-Fs0 f18 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
-Fs0 f18 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
-' #txt
-Fs0 f18 actionTable 'out=in;
-' #txt
 Fs0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -230,17 +224,14 @@ Fs0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Fs0 f18 guid 1218163E13187083 #txt
+Fs0 f18 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
+Fs0 f18 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
+' #txt
+Fs0 f18 actionTable 'out=in;
+' #txt
 Fs0 f18 862 54 20 20 13 0 #rect
 Fs0 f18 @|RichDialogProcessStartIcon #fIcon
-Fs0 f19 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
-' #txt
-Fs0 f19 actionTable 'out=in;
-' #txt
-Fs0 f19 actionCode 'import ch.ivyteam.ivy.addons.filemanager.FileUploadHandler;
-FileUploadHandler fuh = new FileUploadHandler();
-
-fuh.prepareFilesForUpload(panel,"_getChoosedFiles");' #txt
-Fs0 f19 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
 Fs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -250,6 +241,15 @@ Fs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Fs0 f19 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
+' #txt
+Fs0 f19 actionTable 'out=in;
+' #txt
+Fs0 f19 actionCode 'import ch.ivyteam.ivy.addons.filemanager.FileUploadHandler;
+FileUploadHandler fuh = new FileUploadHandler();
+
+fuh.prepareFilesForUpload(panel,"_getChoosedFiles");' #txt
+Fs0 f19 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
 Fs0 f19 854 117 36 23 20 -2 #rect
 Fs0 f19 @|RichDialogProcessStepIcon #fIcon
 Fs0 f20 expr out #txt
@@ -258,12 +258,6 @@ Fs0 f20 0 0.5000000000000001 0 0 #arcLabel
 Fs0 f21 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
 Fs0 f21 859 227 26 26 14 0 #rect
 Fs0 f21 @|RichDialogProcessEndIcon #fIcon
-Fs0 f23 guid 1218168796D76D51 #txt
-Fs0 f23 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
-Fs0 f23 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
-' #txt
-Fs0 f23 actionTable 'out=in;
-' #txt
 Fs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -273,16 +267,14 @@ Fs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Fs0 f23 guid 1218168796D76D51 #txt
+Fs0 f23 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
+Fs0 f23 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
+' #txt
+Fs0 f23 actionTable 'out=in;
+' #txt
 Fs0 f23 1118 54 20 20 13 0 #rect
 Fs0 f23 @|RichDialogProcessStartIcon #fIcon
-Fs0 f24 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
-' #txt
-Fs0 f24 actionTable 'out=in;
-' #txt
-Fs0 f24 actionCode 'List<java.io.File> files = new List<java.io.File>();
-files.addAll(in.selectedFiles);
-out.filesToUpload.removeAll(files);' #txt
-Fs0 f24 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
 Fs0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -292,6 +284,14 @@ Fs0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Fs0 f24 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
+' #txt
+Fs0 f24 actionTable 'out=in;
+' #txt
+Fs0 f24 actionCode 'List<java.io.File> files = new List<java.io.File>();
+files.addAll(in.selectedFiles);
+out.filesToUpload.removeAll(files);' #txt
+Fs0 f24 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
 Fs0 f24 1110 108 36 24 20 -2 #rect
 Fs0 f24 @|RichDialogProcessStepIcon #fIcon
 Fs0 f25 expr out #txt
@@ -301,12 +301,6 @@ Fs0 f26 1115 171 26 26 14 0 #rect
 Fs0 f26 @|RichDialogProcessEndIcon #fIcon
 Fs0 f27 expr out #txt
 Fs0 f27 1128 132 1128 171 #arcP
-Fs0 f28 guid 1218169FE8D42789 #txt
-Fs0 f28 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
-Fs0 f28 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
-' #txt
-Fs0 f28 actionTable 'out=in;
-' #txt
 Fs0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -316,8 +310,19 @@ Fs0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
+Fs0 f28 guid 1218169FE8D42789 #txt
+Fs0 f28 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
+Fs0 f28 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
+' #txt
+Fs0 f28 actionTable 'out=in;
+' #txt
 Fs0 f28 862 334 20 20 13 0 #rect
 Fs0 f28 @|RichDialogProcessStartIcon #fIcon
+Fs0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Fs0 f29 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
 ' #txt
 Fs0 f29 actionTable 'out=in;
@@ -327,11 +332,6 @@ if(panel.#filesTable.getSelectedListEntries() != null && panel.filesTable.getSel
 	in.selectedFiles.addAll(panel.filesTable.getSelectedListEntries() as List<java.io.File> );
 }' #txt
 Fs0 f29 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
-Fs0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Fs0 f29 854 380 36 24 20 -2 #rect
 Fs0 f29 @|RichDialogProcessStepIcon #fIcon
 Fs0 f30 expr out #txt
@@ -341,6 +341,42 @@ Fs0 f31 859 451 26 26 14 0 #rect
 Fs0 f31 @|RichDialogProcessEndIcon #fIcon
 Fs0 f32 expr out #txt
 Fs0 f32 872 404 872 451 #arcP
+Fs0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>_getChoosedFiles(List&lt;File&gt;)</name>
+        <nameStyle>28,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Fs0 f35 guid 12181FB02314C2AB #txt
+Fs0 f35 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
+Fs0 f35 method _getChoosedFiles(java.util.ArrayList) #txt
+Fs0 f35 disableUIEvents false #txt
+Fs0 f35 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<java.util.ArrayList choosedFiles> param = methodEvent.getInputArguments();
+' #txt
+Fs0 f35 inActionCode 'out.filesChoosed.clear();
+if(param.#choosedFiles != null && param.choosedFiles instanceof java.util.ArrayList){
+	for(Object o: param.choosedFiles){
+		if(o instanceof java.io.File){
+			out.filesChoosed.add(o as java.io.File);
+		}
+	}
+	
+}else{
+	ivy.log.info(param.choosedFiles.getClass().getName());
+}' #txt
+Fs0 f35 outParameterDecl '<> result;
+' #txt
+Fs0 f35 614 310 20 20 13 0 #rect
+Fs0 f35 @|RichDialogMethodStartIcon #fIcon
+Fs0 f36 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Fs0 f36 actionDecl 'ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData out;
 ' #txt
 Fs0 f36 actionTable 'out=in;
@@ -351,13 +387,10 @@ Fs0 f36 actionCode 'for(java.io.File file: in.filesChoosed){
 	}
 }' #txt
 Fs0 f36 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
-Fs0 f36 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Fs0 f36 606 380 36 24 20 -2 #rect
 Fs0 f36 @|RichDialogProcessStepIcon #fIcon
+Fs0 f37 expr out #txt
+Fs0 f37 624 330 624 380 #arcP
 Fs0 f38 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
 Fs0 f38 611 443 26 26 14 0 #rect
 Fs0 f38 @|RichDialogProcessEndIcon #fIcon
@@ -365,6 +398,15 @@ Fs0 f39 expr out #txt
 Fs0 f39 624 404 624 443 #arcP
 Fs0 f22 expr out #txt
 Fs0 f22 872 139 872 227 #arcP
+Fs0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>uploadPreparedFiles(String)</name>
+        <nameStyle>27,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Fs0 f33 guid 12B2B6B3C348545D #txt
 Fs0 f33 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
 Fs0 f33 method uploadPreparedFiles(String) #txt
@@ -376,43 +418,10 @@ Fs0 f33 inParameterMapAction 'out.serverPath=param.path;
 ' #txt
 Fs0 f33 outParameterDecl '<> result;
 ' #txt
-Fs0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>uploadPreparedFiles(String)</name>
-        <nameStyle>27,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Fs0 f33 294 286 20 20 13 0 #rect
 Fs0 f33 @|RichDialogMethodStartIcon #fIcon
 Fs0 f34 expr out #txt
 Fs0 f34 309 304 352 372 #arcP
-Fs0 f40 guid 1324986575B22009 #txt
-Fs0 f40 type ch.ivyteam.ivy.addons.filemanager.FileUploadPreparer.FileUploadPreparerData #txt
-Fs0 f40 method _getChoosedFiles(List<java.io.File>) #txt
-Fs0 f40 disableUIEvents false #txt
-Fs0 f40 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<List<java.io.File> files> param = methodEvent.getInputArguments();
-' #txt
-Fs0 f40 inParameterMapAction 'out.filesChoosed=param.files;
-' #txt
-Fs0 f40 outParameterDecl '<> result;
-' #txt
-Fs0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>_getChoosedFiles(List&lt;File&gt;)</name>
-        <nameStyle>28,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Fs0 f40 614 318 20 20 13 0 #rect
-Fs0 f40 @|RichDialogMethodStartIcon #fIcon
-Fs0 f41 expr out #txt
-Fs0 f41 624 338 624 380 #arcP
 >Proto Fs0 .rdData2UIAction 'panel.deleteButton.enabled=IF(in.selectedFiles.isEmpty(), false, true);
 panel.filesTable.listData=in.filesToUpload;
 ' #txt
@@ -460,11 +469,11 @@ Fs0 f28 mainOut f30 tail #connect
 Fs0 f30 head f29 mainIn #connect
 Fs0 f29 mainOut f32 tail #connect
 Fs0 f32 head f31 mainIn #connect
+Fs0 f35 mainOut f37 tail #connect
+Fs0 f37 head f36 mainIn #connect
 Fs0 f36 mainOut f39 tail #connect
 Fs0 f39 head f38 mainIn #connect
 Fs0 f19 mainOut f22 tail #connect
 Fs0 f22 head f21 mainIn #connect
 Fs0 f33 mainOut f34 tail #connect
 Fs0 f34 head f14 mainIn #connect
-Fs0 f40 mainOut f41 tail #connect
-Fs0 f41 head f36 mainIn #connect

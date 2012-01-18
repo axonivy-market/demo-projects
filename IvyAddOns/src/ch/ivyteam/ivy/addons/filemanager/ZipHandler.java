@@ -22,8 +22,8 @@ import ch.ivyteam.ivy.scripting.objects.List;
  * this is a zip handler that allows creating zip archives and listing them with static methods.
  */
 public class ZipHandler {
-
-
+	
+	
 	/**
 	 * Make a zip File archive
 	 * @param zipPath: the folder path where to put the Zip File
@@ -33,7 +33,7 @@ public class ZipHandler {
 	 */
 	public static java.io.File makeZip(String zipPath, String zipName, ArrayList<java.io.File> files){
 		java.io.File myZip = null;
-
+		
 		//make the path of the zip File
 		String path = (zipPath==null || zipPath.trim().equalsIgnoreCase(""))?"myZipFolder/":FileHandler.formatPathWithEndSeparator(zipPath,true);
 		//check the given name and add zip type if necessary
@@ -44,52 +44,37 @@ public class ZipHandler {
 		if(files !=null && !files.isEmpty()){
 			Iterator<java.io.File> iter = files.iterator();
 			byte[] buf = new byte[1024];
-			ZipOutputStream out = null;
+			
 			try{
-				out = new ZipOutputStream(new FileOutputStream(name));
-				
+				ZipOutputStream out = new ZipOutputStream(new FileOutputStream(name));
 				out.setLevel(Deflater.DEFAULT_COMPRESSION);
 				while(iter.hasNext()){
 					java.io.File f = iter.next();
-					
 					//if current file pointed by Iterator doesn't exit, try with the next one
-					if(!f.isFile()) continue;
+					if(!f.exists()) continue;
+					if(f.isDirectory()) continue;
 					
-					FileInputStream in=null;
-					try{
-						in = new FileInputStream(f);
-						out.putNextEntry(new ZipEntry(f.getName()));
-						//Transfer bytes from the file to the ZIP file
-						int len;
-						while ((len = in.read(buf)) > 0) {
-							out.write(buf, 0, len);
-						}
-						
-					}finally{
-						out.closeEntry();
-						if(in!=null)
-						{
-							in.close();
-						}
-					}
+					FileInputStream in = new FileInputStream(f);
+					
+					out.putNextEntry(new ZipEntry(f.getName()));
+					//Transfer bytes from the file to the ZIP file
+		            int len;
+		            while ((len = in.read(buf)) > 0) {
+		                out.write(buf, 0, len);
+		            }
+		            
+		            out.closeEntry();
+		            in.close();
 				}
+				out.close();
 				myZip = new java.io.File(name);
-
 			}catch(IOException e){
 				Ivy.log().error("IOException in ch.xpertline.ria.util.file.ZipHandler: "+e.getMessage());
-			}finally{
-				if(out!=null){
-					try {
-						out.close();
-					} catch (IOException e) {
-
-					}
-				}
 			}
 		}
 		return myZip;
 	}
-
+	
 	/**
 	 * Make a zip File archive
 	 * @param zipPath: the folder path where to put the Zip File
@@ -100,18 +85,18 @@ public class ZipHandler {
 	 */
 	public static java.io.File makeZipWithFileNames(String zipPath, String zipName, ArrayList<String> filesName){
 		java.io.File myZip = null;
-
+		
 		//make the path of the zip File
 		String path = (zipPath==null || zipPath.trim().equalsIgnoreCase(""))?"myZipFolder/":FileHandler.formatPathWithEndSeparator(zipPath,true);
 		//check the given name and add zip type if necessary
 		String name = (zipName==null || zipName.trim().equalsIgnoreCase(""))?"myZip":zipName;
 		name = (name.endsWith(".zip"))?name:name+".zip";
 		name=path+name;
-
+		
 		if(filesName !=null && !filesName.isEmpty()){
 			Iterator<String> iter = filesName.iterator();
 			byte[] buf = new byte[1024];
-
+			
 			try{
 				ZipOutputStream out = new ZipOutputStream(new FileOutputStream(name));
 				out.setLevel(Deflater.DEFAULT_COMPRESSION);
@@ -121,18 +106,18 @@ public class ZipHandler {
 					//if current file pointed by Iterator doesn't exit, try with the next one
 					if(!f.exists()) continue;
 					if(f.isDirectory()) continue;
-
+					
 					FileInputStream in = new FileInputStream(s);
-
+					
 					out.putNextEntry(new ZipEntry(s));
 					//Transfer bytes from the file to the ZIP file
-					int len;
-					while ((len = in.read(buf)) > 0) {
-						out.write(buf, 0, len);
-					}
+		            int len;
+		            while ((len = in.read(buf)) > 0) {
+		                out.write(buf, 0, len);
+		            }
 
-					out.closeEntry();
-					in.close();
+		            out.closeEntry();
+		            in.close();
 				}
 				out.close();
 				myZip = new java.io.File(name);
@@ -142,7 +127,7 @@ public class ZipHandler {
 		}
 		return myZip;
 	}
-
+	
 	/**
 	 * list all the files contained into a zip File. This method is not recursive
 	 * @param zip: the zip archive to list
@@ -154,22 +139,22 @@ public class ZipHandler {
 		if(zip != null && zip.exists() && zip.getName().endsWith(".zip")){
 			try{
 				//Open Zip file for reading
-				ZipFile zipFile = new ZipFile(zip, ZipFile.OPEN_READ);
-				//Create an enumeration of the entries in the zip file
-				Enumeration<? extends ZipEntry> zipFileEntries = zipFile.entries();
+		      	 ZipFile zipFile = new ZipFile(zip, ZipFile.OPEN_READ);
+		      	 //Create an enumeration of the entries in the zip file
+		      	 Enumeration<? extends ZipEntry> zipFileEntries = zipFile.entries();
 
-				// Process each entry
-				while (zipFileEntries.hasMoreElements())
-				{
-					ZipEntry entry = zipFileEntries.nextElement();
-
-					files.add(entry.getName());
-				}
+		      	 // Process each entry
+		      	 while (zipFileEntries.hasMoreElements())
+		      	 {
+		      		ZipEntry entry = zipFileEntries.nextElement();
+		      		
+		      		files.add(entry.getName());
+		      	 }
 			}catch(IOException e){
-
+				
 			}
 		}
-
+		
 		return files;
 	}
 

@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu May 19 07:39:35 CEST 2011]
-1249FCC8592E4E39 3.17 #module
+[>Created: Tue Feb 08 07:25:08 CET 2011]
+1249FCC8592E4E39 3.15 #module
 >Proto >Proto Collection #zClass
 ws0 writeSerialLetterToManyCorrespondants Big #zClass
 ws0 B #cInfo
@@ -174,19 +174,9 @@ ws0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>This callable produces documents with a List of DocumentTemplate objects and 
 with the help of a document factory Object. Each DocumentTemplate will be 
-turned into a document. The Merge Mail With Regions is supported.
+turned into a document.
 The Document Factory Object is a Java Object that can parse a document model
 that contains mergefields and replace those mergefields by some String Data.
-
-A Mail Merge Region is a Table in the template whose rows are going to be automatically filled with some data.
-If your template contains such regions, you have to provide to the DocumentTemplates Objects the datas that should be inserted.
-The DocumentTemplates objects have two fields that can be used for that purpose:
-    . HashMap&lt;String, java.util.List&lt;CompositeObject&gt;&gt; tablesNamesAndFieldsmap: the datas are List of CompositeObjects (dataClass), each one represents a Row. 
-      The name of each DataClass Attribut corresponds to a MergeFields in the Table.
-    . Hashtable&lt;String, Recordset&gt; tablesNamesAndFieldsHashtable: the datas are Recordset, each Record represents a Row. 
-      The name of each Record Field corresponds to a MergeFields in the Table.
-The keys (String) of the Maps are the tables'' names contained in the template. 
-The Names of the tables in the template are given by a Start Mergefield(TableStart:nameOfTheTable).
 
 This callable takes some mandatory and some optional input parameters.
 Mandatory input Parameters:
@@ -215,28 +205,20 @@ each FileOperationMessage Object reflects the result of the production of one do
 It contains the list of java.io.File objects created during the mail merge operation.
 
 </name>
-        <nameStyle>218,0,7,23
-155,7,9
-1,7,22
-238,7,22
-1,7,21
-527,7,22
-163,7,22
-16,1,2,7,22
-1,1,7,9
-72,7,9
-27,0,7,23
-735,7,9
-26,0,7,23
-489,7,9
-11,0,7,23
-456,7,9
-1,0,7,23
+        <nameStyle>176,0,7,23
+227,9
+27,0,23
+735,9
+26,0,23
+489,9
+11,0,23
+456,9
+1,0,23
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-ws0 f5 590 27 917 698 -453 -344 #rect
+ws0 f5 573 35 646 538 -318 -264 #rect
 ws0 f5 @|IBIcon #fIcon
 ws0 f5 -657956|-1|-16777216 #nodeStyle
 >Proto ws0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

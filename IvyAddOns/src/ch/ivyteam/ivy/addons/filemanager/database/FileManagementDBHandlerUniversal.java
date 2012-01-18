@@ -31,8 +31,6 @@ import ch.ivyteam.ivy.addons.filemanager.KeyValuePair;
 import ch.ivyteam.ivy.addons.filemanager.DocumentOnServer;
 import ch.ivyteam.ivy.addons.filemanager.FileHandler;
 import ch.ivyteam.ivy.addons.filemanager.ReturnedMessage;
-import ch.ivyteam.ivy.addons.filemanager.ZipHandler;
-import ch.ivyteam.ivy.addons.filemanager.database.security.AbstractDirectorySecurityController;
 
 
 /**
@@ -52,18 +50,23 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 	 * Default constructor
 	 * @throws Exception 
 	 */
-	public FileManagementDBHandlerUniversal() throws Exception{
+	public FileManagementDBHandlerUniversal(){
 		this(null,null);
 	}
 
-	
+	/**
+	 * Constructor with the database connection name as it is in Ivy Database configuration and call back methods.
+	 * @param ivyDBConnectionName: the name of the database connection name as it is in Ivy Database configuration
+	 * @throws Exception 
+	 * @throws EnvironmentNotAvailableException 
+	 */
 	/**
 	 * Constructor 
 	 * @param _ivyDBConnectionName: the name of the database connection name as it is in Ivy Database configuration
 	 * @param _tableName
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	public FileManagementDBHandlerUniversal(String _ivyDBConnectionName, String _tableName) throws Exception {
+	public FileManagementDBHandlerUniversal(String _ivyDBConnectionName, String _tableName) {
 		super();
 		if(_ivyDBConnectionName==null || _ivyDBConnectionName.trim().length()==0)
 		{//if ivy user friendly name of database configuration not settled used default
@@ -78,8 +81,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			this.tableName=_tableName.trim();
 		}
 		this.tableNameSpace = this.tableName;
-		
-		checkTablesExists();
 	}
 
 	/**
@@ -88,7 +89,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 	 * @throws Exception 
 	 * @throws EnvironmentNotAvailableException 
 	 */
-	public FileManagementDBHandlerUniversal(String _ivyDBConnectionName, String _tableName, String _schemaName) throws Exception{
+	public FileManagementDBHandlerUniversal(String _ivyDBConnectionName, String _tableName, String _schemaName){
 		super();
 		if(_ivyDBConnectionName==null || _ivyDBConnectionName.trim().length()==0)
 		{//if ivy user friendly name of database configuration not set used default
@@ -111,53 +112,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			//we escape the schema and table name to be able to support non lower case schemas
 			this.tableNameSpace="\""+this.schemaName+"\""+"."+"\""+this.tableName+"\"";
 		}
-		
-		checkTablesExists();
 
-	}
-	
-	private void checkTablesExists() throws Exception{
-
-		String createFileTable="CREATE TABLE "+this.tableNameSpace+" (" +
-		"FileId             INT AUTOINCREMENT NOT NULL," +
-		"FileName           VARCHAR (255) NULL," +
-		"FilePath           VARCHAR (750) NULL," +
-		"CreationUserId     VARCHAR (64) NULL," +
-		"CreationDate       VARCHAR (10) NULL," +
-		"CreationTime       VARCHAR (8) NULL," +
-		"FileSize           VARCHAR (20) NULL," +
-		"Locked             TINYINT NULL," +
-		"LockingUserId      VARCHAR (64) NULL," +
-		"ModificationUserId VARCHAR (64) NULL," +
-		"ModificationDate   VARCHAR (10) NULL," +
-		"ModificationTime   VARCHAR (8) NULL," +
-		"Description        VARCHAR (1024) NULL," +
-		"PRIMARY KEY (FileId))";
-
-		//Check if fileTable exists if not tries to create it
-		IExternalDatabaseRuntimeConnection connection = null;
-		try {
-
-			connection = getDatabase().getAndLockConnection();
-			Connection jdbcConnection=connection.getDatabaseConnection();
-			PreparedStatement stmt = null;
-			try{			
-				if(!jdbcConnection.getMetaData().getTables(null, null, this.tableNameSpace, null).next()){
-					Ivy.log().info("Files table does not exists, executes "+jdbcConnection.nativeSQL(createFileTable));
-					stmt = jdbcConnection.prepareStatement(jdbcConnection.nativeSQL(createFileTable));
-					stmt.execute();
-				}
-			}
-			finally{
-
-				DatabaseUtil.close(stmt);
-			}
-		} 
-		finally{
-			if(connection!=null ){
-				database.giveBackAndUnlockConnection(connection);
-			}
-		}
 	}
 
 	/**
@@ -251,11 +206,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 				doc.setLocked(rec.getField("Locked").toString());
 				doc.setLockingUserID(rec.getField("LockingUserId").toString());
 				doc.setDescription(rec.getField("Description").toString());
-				try{
-					doc.setExtension(doc.getFilename().substring(doc.getFilename().lastIndexOf(".")+1));
-				}catch(Exception ex){
-					//Ignore the Exception here
-				}
 				al.add(doc);
 			}
 		}
@@ -280,21 +230,11 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		StringBuilder query=new StringBuilder("");
 
 		query.append("SELECT * FROM "+this.tableNameSpace+" WHERE ");
-		
-		if(_conditions==null || _conditions.isEmpty())
-		{
-			return al;
+		int numConditions= _conditions.size()-1;
+		for(int i=0; i<numConditions;i++){
+			query.append(_conditions.get(i)+" AND ");
 		}
-		if(_conditions.size()==1)
-		{
-			query.append(_conditions.get(0));
-		}else{
-			int numConditions= _conditions.size()-1;
-			for(int i=0; i<numConditions;i++){
-				query.append(_conditions.get(i)+" AND ");
-			}
-			query.append(_conditions.get(numConditions));
-		}
+		query.append(_conditions.get(numConditions));
 		//rset=IvySystemDBReuser.executeQuery(query.toString());
 		IExternalDatabaseRuntimeConnection connection = null;
 		try {
@@ -321,11 +261,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 						doc.setLocked(rec.getField("Locked").toString());
 						doc.setLockingUserID(rec.getField("LockingUserId").toString());
 						doc.setDescription(rec.getField("Description").toString());
-						try{
-							doc.setExtension(doc.getFilename().substring(doc.getFilename().lastIndexOf(".")+1));
-						}catch(Exception ex){
-							//Ignore the Exception here
-						}
 						al.add(doc);
 					}
 				}
@@ -409,11 +344,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 				doc.setLocked(rec.getField("Locked").toString());
 				doc.setLockingUserID(rec.getField("LockingUserId").toString());
 				doc.setDescription(rec.getField("Description").toString());
-				try{
-					doc.setExtension(doc.getFilename().substring(doc.getFilename().lastIndexOf(".")+1));
-				}catch(Exception ex){
-					//Ignore the Exception here
-				}
 				al.add(doc);
 			}
 		}
@@ -891,7 +821,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		String base = "INSERT INTO "+this.tableNameSpace+
 		" (FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		String date = new Date().format("dd.MM.yyyy");
+		String date = new Date().format("d.M.yyyy");
 		String time = new Time().format();
 
 		IExternalDatabaseRuntimeConnection connection=null;
@@ -903,50 +833,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 				stmt = jdbcConnection.prepareStatement(base);
 				stmt.setString(1, _file.getName());
 				stmt.setString(2, escapeBackSlash(_file.getPath()));
-				stmt.setString(3, _user);
-				stmt.setString(4, date);
-				stmt.setString(5, time);
-				stmt.setString(6, FileHandler.getFileSize(_file));
-				stmt.setInt(7, 0);
-				stmt.setString(8, "");
-				stmt.setString(9, _user);
-				stmt.setString(10, date);
-				stmt.setString(11, time);
-				stmt.setString(12, "");
-				insertedId= stmt.executeUpdate();
-			}finally{
-				DatabaseUtil.close(stmt);
-			}
-		}finally{
-			if(connection!=null ){
-				database.giveBackAndUnlockConnection(connection);
-			}
-		}
-		return insertedId;
-	}
-	
-	@Override
-	public int insertFile(java.io.File _file,String _destinationPath, String _user)throws Exception {
-		int insertedId = -1;
-		if(_file== null || _user == null) return insertedId;
-		String base = "INSERT INTO "+this.tableNameSpace+
-		" (FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-
-		String date = new Date().format("dd.MM.yyyy");
-		String time = new Time().format();
-		if(_user==null || _user.trim().equals("")){
-			_user= Ivy.session().getSessionUserName();
-		}
-		_destinationPath = formatPathForDirectory(_destinationPath);
-		IExternalDatabaseRuntimeConnection connection=null;
-		try {
-			connection = getDatabase().getAndLockConnection();
-			Connection jdbcConnection=connection.getDatabaseConnection();
-			PreparedStatement stmt = null;
-			try{
-				stmt = jdbcConnection.prepareStatement(base);
-				stmt.setString(1, _file.getName());
-				stmt.setString(2, _destinationPath+_file.getName());
 				stmt.setString(3, _user);
 				stmt.setString(4, date);
 				stmt.setString(5, time);
@@ -982,7 +868,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		base = "INSERT INTO "+this.tableNameSpace+
 		" (FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		String date = new Date().format("dd.MM.yyyy");
+		String date = new Date().format("d.M.yyyy");
 		String time = new Time().format();
 
 		IExternalDatabaseRuntimeConnection connection=null;
@@ -1038,7 +924,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		String base="INSERT INTO "+this.tableNameSpace+
 		" (FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		String date = new Date().format("dd.MM.yyyy");
+		String date = new Date().format("d.M.yyyy");
 		String time = new Time().format();
 
 		IExternalDatabaseRuntimeConnection connection=null;
@@ -1099,7 +985,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		String base="INSERT INTO "+this.tableNameSpace+
 		" (FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		String date = new Date().format("dd.MM.yyyy");
+		String date = new Date().format("d.M.yyyy");
 		String time = new Time().format();
 
 		IExternalDatabaseRuntimeConnection connection=null;
@@ -1119,58 +1005,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 					stmt.setInt(7, 0);
 					stmt.setString(8, "");
 					stmt.setString(9, _userIn);
-					stmt.setString(10, date);
-					stmt.setString(11, time);
-					stmt.setString(12, "");
-					//Ivy.log().info(stmt.toString());
-					insertedIDs+=stmt.executeUpdate();
-				}
-			}finally{
-				DatabaseUtil.close(stmt);
-			}
-		}finally{
-			if(connection!=null ){
-				database.giveBackAndUnlockConnection(connection);
-			}
-		}
-
-		return insertedIDs;
-	}
-	
-	@Override
-	public int insertFiles(List<java.io.File> _files, String _destinationPath, String _user) throws Exception{
-		int insertedIDs = -1;
-		if(_files==null || _files.size()==0)
-			return insertedIDs;
-
-		// delete the documents that are already in the DB
-		this.deleteFilesInDBOnly(_files);
-		String base="INSERT INTO "+this.tableNameSpace+
-		" (FileName, FilePath, CreationUserId, CreationDate, CreationTime, FileSize, Locked, LockingUserId, ModificationUserId, ModificationDate, ModificationTime, Description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-
-		String date = new Date().format("dd.MM.yyyy");
-		String time = new Time().format();
-		if(_user==null || _user.trim().equals("")){
-			_user= Ivy.session().getSessionUserName();
-		}
-		_destinationPath = formatPathForDirectory(_destinationPath);
-		IExternalDatabaseRuntimeConnection connection=null;
-		try {
-			connection = getDatabase().getAndLockConnection();
-			Connection jdbcConnection=connection.getDatabaseConnection();
-			PreparedStatement stmt = null;
-			try{
-				stmt = jdbcConnection.prepareStatement(base);
-				for(java.io.File file: _files){
-					stmt.setString(1, file.getName());
-					stmt.setString(2, _destinationPath+file.getName());
-					stmt.setString(3, _user);
-					stmt.setString(4, date);
-					stmt.setString(5, time);
-					stmt.setString(6, FileHandler.getFileSize(file));
-					stmt.setInt(7, 0);
-					stmt.setString(8, "");
-					stmt.setString(9, _user);
 					stmt.setString(10, date);
 					stmt.setString(11, time);
 					stmt.setString(12, "");
@@ -1649,12 +1483,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		}
 		return message;
 	}
-	
-	@Override
-	public ReturnedMessage deleteDirectoryAsAdministrator(String directoryPath)
-			throws Exception {
-		return this.deleteDirectory(directoryPath);
-	}
 
 	/**
 	 * Private recursive method to delete all the files and directories contained in a given directory.
@@ -1755,21 +1583,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		fillRDTree(entryPath, RDTree);
 		return RDTree;
 	}
-	
-	@Override
-	public boolean directoryExists(String _dirPath) throws Exception
-	{
-		if(_dirPath==null || _dirPath.trim().equals(""))
-		{
-			return false;
-		}
-		_dirPath = formatPathForDirectoryWithoutLastSeparator(_dirPath);
-		if(new java.io.File(_dirPath).isDirectory()){
-			return true;
-		}else{
-			return false;
-		}
-	}
 
 	/**
 	 * Recursive method used by the makeRDTree method
@@ -1854,11 +1667,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			doc.setLocked(rec.getField("Locked").toString());
 			doc.setLockingUserID(rec.getField("LockingUserId").toString());
 			doc.setDescription(rec.getField("Description").toString());
-			try{
-				doc.setExtension(doc.getFilename().substring(doc.getFilename().lastIndexOf(".")+1));
-			}catch(Exception ex){
-				//Ignore the Exception here
-			}
 
 		}
 		return doc;
@@ -1916,11 +1724,11 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 	}
 
 	@Override
-	public ReturnedMessage renameDirectory(String parentPath, 
+	public ReturnedMessage renameDirectory(String parentPath, String oldName,
 			String newName) throws Exception {
 		ReturnedMessage message = new ReturnedMessage();
 		message.setFiles(List.create(java.io.File.class));
-		if(parentPath==null ||  newName==null || newName.trim().equals("")){
+		if(parentPath==null || oldName== null || newName==null || oldName.trim().equals("") || newName.trim().equals("")){
 			message.setText("");
 			message.setType(FileHandler.ERROR_MESSAGE);
 		}
@@ -1984,7 +1792,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			fileDestinationPath=FileHandler.getFileDirectoryPath(new java.io.File(document.getPath()));
 		}
 		
-		String date = new Date().format("dd.MM.yyyy");
+		String date = new Date().format("d.M.yyyy");
 		String time = new Time().format();
 		String user = Ivy.session().getSessionUserName();
 		if(document.getCreationDate()==null || document.getCreationDate().trim().equals(""))
@@ -2016,14 +1824,12 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 			document.setDescription("");
 		}
 
-		fileDestinationPath=formatPath(fileDestinationPath);
-		String docPath = formatPathForDirectory(FileHandler.getFileDirectoryPath(new java.io.File(document.getPath())))+document.getFilename();
-		//Ivy.log().info(fileDestinationPath +" vs "+docPath );
+		fileDestinationPath=formatPathForDirectory(fileDestinationPath);
+		String docPath = formatPathForDirectory(FileHandler.getFileDirectoryPath(new java.io.File(document.getPath())));
 		if(!docPath.equalsIgnoreCase(fileDestinationPath))
-		{//here we move the file
+		{
 			document.setPath(fileDestinationPath+document.getFilename());
-			message = FileHandler.moveFile(new java.io.File(docPath), fileDestinationPath, false);
-			//Ivy.log().info("Message after moving : "+message.getText());
+			message = FileHandler.moveFile(new java.io.File(docPath+document.getFilename()), fileDestinationPath, false);
 		}
 		if(message.getType()==FileHandler.SUCCESS_MESSAGE)
 		{
@@ -2088,17 +1894,17 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 
 				kvp = new KeyValuePair();
 				kvp.setKey("ModificationUserId");
-				kvp.setValue(user);
+				kvp.setValue(document.getModificationUserID());
 				_KVP.add(kvp);
 
 				kvp = new KeyValuePair();
 				kvp.setKey("ModificationDate");
-				kvp.setValue(date);
+				kvp.setValue(document.getModificationDate());
 				_KVP.add(kvp);
 
 				kvp = new KeyValuePair();
 				kvp.setKey("ModificationTime");
-				kvp.setValue(time);
+				kvp.setValue(document.getModificationTime());
 				_KVP.add(kvp);
 
 				kvp = new KeyValuePair();
@@ -2120,81 +1926,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		}
 		return message;
 	}
-	
-	@Override
-	public ReturnedMessage setFileDescription(DocumentOnServer document,
-			String description) throws Exception {
-		ReturnedMessage message = new ReturnedMessage();
-		message.setType(FileHandler.SUCCESS_MESSAGE);
-		message.setFiles(List.create(java.io.File.class));
-		if(document==null)
-		{
-			message.setType(FileHandler.ERROR_MESSAGE);
-			message.setText("Unable to set the description. One of the parameter is invalid in setFileDescription(DocumentOnServer document, String description) in class "+this.getClass().getName());
-			return message;
-		}
-		int id=0;
-		if(document.getFileID()!=null)
-		{
-			try{
-				id=Integer.parseInt(document.getFileID());
-			}catch(Exception ex){
-				
-			}
-		}
-		if(id<=0 && document.getPath()!=null){
-			DocumentOnServer doc=this.getDocumentOnServer(document.getPath());
-			if(doc.getFileID()!=null){
-				try{
-					id=Integer.parseInt(doc.getFileID());
-				}catch(Exception ex){
-					
-				}
-			}
-		}
-		if(id<=0){
-			message.setType(FileHandler.ERROR_MESSAGE);
-			message.setText("Unable to set the description. The DocumentOnServer parameter is invalid in setFileDescription(DocumentOnServer document, String description) in class "+this.getClass().getName());
-			return message;
-		}
-		if(description == null)
-		{
-			description="";
-		}
-		
-		IExternalDatabaseRuntimeConnection connection=null;
-		try {
-			connection = getDatabase().getAndLockConnection();
-			Connection jdbcConnection=connection.getDatabaseConnection();
-			PreparedStatement stmt = null;
-			String query = "UPDATE "+this.tableNameSpace+" SET Description = ? WHERE FileId = ?";
-			try{
-				stmt = jdbcConnection.prepareStatement(query);
-				stmt.setString(1,description);
-				stmt.setInt(2,id);
-				int i = stmt.executeUpdate();
-				if(i<=0){
-					message.setType(FileHandler.ERROR_MESSAGE);
-					message.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/error/fileNotfound"));
-				}
-			}finally{
-				DatabaseUtil.close(stmt);
-			}
-
-		}finally{
-			if(connection!=null ){
-				database.giveBackAndUnlockConnection(connection);
-			}
-		}
-
-		return message;
-	}
-	
-	@Override
-	public ReturnedMessage moveDocumentOnServer(DocumentOnServer doc, String destination) throws Exception
-	{
-		return this.saveDocumentOnServer(doc, destination);
-	}
 
 
 	@Override
@@ -2211,7 +1942,7 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		}
 		List<DocumentOnServer> pasteDocs = List.create(DocumentOnServer.class);
 		String dest = formatPathForDirectory(fileDestinationPath);
-		String date = new Date().format("dd.MM.yyyy");
+		String date = new Date().format("d.M.yyyy");
 		String time = new Time().format();
 		String user="IVYSYSTEM";
 
@@ -2268,11 +1999,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 					nDoc.setModificationUserID(user);
 					nDoc.setPath(formatPath(pasteFile.getPath()));
 					nDoc.setUserID(user);
-					try{
-						nDoc.setExtension(nDoc.getFilename().substring(nDoc.getFilename().lastIndexOf(".")+1));
-					}catch(Exception ex){
-						//Ignore the Exception here
-					}
 					pasteDocs.add(nDoc);
 				}finally
 				{
@@ -2290,70 +2016,6 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 		insertDocuments(pasteDocs);
 		message.getDocumentOnServers().addAll(pasteDocs);
 		return message;
-	}
-	
-	@Override
-	public ReturnedMessage zipDocumentOnServers(
-			List<DocumentOnServer> documents, String dirPath, String zipName,
-			boolean checkIfExists) throws Exception {
-		ReturnedMessage message = new ReturnedMessage();
-		message.setFiles(List.create(java.io.File.class));
-		message.setDocumentOnServers(List.create(DocumentOnServer.class));
-		
-		if(dirPath == null || dirPath.trim().length()<=0 || documents==null || documents.size()==0)
-		{
-			throw new IllegalArgumentException("One of the parameter is not set in zipDocumentOnServers(List<DocumentOnServer> documents, String dirPath, String zipName,boolean checkIfExists) in "+ this.getClass());
-		}
-		
-		dirPath=formatPathForDirectory(dirPath);
-		zipName = zipName.endsWith(".zip")?zipName:zipName+".zip";
-		java.io.File zip = new java.io.File(dirPath+zipName);
-		boolean exists = zip.isFile();
-		
-		if(checkIfExists && exists){
-			message.setType(FileHandler.ERROR_MESSAGE);
-			message.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/error/zipfileAlreadyExistsCannotCreateIt"));
-			return message;
-		}else if(exists)
-		{
-			List<java.io.File> _files = List.create(java.io.File.class);
-			_files.add(zip);
-			this.deleteFiles(_files);
-		}
-		
-		ArrayList<java.io.File> zipFiles = new ArrayList<java.io.File>();
-		for(DocumentOnServer doc: documents)
-		{
-			zipFiles.add(new java.io.File(doc.getPath()));
-		}
-		zip=ZipHandler.makeZip(dirPath, zipName, zipFiles);
-		if(zip!=null && zip.isFile())
-		{
-			this.insertFile(zip, Ivy.session().getSessionUserName());
-			message.setType(FileHandler.SUCCESS_MESSAGE);
-			message.setFile(zip);
-		}else{
-			this.insertFile(zip, Ivy.session().getSessionUserName());
-			message.setType(FileHandler.ERROR_MESSAGE);
-		
-		}
-		return message;
-	}
-	
-	@Override
-	public boolean deleteFile(String _filepath) throws Exception{
-		
-		if(_filepath==null || _filepath.trim().equals(""))
-		{
-			return false;
-		}
-		_filepath = formatPath(_filepath);
-		java.io.File f = new java.io.File(_filepath);
-		if(!f.isFile())
-		{
-			return false;
-		}
-		return f.delete();
 	}
 
 	/**
@@ -2434,97 +2096,9 @@ public class FileManagementDBHandlerUniversal extends AbstractFileManagementHand
 	}
 
 
-	@Override
-	public boolean documentOnServerExists(DocumentOnServer document, String path)
-			throws Exception {
-		if(document== null || document.getFilename()==null || document.getFilename().trim().equals("") || path==null || path.trim().equals(""))
-		{
-			return false;
-		}
-		path=formatPathForDirectory(path);
-		java.io.File f = new java.io.File(path+document.getFilename().trim());
-		
-		return f.isFile();
-	}
 
 
-	@Override
-	public ReturnedMessage setFileDescription(String path, String description)
-			throws Exception {
-		ReturnedMessage message = new ReturnedMessage();
-		message.setType(FileHandler.SUCCESS_MESSAGE);
-		message.setFiles(List.create(java.io.File.class));
-		if(path==null || path.trim().equals(""))
-		{
-			message.setType(FileHandler.ERROR_MESSAGE);
-			message.setText("Unable to set the description. One of the parameter is invalid in setFileDescription(String path, String description) in class "+this.getClass().getName());
-			return message;
-		}
-		
-		if(description == null)
-		{
-			description="";
-		}
-		
-		IExternalDatabaseRuntimeConnection connection=null;
-		try {
-			connection = getDatabase().getAndLockConnection();
-			Connection jdbcConnection=connection.getDatabaseConnection();
-			PreparedStatement stmt = null;
-			String query = "UPDATE "+this.tableNameSpace+" SET Description = ? WHERE FilePath LIKE ?";
-			try{
-				stmt = jdbcConnection.prepareStatement(query);
-				stmt.setString(1,description);
-				stmt.setString(2,escapeBackSlash(path));
-				int i = stmt.executeUpdate();
-				if(i<=0){
-					message.setType(FileHandler.ERROR_MESSAGE);
-					message.setText(Ivy.cms().co("/ch/ivyteam/ivy/addons/filemanager/fileManagement/messages/error/fileNotfound")+" "+path);
-				}
-			}finally{
-				DatabaseUtil.close(stmt);
-			}
-
-		}finally{
-			if(connection!=null ){
-				database.giveBackAndUnlockConnection(connection);
-			}
-		}
-
-		return message;
-
-	}
 
 
-	@Override
-	public boolean isDirectoryEmpty(String directoryPath) throws Exception {
-		if(directoryPath==null || directoryPath.trim().equals(""))
-		{
-			throw new IllegalArgumentException("Illegal directory Path in method isDirectoryEmpty(String directoryPath) in "+this.getClass().toString());
-		}
-		java.io.File dir = new java.io.File(directoryPath);
-		if(dir.isDirectory()){
-			return dir.list().length==0;
-		}
-		return true;
-	}
-
-	@Override
-	public boolean fileExists(String filePath) throws Exception {
-		if(filePath == null || filePath.trim().equals(""))
-		{
-			return false;
-		}
-		filePath = formatPath(filePath);		
-		return new java.io.File(filePath).isFile();
-	}
-
-
-	@Override
-	public AbstractDirectorySecurityController getSecurityController()
-			throws Exception {
-		
-		return null;
-	}
 
 }

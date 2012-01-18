@@ -6,8 +6,8 @@ import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.addons.filemanager.EmailContainer;
 import ch.ivyteam.ivy.addons.util.RDCallbackMethodHandler;
 import ch.ivyteam.ivy.environment.Ivy;
-import ch.xpertline.ulc.server.headless.ULCXJava6Desktop;
-
+import ch.xpertline.ulc.server.headless.ULCXDesktop;
+import ch.xpertline.ulc.server.headless.ULCXDesktop.IsFileEditableReturnEvent;
 
 
 /**
@@ -42,7 +42,7 @@ public class DesktopHandler<T extends IRichDialogPanel> {
 	/** the file separator at client side: "/" by Unix systems and "\" by Windows systems, default is the windows' one */
 	private String clientFileSeparator = "\\";
 	/** the ULCXDesktop object*/
-	ULCXJava6Desktop javaDesktop=null;
+	ULCXDesktop javaDesktop=null;
 	
 	private long time;
 
@@ -84,27 +84,27 @@ public class DesktopHandler<T extends IRichDialogPanel> {
 	 */
     public DesktopHandler(T parent, String _errorMethodName,String _isFileEditableCallbackMethod, String _isFilePrintableCallbackMethod, boolean _useJava6){
     	this.parentRD=parent;
-    	this.errorMethodName=_errorMethodName!=null?_errorMethodName:"";
-    	this.isFileEditableCallbackMethod = _isFileEditableCallbackMethod!=null?_isFileEditableCallbackMethod:"";
-    	this.isFilePrintableCallbackMethod = _isFilePrintableCallbackMethod!=null?_isFilePrintableCallbackMethod:"";
+    	this.errorMethodName=_errorMethodName;
+    	this.isFileEditableCallbackMethod = _isFileEditableCallbackMethod;
+    	this.isFilePrintableCallbackMethod = _isFilePrintableCallbackMethod;
     	
     
-    		javaDesktop = new ULCXJava6Desktop();
-    		javaDesktop.addOnDesktopExceptionListener(new ULCXJava6Desktop.OnDesktopExceptionListener(){
-    			public void desktopException(ULCXJava6Desktop.OnDesktopExceptionEvent event) {
+    		javaDesktop = new ULCXDesktop();
+    		javaDesktop.addOnDesktopExceptionListener(new ULCXDesktop.OnDesktopExceptionListener(){
+    			public void desktopException(ULCXDesktop.OnDesktopExceptionEvent event) {
     				sendErrorMessage(event.getDesktopExceptionMessage());
     			}
     		});
-    		
-    		javaDesktop.addIsFileEditableReturnListener(new ULCXJava6Desktop.IsFileEditableReturnListener(){
-    			public void fileEditable(ULCXJava6Desktop.IsFileEditableReturnEvent event) {
+    		javaDesktop.addIsFileEditableReturnListener(new ULCXDesktop.IsFileEditableReturnListener(){
+
+    			public void fileEditable(IsFileEditableReturnEvent event) {
     				Boolean b = event.getIsFileEditable();
     				sendIsFileEditable(b);
     			}
+    			
     		});
-    		
-    		javaDesktop.addIsFilePrintableReturnListener(new ULCXJava6Desktop.IsFilePrintableReturnListener(){
-    			public void filePrintable(ULCXJava6Desktop.IsFilePrintableReturnEvent event) {
+    		javaDesktop.addIsFilePrintableReturnListener(new ULCXDesktop.IsFilePrintableReturnListener(){
+    			public void filePrintable(ULCXDesktop.IsFilePrintableReturnEvent event) {
     				Boolean b = event.getIsFilePrintable();
     				sendIsFilePrintable(b);
     			}

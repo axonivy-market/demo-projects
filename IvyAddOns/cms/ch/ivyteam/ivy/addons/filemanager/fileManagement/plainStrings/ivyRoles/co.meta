@@ -1,4 +1,0 @@
-co: name={ivyRoles} description={} changed={2011-10-05 04:21:43 CEST} changedby={ec} visualorder={0} guid={132D1DF3026DD48B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={132D1E0348E57D6E} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-10-05 04:17:46 CEST} validto={} changed={2011-10-05 04:21:43 CEST} changedby={ec} properties={} id={}
-val: guid={132D1DF302634258} datatype={} isdefault={true} langid={en} description={} validfrom={2011-10-05 04:17:37 CEST} validto={} changed={2011-10-05 04:18:44 CEST} changedby={ec} properties={} id={}
-val: guid={132D1E0346F504C1} datatype={} isdefault={false} langid={de} description={} validfrom={2011-10-05 04:17:49 CEST} validto={} changed={2011-10-05 04:18:44 CEST} changedby={ec} properties={} id={}
