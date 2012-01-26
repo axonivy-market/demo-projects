@@ -209,7 +209,7 @@ public class CustomFieldsHelper {
 	{
 		logger.debug("Getting the custom fields labels from CMS Uri {0}.", new Object[]{customFieldsLabelsBasicFolderCmsUri});
 
-		return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<CustomFieldsLabels>() {
+		return SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<CustomFieldsLabels>() {
 			
             public CustomFieldsLabels call() throws Exception {
         		

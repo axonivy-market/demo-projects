@@ -6,6 +6,7 @@ import ch.ivyteam.ivy.environment.EnvironmentNotAvailableException;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.security.SecurityManagerFactory;
 
 /**
  * 
@@ -371,7 +372,7 @@ public class WorkflowUserPropertyHelper {
 			final String propertyName, final String propertyValue) throws EnvironmentNotAvailableException,
 			Exception {
 
-		return Ivy.session().getSecurityContext().executeAsSystemUser(
+		return SecurityManagerFactory.getSecurityManager().executeAsSystem(
 				new Callable<Boolean>() {
 					public Boolean call() throws Exception {
 						if (user != null) {
@@ -408,7 +409,7 @@ public class WorkflowUserPropertyHelper {
 			Exception {
 		String propertyValue = null;
 
-		propertyValue = Ivy.session().getSecurityContext().executeAsSystemUser(
+		propertyValue = SecurityManagerFactory.getSecurityManager().executeAsSystem(
 				new Callable<String>() {
 					public String call() throws Exception {
 						if (user != null) {

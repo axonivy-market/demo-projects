@@ -9,6 +9,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.security.IRole;
 import ch.ivyteam.ivy.security.IUser;
 import ch.ivyteam.ivy.security.IUserSubstitute;
+import ch.ivyteam.ivy.security.SecurityManagerFactory;
 /**
  * 
  * @author tirib, TI-Informatique
@@ -31,7 +32,7 @@ public class UserSubstituteHelper {
 	{   
 		try
 	    {
-	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
+	      return SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<Boolean>()
 	        {
 	          public Boolean call() throws Exception
 	          {
@@ -65,7 +66,7 @@ public class UserSubstituteHelper {
 	{   
 		try
 	    {
-	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<IUserSubstitute>>()
+	      return SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<List<IUserSubstitute>>()
 	        {
 	          public List<IUserSubstitute> call() throws Exception
 	          {
@@ -96,7 +97,7 @@ public class UserSubstituteHelper {
 	    {
 			final String sessionUserName = Ivy.session().getSessionUserName();
 			
-	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<IUserSubstitute>()
+	      return SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<IUserSubstitute>()
 	        {
 	          public IUserSubstitute call() throws Exception
 	          {
@@ -133,7 +134,7 @@ public class UserSubstituteHelper {
 	    {
 			final String sessionUserName = Ivy.session().getSessionUserName();
 			
-	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
+	      return SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<Boolean>()
 	        {
 	          public Boolean call() throws Exception
 	          {	        	  

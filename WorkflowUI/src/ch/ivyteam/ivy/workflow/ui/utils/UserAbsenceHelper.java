@@ -9,6 +9,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.security.IRole;
 import ch.ivyteam.ivy.security.IUser;
 import ch.ivyteam.ivy.security.IUserAbsence;
+import ch.ivyteam.ivy.security.SecurityManagerFactory;
 
 /**
  * 
@@ -34,7 +35,7 @@ public class UserAbsenceHelper {
 	{   
 		try
 	    {
-	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
+	      return SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<Boolean>()
 	        {
 	          public Boolean call() throws Exception
 	          {
@@ -68,7 +69,7 @@ public class UserAbsenceHelper {
 	{   
 		try
 	    {
-	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<List<IUserAbsence>>()
+	      return SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<List<IUserAbsence>>()
 	        {
 	          public List<IUserAbsence> call() throws Exception
 	          {
@@ -101,7 +102,7 @@ public class UserAbsenceHelper {
 	    {
 			final String sessionUserName = Ivy.session().getSessionUserName();
 			
-	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<IUserAbsence>()
+	      return SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<IUserAbsence>()
 	        {
 	          public IUserAbsence call() throws Exception
 	          {
@@ -138,7 +139,7 @@ public class UserAbsenceHelper {
 	    {
 			final String sessionUserName = Ivy.session().getSessionUserName();
 			
-	      return Ivy.session().getSecurityContext().executeAsSystemUser(new Callable<Boolean>()
+	      return SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<Boolean>()
 	        {
 	          public Boolean call() throws Exception
 	          {
