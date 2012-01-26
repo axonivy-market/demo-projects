@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 24 14:29:01 CET 2011]
+[>Created: Thu Jan 26 09:33:59 CET 2012]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -1214,7 +1214,7 @@ Ts0 f73 2278 436 36 24 20 -14 #rect
 Ts0 f73 @|RichDialogProcessStepIcon #fIcon
 Ts0 f74 expr in #txt
 Ts0 f74 outCond '(in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.SUSPENDED) == 0 || in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.PARKED) == 0) &&
-(ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.userIsTaskActivatorCandidate(ivy.session.getSessionUser(),in.selectedTask) || ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(in.selectedTask))' #txt
+(ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.userIsTaskActivatorCandidate(ivy.session,in.selectedTask) ||ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(in.selectedTask))' #txt
 Ts0 f74 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
