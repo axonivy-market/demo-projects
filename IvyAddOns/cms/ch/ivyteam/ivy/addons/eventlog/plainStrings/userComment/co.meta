@@ -1,0 +1,4 @@
+co: name={userComment} description={} changed={2010-11-23 16:33:24 CET} changedby={rwei} visualorder={0} guid={12848FC6FB1E88E2} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12C795E125BFE906} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:33:17 CET} validto={} changed={2010-11-23 16:33:24 CET} changedby={rwei} properties={} id={}
+val: guid={12848FC6FB1DF3F2} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-29 11:53:42 CEST} validto={} changed={2010-04-29 11:53:59 CEST} changedby={tirib} properties={} id={}
+val: guid={12848FC7DF98DA71} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-04-29 11:53:46 CEST} validto={} changed={2010-04-29 11:54:00 CEST} changedby={tirib} properties={} id={}

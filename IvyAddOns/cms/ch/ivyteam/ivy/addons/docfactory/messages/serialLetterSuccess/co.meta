@@ -1,0 +1,4 @@
+co: name={serialLetterSuccess} description={} changed={2009-10-28 08:44:27 CET} changedby={ec} visualorder={0} guid={12499CD45DD40060} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={12499CD460C3B3E9} datatype={} isdefault={true} langid={en} description={} validfrom={2009-10-28 07:20:17 CET} validto={} changed={2009-10-28 07:20:56 CET} changedby={ec} properties={} id={}
+val: guid={12499CDDD8A7782A} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-10-28 07:20:56 CET} validto={} changed={2009-10-28 08:44:27 CET} changedby={ec} properties={} id={}
+val: guid={12499CDE5887FF55} datatype={} isdefault={false} langid={de} description={} validfrom={2009-10-28 07:20:58 CET} validto={} changed={2009-10-28 08:44:27 CET} changedby={ec} properties={} id={}

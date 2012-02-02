@@ -1,0 +1,11 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2011-02-23 07:53:36 | 4.2.0.35805 | 1.0
+~@RD_METHODCALL[stopFileCheck()]--->ch.ivyteam.ivy.process.ProcessStart:125F987FBCF8B3EC/11E25B063A118C97
+~@RD_METHODCALL[_fileModified(java.io.File)]--->ch.ivyteam.ivy.process.ProcessStart:125F987FBCF8B3EC/11E8CF7D6ECD0AE5
+~@RD_METHODCALL[setClientFileSeparator(String)]--->ch.ivyteam.ivy.process.ProcessStart:125F987FBCF8B3EC/12E514B333648C69
+~@RD_METHODCALL[getCheckPeriod()]--->ch.ivyteam.ivy.process.ProcessStart:125F987FBCF8B3EC/11E25B025EDC0BAF
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:125F987FBCF8B3EC/11E259C2E7C3B828
+~@RD_METHODCALL[startFileCheck()]--->ch.ivyteam.ivy.process.ProcessStart:125F987FBCF8B3EC/11E25B0546F40994
+~@RD_METHODCALL[getFileCouplesList()]--->ch.ivyteam.ivy.process.ProcessStart:125F987FBCF8B3EC/11E25B02F534938E
+~@RD_METHODCALL[setFileCouplesList(List<ch.ivyteam.ivy.addons.filemanager.FileCouple>)]--->ch.ivyteam.ivy.process.ProcessStart:125F987FBCF8B3EC/125F99D12D9BCFAE
+~@RD_METHODCALL[setCheckPeriod(Number)]--->ch.ivyteam.ivy.process.ProcessStart:125F987FBCF8B3EC/11E25B03A21747F8

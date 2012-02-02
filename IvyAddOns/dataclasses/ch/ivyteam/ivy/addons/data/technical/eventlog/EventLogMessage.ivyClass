@@ -1,0 +1,6 @@
+EventLogMessage #class
+ch.ivyteam.ivy.addons.data.technical.eventlog #namespace
+eventLogId Integer #field
+eventLogId PERSISTENT #fieldModifier
+message String #field
+message PERSISTENT #fieldModifier

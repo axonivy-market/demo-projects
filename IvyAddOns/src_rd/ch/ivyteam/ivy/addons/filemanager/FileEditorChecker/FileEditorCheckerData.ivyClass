@@ -1,0 +1,14 @@
+FileEditorCheckerData #class
+ch.ivyteam.ivy.addons.filemanager.FileEditorChecker #namespace
+checkPeriod Number #field
+checkPeriod 'the time in ms between 2 FileCouple check (10000ms per Default)' #fieldComment
+fileCoupleChecker ch.ivyteam.ivy.addons.filemanager.ulcextensionhandler.FileCoupleChecker #field
+fileCoupleChecker 'object responsible of the file check process between the server and the client' #fieldComment
+fileCouplesList List<ch.ivyteam.ivy.addons.filemanager.FileCouple> #field
+fileCouplesList 'List from the Files that are edited.' #fieldComment
+editedFilesNb Number #field
+editedFilesNb 'Nb of edited files' #fieldComment
+fileModified java.io.File #field
+fileModified 'last modified File' #fieldComment
+clientFileSeparator String #field
+clientFileSeparator 'the file separator at client side: "/" by Unix systems and "\" by Windows systems' #fieldComment

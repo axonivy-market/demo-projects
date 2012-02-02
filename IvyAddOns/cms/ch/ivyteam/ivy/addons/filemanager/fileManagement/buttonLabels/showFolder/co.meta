@@ -1,0 +1,4 @@
+co: name={showFolder} description={} changed={2011-01-17 17:03:11 CET} changedby={tirib} visualorder={0} guid={12D94B5A5AE679C5} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12D94B5A5B919C68} datatype={} isdefault={true} langid={en} description={} validfrom={2011-01-17 17:01:28 CET} validto={} changed={2011-01-17 17:01:40 CET} changedby={tirib} properties={} id={}
+val: guid={12D94B6FC776D81E} datatype={} isdefault={false} langid={de} description={} validfrom={2011-01-17 17:02:56 CET} validto={} changed={2011-01-17 17:03:11 CET} changedby={tirib} properties={} id={}
+val: guid={12D94B5C57445E3A} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-01-17 17:01:36 CET} validto={} changed={2011-01-17 17:01:51 CET} changedby={tirib} properties={} id={}

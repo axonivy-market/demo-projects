@@ -1,0 +1,14 @@
+FileCouple #class
+'This Object represents a couple of replicated files: one copy is on the server and the other one is on the client.
+It is used for file edition. If the client File checksum changes, the file will be automatically uploaded on the server.' #classComment
+ch.ivyteam.ivy.addons.filemanager #namespace
+serverFile java.io.File #field
+serverFile 'the java.io.File on the server' #fieldComment
+clientFile java.io.File #field
+clientFile 'the java.io.File on the client' #fieldComment
+serverFileAdler32 Number #field
+serverFileAdler32 'Adler32 Checksum from the File at server side' #fieldComment
+clientFileAdler32 Number #field
+clientFileAdler32 'Adler32 Checksum from the File at client side (Not used at that time).' #fieldComment
+serverSidePath String #field
+serverSidePath 'If the File is stored in a DB, the "physical" java.io.File is surely contained in a temp directory during its edition. The serverFile path can differ from the serverSidePath.' #fieldComment

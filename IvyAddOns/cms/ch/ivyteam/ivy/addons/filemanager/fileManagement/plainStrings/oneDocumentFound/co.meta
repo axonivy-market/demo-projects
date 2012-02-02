@@ -1,0 +1,4 @@
+co: name={oneDocumentFound} description={} changed={2009-06-19 07:13:39 GMT} changedby={ec} visualorder={0} guid={121F75A79FD1C453} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={121F75CD8652D9F4} datatype={} isdefault={false} langid={de} description={} validfrom={2009-06-19 07:13:25 GMT} validto={} changed={2009-06-19 07:13:39 GMT} changedby={ec} properties={} id={}
+val: guid={121F75A7A1CA483E} datatype={} isdefault={true} langid={en} description={} validfrom={2009-06-19 07:10:50 GMT} validto={} changed={2009-06-19 07:11:19 GMT} changedby={ec} properties={} id={}
+val: guid={121F75BA37C565FB} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-06-19 07:12:06 GMT} validto={} changed={2009-06-19 07:12:36 GMT} changedby={ec} properties={} id={}

@@ -1,0 +1,3 @@
+co: name={entryBlockedValidationTitle} description={} changed={2010-08-11 16:20:03 CEST} changedby={tipaj} visualorder={0} guid={12A61831817F2DAC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12A6183181C85C39} datatype={} isdefault={true} langid={en} description={} validfrom={2010-08-11 16:17:15 CEST} validto={} changed={2010-08-11 16:20:03 CEST} changedby={tipaj} properties={} id={}
+val: guid={12A61833E6B3CB3C} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-08-11 16:17:25 CEST} validto={} changed={2010-08-11 16:20:03 CEST} changedby={tipaj} properties={} id={}

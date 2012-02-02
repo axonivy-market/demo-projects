@@ -1,0 +1,15 @@
+ResourceServices #class
+'Data Class for the ResourceService Sub process.' #classComment
+ch.ivyteam.ivy.addons.data.restricted.technical #namespace
+caseIdentifier Number #field
+caseIdentifier 'Case identifier for which the case resources path has to be found' #fieldComment
+caseDocumentsPath String #field
+caseDocumentsPath 'Folder path where the case documents (pdf files, certificates, bills, ) are stored.  These will be visible in WFUI case Documents because helpfull to end user in order to execute the task. If not found it contains empty string.' #fieldComment
+caseResourcesPath String #field
+caseResourcesPath 'Folder path where the case resources (xml files, configs that are related to the case) are stored. Those resources will not be visible in WFUI case Documents. If not found it contains empty string.' #fieldComment
+applicationCode String #field
+applicationCode 'Your application (software or tower) code. Ex: xhrm, xfin, xgov, xecm' #fieldComment
+applicationModule String #field
+applicationModule 'The application module (logical or functional part of your application). Ex: a4y, billing, controlling, etc' #fieldComment
+applicationResourcesPath String #field
+applicationResourcesPath 'Folder path where tower or application specific resources are stored.' #fieldComment

@@ -1,0 +1,4 @@
+co: name={eventLogsDisplayFailedCaseIsNotInitialized} description={} changed={2010-11-23 16:30:57 CET} changedby={rwei} visualorder={0} guid={128495C2BBF81595} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={128495C366E42450} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-04-29 13:38:19 CEST} validto={} changed={2010-04-29 13:40:20 CEST} changedby={tirib} properties={} id={}
+val: guid={12C795B47D4C5449} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:30:14 CET} validto={} changed={2010-11-23 16:30:57 CET} changedby={rwei} properties={} id={}
+val: guid={128495C2BDEBBCCA} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-29 13:38:16 CEST} validto={} changed={2010-04-29 13:38:16 CEST} changedby={tirib} properties={} id={}

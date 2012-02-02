@@ -1,0 +1,3 @@
+The parameter <span class="parameter">mandatory</span> permits to update validation icons. When a mandatory field is not filled or its content is not valid, dynamic dialog considers that as a warning.<br />
+If the value of <span class="parameter">blockingValidation</span>
+ is <span class="constant">true</span>, dynamic dialog considers that as an error and no more as a warning.

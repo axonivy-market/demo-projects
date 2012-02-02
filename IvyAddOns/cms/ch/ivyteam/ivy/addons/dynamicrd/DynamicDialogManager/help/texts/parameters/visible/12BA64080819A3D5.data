@@ -1,0 +1,2 @@
+If true, the component is visible at startup.<br />
+The default value is <span class="constant">true</span>

@@ -1,0 +1,1414 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <description>This RDC is the most complete FileManager Dialog. It encapsulates a DesktopHandler to be able to performs advanced client side operations with the JDIC ULC Integration.&#xD;
+Those operations are: edit, print, mail, open.&#xD;
+ It allows managing the folder' structure of the given entry path: you can create new folders, download folders containment, delete folders, zip files, copy files, delete/upload/download files....</description>
+    <autoScreenshot>true</autoScreenshot>
+    <acceptedBroadcast>
+        <name>SE_renameFile</name>
+        <description>See _renameFile() method documentation</description>
+        <attachment>
+            <name>uniquePanelId</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>SE_fileLocked</name>
+        <description>System Event catched whenever a File is locked in a FileManger or a FileListTable.&#xD;
+List of parameters: the FileManager/FileListTable unique PanelId Data that sent the event and &#xD;
+the locked DocumentOnServer Object.</description>
+        <attachment>
+            <name>panelIdAndDocumentOnServer</name>
+            <description></description>
+            <parameterType>List</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>SE_fileRenamed</name>
+        <description>see documentation of SE_fileRenamed fired Event</description>
+        <attachment>
+            <name>renamedDocumentOnServer_SelectedFolderOnServer_PanelId</name>
+            <description></description>
+            <parameterType>List</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>deleteSelectedFolder</name>
+        <description>This broadcast event is catched when the user tries to delete a directory by pressing the delete Key.&#xD;
+The method called back by the keyboard event calls the _deleteSelectedFolder in the panel process.&#xD;
+This method cannot displays the synchr. Window, asking the user if he really wants to delete the folder.&#xD;
+In such a case the KeyBoard action would lost the RDPanel Context resulting in a Server side Error.&#xD;
+As workaround the method will send deleteSelectedFolder@APP, that is asynchron.</description>
+        <attachment>
+            <name>uniquePanelId</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>errorOccurred</name>
+        <description></description>
+        <attachment>
+            <name>errorUtil</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ErrorUtil</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>SE_FilesUnlocked</name>
+        <description>catched when a user unlock files</description>
+        <attachment>
+            <name>files</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>SE_DocumentsUnlocked</name>
+        <description>catched when a user unlock documents</description>
+        <attachment>
+            <name>documentsUnlocked</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>deleteSelectedFiles</name>
+        <description></description>
+        <attachment>
+            <name>uniquePanelId</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>filesCopied</name>
+        <description>Accept the @APPLICATION filesCopied(Numnber _panelId) Event.&#xD;
+See the FilesCopied Fired Event for more explanations.</description>
+        <attachment>
+            <name>panelId</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>SE_DocumentsDeleted</name>
+        <description>&#xD;
+The panel catches this event and refresh the table if the path is the same as the focused Directory.</description>
+        <attachment>
+            <name>DocumentsPathAndPanelID</name>
+            <description></description>
+            <parameterType>List</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>pasteFiles</name>
+        <description>see the _pasteFiles method documentation</description>
+        <attachment>
+            <name>uniquePanelId</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <acceptedBroadcast>
+        <name>SE_FilesDeleted</name>
+        <description>catched when files deleted from a Directory.&#xD;
+Parameters: Ivy application Name, panelID as String to be able to filter the incoming events&#xD;
+path of the directory where the files were deleted</description>
+        <attachment>
+            <name>applicationName_panelID_dirPath</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </acceptedBroadcast>
+    <method>
+        <name>getLastFileUploaded</name>
+        <description>get the last Uploaded File reference.&#xD;
+WARNING: Please check for null incomimg parameter, the File can be null.</description>
+        <outputParameter>
+            <name>file</name>
+            <description>the last java.io.File taht was uploaded</description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>editFile</name>
+        <description>Tries to open a selected file in edit mode.&#xD;
+If the file is locked, the user will be informed that the File is going to be open in &quot;Read only&quot; modus.&#xD;
+Read only doesn't mean, that the user cannot edit and save the file on his computer, but that the changes are not going to be uploaded on the server.&#xD;
+If the File cannot be edited on the User's computer (like a PDF if no PDF Editor is installed), the file will be open in read only modus.&#xD;
+</description>
+        <inputParameter>
+            <name>fileToEdit</name>
+            <description>the java.io.FIle to be edited</description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setToolBarVisible</name>
+        <description>set the toolbar visibility</description>
+        <inputParameter>
+            <name>toolbarVisible</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_moveFile</name>
+        <description>Callback Method that is called after a DnD from one or more documents&#xD;
+from the documents table to the ordners tree.</description>
+        <inputParameter>
+            <name>newPath</name>
+            <description>The new path of the File</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>documentOnServer</name>
+            <description>List of documents on server that are moved</description>
+            <parameterType>java.util.ArrayList</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setFileManagementHandler</name>
+        <description>Set the FileManahgementHandler.&#xD;
+A FileManagementHandler is an Object that has to extend the AbstractFileManagementHandler. It is responsible for storing the File indexation from&#xD;
+the files on the server. The indexation system contains all the properties available for the files like file Id, File name, creation user, locked if there is any locking system...&#xD;
+The AbstractFileManagementHandler contains getInstance() methods to build such Objects easily.</description>
+        <inputParameter>
+            <name>fileManagementHandler</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.database.AbstractFileManagementHandler</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_deleteSelectedDirectory</name>
+        <description>This method is called whenever the user presses the delete Key and the Directory RTree is in FOCUS.&#xD;
+The Directory RTree registers to the delete keyborad action.&#xD;
+This method will send the deleteSelectedFolder application asynchronous event&#xD;
+The methods called by keyboard Events send APP events if they need to interact with the user through synchrone Windows.</description>
+    </method>
+    <method>
+        <name>getServerPath</name>
+        <description>returns the serverPath.&#xD;
+Note: the serverPath can be different from the selectedDirectoryPath. It is the root directory&#xD;
+that contains all the directories that can be selected. The user cannot navigate outside the serverPath.&#xD;
+the serverPath is always the root from the selectedDirectoryPath</description>
+        <outputParameter>
+            <name>serverPath</name>
+            <description>the root path setted in the start methods or in the setServerPath method</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>showTree</name>
+        <description>Allows to hide or show the directories Tree</description>
+        <inputParameter>
+            <name>isTreeVisible</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_onChangeFile</name>
+        <description>FOR CALLBACK USE ONLY&#xD;
+This methods allows a FileUploadHandler Object to call the RDProcess back, when a File that already exists on the server&#xD;
+was chosen for Upload. The RDProcess can warn the user.&#xD;
+To be able to call this method back, the FileUploadHandler has to be instantiated with a reference to this method, &#xD;
+or the method has to be referenced dynamically with the setAskForChangeFileMethodName method of the FileUploadHandler&#xD;
+See ch.xpertline.updownload.FileUploadHandler javadoc. </description>
+        <inputParameter>
+            <name>returnedMessage</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_copyFiles</name>
+        <description>called by the CTRL+V keyboard Event</description>
+    </method>
+    <method>
+        <name>_onProgressWithText</name>
+        <description>FOR CALLBACK USE ONLY&#xD;
+This methods allows a FileHandler to call the RDProcess back, when an action is in progress.&#xD;
+It allows you to show the progress of the current operation.It gives the indicated text performed back.&#xD;
+To be able to call this method back, the FileHandler has to be instantiated with a reference to this method, &#xD;
+or the method has to be referenced dynamically with the setSuccessMethodName method of the FileUploadHandler&#xD;
+See ch.xpertline.updownload.FileUploadHandler javadoc. </description>
+        <inputParameter>
+            <name>progressText</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setSelectedFile</name>
+        <description>If the file is present in the list of displayed DocumentOnServer Objects, the RTable will select the given java.io.File.</description>
+        <inputParameter>
+            <name>fileToSelect</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_pasteFiles</name>
+        <description>Called by the CTRL+V key Envent. It sends the pasteFiles(panelID)@APP broadcastEvent.&#xD;
+This event is catched within the same FileManger and performs the rest of the Paste process.&#xD;
+It is necessary to go through a broadcast event here, because the paste process may display a modal dialog in some cases.&#xD;
+</description>
+    </method>
+    <method>
+        <name>getUserTempDirectoryPath</name>
+        <description>Returns the user temp directory. It should be the one from the userSystemProperties Extension.</description>
+        <outputParameter>
+            <name>userTempDirectoryPath</name>
+            <description>Returns the user temp directory. It should be the one from the userSystemProperties Extension.</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>isFileLocked</name>
+        <description>Returns true if the File is locked, else false</description>
+        <inputParameter>
+            <name>file</name>
+            <description>the java.io.File to check if somepone is currently editing</description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>locked</name>
+            <description>if true the file is currently been edited</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>_onSuccess</name>
+        <description>FOR CALLBACK USE ONLY&#xD;
+This methods allows a FileUploadHandler Object to call the RDProcess back, when an action succeed.&#xD;
+The Object returned is a ReturnedMessage dataclass Object.&#xD;
+To be able to call this method back, the FileUploadHandler has to be instantiated with a reference to this method, &#xD;
+or the method has to be referenced dynamically with the setSuccessMethodName method of the FileUploadHandler&#xD;
+See ch.xpertline.updownload.FileUploadHandler javadoc. </description>
+        <inputParameter>
+            <name>returnedMessage</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>deleteDirectory</name>
+        <description>Delete the directory designed by the given path only if the directory is empty (no files, no other directories).&#xD;
+Cannot delete the actual workking directory root (in.serverPath variable)&#xD;
+Return ReturnedMessage Object with the success status.</description>
+        <inputParameter>
+            <name>dirPath</name>
+            <description>the directory path to delete</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>returnedMessage</name>
+            <description>if succesfull the Type will be SUCCESS, else will be ERROR</description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>getSelectedDocuments</name>
+        <description>Returns the selected documents in the File Table.&#xD;
+returns a List&lt;DocumentOnServer&gt;</description>
+        <outputParameter>
+            <name>listOfDocumentOnServer</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>addFiles</name>
+        <description>Add a list of Files into the Db and into the documents table list.&#xD;
+It doesn't check if the files are really presents on the server.&#xD;
+This check is performed with the next refresh action.</description>
+        <inputParameter>
+            <name>listOfFiles</name>
+            <description>Lis of java.io.File to add</description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>mail</name>
+        <description>tries to open the default user mail program to mail the selected documents.&#xD;
+Following parameters:&#xD;
+to : List&lt;String&gt;: the list of email addresses of the primary receivers of the email (separated by a coma)&#xD;
+cc :  List&lt;String&gt;: the list of email addresses of receivers in copy (separated by a coma)&#xD;
+bcc:  List&lt;String&gt;: the list of email addresses of receivers in invisible copy(separated by a coma)&#xD;
+</description>
+        <inputParameter>
+            <name>to</name>
+            <description>the list of &quot;to&quot; email addresses coma separated</description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>cc</name>
+            <description>the list of &quot;cc&quot; email addresses coma separated</description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>bcc</name>
+            <description>the list of &quot;bcc&quot; email addresses coma separated</description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>subject</name>
+            <description>the subject of the mail</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>body</name>
+            <description>the body(message) of the mail</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>attachmentsFromOutside</name>
+            <description>if true will try to include the list of given attachments</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>attachments</name>
+            <description>the list of java.io.file in attachment. These Files are located on the Server.</description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getSelectedDirectoryPath</name>
+        <description>Returns the selected directory path</description>
+        <outputParameter>
+            <name>selectedDirectoryPath</name>
+            <description>the selected directory path</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>_onError</name>
+        <description>FOR CALLBACK USE ONLY&#xD;
+This methods allows a FileUploadHandler Object to call the RDProcess back, when an error occured.&#xD;
+The Object returned is a ReturnedMessage dataclass Object.&#xD;
+To be able to call this method back, the FileUploadHandler has to be instantiated with a reference to this method, &#xD;
+or the method has to be referenced dynamically with the setErrorMethodName method of the FileUploadHandler&#xD;
+See ch.xpertline.updownload.FileUploadHandler javadoc. </description>
+        <inputParameter>
+            <name>returnedMessage</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_onChangeFile</name>
+        <description>FOR CALLBACK USE ONLY&#xD;
+This methods allows a FileUploadHandler Object to call the RDProcess back, when a File that already exists on the server&#xD;
+was chosen for Upload. The RDProcess can warn the user.&#xD;
+To be able to call this method back, the FileUploadHandler has to be instantiated with a reference to this method, &#xD;
+or the method has to be referenced dynamically with the setAskForChangeFileMethodName method of the FileUploadHandler&#xD;
+See ch.xpertline.updownload.FileUploadHandler javadoc. </description>
+        <inputParameter>
+            <name>existingFileOnServer</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>fileName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_renameFile</name>
+        <description>Called by the F2 key Event on focused files Table. It sends the renameFiles(panelID)@APP broadcastEvent.&#xD;
+This event is catched within the same FileManger and performs the rest of the Rename process.&#xD;
+It is necessary to go through a broadcast event here, because the rename process displays a modal dialog (FileNameDialog).</description>
+    </method>
+    <method>
+        <name>selectFolderOnServer</name>
+        <description>This method select the Folder that corresponds to the given path.&#xD;
+Input: String path of the folder to select&#xD;
+Output: the FolderOnserver Object that is selected&#xD;
+The Treeview selects and Scrolls to the Tree Node that corresponds to this path.It refreshes the table File list.</description>
+        <inputParameter>
+            <name>path</name>
+            <description>the path of the directory to select</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>selectedFolderOnServer</name>
+            <description>FolderOnServer object that is selected after the use of the method</description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.FolderOnServer</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>getFileManagementHandler</name>
+        <description>returns the FileManagementHandler used in the updownload panel.&#xD;
+A FileManagementHandler is an Object that has to extend the AbstractFileManagementHandler. It is responsible for storing the File indexation from&#xD;
+the files on the server. The indexation system contains all the properties available for the files like file Id, File name, creation user, locked if there is any locking system...&#xD;
+The AbstractFileManagementHandler contains getInstance() methods to build such Objects easily.</description>
+        <outputParameter>
+            <name>fileManagementHandler</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.database.AbstractFileManagementHandler</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>setIsRecursive</name>
+        <description>Set how the files are searched in the Db and the FileSystem.&#xD;
+If true the files are searched recursively under the selected directory.&#xD;
+If false, just the files directly under the directory are shown.</description>
+        <inputParameter>
+            <name>isRecursive</name>
+            <description>if true the files are searched recursively under the selected directory.</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_getUploadedFileFromUploadHandler</name>
+        <description>Not for use from outside.&#xD;
+It is a callback method for the FileUploadHandler Object.&#xD;
+This method is called back, when a File Upload occured succesfully.&#xD;
+It allows the RDProcess finishing the upload process (status label, refresh of the the table...)&#xD;
+</description>
+        <inputParameter>
+            <name>returnedMessage</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>makeDirectory</name>
+        <description>Creates a new directory. &#xD;
+The String parameter is the name of the directoy, not the entire path.&#xD;
+The path of the new directory is going to be the in.serverPath+name.&#xD;
+Use the setServerPath method to change this path.&#xD;
+@return a ReturnedMessage Object containing the message Type(SUCCESS==1, ERROR==2) &#xD;
+and the message text</description>
+        <inputParameter>
+            <name>dirName</name>
+            <description>the directory name to be created. It will be created under the curretly selected directory</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>returnedMessage</name>
+            <description>Creates the directory given by the String parameter.&#xD;
+The String parameter should be the name of the directoy, not the entire path.&#xD;
+The path of the new directory is going to be the in.serverPath.&#xD;
+Use the setServerPath method to change this path.&#xD;
+@return a ReturnedMessage Object containing the message Type(SUCCESS==1, ERROR==2) &#xD;
+and the message text</description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>_askIfOverwriteExistingFiles</name>
+        <description>intern callback method&#xD;
+used in DnD events to ask the user if some existing Files should be overwritten.</description>
+        <inputParameter>
+            <name>allFilesChoosed</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>filesToOverwrite</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>addDocuments</name>
+        <description>Add a list of documents into the Db and into the documents table list.&#xD;
+It doesn't check if the files are really presents on the server.&#xD;
+This check is performed with the next refresh action.</description>
+        <inputParameter>
+            <name>documentsList</name>
+            <description>List of documentOnServer Objects to add</description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getAdvancedActionsEnable</name>
+        <description>returns true if the User can perform advanced actions like delete a folder or a File...</description>
+        <outputParameter>
+            <name>enabled</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>getIsRecursive</name>
+        <description>if true the files are searched recursively under the selected directory.&#xD;
+ If false, just the files directly under the directory are shown.</description>
+        <outputParameter>
+            <name>isRecursive</name>
+            <description>if true the files are searched recursively under the selected directory.</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>deleteFiles</name>
+        <description>Delete the given list of files.&#xD;
+Return ReturnedMessage Object with the success status.</description>
+        <inputParameter>
+            <name>filesList</name>
+            <description>List of java.io.File to delete</description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>returnedMessage</name>
+            <description>SUCCESS Type if success else ERROR</description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>_onUploadSuccess</name>
+        <description>FOR CALLBACK USE ONLY&#xD;
+This methods allows a FileUploadHandler Object to call the RDProcess back, when an action succeed on a List of java.io.File..&#xD;
+The Object returned is a List&lt;java.io.FIle&gt; dataclass Object.&#xD;
+To be able to call this method back, the FileUploadHandler has to be instantiated with a reference to this method, &#xD;
+or the method has to be referenced dynamically with the setSuccessMethodName method of the FileUploadHandler&#xD;
+See ch.xpertline.updownload.FileUploadHandler javadoc.</description>
+        <inputParameter>
+            <name>uploadedFiles</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_close</name>
+        <description>If started as pathChooser called when the user presses CTRL+W or ESC.</description>
+    </method>
+    <method>
+        <name>setServerPath</name>
+        <description>Set the server path&#xD;
+It is a crucial Method when you want to reset the RD with a new Path on the server.&#xD;
+The RDTree and the documentsList have to be rebuilt.&#xD;
+It is the root directory&#xD;
+that contains all the directories that can be selected. The user cannot navigate outside the serverPath.&#xD;
+the serverPath is always the root from the selectedDirectoryPath</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>printFile</name>
+        <description>tries to print a file from the server on the client default printer.&#xD;
+uses the DesktopHandler RDC for that tasks.&#xD;
+</description>
+        <inputParameter>
+            <name>file</name>
+            <description>the java.i9o.File to send on the default printer</description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_deleteSelectedFiles</name>
+        <description>This method is called whenever the user presses the delete Key&#xD;
+Two Delete buttons register to the delete keyborad action: the delete files and the delete folder&#xD;
+If some files are selected, the _deleteSelectedItems will send the deleteSelectedFiles application asynchronous event&#xD;
+Else, the _deleteSelectedItems will send the deleteSelectedFolder application asynchronous event&#xD;
+The methods called by keyboard Events send APP events if they need to interact with the user through synchrone Windows.</description>
+    </method>
+    <method>
+        <name>getSelectedDocument</name>
+        <description>Returns the selected document in the File Table.&#xD;
+The object returned is a documentOnServer Object</description>
+        <outputParameter>
+            <name>selectedDocument</name>
+            <description>Returns the selected document in the File Table.&#xD;
+The object returned is a documentOnServer Object</description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.DocumentOnServer</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>_checkIfFileLocked</name>
+        <description>For internal use&#xD;
+check if a File represented by a DocumentOnServer Object is locked.&#xD;
+Return true if locked, else false</description>
+        <inputParameter>
+            <name>document</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.DocumentOnServer</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>fileLocked</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>enableRoundCornerIconsMode</name>
+        <description></description>
+        <inputParameter>
+            <name>enable</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setClientTempDir</name>
+        <description>This method allows to set the client temp directory.&#xD;
+It should come automatically from the embedded DesktopHandler RD.&#xD;
+This RD gets this parameter directly from the client Java VM.</description>
+        <inputParameter>
+            <name>clientTempDir</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>downloadToTemp</name>
+        <description>This method allows to download a choosed File to a temp directory on the client machine.&#xD;
+The temp directory can be set with the setClientTempDir methode.</description>
+        <outputParameter>
+            <name>isSuccess</name>
+            <description>true if download to the temp dir was a success</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>_onProgress</name>
+        <description>FOR CALLBACK USE ONLY&#xD;
+This methods allows a FileHandler to call the RDProcess back, when an action is in progress.&#xD;
+It allows you to show the progress of the current operation.It gives the percent performed back.&#xD;
+To be able to call this method back, the FileHandler has to be instantiated with a reference to this method, &#xD;
+or the method has to be referenced dynamically with the setSuccessMethodName method of the FileUploadHandler&#xD;
+See ch.xpertline.updownload.FileUploadHandler javadoc. </description>
+        <inputParameter>
+            <name>progress</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>refreshActualSelectedFolder</name>
+        <description>refreshes just the selected directory.&#xD;
+No File consistancy performed.</description>
+    </method>
+    <method>
+        <name>refresh</name>
+        <description>This method allows to refresh the directory List and the files List&#xD;
+It refreshes the UI. It checks all the File consistancy under the serverPath.</description>
+    </method>
+    <method>
+        <name>getDocumentsListInPath</name>
+        <description>Returns the documents list that are under a given Path</description>
+        <inputParameter>
+            <name>path</name>
+            <description>The path where to look for the documents</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>documentsList</name>
+            <description>The list of the documents under the given path</description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>setAdvancedActionsEnable</name>
+        <description>Set the visibility of some the Tree popupMenu Items that allows managing the directories that are in the Directories Tree.&#xD;
+(delete or add directories).&#xD;
+Default is those popupMenu Items are hidden.</description>
+        <inputParameter>
+            <name>enable</name>
+            <description>true = enable advanced actions, else disable</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>zipFiles</name>
+        <description>entzipped the given Files.&#xD;
+The user will be prompted to give the name of the created Zip Files.</description>
+        <inputParameter>
+            <name>files</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>returnedMessage</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>makeDirectoryWithPath</name>
+        <description>Tries to make a new Directory under the selected directory in the Tree.&#xD;
+The name of the new directory is given as String argument.&#xD;
+Returns a returnedMessage.</description>
+        <inputParameter>
+            <name>newDir</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>returnedMessage</name>
+            <description>Tries to make a new Directory under the selected directory in the Tree.&#xD;
+The name of the new directory is given as String argument.&#xD;
+Returns a returnedMessage.</description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>enableReadOnlyMode</name>
+        <description></description>
+        <inputParameter>
+            <name>enable</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>uploadFiles</name>
+        <description>upload the list of files denoted by the List of paths at client side to the server.&#xD;
+The destination is given by the targetPath parameter.&#xD;
+If this path is not an existing directory or is not included into the FileManager serverPath,&#xD;
+then the upload target will be the actual selected directory on the FileManager Gui.&#xD;
+&#xD;
+Returns the list of successfully uploaded Files.</description>
+        <inputParameter>
+            <name>filesPath</name>
+            <description>the list of client side files pathes to be uploaded</description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>targetPath</name>
+            <description>The server side path where the files has to be uploaded. If this path is empty, the actual selected directory will be taken as target.</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>filesUpload</name>
+            <description>The list of the files pathes that were successfully uploaded</description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>selectTreePath</name>
+        <description>Select the given ULC TreePath. If the TreePath is not visible or doesn't exit, nothing changes.</description>
+        <inputParameter>
+            <name>treePathToBeSelected</name>
+            <description>the ULC TreePath to be selected.</description>
+            <parameterType>com.ulcjava.base.application.tree.TreePath</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_changeUploadButtonState</name>
+        <description>Used in the Upload process.&#xD;
+As soon as the user starts an upload, the upload button should be disabled until the upload is finished.&#xD;
+This method is used to change the Upload button and menu item state to disabled when the upload starts, &#xD;
+and to enabled as soon the upload is finished or cancelled.</description>
+        <inputParameter>
+            <name>enabled</name>
+            <description>If true, the upload button will be enable, else disabled</description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_onDownloadSuccess</name>
+        <description>FOR CALLBACK USE ONLY&#xD;
+This methods allows a FileDownloadHandler Object to call the RDProcess back, when an action succeed on a List of java.io.File..&#xD;
+The Object returned is a FileOperationMessage Object.&#xD;
+To be able to call this method back, the FileDownloadHandler has to be instantiated with a reference to this method, &#xD;
+or the method has to be referenced dynamically with the setSuccessMethodName method of the  FileDownloadHandler&#xD;
+See ch.xpertline.updownload.FileDownloadHandler javadoc.</description>
+        <inputParameter>
+            <name>fileOperationMessage</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.docfactory.FileOperationMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setFileUploadMaxSize</name>
+        <description>Set the max File Size allowed for upload in Kb. If this number is not set or under or equal to zero, than there will be no limit to file upload.</description>
+        <inputParameter>
+            <name>fileUploadMaxSize</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getFileUploadMaxSize</name>
+        <description>return the max size allowed for File Upload in Kb. If it is not set or under or equal to zero, than  it means there is no limit</description>
+        <outputParameter>
+            <name>fileUploadMaxSize</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>_filesSelectedForUpload</name>
+        <description>Callback method used from uploadHandler class to inform the Panel that the user has selected some files for upload.</description>
+        <inputParameter>
+            <name>selectedFiles</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <startMethod>
+        <name>startAsPathChooser</name>
+        <description>start the RDC as Path chooser. The user will be able to make a new directory, no actions on Files are possible.&#xD;
+start with the pathChooserFlowLayout visible, the other buttons are not visible.&#xD;
+By clicking on the OK button, the RDC gives the choosed path back, else, empty string.</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description>The server path within the user can choose a place</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>choosedPath</name>
+            <description>The place choosed</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startWithServerPathAndIvyDbConnectionNameAndDbTableNameAndDBSchemaName</name>
+        <description>Application start with serverPath/IvyDBConnectionName/DBTableName/DBSchemaName*.&#xD;
+The server path is the root directory in the server file system.&#xD;
+the IvyDBConnectionName is the name of the Ivy Database Connection configuration. Per default &quot;FileManager&quot;&#xD;
+The DBTableName is the Table name where the files informations are going to be stored. Per Default &quot;UPLOADEDFILES&quot;&#xD;
+*This parameter is only supported for PostgreSQL. It indicates the schemata that contains the table. Default is &quot;public&quot;.</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>IvyDbConnectioName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>tableName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>schemaName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startWithServerPathAndIvyDbConnectionNameAndDbTableName</name>
+        <description>Application start with serverPath/IvyDBConnectionName/DBTableName.&#xD;
+The server path is the root directory in the server file system where the documents are going to be uploaded and found.&#xD;
+the IvyDBConnectionName is the name of the Ivy Database Connection configuration, used to store the files informations. Per default &quot;FileManager&quot;&#xD;
+The DBTableName is the Table name where the files informations are going to be stored. Per Default &quot;UPLOADEDFILES&quot;</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>ivyDbConnectionName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>DbTableName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startWithServerPathAndWithClientTempDirAndShowTree</name>
+        <description>Application start mit serverPath, ClientTempDir and show Tree. &#xD;
+The server path is the root directory in the server file system where the documents are going to be uploaded and found.&#xD;
+ClientTempDir: This is the File Temporary Directory at Client side. Used for automatic download,&#xD;
+like ones for File edit.&#xD;
+Boolean ShowTree: the visibility propertie of the Directory TreePane.</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description>The root directory of the server file system</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>clientTempDir</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>showTree</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startWithServerPath</name>
+        <description>Application start with serverPath.&#xD;
+The server path is the root directory in the server file system where the documents are going to be uploaded and found.&#xD;
+The IvyConnexion Name has to be &quot;FileManager&quot;, the table has to be &quot;UPLOADEDFILES&quot;.&#xD;
+</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description>The root directory of the server file system</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>startWithServerPathAndFileManagementHandlerAndIsRecursiveAndShowTree</name>
+        <description>Application start with serverPath and isRecursive and show Tree. &#xD;
+The server path is the root directory in the server file system where the documents are going to be uploaded and found.&#xD;
+A FileManagementHandler extends AbstractFileManagementHandler&#xD;
+isRecursive: if true the documents are searched recursively under the serverpath.&#xD;
+Boolean ShowTree: the visibility propertie of the Directory TreePane.</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description>The root directory of the server file system</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>fileManagementHandler</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.database.AbstractFileManagementHandler</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>isRecursive</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>showTree</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startWithServerPathAndFileManagementHandler</name>
+        <description>Application start with serverPath. &#xD;
+The server path is the root directory in the server file system where the documents are going to be uploaded and found.&#xD;
+A FileManagementHandler is an Object that has to extend the AbstractFileManagementHandler. It is responsible for storing the File indexation from&#xD;
+the files on the server. The indexation system contains all the properties available for the files like file Id, File name, creation user, locked if there is any locking system...</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description>The root directory of the server file system</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>fileManagementHandler</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.database.AbstractFileManagementHandler</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startWithServerPathAndIsRecursiveAndShowTree</name>
+        <description>Application start with serverPath and isRecursive and show Tree. &#xD;
+The server path is the root directory in the server file system where the documents are going to be uploaded and found.&#xD;
+isRecursive: if true the documents are searched recursively under the serverpath.&#xD;
+Boolean ShowTree: the visibility propertie of the Directory TreePane.</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description>The root directory of the server file system</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>isRecursive</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>showTree</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startAsPathChooserWithIvySystemDb</name>
+        <description>start the RDC as Path chooser. The user will be able to make a new directory, no actions on Files are possible.&#xD;
+start with the pathChooserFlowLayout visible, the other buttons are not visible.&#xD;
+By clicking on the OK button, the RDC gives the choosed path back, else, empty string.&#xD;
+Here the Filemanager Table is automatically created and located into the Ivy System Db</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>choosedPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startWithServerPathAndShowTree</name>
+        <description>Application start mit serverPath and show Tree. &#xD;
+The server path is the root directory in the server file system where the documents are going to be uploaded and found.&#xD;
+Boolean ShowTree: the visibility propertie of the Directory TreePane.</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description>The root directory of the server file system</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>isTreeVisible</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startWithServerPathAndUseIvySystemDB</name>
+        <description>Application start with serverPath.&#xD;
+The server path is the root directory in the server file system where the documents are going to be uploaded and found.&#xD;
+The DB Table containing the informations about the Files is located into the Ivy System Database.</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>startAsPathChooserWithDBInformations</name>
+        <description>start the RDC as Path chooser with the db Informations (ivy user friendly connexion name, Table name and schema name). &#xD;
+The user will be able to make a new directory, no actions on Files are possible.&#xD;
+start with the pathChooserFlowLayout visible, the other buttons are not visible.&#xD;
+By clicking on the OK button, the RDC gives the choosed path back, else, empty string.</description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>ivyDBConnectionname</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>DBTableName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>DBSchemaName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>choosedPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </startMethod>
+    <firedEvent>
+        <name>SE_fileRenamed</name>
+        <description>fired whenever a FIle is successfully renamed. &#xD;
+Parameters: the renamed documentOnServer. &#xD;
+the panel ID.&#xD;
+The other FileManager are going to handle this event if they are not the same Panel (panelId)&#xD;
+and if they currently point to the same parent directory.</description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>renamedDocumentOnServer_SelectedFolderOnServer_PanelId</name>
+            <description></description>
+            <parameterType>List</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>fileUploaded</name>
+        <description>Tells the parent RDC that some files were successfully uploaded</description>
+    </firedEvent>
+    <firedEvent>
+        <name>deleteSelectedFolder</name>
+        <description>this event @ APP is sent within the _deleteSelectedDirectory method.&#xD;
+This method is called by the keyBoard action event when theDir RTREE is in Focus and the delete key is pressed.&#xD;
+The FileManager will get this event (see broadcast registration) and if the event parameter is equal to his panel ID, it means that this event occured in it.&#xD;
+In such a case it tries to delete the selected directory.</description>
+        <scope>APPLICATION</scope>
+        <attachment>
+            <name>uniquePanelId</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>SE_DocumentsUnlocked</name>
+        <description>Fired whenever the user unlock a list of documentOnServer Objects</description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>unlockedDocuments</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>deleteSelectedFiles</name>
+        <description>this event @ APP is sent within the _deleteSelectedFiles method.&#xD;
+This method is called by the keyBoard action event when the Files Table is in Focus and the delete key is pressed.&#xD;
+The FileManager will get this event (see broadcast registration) and if the event parameter is equal to his panel ID, it means that this event occured in it.&#xD;
+In such a case it tries to delete the selected files.</description>
+        <scope>APPLICATION</scope>
+        <attachment>
+            <name>uniquePanelId</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>SE_DocumentsDeleted</name>
+        <description>Sent whenever one user deletes some files.&#xD;
+The panel catches this event and refresh the table if the path is the same as the focused Directory.</description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>documentsPathANdPanelID</name>
+            <description></description>
+            <parameterType>List</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>SE_FilesDeleted</name>
+        <description>sent when files deleted from a Directory.&#xD;
+Parameters: Ivy application Name, panelID as String to be able to filter the incoming events&#xD;
+path of the directory where the files were deleted</description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>applicationName_panelID_dirPath</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>SE_renameFile</name>
+        <description></description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>uniquePanelId</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>SE_fileLocked</name>
+        <description>System Event sent whenever a File is locked.&#xD;
+This ables the other users to refresh their list.&#xD;
+The FileListTable sends/catches this Event too.&#xD;
+It sends a list of parameters: the FileManager unique PanelId Data and &#xD;
+the locked DocumentOnServer Object.</description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>panelIdAndDocumentOnServer</name>
+            <description></description>
+            <parameterType>List</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>errorOccurred</name>
+        <description></description>
+        <scope>APPLICATION</scope>
+        <attachment>
+            <name>errorUtil</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ErrorUtil</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>SE_FilesUnlocked</name>
+        <description>Fired whenever the user unlock a list of  java.io.File</description>
+        <scope>SYSTEM</scope>
+        <attachment>
+            <name>files</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>filesCopied</name>
+        <description>@APPLICATION: Sent when the user copy some Files in the RTable.&#xD;
+This will inform the other FileManager Panels that can be opened in the same &#xD;
+Application that some FIles coming from another FileManager can be pasted in them.&#xD;
+This Event sends the FileManager unique PanelId data so that only other FileManagers will accept this Event.</description>
+        <scope>APPLICATION</scope>
+        <attachment>
+            <name>panelId</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>pasteFiles</name>
+        <description>see the _pasteFiles method documentation</description>
+        <scope>APPLICATION</scope>
+        <attachment>
+            <name>uniquePanelId</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>filesDeleted</name>
+        <description></description>
+        <attachment>
+            <name>numberOfFilesInSelectedDirectory</name>
+            <description>The number of the rest of the files in the selected directory</description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>filesAdded</name>
+        <description></description>
+        <attachment>
+            <name>numberOfFilesInSelectedDirectory</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <firedEvent>
+        <name>documentSelectionChanged</name>
+        <description>Sent whenever the user documents selection changes.&#xD;
+@SUBSCRIBERS</description>
+        <attachment>
+            <name>selectedDocuments</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.filemanager.DocumentOnServer&gt;</parameterType>
+            <nullPermitted>true</nullPermitted>
+        </attachment>
+    </firedEvent>
+    <property>
+        <name>guid</name>
+        <value>125FE583DB5ECFDC</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

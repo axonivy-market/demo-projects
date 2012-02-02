@@ -1,0 +1,4 @@
+co: name={noEventLogsData} description={} changed={2010-11-23 16:32:30 CET} changedby={rwei} visualorder={0} guid={1284901F9B85B905} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12849021908F6ABC} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-04-29 11:59:53 CEST} validto={} changed={2010-04-29 12:00:35 CEST} changedby={tirib} properties={} id={}
+val: guid={12C795D0CC86259D} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:32:10 CET} validto={} changed={2010-11-23 16:32:30 CET} changedby={rwei} properties={} id={}
+val: guid={1284901F9C87E479} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-29 11:59:45 CEST} validto={} changed={2010-11-23 16:32:30 CET} changedby={rwei} properties={} id={}

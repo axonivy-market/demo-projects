@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" provider="IvyTeam AG" name="IvyAddOns" version="1" id="ch.ivyteam.ivy.addons">
+    <description>This library contains various add-on components and helper artifacts to use in Xpert.ivy projects. Please see the Xpert.ivy AddOns Documentation for more information.</description>
+</ns2:library>

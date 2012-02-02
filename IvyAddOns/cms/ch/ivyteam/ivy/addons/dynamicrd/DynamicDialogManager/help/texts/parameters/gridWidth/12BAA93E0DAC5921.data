@@ -1,0 +1,4 @@
+Gives the width of this component on the dynamic dialog la<out grid.<br />
+Every time the parameter <span class="parameter">newColumn</span> is used, dynamic dialog begins a new colomn in the layout.<br />
+<img src="#img#parameters/gridWidth1"/><br />
+The default value is <span class="constant">1</span>

@@ -1,0 +1,8 @@
+SimpleFileActionChooserData #class
+ch.ivyteam.ivy.addons.filemanager.SimpleFileActionChooser #namespace
+applicationContext com.ulcjava.base.application.ApplicationContext #field
+applicationContext PERSISTENT #fieldModifier
+returnedAction String #field
+returnedAction PERSISTENT #fieldModifier
+label String #field
+label PERSISTENT #fieldModifier

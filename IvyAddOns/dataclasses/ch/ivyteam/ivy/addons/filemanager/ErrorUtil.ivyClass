@@ -1,0 +1,17 @@
+ErrorUtil #class
+'Objects of this class are used in errorOccurred broadcast events for example.' #classComment
+ch.ivyteam.ivy.addons.filemanager #namespace
+throwable java.lang.Throwable #field
+throwable 'the throwable Java Object' #fieldComment
+message String #field
+message 'a personalized message that you can define in your exceptions and error Handling' #fieldComment
+message PERSISTENT #fieldModifier
+applicationId Number #field
+applicationId 'application unique Id needed if you run several RIA applications that listen to this event. With this id you can filter the events that you catch.' #fieldComment
+applicationId PERSISTENT #fieldModifier
+panelId Number #field
+panelId 'Panel unique Id if you want to treat the exception at the panel level. You can then filter this event at the panel level.' #fieldComment
+panelId PERSISTENT #fieldModifier
+errorOccurred Boolean #field
+errorOccurred 'You can use this flag if this object is returned from Callables. If True, an error occurred if false all went through successfully.' #fieldComment
+errorOccurred PERSISTENT #fieldModifier

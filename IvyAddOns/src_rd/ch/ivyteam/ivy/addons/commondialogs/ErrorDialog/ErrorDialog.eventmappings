@@ -1,0 +1,7 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-05-07 09:32:39 | 4.1.1.31367 | 1.0
+~@RD_METHODCALL[showError(java.lang.Throwable,Boolean,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:1180E624C69827DC/1180E6FD55B71527
+~.copyButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1180E624C69827DC/1180E701A7533787
+~.showDetailsButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1180E624C69827DC/1180E7011B195DC0
+~.okButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1180E624C69827DC/1180E70208C97B45
+~@RD_METHODCALL[showError(ch.ivyteam.ivy.addons.data.technical.IvyResultStatus,Boolean,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:1180E624C69827DC/12871AC6DD0D1C28

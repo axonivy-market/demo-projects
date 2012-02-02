@@ -1,0 +1,4 @@
+By default the order used by dynamic dialog to display component is given by the attribute order in the corresponding data class.<br />
+This parameter permit to change this order.<br />
+The recommandation is to use hundreds as position, so it is possible to insert a new component between two existing ones.<br />
+For example, it is better to use (100 - 200 - 300 - ...) and not (1 - 2 - 3 - ...) because it is possible to add a new component between the 1st and the 2nd.

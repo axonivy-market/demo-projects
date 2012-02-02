@@ -1,0 +1,4 @@
+co: name={renameFile} description={} changed={2010-10-24 14:46:19 CEST} changedby={ec} visualorder={0} guid={12BDD61C7C65B87E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12BDD61C7F4AC25A} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-23 13:56:48 CEST} validto={} changed={2010-10-24 14:46:19 CEST} changedby={ec} properties={} id={}
+val: guid={12BDD61C7D5EBF24} datatype={} isdefault={true} langid={en} description={} validfrom={2009-06-09 14:41:33 CEST} validto={} changed={2010-10-24 14:46:19 CEST} changedby={ec} properties={} id={}
+val: guid={12BDD61C7E5B382B} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-07-23 13:56:49 CEST} validto={} changed={2010-10-24 14:46:19 CEST} changedby={ec} properties={} id={}

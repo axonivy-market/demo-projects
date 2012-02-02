@@ -1,0 +1,3 @@
+If <span class="constant">true</span>, the is placed in a new column of the dynamic dialog layout.<br />
+<img src="#img#parameters/newColumn1"/><br />
+The default value is <span class="constant">false</span>

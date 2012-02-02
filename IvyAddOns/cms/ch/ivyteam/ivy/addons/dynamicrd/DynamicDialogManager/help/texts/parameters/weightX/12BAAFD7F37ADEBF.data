@@ -1,0 +1,2 @@
+Gives the weight (0.0 - 1.0) for the horizontal stretch of this component.<br />
+This parameter is usefull with the parameters <span class="parameter">nextTo</span>.

@@ -1,0 +1,15 @@
+SingleLineInputDialogData #class
+ch.ivyteam.ivy.addons.commondialogs.SingleLineInputDialog #namespace
+question String #field
+inputString String #field
+pressedButton String #field
+defaultButton String #field
+defaultButton PERSISTENT #fieldModifier
+isCustomButtonsMode Boolean #field
+isCustomButtonsMode 'It defines if the action commands; if yes: then the texts and icon uris for buttons are coming from external Ivy library' #fieldComment
+actionCommandsForButtons List<String> #field
+actionCommandsForButtons 'only used for custom buttons mode' #fieldComment
+textsForButtons List<String> #field
+textsForButtons 'only used for custom buttons mode' #fieldComment
+iconUrisForButtons List<String> #field
+iconUrisForButtons 'only used for custom buttons mode' #fieldComment

@@ -1,0 +1,4 @@
+co: name={deleteFolderSuccess} description={} changed={2009-08-31 16:51:51 CEST} changedby={ec} visualorder={0} guid={12370EEDF98141AE} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12370EF6C17F1B2D} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-31 16:50:22 CEST} validto={} changed={2009-08-31 16:50:47 CEST} changedby={ec} properties={} id={}
+val: guid={12370EFD0208C1A9} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-31 16:50:47 CEST} validto={} changed={2009-08-31 16:51:51 CEST} changedby={ec} properties={} id={}
+val: guid={12370EEE0EFC04D9} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-31 16:49:46 CEST} validto={} changed={2009-08-31 16:50:22 CEST} changedby={ec} properties={} id={}

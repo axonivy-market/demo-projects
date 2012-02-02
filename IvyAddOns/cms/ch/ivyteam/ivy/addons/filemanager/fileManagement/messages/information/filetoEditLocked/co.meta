@@ -1,0 +1,4 @@
+co: name={filetoEditLocked} description={} changed={2011-04-19 14:25:42 CEST} changedby={ec} visualorder={0} guid={12370C93DBFCDF0C} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={12370CBB2636211D} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-31 16:11:20 CEST} validto={} changed={2011-04-19 14:25:42 CEST} changedby={ec} properties={} id={}
+val: guid={12370CA8CB2DB4E3} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-31 16:10:05 CEST} validto={} changed={2011-04-19 14:25:42 CEST} changedby={ec} properties={} id={}
+val: guid={12370C93DBF41C58} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-31 16:08:39 CEST} validto={} changed={2011-04-19 14:25:42 CEST} changedby={ec} properties={} id={}

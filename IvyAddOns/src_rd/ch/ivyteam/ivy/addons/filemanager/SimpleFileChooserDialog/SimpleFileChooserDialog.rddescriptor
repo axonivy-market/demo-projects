@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <description>This RDCcontains a FileListChooserPane and returns the selected java.io.File. It contains also a DesktopHandler to be able to open the selected File. The user can then preview the File that he is about to select.</description>
+    <method>
+        <name>_uploadError</name>
+        <description>callback Method: called when an error in an upload occures</description>
+        <inputParameter>
+            <name>returnedMessage</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_uploadDone</name>
+        <description>callback method, called when an upload is done.&#xD;
+The list of files will be automatically refreshed</description>
+        <inputParameter>
+            <name>returnedMessage</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_uploadDone</name>
+        <description>callback method, called when an upload is done.&#xD;
+The list of files will be automatically refreshed</description>
+        <inputParameter>
+            <name>uploadedFiles</name>
+            <description></description>
+            <parameterType>List&lt;java.io.File&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_askForOverwriteFiles</name>
+        <description>calllback method:&#xD;
+called when upload will overwrite existing files.&#xD;
+then if user wants to overwrite, the files are going to be uploaded</description>
+        <inputParameter>
+            <name>returnedMessage</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.filemanager.ReturnedMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>_close</name>
+        <description>Called from the CTRL + W or ESCAPE Key event</description>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>start with the server path&#xD;
+denoting the directory that is going to be listed and&#xD;
+a customLabel String for informations purpose (subtitle)&#xD;
+and boolean: if true the user can uploadFiles,&#xD;
+if false the upload button will be hidden.</description>
+        <inputParameter>
+            <name>path</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>customLabel</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>showUploadButton</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>choosedFile</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>start with the server path&#xD;
+denoting the directory that is going to be listed&#xD;
+The user can upload files (uploadButton visible)</description>
+        <inputParameter>
+            <name>path</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>choosedFile</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>start with the server path&#xD;
+denoting the directory that is going to be listed and&#xD;
+a customLabel String for informations purpose (subtitle)&#xD;
+The user can upload files (uploadButton visible)</description>
+        <inputParameter>
+            <name>path</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>customLabel</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>choosedFile</name>
+            <description></description>
+            <parameterType>java.io.File</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>125FE384C5BE76DB</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

@@ -1,0 +1,145 @@
+FileManagerData #class
+'It allows organizing and managing the files present on the server (download, upload, deletion of Files, directory management etc…). It integrates the DesktopHandlerPanel Rich Dialog.' #classComment
+ch.ivyteam.ivy.addons.filemanager.FileManager #namespace
+folderTree Tree #field
+folderTree 'A tree of FolderOnServer objects' #fieldComment
+documentsInDb List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+documentsInDb 'List of documents that are found into the DB.' #fieldComment
+documentsInFS List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+documentsInFS 'List of documents found in the Server File system' #fieldComment
+filesToAdd List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+filesToAdd 'files to add to DB after consistancy check. (There are on the FileSystem but are not in the DB)' #fieldComment
+filestoDelete List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+filestoDelete 'files to delete from DB after consistancy check. (There are not on the FileSystem but are still in the DB)' #fieldComment
+consistancyOK Boolean #field
+consistancyOK 'Check if DB and File System consistant' #fieldComment
+downloadHandler ch.ivyteam.ivy.addons.filemanager.FileDownloadHandler #field
+downloadHandler 'Java Class that takes care of all the download process' #fieldComment
+filesNumber String #field
+filesNumber 'Quantity of files into the server path' #fieldComment
+fileUpload java.io.File #field
+fileUpload 'File to upload or File that was at last uploaded' #fieldComment
+responseBoolean Boolean #field
+responseBoolean 'Boolean Flag to store the response from the user for actions such as delete or replace a file.' #fieldComment
+returnedMessage ch.ivyteam.ivy.addons.filemanager.ReturnedMessage #field
+returnedMessage 'String to get the returned messages fronm the upload and downloadHandler' #fieldComment
+selectedDocument ch.ivyteam.ivy.addons.filemanager.DocumentOnServer #field
+selectedDocument 'Selected Document Object with DocumentID, path, filename and UserID' #fieldComment
+serverPath String #field
+serverPath 'the String representation of the default fixed path for the document management on the server. THIS SHOULD''NT BE CHANGED' #fieldComment
+stringVariable String #field
+stringVariable 'A String Variable to be used in some Methods.' #fieldComment
+time String #field
+time 'String representation of the actual time' #fieldComment
+today String #field
+today 'Today''s date' #fieldComment
+uploadHandler ch.ivyteam.ivy.addons.filemanager.FileUploadHandler #field
+uploadHandler 'Java Class that takes care of all the upload process and the file deletion on the server' #fieldComment
+selectedFolderOnServer ch.ivyteam.ivy.addons.filemanager.FolderOnServer #field
+selectedFolderOnServer 'selected Folder from user or Application' #fieldComment
+selectedServerFileName String #field
+selectedServerFileName 'The name of the selected File on the server' #fieldComment
+isTreeVisible Boolean #field
+isTreeVisible 'Boolean to set the visibility of the Tree' #fieldComment
+progressUnit Number #field
+progressUnit 'Progress unit step for the progressbar' #fieldComment
+clientTempDirPath String #field
+clientTempDirPath 'the path of the client temp dirctory' #fieldComment
+returnedCode Number #field
+returnedCode 'Number Flag to store the response from the user for actions such as delete or replace a file.' #fieldComment
+selectedDocuments List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+selectedDocuments 'List of selected Documents on the server in the table, used in inner method' #fieldComment
+selectedDocumentsForParent List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+selectedDocumentsForParent 'List of selected Documents on the server in the table, reflect always the selected documents, used in the documentSelected RDEvent @SUBSC' #fieldComment
+selectedDocumentsForParent PERSISTENT #fieldModifier
+clientPathSeparator String #field
+clientPathSeparator 'the system path separator on the client (/ on UNIX,\ on Windows)' #fieldComment
+ListOfFileCoupleToUnlock List<ch.ivyteam.ivy.addons.filemanager.FileCouple> #field
+ListOfFileCoupleToUnlock 'List of Files to unlock' #fieldComment
+FilePathToUnlock String #field
+FilePathToUnlock 'a File path to unlock' #fieldComment
+newFileSize String #field
+newFileSize 'new File size after edit' #fieldComment
+appULCWindow com.ulcjava.base.application.ULCWindow #field
+appULCWindow 'The parent ULCWindow of the entire Application' #fieldComment
+isRecursive Boolean #field
+isRecursive 'if true the files are searched recursively under the selected directory. If false, just the files directly under the directory are shown.' #fieldComment
+advancedActionsEnabled Boolean #field
+advancedActionsEnabled 'used to enabled some advanced features like delete or add a new directory' #fieldComment
+copyOn Boolean #field
+copyOn 'used as flag to tell if the copy/paste function is on.' #fieldComment
+fileManagementHandler ch.ivyteam.ivy.addons.filemanager.database.AbstractFileManagementHandler #field
+fileManagementHandler 'Object responsible for Files properties storing system (like DB or XML system)' #fieldComment
+cursor Number #field
+cursor 'used in loops' #fieldComment
+isToolbarVisible Boolean #field
+isToolbarVisible 'allows showing or hidding the toolbar' #fieldComment
+windowTitle String #field
+windowTitle 'used to store synch/asynch windows titles' #fieldComment
+pathChooserReturn String #field
+pathChooserReturn 'path choosed in pathchooser mode' #fieldComment
+isPathChooserFlowLayoutVisible Boolean #field
+isPathChooserFlowLayoutVisible 'true if started as path chooser. Used to set the visibility of certains visual components (like buttons)' #fieldComment
+copiedDocuments List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+copiedDocuments 'Documents to be copied in an copy/paste action' #fieldComment
+docToEdit ch.ivyteam.ivy.addons.filemanager.DocumentOnServer #field
+docToEdit 'documentOnServer used to store a doc to be edited' #fieldComment
+tmpListOfFiles List<java.io.File> #field
+tmpListOfFiles 'temp list of java.io.File Objects' #fieldComment
+fileToMove java.io.File #field
+fileToMove 'java.io.File : stores the current File to be moved in operations like DnD etc...' #fieldComment
+fileToEdit java.io.File #field
+fileToEdit 'java.io.File used to store a File to be edited' #fieldComment
+filesToOverwrite List<java.io.File> #field
+filesToOverwrite 'stores a list of Files the user choosed to overwrtite in copy/paste, Dnd operatiions etc...' #fieldComment
+docsToOverwrite List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+docsToOverwrite 'stores a list of DocumentOnServer the user choosed to overwrtite in copy/paste, Dnd operatiions etc...' #fieldComment
+progressText String #field
+progressText 'the Text displayed on the progressBar' #fieldComment
+ivyConnexionDBName String #field
+ivyConnexionDBName 'The Ivy DB connection friendly name' #fieldComment
+ivyConnexionDBName PERSISTENT #fieldModifier
+DbTableName String #field
+DbTableName 'The table Name used to  store the Files informations.' #fieldComment
+DbTableName PERSISTENT #fieldModifier
+schemaName String #field
+schemaName '*This parameter is only supported for PostgreSQL. It indicates the schemata that contains the table. Default is "public".' #fieldComment
+schemaName PERSISTENT #fieldModifier
+updateList Boolean #field
+updateList 'boolean used to determine if the list should be refreshed after incoming SE' #fieldComment
+panelId Number #field
+panelId 'unique Panel Id for this FileManagement. Avoid performing self sent System Events.' #fieldComment
+emailContainer ch.ivyteam.ivy.addons.filemanager.EmailContainer #field
+emailContainer 'used  as email container object to call the DesktopHandler mail method.' #fieldComment
+isFileEditable Boolean #field
+isFileEditable 'used in the edit process to store the response of the DesktopHandler telling if the choosed file is editable by the client.' #fieldComment
+DnDDestinationPath String #field
+DnDDestinationPath 'used in DnD operations from files' #fieldComment
+filesToMove List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+filesToMove 'used in DnD operations' #fieldComment
+filesUnpossibleToMove List<ch.ivyteam.ivy.addons.filemanager.DocumentOnServer> #field
+filesUnpossibleToMove 'used in DnD operations / stores the files that could not be moved because locked.' #fieldComment
+applicationUserName String #field
+applicationUserName 'Ivy user name / if Ivy user name unknown = OS user name' #fieldComment
+pressedButton String #field
+pressedButton 'Used to get the pressed button in some dialogs' #fieldComment
+filesCopiedInThisPanel Boolean #field
+filesCopiedInThisPanel 'true if the files copied come from this panel, else false.' #fieldComment
+errorUtil ch.ivyteam.ivy.addons.filemanager.ErrorUtil #field
+errorUtil 'encapsulates the errors and exceptions that can occur in operations. Sent in the errorOccurred broadcast event.' #fieldComment
+incomingErrorUtil ch.ivyteam.ivy.addons.filemanager.ErrorUtil #field
+incomingErrorUtil 'encapsulates the errors and exceptions that can occur in operations. Comes in the errorOccurred broadcast event.' #fieldComment
+samePanelFlag Boolean #field
+samePanelFlag 'used in some broadcast events to check if the event was launched in the same panel.' #fieldComment
+roundedCornerIconsMode Boolean #field
+roundedCornerIconsMode 'If true then tolbars with iPhone icons like are displayed, otherwise the "normal" icons are displayed.' #fieldComment
+readOnlyMode Boolean #field
+readOnlyMode 'If true then the edit/credit/remove/ toolbar actions will be disabled.' #fieldComment
+filesToUpload List<String> #field
+filesToUpload 'List of paths of files to upload on the server. Used in Dnd operations.' #fieldComment
+selectedTreePath com.ulcjava.base.application.tree.TreePath #field
+selectedTreePath 'the selected TreePath' #fieldComment
+filesStoredInDB Boolean #field
+filesStoredInDB 'if true, we use a database BLOB to stores the files, else the files are physically stored on the file system from the server.' #fieldComment
+maxSizeFileUpload Number #field
+maxSizeFileUpload 'max File Size for upload in Kb. If under or equal to zero then no limit' #fieldComment

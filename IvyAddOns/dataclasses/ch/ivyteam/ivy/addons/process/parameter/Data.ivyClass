@@ -1,0 +1,4 @@
+Data #class
+ch.ivyteam.ivy.addons.process.parameter #namespace
+parameterName String #field
+parameter ch.ivyteam.ivy.addons.process.parameter.ProcessParameter #field

@@ -1,0 +1,46 @@
+EventLogData #class
+'It''s the record that represent the event (business or technical) that has to be logged. 
+It could be used by some Ivy process model or by some third party application.
+' #classComment
+ch.ivyteam.ivy.addons.data.technical.eventlog #namespace
+server String #field
+server 'Name of the server that emit the event. It should be possible to have something different that the Ivy server name. ' #fieldComment
+application String #field
+application 'Name of the Ivy application - empty if not applicable.' #fieldComment
+tower String #field
+tower 'The name of the XpertLine tower or the software name ex: XFIN, XDOC.' #fieldComment
+module String #field
+module 'Module name - empty if not applicable.' #fieldComment
+environment String #field
+environment 'The execution environment name (Ivy exemple: Production, Plex exemple: XLINSRV001)' #fieldComment
+groupId String #field
+groupId 'The id that help to group several events or case id or task id. Empty if not defined.' #fieldComment
+initiator String #field
+initiator 'User or group who from business point of view started this event.' #fieldComment
+eventDate Date #field
+eventDate 'Effective date of the event (Business date of the event). It can be different (older) than the current date. It is the date of the decission, for exemple, when the event was done in a meeting without any computer. ' #fieldComment
+eventTime Time #field
+eventTime 'Effective time. When this one is not known, it can be null. ' #fieldComment
+userName String #field
+userName 'The event activator user. It could be different of the Ivy user activator.' #fieldComment
+source String #field
+source 'Name of the object (process - method - dialog) that is the source of the event. That field should be accurate enough to allow a technical user to find it back. ' #fieldComment
+severity ch.ivyteam.ivy.addons.eventlog.data.technical.EventLogSeverity #field
+severity 'The message severity. FATAL - ERROR - WARNING - INFO ' #fieldComment
+objectId String #field
+objectId 'The business object identifier, for exemple: bill identifier, document identifier, etc.' #fieldComment
+context String #field
+context 'The description about the situation or context of the event, for exemple: Supplier Invoice Processing.' #fieldComment
+isBusinessEvent Boolean #field
+isBusinessEvent 'If true then it indicates that this is a business event.' #fieldComment
+eventType String #field
+eventType 'Give the event type. When it is a business event this value contains an action or identify a kind of decision : Start - End - Cancellation - Approve - Control - Evaluation Start - End - Cancellation - Approval - Acquisition of knowledge - Notice - Supervision - Control - Rating - Communication - Information - etc ... The value are linked to the software and module (project). It is not possible to give a closed list. When it is a technical event this value should say if it is an error, an audit or else.' #fieldComment
+eventSubType String #field
+eventSubType 'This field give a more accurate qualification to the event. If it is a business event, it can be : OK - KO - Without opinon - Not concerned. If it is a technical event, it can be : API - WS - DB - ...' #fieldComment
+userComment String #field
+userComment 'Comment that can be added by the user. There is no UI given for this field. The source of the event is responsible to give (if it is necessary) the ability to the user to fill it. ' #fieldComment
+errorCode String #field
+errorCode 'Code that is the error unique identifier.' #fieldComment
+message String #field
+message 'Text that discribes the event.' #fieldComment
+eventData String #field

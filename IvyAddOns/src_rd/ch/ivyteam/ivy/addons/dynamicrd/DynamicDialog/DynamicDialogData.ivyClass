@@ -1,0 +1,19 @@
+DynamicDialogData #class
+ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog #namespace
+cmsContext List<String> #field
+value Object #field
+fullName String #field
+component ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.Component #field
+fieldComponent ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.FieldComponent #field
+dbConfig String #field
+staticRelation ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.StaticRelation #field
+result String #field
+messageText String #field
+messageTitle String #field
+controllerName String #field
+object Object #field
+answer String #field
+classMap java.util.Map #field
+xmlFile String #field
+isInitialized Boolean #field
+controllerDisplayName String #field

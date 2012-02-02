@@ -1,0 +1,20 @@
+WriteSerialLetter #class
+ch.ivyteam.ivy.addons.docfactory #namespace
+documentFactory ch.ivyteam.ivy.addons.docfactory.BaseDocFactory #field
+documentFactory 'the docFactory object that is responsible of the documents generation' #fieldComment
+outputPath String #field
+outputPath 'The path where the generated File has to be saved (if not precised we take "ivy_RIA_files")' #fieldComment
+outputFormat String #field
+outputFormat 'The format of the generated File(doc, docx, HTML, TXT) (If not precised, default will be the first supported one)' #fieldComment
+templatePath String #field
+templatePath 'The template file path (MUST be precised)' #fieldComment
+serialLetterName String #field
+serialLetterName 'the name of the generated file (if not precised, default is "letter_nanotime"' #fieldComment
+mergeFieldsList List<ch.ivyteam.ivy.addons.docfactory.TemplateMergeField> #field
+mergeFieldsList 'The mergeFieldList : each Merge field Object should have a counter one into the template. If it doesn''t have one, it will be simply ignored' #fieldComment
+data ch.ivyteam.ivy.scripting.objects.CompositeObject #field
+data 'An initialized DataClass that can be taken to fill the template''s fields: it can be used as alternative to a mergefields List. Each attribute of the dataClass will be transformed in a MergeField.' #fieldComment
+fileOperationMessage ch.ivyteam.ivy.addons.docfactory.FileOperationMessage #field
+fileOperationMessage 'Object that will be returned by the docFactory Object after the file generation' #fieldComment
+documentTemplate ch.ivyteam.ivy.addons.docfactory.DocumentTemplate #field
+documentTemplate 'A documentTemplate can generate a letter by itself' #fieldComment

@@ -1,0 +1,4 @@
+If <span class="constant">false</span>, the example label is not displayed.<br />
+<img src="#img#parameters/showExampleLabel1"/><br />
+The default value is <span class="constant">true</span><br/>
+When defined on a container, all the children inherit this value as default value.

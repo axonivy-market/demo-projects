@@ -1,0 +1,3 @@
+Defines the text displayed in the tooltip of the button.<br />
+<img src="#img#plainStrings/buttonTooltip1"/><br />
+Please see <span class="parameter">buttonActionMethod</span> in <span class="parameter">methods</span>.

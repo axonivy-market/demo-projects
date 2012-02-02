@@ -1,0 +1,24 @@
+FileNameDialogData #class
+ch.ivyteam.ivy.addons.filemanager.FileNameDialog #namespace
+path String #field
+path 'path of the  File' #fieldComment
+fileName String #field
+fileName 'fileName entered by the user' #fieldComment
+freePath String #field
+freePath 'The parent folder Path. The user cannot choose a place over this one. the path is contained in this one.' #fieldComment
+windowTitle String #field
+message String #field
+fileExtension String #field
+fileExtension 'the file extension Type (.doc, .xls...)' #fieldComment
+fileExtensions List<String> #field
+fileExtensions 'List of accepted Files extensions' #fieldComment
+showFileTypeChooser Boolean #field
+ivyConnectionName String #field
+ivyConnectionName 'ivy friendly user name of the DB Configuration used to store the files information. Can be usefull if you use the pathChooser' #fieldComment
+DBTableName String #field
+DBTableName 'the Table name used to store the Files infos. See ivyConnectionName' #fieldComment
+DBSchemaName String #field
+DBSchemaName 'usefull in case of use of schemas in the DB: like with PostgreSQL.' #fieldComment
+allowPathChooser Boolean #field
+allowPathChooser 'True if the Path chooser button is visible' #fieldComment
+allowPathChooser PERSISTENT #fieldModifier

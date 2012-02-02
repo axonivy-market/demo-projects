@@ -1,0 +1,4 @@
+co: name={UploadButtonLabel} description={} changed={2011-09-26 14:13:40 CEST} changedby={ec} visualorder={0} guid={1234CFAE661A2FD8} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={1234CFB7F75854CD} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-24 17:17:13 CEST} validto={} changed={2011-09-26 14:13:40 CEST} changedby={ec} properties={} id={}
+val: guid={1234CFAE66162614} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-24 17:16:34 CEST} validto={} changed={2011-09-26 14:13:40 CEST} changedby={ec} properties={} id={}
+val: guid={1234CFC414E21E17} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-24 17:18:03 CEST} validto={} changed={2011-09-26 14:13:40 CEST} changedby={ec} properties={} id={}
