@@ -1,4 +1,0 @@
-co: name={invalidFilepath} description={} changed={2009-09-04 13:52:42 CEST} changedby={ec} visualorder={0} guid={1223C3425CCC8332} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={122A7789254FD4A2} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-07-23 13:56:52 CEST} validto={} changed={2009-09-04 13:52:42 CEST} changedby={ec} properties={} id={}
-val: guid={122A77891A8C2C59} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-23 13:56:52 CEST} validto={} changed={2009-07-25 10:07:43 CEST} changedby={rstr} properties={} id={}
-val: guid={1223C3425CC75A62} datatype={} isdefault={true} langid={en} description={} validfrom={2009-07-02 18:02:46 CEST} validto={} changed={2009-07-23 13:56:52 CEST} changedby={xtrans} properties={} id={}

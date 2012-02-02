@@ -1,4 +1,0 @@
-co: name={printDocument} description={} changed={2011-09-26 14:10:57 CEST} changedby={ec} visualorder={0} guid={122B12C99D781B95} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={122B12C99D72C67D} datatype={} isdefault={true} langid={en} description={} validfrom={2009-07-25 11:10:06 CEST} validto={} changed={2011-09-26 14:10:57 CEST} changedby={ec} properties={} id={}
-val: guid={122B12D0A54D86B5} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-25 11:10:34 CEST} validto={} changed={2011-09-26 14:10:57 CEST} changedby={ec} properties={} id={}
-val: guid={125FD2E917791231} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-01-05 07:31:45 CET} validto={} changed={2011-09-26 14:10:57 CEST} changedby={ec} properties={} id={}

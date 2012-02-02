@@ -1,4 +1,0 @@
-co: name={folderManagement} description={} changed={2011-09-26 14:10:42 CEST} changedby={ec} visualorder={0} guid={122B131605F72A53} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={125FD33B6E662B41} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-01-05 07:37:22 CET} validto={} changed={2011-09-26 14:10:42 CEST} changedby={ec} properties={} id={}
-val: guid={122B13179B4E5B83} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-25 11:15:25 CEST} validto={} changed={2011-09-26 14:10:42 CEST} changedby={ec} properties={} id={}
-val: guid={122B131605F3CE62} datatype={} isdefault={true} langid={en} description={} validfrom={2009-07-25 11:15:19 CEST} validto={} changed={2011-09-26 14:10:42 CEST} changedby={ec} properties={} id={}

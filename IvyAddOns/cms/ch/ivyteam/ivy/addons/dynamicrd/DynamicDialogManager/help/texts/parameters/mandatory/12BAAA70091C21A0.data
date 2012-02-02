@@ -1,2 +1,0 @@
-If <span class="constant">true</span>, the field is mandatory. It means that it should contains a value.<br />
-The default value is <span class="constant">false</span>

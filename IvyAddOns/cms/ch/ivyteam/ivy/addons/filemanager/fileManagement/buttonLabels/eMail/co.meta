@@ -1,4 +1,0 @@
-co: name={eMail} description={} changed={2010-11-12 15:43:33 CET} changedby={tirib} visualorder={0} guid={12C408A292F5333A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12C408A4FE92578C} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-12 15:43:15 CET} validto={} changed={2010-11-12 15:43:33 CET} changedby={tirib} properties={} id={}
-val: guid={12C408A29325E314} datatype={} isdefault={true} langid={en} description={} validfrom={2010-11-12 15:43:05 CET} validto={} changed={2010-11-12 15:43:33 CET} changedby={tirib} properties={} id={}
-val: guid={12C408A458B17281} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-11-12 15:43:12 CET} validto={} changed={2010-11-12 15:43:33 CET} changedby={tirib} properties={} id={}

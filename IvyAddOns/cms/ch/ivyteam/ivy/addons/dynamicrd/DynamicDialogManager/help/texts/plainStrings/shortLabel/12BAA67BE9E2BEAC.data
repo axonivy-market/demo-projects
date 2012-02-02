@@ -1,2 +1,0 @@
-Defines an alternative label that is used in column title of tables.<br />
-When this parameter is not define <span class="parameter">label</span> is used in replacement.

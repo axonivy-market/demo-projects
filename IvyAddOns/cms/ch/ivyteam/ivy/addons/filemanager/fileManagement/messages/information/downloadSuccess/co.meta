@@ -1,4 +1,0 @@
-co: name={downloadSuccess} description={} changed={2010-07-11 19:49:41 CEST} changedby={ec} visualorder={0} guid={129C29FD713C49B4} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={129C29FD717C33F7} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-07-23 13:56:53 CEST} validto={} changed={2010-07-11 19:49:41 CEST} changedby={ec} properties={} id={}
-val: guid={129C29FD71FD21C9} datatype={} isdefault={true} langid={en} description={} validfrom={2009-05-19 09:58:39 CEST} validto={} changed={2010-07-11 19:49:41 CEST} changedby={ec} properties={} id={}
-val: guid={129C29FD72856530} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-14 11:39:02 CEST} validto={} changed={2010-07-11 19:49:41 CEST} changedby={ec} properties={} id={}

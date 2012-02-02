@@ -1,4 +1,0 @@
-co: name={chooseOneFileToUploadLimitedSize} description={} changed={2011-06-27 15:04:09 CEST} changedby={ec} visualorder={0} guid={130B0B7B2A3BFB10} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={130B0B7B2AA29DBA} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-06-12 07:15:41 CEST} validto={} changed={2011-06-21 07:42:41 CEST} changedby={ec} properties={} id={}
-val: guid={130B0B7B2B84C3F7} datatype={} isdefault={false} langid={de} description={} validfrom={2009-06-12 07:16:43 CEST} validto={} changed={2011-06-27 15:04:09 CEST} changedby={ec} properties={} id={}
-val: guid={130B0B7B2C2D80D1} datatype={} isdefault={true} langid={en} description={} validfrom={2009-05-19 09:45:22 CEST} validto={} changed={2011-06-21 07:42:41 CEST} changedby={ec} properties={} id={}

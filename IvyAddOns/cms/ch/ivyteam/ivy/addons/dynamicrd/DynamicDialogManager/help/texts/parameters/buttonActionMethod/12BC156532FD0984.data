@@ -1,3 +1,0 @@
-Defines a method that should be called when the button linked to a field is clicked.<br />
-When this method is defined a button appears next to the field.<br />
-<img src="#img#parameters/buttonActionMethod1"/>

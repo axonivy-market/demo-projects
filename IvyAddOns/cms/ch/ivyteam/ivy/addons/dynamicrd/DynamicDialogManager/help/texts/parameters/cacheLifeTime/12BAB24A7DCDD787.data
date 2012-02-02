@@ -1,3 +1,0 @@
-Dialogs that have lot of widgets with multiple CMS contexts can start slowly. This parameters keep in cache all the dynamic dialog parameters for the current dialog.<br />
-When the same dialog is started again, dynamic dialog does not read the parameters again and start directly the dialog construction.<br />
-This value is given in seconds. The life time is calculated from the last usage of a dialog. If a dialog is often used, and the life time does not expire between two starts, the cache never expires.

@@ -1,4 +1,0 @@
-co: name={fileDownloadErrorInIsEditableMethod} description={} changed={2010-10-15 06:59:58 CEST} changedby={ec} visualorder={0} guid={129C0EEDB4662C38} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={129C0EEDB4D3689F} datatype={} isdefault={true} langid={en} description={} validfrom={2010-07-11 11:56:06 CEST} validto={} changed={2010-07-11 11:56:36 CEST} changedby={ec} properties={} id={}
-val: guid={129C0EF534EE3361} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-07-11 11:56:36 CEST} validto={} changed={2010-10-15 06:59:58 CEST} changedby={ec} properties={} id={}
-val: guid={129C0EF5DDDD4981} datatype={} isdefault={false} langid={de} description={} validfrom={2010-07-11 11:56:39 CEST} validto={} changed={2010-10-15 06:59:58 CEST} changedby={ec} properties={} id={}

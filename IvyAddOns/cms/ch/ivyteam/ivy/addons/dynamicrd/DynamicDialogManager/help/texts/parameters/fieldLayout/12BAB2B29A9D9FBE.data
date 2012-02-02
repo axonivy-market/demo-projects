@@ -1,3 +1,0 @@
-Gives the layout used to display each field of a container.<br />
-<img src="#img#parameters/fieldLayout1"/><br />
-The default value is <span class="constant">labelFieldIcon</span>

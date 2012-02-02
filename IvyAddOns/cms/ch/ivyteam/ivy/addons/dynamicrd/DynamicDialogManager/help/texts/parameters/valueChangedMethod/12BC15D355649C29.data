@@ -1,2 +1,0 @@
-Defines a method that is invoked when the content of the field is modified.<br />
-This can happens because the user is typing something or by setting new value in the field.
