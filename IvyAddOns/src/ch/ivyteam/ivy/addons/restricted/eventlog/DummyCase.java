@@ -5,6 +5,8 @@ import java.util.List;
 
 import ch.ivyteam.ivy.application.IApplication;
 import ch.ivyteam.ivy.application.IProcessModel;
+import ch.ivyteam.ivy.application.calendar.IBusinessCalendar;
+import ch.ivyteam.ivy.application.calendar.IDefaultBusinessCalendar;
 import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.scripting.objects.BusinessDuration;
 import ch.ivyteam.ivy.scripting.objects.Duration;
@@ -669,5 +671,15 @@ class DummyCase implements ICase
   {
     throw new PersistencyException(new NoSuchMethodException("setAdditionalProperty(String"));
   }
+
+	@Override
+	public IDefaultBusinessCalendar getBusinessCalendar() {
+		 throw new PersistencyException(new NoSuchMethodException("getBusinessCalendar()"));
+	}
+	
+	@Override
+	public void setBusinessCalendar(IBusinessCalendar calendar) {
+		 throw new PersistencyException(new NoSuchMethodException("setBusinessCalendar(IBusinessCalendar)"));
+	}
 
 }
