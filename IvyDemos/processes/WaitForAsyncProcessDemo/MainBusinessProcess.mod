@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jun 24 11:36:26 CEST 2011]
+[>Created: Mon Feb 13 14:15:20 CET 2012]
 130542875B1E372D 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MainBusinessProcess Big #zClass
@@ -156,13 +156,13 @@ ivy.log.debug(alist.get(0));
 ' #txt
 Ms0 f6 eventIdConfig "in.eventId" #txt
 Ms0 f6 timeoutConfig '#
-#Tue May 17 13:28:10 CEST 2011
+#Mon Feb 13 14:15:19 CET 2012
 ACTION_AFTER_TIMEOUT=NOTHING
 EXCEPTION_PROCESS_START=
 TIMEOUT_SCRIPT=
 ' #txt
 Ms0 f6 taskData '#
-#Tue May 17 13:28:10 CEST 2011
+#Mon Feb 13 14:15:19 CET 2012
 ' #txt
 Ms0 f6 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
 TaskDefinition taskDef;taskDef = new TaskDefinition();
@@ -181,8 +181,8 @@ Ms0 f6 outLink TaskA.ivp #txt
 Ms0 f6 type ch.ivyteam.ivy.demo.waitforasyncprocess.Data #txt
 Ms0 f6 eventBeanClass "ch.ivyteam.ivy.addons.process.async.WaitForAsyncProcess" #txt
 Ms0 f6 eventBeanConfig '"#
-#Tue May 17 13:28:10 CEST 2011
-pollingTime=5000
+#Mon Feb 13 14:15:19 CET 2012
+pollingTime=60000
 "' #txt
 Ms0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
