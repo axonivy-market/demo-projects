@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 24 10:54:21 CET 2011]
+[>Created: Mon Mar 12 13:23:13 CET 2012]
 133D4E8781DF8ABF 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 AnyQueryCaseDisplayListProcess Big #zClass
@@ -140,11 +140,13 @@ out.propertyFilter=param.aAnyQueryCaseListParameter.criterias;
 ' #txt
 Fs0 f8 outParameterDecl '<> result;
 ' #txt
-Fs0 f8 embeddedRdInitializations '{/headerRDC {/fieldName "headerRDC"/startMethod "start(String,String,String)"/parameterMapping ""/initScript "param.iconUri = \"<%=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/case/images/finishedCases48\\\")%>\";\nparam.title = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/finishedCaseDisplayMode\" + callParam.aCaseDisplayMode + \"ShortDesc\");\nparam.text = ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseDisplayMode\" + callParam.aCaseDisplayMode + \"LongDesc\");"/userContext * }/caseDisplayListRDC {/fieldName "caseDisplayListRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)"/parameterMapping ""/initScript "param.aRunningCaseMode = true;\nparam.aCaseDisplayListParentDisplay = callParam.aCaseDisplayListParentDisplay;\nparam.aPropertyFilter = callParam.aAnyQueryCaseListParameter.criterias;\nparam.aCaseDisplayMode = callParam.aCaseDisplayMode;\nparam.aHasWfAdministratorPermissions = callParam.aHasWfAdministratorPermissions;"/userContext * }}' #txt
+Fs0 f8 embeddedRdInitializations '{/headerRDC {/fieldName "headerRDC"/startMethod "start(String,String,String)"/parameterMapping ""/initScript "param.iconUri = \"<%=ivy.cms.cr(\\\"/ch/ivyteam/ivy/workflow/ui/case/images/finishedCases48\\\")%>\";\nparam.title = callParam.aAnyQueryCaseListParameter.title;\nparam.text = callParam.aAnyQueryCaseListParameter.text;"/userContext * }/caseDisplayListRDC {/fieldName "caseDisplayListRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)"/parameterMapping ""/initScript "param.aRunningCaseMode = true;\nparam.aCaseDisplayListParentDisplay = callParam.aCaseDisplayListParentDisplay;\nparam.aPropertyFilter = callParam.aAnyQueryCaseListParameter.criterias;\nparam.aCaseDisplayMode = callParam.aCaseDisplayMode;\nparam.aHasWfAdministratorPermissions = callParam.aHasWfAdministratorPermissions;"/userContext * }}' #txt
 Fs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(RCloseableTabbedDisplay,AnyQueryCaseListParameter,Number,Boolean)</name>
+        <nameStyle>71,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
