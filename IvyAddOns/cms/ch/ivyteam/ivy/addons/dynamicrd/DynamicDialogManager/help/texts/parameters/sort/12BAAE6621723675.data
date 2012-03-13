@@ -1,2 +1,0 @@
-If <span class="constant">true</span>, the values contained in <span class="widget">RadioButton</span> and <span class="widget">ComboBox</span> are sorted.<br />
-The default value is <span class="constant">false</span>

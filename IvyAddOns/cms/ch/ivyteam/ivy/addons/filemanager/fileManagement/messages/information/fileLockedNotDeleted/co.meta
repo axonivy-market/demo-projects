@@ -1,4 +1,0 @@
-co: name={fileLockedNotDeleted} description={} changed={2011-03-13 16:08:44 CET} changedby={ec} visualorder={0} guid={12371019F1F3B5C4} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={1237101E763477C2} datatype={} isdefault={false} langid={de} description={} validfrom={2009-08-31 17:10:33 CEST} validto={} changed={2011-03-13 16:08:44 CET} changedby={ec} properties={} id={}
-val: guid={123710355576FF26} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-08-31 17:12:06 CEST} validto={} changed={2011-03-13 16:08:44 CET} changedby={ec} properties={} id={}
-val: guid={12371019F2F42485} datatype={} isdefault={true} langid={en} description={} validfrom={2009-08-31 17:10:14 CEST} validto={} changed={2011-03-13 16:08:44 CET} changedby={ec} properties={} id={}

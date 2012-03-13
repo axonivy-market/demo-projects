@@ -1,2 +1,0 @@
-Defines the Ivy Databae configuration used to execute the SQL query.<br />
-SQL query results created by this mechanism are stored in a cache. The query is not executed again.

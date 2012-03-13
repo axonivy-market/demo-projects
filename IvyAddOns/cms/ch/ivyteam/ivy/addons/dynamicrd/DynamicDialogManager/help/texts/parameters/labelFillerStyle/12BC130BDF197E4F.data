@@ -1,4 +1,0 @@
-Defines the style in Ivy Configuration applied to the filler placed in the DynamicDialog layout on the same column than the labels.<br />
-The style should be defined in <span class="parameter">RFiller</span> or <span class="parameter">General</span>.<br />
-The default value is 'label'.<br />
-All the children inherit this value.

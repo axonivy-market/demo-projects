@@ -1,4 +1,0 @@
-co: name={openFile} description={} changed={2011-03-13 11:35:26 CET} changedby={ec} visualorder={0} guid={121C66445AEAB0D3} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={121C66445CD8D618} datatype={} isdefault={true} langid={en} description={} validfrom={2009-06-09 21:00:08 CEST} validto={} changed={2009-06-09 21:00:56 CEST} changedby={ec} properties={} id={}
-val: guid={122A7786BC098D93} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-23 13:56:42 CEST} validto={} changed={2011-03-13 11:35:26 CET} changedby={ec} properties={} id={}
-val: guid={122A7786C4CC9AFD} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-07-23 13:56:42 CEST} validto={} changed={2009-07-23 13:56:43 CEST} changedby={xtrans} properties={} id={}

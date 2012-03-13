@@ -1,3 +1,0 @@
-If <span class="constant">false</span>, Ivy "Widget Input Validation" is used to validate the field content.<br />
-This value is only used when the parameter <span class="parameter">validation</span> is not filled.
-The default value is <span class="constant">true</span>

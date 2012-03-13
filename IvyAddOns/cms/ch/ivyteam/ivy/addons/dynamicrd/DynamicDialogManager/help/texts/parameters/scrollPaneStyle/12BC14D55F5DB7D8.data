@@ -1,4 +1,0 @@
-Defines the style in Ivy Configuration applied when a scroll bar is used.<br />
-The style should be defined in <span class="widget">RScrollPane</span> or <span class="parameter">General</span>.<br />
-The default value is 'field'.<br />
-When defined on a container, all the children inherit this value.

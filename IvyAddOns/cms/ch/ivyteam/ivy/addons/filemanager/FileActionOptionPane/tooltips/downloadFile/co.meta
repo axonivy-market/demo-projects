@@ -1,4 +1,0 @@
-co: name={downloadFile} description={} changed={2011-03-13 11:38:52 CET} changedby={ec} visualorder={0} guid={121E3994043BC019} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={122A778669064B1D} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-23 13:56:41 CEST} validto={} changed={2011-03-13 11:38:52 CET} changedby={ec} properties={} id={}
-val: guid={122A778672CF9307} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-07-23 13:56:41 CEST} validto={} changed={2011-03-13 11:38:52 CET} changedby={ec} properties={} id={}
-val: guid={121E39940826A8D6} datatype={} isdefault={true} langid={en} description={} validfrom={2009-06-15 13:07:00 CEST} validto={} changed={2011-03-13 11:38:52 CET} changedby={ec} properties={} id={}

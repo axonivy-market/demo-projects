@@ -1,4 +1,0 @@
-co: name={userId} description={} changed={2010-11-23 16:33:41 CET} changedby={rwei} visualorder={0} guid={12848F683171E3FF} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12C795E3DC47A2D0} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:33:28 CET} validto={} changed={2010-11-23 16:33:41 CET} changedby={rwei} properties={} id={}
-val: guid={12848F68317C1F35} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-29 11:47:14 CEST} validto={} changed={2010-04-29 11:48:36 CEST} changedby={tirib} properties={} id={}
-val: guid={12848F68CACCA56A} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-04-29 11:47:17 CEST} validto={} changed={2010-04-29 11:48:41 CEST} changedby={tirib} properties={} id={}

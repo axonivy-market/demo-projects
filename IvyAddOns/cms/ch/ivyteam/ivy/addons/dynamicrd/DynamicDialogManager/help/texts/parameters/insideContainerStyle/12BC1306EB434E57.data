@@ -1,4 +1,0 @@
-Defines the style in Ivy Configuration applied to the <span class="widget">RGridBaglayoutPane</span> used inside containers like <span class="widget">RTaskPane</span> or <span class="widget">RTabbedPane</span>.<br />
-The style should be defined in <span class="widget">RGridBaglayoutPane</span> or <span class="parameter">General</span>.<br />
-The default value is 'container'.<br />
-All the children inherit this value.

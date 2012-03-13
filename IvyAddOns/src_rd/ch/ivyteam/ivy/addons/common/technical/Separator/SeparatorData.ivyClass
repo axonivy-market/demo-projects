@@ -1,4 +1,0 @@
-SeparatorData #class
-ch.ivyteam.ivy.addons.common.technical.Separator #namespace
-separatorText String #field
-separatorText 'Text do display on the separator.' #fieldComment

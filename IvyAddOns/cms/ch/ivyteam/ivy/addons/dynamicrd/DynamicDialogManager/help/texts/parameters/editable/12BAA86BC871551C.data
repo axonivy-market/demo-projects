@@ -1,7 +1,0 @@
-The effect of this parameter is depending of the widget used.<br />
-<h2>TextField</h2>
-If <span class="constant">false</span>, the content of the field can not be modified. The default value is <span class="constant">true</span>.
-<h2>LookupTextField</h2>
-If <span class="constant">true</span>, the field can receive a value different than the set of values defined. The default value is <span class="constant">false</span>.
-<h2>Other</h2>
-No effect

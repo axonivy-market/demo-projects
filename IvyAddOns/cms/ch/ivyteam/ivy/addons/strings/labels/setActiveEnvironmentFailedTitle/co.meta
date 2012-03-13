@@ -1,3 +1,0 @@
-co: name={setActiveEnvironmentFailedTitle} description={} changed={2010-05-03 12:33:29 GMT} changedby={tirib} visualorder={0} guid={1285E26CD691B284} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1285E275DD21FF3A} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-03 12:32:37 GMT} validto={} changed={2010-05-03 12:32:57 GMT} changedby={tirib} properties={} id={}
-val: guid={1285E26CD79329E6} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-03 12:32:00 GMT} validto={} changed={2010-05-03 12:33:29 GMT} changedby={tirib} properties={} id={}

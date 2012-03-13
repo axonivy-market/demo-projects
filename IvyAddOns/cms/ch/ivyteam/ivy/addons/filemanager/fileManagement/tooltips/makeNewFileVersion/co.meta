@@ -1,4 +1,0 @@
-co: name={makeNewFileVersion} description={} changed={2009-10-02 14:28:24 CEST} changedby={ec} visualorder={0} guid={12415368B83405C2} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={12415368B8376D98} datatype={} isdefault={true} langid={en} description={} validfrom={2009-10-02 14:25:46 CEST} validto={} changed={2009-10-02 14:26:39 CEST} changedby={ec} properties={} id={}
-val: guid={12415375A1F2585B} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-10-02 14:26:39 CEST} validto={} changed={2009-10-02 14:28:24 CEST} changedby={ec} properties={} id={}
-val: guid={1241537629B9BC70} datatype={} isdefault={false} langid={de} description={} validfrom={2009-10-02 14:26:41 CEST} validto={} changed={2009-10-02 14:28:24 CEST} changedby={ec} properties={} id={}

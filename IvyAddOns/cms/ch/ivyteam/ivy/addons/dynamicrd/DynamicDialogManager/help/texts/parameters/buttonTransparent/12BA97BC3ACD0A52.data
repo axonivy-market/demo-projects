@@ -1,3 +1,0 @@
-When the parameter <span class="parameter">buttonActionMethod</span> is filled, a button is displayed next to the field.<br />
-If the parametrer  <span class="parameter">buttonTransparent</span> is <span class="constant">false</span>, a button is drawn around the icon.<br />
-<img src="#img#parameters/buttonTransparent1"/>

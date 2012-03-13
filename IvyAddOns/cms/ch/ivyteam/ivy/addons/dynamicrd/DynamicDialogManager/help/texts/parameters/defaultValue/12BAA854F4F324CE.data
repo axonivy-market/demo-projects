@@ -1,2 +1,0 @@
-Defines the value that the field should receive at startup.<br />
-The value is used only if the data class attribute that is associated to this field is not initialized.

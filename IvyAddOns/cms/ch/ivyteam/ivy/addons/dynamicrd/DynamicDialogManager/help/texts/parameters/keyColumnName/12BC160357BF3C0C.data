@@ -1,3 +1,0 @@
-Defines the name of the SQL column used as keys of a list used in a <span class="widget">ComboBox</span> or other.<br />
-This parameter allows creation of a SQL query that is used to fill the widget.<br />
-SQL query results created by this mechanism are stored in a cache. The query is not executed again.

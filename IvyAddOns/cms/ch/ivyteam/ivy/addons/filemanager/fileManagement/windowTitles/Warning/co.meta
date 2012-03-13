@@ -1,4 +1,0 @@
-co: name={Warning} description={} changed={2010-10-15 06:53:37 CEST} changedby={ec} visualorder={0} guid={1237430D803C11DB} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1237430D803A500B} datatype={} isdefault={true} langid={en} description={} validfrom={2009-09-01 08:00:41 CEST} validto={} changed={2009-09-01 08:00:48 CEST} changedby={ec} properties={} id={}
-val: guid={12374311597C0DEF} datatype={} isdefault={false} langid={de} description={} validfrom={2009-09-01 08:00:56 CEST} validto={} changed={2009-09-01 08:01:19 CEST} changedby={ec} properties={} id={}
-val: guid={1237430F602F23C5} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-09-01 08:00:48 CEST} validto={} changed={2009-09-01 08:00:57 CEST} changedby={ec} properties={} id={}

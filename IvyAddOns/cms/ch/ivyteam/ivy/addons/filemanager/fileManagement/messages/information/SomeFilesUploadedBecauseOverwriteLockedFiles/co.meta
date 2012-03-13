@@ -1,4 +1,0 @@
-co: name={SomeFilesUploadedBecauseOverwriteLockedFiles} description={} changed={2011-03-13 16:10:43 CET} changedby={ec} visualorder={0} guid={12EAFC38B8A76122} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={12EAFC38BA9431B9} datatype={} isdefault={true} langid={en} description={} validfrom={2011-03-13 11:29:01 CET} validto={} changed={2011-03-13 16:10:43 CET} changedby={ec} properties={} id={}
-val: guid={12EAFC38B99E0BBD} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-13 11:29:04 CET} validto={} changed={2011-03-13 16:10:43 CET} changedby={ec} properties={} id={}
-val: guid={12EAFC38B99AF40D} datatype={} isdefault={false} langid={de} description={} validfrom={2011-03-13 11:29:07 CET} validto={} changed={2011-03-13 16:10:43 CET} changedby={ec} properties={} id={}

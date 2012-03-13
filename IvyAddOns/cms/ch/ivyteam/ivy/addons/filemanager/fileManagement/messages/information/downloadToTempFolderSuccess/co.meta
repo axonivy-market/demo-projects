@@ -1,4 +1,0 @@
-co: name={downloadToTempFolderSuccess} description={} changed={2010-07-11 19:50:57 CEST} changedby={ec} visualorder={0} guid={0129C2A0BE7FA87A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={129C2A0BE82CCF83} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-07-23 13:56:53 CEST} validto={} changed={2010-07-11 19:50:57 CEST} changedby={ec} properties={} id={}
-val: guid={129C2A0BE8C8697F} datatype={} isdefault={true} langid={en} description={} validfrom={2009-05-19 09:58:39 CEST} validto={} changed={2010-07-11 19:50:57 CEST} changedby={ec} properties={} id={}
-val: guid={129C2A0BE984E034} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-14 11:39:02 CEST} validto={} changed={2010-07-11 19:50:57 CEST} changedby={ec} properties={} id={}

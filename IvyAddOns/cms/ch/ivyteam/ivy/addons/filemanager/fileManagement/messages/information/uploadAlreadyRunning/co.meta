@@ -1,4 +1,0 @@
-co: name={uploadAlreadyRunning} description={} changed={2011-04-19 14:26:17 CEST} changedby={ec} visualorder={0} guid={12F6D87B530720E2} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={12F6D87B53FC7830} datatype={} isdefault={false} langid={de} description={} validfrom={2009-09-01 07:53:09 CEST} validto={} changed={2011-04-19 14:26:17 CEST} changedby={ec} properties={} id={}
-val: guid={12F6D87B5306D924} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-09-01 07:52:13 CEST} validto={} changed={2011-04-19 13:41:20 CEST} changedby={ec} properties={} id={}
-val: guid={12F6D87B54F2330E} datatype={} isdefault={true} langid={en} description={} validfrom={2009-09-01 07:51:32 CEST} validto={} changed={2011-04-19 13:41:20 CEST} changedby={ec} properties={} id={}

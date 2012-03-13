@@ -1,2 +1,0 @@
-Gives the Ivy format configuration used with this field to format the displayed value.<br />
-<b>Currently, the format given should be defined in the IvyAddOns project. Avoid to use this parameter.</b>

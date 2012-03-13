@@ -1,4 +1,0 @@
-If <span class="constant">true</span>, a magnifying glass icon is visible in the field.<br />
-<img src="#img#parameters/iconVisible1"/><br />
-The default value is <span class="constant">false</span><br/>
-This parameter works only with <span class="widget">LookupTextField</span> widget.

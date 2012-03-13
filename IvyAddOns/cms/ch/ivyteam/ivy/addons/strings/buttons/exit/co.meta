@@ -1,3 +1,0 @@
-co: name={exit} description={} changed={2009-05-18 13:37:49 GMT} changedby={kvg} visualorder={0} guid={12153E9FF5D191E2} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12153E9FF6D900E6} datatype={} isdefault={true} langid={en} description={} validfrom={2008-02-12 15:51:01 GMT} validto={} changed={2009-05-18 13:29:52 GMT} changedby={kvg} properties={} id={}
-val: guid={12153E9FF6DEB56B} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-12-16 10:46:13 GMT} validto={} changed={2009-05-18 13:29:52 GMT} changedby={kvg} properties={} id={}

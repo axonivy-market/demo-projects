@@ -1,3 +1,0 @@
-co: name={XIVY_ADD_WF_002} description={} changed={2010-08-05 22:12:40 CEST} changedby={tirib} visualorder={0} guid={12A43DE10F7BC2E3} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12A43DE1126C0DAA} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-04 12:39:03 CEST} validto={} changed={2010-08-05 22:12:40 CEST} changedby={tirib} properties={} id={}
-val: guid={12A43DE110721988} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-04 12:53:01 CEST} validto={} changed={2010-08-05 22:12:40 CEST} changedby={tirib} properties={} id={}

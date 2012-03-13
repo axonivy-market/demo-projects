@@ -1,3 +1,0 @@
-If <span class="constant">false</span>, the component is not constructed (it does not appear on the UI).<br />
-The value contained in the corresponding attribute is stored. This means that the value is not lost through get/set value of the dynamic dialog.<br />
-The default value is <span class="constant">true</span>

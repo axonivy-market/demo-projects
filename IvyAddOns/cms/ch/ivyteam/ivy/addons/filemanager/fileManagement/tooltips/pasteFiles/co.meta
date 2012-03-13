@@ -1,4 +1,0 @@
-co: name={pasteFiles} description={} changed={2011-04-11 10:45:37 CEST} changedby={ec} visualorder={0} guid={12F43BAB1444F4C4} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={12F43BAB1535C7CA} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-07-23 13:56:55 CEST} validto={} changed={2011-04-11 10:45:37 CEST} changedby={ec} properties={} id={}
-val: guid={12F43BAB1448095A} datatype={} isdefault={false} langid={de} description={} validfrom={2009-07-23 13:56:55 CEST} validto={} changed={2011-04-11 10:45:37 CEST} changedby={ec} properties={} id={}
-val: guid={12F43BAB1635BEC8} datatype={} isdefault={true} langid={en} description={} validfrom={2009-06-09 14:12:10 CEST} validto={} changed={2011-04-11 10:45:37 CEST} changedby={ec} properties={} id={}
