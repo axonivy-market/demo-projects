@@ -125,10 +125,6 @@ public void setUpCloseHandler() {
 	oneFrame.setDefaultCloseOperation(ULCFrame.DO_NOTHING_ON_CLOSE);
 
 	oneFrame.setName("oneFrame");
-	IWindowListener[] listeners = oneFrame.getWindowListeners();
-	for (IWindowListener existingListener : listeners) {
-		oneFrame.removeWindowListener(existingListener);
-	}
 
 	oneFrame.addWindowListener(new IWindowListener() {
 		private static final long serialVersionUID = 1L;

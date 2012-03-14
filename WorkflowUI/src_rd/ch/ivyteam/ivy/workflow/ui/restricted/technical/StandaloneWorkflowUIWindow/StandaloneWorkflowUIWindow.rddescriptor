@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
+    <autoScreenshot>true</autoScreenshot>
     <method>
         <name>_windowClosingRequested</name>
         <description>It loads the confirmation dialog (exit the WFUI?) with yes, no options. If yes, then logout session user.</description>

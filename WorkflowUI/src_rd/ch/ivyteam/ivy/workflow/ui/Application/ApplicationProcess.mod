@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 24 11:25:02 CET 2011]
+[>Created: Wed Mar 14 11:51:43 CET 2012]
 117CB5CD6E5F88C6 3.17 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
@@ -827,20 +827,32 @@ As0 f60 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f60 actionTable 'out=in;
 ' #txt
-As0 f60 actionCode '// cancel the closing request
+As0 f60 actionCode 'import com.ulcjava.base.application.ULCComponent;
+import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+
+ULCComponent source = in.tabClosingRequestEvent.getClosableTabbedPane().getComponentAt(in.tabClosingRequestEvent.getTabClosingIndex());
+IRichDialogPanel sourcePanel;
+
+// cancel the closing request
 in.tabClosingRequestEvent.cancel();
+
 
 // invoke the close rd method on the selected component
 // and it does not exist call "unload"
-try
+
+if (source instanceof IRichDialogPanel)
 {
-	panel.centerTabbedDisplay.getSelectedPanel().getPanelAPI().callMethod("close", []);
-}
-catch (Exception ex)
-{
-	panel.centerTabbedDisplay.getSelectedPanel().getPanelAPI().unload();
-}
+	sourcePanel = source as IRichDialogPanel;
 	
+	try
+	{
+		sourcePanel.getPanelAPI().callMethod("close", []);
+	}
+	catch (Exception ex)
+	{
+		sourcePanel.getPanelAPI().unload();
+	}
+}	
 ' #txt
 As0 f60 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f60 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

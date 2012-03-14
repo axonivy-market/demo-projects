@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Nov 25 17:11:04 CET 2011]
+[>Created: Wed Mar 14 11:34:30 CET 2012]
 12D9821DFCC25F93 3.17 #module
 >Proto >Proto Collection #zClass
 Ws0 WorkflowUIStartServices Big #zClass
@@ -22,7 +22,6 @@ Ws0 @PushWFArc f6 '' #zField
 Ws0 @PushWFArc f4 '' #zField
 Ws0 @PushWFArc f3 '' #zField
 Ws0 @PushWFArc f2 '' #zField
-Ws0 @PushWFArc f9 '' #zField
 Ws0 @PushWFArc f10 '' #zField
 Ws0 @InfoButton f11 '' #zField
 Ws0 @AnnotationArc f12 '' #zField
@@ -36,6 +35,9 @@ Ws0 @PushWFArc f25 '' #zField
 Ws0 @PushWFArc f30 '' #zField
 Ws0 @InfoButton f13 '' #zField
 Ws0 @AnnotationArc f18 '' #zField
+Ws0 @GridStep f20 '' #zField
+Ws0 @PushWFArc f21 '' #zField
+Ws0 @PushWFArc f9 '' #zField
 >Proto Ws0 Ws0 WorkflowUIStartServices #zField
 Ws0 f0 outParamDecl '<java.lang.Boolean authentificationSuccessful> result;
 ' #txt
@@ -57,7 +59,7 @@ Ws0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ws0 f0 99 123 26 26 14 0 #rect
 Ws0 f0 @|StartSubIcon #fIcon
 Ws0 f1 type workflowui.Data #txt
-Ws0 f1 99 427 26 26 14 0 #rect
+Ws0 f1 99 451 26 26 14 0 #rect
 Ws0 f1 @|EndSubIcon #fIcon
 Ws0 f26 targetWindow NEW:standaloneWorkflowUIWindow: #txt
 Ws0 f26 targetDisplay TOP #txt
@@ -188,10 +190,8 @@ Ws0 f3 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ws0 f3 112 326 112 372 #arcP
 Ws0 f2 expr out #txt
 Ws0 f2 112 149 112 178 #arcP
-Ws0 f9 expr out #txt
-Ws0 f9 112 396 112 427 #arcP
 Ws0 f10 expr in #txt
-Ws0 f10 126 312 124 439 #arcP
+Ws0 f10 126 312 124 460 #arcP
 Ws0 f10 1 232 312 #addKink
 Ws0 f10 2 232 432 #addKink
 Ws0 f10 1 0.2694364631001321 0 0 #arcLabel
@@ -337,6 +337,27 @@ Ws0 f13 869 67 470 138 -230 -64 #rect
 Ws0 f13 @|IBIcon #fIcon
 Ws0 f13 -1|-1|-16777216 #nodeStyle
 Ws0 f18 869 136 725 136 #arcP
+Ws0 f20 actionDecl 'workflowui.Data out;
+' #txt
+Ws0 f20 actionTable 'out=in;
+' #txt
+Ws0 f20 actionCode ivy.session.logoutSessionUser(ivy.task.getIdentifier()); #txt
+Ws0 f20 type workflowui.Data #txt
+Ws0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>logout</name>
+        <nameStyle>6,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ws0 f20 94 412 36 24 20 -2 #rect
+Ws0 f20 @|StepIcon #fIcon
+Ws0 f21 expr out #txt
+Ws0 f21 112 396 112 412 #arcP
+Ws0 f9 expr out #txt
+Ws0 f9 112 436 112 451 #arcP
 >Proto Ws0 .type workflowui.Data #txt
 >Proto Ws0 .processKind CALLABLE_SUB #txt
 >Proto Ws0 0 0 32 24 18 0 #rect
@@ -351,8 +372,6 @@ Ws0 f7 out f3 tail #connect
 Ws0 f3 head f26 mainIn #connect
 Ws0 f0 mainOut f2 tail #connect
 Ws0 f2 head f16 in #connect
-Ws0 f26 mainOut f9 tail #connect
-Ws0 f9 head f1 mainIn #connect
 Ws0 f7 out f10 tail #connect
 Ws0 f10 head f1 mainIn #connect
 Ws0 f11 ao f12 tail #connect
@@ -367,3 +386,7 @@ Ws0 f19 out f30 tail #connect
 Ws0 f30 head f15 mainIn #connect
 Ws0 f13 ao f18 tail #connect
 Ws0 f18 head f14 @CG|ai #connect
+Ws0 f26 mainOut f21 tail #connect
+Ws0 f21 head f20 mainIn #connect
+Ws0 f20 mainOut f9 tail #connect
+Ws0 f9 head f1 mainIn #connect
