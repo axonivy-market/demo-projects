@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 07 14:35:38 CET 2011]
+[>Created: Thu Mar 15 14:18:39 CET 2012]
 1175F14B3894BBC3 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskSearchProcess Big #zClass
@@ -155,10 +155,8 @@ Ts0 @RichDialogProcessStart f189 '' #zField
 Ts0 @RichDialogProcessStart f192 '' #zField
 Ts0 @RichDialogProcessStart f191 '' #zField
 Ts0 @Alternative f196 '' #zField
-Ts0 @PushWFArc f78 '' #zField
 Ts0 @RichDialog f76 '' #zField
 Ts0 @PushWFArc f199 '' #zField
-Ts0 @PushWFArc f200 '' #zField
 Ts0 @RichDialogProcessStep f51 '' #zField
 Ts0 @Alternative f88 '' #zField
 Ts0 @PushWFArc f97 '' #zField
@@ -278,6 +276,10 @@ Ts0 @PushWFArc f132 '' #zField
 Ts0 @PushWFArc f61 '' #zField
 Ts0 @PushWFArc f110 '' #zField
 Ts0 @PushWFArc f121 '' #zField
+Ts0 @RichDialogUiSync f249 '' #zField
+Ts0 @PushWFArc f250 '' #zField
+Ts0 @PushWFArc f78 '' #zField
+Ts0 @PushWFArc f265 '' #zField
 >Proto Ts0 Ts0 TaskSearchProcess #zField
 Ts0 f0 guid 1175F221618771FB #txt
 Ts0 f0 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
@@ -472,7 +474,7 @@ Ts0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f46 1366 606 20 20 13 0 #rect
 Ts0 f46 @|RichDialogProcessStartIcon #fIcon
 Ts0 f47 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
-Ts0 f47 1363 1291 26 26 14 0 #rect
+Ts0 f47 1363 1355 26 26 14 0 #rect
 Ts0 f47 @|RichDialogProcessEndIcon #fIcon
 Ts0 f49 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
 ' #txt
@@ -2527,7 +2529,7 @@ running task list</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f77 1358 1236 36 24 20 -2 #rect
+Ts0 f77 1358 1300 36 24 20 -2 #rect
 Ts0 f77 @|RichDialogIcon #fIcon
 Ts0 f81 guid 1190F07193BE2E61 #txt
 Ts0 f81 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
@@ -2584,7 +2586,7 @@ Ts0 f81 @|RichDialogInitStartIcon #fIcon
 Ts0 f84 expr out #txt
 Ts0 f84 1376 1060 1376 1098 #arcP
 Ts0 f80 expr out #txt
-Ts0 f80 1376 1260 1376 1291 #arcP
+Ts0 f80 1376 1324 1376 1355 #arcP
 Ts0 f94 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
 ' #txt
 Ts0 f94 actionTable 'out=in;
@@ -3858,9 +3860,6 @@ Ts0 f196 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f196 1362 1186 28 28 14 0 #rect
 Ts0 f196 @|AlternativeIcon #fIcon
-Ts0 f78 expr in #txt
-Ts0 f78 outCond in.runningTaskMode #txt
-Ts0 f78 1376 1214 1376 1236 #arcP
 Ts0 f76 targetWindow THIS #txt
 Ts0 f76 targetDisplay EXISTING:<%=in.destinationDisplay.getDisplayId()%> #txt
 Ts0 f76 richDialogId ch.ivyteam.ivy.workflow.ui.task.FinishedTaskDisplayList #txt
@@ -3892,16 +3891,12 @@ finished task list</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f76 1550 1236 36 24 20 -2 #rect
+Ts0 f76 1550 1220 36 24 20 -2 #rect
 Ts0 f76 @|RichDialogIcon #fIcon
 Ts0 f199 expr in #txt
-Ts0 f199 1390 1200 1568 1236 #arcP
+Ts0 f199 1390 1200 1568 1220 #arcP
 Ts0 f199 1 1568 1200 #addKink
 Ts0 f199 0 0.6136878585358624 0 0 #arcLabel
-Ts0 f200 expr out #txt
-Ts0 f200 1568 1260 1388 1302 #arcP
-Ts0 f200 1 1568 1280 #addKink
-Ts0 f200 1 0.3845015447358696 0 0 #arcLabel
 Ts0 f51 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
 ' #txt
 Ts0 f51 actionTable 'out=in;
@@ -5169,6 +5164,19 @@ Ts0 f110 1 2240 496 #addKink
 Ts0 f110 1 0.3975006334968038 0 0 #arcLabel
 Ts0 f121 expr out #txt
 Ts0 f121 1528 508 1528 531 #arcP
+Ts0 f249 type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
+Ts0 f249 guid 136168216A42FE15 #txt
+Ts0 f249 1363 1259 26 26 13 0 #rect
+Ts0 f249 @|RichDialogUiSyncIcon #fIcon
+Ts0 f250 expr in #txt
+Ts0 f250 outCond in.runningTaskMode #txt
+Ts0 f250 1376 1214 1376 1259 #arcP
+Ts0 f78 expr out #txt
+Ts0 f78 1376 1285 1376 1300 #arcP
+Ts0 f265 expr out #txt
+Ts0 f265 1568 1244 1388 1270 #arcP
+Ts0 f265 1 1568 1256 #addKink
+Ts0 f265 1 0.3845015447358696 0 0 #arcLabel
 >Proto Ts0 .type ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData #txt
 >Proto Ts0 .processKind RICH_DIALOG #txt
 >Proto Ts0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -5413,12 +5421,7 @@ Ts0 f74 mainOut f134 tail #connect
 Ts0 f134 head f100 mainIn #connect
 Ts0 f184 mainOut f6 tail #connect
 Ts0 f6 head f4 mainIn #connect
-Ts0 f196 out f78 tail #connect
-Ts0 f78 head f77 mainIn #connect
-Ts0 f196 out f199 tail #connect
 Ts0 f199 head f76 mainIn #connect
-Ts0 f76 mainOut f200 tail #connect
-Ts0 f200 head f47 mainIn #connect
 Ts0 f28 out f97 tail #connect
 Ts0 f97 head f148 in #connect
 Ts0 f29 out f193 tail #connect
@@ -5576,3 +5579,10 @@ Ts0 f177 mainOut f110 tail #connect
 Ts0 f110 head f237 mainIn #connect
 Ts0 f237 mainOut f121 tail #connect
 Ts0 f121 head f15 mainIn #connect
+Ts0 f196 out f250 tail #connect
+Ts0 f250 head f249 mainIn #connect
+Ts0 f196 out f199 tail #connect
+Ts0 f249 mainOut f78 tail #connect
+Ts0 f78 head f77 mainIn #connect
+Ts0 f76 mainOut f265 tail #connect
+Ts0 f265 head f249 mainIn #connect

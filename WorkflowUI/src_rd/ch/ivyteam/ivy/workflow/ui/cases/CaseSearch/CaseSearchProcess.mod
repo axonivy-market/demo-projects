@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 07 15:07:03 CET 2011]
+[>Created: Thu Mar 15 14:17:34 CET 2012]
 11A9B75F7E57BD13 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseSearchProcess Big #zClass
@@ -88,10 +88,8 @@ Cs0 @RichDialogProcessStep f96 '' #zField
 Cs0 @PushWFArc f97 '' #zField
 Cs0 @PushWFArc f82 '' #zField
 Cs0 @Alternative f98 '' #zField
-Cs0 @PushWFArc f87 '' #zField
 Cs0 @RichDialog f88 '' #zField
 Cs0 @PushWFArc f101 '' #zField
-Cs0 @PushWFArc f102 '' #zField
 Cs0 @RichDialogProcessStep f89 '' #zField
 Cs0 @PushWFArc f109 '' #zField
 Cs0 @Alternative f110 '' #zField
@@ -213,6 +211,10 @@ Cs0 @PushWFArc f41 '' #zField
 Cs0 @PushWFArc f23 '' #zField
 Cs0 @PushWFArc f27 '' #zField
 Cs0 @PushWFArc f21 '' #zField
+Cs0 @RichDialogUiSync f29 '' #zField
+Cs0 @PushWFArc f196 '' #zField
+Cs0 @PushWFArc f87 '' #zField
+Cs0 @PushWFArc f200 '' #zField
 >Proto Cs0 Cs0 CaseSearchProcess #zField
 Cs0 f0 guid 11A9B75F890E6929 #txt
 Cs0 f0 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -2425,7 +2427,7 @@ Cs0 f71 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f71 1518 638 20 20 13 0 #rect
 Cs0 f71 @|RichDialogProcessStartIcon #fIcon
 Cs0 f72 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
-Cs0 f72 1515 1123 26 26 14 0 #rect
+Cs0 f72 1515 1163 26 26 14 0 #rect
 Cs0 f72 @|RichDialogProcessEndIcon #fIcon
 Cs0 f74 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f74 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2611,10 +2613,10 @@ running cases</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f86 1510 1076 36 24 20 -2 #rect
+Cs0 f86 1510 1116 36 24 20 -2 #rect
 Cs0 f86 @|RichDialogIcon #fIcon
 Cs0 f73 expr out #txt
-Cs0 f73 1528 1100 1528 1123 #arcP
+Cs0 f73 1528 1140 1528 1163 #arcP
 Cs0 f96 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
 Cs0 f96 actionTable 'out=in;
@@ -2696,9 +2698,6 @@ Cs0 f98 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cs0 f98 1514 1026 28 28 14 0 #rect
 Cs0 f98 @|AlternativeIcon #fIcon
-Cs0 f87 expr in #txt
-Cs0 f87 outCond in.runningCaseMode #txt
-Cs0 f87 1528 1054 1528 1076 #arcP
 Cs0 f88 targetWindow THIS #txt
 Cs0 f88 targetDisplay EXISTING:<%=in.destinationDisplay.displayId%> #txt
 Cs0 f88 richDialogId ch.ivyteam.ivy.workflow.ui.cases.FinishedCaseDisplayList #txt
@@ -2735,10 +2734,6 @@ Cs0 f101 expr in #txt
 Cs0 f101 1541 1041 1744 1076 #arcP
 Cs0 f101 1 1744 1056 #addKink
 Cs0 f101 0 0.6249219481659769 0 0 #arcLabel
-Cs0 f102 expr out #txt
-Cs0 f102 1744 1088 1540 1133 #arcP
-Cs0 f102 1 1744 1096 #addKink
-Cs0 f102 1 0.37721589804476763 0 0 #arcLabel
 Cs0 f89 actionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
 Cs0 f89 actionTable 'out=in;
@@ -2810,9 +2805,9 @@ Cs0 f110 @|AlternativeIcon #fIcon
 Cs0 f111 expr out #txt
 Cs0 f111 1528 658 1528 674 #arcP
 Cs0 f112 expr in #txt
-Cs0 f112 1542 688 1541 1136 #arcP
+Cs0 f112 1542 688 1541 1176 #arcP
 Cs0 f112 1 2016 688 #addKink
-Cs0 f112 2 2016 1136 #addKink
+Cs0 f112 2 2016 1176 #addKink
 Cs0 f112 1 0.1488854958864925 0 0 #arcLabel
 Cs0 f113 guid 11ADED5FE475E81F #txt
 Cs0 f113 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
@@ -4066,6 +4061,19 @@ Cs0 f27 2 2288 496 #addKink
 Cs0 f27 0 0.6385472090307155 0 -1 #arcLabel
 Cs0 f21 expr out #txt
 Cs0 f21 1528 524 1528 555 #arcP
+Cs0 f29 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
+Cs0 f29 guid 1361681572E4E932 #txt
+Cs0 f29 1515 1083 26 26 13 0 #rect
+Cs0 f29 @|RichDialogUiSyncIcon #fIcon
+Cs0 f196 expr in #txt
+Cs0 f196 outCond in.runningCaseMode #txt
+Cs0 f196 1528 1054 1528 1083 #arcP
+Cs0 f87 expr out #txt
+Cs0 f87 1528 1109 1528 1116 #arcP
+Cs0 f200 expr out #txt
+Cs0 f200 1744 1088 1541 1096 #arcP
+Cs0 f200 1 1744 1096 #addKink
+Cs0 f200 1 0.37721589804476763 0 0 #arcLabel
 >Proto Cs0 .type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 >Proto Cs0 .processKind RICH_DIALOG #txt
 >Proto Cs0 .ui2RdDataAction 'out.sortByPriority=panel.sortByPriorityCheckBox.selected;
@@ -4263,12 +4271,7 @@ Cs0 f77 out f97 tail #connect
 Cs0 f97 head f96 mainIn #connect
 Cs0 f96 mainOut f82 tail #connect
 Cs0 f82 head f81 in #connect
-Cs0 f98 out f87 tail #connect
-Cs0 f87 head f86 mainIn #connect
-Cs0 f98 out f101 tail #connect
 Cs0 f101 head f88 mainIn #connect
-Cs0 f88 mainOut f102 tail #connect
-Cs0 f102 head f72 mainIn #connect
 Cs0 f49 mainOut f109 tail #connect
 Cs0 f109 head f89 mainIn #connect
 Cs0 f71 mainOut f111 tail #connect
@@ -4411,3 +4414,10 @@ Cs0 f27 head f50 mainIn #connect
 Cs0 f47 out f43 tail #connect
 Cs0 f50 mainOut f21 tail #connect
 Cs0 f21 head f4 mainIn #connect
+Cs0 f98 out f196 tail #connect
+Cs0 f196 head f29 mainIn #connect
+Cs0 f98 out f101 tail #connect
+Cs0 f29 mainOut f87 tail #connect
+Cs0 f87 head f86 mainIn #connect
+Cs0 f88 mainOut f200 tail #connect
+Cs0 f200 head f29 mainIn #connect

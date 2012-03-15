@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 14 11:51:43 CET 2012]
+[>Created: Thu Mar 15 14:16:44 CET 2012]
 117CB5CD6E5F88C6 3.17 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
@@ -78,10 +78,8 @@ As0 @PushWFArc f61 '' #zField
 As0 @PushWFArc f59 '' #zField
 As0 @Alternative f62 '' #zField
 As0 @PushWFArc f63 '' #zField
-As0 @PushWFArc f54 '' #zField
 As0 @RichDialogProcessStep f64 '' #zField
 As0 @PushWFArc f65 '' #zField
-As0 @PushWFArc f66 '' #zField
 As0 @Alternative f67 '' #zField
 As0 @PushWFArc f68 '' #zField
 As0 @PushWFArc f5 '' #zField
@@ -93,12 +91,18 @@ As0 @RichDialogProcessStep f73 '' #zField
 As0 @RichDialogBroadcastStart f74 '' #zField
 As0 @PushWFArc f75 '' #zField
 As0 @PushWFArc f76 '' #zField
-As0 @PushWFArc f78 '' #zField
 As0 @PushWFArc f79 '' #zField
-As0 @PushWFArc f80 '' #zField
 As0 @RichDialogUiSync f81 '' #zField
 As0 @PushWFArc f82 '' #zField
 As0 @PushWFArc f7 '' #zField
+As0 @RichDialogUiSync f83 '' #zField
+As0 @PushWFArc f84 '' #zField
+As0 @PushWFArc f78 '' #zField
+As0 @PushWFArc f85 '' #zField
+As0 @RichDialogUiSync f80 '' #zField
+As0 @PushWFArc f86 '' #zField
+As0 @PushWFArc f54 '' #zField
+As0 @PushWFArc f87 '' #zField
 >Proto As0 As0 ApplicationDynamicWayProcess #zField
 As0 f1 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f1 59 243 26 26 14 0 #rect
@@ -886,18 +890,6 @@ As0 f62 1074 338 28 28 14 0 #rect
 As0 f62 @|AlternativeIcon #fIcon
 As0 f63 expr out #txt
 As0 f63 1088 298 1088 338 #arcP
-As0 f54 expr in #txt
-As0 f54 outCond in.multipleTaskListMode #txt
-As0 f54 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>yes</name>
-        <nameStyle>3,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-As0 f54 1088 366 1088 452 #arcP
 As0 f64 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f64 actionTable 'out=in;
@@ -941,9 +933,6 @@ As0 f65 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 As0 f65 1097 357 1150 389 #arcP
 As0 f65 0 0.44103154817851287 0 0 #arcLabel
-As0 f66 expr out #txt
-As0 f66 1153 412 1103 452 #arcP
-As0 f66 0 0.4257609131647338 0 0 #arcLabel
 As0 f67 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -1077,18 +1066,6 @@ As0 f75 expr out #txt
 As0 f75 1408 484 1408 526 #arcP
 As0 f76 expr out #txt
 As0 f76 1408 306 1408 346 #arcP
-As0 f78 expr in #txt
-As0 f78 outCond in.multipleCaseListMode #txt
-As0 f78 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>yes</name>
-        <nameStyle>3,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-As0 f78 1408 374 1408 460 #arcP
 As0 f79 expr in #txt
 As0 f79 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -1100,8 +1077,6 @@ As0 f79 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f79 1416 366 1462 396 #arcP
-As0 f80 expr out #txt
-As0 f80 1467 420 1422 460 #arcP
 As0 f81 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f81 guid 133D51B2F17D055F #txt
 As0 f81 771 99 26 26 13 0 #rect
@@ -1110,6 +1085,47 @@ As0 f82 expr out #txt
 As0 f82 784 74 784 99 #arcP
 As0 f7 expr out #txt
 As0 f7 784 125 784 148 #arcP
+As0 f83 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f83 guid 1361680724C43D6E #txt
+As0 f83 1395 419 26 26 13 0 #rect
+As0 f83 @|RichDialogUiSyncIcon #fIcon
+As0 f84 expr in #txt
+As0 f84 outCond in.multipleCaseListMode #txt
+As0 f84 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f84 1408 374 1408 419 #arcP
+As0 f78 expr out #txt
+As0 f78 1408 445 1408 460 #arcP
+As0 f85 expr out #txt
+As0 f85 1462 414 1420 427 #arcP
+As0 f80 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
+As0 f80 guid 1361680ABA418D0A #txt
+As0 f80 1075 411 26 26 13 0 #rect
+As0 f80 @|RichDialogUiSyncIcon #fIcon
+As0 f86 expr in #txt
+As0 f86 outCond in.multipleTaskListMode #txt
+As0 f86 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f86 1088 366 1088 411 #arcP
+As0 f54 expr out #txt
+As0 f54 1088 437 1088 452 #arcP
+As0 f87 expr out #txt
+As0 f87 1150 405 1100 420 #arcP
+As0 f87 0 0.4257609131647338 0 0 #arcLabel
 >Proto As0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1189,12 +1205,7 @@ As0 f60 mainOut f59 tail #connect
 As0 f59 head f58 mainIn #connect
 As0 f28 mainOut f63 tail #connect
 As0 f63 head f62 in #connect
-As0 f62 out f54 tail #connect
-As0 f54 head f53 mainIn #connect
-As0 f62 out f65 tail #connect
 As0 f65 head f64 mainIn #connect
-As0 f64 mainOut f66 tail #connect
-As0 f66 head f53 mainIn #connect
 As0 f181 mainOut f68 tail #connect
 As0 f68 head f67 in #connect
 As0 f67 out f5 tail #connect
@@ -1205,13 +1216,22 @@ As0 f72 mainOut f75 tail #connect
 As0 f75 head f71 mainIn #connect
 As0 f74 mainOut f76 tail #connect
 As0 f76 head f70 in #connect
-As0 f70 out f78 tail #connect
-As0 f78 head f72 mainIn #connect
-As0 f70 out f79 tail #connect
 As0 f79 head f73 mainIn #connect
-As0 f73 mainOut f80 tail #connect
-As0 f80 head f72 mainIn #connect
 As0 f4 mainOut f82 tail #connect
 As0 f82 head f81 mainIn #connect
 As0 f81 mainOut f7 tail #connect
 As0 f7 head f181 mainIn #connect
+As0 f70 out f84 tail #connect
+As0 f84 head f83 mainIn #connect
+As0 f70 out f79 tail #connect
+As0 f83 mainOut f78 tail #connect
+As0 f78 head f72 mainIn #connect
+As0 f73 mainOut f85 tail #connect
+As0 f85 head f83 mainIn #connect
+As0 f62 out f86 tail #connect
+As0 f86 head f80 mainIn #connect
+As0 f62 out f65 tail #connect
+As0 f80 mainOut f54 tail #connect
+As0 f54 head f53 mainIn #connect
+As0 f64 mainOut f87 tail #connect
+As0 f87 head f80 mainIn #connect
