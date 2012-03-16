@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
-    <acceptedBroadcast>
-        <name>ivy_systemevent_workflow_case_created</name>
-        <description></description>
-        <attachment>
-            <name>workflowSystemEventParameter</name>
-            <description></description>
-            <parameterType>ch.ivyteam.ivy.workflow.WorkflowSystemEventParameter</parameterType>
-            <nullPermitted>true</nullPermitted>
-        </attachment>
-    </acceptedBroadcast>
     <startMethod>
         <name>start</name>
         <description>Default Rich Dialog start

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Nov 09 15:24:36 CET 2011]
+[>Created: Fri Mar 16 10:22:39 CET 2012]
 11898D6F2E86E751 3.17 #module
 >Proto >Proto Collection #zClass
 Us0 UserMenuProcess Big #zClass
@@ -37,14 +37,6 @@ Us0 @PushWFArc f37 '' #zField
 Us0 @RichDialogProcessStart f57 '' #zField
 Us0 @RichDialogProcessStart f63 '' #zField
 Us0 @RichDialogProcessStart f65 '' #zField
-Us0 @RichDialogBroadcastStart f14 '' #zField
-Us0 @RichDialogProcessEnd f15 '' #zField
-Us0 @Alternative f17 '' #zField
-Us0 @PushWFArc f18 '' #zField
-Us0 @RichDialogProcessStep f19 '' #zField
-Us0 @PushWFArc f20 '' #zField
-Us0 @PushWFArc f16 '' #zField
-Us0 @PushWFArc f43 '' #zField
 Us0 @RichDialogProcessStart f44 '' #zField
 Us0 @RichDialog f46 '' #zField
 Us0 @PushWFArc f47 '' #zField
@@ -557,143 +549,6 @@ Us0 f65 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Us0 f65 670 78 20 20 13 0 #rect
 Us0 f65 @|RichDialogProcessStartIcon #fIcon
-Us0 f14 guid 1207B74D67233A74 #txt
-Us0 f14 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f14 broadcast ivy_systemevent_workflow_case_created #txt
-Us0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
-' #txt
-Us0 f14 actionTable 'out=in;
-' #txt
-Us0 f14 actionCode 'import java.util.Iterator;
-import ch.ivyteam.ivy.workflow.ICase;
-import ch.ivyteam.ivy.persistence.IQueryResult;
-
-
-IQueryResult queryResult = ivy.session.findInvolvedCases(null, null, 0, -1, true);
-List<ICase> involvedCases;
-Iterator casesIterator;
-Boolean found = false;
-ICase currentCase;
-Number broadcastedCaseCreatedCaseId = param.workflowSystemEventParameter.getIdentifiers().get(0) as Number;
-
-
-involvedCases.clear();
-involvedCases.addAll(queryResult.getResultList());
-casesIterator = involvedCases.iterator();
-
-
-out.broadcastedInvolvedCaseCreatedCaseId = 0;
-
-while (casesIterator.hasNext() && !found)
-{
-	currentCase = casesIterator.next() as ICase;
-	ivy.log.debug("current case: " + currentCase.getName() + ", id: " + currentCase.getIdentifier());
-	if (currentCase.getIdentifier() == broadcastedCaseCreatedCaseId)
-	{
-		out.broadcastedInvolvedCaseCreatedCaseId = broadcastedCaseCreatedCaseId;
-		out.broadcastedInvolvedCaseCreatedCase = currentCase;
-		found = true;
-	}
-}' #txt
-Us0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>ivy_systemevent_workflow_case_created</name>
-        <nameStyle>37,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Us0 f14 2254 78 20 20 13 0 #rect
-Us0 f14 @|RichDialogBroadcastStartIcon #fIcon
-Us0 f15 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f15 2251 419 26 26 14 0 #rect
-Us0 f15 @|RichDialogProcessEndIcon #fIcon
-Us0 f17 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>the user is involved in this case ?</name>
-        <nameStyle>35,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Us0 f17 2250 146 28 28 14 0 #rect
-Us0 f17 @|AlternativeIcon #fIcon
-Us0 f18 expr out #txt
-Us0 f18 2264 98 2264 146 #arcP
-Us0 f19 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
-' #txt
-Us0 f19 actionTable 'out=in;
-' #txt
-Us0 f19 actionCode '// text
-String title = "<html>" + "<h3>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseCreatedLongDesc").toString() + "</h3>";
-
-
-String caseDetails = "<b>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseDetails").toString() + "</b>" + 
-"<table border = \"0\">" +
-"<tr><th align=left>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseId").toString() + "</th><td>" + (in.broadcastedInvolvedCaseCreatedCase.getIdentifier() is initialized? in.broadcastedInvolvedCaseCreatedCase.getIdentifier(): "n/a") + "</td></tr>" +
-"<tr><th align=left>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseState").toString() + "</th><td>" + (in.broadcastedInvolvedCaseCreatedCase.getState() is initialized? in.broadcastedInvolvedCaseCreatedCase.getState(): "n/a") + "</td></tr>" +
-"<tr><th align=left>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseStartTimestamp").toString() + "</th><td>" + (in.broadcastedInvolvedCaseCreatedCase.getStartTimestamp() is initialized? new DateTime(in.broadcastedInvolvedCaseCreatedCase.getStartTimestamp()).format("medium"): "n/a") + "</td></tr>" +
-"<tr><th align=left>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseCreatorUserName").toString() + "</th><td>" + (in.broadcastedInvolvedCaseCreatedCase.getCreatorUserName() is initialized? in.broadcastedInvolvedCaseCreatedCase.getCreatorUserName(): "n/a") + "</td></tr>" +
-"<tr><th align=left>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseName").toString() + "</th><td>" + (in.broadcastedInvolvedCaseCreatedCase.getName() is initialized? in.broadcastedInvolvedCaseCreatedCase.getName(): "n/a") + "</td></tr>" +
-"<tr><th align=left>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseDescription").toString() + "</th><td>" + (in.broadcastedInvolvedCaseCreatedCase.getDescription() is initialized? in.broadcastedInvolvedCaseCreatedCase.getDescription(): "n/a") + "</td></tr>" +
-"<tr><th align=left>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseProcessCategoryName").toString() + "</th><td>" + (in.broadcastedInvolvedCaseCreatedCase.getProcessCategoryName() is initialized? 
-													in.broadcastedInvolvedCaseCreatedCase.getProcessCategoryName(): 
-													(in.broadcastedInvolvedCaseCreatedCase.getProcessCategoryCode() is initialized? in.broadcastedInvolvedCaseCreatedCase.getProcessCategoryCode(): "n/a")) + "</td></tr>" +
-
-"<tr><th align=left>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseProcessName").toString() + "</th><td>" + (in.broadcastedInvolvedCaseCreatedCase.getProcessName() is initialized? 
-													in.broadcastedInvolvedCaseCreatedCase.getProcessName(): 
-													(in.broadcastedInvolvedCaseCreatedCase.getProcessCode() is initialized? in.broadcastedInvolvedCaseCreatedCase.getProcessCode(): "n/a")) + "</td></tr>" +
-
-"<tr><th align=left>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseTypeName").toString() + "</th><td>" + (in.broadcastedInvolvedCaseCreatedCase.getTypeName() is initialized? 
-													in.broadcastedInvolvedCaseCreatedCase.getTypeName(): 
-													(in.broadcastedInvolvedCaseCreatedCase.getTypeCode() is initialized? in.broadcastedInvolvedCaseCreatedCase.getTypeCode(): "n/a")) + "</td></tr>" +													
-
-"<tr><th align=left>" + ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseSubTypeName").toString() + "</th><td>" + (in.broadcastedInvolvedCaseCreatedCase.getSubTypeName() is initialized? 
-													in.broadcastedInvolvedCaseCreatedCase.getSubTypeName(): 
-													(in.broadcastedInvolvedCaseCreatedCase.getSubTypeCode() is initialized? in.broadcastedInvolvedCaseCreatedCase.getSubTypeCode(): "n/a")) + "</td></tr>" +		
-																										
-"</table>" + 
-
-"</html>";
-
-
-out.footerToolTipTextMessage = title + caseDetails;
-out.footerTextMessage = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/caseCreatedShortDesc");
-' #txt
-Us0 f19 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
-Us0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>build the footer message</name>
-        <nameStyle>24,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Us0 f19 2246 228 36 24 20 -2 #rect
-Us0 f19 @|RichDialogProcessStepIcon #fIcon
-Us0 f20 expr in #txt
-Us0 f20 outCond 'in.broadcastedInvolvedCaseCreatedCaseId > 0' #txt
-Us0 f20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>yes</name>
-        <nameStyle>3,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Us0 f20 2264 174 2264 228 #arcP
-Us0 f16 expr out #txt
-Us0 f16 2264 252 2264 419 #arcP
-Us0 f43 expr in #txt
-Us0 f43 2278 160 2277 432 #arcP
-Us0 f43 1 2464 160 #addKink
-Us0 f43 2 2464 432 #addKink
-Us0 f43 1 0.27089112972412394 0 0 #arcLabel
 Us0 f44 guid 120D8A3D53FAB0B3 #txt
 Us0 f44 type ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData #txt
 Us0 f44 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
@@ -1937,15 +1792,12 @@ panel.userSecurityHyperlink.visible=false;
     <language>
         <swimlaneLabel>Start methods</swimlaneLabel>
         <swimlaneLabel>Events</swimlaneLabel>
-        <swimlaneLabel>Accepted Broadcasts</swimlaneLabel>
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneSize>422</swimlaneSize>
     <swimlaneSize>1817</swimlaneSize>
-    <swimlaneSize>309</swimlaneSize>
     <swimlaneColor>-16724839</swimlaneColor>
     <swimlaneColor>-16724890</swimlaneColor>
-    <swimlaneColor>-6697729</swimlaneColor>
 </elementInfo>
 ' #txt
 >Proto Us0 -8 -8 16 16 16 26 #rect
@@ -1958,14 +1810,6 @@ Us0 f23 mainOut f28 tail #connect
 Us0 f28 head f25 in #connect
 Us0 f33 mainOut f37 tail #connect
 Us0 f37 head f35 in #connect
-Us0 f14 mainOut f18 tail #connect
-Us0 f18 head f17 in #connect
-Us0 f17 out f20 tail #connect
-Us0 f20 head f19 mainIn #connect
-Us0 f19 mainOut f16 tail #connect
-Us0 f16 head f15 mainIn #connect
-Us0 f17 out f43 tail #connect
-Us0 f43 head f15 mainIn #connect
 Us0 f44 mainOut f47 tail #connect
 Us0 f47 head f46 mainIn #connect
 Us0 f46 mainOut f45 tail #connect
