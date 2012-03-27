@@ -14,3 +14,6 @@ letterName String #field
 letterName PERSISTENT #fieldModifier
 format String #field
 format PERSISTENT #fieldModifier
+listOfRecordset List<Recordset> #field
+listOfRecordset 'used for mail merge with regions (table)' #fieldComment
+listOfRecordset PERSISTENT #fieldModifier

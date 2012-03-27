@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<userConfig/>
+<userConfig>
+    <user>
+        <username>simpleUser</username>
+        <password>1234</password>
+        <role>simpleFileManagerRole</role>
+    </user>
+    <user>
+        <username>adminUser</username>
+        <password>1234</password>
+        <role>fileManagerAdmin</role>
+    </user>
+</userConfig>

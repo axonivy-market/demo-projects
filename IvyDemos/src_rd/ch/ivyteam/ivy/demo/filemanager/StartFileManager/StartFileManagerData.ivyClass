@@ -8,3 +8,5 @@ tableName String #field
 tableName PERSISTENT #fieldModifier
 SchemaName String #field
 SchemaName PERSISTENT #fieldModifier
+login boolean #field
+login PERSISTENT #fieldModifier

@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Feb 09 08:53:57 CET 2011]
-1249C400BC3D817F 3.15 #module
+[>Created: Thu May 19 13:09:42 CEST 2011]
+1249C400BC3D817F 3.17 #module
 >Proto >Proto Collection #zClass
 Ds0 DocFactoryProcess Big #zClass
 Ds0 RD #cInfo
@@ -131,7 +131,7 @@ disable template chooser button</name>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f4 382 124 36 24 20 -2 #rect
+Ds0 f4 382 124 36 24 23 -16 #rect
 Ds0 f4 @|RichDialogProcessStepIcon #fIcon
 Ds0 f5 expr out #txt
 Ds0 f5 400 82 400 124 #arcP
@@ -361,24 +361,56 @@ ToManyCorrespondents</name>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f28 702 172 36 24 20 -19 #rect
+Ds0 f28 702 228 36 24 20 -19 #rect
 Ds0 f28 @|CallSubIcon #fIcon
 Ds0 f28 -14336|-1|-16777216 #nodeStyle
 Ds0 f30 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f30 710 366 20 20 13 0 #rect
+Ds0 f30 710 422 20 20 13 0 #rect
 Ds0 f30 @|RichDialogProcessEndIcon #fIcon
 Ds0 f9 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
 ' #txt
 Ds0 f9 actionTable 'out=in;
 ' #txt
-Ds0 f9 actionCode 'import com.ulcjava.base.application.ULCComponent;
+Ds0 f9 actionCode 'import ch.ivyteam.ivy.addons.docfactory.DocumentTemplate;
+import com.ulcjava.base.application.ULCComponent;
+
 import ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelPanel;
 in.documentTemplatesList.clear();
 List<ULCComponent> ulcs = panel.TabbedDisplay.getComponents();
 for(ULCComponent ulc : ulcs){
 	if(ulc instanceof TemplatePanelPanel){
 		TemplatePanelPanel tp = ulc as TemplatePanelPanel;
-		in.documentTemplatesList.add(tp.getDocumentTemplateObject());
+		DocumentTemplate dt = tp.getDocumentTemplateObject();
+		
+		java.text.NumberFormat nf = java.text.NumberFormat.getInstance();
+		nf.setMaximumFractionDigits(1);
+
+		//We make the data to fill the table
+		Recordset rs = new Recordset();
+		Record r = new Record();
+		r.putField("hours",nf.format(Math.random()*10));
+		r.putField("desc","Description 1");
+		r.putField("date",new Date("19.10.2010"));
+		rs.add(r);
+		
+		r = new Record();
+		r.putField("hours",nf.format(Math.random()*10));
+		r.putField("desc","Description 2");
+		r.putField("date",new Date("20.10.2010"));
+		rs.add(r);
+		
+		r = new Record();
+		r.putField("hours",nf.format(Math.random()*10));
+		r.putField("desc","Description 2");
+		r.putField("date",new Date("21.10.2010"));
+		rs.add(r);
+		
+		//We create a Hashtable in which we put the table name in the template and the corresponding recordset
+		java.util.Hashtable htable = new java.util.Hashtable();
+		htable.put("reporting",rs);
+		
+		dt.setTablesNamesAndFieldsHashtable(htable);
+		in.documentTemplatesList.add(dt);
 	}
 }
 ' #txt
@@ -387,30 +419,33 @@ Ds0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>make the List of 
-DocumentTemplate</name>
-        <nameStyle>34,9
+DocumentTemplate
+For Mail Merge In Table
+we add here a recordSet to each DocumentTemplate</name>
+        <nameStyle>35,7,9
+72,7,14
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f9 702 116 36 24 20 -16 #rect
+Ds0 f9 702 148 36 24 23 -33 #rect
 Ds0 f9 @|RichDialogProcessStepIcon #fIcon
 Ds0 f32 expr out #txt
-Ds0 f32 720 82 720 116 #arcP
+Ds0 f32 720 82 720 148 #arcP
 Ds0 f29 expr out #txt
-Ds0 f29 720 140 720 172 #arcP
+Ds0 f29 720 172 720 228 #arcP
 Ds0 f33 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
 ' #txt
 Ds0 f33 actionTable 'out=in;
 ' #txt
 Ds0 f33 actionCode 'import ch.ivyteam.ivy.cm.IContentObjectValue;
-File f = new File("/docfactory/templatecache/myTemplate");
+File f = new File("/docfactory/templatecache/myTemplateWithTable");
 if (! f.exists())
 {
     //legt leeres file an (muss vorhanden sein für export)
     f.createNewFile();          
  		// export content from cms
-    IContentObjectValue cov = ivy.cms.getContentObjectValue("/docfactory/templatecache/myTemplate", null,true);
+    IContentObjectValue cov = ivy.cms.getContentObjectValue("/docfactory/templatecache/myTemplateWithTable", null,true);
     cov.exportContentToFile(f.getJavaFile(), null);
 }
 
@@ -437,7 +472,7 @@ Ds0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>we set the template
 with the per default 
 inserted doc template in the cms</name>
-        <nameStyle>74,9
+        <nameStyle>74,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -635,10 +670,10 @@ Message</name>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f47 702 284 36 24 25 -17 #rect
+Ds0 f47 702 340 36 24 25 -17 #rect
 Ds0 f47 @|RichDialogIcon #fIcon
 Ds0 f31 expr out #txt
-Ds0 f31 720 308 720 366 #arcP
+Ds0 f31 720 364 720 422 #arcP
 Ds0 f55 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
 ' #txt
 Ds0 f55 actionTable 'out=in;
@@ -691,12 +726,12 @@ Ds0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f55 702 228 36 24 20 -2 #rect
+Ds0 f55 702 284 36 24 20 -2 #rect
 Ds0 f55 @|RichDialogProcessStepIcon #fIcon
 Ds0 f56 expr out #txt
-Ds0 f56 720 196 720 228 #arcP
+Ds0 f56 720 252 720 284 #arcP
 Ds0 f45 expr out #txt
-Ds0 f45 720 252 720 284 #arcP
+Ds0 f45 720 308 720 340 #arcP
 Ds0 f46 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;
 ' #txt
 Ds0 f46 actionTable 'out=in;
@@ -733,7 +768,7 @@ Ds0 f49 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f49 1014 62 20 20 13 0 #rect
+Ds0 f49 1102 62 20 20 13 0 #rect
 Ds0 f49 @|RichDialogProcessStartIcon #fIcon
 Ds0 f50 targetWindow NEW:card: #txt
 Ds0 f50 targetDisplay TOP #txt
@@ -749,15 +784,15 @@ Ds0 f50 windowConfiguration '{/title "Write a letter using a Dataclass as data f
 Ds0 f50 isAsynch false #txt
 Ds0 f50 isInnerRd true #txt
 Ds0 f50 userContext '* ' #txt
-Ds0 f50 1006 108 36 24 20 -2 #rect
+Ds0 f50 1094 108 36 24 20 -2 #rect
 Ds0 f50 @|RichDialogIcon #fIcon
 Ds0 f51 expr out #txt
-Ds0 f51 1024 82 1024 108 #arcP
+Ds0 f51 1112 82 1112 108 #arcP
 Ds0 f52 type ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData #txt
-Ds0 f52 1014 166 20 20 13 0 #rect
+Ds0 f52 1102 166 20 20 13 0 #rect
 Ds0 f52 @|RichDialogProcessEndIcon #fIcon
 Ds0 f53 expr out #txt
-Ds0 f53 1024 132 1024 166 #arcP
+Ds0 f53 1112 132 1112 166 #arcP
 >Proto Ds0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

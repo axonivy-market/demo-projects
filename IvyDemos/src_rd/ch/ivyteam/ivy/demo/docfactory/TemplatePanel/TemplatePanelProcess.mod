@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Jul 06 15:22:45 CEST 2010]
-124A0A18116D9EA3 3.13.1 #module
+[>Created: Wed May 18 10:28:29 CEST 2011]
+124A0A18116D9EA3 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TemplatePanelProcess Big #zClass
 Ts0 RD #cInfo
@@ -133,13 +133,6 @@ Ts0 @RichDialog f85 '' #zField
 Ts0 @PushWFArc f97 '' #zField
 Ts0 @PushWFArc f17 '' #zField
 >Proto Ts0 Ts0 TemplatePanelProcess #zField
-Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f0 guid 124A0A1812656503 #txt
 Ts0 f0 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f0 method start() #txt
@@ -149,6 +142,13 @@ Ts0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 Ts0 f0 outParameterDecl '<> result;
 ' #txt
+Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f0 90 40 20 20 13 0 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f1 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
@@ -156,15 +156,6 @@ Ts0 f1 90 102 20 20 13 0 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
 Ts0 f2 expr out #txt
 Ts0 f2 100 60 100 102 #arcP
-Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(List&lt;TemplateMergeField&gt;)</name>
-        <nameStyle>31,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f3 guid 124A1DBBC6710879 #txt
 Ts0 f3 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f3 method start(List<ch.ivyteam.ivy.addons.docfactory.TemplateMergeField>) #txt
@@ -179,17 +170,17 @@ out.showOptions=false;
 Ts0 f3 outParameterDecl '<> result;
 ' #txt
 Ts0 f3 embeddedRdInitializations '* ' #txt
-Ts0 f3 94 198 20 20 -80 -34 #rect
-Ts0 f3 @|RichDialogInitStartIcon #fIcon
-Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(String)</name>
-        <nameStyle>13,5,7,9
+        <name>start(List&lt;TemplateMergeField&gt;)</name>
+        <nameStyle>31,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ts0 f3 94 198 20 20 -80 -34 #rect
+Ts0 f3 @|RichDialogInitStartIcon #fIcon
 Ts0 f4 guid 124A1DBCC0724901 #txt
 Ts0 f4 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f4 method start(String) #txt
@@ -204,6 +195,15 @@ out.templatePath=param.templatePath;
 Ts0 f4 outParameterDecl '<> result;
 ' #txt
 Ts0 f4 embeddedRdInitializations '* ' #txt
+Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(String)</name>
+        <nameStyle>13,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f4 262 310 20 20 13 -6 #rect
 Ts0 f4 @|RichDialogInitStartIcon #fIcon
 Ts0 f5 guid 124A1DBF5691495E #txt
@@ -323,9 +323,39 @@ Ts0 f12 actionTable 'out=in;
 Ts0 f12 actionCode 'import ch.ivyteam.ivy.addons.docfactory.TemplateMergeField;
 in.mergeFieldsList.clear();
 List<String> mergFieldsNames = new List<String>();
+List<int> mergFieldsPosToReject = new List<int>();
 //if the template can be found
 if(in.#documentFactory!=null && new java.io.File(in.templatePath).exists()){
 	mergFieldsNames.addAll(in.documentFactory.getTemplateFields(in.templatePath));
+	
+	for(int i=0; i<mergFieldsNames.size(); i++){
+		if(mergFieldsNames.get(i).toLowerCase().startsWith("tablestart:"))
+		{//We have to reject all the mergefields contained into a table (Merge with Regions)
+			List<String> sublist = mergFieldsNames.subList(i,mergFieldsNames.size()) as List<String>;
+			int j=0;
+			while(j<sublist.size() && !sublist.get(j).toLowerCase().startsWith("tableend:"))
+			{
+				ivy.log.info("We have to remove "+ sublist.get(j));
+				mergFieldsPosToReject.add(i+j);
+				j++;
+			}
+			
+			if((i+j)<mergFieldsNames.size())
+			{
+				ivy.log.info("We have to remove "+ sublist.get(j));
+				mergFieldsPosToReject.add(i+j);
+			}
+		}
+	}
+	
+	for(int i=0; i<mergFieldsPosToReject.size(); i++){
+		int x = mergFieldsPosToReject.get(i)-i;
+		if(x<mergFieldsNames.size()){
+			ivy.log.info("Remove position "+ x +" "+mergFieldsNames.get(x)+" remaining items "+mergFieldsNames.size());
+			mergFieldsNames.removeAt(x);
+		}
+	}
+	
 }else{
 	panel.setInfoLabelText(ivy.cms.co("/ch/ivyteam/ivy/addons/docfactory/messages/templateIndicatedNotExist"));
 	panel.Label.setIconUri(ivy.cms.cr("/ch/ivyteam/ivy/addons/docfactory/icons/error/24"));
@@ -345,7 +375,7 @@ Ts0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>parse the template to get
 the MergeFieldsList</name>
-        <nameStyle>45,9
+        <nameStyle>45,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -590,6 +620,7 @@ Ts0 f42 670 502 20 20 13 0 #rect
 Ts0 f42 @|RichDialogProcessEndIcon #fIcon
 Ts0 f43 expr out #txt
 Ts0 f43 680 476 680 502 #arcP
+Ts0 f44 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -600,7 +631,6 @@ represent a MergeField Panel</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f44 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f44 90 562 28 28 -88 -50 #rect
 Ts0 f44 @|AlternativeIcon #fIcon
 Ts0 f47 actionDecl 'ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData out;
@@ -679,6 +709,7 @@ Ts0 f50 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f50 1070 236 36 24 20 -2 #rect
 Ts0 f50 @|RichDialogProcessStepIcon #fIcon
+Ts0 f54 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f54 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -689,7 +720,6 @@ Ts0 f54 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f54 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f54 1074 330 28 28 61 -8 #rect
 Ts0 f54 @|AlternativeIcon #fIcon
 Ts0 f56 actionDecl 'ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData out;
@@ -790,6 +820,7 @@ Ts0 f64 expr out #txt
 Ts0 f64 1088 260 1088 284 #arcP
 Ts0 f52 expr out #txt
 Ts0 f52 1088 307 1088 330 #arcP
+Ts0 f53 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f53 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -801,7 +832,6 @@ than show ERROR.</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f53 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f53 1074 138 28 28 19 -34 #rect
 Ts0 f53 @|AlternativeIcon #fIcon
 Ts0 f55 expr out #txt
@@ -828,6 +858,7 @@ Ts0 f67 expr out #txt
 Ts0 f67 1000 164 1078 464 #arcP
 Ts0 f67 1 1000 464 #addKink
 Ts0 f67 0 0.9817195085750012 0 0 #arcLabel
+Ts0 f68 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f68 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -837,7 +868,6 @@ Ts0 f68 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f68 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f68 434 362 28 28 6 16 #rect
 Ts0 f68 @|AlternativeIcon #fIcon
 Ts0 f69 expr out #txt
@@ -884,6 +914,12 @@ Ts0 f73 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f73 434 376 394 376 #arcP
 Ts0 f71 expr out #txt
 Ts0 f71 358 376 290 376 #arcP
+Ts0 f74 guid 124A451D8C5F754F #txt
+Ts0 f74 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
+Ts0 f74 actionDecl 'ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData out;
+' #txt
+Ts0 f74 actionTable 'out=in;
+' #txt
 Ts0 f74 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -892,12 +928,6 @@ Ts0 f74 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ts0 f74 guid 124A451D8C5F754F #txt
-Ts0 f74 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
-Ts0 f74 actionDecl 'ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData out;
-' #txt
-Ts0 f74 actionTable 'out=in;
 ' #txt
 Ts0 f74 1382 110 20 20 -42 -27 #rect
 Ts0 f74 @|RichDialogProcessStartIcon #fIcon
@@ -918,6 +948,12 @@ Ts0 f80 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f80 guid 124A4542B59E2432 #txt
 Ts0 f80 1078 558 20 20 13 0 #rect
 Ts0 f80 @|RichDialogEndIcon #fIcon
+Ts0 f84 guid 124A454ED739EBA9 #txt
+Ts0 f84 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
+Ts0 f84 actionDecl 'ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData out;
+' #txt
+Ts0 f84 actionTable 'out=in;
+' #txt
 Ts0 f84 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -927,23 +963,8 @@ Ts0 f84 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f84 guid 124A454ED739EBA9 #txt
-Ts0 f84 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
-Ts0 f84 actionDecl 'ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData out;
-' #txt
-Ts0 f84 actionTable 'out=in;
-' #txt
 Ts0 f84 1318 558 20 20 13 0 #rect
 Ts0 f84 @|RichDialogProcessStartIcon #fIcon
-Ts0 f86 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(String,Boolean)</name>
-        <nameStyle>21,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Ts0 f86 guid 124A45F6C949002C #txt
 Ts0 f86 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f86 method start(String,Boolean) #txt
@@ -958,17 +979,17 @@ out.templatePath=param.templatePath;
 Ts0 f86 outParameterDecl '<> result;
 ' #txt
 Ts0 f86 embeddedRdInitializations '* ' #txt
-Ts0 f86 230 270 20 20 13 0 #rect
-Ts0 f86 @|RichDialogInitStartIcon #fIcon
-Ts0 f87 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ts0 f86 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(String,Boolean,Boolean)</name>
-        <nameStyle>29,5,7,9
+        <name>start(String,Boolean)</name>
+        <nameStyle>21,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Ts0 f86 230 270 20 20 13 0 #rect
+Ts0 f86 @|RichDialogInitStartIcon #fIcon
 Ts0 f87 guid 124A45F77CF9A662 #txt
 Ts0 f87 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f87 method start(String,Boolean,Boolean) #txt
@@ -983,6 +1004,15 @@ out.templatePath=param.templatePath;
 Ts0 f87 outParameterDecl '<> result;
 ' #txt
 Ts0 f87 embeddedRdInitializations '* ' #txt
+Ts0 f87 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(String,Boolean,Boolean)</name>
+        <nameStyle>29,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ts0 f87 198 230 20 20 13 0 #rect
 Ts0 f87 @|RichDialogInitStartIcon #fIcon
 Ts0 f88 expr out #txt
@@ -1117,6 +1147,12 @@ Ts0 f99 expr out #txt
 Ts0 f99 1392 130 1106 200 #arcP
 Ts0 f99 1 1392 200 #addKink
 Ts0 f99 1 0.3625412617144357 0 0 #arcLabel
+Ts0 f75 guid 124A4A0E3473E7D6 #txt
+Ts0 f75 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
+Ts0 f75 actionDecl 'ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData out;
+' #txt
+Ts0 f75 actionTable 'out=in;
+' #txt
 Ts0 f75 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1127,14 +1163,9 @@ ASYNCHRONOUS</name>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f75 guid 124A4A0E3473E7D6 #txt
-Ts0 f75 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
-Ts0 f75 actionDecl 'ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData out;
-' #txt
-Ts0 f75 actionTable 'out=in;
-' #txt
 Ts0 f75 1382 302 20 20 -51 -45 #rect
 Ts0 f75 @|RichDialogProcessStartIcon #fIcon
+Ts0 f76 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f76 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1144,7 +1175,6 @@ Ts0 f76 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f76 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
 Ts0 f76 1378 346 28 28 14 0 #rect
 Ts0 f76 @|AlternativeIcon #fIcon
 Ts0 f77 expr out #txt
@@ -1354,11 +1384,6 @@ Ts0 f83 expr in #txt
 Ts0 f83 90 576 56 692 #arcP
 Ts0 f83 1 56 576 #addKink
 Ts0 f83 1 0.30568879866520343 0 0 #arcLabel
-Ts0 f85 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
 Ts0 f85 targetWindow THIS #txt
 Ts0 f85 targetDisplay EXISTING:<%=in.displayId%> #txt
 Ts0 f85 richDialogId ch.ivyteam.ivy.demo.docfactory.TemplateMergeFieldPanel #txt
@@ -1375,6 +1400,11 @@ Ts0 f85 responseMappingAction 'out=in;
 Ts0 f85 windowConfiguration '* ' #txt
 Ts0 f85 isAsynch true #txt
 Ts0 f85 isInnerRd true #txt
+Ts0 f85 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 Ts0 f85 206 564 36 24 20 -2 #rect
 Ts0 f85 @|RichDialogIcon #fIcon
 Ts0 f97 expr in #txt

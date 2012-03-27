@@ -6,9 +6,19 @@
         <description>Default Rich Dialog start
 This method can not be changed or deleted!</description>
     </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>serverPath</name>
+            <description>Root path of the fileManager</description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
     <property>
         <name>guid</name>
-        <value>12BAAF7776263367</value>
+        <value>013581CDACD94719</value>
         <readOnly>true</readOnly>
     </property>
     <property>
