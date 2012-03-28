@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 14 23:37:26 EDT 2012]
+[>Created: Wed Mar 28 11:05:50 EDT 2012]
 12BAAF77763F86CB 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 StartFileManagerProcess Big #zClass
@@ -237,7 +237,7 @@ Ss0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ss0 f23 598 236 36 24 20 -2 #rect
 Ss0 f23 @|RichDialogIcon #fIcon
 Ss0 f24 expr in #txt
-Ss0 f24 outCond 'ivy.var.xivy_addons_fileManager_activateFileContentInDatabase.equals("1") && ivy.var.xivy_addons_fileManager_activateSecurity.equals("1")' #txt
+Ss0 f24 outCond '!ivy.var.xivy_addons_fileManager_activateUseOfIvySystemDatabase.equals("1") && ivy.var.xivy_addons_fileManager_activateFileContentInDatabase.equals("1") && ivy.var.xivy_addons_fileManager_activateSecurity.equals("1")' #txt
 Ss0 f24 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
