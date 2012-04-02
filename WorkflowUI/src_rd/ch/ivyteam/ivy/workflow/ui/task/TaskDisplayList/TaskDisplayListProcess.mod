@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jan 26 09:33:59 CET 2012]
+[>Created: Mon Apr 02 14:21:42 CEST 2012]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -4539,7 +4539,7 @@ Ts0 f214 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListDat
 Ts0 f214 2254 158 20 20 13 0 #rect
 Ts0 f214 @|RichDialogProcessEndIcon #fIcon
 Ts0 f215 expr in #txt
-Ts0 f215 outCond '(in.taskDisplayMode == 3 &&  (!ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.userHasWorkedOnTask(ivy.session.getSessionUser(),  in.selectedTask) && !ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.userIsTaskActivatorCandidate(ivy.session.getSessionUser(), in.selectedTask))) ||
+Ts0 f215 outCond '(in.taskDisplayMode == 3 &&  (!ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.userHasWorkedOnTask(ivy.session.getSessionUser(),  in.selectedTask) && !ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPermissionHandler.userIsTaskActivatorCandidate(ivy.session, in.selectedTask))) ||
 (in.taskDisplayMode == -1 && !ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper.isSessionUserTeamManagerOnWfTask(in.selectedTask))' #txt
 Ts0 f215 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
