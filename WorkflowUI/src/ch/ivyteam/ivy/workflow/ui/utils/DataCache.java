@@ -2,7 +2,6 @@ package ch.ivyteam.ivy.workflow.ui.utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 import ch.ivyteam.ivy.data.cache.IDataCache;
@@ -81,7 +80,6 @@ public class DataCache {
 		
 	public static List<IProcessStart> findFunctionProcessStarts(IWorkflowSession session, String functionProcessStartLinkHREFs) throws EnvironmentNotAvailableException, PersistencyException
 	{
-		IProcessStart flowDisplayProcessStart = null;
 		IDataCache environmentCache = null;
 		IDataCacheEntry dataCacheEntry = null;
 		

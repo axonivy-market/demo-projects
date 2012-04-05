@@ -1,8 +1,5 @@
 package ch.ivyteam.ivy.workflow.ui.utils;
 
-import ch.ivyteam.ivy.data.cache.IDataCache;
-import ch.ivyteam.ivy.data.cache.IDataCacheEntry;
-import ch.ivyteam.ivy.data.cache.IDataCacheGroup;
 import ch.ivyteam.ivy.environment.EnvironmentNotAvailableException;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.persistence.PersistencyException;

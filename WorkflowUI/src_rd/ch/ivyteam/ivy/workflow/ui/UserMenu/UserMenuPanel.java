@@ -8,20 +8,15 @@ import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RCardPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTaskPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RTaskPaneContainer;
-import ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchPanel;
-import ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListPanel;
-import ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchPanel;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
 
 import com.ulcjava.base.application.BorderFactory;
 import com.ulcjava.base.application.ULCContainer;
 import com.ulcjava.base.application.util.Color;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
 
 /**
  * RichDialog panel implementation for UserMenuPanel.
