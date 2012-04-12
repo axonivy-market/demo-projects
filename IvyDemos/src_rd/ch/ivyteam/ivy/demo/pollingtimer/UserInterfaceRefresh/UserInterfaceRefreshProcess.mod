@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Sep 08 17:51:49 CEST 2010]
-1221863890AD7BFD 3.14 #module
+[>Created: Thu Apr 12 16:44:27 CEST 2012]
+1221863890AD7BFD 3.17 #module
 >Proto >Proto Collection #zClass
 Us0 UserInterfaceRefreshProcess Big #zClass
 Us0 RD #cInfo
@@ -122,13 +122,16 @@ else
 Us0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>toggleAutoRefresh</name>
-        <nameStyle>17,5,7,9
+        <name>toggleAutoRefresh
+(Activate/deactivate polling timer utils, 
+to click a hidden button every second)</name>
+        <nameStyle>17,2,5,7,9
+82,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Us0 f4 534 46 20 20 13 0 #rect
+Us0 f4 534 46 20 20 26 -13 #rect
 Us0 f4 @|RichDialogProcessStartIcon #fIcon
 Us0 f6 guid 12218B8F3136743C #txt
 Us0 f6 type ch.ivyteam.ivy.demo.pollingtimer.UserInterfaceRefresh.UserInterfaceRefreshData #txt
@@ -141,13 +144,15 @@ out.listData.add(in.rand.nextInt(1000000));' #txt
 Us0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>doRefreshList</name>
-        <nameStyle>13,5,7,9
+        <name>doRefreshList
+(invoked by hidden button on UI)</name>
+        <nameStyle>13,2,5,7,9
+33,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Us0 f6 534 190 20 20 13 0 #rect
+Us0 f6 534 190 20 20 22 -8 #rect
 Us0 f6 @|RichDialogProcessStartIcon #fIcon
 Us0 f9 type ch.ivyteam.ivy.demo.pollingtimer.UserInterfaceRefresh.UserInterfaceRefreshData #txt
 Us0 f9 531 99 26 26 14 0 #rect
@@ -372,7 +377,7 @@ Us0 f2 80 116 80 139 #arcP
     </language>
     <swimlaneSize>150</swimlaneSize>
     <swimlaneSize>334</swimlaneSize>
-    <swimlaneSize>230</swimlaneSize>
+    <swimlaneSize>304</swimlaneSize>
     <swimlaneColor>-1</swimlaneColor>
     <swimlaneColor>-3342388</swimlaneColor>
     <swimlaneColor>-3355393</swimlaneColor>
