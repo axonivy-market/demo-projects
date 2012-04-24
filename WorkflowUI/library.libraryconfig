@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" provider="ivyTeam AG" name="WorkflowUI" version="4030000" id="ch.ivyteam.workflowui">
+<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" provider="ivyTeam AG" name="WorkflowUI" version="4020015" id="ch.ivyteam.workflowui">
     <description>Provides the end user workflow ui application.</description>
     <requiredLibrary id="ch.ivyteam.ivy.addons"/>
 </ns2:library>
