@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Feb 15 14:39:17 CET 2011]
-12CBC43B6E19D1BD 3.15 #module
+[>Created: Thu May 03 16:01:14 CEST 2012]
+12CBC43B6E19D1BD 3.17 #module
 >Proto >Proto Collection #zClass
 Cy0 ChangeExpiry Big #zClass
 Cy0 B #cInfo
@@ -56,7 +56,23 @@ Cy0 f7 actionDecl 'htmlwfui.Data out;
 Cy0 f7 actionTable 'out=in.clone();
 ' #txt
 Cy0 f7 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowPriority;
-out.tmpTask.setOriginalPriority(WorkflowPriority.valueOf(WorkflowPriority.class, in.tmpTaskDetail.prioName) as WorkflowPriority);
+
+if(in.tmpTaskDetail.prio == 0)
+{
+	out.tmpTask.setOriginalPriority(WorkflowPriority.EXCEPTION);
+}	
+else if(in.tmpTaskDetail.prio == 1)
+{
+	out.tmpTask.setOriginalPriority(WorkflowPriority.HIGH);
+}	
+else if(in.tmpTaskDetail.prio == 2)
+{
+	out.tmpTask.setOriginalPriority(WorkflowPriority.NORMAL);
+}	
+else if(in.tmpTaskDetail.prio == 3)
+{
+	out.tmpTask.setOriginalPriority(WorkflowPriority.LOW);
+}	
 
 if(in.tmpTaskDetail.delay.toNumber()>0)
 {
@@ -79,7 +95,7 @@ Cy0 f10 66 234 28 28 14 0 #rect
 Cy0 f10 @|AlternativeIcon #fIcon
 Cy0 f11 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 Cy0 f11 outLinks "LinkA.ivp","LinkB.ivp" #txt
-Cy0 f11 template "taskExpirySetting.ivc" #txt
+Cy0 f11 template "/ProcessPages/ChangeExpiry/taskExpirySetting.ivc" #txt
 Cy0 f11 type htmlwfui.Data #txt
 Cy0 f11 skipLink skip.ivp #txt
 Cy0 f11 sortLink sort.ivp #txt

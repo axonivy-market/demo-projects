@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Feb 17 17:19:48 CET 2011]
-12C97DB1B1EA5971 3.16 #module
+[>Created: Thu May 03 14:31:05 CEST 2012]
+12C97DB1B1EA5971 3.17 #module
 >Proto >Proto Collection #zClass
 Rt0 CaseList Big #zClass
 Rt0 B #cInfo
@@ -105,7 +105,7 @@ if(in.temp.statFilter!=ivy.cms.co("/labels/all"))
 	}				
 }
 
-IQueryResult queryResult = ivy.wf.findCases(
+IQueryResult queryResult = ivy.session.findStartedCases(
 	cpfilter,
 	PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
 	0, -1 ,true);
@@ -143,7 +143,7 @@ Rt0 f20 86 284 36 24 28 -12 #rect
 Rt0 f20 @|StepIcon #fIcon
 Rt0 f1 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
 Rt0 f1 outLinks "LinkA.ivp","LinkB.ivp","LinkC.ivp" #txt
-Rt0 f1 template "caselist.ivc" #txt
+Rt0 f1 template "/ProcessPages/CaseList/caselist.ivc" #txt
 Rt0 f1 type htmlwfui.Data #txt
 Rt0 f1 skipLink skip.ivp #txt
 Rt0 f1 sortLink sort.ivp #txt
@@ -254,7 +254,7 @@ Rt0 f0 67 27 26 26 14 0 #rect
 Rt0 f0 @|StartRequestIcon #fIcon
 Rt0 f23 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
 Rt0 f23 outLinks "LinkA.ivp","LinkB.ivp","LinkD.ivp","LinkE.ivp","LinkC.ivp" #txt
-Rt0 f23 template "caseDetail.ivc" #txt
+Rt0 f23 template "/ProcessPages/CaseList/caseDetail.ivc" #txt
 Rt0 f23 type htmlwfui.Data #txt
 Rt0 f23 skipLink skip.ivp #txt
 Rt0 f23 sortLink sort.ivp #txt
@@ -416,16 +416,39 @@ if(in.temp.statFilter!=ivy.cms.co("/labels/all"))
 	}				
 }
 
-IQueryResult queryResult = ivy.wf.findCases(
-	cpfilter,
-	PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
-	0, -1 ,true);
-	
 out.temp.processes.clear();	
 out.temp.processes.add([ivy.cms.co("/labels/all"),ivy.cms.co("/labels/all"),ivy.cms.co("/labels/all")]);
 
 if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW))
-{ // WorkflowAdmin can administrate all cases
+{ // WorkflowAdmin can administrate all cases	
+	IQueryResult queryResult = ivy.wf.findCases(
+		cpfilter,
+		PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
+		0, -1 ,true);
+
+	out.cases = queryResult.getResultList();
+	
+	//init categories and processes filter combos
+	for(ICase case: queryResult.getResultList())
+	{
+		if(!out.temp.categories.contains(case.getProcessCategoryCode()))
+		{
+			out.temp.categories.add(case.getProcessCategoryCode());
+		}	
+		List pCodes=out.temp.processes.getColumn("Code");
+		if(!pCodes.contains(case.getProcessCode()))
+		{
+			out.temp.processes.add([case.getProcessCode(),case.getProcessName(),case.getProcessCategoryCode()]);
+		}	
+	}
+}
+else if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.VIEW_TASKS_OF_CASE))
+{ // with permission viewTasksOfCase you can see als involved cases	
+	IQueryResult queryResult = ivy.session.findInvolvedCases(
+		cpfilter,
+		PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
+		0, -1 ,true);
+
 	out.cases = queryResult.getResultList();
 	
 	//init categories and processes filter combos
@@ -444,7 +467,13 @@ if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().g
 }
 else	
 {
-	//roles of the user
+	// see processowner cases (processowner = role or user name defined in property case>business>user
+	IQueryResult queryResult = ivy.wf.findCases(
+		cpfilter,
+		PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
+		0, -1 ,true);
+		
+	// my roles
 	List<IRole> roles = ivy.session.getSecurityContext().getRoles();
 	List<String> userAndRoles = new List<String>(); 
 	for(int r=0; r<roles.size(); r++)
@@ -488,9 +517,10 @@ Rt0 f13 type htmlwfui.Data #txt
 Rt0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>collect processowner cases
+        <name>collect involved cases
+(all with admin permission)
 </name>
-        <nameStyle>27,9
+        <nameStyle>51,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -501,7 +531,7 @@ Rt0 f17 expr out #txt
 Rt0 f17 256 300 201 340 #arcP
 Rt0 f18 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 Rt0 f18 outLinks "LinkA.ivp","LinkB.ivp" #txt
-Rt0 f18 template "confirmDeleteCase.ivc" #txt
+Rt0 f18 template "/ProcessPages/CaseList/confirmDeleteCase.ivc" #txt
 Rt0 f18 type htmlwfui.Data #txt
 Rt0 f18 skipLink skip.ivp #txt
 Rt0 f18 sortLink sort.ivp #txt
@@ -802,7 +832,7 @@ Rt0 f42 outCond 'ivy.session.getSecurityContext().hasPermission(ivy.request.getA
 ' #txt
 Rt0 f42 184 190 184 234 #arcP
 Rt0 f46 type htmlwfui.Data #txt
-Rt0 f46 template "PermissionError.ivc" #txt
+Rt0 f46 template "/ProcessPages/CaseList/PermissionError.ivc" #txt
 Rt0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -812,10 +842,10 @@ Rt0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rt0 f46 363 163 26 26 14 0 #rect
+Rt0 f46 355 163 26 26 14 0 #rect
 Rt0 f46 @|EndRequestIcon #fIcon
 Rt0 f47 expr in #txt
-Rt0 f47 198 176 363 176 #arcP
+Rt0 f47 198 176 355 176 #arcP
 >Proto Rt0 .type htmlwfui.Data #txt
 >Proto Rt0 .processKind NORMAL #txt
 >Proto Rt0 0 0 32 24 18 0 #rect

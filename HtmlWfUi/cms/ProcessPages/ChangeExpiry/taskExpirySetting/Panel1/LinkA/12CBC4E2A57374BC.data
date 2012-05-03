@@ -11,7 +11,7 @@
 </tr>
 <tr >
 <td CLASS="labelTd"><!--i.ttmpTaskDetail.prio--><%=ivy.cms.co("/labels/taskPrio")%></td>
-<td ><!--i.atmpTaskDetail.prio--><%=ivy.html.menu("\"@_;EXCEPTION;EXCEPTION_LOW;LOW_NORMAL;NORMAL_HIGH;HIGH_\"","tmpTaskDetail$prio",0,"in.tmpTaskDetail.prio")%></td>
+<td ><!--i.atmpTaskDetail.prio--><%=ivy.html.menu("\"@_;3;LOW_2;NORMAL_1;HIGH_0;EXCEPTION_\"","tmpTaskDetail$prio",0,"in.tmpTaskDetail.prio")%></td>
 </tr>
 <tr >
 <td ></td>
@@ -27,12 +27,6 @@ function checkformLinkA()
 <INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="<%=ivy.cms.co("/labels/saveButton")%>">
 </td>
 </tr>
-
-
-
-
-
-
 
 
 </table></FORM>

@@ -40,19 +40,34 @@
 	IProcessModelVersionRequest Ivyrequest = (IProcessModelVersionRequest) ivy.html.getObject("request");
 	ISecurityDescriptor securityDescriptor = Ivyrequest.getApplication().getSecurityDescriptor();
 	ICase icase = (ICase) ivy.html.getObject("in.tempCase");
+	
+	IWorkflowSession ivySession = (IWorkflowSession)ivy.html.getObject("in.wfSession");	
+	boolean hasPageArchivePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_PAGE_ARCHIVE_READ_ALL);
+	boolean hasCaseDestroyPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_DESTROY);
 %>
 
 <br />
 <table class=detailTable width="900">
 	<tr style="height:25px" >
-		<% if(icase.getState() != CaseState.RUNNING) { %>
-			<td class="labelTd" ><a DISABLED  href="#" title="<%=ivy.cms.co("/tooltips/deleteCase")%>"><%=ivy.cms.co("/images/delete")%><%=ivy.cms.co("/labels/caseDelete")%></a></td>
-			<td class='labelTd' ><a DISABLED href="#"  title="<%=ivy.cms.co("/tooltips/addNote")%>"><%=ivy.cms.co("/images/note")%><%=ivy.cms.co("/labels/addNote")%></a></td>
-		<% } else { %>
+		<% 
+		if(icase.getState() == CaseState.RUNNING && hasCaseDestroyPermission) 
+		{ %>
 			<td class="labelTd" ><a  href="<%=ivy.html.ref("LinkB.ivp")%>"  title="<%=ivy.cms.co("/tooltips/deleteCase")%>"><%=ivy.cms.co("/images/delete")%><%=ivy.cms.co("/labels/caseDelete")%></a></td>
+		<% } else { %>
+			<td class="labelTd" ><a DISABLED  href="#" title="<%=ivy.cms.co("/tooltips/deleteCase")%>"><%=ivy.cms.co("/images/delete")%><%=ivy.cms.co("/labels/caseDelete")%></a></td>
+		<% }
+		if(icase.getState() == CaseState.RUNNING) 
+		{ %>
 			<td class='labelTd' ><a href="<%=ivy.html.ref("LinkD.ivp")%>"  title="<%=ivy.cms.co("/tooltips/addNote")%>"><%=ivy.cms.co("/images/note")%><%=ivy.cms.co("/labels/addNote")%></a></td>
-		<% } %>
-		<td class="labelTd" ><a href="<%=ivy.html.ref("LinkC.ivp")%>"  title="<%=ivy.cms.co("/tooltips/showFormArchive")%>"><%=ivy.cms.co("/images/formHistory")%><%=ivy.cms.co("/labels/formArchive")%></a></td>
+		<% } else { %>
+			<td class='labelTd' ><a DISABLED href="#"  title="<%=ivy.cms.co("/tooltips/addNote")%>"><%=ivy.cms.co("/images/note")%><%=ivy.cms.co("/labels/addNote")%></a></td>
+		<% }		
+		if(hasPageArchivePermission)
+		{ %>
+		      <td class="labelTd" ><a href="<%=ivy.html.ref("LinkC.ivp")%>"  title="<%=ivy.cms.co("/tooltips/showFormArchive")%>"><%=ivy.cms.co("/images/formHistory")%><%=ivy.cms.co("/labels/formArchive")%></a></td>
+		<% } else { %>		
+		      <td class="labelTd" ><a DISABLED href="#"  title="<%=ivy.cms.co("/tooltips/showFormArchive")%>"><%=ivy.cms.co("/images/formHistory")%><%=ivy.cms.co("/labels/formArchive")%></a></td>
+		<% } %>		
 		<td class="labelTd"></td>
 		<td class="labelTd"></td>
 	</tr>

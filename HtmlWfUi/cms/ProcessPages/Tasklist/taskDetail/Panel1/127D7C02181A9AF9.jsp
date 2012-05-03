@@ -79,7 +79,7 @@
 		taskDelayDate = task.getDelayTimestamp() != null ? formatter.format(task.getDelayTimestamp()) : "";
 		IWorkflowSession ivySession = (IWorkflowSession)ivy.html.getObject("in.wfSession");	
 		canDelegate = ivySession.hasPermission(securityDescriptor, IPermission.DELEGATE_TASKS);
-		if (task.getState().intValue()==5 && ivySession.hasPermission(securityDescriptor, IPermission.TASK_RESET_OWN_WORKING_TASK)) 
+		if (task.getState().intValue()==5 && ivySession.hasPermission(securityDescriptor, IPermission.TASK_PARK_OWN_WORKING_TASK)) 
 	     { canPark=true; }
 		
 	}
