@@ -30,43 +30,48 @@
 			<hr>
 			<a href='<%=ivy.html.startref("12C97DB1B1EA5971/start1.ivp")%>'><%=ivy.cms.co("/navLabels/caseHistory")%></a><br><br>
 			<a href='<%=ivy.html.startref("12E297F287736665/start1.ivp")%>'><%=ivy.cms.co("/navLabels/taskHistory")%></a><br><br>
+			<a href='<%=ivy.html.startref("1367DCC9EAB32A2E/start.ivp")%>'><%=ivy.cms.co("/navLabels/substitution")%></a><br><br>
+			<a href='<%=ivy.html.startref("1367E046117353D3/start.ivp")%>'><%=ivy.cms.co("/navLabels/absence")%></a><br><br>
 			<hr>
 			<a href='<%=ivy.html.startref("12C97DB1B1EA5971/start2.ivp")%>'><%=ivy.cms.co("/navLabels/admin")%></a><br><br>
-			<a href='<%=ivy.html.ref("LinkB.ivp")%>' target="_top"><%=ivy.cms.co("/navLabels/logout")%></a><br>
+			<a href='<%=ivy.html.startref("136F4341B49EA302/start.ivp")%>'><%=ivy.cms.co("/navLabels/settings")%></a><br><br>
+			<a href='<%=ivy.html.startref("136F33D7CF6E4319/start.ivp")%>' target="_top"><%=ivy.cms.co("/navLabels/logout")%></a><br>	
 		</div>
 
 		<div id="CenterPage">	
 			<div id="CaseHeader">
 				<h1><%=ivy.content("Caption","String")%></h1>
-				<table><tr><td width="450"><%=ivy.content("Explain","Text")%></td>
-				<%if(!ivy.session.isSessionUserUnknown())
-				{%>
-					<td ><%=ivy.cms.co("/htmlabels/loginAs")%>&nbsp;<%=ivy.html.get("in.username")%>
-				<%}%>
-				</tr></table>
-				
 			</div>
-
+			<div id="TaskHeader">
+				<div id="TaskInfo">		
+					<%=ivy.cms.co("/htmlabels/loginAs")%>&nbsp;<%=ivy.html.get("in.username")%>
+				</div>
+				<div>
+					<%=ivy.content("Explain","Text")%>
+				</diV>
+				<h2></h2>
+			</div>
 			<div id="PageContent">
 				<jsp:include page='<%=ivy.panel("Panel1")%>' flush="true"/>
 			</div>
+			
+			<div id="FooterHome">
+				<%@ page import="java.util.Date"%>
+				<%@ page import="java.text.DateFormat"%>
+				<%@ page import="java.util.Locale"%>
+				<%@ page import="ch.ivyteam.ivy.Advisor"%>
+				<%
+					DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT, Locale.GERMAN);
+					Date date = new Date();
+					String dateTime = dateFormat.format(date);
+				%>
+				Powered by <%=ch.ivyteam.ivy.Advisor.getAdvisor().getApplicationName()%>
+				<%=ch.ivyteam.ivy.Advisor.getAdvisor().getVersion()%> 
+				Copyright &copy; 2001 - <%=date.getYear() + 1900%> ivyTeam &nbsp; <%=dateTime%>
+			</div>			
+			
 		</div>
 
-		<div id="FooterHome">
-		
-		<%@ page import="java.util.Date"%>
-		<%@ page import="java.text.DateFormat"%>
-		<%@ page import="java.util.Locale"%>
-		<%@ page import="ch.ivyteam.ivy.Advisor"%>
-		<%
-			DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT, Locale.GERMAN);
-			Date date = new Date();
-			String dateTime = dateFormat.format(date);
-		%>
-		Powered by <%=ch.ivyteam.ivy.Advisor.getAdvisor().getApplicationName()%>
-		<%=ch.ivyteam.ivy.Advisor.getAdvisor().getVersion()%> 
-		Copyright &copy; 2001 - <%=date.getYear() + 1900%> ivyTeam &nbsp; <%=dateTime%>
-		</div>
 	</div>
 
 </body>

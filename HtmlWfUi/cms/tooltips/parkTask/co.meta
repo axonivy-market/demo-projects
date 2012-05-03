@@ -1,4 +1,4 @@
-co: name={parkTask} description={} changed={2011-03-16 17:19:14 CET} changedby={tirib} visualorder={0} guid={12D84C5D31245402} parentguid={} typeguid={E6AFEA203ACD23E6} id={} parentid={} typeid={}
-val: guid={12EBF76C360B4413} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 17:18:41 CET} validto={} changed={2011-03-16 17:19:14 CET} changedby={tirib} properties={} id={}
-val: guid={12D84C5D3128A369} datatype={} isdefault={true} langid={en} description={} validfrom={2011-01-14 14:45:13 CET} validto={} changed={2011-02-15 15:31:37 CET} changedby={bb} properties={} id={}
-val: guid={12E29BBD0AA59C83} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 15:28:02 CET} validto={} changed={2011-02-15 15:31:37 CET} changedby={bb} properties={} id={}
+co: name={parkTask} description={} changed={2012-04-27 14:50:58 CEST} changedby={bb} visualorder={0} guid={12D84C5D31245402} parentguid={} typeguid={E6AFEA203ACD23E6} id={} parentid={} typeid={}
+val: guid={12EBF76C360B4413} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 17:18:41 CET} validto={} changed={2012-04-27 14:50:58 CEST} changedby={bb} properties={} id={}
+val: guid={12D84C5D3128A369} datatype={} isdefault={true} langid={en} description={} validfrom={2011-01-14 14:45:13 CET} validto={} changed={2012-04-27 14:50:58 CEST} changedby={bb} properties={} id={}
+val: guid={12E29BBD0AA59C83} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 15:28:02 CET} validto={} changed={2012-04-27 14:50:58 CEST} changedby={bb} properties={} id={}

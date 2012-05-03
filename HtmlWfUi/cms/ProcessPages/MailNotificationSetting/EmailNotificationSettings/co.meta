@@ -1,0 +1,2 @@
+co: name={EmailNotificationSettings} description={} changed={2012-04-27 14:37:39 GMT} changedby={bb} visualorder={0} guid={136F43C614B66539} parentguid={} typeguid={E6AFEA203E1E829F} id={} parentid={} typeid={}
+val: guid={136F43C6255F8CDA} datatype={} isdefault={true} langid={de} description={} validfrom={2012-04-27 14:37:39 GMT} validto={} changed={2012-05-02 15:18:16 GMT} changedby={bb} properties={###r#n##Wed May 02 17:18:16 CEST 2012#r#npid=136F4341B49EA302-f1#r#n} id={}

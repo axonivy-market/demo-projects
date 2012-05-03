@@ -25,7 +25,7 @@ BODY {
   SCROLLBAR-3DLIGHT-COLOR: #FFFFFF;
   SCROLLBAR-TRACK-COLOR: #E8E8E8;
   SCROLLBAR-DARKSHADOW-COLOR: #000000;
-  background-color: #ffffff;
+	background-color: #f5f5f5;
   font-size: 8pt;
   font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  
 	margin-top: 0px;
@@ -258,7 +258,7 @@ div#LeftNavigation
 	background-color: #EEEDF5;
 	left: 0px; 
 	width: 150px;
-	height: 400px;
+	height: 90%;
 	margin-top: 0px;
 	margin-bottom: 0px;
 	padding-top: 20px;
@@ -273,10 +273,10 @@ div#CenterPage
 	background-color: #f5f5f5;
   position: absolute;
 	left: 166px;
-	height: 416px;
+	top: 64px;
 	width: 1024px;
 	margin-top: 0px;
-	margin-bottom: 0px;
+	margin-bottom: 30px;
 	margin-left: 0px;
 	padding-top: 4px;
 	padding-bottom: 4px;
@@ -285,12 +285,10 @@ div#CenterPage
 }
  
 div#FooterHome
-{		position: absolute;	
-		font-size: 8pt;
-		background-color:#ffffff;
+{		position: relative;	
+		font-size: 7pt;
 		left: 0px; 
-		top: 500px; 
-		width: 600px;
+		top: 16px; 
 		padding-top: 2px;
 		padding-bottom: 1px;
 		padding-left: 3px;

@@ -1,1 +1,1 @@
-<FORM NAME="formLinkB" METHOD='POST' ACTION='<%=ivy.html.ref("LinkB.ivp")%>' > <INPUT  TYPE="SUBMIT" VALUE="<%=ivy.cms.co("/labels/backToDetailButton")%>"></FORM>
+<FORM NAME="formLinkB" METHOD='POST' ACTION='<%=ivy.html.ref("LinkB.ivp")%>' > <INPUT  TYPE="SUBMIT" VALUE="<%=ivy.cms.co("/labels/backButton")%>"></FORM>

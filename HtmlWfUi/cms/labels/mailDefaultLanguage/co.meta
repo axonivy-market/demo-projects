@@ -1,0 +1,4 @@
+co: name={mailDefaultLanguage} description={} changed={2012-05-02 16:13:48 CEST} changedby={xtrans} visualorder={0} guid={1370D7934E86EFE2} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={1370D7934F8774B8} datatype={} isdefault={false} langid={en} description={} validfrom={2012-04-27 15:47:31 CEST} validto={} changed={2012-05-02 14:14:55 CEST} changedby={bb} properties={} id={}
+val: guid={1370D7935174A8D8} datatype={} isdefault={false} langid={fr} description={} validfrom={2012-04-27 15:47:42 CEST} validto={} changed={2012-05-02 16:13:48 CEST} changedby={xtrans} properties={} id={}
+val: guid={1370D793536B3664} datatype={} isdefault={true} langid={de} description={} validfrom={2012-04-05 12:11:33 CEST} validto={} changed={2012-05-02 14:15:10 CEST} changedby={bb} properties={} id={}

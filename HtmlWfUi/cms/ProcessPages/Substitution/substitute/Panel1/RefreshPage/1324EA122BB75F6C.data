@@ -1,0 +1,4 @@
+<SCRIPT LANGUAGE="JavaScript">
+	// reload page after 20 min
+	setTimeout("window.location.reload(true)",20*60*1000);
+</SCRIPT>

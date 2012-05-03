@@ -1,0 +1,4 @@
+co: name={mailOnNewTask} description={} changed={2012-04-27 17:04:26 CEST} changedby={bb} visualorder={0} guid={136F454341C6D5A7} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={136F454344B5A331} datatype={} isdefault={true} langid={de} description={} validfrom={2012-04-05 12:11:33 CEST} validto={} changed={2012-04-27 17:04:26 CEST} changedby={bb} properties={} id={}
+val: guid={136F454342C27C36} datatype={} isdefault={false} langid={fr} description={} validfrom={2012-04-27 15:47:42 CEST} validto={} changed={2012-04-27 17:04:26 CEST} changedby={bb} properties={} id={}
+val: guid={136F454346AE1999} datatype={} isdefault={false} langid={en} description={} validfrom={2012-04-27 15:47:31 CEST} validto={} changed={2012-04-27 17:04:26 CEST} changedby={bb} properties={} id={}

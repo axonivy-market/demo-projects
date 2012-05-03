@@ -23,9 +23,6 @@
 			<a href='<%=ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp")%>'><%=ivy.cms.co("/navLabels/home")%></a>
 			<a href='<%=ivy.html.startref("1270ADF72FF4AFF3/DefaultProcessStartListPage.ivp")%>'><%=ivy.cms.co("/navLabels/processList")%></a> 
 			<a href='<%=ivy.html.startref("125016DE17A534EB/DefaultTaskListPage.ivp")%>'><%=ivy.cms.co("/navLabels/taskList")%></a>
-			&nbsp;&nbsp;
-			<a href='<%=ivy.html.startref("12C97DB1B1EA5971/start1.ivp")%>'><%=ivy.cms.co("/navLabels/caseHistory")%></a>
-			<a href='<%=ivy.html.startref("12E297F287736665/start1.ivp")%>'><%=ivy.cms.co("/navLabels/taskHistory")%></a>
 		</div>
 
 		<div id="CaseHeader">

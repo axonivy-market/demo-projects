@@ -1,4 +1,4 @@
-cms: description={Default CMS} defaultLanguage={de} defaultPageLayout={/Layouts/html_wf} defaultPageStyleSheet={/Styles/html_wf}
+cms: description={Default CMS} defaultLanguage={de} defaultPageLayout={/Layouts/html_wfui_home} defaultPageStyleSheet={/Styles/html_wf}
 lang: language={de} id={}
 lang: language={fr} id={}
 lang: language={en} id={}

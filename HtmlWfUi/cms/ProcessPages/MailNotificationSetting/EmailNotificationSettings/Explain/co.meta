@@ -1,0 +1,4 @@
+co: name={Explain} description={} changed={2012-05-02 11:21:48 CEST} changedby={bb} visualorder={0} guid={136F43C61D894AAF} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={136F44C74E857A96} datatype={} isdefault={false} langid={fr} description={} validfrom={2012-04-27 16:55:13 CEST} validto={} changed={2012-05-02 11:20:41 CEST} changedby={bb} properties={} id={}
+val: guid={136F44D0DE689B42} datatype={} isdefault={false} langid={en} description={} validfrom={2012-04-27 16:55:17 CEST} validto={} changed={2012-05-02 11:20:41 CEST} changedby={bb} properties={} id={}
+val: guid={136F43C61E7E3B4E} datatype={} isdefault={true} langid={de} description={} validfrom={2012-04-27 16:37:39 CEST} validto={} changed={2012-05-02 11:21:48 CEST} changedby={bb} properties={} id={}

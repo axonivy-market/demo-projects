@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Nov 16 12:29:26 CET 2011]
+[>Created: Fri Apr 27 15:07:24 CEST 2012]
 127AE76143E89C91 3.17 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -16,9 +16,6 @@ He0 @AnnotationInP-0n ai ai #zField
 He0 @Page f1 '' #zField
 He0 @EndTask f2 '' #zField
 He0 @PushWFArc f4 '' #zField
-He0 @GridStep f8 '' #zField
-He0 @PushWFArc f9 '' #zField
-He0 @PushWFArc f10 '' #zField
 He0 @GridStep f11 '' #zField
 He0 @PushWFArc f3 '' #zField
 He0 @StartRequest f7 '' #zField
@@ -45,7 +42,7 @@ He0 f1 type htmlwfui.Data #txt
 He0 f1 skipLink skip.ivp #txt
 He0 f1 sortLink sort.ivp #txt
 He0 f1 templateWizard '#
-#Wed Feb 16 17:21:16 CET 2011
+#Wed Apr 04 16:35:27 CEST 2012
 ' #txt
 He0 f1 pageArchivingActivated false #txt
 He0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -66,28 +63,6 @@ He0 f2 @|EndIcon #fIcon
 He0 f4 expr data #txt
 He0 f4 outCond ivp=="LinkA.ivp" #txt
 He0 f4 304 356 304 467 #arcP
-He0 f8 actionDecl 'htmlwfui.Data out;
-' #txt
-He0 f8 actionTable 'out=in;
-' #txt
-He0 f8 actionCode ivy.session.logoutSessionUser(ivy.task.getIdentifier()); #txt
-He0 f8 type htmlwfui.Data #txt
-He0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Logout</name>
-        <nameStyle>6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-He0 f8 406 332 36 24 20 -2 #rect
-He0 f8 @|StepIcon #fIcon
-He0 f9 expr data #txt
-He0 f9 outCond ivp=="LinkB.ivp" #txt
-He0 f9 322 344 406 344 #arcP
-He0 f10 expr out #txt
-He0 f10 413 356 312 470 #arcP
 He0 f11 actionDecl 'htmlwfui.Data out;
 ' #txt
 He0 f11 actionTable 'out=in;
@@ -261,9 +236,10 @@ He0 f16 requestEnabled true #txt
 He0 f16 triggerEnabled false #txt
 He0 f16 callSignature DefaultApplicationHomePage() #txt
 He0 f16 persist false #txt
-He0 f16 startName DefaultApplicationHomePage #txt
+He0 f16 startName 'WF Home' #txt
+He0 f16 startDescription 'Workflow Startpage' #txt
 He0 f16 taskData '#
-#Wed Nov 16 12:29:23 CET 2011
+#Fri Apr 27 15:07:14 CEST 2012
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -272,7 +248,8 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f16 caseData '#
-#Wed Nov 16 12:29:23 CET 2011
+#Fri Apr 27 15:07:14 CEST 2012
+businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -300,7 +277,10 @@ type.name=
 ' #txt
 He0 f16 showInStartList 1 #txt
 He0 f16 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskUpdDef.setExpiryActivator("Everybody");
 taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 engine.updateCurrentTask(taskUpdDef);
@@ -386,10 +366,6 @@ He0 f23 158 264 286 264 #arcP
 >Proto He0 @|BIcon #fIcon
 He0 f1 out f4 tail #connect
 He0 f4 head f2 mainIn #connect
-He0 f1 out f9 tail #connect
-He0 f9 head f8 mainIn #connect
-He0 f8 mainOut f10 tail #connect
-He0 f10 head f2 mainIn #connect
 He0 f11 mainOut f3 tail #connect
 He0 f3 head f1 mainIn #connect
 He0 f20 mainOut f13 tail #connect

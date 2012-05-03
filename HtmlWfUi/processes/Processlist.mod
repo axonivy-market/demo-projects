@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 21 10:20:49 CET 2011]
+[>Created: Fri Apr 27 15:33:34 CEST 2012]
 1270ADF72FF4AFF3 3.17 #module
 >Proto >Proto Collection #zClass
 Pt0 Processlist Big #zClass
@@ -19,7 +19,9 @@ Pt0 @EndTask f2 '' #zField
 Pt0 @GridStep f20 '' #zField
 Pt0 @PushWFArc f3 '' #zField
 Pt0 @PushWFArc f4 '' #zField
-Pt0 @PushWFArc f8 '' #zField
+Pt0 @CallSub f14 '' #zField
+Pt0 @PushWFArc f5 '' #zField
+Pt0 @PushWFArc f6 '' #zField
 >Proto Pt0 Pt0 Processlist #zField
 Pt0 f0 outLink DefaultProcessStartListPage.ivp #txt
 Pt0 f0 type htmlwfui.Data #txt
@@ -146,8 +148,32 @@ Pt0 f3 152 180 152 228 #arcP
 Pt0 f4 expr data #txt
 Pt0 f4 outCond ivp=="LinkA.ivp" #txt
 Pt0 f4 152 252 152 315 #arcP
-Pt0 f8 expr out #txt
-Pt0 f8 151 60 152 156 #arcP
+Pt0 f14 type htmlwfui.Data #txt
+Pt0 f14 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
+Pt0 f14 doCall true #txt
+Pt0 f14 requestActionDecl '<htmlwfui.Data in> param;
+' #txt
+Pt0 f14 requestMappingAction 'param.in=in;
+' #txt
+Pt0 f14 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Pt0 f14 responseMappingAction 'out=result.out;
+' #txt
+Pt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Check Login</name>
+        <nameStyle>11,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Pt0 f14 134 100 36 24 20 -2 #rect
+Pt0 f14 @|CallSubIcon #fIcon
+Pt0 f5 expr out #txt
+Pt0 f5 151 60 152 100 #arcP
+Pt0 f6 expr out #txt
+Pt0 f6 152 124 152 156 #arcP
 >Proto Pt0 .type htmlwfui.Data #txt
 >Proto Pt0 .processKind NORMAL #txt
 >Proto Pt0 0 0 32 24 18 0 #rect
@@ -156,5 +182,7 @@ Pt0 f20 mainOut f3 tail #connect
 Pt0 f3 head f1 mainIn #connect
 Pt0 f1 out f4 tail #connect
 Pt0 f4 head f2 mainIn #connect
-Pt0 f0 mainOut f8 tail #connect
-Pt0 f8 head f20 mainIn #connect
+Pt0 f0 mainOut f5 tail #connect
+Pt0 f5 head f14 mainIn #connect
+Pt0 f14 mainOut f6 tail #connect
+Pt0 f6 head f20 mainIn #connect

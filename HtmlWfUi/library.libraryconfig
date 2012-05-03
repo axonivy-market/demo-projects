@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" provider="ivyTeam" name="HtmlWFUI" version="42" id="HtmlWfUi">
+<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" provider="ivyTeam" name="HtmlWFUI" version="43" id="HtmlWfUi">
     <description>A sample implemenation of a html based workflow ui</description>
 </ns2:library>

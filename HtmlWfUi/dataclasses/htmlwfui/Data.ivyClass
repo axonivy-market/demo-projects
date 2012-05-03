@@ -46,3 +46,9 @@ pageArchives List<htmlwfui.ArchivePageDetail> #field
 pageArchives PERSISTENT #fieldModifier
 taskList List<htmlwfui.TaskDetail> #field
 taskList PERSISTENT #fieldModifier
+absence htmlwfui.Absence #field
+absence PERSISTENT #fieldModifier
+substitute htmlwfui.Substitute #field
+substitute PERSISTENT #fieldModifier
+settings htmlwfui.Settings #field
+settings PERSISTENT #fieldModifier

@@ -1,0 +1,23 @@
+<FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'  >
+<!--ivyform--><table BORDER="0"><tr >
+<td CLASS="labelTd"><!--i.tabsence.start--><%=ivy.cms.co("/labels/absenceStart")%>*</td>
+<td WIDTH="100"><!--i.aabsence.start--><input type="text" name="absence$start" id="formLinkA_absence$start" maxlength="10" size="10" value="<%=ivy.html.getDate("in.absence.start")%>"><%=ivy.html.datepicker("formLinkA_absence$start")%></td>
+<td ALIGN="LEFT" WIDTH="300"><input type="text" name="absence$startTimeHH"  maxlength="2" size="2" value="00"> : <input type="text" name="absence$startTimeMM"  maxlength="2" size="2" value="00"></td>
+</tr>
+<tr >
+<td CLASS="labelTd"><!--i.tabsence.end--><%=ivy.cms.co("/labels/absenceStop")%></td>
+<td ><!--i.aabsence.end--><input type="text" name="absence$end" id="formLinkA_absence$end" maxlength="10" size="10" value="<%=ivy.html.getDate("in.absence.end")%>"><%=ivy.html.datepicker("formLinkA_absence$end")%></td>
+<td ALIGN="LEFT"><input type="text" name="absence$endTimeHH"  maxlength="2" size="2" value="23"> : <input type="text" name="absence$endTimeMM"  maxlength="2" size="2" value="59"></td>
+</tr>
+<tr >
+<td CLASS="labelTd"><!--i.tabsence.descr-->Beschreibung</td>
+<td COLSPAN="2" CLASS="labelTd"><!--i.aabsence.descr--><INPUT TYPE="TEXT" NAME="absence$descr"  MAXLENGTH="60"  SIZE="60" VALUE="<%=ivy.html.getFormValue("in.absence.descr")%>"></td>
+</tr>
+<tr >
+<td ></td>
+<td ><!--i.submit-->
+<INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="<%=ivy.cms.co("/labels/saveButton")%>"></td>
+</tr>
+
+</table>
+</FORM>

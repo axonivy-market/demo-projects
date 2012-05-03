@@ -32,3 +32,5 @@ stateName String #field
 stateName PERSISTENT #fieldModifier
 url String #field
 url PERSISTENT #fieldModifier
+startLink String #field
+startLink PERSISTENT #fieldModifier

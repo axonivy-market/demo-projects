@@ -1,0 +1,4 @@
+co: name={mailAppDefault} description={} changed={2012-05-02 14:20:16 CEST} changedby={bb} visualorder={0} guid={136F45242159BE6D} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={136F452421590D27} datatype={} isdefault={false} langid={fr} description={} validfrom={2012-04-27 15:47:42 CEST} validto={} changed={2012-05-02 14:20:16 CEST} changedby={bb} properties={} id={}
+val: guid={136F452425322DC7} datatype={} isdefault={true} langid={de} description={} validfrom={2012-04-05 12:11:33 CEST} validto={} changed={2012-05-02 14:20:16 CEST} changedby={bb} properties={} id={}
+val: guid={136F452423438354} datatype={} isdefault={false} langid={en} description={} validfrom={2012-04-27 15:47:31 CEST} validto={} changed={2012-05-02 14:20:16 CEST} changedby={bb} properties={} id={}

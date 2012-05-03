@@ -1,0 +1,60 @@
+<FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'  >
+<!--ivyform--><table BORDER="0"><tr >
+<td COLSPAN="2"><!--i.tsettings.language--><%=ivy.cms.co("/labels/mailLanguage")%></td>
+<td COLSPAN="4"><!--i.asettings.language--><%=ivy.html.menu("in.settings.languages","settings$language",0,"in.settings.language")%></td>
+</tr>
+<tr >
+<td >&nbsp;</td>
+</tr>
+<tr >
+<td COLSPAN="3"><%=ivy.cms.co("/labels/mailSettingDescription")%></td>
+</tr>
+<tr >
+<td ><!--i.tsettings.appDefault--><%=ivy.cms.co("/labels/mailAppDefault")%></td>
+<td ></td>
+<td ><!--i.asettings.appDefault--><%=ivy.html.checkbox("in.settings.appDefault","settings$appDefault","onclick=\"toggleDefault()\" ")%> <INPUT TYPE="hidden" NAME="settings$appDefault" VALUE="false"></td>
+<td COLSPAN="13"><%=ivy.html.get("in.settings.defaultData")%></td>
+</tr>
+<tr >
+</tr>
+<tr >
+<td ><!--i.tsettings.notificationDisabled--><%=ivy.cms.co("/labels/mailNotificationDisabled")%></td>
+<td ></td>
+<td ><!--i.asettings.notificationDisabled--><%=ivy.html.checkbox("in.settings.notificationDisabled","settings$notificationDisabled","onclick=\"toggleNoNotification() \" ")%> <INPUT TYPE="hidden" NAME="settings$notificationDisabled" VALUE="false"></td>
+</tr>
+<tr >
+<td ><!--i.tsettings.onNewTasks--><%=ivy.cms.co("/labels/mailOnNewTask")%></td>
+<td ></td>
+<td ><!--i.asettings.onNewTasks--><%=ivy.html.checkbox("in.settings.onNewTasks","settings$onNewTasks","")%> <INPUT TYPE="hidden" NAME="settings$onNewTasks" VALUE="false"></td>
+</tr>
+<tr >
+<td COLSPAN="2"><%=ivy.cms.co("/labels/mailDailySummary")%></td>
+<td ><!--i.asettings.mon--><%=ivy.html.checkbox("in.settings.mon","settings$mon","")%> <INPUT TYPE="hidden" NAME="settings$mon" VALUE="false"></td>
+<td ><!--i.tsettings.mon--><%=ivy.cms.co("/wflabels/weekdays/mon")%></td>
+<td ><!--i.asettings.tue--><%=ivy.html.checkbox("in.settings.tue","settings$tue","")%> <INPUT TYPE="hidden" NAME="settings$tue" VALUE="false"></td>
+<td ><!--i.tsettings.tue--><%=ivy.cms.co("/wflabels/weekdays/tue")%></td>
+<td ><!--i.asettings.wen--><%=ivy.html.checkbox("in.settings.wen","settings$wen","")%> <INPUT TYPE="hidden" NAME="settings$wen" VALUE="false"></td>
+<td ><!--i.tsettings.wen--><%=ivy.cms.co("/wflabels/weekdays/wen")%></td>
+<td ><!--i.asettings.thu--><%=ivy.html.checkbox("in.settings.thu","settings$thu","")%> <INPUT TYPE="hidden" NAME="settings$thu" VALUE="false"></td>
+<td ><!--i.tsettings.thu--><%=ivy.cms.co("/wflabels/weekdays/thu")%></td>
+<td ><!--i.asettings.fri--><%=ivy.html.checkbox("in.settings.fri","settings$fri","")%> <INPUT TYPE="hidden" NAME="settings$fri" VALUE="false"></td>
+<td ><!--i.tsettings.fri--><%=ivy.cms.co("/wflabels/weekdays/fri")%></td>
+<td ><!--i.asettings.sat--><%=ivy.html.checkbox("in.settings.sat","settings$sat","")%> <INPUT TYPE="hidden" NAME="settings$sat" VALUE="false"></td>
+<td ><!--i.tsettings.sat--><%=ivy.cms.co("/wflabels/weekdays/sat")%></td>
+<td ><!--i.asettings.sun--><%=ivy.html.checkbox("in.settings.sun","settings$sun","")%> <INPUT TYPE="hidden" NAME="settings$sun" VALUE="false"></td>
+<td ><!--i.tsettings.sun--><%=ivy.cms.co("/wflabels/weekdays/sun")%></td>
+</tr>
+<tr >
+<td ></td>
+<td ></td>
+<td >&nbsp;</td>
+</tr>
+<tr >
+<td ></td>
+<td ></td>
+<td COLSPAN="4"><!--i.submit-->
+<INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="<%=ivy.cms.co("/labels/saveButton")%>"></td>
+</tr>
+
+</table>
+</FORM>

@@ -28,3 +28,5 @@ url String #field
 url PERSISTENT #fieldModifier
 mode String #field
 mode PERSISTENT #fieldModifier
+roles List<String> #field
+roles PERSISTENT #fieldModifier
