@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Feb 17 17:18:30 CET 2011]
-12E297F287736665 3.16 #module
+[>Created: Fri May 04 16:00:02 CEST 2012]
+12E297F287736665 3.17 #module
 >Proto >Proto Collection #zClass
 Rt0 TaskHistory Big #zClass
 Rt0 B #cInfo
@@ -28,11 +28,7 @@ Rt0 @PushWFArc f8 '' #zField
 Rt0 @PushWFArc f9 '' #zField
 Rt0 @CallSub f4 '' #zField
 Rt0 @PushWFArc f5 '' #zField
-Rt0 @EndRequest f46 '' #zField
-Rt0 @Alternative f27 '' #zField
-Rt0 @PushWFArc f6 '' #zField
-Rt0 @PushWFArc f10 '' #zField
-Rt0 @PushWFArc f11 '' #zField
+Rt0 @PushWFArc f12 '' #zField
 >Proto Rt0 Rt0 TaskHistory #zField
 Rt0 f20 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -70,7 +66,7 @@ if(in.temp.statFilter!="Alle")
 	}			
 }
 
-IQueryResult queryResult = ivy.wf.findTasks(
+IQueryResult queryResult = ivy.session.findWorkedOnTasks(
 	cpfilter,
 	PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING),
 	0, -1 ,true);
@@ -105,7 +101,7 @@ Rt0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rt0 f20 78 324 36 24 22 -9 #rect
+Rt0 f20 78 268 36 24 22 -9 #rect
 Rt0 f20 @|StepIcon #fIcon
 Rt0 f1 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
 Rt0 f1 outLinks "LinkA.ivp","LinkC.ivp","LinkB.ivp" #txt
@@ -127,10 +123,10 @@ Rt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Rt0 f1 @C|.responsibility Everybody #txt
-Rt0 f1 78 396 36 24 11 12 #rect
+Rt0 f1 78 340 36 24 11 12 #rect
 Rt0 f1 @|PageIcon #fIcon
 Rt0 f3 expr out #txt
-Rt0 f3 96 348 96 396 #arcP
+Rt0 f3 96 292 96 340 #arcP
 Rt0 f0 outLink start1.ivp #txt
 Rt0 f0 type htmlwfui.Data #txt
 Rt0 f0 inParamDecl '<> param;' #txt
@@ -218,7 +214,7 @@ Rt0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rt0 f30 78 508 36 24 16 9 #rect
+Rt0 f30 78 452 36 24 16 9 #rect
 Rt0 f30 @|CallSubIcon #fIcon
 Rt0 f33 type htmlwfui.Data #txt
 Rt0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -230,7 +226,7 @@ Rt0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rt0 f33 82 266 28 28 19 -12 #rect
+Rt0 f33 82 210 28 28 19 -12 #rect
 Rt0 f33 @|AlternativeIcon #fIcon
 Rt0 f38 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -265,13 +261,13 @@ Rt0 f39 96 45 96 68 #arcP
 Rt0 f39 0 0.6514195840404282 0 0 #arcLabel
 Rt0 f15 expr data #txt
 Rt0 f15 outCond ivp=="LinkA.ivp" #txt
-Rt0 f15 78 408 82 280 #arcP
-Rt0 f15 1 32 408 #addKink
-Rt0 f15 2 32 280 #addKink
+Rt0 f15 78 352 82 224 #arcP
+Rt0 f15 1 32 352 #addKink
+Rt0 f15 2 32 224 #addKink
 Rt0 f15 1 0.18116225130813152 0 0 #arcLabel
 Rt0 f2 expr in #txt
 Rt0 f2 outCond in.temp.caption=="my_tasks" #txt
-Rt0 f2 96 294 96 324 #arcP
+Rt0 f2 96 238 96 268 #arcP
 Rt0 f7 actionDecl 'htmlwfui.Data out;
 ' #txt
 Rt0 f7 actionTable 'out=in;
@@ -301,21 +297,21 @@ Rt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rt0 f7 166 364 36 24 22 -8 #rect
+Rt0 f7 166 308 36 24 22 -8 #rect
 Rt0 f7 @|StepIcon #fIcon
 Rt0 f14 expr data #txt
 Rt0 f14 outCond ivp=="LinkC.ivp" #txt
-Rt0 f14 114 401 166 383 #arcP
+Rt0 f14 114 345 166 327 #arcP
 Rt0 f43 expr out #txt
-Rt0 f43 166 383 114 401 #arcP
+Rt0 f43 166 327 114 345 #arcP
 Rt0 f43 0 0.7806989874641023 0 0 #arcLabel
 Rt0 f8 expr data #txt
 Rt0 f8 outCond ivp=="LinkB.ivp" #txt
-Rt0 f8 96 420 96 508 #arcP
+Rt0 f8 96 364 96 452 #arcP
 Rt0 f9 expr out #txt
-Rt0 f9 114 520 114 408 #arcP
-Rt0 f9 1 256 520 #addKink
-Rt0 f9 2 256 408 #addKink
+Rt0 f9 114 464 114 352 #arcP
+Rt0 f9 1 256 464 #addKink
+Rt0 f9 2 256 352 #addKink
 Rt0 f9 1 0.5 0 0 #arcLabel
 Rt0 f4 type htmlwfui.Data #txt
 Rt0 f4 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
@@ -337,43 +333,14 @@ Rt0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rt0 f4 78 124 36 24 20 -2 #rect
+Rt0 f4 78 132 36 24 20 -2 #rect
 Rt0 f4 @|CallSubIcon #fIcon
 Rt0 f5 expr out #txt
-Rt0 f5 96 92 96 124 #arcP
+Rt0 f5 96 92 96 132 #arcP
 Rt0 f5 0 0.4999999999999999 0 0 #arcLabel
-Rt0 f46 type htmlwfui.Data #txt
-Rt0 f46 template "PermissionError.ivc" #txt
-Rt0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Missing Permission</name>
-        <nameStyle>18
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Rt0 f46 275 179 26 26 14 0 #rect
-Rt0 f46 @|EndRequestIcon #fIcon
-Rt0 f27 type htmlwfui.Data #txt
-Rt0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>hasPermission?</name>
-        <nameStyle>14
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Rt0 f27 82 178 28 28 14 0 #rect
-Rt0 f27 @|AlternativeIcon #fIcon
-Rt0 f6 expr out #txt
-Rt0 f6 96 148 96 178 #arcP
-Rt0 f10 expr in #txt
-Rt0 f10 outCond 'ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.TASK_READ_ALL)' #txt
-Rt0 f10 96 206 96 266 #arcP
-Rt0 f11 expr in #txt
-Rt0 f11 110 192 275 192 #arcP
+Rt0 f12 expr out #txt
+Rt0 f12 96 156 96 210 #arcP
+Rt0 f12 0 0.442275988200965 0 0 #arcLabel
 >Proto Rt0 .type htmlwfui.Data #txt
 >Proto Rt0 .processKind NORMAL #txt
 >Proto Rt0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -401,9 +368,5 @@ Rt0 f30 mainOut f9 tail #connect
 Rt0 f9 head f1 mainIn #connect
 Rt0 f38 mainOut f5 tail #connect
 Rt0 f5 head f4 mainIn #connect
-Rt0 f4 mainOut f6 tail #connect
-Rt0 f6 head f27 in #connect
-Rt0 f27 out f10 tail #connect
-Rt0 f10 head f33 in #connect
-Rt0 f27 out f11 tail #connect
-Rt0 f11 head f46 mainIn #connect
+Rt0 f4 mainOut f12 tail #connect
+Rt0 f12 head f33 in #connect

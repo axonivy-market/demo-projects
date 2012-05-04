@@ -14,3 +14,5 @@ user String #field
 user PERSISTENT #fieldModifier
 role String #field
 role PERSISTENT #fieldModifier
+substiutions List<ch.ivyteam.ivy.security.IUserSubstitute> #field
+substiutions PERSISTENT #fieldModifier

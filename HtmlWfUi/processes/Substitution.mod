@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed May 02 17:23:13 CEST 2012]
+[>Created: Fri May 04 14:43:32 CEST 2012]
 1367DCC9EAB32A2E 3.17 #module
 >Proto >Proto Collection #zClass
 Sn0 Substitution Big #zClass
@@ -31,6 +31,9 @@ Sn0 @PushWFArc f10 '' #zField
 Sn0 @PushWFArc f18 '' #zField
 Sn0 @PushWFArc f13 '' #zField
 Sn0 @PushWFArc f7 '' #zField
+Sn0 @Page f15 '' #zField
+Sn0 @PushWFArc f19 '' #zField
+Sn0 @PushWFArc f21 '' #zField
 >Proto Sn0 Sn0 Substitution #zField
 Sn0 f0 outLink start.ivp #txt
 Sn0 f0 type htmlwfui.Data #txt
@@ -101,21 +104,21 @@ Sn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Sn0 f0 @C|.responsibility Everybody #txt
 Sn0 f0 291 43 26 26 14 0 #rect
 Sn0 f0 @|StartRequestIcon #fIcon
-Sn0 f1 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
-Sn0 f1 outLinks "LinkA.ivp","LinkE.ivp","LinkB.ivp" #txt
+Sn0 f1 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
+Sn0 f1 outLinks "LinkA.ivp","LinkE.ivp","LinkB.ivp","LinkC.ivp" #txt
 Sn0 f1 template "/ProcessPages/Substitution/substitute.ivc" #txt
 Sn0 f1 type htmlwfui.Data #txt
 Sn0 f1 skipLink skip.ivp #txt
 Sn0 f1 sortLink sort.ivp #txt
 Sn0 f1 templateWizard '#
-#Fri Sep 09 16:41:35 CEST 2011
+#Fri May 04 14:36:57 CEST 2012
 ' #txt
 Sn0 f1 pageArchivingActivated false #txt
 Sn0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Substitution</name>
-        <nameStyle>12
+        <name>Substitutes</name>
+        <nameStyle>11
 </nameStyle>
     </language>
 </elementInfo>
@@ -176,7 +179,7 @@ Sn0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Sn0 f3 398 412 36 24 8 16 #rect
 Sn0 f3 @|StepIcon #fIcon
 Sn0 f5 type htmlwfui.Data #txt
-Sn0 f5 179 259 26 26 14 0 #rect
+Sn0 f5 51 259 26 26 14 0 #rect
 Sn0 f5 @|EndIcon #fIcon
 Sn0 f8 type htmlwfui.Data #txt
 Sn0 f8 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
@@ -207,6 +210,8 @@ Sn0 f20 actionDecl 'htmlwfui.Data out;
 Sn0 f20 actionTable 'out=in;
 ' #txt
 Sn0 f20 actionCode 'out.substitute.substitutes = ivy.session.getSessionUser().getSubstitutes();
+
+out.substitute.substiutions = ivy.session.getSessionUser().getSubstitutions();
 ' #txt
 Sn0 f20 type htmlwfui.Data #txt
 Sn0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -252,7 +257,7 @@ Sn0 f4 outCond ivp=="LinkA.ivp" #txt
 Sn0 f4 416 356 416 412 #arcP
 Sn0 f36 expr data #txt
 Sn0 f36 outCond ivp=="LinkE.ivp" #txt
-Sn0 f36 286 272 205 272 #arcP
+Sn0 f36 286 272 77 272 #arcP
 Sn0 f6 actionDecl 'htmlwfui.Data out;
 ' #txt
 Sn0 f6 actionTable 'out=in;
@@ -336,6 +341,36 @@ Sn0 f7 outCond ivp=="LinkB.ivp" #txt
 Sn0 f7 416 332 322 272 #arcP
 Sn0 f7 1 416 272 #addKink
 Sn0 f7 1 0.6644892287059583 0 0 #arcLabel
+Sn0 f15 outTypes "htmlwfui.Data" #txt
+Sn0 f15 outLinks "LinkA.ivp" #txt
+Sn0 f15 template "/ProcessPages/Substitution/substitutions.ivc" #txt
+Sn0 f15 type htmlwfui.Data #txt
+Sn0 f15 skipLink skip.ivp #txt
+Sn0 f15 sortLink sort.ivp #txt
+Sn0 f15 templateWizard '#
+#Fri May 04 14:40:54 CEST 2012
+' #txt
+Sn0 f15 pageArchivingActivated false #txt
+Sn0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Substitution</name>
+        <nameStyle>12
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Sn0 f15 @C|.responsibility Everybody #txt
+Sn0 f15 110 324 36 24 27 -7 #rect
+Sn0 f15 @|PageIcon #fIcon
+Sn0 f19 expr data #txt
+Sn0 f19 outCond ivp=="LinkC.ivp" #txt
+Sn0 f19 286 279 146 329 #arcP
+Sn0 f21 expr data #txt
+Sn0 f21 outCond ivp=="LinkA.ivp" #txt
+Sn0 f21 146 333 286 283 #arcP
+Sn0 f21 1 224 320 #addKink
+Sn0 f21 0 0.9733360748352806 0 0 #arcLabel
 >Proto Sn0 .type htmlwfui.Data #txt
 >Proto Sn0 .processKind NORMAL #txt
 >Proto Sn0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -367,3 +402,7 @@ Sn0 f3 mainOut f13 tail #connect
 Sn0 f13 head f20 mainIn #connect
 Sn0 f11 out f7 tail #connect
 Sn0 f7 head f1 mainIn #connect
+Sn0 f1 out f19 tail #connect
+Sn0 f19 head f15 mainIn #connect
+Sn0 f15 out f21 tail #connect
+Sn0 f21 head f1 mainIn #connect

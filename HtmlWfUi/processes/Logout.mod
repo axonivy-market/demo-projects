@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Apr 27 14:43:58 CEST 2012]
+[>Created: Fri May 04 12:27:53 CEST 2012]
 136F33D7CF6E4319 3.17 #module
 >Proto >Proto Collection #zClass
 Lt0 Logout Big #zClass
@@ -14,12 +14,13 @@ Lt0 @TextInP .responsibility .responsibility #zField
 Lt0 @GridStep f8 '' #zField
 Lt0 @StartRequest f0 '' #zField
 Lt0 @PushWFArc f1 '' #zField
-Lt0 @EndTask f2 '' #zField
-Lt0 @PushWFArc f3 '' #zField
+Lt0 @EndRequest f6 '' #zField
+Lt0 @PushWFArc f2 '' #zField
 >Proto Lt0 Lt0 Logout #zField
 Lt0 f8 actionDecl 'htmlwfui.Data out;
 ' #txt
 Lt0 f8 actionTable 'out=in;
+out.temp.url=ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp");
 ' #txt
 Lt0 f8 actionCode ivy.session.logoutSessionUser(ivy.task.getIdentifier()); #txt
 Lt0 f8 type htmlwfui.Data #txt
@@ -106,16 +107,26 @@ Lt0 f0 115 51 26 26 14 0 #rect
 Lt0 f0 @|StartRequestIcon #fIcon
 Lt0 f1 expr out #txt
 Lt0 f1 128 77 128 116 #arcP
-Lt0 f2 type htmlwfui.Data #txt
-Lt0 f2 115 179 26 26 14 0 #rect
-Lt0 f2 @|EndIcon #fIcon
-Lt0 f3 expr out #txt
-Lt0 f3 128 140 128 179 #arcP
+Lt0 f6 type htmlwfui.Data #txt
+Lt0 f6 template "redirect.jsp" #txt
+Lt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>redirect</name>
+        <nameStyle>8
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Lt0 f6 115 195 26 26 14 0 #rect
+Lt0 f6 @|EndRequestIcon #fIcon
+Lt0 f2 expr out #txt
+Lt0 f2 128 140 128 195 #arcP
 >Proto Lt0 .type htmlwfui.Data #txt
 >Proto Lt0 .processKind NORMAL #txt
 >Proto Lt0 0 0 32 24 18 0 #rect
 >Proto Lt0 @|BIcon #fIcon
 Lt0 f0 mainOut f1 tail #connect
 Lt0 f1 head f8 mainIn #connect
-Lt0 f8 mainOut f3 tail #connect
-Lt0 f3 head f2 mainIn #connect
+Lt0 f8 mainOut f2 tail #connect
+Lt0 f2 head f6 mainIn #connect

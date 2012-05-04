@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed May 02 17:23:13 CEST 2012]
+[>Created: Fri May 04 16:37:19 CEST 2012]
 1367E046117353D3 3.17 #module
 >Proto >Proto Collection #zClass
 Ae0 Absence Big #zClass
@@ -128,6 +128,7 @@ Ae0 f20 actionDecl 'htmlwfui.Data out;
 ' #txt
 Ae0 f20 actionTable 'out=in;
 out.absence.absences=ivy.session.getSessionUser().getAbsences();
+out.temp.msg=ivy.session.getSessionUser().isAbsent() ? ivy.cms.co("/labels/currentlyAbsent") : "";
 ' #txt
 Ae0 f20 type htmlwfui.Data #txt
 Ae0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -212,10 +213,15 @@ if(in.absence.start is initialized)
 	{
 		 to = new DateTime(in.absence.end.getYear(), in.absence.end.getMonth(), in.absence.end.getDay(), 
 			in.absence.endTimeHH.toNumber(), in.absence.endTimeMM.toNumber(), 0);
-	}
-		
-	ivy.session.getSessionUser().createAbsence(from, to, 
+
+		ivy.session.getSessionUser().createAbsence(from, to, 
 		in.absence.descr.trim().length() > 0 ? (new Date()).format("short") +" "+in.absence.descr : "");
+	}
+	else
+	{	
+		ivy.session.getSessionUser().createAbsence(from, null, 
+			in.absence.descr.trim().length() > 0 ? (new Date()).format("short") +" "+in.absence.descr : "");
+	}
 }' #txt
 Ae0 f4 type htmlwfui.Data #txt
 Ae0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

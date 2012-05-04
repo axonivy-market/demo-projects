@@ -1,13 +1,13 @@
-#Thu Apr 26 17:09:55 CEST 2012
+#Fri May 04 16:45:54 CEST 2012
 default.sort.value=-1
 table.default.page.size.value=25
 table.source=in.substitute.substitutes
 footer.show.value=false
 table.empty.value=<%\=ivy.cms.co("/labels/noItemsFound")%>
-col3=\#Thu Apr 26 17\:09\:55 CEST 2012\r\nbody.td\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nalign\\\=center\\r\\n\r\nbody.value\="<a href\\\='"+ivy.html.ref("LinkB.ivp")+"&temp$n\\\="+it.getIdentifier()+"'><img src\\\='"+ivy.cms.cr("/images/remove")+"' title\\\='"+ivy.cms.co("/labels/deleteSubstitute")+"'</img></a>"\r\nheader.value\=<%\\\=ivy.cms.co("/labels/deleteButton")%>\r\nheader.th\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nalign\\\=center\\r\\n\r\n
-col2=\#Thu Apr 26 17\:09\:55 CEST 2012\r\nsort.value\=true\r\nbody.value\=ivy.html.escape(it.getDescription())\r\nheader.value\=<%\\\=ivy.cms.co("/labels/substituteDescription")%>\r\n
+col3=\#Fri May 04 16\:45\:54 CEST 2012\r\nbody.td\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nalign\\\=center\\r\\n\r\nbody.value\="<a href\\\='"+ivy.html.ref("LinkB.ivp")+"&temp$n\\\="+it.getIdentifier()+"'><img src\\\='"+ivy.cms.cr("/images/remove")+"' title\\\='"+ivy.cms.co("/labels/deleteSubstitute")+"'</img></a>"\r\nheader.value\=<%\\\=ivy.cms.co("/labels/deleteButton")%>\r\nheader.th\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nalign\\\=center\\r\\n\r\n
+col2=\#Fri May 04 16\:45\:54 CEST 2012\r\nsort.value\=true\r\nbody.value\=ivy.html.escape(it.getDescription())\r\nheader.value\=<%\\\=ivy.cms.co("/labels/substituteDescription")%>\r\n
 header.show.value=true
-col1=\#Thu Apr 26 17\:09\:55 CEST 2012\r\nsort.value\=true\r\nbody.td\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nalign\\\=left\\r\\n\r\ncondition.value\=\r\nbody.value\=it.isPersonallyOnly() ? ivy.cms.co("/labels/substituteMyTasks") \\\:  ivy.html.escape(it.getSubstitutionRole().getName())\r\nheader.value\=<%\\\=ivy.cms.co("/labels/substituteFor")%>\r\nheader.th\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nwidth\\\=200\\r\\nalign\\\=left\\r\\n\r\n
+col1=\#Fri May 04 16\:45\:54 CEST 2012\r\nsort.value\=true\r\nbody.td\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nalign\\\=left\\r\\n\r\ncondition.value\=\r\nbody.value\=it.isPersonallyOnly() ? ivy.cms.co("/labels/substituteMyTasks") \\\:  ivy.html.escape(it.getSubstitutionRole().getName())\r\nheader.value\=<%\\\=ivy.cms.co("/labels/substituteFor")%>\r\nheader.th\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nwidth\\\=200\\r\\nalign\\\=left\\r\\n\r\n
 table.caption.value=
-col0=\#Thu Apr 26 17\:09\:55 CEST 2012\r\nsort.value\=true\r\nbody.td\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nalign\\\=left\\r\\n\r\ncondition.value\=\r\nbody.value\=ivy.html.escape(it.getSubstituteUser().getName())\r\nheader.value\=<%\\\=ivy.cms.co("/labels/substituteUser")%>\r\nheader.th\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nwidth\\\=200\\r\\nalign\\\=left\\r\\n\r\nname.value\=\r\n
+col0=\#Fri May 04 16\:45\:54 CEST 2012\r\nsort.value\=true\r\nbody.td\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nalign\\\=left\\r\\n\r\ncondition.value\=\r\nbody.value\=ivy.html.escape(it.getSubstituteUser().getName())\r\nheader.value\=<%\\\=ivy.cms.co("/labels/substituteUser")%>\r\nheader.th\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nwidth\\\=200\\r\\nalign\\\=left\\r\\n\r\nname.value\=\r\n
 auto.header.value=false

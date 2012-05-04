@@ -1,4 +1,7 @@
-<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivyjsp --><table class=detailTable >
+<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivyjsp --><b><%=ivy.html.get("in.temp.msg")%></b>
+<br>
+<br>
+<table class=detailTable >
 	<tr style="height:25px" >
 		<%
 		     boolean canEditAbsences = true;

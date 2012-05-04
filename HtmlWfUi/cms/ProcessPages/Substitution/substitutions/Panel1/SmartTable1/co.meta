@@ -1,0 +1,2 @@
+co: name={SmartTable1} description={} changed={2012-05-04 15:51:41 CEST} changedby={bb} visualorder={0} guid={13717DAF121991D2} parentguid={} typeguid={1065A70458AB226C} id={} parentid={} typeid={}
+val: guid={13717DAF121C4BAA} datatype={} isdefault={true} langid={en} description={} validfrom={2011-01-21 10:00:11 CET} validto={} changed={2012-05-04 15:51:41 CEST} changedby={bb} properties={renderer.config=workflowTable} id={}
