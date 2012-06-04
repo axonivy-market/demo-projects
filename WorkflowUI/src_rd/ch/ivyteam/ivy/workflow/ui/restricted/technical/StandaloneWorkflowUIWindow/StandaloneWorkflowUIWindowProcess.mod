@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 14 13:34:11 CET 2012]
+[>Created: Mon Jun 04 10:52:25 CEST 2012]
 1327137DCDCE6676 3.17 #module
 >Proto >Proto Collection #zClass
 Ws0 StandaloneWorkflowUIWindowProcess Big #zClass
@@ -71,7 +71,9 @@ Ws0 @PushWFArc f28 '' #zField
 Ws0 @CallSub f56 '' #zField
 Ws0 @PushWFArc f57 '' #zField
 Ws0 @PushWFArc f2 '' #zField
-Ws0 @PushWFArc f59 '' #zField
+Ws0 @RichDialogProcessStep f11 '' #zField
+Ws0 @PushWFArc f31 '' #zField
+Ws0 @PushWFArc f43 '' #zField
 >Proto Ws0 Ws0 StandaloneWorkflowUIWindowProcess #zField
 Ws0 f0 guid 128B5701B5E5F4EF #txt
 Ws0 f0 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
@@ -447,14 +449,13 @@ Ws0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>get all others 
-loaded
-Rich Dialogs</name>
-        <nameStyle>35,9
+loaded Rich Dialogs</name>
+        <nameStyle>35,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f5 622 188 36 24 20 -2 #rect
+Ws0 f5 622 172 36 24 20 -2 #rect
 Ws0 f5 @|RichDialogProcessStepIcon #fIcon
 Ws0 f9 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 Ws0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -466,10 +467,10 @@ Ws0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f9 626 234 28 28 14 0 #rect
+Ws0 f9 626 210 28 28 14 0 #rect
 Ws0 f9 @|AlternativeIcon #fIcon
 Ws0 f10 expr out #txt
-Ws0 f10 640 212 640 234 #arcP
+Ws0 f10 640 196 640 210 #arcP
 Ws0 f4 expr out #txt
 Ws0 f4 552 58 552 84 #arcP
 Ws0 f37 expr out #txt
@@ -484,7 +485,7 @@ Ws0 f7 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f7 566 160 640 188 #arcP
+Ws0 f7 566 160 640 172 #arcP
 Ws0 f7 1 640 160 #addKink
 Ws0 f7 0 0.754734180593086 0 0 #arcLabel
 Ws0 f38 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
@@ -507,7 +508,7 @@ Rich Dialog</name>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f38 622 292 36 24 20 -2 #rect
+Ws0 f38 622 260 36 24 20 -2 #rect
 Ws0 f38 @|RichDialogProcessStepIcon #fIcon
 Ws0 f39 expr in #txt
 Ws0 f39 outCond in.centerRichDialogPanelsIterator.hasNext() #txt
@@ -520,11 +521,11 @@ Ws0 f39 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f39 640 262 640 292 #arcP
+Ws0 f39 640 238 640 260 #arcP
 Ws0 f42 expr out #txt
-Ws0 f42 622 304 626 248 #arcP
-Ws0 f42 1 592 304 #addKink
-Ws0 f42 2 592 248 #addKink
+Ws0 f42 622 272 626 224 #arcP
+Ws0 f42 1 592 272 #addKink
+Ws0 f42 2 592 224 #addKink
 Ws0 f42 1 0.8627429653780683 0 0 #arcLabel
 Ws0 f13 expr out #txt
 Ws0 f13 888 58 570 95 #arcP
@@ -730,8 +731,27 @@ Ws0 f57 expr out #txt
 Ws0 f57 88 124 88 164 #arcP
 Ws0 f2 expr out #txt
 Ws0 f2 88 188 88 278 #arcP
-Ws0 f59 expr in #txt
-Ws0 f59 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ws0 f11 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
+' #txt
+Ws0 f11 actionTable 'out=in;
+' #txt
+Ws0 f11 actionCode '// apply default Ivy closing
+panel.restoreDefaultCloseUpHandler();' #txt
+Ws0 f11 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
+Ws0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>apply default 
+Ivy closing</name>
+        <nameStyle>26,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ws0 f11 750 252 36 24 20 -2 #rect
+Ws0 f11 @|RichDialogProcessStepIcon #fIcon
+Ws0 f31 expr in #txt
+Ws0 f31 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>no</name>
@@ -740,9 +760,11 @@ Ws0 f59 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ws0 f59 654 248 768 294 #arcP
-Ws0 f59 1 768 248 #addKink
-Ws0 f59 1 0.13222822241890753 0 0 #arcLabel
+Ws0 f31 654 224 768 252 #arcP
+Ws0 f31 1 768 224 #addKink
+Ws0 f31 1 0.13222822241890753 0 0 #arcLabel
+Ws0 f43 expr out #txt
+Ws0 f43 768 276 768 294 #arcP
 >Proto Ws0 .type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 >Proto Ws0 .processKind RICH_DIALOG #txt
 >Proto Ws0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -754,7 +776,7 @@ Ws0 f59 1 0.13222822241890753 0 0 #arcLabel
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneSize>284</swimlaneSize>
-    <swimlaneSize>559</swimlaneSize>
+    <swimlaneSize>581</swimlaneSize>
     <swimlaneSize>903</swimlaneSize>
     <swimlaneColor>-6684673</swimlaneColor>
     <swimlaneColor>-6710785</swimlaneColor>
@@ -813,5 +835,7 @@ Ws0 f35 mainOut f57 tail #connect
 Ws0 f57 head f56 mainIn #connect
 Ws0 f56 mainOut f2 tail #connect
 Ws0 f2 head f1 mainIn #connect
-Ws0 f9 out f59 tail #connect
-Ws0 f59 head f6 mainIn #connect
+Ws0 f9 out f31 tail #connect
+Ws0 f31 head f11 mainIn #connect
+Ws0 f11 mainOut f43 tail #connect
+Ws0 f43 head f6 mainIn #connect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 28 14:27:12 CET 2011]
+[>Created: Wed May 09 15:59:10 CEST 2012]
 116A9BF16D47762C 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -2382,9 +2382,9 @@ Ts0 f33 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData 
 ' #txt
 Ts0 f33 actionTable 'out=in;
 ' #txt
-Ts0 f33 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.FlowDisplayIntegrationHelper;
+Ts0 f33 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIIntegrationHelper;
 
-FlowDisplayIntegrationHelper.startFlowDisplayProcessStart(
+WorkflowUIIntegrationHelper.startFlowDisplayProcessStart(
 						ivy.session, 
 						ivy.var.xivy_workflow_ui_restricted_flowDisplayProcessStartLinkHREF,
 						panel,
@@ -2473,10 +2473,10 @@ Ts0 f180 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData
 ' #txt
 Ts0 f180 actionTable 'out=in;
 ' #txt
-Ts0 f180 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.FlowDisplayIntegrationHelper;
+Ts0 f180 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIIntegrationHelper;
 
 out.operationSuccessful = 
-		FlowDisplayIntegrationHelper.startFlowDisplayProcessStart(
+		WorkflowUIIntegrationHelper.startFlowDisplayProcessStart(
 																															ivy.session, 
 																															ivy.var.xivy_workflow_ui_restricted_flowDisplayProcessStartLinkHREF, 
 																															panel, 

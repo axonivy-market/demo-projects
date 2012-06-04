@@ -12,13 +12,27 @@ import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.workflow.IProcessStart;
 import ch.ivyteam.ivy.workflow.IWorkflowSession;
 
+/**
+ * 
+ * @author tirib
+ * @copyright TI-Informatique
+ * 
+ * It helps to find a given process start; It uses data cache to return the already found and cached process start
+ *
+ */
 public class DataCache {
 	
 	private static final String DATA_CACHE_GROUP_ID = "xivy.workflow.ui.dataCacheGroup";
 	private static final String FLOW_DISPLAY_INTEGRATION_PROCESS_START_DATA_CACHE_ENTRY_ID = "flowDisplayIntegrationProcessStart";
+	private static final String CONNECTED_USERS_MONITOR_INTEGRATION_PROCESS_START_DATA_CACHE_ENTRY_ID = "connectedUsersMonitorIntegrationProcessStart";
 	private static final String FUNCTION_PROCESS_STARTS_DATA_CACHE_ENTRY_ID = "fonctionProcessStarts";
 	private static final String WEB_BANNER_PROCESS_START_DATA_CACHE_ENTRY_ID = "bannerProcessStart";
 	
+	
+	public static IProcessStart findConntectedUsersMonitorProcessStart(IWorkflowSession session, String connectedUsersMonitorProcessStartLinkHREF) throws EnvironmentNotAvailableException, PersistencyException
+	{
+		return findProcessStart(session, connectedUsersMonitorProcessStartLinkHREF, CONNECTED_USERS_MONITOR_INTEGRATION_PROCESS_START_DATA_CACHE_ENTRY_ID);
+	}
 	
 	
 	public static IProcessStart findFlowDisplayProcessStart(IWorkflowSession session, String flowDisplayProcessStartLinkHREF) throws EnvironmentNotAvailableException, PersistencyException

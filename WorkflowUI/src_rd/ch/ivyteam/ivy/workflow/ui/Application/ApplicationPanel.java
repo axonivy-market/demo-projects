@@ -10,6 +10,10 @@ import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
 import com.ulcjava.base.application.ULCTabbedPane;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
+import ch.ivyteam.ivy.richdialog.widgets.displays.RListDisplay;
+import com.ulcjava.base.application.BorderFactory;
+import com.ulcjava.base.application.util.Color;
 
 /**
  * RichDialog panel implementation for ApplicationDynamicWayPanel.
@@ -21,10 +25,12 @@ implements IRichDialogPanel
 { 
   /** Serial version id */
   private static final long serialVersionUID = 1L;
-private RCardDisplay westCardDisplay = null;
+private RCardDisplay westTopCardDisplay = null;
 private RCloseableTabbedDisplay centerTabbedDisplay = null;
 private RSplitPane applicationSplitPane = null;
 private RBorderLayoutPane taskListBorderLayoutPane = null;
+private RGridBagLayoutPane westGridBagLayoutPane = null;
+private RCardDisplay westBottomCardDisplay = null;
 /**
    * Create a new instance of ApplicationDynamicWayPanel
    */
@@ -48,21 +54,20 @@ private RBorderLayoutPane taskListBorderLayoutPane = null;
   }
 
 /**
- * This method initializes westCardDisplay	
+ * This method initializes westTopCardDisplay	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay	
  */
-private RCardDisplay getWestCardDisplay() {
-	if (westCardDisplay == null) {
-		westCardDisplay = new RCardDisplay();
-		westCardDisplay.setName("westCardDisplay");
-		westCardDisplay.setPreferredSize(new com.ulcjava.base.application.util.Dimension(200,20));
-		westCardDisplay.setMinimumSize(new com.ulcjava.base.application.util.Dimension(200,20));
-		westCardDisplay.setMaximumSize(new com.ulcjava.base.application.util.Dimension(400,20));
-		westCardDisplay.setDisplayId("workflowUiWestDisplay");
-		westCardDisplay.setName("westCardDisplay");
+private RCardDisplay getWestTopCardDisplay() {
+	if (westTopCardDisplay == null) {
+		westTopCardDisplay = new RCardDisplay();
+		westTopCardDisplay.setName("westTopCardDisplay");
+		westTopCardDisplay.setMinimumSize(new com.ulcjava.base.application.util.Dimension(200,20));
+		westTopCardDisplay.setMaximumSize(new com.ulcjava.base.application.util.Dimension(400,20));
+		westTopCardDisplay.setStyleProperties("{/weightY \"1\"/weightX \"1\"}");
+		westTopCardDisplay.setDisplayId("workflowUiWestTopDisplay");
 	}
-	return westCardDisplay;
+	return westTopCardDisplay;
 }
 
 /**
@@ -93,7 +98,7 @@ private RSplitPane getApplicationSplitPane() {
 		applicationSplitPane.setName("applicationSplitPane");
 		applicationSplitPane.setStyleProperties("{/dividerLocation \"0.275\"/weightY \"1\"/weightX \"1\"}");
 		applicationSplitPane.setRightComponent(getTaskListBorderLayoutPane());
-		applicationSplitPane.setLeftComponent(getWestCardDisplay());
+		applicationSplitPane.setLeftComponent(getWestGridBagLayoutPane());
 		applicationSplitPane.setResizeWeight(0.0);
 	}
 	return applicationSplitPane;
@@ -126,6 +131,36 @@ public void fire_loadRunningTaskDisplayList()
 	} catch (NoSuchMethodException e) {
 		e.printStackTrace();
 	}
+}
+
+/**
+ * This method initializes westGridBagLayoutPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane	
+ */
+private RGridBagLayoutPane getWestGridBagLayoutPane() {
+	if (westGridBagLayoutPane == null) {
+		westGridBagLayoutPane = new RGridBagLayoutPane();
+		westGridBagLayoutPane.setName("westGridBagLayoutPane");
+		westGridBagLayoutPane.add(getWestTopCardDisplay(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		westGridBagLayoutPane.add(getWestBottomCardDisplay(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+	}
+	return westGridBagLayoutPane;
+}
+
+/**
+ * This method initializes westBottonCardDisplay	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay	
+ */
+private RCardDisplay getWestBottomCardDisplay() {
+	if (westBottomCardDisplay == null) {
+		westBottomCardDisplay = new RCardDisplay();
+		westBottomCardDisplay.setName("westBottomCardDisplay");
+		westBottomCardDisplay.setDisplayId("workflowUiWestBottomDisplay");
+		westBottomCardDisplay.setStyleProperties("{/weightY \"0.33\"/weightX \"1\"}");
+	}
+	return westBottomCardDisplay;
 }
 
 }  //  @jve:decl-index=0:visual-constraint="10,10"
