@@ -3,11 +3,6 @@
     <autoScreenshot>true</autoScreenshot>
     <startMethod>
         <name>start</name>
-        <description>Default Rich Dialog start
-This method can not be changed or deleted!</description>
-    </startMethod>
-    <startMethod>
-        <name>start</name>
         <description>Performs an amount of work, then closes itself.</description>
         <inputParameter>
             <name>amountOfWork</name>

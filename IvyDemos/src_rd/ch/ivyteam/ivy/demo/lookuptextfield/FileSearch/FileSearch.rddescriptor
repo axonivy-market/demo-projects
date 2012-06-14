@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <startMethod>
-        <name>start</name>
-        <description>Default Rich Dialog start
-This method can not be changed or deleted!</description>
-    </startMethod>
-    <startMethod>
         <name>startWithFileList</name>
         <description></description>
         <inputParameter>

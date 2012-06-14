@@ -2,11 +2,6 @@
 <richDialogDescriptor>
     <startMethod>
         <name>start</name>
-        <description>Default Rich Dialog start
-This method can not be changed or deleted!</description>
-    </startMethod>
-    <startMethod>
-        <name>start</name>
         <description></description>
         <inputParameter>
             <name>textToDisplay</name>

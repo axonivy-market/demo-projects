@@ -27,11 +27,6 @@
     </method>
     <startMethod>
         <name>start</name>
-        <description>Default Rich Dialog start
-This method can not be changed or deleted!</description>
-    </startMethod>
-    <startMethod>
-        <name>start</name>
         <description>use if only email settings should be modified</description>
         <inputParameter>
             <name>settings</name>
