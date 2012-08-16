@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Aug 12 10:59:20 CEST 2008]
-11BB5F943EDD5FEA 3.10 #module
+[>Created: Fri Aug 10 17:27:54 EDT 2012]
+11BB5F943EDD5FEA 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FileSearchProcess Big #zClass
 Fs0 RD #cInfo
@@ -16,18 +16,21 @@ Fs0 @TextInP .resExport .resExport #zField
 Fs0 @TextInP .type .type #zField
 Fs0 @TextInP .processKind .processKind #zField
 Fs0 @RichDialogInitStart f0 '' #zField
-Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startWithFileList(List&lt;File&gt;)</name>
-        <nameStyle>29,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
+Fs0 @RichDialogProcessEnd f1 '' #zField
+Fs0 @RichDialogProcessStart f3 '' #zField
+Fs0 @RichDialogProcessEnd f4 '' #zField
+Fs0 @PushWFArc f5 '' #zField
+Fs0 @RichDialogProcessStep f6 '' #zField
+Fs0 @PushWFArc f7 '' #zField
+Fs0 @PushWFArc f2 '' #zField
+Fs0 @RichDialogInitStart f8 '' #zField
+Fs0 @RichDialogProcessEnd f9 '' #zField
+Fs0 @PushWFArc f10 '' #zField
+>Proto Fs0 Fs0 FileSearchProcess #zField
 Fs0 f0 guid 11BB5F945D1A616E #txt
 Fs0 f0 type ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData #txt
 Fs0 f0 method startWithFileList(List<java.io.File>) #txt
+Fs0 f0 disableUIEvents false #txt
 Fs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <List<java.io.File> fileList> param = methodEvent.getInputArguments();
 ' #txt
@@ -37,22 +40,20 @@ out.path="";
 Fs0 f0 outParameterDecl '<> result;
 ' #txt
 Fs0 f0 embeddedRdInitializations '{/titlePanel {/fieldName "titlePanel"/startMethod "startInitialized(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/demo/icons/large/harddisk\";\nparam.title=\"File Search\";\nparam.subtitle=\"Search a list of \"+callParam.fileList.size()+\" files from the hard disk.\";\n"/initScript "\""}}' #txt
-Fs0 f0 90 40 20 20 13 0 #rect
-Fs0 f0 @|RichDialogInitStartIcon #fIcon
-Fs0 @RichDialogProcessEnd f1 '' #zField
-Fs0 f1 type ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData #txt
-Fs0 f1 87 163 26 26 14 0 #rect
-Fs0 f1 @|RichDialogProcessEndIcon #fIcon
-Fs0 @RichDialogProcessStart f3 '' #zField
-Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>show</name>
-        <nameStyle>4,5,7,9
+        <name>startWithFileList(List&lt;File&gt;)</name>
+        <nameStyle>29,5,7,9
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
+Fs0 f0 90 40 20 20 13 0 #rect
+Fs0 f0 @|RichDialogInitStartIcon #fIcon
+Fs0 f1 type ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData #txt
+Fs0 f1 87 163 26 26 14 0 #rect
+Fs0 f1 @|RichDialogProcessEndIcon #fIcon
 Fs0 f3 guid 11BB601D28A68315 #txt
 Fs0 f3 type ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData #txt
 Fs0 f3 actionDecl 'ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData out;
@@ -73,16 +74,22 @@ for (int i=0; i<fileNames.size(); i++)
 	}
 }
 ' #txt
+Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>show</name>
+        <nameStyle>4,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Fs0 f3 294 38 20 20 13 0 #rect
 Fs0 f3 @|RichDialogProcessStartIcon #fIcon
-Fs0 @RichDialogProcessEnd f4 '' #zField
 Fs0 f4 type ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData #txt
 Fs0 f4 291 139 26 26 14 0 #rect
 Fs0 f4 @|RichDialogProcessEndIcon #fIcon
-Fs0 @PushWFArc f5 '' #zField
 Fs0 f5 expr out #txt
 Fs0 f5 304 58 304 139 #arcP
-Fs0 @RichDialogProcessStep f6 '' #zField
 Fs0 f6 actionDecl 'ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData out;
 ' #txt
 Fs0 f6 actionTable 'out=in;
@@ -105,23 +112,45 @@ Fs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Fs0 f6 82 100 36 24 20 -2 #rect
 Fs0 f6 @|RichDialogProcessStepIcon #fIcon
-Fs0 @PushWFArc f7 '' #zField
 Fs0 f7 expr out #txt
 Fs0 f7 100 60 100 100 #arcP
 Fs0 f7 0 0.49690943285416445 0 0 #arcLabel
-Fs0 @PushWFArc f2 '' #zField
 Fs0 f2 expr out #txt
 Fs0 f2 100 124 100 163 #arcP
-Fs0 f3 mainOut f5 tail #connect
-Fs0 f5 head f4 mainIn #connect
-Fs0 f0 mainOut f7 tail #connect
-Fs0 f7 head f6 mainIn #connect
-Fs0 f6 mainOut f2 tail #connect
-Fs0 f2 head f1 mainIn #connect
->Proto Fs0 Fs0 FileSearchProcess #zField
+Fs0 f8 guid 139126FA68DF96CE #txt
+Fs0 f8 type ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData #txt
+Fs0 f8 method start() #txt
+Fs0 f8 disableUIEvents true #txt
+Fs0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+Fs0 f8 outParameterDecl '<> result;
+' #txt
+Fs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+    </language>
+</elementInfo>
+' #txt
+Fs0 f8 150 246 20 20 13 0 #rect
+Fs0 f8 @|RichDialogInitStartIcon #fIcon
+Fs0 f9 type ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData #txt
+Fs0 f9 150 318 20 20 13 0 #rect
+Fs0 f9 @|RichDialogProcessEndIcon #fIcon
+Fs0 f10 expr out #txt
+Fs0 f10 160 266 160 318 #arcP
 >Proto Fs0 .rdData2UIAction 'panel.pathLabel.text=in.path;
 ' #txt
 >Proto Fs0 .type ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData #txt
 >Proto Fs0 .processKind RICH_DIALOG #txt
 >Proto Fs0 -8 -8 16 16 16 26 #rect
 >Proto Fs0 '' #fIcon
+Fs0 f3 mainOut f5 tail #connect
+Fs0 f5 head f4 mainIn #connect
+Fs0 f0 mainOut f7 tail #connect
+Fs0 f7 head f6 mainIn #connect
+Fs0 f6 mainOut f2 tail #connect
+Fs0 f2 head f1 mainIn #connect
+Fs0 f8 mainOut f10 tail #connect
+Fs0 f10 head f9 mainIn #connect

@@ -1,5 +1,6 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2009-05-21 09:29:50 | 4.1.0.27714 | 1.0
-~@RD_METHODCALL[startWithFileList(List<java.io.File>)]--->ch.ivyteam.ivy.process.ProcessStart:11BB5F943EDD5FEA/11BB5F945D1A616E
-~.fileLookupTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11BB5F943EDD5FEA/11BB601D28A68315 # FileSearchProcess.mod/show
+# 2012-08-10 17:27:50 | 4.4.0.40304 | 1.0
+~.fileLookupTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11BB5F943EDD5FEA/11BB601D28A68315
 ~.showButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11BB5F943EDD5FEA/11BB601D28A68315
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11BB5F943EDD5FEA/139126FA68DF96CE
+~@RD_METHODCALL[startWithFileList(List<java.io.File>)]--->ch.ivyteam.ivy.process.ProcessStart:11BB5F943EDD5FEA/11BB5F945D1A616E

@@ -1,0 +1,7 @@
+HumanCapital #class
+'A HumanCapital Class used for the docFactory reporting demo.' #classComment
+ch.ivyteam.ivy.demo.docfactory.reporting #namespace
+name String #field
+name 'Name of the Capital' #fieldComment
+level Number #field
+level 'Level obtained by the employee' #fieldComment

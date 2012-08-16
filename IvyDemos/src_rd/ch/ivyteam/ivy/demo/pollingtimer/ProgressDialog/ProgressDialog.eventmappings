@@ -1,4 +1,5 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2010-09-08 17:18:28 | 4.1.0.15100 | 1.0
-~.hiddenButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12AF1BDC1F7D64CA/12AF1E7F72F89BC1 # ProgressDialogProcess.mod/doWork
+# 2012-08-10 17:27:21 | 4.4.0.40304 | 1.0
+~.hiddenButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12AF1BDC1F7D64CA/12AF1E7F72F89BC1
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12AF1BDC1F7D64CA/139126F32C1CEDFF
 ~@RD_METHODCALL[start(Number)]--->ch.ivyteam.ivy.process.ProcessStart:12AF1BDC1F7D64CA/12AF1BDCAFC6C104

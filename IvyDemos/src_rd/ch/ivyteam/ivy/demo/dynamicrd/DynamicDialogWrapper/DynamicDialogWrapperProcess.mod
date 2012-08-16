@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Jun 08 16:03:56 CEST 2009]
-11EB0BDD6A32E57E 3.12 #module
+[>Created: Fri Aug 10 17:27:39 EDT 2012]
+11EB0BDD6A32E57E 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 ContactProcess Big #zClass
 Cs0 RD #cInfo
@@ -30,16 +30,10 @@ Cs0 @PushWFArc f15 '' #zField
 Cs0 @RichDialog f0 '' #zField
 Cs0 @PushWFArc f1 '' #zField
 Cs0 @PushWFArc f2 '' #zField
+Cs0 @RichDialogInitStart f8 '' #zField
+Cs0 @RichDialogProcessEnd f16 '' #zField
+Cs0 @PushWFArc f17 '' #zField
 >Proto Cs0 Cs0 ContactProcess #zField
-Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(CompositeObject,List&lt;String&gt;)</name>
-        <nameStyle>35,5,7,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f3 guid 11EB0C163825CAEC #txt
 Cs0 f3 type ch.ivyteam.ivy.demo.dynamicrd.DynamicDialogWrapper.DynamicDialogWrapperData #txt
 Cs0 f3 method start(ch.ivyteam.ivy.scripting.objects.CompositeObject,List<String>) #txt
@@ -50,6 +44,15 @@ Cs0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 Cs0 f3 outParameterDecl '<> result;
 ' #txt
 Cs0 f3 embeddedRdInitializations '{/dynamicDialogPanel {/fieldName "dynamicDialogPanel"/startMethod "start(ch.ivyteam.ivy.scripting.objects.CompositeObject,List<String>)"/parameterMapping "param.object=callParam.object;\nparam.cmsContext=callParam.cmsContext;\n"/initScript ""}}' #txt
+Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(CompositeObject,List&lt;String&gt;)</name>
+        <nameStyle>35,5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f3 30 22 20 20 13 0 #rect
 Cs0 f3 @|RichDialogInitStartIcon #fIcon
 Cs0 f4 type ch.ivyteam.ivy.demo.dynamicrd.DynamicDialogWrapper.DynamicDialogWrapperData #txt
@@ -198,6 +201,29 @@ Cs0 f1 expr out #txt
 Cs0 f1 40 212 40 236 #arcP
 Cs0 f2 expr out #txt
 Cs0 f2 40 260 40 283 #arcP
+Cs0 f8 guid 139126F6ED3C933A #txt
+Cs0 f8 type ch.ivyteam.ivy.demo.dynamicrd.DynamicDialogWrapper.DynamicDialogWrapperData #txt
+Cs0 f8 method start() #txt
+Cs0 f8 disableUIEvents true #txt
+Cs0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+Cs0 f8 outParameterDecl '<> result;
+' #txt
+Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f8 134 342 20 20 13 0 #rect
+Cs0 f8 @|RichDialogInitStartIcon #fIcon
+Cs0 f16 type ch.ivyteam.ivy.demo.dynamicrd.DynamicDialogWrapper.DynamicDialogWrapperData #txt
+Cs0 f16 134 398 20 20 13 0 #rect
+Cs0 f16 @|RichDialogProcessEndIcon #fIcon
+Cs0 f17 expr out #txt
+Cs0 f17 144 362 144 398 #arcP
 >Proto Cs0 .type ch.ivyteam.ivy.demo.dynamicrd.DynamicDialogWrapper.DynamicDialogWrapperData #txt
 >Proto Cs0 .processKind RICH_DIALOG #txt
 >Proto Cs0 .ui2RdDataAction 'out.contact=panel.dynamicDialogPanel.value as businessdata.SimpleContact;
@@ -218,3 +244,5 @@ Cs0 f9 mainOut f1 tail #connect
 Cs0 f1 head f0 mainIn #connect
 Cs0 f0 mainOut f2 tail #connect
 Cs0 f2 head f7 mainIn #connect
+Cs0 f8 mainOut f17 tail #connect
+Cs0 f17 head f16 mainIn #connect

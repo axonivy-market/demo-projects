@@ -1,0 +1,21 @@
+<P>
+<B>Important informations:</B>
+<BR><BR>
+
+The FileManager is configured with a FileManagerConfigurationController object.<BR>
+This object stores all the settings needed for the FileManager. The configuration controller allows fine tuning the FileManager's options. <BR>
+<BR>
+The external Ivy database configuration is already prepared in the demo project: it's name is "filemanager". You have to adapt this configuration to your external database settings.<BR>
+Here you don't have the possibility to set all the possible options dynamically. <BR>
+You are of course free to set these parameters directly in the configuration controller object in your own implementations. Please refer to the FileManager IvyAddons documentation.
+</P>
+<P>
+Some of the given options are exclusive: &nbsp;
+</P>
+<BLOCKQUOTE>
+<P>
+The 3 first options cannot be activated together.<br>
+The 5 last features are only available with the files content stored in the database.
+</P>
+</BLOCKQUOTE>
+

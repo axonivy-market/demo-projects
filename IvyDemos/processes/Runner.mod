@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Oct 14 15:51:34 CEST 2010]
-1215975017F13818 3.13.1 #module
+[>Created: Tue May 08 11:03:55 EDT 2012]
+1215975017F13818 3.17 #module
 >Proto >Proto Collection #zClass
 Rr0 Runner Big #zClass
 Rr0 B #cInfo
@@ -25,15 +25,15 @@ Rr0 @AnnotationArc f8 '' #zField
 >Proto Rr0 Rr0 Runner #zField
 Rr0 f0 outLink demoRunner.ivp #txt
 Rr0 f0 type ivydemos.Data #txt
-Rr0 f0 template "" #txt
-Rr0 f0 templateWizard '#
-#Mon May 25 22:02:54 CEST 2009
-' #txt
+Rr0 f0 actionDecl 'ivydemos.Data out;' #txt
+Rr0 f0 requestEnabled true #txt
+Rr0 f0 triggerEnabled false #txt
+Rr0 f0 callSignature demoRunner() #txt
+Rr0 f0 startName 'Start the DemoRunner' #txt
+Rr0 f0 startDescription 'The DemoRunner application shows a list of all available Demos and allows you to select and start them.' #txt
 Rr0 f0 taskData '#
-#Mon May 25 22:02:54 CEST 2009
+#Tue May 08 06:57:27 EDT 2012
 .DESC=The DemoRunner application shows a list of all available Demos and allows you to select and start them.
-.SHOW=1
-.WFU=0
 .NAM=Start the DemoRunner
 ' #txt
 Rr0 f0 caseData '#
@@ -100,6 +100,7 @@ demoIds = [
 	"ch.ivyteam.ivy.demo.pollingtimer.UserInterfaceRefresh",
   "ch.ivyteam.ivy.demo.validation.ValidationDemo",
 	"ch.ivyteam.ivy.demo.docfactory.DocFactory",
+	"ch.ivyteam.ivy.demo.docfactory.DocFactoryReporting",
 	"ch.ivyteam.ivy.demo.webbrowser.WebBrowser",
 	"ch.ivyteam.ivy.demo.filemanager.StartFileManager"
 ];

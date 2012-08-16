@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 15 12:19:43 EST 2012]
+[>Created: Mon Jun 11 21:09:23 EDT 2012]
 13581CDACF4D326A 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FileManagerContainerProcess Big #zClass
@@ -29,7 +29,7 @@ Fs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 Fs0 f0 outParameterDecl '<> result;
 ' #txt
-Fs0 f0 embeddedRdInitializations '{/fileManagerPanel {/fieldName "fileManagerPanel"/startMethod "startWithServerPath(String)"/parameterMapping "param.serverPath=\"root/test\";\n"/initScript ""/userContext * }}' #txt
+Fs0 f0 embeddedRdInitializations '{/fileManagerPanel {/fieldName "fileManagerPanel"/startMethod "start(ch.ivyteam.ivy.addons.filemanager.configuration.FileManagerConfigurationController)"/parameterMapping "param.filemanagerConfiguration.rootPath=\"root/test\";\n"/initScript ""/userContext * }}' #txt
 Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -46,32 +46,32 @@ Fs0 f1 90 140 20 20 13 0 #rect
 Fs0 f1 @|RichDialogProcessEndIcon #fIcon
 Fs0 f2 expr out #txt
 Fs0 f2 100 60 100 140 #arcP
-Fs0 f3 guid 13581CE8FC3A4776 #txt
+Fs0 f3 guid 137DE3BE07E30212 #txt
 Fs0 f3 type ch.ivyteam.ivy.demo.filemanager.FileManagerContainer.FileManagerContainerData #txt
-Fs0 f3 method start(String) #txt
+Fs0 f3 method start(ch.ivyteam.ivy.addons.filemanager.configuration.FileManagerConfigurationController) #txt
 Fs0 f3 disableUIEvents true #txt
 Fs0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String serverPath> param = methodEvent.getInputArguments();
+<ch.ivyteam.ivy.addons.filemanager.configuration.FileManagerConfigurationController configurationController> param = methodEvent.getInputArguments();
 ' #txt
 Fs0 f3 outParameterDecl '<> result;
 ' #txt
-Fs0 f3 embeddedRdInitializations '{/fileManagerPanel {/fieldName "fileManagerPanel"/startMethod "startWithServerPath(String)"/parameterMapping "param.serverPath=callParam.serverPath;\n"/initScript ""/userContext * }}' #txt
+Fs0 f3 embeddedRdInitializations '{/fileManagerPanel {/fieldName "fileManagerPanel"/startMethod "start(ch.ivyteam.ivy.addons.filemanager.configuration.FileManagerConfigurationController)"/parameterMapping "param.filemanagerConfiguration=callParam.configurationController;\n"/initScript ""/userContext * }}' #txt
 Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(String)</name>
-        <nameStyle>13,5,7
+        <name>start(FileManagerConfigurationController)</name>
+        <nameStyle>41,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f3 198 38 20 20 13 0 #rect
+Fs0 f3 206 46 20 20 13 0 #rect
 Fs0 f3 @|RichDialogInitStartIcon #fIcon
 Fs0 f4 type ch.ivyteam.ivy.demo.filemanager.FileManagerContainer.FileManagerContainerData #txt
-Fs0 f4 198 142 20 20 13 0 #rect
+Fs0 f4 206 134 20 20 13 0 #rect
 Fs0 f4 @|RichDialogProcessEndIcon #fIcon
 Fs0 f5 expr out #txt
-Fs0 f5 208 58 208 142 #arcP
+Fs0 f5 216 66 216 134 #arcP
 >Proto Fs0 .type ch.ivyteam.ivy.demo.filemanager.FileManagerContainer.FileManagerContainerData #txt
 >Proto Fs0 .processKind RICH_DIALOG #txt
 >Proto Fs0 -8 -8 16 16 16 26 #rect

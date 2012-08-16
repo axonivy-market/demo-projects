@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 01 15:14:05 CEST 2012]
+[>Created: Fri Aug 10 17:27:00 EDT 2012]
 12159193B3CDF810 3.17 #module
 >Proto >Proto Collection #zClass
 Ds0 DemoStarterProcess Big #zClass
@@ -65,6 +65,8 @@ Ds0 @PushWFArc f49 '' #zField
 Ds0 @PushWFArc f31 '' #zField
 Ds0 @PushWFArc f8 '' #zField
 Ds0 @PushWFArc f50 '' #zField
+Ds0 @RichDialogInitStart f1 '' #zField
+Ds0 @PushWFArc f51 '' #zField
 >Proto Ds0 Ds0 DemoStarterProcess #zField
 Ds0 f0 guid 12159193B6A4A0AD #txt
 Ds0 f0 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
@@ -662,6 +664,29 @@ Ds0 f50 48 100 292 308 #arcP
 Ds0 f50 1 48 128 #addKink
 Ds0 f50 2 224 128 #addKink
 Ds0 f50 1 0.5413474046972035 0 0 #arcLabel
+Ds0 f1 guid 139126ED288E3006 #txt
+Ds0 f1 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
+Ds0 f1 method start() #txt
+Ds0 f1 disableUIEvents true #txt
+Ds0 f1 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+Ds0 f1 outParameterDecl '<> result;
+' #txt
+Ds0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f1 38 334 20 20 13 0 #rect
+Ds0 f1 @|RichDialogInitStartIcon #fIcon
+Ds0 f51 expr out #txt
+Ds0 f51 58 344 61 248 #arcP
+Ds0 f51 1 112 344 #addKink
+Ds0 f51 2 112 248 #addKink
+Ds0 f51 1 0.484375 0 0 #arcLabel
 >Proto Ds0 .ui2RdDataAction 'out.selectedDemo=panel.demoList.#selectedListEntry as ch.ivyteam.ivy.demo.runner.Demo;
 ' #txt
 >Proto Ds0 .rdData2UIAction 'panel.demoList.listData=in.demos;
@@ -722,3 +747,5 @@ Ds0 f46 mainOut f8 tail #connect
 Ds0 f8 head f7 mainIn #connect
 Ds0 f3 mainOut f50 tail #connect
 Ds0 f50 head f16 mainIn #connect
+Ds0 f1 mainOut f51 tail #connect
+Ds0 f51 head f39 mainIn #connect

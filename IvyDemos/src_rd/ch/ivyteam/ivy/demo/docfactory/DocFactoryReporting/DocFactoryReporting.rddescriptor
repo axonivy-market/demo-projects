@@ -6,19 +6,9 @@
         <description>Default Rich Dialog start
 This method can not be changed or deleted!</description>
     </startMethod>
-    <startMethod>
-        <name>start</name>
-        <description></description>
-        <inputParameter>
-            <name>configurationController</name>
-            <description>The configurationController of the fileManager</description>
-            <parameterType>ch.ivyteam.ivy.addons.filemanager.configuration.FileManagerConfigurationController</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </startMethod>
     <property>
         <name>guid</name>
-        <value>013581CDACD94719</value>
+        <value>1372C781E3E3C5D4</value>
         <readOnly>true</readOnly>
     </property>
     <property>

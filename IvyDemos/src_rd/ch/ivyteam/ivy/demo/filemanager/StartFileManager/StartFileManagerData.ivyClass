@@ -1,12 +1,6 @@
 StartFileManagerData #class
 ch.ivyteam.ivy.demo.filemanager.StartFileManager #namespace
-pathOnTheServer String #field
-pathOnTheServer PERSISTENT #fieldModifier
-databaseConfigName String #field
-databaseConfigName PERSISTENT #fieldModifier
-tableName String #field
-tableName PERSISTENT #fieldModifier
-SchemaName String #field
-SchemaName PERSISTENT #fieldModifier
 login boolean #field
-login PERSISTENT #fieldModifier
+login 'flag to check if the login was succesful in case ofg security feature activation' #fieldComment
+configurationController ch.ivyteam.ivy.addons.filemanager.configuration.FileManagerConfigurationController #field
+configurationController 'the configuration Controller that keeps all the needed infos to be able to start the fileManager.' #fieldComment

@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Sep 09 09:45:01 CEST 2010]
-12AF1BDC1F7D64CA 3.14 #module
+[>Created: Fri Aug 10 17:27:26 EDT 2012]
+12AF1BDC1F7D64CA 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 ProgressDialogProcess Big #zClass
 Ps0 RD #cInfo
@@ -40,6 +40,9 @@ Ps0 @PushWFArc f23 '' #zField
 Ps0 @RichDialogProcessEnd f24 '' #zField
 Ps0 @PushWFArc f25 '' #zField
 Ps0 @PushWFArc f26 '' #zField
+Ps0 @RichDialogInitStart f27 '' #zField
+Ps0 @RichDialogProcessEnd f28 '' #zField
+Ps0 @PushWFArc f29 '' #zField
 >Proto Ps0 Ps0 ProgressDialogProcess #zField
 Ps0 f0 guid 12AF1BDCAFC6C104 #txt
 Ps0 f0 type ch.ivyteam.ivy.demo.pollingtimer.ProgressDialog.ProgressDialogData #txt
@@ -267,6 +270,29 @@ Ps0 f25 expr out #txt
 Ps0 f25 144 436 144 478 #arcP
 Ps0 f26 expr out #txt
 Ps0 f26 144 362 144 412 #arcP
+Ps0 f27 guid 139126F32C1CEDFF #txt
+Ps0 f27 type ch.ivyteam.ivy.demo.pollingtimer.ProgressDialog.ProgressDialogData #txt
+Ps0 f27 method start() #txt
+Ps0 f27 disableUIEvents true #txt
+Ps0 f27 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+Ps0 f27 outParameterDecl '<> result;
+' #txt
+Ps0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+    </language>
+</elementInfo>
+' #txt
+Ps0 f27 558 30 20 20 13 0 #rect
+Ps0 f27 @|RichDialogInitStartIcon #fIcon
+Ps0 f28 type ch.ivyteam.ivy.demo.pollingtimer.ProgressDialog.ProgressDialogData #txt
+Ps0 f28 558 94 20 20 13 0 #rect
+Ps0 f28 @|RichDialogProcessEndIcon #fIcon
+Ps0 f29 expr out #txt
+Ps0 f29 568 50 568 94 #arcP
 >Proto Ps0 .type ch.ivyteam.ivy.demo.pollingtimer.ProgressDialog.ProgressDialogData #txt
 >Proto Ps0 .processKind RICH_DIALOG #txt
 >Proto Ps0 -8 -8 16 16 16 26 #rect
@@ -295,3 +321,5 @@ Ps0 f19 mainOut f25 tail #connect
 Ps0 f25 head f24 mainIn #connect
 Ps0 f4 mainOut f26 tail #connect
 Ps0 f26 head f19 mainIn #connect
+Ps0 f27 mainOut f29 tail #connect
+Ps0 f29 head f28 mainIn #connect
