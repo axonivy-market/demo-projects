@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <title>Xpert.ivy Html Dialog Demos</title>
+    </h:head>
+    <h:body>
+    	<p:panel header="Xpert.ivy Html Dialog Demos">
+    		<p>This demo project contains examples that show how Xpert.ivy Html Dialogs can be used.</p>
+	    	<p:accordionPanel>
+	    	  	<p:tab title="OrderList Demo">
+	    	   		<h:panelGrid columns="3" cellpadding="10">
+	    	   			<h:outputLink value="#{ivy.html.startref('Demo/OrderListDemo.ivp')}">
+	    	   		  		<p:graphicImage value="http://localhost:8081#{ivy.cms.cr('/ch.ivyteam.htmldialog.demo/OrderListDemo')}"/>
+	    	   		  	</h:outputLink>
+	    	   		  <h:outputText value="Shows how an Xpert.ivy List can be used do display a list that can be ordered and the selected entry can be edited."/>
+	    	   		</h:panelGrid>
+	    	  	</p:tab>
+	    	</p:accordionPanel>
+    	</p:panel>
+    </h:body>
+</html>

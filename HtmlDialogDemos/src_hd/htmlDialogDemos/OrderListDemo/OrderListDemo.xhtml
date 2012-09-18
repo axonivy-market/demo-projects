@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">      
+ 
+    <h:head>
+        <title>OrderList Demo</title>
+    </h:head>
+    <h:body>
+     	<h:form>
+		   	<p:panel header="OrderList Demo" id="persons">
+				<h:outputText value="This demo explains how an Xpert.ivy List can be used as data for an order list widget."/>
+<!--
+  Shows a list that can be reordered. 
+  Use the ivy.ListItem converter to convert the list items (person) to a string (list index) an vice versa. 
+ -->
+   		  		<p:orderList value="#{data.persons}" var="person" iconOnly="true" effect="clip"  
+	        	            itemValue="#{person}" converter="ivy.ListItem" controlsLocation="left" id="personsList">            	
+	          		<f:facet name="caption">Persons</f:facet>  
+	          		<p:column><b>#{person.name}</b> #{person.firstname}</p:column> 
+	 			</p:orderList>  
+	 			<p:commandButton actionListener="#{logic.Send}" value="Send" update="persons"/>
+	 			<br/>
+	 			<h:outputText value="Persons: #{data.persons}"/>
+	   		</p:panel>
+	   		<p:commandButton actionListener="#{logic.Close}" value="Close"/>	   		
+   		</h:form>
+    </h:body>
+</html>

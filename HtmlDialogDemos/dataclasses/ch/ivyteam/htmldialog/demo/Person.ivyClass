@@ -1,0 +1,6 @@
+Person #class
+ch.ivyteam.htmldialog.demo #namespace
+name String #field
+name PERSISTENT #fieldModifier
+firstname String #field
+firstname PERSISTENT #fieldModifier
