@@ -1,0 +1,4 @@
+InitPersonsData #class
+ch.ivyteam.htmldialog.demo #namespace
+persons List<ch.ivyteam.htmldialog.demo.Person> #field
+persons PERSISTENT #fieldModifier

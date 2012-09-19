@@ -1,0 +1,6 @@
+EditableTableDemoData #class
+htmlDialogDemos.EditableTableDemo #namespace
+persons List<ch.ivyteam.htmldialog.demo.Person> #field
+persons PERSISTENT #fieldModifier
+recordset Recordset #field
+recordset PERSISTENT #fieldModifier

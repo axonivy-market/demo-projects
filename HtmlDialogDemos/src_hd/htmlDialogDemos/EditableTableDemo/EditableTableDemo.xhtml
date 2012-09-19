@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+    <h:head>
+        <title>Editable Table Demo</title>
+    </h:head>
+    <h:body>
+     	<h:form>
+		   	<p:panel header="Editable Table Demo" id="persons">
+				<h:outputText value="This demo explains how an Xpert.ivy Recordset can be used as data for an editable table widget."/>
+	 			<p:dataTable var="person" value="#{data.recordset}" sortBy="#{person['Name']}" sordOrder="descending" editable="true">
+	 			  <p:column headerText="Name" sortBy="#{person['Name']}">
+	 			    <p:cellEditor>
+	 			      <f:facet name="output">
+		 			    <b>#{person['name']}</b>
+				      </f:facet>
+	 			      <f:facet name="input">
+	 			        <h:inputText value="#{person['Name']}"/>
+	 			      </f:facet>
+	 			    </p:cellEditor>
+	 			  </p:column>
+	 			  <p:column headerText="Firstname" sortBy="#{person['Firstname']}">
+	 			    <p:cellEditor>
+	 			      <f:facet name="output">
+		 			    #{person['Firstname']}
+				      </f:facet>
+	 			      <f:facet name="input">
+	 			        <h:inputText value="#{person['Firstname']}"/>
+	 			      </f:facet>
+	 			    </p:cellEditor>
+	 			  </p:column>
+	 			  <p:column>
+	 			    <p:rowEditor />
+	 			  </p:column>	 			  
+	 			</p:dataTable>
+	 			<p:commandButton actionListener="#{logic.Send}" value="Send" update="persons"/>
+	 			<br/>
+	 			<h:outputText value="Persons: #{data.recordset}"/>	 			
+	   		</p:panel>
+	   		<p:commandButton actionListener="#{logic.Close}" value="Close"/>	   		
+   		</h:form>
+    </h:body>
+</html>

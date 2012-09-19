@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 17 14:54:04 CEST 2012]
+[>Created: Tue Sep 18 15:10:09 CEST 2012]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -21,6 +21,11 @@ Do0 @PushWFArc f7 '' #zField
 Do0 @EndTask f8 '' #zField
 Do0 @PushWFArc f9 '' #zField
 Do0 @PushWFArc f3 '' #zField
+Do0 @StartRequest f10 '' #zField
+Do0 @RichDialog f11 '' #zField
+Do0 @PushWFArc f12 '' #zField
+Do0 @EndTask f13 '' #zField
+Do0 @PushWFArc f14 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -157,8 +162,114 @@ Do0 f9 expr out #txt
 Do0 f9 120 372 120 403 #arcP
 Do0 f3 expr out #txt
 Do0 f3 120 93 120 132 #arcP
+Do0 f10 outLink EditableTableDemo.ivp #txt
+Do0 f10 type htmlDialogDemos.Data #txt
+Do0 f10 inParamDecl '<> param;' #txt
+Do0 f10 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f10 guid 139D97D3AA4DD56C #txt
+Do0 f10 requestEnabled true #txt
+Do0 f10 triggerEnabled false #txt
+Do0 f10 callSignature EditableTableDemo() #txt
+Do0 f10 persist false #txt
+Do0 f10 taskData '#
+#Tue Sep 18 15:07:44 CEST 2012
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f10 caseData '#
+#Tue Sep 18 15:07:44 CEST 2012
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f10 showInStartList 1 #txt
+Do0 f10 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>EditableTableDemo.ivp</name>
+        <nameStyle>21,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Do0 f10 @C|.responsibility Everybody #txt
+Do0 f10 275 283 26 26 14 0 #rect
+Do0 f10 @|StartRequestIcon #fIcon
+Do0 f11 targetWindow NEW:card: #txt
+Do0 f11 targetDisplay TOP #txt
+Do0 f11 richDialogId htmlDialogDemos.EditableTableDemo #txt
+Do0 f11 startMethod start() #txt
+Do0 f11 type htmlDialogDemos.Data #txt
+Do0 f11 requestActionDecl '<> param;' #txt
+Do0 f11 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f11 responseMappingAction 'out=in;
+' #txt
+Do0 f11 windowConfiguration '* ' #txt
+Do0 f11 isAsynch false #txt
+Do0 f11 isInnerRd false #txt
+Do0 f11 userContext '* ' #txt
+Do0 f11 270 348 36 24 20 -2 #rect
+Do0 f11 @|RichDialogIcon #fIcon
+Do0 f12 expr out #txt
+Do0 f12 288 309 288 348 #arcP
+Do0 f13 type htmlDialogDemos.Data #txt
+Do0 f13 275 403 26 26 14 0 #rect
+Do0 f13 @|EndIcon #fIcon
+Do0 f14 expr out #txt
+Do0 f14 288 372 288 403 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
+>Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <swimlaneLabel>Main Demo </swimlaneLabel>
+        <swimlaneLabel>Demos</swimlaneLabel>
+        <swimlaneLabel></swimlaneLabel>
+    </language>
+    <swimlaneOrientation>false</swimlaneOrientation>
+    <swimlaneSize>248</swimlaneSize>
+    <swimlaneSize>208</swimlaneSize>
+    <swimlaneColor>-1</swimlaneColor>
+    <swimlaneColor>-6710887</swimlaneColor>
+</elementInfo>
+' #txt
 >Proto Do0 0 0 32 24 18 0 #rect
 >Proto Do0 @|BIcon #fIcon
 Do0 f2 mainOut f4 tail #connect
@@ -169,3 +280,7 @@ Do0 f6 mainOut f9 tail #connect
 Do0 f9 head f8 mainIn #connect
 Do0 f0 mainOut f3 tail #connect
 Do0 f3 head f2 mainIn #connect
+Do0 f10 mainOut f12 tail #connect
+Do0 f12 head f11 mainIn #connect
+Do0 f11 mainOut f14 tail #connect
+Do0 f14 head f13 mainIn #connect

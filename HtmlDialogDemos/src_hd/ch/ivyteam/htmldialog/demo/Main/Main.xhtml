@@ -17,7 +17,15 @@
 	    	   			<h:outputLink value="#{ivy.html.startref('Demo/OrderListDemo.ivp')}">
 	    	   		  		<p:graphicImage value="http://localhost:8081#{ivy.cms.cr('/ch.ivyteam.htmldialog.demo/OrderListDemo')}"/>
 	    	   		  	</h:outputLink>
-	    	   		  <h:outputText value="Shows how an Xpert.ivy List can be used do display a list that can be ordered and the selected entry can be edited."/>
+	    	   		  <h:outputText value="Shows how an Xpert.ivy List can be used do display a list that can be ordered."/>
+	    	   		</h:panelGrid>
+	    	  	</p:tab>
+	    	  	<p:tab title="Editable Table Demo">
+	    	   		<h:panelGrid columns="3" cellpadding="10">
+	    	   			<h:outputLink value="#{ivy.html.startref('Demo/EditableTableDemo.ivp')}">
+	    	   		  		<p:graphicImage value="http://localhost:8081#{ivy.cms.cr('/ch.ivyteam.htmldialog.demo/EditableTableDemo')}"/>
+	    	   		  	</h:outputLink>
+	    	   		  <h:outputText value="Shows how an Xpert.ivy Recordset can be used to display a table that can be edited."/>
 	    	   		</h:panelGrid>
 	    	  	</p:tab>
 	    	</p:accordionPanel>
