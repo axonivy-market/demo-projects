@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <title>Form Demo</title>
+        <style>
+        	.label-top{ vertical-align: top;}
+        </style>
+    </h:head>
+    <h:body>
+    	<h:form id="Form">
+    		<p:panel header="Form Demo" id="panel">
+    	 		<h:outputText value="This demo explains how "/>
+    	 		<ul>
+    	 			<li>Html Dialog Data can be mapped to UI elements, e.g. to build a form.</li>
+    	 			<li>Events on the UI can be mapped to Html Dialog Event Processes.</li>
+    	 			<li>UI elements can dynamically call Html Dialog Method Processes to get data dynamically using AJAX.</li>
+    	 			<li>Label can use the cms so that the form can be translated into other languages.</li>
+    	 			<li>User input can be validated direct on the UI.</li>
+    	 		</ul>
+    	 		<p:messages id="msgs"/>
+    	 		<h:panelGrid columns="3" cellpadding="5" columnClasses="label-top" id="Person">
+
+    	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Name')}" for="Name"/>  
+					<ui:remove>
+					<!-- 
+					Use #{data.name} to map the name HtmlDialog data attribute to the UI widget text and vice versa 
+					-->
+					</ui:remove> 	
+    	 			<p:inputText value="#{data.name}" id="Name" required="true"/>
+    	 			<p:message for="Name" display="icon"/>
+
+    	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/FirstName')}" for="Firstname"/>
+    	 			<p:inputText value="#{data.firstname}" id="Firstname" required="true"/>
+    	 			<p:message for="Firstname" display="icon"/>
+
+    	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Birthday')}" for="Birthday"/>
+    	 			<p:calendar value="#{data.birthday}" id="Birthday" navigator="true" required="true">
+						<ui:remove>
+    		 			<!--  
+    	 			   	Use the following tag to convert date, time, datetime types to a string that is displayed and vice versa  
+    	 			    -->
+    	 			    </ui:remove>
+    	 			    <f:convertDateTime/>
+    	 			</p:calendar>
+    	 			<p:message for="Birthday" display="icon"/>
+
+    	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/PhoneNumber')}" for="PhoneNumber"/>
+    	 			<p:inputMask value="#{data.phone}" id="PhoneNumber" mask="+99 (0)99 999 99 99" required="true"/>    	 			
+    	 			<p:message for="PhoneNumber" display="icon"/>
+
+    	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Address')}" for="Address" style="vertical-align:top"/>
+    	 			<p:inputTextarea value="#{data.address}" row="2" cols="23" id="Address" required="true"/>
+    	 			<p:message for="Address" display="icon"/>
+
+    	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/ZipCode')}" for="ZipCode"/>
+    	 			<p:inputText value="#{data.zipCode}" id="ZipCode" required="true">
+    	 				<ui:remove>
+    	 				<!-- 
+    	 			    Use the following tag to convert a number type to a string that is displayed and vice versa  
+    	 			    -->
+    	 			    </ui:remove>
+    	 			  	<f:convertNumber integerOnly="true" groupingUsed="false"/>
+    	 				<ui:remove>
+    	 			    <!-- 
+    	 			    Use the following tag to validate that the entered number is between 4 and 5 characters long 
+    	 			    -->
+    	 			    </ui:remove>
+    	 			  	<f:validateLength minimum="4" maximum="5"/>
+    	 			</p:inputText>
+    	 			<p:message for="ZipCode" display="icon"/>
+
+    	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/City')}" for="City"/>
+    	 			<p:inputText value="#{data.city}" id="City" required="true"/>
+    	 			<p:message for="City" display="icon"/>
+
+    	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Country')}" for="Country"/>
+  	 				<ui:remove>
+    	 			<!-- 
+    	 			Use #{logic.CompleteCountry} to call the method process of the method CompleteCountry. The signature of the method must 
+    	 			match the signature expected by the UI widget.    
+    	 			-->
+   	 			    </ui:remove>
+    	 			<p:autoComplete value="#{data.city}" id="Country" completeMethod="#{logic.CompleteCountry}" delay="500" required="true"/>
+    	 			<p:message for="Country" display="icon"/>
+
+    	 		</h:panelGrid>
+				
+				<ui:remove>
+				<!-- 
+				Use #{logic.Send} to call the event process with the name Send. 
+				-->
+			    </ui:remove>
+    	 		<p:commandButton value="Send" actionListener="#{logic.Send}" update="panel"/>
+    	 		<br/>
+    	 		<br/>
+    	 		<h:outputLabel value="Data: #{data}"/>
+
+	    	</p:panel>
+	    	<br/>
+	    	<ui:remove>
+			<!-- 
+			Use #{logic.Close} to call the event process with the name Send. 
+			-->
+		    </ui:remove>
+	    	<p:commandButton value="Close" actionListener="#{logic.Close}"/>
+   	 	</h:form>   	 	
+    </h:body>
+</html>

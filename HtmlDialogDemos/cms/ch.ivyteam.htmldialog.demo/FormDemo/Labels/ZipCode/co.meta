@@ -1,0 +1,3 @@
+co: name={ZipCode} description={} changed={2012-09-20 13:04:16 GMT} changedby={rwei} visualorder={0} guid={139E3C71888C2EB3} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={139E3C7188EF4090} datatype={} isdefault={true} langid={en} description={} validfrom={2012-09-20 13:03:59 GMT} validto={} changed={2012-09-20 13:04:08 GMT} changedby={rwei} properties={} id={}
+val: guid={139E3C73AD523C18} datatype={} isdefault={false} langid={de} description={} validfrom={2012-09-20 13:04:08 GMT} validto={} changed={2012-09-20 13:04:16 GMT} changedby={rwei} properties={} id={}

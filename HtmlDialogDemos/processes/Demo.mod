@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Sep 18 15:10:09 CEST 2012]
+[>Created: Thu Sep 20 15:31:35 CEST 2012]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -26,6 +26,11 @@ Do0 @RichDialog f11 '' #zField
 Do0 @PushWFArc f12 '' #zField
 Do0 @EndTask f13 '' #zField
 Do0 @PushWFArc f14 '' #zField
+Do0 @StartRequest f15 '' #zField
+Do0 @EndTask f16 '' #zField
+Do0 @RichDialog f17 '' #zField
+Do0 @PushWFArc f18 '' #zField
+Do0 @PushWFArc f19 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -36,10 +41,61 @@ Do0 f0 guid 139D3A4DA0038841 #txt
 Do0 f0 requestEnabled true #txt
 Do0 f0 triggerEnabled false #txt
 Do0 f0 callSignature start() #txt
+Do0 f0 persist false #txt
+Do0 f0 startName 'All HtmlDialog Demos' #txt
+Do0 f0 taskData '#
+#Thu Sep 20 15:31:34 CEST 2012
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f0 caseData '#
+#Thu Sep 20 15:31:34 CEST 2012
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f0 showInStartList 1 #txt
+Do0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
 Do0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
+        <nameStyle>9,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -172,8 +228,9 @@ Do0 f10 requestEnabled true #txt
 Do0 f10 triggerEnabled false #txt
 Do0 f10 callSignature EditableTableDemo() #txt
 Do0 f10 persist false #txt
+Do0 f10 startName 'Editable Table Demo' #txt
 Do0 f10 taskData '#
-#Tue Sep 18 15:07:44 CEST 2012
+#Thu Sep 20 15:31:19 CEST 2012
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -182,7 +239,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Do0 f10 caseData '#
-#Tue Sep 18 15:07:44 CEST 2012
+#Thu Sep 20 15:31:19 CEST 2012
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -254,6 +311,99 @@ Do0 f13 275 403 26 26 14 0 #rect
 Do0 f13 @|EndIcon #fIcon
 Do0 f14 expr out #txt
 Do0 f14 288 372 288 403 #arcP
+Do0 f15 outLink FormDemo.ivp #txt
+Do0 f15 type htmlDialogDemos.Data #txt
+Do0 f15 inParamDecl '<> param;' #txt
+Do0 f15 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f15 guid 139E31D7F30F51DD #txt
+Do0 f15 requestEnabled true #txt
+Do0 f15 triggerEnabled false #txt
+Do0 f15 callSignature FormDemo() #txt
+Do0 f15 persist false #txt
+Do0 f15 startName FormDemo #txt
+Do0 f15 taskData '#
+#Thu Sep 20 12:00:05 CEST 2012
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f15 caseData '#
+#Thu Sep 20 12:00:05 CEST 2012
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f15 showInStartList 1 #txt
+Do0 f15 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>FormDemo.ivp</name>
+        <nameStyle>12,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Do0 f15 @C|.responsibility Everybody #txt
+Do0 f15 451 283 26 26 14 0 #rect
+Do0 f15 @|StartRequestIcon #fIcon
+Do0 f16 type htmlDialogDemos.Data #txt
+Do0 f16 451 403 26 26 14 0 #rect
+Do0 f16 @|EndIcon #fIcon
+Do0 f17 targetWindow NEW:card: #txt
+Do0 f17 targetDisplay TOP #txt
+Do0 f17 richDialogId ch.ivyteam.htmldialog.demo.FormDemo #txt
+Do0 f17 startMethod start() #txt
+Do0 f17 type htmlDialogDemos.Data #txt
+Do0 f17 requestActionDecl '<> param;' #txt
+Do0 f17 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f17 responseMappingAction 'out=in;
+' #txt
+Do0 f17 windowConfiguration '* ' #txt
+Do0 f17 isAsynch false #txt
+Do0 f17 isInnerRd false #txt
+Do0 f17 userContext '* ' #txt
+Do0 f17 446 348 36 24 20 -2 #rect
+Do0 f17 @|RichDialogIcon #fIcon
+Do0 f18 expr out #txt
+Do0 f18 464 309 464 348 #arcP
+Do0 f19 expr out #txt
+Do0 f19 464 372 464 403 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -284,3 +434,7 @@ Do0 f10 mainOut f12 tail #connect
 Do0 f12 head f11 mainIn #connect
 Do0 f11 mainOut f14 tail #connect
 Do0 f14 head f13 mainIn #connect
+Do0 f15 mainOut f18 tail #connect
+Do0 f18 head f17 mainIn #connect
+Do0 f17 mainOut f19 tail #connect
+Do0 f19 head f16 mainIn #connect
