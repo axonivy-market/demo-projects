@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <title>JSF User Dialog</title>
+    </h:head>
+    <h:body>
+		<h:form id="Form">
+    		<p:panel header="Parial Update Demo" id="panel">
+    	 		<h:outputText value="This demo explains how only parts of the UI can be updated by using AJAX without to reload the whole html page."/>
+    	 		
+    	 		<p:panel header="Counter" id="counterPanel_1">
+    	 		  	<h:outputLabel value="Counter:"/>
+    	 		  	<h:outputText value="#{data.counter}"/>
+    	 		  	<br/>
+    	 		  	<ui:remove>
+    	 		  	<!-- 
+    	 		  	Increases the counter 
+    	 		  	but only updates the panel 'counterPanel_1' 
+    	 		  	without to reload the whole page or update other panels
+    	 		  	  -->
+    	 		  	</ui:remove>
+    	 		  	<p:commandButton value="Increase counter then update this panel" update="counterPanel_1" actionListener="#{logic.IncreaseCounter}"/>
+    	 		</p:panel>
+    	 		<p:panel header="Counter" id="counterPanel_2">
+    	 		  	<h:outputLabel value="Counter:"/>
+    	 		  	<h:outputText value="#{data.counter}"/>
+    	 		  	<br/>
+    	 		  	<ui:remove>
+    	 		  	<!-- 
+    	 		  	Increases the counter 
+    	 		  	but only updates the panel 'counterPanel_2' 
+    	 		  	without to reload the whole page or update other panels
+    	 		  	  -->
+    	 		  	</ui:remove>
+    	 		  	<p:commandButton value="Increase counter then update this panel" update="counterPanel_2" actionListener="#{logic.IncreaseCounter}"/>
+    	 		</p:panel>
+    	 		<br/>
+   	 		  	<ui:remove>
+   	 		  	<!-- 
+   	 		  	Increases the counter 
+   	 		  	and then updates both panels 
+   	 		  	without to reload the whole page
+                -->
+                </ui:remove>
+   	 		  	<p:commandButton value="Increase counter then update both panels" update="counterPanel_1 counterPanel_2" actionListener="#{logic.IncreaseCounter}"/>
+    		</p:panel>	 	
+    	</h:form>	
+    </h:body>
+</html>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 20 15:31:35 CEST 2012]
+[>Created: Thu Sep 20 16:00:18 CEST 2012]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -31,6 +31,11 @@ Do0 @EndTask f16 '' #zField
 Do0 @RichDialog f17 '' #zField
 Do0 @PushWFArc f18 '' #zField
 Do0 @PushWFArc f19 '' #zField
+Do0 @StartRequest f20 '' #zField
+Do0 @RichDialog f21 '' #zField
+Do0 @EndTask f22 '' #zField
+Do0 @PushWFArc f23 '' #zField
+Do0 @PushWFArc f24 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -404,6 +409,99 @@ Do0 f18 expr out #txt
 Do0 f18 464 309 464 348 #arcP
 Do0 f19 expr out #txt
 Do0 f19 464 372 464 403 #arcP
+Do0 f20 outLink PartialUpdateDemo.ivp #txt
+Do0 f20 type htmlDialogDemos.Data #txt
+Do0 f20 inParamDecl '<> param;' #txt
+Do0 f20 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f20 guid 139E3F9CF71F9D6B #txt
+Do0 f20 requestEnabled true #txt
+Do0 f20 triggerEnabled false #txt
+Do0 f20 callSignature PartialUpdateDemo() #txt
+Do0 f20 persist false #txt
+Do0 f20 startName 'Partial Update Demo' #txt
+Do0 f20 taskData '#
+#Thu Sep 20 16:00:07 CEST 2012
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f20 caseData '#
+#Thu Sep 20 16:00:07 CEST 2012
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f20 showInStartList 1 #txt
+Do0 f20 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>PartialUpdateDemo.ivp</name>
+        <nameStyle>21,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Do0 f20 @C|.responsibility Everybody #txt
+Do0 f20 107 467 26 26 14 0 #rect
+Do0 f20 @|StartRequestIcon #fIcon
+Do0 f21 targetWindow NEW:card: #txt
+Do0 f21 targetDisplay TOP #txt
+Do0 f21 richDialogId ch.ivyteam.htmldialog.demo.PartialUpdateDemo #txt
+Do0 f21 startMethod start() #txt
+Do0 f21 type htmlDialogDemos.Data #txt
+Do0 f21 requestActionDecl '<> param;' #txt
+Do0 f21 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f21 responseMappingAction 'out=in;
+' #txt
+Do0 f21 windowConfiguration '* ' #txt
+Do0 f21 isAsynch false #txt
+Do0 f21 isInnerRd false #txt
+Do0 f21 userContext '* ' #txt
+Do0 f21 102 532 36 24 20 -2 #rect
+Do0 f21 @|RichDialogIcon #fIcon
+Do0 f22 type htmlDialogDemos.Data #txt
+Do0 f22 107 595 26 26 14 0 #rect
+Do0 f22 @|EndIcon #fIcon
+Do0 f23 expr out #txt
+Do0 f23 120 493 120 532 #arcP
+Do0 f24 expr out #txt
+Do0 f24 120 556 120 595 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -415,7 +513,7 @@ Do0 f19 464 372 464 403 #arcP
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
     <swimlaneSize>248</swimlaneSize>
-    <swimlaneSize>208</swimlaneSize>
+    <swimlaneSize>400</swimlaneSize>
     <swimlaneColor>-1</swimlaneColor>
     <swimlaneColor>-6710887</swimlaneColor>
 </elementInfo>
@@ -438,3 +536,7 @@ Do0 f15 mainOut f18 tail #connect
 Do0 f18 head f17 mainIn #connect
 Do0 f17 mainOut f19 tail #connect
 Do0 f19 head f16 mainIn #connect
+Do0 f20 mainOut f23 tail #connect
+Do0 f23 head f21 mainIn #connect
+Do0 f21 mainOut f24 tail #connect
+Do0 f24 head f22 mainIn #connect

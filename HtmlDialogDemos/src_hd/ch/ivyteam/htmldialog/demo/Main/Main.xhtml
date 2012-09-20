@@ -20,6 +20,14 @@
 	    	   		  <h:outputText value="Shows how to a html form can be bound to Xpert.ivy data and process. Moreover shows how input validation and auto completion can be implemented."/>
 	    	   		</h:panelGrid>
 	    	  	</p:tab>
+	    	  	<p:tab title="Parial Update Demo">
+	    	   		<h:panelGrid columns="3" cellpadding="10">
+	    	   			<h:outputLink value="#{ivy.html.startref('Demo/PartialUpdateDemo.ivp')}">
+	    	   		  		<p:graphicImage value="http://localhost:8081#{ivy.cms.cr('/ch.ivyteam.htmldialog.demo/Main/images/PartialUpdateDemo')}"/>
+	    	   		  	</h:outputLink>
+	    	   		  <h:outputText value="Shows how only a part of a html page can be updated without to reload the whole HTML page."/>
+	    	   		</h:panelGrid>
+	    	  	</p:tab>
 	    	  	<p:tab title="OrderList Demo">
 	    	   		<h:panelGrid columns="3" cellpadding="10">
 	    	   			<h:outputLink value="#{ivy.html.startref('Demo/OrderListDemo.ivp')}">

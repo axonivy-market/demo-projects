@@ -1,0 +1,4 @@
+PartialUpdateDemoData #class
+ch.ivyteam.htmldialog.demo.PartialUpdateDemo #namespace
+counter Number #field
+counter PERSISTENT #fieldModifier

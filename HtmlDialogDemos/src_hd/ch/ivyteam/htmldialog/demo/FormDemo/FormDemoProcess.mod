@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 20 14:12:24 CEST 2012]
+[>Created: Thu Sep 20 16:49:46 CEST 2012]
 139E30EF308FD0DC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FormDemoProcess Big #zClass
@@ -115,13 +115,22 @@ for (Locale locale: Locale.getAvailableLocales())
   }
 }' #txt
 Fs0 f10 type ch.ivyteam.htmldialog.demo.FormDemo.FormDemoData #txt
-Fs0 f10 78 436 36 24 20 -2 #rect
+Fs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Eveluate matching countries</name>
+        <nameStyle>27,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Fs0 f10 78 444 36 24 26 -6 #rect
 Fs0 f10 @|RichDialogProcessStepIcon #fIcon
 Fs0 f11 type ch.ivyteam.htmldialog.demo.FormDemo.FormDemoData #txt
-Fs0 f11 86 502 20 20 13 0 #rect
+Fs0 f11 86 510 20 20 13 0 #rect
 Fs0 f11 @|RichDialogProcessEndIcon #fIcon
 Fs0 f13 expr out #txt
-Fs0 f13 96 460 96 502 #arcP
+Fs0 f13 96 468 96 510 #arcP
 Fs0 f9 guid 139E37250FA7DB14 #txt
 Fs0 f9 type ch.ivyteam.htmldialog.demo.FormDemo.FormDemoData #txt
 Fs0 f9 method CompleteCountry(String) #txt
@@ -144,12 +153,29 @@ Fs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f9 86 382 20 20 13 0 #rect
+Fs0 f9 86 390 20 20 13 0 #rect
 Fs0 f9 @|RichDialogMethodStartIcon #fIcon
 Fs0 f12 expr out #txt
-Fs0 f12 96 402 96 436 #arcP
+Fs0 f12 96 410 96 444 #arcP
 >Proto Fs0 .type ch.ivyteam.htmldialog.demo.FormDemo.FormDemoData #txt
 >Proto Fs0 .processKind RICH_DIALOG #txt
+>Proto Fs0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <swimlaneLabel>Initialisation</swimlaneLabel>
+        <swimlaneLabel>Events</swimlaneLabel>
+        <swimlaneLabel>Methods</swimlaneLabel>
+        <swimlaneLabel></swimlaneLabel>
+    </language>
+    <swimlaneOrientation>false</swimlaneOrientation>
+    <swimlaneSize>192</swimlaneSize>
+    <swimlaneSize>168</swimlaneSize>
+    <swimlaneSize>192</swimlaneSize>
+    <swimlaneColor>-1</swimlaneColor>
+    <swimlaneColor>-1</swimlaneColor>
+    <swimlaneColor>-1</swimlaneColor>
+</elementInfo>
+' #txt
 >Proto Fs0 -8 -8 16 16 16 26 #rect
 >Proto Fs0 '' #fIcon
 Fs0 f0 mainOut f2 tail #connect
