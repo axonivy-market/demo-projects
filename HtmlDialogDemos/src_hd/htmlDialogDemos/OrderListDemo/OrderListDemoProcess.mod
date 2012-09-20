@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Sep 18 15:06:36 CEST 2012]
+[>Created: Thu Sep 20 10:04:13 CEST 2012]
 139D3B8894867715 3.17 #module
 >Proto >Proto Collection #zClass
 Os0 OrderListDemoProcess Big #zClass
@@ -64,10 +64,10 @@ Os0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Os0 f5 262 46 20 20 13 0 #rect
+Os0 f5 86 246 20 20 13 0 #rect
 Os0 f5 @|RichDialogProcessStartIcon #fIcon
 Os0 f6 type htmlDialogDemos.OrderListDemo.OrderListDemoData #txt
-Os0 f6 262 142 20 20 13 0 #rect
+Os0 f6 86 342 20 20 13 0 #rect
 Os0 f6 @|RichDialogProcessEndIcon #fIcon
 Os0 f7 guid 139D4375C5912100 #txt
 Os0 f7 type htmlDialogDemos.OrderListDemo.OrderListDemoData #txt
@@ -84,16 +84,16 @@ Os0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Os0 f7 430 54 20 20 13 0 #rect
+Os0 f7 254 246 20 20 13 0 #rect
 Os0 f7 @|RichDialogProcessStartIcon #fIcon
 Os0 f8 type htmlDialogDemos.OrderListDemo.OrderListDemoData #txt
 Os0 f8 guid 139D43768BEC3366 #txt
-Os0 f8 430 142 20 20 13 0 #rect
+Os0 f8 254 342 20 20 13 0 #rect
 Os0 f8 @|RichDialogEndIcon #fIcon
 Os0 f9 expr out #txt
-Os0 f9 440 74 440 142 #arcP
+Os0 f9 264 266 264 342 #arcP
 Os0 f10 expr out #txt
-Os0 f10 272 66 272 142 #arcP
+Os0 f10 96 266 96 342 #arcP
 Os0 f2 type htmlDialogDemos.OrderListDemo.OrderListDemoData #txt
 Os0 f2 processCall 'Functional Processes/InitPersons:initPerson()' #txt
 Os0 f2 doCall true #txt
@@ -119,6 +119,20 @@ Os0 f4 expr out #txt
 Os0 f4 96 124 96 150 #arcP
 >Proto Os0 .type htmlDialogDemos.OrderListDemo.OrderListDemoData #txt
 >Proto Os0 .processKind RICH_DIALOG #txt
+>Proto Os0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <swimlaneLabel>Initialisation</swimlaneLabel>
+        <swimlaneLabel>Events</swimlaneLabel>
+        <swimlaneLabel></swimlaneLabel>
+    </language>
+    <swimlaneOrientation>false</swimlaneOrientation>
+    <swimlaneSize>216</swimlaneSize>
+    <swimlaneSize>176</swimlaneSize>
+    <swimlaneColor>-1</swimlaneColor>
+    <swimlaneColor>-1</swimlaneColor>
+</elementInfo>
+' #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
 >Proto Os0 '' #fIcon
 Os0 f7 mainOut f9 tail #connect
