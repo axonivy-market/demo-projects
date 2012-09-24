@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>PickList Demo</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panel header="PickList Demo">
+			<h3>This demo explains how Xpert.ivy Lists can be used as data for an pick list widget.</h3>
+			<p:pickList id="pickList" value="#{data.persons}" var="person" effect="slide"
+				itemLabel="#{person.name} #{person.firstname}" itemValue="#{person}" showSourceControls="true"
+				showTargetControls="true" showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains"
+				converter="ivy.ListItem">
+
+				<f:facet name="sourceCaption">Available</f:facet>
+				<f:facet name="targetCaption">Selected</f:facet>
+
+				<p:column>
+					<b>#{person.name}</b> #{person.firstname}
+				</p:column>
+			</p:pickList>
+			<br />
+			<p:commandButton actionListener="#{logic.send}" value="Send" update="pickList, resultPanel" />
+			<br />
+			<br />
+			<p:panelGrid columns="2" id="resultPanel">
+				<h:outputLabel value="Available:" />
+				<h:outputLabel value="#{data.persons.source}" />
+
+				<h:outputLabel value="Selected" />
+				<h:outputLabel value="#{data.persons.target}" />
+			</p:panelGrid>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

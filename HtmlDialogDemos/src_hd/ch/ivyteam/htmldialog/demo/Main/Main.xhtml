@@ -11,7 +11,7 @@
     <h:body>
     	<p:panel header="Xpert.ivy Html Dialog Demos">
     		<p>This demo project contains examples that show how Xpert.ivy Html Dialogs can be used.</p>
-	    	<p:accordionPanel>
+	    	<p:accordionPanel multiple="true">
 	    	  	<p:tab title="Form Demo">
 	    	   		<h:panelGrid columns="3" cellpadding="10">
 	    	   			<h:outputLink value="#{ivy.html.startref('Demo/FormDemo.ivp')}">
@@ -34,6 +34,14 @@
 	    	   		  		<p:graphicImage value="http://localhost:8081#{ivy.cms.cr('/ch.ivyteam.htmldialog.demo/Main/images/OrderListDemo')}"/>
 	    	   		  	</h:outputLink>
 	    	   		  <h:outputText value="Shows how a Xpert.ivy List can be used do display a list that can be ordered."/>
+	    	   		</h:panelGrid>
+	    	  	</p:tab>
+	    	  	<p:tab title="PickList Demo">
+	    	   		<h:panelGrid columns="3" cellpadding="10">
+	    	   			<h:outputLink value="#{ivy.html.startref('Demo/PickListDemo.ivp')}">
+	    	   		  		<p:graphicImage value="http://localhost:8081#{ivy.cms.cr('/ch.ivyteam.htmldialog.demo/Main/images/PickListDemo')}"/>
+	    	   		  	</h:outputLink>
+	    	   		  <h:outputText value="Shows how Xpert.ivy Lists can be used as data for an pick list widget."/>
 	    	   		</h:panelGrid>
 	    	  	</p:tab>
 	    	  	<p:tab title="Editable Table Demo">

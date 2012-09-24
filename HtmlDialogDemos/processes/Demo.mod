@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 20 16:00:18 CEST 2012]
+[>Created: Mon Sep 24 16:28:21 CEST 2012]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -36,6 +36,11 @@ Do0 @RichDialog f21 '' #zField
 Do0 @EndTask f22 '' #zField
 Do0 @PushWFArc f23 '' #zField
 Do0 @PushWFArc f24 '' #zField
+Do0 @StartRequest f25 '' #zField
+Do0 @EndTask f26 '' #zField
+Do0 @RichDialog f27 '' #zField
+Do0 @PushWFArc f28 '' #zField
+Do0 @PushWFArc f29 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -105,10 +110,10 @@ Do0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f0 @C|.responsibility Everybody #txt
-Do0 f0 107 67 26 26 14 0 #rect
+Do0 f0 83 51 26 26 14 0 #rect
 Do0 f0 @|StartRequestIcon #fIcon
 Do0 f1 type htmlDialogDemos.Data #txt
-Do0 f1 107 195 26 26 14 0 #rect
+Do0 f1 83 179 26 26 14 0 #rect
 Do0 f1 @|EndIcon #fIcon
 Do0 f2 targetWindow NEW:card: #txt
 Do0 f2 targetDisplay TOP #txt
@@ -124,10 +129,10 @@ Do0 f2 windowConfiguration '* ' #txt
 Do0 f2 isAsynch false #txt
 Do0 f2 isInnerRd false #txt
 Do0 f2 userContext '* ' #txt
-Do0 f2 102 132 36 24 20 -2 #rect
+Do0 f2 78 116 36 24 20 -2 #rect
 Do0 f2 @|RichDialogIcon #fIcon
 Do0 f4 expr out #txt
-Do0 f4 120 156 120 195 #arcP
+Do0 f4 96 140 96 179 #arcP
 Do0 f5 outLink OrderListDemo.ivp #txt
 Do0 f5 type htmlDialogDemos.Data #txt
 Do0 f5 inParamDecl '<> param;' #txt
@@ -196,7 +201,7 @@ Do0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f5 @C|.responsibility Everybody #txt
-Do0 f5 107 283 26 26 14 0 #rect
+Do0 f5 83 275 26 26 14 0 #rect
 Do0 f5 @|StartRequestIcon #fIcon
 Do0 f6 targetWindow NEW:card: #txt
 Do0 f6 targetDisplay TOP #txt
@@ -212,17 +217,17 @@ Do0 f6 windowConfiguration '* ' #txt
 Do0 f6 isAsynch false #txt
 Do0 f6 isInnerRd false #txt
 Do0 f6 userContext '* ' #txt
-Do0 f6 102 348 36 24 20 -2 #rect
+Do0 f6 78 340 36 24 20 -2 #rect
 Do0 f6 @|RichDialogIcon #fIcon
 Do0 f7 expr out #txt
-Do0 f7 120 309 120 348 #arcP
+Do0 f7 96 301 96 340 #arcP
 Do0 f8 type htmlDialogDemos.Data #txt
-Do0 f8 107 403 26 26 14 0 #rect
+Do0 f8 83 395 26 26 14 0 #rect
 Do0 f8 @|EndIcon #fIcon
 Do0 f9 expr out #txt
-Do0 f9 120 372 120 403 #arcP
+Do0 f9 96 364 96 395 #arcP
 Do0 f3 expr out #txt
-Do0 f3 120 93 120 132 #arcP
+Do0 f3 96 77 96 116 #arcP
 Do0 f10 outLink EditableTableDemo.ivp #txt
 Do0 f10 type htmlDialogDemos.Data #txt
 Do0 f10 inParamDecl '<> param;' #txt
@@ -291,7 +296,7 @@ Do0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f10 @C|.responsibility Everybody #txt
-Do0 f10 275 283 26 26 14 0 #rect
+Do0 f10 243 275 26 26 14 0 #rect
 Do0 f10 @|StartRequestIcon #fIcon
 Do0 f11 targetWindow NEW:card: #txt
 Do0 f11 targetDisplay TOP #txt
@@ -307,15 +312,15 @@ Do0 f11 windowConfiguration '* ' #txt
 Do0 f11 isAsynch false #txt
 Do0 f11 isInnerRd false #txt
 Do0 f11 userContext '* ' #txt
-Do0 f11 270 348 36 24 20 -2 #rect
+Do0 f11 238 340 36 24 20 -2 #rect
 Do0 f11 @|RichDialogIcon #fIcon
 Do0 f12 expr out #txt
-Do0 f12 288 309 288 348 #arcP
+Do0 f12 256 301 256 340 #arcP
 Do0 f13 type htmlDialogDemos.Data #txt
-Do0 f13 275 403 26 26 14 0 #rect
+Do0 f13 243 395 26 26 14 0 #rect
 Do0 f13 @|EndIcon #fIcon
 Do0 f14 expr out #txt
-Do0 f14 288 372 288 403 #arcP
+Do0 f14 256 364 256 395 #arcP
 Do0 f15 outLink FormDemo.ivp #txt
 Do0 f15 type htmlDialogDemos.Data #txt
 Do0 f15 inParamDecl '<> param;' #txt
@@ -384,10 +389,10 @@ Do0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f15 @C|.responsibility Everybody #txt
-Do0 f15 451 283 26 26 14 0 #rect
+Do0 f15 435 275 26 26 14 0 #rect
 Do0 f15 @|StartRequestIcon #fIcon
 Do0 f16 type htmlDialogDemos.Data #txt
-Do0 f16 451 403 26 26 14 0 #rect
+Do0 f16 435 395 26 26 14 0 #rect
 Do0 f16 @|EndIcon #fIcon
 Do0 f17 targetWindow NEW:card: #txt
 Do0 f17 targetDisplay TOP #txt
@@ -403,12 +408,12 @@ Do0 f17 windowConfiguration '* ' #txt
 Do0 f17 isAsynch false #txt
 Do0 f17 isInnerRd false #txt
 Do0 f17 userContext '* ' #txt
-Do0 f17 446 348 36 24 20 -2 #rect
+Do0 f17 430 340 36 24 20 -2 #rect
 Do0 f17 @|RichDialogIcon #fIcon
 Do0 f18 expr out #txt
-Do0 f18 464 309 464 348 #arcP
+Do0 f18 448 301 448 340 #arcP
 Do0 f19 expr out #txt
-Do0 f19 464 372 464 403 #arcP
+Do0 f19 448 364 448 395 #arcP
 Do0 f20 outLink PartialUpdateDemo.ivp #txt
 Do0 f20 type htmlDialogDemos.Data #txt
 Do0 f20 inParamDecl '<> param;' #txt
@@ -477,7 +482,7 @@ Do0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f20 @C|.responsibility Everybody #txt
-Do0 f20 107 467 26 26 14 0 #rect
+Do0 f20 83 467 26 26 14 0 #rect
 Do0 f20 @|StartRequestIcon #fIcon
 Do0 f21 targetWindow NEW:card: #txt
 Do0 f21 targetDisplay TOP #txt
@@ -493,15 +498,108 @@ Do0 f21 windowConfiguration '* ' #txt
 Do0 f21 isAsynch false #txt
 Do0 f21 isInnerRd false #txt
 Do0 f21 userContext '* ' #txt
-Do0 f21 102 532 36 24 20 -2 #rect
+Do0 f21 78 532 36 24 20 -2 #rect
 Do0 f21 @|RichDialogIcon #fIcon
 Do0 f22 type htmlDialogDemos.Data #txt
-Do0 f22 107 595 26 26 14 0 #rect
+Do0 f22 83 595 26 26 14 0 #rect
 Do0 f22 @|EndIcon #fIcon
 Do0 f23 expr out #txt
-Do0 f23 120 493 120 532 #arcP
+Do0 f23 96 493 96 532 #arcP
 Do0 f24 expr out #txt
-Do0 f24 120 556 120 595 #arcP
+Do0 f24 96 556 96 595 #arcP
+Do0 f25 outLink PickListDemo.ivp #txt
+Do0 f25 type htmlDialogDemos.Data #txt
+Do0 f25 inParamDecl '<> param;' #txt
+Do0 f25 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f25 guid 139E7CB3B5F25EF5 #txt
+Do0 f25 requestEnabled true #txt
+Do0 f25 triggerEnabled false #txt
+Do0 f25 callSignature PickListDemo() #txt
+Do0 f25 persist false #txt
+Do0 f25 startName 'PickList Demo' #txt
+Do0 f25 taskData '#
+#Mon Sep 24 16:28:19 CEST 2012
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f25 caseData '#
+#Mon Sep 24 16:28:19 CEST 2012
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f25 showInStartList 1 #txt
+Do0 f25 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>PickListDemo.ivp</name>
+        <nameStyle>16,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Do0 f25 @C|.responsibility Everybody #txt
+Do0 f25 275 467 26 26 14 0 #rect
+Do0 f25 @|StartRequestIcon #fIcon
+Do0 f26 type htmlDialogDemos.Data #txt
+Do0 f26 275 595 26 26 14 0 #rect
+Do0 f26 @|EndIcon #fIcon
+Do0 f27 targetWindow NEW:card: #txt
+Do0 f27 targetDisplay TOP #txt
+Do0 f27 richDialogId htmlDialogDemos.PickListDemo #txt
+Do0 f27 startMethod start() #txt
+Do0 f27 type htmlDialogDemos.Data #txt
+Do0 f27 requestActionDecl '<> param;' #txt
+Do0 f27 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f27 responseMappingAction 'out=in;
+' #txt
+Do0 f27 windowConfiguration '* ' #txt
+Do0 f27 isAsynch false #txt
+Do0 f27 isInnerRd false #txt
+Do0 f27 userContext '* ' #txt
+Do0 f27 270 532 36 24 20 -2 #rect
+Do0 f27 @|RichDialogIcon #fIcon
+Do0 f28 expr out #txt
+Do0 f28 288 493 288 532 #arcP
+Do0 f29 expr out #txt
+Do0 f29 288 556 288 595 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -540,3 +638,7 @@ Do0 f20 mainOut f23 tail #connect
 Do0 f23 head f21 mainIn #connect
 Do0 f21 mainOut f24 tail #connect
 Do0 f24 head f22 mainIn #connect
+Do0 f25 mainOut f28 tail #connect
+Do0 f28 head f27 mainIn #connect
+Do0 f27 mainOut f29 tail #connect
+Do0 f29 head f26 mainIn #connect
