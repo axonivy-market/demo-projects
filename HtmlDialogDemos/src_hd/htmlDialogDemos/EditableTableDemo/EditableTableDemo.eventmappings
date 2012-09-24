@@ -1,4 +1,4 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2012-09-19 15:33:16 | 0.0.0.15100 | 1.0
-~@RD_METHODCALL[Delete(Record)]--->ch.ivyteam.ivy.process.ProcessStart:139D96A5734DE195/139DEBA1CB42E47D
+# 2012-09-24 17:12:08 | 0.0.0.15100 | 1.0
+~@RD_METHODCALL[delete(Record)]--->ch.ivyteam.ivy.process.ProcessStart:139D96A5734DE195/139DEBA1CB42E47D
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:139D96A5734DE195/139D96A574FD8C6C

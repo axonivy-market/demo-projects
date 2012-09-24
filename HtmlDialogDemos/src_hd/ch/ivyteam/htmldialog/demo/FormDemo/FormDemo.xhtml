@@ -82,21 +82,21 @@
     	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Country')}" for="Country"/>
   	 				<ui:remove>
     	 			<!-- 
-    	 			Use #{logic.CompleteCountry} to call the method process of the method CompleteCountry. The signature of the method must 
+    	 			Use #{logic.completeCountry} to call the method process of the method CompleteCountry. The signature of the method must 
     	 			match the signature expected by the UI widget.    
     	 			-->
    	 			    </ui:remove>
-    	 			<p:autoComplete value="#{data.country}" id="Country" completeMethod="#{logic.CompleteCountry}" delay="500" required="true"/>
+    	 			<p:autoComplete value="#{data.country}" id="Country" completeMethod="#{logic.completeCountry}" delay="500" required="true"/>
     	 			<p:message for="Country" display="icon"/>
 
     	 		</h:panelGrid>
 				
 				<ui:remove>
 				<!-- 
-				Use #{logic.Send} to call the event process with the name Send. 
+				Use #{logic.send} to call the event process with the name send. 
 				-->
 			    </ui:remove>
-    	 		<p:commandButton value="Send" actionListener="#{logic.Send}" update="panel"/>
+    	 		<p:commandButton value="Send" actionListener="#{logic.send}" update="panel"/>
     	 		<br/>
     	 		<br/>
     	 		<h:outputLabel value="Data: #{data}"/>
@@ -105,10 +105,13 @@
 	    	<br/>
 	    	<ui:remove>
 			<!-- 
-			Use #{logic.Close} to call the event process with the name Send. 
+			Use #{logic.close} to call the event process with the name close. 
 			-->
 		    </ui:remove>
-	    	<p:commandButton value="Close" actionListener="#{logic.Close}"/>
-   	 	</h:form>   	 	
+   	 	</h:form>
+   	 	
+   	 	<h:form id="closeForm">
+	    	<p:commandButton value="Close" actionListener="#{logic.close}"/>
+   	 	</h:form>
     </h:body>
 </html>

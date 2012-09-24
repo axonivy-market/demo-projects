@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
  
     <h:head>
-        <title>JSF User Dialog</title>
+        <title>Partial Update Demo</title>
     </h:head>
     <h:body>
 		<h:form id="Form">
@@ -25,7 +25,7 @@
     	 		  	without to reload the whole page or update other panels
     	 		  	  -->
     	 		  	</ui:remove>
-    	 		  	<p:commandButton value="Increase counter then update this panel" update="counterPanel_1" actionListener="#{logic.IncreaseCounter}"/>
+    	 		  	<p:commandButton value="Increase counter then update this panel" update="counterPanel_1" actionListener="#{logic.increaseCounter}"/>
     	 		</p:panel>
     	 		<p:panel header="Counter" id="counterPanel_2">
     	 		  	<h:outputLabel value="Counter:"/>
@@ -38,7 +38,7 @@
     	 		  	without to reload the whole page or update other panels
     	 		  	  -->
     	 		  	</ui:remove>
-    	 		  	<p:commandButton value="Increase counter then update this panel" update="counterPanel_2" actionListener="#{logic.IncreaseCounter}"/>
+    	 		  	<p:commandButton value="Increase counter then update this panel" update="counterPanel_2" actionListener="#{logic.increaseCounter}"/>
     	 		</p:panel>
     	 		<br/>
    	 		  	<ui:remove>
@@ -48,7 +48,7 @@
    	 		  	without to reload the whole page
                 -->
                 </ui:remove>
-   	 		  	<p:commandButton value="Increase counter then update both panels" update="counterPanel_1 counterPanel_2" actionListener="#{logic.IncreaseCounter}"/>
+   	 		  	<p:commandButton value="Increase counter then update both panels" update="counterPanel_1 counterPanel_2" actionListener="#{logic.increaseCounter}"/>
     		</p:panel>	 	
     	</h:form>	
     </h:body>

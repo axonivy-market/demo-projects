@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 20 16:49:46 CEST 2012]
+[>Created: Mon Sep 24 17:11:20 CEST 2012]
 139E30EF308FD0DC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FormDemoProcess Big #zClass
@@ -60,7 +60,7 @@ Fs0 f3 actionTable 'out=in;
 Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Send</name>
+        <name>send</name>
         <nameStyle>4,5,7
 </nameStyle>
     </language>
@@ -82,7 +82,7 @@ Fs0 f6 actionTable 'out=in;
 Fs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Close</name>
+        <name>close</name>
         <nameStyle>5,5,7
 </nameStyle>
     </language>
@@ -133,7 +133,7 @@ Fs0 f13 expr out #txt
 Fs0 f13 96 468 96 510 #arcP
 Fs0 f9 guid 139E37250FA7DB14 #txt
 Fs0 f9 type ch.ivyteam.htmldialog.demo.FormDemo.FormDemoData #txt
-Fs0 f9 method CompleteCountry(String) #txt
+Fs0 f9 method completeCountry(String) #txt
 Fs0 f9 disableUIEvents false #txt
 Fs0 f9 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.String countryPartialString> param = methodEvent.getInputArguments();
@@ -142,12 +142,10 @@ Fs0 f9 inParameterMapAction 'out.country=param.countryPartialString;
 ' #txt
 Fs0 f9 outParameterDecl '<List<java.lang.String> matchingCountries> result;
 ' #txt
-Fs0 f9 outParameterMapAction 'result.matchingCountries=in.matchingCountries;
-' #txt
 Fs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>CompleteCity(String)</name>
+        <name>completeCity(String)</name>
         <nameStyle>20,5,7
 </nameStyle>
     </language>

@@ -22,13 +22,13 @@
 	          		<p:column><b>#{person.name}</b> #{person.firstname}</p:column> 
 	 			</p:orderList>  
 	 			<br/>
-	 			<p:commandButton actionListener="#{logic.Send}" value="Send" update="persons"/>
+	 			<p:commandButton actionListener="#{logic.send}" value="Send" update="persons"/>
 	 			<br/>
 	 			<br/>
 	 			<h:outputText value="Persons: #{data.persons}"/>
 	   		</p:panel>
 	   		<br/>
-	   		<p:commandButton actionListener="#{logic.Close}" value="Close"/>	   		
+	   		<p:commandButton actionListener="#{logic.close}" value="Close"/>	   		
    		</h:form>
     </h:body>
 </html>

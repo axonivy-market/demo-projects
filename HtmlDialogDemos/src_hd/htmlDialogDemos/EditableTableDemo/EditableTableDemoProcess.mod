@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 20 10:03:04 CEST 2012]
+[>Created: Mon Sep 24 17:14:15 CEST 2012]
 139D96A5734DE195 3.17 #module
 >Proto >Proto Collection #zClass
 Es0 EditableTableDemoProcess Big #zClass
@@ -88,7 +88,7 @@ Es0 f5 actionTable 'out=in;
 Es0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Send</name>
+        <name>send</name>
         <nameStyle>4,5,7
 </nameStyle>
     </language>
@@ -105,7 +105,7 @@ Es0 f6 actionTable 'out=in;
 Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Close</name>
+        <name>close</name>
         <nameStyle>5,5,7
 </nameStyle>
     </language>
@@ -146,7 +146,7 @@ Es0 f4 expr out #txt
 Es0 f4 80 180 80 214 #arcP
 Es0 f13 guid 139DEBA1CB42E47D #txt
 Es0 f13 type htmlDialogDemos.EditableTableDemo.EditableTableDemoData #txt
-Es0 f13 method Delete(Record) #txt
+Es0 f13 method delete(Record) #txt
 Es0 f13 disableUIEvents false #txt
 Es0 f13 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <ch.ivyteam.ivy.scripting.objects.Record deletedRow> param = methodEvent.getInputArguments();
@@ -158,7 +158,7 @@ Es0 f13 outParameterDecl '<> result;
 Es0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Delete(Record)</name>
+        <name>delete(Record)</name>
         <nameStyle>14,5,7
 </nameStyle>
     </language>
@@ -200,7 +200,7 @@ Es0 f18 actionTable 'out=in;
 Es0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>New</name>
+        <name>add</name>
         <nameStyle>3,5,7
 </nameStyle>
     </language>

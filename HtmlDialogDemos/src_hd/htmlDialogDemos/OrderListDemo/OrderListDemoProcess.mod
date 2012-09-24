@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 20 10:04:13 CEST 2012]
+[>Created: Mon Sep 24 17:12:20 CEST 2012]
 139D3B8894867715 3.17 #module
 >Proto >Proto Collection #zClass
 Os0 OrderListDemoProcess Big #zClass
@@ -58,7 +58,7 @@ Os0 f5 actionTable 'out=in;
 Os0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Send</name>
+        <name>send</name>
         <nameStyle>4,5,7
 </nameStyle>
     </language>
@@ -78,7 +78,7 @@ Os0 f7 actionTable 'out=in;
 Os0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Close</name>
+        <name>close</name>
         <nameStyle>5,5,7
 </nameStyle>
     </language>
