@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>JSF User Dialog</title>
+</h:head>
+<h:body>
+
+	<p:panel header="Resource Demo">
+		<h3>This demo explains how resources from the dialog folder, the webcontent folder or the CMS can be
+		used.</h3>
+		<h4>For using resources use the following code:</h4>
+		<p:panelGrid columns="2" id="resultPanel">
+			<h:outputText>&lt;h:outputStylesheet name="folder/style.css"/></h:outputText>
+			<h:outputText>Adds the stylesheet <i>style.css</i> to the html page.</h:outputText>
+
+			<h:outputText>&lt;h:outputScript name="folder/script.js"/></h:outputText>
+			<h:outputText>Adds the script <i>script.js</i> to the html page.</h:outputText>
+
+			<h:outputText>&lt;h:graphicImage name="folder/image.png"/></h:outputText>
+			<h:outputText>Adds the image <i>image.png</i> to the html page.</h:outputText>
+			
+			<h:outputText>\#{resource['folder/file.txt']}</h:outputText>
+			<h:outputText>Adds the url of the <i>file.txt</i> to the html page.</h:outputText>
+		</p:panelGrid>
+		
+		<h4>Examples:</h4>
+		<p:panelGrid id="resultPanel">
+			<f:facet name="header">
+				<p:row>
+					<p:column>code</p:column>
+					<p:column>result</p:column>
+					<p:column>description</p:column>
+				</p:row>
+			</f:facet>
+			<p:row>
+				<p:column>&lt;h:graphicImage name="images/dialog.png" /></p:column>
+				<p:column>
+					<h:graphicImage name="images/dialog.png" />
+				</p:column>
+				<p:column rowspan="3">If no library is defined then a resource is first searched within the dialog folder. If not found there then it is searched within the webcontent folder.
+						<p>Folder structure:</p>
+					<pre>
+/ch.ivyteam.htmldialog.demo.ResourceDemo
+  /images
+    dialog.png
+    image.png
+/webcontent
+  /images
+    webcontent.png
+    image.png
+		</pre>
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column>&lt;h:graphicImage name="images/webcontent.png" /></p:column>
+				<p:column>
+					<h:graphicImage name="images/webcontent.png" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column>&lt;h:graphicImage name="images/image.png" /></p:column>
+				<p:column>
+					<h:graphicImage name="images/image.png" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column>&lt;h:graphicImage library="ivy-dialog" name="images/image.png" /></p:column>
+				<p:column>
+					<h:graphicImage library="ivy-dialog" name="images/image.png" />
+				</p:column>
+				<p:column>With library <strong>ivy-dialog</strong> the resource is always loaded from the Html Dialog folder.</p:column>
+			</p:row>
+			<p:row>
+				<p:column>&lt;h:graphicImage library="ivy-webcontent" name="images/image.png" /></p:column>
+				<p:column>
+					<h:graphicImage library="ivy-webcontent" name="images/image.png" />
+				</p:column>
+				<p:column>With library <strong>ivy-webcontent</strong> the resource is always loaded form the webcontent folder.</p:column>
+			</p:row>
+			<p:row>
+				<p:column>&lt;h:graphicImage library="ivy-cms" name="images/image" /></p:column>
+				<p:column>
+					<h:graphicImage library="ivy-cms" name="images/image" />
+				</p:column>
+				<p:column>With library <strong>ivy-cms</strong> the resource is always loaded form the CMS.</p:column>
+			</p:row>
+			<p:row>
+				<p:column>&lt;h:outputLink value="\#{resource['ivy-cms:images/image']}">Link to Image&lt;/h:outputLink></p:column>
+				<p:column>
+					<h:outputLink value="#{resource['ivy-cms:images/image']}">Link to Image</h:outputLink>
+				</p:column>
+				<p:column>The expression #{resource['library:path']} can be used to get the URL of a resource (can also be used in resources like css files e.g. to reference images).</p:column>
+			</p:row>
+		</p:panelGrid>
+	</p:panel>
+</h:body>
+</html>
