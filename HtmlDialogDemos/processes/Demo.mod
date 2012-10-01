@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 27 09:08:05 CEST 2012]
+[>Created: Mon Oct 01 17:12:50 CEST 2012]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -29,7 +29,6 @@ Do0 @PushWFArc f14 '' #zField
 Do0 @StartRequest f15 '' #zField
 Do0 @EndTask f16 '' #zField
 Do0 @RichDialog f17 '' #zField
-Do0 @PushWFArc f18 '' #zField
 Do0 @PushWFArc f19 '' #zField
 Do0 @StartRequest f20 '' #zField
 Do0 @RichDialog f21 '' #zField
@@ -46,6 +45,9 @@ Do0 @EndTask f31 '' #zField
 Do0 @RichDialog f32 '' #zField
 Do0 @PushWFArc f33 '' #zField
 Do0 @PushWFArc f34 '' #zField
+Do0 @GridStep f35 '' #zField
+Do0 @PushWFArc f36 '' #zField
+Do0 @PushWFArc f18 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -413,12 +415,10 @@ Do0 f17 windowConfiguration '* ' #txt
 Do0 f17 isAsynch false #txt
 Do0 f17 isInnerRd false #txt
 Do0 f17 userContext '* ' #txt
-Do0 f17 430 340 36 24 20 -2 #rect
+Do0 f17 430 348 36 24 20 -2 #rect
 Do0 f17 @|RichDialogIcon #fIcon
-Do0 f18 expr out #txt
-Do0 f18 448 301 448 340 #arcP
 Do0 f19 expr out #txt
-Do0 f19 448 364 448 395 #arcP
+Do0 f19 448 372 448 395 #arcP
 Do0 f20 outLink PartialUpdateDemo.ivp #txt
 Do0 f20 type htmlDialogDemos.Data #txt
 Do0 f20 inParamDecl '<> param;' #txt
@@ -696,6 +696,35 @@ Do0 f33 expr out #txt
 Do0 f33 448 493 448 532 #arcP
 Do0 f34 expr out #txt
 Do0 f34 448 556 448 595 #arcP
+Do0 f35 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f35 actionTable 'out=in;
+' #txt
+Do0 f35 actionCode 'import java.util.Locale;
+import ch.ivyteam.ivy.request.IHttpRequest;
+IHttpRequest httpRequest = ivy.request as IHttpRequest;
+String locale = httpRequest.getFirstParameter("language");
+if (locale != "")
+{
+	ivy.session.setContentLocale(new Locale(locale));
+	ivy.session.setFormattingLocale(new Locale(locale));
+}' #txt
+Do0 f35 type htmlDialogDemos.Data #txt
+Do0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>set content language for selenium test</name>
+        <nameStyle>38,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Do0 f35 430 308 36 24 22 -5 #rect
+Do0 f35 @|StepIcon #fIcon
+Do0 f36 expr out #txt
+Do0 f36 448 301 448 308 #arcP
+Do0 f18 expr out #txt
+Do0 f18 448 332 448 348 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -726,8 +755,6 @@ Do0 f10 mainOut f12 tail #connect
 Do0 f12 head f11 mainIn #connect
 Do0 f11 mainOut f14 tail #connect
 Do0 f14 head f13 mainIn #connect
-Do0 f15 mainOut f18 tail #connect
-Do0 f18 head f17 mainIn #connect
 Do0 f17 mainOut f19 tail #connect
 Do0 f19 head f16 mainIn #connect
 Do0 f20 mainOut f23 tail #connect
@@ -742,3 +769,7 @@ Do0 f30 mainOut f33 tail #connect
 Do0 f33 head f32 mainIn #connect
 Do0 f32 mainOut f34 tail #connect
 Do0 f34 head f31 mainIn #connect
+Do0 f15 mainOut f36 tail #connect
+Do0 f36 head f35 mainIn #connect
+Do0 f35 mainOut f18 tail #connect
+Do0 f18 head f17 mainIn #connect

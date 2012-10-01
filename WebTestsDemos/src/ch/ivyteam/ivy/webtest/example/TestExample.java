@@ -85,7 +85,7 @@ public class TestExample {
 		// Import this project in the Xpert.ivy designer and 
 		// start the engine before running the test.
 		driver.get(baseUrl + "pro/" + ivyApplication
-				+ "/HtmlDialogDemos/139D3A4CEEEDAA4B/FormDemo.ivp");
+				+ "/HtmlDialogDemos/139D3A4CEEEDAA4B/FormDemo.ivp?language=de");
 
 		// Fill in form values
 		driver.findElement(By.id("Form:Name")).sendKeys("Hans");
@@ -94,7 +94,7 @@ public class TestExample {
 		driver.findElement(By.id("Form:ZipCode")).sendKeys("1234");
 		driver.findElement(By.id("Form:City")).sendKeys("Dorf");
 		driver.findElement(By.id("Form:Country_input")).sendKeys("Schweiz");
-		driver.findElement(By.id("Form:j_id_10")).click();
+		driver.findElement(By.id("Form:SendButton")).click();
 		
 		// Get the error messages text from the document
 		String firstErrorMessage = driver.findElement(By.xpath("//div[@id='Form:msgs']/div/ul/li[1]/span"))
