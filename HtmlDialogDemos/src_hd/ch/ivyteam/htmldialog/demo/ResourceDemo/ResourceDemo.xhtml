@@ -5,12 +5,12 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>JSF User Dialog</title>
+	<title>Resource Demo</title>
 </h:head>
 <h:body>
 
 	<p:panel header="Resource Demo">
-		<h3>This demo explains how resources from the dialog folder, the webcontent folder or the CMS can be
+		<h3>This demo explains how resources from the dialog resources folder, the webcontent folder or the CMS can be
 		used.</h3>
 		<h4>For using resources use the following code:</h4>
 		<p:panelGrid columns="2" id="resultPanel">
@@ -41,13 +41,14 @@
 				<p:column>
 					<h:graphicImage name="images/dialog.png" />
 				</p:column>
-				<p:column rowspan="3">If no library is defined then a resource is first searched within the dialog folder. If not found there then it is searched within the webcontent folder.
+				<p:column rowspan="3">If no library is defined then a resource is first searched within the dialog resources folder. If not found there then it is searched within the webcontent folder.
 						<p>Folder structure:</p>
 					<pre>
 /ch.ivyteam.htmldialog.demo.ResourceDemo
-  /images
-    dialog.png
-    image.png
+  /resources
+    /images
+      dialog.png
+      image.png
 /webcontent
   /images
     webcontent.png
@@ -72,7 +73,7 @@
 				<p:column>
 					<h:graphicImage library="ivy-dialog" name="images/image.png" />
 				</p:column>
-				<p:column>With library <strong>ivy-dialog</strong> the resource is always loaded from the Html Dialog folder.</p:column>
+				<p:column>With library <strong>ivy-dialog</strong> the resource is always loaded from the Html Dialog resources folder.</p:column>
 			</p:row>
 			<p:row>
 				<p:column>&lt;h:graphicImage library="ivy-webcontent" name="images/image.png" /></p:column>
