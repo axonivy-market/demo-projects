@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 24 17:11:20 CEST 2012]
+[>Created: Wed Oct 03 08:45:19 CEST 2012]
 139E30EF308FD0DC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FormDemoProcess Big #zClass
@@ -141,6 +141,8 @@ Fs0 f9 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 Fs0 f9 inParameterMapAction 'out.country=param.countryPartialString;
 ' #txt
 Fs0 f9 outParameterDecl '<List<java.lang.String> matchingCountries> result;
+' #txt
+Fs0 f9 outParameterMapAction 'result.matchingCountries=in.matchingCountries;
 ' #txt
 Fs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
