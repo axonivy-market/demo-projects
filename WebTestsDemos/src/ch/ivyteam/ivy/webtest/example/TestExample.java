@@ -13,7 +13,10 @@ import org.openqa.selenium.WebElement;
 
 /**
  * This is a sample how to use Selenium Web Tests. For more information visit
- * the online documentation under http://seleniumhq.org/docs/
+ * the online documentation under <a href="http://seleniumhq.org/docs/">http://seleniumhq.org/docs/</a>. 
+ *
+ * There is a Firefox Plugin called Selenium IDE which allows recording tests and exporting them to JUnit.
+ * See <a href="http://seleniumhq.org/projects/ide/">http://seleniumhq.org/projects/ide/</a>.
  */
 public class TestExample {
 
