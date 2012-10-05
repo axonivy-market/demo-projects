@@ -55,7 +55,7 @@
     	 			<p:message for="PhoneNumber" display="icon"/>
 
     	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Address')}" for="Address" style="vertical-align:top"/>
-    	 			<p:inputTextarea value="#{data.address}" row="2" cols="23" id="Address" required="true"/>
+    	 			<p:inputTextarea value="#{data.address}" row="2" id="Address" required="true"/>
     	 			<p:message for="Address" display="icon"/>
 
     	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/ZipCode')}" for="ZipCode"/>
@@ -88,16 +88,14 @@
    	 			    </ui:remove>
     	 			<p:autoComplete value="#{data.country}" id="Country" completeMethod="#{logic.completeCountry}" delay="500" required="true"/>
     	 			<p:message for="Country" display="icon"/>
-
+					<ui:remove>
+					<!-- 
+					Use #{logic.send} to call the event process with the name send. 
+					-->
+				    </ui:remove>
+	    	 		<p:commandButton value="Send" actionListener="#{logic.send}" update="panel" id="SendButton"/>
     	 		</h:panelGrid>
 				
-				<ui:remove>
-				<!-- 
-				Use #{logic.send} to call the event process with the name send. 
-				-->
-			    </ui:remove>
-    	 		<p:commandButton value="Send" actionListener="#{logic.send}" update="panel" id="SendButton"/>
-    	 		<br/>
     	 		<br/>
     	 		<h:outputLabel value="Data: #{data}"/>
 

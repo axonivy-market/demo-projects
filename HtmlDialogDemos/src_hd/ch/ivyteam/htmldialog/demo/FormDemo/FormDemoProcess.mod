@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Oct 03 08:45:19 CEST 2012]
+[>Created: Fri Oct 05 12:06:24 CEST 2012]
 139E30EF308FD0DC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FormDemoProcess Big #zClass
@@ -147,8 +147,8 @@ Fs0 f9 outParameterMapAction 'result.matchingCountries=in.matchingCountries;
 Fs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>completeCity(String)</name>
-        <nameStyle>20,5,7
+        <name>completeCountry(String)</name>
+        <nameStyle>23,5,7
 </nameStyle>
     </language>
 </elementInfo>
