@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>AJAX Method Call Demo</title>
+</h:head>
+<h:body>
+	<p:panel header="AJAX Method Call Demo" id="panel">
+		<h:outputText value="This demo explains how " />
+		<ul>
+			<li>Methods of a dialog can be called without using JSF.</li>
+			<li>This can be used to integrate Java Script libraries like
+			JQuery, D3 or Raphael with the Xpert.ivy backend.</li>
+		</ul>
+		<p>
+		When pressing the "Say Hello" Button the helloWold() Method of the Dialog will be called. The result of the call will be written to in the result element below.
+		</p>
+		<p>
+		This is only a simple example how to use the Ajax Method Call API. We suggest to use this API to integrate client side AJAX Libraries into Xpert.ivy.
+		</p>
+		<p>
+		If you do not want to integrate a Java Script Library then you should use the JSF options for asynchronous Requests.   
+		</p>
+		<button id="hello">Say Hello</button><br />
+    	Result: <span id="result"></span>
+    	
+    	<!-- JQuery is used to do the AJAX Call. -->
+		<script type="text/javascript" src="../../../js/jquery-1.8.2.min.js"></script>
+		
+		<!-- This Script is generated for each dialog and simplifies the way to call the method. -->
+		<script type="text/javascript" src="rest/ivyajaxapi.js"></script>
+		
+		<script type="text/javascript">
+				// JQuery is used to intercept the click on the Button with id #hello
+				$("#hello").click(function() {
+
+						// The ivyajaxapi.js script provides the ivy object, 
+						// which contains a funtion for each method available on the dialogs interface.
+						// If you would like to use the REST API in a more advanced way or without JQuery, 
+						// have a look at the generated ivyajaxapi.js script to see how the REST API is used.
+						ivy.helloWorld( 
+							
+							// The first parameter is a data structure, which represents the list of parameters
+							{"name": "World"},
+							
+							// The second parameter is a function, which is called on a successful response.
+							function(returnData)
+							{
+								// returnData is a Java Script Object containing one field for each Method return value.
+								// returnData.result accesses the return value named result.
+								$("#result").html(returnData.result);
+							});
+				});
+		</script>
+	</p:panel>
+</h:body>
+</html>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Oct 01 17:12:50 CEST 2012]
+[>Created: Mon Oct 08 14:46:36 CEST 2012]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -40,14 +40,19 @@ Do0 @EndTask f26 '' #zField
 Do0 @RichDialog f27 '' #zField
 Do0 @PushWFArc f28 '' #zField
 Do0 @PushWFArc f29 '' #zField
-Do0 @StartRequest f30 '' #zField
-Do0 @EndTask f31 '' #zField
-Do0 @RichDialog f32 '' #zField
-Do0 @PushWFArc f33 '' #zField
-Do0 @PushWFArc f34 '' #zField
 Do0 @GridStep f35 '' #zField
 Do0 @PushWFArc f36 '' #zField
 Do0 @PushWFArc f18 '' #zField
+Do0 @EndTask f31 '' #zField
+Do0 @StartRequest f30 '' #zField
+Do0 @PushWFArc f33 '' #zField
+Do0 @PushWFArc f34 '' #zField
+Do0 @RichDialog f32 '' #zField
+Do0 @EndTask f37 '' #zField
+Do0 @RichDialog f38 '' #zField
+Do0 @StartRequest f39 '' #zField
+Do0 @PushWFArc f40 '' #zField
+Do0 @PushWFArc f41 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -605,6 +610,38 @@ Do0 f28 expr out #txt
 Do0 f28 288 493 288 532 #arcP
 Do0 f29 expr out #txt
 Do0 f29 288 556 288 595 #arcP
+Do0 f35 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f35 actionTable 'out=in;
+' #txt
+Do0 f35 actionCode 'import java.util.Locale;
+import ch.ivyteam.ivy.request.IHttpRequest;
+IHttpRequest httpRequest = ivy.request as IHttpRequest;
+String locale = httpRequest.getFirstParameter("language");
+if (locale != "")
+{
+	ivy.session.setContentLocale(new Locale(locale));
+	ivy.session.setFormattingLocale(new Locale(locale));
+}' #txt
+Do0 f35 type htmlDialogDemos.Data #txt
+Do0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>set content language for selenium test</name>
+        <nameStyle>38,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Do0 f35 430 308 36 24 22 -5 #rect
+Do0 f35 @|StepIcon #fIcon
+Do0 f36 expr out #txt
+Do0 f36 448 301 448 308 #arcP
+Do0 f18 expr out #txt
+Do0 f18 448 332 448 348 #arcP
+Do0 f31 type htmlDialogDemos.Data #txt
+Do0 f31 435 595 26 26 14 0 #rect
+Do0 f31 @|EndIcon #fIcon
 Do0 f30 outLink ResourceDemo.ivp #txt
 Do0 f30 type htmlDialogDemos.Data #txt
 Do0 f30 inParamDecl '<> param;' #txt
@@ -673,9 +710,10 @@ Do0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Do0 f30 @C|.responsibility Everybody #txt
 Do0 f30 435 467 26 26 14 0 #rect
 Do0 f30 @|StartRequestIcon #fIcon
-Do0 f31 type htmlDialogDemos.Data #txt
-Do0 f31 435 595 26 26 14 0 #rect
-Do0 f31 @|EndIcon #fIcon
+Do0 f33 expr out #txt
+Do0 f33 448 493 448 532 #arcP
+Do0 f34 expr out #txt
+Do0 f34 448 556 448 595 #arcP
 Do0 f32 targetWindow NEW:card: #txt
 Do0 f32 targetDisplay TOP #txt
 Do0 f32 richDialogId ch.ivyteam.htmldialog.demo.ResourceDemo #txt
@@ -692,39 +730,97 @@ Do0 f32 isInnerRd false #txt
 Do0 f32 userContext '* ' #txt
 Do0 f32 430 532 36 24 20 -2 #rect
 Do0 f32 @|RichDialogIcon #fIcon
-Do0 f33 expr out #txt
-Do0 f33 448 493 448 532 #arcP
-Do0 f34 expr out #txt
-Do0 f34 448 556 448 595 #arcP
-Do0 f35 actionDecl 'htmlDialogDemos.Data out;
+Do0 f37 type htmlDialogDemos.Data #txt
+Do0 f37 635 603 26 26 14 0 #rect
+Do0 f37 @|EndIcon #fIcon
+Do0 f38 targetWindow NEW:card: #txt
+Do0 f38 targetDisplay TOP #txt
+Do0 f38 richDialogId ch.ivyteam.htmldialog.demo.AjaxMethodCallDemo #txt
+Do0 f38 startMethod start() #txt
+Do0 f38 type htmlDialogDemos.Data #txt
+Do0 f38 requestActionDecl '<> param;' #txt
+Do0 f38 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
-Do0 f35 actionTable 'out=in;
+Do0 f38 responseMappingAction 'out=in;
 ' #txt
-Do0 f35 actionCode 'import java.util.Locale;
-import ch.ivyteam.ivy.request.IHttpRequest;
-IHttpRequest httpRequest = ivy.request as IHttpRequest;
-String locale = httpRequest.getFirstParameter("language");
-if (locale != "")
-{
-	ivy.session.setContentLocale(new Locale(locale));
-	ivy.session.setFormattingLocale(new Locale(locale));
-}' #txt
-Do0 f35 type htmlDialogDemos.Data #txt
-Do0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Do0 f38 windowConfiguration '* ' #txt
+Do0 f38 isAsynch false #txt
+Do0 f38 isInnerRd false #txt
+Do0 f38 userContext '* ' #txt
+Do0 f38 630 540 36 24 20 -2 #rect
+Do0 f38 @|RichDialogIcon #fIcon
+Do0 f39 outLink AjaxMethodCallDemo.ivp #txt
+Do0 f39 type htmlDialogDemos.Data #txt
+Do0 f39 inParamDecl '<> param;' #txt
+Do0 f39 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f39 guid 13A405E375229DB6 #txt
+Do0 f39 requestEnabled true #txt
+Do0 f39 triggerEnabled false #txt
+Do0 f39 callSignature AjaxMethodCallDemo() #txt
+Do0 f39 persist false #txt
+Do0 f39 startName 'Resource Demo' #txt
+Do0 f39 taskData '#
+#Mon Oct 08 14:34:25 CEST 2012
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f39 caseData '#
+#Mon Oct 08 14:34:25 CEST 2012
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f39 showInStartList 1 #txt
+Do0 f39 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>set content language for selenium test</name>
-        <nameStyle>38,7
-</nameStyle>
+        <name>AjaxMethodCallDemo.ivp</name>
     </language>
 </elementInfo>
 ' #txt
-Do0 f35 430 308 36 24 22 -5 #rect
-Do0 f35 @|StepIcon #fIcon
-Do0 f36 expr out #txt
-Do0 f36 448 301 448 308 #arcP
-Do0 f18 expr out #txt
-Do0 f18 448 332 448 348 #arcP
+Do0 f39 @C|.responsibility Everybody #txt
+Do0 f39 635 475 26 26 14 0 #rect
+Do0 f39 @|StartRequestIcon #fIcon
+Do0 f40 expr out #txt
+Do0 f40 648 501 648 540 #arcP
+Do0 f41 expr out #txt
+Do0 f41 648 564 648 603 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -773,3 +869,7 @@ Do0 f15 mainOut f36 tail #connect
 Do0 f36 head f35 mainIn #connect
 Do0 f35 mainOut f18 tail #connect
 Do0 f18 head f17 mainIn #connect
+Do0 f39 mainOut f40 tail #connect
+Do0 f40 head f38 mainIn #connect
+Do0 f38 mainOut f41 tail #connect
+Do0 f41 head f37 mainIn #connect
