@@ -1,6 +1,5 @@
-#Mon Apr 02 14:04:56 CEST 2012
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=workflowui.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=workflowui
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:useProjectSettings=true
-ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=43000
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=44000
 eclipse.preferences.version=1
