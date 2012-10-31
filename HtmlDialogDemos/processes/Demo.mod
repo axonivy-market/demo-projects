@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Oct 08 14:46:36 CEST 2012]
+[>Created: Wed Oct 31 10:22:10 CET 2012]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -749,7 +749,7 @@ Do0 f38 isInnerRd false #txt
 Do0 f38 userContext '* ' #txt
 Do0 f38 630 540 36 24 20 -2 #rect
 Do0 f38 @|RichDialogIcon #fIcon
-Do0 f39 outLink AjaxMethodCallDemo.ivp #txt
+Do0 f39 outLink MethodCallWithAjaxDemo.ivp #txt
 Do0 f39 type htmlDialogDemos.Data #txt
 Do0 f39 inParamDecl '<> param;' #txt
 Do0 f39 actionDecl 'htmlDialogDemos.Data out;
@@ -757,11 +757,11 @@ Do0 f39 actionDecl 'htmlDialogDemos.Data out;
 Do0 f39 guid 13A405E375229DB6 #txt
 Do0 f39 requestEnabled true #txt
 Do0 f39 triggerEnabled false #txt
-Do0 f39 callSignature AjaxMethodCallDemo() #txt
+Do0 f39 callSignature MethodCallWithAjaxDemo() #txt
 Do0 f39 persist false #txt
-Do0 f39 startName 'Resource Demo' #txt
+Do0 f39 startName 'Ajax Method Call Demo' #txt
 Do0 f39 taskData '#
-#Mon Oct 08 14:34:25 CEST 2012
+#Wed Oct 31 10:22:09 CET 2012
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -770,7 +770,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Do0 f39 caseData '#
-#Mon Oct 08 14:34:25 CEST 2012
+#Wed Oct 31 10:22:09 CET 2012
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -810,7 +810,9 @@ engine.updateCurrentTask(taskUpdDef);
 Do0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>AjaxMethodCallDemo.ivp</name>
+        <name>MethodCallWithAjaxDemo.ivp</name>
+        <nameStyle>26,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
