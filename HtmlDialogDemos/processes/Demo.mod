@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Oct 31 10:22:10 CET 2012]
+[>Created: Wed Nov 14 11:52:06 CET 2012]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -759,9 +759,9 @@ Do0 f39 requestEnabled true #txt
 Do0 f39 triggerEnabled false #txt
 Do0 f39 callSignature MethodCallWithAjaxDemo() #txt
 Do0 f39 persist false #txt
-Do0 f39 startName 'Ajax Method Call Demo' #txt
+Do0 f39 startName 'Method call with Ajax' #txt
 Do0 f39 taskData '#
-#Wed Oct 31 10:22:09 CET 2012
+#Wed Nov 14 11:52:04 CET 2012
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -770,7 +770,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Do0 f39 caseData '#
-#Wed Oct 31 10:22:09 CET 2012
+#Wed Nov 14 11:52:04 CET 2012
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
