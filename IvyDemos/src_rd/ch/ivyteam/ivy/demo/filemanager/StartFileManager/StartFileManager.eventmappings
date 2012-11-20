@@ -1,9 +1,10 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2012-06-12 10:33:59 | 4.3.1.39808 | 1.0
+# 2012-11-05 10:15:38 | 4.3.7.41063 | 1.0
 ~.activateFilesAsBlobCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.activateFileVersioningCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.activateIvySystemDBCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.activateSecurityCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.filesInFileSetCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
-~.startButton1@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/12BAC14555292A90 # StartFileManagerProcess.mod/startFileManager
+~.startButton1@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/12BAC14555292A90
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/13AD1235E5DFD414 # StartFileManagerProcess.mod/onLoad
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/12BAAF777B32E0E5

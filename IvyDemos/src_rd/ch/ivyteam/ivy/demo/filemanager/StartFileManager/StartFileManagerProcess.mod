@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 08 19:12:42 EDT 2012]
+[>Created: Thu Nov 15 09:25:53 EST 2012]
 12BAAF77763F86CB 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 StartFileManagerProcess Big #zClass
@@ -21,7 +21,6 @@ Ss0 @RichDialogProcessStart f8 '' #zField
 Ss0 @RichDialogProcessStep f9 '' #zField
 Ss0 @RichDialogProcessStep f11 '' #zField
 Ss0 @PushWFArc f12 '' #zField
-Ss0 @PushWFArc f2 '' #zField
 Ss0 @RichDialogProcessEnd f15 '' #zField
 Ss0 @RichDialog f18 '' #zField
 Ss0 @Alternative f21 '' #zField
@@ -29,12 +28,10 @@ Ss0 @RichDialog f23 '' #zField
 Ss0 @PushWFArc f24 '' #zField
 Ss0 @Alternative f5 '' #zField
 Ss0 @PushWFArc f13 '' #zField
-Ss0 @PushWFArc f14 '' #zField
 Ss0 @RichDialogProcessStep f25 '' #zField
 Ss0 @PushWFArc f26 '' #zField
 Ss0 @PushWFArc f17 '' #zField
 Ss0 @PushWFArc f20 '' #zField
-Ss0 @PushWFArc f10 '' #zField
 Ss0 @PushWFArc f22 '' #zField
 Ss0 @RichDialogProcessStart f3 '' #zField
 Ss0 @RichDialogProcessEnd f7 '' #zField
@@ -44,6 +41,16 @@ Ss0 @PushWFArc f27 '' #zField
 Ss0 @InfoButton f29 '' #zField
 Ss0 @AnnotationArc f30 '' #zField
 Ss0 @PushWFArc f4 '' #zField
+Ss0 @RichDialogProcessStep f6 '' #zField
+Ss0 @PushWFArc f16 '' #zField
+Ss0 @PushWFArc f10 '' #zField
+Ss0 @PushWFArc f31 '' #zField
+Ss0 @RichDialogProcessStep f14 '' #zField
+Ss0 @RichDialogProcessStart f33 '' #zField
+Ss0 @PushWFArc f34 '' #zField
+Ss0 @PushWFArc f32 '' #zField
+Ss0 @RichDialogProcessEnd f35 '' #zField
+Ss0 @PushWFArc f36 '' #zField
 >Proto Ss0 Ss0 StartFileManagerProcess #zField
 Ss0 f0 guid 12BAAF777B32E0E5 #txt
 Ss0 f0 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
@@ -67,7 +74,7 @@ Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ss0 f0 110 38 20 20 13 0 #rect
 Ss0 f0 @|RichDialogInitStartIcon #fIcon
 Ss0 f1 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
-Ss0 f1 110 142 20 20 13 0 #rect
+Ss0 f1 110 174 20 20 13 0 #rect
 Ss0 f1 @|RichDialogProcessEndIcon #fIcon
 Ss0 f8 guid 12BAC14555292A90 #txt
 Ss0 f8 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
@@ -121,10 +128,10 @@ ivy.wf.getApplication().getSecurityDescriptor().grantPermissions(
 ivy.session.logoutSessionUser(ivy.task.getIdentifier());
 
 panel.activateFileVersioningCheckBox.enabled=false;
-		panel.activateSecurityCheckBox.enabled=false;
-		panel.activateTypeCheckBox.enabled=false;
-		panel.activateTagsCheckBox.enabled=false;
-		panel.activateHistoryCheckBox.enabled=false;' #txt
+panel.activateSecurityCheckBox.enabled=false;
+panel.activateTypeCheckBox.enabled=false;
+panel.activateTagsCheckBox.enabled=false;
+panel.activateHistoryCheckBox.enabled=false;' #txt
 Ss0 f11 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
 Ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -135,10 +142,8 @@ Ss0 f11 102 84 36 24 20 -2 #rect
 Ss0 f11 @|RichDialogProcessStepIcon #fIcon
 Ss0 f12 expr out #txt
 Ss0 f12 120 58 120 84 #arcP
-Ss0 f2 expr out #txt
-Ss0 f2 120 108 120 142 #arcP
 Ss0 f15 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
-Ss0 f15 462 446 20 20 13 0 #rect
+Ss0 f15 462 494 20 20 13 0 #rect
 Ss0 f15 @|RichDialogProcessEndIcon #fIcon
 Ss0 f18 targetWindow NEW:card: #txt
 Ss0 f18 targetDisplay TOP #txt
@@ -156,7 +161,7 @@ Ss0 f18 windowConfiguration '{/title "File Manager"/width 1024 /height 500 /cent
 Ss0 f18 isAsynch false #txt
 Ss0 f18 isInnerRd true #txt
 Ss0 f18 userContext '* ' #txt
-Ss0 f18 454 356 36 24 20 -2 #rect
+Ss0 f18 454 404 36 24 20 -2 #rect
 Ss0 f18 @|RichDialogIcon #fIcon
 Ss0 f21 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
 Ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -225,20 +230,6 @@ Ss0 f5 602 290 28 28 -16 18 #rect
 Ss0 f5 @|AlternativeIcon #fIcon
 Ss0 f13 expr out #txt
 Ss0 f13 616 260 616 290 #arcP
-Ss0 f14 expr in #txt
-Ss0 f14 outCond in.login #txt
-Ss0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>YES</name>
-        <nameStyle>3
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f14 602 304 489 356 #arcP
-Ss0 f14 1 560 304 #addKink
-Ss0 f14 1 0.24246062318114353 0 0 #arcLabel
 Ss0 f25 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData out;
 ' #txt
 Ss0 f25 actionTable 'out=in;
@@ -254,12 +245,12 @@ Ss0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f25 454 404 36 24 20 -2 #rect
+Ss0 f25 454 452 36 24 20 -2 #rect
 Ss0 f25 @|RichDialogProcessStepIcon #fIcon
 Ss0 f26 expr out #txt
-Ss0 f26 472 380 472 404 #arcP
+Ss0 f26 472 428 472 452 #arcP
 Ss0 f17 expr out #txt
-Ss0 f17 472 428 472 446 #arcP
+Ss0 f17 472 476 472 494 #arcP
 Ss0 f20 expr in #txt
 Ss0 f20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -270,12 +261,10 @@ Ss0 f20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f20 630 304 490 416 #arcP
+Ss0 f20 630 304 490 464 #arcP
 Ss0 f20 1 704 304 #addKink
-Ss0 f20 2 704 416 #addKink
+Ss0 f20 2 704 464 #addKink
 Ss0 f20 1 0.46875 0 0 #arcLabel
-Ss0 f10 expr out #txt
-Ss0 f10 472 268 472 356 #arcP
 Ss0 f22 expr in #txt
 Ss0 f22 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -418,12 +407,114 @@ If we do not do so, no keyboard shortcut will be active.</name>
 Ss0 f29 52 403 344 42 -167 -16 #rect
 Ss0 f29 @|IBIcon #fIcon
 Ss0 f29 -1|-1|-16777216 #nodeStyle
-Ss0 f30 224 403 454 370 #arcP
+Ss0 f30 396 403 454 416 #arcP
 Ss0 f4 expr out #txt
 Ss0 f4 128 266 128 342 #arcP
+Ss0 f6 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData out;
+' #txt
+Ss0 f6 actionTable 'out=in;
+' #txt
+Ss0 f6 actionCode 'java.util.Locale loc=java.util.Locale.ENGLISH;
+if(panel.langComboBox.getSelectedListEntry()!=null)
+{
+	String s = panel.langComboBox.getSelectedListEntry() as String;
+	loc=s.equalsIgnoreCase("deutsch")?java.util.Locale.GERMAN:(s.equalsIgnoreCase("français")?java.util.Locale.FRENCH:java.util.Locale.ENGLISH);
+}
+
+ivy.session.setContentLocale(loc);
+ivy.session.setFormattingLocale(loc);' #txt
+Ss0 f6 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
+Ss0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>language</name>
+        <nameStyle>8
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f6 454 340 36 24 20 -2 #rect
+Ss0 f6 @|RichDialogProcessStepIcon #fIcon
+Ss0 f16 expr out #txt
+Ss0 f16 472 268 472 340 #arcP
+Ss0 f10 expr out #txt
+Ss0 f10 472 364 472 404 #arcP
+Ss0 f31 expr in #txt
+Ss0 f31 outCond in.login #txt
+Ss0 f31 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>YES</name>
+        <nameStyle>3
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f31 602 304 490 342 #arcP
+Ss0 f31 1 560 304 #addKink
+Ss0 f31 1 0.24246062318114353 0 0 #arcLabel
+Ss0 f14 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData out;
+' #txt
+Ss0 f14 actionTable 'out=in;
+' #txt
+Ss0 f14 actionCode 'java.util.Locale loc=java.util.Locale.ENGLISH;
+
+if(panel.langComboBox.getListData().size()>=3)
+{
+	try{
+		loc = ivy.session.getContentLocale();
+	}catch(Exception ex)
+	{
+		//ignore
+	}
+	panel.langComboBox.setSelectedListEntry(
+		loc.equals(java.util.Locale.GERMAN)?"Deutsch":
+			(loc.equals(java.util.Locale.FRENCH)?"Français":"English")
+	);
+}
+' #txt
+Ss0 f14 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
+Ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>preselect the language</name>
+        <nameStyle>22
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f14 270 100 36 24 20 -2 #rect
+Ss0 f14 @|RichDialogProcessStepIcon #fIcon
+Ss0 f33 guid 13AD1235E5DFD414 #txt
+Ss0 f33 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
+Ss0 f33 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData out;
+' #txt
+Ss0 f33 actionTable 'out=in;
+' #txt
+Ss0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>onLoad</name>
+        <nameStyle>6,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f33 278 46 20 20 13 0 #rect
+Ss0 f33 @|RichDialogProcessStartIcon #fIcon
+Ss0 f34 expr out #txt
+Ss0 f34 120 108 120 174 #arcP
+Ss0 f32 expr out #txt
+Ss0 f32 288 66 288 100 #arcP
+Ss0 f35 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
+Ss0 f35 278 158 20 20 13 0 #rect
+Ss0 f35 @|RichDialogProcessEndIcon #fIcon
+Ss0 f36 expr out #txt
+Ss0 f36 288 124 288 158 #arcP
 >Proto Ss0 .ui2RdDataAction 'out.configurationController.rootPath=panel.serverpathTextField.valueAsString;
 ' #txt
 >Proto Ss0 .rdData2UIAction 'panel.serverpathTextField.valueAsString=in.configurationController.rootPath;
+panel.langComboBox.listData=["Deutsch","English","Français"];
 ' #txt
 >Proto Ss0 .type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
 >Proto Ss0 .processKind RICH_DIALOG #txt
@@ -431,22 +522,15 @@ Ss0 f4 128 266 128 342 #arcP
 >Proto Ss0 '' #fIcon
 Ss0 f0 mainOut f12 tail #connect
 Ss0 f12 head f11 mainIn #connect
-Ss0 f11 mainOut f2 tail #connect
-Ss0 f2 head f1 mainIn #connect
 Ss0 f21 out f24 tail #connect
 Ss0 f24 head f23 mainIn #connect
 Ss0 f23 mainOut f13 tail #connect
 Ss0 f13 head f5 in #connect
-Ss0 f5 out f14 tail #connect
-Ss0 f14 head f18 mainIn #connect
 Ss0 f18 mainOut f26 tail #connect
 Ss0 f26 head f25 mainIn #connect
 Ss0 f25 mainOut f17 tail #connect
 Ss0 f17 head f15 mainIn #connect
-Ss0 f5 out f20 tail #connect
 Ss0 f20 head f25 mainIn #connect
-Ss0 f9 mainOut f10 tail #connect
-Ss0 f10 head f18 mainIn #connect
 Ss0 f21 out f22 tail #connect
 Ss0 f22 head f9 mainIn #connect
 Ss0 f8 mainOut f28 tail #connect
@@ -457,3 +541,16 @@ Ss0 f29 ao f30 tail #connect
 Ss0 f30 head f18 @CG|ai #connect
 Ss0 f3 mainOut f4 tail #connect
 Ss0 f4 head f7 mainIn #connect
+Ss0 f9 mainOut f16 tail #connect
+Ss0 f16 head f6 mainIn #connect
+Ss0 f6 mainOut f10 tail #connect
+Ss0 f10 head f18 mainIn #connect
+Ss0 f5 out f31 tail #connect
+Ss0 f31 head f6 mainIn #connect
+Ss0 f5 out f20 tail #connect
+Ss0 f11 mainOut f34 tail #connect
+Ss0 f34 head f1 mainIn #connect
+Ss0 f33 mainOut f32 tail #connect
+Ss0 f32 head f14 mainIn #connect
+Ss0 f14 mainOut f36 tail #connect
+Ss0 f36 head f35 mainIn #connect
