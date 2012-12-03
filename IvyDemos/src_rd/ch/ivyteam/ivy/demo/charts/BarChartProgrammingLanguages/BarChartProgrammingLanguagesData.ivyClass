@@ -1,0 +1,12 @@
+BarChartProgrammingLanguagesData #class
+ch.ivyteam.ivy.demo.charts.BarChartProgrammingLanguages #namespace
+data List<ch.ivyteam.ivy.demo.charts.ProgrammingLanguagePopularity> #field
+data PERSISTENT #fieldModifier
+newValue Number #field
+newValue PERSISTENT #fieldModifier
+dataSeries ch.ivyteam.ulc.vwidget.chart.server.model.DataSeries #field
+dataSeries PERSISTENT #fieldModifier
+index Number #field
+index PERSISTENT #fieldModifier
+chartTitle String #field
+chartTitle PERSISTENT #fieldModifier
