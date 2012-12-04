@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Nov 14 11:52:06 CET 2012]
+[>Created: Tue Dec 04 12:39:43 CET 2012]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -53,6 +53,11 @@ Do0 @RichDialog f38 '' #zField
 Do0 @StartRequest f39 '' #zField
 Do0 @PushWFArc f40 '' #zField
 Do0 @PushWFArc f41 '' #zField
+Do0 @EndTask f43 '' #zField
+Do0 @RichDialog f44 '' #zField
+Do0 @StartRequest f42 '' #zField
+Do0 @PushWFArc f46 '' #zField
+Do0 @PushWFArc f45 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -823,6 +828,100 @@ Do0 f40 expr out #txt
 Do0 f40 648 501 648 540 #arcP
 Do0 f41 expr out #txt
 Do0 f41 648 564 648 603 #arcP
+Do0 f43 type htmlDialogDemos.Data #txt
+Do0 f43 851 603 26 26 14 0 #rect
+Do0 f43 @|EndIcon #fIcon
+Do0 f44 targetWindow NEW:card: #txt
+Do0 f44 targetDisplay TOP #txt
+Do0 f44 richDialogId htmlDialogDemos.ManagedBeanDemo #txt
+Do0 f44 startMethod start() #txt
+Do0 f44 type htmlDialogDemos.Data #txt
+Do0 f44 requestActionDecl '<> param;' #txt
+Do0 f44 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f44 responseMappingAction 'out=in;
+' #txt
+Do0 f44 windowConfiguration '* ' #txt
+Do0 f44 isAsynch false #txt
+Do0 f44 isInnerRd false #txt
+Do0 f44 userContext '* ' #txt
+Do0 f44 846 540 36 24 20 -2 #rect
+Do0 f44 @|RichDialogIcon #fIcon
+Do0 f42 outLink ManagedBeanDemo.ivp #txt
+Do0 f42 type htmlDialogDemos.Data #txt
+Do0 f42 inParamDecl '<> param;' #txt
+Do0 f42 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f42 guid 13B65B6D20632B6F #txt
+Do0 f42 requestEnabled true #txt
+Do0 f42 triggerEnabled false #txt
+Do0 f42 callSignature ManagedBeanDemo() #txt
+Do0 f42 persist false #txt
+Do0 f42 startName 'ManagedBean Demo' #txt
+Do0 f42 taskData '#
+#Tue Dec 04 12:39:38 CET 2012
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f42 caseData '#
+#Mon Dec 03 13:46:01 CET 2012
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f42 showInStartList 1 #txt
+Do0 f42 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>ManagedBeanDemo.ivp</name>
+        <nameStyle>19,5,7
+</nameStyle>
+        <desc>ManagedBean Demo</desc>
+    </language>
+</elementInfo>
+' #txt
+Do0 f42 @C|.responsibility Everybody #txt
+Do0 f42 851 475 26 26 14 0 #rect
+Do0 f42 @|StartRequestIcon #fIcon
+Do0 f46 expr out #txt
+Do0 f46 864 564 864 603 #arcP
+Do0 f45 expr out #txt
+Do0 f45 864 501 864 540 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -875,3 +974,7 @@ Do0 f39 mainOut f40 tail #connect
 Do0 f40 head f38 mainIn #connect
 Do0 f38 mainOut f41 tail #connect
 Do0 f41 head f37 mainIn #connect
+Do0 f42 mainOut f45 tail #connect
+Do0 f45 head f44 mainIn #connect
+Do0 f44 mainOut f46 tail #connect
+Do0 f46 head f43 mainIn #connect
