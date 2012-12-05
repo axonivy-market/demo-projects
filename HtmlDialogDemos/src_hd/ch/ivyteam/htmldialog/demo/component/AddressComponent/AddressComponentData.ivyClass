@@ -1,0 +1,4 @@
+AddressComponentData #class
+ch.ivyteam.htmldialog.demo.component.AddressComponent #namespace
+address ch.ivyteam.htmldialog.demo.Address #field
+address PERSISTENT #fieldModifier

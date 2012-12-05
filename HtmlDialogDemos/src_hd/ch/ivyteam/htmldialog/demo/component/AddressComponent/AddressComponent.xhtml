@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui">
+	
+<!--
+In the interface it is possible to define view attributes like labels.
+This attributes can be accessed by the el expression cc.attrs.attributeName.
+-->
+<cc:interface componentType="IvyComponent">
+	<cc:attribute name="label" />
+</cc:interface>
+<cc:implementation>
+	<p:fieldset  legend="Address Component">
+		<h:outputLabel value="#{cc.attrs.label}" />
+		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+			<p:outputLabel value="Street" for="street" />
+			<p:inputText value="#{data.address.street}" id="street" />
+			<p:outputLabel value="Country" for="country" />
+			<p:inputText value="#{data.address.country}" id="country" />
+		</h:panelGrid>
+	</p:fieldset>
+</cc:implementation>
+</html>

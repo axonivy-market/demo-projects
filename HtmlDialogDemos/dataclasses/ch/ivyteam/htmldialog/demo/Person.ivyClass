@@ -4,3 +4,7 @@ name String #field
 name PERSISTENT #fieldModifier
 firstname String #field
 firstname PERSISTENT #fieldModifier
+billingAddress ch.ivyteam.htmldialog.demo.Address #field
+billingAddress PERSISTENT #fieldModifier
+deliveryAddress ch.ivyteam.htmldialog.demo.Address #field
+deliveryAddress PERSISTENT #fieldModifier
