@@ -62,9 +62,9 @@ private ULCVBarChart getProgLangBarChart() {
 		progLangBarChart.setName("progLangBarChart");
 		
 		// the title is set by a data binding, check the data binding view for more information
-		
+		// you can use too CMS macros for text parameters		
 		progLangBarChart.addSubtitle("by TIOBE Programming Community Index");
-		progLangBarChart.setDomainAxisTitle("Programming Languages");
+		progLangBarChart.setDomainAxisTitle("<%=ivy.cms.co(\"/ch/ivyteam/ivy/demo/charts/xAxisTitle\")%>");
 		progLangBarChart.setRangeAxisTitle("Relative Usage");
 		
 		progLangBarChart.setNumberOfItemsPerPage(6);
