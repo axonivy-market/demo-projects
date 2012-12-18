@@ -1,4 +1,4 @@
-<!--ivy.input_validate name_de="EMail Adresse" name_en="EMail address"-->
+/* ivy.input_validate name_de="EMail Adresse" name_en="EMail address" */
 function eMail(field,msg,loc)
 { 
 

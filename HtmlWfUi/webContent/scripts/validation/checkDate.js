@@ -1,7 +1,6 @@
-<!--ivy.input_validate name_de="Datum [TT.MM.JJJJ] || [TT.MM.JJ]" name_en="Date [DD.MM.YY] || [DD.MM.YYYY]"-->
+/* ivy.input_validate name_de="Datum [TT.MM.JJJJ] || [TT.MM.JJ]" name_en="Date [DD.MM.YY] || [DD.MM.YYYY]" */
 function checkDate(field,msg,loc)
 { 
-
   /* default messages */
   msg_en=field.name+" is not a valid Date [DD.MM.YYYY]";
   msg_de=field.name+" ist kein gütliges Datum [TT.MM.JJJJ]";

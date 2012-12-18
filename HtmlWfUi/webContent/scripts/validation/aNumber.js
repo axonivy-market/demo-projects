@@ -1,4 +1,4 @@
-<!--ivy.input_validate name_de="Zahl [Number]" name_en="a Number"-->
+/* ivy.input_validate name_de="Zahl [Number]" name_en="a Number" */
 function aNumber(field,msg,loc)
 { 
 

@@ -1,4 +1,4 @@
-<!--ivy.radio_validate name_de="Radioknopf selektiert" name_en="radio option selected"-->
+/* ivy.radio_validate name_de="Radioknopf selektiert" name_en="radio option selected" */
 function radioChecked(field,msg,loc)
 {
   /* default messages */

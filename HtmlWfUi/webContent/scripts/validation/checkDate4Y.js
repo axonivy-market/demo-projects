@@ -1,4 +1,4 @@
-<!--ivy.input_validate name_de="Datum [TT.MM.JJJJ]" name_en="Date [DD.MM.YYYY]"-->
+/* ivy.input_validate name_de="Datum [TT.MM.JJJJ]" name_en="Date [DD.MM.YYYY]" */
 function checkDate4Y(field,msg,loc)
 { 
 
@@ -47,37 +47,6 @@ function checkDate4Y(field,msg,loc)
 		alert(msg_fr);	
     else 
 		alert(msg_en);							 
-    return false;
-  } 
-}<!--ivy.input_validate name_de="Datum  [Tag.Monat.Jahr]" name_en="Date  [day.months.year]"-->
-function aDate(field,msg,loc)
-{ 
-
-  /* default messages */
-  msg_en=field.name+" is not a valid Date";
-  msg_de=field.name+" ist kein gütliges Datum";
-
-  // d.m.yy or dd.mm.yyyy
-  regexp=/\d{1,2}\.\d{1,2}\.\d{2,4}/;
-  
-  del1=field.value.indexOf(".");
-  del2=field.value.lastIndexOf(".");
-
-  if(field.value.length>=6 && field.value.length<=10
-	&& field.value.search(regexp)==0 
-	&& parseInt(field.value.substring(0,del1))<=31
-	&& parseInt(field.value.substring(del1+1,del2))<=12)
-  {       
-    return true;
-  }
-  else
-  {
-    if(msg!=null && msg.length>0)
-	alert(msg);
-    else if(loc=="de")
-	alert(msg_de);
-    else 
-	alert(msg_en);							 
     return false;
   } 
 }

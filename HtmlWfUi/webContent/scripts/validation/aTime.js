@@ -1,4 +1,4 @@
-<!--ivy.input_validate name_de="Zeit  [Std:Min]" name_en="Time  [hh:mm]"-->
+/* ivy.input_validate name_de="Zeit  [Std:Min]" name_en="Time  [hh:mm]" */
 function aTime(field,msg,loc)
 { 
 

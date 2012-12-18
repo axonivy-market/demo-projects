@@ -1,4 +1,4 @@
-<!--ivy.input_validate name_de="nicht leer" name_en="not empty"-->
+/* ivy.input_validate name_de="nicht leer" name_en="not empty" */
 function _Empty(field,msg,loc)
 {
   /* default messages */

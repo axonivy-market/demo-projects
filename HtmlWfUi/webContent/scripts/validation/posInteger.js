@@ -1,4 +1,4 @@
-<!--ivy.input_validate name_de="ganze Zahl>0" name_en="Integer>0"-->
+/* ivy.input_validate name_de="ganze Zahl>0" name_en="Integer>0" */
 function posInteger(field,msg,loc)
 { 
   /* default messages */

@@ -1,4 +1,4 @@
-<!--ivy.checkbox_validate name_de="Checkbox selektiert" name_en="checkbox checked"-->
+/* ivy.checkbox_validate name_de="Checkbox selektiert" name_en="checkbox checked" */
 function checkboxChecked(field,msg,loc)
 {
   /* default messages */
