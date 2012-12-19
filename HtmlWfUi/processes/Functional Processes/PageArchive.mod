@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Jan 21 13:46:00 CET 2011]
-12E298DC97ADC471 3.15 #module
+[>Created: Wed Dec 19 15:32:20 CET 2012]
+12E298DC97ADC471 3.17 #module
 >Proto >Proto Collection #zClass
 Cy0 PageArchive Big #zClass
 Cy0 B #cInfo
@@ -52,7 +52,7 @@ Cy0 f18 86 282 28 28 14 0 #rect
 Cy0 f18 @|AlternativeIcon #fIcon
 Cy0 f4 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 Cy0 f4 outLinks "LinkA.ivp","LinkB.ivp" #txt
-Cy0 f4 template "pageArchive.ivc" #txt
+Cy0 f4 template "/ProcessPages/PageArchive/pageArchive.ivc" #txt
 Cy0 f4 type htmlwfui.Data #txt
 Cy0 f4 skipLink skip.ivp #txt
 Cy0 f4 sortLink sort.ivp #txt
@@ -133,7 +133,7 @@ for(int i = 0; i < tasks.size(); i++)
 		ArchivePageDetail apd = new ArchivePageDetail();
 		apd.setRef(ivy.html.pageArchiveRef(pa));
 		apd.setName(pa.getName());
-		apd.setId(pa.getIdentifier());
+		apd.setId(pa.getId());
 		out.pageArchives.add(apd);
 	}	
 }	
@@ -144,7 +144,7 @@ Cy0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>get archived pages</name>
-        <nameStyle>18
+        <nameStyle>18,7
 </nameStyle>
     </language>
 </elementInfo>
