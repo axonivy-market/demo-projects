@@ -128,7 +128,7 @@ Ms0 f3 -5972572|-5972572|-16777216 #nodeStyle
 Ms0 f4 actionDecl 'ch.ivyteam.ivy.demo.waitforasyncprocess.Data out;
 ' #txt
 Ms0 f4 actionTable 'out=in;
-out.eventId=ivy.case.getIdentifier().toString();
+out.eventId=ivy.case.getId().toString();
 ' #txt
 Ms0 f4 type ch.ivyteam.ivy.demo.waitforasyncprocess.Data #txt
 Ms0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

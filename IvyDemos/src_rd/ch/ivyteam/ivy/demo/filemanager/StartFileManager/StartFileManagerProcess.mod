@@ -125,7 +125,7 @@ ivy.wf.getApplication().getSecurityDescriptor().grantPermissions(
                 ivy.wf.getApplication().getSecurityDescriptor().getSecurityDescriptorType().getRootPermissionGroup(),
                 ivy.session.getSecurityContext().findRole("Everybody")
 );
-ivy.session.logoutSessionUser(ivy.task.getIdentifier());
+ivy.session.logoutSessionUser(ivy.task.getId());
 
 panel.activateFileVersioningCheckBox.enabled=false;
 panel.activateSecurityCheckBox.enabled=false;
@@ -234,7 +234,7 @@ Ss0 f25 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileMa
 ' #txt
 Ss0 f25 actionTable 'out=in;
 ' #txt
-Ss0 f25 actionCode ivy.session.logoutSessionUser(ivy.task.getIdentifier()); #txt
+Ss0 f25 actionCode ivy.session.logoutSessionUser(ivy.task.getId()); #txt
 Ss0 f25 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
 Ss0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
