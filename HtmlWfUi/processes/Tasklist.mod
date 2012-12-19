@@ -82,7 +82,7 @@ for (int t=0; t<tasks.size(); t++)
 				taskDetail.delay = task.getDelayTimestamp();
 				taskDetail.desc = task.getDescription() != null ? task.getDescription() : "";
 				taskDetail.exp = task.getExpiryTimestamp();
-				taskDetail.id = task.getIdentifier();
+				taskDetail.id = task.getId();
 				taskDetail.name = task.getName();
 				taskDetail.prio = task.getPriority().intValue();
 				taskDetail.prioName = task.getPriority().toString();
@@ -90,7 +90,7 @@ for (int t=0; t<tasks.size(); t++)
 				taskDetail.start = task.getStartTimestamp();
 				taskDetail.state = task.getState().intValue();
 				taskDetail.stateName=task.getState().toString();
-				taskDetail.url = "/ivy/pro/"+task.getFullRequestPath()+"?taskId="+task.getIdentifier();
+				taskDetail.url = "/ivy/pro/"+task.getFullRequestPath()+"?taskId="+task.getId();
 		
 				out.taskList.add(taskDetail);
 }' #txt

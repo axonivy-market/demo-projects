@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 04 16:37:19 CEST 2012]
+[>Created: Wed Dec 19 15:44:10 CET 2012]
 1367E046117353D3 3.17 #module
 >Proto >Proto Collection #zClass
 Ae0 Absence Big #zClass
@@ -256,7 +256,7 @@ Ae0 f13 actionCode 'import ch.ivyteam.ivy.security.IUserAbsence;
 List absences = ivy.session.getSessionUser().getAbsences();
 for(IUserAbsence absence:absences)
 {
-	if(absence.getIdentifier() == in.temp.n)
+	if(absence.getId() == in.temp.n)
 	{
 			ivy.session.getSessionUser().deleteAbsence(absence);
 			break;
@@ -269,7 +269,7 @@ Ae0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Remove Absence</name>
-        <nameStyle>14
+        <nameStyle>14,7
 </nameStyle>
     </language>
 </elementInfo>

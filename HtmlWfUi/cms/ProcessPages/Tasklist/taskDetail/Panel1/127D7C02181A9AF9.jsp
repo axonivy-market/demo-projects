@@ -61,7 +61,7 @@
 		// selected xivy4 task
 		task = (ITask) ivy.html.getObject("in.tmpTask");
 		//prefixRIARedirect = ("RIA".equals(task.getCustomVarCharField1()) ||"RIA".equals(task.getCase().getCustomVarCharField1())) ? "/ivy/wf/start_redirect.jsp?startUrl=" : "" ;
-		taskId = ""+task.getIdentifier();
+		taskId = ""+task.getId();
 		taskName = task.getName();
 	 	taskBeschreibung = task.getDescription();
 		taskStateId = ""+task.getState().intValue();
@@ -71,7 +71,7 @@
 		ISecurityMember taskActivator = task.getActivator();
 	 	taskActivatorName = taskActivator.getMemberName() ;
 		taskActivatorIsUser = task.getActivator() != null && task.getActivator().isUser();
-		taskCase = task.getCase().getName() +" - CaseId["+task.getCase().getIdentifier()+"]";
+		taskCase = task.getCase().getName() +" - CaseId["+task.getCase().getId()+"]";
 		taskStartDate = task.getStartTimestamp() != null ? formatter.format(task.getStartTimestamp()) : "";
 		//taskStartUri = "/ivy/wf/start_redirect.jsp?startUrl=/ivy/pro/"+task.getFullRequestPath()+"?taskId="+taskId;
 		taskStartUri = ivy.html.ref("LinkE.ivp")+"&temp$url=/ivy/pro/"+task.getFullRequestPath()+"?taskId="+taskId;

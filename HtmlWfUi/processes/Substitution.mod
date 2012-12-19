@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 04 14:43:32 CEST 2012]
+[>Created: Wed Dec 19 15:44:10 CET 2012]
 1367DCC9EAB32A2E 3.17 #module
 >Proto >Proto Collection #zClass
 Sn0 Substitution Big #zClass
@@ -267,7 +267,7 @@ Sn0 f6 actionCode 'import ch.ivyteam.ivy.security.IUserSubstitute;
 List substitutes = ivy.session.getSessionUser().getSubstitutes();
 for(IUserSubstitute substitute:substitutes)
 {
-	if(substitute.getIdentifier() == in.temp.n)
+	if(substitute.getId() == in.temp.n)
 	{
 			ivy.session.getSessionUser().deleteSubstitute(substitute);
 			break;
@@ -279,7 +279,7 @@ Sn0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>remove Substitution</name>
-        <nameStyle>19
+        <nameStyle>19,7
 </nameStyle>
     </language>
 </elementInfo>

@@ -89,7 +89,7 @@
 	<table class="detailTable" width="100%">
 	<tr>
 		<td class="labelTd"><%=ivy.cms.co("/labels/taskId")%></td>
-		<td><%=task.getIdentifier()%></td>
+		<td><%=task.getId()%></td>
 	</tr>	
 	<tr>
 		<td class="labelTd"><%=ivy.cms.co("/labels/name")%></td>
@@ -127,7 +127,7 @@
 	</tr>	
 	<tr>
 		<td class="labelTd"><%=ivy.cms.co("/labels/case")%></td>
-		<td title="CaseId [<%=task.getCase().getIdentifier()%>]"><%=task.getCase().getName()%></td>
+		<td title="CaseId [<%=task.getCase().getId()%>]"><%=task.getCase().getName()%></td>
 	</tr>	
 	<tr>
 		<td class="labelTd"><%=ivy.cms.co("/labels/created")%></td>

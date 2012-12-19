@@ -76,7 +76,7 @@
 <table class="detailTable" width="100%">
 	<tr>
 		<td class="labelTd"><%=ivy.cms.co("/labels/caseId")%></td>
-		<td><%=icase.getIdentifier()%></td>
+		<td><%=icase.getId()%></td>
 	</tr>	
 	<tr>
 		<td class="labelTd"><%=ivy.cms.co("/labels/name")%></td>
