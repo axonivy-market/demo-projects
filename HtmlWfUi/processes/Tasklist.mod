@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 21 10:21:34 CET 2011]
+[>Created: Thu Dec 20 14:42:14 CET 2012]
 125016DE17A534EB 3.17 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
@@ -232,7 +232,7 @@ if(selectedTask.isIvy4Task)
 { // an xivy4 task selected 
 	for(int i = 0; i < in.tasks.size(); i++)
 	{
-		if(selectedTask.id == in.tasks.get(i).getIdentifier())
+		if(selectedTask.id == in.tasks.get(i).getId())
 		{
 			out.tmpTask = in.tasks.get(i);
 			out.tempCase = in.tasks.get(i).getCase();
@@ -254,7 +254,7 @@ Tt0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Get Task
 Details</name>
-        <nameStyle>16,9
+        <nameStyle>16,7,9
 </nameStyle>
     </language>
 </elementInfo>

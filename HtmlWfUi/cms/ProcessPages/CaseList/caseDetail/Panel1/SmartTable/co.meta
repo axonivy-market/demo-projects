@@ -1,2 +1,2 @@
-co: name={SmartTable} description={} changed={2011-03-17 11:02:23 CET} changedby={tirib} visualorder={0} guid={12CABFEA2D342686} parentguid={} typeguid={1065A70458AB226C} id={} parentid={} typeid={}
-val: guid={12CABFEA2E3827C2} datatype={} isdefault={true} langid={en} description={} validfrom={2010-12-03 12:29:39 CET} validto={} changed={2011-03-17 11:02:23 CET} changedby={tirib} properties={renderer.config=workflowTable} id={}
+co: name={SmartTable} description={} changed={2012-12-20 15:02:09 CET} changedby={rwei} visualorder={0} guid={12CABFEA2D342686} parentguid={} typeguid={1065A70458AB226C} id={} parentid={} typeid={}
+val: guid={12CABFEA2E3827C2} datatype={} isdefault={true} langid={en} description={} validfrom={2010-12-03 12:29:39 CET} validto={} changed={2012-12-20 15:02:09 CET} changedby={rwei} properties={renderer.config=workflowTable} id={}
