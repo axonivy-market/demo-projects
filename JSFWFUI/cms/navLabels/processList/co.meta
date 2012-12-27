@@ -1,0 +1,4 @@
+co: name={processList} description={} changed={2011-03-16 16:28:51 CET} changedby={tirib} visualorder={0} guid={12E299E82DECED77} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12E299E82ED2D09A} datatype={} isdefault={true} langid={de} description={} validfrom={2011-02-15 14:59:37 CET} validto={} changed={2011-02-15 15:03:04 CET} changedby={bb} properties={} id={}
+val: guid={12E29A1222A8A80F} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-15 15:02:06 CET} validto={} changed={2011-02-15 15:02:29 CET} changedby={bb} properties={} id={}
+val: guid={12EBF489FD7E04C2} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 16:28:28 CET} validto={} changed={2011-03-16 16:28:51 CET} changedby={tirib} properties={} id={}

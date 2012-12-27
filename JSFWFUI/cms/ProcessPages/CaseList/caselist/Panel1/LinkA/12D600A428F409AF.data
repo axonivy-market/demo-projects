@@ -1,0 +1,16 @@
+<FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'  >
+<!--ivyform--><table BORDER="0"><tr >
+<td ><!--i.ftemp.catFilter--><%=ivy.cms.co("/labels/category")%> <%=ivy.html.menu("in.temp.categories","temp$catFilter",0,"in.temp.catFilter","onChange=\"submitformLinkC()\" ")%></td>
+<td ><!--i.ftemp.procFilter--><%=ivy.cms.co("/labels/process")%> <%=ivy.html.menu("in.temp.processesCombo","temp$procFilter",0,"in.temp.procFilter")%></td>
+<td ><!--i.ftemp.statFilter--><%=ivy.cms.co("/labels/taskState")%> <%=ivy.html.menu("in.temp.states","temp$statFilter",0,"in.temp.statFilter")%></td>
+<td ><!--i.submit-->
+<INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="&raquo;"></td>
+</tr>
+
+
+
+
+
+
+
+</table></FORM>

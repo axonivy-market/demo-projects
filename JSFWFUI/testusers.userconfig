@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<userConfig>
+    <user>
+        <username>user1</username>
+        <password>user1</password>
+        <fullName>Test User1</fullName>
+    </user>
+    <user>
+        <username>user2</username>
+        <password>user2</password>
+        <fullName>Test User2</fullName>
+    </user>
+</userConfig>

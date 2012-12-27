@@ -1,0 +1,18 @@
+Substitute #class
+htmlwfui #namespace
+substitutes List<ch.ivyteam.ivy.security.IUserSubstitute> #field
+substitutes PERSISTENT #fieldModifier
+description String #field
+description PERSISTENT #fieldModifier
+personal Boolean #field
+personal PERSISTENT #fieldModifier
+userList List<String> #field
+userList PERSISTENT #fieldModifier
+roleList List<String> #field
+roleList PERSISTENT #fieldModifier
+user String #field
+user PERSISTENT #fieldModifier
+role String #field
+role PERSISTENT #fieldModifier
+substiutions List<ch.ivyteam.ivy.security.IUserSubstitute> #field
+substiutions PERSISTENT #fieldModifier

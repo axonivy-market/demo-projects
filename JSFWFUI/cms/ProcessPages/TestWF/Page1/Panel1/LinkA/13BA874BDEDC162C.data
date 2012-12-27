@@ -1,0 +1,13 @@
+<FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'  >
+<!--ivyform--><table BORDER="0">
+<tr>
+<td><!--i.ttemp.caption-->temp.caption</td><td><!--i.atemp.caption--><INPUT TYPE="TEXT" NAME="temp$caption"  VALUE="<%=ivy.html.getFormValue("in.temp.caption")%>"></td>
+</tr>
+<tr>
+<td><!--i.ttemp.n-->temp.n</td><td><!--i.atemp.n--><INPUT TYPE="TEXT" NAME="temp$n"  VALUE="<%=ivy.html.getFormValue("in.temp.n")%>"></td>
+</tr>
+<tr><td>
+</td><td><!--i.submit-->
+<INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="Submit"></td></tr>
+</table>
+</FORM>

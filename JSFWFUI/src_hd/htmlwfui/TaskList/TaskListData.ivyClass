@@ -1,0 +1,8 @@
+TaskListData #class
+htmlwfui.TaskList #namespace
+tasks List<ch.ivyteam.ivy.workflow.ITask> #field
+tasks PERSISTENT #fieldModifier
+taskList List<htmlwfui.TaskDetail> #field
+taskList PERSISTENT #fieldModifier
+taskDetail htmlwfui.TaskDetail #field
+taskDetail PERSISTENT #fieldModifier

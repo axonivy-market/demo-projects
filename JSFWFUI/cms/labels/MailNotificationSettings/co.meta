@@ -1,0 +1,4 @@
+co: name={MailNotificationSettings} description={} changed={2012-04-27 17:13:09 CEST} changedby={bb} visualorder={0} guid={136F45B8DF329DA4} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={136F45B8E1290F08} datatype={} isdefault={true} langid={de} description={} validfrom={2012-04-05 12:11:33 CEST} validto={} changed={2012-04-27 17:13:08 CEST} changedby={bb} properties={} id={}
+val: guid={136F45B8E419CF13} datatype={} isdefault={false} langid={en} description={} validfrom={2012-04-27 15:47:31 CEST} validto={} changed={2012-04-27 17:13:08 CEST} changedby={bb} properties={} id={}
+val: guid={136F45B8DF3C2E84} datatype={} isdefault={false} langid={fr} description={} validfrom={2012-04-27 15:47:42 CEST} validto={} changed={2012-04-27 17:13:09 CEST} changedby={bb} properties={} id={}

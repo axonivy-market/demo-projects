@@ -1,0 +1,22 @@
+<FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'   ONSUBMIT="return checkformLinkA();">
+<!--ivyform--><table BORDER="0"><tr >
+<td CLASS="labelTd"><!--i.ttemp.ok--><%=ivy.cms.co("/labels/caseDelete")%></td>
+<td ><!--i.atemp.ok--><INPUT TYPE="CHECKBOX" NAME="temp$ok" VALUE="true"   ><INPUT TYPE="hidden" NAME="temp$ok" VALUE="false" ></td>
+</tr>
+<tr >
+<td ></td>
+<td ><!--i.submit-->
+<SCRIPT LANGUAGE="JavaScript" SRC="<%=ivy.html.wr("scripts/validation/checkboxChecked.js")%>"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+function checkformLinkA()
+{
+  return (true 
+    && checkboxChecked(document.formLinkA.temp$ok,"Das Löschen mit der Checkbox bestätigen.","<%=ivy.request.getContentLocale().getLanguage()%>"));
+}
+</SCRIPT>
+<INPUT STYLE='width="100"' TYPE="SUBMIT" NAME="Submit" VALUE="<%=ivy.cms.co("/labels/deleteButton")%>">
+</td>
+</tr>
+
+
+</table></FORM>

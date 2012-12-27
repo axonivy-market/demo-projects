@@ -1,0 +1,7 @@
+# Conversion log for project 'HtmlWFUI' from version 44008 to 44009
+# Created on 17.12.2012 12:07:39
+17.12.2012 12:07:39 : New Task  : Adding the faceted project nature to the project ...
+17.12.2012 12:07:39 : Warning   : This project already has the nature org.eclipse.wst.common.project.facet.core.nature
+17.12.2012 12:07:39 : New Task  : Adding the JSF facet to the project...
+17.12.2012 12:07:40 : New Task  : Update project version to actual version 44009.
+17.12.2012 12:07:40 : New Task  : Finished conversion of project HtmlWFUI.

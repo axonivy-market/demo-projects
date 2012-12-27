@@ -1,0 +1,4 @@
+co: name={taskState} description={} changed={2011-03-16 16:17:14 CET} changedby={tirib} visualorder={0} guid={12E2A304B1A857DA} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12E2A304B2A2CE0D} datatype={} isdefault={true} langid={de} description={} validfrom={2011-02-15 17:38:51 CET} validto={} changed={2011-02-15 18:00:00 CET} changedby={bb} properties={} id={}
+val: guid={12EBF3DFCE16094C} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 16:17:04 CET} validto={} changed={2011-03-16 16:17:14 CET} changedby={tirib} properties={} id={}
+val: guid={12E2A30A2E474C4C} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-15 17:38:59 CET} validto={} changed={2011-02-15 18:00:00 CET} changedby={bb} properties={} id={}

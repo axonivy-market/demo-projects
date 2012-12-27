@@ -1,0 +1,4 @@
+<P>
+Administration workflow<BR>
+Détails du cas[<%=ivy.html.get("in.tempCase.getIdentifier()")%>] <B><%=ivy.html.get("in.tempCase.name")%></B>
+</P>

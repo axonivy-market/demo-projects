@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="../HomeTemplate.xhtml">
+
+		<ui:define name="center">
+			<p:layoutUnit position="center" header="Aufgaben">
+			<h:form>
+				<p:dataTable var="task" value="#{data.taskList}">
+					<p:column style="width:30px" sortBy="#{task.id}">
+						<f:facet name="header">
+							<h:outputText value="#" /> 
+						</f:facet>
+						<h:commandLink action="#{logic.gotoTaskDetail(task.id)}">
+							<h:graphicImage library="ivy-cms" name="images/task" alt="#{task.id}"/>
+						</h:commandLink> 
+					</p:column>
+					<p:column style="width:50px" sortBy="#{task.prio}">
+						<f:facet name="header">
+							<h:outputText value="#{ivy.cms.co('/labels/taskPrio')}" />
+						</f:facet>
+						<h:graphicImage library="ivy-cms" name="images/priority/#{task.prio}" alt="#{task.prio}"/>
+					</p:column>	
+					<p:column style="width:50px" sortBy="#{task.state}">
+						<f:facet name="header">
+							<h:outputText value="#{ivy.cms.co('/labels/taskState')}" />
+						</f:facet>
+						<h:graphicImage library="ivy-cms" name="images/state/#{task.state}" alt="#{task.stateName}"/>
+					</p:column>										
+					<p:column sortBy="#{task.name}">
+						<f:facet name="header">
+							<h:outputText value="#{ivy.cms.co('/labels/task')}" />
+						</f:facet>
+						<h:outputText value="#{task.name}" />
+					</p:column>
+					<p:column style="width:150px" sortBy="#{task.activator}">
+							<f:facet name="header">
+							<h:outputText value="#{ivy.cms.co('/labels/responsible')}"/>
+						</f:facet>
+						<h:outputText value="#{task.activator}" />
+					</p:column>
+					<p:column style="width:150px" sortBy="#{task.start}">
+							<f:facet name="header">
+							<h:outputText value="#{ivy.cms.co('/labels/taskStart')}"/>
+						</f:facet>
+						<h:outputText value="#{task.start.format('short')}" />
+					</p:column>
+					<p:column style="width:50px">
+						<f:facet name="header">
+							<h:outputText value="Start" />
+						</f:facet>
+						<a href="#{task.url}"><h:graphicImage library="ivy-cms" name="images/start" alt="Start"/></a> 
+					</p:column>
+				</p:dataTable>
+			</h:form>	
+			</p:layoutUnit>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,1 @@
+<%=ivy.html.get("in.temp.caption")=="my_cases" ? ivy.cms.co("/navLabels/caseHistory") : ivy.cms.co("/navLabels/admin")%>

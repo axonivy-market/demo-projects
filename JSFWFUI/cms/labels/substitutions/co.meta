@@ -1,0 +1,4 @@
+co: name={substitutions} description={} changed={2012-05-04 14:57:47 CEST} changedby={bb} visualorder={0} guid={13717EA6118A55C0} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={13717EA6156A8929} datatype={} isdefault={false} langid={fr} description={} validfrom={2012-04-27 16:03:39 CEST} validto={} changed={2012-05-04 14:57:47 CEST} changedby={bb} properties={} id={}
+val: guid={13717EA6175B363D} datatype={} isdefault={false} langid={en} description={} validfrom={2012-04-27 16:03:31 CEST} validto={} changed={2012-05-04 14:55:55 CEST} changedby={bb} properties={} id={}
+val: guid={13717EA61953469B} datatype={} isdefault={true} langid={de} description={} validfrom={2012-04-26 14:13:23 CEST} validto={} changed={2012-05-04 14:55:55 CEST} changedby={bb} properties={} id={}

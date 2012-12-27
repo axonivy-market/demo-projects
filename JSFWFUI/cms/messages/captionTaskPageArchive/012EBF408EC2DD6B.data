@@ -1,0 +1,1 @@
+Formulaires archivés de la tâche [<%=ivy.html.get("in.tmpTask.getIdentifier()")%>]<b><%=ivy.html.get("in.tmpTask.name")%></b> -

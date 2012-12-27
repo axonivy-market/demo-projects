@@ -1,0 +1,4 @@
+ProcessListData #class
+htmlwfui.ProcessList #namespace
+starts List<ch.ivyteam.ivy.workflow.IProcessStart> #field
+starts PERSISTENT #fieldModifier

@@ -1,0 +1,6 @@
+<P>
+Your on Page 2
+</P>
+<P>
+<%=ivy.html.get("in.temp.caption")%>
+</P>

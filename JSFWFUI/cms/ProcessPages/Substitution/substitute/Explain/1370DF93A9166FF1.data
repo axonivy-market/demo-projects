@@ -1,0 +1,7 @@
+<P>
+<B>My substitutes<BR>
+</B>It helps you to define your substitutes in case of absence.
+</P>
+<P>
+<A href="<%=ivy.html.ref("LinkC.ivp")%>">My Substitutions »</A>
+</P>

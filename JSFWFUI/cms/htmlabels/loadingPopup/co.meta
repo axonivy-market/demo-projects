@@ -1,0 +1,4 @@
+co: name={loadingPopup} description={} changed={2011-03-16 14:15:29 CET} changedby={tirib} visualorder={0} guid={12E3448AE9D11179} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12E3449C07BFCDEC} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-17 16:42:02 CET} validto={} changed={2011-02-17 16:42:52 CET} changedby={bb} properties={} id={}
+val: guid={12E3448AE9DC68FD} datatype={} isdefault={true} langid={de} description={} validfrom={2011-02-17 16:41:41 CET} validto={} changed={2011-02-17 16:42:51 CET} changedby={bb} properties={} id={}
+val: guid={12EBECE4F3B7FDD2} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 14:15:15 CET} validto={} changed={2011-03-16 14:15:29 CET} changedby={tirib} properties={} id={}

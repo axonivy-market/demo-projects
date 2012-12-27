@@ -1,0 +1,15 @@
+#Fri Jan 07 11:05:55 CET 2011
+body.even.tr=\#Fri Jan 07 11\:05\:55 CET 2011\r\nclass\=evenRow\r\n
+footer.tr=\#Fri Jan 07 11\:05\:55 CET 2011\r\nbgcolor\=\\\#CCCCCC\r\n
+selector.format={|<}{<}{123}{>}{>|}{x}-{y} [{z}]
+table.table=\#Fri Jan 07 11\:05\:55 CET 2011\r\nwidth\=1000\r\nclass\=resultTable\r\nrules\=rows\r\nframe\=below\r\n
+header.first.th=\#Fri Jan 07 11\:05\:55 CET 2011\r\nwidth\=30\r\nclass\=data\r\nalign\=center\r\n
+sort.descending=&\#9660;
+body.odd.tr=\#Fri Jan 07 11\:05\:55 CET 2011\r\nclass\=oddRow\r\n
+sorted.descending=&\#9660;
+header.even.th=\#Fri Jan 07 11\:05\:55 CET 2011\r\nclass\=data\r\nalign\=left\r\n
+header.th=\#Tue Nov 08 15\:47\:05 CET 2005\r\nnowrap\=nowrap\r\n
+selector.table=\#Fri Jan 07 11\:05\:55 CET 2011\r\ncellpadding\=2\r\ncellspacing\=2\r\nrules\=none\r\nframe\=void\r\n
+header.odd.th=\#Fri Jan 07 11\:05\:55 CET 2011\r\nclass\=data\r\nalign\=left\r\n
+sorted.ascending=&\#9650;
+sort.ascending=&\#9650;

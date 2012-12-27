@@ -1,0 +1,11 @@
+#Wed May 02 16:54:16 CEST 2012
+default.sort.value=-1
+table.default.page.size.value=50
+table.source=in.pageArchives
+footer.show.value=false
+table.empty.value=<%\=ivy.cms.co("/labels/noItemsFound")%>
+header.show.value=true
+col1=\#Wed May 02 16\:54\:16 CEST 2012\r\nsort.value\=true\r\nbody.value\="<a href\\\=\\\\""+it.getRef()+"\\\\" target\\\=\\\\"_blank\\\\" title\\\='Anzeigen'>"+ ivy.html.escape(value)+"</a>"\r\nheader.value\=<%\\\=ivy.cms.co("/labels/page")%>\r\nname.value\=name\r\n
+table.caption.value=
+col0=\#Wed May 02 16\:54\:16 CEST 2012\r\nsort.value\=false\r\nbody.td\=\\\#Fri Dec 17 14\\\:59\\\:04 CET 2010\\r\\nalign\\\=center\\r\\n\r\nbody.value\="<a href\\\=\\\\""+it.getRef()+"\\\\" target\\\=\\\\"_blank\\\\"><img src\\\='"+ivy.cms.cr("/images/formHistory")+ "' title\\\=' Anzeigen Archive Page["+value+"]'></a>"\r\nheader.value\=\\\#\r\nname.value\=id\r\n
+auto.header.value=false

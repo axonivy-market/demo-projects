@@ -1,0 +1,4 @@
+co: name={Technik} description={} changed={2011-03-16 14:11:36 CET} changedby={tirib} visualorder={0} guid={12D610A0C20897A7} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12EBECA7E2342376} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 14:11:04 CET} validto={} changed={2011-03-16 14:11:36 CET} changedby={tirib} properties={} id={}
+val: guid={12D610A0C20F939A} datatype={} isdefault={true} langid={en} description={} validfrom={2011-01-07 16:13:24 CET} validto={} changed={2011-02-15 15:20:17 CET} changedby={bb} properties={} id={}
+val: guid={12E29B16CCCAE006} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 15:20:07 CET} validto={} changed={2011-02-15 15:20:17 CET} changedby={bb} properties={} id={}
