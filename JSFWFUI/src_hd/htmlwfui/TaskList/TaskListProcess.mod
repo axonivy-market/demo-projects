@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Dec 20 17:15:48 CET 2012]
+[>Created: Fri Dec 28 16:24:02 CET 2012]
 13A988AE1F9BA634 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListProcess Big #zClass
@@ -166,10 +166,10 @@ Ts0 f10 427 54 20 20 13 0 #rect
 Ts0 f10 @|RichDialogMethodStartIcon #fIcon
 Ts0 f13 type htmlwfui.TaskList.TaskListData #txt
 Ts0 f13 guid 13BB918DD8611571 #txt
-Ts0 f13 422 174 20 20 13 0 #rect
+Ts0 f13 430 182 20 20 13 0 #rect
 Ts0 f13 @|RichDialogEndIcon #fIcon
 Ts0 f14 expr out #txt
-Ts0 f14 437 74 432 174 #arcP
+Ts0 f14 437 73 439 182 #arcP
 >Proto Ts0 .type htmlwfui.TaskList.TaskListData #txt
 >Proto Ts0 .processKind RICH_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu May 03 10:27:49 CEST 2012]
+[>Created: Fri Dec 28 15:49:05 CET 2012]
 136F4341B49EA302 3.17 #module
 >Proto >Proto Collection #zClass
 Mg0 MailNotificationSetting Big #zClass
@@ -35,7 +35,7 @@ Mg0 f0 triggerEnabled false #txt
 Mg0 f0 callSignature start() #txt
 Mg0 f0 persist false #txt
 Mg0 f0 taskData '#
-#Wed May 02 17:11:02 CEST 2012
+#Fri Dec 28 15:42:06 CET 2012
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -44,7 +44,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Mg0 f0 caseData '#
-#Wed May 02 17:11:02 CEST 2012
+#Fri Dec 28 15:42:06 CET 2012
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=

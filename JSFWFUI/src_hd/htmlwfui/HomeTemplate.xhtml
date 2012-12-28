@@ -18,7 +18,7 @@
 					<td><h:graphicImage library="ivy-cms" name="/Project/Banner" />
 					</td>
 					<td width="100%"><h:outputText>Xpert.ivy Workflow </h:outputText><br></br>
-						<h:outputText>Angemeldet als: #{ivy.session.getSessionUserName()}</h:outputText></td>
+						<h:outputText>#{ivy.cms.co('/labels/loginAs')} #{ivy.session.getSessionUserName()}</h:outputText></td>
 				</tr>
 			</table>
 		</p:layoutUnit>
@@ -26,26 +26,33 @@
 			header="Home" size="200">
 			<p:scrollPanel>
 				<p:menu style="width:100%">
-					<p:submenu label="Workflow">
-						<p:menuitem value="Home"
-							url="#{ivy.html.startref('127AE76143E89C91/DefaultApplicationHomePage.ivp')}" target="display"/>
-						<p:menuitem value="Prozesse"
+					<p:submenu label="#{ivy.cms.co('/navLabels/workflow')}" >
+						<p:menuitem value="#{ivy.cms.co('/navLabels/home')}"
+							url="#{ivy.html.startref('127AE76143E89C91/DefaultApplicationHomePage.ivp')}" />
+						<p:menuitem value="#{ivy.cms.co('/navLabels/processList')}"
 							url="#{ivy.html.startref('1270ADF72FF4AFF3/DefaultProcessStartListPage.ivp')}" />
-						<p:menuitem value="Aufgaben"
+						<p:menuitem value="#{ivy.cms.co('/navLabels/taskList')}"
 							url="#{ivy.html.startref('125016DE17A534EB/DefaultTaskListPage.ivp')}" />
 					</p:submenu>
-					<p:submenu label="History">
-						<p:menuitem value="Erledigte Aufgaben"
-							url="http://www.youtube.com" />
-						<p:menuitem value="Gestartete Prozesse" url="http://www.break.com" />
+					<p:submenu label="#{ivy.cms.co('/navLabels/history')}" >
+						<p:menuitem value="#{ivy.cms.co('/navLabels/caseHistory')}"
+							url="#{ivy.html.startref('12C97DB1B1EA5971/start1.ivp')}" />
+						<p:menuitem value="#{ivy.cms.co('/navLabels/taskHistory')}"
+							url="#{ivy.html.startref('12E297F287736665/start1.ivp')}" />
 					</p:submenu>
-					<p:submenu label="Einstellungen">
-						<p:menuitem value="Absenzen" url="http://www.facebook.com" />
-						<p:menuitem value="Stellvertretung" url="http://www.myspace.com" />
-						<p:menuitem value="Mail-Notifikation" url="http://www.myspace.com" />
+					<p:submenu label="#{ivy.cms.co('/navLabels/settings')}">
+						<p:menuitem value="#{ivy.cms.co('/navLabels/absence')}"
+							url="#{ivy.html.startref('1367E046117353D3/start.ivp')}" />>
+						<p:menuitem value="#{ivy.cms.co('/navLabels/substitution')}"
+							url="#{ivy.html.startref('1367DCC9EAB32A2E/start.ivp')}" />
+						<p:menuitem value="#{ivy.cms.co('/navLabels/mailSettings')}"
+							url="#{ivy.html.startref('136F4341B49EA302/start.ivp')}" />
 					</p:submenu>
-					<p:submenu label="Administration">
-						<p:menuitem value="Case Overview" url="http://www.facebook.com" />
+					<p:submenu label="#{ivy.cms.co('/navLabels/admin')}">
+						<p:menuitem value="#{ivy.cms.co('/navLabels/caseAdmin')}"
+							url="#{ivy.html.startref('12C97DB1B1EA5971/start2.ivp')}" />
+						<p:menuitem value="#{ivy.cms.co('/navLabels/logout')}"
+							url="#{ivy.html.startref('136F33D7CF6E4319/start.ivp')}" />
 					</p:submenu>
 				</p:menu>
 			</p:scrollPanel>

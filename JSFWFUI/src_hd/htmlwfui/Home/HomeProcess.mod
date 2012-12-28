@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Oct 25 19:21:54 CEST 2012]
+[>Created: Fri Dec 28 15:45:21 CET 2012]
 13A97F3A59B5F078 3.17 #module
 >Proto >Proto Collection #zClass
 Hs0 HomeProcess Big #zClass
@@ -45,8 +45,6 @@ Hs0 f3 actionDecl 'htmlwfui.Home.HomeData out;
 Hs0 f3 actionTable 'out=in;
 ' #txt
 Hs0 f3 actionCode 'import ivy.htmlwfui.ScheduleBean;
-out.themes = ["sunny","midnight","dark-hive", "smoothness", "afterdark", "cruze", "eggplant"]; 
-
 out.scheduleBean = new ScheduleBean();' #txt
 Hs0 f3 type htmlwfui.Home.HomeData #txt
 Hs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

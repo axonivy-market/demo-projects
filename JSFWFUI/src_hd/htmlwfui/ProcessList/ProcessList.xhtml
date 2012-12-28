@@ -10,8 +10,11 @@
 	<ui:composition template="../HomeTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="Prozesse">
-				<ui:include src="ProcessListCenter.xhtml"></ui:include>
+			<p:layoutUnit position="center" header='#{ivy.cms.co("/labels/processes")}'>
+				<p:dataList value="#{data.starts}" var="start" itemType="square">
+					<div width="100px"><a href="/ivy/pro/#{start.fullRequestPath}">#{start.name}</a></div>
+					<p:column>#{start.description}</p:column>
+				</p:dataList>
 			</p:layoutUnit>
 		</ui:define>
 
