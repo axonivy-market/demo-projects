@@ -1,3 +1,4 @@
+HtmlDialogDemos/classes/*
 HtmlDialogDemos/classes/META-INF
 HtmlDialogDemos/classes/ch
 HtmlDialogDemos/classes/htmlDialogDemos
@@ -10,5 +11,8 @@ IvyDemos/classes
 IvyDemos/logs
 IvyDemos/src_dataClasses/*
 WorkflowUI/classes
+WorkflowUI/classes/*
 WorkflowUI/logs
 WorkflowUI/src_dataClasses
+WorkflowUI/src_dataClasses/*
+WorkflowUI/src_dataClasses/ch
