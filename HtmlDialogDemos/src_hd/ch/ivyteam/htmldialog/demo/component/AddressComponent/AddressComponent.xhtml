@@ -10,14 +10,14 @@
 	
 <!--
 In the interface it is possible to define view attributes like labels.
-This attributes can be accessed by the el expression cc.attrs.attributeName.
+This attributes can be accessed by the el expression cc.attributes.attributeName.
 -->
 <cc:interface componentType="IvyComponent">
 	<cc:attribute name="label" />
 </cc:interface>
 <cc:implementation>
 	<p:fieldset  legend="Address Component">
-		<h:outputLabel value="#{cc.attrs.label}" />
+		<h:outputLabel value="#{cc.attributes.label}" />
 		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
 			<p:outputLabel value="Street" for="street" />
 			<p:inputText value="#{data.address.street}" id="street" />
