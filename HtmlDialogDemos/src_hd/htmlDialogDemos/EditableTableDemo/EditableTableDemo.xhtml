@@ -36,7 +36,7 @@
 	 			  </p:column>
 	 			  <p:column headerText="Controls" style="width:5em;">
 	 			    <p:rowEditor title="Edit" />		 
-         			<p:commandLink action="#{logic.delete(person)}"
+         			<p:commandLink actionListener="#{logic.delete(person)}"
                     	update=":form:persons"
                     	title="Delete"> 
                       <span class="ui-icon ui-icon-trash"/>
