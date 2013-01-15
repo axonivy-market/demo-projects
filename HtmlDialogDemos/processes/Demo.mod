@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Dec 05 17:17:34 CET 2012]
+[>Created: Tue Jan 15 11:49:39 CET 2013]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -63,6 +63,11 @@ Do0 @EndTask f48 '' #zField
 Do0 @RichDialog f49 '' #zField
 Do0 @PushWFArc f50 '' #zField
 Do0 @PushWFArc f51 '' #zField
+Do0 @StartRequest f52 '' #zField
+Do0 @EndTask f53 '' #zField
+Do0 @RichDialog f54 '' #zField
+Do0 @PushWFArc f55 '' #zField
+Do0 @PushWFArc f56 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -1018,6 +1023,97 @@ Do0 f50 expr out #txt
 Do0 f50 1088 501 1088 540 #arcP
 Do0 f51 expr out #txt
 Do0 f51 1088 564 1088 603 #arcP
+Do0 f52 outLink BeanValidationDemo.ivp #txt
+Do0 f52 type htmlDialogDemos.Data #txt
+Do0 f52 inParamDecl '<> param;' #txt
+Do0 f52 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f52 guid 13C3DAD7F42D9A85 #txt
+Do0 f52 requestEnabled true #txt
+Do0 f52 triggerEnabled false #txt
+Do0 f52 callSignature BeanValidationDemo() #txt
+Do0 f52 persist false #txt
+Do0 f52 startName 'Bean Validation Demo' #txt
+Do0 f52 taskData '#
+#Tue Jan 15 11:49:30 CET 2013
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f52 caseData '#
+#Tue Jan 15 11:49:30 CET 2013
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f52 showInStartList 1 #txt
+Do0 f52 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>BeanValidationDemo.ivp</name>
+        <nameStyle>22,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Do0 f52 @C|.responsibility Everybody #txt
+Do0 f52 715 275 26 26 14 0 #rect
+Do0 f52 @|StartRequestIcon #fIcon
+Do0 f53 type htmlDialogDemos.Data #txt
+Do0 f53 715 379 26 26 14 0 #rect
+Do0 f53 @|EndIcon #fIcon
+Do0 f54 targetWindow NEW #txt
+Do0 f54 targetDisplay TOP #txt
+Do0 f54 richDialogId ch.ivyteam.htmldialog.demo.BeanValidationDemo #txt
+Do0 f54 startMethod start() #txt
+Do0 f54 type htmlDialogDemos.Data #txt
+Do0 f54 requestActionDecl '<> param;' #txt
+Do0 f54 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f54 responseMappingAction 'out=in;
+' #txt
+Do0 f54 isAsynch false #txt
+Do0 f54 isInnerRd false #txt
+Do0 f54 710 324 36 24 20 -2 #rect
+Do0 f54 @|RichDialogIcon #fIcon
+Do0 f55 expr out #txt
+Do0 f55 728 301 728 324 #arcP
+Do0 f56 expr out #txt
+Do0 f56 728 348 728 379 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1078,3 +1174,7 @@ Do0 f47 mainOut f50 tail #connect
 Do0 f50 head f49 mainIn #connect
 Do0 f49 mainOut f51 tail #connect
 Do0 f51 head f48 mainIn #connect
+Do0 f52 mainOut f55 tail #connect
+Do0 f55 head f54 mainIn #connect
+Do0 f54 mainOut f56 tail #connect
+Do0 f56 head f53 mainIn #connect

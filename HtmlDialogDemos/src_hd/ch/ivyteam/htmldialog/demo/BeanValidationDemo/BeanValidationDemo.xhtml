@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <title>Bean Validation Demo</title>
+    </h:head>
+    <h:body>
+   		<p:panel header="Bean Validation (JSR 303) Demo" id="panel">
+   	 		<p>The fields of a java class (bean) can be annotated with validation information. The validation information will then be considered by Html Dialogs when the field of the class is bound to a widget.</p>
+   			<p style="margin-top:10px;">The java class <code>ch.ivyteam.htmlDialog.demo.beanValidation.Person</code> defines fields annotated with such validation information. The fields of the java class are bound to the widgets in the form bellow. 
+   			There are no validation information given in the *.xhtml file of the Html Dialog itself. However, the Html Dialog uses the information given on the annotations of the fields to validate the user input.</p>
+   			<p>All annotations defined in the package javax.validation.constraints are supported. For example:</p>
+   			<ul>
+   			<li>@NotNull - means that a value is required.</li>
+   			<li>@Size - restricts the length of a string or array or the size of a collection or map.</li>
+   			<li>@Max - restricts the maximum allowed value.</li>
+   			<li>@Min - restricts the minimum allowed value.</li>
+   			<li>@Pattern - restricts a string to a given regular expression.</li>
+   			<li>@Digits - restricts the maximum number of digits of the integer and faction part.</li>
+   			<li>@Future - restricts a date to the dates in the future.</li>
+   			<li>@Past - restricts a date to the dates in the past.</li>
+   			<li>...</li>
+   			</ul>
+   			<h:form id="person">
+   				<p:messages id="msgs"/>
+				<h:panelGrid columns="3">
+					<h:outputLabel value="Name" for="name"/><p:inputText value="#{data.person.name}" id="name"/><p:message for="name" display="icon" id="nameMessage"/>
+					<h:outputLabel value="Social Security Number" for="socialSecurityNumber"/><p:inputText value="#{data.person.socialSecurityNumber}" id="socialSecurityNumber"/><p:message for="socialSecurityNumber" display="icon" id="socialSecurityNumberMessage"/>
+					<h:outputLabel value="Year of Birth" for="yearOfBirth"/><p:inputText value="#{data.person.yearOfBirth}" id="yearOfBirth"/><p:message for="yearOfBirth" display="icon" id="yearOfBirthMessage"/>				
+				</h:panelGrid>
+		    	<p:commandButton actionListener="#{logic.Send}" value="Submit" id="submit" update="person"/><br />
+		    	<br/>
+    	 		<h:outputLabel value="Data: #{data}"/>		    
+   			</h:form>
+   		</p:panel>
+   		<br />
+   		<h:form id="closeForm">
+	    	<p:commandButton value="Close" actionListener="#{logic.close}"/>
+   	 	</h:form>
+   		    	    		
+    </h:body>
+</html>
