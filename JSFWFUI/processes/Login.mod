@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Nov 16 10:04:26 CET 2011]
+[>Created: Mon Jan 14 14:40:52 CET 2013]
 12E2EFDD83CB2D4C 3.17 #module
 >Proto >Proto Collection #zClass
 Ln0 Login Big #zClass
@@ -14,12 +14,16 @@ Ln0 @TextInP .responsibility .responsibility #zField
 Ln0 @StartRequest f0 '' #zField
 Ln0 @CallSub f5 '' #zField
 Ln0 @EndRequest f2 '' #zField
-Ln0 @PushWFArc f1 '' #zField
 Ln0 @Alternative f4 '' #zField
 Ln0 @PushWFArc f6 '' #zField
 Ln0 @PushWFArc f3 '' #zField
 Ln0 @EndTask f7 '' #zField
 Ln0 @PushWFArc f8 '' #zField
+Ln0 @GridStep f9 '' #zField
+Ln0 @RichDialog f10 '' #zField
+Ln0 @PushWFArc f11 '' #zField
+Ln0 @PushWFArc f1 '' #zField
+Ln0 @PushWFArc f13 '' #zField
 >Proto Ln0 Ln0 Login #zField
 Ln0 f0 outLink DefaultLoginPage.ivp #txt
 Ln0 f0 type htmlwfui.Data #txt
@@ -35,7 +39,7 @@ Ln0 f0 callSignature DefaultLoginPage(String) #txt
 Ln0 f0 persist false #txt
 Ln0 f0 startName 'WF Login' #txt
 Ln0 f0 taskData '#
-#Wed Nov 16 10:04:24 CET 2011
+#Fri Dec 28 10:26:09 CET 2012
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -44,7 +48,8 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Ln0 f0 caseData '#
-#Wed Nov 16 10:04:24 CET 2011
+#Fri Dec 28 10:26:09 CET 2012
+businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -70,9 +75,12 @@ subType.name=
 type.code=
 type.name=
 ' #txt
-Ln0 f0 showInStartList 0 #txt
+Ln0 f0 showInStartList 1 #txt
 Ln0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskUpdDef.setExpiryActivator("Everybody");
 taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 engine.updateCurrentTask(taskUpdDef);
@@ -127,9 +135,6 @@ Ln0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ln0 f2 59 219 26 26 17 -5 #rect
 Ln0 f2 @|EndRequestIcon #fIcon
-Ln0 f1 expr out #txt
-Ln0 f1 128 69 128 100 #arcP
-Ln0 f1 0 0.48896339077831585 0 0 #arcLabel
 Ln0 f4 type htmlwfui.Data #txt
 Ln0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -161,15 +166,62 @@ Ln0 f7 187 219 26 26 14 0 #rect
 Ln0 f7 @|EndIcon #fIcon
 Ln0 f8 expr in #txt
 Ln0 f8 135 175 190 223 #arcP
+Ln0 f9 actionDecl 'htmlwfui.Data out;
+' #txt
+Ln0 f9 actionTable 'out=in;
+out.appname=ivy.wf.getApplication().getName();
+out.request=ivy.request;
+out.username=ivy.session.isSessionUserUnknown() ? "" : ivy.session.getSessionUserName();
+out.wfSession=ivy.session;
+' #txt
+Ln0 f9 type htmlwfui.Data #txt
+Ln0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>inits</name>
+        <nameStyle>5,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ln0 f9 334 92 36 24 22 -16 #rect
+Ln0 f9 @|StepIcon #fIcon
+Ln0 f10 targetWindow NEW:card: #txt
+Ln0 f10 targetDisplay TOP #txt
+Ln0 f10 richDialogId htmlwfui.LoginSequence #txt
+Ln0 f10 startMethod start() #txt
+Ln0 f10 type htmlwfui.Data #txt
+Ln0 f10 requestActionDecl '<> param;' #txt
+Ln0 f10 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Ln0 f10 responseMappingAction 'out=in;
+' #txt
+Ln0 f10 windowConfiguration '* ' #txt
+Ln0 f10 isAsynch false #txt
+Ln0 f10 isInnerRd false #txt
+Ln0 f10 userContext '* ' #txt
+Ln0 f10 334 140 36 24 20 -2 #rect
+Ln0 f10 @|RichDialogIcon #fIcon
+Ln0 f11 expr out #txt
+Ln0 f11 352 116 352 140 #arcP
+Ln0 f1 expr out #txt
+Ln0 f1 334 153 141 167 #arcP
+Ln0 f13 expr out #txt
+Ln0 f13 128 69 128 100 #arcP
+Ln0 f13 0 0.48896339077831585 0 0 #arcLabel
 >Proto Ln0 .type htmlwfui.Data #txt
 >Proto Ln0 .processKind NORMAL #txt
 >Proto Ln0 0 0 32 24 18 0 #rect
 >Proto Ln0 @|BIcon #fIcon
-Ln0 f0 mainOut f1 tail #connect
-Ln0 f1 head f5 mainIn #connect
 Ln0 f5 mainOut f6 tail #connect
 Ln0 f6 head f4 in #connect
 Ln0 f4 out f3 tail #connect
 Ln0 f3 head f2 mainIn #connect
 Ln0 f4 out f8 tail #connect
 Ln0 f8 head f7 mainIn #connect
+Ln0 f9 mainOut f11 tail #connect
+Ln0 f11 head f10 mainIn #connect
+Ln0 f10 mainOut f1 tail #connect
+Ln0 f1 head f4 in #connect
+Ln0 f0 mainOut f13 tail #connect
+Ln0 f13 head f5 mainIn #connect

@@ -1,0 +1,6 @@
+MailNotificationSettingData #class
+htmlwfui.MailNotificationSetting #namespace
+settings htmlwfui.Settings #field
+settings PERSISTENT #fieldModifier
+temp htmlwfui.Temporary #field
+temp PERSISTENT #fieldModifier

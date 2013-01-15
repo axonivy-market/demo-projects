@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Nov 16 09:43:39 CET 2011]
+[>Created: Tue Jan 08 11:22:29 CET 2013]
 127AF01D1868F1B6 3.17 #module
 >Proto >Proto Collection #zClass
 Le0 LoginSequence Big #zClass
@@ -25,8 +25,10 @@ Le0 @PushWFArc f18 '' #zField
 Le0 @PushWFArc f3 '' #zField
 Le0 @GridStep f4 '' #zField
 Le0 @PushWFArc f5 '' #zField
+Le0 @RichDialog f7 '' #zField
 Le0 @PushWFArc f2 '' #zField
 Le0 @PushWFArc f6 '' #zField
+Le0 @PushWFArc f9 '' #zField
 >Proto Le0 Le0 LoginSequence #zField
 Le0 f0 inParamDecl '<htmlwfui.Data in> param;' #txt
 Le0 f0 inParamTable 'out=param.in;
@@ -136,10 +138,28 @@ Le0 f4 214 84 36 24 22 -16 #rect
 Le0 f4 @|StepIcon #fIcon
 Le0 f5 expr out #txt
 Le0 f5 232 61 232 84 #arcP
+Le0 f7 targetWindow NEW:card: #txt
+Le0 f7 targetDisplay TOP #txt
+Le0 f7 richDialogId htmlwfui.LoginSequence #txt
+Le0 f7 startMethod start() #txt
+Le0 f7 type htmlwfui.Data #txt
+Le0 f7 requestActionDecl '<> param;' #txt
+Le0 f7 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Le0 f7 responseMappingAction 'out=in;
+' #txt
+Le0 f7 windowConfiguration '* ' #txt
+Le0 f7 isAsynch false #txt
+Le0 f7 isInnerRd false #txt
+Le0 f7 userContext '* ' #txt
+Le0 f7 318 196 36 24 20 -2 #rect
+Le0 f7 @|RichDialogIcon #fIcon
 Le0 f2 expr out #txt
-Le0 f2 232 108 232 194 #arcP
+Le0 f2 328 220 239 349 #arcP
 Le0 f6 expr in #txt
 Le0 f6 218 208 82 208 #arcP
+Le0 f9 expr out #txt
+Le0 f9 232 108 232 194 #arcP
 >Proto Le0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
@@ -159,7 +179,9 @@ Le0 f14 out f3 tail #connect
 Le0 f3 head f1 mainIn #connect
 Le0 f0 mainOut f5 tail #connect
 Le0 f5 head f4 mainIn #connect
-Le0 f4 mainOut f2 tail #connect
-Le0 f2 head f14 in #connect
+Le0 f7 mainOut f2 tail #connect
+Le0 f2 head f1 mainIn #connect
 Le0 f14 out f6 tail #connect
 Le0 f6 head f16 mainIn #connect
+Le0 f4 mainOut f9 tail #connect
+Le0 f9 head f14 in #connect

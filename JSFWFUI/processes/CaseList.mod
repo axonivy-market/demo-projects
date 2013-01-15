@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 04 16:13:54 CEST 2012]
+[>Created: Tue Jan 15 15:51:27 CET 2013]
 12C97DB1B1EA5971 3.17 #module
 >Proto >Proto Collection #zClass
 Rt0 CaseList Big #zClass
@@ -14,7 +14,6 @@ Rt0 @TextInP .responsibility .responsibility #zField
 Rt0 @GridStep f20 '' #zField
 Rt0 @Page f1 '' #zField
 Rt0 @CallSub f6 '' #zField
-Rt0 @PushWFArc f3 '' #zField
 Rt0 @StartRequest f0 '' #zField
 Rt0 @Page f23 '' #zField
 Rt0 @PushWFArc f9 '' #zField
@@ -23,7 +22,6 @@ Rt0 @PushWFArc f11 '' #zField
 Rt0 @PushWFArc f8 '' #zField
 Rt0 @StartRequest f12 '' #zField
 Rt0 @GridStep f13 '' #zField
-Rt0 @PushWFArc f17 '' #zField
 Rt0 @Page f18 '' #zField
 Rt0 @PushWFArc f19 '' #zField
 Rt0 @GridStep f21 '' #zField
@@ -54,7 +52,13 @@ Rt0 @GridStep f7 '' #zField
 Rt0 @PushWFArc f14 '' #zField
 Rt0 @PushWFArc f43 '' #zField
 Rt0 @PushWFArc f44 '' #zField
-Rt0 @PushWFArc f48 '' #zField
+Rt0 @RichDialog f27 '' #zField
+Rt0 @PushWFArc f17 '' #zField
+Rt0 @PushWFArc f42 '' #zField
+Rt0 @RichDialog f46 '' #zField
+Rt0 @PushWFArc f47 '' #zField
+Rt0 @PushWFArc f3 '' #zField
+Rt0 @PushWFArc f45 '' #zField
 >Proto Rt0 Rt0 CaseList #zField
 Rt0 f20 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -144,14 +148,14 @@ Rt0 f1 type htmlwfui.Data #txt
 Rt0 f1 skipLink skip.ivp #txt
 Rt0 f1 sortLink sort.ivp #txt
 Rt0 f1 templateWizard '#
-#Mon Dec 06 09:42:42 CET 2010
+#Tue Jan 15 15:15:33 CET 2013
 ' #txt
 Rt0 f1 pageArchivingActivated false #txt
 Rt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>CaseList</name>
-        <nameStyle>8
+        <nameStyle>8,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -181,8 +185,6 @@ Rt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Rt0 f6 166 100 36 24 20 -2 #rect
 Rt0 f6 @|CallSubIcon #fIcon
-Rt0 f3 expr out #txt
-Rt0 f3 121 236 167 268 #arcP
 Rt0 f0 outLink start1.ivp #txt
 Rt0 f0 type htmlwfui.Data #txt
 Rt0 f0 inParamDecl '<> param;' #txt
@@ -255,14 +257,14 @@ Rt0 f23 type htmlwfui.Data #txt
 Rt0 f23 skipLink skip.ivp #txt
 Rt0 f23 sortLink sort.ivp #txt
 Rt0 f23 templateWizard '#
-#Fri Dec 03 11:54:43 CET 2010
+#Tue Jan 15 15:15:40 CET 2013
 ' #txt
 Rt0 f23 pageArchivingActivated false #txt
 Rt0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Casedetails</name>
-        <nameStyle>11,9
+        <nameStyle>11,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -531,8 +533,6 @@ Rt0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Rt0 f13 254 204 36 24 26 -16 #rect
 Rt0 f13 @|StepIcon #fIcon
-Rt0 f17 expr out #txt
-Rt0 f17 256 228 201 268 #arcP
 Rt0 f18 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 Rt0 f18 outLinks "LinkA.ivp","LinkB.ivp" #txt
 Rt0 f18 template "/ProcessPages/CaseList/confirmDeleteCase.ivc" #txt
@@ -811,28 +811,89 @@ Rt0 f14 outCond ivp=="LinkC.ivp" #txt
 Rt0 f14 202 280 254 280 #arcP
 Rt0 f43 expr out #txt
 Rt0 f43 254 280 202 280 #arcP
-Rt0 f43 0 0.7806989874641023 0 0 #arcLabel
+Rt0 f43 0 0.7806989874641024 0 0 #arcLabel
 Rt0 f44 expr in #txt
 Rt0 f44 102 624 202 416 #arcP
 Rt0 f44 1 632 624 #addKink
 Rt0 f44 2 632 416 #addKink
 Rt0 f44 0 0.9615118834304544 0 0 #arcLabel
-Rt0 f48 expr out #txt
-Rt0 f48 184 124 184 162 #arcP
-Rt0 f48 0 0.4785052269409655 0 0 #arcLabel
+Rt0 f27 targetWindow NEW:card: #txt
+Rt0 f27 targetDisplay TOP #txt
+Rt0 f27 richDialogId htmlwfui.CaseList #txt
+Rt0 f27 startMethod start(htmlwfui.Data) #txt
+Rt0 f27 type htmlwfui.Data #txt
+Rt0 f27 requestActionDecl '<htmlwfui.Data data> param;' #txt
+Rt0 f27 requestMappingAction 'param.data=in;
+' #txt
+Rt0 f27 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Rt0 f27 responseMappingAction 'out=in;
+' #txt
+Rt0 f27 windowConfiguration '* ' #txt
+Rt0 f27 isAsynch false #txt
+Rt0 f27 isInnerRd false #txt
+Rt0 f27 userContext '* ' #txt
+Rt0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>CaseList</name>
+        <nameStyle>8,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Rt0 f27 446 268 36 24 20 -2 #rect
+Rt0 f27 @|RichDialogIcon #fIcon
+Rt0 f17 expr out #txt
+Rt0 f17 121 236 167 268 #arcP
+Rt0 f42 expr out #txt
+Rt0 f42 256 228 201 268 #arcP
+Rt0 f46 targetWindow NEW:card: #txt
+Rt0 f46 targetDisplay TOP #txt
+Rt0 f46 richDialogId htmlwfui.CaseDetails #txt
+Rt0 f46 startMethod start(htmlwfui.Data) #txt
+Rt0 f46 type htmlwfui.Data #txt
+Rt0 f46 requestActionDecl '<htmlwfui.Data data> param;' #txt
+Rt0 f46 requestMappingAction 'param.data=in;
+' #txt
+Rt0 f46 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Rt0 f46 responseMappingAction 'out=in;
+' #txt
+Rt0 f46 windowConfiguration '* ' #txt
+Rt0 f46 isAsynch false #txt
+Rt0 f46 isInnerRd false #txt
+Rt0 f46 userContext '* ' #txt
+Rt0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Casedetails</name>
+        <nameStyle>11,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Rt0 f46 446 324 36 24 20 -2 #rect
+Rt0 f46 @|RichDialogIcon #fIcon
+Rt0 f47 expr out #txt
+Rt0 f47 464 292 464 324 #arcP
+Rt0 f3 expr out #txt
+Rt0 f3 202 123 446 269 #arcP
+Rt0 f3 0 0.4785052269409655 0 0 #arcLabel
+Rt0 f45 expr out #txt
+Rt0 f45 482 336 482 280 #arcP
+Rt0 f45 1 576 336 #addKink
+Rt0 f45 2 576 280 #addKink
+Rt0 f45 1 0.5 0 0 #arcLabel
 >Proto Rt0 .type htmlwfui.Data #txt
 >Proto Rt0 .processKind NORMAL #txt
 >Proto Rt0 0 0 32 24 18 0 #rect
 >Proto Rt0 @|BIcon #fIcon
-Rt0 f20 mainOut f3 tail #connect
-Rt0 f3 head f1 mainIn #connect
 Rt0 f23 out f9 tail #connect
 Rt0 f9 head f1 mainIn #connect
 Rt0 f11 head f10 mainIn #connect
 Rt0 f10 mainOut f8 tail #connect
 Rt0 f8 head f23 mainIn #connect
-Rt0 f13 mainOut f17 tail #connect
-Rt0 f17 head f1 mainIn #connect
 Rt0 f23 out f19 tail #connect
 Rt0 f19 head f18 mainIn #connect
 Rt0 f21 mainOut f25 tail #connect
@@ -874,5 +935,13 @@ Rt0 f7 mainOut f43 tail #connect
 Rt0 f43 head f1 mainIn #connect
 Rt0 f24 out f44 tail #connect
 Rt0 f44 head f23 mainIn #connect
-Rt0 f6 mainOut f48 tail #connect
-Rt0 f48 head f33 in #connect
+Rt0 f20 mainOut f17 tail #connect
+Rt0 f17 head f1 mainIn #connect
+Rt0 f13 mainOut f42 tail #connect
+Rt0 f42 head f1 mainIn #connect
+Rt0 f27 mainOut f47 tail #connect
+Rt0 f47 head f46 mainIn #connect
+Rt0 f6 mainOut f3 tail #connect
+Rt0 f3 head f27 mainIn #connect
+Rt0 f46 mainOut f45 tail #connect
+Rt0 f45 head f27 mainIn #connect

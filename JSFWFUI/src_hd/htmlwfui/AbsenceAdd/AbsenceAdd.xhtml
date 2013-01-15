@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui">
+ 
+<h:body>
+	<ui:composition template="../HomeTemplate.xhtml">
+
+		<ui:define name="center">
+			<p:layoutUnit position="center" header="#{ivy.cms.co('/labels/addAbsence')}">
+			<h:form id="form">
+				<h:panelGrid columns="5">
+            		<h:outputLabel for="von" value="#{ivy.cms.co('/labels/absenceStart')}: *"/>
+            		<p:calendar value="#{data.absence.start}" showButtonPanel="true" required="true" requiredMessage="Date is required." pattern="dd.MM.yyyy">
+            			<f:convertDateTime pattern="dd.MM.yyyy" />
+            		</p:calendar>
+            		<!-- <p:inputMask value="#{data.start}" mask="99.99.9999"/> -->
+            		<p:inputMask value="#{data.absence.startTimeHH}" style="width: 25px; " mask="99"/>
+            		<h:outputLabel value=":" />
+            		<p:inputMask value="#{data.absence.startTimeMM}" style="width: 25px; " mask="99"/>
+            		<h:outputLabel for="bis" value="#{ivy.cms.co('/labels/absenceStop')}:"/>
+            		<p:calendar value="#{data.absence.end}" showButtonPanel="true" required="true" requiredMessage="Date is required." pattern="dd.MM.yyyy">
+            			<f:convertDateTime pattern="dd.MM.yyyy" />
+            		</p:calendar>
+            		<p:inputMask value="#{data.absence.endTimeHH}" style="width: 25px; " mask="99" />
+            		<h:outputLabel value=":" /><p:inputMask value="#{data.absence.endTimeMM}" style="width: 25px; " mask="99" />
+            		
+ 				</h:panelGrid>
+ 				<h:panelGrid columns="2">
+ 					<h:outputLabel value="#{ivy.cms.co('/labels/description')}:"/>  
+            		<p:inputText value="#{data.absence.descr}" style="width: 500px; "/> 
+ 				</h:panelGrid>
+ 				<br></br>
+ 				<p:commandButton value="#{ivy.cms.co('/labels/saveButton')}" actionListener="#{logic.saveAbsence}"/>
+ 				<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.backToAbsenceList}"/>
+			</h:form>
+			</p:layoutUnit>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

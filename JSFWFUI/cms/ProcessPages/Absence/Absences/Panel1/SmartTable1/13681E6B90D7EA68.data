@@ -1,13 +1,12 @@
-#Thu May 03 09:41:49 CEST 2012
-default.sort.value=-1
-table.default.page.size.value=25
-table.source=in.absence.absences
-footer.show.value=false
-table.empty.value=<%\=ivy.cms.co("/labels/noItemsFound")%>
-col3=\#Thu May 03 09\:41\:49 CEST 2012\r\nbody.td\=\\\#Thu Apr 26 14\\\:39\\\:02 CEST 2012\\r\\nalign\\\=center\\r\\n\r\nbody.value\="<a href\\\='"+ivy.html.ref("LinkB.ivp")+"&temp$n\\\="+it.getIdentifier()+"'><img src\\\='"+ivy.cms.cr("/images/remove")+"' title\\\='"+ivy.cms.co("/labels/deleteAbsence")+"'</img></a>"\r\nheader.value\=<%\\\=ivy.cms.co("/labels/deleteButton")%>\r\nheader.th\=\\\#Thu Apr 26 14\\\:39\\\:02 CEST 2012\\r\\nalign\\\=center\\r\\n\r\n
-col2=\#Thu May 03 09\:41\:49 CEST 2012\r\nbody.value\=ivy.html.escape(it.getDescription())\r\nheader.value\=<%\\\=ivy.cms.co("/labels/absenceDescription")%>\r\n
-header.show.value=true
-col1=\#Thu May 03 09\:41\:49 CEST 2012\r\nsort.value\=true\r\nbody.value\=ivy.html.escape(it.getStopTimestamp().format("short"))\r\nheader.value\=<%\\\=ivy.cms.co("/labels/absenceStop")%>\r\nheader.th\=\\\#Thu Apr 26 14\\\:39\\\:02 CEST 2012\\r\\nwidth\\\=200\\r\\nalign\\\=left\\r\\n\r\n
-table.caption.value=
-col0=\#Thu May 03 09\:41\:49 CEST 2012\r\nsort.value\=true\r\nbody.value\=ivy.html.escape(it.getStartTimestamp().format("short"))\r\nheader.value\=<%\\\=ivy.cms.co("/labels/absenceStart")%>\r\nheader.th\=\\\#Thu Apr 26 14\\\:39\\\:02 CEST 2012\\r\\nwidth\\\=200\\r\\nalign\\\=left\\r\\n\r\n
 auto.header.value=false
+col0=body.value\=ivy.html.escape(it.getStartTimestamp().format("short"))\nheader.th\=\\\#Thu Apr 26 14\\\:39\\\:02 CEST 2012\\r\\nwidth\\\=200\\r\\nalign\\\=left\\r\\n\nheader.value\=<%\\\=ivy.cms.co("/labels/absenceStart")%>\nsort.value\=true
+col1=body.value\=ivy.html.escape(it.getStopTimestamp().format("short"))\nheader.th\=\\\#Thu Apr 26 14\\\:39\\\:02 CEST 2012\\r\\nwidth\\\=200\\r\\nalign\\\=left\\r\\n\nheader.value\=<%\\\=ivy.cms.co("/labels/absenceStop")%>\nsort.value\=true
+col2=body.value\=ivy.html.escape(it.getDescription())\nheader.value\=<%\\\=ivy.cms.co("/labels/absenceDescription")%>
+col3=body.td\=\\\#Thu Apr 26 14\\\:39\\\:02 CEST 2012\\r\\nalign\\\=center\\r\\n\nbody.value\="<a href\\\='"+ivy.html.ref("LinkB.ivp")+"&temp$n\\\="+it.getIdentifier()+"'><img src\\\='"+ivy.cms.cr("/images/remove")+"' title\\\='"+ivy.cms.co("/labels/deleteAbsence")+"'</img></a>"\nheader.th\=\\\#Thu Apr 26 14\\\:39\\\:02 CEST 2012\\r\\nalign\\\=center\\r\\n\nheader.value\=<%\\\=ivy.cms.co("/labels/deleteButton")%>
+default.sort.value=-1
+footer.show.value=false
+header.show.value=true
+table.caption.value=
+table.default.page.size.value=25
+table.empty.value=<%\=ivy.cms.co("/labels/noItemsFound")%>
+table.source=in.absence.absences

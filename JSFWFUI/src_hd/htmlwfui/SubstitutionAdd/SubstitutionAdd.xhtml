@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui">
+ 
+<h:body>
+	<ui:composition template="../HomeTemplate.xhtml">
+
+		<ui:define name="center">
+			<p:layoutUnit position="center" header="#{ivy.cms.co('/navLabels/substitution')}">
+				<br></br>
+				<h:outputText value="#{ivy.cms.co('/explainTexts/SubstitutionAddTitel')}" style="font-weight:bold"/>
+				<br></br>
+				<h:outputText value="#{ivy.cms.co('/explainTexts/SubstitutionAddDescription')}"/>
+				<br></br>
+				<br></br>
+				<h:form id="form">
+					<h:panelGrid columns="3">
+ 						<h:outputLabel value="#{ivy.cms.co('/labels/substituteUser')}:"/>
+ 						<p:selectOneMenu value="#{data.substitute.user}" >
+           					<f:selectItems value="#{data.substitute.userList}" var="user" itemLabel="#{user}" itemValue="#{user}"/>  
+        				</p:selectOneMenu>
+        			</h:panelGrid>
+        			<h:panelGrid columns="3" id="radio">
+ 						<h:outputLabel value="#{ivy.cms.co('/labels/substituteFor')}:"/>
+ 						<p:selectOneRadio id="options" value="#{data.radioNr}"> 
+            				<f:selectItem itemLabel="#{ivy.cms.co('/labels/substituteMyTasks')}" itemValue="1"/>
+            				<f:selectItem itemLabel="#{ivy.cms.co('/labels/substituteRole')}" itemValue="2" />
+            				<f:ajax render="radio"/>
+       					</p:selectOneRadio>
+       					<p:selectOneMenu value="#{data.substitute.role}" disabled="#{data.radioNr == 1}">
+           					<f:selectItems value="#{data.substitute.roleList}" var="role" itemLabel="#{role}" itemValue="#{role}"/>  
+        				</p:selectOneMenu>
+ 					</h:panelGrid>
+ 					<h:panelGrid columns="2">
+ 						<h:outputLabel value="#{ivy.cms.co('/labels/description')}:"/>  
+            			<p:inputText value="#{data.substitute.description}" style="width: 500px; "/> 
+ 					</h:panelGrid>
+ 					<p:commandButton value="#{ivy.cms.co('/labels/saveButton')}" actionListener="#{logic.saveSubstitution}"/>
+ 					<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.backToSubstitutesList}"/>
+				</h:form>
+			</p:layoutUnit>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

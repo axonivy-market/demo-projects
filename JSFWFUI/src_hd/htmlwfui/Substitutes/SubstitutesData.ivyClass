@@ -1,0 +1,8 @@
+SubstitutesData #class
+htmlwfui.Substitutes #namespace
+substitute htmlwfui.Substitute #field
+substitute PERSISTENT #fieldModifier
+deleteNr Number #field
+deleteNr PERSISTENT #fieldModifier
+option String #field
+option PERSISTENT #fieldModifier

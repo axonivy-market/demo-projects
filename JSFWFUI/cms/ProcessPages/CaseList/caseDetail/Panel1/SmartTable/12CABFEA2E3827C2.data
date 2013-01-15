@@ -1,18 +1,17 @@
-#Thu Mar 17 11:02:23 CET 2011
-default.sort.value=-1
-table.default.page.size.value=50
-table.source=in.tasks
-col8=\#Thu Mar 17 11\:02\:23 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getEndTimestamp().getYear()>1 ? it.getEndTimestamp().format("short") \\\: ""\r\nheader.value\=<%\\\=ivy.cms.co("/labels/done")%>\r\nname.value\=Erledigt\r\n
-col7=\#Thu Mar 17 11\:02\:23 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getExpiryTimestamp().getYear()>1 ? it.getExpiryTimestamp().format("short") \\\: ""\r\nheader.value\=<%\\\=ivy.cms.co("/labels/expiry")%>\r\nname.value\=Bearbeitungsfrist\r\n
-col6=\#Thu Mar 17 11\:02\:23 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getStartTimestamp().format("short")\r\nheader.value\=<%\\\=ivy.cms.co("/labels/created")%>\r\nname.value\=Erstellt\r\n
-col5=\#Thu Mar 17 11\:02\:23 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getActivatorName()\r\nheader.value\=<%\\\=ivy.cms.co("/labels/responsible")%>\r\nname.value\=Verantwortlich\r\n
-footer.show.value=false
-col4=\#Thu Mar 17 11\:02\:23 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getWorkerUserName()\r\nheader.value\=<%\\\=ivy.cms.co("/labels/user")%>\r\nname.value\=Benutzer\r\n
-table.empty.value=leere Aufgaben History
-col3=\#Thu Mar 17 11\:02\:23 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getName()\r\nheader.value\=<%\\\=ivy.cms.co("/labels/name")%>\r\nname.value\=Name\r\n
-col2=\#Thu Mar 17 11\:02\:23 CET 2011\r\nsort.value\=true\r\ncondition.value\=\r\nbody.value\=it.getState()\r\nheader.value\=<%\\\=ivy.cms.co("/labels/state")%>\r\nname.value\=Status\r\n
-header.show.value=true
-col1=\#Thu Mar 17 11\:02\:23 CET 2011\r\nsort.value\=true\r\nbody.value\=it.getPriority()\r\nheader.value\=<%\\\=ivy.cms.co("/labels/taskPrio")%>\r\nname.value\=Prio\r\n
-table.caption.value=
-col0=\#Thu Mar 17 11\:02\:23 CET 2011\r\nbody.td\=\\\#Mon Dec 06 13\\\:58\\\:14 CET 2010\\r\\nalign\\\=center\\r\\n\r\nsort.value\=false\r\nbody.value\="<img src\\\='"+ivy.cms.cr("/images/task")+"' title\\\='Details Task["+it.getIdentifier()+"]'>"\r\nlink.value\=\\\#Fri Dec 17 14\\\:02\\\:09 CET 2010\\r\\nivp\\\=LinkE.ivp\\r\\nrow.index\\\=in.temp.n\\r\\n\r\nname.value\=\\\#\r\n
 auto.header.value=false
+col0=body.td\=\\\#Mon Dec 06 13\\\:58\\\:14 CET 2010\\r\\nalign\\\=center\\r\\n\nbody.value\="<img src\\\='"+ivy.cms.cr("/images/task")+"' title\\\='Details Task["+it.getIdentifier()+"]'>"\nlink.value\=\\\#Fri Dec 17 14\\\:02\\\:09 CET 2010\\r\\nivp\\\=LinkE.ivp\\r\\nrow.index\\\=in.temp.n\\r\\n\nname.value\=\\\#\nsort.value\=false
+col1=body.value\=it.getPriority()\nheader.value\=<%\\\=ivy.cms.co("/labels/taskPrio")%>\nname.value\=Prio\nsort.value\=true
+col2=body.value\=it.getState()\ncondition.value\=\nheader.value\=<%\\\=ivy.cms.co("/labels/state")%>\nname.value\=Status\nsort.value\=true
+col3=body.value\=it.getName()\nheader.value\=<%\\\=ivy.cms.co("/labels/name")%>\nname.value\=Name\nsort.value\=true
+col4=body.value\=it.getWorkerUserName()\nheader.value\=<%\\\=ivy.cms.co("/labels/user")%>\nname.value\=Benutzer\nsort.value\=true
+col5=body.value\=it.getActivatorName()\nheader.value\=<%\\\=ivy.cms.co("/labels/responsible")%>\nname.value\=Verantwortlich\nsort.value\=true
+col6=body.value\=it.getStartTimestamp().format("short")\nheader.value\=<%\\\=ivy.cms.co("/labels/created")%>\nname.value\=Erstellt\nsort.value\=true
+col7=body.value\=it.getExpiryTimestamp().getYear()>1 ? it.getExpiryTimestamp().format("short") \\\: ""\nheader.value\=<%\\\=ivy.cms.co("/labels/expiry")%>\nname.value\=Bearbeitungsfrist\nsort.value\=true
+col8=body.value\=it.getEndTimestamp().getYear()>1 ? it.getEndTimestamp().format("short") \\\: ""\nheader.value\=<%\\\=ivy.cms.co("/labels/done")%>\nname.value\=Erledigt\nsort.value\=true
+default.sort.value=-1
+footer.show.value=false
+header.show.value=true
+table.caption.value=
+table.default.page.size.value=50
+table.empty.value=leere Aufgaben History
+table.source=in.tasks

@@ -1,0 +1,6 @@
+SubstitutionAddData #class
+htmlwfui.SubstitutionAdd #namespace
+substitute htmlwfui.Substitute #field
+substitute PERSISTENT #fieldModifier
+radioNr Number #field
+radioNr PERSISTENT #fieldModifier

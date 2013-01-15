@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Oct 25 14:50:31 CEST 2012]
+[>Created: Mon Jan 14 15:16:01 CET 2013]
 127AE76143E89C91 3.17 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -23,7 +23,6 @@ He0 @EndRequest f14 '' #zField
 He0 @PushWFArc f15 '' #zField
 He0 @StartRequest f16 '' #zField
 He0 @CallSub f17 '' #zField
-He0 @PushWFArc f18 '' #zField
 He0 @PushWFArc f19 '' #zField
 He0 @EndRequest f25 '' #zField
 He0 @Alternative f5 '' #zField
@@ -34,6 +33,7 @@ He0 @PushWFArc f23 '' #zField
 He0 @RichDialog f1 '' #zField
 He0 @PushWFArc f3 '' #zField
 He0 @PushWFArc f4 '' #zField
+He0 @PushWFArc f24 '' #zField
 >Proto He0 He0 Home #zField
 He0 f2 type htmlwfui.Data #txt
 He0 f2 291 467 26 26 14 0 #rect
@@ -293,12 +293,10 @@ He0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f17 286 132 36 24 20 -2 #rect
+He0 f17 286 180 36 24 20 -2 #rect
 He0 f17 @|CallSubIcon #fIcon
-He0 f18 expr out #txt
-He0 f18 304 77 304 132 #arcP
 He0 f19 expr out #txt
-He0 f19 304 156 304 252 #arcP
+He0 f19 304 204 304 252 #arcP
 He0 f25 type htmlwfui.Data #txt
 He0 f25 template "/ProcessPages/Home/AnonymousEndpage.ivc" #txt
 He0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -353,6 +351,13 @@ He0 f3 expr out #txt
 He0 f3 304 276 304 356 #arcP
 He0 f4 expr out #txt
 He0 f4 304 380 304 467 #arcP
+He0 f24 expr out #txt
+He0 f24 304 77 304 180 #arcP
+>Proto He0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 >Proto He0 .type htmlwfui.Data #txt
 >Proto He0 .processKind NORMAL #txt
 >Proto He0 0 0 32 24 18 0 #rect
@@ -361,8 +366,6 @@ He0 f20 mainOut f13 tail #connect
 He0 f13 head f6 in #connect
 He0 f6 out f15 tail #connect
 He0 f15 head f14 mainIn #connect
-He0 f16 mainOut f18 tail #connect
-He0 f18 head f17 mainIn #connect
 He0 f17 mainOut f19 tail #connect
 He0 f19 head f11 mainIn #connect
 He0 f7 mainOut f12 tail #connect
@@ -377,3 +380,5 @@ He0 f11 mainOut f3 tail #connect
 He0 f3 head f1 mainIn #connect
 He0 f1 mainOut f4 tail #connect
 He0 f4 head f2 mainIn #connect
+He0 f16 mainOut f24 tail #connect
+He0 f24 head f17 mainIn #connect

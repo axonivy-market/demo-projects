@@ -30,3 +30,9 @@ mode String #field
 mode PERSISTENT #fieldModifier
 roles List<String> #field
 roles PERSISTENT #fieldModifier
+title String #field
+title PERSISTENT #fieldModifier
+description String #field
+description PERSISTENT #fieldModifier
+undertitle String #field
+undertitle PERSISTENT #fieldModifier

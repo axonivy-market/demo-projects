@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui">
+ 
+<h:body>
+	<ui:composition template="../HomeTemplate.xhtml">
+
+		<ui:define name="center">
+			<p:layoutUnit position="center" header="#{ivy.cms.co('/navLabels/substitution')}">
+				<br></br>
+				<h:outputText value="#{ivy.cms.co('/explainTexts/SubstitutesTitel')}" style="font-weight:bold"/>
+				<br></br>
+				<h:outputText value="#{ivy.cms.co('/explainTexts/SubstitutesDescription')}"/>
+				<br></br>
+				<br></br>
+				<h:form>
+					<p:commandLink value="#{ivy.cms.co('/explainTexts/SubstitutesLink')}" actionListener="#{logic.showMySubstitutions}" style="font-weight:bold"/>
+					<br></br>
+					<br></br>
+					<p:commandButton icon="ui-icon-star" value="#{ivy.cms.co('/labels/addSubstitute')}" actionListener="#{logic.addSubstitute}" />
+				</h:form>
+				<br></br>
+				<br></br>
+				<hr></hr>
+				<br></br>
+				<h:form id="form1">
+					<p:panel id="thePanel">
+    					<p:dataTable id="dataTable" value="#{data.substitute.substitutes}" var="substitute" emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}">
+  
+        					<p:column id="substitute" sortBy="#{substitute.substituteUser.name}" style="width: 150px; ">  
+            					<f:facet name="header">  
+               						<h:outputText value="#{ivy.cms.co('/labels/substituteUser')}" />  
+            					</f:facet>  
+            					<h:outputText value="#{substitute.substituteUser.name}" />
+       						</p:column>  
+  
+        					<p:column sortBy="#{substitute.substitutionRole.name}" style="width: 150px; ">  
+            					<f:facet name="header">  
+                					<h:outputText value="#{ivy.cms.co('/labels/substituteFor')}" />  
+            					</f:facet>  
+            					<h:outputText value="#{substitute.substitutionRole.name}" />
+        					</p:column>
+  
+        					<p:column>  
+            					<f:facet name="header">  
+                					<h:outputText value="#{ivy.cms.co('/labels/substituteDescription')}" />  
+            					</f:facet>  
+            					<h:outputText value="#{substitute.description}" />  
+        					</p:column>  
+  
+        					<p:column style="width: 83px; ">  
+            					<f:facet name="header">  
+                					<h:outputText value="#{ivy.cms.co('/labels/deleteButton')}" />  
+
+            					</f:facet>
+            					<p:commandLink id="removeButton" actionListener="#{logic.removeSubstitution(substitute.identifier)}" update=":form1:thePanel" icon="ui-icon-close" title="#{ivy.cms.co('/labels/deleteAbsence')}" align="center">
+                    			  <span class="ui-icon ui-icon-trash"/>
+                    			</p:commandLink>
+         					</p:column>
+    					</p:dataTable>
+    				</p:panel>
+				</h:form> 
+			</p:layoutUnit>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

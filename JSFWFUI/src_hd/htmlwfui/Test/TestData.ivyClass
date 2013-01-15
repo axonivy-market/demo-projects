@@ -1,0 +1,8 @@
+TestData #class
+htmlwfui.Test #namespace
+name String #field
+name PERSISTENT #fieldModifier
+vorname String #field
+vorname PERSISTENT #fieldModifier
+strasse String #field
+strasse PERSISTENT #fieldModifier

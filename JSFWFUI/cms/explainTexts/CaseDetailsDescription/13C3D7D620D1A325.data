@@ -1,0 +1,1 @@
+Detailangaben zum Workflow Case[<%=ivy.html.get("in.tempCase.getIdentifier()")%>] <%=ivy.html.get("in.tempCase.name")%>

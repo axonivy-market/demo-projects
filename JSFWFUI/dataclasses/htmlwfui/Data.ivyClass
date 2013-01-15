@@ -52,3 +52,5 @@ substitute htmlwfui.Substitute #field
 substitute PERSISTENT #fieldModifier
 settings htmlwfui.Settings #field
 settings PERSISTENT #fieldModifier
+option String #field
+option PERSISTENT #fieldModifier

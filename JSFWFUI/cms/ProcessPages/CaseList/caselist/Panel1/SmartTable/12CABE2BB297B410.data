@@ -1,15 +1,14 @@
-#Wed May 02 16:50:30 CEST 2012
-default.sort.value=-1
-table.default.page.size.value=25
-table.source=in.cases
-col5=\#Wed May 02 16\:50\:30 CEST 2012\r\nsort.value\=true\r\nbody.value\=it.getStartTimestamp().format()\r\nheader.value\=<%\\\=ivy.cms.co("/labels/created")%>\r\nheader.th\=\\\#Mon Jan 17 12\\\:00\\\:27 CET 2011\\r\\nwidth\\\=120\\r\\n\r\nname.value\=getStartTimestamp()\r\n
-footer.show.value=false
-col4=\#Wed May 02 16\:50\:30 CEST 2012\r\nsort.value\=true\r\nbody.value\=it.getCreatorUserName()\r\nheader.value\=<%\\\=ivy.cms.co("/labels/creator")%>\r\nheader.th\=\\\#Fri Jan 14 11\\\:26\\\:53 CET 2011\\r\\nwidth\\\=100\\r\\n\r\nname.value\=getCreatorUserName()\r\n
-table.empty.value=<%\=ivy.cms.co("/labels/noItemsFound")%>
-col3=\#Wed May 02 16\:50\:30 CEST 2012\r\nsort.value\=true\r\nbody.value\=it.getProcessCategoryCode()\r\nheader.value\=<%\\\=ivy.cms.co("/labels/category")%>\r\nheader.th\=\\\#Fri Jan 14 11\\\:26\\\:53 CET 2011\\r\\nwidth\\\=100\\r\\n\r\nname.value\=getProcessCategoryCode()\r\n
-col2=\#Wed May 02 16\:50\:30 CEST 2012\r\nsort.value\=true\r\nbody.td\=\\\#Fri Jan 07 09\\\:34\\\:54 CET 2011\\r\\ntitle\\\=Details Case[it.getIdentifier()]\\r\\n\r\nbody.value\="<span title\\\='Details Case["+it.getIdentifier()+"]'>"+ value\r\nlink.value\=\\\#Fri Jan 07 09\\\:34\\\:54 CET 2011\\r\\nivp\\\=LinkB.ivp\\r\\nrow.index\\\=in.temp.n\\r\\n\r\nheader.value\=<%\\\=ivy.cms.co("/labels/name")%>\r\nheader.th\=\\\#Mon Jan 17 12\\\:00\\\:02 CET 2011\\r\\nwidth\\\=300\\r\\n\r\nname.value\=name\r\n
-header.show.value=true
-col1=\#Wed May 02 16\:50\:30 CEST 2012\r\nsort.value\=true\r\nbody.value\=it.getState()\r\nheader.value\=<%\\\=ivy.cms.co("/labels/taskState")%>\r\nheader.th\=\\\#Mon Jan 17 12\\\:00\\\:13 CET 2011\\r\\nwidth\\\=80\\r\\n\r\nname.value\=getStatus()\r\n
-table.caption.value=
-col0=\#Wed May 02 16\:50\:30 CEST 2012\r\nbody.td\=\\\#Mon Dec 13 14\\\:18\\\:05 CET 2010\\r\\nalign\\\=center\\r\\n\r\nsort.value\=false\r\nbody.value\="<img src\\\='"+ivy.cms.cr("/images/case") +"'title\\\='Details Case["+it.getIdentifier()+"]'>"\r\nlink.value\=\\\#Fri Jan 07 09\\\:34\\\:54 CET 2011\\r\\nivp\\\=LinkB.ivp\\r\\nrow.index\\\=in.temp.n\\r\\n\r\nheader.th\=\\\#Fri Jan 07 10\\\:56\\\:59 CET 2011\\r\\nwidth\\\=20\\r\\n\r\nheader.value\=\\\#\r\nname.value\=getIdentifier()\r\n
 auto.header.value=false
+col0=body.td\=\\\#Mon Dec 13 14\\\:18\\\:05 CET 2010\\r\\nalign\\\=center\\r\\n\nbody.value\="<img src\\\='"+ivy.cms.cr("/images/case") +"'title\\\='Details Case["+it.getIdentifier()+"]'>"\nheader.th\=\\\#Fri Jan 07 10\\\:56\\\:59 CET 2011\\r\\nwidth\\\=20\\r\\n\nheader.value\=\\\#\nlink.value\=\\\#Fri Jan 07 09\\\:34\\\:54 CET 2011\\r\\nivp\\\=LinkB.ivp\\r\\nrow.index\\\=in.temp.n\\r\\n\nname.value\=getIdentifier()\nsort.value\=false
+col1=body.value\=it.getState()\nheader.th\=\\\#Mon Jan 17 12\\\:00\\\:13 CET 2011\\r\\nwidth\\\=80\\r\\n\nheader.value\=<%\\\=ivy.cms.co("/labels/taskState")%>\nname.value\=getStatus()\nsort.value\=true
+col2=body.td\=\\\#Fri Jan 07 09\\\:34\\\:54 CET 2011\\r\\ntitle\\\=Details Case[it.getIdentifier()]\\r\\n\nbody.value\="<span title\\\='Details Case["+it.getIdentifier()+"]'>"+ value\nheader.th\=\\\#Mon Jan 17 12\\\:00\\\:02 CET 2011\\r\\nwidth\\\=300\\r\\n\nheader.value\=<%\\\=ivy.cms.co("/labels/name")%>\nlink.value\=\\\#Fri Jan 07 09\\\:34\\\:54 CET 2011\\r\\nivp\\\=LinkB.ivp\\r\\nrow.index\\\=in.temp.n\\r\\n\nname.value\=name\nsort.value\=true
+col3=body.value\=it.getProcessCategoryCode()\nheader.th\=\\\#Fri Jan 14 11\\\:26\\\:53 CET 2011\\r\\nwidth\\\=100\\r\\n\nheader.value\=<%\\\=ivy.cms.co("/labels/category")%>\nname.value\=getProcessCategoryCode()\nsort.value\=true
+col4=body.value\=it.getCreatorUserName()\nheader.th\=\\\#Fri Jan 14 11\\\:26\\\:53 CET 2011\\r\\nwidth\\\=100\\r\\n\nheader.value\=<%\\\=ivy.cms.co("/labels/creator")%>\nname.value\=getCreatorUserName()\nsort.value\=true
+col5=body.value\=it.getStartTimestamp().format()\nheader.th\=\\\#Mon Jan 17 12\\\:00\\\:27 CET 2011\\r\\nwidth\\\=120\\r\\n\nheader.value\=<%\\\=ivy.cms.co("/labels/created")%>\nname.value\=getStartTimestamp()\nsort.value\=true
+default.sort.value=-1
+footer.show.value=false
+header.show.value=true
+table.caption.value=
+table.default.page.size.value=25
+table.empty.value=<%\=ivy.cms.co("/labels/noItemsFound")%>
+table.source=in.cases

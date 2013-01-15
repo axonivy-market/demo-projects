@@ -1,0 +1,4 @@
+MySubstitutionsData #class
+htmlwfui.MySubstitutions #namespace
+substitute htmlwfui.Substitute #field
+substitute PERSISTENT #fieldModifier

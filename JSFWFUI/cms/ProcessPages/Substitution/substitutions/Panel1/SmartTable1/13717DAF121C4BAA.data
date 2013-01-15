@@ -1,11 +1,10 @@
-#Fri May 04 15:51:41 CEST 2012
-default.sort.value=-1
-table.default.page.size.value=25
-table.source=in.substitute.substiutions
-footer.show.value=false
-table.empty.value=<%\=ivy.cms.co("/labels/noItemsFound")%>
-header.show.value=true
-col1=\#Fri May 04 15\:51\:41 CEST 2012\r\nbody.value\=ivy.html.escape( (it.getUser().isAbsent() ? ivy.cms.co("/labels/currentlyAbsent") \\\: ""))\r\n
-table.caption.value=
-col0=\#Fri May 04 15\:51\:41 CEST 2012\r\nsort.value\=true\r\nbody.td\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nalign\\\=left\\r\\n\r\ncondition.value\=\r\nbody.value\=ivy.html.escape("\\\#"+it.getUser().getName()+ (it.getSubstitutionRole()\\\!\\\=null ? " \\\: " +it.getSubstitutionRole().getName() \\\: ""))\r\nheader.value\=<%\\\=ivy.cms.co("/labels/substituteFor")%>\r\nheader.th\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nwidth\\\=200\\r\\nalign\\\=left\\r\\n\r\nname.value\=\r\n
 auto.header.value=false
+col0=body.td\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nalign\\\=left\\r\\n\nbody.value\=ivy.html.escape("\\\#"+it.getUser().getName()+ (it.getSubstitutionRole()\\\!\\\=null ? " \\\: " +it.getSubstitutionRole().getName() \\\: ""))\ncondition.value\=\nheader.th\=\\\#Thu Apr 26 14\\\:41\\\:05 CEST 2012\\r\\nwidth\\\=200\\r\\nalign\\\=left\\r\\n\nheader.value\=<%\\\=ivy.cms.co("/labels/substituteFor")%>\nname.value\=\nsort.value\=true
+col1=body.value\=ivy.html.escape( (it.getUser().isAbsent() ? ivy.cms.co("/labels/currentlyAbsent") \\\: ""))
+default.sort.value=-1
+footer.show.value=false
+header.show.value=true
+table.caption.value=
+table.default.page.size.value=25
+table.empty.value=<%\=ivy.cms.co("/labels/noItemsFound")%>
+table.source=in.substitute.substiutions

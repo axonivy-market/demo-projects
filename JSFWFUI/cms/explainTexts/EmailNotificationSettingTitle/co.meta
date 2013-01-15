@@ -1,0 +1,4 @@
+co: name={EmailNotificationSettingTitle} description={} changed={2012-12-28 13:49:31 CET} changedby={dje} visualorder={0} guid={13BE18CA6DD27294} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={13BE18CE1CB3B718} datatype={} isdefault={false} langid={en} description={} validfrom={2012-12-28 13:46:44 CET} validto={} changed={2012-12-28 13:46:52 CET} changedby={dje} properties={} id={}
+val: guid={13BE18CA6DDAFED7} datatype={} isdefault={true} langid={de} description={} validfrom={2012-12-28 13:46:29 CET} validto={} changed={2012-12-28 13:47:30 CET} changedby={dje} properties={} id={}
+val: guid={13BE18CEC949A754} datatype={} isdefault={false} langid={fr} description={} validfrom={2012-12-28 13:46:47 CET} validto={} changed={2012-12-28 13:46:58 CET} changedby={dje} properties={} id={}

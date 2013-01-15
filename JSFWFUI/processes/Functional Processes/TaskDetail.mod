@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Dec 20 09:43:25 CET 2010]
-12CBB155A8E655CC 3.15 #module
+[>Created: Tue Jan 15 09:30:41 CET 2013]
+12CBB155A8E655CC 3.17 #module
 >Proto >Proto Collection #zClass
 Tl0 TaskDetail Big #zClass
 Tl0 B #cInfo
@@ -102,7 +102,7 @@ Tl0 f10 182 204 36 24 9 16 #rect
 Tl0 f10 @|CallSubIcon #fIcon
 Tl0 f23 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
 Tl0 f23 outLinks "LinkB.ivp","LinkC.ivp","LinkA.ivp","LinkD.ivp","LinkE.ivp","LinkF.ivp" #txt
-Tl0 f23 template "taskDetail.ivc" #txt
+Tl0 f23 template "/ProcessPages/TaskDetail/taskDetail.ivc" #txt
 Tl0 f23 type htmlwfui.Data #txt
 Tl0 f23 skipLink skip.ivp #txt
 Tl0 f23 sortLink sort.ivp #txt

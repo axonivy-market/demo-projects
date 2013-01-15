@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Oct 26 14:24:37 CEST 2012]
+[>Created: Tue Jan 15 15:05:49 CET 2013]
 12E297F287736665 3.17 #module
 >Proto >Proto Collection #zClass
 Rt0 TaskHistory Big #zClass
@@ -12,23 +12,19 @@ Rt0 @AnnotationInP-0n ai ai #zField
 Rt0 @TextInP .xml .xml #zField
 Rt0 @TextInP .responsibility .responsibility #zField
 Rt0 @GridStep f20 '' #zField
-Rt0 @Page f1 '' #zField
-Rt0 @PushWFArc f3 '' #zField
 Rt0 @StartRequest f0 '' #zField
 Rt0 @CallSub f30 '' #zField
 Rt0 @Alternative f33 '' #zField
 Rt0 @GridStep f38 '' #zField
 Rt0 @PushWFArc f39 '' #zField
-Rt0 @PushWFArc f15 '' #zField
 Rt0 @PushWFArc f2 '' #zField
-Rt0 @GridStep f7 '' #zField
-Rt0 @PushWFArc f14 '' #zField
-Rt0 @PushWFArc f43 '' #zField
-Rt0 @PushWFArc f8 '' #zField
-Rt0 @PushWFArc f9 '' #zField
 Rt0 @CallSub f4 '' #zField
 Rt0 @PushWFArc f5 '' #zField
 Rt0 @PushWFArc f12 '' #zField
+Rt0 @RichDialog f6 '' #zField
+Rt0 @PushWFArc f16 '' #zField
+Rt0 @PushWFArc f3 '' #zField
+Rt0 @PushWFArc f10 '' #zField
 >Proto Rt0 Rt0 TaskHistory #zField
 Rt0 f20 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -103,30 +99,6 @@ Rt0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Rt0 f20 78 268 36 24 22 -9 #rect
 Rt0 f20 @|StepIcon #fIcon
-Rt0 f1 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
-Rt0 f1 outLinks "LinkA.ivp","LinkC.ivp","LinkB.ivp" #txt
-Rt0 f1 template "/ProcessPages/TaskHistory/taskHistList.ivc" #txt
-Rt0 f1 type htmlwfui.Data #txt
-Rt0 f1 skipLink skip.ivp #txt
-Rt0 f1 sortLink sort.ivp #txt
-Rt0 f1 templateWizard '#
-#Tue Feb 15 16:20:41 CET 2011
-' #txt
-Rt0 f1 pageArchivingActivated false #txt
-Rt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>TaskHistoryList</name>
-        <nameStyle>15
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Rt0 f1 @C|.responsibility Everybody #txt
-Rt0 f1 78 340 36 24 11 12 #rect
-Rt0 f1 @|PageIcon #fIcon
-Rt0 f3 expr out #txt
-Rt0 f3 96 292 96 340 #arcP
 Rt0 f0 outLink start1.ivp #txt
 Rt0 f0 type htmlwfui.Data #txt
 Rt0 f0 inParamDecl '<> param;' #txt
@@ -218,7 +190,7 @@ Rt0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rt0 f30 78 452 36 24 16 9 #rect
+Rt0 f30 78 404 36 24 16 9 #rect
 Rt0 f30 @|CallSubIcon #fIcon
 Rt0 f33 type htmlwfui.Data #txt
 Rt0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -263,60 +235,9 @@ Rt0 f38 @|StepIcon #fIcon
 Rt0 f39 expr out #txt
 Rt0 f39 96 45 96 68 #arcP
 Rt0 f39 0 0.6514195840404282 0 0 #arcLabel
-Rt0 f15 expr data #txt
-Rt0 f15 outCond ivp=="LinkA.ivp" #txt
-Rt0 f15 78 352 82 224 #arcP
-Rt0 f15 1 32 352 #addKink
-Rt0 f15 2 32 224 #addKink
-Rt0 f15 1 0.18116225130813152 0 0 #arcLabel
 Rt0 f2 expr in #txt
 Rt0 f2 outCond in.temp.caption=="my_tasks" #txt
 Rt0 f2 96 238 96 268 #arcP
-Rt0 f7 actionDecl 'htmlwfui.Data out;
-' #txt
-Rt0 f7 actionTable 'out=in;
-' #txt
-Rt0 f7 actionCode 'if(in.temp.catFilter=="Alle")
-{
-	out.temp.processesCombo=in.temp.processes.clone();
-}	
-else
-{
-	out.temp.processesCombo.clear();
-	for(int i=0; i<in.temp.processes.size(); i++)
-	{
-		if(in.temp.processes.getField(i,"Cat")==in.temp.catFilter)
-		{
-				out.temp.processesCombo.add(in.temp.processes.getAt(i));
-		}	
-	}
-}' #txt
-Rt0 f7 type htmlwfui.Data #txt
-Rt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>update filterCombos</name>
-        <nameStyle>19
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Rt0 f7 166 308 36 24 22 -8 #rect
-Rt0 f7 @|StepIcon #fIcon
-Rt0 f14 expr data #txt
-Rt0 f14 outCond ivp=="LinkC.ivp" #txt
-Rt0 f14 114 345 166 327 #arcP
-Rt0 f43 expr out #txt
-Rt0 f43 166 327 114 345 #arcP
-Rt0 f43 0 0.7806989874641023 0 0 #arcLabel
-Rt0 f8 expr data #txt
-Rt0 f8 outCond ivp=="LinkB.ivp" #txt
-Rt0 f8 96 364 96 452 #arcP
-Rt0 f9 expr out #txt
-Rt0 f9 114 464 114 352 #arcP
-Rt0 f9 1 256 464 #addKink
-Rt0 f9 2 256 352 #addKink
-Rt0 f9 1 0.5 0 0 #arcLabel
 Rt0 f4 type htmlwfui.Data #txt
 Rt0 f4 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
 Rt0 f4 doCall true #txt
@@ -345,6 +266,43 @@ Rt0 f5 0 0.4999999999999999 0 0 #arcLabel
 Rt0 f12 expr out #txt
 Rt0 f12 96 156 96 210 #arcP
 Rt0 f12 0 0.442275988200965 0 0 #arcLabel
+Rt0 f6 targetWindow NEW:card: #txt
+Rt0 f6 targetDisplay TOP #txt
+Rt0 f6 richDialogId htmlwfui.TaskHistory #txt
+Rt0 f6 startMethod start(htmlwfui.Data) #txt
+Rt0 f6 type htmlwfui.Data #txt
+Rt0 f6 requestActionDecl '<htmlwfui.Data data> param;' #txt
+Rt0 f6 requestMappingAction 'param.data=in;
+' #txt
+Rt0 f6 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Rt0 f6 responseMappingAction 'out=in;
+out.option=result.option;
+' #txt
+Rt0 f6 windowConfiguration '* ' #txt
+Rt0 f6 isAsynch false #txt
+Rt0 f6 isInnerRd false #txt
+Rt0 f6 userContext '* ' #txt
+Rt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>TaskHistoryList</name>
+        <nameStyle>15,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Rt0 f6 78 332 36 24 20 -2 #rect
+Rt0 f6 @|RichDialogIcon #fIcon
+Rt0 f16 expr out #txt
+Rt0 f16 96 356 96 404 #arcP
+Rt0 f3 expr out #txt
+Rt0 f3 114 416 114 344 #arcP
+Rt0 f3 1 224 416 #addKink
+Rt0 f3 2 224 344 #addKink
+Rt0 f3 1 0.5 0 0 #arcLabel
+Rt0 f10 expr out #txt
+Rt0 f10 96 292 96 332 #arcP
 >Proto Rt0 .type htmlwfui.Data #txt
 >Proto Rt0 .processKind NORMAL #txt
 >Proto Rt0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -354,23 +312,17 @@ Rt0 f12 0 0.442275988200965 0 0 #arcLabel
 ' #txt
 >Proto Rt0 0 0 32 24 18 0 #rect
 >Proto Rt0 @|BIcon #fIcon
-Rt0 f20 mainOut f3 tail #connect
-Rt0 f3 head f1 mainIn #connect
 Rt0 f0 mainOut f39 tail #connect
 Rt0 f39 head f38 mainIn #connect
-Rt0 f1 out f15 tail #connect
-Rt0 f15 head f33 in #connect
 Rt0 f33 out f2 tail #connect
 Rt0 f2 head f20 mainIn #connect
-Rt0 f1 out f14 tail #connect
-Rt0 f14 head f7 mainIn #connect
-Rt0 f7 mainOut f43 tail #connect
-Rt0 f43 head f1 mainIn #connect
-Rt0 f1 out f8 tail #connect
-Rt0 f8 head f30 mainIn #connect
-Rt0 f30 mainOut f9 tail #connect
-Rt0 f9 head f1 mainIn #connect
 Rt0 f38 mainOut f5 tail #connect
 Rt0 f5 head f4 mainIn #connect
 Rt0 f4 mainOut f12 tail #connect
 Rt0 f12 head f33 in #connect
+Rt0 f6 mainOut f16 tail #connect
+Rt0 f16 head f30 mainIn #connect
+Rt0 f30 mainOut f3 tail #connect
+Rt0 f3 head f6 mainIn #connect
+Rt0 f20 mainOut f10 tail #connect
+Rt0 f10 head f6 mainIn #connect

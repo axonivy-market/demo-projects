@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 04 14:43:32 CEST 2012]
+[>Created: Tue Jan 08 15:43:24 CET 2013]
 1367DCC9EAB32A2E 3.17 #module
 >Proto >Proto Collection #zClass
 Sn0 Substitution Big #zClass
@@ -18,7 +18,6 @@ Sn0 @EndTask f5 '' #zField
 Sn0 @CallSub f8 '' #zField
 Sn0 @PushWFArc f9 '' #zField
 Sn0 @GridStep f20 '' #zField
-Sn0 @PushWFArc f2 '' #zField
 Sn0 @Page f11 '' #zField
 Sn0 @PushWFArc f12 '' #zField
 Sn0 @PushWFArc f4 '' #zField
@@ -26,14 +25,24 @@ Sn0 @PushWFArc f36 '' #zField
 Sn0 @GridStep f6 '' #zField
 Sn0 @PushWFArc f14 '' #zField
 Sn0 @GridStep f16 '' #zField
-Sn0 @PushWFArc f17 '' #zField
-Sn0 @PushWFArc f10 '' #zField
 Sn0 @PushWFArc f18 '' #zField
 Sn0 @PushWFArc f13 '' #zField
 Sn0 @PushWFArc f7 '' #zField
 Sn0 @Page f15 '' #zField
 Sn0 @PushWFArc f19 '' #zField
 Sn0 @PushWFArc f21 '' #zField
+Sn0 @RichDialog f22 '' #zField
+Sn0 @PushWFArc f2 '' #zField
+Sn0 @RichDialog f23 '' #zField
+Sn0 @PushWFArc f17 '' #zField
+Sn0 @RichDialog f26 '' #zField
+Sn0 @Alternative f27 '' #zField
+Sn0 @PushWFArc f28 '' #zField
+Sn0 @PushWFArc f24 '' #zField
+Sn0 @PushWFArc f29 '' #zField
+Sn0 @PushWFArc f30 '' #zField
+Sn0 @PushWFArc f31 '' #zField
+Sn0 @PushWFArc f10 '' #zField
 >Proto Sn0 Sn0 Substitution #zField
 Sn0 f0 outLink start.ivp #txt
 Sn0 f0 type htmlwfui.Data #txt
@@ -124,7 +133,7 @@ Sn0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Sn0 f1 @C|.responsibility Everybody #txt
-Sn0 f1 286 260 36 24 26 -23 #rect
+Sn0 f1 286 420 36 24 26 -23 #rect
 Sn0 f1 @|PageIcon #fIcon
 Sn0 f3 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -176,10 +185,10 @@ Sn0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Sn0 f3 398 412 36 24 8 16 #rect
+Sn0 f3 398 572 36 24 8 16 #rect
 Sn0 f3 @|StepIcon #fIcon
 Sn0 f5 type htmlwfui.Data #txt
-Sn0 f5 51 259 26 26 14 0 #rect
+Sn0 f5 51 419 26 26 14 0 #rect
 Sn0 f5 @|EndIcon #fIcon
 Sn0 f8 type htmlwfui.Data #txt
 Sn0 f8 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
@@ -223,10 +232,8 @@ Sn0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Sn0 f20 286 196 36 24 24 -1 #rect
+Sn0 f20 286 356 36 24 24 -1 #rect
 Sn0 f20 @|StepIcon #fIcon
-Sn0 f2 expr out #txt
-Sn0 f2 304 220 304 260 #arcP
 Sn0 f11 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 Sn0 f11 outLinks "LinkA.ivp","LinkB.ivp" #txt
 Sn0 f11 template "/ProcessPages/Substitution/addSubstitute.ivc" #txt
@@ -234,30 +241,30 @@ Sn0 f11 type htmlwfui.Data #txt
 Sn0 f11 skipLink skip.ivp #txt
 Sn0 f11 sortLink sort.ivp #txt
 Sn0 f11 templateWizard '#
-#Thu Apr 26 14:52:04 CEST 2012
+#Tue Jan 08 10:00:49 CET 2013
 ' #txt
 Sn0 f11 pageArchivingActivated false #txt
 Sn0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>add Substitution</name>
-        <nameStyle>16
+        <nameStyle>16,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
 Sn0 f11 @C|.responsibility Everybody #txt
-Sn0 f11 398 332 36 24 6 15 #rect
+Sn0 f11 398 492 36 24 6 15 #rect
 Sn0 f11 @|PageIcon #fIcon
 Sn0 f12 expr data #txt
 Sn0 f12 outCond ivp=="LinkA.ivp" #txt
-Sn0 f12 322 284 398 332 #arcP
+Sn0 f12 322 444 398 492 #arcP
 Sn0 f4 expr data #txt
 Sn0 f4 outCond ivp=="LinkA.ivp" #txt
-Sn0 f4 416 356 416 412 #arcP
+Sn0 f4 416 516 416 572 #arcP
 Sn0 f36 expr data #txt
 Sn0 f36 outCond ivp=="LinkE.ivp" #txt
-Sn0 f36 286 272 77 272 #arcP
+Sn0 f36 286 432 77 432 #arcP
 Sn0 f6 actionDecl 'htmlwfui.Data out;
 ' #txt
 Sn0 f6 actionTable 'out=in;
@@ -284,11 +291,11 @@ Sn0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Sn0 f6 238 332 36 24 9 19 #rect
+Sn0 f6 238 492 36 24 9 19 #rect
 Sn0 f6 @|StepIcon #fIcon
 Sn0 f14 expr data #txt
 Sn0 f14 outCond ivp=="LinkB.ivp" #txt
-Sn0 f14 296 284 264 332 #arcP
+Sn0 f14 296 444 264 492 #arcP
 Sn0 f16 actionDecl 'htmlwfui.Data out;
 ' #txt
 Sn0 f16 actionTable 'out=in;
@@ -319,27 +326,23 @@ Sn0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Sn0 f16 286 148 36 24 22 -9 #rect
+Sn0 f16 286 316 36 24 22 -9 #rect
 Sn0 f16 @|StepIcon #fIcon
-Sn0 f17 expr out #txt
-Sn0 f17 304 124 304 148 #arcP
-Sn0 f10 expr out #txt
-Sn0 f10 304 172 304 196 #arcP
 Sn0 f18 expr out #txt
-Sn0 f18 256 356 322 208 #arcP
-Sn0 f18 1 256 480 #addKink
-Sn0 f18 2 552 480 #addKink
-Sn0 f18 3 552 208 #addKink
+Sn0 f18 256 516 322 368 #arcP
+Sn0 f18 1 256 640 #addKink
+Sn0 f18 2 552 640 #addKink
+Sn0 f18 3 552 368 #addKink
 Sn0 f18 1 0.5105360994093243 0 0 #arcLabel
 Sn0 f13 expr out #txt
-Sn0 f13 434 424 322 208 #arcP
-Sn0 f13 1 536 424 #addKink
-Sn0 f13 2 536 208 #addKink
+Sn0 f13 434 584 322 368 #arcP
+Sn0 f13 1 536 584 #addKink
+Sn0 f13 2 536 368 #addKink
 Sn0 f13 2 0.7767742217873069 0 0 #arcLabel
 Sn0 f7 expr data #txt
 Sn0 f7 outCond ivp=="LinkB.ivp" #txt
-Sn0 f7 416 332 322 272 #arcP
-Sn0 f7 1 416 272 #addKink
+Sn0 f7 416 492 322 432 #arcP
+Sn0 f7 1 416 432 #addKink
 Sn0 f7 1 0.6644892287059583 0 0 #arcLabel
 Sn0 f15 outTypes "htmlwfui.Data" #txt
 Sn0 f15 outLinks "LinkA.ivp" #txt
@@ -361,16 +364,125 @@ Sn0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Sn0 f15 @C|.responsibility Everybody #txt
-Sn0 f15 110 324 36 24 27 -7 #rect
+Sn0 f15 110 484 36 24 27 -7 #rect
 Sn0 f15 @|PageIcon #fIcon
 Sn0 f19 expr data #txt
 Sn0 f19 outCond ivp=="LinkC.ivp" #txt
-Sn0 f19 286 279 146 329 #arcP
+Sn0 f19 286 439 146 489 #arcP
 Sn0 f21 expr data #txt
 Sn0 f21 outCond ivp=="LinkA.ivp" #txt
-Sn0 f21 146 333 286 283 #arcP
-Sn0 f21 1 224 320 #addKink
+Sn0 f21 146 493 286 443 #arcP
+Sn0 f21 1 224 480 #addKink
 Sn0 f21 0 0.9733360748352806 0 0 #arcLabel
+Sn0 f22 targetWindow NEW:card: #txt
+Sn0 f22 targetDisplay TOP #txt
+Sn0 f22 richDialogId htmlwfui.Substitutes #txt
+Sn0 f22 startMethod start(htmlwfui.Substitute) #txt
+Sn0 f22 type htmlwfui.Data #txt
+Sn0 f22 requestActionDecl '<htmlwfui.Substitute substitute> param;' #txt
+Sn0 f22 requestMappingAction 'param.substitute=in.substitute;
+' #txt
+Sn0 f22 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Sn0 f22 responseMappingAction 'out=in;
+out.option=result.option;
+out.substitute=result.substitute;
+' #txt
+Sn0 f22 windowConfiguration '* ' #txt
+Sn0 f22 isAsynch false #txt
+Sn0 f22 isInnerRd false #txt
+Sn0 f22 userContext '* ' #txt
+Sn0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Substitutes</name>
+        <nameStyle>11,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Sn0 f22 286 156 36 24 20 -2 #rect
+Sn0 f22 @|RichDialogIcon #fIcon
+Sn0 f2 expr out #txt
+Sn0 f2 304 380 304 420 #arcP
+Sn0 f23 targetWindow NEW:card: #txt
+Sn0 f23 targetDisplay TOP #txt
+Sn0 f23 richDialogId htmlwfui.SubstitutionAdd #txt
+Sn0 f23 startMethod start(htmlwfui.Substitute) #txt
+Sn0 f23 type htmlwfui.Data #txt
+Sn0 f23 requestActionDecl '<htmlwfui.Substitute substitute> param;' #txt
+Sn0 f23 requestMappingAction 'param.substitute=in.substitute;
+' #txt
+Sn0 f23 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Sn0 f23 responseMappingAction 'out=in;
+' #txt
+Sn0 f23 windowConfiguration '* ' #txt
+Sn0 f23 isAsynch false #txt
+Sn0 f23 isInnerRd false #txt
+Sn0 f23 userContext '* ' #txt
+Sn0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>add Substitution</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Sn0 f23 318 236 36 24 20 -2 #rect
+Sn0 f23 @|RichDialogIcon #fIcon
+Sn0 f17 expr out #txt
+Sn0 f17 354 248 322 168 #arcP
+Sn0 f17 1 408 248 #addKink
+Sn0 f17 2 408 168 #addKink
+Sn0 f17 0 0.922857142857143 0 0 #arcLabel
+Sn0 f26 targetWindow NEW:card: #txt
+Sn0 f26 targetDisplay TOP #txt
+Sn0 f26 richDialogId htmlwfui.MySubstitutions #txt
+Sn0 f26 startMethod start(htmlwfui.Substitute) #txt
+Sn0 f26 type htmlwfui.Data #txt
+Sn0 f26 requestActionDecl '<htmlwfui.Substitute substitute> param;' #txt
+Sn0 f26 requestMappingAction 'param.substitute=in.substitute;
+' #txt
+Sn0 f26 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Sn0 f26 responseMappingAction 'out=in;
+' #txt
+Sn0 f26 windowConfiguration '* ' #txt
+Sn0 f26 isAsynch false #txt
+Sn0 f26 isInnerRd false #txt
+Sn0 f26 userContext '* ' #txt
+Sn0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Substitution</name>
+        <nameStyle>12,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Sn0 f26 254 236 36 24 -89 -2 #rect
+Sn0 f26 @|RichDialogIcon #fIcon
+Sn0 f27 type htmlwfui.Data #txt
+Sn0 f27 290 194 28 28 14 0 #rect
+Sn0 f27 @|AlternativeIcon #fIcon
+Sn0 f28 expr out #txt
+Sn0 f28 304 180 304 194 #arcP
+Sn0 f24 expr in #txt
+Sn0 f24 outCond 'in.option == "add"' #txt
+Sn0 f24 310 216 326 236 #arcP
+Sn0 f29 expr in #txt
+Sn0 f29 298 216 282 236 #arcP
+Sn0 f30 expr out #txt
+Sn0 f30 254 248 286 168 #arcP
+Sn0 f30 1 192 248 #addKink
+Sn0 f30 2 192 168 #addKink
+Sn0 f30 1 0.8893984380894214 0 0 #arcLabel
+Sn0 f31 expr out #txt
+Sn0 f31 304 340 304 356 #arcP
+Sn0 f10 expr out #txt
+Sn0 f10 304 124 304 156 #arcP
 >Proto Sn0 .type htmlwfui.Data #txt
 >Proto Sn0 .processKind NORMAL #txt
 >Proto Sn0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -382,8 +494,6 @@ Sn0 f21 0 0.9733360748352806 0 0 #arcLabel
 >Proto Sn0 @|BIcon #fIcon
 Sn0 f0 mainOut f9 tail #connect
 Sn0 f9 head f8 mainIn #connect
-Sn0 f20 mainOut f2 tail #connect
-Sn0 f2 head f1 mainIn #connect
 Sn0 f1 out f12 tail #connect
 Sn0 f12 head f11 mainIn #connect
 Sn0 f11 out f4 tail #connect
@@ -392,10 +502,6 @@ Sn0 f36 head f5 mainIn #connect
 Sn0 f1 out f36 tail #connect
 Sn0 f1 out f14 tail #connect
 Sn0 f14 head f6 mainIn #connect
-Sn0 f8 mainOut f17 tail #connect
-Sn0 f17 head f16 mainIn #connect
-Sn0 f16 mainOut f10 tail #connect
-Sn0 f10 head f20 mainIn #connect
 Sn0 f6 mainOut f18 tail #connect
 Sn0 f18 head f20 mainIn #connect
 Sn0 f3 mainOut f13 tail #connect
@@ -406,3 +512,19 @@ Sn0 f1 out f19 tail #connect
 Sn0 f19 head f15 mainIn #connect
 Sn0 f15 out f21 tail #connect
 Sn0 f21 head f1 mainIn #connect
+Sn0 f20 mainOut f2 tail #connect
+Sn0 f2 head f1 mainIn #connect
+Sn0 f23 mainOut f17 tail #connect
+Sn0 f17 head f22 mainIn #connect
+Sn0 f22 mainOut f28 tail #connect
+Sn0 f28 head f27 in #connect
+Sn0 f27 out f24 tail #connect
+Sn0 f24 head f23 mainIn #connect
+Sn0 f27 out f29 tail #connect
+Sn0 f29 head f26 mainIn #connect
+Sn0 f26 mainOut f30 tail #connect
+Sn0 f30 head f22 mainIn #connect
+Sn0 f16 mainOut f31 tail #connect
+Sn0 f31 head f20 mainIn #connect
+Sn0 f8 mainOut f10 tail #connect
+Sn0 f10 head f22 mainIn #connect

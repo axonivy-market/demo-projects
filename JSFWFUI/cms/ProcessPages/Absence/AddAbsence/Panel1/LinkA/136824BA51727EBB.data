@@ -19,5 +19,9 @@
 <INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="<%=ivy.cms.co("/labels/saveButton")%>"></td>
 </tr>
 
-</table>
-</FORM>
+
+
+
+
+
+</table></FORM>
