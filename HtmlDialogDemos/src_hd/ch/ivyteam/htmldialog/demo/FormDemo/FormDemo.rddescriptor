@@ -19,7 +19,7 @@
     </method>
     <startMethod>
         <name>start</name>
-        <description>Default Rich Dialog start method.</description>
+        <description>Default dialog start method.</description>
     </startMethod>
     <property>
         <name>guid</name>
