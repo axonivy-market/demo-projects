@@ -21,6 +21,9 @@ public class Person
 	@Min (value=1900, message="<%=ivy.cms.co(\"/ch.ivyteam.htmldialog.demo/BeanValidationDemo/greaterOrEqualThan1900\")%>")
 	private int yearOfBirth;
 
+	@LicensePlate(message="<%=ivy.cms.co(\"/ch.ivyteam.htmldialog.demo/BeanValidationDemo/licensePlate\")%>")
+	private String vehicleLicense;
+	
 	public String getName() 
 	{
 		return name;
@@ -51,6 +54,14 @@ public class Person
 		this.yearOfBirth = yearOfBirth;
 	}
 	
+	public String getVehicleLicense() {
+		return vehicleLicense;
+	}
+
+	public void setVehicleLicense(String vehicleLicense) {
+		this.vehicleLicense = vehicleLicense;
+	}
+	
 	@Override
 	public String toString() 
 	{
@@ -64,7 +75,6 @@ public class Person
 		builder.append(yearOfBirth);
 		builder.append("]");
 		return builder.toString();
-		
 	}
 	
 }
