@@ -65,7 +65,7 @@ Cs0 f4 203 150 20 20 13 0 #rect
 Cs0 f4 @|RichDialogProcessEndIcon #fIcon
 Cs0 f5 213 74 213 150 #arcP
 >Proto Cs0 .type ch.ivyteam.htmldialog.demo.ComponentCustomizingDemo.ComponentCustomizingDemoData #txt
->Proto Cs0 .processKind JSF_DIALOG #txt
+>Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
 >Proto Cs0 '' #fIcon
 Cs0 f0 mainOut f2 tail #connect
