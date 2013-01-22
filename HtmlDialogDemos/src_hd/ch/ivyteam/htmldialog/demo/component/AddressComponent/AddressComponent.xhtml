@@ -16,9 +16,13 @@ This attributes can be accessed by the el expression cc.attributes.attributeName
 	<cc:attribute name="label" />
 </cc:interface>
 <cc:implementation>
-	<p:fieldset  legend="Address Component">
+	<p:fieldset legend="Address Component">
 		<h:outputLabel value="#{cc.attributes.label}" />
 		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+			
+			<!-- Insert the children from the parent where the include of this component is defined -->
+			<cc:insertChildren />
+
 			<p:outputLabel value="Street" for="street" />
 			<p:inputText value="#{data.address.street}" id="street" />
 			<p:outputLabel value="Country" for="country" />

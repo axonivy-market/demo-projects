@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>JSF User Dialog</title>
+</h:head>
+<h:body>
+	<p:panel header="Composit Component Customizing Demo" id="panel">
+		<h:outputText
+			value="This demo explains how Html Dialog composit comonents can be customized." />
+
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+				<!--
+				Here the Address Component is included for the home address.
+				-->
+				<ic:ch.ivyteam.htmldialog.demo.component.AddressComponent
+					address="#{data.homeAddress}" label="Home Address">
+
+					<!-- We add an input for the title and name to the Address Component. -->
+					<p:outputLabel value="Title" for="title" />
+					<p:selectOneMenu value="#{data.title}" id="title">
+						<f:selectItem itemLabel="Mrs" itemValue="Mrs" />
+						<f:selectItem itemLabel="Mr" itemValue="Mr" />
+					</p:selectOneMenu>
+					<p:outputLabel value="Name" for="name" />
+					<p:inputText value="#{data.name}" id="name" />
+
+				</ic:ch.ivyteam.htmldialog.demo.component.AddressComponent>
+
+				<!--
+				Here the Address Component is included for the corporate address.
+				-->
+				<ic:ch.ivyteam.htmldialog.demo.component.AddressComponent
+					startMethod="start" address="#{data.corporateAddress}"
+					label="Corporate Address">
+
+					<!-- We add an input for the company name to the Address Component. -->
+					<p:outputLabel value="Company" for="company" />
+					<p:inputText value="#{data.company}" id="company" />
+
+				</ic:ch.ivyteam.htmldialog.demo.component.AddressComponent>
+			</h:panelGrid>
+			<p:commandButton value="Submit" actionListener="#{logic.submit}"
+				ajax="false" />
+		</h:form>
+
+		<br />
+		<h:outputText value="Home Address" />
+		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+			<h:outputText value="Title" />
+			<h:outputText value="#{data.title}" />
+			<h:outputText value="Name" />
+			<h:outputText value="#{data.name}" />
+			<h:outputText value="Street" />
+			<h:outputText value="#{data.homeAddress.street}" />
+			<h:outputText value="Country" />
+			<h:outputText value="#{data.homeAddress.country}" />
+		</h:panelGrid>
+
+		<br />
+		<h:outputText value="Corporate Address" />
+		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+			<h:outputText value="Company" />
+			<h:outputText value="#{data.company}" />
+			<h:outputText value="Street" />
+			<h:outputText value="#{data.corporateAddress.street}" />
+			<h:outputText value="Country" />
+			<h:outputText value="#{data.corporateAddress.country}" />
+		</h:panelGrid>
+	</p:panel>
+</h:body>
+</html>
