@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Oct 31 16:28:39 CET 2012]
+[>Created: Tue Jan 22 19:18:38 CET 2013]
 13AAD55A671A1005 3.17 #module
 >Proto >Proto Collection #zClass
 Ws0 WFPageProcess Big #zClass
@@ -77,7 +77,7 @@ Ws0 f4 @|RichDialogInitStartIcon #fIcon
 Ws0 f5 expr out #txt
 Ws0 f5 256 74 256 150 #arcP
 >Proto Ws0 .type htmlwfui.WFPage.WFPageData #txt
->Proto Ws0 .processKind RICH_DIALOG #txt
+>Proto Ws0 .processKind HTML_DIALOG #txt
 >Proto Ws0 -8 -8 16 16 16 26 #rect
 >Proto Ws0 '' #fIcon
 Ws0 f0 mainOut f2 tail #connect

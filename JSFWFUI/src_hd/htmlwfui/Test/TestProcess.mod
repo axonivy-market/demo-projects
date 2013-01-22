@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jan 04 13:48:13 CET 2013]
+[>Created: Tue Jan 22 19:18:38 CET 2013]
 13C05941AA57FB13 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TestProcess Big #zClass
@@ -97,7 +97,7 @@ Ts0 f10 227 74 225 100 #arcP
 Ts0 f9 expr out #txt
 Ts0 f9 225 124 227 150 #arcP
 >Proto Ts0 .type htmlwfui.Test.TestData #txt
->Proto Ts0 .processKind RICH_DIALOG #txt
+>Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
 >Proto Ts0 '' #fIcon
 Ts0 f0 mainOut f6 tail #connect

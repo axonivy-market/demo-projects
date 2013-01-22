@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 15 15:15:05 CET 2013]
+[>Created: Tue Jan 22 19:18:38 CET 2013]
 13C3D58D030BDEA8 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListProcess Big #zClass
@@ -452,7 +452,7 @@ Cs0 f22 384 124 138 288 #arcP
 Cs0 f22 1 384 288 #addKink
 Cs0 f22 1 0.1676804224959652 0 0 #arcLabel
 >Proto Cs0 .type htmlwfui.CaseList.CaseListData #txt
->Proto Cs0 .processKind RICH_DIALOG #txt
+>Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
 >Proto Cs0 '' #fIcon
 Cs0 f5 out f6 tail #connect

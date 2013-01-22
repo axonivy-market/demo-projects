@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 08 15:41:37 CET 2013]
+[>Created: Tue Jan 22 19:18:38 CET 2013]
 13C197B6C1E994AC 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MySubstitutionsProcess Big #zClass
@@ -70,7 +70,7 @@ Ms0 f6 @|RichDialogEndIcon #fIcon
 Ms0 f7 expr out #txt
 Ms0 f7 256 74 256 150 #arcP
 >Proto Ms0 .type htmlwfui.MySubstitutions.MySubstitutionsData #txt
->Proto Ms0 .processKind RICH_DIALOG #txt
+>Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
 >Proto Ms0 '' #fIcon
 Ms0 f0 mainOut f2 tail #connect

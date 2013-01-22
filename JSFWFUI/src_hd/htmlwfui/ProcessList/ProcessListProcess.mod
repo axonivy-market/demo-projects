@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Oct 26 14:01:03 CEST 2012]
+[>Created: Tue Jan 22 19:18:38 CET 2013]
 13A9BE7A5A0FCFD3 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 ProcessListProcess Big #zClass
@@ -76,7 +76,7 @@ Ps0 f2 96 74 96 100 #arcP
 Ps0 f3 expr out #txt
 Ps0 f3 96 124 96 150 #arcP
 >Proto Ps0 .type htmlwfui.ProcessList.ProcessListData #txt
->Proto Ps0 .processKind RICH_DIALOG #txt
+>Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 -8 -8 16 16 16 26 #rect
 >Proto Ps0 '' #fIcon
 Ps0 f0 mainOut f2 tail #connect

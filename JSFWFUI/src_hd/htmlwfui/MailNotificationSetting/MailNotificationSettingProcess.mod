@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Dec 28 16:35:43 CET 2012]
+[>Created: Tue Jan 22 19:18:38 CET 2013]
 13BDCA5090CA1E7B 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MailNotificationSettingProcess Big #zClass
@@ -234,7 +234,7 @@ Ms0 f10 418 150 20 20 13 0 #rect
 Ms0 f10 @|RichDialogProcessEndIcon #fIcon
 Ms0 f12 428 74 428 150 #arcP
 >Proto Ms0 .type htmlwfui.MailNotificationSetting.MailNotificationSettingData #txt
->Proto Ms0 .processKind RICH_DIALOG #txt
+>Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
 >Proto Ms0 '' #fIcon
 Ms0 f0 mainOut f4 tail #connect

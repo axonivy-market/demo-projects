@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Dec 28 15:45:21 CET 2012]
+[>Created: Tue Jan 22 19:18:38 CET 2013]
 13A97F3A59B5F078 3.17 #module
 >Proto >Proto Collection #zClass
 Hs0 HomeProcess Big #zClass
@@ -63,7 +63,7 @@ Hs0 f4 96 74 96 92 #arcP
 Hs0 f2 expr out #txt
 Hs0 f2 96 116 96 150 #arcP
 >Proto Hs0 .type htmlwfui.Home.HomeData #txt
->Proto Hs0 .processKind RICH_DIALOG #txt
+>Proto Hs0 .processKind HTML_DIALOG #txt
 >Proto Hs0 -8 -8 16 16 16 26 #rect
 >Proto Hs0 '' #fIcon
 Hs0 f0 mainOut f4 tail #connect

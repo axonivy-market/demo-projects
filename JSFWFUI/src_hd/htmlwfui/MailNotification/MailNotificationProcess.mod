@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Dec 28 11:37:06 CET 2012]
+[>Created: Tue Jan 22 19:18:38 CET 2013]
 13BE0F19811EB876 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MailNotificationProcess Big #zClass
@@ -216,7 +216,7 @@ Ms0 f10 384 74 384 100 #arcP
 Ms0 f5 expr out #txt
 Ms0 f5 400 124 439 154 #arcP
 >Proto Ms0 .type htmlwfui.MailNotification.MailNotificationData #txt
->Proto Ms0 .processKind RICH_DIALOG #txt
+>Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
 >Proto Ms0 '' #fIcon
 Ms0 f0 mainOut f8 tail #connect

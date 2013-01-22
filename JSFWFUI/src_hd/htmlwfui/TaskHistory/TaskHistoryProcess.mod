@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 15 09:51:54 CET 2013]
+[>Created: Tue Jan 22 19:18:38 CET 2013]
 13C396BFDDBEC687 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHistoryProcess Big #zClass
@@ -89,7 +89,7 @@ Ts0 f7 224 74 224 92 #arcP
 Ts0 f4 expr out #txt
 Ts0 f4 224 116 224 150 #arcP
 >Proto Ts0 .type htmlwfui.TaskHistory.TaskHistoryData #txt
->Proto Ts0 .processKind RICH_DIALOG #txt
+>Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
 >Proto Ts0 '' #fIcon
 Ts0 f3 mainOut f5 tail #connect

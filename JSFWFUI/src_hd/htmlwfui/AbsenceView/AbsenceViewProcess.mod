@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 08 07:51:48 CET 2013]
+[>Created: Tue Jan 22 19:18:38 CET 2013]
 13BFF6A6F69C657B 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AbsenceViewProcess Big #zClass
@@ -169,7 +169,7 @@ As0 f17 288 124 114 136 #arcP
 As0 f17 1 288 136 #addKink
 As0 f17 1 0.0018394491469347636 0 0 #arcLabel
 >Proto As0 .type htmlwfui.AbsenceView.AbsenceViewData #txt
->Proto As0 .processKind RICH_DIALOG #txt
+>Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
 >Proto As0 '' #fIcon
 As0 f3 mainOut f5 tail #connect

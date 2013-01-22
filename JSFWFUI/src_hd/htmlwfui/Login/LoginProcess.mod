@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Dec 27 14:41:42 CET 2012]
+[>Created: Tue Jan 22 19:18:38 CET 2013]
 13BDC9810E8BB490 3.17 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginProcess Big #zClass
@@ -42,7 +42,7 @@ Ls0 f3 @|RichDialogEndIcon #fIcon
 Ls0 f4 expr out #txt
 Ls0 f4 100 72 139 151 #arcP
 >Proto Ls0 .type htmlwfui.Login.LoginData #txt
->Proto Ls0 .processKind RICH_DIALOG #txt
+>Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect
 >Proto Ls0 '' #fIcon
 Ls0 f0 mainOut f4 tail #connect
