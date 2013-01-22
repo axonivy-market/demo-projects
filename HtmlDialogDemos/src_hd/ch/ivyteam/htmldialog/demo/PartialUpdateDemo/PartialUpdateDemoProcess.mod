@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 24 17:12:28 CEST 2012]
+[>Created: Tue Jan 22 18:40:43 CET 2013]
 139E3EF5C6DBC97F 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 PartialUpdateDemoProcess Big #zClass
@@ -92,7 +92,7 @@ Ps0 f6 96 266 96 308 #arcP
 Ps0 f7 expr out #txt
 Ps0 f7 96 332 96 374 #arcP
 >Proto Ps0 .type ch.ivyteam.htmldialog.demo.PartialUpdateDemo.PartialUpdateDemoData #txt
->Proto Ps0 .processKind RICH_DIALOG #txt
+>Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

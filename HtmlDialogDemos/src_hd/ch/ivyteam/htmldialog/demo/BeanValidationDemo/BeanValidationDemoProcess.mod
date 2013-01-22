@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 15 11:52:30 CET 2013]
+[>Created: Tue Jan 22 18:40:43 CET 2013]
 13C3DAFB89BB3EB0 3.17 #module
 >Proto >Proto Collection #zClass
 Bs0 BeanValidationDemoProcess Big #zClass
@@ -92,7 +92,7 @@ Bs0 f9 @|RichDialogEndIcon #fIcon
 Bs0 f10 expr out #txt
 Bs0 f10 192 242 192 318 #arcP
 >Proto Bs0 .type ch.ivyteam.htmldialog.demo.BeanValidationDemo.BeanValidationDemoData #txt
->Proto Bs0 .processKind RICH_DIALOG #txt
+>Proto Bs0 .processKind HTML_DIALOG #txt
 >Proto Bs0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

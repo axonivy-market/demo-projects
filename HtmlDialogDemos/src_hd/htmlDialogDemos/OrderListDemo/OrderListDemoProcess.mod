@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 24 17:12:20 CEST 2012]
+[>Created: Tue Jan 22 18:40:42 CET 2013]
 139D3B8894867715 3.17 #module
 >Proto >Proto Collection #zClass
 Os0 OrderListDemoProcess Big #zClass
@@ -118,7 +118,7 @@ Os0 f3 96 74 96 100 #arcP
 Os0 f4 expr out #txt
 Os0 f4 96 124 96 150 #arcP
 >Proto Os0 .type htmlDialogDemos.OrderListDemo.OrderListDemoData #txt
->Proto Os0 .processKind RICH_DIALOG #txt
+>Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

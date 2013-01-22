@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Dec 03 14:55:40 CET 2012]
+[>Created: Tue Jan 22 18:40:42 CET 2013]
 13B610D02E245A6A 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 ManagedBeanDemoProcess Big #zClass
@@ -41,7 +41,7 @@ Ms0 f1 @|RichDialogProcessEndIcon #fIcon
 Ms0 f2 expr out #txt
 Ms0 f2 96 74 96 150 #arcP
 >Proto Ms0 .type htmlDialogDemos.ManagedBeanDemo.ManagedBeanDemoData #txt
->Proto Ms0 .processKind RICH_DIALOG #txt
+>Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
 >Proto Ms0 '' #fIcon
 Ms0 f0 mainOut f2 tail #connect

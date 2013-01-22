@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 24 17:14:15 CEST 2012]
+[>Created: Tue Jan 22 18:40:42 CET 2013]
 139D96A5734DE195 3.17 #module
 >Proto >Proto Collection #zClass
 Es0 EditableTableDemoProcess Big #zClass
@@ -233,7 +233,7 @@ Es0 f22 352 290 352 316 #arcP
 Es0 f20 expr out #txt
 Es0 f20 352 340 352 366 #arcP
 >Proto Es0 .type htmlDialogDemos.EditableTableDemo.EditableTableDemoData #txt
->Proto Es0 .processKind RICH_DIALOG #txt
+>Proto Es0 .processKind HTML_DIALOG #txt
 >Proto Es0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

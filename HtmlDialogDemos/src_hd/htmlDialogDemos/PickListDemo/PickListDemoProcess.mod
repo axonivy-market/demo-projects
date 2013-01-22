@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 24 16:32:34 CEST 2012]
+[>Created: Tue Jan 22 18:40:42 CET 2013]
 139E3427D3640FBC 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 PickListDemoProcess Big #zClass
@@ -92,7 +92,7 @@ Ps0 f10 96 234 96 310 #arcP
 Ps0 f2 expr out #txt
 Ps0 f2 96 108 96 150 #arcP
 >Proto Ps0 .type htmlDialogDemos.PickListDemo.PickListDemoData #txt
->Proto Ps0 .processKind RICH_DIALOG #txt
+>Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

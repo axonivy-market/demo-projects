@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Dec 05 08:32:35 CET 2012]
+[>Created: Tue Jan 22 18:40:42 CET 2013]
 13B69F6612D62493 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonComponentProcess Big #zClass
@@ -46,7 +46,7 @@ Ps0 f1 @|RichDialogProcessEndIcon #fIcon
 Ps0 f2 expr out #txt
 Ps0 f2 96 74 96 150 #arcP
 >Proto Ps0 .type ch.ivyteam.htmldialog.demo.component.PersonComponent.PersonComponentData #txt
->Proto Ps0 .processKind RICH_DIALOG #txt
+>Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 -8 -8 16 16 16 26 #rect
 >Proto Ps0 '' #fIcon
 Ps0 f0 mainOut f2 tail #connect

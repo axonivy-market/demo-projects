@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Oct 08 11:13:46 CEST 2012]
+[>Created: Tue Jan 22 18:40:43 CET 2013]
 13A3F854E6D3A3F7 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AjaxMethodCallDemoProcess Big #zClass
@@ -85,7 +85,7 @@ As0 f7 200 74 200 100 #arcP
 As0 f6 expr out #txt
 As0 f6 200 124 200 158 #arcP
 >Proto As0 .type ch.ivyteam.htmldialog.demo.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
->Proto As0 .processKind RICH_DIALOG #txt
+>Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
 >Proto As0 '' #fIcon
 As0 f0 mainOut f2 tail #connect

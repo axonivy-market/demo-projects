@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Oct 05 12:06:24 CEST 2012]
+[>Created: Tue Jan 22 18:40:43 CET 2013]
 139E30EF308FD0DC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FormDemoProcess Big #zClass
@@ -158,7 +158,7 @@ Fs0 f9 @|RichDialogMethodStartIcon #fIcon
 Fs0 f12 expr out #txt
 Fs0 f12 96 410 96 444 #arcP
 >Proto Fs0 .type ch.ivyteam.htmldialog.demo.FormDemo.FormDemoData #txt
->Proto Fs0 .processKind RICH_DIALOG #txt
+>Proto Fs0 .processKind HTML_DIALOG #txt
 >Proto Fs0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
