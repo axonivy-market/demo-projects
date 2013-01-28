@@ -1,19 +1,19 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-09-21 13:12:23 | 4.2.0.37454 | 1.0
-~.findCasesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11E36ED810E5980E
-~.refreshMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119A4AB3CDD9C7A6
-~@RD_BROADCAST[ivy_systemevent_workflow_case_changed]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11E4610522E86F12
-~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11A2733FAE51A255
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119A4875F029C0D7
-~.destroyCaseMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11A08EF0B1A8D34B
-~.informOnCaseOnSiblingTabMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119C294D123A469B
+# 2013-01-28 10:56:51 | 4.4.0.42044 | 1.0
 ~.caseNameCriteriaTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11E36ED810E5980E
-~@RD_METHODCALL[refresh()]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119A4A80FB8A5F66
-~.informOnCaseButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119C294D123A469B
 ~.casesTable@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119C294D123A469B
-~@DISPLAY[UNLOAD]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119A4A883123F67D
 ~.casesTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11A08FA18A39B90B
-~@RD_METHODCALL[close()]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11ACA838872138BD
 ~.destroyCaseButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11A08EF0B1A8D34B
+~.destroyCaseMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11A08EF0B1A8D34B
+~.findCasesHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11E36ED810E5980E
+~.informOnCaseButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119C294D123A469B
+~.informOnCaseOnSiblingTabMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119C294D123A469B
 ~.refreshButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119A4AB3CDD9C7A6
+~.refreshMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119A4AB3CDD9C7A6
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11A2733FAE51A255
+~@DISPLAY[UNLOAD]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119A4A883123F67D
+~@RD_BROADCAST[ivy_systemevent_workflow_case_changed]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11E4610522E86F12
+~@RD_METHODCALL[close()]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/11ACA838872138BD
+~@RD_METHODCALL[refresh()]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119A4A80FB8A5F66
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/13C80965305D4BDF
 ~@RD_METHODCALL[start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:119A42FA47DC0EC8/119A48768E591E42

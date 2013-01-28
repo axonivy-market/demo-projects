@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 24 16:01:47 CET 2011]
+[>Created: Mon Jan 28 10:56:53 CET 2013]
 119A42FA47DC0EC8 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDisplayListProcess Big #zClass
@@ -15,12 +15,10 @@ Cs0 @TextInP .rdData2UIAction .rdData2UIAction #zField
 Cs0 @TextInP .resExport .resExport #zField
 Cs0 @TextInP .type .type #zField
 Cs0 @TextInP .processKind .processKind #zField
-Cs0 @RichDialogInitStart f0 '' #zField
 Cs0 @RichDialogInitStart f1 '' #zField
 Cs0 @RichDialogProcessEnd f2 '' #zField
 Cs0 @RichDialogProcessStep f4 '' #zField
 Cs0 @RichDialogProcessStep f7 '' #zField
-Cs0 @PushWFArc f8 '' #zField
 Cs0 @PushWFArc f5 '' #zField
 Cs0 @PushWFArc f9 '' #zField
 Cs0 @RichDialogMethodStart f6 '' #zField
@@ -99,30 +97,9 @@ Cs0 @PushWFArc f81 '' #zField
 Cs0 @PushWFArc f13 '' #zField
 Cs0 @RichDialogProcessEnd f53 '' #zField
 Cs0 @PushWFArc f83 '' #zField
+Cs0 @RichDialogInitStart f0 '' #zField
+Cs0 @PushWFArc f8 '' #zField
 >Proto Cs0 Cs0 CaseDisplayListProcess #zField
-Cs0 f0 guid 119A4875F029C0D7 #txt
-Cs0 f0 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
-Cs0 f0 method start() #txt
-Cs0 f0 disableUIEvents false #txt
-Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Cs0 f0 inParameterMapAction 'out.runningCasesMode=true;
-' #txt
-Cs0 f0 outParameterDecl '<> result;
-' #txt
-Cs0 f0 embeddedRdInitializations '* ' #txt
-Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Cs0 f0 38 70 20 20 13 0 #rect
-Cs0 f0 @|RichDialogInitStartIcon #fIcon
 Cs0 f1 guid 119A48768E591E42 #txt
 Cs0 f1 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f1 method start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean) #txt
@@ -265,8 +242,6 @@ register for the system events Workflow</name>
 ' #txt
 Cs0 f7 30 172 36 24 20 -2 #rect
 Cs0 f7 @|RichDialogProcessStepIcon #fIcon
-Cs0 f8 expr out #txt
-Cs0 f8 48 90 48 172 #arcP
 Cs0 f5 expr out #txt
 Cs0 f5 48 196 48 260 #arcP
 Cs0 f9 expr out #txt
@@ -1254,6 +1229,27 @@ Cs0 f53 @|RichDialogProcessEndIcon #fIcon
 Cs0 f83 expr out #txt
 Cs0 f83 1608 98 1608 286 #arcP
 Cs0 f83 0 0.3971437680678043 0 0 #arcLabel
+Cs0 f0 guid 13C80965305D4BDF #txt
+Cs0 f0 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
+Cs0 f0 method start() #txt
+Cs0 f0 disableUIEvents true #txt
+Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+Cs0 f0 outParameterDecl '<> result;
+' #txt
+Cs0 f0 embeddedRdInitializations '* ' #txt
+Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f0 38 70 20 20 13 0 #rect
+Cs0 f0 @|RichDialogInitStartIcon #fIcon
+Cs0 f8 expr out #txt
+Cs0 f8 48 90 48 172 #arcP
 >Proto Cs0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -1286,8 +1282,6 @@ panel.informOnCaseOnSiblingTabMenuItem.enabled=in.hasPermissionCaseRead;
 >Proto Cs0 .processKind RICH_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
 >Proto Cs0 '' #fIcon
-Cs0 f0 mainOut f8 tail #connect
-Cs0 f8 head f7 mainIn #connect
 Cs0 f7 mainOut f5 tail #connect
 Cs0 f5 head f4 mainIn #connect
 Cs0 f1 mainOut f9 tail #connect
@@ -1368,3 +1362,5 @@ Cs0 f89 mainOut f13 tail #connect
 Cs0 f13 head f17 mainIn #connect
 Cs0 f14 mainOut f83 tail #connect
 Cs0 f83 head f53 mainIn #connect
+Cs0 f0 mainOut f8 tail #connect
+Cs0 f8 head f7 mainIn #connect

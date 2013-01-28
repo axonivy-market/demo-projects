@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 16 10:22:39 CET 2012]
+[>Created: Mon Jan 28 10:56:00 CET 2013]
 11898D6F2E86E751 3.17 #module
 >Proto >Proto Collection #zClass
 Us0 UserMenuProcess Big #zClass
@@ -1250,7 +1250,7 @@ import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import com.ulcjava.base.application.ULCComponent;
 
 
-List<ULCComponent> componentList;
+List<IRichDialogPanel> componentList;
 
 
 // display under this tab
@@ -1349,7 +1349,7 @@ import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import com.ulcjava.base.application.ULCComponent;
 
 
-List<ULCComponent> componentList;
+List<IRichDialogPanel> componentList;
 
 
 // display under this tab
@@ -1477,11 +1477,12 @@ Us0 f100 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
 ' #txt
 Us0 f100 actionTable 'out=in;
 ' #txt
-Us0 f100 actionCode 'import ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchPanel;
+Us0 f100 actionCode 'import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchPanel;
 import com.ulcjava.base.application.ULCComponent;
 
 
-List<ULCComponent> componentList;
+List<IRichDialogPanel> componentList;
 
 
 // display under this tab
@@ -1576,11 +1577,12 @@ Us0 f114 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
 ' #txt
 Us0 f114 actionTable 'out=in;
 ' #txt
-Us0 f114 actionCode 'import ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchPanel;
+Us0 f114 actionCode 'import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchPanel;
 import com.ulcjava.base.application.ULCComponent;
 
 
-List<ULCComponent> componentList;
+List<IRichDialogPanel> componentList;
 
 
 // display under this tab
@@ -1644,11 +1646,12 @@ Us0 f119 actionDecl 'ch.ivyteam.ivy.workflow.ui.UserMenu.UserMenuData out;
 ' #txt
 Us0 f119 actionTable 'out=in;
 ' #txt
-Us0 f119 actionCode 'import ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListPanel;
+Us0 f119 actionCode 'import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListPanel;
 import com.ulcjava.base.application.ULCComponent;
 
 
-List<ULCComponent> componentList;
+List<IRichDialogPanel> componentList;
 
 
 // display under this tab
