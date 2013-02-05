@@ -16,12 +16,12 @@ Ts0 @TextInP .responsibility .responsibility #zField
 Ts0 @RichDialogInitStart f0 '' #zField
 Ts0 @RichDialogProcessEnd f1 '' #zField
 Ts0 @DBStep f3 '' #zField
-Ts0 @RichDialogProcessStep f4 '' #zField
+Ts0 @GridStep f4 '' #zField
 Ts0 @PushWFArc f6 '' #zField
 Ts0 @PushWFArc f5 '' #zField
 Ts0 @RichDialogProcessStart f7 '' #zField
 Ts0 @RichDialogProcessEnd f8 '' #zField
-Ts0 @RichDialogProcessStep f2 '' #zField
+Ts0 @GridStep f2 '' #zField
 Ts0 @PushWFArc f10 '' #zField
 Ts0 @PushWFArc f9 '' #zField
 >Proto Ts0 Ts0 TestProcess #zField
@@ -62,7 +62,7 @@ out.name="guido";
 ' #txt
 Ts0 f4 type htmlwfui.Test.TestData #txt
 Ts0 f4 78 100 36 24 20 -2 #rect
-Ts0 f4 @|RichDialogProcessStepIcon #fIcon
+Ts0 f4 @|StepIcon #fIcon
 Ts0 f6 expr out #txt
 Ts0 f6 96 74 96 100 #arcP
 Ts0 f5 expr out #txt
@@ -91,7 +91,7 @@ Ts0 f2 actionTable 'out=in;
 ' #txt
 Ts0 f2 type htmlwfui.Test.TestData #txt
 Ts0 f2 206 100 36 24 20 -2 #rect
-Ts0 f2 @|RichDialogProcessStepIcon #fIcon
+Ts0 f2 @|StepIcon #fIcon
 Ts0 f10 expr out #txt
 Ts0 f10 227 74 225 100 #arcP
 Ts0 f9 expr out #txt

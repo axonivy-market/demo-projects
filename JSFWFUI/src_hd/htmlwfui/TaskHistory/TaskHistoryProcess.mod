@@ -18,7 +18,7 @@ Ts0 @RichDialogInitStart f3 '' #zField
 Ts0 @PushWFArc f5 '' #zField
 Ts0 @RichDialogMethodStart f0 '' #zField
 Ts0 @RichDialogEnd f6 '' #zField
-Ts0 @RichDialogProcessStep f2 '' #zField
+Ts0 @GridStep f2 '' #zField
 Ts0 @PushWFArc f7 '' #zField
 Ts0 @PushWFArc f4 '' #zField
 >Proto Ts0 Ts0 TaskHistoryProcess #zField
@@ -83,7 +83,7 @@ out.option="detail";
 ' #txt
 Ts0 f2 type htmlwfui.TaskHistory.TaskHistoryData #txt
 Ts0 f2 206 92 36 24 20 -2 #rect
-Ts0 f2 @|RichDialogProcessStepIcon #fIcon
+Ts0 f2 @|StepIcon #fIcon
 Ts0 f7 expr out #txt
 Ts0 f7 224 74 224 92 #arcP
 Ts0 f4 expr out #txt

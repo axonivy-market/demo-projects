@@ -19,16 +19,16 @@ Ss0 @RichDialogProcessStart f3 '' #zField
 Ss0 @RichDialogProcessStart f6 '' #zField
 Ss0 @RichDialogEnd f9 '' #zField
 Ss0 @RichDialogEnd f4 '' #zField
-Ss0 @RichDialogProcessStep f7 '' #zField
+Ss0 @GridStep f7 '' #zField
 Ss0 @PushWFArc f10 '' #zField
 Ss0 @PushWFArc f11 '' #zField
-Ss0 @RichDialogProcessStep f5 '' #zField
+Ss0 @GridStep f5 '' #zField
 Ss0 @PushWFArc f12 '' #zField
 Ss0 @PushWFArc f2 '' #zField
 Ss0 @RichDialogProcessStart f13 '' #zField
 Ss0 @RichDialogProcessEnd f14 '' #zField
 Ss0 @PushWFArc f15 '' #zField
-Ss0 @RichDialogProcessStep f16 '' #zField
+Ss0 @GridStep f16 '' #zField
 Ss0 @PushWFArc f17 '' #zField
 Ss0 @PushWFArc f8 '' #zField
 >Proto Ss0 Ss0 SubstitutionAddProcess #zField
@@ -138,7 +138,7 @@ import ch.ivyteam.ivy.security.IUserSubstitute;
 }' #txt
 Ss0 f7 type htmlwfui.SubstitutionAdd.SubstitutionAddData #txt
 Ss0 f7 430 156 36 24 20 -2 #rect
-Ss0 f7 @|RichDialogProcessStepIcon #fIcon
+Ss0 f7 @|StepIcon #fIcon
 Ss0 f10 expr out #txt
 Ss0 f10 448 180 448 206 #arcP
 Ss0 f11 expr out #txt
@@ -159,7 +159,7 @@ Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f5 78 100 36 24 20 -2 #rect
-Ss0 f5 @|RichDialogProcessStepIcon #fIcon
+Ss0 f5 @|StepIcon #fIcon
 Ss0 f12 expr out #txt
 Ss0 f12 96 74 96 100 #arcP
 Ss0 f2 expr out #txt
@@ -190,7 +190,7 @@ out.substitute.personal=IF(in.radioNr == 1, true, false);
 ' #txt
 Ss0 f16 type htmlwfui.SubstitutionAdd.SubstitutionAddData #txt
 Ss0 f16 430 100 36 24 20 -2 #rect
-Ss0 f16 @|RichDialogProcessStepIcon #fIcon
+Ss0 f16 @|StepIcon #fIcon
 Ss0 f17 expr out #txt
 Ss0 f17 448 74 448 100 #arcP
 Ss0 f8 expr out #txt

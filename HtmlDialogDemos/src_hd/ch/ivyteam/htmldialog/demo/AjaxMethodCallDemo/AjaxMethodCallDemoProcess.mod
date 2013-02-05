@@ -18,7 +18,7 @@ As0 @RichDialogProcessEnd f1 '' #zField
 As0 @PushWFArc f2 '' #zField
 As0 @RichDialogMethodStart f3 '' #zField
 As0 @RichDialogProcessEnd f5 '' #zField
-As0 @RichDialogProcessStep f4 '' #zField
+As0 @GridStep f4 '' #zField
 As0 @PushWFArc f7 '' #zField
 As0 @PushWFArc f6 '' #zField
 >Proto As0 As0 AjaxMethodCallDemoProcess #zField
@@ -79,7 +79,7 @@ out.welcomeMessage="Welcome "+in.name;
 ' #txt
 As0 f4 type ch.ivyteam.htmldialog.demo.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
 As0 f4 182 100 36 24 20 -2 #rect
-As0 f4 @|RichDialogProcessStepIcon #fIcon
+As0 f4 @|StepIcon #fIcon
 As0 f7 expr out #txt
 As0 f7 200 74 200 100 #arcP
 As0 f6 expr out #txt

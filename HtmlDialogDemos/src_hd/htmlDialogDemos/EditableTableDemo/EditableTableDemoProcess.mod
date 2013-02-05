@@ -23,17 +23,17 @@ Es0 @RichDialogProcessEnd f7 '' #zField
 Es0 @RichDialogEnd f8 '' #zField
 Es0 @PushWFArc f9 '' #zField
 Es0 @PushWFArc f10 '' #zField
-Es0 @RichDialogProcessStep f11 '' #zField
+Es0 @GridStep f11 '' #zField
 Es0 @PushWFArc f12 '' #zField
 Es0 @PushWFArc f4 '' #zField
 Es0 @RichDialogMethodStart f13 '' #zField
-Es0 @RichDialogProcessStep f14 '' #zField
+Es0 @GridStep f14 '' #zField
 Es0 @PushWFArc f15 '' #zField
 Es0 @RichDialogProcessEnd f16 '' #zField
 Es0 @PushWFArc f17 '' #zField
 Es0 @RichDialogProcessStart f18 '' #zField
 Es0 @RichDialogProcessEnd f19 '' #zField
-Es0 @RichDialogProcessStep f21 '' #zField
+Es0 @GridStep f21 '' #zField
 Es0 @PushWFArc f22 '' #zField
 Es0 @PushWFArc f20 '' #zField
 >Proto Es0 Es0 EditableTableDemoProcess #zField
@@ -139,7 +139,7 @@ for (Person person : in.persons)
 }' #txt
 Es0 f11 type htmlDialogDemos.EditableTableDemo.EditableTableDemoData #txt
 Es0 f11 62 156 36 24 20 -2 #rect
-Es0 f11 @|RichDialogProcessStepIcon #fIcon
+Es0 f11 @|StepIcon #fIcon
 Es0 f12 expr out #txt
 Es0 f12 80 124 80 156 #arcP
 Es0 f4 expr out #txt
@@ -183,7 +183,7 @@ Es0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f14 62 484 36 24 25 -13 #rect
-Es0 f14 @|RichDialogProcessStepIcon #fIcon
+Es0 f14 @|StepIcon #fIcon
 Es0 f15 expr out #txt
 Es0 f15 80 450 80 484 #arcP
 Es0 f16 type htmlDialogDemos.EditableTableDemo.EditableTableDemoData #txt
@@ -227,7 +227,7 @@ Es0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f21 334 316 36 24 27 -7 #rect
-Es0 f21 @|RichDialogProcessStepIcon #fIcon
+Es0 f21 @|StepIcon #fIcon
 Es0 f22 expr out #txt
 Es0 f22 352 290 352 316 #arcP
 Es0 f20 expr out #txt

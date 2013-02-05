@@ -15,11 +15,11 @@ Ms0 @TextInP .xml .xml #zField
 Ms0 @TextInP .responsibility .responsibility #zField
 Ms0 @RichDialogInitStart f0 '' #zField
 Ms0 @RichDialogProcessEnd f1 '' #zField
-Ms0 @RichDialogProcessStep f3 '' #zField
+Ms0 @GridStep f3 '' #zField
 Ms0 @PushWFArc f4 '' #zField
 Ms0 @PushWFArc f2 '' #zField
 Ms0 @RichDialogEnd f6 '' #zField
-Ms0 @RichDialogProcessStep f8 '' #zField
+Ms0 @GridStep f8 '' #zField
 Ms0 @PushWFArc f7 '' #zField
 Ms0 @RichDialogProcessStart f5 '' #zField
 Ms0 @PushWFArc f11 '' #zField
@@ -139,7 +139,7 @@ Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f3 78 116 36 24 20 -2 #rect
-Ms0 f3 @|RichDialogProcessStepIcon #fIcon
+Ms0 f3 @|StepIcon #fIcon
 Ms0 f4 expr out #txt
 Ms0 f4 96 74 96 116 #arcP
 Ms0 f2 expr out #txt
@@ -194,7 +194,7 @@ Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f8 262 116 36 24 20 -2 #rect
-Ms0 f8 @|RichDialogProcessStepIcon #fIcon
+Ms0 f8 @|StepIcon #fIcon
 Ms0 f7 expr out #txt
 Ms0 f7 280 140 280 174 #arcP
 Ms0 f5 guid 13BE0EC5D21AD0ED #txt

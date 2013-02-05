@@ -22,7 +22,7 @@ Fs0 @PushWFArc f5 '' #zField
 Fs0 @RichDialogProcessStart f6 '' #zField
 Fs0 @RichDialogEnd f7 '' #zField
 Fs0 @PushWFArc f8 '' #zField
-Fs0 @RichDialogProcessStep f10 '' #zField
+Fs0 @GridStep f10 '' #zField
 Fs0 @RichDialogProcessEnd f11 '' #zField
 Fs0 @PushWFArc f13 '' #zField
 Fs0 @RichDialogMethodStart f9 '' #zField
@@ -125,7 +125,7 @@ Fs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f10 78 444 36 24 26 -6 #rect
-Fs0 f10 @|RichDialogProcessStepIcon #fIcon
+Fs0 f10 @|StepIcon #fIcon
 Fs0 f11 type ch.ivyteam.htmldialog.demo.FormDemo.FormDemoData #txt
 Fs0 f11 86 510 20 20 13 0 #rect
 Fs0 f11 @|RichDialogProcessEndIcon #fIcon

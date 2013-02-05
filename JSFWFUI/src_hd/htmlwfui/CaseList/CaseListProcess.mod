@@ -14,13 +14,13 @@ Cs0 @AnnotationInP-0n ai ai #zField
 Cs0 @TextInP .xml .xml #zField
 Cs0 @TextInP .responsibility .responsibility #zField
 Cs0 @RichDialogProcessEnd f1 '' #zField
-Cs0 @RichDialogProcessStep f3 '' #zField
-Cs0 @RichDialogProcessStep f4 '' #zField
+Cs0 @GridStep f3 '' #zField
+Cs0 @GridStep f4 '' #zField
 Cs0 @Alternative f5 '' #zField
 Cs0 @PushWFArc f6 '' #zField
 Cs0 @PushWFArc f7 '' #zField
 Cs0 @RichDialogInitStart f2 '' #zField
-Cs0 @RichDialogProcessStep f0 '' #zField
+Cs0 @GridStep f0 '' #zField
 Cs0 @PushWFArc f10 '' #zField
 Cs0 @PushWFArc f9 '' #zField
 Cs0 @PushWFArc f8 '' #zField
@@ -31,7 +31,7 @@ Cs0 @PushWFArc f18 '' #zField
 Cs0 @RichDialogEnd f14 '' #zField
 Cs0 @PushWFArc f17 '' #zField
 Cs0 @RichDialogProcessStart f13 '' #zField
-Cs0 @RichDialogProcessStep f20 '' #zField
+Cs0 @GridStep f20 '' #zField
 Cs0 @PushWFArc f21 '' #zField
 Cs0 @PushWFArc f22 '' #zField
 >Proto Cs0 Cs0 CaseListProcess #zField
@@ -118,7 +118,7 @@ Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f3 54 188 36 24 -61 18 #rect
-Cs0 f3 @|RichDialogProcessStepIcon #fIcon
+Cs0 f3 @|StepIcon #fIcon
 Cs0 f4 actionDecl 'htmlwfui.CaseList.CaseListData out;
 ' #txt
 Cs0 f4 actionTable 'out=in;
@@ -284,7 +284,7 @@ Cs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f4 166 188 36 24 20 -2 #rect
-Cs0 f4 @|RichDialogProcessStepIcon #fIcon
+Cs0 f4 @|StepIcon #fIcon
 Cs0 f5 type htmlwfui.CaseList.CaseListData #txt
 Cs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -343,7 +343,7 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f0 110 236 36 24 20 -2 #rect
-Cs0 f0 @|RichDialogProcessStepIcon #fIcon
+Cs0 f0 @|StepIcon #fIcon
 Cs0 f10 expr out #txt
 Cs0 f10 170 212 142 236 #arcP
 Cs0 f9 expr out #txt
@@ -444,7 +444,7 @@ Cs0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f20 366 100 36 24 20 -2 #rect
-Cs0 f20 @|RichDialogProcessStepIcon #fIcon
+Cs0 f20 @|StepIcon #fIcon
 Cs0 f21 expr out #txt
 Cs0 f21 384 74 384 100 #arcP
 Cs0 f22 expr out #txt

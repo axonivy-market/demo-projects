@@ -18,7 +18,7 @@ Ps0 @RichDialogProcessEnd f1 '' #zField
 Ps0 @PushWFArc f2 '' #zField
 Ps0 @RichDialogProcessStart f3 '' #zField
 Ps0 @RichDialogProcessEnd f4 '' #zField
-Ps0 @RichDialogProcessStep f5 '' #zField
+Ps0 @GridStep f5 '' #zField
 Ps0 @PushWFArc f6 '' #zField
 Ps0 @PushWFArc f7 '' #zField
 >Proto Ps0 Ps0 PartialUpdateDemoProcess #zField
@@ -86,7 +86,7 @@ Ps0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ps0 f5 78 308 36 24 20 -2 #rect
-Ps0 f5 @|RichDialogProcessStepIcon #fIcon
+Ps0 f5 @|StepIcon #fIcon
 Ps0 f6 expr out #txt
 Ps0 f6 96 266 96 308 #arcP
 Ps0 f7 expr out #txt

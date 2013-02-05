@@ -15,7 +15,7 @@ Hs0 @TextInP .xml .xml #zField
 Hs0 @TextInP .responsibility .responsibility #zField
 Hs0 @RichDialogInitStart f0 '' #zField
 Hs0 @RichDialogProcessEnd f1 '' #zField
-Hs0 @RichDialogProcessStep f3 '' #zField
+Hs0 @GridStep f3 '' #zField
 Hs0 @PushWFArc f4 '' #zField
 Hs0 @PushWFArc f2 '' #zField
 >Proto Hs0 Hs0 HomeProcess #zField
@@ -57,7 +57,7 @@ Hs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Hs0 f3 78 92 36 24 26 -3 #rect
-Hs0 f3 @|RichDialogProcessStepIcon #fIcon
+Hs0 f3 @|StepIcon #fIcon
 Hs0 f4 expr out #txt
 Hs0 f4 96 74 96 92 #arcP
 Hs0 f2 expr out #txt

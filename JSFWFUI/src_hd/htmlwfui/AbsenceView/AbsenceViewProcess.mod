@@ -17,11 +17,11 @@ As0 @RichDialogInitStart f0 '' #zField
 As0 @RichDialogProcessEnd f1 '' #zField
 As0 @RichDialogProcessStart f3 '' #zField
 As0 @RichDialogEnd f6 '' #zField
-As0 @RichDialogProcessStep f4 '' #zField
+As0 @GridStep f4 '' #zField
 As0 @PushWFArc f5 '' #zField
 As0 @PushWFArc f7 '' #zField
-As0 @RichDialogProcessStep f11 '' #zField
-As0 @RichDialogProcessStep f9 '' #zField
+As0 @GridStep f11 '' #zField
+As0 @GridStep f9 '' #zField
 As0 @PushWFArc f10 '' #zField
 As0 @RichDialogMethodStart f15 '' #zField
 As0 @PushWFArc f16 '' #zField
@@ -84,7 +84,7 @@ out.option="add";
 ' #txt
 As0 f4 type htmlwfui.AbsenceView.AbsenceViewData #txt
 As0 f4 398 100 36 24 20 -2 #rect
-As0 f4 @|RichDialogProcessStepIcon #fIcon
+As0 f4 @|StepIcon #fIcon
 As0 f5 expr out #txt
 As0 f5 416 74 416 100 #arcP
 As0 f7 expr out #txt
@@ -108,7 +108,7 @@ for(IUserAbsence absence:absences)
 ' #txt
 As0 f11 type htmlwfui.AbsenceView.AbsenceViewData #txt
 As0 f11 270 100 36 24 20 -2 #rect
-As0 f11 @|RichDialogProcessStepIcon #fIcon
+As0 f11 @|StepIcon #fIcon
 As0 f9 actionDecl 'htmlwfui.AbsenceView.AbsenceViewData out;
 ' #txt
 As0 f9 actionTable 'out=in;
@@ -116,7 +116,7 @@ out.msg=ivy.session.getSessionUser().isAbsent() ? ivy.cms.co("/labels/currentlyA
 ' #txt
 As0 f9 type htmlwfui.AbsenceView.AbsenceViewData #txt
 As0 f9 78 172 36 24 20 -2 #rect
-As0 f9 @|RichDialogProcessStepIcon #fIcon
+As0 f9 @|StepIcon #fIcon
 As0 f10 expr out #txt
 As0 f10 96 196 96 222 #arcP
 As0 f15 guid 13C05DAE97285AFB #txt

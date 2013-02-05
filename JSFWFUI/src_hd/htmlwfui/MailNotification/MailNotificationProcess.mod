@@ -18,10 +18,10 @@ Ms0 @RichDialogProcessEnd f1 '' #zField
 Ms0 @RichDialogProcessStart f3 '' #zField
 Ms0 @RichDialogEnd f6 '' #zField
 Ms0 @RichDialogProcessEnd f4 '' #zField
-Ms0 @RichDialogProcessStep f7 '' #zField
+Ms0 @GridStep f7 '' #zField
 Ms0 @PushWFArc f8 '' #zField
 Ms0 @PushWFArc f2 '' #zField
-Ms0 @RichDialogProcessStep f9 '' #zField
+Ms0 @GridStep f9 '' #zField
 Ms0 @PushWFArc f10 '' #zField
 Ms0 @PushWFArc f5 '' #zField
 >Proto Ms0 Ms0 MailNotificationProcess #zField
@@ -159,7 +159,7 @@ Ms0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f7 78 100 36 24 20 -2 #rect
-Ms0 f7 @|RichDialogProcessStepIcon #fIcon
+Ms0 f7 @|StepIcon #fIcon
 Ms0 f8 expr out #txt
 Ms0 f8 96 74 96 100 #arcP
 Ms0 f2 expr out #txt
@@ -210,7 +210,7 @@ Ms0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f9 366 100 36 24 20 -2 #rect
-Ms0 f9 @|RichDialogProcessStepIcon #fIcon
+Ms0 f9 @|StepIcon #fIcon
 Ms0 f10 expr out #txt
 Ms0 f10 384 74 384 100 #arcP
 Ms0 f5 expr out #txt

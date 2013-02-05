@@ -19,13 +19,13 @@ As0 @RichDialogProcessStart f3 '' #zField
 As0 @RichDialogProcessStart f6 '' #zField
 As0 @RichDialogEnd f9 '' #zField
 As0 @RichDialogEnd f7 '' #zField
-As0 @RichDialogProcessStep f5 '' #zField
+As0 @GridStep f5 '' #zField
 As0 @PushWFArc f8 '' #zField
 As0 @PushWFArc f10 '' #zField
-As0 @RichDialogProcessStep f11 '' #zField
+As0 @GridStep f11 '' #zField
 As0 @PushWFArc f4 '' #zField
 As0 @PushWFArc f13 '' #zField
-As0 @RichDialogProcessStep f2 '' #zField
+As0 @GridStep f2 '' #zField
 As0 @PushWFArc f14 '' #zField
 As0 @PushWFArc f15 '' #zField
 >Proto As0 As0 AbsenceAddProcess #zField
@@ -118,7 +118,7 @@ As0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f5 334 100 36 24 20 -2 #rect
-As0 f5 @|RichDialogProcessStepIcon #fIcon
+As0 f5 @|StepIcon #fIcon
 As0 f8 expr out #txt
 As0 f8 352 74 352 100 #arcP
 As0 f10 expr out #txt
@@ -163,7 +163,7 @@ As0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f11 206 148 36 24 20 -2 #rect
-As0 f11 @|RichDialogProcessStepIcon #fIcon
+As0 f11 @|StepIcon #fIcon
 As0 f4 expr out #txt
 As0 f4 224 172 224 198 #arcP
 As0 f13 expr out #txt
@@ -175,7 +175,7 @@ out.absence.end=in.end.toIvyDate();
 ' #txt
 As0 f2 type htmlwfui.AbsenceAdd.AbsenceAddData #txt
 As0 f2 246 100 36 24 20 -2 #rect
-As0 f2 @|RichDialogProcessStepIcon #fIcon
+As0 f2 @|StepIcon #fIcon
 As0 f14 expr out #txt
 As0 f14 254 124 234 148 #arcP
 As0 f15 expr out #txt

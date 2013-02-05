@@ -17,7 +17,7 @@ Ls0 @RichDialogInitStart f0 '' #zField
 Ls0 @RichDialogProcessEnd f1 '' #zField
 Ls0 @Alternative f3 '' #zField
 Ls0 @RichDialogMethodStart f2 '' #zField
-Ls0 @RichDialogProcessStep f5 '' #zField
+Ls0 @GridStep f5 '' #zField
 Ls0 @PushWFArc f6 '' #zField
 Ls0 @PushWFArc f7 '' #zField
 Ls0 @RichDialogEnd f8 '' #zField
@@ -85,7 +85,7 @@ Ls0 f5 actionTable 'out=in.clone();
 Ls0 f5 actionCode 'ivy.session.loginSessionUser(in.username, in.password);' #txt
 Ls0 f5 type htmlwfui.LoginSequence.LoginSequenceData #txt
 Ls0 f5 238 116 36 24 20 -2 #rect
-Ls0 f5 @|RichDialogProcessStepIcon #fIcon
+Ls0 f5 @|StepIcon #fIcon
 Ls0 f6 expr out #txt
 Ls0 f6 256 74 256 116 #arcP
 Ls0 f7 expr out #txt

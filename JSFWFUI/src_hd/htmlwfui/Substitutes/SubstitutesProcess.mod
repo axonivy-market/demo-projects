@@ -16,22 +16,22 @@ Ss0 @TextInP .responsibility .responsibility #zField
 Ss0 @RichDialogProcessEnd f1 '' #zField
 Ss0 @RichDialogProcessStart f3 '' #zField
 Ss0 @RichDialogInitStart f0 '' #zField
-Ss0 @RichDialogProcessStep f6 '' #zField
+Ss0 @GridStep f6 '' #zField
 Ss0 @PushWFArc f2 '' #zField
 Ss0 @RichDialogMethodStart f8 '' #zField
 Ss0 @RichDialogEnd f10 '' #zField
 Ss0 @RichDialogProcessStart f4 '' #zField
 Ss0 @RichDialogEnd f5 '' #zField
-Ss0 @RichDialogProcessStep f13 '' #zField
+Ss0 @GridStep f13 '' #zField
 Ss0 @PushWFArc f14 '' #zField
 Ss0 @PushWFArc f12 '' #zField
-Ss0 @RichDialogProcessStep f15 '' #zField
+Ss0 @GridStep f15 '' #zField
 Ss0 @PushWFArc f16 '' #zField
 Ss0 @PushWFArc f11 '' #zField
-Ss0 @RichDialogProcessStep f17 '' #zField
+Ss0 @GridStep f17 '' #zField
 Ss0 @PushWFArc f18 '' #zField
 Ss0 @PushWFArc f9 '' #zField
-Ss0 @RichDialogProcessStep f19 '' #zField
+Ss0 @GridStep f19 '' #zField
 Ss0 @PushWFArc f20 '' #zField
 Ss0 @PushWFArc f7 '' #zField
 >Proto Ss0 Ss0 SubstitutesProcess #zField
@@ -95,7 +95,7 @@ Ss0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f6 78 148 36 24 20 -2 #rect
-Ss0 f6 @|RichDialogProcessStepIcon #fIcon
+Ss0 f6 @|StepIcon #fIcon
 Ss0 f2 expr out #txt
 Ss0 f2 96 172 96 198 #arcP
 Ss0 f8 guid 13C1941F795E33B1 #txt
@@ -150,7 +150,7 @@ out.option="show";
 ' #txt
 Ss0 f13 type htmlwfui.Substitutes.SubstitutesData #txt
 Ss0 f13 590 100 36 24 20 -2 #rect
-Ss0 f13 @|RichDialogProcessStepIcon #fIcon
+Ss0 f13 @|StepIcon #fIcon
 Ss0 f14 expr out #txt
 Ss0 f14 608 74 608 100 #arcP
 Ss0 f12 expr out #txt
@@ -162,7 +162,7 @@ out.option="add";
 ' #txt
 Ss0 f15 type htmlwfui.Substitutes.SubstitutesData #txt
 Ss0 f15 462 100 36 24 20 -2 #rect
-Ss0 f15 @|RichDialogProcessStepIcon #fIcon
+Ss0 f15 @|StepIcon #fIcon
 Ss0 f16 expr out #txt
 Ss0 f16 480 74 480 100 #arcP
 Ss0 f11 expr out #txt
@@ -184,7 +184,7 @@ for(IUserSubstitute substitute:substitutes)
 }' #txt
 Ss0 f17 type htmlwfui.Substitutes.SubstitutesData #txt
 Ss0 f17 238 148 36 24 20 -2 #rect
-Ss0 f17 @|RichDialogProcessStepIcon #fIcon
+Ss0 f17 @|StepIcon #fIcon
 Ss0 f18 expr out #txt
 Ss0 f18 256 74 256 148 #arcP
 Ss0 f18 0 0.33434769690155586 0 0 #arcLabel
@@ -221,7 +221,7 @@ Ss0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f19 78 100 36 24 20 -2 #rect
-Ss0 f19 @|RichDialogProcessStepIcon #fIcon
+Ss0 f19 @|StepIcon #fIcon
 Ss0 f20 expr out #txt
 Ss0 f20 96 74 96 100 #arcP
 Ss0 f7 expr out #txt
