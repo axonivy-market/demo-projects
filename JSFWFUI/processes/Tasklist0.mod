@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Dec 21 13:42:55 CET 2012]
+[>Created: Fri Feb 08 11:18:53 CET 2013]
 13A988F3100AF574 3.17 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist0 Big #zClass
@@ -303,7 +303,7 @@ Tt0 f14 @|CallSubIcon #fIcon
 Tt0 f15 expr out #txt
 Tt0 f15 152 53 152 92 #arcP
 Tt0 f11 type htmlwfui.Data #txt
-Tt0 f11 processCall 'Functional Processes/AddNote:call(htmlwfui.Data)' #txt
+Tt0 f11 processCall 'Functional Processes/AddNote0:call(htmlwfui.Data)' #txt
 Tt0 f11 doCall true #txt
 Tt0 f11 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
@@ -333,7 +333,7 @@ Tt0 f13 374 363 300 316 #arcP
 Tt0 f13 1 336 352 #addKink
 Tt0 f13 0 0.19441866146645204 0 0 #arcLabel
 Tt0 f10 type htmlwfui.Data #txt
-Tt0 f10 processCall 'Functional Processes/DelegateTask:call(htmlwfui.Data)' #txt
+Tt0 f10 processCall 'Functional Processes/DelegateTask0:call(htmlwfui.Data)' #txt
 Tt0 f10 doCall true #txt
 Tt0 f10 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt

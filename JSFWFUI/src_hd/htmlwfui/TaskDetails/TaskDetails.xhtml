@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+ 
+<h:body>
+	<ui:composition template="../HomeTemplate.xhtml">
+
+		<ui:define name="center">
+			<p:layoutUnit position="center" header="#{ivy.cms.co('/explainTexts/TaskDetails')}">
+			<br></br>
+			<h:outputText value="#{ivy.cms.co('/explainTexts/CaseDetailsTitel')}"/>
+			<br></br>
+			<h:outputText value="#{data.data.temp.description}"/>
+			<br></br><br></br><br></br>
+			<h:form id="formDetails">
+				<h:panelGrid columns="5">
+					<p:commandLink actionListener="#{logic.deleteCase}" title="#{ivy.cms.co('/tooltips/resetTask')}" style="margin-right:20px;" ajax="false" disabled="#{data.resetLink}">
+        				<h:graphicImage library="ivy-cms" name="images/reset" alt="#{task.id}" style="border:0pt"/>
+        				<h:outputText value="#{ivy.cms.co('/labels/taskReset')}" />  
+    				</p:commandLink>
+    				<p:commandLink actionListener="#{logic.delegateCase}" title="#{ivy.cms.co('/tooltips/delegateTask')}" style="margin-right:20px;" ajax="false" disabled="#{data.delegateLink}">
+        				<h:graphicImage library="ivy-cms" name="images/delegate" alt="#{task.id}" style="border:0pt"/>
+        				<h:outputText value="#{ivy.cms.co('/labels/taskDelegate')}" />  
+    				</p:commandLink>
+					<p:commandLink actionListener="#{logic.changeExpiry}" title="#{ivy.cms.co('/tooltips/changeExpiry')}" style="margin-right:20px;" ajax="false" disabled="#{data.changeExpiryLink}">
+        				<h:graphicImage library="ivy-cms" name="images/expiry" alt="#{task.id}" style="border:0pt"/>
+        				<h:outputText value="#{ivy.cms.co('/labels/changeExpiry')}" />  
+    				</p:commandLink>
+    				<p:commandLink actionListener="#{logic.addNote}" title="#{ivy.cms.co('/tooltips/addNote')}" style="margin-right:20px;" ajax="false" disabled="#{data.addNoteLink}">
+        				<h:graphicImage library="ivy-cms" name="images/note" alt="#{task.id}" style="border:0pt"/>
+        				<h:outputText value="#{ivy.cms.co('/labels/addNote')}" />  
+    				</p:commandLink>
+    				<p:commandLink actionListener="#{logic.showFormArchive}" title="#{ivy.cms.co('/tooltips/showFormArchive')}" style="margin-right:20px;" ajax="false" disabled="#{data.archiveLink}">
+        				<h:graphicImage library="ivy-cms" name="images/formHistory" alt="#{task.id}" style="border:0pt"/>
+        				<h:outputText value="#{ivy.cms.co('/labels/formArchive')}" />  
+    				</p:commandLink> 
+				</h:panelGrid>
+				<h:panelGrid columns="2" style="width: 606px; ">
+					<h:outputText value="#{ivy.cms.co('/labels/taskId')}"/>
+					<h:outputText value="#{data.data.tmpTask.identifier}"/>
+					<h:outputText value="#{ivy.cms.co('/labels/name')}"/>
+					<h:outputText value="#{data.data.tmpTask.name}"/>
+					<h:outputText value="#{ivy.cms.co('/labels/description')}"/>
+					<h:outputText value="#{data.data.tmpTask.description}"/>
+					<h:outputText value="#{ivy.cms.co('/labels/state')}"/>
+					<h:outputText value="#{data.data.tmpTask.state}"/>
+					<h:outputText value="#{ivy.cms.co('/labels/priority')}"/>
+					<h:outputText value="#{data.data.tmpTask.priority}"/>
+					<h:outputText value="#{ivy.cms.co('/labels/user')}"/>
+					<h:outputText value="#{data.data.tmpTask.workerUserName}"/>
+   					<h:outputText value="#{ivy.cms.co('/labels/responsible')}"/>
+					<h:outputText value="#{data.data.tmpTask.originalActivatorName}"/>
+   					<h:outputText value="#{ivy.cms.co('/labels/responsibleEx')}"/>
+					<h:outputText value="#{data.data.tmpTask.expiryActivatorName}"/>
+   					<h:outputText value="#{ivy.cms.co('/labels/case')}"/>
+					<h:outputText value="#{data.data.tmpTask.case.name}"/>
+					<h:outputText value="#{ivy.cms.co('/labels/created')}"/>
+					<h:outputText value="#{data.data.tmpTask.startTimestamp}"/>
+					<h:outputText value="#{ivy.cms.co('/labels/expiry')}"/>
+					<h:outputText value="#{data.data.tmpTask.expiryTimestamp}"/>
+					<h:outputText value="#{ivy.cms.co('/labels/delay')}"/>
+					<h:outputText value="#{data.data.tmpTask.delayTimestamp}"/>
+					<h:outputText value="#{ivy.cms.co('/labels/done')}"/>
+					<h:outputText value="#{data.data.tmpTask.endTimestamp}"/>
+				</h:panelGrid>
+				<br></br>
+				<br></br>
+				<br></br>
+				<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.back}"/>
+			</h:form>
+			</p:layoutUnit>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

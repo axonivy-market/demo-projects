@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 14 15:16:01 CET 2013]
+[>Created: Mon Jan 21 10:45:04 CET 2013]
 127AE76143E89C91 3.17 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -33,7 +33,7 @@ He0 @PushWFArc f23 '' #zField
 He0 @RichDialog f1 '' #zField
 He0 @PushWFArc f3 '' #zField
 He0 @PushWFArc f4 '' #zField
-He0 @PushWFArc f24 '' #zField
+He0 @PushWFArc f10 '' #zField
 >Proto He0 He0 Home #zField
 He0 f2 type htmlwfui.Data #txt
 He0 f2 291 467 26 26 14 0 #rect
@@ -293,10 +293,10 @@ He0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f17 286 180 36 24 20 -2 #rect
+He0 f17 286 156 36 24 20 -2 #rect
 He0 f17 @|CallSubIcon #fIcon
 He0 f19 expr out #txt
-He0 f19 304 204 304 252 #arcP
+He0 f19 304 180 304 252 #arcP
 He0 f25 type htmlwfui.Data #txt
 He0 f25 template "/ProcessPages/Home/AnonymousEndpage.ivc" #txt
 He0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -351,8 +351,8 @@ He0 f3 expr out #txt
 He0 f3 304 276 304 356 #arcP
 He0 f4 expr out #txt
 He0 f4 304 380 304 467 #arcP
-He0 f24 expr out #txt
-He0 f24 304 77 304 180 #arcP
+He0 f10 expr out #txt
+He0 f10 304 77 304 156 #arcP
 >Proto He0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
@@ -380,5 +380,5 @@ He0 f11 mainOut f3 tail #connect
 He0 f3 head f1 mainIn #connect
 He0 f1 mainOut f4 tail #connect
 He0 f4 head f2 mainIn #connect
-He0 f16 mainOut f24 tail #connect
-He0 f24 head f17 mainIn #connect
+He0 f16 mainOut f10 tail #connect
+He0 f10 head f17 mainIn #connect

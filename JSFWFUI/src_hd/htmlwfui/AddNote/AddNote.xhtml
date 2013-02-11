@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui">
+ 
+<h:body>
+	<ui:composition template="../HomeTemplate.xhtml">
+
+		<ui:define name="center">
+			<p:layoutUnit position="center" header="#{ivy.cms.co('/explainTexts/AddNote')}">
+			<br></br>
+			<h:outputText value="#{ivy.cms.co('/explainTexts/AddNoteTitel')}"/>
+			<br></br>
+			<h:outputText value="#{ivy.cms.co('/explainTexts/AddNoteDescription')}"/>
+			<br></br><br></br>
+			<h:form id="form">
+
+				<h:panelGrid columns="2">
+				<h:outputText value="#{ivy.cms.co('/labels/addNote')}"/>
+					<c:if test="#{data.data.noteFor == 'task'}">
+                		<p:selectOneRadio id="options" value="#{data.data.noteFor}"> 
+            				<f:selectItem itemLabel="#{ivy.cms.co('/labels/task')}" itemValue="task"/>
+            				<f:selectItem itemLabel="#{ivy.cms.co('/labels/case')}" itemValue="case"/>
+       					</p:selectOneRadio>
+            		</c:if>
+					<c:if test="#{data.data.noteFor != 'task'}">
+                		<p:selectOneRadio id="options" value="#{data.data.noteFor}">
+                			<f:selectItem itemLabel="#{ivy.cms.co('/labels/case')}" itemValue="case"/>
+            				<f:selectItem itemLabel="#{ivy.cms.co('/labels/task')}" itemValue="task" itemDisabled="true"/>
+       					</p:selectOneRadio>
+            		</c:if>
+					<h:outputText value="#{ivy.cms.co('/labels/text')}"/>
+					<p:inputTextarea rows="10" cols="50" value="#{data.data.note}"/>
+				</h:panelGrid>
+				<br></br>
+				<p:commandButton value="#{ivy.cms.co('/labels/saveButton')}" actionListener="#{logic.saveNote}" ajax="false"/>
+				<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.back}" ajax="false"/>
+			</h:form>
+			</p:layoutUnit>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

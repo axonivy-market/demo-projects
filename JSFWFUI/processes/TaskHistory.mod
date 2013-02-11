@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 15 15:05:49 CET 2013]
+[>Created: Mon Jan 21 10:42:23 CET 2013]
 12E297F287736665 3.17 #module
 >Proto >Proto Collection #zClass
 Rt0 TaskHistory Big #zClass
@@ -19,12 +19,12 @@ Rt0 @GridStep f38 '' #zField
 Rt0 @PushWFArc f39 '' #zField
 Rt0 @PushWFArc f2 '' #zField
 Rt0 @CallSub f4 '' #zField
-Rt0 @PushWFArc f5 '' #zField
 Rt0 @PushWFArc f12 '' #zField
 Rt0 @RichDialog f6 '' #zField
 Rt0 @PushWFArc f16 '' #zField
 Rt0 @PushWFArc f3 '' #zField
 Rt0 @PushWFArc f10 '' #zField
+Rt0 @PushWFArc f7 '' #zField
 >Proto Rt0 Rt0 TaskHistory #zField
 Rt0 f20 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -258,13 +258,10 @@ Rt0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rt0 f4 78 132 36 24 20 -2 #rect
+Rt0 f4 78 148 36 24 20 -2 #rect
 Rt0 f4 @|CallSubIcon #fIcon
-Rt0 f5 expr out #txt
-Rt0 f5 96 92 96 132 #arcP
-Rt0 f5 0 0.4999999999999999 0 0 #arcLabel
 Rt0 f12 expr out #txt
-Rt0 f12 96 156 96 210 #arcP
+Rt0 f12 96 172 96 210 #arcP
 Rt0 f12 0 0.442275988200965 0 0 #arcLabel
 Rt0 f6 targetWindow NEW:card: #txt
 Rt0 f6 targetDisplay TOP #txt
@@ -303,6 +300,9 @@ Rt0 f3 2 224 344 #addKink
 Rt0 f3 1 0.5 0 0 #arcLabel
 Rt0 f10 expr out #txt
 Rt0 f10 96 292 96 332 #arcP
+Rt0 f7 expr out #txt
+Rt0 f7 96 92 96 148 #arcP
+Rt0 f7 0 0.4999999999999999 0 0 #arcLabel
 >Proto Rt0 .type htmlwfui.Data #txt
 >Proto Rt0 .processKind NORMAL #txt
 >Proto Rt0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -316,8 +316,6 @@ Rt0 f0 mainOut f39 tail #connect
 Rt0 f39 head f38 mainIn #connect
 Rt0 f33 out f2 tail #connect
 Rt0 f2 head f20 mainIn #connect
-Rt0 f38 mainOut f5 tail #connect
-Rt0 f5 head f4 mainIn #connect
 Rt0 f4 mainOut f12 tail #connect
 Rt0 f12 head f33 in #connect
 Rt0 f6 mainOut f16 tail #connect
@@ -326,3 +324,5 @@ Rt0 f30 mainOut f3 tail #connect
 Rt0 f3 head f6 mainIn #connect
 Rt0 f20 mainOut f10 tail #connect
 Rt0 f10 head f6 mainIn #connect
+Rt0 f38 mainOut f7 tail #connect
+Rt0 f7 head f4 mainIn #connect

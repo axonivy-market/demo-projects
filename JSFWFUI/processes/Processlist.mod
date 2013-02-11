@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Oct 26 09:18:18 CEST 2012]
+[>Created: Mon Jan 21 10:44:25 CET 2013]
 1270ADF72FF4AFF3 3.17 #module
 >Proto >Proto Collection #zClass
 Pt0 Processlist Big #zClass
@@ -17,11 +17,11 @@ Pt0 @StartRequest f0 '' #zField
 Pt0 @EndTask f2 '' #zField
 Pt0 @GridStep f20 '' #zField
 Pt0 @CallSub f14 '' #zField
-Pt0 @PushWFArc f5 '' #zField
 Pt0 @PushWFArc f6 '' #zField
 Pt0 @RichDialog f1 '' #zField
 Pt0 @PushWFArc f3 '' #zField
 Pt0 @PushWFArc f4 '' #zField
+Pt0 @PushWFArc f8 '' #zField
 >Proto Pt0 Pt0 Processlist #zField
 Pt0 f0 outLink DefaultProcessStartListPage.ivp #txt
 Pt0 f0 type htmlwfui.Data #txt
@@ -95,7 +95,7 @@ Pt0 f0 @C|.responsibility Everybody #txt
 Pt0 f0 116 51 25 26 14 0 #rect
 Pt0 f0 @|StartRequestIcon #fIcon
 Pt0 f2 type htmlwfui.Data #txt
-Pt0 f2 115 331 26 26 14 0 #rect
+Pt0 f2 115 411 26 26 14 0 #rect
 Pt0 f2 @|EndIcon #fIcon
 Pt0 f20 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -123,7 +123,7 @@ setReturnUrl</name>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f20 110 180 36 24 28 -12 #rect
+Pt0 f20 110 260 36 24 28 -12 #rect
 Pt0 f20 @|StepIcon #fIcon
 Pt0 f14 type htmlwfui.Data #txt
 Pt0 f14 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
@@ -145,12 +145,10 @@ Pt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f14 110 116 36 24 20 -2 #rect
+Pt0 f14 110 148 36 24 20 -2 #rect
 Pt0 f14 @|CallSubIcon #fIcon
-Pt0 f5 expr out #txt
-Pt0 f5 127 76 128 116 #arcP
 Pt0 f6 expr out #txt
-Pt0 f6 128 140 128 180 #arcP
+Pt0 f6 128 172 128 260 #arcP
 Pt0 f1 targetWindow NEW:card: #txt
 Pt0 f1 targetDisplay TOP #txt
 Pt0 f1 richDialogId htmlwfui.ProcessList #txt
@@ -165,21 +163,23 @@ Pt0 f1 windowConfiguration '* ' #txt
 Pt0 f1 isAsynch false #txt
 Pt0 f1 isInnerRd false #txt
 Pt0 f1 userContext '* ' #txt
-Pt0 f1 110 244 36 24 20 -2 #rect
+Pt0 f1 110 324 36 24 20 -2 #rect
 Pt0 f1 @|RichDialogIcon #fIcon
 Pt0 f3 expr out #txt
-Pt0 f3 128 204 128 244 #arcP
+Pt0 f3 128 284 128 324 #arcP
 Pt0 f4 expr out #txt
-Pt0 f4 128 268 128 331 #arcP
+Pt0 f4 128 348 128 411 #arcP
+Pt0 f8 expr out #txt
+Pt0 f8 127 76 128 148 #arcP
 >Proto Pt0 .type htmlwfui.Data #txt
 >Proto Pt0 .processKind NORMAL #txt
 >Proto Pt0 0 0 32 24 18 0 #rect
 >Proto Pt0 @|BIcon #fIcon
-Pt0 f0 mainOut f5 tail #connect
-Pt0 f5 head f14 mainIn #connect
 Pt0 f14 mainOut f6 tail #connect
 Pt0 f6 head f20 mainIn #connect
 Pt0 f20 mainOut f3 tail #connect
 Pt0 f3 head f1 mainIn #connect
 Pt0 f1 mainOut f4 tail #connect
 Pt0 f4 head f2 mainIn #connect
+Pt0 f0 mainOut f8 tail #connect
+Pt0 f8 head f14 mainIn #connect

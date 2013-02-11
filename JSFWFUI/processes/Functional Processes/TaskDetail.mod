@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 15 09:30:41 CET 2013]
+[>Created: Wed Feb 06 13:31:24 CET 2013]
 12CBB155A8E655CC 3.17 #module
 >Proto >Proto Collection #zClass
 Tl0 TaskDetail Big #zClass
@@ -15,22 +15,21 @@ Tl0 @StartSub f0 '' #zField
 Tl0 @EndSub f1 '' #zField
 Tl0 @CallSub f11 '' #zField
 Tl0 @CallSub f10 '' #zField
-Tl0 @Page f23 '' #zField
-Tl0 @PushWFArc f12 '' #zField
-Tl0 @PushWFArc f13 '' #zField
-Tl0 @PushWFArc f22 '' #zField
-Tl0 @PushWFArc f4 '' #zField
-Tl0 @PushWFArc f2 '' #zField
-Tl0 @PushWFArc f3 '' #zField
 Tl0 @CallSub f5 '' #zField
-Tl0 @PushWFArc f6 '' #zField
-Tl0 @PushWFArc f7 '' #zField
-Tl0 @GridStep f8 '' #zField
-Tl0 @PushWFArc f9 '' #zField
 Tl0 @CallSub f15 '' #zField
-Tl0 @PushWFArc f16 '' #zField
+Tl0 @RichDialog f14 '' #zField
+Tl0 @PushWFArc f19 '' #zField
+Tl0 @Alternative f2 '' #zField
+Tl0 @PushWFArc f20 '' #zField
+Tl0 @PushWFArc f21 '' #zField
+Tl0 @PushWFArc f27 '' #zField
+Tl0 @PushWFArc f26 '' #zField
+Tl0 @PushWFArc f25 '' #zField
+Tl0 @PushWFArc f24 '' #zField
+Tl0 @PushWFArc f28 '' #zField
 Tl0 @PushWFArc f17 '' #zField
-Tl0 @PushWFArc f18 '' #zField
+Tl0 @PushWFArc f7 '' #zField
+Tl0 @PushWFArc f4 '' #zField
 >Proto Tl0 Tl0 TaskDetail #zField
 Tl0 f0 inParamDecl '<htmlwfui.Data in> param;' #txt
 Tl0 f0 inParamTable 'out=param.in;
@@ -50,10 +49,10 @@ Tl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tl0 f0 99 35 26 26 14 0 #rect
+Tl0 f0 371 51 26 26 14 0 #rect
 Tl0 f0 @|StartSubIcon #fIcon
 Tl0 f1 type htmlwfui.Data #txt
-Tl0 f1 19 139 26 26 14 0 #rect
+Tl0 f1 563 179 26 26 14 0 #rect
 Tl0 f1 @|EndSubIcon #fIcon
 Tl0 f11 type htmlwfui.Data #txt
 Tl0 f11 processCall 'Functional Processes/AddNote:call(htmlwfui.Data)' #txt
@@ -76,7 +75,7 @@ Tl0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tl0 f11 286 204 36 24 5 17 #rect
+Tl0 f11 430 276 36 24 5 17 #rect
 Tl0 f11 @|CallSubIcon #fIcon
 Tl0 f10 type htmlwfui.Data #txt
 Tl0 f10 processCall 'Functional Processes/DelegateTask:call(htmlwfui.Data)' #txt
@@ -98,53 +97,8 @@ Tl0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tl0 f10 182 204 36 24 9 16 #rect
+Tl0 f10 166 276 36 24 9 16 #rect
 Tl0 f10 @|CallSubIcon #fIcon
-Tl0 f23 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
-Tl0 f23 outLinks "LinkB.ivp","LinkC.ivp","LinkA.ivp","LinkD.ivp","LinkE.ivp","LinkF.ivp" #txt
-Tl0 f23 template "/ProcessPages/TaskDetail/taskDetail.ivc" #txt
-Tl0 f23 type htmlwfui.Data #txt
-Tl0 f23 skipLink skip.ivp #txt
-Tl0 f23 sortLink sort.ivp #txt
-Tl0 f23 templateWizard '#
-#Mon Dec 06 11:06:19 CET 2010
-' #txt
-Tl0 f23 pageArchivingActivated false #txt
-Tl0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>TaskDetail</name>
-        <nameStyle>10,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Tl0 f23 @C|.responsibility Everybody #txt
-Tl0 f23 94 140 36 24 19 -23 #rect
-Tl0 f23 @|PageIcon #fIcon
-Tl0 f12 expr data #txt
-Tl0 f12 outCond ivp=="LinkC.ivp" #txt
-Tl0 f12 130 158 286 210 #arcP
-Tl0 f13 expr out #txt
-Tl0 f13 304 228 130 152 #arcP
-Tl0 f13 1 304 288 #addKink
-Tl0 f13 2 656 288 #addKink
-Tl0 f13 3 656 152 #addKink
-Tl0 f13 1 0.540214317270216 0 0 #arcLabel
-Tl0 f22 expr data #txt
-Tl0 f22 outCond ivp=="LinkB.ivp" #txt
-Tl0 f22 129 164 184 204 #arcP
-Tl0 f4 expr out #txt
-Tl0 f4 200 228 130 152 #arcP
-Tl0 f4 1 200 288 #addKink
-Tl0 f4 2 672 288 #addKink
-Tl0 f4 3 672 152 #addKink
-Tl0 f4 1 1.0 0 0 #arcLabel
-Tl0 f2 expr out #txt
-Tl0 f2 112 61 112 140 #arcP
-Tl0 f3 expr data #txt
-Tl0 f3 outCond ivp=="LinkA.ivp" #txt
-Tl0 f3 94 152 45 152 #arcP
 Tl0 f5 type htmlwfui.Data #txt
 Tl0 f5 processCall 'Functional Processes/ChangeExpiry:call(htmlwfui.Data)' #txt
 Tl0 f5 doCall true #txt
@@ -165,42 +119,8 @@ Tl0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tl0 f5 398 204 36 24 5 16 #rect
+Tl0 f5 294 276 36 24 5 16 #rect
 Tl0 f5 @|CallSubIcon #fIcon
-Tl0 f6 expr data #txt
-Tl0 f6 outCond ivp=="LinkD.ivp" #txt
-Tl0 f6 130 156 398 212 #arcP
-Tl0 f7 expr out #txt
-Tl0 f7 416 228 130 152 #arcP
-Tl0 f7 1 416 288 #addKink
-Tl0 f7 2 664 288 #addKink
-Tl0 f7 3 664 152 #addKink
-Tl0 f7 2 0.24601833214173036 0 0 #arcLabel
-Tl0 f8 actionDecl 'htmlwfui.Data out;
-' #txt
-Tl0 f8 actionTable 'out=in;
-' #txt
-Tl0 f8 actionCode 'import ch.ivyteam.ivy.workflow.TaskState;
-if(in.#tmpTask!=null && in.tmpTask.getState()==TaskState.RESUMED)
-{
-	in.tmpTask.reset();
-}	' #txt
-Tl0 f8 type htmlwfui.Data #txt
-Tl0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Resumed task 
-reset</name>
-        <nameStyle>19
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Tl0 f8 94 204 36 24 -19 17 #rect
-Tl0 f8 @|StepIcon #fIcon
-Tl0 f9 expr data #txt
-Tl0 f9 outCond ivp=="LinkE.ivp" #txt
-Tl0 f9 112 164 112 204 #arcP
 Tl0 f15 type htmlwfui.Data #txt
 Tl0 f15 processCall 'Functional Processes/PageArchive:call(htmlwfui.Data)' #txt
 Tl0 f15 doCall true #txt
@@ -222,46 +142,94 @@ Tl0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tl0 f15 534 204 36 24 9 16 #rect
+Tl0 f15 558 276 36 24 9 16 #rect
 Tl0 f15 @|CallSubIcon #fIcon
-Tl0 f16 expr data #txt
-Tl0 f16 outCond ivp=="LinkF.ivp" #txt
-Tl0 f16 130 155 534 213 #arcP
+Tl0 f14 targetWindow NEW:card: #txt
+Tl0 f14 targetDisplay TOP #txt
+Tl0 f14 richDialogId htmlwfui.TaskDetails #txt
+Tl0 f14 startMethod start(htmlwfui.Data) #txt
+Tl0 f14 type htmlwfui.Data #txt
+Tl0 f14 requestActionDecl '<htmlwfui.Data data> param;' #txt
+Tl0 f14 requestMappingAction 'param.data=in;
+' #txt
+Tl0 f14 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Tl0 f14 responseMappingAction 'out=in;
+' #txt
+Tl0 f14 windowConfiguration '* ' #txt
+Tl0 f14 isAsynch false #txt
+Tl0 f14 isInnerRd false #txt
+Tl0 f14 userContext '* ' #txt
+Tl0 f14 366 116 36 24 20 -2 #rect
+Tl0 f14 @|RichDialogIcon #fIcon
+Tl0 f19 expr out #txt
+Tl0 f19 384 77 384 116 #arcP
+Tl0 f2 type htmlwfui.Data #txt
+Tl0 f2 370 178 28 28 14 0 #rect
+Tl0 f2 @|AlternativeIcon #fIcon
+Tl0 f20 expr out #txt
+Tl0 f20 384 140 384 178 #arcP
+Tl0 f21 expr in #txt
+Tl0 f21 398 192 563 192 #arcP
+Tl0 f27 expr in #txt
+Tl0 f27 outCond 'in.option == "showFormArchive"' #txt
+Tl0 f27 393 197 558 279 #arcP
+Tl0 f26 expr in #txt
+Tl0 f26 outCond 'in.option == "addNote"' #txt
+Tl0 f26 390 200 440 276 #arcP
+Tl0 f25 expr in #txt
+Tl0 f25 outCond 'in.option == "changeExpiry"' #txt
+Tl0 f25 378 200 321 276 #arcP
+Tl0 f24 expr in #txt
+Tl0 f24 outCond 'in.option == "delegateCase"' #txt
+Tl0 f24 375 197 202 279 #arcP
+Tl0 f28 expr out #txt
+Tl0 f28 576 300 402 128 #arcP
+Tl0 f28 1 576 352 #addKink
+Tl0 f28 2 728 352 #addKink
+Tl0 f28 3 728 128 #addKink
+Tl0 f28 3 0.09639387691243473 0 0 #arcLabel
 Tl0 f17 expr out #txt
-Tl0 f17 552 228 130 152 #arcP
-Tl0 f17 1 552 288 #addKink
-Tl0 f17 2 680 288 #addKink
-Tl0 f17 3 680 152 #addKink
-Tl0 f17 3 0.09639387691243473 0 0 #arcLabel
-Tl0 f18 expr out #txt
-Tl0 f18 94 216 100 164 #arcP
-Tl0 f18 1 48 216 #addKink
-Tl0 f18 1 0.019318672703469875 0 0 #arcLabel
+Tl0 f17 312 300 402 128 #arcP
+Tl0 f17 1 312 352 #addKink
+Tl0 f17 2 712 352 #addKink
+Tl0 f17 3 712 128 #addKink
+Tl0 f17 2 0.24601833214173036 0 0 #arcLabel
+Tl0 f7 expr out #txt
+Tl0 f7 184 300 402 128 #arcP
+Tl0 f7 1 184 352 #addKink
+Tl0 f7 2 720 352 #addKink
+Tl0 f7 3 720 128 #addKink
+Tl0 f7 1 1.0 0 0 #arcLabel
+Tl0 f4 expr out #txt
+Tl0 f4 448 300 402 128 #arcP
+Tl0 f4 1 448 352 #addKink
+Tl0 f4 2 704 352 #addKink
+Tl0 f4 3 704 128 #addKink
+Tl0 f4 1 0.540214317270216 0 0 #arcLabel
 >Proto Tl0 .type htmlwfui.Data #txt
 >Proto Tl0 .processKind CALLABLE_SUB #txt
 >Proto Tl0 0 0 32 24 18 0 #rect
 >Proto Tl0 @|BIcon #fIcon
-Tl0 f12 head f11 mainIn #connect
-Tl0 f11 mainOut f13 tail #connect
-Tl0 f13 head f23 mainIn #connect
-Tl0 f23 out f22 tail #connect
-Tl0 f22 head f10 mainIn #connect
-Tl0 f23 out f12 tail #connect
-Tl0 f10 mainOut f4 tail #connect
-Tl0 f4 head f23 mainIn #connect
-Tl0 f0 mainOut f2 tail #connect
-Tl0 f2 head f23 mainIn #connect
-Tl0 f23 out f3 tail #connect
-Tl0 f3 head f1 mainIn #connect
-Tl0 f23 out f6 tail #connect
-Tl0 f6 head f5 mainIn #connect
-Tl0 f5 mainOut f7 tail #connect
-Tl0 f7 head f23 mainIn #connect
-Tl0 f23 out f9 tail #connect
-Tl0 f9 head f8 mainIn #connect
-Tl0 f23 out f16 tail #connect
-Tl0 f16 head f15 mainIn #connect
-Tl0 f15 mainOut f17 tail #connect
-Tl0 f17 head f23 mainIn #connect
-Tl0 f8 mainOut f18 tail #connect
-Tl0 f18 head f23 mainIn #connect
+Tl0 f0 mainOut f19 tail #connect
+Tl0 f19 head f14 mainIn #connect
+Tl0 f14 mainOut f20 tail #connect
+Tl0 f20 head f2 in #connect
+Tl0 f21 head f1 mainIn #connect
+Tl0 f27 head f15 mainIn #connect
+Tl0 f26 head f11 mainIn #connect
+Tl0 f25 head f5 mainIn #connect
+Tl0 f2 out f24 tail #connect
+Tl0 f24 head f10 mainIn #connect
+Tl0 f2 out f25 tail #connect
+Tl0 f2 out f26 tail #connect
+Tl0 f2 out f27 tail #connect
+Tl0 f2 out f21 tail #connect
+Tl0 f15 mainOut f28 tail #connect
+Tl0 f28 head f14 mainIn #connect
+Tl0 f5 mainOut f17 tail #connect
+Tl0 f17 head f14 mainIn #connect
+Tl0 f10 mainOut f7 tail #connect
+Tl0 f7 head f14 mainIn #connect
+Tl0 f11 mainOut f4 tail #connect
+Tl0 f4 head f14 mainIn #connect

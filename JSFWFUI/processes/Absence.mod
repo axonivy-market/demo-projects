@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 14 15:15:18 CET 2013]
+[>Created: Thu Feb 07 10:12:27 CET 2013]
 1367E046117353D3 3.17 #module
 >Proto >Proto Collection #zClass
 Ae0 Absence Big #zClass
@@ -18,11 +18,7 @@ Ae0 @RichDialog f17 '' #zField
 Ae0 @PushWFArc f1 '' #zField
 Ae0 @PushWFArc f5 '' #zField
 Ae0 @PushWFArc f6 '' #zField
-Ae0 @RichDialog f10 '' #zField
-Ae0 @GridStep f9 '' #zField
-Ae0 @PushWFArc f11 '' #zField
-Ae0 @PushWFArc f3 '' #zField
-Ae0 @PushWFArc f7 '' #zField
+Ae0 @PushWFArc f4 '' #zField
 >Proto Ae0 Ae0 Absence #zField
 Ae0 f0 outLink start.ivp #txt
 Ae0 f0 type htmlwfui.Data #txt
@@ -114,7 +110,7 @@ Ae0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ae0 f8 142 100 36 24 20 -2 #rect
+Ae0 f8 142 116 36 24 20 -2 #rect
 Ae0 f8 @|CallSubIcon #fIcon
 Ae0 f2 targetWindow NEW:card: #txt
 Ae0 f2 targetDisplay TOP #txt
@@ -133,7 +129,16 @@ Ae0 f2 windowConfiguration '* ' #txt
 Ae0 f2 isAsynch false #txt
 Ae0 f2 isInnerRd false #txt
 Ae0 f2 userContext '* ' #txt
-Ae0 f2 142 156 36 24 20 -2 #rect
+Ae0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Absence view</name>
+        <nameStyle>12
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ae0 f2 142 180 36 24 20 -2 #rect
 Ae0 f2 @|RichDialogIcon #fIcon
 Ae0 f17 targetWindow NEW:card: #txt
 Ae0 f17 targetDisplay TOP #txt
@@ -152,60 +157,29 @@ Ae0 f17 windowConfiguration '* ' #txt
 Ae0 f17 isAsynch false #txt
 Ae0 f17 isInnerRd false #txt
 Ae0 f17 userContext '* ' #txt
-Ae0 f17 142 212 36 24 20 -2 #rect
-Ae0 f17 @|RichDialogIcon #fIcon
-Ae0 f1 expr out #txt
-Ae0 f1 178 224 178 168 #arcP
-Ae0 f1 1 216 224 #addKink
-Ae0 f1 2 216 168 #addKink
-Ae0 f1 1 0.9877855306299546 0 0 #arcLabel
-Ae0 f5 expr out #txt
-Ae0 f5 160 124 160 156 #arcP
-Ae0 f6 expr out #txt
-Ae0 f6 160 180 160 212 #arcP
-Ae0 f6 0 0.5581556486922693 0 0 #arcLabel
-Ae0 f10 targetWindow NEW:card: #txt
-Ae0 f10 targetDisplay TOP #txt
-Ae0 f10 richDialogId htmlwfui.LoginSequence #txt
-Ae0 f10 startMethod start() #txt
-Ae0 f10 type htmlwfui.Data #txt
-Ae0 f10 requestActionDecl '<> param;' #txt
-Ae0 f10 responseActionDecl 'htmlwfui.Data out;
-' #txt
-Ae0 f10 responseMappingAction 'out=in;
-' #txt
-Ae0 f10 windowConfiguration '* ' #txt
-Ae0 f10 isAsynch false #txt
-Ae0 f10 isInnerRd false #txt
-Ae0 f10 userContext '* ' #txt
-Ae0 f10 318 132 36 24 20 -2 #rect
-Ae0 f10 @|RichDialogIcon #fIcon
-Ae0 f9 actionDecl 'htmlwfui.Data out;
-' #txt
-Ae0 f9 actionTable 'out=in;
-out.appname=ivy.wf.getApplication().getName();
-out.request=ivy.request;
-out.username=ivy.session.isSessionUserUnknown() ? "" : ivy.session.getSessionUserName();
-out.wfSession=ivy.session;
-' #txt
-Ae0 f9 type htmlwfui.Data #txt
-Ae0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ae0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>inits</name>
-        <nameStyle>5,7,9
+        <name>Absence add</name>
+        <nameStyle>11
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ae0 f9 318 84 36 24 22 -16 #rect
-Ae0 f9 @|StepIcon #fIcon
-Ae0 f11 expr out #txt
-Ae0 f11 336 108 336 132 #arcP
-Ae0 f3 expr out #txt
-Ae0 f3 318 146 178 166 #arcP
-Ae0 f7 expr out #txt
-Ae0 f7 160 77 160 100 #arcP
+Ae0 f17 142 236 36 24 20 -2 #rect
+Ae0 f17 @|RichDialogIcon #fIcon
+Ae0 f1 expr out #txt
+Ae0 f1 178 248 178 192 #arcP
+Ae0 f1 1 256 248 #addKink
+Ae0 f1 2 256 192 #addKink
+Ae0 f1 1 0.9877855306299546 0 0 #arcLabel
+Ae0 f5 expr out #txt
+Ae0 f5 160 140 160 180 #arcP
+Ae0 f6 expr out #txt
+Ae0 f6 160 204 160 236 #arcP
+Ae0 f6 0 0.5581556486922693 0 0 #arcLabel
+Ae0 f4 expr out #txt
+Ae0 f4 160 77 160 116 #arcP
 >Proto Ae0 .type htmlwfui.Data #txt
 >Proto Ae0 .processKind NORMAL #txt
 >Proto Ae0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -221,9 +195,5 @@ Ae0 f8 mainOut f5 tail #connect
 Ae0 f5 head f2 mainIn #connect
 Ae0 f2 mainOut f6 tail #connect
 Ae0 f6 head f17 mainIn #connect
-Ae0 f9 mainOut f11 tail #connect
-Ae0 f11 head f10 mainIn #connect
-Ae0 f10 mainOut f3 tail #connect
-Ae0 f3 head f2 mainIn #connect
-Ae0 f0 mainOut f7 tail #connect
-Ae0 f7 head f8 mainIn #connect
+Ae0 f0 mainOut f4 tail #connect
+Ae0 f4 head f8 mainIn #connect

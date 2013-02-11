@@ -24,7 +24,7 @@
             				<h:outputText value="Passwort: " />  
             				<p:password id="nonFeedback" value="#{data.password}" />
             				<h:outputText value="" />
-            				<p:commandButton value="Login" action="#{logic.login(data.username, data.password)}"/>
+            				<p:commandButton value="Login" action="#{logic.login(data.username, data.password)}" ajax="false"/>
  						</h:panelGrid>
 				</h:form>
 			</p:layoutUnit>

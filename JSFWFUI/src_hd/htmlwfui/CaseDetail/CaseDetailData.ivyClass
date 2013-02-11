@@ -1,0 +1,10 @@
+CaseDetailData #class
+htmlwfui.CaseDetail #namespace
+data htmlwfui.Data #field
+data PERSISTENT #fieldModifier
+deleteCaseLink Boolean #field
+deleteCaseLink PERSISTENT #fieldModifier
+addNoteLink Boolean #field
+addNoteLink PERSISTENT #fieldModifier
+archiveLink Boolean #field
+archiveLink PERSISTENT #fieldModifier

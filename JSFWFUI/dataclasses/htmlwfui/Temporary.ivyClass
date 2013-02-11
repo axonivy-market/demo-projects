@@ -24,6 +24,8 @@ statFilter String #field
 statFilter PERSISTENT #fieldModifier
 processesCombo Recordset #field
 processesCombo PERSISTENT #fieldModifier
+processesList List<String> #field
+processesList PERSISTENT #fieldModifier
 url String #field
 url PERSISTENT #fieldModifier
 mode String #field

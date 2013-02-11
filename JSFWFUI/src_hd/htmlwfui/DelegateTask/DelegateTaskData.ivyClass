@@ -1,0 +1,4 @@
+DelegateTaskData #class
+htmlwfui.DelegateTask #namespace
+data htmlwfui.Data #field
+data PERSISTENT #fieldModifier

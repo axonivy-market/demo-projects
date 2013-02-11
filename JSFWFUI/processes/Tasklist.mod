@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Dec 27 10:20:13 CET 2012]
+[>Created: Mon Jan 21 10:45:06 CET 2013]
 125016DE17A534EB 3.17 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
@@ -17,7 +17,6 @@ Tt0 @GridStep f0 '' #zField
 Tt0 @StartRequest f1 '' #zField
 Tt0 @GridStep f25 '' #zField
 Tt0 @CallSub f14 '' #zField
-Tt0 @PushWFArc f15 '' #zField
 Tt0 @CallSub f11 '' #zField
 Tt0 @CallSub f10 '' #zField
 Tt0 @GridStep f7 '' #zField
@@ -36,6 +35,7 @@ Tt0 @PushWFArc f18 '' #zField
 Tt0 @PushWFArc f19 '' #zField
 Tt0 @PushWFArc f20 '' #zField
 Tt0 @PushWFArc f21 '' #zField
+Tt0 @PushWFArc f23 '' #zField
 >Proto Tt0 Tt0 Tasklist #zField
 Tt0 f0 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -98,7 +98,7 @@ setReturnUrl</name>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f0 78 180 36 24 23 -5 #rect
+Tt0 f0 78 204 36 24 23 -5 #rect
 Tt0 f0 @|StepIcon #fIcon
 Tt0 f1 outLink DefaultTaskListPage.ivp #txt
 Tt0 f1 type htmlwfui.Data #txt
@@ -234,10 +234,8 @@ Tt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f14 78 116 36 24 20 -2 #rect
+Tt0 f14 78 132 36 24 20 -2 #rect
 Tt0 f14 @|CallSubIcon #fIcon
-Tt0 f15 expr out #txt
-Tt0 f15 96 77 96 116 #arcP
 Tt0 f11 type htmlwfui.Data #txt
 Tt0 f11 processCall 'Functional Processes/AddNote:call(htmlwfui.Data)' #txt
 Tt0 f11 doCall true #txt
@@ -326,9 +324,9 @@ Tt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Tt0 f3 78 260 36 24 20 -2 #rect
 Tt0 f3 @|RichDialogIcon #fIcon
 Tt0 f6 expr out #txt
-Tt0 f6 96 204 96 260 #arcP
+Tt0 f6 96 228 96 260 #arcP
 Tt0 f2 expr out #txt
-Tt0 f2 96 140 96 180 #arcP
+Tt0 f2 96 156 96 204 #arcP
 Tt0 f2 0 0.5471454849084891 0 0 #arcLabel
 Tt0 f17 expr out #txt
 Tt0 f17 114 272 254 272 #arcP
@@ -383,12 +381,12 @@ Tt0 f21 1 272 528 #addKink
 Tt0 f21 2 592 528 #addKink
 Tt0 f21 3 592 336 #addKink
 Tt0 f21 1 1.0 0 0 #arcLabel
+Tt0 f23 expr out #txt
+Tt0 f23 96 77 96 132 #arcP
 >Proto Tt0 .type htmlwfui.Data #txt
 >Proto Tt0 .processKind NORMAL #txt
 >Proto Tt0 0 0 32 24 18 0 #rect
 >Proto Tt0 @|BIcon #fIcon
-Tt0 f1 mainOut f15 tail #connect
-Tt0 f15 head f14 mainIn #connect
 Tt0 f0 mainOut f6 tail #connect
 Tt0 f6 head f3 mainIn #connect
 Tt0 f14 mainOut f2 tail #connect
@@ -413,3 +411,5 @@ Tt0 f11 mainOut f20 tail #connect
 Tt0 f20 head f4 mainIn #connect
 Tt0 f10 mainOut f21 tail #connect
 Tt0 f21 head f4 mainIn #connect
+Tt0 f1 mainOut f23 tail #connect
+Tt0 f23 head f14 mainIn #connect

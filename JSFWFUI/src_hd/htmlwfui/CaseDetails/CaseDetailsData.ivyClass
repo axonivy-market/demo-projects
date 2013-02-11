@@ -1,4 +1,0 @@
-CaseDetailsData #class
-htmlwfui.CaseDetails #namespace
-data htmlwfui.Data #field
-data PERSISTENT #fieldModifier

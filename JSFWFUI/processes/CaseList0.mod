@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 15 15:12:36 CET 2013]
+[>Created: Fri Feb 08 11:21:18 CET 2013]
 13C3E8DD4724E3AD 3.17 #module
 >Proto >Proto Collection #zClass
 Rt0 CaseList0 Big #zClass
@@ -192,7 +192,7 @@ Rt0 f0 triggerEnabled false #txt
 Rt0 f0 callSignature start1() #txt
 Rt0 f0 persist false #txt
 Rt0 f0 taskData '#
-#Mon Feb 14 09:59:10 CET 2011
+#Fri Feb 08 11:21:12 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -201,7 +201,8 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Rt0 f0 caseData '#
-#Mon Feb 14 09:59:10 CET 2011
+#Fri Feb 08 11:21:12 CET 2013
+businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -227,9 +228,12 @@ subType.name=
 type.code=
 type.name=
 ' #txt
-Rt0 f0 showInStartList 0 #txt
+Rt0 f0 showInStartList 1 #txt
 Rt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskUpdDef.setExpiryActivator("Everybody");
 taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 engine.updateCurrentTask(taskUpdDef);
@@ -595,7 +599,7 @@ Rt0 f26 1 40 480 #addKink
 Rt0 f26 2 40 624 #addKink
 Rt0 f26 1 0.07729854326440172 0 0 #arcLabel
 Rt0 f31 type htmlwfui.Data #txt
-Rt0 f31 processCall 'Functional Processes/AddNote:call(htmlwfui.Data)' #txt
+Rt0 f31 processCall 'Functional Processes/AddNote0:call(htmlwfui.Data)' #txt
 Rt0 f31 doCall true #txt
 Rt0 f31 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
@@ -625,7 +629,7 @@ Rt0 f34 expr out #txt
 Rt0 f34 382 497 202 423 #arcP
 Rt0 f34 0 0.3298838642993683 0 0 #arcLabel
 Rt0 f30 type htmlwfui.Data #txt
-Rt0 f30 processCall 'Functional Processes/TaskDetail:call(htmlwfui.Data)' #txt
+Rt0 f30 processCall 'Functional Processes/TaskDetail0:call(htmlwfui.Data)' #txt
 Rt0 f30 doCall true #txt
 Rt0 f30 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
@@ -655,7 +659,7 @@ Rt0 f36 expr out #txt
 Rt0 f36 526 500 202 420 #arcP
 Rt0 f36 0 0.3294303582455013 0 0 #arcLabel
 Rt0 f37 type htmlwfui.Data #txt
-Rt0 f37 processCall 'Functional Processes/PageArchive:call(htmlwfui.Data)' #txt
+Rt0 f37 processCall 'Functional Processes/PageArchive0:call(htmlwfui.Data)' #txt
 Rt0 f37 doCall true #txt
 Rt0 f37 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt

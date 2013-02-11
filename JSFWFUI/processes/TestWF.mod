@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Dec 21 12:01:55 CET 2012]
+[>Created: Mon Feb 11 10:24:31 CET 2013]
 13BA873BC1BC6EFD 3.17 #module
 >Proto >Proto Collection #zClass
 TF0 TestWF Big #zClass
@@ -126,6 +126,12 @@ TF0 f1 template "/ProcessPages/TestWF/Page1.ivc" #txt
 TF0 f1 type htmlwfui.Data #txt
 TF0 f1 skipLink skip.ivp #txt
 TF0 f1 sortLink sort.ivp #txt
+TF0 f1 templateWizard '#
+#Mon Feb 11 10:24:18 CET 2013
+' #txt
+TF0 f1 pageArchivingActivated true #txt
+TF0 f1 pageArchiveName Page1 #txt
+TF0 f1 @C|.responsibility Everybody #txt
 TF0 f1 94 100 36 24 20 -2 #rect
 TF0 f1 @|PageIcon #fIcon
 TF0 f2 outTypes "htmlwfui.Data" #txt
@@ -134,6 +140,12 @@ TF0 f2 template "/ProcessPages/TestWF/Page2.ivc" #txt
 TF0 f2 type htmlwfui.Data #txt
 TF0 f2 skipLink skip.ivp #txt
 TF0 f2 sortLink sort.ivp #txt
+TF0 f2 templateWizard '#
+#Mon Feb 11 10:24:29 CET 2013
+' #txt
+TF0 f2 pageArchivingActivated true #txt
+TF0 f2 pageArchiveName Page2 #txt
+TF0 f2 @C|.responsibility Everybody #txt
 TF0 f2 94 260 36 24 20 -2 #rect
 TF0 f2 @|PageIcon #fIcon
 TF0 f3 type htmlwfui.Data #txt

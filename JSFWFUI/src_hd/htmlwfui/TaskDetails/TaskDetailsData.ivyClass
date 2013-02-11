@@ -1,0 +1,14 @@
+TaskDetailsData #class
+htmlwfui.TaskDetails #namespace
+data htmlwfui.Data #field
+data PERSISTENT #fieldModifier
+resetLink Boolean #field
+resetLink PERSISTENT #fieldModifier
+delegateLink Boolean #field
+delegateLink PERSISTENT #fieldModifier
+changeExpiryLink Boolean #field
+changeExpiryLink PERSISTENT #fieldModifier
+addNoteLink Boolean #field
+addNoteLink PERSISTENT #fieldModifier
+archiveLink Boolean #field
+archiveLink PERSISTENT #fieldModifier

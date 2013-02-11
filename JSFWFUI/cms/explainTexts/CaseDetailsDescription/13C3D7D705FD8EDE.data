@@ -1,1 +1,1 @@
-Details of  workflow case[<%=ivy.html.get("in.tempCase.getIdentifier()")%>] <%=ivy.html.get("in.tempCase.name")%>
+Details of  workflow case

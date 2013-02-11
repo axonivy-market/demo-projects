@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Feb 17 09:23:20 CET 2011]
-12CBAFAC42B5C5F5 3.15 #module
+[>Created: Mon Jan 21 09:35:39 CET 2013]
+12CBAFAC42B5C5F5 3.17 #module
 >Proto >Proto Collection #zClass
 Ae0 AddNote Big #zClass
 Ae0 B #cInfo
@@ -13,16 +13,11 @@ Ae0 @TextInP .xml .xml #zField
 Ae0 @TextInP .responsibility .responsibility #zField
 Ae0 @StartSub f0 '' #zField
 Ae0 @EndSub f1 '' #zField
-Ae0 @Alternative f18 '' #zField
-Ae0 @Page f11 '' #zField
-Ae0 @GridStep f12 '' #zField
-Ae0 @PushWFArc f28 '' #zField
-Ae0 @PushWFArc f19 '' #zField
-Ae0 @PushWFArc f20 '' #zField
-Ae0 @PushWFArc f2 '' #zField
-Ae0 @PushWFArc f3 '' #zField
 Ae0 @StartSub f4 '' #zField
 Ae0 @EndSub f5 '' #zField
+Ae0 @RichDialog f6 '' #zField
+Ae0 @PushWFArc f7 '' #zField
+Ae0 @PushWFArc f2 '' #zField
 >Proto Ae0 Ae0 AddNote #zField
 Ae0 f0 inParamDecl '<htmlwfui.Data in> param;' #txt
 Ae0 f0 inParamTable 'out=param.in;
@@ -44,71 +39,11 @@ Ae0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ae0 f0 99 35 26 26 14 0 #rect
+Ae0 f0 99 51 26 26 14 0 #rect
 Ae0 f0 @|StartSubIcon #fIcon
 Ae0 f1 type htmlwfui.Data #txt
-Ae0 f1 99 291 26 26 14 0 #rect
+Ae0 f1 99 179 26 26 14 0 #rect
 Ae0 f1 @|EndSubIcon #fIcon
-Ae0 f18 type htmlwfui.Data #txt
-Ae0 f18 98 226 28 28 14 0 #rect
-Ae0 f18 @|AlternativeIcon #fIcon
-Ae0 f11 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
-Ae0 f11 outLinks "LinkA.ivp","LinkB.ivp" #txt
-Ae0 f11 template "taskNote.ivc" #txt
-Ae0 f11 type htmlwfui.Data #txt
-Ae0 f11 skipLink skip.ivp #txt
-Ae0 f11 sortLink sort.ivp #txt
-Ae0 f11 templateWizard '#
-#Wed Apr 07 12:24:36 CEST 2010
-' #txt
-Ae0 f11 pageArchivingActivated false #txt
-Ae0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Bemerkung
-hinzufügen</name>
-        <nameStyle>20,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ae0 f11 @C|.responsibility Everybody #txt
-Ae0 f11 94 92 36 24 23 -2 #rect
-Ae0 f11 @|PageIcon #fIcon
-Ae0 f12 actionDecl 'htmlwfui.Data out;
-' #txt
-Ae0 f12 actionTable 'out=in.clone();
-' #txt
-Ae0 f12 actionCode 'if(in.note.trim().length()>0)
-{
-	if(in.noteFor.equals("task")){
-		in.tmpTask.createNote(in.wfSession,in.note);
-	}else{
-		in.tempCase.createNote(in.wfSession,in.note);
-	}
-}' #txt
-Ae0 f12 type htmlwfui.Data #txt
-Ae0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
-Ae0 f12 94 156 36 24 20 -2 #rect
-Ae0 f12 @|StepIcon #fIcon
-Ae0 f28 expr data #txt
-Ae0 f28 outCond ivp=="LinkA.ivp" #txt
-Ae0 f28 112 116 112 156 #arcP
-Ae0 f19 expr out #txt
-Ae0 f19 112 180 112 226 #arcP
-Ae0 f20 expr data #txt
-Ae0 f20 outCond ivp=="LinkB.ivp" #txt
-Ae0 f20 100 116 105 233 #arcP
-Ae0 f20 1 48 168 #addKink
-Ae0 f20 0 0.9641564137988272 0 0 #arcLabel
-Ae0 f2 expr out #txt
-Ae0 f2 112 61 112 92 #arcP
-Ae0 f3 expr in #txt
-Ae0 f3 112 254 112 291 #arcP
 Ae0 f4 outParamDecl '<> result;
 ' #txt
 Ae0 f4 actionDecl 'htmlwfui.Data out;
@@ -127,17 +62,43 @@ Ae0 f4 @|StartSubIcon #fIcon
 Ae0 f5 type htmlwfui.Data #txt
 Ae0 f5 1043 595 26 26 14 0 #rect
 Ae0 f5 @|EndSubIcon #fIcon
+Ae0 f6 targetWindow NEW:card: #txt
+Ae0 f6 targetDisplay TOP #txt
+Ae0 f6 richDialogId htmlwfui.AddNote #txt
+Ae0 f6 startMethod start(htmlwfui.Data) #txt
+Ae0 f6 type htmlwfui.Data #txt
+Ae0 f6 requestActionDecl '<htmlwfui.Data data> param;' #txt
+Ae0 f6 requestMappingAction 'param.data=in;
+' #txt
+Ae0 f6 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Ae0 f6 responseMappingAction 'out=in;
+' #txt
+Ae0 f6 windowConfiguration '* ' #txt
+Ae0 f6 isAsynch false #txt
+Ae0 f6 isInnerRd false #txt
+Ae0 f6 userContext '* ' #txt
+Ae0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Bemerkung
+hinzufügen</name>
+        <nameStyle>20,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ae0 f6 94 116 36 24 20 -2 #rect
+Ae0 f6 @|RichDialogIcon #fIcon
+Ae0 f7 expr out #txt
+Ae0 f7 112 77 112 116 #arcP
+Ae0 f2 expr out #txt
+Ae0 f2 112 140 112 179 #arcP
 >Proto Ae0 .type htmlwfui.Data #txt
 >Proto Ae0 .processKind CALLABLE_SUB #txt
 >Proto Ae0 0 0 32 24 18 0 #rect
 >Proto Ae0 @|BIcon #fIcon
-Ae0 f11 out f28 tail #connect
-Ae0 f28 head f12 mainIn #connect
-Ae0 f12 mainOut f19 tail #connect
-Ae0 f19 head f18 in #connect
-Ae0 f11 out f20 tail #connect
-Ae0 f20 head f18 in #connect
-Ae0 f0 mainOut f2 tail #connect
-Ae0 f2 head f11 mainIn #connect
-Ae0 f18 out f3 tail #connect
-Ae0 f3 head f1 mainIn #connect
+Ae0 f0 mainOut f7 tail #connect
+Ae0 f7 head f6 mainIn #connect
+Ae0 f6 mainOut f2 tail #connect
+Ae0 f2 head f1 mainIn #connect

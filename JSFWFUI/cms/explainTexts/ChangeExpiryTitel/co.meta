@@ -1,0 +1,4 @@
+co: name={ChangeExpiryTitel} description={} changed={2013-02-06 14:42:22 CET} changedby={dje} visualorder={0} guid={13CAFBD5C1F3EE10} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={13CAFBD5C2E7B0D1} datatype={} isdefault={true} langid={de} description={} validfrom={2013-02-06 14:41:28 CET} validto={} changed={2013-02-06 14:41:50 CET} changedby={dje} properties={} id={}
+val: guid={13CAFBD742144311} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-02-06 14:41:34 CET} validto={} changed={2013-02-06 14:42:02 CET} changedby={dje} properties={} id={}
+val: guid={13CAFBD69E4B91BF} datatype={} isdefault={false} langid={en} description={} validfrom={2013-02-06 14:41:31 CET} validto={} changed={2013-02-06 14:42:22 CET} changedby={dje} properties={} id={}

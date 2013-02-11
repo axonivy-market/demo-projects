@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 15 08:21:57 CET 2013]
+[>Created: Fri Feb 08 11:06:14 CET 2013]
 13C396B7903D95C0 3.17 #module
 >Proto >Proto Collection #zClass
 Rt0 TaskHistory0 Big #zClass
@@ -138,7 +138,7 @@ Rt0 f0 triggerEnabled false #txt
 Rt0 f0 callSignature start1() #txt
 Rt0 f0 persist false #txt
 Rt0 f0 taskData '#
-#Tue Jan 15 08:21:55 CET 2013
+#Fri Feb 08 11:04:29 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -147,7 +147,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Rt0 f0 caseData '#
-#Tue Jan 15 08:21:55 CET 2013
+#Fri Feb 08 11:04:29 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -174,7 +174,7 @@ subType.name=
 type.code=
 type.name=
 ' #txt
-Rt0 f0 showInStartList 0 #txt
+Rt0 f0 showInStartList 1 #txt
 Rt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
 import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
@@ -197,7 +197,7 @@ Rt0 f0 @C|.responsibility Everybody #txt
 Rt0 f0 83 19 26 26 14 0 #rect
 Rt0 f0 @|StartRequestIcon #fIcon
 Rt0 f30 type htmlwfui.Data #txt
-Rt0 f30 processCall 'Functional Processes/TaskDetail:call(htmlwfui.Data)' #txt
+Rt0 f30 processCall 'Functional Processes/TaskDetail0:call(htmlwfui.Data)' #txt
 Rt0 f30 doCall true #txt
 Rt0 f30 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt

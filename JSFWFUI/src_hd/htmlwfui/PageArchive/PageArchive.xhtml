@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui">
+ 
+<h:body>
+	<ui:composition template="../HomeTemplate.xhtml">
+
+		<ui:define name="center">
+			<p:layoutUnit position="center" header="#{ivy.cms.co('/explainTexts/PageArchive')}">
+			<br></br>
+			<h:outputText value="#{data.data.temp.description}"/>
+			<br></br><br></br><br></br>
+			<h:outputText value="#{ivy.cms.co('/explainTexts/PageArchive')}" style="font-weight:bold; font-size:12pt;"/>
+			<hr></hr>
+			<br></br>
+			<h:form id="form1">
+			<p:panel id="thePanel">
+    			<p:dataTable id="dataTable" value="#{data.data.pageArchives}" var="archive" emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}" rowIndexVar="row">  
+       				
+       				<p:column id="absenceStart">  
+            			<f:facet name="header">  
+                			<h:outputText value="#" />  
+
+            			</f:facet>
+                    	<h:commandLink actionListener="#{logic.toArchive}" title="Anzeigen Archive Page" align="center" ajax="false">
+							<h:graphicImage library="ivy-cms" name="images/formHistory" alt="#{archive.id}" style="border:0pt"/>
+						</h:commandLink> 
+         			</p:column>
+         			
+        			<p:column sortBy="#{archive.name}">  
+            			<f:facet name="header">  
+                			<h:outputText value="#{ivy.cms.co('/labels/page')}" />  
+            			</f:facet>
+            			<p:commandLink actionListener="#{logic.toArchive}" title="Anzeigen" ajax="false">  
+        					<h:outputText value="#{archive.name}" />  
+    					</p:commandLink>  
+        			</p:column>
+        			
+    			</p:dataTable>
+    			<br></br>
+				<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.back}" ajax="false"/>
+    		</p:panel>
+			</h:form>
+			</p:layoutUnit>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>
