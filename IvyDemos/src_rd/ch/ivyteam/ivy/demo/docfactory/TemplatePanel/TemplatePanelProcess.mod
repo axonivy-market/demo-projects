@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed May 18 10:28:29 CEST 2011]
+[>Created: Wed Feb 13 20:03:20 EST 2013]
 124A0A18116D9EA3 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TemplatePanelProcess Big #zClass
@@ -335,7 +335,7 @@ if(in.#documentFactory!=null && new java.io.File(in.templatePath).exists()){
 			int j=0;
 			while(j<sublist.size() && !sublist.get(j).toLowerCase().startsWith("tableend:"))
 			{
-				ivy.log.info("We have to remove "+ sublist.get(j));
+				//ivy.log.info("We have to remove "+ sublist.get(j));
 				mergFieldsPosToReject.add(i+j);
 				j++;
 			}

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 15 09:25:53 EST 2012]
+[>Created: Tue Feb 12 14:41:30 EST 2013]
 12BAAF77763F86CB 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 StartFileManagerProcess Big #zClass
@@ -47,10 +47,12 @@ Ss0 @PushWFArc f10 '' #zField
 Ss0 @PushWFArc f31 '' #zField
 Ss0 @RichDialogProcessStep f14 '' #zField
 Ss0 @RichDialogProcessStart f33 '' #zField
-Ss0 @PushWFArc f34 '' #zField
 Ss0 @PushWFArc f32 '' #zField
 Ss0 @RichDialogProcessEnd f35 '' #zField
 Ss0 @PushWFArc f36 '' #zField
+Ss0 @RichDialogProcessStep f2 '' #zField
+Ss0 @PushWFArc f37 '' #zField
+Ss0 @PushWFArc f34 '' #zField
 >Proto Ss0 Ss0 StartFileManagerProcess #zField
 Ss0 f0 guid 12BAAF777B32E0E5 #txt
 Ss0 f0 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
@@ -288,52 +290,60 @@ try{
 	ActionEvent ev = event as ActionEvent;
 	panel.startButton1.enabled=true;
 	
-	RCheckBox rc = ev.getSource() as RCheckBox;
-	
-	if(rc.getName().equalsIgnoreCase(panel.activateFilesAsBlobCheckBox.getName()))
+if(ev.getSource() instanceof RCheckBox)
 	{
-		if(panel.activateFilesAsBlobCheckBox.selected)
-		{//files are stored as BLOB in an external database, this is not compatible with the files storage on the file set
-			panel.activateIvySystemDBCheckBox.selected=false;
-			panel.filesInFileSetCheckBox.selected=false;
-			panel.activateFileVersioningCheckBox.enabled=true;
-			panel.activateSecurityCheckBox.enabled=true;
-			panel.activateTypeCheckBox.enabled=true;
-			panel.activateTagsCheckBox.enabled=true;
-			panel.activateHistoryCheckBox.enabled=true;
-			out.configurationController.rootPath="root/storeInDb";
-		}else{//this two features need files stored as blob
+		RCheckBox rc = ev.getSource() as RCheckBox;
+		
+		if(rc.getName().equalsIgnoreCase(panel.activateFilesAsBlobCheckBox.getName()))
+		{
+			if(panel.activateFilesAsBlobCheckBox.selected)
+			{//files are stored as BLOB in an external database, this is not compatible with the files storage on the file set
+				panel.activateIvySystemDBCheckBox.selected=false;
+				panel.filesInFileSetCheckBox.selected=false;
+				panel.activateFileVersioningCheckBox.enabled=true;
+				panel.activateSecurityCheckBox.enabled=true;
+				panel.activateTypeCheckBox.enabled=true;
+				panel.activateTagsCheckBox.enabled=true;
+				panel.activateHistoryCheckBox.enabled=true;
+				out.configurationController.rootPath="root/storeInDb";
+			}else{//this two features need files stored as blob
+				panel.activateFileVersioningCheckBox.enabled=false;
+				panel.activateSecurityCheckBox.enabled=false;
+				panel.activateTypeCheckBox.enabled=false;
+				panel.activateTagsCheckBox.enabled=false;
+				panel.activateHistoryCheckBox.enabled=false;
+			}
+		}
+		else if(rc.getName().equalsIgnoreCase(panel.activateIvySystemDBCheckBox.getName()) && panel.activateIvySystemDBCheckBox.selected)
+		{//files are stored on the file set and the files informations are stored in the Ivy system DB, all other options cannot be activated
+			panel.activateFilesAsBlobCheckBox.selected=false;
 			panel.activateFileVersioningCheckBox.enabled=false;
 			panel.activateSecurityCheckBox.enabled=false;
 			panel.activateTypeCheckBox.enabled=false;
 			panel.activateTagsCheckBox.enabled=false;
 			panel.activateHistoryCheckBox.enabled=false;
+			panel.filesInFileSetCheckBox.selected=false;
+			out.configurationController.rootPath="root/storeOnServerAndIvyDb";
 		}
-	}
-	else if(rc.getName().equalsIgnoreCase(panel.activateIvySystemDBCheckBox.getName()) && panel.activateIvySystemDBCheckBox.selected)
-	{//files are stored on the file set and the files informations are stored in the Ivy system DB, all other options cannot be activated
-		panel.activateFilesAsBlobCheckBox.selected=false;
-		panel.activateFileVersioningCheckBox.enabled=false;
-		panel.activateSecurityCheckBox.enabled=false;
-		panel.activateTypeCheckBox.enabled=false;
-		panel.activateTagsCheckBox.enabled=false;
-		panel.activateHistoryCheckBox.enabled=false;
-		panel.filesInFileSetCheckBox.selected=false;
-		out.configurationController.rootPath="root/storeOnServerAndIvyDb";
-	}
-	else if(rc.getName().equalsIgnoreCase(panel.filesInFileSetCheckBox.getName()) && panel.filesInFileSetCheckBox.selected)
-	{//files are stored on the file set and the files informations are stored in an external database, all other options cannot be activated
-		panel.activateFilesAsBlobCheckBox.selected=false;
-		panel.activateFileVersioningCheckBox.enabled=false;
-		panel.activateSecurityCheckBox.enabled=false;
-		panel.activateTypeCheckBox.enabled=false;
-		panel.activateTagsCheckBox.enabled=false;
-		panel.activateHistoryCheckBox.enabled=false;
-		panel.activateIvySystemDBCheckBox.selected=false;
-		out.configurationController.rootPath="root/storeOnServer";
-	}
+		else if(rc.getName().equalsIgnoreCase(panel.filesInFileSetCheckBox.getName()) && panel.filesInFileSetCheckBox.selected)
+		{//files are stored on the file set and the files informations are stored in an external database, all other options cannot be activated
+			panel.activateFilesAsBlobCheckBox.selected=false;
+			panel.activateFileVersioningCheckBox.enabled=false;
+			panel.activateSecurityCheckBox.enabled=false;
+			panel.activateTypeCheckBox.enabled=false;
+			panel.activateTagsCheckBox.enabled=false;
+			panel.activateHistoryCheckBox.enabled=false;
+			panel.activateIvySystemDBCheckBox.selected=false;
+			out.configurationController.rootPath="root/storeOnServer";
 	
+		}
+		
+	}
 	if(!panel.filesInFileSetCheckBox.selected && !panel.activateIvySystemDBCheckBox.selected && !panel.activateFilesAsBlobCheckBox.selected)
+	{
+		panel.startButton1.enabled=false;
+	}
+	if(!panel.activateIvySystemDBCheckBox.selected && panel.dbComboBox.selectedIndex<0)
 	{
 		panel.startButton1.enabled=false;
 	}
@@ -364,7 +374,6 @@ out.configurationController.activateSecurity=panel.activateSecurityCheckBox.sele
 out.configurationController.allowUserToSetDocumentFileTypes=true /*we set this to true to allow the user to choose the fileTypes on the documents */;
 out.configurationController.allowUserToSetDocumentTags=true /*we set this to true to allow the user to set the fileTags on the documents*/;
 out.configurationController.fileActionHistoryConfiguration.activateFileActionHistory=panel.activateHistoryCheckBox.selected;
-out.configurationController.ivyDBConnectionName="filemanager";
 out.configurationController.showFileTypeInTable=true /*we set this to true to see the fileTypes in the table if the option is selected*/;
 out.configurationController.showFileTypeManagement=true /*we set this to true to allow to manage the fileTypes if the option is selected*/;
 out.configurationController.storeFilesInDB=panel.activateFilesAsBlobCheckBox.selected;
@@ -377,13 +386,17 @@ try{
 		//ignoring the NumberFormatException
 }
 
-out.configurationController.maxFileUploadSize = n;' #txt
+out.configurationController.maxFileUploadSize = n;
+if(panel.dbComboBox.selectedListEntry!=null && panel.dbComboBox.selectedListEntry.toString().trim().length()!=0)
+{
+	out.configurationController.ivyDBConnectionName=panel.dbComboBox.selectedListEntry.toString();
+}' #txt
 Ss0 f19 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
 Ss0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>map the settings in the configuration controller</name>
-        <nameStyle>48
+        <nameStyle>48,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -478,7 +491,7 @@ Ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>preselect the language</name>
-        <nameStyle>22
+        <nameStyle>22,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -502,8 +515,6 @@ Ss0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ss0 f33 278 46 20 20 13 0 #rect
 Ss0 f33 @|RichDialogProcessStartIcon #fIcon
-Ss0 f34 expr out #txt
-Ss0 f34 120 108 120 174 #arcP
 Ss0 f32 expr out #txt
 Ss0 f32 288 66 288 100 #arcP
 Ss0 f35 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
@@ -511,10 +522,43 @@ Ss0 f35 278 158 20 20 13 0 #rect
 Ss0 f35 @|RichDialogProcessEndIcon #fIcon
 Ss0 f36 expr out #txt
 Ss0 f36 288 124 288 158 #arcP
+Ss0 f2 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData out;
+' #txt
+Ss0 f2 actionTable 'out=in;
+' #txt
+Ss0 f2 actionCode 'import ch.ivyteam.ivy.application.IExternalDatabaseConfiguration;
+
+List<IExternalDatabaseConfiguration> l = ivy.wf.getApplication().getExternalDatabaseConfigurations();
+in.databases.clear();
+for(IExternalDatabaseConfiguration conf : l)
+{
+	in.databases.add(conf.userFriendlyName);
+}
+panel.dbComboBox.listData=in.databases;
+if(in.databases.size()>0){
+	panel.dbComboBox.setSelectedIndex(0);
+}' #txt
+Ss0 f2 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
+Ss0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>get databases</name>
+        <nameStyle>13,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f2 102 132 36 24 20 -2 #rect
+Ss0 f2 @|RichDialogProcessStepIcon #fIcon
+Ss0 f37 expr out #txt
+Ss0 f37 120 108 120 132 #arcP
+Ss0 f34 expr out #txt
+Ss0 f34 120 156 120 174 #arcP
 >Proto Ss0 .ui2RdDataAction 'out.configurationController.rootPath=panel.serverpathTextField.valueAsString;
 ' #txt
 >Proto Ss0 .rdData2UIAction 'panel.serverpathTextField.valueAsString=in.configurationController.rootPath;
 panel.langComboBox.listData=["Deutsch","English","Français"];
+panel.dbComboBox.listData=in.databases;
 ' #txt
 >Proto Ss0 .type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
 >Proto Ss0 .processKind RICH_DIALOG #txt
@@ -548,9 +592,11 @@ Ss0 f10 head f18 mainIn #connect
 Ss0 f5 out f31 tail #connect
 Ss0 f31 head f6 mainIn #connect
 Ss0 f5 out f20 tail #connect
-Ss0 f11 mainOut f34 tail #connect
-Ss0 f34 head f1 mainIn #connect
 Ss0 f33 mainOut f32 tail #connect
 Ss0 f32 head f14 mainIn #connect
 Ss0 f14 mainOut f36 tail #connect
 Ss0 f36 head f35 mainIn #connect
+Ss0 f11 mainOut f37 tail #connect
+Ss0 f37 head f2 mainIn #connect
+Ss0 f2 mainOut f34 tail #connect
+Ss0 f34 head f1 mainIn #connect

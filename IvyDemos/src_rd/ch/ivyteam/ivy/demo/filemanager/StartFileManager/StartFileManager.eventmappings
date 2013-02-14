@@ -4,7 +4,8 @@
 ~.activateFileVersioningCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.activateIvySystemDBCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.activateSecurityCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
+~.dbComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E # StartFileManagerProcess.mod/settingsChanged
 ~.filesInFileSetCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.startButton1@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/12BAC14555292A90
-~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/13AD1235E5DFD414 # StartFileManagerProcess.mod/onLoad
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/13AD1235E5DFD414
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/12BAAF777B32E0E5

@@ -4,3 +4,5 @@ login boolean #field
 login 'flag to check if the login was succesful in case ofg security feature activation' #fieldComment
 configurationController ch.ivyteam.ivy.addons.filemanager.configuration.FileManagerConfigurationController #field
 configurationController 'the configuration Controller that keeps all the needed infos to be able to start the fileManager.' #fieldComment
+databases List<String> #field
+databases 'The list of IExternalDatabase name' #fieldComment

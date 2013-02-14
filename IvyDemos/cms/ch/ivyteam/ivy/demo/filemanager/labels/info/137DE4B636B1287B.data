@@ -1,7 +1,6 @@
 <P>
 <B>Important informations:</B>
-<BR><BR>
-
+<BR>
 The FileManager is configured with a FileManagerConfigurationController object.<BR>
 This object stores all the settings needed for the FileManager.<BR>
 <BR>

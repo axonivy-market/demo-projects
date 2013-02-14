@@ -47,6 +47,8 @@ private RTextField maxFileSizeTextField = null;
 private RCheckBox activateHistoryCheckBox = null;
 private RLabel languageLabel = null;
 private RComboBox langComboBox = null;
+private RComboBox dbComboBox = null;
+private RLabel dbLabel = null;
 /**
    * Create a new instance of StartFileManagerPanel
    */
@@ -92,6 +94,8 @@ private RGridBagLayoutPane getGridBagLayoutPane1() {
 		GridBagLayoutPane1.add(getMaxFileSizeTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		GridBagLayoutPane1.add(getLanguageLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		GridBagLayoutPane1.add(getLangComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getDbComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getDbLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return GridBagLayoutPane1;
 }
@@ -120,7 +124,7 @@ private RLabel getRootDirectoryPathLabel() {
 	if (rootDirectoryPathLabel == null) {
 		rootDirectoryPathLabel = new RLabel();
 		rootDirectoryPathLabel.setText("Server root directory :");
-		rootDirectoryPathLabel.setStyleProperties("{/font {/name \"Dialog\"/size \"14\"/style \"PLAIN\"}/fill \"HORIZONTAL\"}");
+		rootDirectoryPathLabel.setStyleProperties("{/font {/name \"Dialog\"/size \"14\"/style \"PLAIN\"}/insetsBottom \"5\"/fill \"HORIZONTAL\"}");
 		rootDirectoryPathLabel.setName("rootDirectoryPathLabel");
 	}
 	return rootDirectoryPathLabel;
@@ -135,7 +139,7 @@ private RTextField getServerpathTextField() {
 	if (serverpathTextField == null) {
 		serverpathTextField = new RTextField();
 		serverpathTextField.setText("");
-		serverpathTextField.setStyleProperties("{/fill \"HORIZONTAL\"/insetsLeft \"10\"}");
+		serverpathTextField.setStyleProperties("{/insetsBottom \"5\"/fill \"HORIZONTAL\"/insetsLeft \"10\"}");
 		serverpathTextField.setName("serverpathTextField");
 	}
 	return serverpathTextField;
@@ -309,7 +313,7 @@ private RLabel getMaxFileSizeLabel() {
 	if (maxFileSizeLabel == null) {
 		maxFileSizeLabel = new RLabel();
 		maxFileSizeLabel.setText("Max. File upload size in Kb (0 means unlimited)");
-		maxFileSizeLabel.setStyleProperties("{/font {/name \"Dialog\"/size \"14\"/style \"PLAIN\"}}");
+		maxFileSizeLabel.setStyleProperties("{/font {/name \"Dialog\"/size \"14\"/style \"PLAIN\"}/insetsBottom \"5\"}");
 		maxFileSizeLabel.setName("maxFileSizeLabel");
 	}
 	return maxFileSizeLabel;
@@ -324,7 +328,7 @@ private RTextField getMaxFileSizeTextField() {
 	if (maxFileSizeTextField == null) {
 		maxFileSizeTextField = new RTextField();
 		maxFileSizeTextField.setText("");
-		maxFileSizeTextField.setStyleProperties("{/anchor \"WEST\"/insetsLeft \"10\"}");
+		maxFileSizeTextField.setStyleProperties("{/anchor \"WEST\"/insetsBottom \"5\"/insetsLeft \"10\"}");
 		maxFileSizeTextField.setName("maxFileSizeTextField");
 	}
 	return maxFileSizeTextField;
@@ -373,5 +377,35 @@ private RComboBox getLangComboBox() {
 		langComboBox.setModelConfiguration("{/result \"\"/version \"3.0\"/icon \"\"/tooltip \"\"}");
 	}
 	return langComboBox;
+}
+
+/**
+ * This method initializes dbComboBox	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RComboBox	
+ */
+private RComboBox getDbComboBox() {
+	if (dbComboBox == null) {
+		dbComboBox = new RComboBox();
+		dbComboBox.setName("dbComboBox");
+		dbComboBox.setModelConfiguration("{/result \"result=entry\"/version \"3.0\"/icon \"\"/tooltip \"\"}");
+		dbComboBox.setStyleProperties("{/anchor \"WEST\"/insetsBottom \"5\"/insetsLeft \"10\"}");
+	}
+	return dbComboBox;
+}
+
+/**
+ * This method initializes dbLabel	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
+ */
+private RLabel getDbLabel() {
+	if (dbLabel == null) {
+		dbLabel = new RLabel();
+		dbLabel.setText("Database connection:");
+		dbLabel.setStyleProperties("{/font {/name \"Dialog\"/size \"14\"/style \"PLAIN\"}/insetsBottom \"5\"/fill \"HORIZONTAL\"}");
+		dbLabel.setName("dbLabel");
+	}
+	return dbLabel;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"
