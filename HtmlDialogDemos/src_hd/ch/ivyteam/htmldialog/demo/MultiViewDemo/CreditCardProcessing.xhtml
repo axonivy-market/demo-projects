@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pm="http://primefaces.org/mobile">
+ 
+    <h:head>
+        <title>Multi View Demo</title>
+    </h:head>
+    <h:body>
+        <h:form id="myForm">
+	       	<p:panel header="Multi View Demo" id="panel">
+		        <h3>Payment - Credit Card Processing</h3>
+		        <p:outputPanel rendered="#{data.processing}">
+			        <p:outputLabel value="Verifying credit card. Please wait ..."/><br/>
+			        <p:graphicImage name="images/ajax-loader.gif"/> 
+		        </p:outputPanel>
+		        <p:outputPanel rendered="#{not data.processing}">
+			        <p:outputLabel value="Credit card verified!"/><br/>
+			        <p:commandButton value="Submit" action="#{logic.nextView('CreditCardProcessing')}"/>
+		        </p:outputPanel>
+		       	<p:poll interval="3" stop="#{not data.processing}" autoStart="true" listener="#{logic.stopProcessing}" update="myForm"/>
+		    </p:panel>
+        </h:form>    	
+    </h:body>
+</html>

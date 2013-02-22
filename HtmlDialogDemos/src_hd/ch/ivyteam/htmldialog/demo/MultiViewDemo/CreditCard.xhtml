@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pm="http://primefaces.org/mobile">
+ 
+    <h:head>
+        <title>Multi View Demo</title>
+    </h:head>
+    <h:body>
+        <h:form id="myForm">
+           	<p:panel header="Multi View Demo" id="panel">
+	    	    <h3>Payment - Credit Card</h3>
+	    	    <p:messages id="msgs"/>
+	    	    <h:panelGrid columns="2">
+		         	<p:outputLabel value="Credit Card Number"/>
+		         	<p:inputText required="true" value="#{data.creditCardNumber}" id="CreditCardNumber"></p:inputText>
+	        	</h:panelGrid>           
+	    	    
+	        	<p:commandButton value="Submit" update="myForm" action="#{logic.nextView('CreditCard')}"/>
+        	</p:panel>
+        </h:form>    	
+    </h:body>
+</html>

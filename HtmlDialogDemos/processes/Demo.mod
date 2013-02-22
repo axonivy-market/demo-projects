@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 21 14:44:59 CET 2013]
+[>Created: Fri Feb 22 13:52:57 CET 2013]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -78,6 +78,11 @@ Do0 @RichDialog f63 '' #zField
 Do0 @EndTask f64 '' #zField
 Do0 @PushWFArc f65 '' #zField
 Do0 @PushWFArc f66 '' #zField
+Do0 @StartRequest f67 '' #zField
+Do0 @EndTask f68 '' #zField
+Do0 @RichDialog f69 '' #zField
+Do0 @PushWFArc f70 '' #zField
+Do0 @PushWFArc f71 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -1308,6 +1313,93 @@ Do0 f65 expr out #txt
 Do0 f65 768 701 768 740 #arcP
 Do0 f66 expr out #txt
 Do0 f66 768 764 768 803 #arcP
+Do0 f67 outLink MultiViewDemo.ivp #txt
+Do0 f67 type htmlDialogDemos.Data #txt
+Do0 f67 inParamDecl '<> param;' #txt
+Do0 f67 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f67 guid 13D01F5F44A8308D #txt
+Do0 f67 requestEnabled true #txt
+Do0 f67 triggerEnabled false #txt
+Do0 f67 callSignature MultiViewDemo() #txt
+Do0 f67 persist false #txt
+Do0 f67 startName 'Multi View Demo' #txt
+Do0 f67 taskData '#
+#Fri Feb 22 13:52:51 CET 2013
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f67 caseData '#
+#Fri Feb 22 13:52:51 CET 2013
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f67 showInStartList 1 #txt
+Do0 f67 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>MultiViewDemo.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+Do0 f67 @C|.responsibility Everybody #txt
+Do0 f67 83 867 26 26 14 0 #rect
+Do0 f67 @|StartRequestIcon #fIcon
+Do0 f68 type htmlDialogDemos.Data #txt
+Do0 f68 83 1003 26 26 14 0 #rect
+Do0 f68 @|EndIcon #fIcon
+Do0 f69 targetWindow NEW #txt
+Do0 f69 targetDisplay TOP #txt
+Do0 f69 richDialogId ch.ivyteam.htmldialog.demo.MultiViewDemo #txt
+Do0 f69 startMethod start() #txt
+Do0 f69 type htmlDialogDemos.Data #txt
+Do0 f69 requestActionDecl '<> param;' #txt
+Do0 f69 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f69 isAsynch false #txt
+Do0 f69 isInnerRd false #txt
+Do0 f69 78 924 36 24 20 -2 #rect
+Do0 f69 @|RichDialogIcon #fIcon
+Do0 f70 expr out #txt
+Do0 f70 96 893 96 924 #arcP
+Do0 f71 expr out #txt
+Do0 f71 96 948 96 1003 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1319,7 +1411,7 @@ Do0 f66 768 764 768 803 #arcP
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
     <swimlaneSize>248</swimlaneSize>
-    <swimlaneSize>672</swimlaneSize>
+    <swimlaneSize>928</swimlaneSize>
     <swimlaneColor>-1</swimlaneColor>
     <swimlaneColor>-6710887</swimlaneColor>
 </elementInfo>
@@ -1380,3 +1472,7 @@ Do0 f62 mainOut f65 tail #connect
 Do0 f65 head f63 mainIn #connect
 Do0 f63 mainOut f66 tail #connect
 Do0 f66 head f64 mainIn #connect
+Do0 f67 mainOut f70 tail #connect
+Do0 f70 head f69 mainIn #connect
+Do0 f69 mainOut f71 tail #connect
+Do0 f71 head f68 mainIn #connect

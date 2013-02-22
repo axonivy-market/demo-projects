@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pm="http://primefaces.org/mobile">
+ 
+    <h:head>
+        <title>Multi View Demo</title>
+    </h:head>
+    <h:body>
+        <h:form id="myForm">
+        	<p:panel header="Multi View Demo" id="panel">
+        		<p>This demo shows how Html Dialog can be implemented using mutliple View (*.xhtml) files. This allows to hide the complexity of a complex user interaction from the business process. The user interaction is implemented fully in the Html Dialog.</p>
+    	 		<h3>Payment</h3>
+    	 		<p:messages id="msgs"/>
+	        	<h:panelGrid columns="2">
+	        	 	<p:outputLabel value="Name"/>
+	        	 	<p:inputText required="true" value="#{data.name}" id="Name"></p:inputText>
+	        	 	<p:outputLabel value="First Name"/>
+	        	 	<p:inputText required="true" value="#{data.firstName}" id="FirstName"></p:inputText>
+	        	 	<p:outputLabel value="Payment Kind"/>
+	        	 	<p:selectOneRadio id="options" value="#{data.paymentKind}">
+						<f:selectItem itemLabel="Invoice" itemValue="Invoice" />
+						<f:selectItem itemLabel="Credit Card" itemValue="CreditCard" />
+				   </p:selectOneRadio>  
+	        	</h:panelGrid>           
+	        	<p:commandButton value="Submit" update="myForm" action="#{logic.nextView('MultiViewDemo')}"/>
+	        </p:panel>
+        </h:form>    	
+    </h:body>
+</html>
