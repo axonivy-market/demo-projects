@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pm="http://primefaces.org/mobile">
+ 
+    <h:head>
+        <title>JSF File Upload</title>
+        
+    </h:head>
+    <h:body>
+    <p:panel header="File Upload Demo">
+    	
+    	<h:form id="pictureGalleryForm" enctype="multipart/form-data">
+			<p:galleria id="pictureGallery" value="#{data.images}" var="imagename" panelWidth="500" panelHeight="313" showCaption="true">
+			    <p:graphicImage library="ivy-cms" name="ch.ivyteam.htmldialog.demo/fileUploadImages/#{imagename}" alt="Image Description for #{imagename}" width="500" title="#{imagename}"/>
+			</p:galleria>
+    	<br/><br/>
+			<h:outputLabel value="Add a image to the gallery (gif, jpg or png):"></h:outputLabel><br />
+			<p:fileUpload
+				id="fileUpload"
+				fileUploadListener="#{logic.uploadFile}"
+				allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+				auto="true"
+				mode="advanced"
+				update="pictureGallery"
+				oncomplete="$('#pictureGalleryForm').submit();"/><br/>
+		</h:form>
+		</p:panel>
+    </h:body>
+</html>
