@@ -19,10 +19,10 @@
 	    	    <p:messages id="msgs"/>
 	    	    <h:panelGrid columns="2">
 		         	<p:outputLabel value="Credit Card Number"/>
-		         	<p:inputText required="true" value="#{data.creditCardNumber}" id="CreditCardNumber"></p:inputText>
+		         	<p:inputMask required="true" value="#{data.creditCardNumber}" id="CreditCardNumber" mask="9999-9999-9999-9999"></p:inputMask>
 	        	</h:panelGrid>           
 	    	    
-	        	<p:commandButton value="Submit" update="myForm" action="#{logic.nextView('CreditCard')}"/>
+	        	<p:commandButton value="Next" update="myForm" action="#{logic.nextView('CreditCard')}"/>
         	</p:panel>
         </h:form>    	
     </h:body>

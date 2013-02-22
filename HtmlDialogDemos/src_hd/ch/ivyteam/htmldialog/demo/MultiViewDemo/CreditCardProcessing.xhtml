@@ -22,7 +22,7 @@
 		        </p:outputPanel>
 		        <p:outputPanel rendered="#{not data.processing}">
 			        <p:outputLabel value="Credit card verified!"/><br/>
-			        <p:commandButton value="Submit" action="#{logic.nextView('CreditCardProcessing')}"/>
+			        <p:commandButton value="Finish" action="#{logic.nextView('CreditCardProcessing')}"/>
 		        </p:outputPanel>
 		       	<p:poll interval="3" stop="#{not data.processing}" autoStart="true" listener="#{logic.stopProcessing}" update="myForm"/>
 		    </p:panel>

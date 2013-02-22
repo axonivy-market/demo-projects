@@ -19,17 +19,17 @@
     	 		<h3>Payment</h3>
     	 		<p:messages id="msgs"/>
 	        	<h:panelGrid columns="2">
-	        	 	<p:outputLabel value="Name"/>
+	        	 	<p:outputLabel value="Name" for="Name"/>
 	        	 	<p:inputText required="true" value="#{data.name}" id="Name"></p:inputText>
-	        	 	<p:outputLabel value="First Name"/>
+	        	 	<p:outputLabel value="First Name" for="FirstName"/>
 	        	 	<p:inputText required="true" value="#{data.firstName}" id="FirstName"></p:inputText>
-	        	 	<p:outputLabel value="Payment Kind"/>
+	        	 	<p:outputLabel value="Payment Kind" for="options"/>
 	        	 	<p:selectOneRadio id="options" value="#{data.paymentKind}">
 						<f:selectItem itemLabel="Invoice" itemValue="Invoice" />
 						<f:selectItem itemLabel="Credit Card" itemValue="CreditCard" />
 				   </p:selectOneRadio>  
 	        	</h:panelGrid>           
-	        	<p:commandButton value="Submit" update="myForm" action="#{logic.nextView('MultiViewDemo')}"/>
+	        	<p:commandButton value="Next" update="myForm" action="#{logic.nextView('MultiViewDemo')}"/>
 	        </p:panel>
         </h:form>    	
     </h:body>
