@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Feb 22 10:29:17 CET 2013]
+[>Created: Fri Feb 22 11:26:09 CET 2013]
 13CF812672512EFC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadDemoProcess Big #zClass
@@ -21,6 +21,11 @@ Fs0 @RichDialogProcessEnd f4 '' #zField
 Fs0 @GridStep f5 '' #zField
 Fs0 @PushWFArc f6 '' #zField
 Fs0 @PushWFArc f7 '' #zField
+Fs0 @RichDialogProcessStart f11 '' #zField
+Fs0 @RichDialogProcessEnd f12 '' #zField
+Fs0 @GridStep f8 '' #zField
+Fs0 @PushWFArc f9 '' #zField
+Fs0 @PushWFArc f10 '' #zField
 >Proto Fs0 Fs0 FileUploadDemoProcess #zField
 Fs0 f0 guid 13CF812673B64819 #txt
 Fs0 f0 type ch.ivyteam.htmldialog.demo.FileUploadDemo.FileUploadDemoData #txt
@@ -129,13 +134,7 @@ else
 IContentObject newImgae = baseFolder.addChild(coName, "", coType, null);
 IContentObjectValue cov = newImgae.addValue("", null, null, null, "", true, null);
 cov.setContent(uploadedFile.getInputstream(), 0, null);
-out.images.add(0, coName);
-
-// set file name and content
-out.fileName = fileName;
-List<Byte> bytes = uploadedFile.getContents();
-out.textContent = new String(bytes,"UTF-8");
-' #txt
+out.images.add(0, coName);' #txt
 Fs0 f5 type ch.ivyteam.htmldialog.demo.FileUploadDemo.FileUploadDemoData #txt
 Fs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -152,6 +151,46 @@ Fs0 f6 expr out #txt
 Fs0 f6 192 74 192 100 #arcP
 Fs0 f7 expr out #txt
 Fs0 f7 192 124 192 150 #arcP
+Fs0 f11 guid 13D016515EC7C69A #txt
+Fs0 f11 type ch.ivyteam.htmldialog.demo.FileUploadDemo.FileUploadDemoData #txt
+Fs0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.FileUploadDemo.FileUploadDemoData out;
+' #txt
+Fs0 f11 actionTable 'out=in;
+' #txt
+Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>showContent</name>
+    </language>
+</elementInfo>
+' #txt
+Fs0 f11 438 54 20 20 13 0 #rect
+Fs0 f11 @|RichDialogProcessStartIcon #fIcon
+Fs0 f12 type ch.ivyteam.htmldialog.demo.FileUploadDemo.FileUploadDemoData #txt
+Fs0 f12 438 150 20 20 13 0 #rect
+Fs0 f12 @|RichDialogProcessEndIcon #fIcon
+Fs0 f8 actionDecl 'ch.ivyteam.htmldialog.demo.FileUploadDemo.FileUploadDemoData out;
+' #txt
+Fs0 f8 actionTable 'out=in;
+' #txt
+Fs0 f8 actionCode 'in.textContent = in.ivyFile.read();
+in.fileName = in.ivyFile.getName();' #txt
+Fs0 f8 type ch.ivyteam.htmldialog.demo.FileUploadDemo.FileUploadDemoData #txt
+Fs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>set file content and name</name>
+        <nameStyle>25,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Fs0 f8 430 100 36 24 20 -2 #rect
+Fs0 f8 @|StepIcon #fIcon
+Fs0 f9 expr out #txt
+Fs0 f9 448 74 448 100 #arcP
+Fs0 f10 expr out #txt
+Fs0 f10 448 124 448 150 #arcP
 >Proto Fs0 .type ch.ivyteam.htmldialog.demo.FileUploadDemo.FileUploadDemoData #txt
 >Proto Fs0 .processKind HTML_DIALOG #txt
 >Proto Fs0 -8 -8 16 16 16 26 #rect
@@ -162,3 +201,7 @@ Fs0 f3 mainOut f6 tail #connect
 Fs0 f6 head f5 mainIn #connect
 Fs0 f5 mainOut f7 tail #connect
 Fs0 f7 head f4 mainIn #connect
+Fs0 f11 mainOut f9 tail #connect
+Fs0 f9 head f8 mainIn #connect
+Fs0 f8 mainOut f10 tail #connect
+Fs0 f10 head f12 mainIn #connect
