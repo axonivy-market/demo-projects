@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="WorkflowUI">
         <wb-resource deploy-path="/" source-path="/webContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
@@ -6,6 +7,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_ws"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_dataClasses"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_wsproc"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_hd"/>
         <property name="context-root" value="WorkflowUI"/>
         <property name="java-output-path" value="/WorkflowUI/classes"/>
     </wb-module>
