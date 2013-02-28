@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Feb 22 11:26:09 CET 2013]
+[>Created: Thu Feb 28 11:11:54 CET 2013]
 13CF812672512EFC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadDemoProcess Big #zClass
@@ -33,6 +33,8 @@ Fs0 f0 method start() #txt
 Fs0 f0 disableUIEvents true #txt
 Fs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
+' #txt
+Fs0 f0 inParameterMapAction 'out.activeIndex="0";
 ' #txt
 Fs0 f0 inActionCode 'import ch.ivyteam.ivy.cm.IContentObject;
 
@@ -69,7 +71,8 @@ Fs0 f3 disableUIEvents false #txt
 Fs0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <org.primefaces.event.FileUploadEvent event> param = methodEvent.getInputArguments();
 ' #txt
-Fs0 f3 inParameterMapAction 'out.fileUploadEvent=param.event;
+Fs0 f3 inParameterMapAction 'out.activeIndex="0";
+out.fileUploadEvent=param.event;
 ' #txt
 Fs0 f3 outParameterDecl '<> result;
 ' #txt
@@ -91,7 +94,8 @@ Fs0 f5 actionDecl 'ch.ivyteam.htmldialog.demo.FileUploadDemo.FileUploadDemoData 
 ' #txt
 Fs0 f5 actionTable 'out=in;
 ' #txt
-Fs0 f5 actionCode 'import org.primefaces.model.UploadedFile;
+Fs0 f5 actionCode 'import java.io.InputStream;
+import org.primefaces.model.UploadedFile;
 import ch.ivyteam.ivy.cm.CoType;
 import ch.ivyteam.ivy.cm.IContentObject;
 import ch.ivyteam.ivy.cm.IContentObjectValue;
@@ -103,6 +107,12 @@ IContentObject baseFolder = ivy.cms.findContentObject("/ch.ivyteam.htmldialog.de
 
 // create new Content Object name
 String coName = fileName.substring(0, fileName.indexOf("."));
+if (coName.contains("\\") || coName.contains("/"))
+{
+	// On IE the the full file path is returned
+	int fileNameStartIndex = coName.replace("\\", "/").lastIndexOf("/");
+	coName = coName.substring(fileNameStartIndex+1);
+}
 String firstCoName = coName;
 Number counter = 1;
 while (baseFolder.getChild(coName) != null)
@@ -133,7 +143,19 @@ else
 // create Content Object item
 IContentObject newImgae = baseFolder.addChild(coName, "", coType, null);
 IContentObjectValue cov = newImgae.addValue("", null, null, null, "", true, null);
-cov.setContent(uploadedFile.getInputstream(), 0, null);
+InputStream inputStream = null;
+try
+{
+	inputStream = uploadedFile.getInputstream();
+	cov.setContent(inputStream, 0, null);
+}
+finally
+{
+	if (#inputStream != null)
+	{
+		inputStream.close();
+	}
+}
 out.images.add(0, coName);' #txt
 Fs0 f5 type ch.ivyteam.htmldialog.demo.FileUploadDemo.FileUploadDemoData #txt
 Fs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -156,11 +178,14 @@ Fs0 f11 type ch.ivyteam.htmldialog.demo.FileUploadDemo.FileUploadDemoData #txt
 Fs0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.FileUploadDemo.FileUploadDemoData out;
 ' #txt
 Fs0 f11 actionTable 'out=in;
+out.activeIndex="1";
 ' #txt
 Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>showContent</name>
+        <nameStyle>11,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt

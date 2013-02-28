@@ -1,48 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"      
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:ic="http://ivyteam.ch/jsf/component"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="http://primefaces.org/ui/extensions"
-      xmlns:pm="http://primefaces.org/mobile">
- 
-    <h:head>
-        <title>JSF File Upload</title>
-        
-    </h:head>
-    <h:body>
-    	<p:panel header="File Upload Demo I">
-	    	<h:form id="pictureGalleryForm" enctype="multipart/form-data">
-				<p:galleria id="pictureGallery" value="#{data.images}" var="imagename" panelWidth="500" panelHeight="313" showCaption="true">
-				    <p:graphicImage library="ivy-cms" name="ch.ivyteam.htmldialog.demo/fileUploadImages/#{imagename}" alt="Image Description for #{imagename}" width="500" title="#{imagename}"/>
-				</p:galleria>
-	    		<br/><br/>
-				<h:outputLabel value="Add a image to the gallery (gif, jpg or png):"></h:outputLabel><br />
-				<p:fileUpload
-					id="fileUpload"
-					fileUploadListener="#{logic.uploadFile}"
-					allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
-					auto="true"
-					mode="advanced"
-					label="Add Image"
-					oncomplete="$('#pictureGalleryForm').submit();"/><br/>
-			</h:form>
-		</p:panel>
-		
-		<p:panel header="File Upload Demo II">
-	    	<h:form enctype="multipart/form-data">
-	    		<h:outputLabel value="Select a text or xml file and show its content:"></h:outputLabel><br /><br />
-				<p:fileUpload 
-					value="#{data.ivyFile}"
-					mode="simple"/><br/><br/>
-					<h:outputLabel id="fileNameLabel" value="Content of #{data.fileName}:" rendered="#{not empty data.textContent}"></h:outputLabel><br/>
-					<h:inputTextarea rows="10" cols="80" id="textAreaLabel" value="#{data.textContent}" rendered="#{not empty data.textContent}"></h:inputTextarea><br/>
-				<p:commandButton value="Show Content" actionListener="#{logic.showContent}" ajax="false"/>
-			</h:form>	
-		</p:panel>
-		
-    </h:body>
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<h:head>
+	<title>JSF File Upload</title>
+
+</h:head>
+<h:body>
+	<p:panel header="File Upload Demo">
+		<p:accordionPanel multiple="false" activeIndex="#{data.activeIndex}">
+			<p:tab title="Demo I: Upload and show images">
+				<h:form id="pictureGalleryForm" enctype="multipart/form-data">
+	    		This demo shows how images from the CMS (Content Management System) could be displayed and uploaded. 
+				<p:galleria id="pictureGallery" value="#{data.images}"
+						var="imagename" panelWidth="500" panelHeight="313"
+						showCaption="true">
+						<p:graphicImage library="ivy-cms"
+							name="ch.ivyteam.htmldialog.demo/fileUploadImages/#{imagename}"
+							alt="Image Description for #{imagename}" width="500"
+							title="#{imagename}" />
+					</p:galleria>
+					<br />
+					<br />
+					<h:outputLabel
+						value="Add a image to the gallery (gif, jpg or png):"></h:outputLabel>
+					<br />
+					<p:fileUpload id="fileUpload"
+						fileUploadListener="#{logic.uploadFile}"
+						allowTypes="/(\.|\/)(gif|jpe?g|png)$/" auto="true" mode="advanced"
+						label="Add Image" oncomplete="this.form.submit();" />
+					<br />
+				</h:form>
+			</p:tab>
+			<p:tab title="Demo II: Show uploaded content">
+				<h:form enctype="multipart/form-data">
+	    		This demo shows how the content of a uploaded file could be displayed with the Ivy-File type.
+	    		<h:outputLabel
+						value="Select a text or xml file and show its content:"></h:outputLabel>
+					<br />
+					<br />
+					<p:fileUpload value="#{data.ivyFile}" mode="simple" />
+					<br />
+					<br />
+					<h:outputLabel id="fileNameLabel"
+						value="Content of #{data.fileName}:"
+						rendered="#{not empty data.textContent}"></h:outputLabel>
+					<br />
+					<h:inputTextarea rows="10" cols="80" id="textAreaLabel"
+						value="#{data.textContent}"
+						rendered="#{not empty data.textContent}"></h:inputTextarea>
+					<br />
+					<p:commandButton value="Show Content"
+						actionListener="#{logic.showContent}" ajax="false" />
+				</h:form>
+			</p:tab>
+		</p:accordionPanel>
+	</p:panel>
+
+</h:body>
 </html>
