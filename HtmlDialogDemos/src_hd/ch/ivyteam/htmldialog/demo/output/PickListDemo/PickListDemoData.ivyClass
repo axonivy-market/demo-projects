@@ -1,0 +1,4 @@
+PickListDemoData #class
+ch.ivyteam.htmldialog.demo.output.PickListDemo #namespace
+persons org.primefaces.model.DualListModel #field
+persons PERSISTENT #fieldModifier

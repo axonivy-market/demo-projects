@@ -1,0 +1,17 @@
+MultiViewDemoData #class
+ch.ivyteam.htmldialog.demo.input.MultiViewDemo #namespace
+paymentKind String #field
+paymentKind PERSISTENT #fieldModifier
+creditCardNumber String #field
+creditCardNumber PERSISTENT #fieldModifier
+name String #field
+name PERSISTENT #fieldModifier
+firstName String #field
+firstName PERSISTENT #fieldModifier
+address String #field
+address PERSISTENT #fieldModifier
+currentView String #field
+currentView PERSISTENT #fieldModifier
+nextView String #field
+nextView PERSISTENT #fieldModifier
+processing Boolean #field

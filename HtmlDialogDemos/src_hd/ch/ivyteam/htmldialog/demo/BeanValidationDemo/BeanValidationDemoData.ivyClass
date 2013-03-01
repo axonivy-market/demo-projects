@@ -1,4 +1,0 @@
-BeanValidationDemoData #class
-ch.ivyteam.htmldialog.demo.BeanValidationDemo #namespace
-person ch.ivyteam.htmldialog.demo.beanValidation.Person #field
-person PERSISTENT #fieldModifier

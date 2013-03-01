@@ -1,0 +1,4 @@
+OrderListDemoData #class
+ch.ivyteam.htmldialog.demo.output.OrderListDemo #namespace
+persons List<ch.ivyteam.htmldialog.demo.Person> #field
+persons PERSISTENT #fieldModifier

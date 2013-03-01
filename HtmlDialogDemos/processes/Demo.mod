@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Feb 22 13:52:57 CET 2013]
+[>Created: Fri Mar 01 15:15:15 CET 2013]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -247,7 +247,7 @@ Do0 f5 83 275 26 26 14 0 #rect
 Do0 f5 @|StartRequestIcon #fIcon
 Do0 f6 targetWindow NEW:card: #txt
 Do0 f6 targetDisplay TOP #txt
-Do0 f6 richDialogId htmlDialogDemos.OrderListDemo #txt
+Do0 f6 richDialogId ch.ivyteam.htmldialog.demo.output.OrderListDemo #txt
 Do0 f6 startMethod start() #txt
 Do0 f6 type htmlDialogDemos.Data #txt
 Do0 f6 requestActionDecl '<> param;' #txt
@@ -342,7 +342,7 @@ Do0 f10 307 275 26 26 14 0 #rect
 Do0 f10 @|StartRequestIcon #fIcon
 Do0 f11 targetWindow NEW:card: #txt
 Do0 f11 targetDisplay TOP #txt
-Do0 f11 richDialogId htmlDialogDemos.EditableTableDemo #txt
+Do0 f11 richDialogId ch.ivyteam.htmldialog.demo.output.EditableTableDemo #txt
 Do0 f11 startMethod start() #txt
 Do0 f11 type htmlDialogDemos.Data #txt
 Do0 f11 requestActionDecl '<> param;' #txt
@@ -438,7 +438,7 @@ Do0 f16 531 395 26 26 14 0 #rect
 Do0 f16 @|EndIcon #fIcon
 Do0 f17 targetWindow NEW:card: #txt
 Do0 f17 targetDisplay TOP #txt
-Do0 f17 richDialogId ch.ivyteam.htmldialog.demo.FormDemo #txt
+Do0 f17 richDialogId ch.ivyteam.htmldialog.demo.input.FormDemo #txt
 Do0 f17 startMethod start() #txt
 Do0 f17 type htmlDialogDemos.Data #txt
 Do0 f17 requestActionDecl '<> param;' #txt
@@ -526,7 +526,7 @@ Do0 f20 83 467 26 26 14 0 #rect
 Do0 f20 @|StartRequestIcon #fIcon
 Do0 f21 targetWindow NEW:card: #txt
 Do0 f21 targetDisplay TOP #txt
-Do0 f21 richDialogId ch.ivyteam.htmldialog.demo.PartialUpdateDemo #txt
+Do0 f21 richDialogId ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo #txt
 Do0 f21 startMethod start() #txt
 Do0 f21 type htmlDialogDemos.Data #txt
 Do0 f21 requestActionDecl '<> param;' #txt
@@ -622,7 +622,7 @@ Do0 f26 307 595 26 26 14 0 #rect
 Do0 f26 @|EndIcon #fIcon
 Do0 f27 targetWindow NEW:card: #txt
 Do0 f27 targetDisplay TOP #txt
-Do0 f27 richDialogId htmlDialogDemos.PickListDemo #txt
+Do0 f27 richDialogId ch.ivyteam.htmldialog.demo.output.PickListDemo #txt
 Do0 f27 startMethod start() #txt
 Do0 f27 type htmlDialogDemos.Data #txt
 Do0 f27 requestActionDecl '<> param;' #txt
@@ -746,7 +746,7 @@ Do0 f34 expr out #txt
 Do0 f34 544 556 544 595 #arcP
 Do0 f32 targetWindow NEW:card: #txt
 Do0 f32 targetDisplay TOP #txt
-Do0 f32 richDialogId ch.ivyteam.htmldialog.demo.ResourceDemo #txt
+Do0 f32 richDialogId ch.ivyteam.htmldialog.demo.output.ResourceDemo #txt
 Do0 f32 startMethod start() #txt
 Do0 f32 type htmlDialogDemos.Data #txt
 Do0 f32 requestActionDecl '<> param;' #txt
@@ -765,7 +765,7 @@ Do0 f37 755 603 26 26 14 0 #rect
 Do0 f37 @|EndIcon #fIcon
 Do0 f38 targetWindow NEW:card: #txt
 Do0 f38 targetDisplay TOP #txt
-Do0 f38 richDialogId ch.ivyteam.htmldialog.demo.AjaxMethodCallDemo #txt
+Do0 f38 richDialogId ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo #txt
 Do0 f38 startMethod start() #txt
 Do0 f38 type htmlDialogDemos.Data #txt
 Do0 f38 requestActionDecl '<> param;' #txt
@@ -858,7 +858,7 @@ Do0 f43 83 803 26 26 14 0 #rect
 Do0 f43 @|EndIcon #fIcon
 Do0 f44 targetWindow NEW:card: #txt
 Do0 f44 targetDisplay TOP #txt
-Do0 f44 richDialogId htmlDialogDemos.ManagedBeanDemo #txt
+Do0 f44 richDialogId ch.ivyteam.htmldialog.demo.other.ManagedBeanDemo #txt
 Do0 f44 startMethod start() #txt
 Do0 f44 type htmlDialogDemos.Data #txt
 Do0 f44 requestActionDecl '<> param;' #txt
@@ -1020,7 +1020,7 @@ Do0 f48 307 803 26 26 14 0 #rect
 Do0 f48 @|EndIcon #fIcon
 Do0 f49 targetWindow NEW:card: #txt
 Do0 f49 targetDisplay TOP #txt
-Do0 f49 richDialogId ch.ivyteam.htmldialog.demo.ComponentDemo #txt
+Do0 f49 richDialogId ch.ivyteam.htmldialog.demo.component.ComponentDemo #txt
 Do0 f49 startMethod start() #txt
 Do0 f49 type htmlDialogDemos.Data #txt
 Do0 f49 requestActionDecl '<> param;' #txt
@@ -1113,7 +1113,7 @@ Do0 f53 755 379 26 26 14 0 #rect
 Do0 f53 @|EndIcon #fIcon
 Do0 f54 targetWindow NEW #txt
 Do0 f54 targetDisplay TOP #txt
-Do0 f54 richDialogId ch.ivyteam.htmldialog.demo.BeanValidationDemo #txt
+Do0 f54 richDialogId ch.ivyteam.htmldialog.demo.input.BeanValidationDemo #txt
 Do0 f54 startMethod start() #txt
 Do0 f54 type htmlDialogDemos.Data #txt
 Do0 f54 requestActionDecl '<> param;' #txt
@@ -1199,7 +1199,7 @@ Do0 f57 531 675 26 26 14 0 #rect
 Do0 f57 @|StartRequestIcon #fIcon
 Do0 f58 targetWindow NEW:card: #txt
 Do0 f58 targetDisplay TOP #txt
-Do0 f58 richDialogId ch.ivyteam.htmldialog.demo.ComponentCustomizingDemo #txt
+Do0 f58 richDialogId ch.ivyteam.htmldialog.demo.component.ComponentCustomizingDemo #txt
 Do0 f58 startMethod start() #txt
 Do0 f58 type htmlDialogDemos.Data #txt
 Do0 f58 requestActionDecl '<> param;' #txt
@@ -1292,7 +1292,7 @@ Do0 f62 755 675 26 26 14 0 #rect
 Do0 f62 @|StartRequestIcon #fIcon
 Do0 f63 targetWindow NEW:card: #txt
 Do0 f63 targetDisplay TOP #txt
-Do0 f63 richDialogId ch.ivyteam.htmldialog.demo.FileUploadDemo #txt
+Do0 f63 richDialogId ch.ivyteam.htmldialog.demo.input.FileUploadDemo #txt
 Do0 f63 startMethod start() #txt
 Do0 f63 type htmlDialogDemos.Data #txt
 Do0 f63 requestActionDecl '<> param;' #txt
@@ -1386,7 +1386,7 @@ Do0 f68 83 1003 26 26 14 0 #rect
 Do0 f68 @|EndIcon #fIcon
 Do0 f69 targetWindow NEW #txt
 Do0 f69 targetDisplay TOP #txt
-Do0 f69 richDialogId ch.ivyteam.htmldialog.demo.MultiViewDemo #txt
+Do0 f69 richDialogId ch.ivyteam.htmldialog.demo.input.MultiViewDemo #txt
 Do0 f69 startMethod start() #txt
 Do0 f69 type htmlDialogDemos.Data #txt
 Do0 f69 requestActionDecl '<> param;' #txt

@@ -1,0 +1,7 @@
+ComponentCustomizingDemoData #class
+ch.ivyteam.htmldialog.demo.component.ComponentCustomizingDemo #namespace
+homeAddress ch.ivyteam.htmldialog.demo.Address #field
+corporateAddress ch.ivyteam.htmldialog.demo.Address #field
+name String #field
+company String #field
+title String #field

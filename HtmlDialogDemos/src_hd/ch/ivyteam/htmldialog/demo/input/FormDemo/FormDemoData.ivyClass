@@ -1,0 +1,20 @@
+FormDemoData #class
+ch.ivyteam.htmldialog.demo.input.FormDemo #namespace
+name String #field
+name PERSISTENT #fieldModifier
+firstname String #field
+firstname PERSISTENT #fieldModifier
+birthday Date #field
+birthday PERSISTENT #fieldModifier
+address String #field
+address PERSISTENT #fieldModifier
+zipCode Number #field
+zipCode PERSISTENT #fieldModifier
+city String #field
+city PERSISTENT #fieldModifier
+country String #field
+country PERSISTENT #fieldModifier
+phone String #field
+phone PERSISTENT #fieldModifier
+matchingCountries List<String> #field
+matchingCountries PERSISTENT #fieldModifier

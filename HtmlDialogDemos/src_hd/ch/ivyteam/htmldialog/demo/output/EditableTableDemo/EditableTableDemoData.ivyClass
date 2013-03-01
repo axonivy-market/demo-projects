@@ -1,0 +1,8 @@
+EditableTableDemoData #class
+ch.ivyteam.htmldialog.demo.output.EditableTableDemo #namespace
+recordset Recordset #field
+recordset PERSISTENT #fieldModifier
+selectedPerson Record #field
+selectedPerson PERSISTENT #fieldModifier
+persons List<ch.ivyteam.htmldialog.demo.Person> #field
+persons PERSISTENT #fieldModifier

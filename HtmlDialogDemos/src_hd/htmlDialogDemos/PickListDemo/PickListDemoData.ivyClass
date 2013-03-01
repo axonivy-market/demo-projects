@@ -1,4 +1,0 @@
-PickListDemoData #class
-htmlDialogDemos.PickListDemo #namespace
-persons org.primefaces.model.DualListModel #field
-persons PERSISTENT #fieldModifier

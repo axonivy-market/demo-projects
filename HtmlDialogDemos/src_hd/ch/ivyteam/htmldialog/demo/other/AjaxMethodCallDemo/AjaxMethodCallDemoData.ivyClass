@@ -1,0 +1,6 @@
+AjaxMethodCallDemoData #class
+ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo #namespace
+welcomeMessage String #field
+welcomeMessage PERSISTENT #fieldModifier
+name String #field
+name PERSISTENT #fieldModifier

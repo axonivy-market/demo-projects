@@ -1,0 +1,4 @@
+ComponentDemoData #class
+ch.ivyteam.htmldialog.demo.component.ComponentDemo #namespace
+person ch.ivyteam.htmldialog.demo.Person #field
+person PERSISTENT #fieldModifier
