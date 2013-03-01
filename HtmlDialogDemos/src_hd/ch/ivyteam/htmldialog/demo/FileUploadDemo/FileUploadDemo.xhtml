@@ -34,7 +34,7 @@
 					<br />
 					<p:fileUpload id="fileUpload"
 						fileUploadListener="#{logic.uploadFile}"
-						allowTypes="/(\.|\/)(gif|jpe?g|png)$/" auto="true" mode="advanced"
+						allowTypes="/(\.|\/)(gif|jpe?g|png)$/i" auto="true" mode="advanced"
 						label="Add Image" oncomplete="this.form.submit();" />
 					<br />
 				</h:form>
