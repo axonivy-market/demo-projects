@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 28 11:11:54 CET 2013]
+[>Created: Fri Mar 01 09:38:49 CET 2013]
 13CF812672512EFC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadDemoProcess Big #zClass
@@ -106,7 +106,7 @@ String fileName = uploadedFile.getFileName();
 IContentObject baseFolder = ivy.cms.findContentObject("/ch.ivyteam.htmldialog.demo/fileUploadImages");
 
 // create new Content Object name
-String coName = fileName.substring(0, fileName.indexOf("."));
+String coName = fileName.substring(0, fileName.lastIndexOf("."));
 if (coName.contains("\\") || coName.contains("/"))
 {
 	// On IE the the full file path is returned
