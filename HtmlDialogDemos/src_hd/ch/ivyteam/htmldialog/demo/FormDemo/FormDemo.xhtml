@@ -5,17 +5,15 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
- 
-    <h:head>
-        <title>Form Demo</title>
-        <style>
-        	.label-top{ vertical-align: top;}
-        </style>
-    </h:head>
-    <h:body>
+
+<h:body>
+	<ui:composition template="/PageTemplate.xhtml">
+
+	<ui:define name="center">
+		<p:layoutUnit position="center" header="Form Demo">
     	<h:form id="Form">
-    		<p:panel header="Form Demo" id="panel">
-    	 		<h:outputText value="This demo explains how "/>
+    		<p:panel id="panel">
+    	 		<p>This demo explains how:</p>
     	 		<ul>
     	 			<li>Html Dialog Data can be mapped to UI elements, e.g. to build a form.</li>
     	 			<li>Events on the UI can be mapped to Html Dialog Event Processes.</li>
@@ -40,14 +38,12 @@
     	 			<p:message for="Firstname" display="icon"/>
 
     	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Birthday')}" for="Birthday"/>
-    	 			<p:calendar value="#{data.birthday}" id="Birthday" navigator="true" required="true">
-						<ui:remove>
-    		 			<!--  
+    	 			<p:calendar id="Birthday" value="#{data.birthday}" navigator="true" required="true" pattern="dd.MM.yyyy">
+            			<!-- 
     	 			   	Use the following tag to convert date, time, datetime types to a string that is displayed and vice versa  
-    	 			    -->
-    	 			    </ui:remove>
-    	 			    <f:convertDateTime/>
-    	 			</p:calendar>
+						-->
+            			<f:convertDateTime pattern="dd.MM.yyyy" />
+            		</p:calendar>
     	 			<p:message for="Birthday" display="icon"/>
 
     	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/PhoneNumber')}" for="PhoneNumber"/>
@@ -107,9 +103,9 @@
 			-->
 		    </ui:remove>
    	 	</h:form>
-   	 	
-   	 	<h:form id="closeForm">
-	    	<p:commandButton value="Close" actionListener="#{logic.close}"/>
-   	 	</h:form>
-    </h:body>
+   		</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
+</h:body>
 </html>

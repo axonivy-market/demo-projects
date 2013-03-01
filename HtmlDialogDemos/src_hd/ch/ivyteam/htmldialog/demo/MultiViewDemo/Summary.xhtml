@@ -12,13 +12,20 @@
     <h:head>
         <title>Multi View Demo</title>
     </h:head>
-    <h:body>
+<h:body>
+	<ui:composition template="/PageTemplate.xhtml">
+
+	<ui:define name="center">
+		<p:layoutUnit position="center" header="Form Demo">
         <h:form id="myForm">
         	<p:panel header="Multi View Demo" id="panel">
 		        <h3>Payment - Summary</h3>
 		        <p:outputLabel value="#{data.firstName} #{data.name} thank you for your Payment."/><br/>
-              	<p:commandButton value="Close" actionListener="#{logic.close}"/>
             </p:panel>
         </h:form>    	
-    </h:body>
+		</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
+</h:body>
 </html>

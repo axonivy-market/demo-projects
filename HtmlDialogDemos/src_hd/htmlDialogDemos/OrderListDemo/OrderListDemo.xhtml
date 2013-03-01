@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"      
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">      
  
     <h:head>
@@ -16,15 +17,18 @@
         </style>
         <title>OrderList Demo</title>
     </h:head>
-    <h:body>
+<h:body>
+	<ui:composition template="/PageTemplate.xhtml">
+
+	<ui:define name="center">
+		<p:layoutUnit position="center" header="OrderList Demo">
      	<h:form>
-		   	<p:panel header="OrderList Demo" id="persons">
-				<h:outputText value="This demo explains how an Xpert.ivy List can be used as data for an order list widget."/>
+		   	<p:panel id="persons">
+		   	<p>This demo explains how an Xpert.ivy List can be used as data for an order list widget.</p>
 <!--
   Shows a list that can be reordered. 
   Use the ivy.ListItem converter to convert the list items (person) to a string (list index) an vice versa. 
  -->
-   		  		<br/><br/>
    		  		<p:orderList value="#{data.persons}" var="person" iconOnly="true" effect="clip"  
 	        	            itemValue="#{person}" converter="ivy.ListItem" id="personsList" controlsLocation="right">            	
 	          		<f:facet name="caption">Persons</f:facet>
@@ -35,9 +39,11 @@
 	 			<br/>
 	 			<br/>
 	 			<h:outputText value="Persons: #{data.persons}"/>
-	   		</p:panel>
-	   		<br/>
-	   		<p:commandButton actionListener="#{logic.close}" value="Close"/>	   		
+	   		</p:panel>   		
    		</h:form>
-    </h:body>
+		</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
+</h:body>
 </html>

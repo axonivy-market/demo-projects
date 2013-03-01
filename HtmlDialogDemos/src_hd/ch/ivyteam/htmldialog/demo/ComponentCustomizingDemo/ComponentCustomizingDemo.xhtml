@@ -10,10 +10,12 @@
 	<title>JSF User Dialog</title>
 </h:head>
 <h:body>
-	<p:panel header="Composit Component Customizing Demo" id="panel">
-		<h:outputText
-			value="This demo explains how Html Dialog composit comonents can be customized." />
+	<ui:composition template="/PageTemplate.xhtml">
 
+	<ui:define name="center">
+	<p:layoutUnit position="center" header="Composit Component Customizing Demo">
+	<p:panel id="panel">
+		<p>This demo explains how Html Dialog composit comonents can be customized.</p>
 		<h:form>
 			<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
 				<!--
@@ -74,5 +76,9 @@
 			<h:outputText value="#{data.corporateAddress.country}" />
 		</h:panelGrid>
 	</p:panel>
+	</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
 </h:body>
 </html>

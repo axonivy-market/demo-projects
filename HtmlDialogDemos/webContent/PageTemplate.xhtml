@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+ 
+<h:head>
+	<title>Xpert.ivy Workflow</title>
+</h:head>
+<h:body style="font-size: 9pt;">
+	<p:layout fullPage="true" gutter="10px" >
+		<p:layoutUnit position="north" size="95">
+		</p:layoutUnit>
+		<p:layoutUnit position="west" collapsible="true" resizable="true"
+			header="Html Dialog Demos" size="200">
+			<p:scrollPanel>
+				<p:menu style="width:100%">
+					<p:submenu label="Output" >
+						<p:menuitem value="Editable Table Demo"
+							url="#{ivy.html.startref('Demo/EditableTableDemo.ivp')}" />
+						<p:menuitem value="Resource Demo"
+							url="#{ivy.html.startref('Demo/ResourceDemo.ivp')}" />
+						<p:menuitem value="Ordered List Demo"
+							url="#{ivy.html.startref('Demo/OrderListDemo.ivp')}" />
+						<p:menuitem value="Pick List Demo"
+							url="#{ivy.html.startref('Demo/PickListDemo.ivp')}" />
+					</p:submenu>
+					<p:submenu label="Input" >
+						<p:menuitem value="Form Demo" 
+							url="#{ivy.html.startref('Demo/FormDemo.ivp')}" />
+						<p:menuitem value="Bean Validation Demo"
+							url="#{ivy.html.startref('Demo/BeanValidationDemo.ivp')}" />
+						<p:menuitem value="File Upload Demo"
+							url="#{ivy.html.startref('Demo/FileUploadDemo.ivp')}" />
+						<p:menuitem value="Multi View Demo"
+							url="#{ivy.html.startref('Demo/MultiViewDemo.ivp')}" />
+					</p:submenu>
+					<p:submenu label="Component" >
+						<p:menuitem value="Partial Update Demo"
+							url="#{ivy.html.startref('Demo/PartialUpdateDemo.ivp')}" />
+						<p:menuitem value="Component Demo"
+							url="#{ivy.html.startref('Demo/ComponentDemo.ivp')}" />
+						<p:menuitem value="Composite Component Customizing Demo"
+							url="#{ivy.html.startref('Demo/ComponentCustomizingDemo.ivp')}" />
+					</p:submenu>
+					<p:submenu label="Other" >
+						<p:menuitem value="AJAX Method Call Demo"
+							url="#{ivy.html.startref('Demo/MethodCallWithAjaxDemo.ivp')}" />
+						<p:menuitem value="Managed Bean Demo"
+							url="#{ivy.html.startref('Demo/ManagedBeanDemo.ivp')}" />
+					</p:submenu>
+				</p:menu>
+			</p:scrollPanel>
+		</p:layoutUnit>
+		<ui:insert name="center">
+			<p:layoutUnit position="center" header="">
+			</p:layoutUnit>
+		</ui:insert>
+		<p:layoutUnit position="south" size="32">
+			<h:outputText value="Powered by Xpert.Ivy Workflow Copyright &#169; ivyTeam" />
+		</p:layoutUnit>
+	</p:layout>
+	<div style="background: #000032; position: fixed; top: 0px; width: 100%" ><h:graphicImage library="ivy-cms" name="/Project/IvyHeader" /></div>
+</h:body>
+</html>

@@ -12,7 +12,11 @@
     <h:head>
         <title>Multi View Demo</title>
     </h:head>
-    <h:body>
+<h:body>
+	<ui:composition template="/PageTemplate.xhtml">
+
+	<ui:define name="center">
+		<p:layoutUnit position="center" header="Form Demo">
         <h:form id="myForm">
 	       	<p:panel header="Multi View Demo" id="panel">
 		        <h3>Payment - Credit Card Processing</h3>
@@ -27,5 +31,9 @@
 		       	<p:poll interval="3" stop="#{not data.processing}" autoStart="true" listener="#{logic.stopProcessing}" update="myForm"/>
 		    </p:panel>
         </h:form>    	
-    </h:body>
+		</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
+</h:body>
 </html>

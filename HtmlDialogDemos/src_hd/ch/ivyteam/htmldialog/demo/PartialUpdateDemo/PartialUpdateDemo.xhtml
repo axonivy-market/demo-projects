@@ -5,16 +5,20 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
- 
-    <h:head>
-        <title>Partial Update Demo</title>
-    </h:head>
-    <h:body>
+
+<h:body>
+	<ui:composition template="/PageTemplate.xhtml">
+
+	<ui:define name="center">
+		<p:layoutUnit position="center" header="Partial Update Demo">
 		<h:form id="Form">
-    		<p:panel header="Parial Update Demo" id="panel">
-    	 		<h:outputText value="This demo explains how only parts of the UI can be updated by using AJAX without to reload the whole HTML page. Note that all buttons below increases the same counter variable but updates different panels in the page."/>
+    		<p:panel id="panel">
+    		<p>
+    		This demo explains how panel of a UI can be updated by using AJAX without to reload the whole HTML page.<br/>
+    		The two buttons in the below demo increases the same counter variable, but each panel updates only his own view part.
+    		</p>
     	 		
-    	 		<p:panel header="Counter" id="counterPanel_1">
+    	 		<p:panel header="Panel A" id="counterPanel_1">
     	 		  	<h:outputLabel value="Counter:"/>
     	 		  	<h:outputText value="#{data.counter}"/>
     	 		  	<br/>
@@ -25,9 +29,10 @@
     	 		  	without to reload the whole page or update other panels
     	 		  	  -->
     	 		  	</ui:remove>
-    	 		  	<p:commandButton value="Increase counter then update this panel" update="counterPanel_1" actionListener="#{logic.increaseCounter}"/>
+    	 		  	<p:commandButton value="Increase counter then update 'Panel A'" update="counterPanel_1" actionListener="#{logic.increaseCounter}"/>
     	 		</p:panel>
-    	 		<p:panel header="Counter" id="counterPanel_2">
+    	 		<br/>
+    	 		<p:panel header="Panel B" id="counterPanel_2">
     	 		  	<h:outputLabel value="Counter:"/>
     	 		  	<h:outputText value="#{data.counter}"/>
     	 		  	<br/>
@@ -38,7 +43,7 @@
     	 		  	without to reload the whole page or update other panels
     	 		  	  -->
     	 		  	</ui:remove>
-    	 		  	<p:commandButton value="Increase counter then update this panel" update="counterPanel_2" actionListener="#{logic.increaseCounter}"/>
+    	 		  	<p:commandButton value="Increase counter then update 'Panel B'" update="counterPanel_2" actionListener="#{logic.increaseCounter}"/>
     	 		</p:panel>
     	 		<br/>
    	 		  	<ui:remove>
@@ -50,6 +55,10 @@
                 </ui:remove>
    	 		  	<p:commandButton value="Increase counter then update both panels" update="counterPanel_1 counterPanel_2" actionListener="#{logic.increaseCounter}"/>
     		</p:panel>	 	
-    	</h:form>	
-    </h:body>
+    	</h:form>
+		</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
+</h:body>
 </html>

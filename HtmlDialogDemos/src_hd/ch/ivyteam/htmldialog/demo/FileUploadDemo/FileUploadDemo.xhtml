@@ -14,11 +14,19 @@
 
 </h:head>
 <h:body>
-	<p:panel header="File Upload Demo">
+	<ui:composition template="/PageTemplate.xhtml">
+
+	<ui:define name="center">
+	<p:layoutUnit position="center" header="File Upload Demo">
+	<p:panel>
+	<p>This demo explains how:</p>
+	<ul>
+		<li>Images from the CMS (Content Management System) could be displayed and uploaded.</li>
+		<li>The content of a uploaded file could be displayed with the Ivy-File type.</li>
+	</ul>
 		<p:accordionPanel multiple="false" activeIndex="#{data.activeIndex}">
 			<p:tab title="Demo I: Upload and show images">
 				<h:form id="pictureGalleryForm" enctype="multipart/form-data">
-	    		This demo shows how images from the CMS (Content Management System) could be displayed and uploaded. 
 				<p:galleria id="pictureGallery" value="#{data.images}"
 						var="imagename" panelWidth="500" panelHeight="313"
 						showCaption="true">
@@ -30,7 +38,7 @@
 					<br />
 					<br />
 					<h:outputLabel
-						value="Add a image to the gallery (gif, jpg or png):"></h:outputLabel>
+						value="Add a image to the CMS and show it in the gallery (gif, jpg or png):"></h:outputLabel>
 					<br />
 					<p:fileUpload id="fileUpload"
 						fileUploadListener="#{logic.uploadFile}"
@@ -41,7 +49,6 @@
 			</p:tab>
 			<p:tab title="Demo II: Show uploaded content">
 				<h:form enctype="multipart/form-data">
-	    		This demo shows how the content of a uploaded file could be displayed with the Ivy-File type.
 	    		<h:outputLabel
 						value="Select a text or xml file and show its content:"></h:outputLabel>
 					<br />
@@ -63,6 +70,9 @@
 			</p:tab>
 		</p:accordionPanel>
 	</p:panel>
+	</p:layoutUnit>
+	</ui:define>
 
+	</ui:composition>
 </h:body>
 </html>

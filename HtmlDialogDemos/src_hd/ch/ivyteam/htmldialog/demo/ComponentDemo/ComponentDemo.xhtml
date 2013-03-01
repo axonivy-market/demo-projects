@@ -10,10 +10,12 @@
 	<title>JSF User Dialog</title>
 </h:head>
 <h:body>
-	<p:panel header="Component Demo" id="panel">
-		<h:outputText
-			value="This demo explains how Html Dialog components can be reused." />
+	<ui:composition template="/PageTemplate.xhtml">
 
+	<ui:define name="center">
+	<p:layoutUnit position="center" header="Component Demo">
+	<p:panel id="panel">
+		<p>This demo explains how Html Dialog components can be reused.</p>
 		<!--
 		Use the 'http://ivyteam.ch/jsf/component' namespace which is included by default with the 'ic' prefix to insert an ivy component.
 		As tag name use the id of the JSF Html Dialog.
@@ -48,5 +50,9 @@
 			</h:panelGrid>
 		</h:panelGrid>
 	</p:panel>
+	</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
 </h:body>
 </html>

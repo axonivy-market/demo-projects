@@ -8,10 +8,13 @@
 	<title>Resource Demo</title>
 </h:head>
 <h:body>
+	<ui:composition template="/PageTemplate.xhtml">
 
-	<p:panel header="Resource Demo">
-		<h3>This demo explains how resources from the dialog resources folder, the webcontent folder or the CMS can be
-		used.</h3>
+	<ui:define name="center">
+	<p:layoutUnit position="center" header="Resource Demo">
+
+	<p:panel >
+		<p>This demo explains how Resources from the dialog resources folder, the webContent folder or the CMS can be used.</p>
 		<h4>For using resources use the following code:</h4>
 		<p:panelGrid columns="2" id="resultPanel">
 			<h:outputText>&lt;h:outputStylesheet name="folder/style.css"/></h:outputText>
@@ -98,5 +101,9 @@
 			</p:row>
 		</p:panelGrid>
 	</p:panel>
+	</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
 </h:body>
 </html>

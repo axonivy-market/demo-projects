@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Feb 22 14:13:41 CET 2013]
+[>Created: Fri Mar 01 11:26:54 CET 2013]
 13D0159BD5D40664 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MultiViewDemoProcess Big #zClass
@@ -28,7 +28,6 @@ Ms0 @Alternative f13 '' #zField
 Ms0 @PushWFArc f14 '' #zField
 Ms0 @PushWFArc f15 '' #zField
 Ms0 @PushWFArc f16 '' #zField
-Ms0 @PushWFArc f17 '' #zField
 Ms0 @PushWFArc f18 '' #zField
 Ms0 @PushWFArc f19 '' #zField
 Ms0 @RichDialogEnd f20 '' #zField
@@ -43,6 +42,7 @@ Ms0 @PushWFArc f26 '' #zField
 Ms0 @RichDialogMethodStart f27 '' #zField
 Ms0 @RichDialogProcessEnd f28 '' #zField
 Ms0 @PushWFArc f29 '' #zField
+Ms0 @PushWFArc f17 '' #zField
 >Proto Ms0 Ms0 MultiViewDemoProcess #zField
 Ms0 f0 guid 13D0159BD8A52D62 #txt
 Ms0 f0 type ch.ivyteam.htmldialog.demo.MultiViewDemo.MultiViewDemoData #txt
@@ -207,8 +207,6 @@ Ms0 f16 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ms0 f16 246 176 272 236 #arcP
 Ms0 f16 1 272 176 #addKink
 Ms0 f16 1 0.6833333333333333 -3 0 #arcLabel
-Ms0 f17 expr out #txt
-Ms0 f17 206 260 267 374 #arcP
 Ms0 f18 expr out #txt
 Ms0 f18 272 260 272 374 #arcP
 Ms0 f19 expr in #txt
@@ -308,6 +306,9 @@ Ms0 f28 type ch.ivyteam.htmldialog.demo.MultiViewDemo.MultiViewDemoData #txt
 Ms0 f28 86 470 20 20 13 0 #rect
 Ms0 f28 @|RichDialogProcessEndIcon #fIcon
 Ms0 f29 96 394 96 470 #arcP
+Ms0 f17 expr out #txt
+Ms0 f17 206 260 267 375 #arcP
+Ms0 f17 0 0.49999999999999994 0 0 #arcLabel
 >Proto Ms0 .type ch.ivyteam.htmldialog.demo.MultiViewDemo.MultiViewDemoData #txt
 >Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
@@ -322,8 +323,6 @@ Ms0 f13 out f15 tail #connect
 Ms0 f15 head f10 mainIn #connect
 Ms0 f13 out f16 tail #connect
 Ms0 f16 head f11 mainIn #connect
-Ms0 f10 mainOut f17 tail #connect
-Ms0 f17 head f4 mainIn #connect
 Ms0 f11 mainOut f18 tail #connect
 Ms0 f18 head f4 mainIn #connect
 Ms0 f5 out f19 tail #connect
@@ -342,3 +341,5 @@ Ms0 f5 out f26 tail #connect
 Ms0 f26 head f23 mainIn #connect
 Ms0 f27 mainOut f29 tail #connect
 Ms0 f29 head f28 mainIn #connect
+Ms0 f10 mainOut f17 tail #connect
+Ms0 f17 head f4 mainIn #connect

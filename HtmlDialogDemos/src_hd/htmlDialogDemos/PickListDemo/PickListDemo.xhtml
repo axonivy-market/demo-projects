@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 <h:head>
       <style type="text/css">
           .ui-picklist-list { 
@@ -15,9 +15,13 @@
 	<title>PickList Demo</title>
 </h:head>
 <h:body>
+	<ui:composition template="/PageTemplate.xhtml">
+
+	<ui:define name="center">
+	<p:layoutUnit position="center" header="PickList Demo">
 	<h:form>
-		<p:panel header="PickList Demo">
-			<h3>This demo explains how Xpert.ivy Lists can be used as data for an pick list widget.</h3>
+		<p:panel >
+		<p>This demo explains how Xpert.ivy Lists can be used as data for an pick list widget.</p>
 			<p:pickList id="pickList" value="#{data.persons}" var="person" effect="slide"
 				itemLabel="#{person.name} #{person.firstname}" itemValue="#{person}" showSourceControls="true"
 				showTargetControls="true" showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains"
@@ -43,5 +47,9 @@
 			</p:panelGrid>
 		</p:panel>
 	</h:form>
+	</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
 </h:body>
 </html>

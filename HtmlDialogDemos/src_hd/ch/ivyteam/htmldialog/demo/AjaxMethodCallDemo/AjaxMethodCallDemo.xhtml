@@ -10,8 +10,12 @@
 	<title>Ajax Method Call Demo</title>
 </h:head>
 <h:body>
-	<p:panel header="Ajax Method Call Demo" id="panel">
-		<h:outputText value="This demo explains how " />
+	<ui:composition template="/PageTemplate.xhtml">
+
+	<ui:define name="center">
+	<p:layoutUnit position="center" header="AJAX Method Call Demo">
+	<p:panel id="panel">
+		<p>This demo explains how:</p>
 		<ul>
 			<li>Methods of a dialog can be called without using JSF.</li>
 			<li>This can be used to integrate JavaScript libraries like
@@ -58,5 +62,9 @@
 				});
 		</script>
 	</p:panel>
+	</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
 </h:body>
 </html>

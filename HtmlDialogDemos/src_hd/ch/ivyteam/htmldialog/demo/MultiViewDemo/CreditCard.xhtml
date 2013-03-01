@@ -12,7 +12,11 @@
     <h:head>
         <title>Multi View Demo</title>
     </h:head>
-    <h:body>
+<h:body>
+	<ui:composition template="/PageTemplate.xhtml">
+
+	<ui:define name="center">
+		<p:layoutUnit position="center" header="Form Demo">
         <h:form id="myForm">
            	<p:panel header="Multi View Demo" id="panel">
 	    	    <h3>Payment - Credit Card</h3>
@@ -25,5 +29,9 @@
 	        	<p:commandButton value="Next" update="myForm" action="#{logic.nextView('CreditCard')}"/>
         	</p:panel>
         </h:form>    	
-    </h:body>
+		</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
+</h:body>
 </html>

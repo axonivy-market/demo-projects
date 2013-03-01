@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 01 09:38:49 CET 2013]
+[>Created: Fri Mar 01 14:50:58 CET 2013]
 13CF812672512EFC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadDemoProcess Big #zClass
@@ -34,13 +34,11 @@ Fs0 f0 disableUIEvents true #txt
 Fs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
-Fs0 f0 inParameterMapAction 'out.activeIndex="0";
+Fs0 f0 inParameterMapAction 'out.activeIndex="-1";
 ' #txt
 Fs0 f0 inActionCode 'import ch.ivyteam.ivy.cm.IContentObject;
 
 IContentObject co = ivy.cms.findContentObject("/ch.ivyteam.htmldialog.demo/fileUploadImages");
-
-
 List children = co.getChildren();
 for(int i = 0; i < children.size(); i++)
 {
