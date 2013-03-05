@@ -21,7 +21,7 @@
    		<p:panel id="panel">
    			<p>This demo explains how the bean validation (JSR 303) could be used in Xpert.ivy.</p>
    	 		<p>The fields of a java class (bean) can be annotated with validation information. The validation information will then be considered by Html Dialogs when the field of the class is bound to a widget.</p>
-   			<p style="margin-top:10px;">The java class <code>ch.ivyteam.htmlDialog.demo.beanValidation.Person</code> defines fields annotated with such validation information. The fields of the java class are bound to the widgets in the form bellow. 
+   			<p style="margin-top:10px;">The java class <code>ch.ivyteam.htmlDialog.demo.input.beanValidation.Person</code> defines fields annotated with such validation information. The fields of the java class are bound to the widgets in the form bellow. 
    			There are no validation information given in the *.xhtml file of the Html Dialog itself. However, the Html Dialog uses the information given on the annotations of the fields to validate the user input.</p>
    			
    			<h4>Validation Annotations</h4>
@@ -44,7 +44,7 @@
 				<h:outputText value="@Past"/>
 				<h:outputText value="restricts a date to the dates in the past"/>
 			</p:panelGrid>
-   			<p style="margin-bottom:20px;">There will always be validation requirements, for which these standard annotation won't suffice. For these cases it is possible to create your own annotations. See the <code>@ch.ivyteam.htmldialog.demo.beanValidation.LicensePlate</code> annotation for an example.</p>
+   			<p style="margin-bottom:20px;">There will always be validation requirements, for which these standard annotation won't suffice. For these cases it is possible to create your own annotations. See the <code>@ch.ivyteam.htmldialog.demo.input.beanValidation.LicensePlate</code> annotation for an example.</p>
    			<h:form id="person">
    				<p:messages id="msgs"/>
 				<h:panelGrid columns="3">

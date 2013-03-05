@@ -22,11 +22,12 @@
     		<p:panel id="panel">
     			<p>This demo explains how ManagedBeans can be used in Html Dialogs.</p>
     	 		<p>In an Html Dialog it is possible to interact with normal Java classes by declaring them as ManagedBeans.</p>
-    			<p style="margin-top:10px;">In this demo    ivy project we have a ManagedBean  class under <code>htmlDialogDemos.ManagedBeansDemo.ApplicationDemoBean</code>.  <br />We use the bean to show and store a simple String value in the description field of the class. Therefore we bind the value of the input text to: <code>#<span></span>{applicationDemoBean.description}</code></p>
+    			<p style="margin-top:10px;">In this demo    ivy project we have a ManagedBean  class under <code>ch.ivyteam.htmldialog.demo.other.managedBean.ApplicationDemoBean.java</code>.  <br />We use the bean to show and store a simple String value in the description field of the class. Therefore we bind the value of the input text to: <code>#<span></span>{applicationDemoBean.description}</code></p>
     			<p:panel>
     				<h:outputLabel value="ManagedBean property:" for="descriptionProperty"/>
     				<h:inputText value="#{applicationDemoBean.description}" id="descriptionProperty" />
     				<h:commandButton value="send"/>
+    				<p>The property of this managed bean will be shared with all users on this server as it is annotated with @ApplicationScoped. Open another browser and check the property value.</p>
     			</p:panel>
     			
     	 		<h4>Scopes</h4>

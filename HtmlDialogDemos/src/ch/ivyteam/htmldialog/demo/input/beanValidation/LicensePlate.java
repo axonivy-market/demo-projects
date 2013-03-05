@@ -1,4 +1,4 @@
-package ch.ivyteam.htmldialog.demo.beanValidation;
+package ch.ivyteam.htmldialog.demo.input.beanValidation;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;

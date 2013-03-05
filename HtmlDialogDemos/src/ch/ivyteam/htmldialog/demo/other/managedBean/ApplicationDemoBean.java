@@ -1,4 +1,4 @@
-package htmlDialogDemos.ManagedBeanDemo;
+package ch.ivyteam.htmldialog.demo.other.managedBean;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;

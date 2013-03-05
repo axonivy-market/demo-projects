@@ -1,4 +1,4 @@
-package ch.ivyteam.htmldialog.demo.beanValidation;
+package ch.ivyteam.htmldialog.demo.input.beanValidation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
