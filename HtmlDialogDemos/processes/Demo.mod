@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 01 15:15:15 CET 2013]
+[>Created: Tue Mar 05 10:15:13 CET 2013]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -83,6 +83,11 @@ Do0 @EndTask f68 '' #zField
 Do0 @RichDialog f69 '' #zField
 Do0 @PushWFArc f70 '' #zField
 Do0 @PushWFArc f71 '' #zField
+Do0 @StartRequest f72 '' #zField
+Do0 @RichDialog f73 '' #zField
+Do0 @EndTask f74 '' #zField
+Do0 @PushWFArc f75 '' #zField
+Do0 @PushWFArc f76 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -1325,7 +1330,7 @@ Do0 f67 callSignature MultiViewDemo() #txt
 Do0 f67 persist false #txt
 Do0 f67 startName 'Multi View Demo' #txt
 Do0 f67 taskData '#
-#Fri Feb 22 13:52:51 CET 2013
+#Tue Mar 05 10:13:09 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -1334,7 +1339,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Do0 f67 caseData '#
-#Fri Feb 22 13:52:51 CET 2013
+#Tue Mar 05 10:13:09 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -1375,6 +1380,8 @@ Do0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>MultiViewDemo.ivp</name>
+        <nameStyle>17,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -1400,6 +1407,99 @@ Do0 f70 expr out #txt
 Do0 f70 96 893 96 924 #arcP
 Do0 f71 expr out #txt
 Do0 f71 96 948 96 1003 #arcP
+Do0 f72 outLink Primefaces.ivp #txt
+Do0 f72 type htmlDialogDemos.Data #txt
+Do0 f72 inParamDecl '<> param;' #txt
+Do0 f72 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f72 guid 13D39D28D05FDF2E #txt
+Do0 f72 requestEnabled true #txt
+Do0 f72 triggerEnabled false #txt
+Do0 f72 callSignature Primefaces() #txt
+Do0 f72 persist false #txt
+Do0 f72 startName Primefaces #txt
+Do0 f72 taskData '#
+#Tue Mar 05 10:13:07 CET 2013
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f72 caseData '#
+#Tue Mar 05 10:13:07 CET 2013
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f72 showInStartList 1 #txt
+Do0 f72 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f72 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>primefaces.ivp</name>
+        <nameStyle>14,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Do0 f72 @C|.responsibility Everybody #txt
+Do0 f72 83 1195 26 26 14 0 #rect
+Do0 f72 @|StartRequestIcon #fIcon
+Do0 f73 targetWindow NEW:card: #txt
+Do0 f73 targetDisplay TOP #txt
+Do0 f73 richDialogId ch.ivyteam.htmldialog.primefaces.Primefaces #txt
+Do0 f73 startMethod start() #txt
+Do0 f73 type htmlDialogDemos.Data #txt
+Do0 f73 requestActionDecl '<> param;' #txt
+Do0 f73 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f73 responseMappingAction 'out=in;
+' #txt
+Do0 f73 windowConfiguration '* ' #txt
+Do0 f73 isAsynch false #txt
+Do0 f73 isInnerRd false #txt
+Do0 f73 userContext '* ' #txt
+Do0 f73 78 1268 36 24 20 -2 #rect
+Do0 f73 @|RichDialogIcon #fIcon
+Do0 f74 type htmlDialogDemos.Data #txt
+Do0 f74 83 1331 26 26 14 0 #rect
+Do0 f74 @|EndIcon #fIcon
+Do0 f75 expr out #txt
+Do0 f75 96 1221 96 1268 #arcP
+Do0 f76 expr out #txt
+Do0 f76 96 1292 96 1331 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1476,3 +1576,7 @@ Do0 f67 mainOut f70 tail #connect
 Do0 f70 head f69 mainIn #connect
 Do0 f69 mainOut f71 tail #connect
 Do0 f71 head f68 mainIn #connect
+Do0 f72 mainOut f75 tail #connect
+Do0 f75 head f73 mainIn #connect
+Do0 f73 mainOut f76 tail #connect
+Do0 f76 head f74 mainIn #connect
