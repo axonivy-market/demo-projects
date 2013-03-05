@@ -10,98 +10,10 @@
 <ui:composition template="/PageTemplate.xhtml">
 
 	<ui:define name="center">
-		<p:layoutUnit position="center" header="Xpert.ivy Html Dialog Demos">
+		<p:layoutUnit position="center" header="Home">
+			<h3>Welcome to Xpert.ivy Html Dialog Demos</h3>
+			<hr/>
     		<p>This demo project contains examples that show how Xpert.ivy Html Dialogs can be used.</p>
-	    	<p:accordionPanel multiple="true">
-	    	  	<p:tab title="Form Demo">
-	    	   		<h:panelGrid columns="3" cellpadding="10">
-	    	   			<h:outputLink value="#{ivy.html.startref('Demo/FormDemo.ivp')}">
-	    	   				<p:graphicImage library="ivy-cms" name="ch.ivyteam.htmldialog.demo/Main/images/FormDemo" />
-	    	   		  	</h:outputLink>
-	    	   		  <h:outputText value="Shows how to a html form can be bound to Xpert.ivy data and process. Moreover shows how input validation and auto completion can be implemented."/>
-	    	   		</h:panelGrid>
-	    	  	</p:tab>
-	    	  	<p:tab title="Partial Update Demo">
-	    	   		<h:panelGrid columns="3" cellpadding="10">
-	    	   			<h:outputLink value="#{ivy.html.startref('Demo/PartialUpdateDemo.ivp')}">
-	    	   				<p:graphicImage library="ivy-cms" name="ch.ivyteam.htmldialog.demo/Main/images/PartialUpdateDemo" />
-	    	   		  	</h:outputLink>
-	    	   		  <h:outputText value="Shows how only a part of a html page can be updated without to reload the whole HTML page."/>
-	    	   		</h:panelGrid>
-	    	  	</p:tab>
-	    	  	<p:tab title="Ordered List Demo">
-	    	   		<h:panelGrid columns="3" cellpadding="10">
-	    	   			<h:outputLink value="#{ivy.html.startref('Demo/OrderListDemo.ivp')}">
-	    	   		  		<p:graphicImage library="ivy-cms" name="ch.ivyteam.htmldialog.demo/Main/images/OrderListDemo"/>
-	    	   		  	</h:outputLink>
-	    	   		  <h:outputText value="Shows how a Xpert.ivy List can be used do display a list that can be ordered."/>
-	    	   		</h:panelGrid>
-	    	  	</p:tab>
-	    	  	<p:tab title="PickList Demo">
-	    	   		<h:panelGrid columns="3" cellpadding="10">
-	    	   			<h:outputLink value="#{ivy.html.startref('Demo/PickListDemo.ivp')}">
-	    	   		  		<p:graphicImage library="ivy-cms" name="ch.ivyteam.htmldialog.demo/Main/images/PickListDemo"/>
-	    	   		  	</h:outputLink>
-	    	   		  <h:outputText value="Shows how Xpert.ivy Lists can be used as data for an pick list widget."/>
-	    	   		</h:panelGrid>
-	    	  	</p:tab>
-	    	  	<p:tab title="Editable Table Demo">
-	    	   		<h:panelGrid columns="3" cellpadding="10">
-	    	   			<h:outputLink value="#{ivy.html.startref('Demo/EditableTableDemo.ivp')}">
-	    	   		  		<p:graphicImage library="ivy-cms" name="ch.ivyteam.htmldialog.demo/Main/images/EditableTableDemo"/>
-	    	   		  	</h:outputLink>
-	    	   		  <h:outputText value="Shows how a Xpert.ivy Recordset can be used to display a table that can be edited."/>
-	    	   		</h:panelGrid>
-	    	  	</p:tab>
-	    	  	<p:tab title="Resource Demo">
-	    	   		<h:panelGrid columns="3" cellpadding="10">
-	    	   			<h:outputLink value="#{ivy.html.startref('Demo/ResourceDemo.ivp')}">
-	    	   		  		<p:graphicImage name="images/play.png"/>
-	    	   		  	</h:outputLink>
-	    	   		  <h:outputText value="Shows how resources from the dialog folder, the webcontent folder or the CMS can be used."/>
-	    	   		</h:panelGrid>
-	    	  	</p:tab>
-	    	  	<p:tab title="ManagedBean Demo">
-	    	   		<h:panelGrid columns="3" cellpadding="10">
-	    	   			<h:outputLink value="#{ivy.html.startref('Demo/ManagedBeanDemo.ivp')}">
-	    	   		  		<p:graphicImage name="images/play.png"/>
-	    	   		  	</h:outputLink>
-	    	   		  <h:outputText value="Shows how ManagedBeans can be used in Html Dialogs."/>
-	    	   		</h:panelGrid>
-	    	  	</p:tab>
-	    	  	<p:tab title="Bean Validation Demo">
-	    	   		<h:panelGrid columns="3" cellpadding="10">
-	    	   			<h:outputLink value="#{ivy.html.startref('Demo/BeanValidationDemo.ivp')}">
-	    	   		  		<p:graphicImage name="images/play.png"/>
-	    	   		  	</h:outputLink>
-	    	   		  <h:outputText value="Shows how Bean Validation (JSR 303) can be used in Html Dialogs."/>
-	    	   		</h:panelGrid>
-	    	  	</p:tab>
-	    	  	<p:tab title="Component Demo">
-	    	   		<h:panelGrid columns="3" cellpadding="10">
-	    	   			<h:outputLink value="#{ivy.html.startref('Demo/ComponentDemo.ivp')}">
-	    	   		  		<p:graphicImage name="images/play.png"/>
-	    	   		  	</h:outputLink>
-	    	   		  <h:outputText value="Shows how Html Dialogs can be reused as components."/>
-	    	   		</h:panelGrid>
-	    	  	</p:tab>
-	    	  	<p:tab title="Composite Component Customizing Demo">
-	    	   		<h:panelGrid columns="3" cellpadding="10">
-	    	   			<h:outputLink value="#{ivy.html.startref('Demo/ComponentCustomizingDemo.ivp')}">
-	    	   		  		<p:graphicImage name="images/play.png"/>
-	    	   		  	</h:outputLink>
-	    	   		  <h:outputText value="Shows how Html Dialogs Composite Components can be customized."/>
-	    	   		</h:panelGrid>
-	    	  	</p:tab>
-	    	  	<p:tab title="AJAX Method Call Demo">
-	    	   		<h:panelGrid columns="3" cellpadding="10">
-	    	   			<h:outputLink value="#{ivy.html.startref('Demo/MethodCallWithAjaxDemo.ivp')}">
-	    	   		  		<p:graphicImage name="images/play.png"/>
-	    	   		  	</h:outputLink>
-	    	   		  <h:outputText value="Shows how methods of a dialog can be call through the rest interface."/>
-	    	   		</h:panelGrid>
-	    	  	</p:tab>
-	    	</p:accordionPanel>
     	</p:layoutUnit>
 	</ui:define>
 
