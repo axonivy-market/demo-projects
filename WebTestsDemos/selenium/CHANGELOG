@@ -1,3 +1,208 @@
+v2.30.0
+=======
+
+WebDriver:
+  * Fixing a bug introduced by a change in how we get already logged
+    messages from the console service in firefox. This allows us to
+    function with firefox 19
+  * FIXED: 1181: Improved loopback detection
+  * FIXED: 1627: Implementing ability to use auto proxy in
+    HtmlUnitDriver.
+  * FIXED: 3652: moveToElement with offset should consider 0 as a
+    valid value, not as "undefined".
+  * FIXED: 3868: Better ephemeral port range selection.
+  * FIXED: 4107: Added prebuilt version of the SafariDriver extension
+    to the client jar.
+  * FIXED: 4821: WebDriverBackedSelenium works when added to project
+    via maven.
+  * FIXED: 4940, 5075: Added iceweasel to list of firefox variants.
+  * FIXED: 5022: Text node with overflow:hidden and height/width 0 to
+    not be visible since we cant see them.
+  * FIXED: 5030: Only send files to upload, not directories.
+  * FIXED: 5079: FluentWait.until(Predicate) method does not propagate
+    predicate message.
+  * FIXED: 5109: We should show elements visible if there is a pixel
+    visible.
+  * Semi-private change: Changes in the Coordinate class.
+
+JS:
+  * Update WebDriverJS to support parallel flows.  This change renames
+   several low-level classes and functions in the promise module:
+    
+      promise.Application                                 -> promise.ControlFlow
+        #schedule(string, function)                       ->   #execute(function, [string])
+        #scheduleTimeout(string, number)                  ->   #timeout(number, [string])
+        #scheduleWait(string, function, number, [string]) ->   #wait(function, number, [string])
+   
+    The old schedule* functions are still present, but will print a
+    warning message if called. They will be removed in 2.31.
+
+RC:
+  * Added ability to use relative path to an -htmlSuite file.
+  * FIXED: 3498: Proxy based browsers are back to normal on HTTPS
+  * FIXED: 5113: Implementing GET requests support for RC protocol.
+
+
+v2.29.0
+=======
+
+WebDriver:
+  * Firefox 18 support.
+  * IEDriver supports "requireWindowFocus" desired capability. When
+    using this and native events, the IE driver will demand focus and
+    user interactions will use SendInput() for simulating user
+    interactions. Note that this will mean you MUST NOT use the
+    machine running IE for anything else as the tests are running.
+  * Use the "webdriver.remote.shorten_log_messages" system property to
+    reduce the verboseness of ouput from executeScript and
+    executeAsyncScript when using the RemoteWebDriver.
+  * Switching HtmlUnitDriver default from FIREFOX_3_6 to FIREFOX_10
+  * SafariDriverExtension should restore Safari's previous settings on
+    shutdown.
+  * Bundled version of PhantomJSDriver bumped to 1.0.1
+  * Updated the version of guava-libraries used to 14.
+  * Updated HtmlUnit to 2.11
+  * Deprecated XPathLookupException in favour of
+    InvalidSelectorException
+  * FIXED: 3602: Changing IE view port calculations to allow for
+    always-present vertical scroll bar, and to test for horizontal
+    scroll bar and adjust as required by page content.
+  * FIXED: 4576: self registering proxy now check for user specified
+    proxy id.
+  * FIXED: 5010: icons in chrome newtab now correctly identified as
+    being shown.
+
+RC:
+  * FIXED: 4818: Make sure that each generated SSL cert has a unique
+    ID associated with it.
+
+Project:
+  * Moved to git. Most obvious in revision number in our exceptions.
+
+
+v2.28.0
+=======
+
+WebDriver:
+  * "null" can now be passed to executeScript
+  * .Net: Corrected FileUtilities.FindFile() to correctly return the
+    current directory if the specified file is located there.
+  * .Net: Introduces the Updating the CustomFinderType property to the
+    .NET FindsByAttribute. This allows use of custom By subclasses in
+    the PageFactory. The custom finder must be a subclass of By, and
+    it must expose a public constructor that takes a string argument.
+  * SafariDriver: better attempts to catch native dialogs from user
+    defined onbeforeunload handlers.
+  * Updating HtmlUnit to 2.11
+  * Added the PhantomJS bindings to the release. You'll still need to
+    download PhantomJS itself separately.
+
+RC:
+  * Implemented getAllWindowNames in WebDriverBackedSelenium
+  * Implemented openWindow in WebDriverBackedSelenium to allow opening
+    relative URLs
+
+
+v2.27.0
+=======
+
+WebDriver:
+  * Added support for native events for Firefox 17. 
+  * Added support for ghostdriver (PhantomJS)
+  * Adding new capability "enableElementCacheCleanup" to the IE
+    driver. When set to true, the IE driver will clean the
+    known-element cache of invalid elements after every page
+    load. This is intended to keep memory usage down and improve
+    performance. However, it is an intrusive change, so this
+    capability is provided temporarily to allow disabling this
+    behavior if problems arise. The default of this new capability is
+    "true", meaning this behavior is turned on by default.
+  * Added shift key handling to the synthetic keyboard actions.
+  * Modifying scroll behavior in IE driver SendKeysCommandHandler to
+    call Element::GetLocationOnceScrolledIntoView() instead of calling
+    the DOM scrollIntoView() function. Should result in less page
+    scrolling during test runs.
+  * Checking if CSS transforms on elements, or their parents, are
+    hiding them and therefore returning they arent visible.
+  * Add not, refreshed, invisibilityOfElementWithText to
+    ExpectedConditions.
+  * Added support for new IE10 pointer events.
+  * FIXED: 1543: Allowing equal sign in a cookie value.
+  * FIXED: 2103, 3508: Modified to no longer hang on alerts triggered
+    by onchange of <select> elements or by onsubmit of <form>
+    elements.
+  * FIXED: 2035: Returning a simple result (null) after opening a new
+    window instead of the window object (that can't be serialized to
+    JSON).
+  * FIXED: 2353: Only call blur() for IE if the element is not the
+    <body> element.
+  * FIXED: 3043: Better error message reporting when browser launch
+    fails.
+  * FIXED: 4490: Checking script evaluation result to prevent null
+    reference exception.
+  * FIXED: 4736: Added all of the extended colour keywords to the
+    Colors enum in support of
+    http://www.w3.org/wiki/CSS3/Color/Extended_color_keywords.
+  * FIXED: 4800: Fixed calculation of coordinates for elements in
+    frames/iframes where the element is scrolled out of view within
+    the frame.
+
+Grid:
+  * FIXED: 3818: Generating session identifiers with UUID to prevent duplication.
+
+RC:
+  * FIXED: 4668: Fixing ability to open relative URLs in WDBS.
+  * FIXED: 4273: Added getCssCount to the list of the methods
+    supported by WebDriverBackedSelenium.
+  * FIXED: 4055: WDBS implementation of getValue for radio buttons now
+    reflects behaviour of RC.
+  * FIXED: 4784: Processing locators before use in getCssCount and
+    getXpathCount.
+
+
+v2.26.0
+=======
+WebDriver:
+  * Updated OperaDriver to 0.15.
+  * Added transparency support to the Color class.
+  * Increased lock time a bit for the FirefoxDriver to make tests more 
+    stable on Windows.
+  * Added the enablePersistenHover capability to allow the user to specify
+    whether to use the persistent hover thread in the IE driver. Defaults
+	to true for IE.
+  * Added support for native events for Firefox 15 and 16.
+  * Removed deprecation from ChromeDriver constructors that take a Capabilities
+    object. Also added a method to set experimental options in ChromeOptions
+	which may be used to set options that aren't exposed through the ChromeOptions
+    API.
+  * Fixed SafariDriver to allow calling .quit() consecutively without error.
+  * Modified FirefoxDriver to use atoms to switch between frames.
+  * FIXED: 4535: Hover still does not work perfectly in IE.
+  * FIXED: 4676: Unable to fire javascript events into SVG's. 
+  * FIXED: 4320: Impossible to IE run tests in parallel via TestNG.
+  * FIXED: 4309: 'Could not convert Native argument arg 0' error with Firefox.
+  * FIXED: 4593: Alert.accept() Cancels the Resend Alert/Dialog Box.
+  * FIXED: 4321: Upgrade HtmlUnitDriver to HtmlUnit 2.10.
+  * FIXED: 4639: Webdriver 2.25 fails to quit on Windows.
+  * FIXED: 3774: New SafariDriver sessions do not come with a clean profile.
+  * FIXED: 4375: Executing javascript hangs Firefox.
+  * FIXED: 4203: Java SafariDriver has limited websocket frame size.
+  * FIXED: 4165: WebDriver fails on a machine with no IP address.
+  * FIXED: 3969: SafariDriver should auto-dismiss alerts.
+
+WebDriverJS:
+  * FIXED: 4648: findElement errros not helpful.
+  * FIXED: 4687: webserverjs cannot find module in node.js.
+  * FIXED: 4649: Wrong Content-Length calculation in webdriverjs.
+  * FIXED: 4425: Webdriver.js regression: webdriver.By.* selectors defect when
+    using Node.js.
+
+Grid:
+  * FIXED: 4433: NPE at grid launch if invalid servlet class name is specified.
+  * FIXED: 4526: elenium node stop responding when there are 2 or more tests
+    waiting for a specific node.
+  * FIXED: 2549: "-role hub" doesn't allow Firefox to starts.
+
 v2.25.0
 =======
 WebDriver:
