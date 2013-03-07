@@ -1,0 +1,4 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2013-03-07 10:21:43 | 0.0.0.15100 | 1.0
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:13D440EE6A78EF1E/13CF812673B64819
+~@RD_METHODCALL[uploadFile(org.primefaces.event.FileUploadEvent)]--->ch.ivyteam.ivy.process.ProcessStart:13D440EE6A78EF1E/13CF8146B1D3BB71

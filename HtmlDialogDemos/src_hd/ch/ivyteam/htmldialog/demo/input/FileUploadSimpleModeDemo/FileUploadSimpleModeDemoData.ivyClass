@@ -1,0 +1,5 @@
+FileUploadSimpleModeDemoData #class
+ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo #namespace
+ivyFile File #field
+textContent String #field
+fileName String #field

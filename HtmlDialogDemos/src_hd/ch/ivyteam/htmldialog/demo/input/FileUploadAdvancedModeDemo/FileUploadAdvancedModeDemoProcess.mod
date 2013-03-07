@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Fri Mar 01 14:50:58 CET 2013]
-13CF812672512EFC 3.17 #module
+[>Created: Thu Mar 07 10:08:42 CET 2013]
+13D440EE6A78EF1E 3.17 #module
 >Proto >Proto Collection #zClass
-Fs0 FileUploadDemoProcess Big #zClass
+Fs0 FileUploadAdvancedModeDemoProcess Big #zClass
 Fs0 RD #cInfo
 Fs0 #process
 Fs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
@@ -21,20 +21,13 @@ Fs0 @RichDialogProcessEnd f4 '' #zField
 Fs0 @GridStep f5 '' #zField
 Fs0 @PushWFArc f6 '' #zField
 Fs0 @PushWFArc f7 '' #zField
-Fs0 @RichDialogProcessStart f11 '' #zField
-Fs0 @RichDialogProcessEnd f12 '' #zField
-Fs0 @GridStep f8 '' #zField
-Fs0 @PushWFArc f9 '' #zField
-Fs0 @PushWFArc f10 '' #zField
->Proto Fs0 Fs0 FileUploadDemoProcess #zField
+>Proto Fs0 Fs0 FileUploadAdvancedModeDemoProcess #zField
 Fs0 f0 guid 13CF812673B64819 #txt
-Fs0 f0 type ch.ivyteam.htmldialog.demo.input.FileUploadDemo.FileUploadDemoData #txt
+Fs0 f0 type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
 Fs0 f0 method start() #txt
 Fs0 f0 disableUIEvents true #txt
 Fs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
-' #txt
-Fs0 f0 inParameterMapAction 'out.activeIndex="-1";
 ' #txt
 Fs0 f0 inActionCode 'import ch.ivyteam.ivy.cm.IContentObject;
 
@@ -57,20 +50,19 @@ Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Fs0 f0 86 54 20 20 13 0 #rect
 Fs0 f0 @|RichDialogInitStartIcon #fIcon
-Fs0 f1 type ch.ivyteam.htmldialog.demo.input.FileUploadDemo.FileUploadDemoData #txt
+Fs0 f1 type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
 Fs0 f1 86 150 20 20 13 0 #rect
 Fs0 f1 @|RichDialogProcessEndIcon #fIcon
 Fs0 f2 expr out #txt
 Fs0 f2 96 74 96 150 #arcP
 Fs0 f3 guid 13CF8146B1D3BB71 #txt
-Fs0 f3 type ch.ivyteam.htmldialog.demo.input.FileUploadDemo.FileUploadDemoData #txt
+Fs0 f3 type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
 Fs0 f3 method uploadFile(org.primefaces.event.FileUploadEvent) #txt
 Fs0 f3 disableUIEvents false #txt
 Fs0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <org.primefaces.event.FileUploadEvent event> param = methodEvent.getInputArguments();
 ' #txt
-Fs0 f3 inParameterMapAction 'out.activeIndex="0";
-out.fileUploadEvent=param.event;
+Fs0 f3 inParameterMapAction 'out.fileUploadEvent=param.event;
 ' #txt
 Fs0 f3 outParameterDecl '<> result;
 ' #txt
@@ -85,10 +77,10 @@ Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Fs0 f3 182 54 20 20 13 0 #rect
 Fs0 f3 @|RichDialogMethodStartIcon #fIcon
-Fs0 f4 type ch.ivyteam.htmldialog.demo.input.FileUploadDemo.FileUploadDemoData #txt
+Fs0 f4 type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
 Fs0 f4 182 150 20 20 13 0 #rect
 Fs0 f4 @|RichDialogProcessEndIcon #fIcon
-Fs0 f5 actionDecl 'ch.ivyteam.htmldialog.demo.input.FileUploadDemo.FileUploadDemoData out;
+Fs0 f5 actionDecl 'ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData out;
 ' #txt
 Fs0 f5 actionTable 'out=in;
 ' #txt
@@ -155,7 +147,7 @@ finally
 	}
 }
 out.images.add(0, coName);' #txt
-Fs0 f5 type ch.ivyteam.htmldialog.demo.input.FileUploadDemo.FileUploadDemoData #txt
+Fs0 f5 type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
 Fs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -171,50 +163,7 @@ Fs0 f6 expr out #txt
 Fs0 f6 192 74 192 100 #arcP
 Fs0 f7 expr out #txt
 Fs0 f7 192 124 192 150 #arcP
-Fs0 f11 guid 13D016515EC7C69A #txt
-Fs0 f11 type ch.ivyteam.htmldialog.demo.input.FileUploadDemo.FileUploadDemoData #txt
-Fs0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.input.FileUploadDemo.FileUploadDemoData out;
-' #txt
-Fs0 f11 actionTable 'out=in;
-out.activeIndex="1";
-' #txt
-Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>showContent</name>
-        <nameStyle>11,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Fs0 f11 438 54 20 20 13 0 #rect
-Fs0 f11 @|RichDialogProcessStartIcon #fIcon
-Fs0 f12 type ch.ivyteam.htmldialog.demo.input.FileUploadDemo.FileUploadDemoData #txt
-Fs0 f12 438 150 20 20 13 0 #rect
-Fs0 f12 @|RichDialogProcessEndIcon #fIcon
-Fs0 f8 actionDecl 'ch.ivyteam.htmldialog.demo.input.FileUploadDemo.FileUploadDemoData out;
-' #txt
-Fs0 f8 actionTable 'out=in;
-' #txt
-Fs0 f8 actionCode 'in.textContent = in.ivyFile.read();
-in.fileName = in.ivyFile.getName();' #txt
-Fs0 f8 type ch.ivyteam.htmldialog.demo.input.FileUploadDemo.FileUploadDemoData #txt
-Fs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set file content and name</name>
-        <nameStyle>25,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Fs0 f8 430 100 36 24 20 -2 #rect
-Fs0 f8 @|StepIcon #fIcon
-Fs0 f9 expr out #txt
-Fs0 f9 448 74 448 100 #arcP
-Fs0 f10 expr out #txt
-Fs0 f10 448 124 448 150 #arcP
->Proto Fs0 .type ch.ivyteam.htmldialog.demo.input.FileUploadDemo.FileUploadDemoData #txt
+>Proto Fs0 .type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
 >Proto Fs0 .processKind HTML_DIALOG #txt
 >Proto Fs0 -8 -8 16 16 16 26 #rect
 >Proto Fs0 '' #fIcon
@@ -224,7 +173,3 @@ Fs0 f3 mainOut f6 tail #connect
 Fs0 f6 head f5 mainIn #connect
 Fs0 f5 mainOut f7 tail #connect
 Fs0 f7 head f4 mainIn #connect
-Fs0 f11 mainOut f9 tail #connect
-Fs0 f9 head f8 mainIn #connect
-Fs0 f8 mainOut f10 tail #connect
-Fs0 f10 head f12 mainIn #connect

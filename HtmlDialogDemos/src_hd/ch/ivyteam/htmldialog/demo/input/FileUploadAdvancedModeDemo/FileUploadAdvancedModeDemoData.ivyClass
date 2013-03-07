@@ -1,0 +1,6 @@
+FileUploadAdvancedModeDemoData #class
+ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo #namespace
+fileUploadEvent org.primefaces.event.FileUploadEvent #field
+fileUploadEvent PERSISTENT #fieldModifier
+images List<String> #field
+images PERSISTENT #fieldModifier

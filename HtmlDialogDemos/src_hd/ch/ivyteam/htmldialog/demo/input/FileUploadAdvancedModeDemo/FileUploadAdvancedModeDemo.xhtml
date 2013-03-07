@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<h:head>
+	<title>JSF File Upload</title>
+
+</h:head>
+<h:body>
+	<ui:composition template="/PageTemplate.xhtml">
+
+		<ui:define name="center">
+			<p:layoutUnit position="center" header="File Upload Demo">
+				<p:panel>
+					<p>This demo explains how images from the CMS (Content
+						Management System) can be uploaded and displayed.</p>
+					<h:form id="pictureGalleryForm" enctype="multipart/form-data">
+						<p:galleria id="pictureGallery" value="#{data.images}"
+							var="imagename" panelWidth="500" panelHeight="313"
+							showCaption="true">
+							<p:graphicImage library="ivy-cms"
+								name="ch.ivyteam.htmldialog.demo/fileUploadImages/#{imagename}"
+								alt="Image Description for #{imagename}" width="500"
+								title="#{imagename}" />
+						</p:galleria>
+						<br />
+						<br />
+						<h:outputLabel
+							value="Add an image to the gallery. Allowed image types are gif, jpg or png."></h:outputLabel>
+						<br />
+						<p:fileUpload id="fileUpload"
+							fileUploadListener="#{logic.uploadFile}"
+							allowTypes="/(\.|\/)(gif|jpe?g|png)$/i" auto="true"
+							mode="advanced" label="Add Image"
+							oncomplete="this.form.submit();" />
+						<br />
+					</h:form>
+				</p:panel>
+			</p:layoutUnit>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

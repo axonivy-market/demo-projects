@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<h:head>
+	<title>JSF File Upload</title>
+
+</h:head>
+<h:body>
+	<ui:composition template="/PageTemplate.xhtml">
+
+		<ui:define name="center">
+			<p:layoutUnit position="center" header="File Upload Demo">
+				<p:panel>
+					<p>This demo explains how the content of a uploaded file could
+						be displayed. The Ivy file type is used to store the file
+						temporarily in the process data. This makes the handling of an
+						uploaded file quite simple.</p>
+					<h:form enctype="multipart/form-data">
+						<h:outputLabel
+							value="1. Select a text or xml file to show its content:"></h:outputLabel>
+						<br />
+						<br />
+						<p:fileUpload value="#{data.ivyFile}" mode="simple" />
+						<br />
+						<br />
+						<p:commandButton value="2. Show Content"
+							actionListener="#{logic.showContent}" ajax="false" />
+						<br />
+						<br />
+						<h:outputLabel id="fileNameLabel"
+							value="Content of #{data.fileName}:"
+							rendered="#{not empty data.textContent}"></h:outputLabel>
+						<br />
+						<h:inputTextarea rows="10" cols="80" id="textAreaLabel"
+							value="#{data.textContent}"
+							rendered="#{not empty data.textContent}"></h:inputTextarea>
+					</h:form>
+				</p:panel>
+			</p:layoutUnit>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

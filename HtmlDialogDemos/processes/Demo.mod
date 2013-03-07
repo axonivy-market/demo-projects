@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Mar 05 10:15:13 CET 2013]
+[>Created: Thu Mar 07 09:55:51 CET 2013]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -88,6 +88,11 @@ Do0 @RichDialog f73 '' #zField
 Do0 @EndTask f74 '' #zField
 Do0 @PushWFArc f75 '' #zField
 Do0 @PushWFArc f76 '' #zField
+Do0 @RichDialog f77 '' #zField
+Do0 @EndTask f78 '' #zField
+Do0 @StartRequest f79 '' #zField
+Do0 @PushWFArc f80 '' #zField
+Do0 @PushWFArc f81 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -1225,7 +1230,7 @@ Do0 f60 expr out #txt
 Do0 f60 544 701 544 740 #arcP
 Do0 f61 expr out #txt
 Do0 f61 544 764 544 803 #arcP
-Do0 f62 outLink FileUploadDemo.ivp #txt
+Do0 f62 outLink FileUploadSimpleModeDemo.ivp #txt
 Do0 f62 type htmlDialogDemos.Data #txt
 Do0 f62 inParamDecl '<> param;' #txt
 Do0 f62 actionDecl 'htmlDialogDemos.Data out;
@@ -1233,11 +1238,11 @@ Do0 f62 actionDecl 'htmlDialogDemos.Data out;
 Do0 f62 guid 13CF81198DFE4D14 #txt
 Do0 f62 requestEnabled true #txt
 Do0 f62 triggerEnabled false #txt
-Do0 f62 callSignature FileUploadDemo() #txt
+Do0 f62 callSignature FileUploadSimpleModeDemo() #txt
 Do0 f62 persist false #txt
 Do0 f62 startName 'File upload demo' #txt
 Do0 f62 taskData '#
-#Wed Feb 20 15:46:46 CET 2013
+#Thu Mar 07 09:55:14 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -1246,7 +1251,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Do0 f62 caseData '#
-#Wed Feb 20 15:46:46 CET 2013
+#Thu Mar 07 09:55:14 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -1286,18 +1291,16 @@ engine.updateCurrentTask(taskUpdDef);
 Do0 f62 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>FileUploadDemo.ivp</name>
-        <nameStyle>18,5,7
-</nameStyle>
+        <name>FileUploadSimpleModeDemo.ivp</name>
     </language>
 </elementInfo>
 ' #txt
 Do0 f62 @C|.responsibility Everybody #txt
-Do0 f62 755 675 26 26 14 0 #rect
+Do0 f62 307 867 26 26 14 0 #rect
 Do0 f62 @|StartRequestIcon #fIcon
 Do0 f63 targetWindow NEW:card: #txt
 Do0 f63 targetDisplay TOP #txt
-Do0 f63 richDialogId ch.ivyteam.htmldialog.demo.input.FileUploadDemo #txt
+Do0 f63 richDialogId ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo #txt
 Do0 f63 startMethod start() #txt
 Do0 f63 type htmlDialogDemos.Data #txt
 Do0 f63 requestActionDecl '<> param;' #txt
@@ -1309,15 +1312,15 @@ Do0 f63 windowConfiguration '* ' #txt
 Do0 f63 isAsynch false #txt
 Do0 f63 isInnerRd false #txt
 Do0 f63 userContext '* ' #txt
-Do0 f63 750 740 36 24 20 -2 #rect
+Do0 f63 302 932 36 24 20 -2 #rect
 Do0 f63 @|RichDialogIcon #fIcon
 Do0 f64 type htmlDialogDemos.Data #txt
-Do0 f64 755 803 26 26 14 0 #rect
+Do0 f64 307 995 26 26 14 0 #rect
 Do0 f64 @|EndIcon #fIcon
 Do0 f65 expr out #txt
-Do0 f65 768 701 768 740 #arcP
+Do0 f65 320 893 320 932 #arcP
 Do0 f66 expr out #txt
-Do0 f66 768 764 768 803 #arcP
+Do0 f66 320 956 320 995 #arcP
 Do0 f67 outLink MultiViewDemo.ivp #txt
 Do0 f67 type htmlDialogDemos.Data #txt
 Do0 f67 inParamDecl '<> param;' #txt
@@ -1500,6 +1503,97 @@ Do0 f75 expr out #txt
 Do0 f75 96 1221 96 1268 #arcP
 Do0 f76 expr out #txt
 Do0 f76 96 1292 96 1331 #arcP
+Do0 f77 targetWindow NEW:card: #txt
+Do0 f77 targetDisplay TOP #txt
+Do0 f77 richDialogId ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo #txt
+Do0 f77 startMethod start() #txt
+Do0 f77 type htmlDialogDemos.Data #txt
+Do0 f77 requestActionDecl '<> param;' #txt
+Do0 f77 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f77 responseMappingAction 'out=in;
+' #txt
+Do0 f77 windowConfiguration '* ' #txt
+Do0 f77 isAsynch false #txt
+Do0 f77 isInnerRd false #txt
+Do0 f77 userContext '* ' #txt
+Do0 f77 526 932 36 24 20 -2 #rect
+Do0 f77 @|RichDialogIcon #fIcon
+Do0 f78 type htmlDialogDemos.Data #txt
+Do0 f78 531 995 26 26 14 0 #rect
+Do0 f78 @|EndIcon #fIcon
+Do0 f79 outLink FileUploadAdvancedModeDemo.ivp #txt
+Do0 f79 type htmlDialogDemos.Data #txt
+Do0 f79 inParamDecl '<> param;' #txt
+Do0 f79 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f79 guid 13D440FC93A60C0B #txt
+Do0 f79 requestEnabled true #txt
+Do0 f79 triggerEnabled false #txt
+Do0 f79 callSignature FileUploadAdvancedModeDemo() #txt
+Do0 f79 persist false #txt
+Do0 f79 startName 'File upload demo' #txt
+Do0 f79 taskData '#
+#Thu Mar 07 09:55:43 CET 2013
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f79 caseData '#
+#Thu Mar 07 09:55:43 CET 2013
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f79 showInStartList 1 #txt
+Do0 f79 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f79 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>FileUploadAdvancedModeDemo.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+Do0 f79 @C|.responsibility Everybody #txt
+Do0 f79 531 867 26 26 14 0 #rect
+Do0 f79 @|StartRequestIcon #fIcon
+Do0 f80 expr out #txt
+Do0 f80 544 893 544 932 #arcP
+Do0 f81 expr out #txt
+Do0 f81 544 956 544 995 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1580,3 +1674,7 @@ Do0 f72 mainOut f75 tail #connect
 Do0 f75 head f73 mainIn #connect
 Do0 f73 mainOut f76 tail #connect
 Do0 f76 head f74 mainIn #connect
+Do0 f79 mainOut f80 tail #connect
+Do0 f80 head f77 mainIn #connect
+Do0 f77 mainOut f81 tail #connect
+Do0 f81 head f78 mainIn #connect
