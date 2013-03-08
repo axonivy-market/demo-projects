@@ -25,11 +25,9 @@
     	 		<h:panelGrid columns="3" cellpadding="5" columnClasses="label-top" id="Person">
 
     	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Name')}" for="Name"/>  
-					<ui:remove>
 					<!-- 
 					Use #{data.name} to map the name HtmlDialog data attribute to the UI widget text and vice versa 
 					-->
-					</ui:remove> 	
     	 			<p:inputText value="#{data.name}" id="Name" required="true"/>
     	 			<p:message for="Name" display="icon"/>
 
@@ -76,24 +74,21 @@
     	 			<p:message for="City" display="icon"/>
 
     	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Country')}" for="Country"/>
-  	 				<ui:remove>
     	 			<!-- 
     	 			Use #{logic.completeCountry} to call the method process of the method CompleteCountry. The signature of the method must 
     	 			match the signature expected by the UI widget.    
     	 			-->
-   	 			    </ui:remove>
     	 			<p:autoComplete value="#{data.country}" id="Country" completeMethod="#{logic.completeCountry}" delay="500" required="true"/>
     	 			<p:message for="Country" display="icon"/>
-					<ui:remove>
 					<!-- 
 					Use #{logic.send} to call the event process with the name send. 
 					-->
-				    </ui:remove>
-	    	 		<p:commandButton value="Send" actionListener="#{logic.send}" update="panel" id="SendButton"/>
+	    	 		
     	 		</h:panelGrid>
+    	 		<p:commandButton value="Send" actionListener="#{logic.send}" update="panel" id="SendButton"/>
 				
-    	 		<br/>
-    	 		<h:outputLabel value="Data: #{data}"/>
+    	 		<br/><br/>
+    	 		<h:outputText>Data: #{data}</h:outputText>
 
 	    	</p:panel>
 	    	<br/>

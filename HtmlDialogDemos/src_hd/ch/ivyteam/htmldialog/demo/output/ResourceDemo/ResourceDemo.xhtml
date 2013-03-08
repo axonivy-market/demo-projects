@@ -16,7 +16,7 @@
 	<p:panel >
 		<p>This demo explains how Resources from the dialog resources folder, the webContent folder or the CMS can be used.</p>
 		<h4>For using resources use the following code:</h4>
-		<p:panelGrid columns="2" id="resultPanel">
+		<p:panelGrid columns="2" id="resourcesResultPanel">
 			<h:outputText>&lt;h:outputStylesheet name="folder/style.css"/></h:outputText>
 			<h:outputText>Adds the stylesheet <i>style.css</i> to the HTML page.</h:outputText>
 
@@ -42,7 +42,7 @@
 			<p:row>
 				<p:column>&lt;h:graphicImage name="images/dialog.png" /></p:column>
 				<p:column>
-					<h:graphicImage name="images/dialog.png" />
+					<h:graphicImage name="images/dialog.png" alt="Dialog"/>
 				</p:column>
 				<p:column rowspan="3">If no library is defined then a resource is first searched within the dialog resources folder. If not found there then it is searched within the webcontent folder.
 						<p>Folder structure:</p>
@@ -62,33 +62,33 @@
 			<p:row>
 				<p:column>&lt;h:graphicImage name="images/webcontent.png" /></p:column>
 				<p:column>
-					<h:graphicImage name="images/webcontent.png" />
+					<h:graphicImage name="images/webcontent.png" alt="Webcontent"/>
 				</p:column>
 			</p:row>
 			<p:row>
 				<p:column>&lt;h:graphicImage name="images/image.png" /></p:column>
 				<p:column>
-					<h:graphicImage name="images/image.png" />
+					<h:graphicImage name="images/image.png" alt="Dialog"/>
 				</p:column>
 			</p:row>
 			<p:row>
 				<p:column>&lt;h:graphicImage library="ivy-dialog" name="images/image.png" /></p:column>
 				<p:column>
-					<h:graphicImage library="ivy-dialog" name="images/image.png" />
+					<h:graphicImage library="ivy-dialog" name="images/image.png" alt="Dialog"/>
 				</p:column>
 				<p:column>With library <strong>ivy-dialog</strong> the resource is always loaded from the Html Dialog resources folder.</p:column>
 			</p:row>
 			<p:row>
 				<p:column>&lt;h:graphicImage library="ivy-webcontent" name="images/image.png" /></p:column>
 				<p:column>
-					<h:graphicImage library="ivy-webcontent" name="images/image.png" />
+					<h:graphicImage library="ivy-webcontent" name="images/image.png" alt="Webcontent"/>
 				</p:column>
 				<p:column>With library <strong>ivy-webcontent</strong> the resource is always loaded form the webcontent folder.</p:column>
 			</p:row>
 			<p:row>
 				<p:column>&lt;h:graphicImage library="ivy-cms" name="images/image" /></p:column>
 				<p:column>
-					<h:graphicImage library="ivy-cms" name="images/image" />
+					<h:graphicImage library="ivy-cms" name="images/image" alt="Cms"/>
 				</p:column>
 				<p:column>With library <strong>ivy-cms</strong> the resource is always loaded form the CMS.</p:column>
 			</p:row>
