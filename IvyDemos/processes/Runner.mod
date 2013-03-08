@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Nov 28 17:05:18 CET 2012]
+[>Created: Tue Feb 26 16:57:35 CET 2013]
 1215975017F13818 3.17 #module
 >Proto >Proto Collection #zClass
 Rr0 Runner Big #zClass
@@ -103,7 +103,8 @@ demoIds = [
 	"ch.ivyteam.ivy.demo.docfactory.DocFactoryReporting",
 	"ch.ivyteam.ivy.demo.webbrowser.WebBrowser",
 	"ch.ivyteam.ivy.demo.filemanager.StartFileManager",
-	"ch.ivyteam.ivy.demo.charts.ChartsDemo"
+	"ch.ivyteam.ivy.demo.charts.ChartsDemo",
+	"ch.ivyteam.ivy.demo.textfield.TextFieldButtonsDemo"	
 ];
 out.demos = demoIds;' #txt
 Rr0 f1 type ivydemos.Data #txt
