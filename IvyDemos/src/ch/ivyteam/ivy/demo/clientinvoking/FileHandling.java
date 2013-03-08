@@ -67,7 +67,6 @@ public class FileHandling {
 				}
 			}
 
-			@SuppressWarnings("unchecked")
 			public void onSuccess(InputStream[] ins, String[] filePaths, String[] fileNames) {
 				Ivy.log().info("Upload was success");
 				if (ins.length == 0)
@@ -81,7 +80,7 @@ public class FileHandling {
 				{
 					try {
 						// get the file line by line as a list of strings 
-						List lines = IOUtils.readLines(ins[i]);
+						List<?> lines = IOUtils.readLines(ins[i]);
 						// load the list in a string
 						String content = "";
 						for (int j = 0; j < lines.size(); j++)

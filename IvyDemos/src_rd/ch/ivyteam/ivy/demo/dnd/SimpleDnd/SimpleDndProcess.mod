@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon May 25 12:28:28 CEST 2009]
-11638902C7032414 3.11 #module
+[>Created: Fri Mar 08 11:29:14 CET 2013]
+11638902C7032414 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SimpleDndProcess Big #zClass
 Ss0 RD #cInfo
@@ -29,6 +29,7 @@ Ss0 @PushWFArc f14 '' #zField
 Ss0 f0 guid 1163893DEA3918DE #txt
 Ss0 f0 type ch.ivyteam.ivy.demo.dnd.SimpleDnd.SimpleDndData #txt
 Ss0 f0 method start() #txt
+Ss0 f0 disableUIEvents false #txt
 Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -84,6 +85,12 @@ Ss0 f3 expr out #txt
 Ss0 f3 128 66 128 92 #arcP
 Ss0 f4 expr out #txt
 Ss0 f4 128 116 128 147 #arcP
+Ss0 f12 guid 1163920E762D3B76 #txt
+Ss0 f12 type ch.ivyteam.ivy.demo.dnd.SimpleDnd.SimpleDndData #txt
+Ss0 f12 actionDecl 'ch.ivyteam.ivy.demo.dnd.SimpleDnd.SimpleDndData out;
+' #txt
+Ss0 f12 actionTable 'out=in;
+' #txt
 Ss0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -92,12 +99,6 @@ Ss0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </nameStyle>
     </language>
 </elementInfo>
-' #txt
-Ss0 f12 guid 1163920E762D3B76 #txt
-Ss0 f12 type ch.ivyteam.ivy.demo.dnd.SimpleDnd.SimpleDndData #txt
-Ss0 f12 actionDecl 'ch.ivyteam.ivy.demo.dnd.SimpleDnd.SimpleDndData out;
-' #txt
-Ss0 f12 actionTable 'out=in;
 ' #txt
 Ss0 f12 198 46 20 20 13 0 #rect
 Ss0 f12 @|RichDialogProcessStartIcon #fIcon
@@ -112,6 +113,7 @@ Ss0 f13 @|RichDialogProcessEndIcon #fIcon
 Ss0 f11 guid 1163937837E894DD #txt
 Ss0 f11 type ch.ivyteam.ivy.demo.dnd.SimpleDnd.SimpleDndData #txt
 Ss0 f11 method objectsDropped(List<java.lang.Object>,java.lang.Object,String) #txt
+Ss0 f11 disableUIEvents false #txt
 Ss0 f11 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <List<java.lang.Object> source,java.lang.Object target,java.lang.String action> param = methodEvent.getInputArguments();
 ' #txt
@@ -119,10 +121,10 @@ Ss0 f11 inActionCode 'import ch.ivyteam.ivy.demo.dnd.SimpleDnd.*;
 
 // DEBUG OUTPUT
 // -------------------
-in.logText = "*** Drop event received:\n" + 
+out.logText = "*** Drop event received:\n" + 
 	"\tAction: " + param.action + "\n"  + 
 	"\tSource object: " + param.source + "\n"  + 
-	"\tTarget object: " + param.target + "\n\n" + in.logText;
+	"\tTarget object: " + param.target + "\n\n" + out.logText;
 panel.textAreaLog.scrollPositionToVisible(0);
 
 
