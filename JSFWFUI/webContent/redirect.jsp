@@ -15,17 +15,16 @@ String tmpMsg=ivy.html.get("in.temp.msg");
 <title>Xpert.ivy Workflow</title>
 </head>
 
-<body style="background-color: #ffffff;font-size: 10px; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  margin-top: 0px;margin-bottom: 0px;margin-left: 1px;margin-right: 1px;height:100%; ">
+<body style="background-color: #F9F9F9;font-size: 9pt; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  margin-top: 0px;margin-bottom: 0px;margin-left: 5px;margin-right: 1px;height:99%; ">
 	
-<div style="background-color:#ffffff; text-align:left; margin-top:1px; margin-right:1px; margin-bottom: -2px;">		
+<div style="background-color:#F9F9F9; height: 65px;text-align:left; margin-top:9px; margin-right:1px; margin-bottom: -2px; margin-left: 2px;">		
 	<img src='<%=ivy.cms.cr("/images/logo")%>'>
 </div>
 
-<div style="background-color: #000000; width: 100%;padding-top: 4px;padding-bottom: 4px;margin-top: 0px;margin-bottom: 0px;padding-left: 4px;padding-right: 4px;">
-	&nbsp;
+<div style="background-image: url(images/border.png); height: 20px;width: 99%;padding-top: 4px;padding-bottom: 4px;margin-top: 0px;margin-bottom: 0px;padding-left: 4px;padding-right: 4px;">
 </div>
 
-<div style="background-color: #f5f5f5; position: absolute; height: 416px; width: 100%; margin-top: 0px;margin-bottom: 0px;margin-left: 0px;padding-top: 4px;padding-bottom: 4px;padding-left: 2px;padding-right: 2px;">
+<div style="background-color: #F9F9F9; position: absolute; height: 416px; width: 99%; margin-top: 0px;margin-bottom: 0px;margin-left: 0px;padding-top: 4px;padding-bottom: 4px;padding-left: 2px;padding-right: 2px;">
 <br>
 <%
 	if(urlToStart.length()==0)
@@ -34,10 +33,10 @@ String tmpMsg=ivy.html.get("in.temp.msg");
     }
     else
     {		
-	%>			
+	%>
 		<h1 style="font-size:14pt;font-weight:lighter;"><%=tmpMsg%></h1>
 		<br>	
-		<a href="<%=urlToStart%>"><%=ivy.cms.co("/htmlabels/clickHere")%></a>
+		<a style="font-size: 8pt;color: #333333;text-decoration: none;border: 0px;font-weight: bold;" href="<%=urlToStart%>"><%=ivy.cms.co("/htmlabels/clickHere")%></a>
 		<span id="back_links">	
 		<br>		
 		<p><%=ivy.cms.co("/htmlabels/backTo")%> <a style="font-size: 8pt;color: #333333;text-decoration: none;border: 0px;font-weight: bold;" href='javascript:location.replace("<%=ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp")%>")'>&raquo; <%=ivy.cms.co("/navLabels/home")%></a>
@@ -46,7 +45,7 @@ String tmpMsg=ivy.html.get("in.temp.msg");
     }
     %>
 </div>
-	<div style="position: absolute;	font-size:8pt;background-color:#ffffff;left: 0px; top: 500px; padding-top: 2px;padding-bottom: 1px;padding-left: 3px;padding-right: 3px;">	
+	<div style="position: absolute; font-size:8pt;background-color:#F9F9F9;left: 0px; top: 97%; padding-top: 2px;padding-bottom: 1px;padding-left: 3px;padding-right: 3px;">	
 		<%@ page import="java.util.Date"%>
 		<%@ page import="java.text.DateFormat"%>
 		<%@ page import="java.util.Locale"%>

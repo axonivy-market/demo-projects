@@ -9,10 +9,10 @@
       xmlns:p="http://primefaces.org/ui">
  
 <h:body>
-	<ui:composition template="../HomeTemplate.xhtml">
+	<ui:composition template="/tamplates/HomeTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="#{ivy.cms.co('/explainTexts/TaskDetails')}">
+			<p:layoutUnit id="center" position="center" header="#{ivy.cms.co('/explainTexts/TaskDetails')}">
 			<br></br>
 			<h:outputText value="#{ivy.cms.co('/explainTexts/CaseDetailsTitel')}"/>
 			<br></br>
@@ -49,29 +49,61 @@
 					<h:outputText value="#{ivy.cms.co('/labels/description')}"/>
 					<h:outputText value="#{data.data.tmpTask.description}"/>
 					<h:outputText value="#{ivy.cms.co('/labels/state')}"/>
-					<h:outputText value="#{data.data.tmpTask.state}"/>
+					<h:panelGrid columns="2">
+						<h:graphicImage library="ivy-cms" name="#{data.stateImage}" alt="" style="border:0pt"/>
+						<h:outputText value="#{data.data.tmpTask.state}"/>
+					</h:panelGrid>
 					<h:outputText value="#{ivy.cms.co('/labels/priority')}"/>
-					<h:outputText value="#{data.data.tmpTask.priority}"/>
+					<h:panelGrid columns="2">
+						<h:graphicImage library="ivy-cms" name="#{data.priorityImage}" alt="" style="border:0pt"/>
+						<h:outputText value="#{data.data.tmpTask.priority}"/>
+					</h:panelGrid>
 					<h:outputText value="#{ivy.cms.co('/labels/user')}"/>
+					<h:panelGrid columns="2">
+					<h:graphicImage library="ivy-cms" name="#{data.userImage}" alt="" style="border:0pt"/>
 					<h:outputText value="#{data.data.tmpTask.workerUserName}"/>
+					</h:panelGrid>
    					<h:outputText value="#{ivy.cms.co('/labels/responsible')}"/>
+   					<h:panelGrid columns="2">
+   					<h:graphicImage library="ivy-cms" name="#{data.responsibleImage}" alt="" style="border:0pt"/>
 					<h:outputText value="#{data.data.tmpTask.originalActivatorName}"/>
+					</h:panelGrid>
    					<h:outputText value="#{ivy.cms.co('/labels/responsibleEx')}"/>
+   					<h:panelGrid columns="2">
+   					<h:graphicImage library="ivy-cms" name="#{data.responsibleExImage}" alt="" style="border:0pt"/>
 					<h:outputText value="#{data.data.tmpTask.expiryActivatorName}"/>
+					</h:panelGrid>
    					<h:outputText value="#{ivy.cms.co('/labels/case')}"/>
 					<h:outputText value="#{data.data.tmpTask.case.name}"/>
 					<h:outputText value="#{ivy.cms.co('/labels/created')}"/>
-					<h:outputText value="#{data.data.tmpTask.startTimestamp}"/>
+					<h:outputText value="#{data.data.tmpTask.startTimestamp}">
+						<f:convertDateTime type="both" dateStyle="short"/>
+					</h:outputText>
 					<h:outputText value="#{ivy.cms.co('/labels/expiry')}"/>
-					<h:outputText value="#{data.data.tmpTask.expiryTimestamp}"/>
+					<h:outputText value="#{data.data.tmpTask.expiryTimestamp}">
+						<f:convertDateTime type="both" dateStyle="short"/>
+					</h:outputText>
 					<h:outputText value="#{ivy.cms.co('/labels/delay')}"/>
-					<h:outputText value="#{data.data.tmpTask.delayTimestamp}"/>
+					<h:outputText value="#{data.data.tmpTask.delayTimestamp}">
+						<f:convertDateTime type="both" dateStyle="short"/>
+					</h:outputText>
 					<h:outputText value="#{ivy.cms.co('/labels/done')}"/>
-					<h:outputText value="#{data.data.tmpTask.endTimestamp}"/>
+					<h:outputText value="#{data.data.tmpTask.endTimestamp}">
+						<f:convertDateTime type="both" dateStyle="short"/>
+					</h:outputText>
 				</h:panelGrid>
+				<br></br><br></br>
+				<h:outputText value="#{data.notesTitel}" style="font-weight:bold; font-size:12pt;"/>
 				<br></br>
-				<br></br>
-				<br></br>
+				<p:dataList value="#{data.taskNotesList}" var="taskNote" itemType="none" rendered="#{data.notesTitel != ''}">
+					<h:panelGrid columns="2">
+    					<h:outputText value="#{taskNote.description} " escape="false"/>
+    					<h:commandLink actionListener="#{logic.deleteNote(taskNote.id, 'task')}" title="#{ivy.cms.co('/labels/deleteNote')}" ajax="false" disabled="#{taskNote.delete}">
+							<h:graphicImage library="ivy-cms" name="images/delete" alt="#{taskNote.id}" style="border:0pt" rendered="#{!taskNote.delete}"/>
+						</h:commandLink>
+					</h:panelGrid>
+				</p:dataList>
+				<br></br><br></br>
 				<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.back}"/>
 			</h:form>
 			</p:layoutUnit>

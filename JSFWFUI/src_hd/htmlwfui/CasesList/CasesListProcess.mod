@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Feb 08 14:54:47 CET 2013]
+[>Created: Fri Feb 15 10:10:35 CET 2013]
 13CB4AE3268EF817 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CasesListProcess Big #zClass
@@ -33,7 +33,9 @@ Cs0 @RichDialogProcessStart f15 '' #zField
 Cs0 @PushWFArc f24 '' #zField
 Cs0 @RichDialogProcessStart f13 '' #zField
 Cs0 @PushWFArc f23 '' #zField
-Cs0 @PushWFArc f18 '' #zField
+Cs0 @GridStep f12 '' #zField
+Cs0 @PushWFArc f16 '' #zField
+Cs0 @PushWFArc f17 '' #zField
 >Proto Cs0 Cs0 CasesListProcess #zField
 Cs0 f0 guid 13CB4AE327752965 #txt
 Cs0 f0 type htmlwfui.CasesList.CasesListData #txt
@@ -449,8 +451,55 @@ Cs0 f23 expr out #txt
 Cs0 f23 288 74 174 128 #arcP
 Cs0 f23 1 288 128 #addKink
 Cs0 f23 1 0.24878695536118955 0 0 #arcLabel
-Cs0 f18 expr out #txt
-Cs0 f18 160 236 160 310 #arcP
+Cs0 f12 actionDecl 'htmlwfui.CasesList.CasesListData out;
+' #txt
+Cs0 f12 actionTable 'out=in;
+' #txt
+Cs0 f12 actionCode 'import ch.ivyteam.ivy.security.ISecurityMember;
+import htmlwfui.Cases;
+import java.util.EnumSet;
+import ch.ivyteam.ivy.workflow.PropertyOrder;
+import ch.ivyteam.ivy.workflow.CaseState;
+import ch.ivyteam.ivy.workflow.CaseProperty;
+import ch.ivyteam.ivy.persistence.OrderDirection;
+import ch.ivyteam.ivy.persistence.IQueryResult;
+import ch.ivyteam.ivy.workflow.ICase;
+import javax.servlet.http.HttpServletRequest;
+
+List<ICase> cases = in.data.cases;
+out.data.caseList.clear();
+
+for (int t=0; t<cases.size(); t++)
+{
+				ICase case = cases.get(t);
+				Cases caseDetail = new Cases();
+				
+				caseDetail.id = case.getId();
+				caseDetail.name = case.getName();
+				caseDetail.stateName = case.getState().toString();
+				caseDetail.category = case.getProcessCategoryCode();
+				caseDetail.creatorUser = case.getCreatorUserName();
+				caseDetail.start = case.getStartTimestamp();
+				
+		
+				out.data.caseList.add(caseDetail);
+}' #txt
+Cs0 f12 type htmlwfui.CasesList.CasesListData #txt
+Cs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Case list</name>
+        <nameStyle>9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f12 142 260 36 24 20 -2 #rect
+Cs0 f12 @|StepIcon #fIcon
+Cs0 f16 expr out #txt
+Cs0 f16 160 236 160 260 #arcP
+Cs0 f17 expr out #txt
+Cs0 f17 160 284 160 310 #arcP
 >Proto Cs0 .type htmlwfui.CasesList.CasesListData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
@@ -473,5 +522,7 @@ Cs0 f15 mainOut f24 tail #connect
 Cs0 f24 head f20 mainIn #connect
 Cs0 f13 mainOut f23 tail #connect
 Cs0 f23 head f5 in #connect
-Cs0 f4 mainOut f18 tail #connect
-Cs0 f18 head f7 mainIn #connect
+Cs0 f4 mainOut f16 tail #connect
+Cs0 f16 head f12 mainIn #connect
+Cs0 f12 mainOut f17 tail #connect
+Cs0 f17 head f7 mainIn #connect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 06 15:40:20 CET 2013]
+[>Created: Thu Feb 21 09:36:52 CET 2013]
 13C5C426ACC9F0A7 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 PageArchiveProcess Big #zClass
@@ -82,7 +82,7 @@ for(int i = 0; i < tasks.size(); i++)
 		ArchivePageDetail apd = new ArchivePageDetail();
 		apd.setRef(ivy.html.pageArchiveRef(pa));
 		apd.setName(pa.getName());
-		apd.setId(pa.getIdentifier());
+		apd.setId(pa.getId());
 		out.data.pageArchives.add(apd);
 	}	
 }	
@@ -148,6 +148,15 @@ if(in.data.tmpTaskDetail.exp.toNumber()>0)
 	out.data.tmpTask.setExpiryTimestamp(in.data.tmpTaskDetail.exp);
 }' #txt
 Ps0 f11 type htmlwfui.PageArchive.PageArchiveData #txt
+Ps0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>archive</name>
+        <nameStyle>7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ps0 f11 334 100 36 24 20 -2 #rect
 Ps0 f11 @|RichDialogProcessStepIcon #fIcon
 Ps0 f12 expr out #txt

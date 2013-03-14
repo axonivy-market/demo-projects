@@ -1,1 +1,22 @@
-<FORM NAME="formLinkA" METHOD='POST' ACTION='<%=ivy.html.ref("LinkA.ivp")%>' > <INPUT  TYPE="SUBMIT" VALUE="Finish"></FORM>
+<FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'   ONSUBMIT="return checkformLinkA();">
+<!--ivyform--><table BORDER="0"><tr >
+<td ><!--i.ttemp.ok-->Bestätigen?</td>
+<td ><!--i.atemp.ok--><%=ivy.html.radioselection("\"@_;true;Ja_false;Nein_\"","temp$ok",2,"in.temp.ok")%></td>
+</tr>
+<tr >
+<td ></td>
+<td ><!--i.submit-->
+<SCRIPT LANGUAGE="JavaScript" SRC="<%=ivy.html.wr("scripts/validation/radioChecked.js")%>"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+function checkformLinkA()
+{
+  return (true 
+    && radioChecked(document.formLinkA.temp$ok,"Bestätigung muss ausgewählt werden.","<%=ivy.request.getContentLocale().getLanguage()%>"));
+}
+</SCRIPT>
+<INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="Submit">
+</td>
+</tr>
+
+</table>
+</FORM>

@@ -4,3 +4,7 @@ themes List<String> #field
 themes PERSISTENT #fieldModifier
 scheduleBean ivy.htmlwfui.ScheduleBean #field
 scheduleBean PERSISTENT #fieldModifier
+aufgaben String #field
+aufgaben PERSISTENT #fieldModifier
+processe String #field
+processe PERSISTENT #fieldModifier

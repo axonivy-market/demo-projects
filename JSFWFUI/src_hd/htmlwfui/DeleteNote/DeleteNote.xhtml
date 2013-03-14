@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui">
+ 
+<h:body>
+	<ui:composition template="/tamplates/HomeTemplate.xhtml">
+
+		<ui:define name="center">
+			<p:layoutUnit id="center" position="center" header="#{ivy.cms.co('/labels/deleteNote')}">
+			<br></br>
+			<h:outputText value="#{ivy.cms.co('/explainTexts/NoteDeleteDescription')}"/>
+			<br></br><br></br><br></br>
+			<h:form id="form">
+				<h:panelGrid columns="2">
+					<h:outputText value="#{ivy.cms.co('/labels/deleteNote')}"/>
+					<p:selectBooleanCheckbox value="#{data.data.temp.ok}">
+	    				<f:ajax render="form"/>
+					</p:selectBooleanCheckbox>
+					<br></br>
+					<p:commandButton value="#{ivy.cms.co('/labels/deleteButton')}" actionListener="#{logic.deleteNote}" ajax="false" disabled="#{!data.data.temp.ok}"/>
+				</h:panelGrid>
+				<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.back}" ajax="false"/>
+			</h:form>
+			</p:layoutUnit>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

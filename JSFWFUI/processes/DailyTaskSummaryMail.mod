@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Mar 04 15:30:00 CET 2011]
-12E7BFEAB6F56A0A 3.16 #module
+[>Created: Tue Feb 19 14:34:26 CET 2013]
+12E7BFEAB6F56A0A 3.17 #module
 >Proto >Proto Collection #zClass
 Dt0 DailyTaskSummaryMail Big #zClass
 Dt0 B #cInfo
@@ -29,7 +29,7 @@ Dt0 f0 triggerEnabled false #txt
 Dt0 f0 callSignature MailNotification_DailyTaskSummary(Number) #txt
 Dt0 f0 persist false #txt
 Dt0 f0 taskData '#
-#Fri Mar 04 15:29:58 CET 2011
+#Tue Feb 19 14:34:25 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -38,7 +38,8 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Dt0 f0 caseData '#
-#Fri Mar 04 15:29:58 CET 2011
+#Tue Feb 19 14:34:25 CET 2013
+businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -66,7 +67,10 @@ type.name=
 ' #txt
 Dt0 f0 showInStartList 0 #txt
 Dt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskUpdDef.setExpiryActivator("Everybody");
 taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 engine.updateCurrentTask(taskUpdDef);
@@ -84,7 +88,7 @@ Dt0 f0 @C|.responsibility Everybody #txt
 Dt0 f0 75 59 26 26 25 -9 #rect
 Dt0 f0 @|StartRequestIcon #fIcon
 Dt0 f1 type htmlwfui.DailyMail #txt
-Dt0 f1 template "DailyTaskSummeryMailContent.ivc" #txt
+Dt0 f1 template "/ProcessPages/DailyTaskSummaryMail/DailyTaskSummeryMailContent.ivc" #txt
 Dt0 f1 75 163 26 26 14 0 #rect
 Dt0 f1 @|EndRequestIcon #fIcon
 Dt0 f2 expr out #txt

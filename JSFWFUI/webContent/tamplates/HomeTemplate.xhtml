@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+ 
+<h:head>
+	<title>Xpert.ivy Workflow</title>
+</h:head>
+<h:body style="font-size: 9pt">
+	<p:layout fullPage="true">
+		
+		<p:layoutUnit position="north" size="60">
+			<table width="100%">
+				<tr>
+					<td><h:graphicImage library="ivy-cms" name="/Project/Banner" alt="Banner"/>
+					</td>
+					<td width="100%"><h:outputText>Xpert.ivy Workflow </h:outputText><br></br>
+						<h:outputText>#{ivy.cms.co('/labels/loginAs')} #{ivy.session.getSessionUserName()}</h:outputText></td>
+				</tr>
+			</table>
+		</p:layoutUnit>
+		<p:layoutUnit position="west" collapsible="true" resizable="true"
+			header="Xpert.ivy 5" size="200">
+			<p:scrollPanel>
+				<p:menu style="width:100%">
+					<p:submenu label="#{ivy.cms.co('/navLabels/workflow')}" >
+						<p:menuitem value="#{ivy.cms.co('/navLabels/home')}"
+							url="#{ivy.html.startref('127AE76143E89C91/DefaultApplicationHomePage.ivp')}" />
+						<p:menuitem value="#{ivy.cms.co('/navLabels/processList')}"
+							url="#{ivy.html.startref('1270ADF72FF4AFF3/DefaultProcessStartListPage.ivp')}" />
+						<p:menuitem value="#{ivy.cms.co('/navLabels/taskList')}"
+							url="#{ivy.html.startref('125016DE17A534EB/DefaultTaskListPage.ivp')}" />
+					</p:submenu>
+					<p:submenu label="#{ivy.cms.co('/navLabels/history')}" >
+						<p:menuitem value="#{ivy.cms.co('/navLabels/caseHistory')}"
+							url="#{ivy.html.startref('12C97DB1B1EA5971/start1.ivp')}" />
+						<p:menuitem value="#{ivy.cms.co('/navLabels/taskHistory')}"
+							url="#{ivy.html.startref('12E297F287736665/start1.ivp')}" />
+					</p:submenu>
+					<p:submenu label="#{ivy.cms.co('/navLabels/settings')}">
+						<p:menuitem value="#{ivy.cms.co('/navLabels/absence')}"
+							url="#{ivy.html.startref('1367E046117353D3/start.ivp')}" />>
+						<p:menuitem value="#{ivy.cms.co('/navLabels/substitution')}"
+							url="#{ivy.html.startref('1367DCC9EAB32A2E/start.ivp')}" />
+						<p:menuitem value="#{ivy.cms.co('/navLabels/mailSettings')}"
+							url="#{ivy.html.startref('13CCE56647090F82/start.ivp')}" />
+					</p:submenu>
+					<p:submenu label="#{ivy.cms.co('/navLabels/admin')}">
+						<p:menuitem value="#{ivy.cms.co('/navLabels/caseAdmin')}"
+							url="#{ivy.html.startref('12C97DB1B1EA5971/start2.ivp')}" />
+						<p:menuitem value="#{ivy.cms.co('/navLabels/logout')}"
+							url="#{ivy.html.startref('136F33D7CF6E4319/start.ivp')}" />
+					</p:submenu>
+				</p:menu>
+			</p:scrollPanel>
+		</p:layoutUnit>
+		<ui:insert name="center">
+			<p:layoutUnit position="center" header="">
+			</p:layoutUnit>
+		</ui:insert>
+		<p:layoutUnit position="south" size="32">
+			<h:outputText value="Powered by Xpert.Ivy Workflow Copyright &#169; ivyTeam" />
+		</p:layoutUnit>
+	</p:layout>
+</h:body>
+</html>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 07 14:20:08 CET 2013]
+[>Created: Fri Feb 22 11:15:21 CET 2013]
 12C97DB1B1EA5971 3.17 #module
 >Proto >Proto Collection #zClass
 Rt0 CaseList Big #zClass
@@ -33,7 +33,6 @@ Rt0 @PushWFArc f2 '' #zField
 Rt0 @RichDialog f4 '' #zField
 Rt0 @PushWFArc f5 '' #zField
 Rt0 @PushWFArc f8 '' #zField
-Rt0 @PushWFArc f9 '' #zField
 Rt0 @RichDialog f10 '' #zField
 Rt0 @PushWFArc f11 '' #zField
 Rt0 @PushWFArc f13 '' #zField
@@ -41,6 +40,10 @@ Rt0 @PushWFArc f14 '' #zField
 Rt0 @PushWFArc f15 '' #zField
 Rt0 @PushWFArc f16 '' #zField
 Rt0 @PushWFArc f17 '' #zField
+Rt0 @RichDialog f18 '' #zField
+Rt0 @PushWFArc f9 '' #zField
+Rt0 @PushWFArc f19 '' #zField
+Rt0 @PushWFArc f20 '' #zField
 >Proto Rt0 Rt0 CaseList #zField
 Rt0 f6 type htmlwfui.Data #txt
 Rt0 f6 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
@@ -223,7 +226,6 @@ Rt0 f30 doCall true #txt
 Rt0 f30 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Rt0 f30 requestMappingAction 'param.in=in;
-param.in.tmpTask=in.tasks.get(in.temp.n);
 ' #txt
 Rt0 f30 responseActionDecl 'htmlwfui.Data out;
 ' #txt
@@ -421,11 +423,6 @@ Rt0 f5 176 180 176 212 #arcP
 Rt0 f5 0 0.4785052269409655 0 0 #arcLabel
 Rt0 f8 expr out #txt
 Rt0 f8 176 236 176 268 #arcP
-Rt0 f9 expr in #txt
-Rt0 f9 190 376 194 224 #arcP
-Rt0 f9 1 320 376 #addKink
-Rt0 f9 2 320 224 #addKink
-Rt0 f9 1 0.4861111111111111 0 0 #arcLabel
 Rt0 f10 targetWindow NEW:card: #txt
 Rt0 f10 targetDisplay TOP #txt
 Rt0 f10 richDialogId htmlwfui.CaseDetail #txt
@@ -479,6 +476,48 @@ Rt0 f17 expr out #txt
 Rt0 f17 128 364 158 336 #arcP
 Rt0 f17 1 128 336 #addKink
 Rt0 f17 0 0.8866023801777045 0 0 #arcLabel
+Rt0 f18 targetWindow NEW:card: #txt
+Rt0 f18 targetDisplay TOP #txt
+Rt0 f18 richDialogId htmlwfui.DeleteNote #txt
+Rt0 f18 startMethod start(htmlwfui.Data) #txt
+Rt0 f18 type htmlwfui.Data #txt
+Rt0 f18 requestActionDecl '<htmlwfui.Data data> param;' #txt
+Rt0 f18 requestMappingAction 'param.data=in;
+' #txt
+Rt0 f18 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Rt0 f18 responseMappingAction 'out=in;
+' #txt
+Rt0 f18 windowConfiguration '* ' #txt
+Rt0 f18 isAsynch false #txt
+Rt0 f18 isInnerRd false #txt
+Rt0 f18 userContext '* ' #txt
+Rt0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>deleteNote</name>
+        <nameStyle>10
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Rt0 f18 326 420 36 24 20 -2 #rect
+Rt0 f18 @|RichDialogIcon #fIcon
+Rt0 f9 expr in #txt
+Rt0 f9 190 376 194 224 #arcP
+Rt0 f9 1 320 376 #addKink
+Rt0 f9 2 320 224 #addKink
+Rt0 f9 1 0.884560178606379 0 0 #arcLabel
+Rt0 f19 expr in #txt
+Rt0 f19 outCond 'in.option == "deleteNote"' #txt
+Rt0 f19 187 380 326 426 #arcP
+Rt0 f19 0 0.8188657407407408 0 0 #arcLabel
+Rt0 f20 expr out #txt
+Rt0 f20 344 444 158 336 #arcP
+Rt0 f20 1 344 480 #addKink
+Rt0 f20 2 56 480 #addKink
+Rt0 f20 3 56 336 #addKink
+Rt0 f20 1 0.5769946085229547 0 0 #arcLabel
 >Proto Rt0 .type htmlwfui.Data #txt
 >Proto Rt0 .processKind NORMAL #txt
 >Proto Rt0 0 0 32 24 18 0 #rect
@@ -503,8 +542,6 @@ Rt0 f6 mainOut f5 tail #connect
 Rt0 f5 head f4 mainIn #connect
 Rt0 f4 mainOut f8 tail #connect
 Rt0 f8 head f53 mainIn #connect
-Rt0 f3 out f9 tail #connect
-Rt0 f9 head f4 mainIn #connect
 Rt0 f53 mainOut f11 tail #connect
 Rt0 f11 head f10 mainIn #connect
 Rt0 f10 mainOut f13 tail #connect
@@ -517,3 +554,9 @@ Rt0 f37 mainOut f16 tail #connect
 Rt0 f16 head f10 mainIn #connect
 Rt0 f45 mainOut f17 tail #connect
 Rt0 f17 head f10 mainIn #connect
+Rt0 f9 head f4 mainIn #connect
+Rt0 f3 out f19 tail #connect
+Rt0 f19 head f18 mainIn #connect
+Rt0 f3 out f9 tail #connect
+Rt0 f18 mainOut f20 tail #connect
+Rt0 f20 head f10 mainIn #connect

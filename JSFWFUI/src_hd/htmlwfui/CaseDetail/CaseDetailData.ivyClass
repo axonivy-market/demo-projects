@@ -8,3 +8,9 @@ addNoteLink Boolean #field
 addNoteLink PERSISTENT #fieldModifier
 archiveLink Boolean #field
 archiveLink PERSISTENT #fieldModifier
+notesTitel String #field
+notesTitel PERSISTENT #fieldModifier
+stateImage String #field
+stateImage PERSISTENT #fieldModifier
+caseNotesList List<htmlwfui.Notes> #field
+caseNotesList PERSISTENT #fieldModifier

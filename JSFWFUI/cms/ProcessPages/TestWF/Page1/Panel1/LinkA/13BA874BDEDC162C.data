@@ -1,13 +1,28 @@
-<FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'  >
-<!--ivyform--><table BORDER="0">
-<tr>
-<td><!--i.ttemp.caption-->temp.caption</td><td><!--i.atemp.caption--><INPUT TYPE="TEXT" NAME="temp$caption"  VALUE="<%=ivy.html.getFormValue("in.temp.caption")%>"></td>
+<FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'   ONSUBMIT="return checkformLinkA();">
+<!--ivyform--><table BORDER="0"><tr >
+<td ><!--i.ttemp.caption-->Titel:</td>
+<td ><!--i.atemp.caption--><INPUT TYPE="TEXT" NAME="temp$caption"  VALUE="<%=ivy.html.getFormValue("in.temp.caption")%>"></td>
 </tr>
-<tr>
-<td><!--i.ttemp.n-->temp.n</td><td><!--i.atemp.n--><INPUT TYPE="TEXT" NAME="temp$n"  VALUE="<%=ivy.html.getFormValue("in.temp.n")%>"></td>
+<tr >
+<td ><!--i.ttemp.description-->Beschreibung:</td>
+<td ><!--i.atemp.description--><TEXTAREA NAME="temp$description" ><%=ivy.html.getFormValue("in.temp.description")%></TEXTAREA></td>
 </tr>
-<tr><td>
-</td><td><!--i.submit-->
-<INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="Submit"></td></tr>
+<tr >
+<td ></td>
+<td ><!--i.submit-->
+<SCRIPT LANGUAGE="JavaScript" SRC="<%=ivy.html.wr("scripts/validation/_Empty.js")%>"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="<%=ivy.html.wr("scripts/validation/_Empty.js")%>"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+function checkformLinkA()
+{
+  return (true 
+    && _Empty(document.formLinkA.temp$caption,"Titel muss ausgefüllt werden.","<%=ivy.request.getContentLocale().getLanguage()%>")
+    && _Empty(document.formLinkA.temp$description,"Beschreibung muss ausgefüllt werden.","<%=ivy.request.getContentLocale().getLanguage()%>"));
+}
+</SCRIPT>
+<INPUT  TYPE="SUBMIT" NAME="Submit" VALUE="Submit">
+</td>
+</tr>
+
 </table>
 </FORM>

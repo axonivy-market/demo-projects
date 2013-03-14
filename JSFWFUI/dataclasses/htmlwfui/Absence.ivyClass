@@ -16,3 +16,9 @@ startTimeHH String #field
 startTimeHH PERSISTENT #fieldModifier
 startTimeMM Number #field
 startTimeMM PERSISTENT #fieldModifier
+id Number #field
+id PERSISTENT #fieldModifier
+startDateTime DateTime #field
+startDateTime PERSISTENT #fieldModifier
+endDateTime DateTime #field
+endDateTime PERSISTENT #fieldModifier

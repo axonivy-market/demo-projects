@@ -1,3 +1,0 @@
-<P>
-Change workflow task[<%=ivy.html.get("in.tmpTask.getIdentifier()")%>] <B><%=ivy.html.get("in.tmpTask.name")%></B>.
-</P>

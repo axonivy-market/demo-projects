@@ -1,3 +1,0 @@
-<P>
-Confirm to delete the workflow <B><%=ivy.html.get("in.tempCase.name")%></B> - CaseId[<%=ivy.html.get("in.tempCase.getIdentifier()")%>] and its open tasks.
-</P>

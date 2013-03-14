@@ -8,10 +8,10 @@
       xmlns:p="http://primefaces.org/ui">
  
 <h:body>
-	<ui:composition template="../HomeTemplate.xhtml">
+	<ui:composition template="/tamplates/HomeTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="#{ivy.cms.co('/navLabels/substitution')}">
+			<p:layoutUnit id="center" position="center" header="#{ivy.cms.co('/navLabels/substitution')}">
 				<br></br>
 				<h:outputText value="#{ivy.cms.co('/explainTexts/MySubstitutionsTitel')}" style="font-weight:bold"/>
 				<br></br>
@@ -20,20 +20,20 @@
 				<br></br>
 				<h:form id="form1">
 					<p:panel id="thePanel">
-    					<p:dataTable id="dataTable" value="#{data.substitute.substiutions}" var="substitute" emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}">
+    					<p:dataTable id="dataTable" value="#{data.substitutionList}" var="substitute" emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}">
   
         					<p:column id="substituteFor" sortBy="#{substitute.substitutionRole.name}" style="width: 150px; ">  
             					<f:facet name="header">  
-               				<h:outputText value="#{ivy.cms.co('/labels/substituteFor')}" />  
+               						<h:outputText value="#{ivy.cms.co('/labels/substituteFor')}" />  
             					</f:facet>
-									<h:outputText value="#{substitute.substitutionRole.name}" />
-       						</p:column>  
+									<h:outputText value="#{substitute.role}" />
+       						</p:column>
   
-        					<p:column sortBy="" style="width: 150px; ">  
+        					<p:column sortBy="#{substitute.absent}" style="width: 150px; ">  
             					<f:facet name="header">  
-
+									<h:outputText value="#{ivy.cms.co('/labels/state')}" /> 
             					</f:facet>  
-            					<h:outputText value="" />
+            					<h:outputText value="#{substitute.absent}" />
         					</p:column>
         					
     					</p:dataTable>

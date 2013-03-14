@@ -8,10 +8,10 @@
       xmlns:p="http://primefaces.org/ui">
  
 <h:body>
-	<ui:composition template="../HomeTemplate.xhtml">
+	<ui:composition template="/tamplates/HomeTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="#{ivy.cms.co('/navLabels/absence')}">
+			<p:layoutUnit id="center" position="center" header="#{ivy.cms.co('/navLabels/absence')}">
 			<br></br>
 			<h:outputText value="#{ivy.cms.co('/explainTexts/AbsenceTitel')}" style="font-weight:bold"/>
 			<br></br>
@@ -21,8 +21,8 @@
 			<h:outputText value="#{data.msg}" style="font-weight:bold"/>
 			<br></br>
 			<br></br>
-			<h:form>
-				<p:commandButton icon="ui-icon-star" value="#{ivy.cms.co('/labels/addAbsence')}" actionListener="#{logic.addAbsence}" />
+			<h:form id="formAdd">
+				<p:commandButton id="addAbsence" icon="ui-icon-star" value="#{ivy.cms.co('/labels/addAbsence')}" actionListener="#{logic.addAbsence}" />
 			</h:form>
 			<br></br>
 			<br></br>
@@ -30,27 +30,31 @@
 			<br></br>
 			<h:form id="form1">
 			<p:panel id="thePanel">
-    			<p:dataTable id="dataTable" value="#{data.absence.absences}" var="absence" emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}">
+    			<p:dataTable id="dataTable" value="#{data.absenceList}" var="absence" emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}">
   
-        			<p:column id="absenceStart" sortBy="#{absence.startTimestamp}" style="width: 150px; ">  
+        			<p:column id="absenceStart" sortBy="#{absence.start}" style="width: 150px; ">  
             			<f:facet name="header">  
                				<h:outputText value="#{ivy.cms.co('/labels/absenceStart')}" />  
-            			</f:facet>  
-            			<h:outputText value="#{absence.startTimestamp}" />  
+            			</f:facet>
+            			<h:outputText value="#{absence.startDateTime}">
+							<f:convertDateTime type="both" dateStyle="short"/>
+						</h:outputText>  
        				</p:column>  
   
-        			<p:column sortBy="#{absence.stopTimestamp}" style="width: 150px; ">  
+        			<p:column sortBy="#{absence.end}" style="width: 150px; ">  
             			<f:facet name="header">  
                 			<h:outputText value="#{ivy.cms.co('/labels/absenceStop')}" />  
-            			</f:facet>  
-            			<h:outputText value="#{absence.stopTimestamp}" />  
+            			</f:facet>
+            			<h:outputText value="#{absence.endDateTime}">
+							<f:convertDateTime type="both" dateStyle="short"/>
+						</h:outputText>   
         			</p:column>
   
         			<p:column>  
             			<f:facet name="header">  
                 			<h:outputText value="#{ivy.cms.co('/labels/absenceDescription')}" />  
             			</f:facet>  
-            			<h:outputText value="#{absence.description}" />  
+            			<h:outputText value="#{absence.descr}" />  
         			</p:column>  
   
         			<p:column style="width: 83px; ">  
@@ -58,9 +62,9 @@
                 			<h:outputText value="#{ivy.cms.co('/labels/deleteButton')}" />  
 
             			</f:facet>
-            			<p:commandLink id="removeButton" actionListener="#{logic.removeAbs(absence.identifier)}" update=":form1:thePanel" icon="ui-icon-close" title="#{ivy.cms.co('/labels/deleteAbsence')}" align="center">
-                      <span class="ui-icon ui-icon-trash"/>
-                      </p:commandLink>
+            			<p:commandLink id="removeButton" actionListener="#{logic.removeAbs(absence.id)}" update=":form1:thePanel" icon="ui-icon-close" title="#{ivy.cms.co('/labels/deleteAbsence')}" align="center" ajax="false">
+                      		<span class="ui-icon ui-icon-trash"/>
+                      	</p:commandLink>
          			</p:column>
     			</p:dataTable>
     			</p:panel>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 06 13:31:24 CET 2013]
+[>Created: Fri Feb 22 11:12:15 CET 2013]
 12CBB155A8E655CC 3.17 #module
 >Proto >Proto Collection #zClass
 Tl0 TaskDetail Big #zClass
@@ -21,7 +21,6 @@ Tl0 @RichDialog f14 '' #zField
 Tl0 @PushWFArc f19 '' #zField
 Tl0 @Alternative f2 '' #zField
 Tl0 @PushWFArc f20 '' #zField
-Tl0 @PushWFArc f21 '' #zField
 Tl0 @PushWFArc f27 '' #zField
 Tl0 @PushWFArc f26 '' #zField
 Tl0 @PushWFArc f25 '' #zField
@@ -30,6 +29,10 @@ Tl0 @PushWFArc f28 '' #zField
 Tl0 @PushWFArc f17 '' #zField
 Tl0 @PushWFArc f7 '' #zField
 Tl0 @PushWFArc f4 '' #zField
+Tl0 @RichDialog f3 '' #zField
+Tl0 @PushWFArc f6 '' #zField
+Tl0 @PushWFArc f12 '' #zField
+Tl0 @PushWFArc f8 '' #zField
 >Proto Tl0 Tl0 TaskDetail #zField
 Tl0 f0 inParamDecl '<htmlwfui.Data in> param;' #txt
 Tl0 f0 inParamTable 'out=param.in;
@@ -169,8 +172,6 @@ Tl0 f2 370 178 28 28 14 0 #rect
 Tl0 f2 @|AlternativeIcon #fIcon
 Tl0 f20 expr out #txt
 Tl0 f20 384 140 384 178 #arcP
-Tl0 f21 expr in #txt
-Tl0 f21 398 192 563 192 #arcP
 Tl0 f27 expr in #txt
 Tl0 f27 outCond 'in.option == "showFormArchive"' #txt
 Tl0 f27 393 197 558 279 #arcP
@@ -207,6 +208,44 @@ Tl0 f4 1 448 352 #addKink
 Tl0 f4 2 704 352 #addKink
 Tl0 f4 3 704 128 #addKink
 Tl0 f4 1 0.540214317270216 0 0 #arcLabel
+Tl0 f3 targetWindow NEW:card: #txt
+Tl0 f3 targetDisplay TOP #txt
+Tl0 f3 richDialogId htmlwfui.DeleteNote #txt
+Tl0 f3 startMethod start(htmlwfui.Data) #txt
+Tl0 f3 type htmlwfui.Data #txt
+Tl0 f3 requestActionDecl '<htmlwfui.Data data> param;' #txt
+Tl0 f3 requestMappingAction 'param.data=in;
+' #txt
+Tl0 f3 responseActionDecl 'htmlwfui.Data out;
+' #txt
+Tl0 f3 responseMappingAction 'out=in;
+' #txt
+Tl0 f3 windowConfiguration '* ' #txt
+Tl0 f3 isAsynch false #txt
+Tl0 f3 isInnerRd false #txt
+Tl0 f3 userContext '* ' #txt
+Tl0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>deleteNote</name>
+        <nameStyle>10
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Tl0 f3 62 276 36 24 9 15 #rect
+Tl0 f3 @|RichDialogIcon #fIcon
+Tl0 f6 expr in #txt
+Tl0 f6 outCond 'in.option == "deleteNote"' #txt
+Tl0 f6 373 195 98 282 #arcP
+Tl0 f12 expr in #txt
+Tl0 f12 398 192 563 192 #arcP
+Tl0 f8 expr out #txt
+Tl0 f8 80 300 402 128 #arcP
+Tl0 f8 1 80 352 #addKink
+Tl0 f8 2 736 352 #addKink
+Tl0 f8 3 736 128 #addKink
+Tl0 f8 2 0.15856439273970782 0 0 #arcLabel
 >Proto Tl0 .type htmlwfui.Data #txt
 >Proto Tl0 .processKind CALLABLE_SUB #txt
 >Proto Tl0 0 0 32 24 18 0 #rect
@@ -215,7 +254,6 @@ Tl0 f0 mainOut f19 tail #connect
 Tl0 f19 head f14 mainIn #connect
 Tl0 f14 mainOut f20 tail #connect
 Tl0 f20 head f2 in #connect
-Tl0 f21 head f1 mainIn #connect
 Tl0 f27 head f15 mainIn #connect
 Tl0 f26 head f11 mainIn #connect
 Tl0 f25 head f5 mainIn #connect
@@ -224,7 +262,6 @@ Tl0 f24 head f10 mainIn #connect
 Tl0 f2 out f25 tail #connect
 Tl0 f2 out f26 tail #connect
 Tl0 f2 out f27 tail #connect
-Tl0 f2 out f21 tail #connect
 Tl0 f15 mainOut f28 tail #connect
 Tl0 f28 head f14 mainIn #connect
 Tl0 f5 mainOut f17 tail #connect
@@ -233,3 +270,9 @@ Tl0 f10 mainOut f7 tail #connect
 Tl0 f7 head f14 mainIn #connect
 Tl0 f11 mainOut f4 tail #connect
 Tl0 f4 head f14 mainIn #connect
+Tl0 f2 out f6 tail #connect
+Tl0 f6 head f3 mainIn #connect
+Tl0 f2 out f12 tail #connect
+Tl0 f12 head f1 mainIn #connect
+Tl0 f3 mainOut f8 tail #connect
+Tl0 f8 head f14 mainIn #connect

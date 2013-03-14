@@ -8,21 +8,24 @@
       xmlns:p="http://primefaces.org/ui">
  
 <h:body>
-	<ui:composition template="../HomeTemplate.xhtml">
+	<ui:composition template="/tamplates/HomeTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="#{ivy.cms.co('/navLabels/substitution')}">
+			<p:layoutUnit id="center" position="center" header="#{ivy.cms.co('/navLabels/substitution')}">
 				<br></br>
 				<h:outputText value="#{ivy.cms.co('/explainTexts/SubstitutesTitel')}" style="font-weight:bold"/>
 				<br></br>
 				<h:outputText value="#{ivy.cms.co('/explainTexts/SubstitutesDescription')}"/>
 				<br></br>
 				<br></br>
-				<h:form>
+				<h:form id="formAdd">
 					<p:commandLink value="#{ivy.cms.co('/explainTexts/SubstitutesLink')}" actionListener="#{logic.showMySubstitutions}" style="font-weight:bold"/>
 					<br></br>
 					<br></br>
-					<p:commandButton icon="ui-icon-star" value="#{ivy.cms.co('/labels/addSubstitute')}" actionListener="#{logic.addSubstitute}" />
+					<p:commandLink id="addSubstitute" actionListener="#{logic.addSubstitute}" title="#{ivy.cms.co('/tooltips/addSubstitute')}" style="margin-right:20px;" ajax="false">
+        				<h:graphicImage library="ivy-cms" name="images/add" alt="#{task.id}" style="border:0pt"/>
+        				<h:outputText value="#{ivy.cms.co('/labels/addSubstitute')}"/>  
+    				</p:commandLink>
 				</h:form>
 				<br></br>
 				<br></br>
@@ -30,20 +33,20 @@
 				<br></br>
 				<h:form id="form1">
 					<p:panel id="thePanel">
-    					<p:dataTable id="dataTable" value="#{data.substitute.substitutes}" var="substitute" emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}">
+    					<p:dataTable id="dataTable" value="#{data.substituteList}" var="substitute" emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}">
   
-        					<p:column id="substitute" sortBy="#{substitute.substituteUser.name}" style="width: 150px; ">  
+        					<p:column id="substitute" sortBy="#{substitute.user}" style="width: 150px; ">  
             					<f:facet name="header">  
                						<h:outputText value="#{ivy.cms.co('/labels/substituteUser')}" />  
             					</f:facet>  
-            					<h:outputText value="#{substitute.substituteUser.name}" />
+            					<h:outputText value="#{substitute.user}" />
        						</p:column>  
   
-        					<p:column sortBy="#{substitute.substitutionRole.name}" style="width: 150px; ">  
+        					<p:column sortBy="#{substitute.role}" style="width: 220px; ">  
             					<f:facet name="header">  
                 					<h:outputText value="#{ivy.cms.co('/labels/substituteFor')}" />  
             					</f:facet>  
-            					<h:outputText value="#{substitute.substitutionRole.name}" />
+            					<h:outputText value="#{substitute.role}" />
         					</p:column>
   
         					<p:column>  
@@ -58,7 +61,7 @@
                 					<h:outputText value="#{ivy.cms.co('/labels/deleteButton')}" />  
 
             					</f:facet>
-            					<p:commandLink id="removeButton" actionListener="#{logic.removeSubstitution(substitute.identifier)}" update=":form1:thePanel" icon="ui-icon-close" title="#{ivy.cms.co('/labels/deleteAbsence')}" align="center">
+            					<p:commandLink id="removeButton" actionListener="#{logic.removeSubstitution(substitute.id)}" update=":form1:thePanel" icon="ui-icon-close" title="#{ivy.cms.co('/labels/deleteAbsence')}" align="center">
                     			  <span class="ui-icon ui-icon-trash"/>
                     			</p:commandLink>
          					</p:column>

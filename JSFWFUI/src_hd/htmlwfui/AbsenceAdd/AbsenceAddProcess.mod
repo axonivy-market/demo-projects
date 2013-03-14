@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 19:18:38 CET 2013]
+[>Created: Fri Feb 15 14:49:55 CET 2013]
 13BFF70D9DBA6AA5 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AbsenceAddProcess Big #zClass
@@ -25,8 +25,6 @@ As0 @PushWFArc f10 '' #zField
 As0 @GridStep f11 '' #zField
 As0 @PushWFArc f4 '' #zField
 As0 @PushWFArc f13 '' #zField
-As0 @GridStep f2 '' #zField
-As0 @PushWFArc f14 '' #zField
 As0 @PushWFArc f15 '' #zField
 >Proto As0 As0 AbsenceAddProcess #zField
 As0 f0 guid 13BFF70D9EAD5D2C #txt
@@ -100,7 +98,7 @@ As0 f9 342 150 20 20 13 0 #rect
 As0 f9 @|RichDialogEndIcon #fIcon
 As0 f7 type htmlwfui.AbsenceAdd.AbsenceAddData #txt
 As0 f7 guid 13C005D83EF6D5D6 #txt
-As0 f7 214 198 20 20 13 0 #rect
+As0 f7 214 150 20 20 13 0 #rect
 As0 f7 @|RichDialogEndIcon #fIcon
 As0 f5 actionDecl 'htmlwfui.AbsenceAdd.AbsenceAddData out;
 ' #txt
@@ -132,16 +130,14 @@ As0 f11 actionCode 'import ch.ivyteam.ivy.security.IUser;
 import ch.ivyteam.ivy.security.IUserAbsence;
 
 DateTime from = null;
-if(in.absence.start is initialized)
+if(in.absence.startDateTime is initialized)
 {
-	from = new DateTime(in.absence.start.getYear(), in.absence.start.getMonth(), in.absence.start.getDay(), 
-		in.absence.startTimeHH.toNumber(), in.absence.startTimeMM.toNumber(), 0);
+	from = in.absence.startDateTime;
 
 	DateTime to = null;
-	if(in.absence.end is initialized)
+	if(in.absence.endDateTime is initialized)
 	{
-		 to = new DateTime(in.absence.end.getYear(), in.absence.end.getMonth(), in.absence.end.getDay(), 
-			in.absence.endTimeHH.toNumber(), in.absence.endTimeMM.toNumber(), 0);
+		 to = in.absence.endDateTime;
 
 		ivy.session.getSessionUser().createAbsence(from, to, 
 		in.absence.descr.trim().length() > 0 ? (new Date()).format("short") +" "+in.absence.descr : "");
@@ -162,24 +158,14 @@ As0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f11 206 148 36 24 20 -2 #rect
+As0 f11 206 100 36 24 20 -2 #rect
 As0 f11 @|StepIcon #fIcon
 As0 f4 expr out #txt
-As0 f4 224 172 224 198 #arcP
+As0 f4 224 124 224 150 #arcP
 As0 f13 expr out #txt
 As0 f13 96 74 96 150 #arcP
-As0 f2 actionDecl 'htmlwfui.AbsenceAdd.AbsenceAddData out;
-' #txt
-As0 f2 actionTable 'out=in;
-out.absence.end=in.end.toIvyDate();
-' #txt
-As0 f2 type htmlwfui.AbsenceAdd.AbsenceAddData #txt
-As0 f2 246 100 36 24 20 -2 #rect
-As0 f2 @|StepIcon #fIcon
-As0 f14 expr out #txt
-As0 f14 254 124 234 148 #arcP
 As0 f15 expr out #txt
-As0 f15 224 74 224 148 #arcP
+As0 f15 224 74 224 100 #arcP
 >Proto As0 .type htmlwfui.AbsenceAdd.AbsenceAddData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
@@ -192,7 +178,5 @@ As0 f11 mainOut f4 tail #connect
 As0 f4 head f7 mainIn #connect
 As0 f0 mainOut f13 tail #connect
 As0 f13 head f1 mainIn #connect
-As0 f2 mainOut f14 tail #connect
-As0 f14 head f11 mainIn #connect
 As0 f3 mainOut f15 tail #connect
 As0 f15 head f11 mainIn #connect

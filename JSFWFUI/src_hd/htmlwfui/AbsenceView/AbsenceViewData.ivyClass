@@ -8,3 +8,5 @@ deleteNr Number #field
 deleteNr PERSISTENT #fieldModifier
 msg String #field
 msg PERSISTENT #fieldModifier
+absenceList List<htmlwfui.Absence> #field
+absenceList PERSISTENT #fieldModifier

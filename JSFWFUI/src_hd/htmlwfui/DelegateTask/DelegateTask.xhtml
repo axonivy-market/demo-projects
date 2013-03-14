@@ -8,10 +8,10 @@
       xmlns:p="http://primefaces.org/ui">
  
 <h:body>
-	<ui:composition template="../HomeTemplate.xhtml">
+	<ui:composition template="/tamplates/HomeTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="#{ivy.cms.co('/explainTexts/DelegateTaskTitel')}">
+			<p:layoutUnit id="center" position="center" header="#{ivy.cms.co('/explainTexts/DelegateTaskTitel')}">
 			<br></br>
 			<h:outputText value="#{ivy.cms.co('/explainTexts/DelegateTaskDescription')}"/>
 			<br></br><br></br><br></br>
@@ -26,14 +26,14 @@
 					<h:outputText value="#{ivy.cms.co('/labels/taskResponsible')}"/>
 					<p:radioButton id="opt1" for="customRadio" itemIndex="0"/>
 					<h:outputLabel for="opt1" value="user" /> 
-        			<h:graphicImage library="ivy-cms" name="/images/user" style="border:0pt"/>
+        			<h:graphicImage library="ivy-cms" name="/images/user" style="border:0pt" alt="user"/>
         			<p:selectOneMenu value="#{data.data.delegateUser}" disabled="#{data.data.delegateType == 'role'}">
            				<f:selectItems value="#{data.data.substitute.userList}" var="user" itemLabel="#{user}" itemValue="#{user}"/>  
         			</p:selectOneMenu>
         			<br></br>
         			<p:radioButton id="opt2" for="customRadio" itemIndex="1"/>
         			<h:outputLabel for="opt2" value="role" />
-        			<h:graphicImage library="ivy-cms" name="/images/role" style="border:0pt"/>
+        			<h:graphicImage library="ivy-cms" name="/images/role" style="border:0pt" alt="role"/>
         			<p:selectOneMenu value="#{data.data.delegateRole}" disabled="#{data.data.delegateType == 'user'}">
            				<f:selectItems value="#{data.data.substitute.roleList}" var="role" itemLabel="#{role}" itemValue="#{role}"/>  
         			</p:selectOneMenu>

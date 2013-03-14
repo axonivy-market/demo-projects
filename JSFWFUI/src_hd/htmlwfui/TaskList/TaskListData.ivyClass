@@ -6,3 +6,5 @@ taskList List<htmlwfui.TaskDetail> #field
 taskList PERSISTENT #fieldModifier
 taskDetail htmlwfui.TaskDetail #field
 taskDetail PERSISTENT #fieldModifier
+data htmlwfui.Data #field
+data PERSISTENT #fieldModifier

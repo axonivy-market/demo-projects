@@ -1,6 +1,0 @@
-<P>
-On your Workflow User profil the permission <%=ivy.html.get("in.temp.msg")%> is missing to perform this operation.
-</P>
-<P>
-Ask your &nbsp;Xpert.ivy Workflow System Administrator
-</P>

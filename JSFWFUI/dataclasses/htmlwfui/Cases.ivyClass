@@ -1,0 +1,14 @@
+Cases #class
+htmlwfui #namespace
+id Number #field
+id PERSISTENT #fieldModifier
+name String #field
+name PERSISTENT #fieldModifier
+stateName String #field
+stateName PERSISTENT #fieldModifier
+category String #field
+category PERSISTENT #fieldModifier
+creatorUser String #field
+creatorUser PERSISTENT #fieldModifier
+start DateTime #field
+start PERSISTENT #fieldModifier

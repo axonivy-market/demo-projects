@@ -10,6 +10,12 @@
             <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
+        <inputParameter>
+            <name>titel</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
         <outputParameter>
             <name>txt</name>
             <description></description>

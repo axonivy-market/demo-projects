@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 11 10:43:45 CET 2013]
+[>Created: Thu Feb 21 09:34:54 CET 2013]
 13CAFAD8E49EF04B 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 ChangeExpiryProcess Big #zClass
@@ -20,11 +20,13 @@ Cs0 @RichDialogProcessStart f6 '' #zField
 Cs0 @RichDialogEnd f9 '' #zField
 Cs0 @PushWFArc f10 '' #zField
 Cs0 @GridStep f4 '' #zField
-Cs0 @PushWFArc f5 '' #zField
 Cs0 @PushWFArc f7 '' #zField
 Cs0 @GridStep f8 '' #zField
 Cs0 @PushWFArc f11 '' #zField
 Cs0 @PushWFArc f2 '' #zField
+Cs0 @GridStep f12 '' #zField
+Cs0 @PushWFArc f13 '' #zField
+Cs0 @PushWFArc f5 '' #zField
 >Proto Cs0 Cs0 ChangeExpiryProcess #zField
 Cs0 f1 type htmlwfui.ChangeExpiry.ChangeExpiryData #txt
 Cs0 f1 86 150 20 20 13 0 #rect
@@ -83,11 +85,11 @@ Cs0 f6 342 54 20 20 13 0 #rect
 Cs0 f6 @|RichDialogProcessStartIcon #fIcon
 Cs0 f9 type htmlwfui.ChangeExpiry.ChangeExpiryData #txt
 Cs0 f9 guid 13CAFD6B1D88C7EE #txt
-Cs0 f9 278 150 20 20 13 0 #rect
+Cs0 f9 278 182 20 20 13 0 #rect
 Cs0 f9 @|RichDialogEndIcon #fIcon
 Cs0 f10 expr out #txt
-Cs0 f10 352 74 298 160 #arcP
-Cs0 f10 1 352 160 #addKink
+Cs0 f10 352 74 298 192 #arcP
+Cs0 f10 1 352 192 #addKink
 Cs0 f10 0 0.8458474762523029 0 0 #arcLabel
 Cs0 f4 actionDecl 'htmlwfui.ChangeExpiry.ChangeExpiryData out;
 ' #txt
@@ -130,14 +132,11 @@ Cs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f4 206 108 36 24 20 -2 #rect
+Cs0 f4 206 148 36 24 20 -2 #rect
 Cs0 f4 @|StepIcon #fIcon
-Cs0 f5 expr out #txt
-Cs0 f5 224 74 224 108 #arcP
-Cs0 f5 0 0.5153618032992408 0 0 #arcLabel
 Cs0 f7 expr out #txt
-Cs0 f7 224 132 278 160 #arcP
-Cs0 f7 1 224 160 #addKink
+Cs0 f7 224 172 278 192 #arcP
+Cs0 f7 1 224 192 #addKink
 Cs0 f7 1 0.1915382613128324 0 0 #arcLabel
 Cs0 f8 actionDecl 'htmlwfui.ChangeExpiry.ChangeExpiryData out;
 ' #txt
@@ -162,17 +161,41 @@ Cs0 f11 expr out #txt
 Cs0 f11 96 74 96 100 #arcP
 Cs0 f2 expr out #txt
 Cs0 f2 96 124 96 150 #arcP
+Cs0 f12 actionDecl 'htmlwfui.ChangeExpiry.ChangeExpiryData out;
+' #txt
+Cs0 f12 actionTable 'out=in;
+out.data.tmpTaskDetail.delay=null;
+' #txt
+Cs0 f12 type htmlwfui.ChangeExpiry.ChangeExpiryData #txt
+Cs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>default</name>
+        <nameStyle>7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f12 206 100 36 24 20 -2 #rect
+Cs0 f12 @|StepIcon #fIcon
+Cs0 f13 expr out #txt
+Cs0 f13 224 74 224 100 #arcP
+Cs0 f13 0 0.5153618032992408 0 0 #arcLabel
+Cs0 f5 expr out #txt
+Cs0 f5 224 124 224 148 #arcP
 >Proto Cs0 .type htmlwfui.ChangeExpiry.ChangeExpiryData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
 >Proto Cs0 '' #fIcon
 Cs0 f6 mainOut f10 tail #connect
 Cs0 f10 head f9 mainIn #connect
-Cs0 f3 mainOut f5 tail #connect
-Cs0 f5 head f4 mainIn #connect
 Cs0 f4 mainOut f7 tail #connect
 Cs0 f7 head f9 mainIn #connect
 Cs0 f0 mainOut f11 tail #connect
 Cs0 f11 head f8 mainIn #connect
 Cs0 f8 mainOut f2 tail #connect
 Cs0 f2 head f1 mainIn #connect
+Cs0 f3 mainOut f13 tail #connect
+Cs0 f13 head f12 mainIn #connect
+Cs0 f12 mainOut f5 tail #connect
+Cs0 f5 head f4 mainIn #connect

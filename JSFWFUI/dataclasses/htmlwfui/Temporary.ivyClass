@@ -8,6 +8,8 @@ catFilter String #field
 catFilter PERSISTENT #fieldModifier
 msg String #field
 msg PERSISTENT #fieldModifier
+msg2 String #field
+msg2 PERSISTENT #fieldModifier
 n Number #field
 n PERSISTENT #fieldModifier
 ok Boolean #field
@@ -38,3 +40,7 @@ description String #field
 description PERSISTENT #fieldModifier
 undertitle String #field
 undertitle PERSISTENT #fieldModifier
+noteId Number #field
+noteId PERSISTENT #fieldModifier
+noteFor String #field
+noteFor PERSISTENT #fieldModifier

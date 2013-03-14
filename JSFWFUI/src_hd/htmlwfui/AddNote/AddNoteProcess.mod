@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Feb 08 14:42:10 CET 2013]
+[>Created: Thu Feb 21 09:33:21 CET 2013]
 13C4E1E51297CBD2 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AddNoteProcess Big #zClass
@@ -95,6 +95,15 @@ As0 f0 actionCode 'if(in.data.note.trim().length()>0)
 	}
 }' #txt
 As0 f0 type htmlwfui.AddNote.AddNoteData #txt
+As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>save</name>
+        <nameStyle>4
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f0 302 100 36 24 20 -2 #rect
 As0 f0 @|RichDialogProcessStepIcon #fIcon
 As0 f2 expr out #txt

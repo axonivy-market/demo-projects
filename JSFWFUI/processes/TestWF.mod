@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 11 10:24:31 CET 2013]
+[>Created: Thu Mar 14 11:29:35 CET 2013]
 13BA873BC1BC6EFD 3.17 #module
 >Proto >Proto Collection #zClass
 TF0 TestWF Big #zClass
@@ -38,11 +38,6 @@ TF0 @PushWFArc f23 '' #zField
 TF0 @TkArc f24 '' #zField
 TF0 @PushWFArc f25 '' #zField
 TF0 @PushWFArc f26 '' #zField
-TF0 @StartRequest f27 '' #zField
-TF0 @RichDialog f28 '' #zField
-TF0 @PushWFArc f29 '' #zField
-TF0 @EndTask f30 '' #zField
-TF0 @PushWFArc f31 '' #zField
 >Proto TF0 TF0 TestWF #zField
 TF0 f0 outLink start.ivp #txt
 TF0 f0 type htmlwfui.Data #txt
@@ -55,10 +50,9 @@ TF0 f0 triggerEnabled false #txt
 TF0 f0 callSignature start() #txt
 TF0 f0 persist false #txt
 TF0 f0 startName 'TestWF Html' #txt
-TF0 f0 startDescription 'dasdfdadasff
-adfasdfadssfadfafdsf' #txt
+TF0 f0 startDescription 'Sample WF using Web Pages' #txt
 TF0 f0 taskData '#
-#Thu Dec 20 13:47:46 CET 2012
+#Thu Mar 14 11:28:57 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -68,7 +62,7 @@ TaskTriggered.NAM=Start Task
 TaskTriggered.EXROL=Everybody
 ' #txt
 TF0 f0 caseData '#
-#Thu Dec 20 13:47:46 CET 2012
+#Thu Mar 14 11:28:57 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -127,10 +121,19 @@ TF0 f1 type htmlwfui.Data #txt
 TF0 f1 skipLink skip.ivp #txt
 TF0 f1 sortLink sort.ivp #txt
 TF0 f1 templateWizard '#
-#Mon Feb 11 10:24:18 CET 2013
+#Thu Mar 14 11:26:54 CET 2013
 ' #txt
 TF0 f1 pageArchivingActivated true #txt
 TF0 f1 pageArchiveName Page1 #txt
+TF0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>RequestForm</name>
+        <nameStyle>11
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 TF0 f1 @C|.responsibility Everybody #txt
 TF0 f1 94 100 36 24 20 -2 #rect
 TF0 f1 @|PageIcon #fIcon
@@ -141,15 +144,24 @@ TF0 f2 type htmlwfui.Data #txt
 TF0 f2 skipLink skip.ivp #txt
 TF0 f2 sortLink sort.ivp #txt
 TF0 f2 templateWizard '#
-#Mon Feb 11 10:24:29 CET 2013
+#Thu Mar 14 11:27:05 CET 2013
 ' #txt
 TF0 f2 pageArchivingActivated true #txt
 TF0 f2 pageArchiveName Page2 #txt
+TF0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>ConfirmationPage</name>
+        <nameStyle>16
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 TF0 f2 @C|.responsibility Everybody #txt
-TF0 f2 94 260 36 24 20 -2 #rect
+TF0 f2 94 228 36 24 20 -2 #rect
 TF0 f2 @|PageIcon #fIcon
 TF0 f3 type htmlwfui.Data #txt
-TF0 f3 99 355 26 26 14 0 #rect
+TF0 f3 99 291 26 26 14 0 #rect
 TF0 f3 @|EndIcon #fIcon
 TF0 f4 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -158,7 +170,7 @@ TF0 f4 actionTable 'out=in1;
 TF0 f4 outTypes "htmlwfui.Data" #txt
 TF0 f4 outLinks "TaskA.ivp" #txt
 TF0 f4 caseData '#
-#Mon Dec 17 11:46:35 CET 2012
+#Tue Feb 26 11:37:00 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -186,12 +198,12 @@ type.code=
 type.name=
 ' #txt
 TF0 f4 taskData '#
-#Mon Dec 17 11:46:35 CET 2012
-TaskA.DESC=mache Task1
+#Tue Feb 26 11:37:00 CET 2013
+TaskA.DESC=<%\=in1.temp.description%>
 TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=Task1 Html
+TaskA.NAM=Html Anfragefall <%\=in1.temp.caption%>
 TaskA.PRI=2
 TaskA.ROL=Everybody
 TaskA.SKIP_TASK_LIST=false
@@ -203,8 +215,8 @@ TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
 DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
 taskDef = new TaskDefinition();
 taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("Task1 Html"));
-taskDef.setDescription(engine.expandMacros("mache Task1"));
+taskDef.setName(engine.expandMacros("Html Anfragefall <%=in1.temp.caption%>"));
+taskDef.setDescription(engine.expandMacros("<%=in1.temp.description%>"));
 taskDef.setAutoStartTask(false);
 taskDef.setActivator("Everybody");
 taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
@@ -214,7 +226,7 @@ taskDefinitions.add(taskDef);
 ' #txt
 TF0 f4 type htmlwfui.Data #txt
 TF0 f4 template "" #txt
-TF0 f4 98 170 28 28 14 0 #rect
+TF0 f4 98 162 28 28 14 0 #rect
 TF0 f4 @|TaskSwitchSimpleIcon #fIcon
 TF0 f5 expr out #txt
 TF0 f5 112 61 112 100 #arcP
@@ -222,13 +234,13 @@ TF0 f6 expr data #txt
 TF0 f6 outCond ivp=="LinkA.ivp" #txt
 TF0 f6 type htmlwfui.Data #txt
 TF0 f6 var in1 #txt
-TF0 f6 112 124 112 170 #arcP
+TF0 f6 112 124 112 162 #arcP
 TF0 f7 expr data #txt
 TF0 f7 outCond ivp=="TaskA.ivp" #txt
-TF0 f7 112 198 112 260 #arcP
+TF0 f7 112 190 112 228 #arcP
 TF0 f8 expr data #txt
 TF0 f8 outCond ivp=="LinkA.ivp" #txt
-TF0 f8 112 284 112 355 #arcP
+TF0 f8 112 252 112 291 #arcP
 TF0 f9 outLink start2.ivp #txt
 TF0 f9 type htmlwfui.Data #txt
 TF0 f9 inParamDecl '<> param;' #txt
@@ -240,10 +252,9 @@ TF0 f9 triggerEnabled false #txt
 TF0 f9 callSignature start2() #txt
 TF0 f9 persist false #txt
 TF0 f9 startName 'TestWF Jsf' #txt
-TF0 f9 startDescription 'dasdfdadasff
-adfasdfadssfadfafdsf' #txt
+TF0 f9 startDescription 'Sample WF using Html Dialogs' #txt
 TF0 f9 taskData '#
-#Thu Dec 20 12:45:58 CET 2012
+#Thu Mar 14 11:29:17 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -252,7 +263,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 TF0 f9 caseData '#
-#Thu Dec 20 12:45:58 CET 2012
+#Thu Mar 14 11:29:17 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -303,7 +314,7 @@ TF0 f9 @C|.responsibility Everybody #txt
 TF0 f9 259 35 26 26 21 -6 #rect
 TF0 f9 @|StartRequestIcon #fIcon
 TF0 f11 type htmlwfui.Data #txt
-TF0 f11 259 355 26 26 14 0 #rect
+TF0 f11 259 291 26 26 14 0 #rect
 TF0 f11 @|EndIcon #fIcon
 TF0 f13 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -312,7 +323,7 @@ TF0 f13 actionTable 'out=in1;
 TF0 f13 outTypes "htmlwfui.Data" #txt
 TF0 f13 outLinks "TaskA.ivp" #txt
 TF0 f13 caseData '#
-#Mon Dec 17 11:46:15 CET 2012
+#Tue Feb 26 11:36:06 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -340,12 +351,12 @@ type.code=
 type.name=
 ' #txt
 TF0 f13 taskData '#
-#Mon Dec 17 11:46:15 CET 2012
-TaskA.DESC=mache Task1
+#Tue Feb 26 11:36:06 CET 2013
+TaskA.DESC=<%\=in1.temp.description%>
 TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=Task1 Jsf
+TaskA.NAM=JSF Anfragefall <%\=in1.temp.caption%>
 TaskA.PRI=2
 TaskA.ROL=Everybody
 TaskA.SKIP_TASK_LIST=false
@@ -357,8 +368,8 @@ TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
 DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
 taskDef = new TaskDefinition();
 taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("Task1 Jsf"));
-taskDef.setDescription(engine.expandMacros("mache Task1"));
+taskDef.setName(engine.expandMacros("JSF Anfragefall <%=in1.temp.caption%>"));
+taskDef.setDescription(engine.expandMacros("<%=in1.temp.description%>"));
 taskDef.setAutoStartTask(false);
 taskDef.setActivator("Everybody");
 taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
@@ -368,34 +379,46 @@ taskDefinitions.add(taskDef);
 ' #txt
 TF0 f13 type htmlwfui.Data #txt
 TF0 f13 template "" #txt
-TF0 f13 258 170 28 28 14 0 #rect
+TF0 f13 258 162 28 28 14 0 #rect
 TF0 f13 @|TaskSwitchSimpleIcon #fIcon
 TF0 f10 targetWindow NEW:card: #txt
 TF0 f10 targetDisplay TOP #txt
 TF0 f10 richDialogId testwf.Dialog1 #txt
-TF0 f10 startMethod start(String) #txt
+TF0 f10 startMethod start(String,String) #txt
 TF0 f10 type htmlwfui.Data #txt
-TF0 f10 requestActionDecl '<String txt> param;' #txt
-TF0 f10 requestMappingAction 'param.txt=in.temp.caption;
+TF0 f10 requestActionDecl '<String txt, String titel> param;' #txt
+TF0 f10 requestMappingAction 'param.txt="";
+param.titel="";
 ' #txt
 TF0 f10 responseActionDecl 'htmlwfui.Data out;
 ' #txt
 TF0 f10 responseMappingAction 'out=in;
-out.temp.caption=result.txt;
+out.temp.caption=result.titel;
+out.temp.description=result.txt;
 ' #txt
 TF0 f10 windowConfiguration '* ' #txt
 TF0 f10 isAsynch false #txt
 TF0 f10 isInnerRd false #txt
 TF0 f10 userContext '* ' #txt
+TF0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Request Dialog</name>
+        <nameStyle>14
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 TF0 f10 254 100 36 24 20 -2 #rect
 TF0 f10 @|RichDialogIcon #fIcon
 TF0 f12 targetWindow NEW:card: #txt
 TF0 f12 targetDisplay TOP #txt
 TF0 f12 richDialogId testwf.Dialog2 #txt
-TF0 f12 startMethod start(String) #txt
+TF0 f12 startMethod start(String,String) #txt
 TF0 f12 type htmlwfui.Data #txt
-TF0 f12 requestActionDecl '<String txt> param;' #txt
-TF0 f12 requestMappingAction 'param.txt=in.temp.caption;
+TF0 f12 requestActionDecl '<String txt, String titel> param;' #txt
+TF0 f12 requestMappingAction 'param.txt=in.temp.description;
+param.titel=in.temp.caption;
 ' #txt
 TF0 f12 responseActionDecl 'htmlwfui.Data out;
 ' #txt
@@ -406,32 +429,56 @@ TF0 f12 windowConfiguration '* ' #txt
 TF0 f12 isAsynch false #txt
 TF0 f12 isInnerRd false #txt
 TF0 f12 userContext '* ' #txt
-TF0 f12 254 268 36 24 20 -2 #rect
+TF0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Confirmation Dialog</name>
+        <nameStyle>19
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+TF0 f12 254 228 36 24 20 -2 #rect
 TF0 f12 @|RichDialogIcon #fIcon
 TF0 f14 expr out #txt
 TF0 f14 272 61 272 100 #arcP
 TF0 f15 expr out #txt
 TF0 f15 type htmlwfui.Data #txt
 TF0 f15 var in1 #txt
-TF0 f15 272 124 272 170 #arcP
+TF0 f15 272 124 272 162 #arcP
 TF0 f16 expr data #txt
 TF0 f16 outCond ivp=="TaskA.ivp" #txt
-TF0 f16 272 198 272 268 #arcP
+TF0 f16 272 190 272 228 #arcP
 TF0 f17 expr out #txt
-TF0 f17 272 292 272 355 #arcP
-TF0 f18 targetWindow NEW #txt
+TF0 f17 272 252 272 291 #arcP
+TF0 f18 targetWindow NEW:card: #txt
 TF0 f18 targetDisplay TOP #txt
-TF0 f18 richDialogId ch.ivyteam.ivy.richdialog.rdpanels.basic.AutoRichDialog #txt
-TF0 f18 startMethod start() #txt
+TF0 f18 richDialogId htmlwfui.RIADialog2 #txt
+TF0 f18 startMethod start(String,String) #txt
 TF0 f18 type htmlwfui.Data #txt
-TF0 f18 requestActionDecl '<> param;' #txt
+TF0 f18 requestActionDecl '<String txt, String titel> param;' #txt
+TF0 f18 requestMappingAction 'param.txt=in.temp.description;
+param.titel=in.temp.caption;
+' #txt
 TF0 f18 responseActionDecl 'htmlwfui.Data out;
 ' #txt
 TF0 f18 responseMappingAction 'out=in;
+out.temp.caption=result.txt;
 ' #txt
+TF0 f18 windowConfiguration '{/title "Anfrage Prozess"/width 400 /height 300 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 TF0 f18 isAsynch false #txt
 TF0 f18 isInnerRd false #txt
-TF0 f18 414 268 36 24 20 -2 #rect
+TF0 f18 userContext '* ' #txt
+TF0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Confirmation Panel</name>
+        <nameStyle>18
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+TF0 f18 414 228 36 24 20 -2 #rect
 TF0 f18 @|RichDialogIcon #fIcon
 TF0 f19 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -440,7 +487,7 @@ TF0 f19 actionTable 'out=in1;
 TF0 f19 outTypes "htmlwfui.Data" #txt
 TF0 f19 outLinks "TaskA.ivp" #txt
 TF0 f19 caseData '#
-#Mon Dec 17 11:46:25 CET 2012
+#Tue Feb 26 14:29:33 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -468,12 +515,12 @@ type.code=
 type.name=
 ' #txt
 TF0 f19 taskData '#
-#Mon Dec 17 11:46:25 CET 2012
-TaskA.DESC=mache Task1
+#Tue Feb 26 14:29:33 CET 2013
+TaskA.DESC=<%\=in1.temp.description%>
 TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=Task1 ULC
+TaskA.NAM=RIA Anfragefall <%\=in1.temp.caption%>
 TaskA.PRI=2
 TaskA.ROL=Everybody
 TaskA.SKIP_TASK_LIST=false
@@ -485,8 +532,8 @@ TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
 DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
 taskDef = new TaskDefinition();
 taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("Task1 ULC"));
-taskDef.setDescription(engine.expandMacros("mache Task1"));
+taskDef.setName(engine.expandMacros("RIA Anfragefall <%=in1.temp.caption%>"));
+taskDef.setDescription(engine.expandMacros("<%=in1.temp.description%>"));
 taskDef.setAutoStartTask(false);
 taskDef.setActivator("Everybody");
 taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
@@ -496,26 +543,39 @@ taskDefinitions.add(taskDef);
 ' #txt
 TF0 f19 type htmlwfui.Data #txt
 TF0 f19 template "" #txt
-TF0 f19 418 170 28 28 14 0 #rect
+TF0 f19 418 162 28 28 14 0 #rect
 TF0 f19 @|TaskSwitchSimpleIcon #fIcon
 TF0 f20 type htmlwfui.Data #txt
-TF0 f20 419 355 26 26 14 0 #rect
+TF0 f20 419 291 26 26 14 0 #rect
 TF0 f20 @|EndIcon #fIcon
-TF0 f21 targetWindow NEW #txt
+TF0 f21 targetWindow NEW:card: #txt
 TF0 f21 targetDisplay TOP #txt
-TF0 f21 richDialogId ch.ivyteam.ivy.richdialog.rdpanels.basic.AutoRichDialog #txt
+TF0 f21 richDialogId htmlwfui.RIADialog1 #txt
 TF0 f21 startMethod start() #txt
 TF0 f21 type htmlwfui.Data #txt
 TF0 f21 requestActionDecl '<> param;' #txt
 TF0 f21 responseActionDecl 'htmlwfui.Data out;
 ' #txt
 TF0 f21 responseMappingAction 'out=in;
+out.temp.caption=result.titel;
+out.temp.description=result.txt;
 ' #txt
+TF0 f21 windowConfiguration '{/title "Anfrage Prozess"/width 400 /height 300 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 TF0 f21 isAsynch false #txt
 TF0 f21 isInnerRd false #txt
+TF0 f21 userContext '* ' #txt
+TF0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Request Panel</name>
+        <nameStyle>13
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 TF0 f21 414 100 36 24 20 -2 #rect
 TF0 f21 @|RichDialogIcon #fIcon
-TF0 f22 outLink start22.ivp #txt
+TF0 f22 outLink start3.ivp #txt
 TF0 f22 type htmlwfui.Data #txt
 TF0 f22 inParamDecl '<> param;' #txt
 TF0 f22 actionDecl 'htmlwfui.Data out;
@@ -523,13 +583,12 @@ TF0 f22 actionDecl 'htmlwfui.Data out;
 TF0 f22 guid 13BA8779839D4255 #txt
 TF0 f22 requestEnabled true #txt
 TF0 f22 triggerEnabled false #txt
-TF0 f22 callSignature start22() #txt
+TF0 f22 callSignature start3() #txt
 TF0 f22 persist false #txt
 TF0 f22 startName 'TestWF RIA' #txt
-TF0 f22 startDescription 'dasdfdadasff
-adfasdfadssfadfafdsf' #txt
+TF0 f22 startDescription 'Sample WF using Rich Dialogs' #txt
 TF0 f22 taskData '#
-#Mon Dec 17 11:45:29 CET 2012
+#Thu Mar 14 11:29:32 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -538,7 +597,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 TF0 f22 caseData '#
-#Mon Dec 17 11:45:29 CET 2012
+#Thu Mar 14 11:29:32 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -593,56 +652,12 @@ TF0 f23 432 61 432 100 #arcP
 TF0 f24 expr out #txt
 TF0 f24 type htmlwfui.Data #txt
 TF0 f24 var in1 #txt
-TF0 f24 432 124 432 170 #arcP
+TF0 f24 432 124 432 162 #arcP
 TF0 f25 expr data #txt
 TF0 f25 outCond ivp=="TaskA.ivp" #txt
-TF0 f25 432 198 432 268 #arcP
+TF0 f25 432 190 432 228 #arcP
 TF0 f26 expr out #txt
-TF0 f26 432 292 432 355 #arcP
-TF0 f27 outLink start3.ivp #txt
-TF0 f27 type htmlwfui.Data #txt
-TF0 f27 inParamDecl '<> param;' #txt
-TF0 f27 actionDecl 'htmlwfui.Data out;
-' #txt
-TF0 f27 guid 13BBD1CD623C460A #txt
-TF0 f27 requestEnabled true #txt
-TF0 f27 triggerEnabled false #txt
-TF0 f27 callSignature start3() #txt
-TF0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start3.ivp</name>
-    </language>
-</elementInfo>
-' #txt
-TF0 f27 @C|.responsibility Everybody #txt
-TF0 f27 667 35 26 26 14 0 #rect
-TF0 f27 @|StartRequestIcon #fIcon
-TF0 f28 targetWindow NEW:card: #txt
-TF0 f28 targetDisplay TOP #txt
-TF0 f28 richDialogId testwf.Dialog1 #txt
-TF0 f28 startMethod start(String) #txt
-TF0 f28 type htmlwfui.Data #txt
-TF0 f28 requestActionDecl '<String txt> param;' #txt
-TF0 f28 requestMappingAction 'param.txt="hello World";
-' #txt
-TF0 f28 responseActionDecl 'htmlwfui.Data out;
-' #txt
-TF0 f28 responseMappingAction 'out=in;
-' #txt
-TF0 f28 windowConfiguration '* ' #txt
-TF0 f28 isAsynch false #txt
-TF0 f28 isInnerRd false #txt
-TF0 f28 userContext '* ' #txt
-TF0 f28 654 108 36 24 20 -2 #rect
-TF0 f28 @|RichDialogIcon #fIcon
-TF0 f29 expr out #txt
-TF0 f29 678 60 673 108 #arcP
-TF0 f30 type htmlwfui.Data #txt
-TF0 f30 675 195 26 26 14 0 #rect
-TF0 f30 @|EndIcon #fIcon
-TF0 f31 expr out #txt
-TF0 f31 674 132 685 195 #arcP
+TF0 f26 432 252 432 291 #arcP
 >Proto TF0 .type htmlwfui.Data #txt
 >Proto TF0 .processKind NORMAL #txt
 >Proto TF0 0 0 32 24 18 0 #rect
@@ -671,7 +686,3 @@ TF0 f19 out f25 tail #connect
 TF0 f25 head f18 mainIn #connect
 TF0 f18 mainOut f26 tail #connect
 TF0 f26 head f20 mainIn #connect
-TF0 f27 mainOut f29 tail #connect
-TF0 f29 head f28 mainIn #connect
-TF0 f28 mainOut f31 tail #connect
-TF0 f31 head f30 mainIn #connect

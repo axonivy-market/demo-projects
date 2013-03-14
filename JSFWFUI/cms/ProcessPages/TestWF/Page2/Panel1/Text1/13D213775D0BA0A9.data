@@ -1,0 +1,6 @@
+<P>
+Titel: <%=ivy.html.get("in.temp.caption")%>
+</P>
+<P>
+Beschreibung: <%=ivy.html.get("in.temp.description")%>
+</P>

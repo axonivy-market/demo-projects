@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 19:18:38 CET 2013]
+[>Created: Tue Feb 26 10:40:46 CET 2013]
 13BA879E7BA869A7 3.17 #module
 >Proto >Proto Collection #zClass
 Ds0 Dialog1Process Big #zClass
@@ -22,16 +22,18 @@ Ds0 @PushWFArc f10 '' #zField
 >Proto Ds0 Ds0 Dialog1Process #zField
 Ds0 f0 guid 13BA879E7D9CDEF9 #txt
 Ds0 f0 type testwf.Dialog1.Dialog1Data #txt
-Ds0 f0 method start(String) #txt
+Ds0 f0 method start(String,String) #txt
 Ds0 f0 disableUIEvents true #txt
 Ds0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String txt> param = methodEvent.getInputArguments();
+<java.lang.String txt,java.lang.String titel> param = methodEvent.getInputArguments();
 ' #txt
 Ds0 f0 inParameterMapAction 'out.msg=param.txt;
+out.titel=param.titel;
 ' #txt
-Ds0 f0 outParameterDecl '<java.lang.String txt> result;
+Ds0 f0 outParameterDecl '<java.lang.String txt,java.lang.String titel> result;
 ' #txt
 Ds0 f0 outParameterMapAction 'result.txt=in.msg;
+result.titel=in.titel;
 ' #txt
 Ds0 f0 embeddedRdInitializations '* ' #txt
 Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

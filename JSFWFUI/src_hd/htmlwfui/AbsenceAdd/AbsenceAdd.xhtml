@@ -8,35 +8,30 @@
       xmlns:p="http://primefaces.org/ui">
  
 <h:body>
-	<ui:composition template="../HomeTemplate.xhtml">
+	<ui:composition template="/tamplates/HomeTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="#{ivy.cms.co('/labels/addAbsence')}">
+			<p:layoutUnit id="center" position="center" header="#{ivy.cms.co('/labels/addAbsence')}">
 			<h:form id="form">
-				<h:panelGrid columns="5">
-            		<h:outputLabel for="von" value="#{ivy.cms.co('/labels/absenceStart')}: *"/>
-            		<p:calendar value="#{data.absence.start}" showButtonPanel="true" required="true" requiredMessage="Date is required." pattern="dd.MM.yyyy">
-            			<f:convertDateTime pattern="dd.MM.yyyy" />
+				<h:panelGrid columns="3">
+            		<h:outputLabel for="from" value="#{ivy.cms.co('/labels/absenceStart')}:"/>
+            		<p:calendar id="from" value="#{data.absence.startDateTime}" showButtonPanel="true" pattern="dd.MM.yyyy HH:mm:ss">
+            			<f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" />
             		</p:calendar>
-            		<!-- <p:inputMask value="#{data.start}" mask="99.99.9999"/> -->
-            		<p:inputMask value="#{data.absence.startTimeHH}" style="width: 25px; " mask="99"/>
-            		<h:outputLabel value=":" />
-            		<p:inputMask value="#{data.absence.startTimeMM}" style="width: 25px; " mask="99"/>
-            		<h:outputLabel for="bis" value="#{ivy.cms.co('/labels/absenceStop')}:"/>
-            		<p:calendar value="#{data.absence.end}" showButtonPanel="true" required="true" requiredMessage="Date is required." pattern="dd.MM.yyyy">
-            			<f:convertDateTime pattern="dd.MM.yyyy" />
+            		<p:message for="from"/>
+            		<h:outputLabel for="to" value="#{ivy.cms.co('/labels/absenceStop')}:"/>
+            		<p:calendar id="to" value="#{data.absence.endDateTime}" showButtonPanel="true" pattern="dd.MM.yyyy HH:mm:ss">
+            			<f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" />
             		</p:calendar>
-            		<p:inputMask value="#{data.absence.endTimeHH}" style="width: 25px; " mask="99" />
-            		<h:outputLabel value=":" /><p:inputMask value="#{data.absence.endTimeMM}" style="width: 25px; " mask="99" />
-            		
+            		<h:column/> 
  				</h:panelGrid>
  				<h:panelGrid columns="2">
- 					<h:outputLabel value="#{ivy.cms.co('/labels/description')}:"/>  
-            		<p:inputText value="#{data.absence.descr}" style="width: 500px; "/> 
+ 					<h:outputText value="#{ivy.cms.co('/labels/description')}:"/>  
+            		<p:inputText id="description" value="#{data.absence.descr}" style="width: 500px; "/> 
  				</h:panelGrid>
  				<br></br>
- 				<p:commandButton value="#{ivy.cms.co('/labels/saveButton')}" actionListener="#{logic.saveAbsence}"/>
- 				<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.backToAbsenceList}"/>
+ 				<p:commandButton id="saveNewAbsence" value="#{ivy.cms.co('/labels/saveButton')}" actionListener="#{logic.saveAbsence}" update="form"/>
+ 				<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.backToAbsenceList}" update="form"/>
 			</h:form>
 			</p:layoutUnit>
 		</ui:define>

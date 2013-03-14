@@ -16,3 +16,7 @@ role String #field
 role PERSISTENT #fieldModifier
 substiutions List<ch.ivyteam.ivy.security.IUserSubstitute> #field
 substiutions PERSISTENT #fieldModifier
+id Number #field
+id PERSISTENT #fieldModifier
+absent String #field
+absent PERSISTENT #fieldModifier

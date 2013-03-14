@@ -1,4 +1,0 @@
-<P>
-<B><%=ivy.html.get("in.temp.msg")%><BR>
-</B>Les processus suivants sont disponibles.
-</P>

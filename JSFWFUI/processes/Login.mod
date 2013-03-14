@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 21 10:43:37 CET 2013]
+[>Created: Thu Mar 14 11:18:56 CET 2013]
 12E2EFDD83CB2D4C 3.17 #module
 >Proto >Proto Collection #zClass
 Ln0 Login Big #zClass
@@ -34,8 +34,9 @@ Ln0 f0 triggerEnabled false #txt
 Ln0 f0 callSignature DefaultLoginPage(String) #txt
 Ln0 f0 persist false #txt
 Ln0 f0 startName 'WF Login' #txt
+Ln0 f0 startDescription 'Login page' #txt
 Ln0 f0 taskData '#
-#Fri Dec 28 10:26:09 CET 2012
+#Thu Mar 14 11:18:55 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -44,7 +45,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Ln0 f0 caseData '#
-#Fri Dec 28 10:26:09 CET 2012
+#Thu Mar 14 11:18:55 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -71,7 +72,7 @@ subType.name=
 type.code=
 type.name=
 ' #txt
-Ln0 f0 showInStartList 1 #txt
+Ln0 f0 showInStartList 0 #txt
 Ln0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
 import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;

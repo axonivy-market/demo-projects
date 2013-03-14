@@ -1,2 +1,0 @@
-co: name={LinkB} description={} changed={2011-02-15 17:29:34 CET} changedby={bb} visualorder={0} guid={12CBAE6E85E97125} parentguid={} typeguid={E6AFEA1F2184828C} id={} parentid={} typeid={}
-val: guid={12CBAE6E86E2D6A5} datatype={} isdefault={true} langid={en} description={} validfrom={2010-12-06 09:58:02 CET} validto={} changed={2011-02-15 17:29:34 CET} changedby={bb} properties={###r#n##Tue Feb 15 17:29:34 CET 2011#r#n.KIND=button#r#n.LINK=<%\=ivy.cms.co("/labels/backButton")%>#r#n.IHTM=STYLE\='width\="100"'#r#n.LREF=<%\=ivy.html.ref("LinkB.ivp")%>#r#n.SBMT=#r#n} id={}

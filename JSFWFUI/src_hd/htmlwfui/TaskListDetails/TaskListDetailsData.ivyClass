@@ -1,0 +1,24 @@
+TaskListDetailsData #class
+htmlwfui.TaskListDetails #namespace
+data htmlwfui.Data #field
+data PERSISTENT #fieldModifier
+notesTitel String #field
+notesTitel PERSISTENT #fieldModifier
+stateImage String #field
+stateImage PERSISTENT #fieldModifier
+priorityImage String #field
+priorityImage PERSISTENT #fieldModifier
+responsibleImage String #field
+responsibleImage PERSISTENT #fieldModifier
+caseNotesTitel String #field
+caseNotesTitel PERSISTENT #fieldModifier
+parkLink Boolean #field
+parkLink PERSISTENT #fieldModifier
+delegateLink Boolean #field
+delegateLink PERSISTENT #fieldModifier
+taskNotesList List<htmlwfui.Notes> #field
+taskNotesList PERSISTENT #fieldModifier
+caseNotesList List<htmlwfui.Notes> #field
+caseNotesList PERSISTENT #fieldModifier
+resetLink Boolean #field
+resetLink PERSISTENT #fieldModifier

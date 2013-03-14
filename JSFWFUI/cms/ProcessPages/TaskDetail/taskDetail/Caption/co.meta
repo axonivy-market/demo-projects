@@ -1,4 +1,0 @@
-co: name={Caption} description={} changed={2011-03-16 17:02:45 CET} changedby={tirib} visualorder={0} guid={12CBB296361F4C1A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12CBB29637188C4F} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-07 12:10:45 CEST} validto={} changed={2011-02-15 17:10:43 CET} changedby={bb} properties={} id={}
-val: guid={12EBF67A969FD35F} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 17:02:34 CET} validto={} changed={2011-03-16 17:02:45 CET} changedby={tirib} properties={} id={}
-val: guid={12E2A168AF7FA31D} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 17:10:32 CET} validto={} changed={2011-02-15 17:10:43 CET} changedby={bb} properties={} id={}

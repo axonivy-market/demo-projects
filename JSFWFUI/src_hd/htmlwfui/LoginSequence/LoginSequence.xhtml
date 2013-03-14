@@ -8,10 +8,10 @@
       xmlns:p="http://primefaces.org/ui">
  
 <h:body>
-	<ui:composition template="../HomeTemplate.xhtml">
+	<ui:composition template="/tamplates/HomeTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="Workflow Login">
+			<p:layoutUnit id="center" position="center" header="Workflow Login">
 				<br></br>
 				<h:outputText value="Workflow Benutzeranmeldung." style="font-weight:bold"/>
 				<br></br>
@@ -19,12 +19,12 @@
 				<br></br><br></br>
 				<h:form id="form">
         				<h:panelGrid columns="2">
-        					<h:outputLabel value="Benutzername: " />  
+        					<h:outputText value="Benutzername: " />  
             				<p:inputText id="username" value="#{data.username}" />
             				<h:outputText value="Passwort: " />  
             				<p:password id="nonFeedback" value="#{data.password}" />
             				<h:outputText value="" />
-            				<p:commandButton value="Login" action="#{logic.login(data.username, data.password)}" ajax="false"/>
+            				<p:commandButton id="login" value="Login" actionListener="#{logic.login(data.username, data.password)}" ajax="false"/>
  						</h:panelGrid>
 				</h:form>
 			</p:layoutUnit>

@@ -8,10 +8,10 @@
       xmlns:p="http://primefaces.org/ui">
  
 <h:body>
-	<ui:composition template="../HomeTemplate.xhtml">
+	<ui:composition template="/tamplates/HomeTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="#{ivy.cms.co('/explainTexts/PageArchive')}">
+			<p:layoutUnit id="center" position="center" header="#{ivy.cms.co('/explainTexts/PageArchive')}">
 			<br></br>
 			<h:outputText value="#{data.data.temp.description}"/>
 			<br></br><br></br><br></br>
@@ -22,23 +22,18 @@
 			<p:panel id="thePanel">
     			<p:dataTable id="dataTable" value="#{data.data.pageArchives}" var="archive" emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}" rowIndexVar="row">  
        				
-       				<p:column id="absenceStart">  
+       				<p:column id="absenceStart" style="width:30px">  
             			<f:facet name="header">  
-                			<h:outputText value="#" />  
-
+                			<h:outputText value="#" />
             			</f:facet>
-                    	<h:commandLink actionListener="#{logic.toArchive}" title="Anzeigen Archive Page" align="center" ajax="false">
-							<h:graphicImage library="ivy-cms" name="images/formHistory" alt="#{archive.id}" style="border:0pt"/>
-						</h:commandLink> 
+							<a href="#{archive.ref}"><h:graphicImage library="ivy-cms" name="images/formHistory" alt="#{archive.id}" style="border:0pt"/></a>
          			</p:column>
          			
         			<p:column sortBy="#{archive.name}">  
             			<f:facet name="header">  
                 			<h:outputText value="#{ivy.cms.co('/labels/page')}" />  
-            			</f:facet>
-            			<p:commandLink actionListener="#{logic.toArchive}" title="Anzeigen" ajax="false">  
-        					<h:outputText value="#{archive.name}" />  
-    					</p:commandLink>  
+            			</f:facet> 
+        					<a href="#{archive.ref}"><h:outputText value="#{archive.name}" /></a>
         			</p:column>
         			
     			</p:dataTable>

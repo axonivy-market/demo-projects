@@ -4,3 +4,5 @@ substitute htmlwfui.Substitute #field
 substitute PERSISTENT #fieldModifier
 radioNr Number #field
 radioNr PERSISTENT #fieldModifier
+radio Boolean #field
+radio PERSISTENT #fieldModifier

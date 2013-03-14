@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 19:18:38 CET 2013]
+[>Created: Mon Feb 18 13:39:50 CET 2013]
 13A97F3A59B5F078 3.17 #module
 >Proto >Proto Collection #zClass
 Hs0 HomeProcess Big #zClass
@@ -45,7 +45,34 @@ Hs0 f3 actionDecl 'htmlwfui.Home.HomeData out;
 Hs0 f3 actionTable 'out=in;
 ' #txt
 Hs0 f3 actionCode 'import ivy.htmlwfui.ScheduleBean;
-out.scheduleBean = new ScheduleBean();' #txt
+import ch.ivyteam.ivy.security.ISecurityMember;
+import htmlwfui.TaskDetail;
+import java.util.EnumSet;
+import ch.ivyteam.ivy.workflow.PropertyOrder;
+import ch.ivyteam.ivy.workflow.TaskState;
+import ch.ivyteam.ivy.workflow.TaskProperty;
+import ch.ivyteam.ivy.persistence.OrderDirection;
+import ch.ivyteam.ivy.persistence.IQueryResult;
+import ch.ivyteam.ivy.workflow.ITask;
+import javax.servlet.http.HttpServletRequest;
+import ch.ivyteam.ivy.workflow.IProcessStart;
+
+out.scheduleBean = new ScheduleBean();
+IQueryResult queryResult  = ivy.session.findWorkTasks(null, PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING), 
+          0, 25, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
+
+List<ITask> tasks = queryResult.getResultList();
+out.aufgaben = tasks.size() == 1 ? tasks.size().toString() + " " + ivy.cms.co("/labels/task") : tasks.size().toString() + " " + ivy.cms.co("/labels/tasks");
+
+int count = 0;
+for(IProcessStart s: ivy.session.getStartableProcessStarts())
+{
+		if(s.getName().length()>0)
+		{
+			count++;
+		}	
+}
+out.processe = count == 1 ? count.toString() + " " + ivy.cms.co("/labels/process") : count.toString() + " " + ivy.cms.co("/labels/processes");' #txt
 Hs0 f3 type htmlwfui.Home.HomeData #txt
 Hs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

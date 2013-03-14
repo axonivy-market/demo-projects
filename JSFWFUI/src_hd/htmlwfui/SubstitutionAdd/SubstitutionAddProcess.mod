@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 19:18:38 CET 2013]
+[>Created: Mon Mar 04 08:44:13 CET 2013]
 13C1950CD3BC4258 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstitutionAddProcess Big #zClass
@@ -131,12 +131,21 @@ import ch.ivyteam.ivy.security.IUserSubstitute;
 					if(role != null)
 					{
 						ivy.session.getSessionUser().createSubstitute(user, role, 
-							in.substitute.description.trim().length() > 0 ? (new Date()).format("short") +" "+in.substitute.description : "");
+							in.substitute.description.trim().length() > 0 ? (new Date().format()) + " "+in.substitute.description : "");
 					}
 			}		
 	}	
 }' #txt
 Ss0 f7 type htmlwfui.SubstitutionAdd.SubstitutionAddData #txt
+Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>save</name>
+        <nameStyle>4
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f7 430 156 36 24 20 -2 #rect
 Ss0 f7 @|StepIcon #fIcon
 Ss0 f10 expr out #txt
@@ -146,6 +155,7 @@ Ss0 f11 256 74 256 150 #arcP
 Ss0 f5 actionDecl 'htmlwfui.SubstitutionAdd.SubstitutionAddData out;
 ' #txt
 Ss0 f5 actionTable 'out=in;
+out.radio=true;
 out.radioNr=1;
 ' #txt
 Ss0 f5 type htmlwfui.SubstitutionAdd.SubstitutionAddData #txt
@@ -186,9 +196,18 @@ Ss0 f15 616 74 616 150 #arcP
 Ss0 f16 actionDecl 'htmlwfui.SubstitutionAdd.SubstitutionAddData out;
 ' #txt
 Ss0 f16 actionTable 'out=in;
-out.substitute.personal=IF(in.radioNr == 1, true, false);
+out.substitute.personal=IF(in.radio, true, false);
 ' #txt
 Ss0 f16 type htmlwfui.SubstitutionAdd.SubstitutionAddData #txt
+Ss0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>personal ?</name>
+        <nameStyle>10
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f16 430 100 36 24 20 -2 #rect
 Ss0 f16 @|StepIcon #fIcon
 Ss0 f17 expr out #txt

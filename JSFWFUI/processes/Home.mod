@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 21 10:45:04 CET 2013]
+[>Created: Thu Mar 14 11:30:20 CET 2013]
 127AE76143E89C91 3.17 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -23,7 +23,6 @@ He0 @EndRequest f14 '' #zField
 He0 @PushWFArc f15 '' #zField
 He0 @StartRequest f16 '' #zField
 He0 @CallSub f17 '' #zField
-He0 @PushWFArc f19 '' #zField
 He0 @EndRequest f25 '' #zField
 He0 @Alternative f5 '' #zField
 He0 @PushWFArc f12 '' #zField
@@ -34,6 +33,7 @@ He0 @RichDialog f1 '' #zField
 He0 @PushWFArc f3 '' #zField
 He0 @PushWFArc f4 '' #zField
 He0 @PushWFArc f10 '' #zField
+He0 @PushWFArc f9 '' #zField
 >Proto He0 He0 Home #zField
 He0 f2 type htmlwfui.Data #txt
 He0 f2 291 467 26 26 14 0 #rect
@@ -56,7 +56,7 @@ He0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 He0 f11 286 252 36 24 22 -7 #rect
 He0 f11 @|StepIcon #fIcon
-He0 f7 outLink DefaultEndPage.ivp #txt
+He0 f7 outLink EndPage.ivp #txt
 He0 f7 type htmlwfui.Data #txt
 He0 f7 inParamDecl '<java.lang.Number endedTaskId> param;' #txt
 He0 f7 inParamTable 'out.tmpTaskId=param.endedTaskId;
@@ -66,11 +66,11 @@ He0 f7 actionDecl 'htmlwfui.Data out;
 He0 f7 guid 12E2F5E4FE51B562 #txt
 He0 f7 requestEnabled true #txt
 He0 f7 triggerEnabled false #txt
-He0 f7 callSignature DefaultEndPage(Number) #txt
+He0 f7 callSignature EndPage(Number) #txt
 He0 f7 persist false #txt
-He0 f7 startName DefaultEndPage #txt
+He0 f7 startName EndPage #txt
 He0 f7 taskData '#
-#Wed Nov 16 10:03:19 CET 2011
+#Thu Mar 14 11:23:44 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -79,7 +79,8 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f7 caseData '#
-#Wed Nov 16 10:03:19 CET 2011
+#Thu Mar 14 11:23:44 CET 2013
+businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -107,7 +108,10 @@ type.name=
 ' #txt
 He0 f7 showInStartList 0 #txt
 He0 f7 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskUpdDef.setExpiryActivator("Everybody");
 taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 engine.updateCurrentTask(taskUpdDef);
@@ -115,8 +119,8 @@ engine.updateCurrentTask(taskUpdDef);
 He0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>DefaultEndPage</name>
-        <nameStyle>14,5,7
+        <name>EndPage</name>
+        <nameStyle>7,5,7
 </nameStyle>
         <desc>This start is used to overwrite the default end page.
 It will be called whenever process/task ends without a defined page.</desc>
@@ -199,7 +203,7 @@ He0 f14 @|EndRequestIcon #fIcon
 He0 f15 expr in #txt
 He0 f15 outCond in.temp.url.length()>0 #txt
 He0 f15 144 278 144 315 #arcP
-He0 f16 outLink DefaultApplicationHomePage.ivp #txt
+He0 f16 outLink HomePage.ivp #txt
 He0 f16 type htmlwfui.Data #txt
 He0 f16 inParamDecl '<> param;' #txt
 He0 f16 actionDecl 'htmlwfui.Data out;
@@ -207,12 +211,12 @@ He0 f16 actionDecl 'htmlwfui.Data out;
 He0 f16 guid 12E3344F408D0C73 #txt
 He0 f16 requestEnabled true #txt
 He0 f16 triggerEnabled false #txt
-He0 f16 callSignature DefaultApplicationHomePage() #txt
+He0 f16 callSignature HomePage() #txt
 He0 f16 persist false #txt
 He0 f16 startName 'WF Home' #txt
-He0 f16 startDescription 'Workflow Startpage' #txt
+He0 f16 startDescription 'Workflow UI Startpage' #txt
 He0 f16 taskData '#
-#Fri Apr 27 15:07:14 CEST 2012
+#Thu Mar 14 11:30:19 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -221,7 +225,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f16 caseData '#
-#Fri Apr 27 15:07:14 CEST 2012
+#Thu Mar 14 11:30:19 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -261,8 +265,8 @@ engine.updateCurrentTask(taskUpdDef);
 He0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>DefaultApplicationHomePage</name>
-        <nameStyle>26,5,7
+        <name>HomePage</name>
+        <nameStyle>8,5,7
 </nameStyle>
         <desc>This start is used to overwrite the default application home.
 Use /ivy/wf/applicationHome to call it.
@@ -295,8 +299,6 @@ He0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 He0 f17 286 156 36 24 20 -2 #rect
 He0 f17 @|CallSubIcon #fIcon
-He0 f19 expr out #txt
-He0 f19 304 180 304 252 #arcP
 He0 f25 type htmlwfui.Data #txt
 He0 f25 template "/ProcessPages/Home/AnonymousEndpage.ivc" #txt
 He0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -353,6 +355,9 @@ He0 f4 expr out #txt
 He0 f4 304 380 304 467 #arcP
 He0 f10 expr out #txt
 He0 f10 304 77 304 156 #arcP
+He0 f9 expr out #txt
+He0 f9 304 180 304 252 #arcP
+He0 f9 0 0.5068883965983475 0 0 #arcLabel
 >Proto He0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
@@ -366,8 +371,6 @@ He0 f20 mainOut f13 tail #connect
 He0 f13 head f6 in #connect
 He0 f6 out f15 tail #connect
 He0 f15 head f14 mainIn #connect
-He0 f17 mainOut f19 tail #connect
-He0 f19 head f11 mainIn #connect
 He0 f7 mainOut f12 tail #connect
 He0 f12 head f5 in #connect
 He0 f5 out f0 tail #connect
@@ -382,3 +385,5 @@ He0 f1 mainOut f4 tail #connect
 He0 f4 head f2 mainIn #connect
 He0 f16 mainOut f10 tail #connect
 He0 f10 head f17 mainIn #connect
+He0 f17 mainOut f9 tail #connect
+He0 f9 head f11 mainIn #connect

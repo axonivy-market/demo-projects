@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 07 10:12:27 CET 2013]
+[>Created: Thu Mar 14 11:17:49 CET 2013]
 1367E046117353D3 3.17 #module
 >Proto >Proto Collection #zClass
 Ae0 Absence Big #zClass
@@ -31,8 +31,9 @@ Ae0 f0 triggerEnabled false #txt
 Ae0 f0 callSignature start() #txt
 Ae0 f0 persist false #txt
 Ae0 f0 startName Absence #txt
+Ae0 f0 startDescription 'My absences' #txt
 Ae0 f0 taskData '#
-#Thu Jan 03 08:36:50 CET 2013
+#Thu Mar 14 11:17:48 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -41,7 +42,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Ae0 f0 caseData '#
-#Thu Jan 03 08:36:50 CET 2013
+#Thu Mar 14 11:17:48 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -68,7 +69,7 @@ subType.name=
 type.code=
 type.name=
 ' #txt
-Ae0 f0 showInStartList 1 #txt
+Ae0 f0 showInStartList 0 #txt
 Ae0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
 import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;

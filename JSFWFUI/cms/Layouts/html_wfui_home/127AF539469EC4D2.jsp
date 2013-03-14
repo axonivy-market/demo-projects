@@ -22,7 +22,7 @@
 		<div id="PageNavigation">
 			&nbsp;
 		</div>
-		<div id="LeftNavigation">
+		<div id="LeftNavigation" >
 
 			<a href='<%=ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp")%>'><%=ivy.cms.co("/navLabels/home")%></a><br><br> 
 			<a href='<%=ivy.html.startref("1270ADF72FF4AFF3/DefaultProcessStartListPage.ivp")%>'><%=ivy.cms.co("/navLabels/processList")%></a> <br><br>

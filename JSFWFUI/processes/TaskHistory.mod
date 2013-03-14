@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 21 10:42:23 CET 2013]
+[>Created: Thu Mar 14 11:21:08 CET 2013]
 12E297F287736665 3.17 #module
 >Proto >Proto Collection #zClass
 Rt0 TaskHistory Big #zClass
@@ -110,7 +110,7 @@ Rt0 f0 triggerEnabled false #txt
 Rt0 f0 callSignature start1() #txt
 Rt0 f0 persist false #txt
 Rt0 f0 taskData '#
-#Fri Oct 26 14:24:35 CEST 2012
+#Thu Mar 14 11:21:07 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -119,7 +119,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Rt0 f0 caseData '#
-#Fri Oct 26 14:24:35 CEST 2012
+#Thu Mar 14 11:21:07 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -146,7 +146,7 @@ subType.name=
 type.code=
 type.name=
 ' #txt
-Rt0 f0 showInStartList 1 #txt
+Rt0 f0 showInStartList 0 #txt
 Rt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
 import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
@@ -174,7 +174,6 @@ Rt0 f30 doCall true #txt
 Rt0 f30 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Rt0 f30 requestMappingAction 'param.in=in;
-param.in.tmpTask=in.tasks.get(in.temp.n);
 ' #txt
 Rt0 f30 responseActionDecl 'htmlwfui.Data out;
 ' #txt
@@ -274,7 +273,6 @@ Rt0 f6 requestMappingAction 'param.data=in;
 Rt0 f6 responseActionDecl 'htmlwfui.Data out;
 ' #txt
 Rt0 f6 responseMappingAction 'out=in;
-out.option=result.option;
 ' #txt
 Rt0 f6 windowConfiguration '* ' #txt
 Rt0 f6 isAsynch false #txt

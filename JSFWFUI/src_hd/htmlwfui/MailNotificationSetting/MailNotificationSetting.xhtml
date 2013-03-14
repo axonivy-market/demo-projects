@@ -9,10 +9,10 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core">
       
 <h:body>
-	<ui:composition template="../HomeTemplate.xhtml">
+	<ui:composition template="/tamplates/HomeTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="#{ivy.cms.co('/explainTexts/settings')}">
+			<p:layoutUnit id="center" position="center" header="#{ivy.cms.co('/explainTexts/settings')}">
 			<br></br>
 			<h:outputText value="#{ivy.cms.co('/explainTexts/EmailNotificationSettingTitle')}" style="font-weight:bold"/>
 			<br></br>

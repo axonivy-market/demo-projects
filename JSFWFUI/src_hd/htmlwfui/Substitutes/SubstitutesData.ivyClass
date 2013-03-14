@@ -6,3 +6,7 @@ deleteNr Number #field
 deleteNr PERSISTENT #fieldModifier
 option String #field
 option PERSISTENT #fieldModifier
+substituteFor String #field
+substituteFor PERSISTENT #fieldModifier
+substituteList List<htmlwfui.Substitute> #field
+substituteList PERSISTENT #fieldModifier

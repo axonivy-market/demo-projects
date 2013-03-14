@@ -7,37 +7,43 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-	<ui:composition template="../HomeTemplate.xhtml">
+	<ui:composition template="/tamplates/HomeTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header='#{ivy.cms.co("/labels/tasks")}'>
+			<p:layoutUnit id="center" position="center" header='#{ivy.cms.co("/explainTexts/TaskListTitel")}'>
+			<br></br>
+			<h:outputText value="#{ivy.cms.co('/explainTexts/TaskListDescription')}"/>
+			<br></br><br></br><br></br>
+			<h:outputText value="#{ivy.cms.co('/labels/tasks')}" style="font-weight:bold; font-size:12pt;"/>
+			<hr></hr>
 			<h:form>
-				<p:dataTable var="task" value="#{data.taskList}">
-					<p:column style="width:30px" sortBy="#{task.id}">
+			<p:panel id="thePanel">
+				<p:dataTable var="task" value="#{data.taskList}" emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}" rowIndexVar="row" paginator="true" rows="20">
+					<p:column style="width:30px">
 						<f:facet name="header">
 							<h:outputText value="#" /> 
 						</f:facet>
-						<h:commandLink action="#{logic.gotoTaskDetail(task.id)}">
-							<h:graphicImage library="ivy-cms" name="images/task" alt="#{task.id}" style="border:0pt"/>
-						</h:commandLink> 
+						<h:commandLink id="buttonTaskDetail" actionListener="#{logic.gotoTaskDetail(task.id)}" title="Details Task[#{task.id}]" align="center" ajax="false">
+							<h:graphicImage library="ivy-cms" name="images/task#{task.hasNotes ? 'WithNote' : ''}" alt="#{task.id}" style="border:0pt"/>
+						</h:commandLink>
 					</p:column>
 					<p:column style="width:50px" sortBy="#{task.prio}">
 						<f:facet name="header">
 							<h:outputText value="#{ivy.cms.co('/labels/taskPrio')}" />
 						</f:facet>
-						<h:graphicImage library="ivy-cms" name="images/priority/#{task.prio}" alt="#{task.prio}"/>
+						<h:graphicImage library="ivy-cms" name="images/priority/#{task.prio}" alt="#{task.prio}" title="Prio #{task.prioName}"/>
 					</p:column>	
 					<p:column style="width:50px" sortBy="#{task.state}">
 						<f:facet name="header">
 							<h:outputText value="#{ivy.cms.co('/labels/taskState')}" />
 						</f:facet>
-						<h:graphicImage library="ivy-cms" name="images/state/#{task.state}" alt="#{task.stateName}"/>
+						<h:graphicImage library="ivy-cms" name="images/state/#{task.state}" alt="#{task.stateName}" title="#{ivy.cms.co('/labels/state')} #{task.stateName}"/>
 					</p:column>										
 					<p:column sortBy="#{task.name}">
 						<f:facet name="header">
 							<h:outputText value="#{ivy.cms.co('/labels/task')}" />
 						</f:facet>
-						<h:outputText value="#{task.name}" />
+						<a href="#{task.url}"><h:outputText value="#{task.name}" title="#{ivy.cms.co('/labels/taskResume')} Task[#{task.id}]"/></a>
 					</p:column>
 					<p:column style="width:150px" sortBy="#{task.activator}">
 							<f:facet name="header">
@@ -55,9 +61,10 @@
 						<f:facet name="header">
 							<h:outputText value="Start" />
 						</f:facet>
-						<a href="#{task.url}"><h:graphicImage library="ivy-cms" name="images/start" alt="Start" style="border:0pt"/></a> 
+						<a href="#{task.url}"><h:graphicImage library="ivy-cms" name="images/start" alt="Start" style="border:0pt" title="#{ivy.cms.co('/labels/taskResume')} Task[#{task.id}]"/></a> 
 					</p:column>
 				</p:dataTable>
+			</p:panel>
 			</h:form>	
 			</p:layoutUnit>
 		</ui:define>

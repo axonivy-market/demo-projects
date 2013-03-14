@@ -1,4 +1,4 @@
-co: name={AddNoteDescription} description={} changed={2013-02-06 14:33:58 CET} changedby={dje} visualorder={0} guid={13C4E2342D13289E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={AddNoteDescription} description={} changed={2013-03-05 16:24:55 CET} changedby={locadmin} visualorder={0} guid={13C4E2342D13289E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={13C4E2342D1A30D2} datatype={} isdefault={true} langid={de} description={} validfrom={2013-01-18 15:49:59 CET} validto={} changed={2013-01-18 15:50:17 CET} changedby={dje} properties={} id={}
-val: guid={13C4E234FEBCA913} datatype={} isdefault={false} langid={en} description={} validfrom={2013-01-18 15:50:02 CET} validto={} changed={2013-02-06 14:33:58 CET} changedby={dje} properties={} id={}
-val: guid={13C4E235834F4B9B} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-01-18 15:50:04 CET} validto={} changed={2013-02-06 14:33:58 CET} changedby={dje} properties={} id={}
+val: guid={13C4E234FEBCA913} datatype={} isdefault={false} langid={en} description={} validfrom={2013-01-18 15:50:02 CET} validto={} changed={2013-03-05 16:24:55 CET} changedby={locadmin} properties={} id={}
+val: guid={13C4E235834F4B9B} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-01-18 15:50:04 CET} validto={} changed={2013-03-05 16:24:55 CET} changedby={locadmin} properties={} id={}

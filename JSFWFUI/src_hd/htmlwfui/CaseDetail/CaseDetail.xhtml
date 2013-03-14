@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:ic="http://ivyteam.ch/jsf/component"
@@ -9,17 +9,17 @@
       xmlns:p="http://primefaces.org/ui">
  
 <h:body>
-	<ui:composition template="../HomeTemplate.xhtml">
+	<ui:composition template="/tamplates/HomeTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="#{ivy.cms.co('/explainTexts/CaseDetails')}">
+			<p:layoutUnit id="center" position="center" header="#{ivy.cms.co('/explainTexts/CaseDetails')}">
 			<br></br>
 			<h:outputText value="#{ivy.cms.co('/explainTexts/CaseDetailsTitel')}"/>
 			<br></br>
 			<h:outputText value="#{data.data.temp.description}"/>
 			<br></br><br></br><br></br>
 			<h:form id="formDetails">
-				<h:panelGrid columns="5">
+				<h:panelGrid columns="3">
 					<p:commandLink actionListener="#{logic.deleteCase}" title="#{ivy.cms.co('/tooltips/deleteCase')}" style="margin-right:20px;" ajax="false" disabled="#{data.deleteCaseLink}">
         				<h:graphicImage library="ivy-cms" name="images/delete" alt="#{task.id}" style="border:0pt"/>
         				<h:outputText value="#{ivy.cms.co('/labels/caseDelete')}"/>  
@@ -45,93 +45,115 @@
 					<h:outputText value="#{ivy.cms.co('/labels/version')}"/>
 					<h:outputText value="#{data.data.tempCase.processModelVersion}"/>
 					<h:outputText value="#{ivy.cms.co('/labels/state')}"/>
-					<h:outputText value="#{data.data.tempCase.state}"/>
+					<h:panelGrid columns="2">
+						<h:graphicImage library="ivy-cms" name="#{data.stateImage}" alt="#{task.id}" style="border:0pt"/>
+						<h:outputText value="#{data.data.tempCase.state}"/>
+					</h:panelGrid>
 					<h:outputText value="#{ivy.cms.co('/labels/creator')}"/>
-					<h:outputText value="#{data.data.tempCase.creatorUserName}"/>
+					<h:panelGrid columns="2">
+						<h:graphicImage library="ivy-cms" name="/images/user" alt="#{task.id}" style="border:0pt"/>
+						<h:outputText value="#{data.data.tempCase.creatorUserName}"/>
+					</h:panelGrid>
 					<h:outputText value="#{ivy.cms.co('/labels/created')}"/>
-					<h:outputText value="#{data.data.tempCase.startTimestamp}"/>
+					<h:outputText value="#{data.data.tempCase.startTimestamp}">
+						<f:convertDateTime type="both" dateStyle="short"/>
+					</h:outputText>
 					<h:outputText value="#{ivy.cms.co('/labels/category')}"/>
 					<h:outputText value="#{data.data.tempCase.processCategoryCode}"/>
 					<h:outputText value="#{ivy.cms.co('/labels/process')}"/>
 					<h:outputText value="#{data.data.tempCase.processName}"/>
 				</h:panelGrid>
+				<br></br><br></br>
+				<h:outputText value="#{data.notesTitel}" style="font-weight:bold; font-size:12pt;"/>
+				<br></br>
+				<p:dataList value="#{data.caseNotesList}" var="caseNote" itemType="none" rendered="#{data.notesTitel != ''}">
+					<h:panelGrid columns="2">
+    					<h:outputText value="#{caseNote.description} " escape="false"/>
+    					<h:commandLink actionListener="#{logic.deleteNote(caseNote.id, '')}" title="#{ivy.cms.co('/labels/deleteNote')}" ajax="false" disabled="#{caseNote.delete}">
+							<h:graphicImage library="ivy-cms" name="images/delete" alt="#{caseNote.id}" style="border:0pt" rendered="#{!caseNote.delete}"/>
+						</h:commandLink>
+					</h:panelGrid>
+				</p:dataList> 
 			</h:form>
-			<br></br><br></br>
-			<h:outputText value="#{ivy.cms.co('/labels/caseNotes')}" style="font-weight:bold; font-size:12pt;"/>
-			<br></br>
-			<h:outputText value="#{data.data.temp.msg}" escape="false"/>
 			<br></br><br></br>
 			<h:outputText value="#{ivy.cms.co('/labels/caseHistory')}" style="font-weight:bold; font-size:12pt;"/>
 			<hr></hr>
-			<br></br>
 			<h:form id="form1">
 			<p:panel id="thePanel">
-    			<p:dataTable id="dataTable" value="#{data.data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}" rowIndexVar="row">  
+    			<p:dataTable id="dataTable" value="#{data.data.taskList}" var="task" emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}" rowIndexVar="row" paginator="true" rows="10">  
        				
        				<p:column id="absenceStart">  
             			<f:facet name="header">  
                 			<h:outputText value="#" />  
 
             			</f:facet>
-                    	<h:commandLink actionListener="#{logic.taskDetail(row)}" title="Details Task" align="center" ajax="false">
-							<h:graphicImage library="ivy-cms" name="images/task" alt="#{task.id}" style="border:0pt"/>
+                    	<h:commandLink actionListener="#{logic.taskDetail(task.id)}" title="Details Task[#{task.id}]" align="center" ajax="false">
+							<h:graphicImage library="ivy-cms" name="images/task#{task.hasNotes ? 'WithNote' : ''}" alt="#{task.id}" style="border:0pt"/>
 						</h:commandLink> 
          			</p:column>
          			
-        			<p:column sortBy="#{task.priority}">  
+        			<p:column sortBy="#{task.prioName}">  
             			<f:facet name="header">  
                 			<h:outputText value="#{ivy.cms.co('/labels/taskPrio')}" />  
             			</f:facet>  
-            			<h:outputText value="#{task.priority}" />
+            			<h:outputText value="#{task.prioName}" />
         			</p:column>
         			
-        			<p:column sortBy="#{task.state}">  
+        			<p:column sortBy="#{task.stateName}">  
             			<f:facet name="header">  
                 			<h:outputText value="#{ivy.cms.co('/labels/taskState')}" />  
             			</f:facet>  
-            			<h:outputText value="#{task.state}" />  
+            			<h:outputText value="#{task.stateName}" />  
         			</p:column>
         			
         			<p:column sortBy="#{task.name}">  
             			<f:facet name="header">  
                 			<h:outputText value="Name" />  
-            			</f:facet>  
-            			<h:outputText value="#{task.name}" />  
+            			</f:facet>
+            			<h:commandLink actionListener="#{logic.taskDetail(task.id)}" title="Details Task[#{task.id}]" ajax="false">
+							<h:outputText value="#{task.name}" /> 
+						</h:commandLink> 
         			</p:column>
         			
-        			<p:column sortBy="#{task.workerUserName}">  
+        			<p:column sortBy="#{task.user}">  
             			<f:facet name="header">  
                 			<h:outputText value="#{ivy.cms.co('/labels/user')}" />  
             			</f:facet>  
-            			<h:outputText value="#{task.workerUserName}" />  
+            			<h:outputText value="#{task.user}" />  
         			</p:column>
         			
-        			<p:column sortBy="#{task.activatorName}">  
+        			<p:column sortBy="#{task.activator}">  
             			<f:facet name="header">  
                 			<h:outputText value="#{ivy.cms.co('/labels/taskResponsible')}" />  
             			</f:facet>  
-            			<h:outputText value="#{task.activatorName}" />  
+            			<h:outputText value="#{task.activator}" />  
         			</p:column>
         			
-        			<p:column sortBy="#{task.startTimestamp}">  
+        			<p:column sortBy="#{task.start}">  
             			<f:facet name="header">  
                 			<h:outputText value="#{ivy.cms.co('/labels/created')}" />  
-            			</f:facet>  
-            			<h:outputText value="#{task.startTimestamp}" />  
+            			</f:facet>
+            			<h:outputText value="#{task.start.getYear().toString() == 1 ? '' : task.start}">
+							<f:convertDateTime type="both" dateStyle="short"/>
+						</h:outputText>
         			</p:column>
         			
-        			<p:column sortBy="#{task.expiryTimestamp}">  
+        			<p:column sortBy="#{task.exp}">  
             			<f:facet name="header">  
                 			<h:outputText value="#{ivy.cms.co('/labels/expiry')}" />  
-            			</f:facet>  
-            			<h:outputText value="#{task.expiryTimestamp}" />  
+            			</f:facet>
+            			<h:outputText value="#{task.exp.getYear().toString() == 1 ? '' : task.exp}">
+							<f:convertDateTime type="both" dateStyle="short"/>
+						</h:outputText>
         			</p:column>
   
-        			<p:column sortBy="#{task.endTimestamp}">  
+        			<p:column sortBy="#{task.end}">  
             			<f:facet name="header">  
                 			<h:outputText value="#{ivy.cms.co('/labels/done')}" />  
-            			</f:facet>  
-            			<h:outputText value="#{task.endTimestamp}" />
+            			</f:facet>
+            			<h:outputText value="#{task.end.getYear().toString() == 1 ? '' : task.end}">
+							<f:convertDateTime type="both" dateStyle="short"/>
+						</h:outputText>
         			</p:column>
         			
     			</p:dataTable>

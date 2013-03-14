@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 19:18:38 CET 2013]
+[>Created: Tue Feb 12 15:06:58 CET 2013]
 13BDCA5090CA1E7B 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MailNotificationSettingProcess Big #zClass
@@ -22,10 +22,12 @@ Ms0 @RichDialogEnd f6 '' #zField
 Ms0 @GridStep f8 '' #zField
 Ms0 @PushWFArc f7 '' #zField
 Ms0 @RichDialogProcessStart f5 '' #zField
-Ms0 @PushWFArc f11 '' #zField
 Ms0 @RichDialogProcessStart f9 '' #zField
 Ms0 @RichDialogProcessEnd f10 '' #zField
 Ms0 @PushWFArc f12 '' #zField
+Ms0 @GridStep f13 '' #zField
+Ms0 @PushWFArc f14 '' #zField
+Ms0 @PushWFArc f11 '' #zField
 >Proto Ms0 Ms0 MailNotificationSettingProcess #zField
 Ms0 f0 guid 13BDCA5091CE1CAA #txt
 Ms0 f0 type htmlwfui.MailNotificationSetting.MailNotificationSettingData #txt
@@ -146,7 +148,7 @@ Ms0 f2 expr out #txt
 Ms0 f2 96 140 96 174 #arcP
 Ms0 f6 type htmlwfui.MailNotificationSetting.MailNotificationSettingData #txt
 Ms0 f6 guid 13BDCAA4C798AE40 #txt
-Ms0 f6 270 174 20 20 13 0 #rect
+Ms0 f6 270 206 20 20 13 0 #rect
 Ms0 f6 @|RichDialogEndIcon #fIcon
 Ms0 f8 actionDecl 'htmlwfui.MailNotificationSetting.MailNotificationSettingData out;
 ' #txt
@@ -193,10 +195,10 @@ Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f8 262 116 36 24 20 -2 #rect
+Ms0 f8 262 148 36 24 20 -2 #rect
 Ms0 f8 @|StepIcon #fIcon
 Ms0 f7 expr out #txt
-Ms0 f7 280 140 280 174 #arcP
+Ms0 f7 280 172 280 206 #arcP
 Ms0 f5 guid 13BE0EC5D21AD0ED #txt
 Ms0 f5 type htmlwfui.MailNotificationSetting.MailNotificationSettingData #txt
 Ms0 f5 actionDecl 'htmlwfui.MailNotificationSetting.MailNotificationSettingData out;
@@ -212,8 +214,6 @@ Ms0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ms0 f5 270 54 20 20 13 0 #rect
 Ms0 f5 @|RichDialogProcessStartIcon #fIcon
-Ms0 f11 expr out #txt
-Ms0 f11 280 74 280 116 #arcP
 Ms0 f9 guid 13BE227983F923E1 #txt
 Ms0 f9 type htmlwfui.MailNotificationSetting.MailNotificationSettingData #txt
 Ms0 f9 actionDecl 'htmlwfui.MailNotificationSetting.MailNotificationSettingData out;
@@ -233,6 +233,35 @@ Ms0 f10 type htmlwfui.MailNotificationSetting.MailNotificationSettingData #txt
 Ms0 f10 418 150 20 20 13 0 #rect
 Ms0 f10 @|RichDialogProcessEndIcon #fIcon
 Ms0 f12 428 74 428 150 #arcP
+Ms0 f13 actionDecl 'htmlwfui.MailNotificationSetting.MailNotificationSettingData out;
+' #txt
+Ms0 f13 actionTable 'out=in;
+out.settings.fri=IF(in.settings.appDefault, false, in.settings.fri);
+out.settings.mon=IF(in.settings.appDefault, false, in.settings.mon);
+out.settings.notificationDisabled=IF(in.settings.appDefault, false, in.settings.notificationDisabled);
+out.settings.onNewTasks=IF(in.settings.appDefault, false, in.settings.onNewTasks);
+out.settings.sat=IF(in.settings.appDefault, false, in.settings.sat);
+out.settings.sun=IF(in.settings.appDefault, false, in.settings.sun);
+out.settings.thu=IF(in.settings.appDefault, false, in.settings.thu);
+out.settings.tue=IF(in.settings.appDefault, false, in.settings.tue);
+out.settings.wen=IF(in.settings.appDefault, false, in.settings.wen);
+' #txt
+Ms0 f13 type htmlwfui.MailNotificationSetting.MailNotificationSettingData #txt
+Ms0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>init</name>
+        <nameStyle>4
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ms0 f13 262 100 36 24 20 -2 #rect
+Ms0 f13 @|StepIcon #fIcon
+Ms0 f14 expr out #txt
+Ms0 f14 280 74 280 100 #arcP
+Ms0 f11 expr out #txt
+Ms0 f11 280 124 280 148 #arcP
 >Proto Ms0 .type htmlwfui.MailNotificationSetting.MailNotificationSettingData #txt
 >Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
@@ -243,7 +272,9 @@ Ms0 f3 mainOut f2 tail #connect
 Ms0 f2 head f1 mainIn #connect
 Ms0 f8 mainOut f7 tail #connect
 Ms0 f7 head f6 mainIn #connect
-Ms0 f5 mainOut f11 tail #connect
-Ms0 f11 head f8 mainIn #connect
 Ms0 f9 mainOut f12 tail #connect
 Ms0 f12 head f10 mainIn #connect
+Ms0 f5 mainOut f14 tail #connect
+Ms0 f14 head f13 mainIn #connect
+Ms0 f13 mainOut f11 tail #connect
+Ms0 f11 head f8 mainIn #connect

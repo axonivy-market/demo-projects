@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 19:18:38 CET 2013]
+[>Created: Thu Feb 21 09:31:28 CET 2013]
 13C190633FB24F7F 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstitutesProcess Big #zClass
@@ -16,8 +16,6 @@ Ss0 @TextInP .responsibility .responsibility #zField
 Ss0 @RichDialogProcessEnd f1 '' #zField
 Ss0 @RichDialogProcessStart f3 '' #zField
 Ss0 @RichDialogInitStart f0 '' #zField
-Ss0 @GridStep f6 '' #zField
-Ss0 @PushWFArc f2 '' #zField
 Ss0 @RichDialogMethodStart f8 '' #zField
 Ss0 @RichDialogEnd f10 '' #zField
 Ss0 @RichDialogProcessStart f4 '' #zField
@@ -30,13 +28,15 @@ Ss0 @PushWFArc f16 '' #zField
 Ss0 @PushWFArc f11 '' #zField
 Ss0 @GridStep f17 '' #zField
 Ss0 @PushWFArc f18 '' #zField
-Ss0 @PushWFArc f9 '' #zField
 Ss0 @GridStep f19 '' #zField
 Ss0 @PushWFArc f20 '' #zField
-Ss0 @PushWFArc f7 '' #zField
+Ss0 @GridStep f21 '' #zField
+Ss0 @PushWFArc f2 '' #zField
+Ss0 @PushWFArc f23 '' #zField
+Ss0 @PushWFArc f9 '' #zField
 >Proto Ss0 Ss0 SubstitutesProcess #zField
 Ss0 f1 type htmlwfui.Substitutes.SubstitutesData #txt
-Ss0 f1 86 198 20 20 13 0 #rect
+Ss0 f1 86 214 20 20 13 0 #rect
 Ss0 f1 @|RichDialogProcessEndIcon #fIcon
 Ss0 f3 guid 13C1913BA384579D #txt
 Ss0 f3 type htmlwfui.Substitutes.SubstitutesData #txt
@@ -77,27 +77,6 @@ Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ss0 f0 86 54 20 20 13 0 #rect
 Ss0 f0 @|RichDialogInitStartIcon #fIcon
-Ss0 f6 actionDecl 'htmlwfui.Substitutes.SubstitutesData out;
-' #txt
-Ss0 f6 actionTable 'out=in;
-' #txt
-Ss0 f6 actionCode 'out.substitute.substitutes = ivy.session.getSessionUser().getSubstitutes();
-
-out.substitute.substiutions = ivy.session.getSessionUser().getSubstitutions();' #txt
-Ss0 f6 type htmlwfui.Substitutes.SubstitutesData #txt
-Ss0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>actual settings</name>
-        <nameStyle>15,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f6 78 148 36 24 20 -2 #rect
-Ss0 f6 @|StepIcon #fIcon
-Ss0 f2 expr out #txt
-Ss0 f2 96 172 96 198 #arcP
 Ss0 f8 guid 13C1941F795E33B1 #txt
 Ss0 f8 type htmlwfui.Substitutes.SubstitutesData #txt
 Ss0 f8 method removeSubstitution(Number) #txt
@@ -149,6 +128,15 @@ Ss0 f13 actionTable 'out=in;
 out.option="show";
 ' #txt
 Ss0 f13 type htmlwfui.Substitutes.SubstitutesData #txt
+Ss0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>option</name>
+        <nameStyle>6
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f13 590 100 36 24 20 -2 #rect
 Ss0 f13 @|StepIcon #fIcon
 Ss0 f14 expr out #txt
@@ -161,6 +149,15 @@ Ss0 f15 actionTable 'out=in;
 out.option="add";
 ' #txt
 Ss0 f15 type htmlwfui.Substitutes.SubstitutesData #txt
+Ss0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>option</name>
+        <nameStyle>6
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f15 462 100 36 24 20 -2 #rect
 Ss0 f15 @|StepIcon #fIcon
 Ss0 f16 expr out #txt
@@ -176,20 +173,27 @@ Ss0 f17 actionCode 'import ch.ivyteam.ivy.security.IUserSubstitute;
 List substitutes = ivy.session.getSessionUser().getSubstitutes();
 for(IUserSubstitute substitute:substitutes)
 {
-	if(substitute.getIdentifier() == in.deleteNr)
+	if(substitute.getId() == in.deleteNr)
 	{
 			ivy.session.getSessionUser().deleteSubstitute(substitute);
 			break;
 	}	
 }' #txt
 Ss0 f17 type htmlwfui.Substitutes.SubstitutesData #txt
+Ss0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>remove</name>
+        <nameStyle>6
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Ss0 f17 238 148 36 24 20 -2 #rect
 Ss0 f17 @|StepIcon #fIcon
 Ss0 f18 expr out #txt
 Ss0 f18 256 74 256 148 #arcP
 Ss0 f18 0 0.33434769690155586 0 0 #arcLabel
-Ss0 f9 expr out #txt
-Ss0 f9 238 160 114 160 #arcP
 Ss0 f19 actionDecl 'htmlwfui.Substitutes.SubstitutesData out;
 ' #txt
 Ss0 f19 actionTable 'out=in;
@@ -224,14 +228,57 @@ Ss0 f19 78 100 36 24 20 -2 #rect
 Ss0 f19 @|StepIcon #fIcon
 Ss0 f20 expr out #txt
 Ss0 f20 96 74 96 100 #arcP
-Ss0 f7 expr out #txt
-Ss0 f7 96 124 96 148 #arcP
+Ss0 f21 actionDecl 'htmlwfui.Substitutes.SubstitutesData out;
+' #txt
+Ss0 f21 actionTable 'out=in;
+' #txt
+Ss0 f21 actionCode 'import htmlwfui.Substitute;
+import ch.ivyteam.ivy.security.IUserSubstitute;
+
+in.substituteList.clear();
+List<IUserSubstitute> substitutes = ivy.session.getSessionUser().getSubstitutes();
+
+for(int i = 0; i < substitutes.size(); i++)
+{
+				IUserSubstitute substitute = substitutes.get(i);
+				Substitute substituteDetail = new Substitute();
+
+				substituteDetail.user = substitute.getSubstituteUser().getName();
+				if(substitute.isPersonallyOnly())
+				{
+					substituteDetail.role = ivy.cms.co("/labels/substituteMyTasks");
+				} else
+				{
+					substituteDetail.role = substitute.getSubstitutionRole().getName();
+					//substituteDetail.role = "";
+				}
+				substituteDetail.description = substitute.getDescription();
+				substituteDetail.id = substitute.getId();
+								
+				out.substituteList.add(substituteDetail);
+}' #txt
+Ss0 f21 type htmlwfui.Substitutes.SubstitutesData #txt
+Ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Substitute List</name>
+        <nameStyle>15
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f21 78 148 36 24 20 -2 #rect
+Ss0 f21 @|StepIcon #fIcon
+Ss0 f2 expr out #txt
+Ss0 f2 96 172 96 214 #arcP
+Ss0 f23 expr out #txt
+Ss0 f23 238 160 114 160 #arcP
+Ss0 f9 expr out #txt
+Ss0 f9 96 124 96 148 #arcP
 >Proto Ss0 .type htmlwfui.Substitutes.SubstitutesData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
 >Proto Ss0 '' #fIcon
-Ss0 f6 mainOut f2 tail #connect
-Ss0 f2 head f1 mainIn #connect
 Ss0 f4 mainOut f14 tail #connect
 Ss0 f14 head f13 mainIn #connect
 Ss0 f13 mainOut f12 tail #connect
@@ -242,9 +289,11 @@ Ss0 f15 mainOut f11 tail #connect
 Ss0 f11 head f10 mainIn #connect
 Ss0 f8 mainOut f18 tail #connect
 Ss0 f18 head f17 mainIn #connect
-Ss0 f17 mainOut f9 tail #connect
-Ss0 f9 head f6 mainIn #connect
 Ss0 f0 mainOut f20 tail #connect
 Ss0 f20 head f19 mainIn #connect
-Ss0 f19 mainOut f7 tail #connect
-Ss0 f7 head f6 mainIn #connect
+Ss0 f21 mainOut f2 tail #connect
+Ss0 f2 head f1 mainIn #connect
+Ss0 f17 mainOut f23 tail #connect
+Ss0 f23 head f21 mainIn #connect
+Ss0 f19 mainOut f9 tail #connect
+Ss0 f9 head f21 mainIn #connect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 11 10:34:55 CET 2013]
+[>Created: Fri Mar 08 15:09:55 CET 2013]
 13C6127AB9912FE5 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -43,11 +43,19 @@ Ts0 @RichDialogProcessStart f7 '' #zField
 Ts0 @PushWFArc f15 '' #zField
 Ts0 @RichDialogProcessStep f10 '' #zField
 Ts0 @PushWFArc f13 '' #zField
-Ts0 @PushWFArc f4 '' #zField
 Ts0 @PushWFArc f16 '' #zField
+Ts0 @RichDialogProcessStep f2 '' #zField
+Ts0 @PushWFArc f17 '' #zField
+Ts0 @RichDialogProcessStep f19 '' #zField
+Ts0 @PushWFArc f20 '' #zField
+Ts0 @PushWFArc f4 '' #zField
+Ts0 @RichDialogMethodStart f30 '' #zField
+Ts0 @RichDialogProcessStep f39 '' #zField
+Ts0 @PushWFArc f40 '' #zField
+Ts0 @PushWFArc f41 '' #zField
 >Proto Ts0 Ts0 TaskDetailsProcess #zField
 Ts0 f1 type htmlwfui.TaskDetails.TaskDetailsData #txt
-Ts0 f1 86 214 20 20 13 0 #rect
+Ts0 f1 86 342 20 20 13 0 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
 Ts0 f3 guid 13C61288A73C1485 #txt
 Ts0 f3 type htmlwfui.TaskDetails.TaskDetailsData #txt
@@ -156,14 +164,25 @@ Ts0 f18 @|RichDialogProcessStartIcon #fIcon
 Ts0 f21 actionDecl 'htmlwfui.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f21 actionTable 'out=in;
-out.data.temp.description=ivy.cms.co("/explainTexts/TaskDetailsDescription") + "[" + in.data.tmpTask.getId() + "]" + " " + in.data.tmpTask.getName();
 ' #txt
+Ts0 f21 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
+
+List<ITask> tasks = in.data.tasks;
+
+for (int t=0; t<tasks.size(); t++)
+{
+	ITask task = tasks.get(t);
+	if(task.getId() == in.data.temp.n)
+	{
+		out.data.tmpTask = tasks.get(t);
+	}
+}' #txt
 Ts0 f21 type htmlwfui.TaskDetails.TaskDetailsData #txt
 Ts0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>description</name>
-        <nameStyle>11
+        <name>get Task</name>
+        <nameStyle>8
 </nameStyle>
     </language>
 </elementInfo>
@@ -332,6 +351,7 @@ Ts0 f15 352 74 352 100 #arcP
 Ts0 f10 actionDecl 'htmlwfui.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f10 actionTable 'out=in;
+out.data.temp.description=ivy.cms.co("/explainTexts/TaskDetailsDescription") + "[" + in.data.tmpTask.getId() + "]" + " " + in.data.tmpTask.getName();
 ' #txt
 Ts0 f10 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.TaskState;
@@ -393,12 +413,150 @@ Ts0 f10 78 156 36 24 20 -2 #rect
 Ts0 f10 @|RichDialogProcessStepIcon #fIcon
 Ts0 f13 expr out #txt
 Ts0 f13 96 124 96 156 #arcP
-Ts0 f4 expr out #txt
-Ts0 f4 96 180 96 214 #arcP
 Ts0 f16 expr out #txt
 Ts0 f16 224 124 114 168 #arcP
 Ts0 f16 1 224 168 #addKink
 Ts0 f16 1 0.4220812200904034 0 0 #arcLabel
+Ts0 f2 actionDecl 'htmlwfui.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f2 actionTable 'out=in;
+' #txt
+Ts0 f2 actionCode 'import ch.ivyteam.ivy.workflow.INote;
+import ch.ivyteam.ivy.workflow.ITask;
+import htmlwfui.Notes;
+
+ITask task = in.data.tmpTask;
+
+out.data.temp.msg = "";
+out.notesTitel = "";
+
+if(task!=null && task.hasNotes()){
+	List notes = task.getNotes();
+	out.data.substitute.userList = [""];
+	out.notesTitel = ivy.cms.co("/labels/taskNotes");
+	
+	for(INote note : notes)
+	{
+		Notes noteDetail = new Notes();
+		noteDetail.description = "<b>" + note.getCreationTimestamp().format() + " " + note.getWritterName() + ":" + "</b>" + "<br>" + note.getMessage();
+		noteDetail.id = note.getId();
+		noteDetail.delete = note.getWritterName() != ivy.session.getSessionUserName();
+		out.taskNotesList.add(noteDetail);
+	}
+}' #txt
+Ts0 f2 type htmlwfui.TaskDetails.TaskDetailsData #txt
+Ts0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>show notes</name>
+        <nameStyle>10
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f2 78 212 36 24 20 -2 #rect
+Ts0 f2 @|RichDialogProcessStepIcon #fIcon
+Ts0 f17 expr out #txt
+Ts0 f17 96 180 96 212 #arcP
+Ts0 f19 actionDecl 'htmlwfui.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f19 actionTable 'out=in;
+' #txt
+Ts0 f19 actionCode 'import ch.ivyteam.ivy.workflow.INote;
+import ch.ivyteam.ivy.workflow.ITask;
+
+ITask task = in.data.tmpTask;
+
+out.priorityImage = "/images/priority/" + task.getPriority().intValue();
+out.stateImage = "/images/state/" + task.getState().intValue();
+
+if(task.getWorkerUser() != null){
+	out.userImage = "/images/user";
+} else{
+	out.userImage = "/images/none";
+}
+
+if(task.getOriginalActivator() != null){
+	if(task.getOriginalActivator().isUser()){
+		out.responsibleImage = "/images/user";
+	} else{
+		out.responsibleImage = "/images/role";
+	}
+} else{
+	out.responsibleImage = "/images/none";
+}
+
+if(task.getExpiryActivator() != null){
+	if(task.getExpiryActivator().isUser()){
+		out.responsibleExImage = "/images/user";
+	} else{
+		out.responsibleExImage = "/images/role";
+	}
+} else{
+	out.responsibleExImage = "/images/none";
+}' #txt
+Ts0 f19 type htmlwfui.TaskDetails.TaskDetailsData #txt
+Ts0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>images</name>
+        <nameStyle>6
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f19 78 276 36 24 20 -2 #rect
+Ts0 f19 @|RichDialogProcessStepIcon #fIcon
+Ts0 f20 expr out #txt
+Ts0 f20 96 236 96 276 #arcP
+Ts0 f4 expr out #txt
+Ts0 f4 96 300 96 342 #arcP
+Ts0 f30 guid 13D01413E543A730 #txt
+Ts0 f30 type htmlwfui.TaskDetails.TaskDetailsData #txt
+Ts0 f30 method deleteNote(Number,String) #txt
+Ts0 f30 disableUIEvents false #txt
+Ts0 f30 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<java.lang.Number noteId,java.lang.String noteFor> param = methodEvent.getInputArguments();
+' #txt
+Ts0 f30 inParameterMapAction 'out.data.temp.noteFor=param.noteFor;
+out.data.temp.noteId=param.noteId;
+' #txt
+Ts0 f30 outParameterDecl '<> result;
+' #txt
+Ts0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Method_Start1</name>
+        <nameStyle>13,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f30 982 54 20 20 13 0 #rect
+Ts0 f30 @|RichDialogMethodStartIcon #fIcon
+Ts0 f39 actionDecl 'htmlwfui.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f39 actionTable 'out=in;
+out.data.option="deleteNote";
+' #txt
+Ts0 f39 type htmlwfui.TaskDetails.TaskDetailsData #txt
+Ts0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>option</name>
+        <nameStyle>6
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f39 974 100 36 24 20 -2 #rect
+Ts0 f39 @|RichDialogProcessStepIcon #fIcon
+Ts0 f40 expr out #txt
+Ts0 f40 992 74 992 100 #arcP
+Ts0 f41 expr out #txt
+Ts0 f41 992 124 618 160 #arcP
+Ts0 f41 1 992 160 #addKink
+Ts0 f41 1 0.43270351134925905 0 0 #arcLabel
 >Proto Ts0 .type htmlwfui.TaskDetails.TaskDetailsData #txt
 >Proto Ts0 .processKind RICH_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -429,7 +587,15 @@ Ts0 f7 mainOut f15 tail #connect
 Ts0 f15 head f29 mainIn #connect
 Ts0 f21 mainOut f13 tail #connect
 Ts0 f13 head f10 mainIn #connect
-Ts0 f10 mainOut f4 tail #connect
-Ts0 f4 head f1 mainIn #connect
 Ts0 f31 mainOut f16 tail #connect
 Ts0 f16 head f10 mainIn #connect
+Ts0 f10 mainOut f17 tail #connect
+Ts0 f17 head f2 mainIn #connect
+Ts0 f2 mainOut f20 tail #connect
+Ts0 f20 head f19 mainIn #connect
+Ts0 f19 mainOut f4 tail #connect
+Ts0 f4 head f1 mainIn #connect
+Ts0 f30 mainOut f40 tail #connect
+Ts0 f40 head f39 mainIn #connect
+Ts0 f39 mainOut f41 tail #connect
+Ts0 f41 head f35 mainIn #connect

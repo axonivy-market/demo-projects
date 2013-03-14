@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 19:18:38 CET 2013]
+[>Created: Thu Feb 21 09:32:50 CET 2013]
 13BFF6A6F69C657B 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AbsenceViewProcess Big #zClass
@@ -22,13 +22,13 @@ As0 @PushWFArc f5 '' #zField
 As0 @PushWFArc f7 '' #zField
 As0 @GridStep f11 '' #zField
 As0 @GridStep f9 '' #zField
-As0 @PushWFArc f10 '' #zField
 As0 @RichDialogMethodStart f15 '' #zField
 As0 @PushWFArc f16 '' #zField
 As0 @GridStep f20 '' #zField
 As0 @PushWFArc f14 '' #zField
 As0 @PushWFArc f12 '' #zField
 As0 @PushWFArc f17 '' #zField
+As0 @PushWFArc f13 '' #zField
 >Proto As0 As0 AbsenceViewProcess #zField
 As0 f0 guid 13BFF6A6F79DCDAE #txt
 As0 f0 type htmlwfui.AbsenceView.AbsenceViewData #txt
@@ -56,7 +56,7 @@ As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 As0 f0 86 54 20 20 13 0 #rect
 As0 f0 @|RichDialogInitStartIcon #fIcon
 As0 f1 type htmlwfui.AbsenceView.AbsenceViewData #txt
-As0 f1 86 222 20 20 13 0 #rect
+As0 f1 86 198 20 20 13 0 #rect
 As0 f1 @|RichDialogProcessEndIcon #fIcon
 As0 f3 guid 13BFF80A6FFD001F #txt
 As0 f3 type htmlwfui.AbsenceView.AbsenceViewData #txt
@@ -83,6 +83,15 @@ As0 f4 actionTable 'out=in;
 out.option="add";
 ' #txt
 As0 f4 type htmlwfui.AbsenceView.AbsenceViewData #txt
+As0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>add</name>
+        <nameStyle>3
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f4 398 100 36 24 20 -2 #rect
 As0 f4 @|StepIcon #fIcon
 As0 f5 expr out #txt
@@ -98,7 +107,7 @@ As0 f11 actionCode 'import ch.ivyteam.ivy.security.IUserAbsence;
 List absences = ivy.session.getSessionUser().getAbsences();
 for(IUserAbsence absence:absences)
 {
-	if(absence.getIdentifier() == in.deleteNr)
+	if(absence.getId() == in.deleteNr)
 	{
 			ivy.session.getSessionUser().deleteAbsence(absence);
 			break;
@@ -107,6 +116,15 @@ for(IUserAbsence absence:absences)
 
 ' #txt
 As0 f11 type htmlwfui.AbsenceView.AbsenceViewData #txt
+As0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>remove</name>
+        <nameStyle>6
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 As0 f11 270 100 36 24 20 -2 #rect
 As0 f11 @|StepIcon #fIcon
 As0 f9 actionDecl 'htmlwfui.AbsenceView.AbsenceViewData out;
@@ -115,10 +133,17 @@ As0 f9 actionTable 'out=in;
 out.msg=ivy.session.getSessionUser().isAbsent() ? ivy.cms.co("/labels/currentlyAbsent") : "";
 ' #txt
 As0 f9 type htmlwfui.AbsenceView.AbsenceViewData #txt
-As0 f9 78 172 36 24 20 -2 #rect
+As0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Msg</name>
+        <nameStyle>3
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f9 78 148 36 24 20 -2 #rect
 As0 f9 @|StepIcon #fIcon
-As0 f10 expr out #txt
-As0 f10 96 196 96 222 #arcP
 As0 f15 guid 13C05DAE97285AFB #txt
 As0 f15 type htmlwfui.AbsenceView.AbsenceViewData #txt
 As0 f15 method removeAbs(Number) #txt
@@ -146,8 +171,26 @@ As0 f16 288 74 288 100 #arcP
 As0 f20 actionDecl 'htmlwfui.AbsenceView.AbsenceViewData out;
 ' #txt
 As0 f20 actionTable 'out=in;
-out.absence.absences=ivy.session.getSessionUser().getAbsences();
 ' #txt
+As0 f20 actionCode 'import htmlwfui.Absence;
+import ch.ivyteam.ivy.security.IUserAbsence;
+
+in.absenceList.clear();
+List<IUserAbsence> absences = [];
+absences = ivy.session.getSessionUser().getAbsences();
+
+for(int i = 0; i < absences.size(); i++)
+{
+				IUserAbsence absence = absences.get(i);
+				Absence absenceDetail = new Absence();
+
+				absenceDetail.startDateTime = absence.getStartTimestamp();
+				absenceDetail.endDateTime = absence.getStopTimestamp();
+				absenceDetail.descr = absence.getDescription();
+				absenceDetail.id = absence.getId();
+		
+				out.absenceList.add(absenceDetail);
+}' #txt
 As0 f20 type htmlwfui.AbsenceView.AbsenceViewData #txt
 As0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -158,16 +201,17 @@ As0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f20 78 124 36 24 23 -18 #rect
+As0 f20 78 100 36 24 23 -18 #rect
 As0 f20 @|StepIcon #fIcon
 As0 f14 expr out #txt
-As0 f14 96 74 96 124 #arcP
+As0 f14 96 74 96 100 #arcP
 As0 f12 expr out #txt
-As0 f12 96 148 96 172 #arcP
+As0 f12 96 124 96 148 #arcP
 As0 f17 expr out #txt
-As0 f17 288 124 114 136 #arcP
-As0 f17 1 288 136 #addKink
-As0 f17 1 0.0018394491469347636 0 0 #arcLabel
+As0 f17 270 112 114 112 #arcP
+As0 f17 0 0.024270023323408132 0 0 #arcLabel
+As0 f13 expr out #txt
+As0 f13 96 172 96 198 #arcP
 >Proto As0 .type htmlwfui.AbsenceView.AbsenceViewData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
@@ -176,8 +220,6 @@ As0 f3 mainOut f5 tail #connect
 As0 f5 head f4 mainIn #connect
 As0 f4 mainOut f7 tail #connect
 As0 f7 head f6 mainIn #connect
-As0 f9 mainOut f10 tail #connect
-As0 f10 head f1 mainIn #connect
 As0 f15 mainOut f16 tail #connect
 As0 f16 head f11 mainIn #connect
 As0 f0 mainOut f14 tail #connect
@@ -186,3 +228,5 @@ As0 f20 mainOut f12 tail #connect
 As0 f12 head f9 mainIn #connect
 As0 f11 mainOut f17 tail #connect
 As0 f17 head f20 mainIn #connect
+As0 f9 mainOut f13 tail #connect
+As0 f13 head f1 mainIn #connect

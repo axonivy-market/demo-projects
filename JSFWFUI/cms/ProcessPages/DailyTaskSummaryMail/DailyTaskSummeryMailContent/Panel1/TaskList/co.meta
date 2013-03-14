@@ -1,2 +1,2 @@
-co: name={TaskList} description={} changed={2011-03-17 09:47:25 CET} changedby={tirib} visualorder={0} guid={129DBA3F591FCAF2} parentguid={} typeguid={1065A70458AB226C} id={} parentid={} typeid={}
-val: guid={129DBA3F5AB44DDA} datatype={} isdefault={true} langid={en} description={} validfrom={2010-07-16 16:24:01 CEST} validto={} changed={2011-03-17 09:47:25 CET} changedby={tirib} properties={renderer.config=workflowTable} id={}
+co: name={TaskList} description={} changed={2013-02-18 09:39:45 CET} changedby={dje} visualorder={0} guid={129DBA3F591FCAF2} parentguid={} typeguid={1065A70458AB226C} id={} parentid={} typeid={}
+val: guid={129DBA3F5AB44DDA} datatype={} isdefault={true} langid={en} description={} validfrom={2010-07-16 16:24:01 CEST} validto={} changed={2013-02-18 09:39:45 CET} changedby={dje} properties={renderer.config=workflowTable} id={}

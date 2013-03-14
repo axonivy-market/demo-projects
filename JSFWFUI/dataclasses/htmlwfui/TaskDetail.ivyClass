@@ -34,3 +34,9 @@ url String #field
 url PERSISTENT #fieldModifier
 startLink String #field
 startLink PERSISTENT #fieldModifier
+user String #field
+user PERSISTENT #fieldModifier
+end DateTime #field
+end PERSISTENT #fieldModifier
+hasNotes Boolean #field
+hasNotes PERSISTENT #fieldModifier

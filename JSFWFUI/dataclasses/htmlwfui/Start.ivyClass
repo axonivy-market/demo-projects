@@ -1,0 +1,8 @@
+Start #class
+htmlwfui #namespace
+name String #field
+name PERSISTENT #fieldModifier
+description String #field
+description PERSISTENT #fieldModifier
+path String #field
+path PERSISTENT #fieldModifier
