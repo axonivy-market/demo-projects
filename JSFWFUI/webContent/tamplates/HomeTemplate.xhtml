@@ -27,32 +27,32 @@
 			<p:scrollPanel>
 				<p:menu style="width:100%">
 					<p:submenu label="#{ivy.cms.co('/navLabels/workflow')}" >
-						<p:menuitem value="#{ivy.cms.co('/navLabels/home')}"
+						<p:menuitem id="home" value="#{ivy.cms.co('/navLabels/home')}"
 							url="#{ivy.html.startref('127AE76143E89C91/HomePage.ivp')}" />
-						<p:menuitem value="#{ivy.cms.co('/navLabels/processList')}"
-							url="#{ivy.html.startref('1270ADF72FF4AFF3/DefaultProcessStartListPage.ivp')}" />
-						<p:menuitem value="#{ivy.cms.co('/navLabels/taskList')}"
-							url="#{ivy.html.startref('125016DE17A534EB/DefaultTaskListPage.ivp')}" />
+						<p:menuitem id="processList" value="#{ivy.cms.co('/navLabels/processList')}"
+							url="#{ivy.html.startref('1270ADF72FF4AFF3/ProcessStartList.ivp')}" />
+						<p:menuitem id="taskList" value="#{ivy.cms.co('/navLabels/taskList')}"
+							url="#{ivy.html.startref('125016DE17A534EB/TaskList.ivp')}" />
 					</p:submenu>
 					<p:submenu label="#{ivy.cms.co('/navLabels/history')}" >
-						<p:menuitem value="#{ivy.cms.co('/navLabels/caseHistory')}"
-							url="#{ivy.html.startref('12C97DB1B1EA5971/start1.ivp')}" />
-						<p:menuitem value="#{ivy.cms.co('/navLabels/taskHistory')}"
-							url="#{ivy.html.startref('12E297F287736665/start1.ivp')}" />
+						<p:menuitem id="caseList" value="#{ivy.cms.co('/navLabels/caseHistory')}"
+							url="#{ivy.html.startref('12C97DB1B1EA5971/CaseList.ivp')}" />
+						<p:menuitem id="taskHistory" value="#{ivy.cms.co('/navLabels/taskHistory')}"
+							url="#{ivy.html.startref('12E297F287736665/TaskHistory.ivp')}" />
 					</p:submenu>
 					<p:submenu label="#{ivy.cms.co('/navLabels/settings')}">
-						<p:menuitem value="#{ivy.cms.co('/navLabels/absence')}"
-							url="#{ivy.html.startref('1367E046117353D3/start.ivp')}" />>
-						<p:menuitem value="#{ivy.cms.co('/navLabels/substitution')}"
-							url="#{ivy.html.startref('1367DCC9EAB32A2E/start.ivp')}" />
-						<p:menuitem value="#{ivy.cms.co('/navLabels/mailSettings')}"
-							url="#{ivy.html.startref('13CCE56647090F82/start.ivp')}" />
+						<p:menuitem id="absence" value="#{ivy.cms.co('/navLabels/absence')}"
+							url="#{ivy.html.startref('1367E046117353D3/Absence.ivp')}" />>
+						<p:menuitem id="substitution" value="#{ivy.cms.co('/navLabels/substitution')}"
+							url="#{ivy.html.startref('1367DCC9EAB32A2E/Substitution.ivp')}" />
+						<p:menuitem id="mailSettings" value="#{ivy.cms.co('/navLabels/mailSettings')}"
+							url="#{ivy.html.startref('13CCE56647090F82/MailNotificationSettings.ivp')}" />
 					</p:submenu>
 					<p:submenu label="#{ivy.cms.co('/navLabels/admin')}">
-						<p:menuitem value="#{ivy.cms.co('/navLabels/caseAdmin')}"
-							url="#{ivy.html.startref('12C97DB1B1EA5971/start2.ivp')}" />
-						<p:menuitem value="#{ivy.cms.co('/navLabels/logout')}"
-							url="#{ivy.html.startref('136F33D7CF6E4319/start.ivp')}" />
+						<p:menuitem id="caseListAdmin" value="#{ivy.cms.co('/navLabels/caseAdmin')}"
+							url="#{ivy.html.startref('12C97DB1B1EA5971/CaseListAdmin.ivp')}" />
+						<p:menuitem id="logout" value="#{ivy.cms.co('/navLabels/logout')}"
+							url="#{ivy.html.startref('136F33D7CF6E4319/Logout.ivp')}" />
 					</p:submenu>
 				</p:menu>
 			</p:scrollPanel>

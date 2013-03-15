@@ -38,7 +38,7 @@
 					<p:inputTextarea id="note" rows="10" cols="50" value="#{data.data.note}"/>
 				</h:panelGrid>
 				<br></br>
-				<p:commandButton id="submit" value="#{ivy.cms.co('/labels/saveButton')}" actionListener="#{logic.saveNote}" ajax="false"/>
+				<p:commandButton id="save" value="#{ivy.cms.co('/labels/saveButton')}" actionListener="#{logic.saveNote}" ajax="false"/>
 				<p:commandButton id="back" value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.back}" ajax="false"/>
 			</h:form>
 			</p:layoutUnit>

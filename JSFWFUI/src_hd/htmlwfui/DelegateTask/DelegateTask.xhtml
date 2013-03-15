@@ -27,20 +27,20 @@
 					<p:radioButton id="opt1" for="customRadio" itemIndex="0"/>
 					<h:outputLabel for="opt1" value="user" /> 
         			<h:graphicImage library="ivy-cms" name="/images/user" style="border:0pt" alt="user"/>
-        			<p:selectOneMenu value="#{data.data.delegateUser}" disabled="#{data.data.delegateType == 'role'}">
+        			<p:selectOneMenu id="user" value="#{data.data.delegateUser}" disabled="#{data.data.delegateType == 'role'}">
            				<f:selectItems value="#{data.data.substitute.userList}" var="user" itemLabel="#{user}" itemValue="#{user}"/>  
         			</p:selectOneMenu>
         			<br></br>
         			<p:radioButton id="opt2" for="customRadio" itemIndex="1"/>
         			<h:outputLabel for="opt2" value="role" />
         			<h:graphicImage library="ivy-cms" name="/images/role" style="border:0pt" alt="role"/>
-        			<p:selectOneMenu value="#{data.data.delegateRole}" disabled="#{data.data.delegateType == 'user'}">
+        			<p:selectOneMenu id="role" value="#{data.data.delegateRole}" disabled="#{data.data.delegateType == 'user'}">
            				<f:selectItems value="#{data.data.substitute.roleList}" var="role" itemLabel="#{role}" itemValue="#{role}"/>  
         			</p:selectOneMenu>
         			
 				</h:panelGrid>
-				<p:commandButton value="#{ivy.cms.co('/labels/taskDelegate')}" actionListener="#{logic.delegateTask}" ajax="false"/>
-				<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.back}" ajax="false"/>
+				<p:commandButton id="save" value="#{ivy.cms.co('/labels/taskDelegate')}" actionListener="#{logic.delegateTask}" ajax="false"/>
+				<p:commandButton id="back" value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.back}" ajax="false"/>
 			</h:form>
 			</p:layoutUnit>
 		</ui:define>

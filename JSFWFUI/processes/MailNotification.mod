@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 15 08:19:41 CET 2013]
+[>Created: Fri Mar 15 11:48:41 CET 2013]
 13CCE56647090F82 3.17 #module
 >Proto >Proto Collection #zClass
 Mn0 MailNotification Big #zClass
@@ -21,7 +21,7 @@ Mn0 @GridStep f3 '' #zField
 Mn0 @PushWFArc f6 '' #zField
 Mn0 @PushWFArc f7 '' #zField
 >Proto Mn0 Mn0 MailNotification #zField
-Mn0 f0 outLink start.ivp #txt
+Mn0 f0 outLink MailNotificationSettings.ivp #txt
 Mn0 f0 type htmlwfui.Data #txt
 Mn0 f0 inParamDecl '<> param;' #txt
 Mn0 f0 actionDecl 'htmlwfui.Data out;
@@ -29,10 +29,10 @@ Mn0 f0 actionDecl 'htmlwfui.Data out;
 Mn0 f0 guid 13CCE568577C8086 #txt
 Mn0 f0 requestEnabled true #txt
 Mn0 f0 triggerEnabled false #txt
-Mn0 f0 callSignature start() #txt
+Mn0 f0 callSignature MailNotificationSettings() #txt
 Mn0 f0 persist false #txt
 Mn0 f0 taskData '#
-#Thu Mar 14 11:19:08 CET 2013
+#Fri Mar 15 11:47:48 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -41,7 +41,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Mn0 f0 caseData '#
-#Thu Mar 14 11:19:08 CET 2013
+#Fri Mar 15 11:47:48 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -81,8 +81,8 @@ engine.updateCurrentTask(taskUpdDef);
 Mn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start.ivp</name>
-        <nameStyle>9,5,7
+        <name>MailNotificationSettings.ivp</name>
+        <nameStyle>28,5,7
 </nameStyle>
     </language>
 </elementInfo>

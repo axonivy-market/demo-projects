@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 08 10:41:32 CET 2013]
+[>Created: Fri Mar 15 11:45:43 CET 2013]
 1367DCC9EAB32A2E 3.17 #module
 >Proto >Proto Collection #zClass
 Sn0 Substitution Big #zClass
@@ -25,7 +25,7 @@ Sn0 @PushWFArc f30 '' #zField
 Sn0 @PushWFArc f10 '' #zField
 Sn0 @PushWFArc f35 '' #zField
 >Proto Sn0 Sn0 Substitution #zField
-Sn0 f0 outLink start.ivp #txt
+Sn0 f0 outLink Substitution.ivp #txt
 Sn0 f0 type htmlwfui.Data #txt
 Sn0 f0 inParamDecl '<> param;' #txt
 Sn0 f0 actionDecl 'htmlwfui.Data out;
@@ -33,10 +33,10 @@ Sn0 f0 actionDecl 'htmlwfui.Data out;
 Sn0 f0 guid 1324E06E5DC9CAF4 #txt
 Sn0 f0 requestEnabled true #txt
 Sn0 f0 triggerEnabled false #txt
-Sn0 f0 callSignature start() #txt
+Sn0 f0 callSignature Substitution() #txt
 Sn0 f0 persist false #txt
 Sn0 f0 taskData '#
-#Fri Apr 27 14:44:52 CEST 2012
+#Fri Mar 15 11:45:42 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -45,7 +45,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Sn0 f0 caseData '#
-#Fri Apr 27 14:44:52 CEST 2012
+#Fri Mar 15 11:45:42 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -85,8 +85,8 @@ engine.updateCurrentTask(taskUpdDef);
 Sn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start.ivp</name>
-        <nameStyle>9,5,7
+        <name>Substitution.ivp</name>
+        <nameStyle>16,5,7
 </nameStyle>
     </language>
 </elementInfo>

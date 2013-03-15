@@ -38,7 +38,7 @@
  					</h:panelGrid>
  					<h:panelGrid columns="2">
  						<h:outputText value="#{ivy.cms.co('/labels/description')}:"/>  
-            			<p:inputText value="#{data.substitute.description}" style="width: 500px; "/> 
+            			<p:inputText id="description" value="#{data.substitute.description}" style="width: 500px; "/> 
  					</h:panelGrid>
  					<p:commandButton id="saveSubstitution" value="#{ivy.cms.co('/labels/saveButton')}" actionListener="#{logic.saveSubstitution}"/>
  					<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.backToSubstitutesList}"/>

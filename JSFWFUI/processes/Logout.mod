@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 15 08:17:45 CET 2013]
+[>Created: Fri Mar 15 11:49:25 CET 2013]
 136F33D7CF6E4319 3.17 #module
 >Proto >Proto Collection #zClass
 Lt0 Logout Big #zClass
@@ -35,7 +35,7 @@ Lt0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Lt0 f8 110 116 36 24 20 -2 #rect
 Lt0 f8 @|StepIcon #fIcon
-Lt0 f0 outLink start.ivp #txt
+Lt0 f0 outLink Logout.ivp #txt
 Lt0 f0 type htmlwfui.Data #txt
 Lt0 f0 inParamDecl '<> param;' #txt
 Lt0 f0 actionDecl 'htmlwfui.Data out;
@@ -43,11 +43,11 @@ Lt0 f0 actionDecl 'htmlwfui.Data out;
 Lt0 f0 guid 136F33DBE623E427 #txt
 Lt0 f0 requestEnabled true #txt
 Lt0 f0 triggerEnabled false #txt
-Lt0 f0 callSignature start() #txt
+Lt0 f0 callSignature Logout() #txt
 Lt0 f0 persist false #txt
 Lt0 f0 startName Logout #txt
 Lt0 f0 taskData '#
-#Fri Apr 27 14:43:56 CEST 2012
+#Fri Mar 15 11:49:25 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -56,7 +56,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Lt0 f0 caseData '#
-#Fri Apr 27 14:43:56 CEST 2012
+#Fri Mar 15 11:49:25 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -96,8 +96,8 @@ engine.updateCurrentTask(taskUpdDef);
 Lt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start.ivp</name>
-        <nameStyle>9,5,7
+        <name>Logout.ivp</name>
+        <nameStyle>10,5,7
 </nameStyle>
     </language>
 </elementInfo>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 14 11:18:16 CET 2013]
+[>Created: Fri Mar 15 13:31:05 CET 2013]
 125016DE17A534EB 3.17 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
@@ -67,7 +67,7 @@ List<ITask> tasks = queryResult.getResultList();
 out.tasks = tasks;
 
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("125016DE17A534EB/DefaultTaskListPage.ivp"));
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("125016DE17A534EB/TaskList.ivp"));
 
 for (int t=0; t<tasks.size(); t++)
 {
@@ -105,19 +105,19 @@ setReturnUrl</name>
 ' #txt
 Tt0 f0 78 204 36 24 23 -5 #rect
 Tt0 f0 @|StepIcon #fIcon
-Tt0 f1 outLink DefaultTaskListPage.ivp #txt
+Tt0 f1 outLink TaskList.ivp #txt
 Tt0 f1 type htmlwfui.Data #txt
 Tt0 f1 inParamDecl '<> param;' #txt
 Tt0 f1 actionDecl 'htmlwfui.Data out;
 ' #txt
 Tt0 f1 requestEnabled true #txt
 Tt0 f1 triggerEnabled false #txt
-Tt0 f1 callSignature DefaultTaskListPage() #txt
+Tt0 f1 callSignature TaskList() #txt
 Tt0 f1 persist false #txt
-Tt0 f1 startName DefaultTaskListPage #txt
+Tt0 f1 startName TaskList #txt
 Tt0 f1 startDescription 'This start is used to overwrite the default task list.' #txt
 Tt0 f1 taskData '#
-#Thu Mar 14 11:18:15 CET 2013
+#Fri Mar 15 13:29:35 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 .DESC=
@@ -128,7 +128,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Tt0 f1 caseData '#
-#Thu Mar 14 11:18:15 CET 2013
+#Fri Mar 15 13:29:35 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -168,8 +168,8 @@ engine.updateCurrentTask(taskUpdDef);
 Tt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>DefaultTaskListPage</name>
-        <nameStyle>19,5,7,9
+        <name>TaskList</name>
+        <nameStyle>8,5,7,9
 </nameStyle>
         <desc>This start is used to overwrite the default task list.
 Use /ivy/wf/taskList to call it.

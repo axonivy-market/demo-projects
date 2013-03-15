@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 14 11:17:49 CET 2013]
+[>Created: Fri Mar 15 11:44:31 CET 2013]
 1367E046117353D3 3.17 #module
 >Proto >Proto Collection #zClass
 Ae0 Absence Big #zClass
@@ -20,7 +20,7 @@ Ae0 @PushWFArc f5 '' #zField
 Ae0 @PushWFArc f6 '' #zField
 Ae0 @PushWFArc f4 '' #zField
 >Proto Ae0 Ae0 Absence #zField
-Ae0 f0 outLink start.ivp #txt
+Ae0 f0 outLink Absence.ivp #txt
 Ae0 f0 type htmlwfui.Data #txt
 Ae0 f0 inParamDecl '<> param;' #txt
 Ae0 f0 actionDecl 'htmlwfui.Data out;
@@ -28,12 +28,12 @@ Ae0 f0 actionDecl 'htmlwfui.Data out;
 Ae0 f0 guid 1367E04CFA6ECF77 #txt
 Ae0 f0 requestEnabled true #txt
 Ae0 f0 triggerEnabled false #txt
-Ae0 f0 callSignature start() #txt
+Ae0 f0 callSignature Absence() #txt
 Ae0 f0 persist false #txt
 Ae0 f0 startName Absence #txt
 Ae0 f0 startDescription 'My absences' #txt
 Ae0 f0 taskData '#
-#Thu Mar 14 11:17:48 CET 2013
+#Fri Mar 15 11:43:31 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -42,7 +42,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Ae0 f0 caseData '#
-#Thu Mar 14 11:17:48 CET 2013
+#Fri Mar 15 11:43:31 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -82,8 +82,8 @@ engine.updateCurrentTask(taskUpdDef);
 Ae0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start.ivp</name>
-        <nameStyle>9,5,7
+        <name>Absence.ivp</name>
+        <nameStyle>11,5,7
 </nameStyle>
     </language>
 </elementInfo>

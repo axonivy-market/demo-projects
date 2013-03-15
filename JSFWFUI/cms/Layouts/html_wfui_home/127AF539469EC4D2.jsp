@@ -25,17 +25,17 @@
 		<div id="LeftNavigation" >
 
 			<a href='<%=ivy.html.startref("127AE76143E89C91/HomePage.ivp")%>'><%=ivy.cms.co("/navLabels/home")%></a><br><br> 
-			<a href='<%=ivy.html.startref("1270ADF72FF4AFF3/DefaultProcessStartListPage.ivp")%>'><%=ivy.cms.co("/navLabels/processList")%></a> <br><br>
-			<a href='<%=ivy.html.startref("125016DE17A534EB/DefaultTaskListPage.ivp")%>'><%=ivy.cms.co("/navLabels/taskList")%></a><br><br>
+			<a href='<%=ivy.html.startref("1270ADF72FF4AFF3/ProcessStartList.ivp")%>'><%=ivy.cms.co("/navLabels/processList")%></a> <br><br>
+			<a href='<%=ivy.html.startref("125016DE17A534EB/TaskList.ivp")%>'><%=ivy.cms.co("/navLabels/taskList")%></a><br><br>
 			<hr>
-			<a href='<%=ivy.html.startref("12C97DB1B1EA5971/start1.ivp")%>'><%=ivy.cms.co("/navLabels/caseHistory")%></a><br><br>
-			<a href='<%=ivy.html.startref("12E297F287736665/start1.ivp")%>'><%=ivy.cms.co("/navLabels/taskHistory")%></a><br><br>
-			<a href='<%=ivy.html.startref("1367DCC9EAB32A2E/start.ivp")%>'><%=ivy.cms.co("/navLabels/substitution")%></a><br><br>
-			<a href='<%=ivy.html.startref("1367E046117353D3/start.ivp")%>'><%=ivy.cms.co("/navLabels/absence")%></a><br><br>
+			<a href='<%=ivy.html.startref("12C97DB1B1EA5971/CaseList.ivp")%>'><%=ivy.cms.co("/navLabels/caseHistory")%></a><br><br>
+			<a href='<%=ivy.html.startref("12E297F287736665/TaskHistory.ivp")%>'><%=ivy.cms.co("/navLabels/taskHistory")%></a><br><br>
+			<a href='<%=ivy.html.startref("1367DCC9EAB32A2E/Substitution.ivp")%>'><%=ivy.cms.co("/navLabels/substitution")%></a><br><br>
+			<a href='<%=ivy.html.startref("1367E046117353D3/Absence.ivp")%>'><%=ivy.cms.co("/navLabels/absence")%></a><br><br>
 			<hr>
-			<a href='<%=ivy.html.startref("12C97DB1B1EA5971/start2.ivp")%>'><%=ivy.cms.co("/navLabels/admin")%></a><br><br>
-			<a href='<%=ivy.html.startref("136F4341B49EA302/start.ivp")%>'><%=ivy.cms.co("/navLabels/settings")%></a><br><br>
-			<a href='<%=ivy.html.startref("136F33D7CF6E4319/start.ivp")%>' target="_top"><%=ivy.cms.co("/navLabels/logout")%></a><br>	
+			<a href='<%=ivy.html.startref("12C97DB1B1EA5971/CaseListAdmin.ivp")%>'><%=ivy.cms.co("/navLabels/admin")%></a><br><br>
+			<a href='<%=ivy.html.startref("136F4341B49EA302/MailNotificationSettings.ivp")%>'><%=ivy.cms.co("/navLabels/settings")%></a><br><br>
+			<a href='<%=ivy.html.startref("136F33D7CF6E4319/Logout.ivp")%>' target="_top"><%=ivy.cms.co("/navLabels/logout")%></a><br>	
 		</div>
 
 		<div id="CenterPage">	

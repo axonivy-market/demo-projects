@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Feb 22 11:15:21 CET 2013]
+[>Created: Fri Mar 15 11:52:31 CET 2013]
 12C97DB1B1EA5971 3.17 #module
 >Proto >Proto Collection #zClass
 Rt0 CaseList Big #zClass
@@ -67,7 +67,7 @@ Rt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Rt0 f6 158 156 36 24 20 -2 #rect
 Rt0 f6 @|CallSubIcon #fIcon
-Rt0 f0 outLink start1.ivp #txt
+Rt0 f0 outLink CaseList.ivp #txt
 Rt0 f0 type htmlwfui.Data #txt
 Rt0 f0 inParamDecl '<> param;' #txt
 Rt0 f0 actionDecl 'htmlwfui.Data out;
@@ -75,10 +75,10 @@ Rt0 f0 actionDecl 'htmlwfui.Data out;
 Rt0 f0 guid 12C97DD6D7C6E230 #txt
 Rt0 f0 requestEnabled true #txt
 Rt0 f0 triggerEnabled false #txt
-Rt0 f0 callSignature start1() #txt
+Rt0 f0 callSignature CaseList() #txt
 Rt0 f0 persist false #txt
 Rt0 f0 taskData '#
-#Mon Feb 14 09:59:10 CET 2011
+#Fri Mar 15 11:37:06 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -87,7 +87,8 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Rt0 f0 caseData '#
-#Mon Feb 14 09:59:10 CET 2011
+#Fri Mar 15 11:37:06 CET 2013
+businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -115,7 +116,10 @@ type.name=
 ' #txt
 Rt0 f0 showInStartList 0 #txt
 Rt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskUpdDef.setExpiryActivator("Everybody");
 taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 engine.updateCurrentTask(taskUpdDef);
@@ -123,8 +127,8 @@ engine.updateCurrentTask(taskUpdDef);
 Rt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start1.ivp</name>
-        <nameStyle>10,5,7
+        <name>CaseList.ivp</name>
+        <nameStyle>12,5,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -132,7 +136,7 @@ Rt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Rt0 f0 @C|.responsibility Everybody #txt
 Rt0 f0 67 27 26 26 14 0 #rect
 Rt0 f0 @|StartRequestIcon #fIcon
-Rt0 f12 outLink start2.ivp #txt
+Rt0 f12 outLink CaseListAdmin.ivp #txt
 Rt0 f12 type htmlwfui.Data #txt
 Rt0 f12 inParamDecl '<> param;' #txt
 Rt0 f12 actionDecl 'htmlwfui.Data out;
@@ -140,10 +144,10 @@ Rt0 f12 actionDecl 'htmlwfui.Data out;
 Rt0 f12 guid 12CBAD990D2F8EFA #txt
 Rt0 f12 requestEnabled true #txt
 Rt0 f12 triggerEnabled false #txt
-Rt0 f12 callSignature start2() #txt
+Rt0 f12 callSignature CaseListAdmin() #txt
 Rt0 f12 persist false #txt
 Rt0 f12 taskData '#
-#Mon Feb 14 09:59:24 CET 2011
+#Fri Mar 15 11:52:30 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -152,7 +156,8 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Rt0 f12 caseData '#
-#Mon Feb 14 09:59:24 CET 2011
+#Fri Mar 15 11:52:30 CET 2013
+businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
 businessObject.code=
@@ -180,7 +185,10 @@ type.name=
 ' #txt
 Rt0 f12 showInStartList 0 #txt
 Rt0 f12 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskUpdDef.setExpiryActivator("Everybody");
 taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 engine.updateCurrentTask(taskUpdDef);
@@ -188,8 +196,8 @@ engine.updateCurrentTask(taskUpdDef);
 Rt0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start2.ivp</name>
-        <nameStyle>10,5,7
+        <name>CaseListAdmin.ivp</name>
+        <nameStyle>17,5,7
 </nameStyle>
     </language>
 </elementInfo>

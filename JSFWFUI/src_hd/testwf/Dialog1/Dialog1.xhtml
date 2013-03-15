@@ -17,12 +17,12 @@
 				<h:outputText value="#{ivy.cms.co('/labels/request')}" style="font-style: italic; font-weight: bold"/>
 				<h:form id="Form">
 					<h:panelGrid columns="3" cellpadding="5" columnClasses="label-top">
-						<p:outputLabel value="#{ivy.cms.co('/labels/title')}" for="msg" />
-						<p:inputText name="titel" value="#{data.titel}" id="msg" required="true" />
-						<p:message for="msg"/>
-						<p:outputLabel value="#{ivy.cms.co('/labels/description')}" for="msg2" />
-						<p:inputTextarea name="beschreibung" id="msg2" rows="6" cols="33" value="#{data.msg}" required="true" />
-						<p:message for="msg2"/>
+						<p:outputLabel value="#{ivy.cms.co('/labels/title')}" for="title" />
+						<p:inputText name="titel" value="#{data.titel}" id="title" required="true" />
+						<p:message for="title"/>
+						<p:outputLabel value="#{ivy.cms.co('/labels/description')}" for="description" />
+						<p:inputTextarea name="beschreibung" id="description" rows="6" cols="33" value="#{data.msg}" required="true" />
+						<p:message for="description"/>
 					</h:panelGrid>
 					<p:commandButton name="save" id="submitJsfAnfragefall" value="Submit" actionListener="#{logic.submit}"/>
 				</h:form>

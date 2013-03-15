@@ -18,7 +18,7 @@
 			<h:form id="formDetails">
 				<h:panelGrid columns="3">
 					<h:outputText value="#{ivy.cms.co('/labels/taskExpiry')}"/>
-					<p:calendar value="#{data.data.tmpTaskDetail.exp}" showButtonPanel="true" required="true" requiredMessage="Date is required." pattern="dd.MM.yyyy HH:mm">
+					<p:calendar id="toEdit" value="#{data.data.tmpTaskDetail.exp}" showButtonPanel="true" required="true" requiredMessage="Date is required." pattern="dd.MM.yyyy HH:mm">
             			<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
             		</p:calendar>
 					<h:outputText value="#{ivy.cms.co('/messages/txtSetExpiry')}"/>
@@ -37,8 +37,8 @@
         			<br></br>
 				</h:panelGrid>
 				<br></br>
-				<p:commandButton value="#{ivy.cms.co('/labels/saveButton')}" actionListener="#{logic.saveExpiry}" ajax="false"/>
-				<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.back}" ajax="false"/>
+				<p:commandButton id="save" value="#{ivy.cms.co('/labels/saveButton')}" actionListener="#{logic.saveExpiry}" ajax="false"/>
+				<p:commandButton id="back" value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.back}" ajax="false"/>
 			</h:form>
 			</p:layoutUnit>
 		</ui:define>

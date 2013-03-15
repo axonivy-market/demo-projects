@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 14 11:29:35 CET 2013]
+[>Created: Fri Mar 15 12:56:17 CET 2013]
 13BA873BC1BC6EFD 3.17 #module
 >Proto >Proto Collection #zClass
 TF0 TestWF Big #zClass
@@ -39,7 +39,7 @@ TF0 @TkArc f24 '' #zField
 TF0 @PushWFArc f25 '' #zField
 TF0 @PushWFArc f26 '' #zField
 >Proto TF0 TF0 TestWF #zField
-TF0 f0 outLink start.ivp #txt
+TF0 f0 outLink WfHtml.ivp #txt
 TF0 f0 type htmlwfui.Data #txt
 TF0 f0 inParamDecl '<> param;' #txt
 TF0 f0 actionDecl 'htmlwfui.Data out;
@@ -47,12 +47,12 @@ TF0 f0 actionDecl 'htmlwfui.Data out;
 TF0 f0 guid 13BA873C9F6FCB5B #txt
 TF0 f0 requestEnabled true #txt
 TF0 f0 triggerEnabled false #txt
-TF0 f0 callSignature start() #txt
+TF0 f0 callSignature WfHtml() #txt
 TF0 f0 persist false #txt
 TF0 f0 startName 'TestWF Html' #txt
 TF0 f0 startDescription 'Sample WF using Web Pages' #txt
 TF0 f0 taskData '#
-#Thu Mar 14 11:28:57 CET 2013
+#Fri Mar 15 12:55:29 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -62,7 +62,7 @@ TaskTriggered.NAM=Start Task
 TaskTriggered.EXROL=Everybody
 ' #txt
 TF0 f0 caseData '#
-#Thu Mar 14 11:28:57 CET 2013
+#Fri Mar 15 12:55:29 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -105,8 +105,8 @@ engine.updateCurrentTask(taskUpdDef);
 TF0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start.ivp</name>
-        <nameStyle>9,5,7
+        <name>WfHtml.ivp</name>
+        <nameStyle>10,5,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -241,7 +241,7 @@ TF0 f7 112 190 112 228 #arcP
 TF0 f8 expr data #txt
 TF0 f8 outCond ivp=="LinkA.ivp" #txt
 TF0 f8 112 252 112 291 #arcP
-TF0 f9 outLink start2.ivp #txt
+TF0 f9 outLink WfJsf.ivp #txt
 TF0 f9 type htmlwfui.Data #txt
 TF0 f9 inParamDecl '<> param;' #txt
 TF0 f9 actionDecl 'htmlwfui.Data out;
@@ -249,12 +249,12 @@ TF0 f9 actionDecl 'htmlwfui.Data out;
 TF0 f9 guid 13BA876CBD010B59 #txt
 TF0 f9 requestEnabled true #txt
 TF0 f9 triggerEnabled false #txt
-TF0 f9 callSignature start2() #txt
+TF0 f9 callSignature WfJsf() #txt
 TF0 f9 persist false #txt
 TF0 f9 startName 'TestWF Jsf' #txt
 TF0 f9 startDescription 'Sample WF using Html Dialogs' #txt
 TF0 f9 taskData '#
-#Thu Mar 14 11:29:17 CET 2013
+#Fri Mar 15 12:54:07 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -263,7 +263,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 TF0 f9 caseData '#
-#Thu Mar 14 11:29:17 CET 2013
+#Fri Mar 15 12:54:07 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -304,8 +304,8 @@ engine.updateCurrentTask(taskUpdDef);
 TF0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start2.ivp (JSF)</name>
-        <nameStyle>16,5,7
+        <name>WfJsf.ivp (JSF)</name>
+        <nameStyle>15,5,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -575,7 +575,7 @@ TF0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 TF0 f21 414 100 36 24 20 -2 #rect
 TF0 f21 @|RichDialogIcon #fIcon
-TF0 f22 outLink start3.ivp #txt
+TF0 f22 outLink WfRia.ivp #txt
 TF0 f22 type htmlwfui.Data #txt
 TF0 f22 inParamDecl '<> param;' #txt
 TF0 f22 actionDecl 'htmlwfui.Data out;
@@ -583,12 +583,12 @@ TF0 f22 actionDecl 'htmlwfui.Data out;
 TF0 f22 guid 13BA8779839D4255 #txt
 TF0 f22 requestEnabled true #txt
 TF0 f22 triggerEnabled false #txt
-TF0 f22 callSignature start3() #txt
+TF0 f22 callSignature WfRia() #txt
 TF0 f22 persist false #txt
 TF0 f22 startName 'TestWF RIA' #txt
 TF0 f22 startDescription 'Sample WF using Rich Dialogs' #txt
 TF0 f22 taskData '#
-#Thu Mar 14 11:29:32 CET 2013
+#Fri Mar 15 12:56:16 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -597,7 +597,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 TF0 f22 caseData '#
-#Thu Mar 14 11:29:32 CET 2013
+#Fri Mar 15 12:56:16 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -638,8 +638,8 @@ engine.updateCurrentTask(taskUpdDef);
 TF0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start3.ivp (RIA)</name>
-        <nameStyle>16,5,7
+        <name>WfRia.ivp (RIA)</name>
+        <nameStyle>15,5,7
 </nameStyle>
     </language>
 </elementInfo>
