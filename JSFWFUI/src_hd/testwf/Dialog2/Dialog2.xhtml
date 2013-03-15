@@ -13,20 +13,20 @@
 <h:body>
 	<ui:composition template="/tamplates/HomeTemplate.xhtml">
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="Anfragefall">
+			<p:layoutUnit position="center" header="#{ivy.cms.co('/labels/requestEvent')}">
 				<p:panel>
-				<h:outputText value="Anfrage:" style="font-style: italic; font-weight: bold"/>
+				<h:outputText value="#{ivy.cms.co('/labels/request')}:" style="font-style: italic; font-weight: bold"/>
 				<br></br>
 				<br></br>
-				<h:outputText value="Titel: #{data.titel}" style="font-style: italic; font-weight: bold"/>
+				<h:outputText value="#{ivy.cms.co('/labels/title')}: #{data.titel}" style="font-style: italic; font-weight: bold"/>
 				<br></br>
-				<h:outputText value="Beschreibung: #{data.msg}" style="font-style: italic; font-weight: bold"/>
+				<h:outputText value="#{ivy.cms.co('/labels/description')}: #{data.msg}" style="font-style: italic; font-weight: bold"/>
 					<h:form id="Form">
 						<h:panelGrid columns="3" cellpadding="5" columnClasses="label-top">
-							<p:outputLabel value="Bestätigen?"/>
+							<p:outputLabel value="#{ivy.cms.co('/labels/confirm')}?"/>
 							<p:selectOneRadio id="options" value="#{data.confirm}" required="true" > 
-            					<f:selectItem itemLabel="Ja" itemValue="true"/>
-            					<f:selectItem itemLabel="Nein" itemValue="false"/>
+            					<f:selectItem itemLabel="#{ivy.cms.co('/labels/yes')}" itemValue="true"/>
+            					<f:selectItem itemLabel="#{ivy.cms.co('/labels/no')}" itemValue="false"/>
        						</p:selectOneRadio>
 							<p:message for="options"/>
 						</h:panelGrid>

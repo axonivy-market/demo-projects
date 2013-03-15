@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 14 11:19:26 CET 2013]
+[>Created: Fri Mar 15 08:19:41 CET 2013]
 13CCE56647090F82 3.17 #module
 >Proto >Proto Collection #zClass
 Mn0 MailNotification Big #zClass
@@ -17,7 +17,9 @@ Mn0 @RichDialog f2 '' #zField
 Mn0 @PushWFArc f4 '' #zField
 Mn0 @PushWFArc f5 '' #zField
 Mn0 @EndRequest f14 '' #zField
-Mn0 @PushWFArc f8 '' #zField
+Mn0 @GridStep f3 '' #zField
+Mn0 @PushWFArc f6 '' #zField
+Mn0 @PushWFArc f7 '' #zField
 >Proto Mn0 Mn0 MailNotification #zField
 Mn0 f0 outLink start.ivp #txt
 Mn0 f0 type htmlwfui.Data #txt
@@ -141,10 +143,20 @@ Mn0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mn0 f14 339 275 26 26 14 0 #rect
+Mn0 f14 339 339 26 26 14 0 #rect
 Mn0 f14 @|EndRequestIcon #fIcon
-Mn0 f8 expr out #txt
-Mn0 f8 352 236 352 275 #arcP
+Mn0 f3 actionDecl 'htmlwfui.Data out;
+' #txt
+Mn0 f3 actionTable 'out=in;
+out.temp.url=ivy.html.startref("127AE76143E89C91/HomePage.ivp");
+' #txt
+Mn0 f3 type htmlwfui.Data #txt
+Mn0 f3 334 276 36 24 20 -2 #rect
+Mn0 f3 @|StepIcon #fIcon
+Mn0 f6 expr out #txt
+Mn0 f6 352 236 352 276 #arcP
+Mn0 f7 expr out #txt
+Mn0 f7 352 300 352 339 #arcP
 >Proto Mn0 .type htmlwfui.Data #txt
 >Proto Mn0 .processKind NORMAL #txt
 >Proto Mn0 0 0 32 24 18 0 #rect
@@ -153,5 +165,7 @@ Mn0 f0 mainOut f4 tail #connect
 Mn0 f4 head f1 mainIn #connect
 Mn0 f1 mainOut f5 tail #connect
 Mn0 f5 head f2 mainIn #connect
-Mn0 f2 mainOut f8 tail #connect
-Mn0 f8 head f14 mainIn #connect
+Mn0 f2 mainOut f6 tail #connect
+Mn0 f6 head f3 mainIn #connect
+Mn0 f3 mainOut f7 tail #connect
+Mn0 f7 head f14 mainIn #connect

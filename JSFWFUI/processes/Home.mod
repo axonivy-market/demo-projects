@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 14 11:30:20 CET 2013]
+[>Created: Fri Mar 15 08:24:06 CET 2013]
 127AE76143E89C91 3.17 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -43,7 +43,7 @@ He0 f11 actionDecl 'htmlwfui.Data out;
 He0 f11 actionTable 'out=in;
 ' #txt
 He0 f11 actionCode 'ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl", ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp"));' #txt
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl", ivy.html.startref("127AE76143E89C91/HomePage.ivp"));' #txt
 He0 f11 type htmlwfui.Data #txt
 He0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -70,7 +70,7 @@ He0 f7 callSignature EndPage(Number) #txt
 He0 f7 persist false #txt
 He0 f7 startName EndPage #txt
 He0 f7 taskData '#
-#Thu Mar 14 11:23:44 CET 2013
+#Fri Mar 15 08:13:31 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -79,7 +79,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f7 caseData '#
-#Thu Mar 14 11:23:44 CET 2013
+#Fri Mar 15 08:13:31 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=

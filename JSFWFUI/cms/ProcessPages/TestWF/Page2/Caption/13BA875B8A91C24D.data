@@ -1,1 +1,1 @@
-Anfragefall
+<%=ivy.cms.co("/labels/requestEvent")%>

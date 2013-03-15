@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Feb 15 16:02:42 CET 2013]
+[>Created: Fri Mar 15 08:17:45 CET 2013]
 136F33D7CF6E4319 3.17 #module
 >Proto >Proto Collection #zClass
 Lt0 Logout Big #zClass
@@ -20,7 +20,7 @@ Lt0 @PushWFArc f2 '' #zField
 Lt0 f8 actionDecl 'htmlwfui.Data out;
 ' #txt
 Lt0 f8 actionTable 'out=in;
-out.temp.url=ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp");
+out.temp.url=ivy.html.startref("127AE76143E89C91/HomePage.ivp");
 ' #txt
 Lt0 f8 actionCode ivy.session.logoutSessionUser(ivy.task.getId()); #txt
 Lt0 f8 type htmlwfui.Data #txt
