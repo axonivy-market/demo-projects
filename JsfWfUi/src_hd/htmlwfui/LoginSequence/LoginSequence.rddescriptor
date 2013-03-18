@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
-    <method>
-        <name>login</name>
-        <description></description>
-        <inputParameter>
-            <name>username</name>
-            <description></description>
-            <parameterType>String</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-        <inputParameter>
-            <name>password</name>
-            <description></description>
-            <parameterType>String</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </method>
     <startMethod>
         <name>start</name>
         <description>Default Rich Dialog start method.</description>
