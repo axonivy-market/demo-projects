@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 07 09:56:33 CET 2013]
+[>Created: Mon Mar 18 15:34:14 CET 2013]
 13CAFFE993B8CDBB 3.17 #module
 >Proto >Proto Collection #zClass
 Ds0 DelegateTaskProcess Big #zClass
@@ -127,14 +127,14 @@ Ds0 f4 actionCode 'import ch.ivyteam.ivy.security.IRole;
 import ch.ivyteam.ivy.security.IUser;
 
 List users = ivy.wf.getSecurityContext().getUsers();
-out.data.substitute.userList = [""];
+out.data.substitute.userList.clear();
 for(IUser user : users)
 {
 	out.data.substitute.userList.add(user.getName());
 }	
 
 List roles = ivy.session.getSessionUser().getAllRoles();
-out.data.substitute.roleList = [""];
+out.data.substitute.roleList.clear();
 for(IRole role: roles)
 {
 	out.data.substitute.roleList.add(role.getName());
