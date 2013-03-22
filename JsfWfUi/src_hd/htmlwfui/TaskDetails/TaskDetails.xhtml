@@ -24,15 +24,15 @@
         				<h:graphicImage library="ivy-cms" name="images/reset" alt="#{task.id}" style="border:0pt"/>
         				<h:outputText value="#{ivy.cms.co('/labels/taskReset')}" />  
     				</p:commandLink>
-    				<p:commandLink actionListener="#{logic.delegateCase}" title="#{ivy.cms.co('/tooltips/delegateTask')}" style="margin-right:20px;" ajax="false" disabled="#{data.delegateLink}">
+    				<p:commandLink id="delegate" actionListener="#{logic.delegateCase}" title="#{ivy.cms.co('/tooltips/delegateTask')}" style="margin-right:20px;" ajax="false" disabled="#{data.delegateLink}">
         				<h:graphicImage library="ivy-cms" name="images/delegate" alt="#{task.id}" style="border:0pt"/>
         				<h:outputText value="#{ivy.cms.co('/labels/taskDelegate')}" />  
     				</p:commandLink>
-					<p:commandLink actionListener="#{logic.changeExpiry}" title="#{ivy.cms.co('/tooltips/changeExpiry')}" style="margin-right:20px;" ajax="false" disabled="#{data.changeExpiryLink}">
+					<p:commandLink id="changeExpiry" actionListener="#{logic.changeExpiry}" title="#{ivy.cms.co('/tooltips/changeExpiry')}" style="margin-right:20px;" ajax="false" disabled="#{data.changeExpiryLink}">
         				<h:graphicImage library="ivy-cms" name="images/expiry" alt="#{task.id}" style="border:0pt"/>
         				<h:outputText value="#{ivy.cms.co('/labels/changeExpiry')}" />  
     				</p:commandLink>
-    				<p:commandLink actionListener="#{logic.addNote}" title="#{ivy.cms.co('/tooltips/addNote')}" style="margin-right:20px;" ajax="false" disabled="#{data.addNoteLink}">
+    				<p:commandLink id="addNote" actionListener="#{logic.addNote}" title="#{ivy.cms.co('/tooltips/addNote')}" style="margin-right:20px;" ajax="false" disabled="#{data.addNoteLink}">
         				<h:graphicImage library="ivy-cms" name="images/note" alt="#{task.id}" style="border:0pt"/>
         				<h:outputText value="#{ivy.cms.co('/labels/addNote')}" />  
     				</p:commandLink>
@@ -41,7 +41,7 @@
         				<h:outputText value="#{ivy.cms.co('/labels/formArchive')}" />  
     				</p:commandLink> 
 				</h:panelGrid>
-				<h:panelGrid columns="2" style="width: 606px; ">
+				<h:panelGrid id="taskDetailsList" columns="2" style="width: 606px; ">
 					<h:outputText value="#{ivy.cms.co('/labels/taskId')}"/>
 					<h:outputText value="#{data.data.tmpTask.identifier}"/>
 					<h:outputText value="#{ivy.cms.co('/labels/name')}"/>
@@ -60,8 +60,8 @@
 					</h:panelGrid>
 					<h:outputText value="#{ivy.cms.co('/labels/user')}"/>
 					<h:panelGrid columns="2">
-					<h:graphicImage library="ivy-cms" name="#{data.userImage}" alt="" style="border:0pt"/>
-					<h:outputText value="#{data.data.tmpTask.workerUserName}"/>
+						<h:graphicImage library="ivy-cms" name="#{data.userImage}" alt="" style="border:0pt"/>
+						<h:outputText value="#{data.data.tmpTask.workerUserName}"/>
 					</h:panelGrid>
    					<h:outputText value="#{ivy.cms.co('/labels/responsible')}"/>
    					<h:panelGrid columns="2">

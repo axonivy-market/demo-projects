@@ -110,9 +110,7 @@
             			<f:facet name="header">  
                 			<h:outputText value="Name" />  
             			</f:facet>
-            			<h:commandLink actionListener="#{logic.taskDetail(task.id)}" title="Details Task[#{task.id}]" ajax="false">
-							<h:outputText value="#{task.name}" /> 
-						</h:commandLink> 
+            			<h:commandLink id="taskLinkRow" value="#{task.name}" actionListener="#{logic.taskDetail(task.id)}" title="Details Task[#{task.id}]" ajax="false" />
         			</p:column>
         			
         			<p:column sortBy="#{task.user}">  

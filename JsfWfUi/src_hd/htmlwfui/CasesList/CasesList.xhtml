@@ -62,13 +62,11 @@
             			<f:facet name="header">
                 			<h:outputText value="#{ivy.cms.co('/labels/name')}" />
             			</f:facet>
-            			<p:commandLink actionListener="#{logic.caseDetail(case.id)}" title="Details Case[#{case.id}]" ajax="false">
-        					<h:outputText value="#{case.name}" />
-    					</p:commandLink>
+            			<p:commandLink id="caseLinkRow" value="#{case.name}" actionListener="#{logic.caseDetail(case.id)}" title="Details Case[#{case.id}]" ajax="false"/>
         			</p:column>
         			<p:column sortBy="#{case.category}">  
             			<f:facet name="header">  
-                			<h:outputText value="#{ivy.cms.co('/labels/category')}" />  
+                			<h:outputText value="#{ivy.cms.co('/labels/category')}" />
             			</f:facet>  
             			<h:outputText value="#{case.category}" />  
         			</p:column>

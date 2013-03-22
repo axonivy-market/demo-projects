@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 15 12:56:17 CET 2013]
+[>Created: Fri Mar 22 09:25:31 CET 2013]
 13BA873BC1BC6EFD 3.17 #module
 >Proto >Proto Collection #zClass
 TF0 TestWF Big #zClass
@@ -254,16 +254,17 @@ TF0 f9 persist false #txt
 TF0 f9 startName 'TestWF Jsf' #txt
 TF0 f9 startDescription 'Sample WF using Html Dialogs' #txt
 TF0 f9 taskData '#
-#Fri Mar 15 12:54:07 CET 2013
+#Thu Mar 21 11:39:26 CET 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
+TaskTriggered.NAM=TestWf Jsf
 TaskTriggered.EXROL=Everybody
 ' #txt
 TF0 f9 caseData '#
-#Fri Mar 15 12:54:07 CET 2013
+#Thu Mar 21 11:39:26 CET 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -274,7 +275,7 @@ businessObject.name=
 businessPriority=
 businessStart.timestamp=
 case.description=
-case.name=
+case.name=TestWf Jsf
 correspondent.id=
 mainContact.docDb.code=
 mainContact.folder.id=
@@ -292,10 +293,12 @@ type.name=
 ' #txt
 TF0 f9 wfuser 1 #txt
 TF0 f9 showInStartList 1 #txt
-TF0 f9 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+TF0 f9 taskAndCaseSetupAction 'ivy.case.setName(engine.expandMacros("TestWf Jsf"));
+import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
 import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
 DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setName(engine.expandMacros("TestWf Jsf"));
 taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskUpdDef.setExpiryActivator("Everybody");
 taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
