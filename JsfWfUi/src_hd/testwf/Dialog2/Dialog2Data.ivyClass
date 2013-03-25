@@ -1,5 +1,5 @@
 Dialog1Data #class
-testwf.Dialog1 #namespace
+testwf.Dialog2 #namespace
 msg String #field
 confirm String #field
 confirm PERSISTENT #fieldModifier

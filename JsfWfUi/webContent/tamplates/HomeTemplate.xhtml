@@ -12,15 +12,10 @@
 <h:body style="font-size: 9pt">
 	<p:layout fullPage="true">
 		
-		<p:layoutUnit position="north" size="60">
-			<table width="100%">
-				<tr>
-					<td><h:graphicImage library="ivy-cms" name="/Project/Banner" alt="Banner"/>
-					</td>
-					<td width="100%"><h:outputText>Xpert.ivy Workflow </h:outputText><br></br>
-						<h:outputText>#{ivy.cms.co('/labels/loginAs')} #{ivy.session.getSessionUserName()}</h:outputText></td>
-				</tr>
-			</table>
+		<p:layoutUnit position="north" size="140">
+			<div id="TopLogo" style="background-image:url(#{resource['ivy-cms:Project/XpertIvyHeaderBackground']}); background-repeat:repeat-x;">
+				<h:graphicImage library="ivy-cms" name="/Project/XpertIvyHeader" alt="Xpert.ivy"/>
+			</div>
 		</p:layoutUnit>
 		<p:layoutUnit position="west" collapsible="true" resizable="true"
 			header="Xpert.ivy 5" size="200">
@@ -62,7 +57,10 @@
 			</p:layoutUnit>
 		</ui:insert>
 		<p:layoutUnit position="south" size="32">
-			<h:outputText value="Powered by Xpert.Ivy Workflow Copyright &#169; ivyTeam" />
+			<h:panelGrid columns="2" style="width: 100%">
+				<h:outputText value="Powered by Xpert.Ivy Workflow Copyright &#169; ivyTeam" />
+				<h:outputText>#{ivy.cms.co('/labels/loginAs')} #{ivy.session.getSessionUserName()}</h:outputText>
+			</h:panelGrid>
 		</p:layoutUnit>
 	</p:layout>
 </h:body>

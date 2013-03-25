@@ -16,12 +16,13 @@ String tmpMsg=ivy.html.get("in.temp.msg");
 </head>
 
 <body style="background-color: #F9F9F9;font-size: 9pt; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  margin-top: 0px;margin-bottom: 0px;margin-left: 5px;margin-right: 1px;height:99%; ">
-	
-<div style="background-color:#F9F9F9; height: 65px;text-align:left; margin-top:9px; margin-right:1px; margin-bottom: -2px; margin-left: 2px;">		
-	<img src='<%=ivy.cms.cr("/images/logo")%>'>
+
+
+<div id="TopLogo" style="background-image:url(<%=ivy.cms.cr("/Project/XpertIvyHeaderBackground")%>); background-repeat:repeat-x;  height: 140px;text-align:left; margin-top:7px; margin-right:1px; margin-bottom: -2px; margin-left: -1px;">
+	<img src='<%=ivy.cms.cr("/Project/XpertIvyHeader")%>'>
 </div>
 
-<div style="background-image: url(images/border.png); height: 20px;width: 99%;padding-top: 4px;padding-bottom: 4px;margin-top: 0px;margin-bottom: 0px;padding-left: 4px;padding-right: 4px;">
+<div style="background-image: url(images/border.png); height: 24px;width: 99%;padding-top: 4px;padding-bottom: 4px;margin-top: 0px;margin-bottom: 0px;padding-left: 4px;padding-right: 4px;">
 </div>
 
 <div style="background-color: #F9F9F9; position: absolute; height: 416px; width: 99%; margin-top: 0px;margin-bottom: 0px;margin-left: 0px;padding-top: 4px;padding-bottom: 4px;padding-left: 2px;padding-right: 2px;">
