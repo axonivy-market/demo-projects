@@ -11,8 +11,10 @@
 </h:head>
 <h:body style="font-size: 9pt;">
 	<p:layout fullPage="true" gutter="10px">
-		<p:layoutUnit position="north" size="107">
-			<div style="background: #000032; width: 100%" ><h:graphicImage library="ivy-cms" name="/Project/IvyHeader" alt="Header"/></div>
+		<p:layoutUnit position="north" size="140">
+			<div id="TopLogo" style="background-image:url(#{resource['ivy-cms:Project/XpertIvyHeaderBackground']}); background-repeat:repeat-x;">
+				<h:graphicImage library="ivy-cms" name="Project/XpertIvyHeader" alt="Xpert.ivy"/>
+			</div>
 		</p:layoutUnit>
 		<p:layoutUnit position="west" collapsible="true" resizable="true"
 			header="Html Dialog Demos" size="200">
