@@ -1,4 +1,4 @@
-Dialog1Data #class
+Dialog2Data #class
 testwf.Dialog2 #namespace
 msg String #field
 confirm String #field

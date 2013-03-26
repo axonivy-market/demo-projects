@@ -87,8 +87,8 @@
                 			<h:outputText value="#" />  
 
             			</f:facet>
-                    	<h:commandLink actionListener="#{logic.taskDetail(task.id)}" title="Details Task[#{task.id}]" align="center" ajax="false">
-							<h:graphicImage library="ivy-cms" name="images/task#{task.hasNotes ? 'WithNote' : ''}" alt="#{task.id}" style="border:0pt"/>
+                    	<h:commandLink actionListener="#{logic.taskDetail(task.id)}" title="Details Task" align="center" ajax="false">
+							<h:graphicImage library="ivy-cms" name="images/task#{task.hasNotes ? 'WithNote' : ''}" alt="TaskDetails" style="border:0pt"/>
 						</h:commandLink> 
          			</p:column>
          			
