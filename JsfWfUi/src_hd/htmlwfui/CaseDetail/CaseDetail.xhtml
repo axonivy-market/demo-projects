@@ -20,15 +20,15 @@
 			<br></br><br></br><br></br>
 			<h:form id="formDetails">
 				<h:panelGrid columns="3">
-					<p:commandLink actionListener="#{logic.deleteCase}" title="#{ivy.cms.co('/tooltips/deleteCase')}" style="margin-right:20px;" ajax="false" disabled="#{data.deleteCaseLink}">
+					<p:commandLink id="deleteCase" actionListener="#{logic.deleteCase}" title="#{ivy.cms.co('/tooltips/deleteCase')}" style="margin-right:20px;" ajax="false" disabled="#{data.deleteCaseLink}">
         				<h:graphicImage library="ivy-cms" name="images/delete" alt="#{task.id}" style="border:0pt"/>
         				<h:outputText value="#{ivy.cms.co('/labels/caseDelete')}"/>  
     				</p:commandLink>
-    				<p:commandLink actionListener="#{logic.addNote}" title="#{ivy.cms.co('/tooltips/addNote')}" style="margin-right:20px;" ajax="false" disabled="#{data.addNoteLink}">
+    				<p:commandLink id="addNote" actionListener="#{logic.addNote}" title="#{ivy.cms.co('/tooltips/addNote')}" style="margin-right:20px;" ajax="false" disabled="#{data.addNoteLink}">
         				<h:graphicImage library="ivy-cms" name="images/note" alt="#{task.id}" style="border:0pt"/>
         				<h:outputText value="#{ivy.cms.co('/labels/addNote')}" />  
     				</p:commandLink>
-    				<p:commandLink actionListener="#{logic.showFormArchive}" title="#{ivy.cms.co('/tooltips/showFormArchive')}" style="margin-right:20px;" ajax="false" disabled="#{data.archiveLink}">
+    				<p:commandLink id="formArchive" actionListener="#{logic.showFormArchive}" title="#{ivy.cms.co('/tooltips/showFormArchive')}" style="margin-right:20px;" ajax="false" disabled="#{data.archiveLink}">
         				<h:graphicImage library="ivy-cms" name="images/formHistory" alt="#{task.id}" style="border:0pt"/>
         				<h:outputText value="#{ivy.cms.co('/labels/formArchive')}" />  
     				</p:commandLink> 

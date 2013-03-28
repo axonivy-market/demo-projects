@@ -18,11 +18,7 @@
 			<h:form id="form">
 				<h:panelGrid columns="2">
 					<h:outputText value="#{ivy.cms.co('/labels/caseDelete')}"/>
-					<p:selectBooleanCheckbox id="checkToDelete" value="#{data.data.temp.ok}">
-	    				<f:ajax render="form"/>
-					</p:selectBooleanCheckbox>
-					<br></br>
-					<p:commandButton id="deleteCase" value="#{ivy.cms.co('/labels/deleteButton')}" actionListener="#{logic.deleteCase}" ajax="false" disabled="#{!data.data.temp.ok}"/>
+					<p:commandButton id="deleteCase" value="#{ivy.cms.co('/labels/deleteButton')}" actionListener="#{logic.deleteCase}" ajax="false"/>
 				</h:panelGrid>
 				<p:commandButton value="#{ivy.cms.co('/labels/backButton')}" actionListener="#{logic.backToDetailList}" ajax="false"/>
 			</h:form>
