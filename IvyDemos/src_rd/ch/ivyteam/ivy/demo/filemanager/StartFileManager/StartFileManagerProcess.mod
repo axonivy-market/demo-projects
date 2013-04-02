@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 12 14:41:30 EST 2013]
+[>Created: Thu Mar 21 22:44:20 EDT 2013]
 12BAAF77763F86CB 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 StartFileManagerProcess Big #zClass
@@ -127,9 +127,10 @@ ivy.wf.getApplication().getSecurityDescriptor().grantPermissions(
                 ivy.wf.getApplication().getSecurityDescriptor().getSecurityDescriptorType().getRootPermissionGroup(),
                 ivy.session.getSecurityContext().findRole("Everybody")
 );
-ivy.session.logoutSessionUser(ivy.task.getId());
+ivy.session.logoutSessionUser(ivy.task.getIdentifier());
 
 panel.activateFileVersioningCheckBox.enabled=false;
+panel.activateExtendedFVCheckBox.enabled=false;
 panel.activateSecurityCheckBox.enabled=false;
 panel.activateTypeCheckBox.enabled=false;
 panel.activateTagsCheckBox.enabled=false;
@@ -236,7 +237,7 @@ Ss0 f25 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileMa
 ' #txt
 Ss0 f25 actionTable 'out=in;
 ' #txt
-Ss0 f25 actionCode ivy.session.logoutSessionUser(ivy.task.getId()); #txt
+Ss0 f25 actionCode ivy.session.logoutSessionUser(ivy.task.getIdentifier()); #txt
 Ss0 f25 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
 Ss0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -289,18 +290,17 @@ import com.ulcjava.base.application.event.ActionEvent;
 try{
 	ActionEvent ev = event as ActionEvent;
 	panel.startButton1.enabled=true;
-	
-if(ev.getSource() instanceof RCheckBox)
+	if(ev.getSource() instanceof RCheckBox)
 	{
 		RCheckBox rc = ev.getSource() as RCheckBox;
 		
-		if(rc.getName().equalsIgnoreCase(panel.activateFilesAsBlobCheckBox.getName()))
-		{
+		if(rc.getName().equalsIgnoreCase(panel.activateFilesAsBlobCheckBox.getName())){
 			if(panel.activateFilesAsBlobCheckBox.selected)
 			{//files are stored as BLOB in an external database, this is not compatible with the files storage on the file set
 				panel.activateIvySystemDBCheckBox.selected=false;
 				panel.filesInFileSetCheckBox.selected=false;
 				panel.activateFileVersioningCheckBox.enabled=true;
+				panel.activateExtendedFVCheckBox.enabled=true;
 				panel.activateSecurityCheckBox.enabled=true;
 				panel.activateTypeCheckBox.enabled=true;
 				panel.activateTagsCheckBox.enabled=true;
@@ -308,6 +308,7 @@ if(ev.getSource() instanceof RCheckBox)
 				out.configurationController.rootPath="root/storeInDb";
 			}else{//this two features need files stored as blob
 				panel.activateFileVersioningCheckBox.enabled=false;
+				panel.activateExtendedFVCheckBox.enabled=false;
 				panel.activateSecurityCheckBox.enabled=false;
 				panel.activateTypeCheckBox.enabled=false;
 				panel.activateTagsCheckBox.enabled=false;
@@ -318,6 +319,7 @@ if(ev.getSource() instanceof RCheckBox)
 		{//files are stored on the file set and the files informations are stored in the Ivy system DB, all other options cannot be activated
 			panel.activateFilesAsBlobCheckBox.selected=false;
 			panel.activateFileVersioningCheckBox.enabled=false;
+			panel.activateExtendedFVCheckBox.enabled=false;
 			panel.activateSecurityCheckBox.enabled=false;
 			panel.activateTypeCheckBox.enabled=false;
 			panel.activateTagsCheckBox.enabled=false;
@@ -329,15 +331,14 @@ if(ev.getSource() instanceof RCheckBox)
 		{//files are stored on the file set and the files informations are stored in an external database, all other options cannot be activated
 			panel.activateFilesAsBlobCheckBox.selected=false;
 			panel.activateFileVersioningCheckBox.enabled=false;
+			panel.activateExtendedFVCheckBox.enabled=false;
 			panel.activateSecurityCheckBox.enabled=false;
 			panel.activateTypeCheckBox.enabled=false;
 			panel.activateTagsCheckBox.enabled=false;
 			panel.activateHistoryCheckBox.enabled=false;
 			panel.activateIvySystemDBCheckBox.selected=false;
-			out.configurationController.rootPath="root/storeOnServer";
-	
+			out.configurationController.rootPath="root/storeOnServer";	
 		}
-		
 	}
 	if(!panel.filesInFileSetCheckBox.selected && !panel.activateIvySystemDBCheckBox.selected && !panel.activateFilesAsBlobCheckBox.selected)
 	{
@@ -370,6 +371,7 @@ Ss0 f19 actionTable 'out=in;
 out.configurationController.activateFileTags=panel.activateTagsCheckBox.selected;
 out.configurationController.activateFileType=panel.activateTypeCheckBox.selected;
 out.configurationController.activateFileVersioning=panel.activateFileVersioningCheckBox.selected;
+out.configurationController.activateFileVersioningExtended=panel.activateExtendedFVCheckBox.selected;
 out.configurationController.activateSecurity=panel.activateSecurityCheckBox.selected;
 out.configurationController.allowUserToSetDocumentFileTypes=true /*we set this to true to allow the user to choose the fileTypes on the documents */;
 out.configurationController.allowUserToSetDocumentTags=true /*we set this to true to allow the user to set the fileTags on the documents*/;
@@ -491,7 +493,7 @@ Ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>preselect the language</name>
-        <nameStyle>22,7
+        <nameStyle>22
 </nameStyle>
     </language>
 </elementInfo>

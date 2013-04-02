@@ -1,5 +1,5 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2012-11-05 10:15:38 | 4.3.7.41063 | 1.0
+# 2013-01-16 10:27:33 | 4.3.8.41480 | 1.0
 ~.activateFilesAsBlobCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.activateFileVersioningCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.activateIvySystemDBCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E

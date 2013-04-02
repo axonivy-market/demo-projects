@@ -49,6 +49,7 @@ private RLabel languageLabel = null;
 private RComboBox langComboBox = null;
 private RComboBox dbComboBox = null;
 private RLabel dbLabel = null;
+private RCheckBox activateExtendedFVCheckBox = null;
 /**
    * Create a new instance of StartFileManagerPanel
    */
@@ -296,10 +297,11 @@ private RGridBagLayoutPane getStoreInDBGridBagLayoutPane() {
 		storeInDBGridBagLayoutPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.gray, 1), "Files stored in a database as BLOB", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 14), new Color(23, 64, 140)));
 		storeInDBGridBagLayoutPane.add(getActivateFilesAsBlobCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		storeInDBGridBagLayoutPane.add(getActivateFileVersioningCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		storeInDBGridBagLayoutPane.add(getActivateSecurityCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		storeInDBGridBagLayoutPane.add(getActivateTypeCheckBox(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		storeInDBGridBagLayoutPane.add(getActivateTagsCheckBox(), new com.ulcjava.base.application.GridBagConstraints(1, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		storeInDBGridBagLayoutPane.add(getActivateHistoryCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		storeInDBGridBagLayoutPane.add(getActivateSecurityCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		storeInDBGridBagLayoutPane.add(getActivateTypeCheckBox(), new com.ulcjava.base.application.GridBagConstraints(1, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		storeInDBGridBagLayoutPane.add(getActivateTagsCheckBox(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		storeInDBGridBagLayoutPane.add(getActivateHistoryCheckBox(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		storeInDBGridBagLayoutPane.add(getActivateExtendedFVCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return storeInDBGridBagLayoutPane;
 }
@@ -343,7 +345,7 @@ private RCheckBox getActivateHistoryCheckBox() {
 	if (activateHistoryCheckBox == null) {
 		activateHistoryCheckBox = new RCheckBox();
 		activateHistoryCheckBox.setText("Activate file history");
-		activateHistoryCheckBox.setStyleProperties("{/font {/name \"Dialog\"/size \"14\"/style \"PLAIN\"}/fill \"HORIZONTAL\"/insetsLeft \"20\"}");
+		activateHistoryCheckBox.setStyleProperties("{/font {/name \"Dialog\"/size \"14\"/style \"PLAIN\"}/fill \"HORIZONTAL\"}");
 		activateHistoryCheckBox.setName("activateHistoryCheckBox");
 	}
 	return activateHistoryCheckBox;
@@ -407,5 +409,20 @@ private RLabel getDbLabel() {
 		dbLabel.setName("dbLabel");
 	}
 	return dbLabel;
+}
+
+/**
+ * This method initializes activateExtendedFVCheckBox	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox	
+ */
+private RCheckBox getActivateExtendedFVCheckBox() {
+	if (activateExtendedFVCheckBox == null) {
+		activateExtendedFVCheckBox = new RCheckBox();
+		activateExtendedFVCheckBox.setName("activateExtendedFVCheckBox");
+		activateExtendedFVCheckBox.setStyleProperties("{/font {/name \"Dialog\"/size \"14\"/style \"PLAIN\"}/fill \"HORIZONTAL\"/insetsLeft \"20\"/weightX \"1\"}");
+		activateExtendedFVCheckBox.setText("Activate the file versioning extended feature");
+	}
+	return activateExtendedFVCheckBox;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"
