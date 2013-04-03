@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Feb 09 08:39:52 CET 2011]
-12E0935AE7462DA2 3.15 #module
+[>Created: Thu Feb 28 14:08:26 EST 2013]
+12E0935AE7462DA2 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonViewProcess Big #zClass
 Ps0 RD #cInfo
@@ -81,6 +81,7 @@ Ps0 f5 type ch.ivyteam.ivy.demo.docfactory.PersonView.PersonViewData #txt
 Ps0 f5 actionDecl 'ch.ivyteam.ivy.demo.docfactory.PersonView.PersonViewData out;
 ' #txt
 Ps0 f5 actionTable 'out=in;
+out.person.gender=panel.mCheckBox.selected?"M":"F";
 ' #txt
 Ps0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

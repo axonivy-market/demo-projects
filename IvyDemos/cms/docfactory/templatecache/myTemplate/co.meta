@@ -1,2 +1,2 @@
-co: name={myTemplate} description={} changed={2010-01-26 13:46:53 CET} changedby={ec} visualorder={0} guid={12665BF16F6A32F8} parentguid={} typeguid={E6AFEA1FF894D833} id={} parentid={} typeid={}
-val: guid={12665BF17069277B} datatype={} isdefault={true} langid={en} description={} validfrom={2010-01-25 14:50:07 CET} validto={} changed={2010-01-26 13:46:53 CET} changedby={ec} properties={} id={}
+co: name={myTemplate} description={} changed={2013-04-04 00:33:01 CEST} changedby={ec} visualorder={0} guid={12665BF16F6A32F8} parentguid={} typeguid={E6AFEA1FF894D833} id={} parentid={} typeid={}
+val: guid={12665BF17069277B} datatype={} isdefault={true} langid={en} description={} validfrom={2010-01-25 14:50:07 CET} validto={} changed={2013-04-04 00:33:01 CEST} changedby={ec} properties={###r#n##Wed Apr 03 18:33:01 EDT 2013#r#nS=24064#r#n} id={}

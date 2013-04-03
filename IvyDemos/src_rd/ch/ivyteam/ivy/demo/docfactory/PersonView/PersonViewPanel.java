@@ -19,6 +19,8 @@ import ch.ivyteam.ivy.addons.filemanager.DesktopHandler.DesktopHandlerPanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import com.ulcjava.base.application.ULCContainer;
+import ch.ivyteam.ivy.richdialog.widgets.components.RButtonGroup;
+import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
 
 /**
  * <p>PersonViewPanel is a rich dialog panel implementation.
@@ -50,6 +52,11 @@ private RComboBox formatComboBox = null;
 private RButton writeButton = null;
 private RButton closeButton = null;
 private @EmbeddedRichDialog(DesktopHandlerPanel.class) ULCContainer desktopHandlerPanel = null;
+private RLabel genderLabel = null;
+private RFlowLayoutPane genderFlowLayoutPane1 = null;
+private RButtonGroup ButtonGroup = null;  //  @jve:decl-index=0:visual-constraint="718,221"
+private RCheckBox mCheckBox = null;
+private RCheckBox FCheckBox = null;
 /**
    * Create a new instance of PersonViewPanel
    */
@@ -65,7 +72,7 @@ private @EmbeddedRichDialog(DesktopHandlerPanel.class) ULCContainer desktopHandl
    */
   private void initialize()
   {
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(585,249));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(596,317));
         this.add(getTitleLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
         this.add(getActionGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
@@ -97,12 +104,15 @@ private RGridBagLayoutPane getGridBagLayoutPane() {
 		GridBagLayoutPane = new RGridBagLayoutPane();
 		GridBagLayoutPane.setName("GridBagLayoutPane");
 		GridBagLayoutPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black), "Person datas", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Dialog", Font.PLAIN, 12), Color.gray));
-		GridBagLayoutPane.add(getNameLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane.add(getFirstnameLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane.add(getAddressScrollPane(), new com.ulcjava.base.application.GridBagConstraints(1, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane.add(getAddressLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane.add(getNameTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane.add(getFirstNameTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane.setStyleProperties("{/fill \"VERTICAL\"/weightY \"1\"}");
+		GridBagLayoutPane.add(getNameLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane.add(getFirstnameLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane.add(getAddressScrollPane(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane.add(getAddressLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane.add(getNameTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane.add(getFirstNameTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane.add(getGenderLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane.add(getGenderFlowLayoutPane1(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return GridBagLayoutPane;
 }
@@ -339,5 +349,81 @@ private ULCContainer getDesktopHandlerPanel() {
 		desktopHandlerPanel.setName("desktopHandlerPanel");
 	}
 	return desktopHandlerPanel;
+}
+
+/**
+ * This method initializes genderLabel	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RLabel	
+ */
+private RLabel getGenderLabel() {
+	if (genderLabel == null) {
+		genderLabel = new RLabel();
+		genderLabel.setText("Gender");
+		genderLabel.setStyleProperties("{/font {/name \"Dialog\"/size \"12\"/style \"PLAIN\"}/insetsBottom \"5\"/fill \"HORIZONTAL\"}");
+		genderLabel.setName("genderLabel");
+	}
+	return genderLabel;
+}
+
+/**
+ * This method initializes genderFlowLayoutPane1	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane	
+ */
+private RFlowLayoutPane getGenderFlowLayoutPane1() {
+	if (genderFlowLayoutPane1 == null) {
+		genderFlowLayoutPane1 = new RFlowLayoutPane();
+		genderFlowLayoutPane1.setName("genderFlowLayoutPane1");
+		genderFlowLayoutPane1.setStyleProperties("{/insetsBottom \"5\"/fill \"HORIZONTAL\"/insetsRight \"5\"/insetsLeft \"5\"}");
+		genderFlowLayoutPane1.add(getFCheckBox());
+		genderFlowLayoutPane1.add(getMCheckBox());
+	}
+	return genderFlowLayoutPane1;
+}
+
+/**
+ * This method initializes ButtonGroup	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RButtonGroup	
+ */
+private RButtonGroup getButtonGroup() {
+	if (ButtonGroup == null) {
+		ButtonGroup = new RButtonGroup();
+	}
+	return ButtonGroup;
+}
+
+/**
+ * This method initializes mCheckBox	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox	
+ */
+private RCheckBox getMCheckBox() {
+	if (mCheckBox == null) {
+		mCheckBox = new RCheckBox();
+		mCheckBox.setText("Man");
+		mCheckBox.setName("mCheckBox");
+		mCheckBox.setStyle("field");
+		mCheckBox.setSelected(true);
+		mCheckBox.setGroup(this.getButtonGroup());
+	}
+	return mCheckBox;
+}
+
+/**
+ * This method initializes FCheckBox	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox	
+ */
+private RCheckBox getFCheckBox() {
+	if (FCheckBox == null) {
+		FCheckBox = new RCheckBox();
+		FCheckBox.setText("Woman");
+		FCheckBox.setName("FCheckBox");
+		FCheckBox.setSelected(true);
+		FCheckBox.setGroup(this.getButtonGroup());
+	}
+	return FCheckBox;
 }
 }  //  @jve:decl-index=0:visual-constraint="1,10"

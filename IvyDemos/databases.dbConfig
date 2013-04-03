@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <databaseconfigs>
-    <databaseconfig password="milesd" user="root" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost/filemanager2" name="filemanager"/>
-    <databaseconfig password="xpert4line" user="xpertivy" driver="net.sourceforge.jtds.jdbc.Driver" url="jdbc:jtds:sqlserver://boldbsrv01/filemanager_test" name="filemanagerMS"/>
-    <databaseconfig maxconnections="20" password="1234" user="ec" driver="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@boldevsrv03:1521:XE" name="filemanagerOracle"/>
-    <databaseconfig password="milesd" user="postgres" driver="org.postgresql.Driver" url="jdbc:postgresql://localhost:5432/files" name="filemanagerPG"/>
+    <databaseconfig name="filemanager" url="jdbc:mysql://localhost/filemanager" driver="com.mysql.jdbc.Driver" user="root" password=""/>
 </databaseconfigs>

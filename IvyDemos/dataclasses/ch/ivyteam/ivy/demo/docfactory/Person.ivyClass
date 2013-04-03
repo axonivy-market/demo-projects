@@ -1,8 +1,9 @@
 Person #class
 'this dataclass is used to represent a Person for the Ivy Addons docFactory Test.
-Each Attributes has its counterpart in the office template (the template has a merge field named "name", one named "firstname" and one named
+Each Attributes has its counterpart in the office template (the template has a merge field named "name", one named "firstname", one named "gender" and one named
 "address").' #classComment
 ch.ivyteam.ivy.demo.docfactory #namespace
 name String #field
 firstname String #field
 address String #field
+gender String #field
