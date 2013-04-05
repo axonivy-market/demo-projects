@@ -35,6 +35,11 @@ BODY {
 	height:100%; 
 }
 
+FORM, TABLE {
+  font-size: 8pt;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; 
+}
+
 img
 {
 	border: none;

@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui">
  
 <h:body>
-	<ui:composition template="/tamplates/HomeTemplate.xhtml">
+	<ui:composition template="/templates/HomeTemplate.xhtml">
 
 		<ui:define name="center">
 			<p:layoutUnit id="center" position="center" header="#{ivy.cms.co('/navLabels/substitution')}">
@@ -22,13 +22,8 @@
 					<p:commandLink value="#{ivy.cms.co('/explainTexts/SubstitutesLink')}" actionListener="#{logic.showMySubstitutions}" style="font-weight:bold"/>
 					<br></br>
 					<br></br>
-					<p:commandLink id="addSubstitute" actionListener="#{logic.addSubstitute}" title="#{ivy.cms.co('/tooltips/addSubstitute')}" style="margin-right:20px;" ajax="false">
-        				<h:graphicImage library="ivy-cms" name="images/add" alt="#{task.id}" style="border:0pt"/>
-        				<h:outputText value="#{ivy.cms.co('/labels/addSubstitute')}"/>  
-    				</p:commandLink>
+    				<p:commandButton id="addSubstitute" icon="ui-icon-star" value="#{ivy.cms.co('/labels/addSubstitute')}" actionListener="#{logic.addSubstitute}" title="#{ivy.cms.co('/tooltips/addSubstitute')}"/>				
 				</h:form>
-				<br></br>
-				<br></br>
 				<hr></hr>
 				<br></br>
 				<h:form id="form1">

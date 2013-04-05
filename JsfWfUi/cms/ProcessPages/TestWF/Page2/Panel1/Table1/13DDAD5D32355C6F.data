@@ -1,0 +1,10 @@
+<!--ivytable--><table BORDER="0">
+<tr >
+<td ><%=ivy.cms.co("/labels/title")%>:</td>
+<td ><%=ivy.html.get("in.temp.caption")%></td>
+</tr>
+<tr >
+<td ><%=ivy.cms.co("/labels/description")%>:</td>
+<td ><%=ivy.html.get("in.temp.description")%></td>
+</tr>
+</table>

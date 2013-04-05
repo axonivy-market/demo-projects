@@ -1,7 +1,7 @@
 <FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'   ONSUBMIT="return checkformLinkA();">
 <!--ivyform--><table BORDER="0"><tr >
-<td ><!--i.ttemp.ok--><%=ivy.cms.co("/labels/confirm")%>?</td>
-<td ><!--i.atemp.ok--><%=ivy.html.radioselection("\"@_;true;<%=ivy.cms.co(\\\"/labels/yes\\\")%>_false;<%=ivy.cms.co(\\\"/labels/no\\\")%>_\"","temp$ok",2,"in.temp.ok")%></td>
+<td ><!--i.ttemp.ok--><%=ivy.cms.co("/labels/confirm")%></td>
+<td ><!--i.atemp.ok--><%=ivy.html.radioselection("\"@_;true;true_false;false_\"","temp$ok",2,"in.temp.ok")%></td>
 </tr>
 <tr >
 <td ></td>
@@ -18,5 +18,7 @@ function checkformLinkA()
 </td>
 </tr>
 
-</table>
-</FORM>
+
+
+
+</table></FORM>

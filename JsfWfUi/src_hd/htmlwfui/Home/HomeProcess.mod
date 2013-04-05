@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 18 13:39:50 CET 2013]
+[>Created: Fri Apr 05 17:06:09 CEST 2013]
 13A97F3A59B5F078 3.17 #module
 >Proto >Proto Collection #zClass
 Hs0 HomeProcess Big #zClass
@@ -44,8 +44,7 @@ Hs0 f3 actionDecl 'htmlwfui.Home.HomeData out;
 ' #txt
 Hs0 f3 actionTable 'out=in;
 ' #txt
-Hs0 f3 actionCode 'import ivy.htmlwfui.ScheduleBean;
-import ch.ivyteam.ivy.security.ISecurityMember;
+Hs0 f3 actionCode 'import ch.ivyteam.ivy.security.ISecurityMember;
 import htmlwfui.TaskDetail;
 import java.util.EnumSet;
 import ch.ivyteam.ivy.workflow.PropertyOrder;
@@ -57,7 +56,6 @@ import ch.ivyteam.ivy.workflow.ITask;
 import javax.servlet.http.HttpServletRequest;
 import ch.ivyteam.ivy.workflow.IProcessStart;
 
-out.scheduleBean = new ScheduleBean();
 IQueryResult queryResult  = ivy.session.findWorkTasks(null, PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING), 
           0, 25, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
 
