@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu May 19 13:09:42 CEST 2011]
+[>Created: Fri Apr 05 10:33:04 EDT 2013]
 1249C400BC3D817F 3.17 #module
 >Proto >Proto Collection #zClass
 Ds0 DocFactoryProcess Big #zClass
@@ -342,7 +342,7 @@ Ds0 f28 requestActionDecl '<java.lang.String optionalSingleDocumentOutputPath,Li
 Ds0 f28 requestMappingAction 'param.documentTemplatesList=in.documentTemplatesList;
 param.allInOneDocument=panel.oneDocCheckBox.isSelected();
 param.allInSeparatesDocuments=panel.SeparatedocumentsCheckBox.isSelected();
-param.optionalSingleDocumentFormat="pdf";
+param.optionalSingleDocumentFormat="doc";
 param.optionalSingleDocumentName=panel.TextField.getText().trim();
 ' #txt
 Ds0 f28 responseActionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactory.DocFactoryData out;

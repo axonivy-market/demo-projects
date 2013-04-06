@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 08 18:32:03 EDT 2012]
+[>Created: Fri Apr 05 20:40:31 EDT 2013]
 1372C781E5242D8D 3.17 #module
 >Proto >Proto Collection #zClass
 Ds0 DocFactoryReportingProcess Big #zClass
@@ -95,7 +95,7 @@ Ds0 f4 actionTable 'out=in;
 Ds0 f4 actionCode 'import ch.ivyteam.ivy.demo.docfactory.reporting.*;
 
 in.aData.date1 = new Date();
-in.aData.number1 = Math.round(Math.random()).intValue();
+in.aData.number1 = Math.round(Math.random()*5).intValue();
 in.aData.string1="Report for company";
 in.aData.string2="Test";
 
@@ -296,7 +296,7 @@ Ds0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Create the data</name>
-        <nameStyle>15
+        <nameStyle>15,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -417,7 +417,7 @@ Ds0 f14 actionCode 'import ch.ivyteam.ivy.demo.docfactory.reporting.tree.*;
 import ch.ivyteam.ivy.demo.docfactory.reporting.HumanCapital;
 
 in.aData.date1 = new Date();
-in.aData.number1 = Math.round(Math.random()).intValue();
+in.aData.number1 = Math.round(Math.random()*10).intValue();
 in.aData.string1="Report for company";
 in.aData.string2="Test";
 in.aTree.info=in.aData.string1;
@@ -660,7 +660,7 @@ Ds0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Create the data in form of a Tree</name>
-        <nameStyle>33
+        <nameStyle>33,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -755,7 +755,7 @@ Ds0 f25 actionCode 'import ch.ivyteam.ivy.addons.docfactory.DocumentTemplate;
 import ch.ivyteam.ivy.demo.docfactory.reporting.*;
 in.aData = new AData();
 in.aData.date1 = new Date();
-in.aData.number1 = Math.round(Math.random()).intValue();
+in.aData.number1 = Math.round(Math.random()*20).intValue();
 in.aData.string1="Report for company";
 in.aData.string2="Test";
 
@@ -962,7 +962,7 @@ Ds0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Create the data and first documentTemplate</name>
-        <nameStyle>42
+        <nameStyle>42,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -1007,7 +1007,7 @@ import ch.ivyteam.ivy.demo.docfactory.reporting.AData;
 import ch.ivyteam.ivy.addons.docfactory.DocumentTemplate;
 in.aData = new AData();
 in.aData.date1 = new Date();
-in.aData.number1 = Math.round(Math.random()).intValue();
+in.aData.number1 = Math.round(Math.random()*3).intValue();
 in.aData.string1="Second Report for company";
 in.aData.string2="Test number 2";
 in.aTree.info=in.aData.string1;
@@ -1255,7 +1255,7 @@ Ds0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Create the data in form of a Tree
 and put it in a second documentTemplate</name>
-        <nameStyle>73
+        <nameStyle>73,7
 </nameStyle>
     </language>
 </elementInfo>
