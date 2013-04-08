@@ -7,6 +7,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_ws"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_dataClasses"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_wsproc"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_hd"/>
         <property name="context-root" value="HtmlWFUI"/>
         <property name="java-output-path" value="/HtmlWFUI/classes"/>
     </wb-module>
