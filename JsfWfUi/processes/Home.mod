@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 15 08:24:06 CET 2013]
+[>Created: Tue Apr 09 15:31:22 CEST 2013]
 127AE76143E89C91 3.17 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -43,7 +43,7 @@ He0 f11 actionDecl 'htmlwfui.Data out;
 He0 f11 actionTable 'out=in;
 ' #txt
 He0 f11 actionCode 'ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl", ivy.html.startref("127AE76143E89C91/HomePage.ivp"));' #txt
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl", ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp"));' #txt
 He0 f11 type htmlwfui.Data #txt
 He0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -56,7 +56,7 @@ He0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 He0 f11 286 252 36 24 22 -7 #rect
 He0 f11 @|StepIcon #fIcon
-He0 f7 outLink EndPage.ivp #txt
+He0 f7 outLink DefaultEndPage.ivp #txt
 He0 f7 type htmlwfui.Data #txt
 He0 f7 inParamDecl '<java.lang.Number endedTaskId> param;' #txt
 He0 f7 inParamTable 'out.tmpTaskId=param.endedTaskId;
@@ -66,11 +66,11 @@ He0 f7 actionDecl 'htmlwfui.Data out;
 He0 f7 guid 12E2F5E4FE51B562 #txt
 He0 f7 requestEnabled true #txt
 He0 f7 triggerEnabled false #txt
-He0 f7 callSignature EndPage(Number) #txt
+He0 f7 callSignature DefaultEndPage(Number) #txt
 He0 f7 persist false #txt
-He0 f7 startName EndPage #txt
+He0 f7 startName DefaultEndPage #txt
 He0 f7 taskData '#
-#Fri Mar 15 08:13:31 CET 2013
+#Tue Apr 09 14:45:22 CEST 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -79,7 +79,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f7 caseData '#
-#Fri Mar 15 08:13:31 CET 2013
+#Tue Apr 09 14:45:22 CEST 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -119,8 +119,8 @@ engine.updateCurrentTask(taskUpdDef);
 He0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>EndPage</name>
-        <nameStyle>7,5,7
+        <name>DefaultEndPage</name>
+        <nameStyle>14,5,7
 </nameStyle>
         <desc>This start is used to overwrite the default end page.
 It will be called whenever process/task ends without a defined page.</desc>
@@ -203,7 +203,7 @@ He0 f14 @|EndRequestIcon #fIcon
 He0 f15 expr in #txt
 He0 f15 outCond in.temp.url.length()>0 #txt
 He0 f15 144 278 144 315 #arcP
-He0 f16 outLink HomePage.ivp #txt
+He0 f16 outLink DefaultApplicationHomePage.ivp #txt
 He0 f16 type htmlwfui.Data #txt
 He0 f16 inParamDecl '<> param;' #txt
 He0 f16 actionDecl 'htmlwfui.Data out;
@@ -211,12 +211,12 @@ He0 f16 actionDecl 'htmlwfui.Data out;
 He0 f16 guid 12E3344F408D0C73 #txt
 He0 f16 requestEnabled true #txt
 He0 f16 triggerEnabled false #txt
-He0 f16 callSignature HomePage() #txt
+He0 f16 callSignature DefaultApplicationHomePage() #txt
 He0 f16 persist false #txt
 He0 f16 startName 'WF Home' #txt
 He0 f16 startDescription 'Workflow UI Startpage' #txt
 He0 f16 taskData '#
-#Thu Mar 14 11:30:19 CET 2013
+#Tue Apr 09 15:29:42 CEST 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -225,7 +225,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f16 caseData '#
-#Thu Mar 14 11:30:19 CET 2013
+#Tue Apr 09 15:29:42 CEST 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -265,8 +265,8 @@ engine.updateCurrentTask(taskUpdDef);
 He0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>HomePage</name>
-        <nameStyle>8,5,7
+        <name>DefaultApplicationHomePage</name>
+        <nameStyle>26,5,7
 </nameStyle>
         <desc>This start is used to overwrite the default application home.
 Use /ivy/wf/applicationHome to call it.
@@ -275,7 +275,7 @@ ivy.html.applicationHomeRef() will return a link to this process.</desc>
 </elementInfo>
 ' #txt
 He0 f16 @C|.responsibility Everybody #txt
-He0 f16 291 51 26 26 19 -4 #rect
+He0 f16 291 51 26 26 19 -5 #rect
 He0 f16 @|StartRequestIcon #fIcon
 He0 f17 type htmlwfui.Data #txt
 He0 f17 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt

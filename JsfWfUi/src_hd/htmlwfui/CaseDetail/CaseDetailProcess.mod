@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 25 08:37:10 CET 2013]
+[>Created: Tue Apr 09 16:22:54 CEST 2013]
 13CB4B91160DDDB1 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetailProcess Big #zClass
@@ -253,7 +253,7 @@ enable/disable links</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f31 78 276 36 24 20 -2 #rect
+Cs0 f31 78 276 36 24 23 -10 #rect
 Cs0 f31 @|StepIcon #fIcon
 Cs0 f5 type htmlwfui.CaseDetail.CaseDetailData #txt
 Cs0 f5 86 382 20 20 13 0 #rect
@@ -414,28 +414,30 @@ Cs0 f15 actionTable 'out=in;
 Cs0 f15 actionCode 'import ch.ivyteam.ivy.security.ISecurityMember;
 import htmlwfui.TaskDetail;
 import java.util.EnumSet;
+import ch.ivyteam.ivy.workflow.ITask;
+
+/*
 import ch.ivyteam.ivy.workflow.PropertyOrder;
 import ch.ivyteam.ivy.workflow.TaskState;
 import ch.ivyteam.ivy.workflow.TaskProperty;
 import ch.ivyteam.ivy.persistence.OrderDirection;
 import ch.ivyteam.ivy.persistence.IQueryResult;
-import ch.ivyteam.ivy.workflow.ITask;
 import javax.servlet.http.HttpServletRequest;
-
 IQueryResult queryResult  = ivy.session.findWorkTasks(null, PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING), 
           0, 25, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
-
 List<ITask> tasks = queryResult.getResultList();
-out.data.taskList.clear();
 out.data.tasks = tasks;
-for (int t=0; t<tasks.size(); t++)
+*/
+
+out.data.taskList.clear();
+for (int t=0; t<out.data.tasks.size(); t++)
 {
-				ITask task = tasks.get(t);
+				ITask task = out.data.tasks.get(t);
 				TaskDetail taskDetail = new TaskDetail();
 
 				ISecurityMember taskActivator = task.getActivator();
-				taskDetail.activator=taskActivator.getMemberName();
-				taskDetail.activatorIsUser=(task.getActivator() != null && task.getActivator().isUser());
+				taskDetail.activator = taskActivator != null ? taskActivator.getMemberName() :  "";
+				taskDetail.activatorIsUser = (taskActivator != null && taskActivator.isUser());
 				taskDetail.delay = task.getDelayTimestamp();
 				taskDetail.desc = task.getDescription() != null ? task.getDescription() : "";
 				taskDetail.exp = task.getExpiryTimestamp();

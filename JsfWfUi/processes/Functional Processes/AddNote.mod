@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 21 09:35:39 CET 2013]
+[>Created: Tue Apr 09 16:37:13 CEST 2013]
 12CBAFAC42B5C5F5 3.17 #module
 >Proto >Proto Collection #zClass
 Ae0 AddNote Big #zClass
@@ -13,8 +13,6 @@ Ae0 @TextInP .xml .xml #zField
 Ae0 @TextInP .responsibility .responsibility #zField
 Ae0 @StartSub f0 '' #zField
 Ae0 @EndSub f1 '' #zField
-Ae0 @StartSub f4 '' #zField
-Ae0 @EndSub f5 '' #zField
 Ae0 @RichDialog f6 '' #zField
 Ae0 @PushWFArc f7 '' #zField
 Ae0 @PushWFArc f2 '' #zField
@@ -44,24 +42,6 @@ Ae0 f0 @|StartSubIcon #fIcon
 Ae0 f1 type htmlwfui.Data #txt
 Ae0 f1 99 179 26 26 14 0 #rect
 Ae0 f1 @|EndSubIcon #fIcon
-Ae0 f4 outParamDecl '<> result;
-' #txt
-Ae0 f4 actionDecl 'htmlwfui.Data out;
-' #txt
-Ae0 f4 callSignature call() #txt
-Ae0 f4 type htmlwfui.Data #txt
-Ae0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>call()</name>
-    </language>
-</elementInfo>
-' #txt
-Ae0 f4 1043 523 26 26 14 0 #rect
-Ae0 f4 @|StartSubIcon #fIcon
-Ae0 f5 type htmlwfui.Data #txt
-Ae0 f5 1043 595 26 26 14 0 #rect
-Ae0 f5 @|EndSubIcon #fIcon
 Ae0 f6 targetWindow NEW:card: #txt
 Ae0 f6 targetDisplay TOP #txt
 Ae0 f6 richDialogId htmlwfui.AddNote #txt

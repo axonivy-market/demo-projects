@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 15 13:31:05 CET 2013]
+[>Created: Tue Apr 09 15:32:30 CEST 2013]
 125016DE17A534EB 3.17 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
@@ -33,8 +33,6 @@ Tt0 @PushWFArc f15 '' #zField
 Tt0 @Page f18 '' #zField
 Tt0 @PushWFArc f22 '' #zField
 Tt0 @PushWFArc f7 '' #zField
-Tt0 @GridStep f5 '' #zField
-Tt0 @PushWFArc f16 '' #zField
 Tt0 @GridStep f19 '' #zField
 Tt0 @PushWFArc f24 '' #zField
 Tt0 @PushWFArc f25 '' #zField
@@ -67,7 +65,7 @@ List<ITask> tasks = queryResult.getResultList();
 out.tasks = tasks;
 
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("125016DE17A534EB/TaskList.ivp"));
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("125016DE17A534EB/DefaultTaskListPage.ivp"));
 
 for (int t=0; t<tasks.size(); t++)
 {
@@ -105,19 +103,19 @@ setReturnUrl</name>
 ' #txt
 Tt0 f0 78 204 36 24 23 -5 #rect
 Tt0 f0 @|StepIcon #fIcon
-Tt0 f1 outLink TaskList.ivp #txt
+Tt0 f1 outLink DefaultTaskListPage.ivp #txt
 Tt0 f1 type htmlwfui.Data #txt
 Tt0 f1 inParamDecl '<> param;' #txt
 Tt0 f1 actionDecl 'htmlwfui.Data out;
 ' #txt
 Tt0 f1 requestEnabled true #txt
 Tt0 f1 triggerEnabled false #txt
-Tt0 f1 callSignature TaskList() #txt
+Tt0 f1 callSignature DefaultTaskListPage() #txt
 Tt0 f1 persist false #txt
 Tt0 f1 startName TaskList #txt
 Tt0 f1 startDescription 'This start is used to overwrite the default task list.' #txt
 Tt0 f1 taskData '#
-#Fri Mar 15 13:29:35 CET 2013
+#Tue Apr 09 15:01:24 CEST 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 .DESC=
@@ -128,7 +126,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Tt0 f1 caseData '#
-#Fri Mar 15 13:29:35 CET 2013
+#Tue Apr 09 15:01:24 CEST 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -168,8 +166,8 @@ engine.updateCurrentTask(taskUpdDef);
 Tt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>TaskList</name>
-        <nameStyle>8,5,7,9
+        <name>DefaultTaskListPage</name>
+        <nameStyle>19,5,7,9
 </nameStyle>
         <desc>This start is used to overwrite the default task list.
 Use /ivy/wf/taskList to call it.
@@ -367,47 +365,6 @@ Tt0 f22 0 0.7430993568426237 0 0 #arcLabel
 Tt0 f7 expr data #txt
 Tt0 f7 outCond ivp=="LinkA.ivp" #txt
 Tt0 f7 46 260 82 228 #arcP
-Tt0 f5 actionDecl 'htmlwfui.Data out;
-' #txt
-Tt0 f5 actionTable 'out=in.clone();
-' #txt
-Tt0 f5 actionCode 'htmlwfui.TaskDetail selectedTask = in.taskList.get(in.temp.n);
-
-if(selectedTask.isIvy4Task)
-{ // an xivy4 task selected 
-	for(int i = 0; i < in.tasks.size(); i++)
-	{
-		if(selectedTask.id == in.tasks.get(i).getId())
-		{
-			out.tmpTask = in.tasks.get(i);
-			out.tempCase = in.tasks.get(i).getCase();
-			out.tmpTaskDetail = null;
-			break;
-		}	
-	}
-}
-else 
-{ // an xivy3 task selected 
-	out.tmpTask3Id = selectedTask.id.toString();
-	out.tmpTaskDetail = selectedTask;
-	out.tmpTask = null;
-}
-out.tmpTaskDetail = selectedTask;' #txt
-Tt0 f5 type htmlwfui.Data #txt
-Tt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>OLD Get Task
-Details</name>
-        <nameStyle>20
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Tt0 f5 550 260 36 24 19 -15 #rect
-Tt0 f5 @|StepIcon #fIcon
-Tt0 f16 expr out #txt
-Tt0 f16 550 276 274 332 #arcP
 Tt0 f19 actionDecl 'htmlwfui.Data out;
 ' #txt
 Tt0 f19 actionTable 'out=in;
@@ -507,8 +464,6 @@ Tt0 f9 out f22 tail #connect
 Tt0 f22 head f18 mainIn #connect
 Tt0 f18 out f7 tail #connect
 Tt0 f7 head f0 mainIn #connect
-Tt0 f5 mainOut f16 tail #connect
-Tt0 f16 head f4 mainIn #connect
 Tt0 f19 mainOut f24 tail #connect
 Tt0 f24 head f4 mainIn #connect
 Tt0 f3 mainOut f25 tail #connect

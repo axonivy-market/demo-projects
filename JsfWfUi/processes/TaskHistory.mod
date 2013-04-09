@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 15 11:39:59 CET 2013]
+[>Created: Tue Apr 09 15:33:07 CEST 2013]
 12E297F287736665 3.17 #module
 >Proto >Proto Collection #zClass
 Rt0 TaskHistory Big #zClass
@@ -14,17 +14,15 @@ Rt0 @TextInP .responsibility .responsibility #zField
 Rt0 @GridStep f20 '' #zField
 Rt0 @StartRequest f0 '' #zField
 Rt0 @CallSub f30 '' #zField
-Rt0 @Alternative f33 '' #zField
 Rt0 @GridStep f38 '' #zField
 Rt0 @PushWFArc f39 '' #zField
-Rt0 @PushWFArc f2 '' #zField
 Rt0 @CallSub f4 '' #zField
-Rt0 @PushWFArc f12 '' #zField
 Rt0 @RichDialog f6 '' #zField
 Rt0 @PushWFArc f16 '' #zField
 Rt0 @PushWFArc f3 '' #zField
 Rt0 @PushWFArc f10 '' #zField
 Rt0 @PushWFArc f7 '' #zField
+Rt0 @PushWFArc f1 '' #zField
 >Proto Rt0 Rt0 TaskHistory #zField
 Rt0 f20 actionDecl 'htmlwfui.Data out;
 ' #txt
@@ -191,18 +189,6 @@ Rt0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Rt0 f30 78 404 36 24 16 9 #rect
 Rt0 f30 @|CallSubIcon #fIcon
-Rt0 f33 type htmlwfui.Data #txt
-Rt0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>?</name>
-        <nameStyle>1
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Rt0 f33 82 210 28 28 19 -12 #rect
-Rt0 f33 @|AlternativeIcon #fIcon
 Rt0 f38 actionDecl 'htmlwfui.Data out;
 ' #txt
 Rt0 f38 actionTable 'out=in;
@@ -234,9 +220,6 @@ Rt0 f38 @|StepIcon #fIcon
 Rt0 f39 expr out #txt
 Rt0 f39 96 45 96 68 #arcP
 Rt0 f39 0 0.6514195840404282 0 0 #arcLabel
-Rt0 f2 expr in #txt
-Rt0 f2 outCond in.temp.caption=="my_tasks" #txt
-Rt0 f2 96 238 96 268 #arcP
 Rt0 f4 type htmlwfui.Data #txt
 Rt0 f4 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
 Rt0 f4 doCall true #txt
@@ -259,9 +242,6 @@ Rt0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Rt0 f4 78 148 36 24 20 -2 #rect
 Rt0 f4 @|CallSubIcon #fIcon
-Rt0 f12 expr out #txt
-Rt0 f12 96 172 96 210 #arcP
-Rt0 f12 0 0.442275988200965 0 0 #arcLabel
 Rt0 f6 targetWindow NEW:card: #txt
 Rt0 f6 targetDisplay TOP #txt
 Rt0 f6 richDialogId htmlwfui.TaskHistory #txt
@@ -301,6 +281,8 @@ Rt0 f10 96 292 96 332 #arcP
 Rt0 f7 expr out #txt
 Rt0 f7 96 92 96 148 #arcP
 Rt0 f7 0 0.4999999999999999 0 0 #arcLabel
+Rt0 f1 expr out #txt
+Rt0 f1 96 172 96 268 #arcP
 >Proto Rt0 .type htmlwfui.Data #txt
 >Proto Rt0 .processKind NORMAL #txt
 >Proto Rt0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -312,10 +294,6 @@ Rt0 f7 0 0.4999999999999999 0 0 #arcLabel
 >Proto Rt0 @|BIcon #fIcon
 Rt0 f0 mainOut f39 tail #connect
 Rt0 f39 head f38 mainIn #connect
-Rt0 f33 out f2 tail #connect
-Rt0 f2 head f20 mainIn #connect
-Rt0 f4 mainOut f12 tail #connect
-Rt0 f12 head f33 in #connect
 Rt0 f6 mainOut f16 tail #connect
 Rt0 f16 head f30 mainIn #connect
 Rt0 f30 mainOut f3 tail #connect
@@ -324,3 +302,5 @@ Rt0 f20 mainOut f10 tail #connect
 Rt0 f10 head f6 mainIn #connect
 Rt0 f38 mainOut f7 tail #connect
 Rt0 f7 head f4 mainIn #connect
+Rt0 f4 mainOut f1 tail #connect
+Rt0 f1 head f20 mainIn #connect

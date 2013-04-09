@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 15 13:27:01 CET 2013]
+[>Created: Tue Apr 09 16:37:13 CEST 2013]
 1270ADF72FF4AFF3 3.17 #module
 >Proto >Proto Collection #zClass
 Pt0 Processlist Big #zClass
@@ -23,19 +23,19 @@ Pt0 @PushWFArc f3 '' #zField
 Pt0 @PushWFArc f4 '' #zField
 Pt0 @PushWFArc f8 '' #zField
 >Proto Pt0 Pt0 Processlist #zField
-Pt0 f0 outLink ProcessStartList.ivp #txt
+Pt0 f0 outLink DefaultProcessStartListPage.ivp #txt
 Pt0 f0 type htmlwfui.Data #txt
 Pt0 f0 inParamDecl '<> param;' #txt
 Pt0 f0 actionDecl 'htmlwfui.Data out;
 ' #txt
 Pt0 f0 requestEnabled true #txt
 Pt0 f0 triggerEnabled false #txt
-Pt0 f0 callSignature ProcessStartList() #txt
+Pt0 f0 callSignature DefaultProcessStartListPage() #txt
 Pt0 f0 persist false #txt
 Pt0 f0 startName ProcessStartList #txt
 Pt0 f0 startDescription 'This is used to overwrite the default process start list.' #txt
 Pt0 f0 taskData '#
-#Fri Mar 15 13:26:59 CET 2013
+#Tue Apr 09 15:01:40 CEST 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -46,7 +46,7 @@ TaskTriggered.EXROL=Everybody
 .NAM=Start Processlist
 ' #txt
 Pt0 f0 caseData '#
-#Fri Mar 15 13:26:59 CET 2013
+#Tue Apr 09 15:01:40 CEST 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -86,8 +86,8 @@ engine.updateCurrentTask(taskUpdDef);
 Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>ProcessStartList</name>
-        <nameStyle>16,5,7,9
+        <name>DefaultProcessStartListPage</name>
+        <nameStyle>27,5,7,9
 </nameStyle>
         <desc>This start is used to overwrite the default process start list.
 Use /ivy/wf/processStartList to call it.
@@ -108,7 +108,7 @@ Pt0 f20 actionTable 'out=in;
 Pt0 f20 actionCode 'out.starts = ivy.session.getStartableProcessStarts();
 
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("1270ADF72FF4AFF3/ProcessStartList.ivp"));
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("1270ADF72FF4AFF3/DefaultProcessStartListPage.ivp"));
 
 r.getHttpServletRequest().getSession().removeAttribute("ch.ivy.wfui.redirectMsg");
 Object msg = r.getHttpServletRequest().getSession().getAttribute("ch.ivy.wfui.redirectMsg");

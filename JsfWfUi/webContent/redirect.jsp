@@ -30,21 +30,15 @@ String tmpMsg=ivy.html.get("in.temp.msg");
 <%
 	if(urlToStart.length()==0)
     {	
-		out.write("Nothing to start!");
-    }
-    else
-    {		
-	%>
-		<h1 style="font-size:14pt;font-weight:lighter;"><%=tmpMsg%></h1>
-		<br>	
-		<a style="font-size: 8pt;color: #333333;text-decoration: none;border: 0px;font-weight: bold;" href="<%=urlToStart%>"><%=ivy.cms.co("/htmlabels/clickHere")%></a>
-		<span id="back_links">	
+		//out.write("Nothing to start!");
+    }	
+%>
+	<h1 style="font-size:14pt;font-weight:lighter;"><%=tmpMsg%></h1>
+	<br>	
+	<span id="back_links">	
 		<br>		
-		<p><%=ivy.cms.co("/htmlabels/backTo")%> <a style="font-size: 8pt;color: #333333;text-decoration: none;border: 0px;font-weight: bold;" href='javascript:location.replace("<%=ivy.html.startref("127AE76143E89C91/HomePage.ivp")%>")'>&raquo; <%=ivy.cms.co("/navLabels/home")%></a>
-		</span>
-	<%
-    }
-    %>
+		<p><%=ivy.cms.co("/htmlabels/backTo")%> <a style="font-size: 8pt;color: #333333;text-decoration: none;border: 0px;font-weight: bold;" href='javascript:location.replace("<%=ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp")%>")'>&raquo; <%=ivy.cms.co("/navLabels/home")%></a>
+	</span>
 </div>
 	<div style="position: absolute; font-size:8pt;background-color:#F9F9F9;left: 0px; top: 97%; padding-top: 2px;padding-bottom: 1px;padding-left: 3px;padding-right: 3px;">	
 		<%@ page import="java.util.Date"%>

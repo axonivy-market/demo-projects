@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 14 11:18:56 CET 2013]
+[>Created: Tue Apr 09 15:05:49 CEST 2013]
 12E2EFDD83CB2D4C 3.17 #module
 >Proto >Proto Collection #zClass
 Ln0 Login Big #zClass
@@ -36,7 +36,7 @@ Ln0 f0 persist false #txt
 Ln0 f0 startName 'WF Login' #txt
 Ln0 f0 startDescription 'Login page' #txt
 Ln0 f0 taskData '#
-#Thu Mar 14 11:18:55 CET 2013
+#Tue Apr 09 14:59:38 CEST 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -45,7 +45,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Ln0 f0 caseData '#
-#Thu Mar 14 11:18:55 CET 2013
+#Tue Apr 09 14:59:38 CEST 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
