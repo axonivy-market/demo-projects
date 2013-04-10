@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed May 09 15:59:10 CEST 2012]
+[>Created: Wed Apr 10 12:46:23 CEST 2013]
 116A9BF16D47762C 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -900,8 +900,9 @@ import ch.ivyteam.ivy.workflow.ITask;
 
 out.broadcastedTaskIdentifiers.clear();
 out.broadcastedTaskIdentifiers.addAll(param.aWorkflowSystemEventParameter.getIdentifiers());
-
-Collections.sort(out.broadcastedTaskIdentifiers);
+List<Integer> identifiers = [];
+identifiers.addAll(out.broadcastedTaskIdentifiers);
+Collections.sort(identifiers);
 
 for (Number taskId: out.broadcastedTaskIdentifiers)
 {
@@ -2383,12 +2384,8 @@ Ts0 f33 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData 
 Ts0 f33 actionTable 'out=in;
 ' #txt
 Ts0 f33 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIIntegrationHelper;
-
-WorkflowUIIntegrationHelper.startFlowDisplayProcessStart(
-						ivy.session, 
-						ivy.var.xivy_workflow_ui_restricted_flowDisplayProcessStartLinkHREF,
-						panel,
-						panel.flowDisplayCardDisplay.getDisplayId());' #txt
+						
+WorkflowUIIntegrationHelper.startFlowDisplayProcessStart(ivy.session, panel, panel.flowDisplayCardDisplay.getDisplayId());' #txt
 Ts0 f33 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -2474,13 +2471,8 @@ Ts0 f180 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData
 Ts0 f180 actionTable 'out=in;
 ' #txt
 Ts0 f180 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIIntegrationHelper;
-
-out.operationSuccessful = 
-		WorkflowUIIntegrationHelper.startFlowDisplayProcessStart(
-																															ivy.session, 
-																															ivy.var.xivy_workflow_ui_restricted_flowDisplayProcessStartLinkHREF, 
-																															panel, 
-																															panel.flowDisplayCardDisplay.getDisplayId());' #txt
+																															
+out.operationSuccessful = WorkflowUIIntegrationHelper.startFlowDisplayProcessStart(ivy.session, panel, panel.flowDisplayCardDisplay.getDisplayId());' #txt
 Ts0 f180 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f180 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

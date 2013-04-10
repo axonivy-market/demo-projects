@@ -1,9 +1,8 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2010-09-09 18:37:53 | 4.1.1.31367 | 1.0
-~@RD_METHODCALL[_startProcess(String,ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel,ch.ivyteam.ivy.workflow.IProcessStart)]--->ch.ivyteam.ivy.process.ProcessStart:1327137DCDCE6676/12AF75B0A8B7AF5F
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1327137DCDCE6676/128B5701B5E5F4EF
+# 2013-04-10 09:40:26 | 5.0.0.42648 | 1.0
+~.userSessionHeaderRDC@RD_EVENT[showAboutRequested]--->ch.ivyteam.ivy.process.ProcessStart:1327137DCDCE6676/128B58FA131B870C
+~.userSessionHeaderRDC@RD_EVENT[showSettingsRequested]--->ch.ivyteam.ivy.process.ProcessStart:1327137DCDCE6676/12A15F94D8DE4145
+~.userSessionHeaderRDC@RD_EVENT[showWorkflowUIUserGuideRequested]--->ch.ivyteam.ivy.process.ProcessStart:1327137DCDCE6676/128B5907D879F086
 ~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:1327137DCDCE6676/128BA9DF91EA6F89
 ~@RD_METHODCALL[_windowClosingRequested()]--->ch.ivyteam.ivy.process.ProcessStart:1327137DCDCE6676/1296A857D1D694E4
-~.userSessionHeaderRDC@RD_EVENT[showSettingsRequested]--->ch.ivyteam.ivy.process.ProcessStart:1327137DCDCE6676/12A15F94D8DE4145
-~.userSessionHeaderRDC@RD_EVENT[showAboutRequested]--->ch.ivyteam.ivy.process.ProcessStart:1327137DCDCE6676/128B58FA131B870C
-~.userSessionHeaderRDC@RD_EVENT[showWorkflowUIUserGuideRequested]--->ch.ivyteam.ivy.process.ProcessStart:1327137DCDCE6676/128B5907D879F086
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1327137DCDCE6676/128B5701B5E5F4EF

@@ -446,6 +446,7 @@ public class WorkflowUIAccessPermissionHandler
     	//
         // team cases
     	List<IRole> userRoles = Ivy.session().getSessionUser().getRoles();
+    	ICase involvedCaseAsFirstObjectInGroup = null;
     	
         List<IGroup<ICase>> involvedCasesByRoleCategories = Ivy.session().findInvolvedCasesByRoleCategories(
                 userRoles, categoryFilter, categoryProperty,
@@ -455,12 +456,14 @@ public class WorkflowUIAccessPermissionHandler
         
         for (IGroup<ICase> involvedCasesByRoleCategory: involvedCasesByRoleCategories)
         {
-        	Ivy.log().debug("Analyzing the involved cases by case category {0}; category: {1}, process: {2}, type: {3}, subtype: {4}.",
+        	involvedCaseAsFirstObjectInGroup = involvedCasesByRoleCategory.getFirstObjectInGroup();
+        	
+        	Ivy.log().debug("Found involved case by case category {0}; category: {1}, process: {2}, type: {3}, subtype: {4}.",
         			categoryProperty,
-        			involvedCasesByRoleCategory.getFirstObjectInGroup().getProcessCategoryName(),
-        			involvedCasesByRoleCategory.getFirstObjectInGroup().getProcessName(),
-        			involvedCasesByRoleCategory.getFirstObjectInGroup().getTypeName(),
-        			involvedCasesByRoleCategory.getFirstObjectInGroup().getSubTypeName());
+        			involvedCaseAsFirstObjectInGroup.getProcessCategoryName(),
+        			involvedCaseAsFirstObjectInGroup.getProcessName(),
+        			involvedCaseAsFirstObjectInGroup.getTypeName(),
+        			involvedCaseAsFirstObjectInGroup.getSubTypeName());
         }
         
         // get the managed teams of the user
@@ -488,21 +491,28 @@ public class WorkflowUIAccessPermissionHandler
           Set<IGroup<ICase>> involvedCasesByRoleCategoriesLinkedHashSet = new LinkedHashSet<IGroup<ICase>>(); 
           // keeps the order          
           involvedCasesByRoleCategoriesLinkedHashSet.addAll(involvedCasesByRoleCategories);
+          
+          ICase managedTeamsCaseFirstObjectInGroup = null;
 
           // add only no existing group
           for (IGroup<ICase> managedTeamsCaseGroup : managedTeamsCaseCategories)
           {
+        	  managedTeamsCaseFirstObjectInGroup = managedTeamsCaseGroup.getFirstObjectInGroup();
+        		  
             Ivy.log().debug("Analyzing the managed teams category IGroup<ICase>; category: {0}, process: {1}, type: {2}, subtype: {3}.",
-                    managedTeamsCaseGroup.getFirstObjectInGroup().getProcessCategoryName(),
-                    managedTeamsCaseGroup.getFirstObjectInGroup().getProcessName(),
-                    managedTeamsCaseGroup.getFirstObjectInGroup().getTypeName(),
-                    managedTeamsCaseGroup.getFirstObjectInGroup().getSubTypeName());
+            		managedTeamsCaseFirstObjectInGroup.getProcessCategoryName(),
+            		managedTeamsCaseFirstObjectInGroup.getProcessName(),
+            		managedTeamsCaseFirstObjectInGroup.getTypeName(),
+            		managedTeamsCaseFirstObjectInGroup.getSubTypeName());
 
             // add only no existing IGroup<ICase> here
             // found the team manager group in the list of involved cases by role categories
             // if not found, add it to the list of involved cases by role categories
             if (!containsCaseGroupBasedOnCaseCategory(involvedCasesByRoleCategories, managedTeamsCaseGroup, categoryProperty))
             {
+            	Ivy.log().debug("Adding to the hash set the {0} - {1}.", 
+            			managedTeamsCaseFirstObjectInGroup.getIdentifier(), 
+            			managedTeamsCaseFirstObjectInGroup.getName());
             	involvedCasesByRoleCategoriesLinkedHashSet.add(managedTeamsCaseGroup);
             }
 
@@ -614,8 +624,10 @@ public class WorkflowUIAccessPermissionHandler
           {
             ICase firstCaseInGroup = null;
             ICase caseToFind = caseGroupToFind.getFirstObjectInGroup();
-            Ivy.log().debug("Case to find {0} {1} - {2}.", 
-            		caseToFind, caseToFind.getIdentifier(), caseToFind.getName());
+            Boolean found = false;
+            
+            Ivy.log().debug("Case to find {0}-{1} based on case property {2}.", 
+            		caseToFind.getIdentifier(), caseToFind.getName(), categoryProperty);
 
             for (IGroup<ICase> currentCaseGroup : caseGroups)
             {            	
@@ -624,48 +636,56 @@ public class WorkflowUIAccessPermissionHandler
               Ivy.log().debug("First case in group {0} {1} - {2}.", 
             		  firstCaseInGroup, firstCaseInGroup.getIdentifier(), firstCaseInGroup.getName());              
 
-              // compare based on PROCESS_CATEGORY_CODE
               if (categoryProperty.compareTo(CaseProperty.PROCESS_CATEGORY_CODE) == 0)
-            	  return (firstCaseInGroup.getProcessCategoryCode() == null? "": firstCaseInGroup.getProcessCategoryCode()).equals(
+              {
+            	  found = (firstCaseInGroup.getProcessCategoryCode() == null? "": firstCaseInGroup.getProcessCategoryCode()).equals(
             			  caseToFind.getProcessCategoryCode() == null? "": caseToFind.getProcessCategoryCode());
-
-              // compare based on PROCESS_CODE
-              if (categoryProperty.compareTo(CaseProperty.PROCESS_CODE) == 0) 
-            		  return (firstCaseInGroup.getProcessCode() == null? "": firstCaseInGroup.getProcessCode()).equals(
-            				  caseToFind.getProcessCode() == null? "": firstCaseInGroup.getProcessCode());
-
-
-              // compare based on TYPE_CODE
-              if (categoryProperty.compareTo(CaseProperty.TYPE_CODE) == 0)
-                      return (firstCaseInGroup.getTypeCode() == null? "": firstCaseInGroup.getTypeCode()).equals(
-                    		  caseToFind.getTypeCode() == null? "": caseToFind.getTypeCode());
-
-
-              // compare based on SUB_TYPE_CODE
-              if (categoryProperty.compareTo(CaseProperty.SUB_TYPE_CODE) == 0)
-                      return (firstCaseInGroup.getSubTypeCode() == null? "": firstCaseInGroup.getSubTypeCode()).equals(
-                    		  caseToFind.getSubTypeCode() == null? "": caseToFind.getSubTypeCode());
-
+            	  Ivy.log().debug("{0} are {1}.", categoryProperty, (found? "same": "different"));
+            	  
+              }else if (categoryProperty.compareTo(CaseProperty.PROCESS_CODE) == 0)
+              {
+        		  found = (firstCaseInGroup.getProcessCode() == null? "": firstCaseInGroup.getProcessCode()).equals(
+        				  caseToFind.getProcessCode() == null? "": caseToFind.getProcessCode());
+        		  Ivy.log().debug("{0} are {1}.", categoryProperty, (found? "same": "different"));
+        		  
+              }else if (categoryProperty.compareTo(CaseProperty.TYPE_CODE) == 0)
+              {
+            	  found =  (firstCaseInGroup.getTypeCode() == null? "": firstCaseInGroup.getTypeCode()).equals(
+                		  caseToFind.getTypeCode() == null? "": caseToFind.getTypeCode());
+            	  Ivy.log().debug("{0} are {1}.", categoryProperty, (found? "same": "different"));
+            	  
+              }else if (categoryProperty.compareTo(CaseProperty.SUB_TYPE_CODE) == 0)
+              {
+                  found = (firstCaseInGroup.getSubTypeCode() == null? "": firstCaseInGroup.getSubTypeCode()).equals(
+                		  caseToFind.getSubTypeCode() == null? "": caseToFind.getSubTypeCode());
+                  Ivy.log().debug("{0} are {1}.", categoryProperty, (found? "same": "different"));
+                  
+              }else if (categoryProperty.compareTo(CaseProperty.BUSINESS_MAIN_CONTACT_ID) == 0)
+              {
+                  found = (firstCaseInGroup.getBusinessMainContactId() == null? new Integer(-1): firstCaseInGroup.getBusinessMainContactId()).equals(
+                          caseToFind.getBusinessMainContactId() == null? new Integer(-1): caseToFind.getBusinessMainContactId());
+                  Ivy.log().debug("{0} are {1}.", categoryProperty, (found? "same": "different"));
+                  
+              }else if (categoryProperty.compareTo(CaseProperty.BUSINESS_START_TIMESTAMP) == 0)
+              {
+                  found =  (firstCaseInGroup.getBusinessStartTimestamp() == null? new GregorianCalendar(1900,1,1).getTime(): firstCaseInGroup.getBusinessStartTimestamp()).equals(
+                          caseToFind.getBusinessStartTimestamp() == null? new GregorianCalendar(1900,1,1).getTime(): caseToFind.getBusinessStartTimestamp());
+                  Ivy.log().debug("{0} are {1}.", categoryProperty, (found? "same": "different"));
+                  
+              }else if (categoryProperty.compareTo(CaseProperty.BUSINESS_CREATOR_USER) == 0)
+              {
+                  found = (firstCaseInGroup.getBusinessCreatorUser() == null? "": firstCaseInGroup.getBusinessCreatorUser()).equals(
+                          caseToFind.getBusinessCreatorUser() == null? "": caseToFind.getBusinessCreatorUser());
+                  Ivy.log().debug("{0} are {1}.", categoryProperty, (found? "same": "different"));
+              }
               
-              // compare based on BUSINESS_MAIN_CONTACT_ID
-              if (categoryProperty.compareTo(CaseProperty.BUSINESS_MAIN_CONTACT_ID) == 0)
-                      return (firstCaseInGroup.getBusinessMainContactId() == null? new Integer(-1): firstCaseInGroup.getBusinessMainContactId()).equals(
-                              caseToFind.getBusinessMainContactId() == null? new Integer(-1): caseToFind.getBusinessMainContactId());
-
-              
-              // compare based on BUSINESS_START_TIMESTAMP
-              if (categoryProperty.compareTo(CaseProperty.BUSINESS_START_TIMESTAMP) == 0)
-                      return (firstCaseInGroup.getBusinessStartTimestamp() == null? new GregorianCalendar(1900,1,1).getTime(): firstCaseInGroup.getBusinessStartTimestamp()).equals(
-                              caseToFind.getBusinessStartTimestamp() == null? new GregorianCalendar(1900,1,1).getTime(): caseToFind.getBusinessStartTimestamp());
-
-              
-              // compare based on BUSINESS_CREATOR_USER
-              if (categoryProperty.compareTo(CaseProperty.BUSINESS_CREATOR_USER) == 0)
-                      return (firstCaseInGroup.getBusinessCreatorUser() == null? "": firstCaseInGroup.getBusinessCreatorUser()).equals(
-                              caseToFind.getBusinessCreatorUser() == null? "": caseToFind.getBusinessCreatorUser());
+              if (found)
+              {
+            	  break;
+              }
             }
 
-            return false;
+            return found;
           }
         });
 

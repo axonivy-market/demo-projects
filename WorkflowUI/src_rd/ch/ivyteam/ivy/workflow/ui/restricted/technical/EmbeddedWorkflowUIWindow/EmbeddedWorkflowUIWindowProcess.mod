@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Nov 25 16:28:18 CET 2011]
+[>Created: Mon Sep 24 17:11:39 CEST 2012]
 13271335CD7B681D 3.17 #module
 >Proto >Proto Collection #zClass
 Ws0 EmbeddedWorkflowUIWindowProcess Big #zClass
@@ -94,26 +94,9 @@ Ws0 f16 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.EmbeddedWork
 ' #txt
 Ws0 f16 actionTable 'out=in;
 ' #txt
-Ws0 f16 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.DataCache;
-import ch.ivyteam.ivy.workflow.ui.utils.StartConfigurationCreator;
-import ch.ivyteam.ivy.workflow.IProcessStart;
+Ws0 f16 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIIntegrationHelper;
 
-
-try
-{
-	// custom "functions" tab, it could be multiple process starts comma separated
-	if(ivy.var.xivy_workflow_ui_functionsProcessStartLinkHREF.length() > 0)
-	{
-		List<IProcessStart> functionProcessStarts = DataCache.findFunctionProcessStarts(ivy.session, ivy.var.xivy_workflow_ui_functionsProcessStartLinkHREF);
-		// start the process starts
-		ivy.log.debug("Start function processes {0}.", functionProcessStarts);
-		StartConfigurationCreator.startMultipleProcesses(ivy.rd, panel.workflowUIWindowCenterDisplay.displayId, panel, functionProcessStarts);		
-	}
-}
-catch (Exception e)
-{
-	ivy.log.debug("Error during custom functions tab :{0}.", e.getMessage());
-}' #txt
+WorkflowUIIntegrationHelper.startFunctionProcessStarts(ivy.session, ivy.rd, panel, panel.workflowUIWindowCenterDisplay.displayId);' #txt
 Ws0 f16 type ch.ivyteam.ivy.workflow.ui.restricted.technical.EmbeddedWorkflowUIWindow.EmbeddedWorkflowUIWindowData #txt
 Ws0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

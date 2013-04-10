@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 28 10:56:53 CET 2013]
+[>Created: Wed Apr 10 09:59:02 CEST 2013]
 119A42FA47DC0EC8 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDisplayListProcess Big #zClass
@@ -160,7 +160,9 @@ order.add(new PropertyOrder(ch.ivyteam.ivy.workflow.CaseProperty.NAME));
 // WorkflowUIAccessPermissionHandler.findCases(IPropertyFilter<CaseProperty> filter, List<PropertyOrder<CaseProperty>> order, int startIndex, int count, Boolean returnAllCount, int caseDisplayMode, boolean runningCaseMode)
 casesList.clear();
 casesList.addAll(WorkflowUIAccessPermissionHandler.findCases(filter, order, startIndex, count, returnAllCount, in.caseDisplayMode, in.runningCaseMode));
-
+
+
+
 out.cases.clear();
 
 
@@ -174,7 +176,8 @@ for (ICase wfCase: casesList)
 	
 	out.cases.add(caseWrapper);
 }
-
+
+
 
 // inform the user about the found result
 out.footerMessage = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/common/plainStrings/found") + " " + 
@@ -368,19 +371,22 @@ Cs0 f24 actionCode 'import ch.ivyteam.ivy.workflow.ui.data.restricted.cases.ICas
 import ch.ivyteam.ivy.workflow.ui.cases.CaseDisplay.CaseDisplayPanel;
 import com.ulcjava.base.application.ULCComponent;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
-import ch.ivyteam.ivy.workflow.ICase;
+
+import ch.ivyteam.ivy.workflow.ICase;
 
 
 List<ULCComponent> componentsList = [];
 
 
-ICaseWrapper wfCaseWrapper  = panel.casesTable.getSelectedListEntry() as ICaseWrapper;
+ICaseWrapper wfCaseWrapper  = 
+panel.casesTable.getSelectedListEntry() as ICaseWrapper;
 out.selectedCase = wfCaseWrapper.wfCase;
 
 // do the loop and search for this 
 out.alreadyLoadedOnDisplay = false;
 
-componentsList.clear();
+
+componentsList.clear();
 componentsList.addAll(in.selectedDestinationDisplay.getComponents().toList());
 
 for (int i=0; i< componentsList.size(); i++)
@@ -565,7 +571,8 @@ import ch.ivyteam.ivy.workflow.ICase;
 try
 {
 	ICaseWrapper wfCaseWrapper = panel.casesTable.getSelectedListEntry() as ICaseWrapper;
-	ICase selectedCase = wfCaseWrapper.wfCase;		
+	ICase selectedCase = 
+wfCaseWrapper.wfCase;		
 		
 	selectedCase.destroy();
 	
@@ -651,7 +658,8 @@ else
 panel.informOnCaseButton.enabled = enabled;
 panel.informOnCaseOnSiblingTabMenuItem.enabled = panel.informOnCaseButton.enabled;
 
-
+
+
 //------------------
 // destroy the case
 // selectedCase.getState().equals(CaseState.CREATED) || selectedCase.getState().equals(CaseState.RUNNING);
@@ -1229,7 +1237,7 @@ Cs0 f53 @|RichDialogProcessEndIcon #fIcon
 Cs0 f83 expr out #txt
 Cs0 f83 1608 98 1608 286 #arcP
 Cs0 f83 0 0.3971437680678043 0 0 #arcLabel
-Cs0 f0 guid 13C80965305D4BDF #txt
+Cs0 f0 guid 13DF2F472A5CECE2 #txt
 Cs0 f0 type ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData #txt
 Cs0 f0 method start() #txt
 Cs0 f0 disableUIEvents true #txt
@@ -1238,7 +1246,6 @@ Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 Cs0 f0 outParameterDecl '<> result;
 ' #txt
-Cs0 f0 embeddedRdInitializations '* ' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -40,16 +40,6 @@
         </inputParameter>
     </method>
     <method>
-        <name>getDisplayId</name>
-        <description></description>
-        <outputParameter>
-            <name>aDisplayId</name>
-            <description></description>
-            <parameterType>String</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </outputParameter>
-    </method>
-    <method>
         <name>_maximizeDisplay</name>
         <description></description>
     </method>

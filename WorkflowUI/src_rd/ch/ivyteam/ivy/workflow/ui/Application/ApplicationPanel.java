@@ -29,8 +29,8 @@ private RCardDisplay westTopCardDisplay = null;
 private RCloseableTabbedDisplay centerTabbedDisplay = null;
 private RSplitPane applicationSplitPane = null;
 private RBorderLayoutPane taskListBorderLayoutPane = null;
-private RGridBagLayoutPane westGridBagLayoutPane = null;
 private RCardDisplay westBottomCardDisplay = null;
+private RSplitPane westSplitPane = null;
 /**
    * Create a new instance of ApplicationDynamicWayPanel
    */
@@ -98,7 +98,7 @@ private RSplitPane getApplicationSplitPane() {
 		applicationSplitPane.setName("applicationSplitPane");
 		applicationSplitPane.setStyleProperties("{/dividerLocation \"0.275\"/weightY \"1\"/weightX \"1\"}");
 		applicationSplitPane.setRightComponent(getTaskListBorderLayoutPane());
-		applicationSplitPane.setLeftComponent(getWestGridBagLayoutPane());
+		applicationSplitPane.setLeftComponent(getWestSplitPane());
 		applicationSplitPane.setResizeWeight(0.0);
 	}
 	return applicationSplitPane;
@@ -134,21 +134,6 @@ public void fire_loadRunningTaskDisplayList()
 }
 
 /**
- * This method initializes westGridBagLayoutPane	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane	
- */
-private RGridBagLayoutPane getWestGridBagLayoutPane() {
-	if (westGridBagLayoutPane == null) {
-		westGridBagLayoutPane = new RGridBagLayoutPane();
-		westGridBagLayoutPane.setName("westGridBagLayoutPane");
-		westGridBagLayoutPane.add(getWestTopCardDisplay(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		westGridBagLayoutPane.add(getWestBottomCardDisplay(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-	}
-	return westGridBagLayoutPane;
-}
-
-/**
  * This method initializes westBottonCardDisplay	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay	
@@ -161,6 +146,24 @@ private RCardDisplay getWestBottomCardDisplay() {
 		westBottomCardDisplay.setStyleProperties("{/weightY \"0.33\"/weightX \"1\"}");
 	}
 	return westBottomCardDisplay;
+}
+
+/**
+ * This method initializes westSplitPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RSplitPane	
+ */
+private RSplitPane getWestSplitPane()
+{
+  if (westSplitPane == null)
+  {
+    westSplitPane = new RSplitPane();
+    westSplitPane.setName("westSplitPane");
+    westSplitPane.setStyleProperties("{/orientation \"VERTICAL_SPLIT\"/dividerLocation \"0.66\"/insetsRight \"S\"}");
+    westSplitPane.setRightComponent(getWestBottomCardDisplay());
+    westSplitPane.setLeftComponent(getWestTopCardDisplay());
+  }
+  return westSplitPane;
 }
 
 }  //  @jve:decl-index=0:visual-constraint="10,10"

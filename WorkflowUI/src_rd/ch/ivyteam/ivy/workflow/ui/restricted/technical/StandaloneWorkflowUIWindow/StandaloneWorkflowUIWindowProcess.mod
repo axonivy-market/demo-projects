@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jun 04 10:52:25 CEST 2012]
+[>Created: Tue Apr 09 11:23:54 CEST 2013]
 1327137DCDCE6676 3.17 #module
 >Proto >Proto Collection #zClass
 Ws0 StandaloneWorkflowUIWindowProcess Big #zClass
@@ -57,9 +57,6 @@ Ws0 @RichDialogProcessEnd f45 '' #zField
 Ws0 @RichDialog f47 '' #zField
 Ws0 @PushWFArc f48 '' #zField
 Ws0 @PushWFArc f46 '' #zField
-Ws0 @RichDialogMethodStart f30 '' #zField
-Ws0 @RichDialogProcessEnd f49 '' #zField
-Ws0 @PushWFArc f50 '' #zField
 Ws0 @RichDialogProcessStep f52 '' #zField
 Ws0 @PushWFArc f53 '' #zField
 Ws0 @PushWFArc f51 '' #zField
@@ -225,35 +222,17 @@ Ws0 f16 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWo
 ' #txt
 Ws0 f16 actionTable 'out=in;
 ' #txt
-Ws0 f16 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.DataCache;
-import ch.ivyteam.ivy.workflow.ui.utils.StartConfigurationCreator;
-import ch.ivyteam.ivy.workflow.IProcessStart;
+Ws0 f16 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIIntegrationHelper;
 
-
-try
-{
-	// custom "functions" tab, it could be multiple process starts comma separated
-	if(ivy.var.xivy_workflow_ui_functionsProcessStartLinkHREF.length() > 0)
-	{
-		List<IProcessStart> functionProcessStarts = DataCache.findFunctionProcessStarts(ivy.session, ivy.var.xivy_workflow_ui_functionsProcessStartLinkHREF);
-		// start the process starts
-		ivy.log.debug("Start function processes {0}.", functionProcessStarts);
-		StartConfigurationCreator.startMultipleProcesses(ivy.rd, panel.workflowUIWindowCenterDisplay.displayId, panel, functionProcessStarts);		
-	}
-}
-catch (Exception e)
-{
-	ivy.log.debug("Error during custom functions tab :{0}.", e.getMessage());
-}' #txt
+WorkflowUIIntegrationHelper.startFunctionProcessStarts(ivy.session, ivy.rd,panel, panel.workflowUIWindowCenterDisplay.displayId);' #txt
 Ws0 f16 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
 Ws0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>loop on startable processes
-and find the one set on global variables
-functions</name>
-        <nameStyle>69,7,9
-9,0,7,9
+        <name>start functions (if defined)</name>
+        <nameStyle>6,7,9
+10,0,7,9
+12,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -583,67 +562,14 @@ Ws0 f48 expr out #txt
 Ws0 f48 1616 66 1616 156 #arcP
 Ws0 f46 expr out #txt
 Ws0 f46 1616 180 1616 278 #arcP
-Ws0 f30 guid 12AF75B0A8B7AF5F #txt
-Ws0 f30 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
-Ws0 f30 method _startProcess(String,ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel,ch.ivyteam.ivy.workflow.IProcessStart) #txt
-Ws0 f30 disableUIEvents false #txt
-Ws0 f30 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String displayId,ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel richDialogPanel,ch.ivyteam.ivy.workflow.IProcessStart processStart> param = methodEvent.getInputArguments();
-' #txt
-Ws0 f30 inActionCode 'import ch.ivyteam.ivy.workflow.ui.utils.StartConfigurationCreator;
-
-StartConfigurationCreator.startProcess(param.displayId, param.richDialogPanel, param.processStart);' #txt
-Ws0 f30 outParameterDecl '<> result;
-' #txt
-Ws0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>_startProcess(String,IRichDialogPanel,IProcessStart)</name>
-        <nameStyle>52,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ws0 f30 310 38 20 20 13 0 #rect
-Ws0 f30 @|RichDialogMethodStartIcon #fIcon
-Ws0 f49 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData #txt
-Ws0 f49 310 294 20 20 13 0 #rect
-Ws0 f49 @|RichDialogProcessEndIcon #fIcon
-Ws0 f50 expr out #txt
-Ws0 f50 320 58 320 294 #arcP
 Ws0 f52 actionDecl 'ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowUIWindow.StandaloneWorkflowUIWindowData out;
 ' #txt
 Ws0 f52 actionTable 'out=in;
 ' #txt
-Ws0 f52 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.DataCache;
-import ch.ivyteam.ivy.workflow.ui.utils.StartConfigurationCreator;
-import ch.ivyteam.ivy.richdialog.exec.ProcessStartConfiguration;
-import ch.ivyteam.ivy.workflow.IProcessStart;
+Ws0 f52 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIIntegrationHelper;
 
+WorkflowUIIntegrationHelper.startWebBannerProcessStart(ivy.session, panel, panel.workflowUIWindowNorthDisplay.displayId);
 
-try
-{	
-	out.webBannerProcessStartRequestPathFound = false;
-		// custom "web banner"
-	if (ivy.var.xivy_workflow_ui_webBannerProcessStartLinkHREF.length() > 0)
-	{
-		IProcessStart processStart = DataCache.findWebBannerProcessStart(ivy.session, ivy.var.xivy_workflow_ui_webBannerProcessStartLinkHREF);
-		out.webBannerProcessStartRequestPathFound = true;
-		ivy.log.debug("Searching for {0}; found process start request path {1} name {2}, starting of it...", 
-										ivy.var.xivy_workflow_ui_webBannerProcessStartLinkHREF,
-										#processStart is initialized? processStart.getRequestPath(): "not found", 
-										#processStart is initialized? processStart.getName(): "not found");
-										
-		if (#processStart is initialized)
-		{
-			StartConfigurationCreator.startProcess(panel.workflowUIWindowNorthDisplay.displayId, panel, processStart);
-		}
-	}
-}
-catch (Exception e)
-{
-	ivy.log.debug("Error during custom functions tab / custom web banner :{0}.", e.getMessage());
-}
 
 
 
@@ -652,11 +578,10 @@ Ws0 f52 type ch.ivyteam.ivy.workflow.ui.restricted.technical.StandaloneWorkflowU
 Ws0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>loop on startable processes
-and find the one set on global variables:
-banner</name>
-        <nameStyle>70,7,9
-6,0,7,9
+        <name>start custom banner (if defined)</name>
+        <nameStyle>5,7,9
+15,0,7,9
+12,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -816,8 +741,6 @@ Ws0 f26 mainOut f48 tail #connect
 Ws0 f48 head f47 mainIn #connect
 Ws0 f47 mainOut f46 tail #connect
 Ws0 f46 head f45 mainIn #connect
-Ws0 f30 mainOut f50 tail #connect
-Ws0 f50 head f49 mainIn #connect
 Ws0 f16 mainOut f53 tail #connect
 Ws0 f53 head f52 mainIn #connect
 Ws0 f52 mainOut f51 tail #connect

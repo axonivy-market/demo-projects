@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Apr 02 14:21:42 CEST 2012]
+[>Created: Wed Apr 10 09:59:40 CEST 2013]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -32,9 +32,6 @@ Ts0 @RichDialogProcessStep f49 '' #zField
 Ts0 @Alternative f12 '' #zField
 Ts0 @PushWFArc f57 '' #zField
 Ts0 @RichDialogProcessStep f21 '' #zField
-Ts0 @RichDialogMethodStart f20 '' #zField
-Ts0 @RichDialogProcessEnd f59 '' #zField
-Ts0 @PushWFArc f61 '' #zField
 Ts0 @RichDialogProcessEnd f37 '' #zField
 Ts0 @RichDialogProcessStep f65 '' #zField
 Ts0 @Alternative f67 '' #zField
@@ -590,7 +587,7 @@ for (ITask wfTask: result)
 	wfTaskWrapper.setStartTimestamp(wfTask.getStartTimestamp());	
 	wfTaskWrapper.setDelayTimestamp(wfTask.getDelayTimestamp());
 	
-	wfTaskWrapper.priority = 3 - wfTask.getPriority().intValue();
+	wfTaskWrapper.priority = wfTask.getPriority();
 	wfTaskWrapper.setState(wfTask.getState());
 	
 	out.tasks.add(wfTaskWrapper);
@@ -709,33 +706,6 @@ register System events of Workflow category</name>
 ' #txt
 Ts0 f21 62 140 36 24 20 -2 #rect
 Ts0 f21 @|RichDialogProcessStepIcon #fIcon
-Ts0 f20 guid 1189D75281BC256E #txt
-Ts0 f20 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f20 method getDisplayId() #txt
-Ts0 f20 disableUIEvents false #txt
-Ts0 f20 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ts0 f20 outParameterDecl '<java.lang.String aDisplayId> result;
-' #txt
-Ts0 f20 outParameterMapAction 'result.aDisplayId=in.displayId;
-' #txt
-Ts0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>getDisplayId()</name>
-        <nameStyle>14,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f20 430 566 20 20 13 0 #rect
-Ts0 f20 @|RichDialogMethodStartIcon #fIcon
-Ts0 f59 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
-Ts0 f59 427 747 26 26 14 0 #rect
-Ts0 f59 @|RichDialogProcessEndIcon #fIcon
-Ts0 f61 expr out #txt
-Ts0 f61 440 586 440 747 #arcP
 Ts0 f37 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData #txt
 Ts0 f37 3683 139 26 26 14 0 #rect
 Ts0 f37 @|RichDialogProcessEndIcon #fIcon
@@ -4666,8 +4636,6 @@ panel.automaticTasksExecutionToggleButton.selected=in.automaticTasksExecutionMod
 >Proto Ts0 '' #fIcon
 Ts0 f33 mainOut f57 tail #connect
 Ts0 f57 head f12 in #connect
-Ts0 f20 mainOut f61 tail #connect
-Ts0 f61 head f59 mainIn #connect
 Ts0 f80 head f79 mainIn #connect
 Ts0 f79 mainOut f71 tail #connect
 Ts0 f71 head f29 mainIn #connect

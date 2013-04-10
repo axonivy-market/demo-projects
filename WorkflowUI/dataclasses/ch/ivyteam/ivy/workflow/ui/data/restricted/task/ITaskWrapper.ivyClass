@@ -8,7 +8,7 @@ expiryTimestamp java.util.Date #field
 delayTimestamp java.util.Date #field
 caseBusinessStartTimestamp java.util.Date #field
 caseBusinessMilestoneTimestamp java.util.Date #field
-priority int #field
+priority ch.ivyteam.ivy.workflow.WorkflowPriority #field
 priority 'Task priority where EXCEPTION=3, HIGH=2, NORMAL=1, LOW=0. Needed for column sorting.' #fieldComment
 state ch.ivyteam.ivy.workflow.TaskState #field
 state 'Task state' #fieldComment
