@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 15 08:19:47 CET 2013]
+[>Created: Thu Apr 11 09:37:34 CEST 2013]
 13BDCA5090CA1E7B 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MailNotificationSettingProcess Big #zClass
@@ -53,7 +53,7 @@ Ms0 f1 @|RichDialogProcessEndIcon #fIcon
 Ms0 f3 actionDecl 'htmlwfui.MailNotificationSetting.MailNotificationSettingData out;
 ' #txt
 Ms0 f3 actionTable 'out=in;
-out.temp.url=ivy.html.startref("127AE76143E89C91/HomePage.ivp");
+out.temp.url=ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp");
 ' #txt
 Ms0 f3 actionCode 'import java.util.Locale;
 import ch.ivyteam.ivy.security.IEMailNotificationSettings;

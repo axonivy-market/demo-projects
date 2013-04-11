@@ -24,9 +24,9 @@
 		</div>
 		<div id="LeftNavigation" >
 
-			<a href='<%=ivy.html.startref("127AE76143E89C91/HomePage.ivp")%>'><%=ivy.cms.co("/navLabels/home")%></a><br><br> 
-			<a href='<%=ivy.html.startref("1270ADF72FF4AFF3/ProcessStartList.ivp")%>'><%=ivy.cms.co("/navLabels/processList")%></a> <br><br>
-			<a href='<%=ivy.html.startref("125016DE17A534EB/TaskList.ivp")%>'><%=ivy.cms.co("/navLabels/taskList")%></a><br><br>
+			<a href='<%=ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp")%>'><%=ivy.cms.co("/navLabels/home")%></a><br><br> 
+			<a href='<%=ivy.html.startref("1270ADF72FF4AFF3/DefaultProcessStartListPage.ivp")%>'><%=ivy.cms.co("/navLabels/processList")%></a> <br><br>
+			<a href='<%=ivy.html.startref("125016DE17A534EB/DefaultTaskListPage.ivp")%>'><%=ivy.cms.co("/navLabels/taskList")%></a><br><br>
 			<hr>
 			<a href='<%=ivy.html.startref("12C97DB1B1EA5971/CaseList.ivp")%>'><%=ivy.cms.co("/navLabels/caseHistory")%></a><br><br>
 			<a href='<%=ivy.html.startref("12E297F287736665/TaskHistory.ivp")%>'><%=ivy.cms.co("/navLabels/taskHistory")%></a><br><br>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 09 15:05:49 CEST 2013]
+[>Created: Thu Apr 11 09:36:32 CEST 2013]
 13CCE56647090F82 3.17 #module
 >Proto >Proto Collection #zClass
 Mn0 MailNotification Big #zClass
@@ -148,7 +148,7 @@ Mn0 f14 @|EndRequestIcon #fIcon
 Mn0 f3 actionDecl 'htmlwfui.Data out;
 ' #txt
 Mn0 f3 actionTable 'out=in;
-out.temp.url=ivy.html.startref("127AE76143E89C91/HomePage.ivp");
+out.temp.url=ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp");
 ' #txt
 Mn0 f3 type htmlwfui.Data #txt
 Mn0 f3 334 276 36 24 20 -2 #rect
