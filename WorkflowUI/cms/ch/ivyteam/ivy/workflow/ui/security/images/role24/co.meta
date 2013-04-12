@@ -1,2 +1,2 @@
-co: name={role24} description={} changed={2008-07-09 15:35:55 GMT} changedby={tirib} visualorder={0} guid={11B0876E8EF7DD76} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
-val: guid={11B0876E8FEE4C9F} datatype={} isdefault={true} langid={en} description={} validfrom={2007-12-12 12:19:43 GMT} validto={} changed={2008-07-09 15:35:55 GMT} changedby={tirib} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@170953} id={}
+co: name={role24} description={} changed={2013-04-11 16:28:21 CEST} changedby={tirib} visualorder={0} guid={11B0876E8EF7DD76} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+val: guid={11B0876E8FEE4C9F} datatype={} isdefault={true} langid={en} description={} validfrom={2007-12-12 13:19:43 CET} validto={} changed={2013-04-11 16:28:21 CEST} changedby={tirib} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@170953} id={}

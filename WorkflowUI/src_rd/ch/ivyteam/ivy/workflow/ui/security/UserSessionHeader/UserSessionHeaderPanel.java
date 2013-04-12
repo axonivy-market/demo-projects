@@ -42,7 +42,7 @@ private RHyperlink userHyperlink = null;
   {
         RFiller horizontalFiller = new RFiller();
         horizontalFiller.setStyleProperties("{/weightX \"1\"}");
-        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(102,40));
+        this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(108,40));
         this.setBackground(Color.white);
         this.setPreferredSize(new com.ulcjava.base.application.util.Dimension(160,34));
         this.add(getHelpHyperlink(), new com.ulcjava.base.application.GridBagConstraints(4, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
@@ -96,7 +96,7 @@ private RHyperlink getAboutHyperlink() {
 private RHyperlink getSettingsHyperlink() {
 	if (settingsHyperlink == null) {
 		settingsHyperlink = new RHyperlink();
-		settingsHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/administration/images/settings16\")%>");
+		settingsHyperlink.setIconUri("<%=ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/administration/images/settings24\")%>");
 		settingsHyperlink.setToolTipText("<%=ivy.cms.co(\"/ch/ivyteam/ivy/workflow/ui/administration/plainStrings/settingsShortDesc\")%>");
 		settingsHyperlink.setStyle("sessionHeaderHyperlink");
 		settingsHyperlink.setName("settingsHyperlink");
@@ -113,7 +113,7 @@ private RHyperlink getUserHyperlink() {
 	if (userHyperlink == null) {
 		userHyperlink = new RHyperlink();
 		userHyperlink.setStyle("sessionHeaderHyperlink");
-		userHyperlink.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/security/images/user16\") %>");
+		userHyperlink.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/security/images/user24\") %>");
 		userHyperlink.setVisible(false);
 		userHyperlink.setName("userHyperlink");
 	}

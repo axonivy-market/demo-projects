@@ -46,7 +46,7 @@ private RComboBox getTasksHierarchyLayoutComboBox() {
 		tasksHierarchyLayoutComboBox.setName("tasksHierarchyLayoutComboBox");
 		tasksHierarchyLayoutComboBox.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
 		tasksHierarchyLayoutComboBox.setPreferredSize(new com.ulcjava.base.application.util.Dimension(0,25));
-		tasksHierarchyLayoutComboBox.setModelConfiguration("{/result \"result=entry.shortDescription\"/version \"2.0\"/icon \"result=\\\"/ch/ivyteam/ivy/workflow/ui/task/images/tasksHierarchyLayout16\\\"\"/tooltip \"result=entry.longDescription\"/emptyTableText \"\"}");
+		tasksHierarchyLayoutComboBox.setModelConfiguration("{/result \"result=entry.shortDescription\"/version \"3.0\"/icon \"result=\\\"/ch/ivyteam/ivy/workflow/ui/task/images/tasksHierarchyLayout16\\\"\"/tooltip \"result=entry.longDescription\"/emptyTableText \"\"}");
 	}
 	return tasksHierarchyLayoutComboBox;
 }

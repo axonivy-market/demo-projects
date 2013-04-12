@@ -1,5 +1,5 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2013-04-10 09:59:39 | 5.0.0.42648 | 1.0
+# 2013-04-11 16:48:07 | 5.0.0.42648 | 1.0
 ~.automaticTasksExecutionToggleButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/128D46F6DFE11C93
 ~.delegateTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE5EA710FB1B8
 ~.delegateTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE5EA710FB1B8

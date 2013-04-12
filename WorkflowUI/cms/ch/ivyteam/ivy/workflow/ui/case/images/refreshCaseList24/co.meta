@@ -1,2 +1,2 @@
-co: name={refreshCaseList24} description={} changed={2008-07-01 11:44:00 GMT} changedby={tirib} visualorder={0} guid={011ADE6FB4AB7429} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
-val: guid={11ADE6FB4BBC4B5B} datatype={} isdefault={true} langid={en} description={} validfrom={2008-05-21 01:23:32 GMT} validto={} changed={2008-07-01 11:44:00 GMT} changedby={tirib} properties={} id={}
+co: name={refreshCaseList24} description={} changed={2013-04-11 15:42:36 CEST} changedby={tirib} visualorder={0} guid={011ADE6FB4AB7429} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+val: guid={11ADE6FB4BBC4B5B} datatype={} isdefault={true} langid={en} description={} validfrom={2008-05-21 03:23:32 CEST} validto={} changed={2013-04-11 15:42:36 CEST} changedby={tirib} properties={} id={}

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Apr 10 09:59:40 CEST 2013]
+[>Created: Thu Apr 11 16:48:11 CEST 2013]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -2732,7 +2732,9 @@ Ts0 f226 actionTable 'out=in;
 Ts0 f226 actionCode 'import java.util.Collections;
 
 out.broadcastedTaskIdentifiers = param.aWorkflowSystemEventParameter.getIdentifiers();
-Collections.sort(out.broadcastedTaskIdentifiers);
+List<Integer> identifiers;
+identifiers.addAll(out.broadcastedTaskIdentifiers);
+Collections.sort(identifiers);
 
 ivy.log.debug("Task display list recieved tasks that has state changed {0}",
 							out.broadcastedTaskIdentifiers);' #txt

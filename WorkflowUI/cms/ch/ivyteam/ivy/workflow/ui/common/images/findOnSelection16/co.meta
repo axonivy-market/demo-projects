@@ -1,2 +1,2 @@
-co: name={findOnSelection16} description={} changed={2008-06-09 11:14:21 GMT} changedby={tirib} visualorder={0} guid={11A6D0724ACD96F2} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
-val: guid={11A6D0724BB50998} datatype={} isdefault={true} langid={en} description={} validfrom={2008-06-09 11:12:42 GMT} validto={} changed={2008-06-09 11:13:45 GMT} changedby={tirib} properties={} id={}
+co: name={findOnSelection16} description={} changed={2013-04-11 16:31:08 CEST} changedby={tirib} visualorder={0} guid={11A6D0724ACD96F2} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+val: guid={11A6D0724BB50998} datatype={} isdefault={true} langid={en} description={} validfrom={2008-06-09 13:12:42 CEST} validto={} changed={2013-04-11 16:31:08 CEST} changedby={tirib} properties={} id={}
