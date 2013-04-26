@@ -1,0 +1,11 @@
+Shows how to upload folder from the client to the server. This demo, the folder will be compress and upload to server. After uploading, the compressed file will be decompressed.
+
+This  ivy extension handles:
+     - User can upload any file size.
+     - The java heap space to avoid the "OutOfMemory" exception. 
+     - User can get progress of uploading.
+     - User can cancel the upload process.
+     - Speed of uploading will be ajusted by connection quality.
+     - User can split package to upload by configuration.
+
+In this demo, when user clicks on Cancel button, the application will stop current task and removed file on temporary folder if needed.

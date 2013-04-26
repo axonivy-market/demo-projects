@@ -94,6 +94,8 @@ demoIds = [
 	"ch.ivyteam.ivy.demo.search.ListSearch/special",
 	"ch.ivyteam.ivy.demo.tabletree.FileBrowser",
 	"ch.ivyteam.ivy.demo.upload.ImageUpload",
+	"ch.ivyteam.ivy.demo.upload.FileUpload",
+	"ch.ivyteam.ivy.demo.upload.FolderUpload",
 	"ch.ivyteam.ivy.demo.dynamicrd.ContactDemo",
 	"ch.ivyteam.ivy.demo.table.CustomTableCellWidgets",
 	"ch.ivyteam.ivy.demo.table.TableWithExcelExport",
