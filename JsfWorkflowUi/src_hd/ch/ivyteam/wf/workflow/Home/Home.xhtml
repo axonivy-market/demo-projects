@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="/templates/Layout.xhtml">
+	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/home')}" />
+	<ui:define name="center">
+		<h:outputText value="#{ivy.cms.co('/labels/workflow/home/welcome')} #{ivy.session.getSessionUserName()}" style="font-weight:bold; position: relative; top: 12px; font-size:12pt;" />
+		<h:panelGrid columns="2" style="width: 100%;" border="0">
+	     	<p:menu id="info" header="Xpert.ivy Workflow Info" style="width: 100%; position: relative; top: -130px;">
+				<p:submenu label="Xpert.ivy Workflow Info">
+					<p:menuitem value="#{ivy.cms.co('/navLabels/taskList')}: #{data.tasks}"
+						url="" />
+					<p:menuitem value="#{ivy.cms.co('/navLabels/processList')}: #{data.processes}"
+						url="" />
+				</p:submenu>
+			</p:menu>
+			<h:panelGrid columns="1" style="width: 99%; text-align: right;">
+				<h:graphicImage library="ivy-cms" name="images/welcomeSmall" style="border:0pt" update="display" onclick="dlg.show()" alt="Xpert.ivy BPM Life Cycle" />
+			</h:panelGrid>
+		</h:panelGrid>
+			
+		<p:dialog id="dialog" header="Xpert.ivy BPM Life Cycle" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg" appendToBody="true">
+       		<h:panelGrid columns="1" id="display">
+           		<h:graphicImage library="ivy-cms" name="images/welcome" style="border:0pt" alt="Xpert.ivy BPM Life Cycle" />
+       		</h:panelGrid>
+   		</p:dialog>
+   	</ui:define>
+</ui:composition>
+</html>

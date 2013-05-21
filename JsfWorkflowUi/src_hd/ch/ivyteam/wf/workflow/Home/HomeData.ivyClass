@@ -1,0 +1,6 @@
+HomeData #class
+ch.ivyteam.wf.workflow.Home #namespace
+tasks String #field
+tasks PERSISTENT #fieldModifier
+processes String #field
+processes PERSISTENT #fieldModifier

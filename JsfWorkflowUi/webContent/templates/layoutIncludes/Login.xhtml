@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+<ui:composition> 
+	<p:messages showDetail="true" />
+	<br />
+	#{ivy.cms.co('/labels/template/login/description')}
+	<br />
+	<br />
+	<h:form id="loginForm">
+		<h:panelGrid columns="2">
+			<h:outputLabel for="username"
+				value="#{ivy.cms.co('/labels/template/login/username')}: " />
+			<p:inputText id="username" value="#{loginBean.username}" />
+			<h:outputLabel for="password"
+				value="#{ivy.cms.co('/labels/template/login/password')}: " />
+			<p:password id="password" value="#{loginBean.password}" />
+			<p:spacer height="50" />
+			<p:commandButton id="loginButton"
+				value="#{ivy.cms.co('/labels/template/login/login')}"
+				actionListener="#{loginBean.login}" update="@all" />
+		</h:panelGrid>
+	</h:form>
+</ui:composition>
+</h:body>
+</html>
