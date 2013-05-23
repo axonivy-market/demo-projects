@@ -12,25 +12,20 @@
 <ui:composition template="/templates/Layout.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/home')}" />
 	<ui:define name="center">
-		<h:outputText value="#{ivy.cms.co('/labels/workflow/home/welcome')} #{ivy.session.getSessionUserName()}" style="font-weight:bold; position: relative; top: 12px; font-size:12pt;" />
-		<h:panelGrid columns="2" style="width: 100%;" border="0">
-	     	<p:menu id="info" header="Xpert.ivy Workflow Info" style="width: 100%; position: relative; top: -130px;">
-				<p:submenu label="Xpert.ivy Workflow Info">
-					<p:menuitem value="#{ivy.cms.co('/navLabels/taskList')}: #{data.tasks}"
-						url="" />
-					<p:menuitem value="#{ivy.cms.co('/navLabels/processList')}: #{data.processes}"
-						url="" />
-				</p:submenu>
-			</p:menu>
-			<h:panelGrid columns="1" style="width: 99%; text-align: right;">
-				<h:graphicImage library="ivy-cms" name="images/welcomeSmall" style="border:0pt" update="display" onclick="dlg.show()" alt="Xpert.ivy BPM Life Cycle" />
-			</h:panelGrid>
-		</h:panelGrid>
+		<p:menu id="homeInfoPanel" header="Xpert.ivy Workflow Info" style="width:50%; margin-top: 13px;">
+			<p:submenu label="Xpert.ivy Workflow Info">
+				<p:menuitem value="#{ivy.cms.co('/navLabels/taskList')}: #{data.tasks}"
+					url="" />
+				<p:menuitem value="#{ivy.cms.co('/navLabels/processList')}: #{data.processes}"
+					url="" />
+			</p:submenu>
+		</p:menu>
+		<div style="position: absolute; right:5px;">
+			<h:graphicImage library="ivy-cms" name="images/welcomeSmall" onclick="dlg.show()" alt="Xpert.ivy BPM Life Cycle" />
+		</div>
 			
 		<p:dialog id="dialog" header="Xpert.ivy BPM Life Cycle" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg" appendToBody="true">
-       		<h:panelGrid columns="1" id="display">
-           		<h:graphicImage library="ivy-cms" name="images/welcome" style="border:0pt" alt="Xpert.ivy BPM Life Cycle" />
-       		</h:panelGrid>
+           	<h:graphicImage library="ivy-cms" name="images/welcome" alt="Xpert.ivy BPM Life Cycle" />
    		</p:dialog>
    	</ui:define>
 </ui:composition>

@@ -37,5 +37,10 @@ public class LoginBean {
 			FacesContext.getCurrentInstance().addMessage(
 					null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed", ""));
 		}
+		else
+		{
+              		FacesContext.getCurrentInstance().addMessage(
+                                        null, new FacesMessage(FacesMessage.SEVERITY_INFO, Ivy.cms().co("/labels/workflow/home/welcome"), username));
+		}
 	}
 }

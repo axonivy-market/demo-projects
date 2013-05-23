@@ -9,12 +9,12 @@
 
 <h:body>
 <ui:composition> 
-    <div id="TopLogo" style="background-image:url(#{resource['ivy-cms:Project/XpertIvyHeaderBackground']}); background-repeat:repeat-x;">
+    <div id="layoutHeader">
 		<h:graphicImage library="ivy-cms" name="/Project/XpertIvyHeader" alt="Xpert.ivy" />
 		<c:if test="#{! ivy.wf.securityContext.currentSession.sessionUserUnknown}">
-			<div id="loggedInAs" style="font-weight:bold; position: absolute; bottom: 34px; right: 10px; color:#FFFFFF">
+			<div id="layoutHeaderLoggedInAs">
 				#{ivy.cms.co('/labels/template/header/loginAs')} #{ivy.session.getSessionUserName()} |
-				<a style="color:#FFFFFF" href="#{ivy.html.startref('13EACA2A989BCC3D/Logout.ivp')}">#{ivy.cms.co('/labels/template/header/logout')}</a>
+				<a href="#{ivy.html.startref('13EACA2A989BCC3D/Logout.ivp')}">#{ivy.cms.co('/labels/template/header/logout')}</a>
 			</div>
 		</c:if>
 	</div>

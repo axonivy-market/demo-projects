@@ -9,8 +9,9 @@
 
 <h:head>
 	<title>Xpert.ivy Workflow</title>
+	<h:outputStylesheet name="styles/Layout.css"/>
 </h:head>
-<h:body style="font-size: 9pt">
+<h:body>
 	<p:layout fullPage="true">
 		<p:layoutUnit id="headerLayoutUnit" position="north" size="140">
 			<ui:include src="layoutIncludes/Header.xhtml" />
@@ -28,11 +29,12 @@
 			</p:layoutUnit>
 			
 			<p:layoutUnit id="mainLayoutUnit" position="center" header="#{centerHeader}">
+				<p:messages showDetail="true" />
 				<ui:insert name="center" />
 			</p:layoutUnit>
 			
 			<p:layoutUnit id="footerLayoutUnit" position="south">
-				Powered by Xpert.Ivy Workflow Copyright &#169; ivyTeam
+				<div id="layoutFooter">Powered by Xpert.Ivy Workflow Copyright &#169; <a href="http://www.ivyteam.ch">ivyTeam AG</a></div>
 			</p:layoutUnit>
 		</c:if>
 	</p:layout>
