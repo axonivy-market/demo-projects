@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 08 15:10:24 CET 2013]
+[>Created: Mon May 27 13:33:25 CEST 2013]
 13CC953B3169B365 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListDetailsProcess Big #zClass
@@ -182,7 +182,7 @@ String taskId = "";
 task = in.data.tmpTask;
 taskId = "" + task.getId();
 
-in.data.temp.url = "/ivy/pro/"+task.getFullRequestPath()+"?taskId="+task.getId();' #txt
+in.data.temp.url = task.getFullRequestPath()+"?taskId="+task.getId();' #txt
 Ts0 f24 type htmlwfui.TaskListDetails.TaskListDetailsData #txt
 Ts0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

@@ -28,9 +28,9 @@
 				String startName = (start.getName() == null || start.getName().length()==0) ? start.getUserFriendlyRequestPath() : start.getName() ;
 	%>		
 			<tr class="<%=i%2 == 0 ? "oddRow" : "evenRow"%>">	
-			<td width="20" valign="middle"><a href="/ivy/pro/<%=start.getFullRequestPath()%>"><img src='<%=ivy.cms.cr("/images/start")%>' title='<%=ivy.cms.co("/labels/startProcess")%>'></a></td>
+			<td width="20" valign="middle"><a href="<%=request.getContextPath()%>/pro/<%=start.getFullRequestPath()%>"><img src='<%=ivy.cms.cr("/images/start")%>' title='<%=ivy.cms.co("/labels/startProcess")%>'></a></td>
 			<td width="920">
-				<table><tr><td><a href="/ivy/pro/<%=start.getFullRequestPath()%>" title='<%=ivy.cms.co("/labels/startProcess")%>'><b><%=startName%></b></a></td>
+				<table><tr><td><a href="<%=request.getContextPath()%>/pro/<%=start.getFullRequestPath()%>" title='<%=ivy.cms.co("/labels/startProcess")%>'><b><%=startName%></b></a></td>
 					</td></tr><tr><td><small><%=start.getDescription() %></small>
 				</td></tr></table>
 			</td>

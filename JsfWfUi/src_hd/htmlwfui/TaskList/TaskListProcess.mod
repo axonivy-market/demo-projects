@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 21 14:48:32 CET 2013]
+[>Created: Mon May 27 13:31:03 CEST 2013]
 13A988AE1F9BA634 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListProcess Big #zClass
@@ -66,7 +66,7 @@ for (int t=0; t<tasks.size(); t++)
 				taskDetail.start = task.getStartTimestamp();
 				taskDetail.state = task.getState().intValue();
 				taskDetail.stateName=task.getState().toString();
-				taskDetail.url = "/ivy/pro/"+task.getFullRequestPath()+"?taskId="+task.getId();
+				taskDetail.url = task.getFullRequestPath()+"?taskId="+task.getId();
 		
 				out.taskList.add(taskDetail);
 }' #txt

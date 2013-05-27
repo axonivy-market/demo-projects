@@ -43,7 +43,7 @@
 						<f:facet name="header">
 							<h:outputText value="#{ivy.cms.co('/labels/task')}" />
 						</f:facet>
-						<a href="#{task.url}" id="taskLinkRow_#{row}" title="#{ivy.cms.co('/labels/taskResume')} Task[#{task.id}]"><h:outputText value="#{task.name}" /></a>
+						<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.url}" id="taskLinkRow_#{row}" title="#{ivy.cms.co('/labels/taskResume')} Task[#{task.id}]"><h:outputText value="#{task.name}" /></a>
 					</p:column>
 					<p:column style="width:150px" sortBy="#{task.activator}">
 							<f:facet name="header">
@@ -61,7 +61,7 @@
 						<f:facet name="header">
 							<h:outputText value="Start" />
 						</f:facet>
-						<a href="#{task.url}"><h:graphicImage library="ivy-cms" name="images/start" alt="Start" style="border:0pt" title="#{ivy.cms.co('/labels/taskResume')} Task[#{task.id}]"/></a> 
+						<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.url}"><h:graphicImage library="ivy-cms" name="images/start" alt="Start" style="border:0pt" title="#{ivy.cms.co('/labels/taskResume')} Task[#{task.id}]"/></a> 
 					</p:column>
 				</p:dataTable>
 			</p:panel>

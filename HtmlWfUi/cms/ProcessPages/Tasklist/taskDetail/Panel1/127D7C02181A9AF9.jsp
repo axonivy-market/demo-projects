@@ -73,8 +73,7 @@
 		taskActivatorIsUser = task.getActivator() != null && task.getActivator().isUser();
 		taskCase = task.getCase().getName() +" - CaseId["+task.getCase().getId()+"]";
 		taskStartDate = task.getStartTimestamp() != null ? formatter.format(task.getStartTimestamp()) : "";
-		//taskStartUri = "/ivy/wf/start_redirect.jsp?startUrl=/ivy/pro/"+task.getFullRequestPath()+"?taskId="+taskId;
-		taskStartUri = ivy.html.ref("LinkE.ivp")+"&temp$url=/ivy/pro/"+task.getFullRequestPath()+"?taskId="+taskId;
+		taskStartUri = ivy.html.ref("LinkE.ivp")+"&temp$url="+task.getFullRequestPath()+"?taskId="+taskId;
 		taskExpDate = task.getExpiryTimestamp() != null ? formatter.format(task.getExpiryTimestamp()) : "";
 		taskDelayDate = task.getDelayTimestamp() != null ? formatter.format(task.getDelayTimestamp()) : "";
 		IWorkflowSession ivySession = (IWorkflowSession)ivy.html.getObject("in.wfSession");	

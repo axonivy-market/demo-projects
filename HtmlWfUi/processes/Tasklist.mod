@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Dec 20 14:42:14 CET 2012]
+[>Created: Mon May 27 13:29:33 CEST 2013]
 125016DE17A534EB 3.17 #module
 >Proto >Proto Collection #zClass
 Tt0 Tasklist Big #zClass
@@ -90,8 +90,7 @@ for (int t=0; t<tasks.size(); t++)
 				taskDetail.start = task.getStartTimestamp();
 				taskDetail.state = task.getState().intValue();
 				taskDetail.stateName=task.getState().toString();
-				taskDetail.url = "/ivy/pro/"+task.getFullRequestPath()+"?taskId="+task.getId();
-		
+				taskDetail.url = task.getFullRequestPath()+"?taskId="+task.getId();
 				out.taskList.add(taskDetail);
 }' #txt
 Tt0 f0 type htmlwfui.Data #txt
@@ -207,7 +206,7 @@ Tt0 f23 type htmlwfui.Data #txt
 Tt0 f23 skipLink skip.ivp #txt
 Tt0 f23 sortLink sort.ivp #txt
 Tt0 f23 templateWizard '#
-#Mon Dec 06 10:49:18 CET 2010
+#Mon May 27 13:29:32 CEST 2013
 ' #txt
 Tt0 f23 pageArchivingActivated false #txt
 Tt0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
