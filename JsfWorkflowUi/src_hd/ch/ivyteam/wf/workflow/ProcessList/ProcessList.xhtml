@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="/templates/Layout.xhtml">
+	<ui:param name="centerHeader"
+		value="#{ivy.cms.co('/navLabels/processList')}" />
+	<ui:define name="center">
+		<br />
+		#{ivy.cms.co('/labels/workflow/processList/description')}
+		<br /><br />
+		<h:form>
+		<p:dataTable var="start" value="#{data.starts}"
+			emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}">
+			<p:column sortBy="#{start.name}">
+				<f:facet name="header">
+					#{ivy.cms.co('/labels/name')}
+				</f:facet>
+				<a href="#{facesContext.externalContext.requestContextPath}/pro/#{start.fullRequestPath}">#{start.name}</a>
+				<br />
+				<h:outputText value="#{start.description}" style="font-size:8pt;" />
+			</p:column>
+		</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
