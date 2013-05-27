@@ -1,7 +1,7 @@
 <%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%>
 <jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/> 
 <%
-String urlToStart= request.getContextPath() + "/pro/"+ java.net.URLDecoder.decode(ivy.html.get("in.temp.url"), "UTF-8");
+String urlToStart= java.net.URLDecoder.decode(ivy.html.get("in.temp.url"), "UTF-8");
 String tmpMsg=ivy.html.get("in.temp.msg");
 %>
 <html>
