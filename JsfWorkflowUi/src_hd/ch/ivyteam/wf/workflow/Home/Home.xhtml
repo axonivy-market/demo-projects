@@ -14,9 +14,9 @@
 	<ui:define name="center">
 		<p:menu id="homeInfoPanel" header="Xpert.ivy Workflow Info" style="width:50%; margin-top: 13px;">
 			<p:submenu label="Xpert.ivy Workflow Info">
-				<p:menuitem value="#{ivy.cms.co('/navLabels/taskList')}: #{data.tasks}"
+				<p:menuitem id="taskListInfo" value="#{ivy.cms.co('/navLabels/taskList')}: #{data.tasks}"
 					url="" />
-				<p:menuitem value="#{ivy.cms.co('/navLabels/processList')}: #{data.processes}"
+				<p:menuitem id="processListInfo" value="#{ivy.cms.co('/navLabels/processList')}: #{data.processes}"
 					url="#{ivy.html.startref('13ED18655F6A1538/DefaultProcessStartListPage.ivp')}" />
 			</p:submenu>
 		</p:menu>

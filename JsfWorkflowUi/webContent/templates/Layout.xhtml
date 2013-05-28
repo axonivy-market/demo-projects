@@ -18,7 +18,7 @@
 		</p:layoutUnit>
 		
 		<c:if test="#{ivy.wf.securityContext.currentSession.sessionUserUnknown}">
-			<p:layoutUnit id="mainLayoutUnit" position="center" header="#{ivy.cms.co('/navLabels/login')}">
+			<p:layoutUnit id="mainLoginLayoutUnit" position="center" header="#{ivy.cms.co('/navLabels/login')}">
 				<ui:include src="layoutIncludes/Login.xhtml" />
 			</p:layoutUnit>
 		</c:if>

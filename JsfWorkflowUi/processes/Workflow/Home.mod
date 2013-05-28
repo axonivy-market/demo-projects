@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 21 08:42:20 CEST 2013]
+[>Created: Tue May 28 11:35:59 CEST 2013]
 13EACA2A989BCC3D 3.17 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -31,10 +31,10 @@ He0 f1 requestEnabled true #txt
 He0 f1 triggerEnabled false #txt
 He0 f1 callSignature DefaultApplicationHomePage() #txt
 He0 f1 persist false #txt
-He0 f1 startName 'WF Home' #txt
+He0 f1 startName 'Workflow Home' #txt
 He0 f1 startDescription 'Workflow UI Startpage' #txt
 He0 f1 taskData '#
-#Thu May 16 11:20:21 CEST 2013
+#Tue May 28 11:26:13 CEST 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -43,7 +43,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f1 caseData '#
-#Thu May 16 11:20:21 CEST 2013
+#Tue May 28 11:26:13 CEST 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
