@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pm="http://primefaces.org/mobile">
+      
+  <cc:interface componentType="IvyComponent">
+  	<cc:attribute 
+  		name="selectionListener" shortDescription="Method that will be invoked when a person is selected."
+  		method-signature="void action(org.primefaces.event.SelectEvent)" 
+  		required="true" />
+  	<cc:attribute 
+  		name="buttonClicked" shortDescription="Event that will be fired when the button below the table is cklicked."
+  		method-signature="void handleEvent(javax.faces.event.FacesEvent)" />
+  </cc:interface>
+  
+  <cc:implementation>
+    <p:dataTable value="#{data.persons}" var="person" style="margin-top:5px;"
+    	selectionMode="single" selection="#{data.selectedPerson}">
+    	
+    	<p:ajax event="rowSelect" update="@form" 
+    		listener="#{cc.attrs.selectionListener}" />  
+    		<!-- registers method from parent as actionListener -->
+    	
+    	<p:column headerText="Name">  
+            #{person.name}  
+        </p:column>
+        <p:column headerText="Firstname">  
+            #{person.firstname}  
+        </p:column>
+    </p:dataTable>
+    
+    <p:commandButton value="Fire event!" style="margin-top:10px;" 
+    	actionListener="#{cc.attrs.buttonClicked}" update="@form" />
+  </cc:implementation>
+  
+</html> 
