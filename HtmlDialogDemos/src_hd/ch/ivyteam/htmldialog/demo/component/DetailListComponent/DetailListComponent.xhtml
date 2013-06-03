@@ -12,8 +12,7 @@
       
   <cc:interface componentType="IvyComponent">
   	<cc:attribute 
-  		name="selectionListener" shortDescription="Method that will be invoked when a person is selected."
-  		method-signature="void action(org.primefaces.event.SelectEvent)" 
+  		name="callback" shortDescription="Method tableRowSelected will be invoked on the callback when a person is selected."
   		required="true" />
   	<cc:attribute 
   		name="buttonClicked" shortDescription="Event that will be fired when the button below the table is cklicked."
@@ -25,7 +24,7 @@
     	selectionMode="single" selection="#{data.selectedPerson}">
     	
     	<p:ajax event="rowSelect" update="@form" 
-    		listener="#{cc.attrs.selectionListener}" />  
+    		listener="#{cc.attrs.callback.tableRowSelected}" />  
     		<!-- registers method from parent as actionListener -->
     	
     	<p:column headerText="Name">  

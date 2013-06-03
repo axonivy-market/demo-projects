@@ -23,7 +23,7 @@
         	<p:fieldset legend="Component with callback method">
 	            <ic:ch.ivyteam.htmldialog.demo.component.DetailListComponent 
 	            	persons="#{data.persons}"
-	            	selectionListener="#{logic.tableRowSelected}"
+	            	callback="#{logic}"
 	            	buttonClicked="#{logic.componentButtonClicked}"
 	            />
             </p:fieldset>
