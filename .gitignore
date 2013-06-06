@@ -10,6 +10,8 @@ HtmlWfUi/src_dataClasses/*
 IvyDemos/classes
 IvyDemos/logs
 IvyDemos/src_dataClasses/*
+JsfWorkflowUi/classes/*
+JsfWorkflowUi/src_dataClasses/*
 WorkflowUI/classes
 WorkflowUI/classes/*
 WorkflowUI/logs
