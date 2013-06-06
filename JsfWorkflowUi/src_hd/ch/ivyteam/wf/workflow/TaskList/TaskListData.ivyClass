@@ -1,0 +1,24 @@
+TaskListData #class
+ch.ivyteam.wf.workflow.TaskList #namespace
+taskList List<ch.ivyteam.wf.TaskDetail> #field
+taskList PERSISTENT #fieldModifier
+tasks List<ch.ivyteam.ivy.workflow.ITask> #field
+tasks PERSISTENT #fieldModifier
+task ch.ivyteam.ivy.workflow.ITask #field
+task PERSISTENT #fieldModifier
+option String #field
+option PERSISTENT #fieldModifier
+taskId Number #field
+taskId PERSISTENT #fieldModifier
+delegateLink Boolean #field
+resetLink Boolean #field
+parkLink Boolean #field
+responsibleImage String #field
+priorityImage String #field
+stateImage String #field
+taskNotesTitel String #field
+caseNotesTitel String #field
+taskNotesList List<ch.ivyteam.ivy.workflow.INote> #field
+caseNotesList List<ch.ivyteam.ivy.workflow.INote> #field
+paginator Boolean #field
+paginator PERSISTENT #fieldModifier

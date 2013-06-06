@@ -18,10 +18,10 @@
 		<br /><br />
 		<h:form>
 		<p:dataTable var="start" value="#{data.starts}"
-			emptyMessage="#{ivy.cms.co('/labels/noItemsFound')}">
+			emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}">
 			<p:column sortBy="#{start.name}">
 				<f:facet name="header">
-					#{ivy.cms.co('/labels/name')}
+					#{ivy.cms.co('/labels/common/name')}
 				</f:facet>
 				<a href="#{facesContext.externalContext.requestContextPath}/pro/#{start.fullRequestPath}">#{start.name}</a>
 				<br />

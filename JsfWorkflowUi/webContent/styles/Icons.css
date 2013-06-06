@@ -1,0 +1,20 @@
+@CHARSET "ISO-8859-1";
+.wf-ui-icon-addNote
+{
+	background-image:url(#{resource['images/actions/note.png']}) !important;
+}
+
+.wf-ui-icon-delegate
+{
+	background-image:url(#{resource['images/actions/delegate.png']}) !important;
+}
+
+.wf-ui-icon-reset
+{
+	background-image:url(#{resource['images/actions/reset.png']}) !important;
+}
+
+.wf-ui-icon-park
+{
+	background-image:url(#{resource['images/actions/park.png']}) !important;
+}

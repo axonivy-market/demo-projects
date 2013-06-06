@@ -15,17 +15,17 @@
 		<p:menu id="homeInfoPanel" header="Xpert.ivy Workflow Info" style="width:50%; margin-top: 13px;">
 			<p:submenu label="Xpert.ivy Workflow Info">
 				<p:menuitem id="taskListInfo" value="#{ivy.cms.co('/navLabels/taskList')}: #{data.tasks}"
-					url="" />
+					url="#{ivy.html.startref('13EE5C9EAAA819C8/DefaultTaskListPage.ivp')}" />
 				<p:menuitem id="processListInfo" value="#{ivy.cms.co('/navLabels/processList')}: #{data.processes}"
 					url="#{ivy.html.startref('13ED18655F6A1538/DefaultProcessStartListPage.ivp')}" />
 			</p:submenu>
 		</p:menu>
 		<div style="position: absolute; right:5px;">
-			<h:graphicImage library="ivy-cms" name="images/welcomeSmall" onclick="dlg.show()" alt="Xpert.ivy BPM Life Cycle" />
+			<h:graphicImage name="images/others/welcomeSmall.png" onclick="dlg.show()" alt="Xpert.ivy BPM Life Cycle" />
 		</div>
 			
 		<p:dialog id="dialog" header="Xpert.ivy BPM Life Cycle" modal="true" showEffect="fade" hideEffect="fade" widgetVar="dlg" appendToBody="true">
-           	<h:graphicImage library="ivy-cms" name="images/welcome" alt="Xpert.ivy BPM Life Cycle" />
+           	<h:graphicImage name="images/others/welcome.png" alt="Xpert.ivy BPM Life Cycle" />
    		</p:dialog>
    	</ui:define>
 </ui:composition>
