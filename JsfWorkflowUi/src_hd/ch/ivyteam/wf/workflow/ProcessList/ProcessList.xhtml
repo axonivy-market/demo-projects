@@ -23,7 +23,7 @@
 				<f:facet name="header">
 					#{ivy.cms.co('/labels/common/name')}
 				</f:facet>
-				<a href="#{facesContext.externalContext.requestContextPath}/pro/#{start.fullRequestPath}">#{start.name}</a>
+				<a href="#{facesContext.externalContext.requestContextPath}/pro/#{start.fullRequestPath}" id="#{start.requestPath}">#{start.name}</a>
 				<br />
 				<h:outputText value="#{start.description}" style="font-size:8pt;" />
 			</p:column>
