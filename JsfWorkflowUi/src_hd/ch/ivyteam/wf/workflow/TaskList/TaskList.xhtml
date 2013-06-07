@@ -18,53 +18,55 @@
 		<br /><br />
 		<h:form id="taskListForm">
 			<p:growl id="growl" showDetail="true" />
-			<p:dataTable var="task" value="#{data.taskList}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.paginator}" paginatorPosition="bottom" rows="50">
+			<p:dataTable var="task" value="#{data.tasks}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.paginator}" paginatorPosition="bottom" rows="50">
 				<p:column style="width:2%">
 					<f:facet name="header">
 						#
 					</f:facet>
 					<h:commandLink id="buttonTaskDetail" title="Details Task [#{task.id}]" ajax="false">
-						<h:graphicImage name="images/actions/task#{task.hasNotes ? 'WithNote' : ''}.png" alt="task detail" />
+						<h:graphicImage name="images/actions/task#{task.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" />
 					</h:commandLink>
 				</p:column>
-				<p:column style="width:50px; text-align: center;" sortBy="#{task.prio}">
+				<p:column style="width:50px; text-align: center;" sortBy="#{task.priority.intValue()}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskPrio')}
 					</f:facet>
-					<h:graphicImage name="images/details/priority/#{task.prio}.png" alt="#{task.prio}" title="Prio #{task.prioName}" />
+					<h:graphicImage name="images/details/priority/#{task.priority.intValue()}.png" alt="prio" title="Prio #{task.priority}" />
 				</p:column>	
-				<p:column style="width:50px; text-align: center;" sortBy="#{task.state}">
+				<p:column style="width:50px; text-align: center;" sortBy="#{task.state.intValue()}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskState')}
 					</f:facet>
-					<h:graphicImage name="images/details/state/#{task.state}.png" alt="#{task.stateName}" title="#{ivy.cms.co('/labels/common/state')} #{task.stateName}" />
+					<h:graphicImage name="images/details/state/#{task.state.intValue()}.png" alt="#{task.state}" title="#{ivy.cms.co('/labels/common/state')} #{task.state}" />
 				</p:column>										
 				<p:column sortBy="#{task.name}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/task')}
 					</f:facet>
-					<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.url}" id="taskLinkRow_#{row}" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{task.id}]">#{task.name}</a>
+					<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}" id="taskLinkRow_#{row}" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{task.id}]">#{task.name}</a>
 				</p:column>
-				<p:column sortBy="#{task.activator}">
+				<p:column sortBy="#{task.activator.name}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
 					<p:outputPanel>
-						<h:graphicImage name="#{task.activatorIsUser ? 'images/details/user' : 'images/details/role'}.png" alt="#{task.activator}"/>
-						#{task.activator}
+						<h:graphicImage name="#{task.activator.isUser() ? 'images/details/user' : 'images/details/role'}.png" alt="#{task.activator}"/>
+						#{task.activator.name}
 					</p:outputPanel>
 				</p:column>
-				<p:column sortBy="#{task.start}">
+				<p:column sortBy="#{task.startTimestamp}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskStart')}
 					</f:facet>
-					#{task.start.format('short')}
+					<h:outputText value="#{task.startTimestamp}">  
+			            <f:convertDateTime dateStyle="short" type="both"/>  
+			        </h:outputText>
 				</p:column>
 				<p:column style="width:50px; text-align: center;">
 					<f:facet name="header">
 						Start
 					</f:facet>
-					<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.url}"><h:graphicImage name="images/actions/start.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{task.id}]" /></a> 
+					<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}"><h:graphicImage name="images/actions/start.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{task.id}]" /></a> 
 				</p:column>
 			</p:dataTable>
 		</h:form>

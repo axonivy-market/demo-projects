@@ -1,7 +1,5 @@
 TaskListData #class
 ch.ivyteam.wf.workflow.TaskList #namespace
-taskList List<ch.ivyteam.wf.TaskDetail> #field
-taskList PERSISTENT #fieldModifier
 tasks List<ch.ivyteam.ivy.workflow.ITask> #field
 tasks PERSISTENT #fieldModifier
 task ch.ivyteam.ivy.workflow.ITask #field

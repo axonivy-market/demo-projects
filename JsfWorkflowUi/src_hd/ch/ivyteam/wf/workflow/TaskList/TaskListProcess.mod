@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 06 15:57:55 CEST 2013]
+[>Created: Fri Jun 07 13:55:13 CEST 2013]
 13EE9A482A299A65 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListProcess Big #zClass
@@ -49,7 +49,8 @@ Ts0 f11 actionDecl 'ch.ivyteam.wf.workflow.TaskList.TaskListData out;
 ' #txt
 Ts0 f11 actionTable 'out=in;
 ' #txt
-Ts0 f11 actionCode 'import ch.ivyteam.wf.TaskDetail;
+Ts0 f11 actionCode 'import java.util.Collection;
+import java.util.ArrayList;
 import ch.ivyteam.ivy.security.ISecurityMember;
 import java.util.EnumSet;
 import ch.ivyteam.ivy.workflow.PropertyOrder;
@@ -65,33 +66,12 @@ IQueryResult queryResult  = ivy.session.findWorkTasks(null, PropertyOrder.create
 
 List<ITask> tasks = queryResult.getResultList();
 out.paginator = tasks.size() >= 50;
-out.tasks = tasks;
-for (int t=0; t<tasks.size(); t++)
-{
-				ITask task = tasks.get(t);
-				TaskDetail taskDetail = new TaskDetail();
 
-				if(task.getActivator() != null)
-				{
-					ISecurityMember taskActivator = task.getActivator();
-					taskDetail.activator = taskActivator.getMemberName().startsWith("#") ? taskActivator.getMemberName().substring(1) : taskActivator.getMemberName();
-					taskDetail.activatorIsUser = task.getActivator().isUser();
-				}
-				taskDetail.delay = task.getDelayTimestamp();
-				taskDetail.desc = task.getDescription();
-				taskDetail.exp = task.getExpiryTimestamp();
-				taskDetail.id = task.getId();
-				taskDetail.hasNotes = task.hasNotes();
-				taskDetail.name = task.getName();
-				taskDetail.prio = task.getPriority().intValue();
-				taskDetail.prioName = task.getPriority().toString();
-				taskDetail.start = task.getStartTimestamp();
-				taskDetail.state = task.getState().intValue();
-				taskDetail.stateName=task.getState().toString();
-				taskDetail.url = task.getFullRequestPath()+"?taskId="+task.getId();
-		
-				out.taskList.add(taskDetail);
-}' #txt
+for (ITask task : tasks)
+{
+	out.tasks.add(task);
+}
+' #txt
 Ts0 f11 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
