@@ -1,0 +1,4 @@
+co: name={permissionInvolvedCases} description={} changed={2013-06-07 11:31:51 CEST} changedby={locadmin} visualorder={0} guid={13F1DF9E462CBE4B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={13F1DF9F90A5E089} datatype={} isdefault={false} langid={de} description={} validfrom={2013-06-07 11:31:28 CEST} validto={} changed={2013-06-07 11:31:51 CEST} changedby={locadmin} properties={} id={}
+val: guid={13F1DF9E471253E4} datatype={} isdefault={true} langid={en} description={} validfrom={2013-06-07 11:31:23 CEST} validto={} changed={2013-06-07 11:31:51 CEST} changedby={locadmin} properties={} id={}
+val: guid={13F1DF9EFF69D5A4} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-06-07 11:31:26 CEST} validto={} changed={2013-06-07 11:31:51 CEST} changedby={locadmin} properties={} id={}

@@ -18,6 +18,14 @@
 				<p:menuitem id="taskList" value="#{ivy.cms.co('/navLabels/taskList')}"
 				url="#{ivy.html.startref('13EE5C9EAAA819C8/DefaultTaskListPage.ivp')}" />
 		</p:submenu>
+		<p:submenu label="#{ivy.cms.co('/navLabels/history')}">
+			<p:menuitem id="caseList" value="#{ivy.cms.co('/navLabels/caseHistory')}"
+				url="#{ivy.html.startref('13F1D890C62823FF/CaseList.ivp')}" />
+		</p:submenu>
+		<p:submenu label="#{ivy.cms.co('/navLabels/admin')}">
+			<p:menuitem id="caseListAdmin" value="#{ivy.cms.co('/navLabels/caseAdmin')}"
+				url="#{ivy.html.startref('13F1D890C62823FF/CaseListAdmin.ivp')}" />
+		</p:submenu>
 	</p:menu>
 </ui:composition>
 </h:body>

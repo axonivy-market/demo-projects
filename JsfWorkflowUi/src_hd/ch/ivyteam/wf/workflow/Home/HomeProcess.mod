@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu May 16 15:34:08 CEST 2013]
+[>Created: Mon Jun 10 13:58:06 CEST 2013]
 13EAD85D34683BAF 3.17 #module
 >Proto >Proto Collection #zClass
 Hs0 HomeProcess Big #zClass
@@ -55,7 +55,7 @@ import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.IProcessStart;
 
 IQueryResult queryResult  = ivy.session.findWorkTasks(null, PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING), 
-          0, 25, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
+          0, -1, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
 
 List<ITask> tasks = queryResult.getResultList();
 out.tasks = tasks.size() == 1 ? tasks.size().toString() + " " + ivy.cms.co("/labels/task") : tasks.size().toString() + " " + ivy.cms.co("/labels/tasks");

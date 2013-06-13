@@ -1,2 +1,4 @@
 Data #class
 ch.ivyteam.wf #namespace
+mode String #field
+mode PERSISTENT #fieldModifier
