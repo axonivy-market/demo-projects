@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Aug 10 17:27:54 EDT 2012]
+[>Created: Thu Jun 13 15:46:33 CEST 2013]
 11BB5F943EDD5FEA 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FileSearchProcess Big #zClass
@@ -23,9 +23,6 @@ Fs0 @PushWFArc f5 '' #zField
 Fs0 @RichDialogProcessStep f6 '' #zField
 Fs0 @PushWFArc f7 '' #zField
 Fs0 @PushWFArc f2 '' #zField
-Fs0 @RichDialogInitStart f8 '' #zField
-Fs0 @RichDialogProcessEnd f9 '' #zField
-Fs0 @PushWFArc f10 '' #zField
 >Proto Fs0 Fs0 FileSearchProcess #zField
 Fs0 f0 guid 11BB5F945D1A616E #txt
 Fs0 f0 type ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData #txt
@@ -117,29 +114,6 @@ Fs0 f7 100 60 100 100 #arcP
 Fs0 f7 0 0.49690943285416445 0 0 #arcLabel
 Fs0 f2 expr out #txt
 Fs0 f2 100 124 100 163 #arcP
-Fs0 f8 guid 139126FA68DF96CE #txt
-Fs0 f8 type ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData #txt
-Fs0 f8 method start() #txt
-Fs0 f8 disableUIEvents true #txt
-Fs0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Fs0 f8 outParameterDecl '<> result;
-' #txt
-Fs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-    </language>
-</elementInfo>
-' #txt
-Fs0 f8 150 246 20 20 13 0 #rect
-Fs0 f8 @|RichDialogInitStartIcon #fIcon
-Fs0 f9 type ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData #txt
-Fs0 f9 150 318 20 20 13 0 #rect
-Fs0 f9 @|RichDialogProcessEndIcon #fIcon
-Fs0 f10 expr out #txt
-Fs0 f10 160 266 160 318 #arcP
 >Proto Fs0 .rdData2UIAction 'panel.pathLabel.text=in.path;
 ' #txt
 >Proto Fs0 .type ch.ivyteam.ivy.demo.lookuptextfield.FileSearch.FileSearchData #txt
@@ -152,5 +126,3 @@ Fs0 f0 mainOut f7 tail #connect
 Fs0 f7 head f6 mainIn #connect
 Fs0 f6 mainOut f2 tail #connect
 Fs0 f2 head f1 mainIn #connect
-Fs0 f8 mainOut f10 tail #connect
-Fs0 f10 head f9 mainIn #connect
