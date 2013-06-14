@@ -1,0 +1,6 @@
+TaskHistoryData #class
+ch.ivyteam.wf.history.TaskHistory #namespace
+tasks List<ch.ivyteam.ivy.workflow.ITask> #field
+tasks PERSISTENT #fieldModifier
+paginator Boolean #field
+paginator PERSISTENT #fieldModifier
