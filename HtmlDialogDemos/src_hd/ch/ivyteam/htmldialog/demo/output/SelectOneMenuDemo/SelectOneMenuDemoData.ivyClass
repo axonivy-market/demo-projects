@@ -1,0 +1,10 @@
+SelectOneMenuDemoData #class
+ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo #namespace
+persons List<ch.ivyteam.htmldialog.demo.Person> #field
+persons PERSISTENT #fieldModifier
+selectedPerson ch.ivyteam.htmldialog.demo.Person #field
+selectedPerson PERSISTENT #fieldModifier
+morePersons List<ch.ivyteam.htmldialog.demo.Person> #field
+morePersons PERSISTENT #fieldModifier
+onePerson ch.ivyteam.htmldialog.demo.Person #field
+onePerson PERSISTENT #fieldModifier

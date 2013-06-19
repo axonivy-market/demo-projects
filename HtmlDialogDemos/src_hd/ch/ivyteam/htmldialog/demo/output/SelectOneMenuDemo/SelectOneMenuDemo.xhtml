@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">      
+ 
+    <h:head>
+        <title>SelectOneMenu Demo</title>
+    </h:head>
+<h:body>
+	<ui:composition template="/PageTemplate.xhtml">
+
+	<ui:define name="center">
+		<p:layoutUnit position="center" header="SelectOneMenu Demo">
+     	<h:form>
+		   	<p:panel id="persons">
+		   	<p>This demo explains how the ivy.ListItem converter can be used on a select one menu widget.</p>
+	 			<p:selectOneMenu value="#{data.selectedPerson}" converter="ivy.ListItem" >  
+ 		        	<f:selectItem itemLabel="Select One" itemValue="" />  
+	 				<f:selectItems value="#{data.persons}" var="it" itemValue="#{it}" itemLabel="#{it.name}"></f:selectItems>
+	 				<f:selectItems value="#{data.morePersons}" var="it" itemValue="#{it}" itemLabel="#{it.name}"></f:selectItems>
+	 				<f:selectItem itemValue="#{data.onePerson}" itemLabel="#{data.onePerson.name}" ></f:selectItem>
+        		</p:selectOneMenu> 
+	 			<br/>
+	 			<br/>
+	 			<p:commandButton actionListener="#{logic.send}" value="Send" update="persons"/>
+	 			<br/>
+	 			<br/>
+	 			<h:outputText value="Selected Person: #{data.selectedPerson}"/>
+	   		</p:panel>   		
+   		</h:form>
+		</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 31 14:59:32 CEST 2013]
+[>Created: Thu Jun 13 11:26:21 CEST 2013]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -98,6 +98,11 @@ Do0 @EndTask f83 '' #zField
 Do0 @RichDialog f84 '' #zField
 Do0 @PushWFArc f85 '' #zField
 Do0 @PushWFArc f86 '' #zField
+Do0 @StartRequest f87 '' #zField
+Do0 @RichDialog f88 '' #zField
+Do0 @EndTask f89 '' #zField
+Do0 @PushWFArc f90 '' #zField
+Do0 @PushWFArc f91 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -202,7 +207,7 @@ Do0 f5 callSignature OrderListDemo() #txt
 Do0 f5 persist false #txt
 Do0 f5 startName OrderListDemo #txt
 Do0 f5 taskData '#
-#Mon Sep 17 14:54:03 CEST 2012
+#Thu Jun 13 09:30:45 CEST 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -211,7 +216,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Do0 f5 caseData '#
-#Mon Sep 17 14:54:03 CEST 2012
+#Thu Jun 13 09:30:45 CEST 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -1696,6 +1701,99 @@ Do0 f85 expr out #txt
 Do0 f85 768 693 768 740 #arcP
 Do0 f86 expr out #txt
 Do0 f86 768 764 768 803 #arcP
+Do0 f87 outLink SelectOneMenuDemo.ivp #txt
+Do0 f87 type htmlDialogDemos.Data #txt
+Do0 f87 inParamDecl '<> param;' #txt
+Do0 f87 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f87 guid 13F3C7024222F618 #txt
+Do0 f87 requestEnabled true #txt
+Do0 f87 triggerEnabled false #txt
+Do0 f87 callSignature SelectOneMenuDemo() #txt
+Do0 f87 persist false #txt
+Do0 f87 startName 'Select One Menu Demo' #txt
+Do0 f87 taskData '#
+#Thu Jun 13 11:26:19 CEST 2013
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f87 caseData '#
+#Thu Jun 13 11:26:19 CEST 2013
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f87 showInStartList 1 #txt
+Do0 f87 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f87 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>SelectOneMenuDemo</name>
+        <nameStyle>17,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Do0 f87 @C|.responsibility Everybody #txt
+Do0 f87 755 867 26 26 14 0 #rect
+Do0 f87 @|StartRequestIcon #fIcon
+Do0 f88 targetWindow NEW:card: #txt
+Do0 f88 targetDisplay TOP #txt
+Do0 f88 richDialogId ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo #txt
+Do0 f88 startMethod start() #txt
+Do0 f88 type htmlDialogDemos.Data #txt
+Do0 f88 requestActionDecl '<> param;' #txt
+Do0 f88 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f88 responseMappingAction 'out=in;
+' #txt
+Do0 f88 windowConfiguration '* ' #txt
+Do0 f88 isAsynch false #txt
+Do0 f88 isInnerRd false #txt
+Do0 f88 userContext '* ' #txt
+Do0 f88 750 932 36 24 20 -2 #rect
+Do0 f88 @|RichDialogIcon #fIcon
+Do0 f89 type htmlDialogDemos.Data #txt
+Do0 f89 755 995 26 26 14 0 #rect
+Do0 f89 @|EndIcon #fIcon
+Do0 f90 expr out #txt
+Do0 f90 768 893 768 932 #arcP
+Do0 f91 expr out #txt
+Do0 f91 768 956 768 995 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1784,3 +1882,7 @@ Do0 f82 mainOut f85 tail #connect
 Do0 f85 head f84 mainIn #connect
 Do0 f84 mainOut f86 tail #connect
 Do0 f86 head f83 mainIn #connect
+Do0 f87 mainOut f90 tail #connect
+Do0 f90 head f88 mainIn #connect
+Do0 f88 mainOut f91 tail #connect
+Do0 f91 head f89 mainIn #connect
