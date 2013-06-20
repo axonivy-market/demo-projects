@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 13 11:26:21 CEST 2013]
+[>Created: Thu Jun 20 13:56:23 CEST 2013]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -103,6 +103,11 @@ Do0 @RichDialog f88 '' #zField
 Do0 @EndTask f89 '' #zField
 Do0 @PushWFArc f90 '' #zField
 Do0 @PushWFArc f91 '' #zField
+Do0 @RichDialog f92 '' #zField
+Do0 @EndTask f93 '' #zField
+Do0 @StartRequest f94 '' #zField
+Do0 @PushWFArc f95 '' #zField
+Do0 @PushWFArc f96 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -1405,7 +1410,7 @@ Do0 f67 @C|.responsibility Everybody #txt
 Do0 f67 83 867 26 26 14 0 #rect
 Do0 f67 @|StartRequestIcon #fIcon
 Do0 f68 type htmlDialogDemos.Data #txt
-Do0 f68 83 1003 26 26 14 0 #rect
+Do0 f68 83 995 26 26 14 0 #rect
 Do0 f68 @|EndIcon #fIcon
 Do0 f69 targetWindow NEW #txt
 Do0 f69 targetDisplay TOP #txt
@@ -1422,7 +1427,7 @@ Do0 f69 @|RichDialogIcon #fIcon
 Do0 f70 expr out #txt
 Do0 f70 96 893 96 924 #arcP
 Do0 f71 expr out #txt
-Do0 f71 96 948 96 1003 #arcP
+Do0 f71 96 948 96 995 #arcP
 Do0 f72 outLink Primefaces.ivp #txt
 Do0 f72 type htmlDialogDemos.Data #txt
 Do0 f72 inParamDecl '<> param;' #txt
@@ -1491,7 +1496,7 @@ Do0 f72 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f72 @C|.responsibility Everybody #txt
-Do0 f72 83 1195 26 26 14 0 #rect
+Do0 f72 83 1323 26 26 14 0 #rect
 Do0 f72 @|StartRequestIcon #fIcon
 Do0 f73 targetWindow NEW:card: #txt
 Do0 f73 targetDisplay TOP #txt
@@ -1507,15 +1512,15 @@ Do0 f73 windowConfiguration '* ' #txt
 Do0 f73 isAsynch false #txt
 Do0 f73 isInnerRd false #txt
 Do0 f73 userContext '* ' #txt
-Do0 f73 78 1268 36 24 20 -2 #rect
+Do0 f73 78 1396 36 24 20 -2 #rect
 Do0 f73 @|RichDialogIcon #fIcon
 Do0 f74 type htmlDialogDemos.Data #txt
-Do0 f74 83 1331 26 26 14 0 #rect
+Do0 f74 83 1459 26 26 14 0 #rect
 Do0 f74 @|EndIcon #fIcon
 Do0 f75 expr out #txt
-Do0 f75 96 1221 96 1268 #arcP
+Do0 f75 96 1349 96 1396 #arcP
 Do0 f76 expr out #txt
-Do0 f76 96 1292 96 1331 #arcP
+Do0 f76 96 1420 96 1459 #arcP
 Do0 f77 targetWindow NEW:card: #txt
 Do0 f77 targetDisplay TOP #txt
 Do0 f77 richDialogId ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo #txt
@@ -1794,6 +1799,99 @@ Do0 f90 expr out #txt
 Do0 f90 768 893 768 932 #arcP
 Do0 f91 expr out #txt
 Do0 f91 768 956 768 995 #arcP
+Do0 f92 targetWindow NEW:card: #txt
+Do0 f92 targetDisplay TOP #txt
+Do0 f92 richDialogId ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo #txt
+Do0 f92 startMethod start() #txt
+Do0 f92 type htmlDialogDemos.Data #txt
+Do0 f92 requestActionDecl '<> param;' #txt
+Do0 f92 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f92 responseMappingAction 'out=in;
+' #txt
+Do0 f92 windowConfiguration '* ' #txt
+Do0 f92 isAsynch false #txt
+Do0 f92 isInnerRd false #txt
+Do0 f92 userContext '* ' #txt
+Do0 f92 78 1124 36 24 20 -2 #rect
+Do0 f92 @|RichDialogIcon #fIcon
+Do0 f93 type htmlDialogDemos.Data #txt
+Do0 f93 83 1187 26 26 14 0 #rect
+Do0 f93 @|EndIcon #fIcon
+Do0 f94 outLink SelectManyCheckboxDemo.ivp #txt
+Do0 f94 type htmlDialogDemos.Data #txt
+Do0 f94 inParamDecl '<> param;' #txt
+Do0 f94 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f94 guid 13F6161B37389D95 #txt
+Do0 f94 requestEnabled true #txt
+Do0 f94 triggerEnabled false #txt
+Do0 f94 callSignature SelectManyCheckboxDemo() #txt
+Do0 f94 persist false #txt
+Do0 f94 startName 'Select Many Checkbox Demo' #txt
+Do0 f94 taskData '#
+#Thu Jun 20 13:56:20 CEST 2013
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f94 caseData '#
+#Thu Jun 20 13:56:20 CEST 2013
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f94 showInStartList 1 #txt
+Do0 f94 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f94 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>SelectManyCheckboxDemo</name>
+        <nameStyle>22,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Do0 f94 @C|.responsibility Everybody #txt
+Do0 f94 83 1059 26 26 14 0 #rect
+Do0 f94 @|StartRequestIcon #fIcon
+Do0 f95 expr out #txt
+Do0 f95 96 1085 96 1124 #arcP
+Do0 f96 expr out #txt
+Do0 f96 96 1148 96 1187 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1805,7 +1903,7 @@ Do0 f91 768 956 768 995 #arcP
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
     <swimlaneSize>248</swimlaneSize>
-    <swimlaneSize>928</swimlaneSize>
+    <swimlaneSize>1056</swimlaneSize>
     <swimlaneColor>-1</swimlaneColor>
     <swimlaneColor>-6710887</swimlaneColor>
 </elementInfo>
@@ -1886,3 +1984,7 @@ Do0 f87 mainOut f90 tail #connect
 Do0 f90 head f88 mainIn #connect
 Do0 f88 mainOut f91 tail #connect
 Do0 f91 head f89 mainIn #connect
+Do0 f94 mainOut f95 tail #connect
+Do0 f95 head f92 mainIn #connect
+Do0 f92 mainOut f96 tail #connect
+Do0 f96 head f93 mainIn #connect

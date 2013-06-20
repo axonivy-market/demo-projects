@@ -1,0 +1,6 @@
+SelectManyCheckboxDemoData #class
+ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo #namespace
+persons List<ch.ivyteam.htmldialog.demo.Person> #field
+persons PERSISTENT #fieldModifier
+selectedPersons List<ch.ivyteam.htmldialog.demo.Person> #field
+selectedPersons PERSISTENT #fieldModifier
