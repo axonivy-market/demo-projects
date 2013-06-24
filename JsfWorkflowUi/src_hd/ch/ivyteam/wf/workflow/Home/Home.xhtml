@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"      
       xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:ic="http://ivyteam.ch/jsf/component"
       xmlns:p="http://primefaces.org/ui"
@@ -12,6 +13,7 @@
 <ui:composition template="/templates/Layout.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/home')}" />
 	<ui:define name="center">
+		<f:event type="preRenderView" listener="#{logic.update()}" />
 		<p:menu id="homeInfoPanel" header="Xpert.ivy Workflow Info" style="width:50%; margin-top: 13px;">
 			<p:submenu label="Xpert.ivy Workflow Info">
 				<p:menuitem id="taskListInfo" value="#{ivy.cms.co('/navLabels/taskList')}: #{data.tasks}"

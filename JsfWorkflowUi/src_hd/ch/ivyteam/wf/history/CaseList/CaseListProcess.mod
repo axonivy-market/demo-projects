@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 13 10:46:03 CEST 2013]
+[>Created: Mon Jun 24 16:06:40 CEST 2013]
 13F1D8A32C686BDF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListProcess Big #zClass
@@ -22,17 +22,19 @@ Cs0 @Alternative f20 '' #zField
 Cs0 @GridStep f21 '' #zField
 Cs0 @GridStep f23 '' #zField
 Cs0 @GridStep f24 '' #zField
-Cs0 @PushWFArc f25 '' #zField
 Cs0 @PushWFArc f26 '' #zField
 Cs0 @PushWFArc f27 '' #zField
 Cs0 @PushWFArc f28 '' #zField
 Cs0 @PushWFArc f29 '' #zField
 Cs0 @GridStep f30 '' #zField
 Cs0 @PushWFArc f32 '' #zField
-Cs0 @PushWFArc f17 '' #zField
 Cs0 @PushWFArc f4 '' #zField
 Cs0 @PushWFArc f33 '' #zField
 Cs0 @PushWFArc f45 '' #zField
+Cs0 @RichDialogMethodStart f2 '' #zField
+Cs0 @PushWFArc f5 '' #zField
+Cs0 @PushWFArc f3 '' #zField
+Cs0 @PushWFArc f6 '' #zField
 >Proto Cs0 Cs0 CaseListProcess #zField
 Cs0 f0 guid 13F1D8A32D5EA95D #txt
 Cs0 f0 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
@@ -72,7 +74,7 @@ Cs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f16 278 54 20 20 13 0 #rect
+Cs0 f16 374 54 20 20 13 0 #rect
 Cs0 f16 @|RichDialogProcessStartIcon #fIcon
 Cs0 f19 guid 13F1DB6B56A9A226 #txt
 Cs0 f19 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
@@ -87,7 +89,7 @@ Cs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f19 374 54 20 20 13 0 #rect
+Cs0 f19 470 54 20 20 13 0 #rect
 Cs0 f19 @|RichDialogProcessStartIcon #fIcon
 Cs0 f11 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
 ' #txt
@@ -151,19 +153,19 @@ Cs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f11 78 244 36 24 -83 15 #rect
+Cs0 f11 206 244 36 24 -83 15 #rect
 Cs0 f11 @|StepIcon #fIcon
 Cs0 f20 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
 Cs0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>admin?</name>
-        <nameStyle>6
+        <name>only my cases?</name>
+        <nameStyle>14
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f20 114 178 28 28 14 0 #rect
+Cs0 f20 242 178 28 28 14 0 #rect
 Cs0 f20 @|AlternativeIcon #fIcon
 Cs0 f21 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
 ' #txt
@@ -322,7 +324,7 @@ Cs0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f21 142 244 36 24 20 -2 #rect
+Cs0 f21 270 244 36 24 20 -2 #rect
 Cs0 f21 @|StepIcon #fIcon
 Cs0 f23 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
 ' #txt
@@ -369,19 +371,17 @@ Cs0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f24 110 308 36 24 20 -2 #rect
+Cs0 f24 238 308 36 24 20 -2 #rect
 Cs0 f24 @|StepIcon #fIcon
-Cs0 f25 expr out #txt
-Cs0 f25 128 140 128 178 #arcP
 Cs0 f26 expr in #txt
 Cs0 f26 outCond in.caseListMode=="my_cases" #txt
-Cs0 f26 123 201 102 244 #arcP
+Cs0 f26 251 201 230 244 #arcP
 Cs0 f27 expr in #txt
-Cs0 f27 133 201 154 244 #arcP
+Cs0 f27 261 201 282 244 #arcP
 Cs0 f28 expr out #txt
-Cs0 f28 154 268 134 308 #arcP
+Cs0 f28 282 268 262 308 #arcP
 Cs0 f29 expr out #txt
-Cs0 f29 102 268 122 308 #arcP
+Cs0 f29 230 268 250 308 #arcP
 Cs0 f30 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
 ' #txt
 Cs0 f30 actionTable 'out=in;
@@ -415,29 +415,51 @@ Cs0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f30 366 116 36 24 20 -2 #rect
+Cs0 f30 462 116 36 24 20 -2 #rect
 Cs0 f30 @|StepIcon #fIcon
 Cs0 f32 expr out #txt
-Cs0 f32 384 74 384 116 #arcP
+Cs0 f32 480 74 480 116 #arcP
 Cs0 f32 0 0.4147652813405402 0 0 #arcLabel
-Cs0 f17 expr out #txt
-Cs0 f17 128 74 128 116 #arcP
 Cs0 f4 expr out #txt
-Cs0 f4 128 332 128 374 #arcP
+Cs0 f4 256 332 138 384 #arcP
+Cs0 f4 1 256 384 #addKink
+Cs0 f4 1 0.18806928460277236 0 0 #arcLabel
 Cs0 f33 expr out #txt
-Cs0 f33 288 74 142 192 #arcP
-Cs0 f33 1 288 192 #addKink
+Cs0 f33 384 74 270 192 #arcP
+Cs0 f33 1 384 192 #addKink
 Cs0 f33 1 0.3697662911536614 0 0 #arcLabel
 Cs0 f45 expr out #txt
-Cs0 f45 384 140 138 384 #arcP
-Cs0 f45 1 384 384 #addKink
+Cs0 f45 480 140 138 384 #arcP
+Cs0 f45 1 480 384 #addKink
 Cs0 f45 1 0.349565663481856 0 0 #arcLabel
+Cs0 f2 guid 13F75D933E4D0972 #txt
+Cs0 f2 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
+Cs0 f2 method update() #txt
+Cs0 f2 disableUIEvents false #txt
+Cs0 f2 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+Cs0 f2 outParameterDecl '<> result;
+' #txt
+Cs0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>update()</name>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f2 246 54 20 20 13 0 #rect
+Cs0 f2 @|RichDialogMethodStartIcon #fIcon
+Cs0 f5 expr out #txt
+Cs0 f5 128 74 128 116 #arcP
+Cs0 f3 expr out #txt
+Cs0 f3 256 74 256 178 #arcP
+Cs0 f6 expr out #txt
+Cs0 f6 128 140 128 374 #arcP
 >Proto Cs0 .type ch.ivyteam.wf.history.CaseList.CaseListData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
 >Proto Cs0 '' #fIcon
-Cs0 f23 mainOut f25 tail #connect
-Cs0 f25 head f20 in #connect
 Cs0 f20 out f26 tail #connect
 Cs0 f26 head f11 mainIn #connect
 Cs0 f20 out f27 tail #connect
@@ -448,11 +470,15 @@ Cs0 f11 mainOut f29 tail #connect
 Cs0 f29 head f24 mainIn #connect
 Cs0 f19 mainOut f32 tail #connect
 Cs0 f32 head f30 mainIn #connect
-Cs0 f0 mainOut f17 tail #connect
-Cs0 f17 head f23 mainIn #connect
 Cs0 f24 mainOut f4 tail #connect
 Cs0 f4 head f1 mainIn #connect
 Cs0 f16 mainOut f33 tail #connect
 Cs0 f33 head f20 in #connect
 Cs0 f30 mainOut f45 tail #connect
 Cs0 f45 head f1 mainIn #connect
+Cs0 f0 mainOut f5 tail #connect
+Cs0 f5 head f23 mainIn #connect
+Cs0 f2 mainOut f3 tail #connect
+Cs0 f3 head f20 in #connect
+Cs0 f23 mainOut f6 tail #connect
+Cs0 f6 head f1 mainIn #connect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jun 07 13:55:13 CEST 2013]
+[>Created: Thu Jun 20 16:21:03 CEST 2013]
 13EE9A482A299A65 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListProcess Big #zClass
@@ -17,7 +17,9 @@ Ts0 @RichDialogInitStart f0 '' #zField
 Ts0 @RichDialogProcessEnd f1 '' #zField
 Ts0 @GridStep f11 '' #zField
 Ts0 @PushWFArc f2 '' #zField
-Ts0 @PushWFArc f13 '' #zField
+Ts0 @PushWFArc f10 '' #zField
+Ts0 @RichDialogMethodStart f3 '' #zField
+Ts0 @PushWFArc f5 '' #zField
 >Proto Ts0 Ts0 TaskListProcess #zField
 Ts0 f0 guid 13EE9A482C1E853B #txt
 Ts0 f0 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
@@ -66,7 +68,7 @@ IQueryResult queryResult  = ivy.session.findWorkTasks(null, PropertyOrder.create
 
 List<ITask> tasks = queryResult.getResultList();
 out.paginator = tasks.size() >= 50;
-
+out.tasks.clear();
 for (ITask task : tasks)
 {
 	out.tasks.add(task);
@@ -82,17 +84,39 @@ Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f11 78 116 36 24 20 -2 #rect
+Ts0 f11 174 180 36 24 20 -2 #rect
 Ts0 f11 @|StepIcon #fIcon
 Ts0 f2 expr out #txt
-Ts0 f2 96 140 96 182 #arcP
-Ts0 f13 expr out #txt
-Ts0 f13 96 74 96 116 #arcP
+Ts0 f2 174 192 106 192 #arcP
+Ts0 f10 expr out #txt
+Ts0 f10 96 74 96 182 #arcP
+Ts0 f3 guid 13F61412866CB9E5 #txt
+Ts0 f3 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
+Ts0 f3 method update() #txt
+Ts0 f3 disableUIEvents false #txt
+Ts0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+Ts0 f3 outParameterDecl '<> result;
+' #txt
+Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>update()</name>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f3 182 54 20 20 13 0 #rect
+Ts0 f3 @|RichDialogMethodStartIcon #fIcon
+Ts0 f5 expr out #txt
+Ts0 f5 192 74 192 180 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
 >Proto Ts0 '' #fIcon
 Ts0 f11 mainOut f2 tail #connect
 Ts0 f2 head f1 mainIn #connect
-Ts0 f0 mainOut f13 tail #connect
-Ts0 f13 head f11 mainIn #connect
+Ts0 f0 mainOut f10 tail #connect
+Ts0 f10 head f1 mainIn #connect
+Ts0 f3 mainOut f5 tail #connect
+Ts0 f5 head f11 mainIn #connect
