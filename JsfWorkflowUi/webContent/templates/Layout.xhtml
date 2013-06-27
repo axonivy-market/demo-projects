@@ -31,7 +31,9 @@
 			</p:layoutUnit>
 			
 			<p:layoutUnit id="mainLayoutUnit" position="center" header="#{centerHeader}">
-				<p:messages showDetail="true" />
+				<c:if test="#{centerHeader != ivy.cms.co('/navLabels/absence')}">
+					<p:messages showDetail="true" />
+				</c:if>
 				<ui:insert name="center" />
 			</p:layoutUnit>
 			

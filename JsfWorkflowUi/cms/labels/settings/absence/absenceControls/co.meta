@@ -1,0 +1,4 @@
+co: name={absenceControls} description={} changed={2013-06-17 12:48:40 CEST} changedby={locadmin} visualorder={0} guid={13F42ECBFCA69E1F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={13F42ECF64467CC1} datatype={} isdefault={false} langid={de} description={} validfrom={2013-06-14 15:43:13 CEST} validto={} changed={2013-06-17 12:48:40 CEST} changedby={locadmin} properties={} id={}
+val: guid={13F42ECD2123C989} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-06-14 15:43:03 CEST} validto={} changed={2013-06-14 15:43:59 CEST} changedby={locadmin} properties={} id={}
+val: guid={13F42ECBFCA92538} datatype={} isdefault={true} langid={en} description={} validfrom={2013-06-14 15:42:59 CEST} validto={} changed={2013-06-14 15:43:59 CEST} changedby={locadmin} properties={} id={}

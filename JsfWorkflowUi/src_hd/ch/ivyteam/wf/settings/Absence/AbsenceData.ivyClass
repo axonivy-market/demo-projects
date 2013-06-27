@@ -1,0 +1,24 @@
+AbsenceData #class
+ch.ivyteam.wf.settings.Absence #namespace
+absences List<ch.ivyteam.ivy.security.IUserAbsence> #field
+absences PERSISTENT #fieldModifier
+absenceStartDate Date #field
+absenceStartDate PERSISTENT #fieldModifier
+absenceEndDate Date #field
+absenceEndDate PERSISTENT #fieldModifier
+absenceStartTime Time #field
+absenceStartTime PERSISTENT #fieldModifier
+absenceEndTime Time #field
+absenceEndTime PERSISTENT #fieldModifier
+absenceDescription String #field
+absenceDescription PERSISTENT #fieldModifier
+deleteId Number #field
+deleteId PERSISTENT #fieldModifier
+message Boolean #field
+message PERSISTENT #fieldModifier
+edit Boolean #field
+edit PERSISTENT #fieldModifier
+add Boolean #field
+add PERSISTENT #fieldModifier
+option String #field
+option PERSISTENT #fieldModifier

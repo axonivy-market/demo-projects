@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="/templates/Layout.xhtml">
+	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/absence')}" />
+	<ui:define name="center">
+		<f:event type="preRenderView" listener="#{logic.update()}" />
+		<br />
+		#{ivy.cms.co('/labels/settings/absence/description')}
+		<br /><br />
+		<c:if test="#{ivy.session.sessionUser.isAbsent()}">
+			<h:outputText value="#{ivy.cms.co('/labels/settings/absence/currentlyAbsent')}" style="font-weight:bold" />
+			<br /><br />
+		</c:if>
+		<h:form id="formAddButton">
+			<p:commandButton id="addAbsence" update=":dialogAddAbsence" icon="wf-ui-icon-add" value="#{ivy.cms.co('/labels/settings/absence/addAbsence')}" oncomplete="addAbsence.show();">
+				<f:setPropertyActionListener value="add" target="#{data.option}" />
+           	</p:commandButton>
+		</h:form>
+		<br />
+		<h:form id="formAbsence">
+   			<p:dataTable id="tableAbsence" value="#{data.absences}" var="absence" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}">
+       			<p:column id="absenceStart" sortBy="#{absence.startTimestamp}" style="width: 150px;">
+           			<f:facet name="header">
+              			#{ivy.cms.co('/labels/settings/absence/absenceStart')}
+           			</f:facet>
+                 	<h:outputText value="#{absence.startTimestamp}">
+						<f:convertDateTime type="both" dateStyle="short" />
+					</h:outputText>
+      			</p:column>
+       			<p:column sortBy="#{absence.stopTimestamp}" style="width: 150px; ">
+           			<f:facet name="header">
+               			#{ivy.cms.co('/labels/settings/absence/absenceStop')}
+           			</f:facet>
+                   	<h:outputText value="#{absence.stopTimestamp}">
+						<f:convertDateTime type="both" dateStyle="short" />
+					</h:outputText>
+       			</p:column>
+       			<p:column>
+           			<f:facet name="header">
+               			#{ivy.cms.co('/labels/settings/absence/absenceDescription')}
+           			</f:facet>
+           			#{absence.description}
+       			</p:column>
+       			<p:column style="width: 80px; text-align: center;">
+           			<f:facet name="header">
+               			#{ivy.cms.co('/labels/settings/absence/absenceControls')}
+           			</f:facet>
+                    <p:commandButton id="editButton" update=":dialogEditAbsence" oncomplete="editAbsence.show()" icon="wf-ui-icon-edit" value="#{ivy.cms.co('/labels/common/edit')}">
+               			<f:setPropertyActionListener value="#{absence.description}" target="#{data.absenceDescription}" />
+               			<f:setPropertyActionListener value="#{absence.id}" target="#{data.deleteId}" />
+               			<f:setPropertyActionListener value="edit" target="#{data.option}" />
+           			</p:commandButton>
+           			<p:commandButton id="removeButton" actionListener="#{logic.removeAbsence(absence.id)}" update=":formAbsence" icon="wf-ui-icon-delete" value="#{ivy.cms.co('/labels/common/delete')}" ajax="false" />
+        		</p:column>
+   			</p:dataTable>
+		</h:form>
+		
+		<p:dialog id="dialogAddAbsence" header="New Absence" widgetVar="addAbsence" modal="true" appendToBody="true" visible="#{data.add}">
+   			<h:form id="formAddAbsence">
+				<ui:include src="/dialogs/AbsenceForm.xhtml" />
+ 				<p:commandButton id="saveNewAbsence" value="#{ivy.cms.co('/labels/common/save')}" update="@all" actionListener="#{logic.addAbsence}" />
+			</h:form>
+		</p:dialog>
+		
+		<p:dialog id="dialogEditAbsence" header="Edit Absence" widgetVar="editAbsence" modal="true" appendToBody="true" visible="#{data.edit}">
+   			<h:form id="formEditAbsence">
+				<ui:include src="/dialogs/AbsenceForm.xhtml" />
+ 				<p:commandButton id="saveEditAbsence" value="#{ivy.cms.co('/labels/common/save')}" oncomplete="editAbsence.hide();" update="@all" actionListener="#{logic.editAbsence}" />
+			</h:form>
+		</p:dialog>
+   	</ui:define>
+</ui:composition>
+</html>

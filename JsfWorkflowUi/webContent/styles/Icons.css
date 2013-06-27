@@ -18,3 +18,18 @@
 {
 	background-image:url(#{resource['images/actions/park.png']}) !important;
 }
+
+.wf-ui-icon-add
+{
+	background-image:url(#{resource['images/actions/add.png']}) !important;
+}
+
+.wf-ui-icon-delete
+{
+	background-image:url(#{resource['images/actions/delete.png']}) !important;
+}
+
+.wf-ui-icon-edit
+{
+	background-image:url(#{resource['images/actions/edit.png']}) !important;
+}
