@@ -3,16 +3,16 @@ package ch.ivyteam.ivy.demo.upload;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Callable;
+
 import org.apache.commons.io.FileUtils;
+
 import ch.ivyteam.io.ZipUtil;
-import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.security.SecurityManagerFactory;
 
 public class UnzipManager
 {
 	public static final String EXTRACTION_PATH = System.getProperty("java.io.tmpdir") + File.separator + "ivyZipExtractTemp" + File.separator;
 	private String zipFilePath;
-	private String extractedFolderPath;
 	private UnzipThread unzipThread;
 	private boolean isStop;
 
@@ -75,7 +75,6 @@ public class UnzipManager
 					@Override
 					public Boolean call() throws Exception
 					{
-						File extractedFolder;
 						if (isStop == false)
 						{
 							File zipFile = new File(getZipFilePath());
@@ -84,7 +83,7 @@ public class UnzipManager
 							{
 								try
 								{
-									extractedFolder = unpackFile(zipFile);
+									unpackFile(zipFile);
 								}
 								catch (Exception ex)
 								{

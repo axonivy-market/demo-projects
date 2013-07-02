@@ -12,7 +12,6 @@ public class ZipManager
 {
 	private final String TEMPORARY = "___TEMP___";
 	private String folderPath;
-	private String zipPath;
 	private String zipTempPath;
 	private String status;
 	private int percent;
@@ -44,7 +43,6 @@ public class ZipManager
 
 	public void setZipPath(String zipPath)
 	{
-		this.zipPath = zipPath;
 	}
 
 	public String getZipTempPath()
