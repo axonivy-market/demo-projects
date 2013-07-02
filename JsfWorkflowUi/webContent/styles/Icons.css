@@ -33,3 +33,13 @@
 {
 	background-image:url(#{resource['images/actions/edit.png']}) !important;
 }
+
+.wf-ui-icon-save
+{
+	background-image:url(#{resource['images/actions/save.png']}) !important;
+}
+
+.wf-ui-icon-cancel
+{
+	background-image:url(#{resource['images/actions/cancel.png']}) !important;
+}

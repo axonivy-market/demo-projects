@@ -1,0 +1,4 @@
+co: name={substituteUserTasks} description={} changed={2013-07-01 09:24:59 CEST} changedby={locadmin} visualorder={0} guid={13F609CD83E9D73B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={13F609CF6CAE05DC} datatype={} isdefault={false} langid={de} description={} validfrom={2013-06-20 10:04:26 CEST} validto={} changed={2013-07-01 09:24:59 CEST} changedby={locadmin} properties={} id={}
+val: guid={13F609CD83E5668C} datatype={} isdefault={true} langid={en} description={} validfrom={2013-06-20 10:04:19 CEST} validto={} changed={2013-06-20 10:09:53 CEST} changedby={locadmin} properties={} id={}
+val: guid={13F609CED922789D} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-06-20 10:04:24 CEST} validto={} changed={2013-06-20 10:09:53 CEST} changedby={locadmin} properties={} id={}

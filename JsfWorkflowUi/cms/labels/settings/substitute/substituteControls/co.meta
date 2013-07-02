@@ -1,0 +1,4 @@
+co: name={substituteControls} description={} changed={2013-06-18 14:29:07 CEST} changedby={locadmin} visualorder={0} guid={13F57420EC7DB728} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={13F57420ED22D79A} datatype={} isdefault={false} langid={de} description={} validfrom={2013-06-14 15:43:13 CEST} validto={} changed={2013-06-18 14:28:34 CEST} changedby={locadmin} properties={} id={}
+val: guid={13F57420EEF812AB} datatype={} isdefault={true} langid={en} description={} validfrom={2013-06-14 15:42:59 CEST} validto={} changed={2013-06-18 14:28:34 CEST} changedby={locadmin} properties={} id={}
+val: guid={13F57420EE324446} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-06-14 15:43:03 CEST} validto={} changed={2013-06-18 14:28:34 CEST} changedby={locadmin} properties={} id={}

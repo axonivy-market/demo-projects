@@ -3,9 +3,20 @@
     <user>
         <username>user1</username>
         <password>user1</password>
+        <fullName>Test User 1</fullName>
+        <role>role1</role>
+        <role>role2</role>
     </user>
     <user>
         <username>user2</username>
         <password>user2</password>
+        <fullName>Test User 2</fullName>
+        <role>role1</role>
+        <role>role2</role>
+    </user>
+    <user>
+        <username>user3</username>
+        <password>user3</password>
+        <fullName>Test User 3</fullName>
     </user>
 </userConfig>

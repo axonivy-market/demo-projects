@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pm="http://primefaces.org/mobile">
+ 
+<h:body>
+<ui:composition>
+	<h:panelGrid columns="2">
+		#{ivy.cms.co('/labels/settings/substitute/substituteUser')}:
+		<h:panelGrid columns="2">
+		<h:graphicImage name="images/details/user.png" alt="user" />
+	    <p:selectOneMenu id="substituteUser" value="#{data.substituteUser}" filter="true" filterMatchMode="startsWith" converter="ivy.ListItem">
+	    	<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{user.getFullName()} (#{user.getName()})" />
+	    </p:selectOneMenu>
+	    </h:panelGrid>
+	    #{ivy.cms.co('/labels/settings/substitute/substituteFor')}:
+	    <h:panelGrid columns="1" id="radio">
+		    <p:selectOneRadio id="options" value="#{data.isPersonally}" layout="custom">
+		      	<f:selectItem itemValue="true" />
+		      	<f:selectItem itemValue="false" />
+		      	<f:ajax render="radio" />
+		 	</p:selectOneRadio>
+			<h:panelGrid columns="2">
+		   		<p:radioButton id="optMyTasks" for="options" itemIndex="0" />
+		   		<h:outputLabel for="optMyTasks" value="#{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" />
+	   		</h:panelGrid>
+	   		<h:panelGrid columns="4">
+		   		<p:radioButton id="optRole" for="options" itemIndex="1" />
+		   		<h:outputLabel for="optRole" value="#{ivy.cms.co('/labels/settings/substitute/substituteRole')}:" />
+		   		<h:graphicImage name="images/details/role.png" alt="role" />
+		        <p:selectCheckboxMenu id="roleSelection" value="#{data.selectedRoles}" label="#{data.roleSelectionLabel}" filterMatchMode="startsWith" panelStyle="width:220px" converter="ivy.ListItem" disabled="#{data.isPersonally}">  
+	        		<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} (#{role.getName()})" itemValue="#{role}"/>
+	        		<f:ajax render="radio" />
+	    		</p:selectCheckboxMenu> 
+    		</h:panelGrid>
+		</h:panelGrid>
+		#{ivy.cms.co('/labels/common/description')}:
+		<p:inputText id="substituteDescription" value="#{data.description}" style="width: 400px;" />
+	</h:panelGrid>
+	<br />
+</ui:composition>
+</h:body>
+</html>
