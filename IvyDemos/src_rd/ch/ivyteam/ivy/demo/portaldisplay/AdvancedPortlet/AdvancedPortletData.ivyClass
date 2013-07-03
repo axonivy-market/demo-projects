@@ -1,0 +1,8 @@
+AdvancedPortletData #class
+ch.ivyteam.ivy.demo.portaldisplay.AdvancedPortlet #namespace
+refreshCounter Number #field
+refreshCounter PERSISTENT #fieldModifier
+portletId String #field
+portletId PERSISTENT #fieldModifier
+configData java.util.Map #field
+configData PERSISTENT #fieldModifier

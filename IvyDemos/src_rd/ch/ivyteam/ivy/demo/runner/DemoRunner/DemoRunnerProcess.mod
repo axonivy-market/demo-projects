@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 13 15:46:29 CEST 2013]
+[>Created: Tue Jul 02 16:38:40 CEST 2013]
 12159193B3CDF810 3.17 #module
 >Proto >Proto Collection #zClass
 Ds0 DemoStarterProcess Big #zClass
@@ -190,7 +190,7 @@ String description = ivy.cms.co(in.selectedDemo.cmsUri+"/desc");
 // that are added by the co renderer.
 description = StringUtils.removeStart(description,"<html>");
 description = StringUtils.removeEnd(description,"</html>");
-panel.descriptionTextArea.text = description;' #txt
+panel.descriptionTextArea.setText(description);' #txt
 Ds0 f13 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -213,13 +213,13 @@ Ds0 f16 actionTable 'out=in;
 ' #txt
 Ds0 f16 actionCode 'panel.idTextField.text = "";
 panel.nameTextField.text = "";
-panel.descriptionTextArea.text = "";' #txt
+panel.descriptionTextArea.setText("");' #txt
 Ds0 f16 type ch.ivyteam.ivy.demo.runner.DemoRunner.DemoRunnerData #txt
 Ds0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>clear</name>
-        <nameStyle>5,9
+        <nameStyle>5,7,9
 </nameStyle>
     </language>
 </elementInfo>

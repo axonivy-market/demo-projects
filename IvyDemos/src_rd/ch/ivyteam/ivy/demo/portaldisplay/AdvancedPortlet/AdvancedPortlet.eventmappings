@@ -1,0 +1,7 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2013-07-02 16:01:11 | 0.0.0.15100 | 1.0
+~@RD_BROADCAST[openConfigurationDialog]--->ch.ivyteam.ivy.process.ProcessStart:13F6201EBBFCFF9C/13F7A0BB1FF6AC23
+~@RD_METHODCALL[doRefresh()]--->ch.ivyteam.ivy.process.ProcessStart:13F6201EBBFCFF9C/13F62275FE3A0B86
+~@RD_METHODCALL[getConfigData()]--->ch.ivyteam.ivy.process.ProcessStart:13F6201EBBFCFF9C/13F7A0ADED9375E2
+~@RD_METHODCALL[setConfigData(java.util.Map)]--->ch.ivyteam.ivy.process.ProcessStart:13F6201EBBFCFF9C/13F7A0AF18F51DB8
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:13F6201EBBFCFF9C/13F61ECEDB8BC44E

@@ -1,13 +1,15 @@
 package ch.ivyteam.ivy.demo.runner.DemoRunner;
 
 import ch.ivyteam.ivy.demo.util.Title.TitlePanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
+import ch.ivyteam.ivy.richdialog.widgets.components.RHtmlPane;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RList;
-import ch.ivyteam.ivy.richdialog.widgets.components.RTextArea;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBorderLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
@@ -19,11 +21,8 @@ import ch.ivyteam.ivy.richdialog.widgets.menus.RMenuItem;
 import ch.ivyteam.ivy.richdialog.widgets.menus.RPopupMenu;
 
 import com.ulcjava.base.application.BorderFactory;
-import com.ulcjava.base.application.border.ULCBevelBorder;
-import com.ulcjava.base.application.util.Color;
-import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import com.ulcjava.base.application.ULCContainer;
-import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
+import com.ulcjava.base.application.border.ULCBevelBorder;
 
 /**
  * RichDialog panel implementation for DemoStarterPanel.
@@ -52,12 +51,12 @@ private RLabel nameLabel = null;
 private RTextField idTextField = null;
 private RTextField nameTextField = null;
 private RScrollPane descriptionScroller = null;
-private RTextArea descriptionTextArea = null;
 private RHyperlink finishHyperlink = null;
 private RButton startDemoButton = null;
 private RButton finishApplicationButton = null;
 private RLabel demoListTitleLabel = null;
 private RGridBagLayoutPane listPane = null;
+private RHtmlPane descriptionTextArea = null;
 
 	/**
 	 * Calculates the id of a panel's RichDialog. 
@@ -366,25 +365,6 @@ private RScrollPane getDescriptionScroller() {
 }
 
 /**
- * This method initializes descriptionTextArea	
- * 	
- * @return ch.ivyteam.ivy.richdialog.widgets.components.RTextArea	
- */
-private RTextArea getDescriptionTextArea() {
-	if (descriptionTextArea == null) {
-		descriptionTextArea = new RTextArea();
-		descriptionTextArea.setText("short description (from cms)");
-		descriptionTextArea.setLineWrap(true);
-		descriptionTextArea.setWrapStyleWord(true);
-		descriptionTextArea.setMargin(new com.ulcjava.base.application.util.Insets(0,5,0,5));
-		descriptionTextArea.setSelectedTextColor(Color.darkGray);
-		descriptionTextArea.setEditable(false);
-		descriptionTextArea.setName("descriptionTextArea");
-	}
-	return descriptionTextArea;
-}
-
-/**
  * This method initializes finishHyperlink	
  * 	
  * @return ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink	
@@ -462,5 +442,20 @@ private RGridBagLayoutPane getListPane() {
 		listPane.add(getFinishApplicationButton(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return listPane;
+}
+
+/**
+ * This method initializes descriptionTextArea	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RHtmlPane	
+ */
+private RHtmlPane getDescriptionTextArea() {
+	if (descriptionTextArea == null) {
+		descriptionTextArea = new RHtmlPane();
+		descriptionTextArea.setFocusable(false);
+		descriptionTextArea.setName("descriptionTextArea");
+		descriptionTextArea.setText("descriptionTextArea");
+	}
+	return descriptionTextArea;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

@@ -1,0 +1,7 @@
+Shows how to use the portal display widget to create your own portal.
+<P>
+Use the display like all the other display to load Rich Dialogs dynamically into the display. The layout of the portal display is column based, adjust the number of columns and the width ratio of each column in the display API. The portal supports off-the-shelf support for title renaming, maximize, minimize, close and DragAndDrop within the portal.
+</P>
+<P>
+Create simple Rich Dialogs to use as <B>portlets</B> with no further requirements as long as only the generic portal features should be used. For the refresh and configuration features, a specific interface must be fulfilled. See the loading of the Rich Dialogs and the implementation of the Advanced portlet as an example.
+</P>
