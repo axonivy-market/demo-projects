@@ -82,7 +82,7 @@
 						for(int u=0; u<userRs.size(); u++) 
 						{
 							String userN = userRs.getField(u, "name").toString();
-							if(taskActivatorIsUser && userN.equals(task.getActivator().getMemberName()))
+							if(taskActivatorIsUser && userN.equals(task.getActivatorName()))
 							{
 								out.write("<option SELECTED>" + userN + "</option>");
 							}
@@ -112,7 +112,7 @@
 						for(int r=0; r<roleRs.size(); r++) 
 						{
 							String roleN = roleRs.getField(r, "name").toString();
-							if(!taskActivatorIsUser && roleN.equals(task.getActivator().getMemberName()))
+							if(!taskActivatorIsUser && roleN.equals(task.getActivatorName()))
 							{
 								out.write("<option SELECTED>" + roleN + "</option>");
 							}
