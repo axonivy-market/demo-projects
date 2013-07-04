@@ -196,7 +196,6 @@ private RFlowLayoutPane getButtonPane() {
 	if (buttonPane == null) {
 		buttonPane = new RFlowLayoutPane();
 		buttonPane.setName("buttonPane");
-		buttonPane.setName("southPane");
 		buttonPane.add(getButton());
 		buttonPane.add(getButton1());
 	}

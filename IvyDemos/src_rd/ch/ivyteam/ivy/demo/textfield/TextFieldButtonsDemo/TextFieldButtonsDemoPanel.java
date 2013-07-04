@@ -216,6 +216,7 @@ private RLabel getActionLabel() {
 	if (actionLabel == null) {
 		actionLabel = new RLabel();
 		actionLabel.setText("Text field with an action event for the trailing icon");
+		actionLabel.setName("actionLabel");
 	}
 	return actionLabel;
 }
