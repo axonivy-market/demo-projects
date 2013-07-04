@@ -513,6 +513,7 @@ private RTextField getTaskPriorityTextField() {
 		taskPriorityTextField = new RTextField();
 		taskPriorityTextField.setEditable(false);
 		taskPriorityTextField.setText("");
+		taskPriorityTextField.setName("taskPriorityTextField");
 		taskPriorityTextField.setStyleProperties("{/anchor \"WEST\"/fill \"HORIZONTAL\"/weightX \"1\"}");
 		taskPriorityTextField.setColumns(4);
 	}

@@ -300,7 +300,6 @@ private RGridBagLayoutPane getTaskSettingsGridBagLayoutPane() {
 		aFiller1.setStyle("horizontalStrut250");
 		taskSettingsGridBagLayoutPane = new RGridBagLayoutPane();
 		taskSettingsGridBagLayoutPane.setName("taskSettingsGridBagLayoutPane");
-		taskSettingsGridBagLayoutPane.setName("taskConfigurationGridBagLayoutPane");
 		taskSettingsGridBagLayoutPane.add(getTasksSortByPriorityCheckBox(), new com.ulcjava.base.application.GridBagConstraints(2, 3, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		taskSettingsGridBagLayoutPane.add(getTaskHierarchyLayoutLabel(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		taskSettingsGridBagLayoutPane.add(getTasksHierarchyLayoutSelectRDC(), new com.ulcjava.base.application.GridBagConstraints(2, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));

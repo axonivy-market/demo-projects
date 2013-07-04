@@ -141,8 +141,8 @@ public class StandaloneWorkflowUIWindowPanel extends RichDialogBorderPanel imple
     if (fFrame == null)
     {
       ULCRootPane root = RichDialogUtil.getUlcRootPane(this);
-
-      fFrame = (ULCFrame) root;      
+      fFrame = (ULCFrame) root;
+      fFrame.setName("fFrame");
     }
     
     return fFrame;

@@ -239,7 +239,7 @@ private RGridBagLayoutPane getFindSecurityMemberGridBagLayoutPane() {
 		findSecurityMemberGridBagLayoutPane = new RGridBagLayoutPane();
 		findSecurityMemberGridBagLayoutPane.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 		findSecurityMemberGridBagLayoutPane.setOpaque(false);
-		findSecurityMemberGridBagLayoutPane.setName("findCasesGridBagLayoutPane");
+		findSecurityMemberGridBagLayoutPane.setName("findSecurityMemberGridBagLayoutPane");
 		findSecurityMemberGridBagLayoutPane.setStyleProperties("{/fill \"NONE\"}");
 		findSecurityMemberGridBagLayoutPane.add(getFindBoxPane(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}

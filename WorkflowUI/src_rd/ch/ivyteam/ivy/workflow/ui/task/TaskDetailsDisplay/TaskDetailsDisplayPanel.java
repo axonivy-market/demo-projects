@@ -593,6 +593,7 @@ private RTextField getTaskPriorityTextField() {
 		taskPriorityTextField = new RTextField();
 		taskPriorityTextField.setEditable(false);
 		taskPriorityTextField.setText("");
+		taskPriorityTextField.setName("taskPriorityTextField");
 		taskPriorityTextField.setStyle("displayedLeftAlignedTextField");
 	}
 	return taskPriorityTextField;
