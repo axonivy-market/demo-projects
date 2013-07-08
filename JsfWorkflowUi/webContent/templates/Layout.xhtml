@@ -19,28 +19,27 @@
 			<ui:include src="layoutIncludes/Header.xhtml" />
 		</p:layoutUnit>
 		
-		<c:if test="#{ivy.wf.securityContext.currentSession.sessionUserUnknown}">
-			<p:layoutUnit id="mainLoginLayoutUnit" position="center" header="#{ivy.cms.co('/navLabels/login')}">
-				<ic:ch.ivyteam.wf.login.Login id="loginPageComponent" />
-			</p:layoutUnit>
-		</c:if>
-			
-		<c:if test="#{! ivy.wf.securityContext.currentSession.sessionUserUnknown}">
-			<p:layoutUnit id="menuLayoutUnit" position="west" collapsible="true" header="Xpert.ivy 5" size="200">
-				<ui:include src="layoutIncludes/Menu.xhtml" />
-			</p:layoutUnit>
-			
-			<p:layoutUnit id="mainLayoutUnit" position="center" header="#{centerHeader}">
-				<c:if test="#{centerHeader != ivy.cms.co('/navLabels/absence')}">
+		<c:choose>
+ 			<c:when test="#{ivy.wf.securityContext.currentSession.sessionUserUnknown}">
+ 				<p:layoutUnit id="mainLoginLayoutUnit" position="center" header="#{ivy.cms.co('/navLabels/login')}">
+					<ic:ch.ivyteam.wf.login.Login id="loginPageComponent" />
+				</p:layoutUnit>
+ 			</c:when>
+ 			<c:otherwise>
+	 			<p:layoutUnit id="menuLayoutUnit" position="west" collapsible="true" header="Xpert.ivy 5" size="200">
+					<ui:include src="layoutIncludes/Menu.xhtml" />
+				</p:layoutUnit>
+				
+				<p:layoutUnit id="mainLayoutUnit" position="center" header="#{centerHeader}">
 					<p:messages id="message" showDetail="true" closable="true" />
-				</c:if>
-				<ui:insert name="center" />
-			</p:layoutUnit>
-			
-			<p:layoutUnit id="footerLayoutUnit" position="south">
-				<div id="layoutFooter">Powered by Xpert.Ivy Workflow Copyright &#169; <a href="http://www.ivyteam.ch">ivyTeam AG</a></div>
-			</p:layoutUnit>
-		</c:if>
+					<ui:insert name="center" />
+				</p:layoutUnit>
+				
+				<p:layoutUnit id="footerLayoutUnit" position="south">
+					<div id="layoutFooter">Powered by Xpert.Ivy Workflow Copyright &#169; <a href="http://www.ivyteam.ch">ivyTeam AG</a></div>
+				</p:layoutUnit>
+ 			</c:otherwise>
+		</c:choose>
 	</p:layout>
 </h:body>
 </html>

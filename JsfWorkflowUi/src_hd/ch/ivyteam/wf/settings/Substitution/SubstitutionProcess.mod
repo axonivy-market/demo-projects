@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jul 02 08:44:47 CEST 2013]
+[>Created: Mon Jul 08 10:28:38 CEST 2013]
 13F5720787C9F3A0 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstitutionProcess Big #zClass
@@ -25,13 +25,13 @@ Ss0 @RichDialogMethodStart f7 '' #zField
 Ss0 @PushWFArc f15 '' #zField
 Ss0 @RichDialogMethodStart f4 '' #zField
 Ss0 @PushWFArc f9 '' #zField
-Ss0 @PushWFArc f12 '' #zField
-Ss0 @PushWFArc f11 '' #zField
-Ss0 @PushWFArc f6 '' #zField
 Ss0 @PushWFArc f16 '' #zField
 Ss0 @GridStep f8 '' #zField
 Ss0 @PushWFArc f13 '' #zField
 Ss0 @PushWFArc f2 '' #zField
+Ss0 @PushWFArc f6 '' #zField
+Ss0 @PushWFArc f12 '' #zField
+Ss0 @PushWFArc f19 '' #zField
 >Proto Ss0 Ss0 SubstitutionProcess #zField
 Ss0 f0 guid 13F5720789611B9E #txt
 Ss0 f0 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
@@ -52,7 +52,7 @@ Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ss0 f0 86 54 20 20 13 0 #rect
 Ss0 f0 @|RichDialogInitStartIcon #fIcon
 Ss0 f1 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
-Ss0 f1 86 246 20 20 13 0 #rect
+Ss0 f1 86 310 20 20 13 0 #rect
 Ss0 f1 @|RichDialogProcessEndIcon #fIcon
 Ss0 f3 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
@@ -91,7 +91,7 @@ Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f3 78 116 36 24 1 13 #rect
+Ss0 f3 206 116 36 24 1 13 #rect
 Ss0 f3 @|StepIcon #fIcon
 Ss0 f5 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
@@ -123,7 +123,7 @@ my substitutions</name>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f5 206 116 36 24 1 13 #rect
+Ss0 f5 206 180 36 24 1 13 #rect
 Ss0 f5 @|StepIcon #fIcon
 Ss0 f10 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
@@ -150,7 +150,7 @@ Ss0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f10 334 116 36 24 1 13 #rect
+Ss0 f10 334 180 36 24 1 13 #rect
 Ss0 f10 @|StepIcon #fIcon
 Ss0 f14 guid 13F5773B6B9B6604 #txt
 Ss0 f14 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
@@ -221,10 +221,10 @@ Ss0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f17 526 116 36 24 20 -2 #rect
+Ss0 f17 526 180 36 24 20 -2 #rect
 Ss0 f17 @|StepIcon #fIcon
 Ss0 f18 expr out #txt
-Ss0 f18 544 74 544 116 #arcP
+Ss0 f18 544 74 544 180 #arcP
 Ss0 f7 guid 13F7509B1EEE5E13 #txt
 Ss0 f7 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f7 method removeSubstitute(Number) #txt
@@ -248,7 +248,7 @@ Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ss0 f7 342 54 20 20 13 0 #rect
 Ss0 f7 @|RichDialogMethodStartIcon #fIcon
 Ss0 f15 expr out #txt
-Ss0 f15 352 74 352 116 #arcP
+Ss0 f15 352 74 352 180 #arcP
 Ss0 f4 guid 13F75DF4EC85730E #txt
 Ss0 f4 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f4 method update() #txt
@@ -268,18 +268,12 @@ Ss0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ss0 f4 214 54 20 20 13 0 #rect
 Ss0 f4 @|RichDialogMethodStartIcon #fIcon
 Ss0 f9 expr out #txt
-Ss0 f9 352 140 106 256 #arcP
-Ss0 f9 1 352 256 #addKink
+Ss0 f9 352 204 106 320 #arcP
+Ss0 f9 1 352 320 #addKink
 Ss0 f9 1 0.2897814072783535 0 0 #arcLabel
-Ss0 f12 expr out #txt
-Ss0 f12 96 74 96 116 #arcP
-Ss0 f11 expr out #txt
-Ss0 f11 96 140 96 246 #arcP
-Ss0 f6 expr out #txt
-Ss0 f6 224 74 224 116 #arcP
 Ss0 f16 expr out #txt
-Ss0 f16 544 140 106 256 #arcP
-Ss0 f16 1 544 256 #addKink
+Ss0 f16 544 204 106 320 #arcP
+Ss0 f16 1 544 320 #addKink
 Ss0 f16 1 0.33267384971861186 0 0 #arcLabel
 Ss0 f8 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
@@ -316,15 +310,21 @@ Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f8 206 180 36 24 1 15 #rect
+Ss0 f8 206 244 36 24 1 15 #rect
 Ss0 f8 @|StepIcon #fIcon
 Ss0 f13 expr out #txt
-Ss0 f13 224 140 224 180 #arcP
+Ss0 f13 224 204 224 244 #arcP
 Ss0 f13 0 0.5905648529193468 0 0 #arcLabel
 Ss0 f2 expr out #txt
-Ss0 f2 224 204 106 256 #arcP
-Ss0 f2 1 224 256 #addKink
+Ss0 f2 224 268 106 320 #arcP
+Ss0 f2 1 224 320 #addKink
 Ss0 f2 1 0.25908176811608286 0 0 #arcLabel
+Ss0 f6 expr out #txt
+Ss0 f6 224 74 224 116 #arcP
+Ss0 f12 expr out #txt
+Ss0 f12 224 140 224 180 #arcP
+Ss0 f19 expr out #txt
+Ss0 f19 96 74 96 310 #arcP
 >Proto Ss0 .type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -335,15 +335,15 @@ Ss0 f7 mainOut f15 tail #connect
 Ss0 f15 head f10 mainIn #connect
 Ss0 f10 mainOut f9 tail #connect
 Ss0 f9 head f1 mainIn #connect
-Ss0 f0 mainOut f12 tail #connect
-Ss0 f12 head f3 mainIn #connect
-Ss0 f3 mainOut f11 tail #connect
-Ss0 f11 head f1 mainIn #connect
-Ss0 f4 mainOut f6 tail #connect
-Ss0 f6 head f5 mainIn #connect
 Ss0 f17 mainOut f16 tail #connect
 Ss0 f16 head f1 mainIn #connect
 Ss0 f5 mainOut f13 tail #connect
 Ss0 f13 head f8 mainIn #connect
 Ss0 f8 mainOut f2 tail #connect
 Ss0 f2 head f1 mainIn #connect
+Ss0 f4 mainOut f6 tail #connect
+Ss0 f6 head f3 mainIn #connect
+Ss0 f3 mainOut f12 tail #connect
+Ss0 f12 head f5 mainIn #connect
+Ss0 f0 mainOut f19 tail #connect
+Ss0 f19 head f1 mainIn #connect

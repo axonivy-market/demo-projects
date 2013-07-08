@@ -44,14 +44,16 @@
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/task')}
 					</f:facet>
-					<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}" id="taskLinkRow_#{row}" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{task.id}]">#{task.name}</a>
+					<h:commandLink title="Details Task [#{task.id}]" ajax="false">
+						#{task.name}
+					</h:commandLink>
 				</p:column>
 				<p:column sortBy="#{task.activator.name}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
 					<p:outputPanel>
-						<h:graphicImage name="#{task.activator.isUser() ? 'images/details/user' : 'images/details/role'}.png" alt="#{task.activator}"/>
+						<h:graphicImage name="#{task.activator == null ? '' : task.activator.isUser() ? 'images/details/user' : 'images/details/role'}.png" alt="#{task.activator}"/>
 						#{task.activator.name}
 					</p:outputPanel>
 				</p:column>
@@ -67,7 +69,7 @@
 					<f:facet name="header">
 						Start
 					</f:facet>
-					<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}"><h:graphicImage name="images/actions/start.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{task.id}]" /></a> 
+					<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}" id="taskLinkRow_#{row}"><h:graphicImage name="images/actions/start.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{task.id}]" /></a> 
 				</p:column>
 			</p:dataTable>
 		</h:form>

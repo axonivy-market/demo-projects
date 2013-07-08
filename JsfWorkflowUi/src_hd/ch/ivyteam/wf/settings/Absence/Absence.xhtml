@@ -17,10 +17,12 @@
 		<br />
 		#{ivy.cms.co('/labels/settings/absence/description')}
 		<br /><br />
-		<c:if test="#{ivy.wf.securityContext.currentSession.absent}">
-			<h:outputText value="#{ivy.cms.co('/labels/settings/substitute/currentState')}: #{ivy.cms.co('/labels/settings/absence/currentlyAbsent')}" style="font-weight:bold" />
-			<br /><br />
-		</c:if>
+		<p:outputPanel id="userAbsentOutput">
+			<c:if test="#{ivy.wf.securityContext.currentSession.absent}">
+				<h:outputText value="#{ivy.cms.co('/labels/settings/substitute/currentState')}: #{ivy.cms.co('/labels/settings/absence/currentlyAbsent')}" style="font-weight:bold" />
+				<br /><br />
+			</c:if>
+		</p:outputPanel>
 		<h:form id="formAddButton">
 			<p:commandButton id="addAbsence" update=":dialogAddAbsence" icon="wf-ui-icon-add" value="#{ivy.cms.co('/labels/settings/absence/addAbsence')}" oncomplete="addAbsence.show();">
 				<f:setPropertyActionListener value="add" target="#{data.option}" />
@@ -70,7 +72,7 @@
 				<ui:include src="AbsenceDialog.xhtml" />
 				<h:panelGrid style="width:100%; text-align: right;">
  					<p:outputPanel>
- 						<p:commandButton id="saveNewAbsence" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" update="@all" actionListener="#{logic.addAbsence}" />
+ 						<p:commandButton id="saveNewAbsence" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" update=":formAbsence :dialogAddAbsence :userAbsentOutput" actionListener="#{logic.addAbsence}" />
  						<p:spacer width="5px" />
  						<p:commandButton id="cancelNewAbsence" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="addAbsence.hide();" />
 					</p:outputPanel>
@@ -83,7 +85,7 @@
 				<ui:include src="AbsenceDialog.xhtml" />
 				<h:panelGrid style="width:100%; text-align: right;">
 					<p:outputPanel>
- 						<p:commandButton id="saveEditAbsence" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" oncomplete="editAbsence.hide();" update="@all" actionListener="#{logic.editAbsence}" />
+ 						<p:commandButton id="saveEditAbsence" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" oncomplete="editAbsence.hide();" update=":formAbsence :dialogAddAbsence :userAbsentOutput" actionListener="#{logic.editAbsence}" />
 						<p:spacer width="5px" />
 						<p:commandButton id="cancelEditAbsence" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="editAbsence.hide();" />
 					</p:outputPanel>

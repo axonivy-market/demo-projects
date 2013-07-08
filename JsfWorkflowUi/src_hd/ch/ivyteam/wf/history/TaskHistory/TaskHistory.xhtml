@@ -57,6 +57,7 @@
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
+					<h:graphicImage name="#{task.activator == null ? '' : task.activator.isUser() ? 'images/details/user' : 'images/details/role'}.png" alt="#{task.activator}"/>
 					#{task.activator.name}
 				</p:column>
        			<p:column sortBy="#{task.startTimestamp}">  

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jun 24 13:05:15 CEST 2013]
+[>Created: Mon Jul 08 08:28:34 CEST 2013]
 13F2E0370AA5B84E 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHistoryProcess Big #zClass
@@ -57,6 +57,7 @@ IQueryResult queryResult = ivy.session.findWorkedOnTasks(null,
 
 List<ITask> tasks = queryResult.getResultList();
 out.paginator = tasks.size() >= 50;
+in.tasks.clear();
 
 for (ITask task : tasks)
 {
