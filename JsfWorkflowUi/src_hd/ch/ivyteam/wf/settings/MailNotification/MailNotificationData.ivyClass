@@ -1,0 +1,17 @@
+MailNotificationData #class
+ch.ivyteam.wf.settings.MailNotification #namespace
+language String #field
+languages List<String> #field
+languages PERSISTENT #fieldModifier
+isUseApplicationDefault Boolean #field
+isNotificationDisabled Boolean #field
+isSendOnNewWorkTasks Boolean #field
+mon Boolean #field
+tue Boolean #field
+wen Boolean #field
+thu Boolean #field
+fri Boolean #field
+sat Boolean #field
+sun Boolean #field
+emailNotificationSettings ch.ivyteam.ivy.security.IUserEMailNotificationSettings #field
+emailNotificationSettings PERSISTENT #fieldModifier

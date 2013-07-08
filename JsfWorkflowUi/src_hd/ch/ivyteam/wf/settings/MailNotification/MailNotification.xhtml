@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pm="http://primefaces.org/mobile">
+ 
+<ui:composition template="/templates/Layout.xhtml">
+	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/mailSettings')}" />
+	<ui:define name="center">
+		<br />
+		#{ivy.cms.co('/labels/settings/mailNotification/description')}
+		<br />
+		<br />
+		<h:form id="formMailNotification">
+			#{ivy.cms.co('/labels/settings/mailNotification/mailLanguage')}
+       		<h:panelGrid columns="2">
+       			<p:spacer width="10" />
+       			<p:selectOneMenu id="languages" value="#{data.language}">
+       				<f:selectItems value="#{data.languages}" var="languages" itemLabel="#{languages}" itemValue="#{languages}" />
+       			</p:selectOneMenu>
+       		</h:panelGrid>
+       		<br />
+       		#{ivy.cms.co('/labels/settings/mailNotification/whatSettingsUse')}
+       		<h:panelGrid columns="3">
+       			<p:spacer width="10" />
+       			<p:selectOneButton id="appDefault" value="#{data.isUseApplicationDefault}">
+        			<f:selectItem itemLabel="#{ivy.cms.co('/labels/settings/mailNotification/appDefault')}" itemValue="true" />
+        			<f:selectItem itemLabel="#{ivy.cms.co('/labels/settings/mailNotification/useCustom')}" itemValue="false" />
+        			<f:ajax render="formMailNotification" listener="#{logic.setApplicationDefault}" />
+    			</p:selectOneButton>
+       		</h:panelGrid>
+       		<br />
+       		#{ivy.cms.co('/labels/settings/mailNotification/mailSettingDescription')}
+       		<h:panelGrid columns="3">
+       			<p:spacer width="7" />
+       			<h:panelGrid columns="2">
+	               	<p:selectBooleanCheckbox value="#{data.isNotificationDisabled}" id="noNotification" disabled="#{data.isUseApplicationDefault}">
+	               		<f:ajax render="formMailNotification" />
+	               	</p:selectBooleanCheckbox>
+	               	#{ivy.cms.co('/labels/settings/mailNotification/mailNotificationDisabled')}
+               	</h:panelGrid>   			
+       			<p:message for="noNotification" display="icon" />
+       			<p:spacer width="7" />
+       			<h:panelGrid columns="2">
+       				<p:selectBooleanCheckbox value="#{data.isSendOnNewWorkTasks}" id="onTask" disabled="#{data.isUseApplicationDefault || data.isNotificationDisabled}" />
+       				#{ivy.cms.co('/labels/settings/mailNotification/mailOnNewTask')}
+       			</h:panelGrid>
+       			<p:message for="onTask" display="icon" />
+       			<p:spacer width="7" />
+       			<h:panelGrid columns="10">
+       				#{ivy.cms.co('/labels/settings/mailNotification/mailDailySummary')}
+       				<p:spacer width="10" />
+                	<p:selectBooleanCheckbox id="checkMonday" value="#{data.mon}" itemLabel="#{ivy.cms.co('/labels/settings/mailNotification/weekdays/mon')}" disabled="#{data.isUseApplicationDefault || data.isNotificationDisabled}" />
+                	<p:selectBooleanCheckbox id="checkTuesday" value="#{data.tue}" itemLabel="#{ivy.cms.co('/labels/settings/mailNotification/weekdays/tue')}" disabled="#{data.isUseApplicationDefault || data.isNotificationDisabled}" />
+                	<p:selectBooleanCheckbox id="checkWednesday" value="#{data.wen}" itemLabel="#{ivy.cms.co('/labels/settings/mailNotification/weekdays/wen')}" disabled="#{data.isUseApplicationDefault || data.isNotificationDisabled}" />
+                	<p:selectBooleanCheckbox id="checkThursday" value="#{data.thu}" itemLabel="#{ivy.cms.co('/labels/settings/mailNotification/weekdays/thu')}" disabled="#{data.isUseApplicationDefault || data.isNotificationDisabled}" />
+                	<p:selectBooleanCheckbox id="checkFriday" value="#{data.fri}" itemLabel="#{ivy.cms.co('/labels/settings/mailNotification/weekdays/fri')}" disabled="#{data.isUseApplicationDefault || data.isNotificationDisabled}" />
+                	<p:selectBooleanCheckbox id="checkSaturday" value="#{data.sat}" itemLabel="#{ivy.cms.co('/labels/settings/mailNotification/weekdays/sat')}" disabled="#{data.isUseApplicationDefault || data.isNotificationDisabled}" />
+                	<p:selectBooleanCheckbox id="checkSunday" value="#{data.sun}" itemLabel="#{ivy.cms.co('/labels/settings/mailNotification/weekdays/sun')}" disabled="#{data.isUseApplicationDefault || data.isNotificationDisabled}" />
+ 				</h:panelGrid>
+ 				<p:column /> 
+			</h:panelGrid>
+			<br />
+			<p:commandButton id="saveMailNotification" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" actionListener="#{logic.saveSettings}" update=":message" />
+		</h:form>
+   	</ui:define>
+</ui:composition>
+</html>

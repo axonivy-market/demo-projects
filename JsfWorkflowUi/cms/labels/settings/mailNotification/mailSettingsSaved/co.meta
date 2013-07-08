@@ -1,0 +1,4 @@
+co: name={mailSettingsSaved} description={} changed={2013-06-17 15:17:15 CEST} changedby={locadmin} visualorder={0} guid={13F524375977E3AE} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={13F524384D3475D9} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-06-17 15:12:04 CEST} validto={} changed={2013-06-17 15:15:10 CEST} changedby={locadmin} properties={} id={}
+val: guid={13F52438E747CEA5} datatype={} isdefault={false} langid={de} description={} validfrom={2013-06-17 15:12:06 CEST} validto={} changed={2013-06-17 15:15:10 CEST} changedby={locadmin} properties={} id={}
+val: guid={13F52437597EC542} datatype={} isdefault={true} langid={en} description={} validfrom={2013-06-17 15:12:00 CEST} validto={} changed={2013-06-17 15:17:15 CEST} changedby={locadmin} properties={} id={}
