@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 08 10:28:38 CEST 2013]
+[>Created: Wed Jul 10 08:03:41 CEST 2013]
 13F5720787C9F3A0 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstitutionProcess Big #zClass
@@ -31,6 +31,8 @@ Ss0 @PushWFArc f13 '' #zField
 Ss0 @PushWFArc f2 '' #zField
 Ss0 @PushWFArc f6 '' #zField
 Ss0 @PushWFArc f12 '' #zField
+Ss0 @GridStep f11 '' #zField
+Ss0 @PushWFArc f20 '' #zField
 Ss0 @PushWFArc f19 '' #zField
 >Proto Ss0 Ss0 SubstitutionProcess #zField
 Ss0 f0 guid 13F5720789611B9E #txt
@@ -57,14 +59,14 @@ Ss0 f1 @|RichDialogProcessEndIcon #fIcon
 Ss0 f3 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
 Ss0 f3 actionTable 'out=in;
-out.isPersonally=true;
-out.selectedRoles=[];
 out.user=ivy.session.getSessionUser();
 ' #txt
 Ss0 f3 actionCode 'import ch.ivyteam.ivy.security.IRole;
 import ch.ivyteam.ivy.security.IUser;
 
 List users = ivy.wf.getSecurityContext().getUsers();
+in.userList.clear();
+in.roleList.clear();
 for(IUser user : users)
 {
 	if(user.getName() != "SYSTEM" && user.getName() != in.user.getName())
@@ -323,8 +325,28 @@ Ss0 f6 expr out #txt
 Ss0 f6 224 74 224 116 #arcP
 Ss0 f12 expr out #txt
 Ss0 f12 224 140 224 180 #arcP
+Ss0 f11 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
+' #txt
+Ss0 f11 actionTable 'out=in;
+out.isPersonally=true;
+out.selectedRoles=[];
+' #txt
+Ss0 f11 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
+Ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>init</name>
+        <nameStyle>4
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f11 78 180 36 24 20 -2 #rect
+Ss0 f11 @|StepIcon #fIcon
+Ss0 f20 expr out #txt
+Ss0 f20 96 74 96 180 #arcP
 Ss0 f19 expr out #txt
-Ss0 f19 96 74 96 310 #arcP
+Ss0 f19 96 204 96 310 #arcP
 >Proto Ss0 .type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -345,5 +367,7 @@ Ss0 f4 mainOut f6 tail #connect
 Ss0 f6 head f3 mainIn #connect
 Ss0 f3 mainOut f12 tail #connect
 Ss0 f12 head f5 mainIn #connect
-Ss0 f0 mainOut f19 tail #connect
+Ss0 f0 mainOut f20 tail #connect
+Ss0 f20 head f11 mainIn #connect
+Ss0 f11 mainOut f19 tail #connect
 Ss0 f19 head f1 mainIn #connect
