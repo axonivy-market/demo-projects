@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 24 08:00:09 CEST 2013]
+[>Created: Wed Jul 10 08:23:27 CEST 2013]
 13ED18655F6A1538 3.17 #module
 >Proto >Proto Collection #zClass
 Pt0 Processlist Big #zClass
@@ -25,10 +25,10 @@ Pt0 f0 requestEnabled true #txt
 Pt0 f0 triggerEnabled false #txt
 Pt0 f0 callSignature DefaultProcessStartListPage() #txt
 Pt0 f0 persist false #txt
-Pt0 f0 startName ProcessStartList #txt
+Pt0 f0 startName DefaultProcessStartListPage #txt
 Pt0 f0 startDescription 'This is used to overwrite the default process start list.' #txt
 Pt0 f0 taskData '#
-#Fri May 24 08:00:08 CEST 2013
+#Wed Jul 10 08:23:23 CEST 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -37,7 +37,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Pt0 f0 caseData '#
-#Fri May 24 08:00:08 CEST 2013
+#Wed Jul 10 08:23:23 CEST 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
