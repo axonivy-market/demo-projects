@@ -4,3 +4,7 @@ tasks List<ch.ivyteam.ivy.workflow.ITask> #field
 tasks PERSISTENT #fieldModifier
 paginator Boolean #field
 paginator PERSISTENT #fieldModifier
+taskId Number #field
+taskId PERSISTENT #fieldModifier
+task ch.ivyteam.ivy.workflow.ITask #field
+task PERSISTENT #fieldModifier

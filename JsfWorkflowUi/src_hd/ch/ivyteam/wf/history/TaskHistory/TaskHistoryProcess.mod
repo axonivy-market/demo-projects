@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 08 08:28:34 CEST 2013]
+[>Created: Wed Jul 17 10:10:49 CEST 2013]
 13F2E0370AA5B84E 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHistoryProcess Big #zClass
@@ -34,6 +34,8 @@ Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
+        <nameStyle>7,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt

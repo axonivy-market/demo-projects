@@ -24,9 +24,7 @@
            			<f:facet name="header">  
                			#
            			</f:facet>
-           			<h:commandLink id="buttonTaskHistoryDetail" title="Details Task [#{task.id}]" ajax="false">
-						<h:graphicImage name="images/actions/task#{task.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" />
-					</h:commandLink> 
+           			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskHistoryDetail" title="Details Task [#{task.id}]"><h:graphicImage name="images/actions/task#{task.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" /></a>
         		</p:column>
        			<p:column style="width:50px; text-align: center;" sortBy="#{task.priority.intValue()}">
 					<f:facet name="header">
@@ -44,7 +42,7 @@
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/name')}  
            			</f:facet>
-           			<p:commandLink value="#{task.name}" title="Details Task [#{task.id}]" ajax="false" />
+           			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" title="Details Task [#{task.id}]">#{task.name}</a>
        			</p:column>
        			<p:column sortBy="#{task.workerUserName}">  
            			<f:facet name="header">  

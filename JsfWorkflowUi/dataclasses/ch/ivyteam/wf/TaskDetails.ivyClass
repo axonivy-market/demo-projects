@@ -1,0 +1,6 @@
+TaskDetails #class
+ch.ivyteam.wf #namespace
+isHistory Boolean #field
+isHistory PERSISTENT #fieldModifier
+taskId Number #field
+taskId PERSISTENT #fieldModifier

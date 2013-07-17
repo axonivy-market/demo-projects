@@ -1,0 +1,16 @@
+@CHARSET "ISO-8859-1";
+.detailsList tr
+{
+	border-color: lightgrey;
+}
+
+.detailsList th
+{
+	font-size: 90%;
+	text-align: left;
+	padding-right: 2pt;
+}
+
+.alignTop {
+    vertical-align: top;
+}

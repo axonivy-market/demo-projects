@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 20 16:21:03 CEST 2013]
+[>Created: Wed Jul 17 10:11:18 CEST 2013]
 13EE9A482A299A65 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListProcess Big #zClass
@@ -28,10 +28,7 @@ Ts0 f0 disableUIEvents true #txt
 Ts0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
-Ts0 f0 outParameterDecl '<java.lang.Number taskId,java.lang.String option> result;
-' #txt
-Ts0 f0 outParameterMapAction 'result.taskId=in.taskId;
-result.option=in.option;
+Ts0 f0 outParameterDecl '<> result;
 ' #txt
 Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -42,10 +39,10 @@ Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f0 86 54 20 20 13 0 #rect
+Ts0 f0 87 54 18 20 13 0 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f1 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
-Ts0 f1 86 182 20 20 13 0 #rect
+Ts0 f1 86 118 20 20 13 0 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
 Ts0 f11 actionDecl 'ch.ivyteam.wf.workflow.TaskList.TaskListData out;
 ' #txt
@@ -84,12 +81,12 @@ Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f11 174 180 36 24 20 -2 #rect
+Ts0 f11 174 116 36 24 20 -2 #rect
 Ts0 f11 @|StepIcon #fIcon
 Ts0 f2 expr out #txt
-Ts0 f2 174 192 106 192 #arcP
+Ts0 f2 174 128 106 128 #arcP
 Ts0 f10 expr out #txt
-Ts0 f10 96 74 96 182 #arcP
+Ts0 f10 96 74 96 118 #arcP
 Ts0 f3 guid 13F61412866CB9E5 #txt
 Ts0 f3 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 Ts0 f3 method update() #txt
@@ -109,7 +106,7 @@ Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f3 182 54 20 20 13 0 #rect
 Ts0 f3 @|RichDialogMethodStartIcon #fIcon
 Ts0 f5 expr out #txt
-Ts0 f5 192 74 192 180 #arcP
+Ts0 f5 192 74 192 116 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect

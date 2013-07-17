@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="/templates/Layout.xhtml">
+	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/taskDetails')}" />
+	<ui:define name="center">
+		<f:event type="preRenderView" listener="#{logic.update()}" />
+		<br />
+		#{ivy.cms.co('/labels/history/taskDetails/description')}
+		<br /><br />
+		<h:form id="formTaskDetails">
+			<h:panelGrid columns="3" rowClasses="alignTop" width="100%">
+			<h:column>
+				<table id="taskDetailsList" class="detailsList" rules="rows">
+					<tr>
+						<th>#{ivy.cms.co('/labels/history/taskDetails/taskId')}</th>
+						<td>#{data.task.id}</td>
+					</tr>
+					<tr>
+						<th>#{ivy.cms.co('/labels/common/name')}</th>
+						<td>#{data.task.name}</td>
+					</tr>
+					<tr>
+						<th>#{ivy.cms.co('/labels/common/description')}</th>
+						<td>#{data.task.description}</td>
+					</tr>
+					<tr>
+						<th>#{ivy.cms.co('/labels/common/state')}</th>
+						<td>
+							<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
+								<ui:param name="iconName" value="images/details/state/#{data.task.state.intValue()}.png" />
+								<ui:param name="iconDescription" value="#{data.task.state}" />
+							</ui:include>
+						</td>
+					</tr>
+					<tr>
+						<th>#{ivy.cms.co('/labels/history/taskDetails/priority')}</th>
+						<td>
+							<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
+								<ui:param name="iconName" value="images/details/priority/#{data.task.priority.intValue()}.png" />
+								<ui:param name="iconDescription" value="#{data.task.priority}" />
+							</ui:include>
+						</td>
+					</tr>
+					<tr>
+						<th>#{ivy.cms.co('/labels/common/user')}</th>
+						<td>
+							<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
+								<ui:param name="iconName" value="#{data.task.workerUser != null ? 'images/details/user.png' : 'images/others/none.png'}" />
+								<ui:param name="iconDescription" value="#{data.task.workerUserName}" />
+							</ui:include>
+						</td>
+					</tr>
+					<tr>
+   						<th>#{ivy.cms.co('/labels/common/responsible')}</th>
+	   					<td>
+	   						<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
+								<ui:param name="iconName" value="#{data.task.originalActivator == null ? 'images/others/none.png' : data.task.originalActivator.isUser() ? 'images/details/user.png' : 'images/details/role.png'}" />
+								<ui:param name="iconDescription" value="#{data.task.originalActivatorName}" />
+							</ui:include>
+						</td>
+					</tr>
+					<tr>
+   						<th>#{ivy.cms.co('/labels/history/taskDetails/responsibleEx')}</th>
+   						<td>
+   							<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
+								<ui:param name="iconName" value="#{data.task.expiryActivator == null ? 'images/others/none.png' : data.task.expiryActivator.isUser() ? 'images/details/user.png' : 'images/details/role.png'}" />
+								<ui:param name="iconDescription" value="#{data.task.expiryActivatorName}" />
+							</ui:include>
+						</td>
+					</tr>
+					<tr>
+   						<th>#{ivy.cms.co('/labels/history/taskDetails/case')}</th>
+						<td><h:outputText value="#{data.task.case.name}" /></td>
+					</tr>
+					<tr>
+						<th>#{ivy.cms.co('/labels/common/start')}</th>
+						<td>
+							<h:outputText value="#{data.task.startTimestamp}">
+								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+							</h:outputText>
+						</td>
+					</tr>
+					<tr>
+						<th>#{ivy.cms.co('/labels/common/expiry')}</th>
+						<td>
+							<h:outputText value="#{data.task.expiryTimestamp}">
+								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+							</h:outputText>
+						</td>
+					</tr>
+					<tr>
+						<th>#{ivy.cms.co('/labels/history/taskDetails/delay')}</th>
+						<td>
+							<h:outputText value="#{data.task.delayTimestamp}">
+								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+							</h:outputText>
+						</td>
+					</tr>
+					<tr>
+						<th>#{ivy.cms.co('/labels/common/done')}</th>
+						<td>
+							<h:outputText value="#{data.task.endTimestamp}">
+								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+							</h:outputText>
+						</td>
+					</tr>
+				</table>
+				</h:column>
+				<p:spacer width="50" />
+				<h:panelGrid columns="1">
+				<p:fieldset legend="#{ivy.cms.co('/labels/common/taskNotes')}" toggleable="true" toggleSpeed="500" rendered="#{data.task.hasNotes()}">
+					<p:dataList value="#{data.notes}" var="taskNote" itemType="none">
+						<h:panelGrid columns="3">
+							<p:outputPanel>
+		    					<h:outputText value="#{taskNote.creationTimestamp}" style="font-weight:bold;" >
+			    					<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+								</h:outputText>
+		    					<h:outputText value=" #{taskNote.writterName}:" escape="false" style="font-weight:bold;" />
+		    					<br />
+		    					<h:outputText value="#{taskNote.message}" escape="false" />
+	    					</p:outputPanel>
+	    					<p:spacer width="20" />
+	    					<h:commandLink actionListener="#{logic.deleteNote(taskNote)}" ajax="false" disabled="#{taskNote.writterName != ivy.session.sessionUserName}">
+								<h:graphicImage name="images/actions/delete.png" alt="" rendered="#{taskNote.writterName == ivy.session.sessionUserName}" />
+							</h:commandLink>
+						</h:panelGrid>
+					</p:dataList>
+			    </p:fieldset>
+			    <p:fieldset legend="#{ivy.cms.co('/labels/common/caseNotes')}" toggleable="true" toggleSpeed="500" rendered="#{data.task.case.hasNotes()}">
+					<p:dataList value="#{data.caseNotes}" var="caseNote" itemType="none">
+						<h:panelGrid columns="3">
+							<p:outputPanel>
+		    					<h:outputText value="#{caseNote.creationTimestamp}" style="font-weight:bold;" >
+		    						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+								</h:outputText>
+		    					<h:outputText value=" #{caseNote.writterName}:" escape="false" style="font-weight:bold;" />
+		    					<br />
+		    					<h:outputText value="#{caseNote.message}" escape="false" />
+	    					</p:outputPanel>
+	    					<p:spacer width="20" />
+	    					<h:commandLink actionListener="#{logic.deleteNote(caseNote)}" ajax="false" disabled="#{caseNote.writterName != ivy.session.sessionUserName}">
+								<h:graphicImage name="images/actions/delete.png" alt="" rendered="#{caseNote.writterName == ivy.session.sessionUserName}" />
+							</h:commandLink>
+						</h:panelGrid>
+					</p:dataList>
+				</p:fieldset>
+				</h:panelGrid>
+			</h:panelGrid>
+		</h:form>
+   	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,26 @@
+TaskDetailsData #class
+ch.ivyteam.wf.history.TaskDetails #namespace
+task ch.ivyteam.ivy.workflow.ITask #field
+task PERSISTENT #fieldModifier
+tasks List<ch.ivyteam.ivy.workflow.ITask> #field
+tasks PERSISTENT #fieldModifier
+taskId Number #field
+taskId PERSISTENT #fieldModifier
+resetLink Boolean #field
+resetLink PERSISTENT #fieldModifier
+delegateLink Boolean #field
+delegateLink PERSISTENT #fieldModifier
+changeExpiryLink Boolean #field
+changeExpiryLink PERSISTENT #fieldModifier
+addNoteLink Boolean #field
+addNoteLink PERSISTENT #fieldModifier
+archiveLink Boolean #field
+archiveLink PERSISTENT #fieldModifier
+notes List<ch.ivyteam.ivy.workflow.INote> #field
+notes PERSISTENT #fieldModifier
+isHistory Boolean #field
+isHistory PERSISTENT #fieldModifier
+note ch.ivyteam.ivy.workflow.INote #field
+note PERSISTENT #fieldModifier
+caseNotes List<ch.ivyteam.ivy.workflow.INote> #field
+caseNotes PERSISTENT #fieldModifier

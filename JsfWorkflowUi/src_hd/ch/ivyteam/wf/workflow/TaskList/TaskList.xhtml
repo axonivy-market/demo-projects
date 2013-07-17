@@ -19,14 +19,12 @@
 		<br /><br />
 		<h:form id="taskListForm">
 			<p:growl id="growl" showDetail="true" />
-			<p:dataTable var="task" value="#{data.tasks}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.paginator}" paginatorPosition="bottom" rows="50">
+			<p:dataTable id="taskTable" var="task" value="#{data.tasks}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.paginator}" paginatorPosition="bottom" rows="50">
 				<p:column style="width:2%">
 					<f:facet name="header">
 						#
 					</f:facet>
-					<h:commandLink id="buttonTaskDetail" title="Details Task [#{task.id}]" ajax="false">
-						<h:graphicImage name="images/actions/task#{task.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" />
-					</h:commandLink>
+					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskDetail" title="Details Task [#{task.id}]"><h:graphicImage name="images/actions/task#{task.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" /></a>
 				</p:column>
 				<p:column style="width:50px; text-align: center;" sortBy="#{task.priority.intValue()}">
 					<f:facet name="header">
@@ -44,9 +42,7 @@
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/task')}
 					</f:facet>
-					<h:commandLink title="Details Task [#{task.id}]" ajax="false">
-						#{task.name}
-					</h:commandLink>
+					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.id}" title="Details Task [#{task.id}]">#{task.name}</a>
 				</p:column>
 				<p:column sortBy="#{task.activator.name}">
 					<f:facet name="header">
