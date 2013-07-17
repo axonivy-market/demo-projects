@@ -49,14 +49,12 @@
        			</p:toolbarGroup>
 			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
-   			<p:dataTable var="case" value="#{data.cases}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.paginator}" paginatorPosition="bottom" rows="50">
-   				<p:column id="caseDetail" style="width:2%">
+   			<p:dataTable id="caseTable" var="case" value="#{data.cases}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.paginator}" paginatorPosition="bottom" rows="50">
+   				<p:column style="width:2%">
            			<f:facet name="header">
                			#
            			</f:facet>
-                     <h:commandLink title="Details Case [#{case.id}]" align="center" ajax="false">
-						<h:graphicImage name="images/actions/case.png" alt="#{task.id}" />
-					</h:commandLink>
+           			<a href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{case.id}" id="buttonCaseDetail" title="Details Case [#{case.id}]"><h:graphicImage name="images/actions/case.png" alt="" /></a>
         		</p:column>
        			<p:column style="width:50px; text-align: center;" sortBy="#{case.state.intValue()}">
            			<f:facet name="header">
@@ -68,7 +66,7 @@
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/common/name')}
            			</f:facet>
-           			<p:commandLink id="caseLinkRow" value="#{case.name}" title="Details Case [#{case.id}]" ajax="false" />
+           			<a href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{case.id}" id="caseLinkRow" title="Details Case [#{case.id}]">#{case.name}</a>
        			</p:column>
        			<p:column sortBy="#{case.processCategoryCode}">
            			<f:facet name="header">
@@ -88,7 +86,7 @@
                			#{ivy.cms.co('/labels/common/start')}
            			</f:facet>
            			<h:outputText value="#{case.startTimestamp}">
-						<f:convertDateTime type="both" dateStyle="short" />
+						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
        			</p:column>
    			</p:dataTable>

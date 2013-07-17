@@ -1,0 +1,20 @@
+CaseDetailsData #class
+ch.ivyteam.wf.history.CaseDetails #namespace
+cases List<ch.ivyteam.ivy.workflow.ICase> #field
+cases PERSISTENT #fieldModifier
+wfCase ch.ivyteam.ivy.workflow.ICase #field
+wfCase PERSISTENT #fieldModifier
+caseId Number #field
+caseId PERSISTENT #fieldModifier
+tasks List<ch.ivyteam.ivy.workflow.ITask> #field
+tasks PERSISTENT #fieldModifier
+deleteCaseLink Boolean #field
+deleteCaseLink PERSISTENT #fieldModifier
+addNoteLink Boolean #field
+addNoteLink PERSISTENT #fieldModifier
+archiveLink Boolean #field
+archiveLink PERSISTENT #fieldModifier
+notes List<ch.ivyteam.ivy.workflow.INote> #field
+notes PERSISTENT #fieldModifier
+note ch.ivyteam.ivy.workflow.INote #field
+note PERSISTENT #fieldModifier

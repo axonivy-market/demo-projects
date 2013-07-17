@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 13 10:35:00 CEST 2013]
+[>Created: Wed Jul 17 09:01:18 CEST 2013]
 13F1D890C62823FF 3.17 #module
 >Proto >Proto Collection #zClass
 Ct0 CaseList Big #zClass
@@ -178,8 +178,8 @@ Ct0 f2 userContext '* ' #txt
 Ct0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>CaseList</name>
-        <nameStyle>8
+        <name>case list</name>
+        <nameStyle>9
 </nameStyle>
     </language>
 </elementInfo>

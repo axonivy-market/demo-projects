@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 17 14:31:14 CEST 2013]
+[>Created: Wed Jul 17 17:10:00 CEST 2013]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -60,35 +60,34 @@ Ts0 f3 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f3 actionTable 'out=in;
 ' #txt
-Ts0 f3 actionCode 'import java.util.EnumSet;
+Ts0 f3 actionCode 'import ch.ivyteam.logicalexpression.RelationalOperator;
+import java.util.EnumSet;
 import ch.ivyteam.ivy.workflow.PropertyOrder;
 import ch.ivyteam.ivy.workflow.TaskState;
 import ch.ivyteam.ivy.workflow.TaskProperty;
 import ch.ivyteam.ivy.persistence.OrderDirection;
 import ch.ivyteam.ivy.persistence.IQueryResult;
 import ch.ivyteam.ivy.workflow.ITask;
+import ch.ivyteam.ivy.workflow.IPropertyFilter;
 
-IQueryResult queryResult;
+out.task = null;
+IPropertyFilter taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.ID, RelationalOperator.EQUAL, in.taskId);
 
 if(in.isHistory)
 {
-	queryResult = ivy.session.findWorkedOnTasks(null,
-		PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING),0, -1 ,true);
-}
-else
-{
-	queryResult  = ivy.session.findWorkTasks(null, PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING), 
-  	0, -1, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
-}
-
-List<ITask> tasks = queryResult.getResultList();
-
-for (ITask task : tasks)
-{
-	if(task.getId() == in.taskId)
+	IQueryResult queryResult = ivy.session.findWorkedOnTasks(taskFilter,
+		PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING),0, 1 ,true);
+  if(queryResult.getAllCount() != 0)
 	{
-		out.task = task;
+		out.task = queryResult.get(0) as ITask;
 	}
+}
+
+if(out.task == null)
+{
+	IQueryResult queryResult  = ivy.session.findWorkTasks(taskFilter, PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING), 
+  	0, 1, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
+	out.task = queryResult.get(0) as ITask;
 }' #txt
 Ts0 f3 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

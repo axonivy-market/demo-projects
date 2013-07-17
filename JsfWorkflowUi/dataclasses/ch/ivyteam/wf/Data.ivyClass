@@ -8,3 +8,5 @@ taskId Number #field
 taskId PERSISTENT #fieldModifier
 message String #field
 message PERSISTENT #fieldModifier
+caseId Number #field
+caseId PERSISTENT #fieldModifier
