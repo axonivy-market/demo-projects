@@ -30,3 +30,9 @@ noteDescription String #field
 noteDescription PERSISTENT #fieldModifier
 showNoteSelection Boolean #field
 showNoteSelection PERSISTENT #fieldModifier
+prio Number #field
+prio PERSISTENT #fieldModifier
+expiryDate Date #field
+expiryDate PERSISTENT #fieldModifier
+expiryTime Time #field
+expiryTime PERSISTENT #fieldModifier

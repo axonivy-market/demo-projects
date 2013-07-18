@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 18 14:36:23 CEST 2013]
+[>Created: Thu Jul 18 16:14:44 CEST 2013]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -32,11 +32,15 @@ Ts0 @GridStep f10 '' #zField
 Ts0 @PushWFArc f12 '' #zField
 Ts0 @PushWFArc f9 '' #zField
 Ts0 @GridStep f22 '' #zField
-Ts0 @PushWFArc f11 '' #zField
-Ts0 @PushWFArc f24 '' #zField
 Ts0 @GridStep f23 '' #zField
 Ts0 @PushWFArc f27 '' #zField
+Ts0 @RichDialogProcessStart f13 '' #zField
+Ts0 @GridStep f15 '' #zField
+Ts0 @PushWFArc f16 '' #zField
+Ts0 @PushWFArc f21 '' #zField
+Ts0 @PushWFArc f11 '' #zField
 Ts0 @PushWFArc f25 '' #zField
+Ts0 @PushWFArc f28 '' #zField
 >Proto Ts0 Ts0 TaskDetailsProcess #zField
 Ts0 f0 guid 13FE10F005F6798D #txt
 Ts0 f0 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
@@ -107,7 +111,7 @@ Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f3 238 180 36 24 20 -2 #rect
+Ts0 f3 78 180 36 24 20 -2 #rect
 Ts0 f3 @|StepIcon #fIcon
 Ts0 f5 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -169,10 +173,10 @@ Ts0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f5 238 244 36 24 20 -2 #rect
+Ts0 f5 78 244 36 24 20 -2 #rect
 Ts0 f5 @|StepIcon #fIcon
 Ts0 f6 expr out #txt
-Ts0 f6 256 204 256 244 #arcP
+Ts0 f6 96 204 96 244 #arcP
 Ts0 f7 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f7 actionTable 'out=in;
@@ -194,10 +198,10 @@ Ts0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f7 238 308 36 24 20 -2 #rect
+Ts0 f7 78 308 36 24 20 -2 #rect
 Ts0 f7 @|StepIcon #fIcon
 Ts0 f8 expr out #txt
-Ts0 f8 256 268 256 308 #arcP
+Ts0 f8 96 268 96 308 #arcP
 Ts0 f19 guid 13FE227DAB03DC7E #txt
 Ts0 f19 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f19 method deleteNote(ch.ivyteam.ivy.workflow.INote,String) #txt
@@ -273,9 +277,8 @@ Ts0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f26 246 54 20 20 13 0 #rect
 Ts0 f26 @|RichDialogMethodStartIcon #fIcon
 Ts0 f4 expr out #txt
-Ts0 f4 256 332 106 384 #arcP
-Ts0 f4 1 256 384 #addKink
-Ts0 f4 1 0.18806928460277236 0 0 #arcLabel
+Ts0 f4 96 332 96 374 #arcP
+Ts0 f4 0 0.3970811519327517 0 0 #arcLabel
 Ts0 f2 guid 13FF06C460193848 #txt
 Ts0 f2 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f2 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
@@ -330,6 +333,8 @@ Ts0 f9 1 0.33411365079186317 0 0 #arcLabel
 Ts0 f22 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f22 actionTable 'out=in;
+out.expiryDate=null;
+out.expiryTime=null;
 out.noteDescription="";
 out.noteFor="case";
 ' #txt
@@ -345,10 +350,6 @@ Ts0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f22 238 116 36 24 20 -2 #rect
 Ts0 f22 @|StepIcon #fIcon
-Ts0 f11 expr out #txt
-Ts0 f11 256 74 256 116 #arcP
-Ts0 f24 expr out #txt
-Ts0 f24 256 140 256 180 #arcP
 Ts0 f23 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f23 actionTable 'out=in;
@@ -364,12 +365,82 @@ Ts0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f23 78 180 36 24 20 -2 #rect
+Ts0 f23 78 116 36 24 20 -2 #rect
 Ts0 f23 @|StepIcon #fIcon
 Ts0 f27 expr out #txt
-Ts0 f27 96 74 96 180 #arcP
+Ts0 f27 96 74 96 116 #arcP
+Ts0 f13 guid 13FF1DD416B328FA #txt
+Ts0 f13 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f13 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f13 actionTable 'out=in;
+' #txt
+Ts0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>changeExpiry</name>
+        <nameStyle>12,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f13 694 54 20 20 13 0 #rect
+Ts0 f13 @|RichDialogProcessStartIcon #fIcon
+Ts0 f15 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f15 actionTable 'out=in;
+' #txt
+Ts0 f15 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowPriority;
+
+if(in.prio == 0)
+{
+	out.task.setOriginalPriority(WorkflowPriority.EXCEPTION);
+}	
+else if(in.prio == 1)
+{
+	out.task.setOriginalPriority(WorkflowPriority.HIGH);
+}	
+else if(in.prio == 2)
+{
+	out.task.setOriginalPriority(WorkflowPriority.NORMAL);
+}	
+else if(in.prio == 3)
+{
+	out.task.setOriginalPriority(WorkflowPriority.LOW);
+}
+
+if(in.expiryDate.toNumber() > 0)
+{
+	DateTime expiry = new DateTime(in.expiryDate.getYear(), in.expiryDate.getMonth(), in.expiryDate.getDay(), 
+		in.expiryTime.getHours(), in.expiryTime.getMinutes(), 0);
+	out.task.setExpiryTimestamp(expiry);
+}' #txt
+Ts0 f15 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>change expiry</name>
+        <nameStyle>13
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f15 686 116 36 24 20 -2 #rect
+Ts0 f15 @|StepIcon #fIcon
+Ts0 f16 expr out #txt
+Ts0 f16 704 74 704 116 #arcP
+Ts0 f21 expr out #txt
+Ts0 f21 704 140 426 192 #arcP
+Ts0 f21 1 704 192 #addKink
+Ts0 f21 1 0.3877451289726625 0 0 #arcLabel
+Ts0 f11 expr out #txt
+Ts0 f11 256 74 256 116 #arcP
 Ts0 f25 expr out #txt
-Ts0 f25 96 204 96 374 #arcP
+Ts0 f25 96 140 96 180 #arcP
+Ts0 f28 expr out #txt
+Ts0 f28 256 140 106 384 #arcP
+Ts0 f28 1 256 384 #addKink
+Ts0 f28 0 0.8180270850396713 0 0 #arcLabel
 >Proto Ts0 .type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -388,11 +459,15 @@ Ts0 f2 mainOut f12 tail #connect
 Ts0 f12 head f10 mainIn #connect
 Ts0 f10 mainOut f9 tail #connect
 Ts0 f9 head f20 mainIn #connect
-Ts0 f26 mainOut f11 tail #connect
-Ts0 f11 head f22 mainIn #connect
-Ts0 f22 mainOut f24 tail #connect
-Ts0 f24 head f3 mainIn #connect
 Ts0 f0 mainOut f27 tail #connect
 Ts0 f27 head f23 mainIn #connect
+Ts0 f13 mainOut f16 tail #connect
+Ts0 f16 head f15 mainIn #connect
+Ts0 f15 mainOut f21 tail #connect
+Ts0 f21 head f20 mainIn #connect
+Ts0 f26 mainOut f11 tail #connect
+Ts0 f11 head f22 mainIn #connect
 Ts0 f23 mainOut f25 tail #connect
-Ts0 f25 head f1 mainIn #connect
+Ts0 f25 head f3 mainIn #connect
+Ts0 f22 mainOut f28 tail #connect
+Ts0 f28 head f1 mainIn #connect

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+<ui:composition>
+	<p:dialog id="modalDialogChangeExpiry" header="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" widgetVar="changeExpiry" modal="true" appendToBody="true">  
+  		<h:form id="formDetailsChangeExpiry">
+			<h:panelGrid columns="4">
+				#{ivy.cms.co('/labels/common/expiry')}
+				<p:calendar id="expiryDate" value="#{data.expiryDate}" showOn="button" required="true" pattern="dd.MM.yyyy">
+           			<f:convertDateTime pattern="dd.MM.yyyy" />
+           		</p:calendar>
+           		<p:spacer width="10" />
+           		<p:outputPanel>
+					<pe:timePicker id="expiryTime" value="#{data.expiryTime}" showOn="button" mode="popup" widgetVar="popupBtnTimeWidget" label="Time">
+						<f:convertDateTime pattern="HH:mm" />
+					</pe:timePicker>
+					<p:commandButton type="button" icon="ui-icon-clock" onclick="selectTimePickerExpiryTime()" style="height: 25px" />
+				</p:outputPanel>
+   				<h:outputLabel for="taskPrio" value="#{ivy.cms.co('/labels/history/taskDetails/priority')}" />
+				<p:selectOneMenu id="taskPrio" value="#{data.prio}" >
+          			<f:selectItem itemLabel="LOW" itemValue="3" />  
+           			<f:selectItem itemLabel="NORMAL" itemValue="2" />  
+           			<f:selectItem itemLabel="HIGH" itemValue="1" />  
+           			<f:selectItem itemLabel="EXCEPTION" itemValue="0" />
+       			</p:selectOneMenu>
+       			<script>
+					function selectTimePickerExpiryTime() {
+						var elementAdd = document.getElementById('formDetailsChangeExpiry:expiryTime_input');
+						elementAdd.focus();
+		       			elementAdd.select();
+					}
+				</script>
+			</h:panelGrid>
+			<h:panelGrid style="width:100%; text-align: right;">
+				<p:outputPanel>
+					<p:commandButton id="saveChangeExpiry" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" oncomplete="changeExpiry.hide();" update="@all" actionListener="#{logic.changeExpiry}" />
+					<p:spacer width="5px" />
+					<p:commandButton id="cancelChangeExpiry" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="changeExpiry.hide();" update=":formDetailsChangeExpiry" />
+				</p:outputPanel>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+</ui:composition>
+</h:body>
+</html>

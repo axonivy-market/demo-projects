@@ -19,6 +19,16 @@
 	background-image:url(#{resource['images/actions/park.png']}) !important;
 }
 
+.wf-ui-icon-archive
+{
+	background-image:url(#{resource['images/actions/formHistory.png']}) !important;
+}
+
+.wf-ui-icon-expiry
+{
+	background-image:url(#{resource['images/actions/expiry.png']}) !important;
+}
+
 .wf-ui-icon-add
 {
 	background-image:url(#{resource['images/actions/add.png']}) !important;
