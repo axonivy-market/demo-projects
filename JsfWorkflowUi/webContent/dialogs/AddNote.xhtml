@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+<ui:composition>
+	<p:dialog id="modalDialogAddNote" header="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" widgetVar="addNote" modal="true" appendToBody="true">  
+	    <h:form id="formAddNote">
+			<h:panelGrid columns="2">
+				<c:if test="#{data.showNoteSelection}">
+					#{ivy.cms.co('/labels/dialogs/addNote/addNoteFor')}
+		            <p:selectOneRadio id="options" value="#{data.noteFor}" styleClass="selectRadio">
+		                <f:selectItem itemLabel="#{ivy.cms.co('/labels/history/taskDetails/case')}" itemValue="case" />
+		            	<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/task')}" itemValue="task" />
+		       		</p:selectOneRadio>
+	       		</c:if>
+				#{ivy.cms.co('/labels/common/description')}
+				<p:inputTextarea id="note" rows="10" cols="100" value="#{data.noteDescription}" autoResize="false" />
+			</h:panelGrid>
+			<br />
+			<h:panelGrid style="width:100%; text-align: right;">
+				<p:outputPanel>
+					<p:commandButton id="saveNote" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" oncomplete="addNote.hide();" update="@all" actionListener="#{logic.addNote}" />
+					<p:spacer width="5px" />
+					<p:commandButton id="cancelNote" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="addNote.hide();" update=":formAddNote" />
+				</p:outputPanel>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+</ui:composition>
+</h:body>
+</html>

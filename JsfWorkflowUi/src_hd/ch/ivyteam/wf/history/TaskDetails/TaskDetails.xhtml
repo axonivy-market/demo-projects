@@ -18,6 +18,14 @@
 		#{ivy.cms.co('/labels/history/taskDetails/description')}
 		<br /><br />
 		<h:form id="formTaskDetails">
+			<h:panelGrid columns="1">
+				<p:toolbar>  
+    				<p:toolbarGroup align="left">
+		    			<p:commandButton id="openAddNote" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" icon="wf-ui-icon-addNote" onclick="addNote.show();" disabled="#{data.addNoteLink}" />
+					</p:toolbarGroup> 
+				</p:toolbar>
+			</h:panelGrid>
+			<br />
 			<h:panelGrid columns="3" rowClasses="alignTop" width="100%">
 			<h:column>
 				<table id="taskDetailsList" class="detailsList" rules="rows">
@@ -130,7 +138,7 @@
 		    					<h:outputText value="#{taskNote.message}" escape="false" />
 	    					</p:outputPanel>
 	    					<p:spacer width="20" />
-	    					<h:commandLink actionListener="#{logic.deleteNote(taskNote)}" ajax="false" disabled="#{taskNote.writterName != ivy.session.sessionUserName}">
+	    					<h:commandLink actionListener="#{logic.deleteNote(taskNote, 'task')}" ajax="false" disabled="#{taskNote.writterName != ivy.session.sessionUserName}">
 								<h:graphicImage name="images/actions/delete.png" alt="" rendered="#{taskNote.writterName == ivy.session.sessionUserName}" />
 							</h:commandLink>
 						</h:panelGrid>
@@ -148,7 +156,7 @@
 		    					<h:outputText value="#{caseNote.message}" escape="false" />
 	    					</p:outputPanel>
 	    					<p:spacer width="20" />
-	    					<h:commandLink actionListener="#{logic.deleteNote(caseNote)}" ajax="false" disabled="#{caseNote.writterName != ivy.session.sessionUserName}">
+	    					<h:commandLink actionListener="#{logic.deleteNote(caseNote, 'case')}" ajax="false" disabled="#{caseNote.writterName != ivy.session.sessionUserName}">
 								<h:graphicImage name="images/actions/delete.png" alt="" rendered="#{caseNote.writterName == ivy.session.sessionUserName}" />
 							</h:commandLink>
 						</h:panelGrid>
@@ -157,6 +165,7 @@
 				</h:panelGrid>
 			</h:panelGrid>
 		</h:form>
+		<ui:include src="/dialogs/AddNote.xhtml" />
    	</ui:define>
 </ui:composition>
 </html>

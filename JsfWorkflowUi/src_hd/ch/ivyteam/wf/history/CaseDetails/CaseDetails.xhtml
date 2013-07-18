@@ -12,10 +12,19 @@
 <ui:composition template="/templates/Layout.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/caseDetails')}" />
 	<ui:define name="center">
+		<f:event type="preRenderView" listener="#{logic.update()}" />
 		<br />
 		#{ivy.cms.co('/labels/history/caseDetails/description')}
 		<br /><br />
 		<h:form id="formCaseDetails">
+			<h:panelGrid columns="1">
+				<p:toolbar>  
+    				<p:toolbarGroup align="left">
+							<p:commandButton id="openAddNoteCase" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" icon="wf-ui-icon-addNote" onclick="addNote.show();" disabled="#{data.addNoteLink}" />
+					</p:toolbarGroup> 
+				</p:toolbar>
+			</h:panelGrid>
+			<br />
 			<h:panelGrid columns="3" rowClasses="alignTop" width="100%">
 				<h:column>
 					<table id="caseDetailsList" class="detailsList" rules="rows">
@@ -146,6 +155,7 @@
 				</p:column>
    			</p:dataTable>
 		</h:form>
+		<ui:include src="/dialogs/AddNote.xhtml" />
    	</ui:define>
 </ui:composition>
 </html>

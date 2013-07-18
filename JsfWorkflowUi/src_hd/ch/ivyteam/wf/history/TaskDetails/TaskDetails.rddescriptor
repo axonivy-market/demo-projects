@@ -10,6 +10,12 @@
             <parameterType>ch.ivyteam.ivy.workflow.INote</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
+        <inputParameter>
+            <name>noteFor</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
     </method>
     <method>
         <name>update</name>

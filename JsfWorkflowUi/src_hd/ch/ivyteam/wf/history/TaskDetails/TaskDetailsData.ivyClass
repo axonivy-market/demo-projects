@@ -24,3 +24,9 @@ note ch.ivyteam.ivy.workflow.INote #field
 note PERSISTENT #fieldModifier
 caseNotes List<ch.ivyteam.ivy.workflow.INote> #field
 caseNotes PERSISTENT #fieldModifier
+noteFor String #field
+noteFor PERSISTENT #fieldModifier
+noteDescription String #field
+noteDescription PERSISTENT #fieldModifier
+showNoteSelection Boolean #field
+showNoteSelection PERSISTENT #fieldModifier
