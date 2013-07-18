@@ -14,3 +14,7 @@
 .alignTop {
     vertical-align: top;
 }
+
+.selectRadio label {
+   margin-right: 20px;
+}
