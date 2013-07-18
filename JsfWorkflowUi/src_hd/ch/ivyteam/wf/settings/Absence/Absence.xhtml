@@ -36,7 +36,7 @@
               			#{ivy.cms.co('/labels/settings/absence/absenceStart')}
            			</f:facet>
                  	<h:outputText value="#{absence.startTimestamp}">
-						<f:convertDateTime type="both" dateStyle="short" />
+						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
       			</p:column>
        			<p:column sortBy="#{absence.stopTimestamp}" style="width: 150px; ">
@@ -44,7 +44,7 @@
                			#{ivy.cms.co('/labels/settings/absence/absenceStop')}
            			</f:facet>
                    	<h:outputText value="#{absence.stopTimestamp}">
-						<f:convertDateTime type="both" dateStyle="short" />
+						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
        			</p:column>
        			<p:column>

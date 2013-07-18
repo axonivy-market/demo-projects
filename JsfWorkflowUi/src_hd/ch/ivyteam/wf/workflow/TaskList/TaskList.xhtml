@@ -58,8 +58,8 @@
 						#{ivy.cms.co('/labels/common/taskStart')}
 					</f:facet>
 					<h:outputText value="#{task.startTimestamp}">  
-			            <f:convertDateTime dateStyle="short" type="both"/>  
-			        </h:outputText>
+			            <f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+					</h:outputText>
 				</p:column>
 				<p:column style="width:50px; text-align: center;">
 					<f:facet name="header">

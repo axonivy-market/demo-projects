@@ -63,7 +63,7 @@
                			#{ivy.cms.co('/labels/common/taskStart')}
            			</f:facet>
            			<h:outputText value="#{task.startTimestamp.getYear().toString() == 1 ? '' : task.startTimestamp}">
-						<f:convertDateTime type="both" dateStyle="short" />
+						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
        			</p:column>
        			<p:column sortBy="#{task.expiryTimestamp}">  
@@ -71,7 +71,7 @@
                			#{ivy.cms.co('/labels/common/expiry')}
            			</f:facet>
            			<h:outputText value="#{task.expiryTimestamp.getYear().toString() == 1 ? '' : task.expiryTimestamp}">
-						<f:convertDateTime type="both" dateStyle="short" />
+						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
        			</p:column>
        			<p:column sortBy="#{task.endTimestamp}">  
@@ -79,7 +79,7 @@
                			#{ivy.cms.co('/labels/common/done')}  
            			</f:facet>
            			<h:outputText value="#{task.endTimestamp.getYear().toString() == 1 ? '' : task.endTimestamp}">
-						<f:convertDateTime type="both" dateStyle="short" />
+						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
        			</p:column>
    			</p:dataTable>
