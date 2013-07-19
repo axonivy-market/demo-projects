@@ -34,6 +34,11 @@
 	background-image:url(#{resource['images/actions/add.png']}) !important;
 }
 
+.wf-ui-icon-accept
+{
+	background-image:url(#{resource['images/actions/accept.png']}) !important;
+}
+
 .wf-ui-icon-delete
 {
 	background-image:url(#{resource['images/actions/delete.png']}) !important;

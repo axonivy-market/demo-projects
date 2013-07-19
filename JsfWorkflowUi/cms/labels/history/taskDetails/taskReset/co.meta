@@ -1,0 +1,4 @@
+co: name={taskReset} description={} changed={2013-07-16 09:39:06 GMT} changedby={dje} visualorder={0} guid={13FE6D8F6F256C7F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={13FE6D8F6F2E5EAB} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 15:14:59 GMT} validto={} changed={2013-07-16 09:39:06 GMT} changedby={dje} properties={} id={}
+val: guid={13FE6D8F70281B3E} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-15 14:49:52 GMT} validto={} changed={2013-07-16 09:39:06 GMT} changedby={dje} properties={} id={}
+val: guid={13FE6D8F7115D257} datatype={} isdefault={true} langid={de} description={} validfrom={2011-01-14 15:02:41 GMT} validto={} changed={2013-07-16 09:39:06 GMT} changedby={dje} properties={} id={}

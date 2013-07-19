@@ -46,3 +46,7 @@ delegateToRole ch.ivyteam.ivy.security.IRole #field
 delegateToRole PERSISTENT #fieldModifier
 isDelegateToRole Boolean #field
 isDelegateToRole PERSISTENT #fieldModifier
+parkLink Boolean #field
+parkLink PERSISTENT #fieldModifier
+changeExpiryWrong Boolean #field
+changeExpiryWrong PERSISTENT #fieldModifier

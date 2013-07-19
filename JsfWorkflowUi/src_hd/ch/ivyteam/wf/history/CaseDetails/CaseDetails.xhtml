@@ -20,8 +20,9 @@
 			<h:panelGrid columns="1">
 				<p:toolbar>  
     				<p:toolbarGroup align="left">
-							<p:commandButton id="openAddNoteCase" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" icon="wf-ui-icon-addNote" onclick="addNote.show();" disabled="#{data.addNoteLink}" />
-					</p:toolbarGroup> 
+    					<p:commandButton id="openDeleteCase" value="#{ivy.cms.co('/labels/history/caseDetails/caseDelete')}" icon="wf-ui-icon-delete" onclick="confirmDeleteReset.show();" disabled="#{data.deleteCaseLink}" />
+						<p:commandButton id="openAddNoteCase" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" icon="wf-ui-icon-addNote" onclick="addNote.show();" disabled="#{data.addNoteLink}" />
+					</p:toolbarGroup>
 				</p:toolbar>
 			</h:panelGrid>
 			<br />
@@ -156,6 +157,10 @@
    			</p:dataTable>
 		</h:form>
 		<ui:include src="/dialogs/AddNote.xhtml" />
+		<ui:include src="/dialogs/ConfirmDeleteReset.xhtml" >
+			<ui:param name="headerConfirm" value="#{ivy.cms.co('/labels/history/caseDetails/caseDelete')}" />
+			<ui:param name="description" value="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteCase')}" />
+		</ui:include>
    	</ui:define>
 </ui:composition>
 </html>

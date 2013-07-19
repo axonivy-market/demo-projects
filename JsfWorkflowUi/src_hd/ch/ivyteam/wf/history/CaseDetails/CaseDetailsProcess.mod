@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 18 14:24:13 CEST 2013]
+[>Created: Fri Jul 19 08:48:10 CEST 2013]
 13FE666253A103EF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetailsProcess Big #zClass
@@ -35,6 +35,10 @@ Cs0 @PushWFArc f20 '' #zField
 Cs0 @GridStep f13 '' #zField
 Cs0 @PushWFArc f21 '' #zField
 Cs0 @PushWFArc f16 '' #zField
+Cs0 @RichDialogProcessStart f22 '' #zField
+Cs0 @GridStep f23 '' #zField
+Cs0 @PushWFArc f24 '' #zField
+Cs0 @PushWFArc f25 '' #zField
 >Proto Cs0 Cs0 CaseDetailsProcess #zField
 Cs0 f0 guid 13FE66625592A530 #txt
 Cs0 f0 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
@@ -297,6 +301,54 @@ Cs0 f21 expr out #txt
 Cs0 f21 96 74 96 148 #arcP
 Cs0 f16 expr out #txt
 Cs0 f16 96 172 96 310 #arcP
+Cs0 f22 guid 13FF5A5B4E12C9B7 #txt
+Cs0 f22 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
+Cs0 f22 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
+' #txt
+Cs0 f22 actionTable 'out=in;
+' #txt
+Cs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>confirmAction</name>
+        <nameStyle>13,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f22 662 54 20 20 13 0 #rect
+Cs0 f22 @|RichDialogProcessStartIcon #fIcon
+Cs0 f23 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
+' #txt
+Cs0 f23 actionTable 'out=in;
+' #txt
+Cs0 f23 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
+import ch.ivyteam.ivy.workflow.ICase;
+
+ICase case =in.wfCase.destroy();
+if(case.getState() == CaseState.DESTROYED)
+{
+	in.cases.remove(in.wfCase);
+}
+' #txt
+Cs0 f23 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
+Cs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>destroy workflow</name>
+        <nameStyle>16
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f23 654 116 36 24 20 -2 #rect
+Cs0 f23 @|StepIcon #fIcon
+Cs0 f24 expr out #txt
+Cs0 f24 672 74 672 116 #arcP
+Cs0 f25 expr out #txt
+Cs0 f25 672 140 394 192 #arcP
+Cs0 f25 1 672 192 #addKink
+Cs0 f25 1 0.3877451289726625 0 0 #arcLabel
 >Proto Cs0 .type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
@@ -321,3 +373,7 @@ Cs0 f0 mainOut f21 tail #connect
 Cs0 f21 head f13 mainIn #connect
 Cs0 f13 mainOut f16 tail #connect
 Cs0 f16 head f1 mainIn #connect
+Cs0 f22 mainOut f24 tail #connect
+Cs0 f24 head f23 mainIn #connect
+Cs0 f23 mainOut f25 tail #connect
+Cs0 f25 head f15 mainIn #connect

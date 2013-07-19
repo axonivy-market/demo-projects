@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jul 19 10:15:27 CEST 2013]
+[>Created: Fri Jul 19 15:45:56 CEST 2013]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -17,9 +17,7 @@ Ts0 @RichDialogInitStart f0 '' #zField
 Ts0 @RichDialogProcessEnd f1 '' #zField
 Ts0 @GridStep f3 '' #zField
 Ts0 @GridStep f5 '' #zField
-Ts0 @PushWFArc f6 '' #zField
 Ts0 @GridStep f7 '' #zField
-Ts0 @PushWFArc f8 '' #zField
 Ts0 @RichDialogMethodStart f19 '' #zField
 Ts0 @RichDialogProcessEnd f20 '' #zField
 Ts0 @GridStep f14 '' #zField
@@ -39,14 +37,24 @@ Ts0 @PushWFArc f16 '' #zField
 Ts0 @PushWFArc f21 '' #zField
 Ts0 @PushWFArc f11 '' #zField
 Ts0 @PushWFArc f25 '' #zField
-Ts0 @PushWFArc f28 '' #zField
 Ts0 @RichDialogProcessStart f24 '' #zField
 Ts0 @GridStep f29 '' #zField
 Ts0 @PushWFArc f30 '' #zField
 Ts0 @PushWFArc f31 '' #zField
 Ts0 @GridStep f32 '' #zField
+Ts0 @RichDialogProcessStart f34 '' #zField
+Ts0 @GridStep f35 '' #zField
+Ts0 @PushWFArc f36 '' #zField
+Ts0 @PushWFArc f37 '' #zField
+Ts0 @PushWFArc f6 '' #zField
+Ts0 @PushWFArc f8 '' #zField
 Ts0 @PushWFArc f33 '' #zField
-Ts0 @PushWFArc f4 '' #zField
+Ts0 @PushWFArc f38 '' #zField
+Ts0 @RichDialogProcessStart f28 '' #zField
+Ts0 @GridStep f39 '' #zField
+Ts0 @PushWFArc f40 '' #zField
+Ts0 @PushWFArc f41 '' #zField
+Ts0 @PushWFArc f44 '' #zField
 >Proto Ts0 Ts0 TaskDetailsProcess #zField
 Ts0 f0 guid 13FE10F005F6798D #txt
 Ts0 f0 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
@@ -72,7 +80,7 @@ Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f0 86 54 20 20 13 0 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f1 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
-Ts0 f1 86 438 20 20 13 0 #rect
+Ts0 f1 86 310 20 20 13 0 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
 Ts0 f3 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -126,6 +134,8 @@ Ts0 f5 actionTable 'out=in;
 Ts0 f5 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.TaskState;
 import ch.ivyteam.ivy.workflow.IWorkflowSession;
+import ch.ivyteam.ivy.security.*;
+import ch.ivyteam.ivy.request.IProcessModelVersionRequest;
 
 ITask task = in.task;
 TaskState state = null;
@@ -135,11 +145,12 @@ TaskState state = null;
 	boolean hasResetPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_RESET);
 	boolean hasDelegatePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.DELEGATE_TASKS);
 	boolean hasTaskWriteExpiryPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_WRITE_EXPIRY_ACTIVATOR);
-
+	IProcessModelVersionRequest Ivyrequest = ivy.html.getObject("request") as IProcessModelVersionRequest;
+	ISecurityDescriptor securityDescriptor = Ivyrequest.getApplication().getSecurityDescriptor();
 
 state = task.getState();
 
-if(state==TaskState.RESUMED && hasResetPermission) 
+if(state==TaskState.RESUMED || state==TaskState.PARKED && hasResetPermission) 
 		{
 			in.resetLink = false;
 		} else {
@@ -168,6 +179,12 @@ if(state==TaskState.RESUMED && hasResetPermission)
 			in.archiveLink = false;
 		} else { 
 			in.archiveLink = true;
+		}
+		if(task.getState().intValue() == 5 && ivySession.hasPermission(securityDescriptor, IPermission.TASK_PARK_OWN_WORKING_TASK))
+		{
+			in.parkLink = false;
+		} else { 
+			in.parkLink = true;
 		}' #txt
 Ts0 f5 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -179,10 +196,8 @@ Ts0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f5 78 244 36 24 20 -2 #rect
+Ts0 f5 238 180 36 24 20 -2 #rect
 Ts0 f5 @|StepIcon #fIcon
-Ts0 f6 expr out #txt
-Ts0 f6 96 204 96 244 #arcP
 Ts0 f7 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f7 actionTable 'out=in;
@@ -204,10 +219,8 @@ Ts0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f7 78 308 36 24 20 -2 #rect
+Ts0 f7 238 244 36 24 20 -2 #rect
 Ts0 f7 @|StepIcon #fIcon
-Ts0 f8 expr out #txt
-Ts0 f8 96 268 96 308 #arcP
 Ts0 f19 guid 13FE227DAB03DC7E #txt
 Ts0 f19 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f19 method deleteNote(ch.ivyteam.ivy.workflow.INote,String) #txt
@@ -341,6 +354,19 @@ out.expiryTime=null;
 out.noteDescription="";
 out.noteFor="case";
 ' #txt
+Ts0 f22 actionCode 'import javax.faces.context.FacesContext;
+import javax.faces.application.FacesMessage;
+
+Boolean message = FacesContext.getCurrentInstance().getMessageList().size() >= 1 ? true : false;
+
+if(message)
+{
+	out.changeExpiryWrong = true;
+}
+else
+{
+	out.changeExpiryWrong = false;
+}' #txt
 Ts0 f22 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -394,26 +420,7 @@ Ts0 f15 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f15 actionTable 'out=in;
 ' #txt
-Ts0 f15 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowPriority;
-
-if(in.prio == 0)
-{
-	out.task.setOriginalPriority(WorkflowPriority.EXCEPTION);
-}	
-else if(in.prio == 1)
-{
-	out.task.setOriginalPriority(WorkflowPriority.HIGH);
-}	
-else if(in.prio == 2)
-{
-	out.task.setOriginalPriority(WorkflowPriority.NORMAL);
-}	
-else if(in.prio == 3)
-{
-	out.task.setOriginalPriority(WorkflowPriority.LOW);
-}
-
-if(in.expiryDate.toNumber() > 0)
+Ts0 f15 actionCode 'if(in.expiryDate.toNumber() > 0)
 {
 	DateTime expiry = new DateTime(in.expiryDate.getYear(), in.expiryDate.getMonth(), in.expiryDate.getDay(), 
 		in.expiryTime.getHours(), in.expiryTime.getMinutes(), 0);
@@ -441,10 +448,6 @@ Ts0 f11 expr out #txt
 Ts0 f11 256 74 256 116 #arcP
 Ts0 f25 expr out #txt
 Ts0 f25 96 140 96 180 #arcP
-Ts0 f28 expr out #txt
-Ts0 f28 256 140 106 448 #arcP
-Ts0 f28 1 256 448 #addKink
-Ts0 f28 0 0.8180270850396713 0 0 #arcLabel
 Ts0 f24 guid 13FF244AAE66F299 #txt
 Ts0 f24 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f24 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
@@ -525,21 +528,109 @@ Ts0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f32 78 372 36 24 20 -2 #rect
+Ts0 f32 238 308 36 24 20 -2 #rect
 Ts0 f32 @|StepIcon #fIcon
+Ts0 f34 guid 13FF610AAC114166 #txt
+Ts0 f34 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f34 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f34 actionTable 'out=in;
+' #txt
+Ts0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>confirmAction</name>
+        <nameStyle>13,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f34 950 54 20 20 13 0 #rect
+Ts0 f34 @|RichDialogProcessStartIcon #fIcon
+Ts0 f35 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f35 actionTable 'out=in;
+' #txt
+Ts0 f35 actionCode 'import ch.ivyteam.ivy.workflow.TaskState;
+if(in.#task!=null && in.task.getState()==TaskState.RESUMED || in.task.getState()==TaskState.PARKED)
+{
+	in.task.reset();
+}	' #txt
+Ts0 f35 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>reset</name>
+        <nameStyle>5
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f35 942 116 36 24 20 -2 #rect
+Ts0 f35 @|StepIcon #fIcon
+Ts0 f36 expr out #txt
+Ts0 f36 960 74 960 116 #arcP
+Ts0 f37 expr out #txt
+Ts0 f37 960 140 426 192 #arcP
+Ts0 f37 1 960 192 #addKink
+Ts0 f37 1 0.4396639266756791 0 0 #arcLabel
+Ts0 f6 expr out #txt
+Ts0 f6 256 140 256 180 #arcP
+Ts0 f6 0 0.6499393278397387 0 0 #arcLabel
+Ts0 f8 expr out #txt
+Ts0 f8 256 204 256 244 #arcP
+Ts0 f8 0 0.8180270850396713 0 0 #arcLabel
 Ts0 f33 expr out #txt
-Ts0 f33 96 332 96 372 #arcP
-Ts0 f33 0 0.3970811519327517 0 0 #arcLabel
-Ts0 f4 expr out #txt
-Ts0 f4 96 396 96 438 #arcP
+Ts0 f33 256 268 256 308 #arcP
+Ts0 f33 0 0.24464016162311086 0 0 #arcLabel
+Ts0 f38 expr out #txt
+Ts0 f38 96 204 96 310 #arcP
+Ts0 f28 guid 13FF61F15A65FD3A #txt
+Ts0 f28 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f28 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f28 actionTable 'out=in;
+' #txt
+Ts0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>parkTask</name>
+        <nameStyle>8,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f28 1078 54 20 20 13 0 #rect
+Ts0 f28 @|RichDialogProcessStartIcon #fIcon
+Ts0 f39 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f39 actionTable 'out=in;
+' #txt
+Ts0 f39 actionCode ivy.session.parkTask(in.task); #txt
+Ts0 f39 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>park</name>
+        <nameStyle>4
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f39 1070 116 36 24 20 -2 #rect
+Ts0 f39 @|StepIcon #fIcon
+Ts0 f40 expr out #txt
+Ts0 f40 1088 74 1088 116 #arcP
+Ts0 f41 expr out #txt
+Ts0 f41 1088 140 426 192 #arcP
+Ts0 f41 1 1088 192 #addKink
+Ts0 f41 1 0.451312235195494 0 0 #arcLabel
+Ts0 f44 expr out #txt
+Ts0 f44 238 320 106 320 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
 >Proto Ts0 '' #fIcon
-Ts0 f3 mainOut f6 tail #connect
-Ts0 f6 head f5 mainIn #connect
-Ts0 f5 mainOut f8 tail #connect
-Ts0 f8 head f7 mainIn #connect
 Ts0 f19 mainOut f17 tail #connect
 Ts0 f17 head f14 mainIn #connect
 Ts0 f14 mainOut f18 tail #connect
@@ -558,13 +649,25 @@ Ts0 f26 mainOut f11 tail #connect
 Ts0 f11 head f22 mainIn #connect
 Ts0 f23 mainOut f25 tail #connect
 Ts0 f25 head f3 mainIn #connect
-Ts0 f22 mainOut f28 tail #connect
-Ts0 f28 head f1 mainIn #connect
 Ts0 f24 mainOut f30 tail #connect
 Ts0 f30 head f29 mainIn #connect
 Ts0 f29 mainOut f31 tail #connect
 Ts0 f31 head f20 mainIn #connect
+Ts0 f34 mainOut f36 tail #connect
+Ts0 f36 head f35 mainIn #connect
+Ts0 f35 mainOut f37 tail #connect
+Ts0 f37 head f20 mainIn #connect
+Ts0 f22 mainOut f6 tail #connect
+Ts0 f6 head f5 mainIn #connect
+Ts0 f5 mainOut f8 tail #connect
+Ts0 f8 head f7 mainIn #connect
 Ts0 f7 mainOut f33 tail #connect
 Ts0 f33 head f32 mainIn #connect
-Ts0 f32 mainOut f4 tail #connect
-Ts0 f4 head f1 mainIn #connect
+Ts0 f3 mainOut f38 tail #connect
+Ts0 f38 head f1 mainIn #connect
+Ts0 f28 mainOut f40 tail #connect
+Ts0 f40 head f39 mainIn #connect
+Ts0 f39 mainOut f41 tail #connect
+Ts0 f41 head f20 mainIn #connect
+Ts0 f32 mainOut f44 tail #connect
+Ts0 f44 head f1 mainIn #connect

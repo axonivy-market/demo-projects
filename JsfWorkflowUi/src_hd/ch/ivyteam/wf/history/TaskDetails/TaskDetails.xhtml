@@ -21,9 +21,13 @@
 			<h:panelGrid columns="1">
 				<p:toolbar>  
     				<p:toolbarGroup align="left">
+    					<p:commandButton id="openResetTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" icon="wf-ui-icon-reset" onclick="confirmDeleteReset.show();" disabled="#{data.resetLink}" />
 		    			<p:commandButton id="openAddNote" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" icon="wf-ui-icon-addNote" onclick="addNote.show();" disabled="#{data.addNoteLink}" />
 						<p:commandButton id="openDelegateTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}" icon="wf-ui-icon-delegate" onclick="delegateTask.show();" disabled="#{data.delegateLink}" />
 						<p:commandButton id="openChangeExpiry" value="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" icon="wf-ui-icon-expiry" onclick="changeExpiry.show();" disabled="#{data.changeExpiryLink}" />
+						<c:if test="#{!data.isHistory}">
+ 							<p:commandButton id="openParkTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskPark')}" icon="wf-ui-icon-park" onclick="confirmPark.show();" disabled="#{data.parkLink}" />
+ 						</c:if>
 					</p:toolbarGroup> 
 				</p:toolbar>
 			</h:panelGrid>
@@ -167,9 +171,17 @@
 				</h:panelGrid>
 			</h:panelGrid>
 		</h:form>
+		<ui:include src="/dialogs/ConfirmDeleteReset.xhtml" >
+			<ui:param name="headerConfirm" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" />
+			<ui:param name="description" value="#{ivy.cms.co('/labels/dialogs/confirmDialog/resetTask')}" />
+		</ui:include>
 		<ui:include src="/dialogs/DelegateTask.xhtml" />
 		<ui:include src="/dialogs/ChangeExpiry.xhtml" />
 		<ui:include src="/dialogs/AddNote.xhtml" />
+		<ui:include src="/dialogs/ConfirmPark.xhtml" >
+			<ui:param name="headerConfirm" value="#{ivy.cms.co('/labels/history/taskDetails/taskPark')}" />
+			<ui:param name="description" value="#{ivy.cms.co('/labels/dialogs/confirmDialog/parkTask')}" />
+		</ui:include>
    	</ui:define>
 </ui:composition>
 </html>
