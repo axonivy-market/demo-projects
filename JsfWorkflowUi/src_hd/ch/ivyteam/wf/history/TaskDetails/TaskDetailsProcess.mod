@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 18 16:14:44 CEST 2013]
+[>Created: Fri Jul 19 10:15:27 CEST 2013]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -26,7 +26,6 @@ Ts0 @GridStep f14 '' #zField
 Ts0 @PushWFArc f17 '' #zField
 Ts0 @PushWFArc f18 '' #zField
 Ts0 @RichDialogMethodStart f26 '' #zField
-Ts0 @PushWFArc f4 '' #zField
 Ts0 @RichDialogProcessStart f2 '' #zField
 Ts0 @GridStep f10 '' #zField
 Ts0 @PushWFArc f12 '' #zField
@@ -41,6 +40,13 @@ Ts0 @PushWFArc f21 '' #zField
 Ts0 @PushWFArc f11 '' #zField
 Ts0 @PushWFArc f25 '' #zField
 Ts0 @PushWFArc f28 '' #zField
+Ts0 @RichDialogProcessStart f24 '' #zField
+Ts0 @GridStep f29 '' #zField
+Ts0 @PushWFArc f30 '' #zField
+Ts0 @PushWFArc f31 '' #zField
+Ts0 @GridStep f32 '' #zField
+Ts0 @PushWFArc f33 '' #zField
+Ts0 @PushWFArc f4 '' #zField
 >Proto Ts0 Ts0 TaskDetailsProcess #zField
 Ts0 f0 guid 13FE10F005F6798D #txt
 Ts0 f0 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
@@ -66,7 +72,7 @@ Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f0 86 54 20 20 13 0 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f1 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
-Ts0 f1 86 374 20 20 13 0 #rect
+Ts0 f1 86 438 20 20 13 0 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
 Ts0 f3 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -276,9 +282,6 @@ Ts0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ts0 f26 246 54 20 20 13 0 #rect
 Ts0 f26 @|RichDialogMethodStartIcon #fIcon
-Ts0 f4 expr out #txt
-Ts0 f4 96 332 96 374 #arcP
-Ts0 f4 0 0.3970811519327517 0 0 #arcLabel
 Ts0 f2 guid 13FF06C460193848 #txt
 Ts0 f2 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f2 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
@@ -353,6 +356,7 @@ Ts0 f22 @|StepIcon #fIcon
 Ts0 f23 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f23 actionTable 'out=in;
+out.isDelegateToRole=false;
 out.showNoteSelection=true;
 ' #txt
 Ts0 f23 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
@@ -438,9 +442,96 @@ Ts0 f11 256 74 256 116 #arcP
 Ts0 f25 expr out #txt
 Ts0 f25 96 140 96 180 #arcP
 Ts0 f28 expr out #txt
-Ts0 f28 256 140 106 384 #arcP
-Ts0 f28 1 256 384 #addKink
+Ts0 f28 256 140 106 448 #arcP
+Ts0 f28 1 256 448 #addKink
 Ts0 f28 0 0.8180270850396713 0 0 #arcLabel
+Ts0 f24 guid 13FF244AAE66F299 #txt
+Ts0 f24 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f24 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f24 actionTable 'out=in;
+' #txt
+Ts0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>delegateTask</name>
+        <nameStyle>12,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f24 822 54 20 20 13 0 #rect
+Ts0 f24 @|RichDialogProcessStartIcon #fIcon
+Ts0 f29 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f29 actionTable 'out=in;
+' #txt
+Ts0 f29 actionCode 'import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.security.IRole;
+
+if(in.isDelegateToRole){
+	out.task.setActivator(in.delegateToRole);
+}else{
+	out.task.setActivator(in.delegateToUser);
+}' #txt
+Ts0 f29 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>delegate task</name>
+        <nameStyle>13
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f29 814 116 36 24 20 -2 #rect
+Ts0 f29 @|StepIcon #fIcon
+Ts0 f30 expr out #txt
+Ts0 f30 832 74 832 116 #arcP
+Ts0 f31 expr out #txt
+Ts0 f31 832 140 426 192 #arcP
+Ts0 f31 1 832 192 #addKink
+Ts0 f31 1 0.4218678788869622 0 0 #arcLabel
+Ts0 f32 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f32 actionTable 'out=in;
+' #txt
+Ts0 f32 actionCode 'import ch.ivyteam.ivy.security.IRole;
+import ch.ivyteam.ivy.security.IUser;
+
+List users = ivy.wf.getSecurityContext().getUsers();
+out.userList.clear();
+for(IUser user : users)
+{
+	if(user.getName() != "SYSTEM" && user.getName() != ivy.session.getSessionUser().getName())
+	{
+		out.userList.add(user);
+	}
+}	
+
+List roles = ivy.session.getSessionUser().getAllRoles();
+out.roleList.clear();
+for(IRole role: roles)
+{
+	out.roleList.add(role);
+}' #txt
+Ts0 f32 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>user/role list</name>
+        <nameStyle>14
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f32 78 372 36 24 20 -2 #rect
+Ts0 f32 @|StepIcon #fIcon
+Ts0 f33 expr out #txt
+Ts0 f33 96 332 96 372 #arcP
+Ts0 f33 0 0.3970811519327517 0 0 #arcLabel
+Ts0 f4 expr out #txt
+Ts0 f4 96 396 96 438 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -453,8 +544,6 @@ Ts0 f19 mainOut f17 tail #connect
 Ts0 f17 head f14 mainIn #connect
 Ts0 f14 mainOut f18 tail #connect
 Ts0 f18 head f20 mainIn #connect
-Ts0 f7 mainOut f4 tail #connect
-Ts0 f4 head f1 mainIn #connect
 Ts0 f2 mainOut f12 tail #connect
 Ts0 f12 head f10 mainIn #connect
 Ts0 f10 mainOut f9 tail #connect
@@ -471,3 +560,11 @@ Ts0 f23 mainOut f25 tail #connect
 Ts0 f25 head f3 mainIn #connect
 Ts0 f22 mainOut f28 tail #connect
 Ts0 f28 head f1 mainIn #connect
+Ts0 f24 mainOut f30 tail #connect
+Ts0 f30 head f29 mainIn #connect
+Ts0 f29 mainOut f31 tail #connect
+Ts0 f31 head f20 mainIn #connect
+Ts0 f7 mainOut f33 tail #connect
+Ts0 f33 head f32 mainIn #connect
+Ts0 f32 mainOut f4 tail #connect
+Ts0 f4 head f1 mainIn #connect

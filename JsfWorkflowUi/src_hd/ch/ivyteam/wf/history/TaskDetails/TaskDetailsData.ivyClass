@@ -36,3 +36,13 @@ expiryDate Date #field
 expiryDate PERSISTENT #fieldModifier
 expiryTime Time #field
 expiryTime PERSISTENT #fieldModifier
+roleList List<ch.ivyteam.ivy.security.IRole> #field
+roleList PERSISTENT #fieldModifier
+userList List<ch.ivyteam.ivy.security.IUser> #field
+userList PERSISTENT #fieldModifier
+delegateToUser ch.ivyteam.ivy.security.IUser #field
+delegateToUser PERSISTENT #fieldModifier
+delegateToRole ch.ivyteam.ivy.security.IRole #field
+delegateToRole PERSISTENT #fieldModifier
+isDelegateToRole Boolean #field
+isDelegateToRole PERSISTENT #fieldModifier

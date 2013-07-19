@@ -22,6 +22,7 @@
 				<p:toolbar>  
     				<p:toolbarGroup align="left">
 		    			<p:commandButton id="openAddNote" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" icon="wf-ui-icon-addNote" onclick="addNote.show();" disabled="#{data.addNoteLink}" />
+						<p:commandButton id="openDelegateTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}" icon="wf-ui-icon-delegate" onclick="delegateTask.show();" disabled="#{data.delegateLink}" />
 						<p:commandButton id="openChangeExpiry" value="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" icon="wf-ui-icon-expiry" onclick="changeExpiry.show();" disabled="#{data.changeExpiryLink}" />
 					</p:toolbarGroup> 
 				</p:toolbar>
@@ -166,6 +167,7 @@
 				</h:panelGrid>
 			</h:panelGrid>
 		</h:form>
+		<ui:include src="/dialogs/DelegateTask.xhtml" />
 		<ui:include src="/dialogs/ChangeExpiry.xhtml" />
 		<ui:include src="/dialogs/AddNote.xhtml" />
    	</ui:define>

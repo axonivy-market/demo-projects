@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+<ui:composition>
+	<p:dialog id="modalDialogDelegateTask" header="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}" widgetVar="delegateTask" modal="true" appendToBody="true">  
+	    <h:form id="formDelegateTask">
+	    	<h:panelGrid columns="4">
+				<p:selectOneRadio id="delegateOptions" value="#{data.isDelegateToRole}" layout="custom">  
+			        <f:selectItem itemLabel="user" itemValue="false" />
+			        <f:selectItem itemLabel="role" itemValue="true" />
+			        <f:ajax render="formDelegateTask" />
+			    </p:selectOneRadio>
+			    #{ivy.cms.co('/labels/common/responsible')}
+			    <p:spacer width="10px"/>
+				<h:panelGrid columns="5">
+					<p:radioButton id="delegateToUser" for="delegateOptions" itemIndex="0" />
+					<h:outputLabel for="delegateToUser" value="user" /> 
+			        <h:graphicImage name="/images/details/user.png" style="border:0pt" alt="user" />
+			        <p:selectOneMenu id="selectionOfUser" value="#{data.delegateToUser}" filter="true" filterMatchMode="startsWith" converter="ivy.ListItem" disabled="#{data.isDelegateToRole}">
+				    	<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{user.getFullName()} (#{user.getName()})" />
+				    </p:selectOneMenu>
+			        <br />
+			        <p:radioButton id="delegateToRole" for="delegateOptions" itemIndex="1" />
+			        <h:outputLabel for="delegateToRole" value="role" />
+			        <h:graphicImage name="/images/details/role.png" style="border:0pt" alt="role" />
+			        <p:selectOneMenu id="selectionOfRole" value="#{data.delegateToRole}" filter="true" filterMatchMode="startsWith" converter="ivy.ListItem" disabled="#{!data.isDelegateToRole}">
+			           	<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} (#{role.getName()})" itemValue="#{role}" />  
+			        </p:selectOneMenu>
+				</h:panelGrid>
+			</h:panelGrid>
+			<br />
+			<h:panelGrid style="width:100%; text-align: right;">
+				<p:outputPanel>
+					<p:commandButton id="saveDelegateTask" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" oncomplete="delegateTask.hide();" update="@all" actionListener="#{logic.delegateTask}" />
+					<p:spacer width="5px" />
+					<p:commandButton id="cancelDelegateTask" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="delegateTask.hide();" update=":formDelegateTask" />
+				</p:outputPanel>
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+</ui:composition>
+</h:body>
+</html>
