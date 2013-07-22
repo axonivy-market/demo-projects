@@ -22,6 +22,7 @@
     				<p:toolbarGroup align="left">
     					<p:commandButton id="openDeleteCase" value="#{ivy.cms.co('/labels/history/caseDetails/caseDelete')}" icon="wf-ui-icon-delete" onclick="confirmDeleteReset.show();" disabled="#{data.deleteCaseLink}" />
 						<p:commandButton id="openAddNoteCase" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" icon="wf-ui-icon-addNote" onclick="addNote.show();" disabled="#{data.addNoteLink}" />
+						<p:commandButton id="openPageArchive" value="#{ivy.cms.co('/labels/common/formArchive')}" icon="wf-ui-icon-archive" onclick="formArchive.show();" disabled="#{data.archiveLink}" />
 					</p:toolbarGroup>
 				</p:toolbar>
 			</h:panelGrid>
@@ -161,6 +162,7 @@
 			<ui:param name="headerConfirm" value="#{ivy.cms.co('/labels/history/caseDetails/caseDelete')}" />
 			<ui:param name="description" value="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteCase')}" />
 		</ui:include>
+		<ui:include src="/dialogs/Archive.xhtml" />
    	</ui:define>
 </ui:composition>
 </html>

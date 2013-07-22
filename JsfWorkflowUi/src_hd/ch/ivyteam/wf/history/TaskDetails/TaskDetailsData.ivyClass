@@ -50,3 +50,5 @@ parkLink Boolean #field
 parkLink PERSISTENT #fieldModifier
 changeExpiryWrong Boolean #field
 changeExpiryWrong PERSISTENT #fieldModifier
+pageArchives List<ch.ivyteam.ivy.workflow.IPageArchive> #field
+pageArchives PERSISTENT #fieldModifier

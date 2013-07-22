@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+<ui:composition>
+	<p:dialog id="modalDialogFormArchive" header="#{ivy.cms.co('/labels/common/formArchive')}" widgetVar="formArchive" modal="true" width="600" appendToBody="true">
+		<h:form id="formArchivePage">
+   			<p:dataTable id="dataTableFormArchive" value="#{data.pageArchives}" var="archive" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row">
+      			<p:column id="absenceStart" style="width:30px">  
+           			<f:facet name="header">  
+               			#
+           			</f:facet>
+					<a href="#{ivy.html.pageArchiveRef(archive)}" target="_blank"><h:graphicImage name="images/actions/formHistory.png" alt="#{archive.id}" style="border:0pt" /></a>
+        		</p:column>
+       			<p:column sortBy="#{archive.name}">  
+           			<f:facet name="header">  
+               			#{ivy.cms.co('/labels/common/page')}
+           			</f:facet> 
+       				<a href="#{ivy.html.pageArchiveRef(archive)}" target="_blank">#{archive.name}</a>
+       			</p:column>
+       			<p:column sortBy="#{archive.task.name}">  
+           			<f:facet name="header">  
+               			#{ivy.cms.co('/labels/common/task')}
+           			</f:facet> 
+       				#{archive.task.name}
+       			</p:column>
+       			<p:column sortBy="#{archive.userName}">  
+           			<f:facet name="header">  
+               			#{ivy.cms.co('/labels/common/user')}
+           			</f:facet>
+           			<h:graphicImage name="images/details/user.png" alt="#{iconDescription}" title="#{iconDescription}" style="border:0" />
+       				#{archive.userName}
+       			</p:column>
+       			<p:column sortBy="#{archive.submitTimestamp}">  
+           			<f:facet name="header">  
+               			#{ivy.cms.co('/labels/common/submitOn')}
+           			</f:facet> 
+       				<h:outputText value="#{archive.submitTimestamp}">
+						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+					</h:outputText>
+       			</p:column>
+   			</p:dataTable>
+		</h:form>
+	</p:dialog>
+</ui:composition>
+</h:body>
+</html>

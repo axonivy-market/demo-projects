@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jul 19 15:45:56 CEST 2013]
+[>Created: Mon Jul 22 10:38:00 CEST 2013]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -49,12 +49,14 @@ Ts0 @PushWFArc f37 '' #zField
 Ts0 @PushWFArc f6 '' #zField
 Ts0 @PushWFArc f8 '' #zField
 Ts0 @PushWFArc f33 '' #zField
-Ts0 @PushWFArc f38 '' #zField
 Ts0 @RichDialogProcessStart f28 '' #zField
 Ts0 @GridStep f39 '' #zField
 Ts0 @PushWFArc f40 '' #zField
 Ts0 @PushWFArc f41 '' #zField
+Ts0 @GridStep f4 '' #zField
+Ts0 @PushWFArc f43 '' #zField
 Ts0 @PushWFArc f44 '' #zField
+Ts0 @PushWFArc f42 '' #zField
 >Proto Ts0 Ts0 TaskDetailsProcess #zField
 Ts0 f0 guid 13FE10F005F6798D #txt
 Ts0 f0 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
@@ -80,7 +82,7 @@ Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f0 86 54 20 20 13 0 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f1 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
-Ts0 f1 86 310 20 20 13 0 #rect
+Ts0 f1 86 374 20 20 13 0 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
 Ts0 f3 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -583,8 +585,6 @@ Ts0 f8 0 0.8180270850396713 0 0 #arcLabel
 Ts0 f33 expr out #txt
 Ts0 f33 256 268 256 308 #arcP
 Ts0 f33 0 0.24464016162311086 0 0 #arcLabel
-Ts0 f38 expr out #txt
-Ts0 f38 96 204 96 310 #arcP
 Ts0 f28 guid 13FF61F15A65FD3A #txt
 Ts0 f28 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f28 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
@@ -625,8 +625,39 @@ Ts0 f41 expr out #txt
 Ts0 f41 1088 140 426 192 #arcP
 Ts0 f41 1 1088 192 #addKink
 Ts0 f41 1 0.451312235195494 0 0 #arcLabel
+Ts0 f4 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f4 actionTable 'out=in;
+' #txt
+Ts0 f4 actionCode 'import ch.ivyteam.ivy.workflow.IPageArchive;
+import ch.ivyteam.ivy.workflow.ITask;
+
+
+List pageArchives = in.task.getPageArchives();
+for(int j = 0 ; j < pageArchives.size(); j++)
+{
+	IPageArchive pageArchive = in.task.getPageArchives().get(j) as IPageArchive;
+	out.pageArchives.add(pageArchive);
+}	' #txt
+Ts0 f4 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>get page archives</name>
+        <nameStyle>17
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f4 238 372 36 24 20 -2 #rect
+Ts0 f4 @|StepIcon #fIcon
+Ts0 f43 expr out #txt
+Ts0 f43 238 384 106 384 #arcP
 Ts0 f44 expr out #txt
-Ts0 f44 238 320 106 320 #arcP
+Ts0 f44 256 332 256 372 #arcP
+Ts0 f44 0 0.4678124781026417 0 0 #arcLabel
+Ts0 f42 expr out #txt
+Ts0 f42 96 204 96 374 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -663,11 +694,13 @@ Ts0 f5 mainOut f8 tail #connect
 Ts0 f8 head f7 mainIn #connect
 Ts0 f7 mainOut f33 tail #connect
 Ts0 f33 head f32 mainIn #connect
-Ts0 f3 mainOut f38 tail #connect
-Ts0 f38 head f1 mainIn #connect
 Ts0 f28 mainOut f40 tail #connect
 Ts0 f40 head f39 mainIn #connect
 Ts0 f39 mainOut f41 tail #connect
 Ts0 f41 head f20 mainIn #connect
+Ts0 f4 mainOut f43 tail #connect
+Ts0 f43 head f1 mainIn #connect
 Ts0 f32 mainOut f44 tail #connect
-Ts0 f44 head f1 mainIn #connect
+Ts0 f44 head f4 mainIn #connect
+Ts0 f3 mainOut f42 tail #connect
+Ts0 f42 head f1 mainIn #connect

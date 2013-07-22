@@ -26,7 +26,7 @@
 						<p:commandButton id="openDelegateTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}" icon="wf-ui-icon-delegate" onclick="delegateTask.show();" disabled="#{data.delegateLink}" />
 						<p:commandButton id="openChangeExpiry" value="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" icon="wf-ui-icon-expiry" onclick="changeExpiry.show();" disabled="#{data.changeExpiryLink}" />
 						<c:if test="#{!data.isHistory}">
- 							<p:commandButton id="openParkTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskPark')}" icon="wf-ui-icon-park" onclick="confirmPark.show();" disabled="#{data.parkLink}" />
+ 							<p:commandButton id="openParkTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskPark')}" icon="wf-ui-icon-park" actionListener="#{logic.parkTask}" update="@all" disabled="#{data.parkLink}" />
  						</c:if>
 					</p:toolbarGroup> 
 				</p:toolbar>
@@ -178,10 +178,7 @@
 		<ui:include src="/dialogs/DelegateTask.xhtml" />
 		<ui:include src="/dialogs/ChangeExpiry.xhtml" />
 		<ui:include src="/dialogs/AddNote.xhtml" />
-		<ui:include src="/dialogs/ConfirmPark.xhtml" >
-			<ui:param name="headerConfirm" value="#{ivy.cms.co('/labels/history/taskDetails/taskPark')}" />
-			<ui:param name="description" value="#{ivy.cms.co('/labels/dialogs/confirmDialog/parkTask')}" />
-		</ui:include>
+		<ui:include src="/dialogs/Archive.xhtml" />
    	</ui:define>
 </ui:composition>
 </html>

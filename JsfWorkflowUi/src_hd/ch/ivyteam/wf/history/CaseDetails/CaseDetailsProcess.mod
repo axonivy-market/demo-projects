@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jul 19 08:48:10 CEST 2013]
+[>Created: Mon Jul 22 10:17:09 CEST 2013]
 13FE666253A103EF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetailsProcess Big #zClass
@@ -19,7 +19,6 @@ Cs0 @GridStep f3 '' #zField
 Cs0 @GridStep f7 '' #zField
 Cs0 @GridStep f9 '' #zField
 Cs0 @PushWFArc f10 '' #zField
-Cs0 @PushWFArc f2 '' #zField
 Cs0 @RichDialogMethodStart f14 '' #zField
 Cs0 @RichDialogProcessEnd f15 '' #zField
 Cs0 @PushWFArc f11 '' #zField
@@ -39,6 +38,9 @@ Cs0 @RichDialogProcessStart f22 '' #zField
 Cs0 @GridStep f23 '' #zField
 Cs0 @PushWFArc f24 '' #zField
 Cs0 @PushWFArc f25 '' #zField
+Cs0 @GridStep f26 '' #zField
+Cs0 @PushWFArc f27 '' #zField
+Cs0 @PushWFArc f2 '' #zField
 >Proto Cs0 Cs0 CaseDetailsProcess #zField
 Cs0 f0 guid 13FE66625592A530 #txt
 Cs0 f0 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
@@ -164,10 +166,6 @@ Cs0 f9 206 244 36 24 20 -2 #rect
 Cs0 f9 @|StepIcon #fIcon
 Cs0 f10 expr out #txt
 Cs0 f10 224 204 224 244 #arcP
-Cs0 f2 expr out #txt
-Cs0 f2 224 268 106 320 #arcP
-Cs0 f2 1 224 320 #addKink
-Cs0 f2 1 0.18806928460277236 0 0 #arcLabel
 Cs0 f14 guid 13FE69F18C9593C5 #txt
 Cs0 f14 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f14 method deleteNote(ch.ivyteam.ivy.workflow.INote) #txt
@@ -349,14 +347,52 @@ Cs0 f25 expr out #txt
 Cs0 f25 672 140 394 192 #arcP
 Cs0 f25 1 672 192 #addKink
 Cs0 f25 1 0.3877451289726625 0 0 #arcLabel
+Cs0 f26 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
+' #txt
+Cs0 f26 actionTable 'out=in;
+' #txt
+Cs0 f26 actionCode 'import ch.ivyteam.ivy.workflow.IPageArchive;
+import ch.ivyteam.ivy.workflow.ITask;
+
+List<ITask> tasks = new List<ITask>();
+in.pageArchives.clear();
+if(in.#wfCase!=null)
+{
+	tasks.addAll(in.wfCase.getTasks());
+}
+
+for(int i = 0; i < tasks.size(); i++)
+{
+	List pageArchives = tasks.get(i).getPageArchives();
+	for(int j = 0 ; j < pageArchives.size(); j++)
+	{
+		IPageArchive pageArchive = tasks.get(i).getPageArchives().get(j) as IPageArchive;
+		out.pageArchives.add(pageArchive);
+	}	
+}	' #txt
+Cs0 f26 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
+Cs0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>get page archives</name>
+        <nameStyle>17
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f26 206 308 36 24 20 -2 #rect
+Cs0 f26 @|StepIcon #fIcon
+Cs0 f27 expr out #txt
+Cs0 f27 224 268 224 308 #arcP
+Cs0 f27 0 0.18806928460277236 0 0 #arcLabel
+Cs0 f2 expr out #txt
+Cs0 f2 206 320 106 320 #arcP
 >Proto Cs0 .type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
 >Proto Cs0 '' #fIcon
 Cs0 f7 mainOut f10 tail #connect
 Cs0 f10 head f9 mainIn #connect
-Cs0 f9 mainOut f2 tail #connect
-Cs0 f2 head f1 mainIn #connect
 Cs0 f3 mainOut f11 tail #connect
 Cs0 f11 head f7 mainIn #connect
 Cs0 f14 mainOut f6 tail #connect
@@ -377,3 +413,7 @@ Cs0 f22 mainOut f24 tail #connect
 Cs0 f24 head f23 mainIn #connect
 Cs0 f23 mainOut f25 tail #connect
 Cs0 f25 head f15 mainIn #connect
+Cs0 f9 mainOut f27 tail #connect
+Cs0 f27 head f26 mainIn #connect
+Cs0 f26 mainOut f2 tail #connect
+Cs0 f2 head f1 mainIn #connect
