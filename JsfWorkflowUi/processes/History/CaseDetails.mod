@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 17 10:41:53 CEST 2013]
+[>Created: Mon Jul 22 09:34:49 CEST 2013]
 13FE81B1A4AD784C 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetails Big #zClass
@@ -28,7 +28,7 @@ Cs0 f0 triggerEnabled false #txt
 Cs0 f0 callSignature CaseDetails(Number) #txt
 Cs0 f0 persist false #txt
 Cs0 f0 taskData '#
-#Wed Jul 17 10:37:09 CEST 2013
+#Mon Jul 22 09:34:47 CEST 2013
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -37,7 +37,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Cs0 f0 caseData '#
-#Wed Jul 17 10:37:09 CEST 2013
+#Mon Jul 22 09:34:47 CEST 2013
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -64,7 +64,7 @@ subType.name=
 type.code=
 type.name=
 ' #txt
-Cs0 f0 showInStartList 1 #txt
+Cs0 f0 showInStartList 0 #txt
 Cs0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
 import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;

@@ -1,0 +1,4 @@
+co: name={changeExpiryTooltip} description={} changed={2013-07-22 11:35:53 CEST} changedby={dje} visualorder={0} guid={12D853002BEDB4A4} parentguid={} typeguid={E6AFEA203ACD23E6} id={} parentid={} typeid={}
+val: guid={12D853002CD42CD0} datatype={} isdefault={true} langid={de} description={} validfrom={2011-01-14 16:41:12 CET} validto={} changed={2013-07-22 11:35:52 CEST} changedby={dje} properties={} id={}
+val: guid={12E29B5D2C42DF78} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-15 15:23:13 CET} validto={} changed={2013-07-22 11:35:52 CEST} changedby={dje} properties={} id={}
+val: guid={12EBF74433CB4D31} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 17:13:39 CET} validto={} changed={2013-07-22 11:35:52 CEST} changedby={dje} properties={} id={}

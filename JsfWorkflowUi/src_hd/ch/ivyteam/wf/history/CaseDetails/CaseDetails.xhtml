@@ -20,9 +20,9 @@
 			<h:panelGrid columns="1">
 				<p:toolbar>  
     				<p:toolbarGroup align="left">
-    					<p:commandButton id="openDeleteCase" value="#{ivy.cms.co('/labels/history/caseDetails/caseDelete')}" icon="wf-ui-icon-delete" onclick="confirmDeleteReset.show();" disabled="#{data.deleteCaseLink}" />
-						<p:commandButton id="openAddNoteCase" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" icon="wf-ui-icon-addNote" onclick="addNote.show();" disabled="#{data.addNoteLink}" />
-						<p:commandButton id="openPageArchive" value="#{ivy.cms.co('/labels/common/formArchive')}" icon="wf-ui-icon-archive" onclick="formArchive.show();" disabled="#{data.archiveLink}" />
+    					<p:commandButton id="openDeleteCase" value="#{ivy.cms.co('/labels/history/caseDetails/caseDelete')}" title="#{ivy.cms.co('/labels/history/caseDetails/deleteCaseTooltip')}" icon="wf-ui-icon-delete" onclick="confirmDeleteReset.show();" disabled="#{data.deleteCaseLink}" />
+						<p:commandButton id="openAddNoteCase" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" title="#{ivy.cms.co('/labels/common/addNoteTooltip')}" icon="wf-ui-icon-addNote" onclick="addNote.show();" disabled="#{data.addNoteLink}" />
+						<p:commandButton id="openPageArchive" value="#{ivy.cms.co('/labels/common/formArchive')}" title="#{ivy.cms.co('/labels/common/showFormArchiveTooltip')}" icon="wf-ui-icon-archive" onclick="formArchive.show();" disabled="#{data.archiveLink}" />
 					</p:toolbarGroup>
 				</p:toolbar>
 			</h:panelGrid>

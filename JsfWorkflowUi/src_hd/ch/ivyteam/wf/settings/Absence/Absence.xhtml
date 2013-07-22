@@ -24,7 +24,7 @@
 			</c:if>
 		</p:outputPanel>
 		<h:form id="formAddButton">
-			<p:commandButton id="addAbsence" update=":dialogAddAbsence" icon="wf-ui-icon-add" value="#{ivy.cms.co('/labels/settings/absence/addAbsence')}" oncomplete="addAbsence.show();">
+			<p:commandButton id="addAbsence" update=":dialogAddAbsence" icon="wf-ui-icon-add" value="#{ivy.cms.co('/labels/settings/absence/addAbsence')}" title="#{ivy.cms.co('/labels/settings/absence/addAbsenceTooltip')}" oncomplete="addAbsence.show();">
 				<f:setPropertyActionListener value="add" target="#{data.option}" />
            	</p:commandButton>
 		</h:form>
