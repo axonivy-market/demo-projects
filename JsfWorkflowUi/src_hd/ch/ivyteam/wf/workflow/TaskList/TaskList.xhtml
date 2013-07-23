@@ -18,6 +18,28 @@
 		#{ivy.cms.co('/labels/workflow/taskList/description')}
 		<br /><br />
 		<h:form id="taskListForm">
+			<p:toolbar>
+	    		<p:toolbarGroup align="right">
+		    		<h:panelGrid columns="8">
+	 					#{ivy.cms.co('/labels/common/taskPrio')}:
+	 					<p:selectOneMenu value="#{data.prioFilter}" id="priorityFilter">
+	 						<f:selectItem itemLabel="All" itemValue="" />
+		          			<f:selectItem itemLabel="LOW" itemValue="4" /> 
+		           			<f:selectItem itemLabel="NORMAL" itemValue="3" />  
+		           			<f:selectItem itemLabel="HIGH" itemValue="2" />  
+		           			<f:selectItem itemLabel="EXCEPTION" itemValue="1" />
+		           			<f:ajax render="taskListForm" />
+		       			</p:selectOneMenu>
+		       			#{ivy.cms.co('/labels/common/responsible')}:
+		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter">
+	 						<f:selectItem itemLabel="All" itemValue="All" />
+	 						<f:selectItem itemLabel="My User" itemValue="#{ivy.session.getSessionUserName()}" />
+		          			<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} (#{role.getName()})" itemValue="#{role.getName()}"/>
+		           			<f:ajax render="taskListForm" />
+		       			</p:selectOneMenu>
+	       			</h:panelGrid>
+	      		</p:toolbarGroup>
+			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
 			<p:dataTable id="taskTable" var="task" value="#{data.tasks}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.paginator}" paginatorPosition="bottom" rows="50">
 				<p:column style="width:2%">

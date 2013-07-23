@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jun 24 16:06:40 CEST 2013]
+[>Created: Tue Jul 23 08:14:26 CEST 2013]
 13F1D8A32C686BDF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListProcess Big #zClass
@@ -105,15 +105,15 @@ import ch.ivyteam.ivy.persistence.OrderDirection;
 import ch.ivyteam.ivy.persistence.IQueryResult;
 
 IPropertyFilter cpfilter = ivy.wf.createCasePropertyFilter(CaseProperty.CREATOR_USER_NAME, RelationalOperator.EQUAL, ivy.session.getSessionUserName());
-if(in.catFilter!="")
+if(in.catFilter != "")
 {
 	cpfilter = cpfilter.and(CaseProperty.PROCESS_CATEGORY_CODE,RelationalOperator.EQUAL,in.catFilter);	
 }
-if(in.procFilter!="")
+if(in.procFilter != "")
 {
 	cpfilter = cpfilter.and(CaseProperty.PROCESS_CODE,RelationalOperator.EQUAL,in.procFilter);	
 }
-if(in.statFilter!="")
+if(in.statFilter != "")
 {
 	cpfilter = cpfilter.and(CaseProperty.STATE,RelationalOperator.EQUAL,CaseState.valueOf(in.statFilter).ordinal());
 }
@@ -129,7 +129,7 @@ for (ICase case : cases)
 }
 
 out.processes.clear();
-
+out.processesList.clear();
 for(ICase case: queryResult.getResultList())
 {
 	if(!out.categories.contains(case.getProcessCategoryCode()))
@@ -196,7 +196,8 @@ if(in.statFilter!="")
 	cpfilter = cpfilter.and(CaseProperty.STATE,RelationalOperator.EQUAL,CaseState.valueOf(in.statFilter).ordinal());
 }
 
-out.processes.clear();	
+out.processes.clear();
+out.processesList.clear();
 
 if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW)
 	&& ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_READ_ALL))
@@ -336,7 +337,7 @@ ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy
 r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("13EE5C9EAAA819C8/DefaultTaskListPage.ivp"));
 
 
-out.statFilter = CaseState.RUNNING.toString();
+out.statFilter = "";
 out.catFilter = "";
 out.procFilter = "";
 

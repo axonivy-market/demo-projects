@@ -20,3 +20,9 @@ taskNotesList List<ch.ivyteam.ivy.workflow.INote> #field
 caseNotesList List<ch.ivyteam.ivy.workflow.INote> #field
 paginator Boolean #field
 paginator PERSISTENT #fieldModifier
+prioFilter Number #field
+prioFilter PERSISTENT #fieldModifier
+responsibleFilter String #field
+responsibleFilter PERSISTENT #fieldModifier
+roleList List<ch.ivyteam.ivy.security.IRole> #field
+roleList PERSISTENT #fieldModifier

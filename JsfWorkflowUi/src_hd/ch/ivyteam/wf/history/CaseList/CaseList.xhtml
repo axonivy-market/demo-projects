@@ -26,21 +26,21 @@
 	    		<p:toolbarGroup align="right">
 		    		<h:panelGrid columns="8">
 	 					#{ivy.cms.co('/labels/common/category')}:
-	 					<p:selectOneMenu value="#{data.catFilter}">
+	 					<p:selectOneMenu id="categoryFilter" value="#{data.catFilter}">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="" />
 	           				<f:selectItems value="#{data.categories}" var="categorie" itemLabel="#{categorie}" itemValue="#{categorie}" />
 	           				<p:ajax update=":caseListForm" listener="#{logic.updateCombos}" />
 	        			</p:selectOneMenu>
 	        			<p:spacer width="10" />
 	        			#{ivy.cms.co('/labels/common/process')}:
-	 					<p:selectOneMenu value="#{data.procFilter}">
+	 					<p:selectOneMenu id="processFilter" value="#{data.procFilter}">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="" />
 	           				<f:selectItems value="#{data.processesList}" var="processe" itemLabel="#{processe}" itemValue="#{processe}" />
 	           				<p:ajax update=":caseListForm" listener="#{logic.setFilter}" />
 	        			</p:selectOneMenu>
 	        			<p:spacer width="10" />
 	        			#{ivy.cms.co('/labels/common/taskState')}:
-	 					<p:selectOneMenu value="#{data.statFilter}">
+	 					<p:selectOneMenu id="stateFilter" value="#{data.statFilter}">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="" />
 	           				<f:selectItems value="#{data.states}" var="state" itemLabel="#{state}" itemValue="#{state}" />
 	           				<p:ajax update=":caseListForm" listener="#{logic.setFilter}" />
@@ -60,7 +60,7 @@
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/common/state')}
            			</f:facet>
-           			<h:graphicImage name="images/details/caseState/#{case.state.intValue()}.png" alt="#{case.state}" title="#{ivy.cms.co('/labels/common/state')} #{case.state}" />
+           			<h:graphicImage name="images/details/caseState/#{case.state.intValue()}.png" alt="" title="#{ivy.cms.co('/labels/common/state')} #{case.state}" />
        			</p:column>
        			<p:column sortBy="#{case.name}">
            			<f:facet name="header">
@@ -74,12 +74,11 @@
            			</f:facet>
            			#{case.processCategoryCode}
        			</p:column>
-       			<p:column sortBy="#{case.creatorUserName}">
+       			<p:column sortBy="#{case.processCode}">
            			<f:facet name="header">
-               			#{ivy.cms.co('/labels/common/creator')}
+               			#{ivy.cms.co('/labels/common/process')}
            			</f:facet>
-           			<h:graphicImage name="images/details/user.png" alt="user" />
-           			#{case.creatorUserName}
+           			#{case.processCode}
        			</p:column>
        			<p:column sortBy="#{case.startTimestamp}">
            			<f:facet name="header">

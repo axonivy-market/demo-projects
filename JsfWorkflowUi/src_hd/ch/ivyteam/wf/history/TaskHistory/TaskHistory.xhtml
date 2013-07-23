@@ -18,6 +18,28 @@
 		#{ivy.cms.co('/labels/history/taskHistory/description')}
 		<br /><br />
 		<h:form id="taskHistoryForm">
+			<p:toolbar>
+	    		<p:toolbarGroup align="right">
+		    		<h:panelGrid columns="8">
+	 					#{ivy.cms.co('/labels/common/taskPrio')}:
+	 					<p:selectOneMenu value="#{data.prioFilter}" id="taskPriority">
+	 						<f:selectItem itemLabel="All" itemValue="" />
+		          			<f:selectItem itemLabel="LOW" itemValue="4" />  
+		           			<f:selectItem itemLabel="NORMAL" itemValue="3" />  
+		           			<f:selectItem itemLabel="HIGH" itemValue="2" />  
+		           			<f:selectItem itemLabel="EXCEPTION" itemValue="1" />
+		           			<f:ajax render="taskHistoryForm" />
+		       			</p:selectOneMenu>
+		       			#{ivy.cms.co('/labels/common/responsible')}:
+		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter">
+	 						<f:selectItem itemLabel="All" itemValue="All" />
+	 						<f:selectItem itemLabel="My User" itemValue="#{ivy.session.getSessionUserName()}" />
+		          			<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} (#{role.getName()})" itemValue="#{role.getName()}"/>
+		           			<f:ajax render="taskHistoryForm" />
+		       			</p:selectOneMenu>
+	       			</h:panelGrid>
+	      		</p:toolbarGroup>
+			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
    			<p:dataTable value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.paginator}" paginatorPosition="bottom" rows="50">
       			<p:column style="width:2%">  
@@ -43,13 +65,6 @@
                			#{ivy.cms.co('/labels/common/name')}  
            			</f:facet>
            			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" title="Details Task [#{task.id}]">#{task.name}</a>
-       			</p:column>
-       			<p:column sortBy="#{task.workerUserName}">  
-           			<f:facet name="header">  
-               			#{ivy.cms.co('/labels/common/user')}
-           			</f:facet>
-           			<h:graphicImage name="images/details/user.png" alt="user" />
-           			#{task.workerUserName} 
        			</p:column>
        			<p:column sortBy="#{task.activator.name}" id="taskLinkRow_#{row}">
 					<f:facet name="header">

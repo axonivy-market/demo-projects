@@ -8,3 +8,9 @@ taskId Number #field
 taskId PERSISTENT #fieldModifier
 task ch.ivyteam.ivy.workflow.ITask #field
 task PERSISTENT #fieldModifier
+prioFilter Number #field
+prioFilter PERSISTENT #fieldModifier
+roleList List<ch.ivyteam.ivy.security.IRole> #field
+roleList PERSISTENT #fieldModifier
+responsibleFilter String #field
+responsibleFilter PERSISTENT #fieldModifier
