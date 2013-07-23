@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 22 10:38:00 CEST 2013]
+[>Created: Mon Jul 22 11:40:56 CEST 2013]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -632,7 +632,7 @@ Ts0 f4 actionTable 'out=in;
 Ts0 f4 actionCode 'import ch.ivyteam.ivy.workflow.IPageArchive;
 import ch.ivyteam.ivy.workflow.ITask;
 
-
+in.pageArchives.clear();
 List pageArchives = in.task.getPageArchives();
 for(int j = 0 ; j < pageArchives.size(); j++)
 {
