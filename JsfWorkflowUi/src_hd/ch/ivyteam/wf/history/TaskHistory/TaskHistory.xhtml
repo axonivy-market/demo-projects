@@ -20,7 +20,7 @@
 		<h:form id="taskHistoryForm">
 			<p:toolbar>
 	    		<p:toolbarGroup align="right">
-		    		<h:panelGrid columns="8">
+		    		<h:panelGrid columns="4">
 	 					#{ivy.cms.co('/labels/common/taskPrio')}:
 	 					<p:selectOneMenu value="#{data.prioFilter}" id="taskPriority">
 	 						<f:selectItem itemLabel="All" itemValue="" />
@@ -41,39 +41,39 @@
 	      		</p:toolbarGroup>
 			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
-   			<p:dataTable value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.paginator}" paginatorPosition="bottom" rows="50">
+   			<p:dataTable value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true">
       			<p:column style="width:2%">  
            			<f:facet name="header">  
                			#
            			</f:facet>
            			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskHistoryDetail" title="Details Task [#{task.id}]"><h:graphicImage name="images/actions/task#{task.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" /></a>
         		</p:column>
-       			<p:column style="width:50px; text-align: center;" sortBy="#{task.priority.intValue()}">
+       			<p:column style="width:50px; text-align: center;" sortBy="#{PRIORITY}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskPrio')}
 					</f:facet>
 					<h:graphicImage name="images/details/priority/#{task.priority.intValue()}.png" alt="prio" title="Prio #{task.priority}" />
 				</p:column>
-       			<p:column style="width:50px; text-align: center;" sortBy="#{task.state.intValue()}">
+       			<p:column style="width:50px; text-align: center;" sortBy="#{STATE}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskState')}
 					</f:facet>
 					<h:graphicImage name="images/details/state/#{task.state.intValue()}.png" alt="#{task.state}" title="#{ivy.cms.co('/labels/common/state')} #{task.state}" />
 				</p:column>	
-       			<p:column sortBy="#{task.name}">  
+       			<p:column sortBy="#{NAME}">  
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/name')}  
            			</f:facet>
            			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" title="Details Task [#{task.id}]">#{task.name}</a>
        			</p:column>
-       			<p:column sortBy="#{task.activator.name}" id="taskLinkRow_#{row}">
+       			<p:column sortBy="#{ACTIVATOR_NAME}" id="taskLinkRow_#{row}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
 					<h:graphicImage name="#{task.activator == null ? '' : task.activator.isUser() ? 'images/details/user' : 'images/details/role'}.png" alt="#{task.activator}"/>
 					#{task.activator.name}
 				</p:column>
-       			<p:column sortBy="#{task.startTimestamp}">  
+       			<p:column sortBy="#{START_TIMESTAMP}">  
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/taskStart')}
            			</f:facet>
@@ -81,7 +81,7 @@
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
        			</p:column>
-       			<p:column sortBy="#{task.expiryTimestamp}">  
+       			<p:column sortBy="#{EXPIRY_TIMESTAMP}">  
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/expiry')}
            			</f:facet>
@@ -89,7 +89,7 @@
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
        			</p:column>
-       			<p:column sortBy="#{task.endTimestamp}">  
+       			<p:column sortBy="#{END_TIMESTAMP}">  
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/done')}  
            			</f:facet>

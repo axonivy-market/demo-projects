@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jul 23 09:55:09 CEST 2013]
+[>Created: Wed Jul 24 16:33:26 CEST 2013]
 13EE9A482A299A65 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListProcess Big #zClass
@@ -18,10 +18,12 @@ Ts0 @RichDialogProcessEnd f1 '' #zField
 Ts0 @GridStep f11 '' #zField
 Ts0 @PushWFArc f2 '' #zField
 Ts0 @RichDialogMethodStart f3 '' #zField
-Ts0 @PushWFArc f5 '' #zField
 Ts0 @GridStep f4 '' #zField
 Ts0 @PushWFArc f6 '' #zField
 Ts0 @PushWFArc f7 '' #zField
+Ts0 @GridStep f8 '' #zField
+Ts0 @PushWFArc f9 '' #zField
+Ts0 @PushWFArc f5 '' #zField
 >Proto Ts0 Ts0 TaskListProcess #zField
 Ts0 f0 guid 13EE9A482C1E853B #txt
 Ts0 f0 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
@@ -91,31 +93,21 @@ if(in.responsibleFilter != "All")
 	}
 }
 
-IQueryResult queryResult  = ivy.session.findWorkTasks(taskFilter, PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING), 
-          0, -1, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
-
-List<ITask> tasks = queryResult.getResultList();
-out.paginator = tasks.size() >= 50;
-out.tasks.clear();
-for (ITask task : tasks)
-{
-	out.tasks.add(task);
-}
-' #txt
+in.tasks.setTaskFilter(taskFilter);' #txt
 Ts0 f11 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>taskList</name>
-        <nameStyle>8
+        <name>set filter</name>
+        <nameStyle>10
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f11 174 180 36 24 20 -2 #rect
+Ts0 f11 198 180 36 24 20 -2 #rect
 Ts0 f11 @|StepIcon #fIcon
 Ts0 f2 expr out #txt
-Ts0 f2 174 192 106 192 #arcP
+Ts0 f2 198 192 106 192 #arcP
 Ts0 f3 guid 13F61412866CB9E5 #txt
 Ts0 f3 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 Ts0 f3 method update() #txt
@@ -132,22 +124,14 @@ Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f3 182 54 20 20 13 0 #rect
+Ts0 f3 206 54 20 20 13 0 #rect
 Ts0 f3 @|RichDialogMethodStartIcon #fIcon
-Ts0 f5 expr out #txt
-Ts0 f5 192 74 192 180 #arcP
 Ts0 f4 actionDecl 'ch.ivyteam.wf.workflow.TaskList.TaskListData out;
 ' #txt
 Ts0 f4 actionTable 'out=in;
 out.responsibleFilter="All";
 ' #txt
-Ts0 f4 actionCode 'import ch.ivyteam.ivy.security.IRole;
-
-List roles = ivy.session.getSessionUser().getAllRoles();
-for(IRole role: roles)
-{
-	out.roleList.add(role);
-}' #txt
+Ts0 f4 actionCode in.tasks.setIsHistory(false); #txt
 Ts0 f4 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -164,15 +148,44 @@ Ts0 f6 expr out #txt
 Ts0 f6 96 74 96 116 #arcP
 Ts0 f7 expr out #txt
 Ts0 f7 96 140 96 182 #arcP
+Ts0 f8 actionDecl 'ch.ivyteam.wf.workflow.TaskList.TaskListData out;
+' #txt
+Ts0 f8 actionTable 'out=in;
+' #txt
+Ts0 f8 actionCode 'import ch.ivyteam.ivy.security.IRole;
+
+List roles = ivy.session.getSessionUser().getAllRoles();
+for(IRole role: roles)
+{
+	out.roleList.add(role);
+}' #txt
+Ts0 f8 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
+Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>role list</name>
+        <nameStyle>9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f8 198 116 36 24 20 -2 #rect
+Ts0 f8 @|StepIcon #fIcon
+Ts0 f9 expr out #txt
+Ts0 f9 216 74 216 116 #arcP
+Ts0 f5 expr out #txt
+Ts0 f5 216 140 216 180 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
 >Proto Ts0 '' #fIcon
 Ts0 f11 mainOut f2 tail #connect
 Ts0 f2 head f1 mainIn #connect
-Ts0 f3 mainOut f5 tail #connect
-Ts0 f5 head f11 mainIn #connect
 Ts0 f0 mainOut f6 tail #connect
 Ts0 f6 head f4 mainIn #connect
 Ts0 f4 mainOut f7 tail #connect
 Ts0 f7 head f1 mainIn #connect
+Ts0 f3 mainOut f9 tail #connect
+Ts0 f9 head f8 mainIn #connect
+Ts0 f8 mainOut f5 tail #connect
+Ts0 f5 head f11 mainIn #connect

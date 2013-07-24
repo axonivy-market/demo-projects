@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jul 23 10:47:22 CEST 2013]
+[>Created: Wed Jul 24 16:31:44 CEST 2013]
 13F2E0370AA5B84E 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHistoryProcess Big #zClass
@@ -21,7 +21,9 @@ Ts0 @RichDialogMethodStart f5 '' #zField
 Ts0 @GridStep f8 '' #zField
 Ts0 @PushWFArc f10 '' #zField
 Ts0 @PushWFArc f9 '' #zField
-Ts0 @PushWFArc f11 '' #zField
+Ts0 @GridStep f4 '' #zField
+Ts0 @PushWFArc f6 '' #zField
+Ts0 @PushWFArc f7 '' #zField
 >Proto Ts0 Ts0 TaskHistoryProcess #zField
 Ts0 f0 guid 13F2E0370C9B06E8 #txt
 Ts0 f0 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
@@ -90,31 +92,21 @@ if(in.responsibleFilter != "All")
 	}
 }
 
-IQueryResult queryResult = ivy.session.findWorkedOnTasks(taskFilter,
-	PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING),0, -1 ,true);
-
-List<ITask> tasks = queryResult.getResultList();
-out.paginator = tasks.size() >= 50;
-in.tasks.clear();
-
-for (ITask task : tasks)
-{
-	out.tasks.add(task);
-}' #txt
+in.tasks.setTaskFilter(taskFilter);' #txt
 Ts0 f3 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
 Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>tasks</name>
-        <nameStyle>5
+        <name>set filter</name>
+        <nameStyle>10
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f3 174 180 36 24 20 -2 #rect
+Ts0 f3 206 180 36 24 20 -2 #rect
 Ts0 f3 @|StepIcon #fIcon
 Ts0 f2 expr out #txt
-Ts0 f2 174 192 106 192 #arcP
+Ts0 f2 206 192 106 192 #arcP
 Ts0 f5 guid 13F75DB798E48053 #txt
 Ts0 f5 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
 Ts0 f5 method update() #txt
@@ -131,20 +123,14 @@ Ts0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f5 182 54 20 20 13 0 #rect
+Ts0 f5 214 54 20 20 13 0 #rect
 Ts0 f5 @|RichDialogMethodStartIcon #fIcon
 Ts0 f8 actionDecl 'ch.ivyteam.wf.history.TaskHistory.TaskHistoryData out;
 ' #txt
 Ts0 f8 actionTable 'out=in;
 out.responsibleFilter="All";
 ' #txt
-Ts0 f8 actionCode 'import ch.ivyteam.ivy.security.IRole;
-
-List roles = ivy.session.getSessionUser().getAllRoles();
-for(IRole role: roles)
-{
-	out.roleList.add(role);
-}' #txt
+Ts0 f8 actionCode in.tasks.setIsHistory(true); #txt
 Ts0 f8 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
 Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -161,8 +147,33 @@ Ts0 f10 expr out #txt
 Ts0 f10 96 74 96 116 #arcP
 Ts0 f9 expr out #txt
 Ts0 f9 96 140 96 182 #arcP
-Ts0 f11 expr out #txt
-Ts0 f11 192 74 192 180 #arcP
+Ts0 f4 actionDecl 'ch.ivyteam.wf.history.TaskHistory.TaskHistoryData out;
+' #txt
+Ts0 f4 actionTable 'out=in;
+' #txt
+Ts0 f4 actionCode 'import ch.ivyteam.ivy.security.IRole;
+
+List roles = ivy.session.getSessionUser().getAllRoles();
+for(IRole role: roles)
+{
+	out.roleList.add(role);
+}' #txt
+Ts0 f4 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
+Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>role list</name>
+        <nameStyle>9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f4 206 116 36 24 20 -2 #rect
+Ts0 f4 @|StepIcon #fIcon
+Ts0 f6 expr out #txt
+Ts0 f6 224 74 224 116 #arcP
+Ts0 f7 expr out #txt
+Ts0 f7 224 140 224 180 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -173,5 +184,7 @@ Ts0 f0 mainOut f10 tail #connect
 Ts0 f10 head f8 mainIn #connect
 Ts0 f8 mainOut f9 tail #connect
 Ts0 f9 head f1 mainIn #connect
-Ts0 f5 mainOut f11 tail #connect
-Ts0 f11 head f3 mainIn #connect
+Ts0 f5 mainOut f6 tail #connect
+Ts0 f6 head f4 mainIn #connect
+Ts0 f4 mainOut f7 tail #connect
+Ts0 f7 head f3 mainIn #connect

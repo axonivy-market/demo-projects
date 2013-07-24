@@ -10,16 +10,11 @@ procFilter String #field
 procFilter PERSISTENT #fieldModifier
 categories List<String> #field
 categories PERSISTENT #fieldModifier
-processes Recordset #field
-processes PERSISTENT #fieldModifier
-processesCombo Recordset #field
-processesCombo PERSISTENT #fieldModifier
 states List<String> #field
 states PERSISTENT #fieldModifier
-cases List<ch.ivyteam.ivy.workflow.ICase> #field
+cases ch.ivyteam.wf.history.CaseLazyDataModel #field
 cases PERSISTENT #fieldModifier
 caption String #field
 caption PERSISTENT #fieldModifier
-paginator Boolean #field
 processesList List<String> #field
 processesList PERSISTENT #fieldModifier

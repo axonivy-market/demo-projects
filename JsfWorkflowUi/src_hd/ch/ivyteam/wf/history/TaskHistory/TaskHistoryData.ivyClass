@@ -1,13 +1,9 @@
 TaskHistoryData #class
 ch.ivyteam.wf.history.TaskHistory #namespace
-tasks List<ch.ivyteam.ivy.workflow.ITask> #field
+tasks ch.ivyteam.wf.common.TaskLazyDataModel #field
 tasks PERSISTENT #fieldModifier
-paginator Boolean #field
-paginator PERSISTENT #fieldModifier
 taskId Number #field
 taskId PERSISTENT #fieldModifier
-task ch.ivyteam.ivy.workflow.ITask #field
-task PERSISTENT #fieldModifier
 prioFilter Number #field
 prioFilter PERSISTENT #fieldModifier
 roleList List<ch.ivyteam.ivy.security.IRole> #field
