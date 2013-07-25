@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 25 11:35:40 CEST 2013]
+[>Created: Thu Jul 25 15:36:44 CEST 2013]
 13F2E0370AA5B84E 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHistoryProcess Big #zClass
@@ -78,6 +78,11 @@ if(in.prioFilter == 3)
 if(in.prioFilter == 4)
 {
 	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, WorkflowPriority.LOW.intValue());	
+}
+
+if(in.responsibleFilter == "MyUser")
+{
+	out.responsibleFilter = "#" + ivy.session.getSessionUserName();
 }
 
 if(in.responsibleFilter != "All")

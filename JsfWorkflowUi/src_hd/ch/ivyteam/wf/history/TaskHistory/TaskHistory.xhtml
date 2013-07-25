@@ -33,7 +33,7 @@
 		       			#{ivy.cms.co('/labels/common/responsible')}:
 		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter">
 	 						<f:selectItem itemLabel="All" itemValue="All" />
-	 						<f:selectItem itemLabel="My User" itemValue="#{ivy.session.getSessionUserName()}" />
+	 						<f:selectItem itemLabel="My User" itemValue="MyUser" />
 		          			<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} (#{role.getName()})" itemValue="#{role.getName()}"/>
 		           			<f:ajax render="taskHistoryForm" />
 		       			</p:selectOneMenu>

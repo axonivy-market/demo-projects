@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 25 11:34:46 CEST 2013]
+[>Created: Thu Jul 25 15:36:34 CEST 2013]
 13EE9A482A299A65 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListProcess Big #zClass
@@ -81,6 +81,11 @@ if(in.prioFilter == 4)
 	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, WorkflowPriority.LOW.intValue());	
 }
 
+if(in.responsibleFilter == "MyUser")
+{
+	out.responsibleFilter = "#" + ivy.session.getSessionUserName();
+}
+
 if(in.responsibleFilter != "All")
 {
 	if(taskFilter != null)
@@ -104,10 +109,10 @@ Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f11 198 180 36 24 20 -2 #rect
+Ts0 f11 206 180 36 24 20 -2 #rect
 Ts0 f11 @|StepIcon #fIcon
 Ts0 f2 expr out #txt
-Ts0 f2 198 192 106 192 #arcP
+Ts0 f2 206 192 106 192 #arcP
 Ts0 f3 guid 13F61412866CB9E5 #txt
 Ts0 f3 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 Ts0 f3 method update() #txt
@@ -124,7 +129,7 @@ Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f3 206 54 20 20 13 0 #rect
+Ts0 f3 214 54 20 20 13 0 #rect
 Ts0 f3 @|RichDialogMethodStartIcon #fIcon
 Ts0 f4 actionDecl 'ch.ivyteam.wf.workflow.TaskList.TaskListData out;
 ' #txt
@@ -170,12 +175,12 @@ Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f8 198 116 36 24 20 -2 #rect
+Ts0 f8 206 116 36 24 20 -2 #rect
 Ts0 f8 @|StepIcon #fIcon
 Ts0 f9 expr out #txt
-Ts0 f9 216 74 216 116 #arcP
+Ts0 f9 224 74 224 116 #arcP
 Ts0 f5 expr out #txt
-Ts0 f5 216 140 216 180 #arcP
+Ts0 f5 224 140 224 180 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
