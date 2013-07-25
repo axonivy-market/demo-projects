@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jun 25 14:37:14 CEST 2013]
+[>Created: Thu Jul 25 15:46:09 CEST 2013]
 13F3C90C39342A39 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AbsenceProcess Big #zClass
@@ -59,11 +59,6 @@ As0 f1 @|RichDialogProcessEndIcon #fIcon
 As0 f3 actionDecl 'ch.ivyteam.wf.settings.Absence.AbsenceData out;
 ' #txt
 As0 f3 actionTable 'out=in;
-out.absenceDescription=null;
-out.absenceEndDate=null;
-out.absenceEndTime=null;
-out.absenceStartDate=null;
-out.absenceStartTime=null;
 out.absences=ivy.session.getSessionUser().getAbsences();
 ' #txt
 As0 f3 actionCode 'import ch.ivyteam.ivy.security.IUserAbsence;
@@ -73,6 +68,23 @@ out.absences.clear();
 for (IUserAbsence absence : absences)
 {
 	out.absences.add(absence);
+}
+
+if(in.option == "add")
+{
+	out.absenceDescription = null;
+	out.absenceEndDate = null;
+	out.absenceEndTime = null;
+	out.absenceStartDate = null;
+	out.absenceStartTime = null;
+}
+
+if(in.option == "edit")
+{
+	out.absenceStartDate = in.startDateTime.getDate();
+	out.absenceStartTime = in.startDateTime.getTime();
+	out.absenceEndDate = in.endDateTime.getDate();
+	out.absenceEndTime = in.endDateTime.getTime();
 }' #txt
 As0 f3 type ch.ivyteam.wf.settings.Absence.AbsenceData #txt
 As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

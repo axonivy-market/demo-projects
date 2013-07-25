@@ -59,6 +59,8 @@
            			</f:facet>
                     <p:commandButton id="editButton" update=":dialogEditAbsence" oncomplete="editAbsence.show()" icon="wf-ui-icon-edit" value="#{ivy.cms.co('/labels/common/edit')}">
                			<f:setPropertyActionListener value="#{absence.description}" target="#{data.absenceDescription}" />
+               			<f:setPropertyActionListener value="#{absence.startTimestamp}" target="#{data.startDateTime}" />
+               			<f:setPropertyActionListener value="#{absence.stopTimestamp}" target="#{data.endDateTime}" />
                			<f:setPropertyActionListener value="#{absence.id}" target="#{data.deleteId}" />
                			<f:setPropertyActionListener value="edit" target="#{data.option}" />
            			</p:commandButton>

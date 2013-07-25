@@ -22,3 +22,7 @@ add Boolean #field
 add PERSISTENT #fieldModifier
 option String #field
 option PERSISTENT #fieldModifier
+startDateTime java.util.Date #field
+startDateTime PERSISTENT #fieldModifier
+endDateTime java.util.Date #field
+endDateTime PERSISTENT #fieldModifier
