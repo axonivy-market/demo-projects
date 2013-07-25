@@ -82,7 +82,7 @@
 	   					<td>
 	   						<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
 								<ui:param name="iconName" value="#{data.task.originalActivator == null ? 'images/others/none.png' : data.task.originalActivator.isUser() ? 'images/details/user.png' : 'images/details/role.png'}" />
-								<ui:param name="iconDescription" value="#{data.task.originalActivatorName}" />
+								<ui:param name="iconDescription" value="#{data.task.activator.name}" />
 							</ui:include>
 						</td>
 					</tr>
