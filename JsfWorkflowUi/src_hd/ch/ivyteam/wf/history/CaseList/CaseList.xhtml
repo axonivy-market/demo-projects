@@ -49,8 +49,8 @@
        			</p:toolbarGroup>
 			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
-   			<p:dataTable id="caseTable" var="case" value="#{data.cases}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.cases.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true">
-   				<p:column style="width:2%">
+   			<p:dataTable id="caseTable" var="case" value="#{data.cases}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.cases.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
+   				<p:column style="width:2%" sortBy="#{ID}">
            			<f:facet name="header">
                			#
            			</f:facet>
