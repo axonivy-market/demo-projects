@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 25 10:32:22 CEST 2013]
+[>Created: Thu Jul 25 14:07:18 CEST 2013]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -144,7 +144,7 @@ TaskState state = null;
 
 	IWorkflowSession ivySession = ivy.session;
 	boolean hasPageArchivePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_PAGE_ARCHIVE_READ_ALL);
-	boolean hasResetPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_RESET);
+	boolean hasResetPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_RESET_OWN_WORKING_TASK);
 	boolean hasDelegatePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.DELEGATE_TASKS);
 	boolean hasTaskWriteExpiryPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_WRITE_EXPIRY_ACTIVATOR);
 	IProcessModelVersionRequest Ivyrequest = ivy.html.getObject("request") as IProcessModelVersionRequest;
@@ -554,9 +554,9 @@ Ts0 f35 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 Ts0 f35 actionTable 'out=in;
 ' #txt
 Ts0 f35 actionCode 'import ch.ivyteam.ivy.workflow.TaskState;
-if(in.#task!=null && in.task.getState()==TaskState.RESUMED || in.task.getState()==TaskState.PARKED)
+if(!in.resetLink)
 {
-	in.task.reset();
+	ivy.session.resetTask(in.task);
 }	' #txt
 Ts0 f35 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
