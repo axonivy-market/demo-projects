@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 25 12:48:34 CEST 2013]
+[>Created: Thu Jul 25 15:00:00 CEST 2013]
 13F5183CA99B58E3 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MailNotificationProcess Big #zClass
@@ -23,11 +23,9 @@ Ms0 @PushWFArc f9 '' #zField
 Ms0 @GridStep f10 '' #zField
 Ms0 @PushWFArc f11 '' #zField
 Ms0 @PushWFArc f4 '' #zField
-Ms0 @GridStep f12 '' #zField
-Ms0 @PushWFArc f14 '' #zField
 Ms0 @RichDialogProcessStart f15 '' #zField
-Ms0 @PushWFArc f16 '' #zField
-Ms0 @PushWFArc f5 '' #zField
+Ms0 @PushWFArc f2 '' #zField
+Ms0 @PushWFArc f13 '' #zField
 >Proto Ms0 Ms0 MailNotificationProcess #zField
 Ms0 f0 guid 13F5183CAB816433 #txt
 Ms0 f0 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
@@ -48,7 +46,7 @@ Ms0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ms0 f0 86 54 20 20 13 0 #rect
 Ms0 f0 @|RichDialogInitStartIcon #fIcon
 Ms0 f1 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
-Ms0 f1 86 246 20 20 13 0 #rect
+Ms0 f1 86 182 20 20 13 0 #rect
 Ms0 f1 @|RichDialogProcessEndIcon #fIcon
 Ms0 f3 guid 13F51BEAA54E44F6 #txt
 Ms0 f3 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
@@ -79,18 +77,35 @@ for(Locale locale : ivy.cms.getSupportedLanguages())
 }
 out.language = ivy.session.getSessionUser().getEMailLanguage() != null ? ivy.session.getSessionUser().getEMailLanguage().getDisplayName() : "";
 
-out.emailNotificationSettings = ivy.session.getSessionUser().getEMailNotificationSettings();
-out.isUseApplicationDefault = out.emailNotificationSettings.isUseApplicationDefault();
-out.isNotificationDisabled = out.emailNotificationSettings.isNotificationDisabled();
-out.isSendOnNewWorkTasks = out.emailNotificationSettings.isSendOnNewWorkTasks();
+IEMailNotificationSettings defaultSettings = ivy.wf.getApplication().getDefaultEMailNotifcationSettings();
 
-out.mon = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.MONDAY);
-out.tue = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.TUESDAY);
-out.wen = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.WEDNESDAY);
-out.thu = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.THURSDAY);
-out.fri = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.FRIDAY);
-out.sat = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.SATURDAY);
-out.sun = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.SUNDAY);' #txt
+if(in.isUseApplicationDefault)
+{
+	out.isNotificationDisabled = defaultSettings.isNotificationDisabled();	
+	out.isSendOnNewWorkTasks = defaultSettings.isSendOnNewWorkTasks();
+	out.mon = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.MONDAY);
+	out.tue = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.TUESDAY);
+	out.wen = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.WEDNESDAY);
+	out.thu = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.THURSDAY);
+	out.fri = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.FRIDAY);
+	out.sat = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.SATURDAY);
+	out.sun = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.SUNDAY);
+}
+else
+{
+	out.emailNotificationSettings = ivy.session.getSessionUser().getEMailNotificationSettings();
+	out.isUseApplicationDefault = out.emailNotificationSettings.isUseApplicationDefault();
+	out.isNotificationDisabled = out.emailNotificationSettings.isNotificationDisabled();
+	out.isSendOnNewWorkTasks = out.emailNotificationSettings.isSendOnNewWorkTasks();
+	
+	out.mon = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.MONDAY);
+	out.tue = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.TUESDAY);
+	out.wen = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.WEDNESDAY);
+	out.thu = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.THURSDAY);
+	out.fri = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.FRIDAY);
+	out.sat = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.SATURDAY);
+	out.sun = out.emailNotificationSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.SUNDAY);
+}' #txt
 Ms0 f6 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
 Ms0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -185,50 +200,8 @@ Ms0 f10 @|StepIcon #fIcon
 Ms0 f11 expr out #txt
 Ms0 f11 384 140 384 180 #arcP
 Ms0 f4 expr out #txt
-Ms0 f4 384 204 106 256 #arcP
-Ms0 f4 1 384 256 #addKink
-Ms0 f4 1 0.3877451289726625 0 0 #arcLabel
-Ms0 f12 actionDecl 'ch.ivyteam.wf.settings.MailNotification.MailNotificationData out;
-' #txt
-Ms0 f12 actionTable 'out=in;
-' #txt
-Ms0 f12 actionCode 'import ch.ivyteam.ivy.security.IEMailNotificationSettings;
-import javax.faces.context.FacesContext;
-import javax.faces.application.FacesMessage;
-
-IEMailNotificationSettings defaultSettings = ivy.wf.getApplication().getDefaultEMailNotifcationSettings();
-
-if(in.isUseApplicationDefault)
-{
-	out.isNotificationDisabled = defaultSettings.isNotificationDisabled();	
-	out.isSendOnNewWorkTasks = defaultSettings.isSendOnNewWorkTasks();
-	out.mon = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.MONDAY);
-	out.tue = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.TUESDAY);
-	out.wen = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.WEDNESDAY);
-	out.thu = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.THURSDAY);
-	out.fri = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.FRIDAY);
-	out.sat = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.SATURDAY);
-	out.sun = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.SUNDAY);
-}
-else
-{
-	out.isNotificationDisabled = false;
-}' #txt
-Ms0 f12 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
-Ms0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>application default</name>
-        <nameStyle>19
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ms0 f12 78 180 36 24 20 -2 #rect
-Ms0 f12 @|StepIcon #fIcon
-Ms0 f14 expr out #txt
-Ms0 f14 96 204 96 246 #arcP
-Ms0 f14 0 0.06414606344485416 0 0 #arcLabel
+Ms0 f4 366 192 106 192 #arcP
+Ms0 f4 0 0.484221654104243 0 0 #arcLabel
 Ms0 f15 guid 13FA9961ECA1CBDA #txt
 Ms0 f15 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
 Ms0 f15 actionDecl 'ch.ivyteam.wf.settings.MailNotification.MailNotificationData out;
@@ -244,12 +217,12 @@ Ms0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ms0 f15 214 54 20 20 13 0 #rect
 Ms0 f15 @|RichDialogProcessStartIcon #fIcon
-Ms0 f16 expr out #txt
-Ms0 f16 224 74 114 192 #arcP
-Ms0 f16 1 224 192 #addKink
-Ms0 f16 1 0.37470337429825346 0 0 #arcLabel
-Ms0 f5 expr out #txt
-Ms0 f5 96 140 96 180 #arcP
+Ms0 f2 expr out #txt
+Ms0 f2 224 74 114 128 #arcP
+Ms0 f2 1 224 128 #addKink
+Ms0 f2 1 0.37470337429825346 0 0 #arcLabel
+Ms0 f13 expr out #txt
+Ms0 f13 96 140 96 182 #arcP
 >Proto Ms0 .type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
 >Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
@@ -262,9 +235,7 @@ Ms0 f8 mainOut f11 tail #connect
 Ms0 f11 head f10 mainIn #connect
 Ms0 f10 mainOut f4 tail #connect
 Ms0 f4 head f1 mainIn #connect
-Ms0 f12 mainOut f14 tail #connect
-Ms0 f14 head f1 mainIn #connect
-Ms0 f15 mainOut f16 tail #connect
-Ms0 f16 head f12 mainIn #connect
-Ms0 f6 mainOut f5 tail #connect
-Ms0 f5 head f12 mainIn #connect
+Ms0 f15 mainOut f2 tail #connect
+Ms0 f2 head f6 mainIn #connect
+Ms0 f6 mainOut f13 tail #connect
+Ms0 f13 head f1 mainIn #connect
