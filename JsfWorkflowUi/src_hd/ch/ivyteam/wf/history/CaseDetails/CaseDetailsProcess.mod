@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 22 10:17:09 CEST 2013]
+[>Created: Thu Jul 25 11:30:05 CEST 2013]
 13FE666253A103EF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetailsProcess Big #zClass
@@ -361,15 +361,19 @@ if(in.#wfCase!=null)
 	tasks.addAll(in.wfCase.getTasks());
 }
 
-for(int i = 0; i < tasks.size(); i++)
+boolean hasPageArchivePermission = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_PAGE_ARCHIVE_READ_ALL);
+if(hasPageArchivePermission)	
 {
-	List pageArchives = tasks.get(i).getPageArchives();
-	for(int j = 0 ; j < pageArchives.size(); j++)
+	for(int i = 0; i < tasks.size(); i++)
 	{
-		IPageArchive pageArchive = tasks.get(i).getPageArchives().get(j) as IPageArchive;
-		out.pageArchives.add(pageArchive);
-	}	
-}	' #txt
+		List pageArchives = tasks.get(i).getPageArchives();
+		for(int j = 0 ; j < pageArchives.size(); j++)
+		{
+			IPageArchive pageArchive = tasks.get(i).getPageArchives().get(j) as IPageArchive;
+			out.pageArchives.add(pageArchive);
+		}	
+	}
+}' #txt
 Cs0 f26 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
