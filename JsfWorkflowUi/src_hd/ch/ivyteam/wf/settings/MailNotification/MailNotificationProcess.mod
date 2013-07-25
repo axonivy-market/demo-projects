@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 25 15:00:00 CEST 2013]
+[>Created: Thu Jul 25 16:07:37 CEST 2013]
 13F5183CA99B58E3 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MailNotificationProcess Big #zClass
@@ -17,7 +17,6 @@ Ms0 @RichDialogInitStart f0 '' #zField
 Ms0 @RichDialogProcessEnd f1 '' #zField
 Ms0 @RichDialogProcessStart f3 '' #zField
 Ms0 @GridStep f6 '' #zField
-Ms0 @PushWFArc f7 '' #zField
 Ms0 @GridStep f8 '' #zField
 Ms0 @PushWFArc f9 '' #zField
 Ms0 @GridStep f10 '' #zField
@@ -26,6 +25,7 @@ Ms0 @PushWFArc f4 '' #zField
 Ms0 @RichDialogProcessStart f15 '' #zField
 Ms0 @PushWFArc f2 '' #zField
 Ms0 @PushWFArc f13 '' #zField
+Ms0 @PushWFArc f14 '' #zField
 >Proto Ms0 Ms0 MailNotificationProcess #zField
 Ms0 f0 guid 13F5183CAB816433 #txt
 Ms0 f0 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
@@ -70,6 +70,7 @@ Ms0 f6 actionTable 'out=in;
 Ms0 f6 actionCode 'import java.util.Locale;
 import ch.ivyteam.ivy.security.IEMailNotificationSettings;
 
+out.languages.clear();
 out.languages.add(ivy.cms.co("/labels/settings/mailNotification/appDefault") + " (" + ivy.wf.getApplication().getDefaultEMailLanguage().getDisplayName() + ")");
 for(Locale locale : ivy.cms.getSupportedLanguages())
 {
@@ -77,10 +78,9 @@ for(Locale locale : ivy.cms.getSupportedLanguages())
 }
 out.language = ivy.session.getSessionUser().getEMailLanguage() != null ? ivy.session.getSessionUser().getEMailLanguage().getDisplayName() : "";
 
-IEMailNotificationSettings defaultSettings = ivy.wf.getApplication().getDefaultEMailNotifcationSettings();
-
 if(in.isUseApplicationDefault)
 {
+	IEMailNotificationSettings defaultSettings = ivy.wf.getApplication().getDefaultEMailNotifcationSettings();
 	out.isNotificationDisabled = defaultSettings.isNotificationDisabled();	
 	out.isSendOnNewWorkTasks = defaultSettings.isSendOnNewWorkTasks();
 	out.mon = defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.MONDAY);
@@ -94,7 +94,6 @@ if(in.isUseApplicationDefault)
 else
 {
 	out.emailNotificationSettings = ivy.session.getSessionUser().getEMailNotificationSettings();
-	out.isUseApplicationDefault = out.emailNotificationSettings.isUseApplicationDefault();
 	out.isNotificationDisabled = out.emailNotificationSettings.isNotificationDisabled();
 	out.isSendOnNewWorkTasks = out.emailNotificationSettings.isSendOnNewWorkTasks();
 	
@@ -118,8 +117,6 @@ Ms0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ms0 f6 78 116 36 24 20 -2 #rect
 Ms0 f6 @|StepIcon #fIcon
-Ms0 f7 expr out #txt
-Ms0 f7 96 74 96 116 #arcP
 Ms0 f8 actionDecl 'ch.ivyteam.wf.settings.MailNotification.MailNotificationData out;
 ' #txt
 Ms0 f8 actionTable 'out=in;
@@ -223,12 +220,12 @@ Ms0 f2 1 224 128 #addKink
 Ms0 f2 1 0.37470337429825346 0 0 #arcLabel
 Ms0 f13 expr out #txt
 Ms0 f13 96 140 96 182 #arcP
+Ms0 f14 expr out #txt
+Ms0 f14 96 74 96 116 #arcP
 >Proto Ms0 .type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
 >Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
 >Proto Ms0 '' #fIcon
-Ms0 f0 mainOut f7 tail #connect
-Ms0 f7 head f6 mainIn #connect
 Ms0 f3 mainOut f9 tail #connect
 Ms0 f9 head f8 mainIn #connect
 Ms0 f8 mainOut f11 tail #connect
@@ -239,3 +236,5 @@ Ms0 f15 mainOut f2 tail #connect
 Ms0 f2 head f6 mainIn #connect
 Ms0 f6 mainOut f13 tail #connect
 Ms0 f13 head f1 mainIn #connect
+Ms0 f0 mainOut f14 tail #connect
+Ms0 f14 head f6 mainIn #connect
