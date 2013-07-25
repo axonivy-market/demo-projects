@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 25 14:07:18 CEST 2013]
+[>Created: Thu Jul 25 16:18:23 CEST 2013]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -508,13 +508,13 @@ List users = ivy.wf.getSecurityContext().getUsers();
 out.userList.clear();
 for(IUser user : users)
 {
-	if(user.getName() != "SYSTEM" && user.getName() != ivy.session.getSessionUser().getName())
+	if(user.getName() != "SYSTEM")
 	{
 		out.userList.add(user);
 	}
 }	
 
-List roles = ivy.session.getSessionUser().getAllRoles();
+List roles = ivy.wf.getSecurityContext().getRoles();
 out.roleList.clear();
 for(IRole role: roles)
 {
