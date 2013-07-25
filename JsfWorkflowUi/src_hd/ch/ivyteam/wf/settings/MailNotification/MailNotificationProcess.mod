@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 08 09:50:04 CEST 2013]
+[>Created: Thu Jul 25 12:48:34 CEST 2013]
 13F5183CA99B58E3 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MailNotificationProcess Big #zClass
@@ -18,7 +18,6 @@ Ms0 @RichDialogProcessEnd f1 '' #zField
 Ms0 @RichDialogProcessStart f3 '' #zField
 Ms0 @GridStep f6 '' #zField
 Ms0 @PushWFArc f7 '' #zField
-Ms0 @PushWFArc f2 '' #zField
 Ms0 @GridStep f8 '' #zField
 Ms0 @PushWFArc f9 '' #zField
 Ms0 @GridStep f10 '' #zField
@@ -28,6 +27,7 @@ Ms0 @GridStep f12 '' #zField
 Ms0 @PushWFArc f14 '' #zField
 Ms0 @RichDialogProcessStart f15 '' #zField
 Ms0 @PushWFArc f16 '' #zField
+Ms0 @PushWFArc f5 '' #zField
 >Proto Ms0 Ms0 MailNotificationProcess #zField
 Ms0 f0 guid 13F5183CAB816433 #txt
 Ms0 f0 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
@@ -48,7 +48,7 @@ Ms0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ms0 f0 86 54 20 20 13 0 #rect
 Ms0 f0 @|RichDialogInitStartIcon #fIcon
 Ms0 f1 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
-Ms0 f1 86 182 20 20 13 0 #rect
+Ms0 f1 86 246 20 20 13 0 #rect
 Ms0 f1 @|RichDialogProcessEndIcon #fIcon
 Ms0 f3 guid 13F51BEAA54E44F6 #txt
 Ms0 f3 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
@@ -105,8 +105,6 @@ Ms0 f6 78 116 36 24 20 -2 #rect
 Ms0 f6 @|StepIcon #fIcon
 Ms0 f7 expr out #txt
 Ms0 f7 96 74 96 116 #arcP
-Ms0 f2 expr out #txt
-Ms0 f2 96 140 96 182 #arcP
 Ms0 f8 actionDecl 'ch.ivyteam.wf.settings.MailNotification.MailNotificationData out;
 ' #txt
 Ms0 f8 actionTable 'out=in;
@@ -187,7 +185,9 @@ Ms0 f10 @|StepIcon #fIcon
 Ms0 f11 expr out #txt
 Ms0 f11 384 140 384 180 #arcP
 Ms0 f4 expr out #txt
-Ms0 f4 366 192 106 192 #arcP
+Ms0 f4 384 204 106 256 #arcP
+Ms0 f4 1 384 256 #addKink
+Ms0 f4 1 0.3877451289726625 0 0 #arcLabel
 Ms0 f12 actionDecl 'ch.ivyteam.wf.settings.MailNotification.MailNotificationData out;
 ' #txt
 Ms0 f12 actionTable 'out=in;
@@ -224,12 +224,11 @@ Ms0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f12 206 116 36 24 20 -2 #rect
+Ms0 f12 78 180 36 24 20 -2 #rect
 Ms0 f12 @|StepIcon #fIcon
 Ms0 f14 expr out #txt
-Ms0 f14 224 140 106 192 #arcP
-Ms0 f14 1 224 192 #addKink
-Ms0 f14 1 0.06414606344485416 0 0 #arcLabel
+Ms0 f14 96 204 96 246 #arcP
+Ms0 f14 0 0.06414606344485416 0 0 #arcLabel
 Ms0 f15 guid 13FA9961ECA1CBDA #txt
 Ms0 f15 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
 Ms0 f15 actionDecl 'ch.ivyteam.wf.settings.MailNotification.MailNotificationData out;
@@ -246,16 +245,17 @@ Ms0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ms0 f15 214 54 20 20 13 0 #rect
 Ms0 f15 @|RichDialogProcessStartIcon #fIcon
 Ms0 f16 expr out #txt
-Ms0 f16 224 74 224 116 #arcP
-Ms0 f16 0 0.7019565553487115 0 0 #arcLabel
+Ms0 f16 224 74 114 192 #arcP
+Ms0 f16 1 224 192 #addKink
+Ms0 f16 1 0.37470337429825346 0 0 #arcLabel
+Ms0 f5 expr out #txt
+Ms0 f5 96 140 96 180 #arcP
 >Proto Ms0 .type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
 >Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
 >Proto Ms0 '' #fIcon
 Ms0 f0 mainOut f7 tail #connect
 Ms0 f7 head f6 mainIn #connect
-Ms0 f6 mainOut f2 tail #connect
-Ms0 f2 head f1 mainIn #connect
 Ms0 f3 mainOut f9 tail #connect
 Ms0 f9 head f8 mainIn #connect
 Ms0 f8 mainOut f11 tail #connect
@@ -266,3 +266,5 @@ Ms0 f12 mainOut f14 tail #connect
 Ms0 f14 head f1 mainIn #connect
 Ms0 f15 mainOut f16 tail #connect
 Ms0 f16 head f12 mainIn #connect
+Ms0 f6 mainOut f5 tail #connect
+Ms0 f5 head f12 mainIn #connect
