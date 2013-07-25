@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 24 16:24:12 CEST 2013]
+[>Created: Thu Jul 25 11:22:33 CEST 2013]
 13F1D8A32C686BDF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListProcess Big #zClass
@@ -180,8 +180,21 @@ import ch.ivyteam.ivy.workflow.CaseProperty;
 import ch.ivyteam.ivy.persistence.OrderDirection;
 import ch.ivyteam.ivy.persistence.IGroup;
 
+Boolean hasReadAllCasesPermission = ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_READ_ALL);
 IPropertyFilter cpfilter = ivy.wf.createCasePropertyFilter(CaseProperty.STATE, RelationalOperator.UNEQUAL, CaseState.CREATED.intValue());
-List<IGroup> categoriesGroups = ivy.wf.findCaseCategories(cpfilter ,CaseProperty.PROCESS_CATEGORY_CODE, OrderDirection.ASCENDING);
+List<IGroup> categoriesGroups;
+if(in.caseListMode == "my_cases")
+{
+	categoriesGroups = ivy.session.findStartedCaseCategories(cpfilter,CaseProperty.PROCESS_CATEGORY_CODE,OrderDirection.ASCENDING);
+}
+else if(hasReadAllCasesPermission)
+{
+	categoriesGroups = ivy.wf.findCaseCategories(cpfilter,CaseProperty.PROCESS_CATEGORY_CODE, OrderDirection.ASCENDING);
+}
+else
+{
+	categoriesGroups = ivy.session.findInvolvedCasesCategories(cpfilter,CaseProperty.PROCESS_CATEGORY_CODE,OrderDirection.ASCENDING);
+}
 
 out.categories.clear();
 out.processesList.clear();
