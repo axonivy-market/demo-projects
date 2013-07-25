@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 24 16:31:44 CEST 2013]
+[>Created: Thu Jul 25 11:35:40 CEST 2013]
 13F2E0370AA5B84E 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHistoryProcess Big #zClass
@@ -153,6 +153,7 @@ Ts0 f4 actionTable 'out=in;
 ' #txt
 Ts0 f4 actionCode 'import ch.ivyteam.ivy.security.IRole;
 
+out.roleList.clear();
 List roles = ivy.session.getSessionUser().getAllRoles();
 for(IRole role: roles)
 {
