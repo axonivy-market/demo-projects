@@ -14,7 +14,7 @@
 	<p:dialog id="modalDialogChangeExpiry" header="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" widgetVar="changeExpiry" modal="true" visible="#{data.changeExpiryWrong}" appendToBody="true">  
   		<h:form id="formDetailsChangeExpiry">
   			<p:messages id="message" />
-			<h:panelGrid columns="4">
+			<h:panelGrid columns="5">
 				#{ivy.cms.co('/labels/common/expiry')}
 				<p:calendar id="expiryDate" label="#{ivy.cms.co('/labels/common/expiry')}" value="#{data.expiryDate}" showOn="button" required="true" pattern="dd.MM.yyyy">
            			<f:convertDateTime pattern="dd.MM.yyyy" />

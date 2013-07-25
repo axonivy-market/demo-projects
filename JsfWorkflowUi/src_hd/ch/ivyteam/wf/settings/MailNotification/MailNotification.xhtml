@@ -26,7 +26,7 @@
        		</h:panelGrid>
        		<br />
        		#{ivy.cms.co('/labels/settings/mailNotification/whatSettingsUse')}
-       		<h:panelGrid columns="3">
+       		<h:panelGrid columns="2">
        			<p:spacer width="10" />
        			<p:selectOneButton id="appDefault" value="#{data.isUseApplicationDefault}">
         			<f:selectItem itemLabel="#{ivy.cms.co('/labels/settings/mailNotification/appDefault')}" itemValue="true" />
@@ -52,7 +52,7 @@
        			</h:panelGrid>
        			<p:message for="onTask" display="icon" />
        			<p:spacer width="7" />
-       			<h:panelGrid columns="10">
+       			<h:panelGrid columns="9">
        				#{ivy.cms.co('/labels/settings/mailNotification/mailDailySummary')}
        				<p:spacer width="10" />
                 	<p:selectBooleanCheckbox id="checkMonday" value="#{data.mon}" itemLabel="#{ivy.cms.co('/labels/settings/mailNotification/weekdays/mon')}" disabled="#{data.isUseApplicationDefault || data.isNotificationDisabled}" />

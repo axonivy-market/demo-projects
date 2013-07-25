@@ -20,14 +20,13 @@
 			    </p:selectOneRadio>
 			    #{ivy.cms.co('/labels/common/responsible')}
 			    <p:spacer width="10px"/>
-				<h:panelGrid columns="5">
+				<h:panelGrid columns="4">
 					<p:radioButton id="delegateToUser" for="delegateOptions" itemIndex="0" />
 					<h:outputLabel for="delegateToUser" value="user" /> 
 			        <h:graphicImage name="/images/details/user.png" style="border:0pt" alt="user" />
 			        <p:selectOneMenu id="selectionOfUser" value="#{data.delegateToUser}" filter="true" filterMatchMode="startsWith" converter="ivy.ListItem" disabled="#{data.isDelegateToRole}">
 				    	<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{user.getFullName()} (#{user.getName()})" />
 				    </p:selectOneMenu>
-			        <br />
 			        <p:radioButton id="delegateToRole" for="delegateOptions" itemIndex="1" />
 			        <h:outputLabel for="delegateToRole" value="role" />
 			        <h:graphicImage name="/images/details/role.png" style="border:0pt" alt="role" />
