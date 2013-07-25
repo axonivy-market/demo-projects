@@ -71,7 +71,7 @@
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
 					<p:outputPanel>
-						<h:graphicImage name="#{task.activator == null ? '' : task.activator.isUser() ? 'images/details/user' : 'images/details/role'}.png" alt="#{task.activator}"/>
+						<h:graphicImage name="#{task.activator == null ? 'images/others/none' : task.activator.isUser() ? 'images/details/user' : 'images/details/role'}.png" alt="#{task.activator}"/>
 						#{task.activator.name}
 					</p:outputPanel>
 				</p:column>

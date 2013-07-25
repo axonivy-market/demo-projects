@@ -37,7 +37,7 @@
    					<f:facet name="header">  
        					#{ivy.cms.co('/labels/settings/substitute/substituteFor')}
    					</f:facet>
-   					<h:graphicImage name="#{substitute.isPersonallyOnly() ? '' : 'images/details/role.png'}" />
+   					<h:graphicImage name="#{substitute.isPersonallyOnly() ? 'images/others/none.png' : 'images/details/role.png'}" />
    					#{substitute.isPersonallyOnly() ? ivy.cms.co('/labels/settings/substitute/substituteMyTasks') : substitute.substitutionRole.displayName }
    					#{substitute.isPersonallyOnly() ? '' : '('}#{substitute.isPersonallyOnly() ? '' : substitute.substitutionRole.name}#{substitute.isPersonallyOnly() ? '' : ')'}
    				</p:column>
@@ -76,7 +76,7 @@
    					<f:facet name="header">  
       					#{ivy.cms.co('/labels/settings/substitute/substituteFor')}
    					</f:facet>
-					<h:graphicImage name="#{substitution.isPersonallyOnly() ? '' : 'images/details/role.png'}" />
+					<h:graphicImage name="#{substitution.isPersonallyOnly() ? 'images/others/none.png' : 'images/details/role.png'}" />
    					#{substitution.isPersonallyOnly() ? ivy.cms.co('/labels/settings/substitute/substituteUserTasks') : substitution.substitutionRole.displayName }
    					#{substitution.isPersonallyOnly() ? '' : '('}#{substitution.isPersonallyOnly() ? '' : substitution.substitutionRole.name}#{substitution.isPersonallyOnly() ? '' : ')'}
   				</p:column>
