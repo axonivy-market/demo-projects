@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 22 11:40:56 CEST 2013]
+[>Created: Thu Jul 25 10:32:22 CEST 2013]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -629,16 +629,23 @@ Ts0 f4 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f4 actionTable 'out=in;
 ' #txt
-Ts0 f4 actionCode 'import ch.ivyteam.ivy.workflow.IPageArchive;
+Ts0 f4 actionCode 'import ch.ivyteam.ivy.webserver.internal.IvySession;
+import ch.ivyteam.ivy.workflow.IPageArchive;
 import ch.ivyteam.ivy.workflow.ITask;
 
-in.pageArchives.clear();
-List pageArchives = in.task.getPageArchives();
-for(int j = 0 ; j < pageArchives.size(); j++)
+boolean hasPageArchivePermission = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_PAGE_ARCHIVE_READ_ALL);
+
+if(hasPageArchivePermission)	
 {
-	IPageArchive pageArchive = in.task.getPageArchives().get(j) as IPageArchive;
-	out.pageArchives.add(pageArchive);
-}	' #txt
+	in.pageArchives.clear();
+	List pageArchives = in.task.getPageArchives();
+	for(int j = 0 ; j < pageArchives.size(); j++)
+	{
+		IPageArchive pageArchive = in.task.getPageArchives().get(j) as IPageArchive;
+		out.pageArchives.add(pageArchive);
+	}	
+}
+' #txt
 Ts0 f4 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
