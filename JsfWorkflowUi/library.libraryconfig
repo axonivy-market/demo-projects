@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" id="jsfWorkflowUi" version="1" provider="ivyTeam">
+<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" id="JsfWorkflowUi" version="1" provider="ivyTeam">
     <description>A sample implemenation of a jsf based workflow ui</description>
 </ns2:library>
