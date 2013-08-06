@@ -1,5 +1,5 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2013-04-11 16:48:07 | 5.0.0.42648 | 1.0
+# 2013-08-06 14:21:40 | 5.0.0.42720 | 1.0
 ~.automaticTasksExecutionToggleButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/128D46F6DFE11C93
 ~.delegateTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE5EA710FB1B8
 ~.delegateTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/116CE5EA710FB1B8
@@ -16,6 +16,7 @@
 ~.resetTaskMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A0856682016BF4
 ~.setTaskBlockingDelayDateButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A06D4293CB465C
 ~.setTaskExpiryDateButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A06D4212D900B5
+~.setTaskExpiryDateMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A06D4212D900B5 # TaskDisplayListProcess.mod/setTaskExpiryTimestamp
 ~.startTaskButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118C223601C9E2B6
 ~.startTaskOnSiblingTabMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/118C223601C9E2B6
 ~.taskNameOrCaseNameCriteriaTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1168625F1BC1155F/11A6D1CCD4AB222D
