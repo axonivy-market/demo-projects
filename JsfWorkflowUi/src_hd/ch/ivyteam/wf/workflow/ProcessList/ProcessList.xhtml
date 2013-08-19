@@ -18,12 +18,12 @@
 		<br /><br />
 		<h:form>
 		<p:dataTable var="start" value="#{data.starts}"
-			emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}">
-			<p:column sortBy="#{start.name}">
+			emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" sortBy="#{start.name.toUpperCase()}#{start.userFriendlyRequestPath.toUpperCase()}" sortOrder="ASCENDING">
+			<p:column sortBy="#{start.name.toUpperCase()}#{start.userFriendlyRequestPath.toUpperCase()}">
 				<f:facet name="header">
 					#{ivy.cms.co('/labels/common/name')}
 				</f:facet>
-				<a href="#{facesContext.externalContext.requestContextPath}/pro/#{start.fullRequestPath}" id="#{start.requestPath}">#{start.name}</a>
+				<a href="#{facesContext.externalContext.requestContextPath}/pro/#{start.fullRequestPath}" id="#{start.requestPath}">#{start.name.isEmpty() ? start.userFriendlyRequestPath : start.name}</a>
 				<br />
 				<h:outputText value="#{start.description}" style="font-size:8pt;" />
 			</p:column>

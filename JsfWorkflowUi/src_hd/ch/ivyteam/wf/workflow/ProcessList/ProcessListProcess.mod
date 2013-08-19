@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 24 09:22:03 CEST 2013]
+[>Created: Mon Aug 19 11:27:36 CEST 2013]
 13ED18A804435D54 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 ProcessListProcess Big #zClass
@@ -46,13 +46,15 @@ Ps0 f3 actionTable 'out=in;
 ' #txt
 Ps0 f3 actionCode 'import ch.ivyteam.ivy.workflow.IProcessStart;
 
-for(IProcessStart s: ivy.session.getStartableProcessStarts())
+for(IProcessStart processStart : ivy.session.getStartableProcessStarts())
 {
-		if(s.getName().length()>0)
-		{
-			out.starts.add(s);
-		}
-}' #txt
+	if(processStart.getName() != "Workflow Home")
+	{
+		out.starts.add(processStart);
+	}
+}
+
+' #txt
 Ps0 f3 type ch.ivyteam.wf.workflow.ProcessList.ProcessListData #txt
 Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
