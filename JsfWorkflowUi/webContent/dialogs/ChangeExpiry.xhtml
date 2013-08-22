@@ -38,7 +38,9 @@
 				<p:outputPanel>
 					<p:commandButton id="saveChangeExpiry" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" update=":formTaskDetails :modalDialogChangeExpiry" actionListener="#{logic.changeExpiry}" />
 					<p:spacer width="5px" />
-					<p:commandButton id="cancelChangeExpiry" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="changeExpiry.hide();" update=":formDetailsChangeExpiry" />
+					<p:commandButton id="cancelChangeExpiry" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="changeExpiry.hide();" update=":formDetailsChangeExpiry" process="@this">
+						<p:resetInput target="formDetailsChangeExpiry" />
+					</p:commandButton>
 				</p:outputPanel>
 			</h:panelGrid>
 		</h:form>
