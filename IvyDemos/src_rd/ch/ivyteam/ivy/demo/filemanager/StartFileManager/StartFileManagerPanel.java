@@ -50,6 +50,8 @@ private RComboBox langComboBox = null;
 private RComboBox dbComboBox = null;
 private RLabel dbLabel = null;
 private RCheckBox activateExtendedFVCheckBox = null;
+private RCheckBox activateDirTranslationCheckBox = null;
+private RCheckBox activatefileTypesTranslationCheckBox = null;
 /**
    * Create a new instance of StartFileManagerPanel
    */
@@ -245,7 +247,7 @@ private RLabel getLabel() {
 private RCheckBox getActivateTypeCheckBox() {
 	if (activateTypeCheckBox == null) {
 		activateTypeCheckBox = new RCheckBox();
-		activateTypeCheckBox.setText("Activate the File Type feature");
+		activateTypeCheckBox.setText("Activate the file type feature");
 		activateTypeCheckBox.setStyleProperties("{/font {/name \"Dialog\"/size \"14\"/style \"PLAIN\"}/fill \"HORIZONTAL\"/weightX \"1\"}");
 		activateTypeCheckBox.setName("activateTypeCheckBox");
 	}
@@ -299,9 +301,11 @@ private RGridBagLayoutPane getStoreInDBGridBagLayoutPane() {
 		storeInDBGridBagLayoutPane.add(getActivateFileVersioningCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		storeInDBGridBagLayoutPane.add(getActivateSecurityCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		storeInDBGridBagLayoutPane.add(getActivateTypeCheckBox(), new com.ulcjava.base.application.GridBagConstraints(1, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		storeInDBGridBagLayoutPane.add(getActivateTagsCheckBox(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		storeInDBGridBagLayoutPane.add(getActivateTagsCheckBox(), new com.ulcjava.base.application.GridBagConstraints(1, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		storeInDBGridBagLayoutPane.add(getActivateHistoryCheckBox(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		storeInDBGridBagLayoutPane.add(getActivateExtendedFVCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 2, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		storeInDBGridBagLayoutPane.add(getActivateDirTranslationCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		storeInDBGridBagLayoutPane.add(getActivatefileTypesTranslationCheckBox(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return storeInDBGridBagLayoutPane;
 }
@@ -424,5 +428,35 @@ private RCheckBox getActivateExtendedFVCheckBox() {
 		activateExtendedFVCheckBox.setText("Activate the file versioning extended feature");
 	}
 	return activateExtendedFVCheckBox;
+}
+
+/**
+ * This method initializes activateDirTranslationCheckBox	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox	
+ */
+private RCheckBox getActivateDirTranslationCheckBox() {
+	if (activateDirTranslationCheckBox == null) {
+		activateDirTranslationCheckBox = new RCheckBox();
+		activateDirTranslationCheckBox.setName("activateDirTranslationCheckBox");
+		activateDirTranslationCheckBox.setStyleProperties("{/font {/name \"Dialog\"/size \"14\"/style \"PLAIN\"}/fill \"HORIZONTAL\"/insetsLeft \"20\"/weightX \"1\"}");
+		activateDirTranslationCheckBox.setText("Activate the directories translation feature");
+	}
+	return activateDirTranslationCheckBox;
+}
+
+/**
+ * This method initializes activatefileTypesTranslationCheckBox	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox	
+ */
+private RCheckBox getActivatefileTypesTranslationCheckBox() {
+	if (activatefileTypesTranslationCheckBox == null) {
+		activatefileTypesTranslationCheckBox = new RCheckBox();
+		activatefileTypesTranslationCheckBox.setName("activatefileTypesTranslationCheckBox");
+		activatefileTypesTranslationCheckBox.setStyleProperties("{/font \"name=Dialog\\nsize=14\\nstyle=PLAIN\"/fill \"HORIZONTAL\"/weightX \"1\"}");
+		activatefileTypesTranslationCheckBox.setText("Activate the file type translation feature");
+	}
+	return activatefileTypesTranslationCheckBox;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

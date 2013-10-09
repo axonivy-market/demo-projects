@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 13 20:03:20 EST 2013]
+[>Created: Fri Aug 09 11:08:49 EDT 2013]
 124A0A18116D9EA3 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TemplatePanelProcess Big #zClass
@@ -120,8 +120,6 @@ Ts0 @RichDialogProcessEnd f111 '' #zField
 Ts0 @PushWFArc f112 '' #zField
 Ts0 @RichDialogProcessEnd f113 '' #zField
 Ts0 @PushWFArc f114 '' #zField
-Ts0 @RichDialogProcessStep f19 '' #zField
-Ts0 @PushWFArc f115 '' #zField
 Ts0 @RichDialogProcessStep f117 '' #zField
 Ts0 @PushWFArc f118 '' #zField
 Ts0 @PushWFArc f116 '' #zField
@@ -132,6 +130,8 @@ Ts0 @PushWFArc f83 '' #zField
 Ts0 @RichDialog f85 '' #zField
 Ts0 @PushWFArc f97 '' #zField
 Ts0 @PushWFArc f17 '' #zField
+Ts0 @PushWFArc f115 '' #zField
+Ts0 @RichDialogProcessStep f19 '' #zField
 >Proto Ts0 Ts0 TemplatePanelProcess #zField
 Ts0 f0 guid 124A0A1812656503 #txt
 Ts0 f0 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
@@ -1325,27 +1325,6 @@ Ts0 f113 830 678 20 20 13 0 #rect
 Ts0 f113 @|RichDialogProcessEndIcon #fIcon
 Ts0 f114 expr out #txt
 Ts0 f114 840 652 840 678 #arcP
-Ts0 f19 actionDecl 'ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData out;
-' #txt
-Ts0 f19 actionTable 'out=in;
-' #txt
-Ts0 f19 actionCode 'out.counter= in.counter+1;' #txt
-Ts0 f19 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
-Ts0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>counter++</name>
-        <nameStyle>9,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f19 206 652 36 24 20 -2 #rect
-Ts0 f19 @|RichDialogProcessStepIcon #fIcon
-Ts0 f115 expr out #txt
-Ts0 f115 206 664 104 590 #arcP
-Ts0 f115 1 104 664 #addKink
-Ts0 f115 0 0.8396317725605814 0 0 #arcLabel
 Ts0 f117 actionDecl 'ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData out;
 ' #txt
 Ts0 f117 actionTable 'out=in;
@@ -1420,6 +1399,27 @@ Ts0 f97 118 576 206 576 #arcP
 Ts0 f97 0 0.0 -5 49 #arcLabel
 Ts0 f17 expr out #txt
 Ts0 f17 224 588 224 652 #arcP
+Ts0 f115 expr out #txt
+Ts0 f115 206 664 104 590 #arcP
+Ts0 f115 1 104 664 #addKink
+Ts0 f115 0 0.8396317725605814 0 0 #arcLabel
+Ts0 f19 actionDecl 'ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData out;
+' #txt
+Ts0 f19 actionTable 'out=in;
+' #txt
+Ts0 f19 actionCode 'out.counter= in.counter+1;' #txt
+Ts0 f19 type ch.ivyteam.ivy.demo.docfactory.TemplatePanel.TemplatePanelData #txt
+Ts0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>counter++</name>
+        <nameStyle>9,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f19 206 652 36 24 20 -2 #rect
+Ts0 f19 @|RichDialogProcessStepIcon #fIcon
 >Proto Ts0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

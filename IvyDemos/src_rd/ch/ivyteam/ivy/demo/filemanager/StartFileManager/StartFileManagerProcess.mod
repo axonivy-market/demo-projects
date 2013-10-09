@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 21 22:44:20 EDT 2013]
+[>Created: Sat Aug 10 12:30:55 EDT 2013]
 12BAAF77763F86CB 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 StartFileManagerProcess Big #zClass
@@ -134,7 +134,9 @@ panel.activateExtendedFVCheckBox.enabled=false;
 panel.activateSecurityCheckBox.enabled=false;
 panel.activateTypeCheckBox.enabled=false;
 panel.activateTagsCheckBox.enabled=false;
-panel.activateHistoryCheckBox.enabled=false;' #txt
+panel.activateHistoryCheckBox.enabled=false;
+panel.activateDirTranslationCheckBox.enabled=false;
+panel.activatefileTypesTranslationCheckBox.enabled=false;' #txt
 Ss0 f11 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
 Ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -305,14 +307,18 @@ try{
 				panel.activateTypeCheckBox.enabled=true;
 				panel.activateTagsCheckBox.enabled=true;
 				panel.activateHistoryCheckBox.enabled=true;
+				panel.activateDirTranslationCheckBox.enabled=true;
+				panel.activatefileTypesTranslationCheckBox.enabled=true;
 				out.configurationController.rootPath="root/storeInDb";
-			}else{//this two features need files stored as blob
+			}else{//these features need files stored as blob
 				panel.activateFileVersioningCheckBox.enabled=false;
 				panel.activateExtendedFVCheckBox.enabled=false;
 				panel.activateSecurityCheckBox.enabled=false;
 				panel.activateTypeCheckBox.enabled=false;
 				panel.activateTagsCheckBox.enabled=false;
 				panel.activateHistoryCheckBox.enabled=false;
+				panel.activateDirTranslationCheckBox.enabled=false;
+				panel.activatefileTypesTranslationCheckBox.enabled=false;
 			}
 		}
 		else if(rc.getName().equalsIgnoreCase(panel.activateIvySystemDBCheckBox.getName()) && panel.activateIvySystemDBCheckBox.selected)
@@ -324,6 +330,8 @@ try{
 			panel.activateTypeCheckBox.enabled=false;
 			panel.activateTagsCheckBox.enabled=false;
 			panel.activateHistoryCheckBox.enabled=false;
+			panel.activateDirTranslationCheckBox.enabled=false;
+			panel.activatefileTypesTranslationCheckBox.enabled=false;
 			panel.filesInFileSetCheckBox.selected=false;
 			out.configurationController.rootPath="root/storeOnServerAndIvyDb";
 		}
@@ -337,17 +345,32 @@ try{
 			panel.activateTagsCheckBox.enabled=false;
 			panel.activateHistoryCheckBox.enabled=false;
 			panel.activateIvySystemDBCheckBox.selected=false;
+			panel.activateDirTranslationCheckBox.enabled=false;
+			panel.activatefileTypesTranslationCheckBox.enabled=false;
 			out.configurationController.rootPath="root/storeOnServer";	
+		} else if(rc.getName().equalsIgnoreCase(panel.activateExtendedFVCheckBox.getName())){
+			if(panel.activateExtendedFVCheckBox.selected) {
+				panel.activateFileVersioningCheckBox.selected=true;
+				panel.activateFileVersioningCheckBox.enabled=false;
+			}else{
+				panel.activateFileVersioningCheckBox.enabled=true;
+			}
+		} else if(rc.getName().equalsIgnoreCase(panel.activatefileTypesTranslationCheckBox.getName())){
+			if(panel.activatefileTypesTranslationCheckBox.selected) {
+				panel.activateTypeCheckBox.selected=true;
+				panel.activateTypeCheckBox.enabled=false;
+			}else{
+				panel.activateTypeCheckBox.enabled=true;
+			}
 		}
 	}
-	if(!panel.filesInFileSetCheckBox.selected && !panel.activateIvySystemDBCheckBox.selected && !panel.activateFilesAsBlobCheckBox.selected)
-	{
+	if(!panel.filesInFileSetCheckBox.selected && !panel.activateIvySystemDBCheckBox.selected && !panel.activateFilesAsBlobCheckBox.selected){
 		panel.startButton1.enabled=false;
 	}
-	if(!panel.activateIvySystemDBCheckBox.selected && panel.dbComboBox.selectedIndex<0)
-	{
+	if(!panel.activateIvySystemDBCheckBox.selected && panel.dbComboBox.selectedIndex<0){
 		panel.startButton1.enabled=false;
 	}
+	
 }catch(Throwable t){
 	ivy.log.error(t.getMessage(),t);
 }' #txt
@@ -368,8 +391,10 @@ Ss0 f7 @|RichDialogProcessEndIcon #fIcon
 Ss0 f19 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData out;
 ' #txt
 Ss0 f19 actionTable 'out=in;
+out.configurationController.activateDirectoryTranslation=panel.activateDirTranslationCheckBox.selected;
 out.configurationController.activateFileTags=panel.activateTagsCheckBox.selected;
 out.configurationController.activateFileType=panel.activateTypeCheckBox.selected;
+out.configurationController.activateFileTypeTranslation=panel.activatefileTypesTranslationCheckBox.selected;
 out.configurationController.activateFileVersioning=panel.activateFileVersioningCheckBox.selected;
 out.configurationController.activateFileVersioningExtended=panel.activateExtendedFVCheckBox.selected;
 out.configurationController.activateSecurity=panel.activateSecurityCheckBox.selected;

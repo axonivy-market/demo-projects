@@ -2,10 +2,8 @@
 <B>Important informations:</B>
 <BR>
 The FileManager is configured with a FileManagerConfigurationController object.<BR>
-This object stores all the settings needed for the FileManager.<BR>
+This object stores all the settings needed for the FileManager. Please refer to the FileManager IvyAddons documentation to learn more about all the settings available in this configuration.<BR>
 <BR>
-The external Ivy database configuration is already prepared in the demo project: it's name is "filemanager". You have to adapt this configuration to your external database settings.<BR>
-Here you don't have the possibility to set all the possible options dynamically. <BR>
-You are of course free to set these parameters directly in the configuration controller object in your own implementations. Please refer to the FileManager IvyAddons documentation.
+An external Ivy database configuration is already defined in the demo project: it's name is "filemanager". You have to adapt this configuration to your database.<BR>
 </P>
 
