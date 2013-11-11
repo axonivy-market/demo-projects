@@ -113,6 +113,10 @@
 							<h:outputText value="#{data.task.expiryTimestamp}">
 								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 							</h:outputText>
+							<p:spacer width="10" />
+							<p:commandLink title="#{ivy.cms.co('/labels/dialogs/confirmDialog/expiryTitle')}" onclick="confirmExpiryNow.show();" update=":formTaskDetails" rendered="#{data.isExpiryDateLower}">
+								<h:graphicImage name="/images/actions/reset.png" style="border:0px" />
+							</p:commandLink>
 						</td>
 					</tr>
 					<tr>
@@ -121,6 +125,10 @@
 							<h:outputText value="#{data.task.delayTimestamp}">
 								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 							</h:outputText>
+							<p:spacer width="10" />
+							<p:commandLink title="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}" onclick="confirmDelayNow.show();" update=":formTaskDetails" rendered="#{data.isDelayDateLower}">
+								<h:graphicImage name="/images/actions/reset.png" style="border:0px" />
+							</p:commandLink>
 						</td>
 					</tr>
 					<tr>
@@ -178,6 +186,8 @@
 			<ui:param name="headerConfirm" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" />
 			<ui:param name="description" value="#{ivy.cms.co('/labels/dialogs/confirmDialog/resetTask')}" />
 		</ui:include>
+		<ui:include src="/dialogs/ConfirmDelayNow.xhtml" />
+		<ui:include src="/dialogs/ConfirmExpiryNow.xhtml" />
 		<ui:include src="/dialogs/DelegateTask.xhtml" />
 		<ui:include src="/dialogs/ChangeExpiry.xhtml" />
 		<ui:include src="/dialogs/AddNote.xhtml" />
