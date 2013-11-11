@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 25 11:30:05 CEST 2013]
+[>Created: Thu Nov 07 10:43:03 CET 2013]
 13FE666253A103EF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetailsProcess Big #zClass
@@ -83,7 +83,7 @@ import ch.ivyteam.ivy.persistence.OrderDirection;
 import ch.ivyteam.ivy.persistence.IQueryResult;
 
 IPropertyFilter caseFilter = ivy.wf.createCasePropertyFilter(CaseProperty.ID, RelationalOperator.EQUAL, in.caseId);
-IQueryResult queryResult = ivy.session.findStartedCases(caseFilter, PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
+IQueryResult queryResult = ivy.session.findInvolvedCases(caseFilter, PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
 	0, 1 ,true);
 
 out.wfCase = queryResult.get(0) as ICase;
@@ -93,7 +93,7 @@ Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>get case and tasks</name>
-        <nameStyle>18
+        <nameStyle>18,7
 </nameStyle>
     </language>
 </elementInfo>

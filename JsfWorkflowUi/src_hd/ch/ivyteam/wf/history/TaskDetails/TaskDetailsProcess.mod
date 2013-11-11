@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 25 16:18:23 CEST 2013]
+[>Created: Mon Nov 11 10:08:33 CET 2013]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -57,6 +57,10 @@ Ts0 @GridStep f4 '' #zField
 Ts0 @PushWFArc f43 '' #zField
 Ts0 @PushWFArc f44 '' #zField
 Ts0 @PushWFArc f42 '' #zField
+Ts0 @RichDialogProcessStart f38 '' #zField
+Ts0 @RichDialogProcessStart f47 '' #zField
+Ts0 @PushWFArc f50 '' #zField
+Ts0 @PushWFArc f46 '' #zField
 >Proto Ts0 Ts0 TaskDetailsProcess #zField
 Ts0 f0 guid 13FE10F005F6798D #txt
 Ts0 f0 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
@@ -99,30 +103,39 @@ import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.IPropertyFilter;
 
 out.task = null;
-IPropertyFilter taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.ID, RelationalOperator.EQUAL, in.taskId);
 
-if(in.isHistory)
+if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW)
+	&& ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_READ_ALL))
 {
-	IQueryResult queryResult = ivy.session.findWorkedOnTasks(taskFilter,
-		PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING),0, 1 ,true);
-  if(queryResult.getAllCount() != 0)
+	out.task = ivy.wf.findTask(in.taskId);
+}
+else
+{
+	IPropertyFilter taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.ID, RelationalOperator.EQUAL, in.taskId);
+	
+	if(in.isHistory)
 	{
+		IQueryResult queryResult = ivy.session.findWorkedOnTasks(taskFilter,
+			PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING),0, 1 ,true);
+	  if(queryResult.getAllCount() != 0)
+		{
+			out.task = queryResult.get(0) as ITask;
+		}
+	}
+	
+	if(out.task == null)
+	{
+		IQueryResult queryResult  = ivy.session.findWorkTasks(taskFilter, PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING), 
+	  	0, 1, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
 		out.task = queryResult.get(0) as ITask;
 	}
-}
-
-if(out.task == null)
-{
-	IQueryResult queryResult  = ivy.session.findWorkTasks(taskFilter, PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING), 
-  	0, 1, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
-	out.task = queryResult.get(0) as ITask;
 }' #txt
 Ts0 f3 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>get task</name>
-        <nameStyle>8
+        <nameStyle>8,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -142,58 +155,84 @@ import ch.ivyteam.ivy.request.IProcessModelVersionRequest;
 ITask task = in.task;
 TaskState state = null;
 
-	IWorkflowSession ivySession = ivy.session;
-	boolean hasPageArchivePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_PAGE_ARCHIVE_READ_ALL);
-	boolean hasResetPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_RESET_OWN_WORKING_TASK);
-	boolean hasDelegatePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.DELEGATE_TASKS);
-	boolean hasTaskWriteExpiryPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_WRITE_EXPIRY_ACTIVATOR);
-	IProcessModelVersionRequest Ivyrequest = ivy.html.getObject("request") as IProcessModelVersionRequest;
-	ISecurityDescriptor securityDescriptor = Ivyrequest.getApplication().getSecurityDescriptor();
+IWorkflowSession ivySession = ivy.session;
+boolean hasPageArchivePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_PAGE_ARCHIVE_READ_ALL);
+boolean hasResetPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_RESET_OWN_WORKING_TASK);
+boolean hasDelegatePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.DELEGATE_TASKS);
+boolean hasTaskWriteExpiryPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_WRITE_EXPIRY_ACTIVATOR);
+IProcessModelVersionRequest Ivyrequest = ivy.html.getObject("request") as IProcessModelVersionRequest;
+ISecurityDescriptor securityDescriptor = Ivyrequest.getApplication().getSecurityDescriptor();
 
 state = task.getState();
 
 if(state==TaskState.RESUMED || state==TaskState.PARKED && hasResetPermission) 
-		{
-			in.resetLink = false;
-		} else {
-			in.resetLink = true;
-		} 
-		if (state==TaskState.DONE || state==TaskState.DESTROYED || state==TaskState.RESUMED || state==TaskState.FAILED || !hasDelegatePermission)	
-		{ 
-			in.delegateLink = true;
-		} else { 
-			in.delegateLink = false;
-		}
-		if (state==TaskState.DONE || state==TaskState.DESTROYED || state==TaskState.RESUMED || state==TaskState.FAILED || !hasTaskWriteExpiryPermission)	
-		{ 
-			in.changeExpiryLink = true;
-		} else { 
-			in.changeExpiryLink = false;
-		}
-		if (state==TaskState.DONE || state==TaskState.DESTROYED || state==TaskState.RESUMED || state==TaskState.FAILED)	
-		{ 
-			in.addNoteLink = true;
-		} else { 
-			in.addNoteLink = false;
-		}
-		if (hasPageArchivePermission)	
-		{ 
-			in.archiveLink = false;
-		} else { 
-			in.archiveLink = true;
-		}
-		if(task.getState().intValue() == 5 && ivySession.hasPermission(securityDescriptor, IPermission.TASK_PARK_OWN_WORKING_TASK))
-		{
-			in.parkLink = false;
-		} else { 
-			in.parkLink = true;
-		}' #txt
+{
+	in.resetLink = false;
+} 
+else {
+	in.resetLink = true;
+} 
+if (state==TaskState.DONE || state==TaskState.DESTROYED || state==TaskState.RESUMED || state==TaskState.FAILED || !hasDelegatePermission)	
+{ 
+	in.delegateLink = true;
+} 
+else { 
+	in.delegateLink = false;
+}
+if (state==TaskState.DONE || state==TaskState.DESTROYED || state==TaskState.RESUMED || state==TaskState.FAILED || !hasTaskWriteExpiryPermission)	
+{ 
+	in.changeExpiryLink = true;
+} 
+else { 
+	in.changeExpiryLink = false;
+}
+if (state==TaskState.DONE || state==TaskState.DESTROYED || state==TaskState.RESUMED || state==TaskState.FAILED)	
+{ 
+	in.addNoteLink = true;
+} 
+else { 
+	in.addNoteLink = false;
+}
+if (hasPageArchivePermission)	
+{ 
+	in.archiveLink = false;
+} 
+else { 
+	in.archiveLink = true;
+}
+if(task.getState().intValue() == 5 && ivySession.hasPermission(securityDescriptor, IPermission.TASK_PARK_OWN_WORKING_TASK))
+{
+	in.parkLink = false;
+} 
+else { 
+	in.parkLink = true;
+}
+
+Time currentTime = new Time();
+Date currentDate = new Date();
+
+if(in.task.getDelayTimestamp().toIvyDate() == currentDate)
+{
+	out.isDelayDateLower = in.task.getDelayTimestamp().getTime() > currentTime;
+}
+else
+{
+	out.isDelayDateLower = in.task.getDelayTimestamp().toIvyDate() >= currentDate;
+}
+if(in.task.getExpiryTimestamp().toIvyDate() == currentDate)
+{
+	out.isExpiryDateLower = in.task.getExpiryTimestamp().getTime() > currentTime;
+}
+else
+{
+	out.isExpiryDateLower = in.task.getExpiryTimestamp().toIvyDate() >= currentDate;
+}' #txt
 Ts0 f5 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>enable/disable links</name>
-        <nameStyle>20
+        <nameStyle>20,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -351,6 +390,8 @@ Ts0 f9 1 0.33411365079186317 0 0 #arcLabel
 Ts0 f22 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f22 actionTable 'out=in;
+out.delayDate=null;
+out.delayTime=null;
 out.expiryDate=null;
 out.expiryTime=null;
 out.noteDescription="";
@@ -374,7 +415,7 @@ Ts0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>init</name>
-        <nameStyle>4
+        <nameStyle>4,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -427,13 +468,19 @@ Ts0 f15 actionCode 'if(in.expiryDate.toNumber() > 0)
 	DateTime expiry = new DateTime(in.expiryDate.getYear(), in.expiryDate.getMonth(), in.expiryDate.getDay(), 
 		in.expiryTime.getHours(), in.expiryTime.getMinutes(), 0);
 	out.task.setExpiryTimestamp(expiry);
+}
+if(in.delayDate.toNumber() > 0)
+{
+	DateTime delay = new DateTime(in.delayDate.getYear(), in.delayDate.getMonth(), in.delayDate.getDay(), 
+		in.delayTime.getHours(), in.delayTime.getMinutes(), 0);
+	out.task.setDelayTimestamp(delay);
 }' #txt
 Ts0 f15 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>change expiry</name>
-        <nameStyle>13
+        <name>change expiry and delay</name>
+        <nameStyle>23,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -465,7 +512,7 @@ Ts0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f24 822 54 20 20 13 0 #rect
+Ts0 f24 1078 54 20 20 13 0 #rect
 Ts0 f24 @|RichDialogProcessStartIcon #fIcon
 Ts0 f29 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -489,13 +536,13 @@ Ts0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f29 814 116 36 24 20 -2 #rect
+Ts0 f29 1070 116 36 24 20 -2 #rect
 Ts0 f29 @|StepIcon #fIcon
 Ts0 f30 expr out #txt
-Ts0 f30 832 74 832 116 #arcP
+Ts0 f30 1088 74 1088 116 #arcP
 Ts0 f31 expr out #txt
-Ts0 f31 832 140 426 192 #arcP
-Ts0 f31 1 832 192 #addKink
+Ts0 f31 1088 140 426 192 #arcP
+Ts0 f31 1 1088 192 #addKink
 Ts0 f31 1 0.4218678788869622 0 0 #arcLabel
 Ts0 f32 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -547,7 +594,7 @@ Ts0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f34 950 54 20 20 13 0 #rect
+Ts0 f34 1206 54 20 20 13 0 #rect
 Ts0 f34 @|RichDialogProcessStartIcon #fIcon
 Ts0 f35 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -568,13 +615,13 @@ Ts0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f35 942 116 36 24 20 -2 #rect
+Ts0 f35 1198 116 36 24 20 -2 #rect
 Ts0 f35 @|StepIcon #fIcon
 Ts0 f36 expr out #txt
-Ts0 f36 960 74 960 116 #arcP
+Ts0 f36 1216 74 1216 116 #arcP
 Ts0 f37 expr out #txt
-Ts0 f37 960 140 426 192 #arcP
-Ts0 f37 1 960 192 #addKink
+Ts0 f37 1216 140 426 192 #arcP
+Ts0 f37 1 1216 192 #addKink
 Ts0 f37 1 0.4396639266756791 0 0 #arcLabel
 Ts0 f6 expr out #txt
 Ts0 f6 256 140 256 180 #arcP
@@ -600,7 +647,7 @@ Ts0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f28 1078 54 20 20 13 0 #rect
+Ts0 f28 1334 54 20 20 13 0 #rect
 Ts0 f28 @|RichDialogProcessStartIcon #fIcon
 Ts0 f39 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -617,13 +664,13 @@ Ts0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f39 1070 116 36 24 20 -2 #rect
+Ts0 f39 1326 116 36 24 20 -2 #rect
 Ts0 f39 @|StepIcon #fIcon
 Ts0 f40 expr out #txt
-Ts0 f40 1088 74 1088 116 #arcP
+Ts0 f40 1344 74 1344 116 #arcP
 Ts0 f41 expr out #txt
-Ts0 f41 1088 140 426 192 #arcP
-Ts0 f41 1 1088 192 #addKink
+Ts0 f41 1344 140 426 192 #arcP
+Ts0 f41 1 1344 192 #addKink
 Ts0 f41 1 0.451312235195494 0 0 #arcLabel
 Ts0 f4 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -665,6 +712,56 @@ Ts0 f44 256 332 256 372 #arcP
 Ts0 f44 0 0.4678124781026417 0 0 #arcLabel
 Ts0 f42 expr out #txt
 Ts0 f42 96 204 96 374 #arcP
+Ts0 f38 guid 14232D691B87CA99 #txt
+Ts0 f38 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f38 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f38 actionTable 'out=in;
+out.delayDate=new Date();
+out.delayTime=new Time();
+out.expiryDate=null;
+out.expiryTime=null;
+' #txt
+Ts0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>setDelayNow</name>
+        <nameStyle>11,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f38 822 54 20 20 13 0 #rect
+Ts0 f38 @|RichDialogProcessStartIcon #fIcon
+Ts0 f47 guid 14232D6A595DE6F1 #txt
+Ts0 f47 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f47 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f47 actionTable 'out=in;
+out.delayDate=null;
+out.delayTime=null;
+out.expiryDate=new Date();
+out.expiryTime=new Time();
+' #txt
+Ts0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>setExpiryNow</name>
+        <nameStyle>12,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f47 950 54 20 20 13 0 #rect
+Ts0 f47 @|RichDialogProcessStartIcon #fIcon
+Ts0 f50 expr out #txt
+Ts0 f50 832 74 722 128 #arcP
+Ts0 f50 1 832 128 #addKink
+Ts0 f50 1 0.22889926611319483 0 0 #arcLabel
+Ts0 f46 expr out #txt
+Ts0 f46 960 74 722 128 #arcP
+Ts0 f46 1 960 128 #addKink
+Ts0 f46 1 0.35371340609431756 0 0 #arcLabel
 >Proto Ts0 .type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -711,3 +808,7 @@ Ts0 f32 mainOut f44 tail #connect
 Ts0 f44 head f4 mainIn #connect
 Ts0 f3 mainOut f42 tail #connect
 Ts0 f42 head f1 mainIn #connect
+Ts0 f38 mainOut f50 tail #connect
+Ts0 f50 head f15 mainIn #connect
+Ts0 f47 mainOut f46 tail #connect
+Ts0 f46 head f15 mainIn #connect

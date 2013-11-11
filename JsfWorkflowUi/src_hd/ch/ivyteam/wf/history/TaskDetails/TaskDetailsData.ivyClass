@@ -52,3 +52,11 @@ changeExpiryWrong Boolean #field
 changeExpiryWrong PERSISTENT #fieldModifier
 pageArchives List<ch.ivyteam.ivy.workflow.IPageArchive> #field
 pageArchives PERSISTENT #fieldModifier
+delayDate Date #field
+delayDate PERSISTENT #fieldModifier
+delayTime Time #field
+delayTime PERSISTENT #fieldModifier
+isExpiryDateLower Boolean #field
+isExpiryDateLower PERSISTENT #fieldModifier
+isDelayDateLower Boolean #field
+isDelayDateLower PERSISTENT #fieldModifier

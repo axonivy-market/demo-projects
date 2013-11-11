@@ -4,8 +4,7 @@
 <%@ page import="ch.ivyteam.ivy.workflow.TaskState"%>
 <%
 	ITask task = (ITask) ivy.html.getObject("in.tmpTask");
-	TaskState state =null; 
-	if(task  !=null && state==TaskState.DELAYED)
+	if(task  !=null && task.getState()==TaskState.DELAYED)
 	{ 
 %>
 <SCRIPT language="Javascript">

@@ -14,9 +14,9 @@
 	<p:dialog id="modalDialogChangeExpiry" header="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" widgetVar="changeExpiry" modal="true" visible="#{data.changeExpiryWrong}" appendToBody="true">  
   		<h:form id="formDetailsChangeExpiry">
   			<p:messages id="message" />
-			<h:panelGrid columns="5">
+			<h:panelGrid columns="4">
 				#{ivy.cms.co('/labels/common/expiry')}
-				<p:calendar id="expiryDate" label="#{ivy.cms.co('/labels/common/expiry')}" value="#{data.expiryDate}" showOn="button" required="true" pattern="dd.MM.yyyy">
+				<p:calendar id="expiryDate" label="#{ivy.cms.co('/labels/common/expiry')}" value="#{data.expiryDate}" showOn="button" pattern="dd.MM.yyyy">
            			<f:convertDateTime pattern="dd.MM.yyyy" />
            		</p:calendar>
            		<p:spacer width="10" />
@@ -28,9 +28,27 @@
 				</p:outputPanel>
        			<script>
 					function selectTimePickerExpiryTime() {
-						var elementAdd = document.getElementById('formDetailsChangeExpiry:expiryTime_input');
-						elementAdd.focus();
-		       			elementAdd.select();
+						var elementExpiryAdd = document.getElementById('formDetailsChangeExpiry:expiryTime_input');
+						elementExpiryAdd.focus();
+		       			elementExpiryAdd.select();
+					}
+				</script>
+				#{ivy.cms.co('/labels/common/delay')}
+				<p:calendar id="delayDate" label="#{ivy.cms.co('/labels/common/delay')}" value="#{data.delayDate}" showOn="button" pattern="dd.MM.yyyy" disabled="#{data.task.state != 'DELAYED'}">
+           			<f:convertDateTime pattern="dd.MM.yyyy" />
+           		</p:calendar>
+           		<p:spacer width="10" />
+           		<p:outputPanel>
+					<pe:timePicker id="delayTime" value="#{data.delayTime}" showOn="button" mode="popup" widgetVar="popupBtnTimeWidget" label="Time" disabled="#{data.task.state != 'DELAYED'}">
+						<f:convertDateTime pattern="HH:mm" />
+					</pe:timePicker>
+					<p:commandButton type="button" icon="ui-icon-clock" onclick="selectTimePickerDelayTime()" style="height: 25px" disabled="#{data.task.state != 'DELAYED'}" />
+				</p:outputPanel>
+       			<script>
+					function selectTimePickerDelayTime() {
+						var elementDelayAdd = document.getElementById('formDetailsChangeExpiry:delayTime_input');
+						elementDelayAdd.focus();
+		       			elementDelayAdd.select();
 					}
 				</script>
 			</h:panelGrid>
