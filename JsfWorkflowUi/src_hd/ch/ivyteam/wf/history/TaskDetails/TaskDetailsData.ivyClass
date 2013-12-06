@@ -60,3 +60,7 @@ isExpiryDateLower Boolean #field
 isExpiryDateLower PERSISTENT #fieldModifier
 isDelayDateLower Boolean #field
 isDelayDateLower PERSISTENT #fieldModifier
+taskLink String #field
+taskLink PERSISTENT #fieldModifier
+canStart Boolean #field
+canStart PERSISTENT #fieldModifier

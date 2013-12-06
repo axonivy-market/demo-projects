@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 11 10:08:33 CET 2013]
+[>Created: Thu Nov 14 11:38:04 CET 2013]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -165,6 +165,13 @@ ISecurityDescriptor securityDescriptor = Ivyrequest.getApplication().getSecurity
 
 state = task.getState();
 
+if(state==TaskState.DONE || state==TaskState.DELAYED) 
+{
+	in.canStart = true;
+} 
+else {
+	in.canStart = false;
+} 
 if(state==TaskState.RESUMED || state==TaskState.PARKED && hasResetPermission) 
 {
 	in.resetLink = false;
@@ -390,12 +397,13 @@ Ts0 f9 1 0.33411365079186317 0 0 #arcLabel
 Ts0 f22 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f22 actionTable 'out=in;
-out.delayDate=null;
-out.delayTime=null;
-out.expiryDate=null;
-out.expiryTime=null;
+out.delayDate=IF(in.task.getDelayTimestamp().getYear() == 1, null, in.task.getDelayTimestamp().getDate());
+out.delayTime=IF(in.task.getDelayTimestamp().getYear() == 1, null, in.task.getDelayTimestamp().getTime());
+out.expiryDate=IF(in.task.getExpiryTimestamp().getYear() == 1, null, in.task.getExpiryTimestamp().getDate());
+out.expiryTime=IF(in.task.getExpiryTimestamp().getYear() == 1, null, in.task.getExpiryTimestamp().getTime());
 out.noteDescription="";
 out.noteFor="case";
+out.taskLink=ivy.html.taskstartref(in.task);
 ' #txt
 Ts0 f22 actionCode 'import javax.faces.context.FacesContext;
 import javax.faces.application.FacesMessage;

@@ -58,3 +58,8 @@
 {
 	background-image:url(#{resource['images/actions/cancel.png']}) !important;
 }
+
+.wf-ui-icon-start
+{
+	background-image:url(#{resource['images/actions/start.png']}) !important;
+}

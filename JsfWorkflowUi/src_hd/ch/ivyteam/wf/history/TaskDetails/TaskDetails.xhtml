@@ -21,6 +21,7 @@
 			<h:panelGrid columns="1">
 				<p:toolbar>  
     				<p:toolbarGroup align="left">
+    					<p:commandButton id="startTask" value="#{ivy.cms.co('/labels/common/taskResume')}" title="#{ivy.cms.co('/labels/common/taskResume')} Task" icon="wf-ui-icon-start" onclick="window.location.href='#{data.taskLink}'; return false;" disabled="#{data.canStart}" />
     					<p:commandButton id="openResetTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" title="#{ivy.cms.co('/labels/history/taskDetails/resetTaskTooltip')}" icon="wf-ui-icon-reset" onclick="confirmDeleteReset.show();" disabled="#{data.resetLink}" />
 		    			<p:commandButton id="openAddNote" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" title="#{ivy.cms.co('/labels/common/addNoteTooltip')}" icon="wf-ui-icon-addNote" onclick="addNote.show();" disabled="#{data.addNoteLink}" />
 						<p:commandButton id="openDelegateTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}" title="#{ivy.cms.co('/labels/history/taskDetails/delegateTaskTooltip')}" icon="wf-ui-icon-delegate" onclick="delegateTask.show();" disabled="#{data.delegateLink}" />
@@ -97,7 +98,7 @@
 					</tr>
 					<tr>
    						<th>#{ivy.cms.co('/labels/history/taskDetails/case')}</th>
-						<td><h:outputText value="#{data.task.case.name}" /></td>
+						<td><a href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{data.task.case.id}" id="buttonCaseDetail">#{data.task.case.name}</a></td>
 					</tr>
 					<tr>
 						<th>#{ivy.cms.co('/labels/common/start')}</th>
