@@ -1,6 +1,0 @@
-<P>
-<%=ivy.cms.co("/labels/title")%>: <%=ivy.html.get("in.temp.caption")%>
-</P>
-<P>
-<%=ivy.cms.co("/labels/description")%>: <%=ivy.html.get("in.temp.description")%>
-</P>

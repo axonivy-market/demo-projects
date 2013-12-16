@@ -1,4 +1,0 @@
-co: name={deleteNote} description={} changed={2013-02-22 11:18:48 CET} changedby={dje} visualorder={0} guid={13D015E6899B35D9} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={13D015EB17AC5A6E} datatype={} isdefault={false} langid={en} description={} validfrom={2013-02-22 11:06:55 CET} validto={} changed={2013-02-22 11:18:48 CET} changedby={dje} properties={} id={}
-val: guid={13D015EBAEC2D140} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-02-22 11:06:58 CET} validto={} changed={2013-02-22 11:18:48 CET} changedby={dje} properties={} id={}
-val: guid={13D015E68B8DE5EE} datatype={} isdefault={true} langid={de} description={} validfrom={2013-02-22 11:06:37 CET} validto={} changed={2013-02-22 11:18:48 CET} changedby={dje} properties={} id={}

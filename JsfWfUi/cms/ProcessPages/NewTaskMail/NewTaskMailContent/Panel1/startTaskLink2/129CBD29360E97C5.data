@@ -1,3 +1,0 @@
-<P>
-<A href="<%=ivy.html.taskstartref(in.task)%>"><%=ivy.cms.co("/images/start")%></A>
-</P>

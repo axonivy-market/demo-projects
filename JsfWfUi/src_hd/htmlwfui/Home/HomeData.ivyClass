@@ -1,6 +1,0 @@
-HomeData #class
-htmlwfui.Home #namespace
-aufgaben String #field
-aufgaben PERSISTENT #fieldModifier
-processe String #field
-processe PERSISTENT #fieldModifier

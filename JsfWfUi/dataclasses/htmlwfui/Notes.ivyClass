@@ -1,8 +1,0 @@
-Notes #class
-htmlwfui #namespace
-id Number #field
-id PERSISTENT #fieldModifier
-description String #field
-description PERSISTENT #fieldModifier
-delete Boolean #field
-delete PERSISTENT #fieldModifier

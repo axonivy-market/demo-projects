@@ -1,4 +1,0 @@
-co: name={ChangeExpiryDescription} description={} changed={2013-02-06 15:31:31 CET} changedby={dje} visualorder={0} guid={13CAFEA051C5D771} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={13CAFEA11AA4BA04} datatype={} isdefault={false} langid={en} description={} validfrom={2013-02-06 15:30:18 CET} validto={} changed={2013-02-06 15:30:44 CET} changedby={dje} properties={} id={}
-val: guid={13CAFEA188D96E3A} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-02-06 15:30:20 CET} validto={} changed={2013-02-06 15:30:58 CET} changedby={dje} properties={} id={}
-val: guid={13CAFEA051C8514B} datatype={} isdefault={true} langid={de} description={} validfrom={2013-02-06 15:30:15 CET} validto={} changed={2013-02-06 15:31:31 CET} changedby={dje} properties={} id={}

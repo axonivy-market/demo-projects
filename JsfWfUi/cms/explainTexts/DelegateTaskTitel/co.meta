@@ -1,4 +1,0 @@
-co: name={DelegateTaskTitel} description={} changed={2013-02-06 16:00:09 CET} changedby={dje} visualorder={0} guid={13CB0046FB92CA1C} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={13CB0047AFF9F787} datatype={} isdefault={false} langid={en} description={} validfrom={2013-02-06 15:59:09 CET} validto={} changed={2013-02-06 15:59:48 CET} changedby={dje} properties={} id={}
-val: guid={13CB0046FB9DCC26} datatype={} isdefault={true} langid={de} description={} validfrom={2013-02-06 15:59:06 CET} validto={} changed={2013-02-06 16:00:09 CET} changedby={dje} properties={} id={}
-val: guid={13CB004831AF10A5} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-02-06 15:59:11 CET} validto={} changed={2013-02-06 15:59:56 CET} changedby={dje} properties={} id={}

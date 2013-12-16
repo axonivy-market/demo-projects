@@ -1,4 +1,0 @@
-PageArchiveData #class
-htmlwfui.PageArchive #namespace
-data htmlwfui.Data #field
-data PERSISTENT #fieldModifier

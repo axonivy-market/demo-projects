@@ -1,6 +1,0 @@
-TaskHistoryData #class
-htmlwfui.TaskHistory #namespace
-data htmlwfui.Data #field
-data PERSISTENT #fieldModifier
-option String #field
-option PERSISTENT #fieldModifier

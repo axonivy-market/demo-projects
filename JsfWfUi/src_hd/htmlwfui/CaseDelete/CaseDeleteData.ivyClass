@@ -1,4 +1,0 @@
-CaseDeleteData #class
-htmlwfui.CaseDelete #namespace
-data htmlwfui.Data #field
-data PERSISTENT #fieldModifier

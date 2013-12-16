@@ -1,6 +1,0 @@
-MySubstitutionsData #class
-htmlwfui.MySubstitutions #namespace
-substitute htmlwfui.Substitute #field
-substitute PERSISTENT #fieldModifier
-substitutionList List<htmlwfui.Substitute> #field
-substitutionList PERSISTENT #fieldModifier

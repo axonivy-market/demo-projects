@@ -1,4 +1,0 @@
-co: name={CaseDeleteDescription3} description={} changed={2013-01-18 13:44:34 CET} changedby={dje} visualorder={0} guid={13C4DAF53096D4D3} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={13C4DAF6A50C2426} datatype={} isdefault={false} langid={en} description={} validfrom={2013-01-18 13:43:27 CET} validto={} changed={2013-01-18 13:44:34 CET} changedby={dje} properties={} id={}
-val: guid={13C4DAF531917C52} datatype={} isdefault={true} langid={de} description={} validfrom={2013-01-18 13:43:21 CET} validto={} changed={2013-01-18 13:44:11 CET} changedby={dje} properties={} id={}
-val: guid={13C4DAF728AC4EE3} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-01-18 13:43:29 CET} validto={} changed={2013-01-18 13:44:20 CET} changedby={dje} properties={} id={}

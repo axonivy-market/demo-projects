@@ -1,4 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2013-01-15 09:51:51 | 4.4.0.41802 | 1.0
-~@RD_METHODCALL[start(htmlwfui.Data)]--->ch.ivyteam.ivy.process.ProcessStart:13C396BFDDBEC687/13C39848937EF5EF
-~@RD_METHODCALL[taskDetail(Number)]--->ch.ivyteam.ivy.process.ProcessStart:13C396BFDDBEC687/13C39A85B32BB07D

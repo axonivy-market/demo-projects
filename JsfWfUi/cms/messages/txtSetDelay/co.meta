@@ -1,4 +1,0 @@
-co: name={txtSetDelay} description={} changed={2013-02-13 09:22:51 CET} changedby={dje} visualorder={0} guid={12EB3E773E763D0E} parentguid={} typeguid={E6AFEA203ACD23E6} id={} parentid={} typeid={}
-val: guid={12EBF4485835DA21} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 16:21:35 CET} validto={} changed={2013-02-13 09:22:51 CET} changedby={dje} properties={} id={}
-val: guid={12EB3E8D18698890} datatype={} isdefault={false} langid={en} description={} validfrom={2011-03-14 11:27:12 CET} validto={} changed={2013-02-13 09:22:51 CET} changedby={dje} properties={} id={}
-val: guid={12EB3E773E728CDC} datatype={} isdefault={true} langid={de} description={} validfrom={2011-03-14 11:26:53 CET} validto={} changed={2013-02-13 09:22:51 CET} changedby={dje} properties={} id={}

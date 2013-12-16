@@ -1,4 +1,0 @@
-co: name={wfAbort} description={} changed={2011-03-16 16:18:30 CET} changedby={tirib} visualorder={0} guid={1276697B6AC72264} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12E29CFC61D34726} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 15:53:13 CET} validto={} changed={2011-02-15 15:53:25 CET} changedby={bb} properties={} id={}
-val: guid={12EBF3F280B4ECFE} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 16:18:19 CET} validto={} changed={2011-03-16 16:18:30 CET} changedby={tirib} properties={} id={}
-val: guid={1276697B7192887E} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-09 15:52:59 CET} validto={} changed={2011-02-15 15:53:25 CET} changedby={bb} properties={} id={}

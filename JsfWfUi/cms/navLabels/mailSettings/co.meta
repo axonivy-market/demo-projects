@@ -1,4 +1,0 @@
-co: name={mailSettings} description={} changed={2012-12-28 15:39:48 CET} changedby={bb} visualorder={0} guid={13BE1F42704E7F76} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={13BE1F42771D068E} datatype={} isdefault={false} langid={en} description={} validfrom={2012-04-04 17:46:09 CEST} validto={} changed={2012-12-28 15:39:48 CET} changedby={bb} properties={} id={}
-val: guid={13BE1F42714C4F20} datatype={} isdefault={false} langid={fr} description={} validfrom={2012-04-27 16:10:20 CEST} validto={} changed={2012-12-28 15:39:48 CET} changedby={bb} properties={} id={}
-val: guid={13BE1F42742B6863} datatype={} isdefault={true} langid={de} description={} validfrom={2012-04-04 17:45:50 CEST} validto={} changed={2012-12-28 15:39:48 CET} changedby={bb} properties={} id={}

@@ -1,4 +1,0 @@
-co: name={TaskListTitel} description={} changed={2013-02-12 11:22:42 CET} changedby={dje} visualorder={0} guid={13CCDECC5813EEBC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={13CCDECD7F8C5D63} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-02-12 11:21:56 CET} validto={} changed={2013-02-12 11:22:36 CET} changedby={dje} properties={} id={}
-val: guid={13CCDECD03B2A624} datatype={} isdefault={false} langid={en} description={} validfrom={2013-02-12 11:21:54 CET} validto={} changed={2013-02-12 11:22:27 CET} changedby={dje} properties={} id={}
-val: guid={13CCDECC591B12A1} datatype={} isdefault={true} langid={de} description={} validfrom={2013-02-12 11:21:51 CET} validto={} changed={2013-02-12 11:22:42 CET} changedby={dje} properties={} id={}

@@ -1,4 +1,0 @@
-AddNoteData #class
-htmlwfui.AddNote #namespace
-data htmlwfui.Data #field
-data PERSISTENT #fieldModifier

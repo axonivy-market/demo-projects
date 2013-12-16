@@ -1,4 +1,0 @@
-DeleteNoteData #class
-htmlwfui.DeleteNote #namespace
-data htmlwfui.Data #field
-data PERSISTENT #fieldModifier

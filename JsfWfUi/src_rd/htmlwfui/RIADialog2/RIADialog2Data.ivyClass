@@ -1,6 +1,0 @@
-RIADialog2Data #class
-htmlwfui.RIADialog2 #namespace
-msg String #field
-msg PERSISTENT #fieldModifier
-titel String #field
-titel PERSISTENT #fieldModifier

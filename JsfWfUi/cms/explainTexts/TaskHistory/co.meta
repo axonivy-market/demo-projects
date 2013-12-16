@@ -1,4 +1,0 @@
-co: name={TaskHistory} description={} changed={2013-01-14 15:30:10 CET} changedby={dje} visualorder={0} guid={13C397742316C67D} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={13C397742417BFD1} datatype={} isdefault={true} langid={de} description={} validfrom={2013-01-14 15:29:42 CET} validto={} changed={2013-01-14 15:30:10 CET} changedby={dje} properties={} id={}
-val: guid={13C39775B2DCF1B0} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-01-14 15:29:48 CET} validto={} changed={2013-01-14 15:30:03 CET} changedby={dje} properties={} id={}
-val: guid={13C397753417239C} datatype={} isdefault={false} langid={en} description={} validfrom={2013-01-14 15:29:46 CET} validto={} changed={2013-01-14 15:29:58 CET} changedby={dje} properties={} id={}
