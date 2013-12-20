@@ -24,7 +24,7 @@
 					<pe:timePicker id="expiryTime" value="#{data.expiryTime}" showOn="button" mode="popup" widgetVar="popupBtnTimeWidget" label="Time">
 						<f:convertDateTime pattern="HH:mm" />
 					</pe:timePicker>
-					<p:commandButton type="button" icon="ui-icon-clock" onclick="selectTimePickerExpiryTime()" style="height: 26px" />
+					<p:commandButton type="button" icon="ui-icon-clock" onclick="selectTimePickerExpiryTime()" styleClass="ui-datepicker-trigger" />
 	       			<script>
 						function selectTimePickerExpiryTime() {
 							var elementExpiryAdd = document.getElementById('formDetailsChangeExpiry:expiryTime_input');
@@ -44,7 +44,7 @@
 					<pe:timePicker id="delayTime" value="#{data.delayTime}" showOn="button" mode="popup" widgetVar="popupBtnTimeWidget" label="Time" disabled="#{data.task.state != 'DELAYED'}">
 						<f:convertDateTime pattern="HH:mm" />
 					</pe:timePicker>
-					<p:commandButton type="button" icon="ui-icon-clock" onclick="selectTimePickerDelayTime()" style="height: 26px" disabled="#{data.task.state != 'DELAYED'}" />
+					<p:commandButton type="button" icon="ui-icon-clock" onclick="selectTimePickerDelayTime()" disabled="#{data.task.state != 'DELAYED'}" styleClass="ui-datepicker-trigger" />
 	       			<script>
 						function selectTimePickerDelayTime() {
 							var elementDelayAdd = document.getElementById('formDetailsChangeExpiry:delayTime_input');
