@@ -115,9 +115,7 @@
 								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 							</h:outputText>
 							<p:spacer width="10" />
-							<p:commandLink title="#{ivy.cms.co('/labels/dialogs/confirmDialog/expiryTitle')}" onclick="confirmExpiryNow.show();" update=":formTaskDetails" rendered="#{data.isExpiryDateLower}">
-								<h:graphicImage name="/images/actions/reset.png" style="border:0px" />
-							</p:commandLink>
+							<p:commandButton value="#{ivy.cms.co('/labels/dialogs/confirmDialog/expiryTitle')}" onclick="confirmExpiryNow.show();" update=":formTaskDetails" rendered="#{data.isExpiryDateLower}" />
 						</td>
 					</tr>
 					<tr>
@@ -127,9 +125,7 @@
 								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 							</h:outputText>
 							<p:spacer width="10" />
-							<p:commandLink title="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}" onclick="confirmDelayNow.show();" update=":formTaskDetails" rendered="#{data.isDelayDateLower}">
-								<h:graphicImage name="/images/actions/reset.png" style="border:0px" />
-							</p:commandLink>
+							<p:commandButton value="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}" onclick="confirmDelayNow.show();" update=":formTaskDetails" rendered="#{data.isDelayDateLower}" />
 						</td>
 					</tr>
 					<tr>

@@ -1,0 +1,1 @@
+As long as the retention period has not been reached, the task is blocked. After that period the task is enabled for further processing.
