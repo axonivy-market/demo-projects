@@ -1,1 +1,1 @@
-Aussi longtemps que la période de conservation n'a pas été atteint, la tâche est bloquée. Seulement après que la tâche est de permettre à un traitement ultérieur.
+La tâche est bloquée aussi long temps que la période d'attente n'a pas été atteinte. Après cette période, la tâche sera disponible pour le traitement.

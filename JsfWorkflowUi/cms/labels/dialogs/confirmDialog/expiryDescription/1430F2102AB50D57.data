@@ -1,1 +1,1 @@
-Lorsque le temps de traitement est atteint, une escalade est déclenché.
+Lorsque le temps de traitement est expiré, l'escalade est mise en route.
