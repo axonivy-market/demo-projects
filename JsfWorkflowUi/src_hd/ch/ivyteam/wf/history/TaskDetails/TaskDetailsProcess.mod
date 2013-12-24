@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 14 11:38:04 CET 2013]
+[>Created: Tue Dec 24 09:56:41 CET 2013]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -61,6 +61,10 @@ Ts0 @RichDialogProcessStart f38 '' #zField
 Ts0 @RichDialogProcessStart f47 '' #zField
 Ts0 @PushWFArc f50 '' #zField
 Ts0 @PushWFArc f46 '' #zField
+Ts0 @RichDialogProcessStart f45 '' #zField
+Ts0 @GridStep f49 '' #zField
+Ts0 @PushWFArc f51 '' #zField
+Ts0 @PushWFArc f48 '' #zField
 >Proto Ts0 Ts0 TaskDetailsProcess #zField
 Ts0 f0 guid 13FE10F005F6798D #txt
 Ts0 f0 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
@@ -158,6 +162,7 @@ TaskState state = null;
 IWorkflowSession ivySession = ivy.session;
 boolean hasPageArchivePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_PAGE_ARCHIVE_READ_ALL);
 boolean hasResetPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_RESET_OWN_WORKING_TASK);
+boolean hasChangePrioPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_WRITE_ORIGINAL_PRIORITY);
 boolean hasDelegatePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.DELEGATE_TASKS);
 boolean hasTaskWriteExpiryPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_WRITE_EXPIRY_ACTIVATOR);
 IProcessModelVersionRequest Ivyrequest = ivy.html.getObject("request") as IProcessModelVersionRequest;
@@ -192,6 +197,13 @@ if (state==TaskState.DONE || state==TaskState.DESTROYED || state==TaskState.RESU
 } 
 else { 
 	in.changeExpiryLink = false;
+}
+if(state==TaskState.DONE || !hasChangePrioPermission) 
+{
+	in.prioLink = true;
+} 
+else {
+	in.prioLink = false;
 }
 if (state==TaskState.DONE || state==TaskState.DESTROYED || state==TaskState.RESUMED || state==TaskState.FAILED)	
 { 
@@ -403,6 +415,7 @@ out.expiryDate=IF(in.task.getExpiryTimestamp().getYear() == 1, null, in.task.get
 out.expiryTime=IF(in.task.getExpiryTimestamp().getYear() == 1, null, in.task.getExpiryTimestamp().getTime());
 out.noteDescription="";
 out.noteFor="case";
+out.priority=in.task.getPriority().name();
 out.taskLink=ivy.html.taskstartref(in.task);
 ' #txt
 Ts0 f22 actionCode 'import javax.faces.context.FacesContext;
@@ -520,7 +533,7 @@ Ts0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f24 1078 54 20 20 13 0 #rect
+Ts0 f24 694 310 20 20 13 0 #rect
 Ts0 f24 @|RichDialogProcessStartIcon #fIcon
 Ts0 f29 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -544,13 +557,13 @@ Ts0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f29 1070 116 36 24 20 -2 #rect
+Ts0 f29 686 244 36 24 20 -2 #rect
 Ts0 f29 @|StepIcon #fIcon
 Ts0 f30 expr out #txt
-Ts0 f30 1088 74 1088 116 #arcP
+Ts0 f30 704 310 704 268 #arcP
 Ts0 f31 expr out #txt
-Ts0 f31 1088 140 426 192 #arcP
-Ts0 f31 1 1088 192 #addKink
+Ts0 f31 704 244 426 192 #arcP
+Ts0 f31 1 704 192 #addKink
 Ts0 f31 1 0.4218678788869622 0 0 #arcLabel
 Ts0 f32 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -602,7 +615,7 @@ Ts0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f34 1206 54 20 20 13 0 #rect
+Ts0 f34 822 310 20 20 13 0 #rect
 Ts0 f34 @|RichDialogProcessStartIcon #fIcon
 Ts0 f35 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -623,13 +636,13 @@ Ts0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f35 1198 116 36 24 20 -2 #rect
+Ts0 f35 814 244 36 24 20 -2 #rect
 Ts0 f35 @|StepIcon #fIcon
 Ts0 f36 expr out #txt
-Ts0 f36 1216 74 1216 116 #arcP
+Ts0 f36 832 310 832 268 #arcP
 Ts0 f37 expr out #txt
-Ts0 f37 1216 140 426 192 #arcP
-Ts0 f37 1 1216 192 #addKink
+Ts0 f37 832 244 426 192 #arcP
+Ts0 f37 1 832 192 #addKink
 Ts0 f37 1 0.4396639266756791 0 0 #arcLabel
 Ts0 f6 expr out #txt
 Ts0 f6 256 140 256 180 #arcP
@@ -655,7 +668,7 @@ Ts0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f28 1334 54 20 20 13 0 #rect
+Ts0 f28 950 310 20 20 13 0 #rect
 Ts0 f28 @|RichDialogProcessStartIcon #fIcon
 Ts0 f39 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -672,13 +685,13 @@ Ts0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f39 1326 116 36 24 20 -2 #rect
+Ts0 f39 942 244 36 24 20 -2 #rect
 Ts0 f39 @|StepIcon #fIcon
 Ts0 f40 expr out #txt
-Ts0 f40 1344 74 1344 116 #arcP
+Ts0 f40 960 310 960 268 #arcP
 Ts0 f41 expr out #txt
-Ts0 f41 1344 140 426 192 #arcP
-Ts0 f41 1 1344 192 #addKink
+Ts0 f41 960 244 426 192 #arcP
+Ts0 f41 1 960 192 #addKink
 Ts0 f41 1 0.451312235195494 0 0 #arcLabel
 Ts0 f4 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -770,6 +783,49 @@ Ts0 f46 expr out #txt
 Ts0 f46 960 74 722 128 #arcP
 Ts0 f46 1 960 128 #addKink
 Ts0 f46 1 0.35371340609431756 0 0 #arcLabel
+Ts0 f45 guid 1431081A3962D22C #txt
+Ts0 f45 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f45 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f45 actionTable 'out=in;
+' #txt
+Ts0 f45 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>changePriority</name>
+        <nameStyle>14,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f45 566 310 20 20 13 0 #rect
+Ts0 f45 @|RichDialogProcessStartIcon #fIcon
+Ts0 f49 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f49 actionTable 'out=in;
+' #txt
+Ts0 f49 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowPriority;
+
+WorkflowPriority wfPriority = Enum.valueOf(WorkflowPriority.class, in.priority) as WorkflowPriority;
+out.task.setOriginalPriority(wfPriority);' #txt
+Ts0 f49 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f49 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>priority</name>
+        <nameStyle>8,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f49 558 244 36 24 20 -2 #rect
+Ts0 f49 @|StepIcon #fIcon
+Ts0 f51 expr out #txt
+Ts0 f51 576 310 576 268 #arcP
+Ts0 f48 expr out #txt
+Ts0 f48 576 244 426 192 #arcP
+Ts0 f48 1 576 192 #addKink
+Ts0 f48 1 0.3021099902966877 0 0 #arcLabel
 >Proto Ts0 .type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -820,3 +876,7 @@ Ts0 f38 mainOut f50 tail #connect
 Ts0 f50 head f15 mainIn #connect
 Ts0 f47 mainOut f46 tail #connect
 Ts0 f46 head f15 mainIn #connect
+Ts0 f45 mainOut f51 tail #connect
+Ts0 f51 head f49 mainIn #connect
+Ts0 f49 mainOut f48 tail #connect
+Ts0 f48 head f20 mainIn #connect

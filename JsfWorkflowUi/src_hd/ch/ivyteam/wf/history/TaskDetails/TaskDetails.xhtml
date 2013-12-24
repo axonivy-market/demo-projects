@@ -26,6 +26,7 @@
 		    			<p:commandButton id="openAddNote" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" title="#{ivy.cms.co('/labels/common/addNoteTooltip')}" icon="wf-ui-icon-addNote" onclick="addNote.show();" disabled="#{data.addNoteLink}" />
 						<p:commandButton id="openDelegateTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}" title="#{ivy.cms.co('/labels/history/taskDetails/delegateTaskTooltip')}" icon="wf-ui-icon-delegate" onclick="delegateTask.show();" disabled="#{data.delegateLink}" />
 						<p:commandButton id="openChangeExpiry" value="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" title="#{ivy.cms.co('/labels/history/taskDetails/changeExpiryTooltip')}" icon="wf-ui-icon-expiry" onclick="changeExpiry.show();" disabled="#{data.changeExpiryLink}" />
+						<p:commandButton id="openChangePriority" value="#{ivy.cms.co('/labels/history/taskDetails/changePriority')}" title="#{ivy.cms.co('/labels/history/taskDetails/changePriorityTooltip')}" icon="wf-ui-icon-prio" onclick="changePriority.show();" disabled="#{data.prioLink}" />
 						<c:if test="#{data.isHistory}">
 		    				<p:commandButton id="openPageArchive" value="#{ivy.cms.co('/labels/common/formArchive')}" title="#{ivy.cms.co('/labels/common/showFormArchiveTooltip')}" icon="wf-ui-icon-archive" onclick="formArchive.show();" disabled="#{data.archiveLink}" />
 						</c:if>
@@ -187,6 +188,7 @@
 		<ui:include src="/dialogs/ConfirmExpiryNow.xhtml" />
 		<ui:include src="/dialogs/DelegateTask.xhtml" />
 		<ui:include src="/dialogs/ChangeExpiry.xhtml" />
+		<ui:include src="/dialogs/ChangePriority.xhtml" />
 		<ui:include src="/dialogs/AddNote.xhtml" />
 		<ui:include src="/dialogs/Archive.xhtml" />
    	</ui:define>

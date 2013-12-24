@@ -29,6 +29,11 @@
 	background-image:url(#{resource['images/actions/expiry.png']}) !important;
 }
 
+.wf-ui-icon-prio
+{
+	background-image:url(#{resource['images/actions/prio.png']}) !important;
+}
+
 .wf-ui-icon-add
 {
 	background-image:url(#{resource['images/actions/add.png']}) !important;
