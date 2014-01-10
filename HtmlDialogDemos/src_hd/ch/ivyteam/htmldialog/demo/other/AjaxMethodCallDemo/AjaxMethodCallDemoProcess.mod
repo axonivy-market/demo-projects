@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 18:40:43 CET 2013]
+[>Created: Fri Jan 10 16:27:26 CET 2014]
 13A3F854E6D3A3F7 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AjaxMethodCallDemoProcess Big #zClass
@@ -21,6 +21,9 @@ As0 @RichDialogProcessEnd f5 '' #zField
 As0 @GridStep f4 '' #zField
 As0 @PushWFArc f7 '' #zField
 As0 @PushWFArc f6 '' #zField
+As0 @RichDialogMethodStart f8 '' #zField
+As0 @RichDialogEnd f9 '' #zField
+As0 @PushWFArc f10 '' #zField
 >Proto As0 As0 AjaxMethodCallDemoProcess #zField
 As0 f0 guid 13A3F854E8424F18 #txt
 As0 f0 type ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
@@ -84,6 +87,32 @@ As0 f7 expr out #txt
 As0 f7 200 74 200 100 #arcP
 As0 f6 expr out #txt
 As0 f6 200 124 200 158 #arcP
+As0 f8 guid 1437CC3BEFF4691B #txt
+As0 f8 type ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
+As0 f8 method closeDialog() #txt
+As0 f8 disableUIEvents false #txt
+As0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+As0 f8 outParameterDecl '<> result;
+' #txt
+As0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>closeDialog()</name>
+    </language>
+</elementInfo>
+' #txt
+As0 f8 341 53 22 22 14 0 #rect
+As0 f8 @|RichDialogMethodStartIcon #fIcon
+As0 f8 -13016147|-1|-16777216 #nodeStyle
+As0 f9 type ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
+As0 f9 guid 1437CC3CD196323F #txt
+As0 f9 341 157 22 22 14 0 #rect
+As0 f9 @|RichDialogEndIcon #fIcon
+As0 f9 -13016147|-1|-16777216 #nodeStyle
+As0 f10 expr out #txt
+As0 f10 352 75 352 157 #arcP
 >Proto As0 .type ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
@@ -94,3 +123,5 @@ As0 f3 mainOut f7 tail #connect
 As0 f7 head f4 mainIn #connect
 As0 f4 mainOut f6 tail #connect
 As0 f6 head f5 mainIn #connect
+As0 f8 mainOut f10 tail #connect
+As0 f10 head f9 mainIn #connect

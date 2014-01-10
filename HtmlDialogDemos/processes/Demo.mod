@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jan 10 08:33:38 CET 2014]
+[>Created: Fri Jan 10 16:26:47 CET 2014]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -52,7 +52,6 @@ Do0 @EndTask f37 '' #zField
 Do0 @RichDialog f38 '' #zField
 Do0 @StartRequest f39 '' #zField
 Do0 @PushWFArc f40 '' #zField
-Do0 @PushWFArc f41 '' #zField
 Do0 @EndTask f43 '' #zField
 Do0 @RichDialog f44 '' #zField
 Do0 @StartRequest f42 '' #zField
@@ -113,6 +112,9 @@ Do0 @EndTask f98 '' #zField
 Do0 @RichDialog f99 '' #zField
 Do0 @PushWFArc f100 '' #zField
 Do0 @PushWFArc f101 '' #zField
+Do0 @RichDialog f102 '' #zField
+Do0 @PushWFArc f103 '' #zField
+Do0 @PushWFArc f41 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -807,7 +809,7 @@ Do0 f38 windowConfiguration '* ' #txt
 Do0 f38 isAsynch false #txt
 Do0 f38 isInnerRd false #txt
 Do0 f38 userContext '* ' #txt
-Do0 f38 750 540 36 24 20 -2 #rect
+Do0 f38 750 516 36 24 20 -2 #rect
 Do0 f38 @|RichDialogIcon #fIcon
 Do0 f39 outLink MethodCallWithAjaxDemo.ivp #txt
 Do0 f39 type htmlDialogDemos.Data #txt
@@ -880,9 +882,7 @@ Do0 f39 @C|.responsibility Everybody #txt
 Do0 f39 755 475 26 26 14 0 #rect
 Do0 f39 @|StartRequestIcon #fIcon
 Do0 f40 expr out #txt
-Do0 f40 768 501 768 540 #arcP
-Do0 f41 expr out #txt
-Do0 f41 768 564 768 603 #arcP
+Do0 f40 768 501 768 516 #arcP
 Do0 f43 type htmlDialogDemos.Data #txt
 Do0 f43 83 803 26 26 14 0 #rect
 Do0 f43 @|EndIcon #fIcon
@@ -1990,6 +1990,27 @@ Do0 f100 expr out #txt
 Do0 f100 320 1085 320 1124 #arcP
 Do0 f101 expr out #txt
 Do0 f101 320 1148 320 1187 #arcP
+Do0 f102 targetWindow NEW:card: #txt
+Do0 f102 targetDisplay TOP #txt
+Do0 f102 richDialogId ch.ivyteam.htmldialog.demo.Main #txt
+Do0 f102 startMethod start() #txt
+Do0 f102 type htmlDialogDemos.Data #txt
+Do0 f102 requestActionDecl '<> param;' #txt
+Do0 f102 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f102 responseMappingAction 'out=in;
+' #txt
+Do0 f102 windowConfiguration '* ' #txt
+Do0 f102 isAsynch false #txt
+Do0 f102 isInnerRd false #txt
+Do0 f102 userContext '* ' #txt
+Do0 f102 750 564 36 24 20 -2 #rect
+Do0 f102 @|RichDialogIcon #fIcon
+Do0 f102 -13016147|-1|-16777216 #nodeStyle
+Do0 f103 expr out #txt
+Do0 f103 768 540 768 564 #arcP
+Do0 f41 expr out #txt
+Do0 f41 768 588 768 603 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2040,8 +2061,6 @@ Do0 f35 mainOut f18 tail #connect
 Do0 f18 head f17 mainIn #connect
 Do0 f39 mainOut f40 tail #connect
 Do0 f40 head f38 mainIn #connect
-Do0 f38 mainOut f41 tail #connect
-Do0 f41 head f37 mainIn #connect
 Do0 f42 mainOut f45 tail #connect
 Do0 f45 head f44 mainIn #connect
 Do0 f44 mainOut f46 tail #connect
@@ -2090,3 +2109,7 @@ Do0 f97 mainOut f100 tail #connect
 Do0 f100 head f99 mainIn #connect
 Do0 f99 mainOut f101 tail #connect
 Do0 f101 head f98 mainIn #connect
+Do0 f38 mainOut f103 tail #connect
+Do0 f103 head f102 mainIn #connect
+Do0 f102 mainOut f41 tail #connect
+Do0 f41 head f37 mainIn #connect

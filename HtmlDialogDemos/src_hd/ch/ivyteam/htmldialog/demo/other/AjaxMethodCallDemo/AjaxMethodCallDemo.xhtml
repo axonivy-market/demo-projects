@@ -21,6 +21,7 @@
 			<li>This can be used to integrate JavaScript libraries like
 			jQuery, D3 or Raphael with the Xpert.ivy backend.</li>
 		</ul>
+		<h4>AJAX Method Call</h4>
 		<p>
 		When pressing the "Say Hello" Button the helloWold() Method of the Dialog will be called. The result of the call will be written to in the result element below.
 		</p>
@@ -30,8 +31,16 @@
 		<p>
 		If you do not want to integrate a JavaScript Library then you should use the JSF options for asynchronous Requests.   
 		</p>
-		<button id="hello">Say Hello</button><br />
+		<br /><button id="hello">Say Hello</button><br />
     	Result: <span id="result"></span>
+    	
+    	<hr/>
+    	<h4>Close Dialog</h4>
+		<p>
+		If your dialog logic runs in an exit end, you get redirected to the next page in line. <br/>
+		Click on Close Dialog to get redirected:<br/>
+		<br /><button id="closeDialog">Close Dialog</button><br />
+		</p>
     	
 		<!-- This Script is generated for each dialog and simplifies the way to call the method. -->
 		<script type="text/javascript" src="rest/ivyajaxapi.js"></script>
@@ -56,8 +65,14 @@
 								// returnData.result accesses the return value named result.
 								$("#result").html(returnData.result);
 							});
+		
+				});
+				
+				$("#closeDialog").click(function() {
+					logic.closeDialog();
 				});
 		</script>
+
 	</p:panel>
 	</p:layoutUnit>
 	</ui:define>
