@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 20 13:56:23 CEST 2013]
+[>Created: Fri Jan 10 08:33:38 CET 2014]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -108,6 +108,11 @@ Do0 @EndTask f93 '' #zField
 Do0 @StartRequest f94 '' #zField
 Do0 @PushWFArc f95 '' #zField
 Do0 @PushWFArc f96 '' #zField
+Do0 @StartRequest f97 '' #zField
+Do0 @EndTask f98 '' #zField
+Do0 @RichDialog f99 '' #zField
+Do0 @PushWFArc f100 '' #zField
+Do0 @PushWFArc f101 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -1892,6 +1897,99 @@ Do0 f95 expr out #txt
 Do0 f95 96 1085 96 1124 #arcP
 Do0 f96 expr out #txt
 Do0 f96 96 1148 96 1187 #arcP
+Do0 f97 outLink JsfCompositeComponent.ivp #txt
+Do0 f97 type htmlDialogDemos.Data #txt
+Do0 f97 inParamDecl '<> param;' #txt
+Do0 f97 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f97 guid 14377FE1C4D94FDE #txt
+Do0 f97 requestEnabled true #txt
+Do0 f97 triggerEnabled false #txt
+Do0 f97 callSignature JsfCompositeComponent() #txt
+Do0 f97 persist false #txt
+Do0 f97 startName 'Jsf Composite Component Demo' #txt
+Do0 f97 taskData '#
+#Fri Jan 10 08:33:37 CET 2014
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f97 caseData '#
+#Fri Jan 10 08:33:37 CET 2014
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f97 showInStartList 1 #txt
+Do0 f97 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f97 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>JsfCompositeComponent.ivp</name>
+        <nameStyle>25,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Do0 f97 @C|.responsibility Everybody #txt
+Do0 f97 307 1059 26 26 14 0 #rect
+Do0 f97 @|StartRequestIcon #fIcon
+Do0 f98 type htmlDialogDemos.Data #txt
+Do0 f98 307 1187 26 26 14 0 #rect
+Do0 f98 @|EndIcon #fIcon
+Do0 f99 targetWindow NEW:card: #txt
+Do0 f99 targetDisplay TOP #txt
+Do0 f99 richDialogId ch.ivyteam.htmldialog.demo.component.JsfCompositeComponentDemo #txt
+Do0 f99 startMethod start() #txt
+Do0 f99 type htmlDialogDemos.Data #txt
+Do0 f99 requestActionDecl '<> param;' #txt
+Do0 f99 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f99 responseMappingAction 'out=in;
+' #txt
+Do0 f99 windowConfiguration '* ' #txt
+Do0 f99 isAsynch false #txt
+Do0 f99 isInnerRd false #txt
+Do0 f99 userContext '* ' #txt
+Do0 f99 302 1124 36 24 20 -2 #rect
+Do0 f99 @|RichDialogIcon #fIcon
+Do0 f100 expr out #txt
+Do0 f100 320 1085 320 1124 #arcP
+Do0 f101 expr out #txt
+Do0 f101 320 1148 320 1187 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1988,3 +2086,7 @@ Do0 f94 mainOut f95 tail #connect
 Do0 f95 head f92 mainIn #connect
 Do0 f92 mainOut f96 tail #connect
 Do0 f96 head f93 mainIn #connect
+Do0 f97 mainOut f100 tail #connect
+Do0 f100 head f99 mainIn #connect
+Do0 f99 mainOut f101 tail #connect
+Do0 f101 head f98 mainIn #connect

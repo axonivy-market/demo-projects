@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:jc="http://java.sun.com/jsf/composite/html-dialog-demo">
+<!--
+For the definition of the JSF composite component xml namespace (here 'jc')
+use 'http://java.sun.com/jsf/composite/' followed by the name of the folder
+in the 'webContent/resources' where the JSF Composite Component file is defined. 
+-->
+<h:head>
+	<title>JSF Composite Component Demo</title>
+</h:head>
+<h:body>
+	<ui:composition template="/PageTemplate.xhtml">
+
+		<ui:define name="center">
+			<p:layoutUnit position="center" header="JSF Composite Component Demo">
+				<p:panel id="panel">
+					<p>This demo explains how to use standard JSF Composite
+						Components (without Data and Logic) from the
+						'webContent/resources' folder.</p>
+					<!--
+					See header for the definition of the 'jc' xml namespace.
+					As tag name use the name of the JSF Composite Component file. (see 'webContent/resources/html-dialog-demo/PersonComponent.xhtml')
+					Attribute 'person' of the PersonComponent interface is specified here.
+					 -->
+					<jc:PersonComponent person="#{data.person}" />
+
+					<!--
+					Output of the data modified in the PersonComponent.
+					 -->
+					<br />
+					<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+						<h:outputText value="Firstname" />
+						<h:outputText value="#{data.person.firstname}" />
+						<h:outputText value="Lastname" />
+						<h:outputText value="#{data.person.name}" />
+
+						<h:outputText value="Delivery Address" />
+						<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+							<h:outputText value="Street" />
+							<h:outputText value="#{data.person.deliveryAddress.street}" />
+							<h:outputText value="Country" />
+							<h:outputText value="#{data.person.deliveryAddress.country}" />
+						</h:panelGrid>
+
+						<h:outputText value="Billing Address" />
+						<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+							<h:outputText value="Street" />
+							<h:outputText value="#{data.person.billingAddress.street}" />
+							<h:outputText value="Country" />
+							<h:outputText value="#{data.person.billingAddress.country}" />
+						</h:panelGrid>
+					</h:panelGrid>
+				</p:panel>
+			</p:layoutUnit>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>
