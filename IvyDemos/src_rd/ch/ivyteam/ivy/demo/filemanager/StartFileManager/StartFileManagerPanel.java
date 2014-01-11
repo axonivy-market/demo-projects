@@ -14,6 +14,7 @@ import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
 import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
 import ch.ivyteam.ivy.richdialog.widgets.components.RComboBox;
+import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
 
 /**
  * <p>StartFileManagerPanel is a rich dialog panel implementation.
@@ -52,6 +53,11 @@ private RLabel dbLabel = null;
 private RCheckBox activateExtendedFVCheckBox = null;
 private RCheckBox activateDirTranslationCheckBox = null;
 private RCheckBox activatefileTypesTranslationCheckBox = null;
+private RGridBagLayoutPane globalVariableConfigGridBagLayoutPane = null;
+private RCheckBox globalVariablesCheckBox = null;
+private RFlowLayoutPane FlowLayoutPane = null;
+private RButton displayButton = null;
+private RGridBagLayoutPane sizeGridBagLayoutPane = null;
 /**
    * Create a new instance of StartFileManagerPanel
    */
@@ -86,19 +92,19 @@ private RGridBagLayoutPane getGridBagLayoutPane1() {
 		GridBagLayoutPane1 = new RGridBagLayoutPane();
 		GridBagLayoutPane1.setName("GridBagLayoutPane1");
 		GridBagLayoutPane1.setStyleProperties("{/fill \"BOTH\"/insetsLeft \"5\"/weightY \"1\"/weightX \"1\"}");
-		GridBagLayoutPane1.add(getStartButton1(), new com.ulcjava.base.application.GridBagConstraints(0, 13, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane1.add(getRootDirectoryPathLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane1.add(getServerpathTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 3, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane1.add(Filler1, new com.ulcjava.base.application.GridBagConstraints(1, 18, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getRootDirectoryPathLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getServerpathTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(Filler1, new com.ulcjava.base.application.GridBagConstraints(0, 18, 4, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		GridBagLayoutPane1.add(getLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 4, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		GridBagLayoutPane1.add(getStoreOnFileSetGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 6, 4, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane1.add(getStoreInDBGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 7, 3, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane1.add(getMaxFileSizeLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane1.add(getMaxFileSizeTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane1.add(getLanguageLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane1.add(getLangComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 5, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane1.add(getDbComboBox(), new com.ulcjava.base.application.GridBagConstraints(1, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
-		GridBagLayoutPane1.add(getDbLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getStoreInDBGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 7, 5, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getLanguageLabel(), new com.ulcjava.base.application.GridBagConstraints(2, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getLangComboBox(), new com.ulcjava.base.application.GridBagConstraints(3, 4, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getDbComboBox(), new com.ulcjava.base.application.GridBagConstraints(3, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getDbLabel(), new com.ulcjava.base.application.GridBagConstraints(2, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getGlobalVariableConfigGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 4, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getFlowLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 8, 4, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getSizeGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return GridBagLayoutPane1;
 }
@@ -142,7 +148,7 @@ private RTextField getServerpathTextField() {
 	if (serverpathTextField == null) {
 		serverpathTextField = new RTextField();
 		serverpathTextField.setText("");
-		serverpathTextField.setStyleProperties("{/insetsBottom \"5\"/fill \"HORIZONTAL\"/insetsLeft \"10\"}");
+		serverpathTextField.setStyleProperties("{/insetsBottom \"5\"/fill \"BOTH\"/insetsRight \"10\"/insetsLeft \"10\"/weightX \"1\"}");
 		serverpathTextField.setName("serverpathTextField");
 	}
 	return serverpathTextField;
@@ -279,7 +285,7 @@ private RGridBagLayoutPane getStoreOnFileSetGridBagLayoutPane() {
 		storeOnFileSetGridBagLayoutPane = new RGridBagLayoutPane();
 		storeOnFileSetGridBagLayoutPane.setName("storeOnFileSetGridBagLayoutPane");
 		storeOnFileSetGridBagLayoutPane.setStyleProperties("{/insetsTop \"10\"/fill \"HORIZONTAL\"/weightX \"1\"}");
-		storeOnFileSetGridBagLayoutPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.gray, 1), "Files stored on the File system", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 14), new Color(23, 64, 140)));
+		storeOnFileSetGridBagLayoutPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.gray, 1), "Files stored on the File system", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Dialog", Font.BOLD, 12), new Color(51, 51, 51)));
 		storeOnFileSetGridBagLayoutPane.add(getFilesInFileSetCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		storeOnFileSetGridBagLayoutPane.add(getActivateIvySystemDBCheckBox(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
@@ -296,7 +302,7 @@ private RGridBagLayoutPane getStoreInDBGridBagLayoutPane() {
 		storeInDBGridBagLayoutPane = new RGridBagLayoutPane();
 		storeInDBGridBagLayoutPane.setName("storeInDBGridBagLayoutPane");
 		storeInDBGridBagLayoutPane.setStyleProperties("{/insetsTop \"10\"/fill \"HORIZONTAL\"/weightX \"1\"}");
-		storeInDBGridBagLayoutPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.gray, 1), "Files stored in a database as BLOB", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Tahoma", Font.PLAIN, 14), new Color(23, 64, 140)));
+		storeInDBGridBagLayoutPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.gray, 1), "Files stored in a database as BLOB", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Dialog", Font.BOLD, 12), new Color(51, 51, 51)));
 		storeInDBGridBagLayoutPane.add(getActivateFilesAsBlobCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		storeInDBGridBagLayoutPane.add(getActivateFileVersioningCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 1, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		storeInDBGridBagLayoutPane.add(getActivateSecurityCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 3, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
@@ -319,7 +325,7 @@ private RLabel getMaxFileSizeLabel() {
 	if (maxFileSizeLabel == null) {
 		maxFileSizeLabel = new RLabel();
 		maxFileSizeLabel.setText("Max. File upload size in Kb (0 means unlimited)");
-		maxFileSizeLabel.setStyleProperties("{/font {/name \"Dialog\"/size \"14\"/style \"PLAIN\"}/insetsBottom \"5\"}");
+		maxFileSizeLabel.setStyleProperties("{/font \"name=Dialog\\nsize=14\\nstyle=PLAIN\"/insetsBottom \"5\"/fill \"HORIZONTAL\"}");
 		maxFileSizeLabel.setName("maxFileSizeLabel");
 	}
 	return maxFileSizeLabel;
@@ -334,7 +340,7 @@ private RTextField getMaxFileSizeTextField() {
 	if (maxFileSizeTextField == null) {
 		maxFileSizeTextField = new RTextField();
 		maxFileSizeTextField.setText("");
-		maxFileSizeTextField.setStyleProperties("{/anchor \"WEST\"/insetsBottom \"5\"/insetsLeft \"10\"}");
+		maxFileSizeTextField.setStyleProperties("{/anchor \"WEST\"/insetsBottom \"5\"/fill \"HORIZONTAL\"/insetsRight \"10\"/insetsLeft \"10\"/weightX \"1\"}");
 		maxFileSizeTextField.setName("maxFileSizeTextField");
 	}
 	return maxFileSizeTextField;
@@ -380,6 +386,7 @@ private RComboBox getLangComboBox() {
 		langComboBox = new RComboBox();
 		langComboBox.setName("langComboBox");
 		langComboBox.setStyleProperties("{/anchor \"WEST\"/insetsLeft \"10\"}");
+		langComboBox.setName("langComboBox");
 		langComboBox.setModelConfiguration("{/result \"\"/version \"3.0\"/icon \"\"/tooltip \"\"}");
 	}
 	return langComboBox;
@@ -395,6 +402,7 @@ private RComboBox getDbComboBox() {
 		dbComboBox = new RComboBox();
 		dbComboBox.setName("dbComboBox");
 		dbComboBox.setModelConfiguration("{/result \"result=entry\"/version \"3.0\"/icon \"\"/tooltip \"\"}");
+		dbComboBox.setName("dbComboBox");
 		dbComboBox.setStyleProperties("{/anchor \"WEST\"/insetsBottom \"5\"/insetsLeft \"10\"}");
 	}
 	return dbComboBox;
@@ -458,5 +466,82 @@ private RCheckBox getActivatefileTypesTranslationCheckBox() {
 		activatefileTypesTranslationCheckBox.setText("Activate the file type translation feature");
 	}
 	return activatefileTypesTranslationCheckBox;
+}
+
+/**
+ * This method initializes globalVariableConfigGridBagLayoutPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane	
+ */
+private RGridBagLayoutPane getGlobalVariableConfigGridBagLayoutPane() {
+	if (globalVariableConfigGridBagLayoutPane == null) {
+		globalVariableConfigGridBagLayoutPane = new RGridBagLayoutPane();
+		globalVariableConfigGridBagLayoutPane.setName("globalVariableConfigGridBagLayoutPane");
+		globalVariableConfigGridBagLayoutPane.setStyleProperties("{/fill \"HORIZONTAL\"}");
+		globalVariableConfigGridBagLayoutPane.setBorder(BorderFactory.createTitledBorder(null, "Use the global variables as configuration", ULCTitledBorder.DEFAULT_JUSTIFICATION, ULCTitledBorder.DEFAULT_POSITION, new Font("Dialog", Font.BOLD, 12), new Color(51, 51, 51)));
+		globalVariableConfigGridBagLayoutPane.add(getGlobalVariablesCheckBox(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+	}
+	return globalVariableConfigGridBagLayoutPane;
+}
+
+/**
+ * This method initializes globalVariablesCheckBox	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox	
+ */
+private RCheckBox getGlobalVariablesCheckBox() {
+	if (globalVariablesCheckBox == null) {
+		globalVariablesCheckBox = new RCheckBox();
+		globalVariablesCheckBox.setText("<html>The filemanager will be started with an empty configuration object.<br>The global variables values will be used to fill the configuration.");
+		globalVariablesCheckBox.setStyleProperties("{/font \"name=Dialog\\nsize=14\\nstyle=PLAIN\"/fill \"HORIZONTAL\"/weightX \"1\"}");
+		globalVariablesCheckBox.setName("globalVariablesCheckBox");
+	}
+	return globalVariablesCheckBox;
+}
+
+/**
+ * This method initializes FlowLayoutPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane	
+ */
+private RFlowLayoutPane getFlowLayoutPane() {
+	if (FlowLayoutPane == null) {
+		FlowLayoutPane = new RFlowLayoutPane();
+		FlowLayoutPane.setName("FlowLayoutPane");
+		FlowLayoutPane.setStyleProperties("{/fill \"HORIZONTAL\"/alignment \"RIGHT\"/weightX \"1\"}");
+		FlowLayoutPane.add(getDisplayButton());
+		FlowLayoutPane.add(getStartButton1());
+	}
+	return FlowLayoutPane;
+}
+
+/**
+ * This method initializes displayButton	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.RButton	
+ */
+private RButton getDisplayButton() {
+	if (displayButton == null) {
+		displayButton = new RButton();
+		displayButton.setText("Display the configuration");
+		displayButton.setName("displayButton");
+	}
+	return displayButton;
+}
+
+/**
+ * This method initializes sizeGridBagLayoutPane	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane	
+ */
+private RGridBagLayoutPane getSizeGridBagLayoutPane() {
+	if (sizeGridBagLayoutPane == null) {
+		sizeGridBagLayoutPane = new RGridBagLayoutPane();
+		sizeGridBagLayoutPane.setName("sizeGridBagLayoutPane");
+		sizeGridBagLayoutPane.setStyleProperties("{/fill \"HORIZONTAL\"}");
+		sizeGridBagLayoutPane.add(getMaxFileSizeLabel(), new com.ulcjava.base.application.GridBagConstraints(0, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		sizeGridBagLayoutPane.add(getMaxFileSizeTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+	}
+	return sizeGridBagLayoutPane;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

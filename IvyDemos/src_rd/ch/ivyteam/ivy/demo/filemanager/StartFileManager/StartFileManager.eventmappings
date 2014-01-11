@@ -1,13 +1,15 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2013-08-10 12:31:20 | 5.0.0.42720 | 1.0
+# 2014-01-10 18:15:43 | 5.0.6.44078 | 1.0
 ~.activateExtendedFVCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.activateFilesAsBlobCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
-~.activatefileTypesTranslationCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E # StartFileManagerProcess.mod/settingsChanged
+~.activatefileTypesTranslationCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.activateFileVersioningCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.activateIvySystemDBCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.activateSecurityCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
 ~.dbComboBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
+~.displayButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/1437E68DBB580D5A # StartFileManagerProcess.mod/displayConfigurationValues
 ~.filesInFileSetCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E
+~.globalVariablesCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/137DE5A742AA039E # StartFileManagerProcess.mod/settingsChanged
 ~.startButton1@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/12BAC14555292A90
 ~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/13AD1235E5DFD414
 ~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12BAAF77763F86CB/12BAAF777B32E0E5
