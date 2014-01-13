@@ -1,0 +1,144 @@
+<!--
+#
+# This is the build file of a Xpert.ivy project
+#
+# Before starting the build
+# - check the ant.properties file and modify the global properties if necessary
+#
+-->
+<project name="JsfWorkflowUi" default="all">
+	<description>
+		Builds a Xpert.ivy project
+	</description>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<fileset dir="../../buildEnv/antlibs">
+				<include name="**/*.jar"/>
+			</fileset>
+		</classpath>
+	</taskdef>
+
+	<property file="ant.properties"/>	
+
+	
+	
+	<target name="all" depends="ivyProject"/>
+	
+	<target name="ivyProject" depends="zipIvyProject"/>
+	
+	<target name="zipIvyProject" depends="javac, copyResources">
+		<delete dir="${dir.build.output}" quiet="true"/>
+		<mkdir dir="${dir.build.output}"/>
+		<zip destfile="${dir.build.output}/${project.name}.zip">
+			<fileset dir="${dir.ivyProjects.project}">
+				<include name="**/*"/>
+				<exclude name="**/build/"/>
+				<exclude name="**/build.xml"/>
+				<exclude name="**/ant.properties"/>
+			</fileset>
+		</zip>
+	</target>
+
+	<target name="javac" depends="ivyDataClasses">
+		<mkdir dir="${dir.ivyProjects.project}/classes"/>
+		<javac destdir="${dir.ivyProjects.project}/classes" memoryMaximumSize="768M" fork="yes" executable="${tools.java.compiler}" 
+			includeAntRuntime="no" debug="${build.debug}" verbose="true">
+			<classpath>
+				<pathelement path="${classpath.ivy.server}"/>
+				<fileset dir="${dir.ivyProjects.project}">
+					<include name="lib/**/*.jar"/>
+				</fileset>   								
+			</classpath>
+			<src>
+				<dirset dir="${dir.ivyProjects.project}">
+					<include name="src*"/>
+				</dirset>
+			</src>
+		</javac>
+	</target>
+
+	<target name="copyResources">
+		<mkdir dir="${dir.ivyProjects.project}/classes"/>
+		<copy todir="${dir.ivyProjects.project}/classes" includeemptydirs="false">
+			<fileset dir="${dir.ivyProjects.project}/src">
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="ivyDataClasses" depends="installNightlyIvyServer">
+		<java fork="true" jvm="${tools.java.runtime}" dir="${dir.ivy.server}" 
+			classname="ch.ivyteam.ivy.scripting.dataclass.DataClassBuilderWorkspaceDir" failonerror="true" 
+			classpath="${classpath.ivy.server}">
+				<arg value="-workspaceDirectory"/>
+				<arg value="${dir.ivyProjects}"/>
+				<jvmarg value="-Djava.library.path=${dir.ivy.server}/bin"/>
+		</java>
+	</target>
+	
+	<!--
+	======================================================================
+	 Install ivy server
+	======================================================================
+	 Installs the latest Xpert.ivy Server from the ivy build server.
+	-->
+	<target name="installNightlyIvyServer">
+		<mkdir dir="${dir.build}"/>
+		<if>
+			<contains string="${os.name}" substring="linux" casesensitive="false"/>
+			<then>
+				<if>
+					<os arch="amd64"/>
+					<then>
+						<property name="installer.os.suffix" value="Linux_x64"/>
+					</then>
+					<else>
+						<property name="installer.os.suffix" value="Linux_x86"/>
+					</else>
+				</if>
+			</then>
+		</if>
+		<if>
+			<contains string="${os.name}" substring="windows" casesensitive="false"/>
+			<then>
+				<if>
+					<os arch="amd64"/>
+					<then>
+						<property name="installer.os.suffix" value="Windows_x64"/>
+					</then>
+					<else>
+						<property name="installer.os.suffix" value="Windows_x86"/>
+					</else>
+				</if>
+			</then>
+		</if>
+
+		<tempfile property="temp.response.xml.file" destdir="${java.io.tmpdir}" prefix="response" suffix=".xml" deleteonexit="true"/>
+		<get dest="${temp.response.xml.file}" src="${url.ivy.server.build}/api/xml"/>
+		<loadfile property="response.xml.content" srcFile="${temp.response.xml.file}"/>
+		<delete file="${temp.response.xml.file}"/>
+
+		
+		<propertyregex property="path.ivy.server" regexp="(ivy([^&lt;&gt;]*)XpertIvyServer([^&lt;&gt;]*)${installer.os.suffix}\.zip)" 
+			input="${response.xml.content}" select="\1"/>
+		<propertyregex property="latest.ivy.server.name" regexp="(ivy([^&lt;&gt;]*)(XpertIvyServer[^&lt;&gt;]*${installer.os.suffix}\.zip))" 
+			input="${path.ivy.server}" select="\3"/>
+		<property name="zip.ivy.server" value="${dir.build}/${latest.ivy.server.name}"/>
+		<if>
+			<available file="${zip.ivy.server}"/>
+			<then>
+				<echo message="Latest ivy server ${latest.ivy.server.name} already exist. Skipping re-download &amp; unpacking."/>
+			</then>
+			<else>
+				<delete>
+				    <fileset dir="${dir.build}" includes="*.zip"/>
+				</delete>
+				<get dest="${zip.ivy.server}" src="${url.ivy.server.build}/artifact/${path.ivy.server}"/>
+				<delete dir="${dir.ivy.server}"/>
+				<unzip dest="${dir.ivy.server}" src="${zip.ivy.server}"/>
+			</else>
+		</if>
+		
+	</target>
+</project>
