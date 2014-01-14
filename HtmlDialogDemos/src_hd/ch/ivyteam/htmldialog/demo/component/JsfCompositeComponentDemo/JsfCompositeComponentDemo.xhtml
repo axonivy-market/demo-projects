@@ -6,11 +6,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:ic="http://ivyteam.ch/jsf/component"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:jc="http://java.sun.com/jsf/composite/html-dialog-demo">
+	xmlns:jc="http://java.sun.com/jsf/composite/demo-jsfcomponents">
 <!--
-For the definition of the JSF composite component xml namespace (here 'jc')
-use 'http://java.sun.com/jsf/composite/' followed by the name of the folder
-in the 'webContent/resources' where the JSF Composite Component file is defined. 
+Note the additional xml namespace (here jc) that sets the location of the JSF composite components. 
+This is 'http://java.sun.com/jsf/composite/' followed by the name of the folder
+in the 'webContent/resources' where the JSF Composite Components are defined. 
 -->
 <h:head>
 	<title>JSF Composite Component Demo</title>
@@ -22,17 +22,17 @@ in the 'webContent/resources' where the JSF Composite Component file is defined.
 			<p:layoutUnit position="center" header="JSF Composite Component Demo">
 				<p:panel id="panel">
 					<p>This demo explains how to use standard JSF Composite
-						Components (without Data and Logic) from the
+						Components (without ivy Data and ivy Logic) from the
 						'webContent/resources' folder.</p>
 					<!--
-					See header for the definition of the 'jc' xml namespace.
-					As tag name use the name of the JSF Composite Component file. (see 'webContent/resources/html-dialog-demo/PersonComponent.xhtml')
-					Attribute 'person' of the PersonComponent interface is specified here.
+					Insert the Component PersonJsfComponent with the 'jc' xml namespace followed by the file name of the 
+					JSF Composite Component (see 'webContent/resources/demo-jsfcomponents/PersonJsfComponent.xhtml') and set
+					the attribute 'person' for the PersonJsfComponent.
 					 -->
-					<jc:PersonComponent person="#{data.person}" />
+					<jc:PersonJsfComponent person="#{data.person}" />
 
 					<!--
-					Output of the data modified in the PersonComponent.
+					Output of the data modified in the PersonJsfComponent.
 					 -->
 					<br />
 					<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
