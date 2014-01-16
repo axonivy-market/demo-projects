@@ -21,14 +21,21 @@
 
 	<property file="ant.properties"/>	
 
+
 	
+	<target name="clean">
+		<delete dir="${dir.build.output}" quiet="true"/>
+		<delete includeEmptyDirs="true">
+			<fileset dir="${dir.ivyProjects.project}/classes" includes="**/*"/>
+			<fileset dir="${dir.ivyProjects.project}/src_dataClasses" includes="**/*"/>
+		</delete>
+	</target>
 	
 	<target name="all" depends="ivyProject"/>
 	
 	<target name="ivyProject" depends="zipIvyProject"/>
 	
 	<target name="zipIvyProject" depends="javac, copyResources">
-		<delete dir="${dir.build.output}" quiet="true"/>
 		<mkdir dir="${dir.build.output}"/>
 		<zip destfile="${dir.build.output}/${project.name}.zip">
 			<fileset dir="${dir.ivyProjects.project}">
