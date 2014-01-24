@@ -11,7 +11,7 @@
 This is a standard JSF Composite Component without Data and Logic.
 -->
 <!--
-In the interface it is possible to define view attributes.
+In the interface it is possible to define attributes.
 This attributes can be accessed by the el expression cc.attrs.attributeName.
 -->
 <cc:interface>
@@ -19,7 +19,7 @@ This attributes can be accessed by the el expression cc.attrs.attributeName.
 	<cc:attribute name="address" type="ch.ivyteam.htmldialog.demo.Address" />
 </cc:interface>
 <cc:implementation>
-	<p:fieldset legend="Address Component">
+	<p:fieldset legend="Address JSF Component">
 		<h:outputText>#{cc.attrs.label}</h:outputText>
 		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
 
