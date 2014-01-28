@@ -1,4 +1,6 @@
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=ch.ivyteam.wf.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=ch.ivyteam.wf
-ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=50100
+ch.ivyteam.ivy.designer.preferences.editor.ProcessEditorPreferencePage\:ELEMENT_STYLE=CLASSIC
+ch.ivyteam.ivy.designer.preferences.editor.ProcessEditorPreferencePage\:useProjectSettings=true
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=50914
 eclipse.preferences.version=1
