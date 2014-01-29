@@ -264,8 +264,8 @@ public class WorkflowUIAccessPermissionHandler
    * @return
    * @throws Exception
    */
-  public static List findTaskCategories(IPropertyFilter<TaskProperty> categoryFilter, TaskProperty categoryProperty,
-          OrderDirection categoryPropertyOrder, boolean runningTaskMode, int taskDisplayMode)
+  public static List findTaskCategories(final IPropertyFilter<TaskProperty> categoryFilter, final TaskProperty categoryProperty,
+          final OrderDirection categoryPropertyOrder, boolean runningTaskMode, int taskDisplayMode)
           throws Exception
   {
 
@@ -284,7 +284,14 @@ public class WorkflowUIAccessPermissionHandler
 
       case 2:
         // all environment's tasks
-        return Ivy.wf().findTaskCategories(categoryFilter, categoryProperty, categoryPropertyOrder);
+    	  List<IGroup<ITask>>  taskCategories = SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<List<IGroup<ITask>>>()
+		        {
+	        public List<IGroup<ITask>> call() throws Exception
+	        {
+	      	  return Ivy.wf().findTaskCategories(categoryFilter, categoryProperty, categoryPropertyOrder);
+	        }
+	      });
+		  return taskCategories;
 
       default:
         return null;
@@ -332,9 +339,7 @@ public class WorkflowUIAccessPermissionHandler
                 filter, order, startIndex, count, returnAllCount));
 
       case 2:
-        // all applications's tasks
-        return Ivy.wf().findTasks(filter, order, startIndex, count, returnAllCount);
-        
+    	  // all applications's tasks (same "as any query tasks" below):
       case 3:
     	  // any query tasks: it means find all tasks that fit to the received criteria (property filter)
     	  IQueryResult<ITask> queryResult = SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<IQueryResult<ITask>>()
@@ -430,8 +435,8 @@ public class WorkflowUIAccessPermissionHandler
    * @return
    * @throws Exception
    */
-  public static List<IGroup<ICase>> findCaseCategories(IPropertyFilter<CaseProperty> categoryFilter,
-          final CaseProperty categoryProperty, OrderDirection categoryPropertyOrder, boolean runningCaseMode,
+  public static List<IGroup<ICase>> findCaseCategories(final IPropertyFilter<CaseProperty> categoryFilter,
+          final CaseProperty categoryProperty, final OrderDirection categoryPropertyOrder, boolean runningCaseMode,
           int caseDisplayMode) throws Exception
   {
     switch (caseDisplayMode)
@@ -592,7 +597,14 @@ public class WorkflowUIAccessPermissionHandler
       case 2:
     	//
         // all cases
-        return Ivy.wf().findCaseCategories(categoryFilter, categoryProperty, categoryPropertyOrder);
+    	  List<IGroup<ICase>>  caseCategories = SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<List<IGroup<ICase>>>()
+  		        {
+  	        public List<IGroup<ICase>> call() throws Exception
+  	        {
+  	      	  return Ivy.wf().findCaseCategories(categoryFilter, categoryProperty, categoryPropertyOrder);
+  	        }
+  	      });
+  		  return caseCategories;
 
       default:
         return null;
@@ -865,10 +877,7 @@ public class WorkflowUIAccessPermissionHandler
         }
 
       case 2:
-    	// all cases
-        foundCases = Ivy.wf().findCases(contextFilter, order, startIndex, count, returnAllCount).getResultList();
-        return foundCases;
-        
+    	// all cases (same as "any query tasks" below)
       case 3:    	  
     	// any query tasks: it means find all tasks that fit to the received criteria (property filter)
 	   queryResult = SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<IQueryResult<ICase>>(){
