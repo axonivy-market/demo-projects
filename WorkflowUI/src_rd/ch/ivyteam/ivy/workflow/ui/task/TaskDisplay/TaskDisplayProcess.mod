@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Apr 10 12:46:23 CEST 2013]
+[>Created: Wed Jan 29 14:01:15 CET 2014]
 116A9BF16D47762C 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
@@ -1270,8 +1270,8 @@ Ts0 f182 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f182 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>is task RESUMED ?</name>
-        <nameStyle>17,9
+        <name>is task RESUMED  by THIS user?</name>
+        <nameStyle>30,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -1281,7 +1281,8 @@ Ts0 f182 @|AlternativeIcon #fIcon
 Ts0 f183 expr out #txt
 Ts0 f183 688 492 688 522 #arcP
 Ts0 f185 expr in #txt
-Ts0 f185 outCond 'in.task.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.RESUMED) == 0' #txt
+Ts0 f185 outCond 'in.task.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.RESUMED) == 0 &&
+in.task.getWorkerUserName().equalsIgnoreCase(ivy.session.getSessionUserName())' #txt
 Ts0 f185 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
