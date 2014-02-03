@@ -1,12 +1,10 @@
 package ch.ivyteam.ivy.workflow.ui.utils;
 
-import com.ulcjava.base.application.ULCPollingTimer;
-import com.ulcjava.base.application.event.ActionEvent;
-import com.ulcjava.base.application.event.IActionListener;
-
 import ch.ivyteam.ivy.environment.EnvironmentNotAvailableException;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.persistence.PersistencyException;
+import ch.ivyteam.ivy.richdialog.exec.HtmlClientConfiguration;
+import ch.ivyteam.ivy.richdialog.exec.HtmlClientConfiguration.HtmlClient;
 import ch.ivyteam.ivy.richdialog.exec.IRichDialogContext;
 import ch.ivyteam.ivy.richdialog.exec.ProcessStartConfiguration;
 import ch.ivyteam.ivy.richdialog.exec.TaskStartConfiguration;
@@ -16,6 +14,10 @@ import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.scripting.objects.List;
 import ch.ivyteam.ivy.workflow.IProcessStart;
 import ch.ivyteam.ivy.workflow.ITask;
+
+import com.ulcjava.base.application.ULCPollingTimer;
+import com.ulcjava.base.application.event.ActionEvent;
+import com.ulcjava.base.application.event.IActionListener;
 
 
 /**
@@ -33,12 +35,13 @@ public class StartConfigurationCreator {
 	 */
 	public static void startTask(String displayId, IRichDialogPanel richDialogPanel, ITask task)
 	{
-		
 		IDisplayConfiguration displayConfig;
 		TaskStartConfiguration taskStartConfig;
-		// TODO replace the deprecated method
-		displayConfig = DisplayConfigurationFactory.createForThisWindow(displayId, richDialogPanel);
-		taskStartConfig = new TaskStartConfiguration(task, displayConfig);
+		HtmlClientConfiguration htmlClientConfig;
+		
+		displayConfig = DisplayConfigurationFactory.createForThisWindow(displayId);
+		htmlClientConfig = new HtmlClientConfiguration (HtmlClient.EmbeddedBrowserComponent);
+		taskStartConfig = new TaskStartConfiguration(task, displayConfig, htmlClientConfig);
 		Ivy.rd().startTask(taskStartConfig);
 	}
 	
@@ -52,9 +55,11 @@ public class StartConfigurationCreator {
 	{
 		IDisplayConfiguration displayConfig;
 		ProcessStartConfiguration processStartConfig;
+		HtmlClientConfiguration htmlClientConfig;
 
-		displayConfig = DisplayConfigurationFactory.createForThisWindow(displayId, richDialogPanel);
-		processStartConfig = new ProcessStartConfiguration(processStart, displayConfig);
+		displayConfig = DisplayConfigurationFactory.createForThisWindow(displayId);
+		htmlClientConfig = new HtmlClientConfiguration (HtmlClient.EmbeddedBrowserComponent);
+		processStartConfig = new ProcessStartConfiguration(processStart, displayConfig, htmlClientConfig);
 		
 		Ivy.rd().startProcess(processStartConfig);
 	}
@@ -68,7 +73,8 @@ public class StartConfigurationCreator {
 	@SuppressWarnings("serial")
 	public static void startMultipleProcesses(final IRichDialogContext rd, String displayId, IRichDialogPanel richDialogPanel, final List<IProcessStart> processStarts)
 	{
-		final IDisplayConfiguration displayConfig = DisplayConfigurationFactory.createForThisWindow(displayId, richDialogPanel);
+		final IDisplayConfiguration displayConfig = DisplayConfigurationFactory.createForThisWindow(displayId);
+		final HtmlClientConfiguration htmlClientConfig = new HtmlClientConfiguration (HtmlClient.EmbeddedBrowserComponent);
 		
 		final ULCPollingTimer[] timer = new ULCPollingTimer[1];
 		IActionListener listener = new IActionListener(){
@@ -83,7 +89,7 @@ public class StartConfigurationCreator {
 					} catch (PersistencyException e) {
 						e.printStackTrace();
 					}
-					ProcessStartConfiguration processStartConfig = new ProcessStartConfiguration(processStarts.get(fCounter), displayConfig);
+					ProcessStartConfiguration processStartConfig = new ProcessStartConfiguration(processStarts.get(fCounter), displayConfig, htmlClientConfig);
 					rd.startProcess(processStartConfig);
 					fCounter++;
 				} else

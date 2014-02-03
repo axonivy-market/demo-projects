@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jun 20 22:56:57 CEST 2011]
+[>Created: Mon Feb 03 15:12:13 CET 2014]
 12A235154BB40481 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 StartListProcess Big #zClass
@@ -20,23 +20,23 @@ Ss0 @RichDialogProcessEnd f1 '' #zField
 Ss0 @RichDialogProcessStep f3 '' #zField
 Ss0 @PushWFArc f4 '' #zField
 Ss0 @PushWFArc f2 '' #zField
-Ss0 @RichDialogProcessStart f5 '' #zField
-Ss0 @RichDialogProcessEnd f6 '' #zField
 Ss0 @RichDialogProcessStart f8 '' #zField
 Ss0 @PushWFArc f10 '' #zField
 Ss0 @RichDialogProcessStart f9 '' #zField
 Ss0 @PushWFArc f11 '' #zField
 Ss0 @RichDialogInitStart f12 '' #zField
 Ss0 @PushWFArc f13 '' #zField
-Ss0 @RichDialog f17 '' #zField
-Ss0 @PushWFArc f7 '' #zField
-Ss0 @Alternative f19 '' #zField
-Ss0 @PushWFArc f20 '' #zField
-Ss0 @PushWFArc f18 '' #zField
-Ss0 @PushWFArc f21 '' #zField
 Ss0 @RichDialogProcessStart f14 '' #zField
 Ss0 @RichDialogProcessEnd f15 '' #zField
 Ss0 @PushWFArc f16 '' #zField
+Ss0 @RichDialogProcessStart f5 '' #zField
+Ss0 @RichDialogProcessEnd f6 '' #zField
+Ss0 @RichDialog f17 '' #zField
+Ss0 @Alternative f19 '' #zField
+Ss0 @PushWFArc f7 '' #zField
+Ss0 @PushWFArc f20 '' #zField
+Ss0 @PushWFArc f18 '' #zField
+Ss0 @PushWFArc f21 '' #zField
 >Proto Ss0 Ss0 StartListProcess #zField
 Ss0 f0 guid 1194923FF289C8F3 #txt
 Ss0 f0 type ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData #txt
@@ -200,43 +200,6 @@ Ss0 f4 expr out #txt
 Ss0 f4 72 50 72 101 #arcP
 Ss0 f2 expr out #txt
 Ss0 f2 72 123 72 171 #arcP
-Ss0 f5 guid 119492C089B8FAA4 #txt
-Ss0 f5 type ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData #txt
-Ss0 f5 actionDecl 'ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData out;
-' #txt
-Ss0 f5 actionTable 'out=in;
-' #txt
-Ss0 f5 actionCode 'import ch.ivyteam.ivy.richdialog.exec.ProcessStartConfiguration;
-import ch.ivyteam.ivy.workflow.IProcessStart;
-
-import ch.ivyteam.ivy.workflow.ui.utils.StartConfigurationCreator;
-
-try
-{
-	if(panel.startList.getSelectedListEntry() is initialized)
-	{
-		IProcessStart processStart = panel.startList.getSelectedListEntry() as IProcessStart;		
-		StartConfigurationCreator.startProcess(in.displayId, panel, processStart);
-	}
-}
-catch (Exception e)
-{
-	out.exception = e;	
-}' #txt
-Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>startProcess</name>
-        <nameStyle>12,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f5 606 30 20 20 13 0 #rect
-Ss0 f5 @|RichDialogProcessStartIcon #fIcon
-Ss0 f6 type ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData #txt
-Ss0 f6 603 179 26 26 14 0 #rect
-Ss0 f6 @|RichDialogProcessEndIcon #fIcon
 Ss0 f8 guid 1198AD228381C945 #txt
 Ss0 f8 type ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData #txt
 Ss0 f8 actionDecl 'ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData out;
@@ -321,80 +284,6 @@ Ss0 f13 160 50 72 101 #arcP
 Ss0 f13 1 160 80 #addKink
 Ss0 f13 2 72 80 #addKink
 Ss0 f13 1 0.46888853413051373 0 0 #arcLabel
-Ss0 f17 targetDisplay TOP #txt
-Ss0 f17 richDialogId ch.ivyteam.ivy.addons.commondialogs.ErrorDialog #txt
-Ss0 f17 startMethod showError(java.lang.Throwable,Boolean,Boolean) #txt
-Ss0 f17 type ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData #txt
-Ss0 f17 requestActionDecl '<java.lang.Throwable error, Boolean showCopyButton, Boolean showDetailButton> param;' #txt
-Ss0 f17 requestMappingAction 'param.showCopyButton=true;
-param.showDetailButton=true;
-' #txt
-Ss0 f17 requestActionCode 'import ch.ivyteam.ivy.workflow.IProcessStart;
-
-IProcessStart processStart = panel.startList.getSelectedListEntry() as IProcessStart;
-
-param.error = new Exception(
-	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/process/plainStrings/processStartFailed").toString() + " " + processStart.getName(),
-	in.exception);
-	
-ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/process/plainStrings/processStartFailed").toString() + " " + processStart.getName(), in.exception);' #txt
-Ss0 f17 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData out;
-' #txt
-Ss0 f17 responseMappingAction 'out=in;
-' #txt
-Ss0 f17 windowConfiguration '{/title "Error"/width 0 /height 0 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
-Ss0 f17 isAsynch false #txt
-Ss0 f17 isInnerRd true #txt
-Ss0 f17 isDialog true #txt
-Ss0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language/>
-</elementInfo>
-' #txt
-Ss0 f17 598 132 36 24 20 -2 #rect
-Ss0 f17 @|RichDialogIcon #fIcon
-Ss0 f7 expr out #txt
-Ss0 f7 616 156 616 179 #arcP
-Ss0 f19 type ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData #txt
-Ss0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Exception ?</name>
-        <nameStyle>11,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f19 602 74 28 28 9 -24 #rect
-Ss0 f19 @|AlternativeIcon #fIcon
-Ss0 f20 expr out #txt
-Ss0 f20 616 50 616 74 #arcP
-Ss0 f18 expr in #txt
-Ss0 f18 outCond 'in.#exception != null' #txt
-Ss0 f18 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>yes</name>
-        <nameStyle>3,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f18 616 102 616 132 #arcP
-Ss0 f21 expr in #txt
-Ss0 f21 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>no</name>
-        <nameStyle>2,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f21 630 88 629 192 #arcP
-Ss0 f21 1 720 88 #addKink
-Ss0 f21 2 720 192 #addKink
-Ss0 f21 1 0.301389159280854 0 0 #arcLabel
 Ss0 f14 guid 12C73BE98EA97C14 #txt
 Ss0 f14 type ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData #txt
 Ss0 f14 actionDecl 'ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData out;
@@ -423,6 +312,101 @@ Ss0 f15 478 126 20 20 13 0 #rect
 Ss0 f15 @|RichDialogProcessEndIcon #fIcon
 Ss0 f16 expr out #txt
 Ss0 f16 488 50 488 126 #arcP
+Ss0 f5 guid 143F817862FD7B03 #txt
+Ss0 f5 type ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData #txt
+Ss0 f5 actionDecl 'ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData out;
+' #txt
+Ss0 f5 actionTable 'out=in;
+' #txt
+Ss0 f5 actionCode 'import ch.ivyteam.ivy.richdialog.exec.ProcessStartConfiguration;
+import ch.ivyteam.ivy.workflow.IProcessStart;
+import ch.ivyteam.ivy.workflow.ui.utils.StartConfigurationCreator;
+
+if(panel.startList.getSelectedListEntry() is initialized)
+{
+	out.processStart = panel.startList.getSelectedListEntry() as IProcessStart;
+}' #txt
+Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>startProcess</name>
+        <nameStyle>12,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f5 630 30 20 20 13 0 #rect
+Ss0 f5 @|RichDialogProcessStartIcon #fIcon
+Ss0 f6 type ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData #txt
+Ss0 f6 627 179 26 26 14 0 #rect
+Ss0 f6 @|RichDialogProcessEndIcon #fIcon
+Ss0 f17 targetWindow THIS #txt
+Ss0 f17 targetDisplay EXISTING:<%=in.displayId%> #txt
+Ss0 f17 richDialogId ch.ivyteam.ivy.workflow.ui.process.ProcessDisplay #txt
+Ss0 f17 startMethod start(ch.ivyteam.ivy.workflow.IProcessStart) #txt
+Ss0 f17 type ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData #txt
+Ss0 f17 panelName <%=in.title%> #txt
+Ss0 f17 requestActionDecl '<ch.ivyteam.ivy.workflow.IProcessStart processStart> param;' #txt
+Ss0 f17 requestActionCode 'param.processStart = in.processStart;
+in.title = in.processStart.getName() is initialized? in.processStart.getName(): in.processStart.getUserFriendlyRequestPath();' #txt
+Ss0 f17 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData out;
+' #txt
+Ss0 f17 responseMappingAction 'out=in;
+' #txt
+Ss0 f17 windowConfiguration '* ' #txt
+Ss0 f17 isAsynch true #txt
+Ss0 f17 isInnerRd true #txt
+Ss0 f17 isDialog true #txt
+Ss0 f17 userContext '* ' #txt
+Ss0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
+Ss0 f17 622 132 36 24 20 -2 #rect
+Ss0 f17 @|RichDialogIcon #fIcon
+Ss0 f19 type ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData #txt
+Ss0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Process to start selected?</name>
+        <nameStyle>26,7,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f19 626 74 28 28 9 -24 #rect
+Ss0 f19 @|AlternativeIcon #fIcon
+Ss0 f7 expr out #txt
+Ss0 f7 640 156 640 179 #arcP
+Ss0 f20 expr out #txt
+Ss0 f20 640 50 640 74 #arcP
+Ss0 f18 expr in #txt
+Ss0 f18 outCond 'in.#processStart is initialized' #txt
+Ss0 f18 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f18 640 102 640 132 #arcP
+Ss0 f21 expr in #txt
+Ss0 f21 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>no</name>
+        <nameStyle>2,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f21 654 88 653 192 #arcP
+Ss0 f21 1 747 88 #addKink
+Ss0 f21 2 747 192 #addKink
+Ss0 f21 1 0.301389159280854 0 0 #arcLabel
 >Proto Ss0 .type ch.ivyteam.ivy.workflow.ui.process.StartProcessDisplayList.StartProcessDisplayListData #txt
 >Proto Ss0 .processKind RICH_DIALOG #txt
 >Proto Ss0 .ui2RdDataAction 'out.search=panel.searchTextField.valueAsString;
@@ -459,6 +443,8 @@ Ss0 f9 mainOut f11 tail #connect
 Ss0 f11 head f3 mainIn #connect
 Ss0 f12 mainOut f13 tail #connect
 Ss0 f13 head f3 mainIn #connect
+Ss0 f14 mainOut f16 tail #connect
+Ss0 f16 head f15 mainIn #connect
 Ss0 f17 mainOut f7 tail #connect
 Ss0 f7 head f6 mainIn #connect
 Ss0 f5 mainOut f20 tail #connect
@@ -467,5 +453,3 @@ Ss0 f19 out f18 tail #connect
 Ss0 f18 head f17 mainIn #connect
 Ss0 f19 out f21 tail #connect
 Ss0 f21 head f6 mainIn #connect
-Ss0 f14 mainOut f16 tail #connect
-Ss0 f16 head f15 mainIn #connect

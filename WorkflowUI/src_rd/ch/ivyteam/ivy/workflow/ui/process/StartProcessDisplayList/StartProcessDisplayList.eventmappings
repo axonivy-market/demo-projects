@@ -1,11 +1,9 @@
 # Xpert.ivy RichDialog Event-Mapping Data
-# 2011-01-14 15:30:45 | 4.2.0.35322 | 1.0
-~.startMenuItem@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/119492C089B8FAA4
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/1194923FF289C8F3
-~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/12C73BE98EA97C14
+# 2014-02-03 15:21:49 | 5.0.8.44659 | 1.0
 ~.searchHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/1198AF348A23A0BC
-~.showNoNameCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/1198AD228381C945
-~.startList@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/119492C089B8FAA4
 ~.searchTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/1198AF348A23A0BC
+~.showNoNameCheckBox@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/1198AD228381C945
+~.startList@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/143F817862FD7B03 # StartProcessDisplayListProcess.mod/startProcess
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/12C73BE98EA97C14
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/1194923FF289C8F3
 ~@RD_METHODCALL[start(String)]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/11A9B8D99F1AD970
-~.stratButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12A235154BB40481/119492C089B8FAA4
