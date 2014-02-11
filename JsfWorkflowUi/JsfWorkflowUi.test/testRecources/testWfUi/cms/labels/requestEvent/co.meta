@@ -1,0 +1,4 @@
+co: name={requestEvent} description={} changed={2013-03-14 11:44:03 CET} changedby={locadmin} visualorder={0} guid={13D687F5FD82311E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={13D687F5FD8484DA} datatype={} isdefault={true} langid={en} description={} validfrom={2013-03-14 11:43:30 CET} validto={} changed={2013-03-14 11:44:03 CET} changedby={locadmin} properties={} id={}
+val: guid={13D687F7AF7FB52C} datatype={} isdefault={false} langid={de} description={} validfrom={2013-03-14 11:43:37 CET} validto={} changed={2013-03-14 11:44:03 CET} changedby={locadmin} properties={} id={}
+val: guid={13D687F82A5C9E48} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-03-14 11:43:39 CET} validto={} changed={2013-03-14 11:44:03 CET} changedby={locadmin} properties={} id={}

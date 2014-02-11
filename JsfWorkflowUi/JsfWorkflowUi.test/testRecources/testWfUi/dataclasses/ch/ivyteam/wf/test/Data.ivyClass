@@ -1,0 +1,24 @@
+Data #class
+ch.ivyteam.wf.test #namespace
+caption String #field
+caption PERSISTENT #fieldModifier
+description String #field
+description PERSISTENT #fieldModifier
+ok Boolean #field
+ok PERSISTENT #fieldModifier
+prio Number #field
+prio PERSISTENT #fieldModifier
+responsibleRole String #field
+responsibleRole PERSISTENT #fieldModifier
+confirm String #field
+confirm PERSISTENT #fieldModifier
+processName String #field
+processName PERSISTENT #fieldModifier
+url String #field
+url PERSISTENT #fieldModifier
+message String #field
+message PERSISTENT #fieldModifier
+category String #field
+category PERSISTENT #fieldModifier
+process String #field
+process PERSISTENT #fieldModifier

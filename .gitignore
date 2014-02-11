@@ -10,9 +10,13 @@ HtmlWfUi/src_dataClasses/*
 IvyDemos/classes
 IvyDemos/logs
 IvyDemos/src_dataClasses/*
+JsfWorkflowUi/JsfWorkflowUi.test/classes
+JsfWorkflowUi/JsfWorkflowUi.test/target
+JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/classes
+JsfWorkflowUi/JsfWorkflowUi/classes/*
+JsfWorkflowUi/JsfWorkflowUi/src_dataClasses/*
 JsfWorkflowUi/build
-JsfWorkflowUi/classes/*
-JsfWorkflowUi/src_dataClasses/*
+JsfWorkflowUi/target
 WorkflowUI/classes
 WorkflowUI/classes/*
 WorkflowUI/logs

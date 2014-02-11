@@ -1,0 +1,5 @@
+ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=ch.ivyteam.wf.test.Data
+ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=ch.ivyteam.wf.test
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=50100
+ch.ivyteam.ivy.project.preferences\:SYNC_TEST_USERS=true
+eclipse.preferences.version=1

@@ -13,23 +13,14 @@
 
 	<taskdef resource="net/sf/antcontrib/antlib.xml">
 		<classpath>
-			<fileset dir="../../buildEnv/antlibs">
+			<fileset dir="${dir.trunk}/buildEnv/antlibs">
 				<include name="**/*.jar"/>
 			</fileset>
 		</classpath>
 	</taskdef>
 
-	<property file="ant.properties"/>	
+	<property file="ant.properties"/>
 
-
-	
-	<target name="clean">
-		<delete dir="${dir.build.output}" quiet="true"/>
-		<delete includeEmptyDirs="true">
-			<fileset dir="${dir.ivyProjects.project}/classes" includes="**/*"/>
-			<fileset dir="${dir.ivyProjects.project}/src_dataClasses" includes="**/*"/>
-		</delete>
-	</target>
 	
 	<target name="all" depends="ivyProject"/>
 	
@@ -40,9 +31,6 @@
 		<zip destfile="${dir.build.output}/${project.name}.zip">
 			<fileset dir="${dir.ivyProjects.project}">
 				<include name="**/*"/>
-				<exclude name="**/build/"/>
-				<exclude name="**/build.xml"/>
-				<exclude name="**/ant.properties"/>
 			</fileset>
 		</zip>
 	</target>
@@ -148,4 +136,31 @@
 		</if>
 		
 	</target>
+	
+	<target name="server-start">
+		<antcallback antfile="${dir.trunk}/builtUtil/IvyServerAntTasks/build/local/local_targets.xml" target="server-start" return="console.file" 
+			dir="../../" inheritAll="true">
+			<property name="install.dir.root" value="${dir.build.tools}" />
+			<property name="instance.id" value="" />
+		</antcallback>
+		
+		<loadfile property="logfile.content" srcFile="${console.file}"/>
+		<propertyregex property="webtest.http.port" regexp="http://[a-zA-Z]*:([0-9]+)/ivy"  input="${logfile.content}" select="\1"/>
+
+		<echo>Server started @ ${webtest.http.port}</echo>
+		<condition property="skip.tests">
+			<not>
+		  		<matches pattern="[0-9]+" string="${webtest.http.port}" casesensitive="false"/>
+		  	</not>
+		</condition>
+	</target>
+	
+	<target name="server-stop">
+		<ant antfile="${dir.trunk}/builtUtil/IvyServerAntTasks/build/local/local_targets.xml" target="server-stop"
+			dir="../../" inheritAll="true" >
+			<property name="install.dir.root" value="${dir.build.tools}" />
+			<property name="instance.id" value="" />
+		</ant>
+	</target>
+	
 </project>

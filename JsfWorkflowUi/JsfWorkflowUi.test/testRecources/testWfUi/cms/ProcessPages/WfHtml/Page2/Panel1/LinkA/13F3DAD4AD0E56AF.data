@@ -1,0 +1,13 @@
+<FORM NAME="formLinkA" METHOD="POST" ACTION='<%=ivy.html.ref("LinkA.ivp")%>'  >
+<!--ivyform--><table BORDER="0"><tr >
+<td ><!--i.tok--><%=ivy.cms.co("/labels/confirm")%></td>
+<td ><!--i.aok--><%=ivy.html.radioselection("\"@_;true;true_false;false_\"","ok",2,"in.ok")%></td>
+</tr>
+<tr >
+<td ></td>
+<td ><!--i.submit-->
+<INPUT ID="submit"  TYPE="SUBMIT" NAME="Submit" VALUE="Submit"></td>
+</tr>
+
+</table>
+</FORM>

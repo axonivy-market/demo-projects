@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="/templates/Layout.xhtml">
+	<ui:param name="centerHeader" value="#{ivy.cms.co('/labels/requestEvent')}" />
+	<ui:define name="center">
+		<h:outputText value="#{ivy.cms.co('/labels/request')}" style="font-style: italic; font-weight: bold" />
+		<h:form id="formRequest">
+			<h:panelGrid columns="3" cellpadding="5" columnClasses="label-top">
+				<p:outputLabel value="#{ivy.cms.co('/labels/title')}" for="caption" />
+				<p:inputText name="caption" value="#{data.data.caption}" id="caption" required="true" />
+				<p:message for="caption" />
+				<h:outputText value="#{ivy.cms.co('/labels/prio')}" />
+				<p:selectOneMenu value="#{data.data.prio}" id="taskPriority">
+          			<f:selectItem itemLabel="LOW" itemValue="3" />  
+           			<f:selectItem itemLabel="NORMAL" itemValue="2" />  
+           			<f:selectItem itemLabel="HIGH" itemValue="1" />  
+           			<f:selectItem itemLabel="EXCEPTION" itemValue="0" />  
+       			</p:selectOneMenu>
+       			<br />
+				<p:outputLabel value="#{ivy.cms.co('/labels/description')}" for="description" />
+				<p:inputTextarea name="description" id="description" rows="6" cols="33" value="#{data.data.description}" required="true" />
+				<p:message for="description" />
+				<p:outputLabel value="#{ivy.cms.co('/labels/category')}" for="category" />
+				<p:inputText name="caption" value="#{data.data.category}" id="category" />
+				<br />
+				<p:outputLabel value="#{ivy.cms.co('/labels/process')}" for="process" />
+				<p:inputText name="caption" value="#{data.data.process}" id="process" />
+				<br />
+			</h:panelGrid>
+			<p:commandButton name="save" id="submitJsf" value="Submit" actionListener="#{logic.submitForm}" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
