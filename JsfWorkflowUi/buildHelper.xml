@@ -37,7 +37,7 @@
 
 	<target name="javac" depends="ivyDataClasses">
 		<mkdir dir="${dir.ivyProjects.project}/classes"/>
-		<javac destdir="${dir.ivyProjects.project}/classes" memoryMaximumSize="768M" fork="yes" executable="${tools.java.compiler}" 
+		<javac destdir="${dir.ivyProjects.project}/classes" memoryMaximumSize="768M" fork="yes" 
 			includeAntRuntime="no" debug="${build.debug}" verbose="true">
 			<classpath>
 				<pathelement path="${classpath.ivy.server}"/>
