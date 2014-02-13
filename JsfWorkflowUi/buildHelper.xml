@@ -67,7 +67,7 @@
 			classname="ch.ivyteam.ivy.scripting.dataclass.DataClassBuilderWorkspaceDir" failonerror="true" 
 			classpath="${classpath.ivy.server}">
 				<arg value="-workspaceDirectory"/>
-				<arg value="${dir.ivyProjects}"/>
+				<arg value="${project.base.dir}"/>
 				<jvmarg value="-Djava.library.path=${dir.ivy.server}/bin"/>
 		</java>
 	</target>

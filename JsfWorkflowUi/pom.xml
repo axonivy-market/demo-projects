@@ -10,9 +10,10 @@
 		<ant.version>1.7</ant.version>
 		
 		<project.jsfWorkflowUi>JsfWorkflowUi</project.jsfWorkflowUi>
-		<project.testWfUi>testWfUi</project.testWfUi>
 		<dir.jsfWorkflowUi>${basedir}/${project.jsfWorkflowUi}</dir.jsfWorkflowUi>
-		<dir.testWfUi>${basedir}/JsfWorkflowUi.test/testRecources/${project.testWfUi}</dir.testWfUi>
+		<project.testWfUi>testWfUi</project.testWfUi>
+		<base.dir.testWfUi>${basedir}/JsfWorkflowUi.test/testRecources</base.dir.testWfUi>
+		<dir.testWfUi>${base.dir.testWfUi}/${project.testWfUi}</dir.testWfUi>
 		<dir.build.file>${basedir}/buildHelper.xml</dir.build.file>
 	</properties>
 
@@ -135,10 +136,12 @@
 								<ant antfile="${dir.build.file}" target="all">
 									<property name="project.name" value="${project.jsfWorkflowUi}"/>
 									<property name="dir.ivyProjects.project" value="${dir.jsfWorkflowUi}"/>
+									<property name="project.base.dir" value="${basedir}"/>
 								</ant>
 								<ant antfile="${dir.build.file}" target="all">
 									<property name="project.name" value="${project.testWfUi}"/>
 									<property name="dir.ivyProjects.project" value="${dir.testWfUi}"/>
+									<property name="project.base.dir" value="${base.dir.testWfUi}"/>
 								</ant>
 								<copy todir="${dir.ivy.server}/applications/System/${project.jsfWorkflowUi}/1">
 									<fileset dir="${dir.jsfWorkflowUi}">
