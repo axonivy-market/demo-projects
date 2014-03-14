@@ -8,6 +8,7 @@
  
 <h:head>
 	<title>Xpert.ivy Html Dialog Demos</title>
+	<h:outputStylesheet name="styles/style.css" />
 </h:head>
 <h:body style="font-size: 9pt;">
 	<p:layout fullPage="true" gutter="10px">
@@ -59,6 +60,10 @@
 							url="#{ivy.html.startref('Demo/PartialUpdateDemo.ivp')}" />
 					</p:submenu>
 					<p:submenu label="Other" >
+						<p:menuitem value="Html 5 / JSF 2.2 Demo"
+							url="#{ivy.html.startref('Demo/Html5Demo.ivp')}"
+							styleClass="new-demo">
+							</p:menuitem>
 						<p:menuitem value="AJAX Method Call Demo"
 							url="#{ivy.html.startref('Demo/MethodCallWithAjaxDemo.ivp')}" />
 						<p:menuitem value="Managed Bean Demo"

@@ -1,0 +1,5 @@
+Html5DemoData #class
+ch.ivyteam.htmldialog.demo.other.Html5Demo #namespace
+userName String #field
+userName PERSISTENT #fieldModifier
+subscribe String #field

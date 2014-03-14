@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <title>ManagedBean Demo</title>
+    </h:head>
+<h:body>
+	<ui:composition template="/PageTemplate.xhtml">
+
+	<ui:define name="center">
+		<p:layoutUnit position="center" header="Html 5 / JSF 2.2 Demo">
+		
+    		<p:panel id="panel">
+    			<p>This demo shows some new feature introduces with JSF 2.2 (Xpert.ivy 5.1).</p>
+    	 		
+	   	 		<h:form id="placeholder">
+	   				<h3>Placeholder</h3>
+	   				<p>It is possible to add a placeholder text.</p>
+	   				<h:inputText value="#{data.subscribe}" id="username" required="true" size="30">
+	   					<!-- Please note, that there are other possibilities to add a placeholder attribute. This is just an example. -->
+	   					<f:passThroughAttribute name="placeholder" value="Your mail address" />
+	   				</h:inputText>
+	    			<p:commandButton value="subscribe"/>
+	    		</h:form>
+	    	 		
+	   	 		<h:form id="paintHtml">
+	   	 			<p:growl id="growl" showDetail="true" sticky="true" />  
+
+	   				<h3>Plain Html</h3>
+	   				<p>It is possible to write plain Html and add name-spaced attributes to components to 
+	    	 		use data-binding or other JSF features.</p>
+
+					<label for="name">Name</label> 
+					<input type="text" id="name" name="username" jsf:value="#{data.userName}" jsf:size="30"/>
+	    			<p:commandButton value="show" actionListener="#{logic.growlName}" update="growl"/>
+
+	    		</h:form>
+
+    	 	</p:panel>
+		</p:layoutUnit>
+	</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

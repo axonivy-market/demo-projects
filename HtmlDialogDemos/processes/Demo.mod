@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jan 10 16:26:47 CET 2014]
+[>Created: Thu Mar 13 16:06:56 CET 2014]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -115,6 +115,11 @@ Do0 @PushWFArc f101 '' #zField
 Do0 @RichDialog f102 '' #zField
 Do0 @PushWFArc f103 '' #zField
 Do0 @PushWFArc f41 '' #zField
+Do0 @RichDialog f104 '' #zField
+Do0 @EndTask f105 '' #zField
+Do0 @StartRequest f106 '' #zField
+Do0 @PushWFArc f107 '' #zField
+Do0 @PushWFArc f108 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -2011,6 +2016,97 @@ Do0 f103 expr out #txt
 Do0 f103 768 540 768 564 #arcP
 Do0 f41 expr out #txt
 Do0 f41 768 588 768 603 #arcP
+Do0 f104 targetWindow NEW:card: #txt
+Do0 f104 targetDisplay TOP #txt
+Do0 f104 richDialogId ch.ivyteam.htmldialog.demo.other.Html5Demo #txt
+Do0 f104 startMethod start() #txt
+Do0 f104 type htmlDialogDemos.Data #txt
+Do0 f104 requestActionDecl '<> param;' #txt
+Do0 f104 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f104 responseMappingAction 'out=in;
+' #txt
+Do0 f104 windowConfiguration '* ' #txt
+Do0 f104 isAsynch false #txt
+Do0 f104 isInnerRd false #txt
+Do0 f104 userContext '* ' #txt
+Do0 f104 526 1124 36 24 20 -2 #rect
+Do0 f104 @|RichDialogIcon #fIcon
+Do0 f105 type htmlDialogDemos.Data #txt
+Do0 f105 531 1187 26 26 14 0 #rect
+Do0 f105 @|EndIcon #fIcon
+Do0 f106 outLink Html5Demo.ivp #txt
+Do0 f106 type htmlDialogDemos.Data #txt
+Do0 f106 inParamDecl '<> param;' #txt
+Do0 f106 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f106 guid 144BBFAD1F439B56 #txt
+Do0 f106 requestEnabled true #txt
+Do0 f106 triggerEnabled false #txt
+Do0 f106 callSignature Html5Demo() #txt
+Do0 f106 persist false #txt
+Do0 f106 startName 'Jsf Composite Component Demo' #txt
+Do0 f106 taskData '#
+#Thu Mar 13 16:06:54 CET 2014
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f106 caseData '#
+#Thu Mar 13 16:06:54 CET 2014
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f106 showInStartList 1 #txt
+Do0 f106 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f106 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Html5Demo.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+Do0 f106 @C|.responsibility Everybody #txt
+Do0 f106 531 1059 26 26 14 0 #rect
+Do0 f106 @|StartRequestIcon #fIcon
+Do0 f107 expr out #txt
+Do0 f107 544 1085 544 1124 #arcP
+Do0 f108 expr out #txt
+Do0 f108 544 1148 544 1187 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2113,3 +2209,7 @@ Do0 f38 mainOut f103 tail #connect
 Do0 f103 head f102 mainIn #connect
 Do0 f102 mainOut f41 tail #connect
 Do0 f41 head f37 mainIn #connect
+Do0 f106 mainOut f107 tail #connect
+Do0 f107 head f104 mainIn #connect
+Do0 f104 mainOut f108 tail #connect
+Do0 f108 head f105 mainIn #connect
