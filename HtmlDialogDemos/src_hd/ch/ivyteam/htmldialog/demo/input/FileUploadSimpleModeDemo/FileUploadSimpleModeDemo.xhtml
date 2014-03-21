@@ -35,8 +35,8 @@
 						<br />
 						<br />
 						<p:outputPanel rendered="#{not empty data.textContent}">
-							<h:outputLabel id="fileNameLabel"
-								value="Content of #{data.fileName}:"></h:outputLabel>
+							<h:outputText id="fileNameLabel"
+								value="Content of #{data.fileName}:"></h:outputText>
 							<br />
 							<h:inputTextarea rows="10" cols="80" id="textAreaLabel"
 								value="#{data.textContent}"></h:inputTextarea>
