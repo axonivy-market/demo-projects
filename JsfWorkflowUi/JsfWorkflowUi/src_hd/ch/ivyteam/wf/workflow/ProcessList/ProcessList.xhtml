@@ -18,8 +18,8 @@
 		<br /><br />
 		<h:form>
 		<p:dataTable var="start" value="#{data.starts}"
-			emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" sortBy="#{start.name.toUpperCase()}#{start.userFriendlyRequestPath.toUpperCase()}" sortOrder="ASCENDING">
-			<p:column sortBy="#{start.name.toUpperCase()}#{start.userFriendlyRequestPath.toUpperCase()}">
+			emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" sortOrder="ASCENDING">
+			<p:column>
 				<f:facet name="header">
 					#{ivy.cms.co('/labels/common/name')}
 				</f:facet>
