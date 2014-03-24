@@ -21,7 +21,7 @@
 	           			<f:convertDateTime pattern="dd.MM.yyyy" />
 	           		</p:calendar>
 	           		<p:spacer width="10" />
-					<pe:timePicker id="expiryTime" value="#{data.expiryTime}" showOn="button" mode="popup" widgetVar="popupBtnTimeWidget" label="Time">
+					<pe:timePicker id="expiryTime" value="#{data.expiryTime}" mode="popup" widgetVar="popupBtnTimeWidget" label="Time">
 						<f:convertDateTime pattern="HH:mm" />
 					</pe:timePicker>
 					<p:commandButton type="button" icon="ui-icon-clock" onclick="selectTimePickerExpiryTime()" styleClass="ui-datepicker-trigger" />
@@ -41,7 +41,7 @@
 	           			<f:convertDateTime pattern="dd.MM.yyyy" />
 	           		</p:calendar>
 	           		<p:spacer width="10" />
-					<pe:timePicker id="delayTime" value="#{data.delayTime}" showOn="button" mode="popup" widgetVar="popupBtnTimeWidget" label="Time" disabled="#{data.task.state != 'DELAYED'}">
+					<pe:timePicker id="delayTime" value="#{data.delayTime}" mode="popup" widgetVar="popupBtnTimeWidget" label="Time" disabled="#{data.task.state != 'DELAYED'}">
 						<f:convertDateTime pattern="HH:mm" />
 					</pe:timePicker>
 					<p:commandButton type="button" icon="ui-icon-clock" onclick="selectTimePickerDelayTime()" disabled="#{data.task.state != 'DELAYED'}" styleClass="ui-datepicker-trigger" />
