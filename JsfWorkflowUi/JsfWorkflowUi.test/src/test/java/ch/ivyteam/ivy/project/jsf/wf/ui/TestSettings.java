@@ -16,32 +16,31 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     addAbsence("31.31.2030", "32:32", "31.31.2031", "40:40", "Add absence test");
     driverHelper.waitUntilEnabled(By.id("formAddAbsence:saveNewAbsence"));
     driverHelper.assertAjaxElementContains(By.id("formAddAbsence:absenceMessage"), "could not be understood as a date");
-    checkIfContains("no items");
+    checkIfAbsenceContains("no items");
     addAbsence("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence test");
-    checkIfContains("Add absence test");
+    checkIfAbsenceContains("Add absence test");
     deleteAbsence();
-    checkIfContains("no items");
+    checkIfAbsenceContains("no items");
   }
   
   @Test
   public void testEditAbsence() throws Exception
   {
     addAbsence("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence test");
-    checkIfContains("Add absence test");
+    checkIfAbsenceContains("Add absence test");
     editAbsence("31.31.2030", "32:32", "31.31.2031", "40:40", "Edit absence test");
     driverHelper.waitUntilEnabled(By.id("formEditAbsence:saveEditAbsence"));
     driverHelper.assertAjaxElementContains(By.id("formEditAbsence:absenceMessage"), "could not be understood as a date");
-    checkIfContains("Add absence test");
+    checkIfAbsenceContains("Add absence test");
     editAbsence("15.04.2030", "11:11", "16.04.2031", "09:09", "Edit absence test");
-    checkIfContains("Edit absence test");
+    checkIfAbsenceContains("Edit absence test");
     deleteAbsence();
-    checkIfContains("no items");
+    checkIfAbsenceContains("no items");
   }
 
   private void addAbsence(String startDate, String startTime, String endDate, String endTime, String description)
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
-    driverHelper.findElementById("absence").click();
+    driverHelper.openProcessLink("JsfWorkflowUi/13F3C911395912D4/Absence.ivp");
     driverHelper.clickAndWaitForAjax(By.id("formAddButton:addAbsence"));
     driverHelper.findElementById("formAddAbsence:absenceStartTime_input").click();
     driverHelper.findElementById("formAddAbsence:absenceStartTime_input").sendKeys(startTime);
@@ -58,8 +57,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   
   private void editAbsence(String startDate, String startTime, String endDate, String endTime, String description)
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
-    driverHelper.findElementById("absence").click();
+    driverHelper.openProcessLink("JsfWorkflowUi/13F3C911395912D4/Absence.ivp");
     driverHelper.clickAndWaitForAjax(By.id("formAbsence:tableAbsence:0:editButton"));
     driverHelper.findElementById("formEditAbsence:absenceStartTime_input").click();
     driverHelper.findElementById("formEditAbsence:absenceStartTime_input").clear();
@@ -79,10 +77,9 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     driverHelper.clickAndWaitForAjax(By.id("formEditAbsence:saveEditAbsence"));
   }
   
-  private void checkIfContains(String description)
+  private void checkIfAbsenceContains(String description)
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
-    driverHelper.findElementById("absence").click();
+    driverHelper.openProcessLink("JsfWorkflowUi/13F3C911395912D4/Absence.ivp");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(description);
   }
 
@@ -106,8 +103,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void addSubstituteForMyTasks()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
-    driverHelper.findElementById("substitution").click();
+    driverHelper.openProcessLink("JsfWorkflowUi/13F5720218D18BA2/Substitution.ivp");
     driverHelper.clickAndWaitForAjax(By.id("formAddButton:addSubstitute"));
     driverHelper.findElementById("formAddSubstitute:substituteUser_label").click();
     driverHelper.findElement(By.xpath("//div[@id='formAddSubstitute:substituteUser_panel']/div[2]/ul/li[@data-label='Test User 2 (user2)']")).click();
@@ -120,25 +116,21 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   private void checkIsSubstituteForMyTasksAdded()
   {
     driverHelper.openProcessLink("JsfWorkflowUi/13F5720218D18BA2/Substitution.ivp");
-    driverHelper.findElementById("substitution").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("user2");
   }
 
   private void checkIsMySubstitutionAdded()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
-    driverHelper.findElementById("substitution").click();
+    driverHelper.openProcessLink("JsfWorkflowUi/13F5720218D18BA2/Substitution.ivp");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(WEB_TEST_SERVER_ADMIN_USER);
   }
 
   private void addSubstitutesForMyRoles()
   {
     driverHelper.clickAndWaitForAjax(By.id("formAddButton:addSubstitute"));
-    driverHelper.clickAndWaitForAjax(By.id("formAddSubstitute:options:1"));
-    // select role 1
-    driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='formAddSubstitute:roleSelection_panel']/div[2]/ul/li/div/div"));
-    // select role 2
-    driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='formAddSubstitute:roleSelection_panel']/div[2]/ul/li[2]/div/div"));
+    driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='formAddSubstitute:optRole']/div[2]"));
+    driverHelper.findElement(By.xpath("//div[@id='formAddSubstitute:roleSelection']/a/label")).click();
+    driverHelper.findElement(By.xpath("//div[@id='formAddSubstitute:roleSelection_panel']/div/div/div")).click();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
@@ -148,42 +140,37 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   private void checkIsSubstituteForMyRolesAdded()
   {
     driverHelper.openProcessLink("JsfWorkflowUi/13F5720218D18BA2/Substitution.ivp");
-    driverHelper.findElementById("substitution").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("role1");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("role2");
   }
 
   private void deleteSubstitute()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
-    driverHelper.findElementById("substitution").click();
+    driverHelper.openProcessLink("JsfWorkflowUi/13F5720218D18BA2/Substitution.ivp");
     driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
   }
   
   @Test
   public void testMailNotification() throws Exception
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
-    driverHelper.findElementById("mailSettings").click();
+    driverHelper.openProcessLink("JsfWorkflowUi/13F51835BF0FECEF/MailNotificationSettings.ivp");
     // set User specific
-    driverHelper.findElement(By.id("formMailNotification:appDefault:1")).click();
+    driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='formMailNotification:appDefault']/div[2]/span"));
     setMailNotification();
-    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
-    driverHelper.findElementById("mailSettings").click();
+    driverHelper.openProcessLink("JsfWorkflowUi/13F51835BF0FECEF/MailNotificationSettings.ivp");
     checkSetMailNotification();
   }
 
   private void setMailNotification()
   {
-    driverHelper.waitUntilEnabled(By.id("formMailNotification:onTask_input"));
-    driverHelper.findElement(By.id("formMailNotification:onTask_input")).click();
-    driverHelper.findElement(By.id("formMailNotification:checkMonday_input")).click();
-    driverHelper.findElement(By.id("formMailNotification:checkTuesday_input")).click();
-    driverHelper.findElement(By.id("formMailNotification:checkWednesday_input")).click();
-    driverHelper.findElement(By.id("formMailNotification:checkThursday_input")).click();
-    driverHelper.findElement(By.id("formMailNotification:checkFriday_input")).click();
-    driverHelper.findElement(By.id("formMailNotification:checkSaturday_input")).click();
-    driverHelper.findElement(By.id("formMailNotification:checkSunday_input")).click();
+    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:onTask']/div[2]")).click();
+    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkMonday']/div[2]")).click();
+    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkTuesday']/div[2]")).click();
+    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkWednesday']/div[2]")).click();
+    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkThursday']/div[2]")).click();
+    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkFriday']/div[2]")).click();
+    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkSaturday']/div[2]")).click();
+    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkSunday']/div[2]")).click();
     driverHelper.clickAndWaitForAjax(By.id("formMailNotification:saveMailNotification"));
   }
 
@@ -244,7 +231,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void callDefaultLogin()
   {
-    driverHelper.findElementById("taskList").click();
+    driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
     // get task id
     String taskIdPart = "taskId=";
     String taskId = driverHelper.findElementById("taskLinkRow_0").getAttribute("href").substring(driverHelper.findElementById("taskLinkRow_0").getAttribute("href").indexOf(taskIdPart) + taskIdPart.length());
@@ -259,7 +246,6 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     passwordElement.clear();
     passwordElement.sendKeys(WEB_TEST_SERVER_ADMIN_PASSWORD);
     driverHelper.findElementById("loginPageComponent:loginForm:loginButton").click();
-    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Request event");
     closeTask();
     driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Home");
   }

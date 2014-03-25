@@ -12,6 +12,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,7 +31,9 @@ public class IvyWebDriverHelper
 
   public IvyWebDriverHelper()
   {
-    driver = newHtmlUnitDriver();
+    FirefoxProfile profile = new FirefoxProfile();
+    profile.setPreference("intl.accept_languages", "en");
+    driver = new FirefoxDriver(profile);
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
   }
 
@@ -180,19 +184,19 @@ public class IvyWebDriverHelper
   {
     try
     {
-      waitAtLast(40).until(new ExpectedCondition<Boolean>()
+      waitAtLast(15).until(new ExpectedCondition<Boolean>()
         {
           @Override
           public Boolean apply(WebDriver d)
           {
             return (Boolean) ((JavascriptExecutor) d)
-                    .executeScript("return (window.jQuery == null) || (jQuery.active === 0);");
+                    .executeScript("return (window.PrimeFaces == null) || (window.PrimeFaces.ajax.Queue.isEmpty());");
           }
         });
     }
     catch(TimeoutException ex)
     {
-      throw new IllegalStateException("Timout while waiting for jQuery.active == 0, see page source: " + getWebDriver().getPageSource(), ex);
+      throw new IllegalStateException("Timout while waiting for window.PrimeFaces.ajax.Queue.isEmpty(), see page source: " + getWebDriver().getPageSource(), ex);
     }
   }
 }

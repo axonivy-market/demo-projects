@@ -31,7 +31,6 @@ public class TestFilter extends BaseJsfWorkflowUiTest
   private void checkIfFilterIsApplied(String filterForCategory, String filterForProcess)
   {
     driverHelper.openProcessLink("JsfWorkflowUi/13F1D890C62823FF/CaseList.ivp");
-    driverHelper.findElementById("caseList").click();
     driverHelper.findElementById("caseListForm:categoryFilter_label").click();
     driverHelper.clickAndWaitForAjax(By
             .xpath("//div[@id='caseListForm:categoryFilter_panel']/div/ul/li[@data-label='"
@@ -55,7 +54,6 @@ public class TestFilter extends BaseJsfWorkflowUiTest
   private void checkIsCaseCreated(String category, String process)
   {
     driverHelper.openProcessLink("JsfWorkflowUi/13F1D890C62823FF/CaseList.ivp");
-    driverHelper.findElementById("caseList").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Test Workflow Jsf");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(category);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(process);
@@ -112,7 +110,6 @@ public class TestFilter extends BaseJsfWorkflowUiTest
   private void openTaskList()
   {
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
-    driverHelper.findElementById("taskList").click();
     assertMainLayoutUnitContains("Task List");
   }
 

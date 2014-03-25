@@ -21,7 +21,7 @@
 		<h:form id="formConfirmation">
 			<h:panelGrid columns="3" cellpadding="5" columnClasses="label-top">
 				<p:outputLabel value="#{ivy.cms.co('/labels/confirm')}?"/>
-				<p:selectOneRadio id="options" value="#{data.data.confirm}" required="true" > 
+				<p:selectOneRadio id="options" value="#{data.data.confirm}"> 
          			<f:selectItem itemLabel="#{ivy.cms.co('/labels/yes')}" itemValue="true" />
          			<f:selectItem itemLabel="#{ivy.cms.co('/labels/no')}" itemValue="false" />
     			</p:selectOneRadio>

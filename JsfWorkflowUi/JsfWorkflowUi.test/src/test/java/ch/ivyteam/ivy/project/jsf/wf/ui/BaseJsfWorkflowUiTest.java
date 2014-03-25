@@ -117,9 +117,7 @@ public class BaseJsfWorkflowUiTest
   protected void closeTask()
   {
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
-    driverHelper.findElementById("taskList").click();
     driverHelper.findElementById("taskLinkRow_0").click();
-    driverHelper.findElementById("formConfirmation:options:0").click();
     driverHelper.clickAndWaitForAjax(By.id("formConfirmation:save"));
   }
 }

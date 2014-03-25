@@ -4,6 +4,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 
 public class TestWorkflow extends BaseJsfWorkflowUiTest
@@ -15,11 +16,12 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
     assertThat(driverHelper.findElementById("mainLayoutUnit").getText()).contains("Home");
     //Start processList
-    driverHelper.findElementById("processListInfo").click();
+    driverHelper.findElement(By.xpath("//div[@id='homeInfoPanel']/ul/li[3]/a/span")).click();
     driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Process List");
     //Start TaskList
     driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
-    driverHelper.findElementById("taskListInfo").click();
+    WebElement processListLink = driverHelper.findElement(By.xpath("//div[@id='homeInfoPanel']/ul/li[2]/a/span"));
+    processListLink.click();
     driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Task List");
   }
   
@@ -44,7 +46,6 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   private void checkIsTaskCreated()
   {
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
-    driverHelper.findElementById("taskList").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF titel");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Prio EXCEPTION");
   }
@@ -52,7 +53,6 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   private void checkIsTaskClosed()
   {
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
-    driverHelper.findElementById("taskList").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("JSF titel");
   }
 }
