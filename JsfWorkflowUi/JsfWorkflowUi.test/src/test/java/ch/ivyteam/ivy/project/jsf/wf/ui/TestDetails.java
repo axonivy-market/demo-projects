@@ -66,16 +66,16 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("taskForChangeExpiry","Test change expiry", 2);
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    driverHelper.findElementById("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForChangeExpiry");
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openChangeExpiry"));
+    driverHelper.findElementById("formTaskDetails:openChangeExpiry").click();
     driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").click();
     driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").sendKeys("30.04.2030");
     driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").click();
     driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").sendKeys("10:10");
-    driverHelper.clickAndWaitForAjax(By.id("formDetailsChangeExpiry:saveChangeExpiry"));
+    driverHelper.findElementById("formDetailsChangeExpiry:saveChangeExpiry").click();
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    driverHelper.findElementById("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("4/30/30 10:10 AM");
     closeTask();
   }
@@ -85,14 +85,14 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("taskForChangeExpiryOlderDate","Test change expiry", 2);
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    driverHelper.findElementById("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForChangeExpiry");
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openChangeExpiry"));
+    driverHelper.findElementById("formTaskDetails:openChangeExpiry").click();
     driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").click();
     driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").sendKeys("15.07.2013");
     driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").click();
     driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").sendKeys("10:10");
-    driverHelper.clickAndWaitForAjax(By.id("formDetailsChangeExpiry:saveChangeExpiry"));
+    driverHelper.findElementById("formDetailsChangeExpiry:saveChangeExpiry").click();
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("JSF taskForChangeExpiryOlderDate");
   }
@@ -103,23 +103,23 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     createTask("taskDelegateTask","Test change expiry", 2);
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTask");
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    driverHelper.findElementById("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTask");
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
     driverHelper.findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s")).click();
     driverHelper.findElement(By.xpath("//div[@id='formDelegateTask:selectionOfUser_panel']/div[2]/ul/li[@data-label='Test User 1 (user1)']")).click();
-    driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
+    driverHelper.findElementById("formDelegateTask:saveDelegateTask").click();
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskDelegateTask");
     createTask("taskDelegateTaskToRole","Test delegate to role", 2);
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTaskToRole");
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
+    driverHelper.findElementById("buttonTaskDetail").click();
+    driverHelper.findElementById("formTaskDetails:openDelegateTask").click();
     driverHelper.findElement(By.xpath("//div[@id='formDelegateTask:delegateToRole']/div[2]")).click();
-    driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
+    driverHelper.findElementById("formDelegateTask:saveDelegateTask").click();
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    driverHelper.findElementById("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Everybody");
     closeTask();
   }
@@ -129,10 +129,10 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("caseDestroyWorkflow","Test destroy workflow", 2);
     driverHelper.openProcessLink("JsfWorkflowUi/13F1D890C62823FF/CaseList.ivp");
-    driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
+    driverHelper.findElementById("buttonCaseDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("caseDestroyWorkflow");
-    driverHelper.clickAndWaitForAjax(By.id("formCaseDetails:openDeleteCase"));
-    driverHelper.clickAndWaitForAjax(By.id("formConfirmDeleteReset:confirmAction"));
+    driverHelper.findElementById("formCaseDetails:openDeleteCase").click();
+    driverHelper.findElementById("formConfirmDeleteReset:confirmAction").click();
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("JSF caseDestroyWorkflow");
   }
@@ -142,10 +142,10 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("caseCancelDestroyWorkflow","Test destroy workflow", 2);
     driverHelper.openProcessLink("JsfWorkflowUi/13F1D890C62823FF/CaseList.ivp");
-    driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
+    driverHelper.findElementById("buttonCaseDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("caseCancelDestroyWorkflow");
-    driverHelper.clickAndWaitForAjax(By.id("formCaseDetails:openDeleteCase"));
-    driverHelper.clickAndWaitForAjax(By.id("formConfirmDeleteReset:notConfirmAction"));
+    driverHelper.findElementById("formCaseDetails:openDeleteCase").click();
+    driverHelper.findElementById("formConfirmDeleteReset:notConfirmAction").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("SUSPENDED");
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF caseCancelDestroyWorkflow");
@@ -208,14 +208,14 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("changePriorityTask","Test change priority", 2);
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    driverHelper.findElementById("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("changePriorityTask");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("NORMAL");
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openChangePriority"));
-    driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='formDetailsChangePriority:high']/div[2]"));
-    driverHelper.clickAndWaitForAjax(By.id("formDetailsChangePriority:saveChangePriority"));
+    driverHelper.findElementById("formTaskDetails:openChangePriority").click();
+    driverHelper.findElement(By.xpath("//div[@id='formDetailsChangePriority:high']/div[2]")).click();
+    driverHelper.findElementById("formDetailsChangePriority:saveChangePriority").click();
     driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    driverHelper.findElementById("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("HIGH");
     closeTask();
   }
