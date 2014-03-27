@@ -71,21 +71,21 @@ public class TestFilter extends BaseJsfWorkflowUiTest
     // test prio
     openTaskList();
     driverHelper.findElementById("taskListForm:priorityFilter_label").click();
-    driverHelper.findElement(By
-            .xpath("//div[@id='taskListForm:priorityFilter_panel']/div/ul/li[@data-label='LOW']")).click();
+    driverHelper.clickAndWaitForAjax(By
+            .xpath("//div[@id='taskListForm:priorityFilter_panel']/div/ul/li[@data-label='LOW']"));
     driverHelper.findElementById("taskListForm:responsibleFilter_label").click();
-    driverHelper.findElement(By
-                    .xpath("//div[@id='taskListForm:responsibleFilter_panel']/div/ul/li[@data-label='Top level role (Everybody)']")).click();
+    driverHelper.clickAndWaitForAjax(By
+                    .xpath("//div[@id='taskListForm:responsibleFilter_panel']/div/ul/li[@data-label='Top level role (Everybody)']"));
     driverHelper.getWebDriver().navigate().refresh();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskForFilterPrioHigh");
     openTaskList();
     driverHelper.findElementById("taskListForm:priorityFilter_label").click();
-    driverHelper.findElement(By
-            .xpath("//div[@id='taskListForm:priorityFilter_panel']/div/ul/li[@data-label='HIGH']")).click();
+    driverHelper.clickAndWaitForAjax(By
+            .xpath("//div[@id='taskListForm:priorityFilter_panel']/div/ul/li[@data-label='HIGH']"));
     driverHelper.findElementById("taskListForm:responsibleFilter_label").click();
-    driverHelper.findElement(By
-                    .xpath("//div[@id='taskListForm:responsibleFilter_panel']/div/ul/li[@data-label='Top level role (Everybody)']")).click();
+    driverHelper.clickAndWaitForAjax(By
+                    .xpath("//div[@id='taskListForm:responsibleFilter_panel']/div/ul/li[@data-label='Top level role (Everybody)']"));
     driverHelper.getWebDriver().navigate().refresh();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskForFilterLow");
@@ -93,16 +93,16 @@ public class TestFilter extends BaseJsfWorkflowUiTest
     openTaskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
     openTaskDetails();
-    driverHelper.findElementById("formTaskDetails:openDelegateTask").click();
+    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
     driverHelper.findElementById("formDelegateTask:selectionOfUser_label").click();
-    driverHelper.findElement(By
-                    .xpath("//div[@id='formDelegateTask:selectionOfUser_panel']/div[2]/ul/li[@data-label='Test User 1 (user1)']")).click();
-    driverHelper.findElementById("formDelegateTask:saveDelegateTask").click();
+    driverHelper.clickAndWaitForAjax(By
+                    .xpath("//div[@id='formDelegateTask:selectionOfUser_panel']/div[2]/ul/li[@data-label='Test User 1 (user1)']"));
+    driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
     // test responsible
     openTaskList();
     driverHelper.findElementById("taskListForm:responsibleFilter_label").click();
-    driverHelper.findElement(By
-                    .xpath("//div[@id='taskListForm:responsibleFilter_panel']/div/ul/li[@data-label='Top level role (Everybody)']")).click();
+    driverHelper.clickAndWaitForAjax(By
+                    .xpath("//div[@id='taskListForm:responsibleFilter_panel']/div/ul/li[@data-label='Top level role (Everybody)']"));
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     closeTask();
   }
