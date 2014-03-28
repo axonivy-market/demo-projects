@@ -9,7 +9,7 @@ public class TestTemplate extends BaseJsfWorkflowUiTest
   @Test
   public void testLogoutLogin() throws Exception
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
+    navigate().home();
     driverHelper.findElement(By.id("logoutButton")).click();
     driverHelper.assertAjaxElementContains(By.id("mainLoginLayoutUnit"), "Workflow login");
     login("user1", "user1");

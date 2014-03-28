@@ -1,20 +1,17 @@
 package ch.ivyteam.ivy.project.jsf.wf.ui;
 
+import static org.fest.assertions.api.Assertions.assertThat;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestRule;
 import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-import ch.ivyteam.ivy.project.HtmlUnitWebElementWithPasswordSendKeySupport;
 import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
-import ch.ivyteam.ivy.server.test.ServerControl;
-
-import com.gargoylesoftware.htmlunit.html.HtmlElement;
+import ch.ivyteam.ivy.server.test.WfNavigator;
 
 public class BaseJsfWorkflowUiTest
 {
@@ -27,38 +24,16 @@ public class BaseJsfWorkflowUiTest
   
   static
   {
-    if (ServerControl.isDesigner())
-    {
-      WEB_TEST_SERVER_ADMIN_USER = "Developer";
-      WEB_TEST_SERVER_ADMIN_PASSWORD = "Developer";
-    }
-    else
-    {
       WEB_TEST_SERVER_ADMIN_USER = "Administrator";
       WEB_TEST_SERVER_ADMIN_PASSWORD = "administrator";
-    }
   }
   protected IvyWebDriverHelper driverHelper;
 
   @Before
   public void setUp() throws Exception
   {
-    driverHelper = new IvyWebDriverHelper()
-      {
-        @Override
-        protected WebDriver newHtmlUnitDriver()
-        {
-          return new HtmlUnitDriver(true)
-            {
-              @Override
-              protected WebElement newHtmlUnitWebElement(HtmlElement element)
-              {
-                return new HtmlUnitWebElementWithPasswordSendKeySupport(this, element);
-              }
-            };
-        }
-      };
-    driverHelper.openProcessLink("testWfUi/143F856F4E029A48/SetAdminUser.ivp");
+    driverHelper = new IvyWebDriverHelper();
+    navigate().grantAdminRights();
     login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
   }
 
@@ -70,7 +45,7 @@ public class BaseJsfWorkflowUiTest
 
   protected void login(String username, String password)
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/Logout.ivp");
+    navigate().logout();
     WebElement usernameElement = driverHelper.findElementById("loginPageComponent:loginForm:username");
     usernameElement.clear();
     usernameElement.sendKeys(username);
@@ -83,7 +58,7 @@ public class BaseJsfWorkflowUiTest
   
   protected void createTask(String title, String description, int priority)
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13ED18655F6A1538/DefaultProcessStartListPage.ivp");
+    navigate().processList();
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
     driverHelper.findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s")).click();
@@ -94,7 +69,7 @@ public class BaseJsfWorkflowUiTest
   
   protected void createHtmlTask(String title, String description)
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13ED18655F6A1538/DefaultProcessStartListPage.ivp");
+    navigate().processList();
     driverHelper.findElementById("13F3D94AF2F236BF/WfHtml.ivp").click();
     driverHelper.findElementById("caption").sendKeys(title);
     driverHelper.findElementById("description").sendKeys(description);
@@ -103,7 +78,7 @@ public class BaseJsfWorkflowUiTest
   
   protected void createTaskWithCategory(String title, String description, int priority, String category, String process)
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13ED18655F6A1538/DefaultProcessStartListPage.ivp");
+    navigate().processList();
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
     driverHelper.findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s")).click();
@@ -116,8 +91,21 @@ public class BaseJsfWorkflowUiTest
 
   protected void closeTask()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
+    navigate().taskList();
     driverHelper.findElementById("taskLinkRow_0").click();
     driverHelper.clickAndWaitForAjax(By.id("formConfirmation:save"));
+  }
+  
+  protected final void clickAdminElement(WebElement button, String failMessage)
+  {
+    assertThat(button.isEnabled())
+      .as("Missing administration rights! "+ failMessage)
+      .isTrue();
+    button.click();
+  }
+  
+  public WfNavigator navigate()
+  {
+    return new WfNavigator(driverHelper);
   }
 }

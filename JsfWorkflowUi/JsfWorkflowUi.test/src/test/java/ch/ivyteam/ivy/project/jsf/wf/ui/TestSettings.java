@@ -40,7 +40,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void addAbsence(String startDate, String startTime, String endDate, String endTime, String description)
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13F3C911395912D4/Absence.ivp");
+    navigate().absence();
     driverHelper.clickAndWaitForAjax(By.id("formAddButton:addAbsence"));
     driverHelper.findElementById("formAddAbsence:absenceStartTime_input").click();
     driverHelper.findElementById("formAddAbsence:absenceStartTime_input").sendKeys(startTime);
@@ -57,7 +57,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   
   private void editAbsence(String startDate, String startTime, String endDate, String endTime, String description)
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13F3C911395912D4/Absence.ivp");
+    navigate().absence();
     driverHelper.clickAndWaitForAjax(By.id("formAbsence:tableAbsence:0:editButton"));
     driverHelper.findElementById("formEditAbsence:absenceStartTime_input").click();
     driverHelper.findElementById("formEditAbsence:absenceStartTime_input").clear();
@@ -79,7 +79,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   
   private void checkIfAbsenceContains(String description)
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13F3C911395912D4/Absence.ivp");
+    navigate().absence();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(description);
   }
 
@@ -103,7 +103,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void addSubstituteForMyTasks()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13F5720218D18BA2/Substitution.ivp");
+    navigate().substitution();
     driverHelper.clickAndWaitForAjax(By.id("formAddButton:addSubstitute"));
     driverHelper.findElementById("formAddSubstitute:substituteUser_label").click();
     driverHelper.findElement(By.xpath("//div[@id='formAddSubstitute:substituteUser_panel']/div[2]/ul/li[@data-label='Test User 2 (user2)']")).click();
@@ -115,13 +115,13 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void checkIsSubstituteForMyTasksAdded()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13F5720218D18BA2/Substitution.ivp");
+    navigate().substitution();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("user2");
   }
 
   private void checkIsMySubstitutionAdded()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13F5720218D18BA2/Substitution.ivp");
+    navigate().substitution();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(WEB_TEST_SERVER_ADMIN_USER);
   }
 
@@ -139,25 +139,25 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   
   private void checkIsSubstituteForMyRolesAdded()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13F5720218D18BA2/Substitution.ivp");
+    navigate().substitution();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("role1");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("role2");
   }
 
   private void deleteSubstitute()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13F5720218D18BA2/Substitution.ivp");
+    navigate().substitution();
     driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
   }
   
   @Test
   public void testMailNotification() throws Exception
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13F51835BF0FECEF/MailNotificationSettings.ivp");
+    navigate().mailNotificationSettings();
     // set User specific
     driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='formMailNotification:appDefault']/div[2]/span"));
     setMailNotification();
-    driverHelper.openProcessLink("JsfWorkflowUi/13F51835BF0FECEF/MailNotificationSettings.ivp");
+    navigate().mailNotificationSettings();
     checkSetMailNotification();
   }
 
@@ -231,11 +231,11 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void callDefaultLogin()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
+    navigate().taskList();
     // get task id
     String taskIdPart = "taskId=";
     String taskId = driverHelper.findElementById("taskLinkRow_0").getAttribute("href").substring(driverHelper.findElementById("taskLinkRow_0").getAttribute("href").indexOf(taskIdPart) + taskIdPart.length());
-    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/Logout.ivp");
+    navigate().logout();
     driverHelper.openProcessLink("testWfUi/13F3D94E5C99F06F/13F3D94E5C99F06F-f1/TaskA.ivp?taskId=" + taskId);
     driverHelper.assertAjaxElementContains(By.id("mainLoginLayoutUnit"), "Workflow login");
     //Login
