@@ -1,0 +1,8 @@
+Html5BootstrapDemoData #class
+ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo #namespace
+name String #field
+captcha String #field
+birthDate Date #field
+email String #field
+displayError Boolean #field
+displaySuccess Boolean #field

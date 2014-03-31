@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
+
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">Html 5 Bootstrap Demo</ui:define>
+		<ui:define name="content">
+			<!-- Bootstrap CSS -->
+			<!-- You can also load bootstrap from an external CDN: //netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css -->
+			<h:outputStylesheet library="ivy-webcontent"
+				name="styles/bootstrap-3.1.1-modified-for-jsf.css" />
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Html 5 Bootstrap Demo</h2>
+
+						<p class="lead">This demo shows a HtmlDialog that uses plain
+							Html tags styled with Bootstrap instead of the PrimeFaces
+							library.</p>
+
+						<div class="alert alert-info alert-dismissable">
+							<button type="button" class="close" data-dismiss="alert">x</button>
+							<ul>
+								<li>This demo displays some of the capabilities of JSF 2.2
+									combined with the <a href="http://getbootstrap.com/">Bootstrap</a>
+									front-end framework.
+								</li>
+								<li>Resize your browser window to witness the
+									responsiveness of this page.</li>
+								<li>If you use this technique without JSF widgets you get
+									almost full control of the Html delivered to the user, but you
+									have to implement many things (like input validation) by
+									yourself.</li>
+								<li>Have a look at the <a
+									href="#{ivy.html.startref('Demo/Html5Demo.ivp')}">Html5Demo</a>
+									to get an explanation of the features.
+								</li>
+							</ul>
+						</div>
+
+						<ui:fragment rendered="#{data.displaySuccess}">
+							<div class="alert alert-success">
+								<strong><span class="glyphicon glyphicon-send"></span>
+									Hey #{data.name}! Your message has been sent.</strong>
+							</div>
+						</ui:fragment>
+
+						<ui:fragment rendered="#{data.displayError}">
+							<div class="alert alert-danger">
+								<span class="glyphicon glyphicon-alert"></span><strong>
+									Error! Please check the captcha!</strong>
+							</div>
+						</ui:fragment>
+					</div>
+					<form jsf:id="form">
+
+						<h:messages showDetail="true" />
+						<div class="col-lg-6">
+
+							<div class="form-group">
+								<label for="InputName">Your Name</label>
+								<div class="input-group">
+									<input type="text" class="form-control" id="InputName"
+										placeholder="Enter Name" jsf:required="true"
+										required="required" jsf:value="#{data.name}">
+										<f:validateLength minimum="4" maximum="32" />
+									</input> <span class="input-group-addon"><i
+										class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="InputEmail">Your Email</label>
+								<div class="input-group">
+									<input type="email" class="form-control" id="InputEmail"
+										placeholder="Enter Email" jsf:required="true"
+										required="required" jsf:value="#{data.email}" /><span
+										class="input-group-addon"><i
+										class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="InputBirthdate">Your Birthdate</label>
+								<div class="input-group">
+									<input type="date" class="form-control" id="InputBirthdate"
+										jsf:required="true" required="required"
+										jsf:value="#{data.birthDate}">
+										<f:convertDateTime pattern="yyyy-MM-dd" />
+									</input> <span class="input-group-addon"><i
+										class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="InputReal">What is 40 + 2? (Spam Check)</label>
+								<div class="input-group">
+									<input type="text" class="form-control" id="InputCaptcha"
+										jsf:required="true" jsf:value="#{data.captcha}" />
+									<span class="input-group-addon"><i
+										class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+								</div>
+
+							</div>
+							<br /> <input type="submit" id="submit" value="Submit"
+								class="btn btn-info" jsf:actionListener="#{logic.submitForm}" />
+						</div>
+					</form>
+					<hr class="featurette-divider hidden-lg" />
+					<div class="col-lg-5 col-md-push-1">
+						<br />
+
+						<h4>Office Location</h4>
+						<address>
+							ivyTeam AG<br /> CH-6304 Zug<br /> <a
+								href="http://answers.xpertivy.ch/">Xpert.ivy Q&amp;A</a>
+						</address>
+					</div>
+				</div>
+				<br />
+				<hr class="featurette-divider hidden-lg" />
+			</div>
+
+			<!-- Bootstrap JavaScript -->
+			<!-- Placed at the end of the document so the pages load faster -->
+			<script src="#{resource['js/jquery-1.11.0.js']}"></script>
+			<script src="#{resource['js/bootstrap-3.1.1.js']}"></script>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

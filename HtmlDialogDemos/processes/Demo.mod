@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 13 16:06:56 CET 2014]
+[>Created: Fri Mar 28 15:29:47 CET 2014]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -120,6 +120,11 @@ Do0 @EndTask f105 '' #zField
 Do0 @StartRequest f106 '' #zField
 Do0 @PushWFArc f107 '' #zField
 Do0 @PushWFArc f108 '' #zField
+Do0 @StartRequest f109 '' #zField
+Do0 @EndTask f110 '' #zField
+Do0 @RichDialog f112 '' #zField
+Do0 @PushWFArc f113 '' #zField
+Do0 @PushWFArc f111 '' #zField
 >Proto Do0 Do0 Demo #zField
 Do0 f0 outLink start.ivp #txt
 Do0 f0 type htmlDialogDemos.Data #txt
@@ -2045,9 +2050,9 @@ Do0 f106 requestEnabled true #txt
 Do0 f106 triggerEnabled false #txt
 Do0 f106 callSignature Html5Demo() #txt
 Do0 f106 persist false #txt
-Do0 f106 startName 'Jsf Composite Component Demo' #txt
+Do0 f106 startName 'Html 5 Demo' #txt
 Do0 f106 taskData '#
-#Thu Mar 13 16:06:54 CET 2014
+#Fri Mar 28 15:29:28 CET 2014
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -2056,7 +2061,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Do0 f106 caseData '#
-#Thu Mar 13 16:06:54 CET 2014
+#Fri Mar 28 15:29:28 CET 2014
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -2097,6 +2102,8 @@ Do0 f106 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Html5Demo.ivp</name>
+        <nameStyle>13,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -2107,6 +2114,102 @@ Do0 f107 expr out #txt
 Do0 f107 544 1085 544 1124 #arcP
 Do0 f108 expr out #txt
 Do0 f108 544 1148 544 1187 #arcP
+Do0 f109 outLink Html5BootstrapDemo.ivp #txt
+Do0 f109 type htmlDialogDemos.Data #txt
+Do0 f109 inParamDecl '<> param;' #txt
+Do0 f109 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f109 guid 14503697ABD51958 #txt
+Do0 f109 requestEnabled true #txt
+Do0 f109 triggerEnabled false #txt
+Do0 f109 callSignature Html5BootstrapDemo() #txt
+Do0 f109 persist false #txt
+Do0 f109 startName 'Html 5 Bootstrap Demo' #txt
+Do0 f109 taskData '#
+#Fri Mar 28 15:29:45 CET 2014
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Do0 f109 caseData '#
+#Fri Mar 28 15:29:45 CET 2014
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Do0 f109 showInStartList 1 #txt
+Do0 f109 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Do0 f109 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Html5BootstrapDemo.ivp</name>
+        <nameStyle>22,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Do0 f109 @C|.responsibility Everybody #txt
+Do0 f109 755 1059 26 26 14 0 #rect
+Do0 f109 @|StartRequestIcon #fIcon
+Do0 f109 -13016147|-1|-16777216 #nodeStyle
+Do0 f110 type htmlDialogDemos.Data #txt
+Do0 f110 755 1179 26 26 14 0 #rect
+Do0 f110 @|EndIcon #fIcon
+Do0 f110 -13016147|-1|-16777216 #nodeStyle
+Do0 f112 targetWindow NEW:card: #txt
+Do0 f112 targetDisplay TOP #txt
+Do0 f112 richDialogId ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo #txt
+Do0 f112 startMethod start() #txt
+Do0 f112 type htmlDialogDemos.Data #txt
+Do0 f112 requestActionDecl '<> param;' #txt
+Do0 f112 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Do0 f112 responseMappingAction 'out=in;
+' #txt
+Do0 f112 windowConfiguration '* ' #txt
+Do0 f112 isAsynch false #txt
+Do0 f112 isInnerRd false #txt
+Do0 f112 userContext '* ' #txt
+Do0 f112 750 1124 36 24 20 -2 #rect
+Do0 f112 @|RichDialogIcon #fIcon
+Do0 f112 -13016147|-1|-16777216 #nodeStyle
+Do0 f113 expr out #txt
+Do0 f113 768 1085 768 1124 #arcP
+Do0 f111 expr out #txt
+Do0 f111 768 1148 768 1179 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2213,3 +2316,7 @@ Do0 f106 mainOut f107 tail #connect
 Do0 f107 head f104 mainIn #connect
 Do0 f104 mainOut f108 tail #connect
 Do0 f108 head f105 mainIn #connect
+Do0 f109 mainOut f113 tail #connect
+Do0 f113 head f112 mainIn #connect
+Do0 f112 mainOut f111 tail #connect
+Do0 f111 head f110 mainIn #connect
