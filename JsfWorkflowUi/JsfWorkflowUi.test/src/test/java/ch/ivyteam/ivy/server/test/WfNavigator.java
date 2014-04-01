@@ -1,7 +1,5 @@
 package ch.ivyteam.ivy.server.test;
 
-import org.openqa.selenium.By;
-
 
 public class WfNavigator
 {
@@ -65,6 +63,5 @@ public class WfNavigator
   public void grantAdminRights()
   {
     driverHelper.openProcessLink("testWfUi/143F856F4E029A48/SetAdminUser.ivp");
-    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Home");
   }
 }
