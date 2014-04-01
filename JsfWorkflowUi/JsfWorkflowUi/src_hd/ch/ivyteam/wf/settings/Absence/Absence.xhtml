@@ -31,7 +31,7 @@
 		<br />
 		<h:form id="formAbsence">
    			<p:dataTable id="tableAbsence" value="#{data.absences}" var="absence" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}">
-       			<p:column id="absenceStart" sortBy="#{absence.startTimestamp}" style="width: 150px;">
+       			<p:column id="absenceStart" sortBy="startTimestamp" style="width: 150px;">
            			<f:facet name="header">
               			#{ivy.cms.co('/labels/settings/absence/absenceStart')}
            			</f:facet>
@@ -39,7 +39,7 @@
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
       			</p:column>
-       			<p:column sortBy="#{absence.stopTimestamp}" style="width: 150px; ">
+       			<p:column sortBy="stopTimestamp" style="width: 150px; ">
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/settings/absence/absenceStop')}
            			</f:facet>

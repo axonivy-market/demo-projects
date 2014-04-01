@@ -50,37 +50,37 @@
 			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
    			<p:dataTable id="caseTable" var="case" value="#{data.cases}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.cases.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
-   				<p:column style="width:2%" sortBy="#{ID}">
+   				<p:column style="width:5%" sortBy="ID">
            			<f:facet name="header">
                			#
            			</f:facet>
-           			<a href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{case.id}" id="buttonCaseDetail" title="Details Case [#{case.id}]"><h:graphicImage name="images/actions/case.png" alt="" /></a>
+           			<a href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{case.id}" id="buttonCaseDetail" title="Details Case [#{case.id}]"><h:graphicImage name="images/actions/case#{case.hasNotes() ? 'WithNote' : ''}.png" alt="" /></a>
         		</p:column>
-       			<p:column style="width:50px; text-align: center;" sortBy="#{STATE}">
+       			<p:column style="width:65px; text-align: center;" sortBy="STATE">
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/common/state')}
            			</f:facet>
            			<h:graphicImage name="images/details/caseState/#{case.state.intValue()}.png" alt="" title="#{ivy.cms.co('/labels/common/state')} #{case.state}" />
        			</p:column>
-       			<p:column sortBy="#{NAME}">
+       			<p:column sortBy="NAME">
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/common/name')}
            			</f:facet>
            			<a href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{case.id}" id="caseLinkRow" title="Details Case [#{case.id}]">#{case.name}</a>
        			</p:column>
-       			<p:column sortBy="#{PROCESS_CATEGORY_CODE}">
+       			<p:column sortBy="PROCESS_CATEGORY_CODE">
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/common/category')}
            			</f:facet>
            			#{case.processCategoryCode}
        			</p:column>
-       			<p:column sortBy="#{PROCESS_CODE}">
+       			<p:column sortBy="PROCESS_CODE">
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/common/process')}
            			</f:facet>
            			#{case.processCode}
        			</p:column>
-       			<p:column sortBy="#{START_TIMESTAMP}">
+       			<p:column sortBy="START_TIMESTAMP">
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/common/start')}
            			</f:facet>

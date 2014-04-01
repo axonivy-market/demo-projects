@@ -26,7 +26,7 @@
 		<br />
 		<h:form id="formSubstitute">
 			<p:dataTable id="tableSubstitute" value="#{data.substitutes}" var="substitute" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}">
-				<p:column sortBy="#{substitute.substituteUser.name}" style="width: 150px;">  
+				<p:column sortBy="substituteUser.name" style="width: 150px;">  
    					<f:facet name="header">  
       					#{ivy.cms.co('/labels/settings/substitute/substituteUser')}
    					</f:facet>
@@ -65,22 +65,22 @@
 		<br />
 		<h:form id="formMySubstitutions">
 			<p:dataTable id="tableMySubstitutions" value="#{data.substiutions}" var="substitution" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}">
-				<p:column sortBy="#{substitution.user.name}">  
+				<p:column sortBy="user.name">  
    					<f:facet name="header">  
       					#{ivy.cms.co('/labels/settings/substitute/substituteFor')} #{ivy.cms.co('/labels/common/user')}
    					</f:facet>
    					<h:graphicImage name="images/details/user.png" alt="#{task.activator}" />
    					#{substitution.user.fullName} (#{substitution.user.name})
   				</p:column>
-				<p:column>  
-   					<f:facet name="header">  
+				<p:column>
+   					<f:facet name="header">
       					#{ivy.cms.co('/labels/settings/substitute/substituteFor')}
    					</f:facet>
 					<h:graphicImage name="#{substitution.isPersonallyOnly() ? 'images/others/none.png' : 'images/details/role.png'}" />
    					#{substitution.isPersonallyOnly() ? ivy.cms.co('/labels/settings/substitute/substituteUserTasks') : substitution.substitutionRole.displayName }
    					#{substitution.isPersonallyOnly() ? '' : '('}#{substitution.isPersonallyOnly() ? '' : substitution.substitutionRole.name}#{substitution.isPersonallyOnly() ? '' : ')'}
   				</p:column>
-   				<p:column >
+   				<p:column>
    					<f:facet name="header">
    						#{ivy.cms.co('/labels/settings/substitute/currentState')}
    					</f:facet>
