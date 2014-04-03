@@ -4,6 +4,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 
 public class TestDetails extends BaseJsfWorkflowUiTest
@@ -101,23 +102,28 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   public void testDelegateTask() throws Exception
   {
     createTask("taskDelegateTask","Test change expiry", 2);
+    
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTask");
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTask");
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
-    driverHelper.findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s")).click();
-    driverHelper.findElement(By.xpath("//div[@id='formDelegateTask:selectionOfUser_panel']/div[2]/ul/li[@data-label='Test User 1 (user1)']")).click();
+    WebElement selectMenu = driverHelper.findElementById("formDelegateTask:selectionOfUser");
+    prime().selectOne(selectMenu).selectItemByLabel("Test User 1 (user1)");
     driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
+    
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskDelegateTask");
     createTask("taskDelegateTaskToRole","Test delegate to role", 2);
+    
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTaskToRole");
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
-    driverHelper.findElement(By.xpath("//div[@id='formDelegateTask:delegateToRole']/div[2]")).click();
+    WebElement roleSelection = driverHelper.findElement(By.xpath("//div[@id='formDelegateTask:delegateToRole']/div[2]"));
+    roleSelection.click();
     driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
+    
     navigate().taskList();
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Everybody");
@@ -212,7 +218,8 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("changePriorityTask");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("NORMAL");
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openChangePriority"));
-    driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='formDetailsChangePriority:high']/div[2]"));
+    By prioritySelection = By.xpath("//div[@id='formDetailsChangePriority:high']/div[2]");
+    driverHelper.clickAndWaitForAjax(prioritySelection);
     driverHelper.clickAndWaitForAjax(By.id("formDetailsChangePriority:saveChangePriority"));
     navigate().taskList();
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));

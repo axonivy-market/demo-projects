@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 
 import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
 import ch.ivyteam.ivy.server.test.WfNavigator;
+import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper;
 
 public class BaseJsfWorkflowUiTest
 {
@@ -62,7 +63,8 @@ public class BaseJsfWorkflowUiTest
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
     driverHelper.findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s")).click();
-    driverHelper.findElement(By.xpath("//div[@id='formRequest:taskPriority_panel']/div/ul/li[@data-label='" + PRIORITIES[priority] + "']")).click();
+    WebElement prioritySelection = driverHelper.findElement(By.xpath("//div[@id='formRequest:taskPriority_panel']/div/ul/li[@data-label='" + PRIORITIES[priority] + "']"));
+    prioritySelection.click();
     driverHelper.findElementById("formRequest:description").sendKeys(description);
     driverHelper.clickAndWaitForAjax(By.id("formRequest:submitJsf"));
   }
@@ -82,7 +84,8 @@ public class BaseJsfWorkflowUiTest
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
     driverHelper.findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s")).click();
-    driverHelper.findElement(By.xpath("//div[@id='formRequest:taskPriority_panel']/div/ul/li[@data-label='" + PRIORITIES[priority] + "']")).click();
+    WebElement prioritySelection = driverHelper.findElement(By.xpath("//div[@id='formRequest:taskPriority_panel']/div/ul/li[@data-label='" + PRIORITIES[priority] + "']"));
+    prioritySelection.click();
     driverHelper.findElementById("formRequest:description").sendKeys(description);
     driverHelper.findElementById("formRequest:category").sendKeys(category);
     driverHelper.findElementById("formRequest:process").sendKeys(process);
@@ -108,4 +111,10 @@ public class BaseJsfWorkflowUiTest
   {
     return new WfNavigator(driverHelper);
   }
+  
+  public PrimeFacesWidgetHelper prime()
+  {
+    return new PrimeFacesWidgetHelper(driverHelper);
+  }
+  
 }
