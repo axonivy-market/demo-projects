@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,6 +35,12 @@ public class IvyWebDriverHelper
     profile.setPreference("intl.accept_languages", "en");
     driver = new FirefoxDriver(profile);
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    hideBrowserFromDesktop();
+  }
+
+  private void hideBrowserFromDesktop()
+  {
+    driver.manage().window().setPosition(new Point(-2000, 0));
   }
   
   public void quit()

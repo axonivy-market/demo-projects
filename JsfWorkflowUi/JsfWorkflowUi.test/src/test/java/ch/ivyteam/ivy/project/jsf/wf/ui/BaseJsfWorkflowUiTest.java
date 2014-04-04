@@ -62,9 +62,8 @@ public class BaseJsfWorkflowUiTest
     navigate().processList();
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
-    driverHelper.findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s")).click();
-    WebElement prioritySelection = driverHelper.findElement(By.xpath("//div[@id='formRequest:taskPriority_panel']/div/ul/li[@data-label='" + PRIORITIES[priority] + "']"));
-    prioritySelection.click();
+    WebElement selectMenu = driverHelper.findElementById("formRequest:taskPriority");
+    prime().selectOne(selectMenu).selectItemByLabel(PRIORITIES[priority]);
     driverHelper.findElementById("formRequest:description").sendKeys(description);
     driverHelper.clickAndWaitForAjax(By.id("formRequest:submitJsf"));
   }
@@ -83,9 +82,8 @@ public class BaseJsfWorkflowUiTest
     navigate().processList();
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
-    driverHelper.findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s")).click();
-    WebElement prioritySelection = driverHelper.findElement(By.xpath("//div[@id='formRequest:taskPriority_panel']/div/ul/li[@data-label='" + PRIORITIES[priority] + "']"));
-    prioritySelection.click();
+    WebElement selectMenu = driverHelper.findElementById("formRequest:taskPriority");
+    prime().selectOne(selectMenu).selectItemByLabel(PRIORITIES[priority]);
     driverHelper.findElementById("formRequest:description").sendKeys(description);
     driverHelper.findElementById("formRequest:category").sendKeys(category);
     driverHelper.findElementById("formRequest:process").sendKeys(process);

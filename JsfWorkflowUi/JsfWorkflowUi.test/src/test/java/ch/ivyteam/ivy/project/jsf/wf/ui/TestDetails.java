@@ -120,8 +120,8 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTaskToRole");
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
-    WebElement roleSelection = driverHelper.findElement(By.xpath("//div[@id='formDelegateTask:delegateToRole']/div[2]"));
-    roleSelection.click();
+    WebElement selectOneRadio = driverHelper.findElementById("formDelegateTask");
+    prime().selectCheck(selectOneRadio).selectItemById("formDelegateTask:delegateToRole");
     driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
     
     navigate().taskList();
@@ -218,8 +218,8 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("changePriorityTask");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("NORMAL");
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openChangePriority"));
-    By prioritySelection = By.xpath("//div[@id='formDetailsChangePriority:high']/div[2]");
-    driverHelper.clickAndWaitForAjax(prioritySelection);
+    WebElement selectOneRadio = driverHelper.findElementById("formDetailsChangePriority");
+    prime().selectCheck(selectOneRadio).selectItemById("formDetailsChangePriority:high");
     driverHelper.clickAndWaitForAjax(By.id("formDetailsChangePriority:saveChangePriority"));
     navigate().taskList();
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));

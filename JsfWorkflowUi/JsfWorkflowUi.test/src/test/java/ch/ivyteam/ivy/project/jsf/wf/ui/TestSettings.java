@@ -105,8 +105,8 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     navigate().substitution();
     driverHelper.clickAndWaitForAjax(By.id("formAddButton:addSubstitute"));
-    driverHelper.findElementById("formAddSubstitute:substituteUser_label").click();
-    driverHelper.findElement(By.xpath("//div[@id='formAddSubstitute:substituteUser_panel']/div[2]/ul/li[@data-label='Test User 2 (user2)']")).click();
+    WebElement selectMenu = driverHelper.findElementById("formAddSubstitute:substituteUser");
+    prime().selectOne(selectMenu).selectItemByLabel("Test User 2 (user2)");
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
@@ -128,9 +128,11 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   private void addSubstitutesForMyRoles()
   {
     driverHelper.clickAndWaitForAjax(By.id("formAddButton:addSubstitute"));
-    driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='formAddSubstitute:optRole']/div[2]"));
-    driverHelper.findElement(By.xpath("//div[@id='formAddSubstitute:roleSelection']/a/label")).click();
-    driverHelper.findElement(By.xpath("//div[@id='formAddSubstitute:roleSelection_panel']/div/div/div")).click();
+    WebElement selectOneRadio = driverHelper.findElementById("formAddSubstitute");
+    prime().selectCheck(selectOneRadio).selectItemById("formAddSubstitute:optRole");
+    
+    WebElement selectCheckboxMenu = driverHelper.findElementById("formAddSubstitute:roleSelection");
+    prime().selectCheckboxMenu(selectCheckboxMenu).selectAllItems();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
@@ -155,7 +157,8 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     navigate().mailNotificationSettings();
     // set User specific
-    driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='formMailNotification:appDefault']/div[2]/span"));
+    WebElement selectOneRadio = driverHelper.findElementById("formMailNotification");
+    prime().selectCheck(selectOneRadio).selectItemById("formMailNotification:appDefault");
     setMailNotification();
     navigate().mailNotificationSettings();
     checkSetMailNotification();
@@ -163,14 +166,15 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void setMailNotification()
   {
-    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:onTask']/div[2]")).click();
-    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkMonday']/div[2]")).click();
-    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkTuesday']/div[2]")).click();
-    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkWednesday']/div[2]")).click();
-    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkThursday']/div[2]")).click();
-    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkFriday']/div[2]")).click();
-    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkSaturday']/div[2]")).click();
-    driverHelper.findElement(By.xpath("//div[@id='formMailNotification:checkSunday']/div[2]")).click();
+    WebElement selectOneCheckbox = driverHelper.findElementById("formMailNotification");
+    prime().selectCheck(selectOneCheckbox).selectItemById("formMailNotification:onTask");
+    prime().selectCheck(selectOneCheckbox).selectItemById("formMailNotification:checkMonday");
+    prime().selectCheck(selectOneCheckbox).selectItemById("formMailNotification:checkTuesday");
+    prime().selectCheck(selectOneCheckbox).selectItemById("formMailNotification:checkWednesday");
+    prime().selectCheck(selectOneCheckbox).selectItemById("formMailNotification:checkThursday");
+    prime().selectCheck(selectOneCheckbox).selectItemById("formMailNotification:checkFriday");
+    prime().selectCheck(selectOneCheckbox).selectItemById("formMailNotification:checkSaturday");
+    prime().selectCheck(selectOneCheckbox).selectItemById("formMailNotification:checkSunday");
     driverHelper.clickAndWaitForAjax(By.id("formMailNotification:saveMailNotification"));
   }
 

@@ -4,6 +4,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 
 public class TestFilter extends BaseJsfWorkflowUiTest
@@ -31,15 +32,11 @@ public class TestFilter extends BaseJsfWorkflowUiTest
   private void checkIfFilterIsApplied(String filterForCategory, String filterForProcess)
   {
     navigate().caseList();
-    driverHelper.findElementById("caseListForm:categoryFilter_label").click();
-    driverHelper.clickAndWaitForAjax(By
-            .xpath("//div[@id='caseListForm:categoryFilter_panel']/div/ul/li[@data-label='"
-                    + filterForCategory + "']"));
+    WebElement selectMenu = driverHelper.findElementById("caseListForm:categoryFilter");
+    prime().selectOne(selectMenu).selectItemByLabel(filterForCategory);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForCategory);
-    driverHelper.findElementById("caseListForm:processFilter_label").click();
-    driverHelper.clickAndWaitForAjax(By
-            .xpath("//div[@id='caseListForm:processFilter_panel']/div/ul/li[@data-label='" + filterForProcess
-                    + "']"));
+    selectMenu = driverHelper.findElementById("caseListForm:processFilter");
+    prime().selectOne(selectMenu).selectItemByLabel(filterForProcess);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForProcess);
   }
 
@@ -66,43 +63,41 @@ public class TestFilter extends BaseJsfWorkflowUiTest
     openTaskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     createTask("taskForFilterLow", "task list", 3);
+    
     openTaskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
     // test prio
     openTaskList();
-    driverHelper.findElementById("taskListForm:priorityFilter_label").click();
-    driverHelper.clickAndWaitForAjax(By
-            .xpath("//div[@id='taskListForm:priorityFilter_panel']/div/ul/li[@data-label='LOW']"));
-    driverHelper.findElementById("taskListForm:responsibleFilter_label").click();
-    driverHelper.clickAndWaitForAjax(By
-                    .xpath("//div[@id='taskListForm:responsibleFilter_panel']/div/ul/li[@data-label='Top level role (Everybody)']"));
+    WebElement selectMenu = driverHelper.findElementById("taskListForm:priorityFilter");
+    prime().selectOne(selectMenu).selectItemByLabel("LOW");
+    selectMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    prime().selectOne(selectMenu).selectItemByLabel("Top level role (Everybody)");
     driverHelper.getWebDriver().navigate().refresh();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskForFilterPrioHigh");
+    
     openTaskList();
-    driverHelper.findElementById("taskListForm:priorityFilter_label").click();
-    driverHelper.clickAndWaitForAjax(By
-            .xpath("//div[@id='taskListForm:priorityFilter_panel']/div/ul/li[@data-label='HIGH']"));
-    driverHelper.findElementById("taskListForm:responsibleFilter_label").click();
-    driverHelper.clickAndWaitForAjax(By
-                    .xpath("//div[@id='taskListForm:responsibleFilter_panel']/div/ul/li[@data-label='Top level role (Everybody)']"));
+    selectMenu = driverHelper.findElementById("taskListForm:priorityFilter");
+    prime().selectOne(selectMenu).selectItemByLabel("HIGH");
+    selectMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    prime().selectOne(selectMenu).selectItemByLabel("Top level role (Everybody)");
     driverHelper.getWebDriver().navigate().refresh();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskForFilterLow");
+    
     // delegate Task
     openTaskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
     openTaskDetails();
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
-    driverHelper.findElementById("formDelegateTask:selectionOfUser_label").click();
-    driverHelper.clickAndWaitForAjax(By
-                    .xpath("//div[@id='formDelegateTask:selectionOfUser_panel']/div[2]/ul/li[@data-label='Test User 1 (user1)']"));
+    selectMenu = driverHelper.findElementById("formDelegateTask:selectionOfUser");
+    prime().selectOne(selectMenu).selectItemByLabel("Test User 1 (user1)");
     driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
+    
     // test responsible
     openTaskList();
-    driverHelper.findElementById("taskListForm:responsibleFilter_label").click();
-    driverHelper.clickAndWaitForAjax(By
-                    .xpath("//div[@id='taskListForm:responsibleFilter_panel']/div/ul/li[@data-label='Top level role (Everybody)']"));
+    selectMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    prime().selectOne(selectMenu).selectItemByLabel("Top level role (Everybody)");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     closeTask();
   }

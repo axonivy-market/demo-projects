@@ -16,12 +16,13 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     navigate().home();
     assertThat(driverHelper.findElementById("mainLayoutUnit").getText()).contains("Home");
     //Start processList
-    driverHelper.findElement(By.xpath("//div[@id='homeInfoPanel']/ul/li[3]/a/span")).click();
+    WebElement selectMenu = driverHelper.findElementById("homeInfoPanel");
+    prime().selectMenu(selectMenu).selectItemByIndex(3);
     driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Process List");
     //Start TaskList
     navigate().home();
-    WebElement processListLink = driverHelper.findElement(By.xpath("//div[@id='homeInfoPanel']/ul/li[2]/a/span"));
-    processListLink.click();
+    selectMenu = driverHelper.findElementById("homeInfoPanel");
+    prime().selectMenu(selectMenu).selectItemByIndex(2);
     driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Task List");
   }
   
