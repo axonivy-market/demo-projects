@@ -32,11 +32,11 @@ public class TestFilter extends BaseJsfWorkflowUiTest
   private void checkIfFilterIsApplied(String filterForCategory, String filterForProcess)
   {
     navigate().caseList();
-    WebElement selectMenu = driverHelper.findElementById("caseListForm:categoryFilter");
-    prime().selectOne(selectMenu).selectItemByLabel(filterForCategory);
+    WebElement selectOneMenu = driverHelper.findElementById("caseListForm:categoryFilter");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel(filterForCategory);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForCategory);
-    selectMenu = driverHelper.findElementById("caseListForm:processFilter");
-    prime().selectOne(selectMenu).selectItemByLabel(filterForProcess);
+    selectOneMenu = driverHelper.findElementById("caseListForm:processFilter");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel(filterForProcess);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForProcess);
   }
 
@@ -60,62 +60,45 @@ public class TestFilter extends BaseJsfWorkflowUiTest
   public void testTaskFilter() throws Exception
   {
     createTask("taskForFilterPrioHigh", "task list", 1);
-    openTaskList();
+    navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     createTask("taskForFilterLow", "task list", 3);
     
-    openTaskList();
+    navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
     // test prio
-    openTaskList();
-    WebElement selectMenu = driverHelper.findElementById("taskListForm:priorityFilter");
-    prime().selectOne(selectMenu).selectItemByLabel("LOW");
-    selectMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
-    prime().selectOne(selectMenu).selectItemByLabel("Top level role (Everybody)");
+    navigate().taskList();
+    WebElement selectOneMenu = driverHelper.findElementById("taskListForm:priorityFilter");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("LOW");
+    selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role (Everybody)");
     driverHelper.getWebDriver().navigate().refresh();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskForFilterPrioHigh");
     
-    openTaskList();
-    selectMenu = driverHelper.findElementById("taskListForm:priorityFilter");
-    prime().selectOne(selectMenu).selectItemByLabel("HIGH");
-    selectMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
-    prime().selectOne(selectMenu).selectItemByLabel("Top level role (Everybody)");
+    navigate().taskList();
+    selectOneMenu = driverHelper.findElementById("taskListForm:priorityFilter");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("HIGH");
+    selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role (Everybody)");
     driverHelper.getWebDriver().navigate().refresh();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskForFilterLow");
     
     // delegate Task
-    openTaskList();
+    navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
-    openTaskDetails();
+    driverHelper.findElementById("buttonTaskDetail").click();
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
-    selectMenu = driverHelper.findElementById("formDelegateTask:selectionOfUser");
-    prime().selectOne(selectMenu).selectItemByLabel("Test User 1 (user1)");
+    selectOneMenu = driverHelper.findElementById("formDelegateTask:selectionOfUser");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 1 (user1)");
     driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
     
     // test responsible
-    openTaskList();
-    selectMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
-    prime().selectOne(selectMenu).selectItemByLabel("Top level role (Everybody)");
+    navigate().taskList();
+    selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role (Everybody)");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     closeTask();
-  }
-  
-  private void openTaskList()
-  {
-    navigate().taskList();
-    assertMainLayoutUnitContains("Task List");
-  }
-
-  private void openTaskDetails()
-  {
-    driverHelper.findElementById("buttonTaskDetail").click();
-    assertMainLayoutUnitContains("Task Details");
-  }
-
-  private void assertMainLayoutUnitContains(String title)
-  {
-    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), title);
   }
 }

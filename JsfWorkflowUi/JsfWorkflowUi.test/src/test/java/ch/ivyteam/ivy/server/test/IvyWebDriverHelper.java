@@ -40,7 +40,10 @@ public class IvyWebDriverHelper
 
   private void hideBrowserFromDesktop()
   {
-    driver.manage().window().setPosition(new Point(-2000, 0));
+    if (!ServerControl.isDesigner())
+    {
+      driver.manage().window().setPosition(new Point(-2000, 0));
+    }
   }
   
   public void quit()

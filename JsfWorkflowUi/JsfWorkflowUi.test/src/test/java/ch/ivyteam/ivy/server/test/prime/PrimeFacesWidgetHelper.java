@@ -15,9 +15,9 @@ public class PrimeFacesWidgetHelper
     this.driverHelper = driverHelper;
   }
 
-  public SelectOneWidget selectOne(WebElement oneMenu)
+  public SelectOneMenu selectOneMenu(WebElement oneMenu)
   {
-    return new SelectOneWidget(oneMenu);
+    return new SelectOneMenu(oneMenu);
   }
 
   public SelectCheckboxMenu selectCheckboxMenu(WebElement checkboxMenu)
@@ -25,21 +25,26 @@ public class PrimeFacesWidgetHelper
     return new SelectCheckboxMenu(checkboxMenu);
   }
 
-  public SelectMenu selectMenu(WebElement menu)
+  public Menu menu(WebElement menu)
   {
-    return new SelectMenu(menu);
+    return new Menu(menu);
   }
 
-  public SelectCheckWidget selectCheck(WebElement checks)
+  public SelectBooleanCheckbox selectBooleanCheckbox(WebElement checks)
   {
-    return new SelectCheckWidget(checks);
+    return new SelectBooleanCheckbox(checks);
+  }
+
+  public SelectOneRadio selectOneRadio(WebElement oneRadio)
+  {
+    return new SelectOneRadio(oneRadio);
   }
   
-  public class SelectOneWidget
+  public class SelectOneMenu
   {
     private WebElement oneMenu;
 
-    public SelectOneWidget(WebElement oneMenu)
+    public SelectOneMenu(WebElement oneMenu)
     {
       this.oneMenu = oneMenu;
     }
@@ -77,11 +82,11 @@ public class PrimeFacesWidgetHelper
     }
   }
   
-  public class SelectMenu
+  public class Menu
   {
     private WebElement menu;
 
-    public SelectMenu(WebElement menu)
+    public Menu(WebElement menu)
     {
       this.menu = menu;
     }
@@ -90,20 +95,40 @@ public class PrimeFacesWidgetHelper
     {
       driverHelper.findElement(By.xpath("//div[@id='" + menu.getAttribute("id") + "']/ul/li[" + index + "]/a/span")).click();
     }
+
+    public void selectItemByPrefix(String prefix)
+    {
+      driverHelper.findElement(By.xpath("//div[@id='" + menu.getAttribute("id") + "']/ul/li[starts-with(., '" + prefix + "')]/a/span")).click();
+    }
   }
   
-  public class SelectCheckWidget
+  public class SelectBooleanCheckbox
   {
-    private WebElement checks;
+    private WebElement booleanCheckbox;
 
-    public SelectCheckWidget(WebElement checks)
+    public SelectBooleanCheckbox(WebElement booleanCheckbox)
     {
-      this.checks = checks;
+      this.booleanCheckbox = booleanCheckbox;
     }
 
     public void selectItemById(String id)
     {
-      checks.findElement(By.xpath("//div[@id='" + id + "']/div[2]")).click();
+      booleanCheckbox.findElement(By.xpath("//div[@id='" + id + "']/div[2]")).click();
+    }
+  }
+  
+  public class SelectOneRadio
+  {
+    private WebElement oneRadio;
+
+    public SelectOneRadio(WebElement oneRadio)
+    {
+      this.oneRadio = oneRadio;
+    }
+
+    public void selectItemById(String id)
+    {
+      oneRadio.findElement(By.xpath("//div[@id='" + id + "']/div[2]")).click();
     }
   }
   

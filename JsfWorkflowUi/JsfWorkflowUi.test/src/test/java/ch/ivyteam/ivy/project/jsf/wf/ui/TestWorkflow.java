@@ -15,14 +15,14 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   {
     navigate().home();
     assertThat(driverHelper.findElementById("mainLayoutUnit").getText()).contains("Home");
-    //Start processList
-    WebElement selectMenu = driverHelper.findElementById("homeInfoPanel");
-    prime().selectMenu(selectMenu).selectItemByIndex(3);
+    
+    WebElement menu = driverHelper.findElementById("homeInfoPanel");
+    prime().menu(menu).selectItemByPrefix("Process List");
     driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Process List");
-    //Start TaskList
+    
     navigate().home();
-    selectMenu = driverHelper.findElementById("homeInfoPanel");
-    prime().selectMenu(selectMenu).selectItemByIndex(2);
+    menu = driverHelper.findElementById("homeInfoPanel");
+    prime().menu(menu).selectItemByPrefix("Task List");
     driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Task List");
   }
   

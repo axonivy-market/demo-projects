@@ -62,8 +62,8 @@ public class BaseJsfWorkflowUiTest
     navigate().processList();
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
-    WebElement selectMenu = driverHelper.findElementById("formRequest:taskPriority");
-    prime().selectOne(selectMenu).selectItemByLabel(PRIORITIES[priority]);
+    WebElement selectOneMenu = driverHelper.findElementById("formRequest:taskPriority");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel(PRIORITIES[priority]);
     driverHelper.findElementById("formRequest:description").sendKeys(description);
     driverHelper.clickAndWaitForAjax(By.id("formRequest:submitJsf"));
   }
@@ -82,8 +82,8 @@ public class BaseJsfWorkflowUiTest
     navigate().processList();
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
-    WebElement selectMenu = driverHelper.findElementById("formRequest:taskPriority");
-    prime().selectOne(selectMenu).selectItemByLabel(PRIORITIES[priority]);
+    WebElement selectOneMenu = driverHelper.findElementById("formRequest:taskPriority");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel(PRIORITIES[priority]);
     driverHelper.findElementById("formRequest:description").sendKeys(description);
     driverHelper.findElementById("formRequest:category").sendKeys(category);
     driverHelper.findElementById("formRequest:process").sendKeys(process);
