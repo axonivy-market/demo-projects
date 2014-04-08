@@ -1,0 +1,4 @@
+co: name={editAbsence} description={} changed={2014-04-08 10:32:27 CEST} changedby={dje} visualorder={0} guid={145407630D31A336} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={145407711EF7238E} datatype={} isdefault={false} langid={de} description={} validfrom={2014-04-08 10:31:21 CEST} validto={} changed={2014-04-08 10:31:56 CEST} changedby={dje} properties={} id={}
+val: guid={14540763150C20F6} datatype={} isdefault={true} langid={en} description={} validfrom={2014-04-08 10:30:58 CEST} validto={} changed={2014-04-08 10:32:27 CEST} changedby={dje} properties={} id={}
+val: guid={145407710EB42920} datatype={} isdefault={false} langid={fr} description={} validfrom={2014-04-08 10:31:19 CEST} validto={} changed={2014-04-08 10:31:56 CEST} changedby={dje} properties={} id={}

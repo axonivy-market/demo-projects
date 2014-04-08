@@ -30,7 +30,7 @@
 		</h:form>
 		<br />
 		<h:form id="formAbsence">
-   			<p:dataTable id="tableAbsence" value="#{data.absences}" var="absence" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}">
+   			<p:dataTable id="tableAbsence" value="#{data.absences}" var="absence" emptyMessage="#{ivy.cms.co('/labels/common/noAbsences')}">
        			<p:column id="absenceStart" sortBy="startTimestamp" style="width: 150px;">
            			<f:facet name="header">
               			#{ivy.cms.co('/labels/settings/absence/absenceStart')}
@@ -69,7 +69,7 @@
    			</p:dataTable>
 		</h:form>
 		
-		<p:dialog id="dialogAddAbsence" header="New Absence" widgetVar="addAbsence" modal="true" appendToBody="true" visible="#{data.add}">
+		<p:dialog id="dialogAddAbsence" header="#{ivy.cms.co('/labels/settings/absence/addAbsence')}" widgetVar="addAbsence" modal="true" appendToBody="true" visible="#{data.add}">
    			<h:form id="formAddAbsence">
 				<ui:include src="AbsenceDialog.xhtml" />
 				<h:panelGrid style="width:100%; text-align: right;">
@@ -84,7 +84,7 @@
 			</h:form>
 		</p:dialog>
 		
-		<p:dialog id="dialogEditAbsence" header="Edit Absence" widgetVar="editAbsence" modal="true" appendToBody="true" visible="#{data.edit}">
+		<p:dialog id="dialogEditAbsence" header="#{ivy.cms.co('/labels/settings/absence/editAbsence')}" widgetVar="editAbsence" modal="true" appendToBody="true" visible="#{data.edit}">
    			<h:form id="formEditAbsence">
 				<ui:include src="AbsenceDialog.xhtml" />
 				<h:panelGrid style="width:100%; text-align: right;">
