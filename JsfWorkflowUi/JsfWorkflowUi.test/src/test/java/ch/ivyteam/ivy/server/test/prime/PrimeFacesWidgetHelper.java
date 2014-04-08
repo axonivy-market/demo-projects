@@ -52,7 +52,7 @@ public class PrimeFacesWidgetHelper
     public void selectItemByLabel(String label)
     {
       expandSelectableItems();
-      driverHelper.findElement(By.xpath("//div[@id='" + oneMenu.getAttribute("id") + "_panel']/div/ul/li[@data-label='" + label + "']")).click();
+      driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='" + oneMenu.getAttribute("id") + "_panel']/div/ul/li[@data-label='" + label + "']"));
     }
     
     private void expandSelectableItems()
@@ -73,7 +73,7 @@ public class PrimeFacesWidgetHelper
     public void selectAllItems()
     {
       expandSelectableItems();
-      driverHelper.findElement(By.xpath("//div[@id='" + checkboxMenu.getAttribute("id") + "_panel']/div/div/div")).click();
+      driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='" + checkboxMenu.getAttribute("id") + "_panel']/div/div/div"));
     }
     
     private void expandSelectableItems()
@@ -93,12 +93,12 @@ public class PrimeFacesWidgetHelper
 
     public void selectItemByIndex(int index)
     {
-      driverHelper.findElement(By.xpath("//div[@id='" + menu.getAttribute("id") + "']/ul/li[" + index + "]/a/span")).click();
+      driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='" + menu.getAttribute("id") + "']/ul/li[" + index + "]/a/span"));
     }
 
     public void selectItemByPrefix(String prefix)
     {
-      driverHelper.findElement(By.xpath("//div[@id='" + menu.getAttribute("id") + "']/ul/li[starts-with(., '" + prefix + "')]/a/span")).click();
+      driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='" + menu.getAttribute("id") + "']/ul/li[starts-with(., '" + prefix + "')]/a/span"));
     }
   }
   
