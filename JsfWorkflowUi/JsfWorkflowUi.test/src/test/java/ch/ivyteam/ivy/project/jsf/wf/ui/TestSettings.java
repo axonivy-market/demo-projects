@@ -16,11 +16,11 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     addAbsence("31.31.2030", "32:32", "31.31.2031", "40:40", "Add absence test");
     driverHelper.waitUntilEnabled(By.id("formAddAbsence:saveNewAbsence"));
     driverHelper.assertAjaxElementContains(By.id("formAddAbsence:absenceMessage"), "could not be understood as a date");
-    checkIfAbsenceContains("no items");
+    checkIfAbsenceContains("No absences");
     addAbsence("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence test");
     checkIfAbsenceContains("Add absence test");
     deleteAbsence();
-    checkIfAbsenceContains("no items");
+    checkIfAbsenceContains("No absences");
   }
   
   @Test
@@ -35,7 +35,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     editAbsence("15.04.2030", "11:11", "16.04.2031", "09:09", "Edit absence test");
     checkIfAbsenceContains("Edit absence test");
     deleteAbsence();
-    checkIfAbsenceContains("no items");
+    checkIfAbsenceContains("No absences");
   }
 
   private void addAbsence(String startDate, String startTime, String endDate, String endTime, String description)
