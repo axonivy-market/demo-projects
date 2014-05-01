@@ -19,9 +19,9 @@
 	    	<br /><br />
 	    	<h:panelGrid style="width:100%; text-align: right;">
 				<p:outputPanel>
-					<p:commandButton id="confirmAction" value="#{ivy.cms.co('/labels/common/yes')}" icon="wf-ui-icon-accept" oncomplete="confirmDeleteReset.hide();" update="@all" actionListener="#{logic.confirmAction}" />
+					<p:commandButton id="confirmAction" value="#{ivy.cms.co('/labels/common/yes')}" icon="wf-ui-icon-accept" update="@all" actionListener="#{logic.confirmAction}" />
 					<p:spacer width="5px" />
-					<p:commandButton id="notConfirmAction" value="#{ivy.cms.co('/labels/common/no')}" icon="wf-ui-icon-delete" oncomplete="confirmDeleteReset.hide();" update=":formConfirmDeleteReset" />
+					<p:commandButton id="notConfirmAction" value="#{ivy.cms.co('/labels/common/no')}" icon="wf-ui-icon-delete" oncomplete="PF('confirmDeleteReset').hide();" update=":formConfirmDeleteReset" />
 				</p:outputPanel>
 			</h:panelGrid>
 		</h:form>

@@ -21,7 +21,7 @@
 		<br />
 		<br />
 		<h:form id="formAddButton">
-			<p:commandButton id="addSubstitute" icon="wf-ui-icon-add" update=":dialogAddSubstitute" value="#{ivy.cms.co('/labels/settings/substitute/addSubstitute')}" title="#{ivy.cms.co('/labels/settings/substitute/addSubstituteTooltip')}" oncomplete="addSubstitute.show();" />
+			<p:commandButton id="addSubstitute" icon="wf-ui-icon-add" update=":dialogAddSubstitute" value="#{ivy.cms.co('/labels/settings/substitute/addSubstitute')}" title="#{ivy.cms.co('/labels/settings/substitute/addSubstituteTooltip')}" oncomplete="PF('addSubstitute').show();" />
 		</h:form>
 		<br />
 		<h:form id="formSubstitute">
@@ -94,9 +94,9 @@
 				<ui:include src="SubstitutionDialog.xhtml" />
 				<h:panelGrid style="width:100%; text-align: right;">
 					<p:outputPanel>
-						<p:commandButton id="saveSubstitution" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" oncomplete="addSubstitute.hide();" update=":formSubstitute" actionListener="#{logic.addSubstitute}" />
+						<p:commandButton id="saveSubstitution" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" update=":formSubstitute :dialogAddSubstitute" actionListener="#{logic.addSubstitute}" />
 						<p:spacer width="5px" />
-						<p:commandButton id="cancelSubstitutionAdd" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="addSubstitute.hide();" />
+						<p:commandButton id="cancelSubstitutionAdd" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="PF('addSubstitute').hide();" process="@this"/>
 					</p:outputPanel>
 				</h:panelGrid>
 			</h:form>

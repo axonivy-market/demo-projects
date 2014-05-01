@@ -22,13 +22,13 @@
 				<p:toolbar>  
     				<p:toolbarGroup align="left">
     					<p:commandButton id="startTask" value="#{ivy.cms.co('/labels/common/taskResume')}" title="#{ivy.cms.co('/labels/common/taskResume')} Task" icon="wf-ui-icon-start" onclick="window.location.href='#{data.taskLink}'; return false;" disabled="#{data.canStart}" />
-    					<p:commandButton id="openResetTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" title="#{ivy.cms.co('/labels/history/taskDetails/resetTaskTooltip')}" icon="wf-ui-icon-reset" onclick="confirmDeleteReset.show();" disabled="#{data.resetLink}" />
-		    			<p:commandButton id="openAddNote" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" title="#{ivy.cms.co('/labels/common/addNoteTooltip')}" icon="wf-ui-icon-addNote" onclick="addNote.show();" disabled="#{data.addNoteLink}" />
-						<p:commandButton id="openDelegateTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}" title="#{ivy.cms.co('/labels/history/taskDetails/delegateTaskTooltip')}" icon="wf-ui-icon-delegate" onclick="delegateTask.show();" disabled="#{data.delegateLink}" />
-						<p:commandButton id="openChangeExpiry" value="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" title="#{ivy.cms.co('/labels/history/taskDetails/changeExpiryTooltip')}" icon="wf-ui-icon-expiry" onclick="changeExpiry.show();" disabled="#{data.changeExpiryLink}" />
-						<p:commandButton id="openChangePriority" value="#{ivy.cms.co('/labels/history/taskDetails/changePriority')}" title="#{ivy.cms.co('/labels/history/taskDetails/changePriorityTooltip')}" icon="wf-ui-icon-prio" onclick="changePriority.show();" disabled="#{data.prioLink}" />
+    					<p:commandButton id="openResetTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" title="#{ivy.cms.co('/labels/history/taskDetails/resetTaskTooltip')}" icon="wf-ui-icon-reset" onclick="PF('confirmDeleteReset').show();" disabled="#{data.resetLink}" />
+		    			<p:commandButton id="openAddNote" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" title="#{ivy.cms.co('/labels/common/addNoteTooltip')}" icon="wf-ui-icon-addNote" onclick="PF('addNote').show();" disabled="#{data.addNoteLink}" />
+						<p:commandButton id="openDelegateTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}" title="#{ivy.cms.co('/labels/history/taskDetails/delegateTaskTooltip')}" icon="wf-ui-icon-delegate" onclick="PF('delegateTask').show();" disabled="#{data.delegateLink}" />
+						<p:commandButton id="openChangeExpiry" value="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" title="#{ivy.cms.co('/labels/history/taskDetails/changeExpiryTooltip')}" icon="wf-ui-icon-expiry" onclick="PF('changeExpiry').show();" disabled="#{data.changeExpiryLink}" />
+						<p:commandButton id="openChangePriority" value="#{ivy.cms.co('/labels/history/taskDetails/changePriority')}" title="#{ivy.cms.co('/labels/history/taskDetails/changePriorityTooltip')}" icon="wf-ui-icon-prio" onclick="PF('changePriority').show();" disabled="#{data.prioLink}" />
 						<c:if test="#{data.isHistory}">
-		    				<p:commandButton id="openPageArchive" value="#{ivy.cms.co('/labels/common/formArchive')}" title="#{ivy.cms.co('/labels/common/showFormArchiveTooltip')}" icon="wf-ui-icon-archive" onclick="formArchive.show();" disabled="#{data.archiveLink}" />
+		    				<p:commandButton id="openPageArchive" value="#{ivy.cms.co('/labels/common/formArchive')}" title="#{ivy.cms.co('/labels/common/showFormArchiveTooltip')}" icon="wf-ui-icon-archive" onclick="PF('formArchive').show();" disabled="#{data.archiveLink}" />
 						</c:if>
 						<c:if test="#{!data.isHistory}">
  							<p:commandButton id="openParkTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskPark')}" title="#{ivy.cms.co('/labels/history/taskDetails/parkTaskTooltip')}" icon="wf-ui-icon-park" actionListener="#{logic.parkTask}" update="@all" disabled="#{data.parkLink}" />
@@ -116,7 +116,7 @@
 								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 							</h:outputText>
 							<p:spacer width="10" />
-							<p:commandButton value="#{ivy.cms.co('/labels/dialogs/confirmDialog/expiryTitle')}" onclick="confirmExpiryNow.show();" update=":formTaskDetails" rendered="#{data.isExpiryDateLower}" />
+							<p:commandButton value="#{ivy.cms.co('/labels/dialogs/confirmDialog/expiryTitle')}" onclick="PF('confirmExpiryNow').show();" update=":formTaskDetails" rendered="#{data.isExpiryDateLower}" />
 						</td>
 					</tr>
 					<tr>
@@ -126,7 +126,7 @@
 								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 							</h:outputText>
 							<p:spacer width="10" />
-							<p:commandButton value="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}" onclick="confirmDelayNow.show();" update=":formTaskDetails" rendered="#{data.isDelayDateLower}" />
+							<p:commandButton value="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}" onclick="PF('confirmDelayNow').show();" update=":formTaskDetails" rendered="#{data.isDelayDateLower}" />
 						</td>
 					</tr>
 					<tr>
