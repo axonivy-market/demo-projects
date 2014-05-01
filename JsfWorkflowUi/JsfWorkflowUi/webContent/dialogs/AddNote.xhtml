@@ -10,7 +10,7 @@
 
 <h:body>
 <ui:composition>
-	<p:dialog id="modalDialogAddNote" header="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" widgetVar="addNote" modal="true" appendToBody="true">  
+	<p:dialog id="modalDialogAddNote" header="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" widgetVar="addNote" modal="true" appendTo="@(body)">  
 	    <h:form id="formAddNote">
 			<h:panelGrid columns="2">
 				<c:if test="#{data.showNoteSelection}">

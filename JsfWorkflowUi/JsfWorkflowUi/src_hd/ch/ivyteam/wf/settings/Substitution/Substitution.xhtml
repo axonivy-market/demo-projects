@@ -65,7 +65,7 @@
 		<br />
 		<h:form id="formMySubstitutions">
 			<p:dataTable id="tableMySubstitutions" value="#{data.substiutions}" var="substitution" emptyMessage="#{ivy.cms.co('/labels/common/nothingToSubstitute')}">
-				<p:column sortBy="user.name">  
+				<p:column sortBy="#{substitution.user.name}">  
    					<f:facet name="header">  
       					#{ivy.cms.co('/labels/settings/substitute/substituteFor')} #{ivy.cms.co('/labels/common/user')}
    					</f:facet>

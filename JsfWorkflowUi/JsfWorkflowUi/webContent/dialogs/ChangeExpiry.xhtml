@@ -11,7 +11,7 @@
 
 <h:body>
 <ui:composition>
-	<p:dialog id="modalDialogChangeExpiry" header="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" widgetVar="changeExpiry" modal="true" visible="#{data.changeExpiryWrong}" appendToBody="true" width="400px">  
+	<p:dialog id="modalDialogChangeExpiry" header="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" widgetVar="changeExpiry" modal="true" visible="#{data.changeExpiryWrong}" appendTo="@(body)" width="400px">  
   		<h:form id="formDetailsChangeExpiry">
   			<p:messages id="message" />
   			<h:panelGrid columns="1">

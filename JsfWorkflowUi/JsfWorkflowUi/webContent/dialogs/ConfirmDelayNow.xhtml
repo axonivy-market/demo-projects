@@ -10,7 +10,7 @@
 
 <h:body>
 <ui:composition>
-	<p:dialog id="modalDialogConfirmDelayNow" header="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}" widgetVar="confirmDelayNow" modal="true" appendToBody="true">
+	<p:dialog id="modalDialogConfirmDelayNow" header="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}" widgetVar="confirmDelayNow" modal="true" appendTo="@(body)">
 	    <h:form id="formConfirmDelayNow">
 	    	<br />
 	    	<h:outputText value="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayNow')}" style="font-weight:bold;" />

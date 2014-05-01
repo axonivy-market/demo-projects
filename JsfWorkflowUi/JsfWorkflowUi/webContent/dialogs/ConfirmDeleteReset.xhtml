@@ -10,7 +10,7 @@
 
 <h:body>
 <ui:composition>
-	<p:dialog id="modalDialogConfirmDeleteReset" header="#{headerConfirm}" widgetVar="confirmDeleteReset" modal="true" appendToBody="true">
+	<p:dialog id="modalDialogConfirmDeleteReset" header="#{headerConfirm}" widgetVar="confirmDeleteReset" modal="true" appendTo="@(body)">
 	    <h:form id="formConfirmDeleteReset">
 	    	<br />
 	    	<h:outputText value="#{description}" style="font-weight:bold;" />

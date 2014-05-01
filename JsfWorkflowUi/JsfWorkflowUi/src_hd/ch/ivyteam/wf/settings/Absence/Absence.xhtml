@@ -39,7 +39,7 @@
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
       			</p:column>
-       			<p:column sortBy="stopTimestamp" style="width: 150px; ">
+       			<p:column sortBy="#{absence.stopTimestamp}" style="width: 150px; ">
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/settings/absence/absenceStop')}
            			</f:facet>
@@ -69,7 +69,7 @@
    			</p:dataTable>
 		</h:form>
 		
-		<p:dialog id="dialogAddAbsence" header="#{ivy.cms.co('/labels/settings/absence/addAbsence')}" widgetVar="addAbsence" modal="true" appendToBody="true" visible="#{data.add}">
+		<p:dialog id="dialogAddAbsence" header="#{ivy.cms.co('/labels/settings/absence/addAbsence')}" widgetVar="addAbsence" modal="true" appendTo="@(body)" visible="#{data.add}">
    			<h:form id="formAddAbsence">
 				<ui:include src="AbsenceDialog.xhtml" />
 				<h:panelGrid style="width:100%; text-align: right;">
