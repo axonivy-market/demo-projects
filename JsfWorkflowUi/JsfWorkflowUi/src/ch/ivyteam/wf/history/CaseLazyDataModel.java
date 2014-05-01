@@ -26,7 +26,7 @@ public class CaseLazyDataModel extends LazyDataModel<ICase> {
 
 	@Override
 	public List<ICase> load(int first, int pageSize, String sortField,
-			SortOrder sortOrder, Map<String, String> filters) {
+			SortOrder sortOrder, Map<String, Object> filters) {
 		Ivy ivy = Ivy.getInstance();
 		
 		List<PropertyOrder<CaseProperty>> casePropertyOrder = PropertyOrder.create(getCaseProperty(sortField), getCaseDirection(sortOrder));

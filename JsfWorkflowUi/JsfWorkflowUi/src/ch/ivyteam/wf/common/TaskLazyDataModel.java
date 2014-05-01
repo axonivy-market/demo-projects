@@ -23,7 +23,7 @@ public class TaskLazyDataModel extends LazyDataModel<ITask> {
 
 	@Override
 	public List<ITask> load(int first, int pageSize, String sortField,
-			SortOrder sortOrder, Map<String, String> filters) {
+			SortOrder sortOrder, Map<String, Object> filters) {
 		Ivy ivy = Ivy.getInstance();
 		IQueryResult<ITask> queryResult;
 		
