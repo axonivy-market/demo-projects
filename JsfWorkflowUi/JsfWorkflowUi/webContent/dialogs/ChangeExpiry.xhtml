@@ -17,14 +17,14 @@
   			<h:panelGrid columns="1">
 				<p:outputLabel value="#{ivy.cms.co('/labels/common/expiry')}" style="font-weight:bold" />
 				<h:panelGrid columns="5" cellpadding="0" cellspacing="0">
-					<p:calendar id="expiryDate" label="#{ivy.cms.co('/labels/common/expiry')}" value="#{data.expiryDate}" showOn="button" pattern="dd.MM.yyyy" showButtonPanel="true">
+					<p:calendar id="expiryDate" label="#{ivy.cms.co('/labels/common/expiry')}" value="#{data.expiryDate}" showOn="button" pattern="dd.MM.yyyy" showButtonPanel="true" disabled="#{data.canChangeExpiry}">
 	           			<f:convertDateTime pattern="dd.MM.yyyy" />
 	           		</p:calendar>
 	           		<p:spacer width="10" />
-					<pe:timePicker id="expiryTime" value="#{data.expiryTime}" mode="popup" widgetVar="popupBtnTimeWidget" label="Time">
+					<pe:timePicker id="expiryTime" value="#{data.expiryTime}" mode="popup" widgetVar="popupBtnTimeWidget" label="Time" disabled="#{data.canChangeExpiry}">
 						<f:convertDateTime pattern="HH:mm" />
 					</pe:timePicker>
-					<p:commandButton type="button" icon="ui-icon-clock" onclick="selectTimePickerExpiryTime()" styleClass="ui-datepicker-trigger" />
+					<p:commandButton type="button" icon="ui-icon-clock" onclick="selectTimePickerExpiryTime()" styleClass="ui-datepicker-trigger" disabled="#{data.canChangeExpiry}" />
 	       			<script>
 						function selectTimePickerExpiryTime() {
 							var elementExpiryAdd = document.getElementById('formDetailsChangeExpiry:expiryTime_input');

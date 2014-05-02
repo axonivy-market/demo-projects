@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jul 23 10:04:20 CEST 2013]
+[>Created: Fri May 02 09:02:00 CEST 2014]
 13F3D94E5C99F06F 3.17 #module
 >Proto >Proto Collection #zClass
 Wf0 WfJsf Big #zClass
@@ -34,7 +34,7 @@ Wf0 f0 persist false #txt
 Wf0 f0 startName 'Test Workflow Jsf' #txt
 Wf0 f0 startDescription 'Sample WF using Html Dialogs' #txt
 Wf0 f0 taskData '#
-#Fri Jun 14 08:47:55 CEST 2013
+#Fri May 02 09:01:59 CEST 2014
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -44,7 +44,7 @@ TaskTriggered.NAM=Test Workflow Jsf
 TaskTriggered.EXROL=Everybody
 ' #txt
 Wf0 f0 caseData '#
-#Fri Jun 14 08:47:55 CEST 2013
+#Fri May 02 09:01:59 CEST 2014
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -102,7 +102,7 @@ Wf0 f1 actionTable 'out=in1;
 Wf0 f1 outTypes "ch.ivyteam.wf.test.Data" #txt
 Wf0 f1 outLinks "TaskA.ivp" #txt
 Wf0 f1 caseData '#
-#Tue Jul 23 10:04:19 CEST 2013
+#Thu Apr 10 09:29:48 CEST 2014
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -121,28 +121,28 @@ mainContact.id=
 mainContact.name=
 mainContact.type=
 process.code=<%\=in1.process%>
-process.name=
+process.name=processName
 processCategory.code=<%\=in1.category%>
-processCategory.name=
+processCategory.name=categoryName
 subType.code=
 subType.name=
 type.code=
 type.name=
 ' #txt
 Wf0 f1 taskData '#
-#Tue Jul 23 10:04:19 CEST 2013
+#Thu Apr 10 09:29:48 CEST 2014
 TaskA.DESC=<%\=in1.description%>
+TaskA.EXP=in1.expiryDate.getDurationFromNow()
 TaskA.EXPRI=2
-TaskA.EXROL=Everybody
-TaskA.EXTYPE=0
+TaskA.EXTYPE=-1
 TaskA.NAM=JSF <%\=in1.caption%>
 TaskA.PRI=in1.prio
 TaskA.ROL=Everybody
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0
 ' #txt
-Wf0 f1 taskAction 'ivy.case.setProcessCategory(engine.expandMacros("<%=in1.category%>"), engine.expandMacros(""));
-ivy.case.setProcess(engine.expandMacros("<%=in1.process%>"), engine.expandMacros(""));
+Wf0 f1 taskAction 'ivy.case.setProcessCategory(engine.expandMacros("<%=in1.category%>"), engine.expandMacros("categoryName"));
+ivy.case.setProcess(engine.expandMacros("<%=in1.process%>"), engine.expandMacros("processName"));
 import ch.ivyteam.ivy.workflow.TaskDefinition;
 List<TaskDefinition> taskDefinitions;
 TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
@@ -154,7 +154,8 @@ taskDef.setDescription(engine.expandMacros("<%=in1.description%>"));
 taskDef.setAutoStartTask(false);
 taskDef.setActivator("Everybody");
 taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(in1.prio));
-taskDef.setExpiryActivator("Everybody");
+taskDef.setExpiryPeriod(1000 * (in1.expiryDate.getDurationFromNow()).toNumber());
+taskDef.setExpiryActivator(null);
 taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskDefinitions.add(taskDef);
 ' #txt

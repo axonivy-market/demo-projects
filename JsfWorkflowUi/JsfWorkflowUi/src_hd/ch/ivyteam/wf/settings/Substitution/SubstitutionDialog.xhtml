@@ -31,12 +31,11 @@
 		   		<h:outputLabel for="optMyTasks" value="#{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" />
 	   		</h:panelGrid>
 	   		<h:panelGrid columns="4">
-		   		<p:radioButton id="optRole" for="options" itemIndex="1" />
+		   		<p:radioButton id="optRole" for="options" itemIndex="1" disabled="#{data.roleList.isEmpty()}" />
 		   		<h:outputLabel for="optRole" value="#{ivy.cms.co('/labels/settings/substitute/substituteRole')}:" />
 		   		<h:graphicImage name="images/details/role.png" alt="role" />
-		        <p:selectCheckboxMenu id="roleSelection" value="#{data.selectedRoles}" label="#{data.roleSelectionLabel}" filterMatchMode="startsWith" panelStyle="width:220px" converter="ivy.ListItem" disabled="#{data.isPersonally}">  
+		        <p:selectCheckboxMenu id="roleSelection" value="#{data.selectedRoles}" label="#{ivy.cms.co('/labels/settings/substitute/substituteRole')}" filterMatchMode="startsWith" panelStyle="width:220px" converter="ivy.ListItem" disabled="#{data.isPersonally}">  
 	        		<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} (#{role.getName()})" itemValue="#{role}"/>
-	        		<f:ajax render="radio" />
 	    		</p:selectCheckboxMenu> 
     		</h:panelGrid>
 		</h:panelGrid>

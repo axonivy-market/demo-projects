@@ -31,7 +31,7 @@
 		<br />
 		<h:form id="formAbsence">
    			<p:dataTable id="tableAbsence" value="#{data.absences}" var="absence" emptyMessage="#{ivy.cms.co('/labels/common/noAbsences')}">
-       			<p:column id="absenceStart" sortBy="startTimestamp" style="width: 150px;">
+       			<p:column id="absenceStart" sortBy="#{absence.startTimestamp}" style="width: 150px;">
            			<f:facet name="header">
               			#{ivy.cms.co('/labels/settings/absence/absenceStart')}
            			</f:facet>

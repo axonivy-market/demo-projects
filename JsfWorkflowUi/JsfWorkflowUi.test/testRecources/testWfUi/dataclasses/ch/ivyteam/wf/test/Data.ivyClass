@@ -22,3 +22,5 @@ category String #field
 category PERSISTENT #fieldModifier
 process String #field
 process PERSISTENT #fieldModifier
+expiryDate Date #field
+expiryDate PERSISTENT #fieldModifier

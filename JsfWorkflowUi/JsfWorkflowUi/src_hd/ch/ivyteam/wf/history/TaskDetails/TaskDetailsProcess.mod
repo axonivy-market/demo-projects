@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Dec 24 09:56:41 CET 2013]
+[>Created: Fri May 02 15:10:35 CEST 2014]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -170,14 +170,14 @@ ISecurityDescriptor securityDescriptor = Ivyrequest.getApplication().getSecurity
 
 state = task.getState();
 
-if(state==TaskState.DONE || state==TaskState.DELAYED) 
+if(state==TaskState.DONE || state==TaskState.DELAYED || state==TaskState.READY_FOR_JOIN) 
 {
 	in.canStart = true;
 } 
 else {
 	in.canStart = false;
 } 
-if(state==TaskState.RESUMED || state==TaskState.PARKED && hasResetPermission) 
+if(state==TaskState.RESUMED || state==TaskState.PARKED || state==TaskState.READY_FOR_JOIN && hasResetPermission) 
 {
 	in.resetLink = false;
 } 
@@ -245,7 +245,10 @@ if(in.task.getExpiryTimestamp().toIvyDate() == currentDate)
 else
 {
 	out.isExpiryDateLower = in.task.getExpiryTimestamp().toIvyDate() >= currentDate;
-}' #txt
+}
+
+in.canChangeExpiry = in.expiryDate == null || !in.isExpiryDateLower;
+' #txt
 Ts0 f5 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -430,6 +433,15 @@ if(message)
 else
 {
 	out.changeExpiryWrong = false;
+}
+
+if(in.task.getCase().getName() != "")
+{
+	out.caseName = in.task.getCase().getName();
+}
+else
+{
+	out.caseName = ivy.cms.co("/labels/history/taskDetails/case") + " " + in.task.getCase().getId();
 }' #txt
 Ts0 f22 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

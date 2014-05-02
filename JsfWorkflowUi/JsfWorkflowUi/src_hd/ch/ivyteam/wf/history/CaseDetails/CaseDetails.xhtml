@@ -78,11 +78,19 @@
 						</tr>
 						<tr>
 							<th>#{ivy.cms.co('/labels/common/category')}</th>
-							<td>#{data.wfCase.processCategoryCode}</td>
+							<td>
+								<h:outputLabel value="#{data.wfCase.processCategoryName}" />
+   								<h:outputLabel value=" #{data.wfCase.processCategoryCode}" rendered="#{data.wfCase.processCategoryCode == ''}" />
+   								<h:outputLabel value=" (#{data.wfCase.processCategoryCode})" rendered="#{data.wfCase.processCategoryCode != ''}" /> 
+							</td>
 						</tr>
 						<tr>
 							<th>#{ivy.cms.co('/labels/common/process')}</th>
-							<td>#{data.wfCase.processName}</td>
+							<td>
+								<h:outputLabel value="#{data.wfCase.processName}" />
+   								<h:outputLabel value=" #{data.wfCase.processCode}" rendered="#{data.wfCase.processCode == ''}" />
+   								<h:outputLabel value=" (#{data.wfCase.processCode})" rendered="#{data.wfCase.processCode != ''}" /> 
+   							</td>
 						</tr>
 					</table>
 				</h:column>
@@ -113,32 +121,32 @@
 		<h:outputText value="#{ivy.cms.co('/labels/common/tasks')}" style="font-weight:bold;" />
 		<br /><br />
 		<h:form id="formTaskList">
-   			<p:dataTable id="taskTable" value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row">
+   			<p:dataTable id="taskTable" value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}" rowIndexVar="row">
       			<p:column id="absenceStart" style="width:2%">  
            			<f:facet name="header">  
                			#
            			</f:facet>
-           			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskDetail" title="Details Task [#{task.id}]"><h:graphicImage name="images/actions/task#{task.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" /></a>
+           			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskDetail" title="Details Task [#{task.id}]"><h:graphicImage name="images/actions/task#{task.hasNotes() || task.case.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" /></a>
         		</p:column>
-       			<p:column style="width:50px; text-align: center;" sortBy="#{task.priority.intValue()}">
+       			<p:column style="width:50px; text-align: center;">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskPrio')}
 					</f:facet>
 					<h:graphicImage name="images/details/priority/#{task.priority.intValue()}.png" alt="prio" title="Prio #{task.priority}" />
 				</p:column>
-       			<p:column style="width:50px; text-align: center;" sortBy="#{task.state.intValue()}">
+       			<p:column style="width:50px; text-align: center;">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskState')}
 					</f:facet>
 					<h:graphicImage name="images/details/state/#{task.state.intValue()}.png" alt="#{task.state}" title="#{ivy.cms.co('/labels/common/state')} #{task.state}" />
 				</p:column>
-       			<p:column sortBy="#{task.name}">
+       			<p:column>
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/task')}
 					</f:facet>
 					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" title="Details Task [#{task.id}]">#{task.name}</a>
 				</p:column>
-       			<p:column sortBy="#{task.activator.name}">
+       			<p:column>
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
@@ -147,7 +155,7 @@
 						#{task.activator.name}
 					</p:outputPanel>
 				</p:column>
-       			<p:column sortBy="#{task.startTimestamp}">
+       			<p:column>
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskStart')}
 					</f:facet>

@@ -56,7 +56,7 @@
            			</f:facet>
            			<a href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{case.id}" id="buttonCaseDetail" title="Details Case [#{case.id}]"><h:graphicImage name="images/actions/case#{case.hasNotes() ? 'WithNote' : ''}.png" alt="" /></a>
         		</p:column>
-       			<p:column style="width:65px; text-align: center;" sortBy="STATE">
+       			<p:column style="width:65px; text-align: center;" sortBy="#{STATE}">
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/common/state')}
            			</f:facet>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 10 08:03:41 CEST 2013]
+[>Created: Fri May 02 15:05:06 CEST 2014]
 13F5720787C9F3A0 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstitutionProcess Big #zClass
@@ -25,15 +25,15 @@ Ss0 @RichDialogMethodStart f7 '' #zField
 Ss0 @PushWFArc f15 '' #zField
 Ss0 @RichDialogMethodStart f4 '' #zField
 Ss0 @PushWFArc f9 '' #zField
-Ss0 @PushWFArc f16 '' #zField
 Ss0 @GridStep f8 '' #zField
 Ss0 @PushWFArc f13 '' #zField
 Ss0 @PushWFArc f2 '' #zField
-Ss0 @PushWFArc f6 '' #zField
 Ss0 @PushWFArc f12 '' #zField
 Ss0 @GridStep f11 '' #zField
-Ss0 @PushWFArc f20 '' #zField
 Ss0 @PushWFArc f19 '' #zField
+Ss0 @PushWFArc f20 '' #zField
+Ss0 @PushWFArc f6 '' #zField
+Ss0 @PushWFArc f21 '' #zField
 >Proto Ss0 Ss0 SubstitutionProcess #zField
 Ss0 f0 guid 13F5720789611B9E #txt
 Ss0 f0 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
@@ -88,12 +88,12 @@ Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>users and roles</name>
-        <nameStyle>15
+        <nameStyle>15,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f3 206 116 36 24 1 13 #rect
+Ss0 f3 334 116 36 24 1 13 #rect
 Ss0 f3 @|StepIcon #fIcon
 Ss0 f5 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
@@ -125,7 +125,7 @@ my substitutions</name>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f5 206 180 36 24 1 13 #rect
+Ss0 f5 334 180 36 24 1 13 #rect
 Ss0 f5 @|StepIcon #fIcon
 Ss0 f10 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
@@ -152,7 +152,7 @@ Ss0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f10 334 180 36 24 1 13 #rect
+Ss0 f10 462 180 36 24 1 13 #rect
 Ss0 f10 @|StepIcon #fIcon
 Ss0 f14 guid 13F5773B6B9B6604 #txt
 Ss0 f14 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
@@ -167,7 +167,7 @@ Ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f14 534 54 20 20 13 0 #rect
+Ss0 f14 214 54 20 20 13 0 #rect
 Ss0 f14 @|RichDialogProcessStartIcon #fIcon
 Ss0 f17 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
@@ -223,10 +223,10 @@ Ss0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f17 526 180 36 24 20 -2 #rect
+Ss0 f17 206 180 36 24 20 -2 #rect
 Ss0 f17 @|StepIcon #fIcon
 Ss0 f18 expr out #txt
-Ss0 f18 544 74 544 180 #arcP
+Ss0 f18 224 74 224 180 #arcP
 Ss0 f7 guid 13F7509B1EEE5E13 #txt
 Ss0 f7 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f7 method removeSubstitute(Number) #txt
@@ -247,10 +247,10 @@ Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f7 342 54 20 20 13 0 #rect
+Ss0 f7 470 54 20 20 13 0 #rect
 Ss0 f7 @|RichDialogMethodStartIcon #fIcon
 Ss0 f15 expr out #txt
-Ss0 f15 352 74 352 180 #arcP
+Ss0 f15 480 74 480 180 #arcP
 Ss0 f4 guid 13F75DF4EC85730E #txt
 Ss0 f4 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f4 method update() #txt
@@ -267,16 +267,12 @@ Ss0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f4 214 54 20 20 13 0 #rect
+Ss0 f4 342 54 20 20 13 0 #rect
 Ss0 f4 @|RichDialogMethodStartIcon #fIcon
 Ss0 f9 expr out #txt
-Ss0 f9 352 204 106 320 #arcP
-Ss0 f9 1 352 320 #addKink
+Ss0 f9 480 204 106 320 #arcP
+Ss0 f9 1 480 320 #addKink
 Ss0 f9 1 0.2897814072783535 0 0 #arcLabel
-Ss0 f16 expr out #txt
-Ss0 f16 544 204 106 320 #arcP
-Ss0 f16 1 544 320 #addKink
-Ss0 f16 1 0.33267384971861186 0 0 #arcLabel
 Ss0 f8 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
 Ss0 f8 actionTable 'out=in;
@@ -312,41 +308,46 @@ Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f8 206 244 36 24 1 15 #rect
+Ss0 f8 334 244 36 24 1 15 #rect
 Ss0 f8 @|StepIcon #fIcon
 Ss0 f13 expr out #txt
-Ss0 f13 224 204 224 244 #arcP
+Ss0 f13 352 204 352 244 #arcP
 Ss0 f13 0 0.5905648529193468 0 0 #arcLabel
 Ss0 f2 expr out #txt
-Ss0 f2 224 268 106 320 #arcP
-Ss0 f2 1 224 320 #addKink
+Ss0 f2 352 268 106 320 #arcP
+Ss0 f2 1 352 320 #addKink
 Ss0 f2 1 0.25908176811608286 0 0 #arcLabel
-Ss0 f6 expr out #txt
-Ss0 f6 224 74 224 116 #arcP
 Ss0 f12 expr out #txt
-Ss0 f12 224 140 224 180 #arcP
+Ss0 f12 352 140 352 180 #arcP
 Ss0 f11 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
 Ss0 f11 actionTable 'out=in;
+out.description="";
 out.isPersonally=true;
 out.selectedRoles=[];
+out.substituteUser=null;
 ' #txt
 Ss0 f11 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>init</name>
-        <nameStyle>4
+        <name>default</name>
+        <nameStyle>7,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
 Ss0 f11 78 180 36 24 20 -2 #rect
 Ss0 f11 @|StepIcon #fIcon
-Ss0 f20 expr out #txt
-Ss0 f20 96 74 96 180 #arcP
 Ss0 f19 expr out #txt
-Ss0 f19 96 204 96 310 #arcP
+Ss0 f19 352 74 352 116 #arcP
+Ss0 f20 expr out #txt
+Ss0 f20 96 204 96 310 #arcP
+Ss0 f6 expr out #txt
+Ss0 f6 96 74 96 180 #arcP
+Ss0 f21 expr out #txt
+Ss0 f21 206 192 114 192 #arcP
+Ss0 f21 0 0.47240279093276527 0 0 #arcLabel
 >Proto Ss0 .type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -357,17 +358,17 @@ Ss0 f7 mainOut f15 tail #connect
 Ss0 f15 head f10 mainIn #connect
 Ss0 f10 mainOut f9 tail #connect
 Ss0 f9 head f1 mainIn #connect
-Ss0 f17 mainOut f16 tail #connect
-Ss0 f16 head f1 mainIn #connect
 Ss0 f5 mainOut f13 tail #connect
 Ss0 f13 head f8 mainIn #connect
 Ss0 f8 mainOut f2 tail #connect
 Ss0 f2 head f1 mainIn #connect
-Ss0 f4 mainOut f6 tail #connect
-Ss0 f6 head f3 mainIn #connect
 Ss0 f3 mainOut f12 tail #connect
 Ss0 f12 head f5 mainIn #connect
-Ss0 f0 mainOut f20 tail #connect
-Ss0 f20 head f11 mainIn #connect
-Ss0 f11 mainOut f19 tail #connect
-Ss0 f19 head f1 mainIn #connect
+Ss0 f4 mainOut f19 tail #connect
+Ss0 f19 head f3 mainIn #connect
+Ss0 f11 mainOut f20 tail #connect
+Ss0 f20 head f1 mainIn #connect
+Ss0 f0 mainOut f6 tail #connect
+Ss0 f6 head f11 mainIn #connect
+Ss0 f17 mainOut f21 tail #connect
+Ss0 f21 head f11 mainIn #connect

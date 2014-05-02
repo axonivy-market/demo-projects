@@ -12,7 +12,8 @@
 <ui:composition>
 	<p:dialog id="modalDialogAddNote" header="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" widgetVar="addNote" modal="true" appendTo="@(body)">  
 	    <h:form id="formAddNote">
-			<h:panelGrid columns="2">
+			<p:focus for="note"/>
+	    	<h:panelGrid columns="2">
 				<c:if test="#{data.showNoteSelection}">
 					#{ivy.cms.co('/labels/dialogs/addNote/addNoteFor')}
 		            <p:selectOneRadio id="options" value="#{data.noteFor}" styleClass="selectRadio">

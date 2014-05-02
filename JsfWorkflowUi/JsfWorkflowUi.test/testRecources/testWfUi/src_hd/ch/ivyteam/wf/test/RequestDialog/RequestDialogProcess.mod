@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jun 14 09:27:46 CEST 2013]
+[>Created: Thu Apr 10 08:45:41 CEST 2014]
 13F3DB5D589E405E 3.17 #module
 >Proto >Proto Collection #zClass
 Rs0 RequestDialogProcess Big #zClass
@@ -75,6 +75,7 @@ Rs0 f4 actionDecl 'ch.ivyteam.wf.test.RequestDialog.RequestDialogData out;
 Rs0 f4 actionTable 'out=in;
 out.data.caption="";
 out.data.description="";
+out.data.expiryDate=null;
 out.data.prio=2;
 ' #txt
 Rs0 f4 type ch.ivyteam.wf.test.RequestDialog.RequestDialogData #txt
@@ -82,7 +83,7 @@ Rs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>default</name>
-        <nameStyle>7
+        <nameStyle>7,7
 </nameStyle>
     </language>
 </elementInfo>

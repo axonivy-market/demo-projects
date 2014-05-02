@@ -68,3 +68,7 @@ prioLink Boolean #field
 prioLink PERSISTENT #fieldModifier
 priority String #field
 priority PERSISTENT #fieldModifier
+canChangeExpiry Boolean #field
+canChangeExpiry PERSISTENT #fieldModifier
+caseName String #field
+caseName PERSISTENT #fieldModifier
