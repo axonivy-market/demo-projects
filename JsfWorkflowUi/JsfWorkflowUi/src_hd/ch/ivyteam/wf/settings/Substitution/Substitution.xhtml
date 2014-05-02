@@ -89,7 +89,7 @@
 			</p:dataTable>
 		</h:form>
 		
-		<p:dialog id="dialogAddSubstitute" header="#{ivy.cms.co('/labels/settings/substitute/dialogHeaderAdd')}" widgetVar="addSubstitute" modal="true" appendToBody="true">
+		<p:dialog id="dialogAddSubstitute" header="#{ivy.cms.co('/labels/settings/substitute/dialogHeaderAdd')}" widgetVar="addSubstitute" modal="true" appendTo="@(body)">
 			<h:form id="formAddSubstitute">
 				<ui:include src="SubstitutionDialog.xhtml" />
 				<h:panelGrid style="width:100%; text-align: right;">

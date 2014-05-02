@@ -84,7 +84,7 @@
 			</h:form>
 		</p:dialog>
 		
-		<p:dialog id="dialogEditAbsence" header="#{ivy.cms.co('/labels/settings/absence/editAbsence')}" widgetVar="editAbsence" modal="true" appendToBody="true" visible="#{data.edit}">
+		<p:dialog id="dialogEditAbsence" header="#{ivy.cms.co('/labels/settings/absence/editAbsence')}" widgetVar="editAbsence" modal="true" appendTo="@(body)" visible="#{data.edit}">
    			<h:form id="formEditAbsence">
 				<ui:include src="AbsenceDialog.xhtml" />
 				<h:panelGrid style="width:100%; text-align: right;">
