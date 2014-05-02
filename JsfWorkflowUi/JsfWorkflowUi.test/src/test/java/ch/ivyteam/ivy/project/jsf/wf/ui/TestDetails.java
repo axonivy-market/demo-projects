@@ -65,14 +65,16 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   @Test
   public void testChangeExpiryToFuture() throws Exception
   {
-    createTask("taskForChangeExpiry","Test change expiry", 2);
+    createTask("taskForChangeExpiry","Test change expiry", 2, "30.4.2030");
     navigate().taskList();
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForChangeExpiry");
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openChangeExpiry"));
     driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").click();
+    driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").clear();
     driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").sendKeys("30.04.2030");
     driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").click();
+    driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").clear();
     driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").sendKeys("10:10");
     driverHelper.clickAndWaitForAjax(By.id("formDetailsChangeExpiry:saveChangeExpiry"));
     navigate().taskList();
@@ -84,14 +86,16 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   @Test
   public void testChangeExpiryToPast() throws Exception
   {
-    createTask("taskForChangeExpiryOlderDate","Test change expiry", 2);
+    createTask("taskForChangeExpiryOlderDate","Test change expiry", 2, "30.4.2030");
     navigate().taskList();
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForChangeExpiry");
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openChangeExpiry"));
     driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").click();
+    driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").clear();
     driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").sendKeys("15.07.2013");
     driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").click();
+    driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").clear();
     driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").sendKeys("10:10");
     driverHelper.clickAndWaitForAjax(By.id("formDetailsChangeExpiry:saveChangeExpiry"));
     navigate().taskList();

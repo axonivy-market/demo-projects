@@ -59,12 +59,22 @@ public class BaseJsfWorkflowUiTest
   
   protected void createTask(String title, String description, int priority)
   {
+    createTask(title, description, priority, null);
+  }
+  
+  protected void createTask(String title, String description, int priority, String expiryDate)
+  {
     navigate().processList();
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
     WebElement selectOneMenu = driverHelper.findElementById("formRequest:taskPriority");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel(PRIORITIES[priority]);
     driverHelper.findElementById("formRequest:description").sendKeys(description);
+    if(expiryDate != null)
+    {
+      driverHelper.findElementById("formRequest:expiryDate_input").click();
+      driverHelper.findElementById("formRequest:expiryDate_input").sendKeys(expiryDate);
+    }
     driverHelper.clickAndWaitForAjax(By.id("formRequest:submitJsf"));
   }
   
