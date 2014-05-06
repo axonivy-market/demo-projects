@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 06 14:36:05 CEST 2014]
+[>Created: Tue May 06 14:47:44 CEST 2014]
 145D18869AFC8A9A 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 Primefaces Big #zClass
@@ -104,7 +104,7 @@ Ps0 f73 windowConfiguration '* ' #txt
 Ps0 f73 isAsynch false #txt
 Ps0 f73 isInnerRd false #txt
 Ps0 f73 userContext '* ' #txt
-Ps0 f73 232 42 112 44 58 -2 #rect
+Ps0 f73 248 42 112 44 58 -2 #rect
 Ps0 f73 @|RichDialogIcon #fIcon
 Ps0 f73 -1|-1|-9671572 #nodeStyle
 Ps0 f74 type htmlDialogDemos.Data #txt
@@ -112,9 +112,9 @@ Ps0 f74 465 49 30 30 0 15 #rect
 Ps0 f74 @|EndIcon #fIcon
 Ps0 f74 -1|-1|-9671572 #nodeStyle
 Ps0 f75 expr out #txt
-Ps0 f75 143 64 232 64 #arcP
+Ps0 f75 143 64 248 64 #arcP
 Ps0 f76 expr out #txt
-Ps0 f76 344 64 465 64 #arcP
+Ps0 f76 360 64 465 64 #arcP
 >Proto Ps0 .type htmlDialogDemos.Data #txt
 >Proto Ps0 .processKind NORMAL #txt
 >Proto Ps0 0 0 32 24 18 0 #rect
