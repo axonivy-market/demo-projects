@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Mar 05 10:08:30 CET 2013]
+[>Created: Tue May 06 12:41:26 CEST 2014]
 13D39CF289ACE89B 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 PrimefacesProcess Big #zClass
@@ -33,13 +33,15 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f0 86 54 20 20 13 0 #rect
+Ps0 f0 83 51 26 26 -16 12 #rect
 Ps0 f0 @|RichDialogInitStartIcon #fIcon
+Ps0 f0 -1|-1|-9671572 #nodeStyle
 Ps0 f1 type ch.ivyteam.htmldialog.primefaces.Primefaces.PrimefacesData #txt
-Ps0 f1 86 150 20 20 13 0 #rect
+Ps0 f1 211 51 26 26 0 12 #rect
 Ps0 f1 @|RichDialogProcessEndIcon #fIcon
+Ps0 f1 -1|-1|-9671572 #nodeStyle
 Ps0 f2 expr out #txt
-Ps0 f2 96 74 96 150 #arcP
+Ps0 f2 109 64 211 64 #arcP
 >Proto Ps0 .type ch.ivyteam.htmldialog.primefaces.Primefaces.PrimefacesData #txt
 >Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 -8 -8 16 16 16 26 #rect

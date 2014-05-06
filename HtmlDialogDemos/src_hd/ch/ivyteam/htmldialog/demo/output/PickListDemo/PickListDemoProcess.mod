@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 18:40:42 CET 2013]
+[>Created: Tue May 06 12:32:39 CEST 2014]
 139E3427D3640FBC 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 PickListDemoProcess Big #zClass
@@ -38,11 +38,13 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f0 86 22 20 20 13 0 #rect
+Ps0 f0 83 83 26 26 -16 12 #rect
 Ps0 f0 @|RichDialogInitStartIcon #fIcon
+Ps0 f0 -1|-1|-9671572 #nodeStyle
 Ps0 f1 type ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData #txt
-Ps0 f1 86 150 20 20 13 0 #rect
+Ps0 f1 403 83 26 26 0 12 #rect
 Ps0 f1 @|RichDialogProcessEndIcon #fIcon
+Ps0 f1 -1|-1|-9671572 #nodeStyle
 Ps0 f3 type ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData #txt
 Ps0 f3 processCall 'Functional Processes/InitPersons:initPerson()' #txt
 Ps0 f3 doCall true #txt
@@ -62,10 +64,11 @@ Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f3 78 84 36 24 20 -2 #rect
+Ps0 f3 200 74 112 44 -32 -8 #rect
 Ps0 f3 @|CallSubIcon #fIcon
+Ps0 f3 -1|-1|-9671572 #nodeStyle
 Ps0 f4 expr out #txt
-Ps0 f4 96 42 96 84 #arcP
+Ps0 f4 109 96 200 96 #arcP
 Ps0 f4 0 0.5468358763761675 0 0 #arcLabel
 Ps0 f7 guid 139E38F62BA66372 #txt
 Ps0 f7 type ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData #txt
@@ -82,15 +85,17 @@ Ps0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f7 86 214 20 20 13 0 #rect
+Ps0 f7 83 275 26 26 -14 12 #rect
 Ps0 f7 @|RichDialogProcessStartIcon #fIcon
+Ps0 f7 -1|-1|-9671572 #nodeStyle
 Ps0 f8 type ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData #txt
-Ps0 f8 86 310 20 20 13 0 #rect
+Ps0 f8 211 275 26 26 0 12 #rect
 Ps0 f8 @|RichDialogProcessEndIcon #fIcon
+Ps0 f8 -1|-1|-9671572 #nodeStyle
 Ps0 f10 expr out #txt
-Ps0 f10 96 234 96 310 #arcP
+Ps0 f10 109 288 211 288 #arcP
 Ps0 f2 expr out #txt
-Ps0 f2 96 108 96 150 #arcP
+Ps0 f2 312 96 403 96 #arcP
 >Proto Ps0 .type ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData #txt
 >Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -102,7 +107,7 @@ Ps0 f2 96 108 96 150 #arcP
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
     <swimlaneSize>192</swimlaneSize>
-    <swimlaneSize>160</swimlaneSize>
+    <swimlaneSize>191</swimlaneSize>
     <swimlaneColor>-1</swimlaneColor>
     <swimlaneColor>-1</swimlaneColor>
 </elementInfo>

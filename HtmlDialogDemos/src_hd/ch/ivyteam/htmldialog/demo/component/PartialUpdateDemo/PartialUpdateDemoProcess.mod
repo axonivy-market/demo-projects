@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 18:40:43 CET 2013]
+[>Created: Tue May 06 12:44:25 CEST 2014]
 139E3EF5C6DBC97F 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 PartialUpdateDemoProcess Big #zClass
@@ -43,13 +43,15 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f0 86 54 20 20 13 0 #rect
+Ps0 f0 83 83 26 26 -16 12 #rect
 Ps0 f0 @|RichDialogInitStartIcon #fIcon
+Ps0 f0 -1|-1|-9671572 #nodeStyle
 Ps0 f1 type ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData #txt
-Ps0 f1 86 150 20 20 13 0 #rect
+Ps0 f1 211 83 26 26 0 12 #rect
 Ps0 f1 @|RichDialogProcessEndIcon #fIcon
+Ps0 f1 -1|-1|-9671572 #nodeStyle
 Ps0 f2 expr out #txt
-Ps0 f2 96 74 96 150 #arcP
+Ps0 f2 109 96 211 96 #arcP
 Ps0 f3 guid 139E3F86899BF38A #txt
 Ps0 f3 type ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData #txt
 Ps0 f3 actionDecl 'ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData out;
@@ -65,11 +67,13 @@ Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f3 86 246 20 20 12 -7 #rect
+Ps0 f3 83 307 26 26 -46 12 #rect
 Ps0 f3 @|RichDialogProcessStartIcon #fIcon
+Ps0 f3 -1|-1|-9671572 #nodeStyle
 Ps0 f4 type ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData #txt
-Ps0 f4 86 374 20 20 13 0 #rect
+Ps0 f4 403 307 26 26 0 12 #rect
 Ps0 f4 @|RichDialogProcessEndIcon #fIcon
+Ps0 f4 -1|-1|-9671572 #nodeStyle
 Ps0 f5 actionDecl 'ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData out;
 ' #txt
 Ps0 f5 actionTable 'out=in;
@@ -85,12 +89,13 @@ Ps0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f5 78 308 36 24 20 -2 #rect
+Ps0 f5 200 298 112 44 -47 -8 #rect
 Ps0 f5 @|StepIcon #fIcon
+Ps0 f5 -1|-1|-9671572 #nodeStyle
 Ps0 f6 expr out #txt
-Ps0 f6 96 266 96 308 #arcP
+Ps0 f6 109 320 200 320 #arcP
 Ps0 f7 expr out #txt
-Ps0 f7 96 332 96 374 #arcP
+Ps0 f7 312 320 403 320 #arcP
 >Proto Ps0 .type ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData #txt
 >Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

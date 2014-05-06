@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 28 14:32:52 CET 2014]
+[>Created: Tue May 06 12:25:36 CEST 2014]
 1450361A00C7147D 3.17 #module
 >Proto >Proto Collection #zClass
 Hs0 Html5BootstrapDemoProcess Big #zClass
@@ -43,15 +43,15 @@ Hs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Hs0 f0 53 53 22 22 14 0 #rect
+Hs0 f0 51 51 26 26 -16 13 #rect
 Hs0 f0 @|RichDialogInitStartIcon #fIcon
-Hs0 f0 -13016147|-1|-16777216 #nodeStyle
+Hs0 f0 -1|-1|-9671572 #nodeStyle
 Hs0 f1 type ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo.Html5BootstrapDemoData #txt
-Hs0 f1 53 245 22 22 14 0 #rect
+Hs0 f1 179 51 26 26 0 13 #rect
 Hs0 f1 @|RichDialogProcessEndIcon #fIcon
-Hs0 f1 -13016147|-1|-16777216 #nodeStyle
+Hs0 f1 -1|-1|-9671572 #nodeStyle
 Hs0 f2 expr out #txt
-Hs0 f2 64 75 64 245 #arcP
+Hs0 f2 77 64 179 64 #arcP
 Hs0 f3 guid 1450361A046E0099 #txt
 Hs0 f3 type ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo.Html5BootstrapDemoData #txt
 Hs0 f3 actionDecl 'ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo.Html5BootstrapDemoData out;
@@ -63,16 +63,16 @@ Hs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Hs0 f3 149 53 22 22 14 0 #rect
+Hs0 f3 51 147 26 26 -15 13 #rect
 Hs0 f3 @|RichDialogProcessStartIcon #fIcon
-Hs0 f3 -13016147|-1|-16777216 #nodeStyle
+Hs0 f3 -1|-1|-9671572 #nodeStyle
 Hs0 f4 type ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo.Html5BootstrapDemoData #txt
 Hs0 f4 guid 1450361A04764CB4 #txt
-Hs0 f4 149 245 22 22 14 0 #rect
+Hs0 f4 179 147 26 26 0 13 #rect
 Hs0 f4 @|RichDialogEndIcon #fIcon
-Hs0 f4 -13016147|-1|-16777216 #nodeStyle
+Hs0 f4 -1|-1|-9671572 #nodeStyle
 Hs0 f5 expr out #txt
-Hs0 f5 160 75 160 245 #arcP
+Hs0 f5 77 160 179 160 #arcP
 Hs0 f6 guid 145040EFC6882D73 #txt
 Hs0 f6 type ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo.Html5BootstrapDemoData #txt
 Hs0 f6 actionDecl 'ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo.Html5BootstrapDemoData out;
@@ -86,13 +86,13 @@ Hs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Hs0 f6 245 53 22 22 14 0 #rect
+Hs0 f6 51 243 26 26 -33 13 #rect
 Hs0 f6 @|RichDialogProcessStartIcon #fIcon
-Hs0 f6 -13016147|-1|-16777216 #nodeStyle
+Hs0 f6 -1|-1|-9671572 #nodeStyle
 Hs0 f7 type ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo.Html5BootstrapDemoData #txt
-Hs0 f7 245 245 22 22 14 0 #rect
+Hs0 f7 339 243 26 26 0 13 #rect
 Hs0 f7 @|RichDialogProcessEndIcon #fIcon
-Hs0 f7 -13016147|-1|-16777216 #nodeStyle
+Hs0 f7 -1|-1|-9671572 #nodeStyle
 Hs0 f9 actionDecl 'ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo.Html5BootstrapDemoData out;
 ' #txt
 Hs0 f9 actionTable 'out=in;
@@ -109,13 +109,13 @@ else
 	in.displaySuccess = false;
 }' #txt
 Hs0 f9 type ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo.Html5BootstrapDemoData #txt
-Hs0 f9 238 148 36 24 20 -2 #rect
+Hs0 f9 152 234 112 44 58 -2 #rect
 Hs0 f9 @|StepIcon #fIcon
-Hs0 f9 -13016147|-1|-16777216 #nodeStyle
+Hs0 f9 -1|-1|-9671572 #nodeStyle
 Hs0 f10 expr out #txt
-Hs0 f10 256 75 256 148 #arcP
+Hs0 f10 77 256 152 256 #arcP
 Hs0 f8 expr out #txt
-Hs0 f8 256 172 256 245 #arcP
+Hs0 f8 264 256 339 256 #arcP
 >Proto Hs0 .type ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo.Html5BootstrapDemoData #txt
 >Proto Hs0 .processKind HTML_DIALOG #txt
 >Proto Hs0 -8 -8 16 16 16 26 #rect

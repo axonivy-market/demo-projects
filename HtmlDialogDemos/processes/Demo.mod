@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 28 15:29:47 CET 2014]
+[>Created: Tue May 06 14:14:50 CEST 2014]
 139D3A4CEEEDAA4B 3.17 #module
 >Proto >Proto Collection #zClass
 Do0 Demo Big #zClass
@@ -194,11 +194,13 @@ Do0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f0 @C|.responsibility Everybody #txt
-Do0 f0 83 51 26 26 14 0 #rect
+Do0 f0 113 113 30 30 -21 15 #rect
 Do0 f0 @|StartRequestIcon #fIcon
+Do0 f0 -1|-1|-9671572 #nodeStyle
 Do0 f1 type htmlDialogDemos.Data #txt
-Do0 f1 83 179 26 26 14 0 #rect
+Do0 f1 465 113 30 30 0 15 #rect
 Do0 f1 @|EndIcon #fIcon
+Do0 f1 -1|-1|-9671572 #nodeStyle
 Do0 f2 targetWindow NEW:card: #txt
 Do0 f2 targetDisplay TOP #txt
 Do0 f2 richDialogId ch.ivyteam.htmldialog.demo.Main #txt
@@ -213,10 +215,11 @@ Do0 f2 windowConfiguration '* ' #txt
 Do0 f2 isAsynch false #txt
 Do0 f2 isInnerRd false #txt
 Do0 f2 userContext '* ' #txt
-Do0 f2 78 116 36 24 20 -2 #rect
+Do0 f2 248 106 112 44 58 -2 #rect
 Do0 f2 @|RichDialogIcon #fIcon
+Do0 f2 -1|-1|-9671572 #nodeStyle
 Do0 f4 expr out #txt
-Do0 f4 96 140 96 179 #arcP
+Do0 f4 360 128 465 128 #arcP
 Do0 f5 outLink OrderListDemo.ivp #txt
 Do0 f5 type htmlDialogDemos.Data #txt
 Do0 f5 inParamDecl '<> param;' #txt
@@ -285,8 +288,9 @@ Do0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f5 @C|.responsibility Everybody #txt
-Do0 f5 83 275 26 26 14 0 #rect
+Do0 f5 113 497 30 30 -51 15 #rect
 Do0 f5 @|StartRequestIcon #fIcon
+Do0 f5 -1|-1|-9671572 #nodeStyle
 Do0 f6 targetWindow NEW:card: #txt
 Do0 f6 targetDisplay TOP #txt
 Do0 f6 richDialogId ch.ivyteam.htmldialog.demo.output.OrderListDemo #txt
@@ -301,17 +305,19 @@ Do0 f6 windowConfiguration '* ' #txt
 Do0 f6 isAsynch false #txt
 Do0 f6 isInnerRd false #txt
 Do0 f6 userContext '* ' #txt
-Do0 f6 78 340 36 24 20 -2 #rect
+Do0 f6 248 490 112 44 58 -2 #rect
 Do0 f6 @|RichDialogIcon #fIcon
+Do0 f6 -1|-1|-9671572 #nodeStyle
 Do0 f7 expr out #txt
-Do0 f7 96 301 96 340 #arcP
+Do0 f7 143 512 248 512 #arcP
 Do0 f8 type htmlDialogDemos.Data #txt
-Do0 f8 83 395 26 26 14 0 #rect
+Do0 f8 465 497 30 30 0 15 #rect
 Do0 f8 @|EndIcon #fIcon
+Do0 f8 -1|-1|-9671572 #nodeStyle
 Do0 f9 expr out #txt
-Do0 f9 96 364 96 395 #arcP
+Do0 f9 360 512 465 512 #arcP
 Do0 f3 expr out #txt
-Do0 f3 96 77 96 116 #arcP
+Do0 f3 143 128 248 128 #arcP
 Do0 f10 outLink EditableTableDemo.ivp #txt
 Do0 f10 type htmlDialogDemos.Data #txt
 Do0 f10 inParamDecl '<> param;' #txt
@@ -380,8 +386,9 @@ Do0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f10 @C|.responsibility Everybody #txt
-Do0 f10 307 275 26 26 14 0 #rect
+Do0 f10 113 305 30 30 -64 15 #rect
 Do0 f10 @|StartRequestIcon #fIcon
+Do0 f10 -1|-1|-9671572 #nodeStyle
 Do0 f11 targetWindow NEW:card: #txt
 Do0 f11 targetDisplay TOP #txt
 Do0 f11 richDialogId ch.ivyteam.htmldialog.demo.output.EditableTableDemo #txt
@@ -396,15 +403,17 @@ Do0 f11 windowConfiguration '* ' #txt
 Do0 f11 isAsynch false #txt
 Do0 f11 isInnerRd false #txt
 Do0 f11 userContext '* ' #txt
-Do0 f11 302 340 36 24 20 -2 #rect
+Do0 f11 248 298 112 44 58 -2 #rect
 Do0 f11 @|RichDialogIcon #fIcon
+Do0 f11 -1|-1|-9671572 #nodeStyle
 Do0 f12 expr out #txt
-Do0 f12 320 301 320 340 #arcP
+Do0 f12 143 320 248 320 #arcP
 Do0 f13 type htmlDialogDemos.Data #txt
-Do0 f13 307 395 26 26 14 0 #rect
+Do0 f13 465 305 30 30 0 15 #rect
 Do0 f13 @|EndIcon #fIcon
+Do0 f13 -1|-1|-9671572 #nodeStyle
 Do0 f14 expr out #txt
-Do0 f14 320 364 320 395 #arcP
+Do0 f14 360 320 465 320 #arcP
 Do0 f15 outLink FormDemo.ivp #txt
 Do0 f15 type htmlDialogDemos.Data #txt
 Do0 f15 inParamDecl '<> param;' #txt
@@ -473,11 +482,13 @@ Do0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f15 @C|.responsibility Everybody #txt
-Do0 f15 531 275 26 26 14 0 #rect
+Do0 f15 113 945 30 30 -40 15 #rect
 Do0 f15 @|StartRequestIcon #fIcon
+Do0 f15 -1|-1|-9671572 #nodeStyle
 Do0 f16 type htmlDialogDemos.Data #txt
-Do0 f16 531 395 26 26 14 0 #rect
+Do0 f16 689 945 30 30 0 15 #rect
 Do0 f16 @|EndIcon #fIcon
+Do0 f16 -1|-1|-9671572 #nodeStyle
 Do0 f17 targetWindow NEW:card: #txt
 Do0 f17 targetDisplay TOP #txt
 Do0 f17 richDialogId ch.ivyteam.htmldialog.demo.input.FormDemo #txt
@@ -492,10 +503,11 @@ Do0 f17 windowConfiguration '* ' #txt
 Do0 f17 isAsynch false #txt
 Do0 f17 isInnerRd false #txt
 Do0 f17 userContext '* ' #txt
-Do0 f17 526 348 36 24 20 -2 #rect
+Do0 f17 472 938 112 44 58 -2 #rect
 Do0 f17 @|RichDialogIcon #fIcon
+Do0 f17 -1|-1|-9671572 #nodeStyle
 Do0 f19 expr out #txt
-Do0 f19 544 372 544 395 #arcP
+Do0 f19 584 960 689 960 #arcP
 Do0 f20 outLink PartialUpdateDemo.ivp #txt
 Do0 f20 type htmlDialogDemos.Data #txt
 Do0 f20 inParamDecl '<> param;' #txt
@@ -564,8 +576,9 @@ Do0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f20 @C|.responsibility Everybody #txt
-Do0 f20 83 467 26 26 14 0 #rect
+Do0 f20 113 1873 30 30 -63 15 #rect
 Do0 f20 @|StartRequestIcon #fIcon
+Do0 f20 -1|-1|-9671572 #nodeStyle
 Do0 f21 targetWindow NEW:card: #txt
 Do0 f21 targetDisplay TOP #txt
 Do0 f21 richDialogId ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo #txt
@@ -580,15 +593,17 @@ Do0 f21 windowConfiguration '* ' #txt
 Do0 f21 isAsynch false #txt
 Do0 f21 isInnerRd false #txt
 Do0 f21 userContext '* ' #txt
-Do0 f21 78 532 36 24 20 -2 #rect
+Do0 f21 248 1866 112 44 58 -2 #rect
 Do0 f21 @|RichDialogIcon #fIcon
+Do0 f21 -1|-1|-9671572 #nodeStyle
 Do0 f22 type htmlDialogDemos.Data #txt
-Do0 f22 83 595 26 26 14 0 #rect
+Do0 f22 465 1873 30 30 0 15 #rect
 Do0 f22 @|EndIcon #fIcon
+Do0 f22 -1|-1|-9671572 #nodeStyle
 Do0 f23 expr out #txt
-Do0 f23 96 493 96 532 #arcP
+Do0 f23 143 1888 248 1888 #arcP
 Do0 f24 expr out #txt
-Do0 f24 96 556 96 595 #arcP
+Do0 f24 360 1888 465 1888 #arcP
 Do0 f25 outLink PickListDemo.ivp #txt
 Do0 f25 type htmlDialogDemos.Data #txt
 Do0 f25 inParamDecl '<> param;' #txt
@@ -657,11 +672,13 @@ Do0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f25 @C|.responsibility Everybody #txt
-Do0 f25 307 467 26 26 14 0 #rect
+Do0 f25 113 593 30 30 -47 15 #rect
 Do0 f25 @|StartRequestIcon #fIcon
+Do0 f25 -1|-1|-9671572 #nodeStyle
 Do0 f26 type htmlDialogDemos.Data #txt
-Do0 f26 307 595 26 26 14 0 #rect
+Do0 f26 465 593 30 30 0 15 #rect
 Do0 f26 @|EndIcon #fIcon
+Do0 f26 -1|-1|-9671572 #nodeStyle
 Do0 f27 targetWindow NEW:card: #txt
 Do0 f27 targetDisplay TOP #txt
 Do0 f27 richDialogId ch.ivyteam.htmldialog.demo.output.PickListDemo #txt
@@ -676,12 +693,13 @@ Do0 f27 windowConfiguration '* ' #txt
 Do0 f27 isAsynch false #txt
 Do0 f27 isInnerRd false #txt
 Do0 f27 userContext '* ' #txt
-Do0 f27 302 532 36 24 20 -2 #rect
+Do0 f27 248 586 112 44 58 -2 #rect
 Do0 f27 @|RichDialogIcon #fIcon
+Do0 f27 -1|-1|-9671572 #nodeStyle
 Do0 f28 expr out #txt
-Do0 f28 320 493 320 532 #arcP
+Do0 f28 143 608 248 608 #arcP
 Do0 f29 expr out #txt
-Do0 f29 320 556 320 595 #arcP
+Do0 f29 360 608 465 608 #arcP
 Do0 f35 actionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Do0 f35 actionTable 'out=in;
@@ -699,21 +717,24 @@ Do0 f35 type htmlDialogDemos.Data #txt
 Do0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>set content language for selenium test</name>
+        <name>set content language
+for selenium test</name>
         <nameStyle>38,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Do0 f35 526 308 36 24 22 -5 #rect
+Do0 f35 232 938 144 44 -52 -16 #rect
 Do0 f35 @|StepIcon #fIcon
+Do0 f35 -1|-1|-9671572 #nodeStyle
 Do0 f36 expr out #txt
-Do0 f36 544 301 544 308 #arcP
+Do0 f36 143 960 232 960 #arcP
 Do0 f18 expr out #txt
-Do0 f18 544 332 544 348 #arcP
+Do0 f18 376 960 472 960 #arcP
 Do0 f31 type htmlDialogDemos.Data #txt
-Do0 f31 531 595 26 26 14 0 #rect
+Do0 f31 465 401 30 30 0 15 #rect
 Do0 f31 @|EndIcon #fIcon
+Do0 f31 -1|-1|-9671572 #nodeStyle
 Do0 f30 outLink ResourceDemo.ivp #txt
 Do0 f30 type htmlDialogDemos.Data #txt
 Do0 f30 inParamDecl '<> param;' #txt
@@ -780,12 +801,13 @@ Do0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f30 @C|.responsibility Everybody #txt
-Do0 f30 531 467 26 26 14 0 #rect
+Do0 f30 113 401 30 30 -53 15 #rect
 Do0 f30 @|StartRequestIcon #fIcon
+Do0 f30 -1|-1|-9671572 #nodeStyle
 Do0 f33 expr out #txt
-Do0 f33 544 493 544 532 #arcP
+Do0 f33 143 416 248 416 #arcP
 Do0 f34 expr out #txt
-Do0 f34 544 556 544 595 #arcP
+Do0 f34 360 416 465 416 #arcP
 Do0 f32 targetWindow NEW:card: #txt
 Do0 f32 targetDisplay TOP #txt
 Do0 f32 richDialogId ch.ivyteam.htmldialog.demo.output.ResourceDemo #txt
@@ -800,11 +822,13 @@ Do0 f32 windowConfiguration '* ' #txt
 Do0 f32 isAsynch false #txt
 Do0 f32 isInnerRd false #txt
 Do0 f32 userContext '* ' #txt
-Do0 f32 526 532 36 24 20 -2 #rect
+Do0 f32 248 394 112 44 58 -2 #rect
 Do0 f32 @|RichDialogIcon #fIcon
+Do0 f32 -1|-1|-9671572 #nodeStyle
 Do0 f37 type htmlDialogDemos.Data #txt
-Do0 f37 755 603 26 26 14 0 #rect
+Do0 f37 697 2193 30 30 0 15 #rect
 Do0 f37 @|EndIcon #fIcon
+Do0 f37 -1|-1|-9671572 #nodeStyle
 Do0 f38 targetWindow NEW:card: #txt
 Do0 f38 targetDisplay TOP #txt
 Do0 f38 richDialogId ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo #txt
@@ -819,8 +843,9 @@ Do0 f38 windowConfiguration '* ' #txt
 Do0 f38 isAsynch false #txt
 Do0 f38 isInnerRd false #txt
 Do0 f38 userContext '* ' #txt
-Do0 f38 750 516 36 24 20 -2 #rect
+Do0 f38 248 2186 112 44 58 -2 #rect
 Do0 f38 @|RichDialogIcon #fIcon
+Do0 f38 -1|-1|-9671572 #nodeStyle
 Do0 f39 outLink MethodCallWithAjaxDemo.ivp #txt
 Do0 f39 type htmlDialogDemos.Data #txt
 Do0 f39 inParamDecl '<> param;' #txt
@@ -889,13 +914,15 @@ Do0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f39 @C|.responsibility Everybody #txt
-Do0 f39 755 475 26 26 14 0 #rect
+Do0 f39 113 2193 30 30 -80 15 #rect
 Do0 f39 @|StartRequestIcon #fIcon
+Do0 f39 -1|-1|-9671572 #nodeStyle
 Do0 f40 expr out #txt
-Do0 f40 768 501 768 516 #arcP
+Do0 f40 143 2208 248 2208 #arcP
 Do0 f43 type htmlDialogDemos.Data #txt
-Do0 f43 83 803 26 26 14 0 #rect
+Do0 f43 465 2289 30 30 0 15 #rect
 Do0 f43 @|EndIcon #fIcon
+Do0 f43 -1|-1|-9671572 #nodeStyle
 Do0 f44 targetWindow NEW:card: #txt
 Do0 f44 targetDisplay TOP #txt
 Do0 f44 richDialogId ch.ivyteam.htmldialog.demo.other.ManagedBeanDemo #txt
@@ -910,8 +937,9 @@ Do0 f44 windowConfiguration '* ' #txt
 Do0 f44 isAsynch false #txt
 Do0 f44 isInnerRd false #txt
 Do0 f44 userContext '* ' #txt
-Do0 f44 78 740 36 24 20 -2 #rect
+Do0 f44 248 2282 112 44 58 -2 #rect
 Do0 f44 @|RichDialogIcon #fIcon
+Do0 f44 -1|-1|-9671572 #nodeStyle
 Do0 f42 outLink ManagedBeanDemo.ivp #txt
 Do0 f42 type htmlDialogDemos.Data #txt
 Do0 f42 inParamDecl '<> param;' #txt
@@ -981,12 +1009,13 @@ Do0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f42 @C|.responsibility Everybody #txt
-Do0 f42 83 675 26 26 14 0 #rect
+Do0 f42 113 2289 30 30 -66 15 #rect
 Do0 f42 @|StartRequestIcon #fIcon
+Do0 f42 -1|-1|-9671572 #nodeStyle
 Do0 f46 expr out #txt
-Do0 f46 96 764 96 803 #arcP
+Do0 f46 360 2304 465 2304 #arcP
 Do0 f45 expr out #txt
-Do0 f45 96 701 96 740 #arcP
+Do0 f45 143 2304 248 2304 #arcP
 Do0 f47 outLink ComponentDemo.ivp #txt
 Do0 f47 type htmlDialogDemos.Data #txt
 Do0 f47 inParamDecl '<> param;' #txt
@@ -1053,11 +1082,13 @@ Do0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f47 @C|.responsibility Everybody #txt
-Do0 f47 307 675 26 26 14 0 #rect
+Do0 f47 113 1489 30 30 -58 15 #rect
 Do0 f47 @|StartRequestIcon #fIcon
+Do0 f47 -1|-1|-9671572 #nodeStyle
 Do0 f48 type htmlDialogDemos.Data #txt
-Do0 f48 307 803 26 26 14 0 #rect
+Do0 f48 465 1489 30 30 0 15 #rect
 Do0 f48 @|EndIcon #fIcon
+Do0 f48 -1|-1|-9671572 #nodeStyle
 Do0 f49 targetWindow NEW:card: #txt
 Do0 f49 targetDisplay TOP #txt
 Do0 f49 richDialogId ch.ivyteam.htmldialog.demo.component.ComponentDemo #txt
@@ -1072,12 +1103,13 @@ Do0 f49 windowConfiguration '* ' #txt
 Do0 f49 isAsynch false #txt
 Do0 f49 isInnerRd false #txt
 Do0 f49 userContext '* ' #txt
-Do0 f49 302 740 36 24 20 -2 #rect
+Do0 f49 248 1482 112 44 58 -2 #rect
 Do0 f49 @|RichDialogIcon #fIcon
+Do0 f49 -1|-1|-9671572 #nodeStyle
 Do0 f50 expr out #txt
-Do0 f50 320 701 320 740 #arcP
+Do0 f50 143 1504 248 1504 #arcP
 Do0 f51 expr out #txt
-Do0 f51 320 764 320 803 #arcP
+Do0 f51 360 1504 465 1504 #arcP
 Do0 f52 outLink BeanValidationDemo.ivp #txt
 Do0 f52 type htmlDialogDemos.Data #txt
 Do0 f52 inParamDecl '<> param;' #txt
@@ -1146,11 +1178,13 @@ Do0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f52 @C|.responsibility Everybody #txt
-Do0 f52 755 275 26 26 14 0 #rect
+Do0 f52 113 1041 30 30 -67 15 #rect
 Do0 f52 @|StartRequestIcon #fIcon
+Do0 f52 -1|-1|-9671572 #nodeStyle
 Do0 f53 type htmlDialogDemos.Data #txt
-Do0 f53 755 379 26 26 14 0 #rect
+Do0 f53 465 1041 30 30 0 15 #rect
 Do0 f53 @|EndIcon #fIcon
+Do0 f53 -1|-1|-9671572 #nodeStyle
 Do0 f54 targetWindow NEW #txt
 Do0 f54 targetDisplay TOP #txt
 Do0 f54 richDialogId ch.ivyteam.htmldialog.demo.input.BeanValidationDemo #txt
@@ -1163,12 +1197,13 @@ Do0 f54 responseMappingAction 'out=in;
 ' #txt
 Do0 f54 isAsynch false #txt
 Do0 f54 isInnerRd false #txt
-Do0 f54 750 324 36 24 20 -2 #rect
+Do0 f54 248 1034 112 44 58 -2 #rect
 Do0 f54 @|RichDialogIcon #fIcon
+Do0 f54 -1|-1|-9671572 #nodeStyle
 Do0 f55 expr out #txt
-Do0 f55 768 301 768 324 #arcP
+Do0 f55 143 1056 248 1056 #arcP
 Do0 f56 expr out #txt
-Do0 f56 768 348 768 379 #arcP
+Do0 f56 360 1056 465 1056 #arcP
 Do0 f57 outLink ComponentCustomizingDemo.ivp #txt
 Do0 f57 type htmlDialogDemos.Data #txt
 Do0 f57 inParamDecl '<> param;' #txt
@@ -1238,8 +1273,9 @@ CustomizingDemo</name>
 </elementInfo>
 ' #txt
 Do0 f57 @C|.responsibility Everybody #txt
-Do0 f57 531 675 26 26 18 -18 #rect
+Do0 f57 113 1585 30 30 -51 15 #rect
 Do0 f57 @|StartRequestIcon #fIcon
+Do0 f57 -1|-1|-9671572 #nodeStyle
 Do0 f58 targetWindow NEW:card: #txt
 Do0 f58 targetDisplay TOP #txt
 Do0 f58 richDialogId ch.ivyteam.htmldialog.demo.component.ComponentCustomizingDemo #txt
@@ -1254,15 +1290,17 @@ Do0 f58 windowConfiguration '* ' #txt
 Do0 f58 isAsynch false #txt
 Do0 f58 isInnerRd false #txt
 Do0 f58 userContext '* ' #txt
-Do0 f58 526 740 36 24 20 -2 #rect
+Do0 f58 248 1578 112 44 58 -2 #rect
 Do0 f58 @|RichDialogIcon #fIcon
+Do0 f58 -1|-1|-9671572 #nodeStyle
 Do0 f59 type htmlDialogDemos.Data #txt
-Do0 f59 531 803 26 26 14 0 #rect
+Do0 f59 465 1585 30 30 0 15 #rect
 Do0 f59 @|EndIcon #fIcon
+Do0 f59 -1|-1|-9671572 #nodeStyle
 Do0 f60 expr out #txt
-Do0 f60 544 701 544 740 #arcP
+Do0 f60 143 1600 248 1600 #arcP
 Do0 f61 expr out #txt
-Do0 f61 544 764 544 803 #arcP
+Do0 f61 360 1600 465 1600 #arcP
 Do0 f62 outLink FileUploadSimpleModeDemo.ivp #txt
 Do0 f62 type htmlDialogDemos.Data #txt
 Do0 f62 inParamDecl '<> param;' #txt
@@ -1329,8 +1367,9 @@ Do0 f62 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f62 @C|.responsibility Everybody #txt
-Do0 f62 307 867 26 26 14 0 #rect
+Do0 f62 113 1137 30 30 -90 15 #rect
 Do0 f62 @|StartRequestIcon #fIcon
+Do0 f62 -1|-1|-9671572 #nodeStyle
 Do0 f63 targetWindow NEW:card: #txt
 Do0 f63 targetDisplay TOP #txt
 Do0 f63 richDialogId ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo #txt
@@ -1345,15 +1384,17 @@ Do0 f63 windowConfiguration '* ' #txt
 Do0 f63 isAsynch false #txt
 Do0 f63 isInnerRd false #txt
 Do0 f63 userContext '* ' #txt
-Do0 f63 302 932 36 24 20 -2 #rect
+Do0 f63 248 1130 112 44 58 -2 #rect
 Do0 f63 @|RichDialogIcon #fIcon
+Do0 f63 -1|-1|-9671572 #nodeStyle
 Do0 f64 type htmlDialogDemos.Data #txt
-Do0 f64 307 995 26 26 14 0 #rect
+Do0 f64 465 1137 30 30 0 15 #rect
 Do0 f64 @|EndIcon #fIcon
+Do0 f64 -1|-1|-9671572 #nodeStyle
 Do0 f65 expr out #txt
-Do0 f65 320 893 320 932 #arcP
+Do0 f65 143 1152 248 1152 #arcP
 Do0 f66 expr out #txt
-Do0 f66 320 956 320 995 #arcP
+Do0 f66 360 1152 465 1152 #arcP
 Do0 f67 outLink MultiViewDemo.ivp #txt
 Do0 f67 type htmlDialogDemos.Data #txt
 Do0 f67 inParamDecl '<> param;' #txt
@@ -1422,11 +1463,13 @@ Do0 f67 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f67 @C|.responsibility Everybody #txt
-Do0 f67 83 867 26 26 14 0 #rect
+Do0 f67 113 1329 30 30 -51 15 #rect
 Do0 f67 @|StartRequestIcon #fIcon
+Do0 f67 -1|-1|-9671572 #nodeStyle
 Do0 f68 type htmlDialogDemos.Data #txt
-Do0 f68 83 995 26 26 14 0 #rect
+Do0 f68 465 1329 30 30 0 15 #rect
 Do0 f68 @|EndIcon #fIcon
+Do0 f68 -1|-1|-9671572 #nodeStyle
 Do0 f69 targetWindow NEW #txt
 Do0 f69 targetDisplay TOP #txt
 Do0 f69 richDialogId ch.ivyteam.htmldialog.demo.input.MultiViewDemo #txt
@@ -1437,12 +1480,13 @@ Do0 f69 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Do0 f69 isAsynch false #txt
 Do0 f69 isInnerRd false #txt
-Do0 f69 78 924 36 24 20 -2 #rect
+Do0 f69 248 1322 112 44 58 -2 #rect
 Do0 f69 @|RichDialogIcon #fIcon
+Do0 f69 -1|-1|-9671572 #nodeStyle
 Do0 f70 expr out #txt
-Do0 f70 96 893 96 924 #arcP
+Do0 f70 143 1344 248 1344 #arcP
 Do0 f71 expr out #txt
-Do0 f71 96 948 96 995 #arcP
+Do0 f71 360 1344 465 1344 #arcP
 Do0 f72 outLink Primefaces.ivp #txt
 Do0 f72 type htmlDialogDemos.Data #txt
 Do0 f72 inParamDecl '<> param;' #txt
@@ -1511,8 +1555,9 @@ Do0 f72 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f72 @C|.responsibility Everybody #txt
-Do0 f72 83 1323 26 26 14 0 #rect
+Do0 f72 113 2449 30 30 -40 15 #rect
 Do0 f72 @|StartRequestIcon #fIcon
+Do0 f72 -1|-1|-9671572 #nodeStyle
 Do0 f73 targetWindow NEW:card: #txt
 Do0 f73 targetDisplay TOP #txt
 Do0 f73 richDialogId ch.ivyteam.htmldialog.primefaces.Primefaces #txt
@@ -1527,15 +1572,17 @@ Do0 f73 windowConfiguration '* ' #txt
 Do0 f73 isAsynch false #txt
 Do0 f73 isInnerRd false #txt
 Do0 f73 userContext '* ' #txt
-Do0 f73 78 1396 36 24 20 -2 #rect
+Do0 f73 232 2442 112 44 58 -2 #rect
 Do0 f73 @|RichDialogIcon #fIcon
+Do0 f73 -1|-1|-9671572 #nodeStyle
 Do0 f74 type htmlDialogDemos.Data #txt
-Do0 f74 83 1459 26 26 14 0 #rect
+Do0 f74 465 2449 30 30 0 15 #rect
 Do0 f74 @|EndIcon #fIcon
+Do0 f74 -1|-1|-9671572 #nodeStyle
 Do0 f75 expr out #txt
-Do0 f75 96 1349 96 1396 #arcP
+Do0 f75 143 2464 232 2464 #arcP
 Do0 f76 expr out #txt
-Do0 f76 96 1420 96 1459 #arcP
+Do0 f76 344 2464 465 2464 #arcP
 Do0 f77 targetWindow NEW:card: #txt
 Do0 f77 targetDisplay TOP #txt
 Do0 f77 richDialogId ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo #txt
@@ -1550,11 +1597,13 @@ Do0 f77 windowConfiguration '* ' #txt
 Do0 f77 isAsynch false #txt
 Do0 f77 isInnerRd false #txt
 Do0 f77 userContext '* ' #txt
-Do0 f77 526 932 36 24 20 -2 #rect
+Do0 f77 248 1226 112 44 58 -2 #rect
 Do0 f77 @|RichDialogIcon #fIcon
+Do0 f77 -1|-1|-9671572 #nodeStyle
 Do0 f78 type htmlDialogDemos.Data #txt
-Do0 f78 531 995 26 26 14 0 #rect
+Do0 f78 465 1233 30 30 0 15 #rect
 Do0 f78 @|EndIcon #fIcon
+Do0 f78 -1|-1|-9671572 #nodeStyle
 Do0 f79 outLink FileUploadAdvancedModeDemo.ivp #txt
 Do0 f79 type htmlDialogDemos.Data #txt
 Do0 f79 inParamDecl '<> param;' #txt
@@ -1621,12 +1670,13 @@ Do0 f79 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f79 @C|.responsibility Everybody #txt
-Do0 f79 531 867 26 26 14 0 #rect
+Do0 f79 113 1233 30 30 -97 15 #rect
 Do0 f79 @|StartRequestIcon #fIcon
+Do0 f79 -1|-1|-9671572 #nodeStyle
 Do0 f80 expr out #txt
-Do0 f80 544 893 544 932 #arcP
+Do0 f80 143 1248 248 1248 #arcP
 Do0 f81 expr out #txt
-Do0 f81 544 956 544 995 #arcP
+Do0 f81 360 1248 465 1248 #arcP
 Do0 f82 outLink ComponentEventListenerDemo.ivp #txt
 Do0 f82 type htmlDialogDemos.Data #txt
 Do0 f82 inParamDecl '<> param;' #txt
@@ -1696,11 +1746,13 @@ EventListenerDemo.ivp</name>
 </elementInfo>
 ' #txt
 Do0 f82 @C|.responsibility Everybody #txt
-Do0 f82 755 667 26 26 17 -16 #rect
+Do0 f82 113 1777 30 30 -63 15 #rect
 Do0 f82 @|StartRequestIcon #fIcon
+Do0 f82 -1|-1|-9671572 #nodeStyle
 Do0 f83 type htmlDialogDemos.Data #txt
-Do0 f83 755 803 26 26 14 0 #rect
+Do0 f83 465 1777 30 30 0 15 #rect
 Do0 f83 @|EndIcon #fIcon
+Do0 f83 -1|-1|-9671572 #nodeStyle
 Do0 f84 targetWindow NEW:card: #txt
 Do0 f84 targetDisplay TOP #txt
 Do0 f84 richDialogId ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog #txt
@@ -1715,12 +1767,13 @@ Do0 f84 windowConfiguration '* ' #txt
 Do0 f84 isAsynch false #txt
 Do0 f84 isInnerRd false #txt
 Do0 f84 userContext '* ' #txt
-Do0 f84 750 740 36 24 20 -2 #rect
+Do0 f84 248 1770 112 44 58 -2 #rect
 Do0 f84 @|RichDialogIcon #fIcon
+Do0 f84 -1|-1|-9671572 #nodeStyle
 Do0 f85 expr out #txt
-Do0 f85 768 693 768 740 #arcP
+Do0 f85 143 1792 248 1792 #arcP
 Do0 f86 expr out #txt
-Do0 f86 768 764 768 803 #arcP
+Do0 f86 360 1792 465 1792 #arcP
 Do0 f87 outLink SelectOneMenuDemo.ivp #txt
 Do0 f87 type htmlDialogDemos.Data #txt
 Do0 f87 inParamDecl '<> param;' #txt
@@ -1789,8 +1842,9 @@ Do0 f87 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f87 @C|.responsibility Everybody #txt
-Do0 f87 755 867 26 26 14 0 #rect
+Do0 f87 113 689 30 30 -60 15 #rect
 Do0 f87 @|StartRequestIcon #fIcon
+Do0 f87 -1|-1|-9671572 #nodeStyle
 Do0 f88 targetWindow NEW:card: #txt
 Do0 f88 targetDisplay TOP #txt
 Do0 f88 richDialogId ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo #txt
@@ -1805,15 +1859,17 @@ Do0 f88 windowConfiguration '* ' #txt
 Do0 f88 isAsynch false #txt
 Do0 f88 isInnerRd false #txt
 Do0 f88 userContext '* ' #txt
-Do0 f88 750 932 36 24 20 -2 #rect
+Do0 f88 248 682 112 44 58 -2 #rect
 Do0 f88 @|RichDialogIcon #fIcon
+Do0 f88 -1|-1|-9671572 #nodeStyle
 Do0 f89 type htmlDialogDemos.Data #txt
-Do0 f89 755 995 26 26 14 0 #rect
+Do0 f89 465 689 30 30 0 15 #rect
 Do0 f89 @|EndIcon #fIcon
+Do0 f89 -1|-1|-9671572 #nodeStyle
 Do0 f90 expr out #txt
-Do0 f90 768 893 768 932 #arcP
+Do0 f90 143 704 248 704 #arcP
 Do0 f91 expr out #txt
-Do0 f91 768 956 768 995 #arcP
+Do0 f91 360 704 465 704 #arcP
 Do0 f92 targetWindow NEW:card: #txt
 Do0 f92 targetDisplay TOP #txt
 Do0 f92 richDialogId ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo #txt
@@ -1828,11 +1884,13 @@ Do0 f92 windowConfiguration '* ' #txt
 Do0 f92 isAsynch false #txt
 Do0 f92 isInnerRd false #txt
 Do0 f92 userContext '* ' #txt
-Do0 f92 78 1124 36 24 20 -2 #rect
+Do0 f92 248 778 112 44 58 -2 #rect
 Do0 f92 @|RichDialogIcon #fIcon
+Do0 f92 -1|-1|-9671572 #nodeStyle
 Do0 f93 type htmlDialogDemos.Data #txt
-Do0 f93 83 1187 26 26 14 0 #rect
+Do0 f93 465 785 30 30 0 15 #rect
 Do0 f93 @|EndIcon #fIcon
+Do0 f93 -1|-1|-9671572 #nodeStyle
 Do0 f94 outLink SelectManyCheckboxDemo.ivp #txt
 Do0 f94 type htmlDialogDemos.Data #txt
 Do0 f94 inParamDecl '<> param;' #txt
@@ -1901,12 +1959,13 @@ Do0 f94 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f94 @C|.responsibility Everybody #txt
-Do0 f94 83 1059 26 26 14 0 #rect
+Do0 f94 113 785 30 30 -75 15 #rect
 Do0 f94 @|StartRequestIcon #fIcon
+Do0 f94 -1|-1|-9671572 #nodeStyle
 Do0 f95 expr out #txt
-Do0 f95 96 1085 96 1124 #arcP
+Do0 f95 143 800 248 800 #arcP
 Do0 f96 expr out #txt
-Do0 f96 96 1148 96 1187 #arcP
+Do0 f96 360 800 465 800 #arcP
 Do0 f97 outLink JsfCompositeComponent.ivp #txt
 Do0 f97 type htmlDialogDemos.Data #txt
 Do0 f97 inParamDecl '<> param;' #txt
@@ -1975,11 +2034,13 @@ Do0 f97 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f97 @C|.responsibility Everybody #txt
-Do0 f97 307 1059 26 26 14 0 #rect
+Do0 f97 113 1681 30 30 -80 15 #rect
 Do0 f97 @|StartRequestIcon #fIcon
+Do0 f97 -1|-1|-9671572 #nodeStyle
 Do0 f98 type htmlDialogDemos.Data #txt
-Do0 f98 307 1187 26 26 14 0 #rect
+Do0 f98 465 1681 30 30 0 15 #rect
 Do0 f98 @|EndIcon #fIcon
+Do0 f98 -1|-1|-9671572 #nodeStyle
 Do0 f99 targetWindow NEW:card: #txt
 Do0 f99 targetDisplay TOP #txt
 Do0 f99 richDialogId ch.ivyteam.htmldialog.demo.component.JsfCompositeComponentDemo #txt
@@ -1994,12 +2055,13 @@ Do0 f99 windowConfiguration '* ' #txt
 Do0 f99 isAsynch false #txt
 Do0 f99 isInnerRd false #txt
 Do0 f99 userContext '* ' #txt
-Do0 f99 302 1124 36 24 20 -2 #rect
+Do0 f99 248 1674 112 44 58 -2 #rect
 Do0 f99 @|RichDialogIcon #fIcon
+Do0 f99 -1|-1|-9671572 #nodeStyle
 Do0 f100 expr out #txt
-Do0 f100 320 1085 320 1124 #arcP
+Do0 f100 143 1696 248 1696 #arcP
 Do0 f101 expr out #txt
-Do0 f101 320 1148 320 1187 #arcP
+Do0 f101 360 1696 465 1696 #arcP
 Do0 f102 targetWindow NEW:card: #txt
 Do0 f102 targetDisplay TOP #txt
 Do0 f102 richDialogId ch.ivyteam.htmldialog.demo.Main #txt
@@ -2014,13 +2076,13 @@ Do0 f102 windowConfiguration '* ' #txt
 Do0 f102 isAsynch false #txt
 Do0 f102 isInnerRd false #txt
 Do0 f102 userContext '* ' #txt
-Do0 f102 750 564 36 24 20 -2 #rect
+Do0 f102 472 2186 112 44 58 -2 #rect
 Do0 f102 @|RichDialogIcon #fIcon
-Do0 f102 -13016147|-1|-16777216 #nodeStyle
+Do0 f102 -1|-1|-9671572 #nodeStyle
 Do0 f103 expr out #txt
-Do0 f103 768 540 768 564 #arcP
+Do0 f103 360 2208 472 2208 #arcP
 Do0 f41 expr out #txt
-Do0 f41 768 588 768 603 #arcP
+Do0 f41 584 2208 697 2208 #arcP
 Do0 f104 targetWindow NEW:card: #txt
 Do0 f104 targetDisplay TOP #txt
 Do0 f104 richDialogId ch.ivyteam.htmldialog.demo.other.Html5Demo #txt
@@ -2035,11 +2097,13 @@ Do0 f104 windowConfiguration '* ' #txt
 Do0 f104 isAsynch false #txt
 Do0 f104 isInnerRd false #txt
 Do0 f104 userContext '* ' #txt
-Do0 f104 526 1124 36 24 20 -2 #rect
+Do0 f104 248 1994 112 44 58 -2 #rect
 Do0 f104 @|RichDialogIcon #fIcon
+Do0 f104 -1|-1|-9671572 #nodeStyle
 Do0 f105 type htmlDialogDemos.Data #txt
-Do0 f105 531 1187 26 26 14 0 #rect
+Do0 f105 465 2001 30 30 0 15 #rect
 Do0 f105 @|EndIcon #fIcon
+Do0 f105 -1|-1|-9671572 #nodeStyle
 Do0 f106 outLink Html5Demo.ivp #txt
 Do0 f106 type htmlDialogDemos.Data #txt
 Do0 f106 inParamDecl '<> param;' #txt
@@ -2108,12 +2172,13 @@ Do0 f106 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f106 @C|.responsibility Everybody #txt
-Do0 f106 531 1059 26 26 14 0 #rect
+Do0 f106 113 2001 30 30 -42 15 #rect
 Do0 f106 @|StartRequestIcon #fIcon
+Do0 f106 -1|-1|-9671572 #nodeStyle
 Do0 f107 expr out #txt
-Do0 f107 544 1085 544 1124 #arcP
+Do0 f107 143 2016 248 2016 #arcP
 Do0 f108 expr out #txt
-Do0 f108 544 1148 544 1187 #arcP
+Do0 f108 360 2016 465 2016 #arcP
 Do0 f109 outLink Html5BootstrapDemo.ivp #txt
 Do0 f109 type htmlDialogDemos.Data #txt
 Do0 f109 inParamDecl '<> param;' #txt
@@ -2182,13 +2247,13 @@ Do0 f109 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Do0 f109 @C|.responsibility Everybody #txt
-Do0 f109 755 1059 26 26 14 0 #rect
+Do0 f109 113 2097 30 30 -69 15 #rect
 Do0 f109 @|StartRequestIcon #fIcon
-Do0 f109 -13016147|-1|-16777216 #nodeStyle
+Do0 f109 -1|-1|-9671572 #nodeStyle
 Do0 f110 type htmlDialogDemos.Data #txt
-Do0 f110 755 1179 26 26 14 0 #rect
+Do0 f110 465 2097 30 30 0 15 #rect
 Do0 f110 @|EndIcon #fIcon
-Do0 f110 -13016147|-1|-16777216 #nodeStyle
+Do0 f110 -1|-1|-9671572 #nodeStyle
 Do0 f112 targetWindow NEW:card: #txt
 Do0 f112 targetDisplay TOP #txt
 Do0 f112 richDialogId ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo #txt
@@ -2203,27 +2268,51 @@ Do0 f112 windowConfiguration '* ' #txt
 Do0 f112 isAsynch false #txt
 Do0 f112 isInnerRd false #txt
 Do0 f112 userContext '* ' #txt
-Do0 f112 750 1124 36 24 20 -2 #rect
+Do0 f112 248 2090 112 44 58 -2 #rect
 Do0 f112 @|RichDialogIcon #fIcon
-Do0 f112 -13016147|-1|-16777216 #nodeStyle
+Do0 f112 -1|-1|-9671572 #nodeStyle
 Do0 f113 expr out #txt
-Do0 f113 768 1085 768 1124 #arcP
+Do0 f113 143 2112 248 2112 #arcP
 Do0 f111 expr out #txt
-Do0 f111 768 1148 768 1179 #arcP
+Do0 f111 360 2112 465 2112 #arcP
 >Proto Do0 .type htmlDialogDemos.Data #txt
 >Proto Do0 .processKind NORMAL #txt
 >Proto Do0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <swimlaneLabel>Main Demo </swimlaneLabel>
-        <swimlaneLabel>Demos</swimlaneLabel>
+        <swimlaneLabel>Output</swimlaneLabel>
+        <swimlaneLabel>Input</swimlaneLabel>
+        <swimlaneLabel>Component</swimlaneLabel>
+        <swimlaneLabel>Other</swimlaneLabel>
+        <swimlaneLabel>Primefaces</swimlaneLabel>
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
-    <swimlaneSize>248</swimlaneSize>
-    <swimlaneSize>1056</swimlaneSize>
+    <swimlaneSize>255</swimlaneSize>
+    <swimlaneSize>642</swimlaneSize>
+    <swimlaneSize>545</swimlaneSize>
+    <swimlaneSize>509</swimlaneSize>
+    <swimlaneSize>449</swimlaneSize>
+    <swimlaneSize>160</swimlaneSize>
     <swimlaneColor>-1</swimlaneColor>
     <swimlaneColor>-6710887</swimlaneColor>
+    <swimlaneColor>-1</swimlaneColor>
+    <swimlaneColor>-1</swimlaneColor>
+    <swimlaneColor>-1</swimlaneColor>
+    <swimlaneColor>-1</swimlaneColor>
+    <swimlaneType>LANE</swimlaneType>
+    <swimlaneType>LANE</swimlaneType>
+    <swimlaneType>LANE</swimlaneType>
+    <swimlaneType>LANE</swimlaneType>
+    <swimlaneType>LANE</swimlaneType>
+    <swimlaneType>LANE</swimlaneType>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
 </elementInfo>
 ' #txt
 >Proto Do0 0 0 32 24 18 0 #rect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 07 10:08:42 CET 2013]
+[>Created: Tue May 06 12:20:44 CEST 2014]
 13D440EE6A78EF1E 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadAdvancedModeDemoProcess Big #zClass
@@ -48,13 +48,15 @@ Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f0 86 54 20 20 13 0 #rect
+Fs0 f0 83 51 26 26 -16 12 #rect
 Fs0 f0 @|RichDialogInitStartIcon #fIcon
+Fs0 f0 -1|-1|-9671572 #nodeStyle
 Fs0 f1 type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
-Fs0 f1 86 150 20 20 13 0 #rect
+Fs0 f1 211 51 26 26 0 12 #rect
 Fs0 f1 @|RichDialogProcessEndIcon #fIcon
+Fs0 f1 -1|-1|-9671572 #nodeStyle
 Fs0 f2 expr out #txt
-Fs0 f2 96 74 96 150 #arcP
+Fs0 f2 109 64 211 64 #arcP
 Fs0 f3 guid 13CF8146B1D3BB71 #txt
 Fs0 f3 type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
 Fs0 f3 method uploadFile(org.primefaces.event.FileUploadEvent) #txt
@@ -75,11 +77,13 @@ Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f3 182 54 20 20 13 0 #rect
+Fs0 f3 83 147 26 26 -78 12 #rect
 Fs0 f3 @|RichDialogMethodStartIcon #fIcon
+Fs0 f3 -1|-1|-9671572 #nodeStyle
 Fs0 f4 type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
-Fs0 f4 182 150 20 20 13 0 #rect
+Fs0 f4 467 147 26 26 0 12 #rect
 Fs0 f4 @|RichDialogProcessEndIcon #fIcon
+Fs0 f4 -1|-1|-9671572 #nodeStyle
 Fs0 f5 actionDecl 'ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData out;
 ' #txt
 Fs0 f5 actionTable 'out=in;
@@ -157,12 +161,13 @@ Fs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f5 174 100 36 24 20 -2 #rect
+Fs0 f5 200 138 176 44 -81 -8 #rect
 Fs0 f5 @|StepIcon #fIcon
+Fs0 f5 -1|-1|-9671572 #nodeStyle
 Fs0 f6 expr out #txt
-Fs0 f6 192 74 192 100 #arcP
+Fs0 f6 109 160 200 160 #arcP
 Fs0 f7 expr out #txt
-Fs0 f7 192 124 192 150 #arcP
+Fs0 f7 376 160 467 160 #arcP
 >Proto Fs0 .type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
 >Proto Fs0 .processKind HTML_DIALOG #txt
 >Proto Fs0 -8 -8 16 16 16 26 #rect

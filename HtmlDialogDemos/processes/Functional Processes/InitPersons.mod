@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Sep 18 15:06:07 CEST 2012]
+[>Created: Tue May 06 12:05:42 CEST 2014]
 139D97A1E15DE439 3.17 #module
 >Proto >Proto Collection #zClass
 Is0 InitPersons Big #zClass
@@ -34,11 +34,13 @@ Is0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Is0 f0 83 51 26 26 14 0 #rect
+Is0 f0 81 49 30 30 -32 15 #rect
 Is0 f0 @|StartSubIcon #fIcon
+Is0 f0 -1|-1|-9671572 #nodeStyle
 Is0 f1 type ch.ivyteam.htmldialog.demo.InitPersonsData #txt
-Is0 f1 83 307 26 26 14 0 #rect
+Is0 f1 401 49 30 30 0 15 #rect
 Is0 f1 @|EndSubIcon #fIcon
+Is0 f1 -1|-1|-9671572 #nodeStyle
 Is0 f2 actionDecl 'ch.ivyteam.htmldialog.demo.InitPersonsData out;
 ' #txt
 Is0 f2 actionTable 'out=in;
@@ -75,12 +77,13 @@ person.name = "Dänzer";
 person.firstname = "Michael";
 out.persons.add(person);' #txt
 Is0 f2 type ch.ivyteam.htmldialog.demo.InitPersonsData #txt
-Is0 f2 78 180 36 24 20 -2 #rect
+Is0 f2 192 42 112 44 58 -2 #rect
 Is0 f2 @|StepIcon #fIcon
+Is0 f2 -1|-1|-9671572 #nodeStyle
 Is0 f3 expr out #txt
-Is0 f3 96 77 96 180 #arcP
+Is0 f3 111 64 192 64 #arcP
 Is0 f4 expr out #txt
-Is0 f4 96 204 96 307 #arcP
+Is0 f4 304 64 401 64 #arcP
 >Proto Is0 .type ch.ivyteam.htmldialog.demo.InitPersonsData #txt
 >Proto Is0 .processKind CALLABLE_SUB #txt
 >Proto Is0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

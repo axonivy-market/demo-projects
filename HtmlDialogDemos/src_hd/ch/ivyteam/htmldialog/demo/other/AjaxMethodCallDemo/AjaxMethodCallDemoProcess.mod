@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jan 10 16:27:26 CET 2014]
+[>Created: Tue May 06 12:24:39 CEST 2014]
 13A3F854E6D3A3F7 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AjaxMethodCallDemoProcess Big #zClass
@@ -41,13 +41,15 @@ As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f0 86 54 20 20 13 0 #rect
+As0 f0 83 51 26 26 -16 12 #rect
 As0 f0 @|RichDialogInitStartIcon #fIcon
+As0 f0 -1|-1|-9671572 #nodeStyle
 As0 f1 type ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
-As0 f1 86 150 20 20 13 0 #rect
+As0 f1 211 51 26 26 0 12 #rect
 As0 f1 @|RichDialogProcessEndIcon #fIcon
+As0 f1 -1|-1|-9671572 #nodeStyle
 As0 f2 expr out #txt
-As0 f2 96 74 96 150 #arcP
+As0 f2 109 64 211 64 #arcP
 As0 f3 guid 13A3FA51C962D77C #txt
 As0 f3 type ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
 As0 f3 method helloWorld(String) #txt
@@ -70,23 +72,26 @@ As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f3 190 54 20 20 13 0 #rect
+As0 f3 83 147 26 26 -49 12 #rect
 As0 f3 @|RichDialogMethodStartIcon #fIcon
+As0 f3 -1|-1|-9671572 #nodeStyle
 As0 f5 type ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
-As0 f5 190 158 20 20 13 0 #rect
+As0 f5 371 147 26 26 0 12 #rect
 As0 f5 @|RichDialogProcessEndIcon #fIcon
+As0 f5 -1|-1|-9671572 #nodeStyle
 As0 f4 actionDecl 'ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData out;
 ' #txt
 As0 f4 actionTable 'out=in;
 out.welcomeMessage="Welcome "+in.name;
 ' #txt
 As0 f4 type ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
-As0 f4 182 100 36 24 20 -2 #rect
+As0 f4 184 138 112 44 58 -2 #rect
 As0 f4 @|StepIcon #fIcon
+As0 f4 -1|-1|-9671572 #nodeStyle
 As0 f7 expr out #txt
-As0 f7 200 74 200 100 #arcP
+As0 f7 109 160 184 160 #arcP
 As0 f6 expr out #txt
-As0 f6 200 124 200 158 #arcP
+As0 f6 296 160 371 160 #arcP
 As0 f8 guid 1437CC3BEFF4691B #txt
 As0 f8 type ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
 As0 f8 method closeDialog() #txt
@@ -103,16 +108,16 @@ As0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f8 341 53 22 22 14 0 #rect
+As0 f8 83 243 26 26 -37 13 #rect
 As0 f8 @|RichDialogMethodStartIcon #fIcon
-As0 f8 -13016147|-1|-16777216 #nodeStyle
+As0 f8 -1|-1|-9671572 #nodeStyle
 As0 f9 type ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
 As0 f9 guid 1437CC3CD196323F #txt
-As0 f9 341 157 22 22 14 0 #rect
+As0 f9 211 243 26 26 0 13 #rect
 As0 f9 @|RichDialogEndIcon #fIcon
-As0 f9 -13016147|-1|-16777216 #nodeStyle
+As0 f9 -1|-1|-9671572 #nodeStyle
 As0 f10 expr out #txt
-As0 f10 352 75 352 157 #arcP
+As0 f10 109 256 211 256 #arcP
 >Proto As0 .type ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo.AjaxMethodCallDemoData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect

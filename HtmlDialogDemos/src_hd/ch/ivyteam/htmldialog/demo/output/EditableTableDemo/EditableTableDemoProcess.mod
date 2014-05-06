@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 18:40:42 CET 2013]
+[>Created: Tue May 06 12:30:02 CEST 2014]
 139D96A5734DE195 3.17 #module
 >Proto >Proto Collection #zClass
 Es0 EditableTableDemoProcess Big #zClass
@@ -53,11 +53,13 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f0 70 54 20 20 13 0 #rect
+Es0 f0 83 115 26 26 -16 12 #rect
 Es0 f0 @|RichDialogInitStartIcon #fIcon
+Es0 f0 -1|-1|-9671572 #nodeStyle
 Es0 f1 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
-Es0 f1 70 214 20 20 13 0 #rect
+Es0 f1 555 115 26 26 0 12 #rect
 Es0 f1 @|RichDialogProcessEndIcon #fIcon
+Es0 f1 -1|-1|-9671572 #nodeStyle
 Es0 f2 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f2 processCall 'Functional Processes/InitPersons:initPerson()' #txt
 Es0 f2 doCall true #txt
@@ -75,10 +77,11 @@ Es0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f2 62 100 36 24 20 -2 #rect
+Es0 f2 168 106 112 44 -32 -8 #rect
 Es0 f2 @|CallSubIcon #fIcon
+Es0 f2 -1|-1|-9671572 #nodeStyle
 Es0 f3 expr out #txt
-Es0 f3 80 74 80 100 #arcP
+Es0 f3 109 128 168 128 #arcP
 Es0 f5 guid 139D98B6A2951E27 #txt
 Es0 f5 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f5 actionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
@@ -94,8 +97,9 @@ Es0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f5 70 270 20 20 13 0 #rect
+Es0 f5 83 307 26 26 -14 12 #rect
 Es0 f5 @|RichDialogProcessStartIcon #fIcon
+Es0 f5 -1|-1|-9671572 #nodeStyle
 Es0 f6 guid 139D98B7D2CE532C #txt
 Es0 f6 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f6 actionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
@@ -111,19 +115,22 @@ Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f6 214 270 20 20 13 0 #rect
+Es0 f6 83 403 26 26 -15 12 #rect
 Es0 f6 @|RichDialogProcessStartIcon #fIcon
+Es0 f6 -1|-1|-9671572 #nodeStyle
 Es0 f7 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
-Es0 f7 70 366 20 20 13 0 #rect
+Es0 f7 211 307 26 26 0 12 #rect
 Es0 f7 @|RichDialogProcessEndIcon #fIcon
+Es0 f7 -1|-1|-9671572 #nodeStyle
 Es0 f8 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f8 guid 139D98BBD35CC811 #txt
-Es0 f8 214 366 20 20 13 0 #rect
+Es0 f8 211 403 26 26 0 12 #rect
 Es0 f8 @|RichDialogEndIcon #fIcon
+Es0 f8 -1|-1|-9671572 #nodeStyle
 Es0 f9 expr out #txt
-Es0 f9 224 290 224 366 #arcP
+Es0 f9 109 416 211 416 #arcP
 Es0 f10 expr out #txt
-Es0 f10 80 290 80 366 #arcP
+Es0 f10 109 320 211 320 #arcP
 Es0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
 ' #txt
 Es0 f11 actionTable 'out=in;
@@ -138,12 +145,13 @@ for (Person person : in.persons)
 	in.recordset.add([person.name, person.firstname]);
 }' #txt
 Es0 f11 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
-Es0 f11 62 156 36 24 20 -2 #rect
+Es0 f11 360 106 112 44 58 -2 #rect
 Es0 f11 @|StepIcon #fIcon
+Es0 f11 -1|-1|-9671572 #nodeStyle
 Es0 f12 expr out #txt
-Es0 f12 80 124 80 156 #arcP
+Es0 f12 280 128 360 128 #arcP
 Es0 f4 expr out #txt
-Es0 f4 80 180 80 214 #arcP
+Es0 f4 472 128 555 128 #arcP
 Es0 f13 guid 139DEBA1CB42E47D #txt
 Es0 f13 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f13 method delete(Record) #txt
@@ -164,8 +172,9 @@ Es0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f13 70 430 20 20 13 0 #rect
+Es0 f13 83 659 26 26 -41 12 #rect
 Es0 f13 @|RichDialogMethodStartIcon #fIcon
+Es0 f13 -1|-1|-9671572 #nodeStyle
 Es0 f14 actionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
 ' #txt
 Es0 f14 actionTable 'out=in;
@@ -175,22 +184,23 @@ Es0 f14 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDe
 Es0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Delete record from recordset
-</name>
-        <nameStyle>29,7
+        <name>Delete record from recordset</name>
+        <nameStyle>28,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Es0 f14 62 484 36 24 25 -13 #rect
+Es0 f14 152 650 176 44 -78 -8 #rect
 Es0 f14 @|StepIcon #fIcon
+Es0 f14 -1|-1|-9671572 #nodeStyle
 Es0 f15 expr out #txt
-Es0 f15 80 450 80 484 #arcP
+Es0 f15 109 672 152 672 #arcP
 Es0 f16 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
-Es0 f16 70 550 20 20 13 0 #rect
+Es0 f16 403 659 26 26 0 12 #rect
 Es0 f16 @|RichDialogProcessEndIcon #fIcon
+Es0 f16 -1|-1|-9671572 #nodeStyle
 Es0 f17 expr out #txt
-Es0 f17 80 508 80 550 #arcP
+Es0 f17 328 672 403 672 #arcP
 Es0 f18 guid 139E297CD5890C15 #txt
 Es0 f18 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f18 actionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
@@ -206,11 +216,13 @@ Es0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f18 342 270 20 20 13 0 #rect
+Es0 f18 83 499 26 26 -10 12 #rect
 Es0 f18 @|RichDialogProcessStartIcon #fIcon
+Es0 f18 -1|-1|-9671572 #nodeStyle
 Es0 f19 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
-Es0 f19 342 366 20 20 13 0 #rect
+Es0 f19 403 499 26 26 0 12 #rect
 Es0 f19 @|RichDialogProcessEndIcon #fIcon
+Es0 f19 -1|-1|-9671572 #nodeStyle
 Es0 f21 actionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
 ' #txt
 Es0 f21 actionTable 'out=in;
@@ -226,12 +238,13 @@ Es0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f21 334 316 36 24 27 -7 #rect
+Es0 f21 176 490 160 44 -76 -8 #rect
 Es0 f21 @|StepIcon #fIcon
+Es0 f21 -1|-1|-9671572 #nodeStyle
 Es0 f22 expr out #txt
-Es0 f22 352 290 352 316 #arcP
+Es0 f22 109 512 176 512 #arcP
 Es0 f20 expr out #txt
-Es0 f20 352 340 352 366 #arcP
+Es0 f20 336 512 403 512 #arcP
 >Proto Es0 .type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 >Proto Es0 .processKind HTML_DIALOG #txt
 >Proto Es0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -243,8 +256,8 @@ Es0 f20 352 340 352 366 #arcP
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
-    <swimlaneSize>248</swimlaneSize>
-    <swimlaneSize>160</swimlaneSize>
+    <swimlaneSize>255</swimlaneSize>
+    <swimlaneSize>321</swimlaneSize>
     <swimlaneSize>192</swimlaneSize>
     <swimlaneColor>-1</swimlaneColor>
     <swimlaneColor>-1</swimlaneColor>

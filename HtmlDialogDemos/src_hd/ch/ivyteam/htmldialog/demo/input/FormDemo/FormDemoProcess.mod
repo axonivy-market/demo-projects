@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 18:40:43 CET 2013]
+[>Created: Tue May 06 12:23:25 CEST 2014]
 139E30EF308FD0DC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FormDemoProcess Big #zClass
@@ -44,13 +44,15 @@ Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f0 86 54 20 20 13 0 #rect
+Fs0 f0 83 83 26 26 -16 12 #rect
 Fs0 f0 @|RichDialogInitStartIcon #fIcon
+Fs0 f0 -1|-1|-9671572 #nodeStyle
 Fs0 f1 type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
-Fs0 f1 86 150 20 20 13 0 #rect
+Fs0 f1 211 83 26 26 0 12 #rect
 Fs0 f1 @|RichDialogProcessEndIcon #fIcon
+Fs0 f1 -1|-1|-9671572 #nodeStyle
 Fs0 f2 expr out #txt
-Fs0 f2 96 74 96 150 #arcP
+Fs0 f2 109 96 211 96 #arcP
 Fs0 f3 guid 139E36E9C60E9FF5 #txt
 Fs0 f3 type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
 Fs0 f3 actionDecl 'ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData out;
@@ -66,13 +68,15 @@ Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f3 86 214 20 20 14 -6 #rect
+Fs0 f3 83 243 26 26 -14 12 #rect
 Fs0 f3 @|RichDialogProcessStartIcon #fIcon
+Fs0 f3 -1|-1|-9671572 #nodeStyle
 Fs0 f4 type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
-Fs0 f4 86 310 20 20 13 0 #rect
+Fs0 f4 211 243 26 26 0 12 #rect
 Fs0 f4 @|RichDialogProcessEndIcon #fIcon
+Fs0 f4 -1|-1|-9671572 #nodeStyle
 Fs0 f5 expr out #txt
-Fs0 f5 96 234 96 310 #arcP
+Fs0 f5 109 256 211 256 #arcP
 Fs0 f6 guid 139E36EE160AB5AD #txt
 Fs0 f6 type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
 Fs0 f6 actionDecl 'ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData out;
@@ -88,14 +92,16 @@ Fs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f6 166 214 20 20 13 0 #rect
+Fs0 f6 83 339 26 26 -15 12 #rect
 Fs0 f6 @|RichDialogProcessStartIcon #fIcon
+Fs0 f6 -1|-1|-9671572 #nodeStyle
 Fs0 f7 type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
 Fs0 f7 guid 139E36EEE3A751B3 #txt
-Fs0 f7 166 310 20 20 13 0 #rect
+Fs0 f7 211 339 26 26 0 12 #rect
 Fs0 f7 @|RichDialogEndIcon #fIcon
+Fs0 f7 -1|-1|-9671572 #nodeStyle
 Fs0 f8 expr out #txt
-Fs0 f8 176 234 176 310 #arcP
+Fs0 f8 109 352 211 352 #arcP
 Fs0 f10 actionDecl 'ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData out;
 ' #txt
 Fs0 f10 actionTable 'out=in;
@@ -118,19 +124,21 @@ Fs0 f10 type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
 Fs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Eveluate matching countries</name>
+        <name>Evaluate matching countries</name>
         <nameStyle>27,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f10 78 444 36 24 26 -6 #rect
+Fs0 f10 224 482 160 44 -77 -8 #rect
 Fs0 f10 @|StepIcon #fIcon
+Fs0 f10 -1|-1|-9671572 #nodeStyle
 Fs0 f11 type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
-Fs0 f11 86 510 20 20 13 0 #rect
+Fs0 f11 499 491 26 26 0 12 #rect
 Fs0 f11 @|RichDialogProcessEndIcon #fIcon
+Fs0 f11 -1|-1|-9671572 #nodeStyle
 Fs0 f13 expr out #txt
-Fs0 f13 96 468 96 510 #arcP
+Fs0 f13 384 504 499 504 #arcP
 Fs0 f9 guid 139E37250FA7DB14 #txt
 Fs0 f9 type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
 Fs0 f9 method completeCountry(String) #txt
@@ -153,10 +161,11 @@ Fs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f9 86 390 20 20 13 0 #rect
+Fs0 f9 83 491 26 26 -66 12 #rect
 Fs0 f9 @|RichDialogMethodStartIcon #fIcon
+Fs0 f9 -1|-1|-9671572 #nodeStyle
 Fs0 f12 expr out #txt
-Fs0 f12 96 410 96 444 #arcP
+Fs0 f12 109 504 224 504 #arcP
 >Proto Fs0 .type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
 >Proto Fs0 .processKind HTML_DIALOG #txt
 >Proto Fs0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -169,7 +178,7 @@ Fs0 f12 96 410 96 444 #arcP
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
     <swimlaneSize>192</swimlaneSize>
-    <swimlaneSize>168</swimlaneSize>
+    <swimlaneSize>225</swimlaneSize>
     <swimlaneSize>192</swimlaneSize>
     <swimlaneColor>-1</swimlaneColor>
     <swimlaneColor>-1</swimlaneColor>

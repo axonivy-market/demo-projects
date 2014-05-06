@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 15:26:26 CET 2013]
+[>Created: Tue May 06 12:12:28 CEST 2014]
 13C628B65065323C 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 ComponentCustomizingDemoProcess Big #zClass
@@ -36,13 +36,15 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f0 86 54 20 20 13 0 #rect
+Cs0 f0 83 51 26 26 -16 12 #rect
 Cs0 f0 @|RichDialogInitStartIcon #fIcon
+Cs0 f0 -1|-1|-9671572 #nodeStyle
 Cs0 f1 type ch.ivyteam.htmldialog.demo.component.ComponentCustomizingDemo.ComponentCustomizingDemoData #txt
-Cs0 f1 86 150 20 20 13 0 #rect
+Cs0 f1 211 51 26 26 0 12 #rect
 Cs0 f1 @|RichDialogProcessEndIcon #fIcon
+Cs0 f1 -1|-1|-9671572 #nodeStyle
 Cs0 f2 expr out #txt
-Cs0 f2 96 74 96 150 #arcP
+Cs0 f2 109 64 211 64 #arcP
 Cs0 f3 guid 13C62A24F9EDA5DC #txt
 Cs0 f3 type ch.ivyteam.htmldialog.demo.component.ComponentCustomizingDemo.ComponentCustomizingDemoData #txt
 Cs0 f3 actionDecl 'ch.ivyteam.htmldialog.demo.component.ComponentCustomizingDemo.ComponentCustomizingDemoData out;
@@ -58,12 +60,14 @@ Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f3 203 54 20 20 13 0 #rect
+Cs0 f3 83 147 26 26 -19 12 #rect
 Cs0 f3 @|RichDialogProcessStartIcon #fIcon
+Cs0 f3 -1|-1|-9671572 #nodeStyle
 Cs0 f4 type ch.ivyteam.htmldialog.demo.component.ComponentCustomizingDemo.ComponentCustomizingDemoData #txt
-Cs0 f4 203 150 20 20 13 0 #rect
+Cs0 f4 211 147 26 26 0 12 #rect
 Cs0 f4 @|RichDialogProcessEndIcon #fIcon
-Cs0 f5 213 74 213 150 #arcP
+Cs0 f4 -1|-1|-9671572 #nodeStyle
+Cs0 f5 109 160 211 160 #arcP
 >Proto Cs0 .type ch.ivyteam.htmldialog.demo.component.ComponentCustomizingDemo.ComponentCustomizingDemoData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect

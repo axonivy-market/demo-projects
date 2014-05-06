@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 22 18:40:43 CET 2013]
+[>Created: Tue May 06 12:22:05 CEST 2014]
 13C3DAFB89BB3EB0 3.17 #module
 >Proto >Proto Collection #zClass
 Bs0 BeanValidationDemoProcess Big #zClass
@@ -44,13 +44,15 @@ Bs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f0 86 54 20 20 13 0 #rect
+Bs0 f0 83 83 26 26 -16 12 #rect
 Bs0 f0 @|RichDialogInitStartIcon #fIcon
+Bs0 f0 -1|-1|-9671572 #nodeStyle
 Bs0 f1 type ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData #txt
-Bs0 f1 86 150 20 20 13 0 #rect
+Bs0 f1 211 83 26 26 0 12 #rect
 Bs0 f1 @|RichDialogProcessEndIcon #fIcon
+Bs0 f1 -1|-1|-9671572 #nodeStyle
 Bs0 f2 expr out #txt
-Bs0 f2 96 74 96 150 #arcP
+Bs0 f2 109 96 211 96 #arcP
 Bs0 f3 guid 13C3DC3DE517B556 #txt
 Bs0 f3 type ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData #txt
 Bs0 f3 actionDecl 'ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData out;
@@ -64,12 +66,14 @@ Bs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f3 86 222 20 20 13 0 #rect
+Bs0 f3 83 243 26 26 -14 12 #rect
 Bs0 f3 @|RichDialogProcessStartIcon #fIcon
+Bs0 f3 -1|-1|-9671572 #nodeStyle
 Bs0 f4 type ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData #txt
-Bs0 f4 86 318 20 20 13 0 #rect
+Bs0 f4 211 243 26 26 0 12 #rect
 Bs0 f4 @|RichDialogProcessEndIcon #fIcon
-Bs0 f5 96 242 96 318 #arcP
+Bs0 f4 -1|-1|-9671572 #nodeStyle
+Bs0 f5 109 256 211 256 #arcP
 Bs0 f6 guid 13C3DD5BB26CE572 #txt
 Bs0 f6 type ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData #txt
 Bs0 f6 actionDecl 'ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData out;
@@ -83,14 +87,16 @@ Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f6 182 222 20 20 13 0 #rect
+Bs0 f6 83 339 26 26 -15 12 #rect
 Bs0 f6 @|RichDialogProcessStartIcon #fIcon
+Bs0 f6 -1|-1|-9671572 #nodeStyle
 Bs0 f9 type ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData #txt
 Bs0 f9 guid 13C3DD6902FF1272 #txt
-Bs0 f9 182 318 20 20 13 0 #rect
+Bs0 f9 211 339 26 26 0 12 #rect
 Bs0 f9 @|RichDialogEndIcon #fIcon
+Bs0 f9 -1|-1|-9671572 #nodeStyle
 Bs0 f10 expr out #txt
-Bs0 f10 192 242 192 318 #arcP
+Bs0 f10 109 352 211 352 #arcP
 >Proto Bs0 .type ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData #txt
 >Proto Bs0 .processKind HTML_DIALOG #txt
 >Proto Bs0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -104,7 +110,7 @@ Bs0 f10 192 242 192 318 #arcP
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
     <swimlaneSize>192</swimlaneSize>
-    <swimlaneSize>192</swimlaneSize>
+    <swimlaneSize>224</swimlaneSize>
     <swimlaneColor>-1</swimlaneColor>
     <swimlaneColor>-1</swimlaneColor>
 </elementInfo>

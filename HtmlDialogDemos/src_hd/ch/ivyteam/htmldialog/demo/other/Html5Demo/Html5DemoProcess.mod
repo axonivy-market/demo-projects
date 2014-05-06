@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 14 09:01:29 CET 2014]
+[>Created: Tue May 06 12:26:46 CEST 2014]
 144BBF8074075C50 3.17 #module
 >Proto >Proto Collection #zClass
 Hs0 Html5DemoProcess Big #zClass
@@ -43,15 +43,15 @@ Hs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Hs0 f0 53 53 22 22 14 0 #rect
+Hs0 f0 51 51 26 26 -16 13 #rect
 Hs0 f0 @|RichDialogInitStartIcon #fIcon
-Hs0 f0 -13016147|-1|-16777216 #nodeStyle
+Hs0 f0 -1|-1|-9671572 #nodeStyle
 Hs0 f1 type ch.ivyteam.htmldialog.demo.other.Html5Demo.Html5DemoData #txt
-Hs0 f1 53 245 22 22 14 0 #rect
+Hs0 f1 179 51 26 26 0 13 #rect
 Hs0 f1 @|RichDialogProcessEndIcon #fIcon
-Hs0 f1 -13016147|-1|-16777216 #nodeStyle
+Hs0 f1 -1|-1|-9671572 #nodeStyle
 Hs0 f2 expr out #txt
-Hs0 f2 64 75 64 245 #arcP
+Hs0 f2 77 64 179 64 #arcP
 Hs0 f3 guid 144BBF80969EAD68 #txt
 Hs0 f3 type ch.ivyteam.htmldialog.demo.other.Html5Demo.Html5DemoData #txt
 Hs0 f3 actionDecl 'ch.ivyteam.htmldialog.demo.other.Html5Demo.Html5DemoData out;
@@ -63,16 +63,16 @@ Hs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Hs0 f3 149 53 22 22 14 0 #rect
+Hs0 f3 51 147 26 26 -15 13 #rect
 Hs0 f3 @|RichDialogProcessStartIcon #fIcon
-Hs0 f3 -13016147|-1|-16777216 #nodeStyle
+Hs0 f3 -1|-1|-9671572 #nodeStyle
 Hs0 f4 type ch.ivyteam.htmldialog.demo.other.Html5Demo.Html5DemoData #txt
 Hs0 f4 guid 144BBF8096944D4E #txt
-Hs0 f4 149 245 22 22 14 0 #rect
+Hs0 f4 179 147 26 26 0 13 #rect
 Hs0 f4 @|RichDialogEndIcon #fIcon
-Hs0 f4 -13016147|-1|-16777216 #nodeStyle
+Hs0 f4 -1|-1|-9671572 #nodeStyle
 Hs0 f5 expr out #txt
-Hs0 f5 160 75 160 245 #arcP
+Hs0 f5 77 160 179 160 #arcP
 Hs0 f9 guid 144BF9173F448022 #txt
 Hs0 f9 type ch.ivyteam.htmldialog.demo.other.Html5Demo.Html5DemoData #txt
 Hs0 f9 actionDecl 'ch.ivyteam.htmldialog.demo.other.Html5Demo.Html5DemoData out;
@@ -86,13 +86,13 @@ Hs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Hs0 f9 277 53 22 22 14 0 #rect
+Hs0 f9 51 243 26 26 -32 13 #rect
 Hs0 f9 @|RichDialogProcessStartIcon #fIcon
-Hs0 f9 -13016147|-1|-16777216 #nodeStyle
+Hs0 f9 -1|-1|-9671572 #nodeStyle
 Hs0 f10 type ch.ivyteam.htmldialog.demo.other.Html5Demo.Html5DemoData #txt
-Hs0 f10 277 245 22 22 14 0 #rect
+Hs0 f10 339 243 26 26 0 13 #rect
 Hs0 f10 @|RichDialogProcessEndIcon #fIcon
-Hs0 f10 -13016147|-1|-16777216 #nodeStyle
+Hs0 f10 -1|-1|-9671572 #nodeStyle
 Hs0 f6 actionDecl 'ch.ivyteam.htmldialog.demo.other.Html5Demo.Html5DemoData out;
 ' #txt
 Hs0 f6 actionTable 'out=in;
@@ -103,13 +103,13 @@ import javax.faces.context.FacesContext;
 FacesContext context = FacesContext.getCurrentInstance();  
 context.addMessage(null, new FacesMessage("Hello " + in.userName, "Greetings from the server"));  ' #txt
 Hs0 f6 type ch.ivyteam.htmldialog.demo.other.Html5Demo.Html5DemoData #txt
-Hs0 f6 270 148 36 24 20 -2 #rect
+Hs0 f6 152 234 112 44 58 -2 #rect
 Hs0 f6 @|StepIcon #fIcon
-Hs0 f6 -13016147|-1|-16777216 #nodeStyle
+Hs0 f6 -1|-1|-9671572 #nodeStyle
 Hs0 f7 expr out #txt
-Hs0 f7 288 75 288 148 #arcP
+Hs0 f7 77 256 152 256 #arcP
 Hs0 f8 expr out #txt
-Hs0 f8 288 172 288 245 #arcP
+Hs0 f8 264 256 339 256 #arcP
 >Proto Hs0 .type ch.ivyteam.htmldialog.demo.other.Html5Demo.Html5DemoData #txt
 >Proto Hs0 .processKind HTML_DIALOG #txt
 >Proto Hs0 -8 -8 16 16 16 26 #rect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jan 10 08:37:24 CET 2014]
+[>Created: Tue May 06 12:15:45 CEST 2014]
 14377E60D299F34F 3.17 #module
 >Proto >Proto Collection #zClass
 Es0 JsfCompositeComponentDemoProcess Big #zClass
@@ -42,13 +42,15 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f0 54 54 20 20 13 0 #rect
+Es0 f0 83 51 26 26 -16 12 #rect
 Es0 f0 @|RichDialogInitStartIcon #fIcon
+Es0 f0 -1|-1|-9671572 #nodeStyle
 Es0 f1 type ch.ivyteam.htmldialog.demo.component.JsfCompositeComponentDemo.JsfCompositeComponentDemoData #txt
-Es0 f1 54 150 20 20 13 0 #rect
+Es0 f1 211 51 26 26 0 12 #rect
 Es0 f1 @|RichDialogProcessEndIcon #fIcon
+Es0 f1 -1|-1|-9671572 #nodeStyle
 Es0 f2 expr out #txt
-Es0 f2 64 74 64 150 #arcP
+Es0 f2 109 64 211 64 #arcP
 >Proto Es0 .type ch.ivyteam.htmldialog.demo.component.JsfCompositeComponentDemo.JsfCompositeComponentDemoData #txt
 >Proto Es0 .processKind HTML_DIALOG #txt
 >Proto Es0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

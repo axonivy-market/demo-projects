@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jun 14 12:08:06 CEST 2013]
+[>Created: Tue May 06 12:41:06 CEST 2014]
 13F3C733545FE635 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SelectOneMenuDemoProcess Big #zClass
@@ -45,11 +45,13 @@ Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f0 86 54 20 20 13 0 #rect
+Ss0 f0 83 115 26 26 -16 12 #rect
 Ss0 f0 @|RichDialogInitStartIcon #fIcon
+Ss0 f0 -1|-1|-9671572 #nodeStyle
 Ss0 f1 type ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo.SelectOneMenuDemoData #txt
-Ss0 f1 86 246 20 20 13 0 #rect
+Ss0 f1 563 115 26 26 0 12 #rect
 Ss0 f1 @|RichDialogProcessEndIcon #fIcon
+Ss0 f1 -1|-1|-9671572 #nodeStyle
 Ss0 f3 type ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo.SelectOneMenuDemoData #txt
 Ss0 f3 processCall 'Functional Processes/InitPersons:initPerson()' #txt
 Ss0 f3 doCall true #txt
@@ -67,13 +69,15 @@ Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f3 78 116 36 24 20 -2 #rect
+Ss0 f3 184 106 112 44 -32 -8 #rect
 Ss0 f3 @|CallSubIcon #fIcon
+Ss0 f3 -1|-1|-9671572 #nodeStyle
 Ss0 f4 expr out #txt
-Ss0 f4 96 74 96 116 #arcP
+Ss0 f4 109 128 184 128 #arcP
 Ss0 f6 type ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo.SelectOneMenuDemoData #txt
-Ss0 f6 86 486 20 20 13 0 #rect
+Ss0 f6 211 307 26 26 0 12 #rect
 Ss0 f6 @|RichDialogProcessEndIcon #fIcon
+Ss0 f6 -1|-1|-9671572 #nodeStyle
 Ss0 f7 guid 13F3C7C4AAA7A1A5 #txt
 Ss0 f7 type ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo.SelectOneMenuDemoData #txt
 Ss0 f7 actionDecl 'ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo.SelectOneMenuDemoData out;
@@ -89,12 +93,14 @@ Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f7 254 390 20 20 13 0 #rect
+Ss0 f7 83 403 26 26 -15 12 #rect
 Ss0 f7 @|RichDialogProcessStartIcon #fIcon
+Ss0 f7 -1|-1|-9671572 #nodeStyle
 Ss0 f8 type ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo.SelectOneMenuDemoData #txt
 Ss0 f8 guid 139D43768BEC3366 #txt
-Ss0 f8 254 486 20 20 13 0 #rect
+Ss0 f8 211 403 26 26 0 12 #rect
 Ss0 f8 @|RichDialogEndIcon #fIcon
+Ss0 f8 -1|-1|-9671572 #nodeStyle
 Ss0 f5 guid 13F3C7C4AA97821B #txt
 Ss0 f5 type ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo.SelectOneMenuDemoData #txt
 Ss0 f5 actionDecl 'ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo.SelectOneMenuDemoData out;
@@ -110,12 +116,13 @@ Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f5 86 390 20 20 13 0 #rect
+Ss0 f5 83 307 26 26 -14 12 #rect
 Ss0 f5 @|RichDialogProcessStartIcon #fIcon
+Ss0 f5 -1|-1|-9671572 #nodeStyle
 Ss0 f9 expr out #txt
-Ss0 f9 264 410 264 486 #arcP
+Ss0 f9 109 416 211 416 #arcP
 Ss0 f10 expr out #txt
-Ss0 f10 96 410 96 486 #arcP
+Ss0 f10 109 320 211 320 #arcP
 Ss0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo.SelectOneMenuDemoData out;
 ' #txt
 Ss0 f11 actionTable 'out=in;
@@ -153,12 +160,13 @@ Ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f11 78 180 36 24 20 -2 #rect
+Ss0 f11 376 106 112 44 -45 -8 #rect
 Ss0 f11 @|StepIcon #fIcon
+Ss0 f11 -1|-1|-9671572 #nodeStyle
 Ss0 f12 expr out #txt
-Ss0 f12 96 140 96 180 #arcP
+Ss0 f12 296 128 376 128 #arcP
 Ss0 f2 expr out #txt
-Ss0 f2 96 204 96 246 #arcP
+Ss0 f2 488 128 563 128 #arcP
 >Proto Ss0 .type ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo.SelectOneMenuDemoData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -169,8 +177,8 @@ Ss0 f2 96 204 96 246 #arcP
         <swimlaneLabel></swimlaneLabel>
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
-    <swimlaneSize>328</swimlaneSize>
-    <swimlaneSize>248</swimlaneSize>
+    <swimlaneSize>257</swimlaneSize>
+    <swimlaneSize>224</swimlaneSize>
     <swimlaneColor>-1</swimlaneColor>
     <swimlaneColor>-1</swimlaneColor>
 </elementInfo>

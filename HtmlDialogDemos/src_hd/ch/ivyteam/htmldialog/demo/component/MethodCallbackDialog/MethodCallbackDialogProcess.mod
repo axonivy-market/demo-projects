@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 31 15:53:53 CEST 2013]
+[>Created: Tue May 06 12:16:18 CEST 2014]
 13EF083D130E971B 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MethodCallbackDialogProcess Big #zClass
@@ -43,14 +43,17 @@ Ms0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f0 46 38 20 20 13 0 #rect
+Ms0 f0 83 51 26 26 -16 12 #rect
 Ms0 f0 @|RichDialogInitStartIcon #fIcon
+Ms0 f0 -1|-1|-9671572 #nodeStyle
 Ms0 f1 type ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData #txt
-Ms0 f1 46 134 20 20 13 0 #rect
+Ms0 f1 411 51 26 26 0 12 #rect
 Ms0 f1 @|RichDialogProcessEndIcon #fIcon
+Ms0 f1 -1|-1|-9671572 #nodeStyle
 Ms0 f4 type ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData #txt
-Ms0 f4 206 134 20 20 13 0 #rect
+Ms0 f4 211 147 26 26 0 12 #rect
 Ms0 f4 @|RichDialogProcessEndIcon #fIcon
+Ms0 f4 -1|-1|-9671572 #nodeStyle
 Ms0 f6 actionDecl 'ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData out;
 ' #txt
 Ms0 f6 actionTable 'out=in;
@@ -87,12 +90,13 @@ create persons</name>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f6 38 84 36 24 22 -17 #rect
+Ms0 f6 200 42 128 44 -42 -16 #rect
 Ms0 f6 @|StepIcon #fIcon
+Ms0 f6 -1|-1|-9671572 #nodeStyle
 Ms0 f7 expr out #txt
-Ms0 f7 56 58 56 84 #arcP
+Ms0 f7 109 64 200 64 #arcP
 Ms0 f2 expr out #txt
-Ms0 f2 56 108 56 134 #arcP
+Ms0 f2 328 64 411 64 #arcP
 Ms0 f8 guid 013EF0B265B0EA6B #txt
 Ms0 f8 type ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData #txt
 Ms0 f8 method tableRowSelected(org.primefaces.event.SelectEvent) #txt
@@ -124,10 +128,11 @@ tableRowSelected(SelectEvent)</name>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f8 206 38 20 20 16 -15 #rect
+Ms0 f8 83 147 26 26 -86 12 #rect
 Ms0 f8 @|RichDialogMethodStartIcon #fIcon
+Ms0 f8 -1|-1|-9671572 #nodeStyle
 Ms0 f9 expr out #txt
-Ms0 f9 216 58 216 134 #arcP
+Ms0 f9 109 160 211 160 #arcP
 Ms0 f3 guid 13EFAD0DB9C9F626 #txt
 Ms0 f3 type ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData #txt
 Ms0 f3 actionDecl 'ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData out;
@@ -151,13 +156,15 @@ Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f3 454 38 20 20 13 0 #rect
+Ms0 f3 83 243 26 26 -69 12 #rect
 Ms0 f3 @|RichDialogProcessStartIcon #fIcon
+Ms0 f3 -1|-1|-9671572 #nodeStyle
 Ms0 f5 type ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData #txt
-Ms0 f5 454 134 20 20 13 0 #rect
+Ms0 f5 211 243 26 26 0 12 #rect
 Ms0 f5 @|RichDialogProcessEndIcon #fIcon
+Ms0 f5 -1|-1|-9671572 #nodeStyle
 Ms0 f10 expr out #txt
-Ms0 f10 464 58 464 134 #arcP
+Ms0 f10 109 256 211 256 #arcP
 >Proto Ms0 .type ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData #txt
 >Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
