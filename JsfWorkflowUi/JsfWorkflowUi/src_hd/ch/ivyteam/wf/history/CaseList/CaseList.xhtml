@@ -26,30 +26,30 @@
 	    		<p:toolbarGroup align="right">
 		    		<h:panelGrid columns="8">
 	 					#{ivy.cms.co('/labels/common/category')}:
-	 					<p:selectOneMenu id="categoryFilter" value="#{data.catFilter}">
+	 					<p:selectOneMenu id="categoryFilter" value="#{data.catFilter}" onchange="PF('caseTable').paginator.setPage(0);">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="" />
 	           				<f:selectItems value="#{data.categories}" var="categorie" itemLabel="#{categorie}" itemValue="#{categorie}" />
-	           				<p:ajax update=":caseListForm" listener="#{logic.setFilter}" />
+	           				<p:ajax update=":caseListForm" listener="#{logic.update()}" />
 	        			</p:selectOneMenu>
 	        			<p:spacer width="10" />
 	        			#{ivy.cms.co('/labels/common/process')}:
-	 					<p:selectOneMenu id="processFilter" value="#{data.procFilter}">
+	 					<p:selectOneMenu id="processFilter" value="#{data.procFilter}" onchange="PF('caseTable').paginator.setPage(0);">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="" />
 	           				<f:selectItems value="#{data.processesList}" var="processe" itemLabel="#{processe}" itemValue="#{processe}" />
-	           				<p:ajax update=":caseListForm" listener="#{logic.setFilter}" />
+	           				<p:ajax update=":caseListForm" listener="#{logic.update()}" />
 	        			</p:selectOneMenu>
 	        			<p:spacer width="10" />
 	        			#{ivy.cms.co('/labels/common/taskState')}:
-	 					<p:selectOneMenu id="stateFilter" value="#{data.statFilter}">
+	 					<p:selectOneMenu id="stateFilter" value="#{data.statFilter}" onchange="PF('caseTable').paginator.setPage(0);">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="" />
 	           				<f:selectItems value="#{data.states}" var="state" itemLabel="#{state}" itemValue="#{state}" />
-	           				<p:ajax update=":caseListForm" listener="#{logic.setFilter}" />
+	           				<p:ajax update=":caseListForm" listener="#{logic.update()}" />
 	        			</p:selectOneMenu>
         			</h:panelGrid>
        			</p:toolbarGroup>
 			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
-   			<p:dataTable id="caseTable" var="case" value="#{data.cases}" emptyMessage="#{ivy.cms.co('/labels/common/noCases')}" rowIndexVar="row" paginator="#{data.cases.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
+   			<p:dataTable id="caseTable" widgetVar="caseTable" var="case" value="#{data.cases}" emptyMessage="#{ivy.cms.co('/labels/common/noCases')}" rowIndexVar="row" paginator="#{data.cases.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
    				<p:column style="width:5%" sortBy="#{ID}">
            			<f:facet name="header">
                			#

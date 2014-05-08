@@ -16,6 +16,7 @@ import ch.ivyteam.ivy.workflow.PropertyOrder;
 import ch.ivyteam.ivy.workflow.TaskProperty;
 import ch.ivyteam.ivy.workflow.TaskState;
 
+@SuppressWarnings("serial")
 public class TaskLazyDataModel extends LazyDataModel<ITask> {
 	
 	private IPropertyFilter<TaskProperty> taskFilter;

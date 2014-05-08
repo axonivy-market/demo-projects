@@ -17,6 +17,7 @@ import ch.ivyteam.ivy.workflow.IPropertyFilter;
 
 import ch.ivyteam.ivy.workflow.PropertyOrder;
 
+@SuppressWarnings("serial")
 public class CaseLazyDataModel extends LazyDataModel<ICase> {
 
 	private IPropertyFilter<CaseProperty> caseFilter;

@@ -22,26 +22,26 @@
 	    		<p:toolbarGroup align="right">
 		    		<h:panelGrid columns="4">
 	 					#{ivy.cms.co('/labels/common/taskPrio')}:
-	 					<p:selectOneMenu value="#{data.prioFilter}" id="priorityFilter">
+	 					<p:selectOneMenu value="#{data.prioFilter}" id="priorityFilter" onchange="PF('taskTable').paginator.setPage(0);">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="" />
 		          			<f:selectItem itemLabel="LOW" itemValue="4" /> 
 		           			<f:selectItem itemLabel="NORMAL" itemValue="3" />  
 		           			<f:selectItem itemLabel="HIGH" itemValue="2" />  
 		           			<f:selectItem itemLabel="EXCEPTION" itemValue="1" />
-		           			<f:ajax render="taskListForm" />
+		           			<p:ajax update=":taskListForm" listener="#{logic.update()}" />
 		       			</p:selectOneMenu>
 		       			#{ivy.cms.co('/labels/common/responsible')}:
-		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter">
+		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter" onchange="PF('taskTable').paginator.setPage(0);">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="All" />
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" itemValue="##{ivy.session.getSessionUserName()}" />
 		          			<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} #{role.getDisplayName() != '' ? '(' : ''}#{role.getName()}#{role.getDisplayName() != '' ? ')' : ''}" itemValue="#{role.getName()}"/>
-		           			<f:ajax render="taskListForm" />
+		           			<p:ajax update=":taskListForm" listener="#{logic.update()}" />
 		       			</p:selectOneMenu>
 	       			</h:panelGrid>
 	      		</p:toolbarGroup>
 			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
-			<p:dataTable id="taskTable" var="task" value="#{data.tasks}" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}" rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
+			<p:dataTable id="taskTable" widgetVar="taskTable" var="task" value="#{data.tasks}" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}" rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
 				<p:column style="width:5%" sortBy="#{ID}">
 					<f:facet name="header">
 						#

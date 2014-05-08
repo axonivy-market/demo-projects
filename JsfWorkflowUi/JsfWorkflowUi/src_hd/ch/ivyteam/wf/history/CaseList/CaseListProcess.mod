@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 25 11:22:33 CEST 2013]
+[>Created: Thu May 08 08:56:58 CEST 2014]
 13F1D8A32C686BDF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListProcess Big #zClass
@@ -15,7 +15,6 @@ Cs0 @TextInP .xml .xml #zField
 Cs0 @TextInP .responsibility .responsibility #zField
 Cs0 @RichDialogInitStart f0 '' #zField
 Cs0 @RichDialogProcessEnd f1 '' #zField
-Cs0 @RichDialogProcessStart f16 '' #zField
 Cs0 @Alternative f20 '' #zField
 Cs0 @GridStep f21 '' #zField
 Cs0 @GridStep f23 '' #zField
@@ -26,7 +25,6 @@ Cs0 @PushWFArc f6 '' #zField
 Cs0 @GridStep f7 '' #zField
 Cs0 @PushWFArc f8 '' #zField
 Cs0 @PushWFArc f3 '' #zField
-Cs0 @PushWFArc f9 '' #zField
 Cs0 @PushWFArc f13 '' #zField
 Cs0 @PushWFArc f4 '' #zField
 >Proto Cs0 Cs0 CaseListProcess #zField
@@ -56,21 +54,6 @@ Cs0 f0 @|RichDialogInitStartIcon #fIcon
 Cs0 f1 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
 Cs0 f1 118 246 20 20 13 0 #rect
 Cs0 f1 @|RichDialogProcessEndIcon #fIcon
-Cs0 f16 guid 13F1DB65D2D3293B #txt
-Cs0 f16 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
-Cs0 f16 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
-' #txt
-Cs0 f16 actionTable 'out=in;
-' #txt
-Cs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>setFilter</name>
-    </language>
-</elementInfo>
-' #txt
-Cs0 f16 406 54 20 20 13 0 #rect
-Cs0 f16 @|RichDialogProcessStartIcon #fIcon
 Cs0 f20 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
 Cs0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -241,10 +224,6 @@ Cs0 f8 expr out #txt
 Cs0 f8 288 74 288 116 #arcP
 Cs0 f3 expr out #txt
 Cs0 f3 288 140 288 178 #arcP
-Cs0 f9 expr out #txt
-Cs0 f9 416 74 306 128 #arcP
-Cs0 f9 1 416 128 #addKink
-Cs0 f9 1 0.3697662911536614 0 0 #arcLabel
 Cs0 f13 expr out #txt
 Cs0 f13 302 256 138 256 #arcP
 Cs0 f13 0 0.46142549601003485 0 0 #arcLabel
@@ -266,8 +245,6 @@ Cs0 f2 mainOut f8 tail #connect
 Cs0 f8 head f7 mainIn #connect
 Cs0 f7 mainOut f3 tail #connect
 Cs0 f3 head f20 in #connect
-Cs0 f16 mainOut f9 tail #connect
-Cs0 f9 head f7 mainIn #connect
 Cs0 f21 mainOut f13 tail #connect
 Cs0 f13 head f1 mainIn #connect
 Cs0 f20 out f4 tail #connect
