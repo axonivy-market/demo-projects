@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 06 12:23:25 CEST 2014]
+[>Created: Thu May 08 16:07:46 CEST 2014]
 139E30EF308FD0DC 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FormDemoProcess Big #zClass
@@ -130,15 +130,15 @@ Fs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f10 224 482 160 44 -77 -8 #rect
+Fs0 f10 192 490 160 44 -77 -8 #rect
 Fs0 f10 @|StepIcon #fIcon
 Fs0 f10 -1|-1|-9671572 #nodeStyle
 Fs0 f11 type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
-Fs0 f11 499 491 26 26 0 12 #rect
+Fs0 f11 435 499 26 26 0 12 #rect
 Fs0 f11 @|RichDialogProcessEndIcon #fIcon
 Fs0 f11 -1|-1|-9671572 #nodeStyle
 Fs0 f13 expr out #txt
-Fs0 f13 384 504 499 504 #arcP
+Fs0 f13 352 512 435 512 #arcP
 Fs0 f9 guid 139E37250FA7DB14 #txt
 Fs0 f9 type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
 Fs0 f9 method completeCountry(String) #txt
@@ -161,11 +161,11 @@ Fs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f9 83 491 26 26 -66 12 #rect
+Fs0 f9 83 499 26 26 -66 12 #rect
 Fs0 f9 @|RichDialogMethodStartIcon #fIcon
 Fs0 f9 -1|-1|-9671572 #nodeStyle
 Fs0 f12 expr out #txt
-Fs0 f12 109 504 224 504 #arcP
+Fs0 f12 109 512 192 512 #arcP
 >Proto Fs0 .type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
 >Proto Fs0 .processKind HTML_DIALOG #txt
 >Proto Fs0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
