@@ -132,4 +132,8 @@ public class PrimeFacesWidgetHelper
     }
   }
   
+  public void clickPaginationNextPage()
+  {
+    driverHelper.clickAndWaitForAjax(By.cssSelector("span.ui-icon.ui-icon-seek-next"));
+  }
 }

@@ -101,4 +101,25 @@ public class TestFilter extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     closeTask();
   }
+  
+  @Test
+  public void testFilterWithPagination() throws Exception
+  {
+    for(int tasksCount = 0; tasksCount < 54; tasksCount++)
+    {
+      createTask("taskHighForFilterPagination", "task pagination", 1);
+    }
+    createTask("taskHighForFilterPagination", "task pagination", 1);
+    
+    navigate().taskList();
+    prime().clickPaginationNextPage();
+    WebElement selectOneMenu = driverHelper.findElementById("taskListForm:priorityFilter");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("HIGH");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskHighForFilterPagination");
+    
+    for(int tasksCount = 0; tasksCount < 55; tasksCount++)
+    {
+      closeTask();
+    }
+  }
 }
