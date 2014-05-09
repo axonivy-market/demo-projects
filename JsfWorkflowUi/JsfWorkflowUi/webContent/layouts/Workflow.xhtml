@@ -17,7 +17,7 @@
 <h:body>
 	<p:layout fullPage="true">
 		<p:layoutUnit id="headerLayoutUnit" position="north" size="140">
-			<ui:include src="layoutIncludes/Header.xhtml" />
+			<ui:include src="includes/Header.xhtml" />
 		</p:layoutUnit>
 		
 		<c:choose>
@@ -28,7 +28,7 @@
  			</c:when>
  			<c:otherwise>
 	 			<p:layoutUnit id="menuLayoutUnit" position="west" collapsible="true" header="Xpert.ivy 5" size="200">
-					<ui:include src="layoutIncludes/Menu.xhtml" />
+					<ui:include src="includes/Menu.xhtml" />
 				</p:layoutUnit>
 				
 				<p:layoutUnit id="mainLayoutUnit" position="center" header="#{centerHeader}">

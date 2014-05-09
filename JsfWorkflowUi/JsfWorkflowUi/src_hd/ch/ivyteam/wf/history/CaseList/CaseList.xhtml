@@ -10,7 +10,7 @@
       xmlns:pe="http://primefaces.org/ui/extensions"
       xmlns:pm="http://primefaces.org/mobile">
 
-<ui:composition template="/templates/Layout.xhtml">
+<ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{data.caseListMode == 'my_cases' ? ivy.cms.co('/navLabels/caseHistory') : ivy.cms.co('/navLabels/caseAdmin')}" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />

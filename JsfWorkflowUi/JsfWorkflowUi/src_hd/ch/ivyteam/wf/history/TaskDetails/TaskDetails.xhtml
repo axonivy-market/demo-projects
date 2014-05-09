@@ -10,7 +10,7 @@
       xmlns:pe="http://primefaces.org/ui/extensions"
       xmlns:pm="http://primefaces.org/mobile">
 
-<ui:composition template="/templates/Layout.xhtml">
+<ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/taskDetails')}" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
@@ -55,7 +55,7 @@
 					<tr>
 						<th>#{ivy.cms.co('/labels/common/state')}</th>
 						<td>
-							<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
+							<ui:include src="/includes/TableIconDescription.xhtml" >
 								<ui:param name="iconName" value="images/details/state/#{data.task.state.intValue()}.png" />
 								<ui:param name="iconDescription" value="#{data.task.state}" />
 							</ui:include>
@@ -64,7 +64,7 @@
 					<tr>
 						<th>#{ivy.cms.co('/labels/history/taskDetails/priority')}</th>
 						<td>
-							<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
+							<ui:include src="/includes/TableIconDescription.xhtml" >
 								<ui:param name="iconName" value="images/details/priority/#{data.task.priority.intValue()}.png" />
 								<ui:param name="iconDescription" value="#{data.task.priority}" />
 							</ui:include>
@@ -73,7 +73,7 @@
 					<tr>
 						<th>#{ivy.cms.co('/labels/common/user')}</th>
 						<td>
-							<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
+							<ui:include src="/includes/TableIconDescription.xhtml" >
 								<ui:param name="iconName" value="#{data.task.workerUser != null ? 'images/details/user.png' : 'images/others/none.png'}" />
 								<ui:param name="iconDescription" value="#{data.task.workerUserName}" />
 							</ui:include>
@@ -82,7 +82,7 @@
 					<tr>
    						<th>#{ivy.cms.co('/labels/common/responsible')}</th>
 	   					<td>
-	   						<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
+	   						<ui:include src="/includes/TableIconDescription.xhtml" >
 								<ui:param name="iconName" value="#{data.task.originalActivator == null ? 'images/others/none.png' : data.task.originalActivator.isUser() ? 'images/details/user.png' : 'images/details/role.png'}" />
 								<ui:param name="iconDescription" value="#{data.task.activator.name}" />
 							</ui:include>
@@ -91,7 +91,7 @@
 					<tr>
    						<th>#{ivy.cms.co('/labels/history/taskDetails/responsibleEx')}</th>
    						<td>
-   							<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
+   							<ui:include src="/includes/TableIconDescription.xhtml" >
 								<ui:param name="iconName" value="#{data.task.expiryActivator == null ? 'images/others/none.png' : data.task.expiryActivator.isUser() ? 'images/details/user.png' : 'images/details/role.png'}" />
 								<ui:param name="iconDescription" value="#{data.task.expiryActivatorName}" />
 							</ui:include>
@@ -180,17 +180,17 @@
 				</h:panelGrid>
 			</h:panelGrid>
 		</h:form>
-		<ui:include src="/dialogs/ConfirmDeleteReset.xhtml" >
+		<ui:include src="/includes/dialogs/ConfirmDeleteReset.xhtml" >
 			<ui:param name="headerConfirm" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" />
 			<ui:param name="description" value="#{ivy.cms.co('/labels/dialogs/confirmDialog/resetTask')}" />
 		</ui:include>
-		<ui:include src="/dialogs/ConfirmDelayNow.xhtml" />
-		<ui:include src="/dialogs/ConfirmExpiryNow.xhtml" />
-		<ui:include src="/dialogs/DelegateTask.xhtml" />
-		<ui:include src="/dialogs/ChangeExpiry.xhtml" />
-		<ui:include src="/dialogs/ChangePriority.xhtml" />
-		<ui:include src="/dialogs/AddNote.xhtml" />
-		<ui:include src="/dialogs/Archive.xhtml" />
+		<ui:include src="/includes/dialogs/ConfirmDelayNow.xhtml" />
+		<ui:include src="/includes/dialogs/ConfirmExpiryNow.xhtml" />
+		<ui:include src="/includes/dialogs/DelegateTask.xhtml" />
+		<ui:include src="/includes/dialogs/ChangeExpiry.xhtml" />
+		<ui:include src="/includes/dialogs/ChangePriority.xhtml" />
+		<ui:include src="/includes/dialogs/AddNote.xhtml" />
+		<ui:include src="/includes/dialogs/Archive.xhtml" />
    	</ui:define>
 </ui:composition>
 </html>

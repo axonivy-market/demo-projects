@@ -9,7 +9,7 @@
       xmlns:pe="http://primefaces.org/ui/extensions"
       xmlns:pm="http://primefaces.org/mobile">
  
-<ui:composition template="/templates/Layout.xhtml">
+<ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/caseDetails')}" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
@@ -53,7 +53,7 @@
 						<tr>
 							<th>#{ivy.cms.co('/labels/common/state')}</th>
 							<td>
-								<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
+								<ui:include src="/includes/TableIconDescription.xhtml" >
 									<ui:param name="iconName" value="images/details/caseState/#{data.wfCase.getState().intValue()}.png" />
 									<ui:param name="iconDescription" value="#{data.wfCase.state}" />
 								</ui:include>
@@ -62,7 +62,7 @@
 						<tr>
 							<th>#{ivy.cms.co('/labels/common/creator')}</th>
 							<td>
-								<ui:include src="/templates/layoutIncludes/TableIconDescription.xhtml" >
+								<ui:include src="/includes/TableIconDescription.xhtml" >
 									<ui:param name="iconName" value="#{data.wfCase.creatorUserName != null ? 'images/details/user.png' : 'images/others/none.png'}" />
 									<ui:param name="iconDescription" value="#{data.wfCase.creatorUserName}" />
 								</ui:include>
@@ -165,12 +165,12 @@
 				</p:column>
    			</p:dataTable>
 		</h:form>
-		<ui:include src="/dialogs/AddNote.xhtml" />
-		<ui:include src="/dialogs/ConfirmDeleteReset.xhtml" >
+		<ui:include src="/includes/dialogs/AddNote.xhtml" />
+		<ui:include src="/includes/dialogs/ConfirmDeleteReset.xhtml" >
 			<ui:param name="headerConfirm" value="#{ivy.cms.co('/labels/history/caseDetails/caseDelete')}" />
 			<ui:param name="description" value="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteCase')}" />
 		</ui:include>
-		<ui:include src="/dialogs/Archive.xhtml" />
+		<ui:include src="/includes/dialogs/Archive.xhtml" />
    	</ui:define>
 </ui:composition>
 </html>
