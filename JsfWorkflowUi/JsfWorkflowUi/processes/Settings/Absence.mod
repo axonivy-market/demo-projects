@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jun 17 11:31:07 CEST 2013]
+[>Created: Thu May 08 16:05:53 CEST 2014]
 13F3C911395912D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ae0 Absence Big #zClass
@@ -84,8 +84,9 @@ Ae0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ae0 f0 @C|.responsibility Everybody #txt
-Ae0 f0 115 51 26 26 14 0 #rect
+Ae0 f0 81 49 30 30 -33 15 #rect
 Ae0 f0 @|StartRequestIcon #fIcon
+Ae0 f0 -1|-1|-9671572 #nodeStyle
 Ae0 f1 targetWindow NEW:card: #txt
 Ae0 f1 targetDisplay TOP #txt
 Ae0 f1 richDialogId ch.ivyteam.wf.settings.Absence #txt
@@ -100,10 +101,20 @@ Ae0 f1 windowConfiguration '* ' #txt
 Ae0 f1 isAsynch false #txt
 Ae0 f1 isInnerRd false #txt
 Ae0 f1 userContext '* ' #txt
-Ae0 f1 110 116 36 24 20 -2 #rect
+Ae0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>absence</name>
+        <nameStyle>7,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ae0 f1 168 42 112 44 -24 -8 #rect
 Ae0 f1 @|RichDialogIcon #fIcon
+Ae0 f1 -1|-1|-9671572 #nodeStyle
 Ae0 f2 expr out #txt
-Ae0 f2 128 77 128 116 #arcP
+Ae0 f2 111 64 168 64 #arcP
 >Proto Ae0 .type ch.ivyteam.wf.Data #txt
 >Proto Ae0 .processKind NORMAL #txt
 >Proto Ae0 0 0 32 24 18 0 #rect

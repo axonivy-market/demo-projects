@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 10 08:24:27 CEST 2013]
+[>Created: Thu May 08 16:06:32 CEST 2014]
 13EE5C9EAAA819C8 3.17 #module
 >Proto >Proto Collection #zClass
 Tt0 TaskList Big #zClass
@@ -28,7 +28,7 @@ Tt0 f0 persist false #txt
 Tt0 f0 startName DefaultTaskListPage #txt
 Tt0 f0 startDescription 'This start is used to overwrite the default task list.' #txt
 Tt0 f0 taskData '#
-#Wed Jul 10 08:24:24 CEST 2013
+#Thu May 08 11:30:25 CEST 2014
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -37,7 +37,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Tt0 f0 caseData '#
-#Wed Jul 10 08:24:24 CEST 2013
+#Thu May 08 11:30:25 CEST 2014
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -77,8 +77,8 @@ engine.updateCurrentTask(taskUpdDef);
 Tt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>DefaultTaskListPage</name>
-        <nameStyle>19,5,7
+        <name>DefaultTaskListPage.ivp</name>
+        <nameStyle>23,5,7
 </nameStyle>
         <desc>This start is used to overwrite the default task list.
 Use /ivy/wf/taskList to call it.
@@ -87,8 +87,9 @@ ivy.html.taskListRef() will return a link to this process.</desc>
 </elementInfo>
 ' #txt
 Tt0 f0 @C|.responsibility Everybody #txt
-Tt0 f0 115 51 26 26 14 0 #rect
+Tt0 f0 81 49 30 30 -66 17 #rect
 Tt0 f0 @|StartRequestIcon #fIcon
+Tt0 f0 -1|-1|-9671572 #nodeStyle
 Tt0 f1 targetWindow NEW:card: #txt
 Tt0 f1 targetDisplay TOP #txt
 Tt0 f1 richDialogId ch.ivyteam.wf.workflow.TaskList #txt
@@ -106,16 +107,17 @@ Tt0 f1 userContext '* ' #txt
 Tt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>TaskList</name>
-        <nameStyle>8
+        <name>task list</name>
+        <nameStyle>9,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Tt0 f1 110 116 36 24 20 -2 #rect
+Tt0 f1 168 42 112 44 -21 -8 #rect
 Tt0 f1 @|RichDialogIcon #fIcon
+Tt0 f1 -1|-1|-9671572 #nodeStyle
 Tt0 f2 expr out #txt
-Tt0 f2 128 77 128 116 #arcP
+Tt0 f2 111 64 168 64 #arcP
 >Proto Tt0 .type ch.ivyteam.wf.Data #txt
 >Proto Tt0 .processKind NORMAL #txt
 >Proto Tt0 0 0 32 24 18 0 #rect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Aug 19 11:27:36 CEST 2013]
+[>Created: Thu May 08 16:10:18 CEST 2014]
 13ED18A804435D54 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 ProcessListProcess Big #zClass
@@ -35,11 +35,13 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f0 86 54 20 20 13 0 #rect
+Ps0 f0 83 51 26 26 -16 12 #rect
 Ps0 f0 @|RichDialogInitStartIcon #fIcon
+Ps0 f0 -1|-1|-9671572 #nodeStyle
 Ps0 f1 type ch.ivyteam.wf.workflow.ProcessList.ProcessListData #txt
-Ps0 f1 86 182 20 20 13 0 #rect
+Ps0 f1 339 51 26 26 0 12 #rect
 Ps0 f1 @|RichDialogProcessEndIcon #fIcon
+Ps0 f1 -1|-1|-9671572 #nodeStyle
 Ps0 f3 actionDecl 'ch.ivyteam.wf.workflow.ProcessList.ProcessListData out;
 ' #txt
 Ps0 f3 actionTable 'out=in;
@@ -65,12 +67,13 @@ Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f3 78 116 36 24 20 -2 #rect
+Ps0 f3 160 42 128 44 -57 -8 #rect
 Ps0 f3 @|StepIcon #fIcon
+Ps0 f3 -1|-1|-9671572 #nodeStyle
 Ps0 f4 expr out #txt
-Ps0 f4 96 74 96 116 #arcP
+Ps0 f4 109 64 160 64 #arcP
 Ps0 f2 expr out #txt
-Ps0 f2 96 140 96 182 #arcP
+Ps0 f2 288 64 339 64 #arcP
 >Proto Ps0 .type ch.ivyteam.wf.workflow.ProcessList.ProcessListData #txt
 >Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 -8 -8 16 16 16 26 #rect

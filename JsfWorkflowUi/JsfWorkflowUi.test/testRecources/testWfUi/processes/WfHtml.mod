@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 22 10:02:59 CEST 2013]
+[>Created: Fri May 09 08:03:48 CEST 2014]
 13F3D94AF2F236BF 3.17 #module
 >Proto >Proto Collection #zClass
 Wl0 WfHtml Big #zClass
@@ -95,8 +95,9 @@ Wl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Wl0 f0 @C|.responsibility Everybody #txt
-Wl0 f0 115 51 26 26 14 0 #rect
+Wl0 f0 81 49 30 30 -29 15 #rect
 Wl0 f0 @|StartRequestIcon #fIcon
+Wl0 f0 -1|-1|-9671572 #nodeStyle
 Wl0 f1 outTypes "ch.ivyteam.wf.test.Data" #txt
 Wl0 f1 outLinks "LinkA.ivp" #txt
 Wl0 f1 template "/ProcessPages/WfHtml/Page1.ivc" #txt
@@ -118,8 +119,9 @@ Wl0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Wl0 f1 @C|.responsibility Everybody #txt
-Wl0 f1 110 180 36 24 20 -2 #rect
+Wl0 f1 328 42 112 44 -38 -8 #rect
 Wl0 f1 @|PageIcon #fIcon
+Wl0 f1 -1|-1|-9671572 #nodeStyle
 Wl0 f2 outTypes "ch.ivyteam.wf.test.Data" #txt
 Wl0 f2 outLinks "LinkA.ivp" #txt
 Wl0 f2 template "/ProcessPages/WfHtml/Page2.ivc" #txt
@@ -141,11 +143,13 @@ Wl0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Wl0 f2 @C|.responsibility Everybody #txt
-Wl0 f2 110 308 36 24 20 -2 #rect
+Wl0 f2 584 42 112 44 -50 -8 #rect
 Wl0 f2 @|PageIcon #fIcon
+Wl0 f2 -1|-1|-9671572 #nodeStyle
 Wl0 f3 type ch.ivyteam.wf.test.Data #txt
-Wl0 f3 115 371 26 26 14 0 #rect
+Wl0 f3 753 49 30 30 0 15 #rect
 Wl0 f3 @|EndIcon #fIcon
+Wl0 f3 -1|-1|-9671572 #nodeStyle
 Wl0 f4 actionDecl 'ch.ivyteam.wf.test.Data out;
 ' #txt
 Wl0 f4 actionTable 'out=in1;
@@ -209,31 +213,42 @@ taskDefinitions.add(taskDef);
 ' #txt
 Wl0 f4 type ch.ivyteam.wf.test.Data #txt
 Wl0 f4 template "" #txt
-Wl0 f4 114 242 28 28 14 0 #rect
+Wl0 f4 497 49 30 30 0 16 #rect
 Wl0 f4 @|TaskSwitchSimpleIcon #fIcon
+Wl0 f4 -1|-1|-9671572 #nodeStyle
 Wl0 f7 expr data #txt
 Wl0 f7 outCond ivp=="TaskA.ivp" #txt
-Wl0 f7 128 270 128 308 #arcP
+Wl0 f7 527 64 584 64 #arcP
 Wl0 f8 expr data #txt
 Wl0 f8 outCond ivp=="LinkA.ivp" #txt
-Wl0 f8 128 332 128 371 #arcP
+Wl0 f8 696 64 753 64 #arcP
 Wl0 f9 actionDecl 'ch.ivyteam.wf.test.Data out;
 ' #txt
 Wl0 f9 actionTable 'out=in;
 out.prio=2;
 ' #txt
 Wl0 f9 type ch.ivyteam.wf.test.Data #txt
-Wl0 f9 110 116 36 24 20 -2 #rect
+Wl0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>default</name>
+        <nameStyle>7,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Wl0 f9 168 42 112 44 -18 -8 #rect
 Wl0 f9 @|StepIcon #fIcon
+Wl0 f9 -1|-1|-9671572 #nodeStyle
 Wl0 f10 expr out #txt
-Wl0 f10 128 77 128 116 #arcP
+Wl0 f10 111 64 168 64 #arcP
 Wl0 f5 expr out #txt
-Wl0 f5 128 140 128 180 #arcP
+Wl0 f5 280 64 328 64 #arcP
 Wl0 f6 expr data #txt
 Wl0 f6 outCond ivp=="LinkA.ivp" #txt
 Wl0 f6 type ch.ivyteam.wf.test.Data #txt
 Wl0 f6 var in1 #txt
-Wl0 f6 128 204 128 242 #arcP
+Wl0 f6 440 64 497 64 #arcP
 Wl0 f6 0 0.4620603161780597 0 0 #arcLabel
 >Proto Wl0 .type ch.ivyteam.wf.test.Data #txt
 >Proto Wl0 .processKind NORMAL #txt

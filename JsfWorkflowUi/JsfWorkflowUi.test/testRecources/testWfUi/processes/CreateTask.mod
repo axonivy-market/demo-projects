@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Apr 28 09:08:46 CEST 2014]
+[>Created: Fri May 09 08:02:21 CEST 2014]
 145A7190339D94FD 3.17 #module
 >Proto >Proto Collection #zClass
 Ck0 CreateTask Big #zClass
@@ -36,9 +36,9 @@ Ck0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ck0 f0 @C|.responsibility Everybody #txt
-Ck0 f0 289 65 30 30 -21 17 #rect
+Ck0 f0 81 49 30 30 -21 17 #rect
 Ck0 f0 @|StartRequestIcon #fIcon
-Ck0 f0 -657956|-657956|-16777216 #nodeStyle
+Ck0 f0 -1|-1|-9671572 #nodeStyle
 Ck0 f1 actionDecl 'ch.ivyteam.wf.test.Data out;
 ' #txt
 Ck0 f1 actionTable 'out=in1;
@@ -102,21 +102,21 @@ taskDefinitions.add(taskDef);
 ' #txt
 Ck0 f1 type ch.ivyteam.wf.test.Data #txt
 Ck0 f1 template "" #txt
-Ck0 f1 289 209 30 30 0 16 #rect
+Ck0 f1 209 49 30 30 0 16 #rect
 Ck0 f1 @|TaskSwitchSimpleIcon #fIcon
-Ck0 f1 -657956|-657956|-16777216 #nodeStyle
+Ck0 f1 -1|-1|-9671572 #nodeStyle
 Ck0 f8 type ch.ivyteam.wf.test.Data #txt
-Ck0 f8 289 305 30 30 0 15 #rect
+Ck0 f8 337 49 30 30 0 15 #rect
 Ck0 f8 @|EndIcon #fIcon
-Ck0 f8 -657956|-657956|-16777216 #nodeStyle
+Ck0 f8 -1|-1|-9671572 #nodeStyle
 Ck0 f9 expr data #txt
 Ck0 f9 outCond ivp=="TaskA.ivp" #txt
-Ck0 f9 304 239 304 305 #arcP
+Ck0 f9 239 64 337 64 #arcP
 Ck0 f9 0 0.5530946662371942 0 0 #arcLabel
 Ck0 f2 expr out #txt
 Ck0 f2 type ch.ivyteam.wf.test.Data #txt
 Ck0 f2 var in1 #txt
-Ck0 f2 304 95 304 209 #arcP
+Ck0 f2 111 64 209 64 #arcP
 Ck0 f2 0 0.6279852565753072 0 0 #arcLabel
 >Proto Ck0 .type ch.ivyteam.wf.test.Data #txt
 >Proto Ck0 .processKind NORMAL #txt

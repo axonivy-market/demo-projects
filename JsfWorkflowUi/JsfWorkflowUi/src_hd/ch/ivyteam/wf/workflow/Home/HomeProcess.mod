@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu May 01 14:27:21 CEST 2014]
+[>Created: Fri May 09 10:03:42 CEST 2014]
 13EAD85D34683BAF 3.17 #module
 >Proto >Proto Collection #zClass
 Hs0 HomeProcess Big #zClass
@@ -16,10 +16,11 @@ Hs0 @TextInP .responsibility .responsibility #zField
 Hs0 @RichDialogInitStart f0 '' #zField
 Hs0 @RichDialogProcessEnd f1 '' #zField
 Hs0 @GridStep f3 '' #zField
-Hs0 @PushWFArc f2 '' #zField
 Hs0 @RichDialogMethodStart f4 '' #zField
 Hs0 @PushWFArc f9 '' #zField
 Hs0 @PushWFArc f7 '' #zField
+Hs0 @RichDialogProcessEnd f5 '' #zField
+Hs0 @PushWFArc f6 '' #zField
 >Proto Hs0 Hs0 HomeProcess #zField
 Hs0 f0 guid 13EAD85D35A2754E #txt
 Hs0 f0 type ch.ivyteam.wf.workflow.Home.HomeData #txt
@@ -37,11 +38,13 @@ Hs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Hs0 f0 86 54 20 20 13 0 #rect
+Hs0 f0 83 51 26 26 -16 12 #rect
 Hs0 f0 @|RichDialogInitStartIcon #fIcon
+Hs0 f0 -1|-1|-9671572 #nodeStyle
 Hs0 f1 type ch.ivyteam.wf.workflow.Home.HomeData #txt
-Hs0 f1 86 182 20 20 13 0 #rect
+Hs0 f1 211 51 26 26 0 12 #rect
 Hs0 f1 @|RichDialogProcessEndIcon #fIcon
+Hs0 f1 -1|-1|-9671572 #nodeStyle
 Hs0 f3 actionDecl 'ch.ivyteam.wf.workflow.Home.HomeData out;
 ' #txt
 Hs0 f3 actionTable 'out=in;
@@ -89,10 +92,9 @@ Hs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Hs0 f3 174 180 36 24 20 -2 #rect
+Hs0 f3 168 138 112 44 -8 -8 #rect
 Hs0 f3 @|StepIcon #fIcon
-Hs0 f2 expr out #txt
-Hs0 f2 174 192 106 192 #arcP
+Hs0 f3 -1|-1|-9671572 #nodeStyle
 Hs0 f4 guid 13F619D2D5C1D228 #txt
 Hs0 f4 type ch.ivyteam.wf.workflow.Home.HomeData #txt
 Hs0 f4 method update() #txt
@@ -109,19 +111,27 @@ Hs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Hs0 f4 182 54 20 20 13 0 #rect
+Hs0 f4 83 147 26 26 -23 12 #rect
 Hs0 f4 @|RichDialogMethodStartIcon #fIcon
+Hs0 f4 -1|-1|-9671572 #nodeStyle
 Hs0 f9 expr out #txt
-Hs0 f9 96 74 96 182 #arcP
+Hs0 f9 109 64 211 64 #arcP
 Hs0 f7 expr out #txt
-Hs0 f7 192 74 192 180 #arcP
+Hs0 f7 109 160 168 160 #arcP
+Hs0 f5 type ch.ivyteam.wf.workflow.Home.HomeData #txt
+Hs0 f5 339 147 26 26 0 12 #rect
+Hs0 f5 @|RichDialogProcessEndIcon #fIcon
+Hs0 f5 -1|-1|-9671572 #nodeStyle
+Hs0 f6 expr out #txt
+Hs0 f6 280 160 339 160 #arcP
+Hs0 f6 0 0.26143232702763897 0 0 #arcLabel
 >Proto Hs0 .type ch.ivyteam.wf.workflow.Home.HomeData #txt
 >Proto Hs0 .processKind HTML_DIALOG #txt
 >Proto Hs0 -8 -8 16 16 16 26 #rect
 >Proto Hs0 '' #fIcon
-Hs0 f3 mainOut f2 tail #connect
-Hs0 f2 head f1 mainIn #connect
 Hs0 f0 mainOut f9 tail #connect
 Hs0 f9 head f1 mainIn #connect
 Hs0 f4 mainOut f7 tail #connect
 Hs0 f7 head f3 mainIn #connect
+Hs0 f3 mainOut f6 tail #connect
+Hs0 f6 head f5 mainIn #connect

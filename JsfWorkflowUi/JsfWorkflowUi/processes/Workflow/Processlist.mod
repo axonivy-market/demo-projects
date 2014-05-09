@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 10 08:23:27 CEST 2013]
+[>Created: Thu May 08 16:06:27 CEST 2014]
 13ED18655F6A1538 3.17 #module
 >Proto >Proto Collection #zClass
 Pt0 Processlist Big #zClass
@@ -28,7 +28,7 @@ Pt0 f0 persist false #txt
 Pt0 f0 startName DefaultProcessStartListPage #txt
 Pt0 f0 startDescription 'This is used to overwrite the default process start list.' #txt
 Pt0 f0 taskData '#
-#Wed Jul 10 08:23:23 CEST 2013
+#Thu May 08 11:30:18 CEST 2014
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -37,7 +37,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 Pt0 f0 caseData '#
-#Wed Jul 10 08:23:23 CEST 2013
+#Thu May 08 11:30:18 CEST 2014
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -77,8 +77,8 @@ engine.updateCurrentTask(taskUpdDef);
 Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>DefaultProcessStartListPage</name>
-        <nameStyle>27,5,7
+        <name>DefaultProcessStartListPage.ivp</name>
+        <nameStyle>31,5,7
 </nameStyle>
         <desc>This start is used to overwrite the default process start list.
 Use /ivy/wf/processStartList to call it.
@@ -87,8 +87,9 @@ ivy.html.processStartListRef() will return a link to this process.</desc>
 </elementInfo>
 ' #txt
 Pt0 f0 @C|.responsibility Everybody #txt
-Pt0 f0 115 51 26 26 14 0 #rect
+Pt0 f0 81 49 30 30 -88 17 #rect
 Pt0 f0 @|StartRequestIcon #fIcon
+Pt0 f0 -1|-1|-9671572 #nodeStyle
 Pt0 f1 targetWindow NEW:card: #txt
 Pt0 f1 targetDisplay TOP #txt
 Pt0 f1 richDialogId ch.ivyteam.wf.workflow.ProcessList #txt
@@ -103,10 +104,20 @@ Pt0 f1 windowConfiguration '* ' #txt
 Pt0 f1 isAsynch false #txt
 Pt0 f1 isInnerRd false #txt
 Pt0 f1 userContext '* ' #txt
-Pt0 f1 110 116 36 24 20 -2 #rect
+Pt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>process list</name>
+        <nameStyle>12,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Pt0 f1 168 42 112 44 -32 -8 #rect
 Pt0 f1 @|RichDialogIcon #fIcon
+Pt0 f1 -1|-1|-9671572 #nodeStyle
 Pt0 f2 expr out #txt
-Pt0 f2 128 77 128 116 #arcP
+Pt0 f2 111 64 168 64 #arcP
 >Proto Pt0 .type ch.ivyteam.wf.Data #txt
 >Proto Pt0 .processKind NORMAL #txt
 >Proto Pt0 0 0 32 24 18 0 #rect

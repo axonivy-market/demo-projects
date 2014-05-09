@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Sep 06 16:40:09 CEST 2013]
+[>Created: Fri May 09 11:11:12 CEST 2014]
 13FCE1265A910E9F 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SetDefaultProcessProcess Big #zClass
@@ -42,11 +42,13 @@ Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f0 86 54 20 20 13 0 #rect
+Ss0 f0 83 51 26 26 -16 12 #rect
 Ss0 f0 @|RichDialogInitStartIcon #fIcon
+Ss0 f0 -1|-1|-9671572 #nodeStyle
 Ss0 f1 type ch.ivyteam.wf.test.SetDefaultProcess.SetDefaultProcessData #txt
-Ss0 f1 86 182 20 20 13 0 #rect
+Ss0 f1 339 51 26 26 0 12 #rect
 Ss0 f1 @|RichDialogProcessEndIcon #fIcon
+Ss0 f1 -1|-1|-9671572 #nodeStyle
 Ss0 f3 actionDecl 'ch.ivyteam.wf.test.SetDefaultProcess.SetDefaultProcessData out;
 ' #txt
 Ss0 f3 actionTable 'out=in;
@@ -65,12 +67,22 @@ for (StandardProcessType processType : StandardProcessType.DEFAULT_PAGES_PROCESS
 }
 out.libraries.addAll(libraries);' #txt
 Ss0 f3 type ch.ivyteam.wf.test.SetDefaultProcess.SetDefaultProcessData #txt
-Ss0 f3 78 116 36 24 20 -2 #rect
+Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>get libraries</name>
+        <nameStyle>13,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f3 168 42 112 44 -32 -8 #rect
 Ss0 f3 @|StepIcon #fIcon
+Ss0 f3 -1|-1|-9671572 #nodeStyle
 Ss0 f4 expr out #txt
-Ss0 f4 96 74 96 116 #arcP
+Ss0 f4 109 64 168 64 #arcP
 Ss0 f2 expr out #txt
-Ss0 f2 96 140 96 182 #arcP
+Ss0 f2 280 64 339 64 #arcP
 Ss0 f5 guid 13FCE17F262958BD #txt
 Ss0 f5 type ch.ivyteam.wf.test.SetDefaultProcess.SetDefaultProcessData #txt
 Ss0 f5 actionDecl 'ch.ivyteam.wf.test.SetDefaultProcess.SetDefaultProcessData out;
@@ -86,14 +98,16 @@ Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f5 182 54 20 20 13 0 #rect
+Ss0 f5 83 115 26 26 -59 12 #rect
 Ss0 f5 @|RichDialogProcessStartIcon #fIcon
+Ss0 f5 -1|-1|-9671572 #nodeStyle
 Ss0 f8 type ch.ivyteam.wf.test.SetDefaultProcess.SetDefaultProcessData #txt
 Ss0 f8 guid 13FCE1819332FCFE #txt
-Ss0 f8 182 182 20 20 13 0 #rect
+Ss0 f8 211 115 26 26 0 12 #rect
 Ss0 f8 @|RichDialogEndIcon #fIcon
+Ss0 f8 -1|-1|-9671572 #nodeStyle
 Ss0 f10 expr out #txt
-Ss0 f10 192 74 192 182 #arcP
+Ss0 f10 109 128 211 128 #arcP
 >Proto Ss0 .type ch.ivyteam.wf.test.SetDefaultProcess.SetDefaultProcessData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect

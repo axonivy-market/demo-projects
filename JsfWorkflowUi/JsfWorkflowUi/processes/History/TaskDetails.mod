@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 17 09:33:27 CEST 2013]
+[>Created: Thu May 08 16:04:58 CEST 2014]
 13FE81AF3A82F57F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetails Big #zClass
@@ -88,8 +88,9 @@ Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ts0 f0 @C|.responsibility Everybody #txt
-Ts0 f0 115 51 26 26 14 0 #rect
+Ts0 f0 81 177 30 30 -42 15 #rect
 Ts0 f0 @|StartRequestIcon #fIcon
+Ts0 f0 -1|-1|-9671572 #nodeStyle
 Ts0 f1 targetWindow NEW:card: #txt
 Ts0 f1 targetDisplay TOP #txt
 Ts0 f1 richDialogId ch.ivyteam.wf.history.TaskDetails #txt
@@ -116,10 +117,13 @@ Ts0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f1 174 116 36 24 20 -2 #rect
+Ts0 f1 168 106 112 44 -31 -8 #rect
 Ts0 f1 @|RichDialogIcon #fIcon
+Ts0 f1 -1|-1|-9671572 #nodeStyle
 Ts0 f2 expr out #txt
-Ts0 f2 137 73 180 116 #arcP
+Ts0 f2 111 192 224 150 #arcP
+Ts0 f2 1 224 192 #addKink
+Ts0 f2 0 0.9518306578755212 0 0 #arcLabel
 Ts0 f3 outLink TaskHistoryDetails.ivp #txt
 Ts0 f3 type ch.ivyteam.wf.TaskDetails #txt
 Ts0 f3 inParamDecl '<java.lang.Number detailTaskId> param;' #txt
@@ -191,10 +195,13 @@ Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ts0 f3 @C|.responsibility Everybody #txt
-Ts0 f3 243 51 26 26 14 0 #rect
+Ts0 f3 81 49 30 30 -61 15 #rect
 Ts0 f3 @|StartRequestIcon #fIcon
+Ts0 f3 -1|-1|-9671572 #nodeStyle
 Ts0 f4 expr out #txt
-Ts0 f4 246 73 204 116 #arcP
+Ts0 f4 111 64 224 106 #arcP
+Ts0 f4 1 224 64 #addKink
+Ts0 f4 0 0.952943016069174 0 0 #arcLabel
 >Proto Ts0 .type ch.ivyteam.wf.TaskDetails #txt
 >Proto Ts0 .processKind NORMAL #txt
 >Proto Ts0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

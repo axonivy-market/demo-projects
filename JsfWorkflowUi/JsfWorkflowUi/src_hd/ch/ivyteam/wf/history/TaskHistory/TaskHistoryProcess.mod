@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 25 15:51:14 CEST 2013]
+[>Created: Fri May 09 10:02:12 CEST 2014]
 13F2E0370AA5B84E 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHistoryProcess Big #zClass
@@ -16,7 +16,6 @@ Ts0 @TextInP .responsibility .responsibility #zField
 Ts0 @RichDialogInitStart f0 '' #zField
 Ts0 @RichDialogProcessEnd f1 '' #zField
 Ts0 @GridStep f3 '' #zField
-Ts0 @PushWFArc f2 '' #zField
 Ts0 @RichDialogMethodStart f5 '' #zField
 Ts0 @GridStep f8 '' #zField
 Ts0 @PushWFArc f10 '' #zField
@@ -24,6 +23,8 @@ Ts0 @PushWFArc f9 '' #zField
 Ts0 @GridStep f4 '' #zField
 Ts0 @PushWFArc f6 '' #zField
 Ts0 @PushWFArc f7 '' #zField
+Ts0 @RichDialogProcessEnd f11 '' #zField
+Ts0 @PushWFArc f12 '' #zField
 >Proto Ts0 Ts0 TaskHistoryProcess #zField
 Ts0 f0 guid 13F2E0370C9B06E8 #txt
 Ts0 f0 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
@@ -38,16 +39,16 @@ Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f0 86 54 20 20 13 0 #rect
+Ts0 f0 83 51 26 26 -16 15 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
+Ts0 f0 -1|-1|-9671572 #nodeStyle
 Ts0 f1 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
-Ts0 f1 86 182 20 20 13 0 #rect
+Ts0 f1 339 51 26 26 0 12 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
+Ts0 f1 -1|-1|-9671572 #nodeStyle
 Ts0 f3 actionDecl 'ch.ivyteam.wf.history.TaskHistory.TaskHistoryData out;
 ' #txt
 Ts0 f3 actionTable 'out=in;
@@ -103,10 +104,9 @@ Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f3 206 180 36 24 20 -2 #rect
+Ts0 f3 328 138 112 44 -21 -8 #rect
 Ts0 f3 @|StepIcon #fIcon
-Ts0 f2 expr out #txt
-Ts0 f2 206 192 106 192 #arcP
+Ts0 f3 -1|-1|-9671572 #nodeStyle
 Ts0 f5 guid 13F75DB798E48053 #txt
 Ts0 f5 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
 Ts0 f5 method update() #txt
@@ -123,8 +123,9 @@ Ts0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f5 214 54 20 20 13 0 #rect
+Ts0 f5 83 147 26 26 -23 12 #rect
 Ts0 f5 @|RichDialogMethodStartIcon #fIcon
+Ts0 f5 -1|-1|-9671572 #nodeStyle
 Ts0 f8 actionDecl 'ch.ivyteam.wf.history.TaskHistory.TaskHistoryData out;
 ' #txt
 Ts0 f8 actionTable 'out=in;
@@ -141,12 +142,13 @@ Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f8 78 116 36 24 20 -2 #rect
+Ts0 f8 168 42 112 44 -31 -8 #rect
 Ts0 f8 @|StepIcon #fIcon
+Ts0 f8 -1|-1|-9671572 #nodeStyle
 Ts0 f10 expr out #txt
-Ts0 f10 96 74 96 116 #arcP
+Ts0 f10 109 64 168 64 #arcP
 Ts0 f9 expr out #txt
-Ts0 f9 96 140 96 182 #arcP
+Ts0 f9 280 64 339 64 #arcP
 Ts0 f4 actionDecl 'ch.ivyteam.wf.history.TaskHistory.TaskHistoryData out;
 ' #txt
 Ts0 f4 actionTable 'out=in;
@@ -169,18 +171,24 @@ Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f4 206 116 36 24 20 -2 #rect
+Ts0 f4 168 138 112 44 -20 -8 #rect
 Ts0 f4 @|StepIcon #fIcon
+Ts0 f4 -1|-1|-9671572 #nodeStyle
 Ts0 f6 expr out #txt
-Ts0 f6 224 74 224 116 #arcP
+Ts0 f6 109 160 168 160 #arcP
 Ts0 f7 expr out #txt
-Ts0 f7 224 140 224 180 #arcP
+Ts0 f7 280 160 328 160 #arcP
+Ts0 f11 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
+Ts0 f11 499 147 26 26 0 12 #rect
+Ts0 f11 @|RichDialogProcessEndIcon #fIcon
+Ts0 f11 -1|-1|-9671572 #nodeStyle
+Ts0 f12 expr out #txt
+Ts0 f12 440 160 499 160 #arcP
+Ts0 f12 0 0.7157193798890246 0 0 #arcLabel
 >Proto Ts0 .type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
 >Proto Ts0 '' #fIcon
-Ts0 f3 mainOut f2 tail #connect
-Ts0 f2 head f1 mainIn #connect
 Ts0 f0 mainOut f10 tail #connect
 Ts0 f10 head f8 mainIn #connect
 Ts0 f8 mainOut f9 tail #connect
@@ -189,3 +197,5 @@ Ts0 f5 mainOut f6 tail #connect
 Ts0 f6 head f4 mainIn #connect
 Ts0 f4 mainOut f7 tail #connect
 Ts0 f7 head f3 mainIn #connect
+Ts0 f3 mainOut f12 tail #connect
+Ts0 f12 head f11 mainIn #connect

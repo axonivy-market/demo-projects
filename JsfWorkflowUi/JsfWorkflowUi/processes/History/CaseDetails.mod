@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 22 09:34:49 CEST 2013]
+[>Created: Thu May 08 16:05:08 CEST 2014]
 13FE81B1A4AD784C 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetails Big #zClass
@@ -84,8 +84,9 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f0 @C|.responsibility Everybody #txt
-Cs0 f0 115 51 26 26 14 0 #rect
+Cs0 f0 81 49 30 30 -43 15 #rect
 Cs0 f0 @|StartRequestIcon #fIcon
+Cs0 f0 -1|-1|-9671572 #nodeStyle
 Cs0 f1 targetWindow NEW:card: #txt
 Cs0 f1 targetDisplay TOP #txt
 Cs0 f1 richDialogId ch.ivyteam.wf.history.CaseDetails #txt
@@ -111,10 +112,11 @@ Cs0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f1 110 116 36 24 20 -2 #rect
+Cs0 f1 168 42 112 44 -33 -8 #rect
 Cs0 f1 @|RichDialogIcon #fIcon
+Cs0 f1 -1|-1|-9671572 #nodeStyle
 Cs0 f2 expr out #txt
-Cs0 f2 128 77 128 116 #arcP
+Cs0 f2 111 64 168 64 #arcP
 >Proto Cs0 .type ch.ivyteam.wf.Data #txt
 >Proto Cs0 .processKind NORMAL #txt
 >Proto Cs0 0 0 32 24 18 0 #rect

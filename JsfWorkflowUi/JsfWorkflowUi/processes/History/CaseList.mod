@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 17 09:01:18 CEST 2013]
+[>Created: Thu May 08 16:05:13 CEST 2014]
 13F1D890C62823FF 3.17 #module
 >Proto >Proto Collection #zClass
 Ct0 CaseList Big #zClass
@@ -86,8 +86,9 @@ Ct0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f0 @C|.responsibility Everybody #txt
-Ct0 f0 115 51 26 26 14 0 #rect
+Ct0 f0 81 177 30 30 -34 15 #rect
 Ct0 f0 @|StartRequestIcon #fIcon
+Ct0 f0 -1|-1|-9671572 #nodeStyle
 Ct0 f1 outLink CaseListAdmin.ivp #txt
 Ct0 f1 type ch.ivyteam.wf.Data #txt
 Ct0 f1 inParamDecl '<> param;' #txt
@@ -157,8 +158,9 @@ Ct0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f1 @C|.responsibility Everybody #txt
-Ct0 f1 307 51 26 26 14 0 #rect
+Ct0 f1 81 49 30 30 -51 15 #rect
 Ct0 f1 @|StartRequestIcon #fIcon
+Ct0 f1 -1|-1|-9671572 #nodeStyle
 Ct0 f2 targetWindow NEW:card: #txt
 Ct0 f2 targetDisplay TOP #txt
 Ct0 f2 richDialogId ch.ivyteam.wf.history.CaseList #txt
@@ -184,15 +186,16 @@ Ct0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f2 206 116 36 24 20 -2 #rect
+Ct0 f2 168 106 112 44 -23 -8 #rect
 Ct0 f2 @|RichDialogIcon #fIcon
+Ct0 f2 -1|-1|-9671572 #nodeStyle
 Ct0 f9 expr out #txt
-Ct0 f9 128 77 206 125 #arcP
-Ct0 f9 1 128 112 #addKink
+Ct0 f9 111 192 224 150 #arcP
+Ct0 f9 1 224 192 #addKink
 Ct0 f9 1 0.13334866033085085 0 0 #arcLabel
 Ct0 f5 expr out #txt
-Ct0 f5 320 77 242 125 #arcP
-Ct0 f5 1 320 112 #addKink
+Ct0 f5 111 64 224 106 #arcP
+Ct0 f5 1 224 64 #addKink
 Ct0 f5 1 0.2282419108538009 0 0 #arcLabel
 >Proto Ct0 .type ch.ivyteam.wf.Data #txt
 >Proto Ct0 .processKind NORMAL #txt

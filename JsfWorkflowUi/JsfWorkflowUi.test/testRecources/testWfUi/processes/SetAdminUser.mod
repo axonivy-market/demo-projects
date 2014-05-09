@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 04 13:53:00 CET 2014]
+[>Created: Fri May 09 08:02:29 CEST 2014]
 143F856F4E029A48 3.17 #module
 >Proto >Proto Collection #zClass
 Sr0 SetAdminUser Big #zClass
@@ -87,9 +87,9 @@ Sr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Sr0 f0 @C|.responsibility Everybody #txt
-Sr0 f0 177 49 30 30 16 0 #rect
+Sr0 f0 81 49 30 30 -49 15 #rect
 Sr0 f0 @|StartRequestIcon #fIcon
-Sr0 f0 -657956|-657956|-16777216 #nodeStyle
+Sr0 f0 -1|-1|-9671572 #nodeStyle
 Sr0 f1 actionDecl 'ch.ivyteam.wf.test.Data out;
 ' #txt
 Sr0 f1 actionTable 'out=in;
@@ -109,17 +109,17 @@ Sr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Sr0 f1 136 106 112 44 -41 -8 #rect
+Sr0 f1 168 42 112 44 -41 -8 #rect
 Sr0 f1 @|StepIcon #fIcon
-Sr0 f1 -657956|-657956|-16777216 #nodeStyle
+Sr0 f1 -1|-1|-9671572 #nodeStyle
 Sr0 f3 expr out #txt
-Sr0 f3 192 79 192 106 #arcP
+Sr0 f3 111 64 168 64 #arcP
 Sr0 f2 type ch.ivyteam.wf.test.Data #txt
-Sr0 f2 177 177 30 30 16 0 #rect
+Sr0 f2 337 49 30 30 0 15 #rect
 Sr0 f2 @|EndIcon #fIcon
-Sr0 f2 -657956|-657956|-16777216 #nodeStyle
+Sr0 f2 -1|-1|-9671572 #nodeStyle
 Sr0 f4 expr out #txt
-Sr0 f4 192 150 192 177 #arcP
+Sr0 f4 280 64 337 64 #arcP
 >Proto Sr0 .type ch.ivyteam.wf.test.Data #txt
 >Proto Sr0 .processKind NORMAL #txt
 >Proto Sr0 0 0 32 24 18 0 #rect

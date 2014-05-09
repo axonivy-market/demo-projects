@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 13 11:23:43 CEST 2013]
+[>Created: Thu May 08 16:05:22 CEST 2014]
 13F2E007FE178DD4 3.17 #module
 >Proto >Proto Collection #zClass
 Ty0 TaskHistory Big #zClass
@@ -82,8 +82,9 @@ Ty0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ty0 f0 @C|.responsibility Everybody #txt
-Ty0 f0 115 51 26 26 14 0 #rect
+Ty0 f0 81 49 30 30 -41 15 #rect
 Ty0 f0 @|StartRequestIcon #fIcon
+Ty0 f0 -1|-1|-9671572 #nodeStyle
 Ty0 f1 targetWindow NEW:card: #txt
 Ty0 f1 targetDisplay TOP #txt
 Ty0 f1 richDialogId ch.ivyteam.wf.history.TaskHistory #txt
@@ -98,10 +99,20 @@ Ty0 f1 windowConfiguration '* ' #txt
 Ty0 f1 isAsynch false #txt
 Ty0 f1 isInnerRd false #txt
 Ty0 f1 userContext '* ' #txt
-Ty0 f1 110 116 36 24 20 -2 #rect
+Ty0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>task history</name>
+        <nameStyle>12,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ty0 f1 168 42 112 44 -31 -8 #rect
 Ty0 f1 @|RichDialogIcon #fIcon
+Ty0 f1 -1|-1|-9671572 #nodeStyle
 Ty0 f2 expr out #txt
-Ty0 f2 128 77 128 116 #arcP
+Ty0 f2 111 64 168 64 #arcP
 >Proto Ty0 .type ch.ivyteam.wf.Data #txt
 >Proto Ty0 .processKind NORMAL #txt
 >Proto Ty0 0 0 32 24 18 0 #rect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 02 09:02:00 CEST 2014]
+[>Created: Fri May 09 08:02:50 CEST 2014]
 13F3D94E5C99F06F 3.17 #module
 >Proto >Proto Collection #zClass
 Wf0 WfJsf Big #zClass
@@ -93,8 +93,9 @@ Wf0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Wf0 f0 @C|.responsibility Everybody #txt
-Wf0 f0 115 51 26 26 14 0 #rect
+Wf0 f0 81 49 30 30 -24 15 #rect
 Wf0 f0 @|StartRequestIcon #fIcon
+Wf0 f0 -1|-1|-9671572 #nodeStyle
 Wf0 f1 actionDecl 'ch.ivyteam.wf.test.Data out;
 ' #txt
 Wf0 f1 actionTable 'out=in1;
@@ -161,11 +162,13 @@ taskDefinitions.add(taskDef);
 ' #txt
 Wf0 f1 type ch.ivyteam.wf.test.Data #txt
 Wf0 f1 template "" #txt
-Wf0 f1 114 178 28 28 14 0 #rect
+Wf0 f1 337 49 30 30 0 16 #rect
 Wf0 f1 @|TaskSwitchSimpleIcon #fIcon
+Wf0 f1 -1|-1|-9671572 #nodeStyle
 Wf0 f2 type ch.ivyteam.wf.test.Data #txt
-Wf0 f2 115 307 26 26 14 0 #rect
+Wf0 f2 593 49 30 30 0 15 #rect
 Wf0 f2 @|EndIcon #fIcon
+Wf0 f2 -1|-1|-9671572 #nodeStyle
 Wf0 f3 targetWindow NEW:card: #txt
 Wf0 f3 targetDisplay TOP #txt
 Wf0 f3 richDialogId ch.ivyteam.wf.test.RequestDialog #txt
@@ -191,8 +194,9 @@ Wf0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Wf0 f3 110 116 36 24 20 -2 #rect
+Wf0 f3 168 42 112 44 -43 -8 #rect
 Wf0 f3 @|RichDialogIcon #fIcon
+Wf0 f3 -1|-1|-9671572 #nodeStyle
 Wf0 f4 targetWindow NEW:card: #txt
 Wf0 f4 targetDisplay TOP #txt
 Wf0 f4 richDialogId ch.ivyteam.wf.test.ConfirmationDialog #txt
@@ -218,19 +222,20 @@ Wf0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Wf0 f4 110 244 36 24 20 -2 #rect
+Wf0 f4 416 42 128 44 -55 -8 #rect
 Wf0 f4 @|RichDialogIcon #fIcon
+Wf0 f4 -1|-1|-9671572 #nodeStyle
 Wf0 f5 expr out #txt
-Wf0 f5 128 77 128 116 #arcP
+Wf0 f5 111 64 168 64 #arcP
 Wf0 f6 expr out #txt
 Wf0 f6 type ch.ivyteam.wf.test.Data #txt
 Wf0 f6 var in1 #txt
-Wf0 f6 128 140 128 178 #arcP
+Wf0 f6 280 64 337 64 #arcP
 Wf0 f7 expr data #txt
 Wf0 f7 outCond ivp=="TaskA.ivp" #txt
-Wf0 f7 128 206 128 244 #arcP
+Wf0 f7 367 64 416 64 #arcP
 Wf0 f8 expr out #txt
-Wf0 f8 128 268 128 307 #arcP
+Wf0 f8 544 64 593 64 #arcP
 >Proto Wf0 .type ch.ivyteam.wf.test.Data #txt
 >Proto Wf0 .processKind NORMAL #txt
 >Proto Wf0 0 0 32 24 18 0 #rect

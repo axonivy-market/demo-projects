@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 11 15:46:49 CEST 2013]
+[>Created: Fri May 09 11:21:40 CEST 2014]
 13EACA2A989BCC3D 3.17 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -13,8 +13,6 @@ He0 @TextInP .xml .xml #zField
 He0 @TextInP .responsibility .responsibility #zField
 He0 @StartRequest f1 '' #zField
 He0 @RichDialog f4 '' #zField
-He0 @EndTask f2 '' #zField
-He0 @PushWFArc f3 '' #zField
 He0 @StartRequest f0 '' #zField
 He0 @GridStep f6 '' #zField
 He0 @PushWFArc f7 '' #zField
@@ -31,6 +29,8 @@ He0 @PushWFArc f5 '' #zField
 He0 @PushWFArc f21 '' #zField
 He0 @PushWFArc f22 '' #zField
 He0 @PushWFArc f9 '' #zField
+He0 @PushWFArc f3 '' #zField
+He0 @EndTask f2 '' #zField
 >Proto He0 He0 Home #zField
 He0 f1 outLink DefaultApplicationHomePage.ivp #txt
 He0 f1 type ch.ivyteam.wf.Data #txt
@@ -45,7 +45,7 @@ He0 f1 persist false #txt
 He0 f1 startName 'Workflow Home' #txt
 He0 f1 startDescription 'Workflow UI Startpage' #txt
 He0 f1 taskData '#
-#Tue May 28 11:26:13 CEST 2013
+#Thu May 08 11:29:43 CEST 2014
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -54,7 +54,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f1 caseData '#
-#Tue May 28 11:26:13 CEST 2013
+#Thu May 08 11:29:43 CEST 2014
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -94,8 +94,8 @@ engine.updateCurrentTask(taskUpdDef);
 He0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>DefaultApplicationHomePage</name>
-        <nameStyle>26,5,7
+        <name>DefaultApplicationHomePage.ivp</name>
+        <nameStyle>30,5,7
 </nameStyle>
         <desc>This start is used to overwrite the default application home.
 Use /ivy/wf/applicationHome to call it.
@@ -104,8 +104,9 @@ ivy.html.applicationHomeRef() will return a link to this process.</desc>
 </elementInfo>
 ' #txt
 He0 f1 @C|.responsibility Everybody #txt
-He0 f1 307 51 26 26 14 0 #rect
+He0 f1 81 113 30 30 -90 17 #rect
 He0 f1 @|StartRequestIcon #fIcon
+He0 f1 -1|-1|-9671572 #nodeStyle
 He0 f4 targetWindow NEW:card: #txt
 He0 f4 targetDisplay TOP #txt
 He0 f4 richDialogId ch.ivyteam.wf.workflow.Home #txt
@@ -129,13 +130,9 @@ He0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f4 302 116 36 24 20 -2 #rect
+He0 f4 392 106 112 44 -16 -8 #rect
 He0 f4 @|RichDialogIcon #fIcon
-He0 f2 type ch.ivyteam.wf.Data #txt
-He0 f2 307 179 26 26 14 0 #rect
-He0 f2 @|EndIcon #fIcon
-He0 f3 expr out #txt
-He0 f3 320 140 320 179 #arcP
+He0 f4 -1|-1|-9671572 #nodeStyle
 He0 f0 outLink Logout.ivp #txt
 He0 f0 type ch.ivyteam.wf.Data #txt
 He0 f0 inParamDecl '<> param;' #txt
@@ -204,8 +201,9 @@ He0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 He0 f0 @C|.responsibility Everybody #txt
-He0 f0 499 51 26 26 14 0 #rect
+He0 f0 81 49 30 30 -28 15 #rect
 He0 f0 @|StartRequestIcon #fIcon
+He0 f0 -1|-1|-9671572 #nodeStyle
 He0 f6 actionDecl 'ch.ivyteam.wf.Data out;
 ' #txt
 He0 f6 actionTable 'out=in;
@@ -221,12 +219,15 @@ He0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f6 494 116 36 24 20 -2 #rect
+He0 f6 168 42 112 44 -17 -8 #rect
 He0 f6 @|StepIcon #fIcon
+He0 f6 -1|-1|-9671572 #nodeStyle
 He0 f7 expr out #txt
-He0 f7 512 77 512 116 #arcP
+He0 f7 111 64 168 64 #arcP
 He0 f8 expr out #txt
-He0 f8 494 128 338 128 #arcP
+He0 f8 280 64 448 106 #arcP
+He0 f8 1 448 64 #addKink
+He0 f8 0 0.8502556853112283 0 0 #arcLabel
 He0 f11 outLink DefaultEndPage.ivp #txt
 He0 f11 type ch.ivyteam.wf.Data #txt
 He0 f11 inParamDecl '<java.lang.Number endedTaskId> param;' #txt
@@ -241,7 +242,7 @@ He0 f11 callSignature DefaultEndPage(Number) #txt
 He0 f11 persist false #txt
 He0 f11 startName DefaultEndPage #txt
 He0 f11 taskData '#
-#Thu Jul 11 15:46:34 CEST 2013
+#Thu May 08 11:29:52 CEST 2014
 TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -250,7 +251,7 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
 He0 f11 caseData '#
-#Thu Jul 11 15:46:34 CEST 2013
+#Thu May 08 11:29:52 CEST 2014
 businessCalendarName=
 businessCreator.user=
 businessMilestone.timestamp=
@@ -290,8 +291,8 @@ engine.updateCurrentTask(taskUpdDef);
 He0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>DefaultEndPage</name>
-        <nameStyle>14,5,7
+        <name>DefaultEndPage.ivp</name>
+        <nameStyle>18,5,7
 </nameStyle>
         <desc>This start is used to overwrite the default end page.
 It will be called whenever process/task ends without a defined page.</desc>
@@ -299,8 +300,9 @@ It will be called whenever process/task ends without a defined page.</desc>
 </elementInfo>
 ' #txt
 He0 f11 @C|.responsibility Everybody #txt
-He0 f11 115 51 26 26 14 0 #rect
+He0 f11 81 177 30 30 -54 17 #rect
 He0 f11 @|StartRequestIcon #fIcon
+He0 f11 -1|-1|-9671572 #nodeStyle
 He0 f13 type ch.ivyteam.wf.Data #txt
 He0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -311,8 +313,9 @@ He0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f13 114 114 28 28 14 0 #rect
+He0 f13 176 176 32 32 7 8 #rect
 He0 f13 @|AlternativeIcon #fIcon
+He0 f13 -1|-1|-9671572 #nodeStyle
 He0 f14 actionDecl 'ch.ivyteam.wf.Data out;
 ' #txt
 He0 f14 actionTable 'out=in;
@@ -354,8 +357,9 @@ finished msg</name>
     </language>
 </elementInfo>
 ' #txt
-He0 f14 110 180 36 24 20 -2 #rect
+He0 f14 264 170 112 44 -41 -16 #rect
 He0 f14 @|StepIcon #fIcon
+He0 f14 -1|-1|-9671572 #nodeStyle
 He0 f15 type ch.ivyteam.wf.Data #txt
 He0 f15 template "redirect.jsp" #txt
 He0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -367,10 +371,11 @@ He0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f15 115 307 26 26 14 0 #rect
+He0 f15 433 241 30 30 -20 15 #rect
 He0 f15 @|EndRequestIcon #fIcon
+He0 f15 -1|-1|-9671572 #nodeStyle
 He0 f17 expr out #txt
-He0 f17 128 77 128 114 #arcP
+He0 f17 111 192 176 192 #arcP
 He0 f17 0 0.4726186798232986 0 0 #arcLabel
 He0 f12 type ch.ivyteam.wf.Data #txt
 He0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -382,30 +387,34 @@ He0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f12 114 242 28 28 14 0 #rect
+He0 f12 432 176 32 32 6 5 #rect
 He0 f12 @|AlternativeIcon #fIcon
+He0 f12 -1|-1|-9671572 #nodeStyle
 He0 f18 expr in #txt
 He0 f18 outCond !ivy.session.isSessionUserUnknown() #txt
-He0 f18 128 142 128 180 #arcP
+He0 f18 208 192 264 192 #arcP
 He0 f20 expr out #txt
-He0 f20 128 204 128 242 #arcP
+He0 f20 376 192 432 192 #arcP
 He0 f5 expr out #txt
-He0 f5 320 77 320 116 #arcP
+He0 f5 111 128 392 128 #arcP
 He0 f5 0 0.5694760965118373 0 0 #arcLabel
 He0 f21 expr in #txt
-He0 f21 142 256 302 128 #arcP
-He0 f21 1 256 256 #addKink
-He0 f21 2 256 128 #addKink
-He0 f21 1 0.02718204621543466 0 0 #arcLabel
+He0 f21 448 176 448 150 #arcP
+He0 f21 0 0.006382768993461811 0 0 #arcLabel
 He0 f22 expr in #txt
 He0 f22 outCond in.url.length()>0 #txt
-He0 f22 128 270 128 307 #arcP
+He0 f22 448 208 448 241 #arcP
 He0 f22 0 0.4219317695771503 0 0 #arcLabel
 He0 f9 expr in #txt
-He0 f9 114 128 115 320 #arcP
-He0 f9 1 64 128 #addKink
-He0 f9 2 64 320 #addKink
-He0 f9 1 0.4993677172350963 0 0 #arcLabel
+He0 f9 192 208 433 256 #arcP
+He0 f9 1 192 256 #addKink
+He0 f9 1 0.23341846466911037 0 0 #arcLabel
+He0 f3 expr out #txt
+He0 f3 504 128 561 128 #arcP
+He0 f2 type ch.ivyteam.wf.Data #txt
+He0 f2 561 113 30 30 0 15 #rect
+He0 f2 @|EndIcon #fIcon
+He0 f2 -1|-1|-9671572 #nodeStyle
 >Proto He0 .type ch.ivyteam.wf.Data #txt
 >Proto He0 .processKind NORMAL #txt
 >Proto He0 0 0 32 24 18 0 #rect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jul 05 10:01:45 CEST 2013]
+[>Created: Thu May 08 16:05:59 CEST 2014]
 13F51835BF0FECEF 3.17 #module
 >Proto >Proto Collection #zClass
 Mn0 MailNotification Big #zClass
@@ -82,8 +82,9 @@ Mn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Mn0 f0 @C|.responsibility Everybody #txt
-Mn0 f0 115 51 26 26 14 0 #rect
+Mn0 f0 81 49 30 30 -73 15 #rect
 Mn0 f0 @|StartRequestIcon #fIcon
+Mn0 f0 -1|-1|-9671572 #nodeStyle
 Mn0 f1 targetWindow NEW:card: #txt
 Mn0 f1 targetDisplay TOP #txt
 Mn0 f1 richDialogId ch.ivyteam.wf.settings.MailNotification #txt
@@ -98,10 +99,21 @@ Mn0 f1 windowConfiguration '* ' #txt
 Mn0 f1 isAsynch false #txt
 Mn0 f1 isInnerRd false #txt
 Mn0 f1 userContext '* ' #txt
-Mn0 f1 110 116 36 24 20 -2 #rect
+Mn0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>mail notification
+settings</name>
+        <nameStyle>26,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Mn0 f1 168 42 112 44 -41 -16 #rect
 Mn0 f1 @|RichDialogIcon #fIcon
+Mn0 f1 -1|-1|-9671572 #nodeStyle
 Mn0 f4 expr out #txt
-Mn0 f4 128 77 128 116 #arcP
+Mn0 f4 111 64 168 64 #arcP
 >Proto Mn0 .type ch.ivyteam.wf.Data #txt
 >Proto Mn0 .processKind NORMAL #txt
 >Proto Mn0 0 0 32 24 18 0 #rect

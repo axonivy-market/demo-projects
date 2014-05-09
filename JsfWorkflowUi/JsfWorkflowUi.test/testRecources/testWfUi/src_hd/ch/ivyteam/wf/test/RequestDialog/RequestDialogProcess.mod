@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Apr 10 08:45:41 CEST 2014]
+[>Created: Fri May 09 11:11:08 CEST 2014]
 13F3DB5D589E405E 3.17 #module
 >Proto >Proto Collection #zClass
 Rs0 RequestDialogProcess Big #zClass
@@ -44,11 +44,13 @@ Rs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rs0 f0 86 54 20 20 13 0 #rect
+Rs0 f0 83 51 26 26 -16 12 #rect
 Rs0 f0 @|RichDialogInitStartIcon #fIcon
+Rs0 f0 -1|-1|-9671572 #nodeStyle
 Rs0 f1 type ch.ivyteam.wf.test.RequestDialog.RequestDialogData #txt
-Rs0 f1 86 182 20 20 13 0 #rect
+Rs0 f1 339 51 26 26 0 12 #rect
 Rs0 f1 @|RichDialogProcessEndIcon #fIcon
+Rs0 f1 -1|-1|-9671572 #nodeStyle
 Rs0 f3 guid 13F4168E82115B16 #txt
 Rs0 f3 type ch.ivyteam.wf.test.RequestDialog.RequestDialogData #txt
 Rs0 f3 actionDecl 'ch.ivyteam.wf.test.RequestDialog.RequestDialogData out;
@@ -62,14 +64,16 @@ Rs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rs0 f3 182 54 20 20 13 0 #rect
+Rs0 f3 83 115 26 26 -33 12 #rect
 Rs0 f3 @|RichDialogProcessStartIcon #fIcon
+Rs0 f3 -1|-1|-9671572 #nodeStyle
 Rs0 f6 type ch.ivyteam.wf.test.RequestDialog.RequestDialogData #txt
 Rs0 f6 guid 13F416B6E5B444EF #txt
-Rs0 f6 182 182 20 20 13 0 #rect
+Rs0 f6 211 115 26 26 0 12 #rect
 Rs0 f6 @|RichDialogEndIcon #fIcon
+Rs0 f6 -1|-1|-9671572 #nodeStyle
 Rs0 f7 expr out #txt
-Rs0 f7 192 74 192 182 #arcP
+Rs0 f7 109 128 211 128 #arcP
 Rs0 f4 actionDecl 'ch.ivyteam.wf.test.RequestDialog.RequestDialogData out;
 ' #txt
 Rs0 f4 actionTable 'out=in;
@@ -88,12 +92,13 @@ Rs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Rs0 f4 78 116 36 24 20 -2 #rect
+Rs0 f4 168 42 112 44 -18 -8 #rect
 Rs0 f4 @|StepIcon #fIcon
+Rs0 f4 -1|-1|-9671572 #nodeStyle
 Rs0 f5 expr out #txt
-Rs0 f5 96 74 96 116 #arcP
+Rs0 f5 109 64 168 64 #arcP
 Rs0 f2 expr out #txt
-Rs0 f2 96 140 96 182 #arcP
+Rs0 f2 280 64 339 64 #arcP
 >Proto Rs0 .type ch.ivyteam.wf.test.RequestDialog.RequestDialogData #txt
 >Proto Rs0 .processKind HTML_DIALOG #txt
 >Proto Rs0 -8 -8 16 16 16 26 #rect
