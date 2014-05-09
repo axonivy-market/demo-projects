@@ -1,4 +1,4 @@
-co: name={caseHistory} description={} changed={2011-03-17 09:07:30 CET} changedby={tirib} visualorder={0} guid={12E299EC765FE028} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12E29A05919FE7F0} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-15 15:01:08 CET} validto={} changed={2011-02-15 15:01:37 CET} changedby={bb} properties={} id={}
-val: guid={12E299EC765CECEA} datatype={} isdefault={true} langid={de} description={} validfrom={2011-02-15 14:59:54 CET} validto={} changed={2011-02-15 15:01:37 CET} changedby={bb} properties={} id={}
+co: name={caseHistory} description={} changed={2014-05-08 09:24:42 CEST} changedby={dje} visualorder={0} guid={12E299EC765FE028} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12E29A05919FE7F0} datatype={} isdefault={true} langid={en} description={} validfrom={2011-02-15 15:01:08 CET} validto={} changed={2014-05-08 09:24:42 CEST} changedby={dje} properties={} id={}
+val: guid={12E299EC765CECEA} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 14:59:54 CET} validto={} changed={2014-05-08 09:24:42 CEST} changedby={dje} properties={} id={}
 val: guid={12EBF471FA0AC5C0} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 16:26:45 CET} validto={} changed={2011-03-17 09:07:30 CET} changedby={tirib} properties={} id={}
