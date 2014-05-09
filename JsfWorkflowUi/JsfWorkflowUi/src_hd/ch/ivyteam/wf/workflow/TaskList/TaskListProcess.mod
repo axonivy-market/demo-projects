@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 25 15:48:13 CEST 2013]
+[>Created: Fri May 09 10:03:48 CEST 2014]
 13EE9A482A299A65 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListProcess Big #zClass
@@ -16,14 +16,15 @@ Ts0 @TextInP .responsibility .responsibility #zField
 Ts0 @RichDialogInitStart f0 '' #zField
 Ts0 @RichDialogProcessEnd f1 '' #zField
 Ts0 @GridStep f11 '' #zField
-Ts0 @PushWFArc f2 '' #zField
 Ts0 @RichDialogMethodStart f3 '' #zField
 Ts0 @GridStep f4 '' #zField
 Ts0 @PushWFArc f6 '' #zField
 Ts0 @PushWFArc f7 '' #zField
 Ts0 @GridStep f8 '' #zField
-Ts0 @PushWFArc f9 '' #zField
 Ts0 @PushWFArc f5 '' #zField
+Ts0 @PushWFArc f9 '' #zField
+Ts0 @RichDialogProcessEnd f10 '' #zField
+Ts0 @PushWFArc f12 '' #zField
 >Proto Ts0 Ts0 TaskListProcess #zField
 Ts0 f0 guid 13EE9A482C1E853B #txt
 Ts0 f0 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
@@ -43,11 +44,13 @@ Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f0 87 54 18 20 13 0 #rect
+Ts0 f0 83 51 26 26 -16 12 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
+Ts0 f0 -1|-1|-9671572 #nodeStyle
 Ts0 f1 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
-Ts0 f1 86 182 20 20 13 0 #rect
+Ts0 f1 339 51 26 26 0 12 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
+Ts0 f1 -1|-1|-9671572 #nodeStyle
 Ts0 f11 actionDecl 'ch.ivyteam.wf.workflow.TaskList.TaskListData out;
 ' #txt
 Ts0 f11 actionTable 'out=in;
@@ -104,10 +107,9 @@ Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f11 206 180 36 24 20 -2 #rect
+Ts0 f11 328 138 112 44 -21 -8 #rect
 Ts0 f11 @|StepIcon #fIcon
-Ts0 f2 expr out #txt
-Ts0 f2 206 192 106 192 #arcP
+Ts0 f11 -1|-1|-9671572 #nodeStyle
 Ts0 f3 guid 13F61412866CB9E5 #txt
 Ts0 f3 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 Ts0 f3 method update() #txt
@@ -124,8 +126,9 @@ Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f3 214 54 20 20 13 0 #rect
+Ts0 f3 83 147 26 26 -23 12 #rect
 Ts0 f3 @|RichDialogMethodStartIcon #fIcon
+Ts0 f3 -1|-1|-9671572 #nodeStyle
 Ts0 f4 actionDecl 'ch.ivyteam.wf.workflow.TaskList.TaskListData out;
 ' #txt
 Ts0 f4 actionTable 'out=in;
@@ -142,12 +145,13 @@ Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f4 78 116 36 24 20 -2 #rect
+Ts0 f4 168 42 112 44 -31 -8 #rect
 Ts0 f4 @|StepIcon #fIcon
+Ts0 f4 -1|-1|-9671572 #nodeStyle
 Ts0 f6 expr out #txt
-Ts0 f6 96 74 96 116 #arcP
+Ts0 f6 109 64 168 64 #arcP
 Ts0 f7 expr out #txt
-Ts0 f7 96 140 96 182 #arcP
+Ts0 f7 280 64 339 64 #arcP
 Ts0 f8 actionDecl 'ch.ivyteam.wf.workflow.TaskList.TaskListData out;
 ' #txt
 Ts0 f8 actionTable 'out=in;
@@ -170,18 +174,23 @@ Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f8 206 116 36 24 20 -2 #rect
+Ts0 f8 168 138 112 44 -20 -8 #rect
 Ts0 f8 @|StepIcon #fIcon
-Ts0 f9 expr out #txt
-Ts0 f9 224 74 224 116 #arcP
+Ts0 f8 -1|-1|-9671572 #nodeStyle
 Ts0 f5 expr out #txt
-Ts0 f5 224 140 224 180 #arcP
+Ts0 f5 280 160 328 160 #arcP
+Ts0 f9 expr out #txt
+Ts0 f9 109 160 168 160 #arcP
+Ts0 f10 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
+Ts0 f10 499 147 26 26 0 12 #rect
+Ts0 f10 @|RichDialogProcessEndIcon #fIcon
+Ts0 f10 -1|-1|-9671572 #nodeStyle
+Ts0 f12 expr out #txt
+Ts0 f12 440 160 499 160 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
 >Proto Ts0 '' #fIcon
-Ts0 f11 mainOut f2 tail #connect
-Ts0 f2 head f1 mainIn #connect
 Ts0 f0 mainOut f6 tail #connect
 Ts0 f6 head f4 mainIn #connect
 Ts0 f4 mainOut f7 tail #connect
@@ -190,3 +199,5 @@ Ts0 f3 mainOut f9 tail #connect
 Ts0 f9 head f8 mainIn #connect
 Ts0 f8 mainOut f5 tail #connect
 Ts0 f5 head f11 mainIn #connect
+Ts0 f11 mainOut f12 tail #connect
+Ts0 f12 head f10 mainIn #connect
