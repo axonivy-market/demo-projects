@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu May 08 11:22:00 CEST 2014]
+[>Created: Fri May 09 11:07:59 CEST 2014]
 13D0159BD5D40664 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MultiViewDemoProcess Big #zClass
@@ -202,8 +202,8 @@ Ct0 f26 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f26 88 336 224 288 #arcP
-Ct0 f26 1 88 288 #addKink
+Ct0 f26 128 336 232 272 #arcP
+Ct0 f26 1 128 272 #addKink
 Ct0 f26 1 0.4090909090909091 0 -8 #arcLabel
 Ct0 f23 actionDecl 'ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData out;
 ' #txt
@@ -211,7 +211,7 @@ Ct0 f23 actionTable 'out=in;
 out.nextView="Summary";
 ' #txt
 Ct0 f23 type ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData #txt
-Ct0 f23 224 266 112 44 58 -2 #rect
+Ct0 f23 232 250 112 44 58 -2 #rect
 Ct0 f23 @|StepIcon #fIcon
 Ct0 f23 -1|-1|-9671572 #nodeStyle
 Ct0 f19 expr in #txt
@@ -226,8 +226,8 @@ Ct0 f19 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f19 88 336 224 96 #arcP
-Ct0 f19 1 88 96 #addKink
+Ct0 f19 128 336 232 80 #arcP
+Ct0 f19 1 128 80 #addKink
 Ct0 f19 1 0.3088235294117647 0 -3 #arcLabel
 Ct0 f21 actionDecl 'ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData out;
 ' #txt
@@ -235,7 +235,7 @@ Ct0 f21 actionTable 'out=in;
 out.nextView="CreditCardProcessing";
 ' #txt
 Ct0 f21 type ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData #txt
-Ct0 f21 224 170 112 44 58 -2 #rect
+Ct0 f21 232 154 112 44 58 -2 #rect
 Ct0 f21 @|StepIcon #fIcon
 Ct0 f21 -1|-1|-9671572 #nodeStyle
 Ct0 f16 expr in #txt
@@ -249,8 +249,8 @@ Ct0 f16 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f16 248 576 352 512 #arcP
-Ct0 f16 1 248 512 #addKink
+Ct0 f16 256 560 360 496 #arcP
+Ct0 f16 1 256 496 #addKink
 Ct0 f16 1 0.36538461538461536 0 -4 #arcLabel
 Ct0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData out;
 ' #txt
@@ -258,7 +258,7 @@ Ct0 f11 actionTable 'out=in;
 out.nextView="CreditCard";
 ' #txt
 Ct0 f11 type ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData #txt
-Ct0 f11 352 490 112 44 58 -2 #rect
+Ct0 f11 360 474 112 44 58 -2 #rect
 Ct0 f11 @|StepIcon #fIcon
 Ct0 f11 -1|-1|-9671572 #nodeStyle
 Ct0 f15 expr in #txt
@@ -272,16 +272,16 @@ Ct0 f15 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f15 248 608 352 672 #arcP
-Ct0 f15 1 248 672 #addKink
-Ct0 f15 1 0.25961538461538464 0 10 #arcLabel
+Ct0 f15 256 592 360 656 #arcP
+Ct0 f15 1 256 656 #addKink
+Ct0 f15 1 0.25961538461538464 0 -9 #arcLabel
 Ct0 f10 actionDecl 'ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData out;
 ' #txt
 Ct0 f10 actionTable 'out=in;
 out.nextView="Invoice";
 ' #txt
 Ct0 f10 type ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData #txt
-Ct0 f10 352 650 112 44 58 -2 #rect
+Ct0 f10 360 634 112 44 58 -2 #rect
 Ct0 f10 @|StepIcon #fIcon
 Ct0 f10 -1|-1|-9671572 #nodeStyle
 Ct0 f13 type ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData #txt
@@ -294,7 +294,7 @@ Ct0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f13 232 576 32 32 24 -9 #rect
+Ct0 f13 240 560 32 32 24 -9 #rect
 Ct0 f13 @|AlternativeIcon #fIcon
 Ct0 f13 -1|-1|-9671572 #nodeStyle
 Ct0 f12 actionDecl 'ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData out;
@@ -303,7 +303,7 @@ Ct0 f12 actionTable 'out=in;
 out.nextView="Summary";
 ' #txt
 Ct0 f12 type ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData #txt
-Ct0 f12 224 74 112 44 58 -2 #rect
+Ct0 f12 232 58 112 44 58 -2 #rect
 Ct0 f12 @|StepIcon #fIcon
 Ct0 f12 -1|-1|-9671572 #nodeStyle
 Ct0 f14 expr in #txt
@@ -318,8 +318,8 @@ Ct0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f14 88 368 232 592 #arcP
-Ct0 f14 1 88 592 #addKink
+Ct0 f14 128 368 240 576 #arcP
+Ct0 f14 1 128 576 #addKink
 Ct0 f14 1 0.45394736842105265 0 -2 #arcLabel
 Ct0 f25 expr in #txt
 Ct0 f25 outCond 'in.currentView == "CreditCard"' #txt
@@ -333,8 +333,8 @@ Ct0 f25 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f25 88 336 224 192 #arcP
-Ct0 f25 1 88 192 #addKink
+Ct0 f25 128 336 232 176 #arcP
+Ct0 f25 1 128 176 #addKink
 Ct0 f25 1 0.375 0 -3 #arcLabel
 Ct0 f5 type ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData #txt
 Ct0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -346,7 +346,7 @@ Ct0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f5 72 336 32 32 23 -8 #rect
+Ct0 f5 112 336 32 32 23 -8 #rect
 Ct0 f5 @|AlternativeIcon #fIcon
 Ct0 f5 -1|-1|-9671572 #nodeStyle
 Ct0 g0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -356,10 +356,10 @@ Ct0 g0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 g0 19 339 26 26 0 5 #rect
+Ct0 g0 19 339 26 26 -16 19 #rect
 Ct0 g0 @|MIGIcon #fIcon
 Ct0 g0 -1|-1|-9671572 #nodeStyle
-Ct0 f0 45 352 72 352 #arcP
+Ct0 f0 45 352 112 352 #arcP
 Ct0 g1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -367,7 +367,7 @@ Ct0 g1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 g1 659 339 26 26 0 5 #rect
+Ct0 g1 659 339 26 26 -15 15 #rect
 Ct0 g1 @|MOGIcon #fIcon
 Ct0 g1 -1|-1|-9671572 #nodeStyle
 Ct0 f9 type ch.ivyteam.htmldialog.demo.input.MultiViewDemo.MultiViewDemoData #txt
@@ -377,22 +377,22 @@ Ct0 f9 -1|-1|-9671572 #nodeStyle
 Ct0 f1 expr in #txt
 Ct0 f1 592 352 659 352 #arcP
 Ct0 f17 expr out #txt
-Ct0 f17 464 512 576 368 #arcP
-Ct0 f17 1 576 512 #addKink
+Ct0 f17 472 496 576 368 #arcP
+Ct0 f17 1 576 496 #addKink
 Ct0 f7 expr out #txt
-Ct0 f7 464 672 576 368 #arcP
-Ct0 f7 1 576 672 #addKink
+Ct0 f7 472 656 576 368 #arcP
+Ct0 f7 1 576 656 #addKink
 Ct0 f7 1 0.3274472488214351 0 0 #arcLabel
 Ct0 f8 expr out #txt
-Ct0 f8 336 288 576 336 #arcP
-Ct0 f8 1 576 288 #addKink
+Ct0 f8 344 272 576 336 #arcP
+Ct0 f8 1 576 272 #addKink
 Ct0 f6 expr out #txt
-Ct0 f6 336 192 576 336 #arcP
-Ct0 f6 1 576 192 #addKink
+Ct0 f6 344 176 576 336 #arcP
+Ct0 f6 1 576 176 #addKink
 Ct0 f6 0 0.8288361902806625 0 0 #arcLabel
 Ct0 f4 expr out #txt
-Ct0 f4 336 96 576 336 #arcP
-Ct0 f4 1 576 96 #addKink
+Ct0 f4 344 80 576 336 #arcP
+Ct0 f4 1 576 80 #addKink
 >Proto Ct0 0 0 32 24 18 0 #rect
 >Proto Ct0 @|BIcon #fIcon
 Ms0 f0 mainOut f2 tail #connect
@@ -431,4 +431,4 @@ Ct0 f21 mainOut f6 tail #connect
 Ct0 f6 head f9 in #connect
 Ct0 f12 mainOut f4 tail #connect
 Ct0 f4 head f9 in #connect
-Ct0 0 0 736 760 0 #ivRect
+Ct0 0 0 704 752 0 #ivRect
