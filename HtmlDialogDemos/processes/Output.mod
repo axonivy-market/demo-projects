@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 06 14:30:20 CEST 2014]
+[>Created: Thu May 22 15:32:38 CEST 2014]
 145D180807C60B4B 3.17 #module
 >Proto >Proto Collection #zClass
 Ot0 Output Big #zClass
@@ -43,6 +43,11 @@ Ot0 @PushWFArc f90 '' #zField
 Ot0 @PushWFArc f91 '' #zField
 Ot0 @PushWFArc f95 '' #zField
 Ot0 @PushWFArc f96 '' #zField
+Ot0 @EndTask f1 '' #zField
+Ot0 @RichDialog f2 '' #zField
+Ot0 @PushWFArc f4 '' #zField
+Ot0 @StartRequest f0 '' #zField
+Ot0 @PushWFArc f3 '' #zField
 >Proto Ot0 Ot0 Output #zField
 Ot0 f94 outLink SelectManyCheckboxDemo.ivp #txt
 Ot0 f94 type htmlDialogDemos.Data #txt
@@ -618,6 +623,102 @@ Ot0 f95 expr out #txt
 Ot0 f95 143 544 248 544 #arcP
 Ot0 f96 expr out #txt
 Ot0 f96 360 544 465 544 #arcP
+Ot0 f1 type htmlDialogDemos.Data #txt
+Ot0 f1 465 625 30 30 0 15 #rect
+Ot0 f1 @|EndIcon #fIcon
+Ot0 f1 -1|-1|-9671572 #nodeStyle
+Ot0 f2 targetWindow NEW:card: #txt
+Ot0 f2 targetDisplay TOP #txt
+Ot0 f2 richDialogId ch.ivyteam.htmldialog.demo.output.ChartDemo #txt
+Ot0 f2 startMethod start() #txt
+Ot0 f2 type htmlDialogDemos.Data #txt
+Ot0 f2 requestActionDecl '<> param;' #txt
+Ot0 f2 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Ot0 f2 responseMappingAction 'out=in;
+' #txt
+Ot0 f2 windowConfiguration '* ' #txt
+Ot0 f2 isAsynch false #txt
+Ot0 f2 isInnerRd false #txt
+Ot0 f2 userContext '* ' #txt
+Ot0 f2 248 618 112 44 58 -2 #rect
+Ot0 f2 @|RichDialogIcon #fIcon
+Ot0 f2 -1|-1|-9671572 #nodeStyle
+Ot0 f4 expr out #txt
+Ot0 f4 360 640 465 640 #arcP
+Ot0 f0 outLink ChartDemo.ivp #txt
+Ot0 f0 type htmlDialogDemos.Data #txt
+Ot0 f0 inParamDecl '<> param;' #txt
+Ot0 f0 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Ot0 f0 guid 1460535DE5033FE1 #txt
+Ot0 f0 requestEnabled true #txt
+Ot0 f0 triggerEnabled false #txt
+Ot0 f0 callSignature ChartDemo() #txt
+Ot0 f0 persist false #txt
+Ot0 f0 startName 'Chart Demo' #txt
+Ot0 f0 taskData '#
+#Fri May 16 16:11:41 CEST 2014
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Ot0 f0 caseData '#
+#Fri May 16 16:11:41 CEST 2014
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Ot0 f0 showInStartList 1 #txt
+Ot0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Ot0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>ChartDemo.ivp</name>
+        <nameStyle>13,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ot0 f0 @C|.responsibility Everybody #txt
+Ot0 f0 113 625 30 30 -45 17 #rect
+Ot0 f0 @|StartRequestIcon #fIcon
+Ot0 f0 -1|-1|-9671572 #nodeStyle
+Ot0 f3 expr out #txt
+Ot0 f3 143 640 248 640 #arcP
 >Proto Ot0 .type htmlDialogDemos.Data #txt
 >Proto Ot0 .processKind NORMAL #txt
 >Proto Ot0 0 0 32 24 18 0 #rect
@@ -646,3 +747,7 @@ Ot0 f94 mainOut f95 tail #connect
 Ot0 f95 head f92 mainIn #connect
 Ot0 f92 mainOut f96 tail #connect
 Ot0 f96 head f93 mainIn #connect
+Ot0 f2 mainOut f4 tail #connect
+Ot0 f4 head f1 mainIn #connect
+Ot0 f0 mainOut f3 tail #connect
+Ot0 f3 head f2 mainIn #connect

@@ -1,0 +1,4 @@
+ChartDemoData #class
+ch.ivyteam.htmldialog.demo.output.ChartDemo #namespace
+comboChartModel org.primefaces.model.chart.LineChartModel #field
+pieChartModel org.primefaces.model.chart.PieChartModel #field
