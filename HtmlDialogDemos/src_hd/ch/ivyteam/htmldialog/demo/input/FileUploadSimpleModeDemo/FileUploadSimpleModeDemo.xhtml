@@ -27,7 +27,7 @@
 						<h:outputText value="1. Select a text or xml file to show its content:" />
 						<br />
 						<br />
-						<p:fileUpload value="#{data.ivyFile}" mode="simple" />
+						<p:fileUpload value="#{data.ivyFile}" mode="simple" style="width:500px"/>
 						<br />
 						<br />
 						<p:commandButton value="2. Show Content"
@@ -36,13 +36,15 @@
 						<br />
 						<p:outputPanel rendered="#{not empty data.textContent}">
 							<h:outputText id="fileNameLabel"
-								value="Content of #{data.fileName}:"></h:outputText>
+								value="Content of the uploaded file: #{data.fileName}:"></h:outputText>
 							<br />
 							<h:inputTextarea rows="10" cols="80" id="textAreaLabel"
 								value="#{data.textContent}"></h:inputTextarea>
 							<br />
-							<a href="#{ivy.html.fileref(data.ivyFile)}">Link to the
-								uploaded File #{data.fileName}</a>
+							<br />
+							<h:outputText id="fileLinkLabel"
+								value="Link to the uploaded file: "></h:outputText>
+							<a href="#{ivy.html.fileref(data.ivyFile)}">#{data.fileName}</a>
 						</p:outputPanel>
 					</h:form>
 				</p:panel>
