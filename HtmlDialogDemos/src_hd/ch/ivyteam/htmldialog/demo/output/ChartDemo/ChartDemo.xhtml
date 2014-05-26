@@ -11,11 +11,11 @@
 
 		<ui:define name="center">
 			<p:layoutUnit position="center" header="Chart Demo">
-				<h:form>
+				<h:form id="form">
 					<p:growl id="growl" showDetail="true" />
 					<br />
 					<p:chart type="line" model="#{data.comboChartModel}"
-						style="width:450px;height:300px;">
+						style="width:450px;height:300px;" id="comboChart">
 						
 						<p:ajax event="itemSelect" update="growl"
 							listener="#{logic.itemSelected}" />
@@ -23,7 +23,7 @@
 					<br />
 					<br />
 					<p:chart type="pie" model="#{data.pieChartModel}"
-						style="width:450px;height:300px">
+						style="width:450px;height:300px" id="pieChart">
 						
 						<p:ajax event="itemSelect" update="growl"
 							listener="#{logic.sliceSelected}" />
