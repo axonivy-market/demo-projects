@@ -90,6 +90,14 @@
    								<h:outputLabel value=" (#{data.wfCase.processCode})" rendered="#{data.wfCase.processCode != ''}" /> 
    							</td>
 						</tr>
+						<tr>
+							<th>#{ivy.cms.co('/labels/common/done')}</th>
+							<td>
+								<h:outputText value="#{data.wfCase.endTimestamp}">
+									<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+								</h:outputText>
+							</td>
+						</tr>
 					</table>
 				</h:column>
 				<p:spacer width="50" />
@@ -161,6 +169,14 @@
 			            <f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
 				</p:column>
+				<p:column>  
+           			<f:facet name="header">  
+               			#{ivy.cms.co('/labels/common/done')}  
+           			</f:facet>
+           			<h:outputText value="#{task.endTimestamp.getYear().toString() == 1 ? '' : task.endTimestamp}">
+						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+					</h:outputText>
+       			</p:column>
    			</p:dataTable>
 		</h:form>
 		<ui:include src="/includes/dialogs/AddNote.xhtml" />
