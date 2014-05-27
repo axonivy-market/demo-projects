@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 09 11:08:33 CEST 2014]
+[>Created: Mon May 26 15:49:31 CEST 2014]
 13F1D8A32C686BDF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListProcess Big #zClass
@@ -21,13 +21,17 @@ Cs0 @GridStep f23 '' #zField
 Cs0 @PushWFArc f27 '' #zField
 Cs0 @RichDialogMethodStart f2 '' #zField
 Cs0 @PushWFArc f5 '' #zField
-Cs0 @PushWFArc f6 '' #zField
 Cs0 @GridStep f7 '' #zField
-Cs0 @PushWFArc f8 '' #zField
-Cs0 @PushWFArc f3 '' #zField
 Cs0 @RichDialogProcessEnd f11 '' #zField
 Cs0 @PushWFArc f12 '' #zField
 Cs0 @PushWFArc f10 '' #zField
+Cs0 @RichDialogProcessStart f4 '' #zField
+Cs0 @GridStep f14 '' #zField
+Cs0 @PushWFArc f15 '' #zField
+Cs0 @PushWFArc f16 '' #zField
+Cs0 @PushWFArc f8 '' #zField
+Cs0 @PushWFArc f3 '' #zField
+Cs0 @PushWFArc f6 '' #zField
 >Proto Cs0 Cs0 CaseListProcess #zField
 Cs0 f0 guid 13F1D8A32D5EA95D #txt
 Cs0 f0 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
@@ -52,7 +56,7 @@ Cs0 f0 83 51 26 26 -32 15 #rect
 Cs0 f0 @|RichDialogInitStartIcon #fIcon
 Cs0 f0 -1|-1|-9671572 #nodeStyle
 Cs0 f1 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
-Cs0 f1 339 51 26 26 0 12 #rect
+Cs0 f1 499 51 26 26 0 12 #rect
 Cs0 f1 @|RichDialogProcessEndIcon #fIcon
 Cs0 f1 -1|-1|-9671572 #nodeStyle
 Cs0 f20 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
@@ -65,7 +69,7 @@ Cs0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f20 336 144 32 32 -41 -32 #rect
+Cs0 f20 144 208 32 32 -41 -32 #rect
 Cs0 f20 @|AlternativeIcon #fIcon
 Cs0 f20 -1|-1|-9671572 #nodeStyle
 Cs0 f21 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
@@ -100,7 +104,7 @@ permission</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f21 424 138 112 44 -40 -16 #rect
+Cs0 f21 232 202 112 44 -40 -16 #rect
 Cs0 f21 @|StepIcon #fIcon
 Cs0 f21 -1|-1|-9671572 #nodeStyle
 Cs0 f23 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
@@ -131,7 +135,7 @@ Cs0 f23 168 42 112 44 -35 -8 #rect
 Cs0 f23 @|StepIcon #fIcon
 Cs0 f23 -1|-1|-9671572 #nodeStyle
 Cs0 f27 expr in #txt
-Cs0 f27 368 160 424 160 #arcP
+Cs0 f27 176 224 232 224 #arcP
 Cs0 f27 0 0.22440092079002907 0 0 #arcLabel
 Cs0 f2 guid 13F75D933E4D0972 #txt
 Cs0 f2 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
@@ -149,13 +153,11 @@ Cs0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f2 83 147 26 26 -23 12 #rect
+Cs0 f2 83 211 26 26 -23 12 #rect
 Cs0 f2 @|RichDialogMethodStartIcon #fIcon
 Cs0 f2 -1|-1|-9671572 #nodeStyle
 Cs0 f5 expr out #txt
 Cs0 f5 109 64 168 64 #arcP
-Cs0 f6 expr out #txt
-Cs0 f6 280 64 339 64 #arcP
 Cs0 f7 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
 ' #txt
 Cs0 f7 actionTable 'out=in;
@@ -223,26 +225,68 @@ Cs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f7 168 138 112 44 -21 -8 #rect
+Cs0 f7 328 42 112 44 -21 -8 #rect
 Cs0 f7 @|StepIcon #fIcon
 Cs0 f7 -1|-1|-9671572 #nodeStyle
-Cs0 f8 expr out #txt
-Cs0 f8 109 160 168 160 #arcP
-Cs0 f3 expr out #txt
-Cs0 f3 280 160 336 160 #arcP
 Cs0 f11 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
-Cs0 f11 595 147 26 26 0 12 #rect
+Cs0 f11 403 211 26 26 0 12 #rect
 Cs0 f11 @|RichDialogProcessEndIcon #fIcon
 Cs0 f11 -1|-1|-9671572 #nodeStyle
 Cs0 f12 expr in #txt
 Cs0 f12 outCond in.caseListMode=="my_cases" #txt
-Cs0 f12 352 176 608 173 #arcP
-Cs0 f12 1 352 224 #addKink
-Cs0 f12 2 608 224 #addKink
+Cs0 f12 160 240 416 237 #arcP
+Cs0 f12 1 160 288 #addKink
+Cs0 f12 2 416 288 #addKink
 Cs0 f12 2 0.8368950099673428 0 0 #arcLabel
 Cs0 f10 expr out #txt
-Cs0 f10 536 160 595 160 #arcP
+Cs0 f10 344 224 403 224 #arcP
 Cs0 f10 0 0.6385795599612007 0 0 #arcLabel
+Cs0 f4 guid 14638C705689C0BF #txt
+Cs0 f4 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
+Cs0 f4 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
+' #txt
+Cs0 f4 actionTable 'out=in;
+' #txt
+Cs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>setFilter</name>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f4 83 147 26 26 -22 12 #rect
+Cs0 f4 @|RichDialogProcessStartIcon #fIcon
+Cs0 f4 -1|-1|-9671572 #nodeStyle
+Cs0 f14 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
+' #txt
+Cs0 f14 actionTable 'out=in;
+' #txt
+Cs0 f14 actionCode in.cases.setHasFilter(true); #txt
+Cs0 f14 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
+Cs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>is filter set</name>
+        <nameStyle>13,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f14 168 138 112 44 -28 -8 #rect
+Cs0 f14 @|StepIcon #fIcon
+Cs0 f14 -1|-1|-9671572 #nodeStyle
+Cs0 f15 expr out #txt
+Cs0 f15 109 160 168 160 #arcP
+Cs0 f16 expr out #txt
+Cs0 f16 109 224 144 224 #arcP
+Cs0 f8 expr out #txt
+Cs0 f8 280 160 384 86 #arcP
+Cs0 f8 1 384 160 #addKink
+Cs0 f8 0 0.7961137295123933 0 0 #arcLabel
+Cs0 f3 expr out #txt
+Cs0 f3 280 64 328 64 #arcP
+Cs0 f6 expr out #txt
+Cs0 f6 440 64 499 64 #arcP
 >Proto Cs0 .type ch.ivyteam.wf.history.CaseList.CaseListData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
@@ -250,14 +294,18 @@ Cs0 f10 0 0.6385795599612007 0 0 #arcLabel
 Cs0 f27 head f21 mainIn #connect
 Cs0 f0 mainOut f5 tail #connect
 Cs0 f5 head f23 mainIn #connect
-Cs0 f23 mainOut f6 tail #connect
-Cs0 f6 head f1 mainIn #connect
-Cs0 f2 mainOut f8 tail #connect
-Cs0 f8 head f7 mainIn #connect
-Cs0 f7 mainOut f3 tail #connect
-Cs0 f3 head f20 in #connect
 Cs0 f20 out f12 tail #connect
 Cs0 f12 head f11 mainIn #connect
 Cs0 f20 out f27 tail #connect
 Cs0 f21 mainOut f10 tail #connect
 Cs0 f10 head f11 mainIn #connect
+Cs0 f4 mainOut f15 tail #connect
+Cs0 f15 head f14 mainIn #connect
+Cs0 f2 mainOut f16 tail #connect
+Cs0 f16 head f20 in #connect
+Cs0 f14 mainOut f8 tail #connect
+Cs0 f8 head f7 mainIn #connect
+Cs0 f23 mainOut f3 tail #connect
+Cs0 f3 head f7 mainIn #connect
+Cs0 f7 mainOut f6 tail #connect
+Cs0 f6 head f1 mainIn #connect

@@ -4,6 +4,9 @@ package ch.ivyteam.wf.history;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.context.FacesContext;
+
+import org.primefaces.component.datatable.DataTable;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 
@@ -24,11 +27,19 @@ public class CaseLazyDataModel extends LazyDataModel<ICase> {
 	private String caseMode;
 	private String caseAdminMode;
 	private IQueryResult<ICase> queryResult;
+	private Boolean hasFilter = false;
 
 	@Override
 	public List<ICase> load(int first, int pageSize, String sortField,
 			SortOrder sortOrder, Map<String, Object> filters) {
 		Ivy ivy = Ivy.getInstance();
+		
+		if(hasFilter)
+		{	
+			DataTable d = (DataTable) FacesContext.getCurrentInstance().getViewRoot().findComponent("caseListForm:caseTable");
+			d.setFirst(0);
+			first = 0;
+		}
 		
 		List<PropertyOrder<CaseProperty>> casePropertyOrder = PropertyOrder.create(getCaseProperty(sortField), getCaseDirection(sortOrder));
 		if(caseMode.contentEquals("my_cases"))
@@ -52,6 +63,7 @@ public class CaseLazyDataModel extends LazyDataModel<ICase> {
 		
 		List<ICase> cases = queryResult.getResultList();
 		this.setRowCount(queryResult.getAllCount());
+		this.hasFilter = false;
 		
 		return cases;
 	}
@@ -76,6 +88,10 @@ public class CaseLazyDataModel extends LazyDataModel<ICase> {
 			direction = OrderDirection.DESCENDING;
 		}
 		return direction;
+	}
+	
+	public void setHasFilter(Boolean hasFilter) {
+		this.hasFilter = hasFilter;
 	}
 	
 	public void setCaseFilter(IPropertyFilter<CaseProperty> caseFilter) {
