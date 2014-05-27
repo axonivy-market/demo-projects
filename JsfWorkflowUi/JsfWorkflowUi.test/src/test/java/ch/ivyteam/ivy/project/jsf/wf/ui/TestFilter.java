@@ -107,7 +107,7 @@ public class TestFilter extends BaseJsfWorkflowUiTest
   {
     for(int tasksCount = 0; tasksCount < 54; tasksCount++)
     {
-      createTask("taskHighForFilterPagination", "task pagination", 1);
+      createTask("taskHighForFilterPagination", "task pagination", 2);
     }
     createTask("taskHighForFilterPagination", "task pagination", 1);
     
