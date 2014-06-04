@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" provider="" version="1" id="htmlDialogDemos">
-    <description></description>
+<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" id="HtmlDialogDemos" version="5100000" provider="ivyTeam AG">
+    <description>Demo Project for the Html Dialog Features</description>
 </ns2:library>
