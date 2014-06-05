@@ -105,9 +105,9 @@ public class TestFilter extends BaseJsfWorkflowUiTest
   @Test
   public void testFilterWithPagination() throws Exception
   {
-    for(int tasksCount = 0; tasksCount < 54; tasksCount++)
+    for(int tasksCount = 0; tasksCount < 50; tasksCount++)
     {
-      createTask("taskHighForFilterPagination", "task pagination", 2);
+      driverHelper.openProcessLink("testWfUi/145A7190339D94FD/start.ivp");
     }
     createTask("taskHighForFilterPagination", "task pagination", 1);
     
@@ -115,11 +115,8 @@ public class TestFilter extends BaseJsfWorkflowUiTest
     prime().clickPaginationNextPage();
     WebElement selectOneMenu = driverHelper.findElementById("taskListForm:priorityFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("HIGH");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskHighForFilterPagination");
-    
-    for(int tasksCount = 0; tasksCount < 55; tasksCount++)
-    {
-      closeTask();
-    }
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("test");
+
+    driverHelper.openProcessLink("testWfUi/1466BC6311E70117/DestroyTasks.ivp");
   }
 }
