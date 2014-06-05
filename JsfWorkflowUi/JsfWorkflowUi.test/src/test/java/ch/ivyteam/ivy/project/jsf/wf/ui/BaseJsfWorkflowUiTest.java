@@ -21,7 +21,7 @@ public class BaseJsfWorkflowUiTest
   private static final String[] PRIORITIES = {"EXCEPTION", "HIGH", "NORMAL", "LOW"};
   
   @Rule
-  public TestRule globalMethodTimeout = new Timeout(10 * 60 * 1000);
+  public TestRule globalMethodTimeout = new Timeout(5 * 30 * 1000);
   
   static
   {

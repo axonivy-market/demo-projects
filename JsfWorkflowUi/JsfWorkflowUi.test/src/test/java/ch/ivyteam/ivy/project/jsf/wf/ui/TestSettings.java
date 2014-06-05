@@ -162,6 +162,9 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     setMailNotification();
     navigate().mailNotificationSettings();
     checkSetMailNotification();
+    // set default
+    driverHelper.findElement(By.cssSelector("span.ui-button-text.ui-c")).click();
+    driverHelper.clickAndWaitForAjax(By.id("formMailNotification:saveMailNotification"));
   }
 
   private void setMailNotification()
