@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu May 22 15:32:38 CEST 2014]
+[>Created: Thu Jun 12 13:17:27 CEST 2014]
 145D180807C60B4B 3.17 #module
 >Proto >Proto Collection #zClass
 Ot0 Output Big #zClass
@@ -48,6 +48,11 @@ Ot0 @RichDialog f2 '' #zField
 Ot0 @PushWFArc f4 '' #zField
 Ot0 @StartRequest f0 '' #zField
 Ot0 @PushWFArc f3 '' #zField
+Ot0 @StartRequest f20 '' #zField
+Ot0 @RichDialog f21 '' #zField
+Ot0 @EndTask f22 '' #zField
+Ot0 @PushWFArc f23 '' #zField
+Ot0 @PushWFArc f24 '' #zField
 >Proto Ot0 Ot0 Output #zField
 Ot0 f94 outLink SelectManyCheckboxDemo.ivp #txt
 Ot0 f94 type htmlDialogDemos.Data #txt
@@ -719,6 +724,102 @@ Ot0 f0 @|StartRequestIcon #fIcon
 Ot0 f0 -1|-1|-9671572 #nodeStyle
 Ot0 f3 expr out #txt
 Ot0 f3 143 640 248 640 #arcP
+Ot0 f20 outLink AutoCompleteDemo.ivp #txt
+Ot0 f20 type htmlDialogDemos.Data #txt
+Ot0 f20 inParamDecl '<> param;' #txt
+Ot0 f20 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Ot0 f20 guid 1468B174CE38CA96 #txt
+Ot0 f20 requestEnabled true #txt
+Ot0 f20 triggerEnabled false #txt
+Ot0 f20 callSignature AutoCompleteDemo() #txt
+Ot0 f20 persist false #txt
+Ot0 f20 startName 'Auto Complete Demo' #txt
+Ot0 f20 taskData '#
+#Wed Jun 11 15:21:38 CEST 2014
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+Ot0 f20 caseData '#
+#Wed Jun 11 12:50:45 CEST 2014
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+Ot0 f20 showInStartList 1 #txt
+Ot0 f20 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Ot0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>AutoCompleteDemo.ivp</name>
+        <nameStyle>20,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ot0 f20 @C|.responsibility Everybody #txt
+Ot0 f20 113 721 30 30 -65 17 #rect
+Ot0 f20 @|StartRequestIcon #fIcon
+Ot0 f20 -1|-1|-9671572 #nodeStyle
+Ot0 f21 targetWindow NEW:card: #txt
+Ot0 f21 targetDisplay TOP #txt
+Ot0 f21 richDialogId ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo #txt
+Ot0 f21 startMethod start() #txt
+Ot0 f21 type htmlDialogDemos.Data #txt
+Ot0 f21 requestActionDecl '<> param;' #txt
+Ot0 f21 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Ot0 f21 responseMappingAction 'out=in;
+' #txt
+Ot0 f21 windowConfiguration '* ' #txt
+Ot0 f21 isAsynch false #txt
+Ot0 f21 isInnerRd false #txt
+Ot0 f21 userContext '* ' #txt
+Ot0 f21 248 714 112 44 0 -8 #rect
+Ot0 f21 @|RichDialogIcon #fIcon
+Ot0 f21 -1|-1|-9671572 #nodeStyle
+Ot0 f22 type htmlDialogDemos.Data #txt
+Ot0 f22 465 721 30 30 0 15 #rect
+Ot0 f22 @|EndIcon #fIcon
+Ot0 f22 -1|-1|-9671572 #nodeStyle
+Ot0 f23 expr out #txt
+Ot0 f23 143 736 248 736 #arcP
+Ot0 f24 expr out #txt
+Ot0 f24 360 736 465 736 #arcP
 >Proto Ot0 .type htmlDialogDemos.Data #txt
 >Proto Ot0 .processKind NORMAL #txt
 >Proto Ot0 0 0 32 24 18 0 #rect
@@ -751,3 +852,7 @@ Ot0 f2 mainOut f4 tail #connect
 Ot0 f4 head f1 mainIn #connect
 Ot0 f0 mainOut f3 tail #connect
 Ot0 f3 head f2 mainIn #connect
+Ot0 f20 mainOut f23 tail #connect
+Ot0 f23 head f21 mainIn #connect
+Ot0 f21 mainOut f24 tail #connect
+Ot0 f24 head f22 mainIn #connect

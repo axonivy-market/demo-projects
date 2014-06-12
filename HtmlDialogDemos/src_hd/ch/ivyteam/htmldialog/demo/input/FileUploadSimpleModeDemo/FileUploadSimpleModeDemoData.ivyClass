@@ -2,4 +2,10 @@ FileUploadSimpleModeDemoData #class
 ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo #namespace
 ivyFile File #field
 textContent String #field
+filePath String #field
+filePath PERSISTENT #fieldModifier
 fileName String #field
+fileDownload org.primefaces.model.StreamedContent #field
+fileDownload PERSISTENT #fieldModifier
+showContent Boolean #field
+showContent PERSISTENT #fieldModifier

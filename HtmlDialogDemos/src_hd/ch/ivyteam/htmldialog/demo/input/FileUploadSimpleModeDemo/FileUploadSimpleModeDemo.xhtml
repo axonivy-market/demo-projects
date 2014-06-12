@@ -17,10 +17,10 @@
 	<ui:composition template="/PageTemplate.xhtml">
 
 		<ui:define name="center">
-			<p:layoutUnit position="center" header="File Upload Demo">
+			<p:layoutUnit position="center" header="File Upload and Download Demo">
 				<p:panel>
 					<p>This demo explains how the content of a uploaded file could
-						be displayed. The Ivy file type is used to store the file
+						be displayed and how the file could be downloaded. The Ivy file type is used to store the file
 						temporarily in the process data. This makes the handling of an
 						uploaded file quite simple.</p>
 					<h:form enctype="multipart/form-data">
@@ -30,21 +30,36 @@
 						<p:fileUpload value="#{data.ivyFile}" mode="simple" style="width:500px"/>
 						<br />
 						<br />
-						<p:commandButton value="2. Show Content"
-							actionListener="#{logic.showContent}" ajax="false" />
+						2. Upload the file via process logic and store the file on the file system
+						<br />
+						<br />
+						<p:commandButton value="Upload"
+							actionListener="#{logic.fileUpload}" ajax="false" />
 						<br />
 						<br />
 						<p:outputPanel rendered="#{not empty data.textContent}">
+							<h:outputText id="fileLinkLabel"
+								value="Link to the uploaded file: "></h:outputText>
+							<a href="#{ivy.html.fileref(data.ivyFile)}">#{data.fileName}</a>
+						</p:outputPanel>
+						<br />
+						<br />
+						3. Show the file or download it
+						<br />
+						<br />
+						<p:commandButton value="Show" actionListener="#{logic.showContent}" ajax="false" disabled="#{data.fileName == null}" />
+							or
+			            <p:commandButton value="Download" ajax="false" actionListener="#{logic.fileDownload}" icon="ui-icon-arrowthick-1-s" disabled="#{data.fileName == null}">
+					        <p:fileDownload value="#{data.fileDownload}" />
+					    </p:commandButton>
+						<br />
+						<br />
+						<p:outputPanel rendered="#{data.showContent}">
 							<h:outputText id="fileNameLabel"
 								value="Content of the uploaded file: #{data.fileName}:"></h:outputText>
 							<br />
 							<h:inputTextarea rows="10" cols="80" id="textAreaLabel"
 								value="#{data.textContent}"></h:inputTextarea>
-							<br />
-							<br />
-							<h:outputText id="fileLinkLabel"
-								value="Link to the uploaded file: "></h:outputText>
-							<a href="#{ivy.html.fileref(data.ivyFile)}">#{data.fileName}</a>
 						</p:outputPanel>
 					</h:form>
 				</p:panel>
