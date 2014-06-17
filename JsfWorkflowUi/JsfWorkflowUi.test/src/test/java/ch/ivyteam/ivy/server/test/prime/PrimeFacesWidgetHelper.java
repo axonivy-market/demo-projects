@@ -73,7 +73,7 @@ public class PrimeFacesWidgetHelper
     public void selectAllItems()
     {
       expandSelectableItems();
-      driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='" + checkboxMenu.getAttribute("id") + "_panel']/div/div/div[2]"));
+      driverHelper.clickAndWaitForAjax(By.cssSelector("div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default"));
     }
     
     private void expandSelectableItems()
