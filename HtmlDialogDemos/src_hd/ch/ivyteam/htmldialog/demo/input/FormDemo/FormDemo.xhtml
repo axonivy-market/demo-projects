@@ -49,7 +49,7 @@
     	 			<p:message for="PhoneNumber" display="icon"/>
 
     	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/Address')}" for="Address" style="vertical-align:top"/>
-    	 			<p:inputTextarea value="#{data.address}" row="2" id="Address" required="true"/>
+    	 			<p:inputTextarea value="#{data.address}" rows="2" id="Address" required="true"/>
     	 			<p:message for="Address" display="icon"/>
 
     	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/ZipCode')}" for="ZipCode"/>
@@ -78,7 +78,7 @@
     	 			Use #{logic.completeCountry} to call the method process of the method CompleteCountry. The signature of the method must 
     	 			match the signature expected by the UI widget.    
     	 			-->
-    	 			<p:autoComplete value="#{data.country}" id="Country" completeMethod="#{logic.completeCountry}" delay="500" required="true"/>
+    	 			<p:autoComplete value="#{data.country}" id="Country" completeMethod="#{logic.completeCountry}" queryDelay="500" required="true"/>
     	 			<p:message for="Country" display="icon"/>
 					<!-- 
 					Use #{logic.send} to call the event process with the name send. 

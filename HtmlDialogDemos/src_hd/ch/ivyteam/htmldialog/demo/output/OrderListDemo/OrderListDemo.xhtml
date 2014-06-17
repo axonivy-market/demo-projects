@@ -29,7 +29,7 @@
   Shows a list that can be reordered. 
   Use the ivy.ListItem converter to convert the list items (person) to a string (list index) an vice versa. 
  -->
-   		  		<p:orderList value="#{data.persons}" var="person" iconOnly="true" effect="clip"  
+   		  		<p:orderList value="#{data.persons}" var="person" effect="clip"  
 	        	            itemValue="#{person}" converter="ivy.ListItem" id="personsList" controlsLocation="right">            	
 	          		<f:facet name="caption">Persons</f:facet>
 	          		<p:column><b>#{person.name}</b> #{person.firstname}</p:column> 
