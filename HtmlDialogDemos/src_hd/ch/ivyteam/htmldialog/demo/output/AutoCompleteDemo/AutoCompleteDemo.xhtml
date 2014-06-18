@@ -16,15 +16,17 @@
 				<p>This demo explains how to implement an AutoComplete widget. The AutoComplete widget is useful for searching through 
 				datasets where the search result is provided by process logic (e.g. to call a Web Service).
 				<br/>
-				If the full dataset is available at the beginning the <a href="#{ivy.html.startref('Output/SelectOneMenuDemo.ivp')}">Select One Menu</a> widget could also be a good choice.</p>
+				If the full dataset is available at the beginning the <a href="#{ivy.html.startref('Output/SelectOneMenuDemo.ivp')}">Select One Menu</a> widget could also be a good choice.
+				<br/>
+				<br/>
+				To try out the AutoComplete widget, you can use the demo users. (demoUser1, demoUser2 and demoUser3)</p>
 				<h:form id="Form">
 				    <p:growl id="msgs" showDetail="true" />
 				    <h:panelGrid columns="2" cellpadding="5">
 				    
 				        <p:outputLabel value="Select user via AJAX event:" for="event" />
-				        <p:autoComplete id="event" value="#{data.searchText}" completeMethod="#{logic.searchUsers}" var="user" itemLabel="#{user.name}" itemValue="#{user.id.toString()}" 
+				        <p:autoComplete id="event" value="#{data.selectedUserId}" completeMethod="#{logic.searchUsers}" var="user" itemLabel="#{user.name}" itemValue="#{user.id.toString()}" 
 				        	forceSelection="true">
-				            <p:ajax event="itemSelect" listener="#{logic.userSelected}" update="msgs" />
 				        </p:autoComplete>
 				        
 				        <p:outputLabel value="Select user via FacesConverter:" for="converter" />
@@ -33,7 +35,7 @@
 				        	
 				    </h:panelGrid> 
 	 			<br/>
-	 			<p:commandButton actionListener="#{logic.send}" value="Send" update="msgs"/>
+	 			<p:commandButton actionListener="#{logic.send}" value="Send" update="msgs" />
 				</h:form>
 			</p:panel>
    		</p:layoutUnit>
