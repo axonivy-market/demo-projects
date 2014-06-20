@@ -15,6 +15,10 @@ import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
 import ch.ivyteam.ivy.richdialog.widgets.components.RCheckBox;
 import ch.ivyteam.ivy.richdialog.widgets.components.RComboBox;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
+import ch.ivyteam.ivy.addons.filemanager.DesktopHandler.DesktopHandlerPanel;
+import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
+import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
+import com.ulcjava.base.application.ULCContainer;
 
 /**
  * <p>StartFileManagerPanel is a rich dialog panel implementation.
@@ -58,6 +62,7 @@ private RCheckBox globalVariablesCheckBox = null;
 private RFlowLayoutPane FlowLayoutPane = null;
 private RButton displayButton = null;
 private RGridBagLayoutPane sizeGridBagLayoutPane = null;
+private @EmbeddedRichDialog(DesktopHandlerPanel.class) ULCContainer desktopHandlerPanel = null;
 /**
    * Create a new instance of StartFileManagerPanel
    */
@@ -105,6 +110,7 @@ private RGridBagLayoutPane getGridBagLayoutPane1() {
 		GridBagLayoutPane1.add(getGlobalVariableConfigGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 5, 4, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		GridBagLayoutPane1.add(getFlowLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 8, 4, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 		GridBagLayoutPane1.add(getSizeGridBagLayoutPane(), new com.ulcjava.base.application.GridBagConstraints(0, 4, 2, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
+		GridBagLayoutPane1.add(getDesktopHandlerPanel(), new com.ulcjava.base.application.GridBagConstraints(0, 9, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return GridBagLayoutPane1;
 }
@@ -543,5 +549,20 @@ private RGridBagLayoutPane getSizeGridBagLayoutPane() {
 		sizeGridBagLayoutPane.add(getMaxFileSizeTextField(), new com.ulcjava.base.application.GridBagConstraints(1, 0, 1, 1, -1, -1, com.ulcjava.base.application.GridBagConstraints.CENTER, com.ulcjava.base.application.GridBagConstraints.NONE, new com.ulcjava.base.application.util.Insets(0,0,0,0), 0, 0));
 	}
 	return sizeGridBagLayoutPane;
+}
+
+/**
+ * This method initializes desktopHandlerPanel, an embedded RichDialog.
+ * The created object might have a different type than the declared
+ * class due to overriding.
+ * @returns com.ulcjava.base.application.ULCContainer 
+ */
+private ULCContainer getDesktopHandlerPanel() {
+	if (desktopHandlerPanel == null) {
+		desktopHandlerPanel = RichDialogPanelFactory
+				.create(DesktopHandlerPanel.class);
+		desktopHandlerPanel.setName("desktopHandlerPanel");
+	}
+	return desktopHandlerPanel;
 }
 }  //  @jve:decl-index=0:visual-constraint="10,10"

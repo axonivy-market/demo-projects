@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jan 10 18:08:53 EST 2014]
+[>Created: Thu Jan 23 14:10:19 EST 2014]
 12BAAF77763F86CB 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 StartFileManagerProcess Big #zClass
@@ -52,16 +52,16 @@ Ss0 @PushWFArc f36 '' #zField
 Ss0 @RichDialogProcessStep f2 '' #zField
 Ss0 @PushWFArc f37 '' #zField
 Ss0 @PushWFArc f34 '' #zField
-Ss0 @RichDialogProcessStart f38 '' #zField
-Ss0 @RichDialogProcessStep f40 '' #zField
-Ss0 @RichDialogProcessEnd f41 '' #zField
-Ss0 @PushWFArc f42 '' #zField
+Ss0 @RichDialogProcessStep f38 '' #zField
 Ss0 @RichDialogProcessStep f39 '' #zField
-Ss0 @PushWFArc f43 '' #zField
+Ss0 @PushWFArc f40 '' #zField
+Ss0 @PushWFArc f27 '' #zField
+Ss0 @RichDialogProcessStart f41 '' #zField
+Ss0 @RichDialogProcessEnd f43 '' #zField
 Ss0 @PushWFArc f44 '' #zField
 Ss0 @RichDialogProcessStep f45 '' #zField
 Ss0 @PushWFArc f46 '' #zField
-Ss0 @PushWFArc f27 '' #zField
+Ss0 @PushWFArc f42 '' #zField
 >Proto Ss0 Ss0 StartFileManagerProcess #zField
 Ss0 f0 guid 12BAAF777B32E0E5 #txt
 Ss0 f0 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
@@ -72,7 +72,7 @@ Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 Ss0 f0 outParameterDecl '<> result;
 ' #txt
-Ss0 f0 embeddedRdInitializations '* ' #txt
+Ss0 f0 embeddedRdInitializations '{/desktopHandlerPanel {/fieldName "desktopHandlerPanel"/startMethod "startVisible(Boolean)"/parameterMapping "param.visible=false;\n"/initScript ""/userContext * }}' #txt
 Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -303,14 +303,11 @@ try{
 	panel.startButton1.enabled=true;
 	panel.dbComboBox.enabled=true;
 	panel.serverpathTextField.enabled=true;
-	
-if(ev.getSource() instanceof RCheckBox) {
+	if(ev.getSource() instanceof RCheckBox) {
 		RCheckBox rc = ev.getSource() as RCheckBox;
 		
-		if(rc.getName().equalsIgnoreCase(panel.activateFilesAsBlobCheckBox.getName())) 
-{
-			if(panel.activateFilesAsBlobCheckBox.selected)
- {
+		if(rc.getName().equalsIgnoreCase(panel.activateFilesAsBlobCheckBox.getName())) {
+			if(panel.activateFilesAsBlobCheckBox.selected) {
 				//files are stored as BLOB in an external database, this is not compatible with the files storage on the file set
 				panel.activateIvySystemDBCheckBox.selected=false;
 				panel.filesInFileSetCheckBox.selected=false;
@@ -335,8 +332,7 @@ if(ev.getSource() instanceof RCheckBox) {
 				panel.activatefileTypesTranslationCheckBox.enabled=false;
 			}
 		}
-		else if(rc.getName().equalsIgnoreCase(panel.activateIvySystemDBCheckBox.getName()) && panel.activateIvySystemDBCheckBox.selected)
- {
+		else if(rc.getName().equalsIgnoreCase(panel.activateIvySystemDBCheckBox.getName()) && panel.activateIvySystemDBCheckBox.selected) {
 			//files are stored on the file set and the files informations are stored in the Ivy system DB, all other options cannot be activated
 			panel.activateFilesAsBlobCheckBox.selected=false;
 			panel.globalVariablesCheckBox.selected=false;
@@ -350,8 +346,7 @@ if(ev.getSource() instanceof RCheckBox) {
 			panel.activatefileTypesTranslationCheckBox.enabled=false;
 			panel.filesInFileSetCheckBox.selected=false;
 			out.configurationController.rootPath="root/storeOnServerAndIvyDb";
-		}
-else if(rc.getName().equalsIgnoreCase(panel.globalVariablesCheckBox.getName()) && panel.globalVariablesCheckBox.selected){
+		}else if(rc.getName().equalsIgnoreCase(panel.globalVariablesCheckBox.getName()) && panel.globalVariablesCheckBox.selected){
 			//Global variables
 			panel.dbComboBox.enabled=false;
 			panel.serverpathTextField.enabled=false;
@@ -382,10 +377,8 @@ else if(rc.getName().equalsIgnoreCase(panel.globalVariablesCheckBox.getName()) &
 			panel.activateIvySystemDBCheckBox.selected=false;
 			panel.activateDirTranslationCheckBox.enabled=false;
 			panel.activatefileTypesTranslationCheckBox.enabled=false;
-			out.configurationController.rootPath="root/storeOnServer";
-	
-		}
- else if(rc.getName().equalsIgnoreCase(panel.activateExtendedFVCheckBox.getName())){
+			out.configurationController.rootPath="root/storeOnServer";	
+		} else if(rc.getName().equalsIgnoreCase(panel.activateExtendedFVCheckBox.getName())){
 			if(panel.activateExtendedFVCheckBox.selected) {
 				panel.activateFileVersioningCheckBox.selected=true;
 				panel.activateFileVersioningCheckBox.enabled=false;
@@ -616,29 +609,11 @@ Ss0 f37 expr out #txt
 Ss0 f37 120 108 120 132 #arcP
 Ss0 f34 expr out #txt
 Ss0 f34 120 156 120 174 #arcP
-Ss0 f38 guid 1437E68DBB580D5A #txt
-Ss0 f38 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
 Ss0 f38 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData out;
 ' #txt
 Ss0 f38 actionTable 'out=in;
 ' #txt
-Ss0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>displayConfigurationValues</name>
-        <nameStyle>26,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f38 774 158 20 20 12 -1 #rect
-Ss0 f38 @|RichDialogProcessStartIcon #fIcon
-Ss0 f40 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData out;
-' #txt
-Ss0 f40 actionTable 'out=in;
-' #txt
-Ss0 f40 actionCode 'import ch.ivyteam.ivy.addons.filemanager.ulcextensionhandler.DesktopHandler;
-import org.apache.commons.io.FileUtils;
+Ss0 f38 actionCode 'import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import ch.ivyteam.ivy.addons.filemanager.configuration.FileManagerConfigurationController;
 if(panel.globalVariablesCheckBox.isSelected()){
@@ -655,19 +630,59 @@ if(panel.globalVariablesCheckBox.isSelected()){
 String s = ReflectionToStringBuilder.reflectionToString(in.configurationController,org.apache.commons.lang.builder.ToStringStyle.MULTI_LINE_STYLE);
 File f = new File("config.txt");
 FileUtils.writeStringToFile(f.getJavaFile(),s);
-DesktopHandler dsk = new DesktopHandler();
-dsk.openFile(f.getJavaFile());' #txt
-Ss0 f40 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
-Ss0 f40 766 276 36 24 20 -2 #rect
-Ss0 f40 @|RichDialogProcessStepIcon #fIcon
-Ss0 f41 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
-Ss0 f41 774 350 20 20 13 0 #rect
-Ss0 f41 @|RichDialogProcessEndIcon #fIcon
-Ss0 f42 expr out #txt
-Ss0 f42 784 300 784 350 #arcP
+panel.desktopHandlerPanel.openFile(f.getJavaFile());
+' #txt
+Ss0 f38 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
+Ss0 f38 726 228 36 24 20 -2 #rect
+Ss0 f38 @|RichDialogProcessStepIcon #fIcon
 Ss0 f39 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData out;
 ' #txt
 Ss0 f39 actionTable 'out=in;
+' #txt
+Ss0 f39 actionCode 'import ch.ivyteam.ivy.addons.filemanager.configuration.FileManagerConfigurationController;
+if(panel.globalVariablesCheckBox.isSelected()){
+	int n = in.configurationController.maxFileUploadSize;
+	
+	out.configurationController = new FileManagerConfigurationController();
+	out.configurationController.rootPath=ivy.var.xivy_addons_fileManager_activateUseOfIvySystemDatabase.equals("1")?"root/storeOnServerAndIvyDb":
+				ivy.var.xivy_addons_fileManager_activateFileContentInDatabase.equals("1")?"root/storeInDb":"root/storeOnServer";
+	if(n>0) {
+		out.configurationController.maxFileUploadSize=n;
+	}
+	
+}' #txt
+Ss0 f39 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
+Ss0 f39 454 116 36 24 20 -2 #rect
+Ss0 f39 @|RichDialogProcessStepIcon #fIcon
+Ss0 f40 expr out #txt
+Ss0 f40 472 100 472 116 #arcP
+Ss0 f27 expr out #txt
+Ss0 f27 472 140 472 154 #arcP
+Ss0 f41 guid 142C5CFA37ACE453 #txt
+Ss0 f41 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
+Ss0 f41 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData out;
+' #txt
+Ss0 f41 actionTable 'out=in;
+' #txt
+Ss0 f41 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>displayConfigurationValues</name>
+        <nameStyle>26,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f41 734 134 20 20 13 0 #rect
+Ss0 f41 @|RichDialogProcessStartIcon #fIcon
+Ss0 f43 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
+Ss0 f43 734 270 20 20 13 0 #rect
+Ss0 f43 @|RichDialogProcessEndIcon #fIcon
+Ss0 f44 expr out #txt
+Ss0 f44 744 252 744 270 #arcP
+Ss0 f45 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData out;
+' #txt
+Ss0 f45 actionTable 'out=in;
 out.configurationController.activateDirectoryTranslation=panel.activateDirTranslationCheckBox.selected;
 out.configurationController.activateFileTags=panel.activateTagsCheckBox.selected;
 out.configurationController.activateFileType=panel.activateTypeCheckBox.selected;
@@ -683,7 +698,7 @@ out.configurationController.showFileTypeManagement=true /*we set this to true to
 out.configurationController.storeFilesInDB=panel.activateFilesAsBlobCheckBox.selected;
 out.configurationController.useIvySystemDB=panel.activateIvySystemDBCheckBox.selected;
 ' #txt
-Ss0 f39 actionCode 'int n = 0;
+Ss0 f45 actionCode 'int n = 0;
 try{
 	n = panel.maxFileSizeTextField.valueAsNumber;
 }catch(Throwable t){
@@ -695,8 +710,8 @@ if(panel.dbComboBox.selectedListEntry!=null && panel.dbComboBox.selectedListEntr
 {
 	out.configurationController.ivyDBConnectionName=panel.dbComboBox.selectedListEntry.toString();
 }' #txt
-Ss0 f39 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
-Ss0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ss0 f45 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
+Ss0 f45 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>map the settings in the configuration controller</name>
@@ -705,35 +720,12 @@ Ss0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f39 766 212 36 24 20 -2 #rect
-Ss0 f39 @|RichDialogProcessStepIcon #fIcon
-Ss0 f43 expr out #txt
-Ss0 f43 784 178 784 212 #arcP
-Ss0 f44 expr out #txt
-Ss0 f44 784 236 784 276 #arcP
-Ss0 f45 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData out;
-' #txt
-Ss0 f45 actionTable 'out=in;
-' #txt
-Ss0 f45 actionCode 'import ch.ivyteam.ivy.addons.filemanager.configuration.FileManagerConfigurationController;
-if(panel.globalVariablesCheckBox.isSelected()){
-	int n = in.configurationController.maxFileUploadSize;
-	
-	out.configurationController = new FileManagerConfigurationController();
-	out.configurationController.rootPath=ivy.var.xivy_addons_fileManager_activateUseOfIvySystemDatabase.equals("1")?"root/storeOnServerAndIvyDb":
-				ivy.var.xivy_addons_fileManager_activateFileContentInDatabase.equals("1")?"root/storeInDb":"root/storeOnServer";
-	if(n>0) {
-		out.configurationController.maxFileUploadSize=n;
-	}
-	
-}' #txt
-Ss0 f45 type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
-Ss0 f45 454 116 36 24 20 -2 #rect
+Ss0 f45 726 180 36 24 20 -2 #rect
 Ss0 f45 @|RichDialogProcessStepIcon #fIcon
 Ss0 f46 expr out #txt
-Ss0 f46 472 100 472 116 #arcP
-Ss0 f27 expr out #txt
-Ss0 f27 472 140 472 154 #arcP
+Ss0 f46 744 154 744 180 #arcP
+Ss0 f42 expr out #txt
+Ss0 f42 744 204 744 228 #arcP
 >Proto Ss0 .ui2RdDataAction 'out.configurationController.rootPath=panel.serverpathTextField.valueAsString;
 ' #txt
 >Proto Ss0 .rdData2UIAction 'panel.serverpathTextField.valueAsString=in.configurationController.rootPath;
@@ -778,13 +770,13 @@ Ss0 f11 mainOut f37 tail #connect
 Ss0 f37 head f2 mainIn #connect
 Ss0 f2 mainOut f34 tail #connect
 Ss0 f34 head f1 mainIn #connect
-Ss0 f40 mainOut f42 tail #connect
-Ss0 f42 head f41 mainIn #connect
-Ss0 f38 mainOut f43 tail #connect
-Ss0 f43 head f39 mainIn #connect
-Ss0 f39 mainOut f44 tail #connect
-Ss0 f44 head f40 mainIn #connect
-Ss0 f19 mainOut f46 tail #connect
-Ss0 f46 head f45 mainIn #connect
-Ss0 f45 mainOut f27 tail #connect
+Ss0 f19 mainOut f40 tail #connect
+Ss0 f40 head f39 mainIn #connect
+Ss0 f39 mainOut f27 tail #connect
 Ss0 f27 head f21 in #connect
+Ss0 f38 mainOut f44 tail #connect
+Ss0 f44 head f43 mainIn #connect
+Ss0 f41 mainOut f46 tail #connect
+Ss0 f46 head f45 mainIn #connect
+Ss0 f45 mainOut f42 tail #connect
+Ss0 f42 head f38 mainIn #connect
