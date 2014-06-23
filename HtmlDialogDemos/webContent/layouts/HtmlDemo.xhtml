@@ -7,7 +7,7 @@
 	xmlns:p="http://primefaces.org/ui">
  
 <h:head>
-	<title>Xpert.ivy Html Dialog Demos</title>
+	<title><ui:insert name="title">Xpert.ivy Html Dialogs Demo</ui:insert></title>
 	<h:outputStylesheet name="styles/style.css" />
 </h:head>
 <h:body style="font-size: 9pt;">
@@ -18,64 +18,65 @@
 			</div>
 		</p:layoutUnit>
 		<p:layoutUnit position="west" collapsible="true" resizable="true"
-			header="Html Dialog Demos" size="200">
+			header="Html Dialogs Demo" size="200">
 			<p:scrollPanel>
 				<p:menu style="width:100%">
 					<p:submenu label="Output" >
-						<p:menuitem value="Editable Table Demo"
+						<p:menuitem value="Editable Table"
 							url="#{ivy.html.startref('Output/EditableTableDemo.ivp')}" />
-						<p:menuitem value="Resource Demo"
+						<p:menuitem value="Resources"
 							url="#{ivy.html.startref('Output/ResourceDemo.ivp')}" />
-						<p:menuitem value="Ordered List Demo"
+						<p:menuitem value="Ordered List"
 							url="#{ivy.html.startref('Output/OrderListDemo.ivp')}" />
-						<p:menuitem value="Pick List Demo"
+						<p:menuitem value="Pick List"
 							url="#{ivy.html.startref('Output/PickListDemo.ivp')}" />
-						<p:menuitem value="Select One Menu Demo"
+						<p:menuitem value="Select One Menu"
 							url="#{ivy.html.startref('Output/SelectOneMenuDemo.ivp')}" />
-						<p:menuitem value="Auto Complete Demo"
+						<p:menuitem value="Auto Complete"
 							url="#{ivy.html.startref('Output/AutoCompleteDemo.ivp')}"
 							styleClass="new-demo" />
-						<p:menuitem value="Select Many Checkbox Demo"
+						<p:menuitem value="Select Many Checkbox"
 							url="#{ivy.html.startref('Output/SelectManyCheckboxDemo.ivp')}" />
-						<p:menuitem value="Chart Demo"
-							url="#{ivy.html.startref('Output/ChartDemo.ivp')}" />
+						<p:menuitem value="Charts"
+							url="#{ivy.html.startref('Output/ChartDemo.ivp')}" 
+							styleClass="new-demo" />
 					</p:submenu>
 					<p:submenu label="Input" >
-						<p:menuitem value="Form Demo" 
+						<p:menuitem value="Form" 
 							url="#{ivy.html.startref('Input/FormDemo.ivp')}" />
-						<p:menuitem value="Bean Validation Demo"
+						<p:menuitem value="Bean Validation"
 							url="#{ivy.html.startref('Input/BeanValidationDemo.ivp')}" />
-						<p:menuitem value="Simple File Upload and Download Demo "
+						<p:menuitem value="Simple File Upload and Download "
 							url="#{ivy.html.startref('Input/FileUploadSimpleModeDemo.ivp')}" />
-						<p:menuitem value="Advanced File Upload Demo"
+						<p:menuitem value="Advanced File Upload"
 							url="#{ivy.html.startref('Input/FileUploadAdvancedModeDemo.ivp')}" />
-						<p:menuitem value="Multi View Demo"
+						<p:menuitem value="Multi View"
 							url="#{ivy.html.startref('Input/MultiViewDemo.ivp')}" />
 					</p:submenu>
 					<p:submenu label="Component" >
-						<p:menuitem value="Component Demo"
+						<p:menuitem value="Component"
 							url="#{ivy.html.startref('Component/ComponentDemo.ivp')}" />
-						<p:menuitem value="Composite Component Customizing Demo"
+						<p:menuitem value="Composite Component Customizing"
 							url="#{ivy.html.startref('Component/ComponentCustomizingDemo.ivp')}" />
-						<p:menuitem value="Composite callback Demo"
+						<p:menuitem value="Composite callback"
 							url="#{ivy.html.startref('Component/ComponentEventListenerDemo.ivp')}" />
 						<p:menuitem value="JSF Composite Component"
 							url="#{ivy.html.startref('Component/JsfCompositeComponent.ivp')}" />
-						<p:menuitem value="Partial Update Demo"
+						<p:menuitem value="Partial Update"
 							url="#{ivy.html.startref('Component/PartialUpdateDemo.ivp')}" />
 					</p:submenu>
 					<p:submenu label="Other" >
-						<p:menuitem value="Html 5 / JSF 2.2 Demo"
+						<p:menuitem value="Html 5 / JSF 2.2"
 							url="#{ivy.html.startref('Other/Html5Demo.ivp')}"
 							styleClass="new-demo">
 							</p:menuitem>
-						<p:menuitem value="Html 5 &amp; Bootstrap Demo"
+						<p:menuitem value="Html 5 &amp; Bootstrap"
 							url="#{ivy.html.startref('Other/Html5BootstrapDemo.ivp')}"
 							styleClass="new-demo">
 							</p:menuitem>
-						<p:menuitem value="AJAX Method Call Demo"
+						<p:menuitem value="AJAX Method Call"
 							url="#{ivy.html.startref('Other/MethodCallWithAjaxDemo.ivp')}" />
-						<p:menuitem value="Managed Bean Demo"
+						<p:menuitem value="Managed Bean"
 							url="#{ivy.html.startref('Other/ManagedBeanDemo.ivp')}" />
 					</p:submenu>
 					<p:submenu label="Primefaces" >
@@ -85,7 +86,7 @@
 				</p:menu>
 			</p:scrollPanel>
 		</p:layoutUnit>
-		<ui:insert name="center">
+		<ui:insert name="content">
 			<p:layoutUnit position="center" header="">
 			</p:layoutUnit>
 		</ui:insert>
