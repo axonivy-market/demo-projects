@@ -7,7 +7,6 @@
       xmlns:p="http://primefaces.org/ui">
  
     <h:head>
-        <title>Bean Validation Demo</title>
         <style type="text/css">
         	h4{margin-bottom:5px;}
         	p{margin-top:2px; margin-bottom:2px;}
@@ -16,8 +15,8 @@
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
 
+	<ui:define name="title">Bean Validation (JSR 303) Demo</ui:define>
 	<ui:define name="content">
-		<p:layoutUnit position="center" header="Bean Validation (JSR 303) Demo">
    		<p:panel id="panel">
    			<p>This demo explains how the bean validation (JSR 303) could be used in Xpert.ivy.</p>
    	 		<p>The fields of a java class (bean) can be annotated with validation information. The validation information will then be considered by Html Dialogs when the field of the class is bound to a widget.</p>
@@ -58,8 +57,6 @@
     	 		<h:outputText>Data: #{data}</h:outputText> 
    			</h:form>
    		</p:panel>
-   		    	    		
-		</p:layoutUnit>
 	</ui:define>
 
 	</ui:composition>

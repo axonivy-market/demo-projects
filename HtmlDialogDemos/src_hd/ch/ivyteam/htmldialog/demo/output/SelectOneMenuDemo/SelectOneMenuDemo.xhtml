@@ -12,8 +12,8 @@
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
 
+	<ui:define name="title">SelectOneMenu Demo</ui:define>
 	<ui:define name="content">
-		<p:layoutUnit position="center" header="SelectOneMenu Demo">
      	<h:form>
 		   	<p:panel id="persons">
 		   	<p>This demo explains how a select one menu widget can be used with mixed data source items. 
@@ -47,7 +47,6 @@
 	 			<h:outputText value="Advanced Person: #{data.advanceSelectedPerson}"/>
 	   		</p:panel>   		
    		</h:form>
-		</p:layoutUnit>
 	</ui:define>
 
 	</ui:composition>

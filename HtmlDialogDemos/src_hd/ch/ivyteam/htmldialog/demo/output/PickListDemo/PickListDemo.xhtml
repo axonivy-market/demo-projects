@@ -12,13 +12,12 @@
           	border-spacing:0 !important;
           }
         </style>
-	<title>PickList Demo</title>
 </h:head>
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
 
+	<ui:define name="title">PickList Demo</ui:define>
 	<ui:define name="content">
-	<p:layoutUnit position="center" header="PickList Demo">
 	<h:form>
 		<p:panel >
 		<p>This demo explains how Xpert.ivy Lists can be used as data for an pick list widget.</p>
@@ -47,7 +46,6 @@
 			</p:panelGrid>
 		</p:panel>
 	</h:form>
-	</p:layoutUnit>
 	</ui:define>
 
 	</ui:composition>

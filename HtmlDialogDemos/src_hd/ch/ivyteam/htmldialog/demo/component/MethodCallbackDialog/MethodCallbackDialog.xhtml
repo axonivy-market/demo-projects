@@ -8,8 +8,9 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+	
+	<ui:define name="title">Component Method-Callback Demo</ui:define>
 	<ui:define name="content">
-	<p:layoutUnit position="center" header="Component Method-Callback Demo">
 		<h:outputStylesheet name="demoStyle.css"/>
 		
 		<h:form id="componentForm">
@@ -32,7 +33,6 @@
             <p:growl showDetail="true" />
 	     </p:panel>	
 	     </h:form>
-     </p:layoutUnit>
      </ui:define>
      </ui:composition>
     </h:body>

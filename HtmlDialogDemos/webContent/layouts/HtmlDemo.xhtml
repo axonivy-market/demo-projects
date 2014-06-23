@@ -86,10 +86,14 @@
 				</p:menu>
 			</p:scrollPanel>
 		</p:layoutUnit>
-		<ui:insert name="content">
-			<p:layoutUnit position="center" header="">
-			</p:layoutUnit>
-		</ui:insert>
+		<p:layoutUnit position="center">
+			<f:facet name="header">
+				<ui:insert name="title"></ui:insert>
+			</f:facet>
+			<ui:insert name="content">
+				<!-- The actual page content is inserted here -->
+			</ui:insert>
+		</p:layoutUnit>
 		<p:layoutUnit position="south" size="32">
 			<h:outputText value="Powered by Xpert.Ivy Workflow Copyright &#169; ivyTeam" />
 		</p:layoutUnit>

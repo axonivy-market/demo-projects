@@ -12,14 +12,12 @@ Note the additional xml namespace (here jc) that sets the location of the JSF co
 This is 'http://java.sun.com/jsf/composite/' followed by the name of the folder
 in the 'webContent/resources' where the JSF Composite Components are defined. 
 -->
-<h:head>
-	<title>JSF Composite Component Demo</title>
-</h:head>
 <h:body>
+
+	<ui:define name="title">JSF Composite Component Demo</ui:define>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
 
 		<ui:define name="content">
-			<p:layoutUnit position="center" header="JSF Composite Component Demo">
 				<p:panel id="panel">
 					<p>This demo explains how to use standard JSF Composite
 						Components (without ivy Data and ivy Logic) from the
@@ -58,7 +56,6 @@ in the 'webContent/resources' where the JSF Composite Components are defined.
 						</h:panelGrid>
 					</h:panelGrid>
 				</p:panel>
-			</p:layoutUnit>
 		</ui:define>
 
 	</ui:composition>

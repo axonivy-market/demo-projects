@@ -9,8 +9,8 @@
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
 
+	<ui:define name="title">Partial Update Demo</ui:define>
 	<ui:define name="content">
-		<p:layoutUnit position="center" header="Partial Update Demo">
 		<h:form id="Form">
     		<p:panel id="panel">
     		<p>
@@ -56,7 +56,6 @@
    	 		  	<p:commandButton value="Increase counter then update both panels" update="counterPanel_1 counterPanel_2" actionListener="#{logic.increaseCounter}"/>
     		</p:panel>	 	
     	</h:form>
-		</p:layoutUnit>
 	</ui:define>
 
 	</ui:composition>

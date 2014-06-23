@@ -8,22 +8,17 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:pe="http://primefaces.org/ui/extensions"
       xmlns:pm="http://primefaces.org/mobile">
- 
-    <h:head>
-        <title>Multi View Demo</title>
-    </h:head>
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
 
+	<ui:define name="title">Multi View Demo</ui:define>
 	<ui:define name="content">
-		<p:layoutUnit position="center" header="Multi View Demo">
         <h:form id="myForm">
         	<p:panel id="panel">
 		        <h3>Payment - Summary</h3>
 		        <p:outputLabel value="#{data.firstName} #{data.name} thank you for your Payment."/><br/>
             </p:panel>
         </h:form>    	
-		</p:layoutUnit>
 	</ui:define>
 
 	</ui:composition>

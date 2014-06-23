@@ -5,15 +5,11 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-
-<h:head>
-	<title>Ajax Method Call Demo</title>
-</h:head>
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
 
+	<ui:define name="title">AJAX Method Call Demo</ui:define>
 	<ui:define name="content">
-	<p:layoutUnit position="center" header="AJAX Method Call Demo">
 	<p:panel id="panel">
 		<p>This demo explains how:</p>
 		<ul>
@@ -74,7 +70,6 @@
 		</script>
 
 	</p:panel>
-	</p:layoutUnit>
 	</ui:define>
 
 	</ui:composition>
