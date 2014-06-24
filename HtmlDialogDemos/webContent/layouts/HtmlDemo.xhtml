@@ -17,11 +17,14 @@
 				<h:graphicImage library="ivy-cms" name="Project/XpertIvyHeader" alt="Xpert.ivy"/>
 			</div>
 		</p:layoutUnit>
-		<p:layoutUnit position="west" collapsible="true" resizable="true"
-			header="Html Dialogs Demo" size="200">
-			<p:scrollPanel>
-				<p:menu style="width:100%">
-					<p:submenu label="Output" >
+		<p:layoutUnit position="west" collapsible="true" header="Html Dialogs Demo" size="220">
+				<style type="text/css">
+      				.ui-menu .ui-menuitem-link {
+						padding: 0.2em;
+					}
+       			</style>
+				<p:menu style="width:94%">
+					<p:submenu label="Output">
 						<p:menuitem value="Editable Table"
 							url="#{ivy.html.startref('Output/EditableTableDemo.ivp')}" />
 						<p:menuitem value="Resources"
@@ -84,7 +87,6 @@
 							url="#{ivy.html.startref('Primefaces/Primefaces.ivp')}" />
 					</p:submenu>
 				</p:menu>
-			</p:scrollPanel>
 		</p:layoutUnit>
 		<p:layoutUnit position="center">
 			<f:facet name="header">
