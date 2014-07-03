@@ -1,0 +1,18 @@
+StatisticAverageData #class
+ch.ivyteam.wf.admin.StatisticAverage #namespace
+processCode String #field
+processCode PERSISTENT #fieldModifier
+categoryCode String #field
+categoryCode PERSISTENT #fieldModifier
+cases Recordset #field
+cases PERSISTENT #fieldModifier
+chart org.primefaces.model.chart.CartesianChartModel #field
+chart PERSISTENT #fieldModifier
+hasMoreCases Boolean #field
+hasMoreCases PERSISTENT #fieldModifier
+casesSize Number #field
+casesSize PERSISTENT #fieldModifier
+highestTime String #field
+highestTime PERSISTENT #fieldModifier
+average Number #field
+average PERSISTENT #fieldModifier

@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="/layouts/Workflow.xhtml">
+	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/averageStatistic')}" />
+	<ui:define name="center">
+		<f:event type="preRenderView" listener="#{logic.update()}" />
+		<br />
+		#{ivy.cms.co('/labels/admin/averrageStatistic/description')}
+		<c:if test="#{data.hasMoreCases}">
+			<br /><br />
+			<h:outputText value="#{ivy.cms.co('/labels/admin/averrageStatistic/firstCases')}#{data.casesSize}." style="font-weight:bold" />
+		</c:if>
+		<br /><br />
+		<h:form id="formChartCases">
+	        <p:chart id="chartForCases" type="bar" model="#{data.chart}"
+				style="height:600px; width:100%;">
+				<p:ajax event="itemSelect" listener="#{chartBean.itemSelectCase}" />
+			</p:chart>
+			<h:outputScript>
+				function ext() {
+					this.cfg.axes.xaxis.tickOptions = {
+			        	show: false
+			        };
+				}			
+			</h:outputScript>
+		</h:form>
+   	</ui:define>
+</ui:composition>
+</html>

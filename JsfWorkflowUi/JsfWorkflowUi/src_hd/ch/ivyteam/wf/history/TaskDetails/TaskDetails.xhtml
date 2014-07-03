@@ -177,6 +177,37 @@
 				</p:fieldset>
 				</h:panelGrid>
 			</h:panelGrid>
+			<br/><br/>
+			<h:outputText value="#{ivy.cms.co('/labels/history/taskDetails/events')}" style="font-weight:bold;" rendered="#{data.isHistory}" />
+			<br/><br/>
+			<p:dataTable id="taskEventTable" var="event" value="#{data.taskEvents}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" sortOrder="DESCENDING" rendered="#{data.isHistory}">
+   				<p:column style="width:15%">
+           			<f:facet name="header">
+               			#{ivy.cms.co('/labels/history/taskDetails/eventTime')}
+           			</f:facet>
+           			<h:outputText value="#{event.eventTimestamp}">
+						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+					</h:outputText>
+        		</p:column>
+        		<p:column>
+           			<f:facet name="header">
+               			#{ivy.cms.co('/labels/history/taskDetails/event')}
+           			</f:facet>
+           			<h:outputText id="eventKind" value="#{event.getEventKind()}" />
+        		</p:column>
+        		<p:column>
+           			<f:facet name="header">
+               			#{ivy.cms.co('/labels/common/user')}
+           			</f:facet>
+           			#{event.getUserName()}
+        		</p:column>
+        		<p:column>
+           			<f:facet name="header">
+           				#{ivy.cms.co('/labels/common/info')}
+           			</f:facet>
+           			#{event.getAdditionalInfo().toString().replace("[", "").replace("]", "")}
+        		</p:column>
+   			</p:dataTable>
 		</h:form>
 		<ui:include src="/includes/dialogs/ConfirmDeleteReset.xhtml" >
 			<ui:param name="headerConfirm" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" />

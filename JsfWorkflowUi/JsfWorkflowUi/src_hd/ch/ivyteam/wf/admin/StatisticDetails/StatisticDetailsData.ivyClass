@@ -1,0 +1,20 @@
+StatisticDetailsData #class
+ch.ivyteam.wf.admin.StatisticDetails #namespace
+wfCase ch.ivyteam.ivy.workflow.ICase #field
+wfCase PERSISTENT #fieldModifier
+tasks Recordset #field
+tasks PERSISTENT #fieldModifier
+chart org.primefaces.model.chart.CartesianChartModel #field
+chart PERSISTENT #fieldModifier
+processCode String #field
+processCode PERSISTENT #fieldModifier
+categoryCode String #field
+categoryCode PERSISTENT #fieldModifier
+mode String #field
+mode PERSISTENT #fieldModifier
+caseId Number #field
+caseId PERSISTENT #fieldModifier
+highestTime String #field
+highestTime PERSISTENT #fieldModifier
+average Number #field
+average PERSISTENT #fieldModifier

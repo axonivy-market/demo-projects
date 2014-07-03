@@ -1,0 +1,4 @@
+co: name={workflowStatistic} description={} changed={2014-02-24 09:50:11 CET} changedby={dje} visualorder={0} guid={14463151141A361A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={144631652C24A616} datatype={} isdefault={false} langid={de} description={} validfrom={2014-02-24 09:48:57 CET} validto={} changed={2014-02-24 09:50:11 CET} changedby={dje} properties={} id={}
+val: guid={144631651F1CFB33} datatype={} isdefault={false} langid={fr} description={} validfrom={2014-02-24 09:48:59 CET} validto={} changed={2014-02-24 09:50:11 CET} changedby={dje} properties={} id={}
+val: guid={144631511707071B} datatype={} isdefault={true} langid={en} description={} validfrom={2014-02-24 09:48:49 CET} validto={} changed={2014-02-24 09:50:11 CET} changedby={dje} properties={} id={}

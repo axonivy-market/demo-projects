@@ -72,3 +72,5 @@ canChangeExpiry Boolean #field
 canChangeExpiry PERSISTENT #fieldModifier
 caseName String #field
 caseName PERSISTENT #fieldModifier
+taskEvents List<ch.ivyteam.ivy.workflow.IWorkflowEvent> #field
+taskEvents PERSISTENT #fieldModifier

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 09 11:09:08 CEST 2014]
+[>Created: Wed Jun 04 15:30:48 CEST 2014]
 13F6148AFE612F94 3.17 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginProcess Big #zClass
@@ -79,13 +79,22 @@ if (!loggedIn)
 else
 {
 	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, ivy.cms.co("/labels/workflow/home/welcome"), in.username));
+	
+	if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW))
+	{
+		ivy.session.getSessionUser().setProperty("isAdmin","true");
+	}
+	else
+	{
+		ivy.session.getSessionUser().setProperty("isAdmin","false");
+	}
 }' #txt
 Ls0 f6 type ch.ivyteam.wf.login.Login.LoginData #txt
 Ls0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>login</name>
-        <nameStyle>5
+        <nameStyle>5,7
 </nameStyle>
     </language>
 </elementInfo>

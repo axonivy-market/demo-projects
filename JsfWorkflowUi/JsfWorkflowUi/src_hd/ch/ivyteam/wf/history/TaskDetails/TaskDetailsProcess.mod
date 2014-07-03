@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 09 11:24:44 CEST 2014]
+[>Created: Wed Jun 11 13:54:04 CEST 2014]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -43,7 +43,6 @@ Ts0 @PushWFArc f36 '' #zField
 Ts0 @RichDialogProcessStart f28 '' #zField
 Ts0 @GridStep f39 '' #zField
 Ts0 @PushWFArc f40 '' #zField
-Ts0 @PushWFArc f42 '' #zField
 Ts0 @RichDialogProcessStart f38 '' #zField
 Ts0 @RichDialogProcessStart f47 '' #zField
 Ts0 @PushWFArc f46 '' #zField
@@ -71,6 +70,9 @@ Ts0 @Alternative f50 '' #zField
 Ts0 @PushWFArc f53 '' #zField
 Ts0 @PushWFArc f44 '' #zField
 Ts0 @PushWFArc f54 '' #zField
+Ts0 @GridStep f55 '' #zField
+Ts0 @PushWFArc f56 '' #zField
+Ts0 @PushWFArc f42 '' #zField
 >Proto Ts0 Ts0 TaskDetailsProcess #zField
 Ct0 @TextInP .resExport .resExport #zField
 Ct0 @TextInP .type .type #zField
@@ -132,7 +134,7 @@ Ts0 f0 83 51 26 26 -63 15 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f0 -1|-1|-9671572 #nodeStyle
 Ts0 f1 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
-Ts0 f1 499 51 26 26 0 12 #rect
+Ts0 f1 659 51 26 26 0 12 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
 Ts0 f1 -1|-1|-9671572 #nodeStyle
 Ts0 f3 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
@@ -511,8 +513,6 @@ Ts0 f39 @|StepIcon #fIcon
 Ts0 f39 -1|-1|-9671572 #nodeStyle
 Ts0 f40 expr out #txt
 Ts0 f40 109 736 168 736 #arcP
-Ts0 f42 expr out #txt
-Ts0 f42 440 64 499 64 #arcP
 Ts0 f38 guid 14232D691B87CA99 #txt
 Ts0 f38 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f38 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
@@ -690,6 +690,28 @@ Ts0 f54 352 496 608 493 #arcP
 Ts0 f54 1 352 528 #addKink
 Ts0 f54 2 608 528 #addKink
 Ts0 f54 1 0.489485513722814 0 0 #arcLabel
+Ts0 f55 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f55 actionTable 'out=in;
+' #txt
+Ts0 f55 actionCode 'out.taskEvents = in.task.getWorkflowEvents();' #txt
+Ts0 f55 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>get events</name>
+        <nameStyle>10,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f55 488 42 112 44 -28 -8 #rect
+Ts0 f55 @|StepIcon #fIcon
+Ts0 f55 -1|-1|-9671572 #nodeStyle
+Ts0 f56 expr out #txt
+Ts0 f56 440 64 488 64 #arcP
+Ts0 f42 expr out #txt
+Ts0 f42 600 64 659 64 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -1007,8 +1029,6 @@ Ts0 f34 mainOut f36 tail #connect
 Ts0 f36 head f35 mainIn #connect
 Ts0 f28 mainOut f40 tail #connect
 Ts0 f40 head f39 mainIn #connect
-Ts0 f3 mainOut f42 tail #connect
-Ts0 f42 head f1 mainIn #connect
 Ts0 f47 mainOut f46 tail #connect
 Ts0 f46 head f15 mainIn #connect
 Ts0 f45 mainOut f51 tail #connect
@@ -1037,6 +1057,10 @@ Ts0 f50 out f44 tail #connect
 Ts0 f44 head f9 mainIn #connect
 Ts0 f50 out f54 tail #connect
 Ts0 f54 head f11 mainIn #connect
+Ts0 f3 mainOut f56 tail #connect
+Ts0 f56 head f55 mainIn #connect
+Ts0 f55 mainOut f42 tail #connect
+Ts0 f42 head f1 mainIn #connect
 Ct0 f22 mainOut f6 tail #connect
 Ct0 f6 head f5 mainIn #connect
 Ct0 f5 mainOut f8 tail #connect

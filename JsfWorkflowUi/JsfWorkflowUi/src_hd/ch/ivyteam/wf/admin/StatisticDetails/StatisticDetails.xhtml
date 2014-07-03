@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="/layouts/Workflow.xhtml">
+	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/detailsStatistic')}" />
+	<ui:define name="center">
+		<f:event type="preRenderView" listener="#{logic.update()}" />
+		<br />
+		#{ivy.cms.co('/labels/admin/detailsStatistic/description')}
+		<br /><br />
+		<h:form id="formCaseDetails">
+			<h:panelGrid columns="1" rowClasses="alignTop" width="100%">
+				<h:column>
+					<table id="caseDetailsList" class="detailsList" rules="rows">
+						<tr>
+							<th>#{ivy.cms.co('/labels/history/caseDetails/caseId')}</th>
+							<td><a href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{data.wfCase.id}" id="linkCaseDetail" title="#{ivy.cms.co('/navLabels/caseDetails')}">#{data.wfCase.id}</a></td>
+						</tr>
+						<tr>
+							<th>#{ivy.cms.co('/labels/common/name')}</th>
+							<td>#{data.wfCase.name}</td>
+						</tr>
+						<tr>
+							<th>#{ivy.cms.co('/labels/common/state')}</th>
+							<td>
+								<ui:include src="/includes/TableIconDescription.xhtml" >
+									<ui:param name="iconName" value="images/details/caseState/#{data.wfCase.getState().intValue()}.png" />
+									<ui:param name="iconDescription" value="#{data.wfCase.state}" />
+								</ui:include>
+							</td>
+						</tr>
+						<tr>
+							<th>#{ivy.cms.co('/labels/common/creator')}</th>
+							<td>
+								<ui:include src="/includes/TableIconDescription.xhtml">
+									<ui:param name="iconName" value="#{data.wfCase.creatorUserName != null ? 'images/details/user.png' : 'images/others/none.png'}" />
+									<ui:param name="iconDescription" value="#{data.wfCase.creatorUserName}" />
+								</ui:include>
+							</td>
+						</tr>
+						<tr>
+							<th>#{ivy.cms.co('/labels/common/start')}</th>
+							<td>
+								<h:outputText value="#{data.wfCase.startTimestamp}">
+									<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+								</h:outputText>
+							</td>
+						</tr>
+						<tr>
+							<th>#{ivy.cms.co('/labels/common/category')}</th>
+							<td>#{data.wfCase.processCategoryCode}</td>
+						</tr>
+						<tr>
+							<th>#{ivy.cms.co('/labels/common/process')}</th>
+							<td>#{data.wfCase.processCode}</td>
+						</tr>
+					</table>
+				</h:column>
+			</h:panelGrid>
+		</h:form>
+		<br />
+		<h:form id="formChartTasks">
+	        <p:chart id="chartForTasks" type="bar" model="#{data.chart}"
+				style="height:500px; width:100%;">
+				<p:ajax event="itemSelect" listener="#{chartBean.itemSelectTask}" />
+			</p:chart>
+			<h:outputScript>
+				function ext() {
+					this.cfg.axes.xaxis.tickOptions = {
+			        	show: false
+			        };
+				}			
+			</h:outputScript>
+		</h:form>
+   	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,91 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+	
+<ui:composition template="/layouts/Workflow.xhtml">
+	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/workflowStatistic')}" />
+	<ui:define name="center">
+		<f:event type="preRenderView" listener="#{logic.update()}" />
+		<br />
+		#{ivy.cms.co('/labels/admin/workflowStatistic/description')}
+		<br /><br />
+		<h:form id="caseStatisticForm">
+			<p:toolbar>
+	    		<p:toolbarGroup align="right">
+		    		<h:panelGrid columns="8">
+		    			#{ivy.cms.co('/labels/common/category')}:
+	 					<p:selectOneMenu id="categoryFilter" value="#{data.catFilter}">
+	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="all" />
+	           				<f:selectItems value="#{data.categories}" var="categorie" itemLabel="#{categorie.getField('displayName')}" itemValue="#{categorie.getField('categoryCode')}" />
+	           				<p:ajax update=":caseStatisticForm" listener="#{logic.setFilter}" />
+	        			</p:selectOneMenu>
+	        			<p:spacer width="20" />
+	        			#{ivy.cms.co('/labels/common/from')}:
+	 					<p:calendar id="dateFromFilter" pattern="dd.MM.yyyy" value="#{data.dateFromFilter}">
+							<f:convertDateTime pattern="dd.MM.yyyy" />
+							<p:ajax event="dateSelect" listener="#{logic.setFilter}" update=":caseStatisticForm" />
+						</p:calendar>
+	        			#{ivy.cms.co('/labels/common/to')}:
+	 					<p:calendar id="dateToFilter" maxdate="PF('calwidget').today()" widgetVar="calwidget" pattern="dd.MM.yyyy" value="#{data.dateToFilter}">
+							<f:convertDateTime pattern="dd.MM.yyyy" />
+							<p:ajax event="dateSelect" listener="#{logic.setFilter}" update=":caseStatisticForm" />
+						</p:calendar>
+        			</h:panelGrid>
+       			</p:toolbarGroup>
+			</p:toolbar>
+   			<p:dataTable id="caseStatisticTable" var="case" value="#{data.cases}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.cases.size() >= 50}" paginatorPosition="bottom" rows="50" sortOrder="DESCENDING">
+   				<p:columnGroup type="header">
+		            <p:row>
+		            	<p:column colspan="1" headerText="" style="width:15pt" />
+		                <p:column colspan="3" headerText="" />
+		                <p:column colspan="3" headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/throughputTime')}" style="width:300pt" />
+		            </p:row>
+		            <p:row>
+		                <p:column headerText="#" />
+		                <p:column headerText="#{ivy.cms.co('/labels/common/process')}" sortBy="#{case.PROCESSCODE}" />
+		                <p:column headerText="#{ivy.cms.co('/labels/common/category')}" sortBy="#{case.MAXPROCESSCATEGORYCODE}" />
+		                <p:column headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/runs')}" sortBy="#{case.COUNT}" />
+		                <p:column headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/min')}" sortBy="#{case.MINBUSINESSRUNTIME}" />
+		                <p:column headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/max')}" sortBy="#{case.MAXBUSINESSRUNTIME}" />
+		                <p:column headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/avg')}" sortBy="#{case.AVGBUSINESSRUNTIME}" />
+		            </p:row>
+		        </p:columnGroup>
+   				
+   				<p:column>
+           			<a href="#{ivy.html.startref('1447289CE234B167/StatisticAverage.ivp')}?processCode=#{case.PROCESSCODE}&amp;categoryCode=#{case.MAXPROCESSCATEGORYCODE}" title="#{ivy.cms.co('/navLabels/averageStatistic')}"><h:graphicImage name="images/actions/chart.png" alt="" /></a>
+        		</p:column>
+       			<p:column>
+           			#{case.MAXPROCESSNAME == '' ? case.PROCESSCODE : case.MAXPROCESSNAME}
+       			</p:column>
+       			<p:column>
+       				#{case.MAXPROCESSCATEGORYNAME == '' ? case.MAXPROCESSCATEGORYCODE : case.MAXPROCESSCATEGORYNAME}
+       			</p:column>
+       			<p:column>
+           			#{case.COUNT}
+       			</p:column>
+       			<p:column>
+				    <a href="#{ivy.html.startref('144697C904B165C8/StatisticDetailsMin.ivp')}?processCode=#{case.PROCESSCODE}&amp;categoryCode=#{case.MAXPROCESSCATEGORYCODE}" id="linkStatisticDetailMin_#{row}" title="#{ivy.cms.co('/navLabels/detailsStatistic')}">
+				    	#{case.formatedOutputMin}
+				    </a>
+       			</p:column>
+       			<p:column>
+           			<a href="#{ivy.html.startref('144697C904B165C8/StatisticDetailsMax.ivp')}?processCode=#{case.PROCESSCODE}&amp;categoryCode=#{case.MAXPROCESSCATEGORYCODE}" id="linkStatisticDetailMax_#{row}" title="#{ivy.cms.co('/navLabels/detailsStatistic')}">
+           				#{case.formatedOutputMax}
+           			</a>
+       			</p:column>
+       			<p:column>
+           			<a href="#{ivy.html.startref('1447289CE234B167/StatisticAverage.ivp')}?processCode=#{case.PROCESSCODE}&amp;categoryCode=#{case.MAXPROCESSCATEGORYCODE}" id="linkStatisticAverage_#{row}" title="#{ivy.cms.co('/navLabels/averageStatistic')}">
+           				#{case.formatedOutputAvg}
+           			</a>
+       			</p:column>
+   			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
