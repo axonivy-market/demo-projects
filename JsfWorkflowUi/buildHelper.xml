@@ -115,9 +115,9 @@
 		<delete file="${temp.response.xml.file}"/>
 
 		
-		<propertyregex property="path.ivy.server" regexp="(ivy([^&lt;&gt;]*)XpertIvyServer([^&lt;&gt;]*)${installer.os.suffix}\.zip)" 
+		<propertyregex property="path.ivy.server" regexp="(ivy([^&lt;&gt;]*)AxonIvyEngine([^&lt;&gt;]*)${installer.os.suffix}\.zip)" 
 			input="${response.xml.content}" select="\1"/>
-		<propertyregex property="latest.ivy.server.name" regexp="(ivy([^&lt;&gt;]*)(XpertIvyServer[^&lt;&gt;]*${installer.os.suffix}\.zip))" 
+		<propertyregex property="latest.ivy.server.name" regexp="(ivy([^&lt;&gt;]*)(AxonIvyEngine[^&lt;&gt;]*${installer.os.suffix}\.zip))" 
 			input="${path.ivy.server}" select="\3"/>
 		<property name="zip.ivy.server" value="${dir.build}/${latest.ivy.server.name}"/>
 		<if>
