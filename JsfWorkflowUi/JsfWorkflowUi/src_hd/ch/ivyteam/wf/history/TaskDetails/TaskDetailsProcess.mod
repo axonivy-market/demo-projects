@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jun 11 13:54:04 CEST 2014]
+[>Created: Fri Jul 04 08:56:37 CEST 2014]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -694,7 +694,13 @@ Ts0 f55 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f55 actionTable 'out=in;
 ' #txt
-Ts0 f55 actionCode 'out.taskEvents = in.task.getWorkflowEvents();' #txt
+Ts0 f55 actionCode 'import ch.ivyteam.wf.admin.AdminBean;
+
+AdminBean admin;
+if(admin.getIsAdmin())
+{
+	out.taskEvents = in.task.getWorkflowEvents();
+}' #txt
 Ts0 f55 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
