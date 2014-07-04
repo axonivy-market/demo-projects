@@ -1,7 +1,13 @@
 @CHARSET "ISO-8859-1";
-.detailsList tr
+
+.detailsList, .detailsList table
 {
-	border-color: lightgrey;
+	border-collapse: collapse;
+}
+
+.detailsList > tbody > tr
+{
+	border-bottom: 1px solid lightgrey;
 }
 
 .detailsList th

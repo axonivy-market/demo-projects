@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon May 26 15:49:31 CEST 2014]
+[>Created: Fri Jul 04 10:50:21 CEST 2014]
 13F1D8A32C686BDF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListProcess Big #zClass
@@ -120,13 +120,15 @@ out.statFilter = "";
 out.catFilter = "";
 out.procFilter = "";
 
-out.states = [CaseState.RUNNING.toString(),CaseState.DONE.toString(), CaseState.DESTROYED.toString(), CaseState.ZOMBIE.toString()];' #txt
+out.states = [CaseState.RUNNING.toString(),CaseState.DONE.toString(), CaseState.DESTROYED.toString(), CaseState.ZOMBIE.toString()];
+
+out.header = in.caseListMode == "my_cases" ? ivy.cms.co("/navLabels/caseHistory") : ivy.cms.co("/navLabels/caseAdmin");' #txt
 Cs0 f23 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
 Cs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>filter defaults</name>
-        <nameStyle>15
+        <nameStyle>15,7
 </nameStyle>
     </language>
 </elementInfo>

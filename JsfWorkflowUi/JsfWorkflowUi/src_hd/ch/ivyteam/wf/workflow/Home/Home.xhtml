@@ -12,7 +12,7 @@
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/home')}" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
-		<p:menu id="homeInfoPanel" header="Xpert.ivy Workflow Info" style="width:50%; margin-top: 13px;">
+		<p:menu id="homeInfoPanel" style="width:50%; margin-top: 13px;">
 			<p:submenu label="Xpert.ivy Workflow Info">
 				<p:menuitem id="taskListInfo" value="#{ivy.cms.co('/navLabels/taskList')}: #{data.tasks}"
 					url="#{ivy.html.startref('13EE5C9EAAA819C8/DefaultTaskListPage.ivp')}" />

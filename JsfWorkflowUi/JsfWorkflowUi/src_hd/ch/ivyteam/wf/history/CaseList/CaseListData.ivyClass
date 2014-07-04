@@ -18,3 +18,5 @@ caption String #field
 caption PERSISTENT #fieldModifier
 processesList List<String> #field
 processesList PERSISTENT #fieldModifier
+header String #field
+header PERSISTENT #fieldModifier

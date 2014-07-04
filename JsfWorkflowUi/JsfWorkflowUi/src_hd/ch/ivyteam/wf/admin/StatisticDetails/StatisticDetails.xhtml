@@ -17,7 +17,7 @@
 		<h:form id="formCaseDetails">
 			<h:panelGrid columns="1" rowClasses="alignTop" width="100%">
 				<h:column>
-					<table id="caseDetailsList" class="detailsList" rules="rows">
+					<table id="caseDetailsList" class="detailsList">
 						<tr>
 							<th>#{ivy.cms.co('/labels/history/caseDetails/caseId')}</th>
 							<td><a href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{data.wfCase.id}" id="linkCaseDetail" title="#{ivy.cms.co('/navLabels/caseDetails')}">#{data.wfCase.id}</a></td>
