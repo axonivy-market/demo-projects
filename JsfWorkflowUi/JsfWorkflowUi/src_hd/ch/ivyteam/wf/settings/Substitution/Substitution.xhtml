@@ -29,17 +29,17 @@
       					#{ivy.cms.co('/labels/settings/substitute/substituteUser')}
    					</f:facet>
    					<h:graphicImage name="images/details/user.png" alt="#{task.activator}" />
-   					<h:outputLabel value=" #{substitute.substituteUser.fullName}" />
-   					<h:outputLabel value=" #{substitute.substituteUser.name}" rendered="#{substitute.substituteUser.fullName == ''}" />
-   					<h:outputLabel value=" (#{substitute.substituteUser.name})" rendered="#{substitute.substituteUser.fullName != ''}" /> 
+   					<h:outputText value=" #{substitute.substituteUser.fullName}" />
+   					<h:outputText value=" #{substitute.substituteUser.name}" rendered="#{substitute.substituteUser.fullName == ''}" />
+   					<h:outputText value=" (#{substitute.substituteUser.name})" rendered="#{substitute.substituteUser.fullName != ''}" /> 
 				</p:column>
 				<p:column style="width: 220px;">  
    					<f:facet name="header">  
        					#{ivy.cms.co('/labels/settings/substitute/substituteFor')}
    					</f:facet>
    					<h:graphicImage name="#{substitute.isPersonallyOnly() ? 'images/others/none.png' : 'images/details/role.png'}" />
-   					<h:outputLabel value=" #{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" rendered="#{substitute.isPersonallyOnly()}" /> 
-					<h:outputLabel value=" #{substitute.substitutionRole.displayName} (#{substitute.substitutionRole.name})" rendered="#{!substitute.isPersonallyOnly()}" />
+   					<h:outputText value=" #{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" rendered="#{substitute.isPersonallyOnly()}" /> 
+					<h:outputText value=" #{substitute.substitutionRole.displayName} (#{substitute.substitutionRole.name})" rendered="#{!substitute.isPersonallyOnly()}" />
    				</p:column>
 				<p:column>  
    					<f:facet name="header">  
@@ -70,17 +70,17 @@
       					#{ivy.cms.co('/labels/settings/substitute/substituteFor')} #{ivy.cms.co('/labels/common/user')}
    					</f:facet>
    					<h:graphicImage name="images/details/user.png" alt="#{task.activator}" />
-   					<h:outputLabel value=" #{substitution.user.fullName}" />
-   					<h:outputLabel value=" #{substitution.user.name}" rendered="#{substitution.user.fullName == ''}" />
-   					<h:outputLabel value=" (#{substitution.user.name})" rendered="#{substitution.user.fullName != ''}" /> 
+   					<h:outputText value=" #{substitution.user.fullName}" />
+   					<h:outputText value=" #{substitution.user.name}" rendered="#{substitution.user.fullName == ''}" />
+   					<h:outputText value=" (#{substitution.user.name})" rendered="#{substitution.user.fullName != ''}" /> 
   				</p:column>
 				<p:column>
    					<f:facet name="header">
       					#{ivy.cms.co('/labels/settings/substitute/substituteFor')}
    					</f:facet>
 					<h:graphicImage name="#{substitution.isPersonallyOnly() ? 'images/others/none.png' : 'images/details/role.png'}" />
-   					<h:outputLabel value=" #{ivy.cms.co('/labels/settings/substitute/substituteUserTasks')}" rendered="#{substitution.isPersonallyOnly()}" /> 
-					<h:outputLabel value=" #{substitution.substitutionRole.displayName} (#{substitution.substitutionRole.name})" rendered="#{!substitution.isPersonallyOnly()}" />
+   					<h:outputText value=" #{ivy.cms.co('/labels/settings/substitute/substituteUserTasks')}" rendered="#{substitution.isPersonallyOnly()}" /> 
+					<h:outputText value=" #{substitution.substitutionRole.displayName} (#{substitution.substitutionRole.name})" rendered="#{!substitution.isPersonallyOnly()}" />
   				</p:column>
    				<p:column>
    					<f:facet name="header">

@@ -77,17 +77,17 @@
 						<tr>
 							<th>#{ivy.cms.co('/labels/common/category')}</th>
 							<td>
-								<h:outputLabel value="#{data.wfCase.processCategoryName}" />
-   								<h:outputLabel value=" #{data.wfCase.processCategoryCode}" rendered="#{data.wfCase.processCategoryCode == ''}" />
-   								<h:outputLabel value=" (#{data.wfCase.processCategoryCode})" rendered="#{data.wfCase.processCategoryCode != ''}" /> 
+								<h:outputText value="#{data.wfCase.processCategoryName}" />
+   								<h:outputText value=" #{data.wfCase.processCategoryCode}" rendered="#{data.wfCase.processCategoryCode == ''}" />
+   								<h:outputText value=" (#{data.wfCase.processCategoryCode})" rendered="#{data.wfCase.processCategoryCode != ''}" /> 
 							</td>
 						</tr>
 						<tr>
 							<th>#{ivy.cms.co('/labels/common/process')}</th>
 							<td>
-								<h:outputLabel value="#{data.wfCase.processName}" />
-   								<h:outputLabel value=" #{data.wfCase.processCode}" rendered="#{data.wfCase.processCode == ''}" />
-   								<h:outputLabel value=" (#{data.wfCase.processCode})" rendered="#{data.wfCase.processCode != ''}" /> 
+								<h:outputText value="#{data.wfCase.processName}" />
+   								<h:outputText value=" #{data.wfCase.processCode}" rendered="#{data.wfCase.processCode == ''}" />
+   								<h:outputText value=" (#{data.wfCase.processCode})" rendered="#{data.wfCase.processCode != ''}" /> 
    							</td>
 						</tr>
 						<tr>
