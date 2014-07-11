@@ -1,6 +1,4 @@
 DailyMailContent #class
 workflowui #namespace
 user ch.ivyteam.ivy.security.IUser #field
-user PERSISTENT #fieldModifier
 tasks List<ch.ivyteam.ivy.workflow.ITask> #field
-tasks PERSISTENT #fieldModifier
