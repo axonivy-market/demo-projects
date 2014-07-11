@@ -1,6 +1,4 @@
 NewTaskMail #class
 htmlwfui #namespace
 user ch.ivyteam.ivy.security.IUser #field
-user PERSISTENT #fieldModifier
 task ch.ivyteam.ivy.workflow.ITask #field
-task PERSISTENT #fieldModifier
