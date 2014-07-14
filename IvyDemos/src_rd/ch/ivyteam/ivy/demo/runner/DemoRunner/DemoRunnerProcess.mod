@@ -77,7 +77,7 @@ Ds0 f0 inParameterMapAction 'out.demoRichDialogs=param.demoRichDialogIds;
 ' #txt
 Ds0 f0 outParameterDecl '<> result;
 ' #txt
-Ds0 f0 embeddedRdInitializations '{/titlePanel {/fieldName "titlePanel"/startMethod "startInitialized(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/demo/icons/large/gear_run\";\nparam.title=\"Demo Runner\";\nparam.subtitle=\"Shows and runs Xpert.ivy Demos\";\n"/initScript ""}}' #txt
+Ds0 f0 embeddedRdInitializations '{/titlePanel {/fieldName "titlePanel"/startMethod "startInitialized(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/demo/icons/large/gear_run\";\nparam.title=\"Demo Runner\";\nparam.subtitle=\"Shows and runs ivy Demos\";\n"/initScript ""}}' #txt
 Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

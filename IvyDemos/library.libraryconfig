@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" provider="IvyTeam AG" name="IvyDemos" version="1" id="ch.ivyteam.ivy.demo">
-    <description>This library provides demos for many Xpert.ivy concepts, components and features.&#xD;
+<ns2:library xmlns:ns2="http://www.ivyteam.com/library/" id="ch.ivyteam.ivy.demo" version="1" name="IvyDemos" provider="IvyTeam AG">
+    <description>This library provides demos for many ivy concepts, components and features.&#xD;
 &#xD;
 DISCLAIMER&#xD;
 &#xD;

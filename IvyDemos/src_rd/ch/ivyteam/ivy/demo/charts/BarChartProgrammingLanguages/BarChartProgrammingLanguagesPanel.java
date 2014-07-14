@@ -82,9 +82,9 @@ private ULCVBarChart getProgLangBarChart() {
 				int valueIndex = event.getEventEntity().getValueIndex();
 				
 				// calls a Rich Dialog method on the very same rich dialog. 
-				// Note the try/catch which is necessary to avoid a problem within Xpert.ivy
+				// Note the try/catch which is necessary to avoid a problem within ivy
 				// Note too that you cannot use the return value because of the same 
-				// problem within Xpert.ivy. Do whatever you want to do directly in the Rich Dialog method.  
+				// problem within ivy. Do whatever you want to do directly in the Rich Dialog method.  
 				try {
 					getPanelAPI().callMethod("updateBar", new Object[]{dataSeries, valueIndex});
 				} catch (Throwable e) {

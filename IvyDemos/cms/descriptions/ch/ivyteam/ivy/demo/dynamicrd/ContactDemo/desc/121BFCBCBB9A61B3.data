@@ -1,4 +1,4 @@
-Demonstrates the usage of DynamicDialog from the Xpert.ivy AddOns project. 
+Demonstrates the usage of DynamicDialog from the ivyAddOns project. 
 
 Dialogs of this type can be used to dynamically display input/edit masks for business objects. Their appearance can be configured according to a static configuration that is stored in the CMS (a so-called CmsContext). 
 

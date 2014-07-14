@@ -18,7 +18,7 @@ import com.ulcjava.base.shared.FileChooserConfig;
 
 /**
  * This class demonstrates how to read/write files on the local file system
- * Using RIA technology as in Xpert.ivy RichDialogs has one drawback, access 
+ * Using RIA technology as in ivy RichDialogs has one drawback, access 
  * to the local machine is only given in strong boundaries, so one cannot access
  * the local file system or call local applications.
  * 
