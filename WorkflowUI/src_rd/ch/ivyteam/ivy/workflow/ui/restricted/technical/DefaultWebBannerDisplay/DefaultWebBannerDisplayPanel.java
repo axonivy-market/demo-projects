@@ -48,7 +48,7 @@ private RHyperlink webBannerHyperlink = null;
 private RHyperlink getWebBannerHyperlink() {
 	if (webBannerHyperlink == null) {
 		webBannerHyperlink = new RHyperlink();
-		webBannerHyperlink.setIconUri("<%= ivy.cms.cr(\"/ch/ivyteam/ivy/workflow/ui/restricted/technical/defaultWebBanner/images/webBanner\") %>");
+		webBannerHyperlink.setText(" ");
 		webBannerHyperlink.setToolTipText("<%= ivy.var.xivy_workflow_ui_restricted_xpertLineOfficialWebSite %>");
 		webBannerHyperlink.setFocusPainted(false);
 		webBannerHyperlink.setName("webBannerHyperlink");

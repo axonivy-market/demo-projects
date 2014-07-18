@@ -15,18 +15,6 @@
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	
-	<tr bgcolor="#000032">
-		<!-- Logo -->
-		<td height="75">
-			<table cellspacing="0" cellpadding="5">
-				<tr>
-					<td width="150"><%=ivy.cms.co("/Project/BannerBlue")%></td>
-					<td class="HeaderText">Xpert.ivy</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-	
 	<tr bgcolor="#6B6B6B">
 		<!-- Title bar-->
 		<td>

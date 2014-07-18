@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 14 11:34:30 CET 2012]
+[>Created: Fri Jul 18 13:51:58 CEST 2014]
 12D9821DFCC25F93 3.17 #module
 >Proto >Proto Collection #zClass
 Ws0 WorkflowUIStartServices Big #zClass
@@ -71,7 +71,7 @@ Ws0 f26 requestActionDecl '<Boolean standAloneMode> param;' #txt
 Ws0 f26 requestActionCode 'param.standAloneMode = true;
 
 // prepare the window title
-in.windowTitle = "Xpert.Ivy WorkflowUI " + " - " + 
+in.windowTitle = "WorkflowUI " + " - " + 
 									ivy.request.getApplication().getName() + (ivy.session.getActiveEnvironment() is initialized? " - " + ivy.session.getActiveEnvironment(): " - Default") + " - " + 
 									ivy.session.getSessionUserName();' #txt
 Ws0 f26 responseActionDecl 'workflowui.Data out;
@@ -119,7 +119,7 @@ Ws0 f5 responseActionDecl 'workflowui.Data out;
 Ws0 f5 responseMappingAction 'out=in;
 out.authentificationSuccessful=result.successful;
 ' #txt
-Ws0 f5 windowConfiguration '{/title "Xpert.Ivy Workflow UI"/width 400 /height 230 /centered true /resizable false /maximized false /close_after_last_rd true }' #txt
+Ws0 f5 windowConfiguration '{/title "Workflow UI"/width 400 /height 230 /centered true /resizable false /maximized false /close_after_last_rd true }' #txt
 Ws0 f5 isAsynch false #txt
 Ws0 f5 isInnerRd false #txt
 Ws0 f5 isDialog false #txt
