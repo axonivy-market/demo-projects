@@ -30,7 +30,7 @@
 	        		</p:selectOneMenu>
 	        		
 	        		<p:outputLabel for="advance" value="Advanced:" />
-		 			<p:selectOneMenu id="advance" value="#{data.advanceSelectedPerson}" converter="ivy.ListItem" filter="true" filterMatchMode="startsWith" >  
+		 			<p:selectOneMenu id="advance" value="#{data.advanceSelectedPerson}" converter="ivy.ListItem" filter="true" filterMatchMode="contains" >  
 	 		        	<f:selectItem itemLabel="Select One" itemValue="" />  
 		 				<f:selectItems value="#{data.persons}" var="it" itemValue="#{it}" itemLabel="#{it.firstname} #{it.name}"></f:selectItems>
 		 				<f:selectItems value="#{data.morePersons}" var="it" itemValue="#{it}" itemLabel="#{it.firstname} #{it.name}"></f:selectItems>
