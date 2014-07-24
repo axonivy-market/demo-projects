@@ -68,3 +68,8 @@
 {
 	background-image:url(#{resource['images/actions/start.png']}) !important;
 }
+
+.wf-ui-icon-users
+{
+	background-image:url(#{resource['images/details/users.png']}) !important;
+}

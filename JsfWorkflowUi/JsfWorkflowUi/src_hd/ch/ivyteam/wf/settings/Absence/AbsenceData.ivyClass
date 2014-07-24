@@ -26,3 +26,9 @@ startDateTime java.util.Date #field
 startDateTime PERSISTENT #fieldModifier
 endDateTime java.util.Date #field
 endDateTime PERSISTENT #fieldModifier
+absenceFor ch.ivyteam.ivy.security.IUser #field
+absenceFor PERSISTENT #fieldModifier
+userList List<ch.ivyteam.ivy.security.IUser> #field
+userList PERSISTENT #fieldModifier
+absentUsers List<ch.ivyteam.ivy.security.IUser> #field
+absentUsers PERSISTENT #fieldModifier

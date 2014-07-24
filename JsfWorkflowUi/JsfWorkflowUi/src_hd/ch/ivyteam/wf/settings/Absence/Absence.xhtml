@@ -14,20 +14,35 @@
 		<f:event type="preRenderView" listener="#{logic.update()}" />
 		<br />
 		#{ivy.cms.co('/labels/settings/absence/description')}
+       	<c:if test="#{adminBean.isAdmin}">
+        	<br /><br />
+   			<p:commandButton id="showAbsentUsers" update=":dialogAbsentUsers" icon="wf-ui-icon-users" value="Show absent users" title="absent users" oncomplete="PF('formAbsentUsers').show();" />
+		</c:if>
 		<br /><br />
 		<p:outputPanel id="userAbsentOutput">
-			<c:if test="#{ivy.wf.securityContext.currentSession.absent}">
+			<c:if test="#{data.absenceFor.absent}">
 				<h:outputText value="#{ivy.cms.co('/labels/settings/substitute/currentState')}: #{ivy.cms.co('/labels/settings/absence/currentlyAbsent')}" style="font-weight:bold" />
 				<br /><br />
 			</c:if>
 		</p:outputPanel>
-		<h:form id="formAddButton">
-			<p:commandButton id="addAbsence" update=":dialogAddAbsence" icon="wf-ui-icon-add" value="#{ivy.cms.co('/labels/settings/absence/addAbsence')}" title="#{ivy.cms.co('/labels/settings/absence/addAbsenceTooltip')}" oncomplete="PF('addAbsence').show();">
-				<f:setPropertyActionListener value="add" target="#{data.option}" />
-           	</p:commandButton>
-		</h:form>
-		<br />
 		<h:form id="formAbsence">
+			<p:toolbar>
+	    		<p:toolbarGroup>
+		    		<h:panelGrid columns="4">
+		   				<c:if test="#{adminBean.isAdmin}">
+		 					<h:outputText value="#{ivy.cms.co('/labels/settings/absence/absenceFor')}:" />
+					   		<p:selectOneMenu id="userSelection" value="#{data.absenceFor}" filter="true" filterMatchMode="contains" converter="ivy.ListItem">
+					       		<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{user.getFullName()} (#{user.getName()})" />
+					       		<p:ajax update=":userAbsentOutput :formAbsence" listener="#{logic.update()}" />
+					   		</p:selectOneMenu>
+				   			<p:spacer width="30" />
+		   				</c:if>
+		       			<p:commandButton id="addAbsence" update=":dialogAddAbsence" icon="wf-ui-icon-add" value="#{ivy.cms.co('/labels/settings/absence/addAbsence')}" title="#{ivy.cms.co('/labels/settings/absence/addAbsenceTooltip')}" oncomplete="PF('addAbsence').show();">
+							<f:setPropertyActionListener value="add" target="#{data.option}" />
+			           	</p:commandButton>
+	       			</h:panelGrid>
+	      		</p:toolbarGroup>
+			</p:toolbar>
    			<p:dataTable id="tableAbsence" value="#{data.absences}" var="absence" emptyMessage="#{ivy.cms.co('/labels/common/noAbsences')}">
        			<p:column id="absenceStart" sortBy="#{absence.startTimestamp}" style="width: 150px;">
            			<f:facet name="header">
@@ -51,7 +66,7 @@
            			</f:facet>
            			#{absence.description}
        			</p:column>
-       			<p:column style="width: 80px; text-align: center;">
+       			<p:column style="width: 200px; text-align: center;">
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/settings/absence/absenceControls')}
            			</f:facet>
@@ -96,6 +111,8 @@
 				</h:panelGrid>
 			</h:form>
 		</p:dialog>
+		
+		<ui:include src="AbsentUsers.xhtml" />
    	</ui:define>
 </ui:composition>
 </html>

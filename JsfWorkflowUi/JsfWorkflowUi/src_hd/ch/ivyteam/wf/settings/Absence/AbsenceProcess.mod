@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 09 11:27:01 CEST 2014]
+[>Created: Wed Jul 23 11:43:53 CEST 2014]
 13F3C90C39342A39 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AbsenceProcess Big #zClass
@@ -28,15 +28,19 @@ As0 @PushWFArc f18 '' #zField
 As0 @RichDialogMethodStart f12 '' #zField
 As0 @GridStep f4 '' #zField
 As0 @PushWFArc f23 '' #zField
-As0 @PushWFArc f19 '' #zField
 As0 @PushWFArc f17 '' #zField
-As0 @PushWFArc f7 '' #zField
 As0 @RichDialogProcessEnd f2 '' #zField
 As0 @PushWFArc f21 '' #zField
 As0 @RichDialogProcessEnd f13 '' #zField
-As0 @PushWFArc f22 '' #zField
 As0 @RichDialogProcessEnd f16 '' #zField
 As0 @PushWFArc f24 '' #zField
+As0 @GridStep f20 '' #zField
+As0 @PushWFArc f25 '' #zField
+As0 @PushWFArc f22 '' #zField
+As0 @GridStep f26 '' #zField
+As0 @PushWFArc f27 '' #zField
+As0 @PushWFArc f7 '' #zField
+As0 @PushWFArc f28 '' #zField
 >Proto As0 As0 AbsenceProcess #zField
 As0 f0 guid 13F3C90C3B26C28B #txt
 As0 f0 type ch.ivyteam.wf.settings.Absence.AbsenceData #txt
@@ -58,17 +62,16 @@ As0 f0 83 51 26 26 -16 12 #rect
 As0 f0 @|RichDialogInitStartIcon #fIcon
 As0 f0 -1|-1|-9671572 #nodeStyle
 As0 f1 type ch.ivyteam.wf.settings.Absence.AbsenceData #txt
-As0 f1 211 51 26 26 0 12 #rect
+As0 f1 339 51 26 26 0 12 #rect
 As0 f1 @|RichDialogProcessEndIcon #fIcon
 As0 f1 -1|-1|-9671572 #nodeStyle
 As0 f3 actionDecl 'ch.ivyteam.wf.settings.Absence.AbsenceData out;
 ' #txt
 As0 f3 actionTable 'out=in;
-out.absences=ivy.session.getSessionUser().getAbsences();
 ' #txt
 As0 f3 actionCode 'import ch.ivyteam.ivy.security.IUserAbsence;
 
-List<IUserAbsence> absences = ivy.session.getSessionUser().getAbsences();
+List<IUserAbsence> absences = in.absenceFor.getAbsences();
 out.absences.clear();
 for (IUserAbsence absence : absences)
 {
@@ -170,12 +173,12 @@ As0 f14 actionDecl 'ch.ivyteam.wf.settings.Absence.AbsenceData out;
 As0 f14 actionTable 'out=in;
 ' #txt
 As0 f14 actionCode 'import ch.ivyteam.ivy.security.IUserAbsence;
-List absences = ivy.session.getSessionUser().getAbsences();
+List absences = in.absenceFor.getAbsences();
 for(IUserAbsence absence:absences)
 {
 	if(absence.getId() == in.deleteId)
 	{
-			ivy.session.getSessionUser().deleteAbsence(absence);
+			in.absenceFor.deleteAbsence(absence);
 			break;
 	}	
 }' #txt
@@ -210,15 +213,17 @@ if(in.absenceStartDate is initialized)
 	DateTime to = null;
 	if(in.absenceEndDate is initialized)
 	{
-		 to = new DateTime(in.absenceEndDate.getYear(), in.absenceEndDate.getMonth(), in.absenceEndDate.getDay(), 
-			in.absenceEndTime.getHours(), in.absenceEndTime.getMinutes(), 0);
+		int hours = in.absenceEndTime.getHours() == 0 ? 23 : in.absenceEndTime.getHours();
+		int minutes = in.absenceEndTime.getMinutes() == 0 ? 59 : in.absenceEndTime.getMinutes();
+		to = new DateTime(in.absenceEndDate.getYear(), in.absenceEndDate.getMonth(), in.absenceEndDate.getDay(), 
+			hours, minutes, 0);
 
-		ivy.session.getSessionUser().createAbsence(from, to, 
+		in.absenceFor.createAbsence(from, to, 
 		in.absenceDescription.trim().length() > 0 ? in.absenceDescription : "");
 	}
 	else
 	{	
-		ivy.session.getSessionUser().createAbsence(from, null, 
+		in.absenceFor.createAbsence(from, null, 
 			in.absenceDescription.trim().length() > 0 ? in.absenceDescription : "");
 	}
 }' #txt
@@ -240,12 +245,13 @@ As0 f9 actionDecl 'ch.ivyteam.wf.settings.Absence.AbsenceData out;
 As0 f9 actionTable 'out=in;
 ' #txt
 As0 f9 actionCode 'import ch.ivyteam.ivy.security.IUserAbsence;
-List absences = ivy.session.getSessionUser().getAbsences();
+
+List absences = in.absenceFor.getAbsences();
 for(IUserAbsence absence:absences)
 {
 	if(absence.getId() == in.deleteId)
 	{
-			ivy.session.getSessionUser().deleteAbsence(absence);
+			in.absenceFor.deleteAbsence(absence);
 			break;
 	}	
 }' #txt
@@ -320,13 +326,9 @@ As0 f4 @|StepIcon #fIcon
 As0 f4 -1|-1|-9671572 #nodeStyle
 As0 f23 expr out #txt
 As0 f23 109 288 168 288 #arcP
-As0 f19 expr out #txt
-As0 f19 109 160 168 160 #arcP
 As0 f17 expr out #txt
 As0 f17 280 160 328 160 #arcP
 As0 f17 0 0.6427504852252198 0 0 #arcLabel
-As0 f7 expr out #txt
-As0 f7 109 64 211 64 #arcP
 As0 f2 type ch.ivyteam.wf.settings.Absence.AbsenceData #txt
 As0 f2 339 211 26 26 0 12 #rect
 As0 f2 @|RichDialogProcessEndIcon #fIcon
@@ -335,12 +337,9 @@ As0 f21 expr out #txt
 As0 f21 280 224 339 224 #arcP
 As0 f21 0 0.7016230235795403 0 0 #arcLabel
 As0 f13 type ch.ivyteam.wf.settings.Absence.AbsenceData #txt
-As0 f13 499 147 26 26 0 12 #rect
+As0 f13 659 147 26 26 0 12 #rect
 As0 f13 @|RichDialogProcessEndIcon #fIcon
 As0 f13 -1|-1|-9671572 #nodeStyle
-As0 f22 expr out #txt
-As0 f22 440 160 499 160 #arcP
-As0 f22 0 0.6726540205625997 0 0 #arcLabel
 As0 f16 type ch.ivyteam.wf.settings.Absence.AbsenceData #txt
 As0 f16 339 275 26 26 0 12 #rect
 As0 f16 @|RichDialogProcessEndIcon #fIcon
@@ -348,6 +347,70 @@ As0 f16 -1|-1|-9671572 #nodeStyle
 As0 f24 expr out #txt
 As0 f24 280 288 339 288 #arcP
 As0 f24 0 0.9121469277742105 0 0 #arcLabel
+As0 f20 actionDecl 'ch.ivyteam.wf.settings.Absence.AbsenceData out;
+' #txt
+As0 f20 actionTable 'out=in;
+' #txt
+As0 f20 actionCode 'import ch.ivyteam.ivy.security.IUserAbsence;
+import ch.ivyteam.ivy.security.IRole;
+import ch.ivyteam.ivy.security.IUser;
+
+Date currentDate = new Date();
+List users = ivy.wf.getSecurityContext().getUsers();
+in.userList.clear();
+in.absentUsers.clear();
+for(IUser user : users)
+{
+	if(user.getName() != "SYSTEM")
+	{
+		out.userList.add(user);
+		if(user.isAbsent())
+		{
+			out.absentUsers.add(user);
+		}
+	}
+}' #txt
+As0 f20 type ch.ivyteam.wf.settings.Absence.AbsenceData #txt
+As0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>get users</name>
+        <nameStyle>9,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f20 488 138 112 44 -26 -8 #rect
+As0 f20 @|StepIcon #fIcon
+As0 f20 -1|-1|-9671572 #nodeStyle
+As0 f25 expr out #txt
+As0 f25 440 160 488 160 #arcP
+As0 f25 0 0.6726540205625997 0 0 #arcLabel
+As0 f22 expr out #txt
+As0 f22 600 160 659 160 #arcP
+As0 f26 actionDecl 'ch.ivyteam.wf.settings.Absence.AbsenceData out;
+' #txt
+As0 f26 actionTable 'out=in;
+out.absenceFor=ivy.session.getSessionUser();
+' #txt
+As0 f26 type ch.ivyteam.wf.settings.Absence.AbsenceData #txt
+As0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>default</name>
+        <nameStyle>7,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f26 168 42 112 44 -18 -8 #rect
+As0 f26 @|StepIcon #fIcon
+As0 f27 expr out #txt
+As0 f27 109 64 168 64 #arcP
+As0 f7 expr out #txt
+As0 f7 280 64 339 64 #arcP
+As0 f28 expr out #txt
+As0 f28 109 160 168 160 #arcP
 >Proto As0 .type ch.ivyteam.wf.settings.Absence.AbsenceData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
@@ -362,13 +425,17 @@ As0 f8 mainOut f23 tail #connect
 As0 f23 head f6 mainIn #connect
 As0 f3 mainOut f17 tail #connect
 As0 f17 head f4 mainIn #connect
-As0 f12 mainOut f19 tail #connect
-As0 f19 head f3 mainIn #connect
-As0 f0 mainOut f7 tail #connect
-As0 f7 head f1 mainIn #connect
 As0 f14 mainOut f21 tail #connect
 As0 f21 head f2 mainIn #connect
-As0 f4 mainOut f22 tail #connect
-As0 f22 head f13 mainIn #connect
 As0 f6 mainOut f24 tail #connect
 As0 f24 head f16 mainIn #connect
+As0 f4 mainOut f25 tail #connect
+As0 f25 head f20 mainIn #connect
+As0 f20 mainOut f22 tail #connect
+As0 f22 head f13 mainIn #connect
+As0 f0 mainOut f27 tail #connect
+As0 f27 head f26 mainIn #connect
+As0 f26 mainOut f7 tail #connect
+As0 f7 head f1 mainIn #connect
+As0 f12 mainOut f28 tail #connect
+As0 f28 head f3 mainIn #connect

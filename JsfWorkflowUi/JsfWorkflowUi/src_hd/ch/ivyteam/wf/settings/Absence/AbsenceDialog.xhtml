@@ -10,7 +10,7 @@
 <h:body>
 <ui:composition>
 	<p:messages id="absenceMessage" />
-	<h:panelGrid columns="4">
+	<h:panelGrid columns="2">
    		<h:outputLabel for="absenceStartDate" value="#{ivy.cms.co('/labels/settings/absence/absenceStart')}:" />
    		<p:outputPanel>
 		<p:calendar id="absenceStartDate" value="#{data.absenceStartDate}" showOn="button" pattern="dd.MM.yyyy" label="#{ivy.cms.co('/labels/settings/absence/absenceStart')}" required="true">
@@ -34,8 +34,6 @@
 			}
 		</script>
    		</p:outputPanel>
-   		<h:column />
-   		<h:column />
    		<h:outputLabel for="absenceEndDate" value="#{ivy.cms.co('/labels/settings/absence/absenceStop')}:" />
    		<p:outputPanel>
 		<p:calendar id="absenceEndDate" value="#{data.absenceEndDate}" showOn="button" pattern="dd.MM.yyyy" label="#{ivy.cms.co('/labels/settings/absence/absenceStop')}">
@@ -59,12 +57,8 @@
 			}
 		</script>
    		</p:outputPanel>
-   		<h:column />
-   		<h:column />
    		<h:outputText value="#{ivy.cms.co('/labels/common/description')}:" />
    		<p:inputText id="absenceDescription" value="#{data.absenceDescription}" style="width: 400px;" />
-   		<h:column />
-   		<h:column />
 	</h:panelGrid>
 	<br />
 </ui:composition>
