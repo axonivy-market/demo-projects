@@ -8,7 +8,7 @@
 
 <h:body>
 <ui:composition>
-	<p:dialog id="dialogAbsentUsers" header="Absent Users" widgetVar="formAbsentUsers" modal="true" width="400" appendTo="@(body)">
+	<p:dialog id="dialogAbsentUsers" header="#{ivy.cms.co('/labels/settings/absence/absentUsers')}" widgetVar="formAbsentUsers" modal="true" width="400" appendTo="@(body)">
 		<h:form id="formAbsentUsers">
    			<p:dataTable id="dataTableAbsentUsers" value="#{data.absentUsers}" var="user" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row">
       			<p:column>  

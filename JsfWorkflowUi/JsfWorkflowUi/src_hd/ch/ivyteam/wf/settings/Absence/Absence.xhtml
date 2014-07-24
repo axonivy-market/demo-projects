@@ -16,7 +16,7 @@
 		#{ivy.cms.co('/labels/settings/absence/description')}
        	<c:if test="#{adminBean.isAdmin}">
         	<br /><br />
-   			<p:commandButton id="showAbsentUsers" update=":dialogAbsentUsers" icon="wf-ui-icon-users" value="Show absent users" title="absent users" oncomplete="PF('formAbsentUsers').show();" />
+   			<p:commandButton id="showAbsentUsers" update=":dialogAbsentUsers" icon="wf-ui-icon-users" value="#{ivy.cms.co('/labels/settings/absence/absentUsers')}" title="absent users" oncomplete="PF('formAbsentUsers').show();" />
 		</c:if>
 		<br /><br />
 		<p:outputPanel id="userAbsentOutput">
