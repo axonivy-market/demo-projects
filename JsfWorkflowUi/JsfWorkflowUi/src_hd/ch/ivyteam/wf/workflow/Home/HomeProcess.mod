@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jun 04 15:30:17 CEST 2014]
+[>Created: Wed Jul 23 11:37:23 CEST 2014]
 13EAD85D34683BAF 3.17 #module
 >Proto >Proto Collection #zClass
 Hs0 HomeProcess Big #zClass
@@ -81,15 +81,6 @@ if (count == 1)
 else
 {
 	out.processes = count.toString() + " " + ivy.cms.co("/labels/common/processes");
-}
-
-if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW))
-{
-	ivy.session.getSessionUser().setProperty("isAdmin","true");
-}
-else
-{
-	ivy.session.getSessionUser().setProperty("isAdmin","false");
 }' #txt
 Hs0 f3 type ch.ivyteam.wf.workflow.Home.HomeData #txt
 Hs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

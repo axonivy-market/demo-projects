@@ -9,10 +9,8 @@ import ch.ivyteam.ivy.environment.Ivy;
 @SuppressWarnings("serial")
 @ManagedBean
 public class AdminBean implements Serializable {
-    private Boolean isAdmin;
     
 	public Boolean getIsAdmin() {
-		isAdmin = Ivy.wf().getSecurityContext().getCurrentSession().getSessionUser().getProperty("isAdmin").equals("true");
-		return isAdmin;
+		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);
 	}
 }  
