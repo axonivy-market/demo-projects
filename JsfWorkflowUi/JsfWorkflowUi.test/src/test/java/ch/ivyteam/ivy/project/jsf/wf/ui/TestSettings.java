@@ -132,20 +132,40 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   @Test
   public void testSubstitution() throws Exception
   {
-    addSubstituteForMyTasks();
-    checkIsSubstituteForMyTasksAdded();
+    addSubstituteForTasks("me");
+    checkIsSubstituteForTasksAdded();
     login("user2","user2");
     checkIsMySubstitutionAdded();
-    addSubstitutesForMyRoles();
-    checkIsSubstituteForMyRolesAdded();
+    addSubstitutesForRoles("me");
+    checkIsSubstituteForRolesAdded();
     login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
     deleteSubstitute();
   }
+  
+  @Test
+  public void testSubstitutionOther() throws Exception
+  {
+    addSubstituteForTasks("other");
+    WebElement selectOneMenu = driverHelper.findElementById("formSubstitute:userSelection");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 2 (user2)");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("user1");
+    addSubstitutesForRoles("other");
+    checkIsSubstituteForRolesAdded();
+    navigate().substitution();
+    selectOneMenu = driverHelper.findElementById("formSubstitute:userSelection");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 1 (user1)");
+    driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
+  }
 
-  private void addSubstituteForMyTasks()
+  private void addSubstituteForTasks(String substituteFor)
   {
     navigate().substitution();
-    driverHelper.clickAndWaitForAjax(By.id("formAddButton:addSubstitute"));
+    if(substituteFor == "other")
+    {
+      WebElement selectOneMenu = driverHelper.findElementById("formSubstitute:userSelection");
+      prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 1 (user1)");
+    }
+    driverHelper.clickAndWaitForAjax(By.id("formSubstitute:addSubstitute"));
     WebElement selectOneMenu = driverHelper.findElementById("formAddSubstitute:substituteUser");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 2 (user2)");
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
@@ -154,9 +174,8 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     driverHelper.clickAndWaitForAjax(By.id("formAddSubstitute:saveSubstitution"));
   }
 
-  private void checkIsSubstituteForMyTasksAdded()
+  private void checkIsSubstituteForTasksAdded()
   {
-    navigate().substitution();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("user2");
   }
 
@@ -166,9 +185,14 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(WEB_TEST_SERVER_ADMIN_USER);
   }
 
-  private void addSubstitutesForMyRoles()
+  private void addSubstitutesForRoles(String substituteFor)
   {
-    driverHelper.clickAndWaitForAjax(By.id("formAddButton:addSubstitute"));
+    if(substituteFor == "other")
+    {
+      WebElement selectOneMenu = driverHelper.findElementById("formSubstitute:userSelection");
+      prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 2 (user2)");
+    }
+    driverHelper.clickAndWaitForAjax(By.id("formSubstitute:addSubstitute"));
     WebElement selectOneRadio = driverHelper.findElementById("formAddSubstitute");
     prime().selectOneRadio(selectOneRadio).selectItemById("formAddSubstitute:optRole");
     
@@ -180,11 +204,12 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     driverHelper.clickAndWaitForAjax(By.id("formAddSubstitute:saveSubstitution"));
   }
   
-  private void checkIsSubstituteForMyRolesAdded()
+  private void checkIsSubstituteForRolesAdded()
   {
-    navigate().substitution();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("role1");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("role2");
+    driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
+    driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
   }
 
   private void deleteSubstitute()
