@@ -13,7 +13,7 @@
 		#{ivy.cms.co('/labels/settings/substitute/substituteUser')}:
 		<h:panelGrid columns="2">
 		<h:graphicImage name="images/details/user.png" alt="user" />
-	    <p:selectOneMenu id="substituteUser" value="#{data.substituteUser}" filter="true" filterMatchMode="startsWith" converter="ivy.ListItem">
+	    <p:selectOneMenu id="substituteUser" value="#{data.substituteUser}" filter="true" filterMatchMode="contains" converter="ivy.ListItem">
 	    	<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{user.getFullName()} (#{user.getName()})" />
 	    </p:selectOneMenu>
 	    </h:panelGrid>
@@ -32,7 +32,7 @@
 		   		<p:radioButton id="optRole" for="options" itemIndex="1" disabled="#{data.roleList.isEmpty()}" />
 		   		<h:outputLabel for="optRole" value="#{ivy.cms.co('/labels/settings/substitute/substituteRole')}:" />
 		   		<h:graphicImage name="images/details/role.png" alt="role" />
-		        <p:selectCheckboxMenu id="roleSelection" value="#{data.selectedRoles}" label="#{ivy.cms.co('/labels/settings/substitute/substituteRole')}" filterMatchMode="startsWith" panelStyle="width:220px" converter="ivy.ListItem" disabled="#{data.isPersonally}">  
+		        <p:selectCheckboxMenu id="roleSelection" value="#{data.selectedRoles}" label="#{ivy.cms.co('/labels/settings/substitute/substituteRole')}" panelStyle="width:220px" converter="ivy.ListItem" disabled="#{data.isPersonally}">  
 	        		<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} (#{role.getName()})" itemValue="#{role}"/>
 	    		</p:selectCheckboxMenu> 
     		</h:panelGrid>
