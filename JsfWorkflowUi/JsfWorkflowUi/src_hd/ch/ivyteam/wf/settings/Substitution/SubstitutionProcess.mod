@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 09 10:03:19 CEST 2014]
+[>Created: Fri Jul 25 10:36:35 CEST 2014]
 13F5720787C9F3A0 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstitutionProcess Big #zClass
@@ -30,12 +30,14 @@ Ss0 @PushWFArc f12 '' #zField
 Ss0 @GridStep f11 '' #zField
 Ss0 @PushWFArc f19 '' #zField
 Ss0 @PushWFArc f20 '' #zField
-Ss0 @PushWFArc f6 '' #zField
 Ss0 @PushWFArc f21 '' #zField
 Ss0 @RichDialogProcessEnd f16 '' #zField
 Ss0 @PushWFArc f22 '' #zField
 Ss0 @RichDialogProcessEnd f2 '' #zField
 Ss0 @PushWFArc f23 '' #zField
+Ss0 @GridStep f9 '' #zField
+Ss0 @PushWFArc f24 '' #zField
+Ss0 @PushWFArc f6 '' #zField
 >Proto Ss0 Ss0 SubstitutionProcess #zField
 Ss0 f0 guid 13F5720789611B9E #txt
 Ss0 f0 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
@@ -57,25 +59,29 @@ Ss0 f0 83 51 26 26 -16 12 #rect
 Ss0 f0 @|RichDialogInitStartIcon #fIcon
 Ss0 f0 -1|-1|-9671572 #nodeStyle
 Ss0 f1 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
-Ss0 f1 339 51 26 26 0 12 #rect
+Ss0 f1 499 51 26 26 0 12 #rect
 Ss0 f1 @|RichDialogProcessEndIcon #fIcon
 Ss0 f1 -1|-1|-9671572 #nodeStyle
 Ss0 f3 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
 Ss0 f3 actionTable 'out=in;
-out.user=ivy.session.getSessionUser();
 ' #txt
 Ss0 f3 actionCode 'import ch.ivyteam.ivy.security.IRole;
 import ch.ivyteam.ivy.security.IUser;
 
 List users = ivy.wf.getSecurityContext().getUsers();
 in.userList.clear();
+in.forUserList.clear();
 in.roleList.clear();
 for(IUser user : users)
 {
 	if(user.getName() != "SYSTEM" && user.getName() != in.user.getName())
 	{
 		out.userList.add(user);
+	}
+	if(user.getName() != "SYSTEM")
+	{
+		out.forUserList.add(user);
 	}
 }
 
@@ -342,18 +348,17 @@ Ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f11 168 42 112 44 -18 -8 #rect
+Ss0 f11 328 42 112 44 -18 -8 #rect
 Ss0 f11 @|StepIcon #fIcon
 Ss0 f11 -1|-1|-9671572 #nodeStyle
 Ss0 f19 expr out #txt
 Ss0 f19 109 224 168 224 #arcP
 Ss0 f20 expr out #txt
-Ss0 f20 280 64 339 64 #arcP
-Ss0 f6 expr out #txt
-Ss0 f6 109 64 168 64 #arcP
+Ss0 f20 440 64 499 64 #arcP
 Ss0 f21 expr out #txt
-Ss0 f21 224 138 224 86 #arcP
-Ss0 f21 0 0.47240279093276527 0 0 #arcLabel
+Ss0 f21 280 160 384 86 #arcP
+Ss0 f21 1 384 160 #addKink
+Ss0 f21 0 0.7521726954430944 0 0 #arcLabel
 Ss0 f16 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f16 339 275 26 26 0 12 #rect
 Ss0 f16 @|RichDialogProcessEndIcon #fIcon
@@ -368,6 +373,27 @@ Ss0 f2 -1|-1|-9671572 #nodeStyle
 Ss0 f23 expr out #txt
 Ss0 f23 600 224 659 224 #arcP
 Ss0 f23 0 0.581626613541889 0 0 #arcLabel
+Ss0 f9 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
+' #txt
+Ss0 f9 actionTable 'out=in;
+out.user=ivy.session.getSessionUser();
+' #txt
+Ss0 f9 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
+Ss0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>sessionUser</name>
+        <nameStyle>11,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f9 168 42 112 44 -36 -8 #rect
+Ss0 f9 @|StepIcon #fIcon
+Ss0 f24 expr out #txt
+Ss0 f24 109 64 168 64 #arcP
+Ss0 f6 expr out #txt
+Ss0 f6 280 64 328 64 #arcP
 >Proto Ss0 .type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -384,11 +410,13 @@ Ss0 f4 mainOut f19 tail #connect
 Ss0 f19 head f3 mainIn #connect
 Ss0 f11 mainOut f20 tail #connect
 Ss0 f20 head f1 mainIn #connect
-Ss0 f0 mainOut f6 tail #connect
-Ss0 f6 head f11 mainIn #connect
 Ss0 f17 mainOut f21 tail #connect
 Ss0 f21 head f11 mainIn #connect
 Ss0 f10 mainOut f22 tail #connect
 Ss0 f22 head f16 mainIn #connect
 Ss0 f8 mainOut f23 tail #connect
 Ss0 f23 head f2 mainIn #connect
+Ss0 f0 mainOut f24 tail #connect
+Ss0 f24 head f9 mainIn #connect
+Ss0 f9 mainOut f6 tail #connect
+Ss0 f6 head f11 mainIn #connect
