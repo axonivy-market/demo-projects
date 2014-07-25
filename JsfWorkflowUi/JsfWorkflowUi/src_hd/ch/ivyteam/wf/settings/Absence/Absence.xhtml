@@ -20,8 +20,13 @@
 		</c:if>
 		<br /><br />
 		<p:outputPanel id="userAbsentOutput">
+		<h:outputText value="#{ivy.cms.co('/labels/settings/substitute/currentState')}: " style="font-weight:bold" />
 			<c:if test="#{data.absenceFor.absent}">
-				<h:outputText value="#{ivy.cms.co('/labels/settings/substitute/currentState')}: #{ivy.cms.co('/labels/settings/absence/currentlyAbsent')}" style="font-weight:bold" />
+				<h:outputText value="#{ivy.cms.co('/labels/settings/absence/currentlyAbsent')}" style="font-weight:bold" />
+				<br /><br />
+			</c:if>
+			<c:if test="#{!data.absenceFor.absent}">
+				<h:outputText value="#{ivy.cms.co('/labels/settings/absence/notAbsent')}" style="font-weight:bold" />
 				<br /><br />
 			</c:if>
 		</p:outputPanel>

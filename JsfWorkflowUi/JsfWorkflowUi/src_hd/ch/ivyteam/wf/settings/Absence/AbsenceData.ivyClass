@@ -32,3 +32,5 @@ userList List<ch.ivyteam.ivy.security.IUser> #field
 userList PERSISTENT #fieldModifier
 absentUsers List<ch.ivyteam.ivy.security.IUser> #field
 absentUsers PERSISTENT #fieldModifier
+paginationAbsentUsers Boolean #field
+paginationAbsentUsers PERSISTENT #fieldModifier

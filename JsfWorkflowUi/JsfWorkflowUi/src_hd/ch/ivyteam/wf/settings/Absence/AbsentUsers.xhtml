@@ -10,7 +10,7 @@
 <ui:composition>
 	<p:dialog id="dialogAbsentUsers" header="#{ivy.cms.co('/labels/settings/absence/absentUsers')}" widgetVar="formAbsentUsers" modal="true" width="400" appendTo="@(body)">
 		<h:form id="formAbsentUsers">
-   			<p:dataTable id="dataTableAbsentUsers" value="#{data.absentUsers}" var="user" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row">
+   			<p:dataTable id="dataTableAbsentUsers" value="#{data.absentUsers}" var="user" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" rows="20" paginator="#{data.paginationAbsentUsers}" paginatorPosition="bottom">
       			<p:column>  
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/user')}

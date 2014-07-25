@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 23 11:43:53 CEST 2014]
+[>Created: Thu Jul 24 15:58:29 CEST 2014]
 13F3C90C39342A39 3.17 #module
 >Proto >Proto Collection #zClass
 As0 AbsenceProcess Big #zClass
@@ -369,7 +369,9 @@ for(IUser user : users)
 			out.absentUsers.add(user);
 		}
 	}
-}' #txt
+}
+
+out.paginationAbsentUsers = in.absentUsers.size() >= 20;' #txt
 As0 f20 type ch.ivyteam.wf.settings.Absence.AbsenceData #txt
 As0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
