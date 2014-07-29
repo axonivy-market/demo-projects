@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+<ui:composition>
+	<div id="layoutFooter">Powered by Xpert.Ivy Workflow Copyright &#169; <a href="http://www.ivyteam.ch">ivyTeam AG</a></div>
+	<div id="layoutFooterLanguages">
+		<p:commandLink id="languageDe" value="de" actionListener="#{languageBean.languageGerman}" update="@all" />
+		<p:spacer width="5"/>
+		<p:commandLink id="languageEn" value="en" actionListener="#{languageBean.languageEnglish}" update="@all" />
+		<p:spacer width="5"/>
+		<p:commandLink id="languageFr" value="fr" actionListener="#{languageBean.languageFrench}" update="@all" />
+	</div>
+</ui:composition>
+</h:body>
+</html>

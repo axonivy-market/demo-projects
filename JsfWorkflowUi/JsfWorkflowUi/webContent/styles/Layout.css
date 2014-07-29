@@ -29,3 +29,11 @@ body, html, td, tr, th, input, textarea, select, form
 {
 	color:#808080;
 }
+
+#layoutFooterLanguages
+{
+	color:#808080;
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+}
