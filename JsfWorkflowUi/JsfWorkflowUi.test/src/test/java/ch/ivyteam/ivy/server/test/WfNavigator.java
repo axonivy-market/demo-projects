@@ -60,6 +60,11 @@ public class WfNavigator
     driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/Logout.ivp");
   }
   
+  public void loggedInUser()
+  {
+    driverHelper.openProcessLink("JsfWorkflowUi/1477BA1CD7421F55/LoggedInUser.ivp");
+  }
+  
   public void grantAdminRights()
   {
     driverHelper.openProcessLink("testWfUi/143F856F4E029A48/SetAdminUser.ivp");
