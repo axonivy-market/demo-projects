@@ -35,6 +35,8 @@
 				url="#{ivy.html.startref('13F1D890C62823FF/CaseListAdmin.ivp')}" />
 			<p:menuitem id="workflowStatistic" value="#{ivy.cms.co('/navLabels/workflowStatistic')}"
 				url="#{ivy.html.startref('1446317E486F5562/WorkflowStatistic.ivp')}" rendered="#{adminBean.isAdmin}" />
+			<p:menuitem id="loggedInUser" value="#{ivy.cms.co('/navLabels/loggedInUser')}"
+				url="#{ivy.html.startref('1477BA1CD7421F55/LoggedInUser.ivp')}" rendered="#{adminBean.isAdmin}" />
 		</p:submenu>
 	</p:menu>
 </ui:composition>
