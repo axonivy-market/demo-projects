@@ -322,4 +322,16 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     closeTask();
     driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Home");
   }
+  
+  @Test
+  public void testChangeLanguage() throws Exception
+  {
+    navigate().processList();
+    driverHelper.findElementById("languageDe").click();
+    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Prozessliste");
+    driverHelper.findElementById("languageEn").click();
+    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Process List");
+    driverHelper.findElementById("languageFr").click();
+    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Liste de processus");
+  }
 }

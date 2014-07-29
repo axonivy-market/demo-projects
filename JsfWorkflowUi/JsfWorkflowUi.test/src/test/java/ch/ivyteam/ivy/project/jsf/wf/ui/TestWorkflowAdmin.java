@@ -75,6 +75,13 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     checkIfDateFilterIsApplied();
     doesNotContain("category1", "process1");
   }
+  
+  @Test
+  public void testloggedInUser() throws Exception
+  {
+    navigate().loggedInUser();
+    assertThat(driverHelper.getWebDriver().findElement(By.id("LoggedInUserForm:userTable")).getText().contains("Administrator"));
+  }
 
   private void checkIfCategoryFilterIsApplied(String filterForCategory)
   {
