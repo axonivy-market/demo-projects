@@ -13,9 +13,9 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   public void testWorkflowStatistic() throws Exception
   {
     createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
-    checkIsCaseCreated("category1", "process1");
+    checkIfCaseIsInList("category1", "process1");
     createTaskWithCategory("caseForFilter2", "case list2", 2, "category1", "process2");
-    checkIsCaseCreated("category2", "process2");
+    checkIfCaseIsInList("category2", "process2");
     closeTask();
     closeTask();
     navigate().home();
@@ -58,11 +58,16 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   public void testStatisticFilter() throws Exception
   {
     createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
-    checkIsCaseCreated("category1", "process1");
+    navigate().caseList();
+    checkIfCaseIsInList("category1", "process1");
+    
     createTaskWithCategory("caseForFilter2", "case list2", 2, "category2", "process2");
-    checkIsCaseCreated("category2", "process2");
+    navigate().caseList();
+    checkIfCaseIsInList("category2", "process2");
+    
     createTaskWithCategory("caseForFilter3", "case list3", 3, "category3", "process3");
-    checkIsCaseCreated("category3", "process3");
+    navigate().caseList();
+    checkIfCaseIsInList("category3", "process3");
     closeTask();
     closeTask();
     closeTask();
@@ -81,6 +86,20 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   {
     navigate().loggedInUser();
     assertThat(driverHelper.getWebDriver().findElement(By.id("LoggedInUserForm:userTable")).getText().contains("Administrator"));
+  }
+
+  @Test
+  public void testCaseAdmin() throws Exception
+  {
+    login("user1", "user1");
+    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4", "process4");
+   
+    login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
+    navigate().caseAdmin();
+    checkIfCaseIsInList("category4", "process4");
+    
+    login("user1", "user1");
+    closeTask();
   }
 
   private void checkIfCategoryFilterIsApplied(String filterForCategory)
@@ -111,9 +130,8 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
             .doesNotContain(process);
   }
 
-  private void checkIsCaseCreated(String category, String process)
+  private void checkIfCaseIsInList(String category, String process)
   {
-    navigate().caseList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Test Workflow Jsf");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(category);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(process);

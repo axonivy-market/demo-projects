@@ -55,20 +55,6 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     closeTask();
   }
 
-  @Test
-  public void testCaseAdmin() throws Exception
-  {
-    login("user1", "user1");
-    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4", "process4");
-   
-    login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
-    navigate().caseAdmin();
-    checkIfCaseIsInList("category4", "process4");
-    
-    login("user1", "user1");
-    closeTask();
-  }
-
   private void checkIfCaseIsInList(String category, String process)
   {
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(category);
