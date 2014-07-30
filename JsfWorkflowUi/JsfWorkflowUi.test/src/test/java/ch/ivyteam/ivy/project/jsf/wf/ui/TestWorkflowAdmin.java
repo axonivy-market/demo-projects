@@ -13,8 +13,10 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   public void testWorkflowStatistic() throws Exception
   {
     createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
+    navigate().caseList();
     checkIfCaseIsInList("category1", "process1");
     createTaskWithCategory("caseForFilter2", "case list2", 2, "category1", "process2");
+    navigate().caseList();
     checkIfCaseIsInList("category2", "process2");
     closeTask();
     closeTask();
