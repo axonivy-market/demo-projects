@@ -15,12 +15,19 @@
 		<br />
 		#{data.caseListMode == 'my_cases' ? ivy.cms.co('/labels/history/workflowHistory/description') : ivy.cms.co('/labels/admin/caseAdmin/description')}
 		<br /><br />
-		<c:if test="#{data.caseListMode != 'my_cases'}">
-			<h:outputText value="#{data.caption}" style="font-weight:bold" />
-			<br /><br />
-		</c:if>
 		<h:form id="caseListForm">
 			<p:toolbar>
+		    	<c:if test="#{data.caseListMode == 'my_cases'}">
+					<p:toolbarGroup align="left">
+			    		<h:panelGrid columns="1">
+					        <p:selectOneButton id="caseOption" value="#{data.caseUserMode}">
+					            <f:selectItem itemLabel="#{ivy.cms.co('/labels/history/workflowHistory/startedCase')}" itemValue="startedCases" />
+					            <f:selectItem itemLabel="#{ivy.cms.co('/labels/history/workflowHistory/involvedCase')}" itemValue="involvedCases" />
+					            <p:ajax update=":caseListForm" listener="#{logic.setFilter}" />
+					        </p:selectOneButton>
+	        			</h:panelGrid>
+	       			</p:toolbarGroup>
+				</c:if>
 	    		<p:toolbarGroup align="right">
 		    		<h:panelGrid columns="8">
 	 					#{ivy.cms.co('/labels/common/category')}:

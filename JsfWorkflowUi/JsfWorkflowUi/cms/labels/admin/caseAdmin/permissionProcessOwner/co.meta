@@ -1,4 +1,0 @@
-co: name={permissionProcessOwner} description={} changed={2013-06-07 11:32:04 CEST} changedby={locadmin} visualorder={0} guid={13F1DF96A344B477} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={13F1DF96A34BE65D} datatype={} isdefault={true} langid={en} description={} validfrom={2013-06-07 11:30:52 CEST} validto={} changed={2013-06-07 11:32:04 CEST} changedby={locadmin} properties={} id={}
-val: guid={13F1DF9812D4ED8F} datatype={} isdefault={false} langid={de} description={} validfrom={2013-06-07 11:30:58 CEST} validto={} changed={2013-06-07 11:32:04 CEST} changedby={locadmin} properties={} id={}
-val: guid={13F1DF97A6A10E9D} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-06-07 11:30:56 CEST} validto={} changed={2013-06-07 11:32:04 CEST} changedby={locadmin} properties={} id={}

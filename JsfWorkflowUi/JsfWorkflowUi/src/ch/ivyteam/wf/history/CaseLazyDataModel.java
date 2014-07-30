@@ -25,7 +25,7 @@ public class CaseLazyDataModel extends LazyDataModel<ICase> {
 
 	private IPropertyFilter<CaseProperty> caseFilter;
 	private String caseMode;
-	private String caseAdminMode;
+	private String caseUserMode;
 	private IQueryResult<ICase> queryResult;
 	private Boolean hasFilter = false;
 
@@ -44,21 +44,21 @@ public class CaseLazyDataModel extends LazyDataModel<ICase> {
 		List<PropertyOrder<CaseProperty>> casePropertyOrder = PropertyOrder.create(getCaseProperty(sortField), getCaseDirection(sortOrder));
 		if(caseMode.contentEquals("my_cases"))
 		{
-			queryResult = ivy.session.findStartedCases(caseFilter,casePropertyOrder,
-					first, pageSize, true);
-		}
-		else
-		{
-			if(caseAdminMode.contentEquals("permissionInvolvedCases") )
+			if(caseUserMode.contentEquals("involvedCases") )
 			{
 				queryResult = ivy.session.findInvolvedCases(caseFilter, casePropertyOrder,
 						first, pageSize, true);
 			}
 			else
 			{
-				queryResult = ivy.wf.findCases(caseFilter, casePropertyOrder,
+				queryResult = ivy.session.findStartedCases(caseFilter,casePropertyOrder,
 						first, pageSize, true);
 			}
+		}
+		else
+		{
+			queryResult = ivy.wf.findCases(caseFilter, casePropertyOrder,
+					first, pageSize, true);
 		}
 		
 		List<ICase> cases = queryResult.getResultList();
@@ -102,7 +102,7 @@ public class CaseLazyDataModel extends LazyDataModel<ICase> {
 		this.caseMode = caseMode;
 	}
 	
-	public void setCaseAdminMode(String caseAdminMode) {
-		this.caseAdminMode = caseAdminMode;
+	public void setCaseUserMode(String caseUserMode) {
+		this.caseUserMode = caseUserMode;
 	}
 }
