@@ -7,17 +7,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 
-public class TestFilter extends BaseJsfWorkflowUiTest
+public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
 {
   @Test
   public void testCaseFilter() throws Exception
   {
     createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
-    checkIsCaseCreated("category1", "process1");
+    navigate().caseList();
+    checkIfCaseIsInList("category1", "process1");
+    
     createTaskWithCategory("caseForFilter2", "case list2", 2, "category2", "process2");
-    checkIsCaseCreated("category2", "process2");
+    navigate().caseList();
+    checkIfCaseIsInList("category2", "process2");
+    
     createTaskWithCategory("caseForFilter3", "case list3", 3, "category3", "process3");
-    checkIsCaseCreated("category3", "process3");
+    navigate().caseList();
+    checkIfCaseIsInList("category3", "process3");
+    
     checkIfFilterIsApplied("category1", "process1");
     doesNotContain("category2", "process2");
     checkIfFilterIsApplied("category2", "process2");
@@ -27,6 +33,52 @@ public class TestFilter extends BaseJsfWorkflowUiTest
     closeTask();
     closeTask();
     closeTask();
+  }
+
+  @Test
+  public void testStartedAndInvolvedCases() throws Exception
+  {
+    login("user1", "user1");
+    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4", "process4");
+    
+    navigate().caseList();
+    checkIfCaseIsInList("category4", "process4");
+    
+    login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
+    navigate().caseList();
+    doesNotContain("category4", "process4");
+    
+    switchInvolvedWorklfowList();
+    checkIfCaseIsInList("category4", "process4");
+    
+    login("user1", "user1");
+    closeTask();
+  }
+
+  @Test
+  public void testCaseAdmin() throws Exception
+  {
+    login("user1", "user1");
+    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4", "process4");
+   
+    login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
+    navigate().caseAdmin();
+    checkIfCaseIsInList("category4", "process4");
+    
+    login("user1", "user1");
+    closeTask();
+  }
+
+  private void checkIfCaseIsInList(String category, String process)
+  {
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains(category);
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains(process);
+  }
+
+  private void switchInvolvedWorklfowList()
+  {
+    WebElement selectOneRadio = driverHelper.findElementById("caseListForm");
+    prime().selectOneRadio(selectOneRadio).selectItemById("caseListForm:caseOption");
   }
 
   private void checkIfFilterIsApplied(String filterForCategory, String filterForProcess)
@@ -46,14 +98,6 @@ public class TestFilter extends BaseJsfWorkflowUiTest
             .doesNotContain(category);
     assertThat(driverHelper.getWebDriver().findElement(By.id("caseListForm:caseTable_data")).getText())
             .doesNotContain(process);
-  }
-
-  private void checkIsCaseCreated(String category, String process)
-  {
-    navigate().caseList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Test Workflow Jsf");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains(category);
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains(process);
   }
 
   @Test

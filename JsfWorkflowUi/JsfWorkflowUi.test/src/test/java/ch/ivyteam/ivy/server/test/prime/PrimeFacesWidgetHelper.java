@@ -129,6 +129,7 @@ public class PrimeFacesWidgetHelper
     public void selectItemById(String id)
     {
       oneRadio.findElement(By.xpath("//div[@id='" + id + "']/div[2]")).click();
+      driverHelper.waitForAjax();
     }
   }
   
