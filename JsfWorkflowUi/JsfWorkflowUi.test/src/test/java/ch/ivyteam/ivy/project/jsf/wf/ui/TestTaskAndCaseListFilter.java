@@ -115,14 +115,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskForFilterLow");
     
-    // delegate Task
-    navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
-    driverHelper.findElementById("buttonTaskDetail").click();
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
-    selectOneMenu = driverHelper.findElementById("formDelegateTask:selectionOfUser");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 1 (user1)");
-    driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
+    delegateTaskToUser1("taskForFilterLow");
     
     // test responsible
     navigate().taskList();
@@ -148,5 +141,69 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("test");
 
     driverHelper.openProcessLink("testWfUi/1466BC6311E70117/DestroyTasks.ivp");
+  }
+
+  @Test
+  public void testTaskAdminResponsibleFilter() throws Exception
+  {
+    createTask("taskAdminForFilterPrioHigh", "task list", 1);
+    navigate().taskAdmin();
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForFilterPrioHigh");
+    
+    createTask("taskAdminForFilterLow", "task list", 3);
+    navigate().taskAdmin();
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForFilterLow");
+
+    delegateTaskToUser1("taskAdminForFilterLow");
+    
+    navigate().taskAdmin();
+    WebElement selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role (Everybody)");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForFilterPrioHigh");
+    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForFilterLow");
+    
+    navigate().taskAdmin();
+    selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 1 (user1)");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForFilterLow");
+    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForFilterPrioHigh");
+  }
+  
+  @Test
+  public void testTaskAdminStatusFilter() throws Exception
+  {
+    createTask("taskAdminForStatusFilterPrioHigh", "task list", 1);
+    navigate().taskAdmin();
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForStatusFilterPrioHigh");
+    
+    createTask("taskAdminForStatusFilterLow", "task list", 3);
+    navigate().taskAdmin();
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForStatusFilterLow");
+
+    navigate().taskList();
+    driverHelper.findElementById("taskLinkRow_0").click();
+    
+    navigate().taskAdmin();
+    WebElement selectOneMenu = driverHelper.findElementById("taskListForm:stateFilter");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("SUSPENDED");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForStatusFilterPrioHigh");
+    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForStatusFilterLow");
+    
+    navigate().taskAdmin();
+    selectOneMenu = driverHelper.findElementById("taskListForm:stateFilter");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("RESUMED");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForStatusFilterLow");
+    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForStatusFilterPrioHigh");
+  }
+
+  private void delegateTaskToUser1(String taskName)
+  {
+    navigate().taskList();
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains(taskName);
+    driverHelper.findElementById("buttonTaskDetail").click();
+    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
+    WebElement selectOneMenu = driverHelper.findElementById("formDelegateTask:selectionOfUser");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 1 (user1)");
+    driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
   }
 }
