@@ -4,9 +4,11 @@ tasks ch.ivyteam.wf.common.TaskLazyDataModel #field
 tasks PERSISTENT #fieldModifier
 taskId Number #field
 taskId PERSISTENT #fieldModifier
-prioFilter Number #field
+prioFilter ch.ivyteam.ivy.workflow.WorkflowPriority #field
 prioFilter PERSISTENT #fieldModifier
 roleList List<ch.ivyteam.ivy.security.IRole> #field
 roleList PERSISTENT #fieldModifier
 responsibleFilter String #field
 responsibleFilter PERSISTENT #fieldModifier
+prios List<ch.ivyteam.ivy.workflow.WorkflowPriority> #field
+prios PERSISTENT #fieldModifier

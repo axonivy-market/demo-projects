@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 09 10:02:12 CEST 2014]
+[>Created: Thu Jul 31 15:26:04 CEST 2014]
 13F2E0370AA5B84E 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHistoryProcess Big #zClass
@@ -64,33 +64,14 @@ import ch.ivyteam.ivy.workflow.IPropertyFilter;
 import ch.ivyteam.ivy.workflow.TaskProperty;
 
 IPropertyFilter taskFilter = null;
-if(in.prioFilter == 1)
+if(in.#prioFilter != null)
 {
-	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, WorkflowPriority.EXCEPTION.intValue());	
+	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, in.prioFilter);	
 }
-if(in.prioFilter == 2)
-{
-	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, WorkflowPriority.HIGH.intValue());	
-}
-if(in.prioFilter == 3)
-{
-	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, WorkflowPriority.NORMAL.intValue());	
-}
-if(in.prioFilter == 4)
-{
-	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, WorkflowPriority.LOW.intValue());	
-}
-
 if(in.responsibleFilter != "All")
 {
-	if(taskFilter != null)
-	{
-		taskFilter = taskFilter.and(TaskProperty.ACTIVATOR_NAME, RelationalOperator.EQUAL, in.responsibleFilter);	
-	}
-	else
-	{
-		taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.ACTIVATOR_NAME, RelationalOperator.EQUAL, in.responsibleFilter);	
-	}
+	IPropertyFilter responsibleFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.ACTIVATOR_NAME, RelationalOperator.EQUAL, in.responsibleFilter);
+	taskFilter = taskFilter != null ? taskFilter.and(responsibleFilter) : responsibleFilter;
 }
 
 in.tasks.setTaskFilter(taskFilter);' #txt
@@ -99,7 +80,7 @@ Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>set filter</name>
-        <nameStyle>10
+        <nameStyle>10,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -131,13 +112,17 @@ Ts0 f8 actionDecl 'ch.ivyteam.wf.history.TaskHistory.TaskHistoryData out;
 Ts0 f8 actionTable 'out=in;
 out.responsibleFilter="All";
 ' #txt
-Ts0 f8 actionCode in.tasks.setIsHistory(true); #txt
+Ts0 f8 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowPriority;
+
+in.tasks.setIsHistory(true);
+
+out.prios = WorkflowPriority.values();' #txt
 Ts0 f8 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
 Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>filter default</name>
-        <nameStyle>14
+        <nameStyle>14,7
 </nameStyle>
     </language>
 </elementInfo>

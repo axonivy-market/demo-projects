@@ -4,7 +4,7 @@ tasks ch.ivyteam.wf.common.TaskLazyDataModel #field
 tasks PERSISTENT #fieldModifier
 taskId Number #field
 taskId PERSISTENT #fieldModifier
-prioFilter Number #field
+prioFilter ch.ivyteam.ivy.workflow.WorkflowPriority #field
 prioFilter PERSISTENT #fieldModifier
 responsibleFilter String #field
 responsibleFilter PERSISTENT #fieldModifier
@@ -20,3 +20,5 @@ states List<ch.ivyteam.ivy.workflow.TaskState> #field
 states PERSISTENT #fieldModifier
 statFilter ch.ivyteam.ivy.workflow.TaskState #field
 statFilter PERSISTENT #fieldModifier
+prios List<ch.ivyteam.ivy.workflow.WorkflowPriority> #field
+prios PERSISTENT #fieldModifier

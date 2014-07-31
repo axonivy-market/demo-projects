@@ -21,11 +21,8 @@
 		    		<h:panelGrid columns="6">
 	 					#{ivy.cms.co('/labels/common/taskPrio')}:
 	 					<p:selectOneMenu value="#{data.prioFilter}" id="priorityFilter">
-	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="" />
-		          			<f:selectItem itemLabel="LOW" itemValue="4" /> 
-		           			<f:selectItem itemLabel="NORMAL" itemValue="3" />  
-		           			<f:selectItem itemLabel="HIGH" itemValue="2" />  
-		           			<f:selectItem itemLabel="EXCEPTION" itemValue="1" />
+	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" noSelectionOption="true" />
+	           				<f:selectItems value="#{data.prios}" var="prio" itemLabel="#{prio}" itemValue="#{prio}" />
 		           			<p:ajax update=":taskListForm" listener="#{logic.setFilter}" />
 		       			</p:selectOneMenu>
 		       			#{ivy.cms.co('/labels/common/responsible')}:

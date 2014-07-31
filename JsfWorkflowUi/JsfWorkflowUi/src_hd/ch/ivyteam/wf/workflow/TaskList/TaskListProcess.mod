@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 31 14:48:37 CEST 2014]
+[>Created: Thu Jul 31 15:21:15 CEST 2014]
 13EE9A482A299A65 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListProcess Big #zClass
@@ -73,33 +73,14 @@ import ch.ivyteam.logicalexpression.RelationalOperator;
 import ch.ivyteam.ivy.workflow.IPropertyFilter;
 
 IPropertyFilter taskFilter = null;
-if(in.prioFilter == 1)
+if(in.#prioFilter != null)
 {
-	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, WorkflowPriority.EXCEPTION.intValue());	
+	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, in.prioFilter);	
 }
-if(in.prioFilter == 2)
-{
-	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, WorkflowPriority.HIGH.intValue());	
-}
-if(in.prioFilter == 3)
-{
-	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, WorkflowPriority.NORMAL.intValue());	
-}
-if(in.prioFilter == 4)
-{
-	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, WorkflowPriority.LOW.intValue());	
-}
-
 if(in.responsibleFilter != "All")
 {
-	if(taskFilter != null)
-	{
-		taskFilter = taskFilter.and(TaskProperty.ACTIVATOR_NAME, RelationalOperator.EQUAL, in.responsibleFilter);	
-	}
-	else
-	{
-		taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.ACTIVATOR_NAME, RelationalOperator.EQUAL, in.responsibleFilter);	
-	}
+	IPropertyFilter responsibleFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.ACTIVATOR_NAME, RelationalOperator.EQUAL, in.responsibleFilter);
+	taskFilter = taskFilter != null ? taskFilter.and(responsibleFilter) : responsibleFilter;
 }
 if(in.#statFilter != null)
 {
@@ -146,14 +127,16 @@ Ts0 f4 actionTable 'out=in;
 out.responsibleFilter="All";
 out.statFilter=null;
 ' #txt
-Ts0 f4 actionCode 'import ch.ivyteam.ivy.workflow.TaskState;
+Ts0 f4 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowPriority;
+import ch.ivyteam.ivy.workflow.TaskState;
 
 in.tasks.setIsHistory(false);
 in.tasks.setMode(in.mode);
 
 out.header = in.mode == "my_tasks" ? ivy.cms.co("/navLabels/taskList") : ivy.cms.co("/navLabels/taskAdmin");
 
-out.states = TaskState.values();' #txt
+out.states = TaskState.values();
+out.prios = WorkflowPriority.values();' #txt
 Ts0 f4 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
