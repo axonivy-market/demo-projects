@@ -46,7 +46,7 @@
 	        			<p:spacer width="10" />
 	        			#{ivy.cms.co('/labels/common/taskState')}:
 	 					<p:selectOneMenu id="stateFilter" value="#{data.statFilter}">
-	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="" />
+	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" noSelectionOption="true" />
 	           				<f:selectItems value="#{data.states}" var="state" itemLabel="#{state}" itemValue="#{state}" />
 	           				<p:ajax update=":caseListForm" listener="#{logic.setFilter}" />
 	        			</p:selectOneMenu>

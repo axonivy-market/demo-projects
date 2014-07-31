@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 30 11:37:42 CEST 2014]
+[>Created: Thu Jul 31 15:07:44 CEST 2014]
 13F1D8A32C686BDF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListProcess Big #zClass
@@ -65,11 +65,11 @@ Cs0 f23 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
 r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("13EE5C9EAAA819C8/DefaultTaskListPage.ivp"));
 
-out.statFilter = "";
+out.statFilter = null;
 out.catFilter = "";
 out.procFilter = "";
 
-out.states = [CaseState.RUNNING.toString(),CaseState.DONE.toString(), CaseState.DESTROYED.toString(), CaseState.ZOMBIE.toString()];
+out.states = CaseState.values();
 
 out.header = in.caseListMode == "my_cases" ? ivy.cms.co("/navLabels/caseHistory") : ivy.cms.co("/navLabels/caseAdmin");
 
@@ -162,9 +162,9 @@ if(in.procFilter!="")
 {
 	cpfilter = cpfilter.and(CaseProperty.PROCESS_CODE,RelationalOperator.EQUAL,in.procFilter);	
 }
-if(in.statFilter!="")
+if(in.#statFilter != null)
 {
-	cpfilter = cpfilter.and(CaseProperty.STATE,RelationalOperator.EQUAL,CaseState.valueOf(in.statFilter).ordinal());
+	cpfilter = cpfilter.and(CaseProperty.STATE,RelationalOperator.EQUAL,in.statFilter);
 }
 
 in.cases.setCaseFilter(cpfilter);' #txt

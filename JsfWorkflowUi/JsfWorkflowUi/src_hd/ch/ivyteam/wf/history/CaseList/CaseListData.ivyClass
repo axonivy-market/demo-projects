@@ -2,7 +2,7 @@ CaseListData #class
 ch.ivyteam.wf.history.CaseList #namespace
 caseListMode String #field
 caseListMode PERSISTENT #fieldModifier
-statFilter String #field
+statFilter ch.ivyteam.ivy.workflow.CaseState #field
 statFilter PERSISTENT #fieldModifier
 catFilter String #field
 catFilter PERSISTENT #fieldModifier
@@ -10,7 +10,7 @@ procFilter String #field
 procFilter PERSISTENT #fieldModifier
 categories List<String> #field
 categories PERSISTENT #fieldModifier
-states List<String> #field
+states List<ch.ivyteam.ivy.workflow.CaseState> #field
 states PERSISTENT #fieldModifier
 cases ch.ivyteam.wf.history.CaseLazyDataModel #field
 cases PERSISTENT #fieldModifier
