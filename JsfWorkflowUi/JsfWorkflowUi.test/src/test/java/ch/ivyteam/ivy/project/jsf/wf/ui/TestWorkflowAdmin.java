@@ -103,6 +103,24 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     login("user1", "user1");
     closeTask();
   }
+  
+  @Test
+  public void testTaskAdmin() throws Exception
+  {
+    login("user1", "user1");
+    createTaskWithCategory("taskAdmin", "task list5", 1, "category5", "process5");
+   
+    login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
+    navigate().taskAdmin();
+    checkIfTaskIsInList("taskAdmin");
+    
+    login("user1", "user1");
+    closeTask();
+    
+    login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
+    navigate().taskAdmin();
+    checkIfTaskIsInList("taskAdmin");
+  }
 
   private void checkIfCategoryFilterIsApplied(String filterForCategory)
   {
@@ -137,5 +155,10 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Test Workflow Jsf");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(category);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(process);
+  }
+
+  private void checkIfTaskIsInList(String name)
+  {
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF " + name);
   }
 }

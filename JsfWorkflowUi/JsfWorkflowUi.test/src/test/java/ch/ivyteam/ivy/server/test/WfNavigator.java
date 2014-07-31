@@ -55,6 +55,11 @@ public class WfNavigator
     driverHelper.openProcessLink("JsfWorkflowUi/13F1D890C62823FF/CaseListAdmin.ivp");
   }
   
+  public void taskAdmin()
+  {
+    driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/TaskListAdmin.ivp");
+  }
+  
   public void logout()
   {
     driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/Logout.ivp");
