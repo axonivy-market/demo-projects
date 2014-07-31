@@ -18,7 +18,7 @@
 		<h:form id="taskListForm">
 			<p:toolbar>
 	    		<p:toolbarGroup align="right">
-		    		<h:panelGrid columns="4">
+		    		<h:panelGrid columns="6">
 	 					#{ivy.cms.co('/labels/common/taskPrio')}:
 	 					<p:selectOneMenu value="#{data.prioFilter}" id="priorityFilter">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="" />
@@ -40,6 +40,14 @@
 		          			</c:if>
 		           			<p:ajax update=":taskListForm" listener="#{logic.setFilter}" />
 		       			</p:selectOneMenu>
+		       			<c:if test="#{data.mode != 'my_tasks'}">
+		        			#{ivy.cms.co('/labels/common/taskState')}:
+		 					<p:selectOneMenu id="stateFilter" value="#{data.statFilter}">
+		 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" noSelectionOption="true" />
+		           				<f:selectItems value="#{data.states}" var="state" itemLabel="#{state}" itemValue="#{state}" />
+		           				<p:ajax update=":taskListForm" listener="#{logic.setFilter}" />
+		        			</p:selectOneMenu>
+	        			</c:if>
 	       			</h:panelGrid>
 	      		</p:toolbarGroup>
 			</p:toolbar>

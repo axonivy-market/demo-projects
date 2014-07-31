@@ -16,3 +16,7 @@ header String #field
 header PERSISTENT #fieldModifier
 userList List<ch.ivyteam.ivy.security.IUser> #field
 userList PERSISTENT #fieldModifier
+states List<ch.ivyteam.ivy.workflow.TaskState> #field
+states PERSISTENT #fieldModifier
+statFilter ch.ivyteam.ivy.workflow.TaskState #field
+statFilter PERSISTENT #fieldModifier

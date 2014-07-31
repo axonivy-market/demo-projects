@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 31 10:11:09 CEST 2014]
+[>Created: Thu Jul 31 14:48:37 CEST 2014]
 13EE9A482A299A65 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListProcess Big #zClass
@@ -101,6 +101,11 @@ if(in.responsibleFilter != "All")
 		taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.ACTIVATOR_NAME, RelationalOperator.EQUAL, in.responsibleFilter);	
 	}
 }
+if(in.#statFilter != null)
+{
+	IPropertyFilter stateFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.STATE, RelationalOperator.EQUAL, in.statFilter);
+	taskFilter = taskFilter != null ? taskFilter.and(stateFilter) : stateFilter;
+}
 
 in.tasks.setTaskFilter(taskFilter);' #txt
 Ts0 f11 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
@@ -108,7 +113,7 @@ Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>set filter</name>
-        <nameStyle>10
+        <nameStyle>10,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -139,11 +144,16 @@ Ts0 f4 actionDecl 'ch.ivyteam.wf.workflow.TaskList.TaskListData out;
 ' #txt
 Ts0 f4 actionTable 'out=in;
 out.responsibleFilter="All";
+out.statFilter=null;
 ' #txt
-Ts0 f4 actionCode 'in.tasks.setIsHistory(false);
+Ts0 f4 actionCode 'import ch.ivyteam.ivy.workflow.TaskState;
+
+in.tasks.setIsHistory(false);
 in.tasks.setMode(in.mode);
 
-out.header = in.mode == "my_tasks" ? ivy.cms.co("/navLabels/taskList") : ivy.cms.co("/navLabels/taskAdmin");' #txt
+out.header = in.mode == "my_tasks" ? ivy.cms.co("/navLabels/taskList") : ivy.cms.co("/navLabels/taskAdmin");
+
+out.states = TaskState.values();' #txt
 Ts0 f4 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
