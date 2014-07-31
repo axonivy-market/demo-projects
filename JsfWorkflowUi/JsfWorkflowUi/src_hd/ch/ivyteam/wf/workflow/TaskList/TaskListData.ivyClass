@@ -10,3 +10,9 @@ responsibleFilter String #field
 responsibleFilter PERSISTENT #fieldModifier
 roleList List<ch.ivyteam.ivy.security.IRole> #field
 roleList PERSISTENT #fieldModifier
+mode String #field
+mode PERSISTENT #fieldModifier
+header String #field
+header PERSISTENT #fieldModifier
+userList List<ch.ivyteam.ivy.security.IUser> #field
+userList PERSISTENT #fieldModifier

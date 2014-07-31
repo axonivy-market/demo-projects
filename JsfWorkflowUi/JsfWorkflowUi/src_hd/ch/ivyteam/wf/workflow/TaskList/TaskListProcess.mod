@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon May 26 15:49:36 CEST 2014]
+[>Created: Thu Jul 31 10:11:09 CEST 2014]
 13EE9A482A299A65 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListProcess Big #zClass
@@ -32,10 +32,12 @@ Ts0 @PushWFArc f7 '' #zField
 >Proto Ts0 Ts0 TaskListProcess #zField
 Ts0 f0 guid 13EE9A482C1E853B #txt
 Ts0 f0 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
-Ts0 f0 method start() #txt
+Ts0 f0 method start(String) #txt
 Ts0 f0 disableUIEvents true #txt
 Ts0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
+<java.lang.String mode> param = methodEvent.getInputArguments();
+' #txt
+Ts0 f0 inParameterMapAction 'out.mode=param.mode;
 ' #txt
 Ts0 f0 outParameterDecl '<> result;
 ' #txt
@@ -138,13 +140,16 @@ Ts0 f4 actionDecl 'ch.ivyteam.wf.workflow.TaskList.TaskListData out;
 Ts0 f4 actionTable 'out=in;
 out.responsibleFilter="All";
 ' #txt
-Ts0 f4 actionCode in.tasks.setIsHistory(false); #txt
+Ts0 f4 actionCode 'in.tasks.setIsHistory(false);
+in.tasks.setMode(in.mode);
+
+out.header = in.mode == "my_tasks" ? ivy.cms.co("/navLabels/taskList") : ivy.cms.co("/navLabels/taskAdmin");' #txt
 Ts0 f4 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>filter default</name>
-        <nameStyle>14
+        <nameStyle>14,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -158,27 +163,45 @@ Ts0 f8 actionDecl 'ch.ivyteam.wf.workflow.TaskList.TaskListData out;
 ' #txt
 Ts0 f8 actionTable 'out=in;
 ' #txt
-Ts0 f8 actionCode 'import ch.ivyteam.ivy.security.IRole;
+Ts0 f8 actionCode 'import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.security.IRole;
 
 out.roleList.clear();
-List roles = ivy.session.getSessionUser().getAllRoles();
+List roles;
+if(in.mode.equals("my_tasks"))
+{
+	roles = ivy.session.getSessionUser().getAllRoles();
+}
+else
+{
+	roles = ivy.session.getSecurityContext().getRoles();
+}
+
 for(IRole role: roles)
 {
 	out.roleList.add(role);
 }
 
-' #txt
+List users = ivy.wf.getSecurityContext().getUsers();
+out.userList.clear();
+for(IUser user : users)
+{
+	if(user.getName() != "SYSTEM" && user.getName() != ivy.session.getSessionUserName())
+	{
+		out.userList.add(user);
+	}
+}	' #txt
 Ts0 f8 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>role list</name>
-        <nameStyle>9,7
+        <name>user/role list</name>
+        <nameStyle>14,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f8 168 202 112 44 -20 -8 #rect
+Ts0 f8 168 202 112 44 -34 -8 #rect
 Ts0 f8 @|StepIcon #fIcon
 Ts0 f8 -1|-1|-9671572 #nodeStyle
 Ts0 f10 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt

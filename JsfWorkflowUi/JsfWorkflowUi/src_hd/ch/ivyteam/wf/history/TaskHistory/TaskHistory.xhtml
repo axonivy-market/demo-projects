@@ -29,7 +29,7 @@
 		           			<f:ajax render="taskHistoryForm" />
 		       			</p:selectOneMenu>
 		       			#{ivy.cms.co('/labels/common/responsible')}:
-		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter">
+		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter" filter="true" filterMatchMode="contains">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="All" />
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" itemValue="##{ivy.session.getSessionUserName()}" />
 		          			<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} #{role.getDisplayName() != '' ? '(' : ''}#{role.getName()}#{role.getDisplayName() != '' ? ')' : ''}" itemValue="#{role.getName()}"/>

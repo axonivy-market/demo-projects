@@ -25,6 +25,7 @@ public class TaskLazyDataModel extends LazyDataModel<ITask> {
 	private IPropertyFilter<TaskProperty> taskFilter;
 	private Boolean isHistory;
 	private Boolean hasFilter = false;
+	private String mode;
 
 	@Override
 	public List<ITask> load(int first, int pageSize, String sortField,
@@ -43,12 +44,20 @@ public class TaskLazyDataModel extends LazyDataModel<ITask> {
 		if(isHistory)
 		{
 			queryResult = ivy.session.findWorkedOnTasks(taskFilter, taskPropertyOrder, 
-					first, pageSize, true);
+				first, pageSize, true);
 		}
 		else
 		{
-			queryResult = ivy.session.findWorkTasks(taskFilter, taskPropertyOrder, 
+			if(mode.equals("admin"))
+			{
+				queryResult = ivy.wf.findTasks(taskFilter, taskPropertyOrder, 
+						first, pageSize, true);
+			}
+			else
+			{
+				queryResult = ivy.session.findWorkTasks(taskFilter, taskPropertyOrder, 
 					first, pageSize, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
+			}
 		}
 
 		List<ITask> tasks = queryResult.getResultList();
@@ -90,5 +99,9 @@ public class TaskLazyDataModel extends LazyDataModel<ITask> {
 	
 	public void setIsHistory(Boolean isHistory) {
 		this.isHistory = isHistory;
+	}
+	
+	public void setMode(String mode) {
+		this.mode = mode;
 	}
 }

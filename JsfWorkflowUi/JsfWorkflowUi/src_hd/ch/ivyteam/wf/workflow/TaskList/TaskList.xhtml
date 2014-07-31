@@ -9,11 +9,11 @@
       xmlns:pm="http://primefaces.org/mobile">
 
 <ui:composition template="/layouts/Workflow.xhtml">
-	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/taskList')}" />
+	<ui:param name="centerHeader" value="#{data.header}" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
 		<br />
-		#{ivy.cms.co('/labels/workflow/taskList/description')}
+		#{data.mode == 'my_tasks' ? ivy.cms.co('/labels/workflow/taskList/description') : ivy.cms.co('/labels/admin/taskAdmin/description')}
 		<br /><br />
 		<h:form id="taskListForm">
 			<p:toolbar>
@@ -29,10 +29,15 @@
 		           			<p:ajax update=":taskListForm" listener="#{logic.setFilter}" />
 		       			</p:selectOneMenu>
 		       			#{ivy.cms.co('/labels/common/responsible')}:
-		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter">
+		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter" filter="true" filterMatchMode="contains">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="All" />
-	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" itemValue="##{ivy.session.getSessionUserName()}" />
+	 						<c:if test="#{data.mode == 'my_tasks'}">
+	 							<f:selectItem itemLabel="#{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" itemValue="##{ivy.session.getSessionUserName()}" />
+		          			</c:if>
 		          			<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} #{role.getDisplayName() != '' ? '(' : ''}#{role.getName()}#{role.getDisplayName() != '' ? ')' : ''}" itemValue="#{role.getName()}"/>
+		          			<c:if test="#{data.mode != 'my_tasks'}">
+		          				<f:selectItems value="#{data.userList}" var="user" itemLabel="#{user.getDisplayName()}" itemValue="##{user.getName()}" />
+		          			</c:if>
 		           			<p:ajax update=":taskListForm" listener="#{logic.setFilter}" />
 		       			</p:selectOneMenu>
 	       			</h:panelGrid>
@@ -81,12 +86,14 @@
 			            <f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
 				</p:column>
-				<p:column style="width:50px; text-align: center;">
-					<f:facet name="header">
-						Start
-					</f:facet>
-					<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}" id="taskLinkRow_#{row}"><h:graphicImage name="images/actions/start.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{task.id}]" /></a> 
-				</p:column>
+				<c:if test="#{data.mode == 'my_tasks'}">
+					<p:column style="width:50px; text-align: center;">
+						<f:facet name="header">
+							Start
+						</f:facet>
+						<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}" id="taskLinkRow_#{row}"><h:graphicImage name="images/actions/start.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{task.id}]" /></a> 
+					</p:column>
+				</c:if>
 			</p:dataTable>
 		</h:form>
    	</ui:define>
