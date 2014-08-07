@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="/layouts/TaskMail.xhtml">
+	<ui:param name="title" value="#{ivy.cms.co('/labels/workflow/newTaskMail/title')}" />
+	<ui:define name="center">
+		<br />
+		#{ivy.cms.co('/labels/workflow/newTaskMail/intro')}
+		<br />
+		<br />
+		<h:form id="newTaskMailContent">
+			<table id="taskDetailsList" class="detailsList">
+				<tr>
+					<th>#{ivy.cms.co('/labels/common/name')}</th>
+					<td><p:spacer width="10"/></td>
+					<td>#{data.task.name}</td>
+				</tr>
+				<tr>
+					<th>#{ivy.cms.co('/labels/common/description')}</th>
+					<td><p:spacer width="10"/></td>
+					<td>#{data.task.description}</td>
+				</tr>
+				<tr>
+  					<th>#{ivy.cms.co('/labels/common/responsible')}</th>
+					<td><p:spacer width="10"/></td>
+   					<td>#{data.task.activator.name}</td>
+				</tr>
+				<tr>
+					<th>#{ivy.cms.co('/labels/common/start')}</th>
+					<td><p:spacer width="10"/></td>
+					<td>
+						<h:outputText value="#{data.task.startTimestamp}">
+							<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+						</h:outputText>
+					</td>
+				</tr>
+				<tr>
+					<th>#{ivy.cms.co('/labels/common/expiry')}</th>
+					<td><p:spacer width="10"/></td>
+					<td>
+						<h:outputText value="#{data.task.expiryTimestamp}">
+							<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+						</h:outputText>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<table id="startTask">
+				<tr>
+				    <td><a href="#{facesContext.externalContext.requestContextPath}/pro/#{data.task.fullRequestPath}?taskId=#{data.task.id}" id="taskStartImageLink"><h:graphicImage name="images/actions/startLink.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{data.task.id}]" style="border:0;"/></a> </td>
+					<th><a href="#{facesContext.externalContext.requestContextPath}/pro/#{data.task.fullRequestPath}?taskId=#{data.task.id}" id="taskStartLink">#{ivy.cms.co('/labels/common/taskResume')}</a></th>
+				</tr>
+			</table>
+		</h:form>
+   	</ui:define>
+</ui:composition>
+</html>

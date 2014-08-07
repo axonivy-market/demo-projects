@@ -1,0 +1,15 @@
+@CHARSET "ISO-8859-1";
+div#PageCaption
+{
+	background-color: #EAEAEA;
+}
+
+body
+{
+	margin: 0;
+}
+
+h3
+{
+	margin: 0;
+}

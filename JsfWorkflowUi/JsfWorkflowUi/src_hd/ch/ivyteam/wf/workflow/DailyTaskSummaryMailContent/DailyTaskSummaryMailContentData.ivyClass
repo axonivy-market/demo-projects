@@ -1,0 +1,4 @@
+DailyTaskSummaryMailContentData #class
+ch.ivyteam.wf.workflow.DailyTaskSummaryMailContent #namespace
+user ch.ivyteam.ivy.security.IUser #field
+tasks List<ch.ivyteam.ivy.workflow.ITask> #field

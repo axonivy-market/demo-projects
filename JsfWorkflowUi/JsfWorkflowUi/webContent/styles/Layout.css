@@ -7,8 +7,8 @@ body, html, td, tr, th, input, textarea, select, form
 
 #layoutHeader
 {
-	background-image:url(#{resource['ivy-cms:Project/XpertIvyHeaderBackground']});
-	background-repeat:repeat-x;
+	background-color: #575656;
+	height: 125px;
 	color:#FFFFFF;
 }
 
