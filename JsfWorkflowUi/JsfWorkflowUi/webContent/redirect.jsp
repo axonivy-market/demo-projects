@@ -6,7 +6,7 @@ String tmpMsg=ivy.html.get("in.message");
 %>
 <html>
 	<head> 
-		<title>Xpert.ivy Workflow</title>
+		<title>Axon.ivy Workflow</title>
 		<%
 			if(urlToStart.length()>0) {
 		%>
@@ -16,17 +16,17 @@ String tmpMsg=ivy.html.get("in.message");
 		%>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 		<link rel="stylesheet" type="text/css" href="<%=ivy.cms.cr("/Styles/html_wf")%>"/>
-		<title>Xpert.ivy Workflow</title>
+		<title>Axon.ivy Workflow</title>
 	</head>
 	
 	<body style="background-color: #F9F9F9;font-size: 9pt; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  margin-top: 0px;margin-bottom: 0px;margin-left: 5px;margin-right: 1px;height:99%; ">
 	
 	
-		<div id="TopLogo" style="background-image:url(<%=ivy.cms.cr("/Project/XpertIvyHeaderBackground")%>); background-repeat:repeat-x;  height: 140px;text-align:left; margin-top:7px; margin-right:1px; margin-bottom: -2px; margin-left: -1px;">
-			<img src='<%=ivy.cms.cr("/Project/XpertIvyHeader")%>'>
+		<div id="TopLogo" style="background-color: #575656; height: 125px;text-align:left; margin-top:7px; margin-right:1px; margin-bottom: -2px; margin-left: -1px;">
+			<img src='images/others/AxonIvyHeader.gif'>
 		</div>
 		
-		<div style="background-image: url(images/others/border.png); height: 24px;width: 99%;padding-top: 4px;padding-bottom: 4px;margin-top: 0px;margin-bottom: 0px;padding-left: 4px;padding-right: 4px;">
+		<div style="background-color: #EAEAEA; height: 24px;width: 99%;padding-top: 4px;padding-bottom: 4px; margin-top:2px; margin-right:1px; margin-left: -1px; padding-left: 4px;padding-right: 4px;">
 		</div>
 		
 		<div style="background-color: #F9F9F9; position: absolute; height: 416px; width: 99%; margin-top: 0px;margin-bottom: 0px;margin-left: 0px;padding-top: 4px;padding-bottom: 4px;padding-left: 2px;padding-right: 2px;">
