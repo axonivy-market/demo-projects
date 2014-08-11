@@ -11,11 +11,12 @@
 	xmlns:wc="http://java.sun.com/jsf/composite/wf-component">
 
 <!--
-This component calls the component IconDescription. 
-All user or role attributes will be set here, so we have only string attributes in the iconDescription component.
+Displays an icon and name of a user or a role.
+For a role: [role-icon] display name (name)
+For a user: [user-icon] full name (name)
 -->
-<cc:interface shortDescription="In the interface it is possible to define attributes for the view.">
-	<cc:attribute name="member" type="ch.ivyteam.ivy.security.ISecurityMember" shortDescription="This parameter can be a user or an role" />
+<cc:interface shortDescription="Displays an icon and name of a user or a role">
+	<cc:attribute name="member" type="ch.ivyteam.ivy.security.ISecurityMember" shortDescription="A user or a role" />
 </cc:interface>
 <cc:implementation>
 	<wc:IconDescription iconName="#{cc.attrs.member == null ? 'images/others/none' : cc.attrs.member.isUser() ? 'images/details/user' : 'images/details/role'}.png" 
