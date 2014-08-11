@@ -6,7 +6,8 @@
       xmlns:ic="http://ivyteam.ch/jsf/component"
       xmlns:p="http://primefaces.org/ui"
       xmlns:pe="http://primefaces.org/ui/extensions"
-      xmlns:pm="http://primefaces.org/mobile">
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:wc="http://java.sun.com/jsf/composite/wf-component">
 
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/taskDetails')}" />
@@ -53,46 +54,31 @@
 					<tr>
 						<th>#{ivy.cms.co('/labels/common/state')}</th>
 						<td>
-							<ui:include src="/includes/TableIconDescription.xhtml" >
-								<ui:param name="iconName" value="images/details/state/#{data.task.state.intValue()}.png" />
-								<ui:param name="iconDescription" value="#{data.task.state}" />
-							</ui:include>
+							<wc:IconDescription iconName="images/details/state/#{data.task.state.intValue()}.png" iconDescription="#{data.task.state}" />
 						</td>
 					</tr>
 					<tr>
 						<th>#{ivy.cms.co('/labels/history/taskDetails/priority')}</th>
 						<td>
-							<ui:include src="/includes/TableIconDescription.xhtml" >
-								<ui:param name="iconName" value="images/details/priority/#{data.task.priority.intValue()}.png" />
-								<ui:param name="iconDescription" value="#{data.task.priority}" />
-							</ui:include>
+							<wc:IconDescription iconName="images/details/priority/#{data.task.priority.intValue()}.png" iconDescription="#{data.task.priority}" />
 						</td>
 					</tr>
 					<tr>
 						<th>#{ivy.cms.co('/labels/common/user')}</th>
 						<td>
-							<ui:include src="/includes/TableIconDescription.xhtml" >
-								<ui:param name="iconName" value="#{data.task.workerUser != null ? 'images/details/user.png' : 'images/others/none.png'}" />
-								<ui:param name="iconDescription" value="#{data.task.workerUserName}" />
-							</ui:include>
+							<wc:MemberDetail member="#{data.task.workerUser}" />
 						</td>
 					</tr>
 					<tr>
    						<th>#{ivy.cms.co('/labels/common/responsible')}</th>
 	   					<td>
-	   						<ui:include src="/includes/TableIconDescription.xhtml" >
-								<ui:param name="iconName" value="#{data.task.originalActivator == null ? 'images/others/none.png' : data.task.originalActivator.isUser() ? 'images/details/user.png' : 'images/details/role.png'}" />
-								<ui:param name="iconDescription" value="#{data.task.activator.name}" />
-							</ui:include>
+							<wc:MemberDetail member="#{data.task.activator}" />
 						</td>
 					</tr>
 					<tr>
    						<th>#{ivy.cms.co('/labels/history/taskDetails/responsibleEx')}</th>
    						<td>
-   							<ui:include src="/includes/TableIconDescription.xhtml" >
-								<ui:param name="iconName" value="#{data.task.expiryActivator == null ? 'images/others/none.png' : data.task.expiryActivator.isUser() ? 'images/details/user.png' : 'images/details/role.png'}" />
-								<ui:param name="iconDescription" value="#{data.task.expiryActivatorName}" />
-							</ui:include>
+							<wc:MemberDetail member="#{data.task.expiryActivator}" />
 						</td>
 					</tr>
 					<tr>

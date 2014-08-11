@@ -5,7 +5,8 @@
 	xmlns:ic="http://ivyteam.ch/jsf/component"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions"
-	xmlns:pm="http://primefaces.org/mobile">
+	xmlns:pm="http://primefaces.org/mobile"
+    xmlns:wc="http://java.sun.com/jsf/composite/wf-component">
 
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/detailsStatistic')}" />
@@ -29,19 +30,13 @@
 						<tr>
 							<th>#{ivy.cms.co('/labels/common/state')}</th>
 							<td>
-								<ui:include src="/includes/TableIconDescription.xhtml" >
-									<ui:param name="iconName" value="images/details/caseState/#{data.wfCase.getState().intValue()}.png" />
-									<ui:param name="iconDescription" value="#{data.wfCase.state}" />
-								</ui:include>
+								<wc:IconDescription iconName="images/details/caseState/#{data.wfCase.getState().intValue()}.png" iconDescription="#{data.wfCase.state}" />
 							</td>
 						</tr>
 						<tr>
 							<th>#{ivy.cms.co('/labels/common/creator')}</th>
 							<td>
-								<ui:include src="/includes/TableIconDescription.xhtml">
-									<ui:param name="iconName" value="#{data.wfCase.creatorUserName != null ? 'images/details/user.png' : 'images/others/none.png'}" />
-									<ui:param name="iconDescription" value="#{data.wfCase.creatorUserName}" />
-								</ui:include>
+								<wc:MemberDetail member="#{data.wfCase.creatorUser}" />
 							</td>
 						</tr>
 						<tr>

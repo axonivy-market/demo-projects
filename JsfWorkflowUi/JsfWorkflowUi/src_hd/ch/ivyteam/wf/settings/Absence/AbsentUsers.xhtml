@@ -4,7 +4,8 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:wc="http://java.sun.com/jsf/composite/wf-component">
 
 <h:body>
 <ui:composition>
@@ -15,7 +16,7 @@
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/user')}
            			</f:facet>
-           			#{user.getFullName()} (#{user.getName()})
+           			<wc:MemberDetail member="#{user}" />
         		</p:column>
    			</p:dataTable>
 		</h:form>

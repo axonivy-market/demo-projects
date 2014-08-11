@@ -24,3 +24,15 @@
 .selectRadio label {
    margin-right: 20px;
 }
+
+.iconDesciption, .iconDesciption table, .iconDesciption > tbody > tr > td
+{
+	border: 0;
+}
+
+.iconDesciption th
+{
+	padding-right: 2pt;
+	padding-top: 3pt;
+	width: 7px;
+}
