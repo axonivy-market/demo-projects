@@ -13,11 +13,7 @@
 	<cc:attribute name="iconDescription" />
 </cc:interface>
 <cc:implementation>
-	<table class="iconDesciption">
-		<tr>
-			<th><h:graphicImage name="#{cc.attrs.iconName}" alt="#{cc.attrs.iconDescription}" title="#{cc.attrs.iconDescription}" /></th>
-			<td><h:outputText value="#{cc.attrs.iconDescription}" /></td>
-		</tr>
-	</table>
+		<h:graphicImage id="icon" name="#{cc.attrs.iconName}" alt="#{cc.attrs.iconDescription}" title="#{cc.attrs.iconDescription}" />
+		<span style="vertical-align: top;"><h:outputText id="description" value="#{cc.attrs.iconDescription}" /></span>
 </cc:implementation>
-</html> 
+</html>
