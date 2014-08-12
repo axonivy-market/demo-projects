@@ -125,4 +125,35 @@ public class BaseJsfWorkflowUiTest
     return new PrimeFacesWidgetHelper(driverHelper);
   }
   
+  public void addAbsenceForMe(String startDate, String startTime, String endDate, String endTime, String description)
+  {
+    navigate().absence();
+    addAbsence(startDate, startTime, endDate, endTime, description);
+  }
+  
+  public void addAbsenceForUser(String startDate, String startTime, String endDate, String endTime, String description, String absenceForUser)
+  {
+    navigate().absence();
+    WebElement selectOneMenu = driverHelper.findElementById("formAbsence:userSelection");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel(absenceForUser);
+    
+    addAbsence(startDate, startTime, endDate, endTime, description);
+  }
+  
+  public void addAbsence(String startDate, String startTime, String endDate, String endTime, String description)
+  {
+    driverHelper.clickAndWaitForAjax(By.id("formAbsence:addAbsence"));
+    driverHelper.findElementById("formAddAbsence:absenceStartTime_input").click();
+    driverHelper.findElementById("formAddAbsence:absenceStartTime_input").sendKeys(startTime);
+    driverHelper.findElementById("formAddAbsence:absenceStartDate_input").click();
+    driverHelper.findElementById("formAddAbsence:absenceStartDate_input").sendKeys(startDate);
+    driverHelper.findElementById("formAddAbsence:absenceEndTime_input").click();
+    driverHelper.findElementById("formAddAbsence:absenceEndTime_input").sendKeys(endTime);
+    driverHelper.findElementById("formAddAbsence:absenceEndDate_input").click();
+    driverHelper.findElementById("formAddAbsence:absenceEndDate_input").sendKeys(endDate);
+    driverHelper.findElementById("formAddAbsence:absenceDescription").click();
+    driverHelper.findElementById("formAddAbsence:absenceDescription").sendKeys(description);
+    driverHelper.clickAndWaitForAjax(By.id("formAddAbsence:saveNewAbsence"));
+  }
+  
 }

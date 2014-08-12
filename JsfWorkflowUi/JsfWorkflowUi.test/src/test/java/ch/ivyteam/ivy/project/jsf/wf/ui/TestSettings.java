@@ -13,11 +13,11 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   @Test
   public void testAddAbsence() throws Exception
   {
-    addAbsence("31.31.2030", "32:32", "31.31.2031", "40:40", "Add absence test", "me");
+    addAbsenceForMe("31.31.2030", "32:32", "31.31.2031", "40:40", "Add absence test");
     driverHelper.waitUntilEnabled(By.id("formAddAbsence:saveNewAbsence"));
     driverHelper.assertAjaxElementContains(By.id("formAddAbsence:absenceMessage"), "could not be understood as a date");
     checkIfAbsenceContains("No absences");
-    addAbsence("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence test", "me");
+    addAbsenceForMe("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence test");
     checkIfAbsenceContains("Add absence test");
     deleteAbsence();
     checkIfAbsenceContains("No absences");
@@ -26,17 +26,16 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   @Test
   public void testAddAbsenceForOther() throws Exception
   {
-    addAbsence("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence for other test", "other");
+    addAbsenceForUser("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence for other test", "Test User 2 (user2)");
     login("user2","user2");
     checkIfAbsenceContains("Add absence for other test");
     deleteAbsence();
-    checkIfAbsenceContains("No absences");
   }
   
   @Test
   public void testEditAbsence() throws Exception
   {
-    addAbsence("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence test", "me");
+    addAbsenceForMe("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence test");
     checkIfAbsenceContains("Add absence test");
     editAbsence("31.31.2030", "32:32", "31.31.2031", "40:40", "Edit absence test", "me");
     driverHelper.waitUntilEnabled(By.id("formEditAbsence:saveEditAbsence"));
@@ -51,44 +50,21 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   @Test
   public void testEditAbsenceForOther() throws Exception
   {
-    addAbsence("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence for other test", "other");
+    addAbsenceForUser("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence for other test", "Test User 2 (user2)");
     editAbsence("15.04.2030", "11:11", "16.04.2031", "09:09", "Edit absence for other test", "other");
     login("user2","user2");
     checkIfAbsenceContains("Edit absence for other test");
     deleteAbsence();
-    checkIfAbsenceContains("No absences");
   }
   
   @Test
   public void testShowAbsentUsers() throws Exception
   {
-    addAbsence("30.07.2012", "09:10", "30.08.2031", "10:10", "Add absence for other test", "other");
+    addAbsenceForUser("30.07.2012", "09:10", "30.08.2031", "10:10", "Add absence for other test", "Test User 2 (user2)");
     driverHelper.clickAndWaitForAjax(By.id("showAbsentUsers"));
     assertThat(driverHelper.getWebDriver().findElement(By.id("formAbsentUsers")).getText()).contains("Test User 2 (user2)");
     deleteAbsence();
     checkIfAbsenceContains("No absences");
-  }
-
-  private void addAbsence(String startDate, String startTime, String endDate, String endTime, String description, String absenceFor)
-  {
-    navigate().absence();
-    if(absenceFor == "other")
-    {
-      WebElement selectOneMenu = driverHelper.findElementById("formAbsence:userSelection");
-      prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 2 (user2)");
-    }
-    driverHelper.clickAndWaitForAjax(By.id("formAbsence:addAbsence"));
-    driverHelper.findElementById("formAddAbsence:absenceStartTime_input").click();
-    driverHelper.findElementById("formAddAbsence:absenceStartTime_input").sendKeys(startTime);
-    driverHelper.findElementById("formAddAbsence:absenceStartDate_input").click();
-    driverHelper.findElementById("formAddAbsence:absenceStartDate_input").sendKeys(startDate);
-    driverHelper.findElementById("formAddAbsence:absenceEndTime_input").click();
-    driverHelper.findElementById("formAddAbsence:absenceEndTime_input").sendKeys(endTime);
-    driverHelper.findElementById("formAddAbsence:absenceEndDate_input").click();
-    driverHelper.findElementById("formAddAbsence:absenceEndDate_input").sendKeys(endDate);
-    driverHelper.findElementById("formAddAbsence:absenceDescription").click();
-    driverHelper.findElementById("formAddAbsence:absenceDescription").sendKeys(description);
-    driverHelper.clickAndWaitForAjax(By.id("formAddAbsence:saveNewAbsence"));
   }
   
   private void editAbsence(String startDate, String startTime, String endDate, String endTime, String description, String absenceFor)
