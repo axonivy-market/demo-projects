@@ -9,4 +9,8 @@
         <identifier>role2</identifier>
         <displayName>User Role 2</displayName>
     </role>
+    <role>
+        <identifier>role3</identifier>
+        <displayName>User Role 3</displayName>
+    </role>
 </role>

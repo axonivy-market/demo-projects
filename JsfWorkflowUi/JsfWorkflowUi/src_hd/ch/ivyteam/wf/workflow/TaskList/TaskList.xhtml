@@ -80,6 +80,10 @@
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
 					<wc:MemberDetail member="#{task.activator}" />
+					<c:if test="#{data.mode == 'my_tasks'}">
+						<ui:param name="isSubstitute" value="#{substituteBean.isSubstitute(task.activator)}" />
+						<h:graphicImage id="iconSubstitute" name="images/details/substitute.png" alt="#{ivy.cms.co('/labels/settings/substitute/substitute')}" title="#{ivy.cms.co('/labels/settings/substitute/substitute')}" rendered="#{isSubstitute}" />
+					</c:if>
 				</p:column>
 				<p:column sortBy="#{START_TIMESTAMP}">
 					<f:facet name="header">
