@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 23 11:37:48 CEST 2014]
+[>Created: Tue Aug 12 15:03:09 CEST 2014]
 13F6148AFE612F94 3.17 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginProcess Big #zClass
@@ -79,6 +79,10 @@ if (!loggedIn)
 else
 {
 	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, ivy.cms.co("/labels/workflow/home/welcome"), in.username));
+	if(ivy.session.getSessionUser().isAbsent())
+	{
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, ivy.cms.co("/labels/workflow/home/currentlyAbsent"), ivy.cms.co("/labels/workflow/home/activeSubstitutions")));
+	}
 }' #txt
 Ls0 f6 type ch.ivyteam.wf.login.Login.LoginData #txt
 Ls0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
