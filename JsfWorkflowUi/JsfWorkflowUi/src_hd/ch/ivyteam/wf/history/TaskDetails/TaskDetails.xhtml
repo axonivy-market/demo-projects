@@ -124,10 +124,13 @@
 				</table>
 				</h:column>
 				<p:spacer width="50" />
-				<h:panelGrid columns="1">
-				<p:fieldset legend="#{ivy.cms.co('/labels/common/taskNotes')}" toggleable="true" toggleSpeed="500" rendered="#{data.task.hasNotes()}">
-					<p:dataList value="#{data.notes}" var="taskNote" itemType="none">
-						<h:panelGrid columns="3">
+				<h:column>
+				<p:fieldset legend="#{ivy.cms.co('/labels/common/notes')}" toggleable="true" toggleSpeed="500" rendered="#{data.task.case.hasNotes() or data.task.hasNotes()}">
+					<p:dataList value="#{data.notes}" var="taskNote" itemType="none" rendered="#{data.task.hasNotes()}">
+						<f:facet name="header">
+				            #{ivy.cms.co('/labels/common/taskNotes')}
+				        </f:facet>
+						<h:panelGrid columns="3" style="width:100%">
 							<p:outputPanel>
 		    					<h:outputText value="#{taskNote.creationTimestamp}" style="font-weight:bold;" >
 			    					<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
@@ -137,15 +140,20 @@
 		    					<h:outputText value="#{taskNote.message}" escape="false" />
 	    					</p:outputPanel>
 	    					<p:spacer width="20" />
-	    					<h:commandLink actionListener="#{logic.deleteNote(taskNote, 'task')}" disabled="#{taskNote.writterName != ivy.session.sessionUserName}">
-								<h:graphicImage name="images/actions/delete.png" alt="" rendered="#{taskNote.writterName == ivy.session.sessionUserName}" />
-							</h:commandLink>
+	    					<p:commandButton id="openDeleteTaskNote" icon="wf-ui-icon-delete" onclick="PF('confirmDeleteNote').show();" disabled="#{taskNote.writterName != ivy.session.sessionUserName}" >
+	    						<f:setPropertyActionListener value="#{taskNote}" target="#{data.note}" />
+								<f:setPropertyActionListener value="task" target="#{data.noteFor}" />
+	    					</p:commandButton>
 						</h:panelGrid>
 					</p:dataList>
-			    </p:fieldset>
-			    <p:fieldset legend="#{ivy.cms.co('/labels/common/caseNotes')}" toggleable="true" toggleSpeed="500" rendered="#{data.task.case.hasNotes()}">
-					<p:dataList value="#{data.caseNotes}" var="caseNote" itemType="none">
-						<h:panelGrid columns="3">
+					<c:if test="#{data.task.hasNotes() and data.task.case.hasNotes()}">
+						<br />
+					</c:if>
+					<p:dataList value="#{data.caseNotes}" var="caseNote" itemType="none" rendered="#{data.task.case.hasNotes()}">
+						<f:facet name="header">
+				            #{ivy.cms.co('/labels/common/caseNotes')}
+				        </f:facet>
+						<h:panelGrid columns="3" style="width:100%">
 							<p:outputPanel>
 		    					<h:outputText value="#{caseNote.creationTimestamp}" style="font-weight:bold;" >
 		    						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
@@ -155,13 +163,14 @@
 		    					<h:outputText value="#{caseNote.message}" escape="false" />
 	    					</p:outputPanel>
 	    					<p:spacer width="20" />
-	    					<h:commandLink actionListener="#{logic.deleteNote(caseNote, 'case')}" disabled="#{caseNote.writterName != ivy.session.sessionUserName}">
-								<h:graphicImage name="images/actions/delete.png" alt="" rendered="#{caseNote.writterName == ivy.session.sessionUserName}" />
-							</h:commandLink>
+							<p:commandButton id="openDeleteCaseNote" icon="wf-ui-icon-delete" onclick="PF('confirmDeleteNote').show();" disabled="#{caseNote.writterName != ivy.session.sessionUserName}" >
+	    						<f:setPropertyActionListener value="#{caseNote}" target="#{data.note}" />
+								<f:setPropertyActionListener value="case" target="#{data.noteFor}" />
+	    					</p:commandButton>
 						</h:panelGrid>
 					</p:dataList>
 				</p:fieldset>
-				</h:panelGrid>
+				</h:column>
 			</h:panelGrid>
 			<br/><br/>
 			<h:outputText value="#{ivy.cms.co('/labels/history/taskDetails/events')}" style="font-weight:bold;" rendered="#{data.isHistory}" />
@@ -199,6 +208,7 @@
 			<ui:param name="headerConfirm" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" />
 			<ui:param name="description" value="#{ivy.cms.co('/labels/dialogs/confirmDialog/resetTask')}" />
 		</ui:include>
+		<ui:include src="/includes/dialogs/ConfirmDeleteNote.xhtml" />
 		<ui:include src="/includes/dialogs/ConfirmDelayNow.xhtml" />
 		<ui:include src="/includes/dialogs/ConfirmExpiryNow.xhtml" />
 		<ui:include src="/includes/dialogs/DelegateTask.xhtml" />

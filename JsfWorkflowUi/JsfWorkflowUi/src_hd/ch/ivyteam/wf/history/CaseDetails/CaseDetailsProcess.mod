@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 09 10:01:40 CEST 2014]
+[>Created: Thu Aug 14 09:52:14 CEST 2014]
 13FE666253A103EF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetailsProcess Big #zClass
@@ -19,11 +19,9 @@ Cs0 @GridStep f3 '' #zField
 Cs0 @GridStep f7 '' #zField
 Cs0 @GridStep f9 '' #zField
 Cs0 @PushWFArc f10 '' #zField
-Cs0 @RichDialogMethodStart f14 '' #zField
 Cs0 @RichDialogProcessEnd f15 '' #zField
 Cs0 @PushWFArc f11 '' #zField
 Cs0 @GridStep f5 '' #zField
-Cs0 @PushWFArc f6 '' #zField
 Cs0 @RichDialogMethodStart f12 '' #zField
 Cs0 @PushWFArc f17 '' #zField
 Cs0 @RichDialogProcessStart f4 '' #zField
@@ -44,6 +42,8 @@ Cs0 @RichDialogProcessEnd f2 '' #zField
 Cs0 @PushWFArc f30 '' #zField
 Cs0 @RichDialogProcessEnd f25 '' #zField
 Cs0 @PushWFArc f38 '' #zField
+Cs0 @RichDialogProcessStart f8 '' #zField
+Cs0 @PushWFArc f31 '' #zField
 >Proto Cs0 Cs0 CaseDetailsProcess #zField
 Cs0 f0 guid 13FE66625592A530 #txt
 Cs0 f0 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
@@ -173,29 +173,6 @@ Cs0 f9 @|StepIcon #fIcon
 Cs0 f9 -1|-1|-9671572 #nodeStyle
 Cs0 f10 expr out #txt
 Cs0 f10 440 160 488 160 #arcP
-Cs0 f14 guid 13FE69F18C9593C5 #txt
-Cs0 f14 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
-Cs0 f14 method deleteNote(ch.ivyteam.ivy.workflow.INote) #txt
-Cs0 f14 disableUIEvents false #txt
-Cs0 f14 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.ivy.workflow.INote note> param = methodEvent.getInputArguments();
-' #txt
-Cs0 f14 inParameterMapAction 'out.note=param.note;
-' #txt
-Cs0 f14 outParameterDecl '<> result;
-' #txt
-Cs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>deleteNote(INote)</name>
-        <nameStyle>17,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Cs0 f14 83 339 26 26 -48 12 #rect
-Cs0 f14 @|RichDialogMethodStartIcon #fIcon
-Cs0 f14 -1|-1|-9671572 #nodeStyle
 Cs0 f15 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f15 339 275 26 26 0 12 #rect
 Cs0 f15 @|RichDialogProcessEndIcon #fIcon
@@ -220,8 +197,6 @@ Cs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f5 168 330 112 44 -30 -8 #rect
 Cs0 f5 @|StepIcon #fIcon
 Cs0 f5 -1|-1|-9671572 #nodeStyle
-Cs0 f6 expr out #txt
-Cs0 f6 109 352 168 352 #arcP
 Cs0 f12 guid 13FF05ADA3C442A3 #txt
 Cs0 f12 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f12 method update() #txt
@@ -420,6 +395,25 @@ Cs0 f25 -1|-1|-9671572 #nodeStyle
 Cs0 f38 expr out #txt
 Cs0 f38 280 352 339 352 #arcP
 Cs0 f38 0 0.5053612370219435 0 0 #arcLabel
+Cs0 f8 guid 147D3806D8237F2B #txt
+Cs0 f8 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
+Cs0 f8 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
+' #txt
+Cs0 f8 actionTable 'out=in;
+' #txt
+Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>deleteNote</name>
+        <nameStyle>10,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f8 83 339 26 26 -30 15 #rect
+Cs0 f8 @|RichDialogProcessStartIcon #fIcon
+Cs0 f31 expr out #txt
+Cs0 f31 109 352 168 352 #arcP
 >Proto Cs0 .type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
@@ -428,8 +422,6 @@ Cs0 f7 mainOut f10 tail #connect
 Cs0 f10 head f9 mainIn #connect
 Cs0 f3 mainOut f11 tail #connect
 Cs0 f11 head f7 mainIn #connect
-Cs0 f14 mainOut f6 tail #connect
-Cs0 f6 head f5 mainIn #connect
 Cs0 f12 mainOut f17 tail #connect
 Cs0 f17 head f3 mainIn #connect
 Cs0 f18 mainOut f19 tail #connect
@@ -450,3 +442,5 @@ Cs0 f23 mainOut f30 tail #connect
 Cs0 f30 head f2 mainIn #connect
 Cs0 f5 mainOut f38 tail #connect
 Cs0 f38 head f25 mainIn #connect
+Cs0 f8 mainOut f31 tail #connect
+Cs0 f31 head f5 mainIn #connect

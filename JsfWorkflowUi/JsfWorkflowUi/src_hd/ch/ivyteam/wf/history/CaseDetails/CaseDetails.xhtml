@@ -96,10 +96,13 @@
 					</table>
 				</h:column>
 				<p:spacer width="50" />
-				<h:panelGrid columns="1">
-					<p:fieldset legend="#{ivy.cms.co('/labels/common/caseNotes')}" toggleable="true" toggleSpeed="500" rendered="#{data.wfCase.hasNotes()}">
+				<h:column>
+					<p:fieldset legend="#{ivy.cms.co('/labels/common/notes')}" toggleable="true" toggleSpeed="500" rendered="#{data.wfCase.hasNotes()}">
 						<p:dataList value="#{data.notes}" var="caseNote" itemType="none">
-							<h:panelGrid columns="3">
+							<f:facet name="header">
+					            #{ivy.cms.co('/labels/common/caseNotes')}
+					        </f:facet>
+							<h:panelGrid columns="3" style="width:100%">
 								<p:outputPanel>
 			    					<h:outputText value="#{caseNote.creationTimestamp}" style="font-weight:bold;" >
 			    						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
@@ -109,13 +112,14 @@
 			    					<h:outputText value="#{caseNote.message}" escape="false" />
 		    					</p:outputPanel>
 		    					<p:spacer width="20" />
-		    					<h:commandLink actionListener="#{logic.deleteNote(caseNote)}" disabled="#{caseNote.writterName != ivy.session.sessionUserName}">
-									<h:graphicImage name="images/actions/delete.png" alt="" rendered="#{caseNote.writterName == ivy.session.sessionUserName}" />
-								</h:commandLink>
+								<p:commandButton id="openDeleteCaseNote" icon="wf-ui-icon-delete" onclick="PF('confirmDeleteNote').show();" disabled="#{caseNote.writterName != ivy.session.sessionUserName}" >
+		    						<f:setPropertyActionListener value="#{caseNote}" target="#{data.note}" />
+									<f:setPropertyActionListener value="case" target="#{data.noteFor}" />
+		    					</p:commandButton>
 							</h:panelGrid>
 						</p:dataList>
 				    </p:fieldset>
-			    </h:panelGrid>
+			    </h:column>
 			</h:panelGrid>
 		</h:form>
 		<br /><br />
@@ -172,6 +176,7 @@
    			</p:dataTable>
 		</h:form>
 		<ui:include src="/includes/dialogs/AddNote.xhtml" />
+		<ui:include src="/includes/dialogs/ConfirmDeleteNote.xhtml" />
 		<ui:include src="/includes/dialogs/ConfirmDeleteReset.xhtml" >
 			<ui:param name="headerConfirm" value="#{ivy.cms.co('/labels/history/caseDetails/caseDelete')}" />
 			<ui:param name="description" value="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteCase')}" />

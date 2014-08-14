@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jul 04 08:56:37 CEST 2014]
+[>Created: Thu Aug 14 09:51:01 CEST 2014]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -19,10 +19,8 @@ Ts0 @TextInP .responsibility .responsibility #zField
 Ts0 @RichDialogInitStart f0 '' #zField
 Ts0 @RichDialogProcessEnd f1 '' #zField
 Ts0 @GridStep f3 '' #zField
-Ts0 @RichDialogMethodStart f19 '' #zField
 Ts0 @RichDialogProcessEnd f20 '' #zField
 Ts0 @GridStep f14 '' #zField
-Ts0 @PushWFArc f17 '' #zField
 Ts0 @PushWFArc f18 '' #zField
 Ts0 @RichDialogMethodStart f26 '' #zField
 Ts0 @RichDialogProcessStart f2 '' #zField
@@ -73,6 +71,8 @@ Ts0 @PushWFArc f54 '' #zField
 Ts0 @GridStep f55 '' #zField
 Ts0 @PushWFArc f56 '' #zField
 Ts0 @PushWFArc f42 '' #zField
+Ts0 @RichDialogProcessStart f57 '' #zField
+Ts0 @PushWFArc f58 '' #zField
 >Proto Ts0 Ts0 TaskDetailsProcess #zField
 Ct0 @TextInP .resExport .resExport #zField
 Ct0 @TextInP .type .type #zField
@@ -192,30 +192,6 @@ Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f3 328 42 112 44 -21 -8 #rect
 Ts0 f3 @|StepIcon #fIcon
 Ts0 f3 -1|-1|-9671572 #nodeStyle
-Ts0 f19 guid 13FE227DAB03DC7E #txt
-Ts0 f19 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
-Ts0 f19 method deleteNote(ch.ivyteam.ivy.workflow.INote,String) #txt
-Ts0 f19 disableUIEvents false #txt
-Ts0 f19 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.ivy.workflow.INote note,java.lang.String noteFor> param = methodEvent.getInputArguments();
-' #txt
-Ts0 f19 inParameterMapAction 'out.note=param.note;
-out.noteFor=param.noteFor;
-' #txt
-Ts0 f19 outParameterDecl '<> result;
-' #txt
-Ts0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>deleteNote(INote)</name>
-        <nameStyle>17,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f19 83 211 26 26 -48 12 #rect
-Ts0 f19 @|RichDialogMethodStartIcon #fIcon
-Ts0 f19 -1|-1|-9671572 #nodeStyle
 Ts0 f20 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f20 339 211 26 26 0 12 #rect
 Ts0 f20 @|RichDialogProcessEndIcon #fIcon
@@ -233,13 +209,14 @@ else
 	in.task.getCase().deleteNote(in.note);
 }
 
+in.noteFor = "case";
 ' #txt
 Ts0 f14 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>delete note</name>
-        <nameStyle>11
+        <nameStyle>11,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -247,8 +224,6 @@ Ts0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f14 168 202 112 44 -30 -8 #rect
 Ts0 f14 @|StepIcon #fIcon
 Ts0 f14 -1|-1|-9671572 #nodeStyle
-Ts0 f17 expr out #txt
-Ts0 f17 109 224 168 224 #arcP
 Ts0 f18 expr out #txt
 Ts0 f18 280 224 339 224 #arcP
 Ts0 f26 guid 13FEB4CFA465F013 #txt
@@ -302,13 +277,15 @@ Ts0 f10 actionCode 'if(in.noteDescription.trim().length()>0)
 	{
 		in.task.getCase().createNote(ivy.session, in.noteDescription);
 	}
-}' #txt
+}
+
+in.noteFor = "case";' #txt
 Ts0 f10 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>add note</name>
-        <nameStyle>8
+        <nameStyle>8,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -323,6 +300,7 @@ Ts0 f23 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f23 actionTable 'out=in;
 out.isDelegateToRole=false;
+out.noteFor="case";
 out.showNoteSelection=true;
 ' #txt
 Ts0 f23 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
@@ -330,7 +308,7 @@ Ts0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>enable note option</name>
-        <nameStyle>18
+        <nameStyle>18,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -718,6 +696,25 @@ Ts0 f56 expr out #txt
 Ts0 f56 440 64 488 64 #arcP
 Ts0 f42 expr out #txt
 Ts0 f42 600 64 659 64 #arcP
+Ts0 f57 guid 147D37EF931F4AC4 #txt
+Ts0 f57 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f57 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f57 actionTable 'out=in;
+' #txt
+Ts0 f57 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>deleteNote</name>
+        <nameStyle>10,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f57 83 211 26 26 -30 15 #rect
+Ts0 f57 @|RichDialogProcessStartIcon #fIcon
+Ts0 f58 expr out #txt
+Ts0 f58 109 224 168 224 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -887,7 +884,6 @@ out.delayTime=IF(in.task.getDelayTimestamp().getYear() == 1, null, in.task.getDe
 out.expiryDate=IF(in.task.getExpiryTimestamp().getYear() == 1, null, in.task.getExpiryTimestamp().getDate());
 out.expiryTime=IF(in.task.getExpiryTimestamp().getYear() == 1, null, in.task.getExpiryTimestamp().getTime());
 out.noteDescription="";
-out.noteFor="case";
 out.priority=in.task.getPriority().name();
 out.taskLink=ivy.html.taskstartref(in.task);
 ' #txt
@@ -948,7 +944,7 @@ Ct0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>get notes</name>
-        <nameStyle>9
+        <nameStyle>9,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -1017,8 +1013,6 @@ Ct0 f1 expr out #txt
 Ct0 f1 888 96 947 96 #arcP
 >Proto Ct0 0 0 32 24 18 0 #rect
 >Proto Ct0 @|BIcon #fIcon
-Ts0 f19 mainOut f17 tail #connect
-Ts0 f17 head f14 mainIn #connect
 Ts0 f14 mainOut f18 tail #connect
 Ts0 f18 head f20 mainIn #connect
 Ts0 f2 mainOut f12 tail #connect
@@ -1067,6 +1061,8 @@ Ts0 f3 mainOut f56 tail #connect
 Ts0 f56 head f55 mainIn #connect
 Ts0 f55 mainOut f42 tail #connect
 Ts0 f42 head f1 mainIn #connect
+Ts0 f57 mainOut f58 tail #connect
+Ts0 f58 head f14 mainIn #connect
 Ct0 f22 mainOut f6 tail #connect
 Ct0 f6 head f5 mainIn #connect
 Ct0 f5 mainOut f8 tail #connect
