@@ -42,9 +42,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForAddNote");
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openAddNote"));
-    driverHelper.findElementById("formAddNote:note").sendKeys("This is the description of the new note");
-    driverHelper.clickAndWaitForAjax(By.id("formAddNote:saveNote"));
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("This is the description of the new note");
+    addNote();
     closeTask();
   }
   
@@ -56,12 +54,37 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForAddNoteToCase");
     driverHelper.clickAndWaitForAjax(By.id("formCaseDetails:openAddNoteCase"));
-    driverHelper.findElementById("formAddNote:note").sendKeys("This is the description of the new note");
-    driverHelper.clickAndWaitForAjax(By.id("formAddNote:saveNote"));
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("This is the description of the new note");
+    addNote();
     closeTask();
   }
   
+  @Test
+  public void testDeleteNote() throws Exception
+  {
+    createTask("taskForDeleteNote","Test delete note", 2);
+    navigate().taskList();
+    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForDeleteNote");
+    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openAddNote"));
+    addNote();
+    deleteNote();
+    closeTask();
+  }
+
+  private void addNote()
+  {
+    driverHelper.findElementById("formAddNote:note").sendKeys("This is the description of the new note");
+    driverHelper.clickAndWaitForAjax(By.id("formAddNote:saveNote"));
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("This is the description of the new note");
+  }
+  
+  private void deleteNote()
+  {
+    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:j_id_g_2_2p:0:openDeleteCaseNote"));
+    driverHelper.clickAndWaitForAjax(By.id("formConfirmDeleteNote:confirmAction"));
+    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("This is the description of the new note");
+  }
+
   @Test
   public void testChangeExpiryToFuture() throws Exception
   {
