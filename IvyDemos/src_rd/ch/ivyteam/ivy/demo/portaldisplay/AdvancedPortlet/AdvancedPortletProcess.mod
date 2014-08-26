@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jul 02 16:01:25 CEST 2013]
+[>Created: Tue Aug 26 14:39:55 CEST 2014]
 13F6201EBBFCFF9C 3.17 #module
 >Proto >Proto Collection #zClass
 Ps0 AdvancedPortletProcess Big #zClass
@@ -163,6 +163,7 @@ Ps0 f11 expr out #txt
 Ps0 f11 266 392 237 431 #arcP
 Ps0 f12 guid 13F7A0BB1FF6AC23 #txt
 Ps0 f12 type ch.ivyteam.ivy.demo.portaldisplay.AdvancedPortlet.AdvancedPortletData #txt
+Ps0 f12 broadcast openConfigurationDialog #txt
 Ps0 f12 actionDecl 'ch.ivyteam.ivy.demo.portaldisplay.AdvancedPortlet.AdvancedPortletData out;
 ' #txt
 Ps0 f12 actionTable 'out=in;
