@@ -2,5 +2,5 @@
 Vous n''avez pas la permission <%=ivy.html.get("in.temp.msg")%> pour exécuter cette opération.
 </P>
 <P>
-Contactez votre Xpert.Ivy Administrateur workflow.
+Contactez votre Axon.Ivy Administrateur workflow.
 </P>

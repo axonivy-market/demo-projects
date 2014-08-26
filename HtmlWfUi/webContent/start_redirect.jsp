@@ -6,7 +6,7 @@
 %>
 <html>
 <head>
-	<title>Xpert.ivy Workflow</title>
+	<title>Axon.ivy Workflow</title>
 </head>
 <body style="background-color: #ffffff;font-size: 10px; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  margin-top: 0px;margin-bottom: 0px;margin-left: 1px;margin-right: 1px;height:100%; ">
 

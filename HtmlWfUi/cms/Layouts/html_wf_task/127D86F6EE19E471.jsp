@@ -8,7 +8,7 @@
 	<meta http-equiv="expires" content="0">
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<link rel="stylesheet" type="text/css" href="<%=ivy.style()%>"/>
-	<title>Xpert.ivy Workflow</title>
+	<title>Axon.ivy Workflow</title>
 </head>
 
 <body>

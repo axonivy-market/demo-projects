@@ -6,13 +6,13 @@ String tmpMsg=ivy.html.get("in.temp.msg");
 %>
 <html>
 <head> 
-<title>Xpert.ivy Workflow</title> 
+<title>Axon.ivy Workflow</title> 
 <%if(urlToStart.length()>0) {%>
 <META  http-equiv="refresh" content="0; URL=<%=urlToStart%>">
 <%}%>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="<%=ivy.cms.cr("/Styles/html_wf")%>"/>
-<title>Xpert.ivy Workflow</title>
+<title>Axon.ivy Workflow</title>
 </head>
 
 <body style="background-color: #ffffff;font-size: 10px; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  margin-top: 0px;margin-bottom: 0px;margin-left: 1px;margin-right: 1px;height:100%; ">

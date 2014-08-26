@@ -15,7 +15,7 @@ String[] languages = {"de", "en", "fr"};
   	%>
 	</ul>
 	<ul class="TopNavigation">
-		<li><a href="../info/index.jsp" target="_top">Server</a></li>
+		<li><a href="../info/index.jsp" target="_top">Engine</a></li>
 		<li><a style="text-decoration:underline;" href="index.jsp" target="_top">Workflow</a></li>
 	</ul>
 </div>

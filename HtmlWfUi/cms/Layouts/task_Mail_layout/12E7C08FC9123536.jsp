@@ -21,7 +21,7 @@
 			<table cellspacing="0" cellpadding="5">
 				<tr>
 					<td width="40"><%=ivy.cms.co("/Project/Banner")%></td>
-					<td class="HeaderText">Xpert.ivy</td>
+					<td class="HeaderText">Axon.ivy</td>
 				</tr>
 			</table>
 		</td>
