@@ -22,13 +22,11 @@
     	 		  	<h:outputText>Counter:</h:outputText>
     	 		  	<h:outputText value="#{data.counter}"/>
     	 		  	<br/>
-    	 		  	<ui:remove>
     	 		  	<!-- 
     	 		  	Increases the counter 
     	 		  	but only updates the panel 'counterPanel_1' 
     	 		  	without to reload the whole page or update other panels
     	 		  	  -->
-    	 		  	</ui:remove>
     	 		  	<p:commandButton value="Increase counter then update 'Panel A'" update="counterPanel_1" actionListener="#{logic.increaseCounter}"/>
     	 		</p:panel>
     	 		<br/>
@@ -36,23 +34,19 @@
     	 		  	<h:outputText>Counter:</h:outputText>
     	 		  	<h:outputText value="#{data.counter}"/>
     	 		  	<br/>
-    	 		  	<ui:remove>
     	 		  	<!-- 
     	 		  	Increases the counter 
     	 		  	but only updates the panel 'counterPanel_2' 
     	 		  	without to reload the whole page or update other panels
     	 		  	  -->
-    	 		  	</ui:remove>
     	 		  	<p:commandButton value="Increase counter then update 'Panel B'" update="counterPanel_2" actionListener="#{logic.increaseCounter}"/>
     	 		</p:panel>
     	 		<br/>
-   	 		  	<ui:remove>
    	 		  	<!-- 
    	 		  	Increases the counter 
    	 		  	and then updates both panels 
    	 		  	without to reload the whole page
                 -->
-                </ui:remove>
    	 		  	<p:commandButton value="Increase counter then update both panels" update="counterPanel_1 counterPanel_2" actionListener="#{logic.increaseCounter}"/>
     		</p:panel>	 	
     	</h:form>
