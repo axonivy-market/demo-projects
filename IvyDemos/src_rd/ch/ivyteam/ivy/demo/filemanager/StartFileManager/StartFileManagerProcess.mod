@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jan 23 14:10:19 EST 2014]
+[>Created: Thu Aug 28 10:34:08 EDT 2014]
 12BAAF77763F86CB 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 StartFileManagerProcess Big #zClass
@@ -93,6 +93,8 @@ Ss0 f8 actionDecl 'ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileMan
 ' #txt
 Ss0 f8 actionTable 'out=in;
 ' #txt
+Ss0 f8 actionCode 'import ch.ivyteam.ivy.addons.filemanager.configuration.FileManagerConfigurationController;
+out.configurationController = new FileManagerConfigurationController();' #txt
 Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -401,6 +403,7 @@ try{
 	if(!panel.activateIvySystemDBCheckBox.selected && panel.dbComboBox.selectedIndex<0){
 		panel.startButton1.enabled=false;
 	}
+	panel.serverpathTextField.text=out.configurationController.rootPath;
 }catch(Throwable t){
 	ivy.log.error(t.getMessage(),t);
 }' #txt
@@ -431,6 +434,7 @@ out.configurationController.activateSecurity=panel.activateSecurityCheckBox.sele
 out.configurationController.allowUserToSetDocumentFileTypes=true /*we set this to true to allow the user to choose the fileTypes on the documents */;
 out.configurationController.allowUserToSetDocumentTags=true /*we set this to true to allow the user to set the fileTags on the documents*/;
 out.configurationController.fileActionHistoryConfiguration.activateFileActionHistory=panel.activateHistoryCheckBox.selected;
+out.configurationController.rootPath=panel.serverpathTextField.text.trim();
 out.configurationController.showFileTypeInTable=true /*we set this to true to see the fileTypes in the table if the option is selected*/;
 out.configurationController.showFileTypeManagement=true /*we set this to true to allow to manage the fileTypes if the option is selected*/;
 out.configurationController.storeFilesInDB=panel.activateFilesAsBlobCheckBox.selected;
@@ -693,6 +697,7 @@ out.configurationController.activateSecurity=panel.activateSecurityCheckBox.sele
 out.configurationController.allowUserToSetDocumentFileTypes=true /*we set this to true to allow the user to choose the fileTypes on the documents */;
 out.configurationController.allowUserToSetDocumentTags=true /*we set this to true to allow the user to set the fileTags on the documents*/;
 out.configurationController.fileActionHistoryConfiguration.activateFileActionHistory=panel.activateHistoryCheckBox.selected;
+out.configurationController.rootPath=panel.serverpathTextField.text.trim();
 out.configurationController.showFileTypeInTable=true /*we set this to true to see the fileTypes in the table if the option is selected*/;
 out.configurationController.showFileTypeManagement=true /*we set this to true to allow to manage the fileTypes if the option is selected*/;
 out.configurationController.storeFilesInDB=panel.activateFilesAsBlobCheckBox.selected;
@@ -726,11 +731,8 @@ Ss0 f46 expr out #txt
 Ss0 f46 744 154 744 180 #arcP
 Ss0 f42 expr out #txt
 Ss0 f42 744 204 744 228 #arcP
->Proto Ss0 .ui2RdDataAction 'out.configurationController.rootPath=panel.serverpathTextField.valueAsString;
-' #txt
->Proto Ss0 .rdData2UIAction 'panel.serverpathTextField.valueAsString=in.configurationController.rootPath;
+>Proto Ss0 .rdData2UIAction 'panel.dbComboBox.listData=in.databases;
 panel.langComboBox.listData=["Deutsch","English","Français"];
-panel.dbComboBox.listData=in.databases;
 ' #txt
 >Proto Ss0 .type ch.ivyteam.ivy.demo.filemanager.StartFileManager.StartFileManagerData #txt
 >Proto Ss0 .processKind RICH_DIALOG #txt
