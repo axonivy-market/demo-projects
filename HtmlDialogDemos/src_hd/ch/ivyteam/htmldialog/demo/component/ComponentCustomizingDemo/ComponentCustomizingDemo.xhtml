@@ -9,7 +9,7 @@
 
 	<ui:define name="title">Composite Component Customizing Demo</ui:define>
 	<ui:define name="content">
-	<p:panel id="panel">
+	<h:panelGroup id="panel">
 		<p>This demo explains how Html Dialog composite comonents can be customized.</p>
 		<h:form>
 			<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
@@ -70,7 +70,7 @@
 			<h:outputText value="Country" />
 			<h:outputText value="#{data.corporateAddress.country}" />
 		</h:panelGrid>
-	</p:panel>
+	</h:panelGroup>
 	</ui:define>
 
 	</ui:composition>

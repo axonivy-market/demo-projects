@@ -9,7 +9,7 @@
 	<ui:define name="title">SelectManyCheckbox Demo</ui:define>
 	<ui:define name="content">
      	<h:form>
-		   	<p:panel id="persons">
+		   	<h:panelGroup layout="block" id="persons">
 		   	<p>This demo explains how Xpert.ivy Lists can be used on a select many checkbox widget.</p>
 	 			<p:selectManyCheckbox value="#{data.selectedPersons}" >
 	 				<f:converter converterId="ivy.ListItem" />  
@@ -21,7 +21,7 @@
 	 			<br/>
 	 			<br/>
 	 			<h:outputText value="Selected Persons: #{data.selectedPersons}"/>
-	   		</p:panel>   		
+	   		</h:panelGroup>   		
    		</h:form>
 	</ui:define>
 

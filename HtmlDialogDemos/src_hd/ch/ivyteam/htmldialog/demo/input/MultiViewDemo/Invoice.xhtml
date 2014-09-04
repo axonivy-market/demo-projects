@@ -12,7 +12,7 @@
 	<ui:define name="title">Multi View Demo</ui:define>
 	<ui:define name="content">
 	        <h:form id="myForm">
-	           	<p:panel id="panel">
+	           	<h:panelGroup layout="block" id="panel">
 		    		<h3>Payment - Invoice</h3>
 		    		<p:messages id="msgs"/>
 		    		<h:panelGrid columns="2">
@@ -20,7 +20,7 @@
 			         	<p:inputText required="true" value="#{data.address}" id="Address"></p:inputText>
 		        	</h:panelGrid>           
 		        	<p:commandButton value="Finish" update="myForm" action="#{logic.nextView('Invoice')}"/>
-		        </p:panel>
+		        </h:panelGroup>
 	        </h:form>    	
 	</ui:define>
 

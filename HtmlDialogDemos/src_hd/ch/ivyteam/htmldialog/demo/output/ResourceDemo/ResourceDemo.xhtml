@@ -6,7 +6,7 @@
 
 	<ui:define name="title">Resource Demo</ui:define>
 	<ui:define name="content">
-	<p:panel >
+	<h:panelGroup layout="block" id="resources">
 		<p>This demo explains how Resources from the dialog resources folder, the webContent folder or the CMS can be used.</p>
 		<h4>For using resources use the following code:</h4>
 		<p:panelGrid columns="2" id="resourcesResultPanel">
@@ -93,7 +93,7 @@
 				<p:column>The expression #{resource['library:path']} can be used to get the URL of a resource (can also be used in resources like css files e.g. to reference images).</p:column>
 			</p:row>
 		</p:panelGrid>
-	</p:panel>
+	</h:panelGroup>
 	</ui:define>
 
 	</ui:composition>

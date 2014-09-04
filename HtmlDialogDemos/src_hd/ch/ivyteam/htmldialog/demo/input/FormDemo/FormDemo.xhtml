@@ -10,7 +10,7 @@
 	<ui:define name="title">Form Demo</ui:define>
 	<ui:define name="content">
     	<h:form id="Form">
-    		<p:panel id="panel">
+    		<h:panelGroup layout="block" id="panel">
     	 		<p>This demo explains how:</p>
     	 		<ul>
     	 			<li>Html Dialog Data can be mapped to UI elements, e.g. to build a form.</li>
@@ -52,17 +52,13 @@
 
     	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/ZipCode')}" for="ZipCode"/>
     	 			<p:inputText value="#{data.zipCode}" id="ZipCode" required="true">
-    	 				<ui:remove>
     	 				<!-- 
     	 			    Use the following tag to convert a number type to a string that is displayed and vice versa  
     	 			    -->
-    	 			    </ui:remove>
     	 			  	<f:convertNumber integerOnly="true" groupingUsed="false"/>
-    	 				<ui:remove>
     	 			    <!-- 
     	 			    Use the following tag to validate that the entered number is between 4 and 5 characters long 
     	 			    -->
-    	 			    </ui:remove>
     	 			  	<f:validateLength minimum="4" maximum="5"/>
     	 			</p:inputText>
     	 			<p:message for="ZipCode" display="icon"/>
@@ -88,13 +84,11 @@
     	 		<br/><br/>
     	 		<h:outputText>Data: #{data}</h:outputText>
 
-	    	</p:panel>
+	    	</h:panelGroup>
 	    	<br/>
-	    	<ui:remove>
 			<!-- 
 			Use #{logic.close} to call the event process with the name close. 
 			-->
-		    </ui:remove>
    	 	</h:form>
 	</ui:define>
 

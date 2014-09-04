@@ -12,7 +12,7 @@
 	<ui:define name="title">Multi View Demo</ui:define>
 	<ui:define name="content">
         <h:form id="myForm">
-	       	<p:panel id="panel">
+	       	<h:panelGroup layout="block" id="panel">
 		        <h3>Payment - Credit Card Processing</h3>
 		        <p:outputPanel rendered="#{data.processing}">
 			        <p:outputLabel value="Verifying credit card. Please wait ..."/><br/>
@@ -23,7 +23,7 @@
 			        <p:commandButton value="Finish" action="#{logic.nextView('CreditCardProcessing')}"/>
 		        </p:outputPanel>
 		       	<p:poll interval="3" stop="#{not data.processing}" autoStart="true" listener="#{logic.stopProcessing}" update="myForm"/>
-		    </p:panel>
+		    </h:panelGroup>
         </h:form>    	
 	</ui:define>
 

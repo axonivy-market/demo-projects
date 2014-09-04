@@ -2,25 +2,14 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"      
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">      
- 
-    <h:head>
-        <style type="text/css">
-          .ui-orderlist-list { 
-          	height:12.2em !important;
-          }
-          .ui-orderlist          {
-          	border-spacing:0 !important;
-          }
-        </style>
-    </h:head>
-<h:body>
+      xmlns:p="http://primefaces.org/ui">
+<body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
 
 	<ui:define name="title">OrderList Demo</ui:define>
 	<ui:define name="content">
      	<h:form>
-		   	<p:panel id="persons">
+		   	<h:panelGroup layout="block" id="persons">
 		   	<p>This demo explains how an Xpert.ivy List can be used as data for an order list widget.</p>
 <!--
   Shows a list that can be reordered. 
@@ -36,10 +25,10 @@
 	 			<br/>
 	 			<br/>
 	 			<h:outputText value="Persons: #{data.persons}"/>
-	   		</p:panel>   		
+	   		</h:panelGroup>   		
    		</h:form>
 	</ui:define>
 
 	</ui:composition>
-</h:body>
+</body>
 </html>

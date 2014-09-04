@@ -3,19 +3,12 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
- 
-    <h:head>
-        <style type="text/css">
-        	h4{margin-bottom:5px;}
-        	p{margin-top:2px; margin-bottom:2px;}
-        </style>
-    </h:head>
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
 
 	<ui:define name="title">Bean Validation (JSR 303) Demo</ui:define>
 	<ui:define name="content">
-   		<p:panel id="panel">
+   		<h:panelGroup layout="block" id="panel">
    			<p>This demo explains how the bean validation (JSR 303) could be used in Xpert.ivy.</p>
    	 		<p>The fields of a java class (bean) can be annotated with validation information. The validation information will then be considered by Html Dialogs when the field of the class is bound to a widget.</p>
    			<p style="margin-top:10px;">The java class <code>ch.ivyteam.htmlDialog.demo.input.beanValidation.Person</code> defines fields annotated with such validation information. The fields of the java class are bound to the widgets in the form bellow. 
@@ -54,7 +47,7 @@
 		    	<br/>
     	 		<h:outputText>Data: #{data}</h:outputText> 
    			</h:form>
-   		</p:panel>
+   		</h:panelGroup>
 	</ui:define>
 
 	</ui:composition>

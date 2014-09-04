@@ -12,7 +12,7 @@
 	<ui:define name="title">Multi View Demo</ui:define>
 	<ui:define name="content">
         <h:form id="myForm">
-           	<p:panel id="panel">
+           	<h:panelGroup layout="block" id="panel">
 	    	    <h3>Payment - Credit Card</h3>
 	    	    <p:messages id="msgs"/>
 	    	    <h:panelGrid columns="2">
@@ -21,7 +21,7 @@
 	        	</h:panelGrid>           
 	    	    
 	        	<p:commandButton value="Next" update="myForm" action="#{logic.nextView('CreditCard')}"/>
-        	</p:panel>
+        	</h:panelGroup>
         </h:form>    	
 	</ui:define>
 

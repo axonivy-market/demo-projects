@@ -9,7 +9,7 @@
 	<ui:define name="title">Editable Table Demo</ui:define>
 	<ui:define name="content">
      	<h:form id="form">
-		   	<p:panel id="persons">
+		   	<h:panelGroup id="persons" layout="block">
 		   	<p>This demo explains how an Xpert.ivy Recordset can be used as data for an editable table widget.</p>
 	 			<p:dataTable var="person" value="#{data.recordset}" sortBy="#{person.name}" sortOrder="descending" editable="true" id="personTable">
 	 			  <p:column headerText="Name" sortBy="#{person.name}">
@@ -51,7 +51,7 @@
 	 			<br/>
 	 			<br/>
 	 			<h:outputText value="Data: #{data.recordset}"/>	 			
-	   		</p:panel>		
+	   		</h:panelGroup>	
    		</h:form>
 	</ui:define>
 

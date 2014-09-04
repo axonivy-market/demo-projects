@@ -12,11 +12,11 @@ in the 'webContent/resources' where the JSF Composite Components are defined.
 -->
 <h:body>
 
-	<ui:define name="title">JSF Composite Component Demo</ui:define>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+		<ui:define name="title">JSF Composite Component Demo</ui:define>
 
 		<ui:define name="content">
-				<p:panel id="panel">
+				<h:panelGroup layout="block" id="panel">
 					<p>This demo explains how to use standard JSF Composite
 						Components (without ivy Data and ivy Logic) from the
 						'webContent/resources' folder.</p>
@@ -53,7 +53,7 @@ in the 'webContent/resources' where the JSF Composite Components are defined.
 							<h:outputText value="#{data.person.billingAddress.country}" />
 						</h:panelGrid>
 					</h:panelGrid>
-				</p:panel>
+				</h:panelGroup>
 		</ui:define>
 
 	</ui:composition>

@@ -3,20 +3,13 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
- 
-    <h:head>
-        <style type="text/css">
-        	h4{margin-bottom:5px;}
-        	p{margin-top:2px; margin-bottom:2px;}
-        </style>
-    </h:head>
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
 
 	<ui:define name="title">ManagedBean Demo</ui:define>
 	<ui:define name="content">
 		<h:form id="beanForm">
-    		<p:panel id="panel">
+    		<h:panelGroup layout="block" id="panel">
     			<p>This demo explains how ManagedBeans can be used in Html Dialogs.</p>
     	 		<p>In an Html Dialog it is possible to interact with normal Java classes by declaring them as ManagedBeans.</p>
     			<p style="margin-top:10px;">In this demo    ivy project we have a ManagedBean  class under <code>ch.ivyteam.htmldialog.demo.other.managedBean.ApplicationDemoBean.java</code>.  <br />We use the bean to show and store a simple String value in the description field of the class. Therefore we bind the value of the input text to: <code>#<span></span>{applicationDemoBean.description}</code></p>
@@ -31,8 +24,8 @@
     			<p>MangedBeans can be annotated with a scope. The scope defines the lifecycle of a ManageBean.
     			Currently three scopes for ivy project beans are supported:</p>
 				<p:panelGrid border="1" columns="2">
-					<h:head>Scope</h:head>
-					<h:head>Lifetime</h:head>
+					<h:outputText value="Scope"/>
+					<h:outputText value="Lifetime"/>
 					<h:outputText value="@ApplicationScoped"/>
 					<h:outputText value="Lives as long as an ivy application. They are only destroyed if the server shut's down or if the declaring project (PMV) is deleted."/>
 					<h:outputText value="@SessionScoped"/>
@@ -41,7 +34,7 @@
 					<h:outputText value="Lives as long as the view request. This is the default Scope which is assumed if no scope annotation was declared."/>
 				</p:panelGrid>
     	 		
-    	 		</p:panel>
+    	 	</h:panelGroup>
     	</h:form>	
 	</ui:define>
 

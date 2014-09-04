@@ -12,7 +12,7 @@
 		<h:outputStylesheet name="demoStyle.css"/>
 		
 		<h:form id="componentForm">
-		<p:panel id="panel">
+		<h:panelGroup layout="block" id="panel">
 			<p>This demo explains how callback methods can be registered
 			to react on actions within a component.<br /></p>
 			<ul>
@@ -29,7 +29,7 @@
             
             <!-- Display the selection result: -->
             <p:growl showDetail="true" />
-	     </p:panel>	
+	     </h:panelGroup>	
 	     </h:form>
      </ui:define>
      </ui:composition>
