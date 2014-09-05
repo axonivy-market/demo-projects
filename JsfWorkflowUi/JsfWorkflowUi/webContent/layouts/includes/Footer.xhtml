@@ -5,16 +5,23 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:body>
-<ui:composition>
-	<div id="layoutFooter">Powered by Axon.ivy Workflow Copyright &#169; <a href="http://www.xpertivy.ch">ivyTeam AG</a></div>
-	<div id="layoutFooterLanguages">
-		<p:commandLink id="languageDe" value="de" actionListener="#{languageBean.languageGerman}" update="@all" />
-		<p:spacer width="5"/>
-		<p:commandLink id="languageEn" value="en" actionListener="#{languageBean.languageEnglish}" update="@all" />
-		<p:spacer width="5"/>
-		<p:commandLink id="languageFr" value="fr" actionListener="#{languageBean.languageFrench}" update="@all" />
-	</div>
-</ui:composition>
-</h:body>
+<body>
+	<ui:composition>
+		<hr />
+		<footer>
+			Powered by <a href="http://developer.axonivy.com">Axon.ivy</a> Workflow Copyright &#169; <a
+				href="http://www.ivyteam.ch">ivyTeam AG</a>
+			<div class="pull-right">
+				<p:commandLink id="languageDe" value="de"
+					actionListener="#{languageBean.languageGerman}" update="@all" />
+				<p:spacer width="5" />
+				<p:commandLink id="languageEn" value="en"
+					actionListener="#{languageBean.languageEnglish}" update="@all" />
+				<p:spacer width="5" />
+				<p:commandLink id="languageFr" value="fr"
+					actionListener="#{languageBean.languageFrench}" update="@all" />
+			</div>
+		</footer>
+	</ui:composition>
+</body>
 </html>

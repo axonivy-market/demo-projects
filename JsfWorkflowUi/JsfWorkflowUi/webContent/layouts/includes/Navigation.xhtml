@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<body>
+	<ui:composition>
+		<div class="navbar ivy-subnav">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="row">
+						<ul class="nav nav-pills">
+							<li class="#{navigation.getStyle('TaskList')}"><a
+								id="taskList"
+								href="#{ivy.html.startref('13EE5C9EAAA819C8/DefaultTaskListPage.ivp')}">#{ivy.cms.co('/navLabels/taskList')}</a></li>
+							<li class="#{navigation.getStyle('ProcessList')}"><a
+								id="processList"
+								href="#{ivy.html.startref('13ED18655F6A1538/DefaultProcessStartListPage.ivp')}">#{ivy.cms.co('/navLabels/processList')}</a></li>
+							<li class="#{navigation.getStyle('CaseList')}"><a
+								id="caseList"
+								href="#{ivy.html.startref('13F1D890C62823FF/CaseList.ivp')}">#{ivy.cms.co('/navLabels/caseHistory')}</a></li>
+							<li class="#{navigation.getStyle('TaskHistory')}"><a
+								id="taskHistory"
+								href="#{ivy.html.startref('13F2E007FE178DD4/TaskHistory.ivp')}">#{ivy.cms.co('/navLabels/taskHistory')}</a></li>
+							<li class="dropdown"><a class="dropdown-toggle"
+								data-toggle="dropdown" href="#">#{ivy.cms.co('/navLabels/settings')}<span
+									class="caret"></span>
+							</a>
+								<ul class="dropdown-menu">
+									<li class="#{navigation.getStyle('Absence')}"><a
+										id="loggedInUser"
+										href="#{ivy.html.startref('13F3C911395912D4/Absence.ivp')}">#{ivy.cms.co('/navLabels/absence')}</a></li>
+									<li class="#{navigation.getStyle('Substitution')}"><a
+										id="taskHistory"
+										href="#{ivy.html.startref('13F5720218D18BA2/Substitution.ivp')}">#{ivy.cms.co('/navLabels/substitution')}</a></li>
+									<li class="#{navigation.getStyle('MailNotification')}"><a
+										id="mailSettings"
+										href="#{ivy.html.startref('13F51835BF0FECEF/MailNotificationSettings.ivp')}">#{ivy.cms.co('/navLabels/mailSettings')}</a></li>
+								</ul></li>
+							<c:choose>
+								<c:when test="#{adminBean.isAdmin}">
+									<li class="dropdown"><a class="dropdown-toggle"
+										data-toggle="dropdown" href="#">#{ivy.cms.co('/navLabels/admin')}<span
+											class="caret"></span>
+									</a>
+										<ul class="dropdown-menu">
+											<li class="#{navigation.getStyle('CaseList')}"><a
+												id="caseListAdmin"
+												href="#{ivy.html.startref('13F1D890C62823FF/CaseListAdmin.ivp')}">#{ivy.cms.co('/navLabels/caseAdmin')}</a></li>
+											<li class="#{navigation.getStyle('TaskList')}"><a
+												id="taskListAdmin"
+												href="#{ivy.html.startref('13EE5C9EAAA819C8/TaskListAdmin.ivp')}">#{ivy.cms.co('/navLabels/taskAdmin')}</a></li>
+											<li class="#{navigation.getStyle('Statistic')}"><a
+												id="workflowStatistic"
+												href="#{ivy.html.startref('1446317E486F5562/WorkflowStatistic.ivp')}">#{ivy.cms.co('/navLabels/workflowStatistic')}</a></li>
+											<li class="#{navigation.getStyle('LoggedInUser')}"><a
+												id="loggedInUser"
+												href="#{ivy.html.startref('1477BA1CD7421F55/LoggedInUser.ivp')}">#{ivy.cms.co('/navLabels/loggedInUser')}</a></li>
+										</ul></li>
+								</c:when>
+							</c:choose>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:composition>
+</body>
+</html>

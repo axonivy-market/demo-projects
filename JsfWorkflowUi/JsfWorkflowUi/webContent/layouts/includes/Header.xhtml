@@ -5,17 +5,26 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:body>
-<ui:composition> 
-    <div id="layoutHeader">
-		<h:graphicImage name="images/others/AxonIvyHeader.gif" alt="Axon.ivy" />
-		<c:if test="#{! ivy.wf.securityContext.currentSession.sessionUserUnknown}">
-			<div id="layoutHeaderLoggedInAs">
-				#{ivy.cms.co('/labels/template/header/loginAs')} #{ivy.session.getSessionUserName()} |
-				<a id="logoutButton" href="#{ivy.html.startref('13EACA2A989BCC3D/Logout.ivp')}">#{ivy.cms.co('/labels/template/header/logout')}</a>
+<body>
+	<ui:composition>
+		<div class="navbar navbar-inverse">
+			<div class="container" id="headerdiv">
+				<div class="navbar-header">
+					<a class="navbar-brand"
+						href="#{ivy.html.startref('13EACA2A989BCC3D/DefaultApplicationHomePage.ivp')}"
+						id="navbar-ivy-title">Axon.ivy Workflow</a>
+				</div>
+
+				<c:if
+					test="#{! ivy.wf.securityContext.currentSession.sessionUserUnknown}">
+					<p class="navbar-text navbar-right pull-right">
+						#{ivy.cms.co('/labels/template/header/loginAs')}
+						#{ivy.session.getSessionUserName()} | <a id="logoutButton"
+							href="#{ivy.html.startref('13EACA2A989BCC3D/Logout.ivp')}" class="navbar-link">#{ivy.cms.co('/labels/template/header/logout')}</a>
+					</p>
+				</c:if>
 			</div>
-		</c:if>
-	</div>
-</ui:composition>
-</h:body>
+		</div>
+	</ui:composition>
+</body>
 </html>

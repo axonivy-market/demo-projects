@@ -9,37 +9,46 @@
 
 <h:head>
 	<title>Axon.ivy Workflow</title>
-	<h:outputStylesheet name="styles/Layout.css"/>
-	<h:outputStylesheet name="styles/Icons.css"/>
-	<h:outputStylesheet name="styles/Details.css"/>
+	<link rel="shortcut icon"
+		href="#{resource['ivy-webcontent:layouts/images/ivy_favicon_48.png']}" />
+
+	<!-- You can also load bootstrap from an external CDN: //http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
+	<h:outputStylesheet
+		name="layouts/styles/bootstrap-modified-for-jsf.css" />
+	<h:outputStylesheet name="layouts/styles/ivy-common.css" />
+
+	<h:outputStylesheet name="styles/Icons.css" />
+	<h:outputStylesheet name="styles/Details.css" />
+	
+	<h:outputScript name="layouts/js/bootstrap.min.js"/>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.js"></script>
+  <![endif]-->
 </h:head>
 <h:body>
-	<p:layout fullPage="true">
-		<p:layoutUnit id="headerLayoutUnit" position="north" size="140">
-			<ui:include src="includes/Header.xhtml" />
-		</p:layoutUnit>
-		
+	<ui:insert name="header">
+		<ui:include src="includes/Header.xhtml" />
+		<ui:include src="includes/Navigation.xhtml" />
+	</ui:insert>
+
+	<div class="container">
 		<c:choose>
- 			<c:when test="#{ivy.wf.securityContext.currentSession.sessionUserUnknown}">
- 				<p:layoutUnit id="mainLoginLayoutUnit" position="center" header="#{ivy.cms.co('/navLabels/login')}">
-					<ic:ch.ivyteam.wf.login.Login id="loginPageComponent" />
-				</p:layoutUnit>
- 			</c:when>
- 			<c:otherwise>
-	 			<p:layoutUnit id="menuLayoutUnit" position="west" collapsible="true" header="Axon.ivy" size="200">
-					<ui:include src="includes/Menu.xhtml" />
-				</p:layoutUnit>
-				
-				<p:layoutUnit id="mainLayoutUnit" position="center" header="#{centerHeader}">
-					<p:messages id="message" showDetail="true" closable="true" />
-					<ui:insert name="center" />
-				</p:layoutUnit>
-				
-				<p:layoutUnit id="footerLayoutUnit" position="south">
-					<ui:include src="includes/Footer.xhtml" />
-				</p:layoutUnit>
- 			</c:otherwise>
+			<c:when
+				test="#{ivy.wf.securityContext.currentSession.sessionUserUnknown}">
+				<h2>#{ivy.cms.co('/navLabels/login')}</h2>
+				<ic:ch.ivyteam.wf.login.Login id="loginPageComponent" />
+			</c:when>
+			<c:otherwise>
+				<p:messages id="message" showDetail="true" closable="true" />
+				<h2>#{centerHeader}</h2>
+				<ui:insert name="center" />
+			</c:otherwise>
 		</c:choose>
-	</p:layout>
+
+		<ui:include src="includes/Footer.xhtml" />
+	</div>
 </h:body>
 </html>
