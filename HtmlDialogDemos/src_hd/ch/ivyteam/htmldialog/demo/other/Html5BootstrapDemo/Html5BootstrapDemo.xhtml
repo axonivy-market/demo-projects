@@ -5,19 +5,13 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:body>
 
-	<ui:composition template="/layouts/basic.xhtml">
+	<!-- See Layout for Bootstrap style inclusion-->
+	<ui:composition template="/layouts/HtmlDemo.xhtml">
 		<ui:define name="title">Html 5 Bootstrap Demo</ui:define>
 		<ui:define name="content">
-			<!-- Bootstrap CSS -->
-			<!-- You can also load bootstrap from an external CDN: //netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css -->
-			<h:outputStylesheet library="ivy-webcontent"
-				name="styles/bootstrap-3.1.1-modified-for-jsf.css" />
 
-			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2>Html 5 Bootstrap Demo</h2>
-
 						<p class="lead">This demo shows a HtmlDialog that uses plain
 							Html tags styled with Bootstrap instead of the PrimeFaces
 							library.</p>
@@ -115,13 +109,10 @@
 						<h4>Office Location</h4>
 						<address>
 							ivyTeam AG<br /> CH-6304 Zug<br /> <a
-								href="http://answers.axonivy.com/">Xpert.ivy Q&amp;A</a>
+								href="http://answers.axonivy.com/">Axon.ivy Q&amp;A</a>
 						</address>
 					</div>
 				</div>
-				<br />
-				<hr class="featurette-divider hidden-lg" />
-			</div>
 
 			<!-- Bootstrap JavaScript -->
 			<!-- Placed at the end of the document so the pages load faster -->

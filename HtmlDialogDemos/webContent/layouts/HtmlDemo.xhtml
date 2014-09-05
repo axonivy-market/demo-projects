@@ -4,100 +4,56 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
- 
+
 <h:head>
 	<title><ui:insert name="title">Xpert.ivy Html Dialogs Demo</ui:insert></title>
-	<h:outputStylesheet name="styles/style.css" />
+	<link rel="shortcut icon" href="#{resource['ivy-webcontent:layouts/images/ivy_favicon_48.png']}" />
+
+	<!-- Bootstrap CSS -->
+	<!-- You can also load bootstrap from an external CDN: //http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
+	<h:outputStylesheet name="layouts/styles/bootstrap-modified-for-jsf.css" />
+	<h:outputStylesheet name="layouts/styles/ivy-common.css" />
+	<h:outputStylesheet name="layouts/styles/style.css" />
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.js"></script>
+  <![endif]-->
 </h:head>
-<h:body style="font-size: 9pt;">
-	<p:layout fullPage="true">
-		<p:layoutUnit position="north" size="140" gutter="10">
-			<div id="TopLogo" style="background-image:url(#{resource['ivy-cms:Project/XpertIvyHeaderBackground']}); background-repeat:repeat-x;">
-				<h:graphicImage library="ivy-cms" name="Project/XpertIvyHeader" alt="Xpert.ivy"/>
+<h:body>
+	<div class="navbar navbar-inverse">
+		<div class="container" id="headerdiv">
+			<div class="navbar-header">
+				<a class="navbar-brand"
+					href="#{ivy.html.startref('Demo/start.ivp')}" id="navbar-ivy-title">Axon.ivy Html Dialog Demos</a>
 			</div>
-		</p:layoutUnit>
-		<p:layoutUnit position="west" collapsible="true" header="Html Dialogs Demo" size="220">
-				<style type="text/css">
-      				.ui-menu .ui-menuitem-link {
-						padding: 0.2em;
-					}
-       			</style>
-				<p:menu style="width:94%">
-					<p:submenu label="Output">
-						<p:menuitem value="Editable Table"
-							url="#{ivy.html.startref('Output/EditableTableDemo.ivp')}" />
-						<p:menuitem value="Resources"
-							url="#{ivy.html.startref('Output/ResourceDemo.ivp')}" />
-						<p:menuitem value="Ordered List"
-							url="#{ivy.html.startref('Output/OrderListDemo.ivp')}" />
-						<p:menuitem value="Pick List"
-							url="#{ivy.html.startref('Output/PickListDemo.ivp')}" />
-						<p:menuitem value="Select One Menu"
-							url="#{ivy.html.startref('Output/SelectOneMenuDemo.ivp')}" />
-						<p:menuitem value="Auto Complete"
-							url="#{ivy.html.startref('Output/AutoCompleteDemo.ivp')}"
-							styleClass="new-demo" />
-						<p:menuitem value="Select Many Checkbox"
-							url="#{ivy.html.startref('Output/SelectManyCheckboxDemo.ivp')}" />
-						<p:menuitem value="Charts"
-							url="#{ivy.html.startref('Output/ChartDemo.ivp')}" 
-							styleClass="new-demo" />
-					</p:submenu>
-					<p:submenu label="Input" >
-						<p:menuitem value="Form" 
-							url="#{ivy.html.startref('Input/FormDemo.ivp')}" />
-						<p:menuitem value="Bean Validation"
-							url="#{ivy.html.startref('Input/BeanValidationDemo.ivp')}" />
-						<p:menuitem value="Simple File Upload and Download "
-							url="#{ivy.html.startref('Input/FileUploadSimpleModeDemo.ivp')}" />
-						<p:menuitem value="Advanced File Upload"
-							url="#{ivy.html.startref('Input/FileUploadAdvancedModeDemo.ivp')}" />
-						<p:menuitem value="Multi View"
-							url="#{ivy.html.startref('Input/MultiViewDemo.ivp')}" />
-					</p:submenu>
-					<p:submenu label="Component" >
-						<p:menuitem value="Component"
-							url="#{ivy.html.startref('Component/ComponentDemo.ivp')}" />
-						<p:menuitem value="Composite Component Customizing"
-							url="#{ivy.html.startref('Component/ComponentCustomizingDemo.ivp')}" />
-						<p:menuitem value="Composite callback"
-							url="#{ivy.html.startref('Component/ComponentEventListenerDemo.ivp')}" />
-						<p:menuitem value="JSF Composite Component"
-							url="#{ivy.html.startref('Component/JsfCompositeComponent.ivp')}" />
-						<p:menuitem value="Partial Update"
-							url="#{ivy.html.startref('Component/PartialUpdateDemo.ivp')}" />
-					</p:submenu>
-					<p:submenu label="Other" >
-						<p:menuitem value="Html 5 / JSF 2.2"
-							url="#{ivy.html.startref('Other/Html5Demo.ivp')}"
-							styleClass="new-demo">
-							</p:menuitem>
-						<p:menuitem value="Html 5 &amp; Bootstrap"
-							url="#{ivy.html.startref('Other/Html5BootstrapDemo.ivp')}"
-							styleClass="new-demo">
-							</p:menuitem>
-						<p:menuitem value="AJAX Method Call"
-							url="#{ivy.html.startref('Other/MethodCallWithAjaxDemo.ivp')}" />
-						<p:menuitem value="Managed Bean"
-							url="#{ivy.html.startref('Other/ManagedBeanDemo.ivp')}" />
-					</p:submenu>
-					<p:submenu label="Primefaces" >
-						<p:menuitem value="Primefaces"
-							url="#{ivy.html.startref('Primefaces/Primefaces.ivp')}" />
-					</p:submenu>
-				</p:menu>
-		</p:layoutUnit>
-		<p:layoutUnit position="center">
-			<f:facet name="header">
-				<ui:insert name="title"></ui:insert>
-			</f:facet>
-			<ui:insert name="content">
-				<!-- The actual page content is inserted here -->
-			</ui:insert>
-		</p:layoutUnit>
-		<p:layoutUnit position="south" size="32">
-			<h:outputText value="Powered by Xpert.Ivy Workflow Copyright &#169; ivyTeam" />
-		</p:layoutUnit>
-	</p:layout>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 hd-demo-nav">
+				<ui:insert name="menu">
+					<ui:include src="/layouts/includes/menu.xhtml" />
+				</ui:insert>
+			</div>
+			<div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+				<h2>
+					<ui:insert name="title">Html Dialog Demos</ui:insert>
+				</h2>
+				<ui:insert name="content">
+					<!-- The actual page content is inserted here -->
+				</ui:insert>
+			</div>
+		</div>
+		<ui:insert name="footer">
+			<hr />
+			<footer>
+				Powered by <a href="http://developer.axonivy.com">Axon.ivy</a>
+				Copyright &#169; <a href="http://www.ivyteam.ch">ivyTeam</a>
+			</footer>
+		</ui:insert>
+	</div>
 </h:body>
 </html>

@@ -1,0 +1,38 @@
+.hd-demo-nav {
+	padding-top:10px;
+	padding-left: 5px;
+}
+
+.hd-demo-nav .ui-menu {
+	width: 100% !important;
+	border: 0;
+}
+
+.hd-demo-nav .ui-menu .ui-widget-header {
+	background-color: transparent;
+	margin-top: 10px !important;
+	border-width: 0 0 1px 0 !important;
+	width: 100% !important;
+}
+
+.hd-demo-nav .ui-menu .ui-widget-header > h3 {
+	font-weight: bold;
+	padding-left: 2px !important;
+}
+
+.hd-demo-nav .ui-menu .ui-menuitem {
+	margin: 0 !important;
+}
+
+.hd-demo-nav .ui-menu .ui-menuitem-link {
+	padding: 0;
+	border-width: 0 !important;
+}
+
+.hd-demo-nav .new-demo {
+	background-color: #dfa;
+}
+
+label {
+	font-weight: normal;
+}
