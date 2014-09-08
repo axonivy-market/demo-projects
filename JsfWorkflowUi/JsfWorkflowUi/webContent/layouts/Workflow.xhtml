@@ -34,7 +34,7 @@
 		<ui:include src="includes/Navigation.xhtml" />
 	</ui:insert>
 
-	<div class="container">
+	<div id="mainArea" class="container">
 		<c:choose>
 			<c:when
 				test="#{ivy.wf.securityContext.currentSession.sessionUserUnknown}">
