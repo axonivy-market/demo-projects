@@ -241,7 +241,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultHome.ivp");
     driverHelper.waitForAjax();
-    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Home");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Home");
   }
   
   @Test
@@ -250,7 +250,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultProcesslist.ivp");
     driverHelper.waitForAjax();
-    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Process List");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Process List");
   }
   
   @Test
@@ -259,7 +259,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultTaskList.ivp");
     driverHelper.waitForAjax();
-    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Task List");
+    driverHelper.assertAjaxElementContains(By.id("Caption"), "Personal Task List");
   }
   
   @Test
@@ -267,7 +267,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     setDefaultPageProcess();
     createTask("titel", "beschreibung", 0);
-    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Home");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Home");
     callDefaultLogin();
   }
   
@@ -275,7 +275,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/SetDefaultProcess.ivp?processName=jsfWorkflowUi");
     driverHelper.waitForAjax();
-    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Home");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Home");
   }
 
   private void callDefaultLogin()
@@ -286,7 +286,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     String taskId = driverHelper.findElementById("taskLinkRow_0").getAttribute("href").substring(driverHelper.findElementById("taskLinkRow_0").getAttribute("href").indexOf(taskIdPart) + taskIdPart.length());
     navigate().logout();
     driverHelper.openProcessLink("testWfUi/13F3D94E5C99F06F/13F3D94E5C99F06F-f1/TaskA.ivp?taskId=" + taskId);
-    driverHelper.assertAjaxElementContains(By.id("mainLoginLayoutUnit"), "Workflow login");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Workflow login");
     //Login
     WebElement usernameElement = driverHelper.findElementById("loginPageComponent:loginForm:username");
     usernameElement.clear();
@@ -296,6 +296,6 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     passwordElement.sendKeys(WEB_TEST_SERVER_ADMIN_PASSWORD);
     driverHelper.findElementById("loginPageComponent:loginForm:loginButton").click();
     closeTask();
-    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Home");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Home");
   }
 }

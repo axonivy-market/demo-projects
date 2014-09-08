@@ -17,16 +17,16 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   public void testHome() throws Exception
   {
     navigate().home();
-    assertThat(driverHelper.findElementById("mainLayoutUnit").getText()).contains("Home");
+    assertThat(driverHelper.findElementById("mainArea").getText()).contains("Home");
     
     WebElement menu = driverHelper.findElementById("homeInfoPanel");
     prime().menu(menu).selectItemByPrefix("Process List");
-    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Process List");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Process List");
     
     navigate().home();
     menu = driverHelper.findElementById("homeInfoPanel");
     prime().menu(menu).selectItemByPrefix("Task List");
-    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Task List");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Task List");
   }
   
   @Test
