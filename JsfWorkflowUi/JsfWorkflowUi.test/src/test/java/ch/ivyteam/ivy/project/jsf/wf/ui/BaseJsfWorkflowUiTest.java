@@ -54,7 +54,7 @@ public class BaseJsfWorkflowUiTest
     passwordElement.clear();
     passwordElement.sendKeys(password);
     driverHelper.clickAndWaitForAjax(By.id("loginPageComponent:loginForm:loginButton"));
-    driverHelper.assertAjaxElementContains(By.id("mainLayoutUnit"), "Home");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Home");
   }
   
   protected void createTask(String title, String description, int priority)
