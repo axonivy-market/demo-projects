@@ -259,7 +259,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultTaskList.ivp");
     driverHelper.waitForAjax();
-    driverHelper.assertAjaxElementContains(By.id("Caption"), "Personal Task List");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Task List");
   }
   
   @Test

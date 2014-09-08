@@ -11,8 +11,9 @@ public class TestTemplate extends BaseJsfWorkflowUiTest
   {
     navigate().home();
     driverHelper.findElement(By.id("logoutButton")).click();
-    driverHelper.assertAjaxElementContains(By.id("mainLoginLayoutUnit"), "Workflow login");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Workflow login");
     login("user1", "user1");
-    driverHelper.assertAjaxElementContains(By.id("layoutHeaderLoggedInAs"), "Logged in as: user1");
+    driverHelper.assertAjaxElementContains(By.id("message"), "Welcome");
+    driverHelper.assertAjaxElementContains(By.id("message"), "user1");
   }
 }
