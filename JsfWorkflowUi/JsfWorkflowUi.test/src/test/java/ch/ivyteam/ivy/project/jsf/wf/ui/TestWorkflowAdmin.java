@@ -21,6 +21,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     closeTask();
     closeTask();
     navigate().home();
+    driverHelper.findElement(By.linkText("Workflow Admin")).click();
     driverHelper.findElementById("workflowStatistic").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("process1");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("process2");
@@ -32,12 +33,14 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     createTaskWithCategory("caseStatisticDetails", "Test if shows details", 2, "category1", "process1");
     closeTask();
     navigate().home();
+    driverHelper.findElement(By.linkText("Workflow Admin")).click();
     driverHelper.clickAndWaitForAjax(By.id("workflowStatistic"));
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("category1");
     driverHelper.clickAndWaitForAjax(By.id("linkStatisticDetailMin_0"));
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Detailed Statistic");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Processing time of the tasks");
     navigate().home();
+    driverHelper.findElement(By.linkText("Workflow Admin")).click();
     driverHelper.findElementById("workflowStatistic").click();
     driverHelper.clickAndWaitForAjax(By.id("linkStatisticDetailMax_0"));
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Detailed Statistic");
@@ -50,6 +53,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     createTaskWithCategory("caseAverageDetails", "Test if shows details", 2, "category1", "process1");
     closeTask();
     navigate().home();
+    driverHelper.findElement(By.linkText("Workflow Admin")).click();
     driverHelper.findElementById("workflowStatistic").click();
     driverHelper.clickAndWaitForAjax(By.id("linkStatisticAverage_0"));
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Average statistic");
@@ -125,6 +129,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   private void checkIfCategoryFilterIsApplied(String filterForCategory)
   {
     navigate().home();
+    driverHelper.findElement(By.linkText("Workflow Admin")).click();
     driverHelper.findElementById("workflowStatistic").click();
     WebElement selectOneMenu = driverHelper.findElementById("caseStatisticForm:categoryFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel(filterForCategory);
@@ -134,6 +139,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   private void checkIfDateFilterIsApplied()
   {
     navigate().home();
+    driverHelper.findElement(By.linkText("Workflow Admin")).click();
     driverHelper.findElementById("workflowStatistic").click();
     driverHelper.findElementById("caseStatisticForm:dateToFilter_input").click();
     driverHelper.findElementById("caseStatisticForm:dateToFilter_input").clear();
