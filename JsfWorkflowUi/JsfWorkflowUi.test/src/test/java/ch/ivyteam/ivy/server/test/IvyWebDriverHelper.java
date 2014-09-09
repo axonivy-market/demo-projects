@@ -93,7 +93,7 @@ public class IvyWebDriverHelper
 
   public void assertAjaxElementContains(final By elementCondition, final String expectedTextContent)
   {
-    waitAtLast(10).until(new ExpectedCondition<Boolean>() {
+    waitAtLast(30).until(new ExpectedCondition<Boolean>() {
       private String elementText;
 
       @Override
