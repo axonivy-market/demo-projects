@@ -40,7 +40,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     createTask("taskForAddNote","Test add note", 2);
     navigate().taskList();
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForAddNote");
+    driverHelper.assertAjaxModifiedPageSourceContains("taskForAddNote");
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openAddNote"));
     addNote();
     closeTask();
@@ -52,7 +52,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     createTask("taskForAddNoteToCase","Test add note", 2);
     navigate().caseList();
     driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForAddNoteToCase");
+    driverHelper.assertAjaxModifiedPageSourceContains("taskForAddNoteToCase");
     driverHelper.clickAndWaitForAjax(By.id("formCaseDetails:openAddNoteCase"));
     addNote();
     closeTask();

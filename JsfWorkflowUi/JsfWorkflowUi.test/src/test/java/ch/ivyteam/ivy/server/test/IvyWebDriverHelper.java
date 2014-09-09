@@ -104,7 +104,7 @@ public class IvyWebDriverHelper
             WebElement element = findElement(elementCondition);
             for (String expected : expectedTextContent)
             {
-              if (element.getText().contains(expected))
+              if (StringUtils.contains(element.getText(), expected))
               {
                 return element;
               }
@@ -135,7 +135,7 @@ public class IvyWebDriverHelper
             WebElement element = findElement(elementCondition);
             for (String expected : expectedTextContent)
             {
-              if (element.getText().contains(expected))
+              if (StringUtils.contains(element.getText(), expected))
               {
                 return true;
               }
@@ -151,6 +151,37 @@ public class IvyWebDriverHelper
               "Text of element '" + element + "' is wrong. ",
               "'" + StringUtils.join(expectedTextContent, "' or '") + "'",
               element.getText());
+    }
+  }
+  
+  public void assertAjaxModifiedPageSourceContains(final String... expectedTextContent)
+  {
+    try
+    {
+      waitAtLast(10).until(new Predicate<WebDriver>()
+        {
+          @Override
+          public boolean apply(WebDriver drv)
+          {
+            String pageSource = driver.getPageSource();
+            for (String expected : expectedTextContent)
+            {
+              if (StringUtils.contains(pageSource, expected))
+              {
+                return true;
+              }
+            }
+            return false;
+          }
+        });
+    }
+    catch (Throwable error)
+    {
+      String pageSource = driver.getPageSource();
+      throw new ComparisonFailure(
+              "Content of page source is wrong. ",
+              "'" + StringUtils.join(expectedTextContent, "' or '") + "'",
+              pageSource);
     }
   }
 
