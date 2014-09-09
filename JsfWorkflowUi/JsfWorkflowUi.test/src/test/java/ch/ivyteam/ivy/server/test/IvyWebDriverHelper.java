@@ -3,13 +3,12 @@ package ch.ivyteam.ivy.server.test;
 import java.text.MessageFormat;
 import java.util.concurrent.TimeUnit;
 
-import junit.framework.ComparisonFailure;
-
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -92,97 +91,46 @@ public class IvyWebDriverHelper
     return new WebDriverWait(driver, timeoutInSeconds);
   }
 
-  public WebElement getAjaxElementContains(final By elementCondition, final String... expectedTextContent)
+  public void assertAjaxElementContains(final By elementCondition, final String expectedTextContent)
   {
-    try
-    {
-      return waitAtLast(10).until(new ExpectedCondition<WebElement>()
-        {
-          @Override
-          public WebElement apply(WebDriver drv)
-          {
-            WebElement element = findElement(elementCondition);
-            for (String expected : expectedTextContent)
-            {
-              if (StringUtils.contains(element.getText(), expected))
-              {
-                return element;
-              }
-            }
-            return null;
-          }
-        });
-    }
-    catch (Throwable error)
-    {
-      WebElement element = findElement(elementCondition);
-      throw new ComparisonFailure(
-              "Text of element '" + element + "' is wrong. ",
-              "'" + StringUtils.join(expectedTextContent, "' or '") + "'",
-              element.getText());
-    }
-  }
+    waitAtLast(10).until(new ExpectedCondition<Boolean>() {
+      private String elementText;
 
-  public void assertAjaxElementContains(final By elementCondition, final String... expectedTextContent)
-  {
-    try
-    {
-      waitAtLast(10).until(new Predicate<WebDriver>()
-        {
-          @Override
-          public boolean apply(WebDriver drv)
-          {
-            WebElement element = findElement(elementCondition);
-            for (String expected : expectedTextContent)
-            {
-              if (StringUtils.contains(element.getText(), expected))
-              {
-                return true;
-              }
-            }
-            return false;
-          }
-        });
-    }
-    catch (Throwable error)
-    {
-      WebElement element = findElement(elementCondition);
-      throw new ComparisonFailure(
-              "Text of element '" + element + "' is wrong. ",
-              "'" + StringUtils.join(expectedTextContent, "' or '") + "'",
-              element.getText());
-    }
+      @Override
+      public Boolean apply(WebDriver currentDriver) {
+        try {
+          elementText = findElement(elementCondition).getText();
+          return elementText.contains(expectedTextContent);
+        } catch (StaleElementReferenceException e) {
+          return null;
+        }
+      }
+
+      @Override
+      public String toString() {
+        return String.format("text ('%s') to be present in element ('%s') found by %s",
+                expectedTextContent, elementText, elementCondition);
+      }
+    });
   }
   
-  public void assertAjaxModifiedPageSourceContains(final String... expectedTextContent)
+  public void assertAjaxModifiedPageSourceContains(final String expectedTextContent)
   {
-    try
-    {
-      waitAtLast(10).until(new Predicate<WebDriver>()
-        {
-          @Override
-          public boolean apply(WebDriver drv)
-          {
-            String pageSource = driver.getPageSource();
-            for (String expected : expectedTextContent)
-            {
-              if (StringUtils.contains(pageSource, expected))
-              {
-                return true;
-              }
-            }
-            return false;
-          }
-        });
-    }
-    catch (Throwable error)
-    {
-      String pageSource = driver.getPageSource();
-      throw new ComparisonFailure(
-              "Content of page source is wrong. ",
-              "'" + StringUtils.join(expectedTextContent, "' or '") + "'",
-              pageSource);
-    }
+    waitAtLast(10).until(new ExpectedCondition<Boolean>() {
+      private String pageSourceText;
+
+      @Override
+      public Boolean apply(WebDriver currentDriver) {
+        pageSourceText = currentDriver.getPageSource();
+        return pageSourceText.contains(expectedTextContent);
+      }
+
+      @Override
+      public String toString() {
+        return String.format("text ('%s') to be present in page source ('%s')",
+                expectedTextContent, pageSourceText);
+      }
+    });
   }
 
   public void waitForEndPage(int timeoutInSeconds)
