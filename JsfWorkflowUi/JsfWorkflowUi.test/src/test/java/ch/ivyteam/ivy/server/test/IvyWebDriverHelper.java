@@ -102,7 +102,7 @@ public class IvyWebDriverHelper
           elementText = findElement(elementCondition).getText();
           return elementText.contains(expectedTextContent);
         } catch (StaleElementReferenceException e) {
-          return null;
+          return Boolean.FALSE;
         }
       }
 
