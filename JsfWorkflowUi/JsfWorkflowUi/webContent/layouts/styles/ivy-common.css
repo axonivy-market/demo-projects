@@ -4,7 +4,7 @@ html {
 
 body {
   font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.3em;
+  font-size: small;
 }
 
 /*! Hack for IE10+11 that the scrollbar not overlays the page */
@@ -34,6 +34,7 @@ body {
 .navbar-inverse .navbar-text,
 .navbar-inverse .navbar-link {
   color: #dfdfdf;
+  font-size: 12px;
 }
 
 .navbar-collapse {
@@ -60,12 +61,13 @@ body {
   margin-top: 50px;
   width: 600px;
   background-color: #575656;
-  font-size: 1.1em;
+  font-size: 14px;
 }
 
-.breadcrumb {
-  margin-top: 10px;
-  margin-bottom: 0;
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
+  background-color: #575656;
+  font-weight: bold;
+  color: #9d9d9d;
 }
 
 .jumbotron {
@@ -78,7 +80,7 @@ body {
 
 .ivy-subnav {
   margin-bottom: 0px;
-  font-size: 0.9em;
+  font-size: 13px;
 }
 
 .ivy-subnav .navbar-inner {
