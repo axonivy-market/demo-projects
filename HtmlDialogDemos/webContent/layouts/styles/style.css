@@ -28,9 +28,8 @@
 	padding: 0;
 	border-width: 0 !important;
 }
-
-.hd-demo-nav .new-demo {
-	background-color: #dfa;
+.hd-demo-nav .ui-menu .ui-menuitem-text {
+	margin-right: 0.4em;
 }
 
 label {

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu May 22 15:31:40 CEST 2014]
+[>Created: Thu Sep 11 09:56:02 CEST 2014]
 146052EC6B2ADB68 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 ChartDemoProcess Big #zClass
@@ -88,7 +88,7 @@ temperature.set("Dec", 11);
 LineChartModel chartModel = new LineChartModel();
 chartModel.addSeries(rainfall);
 chartModel.addSeries(temperature);
-chartModel.setSeriesColors("7cb5ec,90ed7d");
+chartModel.setSeriesColors("7cb5ec,afca05");
   
 chartModel.setTitle("Multi Axis Demo Chart");
 chartModel.setLegendPosition("ne");
@@ -183,7 +183,7 @@ model.setLegendPosition("e");
 model.setShowDataLabels(true);
 model.setSliceMargin(8);
 model.setShadow(false);
-model.setSeriesColors("7cb5ec,434348,90ed7d,f7a35c");
+model.setSeriesColors("ddffaa,b7f17c,8ae82d,52c60d");
 // Data format: label, value or percent (default)
 model.setDataFormat("value");
 // see ext java script function in view

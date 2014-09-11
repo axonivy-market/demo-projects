@@ -20,14 +20,22 @@
 					url="#{ivy.html.startref('Output/PickListDemo.ivp')}" />
 				<p:menuitem value="Select One Menu"
 					url="#{ivy.html.startref('Output/SelectOneMenuDemo.ivp')}" />
-				<p:menuitem value="Auto Complete"
-					url="#{ivy.html.startref('Output/AutoCompleteDemo.ivp')}"
-					styleClass="new-demo" />
+				<p:menuitem>
+					<a tabindex="-1" class="ui-menuitem-link ui-corner-all"
+						href="#{ivy.html.startref('Output/AutoCompleteDemo.ivp')}">
+						<span class="ui-menuitem-text">Auto Complete</span>
+						<span class="glyphicon glyphicon-flag"></span>
+					</a>
+				</p:menuitem>
 				<p:menuitem value="Select Many Checkbox"
 					url="#{ivy.html.startref('Output/SelectManyCheckboxDemo.ivp')}" />
-				<p:menuitem value="Charts"
-					url="#{ivy.html.startref('Output/ChartDemo.ivp')}"
-					styleClass="new-demo" />
+				<p:menuitem>
+					<a tabindex="-1" class="ui-menuitem-link ui-corner-all"
+						href="#{ivy.html.startref('Output/ChartDemo.ivp')}">
+						<span class="ui-menuitem-text">Charts</span>
+						<span class="glyphicon glyphicon-flag"></span>
+					</a>
+				</p:menuitem>
 			</p:submenu>
 			<p:submenu label="Input">
 				<p:menuitem value="Form"
@@ -54,13 +62,19 @@
 					url="#{ivy.html.startref('Component/PartialUpdateDemo.ivp')}" />
 			</p:submenu>
 			<p:submenu label="Other">
-				<p:menuitem value="Html 5 / JSF 2.2"
-					url="#{ivy.html.startref('Other/Html5Demo.ivp')}"
-					styleClass="new-demo">
+				<p:menuitem>
+					<a tabindex="-1" class="ui-menuitem-link ui-corner-all"
+						href="#{ivy.html.startref('Other/Html5Demo.ivp')}">
+						<span class="ui-menuitem-text">Html 5 / JSF 2.2</span>
+						<span class="glyphicon glyphicon-flag"></span>
+					</a>
 				</p:menuitem>
-				<p:menuitem value="Html 5 &amp; Bootstrap"
-					url="#{ivy.html.startref('Other/Html5BootstrapDemo.ivp')}"
-					styleClass="new-demo">
+				<p:menuitem>
+					<a tabindex="-1" class="ui-menuitem-link ui-corner-all"
+						href="#{ivy.html.startref('Other/Html5BootstrapDemo.ivp')}">
+						<span class="ui-menuitem-text">Html 5 &amp; Bootstrap</span>
+						<span class="glyphicon glyphicon-flag"></span>
+					</a>
 				</p:menuitem>
 				<p:menuitem value="AJAX Method Call"
 					url="#{ivy.html.startref('Other/MethodCallWithAjaxDemo.ivp')}" />
