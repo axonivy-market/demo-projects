@@ -29,6 +29,7 @@
 			<plugin>
 				<groupId>ch.ivyteam.ivy</groupId>
 				<artifactId>ivy-compile-plugin</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
 				<extensions>true</extensions>
 				<configuration>
 					<autoInstallEngine>true</autoInstallEngine>
