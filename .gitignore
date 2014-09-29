@@ -13,8 +13,12 @@ IvyDemos/src_dataClasses/*
 JsfWorkflowUi/JsfWorkflowUi.test/classes
 JsfWorkflowUi/JsfWorkflowUi.test/target
 JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/classes
+JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/src_dataClasses/*
+JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/src_wsproc/*
+JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/target
 JsfWorkflowUi/JsfWorkflowUi/classes/*
 JsfWorkflowUi/JsfWorkflowUi/src_dataClasses/*
+JsfWorkflowUi/JsfWorkflowUi/target
 JsfWorkflowUi/build
 JsfWorkflowUi/target
 WorkflowUI/classes
