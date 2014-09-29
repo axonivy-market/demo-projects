@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>jsfworkflowui.test</artifactId>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>ch.ivyteam.ivy.project</groupId>
+		<artifactId>jsfworkflowui.build.maven</artifactId>
+		<version>6.0.0-SNAPSHOT</version>
+		<relativePath>../build.maven</relativePath>
+	</parent>
+
+	<properties>
+		<ant.version>1.7</ant.version>
+		<project.jsfWorkflowUi.dir>${engine.directory}/applications/System/JsfWorkflowUi/1</project.jsfWorkflowUi.dir>
+		<project.testWfUi.dir>${engine.directory}/applications/System/testWfUi/1</project.testWfUi.dir>
+		
+		<dir.build.file>${project.build.directory}/../../buildHelper.xml</dir.build.file>
+		<dir.trunk>${project.build.directory}/../../../../</dir.trunk>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>zugprorepo.buildIntegration</id>
+			<name>Internal Build Integration Repository</name>
+			<url>http://zugprorepo/repository/buildIntegration/</url>
+		</repository>
+	</repositories>
+	
+	<dependencies>
+		<dependency>
+			<groupId>ch.ivyteam.ivy.project</groupId>
+			<artifactId>jsfworkflowui</artifactId>
+			<version>6.0.0-SNAPSHOT</version>
+			<type>iar</type>
+		</dependency>
+		<dependency>
+			<groupId>ch.ivyteam.ivy.project</groupId>
+			<artifactId>jsfworkflowui.testdata.project</artifactId>
+			<version>6.0.0-SNAPSHOT</version>
+			<type>iar</type>
+		</dependency>
+		
+		<!-- Test Dependencies: -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.43.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.surefire</groupId>
+			<artifactId>surefire-junit4</artifactId>
+			<version>2.15</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.easytesting</groupId>
+			<artifactId>fest-assert-core</artifactId>
+			<version>2.0M8</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+	
+	<build>
+		<testSourceDirectory>${basedir}/src/test/java</testSourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.14.1</version>
+				<executions>
+					<execution>
+						<id>default-test</id>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<includes>
+								<include>**/Test*.java</include>
+							</includes>
+							<forkCount>1</forkCount>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<argLine>-Dserver.test.testApplication=System
+						-Dserver.test.isDesigner=false
+						-Dserver.test.baseUrl=http://localhost:${webtest.http.port}/ivy/</argLine>
+							<skipTests>${skip.tests}</skipTests>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>${ant.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.ant</groupId>
+						<artifactId>ant-junit</artifactId>
+						<version>1.8.4</version>
+					</dependency>
+					<dependency>
+						<groupId>ant-contrib</groupId>
+						<artifactId>ant-contrib</artifactId>
+						<version>1.0b3</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ant</groupId>
+								<artifactId>ant</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>clean</id>
+						<phase>clean</phase>
+						<goals><goal>run</goal></goals>
+						<configuration>
+							<target>
+								<property file="${basedir}/ant.properties"/>
+								<delete dir="${dir.build.output}" quiet="true"/>
+							</target>
+						</configuration>
+					</execution>
+					<execution>
+						<id>setup.properties</id>
+						<phase>initialize</phase>
+						<goals><goal>run</goal></goals>
+						<configuration>
+							<exportAntProperties>true</exportAntProperties>
+							<target>
+								<property file="${basedir}/ant.properties"/>
+								<condition property="skip.tests">
+								    <equals arg1="${maven.test.skip}" arg2="true" casesensitive="false"/>
+								</condition>
+							</target>
+						</configuration>
+					</execution>
+					<execution>
+						<id>test.webserver.starter</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<exportAntProperties>true</exportAntProperties>
+							<skip>${skip.tests}</skip>
+							<target>
+								<!-- Deploy already built projects: -->
+								<delete dir="${project.jsfWorkflowUi.dir}"/>
+								<unzip dest="${project.jsfWorkflowUi.dir}"
+									src="${ch.ivyteam.ivy.project:jsfworkflowui:iar}"/>
+								
+								<delete dir="${project.testWfUi.dir}"/>
+								<unzip dest="${project.testWfUi.dir}"
+									src="${ch.ivyteam.ivy.project:jsfworkflowui.testdata.project:iar}"/>
+							
+							
+								<!-- Start the test server -->
+								<taskdef resource="net/sf/antcontrib/antlib.xml" classpathref="maven.plugin.classpath" />
+								
+								<antcallback antfile="${dir.trunk}/builtUtil/IvyServerAntTasks/build/local/local_targets.xml" target="server-start" return="console.file" 
+									dir="../../" inheritAll="true">
+									<property name="install.dir" value="${engine.directory}" />
+								</antcallback>
+								
+								<loadfile property="logfile.content" srcFile="${console.file}"/>
+								<propertyregex property="webtest.http.port" regexp="http://[a-zA-Z]*:([0-9]+)/ivy"  input="${logfile.content}" select="\1"/>
+						
+								<echo>Server started @ ${webtest.http.port}</echo>
+								<condition property="skip.tests">
+									<not>
+								  		<matches pattern="[0-9]+" string="${webtest.http.port}" casesensitive="false"/>
+								  	</not>
+								</condition>
+							</target>
+						</configuration>
+					</execution>
+					<execution>
+						<id>test.webserver.stopper</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<skip>${skip.tests}</skip>
+							<target>
+								<taskdef resource="net/sf/antcontrib/antlib.xml" classpathref="maven.plugin.classpath" />
+								<ant antfile="${dir.trunk}/builtUtil/IvyServerAntTasks/build/local/local_targets.xml" target="server-stop"
+									dir="../../" inheritAll="true" >
+									<property name="install.dir" value="${engine.directory}" />
+								</ant>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			
+			<plugin>
+		        <artifactId>maven-compiler-plugin</artifactId>
+		        <version>3.1</version>
+		        <configuration>
+		        	
+		            <source>1.7</source>
+		            <target>1.7</target>
+		        </configuration>
+		    </plugin>
+		</plugins>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-antrun-plugin
+										</artifactId>
+										<versionRange>
+											[${ant.version},)
+										</versionRange>
+										<goals>
+											<goal>run</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
