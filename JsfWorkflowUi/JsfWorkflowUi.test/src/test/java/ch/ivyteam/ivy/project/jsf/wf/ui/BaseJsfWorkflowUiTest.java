@@ -10,6 +10,7 @@ import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import ch.ivyteam.ivy.server.test.AjaxHelper;
 import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
 import ch.ivyteam.ivy.server.test.WfNavigator;
 import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper;
@@ -46,15 +47,20 @@ public class BaseJsfWorkflowUiTest
 
   protected void login(String username, String password)
   {
-    navigate().logout();
-    WebElement usernameElement = driverHelper.findElementById("loginPageComponent:loginForm:username");
-    usernameElement.clear();
-    usernameElement.sendKeys(username);
-    WebElement passwordElement = driverHelper.findElementById("loginPageComponent:loginForm:password");
-    passwordElement.clear();
-    passwordElement.sendKeys(password);
-    driverHelper.clickAndWaitForAjax(By.id("loginPageComponent:loginForm:loginButton"));
-    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Home");
+	navigate().logout();
+	  
+	WebElement usernameElement = ajax().findUntilVisible("loginPageComponent:loginForm:username");
+	usernameElement.clear();
+	usernameElement.sendKeys(username);
+	
+	WebElement passwordElement = ajax().findUntilVisible("loginPageComponent:loginForm:password");
+	passwordElement.clear();
+	passwordElement.sendKeys(password);
+	  
+	WebElement loginButton = ajax().findUntilVisible("loginPageComponent:loginForm:loginButton");
+	loginButton.click();
+	 
+	ajax().assertElementContains("mainArea", "Home");
   }
   
   protected void createTask(String title, String description, int priority)
@@ -123,6 +129,11 @@ public class BaseJsfWorkflowUiTest
   public PrimeFacesWidgetHelper prime()
   {
     return new PrimeFacesWidgetHelper(driverHelper);
+  }
+  
+  public AjaxHelper ajax()
+  {
+	return new AjaxHelper(driverHelper.getWebDriver());
   }
   
   public void addAbsenceForMe(String startDate, String startTime, String endDate, String endTime, String description)
