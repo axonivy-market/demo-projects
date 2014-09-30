@@ -13,6 +13,7 @@ import com.google.common.base.Predicate;
  * @author Lord eAgle
  */
 public class AjaxHelper{
+	private static final int TIMEOUT = 30;
 	private WebDriver driver;
 
 	public AjaxHelper(WebDriver driver){
@@ -20,7 +21,7 @@ public class AjaxHelper{
 	}
 	
 	public void assertElementContains(final String elementId, final String expectedContent){
-		new WebDriverWait(driver, 10).until(new Predicate<WebDriver>() {
+		new WebDriverWait(driver, TIMEOUT).until(new Predicate<WebDriver>() {
 			public boolean apply(WebDriver driver){
 				return driver.findElement(By.id(elementId)).getText().contains(expectedContent);
 			}
@@ -28,7 +29,7 @@ public class AjaxHelper{
 	}
 	
 	public void assertElementContainsNot(final String elementId, final String notExpectedContent){
-		new WebDriverWait(driver, 10).until(new Predicate<WebDriver>() {
+		new WebDriverWait(driver, TIMEOUT).until(new Predicate<WebDriver>() {
 			public boolean apply(WebDriver driver){
 				return !driver.findElement(By.id(elementId)).getText().contains(notExpectedContent);
 			}
@@ -36,13 +37,13 @@ public class AjaxHelper{
 	}
 	
 	public void assertElementValue(final String elementId, final String expectedContent){
-		new WebDriverWait(driver, 10).until(
+		new WebDriverWait(driver, TIMEOUT).until(
 				ExpectedConditions.textToBePresentInElementValue(By.id(elementId), expectedContent)
 		);
 	}
 	
 	public WebElement findUntilVisible(final String elementId){
-		return new WebDriverWait(driver, 30).until(
+		return new WebDriverWait(driver, TIMEOUT).until(
 				ExpectedConditions.visibilityOfElementLocated(By.id(elementId))
 		);
 	}
