@@ -22,7 +22,7 @@ String tmpMsg=ivy.html.get("in.message");
 	<img src='<%=ivy.cms.cr("/Project/XpertIvyHeader")%>'>
 </div>
 
-<div style="background-image: url(images/others/border.png); height: 24px;width: 99%;padding-top: 4px;padding-bottom: 4px;margin-top: 0px;margin-bottom: 0px;padding-left: 4px;padding-right: 4px;">
+<div style="height: 24px;width: 99%;padding-top: 4px;padding-bottom: 4px;margin-top: 0px;margin-bottom: 0px;padding-left: 4px;padding-right: 4px;">
 </div>
 
 <div style="background-color: #F9F9F9; position: absolute; height: 416px; width: 99%; margin-top: 0px;margin-bottom: 0px;margin-left: 0px;padding-top: 4px;padding-bottom: 4px;padding-left: 2px;padding-right: 2px;">
