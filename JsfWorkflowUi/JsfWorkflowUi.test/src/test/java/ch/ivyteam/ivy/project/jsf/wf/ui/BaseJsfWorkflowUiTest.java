@@ -63,20 +63,32 @@ public class BaseJsfWorkflowUiTest
 
 	private void loginInternal(String username, String password) {
 		navigate().logout();
-		driverHelper.waitForAjax();
-		
-		Actions builder = new Actions(driverHelper.getWebDriver());
-		builder.click(driverHelper.findElement(By.name("username")));
-		builder.build().perform();
-		driverHelper.waitForAjax();
-		driverHelper.findElement(By.name("username")).clear();
-		driverHelper.findElement(By.name("username")).sendKeys(username);
-		driverHelper.findElement(By.name("password")).clear();
-		driverHelper.findElement(By.name("password")).sendKeys(password);
-		WebElement loginButton = ajax().findUntilVisible("loginPageComponent:loginForm:loginButton");
-		loginButton.click();
-		 
+		waitLogin();
+		loginField("username").clear();
+		waitLogin();
+		loginField("username").sendKeys(username);
+		waitLogin();
+		loginField("password").clear();
+		waitLogin();
+		loginField("password").sendKeys(password);
+		waitLogin();
+		loginField("loginButton").click();
+		waitLogin(); 
 		ajax().assertElementContains("mainArea", "Home");
+	}
+
+	private WebElement loginField(String name) {
+		return ajax().findUntilVisible(By.id("loginPageComponent:loginForm:"+name));
+	}
+
+	private void waitLogin() {
+		driverHelper.waitForAjax();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
 	}
   
   protected void createTask(String title, String description, int priority)
