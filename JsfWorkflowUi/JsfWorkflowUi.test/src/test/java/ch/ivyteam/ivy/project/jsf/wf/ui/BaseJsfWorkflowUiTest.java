@@ -8,6 +8,8 @@ import org.junit.Rule;
 import org.junit.rules.TestRule;
 import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 
 import ch.ivyteam.ivy.server.test.AjaxHelper;
@@ -47,21 +49,33 @@ public class BaseJsfWorkflowUiTest
 
   protected void login(String username, String password)
   {
-	navigate().logout();
-	  
-	WebElement usernameElement = ajax().findUntilVisible("loginPageComponent:loginForm:username");
-	usernameElement.clear();
-	usernameElement.sendKeys(username);
-	
-	WebElement passwordElement = ajax().findUntilVisible("loginPageComponent:loginForm:password");
-	passwordElement.clear();
-	passwordElement.sendKeys(password);
-	  
-	WebElement loginButton = ajax().findUntilVisible("loginPageComponent:loginForm:loginButton");
-	loginButton.click();
-	 
-	ajax().assertElementContains("mainArea", "Home");
+	  try
+	  {
+		  loginInternal(username, password);
+	  }
+	  catch(Throwable ex)
+	  {
+		  System.out.println("LOGIN FAILED with source:"+ driverHelper.getWebDriver().getPageSource());
+		  throw ex;
+	  }
   }
+
+	private void loginInternal(String username, String password) {
+		navigate().logout();
+		  
+		WebElement usernameElement = ajax().findUntilVisible("loginPageComponent:loginForm:username");
+		usernameElement.clear();
+		usernameElement.sendKeys(username);
+		
+		WebElement passwordElement = ajax().findUntilVisible("loginPageComponent:loginForm:password");
+		passwordElement.clear();
+		passwordElement.sendKeys(password);
+		  
+		WebElement loginButton = ajax().findUntilVisible("loginPageComponent:loginForm:loginButton");
+		loginButton.click();
+		 
+		ajax().assertElementContains("mainArea", "Home");
+	}
   
   protected void createTask(String title, String description, int priority)
   {

@@ -21,11 +21,9 @@ public class AjaxHelper{
 	}
 	
 	public void assertElementContains(final String elementId, final String expectedContent){
-		new WebDriverWait(driver, TIMEOUT).until(new Predicate<WebDriver>() {
-			public boolean apply(WebDriver driver){
-				return driver.findElement(By.id(elementId)).getText().contains(expectedContent);
-			}
-		});
+		new WebDriverWait(driver, TIMEOUT).until(
+			ExpectedConditions.textToBePresentInElementLocated(By.id(elementId), expectedContent)
+		);
 	}
 	
 	public void assertElementContainsNot(final String elementId, final String notExpectedContent){
