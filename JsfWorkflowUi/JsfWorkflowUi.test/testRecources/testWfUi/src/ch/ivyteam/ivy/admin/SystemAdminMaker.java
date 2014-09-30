@@ -22,6 +22,7 @@ public class SystemAdminMaker
 					IPermissionGroup rootPermissionGroup = securityDescriptor.getSecurityDescriptorType().getRootPermissionGroup();
 	                securityDescriptor.grantPermissions(rootPermissionGroup, user);
 	                
+	                user.setProperty("isAdmin", String.valueOf(true));
 	                return null;
 				}
 		});

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 27 12:48:02 CEST 2014]
+[>Created: Tue Sep 30 11:27:08 CEST 2014]
 143F856F4E029A48 3.17 #module
 >Proto >Proto Collection #zClass
 Sr0 SetAdminUser Big #zClass
@@ -98,9 +98,7 @@ Sr0 f1 actionCode 'import ch.ivyteam.ivy.admin.SystemAdminMaker;
 import ch.ivyteam.ivy.security.IUser;
 
 IUser admin = ivy.session.getSecurityContext().findUser("Administrator");
-ch.ivyteam.ivy.admin.SystemAdminMaker.grantSystemAdminRightsTo(admin);
-
-admin.setProperty("isAdmin","true");' #txt
+ch.ivyteam.ivy.admin.SystemAdminMaker.grantSystemAdminRightsTo(admin);' #txt
 Sr0 f1 type ch.ivyteam.wf.test.Data #txt
 Sr0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
