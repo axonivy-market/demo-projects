@@ -42,7 +42,7 @@ public class AjaxHelper{
 	}
 	
 	public WebElement findUntilVisible(final String elementId){
-		return new WebDriverWait(driver, 10).until(
+		return new WebDriverWait(driver, 30).until(
 				ExpectedConditions.visibilityOfElementLocated(By.id(elementId))
 		);
 	}
