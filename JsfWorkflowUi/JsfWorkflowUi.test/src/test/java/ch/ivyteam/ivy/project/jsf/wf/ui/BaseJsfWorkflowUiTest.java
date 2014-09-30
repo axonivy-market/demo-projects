@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import ch.ivyteam.ivy.server.test.AjaxHelper;
 import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
@@ -62,6 +63,11 @@ public class BaseJsfWorkflowUiTest
 
 	private void loginInternal(String username, String password) {
 		navigate().logout();
+		driverHelper.waitForAjax();
+		
+		Actions builder = new Actions(driverHelper.getWebDriver());
+		builder.click(driverHelper.findElement(By.name("username")));
+		builder.build().perform();
 		driverHelper.waitForAjax();
 		driverHelper.findElement(By.name("username")).clear();
 		driverHelper.findElement(By.name("username")).sendKeys(username);
