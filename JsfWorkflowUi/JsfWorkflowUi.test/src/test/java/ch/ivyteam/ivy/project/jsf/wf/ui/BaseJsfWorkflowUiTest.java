@@ -66,10 +66,12 @@ public class BaseJsfWorkflowUiTest
 		WebElement usernameElement = ajax().findUntilVisible("loginPageComponent:loginForm:username");
 		usernameElement.clear();
 		usernameElement.sendKeys(username);
+		ajax().assertElementValue(usernameElement.getAttribute("id"), username);
 		
 		WebElement passwordElement = ajax().findUntilVisible("loginPageComponent:loginForm:password");
 		passwordElement.clear();
 		passwordElement.sendKeys(password);
+		ajax().assertElementValue(passwordElement.getAttribute("id"), password);
 		  
 		WebElement loginButton = ajax().findUntilVisible("loginPageComponent:loginForm:loginButton");
 		loginButton.click();
