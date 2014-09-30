@@ -2,6 +2,8 @@ package ch.ivyteam.ivy.server.test.prime;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
 
@@ -79,12 +81,17 @@ public class PrimeFacesWidgetHelper
 
 	private void openCheckboxPanel()
 	{
-	  checkboxMenu.findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s")).click();
+	  checkboxMenu.findElement(By.className("ui-icon-triangle-1-s")).click();
 	}
 
 	private void closeCheckboxPanel() 
 	{
-	  checkboxMenu.findElement(By.className("ui-selectcheckboxmenu-close")).click();
+	  String fqElementId = checkboxMenu.getAttribute("id");
+	  String panelId = fqElementId+"_panel";
+	  WebElement panel = new WebDriverWait(driverHelper.getWebDriver(), 10).until(
+		ExpectedConditions.visibilityOfElementLocated(By.id(panelId))
+      );
+	  panel.findElement(By.className("ui-selectcheckboxmenu-close")).click();
 	}
   }
   
