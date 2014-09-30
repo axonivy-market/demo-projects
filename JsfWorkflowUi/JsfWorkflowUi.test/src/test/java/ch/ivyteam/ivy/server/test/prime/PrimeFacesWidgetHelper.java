@@ -72,14 +72,20 @@ public class PrimeFacesWidgetHelper
 
     public void selectAllItems()
     {
-      expandSelectableItems();
+      openCheckboxPanel();
       driverHelper.clickAndWaitForAjax(By.cssSelector("div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default"));
+      closeCheckboxPanel();
     }
-    
-    private void expandSelectableItems()
-    {
-      checkboxMenu.findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s")).click();
-    }
+
+	private void openCheckboxPanel()
+	{
+	  checkboxMenu.findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s")).click();
+	}
+
+	private void closeCheckboxPanel() 
+	{
+	  checkboxMenu.findElement(By.className("ui-selectcheckboxmenu-close")).click();
+	}
   }
   
   public class Menu

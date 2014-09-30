@@ -163,7 +163,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void addSubstitutesForRoles(String substituteFor)
   {
-    if(substituteFor == "other")
+    if(substituteFor.equals("other"))
     {
       WebElement selectOneMenu = driverHelper.findElementById("formSubstitute:userSelection");
       prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 2 (user2)");
