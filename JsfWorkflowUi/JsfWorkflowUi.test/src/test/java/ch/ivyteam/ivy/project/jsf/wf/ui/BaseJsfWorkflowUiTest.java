@@ -62,7 +62,8 @@ public class BaseJsfWorkflowUiTest
 
 	private void loginInternal(String username, String password) {
 		navigate().logout();
-		  
+		driverHelper.waitForAjax();
+
 		WebElement usernameElement = ajax().findUntilVisible("loginPageComponent:loginForm:username");
 		usernameElement.clear();
 		usernameElement.sendKeys(username);
