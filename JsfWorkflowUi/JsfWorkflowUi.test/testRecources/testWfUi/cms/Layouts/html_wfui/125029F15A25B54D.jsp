@@ -19,7 +19,7 @@
 			<img src='<%=ivy.cms.cr("/Project/XpertIvyHeader")%>'>
 		</div>
 
-		<div style="background-image: url(images/border.png);height: 24px;width: 99%;padding-top: 4px;padding-bottom: 4px;margin-top: 0px;margin-bottom: 0px;padding-left: 4px;padding-right: 4px;">
+		<div style="height: 24px;width: 99%;padding-top: 4px;padding-bottom: 4px;margin-top: 0px;margin-bottom: 0px;padding-left: 4px;padding-right: 4px;">
 			<a href='<%=ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp")%>'><%=ivy.cms.co("/navLabels/home")%></a>
 			<a href='<%=ivy.html.startref("1270ADF72FF4AFF3/DefaultProcessStartListPage.ivp")%>'><%=ivy.cms.co("/navLabels/processList")%></a> 
 			<a href='<%=ivy.html.startref("125016DE17A534EB/DefaultTaskListPage.ivp")%>'><%=ivy.cms.co("/navLabels/taskList")%></a>
