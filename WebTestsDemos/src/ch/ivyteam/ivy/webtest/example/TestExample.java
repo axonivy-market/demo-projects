@@ -32,8 +32,8 @@ public class TestExample {
 		// You will see the browser working after starting the test.
 		// But they are slow. HtmlUnitDriver will work with an in-memory java
 		// browser and is therefore faster.
-		driver = new org.openqa.selenium.ie.InternetExplorerDriver();
-		// driver = new org.openqa.selenium.firefox.FirefoxDriver();
+		//driver = new org.openqa.selenium.ie.InternetExplorerDriver();
+		driver = new org.openqa.selenium.firefox.FirefoxDriver();
 		// driver = new org.openqa.selenium.htmlunit.HtmlUnitDriver(true);
 
 		// Max time to wait for an element to appear is set to 10 Seconds
@@ -88,7 +88,7 @@ public class TestExample {
 		// Import this project in the Xpert.ivy designer and 
 		// start the engine before running the test.
 		driver.get(baseUrl + "pro/" + ivyApplication
-				+ "/HtmlDialogDemos/139D3A4CEEEDAA4B/FormDemo.ivp?language=de");
+				+ "/HtmlDialogDemos/145D18298A3E81CF/FormDemo.ivp?language=de");
 
 		// Fill in form values
 		driver.findElement(By.id("Form:Name")).sendKeys("Hans");
