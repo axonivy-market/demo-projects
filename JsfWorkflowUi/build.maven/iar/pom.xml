@@ -20,7 +20,7 @@
 		<plugins>
 			<plugin>
 				<groupId>ch.ivyteam.ivy</groupId>
-				<artifactId>ivy-compile-plugin</artifactId>
+				<artifactId>project-build-plugin</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 				<extensions>true</extensions>
 				<configuration>
