@@ -46,15 +46,9 @@
 							<pluginExecutions>
 								<pluginExecution>
 									<pluginExecutionFilter>
-										<groupId>
-											ch.ivyteam.ivy
-										</groupId>
-										<artifactId>
-											ivy-compile-plugin
-										</artifactId>
-										<versionRange>
-											[0.0.1-SNAPSHOT,)
-										</versionRange>
+										<groupId>ch.ivyteam.ivy</groupId>
+										<artifactId>project-build-plugin</artifactId>
+										<versionRange>[0.0.1-SNAPSHOT,) </versionRange>
 										<goals>
 											<goal>ensureInstalledEngine</goal>
 											<goal>compileProject</goal>
