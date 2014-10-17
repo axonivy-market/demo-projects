@@ -3,9 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>JsfWorkflowUi</groupId>
-  <artifactId>JsfWorkflowUi</artifactId>
-  <version>5010000.0.0</version>
+  <groupId>ch.ivyteam.ivy.project</groupId>
+  <artifactId>jsfworkflowui</artifactId>
+  <version>6000000.0.0</version>
   <packaging>iar</packaging>
   <parent>
 	<groupId>ch.ivyteam.ivy.project</groupId>

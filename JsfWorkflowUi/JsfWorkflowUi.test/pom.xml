@@ -33,13 +33,13 @@
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project</groupId>
 			<artifactId>jsfworkflowui</artifactId>
-			<version>6.0.0-SNAPSHOT</version>
+			<version>6000000.0.0</version>
 			<type>iar</type>
 		</dependency>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project</groupId>
-			<artifactId>jsfworkflowui.testdata.project</artifactId>
-			<version>6.0.0-SNAPSHOT</version>
+			<artifactId>jsfworkflowui.testdata</artifactId>
+			<version>6000000.0.0</version>
 			<type>iar</type>
 		</dependency>
 		
@@ -165,7 +165,7 @@
 								
 								<delete dir="${project.testWfUi.dir}"/>
 								<unzip dest="${project.testWfUi.dir}"
-									src="${ch.ivyteam.ivy.project:jsfworkflowui.testdata.project:iar}"/>
+									src="${ch.ivyteam.ivy.project:jsfworkflowui.testdata:iar}"/>
 							
 							
 								<!-- Start the test server -->
@@ -223,12 +223,6 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		
 		<pluginManagement>
 			<plugins>
 				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
@@ -241,15 +235,9 @@
 							<pluginExecutions>
 								<pluginExecution>
 									<pluginExecutionFilter>
-										<groupId>
-											org.apache.maven.plugins
-										</groupId>
-										<artifactId>
-											maven-antrun-plugin
-										</artifactId>
-										<versionRange>
-											[${ant.version},)
-										</versionRange>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-antrun-plugin</artifactId>
+										<versionRange>[${ant.version},)</versionRange>
 										<goals>
 											<goal>run</goal>
 										</goals>
