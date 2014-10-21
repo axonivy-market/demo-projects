@@ -2,10 +2,11 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>ch.ivyteam.ivy.demo</groupId>
-  <artifactId>ch.ivyteam.ivy.demo</artifactId>
+  <groupId>ch.ivyteam.ivy.project.demo</groupId>
+  <artifactId>RichDialogDemos</artifactId>
   <version>5010000.0.0</version>
   <packaging>iar</packaging>
+  
   <name>IvyDemos</name>
   <description>This library provides demos for many ivy concepts, components and features.
 
@@ -15,6 +16,7 @@ The artefacts in this project are provided "as is" and are NOT INTENDED FOR PROD
   <organization>
     <name>IvyTeam AG</name>
   </organization>
+  
   <dependencies>
     <dependency>
       <groupId>ch.ivyteam.ivy.addons</groupId>
@@ -23,6 +25,7 @@ The artefacts in this project are provided "as is" and are NOT INTENDED FOR PROD
       <type>iar</type>
     </dependency>
   </dependencies>
+  
   <build>
     <plugins>
       <plugin>
