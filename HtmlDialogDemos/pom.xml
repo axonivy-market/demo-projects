@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>HtmlDialogDemos</groupId>
+  <artifactId>HtmlDialogDemos</artifactId>
+  <version>5010000.0.0</version>
+  <packaging>iar</packaging>
+  <description>Demo Project for the Html Dialog Features</description>
+  <organization>
+    <name>ivyTeam AG</name>
+  </organization>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>ch.ivyteam.ivy</groupId>
+        <artifactId>project-build-plugin</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
