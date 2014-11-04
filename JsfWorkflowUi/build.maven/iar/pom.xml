@@ -21,13 +21,10 @@
 			<plugin>
 				<groupId>ch.ivyteam.ivy</groupId>
 				<artifactId>project-build-plugin</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<version>0.0.2-SNAPSHOT</version>
 				<extensions>true</extensions>
 				<configuration>
-					<autoInstallEngine>true</autoInstallEngine>
 					<engineDirectory>${engine.directory}</engineDirectory>
-					<ivyVersion>6.0.0</ivyVersion><!-- use latest version as 5.1.0 has no maven compiler -->
-					<engineDownloadUrl>http://localhost</engineDownloadUrl><!-- deactivate to favour list page url -->
 					<engineListPageUrl>http://zugprobldmas/job/${src.job.name}/lastSuccessfulBuild/artifact/ivy/workspace/Server/target/</engineListPageUrl>
 				</configuration>
 			</plugin>
