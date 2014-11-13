@@ -15,6 +15,15 @@
 		</pluginRepository>
 	</pluginRepositories>
  
+	<distributionManagement>
+		<!-- Used to deploy artifacts -->
+		<repository>
+			<id>zugprorepo.buildIntegration</id>
+			<name>Internal Build Integration Repository</name>
+			<url>http://zugprorepo/repository/buildIntegration/</url>
+		</repository>
+	</distributionManagement>
+ 
 	<properties>
 		<engine.directory>${java.io.tmpdir}ivyEngine</engine.directory>
 	</properties>
