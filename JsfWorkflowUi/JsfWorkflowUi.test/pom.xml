@@ -31,8 +31,8 @@
 	
 	<dependencies>
 		<dependency>
-			<groupId>ch.ivyteam.ivy.project</groupId>
-			<artifactId>jsfworkflowui</artifactId>
+			<groupId>ch.ivyteam.ivy.project.wf</groupId>
+			<artifactId>JsfWorkflowUi</artifactId>
 			<version>6000000.0.0</version>
 			<type>iar</type>
 		</dependency>
