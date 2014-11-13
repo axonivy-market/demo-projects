@@ -12,4 +12,13 @@
   <artifactId>jsfworkflowui.testdata</artifactId>
   <version>6000000.0.0</version>
   <packaging>iar</packaging>
+  
+  	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-deploy-plugin</artifactId>
+		<version>2.7</version>
+		<configuration>
+			<skip>true</skip>
+		</configuration>
+	</plugin>
 </project>
