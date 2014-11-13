@@ -7,9 +7,9 @@
 	
 	<parent>
 		<groupId>ch.ivyteam.ivy.project</groupId>
-		<artifactId>jsfworkflowui.build.maven</artifactId>
+		<artifactId>build.maven</artifactId>
 		<version>6.0.0-SNAPSHOT</version>
-		<relativePath>../build.maven</relativePath>
+		<relativePath>../../build.maven</relativePath>
 	</parent>
 
 	<properties>

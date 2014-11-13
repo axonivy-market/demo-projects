@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.ivy.project</groupId>
-	<artifactId>jsfworkflowui.build.maven</artifactId>
+	<artifactId>build.maven</artifactId>
 	<version>6.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<pluginRepositories>
-		<!-- Used to install ivy-compile-plugin -->
+		<!-- Used to install project-build-plugin -->
 		<pluginRepository>
 			<id>zugprorepo.buildIntegration</id>
 			<name>Internal Build Integration Repository</name>

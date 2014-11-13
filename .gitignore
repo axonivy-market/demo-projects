@@ -5,11 +5,14 @@ HtmlDialogDemos/classes/htmlDialogDemos
 HtmlDialogDemos/logs
 HtmlDialogDemos/src_dataClasses/ch
 HtmlDialogDemos/src_dataClasses/htmlDialogDemos
+HtmlDialogDemos/target
 HtmlWfUi/classes/*
 HtmlWfUi/src_dataClasses/*
+HtmlWfUi/target
 IvyDemos/classes
 IvyDemos/logs
 IvyDemos/src_dataClasses/*
+IvyDemos/target
 JsfWorkflowUi/JsfWorkflowUi.test/classes
 JsfWorkflowUi/JsfWorkflowUi.test/target
 JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/classes
@@ -21,6 +24,7 @@ JsfWorkflowUi/JsfWorkflowUi/src_dataClasses/*
 JsfWorkflowUi/JsfWorkflowUi/target
 JsfWorkflowUi/build
 JsfWorkflowUi/target
+QuickStartTutorial/target
 WebTestsDemos/target
 WorkflowUI/classes
 WorkflowUI/classes/*
@@ -28,3 +32,4 @@ WorkflowUI/logs
 WorkflowUI/src_dataClasses
 WorkflowUI/src_dataClasses/*
 WorkflowUI/src_dataClasses/ch
+WorkflowUI/target

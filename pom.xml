@@ -2,14 +2,21 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.ivy.project</groupId>
-	<artifactId>jsfwfui.main</artifactId>
+	<artifactId>ivyProject.modules</artifactId>
 	<version>6.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	<description>Contains all ivyProjects as module dependency</description>
 
 	<modules>
+		<module>HtmlDialogDemos</module>
+		<module>IvyAddOns</module>
+		<module>IvyDemos</module>
+		<module>QuickStartTutorial</module>
+		
+		<!-- workflow: -->
 		<module>JsfWorkflowUi</module>
-		<module>JsfWorkflowUi.test/testRecources/testWfUi</module>
-		<!--<module>JsfWorkflowUi.test</module>-->
+		<module>WorkflowUI</module>
+		<module>HtmlWFUI</module>
 	</modules>
 
 </project>
