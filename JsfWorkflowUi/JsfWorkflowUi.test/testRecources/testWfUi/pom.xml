@@ -13,6 +13,8 @@
   <version>6000000.0.0</version>
   <packaging>iar</packaging>
   
+  <build>
+  <plugins>
   	<plugin>
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-deploy-plugin</artifactId>
@@ -21,4 +23,7 @@
 			<skip>true</skip>
 		</configuration>
 	</plugin>
+  </plugins>
+  </build>
+  
 </project>
