@@ -1,0 +1,7 @@
+SystemDatabaseConnectionTesterUIData #class
+ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConnectionTesterUI #namespace
+serverConfiguration ch.ivyteam.ivy.server.configuration.Configuration #field
+button ch.ivyteam.ivy.richdialog.widgets.components.RButton #field
+test String #field
+dbVersion Number #field
+dbVersion PERSISTENT #fieldModifier

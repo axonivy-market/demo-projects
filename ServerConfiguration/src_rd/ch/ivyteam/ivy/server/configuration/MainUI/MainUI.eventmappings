@@ -1,0 +1,5 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2008-01-26 10:22:36 | 4.0.0.15100 | 1.0
+~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117B5410B1CB7BDE/117B5455E4B60A83 # MainUIProcess.mod/cancel
+~.saveButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:117B5410B1CB7BDE/117B545522884D9E # MainUIProcess.mod/save
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:117B5410B1CB7BDE/117B54530CD7879D

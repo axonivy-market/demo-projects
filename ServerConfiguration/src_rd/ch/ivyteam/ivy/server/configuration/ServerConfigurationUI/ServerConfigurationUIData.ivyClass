@@ -1,0 +1,13 @@
+ServerConfigurationUIData #class
+ch.ivyteam.ivy.server.configuration.ServerConfigurationUI #namespace
+databases List<ch.ivyteam.db.jdbc.DatabaseProduct> #field
+drivers List<ch.ivyteam.db.jdbc.JdbcDriver> #field
+properties Recordset #field
+selectedDatabase ch.ivyteam.db.jdbc.DatabaseProduct #field
+selectedDriver ch.ivyteam.db.jdbc.JdbcDriver #field
+configuration ch.ivyteam.ivy.server.configuration.Configuration #field
+propertyChanged Boolean #field
+buttonClicked String #field
+buttonClicked PERSISTENT #fieldModifier
+error Throwable #field
+error PERSISTENT #fieldModifier

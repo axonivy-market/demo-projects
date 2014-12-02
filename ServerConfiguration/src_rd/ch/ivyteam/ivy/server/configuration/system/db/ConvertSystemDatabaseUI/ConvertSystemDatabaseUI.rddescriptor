@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>dbConfiguration</name>
+            <description></description>
+            <parameterType>ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>version</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>successful</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>116C878FCD6A9912</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

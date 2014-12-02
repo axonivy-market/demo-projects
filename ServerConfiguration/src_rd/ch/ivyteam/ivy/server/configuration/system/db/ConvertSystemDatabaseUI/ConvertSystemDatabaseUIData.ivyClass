@@ -1,0 +1,4 @@
+ConvertSystemDatabaseUIData #class
+ch.ivyteam.ivy.server.configuration.system.db.ConvertSystemDatabaseUI #namespace
+dbConfiguration ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration #field
+dbVersion Number #field

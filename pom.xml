@@ -12,6 +12,7 @@
 		<module>IvyAddOns</module>
 		<module>IvyDemos</module>
 		<module>QuickStartTutorial</module>
+		<module>ServerConfiguration</module>
 		
 		<!-- workflow: -->
 		<module>JsfWorkflowUi</module>

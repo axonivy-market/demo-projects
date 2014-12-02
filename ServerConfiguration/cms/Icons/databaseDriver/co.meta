@@ -1,0 +1,2 @@
+co: name={databaseDriver} description={} changed={2007-11-26 10:19:36 GMT} changedby={rwei} visualorder={0} guid={1167B781905DBC00} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+val: guid={1167B781A6C2CC4E} datatype={} isdefault={true} langid={en} description={} validfrom={2007-11-26 10:19:36 GMT} validto={} changed={2007-11-26 10:20:46 GMT} changedby={rwei} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@dc72} id={}

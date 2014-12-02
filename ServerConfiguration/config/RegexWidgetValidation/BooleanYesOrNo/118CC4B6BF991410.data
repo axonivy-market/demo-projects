@@ -1,0 +1,8 @@
+{
+  /description "Boolean Yes or No"
+  /validationMessage "Invalid input (expected \"yes\" or \"no\")"
+  /validationState "Error"
+  /datatypeConfig {
+    /validationExpression "(yes|Yes|YES|no|No|NO|y|Y|n|N)"
+  }
+}

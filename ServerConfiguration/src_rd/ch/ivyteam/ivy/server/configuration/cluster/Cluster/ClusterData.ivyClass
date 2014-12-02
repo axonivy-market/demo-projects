@@ -1,0 +1,24 @@
+ClusterData #class
+ch.ivyteam.ivy.server.configuration.cluster.Cluster #namespace
+administratorManager ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager #field
+administratorManager PERSISTENT #fieldModifier
+connectionTester ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConnectionTester #field
+connectionTester PERSISTENT #fieldModifier
+configuration ch.ivyteam.ivy.server.configuration.Configuration #field
+configuration PERSISTENT #fieldModifier
+localHostName String #field
+localHostName PERSISTENT #fieldModifier
+localIdentifier Number #field
+localIdentifier PERSISTENT #fieldModifier
+clusterNodes List<ch.ivyteam.ivy.server.configuration.system.db.ClusterNode> #field
+clusterNodes PERSISTENT #fieldModifier
+enableClusterServer Boolean #field
+enableClusterServer PERSISTENT #fieldModifier
+selectedClusterNode ch.ivyteam.ivy.server.configuration.system.db.ClusterNode #field
+selectedClusterNode PERSISTENT #fieldModifier
+canSave Boolean #field
+canSave PERSISTENT #fieldModifier
+addedClusterNode ch.ivyteam.ivy.server.configuration.system.db.ClusterNode #field
+addedClusterNode PERSISTENT #fieldModifier
+addCanceled Boolean #field
+addCanceled PERSISTENT #fieldModifier

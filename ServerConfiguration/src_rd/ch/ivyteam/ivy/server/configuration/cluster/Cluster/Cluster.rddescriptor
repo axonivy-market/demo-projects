@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <autoScreenshot>true</autoScreenshot>
+    <acceptedBroadcast>
+        <name>connectionStateChanged</name>
+        <description></description>
+    </acceptedBroadcast>
+    <method>
+        <name>save</name>
+        <description></description>
+    </method>
+    <method>
+        <name>canSave</name>
+        <description></description>
+        <outputParameter>
+            <name>canSave</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>configuration</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.server.configuration.Configuration</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>1262C737C18713CB</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

@@ -1,0 +1,7 @@
+AdministratorUIData #class
+ch.ivyteam.ivy.server.configuration.system.db.AdministratorUI #namespace
+configuration ch.ivyteam.ivy.server.configuration.Configuration #field
+administratorManager ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager #field
+selectedAdministrator ch.ivyteam.ivy.security.Administrator #field
+connectionTester ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConnectionTester #field
+result Boolean #field

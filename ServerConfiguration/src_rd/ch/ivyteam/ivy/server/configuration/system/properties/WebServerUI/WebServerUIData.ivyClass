@@ -1,0 +1,6 @@
+WebServerUIData #class
+ch.ivyteam.ivy.server.configuration.system.properties.WebServerUI #namespace
+administratorManager ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager #field
+connectionTester ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConnectionTester #field
+configuration ch.ivyteam.ivy.server.configuration.Configuration #field
+properties List<ch.ivyteam.util.Property> #field

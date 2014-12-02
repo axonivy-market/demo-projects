@@ -26,6 +26,13 @@ JsfWorkflowUi/build
 JsfWorkflowUi/target
 QuickStartTutorial/classes/*
 QuickStartTutorial/target
+ServerConfiguration/*.log
+ServerConfiguration/classes
+ServerConfiguration/javac.classpath
+ServerConfiguration/lib
+ServerConfiguration/logs
+ServerConfiguration/src_dataClasses
+ServerConfiguration/target
 WebTestsDemos/target
 WorkflowUI/classes
 WorkflowUI/classes/*

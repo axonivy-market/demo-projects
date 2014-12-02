@@ -1,0 +1,2 @@
+co: name={convertSysDb} description={} changed={2007-11-23 15:27:02 GMT} changedby={rwei} visualorder={0} guid={1166D1E7A94DF0FA} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
+val: guid={1166D1E7CF5355A5} datatype={} isdefault={true} langid={en} description={} validfrom={2007-11-23 15:27:02 GMT} validto={} changed={2007-11-23 15:29:00 GMT} changedby={rwei} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@d9c3fd71} id={}

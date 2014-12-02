@@ -1,0 +1,12 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-02-12 14:49:20 | 4.1.0.15100 | 1.0
+~.localClusterHostIdentifierTextField@KEY[]--->ch.ivyteam.ivy.process.ProcessStart:1262C737D6F19C96/126B73605C3BB577
+~@RD_METHODCALL[canSave()]--->ch.ivyteam.ivy.process.ProcessStart:1262C737D6F19C96/126C26BC76C2DF21
+~.localClusterNodeAddButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1262C737D6F19C96/1266B7488EAEFA2B
+~.clusterNodesRemoveButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1262C737D6F19C96/126B6E8DB3419DE1
+~.enableClusterNodeCheckBox@VALUE_CHANGED[]--->ch.ivyteam.ivy.process.ProcessStart:1262C737D6F19C96/126B73B7170D4719
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1262C737D6F19C96/1262C73800046707
+~@RD_METHODCALL[save()]--->ch.ivyteam.ivy.process.ProcessStart:1262C737D6F19C96/1262C9BF0FE27B21
+~.clusterNodesTable@LIST_SELECTION[]--->ch.ivyteam.ivy.process.ProcessStart:1262C737D6F19C96/126B6F09791CCB41
+~@RD_METHODCALL[start(ch.ivyteam.ivy.server.configuration.Configuration)]--->ch.ivyteam.ivy.process.ProcessStart:1262C737D6F19C96/1262C9B17BB3C8CD
+~@RD_BROADCAST[connectionStateChanged]--->ch.ivyteam.ivy.process.ProcessStart:1262C737D6F19C96/1262C9B9479E4889

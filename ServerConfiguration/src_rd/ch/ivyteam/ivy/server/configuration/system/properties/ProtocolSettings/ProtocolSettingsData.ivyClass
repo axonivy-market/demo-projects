@@ -1,0 +1,5 @@
+ProtocolSettingsData #class
+ch.ivyteam.ivy.server.configuration.system.properties.ProtocolSettings #namespace
+protocolName String #field
+protocolEnabled Boolean #field
+protocolPort java.lang.Integer #field
