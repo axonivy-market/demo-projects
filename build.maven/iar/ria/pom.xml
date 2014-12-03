@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ch.ivyteam.ivy.project</groupId>
+	<artifactId>build.maven.iar.ria</artifactId>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>ch.ivyteam.ivy.project</groupId>
+		<artifactId>build.maven.iar</artifactId>
+		<version>6.0.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.google.code.maven-svn-revision-number-plugin</groupId>
+				<artifactId>svn-revision-number-maven-plugin</artifactId>
+				<version>1.13</version>
+				<executions>
+					<execution>
+						<goals><goal>revision</goal></goals>
+						<configuration>
+							<entries>
+								<entry><prefix>svn</prefix></entry>
+							</entries>
+						</configuration>
+					</execution>
+				</executions>
+          </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals><goal>run</goal></goals>
+						<configuration>
+							<target>
+								<property file="../../ant.properties" /> <!-- global trunk properties with version info -->
+								<tstamp><format property="build.date.iso" pattern="yyyy-MM-dd" locale="en" /></tstamp>
+							
+								<filterset id="ria.property.filter">
+									<!-- RIA application name and application short name are not changed by the build -->
+									<filter token="VendorName" value="${vendor.name}" />
+									<filter token="MajorVersion" value="${build.version.major}" />
+									<filter token="MinorVersion" value="${build.version.minor}" />
+									<filter token="PatchVersion" value="${build.version.service}" />
+									<filter token="RevisionNumber" value="${svn.revision}" />
+									<filter token="Copyright" value="${application.copyright}" />
+									<filter token="BuildDate" value="${build.date.iso}" />
+								</filterset>
+								
+								<!-- configure advisor properties -->
+								<copy overwrite="true" failonerror="false"
+									file=".settings/riaProjectAdvisor_Build.properties"
+									tofile=".settings/riaProjectAdvisor.properties">
+									<filterset refid="ria.property.filter" />
+								</copy>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+		 	<plugins>
+		 		<plugin>
+					<groupId>ch.ivyteam.ivy</groupId>
+					<artifactId>project-build-plugin</artifactId>
+					<version>[0.0.2-SNAPSHOT,)</version>
+					<configuration>
+						<excludes>
+							<exclude>.settings/riaProjectAdvisor_Build.properties</exclude>
+						</excludes>
+					</configuration>
+				</plugin>
+		 	</plugins>
+		</pluginManagement>
+	</build>
+</project>
