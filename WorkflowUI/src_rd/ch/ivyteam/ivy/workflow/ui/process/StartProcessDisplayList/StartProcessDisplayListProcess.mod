@@ -136,7 +136,7 @@ for (IProcessStart start : ivy.session.getStartableProcessStarts())
 	
 	
 	// workflowUI process start
-	String wfuiProcessStartRequestPath = "WorkflowUI/start.ivp";
+	String wfuiProcessStartRequestPath = "128BA95BFF41EBC6/start.ivp";
 	ivy.log.debug("Looking for the {0} as WorkflowUI process start request path.", start.getRequestPath());
 	if (wfuiProcessStartRequestPath.equals(start.getRequestPath()))
 	{
