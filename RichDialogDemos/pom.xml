@@ -6,7 +6,7 @@
   <artifactId>RichDialogDemos</artifactId>
   <version>6000000.0.0</version>
   <packaging>iar</packaging>
-  <name>IvyDemos</name>
+  <name>RichDialogDemos</name>
   <description>This library provides demos for many ivy concepts, components and features.
 
 DISCLAIMER
