@@ -1,0 +1,4 @@
+Document Factory Reporting IvyAddons project. 
+<P>
+The document factory allows producing serial letters or documents with the help of Office documents templates. It allows also generating reports in form of tables and nested tables. The documents are going to be stored under %root%/ivy_RIA_files, where %root% represents the installation folder of your Ivy designer or server.
+</P>

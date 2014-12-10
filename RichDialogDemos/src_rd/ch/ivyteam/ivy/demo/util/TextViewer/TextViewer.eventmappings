@@ -1,0 +1,4 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2013-06-13 15:46:37 | 0.0.0.15100 | 1.0
+~.okButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:121BFB282D85B7B5/121BFC39834E9743
+~@RD_METHODCALL[start(String,String,Boolean,Boolean)]--->ch.ivyteam.ivy.process.ProcessStart:121BFB282D85B7B5/121BFB282F8BE41B

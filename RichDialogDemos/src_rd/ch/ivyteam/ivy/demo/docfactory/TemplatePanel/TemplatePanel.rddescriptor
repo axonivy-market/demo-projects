@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <description>The TemplatePanel can be seen as the RDC representation of the DocumentTemplate Java Class. &#xD;
+It has the capacity to parse a given Template and to represent its merge fields as TemplateMergeFieldPanels.</description>
+    <method>
+        <name>makeTheLetter</name>
+        <description>Make the template field merging and create the document with the following parameters:&#xD;
+templatePath: path of the template on the server,&#xD;
+outputFormat: by default &quot;doc&quot;&#xD;
+letterName: by default letter_systemNanoTime&#xD;
+outputPath&#xD;
+Returns the resulting FileOperationMessage Object.</description>
+        <inputParameter>
+            <name>templatePath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>outputFormat</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>letterName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>outputPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>fileOperationMessage</name>
+            <description>Make the template field merging and create the document with the following parameters:&#xD;
+templatePath: path of the template on the server,&#xD;
+outputFormat: by default &quot;doc&quot;&#xD;
+letterName: by default letter_systemNanoTime&#xD;
+outputPath&#xD;
+Returns the resulting FileOperationMessage Object.</description>
+            <parameterType>ch.ivyteam.ivy.addons.docfactory.FileOperationMessage</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>setShowAdvancedOptions</name>
+        <description>set the visibility of the advanced options (letter Name) and format chooser</description>
+        <inputParameter>
+            <name>showAdvancedOptions</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setOutputPath</name>
+        <description>set the output path where the generated document has to be saved on the server</description>
+        <inputParameter>
+            <name>outputPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getButtonsVisible</name>
+        <description>True if the buttons are visible else false</description>
+        <outputParameter>
+            <name>areButtonsVisible</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>close</name>
+        <description>close the panel and destroy all its TemplateMergeFieldsPanels</description>
+    </method>
+    <method>
+        <name>getMergeFieldsList</name>
+        <description>Get the MergeFields as they are filled from the user&#xD;
+This can be used to generate a letter with a documentFactory.</description>
+        <outputParameter>
+            <name>mergeFieldsList</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.docfactory.TemplateMergeField&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>setButtonsVisible</name>
+        <description>set the button's visibility. If you use this panel embedded into an Application&#xD;
+you may want to manage the creation from the letter from outside.&#xD;
+If it is used &quot;alone&quot;, then you have to be able to create the document in this panel.</description>
+        <inputParameter>
+            <name>areButtonsVisible</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>setTemplatePath</name>
+        <description>set the template Path.&#xD;
+If the template exists, it will parse it and automatically displays the merge fields contained in it.</description>
+        <inputParameter>
+            <name>templatePath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getInfoLabelText</name>
+        <description>returns the info label text</description>
+        <outputParameter>
+            <name>info</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>setMergeFieldsList</name>
+        <description>set the mergefield List.&#xD;
+This remove all the MergeFieldsPanels and show the new list of them.</description>
+        <inputParameter>
+            <name>mergeFieldsList</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.docfactory.TemplateMergeField&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>getDocumentTemplateObject</name>
+        <description>Get the panel representation as documentTemplate object.&#xD;
+see ch.ivyteam.ivy.addons.docfactory.DocumentTemplate java Class</description>
+        <outputParameter>
+            <name>documentTemplate</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.docfactory.DocumentTemplate</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>getTemplatePath</name>
+        <description>returns the template path</description>
+        <outputParameter>
+            <name>templatePath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>getOutputPath</name>
+        <description>returns the output path</description>
+        <outputParameter>
+            <name>outputPath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+    </method>
+    <method>
+        <name>setInfoLabelText</name>
+        <description>set the info label text</description>
+        <inputParameter>
+            <name>info</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description>start with templatePath&#xD;
+visibility of the buttons (true /false) (buttons = create letter and close)&#xD;
+visibility of advanced options (true/false), advanced options are the letterName textField and format chooser.</description>
+        <inputParameter>
+            <name>templatePath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>areButtonsVisible</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>showAdvancedOption</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Start with a List of TemplateMergeFields Objects.&#xD;
+Each MergeFields is going to be displayed as TemplateMergeFieldsPanels.</description>
+        <inputParameter>
+            <name>listMergedFields</name>
+            <description></description>
+            <parameterType>List&lt;ch.ivyteam.ivy.addons.docfactory.TemplateMergeField&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Default Rich Dialog start
+This method can not be changed or deleted!</description>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>Start with a template path.&#xD;
+This template is going to be parsed with the help of a documentFactory Object.&#xD;
+Its MergeFields are going to be displayed as TemplateMergeFieldsPanels.</description>
+        <inputParameter>
+            <name>templatePath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description>start with templatePath and visibility of the buttons (true /false)  (buttons = create letter and close)</description>
+        <inputParameter>
+            <name>templatePath</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>areButtonsVisible</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>124A0A180B8BB679</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

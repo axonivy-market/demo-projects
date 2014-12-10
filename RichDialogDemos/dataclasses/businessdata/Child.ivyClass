@@ -1,0 +1,6 @@
+Child #class
+businessdata #namespace
+name String #field
+name PERSISTENT #fieldModifier
+age Number #field
+age PERSISTENT #fieldModifier

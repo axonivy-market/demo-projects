@@ -1,0 +1,6 @@
+SimpleChatData #class
+ch.ivyteam.ivy.demo.chat.SimpleChat #namespace
+userName String #field
+userName PERSISTENT #fieldModifier
+loggedIn Boolean #field
+loggedIn PERSISTENT #fieldModifier

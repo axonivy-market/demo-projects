@@ -1,0 +1,7 @@
+SimpleDndData #class
+ch.ivyteam.ivy.demo.dnd.SimpleDnd #namespace
+leftTree Tree #field
+rightTree Tree #field
+tmp1 String #field
+tmp2 String #field
+logText String #field

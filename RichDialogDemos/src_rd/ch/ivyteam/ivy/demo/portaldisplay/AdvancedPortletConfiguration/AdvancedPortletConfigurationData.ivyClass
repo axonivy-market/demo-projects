@@ -1,0 +1,4 @@
+AdvancedPortletConfigurationData #class
+ch.ivyteam.ivy.demo.portaldisplay.AdvancedPortletConfiguration #namespace
+configData java.util.Map #field
+configData PERSISTENT #fieldModifier

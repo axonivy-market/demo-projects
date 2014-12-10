@@ -1,0 +1,4 @@
+PieChartProgrammingLanguageData #class
+ch.ivyteam.ivy.demo.charts.PieChartProgrammingLanguage #namespace
+data List<ch.ivyteam.ivy.demo.charts.ProgrammingLanguagePopularity> #field
+data PERSISTENT #fieldModifier

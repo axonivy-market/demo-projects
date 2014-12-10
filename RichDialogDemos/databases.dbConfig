@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<databaseconfigs>
+    <databaseconfig name="filemanager" url="jdbc:mysql://localhost/filemanager" driver="com.mysql.jdbc.Driver" user="root" password=""/>
+</databaseconfigs>

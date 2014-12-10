@@ -1,0 +1,11 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2013-03-04 14:41:10 | 4.4.0.42221 | 1.0
+~.cancelBttn@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13D23EF4BEEA92C6/13D23FC215A4B4DC
+~.loadButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13D23EF4BEEA92C6/13D23FBF8AF3E20B
+~@RD_METHODCALL[abort()]--->ch.ivyteam.ivy.process.ProcessStart:13D23EF4BEEA92C6/13D342536DB64EEE
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:13D23EF4BEEA92C6/13D23EF4C1B98402
+~@RD_METHODCALL[timerForCompressing()]--->ch.ivyteam.ivy.process.ProcessStart:13D23EF4BEEA92C6/13D3398116C4F633
+~@RD_METHODCALL[timerForDecompressing()]--->ch.ivyteam.ivy.process.ProcessStart:13D23EF4BEEA92C6/13D33981B86D8741
+~@RD_METHODCALL[timerForUploading()]--->ch.ivyteam.ivy.process.ProcessStart:13D23EF4BEEA92C6/13D3342367F2793D
+~@RD_METHODCALL[updateChoosedFilePath(String)]--->ch.ivyteam.ivy.process.ProcessStart:13D23EF4BEEA92C6/13D23F8AA226C48F
+~@RD_METHODCALL[uploadFolder(String)]--->ch.ivyteam.ivy.process.ProcessStart:13D23EF4BEEA92C6/13D240174DF9BE46

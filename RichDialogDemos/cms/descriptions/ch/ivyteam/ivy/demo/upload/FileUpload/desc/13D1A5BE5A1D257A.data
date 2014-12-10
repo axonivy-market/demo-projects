@@ -1,0 +1,13 @@
+<P>
+Shows how to upload any file size from the client to the server by using ivy extension. This ivy extension handles:
+</P>
+<UL>
+<LI>User can upload any file size.</LI>
+<LI>The java heap space to avoid the "OutOfMemory" exception.</LI>
+<LI>User can get progress of uploading. </LI>
+<LI>User can cancel the upload process. </LI>
+<LI>Speed of uploading will be ajusted by connection quality.</LI>
+<LI>User can split package to upload by configuration.</LI>
+</UL>
+ <P>In this demo, when user clicks on Cancel button, the uploading will be stopped and removed file on temporary folder.
+</P>

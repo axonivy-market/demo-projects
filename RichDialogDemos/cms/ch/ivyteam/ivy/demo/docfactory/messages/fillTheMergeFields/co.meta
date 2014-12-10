@@ -1,0 +1,4 @@
+co: name={fillTheMergeFields} description={} changed={2009-10-30 07:37:01 CET} changedby={ec} visualorder={0} guid={124A40D4625FFBFF} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={124A40D5529EC7DE} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-10-30 07:06:27 CET} validto={} changed={2009-10-30 07:37:01 CET} changedby={ec} properties={} id={}
+val: guid={124A40D4625EE297} datatype={} isdefault={true} langid={en} description={} validfrom={2009-10-30 07:06:23 CET} validto={} changed={2009-10-30 07:37:01 CET} changedby={ec} properties={} id={}
+val: guid={124A40D5DB5D99EB} datatype={} isdefault={false} langid={de} description={} validfrom={2009-10-30 07:06:29 CET} validto={} changed={2009-10-30 07:37:01 CET} changedby={ec} properties={} id={}

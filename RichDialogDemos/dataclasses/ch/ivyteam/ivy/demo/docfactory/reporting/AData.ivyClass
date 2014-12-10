@@ -1,0 +1,7 @@
+AData #class
+'A DataClass used in the DocFactory Demo to do mail merge outside of reporting areas' #classComment
+ch.ivyteam.ivy.demo.docfactory.reporting #namespace
+string1 String #field
+string2 String #field
+number1 Number #field
+date1 Date #field

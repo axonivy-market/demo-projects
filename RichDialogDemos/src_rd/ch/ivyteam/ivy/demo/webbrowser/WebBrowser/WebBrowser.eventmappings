@@ -1,0 +1,8 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2010-02-09 11:31:51 | 4.1.0.15100 | 1.0
+~.forwardButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125B199405C320BD/126B230C7B9F7F12 # WebBrowserProcess.mod/forward
+~.backButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125B199405C320BD/126B230C79ADBA9A # WebBrowserProcess.mod/back
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:125B199405C320BD/126B230C7AA3FD2F
+~.webBrowser@WEBBROWSER[COMPLETED]--->ch.ivyteam.ivy.process.ProcessStart:125B199405C320BD/126B230C7B97A556 # WebBrowserProcess.mod/updateStatusBarAndNavigationStatus
+~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:125B199405C320BD/126B230C7AA82299 # WebBrowserProcess.mod/onLoad
+~.goButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:125B199405C320BD/126B230C7B999D14 # WebBrowserProcess.mod/goToUrl

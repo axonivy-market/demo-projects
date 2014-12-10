@@ -1,0 +1,10 @@
+TextViewerData #class
+ch.ivyteam.ivy.demo.util.TextViewer #namespace
+text String #field
+text PERSISTENT #fieldModifier
+descr String #field
+descr PERSISTENT #fieldModifier
+doWrap Boolean #field
+doWrap PERSISTENT #fieldModifier
+isCode Boolean #field
+isCode PERSISTENT #fieldModifier

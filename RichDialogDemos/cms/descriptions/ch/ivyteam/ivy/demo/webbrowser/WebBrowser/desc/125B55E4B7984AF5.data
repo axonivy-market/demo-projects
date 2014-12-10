@@ -1,0 +1,1 @@
+An embedded Web browser component with support for URLs, navigation and server-side document loading callbacks. Uses the native system browser for rendering.

@@ -1,0 +1,8 @@
+Employee #class
+'Employee class for DocFactory reporting Demo.
+It contains a List of Human Capital.' #classComment
+ch.ivyteam.ivy.demo.docfactory.reporting #namespace
+name String #field
+firstname String #field
+jobTitle String #field
+capitalList List<ch.ivyteam.ivy.demo.docfactory.reporting.HumanCapital> #field

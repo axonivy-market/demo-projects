@@ -1,0 +1,8 @@
+ProgressDialogData #class
+ch.ivyteam.ivy.demo.pollingtimer.ProgressDialog #namespace
+workToDo Integer #field
+workToDo PERSISTENT #fieldModifier
+currentWork Integer #field
+currentWork PERSISTENT #fieldModifier
+rand java.util.Random #field
+rand PERSISTENT #fieldModifier

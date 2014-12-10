@@ -1,0 +1,15 @@
+DocFactoryReportingData #class
+'Used as Demo Panel to demonstrate how to perform mail merge reporting with nested regions.' #classComment
+ch.ivyteam.ivy.demo.docfactory.DocFactoryReporting #namespace
+fileOperationMessage ch.ivyteam.ivy.addons.docfactory.FileOperationMessage #field
+fileOperationMessage 'result of the document generation process' #fieldComment
+companies List<ch.ivyteam.ivy.demo.docfactory.reporting.Company> #field
+companies 'list of companies used in reporting' #fieldComment
+aData ch.ivyteam.ivy.demo.docfactory.reporting.AData #field
+aData 'Data providing some merge field infos outside the nested tables' #fieldComment
+templatePath String #field
+templatePath 'the template path' #fieldComment
+aTree Tree #field
+aTree 'Ivy Tree used to feel the nested merge regions' #fieldComment
+documentTemplates List<ch.ivyteam.ivy.addons.docfactory.DocumentTemplate> #field
+documentTemplates 'List of DocumentTemplates for serial reporting' #fieldComment

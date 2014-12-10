@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<richDialogDescriptor>
+    <description>This is a wrapper for a DynamicDialog that shows how to get/set the value and how to generate XML from the DynamicDialog's business data.</description>
+    <method>
+        <name>lastNameChanged</name>
+        <description></description>
+        <inputParameter>
+            <name>dynamicDialog</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.addons.dynamicrd.DynamicDialog.DynamicDialogPanel</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>fullName</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>object</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.scripting.objects.CompositeObject</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>cmsContext</name>
+            <description></description>
+            <parameterType>List&lt;String&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
+    <property>
+        <name>guid</name>
+        <value>11EB0BDD6658257F</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>version</name>
+        <value>1</value>
+        <readOnly>true</readOnly>
+    </property>
+    <property>
+        <name>binary</name>
+        <value>false</value>
+        <readOnly>true</readOnly>
+    </property>
+</richDialogDescriptor>

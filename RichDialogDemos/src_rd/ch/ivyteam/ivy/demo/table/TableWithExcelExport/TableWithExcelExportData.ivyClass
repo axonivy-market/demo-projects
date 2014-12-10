@@ -1,0 +1,4 @@
+TableWithExcelExportData #class
+ch.ivyteam.ivy.demo.table.TableWithExcelExport #namespace
+list List<ch.ivyteam.ivy.demo.table.TableWithExcelExportEntry> #field
+list PERSISTENT #fieldModifier

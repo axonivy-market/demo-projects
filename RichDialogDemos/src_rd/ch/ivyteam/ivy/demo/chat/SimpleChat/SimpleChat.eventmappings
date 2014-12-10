@@ -1,0 +1,11 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2009-05-22 00:48:06 | 4.1.0.27714 | 1.0
+~@RD_METHODCALL[startWithName(String)]--->ch.ivyteam.ivy.process.ProcessStart:11CF5FAA2C12CD59/11CF6012AF837E31
+~@RD_BROADCAST[thirdparty_ivychat_logoff]--->ch.ivyteam.ivy.process.ProcessStart:11CF5FAA2C12CD59/11CF60EB4BFE76F0
+~.logoutHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11CF5FAA2C12CD59/11CF6157BD433D8B
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11CF5FAA2C12CD59/11CF5FAA35D6FCB2
+~.loginHyperlink@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11CF5FAA2C12CD59/1216551E2C2100C4 # SimpleChatProcess.mod/log_in
+~@RD_BROADCAST[thirdparty_ivychat_logon]--->ch.ivyteam.ivy.process.ProcessStart:11CF5FAA2C12CD59/11CF60EBE25D9FF8
+~.sendButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11CF5FAA2C12CD59/11CF6157220E6E64
+~@RD_BROADCAST[thirdparty_ivychat_message]--->ch.ivyteam.ivy.process.ProcessStart:11CF5FAA2C12CD59/11CF60ECA4B68F0A
+~.messageTextField@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11CF5FAA2C12CD59/11CF6157220E6E64

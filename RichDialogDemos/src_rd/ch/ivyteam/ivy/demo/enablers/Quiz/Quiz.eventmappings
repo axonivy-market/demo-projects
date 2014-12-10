@@ -1,0 +1,4 @@
+# Xpert.ivy RichDialog Event-Mapping Data
+# 2008-07-22 13:00:05 | 4.0.0.15100 | 1.0
+~.verifyButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11B4629BF0FA5CB5/11B49D3EA91836CD # QuizProcess.mod/verify
+~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11B4629BF0FA5CB5/11B4629BFF9DD8B5

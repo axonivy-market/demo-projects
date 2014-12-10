@@ -10,7 +10,7 @@
 	<modules>
 		<module>HtmlDialogDemos</module>
 		<module>IvyAddOns</module>
-		<module>IvyDemos</module>
+		<module>RichDialogDemos</module>
 		<module>QuickStartTutorial</module>
 		<module>ServerConfiguration</module>
 		

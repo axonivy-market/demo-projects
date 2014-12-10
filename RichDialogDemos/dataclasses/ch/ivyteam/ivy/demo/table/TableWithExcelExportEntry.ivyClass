@@ -1,0 +1,10 @@
+TableWithExcelExportEntry #class
+ch.ivyteam.ivy.demo.table #namespace
+simpleText String #field
+simpleText PERSISTENT #fieldModifier
+numberValue Number #field
+numberValue PERSISTENT #fieldModifier
+booleanValue Boolean #field
+booleanValue PERSISTENT #fieldModifier
+dateTimeValue DateTime #field
+dateTimeValue PERSISTENT #fieldModifier

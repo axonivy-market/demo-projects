@@ -1,0 +1,10 @@
+UserInterfaceRefreshData #class
+ch.ivyteam.ivy.demo.pollingtimer.UserInterfaceRefresh #namespace
+rand java.util.Random #field
+rand PERSISTENT #fieldModifier
+workCount Number #field
+workCount PERSISTENT #fieldModifier
+autoRefresher com.ulcjava.base.application.ULCPollingTimer #field
+autoRefresher PERSISTENT #fieldModifier
+listData List<Number> #field
+listData PERSISTENT #fieldModifier

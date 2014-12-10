@@ -1,0 +1,11 @@
+#Thu Feb 26 13:04:13 CET 2009
+maximumSizeHeight=32000
+anchor=WEST
+minimumSizeWidth=0
+preferredSizeHeight=5
+maximumSizeWidth=32000
+weightX=1
+fill=HORIZONTAL
+preferredSizeWidth=5
+usePreferredSizeAsExactSize=false
+minimumSizeHeight=0

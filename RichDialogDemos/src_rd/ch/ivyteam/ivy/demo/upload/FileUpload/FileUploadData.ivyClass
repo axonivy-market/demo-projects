@@ -1,0 +1,4 @@
+FileUploadData #class
+ch.ivyteam.ivy.demo.upload.FileUpload #namespace
+folderPath String #field
+uploadUtil ch.ivyteam.ivy.demo.upload.FileUploadManager #field

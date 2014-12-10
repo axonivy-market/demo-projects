@@ -1,0 +1,11 @@
+Data #class
+ch.ivyteam.ivy.demo.waitforasyncprocess #namespace
+eventId String #field
+eventId PERSISTENT #fieldModifier
+processParameter ch.ivyteam.ivy.addons.process.parameter.ProcessParameter #field
+name String #field
+name PERSISTENT #fieldModifier
+branch String #field
+branch PERSISTENT #fieldModifier
+email String #field
+email PERSISTENT #fieldModifier
