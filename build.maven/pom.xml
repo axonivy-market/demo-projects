@@ -36,6 +36,7 @@
 				<version>2.8</version>
 				<configuration>
 					<deployAtEnd>false</deployAtEnd>
+					<updateReleaseInfo>true</updateReleaseInfo>
 				</configuration>
 			</plugin>
 		</plugins>
