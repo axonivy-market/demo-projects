@@ -21,6 +21,7 @@
 			<id>zugprorepo.buildIntegration</id>
 			<name>Internal Build Integration Repository</name>
 			<url>http://zugprorepo/repository/buildIntegration/</url>
+			<uniqueVersion>true</uniqueVersion>
 		</repository>
 	</distributionManagement>
 
