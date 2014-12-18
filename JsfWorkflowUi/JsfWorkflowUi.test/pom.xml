@@ -47,7 +47,7 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>2.43.0</version>
+			<version>2.44.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -161,8 +161,8 @@
 								<!-- Deploy already built projects: -->
 								<delete dir="${project.jsfWorkflowUi.dir}"/>
 								<unzip dest="${project.jsfWorkflowUi.dir}"
-									src="${ch.ivyteam.ivy.project:jsfworkflowui:iar}"/>
-								
+									src="${ch.ivyteam.ivy.project.wf:JsfWorkflowUi:iar}"/>
+
 								<delete dir="${project.testWfUi.dir}"/>
 								<unzip dest="${project.testWfUi.dir}"
 									src="${ch.ivyteam.ivy.project:jsfworkflowui.testdata:iar}"/>
