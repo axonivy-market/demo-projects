@@ -1,6 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2009-07-01 09:59:32 | 4.1.0.15100 | 1.0
-~.clickMeButtonCellWidget@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12139E764A6D2E5C/12235329A32BDFC6 # CustomTableCellWidgetsProcess.mod/button pressed log button coordinates
-~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:12139E764A6D2E5C/12139E8D070C117F
-~.doDatabindingButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12139E764A6D2E5C/1213E7721EFE524E
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12139E764A6D2E5C/12139E764B5C8008

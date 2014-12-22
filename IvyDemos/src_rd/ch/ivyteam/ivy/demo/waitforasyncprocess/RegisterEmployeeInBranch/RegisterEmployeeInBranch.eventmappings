@@ -1,5 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2011-05-06 12:00:52 | 4.2.0.35989 | 1.0
-~.Button@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13054278F0891C12/12FC4BDC79EFB94C # RegisterEmployeeInBranchProcess.mod/OK
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:13054278F0891C12/12FC4B8D8F9C86ED
-~@RD_METHODCALL[register(String)]--->ch.ivyteam.ivy.process.ProcessStart:13054278F0891C12/12FC4BB08BDE4E36

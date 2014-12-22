@@ -1,5 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2007-11-23 14:38:12 | 4.0.0.15100 | 1.0
-~.searchField@KEY[]--->ch.ivyteam.ivy.process.ProcessStart:1166C483B1062D13/1166CB1D49D2361A # ListSearchProcess.mod/key_typed
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1166C483B1062D13/1166C4D55A92C08F
-~@RD_METHODCALL[start(List<String>,String)]--->ch.ivyteam.ivy.process.ProcessStart:1166C483B1062D13/1166C4D5FFABBA28

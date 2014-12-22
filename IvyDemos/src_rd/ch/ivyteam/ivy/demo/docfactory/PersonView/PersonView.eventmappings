@@ -1,5 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2011-02-09 08:40:01 | 4.2.0.35621 | 1.0
-~.closeButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12E0935AE7462DA2/12E09567FEB65259 # PersonViewProcess.mod/close
-~.writeButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:12E0935AE7462DA2/12E094F3B81EB3DA # PersonViewProcess.mod/writeLetter
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:12E0935AE7462DA2/12E0935AE94C43FC

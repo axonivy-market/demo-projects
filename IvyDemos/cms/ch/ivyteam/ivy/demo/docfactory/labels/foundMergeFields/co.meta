@@ -1,4 +1,0 @@
-co: name={foundMergeFields} description={} changed={2009-10-30 08:51:55 CET} changedby={ec} visualorder={0} guid={124A46BCD1EB7727} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={124A46C334BF462A} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-10-30 08:50:04 CET} validto={} changed={2009-10-30 08:51:55 CET} changedby={ec} properties={} id={}
-val: guid={124A46C3A9E47506} datatype={} isdefault={false} langid={de} description={} validfrom={2009-10-30 08:50:06 CET} validto={} changed={2009-10-30 08:51:55 CET} changedby={ec} properties={} id={}
-val: guid={124A46BCD4D57803} datatype={} isdefault={true} langid={en} description={} validfrom={2009-10-30 08:49:38 CET} validto={} changed={2009-10-30 08:50:04 CET} changedby={ec} properties={} id={}

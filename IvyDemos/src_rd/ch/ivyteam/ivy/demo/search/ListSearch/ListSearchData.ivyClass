@@ -1,7 +1,0 @@
-ListSearchData #class
-ch.ivyteam.ivy.demo.search.ListSearch #namespace
-fullList List<String> #field
-filteredList List<String> #field
-searchString String #field
-resultString String #field
-infoString String #field

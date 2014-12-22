@@ -1,4 +1,0 @@
-Document Factory IvyAddons project. 
-<P>
-The document factory allows producing serial letters or documents with the help of Office documents templates. The letters are going to be stored under %root%/ivy_RIA_files, where %root% represents the installation folder of your Ivy designer or server.
-</P>

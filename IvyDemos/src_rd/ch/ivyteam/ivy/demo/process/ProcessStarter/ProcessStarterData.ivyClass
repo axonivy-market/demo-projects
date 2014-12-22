@@ -1,7 +1,0 @@
-ProcessStarterData #class
-ch.ivyteam.ivy.demo.process.ProcessStarter #namespace
-DISPLAY_NAME String #field
-startableProcesses List<ch.ivyteam.ivy.workflow.IProcessStart> #field
-loginName String #field
-loginPassword String #field
-loginStatus Boolean #field

@@ -1,6 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2012-05-08 14:44:46 | 4.3.0.39524 | 1.0
-~.doReportingButton1@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1372C781E5242D8D/1372D380EA32C179 # DocFactoryReportingProcess.mod/reporting withTree
-~.doReportingButton2@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1372C781E5242D8D/1372DBA22007F166 # DocFactoryReportingProcess.mod/serialReporting
-~.doReportingButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1372C781E5242D8D/1372CAB1CDED2C00 # DocFactoryReportingProcess.mod/reportingWithListOfDataclasses
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1372C781E5242D8D/1372C781F05C05D9

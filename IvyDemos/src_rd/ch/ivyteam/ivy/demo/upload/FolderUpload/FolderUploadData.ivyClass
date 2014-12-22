@@ -1,8 +1,0 @@
-FolderUploadData #class
-ch.ivyteam.ivy.demo.upload.FolderUpload #namespace
-currentState String #field
-folderPath String #field
-unZipUtil ch.ivyteam.ivy.demo.upload.UnzipManager #field
-unZipUtil PERSISTENT #fieldModifier
-uploadUtil ch.ivyteam.ivy.demo.upload.FileUploadManager #field
-zipUtil ch.ivyteam.ivy.demo.upload.ZipManager #field

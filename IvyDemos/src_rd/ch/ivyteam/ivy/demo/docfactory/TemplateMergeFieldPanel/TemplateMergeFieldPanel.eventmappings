@@ -1,8 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2010-01-27 06:25:25 | 4.1.2.31693 | 1.0
-~.toogleButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:1266B7E3613D1425/1266B8ECD052C69F
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1266B7E3613D1425/1266B7E3623DF7D6
-~@RD_METHODCALL[close()]--->ch.ivyteam.ivy.process.ProcessStart:1266B7E3613D1425/1266B83FD24CD311
-~@RD_METHODCALL[setMergeField(ch.ivyteam.ivy.addons.docfactory.TemplateMergeField)]--->ch.ivyteam.ivy.process.ProcessStart:1266B7E3613D1425/1266B8410CB7F714
-~@RD_METHODCALL[getMergeField()]--->ch.ivyteam.ivy.process.ProcessStart:1266B7E3613D1425/1266B840448C9044
-~@RD_METHODCALL[start(String,String)]--->ch.ivyteam.ivy.process.ProcessStart:1266B7E3613D1425/1266E3C6DB1AF8FF

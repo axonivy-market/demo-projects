@@ -1,8 +1,0 @@
-Company #class
-'A Company Class used for the docFactory reporting demo within a Tree.
-Here this Class won''t contain directly the department Lists but will be the parent node of departments' #classComment
-ch.ivyteam.ivy.demo.docfactory.reporting.tree #namespace
-name String #field
-name PERSISTENT #fieldModifier
-address String #field
-address PERSISTENT #fieldModifier

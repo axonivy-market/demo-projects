@@ -1,4 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2009-04-28 09:53:21 | 4.1.1.28605 | 1.0
-~.Zip_RTextField@VALUE_CHANGED[]--->ch.ivyteam.ivy.process.ProcessStart:120EB8BF4273C3CD/120EBB59A9142557 # AdressFormProcess.mod/zip
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:120EB8BF4273C3CD/120EB8BF44679102

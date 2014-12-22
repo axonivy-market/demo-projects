@@ -9,10 +9,6 @@ HtmlDialogDemos/target
 HtmlWfUi/classes/*
 HtmlWfUi/src_dataClasses/*
 HtmlWfUi/target
-IvyDemos/classes
-IvyDemos/logs
-IvyDemos/src_dataClasses/*
-IvyDemos/target
 JsfWorkflowUi/JsfWorkflowUi.test/classes
 JsfWorkflowUi/JsfWorkflowUi.test/target
 JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/classes
