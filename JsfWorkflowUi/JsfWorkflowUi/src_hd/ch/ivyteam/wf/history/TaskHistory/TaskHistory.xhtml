@@ -17,17 +17,18 @@
 		#{ivy.cms.co('/labels/history/taskHistory/description')}
 		<br /><br />
 		<h:form id="taskHistoryForm">
-			<p:toolbar>
+			<p:toolbar styleClass="ivy-toolbar">
 	    		<p:toolbarGroup align="right">
-		    		<h:panelGrid columns="4">
-	 					#{ivy.cms.co('/labels/common/taskPrio')}:
-	 					<p:selectOneMenu value="#{data.prioFilter}" id="taskPriority">
+		    		<h:panelGrid columns="5">
+	 					 <h:outputText value="#{ivy.cms.co('/labels/common/taskPrio')}: "/>
+	 					<p:selectOneMenu value="#{data.prioFilter}" id="taskPriority" styleClass="ivy-toolbar-selectMenu">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" noSelectionOption="true" />
 	           				<f:selectItems value="#{data.prios}" var="prio" itemLabel="#{prio}" itemValue="#{prio}" />
 		           			<f:ajax render="taskHistoryForm" />
 		       			</p:selectOneMenu>
-		       			#{ivy.cms.co('/labels/common/responsible')}:
-		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter" filter="true" filterMatchMode="contains">
+		       			<p:spacer width="8"/>
+		       			<h:outputText value="#{ivy.cms.co('/labels/common/responsible')}: "/>
+		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter" filter="true" filterMatchMode="contains" styleClass="ivy-toolbar-selectMenu">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="All" />
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" itemValue="##{ivy.session.getSessionUserName()}" />
 		          			<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} #{role.getDisplayName() != '' ? '(' : ''}#{role.getName()}#{role.getDisplayName() != '' ? ')' : ''}" itemValue="#{role.getName()}"/>
@@ -37,38 +38,35 @@
 	      		</p:toolbarGroup>
 			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
-   			<p:dataTable value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}" rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
-      			<p:column style="width:5%" sortBy="#{ID}">  
+   			<p:dataTable value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}"  rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
+      			<p:column style="width:12px" sortBy="#{ID}">  
            			<f:facet name="header">  
-               			#
            			</f:facet>
            			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskHistoryDetail" title="Details Task [#{task.id}]"><h:graphicImage name="images/actions/task#{task.hasNotes() || task.case.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" /></a>
         		</p:column>
-       			<p:column style="width:50px; text-align: center;" sortBy="#{PRIORITY}">
+       			<p:column style="width:12px; text-align: center;" sortBy="#{PRIORITY}">
 					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/taskPrio')}
 					</f:facet>
 					<h:graphicImage name="images/details/priority/#{task.priority.intValue()}.png" alt="prio" title="Prio #{task.priority}" />
 				</p:column>
-       			<p:column style="width:65px; text-align: center;" sortBy="#{STATE}">
+       			<p:column style="width:12px; text-align: center;" sortBy="#{STATE}">
 					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/taskState')}
 					</f:facet>
 					<h:graphicImage name="images/details/state/#{task.state.intValue()}.png" alt="#{task.state}" title="#{ivy.cms.co('/labels/common/state')} #{task.state}" />
 				</p:column>	
-       			<p:column sortBy="#{NAME}">  
+       			<p:column style="width:40%" sortBy="#{NAME}">  
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/name')}  
            			</f:facet>
            			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" title="Details Task [#{task.id}]">#{task.name}</a>
        			</p:column>
-       			<p:column sortBy="#{ACTIVATOR_NAME}" id="taskLinkRow_#{row}">
+       			<p:column style="width:20%" sortBy="#{ACTIVATOR_NAME}" id="taskLinkRow_#{row}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
 					<wc:MemberDetail member="#{task.activator}" />
 				</p:column>
-       			<p:column sortBy="#{START_TIMESTAMP}">  
+       			<p:column style="width:110px" sortBy="#{START_TIMESTAMP}">  
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/taskStart')}
            			</f:facet>
@@ -76,7 +74,7 @@
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
        			</p:column>
-       			<p:column sortBy="#{EXPIRY_TIMESTAMP}">  
+       			<p:column style="width:110px" sortBy="#{EXPIRY_TIMESTAMP}">  
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/expiry')}
            			</f:facet>
@@ -84,7 +82,7 @@
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
        			</p:column>
-       			<p:column sortBy="#{END_TIMESTAMP}">  
+       			<p:column style="width:110px" sortBy="#{END_TIMESTAMP}">  
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/done')}  
            			</f:facet>

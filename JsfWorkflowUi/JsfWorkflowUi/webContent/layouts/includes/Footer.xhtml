@@ -9,8 +9,7 @@
 	<ui:composition>
 		<hr />
 		<footer>
-			Powered by <a href="http://developer.axonivy.com">Axon.ivy</a> Workflow Copyright &#169; <a
-				href="http://www.ivyteam.ch">ivyTeam AG</a>
+			<h:outputText value="#{ivy.cms.co('/Project/Footer')}" escape="false" />
 			<div class="pull-right">
 				<p:commandLink id="languageDe" value="de"
 					actionListener="#{languageBean.languageGerman}" update="@all" />

@@ -20,13 +20,13 @@
 		<br />
 		<br />
 		<h:form id="formSubstitute">
-			<p:toolbar>
+			<p:toolbar styleClass="ivy-toolbar">
 	    		<p:toolbarGroup>
 		    		<h:panelGrid columns="4">
-		   				<c:if test="#{adminBean.isAdmin}">
-		 					<h:outputText value="#{ivy.cms.co('/labels/settings/substitute/substitutionsFor')}:" />
-					   		<p:selectOneMenu id="userSelection" value="#{data.user}" filter="true" filterMatchMode="contains" converter="ivy.ListItem">
-					       		<f:selectItems value="#{data.forUserList}" var="user" itemValue="#{user}" itemLabel="#{user.getFullName()} (#{user.getName()})" />
+		   				<c:if test="#{adminBean.hasSubstitutePermission()}">
+		 					<h:outputText value="#{ivy.cms.co('/labels/common/user')}: " />
+					   		<p:selectOneMenu id="userSelection" value="#{data.user}" filter="true" filterMatchMode="contains" converter="ivy.ListItem" styleClass="ivy-toolbar-selectMenu">
+					       		<f:selectItems value="#{data.forUserList}" var="user" itemValue="#{user}" itemLabel="#{user.getDisplayName().length() ne 0 ? user.getDisplayName() : user.getName()}" />
 					       		<p:ajax update=":formSubstitute :formMySubstitutions" listener="#{logic.update()}" />
 					   		</p:selectOneMenu>
 				   			<p:spacer width="30" />
@@ -40,18 +40,13 @@
    					<f:facet name="header">  
       					#{ivy.cms.co('/labels/settings/substitute/substituteUser')}
    					</f:facet>
-					<wc:MemberDetail member="#{substitute.substituteUser}" />
+   					<wc:MemberDetail member="#{substitute.substituteUser}" />
 				</p:column>
 				<p:column style="width: 220px;">  
    					<f:facet name="header">  
        					#{ivy.cms.co('/labels/settings/substitute/substituteFor')}
    					</f:facet>
-					<c:if test="#{substitute.isPersonallyOnly()}">
-						<h:outputText value="#{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" />
-					</c:if>
-					<c:if test="#{!substitute.isPersonallyOnly()}">
-						<wc:MemberDetail member="#{substitute.substitutionRole}" />
-					</c:if>
+					<wc:MemberDetailText member="#{substitute.substitutionRole}" nulltext="#{ivy.cms.co('/labels/settings/substitute/substituteUserTasks')}"/>
    				</p:column>
 				<p:column>  
    					<f:facet name="header">  
@@ -68,7 +63,6 @@
 			</p:dataTable>
 		</h:form>
 		<br />
-		<p:separator id="customSeparator" style="height:10px" />
 		<br />
 		<h:outputText value="#{ivy.cms.co('/labels/settings/substitute/titleMySubstitutions')}" style="font-weight:bold;" />
 		<br />
@@ -79,7 +73,7 @@
 			<p:dataTable id="tableMySubstitutions" value="#{data.substiutions}" var="substitution" emptyMessage="#{ivy.cms.co('/labels/common/nothingToSubstitute')}">
 				<p:column sortBy="#{substitution.user.name}">  
    					<f:facet name="header">  
-      					#{ivy.cms.co('/labels/settings/substitute/substituteFor')} #{ivy.cms.co('/labels/common/user')}
+      					#{ivy.cms.co('/labels/settings/substitute/substitutionFor')} #{ivy.cms.co('/labels/common/user')}
    					</f:facet>
 					<wc:MemberDetail member="#{substitution.user}" />
   				</p:column>
@@ -87,12 +81,7 @@
    					<f:facet name="header">
       					#{ivy.cms.co('/labels/settings/substitute/substituteFor')}
    					</f:facet>
-					<c:if test="#{substitution.isPersonallyOnly()}">
-						<h:outputText value="#{ivy.cms.co('/labels/settings/substitute/substituteUserTasks')}" />
-					</c:if>
-					<c:if test="#{!substitution.isPersonallyOnly()}">
-						<wc:MemberDetail member="#{substitution.substitutionRole}" />
-					</c:if>
+					<wc:MemberDetailText member="#{substitution.substitutionRole}" nulltext="#{ivy.cms.co('/labels/settings/substitute/substituteUserTasks')}"/>
   				</p:column>
    				<p:column>
    					<f:facet name="header">

@@ -102,6 +102,11 @@ public class CaseLazyDataModel extends LazyDataModel<ICase> {
 		this.caseMode = caseMode;
 	}
 	
+	public boolean isAdminMode()
+	{
+		return !caseMode.equals("my_cases");
+	}	
+	
 	public void setCaseUserMode(String caseUserMode) {
 		this.caseUserMode = caseUserMode;
 	}

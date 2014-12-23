@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 09 10:03:12 CEST 2014]
+[>Created: Wed Dec 03 13:46:36 CET 2014]
 13F5183CA99B58E3 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MailNotificationProcess Big #zClass
@@ -25,10 +25,10 @@ Ms0 @RichDialogProcessStart f15 '' #zField
 Ms0 @PushWFArc f2 '' #zField
 Ms0 @PushWFArc f13 '' #zField
 Ms0 @GridStep f5 '' #zField
-Ms0 @PushWFArc f7 '' #zField
 Ms0 @PushWFArc f12 '' #zField
 Ms0 @RichDialogProcessEnd f14 '' #zField
 Ms0 @PushWFArc f16 '' #zField
+Ms0 @PushWFArc f7 '' #zField
 >Proto Ms0 Ms0 MailNotificationProcess #zField
 Ms0 f0 guid 13F5183CAB816433 #txt
 Ms0 f0 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
@@ -82,7 +82,7 @@ for(Locale locale : ivy.cms.getSupportedLanguages())
 {
 	out.languages.add(locale.getDisplayName());
 }
-out.language = ivy.session.getSessionUser().getEMailLanguage() != null ? ivy.session.getSessionUser().getEMailLanguage().getDisplayName() : "";
+out.language = ivy.session.isSessionUserUnknown() || ivy.session.getSessionUser().getEMailLanguage() == null ? "" : ivy.session.getSessionUser().getEMailLanguage().getDisplayName();
 
 if(in.isUseApplicationDefault)
 {
@@ -230,9 +230,13 @@ Ms0 f13 440 64 499 64 #arcP
 Ms0 f5 actionDecl 'ch.ivyteam.wf.settings.MailNotification.MailNotificationData out;
 ' #txt
 Ms0 f5 actionTable 'out=in;
+out.isUseApplicationDefault=true;
 ' #txt
-Ms0 f5 actionCode 'out.emailNotificationSettings = ivy.session.getSessionUser().getEMailNotificationSettings();
-in.isUseApplicationDefault = out.emailNotificationSettings.useApplicationDefault;' #txt
+Ms0 f5 actionCode 'if(!ivy.session.isSessionUserUnknown())
+{
+	out.emailNotificationSettings = ivy.session.getSessionUser().getEMailNotificationSettings();
+	in.isUseApplicationDefault = out.emailNotificationSettings.useApplicationDefault;
+}' #txt
 Ms0 f5 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
 Ms0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -246,8 +250,6 @@ Ms0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ms0 f5 168 42 112 44 -30 -8 #rect
 Ms0 f5 @|StepIcon #fIcon
 Ms0 f5 -1|-1|-9671572 #nodeStyle
-Ms0 f7 expr out #txt
-Ms0 f7 109 64 168 64 #arcP
 Ms0 f12 expr out #txt
 Ms0 f12 280 64 328 64 #arcP
 Ms0 f14 type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
@@ -257,6 +259,8 @@ Ms0 f14 -1|-1|-9671572 #nodeStyle
 Ms0 f16 expr out #txt
 Ms0 f16 440 224 499 224 #arcP
 Ms0 f16 0 0.40866560034576793 0 0 #arcLabel
+Ms0 f7 expr out #txt
+Ms0 f7 109 64 168 64 #arcP
 >Proto Ms0 .type ch.ivyteam.wf.settings.MailNotification.MailNotificationData #txt
 >Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect

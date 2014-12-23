@@ -1,4 +1,4 @@
-co: name={taskPrio} description={} changed={2011-03-16 16:12:11 CET} changedby={tirib} visualorder={0} guid={127666D2BB77F75D} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12EBF395F987CB13} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 16:11:38 CET} validto={} changed={2011-03-16 16:12:11 CET} changedby={tirib} properties={} id={}
+co: name={taskPrio} description={} changed={2014-12-05 15:27:39 CET} changedby={bb} visualorder={0} guid={127666D2BB77F75D} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={12EBF395F987CB13} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 16:11:38 CET} validto={} changed={2014-12-05 15:27:39 CET} changedby={bb} properties={} id={}
 val: guid={12E29CC705DA7A11} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 15:49:45 CET} validto={} changed={2011-02-15 15:49:47 CET} changedby={bb} properties={} id={}
 val: guid={127666D2C15E8274} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-16 11:03:03 CET} validto={} changed={2010-11-05 13:49:18 CET} changedby={powersob} properties={} id={}

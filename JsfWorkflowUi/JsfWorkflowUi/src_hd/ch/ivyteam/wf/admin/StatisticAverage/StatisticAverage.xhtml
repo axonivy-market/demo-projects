@@ -9,29 +9,34 @@
 	xmlns:pm="http://primefaces.org/mobile">
 
 <ui:composition template="/layouts/Workflow.xhtml">
-	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/averageStatistic')}" />
+	<ui:param name="centerHeader"
+		value="#{ivy.cms.co('/navLabels/averageStatistic')}" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
 		<br />
 		#{ivy.cms.co('/labels/admin/averrageStatistic/description')}
 		<c:if test="#{data.hasMoreCases}">
-			<br /><br />
-			<h:outputText value="#{ivy.cms.co('/labels/admin/averrageStatistic/firstCases')}#{data.casesSize}." style="font-weight:bold" />
-		</c:if>
-		<br /><br />
-		<h:form id="formChartCases">
-	        <p:chart id="chartForCases" type="bar" model="#{data.chart}"
-				style="height:600px; width:100%;">
-				<p:ajax event="itemSelect" listener="#{chartBean.itemSelectCase}" />
-			</p:chart>
-			<h:outputScript>
+				<br />
+				<br />
+				<h:outputText
+					value="#{ivy.cms.co('/labels/admin/averrageStatistic/firstCases')}#{data.casesSize}."
+					style="font-weight:bold" />
+			</c:if>
+			<br />
+			<br />
+			<h:form id="formChartCases">
+				<p:chart id="chartForCases" type="bar" model="#{data.chart}"
+					style="height:600px; width:100%;">
+					<p:ajax event="itemSelect" listener="#{chartBean.itemSelectCase}" />
+				</p:chart>
+				<h:outputScript>
 				function ext() {
 					this.cfg.axes.xaxis.tickOptions = {
 			        	show: false
 			        };
 				}			
 			</h:outputScript>
-		</h:form>
-   	</ui:define>
+			</h:form>
+	</ui:define>
 </ui:composition>
 </html>

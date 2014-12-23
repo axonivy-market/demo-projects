@@ -16,22 +16,23 @@
 		#{ivy.cms.co('/labels/admin/workflowStatistic/description')}
 		<br /><br />
 		<h:form id="caseStatisticForm">
-			<p:toolbar>
+			<p:toolbar styleClass="ivy-toolbar">
 	    		<p:toolbarGroup align="right">
 		    		<h:panelGrid columns="8">
-		    			#{ivy.cms.co('/labels/common/category')}:
-	 					<p:selectOneMenu id="categoryFilter" value="#{data.catFilter}">
+		    			<h:outputText value="#{ivy.cms.co('/labels/common/category')}: "/>
+	 					<p:selectOneMenu id="categoryFilter" value="#{data.catFilter}" styleClass="ivy-toolbar-selectMenu">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="all" />
 	           				<f:selectItems value="#{data.categories}" var="categorie" itemLabel="#{categorie.getField('displayName')}" itemValue="#{categorie.getField('categoryCode')}" />
 	           				<p:ajax update=":caseStatisticForm" listener="#{logic.setFilter}" />
 	        			</p:selectOneMenu>
-	        			<p:spacer width="20" />
-	        			#{ivy.cms.co('/labels/common/from')}:
+	        			<p:spacer width="8" />
+	        			<h:outputText value="#{ivy.cms.co('/labels/common/from')}: "/>
 	 					<p:calendar id="dateFromFilter" pattern="dd.MM.yyyy" value="#{data.dateFromFilter}">
 							<f:convertDateTime pattern="dd.MM.yyyy" />
 							<p:ajax event="dateSelect" listener="#{logic.setFilter}" update=":caseStatisticForm" />
 						</p:calendar>
-	        			#{ivy.cms.co('/labels/common/to')}:
+						<p:spacer width="8" />
+	        			<h:outputText value="#{ivy.cms.co('/labels/common/to')}: "/>
 	 					<p:calendar id="dateToFilter" maxdate="PF('calwidget').today()" widgetVar="calwidget" pattern="dd.MM.yyyy" value="#{data.dateToFilter}">
 							<f:convertDateTime pattern="dd.MM.yyyy" />
 							<p:ajax event="dateSelect" listener="#{logic.setFilter}" update=":caseStatisticForm" />
@@ -41,11 +42,11 @@
 			</p:toolbar>
    			<p:dataTable id="caseStatisticTable" var="case" value="#{data.cases}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.cases.size() >= 50}" paginatorPosition="bottom" rows="50" sortOrder="DESCENDING">
    				<p:columnGroup type="header">
-		            <p:row>
+		            <!-- <p:row>
 		            	<p:column colspan="1" headerText="" style="width:15pt" />
 		                <p:column colspan="3" headerText="" />
 		                <p:column colspan="3" headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/throughputTime')}" style="width:300pt" />
-		            </p:row>
+		            </p:row> -->
 		            <p:row>
 		                <p:column headerText="#" />
 		                <p:column headerText="#{ivy.cms.co('/labels/common/process')}" sortBy="#{case.PROCESSCODE}" />

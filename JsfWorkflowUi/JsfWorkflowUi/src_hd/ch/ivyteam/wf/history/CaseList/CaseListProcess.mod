@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 31 15:07:44 CEST 2014]
+[>Created: Fri Dec 05 15:22:05 CET 2014]
 13F1D8A32C686BDF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListProcess Big #zClass
@@ -46,6 +46,8 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(String)</name>
+        <nameStyle>13,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -63,7 +65,7 @@ Cs0 f23 actionTable 'out=in;
 Cs0 f23 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
 
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
-r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl",ivy.html.startref("13EE5C9EAAA819C8/DefaultTaskListPage.ivp"));
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl","ivy.html.DefaultTaskListPage");
 
 out.statFilter = null;
 out.catFilter = "";

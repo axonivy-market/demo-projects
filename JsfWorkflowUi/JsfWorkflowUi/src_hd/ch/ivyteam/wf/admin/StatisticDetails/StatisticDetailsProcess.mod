@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jun 04 14:53:15 CEST 2014]
+[>Created: Wed Nov 26 16:49:44 CET 2014]
 1446978B0F659AB0 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 StatisticDetailsProcess Big #zClass
@@ -21,7 +21,6 @@ Ss0 @RichDialogMethodStart f6 '' #zField
 Ss0 @GridStep f5 '' #zField
 Ss0 @GridStep f8 '' #zField
 Ss0 @GridStep f7 '' #zField
-Ss0 @PushWFArc f10 '' #zField
 Ss0 @PushWFArc f9 '' #zField
 Ss0 @PushWFArc f2 '' #zField
 Ss0 @RichDialogProcessEnd f12 '' #zField
@@ -29,6 +28,7 @@ Ss0 @PushWFArc f13 '' #zField
 Ss0 @PushWFArc f3 '' #zField
 Ss0 @PushWFArc f11 '' #zField
 Ss0 @GridStep f4 '' #zField
+Ss0 @PushWFArc f10 '' #zField
 >Proto Ss0 Ss0 StatisticDetailsProcess #zField
 Ss0 f0 guid 1446978B1157DF7E #txt
 Ss0 f0 type ch.ivyteam.wf.admin.StatisticDetails.StatisticDetailsData #txt
@@ -117,29 +117,48 @@ import ch.ivyteam.ivy.workflow.query.CaseQuery;
 
 IPropertyFilter caseFilter;
 CaseQuery caseQuery = CaseQuery.create();
+out.wfCase = null;
 
 if(in.mode == "avg")
 {
-	out.wfCase = ivy.wf.findCase(in.caseId);
+	out.wfCase = ivy.wf.findCase(in.caseId.longValue());
 }
 else
 {
 	String column = in.mode == "min" ? "MINBUSINESSRUNTIME" : "MAXBUSINESSRUNTIME";
-	
-	caseQuery.where().state().isEqual(CaseState.DONE).where().processCode().isEqual(in.processCode).and().processCategoryCode().isEqual(in.categoryCode).
-	aggregate().countRows().minBusinessRuntime().maxBusinessRuntime().avgBusinessRuntime().maxProcessCategoryCode().maxProcessName().groupBy().processCode();
+	caseQuery.where().state().isEqual(CaseState.DONE);
+	if(in.categoryCode.length()>0)
+	{
+		caseQuery.where().processCategoryCode().isEqual(in.categoryCode);
+	}
+	else
+	{
+		caseQuery.where().processCategoryCode().isEqual(null);
+	}
+	if(in.processCode.length()>0)
+	{
+		caseQuery.where().processCode().isEqual(in.processCode);
+	}
+	else
+	{
+		caseQuery.where().processCode().isEqual(null);
+	}
+	caseQuery.aggregate().countRows().minBusinessRuntime().maxBusinessRuntime().avgBusinessRuntime().maxProcessCategoryCode().maxProcessName().groupBy().processCode();
 	
 	Recordset cases = ivy.wf.getCaseQueryExecutor().getRecordset(caseQuery);
-	caseFilter = ivy.wf.createCasePropertyFilter(CaseProperty.BUSINESS_RUNTIME, RelationalOperator.EQUAL, cases.getAt(0).getField(column));
-	caseFilter.and(CaseProperty.PROCESS_CODE, RelationalOperator.EQUAL, cases.getAt(0).getField("PROCESSCODE"));
-	caseFilter.and(CaseProperty.PROCESS_CATEGORY_CODE, RelationalOperator.EQUAL, cases.getAt(0).getField("MAXPROCESSCATEGORYCODE"));
-
-
-	IQueryResult queryResult = ivy.wf.findCases(caseFilter, PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
-		0, 1 ,true);
+	if(cases.size() >0)
+	{
+		caseFilter = ivy.wf.createCasePropertyFilter(CaseProperty.BUSINESS_RUNTIME, RelationalOperator.EQUAL, cases.getAt(0).getField(column));
+		caseFilter.and(CaseProperty.PROCESS_CODE, RelationalOperator.EQUAL, cases.getAt(0).getField("PROCESSCODE"));
+		caseFilter.and(CaseProperty.PROCESS_CATEGORY_CODE, RelationalOperator.EQUAL, cases.getAt(0).getField("MAXPROCESSCATEGORYCODE"));
+		IQueryResult queryResult = ivy.wf.findCases(caseFilter, PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
+			0, 1 ,true);
 		
-		
-	out.wfCase = queryResult.get(0) as ICase;
+		if(queryResult.getResultCount() >0)
+		{
+			out.wfCase = queryResult.get(0) as ICase;
+		}	
+	}	
 }
 
 ' #txt
@@ -163,7 +182,8 @@ Ss0 f7 actionTable 'out=in;
 Ss0 f7 actionCode 'import ch.ivyteam.ivy.workflow.query.TaskQuery;
 
 TaskQuery taskQuery = TaskQuery.create();
-
+if(in.wfCase !=null)
+{
 taskQuery.where().caseId().isEqual(in.wfCase.getId()).
 aggregate().minWorkingTime().minBusinessRuntime().avgBusinessRuntime().maxProcessCategoryCode().maxName().groupBy().taskId();
 
@@ -188,8 +208,15 @@ for(int count = 0 ; count < tasks.size() ; count++)
 {
 	avgSum = avgSum + tasks.getAt(count).getField("AVGBUSINESSRUNTIME").toNumber();
 }
-
-in.average = avgSum / tasks.size();' #txt
+if(tasks.size() >0)
+{
+	in.average = avgSum / tasks.size();
+}
+else
+{
+	in.average =0;	
+}	
+}' #txt
 Ss0 f7 type ch.ivyteam.wf.admin.StatisticDetails.StatisticDetailsData #txt
 Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -203,8 +230,6 @@ Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ss0 f7 328 138 112 44 -25 -8 #rect
 Ss0 f7 @|StepIcon #fIcon
 Ss0 f7 -1|-1|-9671572 #nodeStyle
-Ss0 f10 expr out #txt
-Ss0 f10 280 160 328 160 #arcP
 Ss0 f9 expr out #txt
 Ss0 f9 109 160 168 160 #arcP
 Ss0 f2 expr out #txt
@@ -259,6 +284,8 @@ of tasks</name>
 Ss0 f4 488 138 112 44 -42 -16 #rect
 Ss0 f4 @|StepIcon #fIcon
 Ss0 f4 -1|-1|-9671572 #nodeStyle
+Ss0 f10 expr out #txt
+Ss0 f10 280 160 328 160 #arcP
 >Proto Ss0 .type ch.ivyteam.wf.admin.StatisticDetails.StatisticDetailsData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -267,11 +294,11 @@ Ss0 f0 mainOut f2 tail #connect
 Ss0 f2 head f1 mainIn #connect
 Ss0 f6 mainOut f9 tail #connect
 Ss0 f9 head f8 mainIn #connect
-Ss0 f8 mainOut f10 tail #connect
-Ss0 f10 head f7 mainIn #connect
 Ss0 f7 mainOut f11 tail #connect
 Ss0 f11 head f4 mainIn #connect
 Ss0 f4 mainOut f3 tail #connect
 Ss0 f3 head f5 mainIn #connect
 Ss0 f5 mainOut f13 tail #connect
 Ss0 f13 head f12 mainIn #connect
+Ss0 f8 mainOut f10 tail #connect
+Ss0 f10 head f7 mainIn #connect

@@ -11,19 +11,36 @@
 	<ui:param name="centerHeader"
 		value="#{ivy.cms.co('/navLabels/processList')}" />
 	<ui:define name="center">
+		<f:event type="preRenderView" listener="#{logic.update()}"/>
 		<br />
 		#{ivy.cms.co('/labels/workflow/processList/description')}
 		<br /><br />
-		<h:form>
-		<p:dataTable var="start" value="#{data.starts}"
-			emptyMessage="#{ivy.cms.co('/labels/common/noProcesses')}" sortBy="#{start.name.toUpperCase()}#{start.userFriendlyRequestPath.toUpperCase()}" sortOrder="ASCENDING">
-			<p:column sortBy="#{start.name.toUpperCase()}#{start.userFriendlyRequestPath.toUpperCase()}">
-				<f:facet name="header">
+		<h:form id="processlistform">
+			<p:toolbar styleClass="ivy-toolbar">
+	    		<p:toolbarGroup align="right">
+		    		<h:panelGrid columns="2">
+						<h:outputText value="#{ivy.cms.co('/labels/common/search')}: "></h:outputText> 
+						<p:inputText id="SearchTxt" value="#{data.filterTxt}" valueChangeListener="#{logic.filter}" style="margin-top:1px;margin-bottom:1px"/>
+	       			</h:panelGrid>
+	      		</p:toolbarGroup>
+			</p:toolbar>
+		<p:dataTable id="datatable" var="start" value="#{data.myStarts}" rowIndexVar="row" paginator="#{data.myStarts.size() >= 50}" paginatorPosition="bottom" rows="50"
+			emptyMessage="#{ivy.cms.co('/labels/common/noProcesses')}" sortBy="#{start.name.toUpperCase()}}" sortOrder="ASCENDING">
+			<p:column style="width:30%" sortBy="#{start.name.toUpperCase()}}">
+				<f:facet name="header" >
 					#{ivy.cms.co('/labels/common/name')}
 				</f:facet>
-				<a href="#{facesContext.externalContext.requestContextPath}/pro/#{start.fullRequestPath}" id="#{start.requestPath}">#{start.name.isEmpty() ? start.userFriendlyRequestPath : start.name}</a>
-				<br />
+				<a href="#{facesContext.externalContext.requestContextPath}/pro/#{start.fullRequestPath}" id="#{start.requestPath}" title="Start Process: #{start.name}">
+					#{start.name.isEmpty() ? start.userFriendlyRequestPath : start.name}</a>
+				<!--  <br />
 				<h:outputText value="#{start.description}" style="font-size:8pt;" />
+				-->
+			</p:column>
+			<p:column sortBy="#{start.description}}">
+				<f:facet name="header" >
+					#{ivy.cms.co('/labels/common/description')}
+				</f:facet>
+				<h:outputText value="#{start.description}" style="font-size:9pt;" />
 			</p:column>
 		</p:dataTable>
 		</h:form>

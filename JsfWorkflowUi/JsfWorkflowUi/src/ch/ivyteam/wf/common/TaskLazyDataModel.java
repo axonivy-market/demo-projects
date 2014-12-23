@@ -104,4 +104,9 @@ public class TaskLazyDataModel extends LazyDataModel<ITask> {
 	public void setMode(String mode) {
 		this.mode = mode;
 	}
+	
+	public boolean isAdminMode()
+	{
+		return mode.equals("admin");
+	}	
 }

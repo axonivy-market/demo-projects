@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jul 29 14:20:36 CEST 2014]
+[>Created: Wed Nov 26 17:02:03 CET 2014]
 1477BA3958D6FBD1 3.17 #module
 >Proto >Proto Collection #zClass
 Ls0 LoggedInUserProcess Big #zClass
@@ -20,9 +20,9 @@ Ls0 @RichDialogProcessEnd f1 '' #zField
 Ls0 @GridStep f27 '' #zField
 Ls0 @RichDialogMethodStart f4 '' #zField
 Ls0 @RichDialogProcessEnd f5 '' #zField
-Ls0 @PushWFArc f7 '' #zField
 Ls0 @PushWFArc f2 '' #zField
 Ls0 @PushWFArc f9 '' #zField
+Ls0 @PushWFArc f3 '' #zField
 >Proto Ls0 Ls0 LoggedInUserProcess #zField
 Ls0 f0 guid 1477BA395ABF4887 #txt
 Ls0 f0 type ch.ivyteam.wf.admin.LoggedInUser.LoggedInUserData #txt
@@ -105,19 +105,19 @@ Ls0 f4 @|RichDialogMethodStartIcon #fIcon
 Ls0 f5 type ch.ivyteam.wf.admin.LoggedInUser.LoggedInUserData #txt
 Ls0 f5 339 147 26 26 0 12 #rect
 Ls0 f5 @|RichDialogProcessEndIcon #fIcon
-Ls0 f7 expr out #txt
-Ls0 f7 109 160 168 160 #arcP
 Ls0 f2 expr out #txt
 Ls0 f2 109 64 211 64 #arcP
 Ls0 f9 expr out #txt
 Ls0 f9 280 160 339 160 #arcP
+Ls0 f3 expr out #txt
+Ls0 f3 109 160 168 160 #arcP
 >Proto Ls0 .type ch.ivyteam.wf.admin.LoggedInUser.LoggedInUserData #txt
 >Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect
 >Proto Ls0 '' #fIcon
-Ls0 f4 mainOut f7 tail #connect
-Ls0 f7 head f27 mainIn #connect
 Ls0 f0 mainOut f2 tail #connect
 Ls0 f2 head f1 mainIn #connect
 Ls0 f27 mainOut f9 tail #connect
 Ls0 f9 head f5 mainIn #connect
+Ls0 f4 mainOut f3 tail #connect
+Ls0 f3 head f27 mainIn #connect

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 14 09:51:01 CEST 2014]
+[>Created: Wed Nov 26 10:40:19 CET 2014]
 13FE10F004F193D4 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -92,9 +92,16 @@ Ct0 @PushWFArc f8 '' #zField
 Ct0 @GridStep f7 '' #zField
 Ct0 @GridStep f32 '' #zField
 Ct0 @PushTrueWFInG-01 g0 '' #zField
-Ct0 @PushWFArc f0 '' #zField
 Ct0 @PushTrueWFOutG-01 g1 '' #zField
+Ct0 @GridStep f2 '' #zField
+Ct0 @Alternative f3 '' #zField
+Ct0 @PushWFArc f9 '' #zField
+Ct0 @PushWFArc f0 '' #zField
+Ct0 @PushWFArc f10 '' #zField
+Ct0 @Alternative f11 '' #zField
+Ct0 @PushWFArc f12 '' #zField
 Ct0 @PushWFArc f1 '' #zField
+Ct0 @PushWFArc f13 '' #zField
 >Proto Ct0 Ct0 Component #zField
 Ts0 S10 .resExport export #txt
 Ts0 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -176,7 +183,10 @@ else
 	{
 		IQueryResult queryResult  = ivy.session.findWorkTasks(taskFilter, PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING), 
 	  	0, 1, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
-		out.task = queryResult.get(0) as ITask;
+	  if(queryResult.getAllCount() != 0)
+		{
+			out.task = queryResult.get(0) as ITask;
+		}
 	}
 }' #txt
 Ts0 f3 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
@@ -750,20 +760,21 @@ Ct0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f4 776 74 112 44 -48 -8 #rect
+Ct0 f4 872 74 112 44 -48 -8 #rect
 Ct0 f4 @|StepIcon #fIcon
 Ct0 f4 -1|-1|-9671572 #nodeStyle
 Ct0 f6 expr out #txt
-Ct0 f6 248 96 296 96 #arcP
+Ct0 f6 344 96 392 96 #arcP
 Ct0 f6 0 0.6499393278397387 0 0 #arcLabel
 Ct0 f33 expr out #txt
-Ct0 f33 568 96 616 96 #arcP
+Ct0 f33 664 96 712 96 #arcP
 Ct0 f33 0 0.24464016162311086 0 0 #arcLabel
 Ct0 f5 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ct0 f5 actionTable 'out=in;
 ' #txt
-Ct0 f5 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
+Ct0 f5 actionCode 'import ch.ivyteam.ivy.workflow.query.TaskQuery;
+import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.TaskState;
 import ch.ivyteam.ivy.workflow.IWorkflowSession;
 import ch.ivyteam.ivy.security.*;
@@ -782,14 +793,14 @@ IProcessModelVersionRequest Ivyrequest = ivy.html.getObject("request") as IProce
 ISecurityDescriptor securityDescriptor = Ivyrequest.getApplication().getSecurityDescriptor();
 
 state = task.getState();
-
-if(state==TaskState.DONE || state==TaskState.DELAYED || state==TaskState.READY_FOR_JOIN) 
+if(state==TaskState.DONE || state==TaskState.DELAYED || state==TaskState.READY_FOR_JOIN || in.isHistory) 
 {
-	in.canStart = true;
-} 
-else {
 	in.canStart = false;
 } 
+else
+{
+	in.canStart = true;
+}	 
 if(state==TaskState.RESUMED || state==TaskState.PARKED || state==TaskState.READY_FOR_JOIN && hasResetPermission) 
 {
 	in.resetLink = false;
@@ -825,7 +836,7 @@ if (state==TaskState.DONE || state==TaskState.DESTROYED || state==TaskState.RESU
 else { 
 	in.addNoteLink = false;
 }
-if (hasPageArchivePermission)	
+if (hasPageArchivePermission && in.task.getPageArchives().size() >0)	
 { 
 	in.archiveLink = false;
 } 
@@ -873,7 +884,7 @@ links</name>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f5 296 74 112 44 -41 -16 #rect
+Ct0 f5 392 74 112 44 -41 -16 #rect
 Ct0 f5 @|StepIcon #fIcon
 Ct0 f5 -1|-1|-9671572 #nodeStyle
 Ct0 f22 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
@@ -919,14 +930,14 @@ Ct0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f22 136 74 112 44 -8 -8 #rect
+Ct0 f22 232 74 112 44 -8 -8 #rect
 Ct0 f22 @|StepIcon #fIcon
 Ct0 f22 -1|-1|-9671572 #nodeStyle
 Ct0 f44 expr out #txt
-Ct0 f44 728 96 776 96 #arcP
+Ct0 f44 824 96 872 96 #arcP
 Ct0 f44 0 0.4678124781026417 0 0 #arcLabel
 Ct0 f8 expr out #txt
-Ct0 f8 408 96 456 96 #arcP
+Ct0 f8 504 96 552 96 #arcP
 Ct0 f8 0 0.8180270850396713 0 0 #arcLabel
 Ct0 f7 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
@@ -949,7 +960,7 @@ Ct0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f7 456 74 112 44 -25 -8 #rect
+Ct0 f7 552 74 112 44 -25 -8 #rect
 Ct0 f7 @|StepIcon #fIcon
 Ct0 f7 -1|-1|-9671572 #nodeStyle
 Ct0 f32 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
@@ -985,7 +996,7 @@ Ct0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f32 616 74 112 44 -34 -8 #rect
+Ct0 f32 712 74 112 44 -34 -8 #rect
 Ct0 f32 @|StepIcon #fIcon
 Ct0 f32 -1|-1|-9671572 #nodeStyle
 Ct0 g0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -998,7 +1009,6 @@ Ct0 g0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ct0 g0 51 83 26 26 -7 17 #rect
 Ct0 g0 @|MIGIcon #fIcon
 Ct0 g0 -1|-1|-9671572 #nodeStyle
-Ct0 f0 77 96 136 96 #arcP
 Ct0 g1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -1006,11 +1016,75 @@ Ct0 g1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 g1 947 83 26 26 -4 12 #rect
+Ct0 g1 1075 83 26 26 -4 12 #rect
 Ct0 g1 @|MOGIcon #fIcon
 Ct0 g1 -1|-1|-9671572 #nodeStyle
-Ct0 f1 expr out #txt
-Ct0 f1 888 96 947 96 #arcP
+Ct0 f2 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ct0 f2 actionTable 'out=in;
+out.addNoteLink=true;
+out.archiveLink=true;
+out.canChangeExpiry=false;
+out.canStart=false;
+out.changeExpiryLink=true;
+out.delegateLink=true;
+out.isDelayDateLower=false;
+out.isDelegateToRole=false;
+out.isExpiryDateLower=false;
+out.isHistory=false;
+out.parkLink=true;
+out.prioLink=true;
+out.resetLink=true;
+out.showNoteSelection=false;
+' #txt
+Ct0 f2 actionCode 'import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
+FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "", ivy.cms.co("/labels/common/nothingToShow")));' #txt
+Ct0 f2 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ct0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>no task 
+(missing permission)</name>
+        <nameStyle>29
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ct0 f2 216 154 144 44 -53 -16 #rect
+Ct0 f2 @|StepIcon #fIcon
+Ct0 f3 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ct0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>task not null?</name>
+        <nameStyle>14
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ct0 f3 144 80 32 32 -14 -36 #rect
+Ct0 f3 @|AlternativeIcon #fIcon
+Ct0 f9 77 96 144 96 #arcP
+Ct0 f0 expr in #txt
+Ct0 f0 outCond 'in.task != null' #txt
+Ct0 f0 176 96 232 96 #arcP
+Ct0 f10 expr in #txt
+Ct0 f10 160 112 216 176 #arcP
+Ct0 f10 1 160 176 #addKink
+Ct0 f10 1 0.21252532563010226 0 0 #arcLabel
+Ct0 f11 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ct0 f11 1024 80 32 32 0 16 #rect
+Ct0 f11 @|AlternativeIcon #fIcon
+Ct0 f12 expr out #txt
+Ct0 f12 984 96 1024 96 #arcP
+Ct0 f1 expr in #txt
+Ct0 f1 1056 96 1075 96 #arcP
+Ct0 f13 expr out #txt
+Ct0 f13 360 176 1040 112 #arcP
+Ct0 f13 1 1040 176 #addKink
+Ct0 f13 0 0.5569299217131004 0 0 #arcLabel
 >Proto Ct0 0 0 32 24 18 0 #rect
 >Proto Ct0 @|BIcon #fIcon
 Ts0 f14 mainOut f18 tail #connect
@@ -1071,8 +1145,16 @@ Ct0 f7 mainOut f33 tail #connect
 Ct0 f33 head f32 mainIn #connect
 Ct0 f32 mainOut f44 tail #connect
 Ct0 f44 head f4 mainIn #connect
-Ct0 g0 m f0 tail #connect
+Ct0 g0 m f9 tail #connect
+Ct0 f9 head f3 in #connect
+Ct0 f3 out f0 tail #connect
 Ct0 f0 head f22 mainIn #connect
+Ct0 f3 out f10 tail #connect
+Ct0 f10 head f2 mainIn #connect
+Ct0 f4 mainOut f12 tail #connect
+Ct0 f12 head f11 in #connect
+Ct0 f11 out f1 tail #connect
 Ct0 f1 head g1 m #connect
-Ct0 f4 mainOut f1 tail #connect
-Ct0 0 0 1024 192 0 #ivRect
+Ct0 f2 mainOut f13 tail #connect
+Ct0 f13 head f11 in #connect
+Ct0 0 0 1104 224 0 #ivRect

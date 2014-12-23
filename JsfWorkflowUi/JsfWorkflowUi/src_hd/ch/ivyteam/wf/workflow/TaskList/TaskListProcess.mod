@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 31 15:21:15 CEST 2014]
+[>Created: Fri Dec 05 15:22:05 CET 2014]
 13EE9A482A299A65 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListProcess Big #zClass
@@ -136,18 +136,22 @@ in.tasks.setMode(in.mode);
 out.header = in.mode == "my_tasks" ? ivy.cms.co("/navLabels/taskList") : ivy.cms.co("/navLabels/taskAdmin");
 
 out.states = TaskState.values();
-out.prios = WorkflowPriority.values();' #txt
+out.prios = WorkflowPriority.values();
+
+ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
+r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl", "ivy.html.DefaultTaskListPage");' #txt
 Ts0 f4 type ch.ivyteam.wf.workflow.TaskList.TaskListData #txt
 Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>filter default</name>
-        <nameStyle>14,7
+        <name>filter default
+set returnUrl</name>
+        <nameStyle>28,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f4 168 42 112 44 -31 -8 #rect
+Ts0 f4 168 42 112 44 -34 -16 #rect
 Ts0 f4 @|StepIcon #fIcon
 Ts0 f4 -1|-1|-9671572 #nodeStyle
 Ts0 f6 expr out #txt

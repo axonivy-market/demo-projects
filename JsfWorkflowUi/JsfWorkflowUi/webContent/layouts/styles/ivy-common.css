@@ -100,7 +100,20 @@ body {
   color: #575656;
 }
 
+.ivy-toolbar {
+  	background-color: #575656;
+  	border: 1px solid;
+  	border-color: #575656;
+	color: #ffffff;
+	font-weight: normal;
+}
+
+.ivy-toolbar-selectMenu {
+	vertical-align:bottom;
+}
+
 footer {
   color: #9d9d9d;
   margin-bottom: 20px;
 }
+

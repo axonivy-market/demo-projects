@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri May 09 11:21:40 CEST 2014]
+[>Created: Fri Dec 19 14:27:23 CET 2014]
 13EACA2A989BCC3D 3.17 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
@@ -20,17 +20,25 @@ He0 @PushWFArc f8 '' #zField
 He0 @StartRequest f11 '' #zField
 He0 @Alternative f13 '' #zField
 He0 @GridStep f14 '' #zField
-He0 @EndRequest f15 '' #zField
 He0 @PushWFArc f17 '' #zField
 He0 @Alternative f12 '' #zField
 He0 @PushWFArc f18 '' #zField
 He0 @PushWFArc f20 '' #zField
 He0 @PushWFArc f5 '' #zField
-He0 @PushWFArc f21 '' #zField
-He0 @PushWFArc f22 '' #zField
-He0 @PushWFArc f9 '' #zField
 He0 @PushWFArc f3 '' #zField
 He0 @EndTask f2 '' #zField
+He0 @RichDialog f10 '' #zField
+He0 @StartRequest f16 '' #zField
+He0 @PushWFArc f19 '' #zField
+He0 @RichDialog f23 '' #zField
+He0 @StartRequest f24 '' #zField
+He0 @StartRequest f25 '' #zField
+He0 @PushWFArc f26 '' #zField
+He0 @PushWFArc f27 '' #zField
+He0 @PushWFArc f28 '' #zField
+He0 @PushWFArc f9 '' #zField
+He0 @PushWFArc f21 '' #zField
+He0 @PushWFArc f29 '' #zField
 >Proto He0 He0 Home #zField
 He0 f1 outLink DefaultApplicationHomePage.ivp #txt
 He0 f1 type ch.ivyteam.wf.Data #txt
@@ -319,13 +327,13 @@ He0 f13 -1|-1|-9671572 #nodeStyle
 He0 f14 actionDecl 'ch.ivyteam.wf.Data out;
 ' #txt
 He0 f14 actionTable 'out=in;
+out.mode="my_tasks";
 ' #txt
 He0 f14 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
 import ch.ivyteam.ivy.workflow.TaskState;
 import ch.ivyteam.ivy.workflow.ITask;
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
 out.url=r.getHttpServletRequest().getSession().getAttribute("ch.ivy.wfui.returnUrl").toString();
-
 r.getHttpServletRequest().getSession().removeAttribute("ch.ivy.wfui.returnUrl");
 
 out.message=ivy.cms.co("/labels/common/finished");
@@ -357,23 +365,9 @@ finished msg</name>
     </language>
 </elementInfo>
 ' #txt
-He0 f14 264 170 112 44 -41 -16 #rect
+He0 f14 272 170 112 44 -41 -16 #rect
 He0 f14 @|StepIcon #fIcon
 He0 f14 -1|-1|-9671572 #nodeStyle
-He0 f15 type ch.ivyteam.wf.Data #txt
-He0 f15 template "redirect.jsp" #txt
-He0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>redirect</name>
-        <nameStyle>8
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-He0 f15 433 241 30 30 -20 15 #rect
-He0 f15 @|EndRequestIcon #fIcon
-He0 f15 -1|-1|-9671572 #nodeStyle
 He0 f17 expr out #txt
 He0 f17 111 192 176 192 #arcP
 He0 f17 0 0.4726186798232986 0 0 #arcLabel
@@ -387,34 +381,327 @@ He0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f12 432 176 32 32 6 5 #rect
+He0 f12 432 176 32 32 8 7 #rect
 He0 f12 @|AlternativeIcon #fIcon
 He0 f12 -1|-1|-9671572 #nodeStyle
 He0 f18 expr in #txt
 He0 f18 outCond !ivy.session.isSessionUserUnknown() #txt
-He0 f18 208 192 264 192 #arcP
+He0 f18 208 192 272 192 #arcP
 He0 f20 expr out #txt
-He0 f20 376 192 432 192 #arcP
+He0 f20 384 192 432 192 #arcP
 He0 f5 expr out #txt
 He0 f5 111 128 392 128 #arcP
 He0 f5 0 0.5694760965118373 0 0 #arcLabel
-He0 f21 expr in #txt
-He0 f21 448 176 448 150 #arcP
-He0 f21 0 0.006382768993461811 0 0 #arcLabel
-He0 f22 expr in #txt
-He0 f22 outCond in.url.length()>0 #txt
-He0 f22 448 208 448 241 #arcP
-He0 f22 0 0.4219317695771503 0 0 #arcLabel
-He0 f9 expr in #txt
-He0 f9 192 208 433 256 #arcP
-He0 f9 1 192 256 #addKink
-He0 f9 1 0.23341846466911037 0 0 #arcLabel
 He0 f3 expr out #txt
 He0 f3 504 128 561 128 #arcP
 He0 f2 type ch.ivyteam.wf.Data #txt
 He0 f2 561 113 30 30 0 15 #rect
 He0 f2 @|EndIcon #fIcon
 He0 f2 -1|-1|-9671572 #nodeStyle
+He0 f10 targetWindow NEW:card: #txt
+He0 f10 targetDisplay TOP #txt
+He0 f10 richDialogId ch.ivyteam.wf.workflow.ProcessList #txt
+He0 f10 startMethod start() #txt
+He0 f10 type ch.ivyteam.wf.Data #txt
+He0 f10 requestActionDecl '<> param;' #txt
+He0 f10 responseActionDecl 'ch.ivyteam.wf.Data out;
+' #txt
+He0 f10 responseMappingAction 'out=in;
+' #txt
+He0 f10 windowConfiguration '* ' #txt
+He0 f10 isAsynch false #txt
+He0 f10 isInnerRd false #txt
+He0 f10 userContext '* ' #txt
+He0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>process list</name>
+        <nameStyle>12,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+He0 f10 520 298 112 44 -32 -8 #rect
+He0 f10 @|RichDialogIcon #fIcon
+He0 f10 -1|-1|-9671572 #nodeStyle
+He0 f16 outLink DefaultProcessStartListPage.ivp #txt
+He0 f16 type ch.ivyteam.wf.Data #txt
+He0 f16 inParamDecl '<> param;' #txt
+He0 f16 actionDecl 'ch.ivyteam.wf.Data out;
+' #txt
+He0 f16 guid 14A1975C7D59C4EE #txt
+He0 f16 requestEnabled true #txt
+He0 f16 triggerEnabled false #txt
+He0 f16 callSignature DefaultProcessStartListPage() #txt
+He0 f16 persist false #txt
+He0 f16 startName DefaultProcessStartListPage #txt
+He0 f16 startDescription 'This is used to overwrite the default process start list.' #txt
+He0 f16 taskData '#
+#Fri Dec 05 09:01:48 CET 2014
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+He0 f16 caseData '#
+#Fri Dec 05 09:01:48 CET 2014
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+He0 f16 showInStartList 0 #txt
+He0 f16 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+He0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>DefaultProcessStartListPage.ivp</name>
+        <nameStyle>31,5,7
+</nameStyle>
+        <desc>This start is used to overwrite the default process start list.
+Use /ivy/wf/processStartList to call it.
+ivy.html.processStartListRef() will return a link to this process.</desc>
+    </language>
+</elementInfo>
+' #txt
+He0 f16 @C|.responsibility Everybody #txt
+He0 f16 81 305 30 30 -85 22 #rect
+He0 f16 @|StartRequestIcon #fIcon
+He0 f16 -1|-1|-9671572 #nodeStyle
+He0 f19 expr out #txt
+He0 f19 111 320 520 320 #arcP
+He0 f23 targetWindow NEW:card: #txt
+He0 f23 targetDisplay TOP #txt
+He0 f23 richDialogId ch.ivyteam.wf.workflow.TaskList #txt
+He0 f23 startMethod start(String) #txt
+He0 f23 type ch.ivyteam.wf.Data #txt
+He0 f23 requestActionDecl '<String mode> param;' #txt
+He0 f23 requestMappingAction 'param.mode=in.mode;
+' #txt
+He0 f23 responseActionDecl 'ch.ivyteam.wf.Data out;
+' #txt
+He0 f23 responseMappingAction 'out=in;
+' #txt
+He0 f23 windowConfiguration '* ' #txt
+He0 f23 isAsynch false #txt
+He0 f23 isInnerRd false #txt
+He0 f23 userContext '* ' #txt
+He0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>task list</name>
+        <nameStyle>9,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+He0 f23 616 394 112 44 -21 -8 #rect
+He0 f23 @|RichDialogIcon #fIcon
+He0 f23 -1|-1|-9671572 #nodeStyle
+He0 f24 outLink DefaultTaskListPage.ivp #txt
+He0 f24 type ch.ivyteam.wf.Data #txt
+He0 f24 inParamDecl '<> param;' #txt
+He0 f24 inParamTable 'out.mode="my_tasks";
+' #txt
+He0 f24 actionDecl 'ch.ivyteam.wf.Data out;
+' #txt
+He0 f24 guid 14A1975FBDE94784 #txt
+He0 f24 requestEnabled true #txt
+He0 f24 triggerEnabled false #txt
+He0 f24 callSignature DefaultTaskListPage() #txt
+He0 f24 persist false #txt
+He0 f24 startName DefaultTaskListPage #txt
+He0 f24 startDescription 'This start is used to overwrite the default task list.' #txt
+He0 f24 taskData '#
+#Fri Dec 12 15:00:59 CET 2014
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+He0 f24 caseData '#
+#Fri Dec 12 15:00:59 CET 2014
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+He0 f24 showInStartList 0 #txt
+He0 f24 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+He0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>DefaultTaskListPage.ivp</name>
+        <nameStyle>23,5,7
+</nameStyle>
+        <desc>This start is used to overwrite the default task list.
+Use /ivy/wf/taskList to call it.
+ivy.html.taskListRef() will return a link to this process.</desc>
+    </language>
+</elementInfo>
+' #txt
+He0 f24 @C|.responsibility Everybody #txt
+He0 f24 81 401 30 30 -66 17 #rect
+He0 f24 @|StartRequestIcon #fIcon
+He0 f24 -1|-1|-9671572 #nodeStyle
+He0 f25 outLink TaskListAdmin.ivp #txt
+He0 f25 type ch.ivyteam.wf.Data #txt
+He0 f25 inParamDecl '<> param;' #txt
+He0 f25 inParamTable 'out.mode="admin";
+' #txt
+He0 f25 actionDecl 'ch.ivyteam.wf.Data out;
+' #txt
+He0 f25 guid 14A1975FBE8C9D97 #txt
+He0 f25 requestEnabled true #txt
+He0 f25 triggerEnabled false #txt
+He0 f25 callSignature TaskListAdmin() #txt
+He0 f25 persist false #txt
+He0 f25 startName TaskListAdmin #txt
+He0 f25 taskData '#
+#Fri Dec 05 09:11:00 CET 2014
+TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+' #txt
+He0 f25 caseData '#
+#Fri Dec 05 09:11:00 CET 2014
+businessCalendarName=
+businessCreator.user=
+businessMilestone.timestamp=
+businessObject.code=
+businessObject.docDb.code=
+businessObject.folder.id=
+businessObject.name=
+businessPriority=
+businessStart.timestamp=
+case.description=
+case.name=
+correspondent.id=
+mainContact.docDb.code=
+mainContact.folder.id=
+mainContact.id=
+mainContact.name=
+mainContact.type=
+process.code=
+process.name=
+processCategory.code=
+processCategory.name=
+subType.code=
+subType.name=
+type.code=
+type.name=
+' #txt
+He0 f25 showInStartList 0 #txt
+He0 f25 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+He0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>TaskListAdmin.ivp</name>
+        <nameStyle>17,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+He0 f25 @C|.responsibility Everybody #txt
+He0 f25 81 465 30 30 -50 17 #rect
+He0 f25 @|StartRequestIcon #fIcon
+He0 f26 expr out #txt
+He0 f26 111 416 616 416 #arcP
+He0 f26 0 0.3958072023316056 0 0 #arcLabel
+He0 f27 expr out #txt
+He0 f27 111 480 672 438 #arcP
+He0 f27 1 672 480 #addKink
+He0 f27 0 0.7639793527705658 0 0 #arcLabel
+He0 f28 expr in #txt
+He0 f28 192 176 392 128 #arcP
+He0 f28 1 192 128 #addKink
+He0 f28 1 0.23341846466911037 0 0 #arcLabel
+He0 f9 expr in #txt
+He0 f9 outCond in.url.equals("ivy.html.DefaultProcessStartListPage") #txt
+He0 f9 448 208 576 298 #arcP
+He0 f9 1 448 256 #addKink
+He0 f9 2 576 256 #addKink
+He0 f9 0 0.012919371425973719 0 0 #arcLabel
+He0 f21 expr in #txt
+He0 f21 outCond in.url.equals("ivy.html.DefaultTaskListPage") #txt
+He0 f21 464 192 672 394 #arcP
+He0 f21 1 672 192 #addKink
+He0 f21 1 0.6311126072960193 0 0 #arcLabel
+He0 f29 expr in #txt
+He0 f29 448 176 448 150 #arcP
 >Proto He0 .type ch.ivyteam.wf.Data #txt
 >Proto He0 .processKind NORMAL #txt
 >Proto He0 0 0 32 24 18 0 #rect
@@ -433,9 +720,17 @@ He0 f14 mainOut f20 tail #connect
 He0 f20 head f12 in #connect
 He0 f1 mainOut f5 tail #connect
 He0 f5 head f4 mainIn #connect
-He0 f21 head f4 mainIn #connect
-He0 f12 out f22 tail #connect
-He0 f22 head f15 mainIn #connect
+He0 f16 mainOut f19 tail #connect
+He0 f19 head f10 mainIn #connect
+He0 f24 mainOut f26 tail #connect
+He0 f26 head f23 mainIn #connect
+He0 f25 mainOut f27 tail #connect
+He0 f27 head f23 mainIn #connect
+He0 f13 out f28 tail #connect
+He0 f28 head f4 mainIn #connect
+He0 f12 out f9 tail #connect
+He0 f9 head f10 mainIn #connect
 He0 f12 out f21 tail #connect
-He0 f13 out f9 tail #connect
-He0 f9 head f15 mainIn #connect
+He0 f21 head f23 mainIn #connect
+He0 f12 out f29 tail #connect
+He0 f29 head f4 mainIn #connect

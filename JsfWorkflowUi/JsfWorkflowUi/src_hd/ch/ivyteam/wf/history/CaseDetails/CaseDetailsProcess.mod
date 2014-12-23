@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 14 09:52:14 CEST 2014]
+[>Created: Tue Nov 25 15:19:54 CET 2014]
 13FE666253A103EF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetailsProcess Big #zClass
@@ -85,12 +85,24 @@ import ch.ivyteam.ivy.workflow.ICase;
 import ch.ivyteam.ivy.persistence.OrderDirection;
 import ch.ivyteam.ivy.persistence.IQueryResult;
 
-IPropertyFilter caseFilter = ivy.wf.createCasePropertyFilter(CaseProperty.ID, RelationalOperator.EQUAL, in.caseId);
-IQueryResult queryResult = ivy.session.findInvolvedCases(caseFilter, PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
-	0, 1 ,true);
-
-out.wfCase = queryResult.get(0) as ICase;
-out.tasks = out.wfCase.getTasks();' #txt
+out.wfCase = null;
+out.tasks.clear();
+if(ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_READ))
+{
+	out.wfCase = ivy.wf.findCase(in.caseId);
+	out.tasks = out.wfCase.getTasks();
+}
+else
+{
+	IPropertyFilter caseFilter = ivy.wf.createCasePropertyFilter(CaseProperty.ID, RelationalOperator.EQUAL, in.caseId);
+	IQueryResult queryResult = ivy.session.findInvolvedCases(caseFilter, PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
+		0, 1 ,true);
+	if(queryResult.getResultCount()>0)
+	{
+		out.wfCase = queryResult.get(0) as ICase;
+		out.tasks = out.wfCase.getTasks();
+	}
+}		' #txt
 Cs0 f3 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -116,7 +128,7 @@ import ch.ivyteam.ivy.workflow.IWorkflowSession;
 	boolean hasPageArchivePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_PAGE_ARCHIVE_READ_ALL);
 	boolean hasCaseDestroyPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_DESTROY);
 	
-		if (in.wfCase.getState()==CaseState.RUNNING && hasCaseDestroyPermission)	
+		if (in.wfCase!=null && in.wfCase.getState()==CaseState.RUNNING && hasCaseDestroyPermission)	
 		{ 
 			in.deleteCaseLink = false;
 		} else { 
@@ -128,7 +140,7 @@ import ch.ivyteam.ivy.workflow.IWorkflowSession;
 		} else { 
 			in.addNoteLink = true;
 		}
-		if (hasPageArchivePermission)	
+		if (hasPageArchivePermission && in.wfCase!=null && in.wfCase.getPageArchives().size()>0)	
 		{ 
 			in.archiveLink = false;
 		} else { 
@@ -155,7 +167,7 @@ Cs0 f9 actionTable 'out=in;
 Cs0 f9 actionCode 'import ch.ivyteam.ivy.workflow.INote;
 import ch.ivyteam.ivy.workflow.ICase;
 
-if(in.wfCase.hasNotes()){
+if(in.wfCase!=null && in.wfCase.hasNotes()){
 	out.notes = in.wfCase.getNotes();
 }' #txt
 Cs0 f9 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
@@ -357,7 +369,8 @@ if(hasPageArchivePermission)
 			out.pageArchives.add(pageArchive);
 		}	
 	}
-}' #txt
+}
+' #txt
 Cs0 f26 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

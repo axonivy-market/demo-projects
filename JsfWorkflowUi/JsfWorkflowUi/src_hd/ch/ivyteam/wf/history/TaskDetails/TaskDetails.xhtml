@@ -13,14 +13,15 @@
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/taskDetails')}" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
+		<c:if test="#{!(data.task eq null)}">
 		<br />
 		#{ivy.cms.co('/labels/history/taskDetails/description')}
 		<br /><br />
 		<h:form id="formTaskDetails">
 			<h:panelGrid columns="1">
-				<p:toolbar>  
+				<p:toolbar styleClass="ivy-toolbar">  
     				<p:toolbarGroup align="left">
-    					<p:commandButton id="startTask" value="#{ivy.cms.co('/labels/common/taskResume')}" title="#{ivy.cms.co('/labels/common/taskResume')} Task" icon="wf-ui-icon-start" onclick="window.location.href='#{data.taskLink}'; return false;" disabled="#{data.canStart}" />
+    					<p:commandButton id="startTask" value="#{ivy.cms.co('/labels/common/taskResume')}" title="#{ivy.cms.co('/labels/common/taskResume')} Task" icon="wf-ui-icon-start" onclick="window.location.href='#{data.taskLink}'; return false;" disabled="#{!data.canStart}" />
     					<p:commandButton id="openResetTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" title="#{ivy.cms.co('/labels/history/taskDetails/resetTaskTooltip')}" icon="wf-ui-icon-reset" onclick="PF('confirmDeleteReset').show();" disabled="#{data.resetLink}" />
 		    			<p:commandButton id="openAddNote" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" title="#{ivy.cms.co('/labels/common/addNoteTooltip')}" icon="wf-ui-icon-addNote" onclick="PF('addNote').show();" disabled="#{data.addNoteLink}" />
 						<p:commandButton id="openDelegateTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}" title="#{ivy.cms.co('/labels/history/taskDetails/delegateTaskTooltip')}" icon="wf-ui-icon-delegate" onclick="PF('delegateTask').show();" disabled="#{data.delegateLink}" />
@@ -100,7 +101,7 @@
 								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 							</h:outputText>
 							<p:spacer width="10" />
-							<p:commandButton value="#{ivy.cms.co('/labels/dialogs/confirmDialog/expiryTitle')}" onclick="PF('confirmExpiryNow').show();" update=":formTaskDetails" rendered="#{data.isExpiryDateLower}" />
+							<p:commandLink value="#{ivy.cms.co('/labels/dialogs/confirmDialog/expiryTitle')}" onclick="PF('confirmExpiryNow').show();" update=":formTaskDetails" rendered="#{data.isExpiryDateLower and !data.changeExpiryLink}" />
 						</td>
 					</tr>
 					<tr>
@@ -110,7 +111,7 @@
 								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 							</h:outputText>
 							<p:spacer width="10" />
-							<p:commandButton value="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}" onclick="PF('confirmDelayNow').show();" update=":formTaskDetails" rendered="#{data.isDelayDateLower}" />
+							<p:commandLink value="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}" onclick="PF('confirmDelayNow').show();" update=":formTaskDetails" rendered="#{data.isDelayDateLower}" />
 						</td>
 					</tr>
 					<tr>
@@ -123,15 +124,15 @@
 					</tr>
 				</table>
 				</h:column>
-				<p:spacer width="50" />
+				<p:spacer width="100" />
 				<h:column>
 				<p:fieldset legend="#{ivy.cms.co('/labels/common/notes')}" toggleable="true" toggleSpeed="500" rendered="#{data.task.case.hasNotes() or data.task.hasNotes()}">
 					<p:dataList value="#{data.notes}" var="taskNote" itemType="none" rendered="#{data.task.hasNotes()}">
 						<f:facet name="header">
 				            #{ivy.cms.co('/labels/common/taskNotes')}
 				        </f:facet>
-						<h:panelGrid columns="3" style="width:100%">
-							<p:outputPanel>
+						<h:panelGrid columns="3" style="width:90%" >
+							<p:outputPanel style="width:300px">
 		    					<h:outputText value="#{taskNote.creationTimestamp}" style="font-weight:bold;" >
 			    					<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 								</h:outputText>
@@ -140,7 +141,7 @@
 		    					<h:outputText value="#{taskNote.message}" escape="false" />
 	    					</p:outputPanel>
 	    					<p:spacer width="20" />
-	    					<p:commandButton id="openDeleteTaskNote" icon="wf-ui-icon-delete" onclick="PF('confirmDeleteNote').show();" disabled="#{taskNote.writterName != ivy.session.sessionUserName}" >
+	    					<p:commandButton id="openDeleteTaskNote" icon="wf-ui-icon-delete"  title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}" style="background-color:#ffffff; border:0px; width:20px;" onclick="PF('confirmDeleteNote').show();" disabled="#{taskNote.writterName != ivy.session.sessionUserName}" >
 	    						<f:setPropertyActionListener value="#{taskNote}" target="#{data.note}" />
 								<f:setPropertyActionListener value="task" target="#{data.noteFor}" />
 	    					</p:commandButton>
@@ -153,8 +154,8 @@
 						<f:facet name="header">
 				            #{ivy.cms.co('/labels/common/caseNotes')}
 				        </f:facet>
-						<h:panelGrid columns="3" style="width:100%">
-							<p:outputPanel>
+						<h:panelGrid columns="3" style="width:90%">
+							<p:outputPanel style="width:300px">
 		    					<h:outputText value="#{caseNote.creationTimestamp}" style="font-weight:bold;" >
 		    						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 								</h:outputText>
@@ -163,7 +164,7 @@
 		    					<h:outputText value="#{caseNote.message}" escape="false" />
 	    					</p:outputPanel>
 	    					<p:spacer width="20" />
-							<p:commandButton id="openDeleteCaseNote" icon="wf-ui-icon-delete" onclick="PF('confirmDeleteNote').show();" disabled="#{caseNote.writterName != ivy.session.sessionUserName}" >
+							<p:commandButton id="openDeleteCaseNote" icon="wf-ui-icon-delete" title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}" style="background-color:#ffffff; border:0px; width:20px"  onclick="PF('confirmDeleteNote').show();" disabled="#{caseNote.writterName != ivy.session.sessionUserName}" >
 	    						<f:setPropertyActionListener value="#{caseNote}" target="#{data.note}" />
 								<f:setPropertyActionListener value="case" target="#{data.noteFor}" />
 	    					</p:commandButton>
@@ -216,6 +217,7 @@
 		<ui:include src="/includes/dialogs/ChangePriority.xhtml" />
 		<ui:include src="/includes/dialogs/AddNote.xhtml" />
 		<ui:include src="/includes/dialogs/Archive.xhtml" />
+		</c:if>
    	</ui:define>
 </ui:composition>
 </html>

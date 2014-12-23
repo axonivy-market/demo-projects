@@ -16,7 +16,13 @@
 		#{ivy.cms.co('/labels/settings/absence/description')}
        	<c:if test="#{adminBean.isAdmin}">
         	<br /><br />
-   			<p:commandButton id="showAbsentUsers" update=":dialogAbsentUsers" icon="wf-ui-icon-users" value="#{ivy.cms.co('/labels/settings/absence/absentUsers')}" title="absent users" oncomplete="PF('formAbsentUsers').show();" />
+			<h:panelGrid columns="1">
+				<p:toolbar styleClass="ivy-toolbar">  
+    				<p:toolbarGroup align="left">
+   				<p:commandButton id="showAbsentUsers" update=":dialogAbsentUsers" icon="wf-ui-icon-users" value="#{ivy.cms.co('/labels/settings/absence/absentUsers')}" title="absent users" oncomplete="PF('formAbsentUsers').show();" />
+			</p:toolbarGroup>
+			</p:toolbar>
+			</h:panelGrid>
 		</c:if>
 		<br /><br />
 		<p:outputPanel id="userAbsentOutput">
@@ -31,13 +37,13 @@
 			</c:if>
 		</p:outputPanel>
 		<h:form id="formAbsence">
-			<p:toolbar>
+			<p:toolbar styleClass="ivy-toolbar">
 	    		<p:toolbarGroup>
 		    		<h:panelGrid columns="4">
-		   				<c:if test="#{adminBean.isAdmin}">
-		 					<h:outputText value="#{ivy.cms.co('/labels/settings/absence/absenceFor')}:" />
-					   		<p:selectOneMenu id="userSelection" value="#{data.absenceFor}" filter="true" filterMatchMode="contains" converter="ivy.ListItem">
-					       		<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{user.getFullName()} (#{user.getName()})" />
+		   				<c:if test="#{adminBean.hasAbsencePermission()}">
+		 					<h:outputText value="#{ivy.cms.co('/labels/common/user')}: " />
+					   		<p:selectOneMenu id="userSelection" value="#{data.absenceFor}" filter="true" filterMatchMode="contains" converter="ivy.ListItem" styleClass="ivy-toolbar-selectMenu">
+					       		<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{user.getDisplayName().length() ne 0 ? user.getDisplayName() : user.getName()}" />
 					       		<p:ajax update=":userAbsentOutput :formAbsence" listener="#{logic.update()}" />
 					   		</p:selectOneMenu>
 				   			<p:spacer width="30" />
@@ -48,7 +54,7 @@
 	       			</h:panelGrid>
 	      		</p:toolbarGroup>
 			</p:toolbar>
-   			<p:dataTable id="tableAbsence" value="#{data.absences}" var="absence" emptyMessage="#{ivy.cms.co('/labels/common/noAbsences')}">
+   			<p:dataTable id="tableAbsence" value="#{data.absences}" var="absence"  emptyMessage="#{ivy.cms.co('/labels/common/noAbsences')}">
        			<p:column id="absenceStart" sortBy="#{absence.startTimestamp}" style="width: 150px;">
            			<f:facet name="header">
               			#{ivy.cms.co('/labels/settings/absence/absenceStart')}
@@ -71,18 +77,18 @@
            			</f:facet>
            			#{absence.description}
        			</p:column>
-       			<p:column style="width: 200px; text-align: center;">
+       			<p:column style="width: 264px; text-align: center;">
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/settings/absence/absenceControls')}
            			</f:facet>
-                    <p:commandButton id="editButton" update=":dialogEditAbsence" oncomplete="PF('editAbsence').show();" icon="wf-ui-icon-edit" value="#{ivy.cms.co('/labels/common/edit')}">
+                    <p:commandButton id="editButton" update=":dialogEditAbsence" oncomplete="PF('editAbsence').show();" icon="wf-ui-icon-edit" style="width:128px;" value="#{ivy.cms.co('/labels/common/edit')}">
                			<f:setPropertyActionListener value="#{absence.description}" target="#{data.absenceDescription}" />
                			<f:setPropertyActionListener value="#{absence.startTimestamp}" target="#{data.startDateTime}" />
                			<f:setPropertyActionListener value="#{absence.stopTimestamp}" target="#{data.endDateTime}" />
                			<f:setPropertyActionListener value="#{absence.id}" target="#{data.deleteId}" />
                			<f:setPropertyActionListener value="edit" target="#{data.option}" />
            			</p:commandButton>
-           			<p:commandButton id="removeButton" actionListener="#{logic.removeAbsence(absence.id)}" update=":formAbsence" icon="wf-ui-icon-delete" value="#{ivy.cms.co('/labels/common/delete')}" ajax="false" />
+           			<p:commandButton id="removeButton" actionListener="#{logic.removeAbsence(absence.id)}" update=":formAbsence" icon="wf-ui-icon-delete" style="width:128px;" value="#{ivy.cms.co('/labels/common/delete')}" ajax="false" />
         		</p:column>
    			</p:dataTable>
 		</h:form>

@@ -12,35 +12,38 @@
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{data.header}" />
 	<ui:define name="center">
-		<f:event type="preRenderView" listener="#{logic.update()}" />
+		<f:event type="preRenderView" listener="#{navigation.setAdminMode(data.mode eq 'admin')}"/>
+		<f:event type="preRenderView" listener="#{logic.update()}"/>
 		<br />
-		#{data.mode == 'my_tasks' ? ivy.cms.co('/labels/workflow/taskList/description') : ivy.cms.co('/labels/admin/taskAdmin/description')}
+		#{data.mode ne 'admin' ? ivy.cms.co('/labels/workflow/taskList/description') : ivy.cms.co('/labels/admin/taskAdmin/description')}
 		<br /><br />
 		<h:form id="taskListForm">
-			<p:toolbar>
+			<p:toolbar styleClass="ivy-toolbar">
 	    		<p:toolbarGroup align="right">
-		    		<h:panelGrid columns="6">
-	 					#{ivy.cms.co('/labels/common/taskPrio')}:
-	 					<p:selectOneMenu value="#{data.prioFilter}" id="priorityFilter">
+		    		<h:panelGrid columns="8">
+	 					<h:outputText value="#{ivy.cms.co('/labels/common/taskPrio')}: "></h:outputText>
+	 					<p:selectOneMenu value="#{data.prioFilter}" id="priorityFilter" styleClass="ivy-toolbar-selectMenu">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" noSelectionOption="true" />
 	           				<f:selectItems value="#{data.prios}" var="prio" itemLabel="#{prio}" itemValue="#{prio}" />
 		           			<p:ajax update=":taskListForm" listener="#{logic.setFilter}" />
 		       			</p:selectOneMenu>
-		       			#{ivy.cms.co('/labels/common/responsible')}:
-		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter" filter="true" filterMatchMode="contains">
+		       			<p:spacer width="8px"></p:spacer>
+		       			<h:outputText value=" #{ivy.cms.co('/labels/common/responsible')}: "></h:outputText>
+		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter" filter="true" filterMatchMode="contains" styleClass="ivy-toolbar-selectMenu">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="All" />
-	 						<c:if test="#{data.mode == 'my_tasks'}">
+	 						<c:if test="#{data.mode ne 'admin'}">
 	 							<f:selectItem itemLabel="#{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" itemValue="##{ivy.session.getSessionUserName()}" />
 		          			</c:if>
-		          			<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} #{role.getDisplayName() != '' ? '(' : ''}#{role.getName()}#{role.getDisplayName() != '' ? ')' : ''}" itemValue="#{role.getName()}"/>
-		          			<c:if test="#{data.mode != 'my_tasks'}">
+		          			<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName().length() !=0 ? role.getDisplayName() : role.getName()}" itemValue="#{role.getName()}"/>
+		          			<c:if test="#{data.mode eq 'admin'}">
 		          				<f:selectItems value="#{data.userList}" var="user" itemLabel="#{user.getDisplayName()}" itemValue="##{user.getName()}" />
 		          			</c:if>
 		           			<p:ajax update=":taskListForm" listener="#{logic.setFilter}" />
 		       			</p:selectOneMenu>
-		       			<c:if test="#{data.mode != 'my_tasks'}">
-		        			#{ivy.cms.co('/labels/common/taskState')}:
-		 					<p:selectOneMenu id="stateFilter" value="#{data.statFilter}">
+		       			<c:if test="#{data.mode eq 'admin'}">
+		       				<p:spacer width="8px"></p:spacer>
+		        			<h:outputText value=" #{ivy.cms.co('/labels/common/taskState')}: "/>
+		 					<p:selectOneMenu id="stateFilter" value="#{data.statFilter}" styleClass="ivy-toolbar-selectMenu">
 		 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" noSelectionOption="true" />
 		           				<f:selectItems value="#{data.states}" var="state" itemLabel="#{state}" itemValue="#{state}" />
 		           				<p:ajax update=":taskListForm" listener="#{logic.setFilter}" />
@@ -50,42 +53,53 @@
 	      		</p:toolbarGroup>
 			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
-			<p:dataTable id="taskTable" widgetVar="taskTable" var="task" value="#{data.tasks}" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}" rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
-				<p:column style="width:5%" sortBy="#{ID}">
+			<p:dataTable id="taskTable" widgetVar="taskTable" var="task" value="#{data.tasks}"  emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}" rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
+				<p:column style="width:15px" sortBy="#{ID}">
 					<f:facet name="header">
-						#
 					</f:facet>
+					<c:choose>
+					<c:when test="#{data.mode ne 'admin'}">
 					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskDetail" title="Details Task [#{task.id}]"><h:graphicImage name="images/actions/task#{task.hasNotes() || task.case.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" /></a>
+					</c:when>
+					<c:otherwise>
+						<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskDetail" title="Details Task [#{task.id}]"><h:graphicImage name="images/actions/task#{task.hasNotes() || task.case.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" /></a>
+					</c:otherwise>
+					</c:choose>
 				</p:column>
-				<p:column style="width:55px; text-align: center;" sortBy="#{PRIORITY}">
+				<p:column style="width:15px; text-align: center;" sortBy="#{PRIORITY}">
 					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/taskPrio')}
 					</f:facet>
 					<h:graphicImage name="images/details/priority/#{task.priority.intValue()}.png" alt="prio" title="Prio #{task.priority}" />
 				</p:column>
-				<p:column style="width:70px; text-align: center;" sortBy="#{STATE}">
+				<p:column style="width:15px; text-align: center;" sortBy="#{STATE}">
 					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/taskState')}
 					</f:facet>
 					<h:graphicImage name="images/details/state/#{task.state.intValue()}.png" alt="#{task.state}" title="#{ivy.cms.co('/labels/common/state')} #{task.state}" />
 				</p:column>										
-				<p:column sortBy="#{NAME}">
+				<p:column style="width:50%" sortBy="#{NAME}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/task')}
 					</f:facet>
-					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.id}" title="Details Task [#{task.id}]">#{task.name}</a>
+					<c:choose>
+					<c:when test="#{data.mode ne 'admin'}">
+						<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.id}" title="Details Task [#{task.id}]">#{task.name}</a>
+					</c:when>
+					<c:otherwise>
+						<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" title="Details Task [#{task.id}]">#{task.name}</a>
+					</c:otherwise>	
+					</c:choose>			
 				</p:column>
-				<p:column sortBy="#{ACTIVATOR_NAME}">
+				<p:column style="width:25%;" sortBy="#{ACTIVATOR_NAME}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
 					<wc:MemberDetail member="#{task.activator}" />
-					<c:if test="#{data.mode == 'my_tasks'}">
+					<c:if test="#{data.mode ne 'admin'}">
 						<ui:param name="isSubstitute" value="#{substituteBean.isSubstitute(task.activator)}" />
 						<h:graphicImage id="iconSubstitute" name="images/details/substitute.png" alt="#{ivy.cms.co('/labels/settings/substitute/substitute')}" title="#{ivy.cms.co('/labels/settings/substitute/substitute')}" rendered="#{isSubstitute}" />
 					</c:if>
 				</p:column>
-				<p:column sortBy="#{START_TIMESTAMP}">
+				<p:column style="width:110px; text-align: center;" sortBy="#{START_TIMESTAMP}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskStart')}
 					</f:facet>
@@ -93,7 +107,15 @@
 			            <f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
 				</p:column>
-				<c:if test="#{data.mode == 'my_tasks'}">
+				<p:column style="width:110px; text-align: center;" sortBy="#{EXPIRY_TIMESTAMP}">
+					<f:facet name="header">
+						#{ivy.cms.co('/labels/common/expiry')}
+					</f:facet>
+					<h:outputText value="#{task.expiryTimestamp}">  
+			            <f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+					</h:outputText>
+				</p:column>
+				<c:if test="#{data.mode ne 'admin'}">
 					<p:column style="width:50px; text-align: center;">
 						<f:facet name="header">
 							Start
