@@ -28,7 +28,6 @@ The artefacts in this project are provided "as is" and are NOT INTENDED FOR PROD
       <plugin>
         <groupId>ch.ivyteam.ivy</groupId>
         <artifactId>project-build-plugin</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>

@@ -34,4 +34,14 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>ch.ivyteam.ivy</groupId>
+				<artifactId>project-build-plugin</artifactId>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

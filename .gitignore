@@ -41,3 +41,5 @@ WorkflowUI/src_dataClasses
 WorkflowUI/src_dataClasses/*
 WorkflowUI/src_dataClasses/ch
 WorkflowUI/target
+build.maven/iar/ria/target
+build.maven/iar/target

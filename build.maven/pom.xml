@@ -15,6 +15,15 @@
 		</pluginRepository>
 	</pluginRepositories>
  
+	<repositories>
+		<!-- Used to install manually installed artifacts -->
+		<repository>
+			<id>zugprorepo.buildIntegration</id>
+			<name>Internal Build Integration Repository</name>
+			<url>http://zugprorepo/repository/buildIntegration/</url>
+		</repository>
+	</repositories>
+ 
 	<distributionManagement>
 		<!-- Used to deploy artifacts -->
 		<repository>
@@ -38,6 +47,7 @@
 				<configuration>
 					<deployAtEnd>false</deployAtEnd>
 					<updateReleaseInfo>true</updateReleaseInfo>
+					<uniqueVersion>true</uniqueVersion>
 				</configuration>
 			</plugin>
 		</plugins>
