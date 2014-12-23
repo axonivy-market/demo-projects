@@ -182,8 +182,8 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   
   private void checkIsSubstituteForRolesAdded()
   {
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("role1");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("role2");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Role 1");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Role 2");
     driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
     driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
   }
@@ -267,7 +267,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     setDefaultPageProcess();
     createTask("titel", "beschreibung", 0);
-    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Home");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Process List");
     callDefaultLogin();
   }
   
@@ -296,6 +296,6 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     passwordElement.sendKeys(WEB_TEST_SERVER_ADMIN_PASSWORD);
     driverHelper.findElementById("loginPageComponent:loginForm:loginButton").click();
     closeTask();
-    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Home");
+    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Task List");
   }
 }

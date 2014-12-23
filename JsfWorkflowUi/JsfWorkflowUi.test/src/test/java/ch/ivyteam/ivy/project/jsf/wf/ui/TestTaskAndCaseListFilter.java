@@ -101,7 +101,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     WebElement selectOneMenu = driverHelper.findElementById("taskListForm:priorityFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("LOW");
     selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role (Everybody)");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
     driverHelper.getWebDriver().navigate().refresh();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskForFilterPrioHigh");
@@ -110,7 +110,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     selectOneMenu = driverHelper.findElementById("taskListForm:priorityFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("HIGH");
     selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role (Everybody)");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
     driverHelper.getWebDriver().navigate().refresh();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskForFilterLow");
@@ -120,7 +120,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     // test responsible
     navigate().taskList();
     selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role (Everybody)");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     closeTask();
   }
@@ -158,7 +158,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     
     navigate().taskAdmin();
     WebElement selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role (Everybody)");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForFilterPrioHigh");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForFilterLow");
     

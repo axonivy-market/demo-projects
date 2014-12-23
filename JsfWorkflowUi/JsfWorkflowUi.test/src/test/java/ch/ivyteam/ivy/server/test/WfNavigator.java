@@ -17,12 +17,12 @@ public class WfNavigator
   
   public void processList()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13ED18655F6A1538/DefaultProcessStartListPage.ivp");
+    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultProcessStartListPage.ivp");
   }
   
   public void taskList()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/DefaultTaskListPage.ivp");
+    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultTaskListPage.ivp");
   }
   
   public void caseList()
@@ -57,7 +57,7 @@ public class WfNavigator
   
   public void taskAdmin()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EE5C9EAAA819C8/TaskListAdmin.ivp");
+    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/TaskListAdmin.ivp");
   }
   
   public void logout()
