@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 15 14:17:34 CET 2012]
+[>Created: Fri Feb 27 18:05:20 CET 2015]
 11A9B75F7E57BD13 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseSearchProcess Big #zClass
@@ -4002,7 +4002,8 @@ for (Tree treeToExpand: out.treesToExpandOnRender)
 	treePaths.add(panel.caseHierarchyLayoutTree.getTreePath(treeToExpand));
 }
 
-panel.caseHierarchyLayoutTree.expandPaths(treePaths, false);' #txt
+panel.caseHierarchyLayoutTree.expandPaths(treePaths, false);
+panel.caseHierarchyLayoutTree.setSelectedTreeNode(null);' #txt
 Cs0 f50 type ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData #txt
 Cs0 f50 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
