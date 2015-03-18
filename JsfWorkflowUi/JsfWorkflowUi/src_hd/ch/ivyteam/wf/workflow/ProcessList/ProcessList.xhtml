@@ -26,7 +26,7 @@
 			</p:toolbar>
 		<p:dataTable id="datatable" var="start" value="#{data.myStarts}" rowIndexVar="row" paginator="#{data.myStarts.size() >= 50}" paginatorPosition="bottom" rows="50"
 			emptyMessage="#{ivy.cms.co('/labels/common/noProcesses')}" sortBy="#{start.name.toUpperCase()}}" sortOrder="ASCENDING">
-			<p:column style="width:30%" sortBy="#{start.name.toUpperCase()}}">
+			<p:column style="width:30%" sortBy="#{start.name.toUpperCase()}">
 				<f:facet name="header" >
 					#{ivy.cms.co('/labels/common/name')}
 				</f:facet>
@@ -36,7 +36,7 @@
 				<h:outputText value="#{start.description}" style="font-size:8pt;" />
 				-->
 			</p:column>
-			<p:column sortBy="#{start.description}}">
+			<p:column sortBy="#{start.description}">
 				<f:facet name="header" >
 					#{ivy.cms.co('/labels/common/description')}
 				</f:facet>
