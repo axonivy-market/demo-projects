@@ -19,17 +19,17 @@ String tmpMsg=ivy.html.get("in.message");
 		<title>Axon.ivy Workflow</title>
 	</head>
 	
-	<body style="background-color: #F9F9F9;font-size: 9pt; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  margin-top: 0px;margin-bottom: 0px;margin-left: 5px;margin-right: 1px;height:99%; ">
+	<body style="background-color: #F9F9F9;font-size: 9pt; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;  margin-top: 1px;margin-bottom:1px;margin-left: 1px;margin-right: 1px;height:99%; ">
 	
 	
-		<div id="TopLogo" style="background-color: #575656; height: 125px;text-align:left; margin-top:7px; margin-right:1px; margin-bottom: -2px; margin-left: -1px;">
-			<img src='images/others/AxonIvyHeader.gif'>
+		<div id="TopLogo" style="background-color: #575656; height: 100px;text-align:left; margin-top:0px; margin-right:0px; margin-bottom: 0px; margin-left: 0px;">
+			<img src='layouts/images/header_ivy.png'>
 		</div>
 		
-		<div style="background-color: #EAEAEA; height: 24px;width: 99%;padding-top: 4px;padding-bottom: 4px; margin-top:2px; margin-right:1px; margin-left: -1px; padding-left: 4px;padding-right: 4px;">
+		<div style="background-color: #EAEAEA; height: 24px;padding-top: 4px;padding-bottom: 4px; margin-top:0px; margin-right:0px; margin-left: 0px; padding-left: 4px;padding-right: 4px;">
 		</div>
 		
-		<div style="background-color: #F9F9F9; position: absolute; height: 416px; width: 99%; margin-top: 0px;margin-bottom: 0px;margin-left: 0px;padding-top: 4px;padding-bottom: 4px;padding-left: 2px;padding-right: 2px;">
+		<div style="background-color: #F9F9F9; position: absolute; height: 416px; width: 99%; margin-top: 0px;margin-bottom: 0px;margin-left: 0px;padding-top: 4px;padding-bottom: 4px;padding-left: 8px;padding-right: 2px;">
 			<br>
 			<%
 				if(urlToStart.length()==0)

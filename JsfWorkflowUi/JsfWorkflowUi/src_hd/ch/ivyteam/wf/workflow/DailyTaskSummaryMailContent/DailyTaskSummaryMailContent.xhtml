@@ -13,7 +13,6 @@
 		<br />
 		#{ivy.cms.co('/labels/workflow/dailyTaskSummaryMail/intro')}
 		<br />
-		<br />
 		<h:form id="dailyTaskSummaryMailContent">
 			<p:dataTable id="taskTable" widgetVar="taskTable" var="task" value="#{data.tasks}" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}" rowIndexVar="row" sortOrder="DESCENDING">
 				<p:column style="width:40px; text-align: center;">

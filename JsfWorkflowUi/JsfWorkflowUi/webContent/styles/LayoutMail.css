@@ -1,12 +1,19 @@
 @CHARSET "ISO-8859-1";
+div#layoutHeader
+{
+	background-color: #575656;
+}
+
 div#PageCaption
 {
-	background-color: #EAEAEA;
+	background-color: #dfdfdf;
 }
 
 body
 {
-	margin: 0;
+  font-family: Corbel, "Segoe UI", Arial, sans-serif;
+  font-size: small;
+  margin: 0;
 }
 
 h3

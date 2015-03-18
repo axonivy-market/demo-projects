@@ -13,7 +13,6 @@
 		<br />
 		#{ivy.cms.co('/labels/workflow/newTaskMail/intro')}
 		<br />
-		<br />
 		<h:form id="newTaskMailContent">
 			<table id="taskDetailsList" class="detailsList">
 				<tr>
@@ -53,7 +52,7 @@
 			<br />
 			<table id="startTask">
 				<tr>
-				    <td><a href="#{facesContext.externalContext.requestContextPath}/pro/#{data.task.fullRequestPath}?taskId=#{data.task.id}" id="taskStartImageLink"><h:graphicImage name="images/actions/startLink.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{data.task.id}]" style="border:0;"/></a> </td>
+				    <td><a href="#{facesContext.externalContext.requestContextPath}/pro/#{data.task.fullRequestPath}?taskId=#{data.task.id}" id="taskStartImageLink"><h:graphicImage name="images/actions/start.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{data.task.id}]" style="border:0;"/></a> </td>
 					<th><a href="#{facesContext.externalContext.requestContextPath}/pro/#{data.task.fullRequestPath}?taskId=#{data.task.id}" id="taskStartLink">#{ivy.cms.co('/labels/common/taskResume')}</a></th>
 				</tr>
 			</table>
