@@ -12,7 +12,6 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,13 +29,14 @@ public class IvyWebDriverHelper
 
   public IvyWebDriverHelper()
   {
-    FirefoxProfile profile = new FirefoxProfile();
+    FirefoxProfile profile = FixVersionFirefox.loadFirefoxProfile();
     profile.setPreference("intl.accept_languages", "en");
-    driver = new FirefoxDriver(profile);
+    driver = FixVersionFirefox.createWebDriver(profile);
+    
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     hideBrowserFromDesktop();
   }
-
+  
   private void hideBrowserFromDesktop()
   {
     if (!ServerControl.isDesigner())
