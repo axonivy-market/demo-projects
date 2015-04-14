@@ -30,7 +30,7 @@
 	<distributionManagement>
 		<!-- Used to deploy artifacts -->
 		<repository>
-			<id>zugpronexus.snapshot</id>
+			<id>zugpronexus.snapshots</id>
 			<name>Internal Build Integration Repository</name>
 			<url>http://zugpronexus/nexus/content/repositories/build-snapshots/</url>
 			<uniqueVersion>true</uniqueVersion>
