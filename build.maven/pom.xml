@@ -18,18 +18,21 @@
 	<repositories>
 		<!-- Used to install manually installed artifacts -->
 		<repository>
-			<id>zugprorepo.buildIntegration</id>
+			<id>zugpronexus</id>
 			<name>Internal Build Integration Repository</name>
-			<url>http://zugprorepo/repository/buildIntegration/</url>
+			<url>http://zugpronexus/nexus/content/groups/build/</url>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
 		</repository>
 	</repositories>
  
 	<distributionManagement>
 		<!-- Used to deploy artifacts -->
 		<repository>
-			<id>zugprorepo.buildIntegration</id>
+			<id>zugpronexus.snapshot</id>
 			<name>Internal Build Integration Repository</name>
-			<url>http://zugprorepo/repository/buildIntegration/</url>
+			<url>http://zugpronexus/nexus/content/repositories/build-snapshots/</url>
 			<uniqueVersion>true</uniqueVersion>
 		</repository>
 	</distributionManagement>
