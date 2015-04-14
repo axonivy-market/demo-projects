@@ -32,7 +32,7 @@
 		<repository>
 			<id>zugpronexus.snapshots</id>
 			<name>Internal Build Integration Repository</name>
-			<url>http://zugpronexus/nexus/content/repositories/build-snapshots/</url>
+			<url>http://zugpronexus:8081/nexus/content/repositories/build-snapshots/</url>
 			<uniqueVersion>true</uniqueVersion>
 		</repository>
 	</distributionManagement>
