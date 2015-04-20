@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Dec 05 15:22:05 CET 2014]
+[>Created: Mon Apr 20 12:12:55 CEST 2015]
 13F1D8A32C686BDF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListProcess Big #zClass
@@ -102,10 +102,12 @@ Cs0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>update()</name>
+        <nameStyle>8,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f2 83 211 26 26 -23 12 #rect
+Cs0 f2 83 211 26 26 -23 15 #rect
 Cs0 f2 @|RichDialogMethodStartIcon #fIcon
 Cs0 f2 -1|-1|-9671572 #nodeStyle
 Cs0 f5 expr out #txt
@@ -125,45 +127,61 @@ import ch.ivyteam.ivy.persistence.IGroup;
 Boolean hasReadAllCasesPermission = ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_READ_ALL);
 IPropertyFilter cpfilter = ivy.wf.createCasePropertyFilter(CaseProperty.STATE, RelationalOperator.UNEQUAL, CaseState.CREATED.intValue());
 List<IGroup> categoriesGroups;
-if(in.caseListMode == "my_cases")
+List<IGroup> processscodeGroups;
+if(hasReadAllCasesPermission)
 {
-	if(in.caseUserMode.equals("involvedCases"))
+	if(in.caseListMode == "my_cases")
 	{
-		categoriesGroups = ivy.session.findInvolvedCasesCategories(cpfilter,CaseProperty.PROCESS_CATEGORY_CODE,OrderDirection.ASCENDING);
+		if(in.caseUserMode.equals("involvedCases"))
+		{
+			categoriesGroups = ivy.session.findInvolvedCasesCategories(cpfilter,CaseProperty.PROCESS_CATEGORY_CODE,OrderDirection.ASCENDING);
+		}
+		else
+		{
+			categoriesGroups = ivy.session.findStartedCaseCategories(cpfilter,CaseProperty.PROCESS_CATEGORY_CODE,OrderDirection.ASCENDING);
+		}
 	}
 	else
 	{
-		categoriesGroups = ivy.session.findStartedCaseCategories(cpfilter,CaseProperty.PROCESS_CATEGORY_CODE,OrderDirection.ASCENDING);
+		categoriesGroups = ivy.wf.findCaseCategories(cpfilter,CaseProperty.PROCESS_CATEGORY_CODE, OrderDirection.ASCENDING);
 	}
-}
-else
-{
-	categoriesGroups = ivy.wf.findCaseCategories(cpfilter,CaseProperty.PROCESS_CATEGORY_CODE, OrderDirection.ASCENDING);
+
+	processscodeGroups = ivy.wf.findCaseCategories(cpfilter,CaseProperty.PROCESS_CODE, OrderDirection.ASCENDING);
+
+	out.categories.clear();
+	for(IGroup group : categoriesGroups)
+	{
+		ICase case = group.getFirstObjectInGroup() as ICase;
+		if(case.getProcessCategoryCode() != "")
+		{
+			out.categories.add(case.getProcessCategoryCode());
+		}
+		if(case.getProcessCode() != "")
+		{
+			out.processesList.add(case.getProcessCode());
+		}
+	}
+	
+	out.processesList.clear();
+	for(IGroup group : processscodeGroups)
+	{
+		ICase case = group.getFirstObjectInGroup() as ICase;
+		if((in.catFilter == "" || case.getProcessCategoryCode() == in.catFilter) && case.getProcessCode() != "")
+		{
+			out.processesList.add(case.getProcessCode());
+		}
+	}
+	
+	if(in.catFilter!="")
+	{
+		cpfilter = cpfilter.and(CaseProperty.PROCESS_CATEGORY_CODE,RelationalOperator.EQUAL,in.catFilter);	
+	}
+	if(in.procFilter!="")
+	{
+		cpfilter = cpfilter.and(CaseProperty.PROCESS_CODE,RelationalOperator.EQUAL,in.procFilter);	
+	}
 }
 
-out.categories.clear();
-out.processesList.clear();
-for(IGroup group : categoriesGroups)
-{
-	ICase case = group.getFirstObjectInGroup() as ICase;
-	if(case.getProcessCategoryCode() != "")
-	{
-		out.categories.add(case.getProcessCategoryCode());
-	}
-	if(case.getProcessCode() != "")
-	{
-		out.processesList.add(case.getProcessCode());
-	}
-}
-
-if(in.catFilter!="")
-{
-	cpfilter = cpfilter.and(CaseProperty.PROCESS_CATEGORY_CODE,RelationalOperator.EQUAL,in.catFilter);	
-}
-if(in.procFilter!="")
-{
-	cpfilter = cpfilter.and(CaseProperty.PROCESS_CODE,RelationalOperator.EQUAL,in.procFilter);	
-}
 if(in.#statFilter != null)
 {
 	cpfilter = cpfilter.and(CaseProperty.STATE,RelationalOperator.EQUAL,in.statFilter);
