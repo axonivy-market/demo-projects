@@ -26,3 +26,5 @@ showNoteSelection Boolean #field
 showNoteSelection PERSISTENT #fieldModifier
 pageArchives List<ch.ivyteam.ivy.workflow.IPageArchive> #field
 pageArchives PERSISTENT #fieldModifier
+showSystemTasks Boolean #field
+showSystemTasks PERSISTENT #fieldModifier

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Nov 25 15:19:54 CET 2014]
+[>Created: Mon Apr 20 16:10:01 CEST 2015]
 13FE666253A103EF 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetailsProcess Big #zClass
@@ -76,7 +76,8 @@ Cs0 f3 actionTable 'out=in;
 out.noteDescription="";
 out.noteFor=null;
 ' #txt
-Cs0 f3 actionCode 'import ch.ivyteam.logicalexpression.RelationalOperator;
+Cs0 f3 actionCode 'import ch.ivyteam.wf.history.CaseDetailUtil;
+import ch.ivyteam.logicalexpression.RelationalOperator;
 import ch.ivyteam.ivy.workflow.PropertyOrder;
 import ch.ivyteam.ivy.workflow.CaseProperty;
 import ch.ivyteam.ivy.workflow.CaseState;
@@ -90,7 +91,7 @@ out.tasks.clear();
 if(ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_READ))
 {
 	out.wfCase = ivy.wf.findCase(in.caseId);
-	out.tasks = out.wfCase.getTasks();
+	out.tasks = CaseDetailUtil.filterTasksOfCase(out.wfCase.getTasks(), in.showSystemTasks);
 }
 else
 {
@@ -100,7 +101,7 @@ else
 	if(queryResult.getResultCount()>0)
 	{
 		out.wfCase = queryResult.get(0) as ICase;
-		out.tasks = out.wfCase.getTasks();
+		out.tasks = CaseDetailUtil.filterTasksOfCase(out.wfCase.getTasks(), in.showSystemTasks);
 	}
 }		' #txt
 Cs0 f3 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt

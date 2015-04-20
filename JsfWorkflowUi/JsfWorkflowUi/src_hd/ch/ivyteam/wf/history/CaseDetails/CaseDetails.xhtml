@@ -123,9 +123,18 @@
 			</h:panelGrid>
 		</h:form>
 		<br /><br />
-		<h:outputText value="#{ivy.cms.co('/labels/common/tasks')}" style="font-weight:bold;" />
-		<br /><br />
 		<h:form id="formTaskList">
+			<div style="float:left">
+				<h:outputText value="#{ivy.cms.co('/labels/common/tasks')}" style="font-weight:bold;" />
+			</div>
+			<div style="float:right">
+				<h:panelGrid columns="2">
+					<p:selectBooleanCheckbox value="#{data.showSystemTasks}" id="showSystemTasks">
+						<p:ajax update="taskTable" listener="#{logic.update}" />
+					</p:selectBooleanCheckbox>
+					<h:outputLabel for="showSystemTasks">#{ivy.cms.co("/labels/history/caseDetails/showSYSTEMtasks")}</h:outputLabel>
+				</h:panelGrid>
+			</div>
    			<p:dataTable id="taskTable" value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}" rowIndexVar="row">
       			<p:column id="absenceStart" style="width:12px">  
            			<f:facet name="header">  
