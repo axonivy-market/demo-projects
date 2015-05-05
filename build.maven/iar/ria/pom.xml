@@ -28,6 +28,13 @@
 						</configuration>
 					</execution>
 				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.tmatesoft.svnkit</groupId>
+						<artifactId>svnkit</artifactId>
+						<version>1.8.5</version>
+					</dependency>
+				</dependencies>
           </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
