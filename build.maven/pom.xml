@@ -9,18 +9,21 @@
 	<pluginRepositories>
 		<!-- Used to install project-build-plugin -->
 		<pluginRepository>
-			<id>zugprorepo.buildIntegration</id>
-			<name>Internal Build Integration Repository</name>
-			<url>http://zugprorepo/repository/buildIntegration/</url>
+			<id>zugpronexus.snapshots</id>
+			<name>Internal Plugin Build Integration Repository</name>
+			<url>http://zugpronexus:8081/nexus/content/groups/build-plugins/</url>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
  
 	<repositories>
 		<!-- Used to install manually installed artifacts -->
 		<repository>
-			<id>zugpronexus</id>
+			<id>zugpronexus.snapshots</id>
 			<name>Internal Build Integration Repository</name>
-			<url>http://zugpronexus/nexus/content/groups/build/</url>
+			<url>http://zugpronexus:8081/nexus/content/groups/build/</url>
 			<snapshots>
 				<updatePolicy>always</updatePolicy>
 			</snapshots>

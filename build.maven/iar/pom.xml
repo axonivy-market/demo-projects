@@ -18,6 +18,27 @@
 		<project.build.plugin.version>0.0.3-SNAPSHOT</project.build.plugin.version>
 	</properties>
 	
+	<dependencies>
+		<dependency>
+			<!-- This dependency is not available in a public maven repository: it was manually installed to repository build.integration@zugprobld.
+			     download-location: http://www.oopsconsultancy.com/software/xmltask/
+			     build.integration-installation: use the archiva web interface to add the artifact. [login] -> [upload artifact]
+			       - repositoryId = build.integration
+			       - groupId = com.oopsconsultancy
+			       - artifactId = xmltask
+			       - version = 1.16
+			       - packaging = jar
+			       - generate Maven Pom = true
+			       - choose File -> attach downlaoded JAR from http://www.oopsconsultancy.com/software/xmltask/
+			     local-installation-command : mvn install:install-file -Dfile=xmltask.jar -DgroupId=com.oopsconsultancy -DartifactId=xmltask -Dversion=1.16 -->
+			<groupId>com.oopsconsultancy</groupId>
+			<artifactId>xmltask</artifactId>
+			<version>1.16</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -61,17 +82,6 @@
 					<version>[1.7,)</version>
 					<dependencies>
 						<dependency>
-							<!-- This dependency is not available in a public maven repository: it was manually installed to repository build.integration@zugprobld.
-							     download-location: http://www.oopsconsultancy.com/software/xmltask/
-							     build.integration-installation: use the archiva web interface to add the artifact. [login] -> [upload artifact]
-							       - repositoryId = build.integration
-							       - groupId = com.oopsconsultancy
-							       - artifactId = xmltask
-							       - version = 1.16
-							       - packaging = jar
-							       - generate Maven Pom = true
-							       - choose File -> attach downlaoded JAR from http://www.oopsconsultancy.com/software/xmltask/
-							     local-installation-command : mvn install:install-file -Dfile=xmltask.jar -DgroupId=com.oopsconsultancy -DartifactId=xmltask -Dversion=1.16 -->
 							<groupId>com.oopsconsultancy</groupId>
 							<artifactId>xmltask</artifactId>
 							<version>1.16</version>
@@ -83,7 +93,6 @@
 							<goals><goal>run</goal></goals>
 							<phase>prepare-package</phase>
 							<configuration>
-								
 								<target>
 									<echo message="Modifying POM.xml: remove &lt;build&gt; &amp; &lt;parent&gt; config entry." />
 									<mkdir dir="${project.build.directory}/ivy" />
