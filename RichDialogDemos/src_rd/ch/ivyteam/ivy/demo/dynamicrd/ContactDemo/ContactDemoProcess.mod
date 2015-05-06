@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Oct 05 14:04:20 CEST 2010]
-11EB0BDD6A32E57E 3.13.1 #module
+[>Created: Wed May 06 15:56:49 CEST 2015]
+11EB0BDD6A32E57F 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 ContactProcess Big #zClass
 Cs0 RD #cInfo
@@ -34,15 +34,6 @@ Cs0 @RichDialog f14 '' #zField
 Cs0 @PushWFArc f15 '' #zField
 Cs0 @PushWFArc f17 '' #zField
 >Proto Cs0 Cs0 ContactProcess #zField
-Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,6,9
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
 Cs0 f0 guid 11EB0BDD6C22272E #txt
 Cs0 f0 type ch.ivyteam.ivy.demo.dynamicrd.ContactDemo.ContactDemoData #txt
 Cs0 f0 method start() #txt
@@ -55,6 +46,15 @@ Cs0 f0 inParameterMapAction 'out.myDisplayId="contactDemo_display";
 Cs0 f0 outParameterDecl '<> result;
 ' #txt
 Cs0 f0 embeddedRdInitializations '{/titlePanel {/fieldName "titlePanel"/startMethod "startInitialized(String,String,String)"/parameterMapping "param.iconUri=\"/ch/ivyteam/ivy/demo/icons/large/window_star\";\nparam.title=\"Dynamic Dialog Demo\";\nparam.subtitle=\"Dynamically creates a configurable edit mask for business objects.\";\n"/initScript ""}}' #txt
+Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+        <nameStyle>7,5,6,9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Cs0 f0 86 38 20 20 13 0 #rect
 Cs0 f0 @|RichDialogInitStartIcon #fIcon
 Cs0 f1 type ch.ivyteam.ivy.demo.dynamicrd.ContactDemo.ContactDemoData #txt
