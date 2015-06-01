@@ -114,8 +114,8 @@ public class DatabaseConnectionConfigurationUIPanel extends
 		filler = new RGridBagLayoutPane();
 		filler.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
 		panel.add(filler, new GridBagConstraints(1, pos, 3, 1, -1, -1, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0,0,0,0), 0, 0));
-		panel.setName(driver.getName());
-		contentCardPane.addCard(driver.getName(), panel);
+		panel.setName(driver.getDriverSpecificPackage());
+		contentCardPane.addCard(driver.getDriverSpecificPackage(), panel);
 	}
 
 	private void initComponentsFor(RGridBagLayoutPane panel,
@@ -203,7 +203,7 @@ public class DatabaseConnectionConfigurationUIPanel extends
 	 */
 	public void setSelectedJdbcDriver(JdbcDriver jdbcDriver)
 	{
-		contentCardPane.setSelectedName(jdbcDriver.getName());
+		contentCardPane.setSelectedName(jdbcDriver.getDriverSpecificPackage());
 		selectedJdbcDriver = jdbcDriver;
 	}
 	
