@@ -191,7 +191,7 @@ Ds0 f21 actionTable 'out=in;
 Ds0 f21 actionCode 'import ch.ivyteam.db.jdbc.JdbcDriver;
 import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
 import java.util.Map;
-import java.util.Map$$Entry;
+import java.util.Map.Entry;
 import java.util.HashMap;
 import ch.ivyteam.db.jdbc.ConnectionProperty;
 import java.util.Properties;
@@ -228,7 +228,7 @@ if (in.serverConfiguration.#systemDatabaseConnectionConfiguration != null)
 		{
 			ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration config = in.serverConfiguration.getSystemDatabaseConnectionConfiguration();
 			Properties props = oldProps as Properties; 
-			for (Map$$Entry prop : props.entrySet())
+			for (Map.Entry prop : props.entrySet())
 			{
 				config.setProperty(prop.getKey() as String, prop.getValue() as String);
 			}	

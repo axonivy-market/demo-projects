@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 18 15:02:14 CEST 2011]
+[>Created: Mon Jun 01 10:05:18 CEST 2015]
 1166786074EC72C6 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 ServerConfigurationUIProcess Big #zClass
@@ -377,6 +377,7 @@ Ss0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ss0 f38 30 278 20 20 13 0 #rect
 Ss0 f38 @|RichDialogProcessStartIcon #fIcon
+Ss0 f39 targetWindow NEW:card: #txt
 Ss0 f39 targetDisplay TOP #txt
 Ss0 f39 richDialogId ch.ivyteam.ivy.server.configuration.DatabaseCreationParameterUI #txt
 Ss0 f39 startMethod start(ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration) #txt
@@ -390,7 +391,7 @@ Ss0 f39 responseMappingAction 'out=in;
 out.configuration.systemDatabaseConnectionConfiguration=result.createdDatabaseConnectionConfiguration;
 ' #txt
 Ss0 f39 responseActionCode 'import java.util.Properties;
-import java.util.Map$$Entry;
+import java.util.Map.Entry;
 
 in.configuration.systemDatabaseConnectionConfiguration=result.createdDatabaseConnectionConfiguration;
 
@@ -400,7 +401,7 @@ Properties props = in.#configuration.#systemDatabaseConnectionConfiguration.getP
 
 if (#props != null)
 {
-	for (Map$$Entry prop : props.entrySet())
+	for (Entry prop : props.entrySet())
 	{
 		out.properties.add([prop.getKey(), prop.getValue()]);
 	}	
@@ -409,11 +410,12 @@ Ss0 f39 windowConfiguration '{/title "Create System Database"/width 400 /height 
 Ss0 f39 isAsynch false #txt
 Ss0 f39 isInnerRd true #txt
 Ss0 f39 isDialog true #txt
+Ss0 f39 userContext '* ' #txt
 Ss0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>create DB</name>
-        <nameStyle>9,9
+        <nameStyle>9,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -684,7 +686,7 @@ Ss0 f5 actionDecl 'ch.ivyteam.ivy.server.configuration.ServerConfigurationUI.Ser
 Ss0 f5 actionTable 'out=in;
 ' #txt
 Ss0 f5 actionCode 'import java.util.Properties;
-import java.util.Map$$Entry;
+import java.util.Map.Entry;
 
 // read properties
 out.properties = new Recordset(["name", "value"]);
@@ -693,7 +695,7 @@ Object o = in.#configuration.#systemDatabaseConnectionConfiguration.getPropertie
 if (#o != null)
 {
 	Properties props = o as Properties; 
-	for (Map$$Entry prop : props.entrySet())
+	for (Entry prop : props.entrySet())
 	{
 		out.properties.add([prop.getKey(), prop.getValue()]);
 	}	
@@ -706,7 +708,7 @@ Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Read connection properties</name>
-        <nameStyle>26,9
+        <nameStyle>26,7,9
 </nameStyle>
     </language>
 </elementInfo>
