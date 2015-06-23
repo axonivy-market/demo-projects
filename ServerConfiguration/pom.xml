@@ -18,8 +18,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>ch.ivyteam.ivy.rd.common</groupId>
-			<artifactId>ch.ivyteam.ivy.rd.common</artifactId>
+			<groupId>ch.ivyteam.ivy.project.system</groupId>
+			<artifactId>rdCommon</artifactId>
 			<version>[6.0.0-SNAPSHOT,)</version>
 			<type>iar</type>
 		</dependency>
