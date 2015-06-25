@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Sep 13 14:33:59 CEST 2011]
+[>Created: Wed Jun 24 10:05:59 CEST 2015]
 12A18D39B393044D 3.17 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseWorkflowEventsDisplayListProcess Big #zClass
@@ -24,7 +24,6 @@ Cs0 @PushWFArc f7 '' #zField
 Cs0 @RichDialogProcessStart f8 '' #zField
 Cs0 @PushWFArc f9 '' #zField
 Cs0 @RichDialogInitStart f10 '' #zField
-Cs0 @PushWFArc f5 '' #zField
 Cs0 @PushWFArc f11 '' #zField
 Cs0 @RichDialogMethodStart f12 '' #zField
 Cs0 @PushWFArc f13 '' #zField
@@ -33,6 +32,7 @@ Cs0 @PushWFArc f15 '' #zField
 Cs0 @PushWFArc f6 '' #zField
 Cs0 @RichDialogProcessEnd f16 '' #zField
 Cs0 @PushWFArc f17 '' #zField
+Cs0 @PushWFArc f5 '' #zField
 >Proto Cs0 Cs0 CaseWorkflowEventsDisplayListProcess #zField
 Cs0 f0 guid 119C245D92F6CE6F #txt
 Cs0 f0 type ch.ivyteam.ivy.workflow.ui.cases.WorkflowEventsDisplayList.WorkflowEventsDisplayListData #txt
@@ -77,18 +77,22 @@ import ch.ivyteam.ivy.workflow.IWorkflowEvent;
 import ch.ivyteam.ivy.workflow.ui.data.restricted.cases.IWorkflowEventWrapper;
 
 java.util.List listTmp = WorkflowUIAccessPermissionHandler.getCaseWorkflowEventsAsSystemUser(in.fCase);
-
-out.caseWorkflowEvents.clear();
-
-IWorkflowEventWrapper workflowEventWrapper;
-
+List newCaseWorkflowEvents;
 for (IWorkflowEvent workflowEvent: listTmp)
 {
-	workflowEventWrapper = new IWorkflowEventWrapper();
+	IWorkflowEventWrapper workflowEventWrapper = new IWorkflowEventWrapper();
 	workflowEventWrapper.workflowEvent = workflowEvent;
 	workflowEventWrapper.eventTimestamp = workflowEvent.getEventTimestamp();
+  newCaseWorkflowEvents.add(workflowEventWrapper);
+}
 
-	out.caseWorkflowEvents.add(workflowEventWrapper);
+out.caseWorkflowEvents = newCaseWorkflowEvents;
+if (panel.caseWorkflowEventsTable.isSortable()) {
+	if (newCaseWorkflowEvents.size() > 10000) {
+		panel.caseWorkflowEventsTable.setRowSorter(null);
+	} else {
+		panel.caseWorkflowEventsTable.getRowSorter().setSortColumn(-1, com.ulcjava.base.shared.SortOrder.ASCENDING);
+	}
 }
 ' #txt
 Cs0 f3 type ch.ivyteam.ivy.workflow.ui.cases.WorkflowEventsDisplayList.WorkflowEventsDisplayListData #txt
@@ -153,8 +157,6 @@ Cs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cs0 f10 246 86 20 20 13 0 #rect
 Cs0 f10 @|RichDialogInitStartIcon #fIcon
-Cs0 f5 expr out #txt
-Cs0 f5 256 106 256 268 #arcP
 Cs0 f11 expr out #txt
 Cs0 f11 144 106 144 371 #arcP
 Cs0 f12 guid 12B7CB69D2E68C0F #txt
@@ -213,6 +215,8 @@ Cs0 f16 486 230 20 20 13 0 #rect
 Cs0 f16 @|RichDialogProcessEndIcon #fIcon
 Cs0 f17 expr in #txt
 Cs0 f17 496 198 496 230 #arcP
+Cs0 f5 expr out #txt
+Cs0 f5 256 106 256 268 #arcP
 >Proto Cs0 .rdData2UIAction 'panel.caseWorkflowEventsTable.listData=in.caseWorkflowEvents;
 ' #txt
 >Proto Cs0 .type ch.ivyteam.ivy.workflow.ui.cases.WorkflowEventsDisplayList.WorkflowEventsDisplayListData #txt

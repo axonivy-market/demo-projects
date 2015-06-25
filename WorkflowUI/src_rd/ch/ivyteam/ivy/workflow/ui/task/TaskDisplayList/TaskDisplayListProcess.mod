@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Apr 11 16:48:11 CEST 2013]
+[>Created: Wed Jun 24 10:10:45 CEST 2015]
 1168625F1BC1155F 3.17 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
@@ -2489,7 +2489,14 @@ Ts0 f45 disableUIEvents false #txt
 Ts0 f45 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <ch.ivyteam.ivy.workflow.ICase aCase> param = methodEvent.getInputArguments();
 ' #txt
-Ts0 f45 inParameterMapAction 'out.aCase=param.aCase;
+Ts0 f45 inActionCode '
+if (out.#aCase == null) {
+	// reset table sorting
+	if (panel.tasksTable.isSortable()) {
+		panel.tasksTable.getRowSorter().setSortColumn(-1, com.ulcjava.base.shared.SortOrder.ASCENDING);
+	}	
+}
+out.aCase = param.aCase;
 ' #txt
 Ts0 f45 outParameterDecl '<> result;
 ' #txt
@@ -2519,8 +2526,8 @@ import java.util.Locale;
 List<ITask> result;
 result.clear();
 result.addAll(in.aCase.getTasks());
-
-out.tasks.clear();
+
+List<ITaskWrapper> newTasks;
 
 for (ITask wfTask: result)
 {
@@ -2533,9 +2540,11 @@ for (ITask wfTask: result)
 	wfTaskWrapper.setStartTimestamp(wfTask.getStartTimestamp());
 	wfTaskWrapper.setDelayTimestamp(wfTask.getDelayTimestamp());	
 	
-	out.tasks.add(wfTaskWrapper);
+	newTasks.add(wfTaskWrapper);
 }
 
+out.tasks.clear();
+out.tasks.addAll(newTasks);
 
 String task = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task").toString();
 String tasks = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/tasks").toString();
