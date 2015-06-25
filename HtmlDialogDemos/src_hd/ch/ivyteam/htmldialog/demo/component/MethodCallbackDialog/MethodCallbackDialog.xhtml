@@ -7,22 +7,23 @@
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
 	
-	<ui:define name="title">Component Method-Callback Demo</ui:define>
+	<ui:define name="title">Component Callback Demo</ui:define>
 	<ui:define name="content">
 		<h:outputStylesheet name="demoStyle.css"/>
 		
 		<h:form id="componentForm">
 		<h:panelGroup layout="block" id="panel">
-			<p>This demo explains how callback methods can be registered
+			<p>This demo explains how callbacks can be registered
 			to react on actions within a component.<br /></p>
 			<ul>
-				<li>Click on a person in the list below to trigger the callback method.</li>
-				<li>Click on the fire button to trigger a callback event.</li>
+				<li>Click on a person in the list below to trigger a callback.</li>
+				<li>Click on the fire button to trigger a callback.</li>
 			</ul>
-        	<p:fieldset legend="Component with callback method">
+        	<p:fieldset legend="Component with callback">
 	            <ic:ch.ivyteam.htmldialog.demo.component.DetailListComponent 
+	            	startMethod="start"
 	            	persons="#{data.persons}"
-	            	callback="#{logic}"
+	            	tableRowSelected="#{logic.componentTableRowSelected}"
 	            	buttonClicked="#{logic.componentButtonClicked}"
 	            />
             </p:fieldset>

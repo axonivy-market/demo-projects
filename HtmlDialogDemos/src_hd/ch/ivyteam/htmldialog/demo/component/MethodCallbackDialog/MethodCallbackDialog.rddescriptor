@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
-    <method>
-        <name>tableRowSelected</name>
-        <description>Method that will be passed into the DetailListComponent so that we can react on changes within that component.</description>
-        <inputParameter>
-            <name>selection</name>
-            <description></description>
-            <parameterType>org.primefaces.event.SelectEvent</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </method>
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 06 12:16:18 CEST 2014]
+[>Created: Thu Jun 25 16:28:19 CEST 2015]
 13EF083D130E971B 3.17 #module
 >Proto >Proto Collection #zClass
 Ms0 MethodCallbackDialogProcess Big #zClass
@@ -19,11 +19,11 @@ Ms0 @RichDialogProcessEnd f4 '' #zField
 Ms0 @GridStep f6 '' #zField
 Ms0 @PushWFArc f7 '' #zField
 Ms0 @PushWFArc f2 '' #zField
-Ms0 @RichDialogMethodStart f8 '' #zField
-Ms0 @PushWFArc f9 '' #zField
 Ms0 @RichDialogProcessStart f3 '' #zField
 Ms0 @RichDialogProcessEnd f5 '' #zField
 Ms0 @PushWFArc f10 '' #zField
+Ms0 @RichDialogProcessStart f8 '' #zField
+Ms0 @PushWFArc f9 '' #zField
 >Proto Ms0 Ms0 MethodCallbackDialogProcess #zField
 Ms0 f0 guid 13EF083D17E22CE7 #txt
 Ms0 f0 type ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData #txt
@@ -97,55 +97,22 @@ Ms0 f7 expr out #txt
 Ms0 f7 109 64 200 64 #arcP
 Ms0 f2 expr out #txt
 Ms0 f2 328 64 411 64 #arcP
-Ms0 f8 guid 013EF0B265B0EA6B #txt
-Ms0 f8 type ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData #txt
-Ms0 f8 method tableRowSelected(org.primefaces.event.SelectEvent) #txt
-Ms0 f8 disableUIEvents false #txt
-Ms0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<org.primefaces.event.SelectEvent selection> param = methodEvent.getInputArguments();
-' #txt
-Ms0 f8 inActionCode 'import javax.faces.context.FacesContext;
-import ch.ivyteam.htmldialog.demo.Person;
-Person selectedPerson = param.selection.getObject() as Person;
-ivy.log.info("Component item selected: "+selectedPerson);
-
-// create message for pop-up (p:growl)
-FacesContext.getCurrentInstance().addMessage(null,
-	new javax.faces.application.FacesMessage(
-	"Person selected", 
-	"Selection: "+selectedPerson + " \n" +
-	"Component:" +param.selection.getComponent().rendererType
-));' #txt
-Ms0 f8 outParameterDecl '<> result;
-' #txt
-Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>ComponentListener:
-tableRowSelected(SelectEvent)</name>
-        <nameStyle>48,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ms0 f8 83 147 26 26 -86 12 #rect
-Ms0 f8 @|RichDialogMethodStartIcon #fIcon
-Ms0 f8 -1|-1|-9671572 #nodeStyle
-Ms0 f9 expr out #txt
-Ms0 f9 109 160 211 160 #arcP
 Ms0 f3 guid 13EFAD0DB9C9F626 #txt
 Ms0 f3 type ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData #txt
 Ms0 f3 actionDecl 'ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData out;
 ' #txt
 Ms0 f3 actionTable 'out=in;
 ' #txt
-Ms0 f3 actionCode 'ivy.log.info("received click event from component button");
+Ms0 f3 actionCode 'import javax.faces.component.UICommand;
+
+UICommand commandButton = event.getSource() as UICommand;
+ivy.log.info("Received click event from component button [{0}]", commandButton.value);
 
 // create message for pop-up (p:growl)
 javax.faces.context.FacesContext.getCurrentInstance().addMessage(null,
 	new javax.faces.application.FacesMessage(
-	"Button clicked", 
-	"Received click event from component."
+	"Button clicked ["+commandButton.value+"]", 
+	"Received click event from component "+commandButton
 ));' #txt
 Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -165,6 +132,40 @@ Ms0 f5 @|RichDialogProcessEndIcon #fIcon
 Ms0 f5 -1|-1|-9671572 #nodeStyle
 Ms0 f10 expr out #txt
 Ms0 f10 109 256 211 256 #arcP
+Ms0 f8 guid 14E2B119984107D7 #txt
+Ms0 f8 type ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData #txt
+Ms0 f8 actionDecl 'ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData out;
+' #txt
+Ms0 f8 actionTable 'out=in;
+' #txt
+Ms0 f8 actionCode 'import org.primefaces.event.SelectEvent;
+import javax.faces.context.FacesContext;
+import ch.ivyteam.htmldialog.demo.Person;
+
+SelectEvent selectEvent = event as SelectEvent;
+Person selectedPerson = selectEvent.getObject() as Person;
+ivy.log.info("Component item selected: "+selectedPerson);
+
+// create message for pop-up (p:growl)
+FacesContext.getCurrentInstance().addMessage(null,
+	new javax.faces.application.FacesMessage(
+	"Person selected", 
+	"Selection: "+selectedPerson + " \n" +
+	"Component:" +selectEvent.getComponent()
+));' #txt
+Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>componentTableRowSelected</name>
+        <nameStyle>25,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ms0 f8 83 147 26 26 -83 15 #rect
+Ms0 f8 @|RichDialogProcessStartIcon #fIcon
+Ms0 f9 expr out #txt
+Ms0 f9 109 160 211 160 #arcP
 >Proto Ms0 .type ch.ivyteam.htmldialog.demo.component.MethodCallbackDialog.MethodCallbackDialogData #txt
 >Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
@@ -173,7 +174,7 @@ Ms0 f0 mainOut f7 tail #connect
 Ms0 f7 head f6 mainIn #connect
 Ms0 f6 mainOut f2 tail #connect
 Ms0 f2 head f1 mainIn #connect
-Ms0 f8 mainOut f9 tail #connect
-Ms0 f9 head f4 mainIn #connect
 Ms0 f3 mainOut f10 tail #connect
 Ms0 f10 head f5 mainIn #connect
+Ms0 f8 mainOut f9 tail #connect
+Ms0 f9 head f4 mainIn #connect
