@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 18 11:54:32 CEST 2015]
+[>Created: Mon Jul 06 09:59:31 CEST 2015]
 13A0168D09848672 3.17 #module
 >Proto >Proto Collection #zClass
 Rs0 ResourceDemoProcess Big #zClass
@@ -54,8 +54,17 @@ Rs0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 Rs0 f3 outParameterDecl '<org.primefaces.model.StreamedContent image> result;
 ' #txt
-Rs0 f3 outParameterMapAction 'result.image=ch.ivyteam.htmldialog.demo.output.ImageGenerator.generateImage("Streamed");
-' #txt
+Rs0 f3 outActionCode 'import javax.faces.event.PhaseId;
+import javax.faces.context.FacesContext;
+import org.primefaces.model.DefaultStreamedContent;
+
+FacesContext context = FacesContext.getCurrentInstance();
+
+if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
+	result.image = new DefaultStreamedContent();
+} else {
+	result.image = ch.ivyteam.htmldialog.demo.output.ImageGenerator.generateImage("Streamed");
+}' #txt
 Rs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
