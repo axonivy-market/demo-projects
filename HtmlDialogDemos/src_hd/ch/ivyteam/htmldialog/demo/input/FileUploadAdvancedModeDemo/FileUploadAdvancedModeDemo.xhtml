@@ -15,6 +15,7 @@
 					<p>This demo explains how images from the CMS (Content
 						Management System) can be uploaded and displayed.</p>
 					<h:form id="pictureGalleryForm" enctype="multipart/form-data">
+						<p:messages id="messages" />
 						<p:galleria id="pictureGallery" value="#{data.images}"
 							var="imagename" panelWidth="500" panelHeight="313"
 							showCaption="true">
@@ -31,7 +32,7 @@
 							fileUploadListener="#{logic.uploadFile}"
 							allowTypes="/(\.|\/)(gif|jpe?g|png)$/i" auto="true"
 							mode="advanced" label="Add Image"
-							oncomplete="this.form.submit();" />
+							update="pictureGalleryForm" />
 						<br />
 					</h:form>
 				</h:panelGroup>
