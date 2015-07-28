@@ -1,0 +1,4 @@
+RequestApprovedData #class
+error.handling.demo.RequestApproved #namespace
+requestDescription String #field
+cost Number #field

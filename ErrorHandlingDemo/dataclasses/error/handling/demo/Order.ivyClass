@@ -1,0 +1,6 @@
+Order #class
+error.handling.demo #namespace
+product String #field
+product PERSISTENT #fieldModifier
+numberOfItems Number #field
+numberOfItems PERSISTENT #fieldModifier

@@ -1,0 +1,4 @@
+RequestDeclinedData #class
+error.handling.demo.RequestDeclined #namespace
+requestDescription String #field
+cost Number #field

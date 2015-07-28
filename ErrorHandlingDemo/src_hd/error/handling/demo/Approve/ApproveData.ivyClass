@@ -1,0 +1,5 @@
+ApproveData #class
+error.handling.demo.Approve #namespace
+requestDescription String #field
+cost Number #field
+approved Boolean #field

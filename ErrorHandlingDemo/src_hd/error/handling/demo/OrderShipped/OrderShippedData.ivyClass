@@ -1,0 +1,3 @@
+OrderShippedData #class
+error.handling.demo.OrderShipped #namespace
+order error.handling.demo.Order #field

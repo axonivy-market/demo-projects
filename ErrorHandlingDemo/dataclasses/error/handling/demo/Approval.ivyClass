@@ -1,0 +1,8 @@
+Approval #class
+error.handling.demo #namespace
+requestDescription String #field
+requestDescription PERSISTENT #fieldModifier
+cost Number #field
+cost PERSISTENT #fieldModifier
+approved Boolean #field
+approved PERSISTENT #fieldModifier
