@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 13 15:11:52 CEST 2015]
+[>Created: Tue Jul 28 16:20:38 CEST 2015]
 13D440EE6A78EF1E 3.17 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadAdvancedModeDemoProcess Big #zClass
@@ -21,11 +21,11 @@ Fs0 @RichDialogProcessEnd f4 '' #zField
 Fs0 @GridStep f5 '' #zField
 Fs0 @PushWFArc f6 '' #zField
 Fs0 @PushWFArc f7 '' #zField
-Fs0 @ErrorBoundaryEvent Et0 ErrorBoundaryEvent #zField
 Fs0 @RichDialogProcessEnd f8 '' #zField
 Fs0 @GridStep f10 '' #zField
-Fs0 @PushWFArc f11 '' #zField
 Fs0 @PushWFArc f9 '' #zField
+Fs0 @ErrorBoundaryEvent Et0 ErrorBoundaryEvent #zField
+Fs0 @PushWFArc f11 '' #zField
 >Proto Fs0 Fs0 FileUploadAdvancedModeDemoProcess #zField
 Fs0 f0 guid 13CF812673B64819 #txt
 Fs0 f0 type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
@@ -173,9 +173,6 @@ Fs0 f6 expr out #txt
 Fs0 f6 109 160 200 160 #arcP
 Fs0 f7 expr out #txt
 Fs0 f7 376 160 563 160 #arcP
-Fs0 Et0 attachedToRef 13D440EE6A78EF1E-f5 #txt
-Fs0 Et0 321 177 30 30 0 15 #rect
-Fs0 Et0 @|ErrorBoundaryEventIcon #fIcon
 Fs0 f8 type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
 Fs0 f8 563 243 26 26 0 12 #rect
 Fs0 f8 @|RichDialogProcessEndIcon #fIcon
@@ -201,12 +198,20 @@ Fs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Fs0 f10 408 234 112 44 -35 -8 #rect
 Fs0 f10 @|StepIcon #fIcon
-Fs0 f11 336 207 408 256 #arcP
-Fs0 f11 1 336 256 #addKink
-Fs0 f11 1 0.275084335520415 0 0 #arcLabel
 Fs0 f9 expr out #txt
 Fs0 f9 520 256 563 256 #arcP
 Fs0 f9 0 0.275084335520415 0 0 #arcLabel
+Fs0 Et0 actionDecl 'ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData out;
+' #txt
+Fs0 Et0 actionTable 'out=in;
+' #txt
+Fs0 Et0 type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
+Fs0 Et0 attachedToRef 13D440EE6A78EF1E-f5 #txt
+Fs0 Et0 337 177 30 30 0 15 #rect
+Fs0 Et0 @|ErrorBoundaryEventIcon #fIcon
+Fs0 f11 352 207 408 256 #arcP
+Fs0 f11 1 352 256 #addKink
+Fs0 f11 1 0.12135440947836651 0 0 #arcLabel
 >Proto Fs0 .type ch.ivyteam.htmldialog.demo.input.FileUploadAdvancedModeDemo.FileUploadAdvancedModeDemoData #txt
 >Proto Fs0 .processKind HTML_DIALOG #txt
 >Proto Fs0 -8 -8 16 16 16 26 #rect
@@ -217,7 +222,7 @@ Fs0 f3 mainOut f6 tail #connect
 Fs0 f6 head f5 mainIn #connect
 Fs0 f5 mainOut f7 tail #connect
 Fs0 f7 head f4 mainIn #connect
-Fs0 Et0 mainOut f11 tail #connect
-Fs0 f11 head f10 mainIn #connect
 Fs0 f10 mainOut f9 tail #connect
 Fs0 f9 head f8 mainIn #connect
+Fs0 Et0 mainOut f11 tail #connect
+Fs0 f11 head f10 mainIn #connect
