@@ -8,8 +8,8 @@
 	<description>Contains all ivyProjects as module dependency</description>
 
 	<modules>
-		<module>ErrorHandlingDemos</module>
 		<module>HtmlDialogDemos</module>
+		<module>ErrorHandlingDemos</module>
 		<module>IvyAddOns</module>
 		<module>RichDialogDemos</module>
 		<module>QuickStartTutorial</module>
