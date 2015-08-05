@@ -42,6 +42,16 @@
             		</p:calendar>
     	 			<p:message for="Birthday" display="icon"/>
 
+					<p:outputLabel value="E-Mail" for="Mail"/>
+					<p:inputText id="Mail" value="#{data.email}">
+						<!-- 
+    	 			    The referenced Mail Validator demonstrates how custom validators can be written in within the ivy project.
+    	 			    See the java class ch.ivyteam.htmldialog.demo.input.facesValidation.CustomMailValidator for quick reference.
+    	 			    -->
+						<f:validator validatorId="ch.ivyteam.CustomMailValidator"/>
+					</p:inputText>
+					<p:message for="Mail" display="icon" id="MailMessage"/>
+
     	 			<p:outputLabel value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/FormDemo/Labels/PhoneNumber')}" for="PhoneNumber"/>
     	 			<p:inputMask value="#{data.phone}" id="PhoneNumber" mask="+99 (0)99 999 99 99" required="true"/>    	 			
     	 			<p:message for="PhoneNumber" display="icon"/>

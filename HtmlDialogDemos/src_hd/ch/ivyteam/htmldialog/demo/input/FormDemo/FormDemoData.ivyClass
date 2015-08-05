@@ -18,3 +18,4 @@ phone String #field
 phone PERSISTENT #fieldModifier
 matchingCountries List<String> #field
 matchingCountries PERSISTENT #fieldModifier
+email String #field
