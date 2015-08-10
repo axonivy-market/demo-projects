@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 03 17:17:42 CET 2011]
+[>Created: Mon Aug 10 15:38:29 CEST 2015]
 12A146365AD40893 3.17 #module
 >Proto >Proto Collection #zClass
 Ss0 SettingsProcess Big #zClass
@@ -185,10 +185,10 @@ import ch.ivyteam.ivy.addons.restricted.workflow.CaseManagedTeamHelper;
 // get the user settings
 IUser sessionUser = ivy.session.getSessionUser();
 
-// the "Change Password" button is visible only on Ivy security system called "Xpert.ivy"; the LDAP based are not supported
+// the "Change Password" button is visible only on Ivy security system called "ivy Security System"; the LDAP based are not supported
 String externalSecuritySystemName = WorkflowUIAccessPermissionHandler.getExternalSecuritySystemNameAsSystemUser();
 ivy.log.debug("External security system name is {0}.", externalSecuritySystemName);
-panel.changePasswordButton.visible = "Xpert.ivy".equals(externalSecuritySystemName);
+panel.changePasswordButton.visible = "ivy Security System".equals(externalSecuritySystemName);
 
 
 //
