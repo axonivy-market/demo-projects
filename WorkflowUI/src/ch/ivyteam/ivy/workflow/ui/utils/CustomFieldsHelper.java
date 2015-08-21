@@ -6,7 +6,6 @@ import java.util.concurrent.Callable;
 import ch.ivyteam.ivy.cm.IContentManagementSystem;
 import ch.ivyteam.ivy.environment.EnvironmentNotAvailableException;
 import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.ivy.project.IvyProjectNavigationUtil;
 import ch.ivyteam.ivy.security.SecurityManagerFactory;
 import ch.ivyteam.ivy.workflow.ICase;
 import ch.ivyteam.ivy.workflow.ITask;
@@ -89,7 +88,7 @@ public class CustomFieldsHelper {
             public CustomFieldsLabels call() throws Exception {
             	
             	// get the case's CMS
-            	IContentManagementSystem cms = IvyProjectNavigationUtil.getIvyProject(wfCase.getProcessModelVersion()).getContentManagementSystem();
+            	IContentManagementSystem cms = getCms(wfCase);
             	logger.debug("Retrieving case custom fields labels; Recieved cms {0}.", cms);
             	
             	String caseCustomFieldsLabelsFullCmsUri = ""; 
@@ -123,9 +122,16 @@ public class CustomFieldsHelper {
             		return null;   	
             	
             }
-            
+
 		});
 
+	}
+	
+	@SuppressWarnings("restriction")
+	private static IContentManagementSystem getCms(final ICase wfCase) 
+	{
+		return ch.ivyteam.ivy.project.IvyProjectNavigationUtil.getIvyProject(
+				wfCase.getProcessModelVersion()).getContentManagementSystem();
 	}
 	
 	
@@ -154,7 +160,7 @@ public class CustomFieldsHelper {
             	ICase wfCase = task.getCase();
             	
             	// get the task's CMS
-            	IContentManagementSystem cms = IvyProjectNavigationUtil.getIvyProject(wfCase.getProcessModelVersion()).getContentManagementSystem();
+            	IContentManagementSystem cms = getCms(wfCase);
             	
             	
             	String taskCustomFieldsLabelsFullCmsUri = ""; 

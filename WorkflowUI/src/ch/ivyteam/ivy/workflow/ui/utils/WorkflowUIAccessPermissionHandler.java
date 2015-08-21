@@ -45,7 +45,6 @@ import ch.ivyteam.logicalexpression.RelationalOperator;
  * @since 2007/08/01
  * 
  */
-@SuppressWarnings("unchecked")
 public class WorkflowUIAccessPermissionHandler
 {
 
@@ -60,7 +59,7 @@ public class WorkflowUIAccessPermissionHandler
   private static IPropertyFilter<TaskProperty> WF_ADMINISTRATOR_FINISHED_TASK_STATES_PROPERTY_FILTER;
 
   
-  public static IPropertyFilter getTaskStatesPropertyFilterByRunningModeAndTaskDisplayMode(
+  public static IPropertyFilter<TaskProperty> getTaskStatesPropertyFilterByRunningModeAndTaskDisplayMode(
           boolean runningTaskMode, int taskDisplayMode) throws Exception
   {
     return (runningTaskMode ? getRunningTaskStatesPropertyFilterByTaskDisplayMode(taskDisplayMode)
@@ -80,7 +79,7 @@ public class WorkflowUIAccessPermissionHandler
    * @return
    * @throws Exception
    */
-  private static IPropertyFilter getRunningTaskStatesPropertyFilterByTaskDisplayMode(int taskDisplayMode)
+  private static IPropertyFilter<TaskProperty> getRunningTaskStatesPropertyFilterByTaskDisplayMode(int taskDisplayMode)
           throws Exception
   {
     switch (taskDisplayMode)
@@ -108,7 +107,7 @@ public class WorkflowUIAccessPermissionHandler
    * @return
    * @throws Exception
    */
-  private static IPropertyFilter getWfUserRunningTaskStatesPropertyFilter() throws Exception
+  private static IPropertyFilter<TaskProperty> getWfUserRunningTaskStatesPropertyFilter() throws Exception
   {
     if (WF_USER_RUNNING_TASK_STATES_PROPERTY_FILTER == null)
     {
@@ -133,7 +132,7 @@ public class WorkflowUIAccessPermissionHandler
    * 
    * @return
    */
-  private static IPropertyFilter getWfTeamRunningTaskStatesPropertyFilter()
+  private static IPropertyFilter<TaskProperty> getWfTeamRunningTaskStatesPropertyFilter()
   {
     if (WF_TEAM_RUNNING_TASK_STATES_PROPERTY_FILTER == null)
     {
@@ -146,12 +145,8 @@ public class WorkflowUIAccessPermissionHandler
     return WF_TEAM_RUNNING_TASK_STATES_PROPERTY_FILTER;
   }
 
-  /**
-   * 
-   * 
-   * @return
-   */
-  private static IPropertyFilter getWfAdministratorRunningTaskStatesPropertyFilter()
+
+  private static IPropertyFilter<TaskProperty> getWfAdministratorRunningTaskStatesPropertyFilter()
   {
     if (WF_ADMINISTRATOR_RUNNING_TASK_STATES_PROPERTY_FILTER == null)
     {
@@ -174,7 +169,7 @@ public class WorkflowUIAccessPermissionHandler
    * @return
    * @throws Exception
    */
-  private static IPropertyFilter getFinishedTaskStatesPropertyFilterByTaskDisplayMode(int taskDisplayMode)
+  private static IPropertyFilter<TaskProperty> getFinishedTaskStatesPropertyFilterByTaskDisplayMode(int taskDisplayMode)
           throws Exception
   {
     switch (taskDisplayMode)
@@ -203,7 +198,7 @@ public class WorkflowUIAccessPermissionHandler
    * 
    * READY_FOR_JOIN JOINING JOIN_FAILED DONE DESTROYED
    */
-  private static IPropertyFilter getWfUserFinishedTaskStatesPropertyFilter() throws Exception
+  private static IPropertyFilter<TaskProperty> getWfUserFinishedTaskStatesPropertyFilter() throws Exception
   {
     if (WF_USER_FINISHED_TASK_STATES_PROPERTY_FILTER == null)
     {
@@ -218,7 +213,7 @@ public class WorkflowUIAccessPermissionHandler
     return WF_USER_FINISHED_TASK_STATES_PROPERTY_FILTER;
   }
 
-  private static IPropertyFilter getWfTeamFinishedTaskStatesPropertyFilter()
+  private static IPropertyFilter<TaskProperty> getWfTeamFinishedTaskStatesPropertyFilter()
   {
     if (WF_TEAM_FINISHED_TASK_STATES_PROPERTY_FILTER == null)
     {
@@ -232,7 +227,7 @@ public class WorkflowUIAccessPermissionHandler
     return WF_TEAM_FINISHED_TASK_STATES_PROPERTY_FILTER;
   }
 
-  private static IPropertyFilter getWfAdministratorFinishedTaskStatesPropertyFilter()
+  private static IPropertyFilter<TaskProperty> getWfAdministratorFinishedTaskStatesPropertyFilter()
   {
     if (WF_ADMINISTRATOR_FINISHED_TASK_STATES_PROPERTY_FILTER == null)
     {
@@ -264,7 +259,7 @@ public class WorkflowUIAccessPermissionHandler
    * @return
    * @throws Exception
    */
-  public static List findTaskCategories(final IPropertyFilter<TaskProperty> categoryFilter, final TaskProperty categoryProperty,
+  public static List<IGroup<ITask>> findTaskCategories(final IPropertyFilter<TaskProperty> categoryFilter, final TaskProperty categoryProperty,
           final OrderDirection categoryPropertyOrder, boolean runningTaskMode, int taskDisplayMode)
           throws Exception
   {
@@ -318,7 +313,7 @@ public class WorkflowUIAccessPermissionHandler
    * @return
    * @throws Exception
    */
-  public static IQueryResult<ITask> findTasks(final IPropertyFilter<TaskProperty> filter, final List order,
+  public static IQueryResult<ITask> findTasks(final IPropertyFilter<TaskProperty> filter, final List<PropertyOrder<TaskProperty>> order,
           final int startIndex, final int count, final boolean returnAllCount, boolean runningTaskMode, int taskDisplayMode)
           throws Exception
   {

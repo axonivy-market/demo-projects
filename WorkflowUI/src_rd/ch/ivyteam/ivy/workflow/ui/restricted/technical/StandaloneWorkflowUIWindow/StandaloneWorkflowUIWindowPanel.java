@@ -5,7 +5,6 @@ import ch.ivyteam.ivy.richdialog.exec.panel.EmbeddedRichDialog;
 import ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel;
 import ch.ivyteam.ivy.richdialog.exec.panel.RichDialogPanelFactory;
 import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogBorderPanel;
-import ch.ivyteam.ivy.richdialog.util.RichDialogUtil;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RTabbedDisplay;
@@ -140,7 +139,7 @@ public class StandaloneWorkflowUIWindowPanel extends RichDialogBorderPanel imple
   {
     if (fFrame == null)
     {
-      ULCRootPane root = RichDialogUtil.getUlcRootPane(this);
+      ULCRootPane root = ch.ivyteam.ivy.richdialog.util.RichDialogUtil.getUlcRootPane(this);
       fFrame = (ULCFrame) root;
       if(fFrame != null)
       {

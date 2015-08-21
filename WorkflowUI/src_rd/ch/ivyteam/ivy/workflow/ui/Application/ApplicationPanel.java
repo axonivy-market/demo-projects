@@ -9,11 +9,8 @@ import ch.ivyteam.ivy.richdialog.widgets.containers.RSplitPane;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RCardDisplay;
 import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 import ch.ivyteam.ivy.workflow.ui.utils.UIHelper;
+
 import com.ulcjava.base.application.ULCTabbedPane;
-import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
-import ch.ivyteam.ivy.richdialog.widgets.displays.RListDisplay;
-import com.ulcjava.base.application.BorderFactory;
-import com.ulcjava.base.application.util.Color;
 
 /**
  * RichDialog panel implementation for ApplicationDynamicWayPanel.

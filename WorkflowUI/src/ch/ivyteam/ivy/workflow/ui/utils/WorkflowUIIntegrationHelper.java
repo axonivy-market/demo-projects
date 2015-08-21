@@ -239,8 +239,14 @@ public class WorkflowUIIntegrationHelper
     else
     {
       // entry has the value; read it
-      functionProcessStarts = (List<IProcessStart>) dataCacheEntry.getValue();
-      Ivy.log().debug("Found {0} function process starts in application cache.", functionProcessStarts.size());
+      Object value = dataCacheEntry.getValue();
+      if (value instanceof List<?>)
+      {
+    	@SuppressWarnings("unchecked")
+		List<IProcessStart> starts = (List<IProcessStart>)value;
+		functionProcessStarts = starts;
+		Ivy.log().debug("Found {0} function process starts in application cache.", functionProcessStarts.size());
+      }
     }
 
     return functionProcessStarts;
