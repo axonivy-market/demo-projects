@@ -369,14 +369,14 @@ public class WorkflowUIAccessPermissionHandler
 
   
   
-  public static int getTaskIdentifierAsSystemUser(final ITask wfTask) throws EnvironmentNotAvailableException, Exception
+  public static long getTaskIdentifierAsSystemUser(final ITask wfTask) throws EnvironmentNotAvailableException, Exception
   {
-    int result = -1;
-      result = SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<Integer>()
+    long result = -1;
+      result = SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<Long>()
         {
-          public Integer call() throws Exception
+          public Long call() throws Exception
           {
-            return wfTask.getIdentifier();
+            return wfTask.getId();
           }
         });
     return result;
@@ -516,7 +516,7 @@ public class WorkflowUIAccessPermissionHandler
             if (!containsCaseGroupBasedOnCaseCategory(involvedCasesByRoleCategories, managedTeamsCaseGroup, categoryProperty))
             {
             	Ivy.log().debug("Adding to the hash set the {0} - {1}.", 
-            			managedTeamsCaseFirstObjectInGroup.getIdentifier(), 
+            			managedTeamsCaseFirstObjectInGroup.getId(), 
             			managedTeamsCaseFirstObjectInGroup.getName());
             	involvedCasesByRoleCategoriesLinkedHashSet.add(managedTeamsCaseGroup);
             }
@@ -639,14 +639,14 @@ public class WorkflowUIAccessPermissionHandler
             Boolean found = false;
             
             Ivy.log().debug("Case to find {0}-{1} based on case property {2}.", 
-            		caseToFind.getIdentifier(), caseToFind.getName(), categoryProperty);
+            		caseToFind.getId(), caseToFind.getName(), categoryProperty);
 
             for (IGroup<ICase> currentCaseGroup : caseGroups)
             {            	
               firstCaseInGroup = currentCaseGroup.getFirstObjectInGroup();
 
               Ivy.log().debug("First case in group {0} {1} - {2}.", 
-            		  firstCaseInGroup, firstCaseInGroup.getIdentifier(), firstCaseInGroup.getName());              
+            		  firstCaseInGroup, firstCaseInGroup.getId(), firstCaseInGroup.getName());              
 
               if (categoryProperty.compareTo(CaseProperty.PROCESS_CATEGORY_CODE) == 0)
               {
@@ -856,13 +856,13 @@ public class WorkflowUIAccessPermissionHandler
           for (ICase sessionUserTeamManagerCase : sessionUserTeamManagerCasesList)
           {
         	  Ivy.log().debug("Is the involved cases by role contains the team managed case {0}-{1}...", 
-        			  sessionUserTeamManagerCase.getIdentifier(), sessionUserTeamManagerCase.getName());
+        			  sessionUserTeamManagerCase.getId(), sessionUserTeamManagerCase.getName());
         	  
             if (!containsCase(involvedCasesByRoleList, sessionUserTeamManagerCase))
             {
               mergedCasesLinkedHashSet.add(sessionUserTeamManagerCase);
               Ivy.log().debug("Adding to the Team cases the case #{0} {1}",
-                      sessionUserTeamManagerCase.getIdentifier(), sessionUserTeamManagerCase.getName());
+                      sessionUserTeamManagerCase.getId(), sessionUserTeamManagerCase.getName());
             }
           }
 
@@ -904,7 +904,7 @@ public class WorkflowUIAccessPermissionHandler
   {
     for (ICase currentCase : cases)
     {
-      if (currentCase.getIdentifier() == caseToFind.getIdentifier())
+      if (currentCase.getId() == caseToFind.getId())
         return true;
     }
     return false;
@@ -1151,7 +1151,7 @@ public class WorkflowUIAccessPermissionHandler
 
             // ID
             if (caseProperty.equals(CaseProperty.ID))
-              return new Integer(wfCase.getIdentifier());
+              return new Long(wfCase.getId());
 
             // NAME
             if (caseProperty.equals(CaseProperty.NAME))
@@ -1327,14 +1327,14 @@ public class WorkflowUIAccessPermissionHandler
  * @throws Exception 
  * @throws EnvironmentNotAvailableException 
    */
-  public static Integer getWorkflowEventTaskIdEventAsSystemUser(final IWorkflowEvent workflowEvent) throws EnvironmentNotAvailableException, Exception
+  public static Long getWorkflowEventTaskIdEventAsSystemUser(final IWorkflowEvent workflowEvent) throws EnvironmentNotAvailableException, Exception
   {
-    Integer result = null;
-      result = SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<Integer>()
+    Long result = null;
+      result = SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<Long>()
         {
-          public Integer call() throws Exception
+          public Long call() throws Exception
           {
-            return workflowEvent.getTask().getIdentifier();
+            return workflowEvent.getTask().getId();
           }
         });
 
@@ -1457,7 +1457,7 @@ public class WorkflowUIAccessPermissionHandler
  * @throws Exception 
  * @throws EnvironmentNotAvailableException 
    */
-  public static ITask wfFindTaskAsSystemUser(final int taskIdentifier) throws EnvironmentNotAvailableException, Exception
+  public static ITask wfFindTaskAsSystemUser(final long taskIdentifier) throws EnvironmentNotAvailableException, Exception
   {
 	  ITask result = null;
 	  result = SecurityManagerFactory.getSecurityManager().executeAsSystem(new Callable<ITask>()
@@ -1773,10 +1773,10 @@ public class WorkflowUIAccessPermissionHandler
                 
                 for (ITask actualWfTask: wfTasks)
                 {
-                	if (actualWfTask.getIdentifier() == wfTask.getIdentifier())
+                	if (actualWfTask.getId() == wfTask.getId())
                 	{
                 		result = true;
-                		Ivy.log().debug("User {0} can work on task with id {1}.", workflowSession.getSessionUserName(), wfTask.getIdentifier());
+                		Ivy.log().debug("User {0} can work on task with id {1}.", workflowSession.getSessionUserName(), wfTask.getId());
                 		break;
                 	}
                 }				
@@ -1815,14 +1815,14 @@ public class WorkflowUIAccessPermissionHandler
         	  queryResult = workflowSession.findInvolvedCases(filter, order, startIndex, count, returnAllCount);
         	  wfCases = queryResult.getResultList();
         	  
-        	  Ivy.log().debug("Is user {0} involved on {1} cases also involved on case with id {2}.", workflowSession.getSessionUserName(), wfCases.size(), wfCase.getIdentifier());
+        	  Ivy.log().debug("Is user {0} involved on {1} cases also involved on case with id {2}.", workflowSession.getSessionUserName(), wfCases.size(), wfCase.getId());
         	  
         	  for (ICase actualCase: wfCases)
         	  {
-        		  if (wfCase.getIdentifier() == actualCase.getIdentifier())
+        		  if (wfCase.getId() == actualCase.getId())
 				  {
         			  userIsInvolvedOnCase = true;
-        			  Ivy.log().debug("User {0} is involved on case with id {2}.", workflowSession.getSessionUserName(), wfCase.getIdentifier());
+        			  Ivy.log().debug("User {0} is involved on case with id {2}.", workflowSession.getSessionUserName(), wfCase.getId());
         			  break;        			  
 				  }
         	  }        	          	  
