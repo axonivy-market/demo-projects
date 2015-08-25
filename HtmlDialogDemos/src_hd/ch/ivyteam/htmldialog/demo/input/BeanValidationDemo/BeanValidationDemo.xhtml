@@ -38,10 +38,10 @@
    			<h:form id="person">
    				<p:messages id="msgs"/>
 				<h:panelGrid columns="3">
-					<h:outputLabel value="Name" for="name"/><p:inputText value="#{data.person.name}" id="name"/><p:message for="name" display="icon" id="nameMessage"/>
-					<h:outputLabel value="Social Security Number" for="socialSecurityNumber"/><p:inputText value="#{data.person.socialSecurityNumber}" id="socialSecurityNumber"/><p:message for="socialSecurityNumber" display="icon" id="socialSecurityNumberMessage"/>
-					<h:outputLabel value="Year of Birth" for="yearOfBirth"/><p:inputText value="#{data.person.yearOfBirth}" id="yearOfBirth"/><p:message for="yearOfBirth" display="icon" id="yearOfBirthMessage"/>				
-					<h:outputLabel value="Vehicle license" for="license"/><p:inputText value="#{data.person.vehicleLicense}" id="license"/><p:message for="license" display="icon" id="licenseMessage"/>				
+					<p:outputLabel value="Name" for="name"/><p:inputText value="#{data.person.name}" id="name"/><p:message for="name" display="icon" id="nameMessage"/>
+					<p:outputLabel value="Social Security Number" for="socialSecurityNumber"/><p:inputText value="#{data.person.socialSecurityNumber}" id="socialSecurityNumber"/><p:message for="socialSecurityNumber" display="icon" id="socialSecurityNumberMessage"/>
+					<p:outputLabel value="Year of Birth" for="yearOfBirth"/><p:inputText value="#{data.person.yearOfBirth}" id="yearOfBirth"/><p:message for="yearOfBirth" display="icon" id="yearOfBirthMessage"/>				
+					<p:outputLabel value="Vehicle license" for="license"/><p:inputText value="#{data.person.vehicleLicense}" id="license"/><p:message for="license" display="icon" id="licenseMessage"/>				
 				</h:panelGrid>
 		    	<p:commandButton actionListener="#{logic.Send}" value="Submit" id="submit" update="person"/><br />
 		    	<br/>
