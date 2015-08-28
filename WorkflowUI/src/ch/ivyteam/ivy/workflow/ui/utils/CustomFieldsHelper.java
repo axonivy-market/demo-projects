@@ -9,6 +9,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.security.SecurityManagerFactory;
 import ch.ivyteam.ivy.workflow.ICase;
 import ch.ivyteam.ivy.workflow.ITask;
+import ch.ivyteam.ivy.workflow.IWorkflowProcessModelVersion;
 import ch.ivyteam.ivy.workflow.ui.data.restricted.common.CustomFieldsLabels;
 import ch.ivyteam.log.Logger;
 
@@ -127,11 +128,20 @@ public class CustomFieldsHelper {
 
 	}
 	
-	@SuppressWarnings("restriction")
 	private static IContentManagementSystem getCms(final ICase wfCase) 
 	{
-		return ch.ivyteam.ivy.project.IvyProjectNavigationUtil.getIvyProject(
-				wfCase.getProcessModelVersion()).getContentManagementSystem();
+		if (wfCase == null)
+		{
+			return null;
+		}
+		
+		IWorkflowProcessModelVersion pmv = wfCase.getProcessModelVersion();
+		if (pmv == null)
+		{
+			return null;
+		}
+		
+		return (IContentManagementSystem) pmv.getAdapter(IContentManagementSystem.class);
 	}
 	
 	
@@ -158,10 +168,19 @@ public class CustomFieldsHelper {
 
             	// get the taks's case
             	ICase wfCase = task.getCase();
+            	if (wfCase == null)
+            	{
+            		logger.debug("Failed to get the case from task with id "+task.getId());
+            		return null;
+            	}
             	
             	// get the task's CMS
             	IContentManagementSystem cms = getCms(wfCase);
-            	
+            	if (cms == null)
+            	{
+            		logger.debug("Failed to resolve CMS from case with id "+wfCase.getId());
+            		return null;
+            	}
             	
             	String taskCustomFieldsLabelsFullCmsUri = ""; 
             	
