@@ -736,12 +736,12 @@ for (Number broadcastedTaskId: in.broadcastedTaskIdentifiers)
 		currentWfTaskWrapper = iterator.next() as ITaskWrapper;
 		currentTask = currentWfTaskWrapper.wfTask;
 		
-		if (currentTask.getIdentifier() == broadcastedTaskId)
+		if (currentTask.getId() == broadcastedTaskId)
 		{
 			found = true;
 			taskIndexInTheList = in.filteredTasks.indexOf(currentWfTaskWrapper);
 			ivy.log.debug("Task {0}-{1} changed its state to {2}.", 
-											currentWfTaskWrapper.wfTask.getIdentifier(),
+											currentWfTaskWrapper.wfTask.getId(),
 											currentWfTaskWrapper.wfTask.getName(),
 											currentWfTaskWrapper.wfTask.getState());
 			out.filteredTasks.elementChanged(currentWfTaskWrapper);
@@ -894,7 +894,7 @@ try
 		WorkflowUIAccessPermissionHandler.delegateTaskAsSystemUser(currentTask, in.securityMember);
 		
 		// fire the bcevent that task has been delegated
-		panel.fireXivyTaskDelegated(currentTask.getIdentifier());
+		panel.fireXivyTaskDelegated(currentTask.getId());
 		
 		// update the list of displayed tasks
 		currentTaskIndexInTheSelectedList = in.filteredTasks.indexOf(taskWrapper);
@@ -934,7 +934,7 @@ param.aHasWfAdministratorPermissions=in.hasWfAdministratorPermissions;
 ' #txt
 Ts0 f34 requestActionCode 'in.tabTitle = in.#selectedTask.getName() is initialized? 
 						in.selectedTask.getName(): 
-						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task") + " " + in.selectedTask.getIdentifier();' #txt
+						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task") + " " + in.selectedTask.getId();' #txt
 Ts0 f34 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
 Ts0 f34 responseMappingAction 'out=in;
@@ -1084,7 +1084,7 @@ param.aHasWfAdministratorPermissions=in.hasWfAdministratorPermissions;
 ' #txt
 Ts0 f105 requestActionCode 'in.tabTitle = in.#selectedTask.getName() is initialized? 
 						in.selectedTask.getName(): 
-						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task") + " " + in.selectedTask.getIdentifier();' #txt
+						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task") + " " + in.selectedTask.getId();' #txt
 Ts0 f105 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
 Ts0 f105 responseMappingAction 'out=in;
@@ -1154,7 +1154,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getIdentifier().intValue())
+	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getId().intValue())
 	{
 		// task has been already loaded
 		selectedTabbedDisplay.setSelectedComponent(currentComponent);
@@ -1230,7 +1230,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getIdentifier().intValue())
+	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getId().intValue())
 	{
 		// task has been already loaded
 		// it should be selected and refresh
@@ -1372,7 +1372,7 @@ if(!in.hasWfAdministratorPermissions || in.taskDisplayMode!=2)
 			currentWfTaskWrapper = iterator.next() as ITaskWrapper;
 			currentTask = currentWfTaskWrapper.wfTask;
 			
-			if (currentTask.getIdentifier() == broadcastedTaskId)
+			if (currentTask.getId() == broadcastedTaskId)
 			{
 				// remove it if the current user is not allowed to start the delegated task
 				if(!currentTask.getActivator().isMember(ivy.session,false))
@@ -2223,9 +2223,9 @@ if (out.tasks.size() > 0)
 		ITask currentTask = currentWfTaskWrapper.wfTask;
 		
 		if (patternOnName.matcher(currentTask.getName()).matches() || 
-					patternOnName.matcher("" + currentTask.getIdentifier()).matches() ||
+					patternOnName.matcher("" + currentTask.getId()).matches() ||
 					
-					patternOnName.matcher("" + currentTask.getCase().getIdentifier()).matches() ||
+					patternOnName.matcher("" + currentTask.getCase().getId()).matches() ||
 					patternOnName.matcher(currentTask.getCase().getName()).matches() ||
 					
 					patternOnName.matcher(currentTask.getCase().getProcessCategoryCode()).matches() || 
@@ -2740,7 +2740,7 @@ Ts0 f226 actionTable 'out=in;
 ' #txt
 Ts0 f226 actionCode 'import java.util.Collections;
 
-out.broadcastedTaskIdentifiers = param.aWorkflowSystemEventParameter.getIdentifiers();
+out.broadcastedTaskIdentifiers = param.aWorkflowSystemEventParameter.getIds();
 List<Integer> identifiers;
 identifiers.addAll(out.broadcastedTaskIdentifiers);
 Collections.sort(identifiers);
@@ -2797,10 +2797,10 @@ Ts0 f35 requestMappingAction 'param.showCopyButton=true;
 param.showDetailButton=true;
 ' #txt
 Ts0 f35 requestActionCode 'param.error = new Exception(
-	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskFailed").toString() + " " + in.selectedTask.getIdentifier(),
+	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskFailed").toString() + " " + in.selectedTask.getId(),
 	in.exception);
 	
-ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskFailed").toString() + " " + in.selectedTask.getIdentifier(),
+ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/parkTaskFailed").toString() + " " + in.selectedTask.getId(),
 	in.exception);' #txt
 Ts0 f35 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
@@ -2875,10 +2875,10 @@ Ts0 f136 requestMappingAction 'param.showCopyButton=true;
 param.showDetailButton=true;
 ' #txt
 Ts0 f136 requestActionCode 'param.error = new java.lang.Exception(
-	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskFailed").toString() + in.selectedTask.getIdentifier(),
+	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskFailed").toString() + in.selectedTask.getId(),
 	in.exception);
 
-ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskFailed").toString() + in.selectedTask.getIdentifier(), 
+ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskFailed").toString() + in.selectedTask.getId(), 
 	in.exception);' #txt
 Ts0 f136 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
@@ -2952,11 +2952,11 @@ Ts0 f232 requestMappingAction 'param.showCopyButton=true;
 param.showDetailButton=true;
 ' #txt
 Ts0 f232 requestActionCode 'param.error = new Exception(
-	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskExpiryFailed").toString() + " " + in.selectedTask.getIdentifier(),
+	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskExpiryFailed").toString() + " " + in.selectedTask.getId(),
 	in.exception);
 
 
-ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskExpiryFailed").toString() + " " + in.selectedTask.getIdentifier(),
+ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskExpiryFailed").toString() + " " + in.selectedTask.getId(),
 	in.exception);' #txt
 Ts0 f232 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
@@ -3033,10 +3033,10 @@ Ts0 f237 requestMappingAction 'param.showCopyButton=true;
 param.showDetailButton=true;
 ' #txt
 Ts0 f237 requestActionCode 'param.error = new Exception(
-	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskBlockingDelayFailed").toString() + " " + in.selectedTask.getIdentifier(),
+	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskBlockingDelayFailed").toString() + " " + in.selectedTask.getId(),
 	in.exception);
 	
-ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskBlockingDelayFailed").toString() + " " + in.selectedTask.getIdentifier(),
+ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/setTaskBlockingDelayFailed").toString() + " " + in.selectedTask.getId(),
 	in.exception);' #txt
 Ts0 f237 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
@@ -3110,10 +3110,10 @@ Ts0 f242 requestMappingAction 'param.showCopyButton=true;
 param.showDetailButton=true;
 ' #txt
 Ts0 f242 requestActionCode 'param.error = new Exception(
-	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/resetTaskFailed").toString() + " " + in.selectedTask.getIdentifier(),
+	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/resetTaskFailed").toString() + " " + in.selectedTask.getId(),
 	in.exception);
 	
-ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/resetTaskFailed").toString() + " " + in.selectedTask.getIdentifier(),
+ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/resetTaskFailed").toString() + " " + in.selectedTask.getId(),
 	in.exception);' #txt
 Ts0 f242 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
@@ -3190,10 +3190,10 @@ Ts0 f165 requestMappingAction 'param.showCopyButton=true;
 param.showDetailButton=true;
 ' #txt
 Ts0 f165 requestActionCode 'param.error = new Exception(
-	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/destroyTaskFailed").toString() + " " + in.selectedTask.getIdentifier(),
+	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/destroyTaskFailed").toString() + " " + in.selectedTask.getId(),
 	in.exception);
 	
-ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/destroyTaskFailed").toString() + " " + in.selectedTask.getIdentifier(),
+ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/destroyTaskFailed").toString() + " " + in.selectedTask.getId(),
 	in.exception);' #txt
 Ts0 f165 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
 ' #txt
@@ -3362,7 +3362,7 @@ import ch.ivyteam.ivy.workflow.ITask;
 ITask task = (in.availableTasksUnderThisTab.get(in.counter) as TaskDisplayPanel).getTask();
 
 param.question = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/doYouWantToBookTheTask") + 
-									"\n " + task.getName() + " - " + task.getIdentifier() + " ?";
+									"\n " + task.getName() + " - " + task.getId() + " ?";
 
 param.buttons = ["yes", "no", "cancel"];' #txt
 Ts0 f17 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplayList.TaskDisplayListData out;
@@ -3720,7 +3720,7 @@ for (int i=out.automaticTasksExecutionModeCounter; i<in.filteredTasks.size(); i+
 	if (task.getState().compareTo(TaskState.PARKED) == 0 || task.getState().compareTo(TaskState.SUSPENDED) == 0)
 	{
 		ivy.log.debug("Automatic task execution: setting the task {0} - {1} as selected entry on task list.", 
-									task.getIdentifier(), 
+									task.getId(), 
 									task.getName());
 
 		out.setSelectedTask(task);
@@ -3821,7 +3821,7 @@ Ts0 f75 3294 220 36 24 20 -2 #rect
 Ts0 f75 @|RichDialogProcessStepIcon #fIcon
 Ts0 f276 expr in #txt
 Ts0 f276 outCond 'in.#selectedTask is initialized &&
-in.broadcastedTaskIdentifiers.contains(in.selectedTask.getIdentifier().intValue()) &&
+in.broadcastedTaskIdentifiers.contains(in.selectedTask.getId().intValue()) &&
 (in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.DONE) == 0  || in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.READY_FOR_JOIN) == 0 || 
 in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.PARKED) == 0 || in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.SUSPENDED) == 0) ' #txt
 Ts0 f276 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -4231,7 +4231,7 @@ Ts0 f301 actionCode 'import ch.ivyteam.ivy.workflow.ui.utils.WorkflowUIAccessPer
 
 ivy.log.info("Team manager {0} start task {1} instead of {2} activator.",
 							ivy.session.getSessionUserName(), 
-							"" + in.selectedTask.getIdentifier() + (in.selectedTask.getName() is initialized? "-" + in.selectedTask.getName(): ""),
+							"" + in.selectedTask.getId() + (in.selectedTask.getName() is initialized? "-" + in.selectedTask.getName(): ""),
 							in.selectedTask.getActivatorName());
 							
 WorkflowUIAccessPermissionHandler.delegateTaskAsSystemUser(in.selectedTask, ivy.session.getSessionUser());' #txt

@@ -157,7 +157,7 @@ Is0 f9 1 352 304 #addKink
 Is0 f9 0 0.7011693667552457 0 0 #arcLabel
 >Proto Is0 .rdData2UIAction 'panel.eventIdentifierTextField.text=(in.#intermediateEvent is initialized && in.#intermediateEvent.getEventIdentifier() is initialized? in.intermediateEvent.getEventIdentifier(): "n/a");
 panel.eventTimestampTextField.text=(in.#intermediateEvent is initialized && in.#intermediateEvent.getEventTimestamp() is initialized? new Date(in.intermediateEvent.getEventTimestamp()).format("medium"): "n/a");
-panel.identifierTextField.text=(in.#intermediateEvent is initialized && in.#intermediateEvent.getIdentifier() is initialized? in.intermediateEvent.getIdentifier().toString(): "n/a");
+panel.identifierTextField.text=(in.#intermediateEvent is initialized && in.#intermediateEvent.getId() is initialized? in.intermediateEvent.getId().toString(): "n/a");
 panel.resultObjectTextField.text=(in.#intermediateEvent is initialized && in.#intermediateEvent.getResultObject() is initialized? in.intermediateEvent.getResultObject().toString(): "n/a");
 panel.stateTextField.text=(in.#intermediateEvent is initialized && in.#intermediateEvent.getState() is initialized? in.intermediateEvent.getState().name(): "n/a");
 panel.timeoutActionTextField.text=(in.#intermediateEvent is initialized && in.#intermediateEvent.getTimeoutAction() is initialized? in.intermediateEvent.getTimeoutAction().name(): "n/a");

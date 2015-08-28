@@ -100,7 +100,7 @@ Cs0 f1 inParameterMapAction 'out.fCase=param.aCase;
 ' #txt
 Cs0 f1 outParameterDecl '<> result;
 ' #txt
-Cs0 f1 embeddedRdInitializations '{/taskDisplayListRDC {/fieldName "taskDisplayListRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)"/parameterMapping ""/initScript "param.aRunningTaskMode = true;\nparam.aTaskDisplayListParentDisplay = callParam.aParentDisplay;\nparam.aTaskDisplayMode = -1;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"/userContext * }/workflowEventsDisplayListRDC {/fieldName "workflowEventsDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/caseNoteDisplayListRDC {/fieldName "caseNoteDisplayListRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ICase,Boolean)"/parameterMapping ""/initScript "param.aCase = callParam.aCase;\nparam.aLoadDataAtStart = false;"/userContext * }/caseDetailsDisplayRDC {/fieldName "caseDetailsDisplayRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ICase)"/parameterMapping ""/initScript "param.aCase = in.fCase;"/userContext * }/eventLogDisplayListRDC {/fieldName "eventLogDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/formArchiveDisplayListRDC {/fieldName "formArchiveDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/fileManagerRDC {/fieldName "fileManagerRDC"/startMethod "startWithServerPathAndUseIvySystemDB(String)"/parameterMapping ""/initScript "import ch.ivyteam.ivy.addons.restricted.resources.ResourceServicesHelper;\n\n// param.serverPath = \"\";\nparam.serverPath = ResourceServicesHelper.readCaseDocumentsPath(in.fCase.getIdentifier());\n"/userContext * }}' #txt
+Cs0 f1 embeddedRdInitializations '{/taskDisplayListRDC {/fieldName "taskDisplayListRDC"/startMethod "start(Boolean,ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay,ch.ivyteam.ivy.workflow.IPropertyFilter,Number,Boolean)"/parameterMapping ""/initScript "param.aRunningTaskMode = true;\nparam.aTaskDisplayListParentDisplay = callParam.aParentDisplay;\nparam.aTaskDisplayMode = -1;\nparam.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);"/userContext * }/workflowEventsDisplayListRDC {/fieldName "workflowEventsDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/caseNoteDisplayListRDC {/fieldName "caseNoteDisplayListRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ICase,Boolean)"/parameterMapping ""/initScript "param.aCase = callParam.aCase;\nparam.aLoadDataAtStart = false;"/userContext * }/caseDetailsDisplayRDC {/fieldName "caseDetailsDisplayRDC"/startMethod "start(ch.ivyteam.ivy.workflow.ICase)"/parameterMapping ""/initScript "param.aCase = in.fCase;"/userContext * }/eventLogDisplayListRDC {/fieldName "eventLogDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/formArchiveDisplayListRDC {/fieldName "formArchiveDisplayListRDC"/startMethod "start()"/parameterMapping ""/initScript ""/userContext * }/fileManagerRDC {/fieldName "fileManagerRDC"/startMethod "startWithServerPathAndUseIvySystemDB(String)"/parameterMapping ""/initScript "import ch.ivyteam.ivy.addons.restricted.resources.ResourceServicesHelper;\n\n// param.serverPath = \"\";\nparam.serverPath = ResourceServicesHelper.readCaseDocumentsPath(in.fCase.getId());\n"/userContext * }}' #txt
 Cs0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -124,7 +124,7 @@ Cs0 f7 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 Cs0 f7 outParameterDecl '<java.lang.Number aCaseIdentifier> result;
 ' #txt
-Cs0 f7 outParameterMapAction 'result.aCaseIdentifier=in.fCase.getIdentifier();
+Cs0 f7 outParameterMapAction 'result.aCaseIdentifier=in.fCase.getId();
 ' #txt
 Cs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -478,7 +478,7 @@ Cs0 f48 @|AlternativeIcon #fIcon
 Cs0 f49 expr out #txt
 Cs0 f49 1544 98 1544 162 #arcP
 Cs0 f50 expr in #txt
-Cs0 f50 outCond 'in.fCase.getIdentifier() == in.broadcastedCaseIdentifier' #txt
+Cs0 f50 outCond 'in.fCase.getId() == in.broadcastedCaseIdentifier' #txt
 Cs0 f50 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

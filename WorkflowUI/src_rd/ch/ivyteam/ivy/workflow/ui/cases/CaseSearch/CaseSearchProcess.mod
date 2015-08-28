@@ -3074,7 +3074,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof CaseDisplayPanel && (currentComponent as CaseDisplayPanel).getCaseIdentifier() == in.selectedCase.getIdentifier().intValue())
+	if (currentComponent instanceof CaseDisplayPanel && (currentComponent as CaseDisplayPanel).getCaseIdentifier() == in.selectedCase.getId().intValue())
 	{
 		// task has been already loaded
 		// it should be selected and refresh
@@ -3129,7 +3129,7 @@ param.aParentDisplay=in.destinationDisplay;
 ' #txt
 Cs0 f140 requestActionCode 'in.tabTitle = in.selectedCase.getName() is initialized? 
 						in.selectedCase.getName(): 
-						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/case") + " " + in.selectedCase.getIdentifier();' #txt
+						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/case") + " " + in.selectedCase.getId();' #txt
 Cs0 f140 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt
 Cs0 f140 responseMappingAction 'out=in;
@@ -3647,7 +3647,7 @@ import ch.ivyteam.ivy.workflow.ICase;
 import java.util.Iterator;
 
 
-Number broadcastedCaseStateChangedCaseId = param.workflowSystemEventParameter.getIdentifiers().get(0) as Number;
+Number broadcastedCaseStateChangedCaseId = param.workflowSystemEventParameter.getIds().get(0) as Number;
 
 	// some ICase tree node should be updated
 	Iterator iterator = in.caseHierarchyLayoutTree.iterator();
@@ -3659,7 +3659,7 @@ Number broadcastedCaseStateChangedCaseId = param.workflowSystemEventParameter.ge
 		currentTree = iterator.next() as Tree;
 		if (currentTree.getValue() instanceof ICase)
 		{
-			if ((currentTree.getValue() as ICase).getIdentifier().compareTo(broadcastedCaseStateChangedCaseId) == 0)
+			if ((currentTree.getValue() as ICase).getId().compareTo(broadcastedCaseStateChangedCaseId) == 0)
 			{
 				currentTree.treeValueChanged();
 				found = true;
@@ -3718,10 +3718,10 @@ Cs0 f182 requestMappingAction 'param.showCopyButton=true;
 param.showDetailButton=true;
 ' #txt
 Cs0 f182 requestActionCode 'param.error = new Exception(
-	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseFailed").toString() + ": " + in.selectedCase.getIdentifier(),
+	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseFailed").toString() + ": " + in.selectedCase.getId(),
 	in.exception);
 	
-ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseFailed").toString() + ": " + in.selectedCase.getIdentifier(),
+ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseFailed").toString() + ": " + in.selectedCase.getId(),
 	in.exception);' #txt
 Cs0 f182 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseSearch.CaseSearchData out;
 ' #txt

@@ -135,7 +135,7 @@ Is0 f9 432 114 357 360 #arcP
 Is0 f9 1 432 360 #addKink
 Is0 f9 0 0.6720422192213075 0 0 #arcLabel
 >Proto Is0 .rdData2UIAction 'panel.descriptionTextArea.text=(in.#intermediateEventElement is initialized && in.#intermediateEventElement.getDescription() is initialized? in.intermediateEventElement.getDescription(): "n/a");
-panel.identifierTextField.text=(in.#intermediateEventElement is initialized && in.#intermediateEventElement.getIdentifier() is initialized? in.intermediateEventElement.getIdentifier().toString(): "n/a");
+panel.identifierTextField.text=(in.#intermediateEventElement is initialized && in.#intermediateEventElement.getId() is initialized? in.intermediateEventElement.getId().toString(): "n/a");
 panel.intermediateEventBeanClassNameTextField.text=(in.#intermediateEventElement is initialized && in.#intermediateEventElement.getIntermediateEventBeanClassName() is initialized? in.intermediateEventElement.getIntermediateEventBeanClassName(): "n/a");
 panel.intermediateEventBeanConfigurationTextField.text=(in.#intermediateEventElement is initialized && in.#intermediateEventElement.getIntermediateEventBeanConfiguration() is initialized? in.intermediateEventElement.getIntermediateEventBeanConfiguration(): "n/a");
 panel.intermediateEventBeanEnabledCheckBox.selected=(in.#intermediateEventElement is initialized && in.#intermediateEventElement.isIntermediateEventBeanEnabled() is initialized? in.intermediateEventElement.isIntermediateEventBeanEnabled(): false);

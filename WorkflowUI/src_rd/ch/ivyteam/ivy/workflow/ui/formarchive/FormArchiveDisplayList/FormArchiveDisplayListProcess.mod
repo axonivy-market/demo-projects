@@ -324,14 +324,14 @@ try
 {
 	if (in.#selectedTask != null)
 	{
-		ivy.log.debug("Get page archives from task {0}-{1}.", in.selectedTask.getIdentifier(), in.selectedTask.getName());
+		ivy.log.debug("Get page archives from task {0}-{1}.", in.selectedTask.getId(), in.selectedTask.getName());
 		in.pageArchives = WorkflowUIAccessPermissionHandler.getTaskPageArchivesAsSystemUser(in.selectedTask);
 		// in.pageArchives = in.selectedTask.getPageArchives();
 
 	}
 	else if (in.#initCase != null)
 	{
-		ivy.log.debug("Get page archives from case {0}-{1}.", in.initCase.getIdentifier(), in.initCase.getName());		
+		ivy.log.debug("Get page archives from case {0}-{1}.", in.initCase.getId(), in.initCase.getName());		
 		in.pageArchives = WorkflowUIAccessPermissionHandler.getCasePageArchivesAsSystemUser(in.initCase);
 		// in.pageArchives = in.initCase.getPageArchives();
 	}

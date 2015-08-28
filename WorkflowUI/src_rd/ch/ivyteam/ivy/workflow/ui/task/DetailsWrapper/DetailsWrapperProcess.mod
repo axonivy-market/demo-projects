@@ -82,7 +82,7 @@ Ts0 f14 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 <ch.ivyteam.ivy.workflow.ITask aTask,java.lang.Boolean hasWfAdministratorPermissions> param = methodEvent.getInputArguments();
 ' #txt
 Ts0 f14 inActionCode 'out.task = param.aTask;
-out.taskIdentifier = param.aTask.getIdentifier();
+out.taskIdentifier = param.aTask.getId();
 out.hasWfAdministratorPermissions = param.hasWfAdministratorPermissions;' #txt
 Ts0 f14 outParameterDecl '<> result;
 ' #txt

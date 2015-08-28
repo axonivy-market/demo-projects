@@ -232,7 +232,7 @@ Ts0 f153 expr out #txt
 Ts0 f153 752 66 752 90 #arcP
 Ts0 f153 0 0.6033404358290694 0 0 #arcLabel
 Ts0 f151 expr in #txt
-Ts0 f151 outCond 'in.broadcastedCaseIdentifier == in.task.getCase().getIdentifier()' #txt
+Ts0 f151 outCond 'in.broadcastedCaseIdentifier == in.task.getCase().getId()' #txt
 Ts0 f151 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -265,7 +265,7 @@ Ts0 f156 expr out #txt
 Ts0 f156 904 66 904 90 #arcP
 Ts0 f156 0 0.5569494265130966 0 0 #arcLabel
 Ts0 f150 expr in #txt
-Ts0 f150 outCond 'in.broadcastedTaskIdentifier == in.task.getIdentifier()' #txt
+Ts0 f150 outCond 'in.broadcastedTaskIdentifier == in.task.getId()' #txt
 Ts0 f150 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

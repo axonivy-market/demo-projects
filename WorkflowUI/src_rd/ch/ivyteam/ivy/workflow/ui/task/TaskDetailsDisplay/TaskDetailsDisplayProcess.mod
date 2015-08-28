@@ -430,8 +430,8 @@ panel.taskDescriptionTextArea.text=(in.#task is initialized && in.#task.#descrip
 panel.taskExpiryTimestampLabel.visible=in.#task is initialized && in.#task.getExpiryTimestamp() is initialized;
 panel.taskExpiryTimestampTextField.text=(in.#task is initialized && in.#task.#expiryTimestamp is initialized? in.task.expiryTimestamp.format(ivy.var.xivy_workflow_ui_restricted_dateTimeFormatPattern): "");
 panel.taskExpiryTimestampTextField.visible=in.#task is initialized && in.#task.getExpiryTimestamp() is initialized;
-panel.taskIdLabel.toolTipText=(in.#task is initialized? in.task.getIdentifier().toString(): "");
-panel.taskIdTextField.text=(in.#task is initialized? in.task.getIdentifier().toString(): "");
+panel.taskIdLabel.toolTipText=(in.#task is initialized? in.task.getId().toString(): "");
+panel.taskIdTextField.text=(in.#task is initialized? in.task.getId().toString(): "");
 panel.taskKindCodeLabel.visible=in.#task is initialized && (in.task.getKindCode() is initialized || in.task.getKindName() is initialized);
 panel.taskKindTextField.text=IF (in.#task is initialized,
 // task is initialized

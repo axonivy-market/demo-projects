@@ -2449,7 +2449,7 @@ try
 	
 	
 	// fire the bcevent that task has been delegated
-	panel.fireXivyTaskDelegated(selectedTask.getIdentifier());
+	panel.fireXivyTaskDelegated(selectedTask.getId());
 	
 	
 	// remove the selected tree node from tree
@@ -2717,7 +2717,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getIdentifier().intValue())
+	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getId().intValue())
 	{
 		// task has been already loaded
 		selectedTabbedDisplay.setSelectedComponent(currentComponent);
@@ -2769,7 +2769,7 @@ param.aHasWfAdministratorPermissions=in.hasWfAdministratorPermissions;
 ' #txt
 Ts0 f104 requestActionCode 'in.tabTitle = in.#selectedTask.getName() is initialized? 
 						in.selectedTask.getName(): 
-						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task") + " " + in.selectedTask.getIdentifier();' #txt
+						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task") + " " + in.selectedTask.getId();' #txt
 Ts0 f104 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
 ' #txt
 Ts0 f104 responseMappingAction 'out=in;
@@ -2971,7 +2971,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getIdentifier().intValue())
+	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getId().intValue())
 	{
 		// task has been already loaded
 		selectedTabbedDisplay.setSelectedComponent(currentComponent);
@@ -3025,7 +3025,7 @@ param.aHasWfAdministratorPermissions=in.hasWfAdministratorPermissions;
 ' #txt
 Ts0 f128 requestActionCode 'in.tabTitle = in.#selectedTask.getName() is initialized? 
 						in.selectedTask.getName(): 
-						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task") + " " + in.selectedTask.getIdentifier();' #txt
+						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/task") + " " + in.selectedTask.getId();' #txt
 Ts0 f128 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
 ' #txt
 Ts0 f128 responseMappingAction 'out=in;
@@ -4219,9 +4219,9 @@ import ch.ivyteam.ivy.workflow.TaskState;
 import java.util.Iterator;
 
 
-Number broadcastedTaskStateChangedTaskId = param.workflowSystemEventParameter.getIdentifiers().get(0) as Number;
+Number broadcastedTaskStateChangedTaskId = param.workflowSystemEventParameter.getIds().get(0) as Number;
 
-ivy.log.info("wf system event:"+param.workflowSystemEventParameter.getIdentifiers());	
+ivy.log.info("wf system event:"+param.workflowSystemEventParameter.getIds());	
 
 if (panel.tasksHierarchyLayoutTree.getSelectedTreeNode() != null && 
 	panel.tasksHierarchyLayoutTree.getSelectedTreeNode().getValue() instanceof ITask)
@@ -4229,7 +4229,7 @@ if (panel.tasksHierarchyLayoutTree.getSelectedTreeNode() != null &&
 	// the currently selected ITask tree node should be updated
 	ITask selectedTask = panel.tasksHierarchyLayoutTree.getSelectedTreeNode().getValue() as ITask;
 
-	if (selectedTask.getIdentifier().compareTo(broadcastedTaskStateChangedTaskId) == 0)
+	if (selectedTask.getId().compareTo(broadcastedTaskStateChangedTaskId) == 0)
 	{
 		panel.tasksHierarchyLayoutTree.getSelectedTreeNode().treeValueChanged();		
 		// update button availability according to the task state
@@ -4255,7 +4255,7 @@ else
 		currentTree = iterator.next() as Tree;
 		if (currentTree.getValue() instanceof ITask)
 		{
-			if ((currentTree.getValue() as ITask).getIdentifier().compareTo(broadcastedTaskStateChangedTaskId) == 0)
+			if ((currentTree.getValue() as ITask).getId().compareTo(broadcastedTaskStateChangedTaskId) == 0)
 			{
 				currentTree.treeValueChanged();
 				found = true;
@@ -4321,10 +4321,10 @@ Ts0 f218 requestMappingAction 'param.showCopyButton=true;
 param.showDetailButton=true;
 ' #txt
 Ts0 f218 requestActionCode 'param.error = new java.lang.Exception(
-	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskFailed").toString() + in.selectedTask.getIdentifier(),
+	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskFailed").toString() + in.selectedTask.getId(),
 	in.exception);
 
-ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskFailed").toString() + in.selectedTask.getIdentifier(), 
+ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskFailed").toString() + in.selectedTask.getId(), 
 	in.exception);' #txt
 Ts0 f218 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
 ' #txt
@@ -4817,7 +4817,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof CaseDisplayPanel && (currentComponent as CaseDisplayPanel).getCaseIdentifier() == in.selectedTask.getCase().getIdentifier().intValue())
+	if (currentComponent instanceof CaseDisplayPanel && (currentComponent as CaseDisplayPanel).getCaseIdentifier() == in.selectedTask.getCase().getId().intValue())
 	{
 		// case has been already loaded
 		// it should be selected and refresh
@@ -4880,7 +4880,7 @@ ICase selectedCase = in.selectedTask.getCase();
 
 in.tabTitle = selectedCase.getName() is initialized? 
 						selectedCase.getName(): 
-						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/case") + " " + selectedCase.getIdentifier();
+						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/case") + " " + selectedCase.getId();
 ' #txt
 Ts0 f253 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskSearch.TaskSearchData out;
 ' #txt

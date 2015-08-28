@@ -105,7 +105,7 @@ Ts0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 Ts0 f8 inActionCode 'out.wfCase = param.wfCase;' #txt
 Ts0 f8 outParameterDecl '<> result;
 ' #txt
-Ts0 f8 embeddedRdInitializations '{/fileManagerRDC {/fieldName "fileManagerRDC"/startMethod "startWithServerPathAndUseIvySystemDB(String)"/parameterMapping ""/initScript "import ch.ivyteam.ivy.addons.restricted.resources.ResourceServicesHelper;\n\nparam.serverPath = ResourceServicesHelper.readCaseDocumentsPath(callParam.wfCase.getIdentifier());"/userContext * }}' #txt
+Ts0 f8 embeddedRdInitializations '{/fileManagerRDC {/fieldName "fileManagerRDC"/startMethod "startWithServerPathAndUseIvySystemDB(String)"/parameterMapping ""/initScript "import ch.ivyteam.ivy.addons.restricted.resources.ResourceServicesHelper;\n\nparam.serverPath = ResourceServicesHelper.readCaseDocumentsPath(callParam.wfCase.getId());"/userContext * }}' #txt
 Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

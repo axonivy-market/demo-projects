@@ -390,7 +390,7 @@ As0 f19 startMethod askQuestion(String,String,List<String>) #txt
 As0 f19 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f19 requestActionDecl '<String icon, String question, List<String> buttons> param;' #txt
 As0 f19 requestActionCode 'param.question = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/doYouWantToBookTheTask") + 
-									"\n " + in.sessionUserResumedTask.getName() + " - " + in.sessionUserResumedTask.getIdentifier() + " ?";
+									"\n " + in.sessionUserResumedTask.getName() + " - " + in.sessionUserResumedTask.getId() + " ?";
 
 param.buttons = ["yes", "no", "cancel"];' #txt
 As0 f19 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
@@ -638,7 +638,7 @@ As0 f21 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f21 actionTable 'out=in;
 ' #txt
-As0 f21 actionCode 'out.currentTaskId = param.task.getIdentifier();' #txt
+As0 f21 actionCode 'out.currentTaskId = param.task.getId();' #txt
 As0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -659,7 +659,7 @@ As0 f20 actionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f20 actionTable 'out=in;
 ' #txt
-As0 f20 actionCode 'out.broadcastedTasks = param.aWorkflowSystemEventParameter.getIdentifiers();' #txt
+As0 f20 actionCode 'out.broadcastedTasks = param.aWorkflowSystemEventParameter.getIds();' #txt
 As0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -341,7 +341,7 @@ Ws0 f20 actionDecl 'workflowui.Data out;
 ' #txt
 Ws0 f20 actionTable 'out=in;
 ' #txt
-Ws0 f20 actionCode ivy.session.logoutSessionUser(ivy.task.getIdentifier()); #txt
+Ws0 f20 actionCode ivy.session.logoutSessionUser(ivy.task.getId()); #txt
 Ws0 f20 type workflowui.Data #txt
 Ws0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

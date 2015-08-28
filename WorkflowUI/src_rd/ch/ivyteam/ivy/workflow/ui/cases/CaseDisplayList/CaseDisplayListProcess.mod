@@ -393,7 +393,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof CaseDisplayPanel && (currentComponent as CaseDisplayPanel).getCaseIdentifier() == out.selectedCase.getIdentifier().intValue())
+	if (currentComponent instanceof CaseDisplayPanel && (currentComponent as CaseDisplayPanel).getCaseIdentifier() == out.selectedCase.getId().intValue())
 	{
 		// task has been already loaded
 		// it should be selected and refresh
@@ -490,7 +490,7 @@ param.aParentDisplay=in.caseDisplayListParentDisplay;
 ' #txt
 Cs0 f31 requestActionCode 'in.tabTitle = in.selectedCase.getName() is initialized? 
 						in.selectedCase.getName(): 
-						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/case") + " " + in.selectedCase.getIdentifier();' #txt
+						ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/case") + " " + in.selectedCase.getId();' #txt
 Cs0 f31 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
 ' #txt
 Cs0 f31 responseMappingAction 'out=in;
@@ -881,7 +881,7 @@ if (out.cases.size() > 0)
 		ICase currentCase = currentWfCaseWrapper.wfCase;
 		
 		if (patternOnName.matcher(currentCase.getName()).matches() ||
-					patternOnName.matcher("" + currentCase.getIdentifier()).matches() ||
+					patternOnName.matcher("" + currentCase.getId()).matches() ||
 					patternOnName.matcher("" + currentCase.getBusinessMainContactType()).matches() ||
 					patternOnName.matcher("" + currentCase.getBusinessMainContactId()).matches() ||
 					patternOnName.matcher(currentCase.getBusinessMainContactName()).matches() ||
@@ -1083,7 +1083,7 @@ ICase currentCase;
 Boolean found = false;
 Number caseIndexInTheList = -1;
 
-Number broadcastedCaseIdentifier = param.workflowSystemEventParameter.getIdentifiers().get(0) as Number;
+Number broadcastedCaseIdentifier = param.workflowSystemEventParameter.getIds().get(0) as Number;
 
 iterator = in.filteredCases.iterator();
 
@@ -1093,7 +1093,7 @@ while (iterator.hasNext() && !found)
 	currentCaseWrapper = iterator.next() as ICaseWrapper;
 	currentCase = currentCaseWrapper.wfCase;
 	
-	if (currentCase.getIdentifier().compareTo(broadcastedCaseIdentifier) == 0)
+	if (currentCase.getId().compareTo(broadcastedCaseIdentifier) == 0)
 	{
 		found = true;
 		caseIndexInTheList = in.filteredCases.indexOf(currentCaseWrapper);
@@ -1152,10 +1152,10 @@ Cs0 f182 requestMappingAction 'param.showCopyButton=true;
 param.showDetailButton=true;
 ' #txt
 Cs0 f182 requestActionCode 'param.error = new Exception(
-	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseFailed").toString() + ": " + in.selectedCase.getIdentifier(),
+	ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseFailed").toString() + ": " + in.selectedCase.getId(),
 	in.exception);
 	
-ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseFailed").toString() + ": " + in.selectedCase.getIdentifier(),
+ivy.log.error(ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/case/plainStrings/destroyCaseFailed").toString() + ": " + in.selectedCase.getId(),
 	in.exception);' #txt
 Cs0 f182 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.cases.CaseDisplayList.CaseDisplayListData out;
 ' #txt

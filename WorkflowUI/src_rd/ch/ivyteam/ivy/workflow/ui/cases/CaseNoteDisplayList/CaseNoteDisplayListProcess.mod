@@ -266,7 +266,7 @@ Cs0 f40 actionTable 'out=in;
 Cs0 f40 actionCode 'import ch.ivyteam.ivy.workflow.INote;
 
 out.currentNote = panel.caseNotesTable.getSelectedListEntry() as INote;
-panel.footerLabel.text = "Note with id" + out.currentNote.getIdentifier().toString() + " deleted.";
+panel.footerLabel.text = "Note with id" + out.currentNote.getId().toString() + " deleted.";
 out.fCase.deleteNote(out.currentNote);
 
 // 
@@ -347,7 +347,7 @@ out.currentNote = panel.caseNotesTable.getSelectedListEntry() as INote;
 panel.noteDetailsIdWritterCreationTimestampGridBagLayoutPane.visible = true;
 
 
-panel.noteIdTextField.text = out.currentNote.getIdentifier().toString();
+panel.noteIdTextField.text = out.currentNote.getId().toString();
 
 
 panel.noteWritterTextField.text = out.currentNote.getWritterName();
@@ -653,7 +653,7 @@ Cs0 f54 1 1168 432 #addKink
 Cs0 f54 1 0.255855254857005 0 0 #arcLabel
 Cs0 f57 actionDecl 'Number aCaseIdentifier;
 ' #txt
-Cs0 f57 actionTable 'aCaseIdentifier=in.fCase.getIdentifier();
+Cs0 f57 actionTable 'aCaseIdentifier=in.fCase.getId();
 ' #txt
 Cs0 f57 actionCode panel.fireXivyCaseNotesChanged(aCaseIdentifier); #txt
 Cs0 f57 type ch.ivyteam.ivy.workflow.ui.cases.CaseNoteDisplayList.CaseNoteDisplayListData #txt

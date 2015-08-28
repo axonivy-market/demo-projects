@@ -9,6 +9,7 @@ import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RFiller;
 import ch.ivyteam.ivy.richdialog.widgets.components.RHyperlink;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
+import ch.ivyteam.ivy.richdialog.widgets.components.customrenderers.RButtonCellWidget;
 import ch.ivyteam.ivy.richdialog.widgets.components.customrenderers.RTextFieldCellWidget;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RBoxPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RFlowLayoutPane;
@@ -47,6 +48,7 @@ private RGridBagLayoutPane findCasesGridBagLayoutPane = null;
 private RBoxPane findBoxPane = null;
 private RTextField caseNameCriteriaTextField = null;
 private RHyperlink findCasesHyperlink = null;
+private RButtonCellWidget selectManagedTeamsButtonCellWidget = null;  //  @jve:decl-index=0:visual-constraint="910,166"
 /**
    * Create a new instance of ManagingRolesDisplayListPanel
    */
@@ -282,4 +284,19 @@ private RHyperlink getFindCasesHyperlink() {
 	return findCasesHyperlink;
 }
 
+/**
+ * This method initializes selectManagedTeamsButtonCellWidget	
+ * 	
+ * @return ch.ivyteam.ivy.richdialog.widgets.components.customrenderers.RButtonCellWidget	
+ */
+@SuppressWarnings("unused")
+private RButtonCellWidget getSelectManagedTeamsButtonCellWidget() {
+	if (selectManagedTeamsButtonCellWidget == null) {
+		selectManagedTeamsButtonCellWidget = new RButtonCellWidget();
+		selectManagedTeamsButtonCellWidget.setText("...");
+		selectManagedTeamsButtonCellWidget.setName("selectManagedTeamsButtonCellWidget");
+		selectManagedTeamsButtonCellWidget.setBorderPainted(false);
+	}
+	return selectManagedTeamsButtonCellWidget;
+}
 }  //  @jve:decl-index=0:visual-constraint="10,10"

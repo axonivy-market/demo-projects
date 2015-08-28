@@ -256,7 +256,7 @@ Ts0 f22 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 <ch.ivyteam.ivy.workflow.ITask aTask> param = methodEvent.getInputArguments();
 ' #txt
 Ts0 f22 inParameterMapAction 'out.task=param.aTask;
-out.taskIdentifier=param.aTask.getIdentifier();
+out.taskIdentifier=param.aTask.getId();
 ' #txt
 Ts0 f22 outParameterDecl '<> result;
 ' #txt
@@ -444,7 +444,7 @@ Ts0 f93 @|AlternativeIcon #fIcon
 Ts0 f94 expr out #txt
 Ts0 f94 3456 114 3456 146 #arcP
 Ts0 f88 expr in #txt
-Ts0 f88 outCond in.broadcastedTaskIdentifiers.contains(in.task.getIdentifier()) #txt
+Ts0 f88 outCond in.broadcastedTaskIdentifiers.contains(in.task.getId()) #txt
 Ts0 f88 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -473,7 +473,7 @@ Ts0 f111 outParameterDecl '<java.lang.Boolean closeCanceled> result;
 ' #txt
 Ts0 f111 outActionCode 'result.closeCanceled = in.pressedButtonToDoWithTask.equals("cancel");
 ivy.log.debug("Task display panel on task {0}-{1} is canceled?{2}",
-						in.task.getIdentifier(), in.task.getName(), result.closeCanceled);
+						in.task.getId(), in.task.getName(), result.closeCanceled);
 ' #txt
 Ts0 f111 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -495,7 +495,7 @@ Ts0 f116 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent metho
 ' #txt
 Ts0 f116 outParameterDecl '<java.lang.Number aTaskIdentifier> result;
 ' #txt
-Ts0 f116 outParameterMapAction 'result.aTaskIdentifier=in.task.getIdentifier();
+Ts0 f116 outParameterMapAction 'result.aTaskIdentifier=in.task.getId();
 ' #txt
 Ts0 f116 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -713,7 +713,7 @@ selected</name>
 Ts0 f136 2408 294 2408 340 #arcP
 Ts0 f140 actionDecl 'Number aTaskIdentifier;
 ' #txt
-Ts0 f140 actionTable 'aTaskIdentifier=in.task.getIdentifier();
+Ts0 f140 actionTable 'aTaskIdentifier=in.task.getId();
 ' #txt
 Ts0 f140 actionCode panel.fireXivyTaskDelegated(aTaskIdentifier); #txt
 Ts0 f140 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
@@ -899,7 +899,7 @@ import java.util.Collections;
 import ch.ivyteam.ivy.workflow.ITask;
 
 out.broadcastedTaskIdentifiers.clear();
-out.broadcastedTaskIdentifiers.addAll(param.aWorkflowSystemEventParameter.getIdentifiers());
+out.broadcastedTaskIdentifiers.addAll(param.aWorkflowSystemEventParameter.getIds());
 List<Integer> identifiers = [];
 identifiers.addAll(out.broadcastedTaskIdentifiers);
 Collections.sort(identifiers);
@@ -907,11 +907,11 @@ Collections.sort(identifiers);
 for (Number taskId: out.broadcastedTaskIdentifiers)
 {
 	ITask task = WorkflowUIAccessPermissionHandler.wfFindTaskAsSystemUser(taskId);
-	ivy.log.debug("Task {0}-{1} changed to <{2}>.", task.getIdentifier(), task.getName(), task.getState());
+	ivy.log.debug("Task {0}-{1} changed to <{2}>.", task.getId(), task.getName(), task.getState());
 }
 
 
-// if the param.aWorkflowSystemEventParameter.getIdentifiers() is like
+// if the param.aWorkflowSystemEventParameter.getIds() is like
 // [127, 129]
 // where 127 changed to DONE and 129 changed to RESUMED 
 // and both tasks belongs to the same case as the current task does
@@ -921,8 +921,8 @@ if (out.broadcastedTaskIdentifiers.size() == 2)
 	ITask taskA = WorkflowUIAccessPermissionHandler.wfFindTaskAsSystemUser(out.broadcastedTaskIdentifiers.get(0));
 	ITask taskB = WorkflowUIAccessPermissionHandler.wfFindTaskAsSystemUser(out.broadcastedTaskIdentifiers.get(1));
 	
-	if (taskA.getCase().getIdentifier().equals(taskB.getCase().getIdentifier()) &&
-			in.task.getCase().getIdentifier().equals(taskA.getCase().getIdentifier()) && 			
+	if (taskA.getCase().getId().equals(taskB.getCase().getId()) &&
+			in.task.getCase().getId().equals(taskA.getCase().getId()) && 			
 			taskA.getState().compareTo(TaskState.DONE) == 0 && taskB.getState().compareTo(TaskState.RESUMED) == 0)
 	{
 		out.broadcastedTaskAssignedToSelf1Identifier = out.broadcastedTaskIdentifiers.get(1);	
@@ -1209,7 +1209,7 @@ Ts0 f59 startMethod askQuestion(String,String,List<String>) #txt
 Ts0 f59 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f59 requestActionDecl '<String icon, String question, List<String> buttons> param;' #txt
 Ts0 f59 requestActionCode 'param.question = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/doYouWantToBookTheTask") + 
-									"\n " + in.task.getName() + " - " + in.task.getIdentifier() + " ?";
+									"\n " + in.task.getName() + " - " + in.task.getId() + " ?";
 
 param.buttons = ["yes", "no", "cancel"];' #txt
 Ts0 f59 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData out;
@@ -1371,7 +1371,7 @@ Ts0 f65 actionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData 
 ' #txt
 Ts0 f65 actionTable 'out=in;
 ' #txt
-Ts0 f65 actionCode 'ivy.log.debug("Task {0} state is {1}.", in.task.getIdentifier(), in.task.getState());
+Ts0 f65 actionCode 'ivy.log.debug("Task {0} state is {1}.", in.task.getId(), in.task.getState());
 
 
 
@@ -1383,7 +1383,7 @@ out.ivy_systemevent_workflow_task_changed_exitCondition =
 
 	// in other cases, task id is part of broacasted ids and its state is one of these: DONE, READY_FOR_JOIN, PARKED.
 	(!(in.#broadcastedTaskAssignedToSelf1Identifier is initialized) && 
-		in.broadcastedTaskIdentifiers.contains(in.task.getIdentifier()) && 	
+		in.broadcastedTaskIdentifiers.contains(in.task.getId()) && 	
 		(in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.DONE) || in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.READY_FOR_JOIN) || in.task.getState().equals(ch.ivyteam.ivy.workflow.TaskState.PARKED)));' #txt
 Ts0 f65 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f65 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1432,7 +1432,7 @@ out.hasWfAdministratorPermissions = param.aHasWfAdministratorPermissions;
 
 out.startTaskRequested = param.aStartTaskRequested;
 out.task = param.aTask;
-out.taskIdentifier = param.aTask.getIdentifier();
+out.taskIdentifier = param.aTask.getId();
 
 // get the menu auto hide preference
 IUser sessionUser = ivy.session.getSessionUser();
@@ -2005,7 +2005,7 @@ Ts0 f72 processCall 'Functional Processes/technical/ResourceServices:readCaseDoc
 Ts0 f72 doCall true #txt
 Ts0 f72 requestActionDecl '<java.lang.Number caseIdentifier> param;
 ' #txt
-Ts0 f72 requestMappingAction 'param.caseIdentifier=in.task.getCase().getIdentifier();
+Ts0 f72 requestMappingAction 'param.caseIdentifier=in.task.getCase().getId();
 ' #txt
 Ts0 f72 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData out;
 ' #txt

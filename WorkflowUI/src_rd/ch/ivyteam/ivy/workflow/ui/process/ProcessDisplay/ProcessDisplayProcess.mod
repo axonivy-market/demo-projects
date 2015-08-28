@@ -145,7 +145,7 @@ Ps0 f3 actionDecl 'ch.ivyteam.ivy.workflow.ui.process.ProcessDisplay.ProcessDisp
 Ps0 f3 actionTable 'out=in;
 ' #txt
 Ps0 f3 actionCode 'out.broadcastedTaskIdentifiers.clear();
-out.broadcastedTaskIdentifiers.addAll(param.aWorkflowSystemEventParameter.getIdentifiers());' #txt
+out.broadcastedTaskIdentifiers.addAll(param.aWorkflowSystemEventParameter.getIds());' #txt
 Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -180,7 +180,7 @@ Ps0 f7 @|AlternativeIcon #fIcon
 Ps0 f6 expr in #txt
 Ps0 f6 outCond '!in.broadcastedTaskIdentifiers.isEmpty() && 
 in.#startedTask is initialized &&
-in.broadcastedTaskIdentifiers.contains(in.startedTask.getIdentifier()) && 	
+in.broadcastedTaskIdentifiers.contains(in.startedTask.getId()) && 	
 (in.startedTask.getState().equals(ch.ivyteam.ivy.workflow.TaskState.DONE) || in.startedTask.getState().equals(ch.ivyteam.ivy.workflow.TaskState.READY_FOR_JOIN) || in.startedTask.getState().equals(ch.ivyteam.ivy.workflow.TaskState.PARKED))' #txt
 Ps0 f6 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

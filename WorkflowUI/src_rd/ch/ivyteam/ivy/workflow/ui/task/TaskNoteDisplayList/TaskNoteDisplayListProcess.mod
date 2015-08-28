@@ -394,7 +394,7 @@ Cs0 f40 actionTable 'out=in;
 Cs0 f40 actionCode 'import ch.ivyteam.ivy.workflow.INote;
 
 out.currentNote = panel.taskNotesTable.getSelectedListEntry() as INote;
-panel.footerLabel.text = "Note with id" + out.currentNote.getIdentifier().toString() + " deleted.";
+panel.footerLabel.text = "Note with id" + out.currentNote.getId().toString() + " deleted.";
 out.task.deleteNote(out.currentNote);
 
 out.setCurrentNote(null);
@@ -444,7 +444,7 @@ out.currentNote = panel.taskNotesTable.getSelectedListEntry() as INote;
 panel.noteDetailsIdWritterCreationTimestampGridBagLayoutPane.visible = true;
 
 
-panel.noteIdTextField.text = out.currentNote.getIdentifier().toString();
+panel.noteIdTextField.text = out.currentNote.getId().toString();
 
 
 panel.noteWritterTextField.text = out.currentNote.getWritterName();
@@ -606,7 +606,7 @@ Cs0 f56 1 1216 424 #addKink
 Cs0 f56 1 0.313898984769318 0 0 #arcLabel
 Cs0 f57 actionDecl 'Number aTaskIdentifier;
 ' #txt
-Cs0 f57 actionTable 'aTaskIdentifier=in.task.getIdentifier();
+Cs0 f57 actionTable 'aTaskIdentifier=in.task.getId();
 ' #txt
 Cs0 f57 actionCode panel.fireXivyTaskNotesChanged(aTaskIdentifier); #txt
 Cs0 f57 type ch.ivyteam.ivy.workflow.ui.task.TaskNoteDisplayList.TaskNoteDisplayListData #txt
