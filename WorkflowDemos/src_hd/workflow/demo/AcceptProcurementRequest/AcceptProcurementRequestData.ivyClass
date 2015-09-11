@@ -1,0 +1,5 @@
+AcceptProcurementRequestData #class
+workflow.demo.AcceptProcurementRequest #namespace
+accepted Boolean #field
+procurementRequestData workflow.demo.ProcurementRequestData #field
+totalPrice Number #field

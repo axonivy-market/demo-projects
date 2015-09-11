@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">EnterProcurementRequest</ui:define>
+		<ui:define name="content">
+			<h3>
+			Enter Procurement Request Data
+			</h3>
+			
+			<h:form id="form">
+				<h:panelGrid columns="2">
+					<f:facet name="header">
+						<p:messages></p:messages>
+					</f:facet>
+					
+					<p:outputLabel for="procurementRequestDataPricePerUnit" value="Price Per Unit"/>
+					<p:inputText id="procurementRequestDataPricePerUnit" value="#{data.procurementRequestData.pricePerUnit}"></p:inputText>
+
+					<p:outputLabel for="procurementRequestDataAmount" value="Amount"/>
+					<p:inputText id="procurementRequestDataAmount" value="#{data.procurementRequestData.amount}"></p:inputText>
+					
+					<p:outputLabel for="procurementRequestDataDescription" value="Description"/>
+					<p:inputText id="procurementRequestDataDescription" value="#{data.procurementRequestData.description}"></p:inputText>
+					
+					<p:outputLabel for="procurementRequestDataNotes" value="Notes"/>
+					<p:inputText id="procurementRequestDataNotes" value="#{data.procurementRequestData.notes}"></p:inputText>
+					
+					<br />
+					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
+				</h:panelGrid>
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

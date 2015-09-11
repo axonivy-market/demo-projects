@@ -1,0 +1,4 @@
+EnterProcurementRequestData #class
+workflow.demo.EnterProcurementRequest #namespace
+procurementRequestData workflow.demo.ProcurementRequestData #field
+procurementRequestData PERSISTENT #fieldModifier
