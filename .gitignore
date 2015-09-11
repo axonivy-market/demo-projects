@@ -1,3 +1,6 @@
+ErrorHandlingDemos/classes
+ErrorHandlingDemos/logs
+ErrorHandlingDemos/src_dataClasses/*
 HtmlDialogDemos/classes/*
 HtmlDialogDemos/classes/META-INF
 HtmlDialogDemos/classes/ch
