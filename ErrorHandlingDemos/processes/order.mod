@@ -145,12 +145,12 @@ or0 Et1 actionDecl 'error.handling.demo.Data out;
 ' #txt
 or0 Et1 actionTable 'out=in;
 ' #txt
-or0 Et1 errorCode 'Out Of Stock' #txt
+or0 Et1 errorCode 'out:of:stock' #txt
 or0 Et1 attachedToRef 14ECFC90CDE278D0-S10 #txt
 or0 Et1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Out Of Stock</name>
+        <name>out:of:stock</name>
         <nameStyle>12,7
 </nameStyle>
     </language>
@@ -255,11 +255,11 @@ Ct0 f3 304 240 32 32 -60 -34 #rect
 Ct0 f3 @|AlternativeIcon #fIcon
 Ct0 f4 expr out #txt
 Ct0 f4 248 256 304 256 #arcP
-Ct0 f5 errorCode 'Out Of Stock' #txt
+Ct0 f5 errorCode 'out:of:stock' #txt
 Ct0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Out Of Stock</name>
+        <name>out:of:stock</name>
         <nameStyle>12,7
 </nameStyle>
     </language>
