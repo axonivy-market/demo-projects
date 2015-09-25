@@ -1,0 +1,6 @@
+FactoryData #class
+error.handling.demo #namespace
+model String #field
+amount Number #field
+wsError ch.ivyteam.ivy.bpm.error.BpmError #field
+newShoes java.util.List<String> #field

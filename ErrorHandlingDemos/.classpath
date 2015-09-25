@@ -11,5 +11,6 @@
 	<classpathentry kind="con" path="WEBAPP_CONTAINER"/>
 	<classpathentry kind="con" path="ULC_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="lib" path="lib_ws/client/wsClient_15003F91E5C96948.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

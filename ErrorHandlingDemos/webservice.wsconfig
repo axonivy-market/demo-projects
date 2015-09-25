@@ -1,2 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<webServiceConfigurationNode/>
+<webServiceConfigurationNode>
+    <id>15003FD5C9B178C3</id>
+    <webServiceConfig>
+        <name>factory</name>
+        <id>15003F91E5C96948</id>
+        <description></description>
+        <wsdlUrl>http://localhost:9999/ivy/ws/designer/myproject/15003F9A4276844D?WSDL</wsdlUrl>
+        <transportSession>false</transportSession>
+        <sessionHandlingMode>0</sessionHandlingMode>
+        <wsdlGeneratedInfo>
+            <axisLocatorClassname></axisLocatorClassname>
+            <axisNamespacesNew>ch.ivyteam.ivy.webservice.process=process.webservice.ivy.ivyteam.ch
+http\://acme.com/=com.acme</axisNamespacesNew>
+            <axisOperationsToPort>NikeFactoryPort="produce"</axisOperationsToPort>
+            <axisEndPointForPortType>NikeFactoryPort=http\://localhost\:8082/ivy/ws/designer/myproject/15003F9A4276844D</axisEndPointForPortType>
+            <axisParameterProperties>NikeFactoryPortproduce="arg0__@@__com.acme.ProduceE__@@__"</axisParameterProperties>
+            <axisPortList>NikeFactoryPort</axisPortList>
+            <axisStubClassnameList>com.acme.NikeFactoryServiceStub</axisStubClassnameList>
+            <axisReturnTypes>NikeFactoryPortproduce=com.acme.ProduceResponseE</axisReturnTypes>
+            <axisServiceClassname>com.acme.NikeFactoryService</axisServiceClassname>
+            <axisUsedJavaclasses>"com\\acme\\ExtensionMapper.java","com\\acme\\NikeFactoryService.java","com\\acme\\NikeFactoryServiceStub.java","com\\acme\\Produce.java","com\\acme\\ProduceE.java","com\\acme\\ProduceResponse.java","com\\acme\\ProduceResponseE.java","com\\acme\\WebServiceProcessTechnicalException.java","process\\webservice\\ivy\\ivyteam\\ch\\TechnicalException.java"</axisUsedJavaclasses>
+            <codeGenerationTimestamp>1443175945927</codeGenerationTimestamp>
+            <wsdlWebserviceName>NikeFactoryService</wsdlWebserviceName>
+            <wsClassGenerationImplementationUsed>AXIS_2_0</wsClassGenerationImplementationUsed>
+            <jarPacked>true</jarPacked>
+        </wsdlGeneratedInfo>
+        <webServiceVersion/>
+    </webServiceConfig>
+</webServiceConfigurationNode>
