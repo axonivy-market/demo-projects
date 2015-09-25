@@ -1,0 +1,4 @@
+EasyjetData #class
+booking #namespace
+wsError ch.ivyteam.ivy.bpm.error.BpmError #field
+flight booking.Flight #field

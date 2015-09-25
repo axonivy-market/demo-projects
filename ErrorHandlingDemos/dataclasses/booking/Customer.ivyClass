@@ -1,0 +1,8 @@
+Customer #class
+booking #namespace
+firstname String #field
+lastname String #field
+street String #field
+zip String #field
+city String #field
+email String #field
