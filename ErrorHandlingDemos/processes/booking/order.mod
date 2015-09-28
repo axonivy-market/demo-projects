@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Sep 25 15:19:33 CEST 2015]
+[>Created: Mon Sep 28 16:29:07 CEST 2015]
 150047A1589EB0D8 3.18 #module
 >Proto >Proto Collection #zClass
 or0 order Big #zClass
@@ -107,7 +107,7 @@ or0 f3 @|RichDialogIcon #fIcon
 or0 f4 expr out #txt
 or0 f4 63 56 112 56 #arcP
 or0 f5 type booking.BookingData #txt
-or0 f5 processCall booking/service/easyjet:bookFlight(booking.Flight,booking.Customer) #txt
+or0 f5 processCall booking/service/flight:bookFlight(booking.Flight,booking.Customer) #txt
 or0 f5 doCall true #txt
 or0 f5 requestActionDecl '<booking.Flight flight,booking.Customer customer> param;
 ' #txt
@@ -129,7 +129,7 @@ or0 f5 @|CallSubIcon #fIcon
 or0 f6 expr out #txt
 or0 f6 224 56 264 56 #arcP
 or0 f7 type booking.BookingData #txt
-or0 f7 processCall booking/service/hertz:bookCar(String) #txt
+or0 f7 processCall booking/service/car:bookCar(String) #txt
 or0 f7 doCall true #txt
 or0 f7 requestActionDecl '<java.lang.String size> param;
 ' #txt
@@ -155,13 +155,13 @@ or0 Et0 actionDecl 'booking.BookingData out;
 or0 Et0 actionTable 'out=in;
 ' #txt
 or0 Et0 type booking.BookingData #txt
-or0 Et0 errorCode booking:easyjet #txt
+or0 Et0 errorCode booking:flight:failed #txt
 or0 Et0 attachedToRef 150047A1589EB0D8-f5 #txt
 or0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>easyjet</name>
-        <nameStyle>7,7
+        <name>flight</name>
+        <nameStyle>6,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -173,13 +173,13 @@ or0 Et1 actionDecl 'booking.BookingData out;
 or0 Et1 actionTable 'out=in;
 ' #txt
 or0 Et1 type booking.BookingData #txt
-or0 Et1 errorCode booking:hertz #txt
+or0 Et1 errorCode booking:car:failed #txt
 or0 Et1 attachedToRef 150047A1589EB0D8-f7 #txt
 or0 Et1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>hertz</name>
-        <nameStyle>5,7
+        <name>car</name>
+        <nameStyle>3,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -203,7 +203,7 @@ or0 f10 352 103 737 232 #arcP
 or0 f10 1 352 232 #addKink
 or0 f10 1 0.30904127690867544 0 0 #arcLabel
 or0 f11 type booking.BookingData #txt
-or0 f11 processCall booking/service/easyjet:cancelFlight(booking.Flight,booking.Customer) #txt
+or0 f11 processCall booking/service/flight:cancelFlight(booking.Flight,booking.Customer) #txt
 or0 f11 doCall true #txt
 or0 f11 requestActionDecl '<booking.Flight flight,booking.Customer customer> param;
 ' #txt

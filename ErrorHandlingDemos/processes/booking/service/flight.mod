@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Fri Sep 25 15:17:06 CEST 2015]
+[>Created: Mon Sep 28 16:35:05 CEST 2015]
 1500482C30B7492E 3.18 #module
 >Proto >Proto Collection #zClass
-et0 easyjet Big #zClass
+et0 flight Big #zClass
 et0 B #cInfo
 et0 #process
 et0 @TextInP .resExport .resExport #zField
@@ -28,7 +28,7 @@ et0 @EndSub f11 '' #zField
 et0 @WSElement f13 '' #zField
 et0 @PushWFArc f14 '' #zField
 et0 @PushWFArc f12 '' #zField
->Proto et0 et0 easyjet #zField
+>Proto et0 et0 flight #zField
 et0 f0 inParamDecl '<booking.Flight flight,booking.Customer customer> param;' #txt
 et0 f0 outParamDecl '<> result;
 ' #txt
@@ -114,23 +114,23 @@ et0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-et0 f7 209 273 30 30 -53 17 #rect
+et0 f7 209 145 30 30 -53 17 #rect
 et0 f7 @|ExceptionIcon #fIcon
 et0 f8 errorExpr in.wsError #txt
-et0 f8 errorCode booking:error:easyjet #txt
+et0 f8 errorCode booking:flight:failed #txt
 et0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>booking:easyjet</name>
-        <nameStyle>15,7
+        <name>booking:flight:failed</name>
+        <nameStyle>21,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-et0 f8 369 273 30 30 -43 17 #rect
+et0 f8 369 145 30 30 -57 17 #rect
 et0 f8 @|ErrorEndIcon #fIcon
 et0 f9 expr out #txt
-et0 f9 239 288 369 288 #arcP
+et0 f9 239 160 369 160 #arcP
 et0 f10 inParamDecl '<booking.Flight flight,booking.Customer customer> param;' #txt
 et0 f10 outParamDecl '<> result;
 ' #txt
@@ -148,10 +148,10 @@ et0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-et0 f10 81 145 30 30 -48 17 #rect
+et0 f10 81 273 30 30 -48 17 #rect
 et0 f10 @|StartSubIcon #fIcon
 et0 f11 type booking.EasyjetData #txt
-et0 f11 497 145 30 30 0 15 #rect
+et0 f11 497 273 30 30 0 15 #rect
 et0 f11 @|EndSubIcon #fIcon
 et0 f13 type booking.EasyjetData #txt
 et0 f13 actionDecl 'booking.EasyjetData out;
@@ -171,12 +171,12 @@ et0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-et0 f13 232 138 112 44 -32 -8 #rect
+et0 f13 232 266 112 44 -32 -8 #rect
 et0 f13 @|WebServiceIcon #fIcon
 et0 f14 expr out #txt
-et0 f14 111 160 232 160 #arcP
+et0 f14 111 288 232 288 #arcP
 et0 f12 expr out #txt
-et0 f12 344 160 497 160 #arcP
+et0 f12 344 288 497 288 #arcP
 >Proto et0 .type booking.EasyjetData #txt
 >Proto et0 .processKind CALLABLE_SUB #txt
 >Proto et0 0 0 32 24 18 0 #rect

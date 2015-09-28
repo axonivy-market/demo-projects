@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Fri Sep 25 15:08:20 CEST 2015]
+[>Created: Mon Sep 28 16:22:29 CEST 2015]
 1500483191BD4791 3.18 #module
 >Proto >Proto Collection #zClass
-hz0 hertz Big #zClass
+hz0 car Big #zClass
 hz0 B #cInfo
 hz0 #process
 hz0 @TextInP .resExport .resExport #zField
@@ -18,7 +18,7 @@ hz0 @EndSub f1 '' #zField
 hz0 @WSElement f3 '' #zField
 hz0 @PushWFArc f4 '' #zField
 hz0 @PushWFArc f2 '' #zField
->Proto hz0 hz0 hertz #zField
+>Proto hz0 hz0 car #zField
 hz0 f0 inParamDecl '<java.lang.String size> param;' #txt
 hz0 f0 outParamDecl '<> result;
 ' #txt
@@ -44,7 +44,7 @@ hz0 f3 actionDecl 'booking.HertzData out;
 hz0 f3 actionTable 'out=in;
 ' #txt
 hz0 f3 actionCode 'import ch.ivyteam.ivy.bpm.error.BpmError;
-BpmError.create("booking:hertz:car:unavailable").throwError();' #txt
+BpmError.create("booking:car:failed:unavailable").throwError();' #txt
 hz0 f3 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 hz0 f3 timeout 0 #txt
 hz0 f3 beanConfig "" #txt
