@@ -1,5 +1,5 @@
 SelectOptionsData #class
-booking.SelectOptions #namespace
+error.handling.demo.SelectOptions #namespace
 customer booking.Customer #field
 customer PERSISTENT #fieldModifier
 flight booking.Flight #field

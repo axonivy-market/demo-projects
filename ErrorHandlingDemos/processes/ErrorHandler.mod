@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Sep 29 09:03:17 CEST 2015]
+[>Created: Tue Sep 29 15:04:28 CEST 2015]
 150148B81ACE3E1E 3.18 #module
 >Proto >Proto Collection #zClass
 Er0 ErrorHandler Big #zClass
@@ -40,33 +40,40 @@ Er0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Er0 f0 81 177 30 30 -24 17 #rect
+Er0 f0 65 161 30 30 -24 17 #rect
 Er0 f0 @|ExceptionIcon #fIcon
 Er0 f1 type error.handling.demo.ErrorHandler #txt
-Er0 f1 337 177 30 30 0 15 #rect
+Er0 f1 321 161 30 30 0 15 #rect
 Er0 f1 @|EndIcon #fIcon
 Er0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Catches all uncaught system errors on the project</name>
-        <nameStyle>49
+        <name>Catches uncaught system errors in the project</name>
+        <nameStyle>45
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Er0 f3 168 113 304 30 -143 -7 #rect
+Er0 f3 136 233 256 30 -125 -8 #rect
 Er0 f3 @|IBIcon #fIcon
-Er0 f4 168 128 107 182 #arcP
+Er0 f4 136 248 89 187 #arcP
 Er0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Global Error Process</name>
-        <nameStyle>20,8
+        <name>Global Error Process
+The name of a global error process must start with "Error".
+Error Start Events in a global error process catch uncaught errors in the whole project.</name>
+        <nameStyle>21,8
+51,7
+1,5,7
+5,5,7
+2,5,7
+89,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Er0 f5 88 25 176 30 -80 -10 #rect
+Er0 f5 64 34 480 60 -233 -26 #rect
 Er0 f5 @|IBIcon #fIcon
 Er0 f5 -1|-1|-65536 #nodeStyle
 Er0 f6 targetWindow NEW:card: #txt
@@ -95,12 +102,12 @@ Er0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Er0 f6 168 170 112 44 -37 -7 #rect
+Er0 f6 152 154 112 44 -37 -7 #rect
 Er0 f6 @|RichDialogIcon #fIcon
 Er0 f7 expr out #txt
-Er0 f7 111 192 168 192 #arcP
+Er0 f7 95 176 152 176 #arcP
 Er0 f2 expr out #txt
-Er0 f2 280 192 337 192 #arcP
+Er0 f2 264 176 321 176 #arcP
 >Proto Er0 .type error.handling.demo.ErrorHandler #txt
 >Proto Er0 .processKind NORMAL #txt
 >Proto Er0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

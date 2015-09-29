@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Fri Sep 25 12:48:52 CEST 2015]
+[>Created: Tue Sep 29 14:53:20 CEST 2015]
 1500417E1DADBB7C 3.18 #module
 >Proto >Proto Collection #zClass
-fy0 factory Big #zClass
+fy0 Factory Big #zClass
 fy0 B #cInfo
 fy0 #process
 fy0 @TextInP .resExport .resExport #zField
@@ -24,7 +24,7 @@ fy0 @ErrorBoundaryEvent Et0 ErrorBoundaryEvent #zField
 fy0 @ErrorEnd f5 '' #zField
 fy0 @PushWFArc f4 '' #zField
 fy0 @PushWFArc f2 '' #zField
->Proto fy0 fy0 factory #zField
+>Proto fy0 fy0 Factory #zField
 fy0 f0 inParamDecl '<java.lang.String model,java.lang.Number amount> param;' #txt
 fy0 f0 inParamTable 'out.amount=param.amount;
 out.model=param.model;
@@ -45,10 +45,10 @@ fy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-fy0 f0 81 49 30 30 -44 17 #rect
+fy0 f0 81 209 30 30 -44 17 #rect
 fy0 f0 @|StartSubIcon #fIcon
 fy0 f1 type error.handling.demo.FactoryData #txt
-fy0 f1 577 49 30 30 0 15 #rect
+fy0 f1 577 209 30 30 0 15 #rect
 fy0 f1 @|EndSubIcon #fIcon
 fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -57,20 +57,24 @@ fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 - the remote factory can throw an ivy:error:webservice:exception   if the host is not available
 - the attached Error Boundary Event catches any ivy webservice error
 - the Error End Event wraps the webservice error 
-   and throws it as factory:nike:unavailable  which has a specific meaning for the business</name>
+   and throws it as factory:unavailable  which has a specific meaning for the business</name>
         <nameStyle>70,8
-35,7
+34,7
+1,3,7
 30,3,7
-171,7
-24,3,7
-47,7
+2,3,7
+168,7
+1,3,7
+19,3,7
+2,3,7
+45,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-fy0 f9 88 274 544 92 -268 -43 #rect
+fy0 f9 56 18 560 92 -274 -43 #rect
 fy0 f9 @|IBIcon #fIcon
-fy0 f9 -985168|-1|-16777216 #nodeStyle
+fy0 f9 -1|-1|-65536 #nodeStyle
 fy0 f7 actionDecl 'error.handling.demo.FactoryData out;
 ' #txt
 fy0 f7 actionTable 'out=in;
@@ -92,7 +96,7 @@ fy0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-fy0 f7 376 42 112 44 -31 -8 #rect
+fy0 f7 376 202 112 44 -31 -8 #rect
 fy0 f7 @|DBStepIcon #fIcon
 fy0 f3 type error.handling.demo.FactoryData #txt
 fy0 f3 actionDecl 'error.handling.demo.FactoryData out;
@@ -124,14 +128,14 @@ factory</name>
     </language>
 </elementInfo>
 ' #txt
-fy0 f3 176 42 112 44 -30 -16 #rect
+fy0 f3 176 202 112 44 -30 -16 #rect
 fy0 f3 @|WebServiceIcon #fIcon
 fy0 f6 expr out #txt
-fy0 f6 264 111 337 160 #arcP
-fy0 f6 1 264 160 #addKink
+fy0 f6 256 271 337 320 #arcP
+fy0 f6 1 256 320 #addKink
 fy0 f6 0 0.9928197974768727 0 0 #arcLabel
 fy0 f8 expr out #txt
-fy0 f8 288 64 376 64 #arcP
+fy0 f8 288 224 376 224 #arcP
 fy0 Et0 actionDecl 'error.handling.demo.FactoryData out;
 ' #txt
 fy0 Et0 actionTable 'out=in;
@@ -149,25 +153,25 @@ fy0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-fy0 Et0 249 81 30 30 19 -6 #rect
+fy0 Et0 241 241 30 30 19 -6 #rect
 fy0 Et0 @|ErrorBoundaryEventIcon #fIcon
 fy0 f5 errorExpr in.wsError #txt
 fy0 f5 errorCode factory:nike:unavailable #txt
 fy0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>factory:nike:unavailable</name>
-        <nameStyle>24,7
+        <name>factory:unavailable</name>
+        <nameStyle>19,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-fy0 f5 337 145 30 30 -63 17 #rect
+fy0 f5 337 305 30 30 -50 17 #rect
 fy0 f5 @|ErrorEndIcon #fIcon
 fy0 f4 expr out #txt
-fy0 f4 111 64 176 64 #arcP
+fy0 f4 111 224 176 224 #arcP
 fy0 f2 expr out #txt
-fy0 f2 488 64 577 64 #arcP
+fy0 f2 488 224 577 224 #arcP
 >Proto fy0 .type error.handling.demo.FactoryData #txt
 >Proto fy0 .processKind CALLABLE_SUB #txt
 >Proto fy0 0 0 32 24 18 0 #rect

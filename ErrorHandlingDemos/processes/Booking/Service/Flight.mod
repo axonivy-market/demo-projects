@@ -2,7 +2,7 @@
 [>Created: Mon Sep 28 16:35:05 CEST 2015]
 1500482C30B7492E 3.18 #module
 >Proto >Proto Collection #zClass
-et0 flight Big #zClass
+et0 Flight Big #zClass
 et0 B #cInfo
 et0 #process
 et0 @TextInP .resExport .resExport #zField
@@ -28,7 +28,7 @@ et0 @EndSub f11 '' #zField
 et0 @WSElement f13 '' #zField
 et0 @PushWFArc f14 '' #zField
 et0 @PushWFArc f12 '' #zField
->Proto et0 et0 flight #zField
+>Proto et0 et0 Flight #zField
 et0 f0 inParamDecl '<booking.Flight flight,booking.Customer customer> param;' #txt
 et0 f0 outParamDecl '<> result;
 ' #txt

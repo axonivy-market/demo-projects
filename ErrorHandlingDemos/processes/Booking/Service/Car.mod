@@ -2,7 +2,7 @@
 [>Created: Mon Sep 28 16:22:29 CEST 2015]
 1500483191BD4791 3.18 #module
 >Proto >Proto Collection #zClass
-hz0 car Big #zClass
+hz0 Car Big #zClass
 hz0 B #cInfo
 hz0 #process
 hz0 @TextInP .resExport .resExport #zField
@@ -18,7 +18,7 @@ hz0 @EndSub f1 '' #zField
 hz0 @WSElement f3 '' #zField
 hz0 @PushWFArc f4 '' #zField
 hz0 @PushWFArc f2 '' #zField
->Proto hz0 hz0 car #zField
+>Proto hz0 hz0 Car #zField
 hz0 f0 inParamDecl '<java.lang.String size> param;' #txt
 hz0 f0 outParamDecl '<> result;
 ' #txt

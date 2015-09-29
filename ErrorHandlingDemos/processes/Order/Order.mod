@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Tue Jul 28 09:41:42 CEST 2015]
-14ECFC90CDE278D0 3.17 #module
+[>Created: Tue Sep 29 14:57:45 CEST 2015]
+14ECFC90CDE278D0 3.18 #module
 >Proto >Proto Collection #zClass
-or0 order Big #zClass
+or0 Order Big #zClass
 or0 B #cInfo
 or0 #process
 Ct0 Component Big #zClass
@@ -30,7 +30,8 @@ or0 @PushWFArc f13 '' #zField
 or0 @RichDialog f2 '' #zField
 or0 @PushWFArc f6 '' #zField
 or0 @PushWFArc f7 '' #zField
->Proto or0 or0 order #zField
+or0 @InfoButton f16 '' #zField
+>Proto or0 or0 Order #zField
 Ct0 @TextInP .resExport .resExport #zField
 Ct0 @TextInP .type .type #zField
 Ct0 @TextInP .processKind .processKind #zField
@@ -86,7 +87,7 @@ or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 f0 @C|.responsibility Everybody #txt
-or0 f0 81 49 30 30 -21 17 #rect
+or0 f0 81 113 30 30 -21 17 #rect
 or0 f0 @|StartRequestIcon #fIcon
 or0 f1 type error.handling.demo.Data #txt
 or0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -98,7 +99,7 @@ or0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-or0 f1 705 49 30 30 -24 17 #rect
+or0 f1 705 113 30 30 -24 17 #rect
 or0 f1 @|EndIcon #fIcon
 or0 f3 targetWindow NEW:card: #txt
 or0 f3 targetDisplay TOP #txt
@@ -123,10 +124,10 @@ or0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-or0 f3 168 42 112 44 -40 -8 #rect
+or0 f3 168 106 112 44 -40 -8 #rect
 or0 f3 @|RichDialogIcon #fIcon
 or0 f4 expr out #txt
-or0 f4 111 64 168 64 #arcP
+or0 f4 111 128 168 128 #arcP
 or0 S10 .resExport export #txt
 or0 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -137,26 +138,26 @@ or0 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-or0 S10 368 42 112 44 -40 -8 #rect
+or0 S10 360 106 112 44 -40 -8 #rect
 or0 S10 @|BIcon #fIcon
 or0 f5 expr out #txt
-or0 f5 280 64 368 64 #arcP
+or0 f5 280 128 360 128 #arcP
 or0 Et1 actionDecl 'error.handling.demo.Data out;
 ' #txt
 or0 Et1 actionTable 'out=in;
 ' #txt
-or0 Et1 errorCode 'out:of:stock' #txt
+or0 Et1 errorCode out_of_stock #txt
 or0 Et1 attachedToRef 14ECFC90CDE278D0-S10 #txt
 or0 Et1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>out:of:stock</name>
-        <nameStyle>12,7
+        <name>out_of_stock</name>
+        <nameStyle>12,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-or0 Et1 449 81 30 30 4 16 #rect
+or0 Et1 457 145 30 30 17 6 #rect
 or0 Et1 @|ErrorBoundaryEventIcon #fIcon
 or0 S20 .resExport export #txt
 or0 S20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -168,14 +169,14 @@ or0 S20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-or0 S20 304 154 112 44 -40 -8 #rect
+or0 S20 328 210 112 44 -40 -8 #rect
 or0 S20 @|BIcon #fIcon
-or0 f12 464 111 416 176 #arcP
-or0 f12 1 464 176 #addKink
-or0 f12 1 0.15358058514675796 0 0 #arcLabel
-or0 f13 304 176 368 82 #arcP
-or0 f13 1 272 176 #addKink
-or0 f13 2 272 112 #addKink
+or0 f12 472 175 440 232 #arcP
+or0 f12 1 472 232 #addKink
+or0 f12 0 0.16823393704149303 0 0 #arcLabel
+or0 f13 328 232 360 128 #arcP
+or0 f13 1 304 232 #addKink
+or0 f13 2 304 128 #addKink
 or0 f13 1 0.46732733909580015 0 0 #arcLabel
 or0 f2 targetWindow NEW:card: #txt
 or0 f2 targetDisplay TOP #txt
@@ -200,20 +201,36 @@ or0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-or0 f2 544 42 112 44 -52 -8 #rect
+or0 f2 544 106 112 44 -52 -8 #rect
 or0 f2 @|RichDialogIcon #fIcon
-or0 f6 480 64 544 64 #arcP
+or0 f6 472 128 544 128 #arcP
 or0 f7 expr out #txt
-or0 f7 656 64 705 64 #arcP
+or0 f7 656 128 705 128 #arcP
+or0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Demonstrates the handling of a Business Error
+The process can not continue because of an out_of_stock  error</name>
+        <nameStyle>46,8
+43,7
+12,3,7
+7,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+or0 f16 56 26 368 44 -181 -19 #rect
+or0 f16 @|IBIcon #fIcon
+or0 f16 -1|-1|-65536 #nodeStyle
 >Proto or0 .type error.handling.demo.Data #txt
 >Proto or0 .processKind NORMAL #txt
 >Proto or0 0 0 32 24 18 0 #rect
 >Proto or0 @|BIcon #fIcon
 Ct0 g0 51 243 26 26 0 5 #rect
 Ct0 g0 @|MIGIcon #fIcon
-Ct0 g1 603 243 26 26 0 5 #rect
+Ct0 g1 603 243 26 26 -91 25 #rect
 Ct0 g1 @|MOGIcon #fIcon
-Ct0 g2 51 347 26 26 0 5 #rect
+Ct0 g2 51 339 26 26 -3 6 #rect
 Ct0 g2 @|MIGIcon #fIcon
 Ct0 f1 actionDecl 'error.handling.demo.Data out;
 ' #txt
@@ -238,9 +255,9 @@ Ct0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f1 120 234 128 44 -58 -8 #rect
+Ct0 f1 128 234 128 44 -58 -8 #rect
 Ct0 f1 @|DBStepIcon #fIcon
-Ct0 f2 77 256 120 256 #arcP
+Ct0 f2 77 256 128 256 #arcP
 Ct0 f3 type error.handling.demo.Data #txt
 Ct0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -251,21 +268,21 @@ Ct0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f3 304 240 32 32 -60 -34 #rect
+Ct0 f3 304 240 32 32 -55 -39 #rect
 Ct0 f3 @|AlternativeIcon #fIcon
 Ct0 f4 expr out #txt
-Ct0 f4 248 256 304 256 #arcP
-Ct0 f5 errorCode 'out:of:stock' #txt
+Ct0 f4 256 256 304 256 #arcP
+Ct0 f5 errorCode out_of_stock #txt
 Ct0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>out:of:stock</name>
+        <name>out_of_stock</name>
         <nameStyle>12,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f5 369 337 30 30 -33 17 #rect
+Ct0 f5 369 337 30 30 -35 17 #rect
 Ct0 f5 @|ErrorEndIcon #fIcon
 Ct0 f6 expr in #txt
 Ct0 f6 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -281,7 +298,9 @@ Ct0 f6 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ct0 f6 320 272 369 352 #arcP
 Ct0 f6 1 320 352 #addKink
 Ct0 f6 1 0.27324891912789034 0 0 #arcLabel
-Ct0 f7 73 351 184 278 #arcP
+Ct0 f7 77 352 192 278 #arcP
+Ct0 f7 1 192 352 #addKink
+Ct0 f7 0 0.8333198071161373 0 0 #arcLabel
 Ct0 f8 actionDecl 'error.handling.demo.Data out;
 ' #txt
 Ct0 f8 actionTable 'out=in;
@@ -325,7 +344,7 @@ Ct0 f0 560 256 603 256 #arcP
 >Proto Ct0 @|BIcon #fIcon
 Ct1 g0 19 243 26 26 0 5 #rect
 Ct1 g0 @|MIGIcon #fIcon
-Ct1 g1 563 243 26 26 0 5 #rect
+Ct1 g1 563 243 26 26 -63 7 #rect
 Ct1 g1 @|MOGIcon #fIcon
 Ct1 f1 actionDecl 'error.handling.demo.Data out;
 ' #txt

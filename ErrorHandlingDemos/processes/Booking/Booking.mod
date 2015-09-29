@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Mon Sep 28 16:29:07 CEST 2015]
+[>Created: Tue Sep 29 15:50:48 CEST 2015]
 150047A1589EB0D8 3.18 #module
 >Proto >Proto Collection #zClass
-or0 order Big #zClass
+or0 Booking Big #zClass
 or0 B #cInfo
 or0 #process
 or0 @TextInP .resExport .resExport #zField
@@ -27,11 +27,12 @@ or0 @PushWFArc f10 '' #zField
 or0 @CallSub f11 '' #zField
 or0 @PushWFArc f12 '' #zField
 or0 @PushWFArc f13 '' #zField
-or0 @EndRequest f14 '' #zField
 or0 @EMail f1 '' #zField
 or0 @PushWFArc f2 '' #zField
+or0 @InfoButton f16 '' #zField
+or0 @EndRequest f14 '' #zField
 or0 @PushWFArc f15 '' #zField
->Proto or0 or0 order #zField
+>Proto or0 or0 Booking #zField
 or0 f0 outLink start.ivp #txt
 or0 f0 type booking.BookingData #txt
 or0 f0 inParamDecl '<> param;' #txt
@@ -71,11 +72,11 @@ or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 f0 @C|.responsibility Everybody #txt
-or0 f0 33 41 30 30 -21 17 #rect
+or0 f0 33 113 30 30 -21 17 #rect
 or0 f0 @|StartRequestIcon #fIcon
 or0 f3 targetWindow NEW:card: #txt
 or0 f3 targetDisplay TOP #txt
-or0 f3 richDialogId booking.SelectOptions #txt
+or0 f3 richDialogId error.handling.demo.SelectOptions #txt
 or0 f3 startMethod start(booking.Customer) #txt
 or0 f3 type booking.BookingData #txt
 or0 f3 requestActionDecl '<booking.Customer customer> param;' #txt
@@ -102,12 +103,12 @@ flight &amp; car</name>
     </language>
 </elementInfo>
 ' #txt
-or0 f3 112 34 112 44 -28 -16 #rect
+or0 f3 112 106 112 44 -28 -16 #rect
 or0 f3 @|RichDialogIcon #fIcon
 or0 f4 expr out #txt
-or0 f4 63 56 112 56 #arcP
+or0 f4 63 128 112 128 #arcP
 or0 f5 type booking.BookingData #txt
-or0 f5 processCall booking/service/flight:bookFlight(booking.Flight,booking.Customer) #txt
+or0 f5 processCall Booking/Service/Flight:bookFlight(booking.Flight,booking.Customer) #txt
 or0 f5 doCall true #txt
 or0 f5 requestActionDecl '<booking.Flight flight,booking.Customer customer> param;
 ' #txt
@@ -124,12 +125,12 @@ or0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-or0 f5 264 34 112 44 -28 -8 #rect
+or0 f5 264 106 112 44 -28 -8 #rect
 or0 f5 @|CallSubIcon #fIcon
 or0 f6 expr out #txt
-or0 f6 224 56 264 56 #arcP
+or0 f6 224 128 264 128 #arcP
 or0 f7 type booking.BookingData #txt
-or0 f7 processCall booking/service/car:bookCar(String) #txt
+or0 f7 processCall Booking/Service/Car:bookCar(String) #txt
 or0 f7 doCall true #txt
 or0 f7 requestActionDecl '<java.lang.String size> param;
 ' #txt
@@ -146,10 +147,10 @@ or0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-or0 f7 424 34 112 44 -23 -8 #rect
+or0 f7 424 106 112 44 -23 -8 #rect
 or0 f7 @|CallSubIcon #fIcon
 or0 f8 expr out #txt
-or0 f8 376 56 424 56 #arcP
+or0 f8 376 128 424 128 #arcP
 or0 Et0 actionDecl 'booking.BookingData out;
 ' #txt
 or0 Et0 actionTable 'out=in;
@@ -160,13 +161,13 @@ or0 Et0 attachedToRef 150047A1589EB0D8-f5 #txt
 or0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>flight</name>
+        <name>failed</name>
         <nameStyle>6,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-or0 Et0 337 73 30 30 17 -6 #rect
+or0 Et0 337 145 30 30 19 0 #rect
 or0 Et0 @|ErrorBoundaryEventIcon #fIcon
 or0 Et1 actionDecl 'booking.BookingData out;
 ' #txt
@@ -178,13 +179,13 @@ or0 Et1 attachedToRef 150047A1589EB0D8-f7 #txt
 or0 Et1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>car</name>
-        <nameStyle>3,7
+        <name>failed</name>
+        <nameStyle>6,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-or0 Et1 497 73 30 30 19 -5 #rect
+or0 Et1 497 145 30 30 18 1 #rect
 or0 Et1 @|ErrorBoundaryEventIcon #fIcon
 or0 f9 type booking.BookingData #txt
 or0 f9 template "" #txt
@@ -197,13 +198,13 @@ or0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-or0 f9 737 217 30 30 -38 17 #rect
+or0 f9 737 273 30 30 -38 17 #rect
 or0 f9 @|EndRequestIcon #fIcon
-or0 f10 352 103 737 232 #arcP
-or0 f10 1 352 232 #addKink
+or0 f10 352 175 737 288 #arcP
+or0 f10 1 352 288 #addKink
 or0 f10 1 0.30904127690867544 0 0 #arcLabel
 or0 f11 type booking.BookingData #txt
-or0 f11 processCall booking/service/flight:cancelFlight(booking.Flight,booking.Customer) #txt
+or0 f11 processCall Booking/Service/Flight:cancelFlight(booking.Flight,booking.Customer) #txt
 or0 f11 doCall true #txt
 or0 f11 requestActionDecl '<booking.Flight flight,booking.Customer customer> param;
 ' #txt
@@ -223,27 +224,13 @@ booking</name>
     </language>
 </elementInfo>
 ' #txt
-or0 f11 456 138 112 44 -32 -20 #rect
+or0 f11 456 210 112 44 -32 -20 #rect
 or0 f11 @|CallSubIcon #fIcon
-or0 f12 512 103 512 138 #arcP
+or0 f12 512 175 512 210 #arcP
 or0 f13 expr out #txt
-or0 f13 568 160 752 217 #arcP
-or0 f13 1 752 160 #addKink
+or0 f13 568 232 752 273 #arcP
+or0 f13 1 752 232 #addKink
 or0 f13 0 0.8265723266538095 0 0 #arcLabel
-or0 f14 type booking.BookingData #txt
-or0 f14 template "" #txt
-or0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>booking 
-successful</name>
-        <nameStyle>19,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-or0 f14 737 41 30 30 -26 18 #rect
-or0 f14 @|EndRequestIcon #fIcon
 or0 f1 beanConfig '"{/emailSubject ""Booking confirmation""/emailFrom """"/emailReplyTo """"/emailTo ""<%=in.customer.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""...""/emailAttachments * }"' #txt
 or0 f1 type booking.BookingData #txt
 or0 f1 timeout 0 #txt
@@ -258,12 +245,41 @@ mail</name>
     </language>
 </elementInfo>
 ' #txt
-or0 f1 576 34 112 44 -34 -16 #rect
+or0 f1 576 106 112 44 -34 -16 #rect
 or0 f1 @|EMailIcon #fIcon
 or0 f2 expr out #txt
-or0 f2 536 56 576 56 #arcP
+or0 f2 536 128 576 128 #arcP
+or0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Demonstrates the handling of Business Errors
+The Happy Path is interrupted and 
+ rollback activities are called. </name>
+        <nameStyle>45,8
+68,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+or0 f16 64 18 336 60 -158 -26 #rect
+or0 f16 @|IBIcon #fIcon
+or0 f16 -1|-1|-65536 #nodeStyle
+or0 f14 type booking.BookingData #txt
+or0 f14 template "" #txt
+or0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>booking 
+successful</name>
+        <nameStyle>19,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+or0 f14 737 113 30 30 -26 18 #rect
+or0 f14 @|EndRequestIcon #fIcon
 or0 f15 expr out #txt
-or0 f15 688 56 737 56 #arcP
+or0 f15 688 128 737 128 #arcP
 >Proto or0 .type booking.BookingData #txt
 >Proto or0 .processKind NORMAL #txt
 >Proto or0 0 0 32 24 18 0 #rect

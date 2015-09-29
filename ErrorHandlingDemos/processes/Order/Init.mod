@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Mon Jul 27 16:55:03 CEST 2015]
-14ECFF6FDA133590 3.17 #module
+[>Created: Tue Sep 29 14:15:42 CEST 2015]
+14ECFF6FDA133590 3.18 #module
 >Proto >Proto Collection #zClass
-it0 init Big #zClass
+it0 Init Big #zClass
 it0 B #cInfo
 it0 #process
 it0 @TextInP .resExport .resExport #zField
@@ -22,7 +22,8 @@ it0 @PushWFArc f6 '' #zField
 it0 @DBStep f7 '' #zField
 it0 @PushWFArc f8 '' #zField
 it0 @PushWFArc f2 '' #zField
->Proto it0 it0 init #zField
+it0 @InfoButton f9 '' #zField
+>Proto it0 it0 Init #zField
 it0 f0 outLink start.ivp #txt
 it0 f0 type error.handling.demo.Data #txt
 it0 f0 inParamDecl '<> param;' #txt
@@ -40,10 +41,10 @@ it0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 it0 f0 @C|.responsibility Everybody #txt
-it0 f0 81 49 30 30 -21 17 #rect
+it0 f0 81 97 30 30 -21 17 #rect
 it0 f0 @|StartRequestIcon #fIcon
 it0 f1 type error.handling.demo.Data #txt
-it0 f1 657 49 30 30 0 15 #rect
+it0 f1 657 97 30 30 0 15 #rect
 it0 f1 @|EndIcon #fIcon
 it0 f3 actionDecl 'error.handling.demo.Data out;
 ' #txt
@@ -66,44 +67,76 @@ it0 f3 dbWizard 'CREATE TABLE Stock
 it0 f3 lotSize 2147483647 #txt
 it0 f3 startIdx 0 #txt
 it0 f3 type error.handling.demo.Data #txt
-it0 f3 168 42 112 44 0 -8 #rect
+it0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Create Table</name>
+        <nameStyle>12
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+it0 f3 168 90 112 44 -35 -8 #rect
 it0 f3 @|DBStepIcon #fIcon
 it0 f4 expr out #txt
-it0 f4 111 64 168 64 #arcP
+it0 f4 111 112 168 112 #arcP
 it0 f5 actionDecl 'error.handling.demo.Data out;
 ' #txt
 it0 f5 actionTable 'out=in;
 ' #txt
-it0 f5 dbSql '<?xml version=""1.0"" standalone=""no""?>
-<!DOCTYPE INSERT SYSTEM  ""sqlStatements.dtd"">
-<INSERT><Table name=''STOCK''/><Value column=''PRODUCT''><String>""PostIt""</String></Value><Value column=''NUMBEROFITEMS''><Number>5</Number></Value></INSERT>' #txt
 it0 f5 dbUrl stock #txt
 it0 f5 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 it0 f5 lotSize 2147483647 #txt
 it0 f5 startIdx 0 #txt
 it0 f5 type error.handling.demo.Data #txt
-it0 f5 328 42 112 44 0 -8 #rect
+it0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Add Stock</name>
+        <nameStyle>9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+it0 f5 328 90 112 44 -27 -8 #rect
 it0 f5 @|DBStepIcon #fIcon
 it0 f6 expr out #txt
-it0 f6 280 64 328 64 #arcP
+it0 f6 280 112 328 112 #arcP
 it0 f7 actionDecl 'error.handling.demo.Data out;
 ' #txt
 it0 f7 actionTable 'out=in;
 ' #txt
-it0 f7 dbSql '<?xml version=""1.0"" standalone=""no""?>
-<!DOCTYPE INSERT SYSTEM  ""sqlStatements.dtd"">
-<INSERT><Table name=''STOCK''/><Value column=''PRODUCT''><String>""Pen""</String></Value><Value column=''NUMBEROFITEMS''><Number>2</Number></Value></INSERT>' #txt
 it0 f7 dbUrl stock #txt
 it0 f7 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 it0 f7 lotSize 2147483647 #txt
 it0 f7 startIdx 0 #txt
 it0 f7 type error.handling.demo.Data #txt
-it0 f7 488 42 112 44 0 -8 #rect
+it0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Add Stock</name>
+        <nameStyle>9
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+it0 f7 488 90 112 44 -27 -8 #rect
 it0 f7 @|DBStepIcon #fIcon
 it0 f8 expr out #txt
-it0 f8 440 64 488 64 #arcP
+it0 f8 440 112 488 112 #arcP
 it0 f2 expr out #txt
-it0 f2 600 64 657 64 #arcP
+it0 f2 600 112 657 112 #arcP
+it0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Init Db Stock for sample process Order </name>
+        <nameStyle>39
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+it0 f9 80 25 224 30 -107 -8 #rect
+it0 f9 @|IBIcon #fIcon
 >Proto it0 .type error.handling.demo.Data #txt
 >Proto it0 .processKind NORMAL #txt
 >Proto it0 0 0 32 24 18 0 #rect

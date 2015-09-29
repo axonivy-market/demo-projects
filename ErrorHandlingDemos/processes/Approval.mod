@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Tue Jul 28 10:22:56 CEST 2015]
-14ED397D47F3083D 3.17 #module
+[>Created: Tue Sep 29 14:54:52 CEST 2015]
+14ED397D47F3083D 3.18 #module
 >Proto >Proto Collection #zClass
-al0 approval Big #zClass
+al0 Approval Big #zClass
 al0 B #cInfo
 al0 #process
 Bk0 BpmnUserTask Big #zClass
@@ -35,7 +35,8 @@ al0 Bk3 U40 'User 4' #zField
 al0 @EndTask f6 '' #zField
 al0 @PushWFArc f7 '' #zField
 al0 @PushWFArc f8 '' #zField
->Proto al0 al0 approval #zField
+al0 @InfoButton f16 '' #zField
+>Proto al0 al0 Approval #zField
 Bk0 @TextInP .resExport .resExport #zField
 Bk0 @TextInP .type .type #zField
 Bk0 @TextInP .processKind .processKind #zField
@@ -139,10 +140,10 @@ al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 al0 f0 @C|.responsibility Employee #txt
-al0 f0 81 113 30 30 -21 17 #rect
+al0 f0 81 225 30 30 -21 17 #rect
 al0 f0 @|StartRequestIcon #fIcon
 al0 f1 type error.handling.demo.Approval #txt
-al0 f1 689 113 30 30 0 15 #rect
+al0 f1 689 225 30 30 0 15 #rect
 al0 f1 @|EndIcon #fIcon
 al0 U10 .resExport export #txt
 al0 U10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -154,10 +155,10 @@ al0 U10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-al0 U10 168 106 112 44 -23 -8 #rect
+al0 U10 168 218 112 44 -23 -8 #rect
 al0 U10 @|BpmnUserTaskIcon #fIcon
 al0 f3 expr out #txt
-al0 f3 111 128 168 128 #arcP
+al0 f3 111 240 168 240 #arcP
 al0 U20 .resExport export #txt
 al0 U20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -168,18 +169,17 @@ al0 U20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-al0 U20 336 266 112 44 -22 -8 #rect
+al0 U20 336 346 112 44 -22 -8 #rect
 al0 U20 @|BpmnUserTaskIcon #fIcon
-al0 f4 280 128 336 288 #arcP
-al0 f4 1 304 128 #addKink
-al0 f4 2 304 288 #addKink
-al0 f4 1 0.8110223534361801 0 0 #arcLabel
+al0 f4 224 262 336 368 #arcP
+al0 f4 1 224 368 #addKink
+al0 f4 1 0.47719250919091755 0 0 #arcLabel
 al0 Et0 actionDecl 'error.handling.demo.Approval out;
 ' #txt
 al0 Et0 actionTable 'out=in;
 ' #txt
 al0 Et0 type error.handling.demo.Approval #txt
-al0 Et0 errorCode Declined #txt
+al0 Et0 errorCode approval:declined #txt
 al0 Et0 attachedToRef 14ED397D47F3083D-U20 #txt
 al0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -190,7 +190,7 @@ al0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-al0 Et0 401 241 30 30 4 -33 #rect
+al0 Et0 401 321 30 30 18 -25 #rect
 al0 Et0 @|ErrorBoundaryEventIcon #fIcon
 al0 U30 .resExport export #txt
 al0 U30 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -202,13 +202,12 @@ al0 U30 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-al0 U30 528 106 112 44 -50 -8 #rect
+al0 U30 520 218 112 44 -50 -8 #rect
 al0 U30 @|BpmnUserTaskIcon #fIcon
-al0 f2 448 288 528 128 #arcP
-al0 f2 1 488 288 #addKink
-al0 f2 2 488 128 #addKink
-al0 f2 1 0.4095814064653502 0 0 #arcLabel
-al0 f5 640 128 689 128 #arcP
+al0 f2 448 368 576 262 #arcP
+al0 f2 1 576 368 #addKink
+al0 f2 0 0.7235499088045845 0 0 #arcLabel
+al0 f5 632 240 689 240 #arcP
 al0 U40 .resExport export #txt
 al0 U40 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -219,16 +218,34 @@ al0 U40 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-al0 U40 528 34 112 44 -48 -8 #rect
+al0 U40 520 154 112 44 -48 -8 #rect
 al0 U40 @|BpmnUserTaskIcon #fIcon
 al0 f6 type error.handling.demo.Approval #txt
-al0 f6 689 41 30 30 0 15 #rect
+al0 f6 689 161 30 30 0 15 #rect
 al0 f6 @|EndIcon #fIcon
 al0 f7 expr out #txt
-al0 f7 416 241 528 56 #arcP
-al0 f7 1 416 56 #addKink
+al0 f7 416 321 520 176 #arcP
+al0 f7 1 416 176 #addKink
 al0 f7 0 0.8002504882268449 0 0 #arcLabel
-al0 f8 640 56 689 56 #arcP
+al0 f8 632 176 689 176 #arcP
+al0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Demonstrates the handling of a Business Error
+The error approval:declined  initiates an alternative flow</name>
+        <nameStyle>46,8
+9,7
+1,5,7,10
+18,3,7,9
+1,5,7,10
+29,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+al0 f16 80 34 336 44 -163 -19 #rect
+al0 f16 @|IBIcon #fIcon
+al0 f16 -1|-1|-65536 #nodeStyle
 >Proto al0 .type error.handling.demo.Approval #txt
 >Proto al0 .processKind NORMAL #txt
 >Proto al0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -239,13 +256,13 @@ al0 f8 640 56 689 56 #arcP
 </swimlaneLabel>
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
-    <swimlaneSize>192</swimlaneSize>
-    <swimlaneSize>152</swimlaneSize>
+    <swimlaneSize>160</swimlaneSize>
+    <swimlaneSize>160</swimlaneSize>
     <swimlaneColor gradient="false">-1</swimlaneColor>
     <swimlaneColor gradient="false">-1</swimlaneColor>
     <swimlaneType>LANE</swimlaneType>
     <swimlaneType>LANE</swimlaneType>
-    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>128</swimlaneSpaceBefore>
     <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
 </elementInfo>
 ' #txt
@@ -255,7 +272,7 @@ Bk0 g0 51 243 26 26 0 5 #rect
 Bk0 g0 @|MIGIcon #fIcon
 Bk0 g1 563 243 26 26 0 5 #rect
 Bk0 g1 @|MOGIcon #fIcon
-Bk0 f1 targetWindow NEW #txt
+Bk0 f1 targetWindow NEW:card: #txt
 Bk0 f1 targetDisplay TOP #txt
 Bk0 f1 richDialogId error.handling.demo.ApprovalRequest #txt
 Bk0 f1 startMethod start() #txt
@@ -263,12 +280,23 @@ Bk0 f1 type error.handling.demo.Approval #txt
 Bk0 f1 requestActionDecl '<> param;' #txt
 Bk0 f1 responseActionDecl 'error.handling.demo.Approval out;
 ' #txt
-Bk0 f1 responseMappingAction 'out.requestDescription=result.requestDescription;
-out.cost=result.cost;
+Bk0 f1 responseMappingAction 'out.cost=result.cost;
+out.requestDescription=result.requestDescription;
 ' #txt
+Bk0 f1 windowConfiguration '* ' #txt
 Bk0 f1 isAsynch false #txt
 Bk0 f1 isInnerRd false #txt
-Bk0 f1 200 234 112 44 0 -8 #rect
+Bk0 f1 userContext '* ' #txt
+Bk0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>RequestForm</name>
+        <nameStyle>11
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bk0 f1 200 234 112 44 -38 -8 #rect
 Bk0 f1 @|RichDialogIcon #fIcon
 Bk0 f2 77 256 200 256 #arcP
 Bk0 f3 actionDecl 'error.handling.demo.Approval out;
@@ -373,7 +401,7 @@ Bk1 f0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Bk1 f0 368 256 563 256 #arcP
 Bk1 f0 0 0.1641025641025641 0 -11 #arcLabel
-Bk1 f5 errorCode Declined #txt
+Bk1 f5 errorCode approval:declined #txt
 Bk1 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

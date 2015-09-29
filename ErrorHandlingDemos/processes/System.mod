@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Tue Sep 29 09:03:50 CEST 2015]
+[>Created: Tue Sep 29 15:05:33 CEST 2015]
 150149331438F9EA 3.18 #module
 >Proto >Proto Collection #zClass
-tl0 system Big #zClass
+tl0 System Big #zClass
 tl0 B #cInfo
 tl0 #process
 tl0 @TextInP .resExport .resExport #zField
@@ -19,8 +19,7 @@ tl0 @DBStep f3 '' #zField
 tl0 @PushWFArc f4 '' #zField
 tl0 @PushWFArc f2 '' #zField
 tl0 @InfoButton f5 '' #zField
-tl0 @AnnotationArc f6 '' #zField
->Proto tl0 tl0 system #zField
+>Proto tl0 tl0 System #zField
 tl0 f0 outLink throwSystemError.ivp #txt
 tl0 f0 type error.handling.demo.technicalData #txt
 tl0 f0 inParamDecl '<> param;' #txt
@@ -77,41 +76,47 @@ tl0 f3 type error.handling.demo.technicalData #txt
 tl0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Throws a system error</name>
-        <nameStyle>21
+        <name>Throws system error</name>
+        <nameStyle>19
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-tl0 f3 200 170 144 44 -65 -7 #rect
+tl0 f3 208 170 128 44 -56 -8 #rect
 tl0 f3 @|DBStepIcon #fIcon
 tl0 f4 expr out #txt
-tl0 f4 111 192 200 192 #arcP
+tl0 f4 111 192 208 192 #arcP
 tl0 f2 expr out #txt
-tl0 f2 344 192 433 192 #arcP
+tl0 f2 336 192 433 192 #arcP
 tl0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Using Global Error Process
-This DB Step throws a system error.
-All system errors (ivy:error:*) are handled in
-the Global Error Process with the name ErrorHandler.</name>
-        <nameStyle>26,8
-56
-13,1
+        <name>Usage of Global Error Process
+This DB Step throws ivy:error:database  system error
+The system errors ivy:error:* are handled in
+a Global Error Process (ErrorHandler)</name>
+        <nameStyle>29,8
+20
+19,3
+32
+1,3,9
+11,3,9
+1,1,3,9
 3
 1,1
 7
 1,1
-42
-13,1
+26
+1,1
+12,1
+1,1
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-tl0 f5 152 26 320 76 -154 -32 #rect
+tl0 f5 48 26 336 76 -160 -35 #rect
 tl0 f5 @|IBIcon #fIcon
-tl0 f6 312 102 272 170 #arcP
+tl0 f5 -1|-1|-65536 #nodeStyle
 >Proto tl0 .type error.handling.demo.technicalData #txt
 >Proto tl0 .processKind NORMAL #txt
 >Proto tl0 0 0 32 24 18 0 #rect
@@ -120,5 +125,3 @@ tl0 f0 mainOut f4 tail #connect
 tl0 f4 head f3 mainIn #connect
 tl0 f3 mainOut f2 tail #connect
 tl0 f2 head f1 mainIn #connect
-tl0 f5 ao f6 tail #connect
-tl0 f6 head f3 @CG|ai #connect
