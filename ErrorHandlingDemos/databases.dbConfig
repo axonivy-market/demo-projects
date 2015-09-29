@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <databaseconfigs>
     <databaseconfig name="stock" url="jdbc:hsqldb:mem:StockDb" driver="org.hsqldb.jdbcDriver"/>
+    <databaseconfig name="invalidDB" url="jdbc:postgresql://null/InvalidDB" driver="org.postgresql.Driver" user="">
+        <property name="This DB is invalid on purpose" value="so it can be used to throw an error"/>
+    </databaseconfig>
 </databaseconfigs>

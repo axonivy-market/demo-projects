@@ -1,0 +1,6 @@
+ErrorHandler #class
+error.handling.demo #namespace
+errorCode String #field
+errorCode PERSISTENT #fieldModifier
+errorText String #field
+errorText PERSISTENT #fieldModifier

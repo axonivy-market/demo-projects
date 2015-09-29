@@ -1,0 +1,6 @@
+GlobalErrorData #class
+error.handling.demo.GlobalError #namespace
+errorCode String #field
+errorCode PERSISTENT #fieldModifier
+errorText String #field
+errorText PERSISTENT #fieldModifier
