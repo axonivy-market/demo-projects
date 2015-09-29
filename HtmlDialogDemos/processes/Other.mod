@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue May 06 14:33:38 CEST 2014]
-145D1862CF17F2C9 3.17 #module
+[>Created: Mon Sep 28 17:14:12 CEST 2015]
+145D1862CF17F2C9 3.18 #module
 >Proto >Proto Collection #zClass
 Or0 Other Big #zClass
 Or0 B #cInfo
@@ -35,6 +35,11 @@ Or0 @PushWFArc f107 '' #zField
 Or0 @PushWFArc f108 '' #zField
 Or0 @PushWFArc f113 '' #zField
 Or0 @PushWFArc f111 '' #zField
+Or0 @StartRequest f0 '' #zField
+Or0 @EndTask f1 '' #zField
+Or0 @UserTask f3 '' #zField
+Or0 @TkArc f4 '' #zField
+Or0 @PushWFArc f2 '' #zField
 >Proto Or0 Or0 Other #zField
 Or0 f104 targetWindow NEW:card: #txt
 Or0 f104 targetDisplay TOP #txt
@@ -248,43 +253,12 @@ Or0 f42 triggerEnabled false #txt
 Or0 f42 callSignature ManagedBeanDemo() #txt
 Or0 f42 persist false #txt
 Or0 f42 startName 'ManagedBean Demo' #txt
-Or0 f42 taskData '#
-#Tue May 06 14:33:35 CEST 2014
-TaskTriggered.ROL=Everybody
+Or0 f42 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody
-' #txt
-Or0 f42 caseData '#
-#Mon Dec 03 13:46:01 CET 2012
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXROL=Everybody' #txt
 Or0 f42 showInStartList 1 #txt
 Or0 f42 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
@@ -440,6 +414,71 @@ Or0 f113 expr out #txt
 Or0 f113 143 160 248 160 #arcP
 Or0 f111 expr out #txt
 Or0 f111 360 160 465 160 #arcP
+Or0 f0 outLink ClientSideValidationDemo.ivp #txt
+Or0 f0 type htmlDialogDemos.Data #txt
+Or0 f0 inParamDecl '<> param;' #txt
+Or0 f0 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Or0 f0 guid 15014784A1C21531 #txt
+Or0 f0 requestEnabled true #txt
+Or0 f0 triggerEnabled false #txt
+Or0 f0 callSignature ClientSideValidationDemo() #txt
+Or0 f0 persist false #txt
+Or0 f0 startName ClientSideValidationDemo #txt
+Or0 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+Or0 f0 showInStartList 1 #txt
+Or0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>ClientSideValidationDemo.ivp</name>
+        <nameStyle>28,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Or0 f0 @C|.responsibility Everybody #txt
+Or0 f0 113 433 30 30 -90 17 #rect
+Or0 f0 @|StartRequestIcon #fIcon
+Or0 f1 type htmlDialogDemos.Data #txt
+Or0 f1 465 433 30 30 0 15 #rect
+Or0 f1 @|EndIcon #fIcon
+Or0 f3 richDialogId ch.ivyteam.htmldialog.demo.other.ClientSideValidation #txt
+Or0 f3 startMethod start() #txt
+Or0 f3 requestActionDecl '<> param;' #txt
+Or0 f3 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Or0 f3 outLinks "TaskA.ivp" #txt
+Or0 f3 taskData 'TaskA.EXPRI=2
+TaskA.EXROL=Everybody
+TaskA.EXTYPE=0
+TaskA.PRI=2
+TaskA.ROL=Everybody
+TaskA.SKIP_TASK_LIST=true
+TaskA.TYPE=0' #txt
+Or0 f3 type htmlDialogDemos.Data #txt
+Or0 f3 248 426 112 44 0 -7 #rect
+Or0 f3 @|UserTaskIcon #fIcon
+Or0 f4 expr out #txt
+Or0 f4 type htmlDialogDemos.Data #txt
+Or0 f4 var in1 #txt
+Or0 f4 143 448 248 448 #arcP
+Or0 f2 expr data #txt
+Or0 f2 outCond ivp=="TaskA.ivp" #txt
+Or0 f2 360 448 465 448 #arcP
 >Proto Or0 .type htmlDialogDemos.Data #txt
 >Proto Or0 .processKind NORMAL #txt
 >Proto Or0 0 0 32 24 18 0 #rect
@@ -462,3 +501,7 @@ Or0 f109 mainOut f113 tail #connect
 Or0 f113 head f112 mainIn #connect
 Or0 f112 mainOut f111 tail #connect
 Or0 f111 head f110 mainIn #connect
+Or0 f0 mainOut f4 tail #connect
+Or0 f4 head f3 in #connect
+Or0 f3 out f2 tail #connect
+Or0 f2 head f1 mainIn #connect
