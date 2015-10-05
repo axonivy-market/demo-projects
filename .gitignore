@@ -50,5 +50,8 @@ WorkflowUI/src_dataClasses
 WorkflowUI/src_dataClasses/*
 WorkflowUI/src_dataClasses/ch
 WorkflowUI/target
+academy/PracticeJSF/classes
+academy/PracticeJSF/src_dataClasses/*
+academy/PracticeJSF/src_wsproc/*
 build.maven/iar/ria/target
 build.maven/iar/target
