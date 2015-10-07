@@ -1,5 +1,5 @@
 ClientSideValidationData #class
-ch.ivyteam.htmldialog.demo.other.ClientSideValidation #namespace
+ch.ivyteam.htmldialog.demo.offline.ClientSideValidation #namespace
 firstName String #field
 firstName PERSISTENT #fieldModifier
 lastName String #field
@@ -14,3 +14,5 @@ addressCountry String #field
 addressCountry PERSISTENT #fieldModifier
 email String #field
 email PERSISTENT #fieldModifier
+timeOfArrival Time #field
+timeOfArrival PERSISTENT #fieldModifier

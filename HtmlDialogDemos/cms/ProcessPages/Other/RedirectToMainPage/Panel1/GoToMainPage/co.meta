@@ -1,0 +1,2 @@
+co: name={GoToMainPage} description={} changed={2015-10-07 10:44:33 GMT} changedby={dre} visualorder={0} guid={15041E687BBE7609} parentguid={} typeguid={E6AFEA1F2184828C} id={} parentid={} typeid={}
+val: guid={15041E687C994923} datatype={} isdefault={true} langid={en} description={} validfrom={2015-10-07 10:43:58 GMT} validto={} changed={2015-10-07 10:44:33 GMT} changedby={dre} properties={###n##Wed Oct 07 12:44:33 CEST 2015#n.KIND=timed#n.LREF=<%\=ivy.html.startref("Demo/start.ivp")%>#n.SBMT=#n=3#n} id={}

@@ -1,0 +1,3 @@
+<script type="text/javascript">
+setTimeout("document.location.href = '<%=ivy.html.startref("Demo/start.ivp")%>'",3000);
+</script>

@@ -1,0 +1,124 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<f:view renderKitId="IVY_MOBILE_OFFLINE" />
+<h:head>
+	<title>ClientSideValidation</title>
+</h:head>	
+<h:body>
+<pm:page>
+	<pm:content>
+			<div class="navbar navbar-inverse">
+				<div class="container" id="headerdiv">
+					<div class="navbar-header">
+						<a class="navbar-brand"
+							href="#{ivy.html.startref('Demo/start.ivp')}" id="navbar-ivy-title">Axon.ivy Html Dialog Demos</a>
+					</div>
+				</div>
+			</div>
+				<h2>Client Side Validation Demo</h2>
+				<h3>
+				This demo illustrates, how to implement an offline-capable user dialog with client side validation. 
+				</h3>
+				<p>
+				By using client side validation, the input fields are validated without any request to the server.
+				</p>
+				<p>
+				The validation is triggered when the field value is modified or when the proceed button is pressed.
+				</p>
+				<p>
+				In order to improve the behavior of the form, especially in mobile browsers, the correct field type is set where 
+				available (e.g. email or date). 
+				</p>
+				<br/>
+				
+				<h:form id="form">
+					<h:panelGrid columns="1" >
+						<f:facet name="header">
+							<p:messages globalOnly="true" />
+						</f:facet>
+						
+						<!-- Input field for a string as it would be generated from the template -->
+						<p:outputLabel for="firstName" value="First Name"/>
+						<p:inputText id="firstName" value="#{data.firstName}" type="text" required="true" >
+							<p:clientValidator event="keyup" />
+							<p:clientValidator event="blur" />
+						</p:inputText>
+						<p:message for="firstName" display="text" showDetail="true" />
+						<br/>
+						
+						<p:outputLabel for="personName" value="Last Name (min. 3 characters)"/>
+						<p:inputText id="personName" value="#{data.lastName}" type="text" required="true" >
+							<f:validateLength minimum="3" /> <!-- Custom validators (f:validate....) can be added -->
+							<p:clientValidator event="keyup" /> 
+							<p:clientValidator event="blur" />
+						</p:inputText>
+						<p:message for="personName" display="text" showDetail="true" />
+						<br/>
+						
+						<p:outputLabel for="personDateOfBirth" value="Date Of Birth (must be born before 2006)"/>
+						<p:inputText id="personDateOfBirth" value="#{data.dateOfBirth}" required="true" type="date" pt:max="2006-01-01" >
+							<f:convertDateTime pattern="yyyy-MM-dd" />
+							<p:clientValidator event="keyup" />
+							<p:clientValidator event="blur" />
+						</p:inputText>
+						<p:message for="personDateOfBirth" display="text" showDetail="true" />
+						<br/>
+						
+						<p:outputLabel for="addressZip" value="Zip (number range 1000..9999)"/>
+						<p:inputText id="addressZip" value="#{data.addressZip}" type="number" required="true" >
+							<f:validateLongRange minimum="1000" maximum="9999" />
+							<p:clientValidator event="keyup" />
+							<p:clientValidator event="blur" />
+						</p:inputText>
+						<p:message for="addressZip" display="text" showDetail="true" />
+						<br/>
+						
+						<p:outputLabel for="addressCity" value="City"/>
+						<p:inputText id="addressCity" value="#{data.addressCity}" type="text" required="true" >
+							<f:validateRequired />
+							<p:clientValidator event="keyup" />
+							<p:clientValidator event="blur" />
+						</p:inputText>
+						<p:message for="addressCity" display="text" />
+						<br/>
+						
+						<p:outputLabel for="addressCountry" value="Country (regex validation)"/>
+						<p:inputText id="addressCountry" value="#{data.addressCountry}" type="text" required="true" >
+							<f:validateRegex pattern="[A-Z]{2}" />
+							<p:clientValidator event="keyup" />
+							<p:clientValidator event="blur" />
+						</p:inputText>
+						<p:message for="addressCountry" display="text" showDetail="true" />
+						<br/>
+			
+						<p:outputLabel for="email" value="E-Mail (regex with custom validator message)"/>
+						<p:inputText id="email" value="#{data.email}" type="email" required="true" validatorMessage="Must be an email."  >
+							<f:validateRegex pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}" />
+							<p:clientValidator event="keyup" />
+							<p:clientValidator event="blur" />
+						</p:inputText>
+						<p:message for="email" display="text" showDetail="true" />
+						<br/>
+						
+						<p:outputLabel for="timeOfArrival" value="Time if Arrival"/>
+						<p:inputText id="timeOfArrival" value="#{data.timeOfArrival}" required="true" type="time" >
+							<f:convertDateTime pattern="hh:mm" />
+							<p:clientValidator event="keyup" />
+							<p:clientValidator event="blur" />
+						</p:inputText>
+						<p:message for="timeOfArrival" display="text" showDetail="true" />
+									
+						<br />
+						<p:commandButton actionListener="#{logic.close}" value="Proceed" ajax="false" validateClient="true" icon="ui-icon-check" />
+					</h:panelGrid>
+				</h:form>
+ 			</pm:content>
+		</pm:page>
+</h:body>
+</html>

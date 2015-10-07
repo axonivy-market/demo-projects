@@ -12,40 +12,45 @@
 			<p:submenu label="Output">
 				<p:menuitem value="Editable Table"
 					url="#{ivy.html.startref('Output/EditableTableDemo.ivp')}" />
-				<p:menuitem value="Resources"
-					url="#{ivy.html.startref('Output/ResourceDemo.ivp')}" />
+				<p:menuitem>
+					<a tabindex="-1" class="ui-menuitem-link ui-corner-all"
+						href="#{ivy.html.startref('Output/ResourceDemo.ivp')}">
+						<span class="ui-menuitem-text">Resources</span>
+						<span class="glyphicon glyphicon-flag"></span>
+					</a>
+				</p:menuitem>					
 				<p:menuitem value="Ordered List"
 					url="#{ivy.html.startref('Output/OrderListDemo.ivp')}" />
 				<p:menuitem value="Pick List"
 					url="#{ivy.html.startref('Output/PickListDemo.ivp')}" />
 				<p:menuitem value="Select One Menu"
 					url="#{ivy.html.startref('Output/SelectOneMenuDemo.ivp')}" />
-				<p:menuitem>
-					<a tabindex="-1" class="ui-menuitem-link ui-corner-all"
-						href="#{ivy.html.startref('Output/AutoCompleteDemo.ivp')}">
-						<span class="ui-menuitem-text">Auto Complete</span>
-						<span class="glyphicon glyphicon-flag"></span>
-					</a>
-				</p:menuitem>
+				<p:menuitem value="Auto Complete"
+					url="#{ivy.html.startref('Output/AutoCompleteDemo.ivp')}" />
 				<p:menuitem value="Select Many Checkbox"
 					url="#{ivy.html.startref('Output/SelectManyCheckboxDemo.ivp')}" />
+				<p:menuitem value="Charts"
+					url="#{ivy.html.startref('Output/ChartDemo.ivp')}" />
+			</p:submenu>
+			<p:submenu label="Input">
 				<p:menuitem>
 					<a tabindex="-1" class="ui-menuitem-link ui-corner-all"
-						href="#{ivy.html.startref('Output/ChartDemo.ivp')}">
-						<span class="ui-menuitem-text">Charts</span>
+						href="#{ivy.html.startref('Input/FormDemo.ivp')}">
+						<span class="ui-menuitem-text">Form</span>
 						<span class="glyphicon glyphicon-flag"></span>
 					</a>
 				</p:menuitem>
-			</p:submenu>
-			<p:submenu label="Input">
-				<p:menuitem value="Form"
-					url="#{ivy.html.startref('Input/FormDemo.ivp')}" />
 				<p:menuitem value="Bean Validation"
 					url="#{ivy.html.startref('Input/BeanValidationDemo.ivp')}" />
 				<p:menuitem value="Simple File Upload and Download "
 					url="#{ivy.html.startref('Input/FileUploadSimpleModeDemo.ivp')}" />
-				<p:menuitem value="Advanced File Upload"
-					url="#{ivy.html.startref('Input/FileUploadAdvancedModeDemo.ivp')}" />
+				<p:menuitem>
+					<a tabindex="-1" class="ui-menuitem-link ui-corner-all"
+						href="#{ivy.html.startref('Input/FileUploadAdvancedModeDemo.ivp')}">
+						<span class="ui-menuitem-text">Advanced File Upload</span>
+						<span class="glyphicon glyphicon-flag"></span>
+					</a>
+				</p:menuitem>
 				<p:menuitem value="Multi View"
 					url="#{ivy.html.startref('Input/MultiViewDemo.ivp')}" />
 			</p:submenu>
@@ -54,35 +59,32 @@
 					url="#{ivy.html.startref('Component/ComponentDemo.ivp')}" />
 				<p:menuitem value="Composite Component Customizing"
 					url="#{ivy.html.startref('Component/ComponentCustomizingDemo.ivp')}" />
-				<p:menuitem value="Component callback"
-					url="#{ivy.html.startref('Component/ComponentEventListenerDemo.ivp')}" />
+				<p:menuitem>
+					<a tabindex="-1" class="ui-menuitem-link ui-corner-all"
+						href="#{ivy.html.startref('Component/ComponentEventListenerDemo.ivp')}">
+						<span class="ui-menuitem-text">Component callback</span>
+						<span class="glyphicon glyphicon-flag"></span>
+					</a>
+				</p:menuitem>
 				<p:menuitem value="JSF Composite Component"
 					url="#{ivy.html.startref('Component/JsfCompositeComponent.ivp')}" />
 				<p:menuitem value="Partial Update"
 					url="#{ivy.html.startref('Component/PartialUpdateDemo.ivp')}" />
 			</p:submenu>
-			<p:submenu label="Other">
+			<p:submenu label="Offline">
 				<p:menuitem>
 					<a tabindex="-1" class="ui-menuitem-link ui-corner-all"
-						href="#{ivy.html.startref('Other/ClientSideValidationDemo.ivp')}">
+						href="#{ivy.html.startref('Offline/ClientSideValidationDemo.ivp')}">
 						<span class="ui-menuitem-text">Client Side Validation</span>
 						<span class="glyphicon glyphicon-flag"></span>
 					</a>
 				</p:menuitem>
-				<p:menuitem>
-					<a tabindex="-1" class="ui-menuitem-link ui-corner-all"
-						href="#{ivy.html.startref('Other/Html5Demo.ivp')}">
-						<span class="ui-menuitem-text">Html 5 / JSF 2.2</span>
-						<span class="glyphicon glyphicon-flag"></span>
-					</a>
-				</p:menuitem>
-				<p:menuitem>
-					<a tabindex="-1" class="ui-menuitem-link ui-corner-all"
-						href="#{ivy.html.startref('Other/Html5BootstrapDemo.ivp')}">
-						<span class="ui-menuitem-text">Html 5 &amp; Bootstrap</span>
-						<span class="glyphicon glyphicon-flag"></span>
-					</a>
-				</p:menuitem>
+			</p:submenu>
+			<p:submenu label="Other">
+				<p:menuitem value="Html 5 / JSF 2.2" 
+					url="#{ivy.html.startref('Other/Html5Demo.ivp')}" />
+				<p:menuitem value="Html 5 &amp; Bootstrap" 
+					url="#{ivy.html.startref('Other/Html5BootstrapDemo.ivp')}" />
 				<p:menuitem value="AJAX Method Call"
 					url="#{ivy.html.startref('Other/MethodCallWithAjaxDemo.ivp')}" />
 				<p:menuitem value="Managed Bean"
