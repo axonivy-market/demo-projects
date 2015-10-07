@@ -108,7 +108,7 @@
 						
 						<p:outputLabel for="timeOfArrival" value="Time if Arrival"/>
 						<p:inputText id="timeOfArrival" value="#{data.timeOfArrival}" required="true" type="time" >
-							<f:convertDateTime pattern="hh:mm" />
+							<f:convertDateTime pattern="HH:mm" />
 							<p:clientValidator event="keyup" />
 							<p:clientValidator event="blur" />
 						</p:inputText>
