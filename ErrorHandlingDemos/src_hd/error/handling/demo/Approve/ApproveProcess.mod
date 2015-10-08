@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Jul 28 09:58:54 CEST 2015]
-14ED3A421F7C081D 3.17 #module
+[>Created: Thu Oct 08 16:24:37 CEST 2015]
+14ED3A421F7C081D 3.18 #module
 >Proto >Proto Collection #zClass
 As0 ApproveProcess Big #zClass
 As0 RD #cInfo
@@ -22,7 +22,8 @@ As0 @RichDialogEnd f4 '' #zField
 As0 @RichDialogProcessStart f6 '' #zField
 As0 @RichDialogProcessStart f9 '' #zField
 As0 @PushWFArc f3 '' #zField
-As0 @PushWFArc f5 '' #zField
+As0 @ErrorEnd f7 '' #zField
+As0 @PushWFArc f8 '' #zField
 >Proto As0 As0 ApproveProcess #zField
 As0 f0 guid 14ED3A4221040CCF #txt
 As0 f0 type error.handling.demo.Approve.ApproveData #txt
@@ -90,12 +91,22 @@ As0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f9 83 251 26 26 -20 15 #rect
+As0 f9 83 243 26 26 -20 15 #rect
 As0 f9 @|RichDialogProcessStartIcon #fIcon
 As0 f3 expr out #txt
 As0 f3 109 160 211 160 #arcP
-As0 f5 expr out #txt
-As0 f5 106 255 213 168 #arcP
+As0 f7 errorCode approval:declined #txt
+As0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>approval:declined</name>
+    </language>
+</elementInfo>
+' #txt
+As0 f7 209 241 30 30 -48 17 #rect
+As0 f7 @|ErrorEndIcon #fIcon
+As0 f8 expr out #txt
+As0 f8 109 256 209 256 #arcP
 >Proto As0 .type error.handling.demo.Approve.ApproveData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
@@ -104,5 +115,5 @@ As0 f0 mainOut f2 tail #connect
 As0 f2 head f1 mainIn #connect
 As0 f6 mainOut f3 tail #connect
 As0 f3 head f4 mainIn #connect
-As0 f9 mainOut f5 tail #connect
-As0 f5 head f4 mainIn #connect
+As0 f9 mainOut f8 tail #connect
+As0 f8 head f7 mainIn #connect
