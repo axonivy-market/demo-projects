@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Sep 29 15:05:33 CEST 2015]
+[>Created: Wed Oct 14 17:04:10 CEST 2015]
 150149331438F9EA 3.18 #module
 >Proto >Proto Collection #zClass
 tl0 System Big #zClass
@@ -30,6 +30,7 @@ tl0 f0 requestEnabled true #txt
 tl0 f0 triggerEnabled false #txt
 tl0 f0 callSignature throwSystemError() #txt
 tl0 f0 persist false #txt
+tl0 f0 startName 'Use global Error Process' #txt
 tl0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Oct 08 16:27:13 CEST 2015]
+[>Created: Wed Oct 14 16:28:11 CEST 2015]
 14ED397D47F3083D 3.18 #module
 >Proto >Proto Collection #zClass
 al0 Approval Big #zClass
@@ -114,6 +114,7 @@ al0 f0 requestEnabled true #txt
 al0 f0 triggerEnabled false #txt
 al0 f0 callSignature start() #txt
 al0 f0 persist false #txt
+al0 f0 startName 'Business Error initiates an alternative flow' #txt
 al0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2

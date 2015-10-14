@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Oct 12 10:32:57 CEST 2015]
+[>Created: Wed Oct 14 16:11:11 CEST 2015]
 14ECFC90CDE278D0 3.18 #module
 >Proto >Proto Collection #zClass
 or0 Order Big #zClass
@@ -107,10 +107,30 @@ or0 f0 guid 14ECFC90D00F051F #txt
 or0 f0 requestEnabled true #txt
 or0 f0 triggerEnabled false #txt
 or0 f0 callSignature start() #txt
+or0 f0 persist false #txt
+or0 f0 startName 'Due to a Business Error the process can not continue' #txt
+or0 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+or0 f0 showInStartList 1 #txt
+or0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
 or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
+        <nameStyle>9,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt

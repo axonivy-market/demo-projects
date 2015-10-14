@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Tue Sep 29 14:53:20 CEST 2015]
+[>Created: Wed Oct 14 16:52:49 CEST 2015]
 1500417E1DADBB7C 3.18 #module
 >Proto >Proto Collection #zClass
-fy0 Factory Big #zClass
+fy0 Production Big #zClass
 fy0 B #cInfo
 fy0 #process
 fy0 @TextInP .resExport .resExport #zField
@@ -24,7 +24,7 @@ fy0 @ErrorBoundaryEvent Et0 ErrorBoundaryEvent #zField
 fy0 @ErrorEnd f5 '' #zField
 fy0 @PushWFArc f4 '' #zField
 fy0 @PushWFArc f2 '' #zField
->Proto fy0 fy0 Factory #zField
+>Proto fy0 fy0 Production #zField
 fy0 f0 inParamDecl '<java.lang.String model,java.lang.Number amount> param;' #txt
 fy0 f0 inParamTable 'out.amount=param.amount;
 out.model=param.model;
@@ -79,9 +79,6 @@ fy0 f7 actionDecl 'error.handling.demo.FactoryData out;
 ' #txt
 fy0 f7 actionTable 'out=in;
 ' #txt
-fy0 f7 dbSql '<?xml version=""1.0"" standalone=""no""?>
-<!DOCTYPE INSERT SYSTEM  ""sqlStatements.dtd"">
-<INSERT><Table name=''STOCK''/><Value column=''PRODUCT''><AnyExpression>in.model</AnyExpression></Value><Value column=''NUMBEROFITEMS''><AnyExpression>in.newShoes.size()</AnyExpression></Value></INSERT>' #txt
 fy0 f7 dbUrl stock #txt
 fy0 f7 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
 fy0 f7 lotSize 2147483647 #txt
@@ -133,7 +130,7 @@ fy0 f3 @|WebServiceIcon #fIcon
 fy0 f6 expr out #txt
 fy0 f6 256 271 337 320 #arcP
 fy0 f6 1 256 320 #addKink
-fy0 f6 0 0.9928197974768727 0 0 #arcLabel
+fy0 f6 0 0.8677905155160192 0 0 #arcLabel
 fy0 f8 expr out #txt
 fy0 f8 288 224 376 224 #arcP
 fy0 Et0 actionDecl 'error.handling.demo.FactoryData out;
@@ -142,13 +139,13 @@ fy0 Et0 actionTable 'out=in;
 out.wsError=error;
 ' #txt
 fy0 Et0 type error.handling.demo.FactoryData #txt
-fy0 Et0 errorCode ivy:error:webservice #txt
+fy0 Et0 errorCode ivy:error #txt
 fy0 Et0 attachedToRef 1500417E1DADBB7C-f3 #txt
 fy0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>catch</name>
-        <nameStyle>5,7
+        <name>catch ws error</name>
+        <nameStyle>14,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -156,7 +153,7 @@ fy0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 fy0 Et0 241 241 30 30 19 -6 #rect
 fy0 Et0 @|ErrorBoundaryEventIcon #fIcon
 fy0 f5 errorExpr in.wsError #txt
-fy0 f5 errorCode factory:nike:unavailable #txt
+fy0 f5 errorCode factory:unavailable #txt
 fy0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
