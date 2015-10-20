@@ -1,6 +1,6 @@
 Approval #class
 error.handling.demo #namespace
-requestDescription String #field
-requestDescription PERSISTENT #fieldModifier
+description String #field
+description PERSISTENT #fieldModifier
 cost Number #field
 cost PERSISTENT #fieldModifier

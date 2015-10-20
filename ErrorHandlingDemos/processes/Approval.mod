@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Oct 20 12:41:29 CEST 2015]
+[>Created: Tue Oct 20 14:48:17 CEST 2015]
 14ED397D47F3083D 3.18 #module
 >Proto >Proto Collection #zClass
 al0 Approval Big #zClass
@@ -93,14 +93,12 @@ The error approval:declined  initiates an alternative flow</name>
 al0 f16 80 34 336 44 -163 -19 #rect
 al0 f16 @|IBIcon #fIcon
 al0 f16 -1|-1|-65536 #nodeStyle
-al0 f3 richDialogId error.handling.demo.ApprovalRequest #txt
+al0 f3 richDialogId error.handling.demo.approval.RequestForm #txt
 al0 f3 startMethod start() #txt
 al0 f3 requestActionDecl '<> param;' #txt
 al0 f3 responseActionDecl 'error.handling.demo.Approval out;
 ' #txt
-al0 f3 responseMappingAction 'out=in;
-out.cost=result.cost;
-out.requestDescription=result.requestDescription;
+al0 f3 responseMappingAction 'out=result.approval;
 ' #txt
 al0 f3 outLinks "TaskA.ivp" #txt
 al0 f3 taskData 'TaskA.EXPRI=2
@@ -126,11 +124,10 @@ al0 f9 expr out #txt
 al0 f9 type error.handling.demo.Approval #txt
 al0 f9 var in1 #txt
 al0 f9 111 192 168 192 #arcP
-al0 f11 richDialogId error.handling.demo.Approve #txt
-al0 f11 startMethod start(String,Number) #txt
-al0 f11 requestActionDecl '<String requestDescription, Number cost> param;' #txt
-al0 f11 requestMappingAction 'param.requestDescription=in.requestDescription;
-param.cost=in.cost;
+al0 f11 richDialogId error.handling.demo.approval.RequestApproval #txt
+al0 f11 startMethod start(error.handling.demo.Approval) #txt
+al0 f11 requestActionDecl '<error.handling.demo.Approval approval> param;' #txt
+al0 f11 requestMappingAction 'param.approval=in;
 ' #txt
 al0 f11 responseActionDecl 'error.handling.demo.Approval out;
 ' #txt
@@ -140,7 +137,7 @@ al0 f11 outLinks "TaskA.ivp" #txt
 al0 f11 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=Approve Request for a <%\=in.requestDescription%>
+TaskA.NAM=Approve Request for a <%\=in.description%>
 TaskA.PRI=2
 TaskA.ROL=Boss
 TaskA.SKIP_TASK_LIST=false
@@ -157,11 +154,10 @@ al0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 al0 f11 336 362 112 44 -22 -8 #rect
 al0 f11 @|UserTaskIcon #fIcon
-al0 f12 richDialogId error.handling.demo.RequestApproved #txt
-al0 f12 startMethod start(String,Number) #txt
-al0 f12 requestActionDecl '<String requestDescription, Number cost> param;' #txt
-al0 f12 requestMappingAction 'param.requestDescription=in.requestDescription;
-param.cost=in.cost;
+al0 f12 richDialogId error.handling.demo.approval.RequestApproved #txt
+al0 f12 startMethod start(error.handling.demo.Approval) #txt
+al0 f12 requestActionDecl '<error.handling.demo.Approval approval> param;' #txt
+al0 f12 requestMappingAction 'param.approval=in;
 ' #txt
 al0 f12 responseActionDecl 'error.handling.demo.Approval out;
 ' #txt
@@ -171,7 +167,7 @@ al0 f12 outLinks "TaskA.ivp" #txt
 al0 f12 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=Request for <%\=in.requestDescription%>approved
+TaskA.NAM=Request for <%\=in.description%> approved
 TaskA.PRI=2
 TaskA.ROL=ivy.case.getCreatorUser().getName()
 TaskA.SKIP_TASK_LIST=false
@@ -200,6 +196,7 @@ al0 Et0 actionDecl 'error.handling.demo.Approval out;
 ' #txt
 al0 Et0 actionTable 'out=in;
 ' #txt
+al0 Et0 actionCode 'ivy.log.info("on error data:"+in);' #txt
 al0 Et0 type error.handling.demo.Approval #txt
 al0 Et0 errorCode approval:declined #txt
 al0 Et0 attachedToRef 14ED397D47F3083D-f11 #txt
@@ -224,11 +221,10 @@ al0 f14 0 0.9744908376711137 0 0 #arcLabel
 al0 f15 expr data #txt
 al0 f15 outCond ivp=="TaskA.ivp" #txt
 al0 f15 696 256 753 256 #arcP
-al0 f17 richDialogId error.handling.demo.RequestDeclined #txt
-al0 f17 startMethod start(String,Number) #txt
-al0 f17 requestActionDecl '<String requestDescription, Number cost> param;' #txt
-al0 f17 requestMappingAction 'param.requestDescription=in.requestDescription;
-param.cost=in.cost;
+al0 f17 richDialogId error.handling.demo.approval.RequestDeclined #txt
+al0 f17 startMethod start(error.handling.demo.Approval) #txt
+al0 f17 requestActionDecl '<error.handling.demo.Approval approval> param;' #txt
+al0 f17 requestMappingAction 'param.approval=in;
 ' #txt
 al0 f17 responseActionDecl 'error.handling.demo.Approval out;
 ' #txt
@@ -238,7 +234,7 @@ al0 f17 outLinks "TaskA.ivp" #txt
 al0 f17 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=Request for <%\=in.requestDescription%> declined
+TaskA.NAM=Request for <%\=in.description%> declined
 TaskA.PRI=2
 TaskA.ROL=ivy.case.getCreatorUserName()
 TaskA.SKIP_TASK_LIST=false

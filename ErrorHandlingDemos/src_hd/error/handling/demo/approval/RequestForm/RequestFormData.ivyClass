@@ -1,0 +1,4 @@
+RequestFormData #class
+error.handling.demo.approval.RequestForm #namespace
+approval error.handling.demo.Approval #field
+approval PERSISTENT #fieldModifier

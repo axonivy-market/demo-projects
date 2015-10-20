@@ -8,9 +8,9 @@
 	xmlns:pm="http://primefaces.org/mobile">
 <h:body>
 	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title">RequestDeclined</ui:define>
+		<ui:define name="title">RequestForm</ui:define>
 		<ui:define name="content">
-			<h3>Your following request was declined!&#160;</h3>
+			<h3>Approval Request</h3>
 			
 			<h:form id="form">
 				<h:panelGrid columns="2">
@@ -18,11 +18,13 @@
 						<p:messages></p:messages>
 					</f:facet>
 					
-					<p:outputLabel for="requestDescription" value="Request Description"/>
-					<p:inputText id="requestDescription" value="#{data.requestDescription}" readonly="true"></p:inputText>
+					<p:outputLabel for="approvalDescription" value="Description"/>
+					<p:inputText id="approvalDescription" value="#{data.approval.description}">
+						<f:validateLength minimum="1"/>
+					</p:inputText>
 					
-					<p:outputLabel for="cost" value="Cost"/>
-					<p:inputText id="cost" value="#{data.cost}" readonly="true"></p:inputText>
+					<p:outputLabel for="approvalCost" value="Cost in CHF"/>
+					<p:inputText id="approvalCost" value="#{data.approval.cost}"></p:inputText>
 					
 					<br />
 					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />

@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Tue Jul 28 09:59:39 CEST 2015]
-14ED3AC935D78D84 3.17 #module
+[>Created: Tue Oct 20 13:52:07 CEST 2015]
+1508509E77759115 3.18 #module
 >Proto >Proto Collection #zClass
-Rs0 RequestApprovedProcess Big #zClass
+Rs0 RequestFormProcess Big #zClass
 Rs0 RD #cInfo
 Rs0 #process
 Rs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
@@ -21,36 +21,38 @@ Rs0 @PushWFArc f2 '' #zField
 Rs0 @RichDialogProcessStart f3 '' #zField
 Rs0 @RichDialogEnd f4 '' #zField
 Rs0 @PushWFArc f5 '' #zField
->Proto Rs0 Rs0 RequestApprovedProcess #zField
-Rs0 f0 guid 14ED3AC9373FCBB5 #txt
-Rs0 f0 type error.handling.demo.RequestApproved.RequestApprovedData #txt
-Rs0 f0 method start(String,Number) #txt
+>Proto Rs0 Rs0 RequestFormProcess #zField
+Rs0 f0 guid 1508509E7C5A7EE9 #txt
+Rs0 f0 type error.handling.demo.approval.RequestForm.RequestFormData #txt
+Rs0 f0 method start() #txt
 Rs0 f0 disableUIEvents true #txt
 Rs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String requestDescription,java.lang.Number cost> param = methodEvent.getInputArguments();
+<> param = methodEvent.getInputArguments();
 ' #txt
-Rs0 f0 inParameterMapAction 'out.requestDescription=param.requestDescription;
-out.cost=param.cost;
+Rs0 f0 inActionCode 'out.approval; // init' #txt
+Rs0 f0 outParameterDecl '<error.handling.demo.Approval approval> result;
 ' #txt
-Rs0 f0 outParameterDecl '<> result;
+Rs0 f0 outParameterMapAction 'result.approval=in.approval;
 ' #txt
 Rs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(String,Number)</name>
+        <name>start()</name>
+        <nameStyle>7,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Rs0 f0 83 51 26 26 -56 15 #rect
+Rs0 f0 83 51 26 26 -16 15 #rect
 Rs0 f0 @|RichDialogInitStartIcon #fIcon
-Rs0 f1 type error.handling.demo.RequestApproved.RequestApprovedData #txt
+Rs0 f1 type error.handling.demo.approval.RequestForm.RequestFormData #txt
 Rs0 f1 211 51 26 26 0 12 #rect
 Rs0 f1 @|RichDialogProcessEndIcon #fIcon
 Rs0 f2 expr out #txt
 Rs0 f2 109 64 211 64 #arcP
-Rs0 f3 guid 14ED3AC938DFF4BF #txt
-Rs0 f3 type error.handling.demo.RequestApproved.RequestApprovedData #txt
-Rs0 f3 actionDecl 'error.handling.demo.RequestApproved.RequestApprovedData out;
+Rs0 f3 guid 1508509E7E4E031F #txt
+Rs0 f3 type error.handling.demo.approval.RequestForm.RequestFormData #txt
+Rs0 f3 actionDecl 'error.handling.demo.approval.RequestForm.RequestFormData out;
 ' #txt
 Rs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -61,13 +63,13 @@ Rs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Rs0 f3 83 147 26 26 -15 12 #rect
 Rs0 f3 @|RichDialogProcessStartIcon #fIcon
-Rs0 f4 type error.handling.demo.RequestApproved.RequestApprovedData #txt
-Rs0 f4 guid 14ED3AC938ECEF7B #txt
+Rs0 f4 type error.handling.demo.approval.RequestForm.RequestFormData #txt
+Rs0 f4 guid 1508509E7E4ED71C #txt
 Rs0 f4 211 147 26 26 0 12 #rect
 Rs0 f4 @|RichDialogEndIcon #fIcon
 Rs0 f5 expr out #txt
 Rs0 f5 109 160 211 160 #arcP
->Proto Rs0 .type error.handling.demo.RequestApproved.RequestApprovedData #txt
+>Proto Rs0 .type error.handling.demo.approval.RequestForm.RequestFormData #txt
 >Proto Rs0 .processKind HTML_DIALOG #txt
 >Proto Rs0 -8 -8 16 16 16 26 #rect
 >Proto Rs0 '' #fIcon

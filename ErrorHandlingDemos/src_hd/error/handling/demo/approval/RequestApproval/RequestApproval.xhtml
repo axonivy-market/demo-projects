@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">RequestApproval</ui:define>
+		<ui:define name="content">
+			<h2>Approve</h2>
+			<h4>Request from <h:outputLabel value="#{ivy.case.getCreatorUserName()}"/></h4>
+			
+			<h:form id="form">
+				<p:outputLabel id="requestDescription" value="#{data.approval.description}" />
+				<br/>
+				
+				<p:outputLabel id="cost" value="cost = #{data.approval.cost} CHF" />
+				<br/>
+				
+				<p:commandButton actionListener="#{logic.decline}" value="Decline" update="form" icon="ui-icon-close"/>
+				<p:commandButton actionListener="#{logic.approve}" value="Approve" update="form" icon="ui-icon-check" />
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
