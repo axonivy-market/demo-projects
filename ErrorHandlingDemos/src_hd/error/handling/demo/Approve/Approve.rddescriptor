@@ -16,12 +16,6 @@
             <parameterType>Number</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
-        <outputParameter>
-            <name>approved</name>
-            <description></description>
-            <parameterType>Boolean</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>

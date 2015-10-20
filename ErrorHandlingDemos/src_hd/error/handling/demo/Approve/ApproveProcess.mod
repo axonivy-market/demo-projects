@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Oct 08 16:24:37 CEST 2015]
+[>Created: Tue Oct 20 12:41:50 CEST 2015]
 14ED3A421F7C081D 3.18 #module
 >Proto >Proto Collection #zClass
 As0 ApproveProcess Big #zClass
@@ -32,17 +32,17 @@ As0 f0 disableUIEvents true #txt
 As0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.String requestDescription,java.lang.Number cost> param = methodEvent.getInputArguments();
 ' #txt
-As0 f0 inParameterMapAction 'out.requestDescription=param.requestDescription;
-out.cost=param.cost;
+As0 f0 inParameterMapAction 'out.cost=param.cost;
+out.requestDescription=param.requestDescription;
 ' #txt
-As0 f0 outParameterDecl '<java.lang.Boolean approved> result;
-' #txt
-As0 f0 outParameterMapAction 'result.approved=in.approved;
+As0 f0 outParameterDecl '<> result;
 ' #txt
 As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(String,Number)</name>
+        <nameStyle>20,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
