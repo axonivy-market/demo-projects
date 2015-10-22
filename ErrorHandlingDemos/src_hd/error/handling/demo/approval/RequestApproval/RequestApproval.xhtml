@@ -31,7 +31,7 @@
 				</h:panelGrid>
 				
 				<p:dialog header="Decline Reason" widgetVar="declineDialog" minHeight="40" resizable="false">
-					<h:outputText value="Please enter a reason for the decline: " /><br />
+					<h:outputText value="Please enter a reason" /><br />
 					<p:inputText id="declineReason" value="#{data.declineReason}" size="60"/><br /><br />
 					<div align="right"><p:commandButton actionListener="#{logic.decline}" value="Decline" update="form" icon="ui-icon-close"/></div>
 				</p:dialog>
