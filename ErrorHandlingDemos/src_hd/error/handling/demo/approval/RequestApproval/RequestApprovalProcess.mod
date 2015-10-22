@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Oct 20 13:45:12 CEST 2015]
+[>Created: Thu Oct 22 15:25:07 CEST 2015]
 150850F930AF7EA6 3.18 #module
 >Proto >Proto Collection #zClass
 Rs0 RequestApprovalProcess Big #zClass
@@ -86,11 +86,14 @@ Rs0 f9 83 243 26 26 -20 12 #rect
 Rs0 f9 @|RichDialogProcessStartIcon #fIcon
 Rs0 f12 expr out #txt
 Rs0 f12 109 160 211 160 #arcP
+Rs0 f5 actionCode error.setAttribute("declineReason",in.declineReason); #txt
 Rs0 f5 errorCode approval:declined #txt
 Rs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>approval:declined</name>
+        <nameStyle>17,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt

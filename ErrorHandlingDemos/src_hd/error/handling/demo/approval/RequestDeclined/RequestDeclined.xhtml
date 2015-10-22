@@ -13,12 +13,17 @@
 			<h3>Your request was declined!&#160;</h3>
 			
 			<h:form id="form">
-				<p:outputLabel id="requestDescription" value="#{data.approval.description}" />
-				<br/>
 				
-				<p:outputLabel id="cost" value="cost = #{data.approval.cost} CHF" />
-				<br/>
-				
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Description" />
+					<h:outputText id="requestDescription" value="#{data.approval.description}" />
+					
+					<p:outputLabel value="Cost in CHF" />
+					<h:outputText id="cost" value="#{data.approval.cost} CHF" />
+					
+					<p:outputLabel value="Reason for decline&#160;" />
+					<h:outputText id="declineReason" value="#{data.approval.declineReason}" />
+				</h:panelGrid>
 				<br />
 				<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
 			</h:form>

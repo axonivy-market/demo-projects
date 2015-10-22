@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Oct 20 14:48:17 CEST 2015]
+[>Created: Thu Oct 22 15:24:37 CEST 2015]
 14ED397D47F3083D 3.18 #module
 >Proto >Proto Collection #zClass
 al0 Approval Big #zClass
@@ -196,7 +196,7 @@ al0 Et0 actionDecl 'error.handling.demo.Approval out;
 ' #txt
 al0 Et0 actionTable 'out=in;
 ' #txt
-al0 Et0 actionCode 'ivy.log.info("on error data:"+in);' #txt
+al0 Et0 actionCode 'out.declineReason = error.getAttribute("declineReason") as String;' #txt
 al0 Et0 type error.handling.demo.Approval #txt
 al0 Et0 errorCode approval:declined #txt
 al0 Et0 attachedToRef 14ED397D47F3083D-f11 #txt
