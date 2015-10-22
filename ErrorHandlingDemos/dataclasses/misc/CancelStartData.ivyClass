@@ -1,0 +1,4 @@
+CancelStartData #class
+misc #namespace
+email String #field
+email PERSISTENT #fieldModifier
