@@ -15,7 +15,7 @@
 	<properties>
 		<src.job.name>Trunk_All</src.job.name>
 		<antrun.version>1.7</antrun.version>
-		<project.build.plugin.version>0.0.3-SNAPSHOT</project.build.plugin.version>
+		<project.build.plugin.version>6.0.0</project.build.plugin.version>
 	</properties>
 	
 	<dependencies>
@@ -42,7 +42,7 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>ch.ivyteam.ivy</groupId>
+				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
 				<version>${project.build.plugin.version}</version>
 				<extensions>true</extensions>
@@ -56,9 +56,9 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>ch.ivyteam.ivy</groupId>
+					<groupId>com.axonivy.ivy.ci</groupId>
 					<artifactId>project-build-plugin</artifactId>
-					<version>[0.0.3-SNAPSHOT,)</version>
+					<version>[6.0.0,)</version>
 					<extensions>true</extensions>
 					<configuration>
 						<engineDirectory>${engine.directory}</engineDirectory>

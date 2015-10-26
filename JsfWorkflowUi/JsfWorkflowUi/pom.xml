@@ -21,7 +21,7 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>ch.ivyteam.ivy</groupId>
+        <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
         <extensions>true</extensions>
       </plugin>
