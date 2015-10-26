@@ -44,6 +44,7 @@ WebTestsDemos/target
 WorkflowDemos/classes
 WorkflowDemos/logs
 WorkflowDemos/src_dataClasses/*
+WorkflowDemos/target
 WorkflowUI/classes
 WorkflowUI/classes/*
 WorkflowUI/logs
