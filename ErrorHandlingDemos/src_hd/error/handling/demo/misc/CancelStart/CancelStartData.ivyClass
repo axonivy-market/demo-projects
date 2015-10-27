@@ -1,0 +1,4 @@
+CancelStartData #class
+error.handling.demo.misc.CancelStart #namespace
+email String #field
+email PERSISTENT #fieldModifier
