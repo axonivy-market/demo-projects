@@ -37,6 +37,7 @@ SelfServiceBPM/classes
 SelfServiceBPM/logs
 SelfServiceBPM/src_dataClasses/*
 SelfServiceBPM/src_wsproc/*
+SelfServiceBPM/target
 ServerConfiguration/*.log
 ServerConfiguration/classes
 ServerConfiguration/javac.classpath

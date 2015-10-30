@@ -20,6 +20,7 @@
 		<module>JsfWorkflowUi</module>
 		<module>WorkflowUI</module>
 		<module>HtmlWFUI</module>
+		<module>SelfServiceBPM</module>
 		
 		<!-- parent config poms: -->
 		<module>build.maven</module>
