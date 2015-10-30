@@ -1,0 +1,189 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:body>
+	<ui:composition template="/layouts/full.xhtml">
+		<ui:define name="title">define_WF</ui:define>
+		<ui:define name="content">
+			<h3>#{ivy.cms.co('/Labels/title')}</h3>
+			<p:outputLabel escape="false"
+				value="#{ivy.cms.co('/Texts/AdhocWF-Explain')}"></p:outputLabel>
+			<h:form id="form" enctype="multipart/form-data">
+				<f:facet name="header">
+					<p:messages></p:messages>
+				</f:facet>
+				<p:fieldset legend="Case" toggleable="false">
+					<p:focus context="form" />
+					<h:panelGrid columns="2">
+						<p:outputLabel for="dataCaseInfoSubject"
+							value="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/WFSubject')}" />
+						<p:inputText id="dataCaseInfoSubject"
+							value="#{data.caseInfo.subject}" required="true"
+							style="width:500px"></p:inputText>
+						<p:outputLabel for="caseText" value="Description" />
+						<p:inputTextarea id="caseText"
+							value="#{data.caseInfo.description}" rows="3" required="false"
+							style="width:500px" autoResize="true">
+						</p:inputTextarea>
+						<p:outputLabel for="caseInfoAttachment" value="Attachment" />
+						<p:fileUpload id="caseInfoAttachment"
+							value="#{data.caseInfo.attachment}" mode="simple"
+							sizeLimit="1000000" style="width:630px" />
+						<p:outputLabel for="dataCaseInfoKind" value="Pattern" />
+						<h:panelGrid columns="4">
+							<p:selectOneRadio id="dataCaseInfoKind"
+								value="#{data.caseInfo.kind}">
+								<p:ajax listener="#{logic.initTaskDef}" update=":form:taskDef"
+									process=":form:taskDef"></p:ajax>
+								<f:selectItem itemLabel="ToDo" itemValue="TODO" />
+								<f:selectItem itemLabel="Approval" itemValue="APPROVAL" />
+								<f:selectItem itemLabel="Question-Answer" itemValue="QA" />
+								<f:selectItem itemLabel="Ad-hoc" itemValue="AD-HOC" />
+							</p:selectOneRadio>
+							<p:spacer width="20px"></p:spacer>
+							<h:outputLink title="Show details to the patterns"
+								onclick="PF('detailsDialog').show(); return false;" value="#">
+								<h:outputText styleClass="ui-icon ui-icon-info" />
+							</h:outputLink>
+							<h:outputLink title="Show details to the patterns"
+								onclick="PF('detailsDialog').show(); return false;" value="#"> Details</h:outputLink>
+							<p:dialog header="Details" widgetVar="detailsDialog"
+								minHeight="40">
+								<p:graphicImage name="images/Patterns.png" />
+							</p:dialog>
+						</h:panelGrid>
+					</h:panelGrid>
+				</p:fieldset>
+				<p:fieldset id="taskDef" legend="Workflow" toggleable="false"
+					collapsed="false" style="padding-top:0px; margin:0px;">
+					<div style="float: left;">
+						<p:panel style="padding:0px; margin:0px; border:0px;">
+							<h:panelGrid columns="2" cellpadding="0" cellspacing="4" styleClass="flowpanel">
+									<h:graphicImage library="ivy-webcontent"
+										name="user/#{data.newTask.actor}.jpg" height="68"
+										title="#{data.newTask.actor}" styleClass="circularImg" />
+								<h:panelGrid columns="1" cellpadding="0" cellspacing="0">
+									<p:outputLabel value="CREATOR" readonly="true"
+										style="font-weight:bold;">
+									</p:outputLabel>
+									<p:outputLabel value="#{data.newTask.actor}" readonly="true"></p:outputLabel>
+									<p:outputLabel
+										value="#{data.started.format('dd.MM.YYYY HH:mm')}" size="16"
+										readonly="true" />
+								</h:panelGrid>
+							</h:panelGrid>
+						</p:panel>
+					</div>
+					<ui:repeat var="defineTask" value="#{data.definedTasks}"
+						varStatus="row">
+						<div style="float: left;">
+							<p:panel style="padding:0px; margin:0px; border:0px; ">
+								<h:panelGrid columns="2" cellpadding="0" cellspacing="0">
+									 	
+									<h:graphicImage library="ivy-webcontent" name="images/flowA.png"
+									height="36" title="Forward to: " style="margin:0px; padding:0px"/>
+									
+										<h:panelGrid columns="2" styleClass="flowpanel" cellpadding="0" cellspacing="4">
+											<h:graphicImage id="userPortrait" library="ivy-webcontent"
+												name="user/#{defineTask.actor.indexOf(',') gt 0 ? 'group' : data.wfusers.contains(defineTask.actor) ? defineTask.actor : 'anonym'}.jpg"
+												height="68" title="#{defineTask.actor}"
+												styleClass="circularImg" style="margin:0px">
+												<p:ajax event="mousedown" process="@this"
+														listener="#{logic.initUserList(defineTask)}"
+														oncomplete="PF('userList').show();" />
+											</h:graphicImage>
+											<h:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<h:panelGroup>
+												<p:outputLabel value="#{defineTask.kind}" readonly="true"
+													style="font-weight:bold;"></p:outputLabel>
+												<p:commandButton icon="ui-icon-close"
+													title="Delete this Step"
+													actionListener="#{logic.deleteTask(defineTask)}"
+													update=":form:taskDef" process=":form:taskDef" 
+													style="background-color:#ffffff; border:0px" />
+												</h:panelGroup>
+												<p:inputText value="#{defineTask.description}" size="18"
+													readonly="false" rendered="#{defineTask.kind eq 'TASK'}">
+													<p:ajax event="mousedown" process="@this"
+														listener="#{logic.editTaskDescription(defineTask)}"
+														update="taskDesription"
+														oncomplete="PF('taskDesription').show();" />
+												</p:inputText>
+												<p:inputText value="#{defineTask.actor}" size="18"
+													readonly="false">
+													<p:ajax event="mousedown" process="@this"
+														listener="#{logic.initUserList(defineTask)}"
+														update="userList"
+														oncomplete="PF('userList').show();" />
+												</p:inputText>
+												<p:calendar id="taskTill" value="#{defineTask.until}"
+													widgetVar="taskTill#{row.index}" required="false"
+													pattern="dd.MM.yyyy HH:mm" size="18">
+													<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+												</p:calendar>
+												<p:outputLabel></p:outputLabel>
+											</h:panelGrid>
+										</h:panelGrid>
+								</h:panelGrid>
+							</p:panel>
+						</div>
+					</ui:repeat>
+					<div style="float: left">
+						<p:panel 
+							style="margin:0px; padding:0px; border:0px">
+							<h:panelGrid columns="1"
+								style="margin-top:24px; margin-right:0px; margin-left:0px;">
+								<p:commandButton icon="ui-icon-plus" value="Task"
+									styleClass="iconButton" title="Add a task to the sequence"
+									actionListener="#{logic.addTaskDef}" update=":form:taskDef"
+									process=":form:taskDef" style="background-color:#ffffff"></p:commandButton>
+							</h:panelGrid>
+						</p:panel>
+					</div>
+					<ui:repeat var="adTask" value="#{data.additionalTasks}">
+					<div style="float: left">
+						<p:panel style="margin:0px; padding: 0px; border:0px">
+							<h:panelGrid columns="2" cellpadding="0" cellspacing="0" style="margin:0px padding:0px" >
+									 
+								<h:graphicImage library="ivy-webcontent" name="images/flowA.png"
+									height="36" title="Forward to: " />
+								
+									<h:panelGrid columns="2" cellpadding="1" styleClass="flowpanel">
+										<h:graphicImage library="ivy-webcontent"
+											name="user/#{adTask.actor}.jpg" height="68"
+											title="#{adTask.actor}" styleClass="circularImg" />
+										<h:panelGrid columns="1">
+											<p:outputLabel value="#{adTask.kind}" readonly="true"
+												style="font-weight:bold"></p:outputLabel>
+											<h:outputLabel></h:outputLabel>
+											<p:outputLabel value="#{adTask.actor}" readonly="true"></p:outputLabel>
+											<p:outputLabel value="" />
+										</h:panelGrid>
+									</h:panelGrid>
+								</h:panelGrid>
+							</p:panel>
+						</div>
+					</ui:repeat>
+				</p:fieldset>
+				<br />
+				<p:spacer width="10px"></p:spacer>
+				<p:commandButton actionListener="#{logic.go}" value="Start Workflow"
+					icon="ui-icon-check" update="form" ajax="false" />
+			</h:form>
+			<p:dialog id="userList" header="Responsable Users"
+				widgetVar="userList" modal="true" appendTo="@(body)"> 
+				<ui:include src="responsableUser.xhtml"></ui:include>
+			</p:dialog>
+			<p:dialog id="taskDesription" header="Task Description"
+				widgetVar="taskDesription" modal="true" appendTo="@(body)"> 
+				<ui:include src="taskDescription.xhtml"></ui:include>				
+			</p:dialog>			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

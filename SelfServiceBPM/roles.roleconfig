@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<role>
+    <identifier>Everybody</identifier>
+    <role>
+        <identifier>Entwicklung</identifier>
+    </role>
+    <role>
+        <identifier>Sekretariat</identifier>
+    </role>
+    <role>
+        <identifier>2nd Level Support</identifier>
+    </role>
+    <role>
+        <identifier>Vietnam Product Owners</identifier>
+    </role>
+    <role>
+        <identifier>Product Owners</identifier>
+    </role>
+    <role>
+        <identifier>ivyTeam</identifier>
+    </role>
+</role>

@@ -33,6 +33,10 @@ RichDialogDemos/classes
 RichDialogDemos/logs
 RichDialogDemos/src_dataClasses/*
 RichDialogDemos/target
+SelfServiceBPM/classes
+SelfServiceBPM/logs
+SelfServiceBPM/src_dataClasses/*
+SelfServiceBPM/src_wsproc/*
 ServerConfiguration/*.log
 ServerConfiguration/classes
 ServerConfiguration/javac.classpath
