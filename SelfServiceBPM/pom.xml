@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.ivyteam.ivy.project</groupId>
-  <artifactId>selfservicebpm</artifactId>
+  <artifactId>self.service.bpm</artifactId>
   <version>6.0.0</version>
   <packaging>iar</packaging>
   
