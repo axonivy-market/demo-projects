@@ -50,59 +50,59 @@
 							</div>
 						</ui:fragment>
 					</div>
-					<form jsf:id="form">
+				<form jsf:id="Form">
 
-						<h:messages showDetail="true" />
-						<div class="col-lg-6">
+					<h:messages showDetail="true" />
+					<div class="col-lg-6">
 
-							<div class="form-group">
-								<label for="InputName">Your Name</label>
-								<div class="input-group">
-									<input type="text" class="form-control" id="InputName"
-										placeholder="Enter Name" jsf:required="true"
-										required="required" jsf:value="#{data.name}">
-										<f:validateLength minimum="4" maximum="32" />
-									</input> <span class="input-group-addon"><i
-										class="glyphicon glyphicon-ok"></i></span>
-								</div>
+						<div class="form-group">
+							<label for="InputName">Your Name</label>
+							<div class="input-group">
+								<input type="text" class="form-control" jsf:id="Name"
+									placeholder="Enter Name" jsf:required="true"
+									required="required" jsf:value="#{data.name}">
+								<f:validateLength minimum="4" maximum="32" />
+								</input> <span class="input-group-addon"><i
+									class="glyphicon glyphicon-ok"></i></span>
 							</div>
-							<div class="form-group">
-								<label for="InputEmail">Your Email</label>
-								<div class="input-group">
-									<input type="email" class="form-control" id="InputEmail"
-										placeholder="Enter Email" jsf:required="true"
-										required="required" jsf:value="#{data.email}" /><span
-										class="input-group-addon"><i
-										class="glyphicon glyphicon-ok"></i></span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="InputBirthdate">Your Birthdate</label>
-								<div class="input-group">
-									<input type="date" class="form-control" id="InputBirthdate"
-										jsf:required="true" required="required"
-										jsf:value="#{data.birthDate}">
-										<f:convertDateTime pattern="yyyy-MM-dd" />
-									</input> <span class="input-group-addon"><i
-										class="glyphicon glyphicon-ok"></i></span>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="InputReal">What is 40 + 2? (Spam Check)</label>
-								<div class="input-group">
-									<input type="text" class="form-control" id="InputCaptcha"
-										jsf:required="true" jsf:value="#{data.captcha}" />
-									<span class="input-group-addon"><i
-										class="glyphicon glyphicon-ok"></i></span>
-								</div>
-
-							</div>
-							<br /> <input type="submit" id="submit" value="Submit"
-								class="btn btn-info" jsf:actionListener="#{logic.submitForm}" />
 						</div>
-					</form>
-					<hr class="featurette-divider hidden-lg" />
+						<div class="form-group">
+							<label for="InputEmail">Your Email</label>
+							<div class="input-group">
+								<input type="email" class="form-control"  jsf:id="Email"
+									placeholder="Enter Email" jsf:required="true"
+									required="required" jsf:value="#{data.email}" /><span
+									class="input-group-addon"><i
+									class="glyphicon glyphicon-ok"></i></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="InputBirthdate">Your Birthdate</label>
+							<div class="input-group">
+								<input type="date" class="form-control" jsf:id="Birthdate"
+									jsf:required="true" required="required"
+									jsf:value="#{data.birthDate}">
+								<f:convertDateTime pattern="yyyy-MM-dd" />
+								</input> <span class="input-group-addon"><i
+									class="glyphicon glyphicon-ok"></i></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="InputReal">What is 40 + 2? (Spam Check)</label>
+							<div class="input-group">
+								<input type="text" class="form-control"  jsf:id="Captcha"
+									jsf:required="true" jsf:value="#{data.captcha}" /> <span
+									class="input-group-addon"><i
+									class="glyphicon glyphicon-ok"></i></span>
+							</div>
+
+						</div>
+						<br /> <input type="submit" id="submit" value="Submit"
+							class="btn btn-info" jsf:actionListener="#{logic.submitForm}" />
+					</div>
+				</form>
+				<hr class="featurette-divider hidden-lg" />
 					<div class="col-lg-5 col-md-push-1">
 						<br />
 

@@ -19,7 +19,8 @@ public class Person
 	
 	@Max(value=2100, message="<%=ivy.cms.co(\"/ch.ivyteam.htmldialog.demo/BeanValidationDemo/smallerOrEqualThan2100\")%>")
 	@Min (value=1900, message="<%=ivy.cms.co(\"/ch.ivyteam.htmldialog.demo/BeanValidationDemo/greaterOrEqualThan1900\")%>")
-	private int yearOfBirth;
+	@NotNull(message="<%=ivy.cms.co(\"/ch.ivyteam.htmldialog.demo/BeanValidationDemo/greaterOrEqualThan1900\")%>")
+	private Integer yearOfBirth;
 
 	@LicensePlate(message="<%=ivy.cms.co(\"/ch.ivyteam.htmldialog.demo/BeanValidationDemo/licensePlate\")%>")
 	private String vehicleLicense;
@@ -44,12 +45,12 @@ public class Person
 		this.socialSecurityNumber = socialSecurityNumber;
 	}
 
-	public int getYearOfBirth() 
+	public Integer getYearOfBirth() 
 	{
 		return yearOfBirth;
 	}
 
-	public void setYearOfBirth(int yearOfBirth) 
+	public void setYearOfBirth(Integer yearOfBirth) 
 	{
 		this.yearOfBirth = yearOfBirth;
 	}
@@ -73,6 +74,8 @@ public class Person
 		builder.append(socialSecurityNumber);
 		builder.append(", yearOfBirth=");
 		builder.append(yearOfBirth);
+		builder.append(", Licence=");
+		builder.append(vehicleLicense);		
 		builder.append("]");
 		return builder.toString();
 	}

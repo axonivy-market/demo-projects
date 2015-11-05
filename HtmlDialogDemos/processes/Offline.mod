@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Oct 07 16:31:09 CEST 2015]
+[>Created: Thu Nov 05 13:51:30 CET 2015]
 150425B095B4FB54 3.18 #module
 >Proto >Proto Collection #zClass
 Oe0 Offline Big #zClass
@@ -77,7 +77,7 @@ TaskA.EXTYPE=-1
 TaskA.NAM=Continue with ''Client Side Validation Demo''
 TaskA.PRI=2
 TaskA.ROL=Everybody
-TaskA.SKIP_TASK_LIST=false
+TaskA.SKIP_TASK_LIST=true
 TaskA.TYPE=0' #txt
 Oe0 f3 type htmlDialogDemos.Data #txt
 Oe0 f3 216 74 112 44 0 -7 #rect
