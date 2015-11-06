@@ -2,6 +2,8 @@ package ch.ivyteam.ivy.server.configuration.DatabaseConnectionConfigurationUI;
 
 import java.util.Map;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import ch.ivyteam.db.jdbc.ConnectionProperty;
 import ch.ivyteam.db.jdbc.JdbcDriver;
 import ch.ivyteam.ivy.richdialog.config.eventmapping.IWidgetEventAction;
@@ -114,8 +116,9 @@ public class DatabaseConnectionConfigurationUIPanel extends
 		filler = new RGridBagLayoutPane();
 		filler.setStyleProperties("{/fill \"BOTH\"/weightY \"1\"/weightX \"1\"}");
 		panel.add(filler, new GridBagConstraints(1, pos, 3, 1, -1, -1, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0,0,0,0), 0, 0));
-		panel.setName(driver.getDriverSpecificPackage());
-		contentCardPane.addCard(driver.getDriverSpecificPackage(), panel);
+		String uniqueDriverName = getUniqueId(driver);
+		panel.setName(uniqueDriverName);
+		contentCardPane.addCard(uniqueDriverName, panel);
 	}
 
 	private void initComponentsFor(RGridBagLayoutPane panel,
@@ -203,8 +206,14 @@ public class DatabaseConnectionConfigurationUIPanel extends
 	 */
 	public void setSelectedJdbcDriver(JdbcDriver jdbcDriver)
 	{
-		contentCardPane.setSelectedName(jdbcDriver.getDriverSpecificPackage());
+		contentCardPane.setSelectedName(getUniqueId(jdbcDriver));
 		selectedJdbcDriver = jdbcDriver;
+	}
+
+	private String getUniqueId(JdbcDriver driver)
+	{
+		int indexOf = ArrayUtils.indexOf(JdbcDriver.getJdbcDrivers(), driver);
+		return "UniqueId" + indexOf;
 	}
 	
 	/**
