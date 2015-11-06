@@ -14,6 +14,10 @@ public class AdminBean implements Serializable {
 		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);
 	}
 	
+	public Boolean hasWorkflowEventReadPermission() {
+		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.WORKFLOW_EVENT_READ_ALL);
+	}
+	
 	public Boolean hasAbsencePermission() {
 		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.USER_CREATE_ABSENCE)
 				&& Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.USER_READ_ABSENCES);

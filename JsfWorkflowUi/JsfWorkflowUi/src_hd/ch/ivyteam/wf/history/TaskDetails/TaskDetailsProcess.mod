@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Nov 26 10:40:19 CET 2014]
-13FE10F004F193D4 3.17 #module
+[>Created: Fri Nov 06 11:23:35 CET 2015]
+13FE10F004F193D4 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
 Ts0 RD #cInfo
@@ -685,7 +685,7 @@ Ts0 f55 actionTable 'out=in;
 Ts0 f55 actionCode 'import ch.ivyteam.wf.admin.AdminBean;
 
 AdminBean admin;
-if(admin.getIsAdmin())
+if(admin.hasWorkflowEventReadPermission())
 {
 	out.taskEvents = in.task.getWorkflowEvents();
 }' #txt
@@ -787,7 +787,7 @@ IWorkflowSession ivySession = ivy.session;
 boolean hasPageArchivePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_PAGE_ARCHIVE_READ_ALL);
 boolean hasResetPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_RESET_OWN_WORKING_TASK);
 boolean hasChangePrioPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_WRITE_ORIGINAL_PRIORITY);
-boolean hasDelegatePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.DELEGATE_TASKS);
+boolean hasDelegatePermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_WRITE_ACTIVATOR);
 boolean hasTaskWriteExpiryPermission = ivySession.hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_WRITE_EXPIRY_ACTIVATOR);
 IProcessModelVersionRequest Ivyrequest = ivy.html.getObject("request") as IProcessModelVersionRequest;
 ISecurityDescriptor securityDescriptor = Ivyrequest.getApplication().getSecurityDescriptor();
