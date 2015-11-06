@@ -10,12 +10,24 @@ import ch.ivyteam.ivy.environment.Ivy;
 @ManagedBean
 public class AdminBean implements Serializable {
     
-	public Boolean getIsAdmin() {
-		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);
+	public Boolean isWorkflowAdmin() {
+		return hasTaskPermissions() && hasCasePermissions();
+	}
+
+	private Boolean hasTaskPermissions() {
+		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_READ_ALL);
+	}
+
+	private Boolean hasCasePermissions() {
+		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_READ_ALL);
 	}
 	
 	public Boolean hasWorkflowEventReadPermission() {
 		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.WORKFLOW_EVENT_READ_ALL);
+	}
+	
+	public Boolean hasReadAbsencesPermission() {
+		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.USER_READ_ABSENCES);
 	}
 	
 	public Boolean hasAbsencePermission() {

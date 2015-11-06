@@ -40,7 +40,7 @@
 										href="#{ivy.html.startref('13F51835BF0FECEF/MailNotificationSettings.ivp')}">#{ivy.cms.co('/navLabels/mailSettings')}</a></li>
 								</ul></li>
 							<c:choose>
-								<c:when test="#{adminBean.isAdmin}">
+								<c:when test="#{adminBean.isWorkflowAdmin()}">
 									<li class="dropdown"><a class="dropdown-toggle"
 										data-toggle="dropdown" href="#">#{ivy.cms.co('/navLabels/admin')}<span
 											class="caret"></span>

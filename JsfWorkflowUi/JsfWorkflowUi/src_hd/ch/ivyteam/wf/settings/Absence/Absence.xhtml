@@ -14,7 +14,7 @@
 		<f:event type="preRenderView" listener="#{logic.update()}" />
 		<br />
 		#{ivy.cms.co('/labels/settings/absence/description')}
-       	<c:if test="#{adminBean.isAdmin}">
+       	<c:if test="#{adminBean.hasReadAbsencesPermission()}">
         	<br /><br />
 			<h:panelGrid columns="1">
 				<p:toolbar styleClass="ivy-toolbar">  
