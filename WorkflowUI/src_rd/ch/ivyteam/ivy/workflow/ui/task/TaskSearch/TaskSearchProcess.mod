@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Mar 15 14:18:39 CET 2012]
-1175F14B3894BBC3 3.17 #module
+[>Created: Mon Nov 09 13:49:21 CET 2015]
+1175F14B3894BBC3 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskSearchProcess Big #zClass
 Ts0 RD #cInfo
@@ -3613,7 +3613,7 @@ out.unclassifiedTasksTitle =
 
 // check the permissions
 out.hasPermissionDelegateTasks = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), 
-																														ch.ivyteam.ivy.security.IPermission.DELEGATE_TASKS);
+																														ch.ivyteam.ivy.security.IPermission.TASK_WRITE_ACTIVATOR);
 																														
 out.hasPermisionRoleTreeNavigation = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), 
 																																ch.ivyteam.ivy.security.IPermission.ROLE_TREE_NAVIGATION);

@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Jun 24 10:10:45 CEST 2015]
-1168625F1BC1155F 3.17 #module
+[>Created: Mon Nov 09 13:48:47 CET 2015]
+1168625F1BC1155F 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
 Ts0 RD #cInfo
@@ -645,7 +645,7 @@ import ch.ivyteam.ivy.richdialog.widgets.displays.RCloseableTabbedDisplay;
 out.taskListChildrenDisplayId = "xivyTaskDisplayId" + UniqueDisplayIdFactory.buildTaskListDisplayId();
 panel.taskDisplayTabbedDisplay.displayId = out.taskListChildrenDisplayId;
 
-out.hasPermissionDelegateTasks = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.DELEGATE_TASKS);
+out.hasPermissionDelegateTasks = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.TASK_WRITE_ACTIVATOR);
 
 
 // build the list of task states for find criteria

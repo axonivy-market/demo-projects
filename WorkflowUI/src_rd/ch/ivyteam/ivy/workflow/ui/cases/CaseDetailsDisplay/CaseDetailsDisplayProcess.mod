@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Nov 25 11:09:10 CET 2011]
-129830871D8882E2 3.17 #module
+[>Created: Mon Nov 09 13:39:32 CET 2015]
+129830871D8882E2 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHeaderDisplayProcess Big #zClass
 Ts0 RD #cInfo
@@ -116,8 +116,8 @@ ivy.rd.subscribeToSystemEvents(SystemEventCategory.WORKFLOW);
 
 
 out.hasWfAdministratorPermissions = 
-	ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), 
-														IPermission.ADMINISTRATE_WORKFLOW);' #txt
+	ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), IPermission.TASK_READ_ALL) &&
+	ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), IPermission.CASE_READ_ALL);' #txt
 Ts0 f17 type ch.ivyteam.ivy.workflow.ui.cases.CaseDetailsDisplay.CaseDetailsDisplayData #txt
 Ts0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

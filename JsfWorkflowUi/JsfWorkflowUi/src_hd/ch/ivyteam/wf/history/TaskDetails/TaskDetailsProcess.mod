@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Nov 06 11:23:35 CET 2015]
+[>Created: Mon Nov 09 13:29:00 CET 2015]
 13FE10F004F193D4 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -160,8 +160,7 @@ import ch.ivyteam.ivy.workflow.IPropertyFilter;
 
 out.task = null;
 
-if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW)
-	&& ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_READ_ALL))
+if(new ch.ivyteam.wf.admin.AdminBean().isWorkflowAdmin())
 {
 	out.task = ivy.wf.findTask(in.taskId);
 }

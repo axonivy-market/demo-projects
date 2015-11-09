@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri May 04 16:13:54 CEST 2012]
-12C97DB1B1EA5971 3.17 #module
+[>Created: Mon Nov 09 14:40:49 CET 2015]
+12C97DB1B1EA5971 3.18 #module
 >Proto >Proto Collection #zClass
 Rt0 CaseList Big #zClass
 Rt0 B #cInfo
@@ -415,8 +415,8 @@ if(in.temp.statFilter!=ivy.cms.co("/labels/all"))
 out.temp.processes.clear();	
 out.temp.processes.add([ivy.cms.co("/labels/all"),ivy.cms.co("/labels/all"),ivy.cms.co("/labels/all")]);
 
-if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW)
-	&& ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_READ_ALL))
+if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_READ_ALL) &&
+	 ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_READ_ALL))
 { // WorkflowAdmin can administrate all cases	
 
 	out.temp.mode = ivy.cms.co("/labels/permissionWorkflowAdmin");

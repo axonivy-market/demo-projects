@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Sep 24 16:13:10 CEST 2012]
-117CB5CD6E5F88C6 3.17 #module
+[>Created: Mon Nov 09 13:38:45 CET 2015]
+117CB5CD6E5F88C6 3.18 #module
 >Proto >Proto Collection #zClass
 As0 ApplicationDynamicWayProcess Big #zClass
 As0 RD #cInfo
@@ -254,7 +254,9 @@ out.multipleTaskListMode = WorkflowUserPropertyHelper.getMultipleTaskListModePre
 out.multipleCaseListMode = WorkflowUserPropertyHelper.getMultipleCaseListModePreference(sessionUser);
 
 // has the user wf admin permissions
-out.hasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);' #txt
+out.hasWfAdministratorPermissions = 
+	ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.TASK_READ_ALL) &&
+	ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.CASE_READ_ALL);' #txt
 As0 f29 type ch.ivyteam.ivy.workflow.ui.Application.ApplicationData #txt
 As0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -315,7 +317,7 @@ param.aTaskDisplayListParentDisplay = panel.centerTabbedDisplay;
 param.aPropertyFilter = in.taskHierarchyContext.propertyFilter;
 // my tasks
 param.aTaskDisplayMode = in.taskDisplayMode;
-param.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.ADMINISTRATE_WORKFLOW);' #txt
+param.aHasWfAdministratorPermissions = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.TASK_READ_ALL);' #txt
 As0 f77 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.Application.ApplicationData out;
 ' #txt
 As0 f77 responseMappingAction 'out=in;

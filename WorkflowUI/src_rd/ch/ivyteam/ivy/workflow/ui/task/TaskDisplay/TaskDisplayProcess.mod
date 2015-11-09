@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Jan 29 14:01:15 CET 2014]
-116A9BF16D47762C 3.17 #module
+[>Created: Mon Nov 09 13:51:10 CET 2015]
+116A9BF16D47762C 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskInformationDisplayProcess Big #zClass
 Ts0 RD #cInfo
@@ -300,7 +300,7 @@ panel.flowDisplayCardDisplay.displayId = out.flowDisplayDisplayId;
 
 
 // has permission to delegate?
-out.hasPermissionDelegateTasks = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), IPermission.DELEGATE_TASKS);
+out.hasPermissionDelegateTasks = ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), IPermission.TASK_WRITE_ACTIVATOR);
 
 out.taskDelegateWindowTitle = ivy.cms.co("/ch/ivyteam/ivy/workflow/ui/task/plainStrings/delegateTaskShortDesc");
 
@@ -769,37 +769,30 @@ Ts0 f125 @|RichDialogProcessEndIcon #fIcon
 Ts0 f130 expr out #txt
 Ts0 f130 2232 228 2232 283 #arcP
 Ts0 f130 0 0.4182708839231334 0 0 #arcLabel
-Ts0 f11 targetWindow NEW #txt
+Ts0 f11 targetWindow NEW:card: #txt
 Ts0 f11 targetDisplay TOP #txt
 Ts0 f11 richDialogId ch.ivyteam.ivy.addons.commondialogs.MessageDialog #txt
 Ts0 f11 startMethod showMessageWithTitle(String,String) #txt
 Ts0 f11 type ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData #txt
 Ts0 f11 requestActionDecl '<String aMessageTitle, String aMessageText> param;' #txt
 Ts0 f11 requestMappingAction 'param.aMessageTitle="Permission denied to delegate the tasks";
-param.aMessageText="You don''t have the permission called ''" + ch.ivyteam.ivy.security.IPermission.DELEGATE_TASKS.getName() + "'' that will gives you possibility to do that action. \nContact your Workflow Administrator for that.";
+param.aMessageText="You don''t have the permission called ''" + ch.ivyteam.ivy.security.IPermission.TASK_WRITE_ACTIVATOR.getName() + "'' that will gives you possibility to do that action. \nContact your Workflow Administrator for that.";
 ' #txt
 Ts0 f11 responseActionDecl 'ch.ivyteam.ivy.workflow.ui.task.TaskDisplay.TaskDisplayData out;
 ' #txt
 Ts0 f11 responseMappingAction 'out=in;
 ' #txt
-Ts0 f11 windowConfiguration '#Tue May 20 14:11:10 CEST 2008
-height=200
-maximized=false
-centered=true
-close_after_last_rd=true
-resizable=true
-width=550
-title=Information
-' #txt
+Ts0 f11 windowConfiguration '{/title "Information"/width 550 /height 200 /centered true /resizable true /maximized false /close_after_last_rd true }' #txt
 Ts0 f11 isAsynch false #txt
 Ts0 f11 isInnerRd true #txt
 Ts0 f11 isDialog true #txt
+Ts0 f11 userContext '* ' #txt
 Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>inform the user
 permission denied</name>
-        <nameStyle>33,9
+        <nameStyle>33,7,9
 </nameStyle>
     </language>
 </elementInfo>
@@ -857,7 +850,7 @@ Ts0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f52 2394 178 28 28 14 0 #rect
 Ts0 f52 @|AlternativeIcon #fIcon
 Ts0 f53 expr in #txt
-Ts0 f53 outCond 'ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.DELEGATE_TASKS)' #txt
+Ts0 f53 outCond 'ivy.session.hasPermission(ivy.request.getApplication().getSecurityDescriptor(), ch.ivyteam.ivy.security.IPermission.TASK_WRITE_ACTIVATOR)' #txt
 Ts0 f53 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
