@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.security.IPermission;
+import ch.ivyteam.ivy.security.ISecurityDescriptor;
+import ch.ivyteam.ivy.workflow.IWorkflowSession;
   
 @SuppressWarnings("serial")
 @ManagedBean
@@ -15,36 +18,54 @@ public class AdminBean implements Serializable {
 	}
 
 	private Boolean hasTaskPermissions() {
-		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.TASK_READ_ALL);
+		return hasPermission(IPermission.TASK_READ_ALL);
 	}
 
 	private Boolean hasCasePermissions() {
-		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_READ_ALL);
+		return hasPermission(IPermission.CASE_READ_ALL);
 	}
 	
 	public Boolean hasWorkflowEventReadPermission() {
-		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.WORKFLOW_EVENT_READ_ALL);
+		return hasPermission(IPermission.WORKFLOW_EVENT_READ_ALL);
 	}
 	
 	public Boolean hasReadAbsencesPermission() {
-		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.USER_READ_ABSENCES);
+		return hasPermission(IPermission.USER_READ_ABSENCES);
 	}
 	
 	public Boolean hasAbsencePermission() {
-		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.USER_CREATE_ABSENCE)
-				&& Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.USER_READ_ABSENCES);
+		return hasPermission(
+				IPermission.USER_CREATE_ABSENCE, 
+				IPermission.USER_READ_ABSENCES);
 	}
 	
 	public Boolean hasSubstitutePermission() {
-		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.USER_CREATE_SUBSTITUTE)
-				&& Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.USER_READ_SUBSTITUTIONS);
+		return hasPermission(
+				IPermission.USER_CREATE_SUBSTITUTE, 
+				IPermission.USER_READ_SUBSTITUTIONS);
 	}
 	
 	public Boolean hasSessionReadAllPermission() {
-		return Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.SESSION_READ_ALL)
-				&& Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.SESSION_READ_SESSION_USER)
-				&& Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.SESSION_READ_ACTIVE_SUBSTITUTIONS)
-				&& Ivy.session().hasPermission(Ivy.request().getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.SESSION_READ_ABSENT);
-	}	
+		return hasPermission(
+				IPermission.SESSION_READ_ALL, 
+				IPermission.SESSION_READ_SESSION_USER, 
+				IPermission.SESSION_READ_ACTIVE_SUBSTITUTIONS, 
+				IPermission.SESSION_READ_ABSENT);
+	}
+	
+	private static Boolean hasPermission(IPermission... permissions)
+	{
+		IWorkflowSession session = Ivy.session();
+		ISecurityDescriptor securityDescriptor = Ivy.request().getApplication().getSecurityDescriptor();
+		for(IPermission permission : permissions)
+		{
+			boolean hasPermission = session.hasPermission(securityDescriptor, permission);
+			if (!hasPermission)
+			{
+				return Boolean.FALSE;
+			}
+		}
+		return Boolean.TRUE;
+	}
 	
 }  
