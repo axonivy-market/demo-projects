@@ -12,7 +12,7 @@
 	<!-- Bootstrap CSS -->
 	<!-- You can also load bootstrap from an external CDN: //http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
 	<h:outputStylesheet name="layouts/styles/bootstrap-modified-for-jsf.css" />
-	<h:outputStylesheet name="layouts/styles/ivy-common.css" />
+	<h:outputStylesheet name="layouts/styles/ivy-common-6.css" />
 	<h:outputStylesheet name="layouts/styles/style.css" />
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -25,8 +25,9 @@
 	<div class="navbar navbar-inverse">
 		<div class="container" id="headerdiv">
 			<div class="navbar-header">
-				<a class="navbar-brand"
-					href="#{ivy.html.startref('Demo/start.ivp')}" id="navbar-ivy-title">Axon.ivy Html Dialog Demos</a>
+			  <a class="ivy-logo" href="#{ivy.html.startref('Demo/start.ivp')}">
+		  	    <h:graphicImage name="layouts/images/axon_ivy_6_logo.png" alt="Axon.ivy" />
+              </a>
 			</div>
 		</div>
 	</div>

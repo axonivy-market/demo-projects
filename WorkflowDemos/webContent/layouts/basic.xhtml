@@ -12,10 +12,10 @@
   <link rel="shortcut icon"
     href="#{resource['ivy-webcontent:layouts/images/ivy_favicon_48.png']}" />
 
-  <!-- You can also load bootstrap from an external CDN: //http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
+  <!-- You can also load bootstrap from an external CDN: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css -->
   <h:outputStylesheet
     name="layouts/styles/bootstrap-modified-for-jsf.css" />
-  <h:outputStylesheet name="layouts/styles/ivy-common.css" />
+  <h:outputStylesheet name="layouts/styles/ivy-common-6.css" />
 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -26,11 +26,12 @@
 </h:head>
 <h:body>
   <ui:insert name="header">
-    <div class="navbar navbar-inverse">
+    <div class="navbar navbar-top">
       <div class="container" id="headerdiv">
         <div class="navbar-header">
-          <a class="navbar-brand" href="http://developer.axonivy.com"
-            id="navbar-ivy-title">Axon.ivy</a>
+		  <a class="ivy-logo" href="http://developer.axonivy.com">
+		  	<h:graphicImage name="layouts/images/axon_ivy_6_logo.png" alt="Axon.ivy" />
+          </a>
         </div>
       </div>
     </div>
