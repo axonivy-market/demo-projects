@@ -1,14 +1,4 @@
 @CHARSET "ISO-8859-1";
-div#layoutHeader
-{
-	background-color: #575656;
-}
-
-div#PageCaption
-{
-	background-color: #dfdfdf;
-}
-
 body
 {
   font-family: Corbel, "Segoe UI", Arial, sans-serif;

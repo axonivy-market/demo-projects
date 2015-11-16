@@ -7,13 +7,11 @@
 
 <body>
 	<ui:composition>
-		<div class="navbar navbar-inverse">
+		<div class="navbar navbar-top">
 			<div class="container" id="headerdiv">
-				<div class="navbar-header">
-					<a class="navbar-brand"
-						href="#{ivy.html.startref('13EACA2A989BCC3D/DefaultApplicationHomePage.ivp')}"
-						id="navbar-ivy-title">Axon.ivy Workflow</a>
-				</div>
+				<a class="ivy-logo" href="#{ivy.html.startref('13EACA2A989BCC3D/DefaultApplicationHomePage.ivp')}">
+					<h:graphicImage name="layouts/images/axon_ivy_6_logo.png" alt="Axon.ivy" />
+				</a>
 
 				<c:if
 					test="#{! ivy.wf.securityContext.currentSession.sessionUserUnknown}">
