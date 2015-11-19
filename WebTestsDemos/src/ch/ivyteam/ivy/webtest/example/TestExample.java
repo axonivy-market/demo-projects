@@ -1,6 +1,6 @@
 package ch.ivyteam.ivy.webtest.example;
 
-import static org.junit.Assert.*;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 import java.util.concurrent.TimeUnit;
 
@@ -40,15 +40,14 @@ public class TestExample {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		// The base URL where the application is deployed.
-		// The current value points to a locally running Xpert.ivy designer.
-		// You can also run tests against a Xpert.ivy Server.
-		baseUrl = "http://localhost:8081/ivy/";
+		// The current value points to a locally running Axon.ivy designer.
+		// You can also run tests against a Axon.ivy Server.
+		baseUrl = System.getProperty("test.engine.baseUrl", "http://localhost:8081/ivy/");
 
 		// The name of the Application to test.
-		// The current value points to the designer application used in
-		// Xpert.ivy designer.
-		// If you test against a Xpert.ivy server the application name will be different.
-		ivyApplication = "designer";
+		// The current value points to the designer application used in Axon.ivy designer.
+		// If you test against a Axon.ivy engine the application name will be different.
+		ivyApplication = System.getProperty("test.app", "designer");
 	}
 
 	@After
@@ -67,25 +66,25 @@ public class TestExample {
         WebElement element = driver.findElement(By.name("q"));
 
         // Enter something to search for
-        element.sendKeys("xpert.ivy");
+        element.sendKeys("axon.ivy");
 
         // Now submit the form. WebDriver will find the form for us from the element
         element.submit();
         
-        // Ensure that there is at least one link containing the text "Process"
+        // Ensure that there is at least one link containing the text "BPM"
         // After the timeout of 10's this call will throw a NoSuchElementException 
         // if the link is missing.
-        driver.findElement(By.partialLinkText("Process"));
+        driver.findElement(By.partialLinkText("BPM"));
 
         // Verify the page title
-        assertTrue(driver.getTitle().startsWith("xpert.ivy"));
+        assertThat(driver.getTitle()).startsWith("axon.ivy");
 	}
 
 	@Test
 	public void testDemoForm() throws Exception {
 		
 		// Visit the form example in the HtmlDialogDemos project.
-		// Import this project in the Xpert.ivy designer and 
+		// Import this project in the Axon.ivy designer and 
 		// start the engine before running the test.
 		driver.get(baseUrl + "pro/" + ivyApplication
 				+ "/HtmlDialogDemos/145D18298A3E81CF/FormDemo.ivp?language=de");
@@ -101,14 +100,13 @@ public class TestExample {
 		
 		// Get the error messages text from the document
 		String firstErrorMessage = driver.findElement(By.xpath("//div[@id='Form:msgs']/div/ul/li[1]/span"))
-		.getText();
+				.getText();
 		String secondErrorMessage = driver.findElement(By.xpath("//div[@id='Form:msgs']/div/ul/li[2]/span"))
-		.getText();
+				.getText();
 		
 		// Check the error Messages
-		assertEquals("Geburtstag: Validierungsfehler: Eingabe erforderlich.",firstErrorMessage);
-		assertEquals("Telefon Nr.: Validierungsfehler: Eingabe erforderlich.",secondErrorMessage);
-
+		assertThat(firstErrorMessage).startsWith("Geburtstag");
+		assertThat(secondErrorMessage).startsWith("E-Mail");
 	}
 
 }
