@@ -12,11 +12,14 @@ public class Helper {
 	{
 		Collections.sort(userList, new Comparator<IUser>(){ 
             public int compare(IUser u1, IUser u2) { 
-            	if(u1.getFullName() == null || u2.getFullName()==null)
+            	try
             	{
-            		return u1.getName().compareTo(u2.getName());
-            	}
             	return (u1.getFullName().compareTo(u2.getFullName())); 
+            	}
+            	catch (Exception ex)
+            	{
+            		            	return 0;
+            	}
             }
 		}); 
         return userList;

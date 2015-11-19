@@ -9,7 +9,7 @@
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 <h:body>
 	<h:form id="caseform">
-		<p:fieldset legend="Case" toggleable="false">
+		<p:fieldset legend="Case" toggleable="false" styleClass="panel">
 			<h:panelGrid columns="2">
 				<p:outputLabel for="dataCaseInfoSubject"
 					value="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/WFSubject')}" />
@@ -28,8 +28,9 @@
 				</h:outputLink>
 			</h:panelGrid>
 		</p:fieldset>
-		<p:fieldset legend="Workflow" id="workflow">
-			<p:panel style="border:0px">
+		<br></br>
+		<p:fieldset legend="Workflow" id="workflow" styleClass="panel">
+			<p:panel style="border:0px" styleClass="panel">
 				<h:panelGrid columns="#{4+data.taskHistory.size()*4 + data.definedTasks.size()*4}"
 				cellpadding="0" cellspacing="0">
 					<c:forEach items="#{data.taskHistory}" var="histTask"
@@ -40,7 +41,7 @@
 							<h:graphicImage library="ivy-webcontent" id="h#{row.index}"
 								name="user/#{histTask.actor}.jpg" title="#{histTask.actor}"
 								styleClass="circularImg" style="margin-left:20px; margin-right:20px;">
-								<p:tooltip for="h#{row.index}" style="background-color:#afca05;">
+								<p:tooltip for="h#{row.index}" styleClass="panel">
 									<h:panelGrid columns="2" cellpadding="0">
 										<h:graphicImage library="ivy-webcontent"
 											name="images/done.jpg" alt="Done" height="24" title="Done" />
@@ -58,18 +59,15 @@
 								</p:tooltip>
 							</h:graphicImage>
 							<p:outputLabel value="#{histTask.actor}"></p:outputLabel>
-							<!--  
-								<p:outputLabel
-									value="#{histTask.done.format('dd.MM.YYYY HH:mm')}" size="16"
-									readonly="true" />
-							-->
 						</h:panelGrid>
+						<h:graphicImage library="ivy-webcontent" name="images/flowA.png"
+						style="border:0px; margin: 0px; padding-left:10px;" />
 					</c:forEach>
-					<p:panel style="border:0px;">
+					<p:panel style="border:0px;" styleClass="panel">
 						<p:commandButton icon="ui-icon-plus" value="Task"
 							title="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/InsertATaskBefore')}"
 							oncomplete="PF('addTask').show();" update=":caseform :addTask"
-							style="border:1; margin-top:32px; background-color:#ffffff">
+							style="border:1; margin-top:32px;">
 							<f:setPropertyActionListener value="insert"
 								target="#{data.ok}" />
 						</p:commandButton>
@@ -81,8 +79,7 @@
 						<h:graphicImage library="ivy-webcontent" id="pp"
 							name="user/#{data.nextTask.actor.indexOf(',') gt 0 ? 'group' : data.nextTask.actor}.jpg"
 							styleClass="circularImg" style="margin-left:20px; margin-right:20px;">
-							<p:tooltip id="tt" for="pp"
-								style="background-color:rgb(237,125,49);">
+							<p:tooltip id="tt" for="pp" styleClass="panel">
 								<h:panelGrid columns="2" cellpadding="0">
 									<h:graphicImage library="ivy-webcontent"
 										name="images/deadline.jpg" alt="Deadline" height="24"
@@ -101,47 +98,39 @@
 						</h:graphicImage>
 						<p:outputLabel value="#{data.nextTask.actor}"
 							style="font-weight:bold;" />
-						<!--  
-							<p:outputLabel
-								value=" #{data.nextTask.until.format('dd.MM.YYYY HH:mm')}"
-								size="16" style="font-weight:bold;" />
-						-->
 					</h:panelGrid>
-					<p:panel style="border:0px">
+					<p:panel style="border:0px" styleClass="panel">
 					<p:commandButton icon="ui-icon-plus" value="Task"
 						title="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/AppendATaskAfter')}"
 						oncomplete="PF('addTask').show();" update=":caseform :addTask"
-						style="border:1; margin-top:32px; background-color:#ffffff">
+						style="border:1; margin-top:32px;">
 						<f:setPropertyActionListener value="append" target="#{data.ok}" />
 					</p:commandButton>
 					</p:panel>
 					<c:forEach items="#{data.definedTasks}" var="defTask"
 						varStatus="row">
+												<h:graphicImage library="ivy-webcontent" name="images/flowA.png"
+						style="border:0px; margin: 0px; padding-left:10px;" />
 						<h:panelGrid columns="1" style="text-align: center; margin:0px" styleClass="flowpanel">
 							<h:panelGroup>
-								<p:outputLabel value="#{defTask.kind}"
-									style="font-weight:bold; color:#888888"></p:outputLabel>
+								<p:outputLabel value="#{defTask.kind}"></p:outputLabel>
 									<p:spacer width="10" height="1"></p:spacer>
 								<p:commandButton icon="ui-icon-close" title="Delete this Task" 
 									actionListener="#{logic.deleteTask(defTask)}"
 									update=":caseform:workflow" process=":caseform:workflow"
-									style="border:0; background-color:#ffffff; margin:0px; padding:0px; height:10px"
+									style="border:0; margin:0px; padding:0px; height:10px" styleClass="xbutton"
 									rendered="#{defTask.adhoc}"/>
 							</h:panelGroup>
 							<h:graphicImage library="ivy-webcontent"
 								name="user/#{defTask.actor.indexOf(',') gt 0 ? 'group' : data.wfusers.contains(defTask.actor) ? defTask.actor : 'anonym'}.jpg"
 								title="#{defTask.actor}" styleClass="circularImg" style="margin-left:20px; margin-right:20px;">
 							</h:graphicImage>
-							<p:outputLabel value="#{defTask.actor}" style="color:#888888"></p:outputLabel>
-							<!-- <p:outputLabel
-									value="#{defTask.until.format('dd.MM.YYYY HH:mm')}" size="16"
-									style="color:#aaaaaa" /> -->
+							<p:outputLabel value="#{defTask.actor}" ></p:outputLabel>
 						</h:panelGrid>
 					</c:forEach>
-					<h:graphicImage library="ivy-webcontent" name="images/workflow.jpg"
+					<h:graphicImage library="ivy-webcontent" name="images/workflow.png"
 						style="border:0px; margin: 0px; padding-left:10px;" />
 				</h:panelGrid>
-
 			</p:panel>
 			<hr></hr>
 			<h:panelGrid columns="3">

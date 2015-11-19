@@ -8,7 +8,8 @@
 	xmlns:pm="http://primefaces.org/mobile">
 <h:body>
 	<h:form id="form2">
-		<p:fieldset legend="Done" style="border-color:#575656;">
+		<br></br>
+		<p:fieldset legend="Done" styleClass="panel">
 			<h:outputText escape="false"
 				value="#{ivy.cms.co('/Texts/ToDo-Explain')}" />
 			<p:commandButton actionListener="#{logic.done(true)}" value="Done"

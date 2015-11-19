@@ -4,15 +4,13 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:ic="http://ivyteam.ch/jsf/component"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pe="http://primefaces.org/ui/extensions" 
 	xmlns:pm="http://primefaces.org/mobile">
 <h:body>
 	<h:form id="form2">
-		<p:fieldset legend="Response" style="border-color:#575656;">
+		<p:fieldset legend="Response" styleClass="panel"> 
 			<h:panelGrid columns="2" >
-			<p:panel style="width:200px; border:0">
-				<p:outputLabel value="Follow-up question for #{data.taskHistory.get(data.taskHistory.size()-1).getActor()}:" for="newquestion"  style="font-weight:bold"></p:outputLabel>
-			</p:panel>
+			<p:outputLabel value="Follow-up question:" for="newquestion" style="font-weight:bold;"></p:outputLabel>
 			<p:inputTextarea id="newquestion" value="#{data.remark}" required="true"
 				style="width:500px; margin-left:0px;">
 			</p:inputTextarea>

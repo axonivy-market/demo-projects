@@ -7,17 +7,19 @@
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:body>
-	<ui:composition template="/layouts/full.xhtml">
+	<ui:composition template="/layouts/template/template.xhtml">
 		<ui:define name="title">define_WF</ui:define>
-		<ui:define name="content">
-			<h3>#{ivy.cms.co('/Labels/title')}</h3>
+		<ui:define name="pageContent">
+			<h:outputStylesheet library="ivy-webcontent" name="layouts/styles/portal_selfservice.css" />
+			<h3 class="captionText">#{ivy.cms.co('/Labels/title')}</h3>
 			<p:outputLabel escape="false"
-				value="#{ivy.cms.co('/Texts/AdhocWF-Explain')}"></p:outputLabel>
+				value="#{ivy.cms.co('/Texts/AdhocWF-Explain')}" styleClass="captionText"></p:outputLabel>
 			<h:form id="form" enctype="multipart/form-data">
 				<f:facet name="header">
 					<p:messages></p:messages>
 				</f:facet>
-				<p:fieldset legend="Case" toggleable="false">
+				<br></br>
+				<p:fieldset legend="Case" toggleable="false" styleClass="panel">
 					<p:focus context="form" />
 					<h:panelGrid columns="2">
 						<p:outputLabel for="dataCaseInfoSubject"
@@ -59,10 +61,11 @@
 						</h:panelGrid>
 					</h:panelGrid>
 				</p:fieldset>
+				<br></br>
 				<p:fieldset id="taskDef" legend="Workflow" toggleable="false"
-					collapsed="false" style="padding-top:0px; margin:0px;">
+					collapsed="false" style="padding-top:0px; margin:0px;" styleClass="panel">
 					<div style="float: left;">
-						<p:panel style="padding:0px; margin:0px; border:0px;">
+						<p:panel style="padding:0px; margin-top:24px; border:0px;" styleClass="panel">
 							<h:panelGrid columns="2" cellpadding="0" cellspacing="4" styleClass="flowpanel">
 									<h:graphicImage library="ivy-webcontent"
 										name="user/#{data.newTask.actor}.jpg" height="68"
@@ -82,7 +85,7 @@
 					<ui:repeat var="defineTask" value="#{data.definedTasks}"
 						varStatus="row">
 						<div style="float: left;">
-							<p:panel style="padding:0px; margin:0px; border:0px; ">
+							<p:panel style="padding:0px; margin:0px; border:0px;" styleClass="panel">
 								<h:panelGrid columns="2" cellpadding="0" cellspacing="0">
 									 	
 									<h:graphicImage library="ivy-webcontent" name="images/flowA.png"
@@ -105,7 +108,7 @@
 													title="Delete this Step"
 													actionListener="#{logic.deleteTask(defineTask)}"
 													update=":form:taskDef" process=":form:taskDef" 
-													style="background-color:#ffffff; border:0px" />
+													style="border:0px" styleClass="xbutton"/>
 												</h:panelGroup>
 												<p:inputText value="#{defineTask.description}" size="18"
 													readonly="false" rendered="#{defineTask.kind eq 'TASK'}">
@@ -135,24 +138,26 @@
 					</ui:repeat>
 					<div style="float: left">
 						<p:panel 
-							style="margin:0px; padding:0px; border:0px">
+							style="margin:0px; padding:0px; border:0px;" styleClass="panel">
 							<h:panelGrid columns="1"
 								style="margin-top:24px; margin-right:0px; margin-left:0px;">
 								<p:commandButton icon="ui-icon-plus" value="Task"
 									styleClass="iconButton" title="Add a task to the sequence"
 									actionListener="#{logic.addTaskDef}" update=":form:taskDef"
-									process=":form:taskDef" style="background-color:#ffffff"></p:commandButton>
+									process=":form:taskDef" ></p:commandButton>
 							</h:panelGrid>
 						</p:panel>
 					</div>
 					<ui:repeat var="adTask" value="#{data.additionalTasks}">
-					<div style="float: left">
-						<p:panel style="margin:0px; padding: 0px; border:0px">
-							<h:panelGrid columns="2" cellpadding="0" cellspacing="0" style="margin:0px padding:0px" >
-									 
-								<h:graphicImage library="ivy-webcontent" name="images/flowA.png"
-									height="36" title="Forward to: " />
-								
+						<div style="float: left">
+							<p:panel style="margin-top:20px; padding: 0px; border:0px;"
+								styleClass="panel">
+								<h:panelGrid columns="2" cellpadding="0" cellspacing="0"
+									style="margin:0px padding:0px">
+
+									<h:graphicImage library="ivy-webcontent"
+										name="images/flowA.png" height="36" title="Forward to: " />
+
 									<h:panelGrid columns="2" cellpadding="1" styleClass="flowpanel">
 										<h:graphicImage library="ivy-webcontent"
 											name="user/#{adTask.actor}.jpg" height="68"
@@ -169,6 +174,7 @@
 							</p:panel>
 						</div>
 					</ui:repeat>
+
 				</p:fieldset>
 				<br />
 				<p:spacer width="10px"></p:spacer>

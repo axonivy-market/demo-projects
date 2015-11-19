@@ -8,11 +8,13 @@
 	xmlns:pm="http://primefaces.org/mobile"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:body>
-	<ui:composition template="/layouts/full.xhtml">
+	<ui:composition template="/layouts/template/template.xhtml">
 		<ui:define name="title">task_Form</ui:define>
 
-		<ui:define name="content">
-			<h3>#{data.caseInfo.kind} Workflow</h3>
+		<ui:define name="pageContent">
+			<h:outputStylesheet library="ivy-webcontent" name="layouts/styles/portal_selfservice.css" />
+			<h3  class="captionText">#{data.caseInfo.kind} Workflow</h3>
+			<br></br>
 
 			<ui:include src="case_info.xhtml"></ui:include>
 			<ui:include src="add_task.xhtml"></ui:include>

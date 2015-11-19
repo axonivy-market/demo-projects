@@ -1,0 +1,73 @@
+@CHARSET "UTF-8";
+body, html, td, tr, th, input, textarea, select, form, div {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+}
+
+
+.circularImg {
+    width: 50px;
+    height: 60px;
+    border-radius: 30px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    overflow:hidden; 
+    //border: 2px solid;
+    //border-color: #afca05;
+    //padding:2px;
+}
+
+.circularImgHot {
+    width: 50px; 
+    height: 60px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    overflow:hidden; 
+    border: 2px solid;
+    border-color: rgb(237,0,0);
+    padding:0px;
+}
+
+.flowpanelHot {
+	background-color:#eeeeee;
+	border:1px solid;
+	border-radius: 10px;
+	border-color: rgb(237,0,0);
+	height: 80px
+}
+
+.flowpanel {
+	background-color:#eeeeee;
+	border:0px solid;
+	border-radius: 10px;
+	border-color: #afca05;
+	height: 80px
+}
+
+.taskpanel {
+	background-color:#eeeeee;
+	border:1px solid;
+	border-color: #afca05;
+}
+
+.iconButton {
+	border:0px;
+}
+
+.flowpanelButton {
+	border:0px;
+}
+
+.panel {
+	background-color:#eeeeee;	
+}
+
+.xbutton {
+	background-color:#eeeeee;
+}
+
+.captionText {
+	color:white;	
+}	
+}
