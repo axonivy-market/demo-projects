@@ -48,7 +48,7 @@ body {
 }
 
 .ivy-logo img {
-  height: 46px;
+  width: 212px;
   z-index: 1;
   margin: 0;
   position: relative;
@@ -96,6 +96,7 @@ body {
   font-weight: bold;
   color: #AECA05;
 }
+
 
 .navbar-toggle {
   z-index: 120;

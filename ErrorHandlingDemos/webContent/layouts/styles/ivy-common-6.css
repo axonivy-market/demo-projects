@@ -49,8 +49,8 @@ body {
 
 .ivy-logo img {
   width: 212px;
-  height: 46px;
   z-index: 1;
+  margin: 0;
   position: relative;
   margin: 16px 25px 16px 0;
 }
@@ -80,7 +80,12 @@ body {
   margin-top: 16px;
   background-color: #ffffff;
   font-size: 14px;
+  float: right;
+  text-align: center; 
+  margin-top: 5px;
+  height: 70px;
 }
+
 .navbar .navbar-nav>li>a:focus, .navbar .navbar-nav>li>a:hover {
   color: #AECA05;
   background-color: transparent;
@@ -92,9 +97,6 @@ body {
   color: #AECA05;
 }
 
-.jumbotron {
-  margin-top: 20px;
-}
 
 .navbar-toggle {
   z-index: 120;
