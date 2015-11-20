@@ -36,3 +36,7 @@
 	padding-top: 3pt;
 	width: 7px;
 }
+
+.ui-toolbar {
+	border-color: transparent;
+}
