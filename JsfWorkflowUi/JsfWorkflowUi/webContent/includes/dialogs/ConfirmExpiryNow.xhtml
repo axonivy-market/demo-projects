@@ -17,9 +17,9 @@
 	    	<br /><br />
 	    	<h:panelGrid style="width:100%; text-align: right;">
 				<p:outputPanel>
-					<p:commandButton id="confirmAction" value="#{ivy.cms.co('/labels/common/yes')}" icon="wf-ui-icon-accept" update=":formTaskDetails :modalDialogConfirmExpiryNow" actionListener="#{logic.setExpiryNow}" />
+					<p:commandButton id="confirmAction" value="#{ivy.cms.co('/labels/common/yes')}" icon="fa fa-check" update=":formTaskDetails :modalDialogConfirmExpiryNow" actionListener="#{logic.setExpiryNow}" />
 					<p:spacer width="5px" />
-					<p:commandButton id="notConfirmAction" value="#{ivy.cms.co('/labels/common/no')}" icon="wf-ui-icon-delete" oncomplete="PF('confirmExpiryNow').hide();" update=":formConfirmExpiryNow" />
+					<p:commandButton id="notConfirmAction" value="#{ivy.cms.co('/labels/common/no')}" icon="fa fa-remove" oncomplete="PF('confirmExpiryNow').hide();" update=":formConfirmExpiryNow" />
 				</p:outputPanel>
 			</h:panelGrid>
 		</h:form>

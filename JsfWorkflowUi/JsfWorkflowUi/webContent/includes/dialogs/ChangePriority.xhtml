@@ -41,9 +41,9 @@
 			<br />
 			<h:panelGrid style="width:100%; text-align: right;">
 				<p:outputPanel>
-					<p:commandButton id="saveChangePriority" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" update=":formTaskDetails :modalDialogChangePriority" actionListener="#{logic.changePriority}" />
+					<p:commandButton id="saveChangePriority" value="#{ivy.cms.co('/labels/common/save')}" icon="fa fa-save" update=":formTaskDetails :modalDialogChangePriority" actionListener="#{logic.changePriority}" />
 					<p:spacer width="5px" />
-					<p:commandButton id="cancelChangePriority" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="PF('changePriority').hide();" update=":formDetailsChangePriority" process="@this">
+					<p:commandButton id="cancelChangePriority" value="#{ivy.cms.co('/labels/common/cancel')}" icon="fa fa-remove" oncomplete="PF('changePriority').hide();" update=":formDetailsChangePriority" process="@this">
 						<p:resetInput target="formDetailsChangePriority" />
 					</p:commandButton>
 				</p:outputPanel>

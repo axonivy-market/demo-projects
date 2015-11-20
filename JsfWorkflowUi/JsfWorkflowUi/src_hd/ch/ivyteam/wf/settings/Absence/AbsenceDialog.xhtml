@@ -20,7 +20,7 @@
 		<pe:timePicker id="absenceStartTime" value="#{data.absenceStartTime}" mode="popup" widgetVar="popupBtnTimeWidget" label="StartTime">
 			<f:convertDateTime pattern="HH:mm" />
 		</pe:timePicker>
-		<p:commandButton type="button" icon="ui-icon-clock" onclick="#{data.option == 'edit' ? 'selectTimePickerStartEdit()' : 'selectTimePickerStartAdd()'}" style="height: 25px" />
+		<p:commandButton type="button" icon="fa fa-clock-o" onclick="#{data.option == 'edit' ? 'selectTimePickerStartEdit()' : 'selectTimePickerStartAdd()'}" style="height: 25px" />
 		<script>
 			function selectTimePickerStartAdd() {
 				var elementAdd = document.getElementById('formAddAbsence:absenceStartTime_input');
@@ -43,7 +43,7 @@
 		<pe:timePicker id="absenceEndTime" value="#{data.absenceEndTime}" mode="popup" label="EndTime">
 			<f:convertDateTime pattern="HH:mm" />
 		</pe:timePicker>
-		<p:commandButton type="button" icon="ui-icon-clock" onclick="#{data.option == 'edit' ? 'selectTimePickerEndEdit()' : 'selectTimePickerEndAdd()'}" style="height: 25px" />
+		<p:commandButton type="button" icon="fa fa-clock-o" onclick="#{data.option == 'edit' ? 'selectTimePickerEndEdit()' : 'selectTimePickerEndAdd()'}" style="height: 25px" />
 		<script>
 			function selectTimePickerEndAdd() {
 			    var elementAdd = document.getElementById('formAddAbsence:absenceEndTime_input');

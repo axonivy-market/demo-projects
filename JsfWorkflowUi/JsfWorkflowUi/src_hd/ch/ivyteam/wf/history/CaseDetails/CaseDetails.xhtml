@@ -19,9 +19,9 @@
 			<h:panelGrid columns="1">
 				<p:toolbar styleClass="ivy-toolbar">  
     				<p:toolbarGroup align="left">
-    					<p:commandButton id="openDeleteCase" value="#{ivy.cms.co('/labels/history/caseDetails/caseDelete')}" title="#{ivy.cms.co('/labels/history/caseDetails/deleteCaseTooltip')}" icon="wf-ui-icon-delete" onclick="PF('confirmDeleteReset').show();" disabled="#{data.deleteCaseLink}" />
-						<p:commandButton id="openAddNoteCase" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" title="#{ivy.cms.co('/labels/common/addNoteTooltip')}" icon="wf-ui-icon-addNote" onclick="PF('addNote').show();" disabled="#{data.addNoteLink}" />
-						<p:commandButton id="openPageArchive" value="#{ivy.cms.co('/labels/common/formArchive')}" title="#{ivy.cms.co('/labels/common/showFormArchiveTooltip')}" icon="wf-ui-icon-archive" onclick="PF('formArchive').show();" disabled="#{data.archiveLink}" />
+    					<p:commandButton id="openDeleteCase" value="#{ivy.cms.co('/labels/history/caseDetails/caseDelete')}" title="#{ivy.cms.co('/labels/history/caseDetails/deleteCaseTooltip')}" icon="fa fa-trash" onclick="PF('confirmDeleteReset').show();" disabled="#{data.deleteCaseLink}" />
+						<p:commandButton id="openAddNoteCase" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" title="#{ivy.cms.co('/labels/common/addNoteTooltip')}" icon="fa fa-pencil-square-o" onclick="PF('addNote').show();" disabled="#{data.addNoteLink}" />
+						<p:commandButton id="openPageArchive" value="#{ivy.cms.co('/labels/common/formArchive')}" title="#{ivy.cms.co('/labels/common/showFormArchiveTooltip')}" icon="fa fa-archive" onclick="PF('formArchive').show();" disabled="#{data.archiveLink}" />
 					</p:toolbarGroup>
 				</p:toolbar>
 			</h:panelGrid>
@@ -112,7 +112,7 @@
 			    					<h:outputText value="#{caseNote.message}" escape="false" />
 		    					</p:outputPanel>
 		    					<p:spacer width="20" />
-								<p:commandButton title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}" id="openDeleteCaseNote" icon="wf-ui-icon-delete" style="background-color:#ffffff; border:0px; width:20px;"  onclick="PF('confirmDeleteNote').show();" disabled="#{caseNote.writterName != ivy.session.sessionUserName}" >
+								<p:commandButton title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}" id="openDeleteCaseNote" icon="fa fa-trash" style="background-color:#ffffff; border:0px; width:20px;"  onclick="PF('confirmDeleteNote').show();" disabled="#{caseNote.writterName != ivy.session.sessionUserName}" >
 		    						<f:setPropertyActionListener value="#{caseNote}" target="#{data.note}" />
 									<f:setPropertyActionListener value="case" target="#{data.noteFor}" />
 		    					</p:commandButton>

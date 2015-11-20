@@ -21,17 +21,17 @@
 			<h:panelGrid columns="1">
 				<p:toolbar styleClass="ivy-toolbar">  
     				<p:toolbarGroup align="left">
-    					<p:commandButton id="startTask" value="#{ivy.cms.co('/labels/common/taskResume')}" title="#{ivy.cms.co('/labels/common/taskResume')} Task" icon="wf-ui-icon-start" onclick="window.location.href='#{data.taskLink}'; return false;" disabled="#{!data.canStart}" />
-    					<p:commandButton id="openResetTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" title="#{ivy.cms.co('/labels/history/taskDetails/resetTaskTooltip')}" icon="wf-ui-icon-reset" onclick="PF('confirmDeleteReset').show();" disabled="#{data.resetLink}" />
-		    			<p:commandButton id="openAddNote" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" title="#{ivy.cms.co('/labels/common/addNoteTooltip')}" icon="wf-ui-icon-addNote" onclick="PF('addNote').show();" disabled="#{data.addNoteLink}" />
-						<p:commandButton id="openDelegateTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}" title="#{ivy.cms.co('/labels/history/taskDetails/delegateTaskTooltip')}" icon="wf-ui-icon-delegate" onclick="PF('delegateTask').show();" disabled="#{data.delegateLink}" />
-						<p:commandButton id="openChangeExpiry" value="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" title="#{ivy.cms.co('/labels/history/taskDetails/changeExpiryTooltip')}" icon="wf-ui-icon-expiry" onclick="PF('changeExpiry').show();" disabled="#{data.changeExpiryLink}" />
-						<p:commandButton id="openChangePriority" value="#{ivy.cms.co('/labels/history/taskDetails/changePriority')}" title="#{ivy.cms.co('/labels/history/taskDetails/changePriorityTooltip')}" icon="wf-ui-icon-prio" onclick="PF('changePriority').show();" disabled="#{data.prioLink}" />
+    					<p:commandButton id="startTask" value="#{ivy.cms.co('/labels/common/taskResume')}" title="#{ivy.cms.co('/labels/common/taskResume')} Task" icon="fa fa-play-circle" onclick="window.location.href='#{data.taskLink}'; return false;" disabled="#{!data.canStart}" />
+    					<p:commandButton id="openResetTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" title="#{ivy.cms.co('/labels/history/taskDetails/resetTaskTooltip')}" icon="fa fa-history" onclick="PF('confirmDeleteReset').show();" disabled="#{data.resetLink}" />
+		    			<p:commandButton id="openAddNote" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" title="#{ivy.cms.co('/labels/common/addNoteTooltip')}" icon="fa fa-pencil-square-o" onclick="PF('addNote').show();" disabled="#{data.addNoteLink}" />
+						<p:commandButton id="openDelegateTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}" title="#{ivy.cms.co('/labels/history/taskDetails/delegateTaskTooltip')}" icon="fa fa-mail-forward" onclick="PF('delegateTask').show();" disabled="#{data.delegateLink}" />
+						<p:commandButton id="openChangeExpiry" value="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" title="#{ivy.cms.co('/labels/history/taskDetails/changeExpiryTooltip')}" icon="fa fa-clock-o" onclick="PF('changeExpiry').show();" disabled="#{data.changeExpiryLink}" />
+						<p:commandButton id="openChangePriority" value="#{ivy.cms.co('/labels/history/taskDetails/changePriority')}" title="#{ivy.cms.co('/labels/history/taskDetails/changePriorityTooltip')}" icon="fa fa-sort-numeric-asc" onclick="PF('changePriority').show();" disabled="#{data.prioLink}" />
 						<c:if test="#{data.isHistory}">
-		    				<p:commandButton id="openPageArchive" value="#{ivy.cms.co('/labels/common/formArchive')}" title="#{ivy.cms.co('/labels/common/showFormArchiveTooltip')}" icon="wf-ui-icon-archive" onclick="PF('formArchive').show();" disabled="#{data.archiveLink}" />
+		    				<p:commandButton id="openPageArchive" value="#{ivy.cms.co('/labels/common/formArchive')}" title="#{ivy.cms.co('/labels/common/showFormArchiveTooltip')}" icon="fa fa-archive" onclick="PF('formArchive').show();" disabled="#{data.archiveLink}" />
 						</c:if>
 						<c:if test="#{!data.isHistory}">
- 							<p:commandButton id="openParkTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskPark')}" title="#{ivy.cms.co('/labels/history/taskDetails/parkTaskTooltip')}" icon="wf-ui-icon-park" actionListener="#{logic.parkTask}" update="@all" disabled="#{data.parkLink}" />
+ 							<p:commandButton id="openParkTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskPark')}" title="#{ivy.cms.co('/labels/history/taskDetails/parkTaskTooltip')}" icon="fa fa-pause" actionListener="#{logic.parkTask}" update="@all" disabled="#{data.parkLink}" />
  						</c:if>
 					</p:toolbarGroup> 
 				</p:toolbar>
@@ -141,7 +141,7 @@
 		    					<h:outputText value="#{taskNote.message}" escape="false" />
 	    					</p:outputPanel>
 	    					<p:spacer width="20" />
-	    					<p:commandButton id="openDeleteTaskNote" icon="wf-ui-icon-delete"  title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}" style="background-color:#ffffff; border:0px; width:20px;" onclick="PF('confirmDeleteNote').show();" disabled="#{taskNote.writterName != ivy.session.sessionUserName}" >
+	    					<p:commandButton id="openDeleteTaskNote" icon="fa fa-trash"  title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}" style="background-color:#ffffff; border:0px; width:20px;" onclick="PF('confirmDeleteNote').show();" disabled="#{taskNote.writterName != ivy.session.sessionUserName}" >
 	    						<f:setPropertyActionListener value="#{taskNote}" target="#{data.note}" />
 								<f:setPropertyActionListener value="task" target="#{data.noteFor}" />
 	    					</p:commandButton>
@@ -164,7 +164,7 @@
 		    					<h:outputText value="#{caseNote.message}" escape="false" />
 	    					</p:outputPanel>
 	    					<p:spacer width="20" />
-							<p:commandButton id="openDeleteCaseNote" icon="wf-ui-icon-delete" title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}" style="background-color:#ffffff; border:0px; width:20px"  onclick="PF('confirmDeleteNote').show();" disabled="#{caseNote.writterName != ivy.session.sessionUserName}" >
+							<p:commandButton id="openDeleteCaseNote" icon="fa fa-trash" title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}" style="background-color:#ffffff; border:0px; width:20px"  onclick="PF('confirmDeleteNote').show();" disabled="#{caseNote.writterName != ivy.session.sessionUserName}" >
 	    						<f:setPropertyActionListener value="#{caseNote}" target="#{data.note}" />
 								<f:setPropertyActionListener value="case" target="#{data.noteFor}" />
 	    					</p:commandButton>

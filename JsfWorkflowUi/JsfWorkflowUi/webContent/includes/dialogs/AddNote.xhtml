@@ -25,9 +25,9 @@
 			<br />
 			<h:panelGrid style="width:100%; text-align: right;">
 				<p:outputPanel>
-					<p:commandButton id="saveNote" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" update="@all" actionListener="#{logic.addNote}" />
+					<p:commandButton id="saveNote" value="#{ivy.cms.co('/labels/common/save')}" icon="fa fa-save" update="@all" actionListener="#{logic.addNote}" />
 					<p:spacer width="5px" />
-					<p:commandButton id="cancelNote" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="PF('addNote').hide();" update=":formAddNote" />
+					<p:commandButton id="cancelNote" value="#{ivy.cms.co('/labels/common/cancel')}" icon="fa fa-remove" oncomplete="PF('addNote').hide();" update=":formAddNote" />
 				</p:outputPanel>
 			</h:panelGrid>
 		</h:form>

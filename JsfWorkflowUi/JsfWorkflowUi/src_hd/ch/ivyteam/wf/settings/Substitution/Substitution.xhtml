@@ -31,7 +31,7 @@
 					   		</p:selectOneMenu>
 				   			<p:spacer width="30" />
 		   				</c:if>
-		       			<p:commandButton id="addSubstitute" icon="wf-ui-icon-add" update=":dialogAddSubstitute" value="#{ivy.cms.co('/labels/settings/substitute/addSubstitute')}" title="#{ivy.cms.co('/labels/settings/substitute/addSubstituteTooltip')}" oncomplete="PF('addSubstitute').show();" />
+		       			<p:commandButton id="addSubstitute" icon="fa fa-plus-circle" update=":dialogAddSubstitute" value="#{ivy.cms.co('/labels/settings/substitute/addSubstitute')}" title="#{ivy.cms.co('/labels/settings/substitute/addSubstituteTooltip')}" oncomplete="PF('addSubstitute').show();" />
 	       			</h:panelGrid>
 	      		</p:toolbarGroup>
 			</p:toolbar>
@@ -54,11 +54,11 @@
    					</f:facet>  
    					#{substitute.description}
 				</p:column>
-				<p:column style="width: 80px; text-align: center;">
+				<p:column style="width: 100px; text-align: center;">
    					<f:facet name="header">
        					#{ivy.cms.co('/labels/settings/substitute/substituteControls')}
    					</f:facet>
-   					<p:commandButton id="removeButton" actionListener="#{logic.removeSubstitute(substitute.id)}" update=":formSubstitute" icon="wf-ui-icon-delete" value="#{ivy.cms.co('/labels/common/delete')}" ajax="false" />
+   					<p:commandButton id="removeButton" actionListener="#{logic.removeSubstitute(substitute.id)}" update=":formSubstitute" icon="fa fa-trash" value="#{ivy.cms.co('/labels/common/delete')}" ajax="false" />
 				</p:column>
 			</p:dataTable>
 		</h:form>
@@ -97,9 +97,9 @@
 				<ui:include src="SubstitutionDialog.xhtml" />
 				<h:panelGrid style="width:100%; text-align: right;">
 					<p:outputPanel>
-						<p:commandButton id="saveSubstitution" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" update=":formSubstitute :dialogAddSubstitute :formMySubstitutions" actionListener="#{logic.addSubstitute}" />
+						<p:commandButton id="saveSubstitution" value="#{ivy.cms.co('/labels/common/save')}" icon="fa fa-save" update=":formSubstitute :dialogAddSubstitute :formMySubstitutions" actionListener="#{logic.addSubstitute}" />
 						<p:spacer width="5px" />
-						<p:commandButton id="cancelSubstitutionAdd" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="PF('addSubstitute').hide();" process="@this"/>
+						<p:commandButton id="cancelSubstitutionAdd" value="#{ivy.cms.co('/labels/common/cancel')}" icon="fa fa-remove" oncomplete="PF('addSubstitute').hide();" process="@this"/>
 					</p:outputPanel>
 				</h:panelGrid>
 			</h:form>

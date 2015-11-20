@@ -36,9 +36,9 @@
 			<br />
 			<h:panelGrid style="width:100%; text-align: right;">
 				<p:outputPanel>
-					<p:commandButton id="saveDelegateTask" value="#{ivy.cms.co('/labels/common/save')}" icon="wf-ui-icon-save" update="@all" actionListener="#{logic.delegateTask}" />
+					<p:commandButton id="saveDelegateTask" value="#{ivy.cms.co('/labels/common/save')}" icon="fa fa-save" update="@all" actionListener="#{logic.delegateTask}" />
 					<p:spacer width="5px" />
-					<p:commandButton id="cancelDelegateTask" value="#{ivy.cms.co('/labels/common/cancel')}" icon="wf-ui-icon-cancel" oncomplete="PF('delegateTask').hide();" update=":formDelegateTask" />
+					<p:commandButton id="cancelDelegateTask" value="#{ivy.cms.co('/labels/common/cancel')}" icon="fa fa-remove" oncomplete="PF('delegateTask').hide();" update=":formDelegateTask" />
 				</p:outputPanel>
 			</h:panelGrid>
 		</h:form>
