@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Dec 05 15:22:05 CET 2014]
-13ED18A804435D54 3.17 #module
+[>Created: Fri Nov 20 15:26:46 CET 2015]
+13ED18A804435D54 3.18 #module
 >Proto >Proto Collection #zClass
 Ps0 ProcessListProcess Big #zClass
 Ps0 RD #cInfo
@@ -107,7 +107,8 @@ Ps0 f8 actionDecl 'ch.ivyteam.wf.workflow.ProcessList.ProcessListData out;
 ' #txt
 Ps0 f8 actionTable 'out=in;
 ' #txt
-Ps0 f8 actionCode 'import ch.ivyteam.ivy.workflow.IProcessStart;
+Ps0 f8 actionCode 'import org.apache.commons.lang3.StringUtils;
+import ch.ivyteam.ivy.workflow.IProcessStart;
 
 out.myStarts.clear();
 if(in.filterTxt.length()==0)
@@ -118,8 +119,8 @@ else
 {
 	for(IProcessStart processStart : in.starts)
 	{
-			if(processStart.getName().indexOf(in.filterTxt) >= 0 
-				|| processStart.getDescription().indexOf(in.filterTxt) >= 0)
+			if(StringUtils.containsIgnoreCase(processStart.getName(), in.filterTxt) 
+				|| StringUtils.containsIgnoreCase(processStart.getDescription(), in.filterTxt))
 			{
 				out.myStarts.add(processStart);
 			}
@@ -131,16 +132,16 @@ Ps0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>filter processstarts
 </name>
-        <nameStyle>21
+        <nameStyle>21,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f8 168 234 128 44 -45 -16 #rect
+Ps0 f8 160 234 144 44 -53 -15 #rect
 Ps0 f8 @|StepIcon #fIcon
 Ps0 f8 -1|-1|-9671572 #nodeStyle
 Ps0 f7 expr out #txt
-Ps0 f7 296 256 339 256 #arcP
+Ps0 f7 304 256 339 256 #arcP
 Ps0 f10 guid 14A0696FEF010E01 #txt
 Ps0 f10 type ch.ivyteam.wf.workflow.ProcessList.ProcessListData #txt
 Ps0 f10 method update() #txt
@@ -163,7 +164,7 @@ Ps0 f11 type ch.ivyteam.wf.workflow.ProcessList.ProcessListData #txt
 Ps0 f11 339 147 26 26 0 12 #rect
 Ps0 f11 @|RichDialogProcessEndIcon #fIcon
 Ps0 f9 expr out #txt
-Ps0 f9 109 256 168 256 #arcP
+Ps0 f9 109 256 160 256 #arcP
 Ps0 f13 expr out #txt
 Ps0 f13 109 160 339 160 #arcP
 >Proto Ps0 .type ch.ivyteam.wf.workflow.ProcessList.ProcessListData #txt
