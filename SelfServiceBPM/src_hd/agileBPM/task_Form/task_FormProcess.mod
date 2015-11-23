@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 23 11:52:57 CET 2015]
+[>Created: Mon Nov 23 12:23:49 CET 2015]
 1492E077AA2879D3 3.18 #module
 >Proto >Proto Collection #zClass
 ts0 task_FormProcess Big #zClass
@@ -405,7 +405,7 @@ ts0 f15 actionTable 'out=in;
 ' #txt
 ts0 f15 actionCode 'import ch.ivyteam.ivy.Helper;
 // list of users with a .jpg picture in the folder webContent/user
-out.wfusers = ["UserA", "UserB"];
+out.wfusers = ["UserA", "UserB", "UserC"];
 
 // wfuserlist
 import ch.ivyteam.ivy.security.IUser;
