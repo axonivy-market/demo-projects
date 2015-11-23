@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 28 17:13:45 CEST 2015]
+[>Created: Mon Nov 23 11:52:57 CET 2015]
 1492E077AA2879D3 3.18 #module
 >Proto >Proto Collection #zClass
 ts0 task_FormProcess Big #zClass
@@ -404,8 +404,8 @@ ts0 f15 actionDecl 'agileBPM.task_Form.task_FormData out;
 ts0 f15 actionTable 'out=in;
 ' #txt
 ts0 f15 actionCode 'import ch.ivyteam.ivy.Helper;
-// users from ivyTeam with pictures
-out.wfusers = ["bb","bhu","ch","cst","dre","fs","mda","pes","rew","rwei","tkis", "SYSTEM"];
+// list of users with a .jpg picture in the folder webContent/user
+out.wfusers = ["UserA", "UserB"];
 
 // wfuserlist
 import ch.ivyteam.ivy.security.IUser;

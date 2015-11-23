@@ -39,7 +39,8 @@
 							styleClass="flowpanel">
 							<p:outputLabel value="#{histTask.kind}" style="font-weight:bold;"></p:outputLabel>
 							<h:graphicImage library="ivy-webcontent" id="h#{row.index}"
-								name="user/#{histTask.actor}.jpg" title="#{histTask.actor}"
+								name="user/#{histTask.actor.indexOf(',') gt 0 ? 'group' : data.wfusers.contains(histTask.actor) ? histTask.actor : 'anonym'}.jpg"					
+								title="#{histTask.actor}"
 								styleClass="circularImg" style="margin-left:20px; margin-right:20px;">
 								<p:tooltip for="h#{row.index}" styleClass="panel">
 									<h:panelGrid columns="2" cellpadding="0">
@@ -64,7 +65,7 @@
 						style="border:0px; margin: 0px; padding-left:10px;" />
 					</c:forEach>
 					<p:panel style="border:0px;" styleClass="panel">
-						<p:commandButton icon="ui-icon-plus" value="Task"
+						<p:commandButton icon="fa fa-plus" value="Task"
 							title="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/InsertATaskBefore')}"
 							oncomplete="PF('addTask').show();" update=":caseform :addTask"
 							style="border:1; margin-top:32px;">
@@ -100,7 +101,7 @@
 							style="font-weight:bold;" />
 					</h:panelGrid>
 					<p:panel style="border:0px" styleClass="panel">
-					<p:commandButton icon="ui-icon-plus" value="Task"
+					<p:commandButton icon="fa fa-plus" value="Task"
 						title="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/AppendATaskAfter')}"
 						oncomplete="PF('addTask').show();" update=":caseform :addTask"
 						style="border:1; margin-top:32px;">
@@ -109,7 +110,7 @@
 					</p:panel>
 					<c:forEach items="#{data.definedTasks}" var="defTask"
 						varStatus="row">
-												<h:graphicImage library="ivy-webcontent" name="images/flowA.png"
+						<h:graphicImage library="ivy-webcontent" name="images/flowA.png"
 						style="border:0px; margin: 0px; padding-left:10px;" />
 						<h:panelGrid columns="1" style="text-align: center; margin:0px" styleClass="flowpanel">
 							<h:panelGroup>
@@ -118,7 +119,7 @@
 								<p:commandButton icon="ui-icon-close" title="Delete this Task" 
 									actionListener="#{logic.deleteTask(defTask)}"
 									update=":caseform:workflow" process=":caseform:workflow"
-									style="border:0; margin:0px; padding:0px; height:10px" styleClass="xbutton"
+									style="border:0; margin:0px; padding:0px; height:16px; background-color:#eeeeee" styleClass="xbutton"
 									rendered="#{defTask.adhoc}"/>
 							</h:panelGroup>
 							<h:graphicImage library="ivy-webcontent"

@@ -7,7 +7,7 @@
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:body>
-	<ui:composition template="/layouts/template/template.xhtml">
+	<ui:composition template="/layouts/BasicTemplate.xhtml"> 
 		<ui:define name="title">define_WF</ui:define>
 		<ui:define name="pageContent">
 			<h:outputStylesheet library="ivy-webcontent" name="layouts/styles/portal_selfservice.css" />
@@ -35,7 +35,7 @@
 						<p:outputLabel for="caseInfoAttachment" value="Attachment" />
 						<p:fileUpload id="caseInfoAttachment"
 							value="#{data.caseInfo.attachment}" mode="simple"
-							sizeLimit="1000000" style="width:630px" />
+							sizeLimit="1000000" style="width:630px" fileLimit="1" skinSimple="true"/>
 						<p:outputLabel for="dataCaseInfoKind" value="Pattern" />
 						<h:panelGrid columns="4">
 							<p:selectOneRadio id="dataCaseInfoKind"
@@ -68,7 +68,8 @@
 						<p:panel style="padding:0px; margin-top:24px; border:0px;" styleClass="panel">
 							<h:panelGrid columns="2" cellpadding="0" cellspacing="4" styleClass="flowpanel">
 									<h:graphicImage library="ivy-webcontent"
-										name="user/#{data.newTask.actor}.jpg" height="68"
+										name="user/#{data.newTask.actor.indexOf(',') gt 0 ? 'group' : data.wfusers.contains(data.newTask.actor) ? data.newTask.actor : 'anonym'}.jpg"										
+										height="68"
 										title="#{data.newTask.actor}" styleClass="circularImg" />
 								<h:panelGrid columns="1" cellpadding="0" cellspacing="0">
 									<p:outputLabel value="CREATOR" readonly="true"
@@ -102,14 +103,8 @@
 											</h:graphicImage>
 											<h:panelGrid columns="1" cellpadding="0" cellspacing="0">
 											<h:panelGroup>
-												<p:outputLabel value="#{defineTask.kind}" readonly="true"
+												<p:outputLabel value="#{defineTask.kind}" readonly="true" rendered="#{defineTask.kind ne 'TASK'}"
 													style="font-weight:bold;"></p:outputLabel>
-												<p:commandButton icon="ui-icon-close"
-													title="Delete this Step"
-													actionListener="#{logic.deleteTask(defineTask)}"
-													update=":form:taskDef" process=":form:taskDef" 
-													style="border:0px" styleClass="xbutton"/>
-												</h:panelGroup>
 												<p:inputText value="#{defineTask.description}" size="18"
 													readonly="false" rendered="#{defineTask.kind eq 'TASK'}">
 													<p:ajax event="mousedown" process="@this"
@@ -117,6 +112,12 @@
 														update="taskDesription"
 														oncomplete="PF('taskDesription').show();" />
 												</p:inputText>
+												<p:commandButton icon="ui-icon-close"
+													title="Delete this Step"
+													actionListener="#{logic.deleteTask(defineTask)}"
+													update=":form:taskDef" process=":form:taskDef" 
+													style="border:0px; background-color:#eeeeee;" styleClass="xbutton"/>
+												</h:panelGroup>
 												<p:inputText value="#{defineTask.actor}" size="18"
 													readonly="false">
 													<p:ajax event="mousedown" process="@this"
@@ -141,7 +142,7 @@
 							style="margin:0px; padding:0px; border:0px;" styleClass="panel">
 							<h:panelGrid columns="1"
 								style="margin-top:24px; margin-right:0px; margin-left:0px;">
-								<p:commandButton icon="ui-icon-plus" value="Task"
+								<p:commandButton icon="fa fa-plus" value="Task"
 									styleClass="iconButton" title="Add a task to the sequence"
 									actionListener="#{logic.addTaskDef}" update=":form:taskDef"
 									process=":form:taskDef" ></p:commandButton>
@@ -179,7 +180,7 @@
 				<br />
 				<p:spacer width="10px"></p:spacer>
 				<p:commandButton actionListener="#{logic.go}" value="Start Workflow"
-					icon="ui-icon-check" update="form" ajax="false" />
+					icon="fa fa-check" update="form" ajax="false" />
 			</h:form>
 			<p:dialog id="userList" header="Responsable Users"
 				widgetVar="userList" modal="true" appendTo="@(body)"> 

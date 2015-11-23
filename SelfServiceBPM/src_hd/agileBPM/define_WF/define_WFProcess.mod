@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 28 16:38:37 CEST 2015]
+[>Created: Mon Nov 23 10:47:00 CET 2015]
 144633F679C3A22D 3.18 #module
 >Proto >Proto Collection #zClass
 ds0 define_WFProcess Big #zClass
@@ -233,8 +233,8 @@ out.started=new DateTime();
 ' #txt
 ds0 f7 actionCode 'import ch.ivyteam.ivy.Helper;
 import java.util.Collection;
-// users from ivyTeam with pictures
-out.wfusers = ["bb","bhu","ch","cst","dre","fs","mda","pes","rew","rwei","tkis"];
+// list of users with a .jpg picture in the folder webContent/user
+out.wfusers = ["UserA", "UserB"];
 
 // creator task
 out.newTask = new selfServiceBPM.TaskDef();
@@ -264,6 +264,7 @@ for(IUser user : users)
 	}
 }
 out.userList = Helper.sortUsers(out.userList);' #txt
+ds0 f7 security system #txt
 ds0 f7 type agileBPM.define_WF.define_WFData #txt
 ds0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

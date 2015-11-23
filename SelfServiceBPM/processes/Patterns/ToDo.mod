@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Sep 30 15:45:03 CEST 2015]
-14ACEFC7EE242A43 3.17 #module
+[>Created: Mon Nov 23 10:35:30 CET 2015]
+14ACEFC7EE242A43 3.18 #module
 >Proto >Proto Collection #zClass
 To0 ToDo Big #zClass
 To0 B #cInfo
@@ -167,47 +167,16 @@ To0 f0 inParamDecl '<> param;' #txt
 To0 f0 actionDecl 'selfServiceBPM.Data out;
 ' #txt
 To0 f0 guid 14ACEFC7EEC1F2D9 #txt
-To0 f0 requestEnabled false #txt
+To0 f0 requestEnabled true #txt
 To0 f0 triggerEnabled false #txt
 To0 f0 callSignature start() #txt
 To0 f0 persist false #txt
-To0 f0 taskData '#
-#Mon Jan 19 17:23:09 CET 2015
-TaskTriggered.ROL=Everybody
+To0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody
-' #txt
-To0 f0 caseData '#
-#Mon Jan 19 17:23:09 CET 2015
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXROL=Everybody' #txt
 To0 f0 showInStartList 0 #txt
 To0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
@@ -221,14 +190,13 @@ engine.updateCurrentTask(taskUpdDef);
 To0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name> </name>
-        <nameStyle>1,5,7
-</nameStyle>
+        <name> 
+start.ivp</name>
     </language>
 </elementInfo>
 ' #txt
 To0 f0 @C|.responsibility Everybody #txt
-To0 f0 81 73 30 30 -1 17 #rect
+To0 f0 81 73 30 30 -21 17 #rect
 To0 f0 @|StartRequestIcon #fIcon
 To0 f1 type selfServiceBPM.Data #txt
 To0 f1 457 73 30 30 0 15 #rect
@@ -250,9 +218,9 @@ To0 U10 -1|-1|-13016147 #nodeStyle
 To0 f5 targetWindow NEW:card: #txt
 To0 f5 targetDisplay TOP #txt
 To0 f5 richDialogId agileBPM.test #txt
-To0 f5 startMethod start(DateTime) #txt
+To0 f5 startMethod start(String) #txt
 To0 f5 type selfServiceBPM.Data #txt
-To0 f5 requestActionDecl '<DateTime until> param;' #txt
+To0 f5 requestActionDecl '<String answer> param;' #txt
 To0 f5 responseActionDecl 'selfServiceBPM.Data out;
 ' #txt
 To0 f5 responseMappingAction 'out=in;
@@ -377,9 +345,9 @@ To0 U11 @|BpmnUserTaskIcon #fIcon
 To0 f7 targetWindow NEW:card: #txt
 To0 f7 targetDisplay TOP #txt
 To0 f7 richDialogId agileBPM.test #txt
-To0 f7 startMethod start(DateTime) #txt
+To0 f7 startMethod start(String) #txt
 To0 f7 type selfServiceBPM.Data #txt
-To0 f7 requestActionDecl '<DateTime until> param;' #txt
+To0 f7 requestActionDecl '<String answer> param;' #txt
 To0 f7 responseActionDecl 'selfServiceBPM.Data out;
 ' #txt
 To0 f7 responseMappingAction 'out=in;
@@ -553,9 +521,9 @@ To0 f15 @|StartRequestIcon #fIcon
 To0 f16 targetWindow NEW:card: #txt
 To0 f16 targetDisplay TOP #txt
 To0 f16 richDialogId agileBPM.test #txt
-To0 f16 startMethod start(DateTime) #txt
+To0 f16 startMethod start(String) #txt
 To0 f16 type selfServiceBPM.Data #txt
-To0 f16 requestActionDecl '<DateTime until> param;' #txt
+To0 f16 requestActionDecl '<String answer> param;' #txt
 To0 f16 responseActionDecl 'selfServiceBPM.Data out;
 ' #txt
 To0 f16 responseMappingAction 'out=in;

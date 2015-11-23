@@ -14,12 +14,12 @@
 				value="#{ivy.cms.co('/Texts/ToDo-Explain')}" />
 			<p:commandButton actionListener="#{logic.done(true)}" value="Done"
 				title="Confirm the Todo" update="form2"
-				icon="ui-icon-check">
+				icon="fa fa-check">
 			</p:commandButton>
 			<p:spacer width="10"></p:spacer>
 			<p:commandButton actionListener="#{logic.done(false)}" value="Decline"
-				title="Refuse the Todo" update="form2"
-				icon="ui-icon-check">
+				title="Decline the task" update="form2"
+				icon="fa fa-remove">
 			</p:commandButton>
 		</p:fieldset>
 	</h:form>
