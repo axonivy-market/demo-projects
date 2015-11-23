@@ -38,11 +38,14 @@
 						<h:panelGrid columns="1" style="text-align: center;"
 							styleClass="flowpanel">
 							<p:outputLabel value="#{histTask.kind}" style="font-weight:bold;"></p:outputLabel>
-							<h:graphicImage library="ivy-webcontent" id="h#{row.index}"
-								name="user/#{histTask.actor.indexOf(',') gt 0 ? 'group' : data.wfusers.contains(histTask.actor) ? histTask.actor : 'anonym'}.jpg"					
-								title="#{histTask.actor}"
+							<h:graphicImage library="ivy-webcontent" 
+								name="user/group.jpg"		 			
+								title="#{histTask.actor}" rendered="#{histTask.actor.indexOf(',') gt 0}"
 								styleClass="circularImg" style="margin-left:20px; margin-right:20px;">
-								<p:tooltip for="h#{row.index}" styleClass="panel">
+							</h:graphicImage>
+							<pe:gravatar id="h#{row.index}" value="#{ivy.wf.getSecurityContext().findUser(histTask.actor).getEMailAddress()}" 
+							size="60" notFound="mm" style="border-radius:30px" rendered="#{histTask.actor.indexOf(',') le 0}">										
+							<p:tooltip for="h#{row.index}" styleClass="panel">
 									<h:panelGrid columns="2" cellpadding="0">
 										<h:graphicImage library="ivy-webcontent"
 											name="images/done.jpg" alt="Done" height="24" title="Done" />
@@ -58,7 +61,7 @@
 										</h:panelGrid>
 									</h:panelGrid>
 								</p:tooltip>
-							</h:graphicImage>
+								</pe:gravatar>
 							<p:outputLabel value="#{histTask.actor}"></p:outputLabel>
 						</h:panelGrid>
 						<h:graphicImage library="ivy-webcontent" name="images/flowA.png"
@@ -72,15 +75,18 @@
 							<f:setPropertyActionListener value="insert"
 								target="#{data.ok}" />
 						</p:commandButton>
-					</p:panel >
+					</p:panel > 
 					<h:panelGrid columns="1" styleClass="flowpanelHot"
 						style="font-weight:bold; text-align: center">
 						<p:outputLabel value="#{data.nextTask.kind}"
-							style="font-weight:bold;"></p:outputLabel>
-						<h:graphicImage library="ivy-webcontent" id="pp"
-							name="user/#{data.nextTask.actor.indexOf(',') gt 0 ? 'group' : data.nextTask.actor}.jpg"
+							style="font-weight:bold;">							</p:outputLabel>
+						<h:graphicImage library="ivy-webcontent" 
+							name="user/group.jpg" rendered="#{data.nextTask.actor.indexOf(',') gt 0}"
 							styleClass="circularImg" style="margin-left:20px; margin-right:20px;">
-							<p:tooltip id="tt" for="pp" styleClass="panel">
+						</h:graphicImage>
+							<pe:gravatar id="pp" value="#{ivy.wf.getSecurityContext().findUser(data.nextTask.actor).getEMailAddress()}" 
+							size="60" notFound="mm" style="border-radius:30px" rendered="#{data.nextTask.actor.indexOf(',') le 0}">
+														<p:tooltip id="tt" for="pp" styleClass="panel">
 								<h:panelGrid columns="2" cellpadding="0">
 									<h:graphicImage library="ivy-webcontent"
 										name="images/deadline.jpg" alt="Deadline" height="24"
@@ -96,7 +102,7 @@
 									</h:panelGrid>
 								</h:panelGrid>
 							</p:tooltip>
-						</h:graphicImage>
+							</pe:gravatar>								
 						<p:outputLabel value="#{data.nextTask.actor}"
 							style="font-weight:bold;" />
 					</h:panelGrid>
@@ -123,9 +129,11 @@
 									rendered="#{defTask.adhoc}"/>
 							</h:panelGroup>
 							<h:graphicImage library="ivy-webcontent"
-								name="user/#{defTask.actor.indexOf(',') gt 0 ? 'group' : data.wfusers.contains(defTask.actor) ? defTask.actor : 'anonym'}.jpg"
+								name="user/group.jpg" rendered="#{defTask.actor.indexOf(',') gt 0}"
 								title="#{defTask.actor}" styleClass="circularImg" style="margin-left:20px; margin-right:20px;">
 							</h:graphicImage>
+							<pe:gravatar value="#{ivy.wf.getSecurityContext().findUser(defTask.actor).getEMailAddress()}" 
+							size="60" notFound="mm" style="border-radius:30px" rendered="#{defTask.actor.indexOf(',') le 0}"/>								
 							<p:outputLabel value="#{defTask.actor}" ></p:outputLabel>
 						</h:panelGrid>
 					</c:forEach>

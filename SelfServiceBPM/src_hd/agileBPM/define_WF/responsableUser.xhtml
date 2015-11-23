@@ -25,14 +25,16 @@
 				</p:selectManyMenu>
 				<h:panelGrid columns="1" cellspacing="4">
 					<p:outputLabel value="Comma separated list of users:"></p:outputLabel>
-					<p:inputText id="dataUser" value="#{data.user}" size="60">
+					<p:inputText id="dataUser" value="#{data.user}" size="50">
 						<p:focus for="dataUser"></p:focus>
 					</p:inputText>
 					<p:spacer height="10"></p:spacer>
 					
 					<h:graphicImage id="portrait" library="ivy-webcontent"
-							name="user/#{data.user.indexOf(',') gt 0 ? 'group' : data.wfusers.contains(data.user) ? data.user : 'anonym'}.jpg"
-							title="WF User" styleClass="circularImg" />
+							name="user/group.jpg"
+							title="WF User" styleClass="circularImg" rendered="#{data.user.indexOf(',') gt 0}"/>
+					<pe:gravatar value="#{ivy.wf.getSecurityContext().findUser(data.user).getEMailAddress()}" size="60" notFound="mm" style="border-radius:30px" rendered="#{data.user.indexOf(',') le 0}"/>										
+							
 					<p:spacer height="60"></p:spacer>							
 					<p:commandButton value="Ok" update=":form:taskDef"
 						actionListener="#{logic.setUser}" icon="fa fa-check"

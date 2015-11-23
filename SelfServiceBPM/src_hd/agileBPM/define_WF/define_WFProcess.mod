@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 23 12:24:16 CET 2015]
+[>Created: Mon Nov 23 15:51:28 CET 2015]
 144633F679C3A22D 3.18 #module
 >Proto >Proto Collection #zClass
 ds0 define_WFProcess Big #zClass
@@ -231,7 +231,8 @@ ds0 f7 actionTable 'out=in;
 out.caseInfo.kind="TODO";
 out.started=new DateTime();
 ' #txt
-ds0 f7 actionCode 'import ch.ivyteam.ivy.Helper;
+ds0 f7 actionCode 'import javax.faces.context.FacesContext;
+import ch.ivyteam.ivy.Helper;
 import java.util.Collection;
 // list of users with a .jpg picture in the folder webContent/user
 out.wfusers = ["UserA", "UserB", "UserC"];

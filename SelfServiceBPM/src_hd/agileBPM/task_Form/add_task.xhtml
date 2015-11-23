@@ -22,9 +22,8 @@
 					</p:inputTextarea>
 					<p:outputLabel value="Assign to:" style="font-weight:bold;" />
 					<h:panelGrid columns="2" cellpadding="0">
-						<h:graphicImage id="portrait" library="ivy-webcontent"
-							name="user/#{data.addTask.actor.indexOf(',') gt 0 ? 'group' : data.wfusers.contains(data.addTask.actor) ? data.addTask.actor : 'anonym'}.jpg"
-							title="WF User" styleClass="circularImg" />
+							<pe:gravatar id="portrait" value="#{ivy.wf.getSecurityContext().findUser(data.addTask.actor).getEMailAddress()}" 
+							size="60" notFound="mm" style="border-radius:30px"/>								
 						<h:panelGrid columns="1">
 							<p:selectOneMenu id="actor" editable="false"
 								value="#{data.addTask.actor}" panelStyle="width:196px"
