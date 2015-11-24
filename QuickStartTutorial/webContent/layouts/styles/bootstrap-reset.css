@@ -1,0 +1,19 @@
+
+/* Reset box-sizing of bootstrap for all primefaces ui-widgets
+----------------------------------*/
+
+.ui-widget, .ui-widget * {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.ui-fieldset-legend {
+    width: auto;
+}
+
+.ui-datatable-tablewrapper table {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
