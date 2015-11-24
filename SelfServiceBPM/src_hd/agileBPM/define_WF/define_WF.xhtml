@@ -70,7 +70,7 @@
 									<h:graphicImage library="ivy-webcontent"
 										name="user/group.jsp"										
 										height="60"
-										title="#{data.newTask.actor}" styleClass="circularImg" rendered="#{data.newTask.actor.indexOf(',') gt 0}"/>
+										title="#{data.newTask.actor}" styleClass="circularGroupImg" rendered="#{data.newTask.actor.indexOf(',') gt 0}"/>
         						<pe:gravatar value="#{ivy.wf.getSecurityContext().findUser(data.newTask.actor).getEMailAddress()}" size="60" notFound="mm" style="border-radius:30px" rendered="#{data.newTask.actor.indexOf(',') le 0}"/>  										
 								<h:panelGrid columns="1" cellpadding="0" cellspacing="0">
 									<p:outputLabel value="CREATOR" readonly="true"
@@ -95,7 +95,7 @@
 									<h:panelGrid columns="2" styleClass="flowpanel" cellpadding="0" cellspacing="4">
 									<h:graphicImage library="ivy-webcontent"
 										name="user/group.jpg" height="60" title="#{defineTask.actor}" 
-										styleClass="circularImg" rendered="#{defineTask.actor.indexOf(',') gt 0}">
+										styleClass="circularGroupImg" rendered="#{defineTask.actor.indexOf(',') gt 0}">
 										<p:ajax event="mousedown" process="@this"
 														listener="#{logic.initUserList(defineTask)}"
 														oncomplete="PF('userList').show();" />

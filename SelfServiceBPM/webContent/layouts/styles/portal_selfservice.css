@@ -9,21 +9,18 @@ body, html, td, tr, th, input, textarea, select, form, div {
     width: 60px;
     height: 60px;
     border-radius: 30px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
     overflow:hidden; 
 }
 
-.circularImgHot {
+.circularGroupImg {
     width: 60px; 
     height: 60px;
-    border-radius: 30px;
+    border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     overflow:hidden; 
-    border: 2px solid;
-    border-color: rgb(237,0,0);
-    padding:0px;
 }
 
 .flowpanelHot {

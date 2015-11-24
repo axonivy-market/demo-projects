@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 23 12:23:49 CET 2015]
+[>Created: Tue Nov 24 10:47:01 CET 2015]
 1492E077AA2879D3 3.18 #module
 >Proto >Proto Collection #zClass
 ts0 task_FormProcess Big #zClass
@@ -404,10 +404,9 @@ ts0 f15 actionDecl 'agileBPM.task_Form.task_FormData out;
 ts0 f15 actionTable 'out=in;
 ' #txt
 ts0 f15 actionCode 'import ch.ivyteam.ivy.Helper;
-// list of users with a .jpg picture in the folder webContent/user
-out.wfusers = ["UserA", "UserB", "UserC"];
 
 // wfuserlist
+// not that gravatar is used for portrait images
 import ch.ivyteam.ivy.security.IUser;
 List users = ivy.wf.getSecurityContext().getUsers();
 in.userList.clear();

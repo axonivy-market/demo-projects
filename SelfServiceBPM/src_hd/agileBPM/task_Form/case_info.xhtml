@@ -38,10 +38,26 @@
 						<h:panelGrid columns="1" style="text-align: center;"
 							styleClass="flowpanel">
 							<p:outputLabel value="#{histTask.kind}" style="font-weight:bold;"></p:outputLabel>
-							<h:graphicImage library="ivy-webcontent" 
+							<h:graphicImage id="i#{row.index}" library="ivy-webcontent" 
 								name="user/group.jpg"		 			
 								title="#{histTask.actor}" rendered="#{histTask.actor.indexOf(',') gt 0}"
-								styleClass="circularImg" style="margin-left:20px; margin-right:20px;">
+								styleClass="circularGroupImg" style="margin-left:20px; margin-right:20px;">
+							<p:tooltip for="i#{row.index}" styleClass="panel">
+									<h:panelGrid columns="2" cellpadding="0">
+										<h:graphicImage library="ivy-webcontent"
+											name="images/done.jpg" alt="Done" height="24" title="Done" />
+										<h:panelGrid columns="1">
+											<p:outputLabel value="#{histTask.kind} "></p:outputLabel>
+											<p:outputLabel value="#{histTask.actor}"></p:outputLabel>
+											<p:outputLabel
+												value="#{histTask.done.format('dd.MM.YYYY HH:mm')}"
+												size="16" readonly="true" />
+											<c:forEach items="#{histTask.taskNotes}" var="tasknote">
+												<p:outputLabel value="#{tasknote.message}" />
+											</c:forEach>
+										</h:panelGrid>
+									</h:panelGrid>
+								</p:tooltip>								
 							</h:graphicImage>
 							<pe:gravatar id="h#{row.index}" value="#{ivy.wf.getSecurityContext().findUser(histTask.actor).getEMailAddress()}" 
 							size="60" notFound="mm" style="border-radius:30px" rendered="#{histTask.actor.indexOf(',') le 0}">										
@@ -80,13 +96,29 @@
 						style="font-weight:bold; text-align: center">
 						<p:outputLabel value="#{data.nextTask.kind}"
 							style="font-weight:bold;">							</p:outputLabel>
-						<h:graphicImage library="ivy-webcontent" 
+						<h:graphicImage id="gi" library="ivy-webcontent" 
 							name="user/group.jpg" rendered="#{data.nextTask.actor.indexOf(',') gt 0}"
-							styleClass="circularImg" style="margin-left:20px; margin-right:20px;">
+							styleClass="circularGroupImg" style="margin-left:20px; margin-right:20px;">
+						<p:tooltip id="it" for="gi" styleClass="panel">
+								<h:panelGrid columns="2" cellpadding="0">
+									<h:graphicImage library="ivy-webcontent"
+										name="images/deadline.jpg" alt="Deadline" height="24"
+										title="Deadline" />
+									<h:panelGrid columns="1">
+										<p:outputLabel value="#{data.nextTask.kind}"
+											style="font-weight:bold;" />
+										<p:outputLabel value="#{data.nextTask.actor}"
+											style="font-weight:bold;" />
+										<p:outputLabel
+											value=" #{data.nextTask.until.format('dd.MM.YYYY HH:mm')}"
+											size="16" style="font-weight:bold;" />
+									</h:panelGrid>
+								</h:panelGrid>
+							</p:tooltip>
 						</h:graphicImage>
 							<pe:gravatar id="pp" value="#{ivy.wf.getSecurityContext().findUser(data.nextTask.actor).getEMailAddress()}" 
 							size="60" notFound="mm" style="border-radius:30px" rendered="#{data.nextTask.actor.indexOf(',') le 0}">
-														<p:tooltip id="tt" for="pp" styleClass="panel">
+						<p:tooltip id="tt" for="pp" styleClass="panel">
 								<h:panelGrid columns="2" cellpadding="0">
 									<h:graphicImage library="ivy-webcontent"
 										name="images/deadline.jpg" alt="Deadline" height="24"
@@ -130,10 +162,14 @@
 							</h:panelGroup>
 							<h:graphicImage library="ivy-webcontent"
 								name="user/group.jpg" rendered="#{defTask.actor.indexOf(',') gt 0}"
-								title="#{defTask.actor}" styleClass="circularImg" style="margin-left:20px; margin-right:20px;">
+								title="#{defTask.actor}" styleClass="circularGroupImg" style="margin-left:20px; margin-right:20px;">
 							</h:graphicImage>
+							<h:graphicImage library="ivy-webcontent"
+								name="user/SYSTEM.jpg" rendered="#{defTask.actor eq 'SYSTEM'}"
+								title="#{defTask.actor}" styleClass="circularImg" style="margin-left:20px; margin-right:20px;">
+							</h:graphicImage>							
 							<pe:gravatar value="#{ivy.wf.getSecurityContext().findUser(defTask.actor).getEMailAddress()}" 
-							size="60" notFound="mm" style="border-radius:30px" rendered="#{defTask.actor.indexOf(',') le 0}"/>								
+							size="60" notFound="mm" style="border-radius:30px" rendered="#{defTask.actor.indexOf(',') le 0 and defTask.actor ne 'SYSTEM'}"/>								
 							<p:outputLabel value="#{defTask.actor}" ></p:outputLabel>
 						</h:panelGrid>
 					</c:forEach>

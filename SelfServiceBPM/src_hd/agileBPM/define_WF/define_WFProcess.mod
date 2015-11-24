@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 23 15:51:28 CET 2015]
+[>Created: Tue Nov 24 10:47:01 CET 2015]
 144633F679C3A22D 3.18 #module
 >Proto >Proto Collection #zClass
 ds0 define_WFProcess Big #zClass
@@ -234,8 +234,6 @@ out.started=new DateTime();
 ds0 f7 actionCode 'import javax.faces.context.FacesContext;
 import ch.ivyteam.ivy.Helper;
 import java.util.Collection;
-// list of users with a .jpg picture in the folder webContent/user
-out.wfusers = ["UserA", "UserB", "UserC"];
 
 // creator task
 out.newTask = new selfServiceBPM.TaskDef();
@@ -253,6 +251,7 @@ newTask.setUntil(ivy.cal.getWorkDayIn(1,new Time()));
 out.definedTasks.add(newTask);
 
 // wfuserlist
+// not that gravatar is used for portrait images
 import ch.ivyteam.ivy.security.IUser;
 List users = ivy.wf.getSecurityContext().getUsers();
 in.userList.clear();
