@@ -12,9 +12,8 @@
 
 .detailsList th
 {
-	font-size: 90%;
 	text-align: left;
-	padding-right: 2pt;
+	padding: 3pt 15pt 3pt 5pt;
 }
 
 .alignTop {

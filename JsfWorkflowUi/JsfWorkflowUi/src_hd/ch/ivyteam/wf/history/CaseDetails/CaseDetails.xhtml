@@ -42,14 +42,6 @@
 							<td>#{data.wfCase.description}</td>
 						</tr>
 						<tr>
-							<th>#{ivy.cms.co('/labels/history/caseDetails/processmodel')}</th>
-							<td>#{data.wfCase.processModel.name}</td>
-						</tr>
-						<tr>
-							<th>#{ivy.cms.co('/labels/history/caseDetails/version')}</th>
-							<td>#{data.wfCase.processModelVersion}</td>
-						</tr>
-						<tr>
 							<th>#{ivy.cms.co('/labels/common/state')}</th>
 							<td>
 								<wc:IconDescription iconName="images/details/caseState/#{data.wfCase.getState().intValue()}.png" iconDescription="#{data.wfCase.state}" />
@@ -93,6 +85,14 @@
 								</h:outputText>
 							</td>
 						</tr>
+						<tr>
+							<th>#{ivy.cms.co('/labels/history/caseDetails/processmodel')}</th>
+							<td>#{data.wfCase.processModel.name}</td>
+						</tr>
+						<tr>
+							<th>#{ivy.cms.co('/labels/history/caseDetails/version')}</th>
+							<td>#{data.wfCase.processModelVersion}</td>
+						</tr>
 					</table>
 				</h:column>
 				<p:spacer width="100" />
@@ -124,9 +124,9 @@
 		</h:form>
 		<br /><br />
 		<h:form id="formTaskList">
-			<div style="float:left">
+			<h4>
 				<h:outputText value="#{ivy.cms.co('/labels/common/tasks')}" style="font-weight:bold;" />
-			</div>
+			</h4>
 			<div style="float:right">
 				<h:panelGrid columns="2">
 					<p:selectBooleanCheckbox value="#{data.showSystemTasks}" id="showSystemTasks">
