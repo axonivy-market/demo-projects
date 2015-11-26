@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ch.ivyteam.ivy.project.demo</groupId>
   <artifactId>WorkflowDemos</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>6.1.0-SNAPSHOT</version>
   <parent>
 	<groupId>ch.ivyteam.ivy.project</groupId>
 	<artifactId>build.maven.iar</artifactId>
-	<version>6.0.0-SNAPSHOT</version>
+	<version>6.1.0-SNAPSHOT</version>
 	<relativePath>../build.maven/iar</relativePath>
   </parent>
   <packaging>iar</packaging>
