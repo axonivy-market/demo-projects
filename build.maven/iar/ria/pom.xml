@@ -52,9 +52,9 @@
 								<filterset id="ria.property.filter">
 									<!-- RIA application name and application short name are not changed by the build -->
 									<filter token="VendorName" value="${vendor.name}" />
-									<filter token="MajorVersion" value="${build.version.major}" />
-									<filter token="MinorVersion" value="${build.version.minor}" />
-									<filter token="PatchVersion" value="${build.version.service}" />
+									<filter token="MajorVersion" value="${ivy-major-version}" />
+									<filter token="MinorVersion" value="${ivy-minor-version}" />
+									<filter token="PatchVersion" value="${ivy-service-version}" />
 									<filter token="RevisionNumber" value="${svn.revision}" />
 									<filter token="Copyright" value="${application.copyright}" />
 									<filter token="BuildDate" value="${build.date.iso}" />
