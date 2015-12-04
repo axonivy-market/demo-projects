@@ -7,11 +7,11 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <cc:interface>
-	<cc:attribute name="iconName" />
-	<cc:attribute name="iconDescription" />
+	<cc:attribute name="state" />
 </cc:interface>
 <cc:implementation>
-		<h:graphicImage id="icon" name="#{cc.attrs.iconName}" alt="#{cc.attrs.iconDescription}" title="#{cc.attrs.iconDescription}" />
-		<span style="vertical-align: top;"><h:outputText id="description" value="#{cc.attrs.iconDescription} " /></span>
+	<span class="fa fa-#{iconConverter.getTaskIcon(cc.attrs.state)}"
+		title="#{ivy.cms.co('/labels/common/state')} #{cc.attrs.state}"
+		style="color: #{iconConverter.getTaskColor(cc.attrs.state)}" />
 </cc:implementation>
 </html>

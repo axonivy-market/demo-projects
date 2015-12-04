@@ -19,22 +19,21 @@
 			        <f:selectItem itemLabel="HIGH" itemValue="HIGH" />
 			        <f:selectItem itemLabel="EXCEPTION" itemValue="EXCEPTION" />
 			    </p:selectOneRadio>
-				<h:panelGrid columns="4">
+				<h:panelGrid columns="3">
 				    <p:radioButton id="low" for="priorityOptions" itemIndex="0" />
-				    <p:spacer width="5pt" />
-				    <h:graphicImage name="images/details/priority/3.png" style="border:0pt" alt="LOW" />
+				    <i class="fa fa-arrow-down fa-fw" style="color:blue; "/>
 				    <h:outputLabel for="low" value="LOW" />
+				    
 				    <p:radioButton id="normal" for="priorityOptions" itemIndex="1" />
-				    <p:spacer width="5pt" />
-				    <h:graphicImage name="images/details/priority/2.png" style="border:0pt" alt="NORMAL" />
+				    <span class="fa fa-arrow-right fa-fw" style="color:green; " />
 				    <h:outputLabel for="normal" value="NORMAL" />
+				    
 				    <p:radioButton id="high" for="priorityOptions" itemIndex="2" />
-				    <p:spacer width="5pt" />
-				    <h:graphicImage name="images/details/priority/1.png" style="border:0pt" alt="HIGH" />
+				    <span class="fa fa-arrow-up fa-fw" style="color:red;" />
 				    <h:outputLabel for="high" value="HIGH" />
+				    
 				    <p:radioButton id="exception" for="priorityOptions" itemIndex="3" />
-				    <p:spacer width="5pt" />
-				    <h:graphicImage name="images/details/priority/0.png" style="border:0pt" alt="EXCEPTION" />
+				    <span class="fa fa-exclamation fa-fw" style="color:red;" />
 				    <h:outputLabel for="exception" value="EXCEPTION" />
 			    </h:panelGrid>
   			</h:panelGrid>

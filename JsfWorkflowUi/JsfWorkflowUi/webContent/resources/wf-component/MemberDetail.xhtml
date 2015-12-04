@@ -17,7 +17,7 @@ For a user: [user-icon] full name (name)
 	<cc:attribute name="member" type="ch.ivyteam.ivy.security.ISecurityMember" shortDescription="A user or a role" />
 </cc:interface>
 <cc:implementation>
-	<wc:IconDescription iconName="#{cc.attrs.member == null ? 'images/others/none' : cc.attrs.member.isUser() ? 'images/details/user' : 'images/details/role'}.png" 
+	<wc:IconAndText iconName="#{cc.attrs.member == null ? '' : cc.attrs.member.isUser() ? 'fa fa-user' : 'fa fa-users'}" 
 		iconDescription="#{cc.attrs.member == null ? '-' : cc.attrs.member.getDisplayName().length() ne 0 ? cc.attrs.member.getDisplayName() : cc.attrs.member.getName()}" />
 </cc:implementation>
 </html> 

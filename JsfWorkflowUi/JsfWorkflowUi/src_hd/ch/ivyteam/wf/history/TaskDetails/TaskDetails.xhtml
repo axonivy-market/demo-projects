@@ -1,223 +1,291 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"      
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-	  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:ic="http://ivyteam.ch/jsf/component"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="http://primefaces.org/ui/extensions"
-      xmlns:pm="http://primefaces.org/mobile"
-      xmlns:wc="http://java.sun.com/jsf/composite/wf-component">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:wc="http://java.sun.com/jsf/composite/wf-component">
 
 <ui:composition template="/layouts/Workflow.xhtml">
-	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/taskDetails')}" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
 		<c:if test="#{!(data.task eq null)}">
-		<br />
-		#{ivy.cms.co('/labels/history/taskDetails/description')}
-		<br /><br />
-		<h:form id="formTaskDetails">
-			<h:panelGrid columns="1">
-				<p:toolbar styleClass="ivy-toolbar">  
-    				<p:toolbarGroup align="left">
-    					<p:commandButton id="startTask" value="#{ivy.cms.co('/labels/common/taskResume')}" title="#{ivy.cms.co('/labels/common/taskResume')} Task" icon="fa fa-play-circle" onclick="window.location.href='#{data.taskLink}'; return false;" disabled="#{!data.canStart}" />
-    					<p:commandButton id="openResetTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" title="#{ivy.cms.co('/labels/history/taskDetails/resetTaskTooltip')}" icon="fa fa-history" onclick="PF('confirmDeleteReset').show();" disabled="#{data.resetLink}" />
-		    			<p:commandButton id="openAddNote" value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}" title="#{ivy.cms.co('/labels/common/addNoteTooltip')}" icon="fa fa-pencil-square-o" onclick="PF('addNote').show();" disabled="#{data.addNoteLink}" />
-						<p:commandButton id="openDelegateTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}" title="#{ivy.cms.co('/labels/history/taskDetails/delegateTaskTooltip')}" icon="fa fa-mail-forward" onclick="PF('delegateTask').show();" disabled="#{data.delegateLink}" />
-						<p:commandButton id="openChangeExpiry" value="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" title="#{ivy.cms.co('/labels/history/taskDetails/changeExpiryTooltip')}" icon="fa fa-clock-o" onclick="PF('changeExpiry').show();" disabled="#{data.changeExpiryLink}" />
-						<p:commandButton id="openChangePriority" value="#{ivy.cms.co('/labels/history/taskDetails/changePriority')}" title="#{ivy.cms.co('/labels/history/taskDetails/changePriorityTooltip')}" icon="fa fa-sort-numeric-asc" onclick="PF('changePriority').show();" disabled="#{data.prioLink}" />
-						<c:if test="#{data.isHistory}">
-		    				<p:commandButton id="openPageArchive" value="#{ivy.cms.co('/labels/common/formArchive')}" title="#{ivy.cms.co('/labels/common/showFormArchiveTooltip')}" icon="fa fa-archive" onclick="PF('formArchive').show();" disabled="#{data.archiveLink}" />
-						</c:if>
-						<c:if test="#{!data.isHistory}">
- 							<p:commandButton id="openParkTask" value="#{ivy.cms.co('/labels/history/taskDetails/taskPark')}" title="#{ivy.cms.co('/labels/history/taskDetails/parkTaskTooltip')}" icon="fa fa-pause" actionListener="#{logic.parkTask}" update="@all" disabled="#{data.parkLink}" />
- 						</c:if>
-					</p:toolbarGroup> 
-				</p:toolbar>
-			</h:panelGrid>
+			<h2>
+				<span class="fa fa-file-text-o" />
+				#{ivy.cms.co('/navLabels/taskDetails')}
+			</h2>
 			<br />
-			<h:panelGrid columns="3" rowClasses="alignTop" width="100%">
-			<h:column>
-				<table id="taskDetailsList" class="detailsList">
-					<tr>
-						<th>#{ivy.cms.co('/labels/history/taskDetails/taskId')}</th>
-						<td>#{data.task.id}</td>
-					</tr>
-					<tr>
-						<th>#{ivy.cms.co('/labels/common/name')}</th>
-						<td>#{data.task.name}</td>
-					</tr>
-					<tr>
-						<th>#{ivy.cms.co('/labels/common/description')}</th>
-						<td>#{data.task.description}</td>
-					</tr>
-					<tr>
-						<th>#{ivy.cms.co('/labels/common/state')}</th>
-						<td>
-							<wc:IconDescription iconName="images/details/state/#{data.task.state.intValue()}.png" iconDescription="#{data.task.state}" />
-						</td>
-					</tr>
-					<tr>
-						<th>#{ivy.cms.co('/labels/history/taskDetails/priority')}</th>
-						<td>
-							<wc:IconDescription iconName="images/details/priority/#{data.task.priority.intValue()}.png" iconDescription="#{data.task.priority}" />
-						</td>
-					</tr>
-					<tr>
-						<th>#{ivy.cms.co('/labels/common/user')}</th>
-						<td>
-							<wc:MemberDetail member="#{data.task.workerUser}" />
-						</td>
-					</tr>
-					<tr>
-   						<th>#{ivy.cms.co('/labels/common/responsible')}</th>
-	   					<td>
-							<wc:MemberDetail member="#{data.task.activator}" />
-						</td>
-					</tr>
-					<tr>
-   						<th>#{ivy.cms.co('/labels/history/taskDetails/responsibleEx')}</th>
-   						<td>
-							<wc:MemberDetail member="#{data.task.expiryActivator}" />
-						</td>
-					</tr>
-					<tr>
-   						<th>#{ivy.cms.co('/labels/history/taskDetails/case')}</th>
-						<td><a href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{data.task.case.id}" id="buttonCaseDetail">#{data.caseName}</a></td>
-					</tr>
-					<tr>
-						<th>#{ivy.cms.co('/labels/common/start')}</th>
-						<td>
-							<h:outputText value="#{data.task.startTimestamp}">
-								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
-							</h:outputText>
-						</td>
-					</tr>
-					<tr>
-						<th>#{ivy.cms.co('/labels/common/expiry')}</th>
-						<td>
-							<h:outputText value="#{data.task.expiryTimestamp}">
-								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
-							</h:outputText>
-							<p:spacer width="10" />
-							<p:commandLink value="#{ivy.cms.co('/labels/dialogs/confirmDialog/expiryTitle')}" onclick="PF('confirmExpiryNow').show();" update=":formTaskDetails" rendered="#{data.isExpiryDateLower and !data.changeExpiryLink}" />
-						</td>
-					</tr>
-					<tr>
-						<th>#{ivy.cms.co('/labels/history/taskDetails/delay')}</th>
-						<td>
-							<h:outputText value="#{data.task.delayTimestamp}">
-								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
-							</h:outputText>
-							<p:spacer width="10" />
-							<p:commandLink value="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}" onclick="PF('confirmDelayNow').show();" update=":formTaskDetails" rendered="#{data.isDelayDateLower}" />
-						</td>
-					</tr>
-					<tr>
-						<th>#{ivy.cms.co('/labels/common/done')}</th>
-						<td>
-							<h:outputText value="#{data.task.endTimestamp}">
-								<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
-							</h:outputText>
-						</td>
-					</tr>
-				</table>
-				</h:column>
-				<p:spacer width="100" />
-				<h:column>
-				<p:fieldset legend="#{ivy.cms.co('/labels/common/notes')}" toggleable="true" toggleSpeed="500" rendered="#{data.task.case.hasNotes() or data.task.hasNotes()}">
-					<p:dataList value="#{data.notes}" var="taskNote" itemType="none" rendered="#{data.task.hasNotes()}">
-						<f:facet name="header">
+		#{ivy.cms.co('/labels/history/taskDetails/description')}
+		<br />
+			<br />
+			<h:form id="formTaskDetails">
+				<h:panelGrid columns="1">
+					<p:toolbar styleClass="ivy-toolbar">
+						<p:toolbarGroup align="left">
+							<p:commandButton id="startTask"
+								value="#{ivy.cms.co('/labels/common/taskResume')}"
+								title="#{ivy.cms.co('/labels/common/taskResume')} Task"
+								icon="fa fa-play-circle"
+								onclick="window.location.href='#{data.taskLink}'; return false;"
+								disabled="#{!data.canStart}" />
+							<p:commandButton id="openResetTask"
+								value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}"
+								title="#{ivy.cms.co('/labels/history/taskDetails/resetTaskTooltip')}"
+								icon="fa fa-history" onclick="PF('confirmDeleteReset').show();"
+								disabled="#{data.resetLink}" />
+							<p:commandButton id="openAddNote"
+								value="#{ivy.cms.co('/labels/dialogs/addNote/addNote')}"
+								title="#{ivy.cms.co('/labels/common/addNoteTooltip')}"
+								icon="fa fa-pencil-square-o" onclick="PF('addNote').show();"
+								disabled="#{data.addNoteLink}" />
+							<p:commandButton id="openDelegateTask"
+								value="#{ivy.cms.co('/labels/history/taskDetails/taskDelegate')}"
+								title="#{ivy.cms.co('/labels/history/taskDetails/delegateTaskTooltip')}"
+								icon="fa fa-mail-forward" onclick="PF('delegateTask').show();"
+								disabled="#{data.delegateLink}" />
+							<p:commandButton id="openChangeExpiry"
+								value="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}"
+								title="#{ivy.cms.co('/labels/history/taskDetails/changeExpiryTooltip')}"
+								icon="fa fa-clock-o" onclick="PF('changeExpiry').show();"
+								disabled="#{data.changeExpiryLink}" />
+							<p:commandButton id="openChangePriority"
+								value="#{ivy.cms.co('/labels/history/taskDetails/changePriority')}"
+								title="#{ivy.cms.co('/labels/history/taskDetails/changePriorityTooltip')}"
+								icon="fa fa-sort-numeric-asc"
+								onclick="PF('changePriority').show();"
+								disabled="#{data.prioLink}" />
+							<c:if test="#{data.isHistory}">
+								<p:commandButton id="openPageArchive"
+									value="#{ivy.cms.co('/labels/common/formArchive')}"
+									title="#{ivy.cms.co('/labels/common/showFormArchiveTooltip')}"
+									icon="fa fa-archive" onclick="PF('formArchive').show();"
+									disabled="#{data.archiveLink}" />
+							</c:if>
+							<c:if test="#{!data.isHistory}">
+								<p:commandButton id="openParkTask"
+									value="#{ivy.cms.co('/labels/history/taskDetails/taskPark')}"
+									title="#{ivy.cms.co('/labels/history/taskDetails/parkTaskTooltip')}"
+									icon="fa fa-pause" actionListener="#{logic.parkTask}"
+									update="@all" disabled="#{data.parkLink}" />
+							</c:if>
+						</p:toolbarGroup>
+					</p:toolbar>
+				</h:panelGrid>
+				<br />
+				<h:panelGrid columns="3" rowClasses="alignTop" width="100%">
+					<h:column>
+						<table id="taskDetailsList" class="detailsList">
+							<tr>
+								<th>#{ivy.cms.co('/labels/history/taskDetails/taskId')}</th>
+								<td>#{data.task.id}</td>
+							</tr>
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/name')}</th>
+								<td>#{data.task.name}</td>
+							</tr>
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/description')}</th>
+								<td>#{data.task.description}</td>
+							</tr>
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/state')}</th>
+							<td><wc:TaskStateIconAndText
+									state="#{data.task.state}" withText="true" /></td>
+							</tr>
+							<tr>
+								<th>#{ivy.cms.co('/labels/history/taskDetails/priority')}</th>
+								<td><wc:PriorityIconAndText
+										priority="#{data.task.priority}" withText="true" /></td>
+							</tr>
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/user')}</th>
+								<td><wc:MemberDetail member="#{data.task.workerUser}" /></td>
+							</tr>
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/responsible')}</th>
+								<td><wc:MemberDetail member="#{data.task.activator}" /></td>
+							</tr>
+							<tr>
+								<th>#{ivy.cms.co('/labels/history/taskDetails/responsibleEx')}</th>
+								<td><wc:MemberDetail member="#{data.task.expiryActivator}" />
+								</td>
+							</tr>
+							<tr>
+								<th>#{ivy.cms.co('/labels/history/taskDetails/case')}</th>
+								<td><a
+									href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{data.task.case.id}"
+									id="buttonCaseDetail">#{data.caseName}</a></td>
+							</tr>
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/start')}</th>
+								<td><h:outputText value="#{data.task.startTimestamp}">
+										<f:convertDateTime type="both" dateStyle="short"
+											timeStyle="short" />
+									</h:outputText></td>
+							</tr>
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/expiry')}</th>
+								<td><h:outputText value="#{data.task.expiryTimestamp}">
+										<f:convertDateTime type="both" dateStyle="short"
+											timeStyle="short" />
+									</h:outputText> <p:spacer width="10" /> <p:commandLink
+										value="#{ivy.cms.co('/labels/dialogs/confirmDialog/expiryTitle')}"
+										onclick="PF('confirmExpiryNow').show();"
+										update=":formTaskDetails"
+										rendered="#{data.isExpiryDateLower and !data.changeExpiryLink}" />
+								</td>
+							</tr>
+							<tr>
+								<th>#{ivy.cms.co('/labels/history/taskDetails/delay')}</th>
+								<td><h:outputText value="#{data.task.delayTimestamp}">
+										<f:convertDateTime type="both" dateStyle="short"
+											timeStyle="short" />
+									</h:outputText> <p:spacer width="10" /> <p:commandLink
+										value="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}"
+										onclick="PF('confirmDelayNow').show();"
+										update=":formTaskDetails" rendered="#{data.isDelayDateLower}" />
+								</td>
+							</tr>
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/done')}</th>
+								<td><h:outputText value="#{data.task.endTimestamp}">
+										<f:convertDateTime type="both" dateStyle="short"
+											timeStyle="short" />
+									</h:outputText></td>
+							</tr>
+						</table>
+					</h:column>
+					<p:spacer width="100" />
+					<h:column>
+						<p:fieldset legend="#{ivy.cms.co('/labels/common/notes')}"
+							toggleable="true" toggleSpeed="500"
+							rendered="#{data.task.case.hasNotes() or data.task.hasNotes()}">
+							<p:dataList value="#{data.notes}" var="taskNote" itemType="none"
+								rendered="#{data.task.hasNotes()}">
+								<f:facet name="header">
 				            #{ivy.cms.co('/labels/common/taskNotes')}
 				        </f:facet>
-						<h:panelGrid columns="3" style="width:90%" >
-							<p:outputPanel style="width:300px">
-		    					<h:outputText value="#{taskNote.creationTimestamp}" style="font-weight:bold;" >
-			    					<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
-								</h:outputText>
-		    					<h:outputText value=" #{taskNote.writterName}:" escape="false" style="font-weight:bold;" />
-		    					<br />
-		    					<h:outputText value="#{taskNote.message}" escape="false" />
-	    					</p:outputPanel>
-	    					<p:spacer width="20" />
-	    					<p:commandButton id="openDeleteTaskNote" icon="fa fa-trash"  title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}" style="background-color:#ffffff; border:0px; width:20px;" onclick="PF('confirmDeleteNote').show();" disabled="#{taskNote.writterName != ivy.session.sessionUserName}" >
-	    						<f:setPropertyActionListener value="#{taskNote}" target="#{data.note}" />
-								<f:setPropertyActionListener value="task" target="#{data.noteFor}" />
-	    					</p:commandButton>
-						</h:panelGrid>
-					</p:dataList>
-					<c:if test="#{data.task.hasNotes() and data.task.case.hasNotes()}">
-						<br />
-					</c:if>
-					<p:dataList value="#{data.caseNotes}" var="caseNote" itemType="none" rendered="#{data.task.case.hasNotes()}">
-						<f:facet name="header">
+								<h:panelGrid columns="3" style="width:90%">
+									<p:outputPanel style="width:300px">
+										<h:outputText value="#{taskNote.creationTimestamp}"
+											style="font-weight:bold;">
+											<f:convertDateTime type="both" dateStyle="short"
+												timeStyle="short" />
+										</h:outputText>
+										<h:outputText value=" #{taskNote.writterName}:" escape="false"
+											style="font-weight:bold;" />
+										<br />
+										<h:outputText value="#{taskNote.message}" escape="false" />
+									</p:outputPanel>
+									<p:spacer width="20" />
+									<p:commandButton id="openDeleteTaskNote" icon="fa fa-trash"
+										title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}"
+										style="background-color:#ffffff; border:0px; width:20px;"
+										onclick="PF('confirmDeleteNote').show();"
+										disabled="#{taskNote.writterName != ivy.session.sessionUserName}">
+										<f:setPropertyActionListener value="#{taskNote}"
+											target="#{data.note}" />
+										<f:setPropertyActionListener value="task"
+											target="#{data.noteFor}" />
+									</p:commandButton>
+								</h:panelGrid>
+							</p:dataList>
+							<c:if
+								test="#{data.task.hasNotes() and data.task.case.hasNotes()}">
+								<br />
+							</c:if>
+							<p:dataList value="#{data.caseNotes}" var="caseNote"
+								itemType="none" rendered="#{data.task.case.hasNotes()}">
+								<f:facet name="header">
 				            #{ivy.cms.co('/labels/common/caseNotes')}
 				        </f:facet>
-						<h:panelGrid columns="3" style="width:90%">
-							<p:outputPanel style="width:300px">
-		    					<h:outputText value="#{caseNote.creationTimestamp}" style="font-weight:bold;" >
-		    						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
-								</h:outputText>
-		    					<h:outputText value=" #{caseNote.writterName}:" escape="false" style="font-weight:bold;" />
-		    					<br />
-		    					<h:outputText value="#{caseNote.message}" escape="false" />
-	    					</p:outputPanel>
-	    					<p:spacer width="20" />
-							<p:commandButton id="openDeleteCaseNote" icon="fa fa-trash" title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}" style="background-color:#ffffff; border:0px; width:20px"  onclick="PF('confirmDeleteNote').show();" disabled="#{caseNote.writterName != ivy.session.sessionUserName}" >
-	    						<f:setPropertyActionListener value="#{caseNote}" target="#{data.note}" />
-								<f:setPropertyActionListener value="case" target="#{data.noteFor}" />
-	    					</p:commandButton>
-						</h:panelGrid>
-					</p:dataList>
-				</p:fieldset>
-				</h:column>
-			</h:panelGrid>
-			<br/><br/>
-			<h:outputText value="#{ivy.cms.co('/labels/history/taskDetails/events')}" style="font-weight:bold;" rendered="#{data.isHistory}" />
-			<br/><br/>
-			<p:dataTable id="taskEventTable" var="event" value="#{data.taskEvents}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" sortOrder="DESCENDING" rendered="#{data.isHistory}">
-   				<p:column style="width:15%">
-           			<f:facet name="header">
+								<h:panelGrid columns="3" style="width:90%">
+									<p:outputPanel style="width:300px">
+										<h:outputText value="#{caseNote.creationTimestamp}"
+											style="font-weight:bold;">
+											<f:convertDateTime type="both" dateStyle="short"
+												timeStyle="short" />
+										</h:outputText>
+										<h:outputText value=" #{caseNote.writterName}:" escape="false"
+											style="font-weight:bold;" />
+										<br />
+										<h:outputText value="#{caseNote.message}" escape="false" />
+									</p:outputPanel>
+									<p:spacer width="20" />
+									<p:commandButton id="openDeleteCaseNote" icon="fa fa-trash"
+										title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}"
+										style="background-color:#ffffff; border:0px; width:20px"
+										onclick="PF('confirmDeleteNote').show();"
+										disabled="#{caseNote.writterName != ivy.session.sessionUserName}">
+										<f:setPropertyActionListener value="#{caseNote}"
+											target="#{data.note}" />
+										<f:setPropertyActionListener value="case"
+											target="#{data.noteFor}" />
+									</p:commandButton>
+								</h:panelGrid>
+							</p:dataList>
+						</p:fieldset>
+					</h:column>
+				</h:panelGrid>
+				<br />
+				<br />
+				<h:outputText
+					value="#{ivy.cms.co('/labels/history/taskDetails/events')}"
+					style="font-weight:bold;" rendered="#{data.isHistory}" />
+				<br />
+				<br />
+				<p:dataTable id="taskEventTable" var="event"
+					value="#{data.taskEvents}"
+					emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}"
+					rowIndexVar="row" sortOrder="DESCENDING"
+					rendered="#{data.isHistory}">
+					<p:column style="width:15%">
+						<f:facet name="header">
                			#{ivy.cms.co('/labels/history/taskDetails/eventTime')}
            			</f:facet>
-           			<h:outputText value="#{event.eventTimestamp}">
-						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
-					</h:outputText>
-        		</p:column>
-        		<p:column>
-           			<f:facet name="header">
+						<h:outputText value="#{event.eventTimestamp}">
+							<f:convertDateTime type="both" dateStyle="short"
+								timeStyle="short" />
+						</h:outputText>
+					</p:column>
+					<p:column>
+						<f:facet name="header">
                			#{ivy.cms.co('/labels/history/taskDetails/event')}
            			</f:facet>
-           			<h:outputText id="eventKind" value="#{event.getEventKind()}" />
-        		</p:column>
-        		<p:column>
-           			<f:facet name="header">
+						<h:outputText id="eventKind" value="#{event.getEventKind()}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
                			#{ivy.cms.co('/labels/common/user')}
            			</f:facet>
            			#{event.getUserName()}
         		</p:column>
-        		<p:column>
-           			<f:facet name="header">
+					<p:column>
+						<f:facet name="header">
            				#{ivy.cms.co('/labels/common/info')}
            			</f:facet>
            			#{event.getAdditionalInfo().toString().replace("[", "").replace("]", "")}
         		</p:column>
-   			</p:dataTable>
-		</h:form>
-		<ui:include src="/includes/dialogs/ConfirmDeleteReset.xhtml" >
-			<ui:param name="headerConfirm" value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" />
-			<ui:param name="description" value="#{ivy.cms.co('/labels/dialogs/confirmDialog/resetTask')}" />
-		</ui:include>
-		<ui:include src="/includes/dialogs/ConfirmDeleteNote.xhtml" />
-		<ui:include src="/includes/dialogs/ConfirmDelayNow.xhtml" />
-		<ui:include src="/includes/dialogs/ConfirmExpiryNow.xhtml" />
-		<ui:include src="/includes/dialogs/DelegateTask.xhtml" />
-		<ui:include src="/includes/dialogs/ChangeExpiry.xhtml" />
-		<ui:include src="/includes/dialogs/ChangePriority.xhtml" />
-		<ui:include src="/includes/dialogs/AddNote.xhtml" />
-		<ui:include src="/includes/dialogs/Archive.xhtml" />
+				</p:dataTable>
+			</h:form>
+			<ui:include src="/includes/dialogs/ConfirmDeleteReset.xhtml">
+				<ui:param name="headerConfirm"
+					value="#{ivy.cms.co('/labels/history/taskDetails/taskReset')}" />
+				<ui:param name="description"
+					value="#{ivy.cms.co('/labels/dialogs/confirmDialog/resetTask')}" />
+			</ui:include>
+			<ui:include src="/includes/dialogs/ConfirmDeleteNote.xhtml" />
+			<ui:include src="/includes/dialogs/ConfirmDelayNow.xhtml" />
+			<ui:include src="/includes/dialogs/ConfirmExpiryNow.xhtml" />
+			<ui:include src="/includes/dialogs/DelegateTask.xhtml" />
+			<ui:include src="/includes/dialogs/ChangeExpiry.xhtml" />
+			<ui:include src="/includes/dialogs/ChangePriority.xhtml" />
+			<ui:include src="/includes/dialogs/AddNote.xhtml" />
+			<ui:include src="/includes/dialogs/Archive.xhtml" />
 		</c:if>
-   	</ui:define>
+	</ui:define>
 </ui:composition>
 </html>

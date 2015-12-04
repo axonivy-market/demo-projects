@@ -59,7 +59,9 @@
 		        </p:columnGroup>
    				
    				<p:column>
-           			<a href="#{ivy.html.startref('1447289CE234B167/StatisticAverage.ivp')}?processCode=#{case.PROCESSCODE}&amp;categoryCode=#{case.MAXPROCESSCATEGORYCODE}" title="#{ivy.cms.co('/navLabels/averageStatistic')}"><h:graphicImage name="images/actions/chart.png" alt="" /></a>
+           			<a href="#{ivy.html.startref('1447289CE234B167/StatisticAverage.ivp')}?processCode=#{case.PROCESSCODE}&amp;categoryCode=#{case.MAXPROCESSCATEGORYCODE}" title="#{ivy.cms.co('/navLabels/averageStatistic')}">
+           			<span class="fa fa-bar-chart-o" />
+           			</a>
         		</p:column>
        			<p:column>
            			#{case.MAXPROCESSNAME == '' ? case.PROCESSCODE : case.MAXPROCESSNAME}

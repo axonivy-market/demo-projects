@@ -6,7 +6,8 @@
       xmlns:ic="http://ivyteam.ch/jsf/component"
       xmlns:p="http://primefaces.org/ui"
       xmlns:pe="http://primefaces.org/ui/extensions"
-      xmlns:pm="http://primefaces.org/mobile">
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:wc="http://java.sun.com/jsf/composite/wf-component">
 
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{data.header}" />
@@ -59,13 +60,15 @@
    				<p:column style="width:15px; text-align:center" sortBy="#{ID}">
            			<f:facet name="header">
            			</f:facet>
-           			<a href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{case.id}" id="buttonCaseDetail" title="Details Case [#{case.id}]"><h:graphicImage name="images/actions/case#{case.hasNotes() ? 'WithNote' : ''}.png" alt="" /></a>
+           			<a href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{case.id}" id="buttonCaseDetail" title="Details Case [#{case.id}]">
+           			<span class="fa fa-folder-open-o"/>
+           			</a>
         		</p:column>
        			<p:column style="width:15px; text-align: center;" sortBy="#{STATE}">
            			<f:facet name="header">
            			</f:facet>
-           			<h:graphicImage name="images/details/caseState/#{case.state.intValue()}.png" alt="" title="#{ivy.cms.co('/labels/common/state')} #{case.state}" />
-       			</p:column>
+           			<wc:CaseStateIconAndText state="#{case.state}"/>
+    			</p:column>
        			<p:column style="width:50px%" sortBy="#{NAME}">
            			<f:facet name="header">
                			#{ivy.cms.co('/labels/common/name')}

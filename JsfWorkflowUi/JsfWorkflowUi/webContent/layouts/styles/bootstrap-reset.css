@@ -17,3 +17,7 @@
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+.ui-widget label {
+	margin-bottom: 0;
+}

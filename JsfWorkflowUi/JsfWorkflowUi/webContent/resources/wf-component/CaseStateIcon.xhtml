@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui">
+
+<cc:interface>
+	<cc:attribute name="state" />
+</cc:interface>
+<cc:implementation>
+	<span class="fa fa-#{iconConverter.getCaseIcon(cc.attrs.state)}"
+		title="#{ivy.cms.co('/labels/common/state')} #{cc.attrs.state}"
+		style="color: #{iconConverter.getCaseColor(cc.attrs.state)}" />
+</cc:implementation>
+</html>

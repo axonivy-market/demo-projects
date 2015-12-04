@@ -40,19 +40,20 @@
 			<p:growl id="growl" showDetail="true" />
    			<p:dataTable value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}"  rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
       			<p:column style="width:12px" sortBy="#{ID}">  
-           			<f:facet name="header">  
-           			</f:facet>
-           			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskHistoryDetail" title="Details Task [#{task.id}]"><h:graphicImage name="images/actions/task#{task.hasNotes() || task.case.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" /></a>
+           			<f:facet name="header"/>  
+           			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskHistoryDetail" title="Details Task [#{task.id}]">
+           				<span class="fa fa-file-text-o"/>
+           			</a>
         		</p:column>
        			<p:column style="width:12px; text-align: center;" sortBy="#{PRIORITY}">
 					<f:facet name="header">
 					</f:facet>
-					<h:graphicImage name="images/details/priority/#{task.priority.intValue()}.png" alt="prio" title="Prio #{task.priority}" />
+					<wc:PriorityIcon priority="#{task.priority}"/>
 				</p:column>
        			<p:column style="width:12px; text-align: center;" sortBy="#{STATE}">
 					<f:facet name="header">
 					</f:facet>
-					<h:graphicImage name="images/details/state/#{task.state.intValue()}.png" alt="#{task.state}" title="#{ivy.cms.co('/labels/common/state')} #{task.state}" />
+					<wc:TaskStateIcon state="#{task.state}" />
 				</p:column>	
        			<p:column style="width:40%" sortBy="#{NAME}">  
            			<f:facet name="header">  

@@ -21,13 +21,13 @@
 				<h:panelGrid columns="4">
 					<p:radioButton id="delegateToUser" for="delegateOptions" itemIndex="0" />
 					<h:outputLabel for="delegateToUser" value="#{ivy.cms.co('/labels/common/user')}" /> 
-			        <h:graphicImage name="/images/details/user.png" style="border:0pt" alt="user" />
+					<span class="fa fa-user" />
 			        <p:selectOneMenu id="selectionOfUser" value="#{data.delegateToUser}" filter="true" filterMatchMode="contains" converter="ivy.ListItem" disabled="#{data.isDelegateToRole}">
 				    	<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{user.getFullName()} #{user.getFullName() != '' ? '(' : ''}#{user.getName()}#{user.getFullName() != '' ? ')' : ''}" />
 				    </p:selectOneMenu>
 			        <p:radioButton id="delegateToRole" for="delegateOptions" itemIndex="1" />
 			        <h:outputLabel for="delegateToRole" value="#{ivy.cms.co('/labels/common/role')}" />
-			        <h:graphicImage name="/images/details/role.png" style="border:0pt" alt="role" />
+					<span class="fa fa-users" />
 			        <p:selectOneMenu id="selectionOfRole" value="#{data.delegateToRole}" filter="true" filterMatchMode="contains" converter="ivy.ListItem" disabled="#{!data.isDelegateToRole}">
 			           	<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} #{role.getDisplayName() != '' ? '(' : ''}#{role.getName()}#{role.getDisplayName() != '' ? ')' : ''}" itemValue="#{role}" />  
 			        </p:selectOneMenu>
