@@ -17,107 +17,52 @@ public class IconConverter
 		switch (state) 
 		{
 		case CREATED:
-			return "pencil-square-o";
+			return "pencil-square-o case-state-created";
 		case DESTROYED:
-			return "minus-circle";
+			return "minus-circle case-state-destroyed";
 		case DONE:
-			return "check";
+			return "check case-state-done";
 		case RUNNING:
-			return "cogs";
+			return "gears case-state-running";
 		case ZOMBIE:
-			return "exclamation-circle";
+			return "exclamation-circle case-state-zombie";
 		}
 		return "";
 	}
 
-	public String getCaseColor(CaseState state)
-	{
-		switch (state)
-		{
-		case CREATED:
-			return "green";
-		case DESTROYED:
-			return "red";
-		case DONE:
-			return "green";
-		case RUNNING:
-			return ""; //Standard gray
-		case ZOMBIE:
-			return "";
-		
-		}
-		return "";
-	}
 
 	public String getTaskIcon(TaskState state) 
 	{
 		switch (state) 
 		{
 		case CREATED:
-			return "pencil-square-o";
+			return "pencil-square-o task-state-created";
 		case DELAYED:
-			return "clock-o";
+			return "clock-o task-state-delayed";
 		case DESTROYED:
-			return "minus-circle";
+			return "minus-circle task-state-destroyed";
 		case DONE:
-			return "check";
+			return "check task-state-done";
 		case FAILED:
-			return "times-circle";
+			return "times-circle task-state-failed";
 		case JOINING:
-			return "spinner";
+			return "spinner task-state-joining";
 		case JOIN_FAILED:
-			return "ban";
+			return "ban task-state-join-failed";
 		case PARKED:
-			return "pause";
+			return "pause task-state-parked";
 		case READY_FOR_JOIN:
-			return "ellipsis-h";
+			return "ellipsis-h task-state-ready-for-join";
 		case RESUMED:
-			return "cogs";
+			return "cogs task-state-resumed";
 		case SUSPENDED:
-			return "cog";
+			return "cog task-state-suspended";
 		case UNASSIGNED:
-			return "exclamation-triangle";
+			return "exclamation-triangle task-state-unassigned";
 		case WAITING_FOR_INTERMEDIATE_EVENT:
-			return "spinner";
+			return "spinner task-state-waiting-for-intermediate-eventd";
 		case ZOMBIE:
-			return "exclamation-circle";
-		}
-		return "";
-	}
-
-	public String getTaskColor(TaskState state)
-	{
-		switch (state) 
-		{
-		case CREATED:
-			return "green";
-		case DELAYED:
-			return "orange";
-		case DESTROYED:
-			return "red";
-		case DONE:
-			return "green";
-		case FAILED:
-			return "red";
-		case JOINING:
-			return "blue";
-		case JOIN_FAILED:
-			return "red";
-		case PARKED:
-			return "blue";
-		case READY_FOR_JOIN:
-			return "orange";
-		case RESUMED:
-			return "blue";
-		case SUSPENDED:
-			return "blue";
-		case UNASSIGNED:
-			return "orange";
-		case WAITING_FOR_INTERMEDIATE_EVENT:
-			return "orange";
-		case ZOMBIE:
-			return "";
-
+			return "exclamation-circle task-state-zombie";
 		}
 		return "";
 	}
@@ -128,29 +73,13 @@ public class IconConverter
 		switch (priority) 
 		{
 		case EXCEPTION:
-			return "exclamation";
+			return "exclamation priority-exception";
 		case HIGH:
-			return "arrow-up";
+			return "arrow-up priority-high";
 		case LOW:
-			return "arrow-down";
+			return "arrow-down priority-low";
 		case NORMAL:
-			return "arrow-right";
-		}
-		return "";
-	}
-
-	public String getPriorityColor(WorkflowPriority priority) 
-	{
-		switch (priority)
-		{
-		case EXCEPTION:
-			return "red";
-		case HIGH:
-			return "red";
-		case LOW:
-			return "blue";
-		case NORMAL:
-			return "green";
+			return "arrow-right priority-normal";
 		}
 		return "";
 	}
