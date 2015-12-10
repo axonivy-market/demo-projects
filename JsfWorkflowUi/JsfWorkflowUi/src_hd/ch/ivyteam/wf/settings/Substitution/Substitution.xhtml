@@ -11,6 +11,7 @@
  
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/substitution')}" />
+	<ui:param name="headerIcon" value="fa fa-users"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
 		<br />

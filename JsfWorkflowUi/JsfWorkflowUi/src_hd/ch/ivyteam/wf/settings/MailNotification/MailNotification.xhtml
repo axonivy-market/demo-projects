@@ -9,6 +9,7 @@
  
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/mailSettings')}" />
+	<ui:param name="headerIcon" value="fa fa-envelope-o"/>
 	<ui:define name="center">
 		<br />
 		#{ivy.cms.co('/labels/settings/mailNotification/description')}

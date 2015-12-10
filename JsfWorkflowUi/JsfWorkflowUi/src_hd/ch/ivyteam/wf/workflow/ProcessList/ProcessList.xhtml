@@ -10,6 +10,7 @@
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader"
 		value="#{ivy.cms.co('/navLabels/processList')}" />
+	<ui:param name="headerIcon" value="fa fa-list"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}"/>
 		<br />

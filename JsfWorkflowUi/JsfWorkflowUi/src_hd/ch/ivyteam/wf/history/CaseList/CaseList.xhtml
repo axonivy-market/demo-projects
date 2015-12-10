@@ -11,6 +11,7 @@
 
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{data.header}" />
+	<ui:param name="headerIcon" value="fa fa-folder-open-o"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{navigation.setAdminMode(data.caseListMode ne 'my_cases')}"/>
 		<f:event type="preRenderView" listener="#{logic.update()}" />

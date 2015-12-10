@@ -1,5 +1,5 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"      
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
 	  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -11,6 +11,7 @@
 
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{data.header}" />
+	<ui:param name="headerIcon" value="fa fa-file-text-o"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{navigation.setAdminMode(data.mode eq 'admin')}"/>
 		<f:event type="preRenderView" listener="#{logic.update()}"/>

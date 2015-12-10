@@ -11,6 +11,7 @@
  
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/taskHistory')}" />
+	<ui:param name="headerIcon" value="fa fa-check-square-o"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
 		<br />
