@@ -14,51 +14,51 @@
 						<ul class="nav nav-pills">
 							<li class="#{navigation.getStyleA('TaskList')}"><a
 								id="taskList"
-								href="#{ivy.html.startref('13EACA2A989BCC3D/DefaultTaskListPage.ivp')}">#{ivy.cms.co('/navLabels/taskList')}</a></li>
+								href="#{ivy.html.startref('13EACA2A989BCC3D/DefaultTaskListPage.ivp')}"><span class="fa fa-file-text-o"/> #{ivy.cms.co('/navLabels/taskList')}</a></li>
 							<li class="#{navigation.getStyle('ProcessList')}"><a
 								id="processList"
-								href="#{ivy.html.startref('13EACA2A989BCC3D/DefaultProcessStartListPage.ivp')}">#{ivy.cms.co('/navLabels/processList')}</a></li>
+								href="#{ivy.html.startref('13EACA2A989BCC3D/DefaultProcessStartListPage.ivp')}"><span class="fa fa-list"/> #{ivy.cms.co('/navLabels/processList')}</a></li>
 							<li class="#{navigation.getStyleA('CaseList')}"><a
 								id="caseList"
-								href="#{ivy.html.startref('13F1D890C62823FF/CaseList.ivp')}">#{ivy.cms.co('/navLabels/caseHistory')}</a></li>
+								href="#{ivy.html.startref('13F1D890C62823FF/CaseList.ivp')}"><span class="fa fa-folder-open-o"/> #{ivy.cms.co('/navLabels/caseHistory')}</a></li>
 							<li class="#{navigation.getStyle('TaskHistory')}"><a
 								id="taskHistory"
-								href="#{ivy.html.startref('13F2E007FE178DD4/TaskHistory.ivp')}">#{ivy.cms.co('/navLabels/taskHistory')}</a></li>
+								href="#{ivy.html.startref('13F2E007FE178DD4/TaskHistory.ivp')}"><span class="fa fa-check-square-o"/> #{ivy.cms.co('/navLabels/taskHistory')}</a></li>
 							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" href="#">#{ivy.cms.co('/navLabels/settings')}<span
+								data-toggle="dropdown" href="#"><span class="fa fa-gear"/> #{ivy.cms.co('/navLabels/settings')}<span
 									class="caret"></span>
 							</a>
 								<ul class="dropdown-menu">
 									<li class="#{navigation.getStyle('Absence')}"><a
 										id="loggedInUser"
-										href="#{ivy.html.startref('13F3C911395912D4/Absence.ivp')}">#{ivy.cms.co('/navLabels/absence')}</a></li>
+										href="#{ivy.html.startref('13F3C911395912D4/Absence.ivp')}"><span class="fa fa-user-times"/> #{ivy.cms.co('/navLabels/absence')}</a></li>
 									<li class="#{navigation.getStyle('Substitution')}"><a
 										id="taskHistory"
-										href="#{ivy.html.startref('13F5720218D18BA2/Substitution.ivp')}">#{ivy.cms.co('/navLabels/substitution')}</a></li>
+										href="#{ivy.html.startref('13F5720218D18BA2/Substitution.ivp')}"><span class="fa fa-users"/> #{ivy.cms.co('/navLabels/substitution')}</a></li>
 									<li class="#{navigation.getStyle('MailNotification')}"><a
 										id="mailSettings"
-										href="#{ivy.html.startref('13F51835BF0FECEF/MailNotificationSettings.ivp')}">#{ivy.cms.co('/navLabels/mailSettings')}</a></li>
+										href="#{ivy.html.startref('13F51835BF0FECEF/MailNotificationSettings.ivp')}"><span class="fa fa-envelope-o"/> #{ivy.cms.co('/navLabels/mailSettings')}</a></li>
 								</ul></li>
 							<c:choose>
 								<c:when test="#{adminBean.isWorkflowAdmin()}">
 									<li class="dropdown"><a class="dropdown-toggle"
-										data-toggle="dropdown" href="#">#{ivy.cms.co('/navLabels/admin')}<span
+										data-toggle="dropdown" href="#"><span class="fa fa-user-secret"/> #{ivy.cms.co('/navLabels/admin')}<span
 											class="caret"></span>
 									</a>
 										<ul class="dropdown-menu">
 											<li class="#{navigation.getStyleA('CaseListAmin')}"><a
 												id="caseListAdmin"
-												href="#{ivy.html.startref('13F1D890C62823FF/CaseListAdmin.ivp')}">#{ivy.cms.co('/navLabels/caseAdmin')}</a></li>
+												href="#{ivy.html.startref('13F1D890C62823FF/CaseListAdmin.ivp')}"><span class="fa fa-folder-open-o"/> #{ivy.cms.co('/navLabels/caseAdmin')}</a></li>
 											<li class="#{navigation.getStyleA('TaskListAdmin')}"><a
 												id="taskListAdmin"
-												href="#{ivy.html.startref('13EACA2A989BCC3D/TaskListAdmin.ivp')}">#{ivy.cms.co('/navLabels/taskAdmin')}</a></li>
+												href="#{ivy.html.startref('13EACA2A989BCC3D/TaskListAdmin.ivp')}"><span class="fa fa-file-text-o"/> #{ivy.cms.co('/navLabels/taskAdmin')}</a></li>
 											<li class="#{navigation.getStyle('Statistic')}"><a
 												id="workflowStatistic"
-												href="#{ivy.html.startref('1446317E486F5562/WorkflowStatistic.ivp')}">#{ivy.cms.co('/navLabels/workflowStatistic')}</a></li>
+												href="#{ivy.html.startref('1446317E486F5562/WorkflowStatistic.ivp')}"><span class="fa fa-bar-chart-o"/> #{ivy.cms.co('/navLabels/workflowStatistic')}</a></li>
 											<c:if test="#{adminBean.hasSessionReadAllPermission()}">
 											<li class="#{navigation.getStyle('LoggedInUser')}"><a
 												id="loggedInUser"
-												href="#{ivy.html.startref('1477BA1CD7421F55/LoggedInUser.ivp')}">#{ivy.cms.co('/navLabels/loggedInUser')}</a></li>
+												href="#{ivy.html.startref('1477BA1CD7421F55/LoggedInUser.ivp')}"><span class="fa fa-users" /> #{ivy.cms.co('/navLabels/loggedInUser')}</a></li>
 											</c:if>
 										</ul></li>
 								</c:when>
