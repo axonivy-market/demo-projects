@@ -1,38 +1,18 @@
 <%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivypanel--><table >
 <tr >
-<td ><!--ivyjsp --><%@ page import="java.util.EnumSet"%>
-<%@ page import="java.util.Iterator"%>
-<%@ page import="java.util.List"%>
-<%@ page import="java.util.Calendar"%>
-<%@ page import="ch.ivyteam.text.html.HtmlSnippets"%>
+<td ><!--ivyjsp --><%@ page import="java.util.List"%>
 <%@ page import="ch.ivyteam.ivy.application.IProcessModelVersion"%>
-<%@ page import="ch.ivyteam.ivy.application.IApplicationConfigurationManager"%>
-<%@ page import="ch.ivyteam.ivy.persistence.IQueryResult"%>
-<%@ page import="ch.ivyteam.ivy.persistence.PersistencyException"%>
-<%@ page import="ch.ivyteam.ivy.process.engine.IProcessEngine"%>
-<%@ page import="ch.ivyteam.ivy.process.engine.PetriNetEngineState"%>
-<%@ page import="ch.ivyteam.ivy.project.IIvyProject"%>
-<%@ page import="ch.ivyteam.ivy.request.RequestUriFactory"%>
 <%@ page import="ch.ivyteam.ivy.security.*"%>
-<%@ page import="ch.ivyteam.ivy.webserver.IServerLimited"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IIntermediateEventElement"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IIntermediateEvent"%>
 <%@ page import="ch.ivyteam.ivy.workflow.ITask"%>
 <%@ page import="ch.ivyteam.ivy.workflow.ICase"%>
 <%@ page import="ch.ivyteam.ivy.workflow.IWorkflowSession"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IWorkflowProcessModelVersion"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IntermediateEventProperty"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IntermediateEventState"%>
 <%@ page import="ch.ivyteam.ivy.workflow.IPropertyFilter"%>
 <%@ page import="ch.ivyteam.ivy.workflow.PropertyOrder"%>
-<%@ page import="ch.ivyteam.ivy.workflow.WorkflowNavigationUtil"%>
 <%@ page import="ch.ivyteam.logicalexpression.RelationalOperator"%>
-<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%>
 <%@ page import="ch.ivyteam.log.Logger"%>
 <%@ page import="ch.ivyteam.ivy.request.IProcessModelVersionRequest"%>
 <%@ page import="ch.ivyteam.ivy.workflow.INote"%>
 <%@ page import="ch.ivyteam.ivy.workflow.CaseState"%>
-
 
 <div id="ContentArea">
 <%
@@ -54,19 +34,19 @@
 		{ %>
 			<td class="labelTd" ><a  href="<%=ivy.html.ref("LinkB.ivp")%>"  title="<%=ivy.cms.co("/tooltips/deleteCase")%>"><%=ivy.cms.co("/images/delete")%><%=ivy.cms.co("/labels/caseDelete")%></a></td>
 		<% } else { %>
-			<td class="labelTd" ><a DISABLED  href="#" title="<%=ivy.cms.co("/tooltips/deleteCase")%>"><%=ivy.cms.co("/images/delete")%><%=ivy.cms.co("/labels/caseDelete")%></a></td>
+			<td class="labelTd" ><a class='disabled' disabled='disabled'   href="#" title="<%=ivy.cms.co("/tooltips/deleteCase")%>"><%=ivy.cms.co("/images/delete")%><%=ivy.cms.co("/labels/caseDelete")%></a></td>
 		<% }
 		if(icase.getState() == CaseState.RUNNING) 
 		{ %>
 			<td class='labelTd' ><a href="<%=ivy.html.ref("LinkD.ivp")%>"  title="<%=ivy.cms.co("/tooltips/addNote")%>"><%=ivy.cms.co("/images/note")%><%=ivy.cms.co("/labels/addNote")%></a></td>
 		<% } else { %>
-			<td class='labelTd' ><a DISABLED href="#"  title="<%=ivy.cms.co("/tooltips/addNote")%>"><%=ivy.cms.co("/images/note")%><%=ivy.cms.co("/labels/addNote")%></a></td>
+			<td class='labelTd' ><a class='disabled' disabled='disabled'  href="#"  title="<%=ivy.cms.co("/tooltips/addNote")%>"><%=ivy.cms.co("/images/note")%><%=ivy.cms.co("/labels/addNote")%></a></td>
 		<% }		
 		if(hasPageArchivePermission)
 		{ %>
 		      <td class="labelTd" ><a href="<%=ivy.html.ref("LinkC.ivp")%>"  title="<%=ivy.cms.co("/tooltips/showFormArchive")%>"><%=ivy.cms.co("/images/formHistory")%><%=ivy.cms.co("/labels/formArchive")%></a></td>
 		<% } else { %>		
-		      <td class="labelTd" ><a DISABLED href="#"  title="<%=ivy.cms.co("/tooltips/showFormArchive")%>"><%=ivy.cms.co("/images/formHistory")%><%=ivy.cms.co("/labels/formArchive")%></a></td>
+		      <td class="labelTd" ><a class='disabled' disabled='disabled'  href="#"  title="<%=ivy.cms.co("/tooltips/showFormArchive")%>"><%=ivy.cms.co("/images/formHistory")%><%=ivy.cms.co("/labels/formArchive")%></a></td>
 		<% } %>		
 		<td class="labelTd"></td>
 		<td class="labelTd"></td>

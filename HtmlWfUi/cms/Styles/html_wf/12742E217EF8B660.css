@@ -118,6 +118,12 @@ a:hover {
 	border: 0px;
 	font-weight: bold;
 }
+a.disabled {
+	font-size: 8pt;
+	color: #999999;
+	text-decoration: none;
+	border: 0px;
+}
 
 div#PageContent
 {

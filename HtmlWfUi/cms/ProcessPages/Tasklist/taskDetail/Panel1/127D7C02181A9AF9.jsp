@@ -1,34 +1,16 @@
-<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivyjsp --><%@ page import="java.util.EnumSet"%>
-<%@ page import="java.util.Iterator"%>
-<%@ page import="java.util.List"%>
-<%@ page import="java.util.Calendar"%>
-<%@ page import="ch.ivyteam.text.html.HtmlSnippets"%>
-<%@ page import="ch.ivyteam.ivy.application.IProcessModelVersion"%>
-<%@ page import="ch.ivyteam.ivy.application.IApplicationConfigurationManager"%>
-<%@ page import="ch.ivyteam.ivy.persistence.IQueryResult"%>
-<%@ page import="ch.ivyteam.ivy.persistence.PersistencyException"%>
-<%@ page import="ch.ivyteam.ivy.process.engine.IProcessEngine"%>
-<%@ page import="ch.ivyteam.ivy.process.engine.PetriNetEngineState"%>
-<%@ page import="ch.ivyteam.ivy.project.IIvyProject"%>
-<%@ page import="ch.ivyteam.ivy.request.RequestUriFactory"%>
-<%@ page import="ch.ivyteam.ivy.security.*"%>
-<%@ page import="ch.ivyteam.ivy.webserver.IServerLimited"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IIntermediateEventElement"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IIntermediateEvent"%>
+<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivyjsp --><%@ page import="java.util.List"%>
 <%@ page import="ch.ivyteam.ivy.workflow.ITask"%>
 <%@ page import="ch.ivyteam.ivy.workflow.IWorkflowSession"%>
 <%@ page import="ch.ivyteam.ivy.workflow.IWorkflowProcessModelVersion"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IntermediateEventProperty"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IntermediateEventState"%>
+<%@ page import="ch.ivyteam.ivy.request.IProcessModelVersionRequest"%>
 <%@ page import="ch.ivyteam.ivy.workflow.IPropertyFilter"%>
 <%@ page import="ch.ivyteam.ivy.workflow.PropertyOrder"%>
 <%@ page import="ch.ivyteam.ivy.workflow.TaskState"%>
 <%@ page import="ch.ivyteam.ivy.workflow.TaskProperty"%>
+<%@ page import="ch.ivyteam.ivy.security.*"%>
 <%@ page import="ch.ivyteam.ivy.workflow.WorkflowNavigationUtil"%>
 <%@ page import="ch.ivyteam.logicalexpression.RelationalOperator"%>
-<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%>
 <%@ page import="ch.ivyteam.log.Logger"%>
-<%@ page import="ch.ivyteam.ivy.request.IProcessModelVersionRequest"%>
 <%@ page import="ch.ivyteam.ivy.workflow.INote"%>
 
 <div id="ContentArea">
@@ -71,7 +53,7 @@
 		ISecurityMember taskActivator = task.getActivator();
 	 	taskActivatorName = taskActivator.getMemberName() ;
 		taskActivatorIsUser = task.getActivator() != null && task.getActivator().isUser();
-		taskCase = task.getCase().getName() +" - CaseId["+task.getCase().getId()+"]";
+		taskCase = task.getCase().getName() +" Case["+task.getCase().getId()+"]";
 		taskStartDate = task.getStartTimestamp() != null ? formatter.format(task.getStartTimestamp()) : "";
 		taskStartUri = ivy.html.ref("LinkE.ivp")+"&temp$url="+task.getFullRequestPath()+"?taskId="+taskId;
 		taskExpDate = task.getExpiryTimestamp() != null ? formatter.format(task.getExpiryTimestamp()) : "";
@@ -116,7 +98,7 @@
 			}
 			else
 			{
-				out.write("<td class='labelTd'><a  DISABLED href='#'  title='"+ivy.cms.co("/tooltips/addNote")+"'>"+ivy.cms.co("/images/note") +  ivy.cms.co("/labels/addNote") +"</a></td>");	
+				out.write("<td class='labelTd'><a  class='disabled' disabled='disabled' href='#'  title='"+ivy.cms.co("/tooltips/addNote")+"'>"+ivy.cms.co("/images/note") +  ivy.cms.co("/labels/addNote") +"</a></td>");	
 			}				
 			if(canDelegate)
 			{
@@ -124,7 +106,7 @@
 			}	
 			else
 			{
-				out.write("<td class='labelTd'><a  DISABLED href='#'  title='"+ivy.cms.co("/tooltips/delegateTask")+"'>"+ivy.cms.co("/images/delegate")+ ivy.cms.co("/labels/taskDelegate")+"</a></td>");	
+				out.write("<td class='labelTd'><a  class='disabled' disabled='disabled'  href='#'  title='"+ivy.cms.co("/tooltips/delegateTask")+"'>"+ivy.cms.co("/images/delegate")+ ivy.cms.co("/labels/taskDelegate")+"</a></td>");	
 			}
 			if(canPark) 
 			{
@@ -132,7 +114,7 @@
 			}
 			else
 			{
-				out.write("<td class='labelTd'><a  DISABLED href='#' title='"+ivy.cms.co("/tooltips/parkTask")+"'>"+ivy.cms.co("/images/park")+ ivy.cms.co("/labels/taskPark")+"</a></td>");	
+				out.write("<td class='labelTd'><a  class='disabled' disabled='disabled'  href='#' title='"+ivy.cms.co("/tooltips/parkTask")+"'>"+ivy.cms.co("/images/park")+ ivy.cms.co("/labels/taskPark")+"</a></td>");	
 			}			
 		%>
 		<td class="labelTd"></td>

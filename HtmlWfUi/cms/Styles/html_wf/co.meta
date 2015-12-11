@@ -1,2 +1,2 @@
-co: name={html_wf} description={} changed={2014-07-30 17:09:45 CEST} changedby={rwei} visualorder={0} guid={12742E21791E1405} parentguid={} typeguid={E6AFEA1FA821BE69} id={} parentid={} typeid={}
-val: guid={12742E217EF8B660} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-09 13:24:25 CET} validto={} changed={2014-07-30 17:09:45 CEST} changedby={rwei} properties={} id={}
+co: name={html_wf} description={} changed={2015-12-11 13:23:30 CET} changedby={bb} visualorder={0} guid={12742E21791E1405} parentguid={} typeguid={E6AFEA1FA821BE69} id={} parentid={} typeid={}
+val: guid={12742E217EF8B660} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-09 13:24:25 CET} validto={} changed={2015-12-11 13:23:30 CET} changedby={bb} properties={} id={}

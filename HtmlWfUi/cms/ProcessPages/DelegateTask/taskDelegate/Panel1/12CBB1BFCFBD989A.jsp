@@ -1,34 +1,7 @@
-<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivyjsp --><%@ page import="java.util.EnumSet"%>
-<%@ page import="java.util.Iterator"%>
-<%@ page import="java.util.List"%>
-<%@ page import="java.util.Arrays"%>
-<%@ page import="java.util.Calendar"%>
-<%@ page import="ch.ivyteam.text.html.HtmlSnippets"%>
-<%@ page import="ch.ivyteam.ivy.application.IProcessModelVersion"%>
-<%@ page import="ch.ivyteam.ivy.application.IApplicationConfigurationManager"%>
-<%@ page import="ch.ivyteam.ivy.persistence.IQueryResult"%>
-<%@ page import="ch.ivyteam.ivy.persistence.PersistencyException"%>
-<%@ page import="ch.ivyteam.ivy.process.engine.IProcessEngine"%>
-<%@ page import="ch.ivyteam.ivy.process.engine.PetriNetEngineState"%>
-<%@ page import="ch.ivyteam.ivy.project.IIvyProject"%>
-<%@ page import="ch.ivyteam.ivy.request.RequestUriFactory"%>
-<%@ page import="ch.ivyteam.ivy.security.*"%>
-<%@ page import="ch.ivyteam.ivy.webserver.IServerLimited"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IIntermediateEventElement"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IIntermediateEvent"%>
-<%@ page import="ch.ivyteam.ivy.workflow.ITask"%>
+<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivyjsp --><%@ page import="java.util.List"%>
 <%@ page import="ch.ivyteam.ivy.workflow.IWorkflowSession"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IWorkflowProcessModelVersion"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IntermediateEventProperty"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IntermediateEventState"%>
-<%@ page import="ch.ivyteam.ivy.workflow.IPropertyFilter"%>
-<%@ page import="ch.ivyteam.ivy.workflow.PropertyOrder"%>
-<%@ page import="ch.ivyteam.ivy.workflow.TaskState"%>
-<%@ page import="ch.ivyteam.ivy.workflow.TaskProperty"%>
-<%@ page import="ch.ivyteam.ivy.workflow.WorkflowNavigationUtil"%>
-<%@ page import="ch.ivyteam.logicalexpression.RelationalOperator"%>
-<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%>
-<%@ page import="ch.ivyteam.log.Logger"%>
+<%@ page import="ch.ivyteam.ivy.security.*"%>
+<%@ page import="ch.ivyteam.ivy.workflow.ITask"%>
 <%@ page import="ch.ivyteam.ivy.scripting.objects.Recordset"%>
 <%@ page import="ch.ivyteam.ivy.scripting.objects.Record"%>
 
