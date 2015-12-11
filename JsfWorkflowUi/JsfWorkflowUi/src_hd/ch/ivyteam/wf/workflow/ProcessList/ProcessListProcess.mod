@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Nov 20 15:26:46 CET 2015]
+[>Created: Thu Dec 10 10:13:43 CET 2015]
 13ED18A804435D54 3.18 #module
 >Proto >Proto Collection #zClass
 Ps0 ProcessListProcess Big #zClass
@@ -18,14 +18,11 @@ Ps0 @RichDialogProcessEnd f1 '' #zField
 Ps0 @GridStep f3 '' #zField
 Ps0 @PushWFArc f4 '' #zField
 Ps0 @PushWFArc f2 '' #zField
-Ps0 @RichDialogProcessStart f5 '' #zField
 Ps0 @RichDialogProcessEnd f6 '' #zField
 Ps0 @GridStep f8 '' #zField
 Ps0 @PushWFArc f7 '' #zField
 Ps0 @RichDialogMethodStart f10 '' #zField
-Ps0 @RichDialogProcessEnd f11 '' #zField
 Ps0 @PushWFArc f9 '' #zField
-Ps0 @PushWFArc f13 '' #zField
 >Proto Ps0 Ps0 ProcessListProcess #zField
 Ps0 f0 guid 13ED18A805A7471B #txt
 Ps0 f0 type ch.ivyteam.wf.workflow.ProcessList.ProcessListData #txt
@@ -85,23 +82,8 @@ Ps0 f4 expr out #txt
 Ps0 f4 109 64 152 64 #arcP
 Ps0 f2 expr out #txt
 Ps0 f2 296 64 339 64 #arcP
-Ps0 f5 guid 14A065B438814648 #txt
-Ps0 f5 type ch.ivyteam.wf.workflow.ProcessList.ProcessListData #txt
-Ps0 f5 actionDecl 'ch.ivyteam.wf.workflow.ProcessList.ProcessListData out;
-' #txt
-Ps0 f5 actionTable 'out=in;
-' #txt
-Ps0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>filter</name>
-    </language>
-</elementInfo>
-' #txt
-Ps0 f5 83 147 26 26 -11 12 #rect
-Ps0 f5 @|RichDialogProcessStartIcon #fIcon
 Ps0 f6 type ch.ivyteam.wf.workflow.ProcessList.ProcessListData #txt
-Ps0 f6 339 243 26 26 0 12 #rect
+Ps0 f6 339 147 26 26 0 12 #rect
 Ps0 f6 @|RichDialogProcessEndIcon #fIcon
 Ps0 f8 actionDecl 'ch.ivyteam.wf.workflow.ProcessList.ProcessListData out;
 ' #txt
@@ -137,11 +119,11 @@ Ps0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f8 160 234 144 44 -53 -15 #rect
+Ps0 f8 160 138 144 44 -53 -15 #rect
 Ps0 f8 @|StepIcon #fIcon
 Ps0 f8 -1|-1|-9671572 #nodeStyle
 Ps0 f7 expr out #txt
-Ps0 f7 304 256 339 256 #arcP
+Ps0 f7 304 160 339 160 #arcP
 Ps0 f10 guid 14A0696FEF010E01 #txt
 Ps0 f10 type ch.ivyteam.wf.workflow.ProcessList.ProcessListData #txt
 Ps0 f10 method update() #txt
@@ -158,15 +140,10 @@ Ps0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f10 83 243 26 26 -23 12 #rect
+Ps0 f10 83 147 26 26 -23 12 #rect
 Ps0 f10 @|RichDialogMethodStartIcon #fIcon
-Ps0 f11 type ch.ivyteam.wf.workflow.ProcessList.ProcessListData #txt
-Ps0 f11 339 147 26 26 0 12 #rect
-Ps0 f11 @|RichDialogProcessEndIcon #fIcon
 Ps0 f9 expr out #txt
-Ps0 f9 109 256 160 256 #arcP
-Ps0 f13 expr out #txt
-Ps0 f13 109 160 339 160 #arcP
+Ps0 f9 109 160 160 160 #arcP
 >Proto Ps0 .type ch.ivyteam.wf.workflow.ProcessList.ProcessListData #txt
 >Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 -8 -8 16 16 16 26 #rect
@@ -179,5 +156,3 @@ Ps0 f8 mainOut f7 tail #connect
 Ps0 f7 head f6 mainIn #connect
 Ps0 f10 mainOut f9 tail #connect
 Ps0 f9 head f8 mainIn #connect
-Ps0 f5 mainOut f13 tail #connect
-Ps0 f13 head f11 mainIn #connect

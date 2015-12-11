@@ -21,7 +21,9 @@
 	    		<p:toolbarGroup align="right">
 		    		<h:panelGrid columns="2">
 						<h:outputText value="#{ivy.cms.co('/labels/common/search')}: "></h:outputText> 
-						<p:inputText id="SearchTxt" value="#{data.filterTxt}" valueChangeListener="#{logic.filter}" style="margin-top:1px;margin-bottom:1px"/>
+						<p:inputText id="SearchTxt" value="#{data.filterTxt}" style="margin-top:1px;margin-bottom:1px">
+						<p:ajax event="keyup" delay="300" update="datatable"/>
+						</p:inputText>
 	       			</h:panelGrid>
 	      		</p:toolbarGroup>
 			</p:toolbar>
