@@ -86,3 +86,21 @@
 
 .task-state-zombie{
 }
+
+.case-state-created{
+	color: green;
+}
+
+.case-state-destroyed{
+	color: red;
+}
+
+.case-state-done{
+	color: green;
+}
+
+.case-state-running{
+}
+
+.case-state-zombie{
+}
