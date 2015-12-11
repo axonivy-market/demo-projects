@@ -9,7 +9,7 @@
 
 <h:body>
 <ui:composition>
-	<p:dialog id="modalDialogFormArchive" header="#{ivy.cms.co('/labels/common/formArchive')}" widgetVar="formArchive" modal="true" width="600" appendTo="@(body)">
+	<p:dialog id="modalDialogFormArchive" header="#{ivy.cms.co('/labels/common/formArchive')}" widgetVar="formArchive" width="900" modal="true" appendTo="@(body)">
 		<h:form id="formArchivePage">
    			<p:dataTable id="dataTableFormArchive" value="#{data.pageArchives}" var="archive" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row">
       			<p:column id="absenceStart" style="width:30px">  

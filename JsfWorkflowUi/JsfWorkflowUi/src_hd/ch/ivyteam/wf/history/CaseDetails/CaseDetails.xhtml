@@ -153,15 +153,6 @@
 				<h:outputText value="#{ivy.cms.co('/labels/common/tasks')}"
 					style="font-weight:bold;" />
 			</h4>
-			<div style="float: right">
-				<h:panelGrid columns="2">
-					<p:selectBooleanCheckbox value="#{data.showSystemTasks}"
-						id="showSystemTasks">
-						<p:ajax update="taskTable" listener="#{logic.update}" />
-					</p:selectBooleanCheckbox>
-					<h:outputLabel for="showSystemTasks">#{ivy.cms.co("/labels/history/caseDetails/showSYSTEMtasks")}</h:outputLabel>
-				</h:panelGrid>
-			</div>
 			<p:dataTable id="taskTable" value="#{data.tasks}" var="task"
 				emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}"
 				rowIndexVar="row">
@@ -218,7 +209,19 @@
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
 				</p:column>
+				<f:facet name="footer">
+
+					<p:selectBooleanCheckbox value="#{data.showSystemTasks}"
+						id="showSystemTasks"
+						style="float: left; margin-left: 6px; margin-top: -2px;">
+						<p:ajax update="taskTable" listener="#{logic.update}" />
+					</p:selectBooleanCheckbox>
+					<h:outputLabel for="showSystemTasks"
+						style="float: left; color: #656565;">#{ivy.cms.co("/labels/history/caseDetails/showSYSTEMtasks")}</h:outputLabel>
+					<h:outputLabel />
+				</f:facet>
 			</p:dataTable>
+
 		</h:form>
 		<ui:include src="/includes/dialogs/AddNote.xhtml" />
 		<ui:include src="/includes/dialogs/ConfirmDeleteNote.xhtml" />
