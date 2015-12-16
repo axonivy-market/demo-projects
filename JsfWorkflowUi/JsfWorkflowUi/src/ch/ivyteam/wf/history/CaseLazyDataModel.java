@@ -13,11 +13,9 @@ import org.primefaces.model.SortOrder;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.persistence.IQueryResult;
 import ch.ivyteam.ivy.persistence.OrderDirection;
-
 import ch.ivyteam.ivy.workflow.CaseProperty;
 import ch.ivyteam.ivy.workflow.ICase;
 import ch.ivyteam.ivy.workflow.IPropertyFilter;
-
 import ch.ivyteam.ivy.workflow.PropertyOrder;
 
 @SuppressWarnings("serial")
@@ -36,7 +34,7 @@ public class CaseLazyDataModel extends LazyDataModel<ICase> {
 		
 		if(hasFilter)
 		{	
-			DataTable d = (DataTable) FacesContext.getCurrentInstance().getViewRoot().findComponent("caseListForm:caseTable");
+			DataTable d = (DataTable) FacesContext.getCurrentInstance().getViewRoot().findComponent("caseListComponent:caseListForm:caseTable");
 			d.setFirst(0);
 			first = 0;
 		}

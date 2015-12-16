@@ -9,7 +9,7 @@
         <name>start</name>
         <description>Default dialog start method.</description>
         <inputParameter>
-            <name>caseListMode</name>
+            <name>mode</name>
             <description></description>
             <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
@@ -17,7 +17,7 @@
     </startMethod>
     <property>
         <name>guid</name>
-        <value>13F1D8A32C6923A8</value>
+        <value>1518C564146CED2A</value>
         <readOnly>true</readOnly>
     </property>
     <property>

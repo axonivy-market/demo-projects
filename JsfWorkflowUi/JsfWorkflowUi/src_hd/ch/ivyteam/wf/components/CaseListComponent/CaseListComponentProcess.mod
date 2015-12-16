@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Mon Apr 20 12:12:55 CEST 2015]
-13F1D8A32C686BDF 3.17 #module
+[>Created: Fri Dec 11 09:07:27 CET 2015]
+1518C122914A55FA 3.18 #module
 >Proto >Proto Collection #zClass
-Cs0 CaseListProcess Big #zClass
+Cs0 CaseListComponentProcess Big #zClass
 Cs0 RD #cInfo
 Cs0 #process
 Cs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
@@ -29,9 +29,9 @@ Cs0 @PushWFArc f13 '' #zField
 Cs0 @PushWFArc f8 '' #zField
 Cs0 @PushWFArc f22 '' #zField
 Cs0 @PushWFArc f3 '' #zField
->Proto Cs0 Cs0 CaseListProcess #zField
+>Proto Cs0 Cs0 CaseListComponentProcess #zField
 Cs0 f0 guid 13F1D8A32D5EA95D #txt
-Cs0 f0 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
+Cs0 f0 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
 Cs0 f0 method start(String) #txt
 Cs0 f0 disableUIEvents true #txt
 Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
@@ -54,11 +54,11 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f0 83 51 26 26 -32 15 #rect
 Cs0 f0 @|RichDialogInitStartIcon #fIcon
 Cs0 f0 -1|-1|-9671572 #nodeStyle
-Cs0 f1 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
+Cs0 f1 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
 Cs0 f1 723 51 26 26 0 12 #rect
 Cs0 f1 @|RichDialogProcessEndIcon #fIcon
 Cs0 f1 -1|-1|-9671572 #nodeStyle
-Cs0 f23 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
+Cs0 f23 actionDecl 'ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData out;
 ' #txt
 Cs0 f23 actionTable 'out=in;
 ' #txt
@@ -73,10 +73,8 @@ out.procFilter = "";
 
 out.states = CaseState.values();
 
-out.header = in.caseListMode == "my_cases" ? ivy.cms.co("/navLabels/caseHistory") : ivy.cms.co("/navLabels/caseAdmin");
-
 out.caseUserMode = "startedCases";' #txt
-Cs0 f23 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
+Cs0 f23 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
 Cs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -90,7 +88,7 @@ Cs0 f23 168 42 112 44 -35 -8 #rect
 Cs0 f23 @|StepIcon #fIcon
 Cs0 f23 -1|-1|-9671572 #nodeStyle
 Cs0 f2 guid 13F75D933E4D0972 #txt
-Cs0 f2 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
+Cs0 f2 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
 Cs0 f2 method update() #txt
 Cs0 f2 disableUIEvents false #txt
 Cs0 f2 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
@@ -112,7 +110,7 @@ Cs0 f2 @|RichDialogMethodStartIcon #fIcon
 Cs0 f2 -1|-1|-9671572 #nodeStyle
 Cs0 f5 expr out #txt
 Cs0 f5 109 64 168 64 #arcP
-Cs0 f7 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
+Cs0 f7 actionDecl 'ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData out;
 ' #txt
 Cs0 f7 actionTable 'out=in;
 ' #txt
@@ -188,7 +186,7 @@ if(in.#statFilter != null)
 }
 
 in.cases.setCaseFilter(cpfilter);' #txt
-Cs0 f7 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
+Cs0 f7 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
 Cs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -201,13 +199,13 @@ Cs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f7 552 42 112 44 -21 -8 #rect
 Cs0 f7 @|StepIcon #fIcon
 Cs0 f7 -1|-1|-9671572 #nodeStyle
-Cs0 f11 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
+Cs0 f11 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
 Cs0 f11 211 211 26 26 0 12 #rect
 Cs0 f11 @|RichDialogProcessEndIcon #fIcon
 Cs0 f11 -1|-1|-9671572 #nodeStyle
 Cs0 f4 guid 14638C705689C0BF #txt
-Cs0 f4 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
-Cs0 f4 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
+Cs0 f4 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
+Cs0 f4 actionDecl 'ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData out;
 ' #txt
 Cs0 f4 actionTable 'out=in;
 ' #txt
@@ -221,12 +219,12 @@ Cs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f4 83 147 26 26 -22 12 #rect
 Cs0 f4 @|RichDialogProcessStartIcon #fIcon
 Cs0 f4 -1|-1|-9671572 #nodeStyle
-Cs0 f14 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
+Cs0 f14 actionDecl 'ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData out;
 ' #txt
 Cs0 f14 actionTable 'out=in;
 ' #txt
 Cs0 f14 actionCode in.cases.setHasFilter(true); #txt
-Cs0 f14 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
+Cs0 f14 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
 Cs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -243,12 +241,12 @@ Cs0 f15 expr out #txt
 Cs0 f15 109 160 168 160 #arcP
 Cs0 f6 expr out #txt
 Cs0 f6 664 64 723 64 #arcP
-Cs0 f9 actionDecl 'ch.ivyteam.wf.history.CaseList.CaseListData out;
+Cs0 f9 actionDecl 'ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData out;
 ' #txt
 Cs0 f9 actionTable 'out=in;
 ' #txt
 Cs0 f9 actionCode in.cases.setCaseUserMode(in.caseUserMode); #txt
-Cs0 f9 type ch.ivyteam.wf.history.CaseList.CaseListData #txt
+Cs0 f9 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
 Cs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -271,7 +269,7 @@ Cs0 f22 expr out #txt
 Cs0 f22 280 64 336 64 #arcP
 Cs0 f3 expr out #txt
 Cs0 f3 109 224 211 224 #arcP
->Proto Cs0 .type ch.ivyteam.wf.history.CaseList.CaseListData #txt
+>Proto Cs0 .type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
 >Proto Cs0 '' #fIcon

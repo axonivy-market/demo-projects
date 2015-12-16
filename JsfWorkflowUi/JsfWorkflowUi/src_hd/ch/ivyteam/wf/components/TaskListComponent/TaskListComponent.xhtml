@@ -1,35 +1,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"      
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-	  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
       xmlns:ic="http://ivyteam.ch/jsf/component"
       xmlns:p="http://primefaces.org/ui"
       xmlns:pe="http://primefaces.org/ui/extensions"
       xmlns:pm="http://primefaces.org/mobile"
       xmlns:wc="http://java.sun.com/jsf/composite/wf-component">
 
-<ui:composition template="/layouts/Workflow.xhtml">
-	<ui:param name="centerHeader" value="#{data.header}" />
-	<ui:param name="headerIcon" value="fa fa-file-text-o"/>
-	<ui:define name="center">
-		<f:event type="preRenderView" listener="#{navigation.setAdminMode(data.mode eq 'admin')}"/>
-		<f:event type="preRenderView" listener="#{logic.update()}"/>
-		<br />
-		#{data.mode ne 'admin' ? ivy.cms.co('/labels/workflow/taskList/description') : ivy.cms.co('/labels/admin/taskAdmin/description')}
-		<br /><br />
+<cc:interface componentType="IvyComponent"/>
+
+<cc:implementation>
+	<f:event type="preRenderView" listener="#{logic.update()}"/>
 		<h:form id="taskListForm">
 			<p:toolbar styleClass="ivy-toolbar">
 	    		<p:toolbarGroup align="right">
 		    		<h:panelGrid columns="8">
-	 					<h:outputText value="#{ivy.cms.co('/labels/common/taskPrio')}: "></h:outputText>
+	 					<h:outputText value="#{ivy.cms.co('/labels/common/taskPrio')}: "/>
 	 					<p:selectOneMenu value="#{data.prioFilter}" id="priorityFilter" styleClass="ivy-toolbar-selectMenu">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" noSelectionOption="true" />
 	           				<f:selectItems value="#{data.prios}" var="prio" itemLabel="#{prio}" itemValue="#{prio}" />
-		           			<p:ajax update=":taskListForm" listener="#{logic.setFilter}" />
+		           			<p:ajax update="taskListForm" listener="#{logic.setFilter}" />
 		       			</p:selectOneMenu>
-		       			<p:spacer width="8px"></p:spacer>
-		       			<h:outputText value=" #{ivy.cms.co('/labels/common/responsible')}: "></h:outputText>
+		       			<p:spacer width="8px"/>
+		       			<h:outputText value=" #{ivy.cms.co('/labels/common/responsible')}: "/>
 		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter" filter="true" filterMatchMode="contains" styleClass="ivy-toolbar-selectMenu">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="All" />
 	 						<c:if test="#{data.mode ne 'admin'}">
@@ -39,25 +35,25 @@
 		          			<c:if test="#{data.mode eq 'admin'}">
 		          				<f:selectItems value="#{data.userList}" var="user" itemLabel="#{user.getDisplayName()}" itemValue="##{user.getName()}" />
 		          			</c:if>
-		           			<p:ajax update=":taskListForm" listener="#{logic.setFilter}" />
+		           			<p:ajax update="taskListForm" listener="#{logic.setFilter}" />
 		       			</p:selectOneMenu>
 		       			<c:if test="#{data.mode eq 'admin'}">
-		       				<p:spacer width="8px"></p:spacer>
+		       				<p:spacer width="8px"/>
 		        			<h:outputText value=" #{ivy.cms.co('/labels/common/taskState')}: "/>
 		 					<p:selectOneMenu id="stateFilter" value="#{data.statFilter}" styleClass="ivy-toolbar-selectMenu">
 		 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" noSelectionOption="true" />
 		           				<f:selectItems value="#{data.states}" var="state" itemLabel="#{state}" itemValue="#{state}" />
-		           				<p:ajax update=":taskListForm" listener="#{logic.setFilter}" />
+		           				<p:ajax update="taskListForm" listener="#{logic.setFilter}" />
 		        			</p:selectOneMenu>
 	        			</c:if>
 	       			</h:panelGrid>
 	      		</p:toolbarGroup>
 			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
-			<p:dataTable id="taskTable" widgetVar="taskTable" var="task" value="#{data.tasks}"  emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}" rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
-				<p:column style="width:15px" sortBy="#{ID}">
-					<f:facet name="header">
-					</f:facet>
+			<p:dataTable id="taskTable" widgetVar="taskTable" var="task" value="#{data.tasks}"  emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}" 
+						 rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
+				<p:column style="width:20px; text-align: center;" sortBy="#{ID}">
+					<f:facet name="header"/>
 					<c:choose>
 					<c:when test="#{data.mode ne 'admin'}">
 						<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskDetail" title="Details Task [#{task.id}]">
@@ -71,16 +67,16 @@
 					</c:otherwise>
 					</c:choose>
 				</p:column>
-				<p:column style="width:15px; text-align: center;" sortBy="#{PRIORITY}">
+				<p:column style="width:20px; text-align: center;" sortBy="#{PRIORITY}">
 					<f:facet name="header"/>
 					<wc:PriorityIcon priority="#{task.priority}"/>
 				</p:column>
-				<p:column style="width:15px; text-align: center;" sortBy="#{STATE}">
+				<p:column style="width:20px; text-align: center;" sortBy="#{STATE}">
 					<f:facet name="header">
 					</f:facet>
 					<wc:TaskStateIcon state="#{task.state}"/>
 				</p:column>										
-				<p:column style="width:50%" sortBy="#{NAME}">
+				<p:column style="width:40%" sortBy="#{NAME}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/task')}
 					</f:facet>
@@ -93,7 +89,7 @@
 					</c:otherwise>	
 					</c:choose>			
 				</p:column>
-				<p:column style="width:25%;" sortBy="#{ACTIVATOR_NAME}">
+				<p:column style="width:170px;" sortBy="#{ACTIVATOR_NAME}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
@@ -122,7 +118,7 @@
 					</h:outputText>
 				</p:column>
 				<c:if test="#{data.mode ne 'admin'}">
-					<p:column style="width:50px; text-align: center;">
+					<p:column style="width:30px; text-align: center;">
 						<f:facet name="header">
 							Start
 						</f:facet>
@@ -133,6 +129,5 @@
 				</c:if>
 			</p:dataTable>
 		</h:form>
-   	</ui:define>
-</ui:composition>
-</html>
+		</cc:implementation>
+		</html>
