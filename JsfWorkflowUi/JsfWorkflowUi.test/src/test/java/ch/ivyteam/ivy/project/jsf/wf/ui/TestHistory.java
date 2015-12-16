@@ -28,6 +28,6 @@ public class TestHistory extends BaseJsfWorkflowUiTest
     closeTask();
     navigate().taskHistory();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF task");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Prio LOW");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Priority LOW");
   }
 }

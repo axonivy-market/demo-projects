@@ -79,7 +79,7 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   {
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF titel");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Prio EXCEPTION");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Priority EXCEPTION");
   }
 
   private void checkIsTaskClosed()
