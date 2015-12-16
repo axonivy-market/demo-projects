@@ -12,15 +12,15 @@
 				<div class="container">
 					<div class="row">
 						<ul class="nav nav-pills">
-							<li class="#{navigation.getStyleA('TaskList')}"><a
-								id="taskList"
-								href="#{ivy.html.startref('13EACA2A989BCC3D/DefaultTaskListPage.ivp')}"><span class="fa fa-file-text-o"/> #{ivy.cms.co('/navLabels/taskList')}</a></li>
+							<li class="#{navigation.getStyle('TaskListUser')}"><a
+								id="taskListUser"
+								href="#{ivy.html.startref('1518CA28D86B5794/TaskListUser.ivp')}"><span class="fa fa-file-text-o"/> #{ivy.cms.co('/navLabels/taskList')}</a></li>
 							<li class="#{navigation.getStyle('ProcessList')}"><a
 								id="processList"
 								href="#{ivy.html.startref('13EACA2A989BCC3D/DefaultProcessStartListPage.ivp')}"><span class="fa fa-list"/> #{ivy.cms.co('/navLabels/processList')}</a></li>
-							<li class="#{navigation.getStyleA('CaseList')}"><a
-								id="caseList"
-								href="#{ivy.html.startref('13F1D890C62823FF/CaseList.ivp')}"><span class="fa fa-folder-open-o"/> #{ivy.cms.co('/navLabels/caseHistory')}</a></li>
+							<li class="#{navigation.getStyle('CaseListUser')}"><a
+								id="caseListUser"
+								href="#{ivy.html.startref('13F1D890C62823FF/CaseListUser.ivp')}"><span class="fa fa-folder-open-o"/> #{ivy.cms.co('/navLabels/caseHistory')}</a></li>
 							<li class="#{navigation.getStyle('TaskHistory')}"><a
 								id="taskHistory"
 								href="#{ivy.html.startref('13F2E007FE178DD4/TaskHistory.ivp')}"><span class="fa fa-check-square-o"/> #{ivy.cms.co('/navLabels/taskHistory')}</a></li>
@@ -46,12 +46,12 @@
 											class="caret"></span>
 									</a>
 										<ul class="dropdown-menu">
-											<li class="#{navigation.getStyleA('CaseListAmin')}"><a
+											<li class="#{navigation.getStyle('CaseListAdmin')}"><a
 												id="caseListAdmin"
-												href="#{ivy.html.startref('13F1D890C62823FF/CaseListAdmin.ivp')}"><span class="fa fa-folder-open-o"/> #{ivy.cms.co('/navLabels/caseAdmin')}</a></li>
-											<li class="#{navigation.getStyleA('TaskListAdmin')}"><a
+												href="#{ivy.html.startref('1518C1BDAE6D978C/CaseListAdmin.ivp')}"><span class="fa fa-folder-open-o"/> #{ivy.cms.co('/navLabels/caseAdmin')}</a></li>
+											<li class="#{navigation.getStyle('TaskListAdmin')}"><a
 												id="taskListAdmin"
-												href="#{ivy.html.startref('13EACA2A989BCC3D/TaskListAdmin.ivp')}"><span class="fa fa-file-text-o"/> #{ivy.cms.co('/navLabels/taskAdmin')}</a></li>
+												href="#{ivy.html.startref('1518C6953618322C/TaskListAdmin.ivp')}"><span class="fa fa-file-text-o"/> #{ivy.cms.co('/navLabels/taskAdmin')}</a></li>
 											<li class="#{navigation.getStyle('Statistic')}"><a
 												id="workflowStatistic"
 												href="#{ivy.html.startref('1446317E486F5562/WorkflowStatistic.ivp')}"><span class="fa fa-bar-chart-o"/> #{ivy.cms.co('/navLabels/workflowStatistic')}</a></li>

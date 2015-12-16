@@ -35,7 +35,7 @@ public class TaskLazyDataModel extends LazyDataModel<ITask> {
 		
 		if(hasFilter)
 		{	
-			DataTable d = (DataTable) FacesContext.getCurrentInstance().getViewRoot().findComponent("taskListForm:taskTable");
+			DataTable d = (DataTable) FacesContext.getCurrentInstance().getViewRoot().findComponent("taskListComponent:taskListForm:taskTable");
 			d.setFirst(0);
 			first = 0;
 		}
@@ -108,5 +108,5 @@ public class TaskLazyDataModel extends LazyDataModel<ITask> {
 	public boolean isAdminMode()
 	{
 		return mode.equals("admin");
-	}	
+	}
 }
