@@ -60,7 +60,7 @@ public class IconConverter
 		case UNASSIGNED:
 			return "exclamation-triangle task-state-unassigned";
 		case WAITING_FOR_INTERMEDIATE_EVENT:
-			return "spinner task-state-waiting-for-intermediate-eventd";
+			return "spinner task-state-waiting-for-intermediate-event";
 		case ZOMBIE:
 			return "exclamation-circle task-state-zombie";
 		}
@@ -83,5 +83,20 @@ public class IconConverter
 		}
 		return "";
 	}
-
+	
+	public String getPriorityMailIcon(WorkflowPriority priority)
+	{
+		switch (priority)
+		{
+		case EXCEPTION:
+			return "exclamation-mail";
+		case HIGH:
+			return "arrow-up-mail";
+		case LOW:
+			return "arrow-down-mail";
+		case NORMAL:
+			return "arrow-right-mail";
+		}
+		return "";
+	}
 }

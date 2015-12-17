@@ -19,21 +19,17 @@
 					<f:facet name="header">
 						#
 					</f:facet>
-					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskDetail" title="Details Task [#{task.id}]"><h:graphicImage name="images/actions/task#{task.hasNotes() || task.case.hasNotes() ? 'WithNote' : ''}.png" alt="task detail" /></a>
+					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskDetail" title="Details Task [#{task.id}]">
+						<h:graphicImage name="images/actions/faTask.png" alt="task detail"/>
+					</a>
 				</p:column>
 				<p:column style="width:40px; text-align: center;">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskPrio')}
 					</f:facet>
-					<h:graphicImage name="images/details/priority/#{task.priority.intValue()}.png" alt="prio" title="Prio #{task.priority}" />
-				</p:column>
-				<p:column style="width:40px; text-align: center;">
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/taskState')}
-					</f:facet>
-					<h:graphicImage name="images/details/state/#{task.state.intValue()}.png" alt="#{task.state}" title="#{ivy.cms.co('/labels/common/state')} #{task.state}" />
-				</p:column>										
-				<p:column>
+					<h:graphicImage name="images/details/priority/#{iconConverter.getPriorityMailIcon(task.getPriority())}.png" alt="prio" title="Prio #{task.priority}" />
+				</p:column>									
+				<p:column style="width: 200px;">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/task')}
 					</f:facet>
@@ -44,11 +40,11 @@
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
 					<p:outputPanel>
-						<h:graphicImage name="#{task.activator == null ? 'images/others/none' : task.activator.isUser() ? 'images/details/user' : 'images/details/role'}.png" alt="#{task.activator}"/>
+						<h:graphicImage name="#{task.activator == null ? '' : task.activator.isUser() ? 'images/details/faUser' : 'images/details/faRole'}.png" alt="#{task.activator}"/>
 						#{task.activator.name}
 					</p:outputPanel>
 				</p:column>
-				<p:column style="width:150px;">
+				<p:column style="width:130px;">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskStart')}
 					</f:facet>
@@ -56,7 +52,7 @@
 			            <f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
 				</p:column>
-				<p:column style="width:150px;">
+				<p:column style="width:130px;">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/expiry')}
 					</f:facet>
@@ -68,7 +64,9 @@
 					<f:facet name="header">
 						Start
 					</f:facet>
-					<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}" id="taskLinkRow_#{row}"><h:graphicImage name="images/actions/start.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{task.id}]" /></a> 
+					<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}" id="taskLinkRow_#{row}">
+						<h:graphicImage name="images/actions/faStart.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{task.id}]" />
+					</a> 
 				</p:column>
 			</p:dataTable>
 		</h:form>
