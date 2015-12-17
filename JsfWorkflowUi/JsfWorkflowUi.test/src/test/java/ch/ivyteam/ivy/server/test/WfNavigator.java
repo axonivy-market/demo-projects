@@ -24,10 +24,10 @@ public class WfNavigator
   {
     driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultTaskListPage.ivp");
   }
-  
+
   public void caseList()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13F1D890C62823FF/CaseList.ivp");
+    driverHelper.openProcessLink("JsfWorkflowUi/13F1D890C62823FF/CaseListUser.ivp");
   }
   
   public void taskHistory()
@@ -52,12 +52,12 @@ public class WfNavigator
   
   public void caseAdmin()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13F1D890C62823FF/CaseListAdmin.ivp");
+    driverHelper.openProcessLink("JsfWorkflowUi/1518C1BDAE6D978C/CaseListAdmin.ivp");
   }
   
   public void taskAdmin()
   {
-    driverHelper.openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/TaskListAdmin.ivp");
+    driverHelper.openProcessLink("JsfWorkflowUi/1518C6953618322C/TaskListAdmin.ivp");
   }
   
   public void logout()

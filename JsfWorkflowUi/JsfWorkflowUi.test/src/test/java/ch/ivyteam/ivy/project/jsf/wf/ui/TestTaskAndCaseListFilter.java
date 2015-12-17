@@ -63,26 +63,26 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
 
   private void switchInvolvedWorklfowList()
   {
-    WebElement selectOneRadio = driverHelper.findElementById("caseListForm");
-    prime().selectOneRadio(selectOneRadio).selectItemById("caseListForm:caseOption");
+    WebElement selectOneRadio = driverHelper.findElementById("caseListComponent:caseListForm");
+    prime().selectOneRadio(selectOneRadio).selectItemById("caseListComponent:caseListForm:caseOption");
   }
 
   private void checkIfFilterIsApplied(String filterForCategory, String filterForProcess)
   {
     navigate().caseList();
-    WebElement selectOneMenu = driverHelper.findElementById("caseListForm:categoryFilter");
+    WebElement selectOneMenu = driverHelper.findElementById("caseListComponent:caseListForm:categoryFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel(filterForCategory);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForCategory);
-    selectOneMenu = driverHelper.findElementById("caseListForm:processFilter");
+    selectOneMenu = driverHelper.findElementById("caseListComponent:caseListForm:processFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel(filterForProcess);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForProcess);
   }
 
   private void doesNotContain(String category, String process)
   {
-    assertThat(driverHelper.getWebDriver().findElement(By.id("caseListForm:caseTable_data")).getText())
+    assertThat(driverHelper.getWebDriver().findElement(By.id("caseListComponent:caseListForm:caseTable_data")).getText())
             .doesNotContain(category);
-    assertThat(driverHelper.getWebDriver().findElement(By.id("caseListForm:caseTable_data")).getText())
+    assertThat(driverHelper.getWebDriver().findElement(By.id("caseListComponent:caseListForm:caseTable_data")).getText())
             .doesNotContain(process);
   }
 
@@ -98,18 +98,18 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
     // test prio
     navigate().taskList();
-    WebElement selectOneMenu = driverHelper.findElementById("taskListForm:priorityFilter");
+    WebElement selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:priorityFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("LOW");
-    selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
     driverHelper.getWebDriver().navigate().refresh();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskForFilterPrioHigh");
     
     navigate().taskList();
-    selectOneMenu = driverHelper.findElementById("taskListForm:priorityFilter");
+    selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:priorityFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("HIGH");
-    selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
     driverHelper.getWebDriver().navigate().refresh();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
@@ -119,7 +119,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     
     // test responsible
     navigate().taskList();
-    selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
     closeTask();
@@ -136,7 +136,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     
     navigate().taskList();
     prime().clickPaginationNextPage();
-    WebElement selectOneMenu = driverHelper.findElementById("taskListForm:priorityFilter");
+    WebElement selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:priorityFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("HIGH");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("test");
 
@@ -157,13 +157,13 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     delegateTaskToUser1("taskAdminForFilterLow");
     
     navigate().taskAdmin();
-    WebElement selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    WebElement selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForFilterPrioHigh");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForFilterLow");
     
     navigate().taskAdmin();
-    selectOneMenu = driverHelper.findElementById("taskListForm:responsibleFilter");
+    selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 1 (user1)");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForFilterLow");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForFilterPrioHigh");
@@ -184,13 +184,13 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     driverHelper.findElementById("taskLinkRow_0").click();
     
     navigate().taskAdmin();
-    WebElement selectOneMenu = driverHelper.findElementById("taskListForm:stateFilter");
+    WebElement selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:stateFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("SUSPENDED");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForStatusFilterPrioHigh");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForStatusFilterLow");
     
     navigate().taskAdmin();
-    selectOneMenu = driverHelper.findElementById("taskListForm:stateFilter");
+    selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:stateFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("RESUMED");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForStatusFilterLow");
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForStatusFilterPrioHigh");
