@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Dec 16 11:44:29 CET 2015]
+[>Created: Fri Dec 18 16:56:35 CET 2015]
 1518CA28D86B5794 3.18 #module
 >Proto >Proto Collection #zClass
 Tr0 TaskListUser Big #zClass
@@ -35,7 +35,7 @@ TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
-Tr0 f0 showInStartList 1 #txt
+Tr0 f0 showInStartList 0 #txt
 Tr0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
 import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
@@ -49,6 +49,8 @@ Tr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>TaskListUser.ivp</name>
+        <nameStyle>16,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
