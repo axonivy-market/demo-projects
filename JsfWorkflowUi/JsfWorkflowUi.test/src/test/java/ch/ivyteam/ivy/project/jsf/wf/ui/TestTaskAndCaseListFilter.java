@@ -5,7 +5,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
 {
@@ -148,62 +148,95 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   {
     createTask("taskAdminForFilterPrioHigh", "task list", 1);
     navigate().taskAdmin();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForFilterPrioHigh");
-    
+    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
+            "JSF taskAdminForFilterPrioHigh");
+
     createTask("taskAdminForFilterLow", "task list", 3);
     navigate().taskAdmin();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForFilterLow");
+    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
+            "JSF taskAdminForFilterLow");
 
     delegateTaskToUser1("taskAdminForFilterLow");
-    
+
     navigate().taskAdmin();
-    WebElement selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForFilterPrioHigh");
-    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForFilterLow");
-    
+    filterDataTable("taskListComponent:taskListForm:responsibleFilter",
+            "Top level role");
+    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
+            "taskAdminForFilterPrioHigh");
+    checkDataTableContainsNot("taskListComponent:taskListForm:taskTable_data",
+            "taskAdminForFilterLow");
+
     navigate().taskAdmin();
-    selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 1 (user1)");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForFilterLow");
-    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForFilterPrioHigh");
+    filterDataTable("taskListComponent:taskListForm:responsibleFilter",
+            "Test User 1 (user1)");
+    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
+            "taskAdminForFilterLow");
+    checkDataTableContainsNot("taskListComponent:taskListForm:taskTable_data",
+            "taskAdminForFilterPrioHigh");
   }
-  
+
   @Test
   public void testTaskAdminStatusFilter() throws Exception
   {
     createTask("taskAdminForStatusFilterPrioHigh", "task list", 1);
     navigate().taskAdmin();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForStatusFilterPrioHigh");
-    
+    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
+            "JSF taskAdminForStatusFilterPrioHigh");
+
     createTask("taskAdminForStatusFilterLow", "task list", 3);
     navigate().taskAdmin();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForStatusFilterLow");
+    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
+            "JSF taskAdminForStatusFilterLow");
 
     navigate().taskList();
     driverHelper.findElementById("taskLinkRow_0").click();
-    
+
     navigate().taskAdmin();
-    WebElement selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:stateFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("SUSPENDED");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForStatusFilterPrioHigh");
-    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForStatusFilterLow");
-    
+    filterDataTable("taskListComponent:taskListForm:stateFilter", "SUSPENDED");
+    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
+            "JSF taskAdminForStatusFilterPrioHigh");
+    checkDataTableContainsNot("taskListComponent:taskListForm:taskTable_data",
+            "JSF taskAdminForStatusFilterLow");
+
     navigate().taskAdmin();
-    selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:stateFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("RESUMED");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskAdminForStatusFilterLow");
-    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskAdminForStatusFilterPrioHigh");
+    filterDataTable("taskListComponent:taskListForm:stateFilter", "RESUMED");
+    checkDataTableContains("taskListComponent:taskListForm:taskTable_data", "JSF taskAdminForStatusFilterLow");
+    checkDataTableContainsNot("taskListComponent:taskListForm:taskTable_data",
+            "JSF taskAdminForStatusFilterPrioHigh");
+
   }
 
   private void delegateTaskToUser1(String taskName)
   {
     navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains(taskName);
+    checkDataTableContains("taskListComponent:taskListForm:taskTable_data", taskName);
+    
     driverHelper.findElementById("buttonTaskDetail").click();
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
-    WebElement selectOneMenu = driverHelper.findElementById("formDelegateTask:selectionOfUser");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 1 (user1)");
-    driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
+    driverHelper.clickAndWaitForAjax(By
+            .id("formTaskDetails:openDelegateTask"));
+    WebElement selectOneMenu = driverHelper
+            .findElementById("formDelegateTask:selectionOfUser");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel(
+            "Test User 1 (user1)");
+    driverHelper.clickAndWaitForAjax(By
+            .id("formDelegateTask:saveDelegateTask"));
+  }
+  
+  private void filterDataTable(String filterId, String selectLabel)
+  {
+    WebElement selectOneMenu = driverHelper.findElementById(filterId);
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel(selectLabel);
+  }
+  
+  private void checkDataTableContains(String tableBodyId, String checkText)
+  {
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id(tableBodyId), checkText)); 
+  }
+  
+  private void checkDataTableContainsNot(String tableBodyId, String checkText)
+  {
+    await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
+            By.id(tableBodyId), checkText))); 
   }
 }

@@ -8,10 +8,9 @@ import org.junit.Rule;
 import org.junit.rules.TestRule;
 import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ch.ivyteam.ivy.server.test.AjaxHelper;
 import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
@@ -195,4 +194,9 @@ public class BaseJsfWorkflowUiTest
     driverHelper.clickAndWaitForAjax(By.id("formAddAbsence:saveNewAbsence"));
   }
   
+  protected void await(ExpectedCondition<?> condition)
+  {
+    new WebDriverWait(driverHelper.getWebDriver(), 5).until(condition);
+  }
+    
 }
