@@ -75,7 +75,7 @@
 					</p:toolbar>
 				</h:panelGrid>
 				<br />
-				<h:panelGrid columns="3" rowClasses="alignTop" width="100%">
+				<h:panelGrid columns="3" rowClasses="alignTop">
 					<h:column>
 						<table id="taskDetailsList" class="detailsList">
 							<tr>
@@ -158,50 +158,43 @@
 							</tr>
 						</table>
 					</h:column>
-					<p:spacer width="100" />
+					<p:spacer width="100px" />
 					<h:column>
-						<p:fieldset legend="#{ivy.cms.co('/labels/common/notes')}"
-							toggleable="true" toggleSpeed="500"
-							rendered="#{data.task.case.hasNotes() or data.task.hasNotes()}">
-							<p:dataList value="#{data.notes}" var="taskNote" itemType="none"
-								rendered="#{data.task.hasNotes()}">
-								<f:facet name="header">
-				            #{ivy.cms.co('/labels/common/taskNotes')}
-				        </f:facet>
-								<h:panelGrid columns="3" style="width:90%">
-									<p:outputPanel style="width:300px">
-										<h:outputText value="#{taskNote.creationTimestamp}"
-											style="font-weight:bold;">
-											<f:convertDateTime type="both" dateStyle="short"
-												timeStyle="short" />
-										</h:outputText>
-										<h:outputText value=" #{taskNote.writterName}:" escape="false"
-											style="font-weight:bold;" />
-										<br />
-										<h:outputText value="#{taskNote.message}" escape="false" />
-									</p:outputPanel>
-									<p:spacer width="20" />
-									<p:commandButton id="openDeleteTaskNote" icon="fa fa-trash"
-										title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}"
-										style="background-color:#ffffff; border:0px; width:20px;"
-										onclick="PF('confirmDeleteNote').show();"
-										disabled="#{taskNote.writterName != ivy.session.sessionUserName}">
-										<f:setPropertyActionListener value="#{taskNote}"
-											target="#{data.note}" />
-										<f:setPropertyActionListener value="task"
-											target="#{data.noteFor}" />
-									</p:commandButton>
-								</h:panelGrid>
-							</p:dataList>
-							<c:if
+					<h:outputText rendered="#{data.task.hasNotes()}" style="font-weight:bold " value="#{ivy.cms.co('/labels/common/taskNotes')}"/>
+						<p:dataList value="#{data.notes}" var="taskNote" itemType="none"
+							rendered="#{data.task.hasNotes()}">
+							<h:panelGrid columns="3">
+								<p:outputPanel style="width:300px">
+									<h:outputText value="#{taskNote.creationTimestamp}"
+										style="font-weight:bold;">
+										<f:convertDateTime type="both" dateStyle="short"
+											timeStyle="short" />
+									</h:outputText>
+									<h:outputText value=" #{taskNote.writterName}:" escape="false"
+										style="font-weight:bold;" />
+									<br />
+									<h:outputText value="#{taskNote.message}" escape="false" />
+								</p:outputPanel>
+								<p:spacer width="20" />
+								<p:commandButton id="openDeleteTaskNote" icon="fa fa-trash"
+									title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}"
+									style="background-color:#ffffff; border:0px; width:20px;"
+									onclick="PF('confirmDeleteNote').show();"
+									disabled="#{taskNote.writterName != ivy.session.sessionUserName}">
+									<f:setPropertyActionListener value="#{taskNote}"
+										target="#{data.note}" />
+									<f:setPropertyActionListener value="task"
+										target="#{data.noteFor}" />
+								</p:commandButton>
+							</h:panelGrid>
+						</p:dataList>
+						<c:if
 								test="#{data.task.hasNotes() and data.task.case.hasNotes()}">
 								<br />
 							</c:if>
+							<h:outputText rendered="#{data.task.case.hasNotes()}" style="font-weight:bold " value="#{ivy.cms.co('/labels/common/caseNotes')}"/>
 							<p:dataList value="#{data.caseNotes}" var="caseNote"
-								itemType="none" rendered="#{data.task.case.hasNotes()}">
-								<f:facet name="header">
-				            #{ivy.cms.co('/labels/common/caseNotes')}
-				        </f:facet>
+								itemType="none" rendered="#{data.task.case.hasNotes()}" >
 								<h:panelGrid columns="3" style="width:90%">
 									<p:outputPanel style="width:300px">
 										<h:outputText value="#{caseNote.creationTimestamp}"
@@ -227,7 +220,6 @@
 									</p:commandButton>
 								</h:panelGrid>
 							</p:dataList>
-						</p:fieldset>
 					</h:column>
 				</h:panelGrid>
 				<br />

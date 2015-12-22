@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Dec 11 09:07:27 CET 2015]
+[>Created: Tue Dec 22 12:00:25 CET 2015]
 1518C122914A55FA 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListComponentProcess Big #zClass
@@ -122,7 +122,7 @@ import ch.ivyteam.ivy.workflow.CaseProperty;
 import ch.ivyteam.ivy.persistence.OrderDirection;
 import ch.ivyteam.ivy.persistence.IGroup;
 
-Boolean hasReadAllCasesPermission = ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_READ_ALL);
+Boolean hasReadAllCasesPermission = ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().getSecurityDescriptor(),ch.ivyteam.ivy.security.IPermission.CASE_CATEGORY_READ_ALL);
 IPropertyFilter cpfilter = ivy.wf.createCasePropertyFilter(CaseProperty.STATE, RelationalOperator.UNEQUAL, CaseState.CREATED.intValue());
 List<IGroup> categoriesGroups;
 List<IGroup> processscodeGroups;
