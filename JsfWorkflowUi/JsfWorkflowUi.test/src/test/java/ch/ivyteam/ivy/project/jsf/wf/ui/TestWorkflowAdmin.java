@@ -5,6 +5,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
@@ -15,7 +16,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
     navigate().caseList();
     checkIfCaseIsInList("category1", "process1");
-    createTaskWithCategory("caseForFilter2", "case list2", 2, "category1", "process2");
+    createTaskWithCategory("caseForFilter2", "case list2", 2, "category2", "process2");
     navigate().caseList();
     checkIfCaseIsInList("category2", "process2");
     closeTask();
@@ -23,8 +24,8 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     navigate().home();
     driverHelper.findElement(By.linkText("Workflow Admin")).click();
     driverHelper.findElementById("workflowStatistic").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("process1");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("process2");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("caseStatisticForm:caseStatisticTable"), "process1"));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("caseStatisticForm:caseStatisticTable"), "process2"));
   }
   
   @Test
@@ -158,9 +159,11 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
 
   private void checkIfCaseIsInList(String category, String process)
   {
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Test Workflow Jsf");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains(category);
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains(process);
+    String tableId = "caseListComponent:caseListForm:caseTable";
+    
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id(tableId), "Test Workflow Jsf"));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id(tableId), category));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id(tableId), process));
   }
 
   private void checkIfTaskIsInList(String name)
