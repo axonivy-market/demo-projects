@@ -146,63 +146,73 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   @Test
   public void testTaskAdminResponsibleFilter() throws Exception
   {
-    createTask("taskAdminForFilterPrioHigh", "task list", 1);
+    String taskHighResponsibleFilter = "taskAdminForResponsibleFilterHigh";
+    String taskLowResponsibleFilter = "taskAdminForResponsibleFilterLow";
+    String tableBodyId = "taskListComponent:taskListForm:taskTable_data";
+    String filterId = "taskListComponent:taskListForm:responsibleFilter";
+    
+    createTask(taskHighResponsibleFilter, "task list", 1);
     navigate().taskAdmin();
-    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
-            "JSF taskAdminForFilterPrioHigh");
+    checkDataTableContains(tableBodyId,
+            taskHighResponsibleFilter);
 
-    createTask("taskAdminForFilterLow", "task list", 3);
+    createTask(taskLowResponsibleFilter, "task list", 3);
     navigate().taskAdmin();
-    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
-            "JSF taskAdminForFilterLow");
+    checkDataTableContains(tableBodyId,
+            taskLowResponsibleFilter);
 
-    delegateTaskToUser1("taskAdminForFilterLow");
+    delegateTaskToUser1(taskLowResponsibleFilter);
 
     navigate().taskAdmin();
-    filterDataTable("taskListComponent:taskListForm:responsibleFilter",
+    filterDataTable(filterId,
             "Top level role");
-    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
-            "taskAdminForFilterPrioHigh");
-    checkDataTableContainsNot("taskListComponent:taskListForm:taskTable_data",
-            "taskAdminForFilterLow");
+    checkDataTableContains(tableBodyId,
+            taskHighResponsibleFilter);
+    checkDataTableContainsNot(tableBodyId,
+            taskLowResponsibleFilter);
 
     navigate().taskAdmin();
-    filterDataTable("taskListComponent:taskListForm:responsibleFilter",
+    filterDataTable(filterId,
             "Test User 1 (user1)");
-    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
-            "taskAdminForFilterLow");
-    checkDataTableContainsNot("taskListComponent:taskListForm:taskTable_data",
-            "taskAdminForFilterPrioHigh");
+    checkDataTableContains(tableBodyId,
+            taskLowResponsibleFilter);
+    checkDataTableContainsNot(tableBodyId,
+            taskHighResponsibleFilter);
   }
 
   @Test
   public void testTaskAdminStatusFilter() throws Exception
   {
-    createTask("taskAdminForStatusFilterPrioHigh", "task list", 1);
+    String taskHighPrio = "taskAdminStatusFilterPrioHigh";
+    String taskLowPrio = "taskAdminStatusFilterPrioLow";
+    String tableBodyId = "taskListComponent:taskListForm:taskTable_data";
+    String filterId = "taskListComponent:taskListForm:stateFilter";
+    
+    createTask(taskHighPrio, "task list", 1);
     navigate().taskAdmin();
-    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
-            "JSF taskAdminForStatusFilterPrioHigh");
+    checkDataTableContains(tableBodyId,
+            taskHighPrio);
 
-    createTask("taskAdminForStatusFilterLow", "task list", 3);
+    createTask(taskLowPrio, "task list", 3);
     navigate().taskAdmin();
-    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
-            "JSF taskAdminForStatusFilterLow");
+    checkDataTableContains(tableBodyId,
+            taskLowPrio);
 
     navigate().taskList();
     driverHelper.findElementById("taskLinkRow_0").click();
 
     navigate().taskAdmin();
-    filterDataTable("taskListComponent:taskListForm:stateFilter", "SUSPENDED");
-    checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
-            "taskAdminForStatusFilterPrioHigh");
-    checkDataTableContainsNot("taskListComponent:taskListForm:taskTable_data",
-            "taskAdminForStatusFilterLow");
+    filterDataTable(filterId, "SUSPENDED");
+    checkDataTableContains(tableBodyId,
+            taskHighPrio);
+    checkDataTableContainsNot(tableBodyId,
+            taskLowPrio);
 
     navigate().taskAdmin();
-    filterDataTable("taskListComponent:taskListForm:stateFilter", "RESUMED");
-    checkDataTableContains("taskListComponent:taskListForm:taskTable_data", "taskAdminForStatusFilterLow");
-    checkDataTableContainsNot("taskListComponent:taskListForm:taskTable_data",
-            "taskAdminForStatusFilterPrioHigh");
+    filterDataTable(filterId, "RESUMED");
+    checkDataTableContains(tableBodyId, taskLowPrio);
+    checkDataTableContainsNot(tableBodyId,
+            taskHighPrio);
 
   }
 

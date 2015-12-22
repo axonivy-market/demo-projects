@@ -204,7 +204,7 @@ public class BaseJsfWorkflowUiTest
     webDriver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     try
     {
-      new WebDriverWait(webDriver, 5).until(condition);
+      new WebDriverWait(webDriver, 10).until(condition);
     }
     catch (TimeoutException ex) 
     {
