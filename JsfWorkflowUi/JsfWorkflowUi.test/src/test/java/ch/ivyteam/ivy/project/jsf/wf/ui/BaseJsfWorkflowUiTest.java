@@ -10,6 +10,7 @@ import org.junit.Rule;
 import org.junit.rules.TestRule;
 import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -204,6 +205,11 @@ public class BaseJsfWorkflowUiTest
     try
     {
       new WebDriverWait(webDriver, 5).until(condition);
+    }
+    catch (TimeoutException ex) 
+    {
+      System.out.println(driverHelper.getWebDriver().getPageSource());
+      throw ex;
     }
     finally
     {
