@@ -194,15 +194,15 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     navigate().taskAdmin();
     filterDataTable("taskListComponent:taskListForm:stateFilter", "SUSPENDED");
     checkDataTableContains("taskListComponent:taskListForm:taskTable_data",
-            "JSF taskAdminForStatusFilterPrioHigh");
+            "taskAdminForStatusFilterPrioHigh");
     checkDataTableContainsNot("taskListComponent:taskListForm:taskTable_data",
-            "JSF taskAdminForStatusFilterLow");
+            "taskAdminForStatusFilterLow");
 
     navigate().taskAdmin();
     filterDataTable("taskListComponent:taskListForm:stateFilter", "RESUMED");
-    checkDataTableContains("taskListComponent:taskListForm:taskTable_data", "JSF taskAdminForStatusFilterLow");
+    checkDataTableContains("taskListComponent:taskListForm:taskTable_data", "taskAdminForStatusFilterLow");
     checkDataTableContainsNot("taskListComponent:taskListForm:taskTable_data",
-            "JSF taskAdminForStatusFilterPrioHigh");
+            "taskAdminForStatusFilterPrioHigh");
 
   }
 

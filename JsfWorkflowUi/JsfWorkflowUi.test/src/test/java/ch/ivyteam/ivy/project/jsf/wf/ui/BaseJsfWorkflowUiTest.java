@@ -2,12 +2,15 @@ package ch.ivyteam.ivy.project.jsf.wf.ui;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestRule;
 import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -196,7 +199,16 @@ public class BaseJsfWorkflowUiTest
   
   protected void await(ExpectedCondition<?> condition)
   {
-    new WebDriverWait(driverHelper.getWebDriver(), 5).until(condition);
+    WebDriver webDriver = driverHelper.getWebDriver();
+    webDriver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+    try
+    {
+      new WebDriverWait(webDriver, 5).until(condition);
+    }
+    finally
+    {
+      webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
   }
     
 }
