@@ -179,6 +179,22 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     checkDataTableContainsNot(tableBodyId,
             taskHighResponsibleFilter);
   }
+  
+  private void delegateTaskToUser1(String taskName)
+  {
+    navigate().taskList();
+    checkDataTableContains("taskListComponent:taskListForm:taskTable_data", taskName);
+    
+    driverHelper.findElementById("buttonTaskDetail").click();
+    driverHelper.clickAndWaitForAjax(By
+            .id("formTaskDetails:openDelegateTask"));
+    WebElement selectOneMenu = driverHelper
+            .findElementById("formDelegateTask:selectionOfUser");
+    prime().selectOneMenu(selectOneMenu).selectItemByLabel(
+            "Test User 1 (user1)");
+    driverHelper.clickAndWaitForAjax(By
+            .id("formDelegateTask:saveDelegateTask"));
+  }
 
   @Test
   public void testTaskAdminStatusFilter() throws Exception
@@ -203,6 +219,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
 
     navigate().taskAdmin();
     filterDataTable(filterId, "SUSPENDED");
+    assertThat(driverHelper.findElement(By.id(filterId)).equals("SUSPENDED"));
     checkDataTableContains(tableBodyId,
             taskHighPrio);
     checkDataTableContainsNot(tableBodyId,
@@ -210,26 +227,10 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
 
     navigate().taskAdmin();
     filterDataTable(filterId, "RESUMED");
+    assertThat(driverHelper.findElement(By.id(filterId)).equals("RESUMED"));
     checkDataTableContains(tableBodyId, taskLowPrio);
     checkDataTableContainsNot(tableBodyId,
             taskHighPrio);
-
-  }
-
-  private void delegateTaskToUser1(String taskName)
-  {
-    navigate().taskList();
-    checkDataTableContains("taskListComponent:taskListForm:taskTable_data", taskName);
-    
-    driverHelper.findElementById("buttonTaskDetail").click();
-    driverHelper.clickAndWaitForAjax(By
-            .id("formTaskDetails:openDelegateTask"));
-    WebElement selectOneMenu = driverHelper
-            .findElementById("formDelegateTask:selectionOfUser");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(
-            "Test User 1 (user1)");
-    driverHelper.clickAndWaitForAjax(By
-            .id("formDelegateTask:saveDelegateTask"));
   }
   
   private void filterDataTable(String filterId, String selectLabel)
