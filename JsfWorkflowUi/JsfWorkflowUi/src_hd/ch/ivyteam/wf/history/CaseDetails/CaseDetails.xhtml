@@ -42,7 +42,7 @@
 				</p:toolbar>
 			</h:panelGrid>
 			<br />
-			<h:panelGrid columns="3" rowClasses="alignTop" style="width:100%">
+			<h:panelGrid columns="3" rowClasses="alignTop" >
 				<h:column>
 					<table id="caseDetailsList" class="detailsList">
 						<tr>
@@ -107,42 +107,39 @@
 						</tr>
 					</table>
 				</h:column>
-				<p:spacer width="100" />
+				<p:spacer width="100px" />
 				<h:column>
-					<p:fieldset legend="#{ivy.cms.co('/labels/common/notes')}"
-						toggleable="true" toggleSpeed="500"
+					<h:outputText value="#{ivy.cms.co('/labels/common/caseNotes')}"
+						style="font-weight: bold;" rendered="#{data.wfCase.hasNotes()}" />
+					<p:dataList value="#{data.notes}" var="caseNote" itemType="none"
 						rendered="#{data.wfCase.hasNotes()}">
-						<p:dataList value="#{data.notes}" var="caseNote" itemType="none">
-							<f:facet name="header">
-					            #{ivy.cms.co('/labels/common/caseNotes')}
-					        </f:facet>
-							<h:panelGrid columns="3" style="width:90%">
-								<p:outputPanel style="width:300px">
-									<h:outputText value="#{caseNote.creationTimestamp}"
-										style="font-weight:bold;">
-										<f:convertDateTime type="both" dateStyle="short"
-											timeStyle="short" />
-									</h:outputText>
-									<h:outputText value=" #{caseNote.writterName}:" escape="false"
-										style="font-weight:bold;" />
-									<br />
-									<h:outputText value="#{caseNote.message}" escape="false" />
-								</p:outputPanel>
-								<p:spacer width="20" />
-								<p:commandButton
-									title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}"
-									id="openDeleteCaseNote" icon="fa fa-trash"
-									style="background-color:#ffffff; border:0px; width:20px;"
-									onclick="PF('confirmDeleteNote').show();"
-									disabled="#{caseNote.writterName != ivy.session.sessionUserName}">
-									<f:setPropertyActionListener value="#{caseNote}"
-										target="#{data.note}" />
-									<f:setPropertyActionListener value="case"
-										target="#{data.noteFor}" />
-								</p:commandButton>
-							</h:panelGrid>
-						</p:dataList>
-					</p:fieldset>
+						<h:panelGrid columns="3" style="width:90%">
+							<p:outputPanel
+								style="width:300px; word-wrap: break-word; word-break: break-all;">
+								<h:outputText value="#{caseNote.creationTimestamp}"
+									style="font-weight:bold;">
+									<f:convertDateTime type="both" dateStyle="short"
+										timeStyle="short" />
+								</h:outputText>
+								<h:outputText value=" #{caseNote.writterName}:" escape="false"
+									style="font-weight:bold;" />
+								<br />
+								<h:outputText value="#{caseNote.message}" escape="false" />
+							</p:outputPanel>
+							<p:spacer width="20" />
+							<p:commandButton
+								title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}"
+								id="openDeleteCaseNote" icon="fa fa-trash"
+								style="background-color:#ffffff; border:0px; width:20px;"
+								onclick="PF('confirmDeleteNote').show();"
+								disabled="#{caseNote.writterName != ivy.session.sessionUserName}">
+								<f:setPropertyActionListener value="#{caseNote}"
+									target="#{data.note}" />
+								<f:setPropertyActionListener value="case"
+									target="#{data.noteFor}" />
+							</p:commandButton>
+						</h:panelGrid>
+					</p:dataList>
 				</h:column>
 			</h:panelGrid>
 		</h:form>

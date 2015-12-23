@@ -164,7 +164,7 @@
 						<p:dataList value="#{data.notes}" var="taskNote" itemType="none"
 							rendered="#{data.task.hasNotes()}">
 							<h:panelGrid columns="3">
-								<p:outputPanel style="width:300px">
+								<p:outputPanel style="width:300px; word-wrap: break-word; word-break: break-all;">
 									<h:outputText value="#{taskNote.creationTimestamp}"
 										style="font-weight:bold;">
 										<f:convertDateTime type="both" dateStyle="short"
@@ -196,7 +196,7 @@
 							<p:dataList value="#{data.caseNotes}" var="caseNote"
 								itemType="none" rendered="#{data.task.case.hasNotes()}" >
 								<h:panelGrid columns="3" style="width:90%">
-									<p:outputPanel style="width:300px">
+									<p:outputPanel style="width:300px; word-wrap: break-word; word-break: break-all;">
 										<h:outputText value="#{caseNote.creationTimestamp}"
 											style="font-weight:bold;">
 											<f:convertDateTime type="both" dateStyle="short"
