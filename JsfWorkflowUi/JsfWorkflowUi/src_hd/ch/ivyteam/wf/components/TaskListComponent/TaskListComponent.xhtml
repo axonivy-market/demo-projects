@@ -76,7 +76,7 @@
 					</f:facet>
 					<wc:TaskStateIcon state="#{task.state}"/>
 				</p:column>										
-				<p:column style="width:40%" sortBy="#{NAME}">
+				<p:column style="width:400px" sortBy="#{NAME}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/task')}
 					</f:facet>
@@ -89,7 +89,7 @@
 					</c:otherwise>	
 					</c:choose>			
 				</p:column>
-				<p:column style="width:170px;" sortBy="#{ACTIVATOR_NAME}">
+				<p:column style="width:195px;" sortBy="#{ACTIVATOR_NAME}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
@@ -118,7 +118,7 @@
 					</h:outputText>
 				</p:column>
 				<c:if test="#{data.mode ne 'admin'}">
-					<p:column style="width:30px; text-align: center;">
+					<p:column style="width:25px; text-align: center;">
 						<f:facet name="header">
 							Start
 						</f:facet>

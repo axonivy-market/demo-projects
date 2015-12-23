@@ -40,7 +40,7 @@
 			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
    			<p:dataTable value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}"  rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
-      			<p:column style="width:25px" sortBy="#{ID}">  
+      			<p:column style="width:25px; text-align: center;" sortBy="#{ID}">  
            			<f:facet name="header"/>  
            			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskHistoryDetail" title="Details Task [#{task.id}]">
            				<span class="fa fa-file-text-o"/>
