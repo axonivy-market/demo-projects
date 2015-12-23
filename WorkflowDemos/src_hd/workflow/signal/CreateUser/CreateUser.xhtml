@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">CreateUser</ui:define>
+		<ui:define name="content">
+			<h3>
+			Workflow: New Staff Member
+			</h3>
+			
+			<h:form id="form">
+				<h:panelGrid columns="2">
+					<f:facet name="header">
+						<p:messages></p:messages>
+					</f:facet>
+					
+					<p:outputLabel for="userUserKey" value="User Key"/>
+					<p:inputText id="userUserKey" value="#{data.user.userKey}"></p:inputText>
+					
+					<p:outputLabel for="userName" value="Name"/>
+					<p:inputText id="userName" value="#{data.user.name}"></p:inputText>
+					
+					<p:outputLabel for="userStreet" value="Street"/>
+					<p:inputText id="userStreet" value="#{data.user.street}"></p:inputText>
+					
+					<p:outputLabel for="userCity" value="City"/>
+					<p:inputText id="userCity" value="#{data.user.city}"></p:inputText>
+					
+					<p:outputLabel value="Setup Workstation"/>
+					<p:selectBooleanCheckbox value="true" />
+
+					<p:outputLabel value="Prepare Office Key"/>
+					<p:selectBooleanCheckbox value="true" />
+					
+					<br />
+					<p:commandButton actionListener="#{logic.close}" value="Create Processes" update="form" icon="ui-icon-check" />
+				</h:panelGrid>
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

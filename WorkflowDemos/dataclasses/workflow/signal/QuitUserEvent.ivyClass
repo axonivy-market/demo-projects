@@ -1,0 +1,6 @@
+QuitUserEvent #class
+workflow.signal #namespace
+userKey String #field
+userKey PERSISTENT #fieldModifier
+reason String #field
+reason PERSISTENT #fieldModifier

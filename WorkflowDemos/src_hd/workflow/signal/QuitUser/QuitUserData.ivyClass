@@ -1,0 +1,4 @@
+QuitUserData #class
+workflow.signal.QuitUser #namespace
+quitUserEvent workflow.signal.QuitUserEvent #field
+quitUserEvent PERSISTENT #fieldModifier
