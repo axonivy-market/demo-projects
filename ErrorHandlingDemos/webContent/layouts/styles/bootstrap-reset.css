@@ -8,7 +8,8 @@
           box-sizing: content-box;
 }
 
-.ui-fieldset-legend {
+fieldset legend {
+    font-size: inherit;
     width: auto;
 }
 
