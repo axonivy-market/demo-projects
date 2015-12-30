@@ -19,6 +19,6 @@
           box-sizing: border-box;
 }
 
-.ui-widget label {
-	margin-bottom: 0;
+.ui-outputlabel {
+  margin-bottom: 0;
 }
