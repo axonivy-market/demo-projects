@@ -26,12 +26,12 @@
 				    
 				        <p:outputLabel value="Select user via AJAX event:" for="event" />
 				        <p:autoComplete id="event" value="#{data.selectedUserId}" completeMethod="#{logic.searchUsers}" var="user" itemLabel="#{user.name}" itemValue="#{user.id.toString()}" 
-				        	forceSelection="true">
+				        	forceSelection="true" dropdown="true">
 				        </p:autoComplete>
 				        
 				        <p:outputLabel value="Select user via FacesConverter:" for="converter" />
 				        <p:autoComplete id="converter" value="#{data.selectedUserViaFacesConverter}" completeMethod="#{logic.searchUsers}" var="user" itemLabel="#{user.name}" itemValue="#{user}" 
-				        	forceSelection="true" converter="userConverter"/>
+				        	forceSelection="true" converter="userConverter" dropdown="true" dropdownMode="current"/>
 				        	
 				    </h:panelGrid> 
 	 			<br/>
