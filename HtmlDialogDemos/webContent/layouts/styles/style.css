@@ -38,6 +38,19 @@
 	font-size: 14px;
 }
 
+.hd-demo-nav .ui-menu .ui-widget a {
+    white-space: normal;
+}
+
 label {
 	font-weight: normal;
 }
+
+.navbar-header {
+	float: left;
+}
+
+.themeswitcher {
+	padding-top: 5px;
+}
+

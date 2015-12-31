@@ -30,6 +30,20 @@
 		  	    <h:graphicImage name="layouts/images/axon_ivy_6_logo.png" alt="Axon.ivy" />
               </a>
 			</div>
+			<div class="pull-right themeswitcher">
+				<h:form id="themeswitcher">
+					<h:panelGrid columns="2">
+						<!-- See Designer Documentation about Themes or the PublicAPI of IvyPrimefacesThemeResolver for more information -->
+						<p:outputLabel value="Theme" />
+						<p:themeSwitcher id="basic"
+							value="#{ivyPrimefacesThemeResolver.sessionTheme}" style="width: 80px;">
+							<f:selectItems value="#{ivyPrimefacesThemeResolver.themes}"
+								var="theme" itemLabel="#{theme}" itemValue="#{theme}" />
+							<p:ajax />
+						</p:themeSwitcher>
+					</h:panelGrid>
+				</h:form>
+			</div>
 		</div>
 	</div>
 
