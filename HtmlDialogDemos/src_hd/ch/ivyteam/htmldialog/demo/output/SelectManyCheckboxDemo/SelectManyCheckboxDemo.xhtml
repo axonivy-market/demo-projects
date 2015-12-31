@@ -10,7 +10,7 @@
 	<ui:define name="content">
      	<h:form>
 		   	<h:panelGroup layout="block" id="persons">
-		   	<p>This demo explains how Xpert.ivy Lists can be used on a select many checkbox widget.</p>
+		   	<p>This demo explains how Lists can be used on a select many checkbox widget.</p>
 	 			<p:selectManyCheckbox value="#{data.selectedPersons}" >
 	 				<f:converter converterId="ivy.ListItem" />  
 	 				<f:selectItems value="#{data.persons}" var="it" itemValue="#{it}" itemLabel="#{it.name}"></f:selectItems>
