@@ -56,19 +56,19 @@
 					</f:facet>
 					<wc:TaskStateIcon state="#{task.state}" />
 				</p:column>	
-       			<p:column style="width:40%" sortBy="#{NAME}">  
+       			<p:column sortBy="#{NAME}" styleClass="taskHistoryNameColumn">  
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/name')}  
            			</f:facet>
            			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" title="Details Task [#{task.id}]">#{task.name}</a>
        			</p:column>
-       			<p:column style="width:20%" sortBy="#{ACTIVATOR_NAME}" id="taskLinkRow_#{row}">
+       			<p:column style="width:150px" sortBy="#{ACTIVATOR_NAME}" id="taskLinkRow_#{row}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/responsible')}
 					</f:facet>
 					<wc:MemberDetail member="#{task.activator}" />
 				</p:column>
-       			<p:column style="width:110px" sortBy="#{START_TIMESTAMP}">  
+       			<p:column style="width:110px" sortBy="#{START_TIMESTAMP}" styleClass="taskHistoryCreatedColumn">  
            			<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/taskStart')}
            			</f:facet>

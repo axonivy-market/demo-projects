@@ -1,0 +1,26 @@
+@media only screen and (max-width: 992px) {
+	.ui-datatable {
+		width: auto;
+	}
+	
+	.taskCreatedColumn,
+	.taskHistoryCreatedColumn,
+	.caseCreatedColumn,
+	.taskPriorityColumn{
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.ui-datatable-tablewrapper {
+		overflow: auto;
+	}
+	.ui-datatable {
+		width: auto;
+	}
+	.caseNameColumn,
+	.taskNameColumn,
+	.taskHistoryNameColumn {
+		width: 200px;
+	}
+}

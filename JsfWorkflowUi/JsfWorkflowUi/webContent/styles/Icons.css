@@ -108,3 +108,7 @@
 .logged-in-user{
 	color: #61FF00;
 }
+
+.startIconButton {
+	margin-right: 2px;
+}
