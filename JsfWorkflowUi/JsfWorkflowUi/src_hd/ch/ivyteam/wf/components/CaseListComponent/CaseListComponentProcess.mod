@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Dec 22 12:00:25 CET 2015]
+[>Created: Fri Jan 08 13:53:15 CET 2016]
 1518C122914A55FA 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListComponentProcess Big #zClass
@@ -183,6 +183,16 @@ if(hasReadAllCasesPermission)
 if(in.#statFilter != null)
 {
 	cpfilter = cpfilter.and(CaseProperty.STATE,RelationalOperator.EQUAL,in.statFilter);
+}
+
+if(!in.filterTxt.isEmpty())
+{
+	List<String> tokens = in.filterTxt.split(" ");
+	for (String token : tokens)
+	{
+		IPropertyFilter stateFilter = ivy.wf.createCasePropertyFilter(CaseProperty.NAME, RelationalOperator.LIKE, "%"+ token + "%");
+		cpfilter = cpfilter != null ? cpfilter.and(stateFilter) : stateFilter;
+	}
 }
 
 in.cases.setCaseFilter(cpfilter);' #txt

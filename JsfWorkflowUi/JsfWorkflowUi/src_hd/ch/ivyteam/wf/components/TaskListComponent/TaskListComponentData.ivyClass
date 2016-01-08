@@ -20,3 +20,5 @@ statFilter ch.ivyteam.ivy.workflow.TaskState #field
 statFilter PERSISTENT #fieldModifier
 prios List<ch.ivyteam.ivy.workflow.WorkflowPriority> #field
 prios PERSISTENT #fieldModifier
+filterTxt String #field
+filterTxt PERSISTENT #fieldModifier

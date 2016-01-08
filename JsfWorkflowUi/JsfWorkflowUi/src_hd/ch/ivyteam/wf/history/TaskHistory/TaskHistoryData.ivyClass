@@ -12,3 +12,5 @@ responsibleFilter String #field
 responsibleFilter PERSISTENT #fieldModifier
 prios List<ch.ivyteam.ivy.workflow.WorkflowPriority> #field
 prios PERSISTENT #fieldModifier
+filterTxt String #field
+filterTxt PERSISTENT #fieldModifier

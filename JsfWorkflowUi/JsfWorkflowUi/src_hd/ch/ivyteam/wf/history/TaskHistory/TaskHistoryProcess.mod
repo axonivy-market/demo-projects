@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Jul 31 15:26:04 CEST 2014]
-13F2E0370AA5B84E 3.17 #module
+[>Created: Fri Jan 08 09:57:12 CET 2016]
+13F2E0370AA5B84E 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHistoryProcess Big #zClass
 Ts0 RD #cInfo
@@ -72,6 +72,16 @@ if(in.responsibleFilter != "All")
 {
 	IPropertyFilter responsibleFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.ACTIVATOR_NAME, RelationalOperator.EQUAL, in.responsibleFilter);
 	taskFilter = taskFilter != null ? taskFilter.and(responsibleFilter) : responsibleFilter;
+}
+
+if(!in.filterTxt.isEmpty())
+{
+	List<String> tokens = in.filterTxt.split(" ");
+	for (String token : tokens)
+	{
+		IPropertyFilter stateFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.NAME, RelationalOperator.LIKE, "%"+ token + "%");
+		taskFilter = taskFilter != null ? taskFilter.and(stateFilter) : stateFilter;
+	}
 }
 
 in.tasks.setTaskFilter(taskFilter);' #txt

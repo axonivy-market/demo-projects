@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Dec 11 14:56:44 CET 2015]
+[>Created: Thu Jan 07 17:45:23 CET 2016]
 1518C56414655E4F 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListComponentProcess Big #zClass
@@ -86,6 +86,17 @@ if(in.#statFilter != null)
 {
 	IPropertyFilter stateFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.STATE, RelationalOperator.EQUAL, in.statFilter);
 	taskFilter = taskFilter != null ? taskFilter.and(stateFilter) : stateFilter;
+}
+
+
+if(!in.filterTxt.isEmpty())
+{
+	List<String> tokens = in.filterTxt.split(" ");
+	for (String token : tokens)
+	{
+		IPropertyFilter stateFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.NAME, RelationalOperator.LIKE, "%"+ token + "%");
+		taskFilter = taskFilter != null ? taskFilter.and(stateFilter) : stateFilter;
+	}
 }
 
 in.tasks.setTaskFilter(taskFilter);' #txt

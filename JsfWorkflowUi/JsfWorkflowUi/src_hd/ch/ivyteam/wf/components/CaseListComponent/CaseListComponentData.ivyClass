@@ -18,3 +18,5 @@ processesList List<String> #field
 processesList PERSISTENT #fieldModifier
 caseUserMode String #field
 caseUserMode PERSISTENT #fieldModifier
+filterTxt String #field
+filterTxt PERSISTENT #fieldModifier

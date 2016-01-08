@@ -17,7 +17,12 @@
 	<h:form id="taskListForm">
 		<p:toolbar styleClass="ivy-toolbar">
 			<p:toolbarGroup align="right">
-				<h:panelGrid columns="8">
+				<h:panelGrid columns="11">
+				<h:outputText value="#{ivy.cms.co('/labels/common/search')}: "/> 
+						<p:inputText id="SearchTxt" value="#{data.filterTxt}" style="margin-top:1px;margin-bottom:1px">
+						<p:ajax event="keyup" delay="300" update="taskTable" listener="#{logic.setFilter}"/>
+						</p:inputText>
+						<p:spacer width="8"/>
 					<h:outputText value="#{ivy.cms.co('/labels/common/taskPrio')}: " />
 					<p:selectOneMenu value="#{data.prioFilter}" id="priorityFilter"
 						styleClass="ivy-toolbar-selectMenu">

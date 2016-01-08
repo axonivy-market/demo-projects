@@ -20,7 +20,12 @@
 		<h:form id="taskHistoryForm">
 			<p:toolbar styleClass="ivy-toolbar">
 	    		<p:toolbarGroup align="right">
-		    		<h:panelGrid columns="5">
+		    		<h:panelGrid columns="8">
+		    		<h:outputText value="#{ivy.cms.co('/labels/common/search')}: "/> 
+						<p:inputText id="SearchTxt" value="#{data.filterTxt}" style="margin-top:1px;margin-bottom:1px">
+						<p:ajax event="keyup" delay="300" update="taskHistoryTable" listener="#{logic.update}"/>
+						</p:inputText>
+						<p:spacer width="8"/>
 	 					 <h:outputText value="#{ivy.cms.co('/labels/common/taskPrio')}: "/>
 	 					<p:selectOneMenu value="#{data.prioFilter}" id="taskPriority" styleClass="ivy-toolbar-selectMenu">
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" noSelectionOption="true" />
@@ -39,7 +44,8 @@
 	      		</p:toolbarGroup>
 			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
-   			<p:dataTable value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}"  rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}" paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING">
+   			<p:dataTable value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}"  rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}"
+   						 paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING" id="taskHistoryTable">
       			<p:column style="width:25px; text-align: center;" sortBy="#{ID}">  
            			<f:facet name="header"/>  
            			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskHistoryDetail" title="Details Task [#{task.id}]">
