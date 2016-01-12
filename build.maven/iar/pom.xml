@@ -15,7 +15,7 @@
 	<properties>
 		<src.job.name>Trunk_All</src.job.name>
 		<antrun.version>1.7</antrun.version>
-		<project.build.plugin.version>6.0.0</project.build.plugin.version>
+		<project.build.plugin.version>6.1.0-SNAPSHOT</project.build.plugin.version>
 	</properties>
 	
 	<dependencies>
@@ -45,6 +45,9 @@
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
 				<version>${project.build.plugin.version}</version>
+				<configuration>
+					<ivyVersion>6.1.0</ivyVersion>
+				</configuration>
 				<extensions>true</extensions>
 			</plugin>
 			<plugin>

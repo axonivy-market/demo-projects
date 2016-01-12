@@ -26,6 +26,11 @@ JsfWorkflowUi/JsfWorkflowUi/src_dataClasses/*
 JsfWorkflowUi/JsfWorkflowUi/target
 JsfWorkflowUi/build
 JsfWorkflowUi/target
+ProjectTestDemos/classes
+ProjectTestDemos/logs
+ProjectTestDemos/src_dataClasses/*
+ProjectTestDemos/src_wsproc/*
+ProjectTestDemos/target
 QuickStartTutorial/classes/*
 QuickStartTutorial/logs
 QuickStartTutorial/target

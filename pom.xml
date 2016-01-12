@@ -9,6 +9,7 @@
 
 	<modules>
 		<module>HtmlDialogDemos</module>
+		<module>ProjectTestDemos</module>
 		<module>ErrorHandlingDemos</module>
 		<module>RichDialogDemos</module>
 		<module>QuickStartTutorial</module>
