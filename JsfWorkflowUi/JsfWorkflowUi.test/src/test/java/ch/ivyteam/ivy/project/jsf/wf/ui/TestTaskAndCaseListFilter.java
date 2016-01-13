@@ -12,6 +12,9 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   @Test
   public void testCaseFilter() throws Exception
   {
+    createTaskWithCategory("something4", "this tests the search", 1, "category5", "random Process 8");
+    createHtmlTask("new Case with Html","random description");
+	  
     createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
     navigate().caseList();
     checkIfCaseIsInList("category1", "process1");
@@ -33,6 +36,11 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     closeTask();
     closeTask();
     closeTask();
+    
+    navigate().caseList();
+    searchDataTable("caseListComponent:caseListForm:SearchTxt", "Ht ml Ca se A");
+    firstRowContains("caseListComponent:caseListForm:caseTable", "A Html Case");
+    closeHtmlTask();
   }
 
   @Test
@@ -91,11 +99,16 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   {
     createTask("taskForFilterPrioHigh", "task list", 1);
     navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
-    createTask("taskForFilterLow", "task list", 3);
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
     
+    createTask("taskForFilterLow", "task list", 3);
     navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow"));
+    
+    createTaskWithCategory("new Task", "this is a new Task", 2, "random category", "whatever process");
+    navigate().taskList();
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("taskListComponent:taskListForm:taskTable_data"), "new Task"));
+
     // test prio
     navigate().taskList();
     WebElement selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:priorityFilter");
@@ -103,8 +116,10 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
     driverHelper.getWebDriver().navigate().refresh();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterLow");
-    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskForFilterPrioHigh");
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow"));
+    await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh")));
     
     navigate().taskList();
     selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:priorityFilter");
@@ -112,8 +127,10 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
     driverHelper.getWebDriver().navigate().refresh();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
-    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskForFilterLow");
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
+    await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow")));
     
     delegateTaskToUser1("taskForFilterLow");
     
@@ -121,7 +138,14 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     navigate().taskList();
     selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForFilterPrioHigh");
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
+    closeTask();
+
+    // test searchbar
+    navigate().taskList();
+    searchDataTable("taskListComponent:taskListForm:SearchTxt", "ne w T a sk");
+    firstRowContains("taskListComponent:taskListForm:task", "JSF new Task");
     closeTask();
   }
   
@@ -237,17 +261,5 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   {
     WebElement selectOneMenu = driverHelper.findElementById(filterId);
     prime().selectOneMenu(selectOneMenu).selectItemByLabel(selectLabel);
-  }
-  
-  private void checkDataTableContains(String tableBodyId, String checkText)
-  {
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id(tableBodyId), checkText)); 
-  }
-  
-  private void checkDataTableContainsNot(String tableBodyId, String checkText)
-  {
-    await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
-            By.id(tableBodyId), checkText))); 
   }
 }

@@ -14,6 +14,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ch.ivyteam.ivy.server.test.AjaxHelper;
@@ -26,14 +27,14 @@ public class BaseJsfWorkflowUiTest
   public static final String WEB_TEST_SERVER_ADMIN_USER;
   public static final String WEB_TEST_SERVER_ADMIN_PASSWORD;
   private static final String[] PRIORITIES = {"EXCEPTION", "HIGH", "NORMAL", "LOW"};
-  
+
   @Rule
   public TestRule globalMethodTimeout = new Timeout(5 * 30 * 1000);
-  
+
   static
   {
-      WEB_TEST_SERVER_ADMIN_USER = "Administrator";
-      WEB_TEST_SERVER_ADMIN_PASSWORD = "administrator";
+    WEB_TEST_SERVER_ADMIN_USER = "Administrator";
+    WEB_TEST_SERVER_ADMIN_PASSWORD = "administrator";
   }
   protected IvyWebDriverHelper driverHelper;
 
@@ -53,52 +54,58 @@ public class BaseJsfWorkflowUiTest
 
   protected void login(String username, String password)
   {
-	  try
-	  {
-		  loginInternal(username, password);
-	  }
-	  catch(Throwable ex)
-	  {
-		  System.out.println("LOGIN FAILED with source:"+ driverHelper.getWebDriver().getPageSource());
-		  throw ex;
-	  }
+    try
+    {
+      loginInternal(username, password);
+    }
+    catch (Throwable ex)
+    {
+      System.out.println("LOGIN FAILED with source:" + driverHelper.getWebDriver().getPageSource());
+      throw ex;
+    }
   }
 
-	private void loginInternal(String username, String password) {
-		navigate().logout();
-		waitLogin();
-		loginField("username").clear();
-		waitLogin();
-		loginField("username").sendKeys(username);
-		waitLogin();
-		loginField("password").clear();
-		waitLogin();
-		loginField("password").sendKeys(password);
-		waitLogin();
-		loginField("loginButton").click();
-		waitLogin(); 
-		ajax().assertElementContains("mainArea", "Home");
-	}
+  private void loginInternal(String username, String password)
+  {
+    navigate().logout();
+    waitLogin();
+    loginField("username").clear();
+    waitLogin();
+    loginField("username").sendKeys(username);
+    waitLogin();
+    loginField("password").clear();
+    waitLogin();
+    loginField("password").sendKeys(password);
+    waitLogin();
+    loginField("loginButton").click();
+    waitLogin();
+    ajax().assertElementContains("mainArea", "Home");
+  }
 
-	private WebElement loginField(String name) {
-		return ajax().findUntilVisible(By.id("loginPageComponent:loginForm:"+name));
-	}
+  private WebElement loginField(String name)
+  {
+    return ajax().findUntilVisible(By.id("loginPageComponent:loginForm:" + name));
+  }
 
-	private void waitLogin() {
-		driverHelper.waitForAjax();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException ex) {
-			// TODO Auto-generated catch block
-			ex.printStackTrace();
-		}
-	}
-  
+  private void waitLogin()
+  {
+    driverHelper.waitForAjax();
+    try
+    {
+      Thread.sleep(2000);
+    }
+    catch (InterruptedException ex)
+    {
+      // TODO Auto-generated catch block
+      ex.printStackTrace();
+    }
+  }
+
   protected void createTask(String title, String description, int priority)
   {
     createTask(title, description, priority, null);
   }
-  
+
   protected void createTask(String title, String description, int priority, String expiryDate)
   {
     navigate().processList();
@@ -107,14 +114,14 @@ public class BaseJsfWorkflowUiTest
     WebElement selectOneMenu = driverHelper.findElementById("formRequest:taskPriority");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel(PRIORITIES[priority]);
     driverHelper.findElementById("formRequest:description").sendKeys(description);
-    if(expiryDate != null)
+    if (expiryDate != null)
     {
       driverHelper.findElementById("formRequest:expiryDate_input").click();
       driverHelper.findElementById("formRequest:expiryDate_input").sendKeys(expiryDate);
     }
     driverHelper.clickAndWaitForAjax(By.id("formRequest:submitJsf"));
   }
-  
+
   protected void createHtmlTask(String title, String description)
   {
     navigate().processList();
@@ -123,8 +130,9 @@ public class BaseJsfWorkflowUiTest
     driverHelper.findElementById("description").sendKeys(description);
     driverHelper.clickAndWaitForAjax(By.id("submit"));
   }
-  
-  protected void createTaskWithCategory(String title, String description, int priority, String category, String process)
+
+  protected void createTaskWithCategory(String title, String description, int priority, String category,
+          String process)
   {
     navigate().processList();
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
@@ -143,7 +151,15 @@ public class BaseJsfWorkflowUiTest
     driverHelper.findElementById("taskLinkRow_0").click();
     driverHelper.clickAndWaitForAjax(By.id("formConfirmation:save"));
   }
-  
+
+  protected void closeHtmlTask()
+  {
+    navigate().taskList();
+    driverHelper.findElementById("taskLinkRow_0").click();
+    driverHelper.findElement(By.name("ok")).click();
+    driverHelper.findElement(By.id("submit")).click();
+  }
+
   protected final void clickAdminElement(WebElement button, String failMessage)
   {
     assertThat(button.isEnabled())
@@ -151,38 +167,41 @@ public class BaseJsfWorkflowUiTest
       .isTrue();
     button.click();
   }
-  
+
   public WfNavigator navigate()
   {
     return new WfNavigator(driverHelper);
   }
-  
+
   public PrimeFacesWidgetHelper prime()
   {
     return new PrimeFacesWidgetHelper(driverHelper);
   }
-  
+
   public AjaxHelper ajax()
   {
-	return new AjaxHelper(driverHelper.getWebDriver());
+    return new AjaxHelper(driverHelper.getWebDriver());
   }
-  
-  public void addAbsenceForMe(String startDate, String startTime, String endDate, String endTime, String description)
+
+  public void addAbsenceForMe(String startDate, String startTime, String endDate, String endTime,
+          String description)
   {
     navigate().absence();
     addAbsence(startDate, startTime, endDate, endTime, description);
   }
-  
-  public void addAbsenceForUser(String startDate, String startTime, String endDate, String endTime, String description, String absenceForUser)
+
+  public void addAbsenceForUser(String startDate, String startTime, String endDate, String endTime,
+          String description, String absenceForUser)
   {
     navigate().absence();
     WebElement selectOneMenu = driverHelper.findElementById("formAbsence:userSelection");
     prime().selectOneMenu(selectOneMenu).selectItemByLabel(absenceForUser);
-    
+
     addAbsence(startDate, startTime, endDate, endTime, description);
   }
-  
-  public void addAbsence(String startDate, String startTime, String endDate, String endTime, String description)
+
+  public void addAbsence(String startDate, String startTime, String endDate, String endTime,
+          String description)
   {
     driverHelper.clickAndWaitForAjax(By.id("formAbsence:addAbsence"));
     driverHelper.findElementById("formAddAbsence:absenceStartTime_input").click();
@@ -197,7 +216,7 @@ public class BaseJsfWorkflowUiTest
     driverHelper.findElementById("formAddAbsence:absenceDescription").sendKeys(description);
     driverHelper.clickAndWaitForAjax(By.id("formAddAbsence:saveNewAbsence"));
   }
-  
+
   protected void await(ExpectedCondition<?> condition)
   {
     WebDriver webDriver = driverHelper.getWebDriver();
@@ -206,7 +225,7 @@ public class BaseJsfWorkflowUiTest
     {
       new WebDriverWait(webDriver, 10).until(condition);
     }
-    catch (TimeoutException ex) 
+    catch (TimeoutException ex)
     {
       System.out.println(driverHelper.getWebDriver().getPageSource());
       throw ex;
@@ -216,5 +235,28 @@ public class BaseJsfWorkflowUiTest
       webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
   }
-    
+
+  protected void searchDataTable(String searchId, String filterText)
+  {
+    driverHelper.findElement(By.id(searchId)).sendKeys(filterText);
+  }
+
+  protected void firstRowContains(String tableBodyId, String expectedText)
+  {
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.xpath("//*[@id='" + tableBodyId + "_data']/tr[1]"), expectedText));
+  }
+
+  protected void checkDataTableContains(String tableBodyId, String checkText)
+  {
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id(tableBodyId), checkText));
+  }
+
+  protected void checkDataTableContainsNot(String tableBodyId, String checkText)
+  {
+    await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
+            By.id(tableBodyId), checkText)));
+  }
+
 }

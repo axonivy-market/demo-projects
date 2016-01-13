@@ -34,6 +34,16 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     //Start home process
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
     assertThat(driverHelper.findElementById("mainLayoutUnit").getText()).contains("Request event");
+    
+    // Test processlist searchbar with process name
+    navigate().processList();
+    searchDataTable("processlistform:SearchTxt", "test workflow js");
+    firstRowContains("processlistform:datatable", "Test Workflow Jsf");
+    
+    // Test processlist searchbar with process description
+    navigate().processList();
+    searchDataTable("processlistform:SearchTxt", "Web pages");
+    firstRowContains("processlistform:datatable", "Test Workflow Html");
   }
   
   @Test

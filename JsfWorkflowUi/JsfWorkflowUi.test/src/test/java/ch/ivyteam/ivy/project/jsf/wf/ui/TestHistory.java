@@ -29,5 +29,11 @@ public class TestHistory extends BaseJsfWorkflowUiTest
     navigate().taskHistory();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF task");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Priority LOW");
+    
+    createTask("something4", "a description", 3);
+    closeTask();
+    navigate().taskHistory();
+    searchDataTable("taskHistoryForm:SearchTxt", "some th in 4");
+    firstRowContains("taskHistoryForm:taskHistoryTable", "JSF something4");
   }
 }
