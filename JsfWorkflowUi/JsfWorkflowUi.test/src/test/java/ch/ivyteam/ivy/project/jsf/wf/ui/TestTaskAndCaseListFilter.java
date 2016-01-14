@@ -145,7 +145,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     // test searchbar
     navigate().taskList();
     searchDataTable("taskListComponent:taskListForm:SearchTxt", "ne w T a sk");
-    firstRowContains("taskListComponent:taskListForm:task", "JSF new Task");
+    firstRowContains("taskListComponent:taskListForm:taskTable", "JSF new Task");
     closeTask();
   }
   
