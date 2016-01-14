@@ -105,10 +105,6 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     navigate().taskList();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow"));
     
-    createTaskWithCategory("new Task", "this is a new Task", 2, "random category", "whatever process");
-    navigate().taskList();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("taskListComponent:taskListForm:taskTable_data"), "new Task"));
-
     // test prio
     navigate().taskList();
     WebElement selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:priorityFilter");
@@ -142,6 +138,10 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
     closeTask();
 
+    createTaskWithCategory("new Task", "this is a new Task", 2, "random category", "whatever process");
+    navigate().taskList();
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("taskListComponent:taskListForm:taskTable_data"), "new Task"));
+    
     // test searchbar
     navigate().taskList();
     searchDataTable("taskListComponent:taskListForm:SearchTxt", "ne w T a sk");
