@@ -32,12 +32,6 @@
 					<p:outputLabel for="userCity" value="City"/>
 					<p:inputText id="userCity" value="#{data.user.city}"></p:inputText>
 					
-					<p:outputLabel value="Setup Workstation"/>
-					<p:selectBooleanCheckbox value="true" />
-
-					<p:outputLabel value="Prepare Office Key"/>
-					<p:selectBooleanCheckbox value="true" />
-					
 					<br />
 					<p:commandButton actionListener="#{logic.close}" value="Create Processes" update="form" icon="ui-icon-check" />
 				</h:panelGrid>

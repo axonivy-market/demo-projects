@@ -1,0 +1,6 @@
+FacilityManagementData #class
+workflow.signal #namespace
+user workflow.signal.User #field
+user PERSISTENT #fieldModifier
+quitUserEvent workflow.signal.QuitUserEvent #field
+quitUserEvent PERSISTENT #fieldModifier
