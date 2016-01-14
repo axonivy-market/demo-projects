@@ -14,7 +14,6 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ch.ivyteam.ivy.server.test.AjaxHelper;
@@ -163,8 +162,8 @@ public class BaseJsfWorkflowUiTest
   protected final void clickAdminElement(WebElement button, String failMessage)
   {
     assertThat(button.isEnabled())
-      .as("Missing administration rights! "+ failMessage)
-      .isTrue();
+            .as("Missing administration rights! " + failMessage)
+            .isTrue();
     button.click();
   }
 
@@ -240,23 +239,4 @@ public class BaseJsfWorkflowUiTest
   {
     driverHelper.findElement(By.id(searchId)).sendKeys(filterText);
   }
-
-  protected void firstRowContains(String tableBodyId, String expectedText)
-  {
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.xpath("//*[@id='" + tableBodyId + "_data']/tr[1]"), expectedText));
-  }
-
-  protected void checkDataTableContains(String tableBodyId, String checkText)
-  {
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id(tableBodyId), checkText));
-  }
-
-  protected void checkDataTableContainsNot(String tableBodyId, String checkText)
-  {
-    await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
-            By.id(tableBodyId), checkText)));
-  }
-
 }

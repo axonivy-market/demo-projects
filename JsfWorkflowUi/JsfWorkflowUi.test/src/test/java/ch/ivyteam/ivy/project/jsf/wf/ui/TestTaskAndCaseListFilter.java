@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.Table;
+
 public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
 {
   @Test
@@ -39,7 +41,8 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     
     navigate().caseList();
     searchDataTable("caseListComponent:caseListForm:SearchTxt", "Ht ml Ca se A");
-    firstRowContains("caseListComponent:caseListForm:caseTable", "A Html Case");
+    Table dataTable = prime().table(By.id("caseListComponent:caseListForm:caseTable"));
+    dataTable.firstRowContains("A Html Case");
     closeHtmlTask();
   }
 
@@ -99,12 +102,14 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   {
     createTask("taskForFilterPrioHigh", "task list", 1);
     navigate().taskList();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
-    
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
+
     createTask("taskForFilterLow", "task list", 3);
     navigate().taskList();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow"));
-    
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow"));
+
     // test prio
     navigate().taskList();
     WebElement selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:priorityFilter");
@@ -145,7 +150,8 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     // test searchbar
     navigate().taskList();
     searchDataTable("taskListComponent:taskListForm:SearchTxt", "ne w T a sk");
-    firstRowContains("taskListComponent:taskListForm:taskTable", "JSF new Task");
+    Table dataTable = prime().table(By.id("taskListComponent:taskListForm:taskTable"));
+    dataTable.firstRowContains("JSF new Task");
     closeTask();
   }
   
@@ -177,37 +183,33 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     
     createTask(taskHighResponsibleFilter, "task list", 1);
     navigate().taskAdmin();
-    checkDataTableContains(tableBodyId,
-            taskHighResponsibleFilter);
+    Table dataTable = prime().table(By.id(tableBodyId));
+    dataTable.contains(taskHighResponsibleFilter);
 
     createTask(taskLowResponsibleFilter, "task list", 3);
     navigate().taskAdmin();
-    checkDataTableContains(tableBodyId,
-            taskLowResponsibleFilter);
+    dataTable.contains(taskLowResponsibleFilter);
 
     delegateTaskToUser1(taskLowResponsibleFilter);
 
     navigate().taskAdmin();
     filterDataTable(filterId,
             "Top level role");
-    checkDataTableContains(tableBodyId,
-            taskHighResponsibleFilter);
-    checkDataTableContainsNot(tableBodyId,
-            taskLowResponsibleFilter);
+    dataTable.contains(taskHighResponsibleFilter);
+    dataTable.containsNot(taskLowResponsibleFilter);
 
     navigate().taskAdmin();
     filterDataTable(filterId,
             "Test User 1 (user1)");
-    checkDataTableContains(tableBodyId,
-            taskLowResponsibleFilter);
-    checkDataTableContainsNot(tableBodyId,
-            taskHighResponsibleFilter);
+    dataTable.contains(taskLowResponsibleFilter);
+    dataTable.containsNot(taskHighResponsibleFilter);
   }
   
   private void delegateTaskToUser1(String taskName)
   {
     navigate().taskList();
-    checkDataTableContains("taskListComponent:taskListForm:taskTable_data", taskName);
+    Table dataTable = prime().table(By.id("taskListComponent:taskListForm:taskTable_data"));
+    dataTable.contains(taskName);
     
     driverHelper.findElementById("buttonTaskDetail").click();
     driverHelper.clickAndWaitForAjax(By
@@ -230,13 +232,12 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     
     createTask(taskHighPrio, "task list", 1);
     navigate().taskAdmin();
-    checkDataTableContains(tableBodyId,
-            taskHighPrio);
+    Table dataTable = prime().table(By.id(tableBodyId));
+    dataTable.contains(taskHighPrio);
 
     createTask(taskLowPrio, "task list", 3);
     navigate().taskAdmin();
-    checkDataTableContains(tableBodyId,
-            taskLowPrio);
+    dataTable.contains(taskLowPrio);
 
     navigate().taskList();
     driverHelper.findElementById("taskLinkRow_0").click();
@@ -244,17 +245,14 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     navigate().taskAdmin();
     filterDataTable(filterId, "SUSPENDED");
     assertThat(driverHelper.findElement(By.id(filterId)).equals("SUSPENDED"));
-    checkDataTableContains(tableBodyId,
-            taskHighPrio);
-    checkDataTableContainsNot(tableBodyId,
-            taskLowPrio);
+    dataTable.contains(taskHighPrio);
+    dataTable.containsNot(taskLowPrio);
 
     navigate().taskAdmin();
     filterDataTable(filterId, "RESUMED");
     assertThat(driverHelper.findElement(By.id(filterId)).equals("RESUMED"));
-    checkDataTableContains(tableBodyId, taskLowPrio);
-    checkDataTableContainsNot(tableBodyId,
-            taskHighPrio);
+    dataTable.contains(taskLowPrio);
+    dataTable.containsNot(taskHighPrio);
   }
   
   private void filterDataTable(String filterId, String selectLabel)

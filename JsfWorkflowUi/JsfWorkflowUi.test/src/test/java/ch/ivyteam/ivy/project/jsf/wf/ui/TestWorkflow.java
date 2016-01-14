@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.Table;
 
 public class TestWorkflow extends BaseJsfWorkflowUiTest
 {
@@ -38,12 +39,13 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     // Test processlist searchbar with process name
     navigate().processList();
     searchDataTable("processlistform:SearchTxt", "test workflow js");
-    firstRowContains("processlistform:datatable", "Test Workflow Jsf");
+    Table dataTable = prime().table(By.id("processlistform:datatable"));
+    dataTable.firstRowContains("Test Workflow Jsf");
     
     // Test processlist searchbar with process description
     navigate().processList();
     searchDataTable("processlistform:SearchTxt", "Web pages");
-    firstRowContains("processlistform:datatable", "Test Workflow Html");
+    dataTable.firstRowContains("Test Workflow Html");
   }
   
   @Test
