@@ -1,5 +1,7 @@
 package ch.ivyteam.ivy.project.jsf.wf.ui;
 
+import static org.fest.assertions.api.Assertions.assertThat;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 
@@ -32,7 +34,7 @@ public class TestHistory extends BaseJsfWorkflowUiTest
     
     Table dataTable = prime().table(By.id("taskHistoryForm:taskHistoryTable"));
     dataTable.contains("JSF task");
-    dataTable.contains("Priority LOW");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Priority LOW");
 
     createTask("something4", "a description", 3);
     closeTask();
