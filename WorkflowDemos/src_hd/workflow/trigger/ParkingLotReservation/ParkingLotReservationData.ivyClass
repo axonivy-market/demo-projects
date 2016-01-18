@@ -1,0 +1,4 @@
+ParkingLotReservationData #class
+workflow.trigger.ParkingLotReservation #namespace
+newEmployeeData workflow.trigger.NewEmployeeData #field
+newEmployeeData PERSISTENT #fieldModifier

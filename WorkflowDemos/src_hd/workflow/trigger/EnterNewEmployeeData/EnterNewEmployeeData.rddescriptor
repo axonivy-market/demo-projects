@@ -5,21 +5,21 @@
         <name>start</name>
         <description>Default dialog start method.</description>
         <inputParameter>
-            <name>procurementRequestData</name>
+            <name>newEmployeeData</name>
             <description></description>
-            <parameterType>workflow.demo.ProcurementRequestData</parameterType>
+            <parameterType>workflow.trigger.NewEmployeeData</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
         <outputParameter>
-            <name>procurementRequestData</name>
+            <name>newEmployeeData</name>
             <description></description>
-            <parameterType>workflow.demo.ProcurementRequestData</parameterType>
+            <parameterType>workflow.trigger.NewEmployeeData</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>
-        <value>14FAE07216CC971C</value>
+        <value>15254CFABE57FCC9</value>
         <readOnly>true</readOnly>
     </property>
     <property>
@@ -34,7 +34,7 @@
     </property>
     <property>
         <name>viewTechnology</name>
-        <value>JSFOffline</value>
+        <value>JSF</value>
         <readOnly>true</readOnly>
     </property>
 </richDialogDescriptor>
