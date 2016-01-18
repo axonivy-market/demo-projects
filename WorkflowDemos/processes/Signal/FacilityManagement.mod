@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 16:48:03 CET 2016]
+[>Created: Mon Jan 18 17:14:09 CET 2016]
 1523FF963044280C 3.18 #module
 >Proto >Proto Collection #zClass
 ft0 FacilityManagement Big #zClass
@@ -157,7 +157,7 @@ ft0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-ft0 f2 56 49 592 30 -291 -8 #rect
+ft0 f2 72 49 592 30 -291 -8 #rect
 ft0 f2 @|IBIcon #fIcon
 >Proto ft0 .type workflow.signal.FacilityManagementData #txt
 >Proto ft0 .processKind NORMAL #txt

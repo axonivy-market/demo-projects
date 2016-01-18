@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 17:01:47 CET 2016]
+[>Created: Mon Jan 18 17:14:09 CET 2016]
 151CA0D8CBDD2DEC 3.18 #module
 >Proto >Proto Collection #zClass
 cr0 CreateUser Big #zClass
@@ -315,7 +315,7 @@ and not completed User Task is destroyed.
     </language>
 </elementInfo>
 ' #txt
-cr0 f27 536 26 528 332 -260 -160 #rect
+cr0 f27 536 50 528 332 -260 -160 #rect
 cr0 f27 @|IBIcon #fIcon
 cr0 f28 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt

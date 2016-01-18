@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 17:06:32 CET 2016]
+[>Created: Mon Jan 18 17:14:09 CET 2016]
 151CA1EFC1542D87 3.18 #module
 >Proto >Proto Collection #zClass
 qr0 QuitUser Big #zClass
@@ -75,10 +75,10 @@ qr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 qr0 f0 @C|.responsibility Everybody #txt
-qr0 f0 81 97 30 30 -21 17 #rect
+qr0 f0 81 145 30 30 -21 17 #rect
 qr0 f0 @|StartRequestIcon #fIcon
 qr0 f1 type workflow.signal.QuitUserProcess #txt
-qr0 f1 657 97 30 30 0 15 #rect
+qr0 f1 657 145 30 30 0 15 #rect
 qr0 f1 @|EndIcon #fIcon
 qr0 f3 actionDecl 'workflow.signal.QuitUserProcess out;
 ' #txt
@@ -101,10 +101,10 @@ qr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-qr0 f3 488 90 112 44 -44 -8 #rect
+qr0 f3 488 138 112 44 -44 -8 #rect
 qr0 f3 @|StepIcon #fIcon
 qr0 f2 expr out #txt
-qr0 f2 600 112 657 112 #arcP
+qr0 f2 600 160 657 160 #arcP
 qr0 f5 targetWindow NEW:card: #txt
 qr0 f5 targetDisplay TOP #txt
 qr0 f5 richDialogId workflow.signal.QuitUser #txt
@@ -129,10 +129,10 @@ qr0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-qr0 f5 168 90 112 44 -30 -8 #rect
+qr0 f5 168 138 112 44 -30 -8 #rect
 qr0 f5 @|RichDialogIcon #fIcon
 qr0 f6 expr out #txt
-qr0 f6 111 112 168 112 #arcP
+qr0 f6 111 160 168 160 #arcP
 qr0 S10 .resExport export #txt
 qr0 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -143,21 +143,22 @@ qr0 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-qr0 S10 328 90 112 44 -35 -8 #rect
+qr0 S10 328 138 112 44 -35 -8 #rect
 qr0 S10 @|BIcon #fIcon
 qr0 f7 expr out #txt
-qr0 f7 280 112 328 112 #arcP
-qr0 f4 440 112 488 112 #arcP
+qr0 f7 280 160 328 160 #arcP
+qr0 f4 440 160 488 160 #arcP
 qr0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>This process is part of the signal demo process. QuitUser will cancel a previously started CreateUser case. </name>
-        <nameStyle>108,7
+        <name>This process is part of the signal demo process. 
+QuitUser sends a signal that will cancel User Tasks from a previously started CreateUser business case.</name>
+        <nameStyle>153,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-qr0 f8 48 25 608 30 -294 -8 #rect
+qr0 f8 72 42 592 44 -288 -16 #rect
 qr0 f8 @|IBIcon #fIcon
 >Proto qr0 .type workflow.signal.QuitUserProcess #txt
 >Proto qr0 .processKind NORMAL #txt
