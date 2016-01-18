@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Wed Dec 23 15:33:11 CET 2015]
+[>Created: Mon Jan 18 17:06:32 CET 2016]
 151CA1EFC1542D87 3.18 #module
 >Proto >Proto Collection #zClass
-qr0 quitUser Big #zClass
+qr0 QuitUser Big #zClass
 qr0 B #cInfo
 qr0 #process
 Ct0 Component Big #zClass
@@ -25,7 +25,7 @@ qr0 Ct0 S10 'Sub 1' #zField
 qr0 @PushWFArc f7 '' #zField
 qr0 @PushWFArc f4 '' #zField
 qr0 @InfoButton f8 '' #zField
->Proto qr0 qr0 quitUser #zField
+>Proto qr0 qr0 QuitUser #zField
 Ct0 @TextInP .resExport .resExport #zField
 Ct0 @TextInP .type .type #zField
 Ct0 @TextInP .processKind .processKind #zField
@@ -47,10 +47,30 @@ qr0 f0 guid 151CA1EFC2ED867C #txt
 qr0 f0 requestEnabled true #txt
 qr0 f0 triggerEnabled false #txt
 qr0 f0 callSignature start() #txt
+qr0 f0 persist false #txt
+qr0 f0 startName 'Quit User Process (Signal example)' #txt
+qr0 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+qr0 f0 showInStartList 1 #txt
+qr0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
 qr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
+        <nameStyle>9,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -131,13 +151,13 @@ qr0 f4 440 112 488 112 #arcP
 qr0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>This process is part of the demo process ''createUser''.</name>
-        <nameStyle>54,7
+        <name>This process is part of the signal demo process. QuitUser will cancel a previously started CreateUser case. </name>
+        <nameStyle>108,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-qr0 f8 80 25 304 30 -148 -8 #rect
+qr0 f8 48 25 608 30 -294 -8 #rect
 qr0 f8 @|IBIcon #fIcon
 >Proto qr0 .type workflow.signal.QuitUserProcess #txt
 >Proto qr0 .processKind NORMAL #txt

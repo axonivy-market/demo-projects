@@ -3,6 +3,7 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"	
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:pm="http://primefaces.org/mobile">
@@ -21,13 +22,14 @@
 					</f:facet>
 					
 					<p:outputLabel for="quitUserEventUserKey" value="User Key"/>
-					<p:inputText id="quitUserEventUserKey" value="#{data.quitUserEvent.userKey}"></p:inputText>
-					
+					<p:inputText id="quitUserEventUserKey"  value="#{data.quitUserEvent.userKey}" required="true"/>
+														
 					<p:outputLabel for="quitUserEventReason" value="Reason"/>
 					<p:inputText id="quitUserEventReason" value="#{data.quitUserEvent.reason}"></p:inputText>
 					
 					<br />
 					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
+				
 				</h:panelGrid>
 			</h:form>
 			

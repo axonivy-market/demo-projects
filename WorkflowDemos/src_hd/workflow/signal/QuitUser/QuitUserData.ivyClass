@@ -2,3 +2,5 @@ QuitUserData #class
 workflow.signal.QuitUser #namespace
 quitUserEvent workflow.signal.QuitUserEvent #field
 quitUserEvent PERSISTENT #fieldModifier
+cases List<ch.ivyteam.ivy.workflow.ICase> #field
+cases PERSISTENT #fieldModifier

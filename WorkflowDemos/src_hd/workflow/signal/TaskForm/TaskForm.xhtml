@@ -8,11 +8,9 @@
 	xmlns:pm="http://primefaces.org/mobile">
 <h:body>
 	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title">CreateUser</ui:define>
+		<ui:define name="title">ITDepartment</ui:define>
 		<ui:define name="content">
-			<h3>
-			Workflow: New Staff Member
-			</h3>
+			<h3>#{ivy.task.getName()}</h3>
 			
 			<h:form id="form">
 				<h:panelGrid columns="2">
@@ -21,19 +19,18 @@
 					</f:facet>
 					
 					<p:outputLabel for="userUserKey" value="User Key"/>
-					<p:inputText id="userUserKey" value="#{data.user.userKey}" required="true" readonly="true"></p:inputText>
+					<p:outputLabel id="userUserKey" value="#{data.user.userKey}"></p:outputLabel>
 					
 					<p:outputLabel for="userName" value="Name"/>
-					<p:inputText id="userName" value="#{data.user.name}" required="true"></p:inputText>
+					<p:outputLabel id="userName" value="#{data.user.name}"></p:outputLabel>
 					
 					<p:outputLabel for="userStreet" value="Street"/>
-					<p:inputText id="userStreet" value="#{data.user.street}"></p:inputText>
+					<p:outputLabel id="userStreet" value="#{data.user.street}"></p:outputLabel>
 					
 					<p:outputLabel for="userCity" value="City"/>
-					<p:inputText id="userCity" value="#{data.user.city}"></p:inputText>
-					
+					<p:outputLabel id="userCity" value="#{data.user.city}"></p:outputLabel>					
 					<br />
-					<p:commandButton actionListener="#{logic.close}" value="Create Processes" update="form" icon="ui-icon-check" />
+					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
 				</h:panelGrid>
 			</h:form>
 			

@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Thu Jan 14 13:01:47 CET 2016]
+[>Created: Mon Jan 18 17:01:47 CET 2016]
 151CA0D8CBDD2DEC 3.18 #module
 >Proto >Proto Collection #zClass
-cr0 createUser Big #zClass
+cr0 CreateUser Big #zClass
 cr0 B #cInfo
 cr0 #process
 cr0 @TextInP .resExport .resExport #zField
@@ -41,7 +41,7 @@ cr0 @SignalStartEvent f32 '' #zField
 cr0 @TkArc f33 '' #zField
 cr0 @EndTask f34 '' #zField
 cr0 @PushWFArc f35 '' #zField
->Proto cr0 cr0 createUser #zField
+>Proto cr0 cr0 CreateUser #zField
 cr0 f0 outLink addUser.ivp #txt
 cr0 f0 type workflow.signal.CreateUserProcess #txt
 cr0 f0 inParamDecl '<> param;' #txt
@@ -54,6 +54,7 @@ cr0 f0 requestEnabled true #txt
 cr0 f0 triggerEnabled false #txt
 cr0 f0 callSignature addUser() #txt
 cr0 f0 persist false #txt
+cr0 f0 startName 'Create User Process (Signal example)' #txt
 cr0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -80,7 +81,7 @@ cr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 cr0 f0 @C|.responsibility Everybody #txt
-cr0 f0 81 49 30 30 -33 17 #rect
+cr0 f0 49 81 30 30 -33 17 #rect
 cr0 f0 @|StartRequestIcon #fIcon
 cr0 f3 targetWindow NEW:card: #txt
 cr0 f3 targetDisplay TOP #txt
@@ -108,17 +109,21 @@ cr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 f3 168 42 112 44 -38 -8 #rect
+cr0 f3 136 74 112 44 -38 -8 #rect
 cr0 f3 @|RichDialogIcon #fIcon
 cr0 f4 expr out #txt
-cr0 f4 111 64 168 64 #arcP
+cr0 f4 79 96 136 96 #arcP
 cr0 f6 type workflow.signal.CreateUserProcess #txt
-cr0 f6 337 161 30 30 0 15 #rect
+cr0 f6 337 241 30 30 0 15 #rect
 cr0 f6 @|EndIcon #fIcon
-cr0 f8 requestActionDecl '<> param;' #txt
+cr0 f8 richDialogId workflow.signal.TaskForm #txt
+cr0 f8 startMethod start(workflow.signal.User) #txt
+cr0 f8 requestActionDecl '<workflow.signal.User user> param;' #txt
+cr0 f8 requestMappingAction 'param.user=in.user;
+' #txt
 cr0 f8 responseActionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
-cr0 f8 responseMappingAction 'out=in;
+cr0 f8 responseMappingAction 'out.user=result.user;
 ' #txt
 cr0 f8 outLinks "TaskA.ivp" #txt
 cr0 f8 taskData 'TaskA.EXPRI=2
@@ -140,15 +145,19 @@ IT Department</name>
     </language>
 </elementInfo>
 ' #txt
-cr0 f8 160 154 128 44 -41 -15 #rect
+cr0 f8 160 234 128 44 -41 -15 #rect
 cr0 f8 @|UserTaskIcon #fIcon
 cr0 f7 expr data #txt
 cr0 f7 outCond ivp=="TaskA.ivp" #txt
-cr0 f7 288 176 337 176 #arcP
+cr0 f7 288 256 337 256 #arcP
 cr0 f10 type workflow.signal.CreateUserProcess #txt
-cr0 f10 337 337 30 30 0 15 #rect
+cr0 f10 337 465 30 30 0 15 #rect
 cr0 f10 @|EndIcon #fIcon
-cr0 f11 requestActionDecl '<> param;' #txt
+cr0 f11 richDialogId workflow.signal.TaskForm #txt
+cr0 f11 startMethod start(workflow.signal.User) #txt
+cr0 f11 requestActionDecl '<workflow.signal.User user> param;' #txt
+cr0 f11 requestMappingAction 'param.user=in.user;
+' #txt
 cr0 f11 responseActionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
 cr0 f11 responseMappingAction 'out=in;
@@ -173,11 +182,11 @@ Office Manager</name>
     </language>
 </elementInfo>
 ' #txt
-cr0 f11 160 330 128 44 -41 -15 #rect
+cr0 f11 160 458 128 44 -41 -15 #rect
 cr0 f11 @|UserTaskIcon #fIcon
 cr0 f14 expr data #txt
 cr0 f14 outCond ivp=="TaskA.ivp" #txt
-cr0 f14 288 352 337 352 #arcP
+cr0 f14 288 480 337 480 #arcP
 cr0 St0 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
 cr0 St0 actionTable 'out=in;
@@ -196,7 +205,7 @@ cr0 St0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 St0 249 193 30 30 11 7 #rect
+cr0 St0 249 273 30 30 11 7 #rect
 cr0 St0 @|SignalBoundaryEventIcon #fIcon
 cr0 St1 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
@@ -216,7 +225,7 @@ cr0 St1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 St1 249 369 30 30 11 9 #rect
+cr0 St1 249 497 30 30 11 9 #rect
 cr0 St1 @|SignalBoundaryEventIcon #fIcon
 cr0 f19 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
@@ -233,10 +242,10 @@ cr0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 f19 296 242 112 44 -38 -8 #rect
+cr0 f19 296 322 112 44 -38 -8 #rect
 cr0 f19 @|StepIcon #fIcon
-cr0 f20 264 223 296 264 #arcP
-cr0 f20 1 264 264 #addKink
+cr0 f20 264 303 296 344 #arcP
+cr0 f20 1 264 344 #addKink
 cr0 f20 1 0.49201405627653794 0 0 #arcLabel
 cr0 f21 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
@@ -253,99 +262,83 @@ cr0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 f21 296 418 112 44 -38 -8 #rect
+cr0 f21 296 546 112 44 -38 -8 #rect
 cr0 f21 @|StepIcon #fIcon
-cr0 f22 264 399 296 440 #arcP
-cr0 f22 1 264 440 #addKink
+cr0 f22 264 527 296 568 #arcP
+cr0 f22 1 264 568 #addKink
 cr0 f22 1 0.22727272727272738 0 0 #arcLabel
 cr0 f23 type workflow.signal.CreateUserProcess #txt
-cr0 f23 449 249 30 30 0 15 #rect
+cr0 f23 449 329 30 30 0 15 #rect
 cr0 f23 @|EndIcon #fIcon
 cr0 f24 expr out #txt
-cr0 f24 408 264 449 264 #arcP
+cr0 f24 408 344 449 344 #arcP
 cr0 f25 type workflow.signal.CreateUserProcess #txt
-cr0 f25 449 425 30 30 0 15 #rect
+cr0 f25 449 553 30 30 0 15 #rect
 cr0 f25 @|EndIcon #fIcon
 cr0 f26 expr out #txt
-cr0 f26 408 440 449 440 #arcP
+cr0 f26 408 568 449 568 #arcP
 cr0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>This examples shows how a Signal Boundary Event can be used to destroy/interrupt created User Tasks.
-It illustrates processes that are executed when a new user starts working at the company - respectively when an 
-employee leaves the company.
+        <name>This examples illustrates use cases for Signals. 
+* Several concurrent process are started by a signal.
+* Signal Boundary Events are used to interrupt (destroy) User Tasks.
 
-The example consists of two processes, the ''addUser'' and the ''quitUser'' process. The ''addUser'' process creates 
-two User Tasks with the signal ''user:created''. 
-With the ''quitUser'' process the two created User Tasks get destroyed by using signals, since they became obsolete.
+The example consists of two main processes:
+The CreateUser process starts concurrent processes with the signal ''user:created''. 
+The user object is added as payload to the signal. 
+
+The QuitUser process sends a signal that cancels User Tasks that have become obsolete. 
+The sent signal ''admin:quit:xyz'' includes a user key that is used to find 
+involved tasks.
 
 Steps to execute the example:
-Lets create some tasks, which listen to signal events:
-1. Start the process ''addUser'' and add a User, e.g. with the name ''Meier''.
-2. Start the process ''addUser'' again, e.g. with the name ''Müller''.
+Start at least one CreateUser process. The new user will have an auto created user key. 
+After the completion of the CreateUser main process, you start a QuitUser process.
+If you enter a user key of one of the previously started CreateUser business cases, any involved 
+and not completed User Task is destroyed. 
 
-Now there should exist four tasks. For each user one task to setup the workstation and a second one the perpare the office key. 
-Each user has been assigned to an autocreated user-key, it''s the number dispalyed on the end of  the task name 
-in square brackets, e.g. "Setup Workstation for Meier [1713]", the "1713" is the generated user-key.
-
-Now, lets destroy the created tasks of a user, by sending a signal
-3. Copy or note the number of the employee you want to fire
-4. Start the process ''quitUser'', use the copied number as ''User Key'' and add a reason, e.g. ''never appeared''.
-5. Proceed the process and follow the simulation.
-
-What happened?
-- After the creation of the user a ''user:created'' signal has been sent.
-- Three signal starts received the signal and User Tasks were created afterwards.
-- At the creation of the two User Tasks ''task to IT'' and ''task to Office Manager'', for each user task, 
-   a signal receiver entry was stored in the system database with the configured signal code ''admin:quit:[user-key]'' (e.g. admin:quit:1713). 
-- The process step ''send quit signal'' sends a signal with the signal code ''admin:quit:[user-key]'' (e.g. admin:quit:1713). This matches 
-   on both Signal Boundary Elements for the task with the coresponding user-key. Therefore the Signal Boundary Element on those 
-   two tasks gets executed. 
-   This means, that the current waiting task gets destroyed and a new system task is created and executed, to proceed the process of the
-   Signal Boundary Event.
-- The two tasks for the other user will remain unchanged, since the signal code does not match due to the different user-key.
-- The process steps ''log event data'' shows that the process data from the process still exists (e.g. in.user) and that it is possible to
-   pass event data from the ''signal send'' process the receiver process.
 
 </name>
-        <nameStyle>101,7
-417,7
+        <nameStyle>49,0,7
+124,7
 1,7
+43,0,7
+301,7
+16,7
 1,7
 29,0,7
-199,7
-410,7
-60,7
-110,7
-51,7
-15,0,7
-153,7
-1039,7
+1,7
+314,7
 1,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-cr0 f27 536 146 816 556 -403 -277 #rect
+cr0 f27 536 26 528 332 -260 -160 #rect
 cr0 f27 @|IBIcon #fIcon
 cr0 f28 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
 cr0 f28 actionTable 'out.user=signal.getSignalData() as workflow.signal.User;
 ' #txt
+cr0 f28 actionCode 'ivy.case.setBusinessObjectCode(out.user.userKey);
+ivy.case.setBusinessObjectName(out.user.name);' #txt
 cr0 f28 type workflow.signal.CreateUserProcess #txt
 cr0 f28 signalCode user:created #txt
 cr0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>user:created</name>
+        <nameStyle>12,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-cr0 f28 81 161 30 30 -36 17 #rect
+cr0 f28 81 241 30 30 -34 17 #rect
 cr0 f28 @|SignalStartEventIcon #fIcon
 cr0 f29 type workflow.signal.CreateUserProcess #txt
 cr0 f29 var in2 #txt
-cr0 f29 111 176 160 176 #arcP
+cr0 f29 111 256 160 256 #arcP
 cr0 f30 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
 cr0 f30 actionTable 'out=in;
@@ -357,41 +350,68 @@ cr0 f30 type workflow.signal.CreateUserProcess #txt
 cr0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Send Signal ''user:created''</name>
+        <name>Send Signal
+''user:created''</name>
         <nameStyle>26
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-cr0 f30 320 42 160 44 -74 -7 #rect
+cr0 f30 296 74 112 44 -36 -16 #rect
 cr0 f30 @|StepIcon #fIcon
 cr0 f31 expr out #txt
-cr0 f31 280 64 320 64 #arcP
+cr0 f31 248 96 296 96 #arcP
 cr0 f32 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
 cr0 f32 actionTable 'out.user=signal.getSignalData() as workflow.signal.User;
 ' #txt
+cr0 f32 actionCode 'ivy.case.setBusinessObjectCode(out.user.userKey);
+ivy.case.setBusinessObjectName(out.user.name);' #txt
 cr0 f32 type workflow.signal.CreateUserProcess #txt
 cr0 f32 signalCode user:created #txt
 cr0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>user:created</name>
+        <nameStyle>12,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-cr0 f32 81 337 30 30 -36 17 #rect
+cr0 f32 81 465 30 30 -34 17 #rect
 cr0 f32 @|SignalStartEventIcon #fIcon
 cr0 f33 type workflow.signal.CreateUserProcess #txt
 cr0 f33 var in2 #txt
-cr0 f33 111 352 160 352 #arcP
+cr0 f33 111 480 160 480 #arcP
 cr0 f34 type workflow.signal.CreateUserProcess #txt
-cr0 f34 529 49 30 30 0 15 #rect
+cr0 f34 465 81 30 30 0 15 #rect
 cr0 f34 @|EndIcon #fIcon
 cr0 f35 expr out #txt
-cr0 f35 480 64 529 64 #arcP
+cr0 f35 408 96 465 96 #arcP
 >Proto cr0 .type workflow.signal.CreateUserProcess #txt
 >Proto cr0 .processKind NORMAL #txt
+>Proto cr0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <swimlaneLabel></swimlaneLabel>
+        <swimlaneLabel></swimlaneLabel>
+        <swimlaneLabel></swimlaneLabel>
+    </language>
+    <swimlaneOrientation>false</swimlaneOrientation>
+    <swimlaneSize>192</swimlaneSize>
+    <swimlaneSize>224</swimlaneSize>
+    <swimlaneSize>224</swimlaneSize>
+    <swimlaneColor gradient="false">-1</swimlaneColor>
+    <swimlaneColor gradient="false">-1</swimlaneColor>
+    <swimlaneColor gradient="false">-1</swimlaneColor>
+    <swimlaneType>LANE</swimlaneType>
+    <swimlaneType>LANE</swimlaneType>
+    <swimlaneType>LANE</swimlaneType>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
+</elementInfo>
+' #txt
 >Proto cr0 0 0 32 24 18 0 #rect
 >Proto cr0 @|BIcon #fIcon
 cr0 f0 mainOut f4 tail #connect
