@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<h:body>
+<ui:composition template="/layouts/basic.xhtml">
+<ui:define name="title">VerifyProcurementRequestTL</ui:define>
+<ui:define name="content">
+	<h3>
+	Verify Procurement Request Data
+	</h3>
+	
+	We have following procurement request:<br/>
+	#{data.procurementRequestData.amount} pieces of '#{data.procurementRequestData.description}' for total #{data.procurementRequestData.totalPrice} Fr.   
+	<br />
+	
+	<br /><h:form id="form">
+		<h:panelGrid columns="2">
+			
+			<p:outputLabel for="procurementRequestDataNotes" value="Notes"/>
+			<p:outputLabel id="procurementRequestDataNotes" value="#{data.procurementRequestData.notes}"></p:outputLabel>
+					
+			<p:selectBooleanCheckbox id="dataOk" value="#{data.procurementRequestData.dataOkTeamLeader}" />		
+			<p:outputLabel for="dataOk" value="Procurement Request Data Ok"/>
+			
+			<br />
+			<p:commandButton actionListener="#{logic.close}" value="Proceed" ajax="false" icon="ui-icon-check" />
+		</h:panelGrid>
+	</h:form>
+							</ui:define>
+	</ui:composition>	
+</h:body>
+</html>

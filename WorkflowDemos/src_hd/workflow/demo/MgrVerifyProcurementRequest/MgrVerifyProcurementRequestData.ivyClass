@@ -1,0 +1,5 @@
+MgrVerifyProcurementRequestData #class
+workflow.demo.MgrVerifyProcurementRequest #namespace
+procurementRequestData workflow.demo.ProcurementRequestData #field
+procurementRequestData PERSISTENT #fieldModifier
+totalPrice Number #field

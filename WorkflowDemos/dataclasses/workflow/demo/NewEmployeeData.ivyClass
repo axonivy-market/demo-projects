@@ -1,0 +1,12 @@
+NewEmployeeData #class
+workflow.demo #namespace
+needsParkingLot Boolean #field
+needsParkingLot PERSISTENT #fieldModifier
+name String #field
+name PERSISTENT #fieldModifier
+dateOfBirth Date #field
+dateOfBirth PERSISTENT #fieldModifier
+selectedParkingLotNr Number #field
+selectedParkingLotNr PERSISTENT #fieldModifier
+availableParkingLots List<Number> #field
+availableParkingLots PERSISTENT #fieldModifier

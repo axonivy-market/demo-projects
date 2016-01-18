@@ -1,0 +1,18 @@
+ProcurementRequestData #class
+workflow.demo #namespace
+amount Number #field
+amount PERSISTENT #fieldModifier
+description String #field
+description PERSISTENT #fieldModifier
+notes String #field
+notes PERSISTENT #fieldModifier
+pricePerUnit Number #field
+pricePerUnit PERSISTENT #fieldModifier
+dataOkManager Boolean #field
+dataOkManager PERSISTENT #fieldModifier
+accepted Boolean #field
+accepted PERSISTENT #fieldModifier
+dataOkTeamLeader Boolean #field
+dataOkTeamLeader PERSISTENT #fieldModifier
+totalPrice Number #field
+totalPrice PERSISTENT #fieldModifier
