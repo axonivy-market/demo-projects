@@ -1,0 +1,24 @@
+task_FormData #class
+workflow.agileBPM.task_Form #namespace
+caseInfo workflow.agileBPM.CaseDef #field
+nextTask workflow.agileBPM.TaskDef #field
+ok String #field
+answer String #field
+done Boolean #field
+done PERSISTENT #fieldModifier
+definedTasks List<workflow.agileBPM.TaskDef> #field
+definedTasks PERSISTENT #fieldModifier
+taskHistory List<workflow.agileBPM.TaskDef> #field
+taskHistory PERSISTENT #fieldModifier
+caseNotes List<ch.ivyteam.ivy.workflow.INote> #field
+caseNotes PERSISTENT #fieldModifier
+addTask workflow.agileBPM.TaskDef #field
+addTask PERSISTENT #fieldModifier
+wfusers List<String> #field
+wfusers PERSISTENT #fieldModifier
+remark String #field
+remark PERSISTENT #fieldModifier
+userSelection List<ch.ivyteam.ivy.security.IUser> #field
+userList List<ch.ivyteam.ivy.security.IUser> #field
+msg String #field
+msg PERSISTENT #fieldModifier
