@@ -12,24 +12,24 @@
 <ui:define name="title">VerifyProcurementRequestTL</ui:define>
 <ui:define name="content">
 	<h3>
-	Verify Procurement Request Data
+	#{ivy.cms.co('/Dialogs/procurementRequest/verifyTitle')}
 	</h3>
 	
-	We have following procurement request:<br/>
-	#{data.procurementRequestData.amount} pieces of '#{data.procurementRequestData.description}' for total #{data.procurementRequestData.totalPrice} Fr.   
+	#{ivy.cms.co('/Dialogs/procurementRequest/verifyDescription')}<br/>
+	#{data.procurementRequestData.amount} #{ivy.cms.co('/Dialogs/procurementRequest/piecesOf')} '#{data.procurementRequestData.description}' #{ivy.cms.co('/Dialogs/procurementRequest/forTotal')} #{data.procurementRequestData.totalPrice} #{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')}   
 	<br />
 	
 	<br /><h:form id="form">
 		<h:panelGrid columns="2">
 			
-			<p:outputLabel for="procurementRequestDataNotes" value="Notes"/>
+			<p:outputLabel for="procurementRequestDataNotes" value="#{ivy.cms.co('/Dialogs/procurementRequest/notes')}"/>
 			<p:outputLabel id="procurementRequestDataNotes" value="#{data.procurementRequestData.notes}"></p:outputLabel>
 					
 			<p:selectBooleanCheckbox id="dataOk" value="#{data.procurementRequestData.dataOkTeamLeader}" />		
-			<p:outputLabel for="dataOk" value="Procurement Request Data Ok"/>
+			<p:outputLabel for="dataOk" value="#{ivy.cms.co('/Dialogs/procurementRequest/verified')}"/>
 			
 			<br />
-			<p:commandButton actionListener="#{logic.close}" value="Proceed" ajax="false" icon="ui-icon-check" />
+			<p:commandButton actionListener="#{logic.close}" value="#{ivy.cms.co('/Dialogs/general/proceed')}" ajax="false" icon="ui-icon-check" />
 		</h:panelGrid>
 	</h:form>
 							</ui:define>

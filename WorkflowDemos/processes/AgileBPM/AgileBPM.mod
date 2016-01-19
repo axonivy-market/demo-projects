@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 19 10:00:55 CET 2016]
+[>Created: Tue Jan 19 16:20:53 CET 2016]
 15255056043EE914 3.18 #module
 >Proto >Proto Collection #zClass
 AF0 AgileBPM Big #zClass
@@ -324,7 +324,7 @@ out.nextTask.setSubject(in.caseInfo.subject);
 <elementInfo>
     <language>
         <name>send Mail</name>
-        <nameStyle>9
+        <nameStyle>9,7
 </nameStyle>
     </language>
 </elementInfo>

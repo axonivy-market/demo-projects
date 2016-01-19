@@ -11,7 +11,7 @@
 		<ui:define name="title">EnterProcurementRequest</ui:define>
 		<ui:define name="content">
 			<h3>
-			Enter Procurement Request Data
+			#{ivy.cms.co('/Dialogs/procurementRequest/enterTitle')}
 			</h3>
 			
 			<h:form id="form">
@@ -20,20 +20,20 @@
 						<p:messages></p:messages>
 					</f:facet>
 					
-					<p:outputLabel for="procurementRequestDataPricePerUnit" value="Price Per Unit"/>
+					<p:outputLabel for="procurementRequestDataPricePerUnit" value="#{ivy.cms.co('/Dialogs/procurementRequest/pricePerUnit')}"/>
 					<p:inputText id="procurementRequestDataPricePerUnit" value="#{data.procurementRequestData.pricePerUnit}" required="true" />
 
-					<p:outputLabel for="procurementRequestDataAmount" value="Amount"/>
+					<p:outputLabel for="procurementRequestDataAmount" value="#{ivy.cms.co('/Dialogs/procurementRequest/amount')}"/>
 					<p:inputText id="procurementRequestDataAmount" value="#{data.procurementRequestData.amount}" required="true"></p:inputText>
 					
-					<p:outputLabel for="procurementRequestDataDescription" value="Description"/>
+					<p:outputLabel for="procurementRequestDataDescription" value="#{ivy.cms.co('/Dialogs/procurementRequest/description')}"/>
 					<p:inputText id="procurementRequestDataDescription" value="#{data.procurementRequestData.description}" required="true" ></p:inputText>
 					
-					<p:outputLabel for="procurementRequestDataNotes" value="Notes"/>
+					<p:outputLabel for="procurementRequestDataNotes" value="#{ivy.cms.co('/Dialogs/procurementRequest/notes')}"/>
 					<p:inputText id="procurementRequestDataNotes" value="#{data.procurementRequestData.notes}"></p:inputText>
 					
 					<br />
-					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
+					<p:commandButton actionListener="#{logic.close}" value="#{ivy.cms.co('/Dialogs/general/proceed')}" update="form" icon="ui-icon-check" />
 				</h:panelGrid>
 			</h:form>
 			

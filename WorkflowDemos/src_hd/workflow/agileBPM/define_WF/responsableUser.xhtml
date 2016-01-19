@@ -24,7 +24,7 @@
 					<p:ajax update="userListForm" listener="#{logic.updateUserList}" />
 				</p:selectManyMenu>
 				<h:panelGrid columns="1" cellspacing="4">
-					<p:outputLabel value="Comma separated list of users:"></p:outputLabel>
+					<p:outputLabel value="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/CommaSeparatedListOfUsers')}"></p:outputLabel>
 					<p:inputText id="dataUser" value="#{data.user}" size="50">
 						<p:focus for="dataUser"></p:focus>
 					</p:inputText>
@@ -32,11 +32,11 @@
 					
 					<h:graphicImage id="portrait" library="ivy-webcontent"
 							name="user/group.jpg"
-							title="WF User" styleClass="circularGroupImg" rendered="#{data.user.indexOf(',') gt 0}"/>
+							title="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/WFUser')}" styleClass="circularGroupImg" rendered="#{data.user.indexOf(',') gt 0}"/>
 					<pe:gravatar value="#{ivy.wf.getSecurityContext().findUser(data.user).getEMailAddress()}" size="60" notFound="mm" style="border-radius:30px" rendered="#{data.user.indexOf(',') le 0}"/>										
 							
 					<p:spacer height="60"></p:spacer>							
-					<p:commandButton value="Ok" update=":form:taskDef"
+					<p:commandButton value="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/Ok')}" update=":form:taskDef"
 						actionListener="#{logic.setUser}" icon="fa fa-check"
 						oncomplete="PF('userList').hide();"></p:commandButton>
 

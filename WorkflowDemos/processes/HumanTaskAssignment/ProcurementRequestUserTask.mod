@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 14:18:37 CET 2016]
+[>Created: Tue Jan 19 14:58:01 CET 2016]
 15254DCE818AD7A2 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
@@ -82,6 +82,7 @@ Pt0 f3 requestActionDecl '<> param;' #txt
 Pt0 f3 responseActionDecl 'workflow.demo.ProcurementRequestData out;
 ' #txt
 Pt0 f3 responseMappingAction 'out=result.procurementRequestData;
+out.totalPrice=result.procurementRequestData.amount * result.procurementRequestData.pricePerUnit;
 ' #txt
 Pt0 f3 windowConfiguration '* ' #txt
 Pt0 f3 isAsynch false #txt
@@ -150,7 +151,7 @@ Pt0 f7 outLinks "TaskA.ivp" #txt
 Pt0 f7 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=accept request
+TaskA.NAM=Accept Request
 TaskA.PRI=2
 TaskA.ROL=Everybody
 TaskA.SKIP_TASK_LIST=false

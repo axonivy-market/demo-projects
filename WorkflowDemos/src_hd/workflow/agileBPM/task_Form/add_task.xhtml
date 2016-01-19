@@ -8,19 +8,19 @@
 	xmlns:pm="http://primefaces.org/mobile"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 <h:body>
-	<p:dialog id="addTask" header="Add ad-hoc task" widgetVar="addTask"
+	<p:dialog id="addTask" header="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/AddAdHocTask')}" widgetVar="addTask"
 		modal="true" appendTo="@(body)">
 		<h:form id="addform">
-			<p:fieldset id="remark" legend="TASK"
+			<p:fieldset id="remark" legend="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/Task')}"
 			  toggleable="false" collapsed="false" >
 				<h:panelGrid columns="2">
-					<p:outputLabel escape="false" for="text" value="Description:"
+					<p:outputLabel escape="false" for="text" value="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/Description')}:"
 						style="font-weight:bold;" />
 					<p:inputTextarea id="text" value="#{data.remark}" required="true"
 						cols="40" rows="2"
 						style="margin-left:0px;padding-top:6px; padding-bottom:16px;">
 					</p:inputTextarea>
-					<p:outputLabel value="Assign to:" style="font-weight:bold;" />
+					<p:outputLabel value="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/AssignTo')}:" style="font-weight:bold;" />
 					<h:panelGrid columns="2" cellpadding="0">
 							<pe:gravatar id="portrait" value="#{ivy.wf.getSecurityContext().findUser(data.addTask.actor).getEMailAddress()}" 
 							size="60" notFound="mm" style="border-radius:30px"/>								

@@ -20,17 +20,17 @@
 						<p:messages></p:messages>
 					</f:facet>
 					
-					<p:outputLabel for="newEmployeeDataName" value="Employee"/>
+					<p:outputLabel for="newEmployeeDataName" value="#{ivy.cms.co('/Dialogs/trigger/employee')}"/>
 					<p:outputLabel id="newEmployeeDataName" value="#{data.newEmployeeData.name}"></p:outputLabel>
 										
-					<p:outputLabel for="newEmployeeParkingLotNr" value="Parking Lot Nr" />				
+					<p:outputLabel for="newEmployeeParkingLotNr" value="#{ivy.cms.co('/Dialogs/trigger/parkingLotNr')}" />				
 
 					<p:selectOneMenu id="newEmployeeParkingLotNr" value="#{data.newEmployeeData.selectedParkingLotNr}" required="true" converter="ivy.ListItem" >  
-	 		        	<f:selectItem itemLabel="Select parking lot"/>  
+	 		        	<f:selectItem itemLabel="#{ivy.cms.co('/Dialogs/trigger/selectParkingLot')}"/>  
 		 				<f:selectItems value="#{data.newEmployeeData.availableParkingLots}" var="it" itemValue="#{it}"></f:selectItems>
 		 			</p:selectOneMenu>
 					<br />
-					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
+					<p:commandButton actionListener="#{logic.close}" value="#{ivy.cms.co('/Dialogs/general/proceed')}" update="form" icon="ui-icon-check" />
 				</h:panelGrid>
 			</h:form>
 			

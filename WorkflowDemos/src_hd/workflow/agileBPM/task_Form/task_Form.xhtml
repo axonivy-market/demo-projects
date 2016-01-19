@@ -13,7 +13,7 @@
 
 		<ui:define name="content">
 			<h:outputStylesheet library="ivy-webcontent" name="layouts/styles/agileBPM.css" />
-			<h3  class="captionText">#{data.caseInfo.kind} Workflow</h3>
+			<h3  class="captionText">#{data.caseInfo.kind} #{ivy.cms.co('/Dialogs/agileBPM/define_WF/Workflow')}</h3>
 			<br></br>
 
 			<ui:include src="case_info.xhtml"></ui:include>

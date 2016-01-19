@@ -18,19 +18,19 @@
 						<p:messages></p:messages>
 					</f:facet>
 					
-					<p:outputLabel for="userUserKey" value="User Key"/>
+					<p:outputLabel for="userUserKey" value="#{ivy.cms.co('/Dialogs/signal/userKey')}"/>
 					<p:outputLabel id="userUserKey" value="#{data.user.userKey}"></p:outputLabel>
 					
-					<p:outputLabel for="userName" value="Name"/>
+					<p:outputLabel for="userName" value="#{ivy.cms.co('/Dialogs/general/name')}"/>
 					<p:outputLabel id="userName" value="#{data.user.name}"></p:outputLabel>
 					
-					<p:outputLabel for="userStreet" value="Street"/>
+					<p:outputLabel for="userStreet" value="#{ivy.cms.co('/Dialogs/signal/street')}"/>
 					<p:outputLabel id="userStreet" value="#{data.user.street}"></p:outputLabel>
 					
-					<p:outputLabel for="userCity" value="City"/>
+					<p:outputLabel for="userCity" value="#{ivy.cms.co('/Dialogs/signal/city')}"/>
 					<p:outputLabel id="userCity" value="#{data.user.city}"></p:outputLabel>					
 					<br />
-					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
+					<p:commandButton actionListener="#{logic.close}" value="#{ivy.cms.co('/Dialogs/general/proceed')}" update="form" icon="ui-icon-check" />
 				</h:panelGrid>
 			</h:form>
 			

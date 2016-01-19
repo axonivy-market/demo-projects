@@ -11,28 +11,26 @@
 		<ui:define name="title">EnterNewEmployeeData</ui:define>
 		<ui:define name="content">
 			<h3>
-			New Employee
-			</h3>
-			
-			
+			#{ivy.cms.co('/Dialogs/trigger/newEmployeeTitle')}
+			</h3>		
 			<h:form id="form">
 				<h:panelGrid columns="2">
 					<f:facet name="header">
 						<p:messages></p:messages>
 					</f:facet>
 					
-					<p:outputLabel for="employeeName" value="Name"/>
+					<p:outputLabel for="employeeName" value="#{ivy.cms.co('/Dialogs/general/name')}"/>
 					<p:inputText id="employeeName" value="#{data.newEmployeeData.name}" required="true"></p:inputText>
 					
-					<p:outputLabel for="employeeDateOfBirth" value="Date Of Birth"/>
+					<p:outputLabel for="employeeDateOfBirth" value="#{ivy.cms.co('/Dialogs/trigger/dateOfBirth')}"/>
 					<p:calendar id="employeeDateOfBirth" value="#{data.newEmployeeData.dateOfBirth}" pattern="dd.MM.yyyy" size="10" required="true">
 						<f:convertDateTime pattern="dd.MM.yyyy" />
 					</p:calendar>
 					
-					<p:outputLabel for="needsParkingLot" value="Parking Lot needed"/>
+					<p:outputLabel for="needsParkingLot" value="#{ivy.cms.co('/Dialogs/trigger/parkingLotNeeded')}"/>
 					<p:selectBooleanCheckbox id="needsParkingLot" value="#{data.newEmployeeData.needsParkingLot}" />
 										
-					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
+					<p:commandButton actionListener="#{logic.close}" value="#{ivy.cms.co('/Dialogs/general/proceed')}" update="form" icon="ui-icon-check" />
 				</h:panelGrid>
 			</h:form>
 			

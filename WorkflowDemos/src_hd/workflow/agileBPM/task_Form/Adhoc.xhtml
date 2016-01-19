@@ -9,12 +9,12 @@
 <h:body>
 	<h:form id="form2">
 		<br></br>
-		<p:fieldset id="task" legend="Task"
+		<p:fieldset id="task" legend="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/Task')}"
 			styleClass="panel">
 			<h:panelGrid columns="2" >
-			<p:outputLabel value="Description"></p:outputLabel>
+			<p:outputLabel value="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/Description')}:"></p:outputLabel>
 			<p:inputTextarea value="#{data.nextTask.description}" style="width:500px; margin-left:0px;" readonly="true"/>
-			<p:outputLabel value="Your comment:" style="font-weight:bold;" for="comments"></p:outputLabel>
+			<p:outputLabel value="#{ivy.cms.co('/Dialogs/agileBPM/task_Form/YourComment')}:" style="font-weight:bold;" for="comments"></p:outputLabel>
 			<p:inputTextarea id="comments" value="#{data.answer}"
 				style="width:500px; margin-left:0px;" required="true">
 			</p:inputTextarea>
