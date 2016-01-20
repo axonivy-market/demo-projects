@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 17:14:09 CET 2016]
+[>Created: Wed Jan 20 11:42:37 CET 2016]
 1523FF963044280C 3.18 #module
 >Proto >Proto Collection #zClass
 ft0 FacilityManagement Big #zClass
@@ -79,9 +79,9 @@ ft0 f8 outLinks "TaskA.ivp" #txt
 ft0 f8 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=Deliver keycard for <%\=in.user.name%> [<%\=in.user.userKey%>]
+TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/deliverKeyCardFor")%> <%\=in.user.name%> [<%\=in.user.userKey%>]
 TaskA.PRI=2
-TaskA.ROL=Everybody
+TaskA.ROL=Facility Manager
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
 ft0 f8 type workflow.signal.FacilityManagementData #txt

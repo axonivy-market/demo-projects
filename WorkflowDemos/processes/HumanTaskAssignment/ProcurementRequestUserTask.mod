@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 19 14:58:01 CET 2016]
+[>Created: Wed Jan 20 11:45:14 CET 2016]
 15254DCE818AD7A2 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
@@ -41,7 +41,7 @@ Pt0 f0 requestEnabled true #txt
 Pt0 f0 triggerEnabled false #txt
 Pt0 f0 callSignature start() #txt
 Pt0 f0 persist false #txt
-Pt0 f0 startName 'Procurement Request (User Task example)' #txt
+Pt0 f0 startName '<%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%> (<%=ivy.cms.co("/ProcessDescriptions/userTaskExample")%>)' #txt
 Pt0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -67,7 +67,7 @@ Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f0 @C|.responsibility Everybody #txt
+Pt0 f0 @C|.responsibility Employee #txt
 Pt0 f0 81 129 30 30 -21 17 #rect
 Pt0 f0 @|StartRequestIcon #fIcon
 Pt0 f1 type workflow.demo.ProcurementRequestData #txt
@@ -105,6 +105,7 @@ Pt0 f5 richDialogId workflow.demo.MgrVerifyProcurementRequest #txt
 Pt0 f5 startMethod start(workflow.demo.ProcurementRequestData) #txt
 Pt0 f5 requestActionDecl '<workflow.demo.ProcurementRequestData procurementRequestData> param;' #txt
 Pt0 f5 requestMappingAction 'param.procurementRequestData=in;
+param.procurementRequestData.totalPrice=in.amount * in.pricePerUnit;
 ' #txt
 Pt0 f5 responseActionDecl 'workflow.demo.ProcurementRequestData out;
 ' #txt
@@ -114,9 +115,9 @@ Pt0 f5 outLinks "TaskA.ivp" #txt
 Pt0 f5 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=Verify Request
+TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/verifyRequest")%>\: <%\=in1.amount%> <%\=in1.description%> <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%><%\=in1.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
 TaskA.PRI=2
-TaskA.ROL=Everybody
+TaskA.ROL=Manager
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
 Pt0 f5 type workflow.demo.ProcurementRequestData #txt
@@ -151,9 +152,9 @@ Pt0 f7 outLinks "TaskA.ivp" #txt
 Pt0 f7 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=Accept Request
+TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/acceptRequest")%>\: <%\=in1.amount%> <%\=in1.description%> <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in1.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
 TaskA.PRI=2
-TaskA.ROL=Everybody
+TaskA.ROL=Executive
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
 Pt0 f7 type workflow.demo.ProcurementRequestData #txt

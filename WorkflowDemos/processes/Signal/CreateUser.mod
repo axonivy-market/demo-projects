@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 17:14:09 CET 2016]
+[>Created: Wed Jan 20 11:43:04 CET 2016]
 151CA0D8CBDD2DEC 3.18 #module
 >Proto >Proto Collection #zClass
 cr0 CreateUser Big #zClass
@@ -54,7 +54,7 @@ cr0 f0 requestEnabled true #txt
 cr0 f0 triggerEnabled false #txt
 cr0 f0 callSignature addUser() #txt
 cr0 f0 persist false #txt
-cr0 f0 startName 'Create User Process (Signal example)' #txt
+cr0 f0 startName '<%=ivy.cms.co("/ProcessDescriptions/createUserProcess")%> (<%=ivy.cms.co("/ProcessDescriptions/signalExample")%>)' #txt
 cr0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -80,7 +80,7 @@ cr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 f0 @C|.responsibility Everybody #txt
+cr0 f0 @C|.responsibility 'HR Manager' #txt
 cr0 f0 49 81 30 30 -33 17 #rect
 cr0 f0 @|StartRequestIcon #fIcon
 cr0 f3 targetWindow NEW:card: #txt
@@ -129,9 +129,9 @@ cr0 f8 outLinks "TaskA.ivp" #txt
 cr0 f8 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=Setup Workstation for <%\=in.user.name%> [<%\=in.user.userKey%>]
+TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/setupWorkstation")%> <%\=in.user.name%> [<%\=in.user.userKey%>]
 TaskA.PRI=2
-TaskA.ROL=Everybody
+TaskA.ROL=IT Manager
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
 cr0 f8 type workflow.signal.CreateUserProcess #txt
@@ -166,9 +166,9 @@ cr0 f11 outLinks "TaskA.ivp" #txt
 cr0 f11 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=Prepare Office Key for <%\=in.user.name%> [<%\=in.user.userKey%>]
+TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/prepareOfficeKeyFor")%> <%\=in.user.name%> [<%\=in.user.userKey%>]
 TaskA.PRI=2
-TaskA.ROL=Everybody
+TaskA.ROL=Office Manager
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
 cr0 f11 type workflow.signal.CreateUserProcess #txt

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 19 16:20:53 CET 2016]
+[>Created: Wed Jan 20 11:48:01 CET 2016]
 15255056043EE914 3.18 #module
 >Proto >Proto Collection #zClass
 AF0 AgileBPM Big #zClass
@@ -116,8 +116,8 @@ AF0 f0 requestEnabled true #txt
 AF0 f0 triggerEnabled false #txt
 AF0 f0 callSignature start() #txt
 AF0 f0 persist false #txt
-AF0 f0 startName 'Self Service Ad-hoc Process' #txt
-AF0 f0 startDescription 'Self Service Prozess: Launch an ad-hoc Workflow based on a predefined flow pattern.' #txt
+AF0 f0 startName <%=ivy.cms.co("/ProcessDescriptions/AdHocName")%> #txt
+AF0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/AdHocDescription")%> #txt
 AF0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -151,7 +151,7 @@ AF0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-AF0 f0 @C|.responsibility Everybody #txt
+AF0 f0 @C|.responsibility Employee #txt
 AF0 f0 83 99 26 26 -21 15 #rect
 AF0 f0 @|StartRequestIcon #fIcon
 AF0 f1 targetWindow NEW:card: #txt
@@ -472,37 +472,7 @@ Ct0 f9 actionTable 'out=in1;
 ' #txt
 Ct0 f9 outTypes "workflow.agileBPM.Data" #txt
 Ct0 f9 outLinks "TaskA.ivp" #txt
-Ct0 f9 caseData '#
-#Wed Feb 11 17:43:20 CET 2015
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
-Ct0 f9 taskData '#
-#Wed Feb 11 17:43:20 CET 2015
-TaskA.DESC=<%\=in1.nextTask.description%>
+Ct0 f9 taskData 'TaskA.DESC=<%\=in1.nextTask.description%>
 TaskA.EXP=in1.nextTask.until\!\=null ? in1.nextTask.until - new DateTime() \: null
 TaskA.EXPRI=0
 TaskA.EXROL=in1.nextTask.actoruser
@@ -512,8 +482,7 @@ TaskA.NAM=<%\=in1.nextTask.kind%> <%\=in1.nextTask.subject%>
 TaskA.PRI=2
 TaskA.ROL=in1.nextTask.actoruser
 TaskA.SKIP_TASK_LIST=false
-TaskA.TYPE=3
-' #txt
+TaskA.TYPE=3' #txt
 Ct0 f9 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
 List<TaskDefinition> taskDefinitions;
 TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
@@ -537,7 +506,7 @@ Ct0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>task list</name>
-        <nameStyle>9
+        <nameStyle>9,7
 </nameStyle>
     </language>
 </elementInfo>

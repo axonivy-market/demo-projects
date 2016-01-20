@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 17:14:09 CET 2016]
+[>Created: Wed Jan 20 11:43:13 CET 2016]
 151CA1EFC1542D87 3.18 #module
 >Proto >Proto Collection #zClass
 qr0 QuitUser Big #zClass
@@ -48,7 +48,7 @@ qr0 f0 requestEnabled true #txt
 qr0 f0 triggerEnabled false #txt
 qr0 f0 callSignature start() #txt
 qr0 f0 persist false #txt
-qr0 f0 startName 'Quit User Process (Signal example)' #txt
+qr0 f0 startName '<%=ivy.cms.co("/ProcessDescriptions/quitUserProcess")%> (<%=ivy.cms.co("/ProcessDescriptions/signalExample")%>)' #txt
 qr0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -74,7 +74,7 @@ qr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-qr0 f0 @C|.responsibility Everybody #txt
+qr0 f0 @C|.responsibility 'HR Manager' #txt
 qr0 f0 81 145 30 30 -21 17 #rect
 qr0 f0 @|StartRequestIcon #fIcon
 qr0 f1 type workflow.signal.QuitUserProcess #txt

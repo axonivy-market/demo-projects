@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 14:08:22 CET 2016]
+[>Created: Wed Jan 20 11:46:46 CET 2016]
 15254CF47A16DEA1 3.18 #module
 >Proto >Proto Collection #zClass
 Pn0 ParkingLotReservation Big #zClass
@@ -35,19 +35,19 @@ Pn0 f0 requestEnabled false #txt
 Pn0 f0 triggerEnabled true #txt
 Pn0 f0 callSignature start(workflow.trigger.NewEmployeeData) #txt
 Pn0 f0 persist false #txt
-Pn0 f0 taskData 'TaskTriggered.ROL=Everybody
+Pn0 f0 taskData 'TaskTriggered.ROL=Facility Manager
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
-TaskTriggered.NAM=Reserve parking lot for <%\=param.newEmployeeData.name%>' #txt
+TaskTriggered.NAM=<%\=ivy.cms.co("/TaskDescriptions/reserveParkingLotFor")%> <%\=param.newEmployeeData.name%>' #txt
 Pn0 f0 showInStartList 1 #txt
 Pn0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
 import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
 DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setName(engine.expandMacros("Reserve parking lot for <%=param.newEmployeeData.name%>"));
+taskUpdDef.setName(engine.expandMacros("<%=ivy.cms.co(\"/TaskDescriptions/reserveParkingLotFor\")%> <%=param.newEmployeeData.name%>"));
 taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskUpdDef.setExpiryActivator("Everybody");
 taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
@@ -118,15 +118,17 @@ Pn0 f2 472 128 537 128 #arcP
 Pn0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Request Strat defined to be trigerrable</name>
-        <nameStyle>39,7
+        <name>This Request Start is defined to be 
+startable by a trigger step.</name>
+        <nameStyle>65,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Pn0 f7 48 17 224 30 -104 -8 #rect
+Pn0 f7 56 10 208 44 -96 -16 #rect
 Pn0 f7 @|IBIcon #fIcon
-Pn0 f8 160 47 89 114 #arcP
+Pn0 f8 160 54 90 114 #arcP
+Pn0 f8 0 0.48544006142993784 0 0 #arcLabel
 >Proto Pn0 .type workflow.trigger.NewEmployeeData #txt
 >Proto Pn0 .processKind NORMAL #txt
 >Proto Pn0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

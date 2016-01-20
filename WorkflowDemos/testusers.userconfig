@@ -1,31 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <userConfig>
     <user>
-        <username>m1</username>
-        <role>manager</role>
+        <username>ldv</username>
+        <fullName>Leonardo Da Vinci</fullName>
+        <emailAddress>leonarda.davinci@axonivy.com</emailAddress>
+        <role>Employee</role>
     </user>
     <user>
-        <username>m2</username>
-        <role>manager</role>
+        <username>hb</username>
+        <fullName>Hugo Boss</fullName>
+        <emailAddress>hugo.boss@axonivy.com</emailAddress>
+        <role>Teamleader</role>
+        <role>Executive</role>
+        <role>HR Manager</role>
+        <role>Facility Manager</role>
+        <role>IT Manager</role>
+        <role>Office Manager</role>
     </user>
     <user>
-        <username>e1</username>
-        <role>executive</role>
+        <username>wt</username>
+        <fullName>William Tell</fullName>
+        <emailAddress>william.tell@axonivy.com</emailAddress>
+        <role>Teamleader</role>
     </user>
     <user>
-        <username>e2</username>
-        <role>executive</role>
+        <username>mc</username>
+        <fullName>Marie Curie</fullName>
+        <emailAddress>marie.curie@axonivy.com</emailAddress>
+        <role>Facility Manager</role>
     </user>
     <user>
-        <username>UserA</username>
-        <fullName>User Adam</fullName>
+        <username>md</username>
+        <fullName>Marlene Dietrich</fullName>
+        <emailAddress>marlene.dietrich@axonivy.com</emailAddress>
+        <role>HR Manager</role>
     </user>
     <user>
-        <username>UserB</username>
-        <fullName>User Beny</fullName>
+        <username>jb</username>
+        <fullName>James Bond</fullName>
+        <emailAddress>james.bond@axonivy.com</emailAddress>
+        <role>Office Manager</role>
     </user>
     <user>
-        <username>UserC</username>
-        <fullName>User Charly</fullName>
+        <username>hf</username>
+        <fullName>Henry Ford</fullName>
+        <emailAddress>henry.ford@axonivy.com</emailAddress>
+        <role>IT Manager</role>
+    </user>
+    <user>
+        <username>bf</username>
+        <fullName>Benjamin Franklin</fullName>
+        <emailAddress>benjamin.franklin@axonivy.com</emailAddress>
+        <role>Executive</role>
     </user>
 </userConfig>

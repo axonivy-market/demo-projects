@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 14:08:02 CET 2016]
+[>Created: Wed Jan 20 11:45:43 CET 2016]
 15254CF1CE56AE72 3.18 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
@@ -37,7 +37,7 @@ Tr0 f0 requestEnabled true #txt
 Tr0 f0 triggerEnabled false #txt
 Tr0 f0 callSignature start() #txt
 Tr0 f0 persist false #txt
-Tr0 f0 startName 'New Employee (Trigger example)' #txt
+Tr0 f0 startName '<%=ivy.cms.co("/ProcessDescriptions/newEmployee")%> (<%=ivy.cms.co("/ProcessDescriptions/triggerExample")%>)' #txt
 Tr0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -63,7 +63,7 @@ Tr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tr0 f0 @C|.responsibility Everybody #txt
+Tr0 f0 @C|.responsibility 'HR Manager' #txt
 Tr0 f0 73 169 30 30 -21 17 #rect
 Tr0 f0 @|StartRequestIcon #fIcon
 Tr0 f5 targetWindow NEW:card: #txt
