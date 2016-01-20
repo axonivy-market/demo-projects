@@ -195,12 +195,15 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     navigate().taskAdmin();
     filterDataTable(filterId,
             "Top level role");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id(filterId + "_label"), "Top level role"));
     dataTable.contains(taskHighResponsibleFilter);
     dataTable.containsNot(taskLowResponsibleFilter);
 
     navigate().taskAdmin();
     filterDataTable(filterId,
             "Test User 1 (user1)");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id(filterId + "_label"),
+            "Test User 1 (user1)"));
     dataTable.contains(taskLowResponsibleFilter);
     dataTable.containsNot(taskHighResponsibleFilter);
   }
@@ -244,13 +247,13 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
 
     navigate().taskAdmin();
     filterDataTable(filterId, "SUSPENDED");
-    assertThat(driverHelper.findElement(By.id(filterId)).equals("SUSPENDED"));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id(filterId + "_label"), "SUSPENDED"));
     dataTable.contains(taskHighPrio);
     dataTable.containsNot(taskLowPrio);
 
     navigate().taskAdmin();
     filterDataTable(filterId, "RESUMED");
-    assertThat(driverHelper.findElement(By.id(filterId)).equals("RESUMED"));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id(filterId + "_label"), "RESUMED"));
     dataTable.contains(taskLowPrio);
     dataTable.containsNot(taskHighPrio);
   }
