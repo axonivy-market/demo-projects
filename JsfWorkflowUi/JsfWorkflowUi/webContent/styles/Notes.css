@@ -1,0 +1,54 @@
+.bubble {
+	position: relative;
+	width: 500px;
+	padding: 0px;
+	background: #eeeeee;
+	line-height: 20px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: #eeeeee solid 7px;
+	left: 1px;
+	margin-left: 20px;
+}
+
+.bubble:before {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 10px 20px 10px 0;
+	border-color: transparent #eeeeee;
+	display: block;
+	width: 0;
+	z-index: 0;
+	left: -20px;
+	top: 1px; .
+}
+
+.dataListNotes .ui-datalist-data {
+	padding-left: 0;
+}
+
+.dataListNotes {
+	border: none !important;
+}
+
+.panelGridNotes td {
+	vertical-align: top;
+}
+
+.timeStampNotes {
+	font-weight: lighter;
+	color: gray;
+}
+
+.writterNameNotes {
+	font-weight: bold;
+	color: black;
+}
+
+.messageNotes {
+	color: black;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}

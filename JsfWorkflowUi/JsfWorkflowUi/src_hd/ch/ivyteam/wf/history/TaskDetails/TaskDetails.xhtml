@@ -160,27 +160,33 @@
 					</h:column>
 					<p:spacer width="100px" />
 					<h:column>
-					<h:outputText rendered="#{data.task.hasNotes()}" style="font-weight:bold " value="#{ivy.cms.co('/labels/common/taskNotes')}"/>
+						<ui:fragment rendered="#{data.task.hasNotes()}">
+							<h2>
+								<span style="margin-left: 5px;" class="fa fa-comment-o fa-fw" />
+								<h:outputText value="#{ivy.cms.co('/labels/common/taskNotes')}" />
+							</h2>
+						</ui:fragment>
 						<p:dataList value="#{data.notes}" var="taskNote" itemType="none"
-							rendered="#{data.task.hasNotes()}">
-							<h:panelGrid columns="3">
-								<p:outputPanel style="width:300px; word-wrap: break-word; word-break: break-all;">
+							rendered="#{data.task.hasNotes()}" styleClass="dataListNotes">
+							<h:panelGrid columns="3" styleClass="panelGridNotes">
+								<p:outputPanel >
+									<h:outputText value=" #{taskNote.writterName}:"
+										styleClass="writterNameNotes" />
+									<br />
 									<h:outputText value="#{taskNote.creationTimestamp}"
-										style="font-weight:bold;">
+										styleClass="timeStampNotes">
 										<f:convertDateTime type="both" dateStyle="short"
 											timeStyle="short" />
 									</h:outputText>
-									<h:outputText value=" #{taskNote.writterName}:" escape="false"
-										style="font-weight:bold;" />
-									<br />
-									<h:outputText value="#{taskNote.message}" escape="false" />
 								</p:outputPanel>
-								<p:spacer width="20" />
+								<p:outputPanel styleClass="bubble">
+									<h:outputText value="#{taskNote.message}" styleClass="messageNotes" />
+								</p:outputPanel>
 								<p:commandButton id="openDeleteTaskNote" icon="fa fa-trash"
 									title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}"
 									style="background-color:#ffffff; border:0px; width:20px;"
 									onclick="PF('confirmDeleteNote').show();"
-									disabled="#{taskNote.writterName != ivy.session.sessionUserName}">
+									rendered="#{taskNote.writterName == ivy.session.sessionUserName}">
 									<f:setPropertyActionListener value="#{taskNote}"
 										target="#{data.note}" />
 									<f:setPropertyActionListener value="task"
@@ -188,38 +194,46 @@
 								</p:commandButton>
 							</h:panelGrid>
 						</p:dataList>
-						<c:if
-								test="#{data.task.hasNotes() and data.task.case.hasNotes()}">
-								<br />
-							</c:if>
-							<h:outputText rendered="#{data.task.case.hasNotes()}" style="font-weight:bold " value="#{ivy.cms.co('/labels/common/caseNotes')}"/>
-							<p:dataList value="#{data.caseNotes}" var="caseNote"
-								itemType="none" rendered="#{data.task.case.hasNotes()}" >
-								<h:panelGrid columns="3" style="width:90%">
-									<p:outputPanel style="width:300px; word-wrap: break-word; word-break: break-all;">
-										<h:outputText value="#{caseNote.creationTimestamp}"
-											style="font-weight:bold;">
-											<f:convertDateTime type="both" dateStyle="short"
-												timeStyle="short" />
-										</h:outputText>
-										<h:outputText value=" #{caseNote.writterName}:" escape="false"
-											style="font-weight:bold;" />
-										<br />
-										<h:outputText value="#{caseNote.message}" escape="false" />
-									</p:outputPanel>
-									<p:spacer width="20" />
-									<p:commandButton id="openDeleteCaseNote" icon="fa fa-trash"
-										title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}"
-										style="background-color:#ffffff; border:0px; width:20px"
-										onclick="PF('confirmDeleteNote').show();"
-										disabled="#{caseNote.writterName != ivy.session.sessionUserName}">
-										<f:setPropertyActionListener value="#{caseNote}"
-											target="#{data.note}" />
-										<f:setPropertyActionListener value="case"
-											target="#{data.noteFor}" />
-									</p:commandButton>
-								</h:panelGrid>
-							</p:dataList>
+						<c:if test="#{data.task.hasNotes() and data.task.case.hasNotes()}">
+							<br />
+						</c:if>
+						<ui:fragment rendered="#{data.task.case.hasNotes()}">
+							<h2>
+								<span class="fa fa-comment-o fa-fw" />
+								<h:outputText value="#{ivy.cms.co('/labels/common/caseNotes')}" />
+							</h2>
+						</ui:fragment>
+						<p:dataList value="#{data.caseNotes}" var="caseNote"
+							itemType="none" rendered="#{data.task.case.hasNotes()}"
+							styleClass="dataListNotes">
+							<h:panelGrid columns="3" styleClass="panelGridNotes">
+								<p:outputPanel>
+									<h:outputText value=" #{caseNote.writterName}:"
+										styleClass="writterNameNotes" />
+									<br />
+									<h:outputText value="#{caseNote.creationTimestamp}"
+										styleClass="timeStampNotes">
+										<f:convertDateTime type="both" dateStyle="short"
+											timeStyle="short" />
+									</h:outputText>
+								</p:outputPanel>
+								<p:outputPanel styleClass="bubble">
+									<h:outputText value="#{caseNote.message}"
+										styleClass="messageNotes" />
+								</p:outputPanel>
+								<p:commandButton
+									title="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteNoteTitle')}"
+									id="openDeleteCaseNote" icon="fa fa-trash"
+									style="background-color:#ffffff; border:0px; width:20px;"
+									onclick="PF('confirmDeleteNote').show();"
+									rendered="#{caseNote.writterName == ivy.session.sessionUserName}">
+									<f:setPropertyActionListener value="#{caseNote}"
+										target="#{data.note}" />
+									<f:setPropertyActionListener value="case"
+										target="#{data.noteFor}" />
+								</p:commandButton>
+							</h:panelGrid>
+						</p:dataList>
 					</h:column>
 				</h:panelGrid>
 				<br />
