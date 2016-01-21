@@ -66,6 +66,9 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     
     login("user1","user1");
     navigate().caseList();
+    await(ExpectedConditions.presenceOfElementLocated(By
+            .xpath("//div[@id='caseListComponent:caseListForm:caseOption']/div[2]/span")));
+    driverHelper.findElement(By.xpath("//div[@id='caseListComponent:caseListForm:caseOption']/div[2]/span")).click();
     driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
     await(ExpectedConditions.textToBePresentInElementLocated(By.className("messageNotes"), "This is the description of the new note"));
     await(ExpectedConditions.not(ExpectedConditions.presenceOfAllElementsLocatedBy(By
