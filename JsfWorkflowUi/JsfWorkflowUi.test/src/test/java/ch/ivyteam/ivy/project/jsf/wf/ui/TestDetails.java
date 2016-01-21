@@ -45,7 +45,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openAddNote"));
     addNote();
     
-    login("Developer", "Developer");
+    login("user2","user2");
     navigate().taskList();
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
     await(ExpectedConditions.textToBePresentInElementLocated(By.className("messageNotes"), "This is the description of the new note"));
@@ -64,7 +64,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     driverHelper.clickAndWaitForAjax(By.id("formCaseDetails:openAddNoteCase"));
     addNote();    
     
-    login("Developer", "Developer");
+    login("user2","user2");
     navigate().caseList();
     driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
     await(ExpectedConditions.textToBePresentInElementLocated(By.className("messageNotes"), "This is the description of the new note"));
