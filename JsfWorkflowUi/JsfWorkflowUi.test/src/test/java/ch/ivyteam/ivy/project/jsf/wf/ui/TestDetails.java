@@ -5,6 +5,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class TestDetails extends BaseJsfWorkflowUiTest
@@ -43,6 +44,13 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     driverHelper.assertAjaxModifiedPageSourceContains("taskForAddNote");
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openAddNote"));
     addNote();
+    
+    login("Developer", "Developer");
+    navigate().taskList();
+    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.className("messageNotes"), "This is the description of the new note"));
+    await(ExpectedConditions.not(ExpectedConditions.presenceOfAllElementsLocatedBy(By
+            .xpath("//*[@id='formTaskDetails:j_id_q_2_3_2a:0:openDeleteCaseNote']"))));
     closeTask();
   }
   
@@ -54,7 +62,14 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
     driverHelper.assertAjaxModifiedPageSourceContains("taskForAddNoteToCase");
     driverHelper.clickAndWaitForAjax(By.id("formCaseDetails:openAddNoteCase"));
-    addNote();
+    addNote();    
+    
+    login("Developer", "Developer");
+    navigate().caseList();
+    driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.className("messageNotes"), "This is the description of the new note"));
+    await(ExpectedConditions.not(ExpectedConditions.presenceOfAllElementsLocatedBy(By
+            .xpath("//*[@id='formTaskDetails:j_id_q_2_3_2a:0:openDeleteCaseNote']"))));
     closeTask();
   }
 
