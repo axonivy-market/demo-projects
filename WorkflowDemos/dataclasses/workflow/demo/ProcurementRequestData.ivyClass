@@ -16,3 +16,5 @@ dataOkTeamLeader Boolean #field
 dataOkTeamLeader PERSISTENT #fieldModifier
 totalPrice Number #field
 totalPrice PERSISTENT #fieldModifier
+user workflow.demo.User #field
+user PERSISTENT #fieldModifier

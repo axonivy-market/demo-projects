@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jan 20 11:44:07 CET 2016]
+[>Created: Tue Jan 26 11:47:59 CET 2016]
 15254DC87A1B183B 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestParallel Big #zClass
@@ -181,7 +181,7 @@ Pt0 f2 outLinks "TaskA.ivp","TaskB.ivp" #txt
 Pt0 f2 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/verifyRequest")%>\: <%\=in1.amount%> <%\=in1.description%> <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in1.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
+TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/verifyRequest")%>\: <%\=in1.amount%> <%\=ivy.cms.co("/Dialogs/procurementRequest/piecesOf")%>  ''<%\=in1.description%>'' <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in1.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
 TaskA.PRI=2
 TaskA.ROL=Teamleader
 TaskA.SKIP_TASK_LIST=false
@@ -189,7 +189,7 @@ TaskA.TYPE=0
 TaskB.EXPRI=2
 TaskB.EXROL=Everybody
 TaskB.EXTYPE=0
-TaskB.NAM=<%\=ivy.cms.co("/TaskDescriptions/verifyRequest")%>\: <%\=in1.amount%> <%\=in1.description%> <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in1.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
+TaskB.NAM=<%\=ivy.cms.co("/TaskDescriptions/verifyRequest")%>\: <%\=in1.amount%> <%\=ivy.cms.co("/Dialogs/procurementRequest/piecesOf")%> ''<%\=in1.description%>'' <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in1.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
 TaskB.PRI=2
 TaskB.ROL=Manager
 TaskB.SKIP_TASK_LIST=false
@@ -200,7 +200,7 @@ TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
 DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
 taskDef = new TaskDefinition();
 taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in1.amount%> <%=in1.description%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>"));
+taskDef.setName(engine.expandMacros("<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%>  ''<%=in1.description%>'' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>"));
 taskDef.setAutoStartTask(false);
 taskDef.setActivator("Teamleader");
 taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
@@ -209,7 +209,7 @@ taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
 taskDefinitions.add(taskDef);
 taskDef = new TaskDefinition();
 taskDef.setStartRequestPath("TaskB.ivp");
-taskDef.setName(engine.expandMacros("<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in1.amount%> <%=in1.description%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>"));
+taskDef.setName(engine.expandMacros("<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> ''<%=in1.description%>'' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>"));
 taskDef.setAutoStartTask(false);
 taskDef.setActivator("Manager");
 taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
@@ -249,7 +249,7 @@ Pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Pt0 f5 360 322 112 44 -39 -8 #rect
 Pt0 f5 @|RichDialogIcon #fIcon
-Pt0 f8 beanConfig '"{/emailSubject """"/emailFrom """"/emailReplyTo """"/emailTo """"/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage """"/emailAttachments * }"' #txt
+Pt0 f8 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%><%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%>  \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.user.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>""/emailAttachments * }"' #txt
 Pt0 f8 type workflow.demo.ProcurementRequestData #txt
 Pt0 f8 timeout 0 #txt
 Pt0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -292,7 +292,8 @@ Pt0 f16 requestMappingAction 'param.procurementRequestData=in;
 ' #txt
 Pt0 f16 responseActionDecl 'workflow.demo.ProcurementRequestData out;
 ' #txt
-Pt0 f16 responseMappingAction 'out.accepted=result.accepted;
+Pt0 f16 responseMappingAction 'out=in;
+out.accepted=result.accepted;
 ' #txt
 Pt0 f16 windowConfiguration '* ' #txt
 Pt0 f16 isAsynch false #txt
@@ -333,7 +334,7 @@ Pt0 f22 outLinks "TaskA.ivp" #txt
 Pt0 f22 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/acceptRequest")%>\: <%\=in1.amount%> <%\=in1.description%> <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in1.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
+TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/acceptRequest")%>\: <%\=in1.amount%> <%\=ivy.cms.co("/Dialogs/procurementRequest/piecesOf")%> ''<%\=in1.description%>'' <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in1.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
 TaskA.PRI=2
 TaskA.ROL=Executive
 TaskA.SKIP_TASK_LIST=false
@@ -344,7 +345,7 @@ TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
 DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
 taskDef = new TaskDefinition();
 taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("<%=ivy.cms.co(\"/TaskDescriptions/acceptRequest\")%>: <%=in1.amount%> <%=in1.description%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>"));
+taskDef.setName(engine.expandMacros("<%=ivy.cms.co(\"/TaskDescriptions/acceptRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> ''<%=in1.description%>'' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>"));
 taskDef.setAutoStartTask(false);
 taskDef.setActivator("Executive");
 taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));

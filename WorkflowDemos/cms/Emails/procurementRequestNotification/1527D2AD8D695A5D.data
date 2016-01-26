@@ -1,0 +1,12 @@
+<P>
+Hello <%=in.user.fullname%>
+</P>
+<P>
+Your request has been <%=(in.accepted ? "accepted" : "declined")%>:
+</P>
+<P>
+<%=in.amount%> pieces of '<%=in.description%>' for a total of <%=in.totalPrice%> <%=ivy.cms.co("/Dialogs/procurementRequest/currencySymbol")%>
+</P>
+<P>
+Kind regards
+</P>

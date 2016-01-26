@@ -20,15 +20,15 @@
 						<p:messages></p:messages>
 					</f:facet>
 					
-					<p:outputLabel for="procurementRequestDataPricePerUnit" value="#{ivy.cms.co('/Dialogs/procurementRequest/pricePerUnit')}"/>
-					<p:inputText id="procurementRequestDataPricePerUnit" value="#{data.procurementRequestData.pricePerUnit}" required="true" />
-
-					<p:outputLabel for="procurementRequestDataAmount" value="#{ivy.cms.co('/Dialogs/procurementRequest/amount')}"/>
-					<p:inputText id="procurementRequestDataAmount" value="#{data.procurementRequestData.amount}" required="true"></p:inputText>
-					
 					<p:outputLabel for="procurementRequestDataDescription" value="#{ivy.cms.co('/Dialogs/procurementRequest/description')}"/>
 					<p:inputText id="procurementRequestDataDescription" value="#{data.procurementRequestData.description}" required="true" ></p:inputText>
 					
+					<p:outputLabel for="procurementRequestDataPricePerUnit" value="#{ivy.cms.co('/Dialogs/procurementRequest/pricePerUnit')}"/>
+					<pe:inputNumber id="procurementRequestDataPricePerUnit" value="#{data.procurementRequestData.pricePerUnit}" symbol="#{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')} " symbolPosition="p" decimalSeparator="." thousandSeparator="'" required="true" />                                  
+
+					<p:outputLabel for="procurementRequestDataAmount" value="#{ivy.cms.co('/Dialogs/procurementRequest/amount')}"/>
+					<p:spinner id="procurementRequestDataAmount" value="#{data.procurementRequestData.amount}" min="0" required="true" />
+										
 					<p:outputLabel for="procurementRequestDataNotes" value="#{ivy.cms.co('/Dialogs/procurementRequest/notes')}"/>
 					<p:inputText id="procurementRequestDataNotes" value="#{data.procurementRequestData.notes}"></p:inputText>
 					

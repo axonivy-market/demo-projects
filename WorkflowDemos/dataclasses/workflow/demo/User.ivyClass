@@ -1,0 +1,6 @@
+User #class
+workflow.demo #namespace
+fullname String #field
+fullname PERSISTENT #fieldModifier
+email String #field
+email PERSISTENT #fieldModifier

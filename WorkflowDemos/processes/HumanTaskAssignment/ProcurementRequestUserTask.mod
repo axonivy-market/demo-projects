@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jan 20 11:45:14 CET 2016]
+[>Created: Tue Jan 26 11:14:47 CET 2016]
 15254DCE818AD7A2 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
@@ -115,7 +115,7 @@ Pt0 f5 outLinks "TaskA.ivp" #txt
 Pt0 f5 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/verifyRequest")%>\: <%\=in1.amount%> <%\=in1.description%> <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%><%\=in1.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
+TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/verifyRequest")%>\: <%\=in.amount%> <%\=ivy.cms.co("/Dialogs/procurementRequest/piecesOf")%> ''<%\=in.description%>'' <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
 TaskA.PRI=2
 TaskA.ROL=Manager
 TaskA.SKIP_TASK_LIST=false
@@ -152,7 +152,7 @@ Pt0 f7 outLinks "TaskA.ivp" #txt
 Pt0 f7 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/acceptRequest")%>\: <%\=in1.amount%> <%\=in1.description%> <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in1.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
+TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/acceptRequest")%>\: <%\=in.amount%> <%\=ivy.cms.co("/Dialogs/procurementRequest/piecesOf")%> ''<%\=in.description%>'' <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
 TaskA.PRI=2
 TaskA.ROL=Executive
 TaskA.SKIP_TASK_LIST=false
@@ -169,7 +169,7 @@ Pt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Pt0 f7 584 506 112 44 -43 -8 #rect
 Pt0 f7 @|UserTaskIcon #fIcon
-Pt0 f9 beanConfig '"{/emailSubject """"/emailFrom """"/emailReplyTo """"/emailTo """"/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage """"/emailAttachments * }"' #txt
+Pt0 f9 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%><%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%> \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.user.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>""/emailAttachments * }"' #txt
 Pt0 f9 type workflow.demo.ProcurementRequestData #txt
 Pt0 f9 timeout 0 #txt
 Pt0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -181,11 +181,11 @@ Pt0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f9 744 122 112 44 -45 -8 #rect
+Pt0 f9 744 120 112 48 -45 -8 #rect
 Pt0 f9 @|EMailIcon #fIcon
 Pt0 f10 expr data #txt
 Pt0 f10 outCond ivp=="TaskA.ivp" #txt
-Pt0 f10 696 528 800 166 #arcP
+Pt0 f10 696 528 800 168 #arcP
 Pt0 f10 1 800 528 #addKink
 Pt0 f10 1 0.2769262184174318 0 0 #arcLabel
 Pt0 f2 expr out #txt

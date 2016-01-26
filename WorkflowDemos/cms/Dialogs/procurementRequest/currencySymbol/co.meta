@@ -1,2 +1,2 @@
-co: name={currencySymbol} description={} changed={2016-01-20 08:42:27 CET} changedby={bhu} visualorder={0} guid={15254E5865262042} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={15254E5865994435} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-13 10:45:50 CET} validto={} changed={2016-01-20 08:42:27 CET} changedby={bhu} properties={} id={}
+co: name={currencySymbol} description={} changed={2016-01-26 09:42:45 CET} changedby={bhu} visualorder={0} guid={15254E5865262042} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={15254E5865994435} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-13 10:45:50 CET} validto={} changed={2016-01-26 09:42:45 CET} changedby={bhu} properties={} id={}

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 14:19:49 CET 2016]
+[>Created: Wed Jan 20 15:30:13 CET 2016]
 15254DF5837F8B00 3.18 #module
 >Proto >Proto Collection #zClass
 Es0 EnterProcurementRequestProcess Big #zClass
@@ -72,6 +72,8 @@ Es0 f6 actionDecl 'workflow.demo.EnterProcurementRequest.EnterProcurementRequest
 ' #txt
 Es0 f6 actionTable 'out=in;
 out.procurementRequestData=new workflow.demo.ProcurementRequestData();
+out.procurementRequestData.user.email=ivy.session.getSessionUser().eMailAddress;
+out.procurementRequestData.user.fullname=ivy.session.getSessionUser().fullName;
 ' #txt
 Es0 f6 type workflow.demo.EnterProcurementRequest.EnterProcurementRequestData #txt
 Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

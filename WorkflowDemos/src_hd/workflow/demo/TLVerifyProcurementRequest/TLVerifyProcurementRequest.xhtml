@@ -12,18 +12,14 @@
 <ui:define name="title">VerifyProcurementRequestTL</ui:define>
 <ui:define name="content">
 	<h3>
-	#{ivy.cms.co('/Dialogs/procurementRequest/verifyTitle')}
-	</h3>
-	
-	#{ivy.cms.co('/Dialogs/procurementRequest/verifyDescription')}<br/>
-	#{data.procurementRequestData.amount} #{ivy.cms.co('/Dialogs/procurementRequest/piecesOf')} '#{data.procurementRequestData.description}' #{ivy.cms.co('/Dialogs/procurementRequest/forTotal')} #{data.procurementRequestData.totalPrice} #{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')}   
-	<br />
-	
-	<br /><h:form id="form">
+		<h:outputText escape="false" value="#{ivy.cms.co('/Dialogs/procurementRequest/verifyTitle')}" />
+	</h3>	
+	<h:form id="form">
+		<h:outputText escape="false" value="#{ivy.cms.co('/Dialogs/procurementRequest/verifyDescription')}" /><br/><br />
+		<h:outputText value="#{data.procurementRequestData.amount} #{ivy.cms.co('/Dialogs/procurementRequest/piecesOf')} '#{data.procurementRequestData.description}' #{ivy.cms.co('/Dialogs/procurementRequest/forTotal')} #{data.procurementRequestData.totalPrice} #{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')}" /><br /><br />  
+		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/requestedBy')} #{data.procurementRequestData.user.fullname}" /><br /><br />   
+		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/notes')}: #{data.procurementRequestData.notes}" /><br /><br />
 		<h:panelGrid columns="2">
-			
-			<p:outputLabel for="procurementRequestDataNotes" value="#{ivy.cms.co('/Dialogs/procurementRequest/notes')}"/>
-			<p:outputLabel id="procurementRequestDataNotes" value="#{data.procurementRequestData.notes}"></p:outputLabel>
 					
 			<p:selectBooleanCheckbox id="dataOk" value="#{data.procurementRequestData.dataOkTeamLeader}" />		
 			<p:outputLabel for="dataOk" value="#{ivy.cms.co('/Dialogs/procurementRequest/verified')}"/>
