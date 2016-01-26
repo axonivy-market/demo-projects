@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jan 20 11:46:46 CET 2016]
+[>Created: Tue Jan 26 14:42:31 CET 2016]
 15254CF47A16DEA1 3.18 #module
 >Proto >Proto Collection #zClass
 Pn0 ParkingLotReservation Big #zClass
@@ -97,7 +97,7 @@ Pn0 f3 168 106 112 44 -53 -8 #rect
 Pn0 f3 @|RichDialogIcon #fIcon
 Pn0 f4 expr out #txt
 Pn0 f4 111 128 168 128 #arcP
-Pn0 f5 beanConfig '"{/emailSubject """"/emailFrom """"/emailReplyTo """"/emailTo """"/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage """"/emailAttachments * }"' #txt
+Pn0 f5 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/parkingLotReservationHeader\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""<%=ivy.cms.co(\\""/Emails/confirmParkingLot\\"")%>""/emailAttachments * }"' #txt
 Pn0 f5 type workflow.trigger.NewEmployeeData #txt
 Pn0 f5 timeout 0 #txt
 Pn0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

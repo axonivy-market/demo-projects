@@ -1,0 +1,12 @@
+<P>
+Dear <%=in.name%>
+</P>
+<P>
+Welcome at our company. It is a great pleasure to have you here!
+</P>
+<P>
+If you have any question, please don't hesitate to contact your teamleader or your HR Manager.
+</P>
+<P>
+Have a nice day!
+</P>

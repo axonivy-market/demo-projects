@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jan 20 11:45:43 CET 2016]
+[>Created: Tue Jan 26 14:42:13 CET 2016]
 15254CF1CE56AE72 3.18 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
@@ -107,7 +107,7 @@ Tr0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Tr0 f7 384 168 32 32 -52 18 #rect
 Tr0 f7 @|AlternativeIcon #fIcon
-Tr0 f10 beanConfig '"{/emailSubject """"/emailFrom """"/emailReplyTo """"/emailTo """"/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage """"/emailAttachments * }"' #txt
+Tr0 f10 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/welcomeHeader\\"")%><%=in.name%>!""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""<%=ivy.cms.co(\\""/Emails/welcomeMail\\"")%>""/emailAttachments * }"' #txt
 Tr0 f10 type workflow.trigger.NewEmployeeData #txt
 Tr0 f10 timeout 0 #txt
 Tr0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

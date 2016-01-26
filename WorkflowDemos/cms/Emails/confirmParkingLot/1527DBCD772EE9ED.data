@@ -1,0 +1,9 @@
+<P>
+Hello <%=in.name%>
+</P>
+<P>
+We reserved the parking lot nr. <%=in.selectedParkingLotNr%> for you.
+</P>
+<P>
+Have a nice day.
+</P>

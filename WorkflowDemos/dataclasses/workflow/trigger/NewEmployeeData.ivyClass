@@ -6,6 +6,8 @@ name String #field
 name PERSISTENT #fieldModifier
 dateOfBirth Date #field
 dateOfBirth PERSISTENT #fieldModifier
+email String #field
+email PERSISTENT #fieldModifier
 selectedParkingLotNr Number #field
 selectedParkingLotNr PERSISTENT #fieldModifier
 availableParkingLots List<Number> #field
