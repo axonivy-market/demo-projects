@@ -22,20 +22,20 @@
 	    		<p:toolbarGroup align="right">
 		    		<h:panelGrid columns="8">
 		    		<h:outputText value="#{ivy.cms.co('/labels/common/search')}: "/> 
-						<p:inputText id="SearchTxt" value="#{data.filterTxt}" style="margin-top:1px;margin-bottom:1px">
+						<p:inputText id="SearchTxt" value="#{data.tasks.searchFilter}" style="margin-top:1px;margin-bottom:1px">
 						<p:ajax event="keyup" delay="300" update="taskHistoryTable" listener="#{logic.update}"/>
 						</p:inputText>
 						<p:spacer width="8"/>
 	 					 <h:outputText value="#{ivy.cms.co('/labels/common/taskPrio')}: "/>
-	 					<p:selectOneMenu value="#{data.prioFilter}" id="taskPriority" styleClass="ivy-toolbar-selectMenu">
-	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" noSelectionOption="true" />
+	 					<p:selectOneMenu value="#{data.tasks.priorityFilter}" id="taskPriority" styleClass="ivy-toolbar-selectMenu">
+	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" noSelectionOption="true" itemValue=""/>
 	           				<f:selectItems value="#{data.prios}" var="prio" itemLabel="#{prio}" itemValue="#{prio}" />
 		           			<f:ajax render="taskHistoryForm" />
 		       			</p:selectOneMenu>
 		       			<p:spacer width="8"/>
 		       			<h:outputText value="#{ivy.cms.co('/labels/common/responsible')}: "/>
-		       			<p:selectOneMenu value="#{data.responsibleFilter}" id="responsibleFilter" filter="true" filterMatchMode="contains" styleClass="ivy-toolbar-selectMenu">
-	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="All" />
+		       			<p:selectOneMenu value="#{data.tasks.responsibleFilter}" id="responsibleFilter" filter="true" filterMatchMode="contains" styleClass="ivy-toolbar-selectMenu">
+	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/filterAll')}" itemValue="" />
 	 						<f:selectItem itemLabel="#{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" itemValue="##{ivy.session.getSessionUserName()}" />
 		          			<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName()} #{role.getDisplayName() != '' ? '(' : ''}#{role.getName()}#{role.getDisplayName() != '' ? ')' : ''}" itemValue="#{role.getName()}"/>
 		           			<f:ajax render="taskHistoryForm" />
@@ -48,7 +48,7 @@
    						 paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING" id="taskHistoryTable">
       			<p:column style="width:25px; text-align: center;" sortBy="#{ID}">  
            			<f:facet name="header"/>  
-           			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskHistoryDetail" title="Details Task [#{task.id}]">
+           			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskHistoryDetail_#{row}" title="Details Task [#{task.id}]">
            				<span class="fa fa-file-text-o"/>
            			</a>
         		</p:column>

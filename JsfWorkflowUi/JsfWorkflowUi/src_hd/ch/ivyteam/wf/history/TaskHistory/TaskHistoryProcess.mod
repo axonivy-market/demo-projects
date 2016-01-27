@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jan 08 09:57:12 CET 2016]
+[>Created: Wed Jan 27 10:15:07 CET 2016]
 13F2E0370AA5B84E 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskHistoryProcess Big #zClass
@@ -15,16 +15,14 @@ Ts0 @TextInP .xml .xml #zField
 Ts0 @TextInP .responsibility .responsibility #zField
 Ts0 @RichDialogInitStart f0 '' #zField
 Ts0 @RichDialogProcessEnd f1 '' #zField
-Ts0 @GridStep f3 '' #zField
 Ts0 @RichDialogMethodStart f5 '' #zField
 Ts0 @GridStep f8 '' #zField
 Ts0 @PushWFArc f10 '' #zField
 Ts0 @PushWFArc f9 '' #zField
 Ts0 @GridStep f4 '' #zField
 Ts0 @PushWFArc f6 '' #zField
-Ts0 @PushWFArc f7 '' #zField
 Ts0 @RichDialogProcessEnd f11 '' #zField
-Ts0 @PushWFArc f12 '' #zField
+Ts0 @PushWFArc f2 '' #zField
 >Proto Ts0 Ts0 TaskHistoryProcess #zField
 Ts0 f0 guid 13F2E0370C9B06E8 #txt
 Ts0 f0 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
@@ -49,55 +47,6 @@ Ts0 f1 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
 Ts0 f1 339 51 26 26 0 12 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
 Ts0 f1 -1|-1|-9671572 #nodeStyle
-Ts0 f3 actionDecl 'ch.ivyteam.wf.history.TaskHistory.TaskHistoryData out;
-' #txt
-Ts0 f3 actionTable 'out=in;
-' #txt
-Ts0 f3 actionCode 'import ch.ivyteam.ivy.workflow.PropertyOrder;
-import ch.ivyteam.ivy.workflow.TaskProperty;
-import ch.ivyteam.ivy.persistence.OrderDirection;
-import ch.ivyteam.ivy.persistence.IQueryResult;
-import ch.ivyteam.ivy.workflow.ITask;
-import ch.ivyteam.ivy.workflow.WorkflowPriority;
-import ch.ivyteam.logicalexpression.RelationalOperator;
-import ch.ivyteam.ivy.workflow.IPropertyFilter;
-import ch.ivyteam.ivy.workflow.TaskProperty;
-
-IPropertyFilter taskFilter = null;
-if(in.#prioFilter != null)
-{
-	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, in.prioFilter);	
-}
-if(in.responsibleFilter != "All")
-{
-	IPropertyFilter responsibleFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.ACTIVATOR_NAME, RelationalOperator.EQUAL, in.responsibleFilter);
-	taskFilter = taskFilter != null ? taskFilter.and(responsibleFilter) : responsibleFilter;
-}
-
-if(!in.filterTxt.isEmpty())
-{
-	List<String> tokens = in.filterTxt.split(" ");
-	for (String token : tokens)
-	{
-		IPropertyFilter stateFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.NAME, RelationalOperator.LIKE, "%"+ token + "%");
-		taskFilter = taskFilter != null ? taskFilter.and(stateFilter) : stateFilter;
-	}
-}
-
-in.tasks.setTaskFilter(taskFilter);' #txt
-Ts0 f3 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
-Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set filter</name>
-        <nameStyle>10,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f3 328 138 112 44 -21 -8 #rect
-Ts0 f3 @|StepIcon #fIcon
-Ts0 f3 -1|-1|-9671572 #nodeStyle
 Ts0 f5 guid 13F75DB798E48053 #txt
 Ts0 f5 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
 Ts0 f5 method update() #txt
@@ -120,12 +69,10 @@ Ts0 f5 -1|-1|-9671572 #nodeStyle
 Ts0 f8 actionDecl 'ch.ivyteam.wf.history.TaskHistory.TaskHistoryData out;
 ' #txt
 Ts0 f8 actionTable 'out=in;
-out.responsibleFilter="All";
 ' #txt
 Ts0 f8 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowPriority;
 
-in.tasks.setIsHistory(true);
-
+in.tasks.setDataTableId("taskHistoryForm:taskHistoryTable");
 out.prios = WorkflowPriority.values();' #txt
 Ts0 f8 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
 Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -171,15 +118,12 @@ Ts0 f4 @|StepIcon #fIcon
 Ts0 f4 -1|-1|-9671572 #nodeStyle
 Ts0 f6 expr out #txt
 Ts0 f6 109 160 168 160 #arcP
-Ts0 f7 expr out #txt
-Ts0 f7 280 160 328 160 #arcP
 Ts0 f11 type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
-Ts0 f11 499 147 26 26 0 12 #rect
+Ts0 f11 339 147 26 26 0 12 #rect
 Ts0 f11 @|RichDialogProcessEndIcon #fIcon
 Ts0 f11 -1|-1|-9671572 #nodeStyle
-Ts0 f12 expr out #txt
-Ts0 f12 440 160 499 160 #arcP
-Ts0 f12 0 0.7157193798890246 0 0 #arcLabel
+Ts0 f2 expr out #txt
+Ts0 f2 280 160 339 160 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.history.TaskHistory.TaskHistoryData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -190,7 +134,5 @@ Ts0 f8 mainOut f9 tail #connect
 Ts0 f9 head f1 mainIn #connect
 Ts0 f5 mainOut f6 tail #connect
 Ts0 f6 head f4 mainIn #connect
-Ts0 f4 mainOut f7 tail #connect
-Ts0 f7 head f3 mainIn #connect
-Ts0 f3 mainOut f12 tail #connect
-Ts0 f12 head f11 mainIn #connect
+Ts0 f4 mainOut f2 tail #connect
+Ts0 f2 head f11 mainIn #connect
