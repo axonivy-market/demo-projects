@@ -19,29 +19,29 @@
 			<p:toolbarGroup align="right">
 				<h:panelGrid columns="11">
 				<h:outputText value="#{ivy.cms.co('/labels/common/search')}: "/> 
-						<p:inputText id="SearchTxt" value="#{data.filterTxt}" style="margin-top:1px;margin-bottom:1px">
-						<p:ajax event="keyup" delay="300" update="taskTable" listener="#{logic.setFilter}"/>
+						<p:inputText id="SearchTxt" value="#{data.tasks.searchFilter}" style="margin-top:1px;margin-bottom:1px">
+						<p:ajax event="keyup" delay="300" update="taskTable" listener="#{logic.update}"/>
 						</p:inputText>
 						<p:spacer width="8"/>
 					<h:outputText value="#{ivy.cms.co('/labels/common/taskPrio')}: " />
-					<p:selectOneMenu value="#{data.prioFilter}" id="priorityFilter"
+					<p:selectOneMenu value="#{data.tasks.priorityFilter}" id="priorityFilter"
 						styleClass="ivy-toolbar-selectMenu">
 						<f:selectItem
 							itemLabel="#{ivy.cms.co('/labels/common/filterAll')}"
 							noSelectionOption="true" />
 						<f:selectItems value="#{data.prios}" var="prio"
 							itemLabel="#{prio}" itemValue="#{prio}" />
-						<p:ajax update="taskListForm" listener="#{logic.setFilter}" />
+						<p:ajax update="taskTable" />
 					</p:selectOneMenu>
 					<p:spacer width="8px" />
 					<h:outputText
 						value=" #{ivy.cms.co('/labels/common/responsible')}: " />
-					<p:selectOneMenu value="#{data.responsibleFilter}"
+					<p:selectOneMenu value="#{data.tasks.responsibleFilter}"
 						id="responsibleFilter" filter="true" filterMatchMode="contains"
 						styleClass="ivy-toolbar-selectMenu">
 						<f:selectItem
 							itemLabel="#{ivy.cms.co('/labels/common/filterAll')}"
-							itemValue="All" />
+							itemValue="" />
 						<c:if test="#{data.mode ne 'admin'}">
 							<f:selectItem
 								itemLabel="#{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}"
@@ -55,19 +55,19 @@
 								itemLabel="#{user.getDisplayName()}"
 								itemValue="##{user.getName()}" />
 						</c:if>
-						<p:ajax update="taskListForm" listener="#{logic.setFilter}" />
+							<p:ajax update="taskTable" />
 					</p:selectOneMenu>
 					<c:if test="#{data.mode eq 'admin'}">
 						<p:spacer width="8px" />
 						<h:outputText value=" #{ivy.cms.co('/labels/common/taskState')}: " />
-						<p:selectOneMenu id="stateFilter" value="#{data.statFilter}"
+						<p:selectOneMenu id="stateFilter" value="#{data.tasks.stateFilter}"
 							styleClass="ivy-toolbar-selectMenu">
 							<f:selectItem
 								itemLabel="#{ivy.cms.co('/labels/common/filterAll')}"
 								noSelectionOption="true" />
 							<f:selectItems value="#{data.states}" var="state"
 								itemLabel="#{state}" itemValue="#{state}" />
-							<p:ajax update="taskListForm" listener="#{logic.setFilter}" />
+							<p:ajax update="taskTable" />
 						</p:selectOneMenu>
 					</c:if>
 				</h:panelGrid>

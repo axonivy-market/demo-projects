@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jan 07 17:45:23 CET 2016]
+[>Created: Thu Jan 28 10:17:32 CET 2016]
 1518C56414655E4F 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListComponentProcess Big #zClass
@@ -15,20 +15,14 @@ Ts0 @TextInP .xml .xml #zField
 Ts0 @TextInP .responsibility .responsibility #zField
 Ts0 @RichDialogInitStart f0 '' #zField
 Ts0 @RichDialogProcessEnd f1 '' #zField
-Ts0 @GridStep f11 '' #zField
 Ts0 @GridStep f4 '' #zField
 Ts0 @PushWFArc f6 '' #zField
-Ts0 @PushWFArc f5 '' #zField
-Ts0 @PushWFArc f7 '' #zField
-Ts0 @RichDialogProcessStart f13 '' #zField
-Ts0 @PushWFArc f14 '' #zField
-Ts0 @PushWFArc f16 '' #zField
-Ts0 @GridStep f2 '' #zField
 Ts0 @RichDialogProcessEnd f10 '' #zField
 Ts0 @RichDialogMethodStart f3 '' #zField
 Ts0 @PushWFArc f9 '' #zField
 Ts0 @PushWFArc f15 '' #zField
 Ts0 @GridStep f8 '' #zField
+Ts0 @PushWFArc f2 '' #zField
 >Proto Ts0 Ts0 TaskListComponentProcess #zField
 Ts0 f0 guid 13EE9A482C1E853B #txt
 Ts0 f0 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
@@ -54,77 +48,28 @@ Ts0 f0 83 51 26 26 -16 12 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f0 -1|-1|-9671572 #nodeStyle
 Ts0 f1 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
-Ts0 f1 499 51 26 26 0 12 #rect
+Ts0 f1 339 51 26 26 0 12 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
 Ts0 f1 -1|-1|-9671572 #nodeStyle
-Ts0 f11 actionDecl 'ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData out;
-' #txt
-Ts0 f11 actionTable 'out=in;
-' #txt
-Ts0 f11 actionCode 'import java.util.EnumSet;
-import ch.ivyteam.ivy.workflow.PropertyOrder;
-import ch.ivyteam.ivy.workflow.TaskState;
-import ch.ivyteam.ivy.workflow.TaskProperty;
-import ch.ivyteam.ivy.workflow.WorkflowPriority;
-import ch.ivyteam.ivy.persistence.OrderDirection;
-import ch.ivyteam.ivy.persistence.IQueryResult;
-import ch.ivyteam.ivy.workflow.ITask;
-import ch.ivyteam.logicalexpression.RelationalOperator;
-import ch.ivyteam.ivy.workflow.IPropertyFilter;
-
-IPropertyFilter taskFilter = null;
-if(in.#prioFilter != null)
-{
-	taskFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.PRIORITY, RelationalOperator.EQUAL, in.prioFilter);	
-}
-if(in.responsibleFilter != "All")
-{
-	IPropertyFilter responsibleFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.ACTIVATOR_NAME, RelationalOperator.EQUAL, in.responsibleFilter);
-	taskFilter = taskFilter != null ? taskFilter.and(responsibleFilter) : responsibleFilter;
-}
-if(in.#statFilter != null)
-{
-	IPropertyFilter stateFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.STATE, RelationalOperator.EQUAL, in.statFilter);
-	taskFilter = taskFilter != null ? taskFilter.and(stateFilter) : stateFilter;
-}
-
-
-if(!in.filterTxt.isEmpty())
-{
-	List<String> tokens = in.filterTxt.split(" ");
-	for (String token : tokens)
-	{
-		IPropertyFilter stateFilter = ivy.wf.createTaskPropertyFilter(TaskProperty.NAME, RelationalOperator.LIKE, "%"+ token + "%");
-		taskFilter = taskFilter != null ? taskFilter.and(stateFilter) : stateFilter;
-	}
-}
-
-in.tasks.setTaskFilter(taskFilter);' #txt
-Ts0 f11 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
-Ts0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set filter</name>
-        <nameStyle>10,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f11 328 42 112 44 -21 -8 #rect
-Ts0 f11 @|StepIcon #fIcon
-Ts0 f11 -1|-1|-9671572 #nodeStyle
 Ts0 f4 actionDecl 'ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData out;
 ' #txt
 Ts0 f4 actionTable 'out=in;
-out.responsibleFilter="All";
-out.statFilter=null;
 ' #txt
-Ts0 f4 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowPriority;
+Ts0 f4 actionCode 'import ch.ivyteam.wf.common.AdminTaskLazyDataModel;
+import ch.ivyteam.wf.common.UserTaskLazyDataModel;
+import ch.ivyteam.ivy.workflow.WorkflowPriority;
 import ch.ivyteam.ivy.workflow.TaskState;
+import ch.ivyteam.ivy.workflow.WorkflowPriority;
 
-in.tasks; // init
-in.tasks.setIsHistory(false);
-in.tasks.setMode(in.mode);
+if(in.mode.equals("admin"))
+{
+	in.tasks= new AdminTaskLazyDataModel();
+}
+else
+{
+	in.tasks = new UserTaskLazyDataModel();
+}
+in.tasks.setDataTableId("taskListComponent:taskListForm:taskTable");
 
 out.states = TaskState.values();
 out.prios = WorkflowPriority.values();
@@ -147,52 +92,8 @@ Ts0 f4 @|StepIcon #fIcon
 Ts0 f4 -1|-1|-9671572 #nodeStyle
 Ts0 f6 expr out #txt
 Ts0 f6 109 64 168 64 #arcP
-Ts0 f5 expr out #txt
-Ts0 f5 280 64 328 64 #arcP
-Ts0 f7 expr out #txt
-Ts0 f7 440 64 499 64 #arcP
-Ts0 f13 guid 14638B6D0E7377B9 #txt
-Ts0 f13 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
-Ts0 f13 actionDecl 'ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData out;
-' #txt
-Ts0 f13 actionTable 'out=in;
-' #txt
-Ts0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>setFilter</name>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f13 83 147 26 26 -22 12 #rect
-Ts0 f13 @|RichDialogProcessStartIcon #fIcon
-Ts0 f13 -1|-1|-9671572 #nodeStyle
-Ts0 f14 expr out #txt
-Ts0 f14 280 160 384 86 #arcP
-Ts0 f14 1 384 160 #addKink
-Ts0 f14 0 0.7961137295123933 0 0 #arcLabel
-Ts0 f16 expr out #txt
-Ts0 f16 109 160 168 160 #arcP
-Ts0 f2 actionDecl 'ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData out;
-' #txt
-Ts0 f2 actionTable 'out=in;
-' #txt
-Ts0 f2 actionCode in.tasks.setHasFilter(true); #txt
-Ts0 f2 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
-Ts0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>is filter set</name>
-        <nameStyle>13,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ts0 f2 168 138 112 44 -28 -8 #rect
-Ts0 f2 @|StepIcon #fIcon
-Ts0 f2 -1|-1|-9671572 #nodeStyle
 Ts0 f10 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
-Ts0 f10 339 243 26 26 0 12 #rect
+Ts0 f10 339 147 26 26 0 12 #rect
 Ts0 f10 @|RichDialogProcessEndIcon #fIcon
 Ts0 f10 -1|-1|-9671572 #nodeStyle
 Ts0 f3 guid 13F61412866CB9E5 #txt
@@ -211,13 +112,13 @@ Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f3 83 243 26 26 -23 12 #rect
+Ts0 f3 83 147 26 26 -23 12 #rect
 Ts0 f3 @|RichDialogMethodStartIcon #fIcon
 Ts0 f3 -1|-1|-9671572 #nodeStyle
 Ts0 f9 expr out #txt
-Ts0 f9 109 256 168 256 #arcP
+Ts0 f9 109 160 168 160 #arcP
 Ts0 f15 expr out #txt
-Ts0 f15 280 256 339 256 #arcP
+Ts0 f15 280 160 339 160 #arcP
 Ts0 f8 actionDecl 'ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData out;
 ' #txt
 Ts0 f8 actionTable 'out=in;
@@ -225,31 +126,34 @@ Ts0 f8 actionTable 'out=in;
 Ts0 f8 actionCode 'import ch.ivyteam.ivy.security.IUser;
 import ch.ivyteam.ivy.security.IRole;
 
-out.roleList.clear();
 List roles;
-if(in.mode.equals("my_tasks"))
-{
-	roles = ivy.session.getSessionUser().getAllRoles();
-}
-else
+if(in.mode.equals("admin"))
 {
 	roles = ivy.session.getSecurityContext().getRoles();
 }
+else
+{
+	roles = ivy.session.getSessionUser().getAllRoles();
+}
 
+out.roleList.clear();
 for(IRole role: roles)
 {
 	out.roleList.add(role);
 }
 
-List users = ivy.wf.getSecurityContext().getUsers();
-out.userList.clear();
-for(IUser user : users)
+if(in.mode.equals("admin"))
 {
-	if(user.getName() != "SYSTEM" && user.getName() != ivy.session.getSessionUserName())
+	List users = ivy.wf.getSecurityContext().getUsers();
+	out.userList.clear();
+	for(IUser user : users)
 	{
-		out.userList.add(user);
-	}
-}	' #txt
+		if(user.getName() != "SYSTEM" && user.getName() != ivy.session.getSessionUserName())
+		{
+			out.userList.add(user);
+		}
+	}	
+}' #txt
 Ts0 f8 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
 Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -260,24 +164,20 @@ Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f8 168 234 112 44 -34 -8 #rect
+Ts0 f8 168 138 112 44 -34 -8 #rect
 Ts0 f8 @|StepIcon #fIcon
 Ts0 f8 -1|-1|-9671572 #nodeStyle
+Ts0 f2 expr out #txt
+Ts0 f2 280 64 339 64 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
 >Proto Ts0 '' #fIcon
 Ts0 f0 mainOut f6 tail #connect
 Ts0 f6 head f4 mainIn #connect
-Ts0 f13 mainOut f16 tail #connect
-Ts0 f16 head f2 mainIn #connect
-Ts0 f2 mainOut f14 tail #connect
-Ts0 f14 head f11 mainIn #connect
-Ts0 f4 mainOut f5 tail #connect
-Ts0 f5 head f11 mainIn #connect
 Ts0 f8 mainOut f15 tail #connect
 Ts0 f15 head f10 mainIn #connect
 Ts0 f3 mainOut f9 tail #connect
 Ts0 f9 head f8 mainIn #connect
-Ts0 f11 mainOut f7 tail #connect
-Ts0 f7 head f1 mainIn #connect
+Ts0 f4 mainOut f2 tail #connect
+Ts0 f2 head f1 mainIn #connect
