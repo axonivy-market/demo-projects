@@ -82,7 +82,7 @@ public class BaseJsfWorkflowUiTest
   {
     try
     {
-      Thread.sleep(1);
+      Thread.sleep(500);
     }
     catch (InterruptedException ex)
     {
