@@ -74,7 +74,7 @@ boolean loggedIn = ivy.session.loginSessionUser(in.username, in.password);
 out.password = null;
 if (!loggedIn) 
 {
-	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed with username: " + in.username+ "and password: " + in.password, ""));
+	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed", ""));
 }
 else
 {

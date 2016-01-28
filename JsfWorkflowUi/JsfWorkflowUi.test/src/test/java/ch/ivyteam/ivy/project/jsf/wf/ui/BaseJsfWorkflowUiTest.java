@@ -70,10 +70,24 @@ public class BaseJsfWorkflowUiTest
     ajax().findUntilVisible(By.id("loginPageComponent:loginForm"));
     loginField("username").clear();
     loginField("username").sendKeys(username);
+    loginWait();
     loginField("password").clear();
+    loginWait();
     loginField("password").sendKeys(password);
     loginField("loginButton").click();
     ajax().assertElementContains("mainArea", "Home");
+  }
+
+  private void loginWait()
+  {
+    try
+    {
+      Thread.sleep(1);
+    }
+    catch (InterruptedException ex)
+    {
+      ex.printStackTrace();
+    }
   }
 
   private WebElement loginField(String name)
