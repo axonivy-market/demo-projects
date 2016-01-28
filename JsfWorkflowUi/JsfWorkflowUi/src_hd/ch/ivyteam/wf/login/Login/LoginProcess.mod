@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Aug 12 15:03:09 CEST 2014]
-13F6148AFE612F94 3.17 #module
+[>Created: Thu Jan 28 11:15:20 CET 2016]
+13F6148AFE612F94 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginProcess Big #zClass
 Ls0 RD #cInfo
@@ -74,7 +74,7 @@ boolean loggedIn = ivy.session.loginSessionUser(in.username, in.password);
 out.password = null;
 if (!loggedIn) 
 {
-	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed", ""));
+	FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed with username: " + in.username+ "and password: " + in.password, ""));
 }
 else
 {
