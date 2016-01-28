@@ -230,7 +230,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     driverHelper.findElementById("taskLinkRow_0").click();
     driverHelper.clickAndWaitForAjax(By.id("submit"));
     navigate().taskHistory();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskHistoryDetail"));
+    driverHelper.clickAndWaitForAjax(By.id("buttonTaskHistoryDetail_0"));
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openPageArchive"));
   }
   
