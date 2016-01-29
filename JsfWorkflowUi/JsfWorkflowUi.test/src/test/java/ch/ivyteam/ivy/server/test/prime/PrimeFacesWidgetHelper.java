@@ -68,7 +68,10 @@ public class PrimeFacesWidgetHelper
               + "_panel']/div/ul/li[@data-label='" + label + "']"));
       await(ExpectedConditions.elementToBeClickable(oneMenuDropDown));
       oneMenuDropDown.click();
-      await(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(oneMenuDropDown)));
+      await(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(driverHelper.findElement(By
+              .xpath("//div[@id='"
+                      + oneMenu.getAttribute("id")
+                      + "_panel']/div/ul/li[@data-label='" + label + "']")))));
 
     }
 
