@@ -63,7 +63,13 @@ public class PrimeFacesWidgetHelper
     public void selectItemByLabel(String label)
     {
       expandSelectableItems();
-      driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='" + oneMenu.getAttribute("id") + "_panel']/div/ul/li[@data-label='" + label + "']"));
+      WebElement oneMenuDropDown = driverHelper.findElement(By.xpath("//div[@id='"
+              + oneMenu.getAttribute("id")
+              + "_panel']/div/ul/li[@data-label='" + label + "']"));
+      await(ExpectedConditions.elementToBeClickable(oneMenuDropDown));
+      oneMenuDropDown.click();
+      await(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(oneMenuDropDown)));
+
     }
 
     private void expandSelectableItems()
@@ -116,12 +122,14 @@ public class PrimeFacesWidgetHelper
 
     public void selectItemByIndex(int index)
     {
-      driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='" + menu.getAttribute("id") + "']/ul/li[" + index + "]/a/span"));
+      driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='" + menu.getAttribute("id") + "']/ul/li[" + index
+              + "]/a/span"));
     }
 
     public void selectItemByPrefix(String prefix)
     {
-      driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='" + menu.getAttribute("id") + "']/ul/li[starts-with(., '" + prefix + "')]/a/span"));
+      driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='" + menu.getAttribute("id")
+              + "']/ul/li[starts-with(., '" + prefix + "')]/a/span"));
     }
   }
 
