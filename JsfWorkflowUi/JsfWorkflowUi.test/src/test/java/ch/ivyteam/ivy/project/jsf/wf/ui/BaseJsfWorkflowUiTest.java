@@ -18,8 +18,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ch.ivyteam.ivy.server.test.AjaxHelper;
 import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
-import ch.ivyteam.ivy.server.test.ServerControl;
-import ch.ivyteam.ivy.server.test.TestApplication;
 import ch.ivyteam.ivy.server.test.WfNavigator;
 import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper;
 
@@ -57,15 +55,44 @@ public class BaseJsfWorkflowUiTest
   {
     try
     {
-      TestApplication test = new TestApplication(driverHelper.getWebDriver(), ServerControl.getBaseUrl(),
-              ServerControl.getTestApplication());
-      test.login(username, password);
+      loginInternal(username, password);
     }
     catch (Throwable ex)
     {
       System.out.println("LOGIN FAILED with source:" + driverHelper.getWebDriver().getPageSource());
       throw ex;
     }
+  }
+
+  private void loginInternal(String username, String password)
+  {
+    navigate().logout();
+    ajax().findUntilVisible(By.id("loginPageComponent:loginForm"));
+    loginField("username").clear();
+    loginField("username").sendKeys(username);
+    loginWait();
+    loginField("password").clear();
+    loginWait();
+    loginField("password").sendKeys(password);
+    loginField("loginButton").click();
+    ajax().assertElementContains("mainArea", "Home");
+  }
+
+  private void loginWait()
+  {
+    try
+    {
+      Thread.sleep(500);
+    }
+    catch (InterruptedException ex)
+    {
+      ex.printStackTrace();
+    }
+  }
+
+  private WebElement loginField(String name)
+  {
+    return driverHelper.findElement(By.id("loginPageComponent:loginForm:" + name));
   }
 
   protected void createTask(String title, String description, int priority)
