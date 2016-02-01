@@ -1,5 +1,5 @@
-MgrVerifyProcurementRequestData #class
-workflow.humantask.MgrVerifyProcurementRequest #namespace
+MgrVerifyRequestData #class
+workflow.humantask.MgrVerifyRequest #namespace
 procurementRequestData workflow.humantask.ProcurementRequest #field
 procurementRequestData PERSISTENT #fieldModifier
 totalPrice Number #field

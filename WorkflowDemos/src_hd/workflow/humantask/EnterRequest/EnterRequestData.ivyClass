@@ -1,4 +1,4 @@
-EnterProcurementRequestData #class
-workflow.humantask.EnterProcurementRequest #namespace
+EnterRequestData #class
+workflow.humantask.EnterRequest #namespace
 procurementRequestData workflow.humantask.ProcurementRequest #field
 procurementRequestData PERSISTENT #fieldModifier
