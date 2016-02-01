@@ -4,16 +4,22 @@
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>
+        <inputParameter>
+            <name>procurementRequestData</name>
+            <description></description>
+            <parameterType>workflow.humantask.ProcurementRequest</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
         <outputParameter>
             <name>procurementRequestData</name>
             <description></description>
-            <parameterType>workflow.demo.ProcurementRequestData</parameterType>
+            <parameterType>workflow.humantask.ProcurementRequest</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>
-        <value>15254DF5837ED1B3</value>
+        <value>15254DF8F301667E</value>
         <readOnly>true</readOnly>
     </property>
     <property>

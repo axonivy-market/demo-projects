@@ -6,30 +6,29 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:pm="http://primefaces.org/mobile">
-
-<h:body>
-	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title"><h:outputText escape="false" value="AcceptProcurementRequest" /></ui:define>
-		<ui:define name="content">
-	<h3>
-		<h:outputText escape="false" value="#{ivy.cms.co('/Dialogs/procurementRequest/AcceptTitle')}" />
-	</h3>
 	
+<h:body>
+<ui:composition template="/layouts/basic.xhtml">
+<ui:define name="title">VerifyProcurementRequest</ui:define>
+<ui:define name="content">
+	<h3>
+		<h:outputText escape="false" value="#{ivy.cms.co('/Dialogs/procurementRequest/verifyTitle')}" />
+	</h3>	
 	<h:form id="form">
-		<h:outputText escape="false" value="#{ivy.cms.co('/Dialogs/procurementRequest/acceptDescription')}" /><br/><br />
+		<h:outputText escape="false" value="#{ivy.cms.co('/Dialogs/procurementRequest/verifyDescription')}" /><br/><br />
 		<h:outputText value="#{data.procurementRequestData.amount} #{ivy.cms.co('/Dialogs/procurementRequest/piecesOf')} '#{data.procurementRequestData.description}' #{ivy.cms.co('/Dialogs/procurementRequest/forTotal')} #{data.procurementRequestData.totalPrice} #{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')}" /><br /><br />  
 		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/requestedBy')} #{data.procurementRequestData.user.fullname}" /><br /><br />   
-		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/notes')}: #{data.procurementRequestData.notes}" /><br /><br />
-		
-		<h:panelGrid columns="2">
-			<p:selectBooleanCheckbox id="accepted" value="#{data.accepted}" />
-			<p:outputLabel for="accepted" value="#{ivy.cms.co('/Dialogs/procurementRequest/accept')}"/>
-
+		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/notes')}: #{data.procurementRequestData.notes}" rendered="#{!data.procurementRequestData.notes.isEmpty()}" /><br /><br />
+	
+		<h:panelGrid columns="2">							
+			<p:selectBooleanCheckbox id="dataOk" value="#{data.procurementRequestData.dataOkManager}" />		
+			<p:outputLabel for="dataOk" value="#{ivy.cms.co('/Dialogs/procurementRequest/verified')}"/>
+			
 			<br />
 			<p:commandButton actionListener="#{logic.close}" value="#{ivy.cms.co('/Dialogs/general/proceed')}" ajax="false" icon="ui-icon-check" />
 		</h:panelGrid>
 	</h:form>
-		</ui:define>
-		</ui:composition>	
+					</ui:define>
+	</ui:composition>
 </h:body>
 </html>

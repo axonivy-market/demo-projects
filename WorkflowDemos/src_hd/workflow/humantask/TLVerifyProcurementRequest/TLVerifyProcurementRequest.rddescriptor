@@ -7,19 +7,19 @@
         <inputParameter>
             <name>procurementRequestData</name>
             <description></description>
-            <parameterType>workflow.demo.ProcurementRequestData</parameterType>
+            <parameterType>workflow.humantask.ProcurementRequest</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
         <outputParameter>
             <name>procurementRequestData</name>
             <description></description>
-            <parameterType>workflow.demo.ProcurementRequestData</parameterType>
+            <parameterType>workflow.humantask.ProcurementRequest</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>
-        <value>15254DF8F301667E</value>
+        <value>15254DFB88FDB918</value>
         <readOnly>true</readOnly>
     </property>
     <property>

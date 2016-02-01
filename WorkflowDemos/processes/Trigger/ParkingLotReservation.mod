@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 26 14:42:31 CET 2016]
+[>Created: Wed Jan 27 08:36:38 CET 2016]
 15254CF47A16DEA1 3.18 #module
 >Proto >Proto Collection #zClass
 Pn0 ParkingLotReservation Big #zClass
@@ -63,10 +63,10 @@ Pn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pn0 f0 @C|.responsibility Everybody #txt
-Pn0 f0 81 113 30 30 -69 17 #rect
+Pn0 f0 97 185 30 30 -69 17 #rect
 Pn0 f0 @|StartRequestIcon #fIcon
 Pn0 f1 type workflow.trigger.NewEmployeeData #txt
-Pn0 f1 537 113 30 30 0 15 #rect
+Pn0 f1 553 185 30 30 0 15 #rect
 Pn0 f1 @|EndIcon #fIcon
 Pn0 f3 targetWindow NEW:card: #txt
 Pn0 f3 targetDisplay TOP #txt
@@ -93,10 +93,10 @@ Pn0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pn0 f3 168 106 112 44 -53 -8 #rect
+Pn0 f3 184 178 112 44 -53 -8 #rect
 Pn0 f3 @|RichDialogIcon #fIcon
 Pn0 f4 expr out #txt
-Pn0 f4 111 128 168 128 #arcP
+Pn0 f4 127 200 184 200 #arcP
 Pn0 f5 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/parkingLotReservationHeader\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""<%=ivy.cms.co(\\""/Emails/confirmParkingLot\\"")%>""/emailAttachments * }"' #txt
 Pn0 f5 type workflow.trigger.NewEmployeeData #txt
 Pn0 f5 timeout 0 #txt
@@ -109,12 +109,12 @@ Pn0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pn0 f5 360 106 112 44 -46 -8 #rect
+Pn0 f5 376 178 112 44 -46 -8 #rect
 Pn0 f5 @|EMailIcon #fIcon
 Pn0 f6 expr out #txt
-Pn0 f6 280 128 360 128 #arcP
+Pn0 f6 296 200 376 200 #arcP
 Pn0 f2 expr out #txt
-Pn0 f2 472 128 537 128 #arcP
+Pn0 f2 488 200 553 200 #arcP
 Pn0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -125,15 +125,27 @@ startable by a trigger step.</name>
     </language>
 </elementInfo>
 ' #txt
-Pn0 f7 56 10 208 44 -96 -16 #rect
+Pn0 f7 72 82 208 44 -96 -16 #rect
 Pn0 f7 @|IBIcon #fIcon
-Pn0 f8 160 54 90 114 #arcP
+Pn0 f8 176 126 106 186 #arcP
 Pn0 f8 0 0.48544006142993784 0 0 #arcLabel
 >Proto Pn0 .type workflow.trigger.NewEmployeeData #txt
 >Proto Pn0 .processKind NORMAL #txt
 >Proto Pn0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
-    <language/>
+    <language>
+        <swimlaneLabel>Parking Lot Reservation</swimlaneLabel>
+        <swimlaneLabel>Facility Manager</swimlaneLabel>
+    </language>
+    <swimlaneOrientation>false</swimlaneOrientation>
+    <swimlaneSize>248</swimlaneSize>
+    <swimlaneSize>248</swimlaneSize>
+    <swimlaneColor gradient="false">687865804</swimlaneColor>
+    <swimlaneColor gradient="false">16777215</swimlaneColor>
+    <swimlaneType>POOL</swimlaneType>
+    <swimlaneType>LANE_IN_POOL</swimlaneType>
+    <swimlaneSpaceBefore>32</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
 </elementInfo>
 ' #txt
 >Proto Pn0 0 0 32 24 18 0 #rect

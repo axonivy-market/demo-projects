@@ -7,9 +7,6 @@
             <identifier>Teamleader</identifier>
         </role>
         <role>
-            <identifier>Executive</identifier>
-        </role>
-        <role>
             <identifier>Manager</identifier>
             <role>
                 <identifier>HR Manager</identifier>
@@ -22,6 +19,9 @@
             </role>
             <role>
                 <identifier>Office Manager</identifier>
+            </role>
+            <role>
+                <identifier>Executive Manager</identifier>
             </role>
         </role>
     </role>

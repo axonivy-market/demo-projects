@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 26 14:42:13 CET 2016]
+[>Created: Wed Jan 27 08:35:14 CET 2016]
 15254CF1CE56AE72 3.18 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
@@ -124,10 +124,19 @@ Tr0 f10 @|EMailIcon #fIcon
 Tr0 f2 expr out #txt
 Tr0 f2 752 184 801 184 #arcP
 Tr0 f12 expr in #txt
+Tr0 f12 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>No</name>
+        <nameStyle>2,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Tr0 f12 400 168 688 162 #arcP
 Tr0 f12 1 400 144 #addKink
 Tr0 f12 2 688 144 #addKink
-Tr0 f12 1 0.5020161290322581 0 0 #arcLabel
+Tr0 f12 1 0.3888888888888889 0 -9 #arcLabel
 Tr0 f6 expr out #txt
 Tr0 f6 103 184 176 184 #arcP
 Tr0 f8 expr out #txt
@@ -171,7 +180,17 @@ Tr0 f13 480 162 112 44 -53 -8 #rect
 Tr0 f13 @|TriggerIcon #fIcon
 Tr0 f14 expr in #txt
 Tr0 f14 outCond in.needsParkingLot #txt
+Tr0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Yes</name>
+        <nameStyle>3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 Tr0 f14 416 184 480 184 #arcP
+Tr0 f14 0 0.46875 0 -6 #arcLabel
 Tr0 f4 expr out #txt
 Tr0 f4 592 184 624 184 #arcP
 >Proto Tr0 .type workflow.trigger.NewEmployeeData #txt
@@ -185,8 +204,8 @@ Tr0 f4 592 184 624 184 #arcP
     <swimlaneOrientation>false</swimlaneOrientation>
     <swimlaneSize>224</swimlaneSize>
     <swimlaneSize>224</swimlaneSize>
-    <swimlaneColor gradient="false">-52</swimlaneColor>
-    <swimlaneColor gradient="false">-52</swimlaneColor>
+    <swimlaneColor gradient="false">687865804</swimlaneColor>
+    <swimlaneColor gradient="false">687865804</swimlaneColor>
     <swimlaneType>POOL</swimlaneType>
     <swimlaneType>LANE_IN_POOL</swimlaneType>
     <swimlaneSpaceBefore>32</swimlaneSpaceBefore>

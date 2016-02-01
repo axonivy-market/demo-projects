@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 15:14:39 CET 2016]
+[>Created: Tue Jan 26 16:41:42 CET 2016]
 1525503525CD0CCC 3.18 #module
 >Proto >Proto Collection #zClass
 ds0 define_WFProcess Big #zClass
@@ -402,7 +402,17 @@ ds0 f23 expr out #txt
 ds0 f23 232 160 272 160 #arcP
 ds0 f6 expr in #txt
 ds0 f6 outCond 'in.errormsg.length() == 0' #txt
+ds0 f6 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Yes</name>
+        <nameStyle>3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 ds0 f6 304 160 531 160 #arcP
+ds0 f6 0 0.4977973568281938 0 7 #arcLabel
 ds0 f24 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f24 531 99 26 26 0 12 #rect
 ds0 f24 @|RichDialogProcessEndIcon #fIcon
@@ -429,9 +439,18 @@ ds0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ds0 f26 360 90 112 44 -27 -8 #rect
 ds0 f26 @|StepIcon #fIcon
 ds0 f27 expr in #txt
+ds0 f27 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>No</name>
+        <nameStyle>2,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
 ds0 f27 288 144 360 112 #arcP
 ds0 f27 1 288 112 #addKink
-ds0 f27 1 0.3735742203768011 0 0 #arcLabel
+ds0 f27 1 0.3611111111111111 0 -8 #arcLabel
 ds0 f25 expr out #txt
 ds0 f25 472 112 531 112 #arcP
 ds0 f25 0 0.3735742203768011 0 0 #arcLabel

@@ -1,5 +1,5 @@
 User #class
-workflow.demo #namespace
+workflow.humantask #namespace
 fullname String #field
 fullname PERSISTENT #fieldModifier
 email String #field

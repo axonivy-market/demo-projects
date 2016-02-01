@@ -1,5 +1,5 @@
-ProcurementRequestData #class
-workflow.demo #namespace
+ProcurementRequest #class
+workflow.humantask #namespace
 amount Number #field
 amount PERSISTENT #fieldModifier
 description String #field
@@ -16,5 +16,5 @@ dataOkTeamLeader Boolean #field
 dataOkTeamLeader PERSISTENT #fieldModifier
 totalPrice Number #field
 totalPrice PERSISTENT #fieldModifier
-user workflow.demo.User #field
+user workflow.humantask.User #field
 user PERSISTENT #fieldModifier
