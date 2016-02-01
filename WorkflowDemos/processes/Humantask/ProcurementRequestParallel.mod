@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 01 11:29:41 CET 2016]
+[>Created: Mon Feb 01 11:52:55 CET 2016]
 15254DC87A1B183B 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestParallel Big #zClass
@@ -42,7 +42,7 @@ Pt0 @PushWFArc f18 '' #zField
 >Proto Pt0 Pt0 ProcurementRequestParallel #zField
 Pt0 f6 targetWindow NEW:card: #txt
 Pt0 f6 targetDisplay TOP #txt
-Pt0 f6 richDialogId workflow.humantask.MgrVerifyProcurementRequest #txt
+Pt0 f6 richDialogId workflow.humantask.VerifyRequest #txt
 Pt0 f6 startMethod start(workflow.humantask.ProcurementRequest) #txt
 Pt0 f6 type workflow.humantask.ProcurementRequest #txt
 Pt0 f6 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequestData> param;' #txt
@@ -51,7 +51,7 @@ Pt0 f6 requestMappingAction 'param.procurementRequestData=in;
 Pt0 f6 responseActionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f6 responseMappingAction 'out=in;
-out.dataOkManager=result.procurementRequestData.dataOkManager;
+out.dataOkManager=result.dataOk;
 ' #txt
 Pt0 f6 windowConfiguration '* ' #txt
 Pt0 f6 isAsynch false #txt
@@ -150,13 +150,14 @@ Pt0 f7 512 328 32 32 0 16 #rect
 Pt0 f7 @|TaskSwitchIcon #fIcon
 Pt0 f3 targetWindow NEW:card: #txt
 Pt0 f3 targetDisplay TOP #txt
-Pt0 f3 richDialogId workflow.humantask.EnterProcurementRequest #txt
+Pt0 f3 richDialogId workflow.humantask.EnterRequest #txt
 Pt0 f3 startMethod start() #txt
 Pt0 f3 type workflow.humantask.ProcurementRequest #txt
 Pt0 f3 requestActionDecl '<> param;' #txt
 Pt0 f3 responseActionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f3 responseMappingAction 'out=result.procurementRequestData;
+out.totalPrice=result.procurementRequestData.amount * result.procurementRequestData.pricePerUnit;
 ' #txt
 Pt0 f3 windowConfiguration '* ' #txt
 Pt0 f3 isAsynch false #txt
@@ -176,7 +177,6 @@ Pt0 f3 @|RichDialogIcon #fIcon
 Pt0 f2 actionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f2 actionTable 'out=in1;
-out.totalPrice=in1.amount * in1.pricePerUnit;
 ' #txt
 Pt0 f2 outTypes "workflow.humantask.ProcurementRequest","workflow.humantask.ProcurementRequest" #txt
 Pt0 f2 outLinks "TaskA.ivp","TaskB.ivp" #txt
@@ -225,7 +225,7 @@ Pt0 f2 296 328 32 32 0 16 #rect
 Pt0 f2 @|TaskSwitchIcon #fIcon
 Pt0 f5 targetWindow NEW:card: #txt
 Pt0 f5 targetDisplay TOP #txt
-Pt0 f5 richDialogId workflow.humantask.TLVerifyProcurementRequest #txt
+Pt0 f5 richDialogId workflow.humantask.VerifyRequest #txt
 Pt0 f5 startMethod start(workflow.humantask.ProcurementRequest) #txt
 Pt0 f5 type workflow.humantask.ProcurementRequest #txt
 Pt0 f5 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequestData> param;' #txt
@@ -234,7 +234,7 @@ Pt0 f5 requestMappingAction 'param.procurementRequestData=in;
 Pt0 f5 responseActionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f5 responseMappingAction 'out=in;
-out.dataOkTeamLeader=result.procurementRequestData.dataOkTeamLeader;
+out.dataOkTeamLeader=result.dataOk;
 ' #txt
 Pt0 f5 windowConfiguration '* ' #txt
 Pt0 f5 isAsynch false #txt
@@ -286,7 +286,7 @@ Pt0 f15 expr out #txt
 Pt0 f15 824 160 857 160 #arcP
 Pt0 f16 targetWindow NEW:card: #txt
 Pt0 f16 targetDisplay TOP #txt
-Pt0 f16 richDialogId workflow.humantask.AcceptProcurementRequest #txt
+Pt0 f16 richDialogId workflow.humantask.AcceptRequest #txt
 Pt0 f16 startMethod start(workflow.humantask.ProcurementRequest) #txt
 Pt0 f16 type workflow.humantask.ProcurementRequest #txt
 Pt0 f16 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequestData> param;' #txt

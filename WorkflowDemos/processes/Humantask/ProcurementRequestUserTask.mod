@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jan 27 08:34:05 CET 2016]
+[>Created: Mon Feb 01 11:49:46 CET 2016]
 15254DCE818AD7A2 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
@@ -75,7 +75,7 @@ Pt0 f1 913 129 30 30 0 15 #rect
 Pt0 f1 @|EndIcon #fIcon
 Pt0 f3 targetWindow NEW:card: #txt
 Pt0 f3 targetDisplay TOP #txt
-Pt0 f3 richDialogId workflow.humantask.EnterProcurementRequest #txt
+Pt0 f3 richDialogId workflow.humantask.EnterRequest #txt
 Pt0 f3 startMethod start() #txt
 Pt0 f3 type workflow.humantask.ProcurementRequest #txt
 Pt0 f3 requestActionDecl '<> param;' #txt
@@ -101,7 +101,7 @@ Pt0 f3 168 122 112 44 -39 -8 #rect
 Pt0 f3 @|RichDialogIcon #fIcon
 Pt0 f4 expr out #txt
 Pt0 f4 111 144 168 144 #arcP
-Pt0 f5 richDialogId workflow.humantask.MgrVerifyProcurementRequest #txt
+Pt0 f5 richDialogId workflow.humantask.VerifyRequest #txt
 Pt0 f5 startMethod start(workflow.humantask.ProcurementRequest) #txt
 Pt0 f5 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequestData> param;' #txt
 Pt0 f5 requestMappingAction 'param.procurementRequestData=in;
@@ -109,7 +109,8 @@ param.procurementRequestData.totalPrice=in.amount * in.pricePerUnit;
 ' #txt
 Pt0 f5 responseActionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
-Pt0 f5 responseMappingAction 'out=result.procurementRequestData;
+Pt0 f5 responseMappingAction 'out=in;
+out.dataOkManager=result.dataOk;
 ' #txt
 Pt0 f5 outLinks "TaskA.ivp" #txt
 Pt0 f5 taskData 'TaskA.EXPRI=2
@@ -138,7 +139,7 @@ Pt0 f6 var in1 #txt
 Pt0 f6 224 166 328 336 #arcP
 Pt0 f6 1 224 336 #addKink
 Pt0 f6 0 0.9750159348993512 0 0 #arcLabel
-Pt0 f7 richDialogId workflow.humantask.AcceptProcurementRequest #txt
+Pt0 f7 richDialogId workflow.humantask.AcceptRequest #txt
 Pt0 f7 startMethod start(workflow.humantask.ProcurementRequest) #txt
 Pt0 f7 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequestData> param;' #txt
 Pt0 f7 requestMappingAction 'param.procurementRequestData=in;

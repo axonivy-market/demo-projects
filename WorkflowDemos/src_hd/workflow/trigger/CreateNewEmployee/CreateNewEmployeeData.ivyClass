@@ -1,4 +1,4 @@
-EnterNewEmployeeDataData #class
-workflow.trigger.EnterNewEmployeeData #namespace
+CreateNewEmployeeData #class
+workflow.trigger.CreateNewEmployee #namespace
 newEmployeeData workflow.trigger.NewEmployeeData #field
 newEmployeeData PERSISTENT #fieldModifier

@@ -1,5 +1,4 @@
 AcceptRequestData #class
 workflow.humantask.AcceptRequest #namespace
-accepted Boolean #field
+ok Boolean #field
 procurementRequestData workflow.humantask.ProcurementRequest #field
-totalPrice Number #field

@@ -2,7 +2,7 @@
 [>Created: Mon Jan 18 14:04:09 CET 2016]
 15254CFABE5EF2E5 3.18 #module
 >Proto >Proto Collection #zClass
-Es0 EnterNewEmployeeDataProcess Big #zClass
+Es0 CreateNewEmployeeProcess Big #zClass
 Es0 RD #cInfo
 Es0 #process
 Es0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
@@ -21,9 +21,9 @@ Es0 @PushWFArc f2 '' #zField
 Es0 @RichDialogProcessStart f3 '' #zField
 Es0 @RichDialogEnd f4 '' #zField
 Es0 @PushWFArc f5 '' #zField
->Proto Es0 Es0 EnterNewEmployeeDataProcess #zField
+>Proto Es0 Es0 CreateNewEmployeeProcess #zField
 Es0 f0 guid 1508AB08E1F988C2 #txt
-Es0 f0 type workflow.trigger.EnterNewEmployeeData.EnterNewEmployeeDataData #txt
+Es0 f0 type workflow.trigger.CreateNewEmployee.CreateNewEmployeeData #txt
 Es0 f0 method start(workflow.trigger.NewEmployeeData) #txt
 Es0 f0 disableUIEvents true #txt
 Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
@@ -46,14 +46,14 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Es0 f0 83 51 26 26 -16 15 #rect
 Es0 f0 @|RichDialogInitStartIcon #fIcon
-Es0 f1 type workflow.trigger.EnterNewEmployeeData.EnterNewEmployeeDataData #txt
+Es0 f1 type workflow.trigger.CreateNewEmployee.CreateNewEmployeeData #txt
 Es0 f1 211 51 26 26 0 12 #rect
 Es0 f1 @|RichDialogProcessEndIcon #fIcon
 Es0 f2 expr out #txt
 Es0 f2 109 64 211 64 #arcP
 Es0 f3 guid 1508AB08E37B1C19 #txt
-Es0 f3 type workflow.trigger.EnterNewEmployeeData.EnterNewEmployeeDataData #txt
-Es0 f3 actionDecl 'workflow.trigger.EnterNewEmployeeData.EnterNewEmployeeDataData out;
+Es0 f3 type workflow.trigger.CreateNewEmployee.CreateNewEmployeeData #txt
+Es0 f3 actionDecl 'workflow.trigger.CreateNewEmployee.CreateNewEmployeeData out;
 ' #txt
 Es0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -64,13 +64,13 @@ Es0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Es0 f3 83 147 26 26 -15 12 #rect
 Es0 f3 @|RichDialogProcessStartIcon #fIcon
-Es0 f4 type workflow.trigger.EnterNewEmployeeData.EnterNewEmployeeDataData #txt
+Es0 f4 type workflow.trigger.CreateNewEmployee.CreateNewEmployeeData #txt
 Es0 f4 guid 1508AB08E382A9E9 #txt
 Es0 f4 211 147 26 26 0 12 #rect
 Es0 f4 @|RichDialogEndIcon #fIcon
 Es0 f5 expr out #txt
 Es0 f5 109 160 211 160 #arcP
->Proto Es0 .type workflow.trigger.EnterNewEmployeeData.EnterNewEmployeeDataData #txt
+>Proto Es0 .type workflow.trigger.CreateNewEmployee.CreateNewEmployeeData #txt
 >Proto Es0 .processKind HTML_DIALOG #txt
 >Proto Es0 -8 -8 16 16 16 26 #rect
 >Proto Es0 '' #fIcon

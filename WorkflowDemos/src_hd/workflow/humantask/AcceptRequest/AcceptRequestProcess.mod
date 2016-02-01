@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 14:19:23 CET 2016]
+[>Created: Mon Feb 01 12:04:49 CET 2016]
 15254DF1CAEC5132 3.18 #module
 >Proto >Proto Collection #zClass
 As0 AcceptRequestProcess Big #zClass
@@ -33,7 +33,7 @@ As0 f0 inParameterMapAction 'out.procurementRequestData=param.procurementRequest
 ' #txt
 As0 f0 outParameterDecl '<java.lang.Boolean accepted> result;
 ' #txt
-As0 f0 outParameterMapAction 'result.accepted=in.accepted;
+As0 f0 outParameterMapAction 'result.accepted=in.ok;
 ' #txt
 As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

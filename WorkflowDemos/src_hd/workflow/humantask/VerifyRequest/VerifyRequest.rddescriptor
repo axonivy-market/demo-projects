@@ -11,15 +11,15 @@
             <nullPermitted>false</nullPermitted>
         </inputParameter>
         <outputParameter>
-            <name>procurementRequestData</name>
+            <name>dataOk</name>
             <description></description>
-            <parameterType>workflow.humantask.ProcurementRequest</parameterType>
+            <parameterType>Boolean</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>
-        <value>15254DFB88FDB918</value>
+        <value>15254DF8F301667E</value>
         <readOnly>true</readOnly>
     </property>
     <property>

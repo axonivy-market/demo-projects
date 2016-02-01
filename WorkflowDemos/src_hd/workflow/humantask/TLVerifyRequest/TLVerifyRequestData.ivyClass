@@ -1,5 +1,0 @@
-TLVerifyRequestData #class
-workflow.humantask.TLVerifyRequest #namespace
-procurementRequestData workflow.humantask.ProcurementRequest #field
-procurementRequestData PERSISTENT #fieldModifier
-totalPrice Number #field

@@ -68,7 +68,7 @@ Tr0 f0 73 169 30 30 -21 17 #rect
 Tr0 f0 @|StartRequestIcon #fIcon
 Tr0 f5 targetWindow NEW:card: #txt
 Tr0 f5 targetDisplay TOP #txt
-Tr0 f5 richDialogId workflow.trigger.EnterNewEmployeeData #txt
+Tr0 f5 richDialogId workflow.trigger.CreateNewEmployee #txt
 Tr0 f5 startMethod start(workflow.trigger.NewEmployeeData) #txt
 Tr0 f5 type workflow.trigger.NewEmployeeData #txt
 Tr0 f5 requestActionDecl '<workflow.trigger.NewEmployeeData newEmployeeData> param;' #txt

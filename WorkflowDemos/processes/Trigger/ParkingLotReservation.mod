@@ -70,7 +70,7 @@ Pn0 f1 553 185 30 30 0 15 #rect
 Pn0 f1 @|EndIcon #fIcon
 Pn0 f3 targetWindow NEW:card: #txt
 Pn0 f3 targetDisplay TOP #txt
-Pn0 f3 richDialogId workflow.trigger.ParkingLotReservation #txt
+Pn0 f3 richDialogId workflow.trigger.ReserveParkingLot #txt
 Pn0 f3 startMethod start(workflow.trigger.NewEmployeeData) #txt
 Pn0 f3 type workflow.trigger.NewEmployeeData #txt
 Pn0 f3 requestActionDecl '<workflow.trigger.NewEmployeeData employee> param;' #txt
