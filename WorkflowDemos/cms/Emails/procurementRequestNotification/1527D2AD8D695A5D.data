@@ -1,6 +1,6 @@
-<P>
+<H1>
 Hello <%=in.requester.fullName%>
-</P>
+</H1>
 <P>
 Your request has been <%=(in.accepted ? "accepted" : "declined")%>:
 </P>

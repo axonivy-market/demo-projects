@@ -11,12 +11,28 @@
 <cc:interface componentType="IvyComponent" />
 
 <cc:implementation>
-	<h:outputText value="#{data.procurementRequestData.amount} #{ivy.cms.co('/Dialogs/procurementRequest/piecesOf')} '#{data.procurementRequestData.description}' #{ivy.cms.co('/Dialogs/procurementRequest/forTotal')} " />
-	<h:outputText value="#{data.procurementRequestData.totalPrice}">
-		<f:convertNumber pattern="###,###.00 #{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')}" locale="de_CH" />
-	</h:outputText><br />  
-	<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/notes')}: #{data.procurementRequestData.notes}" rendered="#{!data.procurementRequestData.notes.isEmpty()}" /><br />
-			
+	<p:panelGrid columns="2" layout="grid" >
+		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/description')}" />
+		<h:outputText value="#{data.procurementRequestData.description}" />
+		
+		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/amount')}" />
+		<h:outputText value="#{data.procurementRequestData.amount}" >
+			<f:convertNumber pattern="###,###" locale="#{ivy.cms.co('/Dialogs/general/locale')}" />
+		</h:outputText>
+		
+		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/pricePerUnit')}" />
+		<h:outputText value="#{data.procurementRequestData.pricePerUnit}" >
+			<f:convertNumber pattern="###,###.00 #{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')}" locale="#{ivy.cms.co('/Dialogs/general/locale')}" />
+		</h:outputText>
+	
+		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/totalPrice')}" />
+		<h:outputText value="#{data.procurementRequestData.totalPrice}">
+			<f:convertNumber pattern="###,###.00 #{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')}" locale="#{ivy.cms.co('/Dialogs/general/locale')}" />
+		</h:outputText>
+	
+		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/notes')}" rendered="#{!data.procurementRequestData.notes.isEmpty()}" />
+		<h:outputText value="#{data.procurementRequestData.notes}" rendered="#{!data.procurementRequestData.notes.isEmpty()}" />
+	</p:panelGrid>		
 </cc:implementation>
 
 </html>

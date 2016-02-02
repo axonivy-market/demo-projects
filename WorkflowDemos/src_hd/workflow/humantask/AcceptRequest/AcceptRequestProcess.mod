@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 02 15:24:20 CET 2016]
+[>Created: Tue Feb 02 16:32:28 CET 2016]
 15254DF1CAEC5132 3.18 #module
 >Proto >Proto Collection #zClass
 As0 AcceptRequestProcess Big #zClass
@@ -86,6 +86,7 @@ As0 f8 type workflow.humantask.AcceptRequest.AcceptRequestData #txt
 As0 f8 actionDecl 'workflow.humantask.AcceptRequest.AcceptRequestData out;
 ' #txt
 As0 f8 actionTable 'out=in;
+out.ok=true;
 ' #txt
 As0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -103,15 +104,18 @@ As0 f14 type workflow.humantask.AcceptRequest.AcceptRequestData #txt
 As0 f14 actionDecl 'workflow.humantask.AcceptRequest.AcceptRequestData out;
 ' #txt
 As0 f14 actionTable 'out=in;
+out.ok=false;
 ' #txt
 As0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>decline</name>
+        <nameStyle>7,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-As0 f14 83 211 26 26 -20 12 #rect
+As0 f14 83 211 26 26 -20 15 #rect
 As0 f14 @|RichDialogProcessStartIcon #fIcon
 As0 f11 expr out #txt
 As0 f11 109 160 168 160 #arcP

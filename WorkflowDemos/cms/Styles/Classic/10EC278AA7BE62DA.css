@@ -1,9 +1,9 @@
 H1, H2, H3, H4 { font-family:Arial, Helvetica, sans-serif }
 H1 {
 	font-size:16pt;
-	font-weight:lighter;
+	font-weight:bold;
 	color: #FFFFFF;
-	background-color: #406A9D;
+	background-color: #AFCA05;
 	padding: 4px;
 }
 H2 { font-size:14pt; font-weight:lighter }
