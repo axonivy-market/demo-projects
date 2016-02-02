@@ -1,6 +1,6 @@
 User #class
 workflow.humantask #namespace
-fullname String #field
-fullname PERSISTENT #fieldModifier
+fullName String #field
+fullName PERSISTENT #fieldModifier
 email String #field
 email PERSISTENT #fieldModifier

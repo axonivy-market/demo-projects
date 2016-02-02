@@ -16,5 +16,7 @@ dataOkTeamLeader Boolean #field
 dataOkTeamLeader PERSISTENT #fieldModifier
 totalPrice Number #field
 totalPrice PERSISTENT #fieldModifier
-user workflow.humantask.User #field
-user PERSISTENT #fieldModifier
+requester workflow.humantask.User #field
+requester PERSISTENT #fieldModifier
+activityLog List<workflow.humantask.LogEntry> #field
+activityLog PERSISTENT #fieldModifier

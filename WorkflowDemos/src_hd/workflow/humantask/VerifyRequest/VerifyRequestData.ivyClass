@@ -1,6 +1,8 @@
 VerifyRequestData #class
 workflow.humantask.VerifyRequest #namespace
-procurementRequestData workflow.humantask.ProcurementRequest #field
-procurementRequestData PERSISTENT #fieldModifier
+procurementRequest workflow.humantask.ProcurementRequest #field
+procurementRequest PERSISTENT #fieldModifier
 ok Boolean #field
 ok PERSISTENT #fieldModifier
+logEntry workflow.humantask.LogEntry #field
+logEntry PERSISTENT #fieldModifier

@@ -1,5 +1,5 @@
 <P>
-Hello <%=in.user.fullname%>
+Hello <%=in.requester.fullName%>
 </P>
 <P>
 Your request has been <%=(in.accepted ? "accepted" : "declined")%>:

@@ -5,27 +5,15 @@
         <name>start</name>
         <description>Default dialog start method.</description>
         <inputParameter>
-            <name>procurementRequest</name>
+            <name>procurementRequestData</name>
             <description></description>
             <parameterType>workflow.humantask.ProcurementRequest</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
-        <outputParameter>
-            <name>accepted</name>
-            <description></description>
-            <parameterType>Boolean</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </outputParameter>
-        <outputParameter>
-            <name>logEntry</name>
-            <description></description>
-            <parameterType>workflow.humantask.LogEntry</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>
-        <value>15254DF1CAE19D31</value>
+        <value>152A20D5ED9861E2</value>
         <readOnly>true</readOnly>
     </property>
     <property>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 01 11:49:46 CET 2016]
+[>Created: Tue Feb 02 15:17:56 CET 2016]
 15254DCE818AD7A2 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
@@ -82,6 +82,7 @@ Pt0 f3 requestActionDecl '<> param;' #txt
 Pt0 f3 responseActionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f3 responseMappingAction 'out=result.procurementRequestData;
+out.activityLog=in.activityLog.add(result.logEntry);
 out.totalPrice=result.procurementRequestData.amount * result.procurementRequestData.pricePerUnit;
 ' #txt
 Pt0 f3 windowConfiguration '* ' #txt
@@ -103,13 +104,13 @@ Pt0 f4 expr out #txt
 Pt0 f4 111 144 168 144 #arcP
 Pt0 f5 richDialogId workflow.humantask.VerifyRequest #txt
 Pt0 f5 startMethod start(workflow.humantask.ProcurementRequest) #txt
-Pt0 f5 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequestData> param;' #txt
-Pt0 f5 requestMappingAction 'param.procurementRequestData=in;
-param.procurementRequestData.totalPrice=in.amount * in.pricePerUnit;
+Pt0 f5 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequest> param;' #txt
+Pt0 f5 requestMappingAction 'param.procurementRequest=in;
 ' #txt
 Pt0 f5 responseActionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f5 responseMappingAction 'out=in;
+out.activityLog=in.activityLog.add(result.logEntry);
 out.dataOkManager=result.dataOk;
 ' #txt
 Pt0 f5 outLinks "TaskA.ivp" #txt
@@ -141,13 +142,14 @@ Pt0 f6 1 224 336 #addKink
 Pt0 f6 0 0.9750159348993512 0 0 #arcLabel
 Pt0 f7 richDialogId workflow.humantask.AcceptRequest #txt
 Pt0 f7 startMethod start(workflow.humantask.ProcurementRequest) #txt
-Pt0 f7 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequestData> param;' #txt
-Pt0 f7 requestMappingAction 'param.procurementRequestData=in;
+Pt0 f7 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequest> param;' #txt
+Pt0 f7 requestMappingAction 'param.procurementRequest=in;
 ' #txt
 Pt0 f7 responseActionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f7 responseMappingAction 'out=in;
 out.accepted=result.accepted;
+out.activityLog=in.activityLog.add(result.logEntry);
 ' #txt
 Pt0 f7 outLinks "TaskA.ivp" #txt
 Pt0 f7 taskData 'TaskA.EXPRI=2
@@ -170,7 +172,7 @@ Pt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Pt0 f7 584 506 112 44 -43 -8 #rect
 Pt0 f7 @|UserTaskIcon #fIcon
-Pt0 f9 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%><%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%> \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.user.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>""/emailAttachments * }"' #txt
+Pt0 f9 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%><%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%> \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.requester.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>""/emailAttachments * }"' #txt
 Pt0 f9 type workflow.humantask.ProcurementRequest #txt
 Pt0 f9 timeout 0 #txt
 Pt0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

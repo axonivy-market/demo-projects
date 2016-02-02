@@ -1,0 +1,4 @@
+RequestLogData #class
+workflow.humantask.RequestLog #namespace
+procurementRequest workflow.humantask.ProcurementRequest #field
+procurementRequest PERSISTENT #fieldModifier

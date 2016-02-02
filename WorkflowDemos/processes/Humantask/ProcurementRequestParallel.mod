@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 01 11:52:55 CET 2016]
+[>Created: Tue Feb 02 15:17:44 CET 2016]
 15254DC87A1B183B 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestParallel Big #zClass
@@ -45,12 +45,13 @@ Pt0 f6 targetDisplay TOP #txt
 Pt0 f6 richDialogId workflow.humantask.VerifyRequest #txt
 Pt0 f6 startMethod start(workflow.humantask.ProcurementRequest) #txt
 Pt0 f6 type workflow.humantask.ProcurementRequest #txt
-Pt0 f6 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequestData> param;' #txt
-Pt0 f6 requestMappingAction 'param.procurementRequestData=in;
+Pt0 f6 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequest> param;' #txt
+Pt0 f6 requestMappingAction 'param.procurementRequest=in;
 ' #txt
 Pt0 f6 responseActionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f6 responseMappingAction 'out=in;
+out.activityLog=in.activityLog.add(result.logEntry);
 out.dataOkManager=result.dataOk;
 ' #txt
 Pt0 f6 windowConfiguration '* ' #txt
@@ -113,7 +114,9 @@ Pt0 f1 @|EndIcon #fIcon
 Pt0 f7 actionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f7 actionTable 'out=in1;
+out.activityLog=in1.activityLog.removeAll(in2.activityLog).addAll(in2.activityLog);
 out.dataOkManager=in2.dataOkManager;
+out.dataOkTeamLeader=in1.dataOkTeamLeader;
 ' #txt
 Pt0 f7 outTypes "workflow.humantask.ProcurementRequest" #txt
 Pt0 f7 outLinks "TaskB.ivp" #txt
@@ -157,6 +160,7 @@ Pt0 f3 requestActionDecl '<> param;' #txt
 Pt0 f3 responseActionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f3 responseMappingAction 'out=result.procurementRequestData;
+out.activityLog=in.activityLog.add(result.logEntry);
 out.totalPrice=result.procurementRequestData.amount * result.procurementRequestData.pricePerUnit;
 ' #txt
 Pt0 f3 windowConfiguration '* ' #txt
@@ -228,12 +232,13 @@ Pt0 f5 targetDisplay TOP #txt
 Pt0 f5 richDialogId workflow.humantask.VerifyRequest #txt
 Pt0 f5 startMethod start(workflow.humantask.ProcurementRequest) #txt
 Pt0 f5 type workflow.humantask.ProcurementRequest #txt
-Pt0 f5 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequestData> param;' #txt
-Pt0 f5 requestMappingAction 'param.procurementRequestData=in;
+Pt0 f5 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequest> param;' #txt
+Pt0 f5 requestMappingAction 'param.procurementRequest=in;
 ' #txt
 Pt0 f5 responseActionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f5 responseMappingAction 'out=in;
+out.activityLog=in.activityLog.add(result.logEntry);
 out.dataOkTeamLeader=result.dataOk;
 ' #txt
 Pt0 f5 windowConfiguration '* ' #txt
@@ -251,7 +256,7 @@ Pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Pt0 f5 360 322 112 44 -39 -8 #rect
 Pt0 f5 @|RichDialogIcon #fIcon
-Pt0 f8 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%><%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%>  \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.user.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>""/emailAttachments * }"' #txt
+Pt0 f8 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%><%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%>  \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.requester.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>""/emailAttachments * }"' #txt
 Pt0 f8 type workflow.humantask.ProcurementRequest #txt
 Pt0 f8 timeout 0 #txt
 Pt0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -289,13 +294,14 @@ Pt0 f16 targetDisplay TOP #txt
 Pt0 f16 richDialogId workflow.humantask.AcceptRequest #txt
 Pt0 f16 startMethod start(workflow.humantask.ProcurementRequest) #txt
 Pt0 f16 type workflow.humantask.ProcurementRequest #txt
-Pt0 f16 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequestData> param;' #txt
-Pt0 f16 requestMappingAction 'param.procurementRequestData=in;
+Pt0 f16 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequest> param;' #txt
+Pt0 f16 requestMappingAction 'param.procurementRequest=in;
 ' #txt
 Pt0 f16 responseActionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f16 responseMappingAction 'out=in;
 out.accepted=result.accepted;
+out.activityLog=in.activityLog.add(result.logEntry);
 ' #txt
 Pt0 f16 windowConfiguration '* ' #txt
 Pt0 f16 isAsynch false #txt

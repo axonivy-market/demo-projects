@@ -1,0 +1,4 @@
+RequestDetailsData #class
+workflow.humantask.RequestDetails #namespace
+procurementRequestData workflow.humantask.ProcurementRequest #field
+procurementRequestData PERSISTENT #fieldModifier

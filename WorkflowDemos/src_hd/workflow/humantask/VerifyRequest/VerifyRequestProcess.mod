@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 01 12:05:27 CET 2016]
+[>Created: Tue Feb 02 15:24:47 CET 2016]
 15254DF8F30D6949 3.18 #module
 >Proto >Proto Collection #zClass
 Vs0 VerifyRequestProcess Big #zClass
@@ -17,64 +17,121 @@ Vs0 @TextInP .xml .xml #zField
 Vs0 @TextInP .responsibility .responsibility #zField
 Vs0 @RichDialogInitStart f0 '' #zField
 Vs0 @RichDialogProcessEnd f1 '' #zField
-Vs0 @RichDialogProcessStart f3 '' #zField
 Vs0 @RichDialogEnd f4 '' #zField
-Vs0 @PushWFArc f5 '' #zField
 Vs0 @PushWFArc f2 '' #zField
+Vs0 @GridStep f6 '' #zField
+Vs0 @PushWFArc f5 '' #zField
+Vs0 @RichDialogProcessStart f8 '' #zField
+Vs0 @RichDialogProcessStart f11 '' #zField
+Vs0 @PushWFArc f14 '' #zField
+Vs0 @PushWFArc f9 '' #zField
 >Proto Vs0 Vs0 VerifyRequestProcess #zField
 Vs0 f0 guid 14FAE07217F2117A #txt
 Vs0 f0 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
 Vs0 f0 method start(workflow.humantask.ProcurementRequest) #txt
 Vs0 f0 disableUIEvents true #txt
 Vs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<workflow.humantask.ProcurementRequest procurementRequestData> param = methodEvent.getInputArguments();
+<workflow.humantask.ProcurementRequest procurementRequest> param = methodEvent.getInputArguments();
 ' #txt
-Vs0 f0 inParameterMapAction 'out.procurementRequestData=param.procurementRequestData;
+Vs0 f0 inParameterMapAction 'out.procurementRequest=param.procurementRequest;
 ' #txt
-Vs0 f0 outParameterDecl '<java.lang.Boolean dataOk> result;
+Vs0 f0 outParameterDecl '<java.lang.Boolean dataOk,workflow.humantask.LogEntry logEntry> result;
 ' #txt
 Vs0 f0 outParameterMapAction 'result.dataOk=in.ok;
+result.logEntry=in.logEntry;
 ' #txt
 Vs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(ProcurementRequestData)</name>
-        <nameStyle>29,5,7
+        <name>start(ProcurementRequest)</name>
+        <nameStyle>25,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Vs0 f0 83 51 26 26 -88 15 #rect
+Vs0 f0 83 51 26 26 -75 15 #rect
 Vs0 f0 @|RichDialogInitStartIcon #fIcon
 Vs0 f1 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
 Vs0 f1 339 51 26 26 0 12 #rect
 Vs0 f1 @|RichDialogProcessEndIcon #fIcon
-Vs0 f3 guid 14FAE0721B1EC7B7 #txt
-Vs0 f3 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
-Vs0 f3 actionDecl 'workflow.humantask.VerifyRequest.VerifyRequestData out;
+Vs0 f4 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
+Vs0 f4 guid 14FAE0721B237A55 #txt
+Vs0 f4 339 147 26 26 0 12 #rect
+Vs0 f4 @|RichDialogEndIcon #fIcon
+Vs0 f2 expr out #txt
+Vs0 f2 109 64 339 64 #arcP
+Vs0 f6 actionDecl 'workflow.humantask.VerifyRequest.VerifyRequestData out;
 ' #txt
-Vs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Vs0 f6 actionTable 'out=in;
+out.logEntry.activity=ivy.cms.co("/Dialogs/procurementRequest/verifiedBy");
+out.logEntry.timestamp=new DateTime();
+out.logEntry.user.fullName=ivy.session.getSessionUser().fullName;
+' #txt
+Vs0 f6 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
+Vs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>close</name>
+        <name>Init LogEntry</name>
+        <nameStyle>13,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Vs0 f3 83 147 26 26 -15 12 #rect
-Vs0 f3 @|RichDialogProcessStartIcon #fIcon
-Vs0 f4 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
-Vs0 f4 guid 14FAE0721B237A55 #txt
-Vs0 f4 211 147 26 26 0 12 #rect
-Vs0 f4 @|RichDialogEndIcon #fIcon
+Vs0 f6 168 138 112 44 -33 -8 #rect
+Vs0 f6 @|StepIcon #fIcon
 Vs0 f5 expr out #txt
-Vs0 f5 109 160 211 160 #arcP
-Vs0 f2 expr out #txt
-Vs0 f2 109 64 339 64 #arcP
+Vs0 f5 280 160 339 160 #arcP
+Vs0 f8 guid 152A1A71D5D17CAC #txt
+Vs0 f8 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
+Vs0 f8 actionDecl 'workflow.humantask.VerifyRequest.VerifyRequestData out;
+' #txt
+Vs0 f8 actionTable 'out=in;
+out.ok=false;
+' #txt
+Vs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>decline</name>
+        <nameStyle>7,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Vs0 f8 59 211 26 26 -20 15 #rect
+Vs0 f8 @|RichDialogProcessStartIcon #fIcon
+Vs0 f11 guid 152A1A7AEA3D662F #txt
+Vs0 f11 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
+Vs0 f11 actionDecl 'workflow.humantask.VerifyRequest.VerifyRequestData out;
+' #txt
+Vs0 f11 actionTable 'out=in;
+out.ok=true;
+' #txt
+Vs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>verify</name>
+        <nameStyle>6,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Vs0 f11 59 147 26 26 -13 15 #rect
+Vs0 f11 @|RichDialogProcessStartIcon #fIcon
+Vs0 f14 expr out #txt
+Vs0 f14 85 224 224 182 #arcP
+Vs0 f14 1 224 224 #addKink
+Vs0 f14 0 0.7368179541019809 0 0 #arcLabel
+Vs0 f9 expr out #txt
+Vs0 f9 85 160 168 160 #arcP
 >Proto Vs0 .type workflow.humantask.VerifyRequest.VerifyRequestData #txt
 >Proto Vs0 .processKind HTML_DIALOG #txt
 >Proto Vs0 -8 -8 16 16 16 26 #rect
 >Proto Vs0 '' #fIcon
-Vs0 f3 mainOut f5 tail #connect
-Vs0 f5 head f4 mainIn #connect
 Vs0 f0 mainOut f2 tail #connect
 Vs0 f2 head f1 mainIn #connect
+Vs0 f6 mainOut f5 tail #connect
+Vs0 f5 head f4 mainIn #connect
+Vs0 f8 mainOut f14 tail #connect
+Vs0 f14 head f6 mainIn #connect
+Vs0 f11 mainOut f9 tail #connect
+Vs0 f9 head f6 mainIn #connect

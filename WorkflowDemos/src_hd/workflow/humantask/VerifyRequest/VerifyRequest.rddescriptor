@@ -5,7 +5,7 @@
         <name>start</name>
         <description>Default dialog start method.</description>
         <inputParameter>
-            <name>procurementRequestData</name>
+            <name>procurementRequest</name>
             <description></description>
             <parameterType>workflow.humantask.ProcurementRequest</parameterType>
             <nullPermitted>false</nullPermitted>
@@ -14,6 +14,12 @@
             <name>dataOk</name>
             <description></description>
             <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
+        <outputParameter>
+            <name>logEntry</name>
+            <description></description>
+            <parameterType>workflow.humantask.LogEntry</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
     </startMethod>

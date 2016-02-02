@@ -11,11 +11,11 @@
         <fullName>Hugo Boss</fullName>
         <emailAddress>hugo.boss@axonivy.com</emailAddress>
         <role>Teamleader</role>
-        <role>Executive</role>
         <role>HR Manager</role>
         <role>Facility Manager</role>
         <role>IT Manager</role>
         <role>Office Manager</role>
+        <role>Executive Manager</role>
     </user>
     <user>
         <username>wt</username>

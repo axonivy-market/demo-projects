@@ -9,28 +9,24 @@
 	
 <h:body>
 	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title"><h:outputText escape="false" value="VerifyProcurementRequest" /></ui:define>
+		<ui:define name="title">VerifyProcurementRequest</ui:define>
 		<ui:define name="content">
-	<h3>
-		<h:outputText escape="false" value="#{ivy.cms.co('/Dialogs/procurementRequest/verifyTitle')}" />
-	</h3>
-	
-	<h:outputText escape="false" value="#{ivy.cms.co('/Dialogs/procurementRequest/verifyDescription')}" /><br/><br />
-	<h:outputText value="#{data.procurementRequestData.amount} #{ivy.cms.co('/Dialogs/procurementRequest/piecesOf')} '#{data.procurementRequestData.description}' " /> 
-	<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/forTotal')} #{data.procurementRequestData.totalPrice} #{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')}" /><br /><br />  
-	<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/requestedBy')} #{data.procurementRequestData.user.fullname}" /><br /><br />   
-	<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/notes')}: #{data.procurementRequestData.notes}" rendered="#{!data.procurementRequestData.notes.isEmpty()}" /><br /><br />
-	
-	<h:form id="form">
-		<h:panelGrid columns="2">							
-			<p:selectBooleanCheckbox id="dataOk" value="#{data.ok}" />		
-			<p:outputLabel for="dataOk" value="#{ivy.cms.co('/Dialogs/procurementRequest/verified')}"/>
+			<h3>
+				<h:outputText escape="false" value="#{ivy.cms.co('/Dialogs/procurementRequest/verifyTitle')}" />
+			</h3>
 			
-			<br />
-			<p:commandButton actionListener="#{logic.close}" value="#{ivy.cms.co('/Dialogs/general/proceed')}" ajax="false" icon="ui-icon-check" />
-		</h:panelGrid>
-	</h:form>
-					</ui:define>
+			<h:outputText escape="false" value="#{ivy.cms.co('/Dialogs/procurementRequest/verifyDescription')}" /><br/><br />		
+					
+			<ic:workflow.humantask.RequestDetails procurementRequestData="#{data.procurementRequest}" />
+			<ic:workflow.humantask.RequestLog procurementRequest="#{data.procurementRequest}" />
+			
+			<h:form id="form">
+				<h:panelGrid columns="2">
+					<p:commandButton actionListener="#{logic.decline}" value="#{ivy.cms.co('/Dialogs/procurementRequest/decline')}" ajax="false" icon="ui-icon-closethick" />
+					<p:commandButton actionListener="#{logic.verify}" value="#{ivy.cms.co('/Dialogs/procurementRequest/verify')}" ajax="false" icon="ui-icon-check" />
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
 	</ui:composition>
 </h:body>
 </html>
