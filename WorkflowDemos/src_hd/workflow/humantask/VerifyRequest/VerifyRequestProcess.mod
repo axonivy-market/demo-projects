@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 02 15:24:47 CET 2016]
+[>Created: Wed Feb 03 16:39:23 CET 2016]
 15254DF8F30D6949 3.18 #module
 >Proto >Proto Collection #zClass
 Vs0 VerifyRequestProcess Big #zClass
@@ -23,8 +23,11 @@ Vs0 @GridStep f6 '' #zField
 Vs0 @PushWFArc f5 '' #zField
 Vs0 @RichDialogProcessStart f8 '' #zField
 Vs0 @RichDialogProcessStart f11 '' #zField
-Vs0 @PushWFArc f14 '' #zField
 Vs0 @PushWFArc f9 '' #zField
+Vs0 @RichDialogEnd f3 '' #zField
+Vs0 @GridStep f10 '' #zField
+Vs0 @PushWFArc f12 '' #zField
+Vs0 @PushWFArc f7 '' #zField
 >Proto Vs0 Vs0 VerifyRequestProcess #zField
 Vs0 f0 guid 14FAE07217F2117A #txt
 Vs0 f0 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
@@ -117,12 +120,37 @@ Vs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Vs0 f11 59 147 26 26 -13 15 #rect
 Vs0 f11 @|RichDialogProcessStartIcon #fIcon
-Vs0 f14 expr out #txt
-Vs0 f14 85 224 224 182 #arcP
-Vs0 f14 1 224 224 #addKink
-Vs0 f14 0 0.7368179541019809 0 0 #arcLabel
 Vs0 f9 expr out #txt
 Vs0 f9 85 160 168 160 #arcP
+Vs0 f3 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
+Vs0 f3 guid 152A616D74FCB0D8 #txt
+Vs0 f3 339 211 26 26 0 12 #rect
+Vs0 f3 @|RichDialogEndIcon #fIcon
+Vs0 f10 actionDecl 'workflow.humantask.VerifyRequest.VerifyRequestData out;
+' #txt
+Vs0 f10 actionTable 'out=in;
+out.logEntry.activity=ivy.cms.co("/Dialogs/procurementRequest/declinedBy");
+out.logEntry.timestamp=new DateTime();
+out.logEntry.user.fullName=ivy.session.getSessionUser().fullName;
+' #txt
+Vs0 f10 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
+Vs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Init LogEntry</name>
+        <nameStyle>13,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Vs0 f10 168 202 112 44 -33 -8 #rect
+Vs0 f10 @|StepIcon #fIcon
+Vs0 f12 expr out #txt
+Vs0 f12 85 224 168 224 #arcP
+Vs0 f12 0 0.5658436222109136 0 0 #arcLabel
+Vs0 f7 expr out #txt
+Vs0 f7 280 224 339 224 #arcP
+Vs0 f7 0 0.5658436222109136 0 0 #arcLabel
 >Proto Vs0 .type workflow.humantask.VerifyRequest.VerifyRequestData #txt
 >Proto Vs0 .processKind HTML_DIALOG #txt
 >Proto Vs0 -8 -8 16 16 16 26 #rect
@@ -131,7 +159,9 @@ Vs0 f0 mainOut f2 tail #connect
 Vs0 f2 head f1 mainIn #connect
 Vs0 f6 mainOut f5 tail #connect
 Vs0 f5 head f4 mainIn #connect
-Vs0 f8 mainOut f14 tail #connect
-Vs0 f14 head f6 mainIn #connect
 Vs0 f11 mainOut f9 tail #connect
 Vs0 f9 head f6 mainIn #connect
+Vs0 f8 mainOut f12 tail #connect
+Vs0 f12 head f10 mainIn #connect
+Vs0 f10 mainOut f7 tail #connect
+Vs0 f7 head f3 mainIn #connect

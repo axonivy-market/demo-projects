@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 02 16:32:28 CET 2016]
+[>Created: Wed Feb 03 16:41:15 CET 2016]
 15254DF1CAEC5132 3.18 #module
 >Proto >Proto Collection #zClass
 As0 AcceptRequestProcess Big #zClass
@@ -24,7 +24,10 @@ As0 @PushWFArc f5 '' #zField
 As0 @RichDialogProcessStart f8 '' #zField
 As0 @RichDialogProcessStart f14 '' #zField
 As0 @PushWFArc f11 '' #zField
-As0 @PushWFArc f10 '' #zField
+As0 @RichDialogEnd f3 '' #zField
+As0 @GridStep f10 '' #zField
+As0 @PushWFArc f9 '' #zField
+As0 @PushWFArc f7 '' #zField
 >Proto As0 As0 AcceptRequestProcess #zField
 As0 f0 guid 14FAE0B7D586F3B8 #txt
 As0 f0 type workflow.humantask.AcceptRequest.AcceptRequestData #txt
@@ -119,10 +122,35 @@ As0 f14 83 211 26 26 -20 15 #rect
 As0 f14 @|RichDialogProcessStartIcon #fIcon
 As0 f11 expr out #txt
 As0 f11 109 160 168 160 #arcP
-As0 f10 expr out #txt
-As0 f10 109 224 224 182 #arcP
-As0 f10 1 224 224 #addKink
-As0 f10 0 0.7790205099142654 0 0 #arcLabel
+As0 f3 type workflow.humantask.AcceptRequest.AcceptRequestData #txt
+As0 f3 guid 152A615FECDF8465 #txt
+As0 f3 347 211 26 26 0 12 #rect
+As0 f3 @|RichDialogEndIcon #fIcon
+As0 f10 actionDecl 'workflow.humantask.AcceptRequest.AcceptRequestData out;
+' #txt
+As0 f10 actionTable 'out=in;
+out.logEntry.activity=ivy.cms.co("/Dialogs/procurementRequest/declinedBy");
+out.logEntry.timestamp=new DateTime();
+out.logEntry.user.fullName=ivy.session.getSessionUser().fullName;
+' #txt
+As0 f10 type workflow.humantask.AcceptRequest.AcceptRequestData #txt
+As0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Init LogEntry</name>
+        <nameStyle>13,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+As0 f10 168 202 112 44 -33 -8 #rect
+As0 f10 @|StepIcon #fIcon
+As0 f9 expr out #txt
+As0 f9 109 224 168 224 #arcP
+As0 f9 0 0.5706201187270097 0 0 #arcLabel
+As0 f7 expr out #txt
+As0 f7 280 224 347 224 #arcP
+As0 f7 0 0.5706201187270097 0 0 #arcLabel
 >Proto As0 .type workflow.humantask.AcceptRequest.AcceptRequestData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
@@ -133,5 +161,7 @@ As0 f6 mainOut f5 tail #connect
 As0 f5 head f4 mainIn #connect
 As0 f8 mainOut f11 tail #connect
 As0 f11 head f6 mainIn #connect
-As0 f14 mainOut f10 tail #connect
-As0 f10 head f6 mainIn #connect
+As0 f14 mainOut f9 tail #connect
+As0 f9 head f10 mainIn #connect
+As0 f10 mainOut f7 tail #connect
+As0 f7 head f3 mainIn #connect

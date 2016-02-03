@@ -17,17 +17,17 @@
 		
 		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/amount')}" />
 		<h:outputText value="#{data.procurementRequestData.amount}" >
-			<f:convertNumber pattern="###,###" locale="#{ivy.cms.co('/Dialogs/general/locale')}" />
+			<f:convertNumber pattern="###,###" />
 		</h:outputText>
 		
 		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/pricePerUnit')}" />
 		<h:outputText value="#{data.procurementRequestData.pricePerUnit}" >
-			<f:convertNumber pattern="###,###.00 #{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')}" locale="#{ivy.cms.co('/Dialogs/general/locale')}" />
+			<f:convertNumber pattern="###,###.00 #{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')}" />
 		</h:outputText>
 	
 		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/totalPrice')}" />
 		<h:outputText value="#{data.procurementRequestData.totalPrice}">
-			<f:convertNumber pattern="###,###.00 #{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')}" locale="#{ivy.cms.co('/Dialogs/general/locale')}" />
+			<f:convertNumber pattern="###,###.00 #{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')}" />
 		</h:outputText>
 	
 		<h:outputText value="#{ivy.cms.co('/Dialogs/procurementRequest/notes')}" rendered="#{!data.procurementRequestData.notes.isEmpty()}" />
