@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.SelectOneMenu;
+
 
 public class TestDetails extends BaseJsfWorkflowUiTest
 {
@@ -133,8 +135,8 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTask");
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
-    WebElement selectOneMenu = driverHelper.findElementById("formDelegateTask:selectionOfUser");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 1 (user1)");
+    SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfUser"));
+    menu.selectItemByLabel("Test User 1 (user1)");
     driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
     
     navigate().taskList();

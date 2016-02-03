@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.SelectOneMenu;
+
 
 public class TestSettings extends BaseJsfWorkflowUiTest
 {
@@ -72,8 +74,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     navigate().absence();
     if(absenceFor == "other")
     {
-      WebElement selectOneMenu = driverHelper.findElementById("formAbsence:userSelection");
-      prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 2 (user2)");
+      prime().selectOne(By.id("formAbsence:userSelection")).selectItemByLabel("Test User 2 (user2)");
     }
     driverHelper.clickAndWaitForAjax(By.id("formAbsence:tableAbsence:0:editButton"));
     driverHelper.findElementById("formEditAbsence:absenceStartTime_input").click();
@@ -122,28 +123,27 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   public void testSubstitutionOther() throws Exception
   {
     addSubstituteForTasks("other");
-    WebElement selectOneMenu = driverHelper.findElementById("formSubstitute:userSelection");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 2 (user2)");
+    SelectOneMenu selectOneMenu = prime().selectOne(By.id("formSubstitute:userSelection"));
+    selectOneMenu.selectItemByLabel("Test User 2 (user2)");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("user1");
     addSubstitutesForRoles("other");
     checkIsSubstituteForRolesAdded();
     navigate().substitution();
-    selectOneMenu = driverHelper.findElementById("formSubstitute:userSelection");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 1 (user1)");
+    selectOneMenu.selectItemByLabel("Test User 1 (user1)");
     driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
-  }
+  } 
 
   private void addSubstituteForTasks(String substituteFor)
   {
     navigate().substitution();
     if(substituteFor == "other")
     {
-      WebElement selectOneMenu = driverHelper.findElementById("formSubstitute:userSelection");
-      prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 1 (user1)");
+      SelectOneMenu selectOneMenu = prime().selectOne(By.id("formSubstitute:userSelection"));
+      selectOneMenu.selectItemByLabel("Test User 1 (user1)");
     }
     driverHelper.clickAndWaitForAjax(By.id("formSubstitute:addSubstitute"));
-    WebElement selectOneMenu = driverHelper.findElementById("formAddSubstitute:substituteUser");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 2 (user2)");
+    SelectOneMenu selectOneMenu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
+    selectOneMenu.selectItemByLabel("Test User 2 (user2)");
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
@@ -165,8 +165,8 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     if(substituteFor.equals("other"))
     {
-      WebElement selectOneMenu = driverHelper.findElementById("formSubstitute:userSelection");
-      prime().selectOneMenu(selectOneMenu).selectItemByLabel("Test User 2 (user2)");
+      SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
+      menu.selectItemByLabel("Test User 2 (user2)");
     }
     driverHelper.clickAndWaitForAjax(By.id("formSubstitute:addSubstitute"));
     WebElement selectOneRadio = driverHelper.findElementById("formAddSubstitute");

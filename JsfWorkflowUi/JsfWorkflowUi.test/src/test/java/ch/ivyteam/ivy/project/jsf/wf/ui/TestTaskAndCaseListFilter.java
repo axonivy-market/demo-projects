@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.SelectOneMenu;
 import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.Table;
 
 public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
@@ -81,11 +82,11 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   private void checkIfFilterIsApplied(String filterForCategory, String filterForProcess)
   {
     navigate().caseList();
-    WebElement selectOneMenu = driverHelper.findElementById("caseListComponent:caseListForm:categoryFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(filterForCategory);
+    SelectOneMenu menu = prime().selectOne(By.id("caseListComponent:caseListForm:categoryFilter"));
+    menu.selectItemByLabel(filterForCategory);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForCategory);
-    selectOneMenu = driverHelper.findElementById("caseListComponent:caseListForm:processFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(filterForProcess);
+    menu = prime().selectOne(By.id("caseListComponent:caseListForm:processFilter"));
+    menu.selectItemByLabel(filterForProcess);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForProcess);
   }
 
@@ -112,10 +113,10 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
 
     // test prio
     navigate().taskList();
-    WebElement selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:priorityFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("LOW");
-    selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
+    SelectOneMenu menu = prime().selectOne(By.id("taskListComponent:taskListForm:priorityFilter"));
+    menu.selectItemByLabel("LOW");
+    menu = prime().selectOne(By.id("taskListComponent:taskListForm:responsibleFilter"));
+    menu.selectItemByLabel("Top level role");
     driverHelper.getWebDriver().navigate().refresh();
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow"));
@@ -123,10 +124,10 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh")));
     
     navigate().taskList();
-    selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:priorityFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("HIGH");
-    selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
+    menu = prime().selectOne(By.id("taskListComponent:taskListForm:priorityFilter"));
+    menu.selectItemByLabel("HIGH");
+    menu = prime().selectOne(By.id("taskListComponent:taskListForm:responsibleFilter"));
+    menu.selectItemByLabel("Top level role");
     driverHelper.getWebDriver().navigate().refresh();
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
@@ -137,8 +138,8 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     
     // test responsible
     navigate().taskList();
-    selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:responsibleFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("Top level role");
+    menu = prime().selectOne(By.id("taskListComponent:taskListForm:responsibleFilter"));
+    menu.selectItemByLabel("Top level role");
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
     closeTask();
@@ -166,8 +167,8 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     
     navigate().taskList();
     prime().clickPaginationNextPage();
-    WebElement selectOneMenu = driverHelper.findElementById("taskListComponent:taskListForm:priorityFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel("HIGH");
+    SelectOneMenu menu = prime().selectOne(By.id("taskListComponent:taskListForm:responsibleFilter"));
+    menu.selectItemByLabel("HIGH");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("test");
 
     driverHelper.openProcessLink("testWfUi/1466BC6311E70117/DestroyTasks.ivp");
@@ -217,9 +218,8 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     driverHelper.findElementById("buttonTaskDetail").click();
     driverHelper.clickAndWaitForAjax(By
             .id("formTaskDetails:openDelegateTask"));
-    WebElement selectOneMenu = driverHelper
-            .findElementById("formDelegateTask:selectionOfUser");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(
+    SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfUser"));
+    menu.selectItemByLabel(
             "Test User 1 (user1)");
     driverHelper.clickAndWaitForAjax(By
             .id("formDelegateTask:saveDelegateTask"));
@@ -260,7 +260,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   
   private void filterDataTable(String filterId, String selectLabel)
   {
-    WebElement selectOneMenu = driverHelper.findElementById(filterId);
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(selectLabel);
+    SelectOneMenu menu = prime().selectOne(By.id(filterId));
+    menu.selectItemByLabel(selectLabel);
   }
 }

@@ -105,8 +105,8 @@ public class BaseJsfWorkflowUiTest
     navigate().processList();
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
-    WebElement selectOneMenu = driverHelper.findElementById("formRequest:taskPriority");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(PRIORITIES[priority]);
+    prime().selectOne(By.id("formRequest:taskPriority"))
+      .selectItemByLabel(PRIORITIES[priority]);
     driverHelper.findElementById("formRequest:description").sendKeys(description);
     if (expiryDate != null)
     {
@@ -131,8 +131,8 @@ public class BaseJsfWorkflowUiTest
     navigate().processList();
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
-    WebElement selectOneMenu = driverHelper.findElementById("formRequest:taskPriority");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(PRIORITIES[priority]);
+    prime().selectOne(By.id("formRequest:taskPriority"))
+    .selectItemByLabel(PRIORITIES[priority]);
     driverHelper.findElementById("formRequest:description").sendKeys(description);
     driverHelper.findElementById("formRequest:category").sendKeys(category);
     driverHelper.findElementById("formRequest:process").sendKeys(process);
@@ -188,8 +188,8 @@ public class BaseJsfWorkflowUiTest
           String description, String absenceForUser)
   {
     navigate().absence();
-    WebElement selectOneMenu = driverHelper.findElementById("formAbsence:userSelection");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(absenceForUser);
+    prime().selectOne(By.id("formAbsence:userSelection"))
+      .selectItemByLabel(absenceForUser);
 
     addAbsence(startDate, startTime, endDate, endTime, description);
   }

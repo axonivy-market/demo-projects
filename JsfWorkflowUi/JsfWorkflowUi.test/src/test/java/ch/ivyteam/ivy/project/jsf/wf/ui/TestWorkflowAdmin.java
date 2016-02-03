@@ -4,8 +4,9 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.SelectOneMenu;
 
 
 public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
@@ -132,8 +133,8 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     navigate().home();
     driverHelper.findElement(By.linkText("Workflow Admin")).click();
     driverHelper.findElementById("workflowStatistic").click();
-    WebElement selectOneMenu = driverHelper.findElementById("caseStatisticForm:categoryFilter");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(filterForCategory);
+    SelectOneMenu menu = prime().selectOne(By.id("caseStatisticForm:categoryFilter"));
+    menu.selectItemByLabel(filterForCategory);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForCategory);
   }
   

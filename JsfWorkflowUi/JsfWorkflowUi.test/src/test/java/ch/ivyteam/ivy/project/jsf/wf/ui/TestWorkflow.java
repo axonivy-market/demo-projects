@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.SelectOneMenu;
 import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.Table;
 
 public class TestWorkflow extends BaseJsfWorkflowUiTest
@@ -106,8 +107,8 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(taskName);
     driverHelper.findElementById("buttonTaskDetail").click();
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
-    WebElement selectOneMenu = driverHelper.findElementById("formDelegateTask:selectionOfUser");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(user);
+    SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfUser"));
+    menu.selectItemByLabel(user);
     driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
   }
   
@@ -119,19 +120,19 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
     WebElement selectOneRadio = driverHelper.findElementById("formDelegateTask");
     prime().selectOneRadio(selectOneRadio).selectItemById("formDelegateTask:delegateToRole");
-    WebElement selectOneMenu = driverHelper.findElementById("formDelegateTask:selectionOfRole");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(role);
+    SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfRole"));
+    menu.selectItemByLabel(role);
     driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
   }
 
   private void addSubstitutionForUserPersonalTasks(String user)
   {
     navigate().substitution();
-    WebElement selectOneMenu = driverHelper.findElementById("formSubstitute:userSelection");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(user);
+    SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
+    menu.selectItemByLabel(user);
     driverHelper.clickAndWaitForAjax(By.id("formSubstitute:addSubstitute"));
-    selectOneMenu = driverHelper.findElementById("formAddSubstitute:substituteUser");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(TEST_USER_1);
+    menu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
+    menu.selectItemByLabel(TEST_USER_1);
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
@@ -141,11 +142,11 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   private void addSubstitutionForAllRolesOfUser(String user)
   {
     navigate().substitution();
-    WebElement selectOneMenu = driverHelper.findElementById("formSubstitute:userSelection");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(user);
+    SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
+    menu.selectItemByLabel(user);
     driverHelper.clickAndWaitForAjax(By.id("formSubstitute:addSubstitute"));
-    selectOneMenu = driverHelper.findElementById("formAddSubstitute:substituteUser");
-    prime().selectOneMenu(selectOneMenu).selectItemByLabel(TEST_USER_1);
+    menu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
+    menu.selectItemByLabel(TEST_USER_1);
     WebElement selectOneRadio = driverHelper.findElementById("formAddSubstitute");
     prime().selectOneRadio(selectOneRadio).selectItemById("formAddSubstitute:optRole");
     

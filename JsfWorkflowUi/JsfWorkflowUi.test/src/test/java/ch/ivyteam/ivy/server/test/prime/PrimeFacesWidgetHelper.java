@@ -21,9 +21,9 @@ public class PrimeFacesWidgetHelper
     this.driverHelper = driverHelper;
   }
 
-  public SelectOneMenu selectOneMenu(WebElement oneMenu)
+  public SelectOneMenu selectOne(By locator)
   {
-    return new SelectOneMenu(oneMenu);
+    return new SelectOneMenu(locator);
   }
 
   public SelectCheckboxMenu selectCheckboxMenu(WebElement checkboxMenu)
@@ -53,28 +53,28 @@ public class PrimeFacesWidgetHelper
 
   public class SelectOneMenu
   {
-    private WebElement oneMenu;
+    private String oneMenuId;
 
-    public SelectOneMenu(WebElement oneMenu)
+    public SelectOneMenu(By locator)
     {
-      this.oneMenu = oneMenu;
+      oneMenuId = driverHelper.findElement(locator).getAttribute("id");
     }
-
+    
     public void selectItemByLabel(String label)
     {
       expandSelectableItems();
       await(ExpectedConditions.elementToBeClickable(driverHelper.findElement(
-              By.xpath("//div[@id='"
-              + oneMenu.getAttribute("id")
-              + "_panel']/div/ul/li[@data-label='" + label + "']"))));
-      driverHelper.findElement(By.xpath("//div[@id='"
-              + oneMenu.getAttribute("id")
-              + "_panel']/div/ul/li[@data-label='" + label + "']")).click();
+              By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "']"))));
+      driverHelper.findElement(
+              By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "']"))
+              .click();
     }
 
     private void expandSelectableItems()
     {
-      oneMenu.findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s")).click();
+      driverHelper.findElementById(oneMenuId)
+              .findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s"))
+              .click();
     }
   }
 
