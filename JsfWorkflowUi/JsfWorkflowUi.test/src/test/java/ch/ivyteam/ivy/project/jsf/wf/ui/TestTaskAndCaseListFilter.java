@@ -91,10 +91,10 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
 
   private void doesNotContain(String category, String process)
   {
-    assertThat(driverHelper.getWebDriver().findElement(By.id("caseListComponent:caseListForm:caseTable_data")).getText())
-            .doesNotContain(category);
-    assertThat(driverHelper.getWebDriver().findElement(By.id("caseListComponent:caseListForm:caseTable_data")).getText())
-            .doesNotContain(process);
+    await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("caseListComponent:caseListForm:caseTable_data"), category)));
+    await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("caseListComponent:caseListForm:caseTable_data"), process)));
   }
 
   @Test
