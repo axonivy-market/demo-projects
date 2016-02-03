@@ -63,16 +63,13 @@ public class PrimeFacesWidgetHelper
     public void selectItemByLabel(String label)
     {
       expandSelectableItems();
-      WebElement oneMenuDropDown = driverHelper.findElement(By.xpath("//div[@id='"
+      await(ExpectedConditions.elementToBeClickable(driverHelper.findElement(
+              By.xpath("//div[@id='"
               + oneMenu.getAttribute("id")
-              + "_panel']/div/ul/li[@data-label='" + label + "']"));
-      await(ExpectedConditions.elementToBeClickable(oneMenuDropDown));
-      oneMenuDropDown.click();
-//      await(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(driverHelper.findElement(By
-//              .xpath("//div[@id='"
-//                      + oneMenu.getAttribute("id")
-//                      + "_panel']/div/ul/li[@data-label='" + label + "']")))));
-
+              + "_panel']/div/ul/li[@data-label='" + label + "']"))));
+      driverHelper.findElement(By.xpath("//div[@id='"
+              + oneMenu.getAttribute("id")
+              + "_panel']/div/ul/li[@data-label='" + label + "']")).click();
     }
 
     private void expandSelectableItems()
