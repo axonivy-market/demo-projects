@@ -2,21 +2,17 @@ package ch.ivyteam.ivy.project.jsf.wf.ui;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestRule;
 import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ch.ivyteam.ivy.server.test.AjaxHelper;
+import ch.ivyteam.ivy.server.test.ApplicationLogin;
 import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
 import ch.ivyteam.ivy.server.test.WfNavigator;
 import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper;
@@ -55,44 +51,13 @@ public class BaseJsfWorkflowUiTest
   {
     try
     {
-      loginInternal(username, password);
+      new ApplicationLogin(driverHelper.getWebDriver()).login(username, password);
     }
     catch (Throwable ex)
     {
       System.out.println("LOGIN FAILED with source:" + driverHelper.getWebDriver().getPageSource());
       throw ex;
     }
-  }
-
-  private void loginInternal(String username, String password)
-  {
-    navigate().logout();
-    ajax().findUntilVisible(By.id("loginPageComponent:loginForm"));
-    loginField("username").clear();
-    loginField("username").sendKeys(username);
-    loginWait();
-    loginField("password").clear();
-    loginWait();
-    loginField("password").sendKeys(password);
-    loginField("loginButton").click();
-    ajax().assertElementContains("mainArea", "Home");
-  }
-
-  private void loginWait()
-  {
-    try
-    {
-      Thread.sleep(500);
-    }
-    catch (InterruptedException ex)
-    {
-      ex.printStackTrace();
-    }
-  }
-
-  private WebElement loginField(String name)
-  {
-    return driverHelper.findElement(By.id("loginPageComponent:loginForm:" + name));
   }
 
   protected void createTask(String title, String description, int priority)
@@ -164,7 +129,7 @@ public class BaseJsfWorkflowUiTest
 
   public WfNavigator navigate()
   {
-    return new WfNavigator(driverHelper);
+    return new WfNavigator(driverHelper.getWebDriver());
   }
 
   public PrimeFacesWidgetHelper prime()
@@ -213,21 +178,7 @@ public class BaseJsfWorkflowUiTest
 
   protected void await(ExpectedCondition<?> condition)
   {
-    WebDriver webDriver = driverHelper.getWebDriver();
-    webDriver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-    try
-    {
-      new WebDriverWait(webDriver, 10).until(condition);
-    }
-    catch (TimeoutException ex)
-    {
-      System.out.println(driverHelper.getWebDriver().getPageSource());
-      throw ex;
-    }
-    finally
-    {
-      webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
+    ajax().await(condition);
   }
 
   protected void searchDataTable(String searchId, String filterText)
