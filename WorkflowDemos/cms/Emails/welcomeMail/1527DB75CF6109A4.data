@@ -1,6 +1,6 @@
-<P>
-Dear <%=in.name%>
-</P>
+<H1>
+Hello <%=in.name%>
+</H1>
 <P>
 Welcome at our company. It is a great pleasure to have you here!
 </P>

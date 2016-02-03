@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jan 27 08:35:14 CET 2016]
+[>Created: Wed Feb 03 08:51:42 CET 2016]
 15254CF1CE56AE72 3.18 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
@@ -107,7 +107,7 @@ Tr0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Tr0 f7 384 168 32 32 -52 18 #rect
 Tr0 f7 @|AlternativeIcon #fIcon
-Tr0 f10 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/welcomeHeader\\"")%><%=in.name%>!""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""<%=ivy.cms.co(\\""/Emails/welcomeMail\\"")%>""/emailAttachments * }"' #txt
+Tr0 f10 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/welcomeHeader\\"")%><%=in.name%>!""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Emails/welcomeMail\\"")%>\\n</html>""/emailAttachments * }"' #txt
 Tr0 f10 type workflow.trigger.NewEmployeeData #txt
 Tr0 f10 timeout 0 #txt
 Tr0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
