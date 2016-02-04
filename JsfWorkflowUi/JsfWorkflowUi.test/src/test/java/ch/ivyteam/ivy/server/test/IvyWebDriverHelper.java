@@ -158,8 +158,7 @@ public class IvyWebDriverHelper
 
   public void clickAndWaitForAjax(By by)
   {
-    WebElement element = findElement(by);
-    element.click();
+    findElement(by).click();
     waitForAjax();
   }
 

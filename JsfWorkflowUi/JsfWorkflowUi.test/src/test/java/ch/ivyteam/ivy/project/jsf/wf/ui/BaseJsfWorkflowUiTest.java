@@ -10,6 +10,7 @@ import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import ch.ivyteam.ivy.server.test.AjaxHelper;
 import ch.ivyteam.ivy.server.test.ApplicationLogin;
@@ -169,7 +170,8 @@ public class BaseJsfWorkflowUiTest
   public void addAbsence(String startDate, String startTime, String endDate, String endTime,
           String description)
   {
-    driverHelper.clickAndWaitForAjax(By.id("formAbsence:addAbsence"));
+    driverHelper.findElement(By.id("formAbsence:addAbsence")).click();
+    await(ExpectedConditions.elementToBeClickable(By.id("formAddAbsence:absenceStartTime_input")));
     driverHelper.findElementById("formAddAbsence:absenceStartTime_input").click();
     driverHelper.findElementById("formAddAbsence:absenceStartTime_input").sendKeys(startTime);
     driverHelper.findElementById("formAddAbsence:absenceStartDate_input").click();
@@ -180,7 +182,9 @@ public class BaseJsfWorkflowUiTest
     driverHelper.findElementById("formAddAbsence:absenceEndDate_input").sendKeys(endDate);
     driverHelper.findElementById("formAddAbsence:absenceDescription").click();
     driverHelper.findElementById("formAddAbsence:absenceDescription").sendKeys(description);
-    driverHelper.clickAndWaitForAjax(By.id("formAddAbsence:saveNewAbsence"));
+    driverHelper.findElement(By.id("formAddAbsence:saveNewAbsence")).click();
+    await(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(By
+            .id("formAddAbsence:absenceStartTime_input"))));
   }
 
   protected void await(ExpectedCondition<?> condition)
