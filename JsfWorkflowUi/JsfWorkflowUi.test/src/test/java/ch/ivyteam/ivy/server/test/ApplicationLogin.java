@@ -54,10 +54,18 @@ public class ApplicationLogin
   {
     return new ExpectedCondition<Boolean>()
       {
+
         @Override
         public Boolean apply(WebDriver driver)
         {
           return getFieldValue(locator, driver).equals(expectedValue);
+        }
+
+        @Override
+        public String toString()
+        {
+          return String.format("value ('%s') to be present in element found by %s",
+                  expectedValue, locator);
         }
       };
   }

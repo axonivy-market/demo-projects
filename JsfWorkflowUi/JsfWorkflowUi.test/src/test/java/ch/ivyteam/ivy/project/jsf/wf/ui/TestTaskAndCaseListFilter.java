@@ -167,7 +167,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     
     navigate().taskList();
     prime().clickPaginationNextPage();
-    SelectOneMenu menu = prime().selectOne(By.id("taskListComponent:taskListForm:responsibleFilter"));
+    SelectOneMenu menu = prime().selectOne(By.id("taskListComponent:taskListForm:priorityFilter_panel"));
     menu.selectItemByLabel("HIGH");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("test");
 
