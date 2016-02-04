@@ -167,10 +167,9 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     
     navigate().taskList();
     prime().clickPaginationNextPage();
-    SelectOneMenu menu = prime().selectOne(By.id("taskListComponent:taskListForm:priorityFilter_panel"));
+    SelectOneMenu menu = prime().selectOne(By.id("taskListComponent:taskListForm:priorityFilter"));
     menu.selectItemByLabel("HIGH");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("test");
-
     driverHelper.openProcessLink("testWfUi/1466BC6311E70117/DestroyTasks.ivp");
   }
 
@@ -196,15 +195,12 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     navigate().taskAdmin();
     filterDataTable(filterId,
             "Top level role");
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id(filterId + "_label"), "Top level role"));
     dataTable.contains(taskHighResponsibleFilter);
     dataTable.containsNot(taskLowResponsibleFilter);
 
     navigate().taskAdmin();
     filterDataTable(filterId,
             "Test User 1 (user1)");
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id(filterId + "_label"),
-            "Test User 1 (user1)"));
     dataTable.contains(taskLowResponsibleFilter);
     dataTable.containsNot(taskHighResponsibleFilter);
   }
@@ -247,13 +243,11 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
 
     navigate().taskAdmin();
     filterDataTable(filterId, "SUSPENDED");
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id(filterId + "_label"), "SUSPENDED"));
     dataTable.contains(taskHighPrio);
     dataTable.containsNot(taskLowPrio);
 
     navigate().taskAdmin();
     filterDataTable(filterId, "RESUMED");
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id(filterId + "_label"), "RESUMED"));
     dataTable.contains(taskLowPrio);
     dataTable.containsNot(taskHighPrio);
   }
@@ -262,5 +256,6 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   {
     SelectOneMenu menu = prime().selectOne(By.id(filterId));
     menu.selectItemByLabel(selectLabel);
+    menu.waitForLabel(selectLabel);
   }
 }
