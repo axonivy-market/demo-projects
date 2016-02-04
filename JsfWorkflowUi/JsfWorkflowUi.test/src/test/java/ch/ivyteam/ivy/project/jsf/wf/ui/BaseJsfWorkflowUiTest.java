@@ -55,8 +55,15 @@ public class BaseJsfWorkflowUiTest
     }
     catch (Throwable ex)
     {
-      System.out.println("LOGIN FAILED with source:" + driverHelper.getWebDriver().getPageSource());
-      throw ex;
+      if (ex instanceof org.openqa.selenium.TimeoutException)
+      {
+        System.out.println("RETRY FAILED LOGIN");
+        new ApplicationLogin(driverHelper.getWebDriver()).login(username, password);
+      }
+      else
+      {
+        throw ex;
+      }
     }
   }
 
