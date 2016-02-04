@@ -63,13 +63,20 @@ public class PrimeFacesWidgetHelper
     public void selectItemByLabel(String label)
     {
       expandSelectableItems();
+      
       await(ExpectedConditions.elementToBeClickable(driverHelper.findElement(
               By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "']"))));
       driverHelper.findElement(
               By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "']"))
               .click();
+      
+      awaitItemsCollapsed(true);
+    }
+
+    private void awaitItemsCollapsed(boolean collapsed)
+    {
       await(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='" + oneMenuId
-              + "_focus'][contains(@aria-expanded, 'false')]")));
+              + "_focus'][contains(@aria-expanded, '"+!collapsed+"')]")));
     }
 
     private void expandSelectableItems()
@@ -77,6 +84,7 @@ public class PrimeFacesWidgetHelper
       driverHelper.findElementById(oneMenuId)
               .findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s"))
               .click();
+      awaitItemsCollapsed(false);
     }
 
     public void waitForLabel(String selectLabel)
