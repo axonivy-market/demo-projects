@@ -68,6 +68,8 @@ public class PrimeFacesWidgetHelper
       driverHelper.findElement(
               By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "']"))
               .click();
+      await(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='" + oneMenuId
+              + "_focus'][contains(@aria-expanded, 'false')]")));
     }
 
     private void expandSelectableItems()
@@ -75,6 +77,11 @@ public class PrimeFacesWidgetHelper
       driverHelper.findElementById(oneMenuId)
               .findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s"))
               .click();
+    }
+
+    public void waitForLabel(String selectLabel)
+    {
+      await(ExpectedConditions.textToBePresentInElementLocated(By.id(oneMenuId + "_label"), selectLabel));
     }
   }
 

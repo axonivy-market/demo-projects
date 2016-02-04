@@ -155,21 +155,22 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     dataTable.firstRowContains("JSF new Task");
     closeTask();
   }
-  
+
   @Test
   public void testFilterWithPagination() throws Exception
   {
-    for(int tasksCount = 0; tasksCount < 50; tasksCount++)
+    for (int tasksCount = 0; tasksCount < 50; tasksCount++)
     {
       driverHelper.openProcessLink("testWfUi/145A7190339D94FD/start.ivp");
     }
     createTask("taskHighForFilterPagination", "task pagination", 1);
-    
+
     navigate().taskList();
     prime().clickPaginationNextPage();
     SelectOneMenu menu = prime().selectOne(By.id("taskListComponent:taskListForm:priorityFilter"));
     menu.selectItemByLabel("HIGH");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("test");
+
     driverHelper.openProcessLink("testWfUi/1466BC6311E70117/DestroyTasks.ivp");
   }
 
@@ -180,7 +181,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     String taskLowResponsibleFilter = "taskAdminForResponsibleFilterLow";
     String tableBodyId = "taskListComponent:taskListForm:taskTable_data";
     String filterId = "taskListComponent:taskListForm:responsibleFilter";
-    
+
     createTask(taskHighResponsibleFilter, "task list", 1);
     navigate().taskAdmin();
     Table dataTable = prime().table(By.id(tableBodyId));
