@@ -5,6 +5,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.SelectOneMenu;
 
@@ -141,13 +142,15 @@ public class TestSettings extends BaseJsfWorkflowUiTest
       SelectOneMenu selectOneMenu = prime().selectOne(By.id("formSubstitute:userSelection"));
       selectOneMenu.selectItemByLabel("Test User 1 (user1)");
     }
-    driverHelper.clickAndWaitForAjax(By.id("formSubstitute:addSubstitute"));
+    await(ExpectedConditions.elementToBeClickable(driverHelper.findElement(
+            By.id("formSubstitute:addSubstitute")))).click();
     SelectOneMenu selectOneMenu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
     selectOneMenu.selectItemByLabel("Test User 2 (user2)");
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
-    driverHelper.clickAndWaitForAjax(By.id("formAddSubstitute:saveSubstitution"));
+    await(ExpectedConditions.elementToBeClickable(driverHelper.findElement(
+            By.id("formAddSubstitute:saveSubstitution")))).click();
   }
 
   private void checkIsSubstituteForTasksAdded()
