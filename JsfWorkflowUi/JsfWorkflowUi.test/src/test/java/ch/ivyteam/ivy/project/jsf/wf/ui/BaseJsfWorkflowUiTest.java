@@ -170,9 +170,8 @@ public class BaseJsfWorkflowUiTest
   public void addAbsence(String startDate, String startTime, String endDate, String endTime,
           String description)
   {
-    driverHelper.findElement(By.id("formAbsence:addAbsence")).click();
-    await(ExpectedConditions.elementToBeClickable(By.id("formAddAbsence:absenceStartTime_input")));
-    driverHelper.findElementById("formAddAbsence:absenceStartTime_input").click();
+    await(ExpectedConditions.elementToBeClickable(By.id("formAbsence:addAbsence"))).click();
+    await(ExpectedConditions.elementToBeClickable(By.id("formAddAbsence:absenceStartTime_input"))).click();
     driverHelper.findElementById("formAddAbsence:absenceStartTime_input").sendKeys(startTime);
     driverHelper.findElementById("formAddAbsence:absenceStartDate_input").click();
     driverHelper.findElementById("formAddAbsence:absenceStartDate_input").sendKeys(startDate);
@@ -187,9 +186,9 @@ public class BaseJsfWorkflowUiTest
             .id("formAddAbsence:absenceStartTime_input"))));
   }
 
-  protected void await(ExpectedCondition<?> condition)
+  protected <T> T await(ExpectedCondition<T> condition)
   {
-    ajax().await(condition);
+    return ajax().await(condition);
   }
 
   protected void searchDataTable(String searchId, String filterText)

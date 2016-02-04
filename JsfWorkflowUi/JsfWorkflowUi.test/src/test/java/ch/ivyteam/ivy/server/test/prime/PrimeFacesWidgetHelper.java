@@ -1,24 +1,23 @@
 package ch.ivyteam.ivy.server.test.prime;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import ch.ivyteam.ivy.server.test.AjaxHelper;
 import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
 
 public class PrimeFacesWidgetHelper
 {
   private IvyWebDriverHelper driverHelper;
+  private AjaxHelper ajax;
 
   public PrimeFacesWidgetHelper(IvyWebDriverHelper driverHelper)
   {
     this.driverHelper = driverHelper;
+    this.ajax = new AjaxHelper(driverHelper.getWebDriver());
   }
 
   public SelectOneMenu selectOne(By locator)
@@ -63,14 +62,15 @@ public class PrimeFacesWidgetHelper
     public void selectItemByLabel(String label)
     {
       expandSelectableItems();
-      
-      await(ExpectedConditions.elementToBeClickable(driverHelper.findElement(
-              By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "']"))));
-      driverHelper.findElement(
-              By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "']"))
-              .click();
-      
+      selectInternal(label);
       awaitItemsCollapsed(true);
+    }
+
+    private void selectInternal(String label)
+    {
+      WebElement item = await(ExpectedConditions.elementToBeClickable(driverHelper.findElement(
+              By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "']"))));
+      item.click();
     }
 
     private void awaitItemsCollapsed(boolean collapsed)
@@ -212,22 +212,8 @@ public class PrimeFacesWidgetHelper
     driverHelper.clickAndWaitForAjax(By.cssSelector("span.ui-icon.ui-icon-seek-next"));
   }
 
-  protected void await(ExpectedCondition<?> condition)
+  protected <T> T await(ExpectedCondition<T> condition)
   {
-    WebDriver webDriver = driverHelper.getWebDriver();
-    webDriver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-    try
-    {
-      new WebDriverWait(webDriver, 10).until(condition);
-    }
-    catch (TimeoutException ex)
-    {
-      System.out.println(driverHelper.getWebDriver().getPageSource());
-      throw ex;
-    }
-    finally
-    {
-      webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
+    return ajax.await(condition);
   }
 }

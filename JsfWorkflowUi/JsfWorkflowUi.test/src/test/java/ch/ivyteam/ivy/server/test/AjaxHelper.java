@@ -65,12 +65,12 @@ public class AjaxHelper
             );
   }
 
-  public void await(ExpectedCondition<?> condition)
+  public <T> T await(ExpectedCondition<T> condition)
   {
     driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     try
     {
-      new WebDriverWait(driver, 10).until(condition);
+      return new WebDriverWait(driver, 10).until(condition);
     }
     catch (TimeoutException ex)
     {
