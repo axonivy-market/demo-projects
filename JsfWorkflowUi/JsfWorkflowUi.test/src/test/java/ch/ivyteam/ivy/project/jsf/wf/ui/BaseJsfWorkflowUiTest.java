@@ -59,7 +59,7 @@ public class BaseJsfWorkflowUiTest
     {
       if (ex instanceof org.openqa.selenium.TimeoutException)
       {
-        System.out.println("RETRY FAILED LOGIN");
+        System.err.println("RETRY FAILED LOGIN");
         new ApplicationLogin(driverHelper.getWebDriver()).login(username, password);
       }
       else
