@@ -243,11 +243,13 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     driverHelper.findElementById("taskLinkRow_0").click();
 
     navigate().taskAdmin();
+    driverHelper.waitForAjax();
     filterDataTable(filterId, "SUSPENDED");
     dataTable.contains(taskHighPrio);
     dataTable.containsNot(taskLowPrio);
 
     navigate().taskAdmin();
+    driverHelper.waitForAjax();
     filterDataTable(filterId, "RESUMED");
     dataTable.contains(taskLowPrio);
     dataTable.containsNot(taskHighPrio);
