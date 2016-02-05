@@ -1,6 +1,7 @@
 package ch.ivyteam.ivy.server.test.prime;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -48,6 +49,11 @@ public class PrimeFacesWidgetHelper
   public Table table(By dataTable)
   {
     return new Table(dataTable);
+  }
+  
+  public Dialog dialog(By dialog)
+  {
+    return new Dialog(dialog);
   }
 
   public class SelectOneMenu
@@ -204,6 +210,73 @@ public class PrimeFacesWidgetHelper
     {
       await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
               By.id(tableId), checkText)));
+    }
+  }
+
+  public class Dialog
+  {
+    private String dialogId;
+
+    public Dialog(final By dialog)
+    {
+      dialogId = await(new ExpectedCondition<String>()
+        {
+
+          @Override
+          public String apply(WebDriver input)
+          {
+            return await(ExpectedConditions.presenceOfElementLocated(dialog)).getAttribute("id");
+          }
+
+        });
+    }
+
+    public void visible(boolean visible)
+    {
+      await(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='" + dialogId + "'][@aria-hidden='"
+              + !visible + "']")));
+    }
+    
+    public void isClosedOrHasError()
+    {
+      await(new ExpectedCondition<Boolean>()
+        {
+
+          @Override
+          public Boolean apply(WebDriver driver)
+          {
+            WebElement dialog = driver.findElement(By.id(dialogId));
+            if (hasErrors(dialog) || isClosed(dialog))
+            {
+              return true;
+            }
+            return null;
+          }
+
+          private boolean isClosed(WebElement dialog)
+          {
+            try
+            {
+              return dialog.getAttribute("aria-hidden").equals(Boolean.TRUE.toString());
+            }
+            catch (Exception ex)
+            {
+              return false;
+            }
+          }
+
+          private boolean hasErrors(WebElement dialog)
+          {
+            try
+            {
+              return dialog.findElement(By.className("ui-state-error")) != null;
+            }
+            catch (Exception ex)
+            {
+              return false;
+            }
+          }
+        });
     }
   }
 

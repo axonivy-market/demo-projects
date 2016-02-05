@@ -17,6 +17,7 @@ import ch.ivyteam.ivy.server.test.ApplicationLogin;
 import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
 import ch.ivyteam.ivy.server.test.WfNavigator;
 import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper;
+import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.Dialog;
 
 public class BaseJsfWorkflowUiTest
 {
@@ -162,7 +163,7 @@ public class BaseJsfWorkflowUiTest
   {
     navigate().absence();
     prime().selectOne(By.id("formAbsence:userSelection"))
-      .selectItemByLabel(absenceForUser);
+            .selectItemByLabel(absenceForUser);
 
     addAbsence(startDate, startTime, endDate, endTime, description);
   }
@@ -171,19 +172,21 @@ public class BaseJsfWorkflowUiTest
           String description)
   {
     await(ExpectedConditions.elementToBeClickable(By.id("formAbsence:addAbsence"))).click();
-    await(ExpectedConditions.elementToBeClickable(By.id("formAddAbsence:absenceStartTime_input"))).click();
-    driverHelper.findElementById("formAddAbsence:absenceStartTime_input").sendKeys(startTime);
-    driverHelper.findElementById("formAddAbsence:absenceStartDate_input").click();
-    driverHelper.findElementById("formAddAbsence:absenceStartDate_input").sendKeys(startDate);
-    driverHelper.findElementById("formAddAbsence:absenceEndTime_input").click();
-    driverHelper.findElementById("formAddAbsence:absenceEndTime_input").sendKeys(endTime);
-    driverHelper.findElementById("formAddAbsence:absenceEndDate_input").click();
-    driverHelper.findElementById("formAddAbsence:absenceEndDate_input").sendKeys(endDate);
-    driverHelper.findElementById("formAddAbsence:absenceDescription").click();
-    driverHelper.findElementById("formAddAbsence:absenceDescription").sendKeys(description);
+    Dialog absenceDialog = prime().dialog(By.id("dialogAddAbsence"));
+    absenceDialog.visible(true);
+    clickAndSendKeys("absenceStartTime_input", startTime);
+    clickAndSendKeys("absenceStartDate_input", startDate);
+    clickAndSendKeys("absenceEndTime_input", endTime);
+    clickAndSendKeys("absenceEndDate_input", endDate);
+    clickAndSendKeys("absenceDescription", description);
     driverHelper.findElement(By.id("formAddAbsence:saveNewAbsence")).click();
-    await(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(By
-            .id("formAddAbsence:absenceStartTime_input"))));
+    absenceDialog.isClosedOrHasError();
+  }
+
+  private void clickAndSendKeys(String inputId, String inputValue)
+  {
+    driverHelper.findElement(By.id("formAddAbsence:" + inputId)).click();
+    driverHelper.findElement(By.id("formAddAbsence:" + inputId)).sendKeys(inputValue);
   }
 
   protected <T> T await(ExpectedCondition<T> condition)
