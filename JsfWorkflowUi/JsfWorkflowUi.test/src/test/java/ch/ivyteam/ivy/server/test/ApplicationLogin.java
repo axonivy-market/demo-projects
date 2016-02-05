@@ -1,5 +1,7 @@
 package ch.ivyteam.ivy.server.test;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,10 +35,10 @@ public class ApplicationLogin
     if (!getFieldValue(byLogin(fieldName), driver).isEmpty())
     {
       loginField(fieldName).clear();
-      ajax.await(loginFieldContains(fieldName, ""));
+      ajax.waitAtMost(30, TimeUnit.SECONDS, loginFieldContains(fieldName, ""));
     }
     loginField(fieldName).sendKeys(value);
-    ajax.await(loginFieldContains(fieldName, value));
+    ajax.waitAtMost(30, TimeUnit.SECONDS, loginFieldContains(fieldName, value));
   }
 
   private static ExpectedCondition<Boolean> loginFieldContains(final String fieldName,

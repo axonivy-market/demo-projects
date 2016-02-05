@@ -51,22 +51,7 @@ public class BaseJsfWorkflowUiTest
 
   protected void login(String username, String password)
   {
-    try
-    {
-      new ApplicationLogin(driverHelper.getWebDriver()).login(username, password);
-    }
-    catch (Throwable ex)
-    {
-      if (ex instanceof org.openqa.selenium.TimeoutException)
-      {
-        System.err.println("RETRY FAILED LOGIN");
-        new ApplicationLogin(driverHelper.getWebDriver()).login(username, password);
-      }
-      else
-      {
-        throw ex;
-      }
-    }
+    new ApplicationLogin(driverHelper.getWebDriver()).login(username, password);
   }
 
   protected void createTask(String title, String description, int priority)

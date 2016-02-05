@@ -67,10 +67,15 @@ public class AjaxHelper
 
   public <T> T await(ExpectedCondition<T> condition)
   {
+    return waitAtMost(10, TimeUnit.SECONDS, condition);
+  }
+
+  public <T> T waitAtMost(long waitingTime, TimeUnit timeUnit, ExpectedCondition<T> condition)
+  {
     driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     try
     {
-      return new WebDriverWait(driver, 10).until(condition);
+      return new WebDriverWait(driver, timeUnit.toSeconds(waitingTime)).until(condition);
     }
     catch (TimeoutException ex)
     {
