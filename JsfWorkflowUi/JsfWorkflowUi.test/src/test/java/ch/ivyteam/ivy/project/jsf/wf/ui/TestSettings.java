@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.Dialog;
 import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.SelectOneMenu;
 
 
@@ -142,15 +143,16 @@ public class TestSettings extends BaseJsfWorkflowUiTest
       SelectOneMenu selectOneMenu = prime().selectOne(By.id("formSubstitute:userSelection"));
       selectOneMenu.selectItemByLabel("Test User 1 (user1)");
     }
-    await(ExpectedConditions.elementToBeClickable(driverHelper.findElement(
-            By.id("formSubstitute:addSubstitute")))).click();
+    Dialog dialogSubstitute = prime().dialog(By.id("dialogAddSubstitute"));
+    dialogSubstitute.visible(false);
+    await(ExpectedConditions.presenceOfElementLocated(By.id("formSubstitute:addSubstitute"))).click();
+    dialogSubstitute.visible(true);
     SelectOneMenu selectOneMenu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
     selectOneMenu.selectItemByLabel("Test User 2 (user2)");
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
-    driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
-    await(ExpectedConditions.elementToBeClickable(driverHelper.findElement(
-            By.id("formAddSubstitute:saveSubstitution")))).click();
+    driverHelper.findElement(By.id("formAddSubstitute:saveSubstitution")).click();
+    dialogSubstitute.isClosedOrHasError();
   }
 
   private void checkIsSubstituteForTasksAdded()
