@@ -55,7 +55,7 @@ public class ApplicationLogin
       loginField(fieldName).clear();
       ajax.waitAtMost(60, TimeUnit.SECONDS, loginFieldContains(fieldName, ""));
     }
-    ajax.await(ExpectedConditions.presenceOfElementLocated(By.id(fieldName)));
+    ajax.await(ExpectedConditions.presenceOfElementLocated(byLogin(fieldName)));
     loginField(fieldName).sendKeys(value);
     ajax.waitAtMost(60, TimeUnit.SECONDS, loginFieldContains(fieldName, value));
   }
