@@ -217,18 +217,16 @@ public class PrimeFacesWidgetHelper
   {
     private String dialogId;
 
-    public Dialog(final By dialog)
+    public Dialog(final By dialogLocator)
     {
       dialogId = await(new ExpectedCondition<String>()
+      {
+        @Override
+        public String apply(WebDriver driver)
         {
-
-          @Override
-          public String apply(WebDriver input)
-          {
-            return await(ExpectedConditions.presenceOfElementLocated(dialog)).getAttribute("id");
-          }
-
-        });
+          return driver.findElement(dialogLocator).getAttribute("id");
+        }
+      });
     }
 
     public void visible(boolean visible)
