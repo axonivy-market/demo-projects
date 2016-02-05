@@ -2,6 +2,7 @@ package ch.ivyteam.ivy.server.test;
 
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.lang3.time.StopWatch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,13 +33,29 @@ public class ApplicationLogin
 
   private void setLoginFieldValue(String fieldName, final String value)
   {
+    StopWatch stopwatch = new StopWatch();
+    stopwatch.start();
+    try
+    {
+      setLoginFieldInternal(fieldName, value);
+    }
+    finally
+    {
+      stopwatch.stop();
+      System.out.println("Time to set '" + fieldName + "' field: " + stopwatch.getTime() + " Milliseconds. "
+              + "Value is now: " + getFieldValue(byLogin(fieldName), driver));
+    }
+  }
+
+  private void setLoginFieldInternal(String fieldName, final String value)
+  {
     if (!getFieldValue(byLogin(fieldName), driver).isEmpty())
     {
       loginField(fieldName).clear();
-      ajax.waitAtMost(30, TimeUnit.SECONDS, loginFieldContains(fieldName, ""));
+      ajax.waitAtMost(60, TimeUnit.SECONDS, loginFieldContains(fieldName, ""));
     }
     loginField(fieldName).sendKeys(value);
-    ajax.waitAtMost(30, TimeUnit.SECONDS, loginFieldContains(fieldName, value));
+    ajax.waitAtMost(60, TimeUnit.SECONDS, loginFieldContains(fieldName, value));
   }
 
   private static ExpectedCondition<Boolean> loginFieldContains(final String fieldName,
