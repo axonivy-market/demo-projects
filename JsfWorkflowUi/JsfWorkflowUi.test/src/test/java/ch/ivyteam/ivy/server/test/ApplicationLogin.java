@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ApplicationLogin
 {
@@ -54,6 +55,7 @@ public class ApplicationLogin
       loginField(fieldName).clear();
       ajax.waitAtMost(60, TimeUnit.SECONDS, loginFieldContains(fieldName, ""));
     }
+    ajax.await(ExpectedConditions.presenceOfElementLocated(By.id(fieldName)));
     loginField(fieldName).sendKeys(value);
     ajax.waitAtMost(60, TimeUnit.SECONDS, loginFieldContains(fieldName, value));
   }
