@@ -88,9 +88,22 @@ public class PrimeFacesWidgetHelper
 
     private void expandSelectableItems()
     {
-      driverHelper.findElementById(oneMenuId)
-              .findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s"))
-              .click();
+      await(new ExpectedCondition<WebElement>()
+        {
+          @Override
+          public WebElement apply(WebDriver driver)
+          {
+            try
+            {
+              return driverHelper.findElementById(oneMenuId)
+                      .findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s"));
+            }
+            catch (StaleElementReferenceException ex)
+            {
+              return null;
+            }
+          }
+        }).click();
       awaitItemsCollapsed(false);
     }
 
