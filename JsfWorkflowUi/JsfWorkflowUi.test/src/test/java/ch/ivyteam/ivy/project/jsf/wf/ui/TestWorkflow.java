@@ -5,6 +5,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.SelectOneMenu;
 import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.Table;
@@ -134,6 +135,7 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     navigate().substitution();
     SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
     menu.selectItemByLabel(user);
+    await(ExpectedConditions.presenceOfElementLocated(By.id("formSubstitute:addSubstitute")));
     driverHelper.findElement(By.id("formSubstitute:addSubstitute")).click();
     prime().dialog(By.id("dialogAddSubstitute")).visible(true);
     menu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
