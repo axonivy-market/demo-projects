@@ -1,5 +1,6 @@
 package ch.ivyteam.ivy.server.test.prime;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -59,7 +60,7 @@ public class PrimeFacesWidgetHelper
 
   public class SelectOneMenu
   {
-    private String oneMenuId;
+    private final String oneMenuId;
 
     public SelectOneMenu(By locator)
     {
@@ -68,16 +69,49 @@ public class PrimeFacesWidgetHelper
     
     public void selectItemByLabel(String label)
     {
+      if (getFocusSelection().getAttribute("aria-activedescendant").toString().equals(label))
+      {
+        return;
+      }
+      
       expandSelectableItems();
       selectInternal(label);
       awaitItemsCollapsed(true);
     }
 
-    private void selectInternal(String label)
+    private void selectInternal(final String label)
     {
+      final String startValue = getFocusSelection().getAttribute("aria-activedescendant").toString();
+      
       WebElement item = await(ExpectedConditions.elementToBeClickable(driverHelper.findElement(
-              By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "'][text()='" + label + "']"))));
+              By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "'][text()='"
+                      + label + "']"))));
       item.click();
+
+      await(new ExpectedCondition<Boolean>()
+        {
+          @Override
+          public Boolean apply(WebDriver driver)
+          {
+            try
+            {
+              if (ObjectUtils.notEqual(getFocusSelection(), startValue))
+              {
+                return true;
+              }
+              return null;
+            }
+            catch (StaleElementReferenceException ex)
+            {
+              return null;
+            }
+          }
+        });
+    }
+
+    private WebElement getFocusSelection()
+    {
+      return driverHelper.findElement(By.id(oneMenuId+ "_focus"));
     }
 
     private void awaitItemsCollapsed(boolean collapsed)
