@@ -152,6 +152,7 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     navigate().substitution();
     SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
     menu.selectItemByLabel(user);
+    ajax().await(ExpectedConditions.presenceOfElementLocated(By.id("formSubstitute:addSubstitute")));
     driverHelper.findElement(By.id("formSubstitute:addSubstitute")).click();
     prime().dialog(By.id("dialogAddSubstitute")).visible(true);
     menu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
