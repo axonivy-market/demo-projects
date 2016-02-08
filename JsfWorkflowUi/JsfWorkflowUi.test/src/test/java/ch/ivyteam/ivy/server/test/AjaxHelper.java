@@ -79,7 +79,7 @@ public class AjaxHelper
     }
     catch (TimeoutException ex)
     {
-      System.out.println(driver.getPageSource());
+      System.out.println("Timed out while " + condition + " in source code: " + driver.getPageSource());
       throw ex;
     }
     finally
