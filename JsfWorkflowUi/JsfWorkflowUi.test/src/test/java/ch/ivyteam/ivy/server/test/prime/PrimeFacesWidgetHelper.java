@@ -76,7 +76,7 @@ public class PrimeFacesWidgetHelper
     private void selectInternal(String label)
     {
       WebElement item = await(ExpectedConditions.elementToBeClickable(driverHelper.findElement(
-              By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "']"))));
+              By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "'][text()='" + label + "']"))));
       item.click();
     }
 
