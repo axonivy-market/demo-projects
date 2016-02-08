@@ -1,7 +1,5 @@
 package ch.ivyteam.ivy.server.test;
 
-import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.lang3.time.StopWatch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -53,12 +51,12 @@ public class ApplicationLogin
     if (!getFieldValue(byLogin(fieldName), driver).isEmpty())
     {
       loginField(fieldName).clear();
-      ajax.waitAtMost(60, TimeUnit.SECONDS, loginFieldContains(fieldName, ""));
+      ajax.await(loginFieldContains(fieldName, ""));
     }
     ajax.await(ExpectedConditions.presenceOfElementLocated(byLogin(fieldName)));
     loginField(fieldName).click();
     loginField(fieldName).sendKeys(value);
-    ajax.waitAtMost(60, TimeUnit.SECONDS, loginFieldContains(fieldName, value));
+    ajax.await(loginFieldContains(fieldName, value));
   }
 
   private static ExpectedCondition<Boolean> loginFieldContains(final String fieldName,
