@@ -83,7 +83,7 @@ public class PrimeFacesWidgetHelper
     private void awaitItemsCollapsed(boolean collapsed)
     {
       await(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='" + oneMenuId
-              + "_focus'][contains(@aria-expanded, '"+!collapsed+"')]")));
+              + "_focus'][@aria-expanded= '" + !collapsed + "']")));
     }
 
     private void expandSelectableItems()
