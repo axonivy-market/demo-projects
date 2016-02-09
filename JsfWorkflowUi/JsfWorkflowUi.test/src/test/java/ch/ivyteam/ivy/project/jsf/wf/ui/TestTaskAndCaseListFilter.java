@@ -257,6 +257,18 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   
   private void filterDataTable(String filterId, String selectLabel)
   {
+    try
+    {
+      filterDataTableInternal(filterId, selectLabel);
+    }
+    catch (Exception ex)
+    {
+      filterDataTableInternal(filterId, selectLabel);
+    }
+  }
+
+  private void filterDataTableInternal(String filterId, String selectLabel)
+  {
     SelectOneMenu menu = prime().selectOne(By.id(filterId));
     menu.selectItemByLabel(selectLabel);
     menu.waitForLabel(selectLabel);
