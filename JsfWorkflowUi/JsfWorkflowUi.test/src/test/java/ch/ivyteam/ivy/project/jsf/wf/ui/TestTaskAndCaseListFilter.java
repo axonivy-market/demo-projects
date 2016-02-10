@@ -257,6 +257,10 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   
   private void filterDataTable(String filterId, String selectLabel)
   {
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("taskListComponent:taskListForm:responsibleFilter_label"), "All"));
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("taskListComponent:taskListForm:stateFilter_label"), "All"));
     try
     {
       filterDataTableInternal(filterId, selectLabel);
