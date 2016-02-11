@@ -1,7 +1,9 @@
 package ch.ivyteam.ivy.server.test;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper;
 
 public class WfNavigator
 {
@@ -65,6 +67,10 @@ public class WfNavigator
   public void taskAdmin()
   {
     openProcessLink("JsfWorkflowUi/1518C6953618322C/TaskListAdmin.ivp");
+    
+    PrimeFacesWidgetHelper prime = new PrimeFacesWidgetHelper(driver);
+    prime.selectOne(By.id("taskListComponent:taskListForm:responsibleFilter")).waitForLabel("All");
+    prime.selectOne(By.id("taskListComponent:taskListForm:stateFilter")).waitForLabel("All");
   }
   
   public void logout()

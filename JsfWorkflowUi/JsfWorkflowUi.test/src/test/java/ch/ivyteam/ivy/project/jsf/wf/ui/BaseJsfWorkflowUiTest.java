@@ -128,7 +128,7 @@ public class BaseJsfWorkflowUiTest
 
   public PrimeFacesWidgetHelper prime()
   {
-    return new PrimeFacesWidgetHelper(driverHelper);
+    return new PrimeFacesWidgetHelper(driverHelper.getWebDriver());
   }
 
   public AjaxHelper ajax()

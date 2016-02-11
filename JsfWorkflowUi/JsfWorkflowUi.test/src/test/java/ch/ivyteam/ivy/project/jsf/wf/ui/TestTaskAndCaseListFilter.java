@@ -166,7 +166,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     createTask("taskHighForFilterPagination", "task pagination", 1);
 
     navigate().taskList();
-    prime().clickPaginationNextPage();
+    driverHelper.clickAndWaitForAjax(By.cssSelector("span.ui-icon.ui-icon-seek-next"));
     SelectOneMenu menu = prime().selectOne(By.id("taskListComponent:taskListForm:priorityFilter"));
     menu.selectItemByLabel("HIGH");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("test");
@@ -257,10 +257,6 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   
   private void filterDataTable(String filterId, String selectLabel)
   {
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("taskListComponent:taskListForm:responsibleFilter_label"), "All"));
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("taskListComponent:taskListForm:stateFilter_label"), "All"));
     try
     {
       filterDataTableInternal(filterId, selectLabel);

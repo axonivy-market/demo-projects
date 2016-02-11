@@ -159,8 +159,7 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     WebElement selectOneRadio = driverHelper.findElementById("formAddSubstitute");
     prime().selectOneRadio(selectOneRadio).selectItemById("formAddSubstitute:optRole");
     
-    WebElement selectCheckboxMenu = driverHelper.findElementById("formAddSubstitute:roleSelection");
-    prime().selectCheckboxMenu(selectCheckboxMenu).selectAllItems();
+    prime().selectCheckboxMenu(By.id("formAddSubstitute:roleSelection")).selectAllItems();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");

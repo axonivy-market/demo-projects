@@ -7,20 +7,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ch.ivyteam.ivy.server.test.AjaxHelper;
-import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
 
 public class PrimeFacesWidgetHelper
 {
-  private IvyWebDriverHelper driverHelper;
   private AjaxHelper ajax;
+  private WebDriver webDriver;
 
-  public PrimeFacesWidgetHelper(IvyWebDriverHelper driverHelper)
+  public PrimeFacesWidgetHelper(WebDriver driver)
   {
-    this.driverHelper = driverHelper;
-    this.ajax = new AjaxHelper(driverHelper.getWebDriver());
+    this.webDriver = driver;
+    this.ajax = new AjaxHelper(driver);
   }
 
   public SelectOneMenu selectOne(By locator)
@@ -28,14 +26,9 @@ public class PrimeFacesWidgetHelper
     return new SelectOneMenu(locator);
   }
 
-  public SelectCheckboxMenu selectCheckboxMenu(WebElement checkboxMenu)
+  public SelectCheckboxMenu selectCheckboxMenu(By locator)
   {
-    return new SelectCheckboxMenu(checkboxMenu);
-  }
-
-  public Menu menu(WebElement menu)
-  {
-    return new Menu(menu);
+    return new SelectCheckboxMenu(locator);
   }
 
   public SelectBooleanCheckbox selectBooleanCheckbox(WebElement checks)
@@ -64,7 +57,7 @@ public class PrimeFacesWidgetHelper
 
     public SelectOneMenu(By locator)
     {
-      oneMenuId = driverHelper.findElement(locator).getAttribute("id");
+      oneMenuId = webDriver.findElement(locator).getAttribute("id");
     }
     
     public void selectItemByLabel(String label)
@@ -83,7 +76,7 @@ public class PrimeFacesWidgetHelper
     {
       final String startValue = getFocusSelection().getAttribute("aria-activedescendant").toString();
       
-      WebElement item = await(ExpectedConditions.elementToBeClickable(driverHelper.findElement(
+      WebElement item = await(ExpectedConditions.elementToBeClickable(webDriver.findElement(
               By.xpath("//div[@id='" + oneMenuId + "_panel']/div/ul/li[@data-label='" + label + "'][text()='"
                       + label + "']"))));
       item.click();
@@ -111,7 +104,7 @@ public class PrimeFacesWidgetHelper
 
     private WebElement getFocusSelection()
     {
-      return driverHelper.findElement(By.id(oneMenuId+ "_focus"));
+      return webDriver.findElement(By.id(oneMenuId+ "_focus"));
     }
 
     private void awaitItemsCollapsed(boolean collapsed)
@@ -129,7 +122,7 @@ public class PrimeFacesWidgetHelper
           {
             try
             {
-              return driverHelper.findElementById(oneMenuId)
+              return webDriver.findElement(By.id(oneMenuId))
                       .findElement(By.cssSelector("span.ui-icon.ui-icon-triangle-1-s"));
             }
             catch (StaleElementReferenceException ex)
@@ -149,56 +142,51 @@ public class PrimeFacesWidgetHelper
 
   public class SelectCheckboxMenu
   {
-    private WebElement checkboxMenu;
+    private String checkBoxMenuId;
 
-    public SelectCheckboxMenu(WebElement checkboxMenu)
+    public SelectCheckboxMenu(By locator)
     {
-      this.checkboxMenu = checkboxMenu;
+      checkBoxMenuId = webDriver.findElement(locator).getAttribute("id");
     }
 
     public void selectAllItems()
     {
       openCheckboxPanel();
-      driverHelper.clickAndWaitForAjax(By
-              .cssSelector("div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default"));
+      webDriver.findElement(By.xpath("//*[@id='" + checkBoxMenuId + "_panel']/div[1]/div/div[2]")).click();
+
+      await(new ExpectedCondition<Boolean>()
+        {
+          @Override
+          public Boolean apply(WebDriver driver)
+          {
+            try
+            {
+              return driver
+                      .findElement(
+                              By.xpath("//*[@id='" + checkBoxMenuId + "_panel']/div[2]/ul/li/div/div[2]"))
+                      .getAttribute("class")
+                      .contains("state-active");
+            }
+            catch (StaleElementReferenceException ex)
+            {
+              return null;
+            }
+          }
+        });
+
       closeCheckboxPanel();
     }
 
     private void openCheckboxPanel()
     {
-      checkboxMenu.findElement(By.className("ui-icon-triangle-1-s")).click();
+      webDriver.findElement(By.id(checkBoxMenuId)).findElement(By.className("ui-icon-triangle-1-s")).click();
     }
 
     private void closeCheckboxPanel()
     {
-      String fqElementId = checkboxMenu.getAttribute("id");
-      String panelId = fqElementId + "_panel";
-      WebElement panel = new WebDriverWait(driverHelper.getWebDriver(), 10).until(
-              ExpectedConditions.visibilityOfElementLocated(By.id(panelId))
-              );
+      String panelId = checkBoxMenuId + "_panel";
+      WebElement panel = ajax.await(ExpectedConditions.visibilityOfElementLocated(By.id(panelId)));
       panel.findElement(By.className("ui-selectcheckboxmenu-close")).click();
-    }
-  }
-
-  public class Menu
-  {
-    private WebElement menu;
-
-    public Menu(WebElement menu)
-    {
-      this.menu = menu;
-    }
-
-    public void selectItemByIndex(int index)
-    {
-      driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='" + menu.getAttribute("id") + "']/ul/li[" + index
-              + "]/a/span"));
-    }
-
-    public void selectItemByPrefix(String prefix)
-    {
-      driverHelper.clickAndWaitForAjax(By.xpath("//div[@id='" + menu.getAttribute("id")
-              + "']/ul/li[starts-with(., '" + prefix + "')]/a/span"));
     }
   }
 
@@ -219,17 +207,37 @@ public class PrimeFacesWidgetHelper
 
   public class SelectOneRadio
   {
-    private WebElement oneRadio;
+    private String oneRadioId;
 
     public SelectOneRadio(WebElement oneRadio)
     {
-      this.oneRadio = oneRadio;
+      oneRadioId = oneRadio.getAttribute("id");
+      
     }
 
-    public void selectItemById(String id)
+    public void selectItemById(final String id)
     {
-      oneRadio.findElement(By.xpath("//div[@id='" + id + "']/div[2]")).click();
-      driverHelper.waitForAjax();
+      webDriver.findElement(By.id(oneRadioId))
+        .findElement(By.xpath("//div[@id='" + id + "']/div[2]"))
+        .click();
+
+      await(new ExpectedCondition<Boolean>()
+        {
+          @Override
+          public Boolean apply(WebDriver driver)
+          {
+            try
+            {
+              return driver.findElement(By.id(oneRadioId))
+                      .findElement(By.xpath("//div[@id='" + id + "']/div[2]")).getAttribute("class")
+                      .contains("state-active");
+            }
+            catch (StaleElementReferenceException ex)
+            {
+              return null;
+            }
+          }
+        });
     }
   }
 
@@ -239,7 +247,7 @@ public class PrimeFacesWidgetHelper
 
     public Table(By dataTable)
     {
-      tableId = driverHelper.findElement(dataTable).getAttribute("id");
+      tableId = webDriver.findElement(dataTable).getAttribute("id");
     }
 
     public void firstRowContains(String expectedText)
@@ -331,11 +339,6 @@ public class PrimeFacesWidgetHelper
           }
         });
     }
-  }
-
-  public void clickPaginationNextPage()
-  {
-    driverHelper.clickAndWaitForAjax(By.cssSelector("span.ui-icon.ui-icon-seek-next"));
   }
 
   protected <T> T await(ExpectedCondition<T> condition)
