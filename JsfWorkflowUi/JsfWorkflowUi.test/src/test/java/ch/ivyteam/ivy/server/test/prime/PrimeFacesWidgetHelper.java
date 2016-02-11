@@ -239,6 +239,31 @@ public class PrimeFacesWidgetHelper
           }
         });
     }
+    
+    public void selectItemByValue(final String value)
+    {
+      WebElement itemDiv = webDriver.findElement(By.id(oneRadioId))
+              .findElement(By.xpath("//input[@value='" + value + "']/.."));
+      itemDiv.click();
+
+      await(new ExpectedCondition<Boolean>()
+        {
+          @Override
+          public Boolean apply(WebDriver driver)
+          {
+            try
+            {
+              return driver.findElement(By.id(oneRadioId))
+                      .findElement(By.xpath("//input[@value='" + value + "']/.."))
+                      .getAttribute("class").contains("ui-state-active");
+            }
+            catch (StaleElementReferenceException ex)
+            {
+              return null;
+            }
+          }
+        });
+    }
   }
 
   public class Table

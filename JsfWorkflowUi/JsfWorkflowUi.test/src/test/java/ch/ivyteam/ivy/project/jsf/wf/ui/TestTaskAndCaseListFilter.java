@@ -60,7 +60,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     navigate().caseList();
     doesNotContain("category4", "process4");
     
-    switchInvolvedWorklfowList();
+    switchInvolvedWorkflowList();
     checkIfCaseIsInList("category4", "process4");
     
     login("user1", "user1");
@@ -73,10 +73,11 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(process);
   }
 
-  private void switchInvolvedWorklfowList()
+  private void switchInvolvedWorkflowList()
   {
     WebElement selectOneRadio = driverHelper.findElementById("caseListComponent:caseListForm");
-    prime().selectOneRadio(selectOneRadio).selectItemById("caseListComponent:caseListForm:caseOption");
+    prime().selectOneRadio(selectOneRadio).selectItemByValue("involvedCases");
+    
   }
 
   private void checkIfFilterIsApplied(String filterForCategory, String filterForProcess)
