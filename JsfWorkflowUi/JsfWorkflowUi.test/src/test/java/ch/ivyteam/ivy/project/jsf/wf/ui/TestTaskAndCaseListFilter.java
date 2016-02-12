@@ -4,7 +4,9 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -264,20 +266,20 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   private void filterCheckDataTable(String containsNot, String contains,
           String filterId, Table dataTable, String filterText)
   {
+    navigate().taskAdmin();
     try
     {
       filterCheckDataTableInteral(containsNot, contains, filterId, dataTable, filterText);
     }
     catch (Exception ex)
     {
-      filterCheckDataTableInteral(containsNot, contains, filterId, dataTable, filterText);
+     ((TakesScreenshot) driverHelper.getWebDriver()).getScreenshotAs(OutputType.FILE);
     }
   }
 
   private void filterCheckDataTableInteral(String containsNot, String contains, String filterId,
           Table dataTable, String filterText)
   {
-    navigate().taskAdmin();
     filterDataTable(filterId, filterText);
     dataTable.contains(contains);
     dataTable.containsNot(containsNot);
@@ -285,14 +287,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
 
   private void filterDataTable(String filterId, String selectLabel)
   {
-    try
-    {
       filterDataTableInternal(filterId, selectLabel);
-    }
-    catch (Exception ex)
-    {
-      filterDataTableInternal(filterId, selectLabel);
-    }
   }
 
   private void filterDataTableInternal(String filterId, String selectLabel)

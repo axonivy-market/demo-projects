@@ -66,20 +66,9 @@ public class PrimeFacesWidgetHelper
       {
         return;
       }
-      
-      try
-      {
-        expandSelectableItems();
-        selectInternal(label);
-        awaitItemsCollapsed(true);
-      }
-      catch (Exception ex)
-      {
-        expandSelectableItems();
-        selectInternal(label);
-        awaitItemsCollapsed(true);
-      }
-      
+      expandSelectableItems();
+      selectInternal(label);
+      awaitItemsCollapsed(true);
     }
 
     private void selectInternal(final String label)
