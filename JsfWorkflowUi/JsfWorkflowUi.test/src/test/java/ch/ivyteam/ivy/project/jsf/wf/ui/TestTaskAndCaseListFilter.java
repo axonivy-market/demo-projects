@@ -215,19 +215,11 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
 
     delegateTaskToUser1(taskLowResponsibleFilter);
 
-    navigate().taskAdmin();
-    filterDataTable(filterId,
-            "Top level role");
-    dataTable.contains(taskHighResponsibleFilter);
-    dataTable.containsNot(taskLowResponsibleFilter);
+    filterCheckDataTable(taskLowResponsibleFilter, taskHighResponsibleFilter, filterId, dataTable, "Top level role");
 
-    navigate().taskAdmin();
-    filterDataTable(filterId,
-            "Test User 1 (user1)");
-    dataTable.contains(taskLowResponsibleFilter);
-    dataTable.containsNot(taskHighResponsibleFilter);
+    filterCheckDataTable(taskHighResponsibleFilter, taskLowResponsibleFilter, filterId, dataTable, "Test User 1 (user1)");
   }
-  
+
   private void delegateTaskToUser1(String taskName)
   {
     navigate().taskList();
@@ -264,19 +256,40 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     navigate().taskList();
     driverHelper.findElementById("taskLinkRow_0").click();
 
-    navigate().taskAdmin();
-    driverHelper.waitForAjax();
-    filterDataTable(filterId, "SUSPENDED");
-    dataTable.contains(taskHighPrio);
-    dataTable.containsNot(taskLowPrio);
-
-    navigate().taskAdmin();
-    driverHelper.waitForAjax();
-    filterDataTable(filterId, "RESUMED");
-    dataTable.contains(taskLowPrio);
-    dataTable.containsNot(taskHighPrio);
+    filterCheckDataTable(taskLowPrio, taskHighPrio, filterId, dataTable, "SUSPENDED");
+    
+    filterCheckDataTable(taskHighPrio, taskLowPrio, filterId, dataTable, "RESUMED");
   }
   
+  private void filterDataTableInternal(String filterId, String selectLabel)
+  {
+    SelectOneMenu menu = prime().selectOne(By.id(filterId));
+    menu.selectItemByLabel(selectLabel);
+    menu.waitForLabel(selectLabel);
+  }
+
+  private void filterCheckDataTable(String containsNot, String contains,
+          String filterId, Table dataTable, String filterText)
+  {
+    try
+    {
+      filterCheckDataTableInteral(containsNot, contains, filterId, dataTable, filterText);
+    }
+    catch (Exception ex)
+    {
+      filterCheckDataTableInteral(containsNot, contains, filterId, dataTable, filterText);
+    }
+  }
+
+  private void filterCheckDataTableInteral(String containsNot, String contains, String filterId,
+          Table dataTable, String filterText)
+  {
+    navigate().taskAdmin();
+    filterDataTable(filterId, filterText);
+    dataTable.contains(contains);
+    dataTable.containsNot(containsNot);
+  }
+
   private void filterDataTable(String filterId, String selectLabel)
   {
     try
@@ -287,12 +300,5 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     {
       filterDataTableInternal(filterId, selectLabel);
     }
-  }
-
-  private void filterDataTableInternal(String filterId, String selectLabel)
-  {
-    SelectOneMenu menu = prime().selectOne(By.id(filterId));
-    menu.selectItemByLabel(selectLabel);
-    menu.waitForLabel(selectLabel);
   }
 }
