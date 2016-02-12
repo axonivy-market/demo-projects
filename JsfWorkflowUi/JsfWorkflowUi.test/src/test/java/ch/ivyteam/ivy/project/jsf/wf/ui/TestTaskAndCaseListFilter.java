@@ -261,13 +261,6 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     filterCheckDataTable(taskHighPrio, taskLowPrio, filterId, dataTable, "RESUMED");
   }
   
-  private void filterDataTableInternal(String filterId, String selectLabel)
-  {
-    SelectOneMenu menu = prime().selectOne(By.id(filterId));
-    menu.selectItemByLabel(selectLabel);
-    menu.waitForLabel(selectLabel);
-  }
-
   private void filterCheckDataTable(String containsNot, String contains,
           String filterId, Table dataTable, String filterText)
   {
@@ -300,5 +293,12 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     {
       filterDataTableInternal(filterId, selectLabel);
     }
+  }
+
+  private void filterDataTableInternal(String filterId, String selectLabel)
+  {
+    SelectOneMenu menu = prime().selectOne(By.id(filterId));
+    menu.selectItemByLabel(selectLabel);
+    menu.waitForLabel(selectLabel);
   }
 }
