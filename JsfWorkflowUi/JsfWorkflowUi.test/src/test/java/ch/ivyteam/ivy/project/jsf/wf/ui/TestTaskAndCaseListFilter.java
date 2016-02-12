@@ -4,7 +4,10 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.SelectOneMenu;
@@ -67,17 +70,35 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     closeTask();
   }
 
-  private void checkIfCaseIsInList(String category, String process)
+  private void checkIfCaseIsInList(final String category, String process)
   {
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains(category);
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains(process);
+    checkIfCaseIsInListInteral(category);
+    checkIfCaseIsInListInteral(process);
+  }
+
+  private void checkIfCaseIsInListInteral(final String checkAttribute)
+  {
+    await(new ExpectedCondition<Boolean>()
+      {
+        @Override
+        public Boolean apply(WebDriver driver)
+        {
+          try
+          {
+            return driverHelper.getWebDriver().getPageSource().contains(checkAttribute);
+          }
+          catch (StaleElementReferenceException ex)
+          {
+            return null;
+          }
+        }
+      });
   }
 
   private void switchInvolvedWorkflowList()
   {
     WebElement selectOneRadio = driverHelper.findElementById("caseListComponent:caseListForm");
     prime().selectOneRadio(selectOneRadio).selectItemByValue("involvedCases");
-    
   }
 
   private void checkIfFilterIsApplied(String filterForCategory, String filterForProcess)
