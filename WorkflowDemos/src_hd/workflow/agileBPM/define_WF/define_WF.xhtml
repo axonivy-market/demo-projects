@@ -115,7 +115,7 @@
 												<p:commandButton icon="ui-icon-close"
 													title="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/DeleteStep')}"
 													actionListener="#{logic.deleteTask(defineTask)}"
-													update=":form:taskDef" process=":form:taskDef" 
+													update=":form:taskDef :form:submit" process=":form:taskDef" 
 													style="border:0px; background-color:#eeeeee;" styleClass="xbutton"/>
 												</h:panelGroup>
 												<p:inputText value="#{defineTask.actor}" size="18"
@@ -144,7 +144,7 @@
 								style="margin-top:24px; margin-right:0px; margin-left:0px;">
 								<p:commandButton icon="fa fa-plus" value="Task"
 									styleClass="iconButton" title="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/AddTask')}"
-									actionListener="#{logic.addTaskDef}" update=":form:taskDef"
+									actionListener="#{logic.addTaskDef}" update=":form:taskDef :form:submit"
 									process=":form:taskDef" ></p:commandButton>
 							</h:panelGrid>
 						</p:panel>
@@ -181,8 +181,8 @@
 				</p:fieldset>
 				<br />
 				<p:spacer width="10px"></p:spacer>
-				<p:commandButton actionListener="#{logic.go}" value="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/StartWF')}"
-					icon="fa fa-check" update="form" ajax="false" />
+				<p:commandButton id="submit" actionListener="#{logic.go}" value="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/StartWF')}"
+					icon="fa fa-check" update="form" ajax="false" disabled="#{data.definedTasks.isEmpty()}" />
 			</h:form>
 			<p:dialog id="userList" header="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/ResponsableUsers')}"
 				widgetVar="userList" modal="true" appendTo="@(body)"> 
