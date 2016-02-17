@@ -1,2 +1,3 @@
-co: name={PatternAdHoc} description={} changed={2016-01-19 15:44:19 CET} changedby={bhu} visualorder={0} guid={1525A57F3216F972} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={PatternAdHoc} description={} changed={2016-02-16 22:11:48 CET} changedby={xtrans} visualorder={0} guid={1525A57F3216F972} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={152EBECC4C3658D7} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:11:48 CET} validto={} changed={2016-02-16 22:11:48 CET} changedby={xtrans} properties={} id={}
 val: guid={1525A57F32799996} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-19 15:44:19 CET} validto={} changed={2016-01-19 15:44:19 CET} changedby={bhu} properties={} id={}

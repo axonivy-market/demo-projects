@@ -1,0 +1,3 @@
+co: name={prepareOfficeKeyDesc} description={} changed={2016-02-17 14:53:34 CET} changedby={bhu} visualorder={0} guid={152EF7EFF9CF2833} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={152EF81E85A518C4} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-17 14:53:34 CET} validto={} changed={2016-02-17 14:53:34 CET} changedby={bhu} properties={} id={}
+val: guid={152EF7EFFA4A2A93} datatype={} isdefault={true} langid={en} description={} validfrom={2016-02-17 14:50:23 CET} validto={} changed={2016-02-17 14:50:41 CET} changedby={bhu} properties={} id={}

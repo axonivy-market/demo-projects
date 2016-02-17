@@ -1,2 +1,3 @@
-co: name={parkingLotNeeded} description={} changed={2016-01-19 14:11:27 GMT} changedby={bhu} visualorder={0} guid={1525A39DE09643E6} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1525A39DE0F27E50} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-19 14:11:27 GMT} validto={} changed={2016-01-19 14:11:27 GMT} changedby={bhu} properties={} id={}
+co: name={parkingLotNeeded} description={} changed={2016-02-16 22:26:26 CET} changedby={xtrans} visualorder={0} guid={1525A39DE09643E6} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={1525A39DE0F27E50} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-19 15:11:27 CET} validto={} changed={2016-01-19 15:11:27 CET} changedby={bhu} properties={} id={}
+val: guid={152EBFA28455B8BE} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:26:26 CET} validto={} changed={2016-02-16 22:26:26 CET} changedby={xtrans} properties={} id={}

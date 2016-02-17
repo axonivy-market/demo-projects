@@ -1,2 +1,3 @@
-co: name={QAresponse-Explain} description={} changed={2016-01-18 15:03:25 CET} changedby={bhu} visualorder={0} guid={152550C245EAF4B8} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={152550C2464DA8AA} datatype={} isdefault={true} langid={en} description={} validfrom={2013-12-12 10:24:11 CET} validto={} changed={2016-01-18 15:03:25 CET} changedby={bhu} properties={} id={}
+co: name={QAresponse-Explain} description={} changed={2016-02-17 08:15:36 CET} changedby={xtrans} visualorder={0} guid={152550C245EAF4B8} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={152550C2464DA8AA} datatype={} isdefault={true} langid={en} description={} validfrom={2013-12-12 10:24:11 CET} validto={} changed={2016-02-17 08:14:38 CET} changedby={xtrans} properties={} id={}
+val: guid={152EE15903B5D120} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-17 08:15:36 CET} validto={} changed={2016-02-17 08:15:36 CET} changedby={xtrans} properties={} id={}

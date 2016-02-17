@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 02 16:41:23 CET 2016]
+[>Created: Wed Feb 17 10:21:35 CET 2016]
 15254DC87A1B183B 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestParallel Big #zClass
@@ -67,7 +67,7 @@ Pt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f6 360 554 112 44 -39 -8 #rect
+Pt0 f6 360 394 112 44 -39 -8 #rect
 Pt0 f6 @|RichDialogIcon #fIcon
 Pt0 f0 outLink start.ivp #txt
 Pt0 f0 type workflow.humantask.ProcurementRequest #txt
@@ -79,7 +79,8 @@ Pt0 f0 requestEnabled true #txt
 Pt0 f0 triggerEnabled false #txt
 Pt0 f0 callSignature start() #txt
 Pt0 f0 persist false #txt
-Pt0 f0 startName '<%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%> (<%=ivy.cms.co("/ProcessDescriptions/parallelTaskExample")%>)' #txt
+Pt0 f0 startName '<%=ivy.cms.co("/ProcessDescriptions/parallelTaskExample")%>: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%>' #txt
+Pt0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/procurementRequestParallelDescription")%> #txt
 Pt0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -106,10 +107,10 @@ Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f0 @C|.responsibility Employee #txt
-Pt0 f0 65 145 30 30 -21 17 #rect
+Pt0 f0 65 161 30 30 -21 17 #rect
 Pt0 f0 @|StartRequestIcon #fIcon
 Pt0 f1 type workflow.humantask.ProcurementRequest #txt
-Pt0 f1 857 145 30 30 0 15 #rect
+Pt0 f1 857 161 30 30 0 15 #rect
 Pt0 f1 @|EndIcon #fIcon
 Pt0 f7 actionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
@@ -149,7 +150,7 @@ taskDefinitions.add(taskDef);
 ' #txt
 Pt0 f7 type workflow.humantask.ProcurementRequest #txt
 Pt0 f7 template "" #txt
-Pt0 f7 512 328 32 32 0 16 #rect
+Pt0 f7 512 280 32 32 0 16 #rect
 Pt0 f7 @|TaskSwitchIcon #fIcon
 Pt0 f3 targetWindow NEW:card: #txt
 Pt0 f3 targetDisplay TOP #txt
@@ -176,7 +177,7 @@ Pt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f3 152 138 112 44 -39 -8 #rect
+Pt0 f3 152 154 112 44 -39 -8 #rect
 Pt0 f3 @|RichDialogIcon #fIcon
 Pt0 f2 actionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
@@ -225,7 +226,7 @@ taskDefinitions.add(taskDef);
 ' #txt
 Pt0 f2 type workflow.humantask.ProcurementRequest #txt
 Pt0 f2 template "" #txt
-Pt0 f2 296 328 32 32 0 16 #rect
+Pt0 f2 296 280 32 32 0 16 #rect
 Pt0 f2 @|TaskSwitchIcon #fIcon
 Pt0 f5 targetWindow NEW:card: #txt
 Pt0 f5 targetDisplay TOP #txt
@@ -254,11 +255,12 @@ Pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f5 360 322 112 44 -39 -8 #rect
+Pt0 f5 360 274 112 44 -39 -8 #rect
 Pt0 f5 @|RichDialogIcon #fIcon
 Pt0 f8 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%><%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%>  \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.requester.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\n\\t<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>\\n</html>""/emailAttachments * }"' #txt
 Pt0 f8 type workflow.humantask.ProcurementRequest #txt
 Pt0 f8 timeout 0 #txt
+Pt0 f8 exceptionHandler '>> Ignore Exception' #txt
 Pt0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -268,27 +270,27 @@ Pt0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f8 712 138 112 44 -45 -8 #rect
+Pt0 f8 712 154 112 44 -45 -8 #rect
 Pt0 f8 @|EMailIcon #fIcon
 Pt0 f4 expr out #txt
-Pt0 f4 95 160 152 160 #arcP
+Pt0 f4 95 176 152 176 #arcP
 Pt0 f9 expr out #txt
 Pt0 f9 type workflow.humantask.ProcurementRequest #txt
 Pt0 f9 var in1 #txt
-Pt0 f9 264 160 312 328 #arcP
-Pt0 f9 1 312 160 #addKink
+Pt0 f9 264 176 312 280 #arcP
+Pt0 f9 1 312 176 #addKink
 Pt0 f9 1 0.06965079247016907 0 0 #arcLabel
 Pt0 f10 expr data #txt
 Pt0 f10 outCond ivp=="TaskA.ivp" #txt
-Pt0 f10 328 344 360 344 #arcP
+Pt0 f10 328 296 360 296 #arcP
 Pt0 f10 0 0.5752865296136699 0 0 #arcLabel
 Pt0 f11 expr data #txt
 Pt0 f11 outCond ivp=="TaskB.ivp" #txt
-Pt0 f11 312 360 360 576 #arcP
-Pt0 f11 1 312 576 #addKink
+Pt0 f11 312 312 360 416 #arcP
+Pt0 f11 1 312 416 #addKink
 Pt0 f11 1 0.13308345915844264 0 0 #arcLabel
 Pt0 f15 expr out #txt
-Pt0 f15 824 160 857 160 #arcP
+Pt0 f15 824 176 857 176 #arcP
 Pt0 f16 targetWindow NEW:card: #txt
 Pt0 f16 targetDisplay TOP #txt
 Pt0 f16 richDialogId workflow.humantask.AcceptRequest #txt
@@ -316,11 +318,11 @@ Pt0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f16 632 762 112 44 -43 -8 #rect
+Pt0 f16 632 506 112 44 -43 -8 #rect
 Pt0 f16 @|RichDialogIcon #fIcon
 Pt0 f17 expr out #txt
-Pt0 f17 744 784 768 182 #arcP
-Pt0 f17 1 768 784 #addKink
+Pt0 f17 744 528 768 198 #arcP
+Pt0 f17 1 768 528 #addKink
 Pt0 f17 1 0.4192986443384443 0 0 #arcLabel
 Pt0 f19 type workflow.humantask.ProcurementRequest #txt
 Pt0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -332,11 +334,11 @@ Pt0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f19 576 328 32 32 23 -4 #rect
+Pt0 f19 576 280 32 32 23 -4 #rect
 Pt0 f19 @|AlternativeIcon #fIcon
 Pt0 f20 expr data #txt
 Pt0 f20 outCond ivp=="TaskB.ivp" #txt
-Pt0 f20 544 344 576 344 #arcP
+Pt0 f20 544 296 576 296 #arcP
 Pt0 f20 0 0.7298707237003984 0 0 #arcLabel
 Pt0 f21 expr in #txt
 Pt0 f21 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -348,18 +350,18 @@ Pt0 f21 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f21 592 328 712 160 #arcP
-Pt0 f21 1 592 160 #addKink
+Pt0 f21 592 280 712 176 #arcP
+Pt0 f21 1 592 176 #addKink
 Pt0 f21 0 0.7380952380952381 9 0 #arcLabel
 Pt0 f12 expr out #txt
 Pt0 f12 type workflow.humantask.ProcurementRequest #txt
 Pt0 f12 var in1 #txt
-Pt0 f12 472 344 512 344 #arcP
+Pt0 f12 472 296 512 296 #arcP
 Pt0 f13 expr out #txt
 Pt0 f13 type workflow.humantask.ProcurementRequest #txt
 Pt0 f13 var in2 #txt
-Pt0 f13 472 576 528 360 #arcP
-Pt0 f13 1 528 576 #addKink
+Pt0 f13 472 416 528 312 #arcP
+Pt0 f13 1 528 416 #addKink
 Pt0 f13 1 0.24183017286938835 0 0 #arcLabel
 Pt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -372,7 +374,7 @@ and accepted by an executive.</name>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f14 16 0 528 64 -258 -24 #rect
+Pt0 f14 16 40 528 64 -258 -24 #rect
 Pt0 f14 @|IBIcon #fIcon
 Pt0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -387,9 +389,9 @@ will be problems with the session handling.</name>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f24 96 674 352 76 -168 -32 #rect
+Pt0 f24 96 498 352 76 -168 -32 #rect
 Pt0 f24 @|IBIcon #fIcon
-Pt0 f25 272 674 306 354 #arcP
+Pt0 f25 272 498 304 304 #arcP
 Pt0 f26 actionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
 Pt0 f26 actionTable 'out=in1;
@@ -420,7 +422,7 @@ taskDefinitions.add(taskDef);
 ' #txt
 Pt0 f26 type workflow.humantask.ProcurementRequest #txt
 Pt0 f26 template "" #txt
-Pt0 f26 577 769 30 30 0 16 #rect
+Pt0 f26 577 513 30 30 0 16 #rect
 Pt0 f26 @|TaskSwitchSimpleIcon #fIcon
 Pt0 f27 expr in #txt
 Pt0 f27 outCond 'in.dataOkManager && in.dataOkTeamLeader' #txt
@@ -435,28 +437,28 @@ Pt0 f27 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f27 592 360 592 769 #arcP
+Pt0 f27 592 312 592 513 #arcP
 Pt0 f27 0 0.41911764705882354 14 0 #arcLabel
 Pt0 f18 expr data #txt
 Pt0 f18 outCond ivp=="TaskA.ivp" #txt
-Pt0 f18 607 784 632 784 #arcP
+Pt0 f18 607 528 632 528 #arcP
 >Proto Pt0 .type workflow.humantask.ProcurementRequest #txt
 >Proto Pt0 .processKind NORMAL #txt
 >Proto Pt0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <swimlaneLabel></swimlaneLabel>
+        <swimlaneLabel>Procurement Request</swimlaneLabel>
         <swimlaneLabel>Employee</swimlaneLabel>
         <swimlaneLabel>Team Leader</swimlaneLabel>
         <swimlaneLabel>Manager</swimlaneLabel>
         <swimlaneLabel>Executive</swimlaneLabel>
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
-    <swimlaneSize>768</swimlaneSize>
-    <swimlaneSize>192</swimlaneSize>
-    <swimlaneSize>192</swimlaneSize>
-    <swimlaneSize>192</swimlaneSize>
-    <swimlaneSize>192</swimlaneSize>
+    <swimlaneSize>472</swimlaneSize>
+    <swimlaneSize>120</swimlaneSize>
+    <swimlaneSize>120</swimlaneSize>
+    <swimlaneSize>112</swimlaneSize>
+    <swimlaneSize>120</swimlaneSize>
     <swimlaneColor gradient="false">-1</swimlaneColor>
     <swimlaneColor gradient="false">684510412</swimlaneColor>
     <swimlaneColor gradient="false">681166591</swimlaneColor>
@@ -467,7 +469,7 @@ Pt0 f18 607 784 632 784 #arcP
     <swimlaneType>LANE_IN_POOL</swimlaneType>
     <swimlaneType>LANE_IN_POOL</swimlaneType>
     <swimlaneType>LANE_IN_POOL</swimlaneType>
-    <swimlaneSpaceBefore>72</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>120</swimlaneSpaceBefore>
     <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
     <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
     <swimlaneSpaceBefore>0</swimlaneSpaceBefore>

@@ -4,3 +4,5 @@ fullName String #field
 fullName PERSISTENT #fieldModifier
 email String #field
 email PERSISTENT #fieldModifier
+role String #field
+role PERSISTENT #fieldModifier

@@ -1,2 +1,3 @@
-co: name={SequenceOfTasks} description={} changed={2016-01-18 14:57:56 CET} changedby={bhu} visualorder={0} guid={15255071F012D3DC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={SequenceOfTasks} description={} changed={2016-02-16 22:12:53 CET} changedby={xtrans} visualorder={0} guid={15255071F012D3DC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={152EBEDC1D35B706} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:12:53 CET} validto={} changed={2016-02-16 22:12:53 CET} changedby={xtrans} properties={} id={}
 val: guid={15255071F09B3B27} datatype={} isdefault={true} langid={en} description={} validfrom={2014-02-24 15:12:50 CET} validto={} changed={2016-01-18 14:57:56 CET} changedby={bhu} properties={} id={}

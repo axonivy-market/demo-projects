@@ -1,2 +1,3 @@
-co: name={parkingLotNr} description={} changed={2016-01-19 15:13:14 CET} changedby={bhu} visualorder={0} guid={1525A3B7CFD7A72A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={parkingLotNr} description={} changed={2016-02-16 22:26:35 CET} changedby={xtrans} visualorder={0} guid={1525A3B7CFD7A72A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={1525A3B7D064C13C} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-19 15:13:14 CET} validto={} changed={2016-01-19 15:13:14 CET} changedby={bhu} properties={} id={}
+val: guid={152EBFA4C8E9913D} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:26:35 CET} validto={} changed={2016-02-16 22:26:35 CET} changedby={xtrans} properties={} id={}

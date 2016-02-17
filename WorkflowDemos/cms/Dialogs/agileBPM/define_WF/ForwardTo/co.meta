@@ -1,2 +1,3 @@
-co: name={ForwardTo} description={} changed={2016-01-19 14:50:51 GMT} changedby={bhu} visualorder={0} guid={1525A5DEDEC68319} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1525A5DEDF3E3082} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-19 14:50:51 GMT} validto={} changed={2016-01-19 14:50:51 GMT} changedby={bhu} properties={} id={}
+co: name={ForwardTo} description={} changed={2016-02-16 22:11:41 CET} changedby={xtrans} visualorder={0} guid={1525A5DEDEC68319} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={152EBECA7189BC58} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:11:41 CET} validto={} changed={2016-02-16 22:11:41 CET} changedby={xtrans} properties={} id={}
+val: guid={1525A5DEDF3E3082} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-19 15:50:51 CET} validto={} changed={2016-01-19 15:50:51 CET} changedby={bhu} properties={} id={}

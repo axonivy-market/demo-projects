@@ -23,6 +23,9 @@
 		<p:column id="user">  
 			<h:outputText value="#{logEntry.user.fullName}" />  
 		</p:column>
+		<p:column id="role">
+			<h:outputText value="#{logEntry.user.role}" />
+		</p:column>
 	</p:dataTable>		
 </cc:implementation>
 

@@ -10,7 +10,11 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">ITDepartment</ui:define>
 		<ui:define name="content">
-			<h3>#{ivy.task.getName()}</h3>
+			<h3>
+				<h:outputText escape="false" value="#{ivy.task.getName()}" />
+			</h3>
+			
+			<h:outputText escape="false" value="#{ivy.task.getDescription()}" />
 			
 			<h:form id="form">
 				<h:panelGrid columns="2">
@@ -29,7 +33,7 @@
 					
 					<p:outputLabel for="userCity" value="#{ivy.cms.co('/Dialogs/signal/city')}"/>
 					<p:outputLabel id="userCity" value="#{data.user.city}"></p:outputLabel>					
-					<br />
+					
 					<p:commandButton actionListener="#{logic.close}" value="#{ivy.cms.co('/Dialogs/general/proceed')}" update="form" icon="ui-icon-check" />
 				</h:panelGrid>
 			</h:form>

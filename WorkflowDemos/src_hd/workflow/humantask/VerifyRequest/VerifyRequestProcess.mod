@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 03 16:39:23 CET 2016]
+[>Created: Wed Feb 17 15:54:05 CET 2016]
 15254DF8F30D6949 3.18 #module
 >Proto >Proto Collection #zClass
 Vs0 VerifyRequestProcess Big #zClass
@@ -69,6 +69,7 @@ Vs0 f6 actionTable 'out=in;
 out.logEntry.activity=ivy.cms.co("/Dialogs/procurementRequest/verifiedBy");
 out.logEntry.timestamp=new DateTime();
 out.logEntry.user.fullName=ivy.session.getSessionUser().fullName;
+out.logEntry.user.role=ivy.task.activator.getMemberName();
 ' #txt
 Vs0 f6 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
 Vs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -132,6 +133,7 @@ Vs0 f10 actionTable 'out=in;
 out.logEntry.activity=ivy.cms.co("/Dialogs/procurementRequest/declinedBy");
 out.logEntry.timestamp=new DateTime();
 out.logEntry.user.fullName=ivy.session.getSessionUser().fullName;
+out.logEntry.user.role=ivy.task.activator.getMemberName();
 ' #txt
 Vs0 f10 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
 Vs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

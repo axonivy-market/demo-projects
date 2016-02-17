@@ -1,0 +1,3 @@
+co: name={QuitUserTitle} description={} changed={2016-02-17 14:39:56 CET} changedby={bhu} visualorder={0} guid={1525A33234154FB0} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={152EBF9028393C22} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:25:10 CET} validto={} changed={2016-02-17 14:21:47 CET} changedby={bhu} properties={} id={}
+val: guid={1525A33234D7F301} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-19 15:04:06 CET} validto={} changed={2016-02-17 14:21:36 CET} changedby={bhu} properties={} id={}

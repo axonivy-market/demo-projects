@@ -1,2 +1,3 @@
-co: name={AddTask} description={} changed={2016-01-19 15:50:13 CET} changedby={bhu} visualorder={0} guid={1525A5D5A4CE405B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={AddTask} description={} changed={2016-02-16 22:10:39 CET} changedby={xtrans} visualorder={0} guid={1525A5D5A4CE405B} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={1525A5D5A51A95D7} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-19 15:50:13 CET} validto={} changed={2016-01-19 15:50:13 CET} changedby={bhu} properties={} id={}
+val: guid={152EBEB987098135} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:10:31 CET} validto={} changed={2016-02-16 22:10:39 CET} changedby={xtrans} properties={} id={}

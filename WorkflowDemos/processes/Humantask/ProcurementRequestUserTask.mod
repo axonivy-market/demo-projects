@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 02 16:39:22 CET 2016]
+[>Created: Wed Feb 17 10:21:04 CET 2016]
 15254DCE818AD7A2 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
@@ -41,7 +41,8 @@ Pt0 f0 requestEnabled true #txt
 Pt0 f0 triggerEnabled false #txt
 Pt0 f0 callSignature start() #txt
 Pt0 f0 persist false #txt
-Pt0 f0 startName '<%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%> (<%=ivy.cms.co("/ProcessDescriptions/userTaskExample")%>)' #txt
+Pt0 f0 startName '<%=ivy.cms.co("/ProcessDescriptions/userTaskExample")%>: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%>' #txt
+Pt0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/procurementRequestUserTaskDescription")%> #txt
 Pt0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -132,13 +133,13 @@ Pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f5 328 314 112 44 -39 -8 #rect
+Pt0 f5 328 250 112 44 -39 -8 #rect
 Pt0 f5 @|UserTaskIcon #fIcon
 Pt0 f6 expr out #txt
 Pt0 f6 type workflow.humantask.ProcurementRequest #txt
 Pt0 f6 var in1 #txt
-Pt0 f6 224 166 328 336 #arcP
-Pt0 f6 1 224 336 #addKink
+Pt0 f6 224 166 328 272 #arcP
+Pt0 f6 1 224 272 #addKink
 Pt0 f6 0 0.9750159348993512 0 0 #arcLabel
 Pt0 f7 richDialogId workflow.humantask.AcceptRequest #txt
 Pt0 f7 startMethod start(workflow.humantask.ProcurementRequest) #txt
@@ -170,11 +171,12 @@ Pt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f7 584 506 112 44 -43 -8 #rect
+Pt0 f7 584 370 112 44 -43 -8 #rect
 Pt0 f7 @|UserTaskIcon #fIcon
 Pt0 f9 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%><%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%> \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.requester.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\n\\t<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>\\n</html>""/emailAttachments * }"' #txt
 Pt0 f9 type workflow.humantask.ProcurementRequest #txt
 Pt0 f9 timeout 0 #txt
+Pt0 f9 exceptionHandler '>> Ignore Exception' #txt
 Pt0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -188,8 +190,8 @@ Pt0 f9 744 120 112 48 -45 -8 #rect
 Pt0 f9 @|EMailIcon #fIcon
 Pt0 f10 expr data #txt
 Pt0 f10 outCond ivp=="TaskA.ivp" #txt
-Pt0 f10 696 528 800 168 #arcP
-Pt0 f10 1 800 528 #addKink
+Pt0 f10 696 392 800 168 #arcP
+Pt0 f10 1 800 392 #addKink
 Pt0 f10 1 0.2769262184174318 0 0 #arcLabel
 Pt0 f2 expr out #txt
 Pt0 f2 856 144 913 144 #arcP
@@ -203,11 +205,11 @@ Pt0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f11 496 320 32 32 27 -7 #rect
+Pt0 f11 496 256 32 32 27 -7 #rect
 Pt0 f11 @|AlternativeIcon #fIcon
 Pt0 f12 expr data #txt
 Pt0 f12 outCond ivp=="TaskA.ivp" #txt
-Pt0 f12 440 336 496 336 #arcP
+Pt0 f12 440 272 496 272 #arcP
 Pt0 f8 expr in #txt
 Pt0 f8 outCond in.dataOkManager #txt
 Pt0 f8 type workflow.humantask.ProcurementRequest #txt
@@ -221,8 +223,8 @@ Pt0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f8 512 352 584 528 #arcP
-Pt0 f8 1 512 528 #addKink
+Pt0 f8 512 288 584 392 #arcP
+Pt0 f8 1 512 392 #addKink
 Pt0 f8 0 0.8465909090909091 15 0 #arcLabel
 Pt0 f13 expr in #txt
 Pt0 f13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -234,7 +236,7 @@ Pt0 f13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f13 512 320 744 144 #arcP
+Pt0 f13 512 256 744 144 #arcP
 Pt0 f13 1 512 144 #addKink
 Pt0 f13 1 0.16810344827586207 0 9 #arcLabel
 Pt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -247,9 +249,9 @@ and a User Dialog step.</name>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f14 240 386 144 44 -66 -16 #rect
+Pt0 f14 240 322 144 44 -66 -16 #rect
 Pt0 f14 @|IBIcon #fIcon
-Pt0 f15 312 386 340 358 #arcP
+Pt0 f15 312 322 340 294 #arcP
 Pt0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -274,10 +276,10 @@ Pt0 f16 @|IBIcon #fIcon
         <swimlaneLabel>Executive</swimlaneLabel>
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
-    <swimlaneSize>576</swimlaneSize>
-    <swimlaneSize>192</swimlaneSize>
-    <swimlaneSize>192</swimlaneSize>
-    <swimlaneSize>192</swimlaneSize>
+    <swimlaneSize>360</swimlaneSize>
+    <swimlaneSize>128</swimlaneSize>
+    <swimlaneSize>120</swimlaneSize>
+    <swimlaneSize>112</swimlaneSize>
     <swimlaneColor gradient="false">-1</swimlaneColor>
     <swimlaneColor gradient="false">684510412</swimlaneColor>
     <swimlaneColor gradient="false">687865804</swimlaneColor>

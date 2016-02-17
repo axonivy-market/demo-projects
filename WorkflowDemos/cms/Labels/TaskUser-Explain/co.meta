@@ -1,2 +1,3 @@
-co: name={TaskUser-Explain} description={} changed={2016-01-18 14:58:10 CET} changedby={bhu} visualorder={0} guid={152550757C0B7131} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={TaskUser-Explain} description={} changed={2016-02-16 22:34:56 CET} changedby={xtrans} visualorder={0} guid={152550757C0B7131} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={152550757C71F8D9} datatype={} isdefault={true} langid={en} description={} validfrom={2015-02-10 12:41:28 CET} validto={} changed={2016-01-18 14:58:10 CET} changedby={bhu} properties={} id={}
+val: guid={152EC01F206CF750} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:34:56 CET} validto={} changed={2016-02-16 22:34:56 CET} changedby={xtrans} properties={} id={}

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 03 16:41:15 CET 2016]
+[>Created: Wed Feb 17 15:54:30 CET 2016]
 15254DF1CAEC5132 3.18 #module
 >Proto >Proto Collection #zClass
 As0 AcceptRequestProcess Big #zClass
@@ -69,6 +69,7 @@ As0 f6 actionTable 'out=in;
 out.logEntry.activity=ivy.cms.co("/Dialogs/procurementRequest/acceptedBy");
 out.logEntry.timestamp=new DateTime();
 out.logEntry.user.fullName=ivy.session.getSessionUser().fullName;
+out.logEntry.user.role=ivy.task.activator.getMemberName();
 ' #txt
 As0 f6 type workflow.humantask.AcceptRequest.AcceptRequestData #txt
 As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -132,6 +133,7 @@ As0 f10 actionTable 'out=in;
 out.logEntry.activity=ivy.cms.co("/Dialogs/procurementRequest/declinedBy");
 out.logEntry.timestamp=new DateTime();
 out.logEntry.user.fullName=ivy.session.getSessionUser().fullName;
+out.logEntry.user.role=ivy.task.activator.getMemberName();
 ' #txt
 As0 f10 type workflow.humantask.AcceptRequest.AcceptRequestData #txt
 As0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
