@@ -21,11 +21,6 @@
 						<p:messages></p:messages>
 					</f:facet>
 					
-					<p:outputLabel for="until" value="Until"/>
-					<p:calendar id="until" value="#{data.until}" pattern="dd.MM.yyyy HH:mm" size="16">
-						<f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
-					</p:calendar>
-					
 					<br />
 					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
 				</h:panelGrid>

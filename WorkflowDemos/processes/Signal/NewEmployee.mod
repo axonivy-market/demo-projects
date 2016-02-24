@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 23 20:28:07 CET 2016]
+[>Created: Wed Feb 24 15:33:59 CET 2016]
 151CA0D8CBDD2DEC 3.18 #module
 >Proto >Proto Collection #zClass
 cr0 NewEmployee Big #zClass
@@ -325,19 +325,19 @@ cr0 f30 actionTable 'out=in;
 ' #txt
 cr0 f30 actionCode 'import ch.ivyteam.ivy.process.model.value.SignalCode;
 
-ivy.wf.signals().sendSignal(new SignalCode("user:created"), in.user);' #txt
+ivy.wf.signals().send(new SignalCode("user:created"), in.user);' #txt
 cr0 f30 type workflow.signal.CreateUserProcess #txt
 cr0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>Send Signal
 ''user:created''</name>
-        <nameStyle>26
+        <nameStyle>26,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-cr0 f30 304 74 112 44 -36 -16 #rect
+cr0 f30 296 74 128 44 -41 -15 #rect
 cr0 f30 @|StepIcon #fIcon
 cr0 f0 outLink addUser.ivp #txt
 cr0 f0 type workflow.signal.CreateUserProcess #txt
@@ -384,9 +384,9 @@ cr0 f0 @|StartRequestIcon #fIcon
 cr0 f4 expr out #txt
 cr0 f4 111 96 168 96 #arcP
 cr0 f31 expr out #txt
-cr0 f31 280 96 304 96 #arcP
+cr0 f31 280 96 296 96 #arcP
 cr0 f35 expr out #txt
-cr0 f35 416 96 457 96 #arcP
+cr0 f35 424 96 457 96 #arcP
 >Proto cr0 .type workflow.signal.CreateUserProcess #txt
 >Proto cr0 .processKind NORMAL #txt
 >Proto cr0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

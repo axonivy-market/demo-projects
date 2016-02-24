@@ -19,7 +19,7 @@
 						itemLabel="#{user.getDisplayName().length() ne 0 ? user.getDisplayName() : user.getName()}" />
 					<p:column>
 						<h:outputText
-							value="#{u.getDisplayName().length() ne 0 ? u.getDisplayName() : u.getName()}" />
+							value="#{user.getDisplayName().length() ne 0 ? user.getDisplayName() : u.getName()}" />
 					</p:column>
 					<p:ajax update="userListForm" listener="#{logic.updateUserList}" />
 				</p:selectManyMenu>

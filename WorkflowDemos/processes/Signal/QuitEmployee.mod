@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 23 20:28:21 CET 2016]
+[>Created: Wed Feb 24 15:34:14 CET 2016]
 151CA1EFC1542D87 3.18 #module
 >Proto >Proto Collection #zClass
 qr0 QuitEmployee Big #zClass
@@ -77,7 +77,7 @@ qr0 f3 actionCode 'import ch.ivyteam.ivy.process.model.value.SignalCode;
 SignalCode signalCode = new SignalCode("admin:quit:" + in.quitUserEvent.userKey);
 
 // send signal
-ivy.wf.signals().sendSignal(signalCode, in.quitUserEvent);' #txt
+ivy.wf.signals().send(signalCode, in.quitUserEvent);' #txt
 qr0 f3 type workflow.signal.QuitUserProcess #txt
 qr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
