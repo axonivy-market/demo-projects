@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 17 10:11:56 CET 2016]
+[>Created: Tue Feb 23 20:26:29 CET 2016]
 152551002ABB8DFE 3.18 #module
 >Proto >Proto Collection #zClass
 To0 FlowPatterns Big #zClass
@@ -71,6 +71,10 @@ Bk4 @MessageFlowInP-0n messageIn messageIn #zField
 Bk4 @MessageFlowOutP-0n messageOut messageOut #zField
 Bk4 @TextInP .xml .xml #zField
 Bk4 @TextInP .responsibility .responsibility #zField
+Bk4 @StartRequest f0 '' #zField
+Bk4 @EndTask f1 '' #zField
+Bk4 @PushWFArc f2 '' #zField
+Bk4 @InfoButton f3 '' #zField
 >Proto Bk4 Bk0 BpmnUserTask #zField
 Bk0 @TextInP .resExport .resExport #zField
 Bk0 @TextInP .type .type #zField
@@ -83,7 +87,7 @@ Bk0 @TextInP .responsibility .responsibility #zField
 Bk0 @PushTrueWFInG-01 g0 '' #zField
 Bk0 @PushTrueWFOutG-01 g1 '' #zField
 Bk0 @PushWFArc f0 '' #zField
-Bk0 @PushTrueWFInG-01 g2 '' #zField
+Bk0 @InfoButton f3 '' #zField
 >Proto Bk0 Bk1 BpmnUserTask #zField
 Bk1 @TextInP .resExport .resExport #zField
 Bk1 @TextInP .type .type #zField
@@ -96,6 +100,7 @@ Bk1 @TextInP .responsibility .responsibility #zField
 Bk1 @PushTrueWFInG-01 g0 '' #zField
 Bk1 @EndTask f0 '' #zField
 Bk1 @PushWFArc f1 '' #zField
+Bk1 @InfoButton f3 '' #zField
 >Proto Bk1 Bk2 BpmnUserTask #zField
 Bk2 @TextInP .resExport .resExport #zField
 Bk2 @TextInP .type .type #zField
@@ -107,9 +112,8 @@ Bk2 @TextInP .xml .xml #zField
 Bk2 @TextInP .responsibility .responsibility #zField
 Bk2 @PushTrueWFInG-01 g0 '' #zField
 Bk2 @PushTrueWFOutG-01 g1 '' #zField
-Bk2 @Alternative f1 '' #zField
-Bk2 @PushWFArc f2 '' #zField
 Bk2 @PushWFArc f0 '' #zField
+Bk2 @InfoButton f3 '' #zField
 >Proto Bk2 Bk3 BpmnUserTask #zField
 Bk3 @TextInP .resExport .resExport #zField
 Bk3 @TextInP .type .type #zField
@@ -126,6 +130,7 @@ Bk3 @Alternative f1 '' #zField
 Bk3 @PushWFArc f2 '' #zField
 Bk3 @PushWFArc f0 '' #zField
 Bk3 @PushWFArc f3 '' #zField
+Bk3 @InfoButton f4 '' #zField
 >Proto Bk3 Bk4 BpmnUserTask #zField
 Bk5 @TextInP .resExport .resExport #zField
 Bk5 @TextInP .type .type #zField
@@ -135,6 +140,10 @@ Bk5 @MessageFlowInP-0n messageIn messageIn #zField
 Bk5 @MessageFlowOutP-0n messageOut messageOut #zField
 Bk5 @TextInP .xml .xml #zField
 Bk5 @TextInP .responsibility .responsibility #zField
+Bk5 @EndTask f1 '' #zField
+Bk5 @StartRequest f0 '' #zField
+Bk5 @PushWFArc f2 '' #zField
+Bk5 @InfoButton f3 '' #zField
 >Proto Bk5 Bk5 BpmnUserTask #zField
 Bk6 @TextInP .resExport .resExport #zField
 Bk6 @TextInP .type .type #zField
@@ -147,19 +156,21 @@ Bk6 @TextInP .responsibility .responsibility #zField
 Bk6 @PushTrueWFInG-01 g0 '' #zField
 Bk6 @PushTrueWFOutG-01 g1 '' #zField
 Bk6 @PushWFArc f0 '' #zField
+Bk6 @InfoButton f3 '' #zField
 >Proto Bk6 Bk6 BpmnUserTask #zField
 To0 f2 408 208 457 208 #arcP
 To0 U31 .resExport export #txt
 To0 U31 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
-        <name>User 3</name>
-        <nameStyle>6,5,7
+        <name>User
+ToDo task</name>
+        <nameStyle>14,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-To0 U31 304 194 112 44 -18 -8 #rect
+To0 U31 304 194 112 44 -28 -16 #rect
 To0 U31 @|BpmnUserTaskIcon #fIcon
 To0 U31 -1|-1|-13016147 #nodeStyle
 To0 f0 outLink start.ivp #txt
@@ -426,14 +437,14 @@ To0 U12 .resExport export #txt
 To0 U12 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
-        <name>User A
-approve Thing</name>
+        <name>User
+approve request</name>
         <nameStyle>20,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-To0 U12 320 306 112 44 -39 -16 #rect
+To0 U12 312 306 128 44 -42 -16 #rect
 To0 U12 @|BpmnUserTaskIcon #fIcon
 To0 U12 -1|-1|-13016147 #nodeStyle
 To0 U13 .resExport export #txt
@@ -635,6 +646,58 @@ To0 f27 @|IBIcon #fIcon
 ' #txt
 >Proto To0 0 0 32 24 18 0 #rect
 >Proto To0 @|BIcon #fIcon
+Bk4 f0 outLink dummy.ivp #txt
+Bk4 f0 type workflow.agileBPM.Data #txt
+Bk4 f0 inParamDecl '<> param;' #txt
+Bk4 f0 actionDecl 'workflow.agileBPM.Data out;
+' #txt
+Bk4 f0 guid 1530E8C5636932AD #txt
+Bk4 f0 requestEnabled false #txt
+Bk4 f0 triggerEnabled false #txt
+Bk4 f0 callSignature dummy() #txt
+Bk4 f0 persist false #txt
+Bk4 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+Bk4 f0 showInStartList 0 #txt
+Bk4 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Bk4 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name></name>
+    </language>
+</elementInfo>
+' #txt
+Bk4 f0 @C|.responsibility Everybody #txt
+Bk4 f0 17 225 30 30 0 17 #rect
+Bk4 f0 @|StartRequestIcon #fIcon
+Bk4 f1 type workflow.agileBPM.Data #txt
+Bk4 f1 561 225 30 30 0 15 #rect
+Bk4 f1 @|EndIcon #fIcon
+Bk4 f2 expr out #txt
+Bk4 f2 47 240 561 240 #arcP
+Bk4 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Dummy-Subprocess</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bk4 f3 24 161 128 30 -57 -8 #rect
+Bk4 f3 @|IBIcon #fIcon
 >Proto Bk0 0 0 32 24 18 0 #rect
 >Proto Bk0 @|BpmnUserTaskIcon #fIcon
 Bk0 g0 51 243 26 26 0 5 #rect
@@ -642,28 +705,54 @@ Bk0 g0 @|MIGIcon #fIcon
 Bk0 g1 563 243 26 26 0 5 #rect
 Bk0 g1 @|MOGIcon #fIcon
 Bk0 f0 77 256 563 256 #arcP
-Bk0 g2 51 307 26 26 0 5 #rect
-Bk0 g2 @|MIGIcon #fIcon
+Bk0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Dummy-Subprocess</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bk0 f3 32 177 128 30 -57 -8 #rect
+Bk0 f3 @|IBIcon #fIcon
 >Proto Bk1 -8 -8 16 16 16 26 #rect
 >Proto Bk1 '' #fIcon
-Bk1 g0 174 211 26 26 0 5 #rect
+Bk1 g0 38 211 26 26 0 5 #rect
 Bk1 g0 @|MIGIcon #fIcon
 Bk1 f0 type workflow.agileBPM.Data #txt
 Bk1 f0 353 209 30 30 0 15 #rect
 Bk1 f0 @|EndIcon #fIcon
-Bk1 f1 200 224 353 224 #arcP
+Bk1 f1 64 224 353 224 #arcP
+Bk1 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Dummy-Subprocess</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bk1 f3 40 161 128 30 -57 -8 #rect
+Bk1 f3 @|IBIcon #fIcon
 >Proto Bk2 0 0 32 24 18 0 #rect
 >Proto Bk2 @|BpmnUserTaskIcon #fIcon
 Bk2 g0 67 235 26 26 0 5 #rect
 Bk2 g0 @|MIGIcon #fIcon
 Bk2 g1 563 235 26 26 0 5 #rect
 Bk2 g1 @|MOGIcon #fIcon
-Bk2 f1 type workflow.agileBPM.Data #txt
-Bk2 f1 472 232 32 32 0 16 #rect
-Bk2 f1 @|AlternativeIcon #fIcon
-Bk2 f2 93 248 472 248 #arcP
-Bk2 f0 expr in #txt
-Bk2 f0 504 248 563 248 #arcP
+Bk2 f0 93 248 563 248 #arcP
+Bk2 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Dummy-Subprocess</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bk2 f3 64 193 128 30 -57 -8 #rect
+Bk2 f3 @|IBIcon #fIcon
 >Proto Bk3 0 0 32 24 18 0 #rect
 >Proto Bk3 @|BpmnUserTaskIcon #fIcon
 Bk3 g0 51 243 26 26 0 5 #rect
@@ -679,8 +768,71 @@ Bk3 f2 77 256 336 256 #arcP
 Bk3 f0 expr in #txt
 Bk3 f0 368 256 563 256 #arcP
 Bk3 f3 352 173 352 240 #arcP
+Bk3 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Dummy-Subprocess</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bk3 f4 56 185 128 30 -57 -8 #rect
+Bk3 f4 @|IBIcon #fIcon
 >Proto Bk4 0 0 32 24 18 0 #rect
 >Proto Bk4 @|BpmnUserTaskIcon #fIcon
+Bk5 f1 type workflow.agileBPM.Data #txt
+Bk5 f1 569 273 30 30 0 15 #rect
+Bk5 f1 @|EndIcon #fIcon
+Bk5 f0 outLink dummy2.ivp #txt
+Bk5 f0 type workflow.agileBPM.Data #txt
+Bk5 f0 inParamDecl '<> param;' #txt
+Bk5 f0 actionDecl 'workflow.agileBPM.Data out;
+' #txt
+Bk5 f0 guid 1530E8DD16CC624B #txt
+Bk5 f0 requestEnabled false #txt
+Bk5 f0 triggerEnabled false #txt
+Bk5 f0 callSignature dummy2() #txt
+Bk5 f0 persist false #txt
+Bk5 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+Bk5 f0 showInStartList 0 #txt
+Bk5 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Bk5 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name></name>
+    </language>
+</elementInfo>
+' #txt
+Bk5 f0 @C|.responsibility Everybody #txt
+Bk5 f0 25 273 30 30 0 17 #rect
+Bk5 f0 @|StartRequestIcon #fIcon
+Bk5 f2 expr out #txt
+Bk5 f2 55 288 569 288 #arcP
+Bk5 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Dummy-Subprocess</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bk5 f3 24 193 128 30 -57 -8 #rect
+Bk5 f3 @|IBIcon #fIcon
 >Proto Bk5 0 0 32 24 18 0 #rect
 >Proto Bk5 @|BpmnUserTaskIcon #fIcon
 Bk6 g0 51 243 26 26 0 5 #rect
@@ -688,6 +840,17 @@ Bk6 g0 @|MIGIcon #fIcon
 Bk6 g1 563 243 26 26 0 5 #rect
 Bk6 g1 @|MOGIcon #fIcon
 Bk6 f0 77 256 563 256 #arcP
+Bk6 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Dummy-Subprocess</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bk6 f3 40 169 128 30 -57 -8 #rect
+Bk6 f3 @|IBIcon #fIcon
 >Proto Bk6 0 0 32 24 18 0 #rect
 >Proto Bk6 @|BpmnUserTaskIcon #fIcon
 To0 U10 g1 f2 tail #connect
@@ -716,6 +879,8 @@ To0 f24 out f10 tail #connect
 To0 f10 head f8 mainIn #connect
 To0 f24 out f26 tail #connect
 To0 f26 head U21 g2 #connect
+Bk4 f0 mainOut f2 tail #connect
+Bk4 f2 head f1 mainIn #connect
 Bk4 0 0 640 512 0 #ivRect
 Bk0 g0 m f0 tail #connect
 Bk0 f0 head g1 m #connect
@@ -723,9 +888,7 @@ Bk0 0 0 640 512 0 #ivRect
 Bk1 g0 m f1 tail #connect
 Bk1 f1 head f0 mainIn #connect
 Bk1 0 0 640 512 0 #ivRect
-Bk2 g0 m f2 tail #connect
-Bk2 f2 head f1 in #connect
-Bk2 f1 out f0 tail #connect
+Bk2 g0 m f0 tail #connect
 Bk2 f0 head g1 m #connect
 Bk2 0 0 640 512 0 #ivRect
 Bk3 g0 m f2 tail #connect
@@ -735,6 +898,8 @@ Bk3 f0 head g1 m #connect
 Bk3 g2 m f3 tail #connect
 Bk3 f3 head f1 in #connect
 Bk3 0 0 640 512 0 #ivRect
+Bk5 f0 mainOut f2 tail #connect
+Bk5 f2 head f1 mainIn #connect
 Bk5 0 0 640 512 0 #ivRect
 Bk6 g0 m f0 tail #connect
 Bk6 f0 head g1 m #connect

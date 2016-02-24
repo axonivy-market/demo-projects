@@ -1,3 +1,3 @@
-co: name={FooterText} description={} changed={2016-02-17 08:37:42 CET} changedby={bhu} visualorder={0} guid={1178C04FFCF28718} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={152EC07B6BBF31A7} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:41:14 CET} validto={} changed={2016-02-17 08:37:42 CET} changedby={bhu} properties={} id={}
-val: guid={1178C05004C41EBD} datatype={} isdefault={true} langid={en} description={} validfrom={2008-01-18 09:30:13 CET} validto={} changed={2016-02-16 22:41:09 CET} changedby={xtrans} properties={} id={}
+co: name={FooterText} description={} changed={2016-02-23 20:35:05 CET} changedby={bhu} visualorder={0} guid={1178C04FFCF28718} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
+val: guid={152EC07B6BBF31A7} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:41:14 CET} validto={} changed={2016-02-23 20:35:05 CET} changedby={bhu} properties={} id={}
+val: guid={1178C05004C41EBD} datatype={} isdefault={true} langid={en} description={} validfrom={2008-01-18 09:30:13 CET} validto={} changed={2016-02-23 20:35:05 CET} changedby={bhu} properties={} id={}

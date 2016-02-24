@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 17 15:05:25 CET 2016]
+[>Created: Tue Feb 23 16:44:16 CET 2016]
 1523FF963044280C 3.18 #module
 >Proto >Proto Collection #zClass
 ft0 KeyCardDelivery Big #zClass
@@ -76,7 +76,7 @@ ft0 f8 responseActionDecl 'workflow.signal.FacilityManagementData out;
 ft0 f8 responseMappingAction 'out=in;
 ' #txt
 ft0 f8 outLinks "TaskA.ivp" #txt
-ft0 f8 taskData 'TaskA.DESC=<%\=ivy.cms.co("/TaskDescriptions/deliverKeyCardDesc")%><%\=in.user.name%> [<%\=in.user.userKey%>]
+ft0 f8 taskData 'TaskA.DESC=<%\=ivy.cms.co("/TaskDescriptions/DeliverKeyCardDesc")%><%\=in.user.name%> [<%\=in.user.userKey%>]
 TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
@@ -137,10 +137,10 @@ ft0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>A Signal Start listening to a certain signal can also reside in another process or project.
-As long as the the projects are deployed into the same application.</name>
-        <nameStyle>2
-12,0
-145
+As long as the projects are deployed into the same application.</name>
+        <nameStyle>2,7
+12,0,7
+141,7
 </nameStyle>
     </language>
 </elementInfo>

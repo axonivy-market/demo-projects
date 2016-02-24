@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 17 10:21:04 CET 2016]
+[>Created: Tue Feb 23 20:31:58 CET 2016]
 15254DCE818AD7A2 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
@@ -41,7 +41,7 @@ Pt0 f0 requestEnabled true #txt
 Pt0 f0 triggerEnabled false #txt
 Pt0 f0 callSignature start() #txt
 Pt0 f0 persist false #txt
-Pt0 f0 startName '<%=ivy.cms.co("/ProcessDescriptions/userTaskExample")%>: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%>' #txt
+Pt0 f0 startName '2.2: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%> (<%=ivy.cms.co("/ProcessDescriptions/userTaskExample")%>)' #txt
 Pt0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/procurementRequestUserTaskDescription")%> #txt
 Pt0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -242,23 +242,23 @@ Pt0 f13 1 0.16810344827586207 0 9 #arcLabel
 Pt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Combines a task switch
-and a User Dialog step.</name>
-        <nameStyle>46,7
+        <name>Combines a Task Switch Event
+and a User Dialog Step.</name>
+        <nameStyle>52,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f14 240 322 144 44 -66 -16 #rect
+Pt0 f14 224 322 176 44 -85 -16 #rect
 Pt0 f14 @|IBIcon #fIcon
-Pt0 f15 312 322 340 294 #arcP
+Pt0 f15 312 322 335 294 #arcP
 Pt0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>This example shows the usage of a User Task step
+        <name>This example shows the usage of a User Task Activity.
 A procurement request is made by an employee, verified by the manager and accepted by an executive.
 The User Task step is used instead of a Task Switch and a User Dialog step.</name>
-        <nameStyle>224,7
+        <nameStyle>229,7
 </nameStyle>
     </language>
 </elementInfo>

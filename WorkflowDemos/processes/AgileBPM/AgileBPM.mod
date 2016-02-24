@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 17 10:09:21 CET 2016]
+[>Created: Tue Feb 23 20:43:18 CET 2016]
 15255056043EE914 3.18 #module
 >Proto >Proto Collection #zClass
 AF0 AgileBPM Big #zClass
@@ -117,16 +117,16 @@ AF0 f0 requestEnabled true #txt
 AF0 f0 triggerEnabled false #txt
 AF0 f0 callSignature start() #txt
 AF0 f0 persist false #txt
-AF0 f0 startName <%=ivy.cms.co("/ProcessDescriptions/AdHocName")%> #txt
+AF0 f0 startName '1: <%=ivy.cms.co("/ProcessDescriptions/SelfServiceBPM")%> (<%=ivy.cms.co("/ProcessDescriptions/AdHocName")%>)' #txt
 AF0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/AdHocDescription")%> #txt
 AF0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.KINDC=CREATOR
+TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody
-TaskTriggered.NAM=Self Service Workflow' #txt
+TaskTriggered.NAM=Self Service Workflow
+TaskTriggered.EXROL=Everybody' #txt
 AF0 f0 caseData 'processCategory.code=Self Service WF
 processCategory.name=Self Service WF' #txt
 AF0 f0 wfuser 1 #txt
@@ -269,7 +269,7 @@ AF0 f10 @|IBIcon #fIcon
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
     <swimlaneSize>225</swimlaneSize>
-    <swimlaneColor>-1</swimlaneColor>
+    <swimlaneColor gradient="false">-52</swimlaneColor>
     <swimlaneType>POOL</swimlaneType>
     <swimlaneSpaceBefore>88</swimlaneSpaceBefore>
 </elementInfo>

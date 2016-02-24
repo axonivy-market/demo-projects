@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 17 10:21:35 CET 2016]
+[>Created: Tue Feb 23 20:31:21 CET 2016]
 15254DC87A1B183B 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestParallel Big #zClass
@@ -79,7 +79,7 @@ Pt0 f0 requestEnabled true #txt
 Pt0 f0 triggerEnabled false #txt
 Pt0 f0 callSignature start() #txt
 Pt0 f0 persist false #txt
-Pt0 f0 startName '<%=ivy.cms.co("/ProcessDescriptions/parallelTaskExample")%>: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%>' #txt
+Pt0 f0 startName '2.1: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%> (<%=ivy.cms.co("/ProcessDescriptions/parallelTaskExample")%>)' #txt
 Pt0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/procurementRequestParallelDescription")%> #txt
 Pt0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -366,15 +366,15 @@ Pt0 f13 1 0.24183017286938835 0 0 #arcLabel
 Pt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>This example shows the use of a Gateway with a Task Switch.
+        <name>This example shows the use of a Parallel Task Switch Gateway.
 A procurement request is made by an employee, verified by the team leader and by a manager 
 and accepted by an executive.</name>
-        <nameStyle>181,7
+        <nameStyle>183,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f14 16 40 528 64 -258 -24 #rect
+Pt0 f14 16 42 528 60 -258 -24 #rect
 Pt0 f14 @|IBIcon #fIcon
 Pt0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

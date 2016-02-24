@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 17 14:51:39 CET 2016]
+[>Created: Tue Feb 23 20:28:07 CET 2016]
 151CA0D8CBDD2DEC 3.18 #module
 >Proto >Proto Collection #zClass
 cr0 NewEmployee Big #zClass
@@ -351,7 +351,7 @@ cr0 f0 requestEnabled true #txt
 cr0 f0 triggerEnabled false #txt
 cr0 f0 callSignature addUser() #txt
 cr0 f0 persist false #txt
-cr0 f0 startName '<%=ivy.cms.co("/ProcessDescriptions/signalExample")%>: <%=ivy.cms.co("/ProcessDescriptions/createUserProcess")%>' #txt
+cr0 f0 startName '3.1: <%=ivy.cms.co("/ProcessDescriptions/createUserProcess")%> (<%=ivy.cms.co("/ProcessDescriptions/signalExample")%>)' #txt
 cr0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/signalCreateUserDescription")%> #txt
 cr0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0

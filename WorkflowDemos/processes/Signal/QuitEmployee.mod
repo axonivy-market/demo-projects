@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 17 15:18:24 CET 2016]
+[>Created: Tue Feb 23 20:28:21 CET 2016]
 151CA1EFC1542D87 3.18 #module
 >Proto >Proto Collection #zClass
 qr0 QuitEmployee Big #zClass
@@ -34,7 +34,7 @@ qr0 f0 requestEnabled true #txt
 qr0 f0 triggerEnabled false #txt
 qr0 f0 callSignature start() #txt
 qr0 f0 persist false #txt
-qr0 f0 startName '<%=ivy.cms.co("/ProcessDescriptions/signalExample")%>: <%=ivy.cms.co("/ProcessDescriptions/quitUserProcess")%>' #txt
+qr0 f0 startName '3.2: <%=ivy.cms.co("/ProcessDescriptions/quitUserProcess")%> (<%=ivy.cms.co("/ProcessDescriptions/signalExample")%>)' #txt
 qr0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/SignalQuitUserDescription")%> #txt
 qr0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
