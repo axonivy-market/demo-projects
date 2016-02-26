@@ -74,3 +74,5 @@ caseName String #field
 caseName PERSISTENT #fieldModifier
 taskEvents List<ch.ivyteam.ivy.workflow.IWorkflowEvent> #field
 taskEvents PERSISTENT #fieldModifier
+signal ch.ivyteam.wf.signal.SignalTask #field
+signal PERSISTENT #fieldModifier

@@ -95,6 +95,21 @@
 							<td><wc:TaskStateIconAndText
 									state="#{data.task.state}" withText="true" /></td>
 							</tr>
+							<c:if test="#{data.signal.isSignaled()}">
+								<tr>
+									<th>#{ivy.cms.co('/labels/common/Signal')}</th>
+									<td>
+									<h:graphicImage library="ivy-webcontent" name="images/details/signals/#{data.signal.getSignalIconName()}.gif" 
+											style="" />
+										<p:spacer width="2px" /> <c:if test="#{data.signal.wasStartedByASignal()}">
+										<h:outputText value="#{data.signal.startedByToolTip}" />
+									</c:if> 
+									<c:if test="#{data.signal.isOrWasListeningForSignals()}">
+										<h:outputText value="#{data.signal.listeningToolTip}" />
+									</c:if>
+									</td>
+								</tr>
+							</c:if>
 							<tr>
 								<th>#{ivy.cms.co('/labels/history/taskDetails/priority')}</th>
 								<td><wc:PriorityIconAndText

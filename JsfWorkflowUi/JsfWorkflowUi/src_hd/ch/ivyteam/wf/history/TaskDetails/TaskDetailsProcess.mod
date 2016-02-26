@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 09 13:29:00 CET 2015]
+[>Created: Fri Feb 26 10:14:28 CET 2016]
 13FE10F004F193D4 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -70,9 +70,11 @@ Ts0 @PushWFArc f44 '' #zField
 Ts0 @PushWFArc f54 '' #zField
 Ts0 @GridStep f55 '' #zField
 Ts0 @PushWFArc f56 '' #zField
-Ts0 @PushWFArc f42 '' #zField
 Ts0 @RichDialogProcessStart f57 '' #zField
 Ts0 @PushWFArc f58 '' #zField
+Ts0 @GridStep f17 '' #zField
+Ts0 @PushWFArc f19 '' #zField
+Ts0 @PushWFArc f42 '' #zField
 >Proto Ts0 Ts0 TaskDetailsProcess #zField
 Ct0 @TextInP .resExport .resExport #zField
 Ct0 @TextInP .type .type #zField
@@ -141,7 +143,7 @@ Ts0 f0 83 51 26 26 -63 15 #rect
 Ts0 f0 @|RichDialogInitStartIcon #fIcon
 Ts0 f0 -1|-1|-9671572 #nodeStyle
 Ts0 f1 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
-Ts0 f1 659 51 26 26 0 12 #rect
+Ts0 f1 819 51 26 26 0 12 #rect
 Ts0 f1 @|RichDialogProcessEndIcon #fIcon
 Ts0 f1 -1|-1|-9671572 #nodeStyle
 Ts0 f3 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
@@ -703,8 +705,6 @@ Ts0 f55 @|StepIcon #fIcon
 Ts0 f55 -1|-1|-9671572 #nodeStyle
 Ts0 f56 expr out #txt
 Ts0 f56 440 64 488 64 #arcP
-Ts0 f42 expr out #txt
-Ts0 f42 600 64 659 64 #arcP
 Ts0 f57 guid 147D37EF931F4AC4 #txt
 Ts0 f57 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f57 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
@@ -724,6 +724,29 @@ Ts0 f57 83 211 26 26 -30 15 #rect
 Ts0 f57 @|RichDialogProcessStartIcon #fIcon
 Ts0 f58 expr out #txt
 Ts0 f58 109 224 168 224 #arcP
+Ts0 f17 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
+' #txt
+Ts0 f17 actionTable 'out=in;
+' #txt
+Ts0 f17 actionCode 'import ch.ivyteam.wf.signal.SignalTask;
+
+out.signal = new SignalTask(in.task);' #txt
+Ts0 f17 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
+Ts0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>get Signal</name>
+        <nameStyle>10,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f17 648 42 112 44 -27 -8 #rect
+Ts0 f17 @|StepIcon #fIcon
+Ts0 f19 expr out #txt
+Ts0 f19 600 64 648 64 #arcP
+Ts0 f42 expr out #txt
+Ts0 f42 760 64 819 64 #arcP
 >Proto Ts0 .type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -1132,10 +1155,12 @@ Ts0 f50 out f54 tail #connect
 Ts0 f54 head f11 mainIn #connect
 Ts0 f3 mainOut f56 tail #connect
 Ts0 f56 head f55 mainIn #connect
-Ts0 f55 mainOut f42 tail #connect
-Ts0 f42 head f1 mainIn #connect
 Ts0 f57 mainOut f58 tail #connect
 Ts0 f58 head f14 mainIn #connect
+Ts0 f55 mainOut f19 tail #connect
+Ts0 f19 head f17 mainIn #connect
+Ts0 f17 mainOut f42 tail #connect
+Ts0 f42 head f1 mainIn #connect
 Ct0 f22 mainOut f6 tail #connect
 Ct0 f6 head f5 mainIn #connect
 Ct0 f5 mainOut f8 tail #connect
