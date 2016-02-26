@@ -47,7 +47,7 @@ public class SignalTask
     return getSignaledTask() != null;
   }
 
-  public String getListeningToolTip()
+  public String getReceiverMessage()
   {
     StringBuilder builder = new StringBuilder();
     if (hasReceivedASignal())
@@ -89,7 +89,7 @@ public class SignalTask
     return builder.toString();
   }
   
-  public String getStartedByToolTip()
+  public String getStarterMessage()
   {    
     StringBuilder builder = new StringBuilder();
     if (wasStartedByASignal())

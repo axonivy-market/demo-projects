@@ -102,10 +102,10 @@
 									<h:graphicImage library="ivy-webcontent" name="images/details/signals/#{data.signal.getSignalIconName()}.gif" 
 											style="" />
 										<p:spacer width="2px" /> <c:if test="#{data.signal.wasStartedByASignal()}">
-										<h:outputText value="#{data.signal.startedByToolTip}" />
+										<h:outputText value="#{data.signal.getStarterMessage()}" />
 									</c:if> 
 									<c:if test="#{data.signal.isOrWasListeningForSignals()}">
-										<h:outputText value="#{data.signal.listeningToolTip}" />
+										<h:outputText value="#{data.signal.getReceiverMessage()}" />
 									</c:if>
 									</td>
 								</tr>
