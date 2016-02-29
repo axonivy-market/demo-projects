@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Wed Oct 21 17:13:00 CEST 2015]
+[>Created: Mon Feb 29 15:51:24 CET 2016]
 1508AE543CAEEEC1 3.18 #module
 >Proto >Proto Collection #zClass
-Ct0 CancelStart Big #zClass
+Ct0 CancelDialog Big #zClass
 Ct0 B #cInfo
 Ct0 #process
 Bk1 BpmnSendTask Big #zClass
@@ -25,7 +25,8 @@ Ct0 @PushWFArc f6 '' #zField
 Ct0 Bk1 S10 'Send 1' #zField
 Ct0 @PushWFArc f7 '' #zField
 Ct0 @PushWFArc f2 '' #zField
->Proto Ct0 Ct0 CancelStart #zField
+Ct0 @InfoButton f8 '' #zField
+>Proto Ct0 Ct0 CancelDialog #zField
 Bk1 @TextInP .resExport .resExport #zField
 Bk1 @TextInP .type .type #zField
 Bk1 @TextInP .processKind .processKind #zField
@@ -55,10 +56,10 @@ Ct0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f0 @C|.responsibility Everybody #txt
-Ct0 f0 81 49 30 30 -23 17 #rect
+Ct0 f0 57 145 30 30 -23 17 #rect
 Ct0 f0 @|StartRequestIcon #fIcon
 Ct0 f1 type misc.CancelStartData #txt
-Ct0 f1 529 49 30 30 0 15 #rect
+Ct0 f1 505 145 30 30 0 15 #rect
 Ct0 f1 @|EndIcon #fIcon
 Ct0 f3 targetWindow NEW:card: #txt
 Ct0 f3 targetDisplay TOP #txt
@@ -86,12 +87,12 @@ Ct0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 f3 168 42 112 44 -27 -7 #rect
+Ct0 f3 144 138 112 44 -27 -7 #rect
 Ct0 f3 @|RichDialogIcon #fIcon
 Ct0 f4 expr out #txt
-Ct0 f4 111 64 168 64 #arcP
+Ct0 f4 87 160 144 160 #arcP
 Ct0 f5 type misc.CancelStartData #txt
-Ct0 f5 529 145 30 30 0 15 #rect
+Ct0 f5 505 241 30 30 0 15 #rect
 Ct0 f5 @|EndIcon #fIcon
 Ct0 Et0 actionDecl 'misc.CancelStartData out;
 ' #txt
@@ -107,28 +108,44 @@ Ct0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ct0 Et0 241 81 30 30 19 8 #rect
+Ct0 Et0 217 177 30 30 19 8 #rect
 Ct0 Et0 @|ErrorBoundaryEventIcon #fIcon
 Ct0 f6 expr out #txt
-Ct0 f6 256 111 529 160 #arcP
-Ct0 f6 1 256 160 #addKink
+Ct0 f6 232 207 505 256 #arcP
+Ct0 f6 1 232 256 #addKink
 Ct0 f6 1 0.1570028297149824 0 0 #arcLabel
 Ct0 S10 .resExport export #txt
 Ct0 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
-        <name>Send penny
-stock spam</name>
-        <nameStyle>21,5,7
+        <name>Send information</name>
+        <nameStyle>16,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ct0 S10 344 42 112 44 -33 -15 #rect
+Ct0 S10 320 138 112 44 -47 -8 #rect
 Ct0 S10 @|BpmnSendTaskIcon #fIcon
 Ct0 f7 expr out #txt
-Ct0 f7 280 64 344 64 #arcP
-Ct0 f2 456 64 529 64 #arcP
+Ct0 f7 256 160 320 160 #arcP
+Ct0 f2 432 160 505 160 #arcP
+Ct0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Demonstrates how a dialog can be cancelled by throwing an error
+The process ends because of a start:cancelled  error</name>
+        <nameStyle>63,8
+1,7
+30,7
+15,3,7
+7,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ct0 f8 40 26 464 44 -225 -19 #rect
+Ct0 f8 @|IBIcon #fIcon
+Ct0 f8 -1|-1|-65536 #nodeStyle
 >Proto Ct0 .type misc.CancelStartData #txt
 >Proto Ct0 .processKind NORMAL #txt
 >Proto Ct0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
