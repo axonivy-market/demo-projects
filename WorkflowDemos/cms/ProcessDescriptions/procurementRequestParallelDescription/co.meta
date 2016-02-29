@@ -1,3 +1,2 @@
-co: name={procurementRequestParallelDescription} description={} changed={2016-02-29 14:53:46 CET} changedby={bhu} visualorder={0} guid={152EBD1B322ECB58} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={procurementRequestParallelDescription} description={} changed={2016-02-29 15:22:08 CET} changedby={bhu} visualorder={0} guid={152EBD1B322ECB58} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={152EBD1B345189FB} datatype={} isdefault={true} langid={en} description={} validfrom={2016-02-16 21:42:14 CET} validto={} changed={2016-02-23 20:46:04 CET} changedby={bhu} properties={} id={}
-val: guid={152EC044D22B59AF} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:37:30 CET} validto={} changed={2016-02-29 14:53:46 CET} changedby={bhu} properties={} id={}

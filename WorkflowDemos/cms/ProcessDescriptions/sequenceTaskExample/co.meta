@@ -1,3 +1,2 @@
-co: name={sequenceTaskExample} description={} changed={2016-02-29 14:53:53 CET} changedby={bhu} visualorder={0} guid={1525E1E6949EBFD1} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+co: name={sequenceTaskExample} description={} changed={2016-02-29 15:22:26 CET} changedby={bhu} visualorder={0} guid={1525E1E6949EBFD1} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={1525E1E6950CA69E} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-20 09:19:57 CET} validto={} changed={2016-01-20 09:19:57 CET} changedby={bhu} properties={} id={}
-val: guid={152EC05C56BF2A4C} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:39:07 CET} validto={} changed={2016-02-29 14:53:53 CET} changedby={bhu} properties={} id={}

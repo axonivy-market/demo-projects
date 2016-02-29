@@ -1,3 +1,2 @@
-co: name={createUserProcess} description={} changed={2016-02-29 14:53:39 CET} changedby={bhu} visualorder={0} guid={1525E20EBC677D38} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={152EC0371B17FC29} datatype={} isdefault={false} langid={de} description={} validfrom={2016-02-16 22:36:34 CET} validto={} changed={2016-02-29 14:53:39 CET} changedby={bhu} properties={} id={}
+co: name={createUserProcess} description={} changed={2016-02-29 15:22:00 CET} changedby={bhu} visualorder={0} guid={1525E20EBC677D38} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
 val: guid={1525E20EBCCBD0B9} datatype={} isdefault={true} langid={en} description={} validfrom={2016-01-20 09:22:41 CET} validto={} changed={2016-01-20 09:22:41 CET} changedby={bhu} properties={} id={}
