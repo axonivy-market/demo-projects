@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 24 15:33:59 CET 2016]
+[>Created: Tue Mar 01 16:29:41 CET 2016]
 151CA0D8CBDD2DEC 3.18 #module
 >Proto >Proto Collection #zClass
 cr0 NewEmployee Big #zClass
@@ -129,9 +129,12 @@ cr0 f21 304 538 112 44 -38 -8 #rect
 cr0 f21 @|StepIcon #fIcon
 cr0 f32 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
-cr0 f32 actionTable 'out.user=signal.getSignalData() as workflow.signal.User;
-' #txt
-cr0 f32 actionCode 'ivy.case.setBusinessObjectCode(out.user.userKey);
+cr0 f32 actionCode 'import workflow.signal.User;
+import com.google.gson.Gson;
+
+out.user = new Gson().fromJson(signal.getSignalData() as String, User.class) as User;
+
+ivy.case.setBusinessObjectCode(out.user.userKey);
 ivy.case.setBusinessObjectName(out.user.name);' #txt
 cr0 f32 type workflow.signal.CreateUserProcess #txt
 cr0 f32 signalCode user:created #txt
@@ -165,9 +168,13 @@ cr0 f33 111 472 168 472 #arcP
 cr0 St1 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
 cr0 St1 actionTable 'out=in;
-out.quitUserEvent=signal.getSignalData() as workflow.signal.QuitUserEvent;
 ' #txt
-cr0 St1 actionCode 'ivy.task.setName("CANCEL TASK: " + ivy.task.getName());' #txt
+cr0 St1 actionCode 'import workflow.signal.QuitUserEvent;
+import com.google.gson.Gson;
+
+out.quitUserEvent = new Gson().fromJson(signal.getSignalData() as String, QuitUserEvent.class) as QuitUserEvent;
+
+ivy.task.setName("CANCEL TASK: " + ivy.task.getName());' #txt
 cr0 St1 type workflow.signal.CreateUserProcess #txt
 cr0 St1 signalCode admin:quit:<%=in.user.userKey%> #txt
 cr0 St1 attachedToRef 151CA0D8CBDD2DEC-f11 #txt
@@ -232,9 +239,12 @@ cr0 f19 304 346 112 44 -38 -8 #rect
 cr0 f19 @|StepIcon #fIcon
 cr0 f28 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
-cr0 f28 actionTable 'out.user=signal.getSignalData() as workflow.signal.User;
-' #txt
-cr0 f28 actionCode 'ivy.case.setBusinessObjectCode(out.user.userKey);
+cr0 f28 actionCode 'import workflow.signal.User;
+import com.google.gson.Gson;
+
+out.user = new Gson().fromJson(signal.getSignalData() as String, User.class) as User;
+
+ivy.case.setBusinessObjectCode(out.user.userKey);
 ivy.case.setBusinessObjectName(out.user.name);' #txt
 cr0 f28 type workflow.signal.CreateUserProcess #txt
 cr0 f28 signalCode user:created #txt
@@ -271,9 +281,13 @@ cr0 f29 111 280 168 280 #arcP
 cr0 St0 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
 cr0 St0 actionTable 'out=in;
-out.quitUserEvent=signal.getSignalData() as workflow.signal.QuitUserEvent;
 ' #txt
-cr0 St0 actionCode 'ivy.task.setName("CANCEL TASK: " + ivy.task.getName());' #txt
+cr0 St0 actionCode 'import workflow.signal.QuitUserEvent;
+import com.google.gson.Gson;
+
+out.quitUserEvent = new Gson().fromJson(signal.getSignalData() as String, QuitUserEvent.class) as QuitUserEvent;
+
+ivy.task.setName("CANCEL TASK: " + ivy.task.getName());' #txt
 cr0 St0 type workflow.signal.CreateUserProcess #txt
 cr0 St0 signalCode admin:quit:<%=in.user.userKey%> #txt
 cr0 St0 attachedToRef 151CA0D8CBDD2DEC-f8 #txt
@@ -323,9 +337,13 @@ cr0 f30 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
 cr0 f30 actionTable 'out=in;
 ' #txt
-cr0 f30 actionCode 'import ch.ivyteam.ivy.process.model.value.SignalCode;
+cr0 f30 actionCode 'import com.google.gson.Gson;
+import ch.ivyteam.ivy.process.model.value.SignalCode;
 
-ivy.wf.signals().send(new SignalCode("user:created"), in.user);' #txt
+String jsonSerializedPayload = new Gson().toJson(in.user);
+
+ivy.wf.signals().send(new SignalCode("user:created"), jsonSerializedPayload);
+' #txt
 cr0 f30 type workflow.signal.CreateUserProcess #txt
 cr0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
