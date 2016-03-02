@@ -1,5 +1,5 @@
 <H1>
-Hello <_%=in.name%_>
+Hello <%=in.name%>
 </H1>
 <P>
 Welcome at our company. It is a great pleasure to have you here!

@@ -1,1 +1,12 @@
-<H1>  Hallo <_%=in.requester.fullName%_>  </H1>  <P>  Ihr Antrag wurde <_%=(in.accepted ? "angenommen" : "abgelehnt")%_>:  </P>  <P>  <_%=in.amount%_> Stück  '<_%=in.description%_>' zum Gesamtpreis von <_%=in.totalPrice%_> <_%=ivy.cms.co("/Dialogs/procurementRequest/currencySymbol")%_>  </P>  <P>  Freundliche Grüsse  </P>  
+<H1>
+Hallo <%=in.requester.fullName%> 
+</H1>
+<P>
+Ihr Antrag wurde <%=(in.accepted ? "angenommen" : "abgelehnt")%>: 
+</P>
+<P>
+<%=in.amount%> Stück '<%=in.description%>' zum Gesamtpreis von <%=in.totalPrice%> <%=ivy.cms.co("/Dialogs/procurementRequest/currencySymbol")%> 
+</P>
+<P>
+Freundliche Grüsse 
+</P>

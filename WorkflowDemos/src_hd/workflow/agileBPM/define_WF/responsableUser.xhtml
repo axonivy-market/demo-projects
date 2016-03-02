@@ -14,12 +14,12 @@
 					var="u" showCheckbox="true" scrollHeight="200" filter="true"
 					filterMatchMode="contains" converter="ivy.ListItem"
 					style="width:200px;">
-					<f:selectItems value="#{data.userList}" var="user"
-						itemValue="#{user}"
+					<f:selectItems value="#{data.userList}" var="user"	
+						itemValue="#{user}"	
 						itemLabel="#{user.getDisplayName().length() ne 0 ? user.getDisplayName() : user.getName()}" />
 					<p:column>
 						<h:outputText
-							value="#{user.getDisplayName().length() ne 0 ? user.getDisplayName() : u.getName()}" />
+							value="#{u.getDisplayName().length() ne 0 ? u.getDisplayName() : u.getName()}" />
 					</p:column>
 					<p:ajax update="userListForm" listener="#{logic.updateUserList}" />
 				</p:selectManyMenu>

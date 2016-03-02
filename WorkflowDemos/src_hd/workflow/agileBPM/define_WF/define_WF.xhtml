@@ -40,7 +40,7 @@
 						<h:panelGrid columns="4">
 							<p:selectOneRadio id="dataCaseInfoKind"
 								value="#{data.caseInfo.kind}">
-								<p:ajax listener="#{logic.initTaskDef}" update=":form:taskDef"
+								<p:ajax listener="#{logic.initTaskDef}" update=":form:taskDef :form:submit"
 									process=":form:taskDef"></p:ajax>
 								<f:selectItem itemLabel="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/PatternTodo')}" itemValue="TODO" />
 								<f:selectItem itemLabel="#{ivy.cms.co('/Dialogs/agileBPM/define_WF/PatternApproval')}" itemValue="APPROVAL" />

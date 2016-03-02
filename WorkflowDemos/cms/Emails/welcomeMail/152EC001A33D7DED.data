@@ -1,1 +1,12 @@
-<H1>  Hallo <_%=in.name%_>  </H1>  <P>  Willkommen in unserem Unternehmen. Wir freuen uns, Sie bei uns begrüssen zu dürfen!  </P>  <P>  Wenn Sie Fragen haben, wenden Sie sich bitte an Ihren Teamleiter oder an Ihren HR Manager.  </P>  <P> Wir wünschen Ihnen einen schönen Tag!  </P>  
+<H1>
+Hallo <%=in.name%> 
+</H1>
+<P>
+Willkommen in unserem Unternehmen. Wir freuen uns, Sie bei uns begrüssen zu dürfen! 
+</P>
+<P>
+Wenn Sie Fragen haben, wenden Sie sich bitte an Ihren Teamleiter oder an Ihren HR Manager. 
+</P>
+<P>
+Wir wünschen Ihnen einen schönen Tag! 
+</P>
