@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<ui:composition template="/layouts/Workflow.xhtml">
+	<ui:param name="headerImage" value="images/details/signals/IconSignal.svg"/>
+	<ui:param name="headerImageStyle" value="width: 30px; padding-bottom: 4px;"/>
+	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/signals')}" />
+	<ui:define name="center">
+		<br />
+		<h:form id="LoggedInUserForm">
+		<h3>Boundary Signals</h3>
+		
+		<p:dataTable id="boundarySignalsTable" widgetVar="boundarySignalsTable" var="receiver" value="#{data.signalService.boundaryTasks}" emptyMessage="No tasks are listening for a signal!" rowIndexVar="row" paginatorPosition="bottom" rows="20">
+				<p:column style="width:15px">
+				<f:facet name="header">
+					#
+				</f:facet>
+					<h:graphicImage library="ivy-webcontent" name="images/details/signals/IconSignal.svg" style="width: 13px; padding-bottom: 1px; text-align: center;"/>
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						Pattern
+					</f:facet>
+						#{receiver.getSignalPattern().getRawCode()}
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						Task
+					</f:facet>
+					<span class="fa fa-file-text-o"/>
+					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{receiver.getWaitingTask().getId()}"
+							title="TaskId: #{receiver.getWaitingTask().getId()}">						
+					#{receiver.getWaitingTask().getName()}
+					</a>
+				</p:column>
+			</p:dataTable>
+			
+		<h3>Signal Starts</h3>
+		
+			<p:dataTable id="signalStartsTable" widgetVar="signalStartsTable" var="start" value="#{data.signalService.starts}" emptyMessage="No starts are listening for a signal!" rowIndexVar="row" paginatorPosition="bottom" rows="20">
+				<p:column style="width:15px" >
+					<f:facet name="header">
+						#
+					</f:facet>
+					<h:graphicImage library="ivy-webcontent" name="images/details/signals/IconSignal.svg" style="width: 13px; padding-bottom: 1px"/>
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						Pattern
+					</f:facet>
+					#{start.getSignalPattern().getRawCode()}
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						Start
+					</f:facet>
+					#{start.getUserFriendlyRequestPath()}
+				</p:column>
+			</p:dataTable>
+		</h:form>
+   	</ui:define>
+</ui:composition>
+</html>

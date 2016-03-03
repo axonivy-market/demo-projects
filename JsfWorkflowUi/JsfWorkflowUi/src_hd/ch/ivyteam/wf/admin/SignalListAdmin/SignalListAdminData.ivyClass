@@ -1,0 +1,4 @@
+SignalListAdminData #class
+ch.ivyteam.wf.admin.SignalListAdmin #namespace
+signalService ch.ivyteam.wf.signal.SignalService #field
+signalService PERSISTENT #fieldModifier

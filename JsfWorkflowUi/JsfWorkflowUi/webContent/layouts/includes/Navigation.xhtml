@@ -55,6 +55,20 @@
 											<li class="#{navigation.getStyle('TaskListAdmin')}"><a
 												id="taskListAdmin"
 												href="#{ivy.html.startref('1518C6953618322C/TaskListAdmin.ivp')}"><span class="fa fa-file-text-o"/> #{ivy.cms.co('/navLabels/taskAdmin')}</a></li>
+											<li class="#{navigation.getStyle('SignalListAdmin')}"><a
+											id="signalListAdmin"
+											href="#{ivy.html.startref('1533BAFD7EB49EC6/SignalListAdmin.ivp')}">
+												<c:if test="#{navigation.getStyle('SignalListAdmin') == ''}">
+													<h:graphicImage library="ivy-webcontent" name="images/details/signals/IconSignalNav.svg"
+														style="width: 13px; padding-bottom: 1px; padding-left: 1px" />
+												</c:if>
+												<c:if test="#{navigation.getStyle('SignalListAdmin') == 'active'}">
+													<h:graphicImage library="ivy-webcontent"
+														name="images/details/signals/IconSignalWhite.svg"
+														style="width: 13px; padding-bottom: 1px; padding-left: 1px" />
+												</c:if>
+												#{ivy.cms.co('/navLabels/signalListAdmin')}
+										</a></li>
 											<li class="#{navigation.getStyle('Statistic')}"><a
 												id="workflowStatistic"
 												href="#{ivy.html.startref('1446317E486F5562/WorkflowStatistic.ivp')}"><span class="fa fa-bar-chart-o"/> #{ivy.cms.co('/navLabels/workflowStatistic')}</a></li>
