@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 23 16:44:16 CET 2016]
+[>Created: Thu Mar 03 15:09:54 CET 2016]
 1523FF963044280C 3.18 #module
 >Proto >Proto Collection #zClass
 ft0 KeyCardDelivery Big #zClass
@@ -54,17 +54,17 @@ ft0 f28 actionTable 'out.user=signal.getSignalData() as workflow.signal.User;
 ft0 f28 actionCode 'ivy.case.setBusinessObjectCode(out.user.userKey);
 ivy.case.setBusinessObjectName(out.user.name);' #txt
 ft0 f28 type workflow.signal.FacilityManagementData #txt
-ft0 f28 signalCode user:created #txt
+ft0 f28 signalCode user:createdV2 #txt
 ft0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>user:created</name>
-        <nameStyle>12,5,7
+        <name>user:created </name>
+        <nameStyle>13,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-ft0 f28 105 145 30 30 -34 17 #rect
+ft0 f28 105 145 30 30 -36 17 #rect
 ft0 f28 @|SignalStartEventIcon #fIcon
 ft0 f8 richDialogId workflow.signal.TaskForm #txt
 ft0 f8 startMethod start(workflow.signal.User) #txt
@@ -120,13 +120,13 @@ out.quitUserEvent=signal.getSignalData() as workflow.signal.QuitUserEvent;
 ' #txt
 ft0 St0 actionCode 'ivy.task.setName("CANCEL TASK: " + ivy.task.getName());' #txt
 ft0 St0 type workflow.signal.FacilityManagementData #txt
-ft0 St0 signalCode admin:quit:<%=in.user.userKey%> #txt
+ft0 St0 signalCode admin:quitV2:<%=in.user.userKey%> #txt
 ft0 St0 attachedToRef 1523FF963044280C-f8 #txt
 ft0 St0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>admin:quit:[userKey]</name>
-        <nameStyle>20,7
+        <name>admin:quit:[userKey] </name>
+        <nameStyle>21,7
 </nameStyle>
     </language>
 </elementInfo>

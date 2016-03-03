@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Mar 01 16:29:41 CET 2016]
+[>Created: Thu Mar 03 15:12:47 CET 2016]
 151CA0D8CBDD2DEC 3.18 #module
 >Proto >Proto Collection #zClass
 cr0 NewEmployee Big #zClass
@@ -58,7 +58,6 @@ The sent signal ''admin:quit:xyz'' includes a user key that is used to find
 involved tasks.
 
 
-
 Steps to execute the example:
 Start at least one CreateUser process. The new user will have an auto created user key. 
 After the completion of the CreateUser main process, you start a QuitUser process.
@@ -69,12 +68,12 @@ and not completed User Task is destroyed. </name>
 1,7
 43,0,7
 301,7
-361,7
+360,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-cr0 f27 536 58 528 316 -260 -152 #rect
+cr0 f27 536 66 528 300 -260 -144 #rect
 cr0 f27 @|IBIcon #fIcon
 cr0 f11 richDialogId workflow.signal.TaskForm #txt
 cr0 f11 startMethod start(workflow.signal.User) #txt
@@ -340,10 +339,12 @@ cr0 f30 actionTable 'out=in;
 cr0 f30 actionCode 'import com.google.gson.Gson;
 import ch.ivyteam.ivy.process.model.value.SignalCode;
 
+// send signal with json payload
 String jsonSerializedPayload = new Gson().toJson(in.user);
-
 ivy.wf.signals().send(new SignalCode("user:created"), jsonSerializedPayload);
-' #txt
+
+// send signal with data class payload (only applicable within same project or dependent projects)
+ivy.wf.signals().send(new SignalCode("user:createdV2"), in.user);' #txt
 cr0 f30 type workflow.signal.CreateUserProcess #txt
 cr0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

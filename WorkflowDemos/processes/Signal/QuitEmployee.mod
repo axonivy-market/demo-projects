@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Mar 01 16:30:17 CET 2016]
+[>Created: Thu Mar 03 15:11:22 CET 2016]
 151CA1EFC1542D87 3.18 #module
 >Proto >Proto Collection #zClass
 qr0 QuitEmployee Big #zClass
@@ -81,7 +81,10 @@ SignalCode signalCode = new SignalCode("admin:quit:" + in.quitUserEvent.userKey)
 String jsonSerializedPayload = new Gson().toJson(in.quitUserEvent);
 
 // send signal
-ivy.wf.signals().send(signalCode, jsonSerializedPayload);' #txt
+ivy.wf.signals().send(signalCode, jsonSerializedPayload);
+
+// send signal with data class payload (only applicable within same project or dependent projects)
+ivy.wf.signals().send(new SignalCode("admin:quitV2:" + in.quitUserEvent.userKey), in.quitUserEvent);' #txt
 qr0 f3 type workflow.signal.QuitUserProcess #txt
 qr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
