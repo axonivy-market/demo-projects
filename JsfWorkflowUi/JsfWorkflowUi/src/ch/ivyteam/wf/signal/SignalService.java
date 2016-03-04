@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.workflow.query.StartSignalEventElementQuery;
 import ch.ivyteam.ivy.workflow.query.TaskBoundarySignalEventReceiverQuery;
 import ch.ivyteam.ivy.workflow.signal.IBpmSignalService;
 import ch.ivyteam.ivy.workflow.signal.IStartSignalEventElement;
@@ -24,8 +25,8 @@ public class SignalService
 
   public List<IStartSignalEventElement> getStarts()
   {
-    List<IStartSignalEventElement> starts = new ArrayList<>(getBpmSignalService().receivers().getStartEvents());
-    return starts;
+    StartSignalEventElementQuery query = getBpmSignalService().receivers().createStartSignalQuery();
+    return new ArrayList<IStartSignalEventElement>(query.executor().getResults());
   }
 
 }
