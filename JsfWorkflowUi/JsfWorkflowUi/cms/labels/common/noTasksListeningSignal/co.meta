@@ -1,0 +1,4 @@
+co: name={noTasksListeningSignal} description={} changed={2016-03-04 14:04:26 CET} changedby={dhu} visualorder={0} guid={15341B9C0C0A37D7} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={15341B9C0C94A9D9} datatype={} isdefault={true} langid={en} description={} validfrom={2016-03-04 14:03:25 CET} validto={} changed={2016-03-04 14:04:26 CET} changedby={dhu} properties={} id={}
+val: guid={15341B9C0C3A6A9F} datatype={} isdefault={false} langid={de} description={} validfrom={2016-03-04 14:03:25 CET} validto={} changed={2016-03-04 14:04:26 CET} changedby={dhu} properties={} id={}
+val: guid={15341B9C0D0DDC05} datatype={} isdefault={false} langid={fr} description={} validfrom={2016-03-04 14:03:25 CET} validto={} changed={2016-03-04 14:04:26 CET} changedby={dhu} properties={} id={}

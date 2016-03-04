@@ -14,9 +14,9 @@
 	<ui:define name="center">
 		<br />
 		<h:form id="LoggedInUserForm">
-		<h3>Boundary Signals</h3>
+		<h3>#{ivy.cms.co('/labels/common/boundarySignals')}</h3>
 		
-		<p:dataTable id="boundarySignalsTable" widgetVar="boundarySignalsTable" var="receiver" value="#{data.signalService.boundaryTasks}" emptyMessage="No tasks are listening for a signal!" rowIndexVar="row" paginatorPosition="bottom" rows="20">
+		<p:dataTable id="boundarySignalsTable" widgetVar="boundarySignalsTable" var="receiver" value="#{data.signalService.boundaryTasks}" emptyMessage="#{ivy.cms.co('/labels/common/noTasksListeningSignal')}" rowIndexVar="row" paginatorPosition="bottom" rows="20">
 				<p:column style="width:15px">
 				<f:facet name="header">
 					#
@@ -25,13 +25,13 @@
 				</p:column>
 				<p:column>
 					<f:facet name="header">
-						Pattern
+						#{ivy.cms.co('/labels/common/signalPattern')}
 					</f:facet>
 						#{receiver.getSignalPattern().getRawCode()}
 				</p:column>
 				<p:column>
 					<f:facet name="header">
-						Task
+						#{ivy.cms.co('/labels/common/startLink')}
 					</f:facet>
 					<span class="fa fa-file-text-o"/>
 					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{receiver.getWaitingTask().getId()}"
@@ -41,9 +41,9 @@
 				</p:column>
 			</p:dataTable>
 			
-		<h3>Signal Starts</h3>
+		<h3>#{ivy.cms.co('/labels/common/signalStarts')}</h3>
 		
-			<p:dataTable id="signalStartsTable" widgetVar="signalStartsTable" var="start" value="#{data.signalService.starts}" emptyMessage="No starts are listening for a signal!" rowIndexVar="row" paginatorPosition="bottom" rows="20">
+			<p:dataTable id="signalStartsTable" widgetVar="signalStartsTable" var="start" value="#{data.signalService.starts}" emptyMessage="#{ivy.cms.co('/labels/common/noTasksListeningSignal')}" rowIndexVar="row" paginatorPosition="bottom" rows="20">
 				<p:column style="width:15px" >
 					<f:facet name="header">
 						#
@@ -52,13 +52,13 @@
 				</p:column>
 				<p:column>
 					<f:facet name="header">
-						Pattern
+						#{ivy.cms.co('/labels/common/signalPattern')}
 					</f:facet>
 					#{start.getSignalPattern().getRawCode()}
 				</p:column>
 				<p:column>
 					<f:facet name="header">
-						Start
+						#{ivy.cms.co('/labels/common/startLink')}
 					</f:facet>
 					#{start.getUserFriendlyRequestPath()}
 				</p:column>
