@@ -23,7 +23,7 @@
 				</f:facet>
 					<span class="bpm-signal_receiver"/>
 				</p:column>
-				<p:column>
+				<p:column sortBy="#{receiver.signalPattern}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/signalPattern')}
 					</f:facet>
@@ -31,7 +31,7 @@
 				</p:column>
 				<p:column>
 					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/startLink')}
+						#{ivy.cms.co('/labels/common/task')}
 					</f:facet>
 					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{receiver.getWaitingTask().getId()}"
 							title="TaskId: #{receiver.getWaitingTask().getId()}">						
@@ -50,7 +50,7 @@
 					</f:facet>
 					<span class="bpm-signal_receiver"/>
 				</p:column>
-				<p:column>
+				<p:column sortBy="#{start.signalPattern}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/signalPattern')}
 					</f:facet>
@@ -64,7 +64,7 @@
 				</p:column>
 			</p:dataTable>
 
-			<h3>Fired Signals</h3>
+			<h3>#{ivy.cms.co('/labels/common/firedSignals')}</h3>
 
 			<p:dataTable id="firedSignalsTable" widgetVar="firedSignalsTable" var="fired" value="#{data.signalService.firedSignal}" emptyMessage="No signals were fired!" rowIndexVar="row" paginatorPosition="bottom" rows="20">
 				<p:column style="width:15px;">
@@ -73,21 +73,21 @@
 					</f:facet>
 					<span class="bpm-signal_sent" />
 				</p:column >
-				<p:column style="width:120px;">
+				<p:column style="width:120px;" sortBy="#{fired.signalCode}">
 					<f:facet name="header">
-						Code
+						#{ivy.cms.co('/labels/common/code')}
 					</f:facet>
 					#{fired.signalCode}
 				</p:column>
-				<p:column style="width:150px;">
+				<p:column style="width:150px;" sortBy="#{fired.sentTimestamp}">
 					<f:facet name="header">
-						Date
+						#{ivy.cms.co('/labels/common/date')}
 					</f:facet>
 					#{fired.sentTimestamp}
 				</p:column>
 				<p:column style="width:100px;">
 					<f:facet name="header">
-						Sent by
+						#{ivy.cms.co('/labels/common/sentBy')}
 					</f:facet>
 					<p:spacer rendered="#{fired.sentByUserName ne null}">
 						<span class="fa fa-user"/>
@@ -103,7 +103,7 @@
 				</p:column>
 				<p:column>
 					<f:facet name="header">
-						Destroyed Tasks
+						#{ivy.cms.co('/labels/common/destroyedTasks')}
 					</f:facet>
 					<ui:repeat var="task" value="#{fired.destroyedTasks}">
 					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.Id}"	title="TaskId: #{task.id}">
@@ -115,7 +115,7 @@
 				</p:column>
 				<p:column>
 					<f:facet name="header">
-						Created Tasks
+						#{ivy.cms.co('/labels/common/createdTasks')}
 					</f:facet>
 					<ui:repeat var="task" value="#{fired.createdTasks}">
 					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.Id}"	title="TaskId: #{task.id}">

@@ -14,27 +14,48 @@ import ch.ivyteam.ivy.workflow.signal.ITaskBoundarySignalEventReceiver;
 
 public class SignalService
 {
+  private List<ISignalEvent> fired;
+  private List<ITaskBoundarySignalEventReceiver> receiver;
+  private List<IStartSignalEventElement> starts;
+
   private IBpmSignalService getBpmSignalService()
   {
-	return Ivy.wf().signals();
+    return Ivy.wf().signals();
   }
-  
+
   public List<ITaskBoundarySignalEventReceiver> getBoundaryTasks()
   {
-    TaskBoundarySignalEventReceiverQuery query = getBpmSignalService().receivers().createTaskBoundaryQuery();
-    return new ArrayList<ITaskBoundarySignalEventReceiver>(query.executor().getResults());
+    if (receiver == null)
+    {
+      TaskBoundarySignalEventReceiverQuery query = getBpmSignalService()
+              .receivers().createTaskBoundaryQuery();
+      receiver = new ArrayList<ITaskBoundarySignalEventReceiver>(query
+              .executor().getResults());
+    }
+    return receiver;
   }
 
   public List<IStartSignalEventElement> getStarts()
   {
-    StartSignalEventElementQuery query = getBpmSignalService().receivers().createStartSignalQuery();
-    return new ArrayList<IStartSignalEventElement>(query.executor().getResults());
+    if (starts == null)
+    {
+      StartSignalEventElementQuery query = getBpmSignalService()
+              .receivers().createStartSignalQuery();
+      starts = new ArrayList<IStartSignalEventElement>(query.executor()
+              .getResults());
+    }
+    return starts;
   }
-  
+
   public List<ISignalEvent> getFiredSignal()
   {
-	  SignalEventQuery query = getBpmSignalService().history().createSignalEventQuery();
-	  return new ArrayList<ISignalEvent>(query.executor().getResults());
+    if (fired == null)
+    {
+      SignalEventQuery query = getBpmSignalService().history()
+              .createSignalEventQuery();
+      fired = new ArrayList<ISignalEvent>(query.executor().getResults());
+    }
+    return fired;
   }
-  
+
 }
