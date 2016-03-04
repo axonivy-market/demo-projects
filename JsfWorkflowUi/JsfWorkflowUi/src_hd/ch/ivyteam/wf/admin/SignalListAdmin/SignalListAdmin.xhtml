@@ -9,8 +9,7 @@
 	xmlns:pm="http://primefaces.org/mobile">
 
 <ui:composition template="/layouts/Workflow.xhtml">
-	<ui:param name="headerImage" value="images/details/signals/IconSignal.svg"/>
-	<ui:param name="headerImageStyle" value="width: 30px; padding-bottom: 4px;"/>
+	<ui:param name="headerIcon" value="bpm-signal_receiver"/>
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/signals')}" />
 	<ui:define name="center">
 		<br />
@@ -22,7 +21,7 @@
 				<f:facet name="header">
 					#
 				</f:facet>
-					<h:graphicImage library="ivy-webcontent" name="images/details/signals/IconSignal.svg" style="width: 13px; padding-bottom: 1px; text-align: center;"/>
+					<span class="bpm-signal_receiver"/>
 				</p:column>
 				<p:column>
 					<f:facet name="header">
@@ -49,7 +48,7 @@
 					<f:facet name="header">
 						#
 					</f:facet>
-					<h:graphicImage library="ivy-webcontent" name="images/details/signals/IconSignal.svg" style="width: 13px; padding-bottom: 1px"/>
+					<span class="bpm-signal_receiver"/>
 				</p:column>
 				<p:column>
 					<f:facet name="header">

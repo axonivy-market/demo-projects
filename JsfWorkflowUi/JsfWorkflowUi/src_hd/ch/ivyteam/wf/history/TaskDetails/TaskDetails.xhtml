@@ -99,8 +99,7 @@
 								<tr>
 									<th>#{ivy.cms.co('/labels/common/Signal')}</th>
 									<td>
-									<h:graphicImage library="ivy-webcontent" name="images/details/signals/#{data.signal.getSignalIconName()}.svg" 
-											style="width: 13px; padding-bottom: 1px;" />
+									<span class="bpm-#{data.signal.signalIconName}"/>
 									<p:spacer width="2px" /> 
 									<c:if test="#{data.signal.wasStartedByASignal()}">
 										<h:outputText value="#{data.signal.getStarterMessage()}" />

@@ -58,15 +58,7 @@
 											<li class="#{navigation.getStyle('SignalListAdmin')}"><a
 											id="signalListAdmin"
 											href="#{ivy.html.startref('1533BAFD7EB49EC6/SignalListAdmin.ivp')}">
-												<c:if test="#{navigation.getStyle('SignalListAdmin') == ''}">
-													<h:graphicImage library="ivy-webcontent" name="images/details/signals/IconSignalNav.svg"
-														style="width: 13px; padding-bottom: 1px; padding-left: 1px" />
-												</c:if>
-												<c:if test="#{navigation.getStyle('SignalListAdmin') == 'active'}">
-													<h:graphicImage library="ivy-webcontent"
-														name="images/details/signals/IconSignalWhite.svg"
-														style="width: 13px; padding-bottom: 1px; padding-left: 1px" />
-												</c:if>
+											<span class="bpm-signal_receiver"/>
 												#{ivy.cms.co('/navLabels/signalListAdmin')}
 										</a></li>
 											<li class="#{navigation.getStyle('Statistic')}"><a

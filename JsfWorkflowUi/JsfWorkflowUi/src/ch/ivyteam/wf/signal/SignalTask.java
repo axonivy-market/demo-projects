@@ -137,15 +137,15 @@ public class SignalTask
   {
     if (wasStartedByASignal())
     {
-      return "IconSignalSent";
+      return "signal_sent";
     }
     if (isOrWasListeningForSignals())
     {
       if (hasReceivedASignal())
       {
-        return "IconSignalSent";
+        return "signal_sent";
       }
-      return "IconSignal";
+      return "signal_receiver";
     }
     return "";
   }
