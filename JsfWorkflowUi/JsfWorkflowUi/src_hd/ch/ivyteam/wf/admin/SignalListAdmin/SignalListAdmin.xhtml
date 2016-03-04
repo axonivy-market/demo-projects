@@ -33,9 +33,9 @@
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/startLink')}
 					</f:facet>
-					<span class="fa fa-file-text-o"/>
 					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{receiver.getWaitingTask().getId()}"
 							title="TaskId: #{receiver.getWaitingTask().getId()}">						
+					<span class="fa fa-file-text-o"/>
 					#{receiver.getWaitingTask().getName()}
 					</a>
 				</p:column>
@@ -61,6 +61,69 @@
 						#{ivy.cms.co('/labels/common/startLink')}
 					</f:facet>
 					#{start.getUserFriendlyRequestPath()}
+				</p:column>
+			</p:dataTable>
+
+			<h3>Fired Signals</h3>
+
+			<p:dataTable id="firedSignalsTable" widgetVar="firedSignalsTable" var="fired" value="#{data.signalService.firedSignal}" emptyMessage="No signals were fired!" rowIndexVar="row" paginatorPosition="bottom" rows="20">
+				<p:column style="width:15px;">
+					<f:facet name="header">
+						#
+					</f:facet>
+					<span class="bpm-signal_sent" />
+				</p:column >
+				<p:column style="width:120px;">
+					<f:facet name="header">
+						Code
+					</f:facet>
+					#{fired.signalCode}
+				</p:column>
+				<p:column style="width:150px;">
+					<f:facet name="header">
+						Date
+					</f:facet>
+					#{fired.sentTimestamp}
+				</p:column>
+				<p:column style="width:100px;">
+					<f:facet name="header">
+						Sent by
+					</f:facet>
+					<p:spacer rendered="#{fired.sentByUserName ne null}">
+						<span class="fa fa-user"/>
+						#{fired.sentByUserName}
+						</p:spacer>
+					<p:spacer rendered="#{fired.sentByTask ne null}">
+						<br/>
+						<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{fired.sentByTask.id}"	title="TaskId: #{fired.sentByTask.id}">
+						<span class="fa fa-file-text-o"/>
+							#{fired.sentByTask.name}
+						</a>
+					</p:spacer>
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						Destroyed Tasks
+					</f:facet>
+					<ui:repeat var="task" value="#{fired.destroyedTasks}">
+					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.Id}"	title="TaskId: #{task.id}">
+						<span class="fa fa-file-text-o"/>
+						#{task.name}
+						<br/>
+					</a>
+					</ui:repeat>
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						Created Tasks
+					</f:facet>
+					<ui:repeat var="task" value="#{fired.createdTasks}">
+					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.Id}"	title="TaskId: #{task.id}">
+						<span class="fa fa-file-text-o"/>
+						#{task.name}
+						<br/>
+					</a>
+					</ui:repeat>
 				</p:column>
 			</p:dataTable>
 		</h:form>
