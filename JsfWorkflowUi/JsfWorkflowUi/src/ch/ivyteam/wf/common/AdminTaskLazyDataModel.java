@@ -15,7 +15,8 @@ import ch.ivyteam.ivy.workflow.TaskProperty;
  */
 public class AdminTaskLazyDataModel extends AbstractTaskLazyDataModel
 {
-
+  private static final long serialVersionUID = 1L;
+	
   @Override
   protected IQueryResult<ITask> findTasks(int first, int pageSize,
           List<PropertyOrder<TaskProperty>> propertyOrders, IPropertyFilter<TaskProperty> filters)

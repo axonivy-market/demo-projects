@@ -17,6 +17,7 @@ import ch.ivyteam.ivy.workflow.TaskState;
  */
 public class UserTaskLazyDataModel extends AbstractTaskLazyDataModel
 {
+  private static final long serialVersionUID = 1L;
 
   @Override
   protected IQueryResult<ITask> findTasks(int first, int pageSize,

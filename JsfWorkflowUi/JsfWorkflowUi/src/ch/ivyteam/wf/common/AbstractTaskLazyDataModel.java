@@ -34,9 +34,10 @@ import ch.ivyteam.logicalexpression.RelationalOperator;
  * {@link DataTable} to load all tasks.
  * 
  */
-@SuppressWarnings("serial")
 public abstract class AbstractTaskLazyDataModel extends LazyDataModel<ITask>
 {
+  private static final long serialVersionUID = 1L;
+	
   protected final Ivy ivy = Ivy.getInstance();
   private String dataTableId;
   
