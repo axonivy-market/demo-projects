@@ -2,8 +2,8 @@ package ch.ivyteam.wf.signal;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
+import ch.ivyteam.ivy.persistence.query.IFluentQueryExecutor;
 import ch.ivyteam.ivy.process.model.value.SignalCode;
 import ch.ivyteam.ivy.workflow.ITask;
 import ch.ivyteam.ivy.workflow.WorkflowNavigationUtil;
@@ -28,18 +28,24 @@ public class SignalTask
                  
   public boolean isOrWasListeningForSignals()
   {
-    return !getSignalService().history().getAttachedBoundaryEvents(task).isEmpty();
+    return isWaitingForSignals() || wasWaitingForSignals();
   }
   
   public boolean isWaitingForSignals()
   {
-    return getSignalService().history().getAttachedBoundaryEvents(task).stream()
-            .filter(it->it.isWaitingForSignal()).findAny().isPresent();
+    return getSignalService().receivers().createTaskBoundaryQuery()
+            .where().waitingTaskId().isEqual(task.getId()).executor().getCount() > 0;
+  }
+  
+  public boolean wasWaitingForSignals()
+  {
+    return getSignalService().history().createTaskBoundaryQuery()
+            .where().waitingTaskId().isEqual(task.getId()).executor().getCount() > 0;
   }
 
   public boolean hasReceivedASignal()
   {
-    return getReceivedReceivers().findAny().isPresent();
+    return getReceivedReceivers().getCount() > 0;
   }
   
   public boolean wasStartedByASignal()
@@ -120,14 +126,15 @@ public class SignalTask
 
   public List<SignalCode> getReceivedMatchedPatterns()
   {
-    return getReceivedReceivers()
+    return getReceivedReceivers().getResults().stream()
             .map(taskSignalReceiver->taskSignalReceiver.getSignalPattern())
             .collect(Collectors.toList());
   }
 
   public List<SignalCode> getListeningSignalPatterns()
   {
-    return getSignalService().history().getAttachedBoundaryEvents(task)
+    return getSignalService().receivers().createTaskBoundaryQuery()
+            .where().waitingTaskId().isEqual(task.getId()).executor().getResults()
             .stream()
             .map(taskSignalReceiver->taskSignalReceiver.getSignalPattern())
             .collect(Collectors.toList());
@@ -155,7 +162,6 @@ public class SignalTask
     return getSignaledTask().getPattern();
   }
 
-  // TODO implement with query as soon as available
   public ITask getPreviousDestroyedTask()
   {
     for (ITask destroyedTask : getStartedBySignalEvent().getDestroyedTasks())
@@ -177,6 +183,8 @@ public class SignalTask
   public List<ITask> getSignaledBoundaryEventTasks()
   {
     return getReceivedReceivers()
+            .getResults()
+            .stream()
             .map(taskSignalReceiver->taskSignalReceiver.getStartedSignaledTask().getTask())
             .collect(Collectors.toList());
   }
@@ -193,16 +201,13 @@ public class SignalTask
   
   public ISignalEvent getReceivedSignalEvent()
   {
-    ITaskBoundarySignalEventReceiver taskSignalEventReceiver = getReceivedReceivers().findAny().get();
-    ISignalEvent receivedSignalEvent = taskSignalEventReceiver.getStartedSignaledTask().getReceivedEvent();
-    return receivedSignalEvent;
+	return getReceivedReceivers().getFirstResult().getStartedSignaledTask().getReceivedEvent();
   }
 
-  private Stream<ITaskBoundarySignalEventReceiver> getReceivedReceivers()
+  private IFluentQueryExecutor<ITaskBoundarySignalEventReceiver> getReceivedReceivers()
   {
-    return getSignalService().history().getAttachedBoundaryEvents(task)
-            .stream()
-            .filter(taskSignalReceiver->taskSignalReceiver.getStartedSignaledTask() != null);
+    return getSignalService().history().createTaskBoundaryQuery()
+            .where().waitingTaskId().isEqual(task.getId()).executor();
   }
   
   private void appendSignalCodes(StringBuilder builder, List<SignalCode> signalCodes)
