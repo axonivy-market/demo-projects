@@ -83,7 +83,9 @@
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/date')}
 					</f:facet>
-					#{fired.sentTimestamp}
+					<h:outputText value="#{fired.sentTimestamp}">
+						<f:convertDateTime type="both" dateStyle="short" timeStyle="medium" />
+					</h:outputText>
 				</p:column>
 				<p:column style="width:100px;">
 					<f:facet name="header">
