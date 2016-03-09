@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 03 15:12:47 CET 2016]
+[>Created: Wed Mar 09 08:12:03 CET 2016]
 151CA0D8CBDD2DEC 3.18 #module
 >Proto >Proto Collection #zClass
 cr0 NewEmployee Big #zClass
@@ -104,10 +104,10 @@ cr0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 f11 168 450 112 44 -44 -8 #rect
+cr0 f11 168 458 112 44 -44 -8 #rect
 cr0 f11 @|UserTaskIcon #fIcon
 cr0 f10 type workflow.signal.CreateUserProcess #txt
-cr0 f10 345 457 30 30 0 15 #rect
+cr0 f10 345 465 30 30 0 15 #rect
 cr0 f10 @|EndIcon #fIcon
 cr0 f21 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
@@ -124,7 +124,7 @@ cr0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 f21 304 538 112 44 -38 -8 #rect
+cr0 f21 304 554 112 44 -38 -8 #rect
 cr0 f21 @|StepIcon #fIcon
 cr0 f32 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
@@ -146,24 +146,24 @@ cr0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 f32 81 457 30 30 -34 17 #rect
+cr0 f32 81 465 30 30 -34 17 #rect
 cr0 f32 @|SignalStartEventIcon #fIcon
 cr0 f25 type workflow.signal.CreateUserProcess #txt
-cr0 f25 457 545 30 30 0 15 #rect
+cr0 f25 457 561 30 30 0 15 #rect
 cr0 f25 @|EndIcon #fIcon
 cr0 f14 expr data #txt
 cr0 f14 outCond ivp=="TaskA.ivp" #txt
-cr0 f14 280 472 345 472 #arcP
+cr0 f14 280 480 345 480 #arcP
 cr0 f22 expr out #txt
-cr0 f22 256 519 304 560 #arcP
-cr0 f22 1 256 560 #addKink
+cr0 f22 256 527 304 576 #arcP
+cr0 f22 1 256 576 #addKink
 cr0 f22 1 0.22727272727272738 0 0 #arcLabel
 cr0 f26 expr out #txt
-cr0 f26 416 560 457 560 #arcP
+cr0 f26 416 576 457 576 #arcP
 cr0 f33 expr out #txt
 cr0 f33 type workflow.signal.CreateUserProcess #txt
 cr0 f33 var in2 #txt
-cr0 f33 111 472 168 472 #arcP
+cr0 f33 111 480 168 480 #arcP
 cr0 St1 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
 cr0 St1 actionTable 'out=in;
@@ -186,7 +186,7 @@ cr0 St1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 St1 241 489 30 30 11 9 #rect
+cr0 St1 241 497 30 30 11 9 #rect
 cr0 St1 @|SignalBoundaryEventIcon #fIcon
 cr0 f8 richDialogId workflow.signal.TaskForm #txt
 cr0 f8 startMethod start(workflow.signal.User) #txt
@@ -217,7 +217,7 @@ cr0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 f8 168 258 112 44 -50 -8 #rect
+cr0 f8 168 266 112 44 -50 -8 #rect
 cr0 f8 @|UserTaskIcon #fIcon
 cr0 f19 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
@@ -234,7 +234,7 @@ cr0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 f19 304 346 112 44 -38 -8 #rect
+cr0 f19 304 362 112 44 -38 -8 #rect
 cr0 f19 @|StepIcon #fIcon
 cr0 f28 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
@@ -256,27 +256,27 @@ cr0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 f28 81 265 30 30 -34 17 #rect
+cr0 f28 81 273 30 30 -34 17 #rect
 cr0 f28 @|SignalStartEventIcon #fIcon
 cr0 f23 type workflow.signal.CreateUserProcess #txt
-cr0 f23 457 353 30 30 0 15 #rect
+cr0 f23 457 369 30 30 0 15 #rect
 cr0 f23 @|EndIcon #fIcon
 cr0 f6 type workflow.signal.CreateUserProcess #txt
-cr0 f6 345 265 30 30 0 15 #rect
+cr0 f6 337 273 30 30 0 15 #rect
 cr0 f6 @|EndIcon #fIcon
 cr0 f7 expr data #txt
 cr0 f7 outCond ivp=="TaskA.ivp" #txt
-cr0 f7 280 280 345 280 #arcP
+cr0 f7 280 288 337 288 #arcP
 cr0 f20 expr out #txt
-cr0 f20 256 327 304 368 #arcP
-cr0 f20 1 256 368 #addKink
+cr0 f20 256 335 304 384 #arcP
+cr0 f20 1 256 384 #addKink
 cr0 f20 1 0.6558600829569573 0 0 #arcLabel
 cr0 f24 expr out #txt
-cr0 f24 416 368 457 368 #arcP
+cr0 f24 416 384 457 384 #arcP
 cr0 f29 expr out #txt
 cr0 f29 type workflow.signal.CreateUserProcess #txt
 cr0 f29 var in2 #txt
-cr0 f29 111 280 168 280 #arcP
+cr0 f29 111 288 168 288 #arcP
 cr0 St0 actionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
 cr0 St0 actionTable 'out=in;
@@ -299,7 +299,7 @@ cr0 St0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 St0 241 297 30 30 11 7 #rect
+cr0 St0 241 305 30 30 11 7 #rect
 cr0 St0 @|SignalBoundaryEventIcon #fIcon
 cr0 f34 type workflow.signal.CreateUserProcess #txt
 cr0 f34 457 81 30 30 0 15 #rect
@@ -356,7 +356,7 @@ cr0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-cr0 f30 296 74 128 44 -41 -15 #rect
+cr0 f30 304 74 128 44 -41 -15 #rect
 cr0 f30 @|StepIcon #fIcon
 cr0 f0 outLink addUser.ivp #txt
 cr0 f0 type workflow.signal.CreateUserProcess #txt
@@ -403,9 +403,9 @@ cr0 f0 @|StartRequestIcon #fIcon
 cr0 f4 expr out #txt
 cr0 f4 111 96 168 96 #arcP
 cr0 f31 expr out #txt
-cr0 f31 280 96 296 96 #arcP
+cr0 f31 280 96 304 96 #arcP
 cr0 f35 expr out #txt
-cr0 f35 424 96 457 96 #arcP
+cr0 f35 432 96 457 96 #arcP
 >Proto cr0 .type workflow.signal.CreateUserProcess #txt
 >Proto cr0 .processKind NORMAL #txt
 >Proto cr0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
