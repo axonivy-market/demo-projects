@@ -30,7 +30,7 @@ public class SignalService
       TaskBoundarySignalEventReceiverQuery query = getBpmSignalService()
               .receivers().createTaskBoundaryQuery();
       receiver = new ArrayList<ITaskBoundarySignalEventReceiver>(query
-              .executor().getResults());
+              .executor().results());
     }
     return receiver;
   }
@@ -42,7 +42,7 @@ public class SignalService
       StartSignalEventElementQuery query = getBpmSignalService()
               .receivers().createStartSignalQuery();
       starts = new ArrayList<IStartSignalEventElement>(query.executor()
-              .getResults());
+              .results());
     }
     return starts;
   }
@@ -53,7 +53,7 @@ public class SignalService
     {
       SignalEventQuery query = getBpmSignalService().history()
               .createSignalEventQuery();
-      fired = new ArrayList<ISignalEvent>(query.executor().getResults());
+      fired = new ArrayList<ISignalEvent>(query.executor().results());
     }
     return fired;
   }

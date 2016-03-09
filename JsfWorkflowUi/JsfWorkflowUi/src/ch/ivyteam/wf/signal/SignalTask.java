@@ -34,18 +34,18 @@ public class SignalTask
   public boolean isWaitingForSignals()
   {
     return getSignalService().receivers().createTaskBoundaryQuery()
-            .where().waitingTaskId().isEqual(task.getId()).executor().getCount() > 0;
+            .where().waitingTaskId().isEqual(task.getId()).executor().count() > 0;
   }
   
   public boolean wasWaitingForSignals()
   {
     return getSignalService().history().createTaskBoundaryQuery()
-            .where().waitingTaskId().isEqual(task.getId()).executor().getCount() > 0;
+            .where().waitingTaskId().isEqual(task.getId()).executor().count() > 0;
   }
 
   public boolean hasReceivedASignal()
   {
-    return getReceivedReceivers().getCount() > 0;
+    return getReceivedReceivers().count() > 0;
   }
   
   public boolean wasStartedByASignal()
@@ -126,7 +126,7 @@ public class SignalTask
 
   public List<SignalCode> getReceivedMatchedPatterns()
   {
-    return getReceivedReceivers().getResults().stream()
+    return getReceivedReceivers().results().stream()
             .map(taskSignalReceiver->taskSignalReceiver.getSignalPattern())
             .collect(Collectors.toList());
   }
@@ -134,7 +134,7 @@ public class SignalTask
   public List<SignalCode> getListeningSignalPatterns()
   {
     return getSignalService().receivers().createTaskBoundaryQuery()
-            .where().waitingTaskId().isEqual(task.getId()).executor().getResults()
+            .where().waitingTaskId().isEqual(task.getId()).executor().results()
             .stream()
             .map(taskSignalReceiver->taskSignalReceiver.getSignalPattern())
             .collect(Collectors.toList());
@@ -183,7 +183,7 @@ public class SignalTask
   public List<ITask> getSignaledBoundaryEventTasks()
   {
     return getReceivedReceivers()
-            .getResults()
+            .results()
             .stream()
             .map(taskSignalReceiver->taskSignalReceiver.getStartedSignaledTask().getTask())
             .collect(Collectors.toList());
@@ -201,7 +201,7 @@ public class SignalTask
   
   public ISignalEvent getReceivedSignalEvent()
   {
-	return getReceivedReceivers().getFirstResult().getStartedSignaledTask().getReceivedEvent();
+	return getReceivedReceivers().firstResult().getStartedSignaledTask().getReceivedEvent();
   }
 
   private IFluentQueryExecutor<ITaskBoundarySignalEventReceiver> getReceivedReceivers()
