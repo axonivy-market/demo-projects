@@ -15,8 +15,14 @@
 		<br />
 		<h:form id="LoggedInUserForm">
 		<h3>#{ivy.cms.co('/labels/common/boundarySignals')}</h3>
-		
-		<p:dataTable id="boundarySignalsTable" widgetVar="boundarySignalsTable" var="receiver" value="#{data.signalService.boundaryTasks}" emptyMessage="#{ivy.cms.co('/labels/common/noTasksListeningSignal')}" rowIndexVar="row" paginatorPosition="bottom" rows="20">
+
+			<p:dataTable id="boundarySignalsTable"
+				widgetVar="boundarySignalsTable" var="receiver"
+				value="#{data.signalService.boundaryTasks}"
+				emptyMessage="#{ivy.cms.co('/labels/common/noTasksListeningSignal')}"
+				rowIndexVar="row"
+				paginator="#{data.signalService.boundaryTasks.size() > 20}"
+				paginatorPosition="bottom" rows="20">
 				<p:column style="width:15px">
 				<f:facet name="header">
 					#
@@ -40,11 +46,16 @@
 					</a>
 				</p:column>
 			</p:dataTable>
-			
-		<h3>#{ivy.cms.co('/labels/common/signalStarts')}</h3>
-		
-			<p:dataTable id="signalStartsTable" widgetVar="signalStartsTable" var="start" value="#{data.signalService.starts}" emptyMessage="#{ivy.cms.co('/labels/common/noTasksListeningSignal')}" rowIndexVar="row" paginatorPosition="bottom" rows="20">
-				<p:column style="width:15px" >
+
+			<h3>#{ivy.cms.co('/labels/common/signalStarts')}</h3>
+
+			<p:dataTable id="signalStartsTable" widgetVar="signalStartsTable"
+				var="start" value="#{data.signalService.starts}"
+				emptyMessage="#{ivy.cms.co('/labels/common/noTasksListeningSignal')}"
+				rowIndexVar="row" 
+				paginator="#{data.signalService.starts.size() > 20}"
+				paginatorPosition="bottom" rows="20">
+				<p:column style="width:15px">
 					<f:facet name="header">
 						#
 					</f:facet>
@@ -66,7 +77,11 @@
 
 			<h3>#{ivy.cms.co('/labels/common/firedSignals')}</h3>
 
-			<p:dataTable id="firedSignalsTable" widgetVar="firedSignalsTable" var="fired" value="#{data.signalService.firedSignal}" emptyMessage="No signals were fired!" rowIndexVar="row" paginatorPosition="bottom" rows="20">
+			<p:dataTable id="firedSignalsTable" widgetVar="firedSignalsTable"
+				var="fired" value="#{data.signalService.firedSignal}"
+				emptyMessage="No signals were fired!" rowIndexVar="row"
+				paginator="#{data.signalService.firedSignal.size() > 20}"
+				paginatorPosition="bottom" rows="20">
 				<p:column style="width:15px;">
 					<f:facet name="header">
 						#
