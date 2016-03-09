@@ -12,6 +12,7 @@
 	<ui:param name="headerIcon" value="bpm-signal_receiver"/>
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/signals')}" />
 	<ui:define name="center">
+		<f:event type="preRenderView" listener="#{data.signalService.clean()}" />
 		<br />
 		<h:form id="LoggedInUserForm">
 		<h3>#{ivy.cms.co('/labels/common/boundarySignals')}</h3>

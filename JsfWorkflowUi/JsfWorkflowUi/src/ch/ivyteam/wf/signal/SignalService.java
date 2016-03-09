@@ -57,5 +57,11 @@ public class SignalService
     }
     return fired;
   }
+  
+	public void clean() {
+		receiver = null;
+		starts = null;
+		fired = null;
+	}
 
 }
