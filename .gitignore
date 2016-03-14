@@ -52,9 +52,12 @@ ServerConfiguration/logs
 ServerConfiguration/src_dataClasses
 ServerConfiguration/target
 WebTestsDemos/target
+WorkflowDemos/WorkflowDemos/classes
+WorkflowDemos/WorkflowDemos/src_dataClasses/*
+WorkflowDemos/WorkflowDemos/target
 WorkflowDemos/classes
+WorkflowDemos/deploy
 WorkflowDemos/logs
-WorkflowDemos/src_dataClasses/*
 WorkflowDemos/target
 WorkflowUI/classes
 WorkflowUI/classes/*
