@@ -8,7 +8,7 @@
 
 	<modules>
 		<module>WorkflowDemos</module>
-		<!--<module>WorkflowDemos.tests</module>-->
+		<module>WorkflowDemosTest</module>
 	</modules>
 	
 	<build>
