@@ -46,7 +46,7 @@
 				<artifactId>project-build-plugin</artifactId>
 				<version>${project.build.plugin.version}</version>
 				<configuration>
-					<ivyVersion>6.1</ivyVersion>
+					<ivyVersion>6.1.1</ivyVersion>
 				</configuration>
 				<extensions>true</extensions>
 			</plugin>
@@ -64,7 +64,7 @@
 					<version>[6.0.0,)</version>
 					<extensions>true</extensions>
 					<configuration>
-						<ivyVersion>6.1</ivyVersion>
+						<ivyVersion>6.1.1</ivyVersion>
 						<engineDirectory>${engine.directory}</engineDirectory>
 						<engineListPageUrl>http://zugprobldmas/job/${src.job.name}/lastSuccessfulBuild/artifact/ivy/workspace/Server/target/</engineListPageUrl>
 						<iarFileSets>
