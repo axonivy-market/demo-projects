@@ -1,0 +1,8 @@
+DataTableDemoData #class
+ch.ivyteam.htmldialog.demo.output.DataTableDemo #namespace
+scores List<ch.ivyteam.htmldialog.demo.Score> #field
+scores PERSISTENT #fieldModifier
+selectedScore ch.ivyteam.htmldialog.demo.Score #field
+selectedScore PERSISTENT #fieldModifier
+names List<String> #field
+names PERSISTENT #fieldModifier
