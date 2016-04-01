@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Feb 26 10:14:28 CET 2016]
+[>Created: Fri Apr 01 14:18:51 CEST 2016]
 13FE10F004F193D4 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -444,10 +444,18 @@ Ts0 f35 actionDecl 'ch.ivyteam.wf.history.TaskDetails.TaskDetailsData out;
 ' #txt
 Ts0 f35 actionTable 'out=in;
 ' #txt
-Ts0 f35 actionCode 'import ch.ivyteam.ivy.workflow.TaskState;
-if(!in.resetLink)
+Ts0 f35 actionCode 'if(!in.resetLink)
 {
-	ivy.session.resetTask(in.task);
+	if (ivy.session.hasPermission(
+				ivy.wf.getApplication().getSecurityDescriptor(),
+				ch.ivyteam.ivy.security.IPermission.TASK_RESET))
+	{ // reset as admin
+		in.task.reset();
+	}
+	else
+	{ // reset as active user
+		ivy.session.resetTask(in.task);
+	}
 }	' #txt
 Ts0 f35 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
