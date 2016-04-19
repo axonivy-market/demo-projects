@@ -80,7 +80,7 @@
 
 			<p:dataTable id="firedSignalsTable" widgetVar="firedSignalsTable"
 				var="fired" value="#{data.signalService.firedSignal}"
-				emptyMessage="No signals were fired!" rowIndexVar="row"
+				emptyMessage="#{ivy.cms.co('/labels/common/noSignalsFired')}" rowIndexVar="row"
 				paginator="#{data.signalService.firedSignal.size() > 20}"
 				paginatorPosition="bottom" rows="20">
 				<p:column style="width:15px;">
