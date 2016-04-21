@@ -17,6 +17,8 @@ HtmlWfUi/target
 JsfWorkflowUi/JsfWorkflowUi.test/classes
 JsfWorkflowUi/JsfWorkflowUi.test/target
 JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/classes
+JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/deploy
+JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/logs
 JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/src_dataClasses/*
 JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/src_wsproc/*
 JsfWorkflowUi/JsfWorkflowUi.test/testRecources/testWfUi/target
