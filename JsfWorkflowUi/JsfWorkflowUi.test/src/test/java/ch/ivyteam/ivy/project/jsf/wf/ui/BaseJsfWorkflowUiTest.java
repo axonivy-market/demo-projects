@@ -12,12 +12,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import ch.ivyteam.ivy.server.test.AjaxHelper;
 import ch.ivyteam.ivy.server.test.ApplicationLogin;
 import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
 import ch.ivyteam.ivy.server.test.WfNavigator;
-import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper;
-import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.Dialog;
+
+import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
 
 public class BaseJsfWorkflowUiTest
 {
@@ -126,9 +127,9 @@ public class BaseJsfWorkflowUiTest
     return new WfNavigator(driverHelper.getWebDriver());
   }
 
-  public PrimeFacesWidgetHelper prime()
+  public PrimeUi prime()
   {
-    return new PrimeFacesWidgetHelper(driverHelper.getWebDriver());
+    return new PrimeUi(driverHelper.getWebDriver());
   }
 
   public AjaxHelper ajax()

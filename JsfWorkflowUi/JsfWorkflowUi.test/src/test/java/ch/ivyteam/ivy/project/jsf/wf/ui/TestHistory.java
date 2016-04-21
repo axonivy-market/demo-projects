@@ -5,7 +5,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.Table;
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
 public class TestHistory extends BaseJsfWorkflowUiTest
 {

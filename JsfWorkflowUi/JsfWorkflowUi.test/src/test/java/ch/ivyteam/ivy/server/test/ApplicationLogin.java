@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
+
 public class ApplicationLogin
 {
   private final WebDriver driver;
@@ -21,13 +23,15 @@ public class ApplicationLogin
   public void login(final String username, final String password)
   {
     new WfNavigator(driver).logout();
-    ajax.findUntilVisible(By.id("loginPageComponent:loginForm"));
+    ajax.await(ExpectedConditions.visibilityOfElementLocated(By
+            .id("loginPageComponent:loginForm")));
 
     setLoginFieldValue("username", username);
     setLoginFieldValue("password", password);
 
     loginField("loginButton").click();
-    ajax.assertElementContains("mainArea", "Home");
+    ajax.await(ExpectedConditions.textToBePresentInElementLocated(By
+            .id("mainArea"), "Home"));
   }
 
   private void setLoginFieldValue(String fieldName, final String value)

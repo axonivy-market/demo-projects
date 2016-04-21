@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import ch.ivyteam.ivy.server.test.prime.PrimeFacesWidgetHelper.SelectOneMenu;
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
 
 
 public class TestDetails extends BaseJsfWorkflowUiTest

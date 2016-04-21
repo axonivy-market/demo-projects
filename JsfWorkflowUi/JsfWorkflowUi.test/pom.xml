@@ -70,6 +70,12 @@
 			<version>2.0M8</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.axonivy.ivy.supplements</groupId>
+			<artifactId>primeui-tester</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 
