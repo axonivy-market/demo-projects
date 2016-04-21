@@ -20,6 +20,7 @@
 		<dir.build.file>${project.build.directory}/../../buildHelper.xml</dir.build.file>
 		<dir.trunk>${project.build.directory}/../../../../</dir.trunk>
 		<application>Portal</application>
+		<skipDeploy>${maven.test.skip}</skipDeploy>
 	</properties>
 
 	<repositories>
@@ -145,6 +146,7 @@
 				<configuration>
 					<engineDirectory>${engine.directory}</engineDirectory>
 					<deployToEngineApplication>${application}</deployToEngineApplication>
+					<skipDeploy>${skipDeploy}</skipDeploy>
 				</configuration>
 			</plugin>
 			<plugin>
