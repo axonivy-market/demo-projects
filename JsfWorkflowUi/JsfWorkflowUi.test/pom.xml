@@ -167,7 +167,7 @@
 				<executions>
 					<execution>
 						<id>HACK:fake.provide.engine.classpath</id>
-						<phase>pre-integration-test</phase>
+						<phase>package</phase>
 						<goals>
 							<goal>run</goal>
 						</goals>
