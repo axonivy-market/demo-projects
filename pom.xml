@@ -15,6 +15,7 @@
 		<module>QuickStartTutorial</module>
 		<module>ServerConfiguration</module>
 		<module>WorkflowDemos</module>
+		<moduel>ConnectivityDemos</module>
 		
 		<!-- workflow: -->
 		<module>JsfWorkflowUi</module>

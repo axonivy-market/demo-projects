@@ -1,3 +1,8 @@
+ConnectivityDemos/ConnectivityDemos/classes
+ConnectivityDemos/ConnectivityDemos/src_dataClasses/*
+ConnectivityDemos/ConnectivityDemos/src_wsproc/*
+ConnectivityDemos/ConnectivityDemos/target
+ConnectivityDemos/target
 ErrorHandlingDemos/classes
 ErrorHandlingDemos/logs
 ErrorHandlingDemos/src_dataClasses/*
