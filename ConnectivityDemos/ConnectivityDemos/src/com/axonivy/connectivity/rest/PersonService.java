@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import org.apache.commons.lang.StringUtils;
+import com.axonivy.connectivity.Person;
 
 @Singleton
 @Path("{applicationName}/person")
@@ -26,10 +26,10 @@ public class PersonService {
 	
 	public PersonService()
 	{
-		Person bb = new Person("Bruno", "Bütler");
-		Person rwei = new Person("Reto", "Weiss");
-		Person rs = new Person("Renato", "Stalder");
-		Person rew = new Person("Reguel", "Wermelinger");
+		Person bb = newPerson("Bruno", "Bütler");
+		Person rwei = newPerson("Reto", "Weiss");
+		Person rs = newPerson("Renato", "Stalder");
+		Person rew = newPerson("Reguel", "Wermelinger");
 		persons.addAll(Arrays.asList(bb,rwei,rs,rew));
 	}
 	
@@ -43,38 +43,37 @@ public class PersonService {
 	@PUT @Path("add")
 	public Response add(@FormParam("firstname") String firstname, @FormParam("lastname") String lastname)
 	{
-		Person person = new Person(firstname, lastname);
+		Person person = newPerson(firstname, lastname);
 		persons.add(person);
 		 
 		return Response.status(Status.OK)
 					.entity("added user '"+person+"' sucessfully!")
 					.build();
 	}
-	
+
 	@POST @Path("update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response update(Person person)
 	{
+		Integer id = person.getId();
+		Person existing = persons.get(id);
+		if (existing == null)
+		{
+			return Response.status(Status.NOT_MODIFIED)
+					.entity("user with id '"+id+"' does not exist.")
+					.build();
+		}
+		
+		persons.set(id, person);
 		return Response.status(Status.OK)
 				.entity("updated user '"+person+"' sucessfully!")
 				.build();
 	}
 	
-	public static class Person
-	{
-		public final String firstname;
-		public final String lastname;
-		
-		public Person(String first, String last)
-		{
-			this.firstname = first; 
-			this.lastname = last;
-		}
-		
-		@Override
-		public String toString() {
-			return StringUtils.join(new String[]{firstname, lastname}, " ");
-		}
+	private static Person newPerson(String firstname, String lastname) {
+		Person person = new Person();
+		person.setFirstname(firstname);
+		person.setLastname(lastname);
+		return person;
 	}
-	
 }

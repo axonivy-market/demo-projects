@@ -8,7 +8,7 @@
 
 	<modules>
 		<module>ConnectivityDemos</module>
-		<!--<module>ConnectivityDemosTest</module>-->
+		<module>ConnectivityDemosTest</module>
 	</modules>
 	
 	<build>
