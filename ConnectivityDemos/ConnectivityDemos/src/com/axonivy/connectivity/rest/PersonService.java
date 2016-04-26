@@ -18,6 +18,17 @@ import javax.ws.rs.core.Response.Status;
 
 import com.axonivy.connectivity.Person;
 
+/**
+ * Simple RESTful service. The REST interface is defined by the JAX-RS annotations on the methods and it's path.<br/>
+ * 
+ * The simplest external URL in a designer will be: <code>http://localhost:8081/ivy/api/designer/person/list</code>.
+ * 
+ * <p><b>Authentication</b><br/>
+ * - Consumers of this service must be authenticated with HTTP-BASIC. In the Designer any 'Test User' of the application is valid.</br/>
+ * - The @Path() annotation on the class must contain the '{applicationName}' property or users will not be able to authenticate </p>
+ * 
+ * @since 6.1.1
+ */
 @Singleton
 @Path("{applicationName}/person")
 public class PersonService {
