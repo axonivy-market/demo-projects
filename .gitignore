@@ -69,6 +69,7 @@ WorkflowDemos/WorkflowDemos/deploy
 WorkflowDemos/WorkflowDemos/src_dataClasses/*
 WorkflowDemos/WorkflowDemos/target
 WorkflowDemos/WorkflowDemosTest/classes
+WorkflowDemos/WorkflowDemosTest/deploy
 WorkflowDemos/WorkflowDemosTest/src_dataClasses/*
 WorkflowDemos/WorkflowDemosTest/target
 WorkflowDemos/classes
