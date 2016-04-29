@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<restClients>
+  <restClient>
+    <uuid>e00c9735-7733-4da8-85c8-6413c6fb2cd3</uuid>
+    <name>personService</name>
+    <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/person/{operation}</uri>
+    <property>
+      <name>username</name>
+      <value>restUser</value>
+      <isPassword>false</isPassword>
+    </property>
+    <property>
+      <name>password</name>
+      <value>restUser</value>
+      <isPassword>false</isPassword>
+    </property>
+    <feature>
+      <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
+    </feature>
+    <feature>
+      <class>com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</class>
+    </feature>
+    
+  </restClient>
+</restClients>
