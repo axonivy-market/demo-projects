@@ -51,7 +51,7 @@ public class IntegrationTestRestfulPersonService
 		
 	    Response response = httpClient.target(EngineUrl.rest()+"/person/add").request().put(entity);
 	    String raw = response.readEntity(String.class);
-	    assertThat(raw).isEqualTo("added user '"+newPerson("Junit", "Test")+"' sucessfully!");
+	    assertThat(raw).isEqualTo("added user 'Person(id=4, firstname=Junit, lastname=Test)' sucessfully!");
 	}
 	
 	@Test
@@ -77,13 +77,6 @@ public class IntegrationTestRestfulPersonService
 	    httpClient.register(feature);
 	    httpClient.register(new LoggingFilter());
 		return httpClient;
-	}
-	
-	private static Person newPerson(String firstname, String lastname) {
-		Person person = new Person();
-		person.setFirstname(firstname);
-		person.setLastname(lastname);
-		return person;
 	}
 
 }
