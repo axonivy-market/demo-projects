@@ -1,0 +1,6 @@
+TwitterAuthorizationData #class
+com.axonivy.connectivity.rest.TwitterAuthorization #namespace
+uri String #field
+uri PERSISTENT #fieldModifier
+verification String #field
+verification PERSISTENT #fieldModifier

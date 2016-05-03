@@ -8,6 +8,24 @@
 	<version>6.1.1-SNAPSHOT</version>
 	<packaging>iar</packaging>
 
+	<parent>
+		<groupId>ch.ivyteam.ivy.project</groupId>
+		<artifactId>build.maven.iar</artifactId>
+		<version>6.1.0-SNAPSHOT</version>
+		<relativePath>../../build.maven/iar</relativePath>
+	</parent>
+
+	<!-- 
+	Maven dependencies are not available on engine runtime!
+	So the relevant JARs we're copied into the /lib directory.
+	<dependencies>
+		<dependency>
+		    <groupId>org.glassfish.jersey.security</groupId>
+		    <artifactId>oauth1-client</artifactId>
+		    <version>2.22.2</version>
+		</dependency>
+	</dependencies> -->
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -18,10 +36,4 @@
 		</plugins>
 	</build>
 
-	<parent>
-		<groupId>ch.ivyteam.ivy.project</groupId>
-		<artifactId>build.maven.iar</artifactId>
-		<version>6.1.0-SNAPSHOT</version>
-		<relativePath>../../build.maven/iar</relativePath>
-	</parent>
 </project>

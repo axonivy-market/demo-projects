@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">TwitterAuthorization</ui:define>
+		<ui:define name="content">
+			<h3>OAuth Authorization required</h3>
+			
+			<h:form id="form">
+				Open the following URI to allow twitter requests and come back with a verification id.<br/>
+				<a href="#{data.uri}" target="_blank">#{data.uri}</a><br/><br/>
+				
+				<p:outputLabel for="verificiationId" value="Verification ID:" 
+					title="The verification ID display by the twitter page, when the login was successfull"/>
+				<p:inputText id="verificiationId" value="#{data.verification}"/>
+				
+				<br /><br />
+				<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -20,6 +20,28 @@
     <feature>
       <class>com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</class>
     </feature>
-    
+  </restClient>
+  <restClient>
+    <uuid>066a1b8c-f787-4540-9496-f1f2ecc9a1b1</uuid>
+    <name>twitter</name>
+    <uri>https://api.twitter.com/1.1</uri>
+    <feature>
+      <class>com.axonivy.connectivity.rest.handler.GsonMessageBodyHandler</class>
+    </feature>
+    <feature>
+      <class>com.axonivy.connectivity.rest.filter.TwitterOAuthFilter</class>
+    </feature>
+    <property>
+      <name>consumerKey</name>
+      <value>y3B1HDgeXsBh2oJdrFd6ji2fR</value>
+      <isPassword>false</isPassword>
+    </property>
+    <property>
+      <name>consumerSecret</name>
+      <value>QhFMq6ptyapS9OZlervIVvq5QfiygZsZ3gZ70RBKR6c3NE6B80</value>
+      <isPassword>false</isPassword>
+    </property>
   </restClient>
 </restClients>
+
+

@@ -6,10 +6,19 @@
 	<classpathentry kind="src" path="src_ws"/>
 	<classpathentry kind="src" path="src_wsproc"/>
 	<classpathentry kind="src" path="src_dataClasses"/>
+	<classpathentry kind="src" path="src_generated"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="con" path="IVY_CONTAINER"/>
 	<classpathentry kind="con" path="WEBAPP_CONTAINER"/>
 	<classpathentry kind="con" path="ULC_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/jersey-common-2.22.2.jar"/>
+	<classpathentry kind="lib" path="lib/oauth1-client-2.22.2.jar"/>
+	<classpathentry kind="lib" path="lib/oauth1-signature-2.22.2.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
