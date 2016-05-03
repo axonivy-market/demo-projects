@@ -1,0 +1,10 @@
+PersonManagerData #class
+com.axonivy.connectivity.rest.PersonManager #namespace
+editPerson com.axonivy.connectivity.Person #field
+editPerson PERSISTENT #fieldModifier
+firstName String #field
+firstName PERSISTENT #fieldModifier
+lastName String #field
+lastName PERSISTENT #fieldModifier
+response javax.ws.rs.core.Response #field
+response PERSISTENT #fieldModifier

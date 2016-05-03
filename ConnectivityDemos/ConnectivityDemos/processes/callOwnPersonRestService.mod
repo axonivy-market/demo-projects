@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Apr 29 14:56:25 CEST 2016]
+[>Created: Tue May 03 09:45:32 CEST 2016]
 154616078A1D629D 3.18 #module
 >Proto >Proto Collection #zClass
 ce0 callOwnPersonRestService Big #zClass
@@ -18,8 +18,13 @@ ce0 @EndTask f1 '' #zField
 ce0 @GridStep f3 '' #zField
 ce0 @PushWFArc f4 '' #zField
 ce0 @PushWFArc f2 '' #zField
+ce0 @StartRequest f5 '' #zField
+ce0 @EndTask f6 '' #zField
+ce0 @RichDialog f8 '' #zField
+ce0 @PushWFArc f9 '' #zField
+ce0 @PushWFArc f7 '' #zField
 >Proto ce0 ce0 callOwnPersonRestService #zField
-ce0 f0 outLink start.ivp #txt
+ce0 f0 outLink listPersons.ivp #txt
 ce0 f0 type com.axonivy.connectivity.Data #txt
 ce0 f0 inParamDecl '<> param;' #txt
 ce0 f0 actionDecl 'com.axonivy.connectivity.Data out;
@@ -27,16 +32,33 @@ ce0 f0 actionDecl 'com.axonivy.connectivity.Data out;
 ce0 f0 guid 154616078B31F8AD #txt
 ce0 f0 requestEnabled true #txt
 ce0 f0 triggerEnabled false #txt
-ce0 f0 callSignature start() #txt
+ce0 f0 callSignature listPersons() #txt
+ce0 f0 persist false #txt
+ce0 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+ce0 f0 showInStartList 1 #txt
+ce0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
 ce0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start.ivp</name>
+        <name>listPersons.ivp</name>
     </language>
 </elementInfo>
 ' #txt
 ce0 f0 @C|.responsibility Everybody #txt
-ce0 f0 81 49 30 30 -21 17 #rect
+ce0 f0 81 49 30 30 -40 17 #rect
 ce0 f0 @|StartRequestIcon #fIcon
 ce0 f1 type com.axonivy.connectivity.Data #txt
 ce0 f1 337 49 30 30 0 15 #rect
@@ -48,7 +70,9 @@ ce0 f3 actionTable 'out=in;
 ce0 f3 actionCode 'import com.axonivy.connectivity.Person;
 import ch.ivyteam.ivy.rest.client.GenericTypes;
 
-List<Person> persons = ivy.rest.client("personService").resolveTemplate("operation","list").request().get(GenericTypes.listOf(Person.class)) as List<Person>;
+List<Person> persons = ivy.rest.client("personService")
+	.resolveTemplate("operation","list").request()
+	.get(GenericTypes.listOf(Person.class)) as List<Person>;
 ivy.log.info(persons);' #txt
 ce0 f3 type com.axonivy.connectivity.Data #txt
 ce0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -66,6 +90,76 @@ ce0 f4 expr out #txt
 ce0 f4 111 64 168 64 #arcP
 ce0 f2 expr out #txt
 ce0 f2 280 64 337 64 #arcP
+ce0 f5 outLink personManager.ivp #txt
+ce0 f5 type com.axonivy.connectivity.Data #txt
+ce0 f5 inParamDecl '<> param;' #txt
+ce0 f5 actionDecl 'com.axonivy.connectivity.Data out;
+' #txt
+ce0 f5 guid 15470DDE0EEFDF4F #txt
+ce0 f5 requestEnabled true #txt
+ce0 f5 triggerEnabled false #txt
+ce0 f5 callSignature personManager() #txt
+ce0 f5 persist false #txt
+ce0 f5 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+ce0 f5 showInStartList 1 #txt
+ce0 f5 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+ce0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>personManager.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+ce0 f5 @C|.responsibility Everybody #txt
+ce0 f5 81 145 30 30 -52 17 #rect
+ce0 f5 @|StartRequestIcon #fIcon
+ce0 f6 type com.axonivy.connectivity.Data #txt
+ce0 f6 337 145 30 30 0 15 #rect
+ce0 f6 @|EndIcon #fIcon
+ce0 f8 targetWindow NEW:card: #txt
+ce0 f8 targetDisplay TOP #txt
+ce0 f8 richDialogId com.axonivy.connectivity.rest.PersonManager #txt
+ce0 f8 startMethod start() #txt
+ce0 f8 type com.axonivy.connectivity.Data #txt
+ce0 f8 requestActionDecl '<> param;' #txt
+ce0 f8 responseActionDecl 'com.axonivy.connectivity.Data out;
+' #txt
+ce0 f8 responseMappingAction 'out=in;
+' #txt
+ce0 f8 windowConfiguration '* ' #txt
+ce0 f8 isAsynch false #txt
+ce0 f8 isInnerRd false #txt
+ce0 f8 userContext '* ' #txt
+ce0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Restful
+PersonManager</name>
+        <nameStyle>8,7
+13,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+ce0 f8 168 136 112 48 -32 -17 #rect
+ce0 f8 @|RichDialogIcon #fIcon
+ce0 f9 expr out #txt
+ce0 f9 111 160 168 160 #arcP
+ce0 f7 expr out #txt
+ce0 f7 280 160 337 160 #arcP
 >Proto ce0 .type com.axonivy.connectivity.Data #txt
 >Proto ce0 .processKind NORMAL #txt
 >Proto ce0 0 0 32 24 18 0 #rect
@@ -74,3 +168,7 @@ ce0 f0 mainOut f4 tail #connect
 ce0 f4 head f3 mainIn #connect
 ce0 f3 mainOut f2 tail #connect
 ce0 f2 head f1 mainIn #connect
+ce0 f5 mainOut f9 tail #connect
+ce0 f9 head f8 mainIn #connect
+ce0 f8 mainOut f7 tail #connect
+ce0 f7 head f6 mainIn #connect

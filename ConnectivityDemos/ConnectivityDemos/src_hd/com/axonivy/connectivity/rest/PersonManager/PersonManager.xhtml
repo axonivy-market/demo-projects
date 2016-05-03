@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">PersonManager</ui:define>
+		<ui:define name="content">
+			<h3>Restful Person Manager</h3>
+			<p>Uses REST client calls to display and manipulate it's data.</p>
+			
+			<h:form id="form">
+				<p:dataTable value="#{logic.persons}" var="person" id="persons">
+					<p:column headerText="Firstname">
+						<p:outputLabel value="#{person.firstname}"></p:outputLabel>
+					</p:column>
+					<p:column headerText="Lastname">
+						<p:outputLabel value="#{person.lastname}"></p:outputLabel>
+					</p:column>
+					<p:column headerText="Controls" style="width:5em;">
+	         			<p:commandLink  actionListener="#{logic.edit(person)}" 
+	         				oncomplete="PF('editDlg').show();" update=":form:editor"> 
+	                      <span class="ui-icon ui-icon-pencil"/>
+						</p:commandLink> 
+		 			</p:column>
+				</p:dataTable>
+
+				<p:dialog id="editor" widgetVar="editDlg"
+					header="Person Editor">
+				 	<p:inputText value="#{data.editPerson.firstname}"/>
+				 	<p:inputText value="#{data.editPerson.lastname}"/>
+				 	<p:commandButton actionListener="#{logic.update}" 
+				 		value="Edit" update=":form:persons, :form:notify" oncomplete="PF('editDlg').hide(); PF('status').show();" icon="ui-icon-check" />
+				</p:dialog>
+
+				<h4>New Person</h4>
+				<p:outputLabel value="Firstname" for="first"/>
+				<p:inputText value="#{data.firstName}" id="first" /><br/>
+				<p:outputLabel value="Lastname" for="last"/>
+				<p:inputText value="#{data.lastName}" id="last" />
+				<p:commandButton actionListener="#{logic.add}" 
+				 value="Add" update="persons, notify" oncomplete="PF('status').show();" icon="ui-icon-plus" />
+			
+				<br/><br/>
+				<p:commandButton actionListener="#{logic.close}" value="Exit" update="form" icon="ui-icon-check" />
+			
+				<p:notificationBar position="top" effect="slide" widgetVar="status">
+				    <h:outputText value="#{data.response}"  id="notify" />
+				</p:notificationBar>
+				
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

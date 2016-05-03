@@ -1,7 +1,6 @@
 package com.axonivy.connectivity.rest;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Singleton;
@@ -37,11 +36,10 @@ public class PersonService {
 	
 	public PersonService()
 	{
-		Person bb = newPerson("Bruno", "Bütler");
-		Person rwei = newPerson("Reto", "Weiss");
-		Person rs = newPerson("Renato", "Stalder");
-		Person rew = newPerson("Reguel", "Wermelinger");
-		persons.addAll(Arrays.asList(bb,rwei,rs,rew));
+		addNewPerson("Bruno", "Bütler");
+		addNewPerson("Reto", "Weiss");
+		addNewPerson("Renato", "Stalder");
+		addNewPerson("Reguel", "Wermelinger");
 	}
 	
 	@GET @Path("list")
@@ -54,9 +52,7 @@ public class PersonService {
 	@PUT @Path("add")
 	public Response add(@FormParam("firstname") String firstname, @FormParam("lastname") String lastname)
 	{
-		Person person = newPerson(firstname, lastname);
-		persons.add(person);
-		 
+		Person person = addNewPerson(firstname, lastname);
 		return Response.status(Status.OK)
 					.entity("added user '"+person+"' sucessfully!")
 					.build();
@@ -81,10 +77,13 @@ public class PersonService {
 				.build();
 	}
 	
-	private static Person newPerson(String firstname, String lastname) {
+	private Person addNewPerson(String firstname, String lastname) 
+	{
 		Person person = new Person();
 		person.setFirstname(firstname);
 		person.setLastname(lastname);
+		person.setId(persons.size());
+		persons.add(person);
 		return person;
 	}
 }
