@@ -14,14 +14,14 @@
 			
 			<h:form id="form">
 				Open the following URI to allow twitter requests and come back with a verification id.<br/>
-				<a href="#{data.uri}" target="_blank">#{data.uri}</a><br/><br/>
+				<a id="authLink" href="#{data.uri}" target="_blank">#{data.uri}</a><br/><br/>
 				
-				<p:outputLabel for="verificiationId" value="Verification ID:" 
+				<p:outputLabel for="verificationId" value="Verification ID:" 
 					title="The verification ID display by the twitter page, when the login was successfull"/>
-				<p:inputText id="verificiationId" value="#{data.verification}"/>
+				<p:inputText id="verificationId" value="#{data.verification}"/>
 				
 				<br /><br />
-				<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
+				<p:commandButton actionListener="#{logic.close}" value="Proceed" id="proceed" update="form" icon="ui-icon-check" />
 			</h:form>
 			
 		</ui:define>

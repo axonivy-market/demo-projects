@@ -1,5 +1,6 @@
 package com.axonivy.connectivity.rest.filter;
 
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.Feature;
 import javax.ws.rs.core.FeatureContext;
 
@@ -10,6 +11,7 @@ import org.glassfish.jersey.client.oauth1.OAuth1ClientSupport;
 
 import ch.ivyteam.ivy.bpm.error.BpmError;
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.request.IHttpProcessModelVersionRequest;
 import ch.ivyteam.ivy.security.IUser;
 
 /**
@@ -66,8 +68,21 @@ public class TwitterOAuthFilter implements Feature
 	private static AccessToken readToken()
 	{
 		IUser user = Ivy.session().getSessionUser();
-		String token = user.getProperty(PROPERTY_TOKEN);
-		String secret = user.getProperty(PROPERTY_TOKEN_SECRET);
+		boolean isAnonymousSession = (user == null);
+		if (isAnonymousSession)
+		{
+			HttpSession session = getHttpSession();
+			System.out.println("READING TOKEN FROM SESSION");
+			return toAccessToken(
+					(String)session.getAttribute(PROPERTY_TOKEN), 
+					(String)session.getAttribute(PROPERTY_TOKEN_SECRET));
+		}
+		return toAccessToken(
+				user.getProperty(PROPERTY_TOKEN), 
+				user.getProperty(PROPERTY_TOKEN_SECRET));
+	}
+
+	private static AccessToken toAccessToken(String token, String secret) {
 		if (token == null || secret == null)
 		{
 			return null;
@@ -78,8 +93,22 @@ public class TwitterOAuthFilter implements Feature
 	public static void storeToken(AccessToken accessToken)
 	{
 		IUser user = Ivy.session().getSessionUser();
+		boolean isAnonymousSession = (user == null);
+		if (isAnonymousSession)
+		{
+			HttpSession session = getHttpSession();
+			session.setAttribute(PROPERTY_TOKEN, accessToken.getToken());
+			session.setAttribute(PROPERTY_TOKEN_SECRET, accessToken.getAccessTokenSecret());
+			System.out.println("STORING TOKEN ON SESSION");
+			return;
+		}
 		user.setProperty(PROPERTY_TOKEN, accessToken.getToken());
 		user.setProperty(PROPERTY_TOKEN_SECRET, accessToken.getAccessTokenSecret());
+	}
+
+	private static HttpSession getHttpSession() 
+	{
+		return ((IHttpProcessModelVersionRequest)Ivy.request()).getHttpSession();
 	}
 
 }

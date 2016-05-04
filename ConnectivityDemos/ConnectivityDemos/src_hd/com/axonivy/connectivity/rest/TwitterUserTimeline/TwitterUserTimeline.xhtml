@@ -13,7 +13,7 @@
 			<h3>Timeline</h3>
 			
 			<h:form id="form">
-				<p:dataTable value="#{data.userTimelines}" var="timeline">
+				<p:dataTable value="#{data.userTimelines}" var="timeline" id="tweetTable">
 					<p:column headerText="tweets">
 						<p:outputLabel value="#{timeline.text}"></p:outputLabel>
 					</p:column>
