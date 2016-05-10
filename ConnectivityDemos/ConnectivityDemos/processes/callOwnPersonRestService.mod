@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 03 16:11:57 CEST 2016]
+[>Created: Mon May 09 16:23:37 CEST 2016]
 154616078A1D629D 3.18 #module
 >Proto >Proto Collection #zClass
 ce0 callOwnPersonRestService Big #zClass
@@ -79,8 +79,7 @@ import com.axonivy.connectivity.Person;
 import ch.ivyteam.ivy.rest.client.GenericTypes;
 
 List<Person> persons = ivy.rest.client("personService")
-	.resolveTemplate("operation","list").request()
-	.get(GenericTypes.listOf(Person.class)) as List<Person>;
+	.request().get(GenericTypes.listOf(Person.class)) as List<Person>;
 ivy.log.info(persons);' #txt
 ce0 f3 type com.axonivy.connectivity.Data #txt
 ce0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

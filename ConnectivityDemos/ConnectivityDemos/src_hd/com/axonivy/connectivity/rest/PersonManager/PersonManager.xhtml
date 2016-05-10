@@ -22,9 +22,13 @@
 						<p:outputLabel value="#{person.lastname}"></p:outputLabel>
 					</p:column>
 					<p:column headerText="Controls" style="width:5em;">
-	         			<p:commandLink  actionListener="#{logic.edit(person)}" 
+	         			<p:commandLink  actionListener="#{logic.edit(person)}" style="display:inline" 
 	         				oncomplete="PF('editDlg').show();" update=":form:editor"> 
 	                      <span class="ui-icon ui-icon-pencil"/>
+						</p:commandLink>
+						<p:commandLink  actionListener="#{logic.delete(person.id)}"  style="display:inline" 
+	         				update=":form:persons, :form:notify" oncomplete="PF('status').show();"> 
+	                       <span class="ui-icon ui-icon-trash"/>
 						</p:commandLink> 
 		 			</p:column>
 				</p:dataTable>

@@ -3,7 +3,7 @@
   <restClient>
     <uuid>e00c9735-7733-4da8-85c8-6413c6fb2cd3</uuid>
     <name>personService</name>
-    <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/person/{operation}</uri>
+    <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/persons</uri>
     <property>
       <name>username</name>
       <value>restUser</value>

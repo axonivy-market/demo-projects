@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 03 09:07:58 CEST 2016]
+[>Created: Tue May 10 08:47:33 CEST 2016]
 15470DE765DF45FC 3.18 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonManagerProcess Big #zClass
@@ -37,6 +37,9 @@ Ps0 @PushWFArc f16 '' #zField
 Ps0 @RichDialogMethodStart f19 '' #zField
 Ps0 @RichDialogProcessEnd f21 '' #zField
 Ps0 @PushWFArc f20 '' #zField
+Ps0 @RichDialogMethodStart f22 '' #zField
+Ps0 @RichDialogProcessEnd f23 '' #zField
+Ps0 @PushWFArc f24 '' #zField
 >Proto Ps0 Ps0 PersonManagerProcess #zField
 Ps0 f0 guid 15470DE767CB62E5 #txt
 Ps0 f0 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
@@ -126,10 +129,10 @@ Ps0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f9 83 283 26 26 -10 15 #rect
+Ps0 f9 83 339 26 26 -10 15 #rect
 Ps0 f9 @|RichDialogProcessStartIcon #fIcon
 Ps0 f10 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
-Ps0 f10 339 283 26 26 0 12 #rect
+Ps0 f10 339 339 26 26 0 12 #rect
 Ps0 f10 @|RichDialogProcessEndIcon #fIcon
 Ps0 f12 actionDecl 'com.axonivy.connectivity.rest.PersonManager.PersonManagerData out;
 ' #txt
@@ -147,12 +150,12 @@ Ps0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f12 160 274 128 44 -56 -8 #rect
+Ps0 f12 160 330 128 44 -56 -8 #rect
 Ps0 f12 @|StepIcon #fIcon
 Ps0 f13 expr out #txt
-Ps0 f13 109 296 160 296 #arcP
+Ps0 f13 109 352 160 352 #arcP
 Ps0 f11 expr out #txt
-Ps0 f11 288 296 339 296 #arcP
+Ps0 f11 288 352 339 352 #arcP
 Ps0 f14 guid 154756D22FAF47CA #txt
 Ps0 f14 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
 Ps0 f14 actionDecl 'com.axonivy.connectivity.rest.PersonManager.PersonManagerData out;
@@ -168,10 +171,10 @@ Ps0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f14 83 347 26 26 -19 15 #rect
+Ps0 f14 83 403 26 26 -19 15 #rect
 Ps0 f14 @|RichDialogProcessStartIcon #fIcon
 Ps0 f15 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
-Ps0 f15 339 347 26 26 0 12 #rect
+Ps0 f15 339 403 26 26 0 12 #rect
 Ps0 f15 @|RichDialogProcessEndIcon #fIcon
 Ps0 f17 actionDecl 'com.axonivy.connectivity.rest.PersonManager.PersonManagerData out;
 ' #txt
@@ -189,12 +192,12 @@ Ps0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f17 160 338 128 44 -61 -8 #rect
+Ps0 f17 160 394 128 44 -61 -8 #rect
 Ps0 f17 @|StepIcon #fIcon
 Ps0 f18 expr out #txt
-Ps0 f18 109 360 160 360 #arcP
+Ps0 f18 109 416 160 416 #arcP
 Ps0 f16 expr out #txt
-Ps0 f16 288 360 339 360 #arcP
+Ps0 f16 288 416 339 416 #arcP
 Ps0 f19 guid 154756E891F20C23 #txt
 Ps0 f19 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
 Ps0 f19 method getPersons() #txt
@@ -215,13 +218,39 @@ Ps0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f19 83 411 26 26 -36 15 #rect
+Ps0 f19 83 275 26 26 -36 15 #rect
 Ps0 f19 @|RichDialogMethodStartIcon #fIcon
 Ps0 f21 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
-Ps0 f21 338 411 26 26 0 12 #rect
+Ps0 f21 338 275 26 26 0 12 #rect
 Ps0 f21 @|RichDialogProcessEndIcon #fIcon
 Ps0 f20 expr out #txt
-Ps0 f20 109 424 338 424 #arcP
+Ps0 f20 109 288 338 288 #arcP
+Ps0 f22 guid 154996947DF8D2D2 #txt
+Ps0 f22 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
+Ps0 f22 method delete(java.lang.Integer) #txt
+Ps0 f22 disableUIEvents false #txt
+Ps0 f22 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<java.lang.Integer id> param = methodEvent.getInputArguments();
+' #txt
+Ps0 f22 inActionCode 'out.response = com.axonivy.connectivity.rest.PersonClient.delete(param.id);' #txt
+Ps0 f22 outParameterDecl '<> result;
+' #txt
+Ps0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>delete(Integer)</name>
+        <nameStyle>15,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ps0 f22 83 467 26 26 -40 15 #rect
+Ps0 f22 @|RichDialogMethodStartIcon #fIcon
+Ps0 f23 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
+Ps0 f23 339 467 26 26 0 12 #rect
+Ps0 f23 @|RichDialogProcessEndIcon #fIcon
+Ps0 f24 expr out #txt
+Ps0 f24 109 480 339 480 #arcP
 >Proto Ps0 .type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
 >Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -230,7 +259,7 @@ Ps0 f20 109 424 338 424 #arcP
         <swimlaneLabel>Invokes REST client calls</swimlaneLabel>
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
-    <swimlaneSize>224</swimlaneSize>
+    <swimlaneSize>288</swimlaneSize>
     <swimlaneColor gradient="false">-3342388</swimlaneColor>
     <swimlaneType>LANE</swimlaneType>
     <swimlaneSpaceBefore>256</swimlaneSpaceBefore>
@@ -254,3 +283,5 @@ Ps0 f17 mainOut f16 tail #connect
 Ps0 f16 head f15 mainIn #connect
 Ps0 f19 mainOut f20 tail #connect
 Ps0 f20 head f21 mainIn #connect
+Ps0 f22 mainOut f24 tail #connect
+Ps0 f24 head f23 mainIn #connect

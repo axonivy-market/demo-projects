@@ -1,16 +1,20 @@
 package com.axonivy.connectivity.rest;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Singleton;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Link;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -20,7 +24,7 @@ import com.axonivy.connectivity.Person;
 /**
  * Simple RESTful service. The REST interface is defined by the JAX-RS annotations on the methods and it's path.<br/>
  * 
- * The simplest external URL in a designer will be: <code>http://localhost:8081/ivy/api/designer/person/list</code>.
+ * The simplest external URL in a designer will be: <code>http://localhost:8081/ivy/api/designer/persons</code>.
  * 
  * <p><b>Authentication</b><br/>
  * - Consumers of this service must be authenticated with HTTP-BASIC. In the Designer any 'Test User' of the application is valid.</br/>
@@ -29,7 +33,7 @@ import com.axonivy.connectivity.Person;
  * @since 6.1.1
  */
 @Singleton
-@Path("{applicationName}/person")
+@Path("{applicationName}/persons")
 public class PersonService {
 
 	private List<Person> persons = new ArrayList<>();
@@ -42,39 +46,89 @@ public class PersonService {
 		addNewPerson("Reguel", "Wermelinger");
 	}
 	
-	@GET @Path("list")
+	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Person> getPersons()
 	{
 		return persons;
 	}
 	
-	@PUT @Path("add")
+	@GET @Path("/{personId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getPerson(@PathParam("personId") int personId)
+	{
+		try
+		{
+			return Response.status(Status.OK)
+						.entity(persons.get(personId))
+						.build();
+		} 
+		catch (IndexOutOfBoundsException ex)
+		{
+			return Response.status(Status.NOT_FOUND).build();
+		}
+	}
+	
+	@PUT
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response add(@FormParam("firstname") String firstname, @FormParam("lastname") String lastname)
 	{
 		Person person = addNewPerson(firstname, lastname);
-		return Response.status(Status.OK)
-					.entity("added user '"+person+"' sucessfully!")
+		Link createdLink = Link.fromPath("persons/{id}").rel("createdPerson").build(person.getId());
+		return Response.status(Status.CREATED)
+					.location(createdLink.getUri())
+					.links(createdLink)
+					.entity(new CreatedPersonMeta(person.getId()))
 					.build();
 	}
-
-	@POST @Path("update")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response update(Person person)
+	
+	public static class CreatedPersonMeta
 	{
-		Integer id = person.getId();
-		Person existing = persons.get(id);
-		if (existing == null)
+		public final int id;
+		public final Calendar createdAt;
+		
+		private CreatedPersonMeta(int id)
 		{
-			return Response.status(Status.NOT_MODIFIED)
-					.entity("user with id '"+id+"' does not exist.")
+			this.id = id;
+			this.createdAt = Calendar.getInstance();
+		}
+	}
+	
+	
+	@DELETE @Path("/{personId}")
+	public Response deletePerson(@PathParam("personId") int personId)
+	{
+		try
+		{
+			Person deleted = persons.remove(personId);
+			return Response.status(Status.OK)
+					.entity("removed user '"+deleted+"' successfully!")
+					.build();
+		} 
+		catch (IndexOutOfBoundsException ex)
+		{
+			return Response.status(Status.NOT_FOUND).build();
+		}
+	}
+	
+	@POST @Path("/{personId}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response update(@PathParam("personId") int personId, Person person)
+	{
+		try
+		{
+			Person existing = persons.get(personId);
+			persons.set(existing.getId(), person);
+			return Response.status(Status.OK)
+					.entity("updated user '"+person+"' sucessfully!")
+					.build();
+		} 
+		catch (IndexOutOfBoundsException ex)
+		{
+			return Response.status(Status.NOT_FOUND)
+					.entity("user with id '"+personId+"' does not exist.")
 					.build();
 		}
-		
-		persons.set(id, person);
-		return Response.status(Status.OK)
-				.entity("updated user '"+person+"' sucessfully!")
-				.build();
 	}
 	
 	private Person addNewPerson(String firstname, String lastname) 

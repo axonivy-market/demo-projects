@@ -21,6 +21,16 @@
             <nullPermitted>false</nullPermitted>
         </outputParameter>
     </method>
+    <method>
+        <name>delete</name>
+        <description></description>
+        <inputParameter>
+            <name>id</name>
+            <description></description>
+            <parameterType>java.lang.Integer</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>
