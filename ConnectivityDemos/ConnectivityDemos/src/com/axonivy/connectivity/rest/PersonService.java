@@ -14,10 +14,13 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Link;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+
+import org.apache.commons.lang3.StringUtils;
 
 import com.axonivy.connectivity.Person;
 
@@ -48,9 +51,31 @@ public class PersonService {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Person> getPersons()
+	public Response getPersons(@QueryParam("name") String name)
 	{
-		return persons;
+		if (StringUtils.isBlank(name))
+		{
+			return Response.status(Status.OK)
+					.entity(persons)
+					.build();
+		}
+		
+		return Response.status(Status.OK)
+				.entity(findPersons(name))
+				.build();
+	}
+
+	private List<Person> findPersons(String name) {
+		List<Person> matches = new ArrayList<>();
+		for(Person candidate : persons)
+		{
+			if (candidate.getFirstname().contains(name) ||
+				candidate.getLastname().contains(name))
+			{
+				matches.add(candidate);
+			}
+		}
+		return matches;
 	}
 	
 	@GET @Path("/{personId}")
@@ -96,13 +121,14 @@ public class PersonService {
 	
 	
 	@DELETE @Path("/{personId}")
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response deletePerson(@PathParam("personId") int personId)
 	{
 		try
 		{
 			Person deleted = persons.remove(personId);
 			return Response.status(Status.OK)
-					.entity("removed user '"+deleted+"' successfully!")
+					.entity(deleted)
 					.build();
 		} 
 		catch (IndexOutOfBoundsException ex)
@@ -120,7 +146,6 @@ public class PersonService {
 			Person existing = persons.get(personId);
 			persons.set(existing.getId(), person);
 			return Response.status(Status.OK)
-					.entity("updated user '"+person+"' sucessfully!")
 					.build();
 		} 
 		catch (IndexOutOfBoundsException ex)
@@ -130,6 +155,8 @@ public class PersonService {
 					.build();
 		}
 	}
+	
+	
 	
 	private Person addNewPerson(String firstname, String lastname) 
 	{

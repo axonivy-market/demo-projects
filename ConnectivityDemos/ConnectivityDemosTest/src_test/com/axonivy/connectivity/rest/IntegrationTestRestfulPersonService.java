@@ -23,6 +23,7 @@ import org.junit.Test;
 
 import com.axonivy.connectivity.Person;
 import com.fasterxml.jackson.databind.JsonNode;
+import javax.ws.rs.core.Response.Status;
 
 
 /**
@@ -38,6 +39,14 @@ public class IntegrationTestRestfulPersonService
 	    Response response = getPersonsClient().request().get();
 	    List<Person> persons = response.readEntity(new GenericType<ArrayList<Person>>() {});
 	    assertThat(persons).isNotEmpty();
+	}
+	
+	@Test
+	public void filterListOfEntities()
+	{
+	    Response response = getPersonsClient().queryParam("name", "Weiss").request().get();
+	    List<Person> persons = response.readEntity(new GenericType<ArrayList<Person>>() {});
+	    assertThat(persons).hasSize(1);
 	}
 	
 	@Test
@@ -70,8 +79,7 @@ public class IntegrationTestRestfulPersonService
 		
 	    Response response = getPersonsClient().path(String.valueOf(person.getId()))
 	    		.request().post(entity);
-	    String raw = response.readEntity(String.class);
-	    assertThat(raw).isEqualTo("updated user '"+person+"' sucessfully!");
+	    assertThat(response.getStatus()).isEqualTo(Status.OK.getStatusCode());
 	}
 	
 	@Test
@@ -83,7 +91,7 @@ public class IntegrationTestRestfulPersonService
 		Person createdPerson = createAuthenticatedClient().target(personLink).request().get(Person.class);
 		
 		Response response = getPersonsClient().path(String.valueOf(createdPerson.getId())).request().delete();
-		assertThat(response.readEntity(String.class)).startsWith("removed user");
+		assertThat(response.readEntity(Person.class)).isNotNull();
 	}
 
 	private static WebTarget getPersonsClient() 
