@@ -3,65 +3,71 @@
   <restClient>
     <uuid>e00c9735-7733-4da8-85c8-6413c6fb2cd3</uuid>
     <name>personService</name>
-    <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/persons</uri>
-    <property>
-      <name>username</name>
-      <value>restUser</value>
-      <isPassword>false</isPassword>
-    </property>
-    <property>
-      <name>password</name>
-      <value>restUser</value>
-      <isPassword>false</isPassword>
-    </property>
-    <feature>
-      <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
-    </feature>
-    <feature>
-      <class>com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</class>
-    </feature>
+    <connection>
+      <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/persons</uri>
+      <property>
+        <name>username</name>
+        <value>restUser</value>
+        <isPassword>false</isPassword>
+      </property>
+      <property>
+        <name>password</name>
+        <value>restUser</value>
+        <isPassword>false</isPassword>
+      </property>
+      <feature>
+        <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
+      </feature>
+      <feature>
+        <class>com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</class>
+      </feature>
+    </connection>
   </restClient>
   <restClient>
     <uuid>066a1b8c-f787-4540-9496-f1f2ecc9a1b1</uuid>
     <name>twitter</name>
-    <uri>https://api.twitter.com/1.1</uri>
-    <feature>
-      <class>com.axonivy.connectivity.rest.client.handler.GsonMessageBodyHandler</class>
-    </feature>
-    <feature>
-      <class>com.axonivy.connectivity.rest.client.filter.TwitterOAuthFilter</class>
-    </feature>
-    <property>
-      <name>consumerKey</name>
-      <value>y3B1HDgeXsBh2oJdrFd6ji2fR</value>
-      <isPassword>false</isPassword>
-    </property>
-    <property>
-      <name>consumerSecret</name>
-      <value>QhFMq6ptyapS9OZlervIVvq5QfiygZsZ3gZ70RBKR6c3NE6B80</value>
-      <isPassword>false</isPassword>
-    </property>
+    <connection>
+      <uri>https://api.twitter.com/1.1</uri>
+      <feature>
+        <class>com.axonivy.connectivity.rest.client.handler.GsonMessageBodyHandler</class>
+      </feature>
+      <feature>
+        <class>com.axonivy.connectivity.rest.client.filter.TwitterOAuthFilter</class>
+      </feature>
+      <property>
+        <name>consumerKey</name>
+        <value>y3B1HDgeXsBh2oJdrFd6ji2fR</value>
+        <isPassword>false</isPassword>
+      </property>
+      <property>
+        <name>consumerSecret</name>
+        <value>QhFMq6ptyapS9OZlervIVvq5QfiygZsZ3gZ70RBKR6c3NE6B80</value>
+        <isPassword>false</isPassword>
+      </property>
+    </connection>
   </restClient>
   <restClient>
     <uuid>e61c6d1f-106e-46ea-8327-fe18e4c1d912</uuid>
     <name>approvalService</name>
-    <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/approve</uri>
-    <property>
-      <name>username</name>
-      <value>restUser</value>
-      <isPassword>false</isPassword>
-    </property>
-    <property>
-      <name>password</name>
-      <value>restUser</value>
-      <isPassword>false</isPassword>
-    </property>
-    <feature>
-      <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
-    </feature>
-    <feature>
-      <class>com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</class>
-    </feature>
+    <connection>
+      <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/approve</uri>
+      <property>
+        <name>username</name>
+        <value>restUser</value>
+        <isPassword>false</isPassword>
+      </property>
+      <property>
+        <name>password</name>
+        <value>restUser</value>
+        <isPassword>false</isPassword>
+      </property>
+      <feature>
+        <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
+      </feature>
+      <feature>
+        <class>com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</class>
+      </feature>
+    </connection>
   </restClient>
 </restClients>
 
