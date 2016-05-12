@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<userConfig/>
+<userConfig>
+    <user>
+        <username>theBoss</username>
+        <password>theBoss</password>
+        <role>Manager</role>
+    </user>
+</userConfig>

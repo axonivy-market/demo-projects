@@ -42,6 +42,27 @@
       <isPassword>false</isPassword>
     </property>
   </restClient>
+  <restClient>
+    <uuid>e61c6d1f-106e-46ea-8327-fe18e4c1d912</uuid>
+    <name>approvalService</name>
+    <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/approve</uri>
+    <property>
+      <name>username</name>
+      <value>restUser</value>
+      <isPassword>false</isPassword>
+    </property>
+    <property>
+      <name>password</name>
+      <value>restUser</value>
+      <isPassword>false</isPassword>
+    </property>
+    <feature>
+      <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
+    </feature>
+    <feature>
+      <class>com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</class>
+    </feature>
+  </restClient>
 </restClients>
 
 
