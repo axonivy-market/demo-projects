@@ -1,4 +1,4 @@
-package com.axonivy.connectivity.rest.filter;
+package com.axonivy.connectivity.rest.client.filter;
 
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.Feature;

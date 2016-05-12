@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu May 12 10:23:54 CEST 2016]
+[>Created: Thu May 12 11:54:46 CEST 2016]
 1549FEEB682EF158 3.18 #module
 >Proto >Proto Collection #zClass
 cl0 createApproval Big #zClass
@@ -49,7 +49,7 @@ cl0 f1 type com.axonivy.connectivity.rest.CreateApprovalData #txt
 cl0 f1 369 81 30 30 0 15 #rect
 cl0 f1 @|EndSubIcon #fIcon
 cl0 f3 type com.axonivy.connectivity.rest.CreateApprovalData #txt
-cl0 f3 processCall approval:approve(com.axonivy.connectivity.rest.Approval) #txt
+cl0 f3 processCall rest/approval:approve(com.axonivy.connectivity.rest.Approval) #txt
 cl0 f3 doCall true #txt
 cl0 f3 requestActionDecl '<com.axonivy.connectivity.rest.Approval approval> param;
 ' #txt
@@ -58,7 +58,6 @@ cl0 f3 requestMappingAction 'param.approval=in.approval;
 cl0 f3 responseActionDecl 'com.axonivy.connectivity.rest.CreateApprovalData out;
 ' #txt
 cl0 f3 responseMappingAction 'out=in;
-out.approvalTask=triggeredTask;
 ' #txt
 cl0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

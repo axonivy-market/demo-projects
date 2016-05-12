@@ -1,4 +1,4 @@
-package com.axonivy.connectivity.rest;
+package com.axonivy.connectivity.rest.client;
 
 import java.util.List;
 

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 10 08:47:33 CEST 2016]
+[>Created: Thu May 12 11:52:59 CEST 2016]
 15470DE765DF45FC 3.18 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonManagerProcess Big #zClass
@@ -138,7 +138,7 @@ Ps0 f12 actionDecl 'com.axonivy.connectivity.rest.PersonManager.PersonManagerDat
 ' #txt
 Ps0 f12 actionTable 'out=in;
 ' #txt
-Ps0 f12 actionCode 'import com.axonivy.connectivity.rest.PersonClient;
+Ps0 f12 actionCode 'import com.axonivy.connectivity.rest.client.PersonClient;
 out.response = PersonClient.add(in.firstName,in.lastName);' #txt
 Ps0 f12 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
 Ps0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -180,7 +180,7 @@ Ps0 f17 actionDecl 'com.axonivy.connectivity.rest.PersonManager.PersonManagerDat
 ' #txt
 Ps0 f17 actionTable 'out=in;
 ' #txt
-Ps0 f17 actionCode 'import com.axonivy.connectivity.rest.PersonClient;
+Ps0 f17 actionCode 'import com.axonivy.connectivity.rest.client.PersonClient;
 out.response = PersonClient.update(in.editPerson);' #txt
 Ps0 f17 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
 Ps0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -207,7 +207,7 @@ Ps0 f19 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 ' #txt
 Ps0 f19 outParameterDecl '<java.util.List<com.axonivy.connectivity.Person> persons> result;
 ' #txt
-Ps0 f19 outParameterMapAction 'result.persons=com.axonivy.connectivity.rest.PersonClient.getPersons();
+Ps0 f19 outParameterMapAction 'result.persons=com.axonivy.connectivity.rest.client.PersonClient.getPersons();
 ' #txt
 Ps0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -232,7 +232,7 @@ Ps0 f22 disableUIEvents false #txt
 Ps0 f22 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Integer id> param = methodEvent.getInputArguments();
 ' #txt
-Ps0 f22 inActionCode 'out.response = com.axonivy.connectivity.rest.PersonClient.delete(param.id);' #txt
+Ps0 f22 inActionCode 'out.response = com.axonivy.connectivity.rest.client.PersonClient.delete(param.id);' #txt
 Ps0 f22 outParameterDecl '<> result;
 ' #txt
 Ps0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

@@ -26,10 +26,10 @@
     <name>twitter</name>
     <uri>https://api.twitter.com/1.1</uri>
     <feature>
-      <class>com.axonivy.connectivity.rest.handler.GsonMessageBodyHandler</class>
+      <class>com.axonivy.connectivity.rest.client.handler.GsonMessageBodyHandler</class>
     </feature>
     <feature>
-      <class>com.axonivy.connectivity.rest.filter.TwitterOAuthFilter</class>
+      <class>com.axonivy.connectivity.rest.client.filter.TwitterOAuthFilter</class>
     </feature>
     <property>
       <name>consumerKey</name>

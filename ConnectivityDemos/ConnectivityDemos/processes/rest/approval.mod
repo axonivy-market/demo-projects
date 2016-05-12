@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed May 11 15:49:24 CEST 2016]
+[>Created: Thu May 12 12:00:09 CEST 2016]
 1549FE9E911A1812 3.18 #module
 >Proto >Proto Collection #zClass
 al0 approval Big #zClass
@@ -100,6 +100,7 @@ al0 f5 requestEnabled true #txt
 al0 f5 triggerEnabled false #txt
 al0 f5 callSignature createApprovalViaREST() #txt
 al0 f5 persist false #txt
+al0 f5 startName '3. Calls a BPM process from REST service' #txt
 al0 f5 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2

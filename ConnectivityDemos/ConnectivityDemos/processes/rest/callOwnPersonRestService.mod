@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon May 09 16:23:37 CEST 2016]
+[>Created: Thu May 12 11:58:22 CEST 2016]
 154616078A1D629D 3.18 #module
 >Proto >Proto Collection #zClass
 ce0 callOwnPersonRestService Big #zClass
@@ -38,7 +38,7 @@ ce0 f0 requestEnabled true #txt
 ce0 f0 triggerEnabled false #txt
 ce0 f0 callSignature listPersons() #txt
 ce0 f0 persist false #txt
-ce0 f0 startName 'List REST result in the runtime log' #txt
+ce0 f0 startName '1. List REST result in the runtime log' #txt
 ce0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -107,7 +107,7 @@ ce0 f5 requestEnabled true #txt
 ce0 f5 triggerEnabled false #txt
 ce0 f5 callSignature personManager() #txt
 ce0 f5 persist false #txt
-ce0 f5 startName 'Accesses own REST service' #txt
+ce0 f5 startName '2. Accesses own REST service' #txt
 ce0 f5 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2

@@ -1,4 +1,4 @@
-package com.axonivy.connectivity.rest.handler;
+package com.axonivy.connectivity.rest.client.handler;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package com.axonivy.connectivity.rest;
+package com.axonivy.connectivity.rest.provider;
 
 import java.util.ArrayList;
 import java.util.Calendar;

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 03 16:13:00 CEST 2016]
+[>Created: Thu May 12 11:58:38 CEST 2016]
 1547634C396BBB3A 3.18 #module
 >Proto >Proto Collection #zClass
 ct0 twitter Big #zClass
@@ -39,7 +39,7 @@ ct0 f0 requestEnabled true #txt
 ct0 f0 triggerEnabled false #txt
 ct0 f0 callSignature userTimeline() #txt
 ct0 f0 persist false #txt
-ct0 f0 startName 'Uses twitter REST api to display tweets' #txt
+ct0 f0 startName '4. Uses twitter REST api to display tweets' #txt
 ct0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -109,7 +109,7 @@ ct0 f20 actionDecl 'com.axonivy.connectivity.rest.TwitterData out;
 ' #txt
 ct0 f20 actionTable 'out=in;
 ' #txt
-ct0 f20 actionCode 'import com.axonivy.connectivity.rest.filter.TwitterOAuthFilter;
+ct0 f20 actionCode 'import com.axonivy.connectivity.rest.client.filter.TwitterOAuthFilter;
 import org.glassfish.jersey.client.oauth1.OAuth1AuthorizationFlow;
 out.authorizationFlow = error.getAttribute(TwitterOAuthFilter.AUTHORIZATION_FLOW) as OAuth1AuthorizationFlow;' #txt
 ct0 f20 type com.axonivy.connectivity.rest.TwitterData #txt
@@ -141,7 +141,7 @@ ct0 f4 responseActionDecl 'com.axonivy.connectivity.rest.TwitterData out;
 ct0 f4 responseMappingAction 'out=in;
 ' #txt
 ct0 f4 responseActionCode 'import org.glassfish.jersey.client.oauth1.AccessToken;
-import com.axonivy.connectivity.rest.filter.TwitterOAuthFilter;
+import com.axonivy.connectivity.rest.client.filter.TwitterOAuthFilter;
 
 AccessToken token = in.authorizationFlow.finish(result.verification);
 TwitterOAuthFilter.storeToken(token);' #txt

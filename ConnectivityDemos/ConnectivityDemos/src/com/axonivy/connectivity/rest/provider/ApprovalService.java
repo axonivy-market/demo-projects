@@ -1,4 +1,4 @@
-package com.axonivy.connectivity.rest;
+package com.axonivy.connectivity.rest.provider;
 
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +43,7 @@ public class ApprovalService {
 			@PathParam("applicationName") String app)
 	{
 		List<ISubProcessStart> starts = SubProcessRunner.findSubProcessStarts(SubProcessSearchFilter.create()
-				.setProcessPath("createApproval")
+				.setProcessPath("rest/createApproval")
 				.setSignature("call(String,String)")
 				.toFilter());
 		
