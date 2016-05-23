@@ -15,10 +15,10 @@
                 <password>true</password>
             </property>
             <feature>
-                <class>com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</class>
+                <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
             </feature>
             <feature>
-                <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
+                <class>ch.ivyteam.ivy.rest.client.mapper.JsonFeature</class>
             </feature>
         </configuration>
     </restClient>
@@ -63,7 +63,7 @@
                 <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
             </feature>
             <feature>
-                <class>com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</class>
+                <class>ch.ivyteam.ivy.rest.client.mapper.JsonFeature</class>
             </feature>
         </configuration>
     </restClient>
