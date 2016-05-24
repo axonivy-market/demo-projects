@@ -4,4 +4,7 @@
     <role>
         <identifier>Manager</identifier>
     </role>
+    <role>
+        <identifier>Employee</identifier>
+    </role>
 </role>

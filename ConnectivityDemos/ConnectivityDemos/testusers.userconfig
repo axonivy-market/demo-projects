@@ -5,4 +5,9 @@
         <password>theBoss</password>
         <role>Manager</role>
     </user>
+    <user>
+        <username>theEmployee</username>
+        <password>theEmployee</password>
+        <role>Employee</role>
+    </user>
 </userConfig>
