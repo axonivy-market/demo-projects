@@ -37,16 +37,16 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     navigate().home();
     driverHelper.findElement(By.linkText("Workflow Admin")).click();
     driverHelper.clickAndWaitForAjax(By.id("workflowStatistic"));
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("category1");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("caseStatisticForm:caseStatisticTable"), "category1"));
     driverHelper.clickAndWaitForAjax(By.id("linkStatisticDetailMin_0"));
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Detailed Statistic");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Processing time of the tasks");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id='mainArea']/h2"), "Detailed Statistic"));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("formChartTasks:chartForTasks"), "Processing time of the tasks"));
     navigate().home();
     driverHelper.findElement(By.linkText("Workflow Admin")).click();
     driverHelper.findElementById("workflowStatistic").click();
     driverHelper.clickAndWaitForAjax(By.id("linkStatisticDetailMax_0"));
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Detailed Statistic");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Processing time of the tasks");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id='mainArea']/h2"), "Detailed Statistic"));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("formChartTasks:chartForTasks"), "Processing time of the tasks"));
   }
   
   @Test
@@ -58,8 +58,8 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     driverHelper.findElement(By.linkText("Workflow Admin")).click();
     driverHelper.findElementById("workflowStatistic").click();
     driverHelper.clickAndWaitForAjax(By.id("linkStatisticAverage_0"));
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Average statistic");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Processing time of the cases");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id='mainArea']/h2"), "Average statistic"));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("formChartCases:chartForCases"), "Processing time of the cases"));
   }
 	
   @Test

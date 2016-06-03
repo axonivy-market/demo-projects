@@ -4,7 +4,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
@@ -147,8 +146,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTaskToRole");
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
-    WebElement selectOneRadio = driverHelper.findElementById("formDelegateTask");
-    prime().selectOneRadio(selectOneRadio).selectItemById("formDelegateTask:delegateToRole");
+    prime().selectOneRadio(By.id("formDelegateTask")).selectItemById("formDelegateTask:delegateOptions:1_clone");
     driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
     
     navigate().taskList();
@@ -245,8 +243,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("changePriorityTask");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("NORMAL");
     driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openChangePriority"));
-    WebElement selectOneRadio = driverHelper.findElementById("formDetailsChangePriority");
-    prime().selectOneRadio(selectOneRadio).selectItemById("formDetailsChangePriority:high");
+    prime().selectOneRadio(By.id("formDetailsChangePriority")).selectItemById("formDetailsChangePriority:priorityOptions:2_clone");
     driverHelper.clickAndWaitForAjax(By.id("formDetailsChangePriority:saveChangePriority"));
     navigate().taskList();
     driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));

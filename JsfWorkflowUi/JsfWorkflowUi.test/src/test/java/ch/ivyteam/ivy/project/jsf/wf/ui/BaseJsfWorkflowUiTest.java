@@ -159,14 +159,14 @@ public class BaseJsfWorkflowUiTest
   {
     await(ExpectedConditions.elementToBeClickable(By.id("formAbsence:addAbsence"))).click();
     Dialog absenceDialog = prime().dialog(By.id("dialogAddAbsence"));
-    absenceDialog.visible(true);
+    absenceDialog.waitForVisibility(true);
     clickAndSendKeys("absenceStartTime_input", startTime);
     clickAndSendKeys("absenceStartDate_input", startDate);
     clickAndSendKeys("absenceEndTime_input", endTime);
     clickAndSendKeys("absenceEndDate_input", endDate);
     clickAndSendKeys("absenceDescription", description);
     driverHelper.findElement(By.id("formAddAbsence:saveNewAbsence")).click();
-    absenceDialog.isClosedOrHasError();
+    absenceDialog.waitToBeClosedOrError();
   }
 
   private void clickAndSendKeys(String inputId, String inputValue)

@@ -10,32 +10,33 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
 
-
 public class TestSettings extends BaseJsfWorkflowUiTest
 {
-  
+
   @Test
   public void testAddAbsence() throws Exception
   {
     addAbsenceForMe("31.31.2030", "32:32", "31.31.2031", "40:40", "Add absence test");
     driverHelper.waitUntilEnabled(By.id("formAddAbsence:saveNewAbsence"));
-    driverHelper.assertAjaxElementContains(By.id("formAddAbsence:absenceMessage"), "could not be understood as a date");
+    driverHelper.assertAjaxElementContains(By.id("formAddAbsence:absenceMessage"),
+            "could not be understood as a date");
     checkIfAbsenceContains("No absences");
     addAbsenceForMe("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence test");
     checkIfAbsenceContains("Add absence test");
     deleteAbsence();
     checkIfAbsenceContains("No absences");
   }
-  
+
   @Test
   public void testAddAbsenceForOther() throws Exception
   {
-    addAbsenceForUser("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence for other test", "Test User 2 (user2)");
-    login("user2","user2");
+    addAbsenceForUser("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence for other test",
+            "Test User 2 (user2)");
+    login("user2", "user2");
     checkIfAbsenceContains("Add absence for other test");
     deleteAbsence();
   }
-  
+
   @Test
   public void testEditAbsence() throws Exception
   {
@@ -43,38 +44,43 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     checkIfAbsenceContains("Add absence test");
     editAbsence("31.31.2030", "32:32", "31.31.2031", "40:40", "Edit absence test", "me");
     driverHelper.waitUntilEnabled(By.id("formEditAbsence:saveEditAbsence"));
-    driverHelper.assertAjaxElementContains(By.id("formEditAbsence:absenceMessage"), "could not be understood as a date");
+    driverHelper.assertAjaxElementContains(By.id("formEditAbsence:absenceMessage"),
+            "could not be understood as a date");
     checkIfAbsenceContains("Add absence test");
     editAbsence("15.04.2030", "11:11", "16.04.2031", "09:09", "Edit absence test", "me");
     checkIfAbsenceContains("Edit absence test");
     deleteAbsence();
     checkIfAbsenceContains("No absences");
   }
-  
+
   @Test
   public void testEditAbsenceForOther() throws Exception
   {
-    addAbsenceForUser("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence for other test", "Test User 2 (user2)");
+    addAbsenceForUser("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence for other test",
+            "Test User 2 (user2)");
     editAbsence("15.04.2030", "11:11", "16.04.2031", "09:09", "Edit absence for other test", "other");
-    login("user2","user2");
+    login("user2", "user2");
     checkIfAbsenceContains("Edit absence for other test");
     deleteAbsence();
   }
-  
+
   @Test
   public void testShowAbsentUsers() throws Exception
   {
-    addAbsenceForUser("30.07.2012", "09:10", "30.08.2031", "10:10", "Add absence for other test", "Test User 2 (user2)");
+    addAbsenceForUser("30.07.2012", "09:10", "30.08.2031", "10:10", "Add absence for other test",
+            "Test User 2 (user2)");
     driverHelper.clickAndWaitForAjax(By.id("showAbsentUsers"));
-    assertThat(driverHelper.getWebDriver().findElement(By.id("formAbsentUsers")).getText()).contains("Test User 2 (user2)");
+    assertThat(driverHelper.getWebDriver().findElement(By.id("formAbsentUsers")).getText()).contains(
+            "Test User 2 (user2)");
     deleteAbsence();
     checkIfAbsenceContains("No absences");
   }
-  
-  private void editAbsence(String startDate, String startTime, String endDate, String endTime, String description, String absenceFor)
+
+  private void editAbsence(String startDate, String startTime, String endDate, String endTime,
+          String description, String absenceFor)
   {
     navigate().absence();
-    if(absenceFor == "other")
+    if (absenceFor == "other")
     {
       prime().selectOne(By.id("formAbsence:userSelection")).selectItemByLabel("Test User 2 (user2)");
     }
@@ -96,7 +102,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     driverHelper.findElementById("formEditAbsence:absenceDescription").sendKeys(description);
     driverHelper.clickAndWaitForAjax(By.id("formEditAbsence:saveEditAbsence"));
   }
-  
+
   private void checkIfAbsenceContains(String description)
   {
     navigate().absence();
@@ -107,20 +113,20 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     driverHelper.clickAndWaitForAjax(By.id("formAbsence:tableAbsence:0:removeButton"));
   }
-  
+
   @Test
   public void testSubstitution() throws Exception
   {
     addSubstituteForTasks("me");
     checkIsSubstituteForTasksAdded();
-    login("user2","user2");
+    login("user2", "user2");
     checkIsMySubstitutionAdded();
     addSubstitutesForRoles("me");
     checkIsSubstituteForRolesAdded();
     login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
     deleteSubstitute();
   }
-  
+
   @Test
   public void testSubstitutionOther() throws Exception
   {
@@ -133,26 +139,26 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     navigate().substitution();
     selectOneMenu.selectItemByLabel("Test User 1 (user1)");
     driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
-  } 
+  }
 
   private void addSubstituteForTasks(String substituteFor)
   {
     navigate().substitution();
-    if(substituteFor == "other")
+    if (substituteFor == "other")
     {
       SelectOneMenu selectOneMenu = prime().selectOne(By.id("formSubstitute:userSelection"));
       selectOneMenu.selectItemByLabel("Test User 1 (user1)");
     }
     Dialog dialogSubstitute = prime().dialog(By.id("dialogAddSubstitute"));
-    dialogSubstitute.visible(false);
+    dialogSubstitute.waitForVisibility(false);
     await(ExpectedConditions.presenceOfElementLocated(By.id("formSubstitute:addSubstitute"))).click();
-    dialogSubstitute.visible(true);
+    dialogSubstitute.waitForVisibility(true);
     SelectOneMenu selectOneMenu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
     selectOneMenu.selectItemByLabel("Test User 2 (user2)");
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
     driverHelper.findElement(By.id("formAddSubstitute:saveSubstitution")).click();
-    dialogSubstitute.isClosedOrHasError();
+    dialogSubstitute.waitToBeClosedOrError();
   }
 
   private void checkIsSubstituteForTasksAdded()
@@ -168,22 +174,21 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void addSubstitutesForRoles(String substituteFor)
   {
-    if(substituteFor.equals("other"))
+    if (substituteFor.equals("other"))
     {
       SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
       menu.selectItemByLabel("Test User 2 (user2)");
     }
     driverHelper.clickAndWaitForAjax(By.id("formSubstitute:addSubstitute"));
-    WebElement selectOneRadio = driverHelper.findElementById("formAddSubstitute");
-    prime().selectOneRadio(selectOneRadio).selectItemById("formAddSubstitute:optRole");
-    
+    prime().selectOneRadio(By.id("formAddSubstitute")).selectItemById("formAddSubstitute:options:1_clone");
+
     prime().selectCheckboxMenu(By.id("formAddSubstitute:roleSelection")).selectAllItems();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
     driverHelper.clickAndWaitForAjax(By.id("formAddSubstitute:saveSubstitution"));
   }
-  
+
   private void checkIsSubstituteForRolesAdded()
   {
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Role 1");
@@ -197,14 +202,14 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     navigate().substitution();
     driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
   }
-  
+
   @Test
   public void testMailNotification() throws Exception
   {
     navigate().mailNotificationSettings();
     // set User specific
-    WebElement selectOneRadio = driverHelper.findElementById("formMailNotification");
-    prime().selectOneRadio(selectOneRadio).selectItemById("formMailNotification:appDefault");
+    By oneRadioBy = By.id("formMailNotification:appDefault");
+    prime().selectOneRadio(oneRadioBy).selectItemById("formMailNotification:appDefault:1");
     setMailNotification();
     navigate().mailNotificationSettings();
     checkSetMailNotification();
@@ -215,16 +220,20 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void setMailNotification()
   {
-    WebElement selectBooleanCheckbox = driverHelper.findElementById("formMailNotification");
-    prime().selectBooleanCheckbox(selectBooleanCheckbox).selectItemById("formMailNotification:onTask");
-    prime().selectBooleanCheckbox(selectBooleanCheckbox).selectItemById("formMailNotification:checkMonday");
-    prime().selectBooleanCheckbox(selectBooleanCheckbox).selectItemById("formMailNotification:checkTuesday");
-    prime().selectBooleanCheckbox(selectBooleanCheckbox).selectItemById("formMailNotification:checkWednesday");
-    prime().selectBooleanCheckbox(selectBooleanCheckbox).selectItemById("formMailNotification:checkThursday");
-    prime().selectBooleanCheckbox(selectBooleanCheckbox).selectItemById("formMailNotification:checkFriday");
-    prime().selectBooleanCheckbox(selectBooleanCheckbox).selectItemById("formMailNotification:checkSaturday");
-    prime().selectBooleanCheckbox(selectBooleanCheckbox).selectItemById("formMailNotification:checkSunday");
+    checkBooleanBox("formMailNotification:onTask_input");
+    checkBooleanBox("formMailNotification:checkMonday_input");
+    checkBooleanBox("formMailNotification:checkTuesday_input");
+    checkBooleanBox("formMailNotification:checkWednesday_input");
+    checkBooleanBox("formMailNotification:checkThursday_input");
+    checkBooleanBox("formMailNotification:checkFriday_input");
+    checkBooleanBox("formMailNotification:checkSaturday_input");
+    checkBooleanBox("formMailNotification:checkSunday_input");
     driverHelper.clickAndWaitForAjax(By.id("formMailNotification:saveMailNotification"));
+  }
+
+  private void checkBooleanBox(String id)
+  {
+    prime().selectBooleanCheckbox(By.id(id)).setChecked();
   }
 
   private void checkSetMailNotification()
@@ -232,40 +241,43 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.findElementById("formMailNotification:onTask_input").isSelected()).isTrue();
     assertThat(driverHelper.findElementById("formMailNotification:checkMonday_input").isSelected()).isTrue();
     assertThat(driverHelper.findElementById("formMailNotification:checkTuesday_input").isSelected()).isTrue();
-    assertThat(driverHelper.findElementById("formMailNotification:checkWednesday_input").isSelected()).isTrue();
-    assertThat(driverHelper.findElementById("formMailNotification:checkThursday_input").isSelected()).isTrue();
+    assertThat(driverHelper.findElementById("formMailNotification:checkWednesday_input").isSelected())
+            .isTrue();
+    assertThat(driverHelper.findElementById("formMailNotification:checkThursday_input").isSelected())
+            .isTrue();
     assertThat(driverHelper.findElementById("formMailNotification:checkFriday_input").isSelected()).isTrue();
-    assertThat(driverHelper.findElementById("formMailNotification:checkSaturday_input").isSelected()).isTrue();
+    assertThat(driverHelper.findElementById("formMailNotification:checkSaturday_input").isSelected())
+            .isTrue();
     assertThat(driverHelper.findElementById("formMailNotification:checkSunday_input").isSelected()).isTrue();
   }
-  
+
   @Test
   public void testDefaultHome() throws Exception
   {
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultHome.ivp");
     driverHelper.waitForAjax();
-    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Home");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Home"));
   }
-  
+
   @Test
   public void testDefaultProcessList() throws Exception
   {
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultProcesslist.ivp");
     driverHelper.waitForAjax();
-    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Process List");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Process List"));
   }
-  
+
   @Test
   public void testDefaultTaskList() throws Exception
   {
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultTaskList.ivp");
     driverHelper.waitForAjax();
-    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Task List");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Task List"));
   }
-  
+
   @Test
   public void testDefaultLogin() throws Exception
   {
@@ -274,10 +286,11 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     driverHelper.assertAjaxElementContains(By.id("mainArea"), "Process List");
     callDefaultLogin();
   }
-  
+
   private void setDefaultPageProcess()
   {
-    driverHelper.openProcessLink("testWfUi/13FCD703133237C4/SetDefaultProcess.ivp?processName=jsfWorkflowUi");
+    driverHelper
+            .openProcessLink("testWfUi/13FCD703133237C4/SetDefaultProcess.ivp?processName=ch.ivyteam.ivy.project.wf:JsfWorkflowUi");
     driverHelper.waitForAjax();
     driverHelper.assertAjaxElementContains(By.id("mainArea"), "Home");
   }
@@ -287,11 +300,16 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     navigate().taskList();
     // get task id
     String taskIdPart = "taskId=";
-    String taskId = driverHelper.findElementById("taskLinkRow_0").getAttribute("href").substring(driverHelper.findElementById("taskLinkRow_0").getAttribute("href").indexOf(taskIdPart) + taskIdPart.length());
+    String taskId = driverHelper
+            .findElementById("taskLinkRow_0")
+            .getAttribute("href")
+            .substring(
+                    driverHelper.findElementById("taskLinkRow_0").getAttribute("href").indexOf(taskIdPart)
+                            + taskIdPart.length());
     navigate().logout();
     driverHelper.openProcessLink("testWfUi/13F3D94E5C99F06F/13F3D94E5C99F06F-f1/TaskA.ivp?taskId=" + taskId);
     driverHelper.assertAjaxElementContains(By.id("mainArea"), "Workflow login");
-    //Login
+    // Login
     WebElement usernameElement = driverHelper.findElementById("loginPageComponent:loginForm:username");
     usernameElement.clear();
     usernameElement.sendKeys(WEB_TEST_SERVER_ADMIN_USER);

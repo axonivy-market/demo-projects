@@ -4,7 +4,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
@@ -36,7 +35,7 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     navigate().processList();
     //Start home process
     driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
-    assertThat(driverHelper.findElementById("mainLayoutUnit").getText()).contains("Request event");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainLayoutUnit"), "Request event"));
     
     // Test processlist searchbar with process name
     navigate().processList();
@@ -108,11 +107,11 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(taskName);
     driverHelper.findElementById("buttonTaskDetail").click();
     driverHelper.findElement(By.id("formTaskDetails:openDelegateTask")).click();
-    prime().dialog(By.id("modalDialogDelegateTask")).visible(true);
+    prime().dialog(By.id("modalDialogDelegateTask")).waitForVisibility(true);
     SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfUser"));
     menu.selectItemByLabel(user);
     driverHelper.findElement(By.id("formDelegateTask:saveDelegateTask")).click();
-    prime().dialog(By.id("modalDialogDelegateTask")).isClosedOrHasError();
+    prime().dialog(By.id("modalDialogDelegateTask")).waitToBeClosedOrError();
   }
   
   private void delegateTaskToRole(String taskName, String role)
@@ -121,13 +120,12 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(taskName);
     driverHelper.findElementById("buttonTaskDetail").click();
     driverHelper.findElement(By.id("formTaskDetails:openDelegateTask")).click();
-    prime().dialog(By.id("modalDialogDelegateTask")).visible(true);
-    WebElement selectOneRadio = driverHelper.findElementById("formDelegateTask");
-    prime().selectOneRadio(selectOneRadio).selectItemById("formDelegateTask:delegateToRole");
+    prime().dialog(By.id("modalDialogDelegateTask")).waitForVisibility(true);
+    prime().selectOneRadio(By.id("formDelegateTask")).selectItemById("formDelegateTask:delegateOptions:1_clone");
     SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfRole"));
     menu.selectItemByLabel(role);
     driverHelper.findElement(By.id("formDelegateTask:saveDelegateTask")).click();
-    prime().dialog(By.id("modalDialogDelegateTask")).isClosedOrHasError();
+    prime().dialog(By.id("modalDialogDelegateTask")).waitToBeClosedOrError();
   }
 
   private void addSubstitutionForUserPersonalTasks(String user)
@@ -136,14 +134,14 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
     menu.selectItemByLabel(user);
     await(ExpectedConditions.elementToBeClickable(By.id("formSubstitute:addSubstitute"))).click();
-    prime().dialog(By.id("dialogAddSubstitute")).visible(true);
+    prime().dialog(By.id("dialogAddSubstitute")).waitForVisibility(true);
     menu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
     menu.selectItemByLabel(TEST_USER_1);
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
     driverHelper.findElement(By.id("formAddSubstitute:saveSubstitution")).click();
-    prime().dialog(By.id("dialogAddSubstitute")).isClosedOrHasError();
+    prime().dialog(By.id("dialogAddSubstitute")).waitToBeClosedOrError();
   }
 
   private void addSubstitutionForAllRolesOfUser(String user)
@@ -153,17 +151,16 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     menu.selectItemByLabel(user);
     ajax().await(ExpectedConditions.presenceOfElementLocated(By.id("formSubstitute:addSubstitute")));
     driverHelper.findElement(By.id("formSubstitute:addSubstitute")).click();
-    prime().dialog(By.id("dialogAddSubstitute")).visible(true);
+    prime().dialog(By.id("dialogAddSubstitute")).waitForVisibility(true);
     menu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
     menu.selectItemByLabel(TEST_USER_1);
-    WebElement selectOneRadio = driverHelper.findElementById("formAddSubstitute");
-    prime().selectOneRadio(selectOneRadio).selectItemById("formAddSubstitute:optRole");
+    prime().selectOneRadio(By.id("formAddSubstitute")).selectItemById("formAddSubstitute:options:1_clone");
     
     prime().selectCheckboxMenu(By.id("formAddSubstitute:roleSelection")).selectAllItems();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
     driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
     driverHelper.findElement(By.id("formAddSubstitute:saveSubstitution")).click();
-    prime().dialog(By.id("dialogAddSubstitute")).isClosedOrHasError();
+    prime().dialog(By.id("dialogAddSubstitute")).waitToBeClosedOrError();
   }
 }
