@@ -3,26 +3,30 @@
     <identifier>Everybody</identifier>
     <role>
         <identifier>Employee</identifier>
+        <roleMembers>
+            <role>Manager</role>
+            <role>Teamleader</role>
+        </roleMembers>
+    </role>
+    <role>
+        <identifier>Teamleader</identifier>
+    </role>
+    <role>
+        <identifier>Manager</identifier>
         <role>
-            <identifier>Teamleader</identifier>
+            <identifier>HR Manager</identifier>
         </role>
         <role>
-            <identifier>Manager</identifier>
-            <role>
-                <identifier>HR Manager</identifier>
-            </role>
-            <role>
-                <identifier>Facility Manager</identifier>
-            </role>
-            <role>
-                <identifier>IT Manager</identifier>
-            </role>
-            <role>
-                <identifier>Office Manager</identifier>
-            </role>
-            <role>
-                <identifier>Executive Manager</identifier>
-            </role>
+            <identifier>Facility Manager</identifier>
+        </role>
+        <role>
+            <identifier>IT Manager</identifier>
+        </role>
+        <role>
+            <identifier>Office Manager</identifier>
+        </role>
+        <role>
+            <identifier>Executive Manager</identifier>
         </role>
     </role>
 </role>
