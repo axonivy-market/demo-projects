@@ -1,9 +1,5 @@
 package com.axonivy.connectivity.rest.provider;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.ws.rs.FormParam;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -12,12 +8,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Link;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.UriBuilder;
 
-import ch.ivyteam.ivy.process.call.ISubProcessStart;
-import ch.ivyteam.ivy.process.call.SubProcessRunner;
-import ch.ivyteam.ivy.process.call.SubProcessSearchFilter;
+import ch.ivyteam.ivy.process.call.SubProcessCall;
 import ch.ivyteam.ivy.workflow.ITask;
 
 /**
@@ -42,17 +36,11 @@ public class ApprovalService {
 			@FormParam("description") String description, 
 			@PathParam("applicationName") String app)
 	{
-		List<ISubProcessStart> starts = SubProcessRunner.findSubProcessStarts(SubProcessSearchFilter.create()
-				.setProcessPath("rest/createApproval")
-				.setSignature("call(String,String)")
-				.toFilter());
-		
-		Map<String, String> inputParams = new HashMap<>();
-		inputParams.put("title", title);
-		inputParams.put("description", description);
-		
-		Map<String, Object> resultTuple = SubProcessRunner.execute(starts.get(0), inputParams);
-		ITask task = (ITask) resultTuple.get("approvalTask");
+		ITask task = SubProcessCall.withPath("rest/createApproval")
+				.withParam("title", title)
+				.withParam("description", description)
+				.call()
+				.get("approvalTask", ITask.class);
 		
 		String appRelativeUri = "workflow/task/{id}";
 		Link createdLink = Link.fromPath(appRelativeUri).rel("approvalTask").build(task.getId());
