@@ -8,18 +8,22 @@
 	xmlns:pm="http://primefaces.org/mobile"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 <h:body>
-	<p:dialog header="Detail" id="detailDialog" widgetVar="detailDialog">
-		<h:form id="detaiForm">
-			<p:panelGrid columns="2">
+	<f:event type="preRenderView" listener="#{logic.update()}" />
+	<p:dialog header="Detail" id="detailDialog" widgetVar="detailDialog"
+		visible="#{data.showDialog}">
+		<p:messages id="detailMessage" />
+		<h:form id="detailForm">
+			<p:panelGrid columns="2" >
+
 				<p:outputLabel>No</p:outputLabel>
 				<p:inputText value="#{data.selectedScore.id}" disabled="true" />
 				<p:outputLabel>Name</p:outputLabel>
-				<p:inputText value="#{data.selectedScore.name}" />
+				<p:inputText value="#{data.selectedScore.name}" required="true" id="name"/>
 				<p:outputLabel>Points</p:outputLabel>
-				<p:inputText value="#{data.selectedScore.points}"/>
+				<p:inputText value="#{data.selectedScore.points}" required="true" id="points"/>
 				<br></br>
-				<p:commandButton value="Save" actionListener="#{logic.save}" oncomplete="PF('detailDialog').hide()"
-					update=":form:theTable"></p:commandButton>
+				<p:commandButton value="Save" actionListener="#{logic.save}"
+					update=":form:theTable :detailDialog"></p:commandButton>
 			</p:panelGrid>
 		</h:form>
 	</p:dialog>

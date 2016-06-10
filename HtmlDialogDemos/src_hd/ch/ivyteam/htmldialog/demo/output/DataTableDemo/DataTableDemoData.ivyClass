@@ -6,3 +6,5 @@ selectedScore ch.ivyteam.htmldialog.demo.Score #field
 selectedScore PERSISTENT #fieldModifier
 names List<String> #field
 names PERSISTENT #fieldModifier
+showDialog Boolean #field
+showDialog PERSISTENT #fieldModifier

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Apr 01 15:57:50 CEST 2016]
+[>Created: Fri Jun 10 14:08:31 CEST 2016]
 153D1CC01F460F8B 3.18 #module
 >Proto >Proto Collection #zClass
 Ds0 DataTableDemoProcess Big #zClass
@@ -23,11 +23,13 @@ Ds0 @PushWFArc f5 '' #zField
 Ds0 @GridStep f6 '' #zField
 Ds0 @PushWFArc f7 '' #zField
 Ds0 @PushWFArc f2 '' #zField
-Ds0 @RichDialogProcessStart f8 '' #zField
 Ds0 @RichDialogProcessEnd f9 '' #zField
 Ds0 @GridStep f11 '' #zField
-Ds0 @PushWFArc f12 '' #zField
 Ds0 @PushWFArc f10 '' #zField
+Ds0 @PushWFArc f12 '' #zField
+Ds0 @RichDialogProcessStart f8 '' #zField
+Ds0 @PushWFArc f15 '' #zField
+Ds0 @RichDialogMethodStart f13 '' #zField
 >Proto Ds0 Ds0 DataTableDemoProcess #zField
 Ds0 f0 guid 153D1CC021F1C2E7 #txt
 Ds0 f0 type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
@@ -42,6 +44,8 @@ Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
+        <nameStyle>7,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -112,6 +116,44 @@ Ds0 f7 expr out #txt
 Ds0 f7 109 64 168 64 #arcP
 Ds0 f2 expr out #txt
 Ds0 f2 280 64 339 64 #arcP
+Ds0 f9 type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
+Ds0 f9 339 243 26 26 0 12 #rect
+Ds0 f9 @|RichDialogProcessEndIcon #fIcon
+Ds0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData out;
+' #txt
+Ds0 f11 actionTable 'out=in;
+' #txt
+Ds0 f11 actionCode 'import javax.faces.context.FacesContext;
+import javax.faces.application.FacesMessage;
+
+Boolean message = FacesContext.getCurrentInstance().getMessageList().size() >= 1 ? true : false;
+
+// out.showDialog = message ? true : false;
+if(message)
+{
+	out.showDialog = true;
+}
+else
+{
+	out.showDialog = false;
+	ivy.log.debug("Item updated: {0}", in.selectedScore);
+}' #txt
+Ds0 f11 type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
+Ds0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Log</name>
+        <nameStyle>3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f11 168 234 112 44 -10 -8 #rect
+Ds0 f11 @|StepIcon #fIcon
+Ds0 f10 expr out #txt
+Ds0 f10 280 256 339 256 #arcP
+Ds0 f12 expr out #txt
+Ds0 f12 109 256 168 256 #arcP
 Ds0 f8 guid 153D21AB2BFC4D05 #txt
 Ds0 f8 type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
 Ds0 f8 actionDecl 'ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData out;
@@ -127,30 +169,26 @@ Ds0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ds0 f8 83 243 26 26 -13 12 #rect
 Ds0 f8 @|RichDialogProcessStartIcon #fIcon
-Ds0 f9 type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
-Ds0 f9 339 243 26 26 0 12 #rect
-Ds0 f9 @|RichDialogProcessEndIcon #fIcon
-Ds0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData out;
+Ds0 f15 expr out #txt
+Ds0 f15 106 344 224 278 #arcP
+Ds0 f13 guid 15539C6CAD8ECE82 #txt
+Ds0 f13 type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
+Ds0 f13 method update() #txt
+Ds0 f13 disableUIEvents false #txt
+Ds0 f13 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
 ' #txt
-Ds0 f11 actionTable 'out=in;
+Ds0 f13 outParameterDecl '<> result;
 ' #txt
-Ds0 f11 actionCode 'ivy.log.debug("Item updated: {0}", in.selectedScore);' #txt
-Ds0 f11 type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
-Ds0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Log</name>
-        <nameStyle>3
-</nameStyle>
+        <name>update()</name>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f11 168 234 112 44 -10 -8 #rect
-Ds0 f11 @|StepIcon #fIcon
-Ds0 f12 expr out #txt
-Ds0 f12 109 256 168 256 #arcP
-Ds0 f10 expr out #txt
-Ds0 f10 280 256 339 256 #arcP
+Ds0 f13 83 339 26 26 -23 12 #rect
+Ds0 f13 @|RichDialogMethodStartIcon #fIcon
 >Proto Ds0 .type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
 >Proto Ds0 .processKind HTML_DIALOG #txt
 >Proto Ds0 -8 -8 16 16 16 26 #rect
@@ -165,3 +203,5 @@ Ds0 f8 mainOut f12 tail #connect
 Ds0 f12 head f11 mainIn #connect
 Ds0 f11 mainOut f10 tail #connect
 Ds0 f10 head f9 mainIn #connect
+Ds0 f13 mainOut f15 tail #connect
+Ds0 f15 head f11 mainIn #connect
