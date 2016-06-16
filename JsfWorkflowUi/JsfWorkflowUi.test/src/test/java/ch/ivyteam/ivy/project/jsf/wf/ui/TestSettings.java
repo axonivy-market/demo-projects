@@ -313,7 +313,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     driverHelper.findElement(passwordLocator).clear();
     driverHelper.findElement(passwordLocator).sendKeys(WEB_TEST_SERVER_ADMIN_PASSWORD);
     driverHelper.findElementById("loginPageComponent:loginForm:loginButton").click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Home"));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Welcome"));
     closeTask();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Task List"));
   }
