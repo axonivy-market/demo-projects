@@ -4,7 +4,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
@@ -256,7 +255,6 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultHome.ivp");
-    driverHelper.waitForAjax();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Home"));
   }
 
@@ -265,7 +263,6 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultProcesslist.ivp");
-    driverHelper.waitForAjax();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Process List"));
   }
 
@@ -274,7 +271,6 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultTaskList.ivp");
-    driverHelper.waitForAjax();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Task List"));
   }
 
@@ -283,7 +279,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     setDefaultPageProcess();
     createTask("titel", "beschreibung", 0);
-    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Process List");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Process List"));
     callDefaultLogin();
   }
 
@@ -292,7 +288,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     driverHelper
             .openProcessLink("testWfUi/13FCD703133237C4/SetDefaultProcess.ivp?processName=ch.ivyteam.ivy.project.wf:JsfWorkflowUi");
     driverHelper.waitForAjax();
-    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Home");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Home"));
   }
 
   private void callDefaultLogin()
@@ -308,16 +304,17 @@ public class TestSettings extends BaseJsfWorkflowUiTest
                             + taskIdPart.length());
     navigate().logout();
     driverHelper.openProcessLink("testWfUi/13F3D94E5C99F06F/13F3D94E5C99F06F-f1/TaskA.ivp?taskId=" + taskId);
-    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Workflow login");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Workflow login"));
     // Login
-    WebElement usernameElement = driverHelper.findElementById("loginPageComponent:loginForm:username");
-    usernameElement.clear();
-    usernameElement.sendKeys(WEB_TEST_SERVER_ADMIN_USER);
-    WebElement passwordElement = driverHelper.findElementById("loginPageComponent:loginForm:password");
-    passwordElement.clear();
-    passwordElement.sendKeys(WEB_TEST_SERVER_ADMIN_PASSWORD);
+    By usernameLocator = By.id("loginPageComponent:loginForm:username");
+    driverHelper.findElement(usernameLocator).clear();
+    driverHelper.findElement(usernameLocator).sendKeys(WEB_TEST_SERVER_ADMIN_USER);
+    By passwordLocator = By.id("loginPageComponent:loginForm:password");
+    driverHelper.findElement(passwordLocator).clear();
+    driverHelper.findElement(passwordLocator).sendKeys(WEB_TEST_SERVER_ADMIN_PASSWORD);
     driverHelper.findElementById("loginPageComponent:loginForm:loginButton").click();
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Home"));
     closeTask();
-    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Task List");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Task List"));
   }
 }
