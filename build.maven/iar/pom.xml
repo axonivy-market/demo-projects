@@ -15,7 +15,7 @@
 	<properties>
 		<src.job.name>Trunk_All</src.job.name>
 		<antrun.version>1.7</antrun.version>
-		<project.build.plugin.version>6.1.1-SNAPSHOT</project.build.plugin.version>
+		<project.build.plugin.version>6.2.0-SNAPSHOT</project.build.plugin.version>
 	</properties>
 	
 	<dependencies>
@@ -61,10 +61,10 @@
 				<plugin>
 					<groupId>com.axonivy.ivy.ci</groupId>
 					<artifactId>project-build-plugin</artifactId>
-					<version>[6.0.0,)</version>
+					<version>[6.2.0,)</version>
 					<extensions>true</extensions>
 					<configuration>
-						<ivyVersion>6.1.1</ivyVersion>
+						<ivyVersion>[6.1.1,]</ivyVersion>
 						<engineDirectory>${engine.directory}</engineDirectory>
 						<engineListPageUrl>http://zugprobldmas/job/${src.job.name}/lastSuccessfulBuild/artifact/ivy/workspace/Server/target/</engineListPageUrl>
 						<iarFileSets>
