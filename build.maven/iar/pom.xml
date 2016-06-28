@@ -75,6 +75,7 @@
 						<iarExcludes>
 							<iarExclude>pom.xml</iarExclude><!-- remove full pom.xml -->
 						</iarExcludes>
+						<skipDeploy>${maven.test.skip}</skipDeploy>
 					</configuration>
 				</plugin>
 				<plugin>
