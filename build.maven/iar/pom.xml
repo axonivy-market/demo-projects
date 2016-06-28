@@ -45,9 +45,6 @@
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
 				<version>${project.build.plugin.version}</version>
-				<configuration>
-					<ivyVersion>6.1.1</ivyVersion>
-				</configuration>
 				<extensions>true</extensions>
 			</plugin>
 			<plugin>
