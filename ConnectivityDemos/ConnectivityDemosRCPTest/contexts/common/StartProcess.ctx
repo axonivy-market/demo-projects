@@ -1,0 +1,32 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Context-Type: org.eclipse.rcptt.ctx.ecl
+Element-Name: StartProcess
+Element-Type: context
+Element-Version: 2.0
+Id: _iWGD0D31EeadqZIC2MODiA
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 6/29/16 3:10 PM
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
+Content-Type: text/ecl
+Entry-Name: .ecl.context
+
+proc "startBpmProcess" [val projectName] [val ivpPath]
+{
+	get-button Run | click -arrow
+	get-menu "Launch Configurations..." | click
+	with [get-window "Run Configurations"] {
+	    get-tree | select "Process Start"
+	    get-button "New launch configuration" | click
+	    get-group "Process Start" | get-button "Browse..." | click
+	    let [val item [format "%s - %s" $projectName $ivpPath]]
+	    {
+	    	get-window "Select a process start" | get-table 
+	        	| select $item | double-click
+	    }
+	    get-button Run | click
+	}
+}
+
+------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
