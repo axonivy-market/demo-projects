@@ -1,0 +1,6 @@
+Person #class
+workflow.business.data #namespace
+address workflow.business.data.Address #field
+address PERSISTENT #fieldModifier
+name String #field
+name PERSISTENT #fieldModifier

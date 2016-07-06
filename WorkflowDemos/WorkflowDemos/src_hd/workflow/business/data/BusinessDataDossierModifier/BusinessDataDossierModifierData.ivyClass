@@ -1,0 +1,4 @@
+BusinessDataDossierModifierData #class
+workflow.business.data.BusinessDataDossierModifier #namespace
+dossier workflow.business.data.Dossier #field
+dossier PERSISTENT #fieldModifier

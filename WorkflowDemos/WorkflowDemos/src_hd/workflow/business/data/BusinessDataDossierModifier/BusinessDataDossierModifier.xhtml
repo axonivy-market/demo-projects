@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">BusinessDataDossier</ui:define>
+		<ui:define name="content">
+			<h3>
+				Modify Dossier
+			</h3>
+
+			<h:form id="form">
+				<h:panelGrid columns="2">
+					<f:facet name="header">
+						<p:messages></p:messages>
+					</f:facet>
+					<p:outputLabel for="dossierName" value="Dossier Name" />
+					<p:inputText id="dossierName" value="#{data.dossier.name}"></p:inputText>
+
+					<p:outputLabel for="dossierPersonName" value="Person Name" />
+					<p:inputText id="dossierPersonName"
+						value="#{data.dossier.person.name}"></p:inputText>
+
+					<p:outputLabel for="dossierPersonAddressStreet" value="Street" />
+					<p:inputText id="dossierPersonAddressStreet"
+						value="#{data.dossier.person.address.street}"></p:inputText>
+
+					<p:outputLabel for="dossierPersonAddressZip" value="Zip" />
+					<p:inputText id="dossierPersonAddressZip"
+						value="#{data.dossier.person.address.zip}"></p:inputText>
+
+					<p:outputLabel for="dossierPersonAddressCity" value="City" />
+					<p:inputText id="dossierPersonAddressCity"
+						value="#{data.dossier.person.address.city}"></p:inputText>
+
+					<br />
+					<p:commandButton actionListener="#{logic.close}" value="Save"
+						update="form" icon="ui-icon-check" />
+				</h:panelGrid>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

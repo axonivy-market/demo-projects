@@ -1,0 +1,8 @@
+Address #class
+workflow.business.data #namespace
+street String #field
+street PERSISTENT #fieldModifier
+zip Number #field
+zip PERSISTENT #fieldModifier
+city String #field
+city PERSISTENT #fieldModifier
