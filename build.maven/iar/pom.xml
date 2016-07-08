@@ -8,14 +8,14 @@
 	<parent>
 		<groupId>ch.ivyteam.ivy.project</groupId>
 		<artifactId>build.maven</artifactId>
-		<version>6.2.1-SNAPSHOT</version>
+		<version>6.2.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 
 	<properties>
 		<src.job.name>Trunk_All</src.job.name>
 		<antrun.version>1.7</antrun.version>
-		<project.build.plugin.version>6.2.0-SNAPSHOT</project.build.plugin.version>
+		<project.build.plugin.version>6.2.1-SNAPSHOT</project.build.plugin.version>
 	</properties>
 
 	<dependencies>
