@@ -1,0 +1,4 @@
+ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=ch.ivyteam.htmldialog.demo.test.Data
+ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=ch.ivyteam.htmldialog.demo.test
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=61909
+eclipse.preferences.version=1
