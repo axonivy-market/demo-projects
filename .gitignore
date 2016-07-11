@@ -13,13 +13,10 @@ ErrorHandlingDemos/classes
 ErrorHandlingDemos/logs
 ErrorHandlingDemos/src_dataClasses/*
 ErrorHandlingDemos/target
-HtmlDialogDemos/classes/*
-HtmlDialogDemos/classes/META-INF
-HtmlDialogDemos/classes/ch
-HtmlDialogDemos/classes/htmlDialogDemos
+HtmlDialogDemos/HtmlDialogDemos/classes
+HtmlDialogDemos/HtmlDialogDemos/src_dataClasses/ch
+HtmlDialogDemos/HtmlDialogDemos/src_dataClasses/htmlDialogDemos
 HtmlDialogDemos/logs
-HtmlDialogDemos/src_dataClasses/ch
-HtmlDialogDemos/src_dataClasses/htmlDialogDemos
 HtmlDialogDemos/target
 HtmlWfUi/classes/*
 HtmlWfUi/logs
