@@ -8,24 +8,34 @@
 	xmlns:pm="http://primefaces.org/mobile"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 <h:body>
-	<f:event type="preRenderView" listener="#{logic.update()}" />
-	<p:dialog header="Detail" id="detailDialog" widgetVar="detailDialog"
-		visible="#{data.showDialog}">
-		<p:messages id="detailMessage" />
+	<p:dialog header="Detail" id="detailDialog" widgetVar="detailDialog" modal="true" appendTo="@(body)">
 		<h:form id="detailForm">
+			<p:messages id="detailMessage" />
 			<p:panelGrid columns="2" >
-
 				<p:outputLabel>No</p:outputLabel>
 				<p:inputText value="#{data.selectedScore.id}" disabled="true" />
-				<p:outputLabel>Name</p:outputLabel>
-				<p:inputText value="#{data.selectedScore.name}" required="true" id="name"/>
-				<p:outputLabel>Points</p:outputLabel>
-				<p:inputText value="#{data.selectedScore.points}" required="true" id="points"/>
+				<p:outputLabel for="name">Name</p:outputLabel>
+				<p:inputText value="#{data.selectedScore.name}" required="true" id="name" requiredMessage="Name is required"/>
+				<p:outputLabel for="points" >Points</p:outputLabel>
+				<p:inputText value="#{data.selectedScore.points}" required="true" id="points" requiredMessage="Point value is required"/>
 				<br></br>
+				<h:panelGroup>
 				<p:commandButton value="Save" actionListener="#{logic.save}"
-					update=":form:theTable :detailDialog"></p:commandButton>
+					update=":form:theTable detailForm" oncomplete="validateToHide(args, PF('detailDialog'));"></p:commandButton>
+				<p:commandButton value="Cancel" process="@this" oncomplete="PF('detailDialog').hide();">
+					<p:resetInput target="detailForm"></p:resetInput>
+				</p:commandButton>	
+				</h:panelGroup>				
 			</p:panelGrid>
 		</h:form>
+	<script>
+	function validateToHide(args, dialog) {
+		// args is a default primefaces parameter
+		if (!args.validationFailed) {
+			dialog.hide();
+		}
+	}
+	</script>
 	</p:dialog>
 </h:body>
 </html>

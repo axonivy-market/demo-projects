@@ -44,21 +44,22 @@
 								<p:panelGrid columns="2" style="width:400px">
 									<p:outputLabel>No</p:outputLabel>
 									<p:inputText value="#{score.id}" disabled="true" />
-									<p:outputLabel>Name</p:outputLabel>
-									<p:inputText value="#{score.name}" />																		
-									<p:outputLabel>Points</p:outputLabel>
-									<p:inputText value="#{score.points}" />																	
+									<p:outputLabel for="name">Name</p:outputLabel>
+									<p:inputText id="name" value="#{score.name}" required="true"/>																		
+									<p:outputLabel for="points">Points</p:outputLabel>
+									<p:inputText id="points" value="#{score.points}" required="true"/>																	
 									<br></br>
 									<p:commandButton value="Save" update=":form:theTable" actionListener="#{logic.save}"></p:commandButton>																
 								</p:panelGrid>
 							</p:rowExpansion>
 
-							<p:column headerText="No" sortable="true" sortBy="#{score.id}"
-								style="width:100px">
+							<p:column headerText="No" sortBy="#{score.id}"
+								style="width:60px">
 								<p:outputLabel value="#{score.id}"></p:outputLabel>
 							</p:column>
 
-							<p:column headerText="Name" filterMatchMode="exact" filterBy="#{score.name}" styleClass="filterColumn">
+							<p:column headerText="Name" filterMatchMode="exact" filterBy="#{score.name}" 
+							styleClass="filterColumn" style="width:200px">
 								<f:facet name="filter">
 									<p:selectOneMenu onchange="PF('theTable').filter()">
 										<f:selectItem itemLabel="All " itemValue="#{null}"
@@ -69,15 +70,24 @@
 								<p:outputLabel value="#{score.name}"></p:outputLabel>
 							</p:column>
 
-							<p:column sortBy="@{score.points}" headerText="Points" sortable="true" filterMatchMode="startsWith"
-								filterBy="#{score.points}" styleClass="filterColumn">
+							<p:column  headerText="Points" filterMatchMode="startsWith"
+								filterBy="#{score.points}" style="width:180px" styleClass="filterColumn">
 								<p:outputLabel value="#{score.points}"></p:outputLabel>
+							</p:column>
+
+							<p:column headerText="Date" filterBy="#{score.date}" style="width:200px">
+								<f:facet name="filter">
+									<p:calendar onchange="PF('theTable').filter()" pattern="dd.MM.yyyy">
+										<p:ajax event="dateSelect" oncomplete="PF('theTable').filter()" update="theTable"/>
+									</p:calendar>
+								</f:facet>
+								<p:outputLabel value="#{score.date}"><f:convertDateTime pattern="dd.MM.yyyy" /></p:outputLabel>
 							</p:column>
 
 							<p:column style="width:32px;text-align: center">
 								<p:commandButton update=":detailDialog"
 									oncomplete="PF('detailDialog').show()" icon="fa fa-search"
-									title="Edit" style="height:20px;">
+									title="Edit" style="height:20px;" >
 									<f:setPropertyActionListener value="#{score}"
 										target="#{data.selectedScore}" />
 								</p:commandButton>
@@ -97,8 +107,7 @@
 			<style type="text/css">
 				.filterColumn span{
 					float:left;
-					padding-top:3%;
-					width:30%;
+					padding-top:5%;
 				}
 			</style>
 			

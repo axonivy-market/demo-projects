@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Jun 10 14:08:31 CEST 2016]
+[>Created: Wed Jul 13 16:25:07 CEST 2016]
 153D1CC01F460F8B 3.18 #module
 >Proto >Proto Collection #zClass
 Ds0 DataTableDemoProcess Big #zClass
@@ -28,8 +28,6 @@ Ds0 @GridStep f11 '' #zField
 Ds0 @PushWFArc f10 '' #zField
 Ds0 @PushWFArc f12 '' #zField
 Ds0 @RichDialogProcessStart f8 '' #zField
-Ds0 @PushWFArc f15 '' #zField
-Ds0 @RichDialogMethodStart f13 '' #zField
 >Proto Ds0 Ds0 DataTableDemoProcess #zField
 Ds0 f0 guid 153D1CC021F1C2E7 #txt
 Ds0 f0 type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
@@ -82,18 +80,19 @@ Ds0 f6 actionTable 'out=in;
 Ds0 f6 actionCode 'import ch.ivyteam.htmldialog.demo.Score;
 
 // init list with some items
-out.scores.add((new Score()).setId(100).setName("Beni").setPoints(2563));
-out.scores.add((new Score()).setId(110).setName("Achmed").setPoints(346));
-out.scores.add((new Score()).setId(221).setName("Cyril").setPoints(4654));
-out.scores.add((new Score()).setId(238).setName("Birgit").setPoints(6666));
-out.scores.add((new Score()).setId(340).setName("Maurice").setPoints(324));
-out.scores.add((new Score()).setId(450).setName("Daisy").setPoints(2679));
-out.scores.add((new Score()).setId(455).setName("Yvonne").setPoints(1324));
-out.scores.add((new Score()).setId(550).setName("Nadia").setPoints(2639));
-out.scores.add((new Score()).setId(634).setName("Mike").setPoints(9324));
-out.scores.add((new Score()).setId(650).setName("Peter").setPoints(2479));
-out.scores.add((new Score()).setId(700).setName("Charly").setPoints(3424));
-out.scores.add((new Score()).setId(850).setName("Tim").setPoints(2889));
+// init the score date with an ivy-Date which has no time. Important for the date filter in the DataTable
+out.scores.add((new Score()).setId(100).setName("Beni").setPoints(2563).setDate(new Date()));
+out.scores.add((new Score()).setId(110).setName("Achmed").setPoints(346).setDate(new Date()));
+out.scores.add((new Score()).setId(221).setName("Cyril").setPoints(4654).setDate(new Date()));
+out.scores.add((new Score()).setId(238).setName("Birgit").setPoints(6666).setDate(new Date()));
+out.scores.add((new Score()).setId(340).setName("Maurice").setPoints(324).setDate(new Date()));
+out.scores.add((new Score()).setId(450).setName("Daisy").setPoints(2679).setDate(new Date()));
+out.scores.add((new Score()).setId(455).setName("Yvonne").setPoints(1324).setDate(new Date()));
+out.scores.add((new Score()).setId(550).setName("Nadia").setPoints(2639).setDate(new Date()));
+out.scores.add((new Score()).setId(634).setName("Mike").setPoints(9324).setDate(new Date()));
+out.scores.add((new Score()).setId(650).setName("Peter").setPoints(2479).setDate(new Date()));
+out.scores.add((new Score()).setId(700).setName("Charly").setPoints(3424).setDate(new Date()));
+out.scores.add((new Score()).setId(850).setName("Tim").setPoints(2889).setDate(new Date()));
 
 // init list of names
 for(Score scr : out.scores)
@@ -126,16 +125,10 @@ Ds0 f11 actionTable 'out=in;
 Ds0 f11 actionCode 'import javax.faces.context.FacesContext;
 import javax.faces.application.FacesMessage;
 
-Boolean message = FacesContext.getCurrentInstance().getMessageList().size() >= 1 ? true : false;
+Boolean errmessage = FacesContext.getCurrentInstance().getMessageList().size() >= 1 ? true : false;
 
-// out.showDialog = message ? true : false;
-if(message)
+if(!errmessage)
 {
-	out.showDialog = true;
-}
-else
-{
-	out.showDialog = false;
 	ivy.log.debug("Item updated: {0}", in.selectedScore);
 }' #txt
 Ds0 f11 type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
@@ -164,31 +157,13 @@ Ds0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>save</name>
+        <nameStyle>4,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f8 83 243 26 26 -13 12 #rect
+Ds0 f8 83 243 26 26 -13 15 #rect
 Ds0 f8 @|RichDialogProcessStartIcon #fIcon
-Ds0 f15 expr out #txt
-Ds0 f15 106 344 224 278 #arcP
-Ds0 f13 guid 15539C6CAD8ECE82 #txt
-Ds0 f13 type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
-Ds0 f13 method update() #txt
-Ds0 f13 disableUIEvents false #txt
-Ds0 f13 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ds0 f13 outParameterDecl '<> result;
-' #txt
-Ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>update()</name>
-    </language>
-</elementInfo>
-' #txt
-Ds0 f13 83 339 26 26 -23 12 #rect
-Ds0 f13 @|RichDialogMethodStartIcon #fIcon
 >Proto Ds0 .type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
 >Proto Ds0 .processKind HTML_DIALOG #txt
 >Proto Ds0 -8 -8 16 16 16 26 #rect
@@ -203,5 +178,3 @@ Ds0 f8 mainOut f12 tail #connect
 Ds0 f12 head f11 mainIn #connect
 Ds0 f11 mainOut f10 tail #connect
 Ds0 f10 head f9 mainIn #connect
-Ds0 f13 mainOut f15 tail #connect
-Ds0 f15 head f11 mainIn #connect

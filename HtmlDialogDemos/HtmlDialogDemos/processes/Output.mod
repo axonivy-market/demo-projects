@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Apr 01 14:51:05 CEST 2016]
+[>Created: Tue Jul 12 15:22:37 CEST 2016]
 145D180807C60B4B 3.18 #module
 >Proto >Proto Collection #zClass
 Ot0 Output Big #zClass
@@ -856,7 +856,7 @@ Ot0 f17 requestEnabled true #txt
 Ot0 f17 triggerEnabled false #txt
 Ot0 f17 callSignature DataTableDemo() #txt
 Ot0 f17 persist false #txt
-Ot0 f17 startName 'Auto Complete Demo' #txt
+Ot0 f17 startName 'DataTable Demo' #txt
 Ot0 f17 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -877,6 +877,8 @@ Ot0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>DataTableDemo.ivp</name>
+        <nameStyle>17,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
