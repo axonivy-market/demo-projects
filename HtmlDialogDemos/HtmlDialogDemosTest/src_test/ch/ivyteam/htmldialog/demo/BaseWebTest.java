@@ -4,10 +4,13 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import ch.ivyteam.htmldialog.server.test.FixVersionFirefox;
 import ch.ivyteam.htmldialog.server.test.ServerControl;
@@ -58,5 +61,11 @@ public abstract class BaseWebTest
   protected void startProcess(String pathToIvp)
   {
     driver.get(ServerControl.getProcessStartLink("HtmlDialogDemos/" + pathToIvp));
+  }
+
+  protected void clearInput(By inputLocator)
+  {
+    await(ExpectedConditions.visibilityOfElementLocated(inputLocator));
+    driver.findElement(inputLocator).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
   }
 }

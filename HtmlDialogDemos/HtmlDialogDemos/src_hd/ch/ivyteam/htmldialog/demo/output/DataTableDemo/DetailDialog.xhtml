@@ -13,7 +13,7 @@
 			<p:messages id="detailMessage" />
 			<p:panelGrid columns="2" >
 				<p:outputLabel>No</p:outputLabel>
-				<p:inputText value="#{data.selectedScore.id}" disabled="true" />
+				<p:inputText value="#{data.selectedScore.id}" disabled="true"/>
 				<p:outputLabel for="name">Name</p:outputLabel>
 				<p:inputText value="#{data.selectedScore.name}" required="true" id="name" requiredMessage="Name is required"/>
 				<p:outputLabel for="points" >Points</p:outputLabel>
@@ -21,7 +21,7 @@
 				<br></br>
 				<h:panelGroup>
 				<p:commandButton value="Save" actionListener="#{logic.save}"
-					update=":form:theTable detailForm" oncomplete="validateToHide(args, PF('detailDialog'));"></p:commandButton>
+					update=":form:theTable detailForm" oncomplete="validateToHide(args, PF('detailDialog'));" id="dialogSaveButton"/>
 				<p:commandButton value="Cancel" process="@this" oncomplete="PF('detailDialog').hide();">
 					<p:resetInput target="detailForm"></p:resetInput>
 				</p:commandButton>	

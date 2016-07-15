@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectBooleanCheckbox;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
@@ -22,49 +23,43 @@ public class WebTestOutput extends BaseWebTest
     table.firstRowContains("Daisy");
     clearInput(By.id("form:theTable:globalFilter"));
 
-    SelectOneMenu menu = prime().selectOne(By.id("form:theTable:j_id_2b"));
+    SelectOneMenu menu = prime().selectOne(By.id("form:theTable:nameFilter"));
     menu.selectItemByLabel("Achmed");
     table.firstRowContains("Achmed");
     menu.selectItemByLabel("All");
 
-    driver.findElement(By.id("form:theTable:j_id_2f:filter")).sendKeys("6");
+    driver.findElement(By.id("form:theTable:scorePointFilter:filter")).sendKeys("6");
     table.firstRowContains("Birgit");
-    clearInput(By.id("form:theTable:j_id_2f:filter"));
+    clearInput(By.id("form:theTable:scorePointFilter:filter"));
 
     await(ExpectedConditions.visibilityOfElementLocated(By.id("form:theTable:6:j_id_29")));
-    driver.findElement(By.xpath("//tbody[@id='form:theTable_data']/tr/td/div")).click();
-    clearInput(By.id("form:theTable:0:j_id_22"));
-    driver.findElement(By.id("form:theTable:0:j_id_22")).sendKeys("testPerson");
-    clearInput(By.id("form:theTable:0:j_id_25"));
-    driver.findElement(By.id("form:theTable:0:j_id_25")).sendKeys("9999");
-    driver.findElement(By.id("form:theTable:0:j_id_27")).click();
+    driver.findElement(By.xpath("//tbody[@id='form:theTable_data']/tr[1]/td/div")).click();
+    clearInput(By.id("form:theTable:0:name"));
+    driver.findElement(By.id("form:theTable:0:name")).sendKeys("testPerson");
+    clearInput(By.id("form:theTable:0:points"));
+    driver.findElement(By.id("form:theTable:0:points")).sendKeys("9999");
+    driver.findElement(By.id("form:theTable:0:saveButton")).click();
     table.contains("testPerson");
     table.containsNot("Beni");
     table.contains("9999");
     table.containsNot("2563");
 
-    driver.findElement(By.id("form:theTable:6:j_id_2i")).click();
+    driver.findElement(By.id("form:theTable:6:dialogEditButton")).click();
     await(ExpectedConditions.visibilityOfElementLocated(By.id("detailForm:name")));
     clearInput(By.id("detailForm:name"));
     driver.findElement(By.id("detailForm:name")).sendKeys("demoUser");
     clearInput(By.id("detailForm:points"));
     driver.findElement(By.id("detailForm:points")).sendKeys("2300");
-    driver.findElement(By.id("detailForm:j_id_31")).click();
+    driver.findElement(By.id("detailForm:dialogSaveButton")).click();
 
     table.contains("demoUser");
     table.containsNot("Yvonne");
     table.contains("2300");
     table.containsNot("1324");
 
-    driver.findElement(By.id("form:theTable:j_id_28")).click();
-    driver.findElement(By.id("form:theTable:j_id_28")).click();
+    driver.findElement(By.id("form:theTable:scoreId")).click();
+    driver.findElement(By.id("form:theTable:scoreId")).click();
     table.firstRowContains("Tim");
-  }
-
-  private void clearInput(By inputLocator)
-  {
-    await(ExpectedConditions.visibilityOfElementLocated(inputLocator));
-    driver.findElement(inputLocator).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
   }
 
   @Test
@@ -73,17 +68,17 @@ public class WebTestOutput extends BaseWebTest
     startProcess("145D180807C60B4B/EditableTableDemo.ivp");
 
     Table table = prime().table(By.id("form:personTable"));
-    editTable(By.xpath("//*[@id='form:personTable:0:j_id_1x']/span[2]"), 0, "firstName", "lastName");
+    editTable(By.xpath("//*[@id='form:personTable:0:rowEditor']/span[2]"), 0, "firstName", "lastName");
     editableTableContains(table);
 
-    editTable(By.xpath("//*[@id='form:personTable:0:j_id_1x']/span[3]"), 0, "firstName", "lastName");
+    editTable(By.xpath("//*[@id='form:personTable:0:rowEditor']/span[3]"), 0, "firstName", "lastName");
     editableTableContains(table);
 
-    driver.findElement(By.xpath("//*[@id='form:personTable:4:j_id_1y']/span")).click();
+    driver.findElement(By.xpath("//*[@id='form:personTable:4:deleteButton']/span")).click();
     table.containsNot("Dänzer");
 
-    driver.findElement(By.xpath("//*[@id='form:personTable:j_id_20']/span")).click();
-    editTable(By.xpath("//*[@id='form:personTable:5:j_id_1x']/span[2]"), 5, "testfirstName", "testLastName");
+    driver.findElement(By.xpath("//*[@id='form:personTable:addButton']/span")).click();
+    editTable(By.xpath("//*[@id='form:personTable:5:rowEditor']/span[2]"), 5, "testfirstName", "testLastName");
     table.contains("testfirstName");
     table.contains("testLastName");
   }
@@ -98,12 +93,12 @@ public class WebTestOutput extends BaseWebTest
 
   private void editTable(By confirmLocator, int rowPosition, String firstName, String lastName)
   {
-    driver.findElement(By.xpath("//*[@id='form:personTable:" + rowPosition + ":j_id_1x']/span[1]"))
+    driver.findElement(By.xpath("//*[@id='form:personTable:" + rowPosition + ":rowEditor']/span[1]"))
             .click();
-    clearInput(By.id("form:personTable:" + rowPosition + ":j_id_1r"));
-    driver.findElement(By.id("form:personTable:" + rowPosition + ":j_id_1r")).sendKeys(lastName);
-    clearInput(By.id("form:personTable:" + rowPosition + ":j_id_1v"));
-    driver.findElement(By.id("form:personTable:" + rowPosition + ":j_id_1v")).sendKeys(firstName);
+    clearInput(By.id("form:personTable:" + rowPosition + ":inputName"));
+    driver.findElement(By.id("form:personTable:" + rowPosition + ":inputName")).sendKeys(lastName);
+    clearInput(By.id("form:personTable:" + rowPosition + ":inputFirstName"));
+    driver.findElement(By.id("form:personTable:" + rowPosition + ":inputFirstName")).sendKeys(firstName);
     driver.findElement(confirmLocator).click();
   }
 
@@ -119,15 +114,15 @@ public class WebTestOutput extends BaseWebTest
   private void editList(int elementPosition, int buttonPosition, String expectedName, String notExpectedName)
   {
     driver.findElement(
-            By.xpath("//*[@id='j_id_1k:personsList']/div/div[1]/ul/li[" + elementPosition + "]"))
+            By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[" + elementPosition + "]"))
             .click();
     driver.findElement(
-            By.xpath("//*[@id='j_id_1k:personsList']/div/div[2]/button[" + buttonPosition + "]"))
+            By.xpath("//*[@id='personListForm:personsList']/div/div[2]/button[" + buttonPosition + "]"))
             .click();
     await(ExpectedConditions.textToBePresentInElementLocated(
-            By.xpath("//*[@id='j_id_1k:personsList']/div/div[1]/ul/li[1]"), expectedName));
+            By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[1]"), expectedName));
     await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
-            By.xpath("//*[@id='j_id_1k:personsList']/div/div[1]/ul/li[1]"), notExpectedName)));
+            By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[1]"), notExpectedName)));
   }
 
   @Test
@@ -137,30 +132,100 @@ public class WebTestOutput extends BaseWebTest
 
     Actions builder = new Actions(driver);
     Action dragAndDrop = builder
-            .clickAndHold(driver.findElement(By.xpath("//*[@id='j_id_1k:pickList']/div[2]/ul/li[1]")))
-            .moveToElement(driver.findElement(By.xpath("//*[@id='j_id_1k:pickList']/div[4]/ul")))
-            .release(driver.findElement(By.xpath("//*[@id='j_id_1k:pickList']/div[2]/ul/li[1]")))
+            .clickAndHold(driver.findElement(By.xpath("//*[@id='personListForm:pickList']/div[2]/ul/li[1]")))
+            .moveToElement(driver.findElement(By.xpath("//*[@id='personListForm:pickList']/div[4]/ul")))
+            .release(driver.findElement(By.xpath("//*[@id='personListForm:pickList']/div[2]/ul/li[1]")))
             .build();
     dragAndDrop.perform();
 
     await(ExpectedConditions.textToBePresentInElementLocated(
-            By.xpath("//*[@id='j_id_1k:pickList']/div[4]/ul"), "Renato"));
+            By.xpath("//*[@id='personListForm:pickList']/div[4]/ul"), "Renato"));
     await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
-            By.xpath("//*[@id='j_id_1k:pickList']/div[2]/ul"), "Renato")));
+            By.xpath("//*[@id='personListForm:pickList']/div[2]/ul"), "Renato")));
 
     searchAndValidate("Renat", "none");
     searchAndValidate("Bru", "list-item");
 
-    driver.findElement(By.id("j_id_1k:j_id_1t")).click();
+    driver.findElement(By.id("personListForm:j_id_1t")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(
-            By.xpath("//*[@id='j_id_1k:resultPanel']/tbody/tr[2]/td[2]"), "name=Stalder, firstname=Renato"));
+            By.xpath("//*[@id='personListForm:resultPanel']/tbody/tr[2]/td[2]"),
+            "name=Stalder, firstname=Renato"));
   }
 
   private void searchAndValidate(String searchValue, String displayValue)
   {
-    clearInput(By.id("j_id_1k:pickList_source_filter"));
-    driver.findElement(By.id("j_id_1k:pickList_source_filter")).sendKeys(searchValue);
+    clearInput(By.id("personListForm:pickList_source_filter"));
+    driver.findElement(By.id("personListForm:pickList_source_filter")).sendKeys(searchValue);
     await(ExpectedConditions.attributeContains(By.xpath("//li[@data-item-label='Bütler Bruno']"), "style",
             "display: " + displayValue));
+  }
+
+  @Test
+  public void testSelectOneMenu() throws Exception
+  {
+    startProcess("145D180807C60B4B/SelectOneMenuDemo.ivp");
+
+    SelectOneMenu menu = prime().selectOne(By.id("demoForm:basic"));
+    menu.selectItemByLabel("Reguel Wermelinger");
+
+    driver.findElement(By.id("demoForm:advance")).click();
+    driver.findElement(By.id("demoForm:advance_filter")).sendKeys("Mich");
+    await(ExpectedConditions.attributeContains(By.id("demoForm:advance_9"), "style",
+            "display: none;"));
+ 
+    clearInput(By.id("demoForm:advance_filter"));
+    driver.findElement(By.id("demoForm:advance_filter")).sendKeys("Flav");
+    await(ExpectedConditions.attributeContains(By.id("demoForm:advance_9"), "style",
+            "display: list-item;"));
+    driver.findElement(By.id("demoForm:advance_9")).click();
+
+    driver.findElement(By.id("demoForm:sendButton")).click();
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:outputBasicSelects"), "Reguel"));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:outputAdvancedSelects"),
+            "Flavio"));
+  }
+
+  @Test
+  public void testAutoComplete()
+  {
+    startProcess("145D180807C60B4B/AutoCompleteDemo.ivp");
+
+    searchAndExpect("d", "Developer", "SYSTEM");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:event_panel"), "demoUser2"));
+    searchAndExpect("emoU", "demoUser2", "Developer");
+    searchAndExpect("ser1", "demoUser1", "demoUser2");
+
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:event_panel"), "demoUser1"));
+    driver.findElement(By.id("Form:event_input")).sendKeys(Keys.ENTER);
+    driver.findElement(By.id("Form:event_input")).sendKeys(Keys.ENTER);
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:msgs_container"), "demoUser1"));
+  }
+
+  private void searchAndExpect(String searchText, String expectedText, String notExpectedText)
+  {
+    driver.findElement(By.id("Form:event_input")).sendKeys(searchText);
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:event_panel"), expectedText));
+    await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("Form:event_panel"), notExpectedText)));
+  }
+
+  @Test
+  public void testSelectCheckboxes() throws Exception
+  {
+    startProcess("145D180807C60B4B/SelectManyCheckboxDemo.ivp");
+    selectAndValidatePerson(4);
+    selectAndValidatePerson(5);
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:outputSelectedPersons"), "Kis"));
+  }
+
+  private void selectAndValidatePerson(int checkboxposition)
+  {
+    SelectBooleanCheckbox booleanCheckbox = prime().selectBooleanCheckbox(
+            By.id("demoForm:manyCheckboxes:" + checkboxposition));
+    booleanCheckbox.setChecked();
+    driver.findElement(By.id("demoForm:sendButton")).click();
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:outputSelectedPersons"),
+            driver.findElement(By.xpath("//label[@for='demoForm:manyCheckboxes:" + checkboxposition + "']"))
+                    .getText()));
   }
 }

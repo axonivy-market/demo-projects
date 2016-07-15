@@ -40,6 +40,7 @@
 							<p:column style="width:16px">
 								<p:rowToggler />
 							</p:column>
+
 							<p:rowExpansion>
 								<p:panelGrid columns="2" style="width:400px">
 									<p:outputLabel>No</p:outputLabel>
@@ -49,19 +50,19 @@
 									<p:outputLabel for="points">Points</p:outputLabel>
 									<p:inputText id="points" value="#{score.points}" required="true"/>																	
 									<br></br>
-									<p:commandButton value="Save" update=":form:theTable" actionListener="#{logic.save}"></p:commandButton>																
+									<p:commandButton value="Save" update=":form:theTable" actionListener="#{logic.save}" id="saveButton"/>																
 								</p:panelGrid>
 							</p:rowExpansion>
 
 							<p:column headerText="No" sortBy="#{score.id}"
-								style="width:60px">
-								<p:outputLabel value="#{score.id}"></p:outputLabel>
+								style="width:60px" id="scoreId">
+								<p:outputLabel value="#{score.id}"/>
 							</p:column>
 
 							<p:column headerText="Name" filterMatchMode="exact" filterBy="#{score.name}" 
 							styleClass="filterColumn" style="width:200px">
 								<f:facet name="filter">
-									<p:selectOneMenu onchange="PF('theTable').filter()">
+									<p:selectOneMenu onchange="PF('theTable').filter()" id="nameFilter">
 										<f:selectItem itemLabel="All" itemValue="#{null}"
 											noSelectionOption="true" />
 										<f:selectItems value="#{data.names}" />
@@ -71,7 +72,7 @@
 							</p:column>
 
 							<p:column  headerText="Points" filterMatchMode="startsWith"
-								filterBy="#{score.points}" style="width:180px" styleClass="filterColumn">
+								filterBy="#{score.points}" style="width:180px" styleClass="filterColumn" id="scorePointFilter">
 								<p:outputLabel value="#{score.points}"></p:outputLabel>
 							</p:column>
 
@@ -87,7 +88,7 @@
 							<p:column style="width:32px;text-align: center">
 								<p:commandButton update=":detailDialog"
 									oncomplete="PF('detailDialog').show()" icon="fa fa-search"
-									title="Edit" style="height:20px;" >
+									title="Edit" style="height:20px;" id="dialogEditButton">
 									<f:setPropertyActionListener value="#{score}"
 										target="#{data.selectedScore}" />
 								</p:commandButton>

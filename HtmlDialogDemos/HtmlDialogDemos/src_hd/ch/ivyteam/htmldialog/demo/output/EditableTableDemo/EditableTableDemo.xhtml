@@ -18,7 +18,7 @@
 		 			    <b>#{person['Name']}</b>
 				      </f:facet>
 	 			      <f:facet name="input">
-	 			        <h:inputText value="#{person['Name']}"/>
+	 			        <h:inputText value="#{person['Name']}" id="inputName"/>
 	 			      </f:facet>
 	 			    </p:cellEditor>
 	 			  </p:column>
@@ -28,20 +28,20 @@
 		 			    #{person['Firstname']}
 				      </f:facet>
 	 			      <f:facet name="input">
-	 			        <h:inputText value="#{person['Firstname']}"/>
+	 			        <h:inputText value="#{person['Firstname']}" id="inputFirstName"/>
 	 			      </f:facet>
 	 			    </p:cellEditor>
 	 			  </p:column>
 	 			  <p:column headerText="Controls" style="width:5em;">
-	 			    <p:rowEditor/>
+	 			    <p:rowEditor id="rowEditor" />
          			<p:commandLink actionListener="#{logic.delete(person)}"
                     	update=":form:persons"
-                    	title="Delete"> 
+                    	title="Delete" id="deleteButton"> 
                       <span class="ui-icon ui-icon-trash"/>
  	                </p:commandLink> 
 	 			  </p:column>
 			      <f:facet name="footer">
-         			<p:commandLink title="Add" actionListener="#{logic.add}" update=":form:persons" style="float: right">
+         			<p:commandLink title="Add" actionListener="#{logic.add}" update=":form:persons" style="float: right" id="addButton">
          			  <span class="ui-icon ui-icon-plusthick"/>
          			</p:commandLink>
      			  </f:facet>	 			  	 			 

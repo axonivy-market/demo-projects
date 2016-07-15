@@ -8,19 +8,19 @@
 
 	<ui:define name="title">SelectManyCheckbox Demo</ui:define>
 	<ui:define name="content">
-     	<h:form>
+     	<h:form id="demoForm">
 		   	<h:panelGroup layout="block" id="persons">
 		   	<p>This demo explains how Lists can be used on a select many checkbox widget.</p>
-	 			<p:selectManyCheckbox value="#{data.selectedPersons}" >
+	 			<p:selectManyCheckbox value="#{data.selectedPersons}" id="manyCheckboxes">
 	 				<f:converter converterId="ivy.ListItem" />  
 	 				<f:selectItems value="#{data.persons}" var="it" itemValue="#{it}" itemLabel="#{it.name}"></f:selectItems>
         		</p:selectManyCheckbox> 
 	 			<br/>
 	 			<br/>
-	 			<p:commandButton ajax="false" actionListener="#{logic.send}" value="Send"/>
+	 			<p:commandButton ajax="false" actionListener="#{logic.send}" value="Send" id="sendButton"/>
 	 			<br/>
 	 			<br/>
-	 			<h:outputText value="Selected Persons: #{data.selectedPersons}"/>
+	 			<h:outputText value="Selected Persons: #{data.selectedPersons}" id="outputSelectedPersons"/>
 	   		</h:panelGroup>   		
    		</h:form>
 	</ui:define>

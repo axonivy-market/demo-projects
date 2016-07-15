@@ -8,7 +8,7 @@
 
 	<ui:define name="title">SelectOneMenu Demo</ui:define>
 	<ui:define name="content">
-     	<h:form>
+     	<h:form id="demoForm">
 		   	<h:panelGroup layout="block" id="persons">
 		   	<p>This demo explains how a select one menu widget can be used with mixed data source items. 
 		   	<br/> 
@@ -33,12 +33,12 @@
 	        		
         		</h:panelGrid>
 	 			<br/>
-	 			<p:commandButton actionListener="#{logic.send}" value="Send" update="persons"/>
+	 			<p:commandButton actionListener="#{logic.send}" value="Send" update="persons" id="sendButton"/>
 	 			<br/>
 	 			<br/>
-	 			<h:outputText value="Basic Person: #{data.selectedPerson}"/>
+	 			<h:outputText value="Basic Person: #{data.selectedPerson}" id="outputBasicSelects"/>
 	 			<br/>
-	 			<h:outputText value="Advanced Person: #{data.advanceSelectedPerson}"/>
+	 			<h:outputText value="Advanced Person: #{data.advanceSelectedPerson}" id="outputAdvancedSelects"/>
 	   		</h:panelGroup>   		
    		</h:form>
 	</ui:define>
