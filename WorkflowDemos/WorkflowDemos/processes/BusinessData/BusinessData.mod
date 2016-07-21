@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 20 16:54:19 CEST 2016]
+[>Created: Thu Jul 21 12:10:48 CEST 2016]
 155BB4328F79B2D5 3.18 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
@@ -250,7 +250,7 @@ import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
 
 BusinessDataRepository repo = BusinessDataRepository.get();
 in.businessData = repo.find(in.id, Dossier.class);
-in.dossier = in.businessData.object() as Dossier;' #txt
+in.dossier = in.businessData.value() as Dossier;' #txt
 Ba0 f19 type workflow.business.data.Data #txt
 Ba0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

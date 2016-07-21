@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 20 16:53:34 CEST 2016]
+[>Created: Thu Jul 21 12:10:33 CEST 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -79,7 +79,7 @@ in.businessData = repo.findAll(Dossier.class);
 
 in.dossiers = null;
 for (int i = 0; i < in.businessData.size(); i++) {
-  in.dossiers.add(in.businessData.get(i).object() as Dossier);
+  in.dossiers.add(in.businessData.get(i).value() as Dossier);
 }
 ' #txt
 Bs0 f6 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
