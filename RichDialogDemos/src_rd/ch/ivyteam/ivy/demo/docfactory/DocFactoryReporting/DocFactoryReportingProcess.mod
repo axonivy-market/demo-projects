@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Fri Apr 05 20:40:31 EDT 2013]
-1372C781E5242D8D 3.17 #module
+[>Created: Mon Jul 25 14:37:11 CEST 2016]
+1372C781E5242D8D 3.18 #module
 >Proto >Proto Collection #zClass
 Ds0 DocFactoryReportingProcess Big #zClass
 Ds0 RD #cInfo
@@ -93,6 +93,7 @@ Ds0 f4 actionDecl 'ch.ivyteam.ivy.demo.docfactory.DocFactoryReporting.DocFactory
 Ds0 f4 actionTable 'out=in;
 ' #txt
 Ds0 f4 actionCode 'import ch.ivyteam.ivy.demo.docfactory.reporting.*;
+in.companies.clear();
 
 in.aData.date1 = new Date();
 in.aData.number1 = Math.round(Math.random()*5).intValue();
@@ -415,6 +416,7 @@ Ds0 f14 actionTable 'out=in;
 ' #txt
 Ds0 f14 actionCode 'import ch.ivyteam.ivy.demo.docfactory.reporting.tree.*;
 import ch.ivyteam.ivy.demo.docfactory.reporting.HumanCapital;
+in.aTree = new Tree();
 
 in.aData.date1 = new Date();
 in.aData.number1 = Math.round(Math.random()*10).intValue();
@@ -753,11 +755,16 @@ Ds0 f25 actionTable 'out=in;
 ' #txt
 Ds0 f25 actionCode 'import ch.ivyteam.ivy.addons.docfactory.DocumentTemplate;
 import ch.ivyteam.ivy.demo.docfactory.reporting.*;
+
+in.documentTemplates.clear();
+
 in.aData = new AData();
 in.aData.date1 = new Date();
 in.aData.number1 = Math.round(Math.random()*20).intValue();
 in.aData.string1="Report for company";
 in.aData.string2="Test";
+
+in.companies.clear();
 
 Company comp = new Company();
 comp.name = "Soreco AG";
@@ -1005,6 +1012,9 @@ Ds0 f28 actionCode 'import ch.ivyteam.ivy.demo.docfactory.reporting.tree.*;
 import ch.ivyteam.ivy.demo.docfactory.reporting.HumanCapital;
 import ch.ivyteam.ivy.demo.docfactory.reporting.AData;
 import ch.ivyteam.ivy.addons.docfactory.DocumentTemplate;
+
+in.aTree = new Tree();
+
 in.aData = new AData();
 in.aData.date1 = new Date();
 in.aData.number1 = Math.round(Math.random()*3).intValue();
