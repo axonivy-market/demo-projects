@@ -22,13 +22,13 @@
 					<p:outputLabel for="dossierName" value="Dossier Name" />
 					<p:inputText id="dossierName" value="#{data.dossier.name}"></p:inputText>
 
+					<p:outputLabel for="dossierPersonFirstName" value="Person First Name" />
+					<p:inputText id="dossierPersonFirstName"
+						value="#{data.dossier.person.firstName}"></p:inputText>
+						
 					<p:outputLabel for="dossierPersonName" value="Person Name" />
 					<p:inputText id="dossierPersonName"
-						value="#{data.dossier.person.name}"></p:inputText>
-
-					<p:outputLabel for="dossierPersonAddressStreet" value="Street" />
-					<p:inputText id="dossierPersonAddressStreet"
-						value="#{data.dossier.person.address.street}"></p:inputText>
+						value="#{data.dossier.person.lastName}"></p:inputText>
 
 					<p:outputLabel for="dossierPersonAddressZip" value="Zip" />
 					<p:inputText id="dossierPersonAddressZip"
@@ -38,6 +38,10 @@
 					<p:inputText id="dossierPersonAddressCity"
 						value="#{data.dossier.person.address.city}"></p:inputText>
 
+					<p:outputLabel for="dossierPersonAddressCountry" value="Country" />
+					<p:inputText id="dossierPersonAddressCountry"
+						value="#{data.dossier.person.address.country}"></p:inputText>
+						
 					<br />
 					<p:commandButton actionListener="#{logic.close}" value="Save"
 						update="form" icon="ui-icon-check" />

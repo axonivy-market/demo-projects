@@ -2,5 +2,7 @@ Person #class
 workflow.business.data #namespace
 address workflow.business.data.Address #field
 address PERSISTENT #fieldModifier
-name String #field
-name PERSISTENT #fieldModifier
+lastName String #field
+lastName PERSISTENT #fieldModifier
+firstName String #field
+firstName PERSISTENT #fieldModifier

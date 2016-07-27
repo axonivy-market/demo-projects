@@ -12,25 +12,45 @@
 		<ui:define name="content">
 			<h3>Browse Dossiers</h3>
 
-			<p:link value="Create new Dossier"
+			<p:link value="+ Create new Dossier"
 				href="#{ivy.html.startref('155BB4328F79B2D5/create.ivp')}" />
 			<br />
-			<p:dataTable var="dossier" value="#{data.dossiers}"
-				rowIndexVar="rowIndex">
+
+			<p:accordionPanel>
+				<p:tab title="Full text Search">
+					<h:panelGrid columns="2" cellpadding="10">
+						<h:form>
+							<p:inputText value="#{data.searchText}" placeholder="Ask me anything" size="40" />
+							<p:commandButton value="Search" actionListener="#{logic.search}" update=":dossierTable" />
+						</h:form>
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="Search for last name">
+					<h:panelGrid columns="2" cellpadding="10">
+						<h:form>
+							<p:inputText value="#{data.searchLastName}" placeholder="e.g. Turing" size="40" />
+							<p:commandButton value="Search last name" actionListener="#{logic.searchLastName}" update=":dossierTable" />
+						</h:form>
+					</h:panelGrid>
+				</p:tab>
+			</p:accordionPanel>
+
+			<p:dataTable var="dossier" value="#{data.dossiers}" rowIndexVar="rowIndex" id="dossierTable">
 
 				<p:column headerText="Dossier Name">
 					<h:outputText value="#{dossier.name}" />
 				</p:column>
 				<p:column headerText="Person Name">
-					<h:outputText value="#{dossier.person.name}" />
+					<h:outputText value="#{dossier.person.firstName} " />
+					<h:outputText value="#{dossier.person.lastName}" />
 				</p:column>
 				<p:column headerText="Address">
-					<h:outputText value="#{dossier.person.address.street}" />
-					<br />
 					<h:outputText value="#{dossier.person.address.zip} " />
 					<h:outputText value="#{dossier.person.address.city}" />
+					<br />
+					<h:outputText value="#{dossier.person.address.country}" />
 				</p:column>
-				<p:column headerText="Address">
+				<p:column headerText="Operations">
 					<p:link value="update"
 						href="#{ivy.html.startref('155BB4328F79B2D5/update.ivp')}?id=#{data.businessData[rowIndex].getId()} " />
 					<br />
@@ -39,6 +59,12 @@
 				</p:column>
 
 			</p:dataTable>
+
+			<div align="right">
+				<p:link value="Show all dossiers"
+					href="#{ivy.html.startref('155BB4328F79B2D5/browse.ivp')}" />
+				<br />
+			</div>
 
 		</ui:define>
 	</ui:composition>

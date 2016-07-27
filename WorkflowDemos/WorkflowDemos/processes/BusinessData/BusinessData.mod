@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jul 21 12:10:48 CEST 2016]
+[>Created: Wed Jul 27 16:20:41 CEST 2016]
 155BB4328F79B2D5 3.18 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
@@ -19,7 +19,6 @@ Ba0 @StartRequest f7 '' #zField
 Ba0 @StartRequest f10 '' #zField
 Ba0 @RichDialog f11 '' #zField
 Ba0 @EndTask f12 '' #zField
-Ba0 @PushWFArc f13 '' #zField
 Ba0 @PushWFArc f14 '' #zField
 Ba0 @GridStep f15 '' #zField
 Ba0 @PushWFArc f16 '' #zField
@@ -38,6 +37,9 @@ Ba0 @EndTask f8 '' #zField
 Ba0 @RichDialog f18 '' #zField
 Ba0 @PushWFArc f24 '' #zField
 Ba0 @PushWFArc f17 '' #zField
+Ba0 @GridStep f25 '' #zField
+Ba0 @PushWFArc f26 '' #zField
+Ba0 @PushWFArc f13 '' #zField
 >Proto Ba0 Ba0 BusinessData #zField
 Ba0 f0 outLink create.ivp #txt
 Ba0 f0 type workflow.business.data.Data #txt
@@ -183,7 +185,7 @@ Ba0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ba0 f10 @C|.responsibility Everybody #txt
-Ba0 f10 82 143 30 30 -33 17 #rect
+Ba0 f10 82 145 30 30 -33 17 #rect
 Ba0 f10 @|StartRequestIcon #fIcon
 Ba0 f11 targetWindow NEW:card: #txt
 Ba0 f11 targetDisplay TOP #txt
@@ -208,15 +210,13 @@ Ba0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ba0 f11 169 136 112 44 -22 -7 #rect
+Ba0 f11 360 138 112 44 -22 -7 #rect
 Ba0 f11 @|RichDialogIcon #fIcon
 Ba0 f12 type workflow.business.data.Data #txt
-Ba0 f12 338 143 30 30 0 15 #rect
+Ba0 f12 529 145 30 30 0 15 #rect
 Ba0 f12 @|EndIcon #fIcon
-Ba0 f13 expr out #txt
-Ba0 f13 112 158 169 158 #arcP
 Ba0 f14 expr out #txt
-Ba0 f14 281 158 338 158 #arcP
+Ba0 f14 472 160 529 160 #arcP
 Ba0 f15 actionDecl 'workflow.business.data.Data out;
 ' #txt
 Ba0 f15 actionTable 'out=in;
@@ -225,7 +225,7 @@ Ba0 f15 actionCode 'import ch.ivyteam.ivy.business.data.store.BusinessDataReposi
 
 BusinessDataRepository repo = BusinessDataRepository.get();
 
-in.dossier.person.address.street;
+in.dossier.person.address.city;
 in.businessData = repo.create(in.dossier);' #txt
 Ba0 f15 type workflow.business.data.Data #txt
 Ba0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -249,7 +249,7 @@ Ba0 f19 actionCode 'import workflow.business.data.Dossier;
 import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
 
 BusinessDataRepository repo = BusinessDataRepository.get();
-in.businessData = repo.find(in.id, Dossier.class);
+in.businessData = repo.find(Long.valueOf(in.id), Dossier.class);
 in.dossier = in.businessData.value() as Dossier;' #txt
 Ba0 f19 type workflow.business.data.Data #txt
 Ba0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -293,9 +293,9 @@ Ba0 f23 224 310 296 352 #arcP
 Ba0 f23 1 224 352 #addKink
 Ba0 f23 1 0.3125 0 0 #arcLabel
 Ba0 f1 expr out #txt
-Ba0 f1 512 330 225 180 #arcP
+Ba0 f1 512 330 416 182 #arcP
 Ba0 f1 1 512 224 #addKink
-Ba0 f1 2 225 224 #addKink
+Ba0 f1 2 416 224 #addKink
 Ba0 f1 2 0.17074705942848392 0 0 #arcLabel
 Ba0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -319,7 +319,7 @@ Ba0 f3 actionCode 'import workflow.business.data.Dossier;
 import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
 
 BusinessDataRepository repo = BusinessDataRepository.get();
-repo.find(in.id, Dossier.class).delete();' #txt
+repo.find(Long.valueOf(in.id), Dossier.class).delete();' #txt
 Ba0 f3 type workflow.business.data.Data #txt
 Ba0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -376,7 +376,7 @@ Ba0 f4 @|StartRequestIcon #fIcon
 Ba0 f6 expr out #txt
 Ba0 f6 114 511 168 512 #arcP
 Ba0 f8 type workflow.business.data.Data #txt
-Ba0 f8 497 497 30 30 0 15 #rect
+Ba0 f8 529 497 30 30 0 15 #rect
 Ba0 f8 @|EndIcon #fIcon
 Ba0 f18 targetWindow NEW:card: #txt
 Ba0 f18 targetDisplay TOP #txt
@@ -401,12 +401,35 @@ Ba0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ba0 f18 328 490 112 44 -22 -7 #rect
+Ba0 f18 360 490 112 44 -22 -7 #rect
 Ba0 f18 @|RichDialogIcon #fIcon
 Ba0 f24 expr out #txt
-Ba0 f24 280 512 328 512 #arcP
+Ba0 f24 280 512 360 512 #arcP
 Ba0 f17 expr out #txt
-Ba0 f17 440 512 497 512 #arcP
+Ba0 f17 472 512 529 512 #arcP
+Ba0 f25 actionDecl 'workflow.business.data.Data out;
+' #txt
+Ba0 f25 actionTable 'out=in;
+' #txt
+Ba0 f25 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.DemoDataCreator;
+
+DemoDataCreator.createDemoDataIfNotExist();' #txt
+Ba0 f25 type workflow.business.data.Data #txt
+Ba0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>create test data</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ba0 f25 168 138 112 44 -42 -8 #rect
+Ba0 f25 @|StepIcon #fIcon
+Ba0 f26 expr out #txt
+Ba0 f26 112 160 168 160 #arcP
+Ba0 f13 expr out #txt
+Ba0 f13 280 160 360 160 #arcP
 >Proto Ba0 .type workflow.business.data.Data #txt
 >Proto Ba0 .processKind NORMAL #txt
 >Proto Ba0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -416,8 +439,6 @@ Ba0 f17 440 512 497 512 #arcP
 ' #txt
 >Proto Ba0 0 0 32 24 18 0 #rect
 >Proto Ba0 @|BIcon #fIcon
-Ba0 f10 mainOut f13 tail #connect
-Ba0 f13 head f11 mainIn #connect
 Ba0 f11 mainOut f14 tail #connect
 Ba0 f14 head f12 mainIn #connect
 Ba0 f0 mainOut f16 tail #connect
@@ -438,3 +459,7 @@ Ba0 f3 mainOut f24 tail #connect
 Ba0 f24 head f18 mainIn #connect
 Ba0 f18 mainOut f17 tail #connect
 Ba0 f17 head f8 mainIn #connect
+Ba0 f10 mainOut f26 tail #connect
+Ba0 f26 head f25 mainIn #connect
+Ba0 f25 mainOut f13 tail #connect
+Ba0 f13 head f11 mainIn #connect
