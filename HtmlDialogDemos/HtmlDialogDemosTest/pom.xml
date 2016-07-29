@@ -83,6 +83,17 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>deploy.htmlDialogDemosTest.to.memory.engine</id>
+						<goals>
+							<goal>deploy-iar</goal>
+						</goals>
+						<phase>pre-integration-test</phase>
+						<configuration>
+							<deployIarFile>${ch.ivyteam.ivy.project.demo:HtmlDialogDemosTest:iar}</deployIarFile>
+							<deployToEngineApplication>${application}</deployToEngineApplication>
+						</configuration>
+					</execution>
+					<execution>
 						<id>stop.test.engine</id>
 						<goals>
 							<goal>stop-test-engine</goal>
