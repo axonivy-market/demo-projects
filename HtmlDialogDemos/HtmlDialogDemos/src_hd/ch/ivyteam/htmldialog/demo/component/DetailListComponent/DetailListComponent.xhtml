@@ -20,7 +20,7 @@
   
   <cc:implementation>
     <p:dataTable value="#{data.persons}" var="person" style="margin-top:5px;"
-    	selectionMode="single" selection="#{data.selectedPerson}">
+    	selectionMode="single" selection="#{data.selectedPerson}" id="personsTable">
     	
     	<p:ajax event="rowSelect" update="@form" 
     		listener="#{cc.attrs.tableRowSelected}" />  
@@ -35,7 +35,7 @@
     </p:dataTable>
     
     <p:commandButton value="Fire event!" style="margin-top:10px;" 
-    	actionListener="#{cc.attrs.buttonClicked}" update="@form" />
+    	actionListener="#{cc.attrs.buttonClicked}" update="@form" id="fireEventButton" />
   </cc:implementation>
   
 </html> 

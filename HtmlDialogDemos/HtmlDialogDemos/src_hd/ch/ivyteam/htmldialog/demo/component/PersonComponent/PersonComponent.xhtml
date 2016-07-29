@@ -8,33 +8,29 @@
 <cc:interface componentType="IvyComponent">
 </cc:interface>
 <cc:implementation>
-	<p:fieldset legend="Person Component">
-		<h:form>
-			<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-				<p:outputLabel value="First Name" for="firstname" />
-				<p:inputText value="#{data.person.firstname}" id="firstname" />
-				<p:outputLabel value="Last Name" for="lastname" />
-				<p:inputText value="#{data.person.name}" id="lastname" />
+	<p:fieldset legend="Person Component" id="personComponentFieldset">
+		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+			<p:outputLabel value="First Name" for="firstname" />
+			<p:inputText value="#{data.person.firstname}" id="firstname" />
+			<p:outputLabel value="Last Name" for="lastname" />
+			<p:inputText value="#{data.person.name}" id="lastname" />
 
-				<!--
-				Here the Address Component is included for the delivery address.
-				Attributes of the composite component interface like the 'label' parameter are also specified here.
-				-->
-				<ic:ch.ivyteam.htmldialog.demo.component.AddressComponent
-					address="#{data.person.deliveryAddress}" label="Delivery Address">
-				</ic:ch.ivyteam.htmldialog.demo.component.AddressComponent>
+			<!--
+			Here the Address Component is included for the delivery address.
+			Attributes of the composite component interface like the 'label' parameter are also specified here.
+			-->
+			<ic:ch.ivyteam.htmldialog.demo.component.AddressComponent
+				address="#{data.person.deliveryAddress}" label="Delivery Address" id="deliveryAddressComponent"/>
 
-				<!--
-				Here the Address Component is included for the billing address.
-				Attributes of the composite component interface like the 'label' parameter are also specified here. 
-				-->
-				<ic:ch.ivyteam.htmldialog.demo.component.AddressComponent
-					startMethod="start" address="#{data.person.billingAddress}"
-					label="Billing Address">
-				</ic:ch.ivyteam.htmldialog.demo.component.AddressComponent>
-			</h:panelGrid>
-			<p:commandButton value="Submit" ajax="false" />
-		</h:form>
+			<!--
+			Here the Address Component is included for the billing address.
+			Attributes of the composite component interface like the 'label' parameter are also specified here. 
+			-->
+			<ic:ch.ivyteam.htmldialog.demo.component.AddressComponent
+				startMethod="start" address="#{data.person.billingAddress}"
+				label="Billing Address" id="billingAddressComponent" />
+		</h:panelGrid>
+		<p:commandButton value="Submit" ajax="false" />
 	</p:fieldset>
 </cc:implementation>
 

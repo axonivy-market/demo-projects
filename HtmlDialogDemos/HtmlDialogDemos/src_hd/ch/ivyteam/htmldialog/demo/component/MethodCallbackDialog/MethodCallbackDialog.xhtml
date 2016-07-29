@@ -24,12 +24,12 @@
 	            	startMethod="start"
 	            	persons="#{data.persons}"
 	            	tableRowSelected="#{logic.componentTableRowSelected}"
-	            	buttonClicked="#{logic.componentButtonClicked}"
+	            	buttonClicked="#{logic.componentButtonClicked}" id="detailListComponent"
 	            />
             </p:fieldset>
             
             <!-- Display the selection result: -->
-            <p:growl showDetail="true" />
+            <p:growl showDetail="true" id="selectionResult"/>
 	     </h:panelGroup>	
 	     </h:form>
      </ui:define>

@@ -25,7 +25,7 @@
     	 		  	but only updates the panel 'counterPanel_1' 
     	 		  	without to reload the whole page or update other panels
     	 		  	  -->
-    	 		  	<p:commandButton value="Increase counter then update 'Panel A'" update="counterPanel_1" actionListener="#{logic.increaseCounter}"/>
+    	 		  	<p:commandButton value="Increase counter then update 'Panel A'" update="counterPanel_1" actionListener="#{logic.increaseCounter}" id="increasePAButton"/>
     	 		</p:panel>
     	 		<br/>
     	 		<p:panel header="Panel B" id="counterPanel_2">
@@ -37,7 +37,7 @@
     	 		  	but only updates the panel 'counterPanel_2' 
     	 		  	without to reload the whole page or update other panels
     	 		  	  -->
-    	 		  	<p:commandButton value="Increase counter then update 'Panel B'" update="counterPanel_2" actionListener="#{logic.increaseCounter}"/>
+    	 		  	<p:commandButton value="Increase counter then update 'Panel B'" update="counterPanel_2" actionListener="#{logic.increaseCounter}" id="increasePBButton"/>
     	 		</p:panel>
     	 		<br/>
    	 		  	<!-- 
@@ -45,7 +45,7 @@
    	 		  	and then updates both panels 
    	 		  	without to reload the whole page
                 -->
-   	 		  	<p:commandButton value="Increase counter then update both panels" update="counterPanel_1 counterPanel_2" actionListener="#{logic.increaseCounter}"/>
+   	 		  	<p:commandButton value="Increase counter then update both panels" update="counterPanel_1 counterPanel_2" actionListener="#{logic.increaseCounter}" id="increaseAllButton"/>
     		</h:panelGroup>	 	
     	</h:form>
 	</ui:define>

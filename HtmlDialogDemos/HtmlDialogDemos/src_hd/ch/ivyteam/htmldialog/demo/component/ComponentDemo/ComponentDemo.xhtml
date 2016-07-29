@@ -5,46 +5,48 @@
 	xmlns:ic="http://ivyteam.ch/jsf/component"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
+
 	<ui:define name="title">Component Demo</ui:define>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
 
 	<ui:define name="content">
-	<h:panelGroup layout="block" id="panel">
-		<p>This demo explains how Html Dialog components can be reused.</p>
-		<!--
-		Use the 'http://ivyteam.ch/jsf/component' namespace which is included by default with the 'ic' prefix to insert an ivy component.
-		As tag name use the id of the JSF Html Dialog.
-		If needed you can specify the start method with the startMethod parameter.
-		Input and output parameters of the start method are mapped by name.
-		 -->
-		<ic:ch.ivyteam.htmldialog.demo.component.PersonComponent
-			person="#{data.person}">
-		</ic:ch.ivyteam.htmldialog.demo.component.PersonComponent>
-
-		<br />
-		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-			<h:outputText value="First Name" />
-			<h:outputText value="#{data.person.firstname}" />
-			<h:outputText value="Last Name" />
-			<h:outputText value="#{data.person.name}" />
-
-			<h:outputText value="Delivery Address" />
+	<h:form id="demoForm">
+		<h:panelGroup layout="block" id="panel">
+			<p>This demo explains how Html Dialog components can be reused.</p>
+			<!--
+			Use the 'http://ivyteam.ch/jsf/component' namespace which is included by default with the 'ic' prefix to insert an ivy component.
+			As tag name use the id of the JSF Html Dialog.
+			If needed you can specify the start method with the startMethod parameter.
+			Input and output parameters of the start method are mapped by name.
+			 -->
+			<ic:ch.ivyteam.htmldialog.demo.component.PersonComponent
+				person="#{data.person}" id="personComponent"/>
+	
+			<br />
 			<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-				<h:outputText value="Street" />
-				<h:outputText value="#{data.person.deliveryAddress.street}" />
-				<h:outputText value="Country" />
-				<h:outputText value="#{data.person.deliveryAddress.country}" />
+				<h:outputText value="First Name" />
+				<h:outputText value="#{data.person.firstname}" />
+				<h:outputText value="Last Name" />
+				<h:outputText value="#{data.person.name}" />
+	
+				<h:outputText value="Delivery Address" />
+				<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+					<h:outputText value="Street" />
+					<h:outputText value="#{data.person.deliveryAddress.street}" />
+					<h:outputText value="Country" />
+					<h:outputText value="#{data.person.deliveryAddress.country}" />
+				</h:panelGrid>
+	
+				<h:outputText value="Billing Address" />
+				<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+					<h:outputText value="Street" />
+					<h:outputText value="#{data.person.billingAddress.street}" />
+					<h:outputText value="Country" />
+					<h:outputText value="#{data.person.billingAddress.country}" />
+				</h:panelGrid>
 			</h:panelGrid>
-
-			<h:outputText value="Billing Address" />
-			<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-				<h:outputText value="Street" />
-				<h:outputText value="#{data.person.billingAddress.street}" />
-				<h:outputText value="Country" />
-				<h:outputText value="#{data.person.billingAddress.country}" />
-			</h:panelGrid>
-		</h:panelGrid>
-	</h:panelGroup>
+		</h:panelGroup>
+	</h:form>
 	</ui:define>
 
 	</ui:composition>
