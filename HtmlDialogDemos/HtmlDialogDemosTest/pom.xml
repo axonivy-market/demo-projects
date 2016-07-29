@@ -39,6 +39,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.5.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>com.axonivy.ivy.supplements</groupId>
 			<artifactId>primeui-tester</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
@@ -103,7 +109,7 @@
 							</includes>
 							<argLine>
 								-Dserver.test.baseUrl=${test.engine.url}
- 								-Dserver.test.testApplication=${application}
+								-Dserver.test.testApplication=${application}
 								-Dserver.test.isEngine=true
 							</argLine>
 						</configuration>

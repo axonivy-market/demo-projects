@@ -19,7 +19,7 @@
 			         	<p:outputLabel value="Address" for="Address"/>
 			         	<p:inputText required="true" value="#{data.address}" id="Address"></p:inputText>
 		        	</h:panelGrid>           
-		        	<p:commandButton value="Finish" update="myForm" action="#{logic.nextView('Invoice')}"/>
+		        	<p:commandButton value="Finish" update="myForm" action="#{logic.nextView('Invoice')}" id="finishButton"/>
 		        </h:panelGroup>
 	        </h:form>    	
 	</ui:define>

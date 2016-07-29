@@ -19,8 +19,8 @@
 			        <p:graphicImage name="images/ajax-loader.gif"/> 
 		        </p:outputPanel>
 		        <p:outputPanel rendered="#{not data.processing}">
-			        <p:outputLabel value="Credit card verified!"/><br/>
-			        <p:commandButton value="Finish" action="#{logic.nextView('CreditCardProcessing')}"/>
+			        <p:outputLabel value="Credit card verified!" id="confirmVerification"/><br/>
+			        <p:commandButton value="Finish" action="#{logic.nextView('CreditCardProcessing')}" id="finishButton"/>
 		        </p:outputPanel>
 		       	<p:poll interval="3" stop="#{not data.processing}" autoStart="true" listener="#{logic.stopProcessing}" update="myForm"/>
 		    </h:panelGroup>

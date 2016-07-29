@@ -16,18 +16,18 @@
 						be displayed and how the file could be downloaded. The Ivy file type is used to store the file
 						temporarily in the process data. This makes the handling of an
 						uploaded file quite simple.</p>
-					<h:form enctype="multipart/form-data">
+					<h:form enctype="multipart/form-data" id="demoForm">
 						<h:outputText value="1. Select a text or xml file to show its content:" />
 						<br />
 						<br />
-						<p:fileUpload value="#{data.ivyFile}" mode="simple" style="width:500px"/>
+						<p:fileUpload value="#{data.ivyFile}" mode="simple" style="width:500px" id="fileUpload"/>
 						<br />
 						<br />
 						2. Upload the file via process logic and store the file on the file system
 						<br />
 						<br />
 						<p:commandButton value="Upload"
-							actionListener="#{logic.fileUpload}" ajax="false" />
+							actionListener="#{logic.fileUpload}" ajax="false" id="fileUploadButton"/>
 						<br />
 						<br />
 						<p:outputPanel rendered="#{not empty data.textContent}">
@@ -40,9 +40,9 @@
 						3. Show the file or download it
 						<br />
 						<br />
-						<p:commandButton value="Show" actionListener="#{logic.showContent}" ajax="false" disabled="#{data.fileName == null}" />
+						<p:commandButton value="Show" actionListener="#{logic.showContent}" ajax="false" disabled="#{data.fileName == null}" id="showFileButton"/>
 							or
-			            <p:commandButton value="Download" ajax="false" actionListener="#{logic.fileDownload}" icon="ui-icon-arrowthick-1-s" disabled="#{data.fileName == null}">
+			            <p:commandButton value="Download" ajax="false" actionListener="#{logic.fileDownload}" icon="ui-icon-arrowthick-1-s" disabled="#{data.fileName == null}" id="downloadFileButton">
 					        <p:fileDownload value="#{data.fileDownload}" />
 					    </p:commandButton>
 						<br />

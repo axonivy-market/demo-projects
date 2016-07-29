@@ -26,7 +26,7 @@ public abstract class BaseWebTest
   public void setUp() throws Exception
   {
     FirefoxProfile profile = FixVersionFirefox.loadFirefoxProfile();
-    profile.setPreference("intl.accept_languages", "en");
+    configureBrowserProfile(profile);
     driver = FixVersionFirefox.createWebDriver(profile);
 
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -35,6 +35,11 @@ public abstract class BaseWebTest
     {
       driver.manage().window().setPosition(new Point(-2000, 0));
     }
+  }
+
+  protected void configureBrowserProfile(FirefoxProfile profile)
+  {
+    profile.setPreference("intl.accept_languages", "en");
   }
 
   @After

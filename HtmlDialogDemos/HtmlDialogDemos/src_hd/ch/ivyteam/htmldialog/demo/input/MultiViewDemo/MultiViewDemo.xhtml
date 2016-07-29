@@ -23,11 +23,11 @@
 	        	 	<p:inputText required="true" value="#{data.firstName}" id="FirstName"></p:inputText>
 	        	 	<p:outputLabel value="Payment Kind" for="options"/>
 	        	 	<p:selectOneRadio id="options" value="#{data.paymentKind}">
-						<f:selectItem itemLabel="Invoice" itemValue="Invoice" />
-						<f:selectItem itemLabel="Credit Card" itemValue="CreditCard" />
+						<f:selectItem itemLabel="Invoice" itemValue="Invoice"/>
+						<f:selectItem itemLabel="Credit Card" itemValue="CreditCard"/>
 				   </p:selectOneRadio>  
 	        	</h:panelGrid>           
-	        	<p:commandButton value="Next" update="myForm" action="#{logic.nextView('MultiViewDemo')}"/>
+	        	<p:commandButton value="Next" update="myForm" action="#{logic.nextView('MultiViewDemo')}" id="nextButton"/>
 	        </h:panelGroup>
         </h:form>    	
 	</ui:define>
