@@ -8,6 +8,7 @@
 
 	<modules>
 		<module>HtmlDialogDemos</module>
+		<module>HtmlDialogDemosTest</module>
 	</modules>
 
 	<build>
