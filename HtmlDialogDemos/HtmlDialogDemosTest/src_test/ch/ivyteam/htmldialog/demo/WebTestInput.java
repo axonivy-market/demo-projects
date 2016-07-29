@@ -77,41 +77,55 @@ public class WebTestInput extends BaseWebTest
     await(ExpectedConditions
             .textToBePresentInElementLocated(By.id("outputData"), "name=team, firstname=ivy"));
   }
-  
+
   @Test
   public void testSimpleFileUpDownload() throws Exception
   {
-    startProcess("145D18298A3E81CF/FileUploadSimpleModeDemo.ivp");
+    try
+    {
+      startProcess("145D18298A3E81CF/FileUploadSimpleModeDemo.ivp");
 
-    File tempFile = File.createTempFile("tempTextFile", ".txt");
-    tempFile.deleteOnExit();
-    String testContent = "this is a test for the Simple File Up- and Download";
-    FileUtils.write(tempFile, testContent);
+      File tempFile = File.createTempFile("tempTextFile", ".txt");
+      tempFile.deleteOnExit();
+      String testContent = "this is a test for the Simple File Up- and Download";
+      FileUtils.write(tempFile, testContent);
 
-    driver.findElement(By.id("demoForm:fileUpload")).sendKeys(tempFile.getAbsolutePath());
-    driver.findElement(By.id("demoForm:fileUploadButton")).click();
-    driver.findElement(By.id("demoForm:showFileButton")).click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:textAreaLabel"), testContent));
-    driver.findElement(By.id("demoForm:downloadFileButton")).click();
+      driver.findElement(By.id("demoForm:fileUpload")).sendKeys(tempFile.getAbsolutePath());
+      driver.findElement(By.id("demoForm:fileUploadButton")).click();
+      driver.findElement(By.id("demoForm:showFileButton")).click();
+      await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:textAreaLabel"), testContent));
+      driver.findElement(By.id("demoForm:downloadFileButton")).click();
 
-    File downloadedFile = new File(ffDownloadDir, tempFile.getName());
-    assertThat(downloadedFile).hasContent(testContent);
+      File downloadedFile = new File(ffDownloadDir, tempFile.getName());
+      assertThat(downloadedFile).hasContent(testContent);
+    }
+    catch (Exception ex)
+    {
+      Thread.sleep(60000);
+    }
   }
 
   @Test
   public void testAdvancedFileUpload() throws Exception
   {
-    startProcess("145D18298A3E81CF/FileUploadAdvancedModeDemo.ivp");
+    try
+    {
+      startProcess("145D18298A3E81CF/FileUploadAdvancedModeDemo.ivp");
 
-    String firefoxPortablePath = System.getProperty("firefox.portable.path");
-    String logoFilePath = firefoxPortablePath + File.separator + "Other" + File.separator + "Source"
-            + File.separator + "FirefoxPortable.jpg";
-    driver.findElement(By.id("pictureGalleryForm:fileUpload_input")).sendKeys(
-            logoFilePath);
+      String firefoxPortablePath = System.getProperty("firefox.portable.path");
+      String logoFilePath = firefoxPortablePath + File.separator + "Other" + File.separator + "Source"
+              + File.separator + "FirefoxPortable.jpg";
+      driver.findElement(By.id("pictureGalleryForm:fileUpload_input")).sendKeys(
+              logoFilePath);
 
-    await(ExpectedConditions
-            .visibilityOfElementLocated(By
-                    .xpath("//*[@id='pictureGalleryForm:pictureGallery']/div[1]/ul/li[1]/div/img[contains(@src,'FirefoxPortable')]")));
+      await(ExpectedConditions
+              .visibilityOfElementLocated(By
+                      .xpath("//*[@id='pictureGalleryForm:pictureGallery']/div[1]/ul/li[1]/div/img[contains(@src,'FirefoxPortable')]")));
+    }
+    catch (Exception ex)
+    {
+      Thread.sleep(60000);
+    }
   }
 
   @Test
@@ -153,7 +167,7 @@ public class WebTestInput extends BaseWebTest
 
     waitForSummary("team", "ivy");
   }
-  
+
   private void waitForSummary(String name, String firstName)
   {
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("myForm:panel"), "Payment - Summary"));
