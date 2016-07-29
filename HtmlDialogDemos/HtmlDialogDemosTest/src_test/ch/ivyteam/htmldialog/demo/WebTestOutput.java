@@ -172,7 +172,7 @@ public class WebTestOutput extends BaseWebTest
     driver.findElement(By.id("demoForm:advance_filter")).sendKeys("Mich");
     await(ExpectedConditions.attributeContains(By.id("demoForm:advance_9"), "style",
             "display: none;"));
- 
+
     clearInput(By.id("demoForm:advance_filter"));
     driver.findElement(By.id("demoForm:advance_filter")).sendKeys("Flav");
     await(ExpectedConditions.attributeContains(By.id("demoForm:advance_9"), "style",
@@ -190,19 +190,19 @@ public class WebTestOutput extends BaseWebTest
   {
     startProcess("145D180807C60B4B/AutoCompleteDemo.ivp");
 
-    searchAndExpect("d", "Developer", "SYSTEM");
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:event_panel"), "demoUser2"));
-    searchAndExpect("emoU", "demoUser2", "Developer");
-    searchAndExpect("ser1", "demoUser1", "demoUser2");
+    searchAndExpect("xzyt", "xzyt69", "xzyz99");
+    searchAndExpect("xzyz", "xzyz99", "xzyt69");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:event_panel"), "xzyz98"));
+    searchAndExpect("yt69", "xzyt69", "xzyz98");
 
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:event_panel"), "demoUser1"));
     driver.findElement(By.id("Form:event_input")).sendKeys(Keys.ENTER);
     driver.findElement(By.id("Form:event_input")).sendKeys(Keys.ENTER);
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:msgs_container"), "demoUser1"));
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:msgs_container"), "xzyt69"));
   }
 
   private void searchAndExpect(String searchText, String expectedText, String notExpectedText)
   {
+    clearInput(By.id("Form:event_input"));
     driver.findElement(By.id("Form:event_input")).sendKeys(searchText);
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:event_panel"), expectedText));
     await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
