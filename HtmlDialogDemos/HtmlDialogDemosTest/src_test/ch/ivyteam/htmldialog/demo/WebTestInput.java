@@ -95,7 +95,7 @@ public class WebTestInput extends BaseWebTest
       driver.findElement(By.id("demoForm:showFileButton")).click();
       await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:textAreaLabel"), testContent));
       driver.findElement(By.id("demoForm:downloadFileButton")).click();
-
+      Thread.sleep(2000);
       File downloadedFile = new File(ffDownloadDir, tempFile.getName());
       assertThat(downloadedFile).hasContent(testContent);
     }
