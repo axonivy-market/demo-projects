@@ -40,10 +40,10 @@ public class WebTestInput extends BaseWebTest
     {
       throw new RuntimeException(ex);
     }
+    profile.setPreference("browser.download.folderList", 2);
     profile.setPreference("browser.download.dir", ffDownloadDir.getAbsolutePath());
     profile.setPreference("browser.download.useDownloadDir", true);
-    profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "text/plain");
-    profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "image/jpeg");
+    profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "image/jpeg;text/txt");
     profile.setPreference("browser.download.panel.shown", true);
   }
 
@@ -89,7 +89,7 @@ public class WebTestInput extends BaseWebTest
     startProcess("145D18298A3E81CF/FileUploadSimpleModeDemo.ivp");
 
     File tempFile = File.createTempFile("tempTextFile", ".txt");
-    System.out.println("uploadFileName: " + tempFile.getName());
+    System.out.println("uploadFilePath:     " + tempFile.getAbsolutePath());
     tempFile.deleteOnExit();
     String testContent = "this is a test for the Simple File Up- and Download";
     FileUtils.write(tempFile, testContent);
@@ -99,9 +99,10 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(By.id("demoForm:showFileButton")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:textAreaLabel"), testContent));
     driver.findElement(By.id("demoForm:downloadFileButton")).click();
+    Thread.sleep(5000);
     File downloadedFile = new File(ffDownloadDir, tempFile.getName());
 
-    System.out.println("downloadeFileName: " + downloadedFile.getName());
+    System.out.println("downloadedFilePath: " + downloadedFile.getAbsolutePath());
     System.out.println("downloadedFileContent: " + FileUtils.readFileToString(downloadedFile));
     assertThat(downloadedFile).hasContent(testContent);
   }
