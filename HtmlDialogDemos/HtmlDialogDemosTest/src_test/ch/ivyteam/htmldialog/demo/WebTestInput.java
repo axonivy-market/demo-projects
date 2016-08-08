@@ -3,10 +3,13 @@ package ch.ivyteam.htmldialog.demo;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -17,7 +20,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestInput extends BaseWebTest
 {
-  private static final String FIREFOX_PORTABLE_PATH_PROPERTY = "firefox.portable.path";
   private File ffDownloadDir;
 
   @Override
@@ -87,6 +89,7 @@ public class WebTestInput extends BaseWebTest
     startProcess("145D18298A3E81CF/FileUploadSimpleModeDemo.ivp");
 
     File tempFile = File.createTempFile("tempTextFile", ".txt");
+    System.out.println("uploadFileName: " + tempFile.getName());
     tempFile.deleteOnExit();
     String testContent = "this is a test for the Simple File Up- and Download";
     FileUtils.write(tempFile, testContent);
@@ -98,16 +101,8 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(By.id("demoForm:downloadFileButton")).click();
     File downloadedFile = new File(ffDownloadDir, tempFile.getName());
 
-    System.out.println("listing files in ffDownloadDir: ");
-    File[] filesList = ffDownloadDir.listFiles();
-    for (File file : filesList)
-    {
-      if (file.isFile())
-      {
-        System.out.println(file.getName());
-      }
-    }
-    System.out.println("downloadedFileContent" + FileUtils.readFileToString(downloadedFile));
+    System.out.println("downloadeFileName: " + downloadedFile.getName());
+    System.out.println("downloadedFileContent: " + FileUtils.readFileToString(downloadedFile));
     assertThat(downloadedFile).hasContent(testContent);
   }
 
@@ -116,20 +111,24 @@ public class WebTestInput extends BaseWebTest
   {
     startProcess("145D18298A3E81CF/FileUploadAdvancedModeDemo.ivp");
 
-    String firefoxPortablePath = System.getProperty(FIREFOX_PORTABLE_PATH_PROPERTY);
-    String logoFilePath = firefoxPortablePath + File.separator + "Other" + File.separator + "Source"
-            + File.separator + "FirefoxPortable.jpg";
-    driver.findElement(By.id("pictureGalleryForm:fileUpload_input")).sendKeys(
-            logoFilePath);
+    File tempImage = File.createTempFile("tempImageFile", ".png");
+    try (
+            InputStream inputImage = getClass().getResourceAsStream("ExampleImage.png");
+            FileOutputStream outputImage = new FileOutputStream(tempImage);)
+    {
+      IOUtils.copy(inputImage, outputImage);
+    }
 
-    System.out.println(logoFilePath);
+    driver.findElement(By.id("pictureGalleryForm:fileUpload_input")).sendKeys(
+            tempImage.getAbsolutePath());
 
     File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
     FileUtils.copyFile(scrFile, new File(System.getProperty("basedir")
             + "/target/screenshotAdvancedFileUpload.png"));
+
     await(ExpectedConditions
             .visibilityOfElementLocated(By
-                    .xpath("//*[@id='pictureGalleryForm:pictureGallery']/div[1]/ul/li[1]/div/img[contains(@src,'FirefoxPortable')]")));
+                    .xpath("//*[@id='pictureGalleryForm:pictureGallery']/div[1]/ul/li[1]/div/img[contains(@src,'tempImageFile')]")));
   }
 
   @Test
