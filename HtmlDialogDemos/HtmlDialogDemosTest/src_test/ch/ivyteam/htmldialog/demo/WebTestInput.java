@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestInput extends BaseWebTest
 {
+  private static final String FIREFOX_PORTABLE_PATH_PROPERTY = "firefox.portable.path";
   private File ffDownloadDir;
 
   @Override
@@ -95,8 +96,8 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(By.id("demoForm:showFileButton")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:textAreaLabel"), testContent));
     driver.findElement(By.id("demoForm:downloadFileButton")).click();
-    Thread.sleep(20000);
     File downloadedFile = new File(ffDownloadDir, tempFile.getName());
+    System.out.println("files in ffDownloadDir" + ffDownloadDir.list());
     System.out.println("downloadedFileContent" + FileUtils.readFileToString(downloadedFile));
     assertThat(downloadedFile).hasContent(testContent);
   }
@@ -106,16 +107,17 @@ public class WebTestInput extends BaseWebTest
   {
     startProcess("145D18298A3E81CF/FileUploadAdvancedModeDemo.ivp");
 
-    String firefoxPortablePath = System.getProperty("firefox.portable.path");
+    String firefoxPortablePath = System.getProperty(FIREFOX_PORTABLE_PATH_PROPERTY);
     String logoFilePath = firefoxPortablePath + File.separator + "Other" + File.separator + "Source"
             + File.separator + "FirefoxPortable.jpg";
     driver.findElement(By.id("pictureGalleryForm:fileUpload_input")).sendKeys(
             logoFilePath);
 
-
-    File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-    FileUtils.copyFile(scrFile, new File(System.getProperty("basedir") + "/target/screenshotAdvancedFileUpload.png"));
+    System.out.println(logoFilePath);
     
+    File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+    FileUtils.copyFile(scrFile, new File(System.getProperty("basedir")
+            + "/target/screenshotAdvancedFileUpload.png"));
     await(ExpectedConditions
             .visibilityOfElementLocated(By
                     .xpath("//*[@id='pictureGalleryForm:pictureGallery']/div[1]/ul/li[1]/div/img[contains(@src,'FirefoxPortable')]")));
