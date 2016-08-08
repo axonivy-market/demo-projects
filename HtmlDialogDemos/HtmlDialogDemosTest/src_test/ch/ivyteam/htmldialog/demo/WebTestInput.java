@@ -87,7 +87,6 @@ public class WebTestInput extends BaseWebTest
     startProcess("145D18298A3E81CF/FileUploadSimpleModeDemo.ivp");
 
     File tempFile = File.createTempFile("tempTextFile", ".txt");
-    System.out.println("uploadFilePath:     " + tempFile.getAbsolutePath());
     tempFile.deleteOnExit();
     String testContent = "this is a test for the Simple File Up- and Download";
     FileUtils.write(tempFile, testContent);
