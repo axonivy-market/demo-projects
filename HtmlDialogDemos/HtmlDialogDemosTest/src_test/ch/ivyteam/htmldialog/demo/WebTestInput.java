@@ -97,7 +97,16 @@ public class WebTestInput extends BaseWebTest
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:textAreaLabel"), testContent));
     driver.findElement(By.id("demoForm:downloadFileButton")).click();
     File downloadedFile = new File(ffDownloadDir, tempFile.getName());
-    System.out.println("files in ffDownloadDir" + ffDownloadDir.list());
+
+    System.out.println("listing files in ffDownloadDir: ");
+    File[] filesList = ffDownloadDir.listFiles();
+    for (File file : filesList)
+    {
+      if (file.isFile())
+      {
+        System.out.println(file.getName());
+      }
+    }
     System.out.println("downloadedFileContent" + FileUtils.readFileToString(downloadedFile));
     assertThat(downloadedFile).hasContent(testContent);
   }
@@ -114,7 +123,7 @@ public class WebTestInput extends BaseWebTest
             logoFilePath);
 
     System.out.println(logoFilePath);
-    
+
     File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
     FileUtils.copyFile(scrFile, new File(System.getProperty("basedir")
             + "/target/screenshotAdvancedFileUpload.png"));
