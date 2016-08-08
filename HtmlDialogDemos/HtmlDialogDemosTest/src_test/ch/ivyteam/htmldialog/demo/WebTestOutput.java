@@ -58,7 +58,11 @@ public class WebTestOutput extends BaseWebTest
     table.containsNot("1324");
 
     driver.findElement(By.id("form:theTable:scoreId")).click();
+    System.out.println("after first click of score filter: "
+            + driver.findElement(By.xpath("//*[@id='form:theTable_data']/tr[1]")).getText());
     driver.findElement(By.id("form:theTable:scoreId")).click();
+    System.out.println("after second click of score filter: "
+            + driver.findElement(By.xpath("//*[@id='form:theTable_data']/tr[1]")).getText());
     table.firstRowContains("Tim");
   }
 
