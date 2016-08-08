@@ -10,6 +10,8 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -93,6 +95,7 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(By.id("demoForm:showFileButton")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:textAreaLabel"), testContent));
     driver.findElement(By.id("demoForm:downloadFileButton")).click();
+    Thread.sleep(20000);
     File downloadedFile = new File(ffDownloadDir, tempFile.getName());
     System.out.println("downloadedFileContent" + FileUtils.readFileToString(downloadedFile));
     assertThat(downloadedFile).hasContent(testContent);
@@ -109,6 +112,10 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(By.id("pictureGalleryForm:fileUpload_input")).sendKeys(
             logoFilePath);
 
+
+    File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+    FileUtils.copyFile(scrFile, new File(System.getProperty("basedir") + "/target/screenshotAdvancedFileUpload.png"));
+    
     await(ExpectedConditions
             .visibilityOfElementLocated(By
                     .xpath("//*[@id='pictureGalleryForm:pictureGallery']/div[1]/ul/li[1]/div/img[contains(@src,'FirefoxPortable')]")));
