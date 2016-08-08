@@ -1,8 +1,13 @@
 package ch.ivyteam.htmldialog.demo;
 
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,54 +21,69 @@ public class WebTestOutput extends BaseWebTest
   @Test
   public void testDataTable() throws Exception
   {
-    startProcess("145D180807C60B4B/DataTableDemo.ivp");
+    try
+    {
+      startProcess("145D180807C60B4B/DataTableDemo.ivp");
 
-    driver.findElement(By.id("form:theTable:globalFilter")).sendKeys("Dais");
-    Table table = prime().table(By.id("form:theTable"));
-    table.firstRowContains("Daisy");
-    clearInput(By.id("form:theTable:globalFilter"));
+      driver.findElement(By.id("form:theTable:globalFilter")).sendKeys("Dais");
+      Table table = prime().table(By.id("form:theTable"));
+      table.firstRowContains("Daisy");
+      clearInput(By.id("form:theTable:globalFilter"));
 
-    SelectOneMenu menu = prime().selectOne(By.id("form:theTable:nameFilter"));
-    menu.selectItemByLabel("Achmed");
-    table.firstRowContains("Achmed");
-    menu.selectItemByLabel("All");
+      SelectOneMenu menu = prime().selectOne(By.id("form:theTable:nameFilter"));
+      menu.selectItemByLabel("Achmed");
+      table.firstRowContains("Achmed");
+      menu.selectItemByLabel("All");
 
-    driver.findElement(By.id("form:theTable:scorePointFilter:filter")).sendKeys("6");
-    table.firstRowContains("Birgit");
-    clearInput(By.id("form:theTable:scorePointFilter:filter"));
+      driver.findElement(By.id("form:theTable:scorePointFilter:filter")).sendKeys("6");
+      table.firstRowContains("Birgit");
+      clearInput(By.id("form:theTable:scorePointFilter:filter"));
 
-    await(ExpectedConditions.visibilityOfElementLocated(By.id("form:theTable:6:j_id_29")));
-    driver.findElement(By.xpath("//tbody[@id='form:theTable_data']/tr[1]/td/div")).click();
-    clearInput(By.id("form:theTable:0:name"));
-    driver.findElement(By.id("form:theTable:0:name")).sendKeys("testPerson");
-    clearInput(By.id("form:theTable:0:points"));
-    driver.findElement(By.id("form:theTable:0:points")).sendKeys("9999");
-    driver.findElement(By.id("form:theTable:0:saveButton")).click();
-    table.contains("testPerson");
-    table.containsNot("Beni");
-    table.contains("9999");
-    table.containsNot("2563");
+      await(ExpectedConditions.visibilityOfElementLocated(By.id("form:theTable:6:j_id_29")));
+      driver.findElement(By.xpath("//tbody[@id='form:theTable_data']/tr[1]/td/div")).click();
+      clearInput(By.id("form:theTable:0:name"));
+      driver.findElement(By.id("form:theTable:0:name")).sendKeys("testPerson");
+      clearInput(By.id("form:theTable:0:points"));
+      driver.findElement(By.id("form:theTable:0:points")).sendKeys("9999");
+      driver.findElement(By.id("form:theTable:0:saveButton")).click();
+      table.contains("testPerson");
+      table.containsNot("Beni");
+      table.contains("9999");
+      table.containsNot("2563");
 
-    driver.findElement(By.id("form:theTable:6:dialogEditButton")).click();
-    await(ExpectedConditions.visibilityOfElementLocated(By.id("detailForm:name")));
-    clearInput(By.id("detailForm:name"));
-    driver.findElement(By.id("detailForm:name")).sendKeys("demoUser");
-    clearInput(By.id("detailForm:points"));
-    driver.findElement(By.id("detailForm:points")).sendKeys("2300");
-    driver.findElement(By.id("detailForm:dialogSaveButton")).click();
+      driver.findElement(By.id("form:theTable:6:dialogEditButton")).click();
+      await(ExpectedConditions.visibilityOfElementLocated(By.id("detailForm:name")));
+      clearInput(By.id("detailForm:name"));
+      driver.findElement(By.id("detailForm:name")).sendKeys("demoUser");
+      clearInput(By.id("detailForm:points"));
+      driver.findElement(By.id("detailForm:points")).sendKeys("2300");
+      driver.findElement(By.id("detailForm:dialogSaveButton")).click();
 
-    table.contains("demoUser");
-    table.containsNot("Yvonne");
-    table.contains("2300");
-    table.containsNot("1324");
+      table.contains("demoUser");
+      table.containsNot("Yvonne");
+      table.contains("2300");
+      table.containsNot("1324");
 
-    driver.findElement(By.id("form:theTable:scoreId")).click();
-    System.out.println("after first click of score filter: "
-            + driver.findElement(By.xpath("//*[@id='form:theTable_data']/tr[1]")).getText());
-    driver.findElement(By.id("form:theTable:scoreId")).click();
-    System.out.println("after second click of score filter: "
-            + driver.findElement(By.xpath("//*[@id='form:theTable_data']/tr[1]")).getText());
-    table.firstRowContains("Tim");
+      driver.findElement(By.id("form:theTable:scoreId")).click();
+      Thread.sleep(1000);
+      System.out.println("after first click of score filter: "
+              + driver.findElement(By.xpath("//*[@id='form:theTable_data']/tr[1]")).getText());
+      driver.findElement(By.id("form:theTable:scoreId")).click();
+      Thread.sleep(1000);
+      System.out.println("after second click of score filter: "
+              + driver.findElement(By.xpath("//*[@id='form:theTable_data']/tr[1]")).getText());
+      table.firstRowContains("Tim");
+
+    }
+    catch (Exception ex)
+    {
+      throw ex;
+    }
+    finally
+    {
+      File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+      FileUtils.copyFile(scrFile, new File(System.getProperty("basedir") + "/target/screenshot.png"));
+    }
   }
 
   @Test
