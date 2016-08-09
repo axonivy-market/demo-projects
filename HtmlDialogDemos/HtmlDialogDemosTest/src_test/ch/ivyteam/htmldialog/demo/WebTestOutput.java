@@ -1,5 +1,7 @@
 package ch.ivyteam.htmldialog.demo;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -229,5 +231,13 @@ public class WebTestOutput extends BaseWebTest
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:outputSelectedPersons"),
             driver.findElement(By.xpath("//label[@for='demoForm:manyCheckboxes:" + checkboxposition + "']"))
                     .getText()));
+  }
+
+  @Test
+  public void testChart()
+  {
+    startProcess("145D180807C60B4B/ChartDemo.ivp");
+    assertThat(driver.findElement(By.id("form:comboChart"))).isNotNull();
+    assertThat(driver.findElement(By.id("form:pieChart"))).isNotNull();
   }
 }

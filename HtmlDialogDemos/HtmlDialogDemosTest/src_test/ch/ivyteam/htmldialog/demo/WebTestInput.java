@@ -13,7 +13,10 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestInput extends BaseWebTest
@@ -79,6 +82,40 @@ public class WebTestInput extends BaseWebTest
             "Value is required")));
     await(ExpectedConditions
             .textToBePresentInElementLocated(By.id("outputData"), "name=team, firstname=ivy"));
+  }
+  
+  @Test
+  public void testForm_customProjectValidator()
+  {
+    startProcess("145D18298A3E81CF/FormDemo.ivp");
+    WebElement mailInputField = driver.findElement(By.id("Form:Mail"));
+    mailInputField.sendKeys("notValidMail[at]test.ch");
+    mailInputField.submit();
+    
+    WebElement errorIcon = findMessageInErrorState(By.id("Form:MailMessage")).findElement(By.tagName("span"));
+    assertThat(errorIcon).as("Message Icon should show a mail validation error").isNotNull();
+    String errorTitle = errorIcon.getAttribute("title");
+    assertThat(errorTitle).startsWith("E-mail validation failed");
+  }
+
+  private WebElement findMessageInErrorState(By by)
+  {
+    return await(new ExpectedCondition<WebElement>()
+    {
+      @Override
+      public WebElement apply(WebDriver localDriver)
+      {
+        WebElement message = localDriver.findElement(by);
+        if (message != null)
+        {
+          if (message.getAttribute("class").contains("ui-message-error"))
+          {
+            return message;
+          }
+        }
+        return null;
+      }
+    });
   }
 
   @Test
