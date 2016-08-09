@@ -1,15 +1,8 @@
 package ch.ivyteam.htmldialog.demo;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import ch.ivyteam.htmldialog.server.test.FixVersionFirefox;
-import ch.ivyteam.htmldialog.server.test.ServerControl;
 
 public class WebTestOther extends BaseWebTest
 {
@@ -37,7 +30,6 @@ public class WebTestOther extends BaseWebTest
     driver.findElement(By.id("Form:Birthdate")).sendKeys("2016-01-01");
     driver.findElement(By.id("Form:Captcha")).sendKeys("21");
     driver.findElement(By.id("Submit")).click();
-    Thread.sleep(10000);
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("captchaError"),
             "Error!"));
 
@@ -57,7 +49,7 @@ public class WebTestOther extends BaseWebTest
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("result"), "Welcome World"));
 
     driver.findElement(By.id("closeDialog")).click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.xpath("/html/body/div[2]/div/div[2]/h3"),
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("welcomeText"),
             "Welcome to Axon.ivy Html Dialog Demos"));
   }
 
@@ -71,10 +63,9 @@ public class WebTestOther extends BaseWebTest
     driver.findElement(By.id("beanForm:buttonSend")).click();
 
     openAndValidate(managedBeanPoperty);
-
     driver.quit();
 
-    createNewDriver();
+    driver = createDriver();
     openAndValidate(managedBeanPoperty);
   }
 
@@ -83,19 +74,5 @@ public class WebTestOther extends BaseWebTest
     startProcess("145D1862CF17F2C9/ManagedBeanDemo.ivp");
     await(ExpectedConditions.visibilityOfElementLocated(By
             .xpath("//*[@id='beanForm:descriptionProperty'][@value='" + managedBeanPoperty + "']")));
-  }
-
-  private void createNewDriver()
-  {
-    FirefoxProfile profile = FixVersionFirefox.loadFirefoxProfile();
-    profile.setPreference("intl.accept_languages", "en");
-    driver = FixVersionFirefox.createWebDriver(profile);
-
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-    if (ServerControl.isEngine())
-    {
-      driver.manage().window().setPosition(new Point(-2000, 0));
-    }
   }
 }

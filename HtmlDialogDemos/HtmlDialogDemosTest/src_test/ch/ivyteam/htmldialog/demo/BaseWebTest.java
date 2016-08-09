@@ -25,16 +25,22 @@ public abstract class BaseWebTest
   @Before
   public void setUp() throws Exception
   {
+    driver = createDriver();
+  }
+
+  protected final WebDriver createDriver()
+  {
     FirefoxProfile profile = FixVersionFirefox.loadFirefoxProfile();
     configureBrowserProfile(profile);
-    driver = FixVersionFirefox.createWebDriver(profile);
+    WebDriver localDriver = FixVersionFirefox.createWebDriver(profile);
 
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    localDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     if (ServerControl.isEngine())
     {
-      driver.manage().window().setPosition(new Point(-2000, 0));
+      localDriver.manage().window().setPosition(new Point(-2000, 0));
     }
+    return localDriver;
   }
 
   protected void configureBrowserProfile(FirefoxProfile profile)
