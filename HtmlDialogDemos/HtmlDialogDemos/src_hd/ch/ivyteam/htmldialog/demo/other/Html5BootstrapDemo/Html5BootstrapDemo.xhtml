@@ -37,15 +37,15 @@
 						</div>
 
 						<ui:fragment rendered="#{data.displaySuccess}">
-							<div class="alert alert-success">
+							<div class="alert alert-success" id="messageSent">
 								<strong><span class="glyphicon glyphicon-send"></span>
 									Hey #{data.name}! Your message has been sent.</strong>
 							</div>
 						</ui:fragment>
 
 						<ui:fragment rendered="#{data.displayError}">
-							<div class="alert alert-danger">
-								<span class="glyphicon glyphicon-alert"></span><strong>
+							<div class="alert alert-danger" id="captchaError">
+								<span class="fa fa-exclamation-triangle"></span><strong>
 									Error! Please check the captcha!</strong>
 							</div>
 						</ui:fragment>
@@ -98,7 +98,7 @@
 							</div>
 
 						</div>
-						<br /> <input type="submit" id="submit" value="Submit"
+						<br /> <input type="submit" id="Submit" value="Submit"
 							class="btn btn-info" jsf:actionListener="#{logic.submitForm}" />
 					</div>
 				</form>

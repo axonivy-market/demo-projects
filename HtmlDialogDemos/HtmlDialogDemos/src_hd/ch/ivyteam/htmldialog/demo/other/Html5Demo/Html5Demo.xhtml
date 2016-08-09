@@ -35,10 +35,10 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-1">
-						<p:outputLabel value="Name" for="username" />
+						<p:outputLabel value="Name" for="name" />
 					</div>
 					<div class="col-sm-11">
-						<h:inputText value="#{data.subscribe}" id="username">
+						<h:inputText value="#{data.subscribe}" id="name">
 							<!-- Set Html attributes not available as JSF attributes with the f:passThroughAttribute tag -->
 							<f:passThroughAttribute name="placeholder"
 								value="Enter your name" />
@@ -72,7 +72,7 @@
 				<div class="form-group">
 					<div class="col-sm-offset-1 col-sm-11">
 						<p:commandButton value="show" actionListener="#{logic.growlName}"
-							update="growl" />
+							update="growl" id="buttonShow"/>
 					</div>
 				</div>
 
