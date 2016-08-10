@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 27 14:11:09 CEST 2016]
+[>Created: Tue Aug 09 17:24:44 CEST 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -136,7 +136,7 @@ import workflow.business.data.Dossier;
 import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
 
 BusinessDataRepository repo = BusinessDataRepository.get();
-in.businessData = repo.searchRaw(Dossier.class,QueryHelper.queryFullText(in.searchText));
+in.businessData = repo.searchRaw(Dossier.class,QueryHelper.queryFullText(in.searchText)).getAll();
 
 in.dossiers = null;
 for (int i = 0; i < in.businessData.size(); i++) {
@@ -187,7 +187,7 @@ import workflow.business.data.Dossier;
 import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
 
 BusinessDataRepository repo = BusinessDataRepository.get();
-in.businessData = repo.searchRaw(Dossier.class,QueryHelper.queryLastName(in.searchLastName));
+in.businessData = repo.searchRaw(Dossier.class,QueryHelper.queryLastName(in.searchLastName)).getAll();
 
 in.dossiers = null;
 for (int i = 0; i < in.businessData.size(); i++) {
