@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 11 16:13:35 CEST 2016]
+[>Created: Thu Aug 11 17:16:50 CEST 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -80,7 +80,7 @@ Bs0 f6 actionDecl 'workflow.business.data.BusinessDataDossierBrowser.BusinessDat
 ' #txt
 Bs0 f6 actionTable 'out=in;
 ' #txt
-Bs0 f6 actionCode 'import workflow.business.data.Dossier;
+Bs0 f6 actionCode 'import workflow.businessdata.Dossier;
 
 in.businessData = ivy.repo.findAll(Dossier.class);
 
@@ -128,7 +128,7 @@ Bs0 f11 actionDecl 'workflow.business.data.BusinessDataDossierBrowser.BusinessDa
 Bs0 f11 actionTable 'out=in;
 ' #txt
 Bs0 f11 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.QueryHelper;
-import workflow.business.data.Dossier;
+import workflow.businessdata.Dossier;
 
 in.businessData = ivy.repo.searchRaw(Dossier.class,QueryHelper.queryFullText(in.searchText)).getAll();
 
@@ -177,7 +177,7 @@ Bs0 f16 actionDecl 'workflow.business.data.BusinessDataDossierBrowser.BusinessDa
 Bs0 f16 actionTable 'out=in;
 ' #txt
 Bs0 f16 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.QueryHelper;
-import workflow.business.data.Dossier;
+import workflow.businessdata.Dossier;
 
 in.businessData = ivy.repo.searchRaw(Dossier.class,QueryHelper.queryLastName(in.searchLastName)).getAll();
 

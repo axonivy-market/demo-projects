@@ -2,9 +2,9 @@ package ch.ivyteam.ivy.wfdemo.businessdata;
 
 import java.util.List;
 
-import workflow.business.data.Address;
-import workflow.business.data.Dossier;
-import workflow.business.data.Person;
+import workflow.businessdata.Address;
+import workflow.businessdata.Dossier;
+import workflow.businessdata.Person;
 import ch.ivyteam.ivy.business.data.store.BusinessData;
 import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
 

@@ -1,4 +1,4 @@
 Data #class
-workflow.business.data #namespace
+workflow.businessdata #namespace
 id Number #field
 id PERSISTENT #fieldModifier

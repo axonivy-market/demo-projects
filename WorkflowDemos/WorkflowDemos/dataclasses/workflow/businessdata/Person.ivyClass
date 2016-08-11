@@ -1,6 +1,6 @@
 Person #class
-workflow.business.data #namespace
-address workflow.business.data.Address #field
+workflow.businessdata #namespace
+address workflow.businessdata.Address #field
 address PERSISTENT #fieldModifier
 lastName String #field
 lastName PERSISTENT #fieldModifier

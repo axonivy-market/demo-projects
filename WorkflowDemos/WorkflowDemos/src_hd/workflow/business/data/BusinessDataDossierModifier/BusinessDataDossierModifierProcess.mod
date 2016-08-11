@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 11 16:54:21 CEST 2016]
+[>Created: Thu Aug 11 17:16:31 CEST 2016]
 155BB4D0A6771B1B 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierModifierProcess Big #zClass
@@ -138,7 +138,7 @@ Bs0 f12 actionDecl 'workflow.business.data.BusinessDataDossierModifier.BusinessD
 ' #txt
 Bs0 f12 actionTable 'out=in;
 ' #txt
-Bs0 f12 actionCode 'import workflow.business.data.Dossier;
+Bs0 f12 actionCode 'import workflow.businessdata.Dossier;
 
 in.businessData = ivy.repo.find(in.id,Dossier.class);
 in.dossier = in.businessData.value() as Dossier;' #txt

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 11 17:07:52 CEST 2016]
+[>Created: Thu Aug 11 17:15:52 CEST 2016]
 155BB4328F79B2D5 3.18 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
@@ -36,11 +36,11 @@ Ba0 @PushWFArc f9 '' #zField
 Ba0 @PushWFArc f16 '' #zField
 >Proto Ba0 Ba0 BusinessData #zField
 Ba0 f0 outLink create.ivp #txt
-Ba0 f0 type workflow.business.data.Data #txt
+Ba0 f0 type workflow.businessdata.Data #txt
 Ba0 f0 inParamDecl '<> param;' #txt
 Ba0 f0 inParamTable 'out.id=-1;
 ' #txt
-Ba0 f0 actionDecl 'workflow.business.data.Data out;
+Ba0 f0 actionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f0 guid 155BB4329582E3C6 #txt
 Ba0 f0 requestEnabled true #txt
@@ -80,11 +80,11 @@ Ba0 f5 targetWindow NEW:card: #txt
 Ba0 f5 targetDisplay TOP #txt
 Ba0 f5 richDialogId workflow.business.data.BusinessDataDossierModifier #txt
 Ba0 f5 startMethod start(java.lang.Long) #txt
-Ba0 f5 type workflow.business.data.Data #txt
+Ba0 f5 type workflow.businessdata.Data #txt
 Ba0 f5 requestActionDecl '<java.lang.Long businessDataId> param;' #txt
 Ba0 f5 requestMappingAction 'param.businessDataId=in.id;
 ' #txt
-Ba0 f5 responseActionDecl 'workflow.business.data.Data out;
+Ba0 f5 responseActionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f5 responseMappingAction 'out=in;
 ' #txt
@@ -104,11 +104,11 @@ Ba0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ba0 f5 248 298 112 44 -20 -7 #rect
 Ba0 f5 @|RichDialogIcon #fIcon
 Ba0 f7 outLink update.ivp #txt
-Ba0 f7 type workflow.business.data.Data #txt
+Ba0 f7 type workflow.businessdata.Data #txt
 Ba0 f7 inParamDecl '<java.lang.Number id> param;' #txt
 Ba0 f7 inParamTable 'out.id=param.id;
 ' #txt
-Ba0 f7 actionDecl 'workflow.business.data.Data out;
+Ba0 f7 actionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f7 guid 155BB4329582E3C6 #txt
 Ba0 f7 requestEnabled true #txt
@@ -145,9 +145,9 @@ Ba0 f7 @C|.responsibility Everybody #txt
 Ba0 f7 81 370 30 30 -33 17 #rect
 Ba0 f7 @|StartRequestIcon #fIcon
 Ba0 f10 outLink browse.ivp #txt
-Ba0 f10 type workflow.business.data.Data #txt
+Ba0 f10 type workflow.businessdata.Data #txt
 Ba0 f10 inParamDecl '<> param;' #txt
-Ba0 f10 actionDecl 'workflow.business.data.Data out;
+Ba0 f10 actionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f10 guid 155BB4329582E3C6 #txt
 Ba0 f10 requestEnabled true #txt
@@ -187,9 +187,9 @@ Ba0 f11 targetWindow NEW:card: #txt
 Ba0 f11 targetDisplay TOP #txt
 Ba0 f11 richDialogId workflow.business.data.BusinessDataDossierBrowser #txt
 Ba0 f11 startMethod start() #txt
-Ba0 f11 type workflow.business.data.Data #txt
+Ba0 f11 type workflow.businessdata.Data #txt
 Ba0 f11 requestActionDecl '<> param;' #txt
-Ba0 f11 responseActionDecl 'workflow.business.data.Data out;
+Ba0 f11 responseActionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f11 responseMappingAction 'out=in;
 ' #txt
@@ -208,7 +208,7 @@ Ba0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ba0 f11 360 138 112 44 -22 -7 #rect
 Ba0 f11 @|RichDialogIcon #fIcon
-Ba0 f12 type workflow.business.data.Data #txt
+Ba0 f12 type workflow.businessdata.Data #txt
 Ba0 f12 529 145 30 30 0 15 #rect
 Ba0 f12 @|EndIcon #fIcon
 Ba0 f14 expr out #txt
@@ -227,14 +227,14 @@ Ba0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ba0 f2 80 34 384 60 -187 -24 #rect
 Ba0 f2 @|IBIcon #fIcon
-Ba0 f3 actionDecl 'workflow.business.data.Data out;
+Ba0 f3 actionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f3 actionTable 'out=in;
 ' #txt
-Ba0 f3 actionCode 'import workflow.business.data.Dossier;
+Ba0 f3 actionCode 'import workflow.businessdata.Dossier;
 
 ivy.repo.find(Long.valueOf(in.id), Dossier.class).delete();' #txt
-Ba0 f3 type workflow.business.data.Data #txt
+Ba0 f3 type workflow.businessdata.Data #txt
 Ba0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -247,11 +247,11 @@ Ba0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ba0 f3 166 490 112 44 -20 -7 #rect
 Ba0 f3 @|StepIcon #fIcon
 Ba0 f4 outLink delete.ivp #txt
-Ba0 f4 type workflow.business.data.Data #txt
+Ba0 f4 type workflow.businessdata.Data #txt
 Ba0 f4 inParamDecl '<java.lang.Number id> param;' #txt
 Ba0 f4 inParamTable 'out.id=param.id;
 ' #txt
-Ba0 f4 actionDecl 'workflow.business.data.Data out;
+Ba0 f4 actionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f4 guid 155BB4329582E3C6 #txt
 Ba0 f4 requestEnabled true #txt
@@ -289,16 +289,16 @@ Ba0 f4 85 498 30 30 -30 17 #rect
 Ba0 f4 @|StartRequestIcon #fIcon
 Ba0 f6 expr out #txt
 Ba0 f6 114 512 166 512 #arcP
-Ba0 f8 type workflow.business.data.Data #txt
+Ba0 f8 type workflow.businessdata.Data #txt
 Ba0 f8 529 497 30 30 0 15 #rect
 Ba0 f8 @|EndIcon #fIcon
 Ba0 f18 targetWindow NEW:card: #txt
 Ba0 f18 targetDisplay TOP #txt
 Ba0 f18 richDialogId workflow.business.data.BusinessDataDossierBrowser #txt
 Ba0 f18 startMethod start() #txt
-Ba0 f18 type workflow.business.data.Data #txt
+Ba0 f18 type workflow.businessdata.Data #txt
 Ba0 f18 requestActionDecl '<> param;' #txt
-Ba0 f18 responseActionDecl 'workflow.business.data.Data out;
+Ba0 f18 responseActionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f18 responseMappingAction 'out=in;
 ' #txt
@@ -321,14 +321,14 @@ Ba0 f24 expr out #txt
 Ba0 f24 278 512 360 512 #arcP
 Ba0 f17 expr out #txt
 Ba0 f17 472 512 529 512 #arcP
-Ba0 f25 actionDecl 'workflow.business.data.Data out;
+Ba0 f25 actionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f25 actionTable 'out=in;
 ' #txt
 Ba0 f25 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.DemoDataCreator;
 
 DemoDataCreator.createDemoDataIfNotExist();' #txt
-Ba0 f25 type workflow.business.data.Data #txt
+Ba0 f25 type workflow.businessdata.Data #txt
 Ba0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -358,7 +358,7 @@ Ba0 f16 expr out #txt
 Ba0 f16 360 320 416 182 #arcP
 Ba0 f16 1 416 320 #addKink
 Ba0 f16 0 0.8664662612862978 0 0 #arcLabel
->Proto Ba0 .type workflow.business.data.Data #txt
+>Proto Ba0 .type workflow.businessdata.Data #txt
 >Proto Ba0 .processKind NORMAL #txt
 >Proto Ba0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

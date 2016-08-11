@@ -1,5 +1,5 @@
 Address #class
-workflow.business.data #namespace
+workflow.businessdata #namespace
 zip String #field
 zip PERSISTENT #fieldModifier
 city String #field
