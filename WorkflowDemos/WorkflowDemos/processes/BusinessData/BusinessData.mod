@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 11 17:15:52 CEST 2016]
+[>Created: Thu Aug 11 17:24:57 CEST 2016]
 155BB4328F79B2D5 3.18 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
@@ -78,7 +78,7 @@ Ba0 f0 81 241 30 30 -31 17 #rect
 Ba0 f0 @|StartRequestIcon #fIcon
 Ba0 f5 targetWindow NEW:card: #txt
 Ba0 f5 targetDisplay TOP #txt
-Ba0 f5 richDialogId workflow.business.data.BusinessDataDossierModifier #txt
+Ba0 f5 richDialogId workflow.businessdata.BusinessDataDossierModifier #txt
 Ba0 f5 startMethod start(java.lang.Long) #txt
 Ba0 f5 type workflow.businessdata.Data #txt
 Ba0 f5 requestActionDecl '<java.lang.Long businessDataId> param;' #txt
@@ -185,7 +185,7 @@ Ba0 f10 82 145 30 30 -33 17 #rect
 Ba0 f10 @|StartRequestIcon #fIcon
 Ba0 f11 targetWindow NEW:card: #txt
 Ba0 f11 targetDisplay TOP #txt
-Ba0 f11 richDialogId workflow.business.data.BusinessDataDossierBrowser #txt
+Ba0 f11 richDialogId workflow.businessdata.BusinessDataDossierBrowser #txt
 Ba0 f11 startMethod start() #txt
 Ba0 f11 type workflow.businessdata.Data #txt
 Ba0 f11 requestActionDecl '<> param;' #txt
@@ -294,7 +294,7 @@ Ba0 f8 529 497 30 30 0 15 #rect
 Ba0 f8 @|EndIcon #fIcon
 Ba0 f18 targetWindow NEW:card: #txt
 Ba0 f18 targetDisplay TOP #txt
-Ba0 f18 richDialogId workflow.business.data.BusinessDataDossierBrowser #txt
+Ba0 f18 richDialogId workflow.businessdata.BusinessDataDossierBrowser #txt
 Ba0 f18 startMethod start() #txt
 Ba0 f18 type workflow.businessdata.Data #txt
 Ba0 f18 requestActionDecl '<> param;' #txt

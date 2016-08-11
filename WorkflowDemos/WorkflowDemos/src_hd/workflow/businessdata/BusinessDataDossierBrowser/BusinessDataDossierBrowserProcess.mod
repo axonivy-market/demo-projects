@@ -35,7 +35,7 @@ Bs0 @PushWFArc f17 '' #zField
 Bs0 @PushWFArc f15 '' #zField
 >Proto Bs0 Bs0 BusinessDataDossierBrowserProcess #zField
 Bs0 f0 guid 155BB5BDEFEF8285 #txt
-Bs0 f0 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f0 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f0 method start() #txt
 Bs0 f0 disableUIEvents true #txt
 Bs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
@@ -52,12 +52,12 @@ Bs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Bs0 f0 83 51 26 26 -20 15 #rect
 Bs0 f0 @|RichDialogInitStartIcon #fIcon
-Bs0 f1 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f1 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f1 339 51 26 26 0 12 #rect
 Bs0 f1 @|RichDialogProcessEndIcon #fIcon
 Bs0 f3 guid 155BB5BDF10FCA85 #txt
-Bs0 f3 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f3 actionDecl 'workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
+Bs0 f3 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f3 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
 ' #txt
 Bs0 f3 actionTable 'out=in;
 ' #txt
@@ -70,13 +70,13 @@ Bs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Bs0 f3 83 147 26 26 -16 12 #rect
 Bs0 f3 @|RichDialogProcessStartIcon #fIcon
-Bs0 f4 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f4 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f4 guid 155BB5BDF11AEBB5 #txt
 Bs0 f4 211 147 26 26 0 12 #rect
 Bs0 f4 @|RichDialogEndIcon #fIcon
 Bs0 f5 expr out #txt
 Bs0 f5 109 160 211 160 #arcP
-Bs0 f6 actionDecl 'workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
+Bs0 f6 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
 ' #txt
 Bs0 f6 actionTable 'out=in;
 ' #txt
@@ -89,7 +89,7 @@ for (int i = 0; i < in.businessData.size(); i++) {
   in.dossiers.add(in.businessData.get(i).value() as Dossier);
 }
 ' #txt
-Bs0 f6 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f6 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -106,8 +106,8 @@ Bs0 f7 109 64 168 64 #arcP
 Bs0 f2 expr out #txt
 Bs0 f2 280 64 339 64 #arcP
 Bs0 f8 guid 15627E1B09E15483 #txt
-Bs0 f8 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f8 actionDecl 'workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
+Bs0 f8 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f8 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
 ' #txt
 Bs0 f8 actionTable 'out=in;
 ' #txt
@@ -120,10 +120,10 @@ Bs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Bs0 f8 83 243 26 26 -19 12 #rect
 Bs0 f8 @|RichDialogProcessStartIcon #fIcon
-Bs0 f9 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f9 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f9 339 243 26 26 0 12 #rect
 Bs0 f9 @|RichDialogProcessEndIcon #fIcon
-Bs0 f11 actionDecl 'workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
+Bs0 f11 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
 ' #txt
 Bs0 f11 actionTable 'out=in;
 ' #txt
@@ -138,7 +138,7 @@ for (int i = 0; i < in.businessData.size(); i++) {
 }
 
 ' #txt
-Bs0 f11 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f11 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -155,8 +155,8 @@ Bs0 f12 109 256 168 256 #arcP
 Bs0 f10 expr out #txt
 Bs0 f10 280 256 339 256 #arcP
 Bs0 f13 guid 1562B2CE3F5EEE02 #txt
-Bs0 f13 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f13 actionDecl 'workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
+Bs0 f13 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f13 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
 ' #txt
 Bs0 f13 actionTable 'out=in;
 ' #txt
@@ -169,10 +169,10 @@ Bs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Bs0 f13 83 339 26 26 -48 12 #rect
 Bs0 f13 @|RichDialogProcessStartIcon #fIcon
-Bs0 f14 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f14 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f14 339 339 26 26 0 12 #rect
 Bs0 f14 @|RichDialogProcessEndIcon #fIcon
-Bs0 f16 actionDecl 'workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
+Bs0 f16 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
 ' #txt
 Bs0 f16 actionTable 'out=in;
 ' #txt
@@ -186,7 +186,7 @@ for (int i = 0; i < in.businessData.size(); i++) {
   in.dossiers.add(in.businessData.get(i).value() as Dossier);
 }
 ' #txt
-Bs0 f16 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f16 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -202,7 +202,7 @@ Bs0 f17 expr out #txt
 Bs0 f17 109 352 160 352 #arcP
 Bs0 f15 expr out #txt
 Bs0 f15 288 352 339 352 #arcP
->Proto Bs0 .type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+>Proto Bs0 .type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 >Proto Bs0 .processKind HTML_DIALOG #txt
 >Proto Bs0 -8 -8 16 16 16 26 #rect
 >Proto Bs0 '' #fIcon

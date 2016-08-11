@@ -1,5 +1,5 @@
 BusinessDataDossierBrowserData #class
-workflow.business.data.BusinessDataDossierBrowser #namespace
+workflow.businessdata.BusinessDataDossierBrowser #namespace
 dossiers java.util.List<workflow.businessdata.Dossier> #field
 dossiers PERSISTENT #fieldModifier
 businessData java.util.List<ch.ivyteam.ivy.business.data.store.BusinessData> #field
