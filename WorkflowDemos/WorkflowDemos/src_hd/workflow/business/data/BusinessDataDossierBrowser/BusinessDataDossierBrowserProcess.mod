@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 10 16:44:06 CEST 2016]
+[>Created: Thu Aug 11 16:13:35 CEST 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -82,7 +82,7 @@ Bs0 f6 actionTable 'out=in;
 ' #txt
 Bs0 f6 actionCode 'import workflow.business.data.Dossier;
 
-in.businessData = ivy.businessdata.findAll(Dossier.class);
+in.businessData = ivy.repo.findAll(Dossier.class);
 
 in.dossiers = null;
 for (int i = 0; i < in.businessData.size(); i++) {
@@ -130,12 +130,13 @@ Bs0 f11 actionTable 'out=in;
 Bs0 f11 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.QueryHelper;
 import workflow.business.data.Dossier;
 
-in.businessData = ivy.businessdata.searchRaw(Dossier.class,QueryHelper.queryFullText(in.searchText)).getAll();
+in.businessData = ivy.repo.searchRaw(Dossier.class,QueryHelper.queryFullText(in.searchText)).getAll();
 
 in.dossiers = null;
 for (int i = 0; i < in.businessData.size(); i++) {
   in.dossiers.add(in.businessData.get(i).value() as Dossier);
 }
+
 ' #txt
 Bs0 f11 type workflow.business.data.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -178,7 +179,7 @@ Bs0 f16 actionTable 'out=in;
 Bs0 f16 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.QueryHelper;
 import workflow.business.data.Dossier;
 
-in.businessData = ivy.businessdata.searchRaw(Dossier.class,QueryHelper.queryLastName(in.searchLastName)).getAll();
+in.businessData = ivy.repo.searchRaw(Dossier.class,QueryHelper.queryLastName(in.searchLastName)).getAll();
 
 in.dossiers = null;
 for (int i = 0; i < in.businessData.size(); i++) {

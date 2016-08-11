@@ -6,3 +6,5 @@ lastName String #field
 lastName PERSISTENT #fieldModifier
 firstName String #field
 firstName PERSISTENT #fieldModifier
+birthDate Date #field
+birthDate PERSISTENT #fieldModifier

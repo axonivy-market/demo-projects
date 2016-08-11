@@ -1,8 +1,4 @@
 Data #class
 workflow.business.data #namespace
-dossier workflow.business.data.Dossier #field
-dossier PERSISTENT #fieldModifier
-businessData ch.ivyteam.ivy.business.data.store.BusinessData #field
-businessData PERSISTENT #fieldModifier
 id Number #field
 id PERSISTENT #fieldModifier

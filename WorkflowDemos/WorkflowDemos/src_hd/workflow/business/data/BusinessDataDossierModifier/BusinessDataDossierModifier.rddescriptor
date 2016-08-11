@@ -5,17 +5,11 @@
         <name>start</name>
         <description>Default dialog start method.</description>
         <inputParameter>
-            <name>dossier</name>
+            <name>businessDataId</name>
             <description></description>
-            <parameterType>workflow.business.data.Dossier</parameterType>
+            <parameterType>java.lang.Long</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
-        <outputParameter>
-            <name>dossier</name>
-            <description></description>
-            <parameterType>workflow.business.data.Dossier</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>
