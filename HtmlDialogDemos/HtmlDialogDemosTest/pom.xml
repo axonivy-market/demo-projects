@@ -119,9 +119,8 @@
 								<include>**/WebTest*.java</include>
 							</includes>
 							<argLine>
-								-Dserver.test.baseUrl=${test.engine.url}
-								-Dserver.test.testApplication=${application}
-								-Dserver.test.isEngine=true
+								-Dtest.engine.url=${test.engine.url}
+								-Dtest.engine.app=${application}
 							</argLine>
 						</configuration>
 					</execution>

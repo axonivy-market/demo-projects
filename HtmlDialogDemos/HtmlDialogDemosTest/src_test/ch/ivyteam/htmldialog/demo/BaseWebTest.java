@@ -12,8 +12,8 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import ch.ivyteam.htmldialog.server.test.EngineUrl;
 import ch.ivyteam.htmldialog.server.test.FixVersionFirefox;
-import ch.ivyteam.htmldialog.server.test.ServerControl;
 
 import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
@@ -36,7 +36,7 @@ public abstract class BaseWebTest
 
     localDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-    if (ServerControl.isEngine())
+    if (!EngineUrl.isDesigner())
     {
       localDriver.manage().window().setPosition(new Point(-2000, 0));
     }
@@ -71,7 +71,7 @@ public abstract class BaseWebTest
 
   protected void startProcess(String pathToIvp)
   {
-    driver.get(ServerControl.getProcessStartLink("HtmlDialogDemos/" + pathToIvp));
+    driver.get(EngineUrl.process() + "/HtmlDialogDemos/" + pathToIvp);
   }
 
   protected void clearInput(By inputLocator)
