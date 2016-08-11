@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Aug 09 17:24:44 CEST 2016]
+[>Created: Wed Aug 10 16:44:06 CEST 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -80,12 +80,9 @@ Bs0 f6 actionDecl 'workflow.business.data.BusinessDataDossierBrowser.BusinessDat
 ' #txt
 Bs0 f6 actionTable 'out=in;
 ' #txt
-Bs0 f6 actionCode 'import ch.ivyteam.ivy.business.data.store.BusinessData;
-import workflow.business.data.Dossier;
-import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
+Bs0 f6 actionCode 'import workflow.business.data.Dossier;
 
-BusinessDataRepository repo = BusinessDataRepository.get();
-in.businessData = repo.findAll(Dossier.class);
+in.businessData = ivy.businessdata.findAll(Dossier.class);
 
 in.dossiers = null;
 for (int i = 0; i < in.businessData.size(); i++) {
@@ -131,12 +128,9 @@ Bs0 f11 actionDecl 'workflow.business.data.BusinessDataDossierBrowser.BusinessDa
 Bs0 f11 actionTable 'out=in;
 ' #txt
 Bs0 f11 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.QueryHelper;
-import ch.ivyteam.ivy.business.data.store.BusinessData;
 import workflow.business.data.Dossier;
-import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
 
-BusinessDataRepository repo = BusinessDataRepository.get();
-in.businessData = repo.searchRaw(Dossier.class,QueryHelper.queryFullText(in.searchText)).getAll();
+in.businessData = ivy.businessdata.searchRaw(Dossier.class,QueryHelper.queryFullText(in.searchText)).getAll();
 
 in.dossiers = null;
 for (int i = 0; i < in.businessData.size(); i++) {
@@ -182,12 +176,9 @@ Bs0 f16 actionDecl 'workflow.business.data.BusinessDataDossierBrowser.BusinessDa
 Bs0 f16 actionTable 'out=in;
 ' #txt
 Bs0 f16 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.QueryHelper;
-import ch.ivyteam.ivy.business.data.store.BusinessData;
 import workflow.business.data.Dossier;
-import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
 
-BusinessDataRepository repo = BusinessDataRepository.get();
-in.businessData = repo.searchRaw(Dossier.class,QueryHelper.queryLastName(in.searchLastName)).getAll();
+in.businessData = ivy.businessdata.searchRaw(Dossier.class,QueryHelper.queryLastName(in.searchLastName)).getAll();
 
 in.dossiers = null;
 for (int i = 0; i < in.businessData.size(); i++) {

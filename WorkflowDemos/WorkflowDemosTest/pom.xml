@@ -36,10 +36,15 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<!-- optional: fluent testing API -->
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
-			<version>3.2.0</version>
+			<version>3.5.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.axonivy.ivy.supplements</groupId>
+			<artifactId>primeui-tester</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -70,7 +75,7 @@
 		        		<phase>integration-test</phase>
 		        		<configuration>
 		        			<deployIarFile>${ch.ivyteam.ivy.project.demo:WorkflowDemos:iar}</deployIarFile>
-		        			<deployToEngineApplication>Portal</deployToEngineApplication>
+		        			<deployToEngineApplication>${test.application}</deployToEngineApplication>
 		        		</configuration>
 		        	</execution>
 		        	 <execution>
@@ -79,7 +84,7 @@
 		        		<phase>integration-test</phase>
 		        		<configuration>
 		        			<deployIarFile>${ch.ivyteam.ivy.project.demo:WorkflowDemosTest:iar}</deployIarFile>
-		        			<deployToEngineApplication>Portal</deployToEngineApplication>
+		        			<deployToEngineApplication>${test.application}</deployToEngineApplication>
 		        		</configuration>
 		        	</execution>
 		        	<execution>

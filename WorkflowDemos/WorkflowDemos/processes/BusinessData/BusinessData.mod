@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Jul 27 16:20:41 CEST 2016]
+[>Created: Wed Aug 10 16:42:20 CEST 2016]
 155BB4328F79B2D5 3.18 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
@@ -221,12 +221,8 @@ Ba0 f15 actionDecl 'workflow.business.data.Data out;
 ' #txt
 Ba0 f15 actionTable 'out=in;
 ' #txt
-Ba0 f15 actionCode 'import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
-
-BusinessDataRepository repo = BusinessDataRepository.get();
-
-in.dossier.person.address.city;
-in.businessData = repo.create(in.dossier);' #txt
+Ba0 f15 actionCode 'in.dossier.person.address.city;
+in.businessData = ivy.businessdata.create(in.dossier);' #txt
 Ba0 f15 type workflow.business.data.Data #txt
 Ba0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -246,10 +242,8 @@ Ba0 f19 actionDecl 'workflow.business.data.Data out;
 Ba0 f19 actionTable 'out=in;
 ' #txt
 Ba0 f19 actionCode 'import workflow.business.data.Dossier;
-import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
 
-BusinessDataRepository repo = BusinessDataRepository.get();
-in.businessData = repo.find(Long.valueOf(in.id), Dossier.class);
+in.businessData = ivy.businessdata.find(Long.valueOf(in.id), Dossier.class);
 in.dossier = in.businessData.value() as Dossier;' #txt
 Ba0 f19 type workflow.business.data.Data #txt
 Ba0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -273,7 +267,7 @@ Ba0 f21 actionDecl 'workflow.business.data.Data out;
 ' #txt
 Ba0 f21 actionTable 'out=in;
 ' #txt
-Ba0 f21 actionCode in.businessData.overwrite(); #txt
+Ba0 f21 actionCode in.businessData.save(); #txt
 Ba0 f21 type workflow.business.data.Data #txt
 Ba0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -300,26 +294,25 @@ Ba0 f1 2 0.17074705942848392 0 0 #arcLabel
 Ba0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Business Data Demo (Preliminary):
+        <name>Business Data Demo
 - Stores and loads Business Data of type Dossier
 Migration:
-- Store some data and add a new field to the dossier type. it''s that easy</name>
-        <nameStyle>167,7
+- Store some data and add a new field to the dossier type. It''s that easy!</name>
+        <nameStyle>18,0,7
+135,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ba0 f2 64 16 464 96 -226 -30 #rect
+Ba0 f2 72 26 400 76 -193 -32 #rect
 Ba0 f2 @|IBIcon #fIcon
 Ba0 f3 actionDecl 'workflow.business.data.Data out;
 ' #txt
 Ba0 f3 actionTable 'out=in;
 ' #txt
 Ba0 f3 actionCode 'import workflow.business.data.Dossier;
-import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
 
-BusinessDataRepository repo = BusinessDataRepository.get();
-repo.find(Long.valueOf(in.id), Dossier.class).delete();' #txt
+ivy.businessdata.find(Long.valueOf(in.id), Dossier.class).delete();' #txt
 Ba0 f3 type workflow.business.data.Data #txt
 Ba0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

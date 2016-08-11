@@ -10,8 +10,7 @@ import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
 
 public class DemoDataCreator {
 	
-	public static void createDemoDataIfNotExist()
-	{
+	public static void createDemoDataIfNotExist() {
 		BusinessDataRepository repo = BusinessDataRepository.get();
 		List<BusinessData<Dossier>> all = repo.findAll(Dossier.class);
 		
@@ -24,7 +23,7 @@ public class DemoDataCreator {
 			createDemoDossier("LOVELACE", "Ada", "Lovelace", "20000", "London", "England");
 			createDemoDossier("POINCARE", "Henri", "Poincaré", "54000", "Nancy", "France");
 			createDemoDossier("EULER", "Leonhard", "Euler", "4000", "Basel", "Switzerland");
-			createDemoDossier("VOLTA", "Alessandro", "Volta", "22100", "Como", "Italia");
+			createDemoDossier("VOLTA", "Alessandro", "Volta", "22100", "Como", "Italy");
 			createDemoDossier("NEUMANN", "John", "von Neumann", "1011", "Budapest", "Hungary");
 		}
 	}
