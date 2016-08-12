@@ -29,6 +29,11 @@
 					<p:outputLabel for="dossierPersonLastName" value="Last Name" />
 					<p:inputText id="dossierPersonLastName"
 						value="#{data.dossier.person.lastName}"></p:inputText>
+						
+					<p:outputLabel for="dossierPersonBirthDate" value="Birth date"/>
+					<p:calendar id="dossierPersonBirthDate" value="#{data.dossier.person.birthDate}" pattern="dd.MM.yyyy" size="10">
+						<f:convertDateTime pattern="dd.MM.yyyy" />
+					</p:calendar>
 
 					<p:outputLabel for="dossierPersonAddressZip" value="Zip" />
 					<p:inputText id="dossierPersonAddressZip"

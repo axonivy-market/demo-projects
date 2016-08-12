@@ -43,6 +43,8 @@
 				<p:column headerText="Person Name">
 					<h:outputText value="#{dossier.person.firstName} " />
 					<h:outputText value="#{dossier.person.lastName}" />
+					<br />
+					<h:outputText value="* #{dossier.person.birthDate}" />
 				</p:column>
 				<p:column headerText="Address">
 					<h:outputText value="#{dossier.person.address.zip} " />
