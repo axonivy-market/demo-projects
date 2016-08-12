@@ -1,4 +1,4 @@
-package workflow.business.data;
+package workflow.businessdata;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
