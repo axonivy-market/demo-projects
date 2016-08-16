@@ -6,9 +6,9 @@ businessData java.util.List<ch.ivyteam.ivy.business.data.store.BusinessData> #fi
 businessData PERSISTENT #fieldModifier
 searchText String #field
 searchText PERSISTENT #fieldModifier
-searchLastName String #field
-searchLastName PERSISTENT #fieldModifier
-searchBirthDateFromDate Date #field
-searchBirthDateFromDate PERSISTENT #fieldModifier
-searchBirthDateToDate Date #field
-searchBirthDateToDate PERSISTENT #fieldModifier
+searchFromDate Date #field
+searchFromDate PERSISTENT #fieldModifier
+searchToDate Date #field
+searchToDate PERSISTENT #fieldModifier
+searchType String #field
+searchType PERSISTENT #fieldModifier

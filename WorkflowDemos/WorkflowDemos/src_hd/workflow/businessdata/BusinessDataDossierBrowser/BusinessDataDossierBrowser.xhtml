@@ -10,47 +10,40 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">BusinessDataDossierBrowser</ui:define>
 		<ui:define name="content">
+			<style type="text/css">
+				.ui-panelgrid,
+				.ui-panelgrid .ui-panelgrid-cell {border: none;}
+			</style>
+		
+		    <h:outputStylesheet ></h:outputStylesheet>
 			<h3>Browse Dossiers</h3>
 
-			<p:link value="+ Create new Dossier"
-				href="#{ivy.html.startref('155BB4328F79B2D5/create.ivp')}" />
-			<br />
-
-			<p:accordionPanel>
-				<p:tab title="Full text Search">
-					<h:panelGrid columns="2" cellpadding="10">
-						<h:form>
-							<p:inputText value="#{data.searchText}" placeholder="Ask me anything" size="40" />
-							<p:commandButton value="Search" actionListener="#{logic.search}" update=":dossierTable" />
-						</h:form>
-					</h:panelGrid>
-				</p:tab>
-				<p:tab title="Search for last name">
-					<h:panelGrid columns="2" cellpadding="10">
-						<h:form>
-							<p:inputText value="#{data.searchLastName}" placeholder="e.g. Turing" size="40" />
-							<p:commandButton value="Search last name" actionListener="#{logic.searchLastName}" update=":dossierTable" />
-						</h:form>
-					</h:panelGrid>
-				</p:tab>
-				<p:tab title="Search for birth date">
-					<h:panelGrid columns="5" cellpadding="10">
-						<h:form>
-							<p:outputLabel value="From:" for="fromDate"/>
-							<p:calendar id="fromDate" value="#{data.searchBirthDateFromDate}" navigator="true" yearRange="c-50:c+10" pattern="dd.MM.yyyy">
-        						<p:ajax event="dateSelect" listener="#{logic.updateBirthDateToDate}" update="toDate" />
-        						<f:convertDateTime pattern="dd.MM.yyyy" />
-     						</p:calendar>
-							<p:outputLabel value="To:" for="toDate"/>
-    						<p:calendar id="toDate" value="#{data.searchBirthDateToDate}"  mindate="#{data.searchBirthDateFromDate.toJavaDate()}" navigator="true" yearRange="c-50:c+10" pattern="dd.MM.yyyy">
-		            			<f:convertDateTime pattern="dd.MM.yyyy" />
-    						</p:calendar>
-							<p:commandButton value="Search birth date" actionListener="#{logic.searchBirthDate}" update=":dossierTable" />
-						</h:form>
-					</h:panelGrid>
-				</p:tab>
-				
-			</p:accordionPanel>
+	        <h:form>
+				<p:panelGrid columns="2">
+				  <p:selectOneRadio id="search" value="#{data.searchType}" >
+				    <f:selectItem itemLabel="Full Text" itemValue="FullText"/>
+				    <f:selectItem itemLabel="Last Name" itemValue="LastName"/>
+				    <f:selectItem itemLabel="Birth Date" itemValue="BirthDate"/>
+				    <p:ajax update="searchBox"/>
+				  </p:selectOneRadio>
+				  <br/>
+				  <p:outputPanel id="searchBox">
+					<p:inputText value="#{data.searchText}" placeholder="Ask me anything" size="40" rendered="#{data.searchType=='FullText' || data.searchType=='LastName'}"/>
+					<p:panelGrid columns="4" id="DateRange" rendered="#{data.searchType=='BirthDate'}">
+						<p:outputLabel value="From:" for="fromDate"/>
+						<p:calendar id="fromDate" value="#{data.searchFromDate}" navigator="true" yearRange="c-50:c+10" pattern="dd.MM.yyyy">
+     						<p:ajax event="dateSelect" listener="#{logic.updateSearchToDate}" update="toDate" />
+     						<f:convertDateTime pattern="dd.MM.yyyy" />
+		  				</p:calendar>
+						<p:outputLabel value="To:" for="toDate"/>
+						<p:calendar id="toDate" value="#{data.searchToDate}"  mindate="#{data.searchFromDate.toJavaDate()}" navigator="true" yearRange="c-50:c+10" pattern="dd.MM.yyyy">
+		           			<f:convertDateTime pattern="dd.MM.yyyy" />
+		 				</p:calendar>
+					</p:panelGrid>
+				 </p:outputPanel>				  
+				 <p:commandButton value="Search" actionListener="#{logic.search}" update=":dossierTable" />
+				</p:panelGrid>
+		  	</h:form>
 
 			<p:dataTable var="dossier" value="#{data.dossiers}" rowIndexVar="rowIndex" id="dossierTable">
 
@@ -78,6 +71,12 @@
 				</p:column>
 
 			</p:dataTable>
+
+			<div align="left" style="float:left">
+				<p:link value="+ Create new Dossier"
+				href="#{ivy.html.startref('155BB4328F79B2D5/create.ivp')}" />
+				<br />
+			</div>
 
 			<div align="right">
 				<p:link value="Show all dossiers"
