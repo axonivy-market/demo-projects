@@ -8,3 +8,7 @@ searchText String #field
 searchText PERSISTENT #fieldModifier
 searchLastName String #field
 searchLastName PERSISTENT #fieldModifier
+searchBirthDateFromDate Date #field
+searchBirthDateFromDate PERSISTENT #fieldModifier
+searchBirthDateToDate Date #field
+searchBirthDateToDate PERSISTENT #fieldModifier

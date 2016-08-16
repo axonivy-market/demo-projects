@@ -33,6 +33,23 @@
 						</h:form>
 					</h:panelGrid>
 				</p:tab>
+				<p:tab title="Search for birth date">
+					<h:panelGrid columns="5" cellpadding="10">
+						<h:form>
+							<p:outputLabel value="From:" for="fromDate"/>
+							<p:calendar id="fromDate" value="#{data.searchBirthDateFromDate}" navigator="true" yearRange="c-50:c+10" pattern="dd.MM.yyyy">
+        						<p:ajax event="dateSelect" listener="#{logic.updateBirthDateToDate}" update="toDate" />
+        						<f:convertDateTime pattern="dd.MM.yyyy" />
+     						</p:calendar>
+							<p:outputLabel value="To:" for="toDate"/>
+    						<p:calendar id="toDate" value="#{data.searchBirthDateToDate}"  mindate="#{data.searchBirthDateFromDate.toJavaDate()}" navigator="true" yearRange="c-50:c+10" pattern="dd.MM.yyyy">
+		            			<f:convertDateTime pattern="dd.MM.yyyy" />
+    						</p:calendar>
+							<p:commandButton value="Search birth date" actionListener="#{logic.searchBirthDate}" update=":dossierTable" />
+						</h:form>
+					</h:panelGrid>
+				</p:tab>
+				
 			</p:accordionPanel>
 
 			<p:dataTable var="dossier" value="#{data.dossiers}" rowIndexVar="rowIndex" id="dossierTable">

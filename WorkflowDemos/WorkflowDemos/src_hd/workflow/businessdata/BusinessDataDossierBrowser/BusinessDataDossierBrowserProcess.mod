@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Aug 12 17:08:36 CEST 2016]
+[>Created: Tue Aug 16 11:23:21 CEST 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -33,6 +33,16 @@ Bs0 @RichDialogProcessEnd f14 '' #zField
 Bs0 @GridStep f16 '' #zField
 Bs0 @PushWFArc f17 '' #zField
 Bs0 @PushWFArc f15 '' #zField
+Bs0 @RichDialogProcessStart f18 '' #zField
+Bs0 @RichDialogProcessStart f19 '' #zField
+Bs0 @RichDialogProcessEnd f20 '' #zField
+Bs0 @RichDialogProcessEnd f21 '' #zField
+Bs0 @GridStep f22 '' #zField
+Bs0 @GridStep f23 '' #zField
+Bs0 @PushWFArc f24 '' #zField
+Bs0 @PushWFArc f25 '' #zField
+Bs0 @PushWFArc f26 '' #zField
+Bs0 @PushWFArc f27 '' #zField
 >Proto Bs0 Bs0 BusinessDataDossierBrowserProcess #zField
 Bs0 f0 guid 155BB5BDEFEF8285 #txt
 Bs0 f0 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
@@ -130,7 +140,11 @@ Bs0 f11 actionTable 'out=in;
 Bs0 f11 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.QueryHelper;
 import workflow.businessdata.Dossier;
 
-in.businessData = ivy.repo.search(Dossier.class).allFields().containsWordPattern(in.searchText).execute().getAll();
+in.businessData = ivy.repo.search(Dossier.class)
+													.allFields()
+													.containsWordPattern(in.searchText)
+													.execute()
+													.getAll();
 
 in.dossiers = null;
 for (int i = 0; i < in.businessData.size(); i++) {
@@ -179,7 +193,11 @@ Bs0 f16 actionTable 'out=in;
 Bs0 f16 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.QueryHelper;
 import workflow.businessdata.Dossier;
 
-in.businessData = ivy.repo.search(Dossier.class).textField("person.lastName").containsWordPattern(in.searchLastName).execute().getAll();
+in.businessData = ivy.repo.search(Dossier.class)
+													.textField("person.lastName")
+													.containsWordPattern(in.searchLastName)
+													.execute()
+													.getAll();
 
 in.dossiers = null;
 for (int i = 0; i < in.businessData.size(); i++) {
@@ -202,6 +220,104 @@ Bs0 f17 expr out #txt
 Bs0 f17 109 352 160 352 #arcP
 Bs0 f15 expr out #txt
 Bs0 f15 288 352 339 352 #arcP
+Bs0 f18 guid 15692721CDB5DA12 #txt
+Bs0 f18 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f18 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
+' #txt
+Bs0 f18 actionTable 'out=in;
+' #txt
+Bs0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>searchBirthDate</name>
+        <nameStyle>15,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bs0 f18 83 435 26 26 -44 15 #rect
+Bs0 f18 @|RichDialogProcessStartIcon #fIcon
+Bs0 f19 guid 15692726A4D2F2CF #txt
+Bs0 f19 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f19 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
+' #txt
+Bs0 f19 actionTable 'out=in;
+' #txt
+Bs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>updateBirthDateToDate</name>
+        <nameStyle>21,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bs0 f19 499 435 26 26 -64 15 #rect
+Bs0 f19 @|RichDialogProcessStartIcon #fIcon
+Bs0 f20 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f20 339 435 26 26 0 12 #rect
+Bs0 f20 @|RichDialogProcessEndIcon #fIcon
+Bs0 f21 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f21 755 435 26 26 0 12 #rect
+Bs0 f21 @|RichDialogProcessEndIcon #fIcon
+Bs0 f22 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
+' #txt
+Bs0 f22 actionTable 'out=in;
+' #txt
+Bs0 f22 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.QueryHelper;
+import workflow.businessdata.Dossier;
+
+in.businessData = ivy.repo.search(Dossier.class)
+													.dateTimeField("person.birthDate")
+													.isInDateRange(in.searchBirthdateFromDate,in.searchBirthdateToDate)
+													.execute()
+													.getAll();
+
+in.dossiers = null;
+for (int i = 0; i < in.businessData.size(); i++) {
+  in.dossiers.add(in.businessData.get(i).value() as Dossier);
+}
+' #txt
+Bs0 f22 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>search for birthdate</name>
+        <nameStyle>20,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bs0 f22 168 426 112 44 -53 -8 #rect
+Bs0 f22 @|StepIcon #fIcon
+Bs0 f23 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
+' #txt
+Bs0 f23 actionTable 'out=in;
+' #txt
+Bs0 f23 actionCode 'if (in.searchBirthDateToDate < in.searchBirthDateFromDate)
+{
+	in.searchBirthDateToDate = in.searchBirthDateFromDate;
+}' #txt
+Bs0 f23 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>toDate=fromDate</name>
+        <nameStyle>15,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bs0 f23 584 426 112 44 -47 -8 #rect
+Bs0 f23 @|StepIcon #fIcon
+Bs0 f24 expr out #txt
+Bs0 f24 109 448 168 448 #arcP
+Bs0 f25 expr out #txt
+Bs0 f25 280 448 339 448 #arcP
+Bs0 f26 expr out #txt
+Bs0 f26 525 448 584 448 #arcP
+Bs0 f27 expr out #txt
+Bs0 f27 696 448 755 448 #arcP
 >Proto Bs0 .type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 >Proto Bs0 .processKind HTML_DIALOG #txt
 >Proto Bs0 -8 -8 16 16 16 26 #rect
@@ -220,3 +336,11 @@ Bs0 f13 mainOut f17 tail #connect
 Bs0 f17 head f16 mainIn #connect
 Bs0 f16 mainOut f15 tail #connect
 Bs0 f15 head f14 mainIn #connect
+Bs0 f18 mainOut f24 tail #connect
+Bs0 f24 head f22 mainIn #connect
+Bs0 f22 mainOut f25 tail #connect
+Bs0 f25 head f20 mainIn #connect
+Bs0 f19 mainOut f26 tail #connect
+Bs0 f26 head f23 mainIn #connect
+Bs0 f23 mainOut f27 tail #connect
+Bs0 f27 head f21 mainIn #connect
