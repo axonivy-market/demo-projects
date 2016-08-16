@@ -2,7 +2,5 @@ BusinessDataDossierModifierData #class
 workflow.businessdata.BusinessDataDossierModifier #namespace
 dossier workflow.businessdata.Dossier #field
 dossier PERSISTENT #fieldModifier
-businessData ch.ivyteam.ivy.business.data.store.BusinessData #field
-businessData PERSISTENT #fieldModifier
 id Long #field
 id PERSISTENT #fieldModifier

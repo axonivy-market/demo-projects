@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Aug 16 12:36:44 CEST 2016]
+[>Created: Tue Aug 16 15:21:57 CEST 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -96,12 +96,7 @@ Bs0 f6 actionTable 'out=in;
 ' #txt
 Bs0 f6 actionCode 'import workflow.businessdata.Dossier;
 
-in.businessData = ivy.repo.findAll(Dossier.class);
-
-in.dossiers = null;
-for (int i = 0; i < in.businessData.size(); i++) {
-  in.dossiers.add(in.businessData.get(i).value() as Dossier);
-}
+in.dossiers = ivy.repo.search(Dossier.class).execute().getAll();
 ' #txt
 Bs0 f6 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -141,19 +136,13 @@ Bs0 f11 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDat
 ' #txt
 Bs0 f11 actionTable 'out=in;
 ' #txt
-Bs0 f11 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.QueryHelper;
-import workflow.businessdata.Dossier;
+Bs0 f11 actionCode 'import workflow.businessdata.Dossier;
 
-in.businessData = ivy.repo.search(Dossier.class)
+in.dossiers = ivy.repo.search(Dossier.class)
 													.allFields()
 													.containsWordPattern(in.searchText)
 													.execute()
 													.getAll();
-
-in.dossiers = null;
-for (int i = 0; i < in.businessData.size(); i++) {
-  in.dossiers.add(in.businessData.get(i).value() as Dossier);
-}
 
 ' #txt
 Bs0 f11 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
@@ -177,19 +166,13 @@ Bs0 f16 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDat
 ' #txt
 Bs0 f16 actionTable 'out=in;
 ' #txt
-Bs0 f16 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.QueryHelper;
-import workflow.businessdata.Dossier;
+Bs0 f16 actionCode 'import workflow.businessdata.Dossier;
 
-in.businessData = ivy.repo.search(Dossier.class)
+in.dossiers = ivy.repo.search(Dossier.class)
 													.textField("person.lastName")
 													.containsWordPattern(in.searchText)
 													.execute()
 													.getAll();
-
-in.dossiers = null;
-for (int i = 0; i < in.businessData.size(); i++) {
-  in.dossiers.add(in.businessData.get(i).value() as Dossier);
-}
 ' #txt
 Bs0 f16 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -232,20 +215,13 @@ Bs0 f22 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDat
 ' #txt
 Bs0 f22 actionTable 'out=in;
 ' #txt
-Bs0 f22 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.QueryHelper;
-import workflow.businessdata.Dossier;
+Bs0 f22 actionCode 'import workflow.businessdata.Dossier;
 
-in.businessData = ivy.repo.search(Dossier.class)
+in.dossiers = ivy.repo.search(Dossier.class)
 													.dateTimeField("person.birthDate")
 													.isInDateRange(in.searchFromDate,in.searchToDate)
 													.execute()
-													.getAll();
-
-in.dossiers = null;
-for (int i = 0; i < in.businessData.size(); i++) {
-  in.dossiers.add(in.businessData.get(i).value() as Dossier);
-}
-' #txt
+													.getAll();' #txt
 Bs0 f22 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

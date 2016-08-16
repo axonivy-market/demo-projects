@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 11 17:16:31 CEST 2016]
+[>Created: Tue Aug 16 15:21:57 CEST 2016]
 155BB4D0A6771B1B 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierModifierProcess Big #zClass
@@ -70,7 +70,7 @@ Bs0 f8 actionDecl 'workflow.businessdata.BusinessDataDossierModifier.BusinessDat
 ' #txt
 Bs0 f8 actionTable 'out=in;
 ' #txt
-Bs0 f8 actionCode in.businessData.save(); #txt
+Bs0 f8 actionCode ivy.repo.save(in.dossier); #txt
 Bs0 f8 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 Bs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -115,8 +115,7 @@ Bs0 f7 actionDecl 'workflow.businessdata.BusinessDataDossierModifier.BusinessDat
 ' #txt
 Bs0 f7 actionTable 'out=in;
 ' #txt
-Bs0 f7 actionCode 'in.dossier.person.address;
-in.businessData = ivy.repo.create(in.dossier);' #txt
+Bs0 f7 actionCode 'in.dossier.person.address; // initialize for JSF' #txt
 Bs0 f7 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 Bs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -140,8 +139,7 @@ Bs0 f12 actionTable 'out=in;
 ' #txt
 Bs0 f12 actionCode 'import workflow.businessdata.Dossier;
 
-in.businessData = ivy.repo.find(in.id,Dossier.class);
-in.dossier = in.businessData.value() as Dossier;' #txt
+in.dossier = ivy.repo.find(in.id,Dossier.class) as Dossier;' #txt
 Bs0 f12 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 Bs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

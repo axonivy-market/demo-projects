@@ -2,8 +2,6 @@ BusinessDataDossierBrowserData #class
 workflow.businessdata.BusinessDataDossierBrowser #namespace
 dossiers java.util.List<workflow.businessdata.Dossier> #field
 dossiers PERSISTENT #fieldModifier
-businessData java.util.List<ch.ivyteam.ivy.business.data.store.BusinessData> #field
-businessData PERSISTENT #fieldModifier
 searchText String #field
 searchText PERSISTENT #fieldModifier
 searchFromDate Date #field

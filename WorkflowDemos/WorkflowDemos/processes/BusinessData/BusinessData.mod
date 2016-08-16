@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 11 17:24:57 CEST 2016]
+[>Created: Tue Aug 16 15:19:41 CEST 2016]
 155BB4328F79B2D5 3.18 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
@@ -233,7 +233,8 @@ Ba0 f3 actionTable 'out=in;
 ' #txt
 Ba0 f3 actionCode 'import workflow.businessdata.Dossier;
 
-ivy.repo.find(Long.valueOf(in.id), Dossier.class).delete();' #txt
+Long id = in.id.longValue();
+ivy.repo.delete(ivy.repo.find(id, Dossier.class));' #txt
 Ba0 f3 type workflow.businessdata.Data #txt
 Ba0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

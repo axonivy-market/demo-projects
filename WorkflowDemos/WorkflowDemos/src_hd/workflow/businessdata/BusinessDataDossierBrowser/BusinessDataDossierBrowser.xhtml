@@ -64,10 +64,10 @@
 				</p:column>
 				<p:column headerText="Operations">
 					<p:link value="update"
-						href="#{ivy.html.startref('155BB4328F79B2D5/update.ivp')}?id=#{data.businessData[rowIndex].getId()} " />
+						href="#{ivy.html.startref('155BB4328F79B2D5/update.ivp')}?id=#{ivy.repo.getId(dossier)} " />
 					<br />
 					<p:link value="delete"
-						href="#{ivy.html.startref('155BB4328F79B2D5/delete.ivp')}?id=#{data.businessData[rowIndex].getId()} " />
+						href="#{ivy.html.startref('155BB4328F79B2D5/delete.ivp')}?id=#{ivy.repo.getId(dossier)} " />
 				</p:column>
 
 			</p:dataTable>
