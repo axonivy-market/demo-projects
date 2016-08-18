@@ -3,13 +3,19 @@
     <autoScreenshot>true</autoScreenshot>
     <startMethod>
         <name>start</name>
-        <description>Default dialog start method.</description>
+        <description></description>
         <inputParameter>
             <name>businessDataId</name>
             <description></description>
             <parameterType>java.lang.Long</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
+        <outputParameter>
+            <name>id</name>
+            <description></description>
+            <parameterType>Number</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>

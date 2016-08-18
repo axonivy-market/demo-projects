@@ -54,7 +54,9 @@
 					<h:outputText value="#{dossier.person.firstName} " />
 					<h:outputText value="#{dossier.person.lastName}" />
 					<br />
-					<h:outputText value="* #{dossier.person.birthDate}" />
+					* <h:outputText value="#{dossier.person.birthDate}">
+  						<f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
+					</h:outputText>
 				</p:column>
 				<p:column headerText="Address">
 					<h:outputText value="#{dossier.person.address.zip} " />
@@ -71,6 +73,9 @@
 				</p:column>
 
 			</p:dataTable>
+			
+            <p:growl showDetail="true" id="infoGrowl" escape="false" sticky="true"/>
+           	<f:event type="preRenderView" listener="#{logic.displayMessage}" />
 
 			<div align="left" style="float:left">
 				<p:link value="+ Create new Dossier"

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Aug 16 15:19:41 CEST 2016]
+[>Created: Thu Aug 18 11:40:08 CEST 2016]
 155BB4328F79B2D5 3.18 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
@@ -87,6 +87,7 @@ Ba0 f5 requestMappingAction 'param.businessDataId=in.id;
 Ba0 f5 responseActionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f5 responseMappingAction 'out=in;
+out.id=result.id;
 ' #txt
 Ba0 f5 windowConfiguration '* ' #txt
 Ba0 f5 isAsynch false #txt
@@ -147,6 +148,8 @@ Ba0 f7 @|StartRequestIcon #fIcon
 Ba0 f10 outLink browse.ivp #txt
 Ba0 f10 type workflow.businessdata.Data #txt
 Ba0 f10 inParamDecl '<> param;' #txt
+Ba0 f10 inParamTable 'out.id=-1;
+' #txt
 Ba0 f10 actionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f10 guid 155BB4329582E3C6 #txt
@@ -186,9 +189,11 @@ Ba0 f10 @|StartRequestIcon #fIcon
 Ba0 f11 targetWindow NEW:card: #txt
 Ba0 f11 targetDisplay TOP #txt
 Ba0 f11 richDialogId workflow.businessdata.BusinessDataDossierBrowser #txt
-Ba0 f11 startMethod start() #txt
+Ba0 f11 startMethod start(Number) #txt
 Ba0 f11 type workflow.businessdata.Data #txt
-Ba0 f11 requestActionDecl '<> param;' #txt
+Ba0 f11 requestActionDecl '<Number id> param;' #txt
+Ba0 f11 requestMappingAction 'param.id=in.id;
+' #txt
 Ba0 f11 responseActionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f11 responseMappingAction 'out=in;
@@ -296,9 +301,11 @@ Ba0 f8 @|EndIcon #fIcon
 Ba0 f18 targetWindow NEW:card: #txt
 Ba0 f18 targetDisplay TOP #txt
 Ba0 f18 richDialogId workflow.businessdata.BusinessDataDossierBrowser #txt
-Ba0 f18 startMethod start() #txt
+Ba0 f18 startMethod start(Number) #txt
 Ba0 f18 type workflow.businessdata.Data #txt
-Ba0 f18 requestActionDecl '<> param;' #txt
+Ba0 f18 requestActionDecl '<Number id> param;' #txt
+Ba0 f18 requestMappingAction 'param.id=-1;
+' #txt
 Ba0 f18 responseActionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f18 responseMappingAction 'out=in;

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Aug 16 15:21:57 CEST 2016]
+[>Created: Thu Aug 18 12:10:23 CEST 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -15,14 +15,11 @@ Bs0 @MessageFlowInP-0n messageIn messageIn #zField
 Bs0 @MessageFlowOutP-0n messageOut messageOut #zField
 Bs0 @TextInP .xml .xml #zField
 Bs0 @TextInP .responsibility .responsibility #zField
-Bs0 @RichDialogInitStart f0 '' #zField
 Bs0 @RichDialogProcessEnd f1 '' #zField
 Bs0 @RichDialogProcessStart f3 '' #zField
 Bs0 @RichDialogEnd f4 '' #zField
 Bs0 @PushWFArc f5 '' #zField
 Bs0 @GridStep f6 '' #zField
-Bs0 @PushWFArc f7 '' #zField
-Bs0 @PushWFArc f2 '' #zField
 Bs0 @RichDialogProcessStart f8 '' #zField
 Bs0 @RichDialogProcessEnd f9 '' #zField
 Bs0 @GridStep f11 '' #zField
@@ -43,29 +40,15 @@ Bs0 @PushWFArc f29 '' #zField
 Bs0 @PushWFArc f12 '' #zField
 Bs0 @PushWFArc f13 '' #zField
 Bs0 @PushWFArc f17 '' #zField
+Bs0 @RichDialogProcessEnd f31 '' #zField
+Bs0 @GridStep f33 '' #zField
+Bs0 @PushWFArc f32 '' #zField
+Bs0 @PushWFArc f2 '' #zField
+Bs0 @RichDialogMethodStart f18 '' #zField
+Bs0 @PushWFArc f24 '' #zField
+Bs0 @RichDialogInitStart f30 '' #zField
+Bs0 @PushWFArc f34 '' #zField
 >Proto Bs0 Bs0 BusinessDataDossierBrowserProcess #zField
-Bs0 f0 guid 155BB5BDEFEF8285 #txt
-Bs0 f0 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f0 method start() #txt
-Bs0 f0 disableUIEvents true #txt
-Bs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Bs0 f0 inParameterMapAction 'out.searchType="FullText";
-' #txt
-Bs0 f0 outParameterDecl '<> result;
-' #txt
-Bs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start()</name>
-        <nameStyle>7,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Bs0 f0 83 51 26 26 -20 15 #rect
-Bs0 f0 @|RichDialogInitStartIcon #fIcon
 Bs0 f1 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f1 339 51 26 26 0 12 #rect
 Bs0 f1 @|RichDialogProcessEndIcon #fIcon
@@ -96,7 +79,7 @@ Bs0 f6 actionTable 'out=in;
 ' #txt
 Bs0 f6 actionCode 'import workflow.businessdata.Dossier;
 
-in.dossiers = ivy.repo.search(Dossier.class).execute().getAll();
+in.dossiers = ivy.repo.search(Dossier.class).limit(20).execute().getAll();
 ' #txt
 Bs0 f6 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -110,10 +93,6 @@ Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Bs0 f6 168 42 112 44 -42 -7 #rect
 Bs0 f6 @|StepIcon #fIcon
-Bs0 f7 expr out #txt
-Bs0 f7 109 64 168 64 #arcP
-Bs0 f2 expr out #txt
-Bs0 f2 280 64 339 64 #arcP
 Bs0 f8 guid 15627E1B09E15483 #txt
 Bs0 f8 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f8 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
@@ -141,6 +120,7 @@ Bs0 f11 actionCode 'import workflow.businessdata.Dossier;
 in.dossiers = ivy.repo.search(Dossier.class)
 													.allFields()
 													.containsWordPattern(in.searchText)
+													.limit(20)
 													.execute()
 													.getAll();
 
@@ -171,6 +151,7 @@ Bs0 f16 actionCode 'import workflow.businessdata.Dossier;
 in.dossiers = ivy.repo.search(Dossier.class)
 													.textField("person.lastName")
 													.containsWordPattern(in.searchText)
+													.limit(20)
 													.execute()
 													.getAll();
 ' #txt
@@ -220,6 +201,7 @@ Bs0 f22 actionCode 'import workflow.businessdata.Dossier;
 in.dossiers = ivy.repo.search(Dossier.class)
 													.dateTimeField("person.birthDate")
 													.isInDateRange(in.searchFromDate,in.searchToDate)
+													.limit(20)
 													.execute()
 													.getAll();' #txt
 Bs0 f22 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
@@ -277,16 +259,95 @@ Bs0 f17 expr in #txt
 Bs0 f17 192 272 264 448 #arcP
 Bs0 f17 1 192 448 #addKink
 Bs0 f17 0 0.5387700534759359 0 0 #arcLabel
+Bs0 f31 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f31 339 627 26 26 0 12 #rect
+Bs0 f31 @|RichDialogProcessEndIcon #fIcon
+Bs0 f33 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
+' #txt
+Bs0 f33 actionTable 'out=in;
+' #txt
+Bs0 f33 actionCode 'import org.primefaces.event.SelectEvent;
+import javax.faces.context.FacesContext;
+
+if (in.lastEditedId != -1)
+{
+	// create message for pop-up (p:growl)
+	FacesContext.getCurrentInstance().addMessage(null,
+		new javax.faces.application.FacesMessage(
+		"Search index might not be immediately up-to-date", 
+		"If your newly created dossier does not show up in the list yet, then press search to refresh the list."
+	));
+}
+in.lastEditedId = -1;' #txt
+Bs0 f33 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Display growl
+message (index)</name>
+        <nameStyle>21,7
+8,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bs0 f33 160 618 128 44 -43 -16 #rect
+Bs0 f33 @|StepIcon #fIcon
+Bs0 f32 expr out #txt
+Bs0 f32 288 640 339 640 #arcP
+Bs0 f2 expr out #txt
+Bs0 f2 280 64 339 64 #arcP
+Bs0 f18 guid 1569CFB6E45ABE22 #txt
+Bs0 f18 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f18 method displayMessage() #txt
+Bs0 f18 disableUIEvents false #txt
+Bs0 f18 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+Bs0 f18 outParameterDecl '<> result;
+' #txt
+Bs0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>displayMessage()</name>
+    </language>
+</elementInfo>
+' #txt
+Bs0 f18 83 627 26 26 -49 15 #rect
+Bs0 f18 @|RichDialogMethodStartIcon #fIcon
+Bs0 f24 expr out #txt
+Bs0 f24 109 640 160 640 #arcP
+Bs0 f30 guid 1569D05C213FCF19 #txt
+Bs0 f30 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f30 method start(Number) #txt
+Bs0 f30 disableUIEvents true #txt
+Bs0 f30 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<java.lang.Number id> param = methodEvent.getInputArguments();
+' #txt
+Bs0 f30 inParameterMapAction 'out.lastEditedId=param.id;
+out.searchType="FullText";
+' #txt
+Bs0 f30 outParameterDecl '<> result;
+' #txt
+Bs0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(Number)</name>
+        <nameStyle>13,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bs0 f30 83 51 26 26 -38 15 #rect
+Bs0 f30 @|RichDialogInitStartIcon #fIcon
+Bs0 f34 expr out #txt
+Bs0 f34 109 64 168 64 #arcP
 >Proto Bs0 .type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 >Proto Bs0 .processKind HTML_DIALOG #txt
 >Proto Bs0 -8 -8 16 16 16 26 #rect
 >Proto Bs0 '' #fIcon
 Bs0 f3 mainOut f5 tail #connect
 Bs0 f5 head f4 mainIn #connect
-Bs0 f0 mainOut f7 tail #connect
-Bs0 f7 head f6 mainIn #connect
-Bs0 f6 mainOut f2 tail #connect
-Bs0 f2 head f1 mainIn #connect
 Bs0 f11 mainOut f10 tail #connect
 Bs0 f10 head f9 mainIn #connect
 Bs0 f16 mainOut f15 tail #connect
@@ -305,3 +366,11 @@ Bs0 f28 out f13 tail #connect
 Bs0 f13 head f16 mainIn #connect
 Bs0 f28 out f17 tail #connect
 Bs0 f17 head f22 mainIn #connect
+Bs0 f33 mainOut f32 tail #connect
+Bs0 f32 head f31 mainIn #connect
+Bs0 f6 mainOut f2 tail #connect
+Bs0 f2 head f1 mainIn #connect
+Bs0 f18 mainOut f24 tail #connect
+Bs0 f24 head f33 mainIn #connect
+Bs0 f30 mainOut f34 tail #connect
+Bs0 f34 head f6 mainIn #connect

@@ -7,9 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import test.web.BaseWebTest;
 
 public class WebTestBusinessData extends BaseWebTest {
+	private static final String BROWSE_DOSSIERS_LINK = "155BB4328F79B2D5/browse.ivp";
+	
 	@Test
 	public void testBrowseBusinessData() throws Exception {
-		startProcess("155BB4328F79B2D5/browse.ivp");
+		startProcess(BROWSE_DOSSIERS_LINK);
 		assertPersonIsDisplayed("Euler");
 	}
 	
@@ -17,6 +19,8 @@ public class WebTestBusinessData extends BaseWebTest {
 	public void createBusinessData() throws Exception {
 		startProcess("155BB4328F79B2D5/create.ivp");
 		createPersonDossier("Bernoulli");
+		Thread.sleep(1000);
+		startProcess(BROWSE_DOSSIERS_LINK); // load again
 		assertPersonIsDisplayed("Bernoulli");
 	}
 	

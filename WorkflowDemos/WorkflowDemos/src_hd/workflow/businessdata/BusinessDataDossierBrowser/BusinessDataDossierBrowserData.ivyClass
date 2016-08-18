@@ -10,3 +10,5 @@ searchToDate Date #field
 searchToDate PERSISTENT #fieldModifier
 searchType String #field
 searchType PERSISTENT #fieldModifier
+lastEditedId Number #field
+lastEditedId PERSISTENT #fieldModifier

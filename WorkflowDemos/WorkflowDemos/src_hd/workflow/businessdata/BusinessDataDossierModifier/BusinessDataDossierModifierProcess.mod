@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Aug 16 15:21:57 CEST 2016]
+[>Created: Thu Aug 18 12:04:02 CEST 2016]
 155BB4D0A6771B1B 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierModifierProcess Big #zClass
@@ -70,7 +70,7 @@ Bs0 f8 actionDecl 'workflow.businessdata.BusinessDataDossierModifier.BusinessDat
 ' #txt
 Bs0 f8 actionTable 'out=in;
 ' #txt
-Bs0 f8 actionCode ivy.repo.save(in.dossier); #txt
+Bs0 f8 actionCode 'in.id = ivy.repo.save(in.dossier).getId();' #txt
 Bs0 f8 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 Bs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -96,7 +96,9 @@ Bs0 f10 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 ' #txt
 Bs0 f10 inParameterMapAction 'out.id=param.businessDataId;
 ' #txt
-Bs0 f10 outParameterDecl '<> result;
+Bs0 f10 outParameterDecl '<java.lang.Number id> result;
+' #txt
+Bs0 f10 outParameterMapAction 'result.id=in.id;
 ' #txt
 Bs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
