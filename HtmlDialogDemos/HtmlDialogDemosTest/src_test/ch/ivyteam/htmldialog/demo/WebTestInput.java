@@ -83,7 +83,7 @@ public class WebTestInput extends BaseWebTest
     await(ExpectedConditions
             .textToBePresentInElementLocated(By.id("outputData"), "name=team, firstname=ivy"));
   }
-  
+
   @Test
   public void testForm_customProjectValidator()
   {
@@ -91,7 +91,7 @@ public class WebTestInput extends BaseWebTest
     WebElement mailInputField = driver.findElement(By.id("Form:Mail"));
     mailInputField.sendKeys("notValidMail[at]test.ch");
     mailInputField.submit();
-    
+
     WebElement errorIcon = findMessageInErrorState(By.id("Form:MailMessage")).findElement(By.tagName("span"));
     assertThat(errorIcon).as("Message Icon should show a mail validation error").isNotNull();
     String errorTitle = errorIcon.getAttribute("title");
@@ -101,21 +101,21 @@ public class WebTestInput extends BaseWebTest
   private WebElement findMessageInErrorState(By by)
   {
     return await(new ExpectedCondition<WebElement>()
-    {
-      @Override
-      public WebElement apply(WebDriver localDriver)
       {
-        WebElement message = localDriver.findElement(by);
-        if (message != null)
+        @Override
+        public WebElement apply(WebDriver localDriver)
         {
-          if (message.getAttribute("class").contains("ui-message-error"))
+          WebElement message = localDriver.findElement(by);
+          if (message != null)
           {
-            return message;
+            if (message.getAttribute("class").contains("ui-message-error"))
+            {
+              return message;
+            }
           }
+          return null;
         }
-        return null;
-      }
-    });
+      });
   }
 
   @Test
@@ -134,6 +134,7 @@ public class WebTestInput extends BaseWebTest
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:textAreaLabel"), testContent));
     driver.findElement(By.id("demoForm:downloadFileButton")).click();
     File downloadedFile = new File(ffDownloadDir, tempFile.getName());
+    System.out.println("Content of file is:" + Files.readAllLines(downloadedFile.toPath()));
     assertThat(downloadedFile).hasContent(testContent);
   }
 
