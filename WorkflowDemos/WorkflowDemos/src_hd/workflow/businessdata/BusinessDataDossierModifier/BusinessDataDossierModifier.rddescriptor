@@ -7,13 +7,13 @@
         <inputParameter>
             <name>businessDataId</name>
             <description></description>
-            <parameterType>java.lang.Long</parameterType>
+            <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
         <outputParameter>
             <name>id</name>
             <description></description>
-            <parameterType>Number</parameterType>
+            <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
     </startMethod>

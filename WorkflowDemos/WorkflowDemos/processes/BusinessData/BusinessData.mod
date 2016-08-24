@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 18 11:40:08 CEST 2016]
+[>Created: Wed Aug 24 10:12:05 CEST 2016]
 155BB4328F79B2D5 3.18 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
@@ -38,7 +38,7 @@ Ba0 @PushWFArc f16 '' #zField
 Ba0 f0 outLink create.ivp #txt
 Ba0 f0 type workflow.businessdata.Data #txt
 Ba0 f0 inParamDecl '<> param;' #txt
-Ba0 f0 inParamTable 'out.id=-1;
+Ba0 f0 inParamTable 'out.id="";
 ' #txt
 Ba0 f0 actionDecl 'workflow.businessdata.Data out;
 ' #txt
@@ -79,9 +79,9 @@ Ba0 f0 @|StartRequestIcon #fIcon
 Ba0 f5 targetWindow NEW:card: #txt
 Ba0 f5 targetDisplay TOP #txt
 Ba0 f5 richDialogId workflow.businessdata.BusinessDataDossierModifier #txt
-Ba0 f5 startMethod start(java.lang.Long) #txt
+Ba0 f5 startMethod start(String) #txt
 Ba0 f5 type workflow.businessdata.Data #txt
-Ba0 f5 requestActionDecl '<java.lang.Long businessDataId> param;' #txt
+Ba0 f5 requestActionDecl '<String businessDataId> param;' #txt
 Ba0 f5 requestMappingAction 'param.businessDataId=in.id;
 ' #txt
 Ba0 f5 responseActionDecl 'workflow.businessdata.Data out;
@@ -106,7 +106,7 @@ Ba0 f5 248 298 112 44 -20 -7 #rect
 Ba0 f5 @|RichDialogIcon #fIcon
 Ba0 f7 outLink update.ivp #txt
 Ba0 f7 type workflow.businessdata.Data #txt
-Ba0 f7 inParamDecl '<java.lang.Number id> param;' #txt
+Ba0 f7 inParamDecl '<java.lang.String id> param;' #txt
 Ba0 f7 inParamTable 'out.id=param.id;
 ' #txt
 Ba0 f7 actionDecl 'workflow.businessdata.Data out;
@@ -114,7 +114,7 @@ Ba0 f7 actionDecl 'workflow.businessdata.Data out;
 Ba0 f7 guid 155BB4329582E3C6 #txt
 Ba0 f7 requestEnabled true #txt
 Ba0 f7 triggerEnabled false #txt
-Ba0 f7 callSignature update(Number) #txt
+Ba0 f7 callSignature update(String) #txt
 Ba0 f7 persist false #txt
 Ba0 f7 startName '5.3: Update Dossier' #txt
 Ba0 f7 taskData 'TaskTriggered.ROL=Everybody
@@ -148,7 +148,7 @@ Ba0 f7 @|StartRequestIcon #fIcon
 Ba0 f10 outLink browse.ivp #txt
 Ba0 f10 type workflow.businessdata.Data #txt
 Ba0 f10 inParamDecl '<> param;' #txt
-Ba0 f10 inParamTable 'out.id=-1;
+Ba0 f10 inParamTable 'out.id="";
 ' #txt
 Ba0 f10 actionDecl 'workflow.businessdata.Data out;
 ' #txt
@@ -189,9 +189,9 @@ Ba0 f10 @|StartRequestIcon #fIcon
 Ba0 f11 targetWindow NEW:card: #txt
 Ba0 f11 targetDisplay TOP #txt
 Ba0 f11 richDialogId workflow.businessdata.BusinessDataDossierBrowser #txt
-Ba0 f11 startMethod start(Number) #txt
+Ba0 f11 startMethod start(String) #txt
 Ba0 f11 type workflow.businessdata.Data #txt
-Ba0 f11 requestActionDecl '<Number id> param;' #txt
+Ba0 f11 requestActionDecl '<String id> param;' #txt
 Ba0 f11 requestMappingAction 'param.id=in.id;
 ' #txt
 Ba0 f11 responseActionDecl 'workflow.businessdata.Data out;
@@ -238,8 +238,7 @@ Ba0 f3 actionTable 'out=in;
 ' #txt
 Ba0 f3 actionCode 'import workflow.businessdata.Dossier;
 
-Long id = in.id.longValue();
-ivy.repo.delete(ivy.repo.find(id, Dossier.class));' #txt
+ivy.repo.delete(ivy.repo.find(in.id, Dossier.class));' #txt
 Ba0 f3 type workflow.businessdata.Data #txt
 Ba0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -254,7 +253,7 @@ Ba0 f3 166 490 112 44 -20 -7 #rect
 Ba0 f3 @|StepIcon #fIcon
 Ba0 f4 outLink delete.ivp #txt
 Ba0 f4 type workflow.businessdata.Data #txt
-Ba0 f4 inParamDecl '<java.lang.Number id> param;' #txt
+Ba0 f4 inParamDecl '<java.lang.String id> param;' #txt
 Ba0 f4 inParamTable 'out.id=param.id;
 ' #txt
 Ba0 f4 actionDecl 'workflow.businessdata.Data out;
@@ -262,7 +261,7 @@ Ba0 f4 actionDecl 'workflow.businessdata.Data out;
 Ba0 f4 guid 155BB4329582E3C6 #txt
 Ba0 f4 requestEnabled true #txt
 Ba0 f4 triggerEnabled false #txt
-Ba0 f4 callSignature delete(Number) #txt
+Ba0 f4 callSignature delete(String) #txt
 Ba0 f4 persist false #txt
 Ba0 f4 startName '5.4: Delete Dossier' #txt
 Ba0 f4 taskData 'TaskTriggered.ROL=Everybody
@@ -301,10 +300,10 @@ Ba0 f8 @|EndIcon #fIcon
 Ba0 f18 targetWindow NEW:card: #txt
 Ba0 f18 targetDisplay TOP #txt
 Ba0 f18 richDialogId workflow.businessdata.BusinessDataDossierBrowser #txt
-Ba0 f18 startMethod start(Number) #txt
+Ba0 f18 startMethod start(String) #txt
 Ba0 f18 type workflow.businessdata.Data #txt
-Ba0 f18 requestActionDecl '<Number id> param;' #txt
-Ba0 f18 requestMappingAction 'param.id=-1;
+Ba0 f18 requestActionDecl '<String id> param;' #txt
+Ba0 f18 requestMappingAction 'param.id="";
 ' #txt
 Ba0 f18 responseActionDecl 'workflow.businessdata.Data out;
 ' #txt

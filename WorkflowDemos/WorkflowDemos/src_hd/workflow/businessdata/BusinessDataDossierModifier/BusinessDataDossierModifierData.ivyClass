@@ -2,5 +2,5 @@ BusinessDataDossierModifierData #class
 workflow.businessdata.BusinessDataDossierModifier #namespace
 dossier workflow.businessdata.Dossier #field
 dossier PERSISTENT #fieldModifier
-id Long #field
+id String #field
 id PERSISTENT #fieldModifier

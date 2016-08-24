@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 18 12:04:02 CEST 2016]
+[>Created: Wed Aug 24 11:07:29 CEST 2016]
 155BB4D0A6771B1B 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierModifierProcess Big #zClass
@@ -89,27 +89,27 @@ Bs0 f5 expr out #txt
 Bs0 f5 328 256 435 256 #arcP
 Bs0 f10 guid 1567A0F5766912B9 #txt
 Bs0 f10 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
-Bs0 f10 method start(java.lang.Long) #txt
+Bs0 f10 method start(String) #txt
 Bs0 f10 disableUIEvents true #txt
 Bs0 f10 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.Long businessDataId> param = methodEvent.getInputArguments();
+<java.lang.String businessDataId> param = methodEvent.getInputArguments();
 ' #txt
 Bs0 f10 inParameterMapAction 'out.id=param.businessDataId;
 ' #txt
-Bs0 f10 outParameterDecl '<java.lang.Number id> result;
+Bs0 f10 outParameterDecl '<java.lang.String id> result;
 ' #txt
 Bs0 f10 outParameterMapAction 'result.id=in.id;
 ' #txt
 Bs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(Long)</name>
-        <nameStyle>11,5,7
+        <name>start(String)</name>
+        <nameStyle>13,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f10 83 51 26 26 -30 15 #rect
+Bs0 f10 83 51 26 26 -33 15 #rect
 Bs0 f10 @|RichDialogInitStartIcon #fIcon
 Bs0 f0 expr out #txt
 Bs0 f0 109 64 176 64 #arcP
@@ -131,7 +131,7 @@ Bs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Bs0 f7 264 42 112 44 -17 -8 #rect
 Bs0 f7 @|StepIcon #fIcon
 Bs0 f11 expr in #txt
-Bs0 f11 outCond 'in.id == -1' #txt
+Bs0 f11 outCond in.id.isEmpty() #txt
 Bs0 f11 208 64 264 64 #arcP
 Bs0 f2 expr out #txt
 Bs0 f2 376 64 435 64 #arcP

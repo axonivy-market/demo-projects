@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 18 12:10:23 CEST 2016]
+[>Created: Wed Aug 24 11:08:01 CEST 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -269,7 +269,7 @@ Bs0 f33 actionTable 'out=in;
 Bs0 f33 actionCode 'import org.primefaces.event.SelectEvent;
 import javax.faces.context.FacesContext;
 
-if (in.lastEditedId != -1)
+if (!in.lastEditedId.isEmpty())
 {
 	// create message for pop-up (p:growl)
 	FacesContext.getCurrentInstance().addMessage(null,
@@ -278,7 +278,7 @@ if (in.lastEditedId != -1)
 		"If your newly created dossier does not show up in the list yet, then press search to refresh the list."
 	));
 }
-in.lastEditedId = -1;' #txt
+in.lastEditedId = "";' #txt
 Bs0 f33 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -319,10 +319,10 @@ Bs0 f24 expr out #txt
 Bs0 f24 109 640 160 640 #arcP
 Bs0 f30 guid 1569D05C213FCF19 #txt
 Bs0 f30 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f30 method start(Number) #txt
+Bs0 f30 method start(String) #txt
 Bs0 f30 disableUIEvents true #txt
 Bs0 f30 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.Number id> param = methodEvent.getInputArguments();
+<java.lang.String id> param = methodEvent.getInputArguments();
 ' #txt
 Bs0 f30 inParameterMapAction 'out.lastEditedId=param.id;
 out.searchType="FullText";
@@ -332,13 +332,13 @@ Bs0 f30 outParameterDecl '<> result;
 Bs0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(Number)</name>
+        <name>start(String)</name>
         <nameStyle>13,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f30 83 51 26 26 -38 15 #rect
+Bs0 f30 83 51 26 26 -33 15 #rect
 Bs0 f30 @|RichDialogInitStartIcon #fIcon
 Bs0 f34 expr out #txt
 Bs0 f34 109 64 168 64 #arcP

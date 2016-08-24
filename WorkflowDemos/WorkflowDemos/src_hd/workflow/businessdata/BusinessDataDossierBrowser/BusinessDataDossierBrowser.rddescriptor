@@ -11,7 +11,7 @@
         <inputParameter>
             <name>id</name>
             <description></description>
-            <parameterType>Number</parameterType>
+            <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </startMethod>
