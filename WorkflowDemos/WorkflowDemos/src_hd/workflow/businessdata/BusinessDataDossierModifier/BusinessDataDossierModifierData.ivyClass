@@ -4,3 +4,5 @@ dossier workflow.businessdata.Dossier #field
 dossier PERSISTENT #fieldModifier
 id String #field
 id PERSISTENT #fieldModifier
+title String #field
+title PERSISTENT #fieldModifier

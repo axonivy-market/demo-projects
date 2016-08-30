@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 24 11:07:29 CEST 2016]
+[>Created: Mon Aug 29 16:57:02 CEST 2016]
 155BB4D0A6771B1B 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierModifierProcess Big #zClass
@@ -31,6 +31,8 @@ Bs0 @GridStep f12 '' #zField
 Bs0 @RichDialogProcessEnd f13 '' #zField
 Bs0 @PushWFArc f14 '' #zField
 Bs0 @PushWFArc f15 '' #zField
+Bs0 @RichDialogInitStart f16 '' #zField
+Bs0 @PushWFArc f17 '' #zField
 >Proto Bs0 Bs0 BusinessDataDossierModifierProcess #zField
 Bs0 f1 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 Bs0 f1 435 51 26 26 0 12 #rect
@@ -48,11 +50,11 @@ Bs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f3 83 243 26 26 -16 12 #rect
+Bs0 f3 83 339 26 26 -16 12 #rect
 Bs0 f3 @|RichDialogProcessStartIcon #fIcon
 Bs0 f4 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 Bs0 f4 guid 155BB4D0A94981CF #txt
-Bs0 f4 435 243 26 26 0 12 #rect
+Bs0 f4 435 339 26 26 0 12 #rect
 Bs0 f4 @|RichDialogEndIcon #fIcon
 Bs0 f6 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -81,12 +83,12 @@ Bs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f8 216 234 112 44 -13 -8 #rect
+Bs0 f8 216 330 112 44 -13 -8 #rect
 Bs0 f8 @|StepIcon #fIcon
 Bs0 f9 expr out #txt
-Bs0 f9 109 256 216 256 #arcP
+Bs0 f9 109 352 216 352 #arcP
 Bs0 f5 expr out #txt
-Bs0 f5 328 256 435 256 #arcP
+Bs0 f5 328 352 435 352 #arcP
 Bs0 f10 guid 1567A0F5766912B9 #txt
 Bs0 f10 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 Bs0 f10 method start(String) #txt
@@ -95,6 +97,7 @@ Bs0 f10 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 <java.lang.String businessDataId> param = methodEvent.getInputArguments();
 ' #txt
 Bs0 f10 inParameterMapAction 'out.id=param.businessDataId;
+out.title="Modify Dossier";
 ' #txt
 Bs0 f10 outParameterDecl '<java.lang.String id> result;
 ' #txt
@@ -163,6 +166,34 @@ Bs0 f14 1 192 160 #addKink
 Bs0 f14 1 0.1556203489120305 0 0 #arcLabel
 Bs0 f15 expr out #txt
 Bs0 f15 376 160 435 160 #arcP
+Bs0 f16 guid 156D6BFA70854D75 #txt
+Bs0 f16 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
+Bs0 f16 method start(String,String) #txt
+Bs0 f16 disableUIEvents true #txt
+Bs0 f16 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<java.lang.String businessDataId,java.lang.String title> param = methodEvent.getInputArguments();
+' #txt
+Bs0 f16 inParameterMapAction 'out.id=param.businessDataId;
+out.title=param.title;
+' #txt
+Bs0 f16 outParameterDecl '<> result;
+' #txt
+Bs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start(String,String)</name>
+        <nameStyle>20,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bs0 f16 83 243 26 26 -49 15 #rect
+Bs0 f16 @|RichDialogInitStartIcon #fIcon
+Bs0 f17 expr out #txt
+Bs0 f17 109 256 184 72 #arcP
+Bs0 f17 1 160 256 #addKink
+Bs0 f17 2 160 96 #addKink
+Bs0 f17 1 0.4566802756146623 0 0 #arcLabel
 >Proto Bs0 .type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 >Proto Bs0 .processKind HTML_DIALOG #txt
 >Proto Bs0 -8 -8 16 16 16 26 #rect
@@ -181,3 +212,5 @@ Bs0 f6 out f14 tail #connect
 Bs0 f14 head f12 mainIn #connect
 Bs0 f12 mainOut f15 tail #connect
 Bs0 f15 head f13 mainIn #connect
+Bs0 f16 mainOut f17 tail #connect
+Bs0 f17 head f6 in #connect

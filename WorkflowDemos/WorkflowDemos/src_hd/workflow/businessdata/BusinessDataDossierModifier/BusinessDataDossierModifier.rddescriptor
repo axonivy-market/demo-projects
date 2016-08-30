@@ -17,6 +17,22 @@
             <nullPermitted>false</nullPermitted>
         </outputParameter>
     </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>businessDataId</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>title</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </startMethod>
     <property>
         <name>guid</name>
         <value>155BB4D0A782F9C2</value>

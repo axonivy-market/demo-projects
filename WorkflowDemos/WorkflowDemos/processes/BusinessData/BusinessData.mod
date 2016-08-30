@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 24 10:12:05 CEST 2016]
+[>Created: Tue Aug 30 10:53:11 CEST 2016]
 155BB4328F79B2D5 3.18 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
@@ -22,7 +22,6 @@ Ba0 @EndTask f12 '' #zField
 Ba0 @PushWFArc f14 '' #zField
 Ba0 @InfoButton f2 '' #zField
 Ba0 @GridStep f3 '' #zField
-Ba0 @StartRequest f4 '' #zField
 Ba0 @PushWFArc f6 '' #zField
 Ba0 @EndTask f8 '' #zField
 Ba0 @RichDialog f18 '' #zField
@@ -34,6 +33,18 @@ Ba0 @PushWFArc f13 '' #zField
 Ba0 @PushWFArc f15 '' #zField
 Ba0 @PushWFArc f9 '' #zField
 Ba0 @PushWFArc f16 '' #zField
+Ba0 @StartRequest f4 '' #zField
+Ba0 @RichDialog f21 '' #zField
+Ba0 @EndTask f23 '' #zField
+Ba0 @InfoButton f30 '' #zField
+Ba0 @AnnotationArc f32 '' #zField
+Ba0 @RichDialog f28 '' #zField
+Ba0 @PushWFArc f29 '' #zField
+Ba0 @PushWFArc f27 '' #zField
+Ba0 @TaskSwitchSimple f31 '' #zField
+Ba0 @PushWFArc f34 '' #zField
+Ba0 @StartRequest f19 '' #zField
+Ba0 @TkArc f22 '' #zField
 >Proto Ba0 Ba0 BusinessData #zField
 Ba0 f0 outLink create.ivp #txt
 Ba0 f0 type workflow.businessdata.Data #txt
@@ -54,7 +65,7 @@ TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
-Ba0 f0 showInStartList 1 #txt
+Ba0 f0 showInStartList 0 #txt
 Ba0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
 import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
@@ -157,7 +168,7 @@ Ba0 f10 requestEnabled true #txt
 Ba0 f10 triggerEnabled false #txt
 Ba0 f10 callSignature browse() #txt
 Ba0 f10 persist false #txt
-Ba0 f10 startName '5.1: Browse Dossiers' #txt
+Ba0 f10 startName '5: Browse Dossiers (Business Data)' #txt
 Ba0 f10 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -249,51 +260,10 @@ Ba0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ba0 f3 166 490 112 44 -20 -7 #rect
+Ba0 f3 168 490 112 44 -20 -7 #rect
 Ba0 f3 @|StepIcon #fIcon
-Ba0 f4 outLink delete.ivp #txt
-Ba0 f4 type workflow.businessdata.Data #txt
-Ba0 f4 inParamDecl '<java.lang.String id> param;' #txt
-Ba0 f4 inParamTable 'out.id=param.id;
-' #txt
-Ba0 f4 actionDecl 'workflow.businessdata.Data out;
-' #txt
-Ba0 f4 guid 155BB4329582E3C6 #txt
-Ba0 f4 requestEnabled true #txt
-Ba0 f4 triggerEnabled false #txt
-Ba0 f4 callSignature delete(String) #txt
-Ba0 f4 persist false #txt
-Ba0 f4 startName '5.4: Delete Dossier' #txt
-Ba0 f4 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
-Ba0 f4 showInStartList 0 #txt
-Ba0 f4 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
-Ba0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>delete.ivp</name>
-        <nameStyle>10,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ba0 f4 @C|.responsibility Everybody #txt
-Ba0 f4 85 498 30 30 -30 17 #rect
-Ba0 f4 @|StartRequestIcon #fIcon
 Ba0 f6 expr out #txt
-Ba0 f6 114 512 166 512 #arcP
+Ba0 f6 110 512 168 512 #arcP
 Ba0 f8 type workflow.businessdata.Data #txt
 Ba0 f8 529 497 30 30 0 15 #rect
 Ba0 f8 @|EndIcon #fIcon
@@ -325,7 +295,7 @@ Ba0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ba0 f18 360 490 112 44 -22 -7 #rect
 Ba0 f18 @|RichDialogIcon #fIcon
 Ba0 f24 expr out #txt
-Ba0 f24 278 512 360 512 #arcP
+Ba0 f24 280 512 360 512 #arcP
 Ba0 f17 expr out #txt
 Ba0 f17 472 512 529 512 #arcP
 Ba0 f25 actionDecl 'workflow.businessdata.Data out;
@@ -365,6 +335,239 @@ Ba0 f16 expr out #txt
 Ba0 f16 360 320 416 182 #arcP
 Ba0 f16 1 416 320 #addKink
 Ba0 f16 0 0.8664662612862978 0 0 #arcLabel
+Ba0 f4 outLink delete.ivp #txt
+Ba0 f4 type workflow.businessdata.Data #txt
+Ba0 f4 inParamDecl '<java.lang.String id> param;' #txt
+Ba0 f4 inParamTable 'out.id=param.id;
+' #txt
+Ba0 f4 actionDecl 'workflow.businessdata.Data out;
+' #txt
+Ba0 f4 guid 155BB4329582E3C6 #txt
+Ba0 f4 requestEnabled true #txt
+Ba0 f4 triggerEnabled false #txt
+Ba0 f4 callSignature delete(String) #txt
+Ba0 f4 persist false #txt
+Ba0 f4 startName '5.4: Delete Dossier' #txt
+Ba0 f4 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+Ba0 f4 showInStartList 0 #txt
+Ba0 f4 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Ba0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>delete.ivp</name>
+        <nameStyle>10,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ba0 f4 @C|.responsibility Everybody #txt
+Ba0 f4 81 498 30 30 -30 17 #rect
+Ba0 f4 @|StartRequestIcon #fIcon
+Ba0 f21 targetWindow NEW:card: #txt
+Ba0 f21 targetDisplay TOP #txt
+Ba0 f21 richDialogId workflow.businessdata.BusinessDataDossierModifier #txt
+Ba0 f21 startMethod start(String,String) #txt
+Ba0 f21 type workflow.businessdata.Data #txt
+Ba0 f21 requestActionDecl '<String businessDataId, String title> param;' #txt
+Ba0 f21 requestMappingAction 'param.businessDataId=in.id;
+param.title="Dossier Verification";
+' #txt
+Ba0 f21 responseActionDecl 'workflow.businessdata.Data out;
+' #txt
+Ba0 f21 responseMappingAction 'out=in;
+' #txt
+Ba0 f21 windowConfiguration '* ' #txt
+Ba0 f21 isAsynch false #txt
+Ba0 f21 isInnerRd false #txt
+Ba0 f21 userContext '* ' #txt
+Ba0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>dossier
+verification</name>
+        <nameStyle>20,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ba0 f21 264 618 112 44 -29 -16 #rect
+Ba0 f21 @|RichDialogIcon #fIcon
+Ba0 f23 type workflow.businessdata.Data #txt
+Ba0 f23 593 625 30 30 0 15 #rect
+Ba0 f23 @|EndIcon #fIcon
+Ba0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>This use case highlights the handling of the Business Data over a Task Switch. The important point is, 
+that the process data only holds the ID of the Business Data. The Business Data is loaded from the repo 
+with the stored ID after the Task Switch. This is required, because the Business Data references a different 
+instance after the Task Switch (save point). 
+
+E.g. the following script is exectued after a Task Switch and works as expected:
+  // load the related Business Data with id
+  out.myBusinessData = ivy.repo.find(in.myId, MyBusinessData.class);
+  // modify Business Data
+  out.myBusinessData.setTitle("Changed");
+  // update the loaded Business Data
+  ivy.repo.update(out.myBusinessData);
+
+E.g. the following script is exectued after a Task Switch and does not work as expected, because 
+the Business Data from the process data is used, without loading it before:
+  // use the stored Business Data in the process data
+  out.myBusinessData = in.myBusinessData;
+  // modify Business Data
+  out.myBusinessData.setTitle("Changed");
+  // will store a new entry of the Business Data and will NOT update it
+  ivy.repo.update(out.myBusinessData);
+  
+</name>
+        <nameStyle>364,7
+2,7
+80,5,7
+1,7
+44,3,7
+213,3,7
+175,5,7
+278,3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ba0 f30 72 714 592 396 -292 -190 #rect
+Ba0 f30 @|IBIcon #fIcon
+Ba0 f32 368 714 320 662 #arcP
+Ba0 f28 targetWindow NEW:card: #txt
+Ba0 f28 targetDisplay TOP #txt
+Ba0 f28 richDialogId workflow.businessdata.BusinessDataDossierBrowser #txt
+Ba0 f28 startMethod start(String) #txt
+Ba0 f28 type workflow.businessdata.Data #txt
+Ba0 f28 requestActionDecl '<String id> param;' #txt
+Ba0 f28 requestMappingAction 'param.id="";
+' #txt
+Ba0 f28 responseActionDecl 'workflow.businessdata.Data out;
+' #txt
+Ba0 f28 responseMappingAction 'out=in;
+' #txt
+Ba0 f28 windowConfiguration '* ' #txt
+Ba0 f28 isAsynch false #txt
+Ba0 f28 isInnerRd false #txt
+Ba0 f28 userContext '* ' #txt
+Ba0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>browse</name>
+        <nameStyle>6,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ba0 f28 424 618 112 44 -22 -7 #rect
+Ba0 f28 @|RichDialogIcon #fIcon
+Ba0 f29 expr out #txt
+Ba0 f29 376 640 424 640 #arcP
+Ba0 f27 expr out #txt
+Ba0 f27 536 640 593 640 #arcP
+Ba0 f31 actionDecl 'workflow.businessdata.Data out;
+' #txt
+Ba0 f31 actionTable 'out=in1;
+' #txt
+Ba0 f31 outTypes "workflow.businessdata.Data" #txt
+Ba0 f31 outLinks "TaskA.ivp" #txt
+Ba0 f31 taskData 'TaskA.EXPRI=2
+TaskA.EXROL=Everybody
+TaskA.EXTYPE=0
+TaskA.NAM=Verification of Person <%\=ivy.repo.find(in1.id, workflow.businessdata.Dossier.class).name%>
+TaskA.PRI=2
+TaskA.ROL=Everybody
+TaskA.SKIP_TASK_LIST=false
+TaskA.TYPE=0' #txt
+Ba0 f31 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
+List<TaskDefinition> taskDefinitions;
+TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskDef = new TaskDefinition();
+taskDef.setStartRequestPath("TaskA.ivp");
+taskDef.setName(engine.expandMacros("Verification of Person <%=ivy.repo.find(in1.id, workflow.businessdata.Dossier.class).name%>"));
+taskDef.setAutoStartTask(false);
+taskDef.setActivator("Everybody");
+taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskDef.setExpiryActivator("Everybody");
+taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskDefinitions.add(taskDef);
+' #txt
+Ba0 f31 type workflow.businessdata.Data #txt
+Ba0 f31 template "" #txt
+Ba0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>verification task</name>
+        <nameStyle>17,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ba0 f31 177 625 30 30 -43 -33 #rect
+Ba0 f31 @|TaskSwitchSimpleIcon #fIcon
+Ba0 f34 expr data #txt
+Ba0 f34 outCond ivp=="TaskA.ivp" #txt
+Ba0 f34 207 640 264 640 #arcP
+Ba0 f19 outLink verifyDossier.ivp #txt
+Ba0 f19 type workflow.businessdata.Data #txt
+Ba0 f19 inParamDecl '<java.lang.String id> param;' #txt
+Ba0 f19 inParamTable 'out.id=param.id;
+' #txt
+Ba0 f19 actionDecl 'workflow.businessdata.Data out;
+' #txt
+Ba0 f19 guid 156DA9F04C668F05 #txt
+Ba0 f19 requestEnabled true #txt
+Ba0 f19 triggerEnabled false #txt
+Ba0 f19 callSignature verifyDossier(String) #txt
+Ba0 f19 persist false #txt
+Ba0 f19 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+Ba0 f19 showInStartList 0 #txt
+Ba0 f19 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Ba0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>verifyDossier.ivp</name>
+        <nameStyle>17,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ba0 f19 @C|.responsibility Everybody #txt
+Ba0 f19 81 625 30 30 -44 17 #rect
+Ba0 f19 @|StartRequestIcon #fIcon
+Ba0 f22 expr out #txt
+Ba0 f22 type workflow.businessdata.Data #txt
+Ba0 f22 var in1 #txt
+Ba0 f22 111 640 177 640 #arcP
 >Proto Ba0 .type workflow.businessdata.Data #txt
 >Proto Ba0 .processKind NORMAL #txt
 >Proto Ba0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -392,3 +595,13 @@ Ba0 f7 mainOut f9 tail #connect
 Ba0 f9 head f5 mainIn #connect
 Ba0 f5 mainOut f16 tail #connect
 Ba0 f16 head f11 mainIn #connect
+Ba0 f30 ao f32 tail #connect
+Ba0 f32 head f21 @CG|ai #connect
+Ba0 f21 mainOut f29 tail #connect
+Ba0 f29 head f28 mainIn #connect
+Ba0 f28 mainOut f27 tail #connect
+Ba0 f27 head f23 mainIn #connect
+Ba0 f31 out f34 tail #connect
+Ba0 f34 head f21 mainIn #connect
+Ba0 f19 mainOut f22 tail #connect
+Ba0 f22 head f31 in #connect
