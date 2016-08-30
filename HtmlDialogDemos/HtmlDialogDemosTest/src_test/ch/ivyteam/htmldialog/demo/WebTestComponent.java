@@ -1,9 +1,14 @@
 package ch.ivyteam.htmldialog.demo;
 
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestComponent extends BaseWebTest
@@ -35,18 +40,26 @@ public class WebTestComponent extends BaseWebTest
   @Test
   public void testCallbackDemo() throws Exception
   {
-    startProcess("145D1849FACF0EAA/ComponentEventListenerDemo.ivp");
+    try
+    {
+      startProcess("145D1849FACF0EAA/ComponentEventListenerDemo.ivp");
 
-    retryingFindClick(By.xpath("//*[@id='componentForm:detailListComponent:personsTable_data']/tr[2]"));
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("componentForm:selectionResult_container"), "Person selected"));
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("componentForm:selectionResult_container"), "Peter"));
+      retryingFindClick(By.xpath("//*[@id='componentForm:detailListComponent:personsTable_data']/tr[2]"));
+      await(ExpectedConditions.textToBePresentInElementLocated(
+              By.id("componentForm:selectionResult_container"), "Person selected"));
+      await(ExpectedConditions.textToBePresentInElementLocated(
+              By.id("componentForm:selectionResult_container"), "Peter"));
 
-    retryingFindClick(By.xpath("//*[@id='componentForm:detailListComponent:personsTable_data']/tr[4]"));
-    retryingFindClick(By.id("componentForm:detailListComponent:fireEventButton"));
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("componentForm:selectionResult_container"), "Fire event!"));
+      retryingFindClick(By.xpath("//*[@id='componentForm:detailListComponent:personsTable_data']/tr[4]"));
+      retryingFindClick(By.id("componentForm:detailListComponent:fireEventButton"));
+      await(ExpectedConditions.textToBePresentInElementLocated(
+              By.id("componentForm:selectionResult_container"), "Fire event!"));
+    }
+    catch (Exception ex)
+    {
+      File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+      FileUtils.copyFile(scrFile, new File("C:\\tmp\\screenshot.png"));
+    }
   }
 
   @Test
