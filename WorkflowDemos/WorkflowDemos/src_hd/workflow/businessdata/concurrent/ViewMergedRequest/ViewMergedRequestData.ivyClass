@@ -1,0 +1,6 @@
+ViewMergedRequestData #class
+workflow.businessdata.concurrent.ViewMergedRequest #namespace
+request workflow.businessdata.concurrent.Request #field
+request PERSISTENT #fieldModifier
+requestId String #field
+requestId PERSISTENT #fieldModifier

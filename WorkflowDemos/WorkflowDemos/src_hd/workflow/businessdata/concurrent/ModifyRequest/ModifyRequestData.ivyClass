@@ -1,0 +1,6 @@
+ModifyRequestData #class
+workflow.businessdata.concurrent.ModifyRequest #namespace
+request workflow.businessdata.concurrent.Request #field
+request PERSISTENT #fieldModifier
+requestId String #field
+requestId PERSISTENT #fieldModifier

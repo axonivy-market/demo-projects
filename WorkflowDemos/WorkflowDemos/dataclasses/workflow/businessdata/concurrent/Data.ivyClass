@@ -1,0 +1,4 @@
+Data #class
+workflow.businessdata.concurrent #namespace
+id String #field
+id PERSISTENT #fieldModifier

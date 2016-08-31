@@ -1,0 +1,8 @@
+Request #class
+workflow.businessdata.concurrent #namespace
+description String #field
+description PERSISTENT #fieldModifier
+priceInUSD Number #field
+priceInUSD PERSISTENT #fieldModifier
+comment String #field
+comment PERSISTENT #fieldModifier
