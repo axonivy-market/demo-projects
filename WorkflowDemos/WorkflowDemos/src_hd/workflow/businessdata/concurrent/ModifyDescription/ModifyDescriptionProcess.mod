@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 31 08:48:44 CEST 2016]
+[>Created: Wed Aug 31 13:38:21 CEST 2016]
 156DB995D6C6D132 3.18 #module
 >Proto >Proto Collection #zClass
 Ms0 ModifyDescriptionProcess Big #zClass
@@ -97,24 +97,24 @@ Ms0 f8 actionDecl 'workflow.businessdata.concurrent.ModifyDescription.ModifyDesc
 ' #txt
 Ms0 f8 actionTable 'out=in;
 ' #txt
-Ms0 f8 actionCode 'ivy.repo.update(in.request, "description");' #txt
+Ms0 f8 actionCode 'ivy.repo.overwrite(in.request, "description");' #txt
 Ms0 f8 type workflow.businessdata.concurrent.ModifyDescription.ModifyDescriptionData #txt
 Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Update only
+        <name>Overwrite only
 Description</name>
-        <nameStyle>23
+        <nameStyle>26
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f8 168 138 112 44 -34 -15 #rect
+Ms0 f8 160 138 128 44 -40 -15 #rect
 Ms0 f8 @|StepIcon #fIcon
 Ms0 f9 expr out #txt
-Ms0 f9 109 160 168 160 #arcP
+Ms0 f9 109 160 160 160 #arcP
 Ms0 f5 expr out #txt
-Ms0 f5 280 160 339 160 #arcP
+Ms0 f5 288 160 339 160 #arcP
 >Proto Ms0 .type workflow.businessdata.concurrent.ModifyDescription.ModifyDescriptionData #txt
 >Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
