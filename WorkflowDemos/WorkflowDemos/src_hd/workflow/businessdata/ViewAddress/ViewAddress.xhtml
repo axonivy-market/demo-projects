@@ -20,16 +20,15 @@
 						<p:messages></p:messages>
 					</f:facet>
 					
-					<p:outputLabel for="requestDescription" value="Description"/>
-					<h:outputText id="requestDescription" value="#{data.request.description}" />
-					
-					<p:outputLabel for="requestPriceInUSD" value="Price"/>
-					<h:outputText id="requestPriceInUSD" value="#{data.request.priceInUSD}">
-						<f:convertNumber pattern="#{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')} ###,###.00" />
-					</h:outputText>
-					
-					<p:outputLabel for="requestComment" value="Comment"/>
-					<h:outputText id="requestComment" value="#{data.request.comment}" />
+					<p:outputLabel for="zip" value="Zip"/>
+					<pe:inputNumber id="zip" value="#{data.address.zip}"
+					thousandSeparator="" decimalPlaces="0" disabled="true" />    
+
+					<p:outputLabel for="city" value="City"/>
+					<p:inputText id="city" value="#{data.address.city}" disabled="true"/>		
+								
+					<p:outputLabel for="country" value="Country"/>
+					<p:inputText id="country" value="#{data.address.country}" disabled="true"/>
 					
 				</h:panelGrid>
 				<br />

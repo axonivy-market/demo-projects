@@ -1,6 +1,0 @@
-ModifyDescriptionData #class
-workflow.businessdata.concurrent.ModifyDescription #namespace
-request workflow.businessdata.concurrent.Request #field
-request PERSISTENT #fieldModifier
-requestId String #field
-requestId PERSISTENT #fieldModifier

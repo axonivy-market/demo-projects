@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 02 11:16:04 CET 2016]
+[>Created: Thu Sep 01 14:52:19 CEST 2016]
 15254DCE818AD7A2 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
@@ -41,7 +41,7 @@ Pt0 f0 requestEnabled true #txt
 Pt0 f0 triggerEnabled false #txt
 Pt0 f0 callSignature start() #txt
 Pt0 f0 persist false #txt
-Pt0 f0 startName '2.2: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%> (<%=ivy.cms.co("/ProcessDescriptions/userTaskExample")%>)' #txt
+Pt0 f0 startName '2.1: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%> (<%=ivy.cms.co("/ProcessDescriptions/userTaskExample")%>)' #txt
 Pt0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/procurementRequestUserTaskDescription")%> #txt
 Pt0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
@@ -69,10 +69,10 @@ Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f0 @C|.responsibility Employee #txt
-Pt0 f0 81 129 30 30 -21 17 #rect
+Pt0 f0 81 177 30 30 -21 17 #rect
 Pt0 f0 @|StartRequestIcon #fIcon
 Pt0 f1 type workflow.humantask.ProcurementRequest #txt
-Pt0 f1 913 129 30 30 0 15 #rect
+Pt0 f1 913 177 30 30 0 15 #rect
 Pt0 f1 @|EndIcon #fIcon
 Pt0 f3 targetWindow NEW:card: #txt
 Pt0 f3 targetDisplay TOP #txt
@@ -99,10 +99,10 @@ Pt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f3 168 122 112 44 -39 -8 #rect
+Pt0 f3 168 170 112 44 -39 -8 #rect
 Pt0 f3 @|RichDialogIcon #fIcon
 Pt0 f4 expr out #txt
-Pt0 f4 111 144 168 144 #arcP
+Pt0 f4 111 192 168 192 #arcP
 Pt0 f5 richDialogId workflow.humantask.VerifyRequest #txt
 Pt0 f5 startMethod start(workflow.humantask.ProcurementRequest) #txt
 Pt0 f5 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequest> param;' #txt
@@ -133,13 +133,13 @@ Pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f5 328 250 112 44 -39 -8 #rect
+Pt0 f5 328 298 112 44 -39 -8 #rect
 Pt0 f5 @|UserTaskIcon #fIcon
 Pt0 f6 expr out #txt
 Pt0 f6 type workflow.humantask.ProcurementRequest #txt
 Pt0 f6 var in1 #txt
-Pt0 f6 224 166 328 272 #arcP
-Pt0 f6 1 224 272 #addKink
+Pt0 f6 224 214 328 320 #arcP
+Pt0 f6 1 224 320 #addKink
 Pt0 f6 0 0.9750159348993512 0 0 #arcLabel
 Pt0 f7 richDialogId workflow.humantask.AcceptRequest #txt
 Pt0 f7 startMethod start(workflow.humantask.ProcurementRequest) #txt
@@ -171,7 +171,7 @@ Pt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f7 584 370 112 44 -43 -8 #rect
+Pt0 f7 584 418 112 44 -43 -8 #rect
 Pt0 f7 @|UserTaskIcon #fIcon
 Pt0 f9 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%> <%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%> \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.requester.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\n\\t<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>\\n</html>""/emailAttachments * }"' #txt
 Pt0 f9 type workflow.humantask.ProcurementRequest #txt
@@ -186,15 +186,15 @@ Pt0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f9 744 120 112 48 -45 -8 #rect
+Pt0 f9 744 168 112 48 -45 -8 #rect
 Pt0 f9 @|EMailIcon #fIcon
 Pt0 f10 expr data #txt
 Pt0 f10 outCond ivp=="TaskA.ivp" #txt
-Pt0 f10 696 392 800 168 #arcP
-Pt0 f10 1 800 392 #addKink
+Pt0 f10 696 440 800 216 #arcP
+Pt0 f10 1 800 440 #addKink
 Pt0 f10 1 0.2769262184174318 0 0 #arcLabel
 Pt0 f2 expr out #txt
-Pt0 f2 856 144 913 144 #arcP
+Pt0 f2 856 192 913 192 #arcP
 Pt0 f11 type workflow.humantask.ProcurementRequest #txt
 Pt0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -205,11 +205,11 @@ Pt0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f11 496 256 32 32 27 -7 #rect
+Pt0 f11 496 304 32 32 27 -7 #rect
 Pt0 f11 @|AlternativeIcon #fIcon
 Pt0 f12 expr data #txt
 Pt0 f12 outCond ivp=="TaskA.ivp" #txt
-Pt0 f12 440 272 496 272 #arcP
+Pt0 f12 440 320 496 320 #arcP
 Pt0 f8 expr in #txt
 Pt0 f8 outCond in.dataOkManager #txt
 Pt0 f8 type workflow.humantask.ProcurementRequest #txt
@@ -223,8 +223,8 @@ Pt0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f8 512 288 584 392 #arcP
-Pt0 f8 1 512 392 #addKink
+Pt0 f8 512 336 584 440 #arcP
+Pt0 f8 1 512 440 #addKink
 Pt0 f8 0 0.8465909090909091 15 0 #arcLabel
 Pt0 f13 expr in #txt
 Pt0 f13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -236,8 +236,8 @@ Pt0 f13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f13 512 256 744 144 #arcP
-Pt0 f13 1 512 144 #addKink
+Pt0 f13 512 304 744 192 #arcP
+Pt0 f13 1 512 192 #addKink
 Pt0 f13 1 0.16810344827586207 0 9 #arcLabel
 Pt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -249,9 +249,9 @@ and a User Dialog Step.</name>
     </language>
 </elementInfo>
 ' #txt
-Pt0 f14 224 322 176 44 -85 -16 #rect
+Pt0 f14 224 370 176 44 -85 -16 #rect
 Pt0 f14 @|IBIcon #fIcon
-Pt0 f15 312 322 335 294 #arcP
+Pt0 f15 312 370 335 342 #arcP
 Pt0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -263,7 +263,7 @@ The User Task step is used instead of a Task Switch and a User Dialog step.</nam
     </language>
 </elementInfo>
 ' #txt
-Pt0 f16 8 10 576 60 -280 -24 #rect
+Pt0 f16 64 18 576 60 -280 -24 #rect
 Pt0 f16 @|IBIcon #fIcon
 >Proto Pt0 .type workflow.humantask.ProcurementRequest #txt
 >Proto Pt0 .processKind NORMAL #txt
@@ -288,7 +288,7 @@ Pt0 f16 @|IBIcon #fIcon
     <swimlaneType>LANE_IN_POOL</swimlaneType>
     <swimlaneType>LANE_IN_POOL</swimlaneType>
     <swimlaneType>LANE_IN_POOL</swimlaneType>
-    <swimlaneSpaceBefore>80</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>128</swimlaneSpaceBefore>
     <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
     <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
     <swimlaneSpaceBefore>0</swimlaneSpaceBefore>

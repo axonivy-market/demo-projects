@@ -10,28 +10,18 @@
             <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
-        <outputParameter>
-            <name>id</name>
-            <description></description>
-            <parameterType>String</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </outputParameter>
-    </startMethod>
-    <startMethod>
-        <name>start</name>
-        <description></description>
-        <inputParameter>
-            <name>businessDataId</name>
-            <description></description>
-            <parameterType>String</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
         <inputParameter>
             <name>title</name>
             <description></description>
             <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
+        <outputParameter>
+            <name>id</name>
+            <description></description>
+            <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>

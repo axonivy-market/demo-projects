@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 23 20:26:29 CET 2016]
+[>Created: Thu Sep 01 14:50:05 CEST 2016]
 152551002ABB8DFE 3.18 #module
 >Proto >Proto Collection #zClass
 To0 FlowPatterns Big #zClass
@@ -635,7 +635,7 @@ In Addition you can also create an Ad-Hoc Workflow from scratch.</name>
     </language>
 </elementInfo>
 ' #txt
-To0 f27 24 26 512 44 -246 -16 #rect
+To0 f27 64 26 512 44 -246 -16 #rect
 To0 f27 @|IBIcon #fIcon
 >Proto To0 .type workflow.agileBPM.Data #txt
 >Proto To0 .processKind NORMAL #txt

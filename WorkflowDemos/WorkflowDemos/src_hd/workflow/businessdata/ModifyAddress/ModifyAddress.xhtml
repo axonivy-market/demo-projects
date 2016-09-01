@@ -8,10 +8,10 @@
 	xmlns:pm="http://primefaces.org/mobile">
 <h:body>
 	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title">CreateRequest</ui:define>
+		<ui:define name="title">ModifyRequest</ui:define>
 		<ui:define name="content">
 			<h3>
-			Create Procurement Request
+			Modify all address fields
 			</h3>
 			
 			<h:form id="form">
@@ -20,14 +20,14 @@
 						<p:messages></p:messages>
 					</f:facet>
 					
-					<p:outputLabel for="requestDescription" value="Description"/>
-					<p:inputText id="requestDescription" value="#{data.request.description}" required="true"/>
-					
-					<p:outputLabel for="requestPriceInUSD" value="Price"/>
-					<pe:inputNumber id="requestPriceInUSD" value="#{data.request.priceInUSD}" symbol="#{ivy.cms.co('/Dialogs/procurementRequest/currencySymbol')} " symbolPosition="p" decimalSeparator="." thousandSeparator="'" required="true" />    
-					
-					<p:outputLabel for="requestComment" value="Comment"/>
-					<p:inputText id="requestComment" value="#{data.request.comment}" />
+					<p:outputLabel for="zip" value="Zip"/>
+					<pe:inputNumber id="zip" value="#{data.address.zip}" thousandSeparator="" decimalPlaces="0"/>    
+
+					<p:outputLabel for="city" value="City"/>
+					<p:inputText id="city" value="#{data.address.city}"/>		
+								
+					<p:outputLabel for="country" value="Country"/>
+					<p:inputText id="country" value="#{data.address.country}" />
 					
 					<br />
 					<p:commandButton actionListener="#{logic.close}" value="Save" update="form" icon="ui-icon-check" />

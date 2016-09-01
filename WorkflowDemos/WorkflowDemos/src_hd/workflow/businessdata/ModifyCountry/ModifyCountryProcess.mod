@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Wed Aug 31 13:38:21 CEST 2016]
+[>Created: Thu Sep 01 15:54:12 CEST 2016]
 156DB995D6C6D132 3.18 #module
 >Proto >Proto Collection #zClass
-Ms0 ModifyDescriptionProcess Big #zClass
+Ms0 ModifyCountryProcess Big #zClass
 Ms0 RD #cInfo
 Ms0 #process
 Ms0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
@@ -25,13 +25,13 @@ Ms0 @PushWFArc f0 '' #zField
 Ms0 @GridStep f8 '' #zField
 Ms0 @PushWFArc f9 '' #zField
 Ms0 @PushWFArc f5 '' #zField
->Proto Ms0 Ms0 ModifyDescriptionProcess #zField
-Ms0 f1 type workflow.businessdata.concurrent.ModifyDescription.ModifyDescriptionData #txt
+>Proto Ms0 Ms0 ModifyCountryProcess #zField
+Ms0 f1 type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
 Ms0 f1 339 51 26 26 0 12 #rect
 Ms0 f1 @|RichDialogProcessEndIcon #fIcon
 Ms0 f3 guid 156DB995D7DE260B #txt
-Ms0 f3 type workflow.businessdata.concurrent.ModifyDescription.ModifyDescriptionData #txt
-Ms0 f3 actionDecl 'workflow.businessdata.concurrent.ModifyDescription.ModifyDescriptionData out;
+Ms0 f3 type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
+Ms0 f3 actionDecl 'workflow.businessdata.ModifyCountry.ModifyCountryData out;
 ' #txt
 Ms0 f3 actionTable 'out=in;
 ' #txt
@@ -44,18 +44,18 @@ Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ms0 f3 83 147 26 26 -14 12 #rect
 Ms0 f3 @|RichDialogProcessStartIcon #fIcon
-Ms0 f4 type workflow.businessdata.concurrent.ModifyDescription.ModifyDescriptionData #txt
+Ms0 f4 type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
 Ms0 f4 guid 156DB995D7ED9819 #txt
 Ms0 f4 339 147 26 26 0 12 #rect
 Ms0 f4 @|RichDialogEndIcon #fIcon
 Ms0 f6 guid 156DBA4F86F4C0B3 #txt
-Ms0 f6 type workflow.businessdata.concurrent.ModifyDescription.ModifyDescriptionData #txt
+Ms0 f6 type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
 Ms0 f6 method start(String) #txt
 Ms0 f6 disableUIEvents true #txt
 Ms0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String requestId> param = methodEvent.getInputArguments();
+<java.lang.String id> param = methodEvent.getInputArguments();
 ' #txt
-Ms0 f6 inParameterMapAction 'out.requestId=param.requestId;
+Ms0 f6 inParameterMapAction 'out.addressId=param.id;
 ' #txt
 Ms0 f6 outParameterDecl '<> result;
 ' #txt
@@ -70,52 +70,52 @@ Ms0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ms0 f6 83 51 26 26 -33 15 #rect
 Ms0 f6 @|RichDialogInitStartIcon #fIcon
-Ms0 f2 actionDecl 'workflow.businessdata.concurrent.ModifyDescription.ModifyDescriptionData out;
+Ms0 f2 actionDecl 'workflow.businessdata.ModifyCountry.ModifyCountryData out;
 ' #txt
 Ms0 f2 actionTable 'out=in;
 ' #txt
-Ms0 f2 actionCode 'import workflow.businessdata.concurrent.Request;
+Ms0 f2 actionCode 'import workflow.businessdata.Address;
 
-in.request = ivy.repo.find(in.requestId, Request.class) as Request;' #txt
-Ms0 f2 type workflow.businessdata.concurrent.ModifyDescription.ModifyDescriptionData #txt
+in.address = ivy.repo.find(in.addressId, Address.class) as Address;' #txt
+Ms0 f2 type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
 Ms0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Load Request</name>
+        <name>Load Address</name>
         <nameStyle>12
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f2 168 42 112 44 -39 -7 #rect
+Ms0 f2 168 42 112 44 -38 -8 #rect
 Ms0 f2 @|StepIcon #fIcon
 Ms0 f7 expr out #txt
 Ms0 f7 109 64 168 64 #arcP
 Ms0 f0 expr out #txt
 Ms0 f0 280 64 339 64 #arcP
-Ms0 f8 actionDecl 'workflow.businessdata.concurrent.ModifyDescription.ModifyDescriptionData out;
+Ms0 f8 actionDecl 'workflow.businessdata.ModifyCountry.ModifyCountryData out;
 ' #txt
 Ms0 f8 actionTable 'out=in;
 ' #txt
-Ms0 f8 actionCode 'ivy.repo.overwrite(in.request, "description");' #txt
-Ms0 f8 type workflow.businessdata.concurrent.ModifyDescription.ModifyDescriptionData #txt
+Ms0 f8 actionCode 'ivy.repo.overwrite(in.address, "country");' #txt
+Ms0 f8 type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
 Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Overwrite only
-Description</name>
-        <nameStyle>26
+        <name>Overwrite "Country"
+in the Repository</name>
+        <nameStyle>37
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ms0 f8 160 138 128 44 -40 -15 #rect
+Ms0 f8 160 138 128 44 -46 -16 #rect
 Ms0 f8 @|StepIcon #fIcon
 Ms0 f9 expr out #txt
 Ms0 f9 109 160 160 160 #arcP
 Ms0 f5 expr out #txt
 Ms0 f5 288 160 339 160 #arcP
->Proto Ms0 .type workflow.businessdata.concurrent.ModifyDescription.ModifyDescriptionData #txt
+>Proto Ms0 .type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
 >Proto Ms0 .processKind HTML_DIALOG #txt
 >Proto Ms0 -8 -8 16 16 16 26 #rect
 >Proto Ms0 '' #fIcon

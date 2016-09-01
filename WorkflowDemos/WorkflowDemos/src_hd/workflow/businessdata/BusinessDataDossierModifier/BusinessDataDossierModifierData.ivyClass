@@ -6,3 +6,5 @@ id String #field
 id PERSISTENT #fieldModifier
 title String #field
 title PERSISTENT #fieldModifier
+dossierInfo String #field
+dossierInfo PERSISTENT #fieldModifier

@@ -1,0 +1,6 @@
+ViewAddressData #class
+workflow.businessdata.ViewAddress #namespace
+address workflow.businessdata.Address #field
+address PERSISTENT #fieldModifier
+addressId String #field
+addressId PERSISTENT #fieldModifier

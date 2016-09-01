@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Aug 29 16:57:02 CEST 2016]
+[>Created: Thu Sep 01 16:55:42 CEST 2016]
 155BB4D0A6771B1B 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierModifierProcess Big #zClass
@@ -22,8 +22,6 @@ Bs0 @Alternative f6 '' #zField
 Bs0 @GridStep f8 '' #zField
 Bs0 @PushWFArc f9 '' #zField
 Bs0 @PushWFArc f5 '' #zField
-Bs0 @RichDialogInitStart f10 '' #zField
-Bs0 @PushWFArc f0 '' #zField
 Bs0 @GridStep f7 '' #zField
 Bs0 @PushWFArc f11 '' #zField
 Bs0 @PushWFArc f2 '' #zField
@@ -35,7 +33,7 @@ Bs0 @RichDialogInitStart f16 '' #zField
 Bs0 @PushWFArc f17 '' #zField
 >Proto Bs0 Bs0 BusinessDataDossierModifierProcess #zField
 Bs0 f1 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
-Bs0 f1 435 51 26 26 0 12 #rect
+Bs0 f1 435 83 26 26 0 12 #rect
 Bs0 f1 @|RichDialogProcessEndIcon #fIcon
 Bs0 f3 guid 155BB4D0A93C5899 #txt
 Bs0 f3 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
@@ -66,7 +64,7 @@ Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f6 176 48 32 32 -33 -36 #rect
+Bs0 f6 176 80 32 32 -33 -36 #rect
 Bs0 f6 @|AlternativeIcon #fIcon
 Bs0 f8 actionDecl 'workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData out;
 ' #txt
@@ -89,33 +87,6 @@ Bs0 f9 expr out #txt
 Bs0 f9 109 352 216 352 #arcP
 Bs0 f5 expr out #txt
 Bs0 f5 328 352 435 352 #arcP
-Bs0 f10 guid 1567A0F5766912B9 #txt
-Bs0 f10 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
-Bs0 f10 method start(String) #txt
-Bs0 f10 disableUIEvents true #txt
-Bs0 f10 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String businessDataId> param = methodEvent.getInputArguments();
-' #txt
-Bs0 f10 inParameterMapAction 'out.id=param.businessDataId;
-out.title="Modify Dossier";
-' #txt
-Bs0 f10 outParameterDecl '<java.lang.String id> result;
-' #txt
-Bs0 f10 outParameterMapAction 'result.id=in.id;
-' #txt
-Bs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(String)</name>
-        <nameStyle>13,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Bs0 f10 83 51 26 26 -33 15 #rect
-Bs0 f10 @|RichDialogInitStartIcon #fIcon
-Bs0 f0 expr out #txt
-Bs0 f0 109 64 176 64 #arcP
 Bs0 f7 actionDecl 'workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData out;
 ' #txt
 Bs0 f7 actionTable 'out=in;
@@ -131,20 +102,25 @@ Bs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f7 264 42 112 44 -17 -8 #rect
+Bs0 f7 264 74 112 44 -17 -8 #rect
 Bs0 f7 @|StepIcon #fIcon
 Bs0 f11 expr in #txt
 Bs0 f11 outCond in.id.isEmpty() #txt
-Bs0 f11 208 64 264 64 #arcP
+Bs0 f11 208 96 264 96 #arcP
 Bs0 f2 expr out #txt
-Bs0 f2 376 64 435 64 #arcP
+Bs0 f2 376 96 435 96 #arcP
 Bs0 f12 actionDecl 'workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData out;
 ' #txt
 Bs0 f12 actionTable 'out=in;
 ' #txt
-Bs0 f12 actionCode 'import workflow.businessdata.Dossier;
+Bs0 f12 actionCode 'import ch.ivyteam.ivy.business.data.store.BusinessDataInfo;
+import workflow.businessdata.Dossier;
 
-in.dossier = ivy.repo.find(in.id,Dossier.class) as Dossier;' #txt
+in.dossier = ivy.repo.find(in.id,Dossier.class) as Dossier;
+
+BusinessDataInfo info = ivy.repo.getInfo(in.dossier);
+ivy.log.debug("info"+info);
+in.dossierInfo = "Last modified "+info.getModifiedAt()+" by "+ info.getModifiedByUserName();' #txt
 Bs0 f12 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 Bs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -155,17 +131,17 @@ Bs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f12 264 138 112 44 -12 -8 #rect
+Bs0 f12 264 170 112 44 -12 -8 #rect
 Bs0 f12 @|StepIcon #fIcon
 Bs0 f13 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
-Bs0 f13 435 147 26 26 0 12 #rect
+Bs0 f13 435 179 26 26 0 12 #rect
 Bs0 f13 @|RichDialogProcessEndIcon #fIcon
 Bs0 f14 expr in #txt
-Bs0 f14 192 80 264 160 #arcP
-Bs0 f14 1 192 160 #addKink
+Bs0 f14 192 112 264 192 #arcP
+Bs0 f14 1 192 192 #addKink
 Bs0 f14 1 0.1556203489120305 0 0 #arcLabel
 Bs0 f15 expr out #txt
-Bs0 f15 376 160 435 160 #arcP
+Bs0 f15 376 192 435 192 #arcP
 Bs0 f16 guid 156D6BFA70854D75 #txt
 Bs0 f16 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 Bs0 f16 method start(String,String) #txt
@@ -176,7 +152,9 @@ Bs0 f16 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 Bs0 f16 inParameterMapAction 'out.id=param.businessDataId;
 out.title=param.title;
 ' #txt
-Bs0 f16 outParameterDecl '<> result;
+Bs0 f16 outParameterDecl '<java.lang.String id> result;
+' #txt
+Bs0 f16 outParameterMapAction 'result.id=in.id;
 ' #txt
 Bs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -187,13 +165,11 @@ Bs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f16 83 243 26 26 -49 15 #rect
+Bs0 f16 83 83 26 26 -49 15 #rect
 Bs0 f16 @|RichDialogInitStartIcon #fIcon
 Bs0 f17 expr out #txt
-Bs0 f17 109 256 184 72 #arcP
-Bs0 f17 1 160 256 #addKink
-Bs0 f17 2 160 96 #addKink
-Bs0 f17 1 0.4566802756146623 0 0 #arcLabel
+Bs0 f17 109 96 176 96 #arcP
+Bs0 f17 0 0.5386526882461282 0 0 #arcLabel
 >Proto Bs0 .type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 >Proto Bs0 .processKind HTML_DIALOG #txt
 >Proto Bs0 -8 -8 16 16 16 26 #rect
@@ -202,8 +178,6 @@ Bs0 f3 mainOut f9 tail #connect
 Bs0 f9 head f8 mainIn #connect
 Bs0 f8 mainOut f5 tail #connect
 Bs0 f5 head f4 mainIn #connect
-Bs0 f10 mainOut f0 tail #connect
-Bs0 f0 head f6 in #connect
 Bs0 f6 out f11 tail #connect
 Bs0 f11 head f7 mainIn #connect
 Bs0 f7 mainOut f2 tail #connect

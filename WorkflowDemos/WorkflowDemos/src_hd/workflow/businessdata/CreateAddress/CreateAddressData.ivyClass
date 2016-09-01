@@ -1,0 +1,6 @@
+CreateAddressData #class
+workflow.businessdata.CreateAddress #namespace
+id String #field
+id PERSISTENT #fieldModifier
+address workflow.businessdata.Address #field
+address PERSISTENT #fieldModifier

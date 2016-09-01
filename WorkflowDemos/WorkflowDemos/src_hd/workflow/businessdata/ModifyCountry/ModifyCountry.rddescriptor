@@ -5,7 +5,7 @@
         <name>start</name>
         <description>Default dialog start method.</description>
         <inputParameter>
-            <name>requestId</name>
+            <name>id</name>
             <description></description>
             <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
@@ -13,7 +13,7 @@
     </startMethod>
     <property>
         <name>guid</name>
-        <value>156DBAA5DEC37B51</value>
+        <value>156DB995D77DF299</value>
         <readOnly>true</readOnly>
     </property>
     <property>

@@ -13,7 +13,7 @@
 			<h3>
 				#{data.title}
 			</h3>
-
+ 			<p:outputLabel value="#{data.dossierInfo}" />
 			<h:form id="form">
 				<h:panelGrid columns="2">
 					<f:facet name="header">
@@ -46,6 +46,8 @@
 					<p:outputLabel for="dossierPersonAddressCountry" value="Country" />
 					<p:inputText id="dossierPersonAddressCountry"
 						value="#{data.dossier.person.address.country}"></p:inputText>
+						
+						
 						
 					<br />
 					<p:commandButton actionListener="#{logic.close}" value="Save" id="save"

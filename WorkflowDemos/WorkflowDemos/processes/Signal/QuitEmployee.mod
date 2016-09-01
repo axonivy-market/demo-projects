@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Mar 03 15:11:22 CET 2016]
+[>Created: Thu Sep 01 14:52:19 CEST 2016]
 151CA1EFC1542D87 3.18 #module
 >Proto >Proto Collection #zClass
 qr0 QuitEmployee Big #zClass
@@ -62,10 +62,10 @@ qr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 qr0 f0 @C|.responsibility 'HR Manager' #txt
-qr0 f0 81 193 30 30 -21 17 #rect
+qr0 f0 81 209 30 30 -21 17 #rect
 qr0 f0 @|StartRequestIcon #fIcon
 qr0 f1 type workflow.signal.QuitUserProcess #txt
-qr0 f1 657 193 30 30 0 15 #rect
+qr0 f1 657 209 30 30 0 15 #rect
 qr0 f1 @|EndIcon #fIcon
 qr0 f3 actionDecl 'workflow.signal.QuitUserProcess out;
 ' #txt
@@ -95,7 +95,7 @@ qr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-qr0 f3 328 186 112 44 -46 -8 #rect
+qr0 f3 328 202 112 44 -46 -8 #rect
 qr0 f3 @|StepIcon #fIcon
 qr0 f5 targetWindow NEW:card: #txt
 qr0 f5 targetDisplay TOP #txt
@@ -121,10 +121,10 @@ qr0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-qr0 f5 168 186 112 44 -32 -8 #rect
+qr0 f5 168 202 112 44 -32 -8 #rect
 qr0 f5 @|RichDialogIcon #fIcon
 qr0 f6 expr out #txt
-qr0 f6 111 208 168 208 #arcP
+qr0 f6 111 224 168 224 #arcP
 qr0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -135,10 +135,10 @@ QuitUser sends a signal that will cancel User Tasks from a previously started Cr
     </language>
 </elementInfo>
 ' #txt
-qr0 f8 8 18 592 44 -288 -16 #rect
+qr0 f8 64 26 592 44 -288 -16 #rect
 qr0 f8 @|IBIcon #fIcon
 qr0 f4 expr out #txt
-qr0 f4 280 208 328 208 #arcP
+qr0 f4 280 224 328 224 #arcP
 qr0 f7 targetWindow NEW:card: #txt
 qr0 f7 targetDisplay TOP #txt
 qr0 f7 richDialogId workflow.signal.QuitSignalSent #txt
@@ -163,12 +163,12 @@ Signal Sent</name>
     </language>
 </elementInfo>
 ' #txt
-qr0 f7 480 186 128 44 -44 -16 #rect
+qr0 f7 480 202 128 44 -44 -16 #rect
 qr0 f7 @|RichDialogIcon #fIcon
 qr0 f9 expr out #txt
-qr0 f9 440 208 480 208 #arcP
+qr0 f9 440 224 480 224 #arcP
 qr0 f2 expr out #txt
-qr0 f2 608 208 657 208 #arcP
+qr0 f2 608 224 657 224 #arcP
 >Proto qr0 .type workflow.signal.QuitUserProcess #txt
 >Proto qr0 .processKind NORMAL #txt
 >Proto qr0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -184,7 +184,7 @@ qr0 f2 608 208 657 208 #arcP
     <swimlaneColor gradient="false">1694498764</swimlaneColor>
     <swimlaneType>POOL</swimlaneType>
     <swimlaneType>LANE_IN_POOL</swimlaneType>
-    <swimlaneSpaceBefore>80</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>96</swimlaneSpaceBefore>
     <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
 </elementInfo>
 ' #txt

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 02 11:16:30 CET 2016]
+[>Created: Thu Sep 01 14:52:19 CEST 2016]
 15254CF1CE56AE72 3.18 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
@@ -65,7 +65,7 @@ Tr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Tr0 f0 @C|.responsibility 'HR Manager' #txt
-Tr0 f0 73 225 30 30 -21 17 #rect
+Tr0 f0 73 209 30 30 -21 17 #rect
 Tr0 f0 @|StartRequestIcon #fIcon
 Tr0 f5 targetWindow NEW:card: #txt
 Tr0 f5 targetDisplay TOP #txt
@@ -91,10 +91,10 @@ personal data</name>
     </language>
 </elementInfo>
 ' #txt
-Tr0 f5 176 218 144 44 -53 -16 #rect
+Tr0 f5 176 202 144 44 -53 -16 #rect
 Tr0 f5 @|RichDialogIcon #fIcon
 Tr0 f1 type workflow.trigger.NewEmployeeData #txt
-Tr0 f1 801 225 30 30 0 15 #rect
+Tr0 f1 801 209 30 30 0 15 #rect
 Tr0 f1 @|EndIcon #fIcon
 Tr0 f7 type workflow.trigger.NewEmployeeData #txt
 Tr0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -106,7 +106,7 @@ Tr0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tr0 f7 384 224 32 32 -52 18 #rect
+Tr0 f7 384 208 32 32 -52 18 #rect
 Tr0 f7 @|AlternativeIcon #fIcon
 Tr0 f10 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/welcomeHeader\\"")%> <%=in.name%>!""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Emails/welcomeMail\\"")%>\\n</html>""/emailAttachments * }"' #txt
 Tr0 f10 type workflow.trigger.NewEmployeeData #txt
@@ -121,10 +121,10 @@ Tr0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tr0 f10 624 218 128 44 -54 -8 #rect
+Tr0 f10 624 202 128 44 -54 -8 #rect
 Tr0 f10 @|EMailIcon #fIcon
 Tr0 f2 expr out #txt
-Tr0 f2 752 240 801 240 #arcP
+Tr0 f2 752 224 801 224 #arcP
 Tr0 f12 expr in #txt
 Tr0 f12 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -135,14 +135,14 @@ Tr0 f12 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tr0 f12 400 224 688 218 #arcP
-Tr0 f12 1 400 176 #addKink
-Tr0 f12 2 688 176 #addKink
+Tr0 f12 400 208 688 202 #arcP
+Tr0 f12 1 400 160 #addKink
+Tr0 f12 2 688 160 #addKink
 Tr0 f12 1 0.3888888888888889 0 -9 #arcLabel
 Tr0 f6 expr out #txt
-Tr0 f6 103 240 176 240 #arcP
+Tr0 f6 103 224 176 224 #arcP
 Tr0 f8 expr out #txt
-Tr0 f8 320 240 384 240 #arcP
+Tr0 f8 320 224 384 224 #arcP
 Tr0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -156,7 +156,7 @@ If a new employee needs a parking lot the Parking Lot Reservation process is sta
     </language>
 </elementInfo>
 ' #txt
-Tr0 f9 8 26 544 44 -264 -16 #rect
+Tr0 f9 64 26 544 44 -264 -16 #rect
 Tr0 f9 @|IBIcon #fIcon
 Tr0 f13 type workflow.trigger.NewEmployeeData #txt
 Tr0 f13 processCall Trigger/ParkingLotReservation:start(workflow.trigger.NewEmployeeData) #txt
@@ -178,7 +178,7 @@ Tr0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tr0 f13 480 218 112 44 -53 -8 #rect
+Tr0 f13 480 202 112 44 -53 -8 #rect
 Tr0 f13 @|TriggerIcon #fIcon
 Tr0 f14 expr in #txt
 Tr0 f14 outCond in.needsParkingLot #txt
@@ -191,10 +191,10 @@ Tr0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tr0 f14 416 240 480 240 #arcP
+Tr0 f14 416 224 480 224 #arcP
 Tr0 f14 0 0.46875 0 -6 #arcLabel
 Tr0 f4 expr out #txt
-Tr0 f4 592 240 624 240 #arcP
+Tr0 f4 592 224 624 224 #arcP
 >Proto Tr0 .type workflow.trigger.NewEmployeeData #txt
 >Proto Tr0 .processKind NORMAL #txt
 >Proto Tr0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -210,7 +210,7 @@ Tr0 f4 592 240 624 240 #arcP
     <swimlaneColor gradient="false">687865804</swimlaneColor>
     <swimlaneType>POOL</swimlaneType>
     <swimlaneType>LANE_IN_POOL</swimlaneType>
-    <swimlaneSpaceBefore>88</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>96</swimlaneSpaceBefore>
     <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
 </elementInfo>
 ' #txt

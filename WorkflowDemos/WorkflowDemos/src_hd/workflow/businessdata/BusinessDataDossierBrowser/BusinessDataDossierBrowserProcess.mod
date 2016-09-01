@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Aug 24 11:08:01 CEST 2016]
+[>Created: Thu Sep 01 17:04:06 CEST 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -79,7 +79,7 @@ Bs0 f6 actionTable 'out=in;
 ' #txt
 Bs0 f6 actionCode 'import workflow.businessdata.Dossier;
 
-in.dossiers = ivy.repo.search(Dossier.class).limit(20).execute().getAll();
+in.dossiers = ivy.repo.search(Dossier.class).orderBy().field("name").limit(20).execute().getAll();
 ' #txt
 Bs0 f6 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -120,6 +120,7 @@ Bs0 f11 actionCode 'import workflow.businessdata.Dossier;
 in.dossiers = ivy.repo.search(Dossier.class)
 													.allFields()
 													.containsWordPattern(in.searchText)
+													.orderBy().field("name")
 													.limit(20)
 													.execute()
 													.getAll();
@@ -151,6 +152,7 @@ Bs0 f16 actionCode 'import workflow.businessdata.Dossier;
 in.dossiers = ivy.repo.search(Dossier.class)
 													.textField("person.lastName")
 													.containsWordPattern(in.searchText)
+													.orderBy().field("name")
 													.limit(20)
 													.execute()
 													.getAll();
@@ -201,6 +203,7 @@ Bs0 f22 actionCode 'import workflow.businessdata.Dossier;
 in.dossiers = ivy.repo.search(Dossier.class)
 													.dateTimeField("person.birthDate")
 													.isInDateRange(in.searchFromDate,in.searchToDate)
+													.orderBy().field("name")
 													.limit(20)
 													.execute()
 													.getAll();' #txt

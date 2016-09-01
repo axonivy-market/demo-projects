@@ -1,6 +1,0 @@
-CreateRequestData #class
-workflow.businessdata.concurrent.CreateRequest #namespace
-id String #field
-id PERSISTENT #fieldModifier
-request workflow.businessdata.concurrent.Request #field
-request PERSISTENT #fieldModifier

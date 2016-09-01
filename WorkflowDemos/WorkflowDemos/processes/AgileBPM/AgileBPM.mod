@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 23 20:43:18 CET 2016]
+[>Created: Thu Sep 01 14:49:59 CEST 2016]
 15255056043EE914 3.18 #module
 >Proto >Proto Collection #zClass
 AF0 AgileBPM Big #zClass
@@ -105,7 +105,7 @@ AF0 1b0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-AF0 1b0 392 162 112 44 -40 -8 #rect
+AF0 1b0 392 170 112 44 -40 -8 #rect
 AF0 1b0 @|BIcon #fIcon
 AF0 f0 outLink start.ivp #txt
 AF0 f0 type workflow.agileBPM.Data #txt
@@ -153,7 +153,7 @@ AF0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 AF0 f0 @C|.responsibility Employee #txt
-AF0 f0 83 171 26 26 -21 15 #rect
+AF0 f0 83 179 26 26 -21 15 #rect
 AF0 f0 @|StartRequestIcon #fIcon
 AF0 f1 targetWindow NEW:card: #txt
 AF0 f1 targetDisplay TOP #txt
@@ -179,10 +179,10 @@ AF0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-AF0 f1 168 162 112 44 -47 -8 #rect
+AF0 f1 168 170 112 44 -47 -8 #rect
 AF0 f1 @|RichDialogIcon #fIcon
 AF0 f2 expr out #txt
-AF0 f2 109 184 168 184 #arcP
+AF0 f2 109 192 168 192 #arcP
 AF0 f2 0 0.5643877852180716 0 0 #arcLabel
 AF0 f5 type workflow.agileBPM.Data #txt
 AF0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -194,10 +194,10 @@ AF0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-AF0 f5 322 170 28 28 -14 -34 #rect
+AF0 f5 322 178 28 28 -14 -34 #rect
 AF0 f5 @|AlternativeIcon #fIcon
 AF0 f6 expr out #txt
-AF0 f6 280 184 322 184 #arcP
+AF0 f6 280 192 322 192 #arcP
 AF0 f4 expr in #txt
 AF0 f4 outCond 'in.definedTasks.size() > 0' #txt
 AF0 f4 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -209,7 +209,7 @@ AF0 f4 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-AF0 f4 350 184 392 184 #arcP
+AF0 f4 350 192 392 192 #arcP
 AF0 f4 0 0.5 0 -8 #arcLabel
 AF0 f7 type workflow.agileBPM.Data #txt
 AF0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -221,7 +221,7 @@ AF0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-AF0 f7 563 235 26 26 -21 21 #rect
+AF0 f7 563 243 26 26 -21 21 #rect
 AF0 f7 @|EndIcon #fIcon
 AF0 f8 expr in #txt
 AF0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -233,8 +233,8 @@ AF0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-AF0 f8 336 198 563 248 #arcP
-AF0 f8 1 336 248 #addKink
+AF0 f8 336 206 563 256 #arcP
+AF0 f8 1 336 256 #addKink
 AF0 f8 1 0.3832599118942731 0 -6 #arcLabel
 AF0 f9 type workflow.agileBPM.Data #txt
 AF0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -246,9 +246,9 @@ AF0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-AF0 f9 563 171 26 26 -22 17 #rect
+AF0 f9 563 179 26 26 -22 17 #rect
 AF0 f9 @|EndIcon #fIcon
-AF0 f3 504 184 563 184 #arcP
+AF0 f3 504 192 563 192 #arcP
 AF0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -258,7 +258,7 @@ AF0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-AF0 f10 8 25 480 30 -233 -8 #rect
+AF0 f10 64 33 480 30 -233 -8 #rect
 AF0 f10 @|IBIcon #fIcon
 >Proto AF0 .type workflow.agileBPM.Data #txt
 >Proto AF0 .processKind NORMAL #txt
@@ -271,7 +271,7 @@ AF0 f10 @|IBIcon #fIcon
     <swimlaneSize>225</swimlaneSize>
     <swimlaneColor gradient="false">-52</swimlaneColor>
     <swimlaneType>POOL</swimlaneType>
-    <swimlaneSpaceBefore>88</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>96</swimlaneSpaceBefore>
 </elementInfo>
 ' #txt
 >Proto AF0 0 0 32 24 18 0 #rect

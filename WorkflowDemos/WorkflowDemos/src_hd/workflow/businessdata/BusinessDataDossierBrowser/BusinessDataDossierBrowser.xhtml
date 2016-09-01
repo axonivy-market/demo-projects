@@ -14,7 +14,7 @@
 				.ui-panelgrid,
 				.ui-panelgrid .ui-panelgrid-cell {border: none;}
 			</style>
-		
+		 
 		    <h:outputStylesheet ></h:outputStylesheet>
 			<h3>Browse Dossiers</h3>
 
@@ -65,14 +65,14 @@
 					<h:outputText value="#{dossier.person.address.country}" />
 				</p:column>
 				<p:column headerText="Operations">
-					<p:link value="update"
-						href="#{ivy.html.startref('155BB4328F79B2D5/update.ivp')}?id=#{ivy.repo.getId(dossier)} " />
+					<p:link value="edit"
+						href="#{ivy.html.startref('155BB4328F79B2D5/edit.ivp')}?id=#{ivy.repo.getId(dossier)} " />
 					<br />
 					<p:link value="delete"
 						href="#{ivy.html.startref('155BB4328F79B2D5/delete.ivp')}?id=#{ivy.repo.getId(dossier)} " />
 					<br />
-					<p:link value="start person verification"
-						href="#{ivy.html.startref('155BB4328F79B2D5/verifyDossier.ivp')}?id=#{ivy.repo.getId(dossier)} " />
+					<p:link value="verification process"
+						href="#{ivy.html.startref('156E5D9AA7D41BAA/verifyDossier.ivp')}?id=#{ivy.repo.getId(dossier)} " />
 				</p:column>
 
 			</p:dataTable>
