@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 01 15:30:39 CEST 2016]
+[>Created: Mon Sep 05 09:34:16 CEST 2016]
 156E5D9AA7D41BAA 3.18 #module
 >Proto >Proto Collection #zClass
 Vn0 VerificationProcess Big #zClass
@@ -159,7 +159,7 @@ TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
-Vn0 f19 showInStartList 1 #txt
+Vn0 f19 showInStartList 0 #txt
 Vn0 f19 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
 import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;

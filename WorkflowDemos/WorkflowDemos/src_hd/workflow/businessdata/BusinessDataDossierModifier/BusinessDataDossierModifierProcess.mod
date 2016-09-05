@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 01 16:55:42 CEST 2016]
+[>Created: Mon Sep 05 09:40:38 CEST 2016]
 155BB4D0A6771B1B 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierModifierProcess Big #zClass
@@ -120,7 +120,7 @@ in.dossier = ivy.repo.find(in.id,Dossier.class) as Dossier;
 
 BusinessDataInfo info = ivy.repo.getInfo(in.dossier);
 ivy.log.debug("info"+info);
-in.dossierInfo = "Last modified "+info.getModifiedAt()+" by "+ info.getModifiedByUserName();' #txt
+in.dossierInfo = "Last modified "+info.getModifiedAt().format("short") +" by "+ info.getModifiedByUserName();' #txt
 Bs0 f12 type workflow.businessdata.BusinessDataDossierModifier.BusinessDataDossierModifierData #txt
 Bs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

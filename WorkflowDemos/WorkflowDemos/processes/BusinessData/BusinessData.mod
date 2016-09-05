@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 01 15:26:11 CEST 2016]
+[>Created: Mon Sep 05 09:45:43 CEST 2016]
 155BB4328F79B2D5 3.18 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
@@ -85,6 +85,7 @@ param.title="Person Dossier";
 Ba0 f5 responseActionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f5 responseMappingAction 'out=in;
+out.id=result.id;
 ' #txt
 Ba0 f5 windowConfiguration '* ' #txt
 Ba0 f5 isAsynch false #txt
