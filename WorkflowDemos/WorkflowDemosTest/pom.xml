@@ -5,14 +5,20 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>ch.ivyteam.ivy.project</groupId>
-		<artifactId>build.maven.iar</artifactId>
+		<artifactId>build.maven.iar.web.test</artifactId>
 		<version>6.3.0-SNAPSHOT</version>
-		<relativePath>../../build.maven/iar</relativePath>
+		<relativePath>../../build.maven/iar/web.test</relativePath>
 	</parent>
+	
 	<groupId>ch.ivyteam.ivy.project.demo</groupId>
 	<artifactId>WorkflowDemosTest</artifactId>
 	<version>6.3.0-SNAPSHOT</version>
 	<packaging>iar</packaging>
+	
+	<properties>
+		<selenium.version>2.48.1</selenium.version>
+	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
@@ -20,62 +26,21 @@
 			<version>[6.1.0-SNAPSHOT,)</version>
 			<type>iar</type>
 		</dependency>
-		<dependency>
-			<!-- required: test framework used by the maven-surefire-plugin to run 
-				tests -->
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<!-- required: for web browser based testing -->
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>2.48.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.assertj</groupId>
-			<artifactId>assertj-core</artifactId>
-			<version>3.5.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.axonivy.ivy.supplements</groupId>
-			<artifactId>primeui-tester</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 	
-	<properties>
-		<test.application>Portal</test.application>
-	</properties>
-	
 	<build>
-		<testSourceDirectory>src_test</testSourceDirectory>
-		<testOutputDirectory>classes</testOutputDirectory>
 		<plugins>
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
 				<extensions>true</extensions>
 				<executions>
-					<execution>
-						<id>start.test.engine</id>
-						<goals>
-							<goal>start-test-engine</goal>
-						</goals>
-						<phase>pre-integration-test</phase>
-					</execution>
 		        	<execution>
 		        		<id>deploy.workflowdemos.under.test.to.memory.engine</id>
 		        		<goals><goal>deploy-iar</goal></goals>
 		        		<phase>integration-test</phase>
 		        		<configuration>
 		        			<deployIarFile>${ch.ivyteam.ivy.project.demo:WorkflowDemos:iar}</deployIarFile>
-		        			<deployToEngineApplication>${test.application}</deployToEngineApplication>
 		        		</configuration>
 		        	</execution>
 		        	 <execution>
@@ -84,52 +49,9 @@
 		        		<phase>integration-test</phase>
 		        		<configuration>
 		        			<deployIarFile>${ch.ivyteam.ivy.project.demo:WorkflowDemosTest:iar}</deployIarFile>
-		        			<deployToEngineApplication>${test.application}</deployToEngineApplication>
 		        		</configuration>
 		        	</execution>
-		        	<execution>
-						<id>stop.test.engine</id>
-						<goals>
-							<goal>stop-test-engine</goal>
-						</goals>
-						<phase>post-integration-test</phase>
-					</execution>
 		        </executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
-				<executions>
-					<execution>
-						<id>selenium.web.tests</id>
-						<phase>integration-test</phase>
-						<goals><goal>test</goal></goals>
-						<configuration>
-							<includes>
-								<include>**/WebTest*.java</include>
-							</includes>
-							<argLine>
-								-Dtest.engine.url=${test.engine.url}
-								-Dtest.engine.app=${test.application}
-							</argLine>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.10</version>
-				<executions>
-					<execution>
-						<id>share.dependencies.as.property.for.iar.deployment</id>
-						<goals>
-							<goal>properties</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

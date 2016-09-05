@@ -17,24 +17,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.assertj</groupId>
-			<artifactId>assertj-core</artifactId>
-			<version>3.2.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>2.53.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 		    <groupId>org.seleniumhq.selenium</groupId>
 		    <artifactId>htmlunit-driver</artifactId>
 		    <version>2.20</version>
@@ -48,13 +30,7 @@
 		</dependency>
 	</dependencies>
 
-	<properties>
-		<test.application>Portal</test.application>
-	</properties>
-
 	<build>
-		<testSourceDirectory>src_test</testSourceDirectory>
-		<outputDirectory>classes</outputDirectory>
 		<testOutputDirectory>classes</testOutputDirectory>
 
 		<plugins>
@@ -72,34 +48,13 @@
 							</includes>
 						</configuration>
 					</execution>
-					<execution>
-						<id>selenium-tests</id>
-						<phase>integration-test</phase>
-						<goals><goal>test</goal></goals>
-						<configuration>
-							<includes>
-								<include>**/WebTest*.java</include>
-							</includes>
-						</configuration>
-					</execution>
 				</executions>
-				<configuration>
-					<argLine>
-						-Dtest.engine.url=${test.engine.url}
-						-Dtest.engine.app=${test.application}
-					</argLine>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
 				<extensions>true</extensions>
 				<executions>
-					<execution>
-						<id>start.test.engine</id>
-						<goals><goal>start-test-engine</goal></goals>
-						<phase>pre-integration-test</phase>
-					</execution>
 					<execution>
 						<id>deploy.project.under.test</id>
 						<goals><goal>deploy-iar</goal></goals>
@@ -113,27 +68,6 @@
 						<goals><goal>deploy-iar</goal></goals>
 						<phase>pre-integration-test</phase>
 					</execution>
-					<execution>
-						<id>stop.test.engine</id>
-						<goals><goal>stop-test-engine</goal></goals>
-						<phase>post-integration-test</phase>
-					</execution>
-				</executions>
-				<configuration>
-					<deployToEngineApplication>${test.application}</deployToEngineApplication>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.10</version>
-				<executions>
-					<execution>
-						<id>share.dependencies.as.property.for.iar.deployment</id>
-						<goals>
-							<goal>properties</goal>
-						</goals>
-					</execution>
 				</executions>
 			</plugin>
 		</plugins>
@@ -141,8 +75,8 @@
 	
 	<parent>
 		<groupId>ch.ivyteam.ivy.project</groupId>
-		<artifactId>build.maven.iar</artifactId>
+		<artifactId>build.maven.iar.web.test</artifactId>
 		<version>6.3.0-SNAPSHOT</version>
-		<relativePath>../../build.maven/iar</relativePath>
+		<relativePath>../../build.maven/iar/web.test</relativePath>
 	</parent>
 </project>

@@ -9,14 +9,10 @@
 	<packaging>iar</packaging>
 	<parent>
 		<groupId>ch.ivyteam.ivy.project</groupId>
-		<artifactId>build.maven.iar</artifactId>
+		<artifactId>build.maven.iar.web.test</artifactId>
 		<version>6.3.0-SNAPSHOT</version>
-		<relativePath>../../build.maven/iar</relativePath>
+		<relativePath>../../build.maven/iar/web.test</relativePath>
 	</parent>
-
-	<properties>
-		<application>Portal</application>
-	</properties>
 
 	<dependencies>
 		<dependency>
@@ -32,45 +28,17 @@
 			<version>2.53.0</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.assertj</groupId>
-			<artifactId>assertj-core</artifactId>
-			<version>3.5.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.axonivy.ivy.supplements</groupId>
-			<artifactId>primeui-tester</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 	<build>
 		<sourceDirectory>${basedir}/src</sourceDirectory>
 		<outputDirectory>${basedir}/classes</outputDirectory>
-		<testSourceDirectory>${basedir}/src_test</testSourceDirectory>
-		<testOutputDirectory>${basedir}/classes</testOutputDirectory>
-
+		
 		<plugins>
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
 				<extensions>true</extensions>
 				<executions>
-					<execution>
-						<id>start.test.engine</id>
-						<goals>
-							<goal>start-test-engine</goal>
-						</goals>
-						<phase>pre-integration-test</phase>
-					</execution>
-
 					<execution>
 						<id>deploy.htmlDialogDemos.under.test.to.memory.engine</id>
 						<goals>
@@ -79,7 +47,6 @@
 						<phase>pre-integration-test</phase>
 						<configuration>
 							<deployIarFile>${ch.ivyteam.ivy.project.demo:HtmlDialogDemos:iar}</deployIarFile>
-							<deployToEngineApplication>${application}</deployToEngineApplication>
 						</configuration>
 					</execution>
 					<execution>
@@ -90,53 +57,7 @@
 						<phase>pre-integration-test</phase>
 						<configuration>
 							<deployIarFile>${ch.ivyteam.ivy.project.demo:HtmlDialogDemosTest:iar}</deployIarFile>
-							<deployToEngineApplication>${application}</deployToEngineApplication>
 						</configuration>
-					</execution>
-					<execution>
-						<id>stop.test.engine</id>
-						<goals>
-							<goal>stop-test-engine</goal>
-						</goals>
-						<phase>post-integration-test</phase>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
-				<executions>
-					<execution>
-						<id>selenium.web.tests</id>
-						<phase>integration-test</phase>
-						<goals>
-							<goal>test</goal>
-						</goals>
-						<configuration>
-							<includes>
-								<include>**/WebTest*.java</include>
-							</includes>
-							<argLine>
-								-Dtest.engine.url=${test.engine.url}
-								-Dtest.engine.app=${application}
-							</argLine>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.10</version>
-				<executions>
-					<execution>
-						<id>share.dependencies.as.property.for.iar.deployment</id>
-						<goals>
-							<goal>properties</goal>
-						</goals>
 					</execution>
 				</executions>
 			</plugin>
