@@ -41,7 +41,7 @@
 		 				</p:calendar>
 					</p:panelGrid>
 				 </p:outputPanel>				  
-				 <p:commandButton value="Search" actionListener="#{logic.search}" update=":dossierTable" />
+				 <p:commandButton value="Search" actionListener="#{logic.search}" update=":dossierTable :resultCount" />
 				</p:panelGrid>
 		  	</h:form>
 
@@ -80,17 +80,18 @@
             <p:growl showDetail="true" id="infoGrowl" escape="false" sticky="true"/>
            	<f:event type="preRenderView" listener="#{logic.displayMessage}" />
 
-			<div align="left" style="float:left">
-				<p:link value="+ Create new Dossier"
-				href="#{ivy.html.startref('155BB4328F79B2D5/create.ivp')}" />
-				<br />
-			</div>
-
-			<div align="right">
-				<p:link value="Show all dossiers"
-					href="#{ivy.html.startref('155BB4328F79B2D5/browse.ivp')}" />
-				<br />
-			</div>
+			<table style="width: 100%;">
+				<tr>
+					<td style="width: 33%;"><p:link value="+ Create new Dossier"
+							href="#{ivy.html.startref('155BB4328F79B2D5/create.ivp')}" /></td>
+					<td style="text-align: center; width: 33%; color: #a5a5a5;"><h:outputText
+							id="resultCount"
+							value="Displaying #{data.searchResult.count()} of #{data.searchResult.totalCount()} hits." /></td>
+					<td style="text-align: right; width: 33%;"><p:link
+							value="Show all dossiers"
+							href="#{ivy.html.startref('155BB4328F79B2D5/browse.ivp')}?showAll=true" /></td>
+				</tr>
+			</table>
 
 		</ui:define>
 	</ui:composition>

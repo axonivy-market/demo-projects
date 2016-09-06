@@ -7,11 +7,17 @@
     </method>
     <startMethod>
         <name>start</name>
-        <description>Pass in the last edited, created dossier id.</description>
+        <description></description>
         <inputParameter>
-            <name>id</name>
+            <name>lastId</name>
             <description></description>
             <parameterType>String</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>showAll</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </startMethod>

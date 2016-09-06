@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 05 09:45:43 CEST 2016]
+[>Created: Tue Sep 06 10:22:59 CEST 2016]
 155BB4328F79B2D5 3.18 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
@@ -145,15 +145,16 @@ Ba0 f7 81 306 30 30 -33 17 #rect
 Ba0 f7 @|StartRequestIcon #fIcon
 Ba0 f10 outLink browse.ivp #txt
 Ba0 f10 type workflow.businessdata.Data #txt
-Ba0 f10 inParamDecl '<> param;' #txt
+Ba0 f10 inParamDecl '<java.lang.Boolean showAll> param;' #txt
 Ba0 f10 inParamTable 'out.id="";
+out.showAll=param.showAll;
 ' #txt
 Ba0 f10 actionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f10 guid 155BB4329582E3C6 #txt
 Ba0 f10 requestEnabled true #txt
 Ba0 f10 triggerEnabled false #txt
-Ba0 f10 callSignature browse() #txt
+Ba0 f10 callSignature browse(Boolean) #txt
 Ba0 f10 persist false #txt
 Ba0 f10 startName '5.1: Browse Dossiers (Business Data)' #txt
 Ba0 f10 startDescription 'Business Data Store Demo. Manage dossier objects in the Business Data Repository' #txt
@@ -188,10 +189,11 @@ Ba0 f10 @|StartRequestIcon #fIcon
 Ba0 f11 targetWindow NEW:card: #txt
 Ba0 f11 targetDisplay TOP #txt
 Ba0 f11 richDialogId workflow.businessdata.BusinessDataDossierBrowser #txt
-Ba0 f11 startMethod start(String) #txt
+Ba0 f11 startMethod start(String,Boolean) #txt
 Ba0 f11 type workflow.businessdata.Data #txt
-Ba0 f11 requestActionDecl '<String id> param;' #txt
-Ba0 f11 requestMappingAction 'param.id=in.id;
+Ba0 f11 requestActionDecl '<String lastId, Boolean showAll> param;' #txt
+Ba0 f11 requestMappingAction 'param.lastId=in.id;
+param.showAll=in.showAll;
 ' #txt
 Ba0 f11 responseActionDecl 'workflow.businessdata.Data out;
 ' #txt
