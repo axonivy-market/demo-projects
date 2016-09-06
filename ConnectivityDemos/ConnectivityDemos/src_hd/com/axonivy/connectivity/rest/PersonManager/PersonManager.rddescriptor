@@ -12,14 +12,8 @@
         </inputParameter>
     </method>
     <method>
-        <name>getPersons</name>
+        <name>update</name>
         <description></description>
-        <outputParameter>
-            <name>persons</name>
-            <description></description>
-            <parameterType>java.util.List&lt;com.axonivy.connectivity.Person&gt;</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </outputParameter>
     </method>
     <method>
         <name>delete</name>

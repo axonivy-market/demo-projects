@@ -13,8 +13,9 @@
 			<h3>Restful Person Manager</h3>
 			<p>Uses REST client calls to display and manipulate it's data.</p>
 			
+			<f:event type="preRenderView" listener="#{logic.update()}" />
 			<h:form id="form">
-				<p:dataTable value="#{logic.persons}" var="person" id="persons">
+				<p:dataTable value="#{data.persons}" var="person" id="persons">
 					<p:column headerText="Firstname">
 						<p:outputLabel value="#{person.firstname}"></p:outputLabel>
 					</p:column>
@@ -42,12 +43,14 @@
 				</p:dialog>
 
 				<h4>New Person</h4>
-				<p:outputLabel value="Firstname" for="first"/>
-				<p:inputText value="#{data.firstName}" id="first" /><br/>
-				<p:outputLabel value="Lastname" for="last"/>
-				<p:inputText value="#{data.lastName}" id="last" />
-				<p:commandButton actionListener="#{logic.add}" 
-				 value="Add" update="persons, notify" oncomplete="PF('status').show();" icon="ui-icon-plus" />
+				<h:panelGrid columns="3">
+					<p:outputLabel value="Firstname" for="first"/>
+					<p:inputText value="#{data.firstName}" id="first" /><br/>
+					<p:outputLabel value="Lastname" for="last"/>
+					<p:inputText value="#{data.lastName}" id="last" />
+					<p:commandButton actionListener="#{logic.add}" 
+				 		value="Add" update="persons, notify" oncomplete="PF('status').show();" icon="ui-icon-plus" />
+				</h:panelGrid>
 			
 				<br/><br/>
 				<p:commandButton actionListener="#{logic.close}" value="Exit" update="form" icon="ui-icon-check" />

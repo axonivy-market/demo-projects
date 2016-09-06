@@ -26,12 +26,12 @@
 					
 					<p:outputLabel for="approvalRequestedBy" value="Requested By"/>
 					<p:inputText id="approvalRequestedBy" value="#{data.approval.requestedBy}" />
-					<br/><br/>
+					<br/>
 					
-					<p:fieldset>
-						<p:commandButton actionListener="#{logic.close}" value="Accept" update="form" icon="ui-icon-check" />
-						<p:commandButton actionListener="#{logic.close}" value="Decline" update="form" icon="ui-icon-check" />
-					</p:fieldset>
+					<h:panelGrid columns="2">
+						<p:commandButton actionListener="#{logic.close}" value="Accept" update="form" icon="fa fa-check"/>
+						<p:commandButton actionListener="#{logic.close}" value="Decline" update="form" icon="fa fa-remove"/>
+					</h:panelGrid>
 				</h:panelGrid>
 			</h:form>
 			

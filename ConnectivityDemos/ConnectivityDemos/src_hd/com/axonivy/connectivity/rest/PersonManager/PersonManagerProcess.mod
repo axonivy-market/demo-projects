@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu May 12 11:52:59 CEST 2016]
+[>Created: Tue Sep 06 09:26:39 CEST 2016]
 15470DE765DF45FC 3.18 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonManagerProcess Big #zClass
@@ -200,21 +200,19 @@ Ps0 f16 expr out #txt
 Ps0 f16 288 416 339 416 #arcP
 Ps0 f19 guid 154756E891F20C23 #txt
 Ps0 f19 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
-Ps0 f19 method getPersons() #txt
+Ps0 f19 method update() #txt
 Ps0 f19 disableUIEvents false #txt
 Ps0 f19 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
-Ps0 f19 outParameterDecl '<java.util.List<com.axonivy.connectivity.Person> persons> result;
+Ps0 f19 inParameterMapAction 'out.persons=com.axonivy.connectivity.rest.client.PersonClient.getPersons();
 ' #txt
-Ps0 f19 outParameterMapAction 'result.persons=com.axonivy.connectivity.rest.client.PersonClient.getPersons();
+Ps0 f19 outParameterDecl '<> result;
 ' #txt
 Ps0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>getPersons()</name>
-        <nameStyle>12,5,7
-</nameStyle>
+        <name>update()</name>
     </language>
 </elementInfo>
 ' #txt
