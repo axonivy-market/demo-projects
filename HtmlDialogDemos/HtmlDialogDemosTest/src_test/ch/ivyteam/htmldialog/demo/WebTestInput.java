@@ -135,6 +135,8 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(By.id("demoForm:downloadFileButton")).click();
     File downloadedFile = new File(ffDownloadDir, tempFile.getName());
     System.out.println("Content of file is:" + Files.readAllLines(downloadedFile.toPath()));
+    Thread.sleep(2000);
+    System.out.println("Content of file after 2 secs is:" + Files.readAllLines(downloadedFile.toPath()));
     assertThat(downloadedFile).hasContent(testContent);
   }
 
