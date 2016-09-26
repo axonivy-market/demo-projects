@@ -137,9 +137,8 @@ public class WebTestInput extends BaseWebTest
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:textAreaLabel"), testContent));
     driver.findElement(By.id("demoForm:downloadFileButton")).click();
     File downloadedFile = new File(ffDownloadDir, tempFile.getName());
-    Awaitility.await("Compare File content").atMost(10, TimeUnit.SECONDS).until(() ->
+    Awaitility.await("Expecting File to contain: " + testContent).atMost(10, TimeUnit.SECONDS).until(() ->
     {
-      System.out.println("Reading File");
       return FileUtils.readFileToString(downloadedFile).equalsIgnoreCase(testContent);
     });
   }
