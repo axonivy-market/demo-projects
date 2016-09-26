@@ -16,6 +16,18 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.jayway.awaitility</groupId>
+			<artifactId>awaitility</artifactId>
+			<version>1.5.0</version>
+			<exclusions>
+				<!-- exclude hamcrest-core as it is already available as plugin -->
+				<exclusion>
+					<artifactId>hamcrest-core</artifactId>
+					<groupId>org.hamcrest</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
 			<artifactId>HtmlDialogDemos</artifactId>
 			<!-- avoid conflict with old version from 6.0 which was 6000000.0.0-SNAPSHOT -->

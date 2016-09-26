@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -18,6 +19,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import com.jayway.awaitility.Awaitility;
 
 public class WebTestInput extends BaseWebTest
 {
@@ -134,10 +137,11 @@ public class WebTestInput extends BaseWebTest
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:textAreaLabel"), testContent));
     driver.findElement(By.id("demoForm:downloadFileButton")).click();
     File downloadedFile = new File(ffDownloadDir, tempFile.getName());
-    System.out.println("Content of file is:" + Files.readAllLines(downloadedFile.toPath()));
-    Thread.sleep(2000);
-    System.out.println("Content of file after 2 secs is:" + Files.readAllLines(downloadedFile.toPath()));
-    assertThat(downloadedFile).hasContent(testContent);
+    Awaitility.await("Compare File content").atMost(10, TimeUnit.SECONDS).until(() ->
+    {
+      System.out.println("Reading File");
+      return FileUtils.readFileToString(downloadedFile).equalsIgnoreCase(testContent);
+    });
   }
 
   @Test
