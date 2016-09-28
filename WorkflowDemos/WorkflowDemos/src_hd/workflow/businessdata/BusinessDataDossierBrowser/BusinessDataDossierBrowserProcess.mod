@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Sep 06 10:26:41 CEST 2016]
+[>Created: Wed Sep 28 13:39:35 CEST 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -15,11 +15,9 @@ Bs0 @MessageFlowInP-0n messageIn messageIn #zField
 Bs0 @MessageFlowOutP-0n messageOut messageOut #zField
 Bs0 @TextInP .xml .xml #zField
 Bs0 @TextInP .responsibility .responsibility #zField
-Bs0 @RichDialogProcessEnd f1 '' #zField
 Bs0 @RichDialogProcessStart f3 '' #zField
 Bs0 @RichDialogEnd f4 '' #zField
 Bs0 @PushWFArc f5 '' #zField
-Bs0 @GridStep f6 '' #zField
 Bs0 @RichDialogProcessStart f8 '' #zField
 Bs0 @RichDialogProcessEnd f9 '' #zField
 Bs0 @GridStep f11 '' #zField
@@ -43,15 +41,15 @@ Bs0 @PushWFArc f17 '' #zField
 Bs0 @RichDialogProcessEnd f31 '' #zField
 Bs0 @GridStep f33 '' #zField
 Bs0 @PushWFArc f32 '' #zField
-Bs0 @PushWFArc f2 '' #zField
 Bs0 @RichDialogMethodStart f18 '' #zField
 Bs0 @PushWFArc f24 '' #zField
 Bs0 @RichDialogInitStart f0 '' #zField
-Bs0 @PushWFArc f7 '' #zField
+Bs0 @RichDialogProcessEnd f36 '' #zField
+Bs0 @GridStep f37 '' #zField
+Bs0 @PushWFArc f38 '' #zField
+Bs0 @PushWFArc f39 '' #zField
+Bs0 @PushWFArc f2 '' #zField
 >Proto Bs0 Bs0 BusinessDataDossierBrowserProcess #zField
-Bs0 f1 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f1 339 51 26 26 0 12 #rect
-Bs0 f1 @|RichDialogProcessEndIcon #fIcon
 Bs0 f3 guid 155BB5BDF10FCA85 #txt
 Bs0 f3 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f3 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
@@ -65,45 +63,14 @@ Bs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f3 83 147 26 26 -16 12 #rect
+Bs0 f3 83 627 26 26 -16 12 #rect
 Bs0 f3 @|RichDialogProcessStartIcon #fIcon
 Bs0 f4 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f4 guid 155BB5BDF11AEBB5 #txt
-Bs0 f4 211 147 26 26 0 12 #rect
+Bs0 f4 211 627 26 26 0 12 #rect
 Bs0 f4 @|RichDialogEndIcon #fIcon
 Bs0 f5 expr out #txt
-Bs0 f5 109 160 211 160 #arcP
-Bs0 f6 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
-' #txt
-Bs0 f6 actionTable 'out=in;
-' #txt
-Bs0 f6 actionCode 'import workflow.businessdata.Dossier;
-
-int limit = 10;
-if (in.showAll == true)
-{
-	limit = 1000;
-}
-
-
-in.searchResult = ivy.repo.search(Dossier.class)
-										.orderBy()
-										.field("name")
-										.limit(limit)
-										.execute();
-in.dossiers = in.searchResult.getAll() as List<Dossier>;' #txt
-Bs0 f6 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>load dossiers</name>
-        <nameStyle>13,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Bs0 f6 168 42 112 44 -42 -7 #rect
-Bs0 f6 @|StepIcon #fIcon
+Bs0 f5 109 640 211 640 #arcP
 Bs0 f8 guid 15627E1B09E15483 #txt
 Bs0 f8 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f8 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
@@ -117,10 +84,10 @@ Bs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f8 83 243 26 26 -19 12 #rect
+Bs0 f8 83 147 26 26 -19 12 #rect
 Bs0 f8 @|RichDialogProcessStartIcon #fIcon
 Bs0 f9 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f9 435 243 26 26 0 12 #rect
+Bs0 f9 435 147 26 26 0 12 #rect
 Bs0 f9 @|RichDialogProcessEndIcon #fIcon
 Bs0 f11 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
 ' #txt
@@ -131,9 +98,9 @@ Bs0 f11 actionCode 'import workflow.businessdata.Dossier;
 										
 in.searchResult = ivy.repo.search(Dossier.class)
 													.allFields()
-													.containsWordPattern(in.searchText)
-													.orderBy().field("name")
-													.limit(10)
+													.containsAllWordPatterns(in.searchText)
+													.orderBy().textField("name")
+													.limit(in.limit)
 													.execute();
 													
 in.dossiers = in.searchResult.getAll();
@@ -149,12 +116,12 @@ Bs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f11 264 234 112 44 -51 -8 #rect
+Bs0 f11 264 138 112 44 -51 -8 #rect
 Bs0 f11 @|StepIcon #fIcon
 Bs0 f10 expr out #txt
-Bs0 f10 376 256 435 256 #arcP
+Bs0 f10 376 160 435 160 #arcP
 Bs0 f14 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f14 435 339 26 26 0 12 #rect
+Bs0 f14 435 211 26 26 0 12 #rect
 Bs0 f14 @|RichDialogProcessEndIcon #fIcon
 Bs0 f16 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
 ' #txt
@@ -165,8 +132,8 @@ Bs0 f16 actionCode 'import workflow.businessdata.Dossier;
 in.searchResult = ivy.repo.search(Dossier.class)
 													.textField("person.lastName")
 													.containsWordPattern(in.searchText)
-													.orderBy().field("name")
-													.limit(10)
+													.orderBy().textField("name")
+													.limit(in.limit)
 													.execute();
 
 in.dossiers = in.searchResult.getAll();
@@ -181,10 +148,10 @@ Bs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f16 256 330 128 44 -58 -8 #rect
+Bs0 f16 256 202 128 44 -58 -8 #rect
 Bs0 f16 @|StepIcon #fIcon
 Bs0 f15 expr out #txt
-Bs0 f15 384 352 435 352 #arcP
+Bs0 f15 384 224 435 224 #arcP
 Bs0 f19 guid 15692726A4D2F2CF #txt
 Bs0 f19 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f19 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
@@ -200,13 +167,13 @@ Bs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f19 83 547 26 26 -58 15 #rect
+Bs0 f19 83 435 26 26 -58 15 #rect
 Bs0 f19 @|RichDialogProcessStartIcon #fIcon
 Bs0 f20 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f20 435 435 26 26 0 12 #rect
+Bs0 f20 435 275 26 26 0 12 #rect
 Bs0 f20 @|RichDialogProcessEndIcon #fIcon
 Bs0 f21 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f21 339 547 26 26 0 12 #rect
+Bs0 f21 339 435 26 26 0 12 #rect
 Bs0 f21 @|RichDialogProcessEndIcon #fIcon
 Bs0 f22 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
 ' #txt
@@ -217,8 +184,8 @@ Bs0 f22 actionCode 'import workflow.businessdata.Dossier;
 in.searchResult = ivy.repo.search(Dossier.class)
 													.dateTimeField("person.birthDate")
 													.isInDateRange(in.searchFromDate,in.searchToDate)
-													.orderBy().field("name")
-													.limit(10)
+													.orderBy().textField("name")
+													.limit(in.limit)
 													.execute();
 													
 in.dossiers = in.searchResult.getAll();' #txt
@@ -232,7 +199,7 @@ Bs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f22 264 426 112 44 -53 -8 #rect
+Bs0 f22 264 266 112 44 -53 -8 #rect
 Bs0 f22 @|StepIcon #fIcon
 Bs0 f23 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
 ' #txt
@@ -252,33 +219,34 @@ Bs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f23 168 538 112 44 -47 -8 #rect
+Bs0 f23 168 426 112 44 -47 -8 #rect
 Bs0 f23 @|StepIcon #fIcon
 Bs0 f25 expr out #txt
-Bs0 f25 376 448 435 448 #arcP
+Bs0 f25 376 288 435 288 #arcP
 Bs0 f26 expr out #txt
-Bs0 f26 109 560 168 560 #arcP
+Bs0 f26 109 448 168 448 #arcP
 Bs0 f27 expr out #txt
-Bs0 f27 280 560 339 560 #arcP
+Bs0 f27 280 448 339 448 #arcP
 Bs0 f28 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f28 176 240 32 32 0 16 #rect
+Bs0 f28 176 144 32 32 0 16 #rect
 Bs0 f28 @|AlternativeIcon #fIcon
 Bs0 f29 expr out #txt
-Bs0 f29 109 256 176 256 #arcP
+Bs0 f29 109 160 176 160 #arcP
 Bs0 f12 expr in #txt
 Bs0 f12 outCond in.searchType=="FullText" #txt
-Bs0 f12 208 256 264 256 #arcP
+Bs0 f12 208 160 264 160 #arcP
 Bs0 f13 expr in #txt
 Bs0 f13 outCond in.searchType=="LastName" #txt
-Bs0 f13 192 272 256 352 #arcP
-Bs0 f13 1 192 352 #addKink
+Bs0 f13 192 176 256 224 #arcP
+Bs0 f13 1 192 224 #addKink
 Bs0 f13 1 0.1556203489120305 0 0 #arcLabel
 Bs0 f17 expr in #txt
-Bs0 f17 192 272 264 448 #arcP
-Bs0 f17 1 192 448 #addKink
+Bs0 f17 outCond in.searchType=="BirthDate" #txt
+Bs0 f17 192 176 264 288 #arcP
+Bs0 f17 1 192 288 #addKink
 Bs0 f17 0 0.5387700534759359 0 0 #arcLabel
 Bs0 f31 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
-Bs0 f31 339 627 26 26 0 12 #rect
+Bs0 f31 339 531 26 26 0 12 #rect
 Bs0 f31 @|RichDialogProcessEndIcon #fIcon
 Bs0 f33 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
 ' #txt
@@ -309,12 +277,10 @@ message (index)</name>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f33 160 618 128 44 -43 -16 #rect
+Bs0 f33 160 522 128 44 -43 -16 #rect
 Bs0 f33 @|StepIcon #fIcon
 Bs0 f32 expr out #txt
-Bs0 f32 288 640 339 640 #arcP
-Bs0 f2 expr out #txt
-Bs0 f2 280 64 339 64 #arcP
+Bs0 f32 288 544 339 544 #arcP
 Bs0 f18 guid 1569CFB6E45ABE22 #txt
 Bs0 f18 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f18 method displayMessage() #txt
@@ -331,10 +297,10 @@ Bs0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Bs0 f18 83 627 26 26 -49 15 #rect
+Bs0 f18 83 531 26 26 -49 15 #rect
 Bs0 f18 @|RichDialogMethodStartIcon #fIcon
 Bs0 f24 expr out #txt
-Bs0 f24 109 640 160 640 #arcP
+Bs0 f24 109 544 160 544 #arcP
 Bs0 f0 guid 156FE96D5274976E #txt
 Bs0 f0 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 Bs0 f0 method start(String,Boolean) #txt
@@ -343,8 +309,8 @@ Bs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 <java.lang.String lastId,java.lang.Boolean showAll> param = methodEvent.getInputArguments();
 ' #txt
 Bs0 f0 inParameterMapAction 'out.lastEditedId=param.lastId;
+out.limit=param.showAll ? 1000 : 5;
 out.searchType="FullText";
-out.showAll=param.showAll;
 ' #txt
 Bs0 f0 outParameterDecl '<> result;
 ' #txt
@@ -359,8 +325,45 @@ Bs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Bs0 f0 83 51 26 26 -57 15 #rect
 Bs0 f0 @|RichDialogInitStartIcon #fIcon
-Bs0 f7 expr out #txt
-Bs0 f7 109 64 168 64 #arcP
+Bs0 f36 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f36 435 347 26 26 0 12 #rect
+Bs0 f36 @|RichDialogProcessEndIcon #fIcon
+Bs0 f37 actionDecl 'workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData out;
+' #txt
+Bs0 f37 actionTable 'out=in;
+' #txt
+Bs0 f37 actionCode 'import workflow.businessdata.Dossier;
+
+in.searchResult = ivy.repo.search(Dossier.class)
+													.textField("name")
+													.isEqualToIgnoringCase(in.searchText)
+													.orderBy().textField("name")
+													.limit(in.limit)
+													.execute();
+													
+in.dossiers = in.searchResult.getAll();' #txt
+Bs0 f37 type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
+Bs0 f37 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>search for name</name>
+        <nameStyle>15,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Bs0 f37 264 338 112 44 -51 -7 #rect
+Bs0 f37 @|StepIcon #fIcon
+Bs0 f38 expr out #txt
+Bs0 f38 376 360 435 360 #arcP
+Bs0 f39 expr in #txt
+Bs0 f39 192 176 264 360 #arcP
+Bs0 f39 1 192 360 #addKink
+Bs0 f39 0 0.6451612903225806 0 0 #arcLabel
+Bs0 f2 expr out #txt
+Bs0 f2 109 64 192 144 #arcP
+Bs0 f2 1 192 64 #addKink
+Bs0 f2 1 0.4391824329877974 0 0 #arcLabel
 >Proto Bs0 .type workflow.businessdata.BusinessDataDossierBrowser.BusinessDataDossierBrowserData #txt
 >Proto Bs0 .processKind HTML_DIALOG #txt
 >Proto Bs0 -8 -8 16 16 16 26 #rect
@@ -387,9 +390,11 @@ Bs0 f28 out f17 tail #connect
 Bs0 f17 head f22 mainIn #connect
 Bs0 f33 mainOut f32 tail #connect
 Bs0 f32 head f31 mainIn #connect
-Bs0 f6 mainOut f2 tail #connect
-Bs0 f2 head f1 mainIn #connect
 Bs0 f18 mainOut f24 tail #connect
 Bs0 f24 head f33 mainIn #connect
-Bs0 f0 mainOut f7 tail #connect
-Bs0 f7 head f6 mainIn #connect
+Bs0 f37 mainOut f38 tail #connect
+Bs0 f38 head f36 mainIn #connect
+Bs0 f28 out f39 tail #connect
+Bs0 f39 head f37 mainIn #connect
+Bs0 f0 mainOut f2 tail #connect
+Bs0 f2 head f28 in #connect

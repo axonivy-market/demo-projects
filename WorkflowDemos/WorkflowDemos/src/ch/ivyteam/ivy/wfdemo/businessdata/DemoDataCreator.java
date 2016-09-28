@@ -15,16 +15,16 @@ public class DemoDataCreator {
 		
 		if (dossierCount == 0) 
 		{
-			createDemoDossier("HEISENBERG", "Werner", "Heisenberg", new Date(1901, 12, 5), "97070", "Würzburg", "Germany");
-			createDemoDossier("PAULI", "Wolfgang", "Pauli", new Date(1900, 04, 25), "1010", "Wien", "Austria");
-			createDemoDossier("NOETHER", "Emmy", "Noether", new Date(1882, 03, 23), "91052", "Erlangen", "Germany");
-			createDemoDossier("TURING", "Alan", "Turing", new Date(1912, 06, 23), "10000", "London", "England");
-			createDemoDossier("RAMANUJAN", "Srinivasa", "Ramanujan", new Date(1887, 12, 22), "30000", "Erode", "India");
-			createDemoDossier("LOVELACE", "Ada", "Lovelace", new Date(1815, 12, 10), "20000", "London", "England");
-			createDemoDossier("POINCARE", "Henri", "Poincaré", new Date(1854, 04, 29), "54000", "Nancy", "France");
-			createDemoDossier("EULER", "Leonhard", "Euler", new Date(1707, 04, 15), "4000", "Basel", "Switzerland");
-			createDemoDossier("VOLTA", "Alessandro", "Volta", new Date(1745, 02, 18), "22100", "Como", "Italy");
-			createDemoDossier("NEUMANN", "John", "von Neumann", new Date(1903, 12, 28), "1011", "Budapest", "Hungary");
+			createDemoDossier("HEISENBERG DE", "Werner", "Heisenberg", new Date(1901, 12, 5), "97070", "Würzburg", "Germany");
+			createDemoDossier("PAULI AT", "Wolfgang", "Pauli", new Date(1900, 04, 25), "1010", "Wien", "Austria");
+			createDemoDossier("NOETHER DE", "Emmy", "Noether", new Date(1882, 03, 23), "91052", "Erlangen", "Germany");
+			createDemoDossier("TURING GB", "Alan", "Turing", new Date(1912, 06, 23), "10000", "London", "England");
+			createDemoDossier("RAMANUJAN IN", "Srinivasa", "Ramanujan", new Date(1887, 12, 22), "30000", "Erode", "India");
+			createDemoDossier("LOVELACE GB", "Ada", "Lovelace", new Date(1815, 12, 10), "20000", "London", "England");
+			createDemoDossier("POINCARE FR", "Henri", "Poincaré", new Date(1854, 04, 29), "54000", "Nancy", "France");
+			createDemoDossier("EULER CH", "Leonhard", "Euler", new Date(1707, 04, 15), "4000", "Basel", "Switzerland");
+			createDemoDossier("VOLTA IT", "Alessandro", "Volta", new Date(1745, 02, 18), "22100", "Como", "Italy");
+			createDemoDossier("NEUMANN HU", "John", "von Neumann", new Date(1903, 12, 28), "1011", "Budapest", "Hungary");
 			dossierCount = countDossier(repo);
 			while (dossierCount < 10)
 			{

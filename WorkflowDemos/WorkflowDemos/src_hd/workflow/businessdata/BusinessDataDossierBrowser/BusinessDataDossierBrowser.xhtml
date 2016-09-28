@@ -14,21 +14,19 @@
 				.ui-panelgrid,
 				.ui-panelgrid .ui-panelgrid-cell {border: none;}
 			</style>
-		 
-		    <h:outputStylesheet ></h:outputStylesheet>
-			<h3>Browse Dossiers</h3>
+		 	<h3>Browse Dossiers</h3>
 
 	        <h:form>
-				<p:panelGrid columns="2">
+				<p:panelGrid columns="1">
 				  <p:selectOneRadio id="search" value="#{data.searchType}" >
 				    <f:selectItem itemLabel="Full Text" itemValue="FullText"/>
 				    <f:selectItem itemLabel="Last Name" itemValue="LastName"/>
 				    <f:selectItem itemLabel="Birth Date" itemValue="BirthDate"/>
+				    <f:selectItem itemLabel="Name (equals ignore case)" itemValue="Equals"/>
 				    <p:ajax update="searchBox"/>
 				  </p:selectOneRadio>
-				  <br/>
-				  <p:outputPanel id="searchBox">
-					<p:inputText value="#{data.searchText}" placeholder="Ask me anything" size="40" rendered="#{data.searchType=='FullText' || data.searchType=='LastName'}"/>
+				  <p:panelGrid columns="2" id="searchBox">
+					<p:inputText value="#{data.searchText}" placeholder="Ask me anything" size="40" rendered="#{data.searchType=='FullText' || data.searchType=='LastName' || data.searchType=='Equals'}"/>
 					<p:panelGrid columns="4" id="DateRange" rendered="#{data.searchType=='BirthDate'}">
 						<p:outputLabel value="From:" for="fromDate"/>
 						<p:calendar id="fromDate" value="#{data.searchFromDate}" navigator="true" yearRange="c-50:c+10" pattern="dd.MM.yyyy">
@@ -40,8 +38,8 @@
 		           			<f:convertDateTime pattern="dd.MM.yyyy" />
 		 				</p:calendar>
 					</p:panelGrid>
-				 </p:outputPanel>				  
-				 <p:commandButton value="Search" actionListener="#{logic.search}" update=":dossierTable :resultCount" />
+				    <p:commandButton value="Search" actionListener="#{logic.search}" update=":dossierTable :resultCount" />
+				 </p:panelGrid>
 				</p:panelGrid>
 		  	</h:form>
 

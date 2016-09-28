@@ -14,5 +14,5 @@ lastEditedId String #field
 lastEditedId PERSISTENT #fieldModifier
 searchResult ch.ivyteam.ivy.business.data.store.search.Result #field
 searchResult PERSISTENT #fieldModifier
-showAll Boolean #field
-showAll PERSISTENT #fieldModifier
+limit Number #field
+limit PERSISTENT #fieldModifier

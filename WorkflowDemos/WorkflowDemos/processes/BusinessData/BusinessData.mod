@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Sep 06 10:22:59 CEST 2016]
+[>Created: Tue Sep 27 11:43:54 CEST 2016]
 155BB4328F79B2D5 3.18 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
@@ -31,6 +31,13 @@ Ba0 @PushWFArc f9 '' #zField
 Ba0 @PushWFArc f16 '' #zField
 Ba0 @StartRequest f4 '' #zField
 Ba0 @PushWFArc f1 '' #zField
+Ba0 @RichDialog f8 '' #zField
+Ba0 @StartRequest f17 '' #zField
+Ba0 @EndTask f18 '' #zField
+Ba0 @GridStep f19 '' #zField
+Ba0 @PushWFArc f20 '' #zField
+Ba0 @PushWFArc f21 '' #zField
+Ba0 @PushWFArc f22 '' #zField
 >Proto Ba0 Ba0 BusinessData #zField
 Ba0 f0 outLink create.ivp #txt
 Ba0 f0 type workflow.businessdata.Data #txt
@@ -339,6 +346,99 @@ Ba0 f1 expr out #txt
 Ba0 f1 280 416 416 182 #arcP
 Ba0 f1 1 416 416 #addKink
 Ba0 f1 1 0.2094017094017094 0 0 #arcLabel
+Ba0 f8 targetWindow NEW:card: #txt
+Ba0 f8 targetDisplay TOP #txt
+Ba0 f8 richDialogId workflow.businessdata.BusinessDataDossierLazyBrowser #txt
+Ba0 f8 startMethod start() #txt
+Ba0 f8 type workflow.businessdata.Data #txt
+Ba0 f8 requestActionDecl '<> param;' #txt
+Ba0 f8 responseActionDecl 'workflow.businessdata.Data out;
+' #txt
+Ba0 f8 responseMappingAction 'out=in;
+' #txt
+Ba0 f8 windowConfiguration '* ' #txt
+Ba0 f8 isAsynch false #txt
+Ba0 f8 isInnerRd false #txt
+Ba0 f8 userContext '* ' #txt
+Ba0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>browse lazy</name>
+        <nameStyle>11,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ba0 f8 364 490 112 44 -35 -7 #rect
+Ba0 f8 @|RichDialogIcon #fIcon
+Ba0 f17 outLink browseLazy.ivp #txt
+Ba0 f17 type workflow.businessdata.Data #txt
+Ba0 f17 inParamDecl '<> param;' #txt
+Ba0 f17 actionDecl 'workflow.businessdata.Data out;
+' #txt
+Ba0 f17 guid 155BB4329582E3C6 #txt
+Ba0 f17 requestEnabled true #txt
+Ba0 f17 triggerEnabled false #txt
+Ba0 f17 callSignature browseLazy() #txt
+Ba0 f17 persist false #txt
+Ba0 f17 startName '5.1: Browse Dossiers (Business Data)' #txt
+Ba0 f17 startDescription 'Business Data Store Demo. Manage dossier objects in the Business Data Repository' #txt
+Ba0 f17 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+Ba0 f17 showInStartList 1 #txt
+Ba0 f17 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
+ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
+import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
+DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
+taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+taskUpdDef.setExpiryActivator("Everybody");
+taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
+engine.updateCurrentTask(taskUpdDef);
+' #txt
+Ba0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>browseLazy.ivp</name>
+        <nameStyle>14,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ba0 f17 @C|.responsibility Everybody #txt
+Ba0 f17 86 497 30 30 -45 17 #rect
+Ba0 f17 @|StartRequestIcon #fIcon
+Ba0 f18 type workflow.businessdata.Data #txt
+Ba0 f18 533 497 30 30 0 15 #rect
+Ba0 f18 @|EndIcon #fIcon
+Ba0 f19 actionDecl 'workflow.businessdata.Data out;
+' #txt
+Ba0 f19 actionTable 'out=in;
+' #txt
+Ba0 f19 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.DemoDataCreator;
+
+DemoDataCreator.createDemoDataIfNotExist();' #txt
+Ba0 f19 type workflow.businessdata.Data #txt
+Ba0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>create test data</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ba0 f19 172 490 112 44 -42 -8 #rect
+Ba0 f19 @|StepIcon #fIcon
+Ba0 f20 expr out #txt
+Ba0 f20 116 512 172 512 #arcP
+Ba0 f21 expr out #txt
+Ba0 f21 284 512 364 512 #arcP
+Ba0 f22 expr out #txt
+Ba0 f22 476 512 533 512 #arcP
 >Proto Ba0 .type workflow.businessdata.Data #txt
 >Proto Ba0 .processKind NORMAL #txt
 >Proto Ba0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -364,3 +464,9 @@ Ba0 f5 mainOut f16 tail #connect
 Ba0 f16 head f11 mainIn #connect
 Ba0 f3 mainOut f1 tail #connect
 Ba0 f1 head f11 mainIn #connect
+Ba0 f8 mainOut f22 tail #connect
+Ba0 f22 head f18 mainIn #connect
+Ba0 f17 mainOut f20 tail #connect
+Ba0 f20 head f19 mainIn #connect
+Ba0 f19 mainOut f21 tail #connect
+Ba0 f21 head f8 mainIn #connect
