@@ -67,4 +67,34 @@
             </feature>
         </configuration>
     </restClient>
+    <restClient>
+        <uuid>b0a5f371-e479-444d-b71c-af1fff4c084d</uuid>
+        <name>batchService</name>
+        <configuration>
+            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/batch</uri>
+            <property>
+                <name>jersey.config.client.readTimeout</name>
+                <value>35000</value>
+                <password>false</password>
+            </property>
+            <property>
+                <name>jersey.config.client.connectTimeout</name>
+                <value>1000</value>
+                <password>false</password>
+            </property>
+            <property>
+                <name>username</name>
+                <value>theEmployee</value>
+                <password>false</password>
+            </property>
+            <property>
+                <name>password</name>
+                <value>\u007B\u0012\u0012\u0075\u002F\u0017\u00D1\u0083\u00C4\u009C\u0094\u00B0\u009A\u00B2\u00ED\u006B\u0010\u00D1\u00FC\u00F1\u00A8\u0020\u00CE\u00BC\u00BE\u00D9\u0055\u0092\u0078\u0002\u001F\u0095\u00A2\u0082\u003A\u0035\u00B3\u007F\u007B\u007B\u0017\u00BD\u00EF\u0005\u0098\u007D\u007D\u0061\u00DC\u00F5\u00E3\u0000\u00C3\u00A7\u0095\u00BC\u005F\u00DB\u00D5\u0098\u00DF\u00CC\u00EC\u0011\u0021\u0014\u00F4\u0008\u0035\u00A5\u00F9\u0008\u0084\u0077\u006B\u0070\u0045\u00EE\u0015\u00A9</value>
+                <password>true</password>
+            </property>
+            <feature>
+                <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
+            </feature>
+        </configuration>
+    </restClient>
 </restClients>
