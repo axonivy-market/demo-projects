@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ch.ivyteam.ivy.project</groupId>
+		<artifactId>build.maven.iar.web.test</artifactId>
+		<version>6.3.0-SNAPSHOT</version>
+		<relativePath>../../build.maven/iar/web.test</relativePath>
+	</parent>
+
+	<groupId>com.axonivy.system</groupId>
+	<artifactId>engine-config-ui-test</artifactId>
+	<version>6.3.0-SNAPSHOT</version>
+	<packaging>iar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.axonivy.system</groupId>
+			<artifactId>engine-config-ui</artifactId>
+			<version>[6.3.0-SNAPSHOT,)</version>
+			<type>iar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-htmlunit-driver</artifactId>
+			<version>2.52.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.axonivy.ivy.ci</groupId>
+				<artifactId>project-build-plugin</artifactId>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>deploy.project.under.test</id>
+						<goals>
+							<goal>deploy-iar</goal>
+						</goals>
+						<phase>pre-integration-test</phase>
+						<configuration>
+							<deployIarFile>${com.axonivy.system:engine-config-ui:iar}</deployIarFile>
+						</configuration>
+					</execution>
+					<execution>
+						<id>deploy.myself</id>
+						<goals>
+							<goal>deploy-iar</goal>
+						</goals>
+						<phase>pre-integration-test</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

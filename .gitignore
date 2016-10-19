@@ -9,6 +9,14 @@ ConnectivityDemos/ConnectivityDemosTest/src_wsproc/*
 ConnectivityDemos/ConnectivityDemosTest/target
 ConnectivityDemos/deploy
 ConnectivityDemos/target
+EngineConfigUi/EngineConfigUi/classes/*
+EngineConfigUi/EngineConfigUi/src_dataClasses/*
+EngineConfigUi/EngineConfigUi/src_wsproc/*
+EngineConfigUi/EngineConfigUi/target
+EngineConfigUi/EngineConfigUiTest/classes/*
+EngineConfigUi/EngineConfigUiTest/src_dataClasses/*
+EngineConfigUi/EngineConfigUiTest/src_wsproc/*
+EngineConfigUi/EngineConfigUiTest/target
 ErrorHandlingDemos/classes
 ErrorHandlingDemos/logs
 ErrorHandlingDemos/src_dataClasses/*

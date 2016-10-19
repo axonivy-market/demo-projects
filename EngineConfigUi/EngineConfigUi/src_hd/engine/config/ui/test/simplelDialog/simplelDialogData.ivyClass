@@ -1,0 +1,6 @@
+simplelDialogData #class
+engine.config.ui.test.simplelDialog #namespace
+data engine.config.ui.test.Data #field
+data PERSISTENT #fieldModifier
+inputText String #field
+inputText PERSISTENT #fieldModifier
