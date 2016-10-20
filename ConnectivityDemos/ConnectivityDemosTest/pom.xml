@@ -3,10 +3,21 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ch.ivyteam.ivy.project</groupId>
+		<artifactId>build.maven.iar.web.test</artifactId>
+		<version>6.3.0-SNAPSHOT</version>
+		<relativePath>../../build.maven/iar/web.test</relativePath>
+	</parent>
+
 	<groupId>ch.ivyteam.ivy.project.demo</groupId>
 	<artifactId>connectivity-demos-test</artifactId>
 	<version>6.3.0-SNAPSHOT</version>
 	<packaging>iar</packaging>
+
+	<properties>
+		<selenium.version>2.48.1</selenium.version>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -14,13 +25,6 @@
 			<artifactId>connectivity-demos</artifactId>
 			<version>[6.1.1-SNAPSHOT,)</version>
 			<type>iar</type>
-		</dependency>
-
-		<dependency>
-		    <groupId>org.seleniumhq.selenium</groupId>
-		    <artifactId>htmlunit-driver</artifactId>
-		    <version>2.23</version>
-		    <scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
@@ -46,6 +50,7 @@
 							<includes>
 								<include>**/IntegrationTest*.java</include>
 							</includes>
+							
 						</configuration>
 					</execution>
 				</executions>
@@ -57,7 +62,9 @@
 				<executions>
 					<execution>
 						<id>deploy.project.under.test</id>
-						<goals><goal>deploy-iar</goal></goals>
+						<goals>
+							<goal>deploy-iar</goal>
+						</goals>
 						<phase>pre-integration-test</phase>
 						<configuration>
 							<deployIarFile>${ch.ivyteam.ivy.project.demo:connectivity-demos:iar}</deployIarFile>
@@ -65,18 +72,15 @@
 					</execution>
 					<execution>
 						<id>deploy.myself</id>
-						<goals><goal>deploy-iar</goal></goals>
+						<goals>
+							<goal>deploy-iar</goal>
+						</goals>
 						<phase>pre-integration-test</phase>
 					</execution>
 				</executions>
 			</plugin>
 		</plugins>
 	</build>
-	
-	<parent>
-		<groupId>ch.ivyteam.ivy.project</groupId>
-		<artifactId>build.maven.iar.web.test</artifactId>
-		<version>6.3.0-SNAPSHOT</version>
-		<relativePath>../../build.maven/iar/web.test</relativePath>
-	</parent>
+
+
 </project>
