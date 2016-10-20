@@ -16,20 +16,21 @@
 		<module>ServerConfiguration</module>
 		<module>WorkflowDemos</module>
 		<module>ConnectivityDemos</module>
-		
+		<module>EngineConfigUi</module>
+
 		<!-- workflow: -->
 		<module>JsfWorkflowUi</module>
 		<module>WorkflowUI</module>
 		<module>HtmlWFUI</module>
 		<module>SelfServiceBPM</module>
-		
+
 		<!-- parent config poms: -->
 		<module>build.maven</module>
 		<module>build.maven/iar</module>
 		<module>build.maven/iar/web.test</module>
 		<module>build.maven/iar/ria</module>
 	</modules>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -42,5 +43,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>
