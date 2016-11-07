@@ -19,7 +19,7 @@ public class WebTestBusinessData extends BaseWebTest {
 	public void createBusinessData() throws Exception {
 		startProcess("155BB4328F79B2D5/create.ivp");
 		createPersonDossier("Bernoulli");
-		Thread.sleep(1000);
+		Thread.sleep(1500); // index of Elasticsearch has to be updated
 		startProcess(BROWSE_DOSSIERS_LINK); // load again
 		assertPersonIsDisplayed("Bernoulli");
 	}
