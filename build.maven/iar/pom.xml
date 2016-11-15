@@ -15,7 +15,7 @@
 	<properties>
 		<src.job.name>Trunk_All</src.job.name>
 		<antrun.version>1.7</antrun.version>
-		<project.build.plugin.version>6.4.0</project.build.plugin.version>
+		<project.build.plugin.version>6.4.1-SNAPSHOT</project.build.plugin.version>
 	</properties>
 
 	<dependencies>
