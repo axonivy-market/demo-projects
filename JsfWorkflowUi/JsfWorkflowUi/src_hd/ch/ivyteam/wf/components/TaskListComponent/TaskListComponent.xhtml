@@ -117,7 +117,8 @@
 					<c:when test="#{data.mode ne 'admin'}">
 					<a
 						href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}"
-						id="taskLinkRow_#{row}"><span class="fa fa-play-circle startIconButton"/>#{task.name}</a>
+						id="taskLinkRow_#{row}"
+						title="#{ivy.cms.co('/labels/common/taskResumeTooltip')}"><span class="fa fa-play-circle startIconButton"/>#{task.name}</a>
 					</c:when>
 					<c:otherwise>
 						<a

@@ -14,7 +14,6 @@
 	<ui:param name="headerIcon" value="fa fa-file-text-o"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
-		<br />
 		#{ivy.cms.co('/labels/history/taskDetails/description')}
 		<br />
 		<br />
@@ -25,7 +24,7 @@
 						<p:toolbarGroup align="left">
 							<p:commandButton id="startTask"
 								value="#{ivy.cms.co('/labels/common/taskResume')}"
-								title="#{ivy.cms.co('/labels/common/taskResume')} Task"
+								title="#{ivy.cms.co('/labels/common/taskResumeTooltip')}"
 								icon="fa fa-play-circle"
 								onclick="window.location.href='#{data.taskLink}'; return false;"
 								disabled="#{!data.canStart}" />

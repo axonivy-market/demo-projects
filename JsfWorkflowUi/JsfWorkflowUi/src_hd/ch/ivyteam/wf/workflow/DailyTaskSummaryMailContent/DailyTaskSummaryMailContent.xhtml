@@ -10,7 +10,6 @@
 <ui:composition template="/layouts/TaskMail.xhtml">
 	<ui:param name="title" value="#{ivy.cms.co('/labels/workflow/dailyTaskSummaryMail/title')}" />
 	<ui:define name="center">
-		<br />
 		#{ivy.cms.co('/labels/workflow/dailyTaskSummaryMail/intro')}
 		<br />
 		<h:form id="dailyTaskSummaryMailContent">
@@ -65,7 +64,7 @@
 						Start
 					</f:facet>
 					<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}" id="taskLinkRow_#{row}">
-						<h:graphicImage name="images/actions/faStart.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResume')} Task [#{task.id}]" />
+						<h:graphicImage name="images/actions/faStart.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResumeTooltip')} [#{task.id}]" />
 					</a> 
 				</p:column>
 			</p:dataTable>

@@ -13,7 +13,6 @@
 		value="#{ivy.cms.co('/navLabels/averageStatistic')}" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
-		<br />
 		#{ivy.cms.co('/labels/admin/averrageStatistic/description')}
 		<c:if test="#{data.hasMoreCases}">
 				<br />

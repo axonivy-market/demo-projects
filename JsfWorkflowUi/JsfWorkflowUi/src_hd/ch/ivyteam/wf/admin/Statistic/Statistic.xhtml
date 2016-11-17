@@ -13,7 +13,6 @@
 	<ui:param name="headerIcon" value="fa fa-bar-chart-o"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
-		<br />
 		#{ivy.cms.co('/labels/admin/workflowStatistic/description')}
 		<br /><br />
 		<h:form id="caseStatisticForm">

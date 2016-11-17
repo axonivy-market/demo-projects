@@ -13,7 +13,6 @@
 	<ui:param name="headerIcon" value="fa fa-user-times"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
-		<br />
 		#{ivy.cms.co('/labels/settings/absence/description')}
        	<c:if test="#{adminBean.hasReadAbsencesPermission()}">
         	<br /><br />

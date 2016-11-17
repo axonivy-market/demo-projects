@@ -13,7 +13,6 @@
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/caseHistory')}" />
 	<ui:param name="headerIcon" value="fa fa-folder-open-o"/>
 	<ui:define name="center">
-		<br />
 		#{ivy.cms.co('/labels/history/workflowHistory/description')}
 		<br /><br />
 		<ic:ch.ivyteam.wf.components.CaseListComponent cases="#{data.cases}" caseListMode="my_cases" id="caseListComponent" />

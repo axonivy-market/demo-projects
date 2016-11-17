@@ -13,7 +13,6 @@
 	<ui:param name="headerIcon" value="fa fa-users"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
-		<br />
 		#{ivy.cms.co('/labels/admin/loggedInUser/description')}
 		<br /><br />
 		<h:form id="LoggedInUserForm">

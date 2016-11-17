@@ -15,7 +15,6 @@
 	<ui:param name="headerIcon" value="fa fa-folder-open-o"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
-		<br />
 		#{data.wfCase.isBusinessCase() ? ivy.cms.co('/labels/history/businessCaseDetails/description') : ivy.cms.co('/labels/history/caseDetails/description')}
 		<br />
 		<br />

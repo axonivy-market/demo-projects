@@ -12,7 +12,6 @@
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/home')}" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
-		<br />
 		<h:outputText value="#{ivy.cms.co('/Dialogs/ch/ivyteam/wf/workflow/Home/WelcomeInfo')}"
 			style="font-weight:bold" />
 		<br />

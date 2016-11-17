@@ -14,9 +14,6 @@
 	<ui:param name="headerIcon" value="fa fa-users"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
-		<br />
-		<h:outputText value="#{ivy.cms.co('/labels/settings/substitute/titleSubstitutes')}" style="font-weight:bold;" />
-		<br />
 		#{ivy.cms.co('/labels/settings/substitute/descriptionSubstitutes')}
 		<br />
 		<br />

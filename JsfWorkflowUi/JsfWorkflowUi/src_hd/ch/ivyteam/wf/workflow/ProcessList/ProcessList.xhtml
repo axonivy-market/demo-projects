@@ -13,7 +13,6 @@
 	<ui:param name="headerIcon" value="fa fa-list"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}"/>
-		<br />
 		#{ivy.cms.co('/labels/workflow/processList/description')}
 		<br /><br />
 		<h:form id="processlistform">

@@ -39,7 +39,7 @@
 }
 
 .task-state-suspended {
-	color: blue;
+	color: #337ab7;
 }
 
 .task-state-unassigned {
