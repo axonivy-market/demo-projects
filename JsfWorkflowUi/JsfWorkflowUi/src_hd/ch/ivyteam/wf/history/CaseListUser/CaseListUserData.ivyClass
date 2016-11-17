@@ -1,2 +1,4 @@
 CaseListUserData #class
 ch.ivyteam.wf.history.CaseListUser #namespace
+cases ch.ivyteam.wf.history.UserCaseLazyDataModel #field
+cases PERSISTENT #fieldModifier

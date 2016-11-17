@@ -10,11 +10,11 @@
 	xmlns:pm="http://primefaces.org/mobile"
 	xmlns:wc="http://java.sun.com/jsf/composite/wf-component">
 <cc:interface componentType="IvyComponent" />
-
+	<cc:attribute name="hideToolbar" default="false" />
 <cc:implementation>
 	<f:event type="preRenderView" listener="#{logic.update()}" />
 	<h:form id="caseListForm">
-		<p:toolbar styleClass="ivy-toolbar">
+		<p:toolbar styleClass="ivy-toolbar" rendered="#{!cc.attrs.hideToolbar}">
 			<c:if test="#{data.caseListMode == 'my_cases'}">
 				<p:toolbarGroup align="left">
 					<h:panelGrid columns="1">
@@ -78,8 +78,8 @@
 			emptyMessage="#{ivy.cms.co('/labels/common/noCases')}"
 			rowIndexVar="row" paginator="#{data.cases.rowCount >= 50}"
 			paginatorPosition="bottom" rows="50" lazy="true"
-			sortOrder="DESCENDING">
-			<p:column style="width:25px; text-align:center" sortBy="#{ID}">
+			sortOrder="DESCENDING" sortBy="#{ID}">
+			<p:column styleClass="icon-column" sortBy="#{ID}">
 				<f:facet name="header">
 				</f:facet>
 				<a
@@ -88,7 +88,7 @@
 					class="fa fa-folder-open-o" />
 				</a>
 			</p:column>
-			<p:column style="width:25px; text-align: center;" sortBy="#{STATE}">
+			<p:column styleClass="icon-column" sortBy="#{STATE}">
 				<f:facet name="header">
 				</f:facet>
 				<wc:CaseStateIconAndText state="#{case.state}" />
@@ -113,8 +113,7 @@
            			</f:facet>
            			#{case.processCode}
        			</p:column>
-			<p:column style="width:100px; text-align:center"
-				sortBy="#{START_TIMESTAMP}" styleClass="caseCreatedColumn">
+			<p:column sortBy="#{START_TIMESTAMP}" styleClass="caseCreatedColumn date-column">
 				<f:facet name="header">
                			#{ivy.cms.co('/labels/common/start')}
            			</f:facet>

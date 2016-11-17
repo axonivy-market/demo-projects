@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Apr 20 16:10:01 CEST 2015]
-13FE666253A103EF 3.17 #module
+[>Created: Thu Nov 17 13:21:08 CET 2016]
+13FE666253A103EF 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetailsProcess Big #zClass
 Cs0 RD #cInfo
@@ -53,6 +53,7 @@ Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 <java.lang.Number caseId> param = methodEvent.getInputArguments();
 ' #txt
 Cs0 f0 inParameterMapAction 'out.caseId=param.caseId;
+out.cases=new ch.ivyteam.wf.history.CasesOfBusinessCaseLazyDataModel(param.caseId);
 ' #txt
 Cs0 f0 outParameterDecl '<> result;
 ' #txt
@@ -60,6 +61,8 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start(Number)</name>
+        <nameStyle>13,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -76,7 +79,8 @@ Cs0 f3 actionTable 'out=in;
 out.noteDescription="";
 out.noteFor=null;
 ' #txt
-Cs0 f3 actionCode 'import ch.ivyteam.wf.history.CaseDetailUtil;
+Cs0 f3 actionCode 'import ch.ivyteam.wf.history.CasesOfBusinessCaseLazyDataModel;
+import ch.ivyteam.wf.history.CaseDetailUtil;
 import ch.ivyteam.logicalexpression.RelationalOperator;
 import ch.ivyteam.ivy.workflow.PropertyOrder;
 import ch.ivyteam.ivy.workflow.CaseProperty;
@@ -103,7 +107,7 @@ else
 		out.wfCase = queryResult.get(0) as ICase;
 		out.tasks = CaseDetailUtil.filterTasksOfCase(out.wfCase.getTasks(), in.showSystemTasks);
 	}
-}		' #txt
+}' #txt
 Cs0 f3 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -324,22 +328,18 @@ Cs0 f23 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
 import ch.ivyteam.ivy.workflow.ICase;
 
 ICase case =in.wfCase.destroy();
-if(case.getState() == CaseState.DESTROYED)
-{
-	in.cases.remove(in.wfCase);
-}
 ' #txt
 Cs0 f23 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>destroy workflow</name>
-        <nameStyle>16
+        <nameStyle>16,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f23 168 202 112 44 -45 -8 #rect
+Cs0 f23 168 202 112 44 -52 -7 #rect
 Cs0 f23 @|StepIcon #fIcon
 Cs0 f23 -1|-1|-9671572 #nodeStyle
 Cs0 f24 expr out #txt

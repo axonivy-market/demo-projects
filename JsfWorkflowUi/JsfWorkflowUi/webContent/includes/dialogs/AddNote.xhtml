@@ -15,7 +15,7 @@
 				<c:if test="#{data.showNoteSelection}">
 					#{ivy.cms.co('/labels/dialogs/addNote/addNoteFor')}
 		            <p:selectOneRadio id="options" value="#{data.noteFor}" styleClass="selectRadio">
-		                <f:selectItem itemLabel="#{ivy.cms.co('/labels/history/taskDetails/case')}" itemValue="case" />
+		                <f:selectItem itemLabel="#{ivy.cms.co('/labels/common/case')}" itemValue="case" />
 		            	<f:selectItem itemLabel="#{ivy.cms.co('/labels/common/task')}" itemValue="task" />
 		       		</p:selectOneRadio>
 	       		</c:if>

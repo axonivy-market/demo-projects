@@ -17,13 +17,15 @@ public class AdminCaseLazyDataModel extends AbstractCaseLazyDataModel
   protected IQueryResult<ICase> findCases(int first, int pageSize,
           List<PropertyOrder<CaseProperty>> propertyOrders, IPropertyFilter<CaseProperty> filters)
   {
+    filters = onlyBusinessCases(filters);
     return ivy.wf.findCases(filters, propertyOrders, first, pageSize, true);
   }
 
   @Override
   protected List<IGroup<ICase>> getCaseGroups(CaseProperty caseProperty)
   {
-    return ivy.wf.findCaseCategories(null, caseProperty, OrderDirection.ASCENDING);
+    IPropertyFilter<CaseProperty> filters = onlyBusinessCases(null);
+    return ivy.wf.findCaseCategories(filters, caseProperty, OrderDirection.ASCENDING);
   }
 
 }

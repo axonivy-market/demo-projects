@@ -14,6 +14,12 @@
             <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
+        <inputParameter>
+            <name>cases</name>
+            <description></description>
+            <parameterType>ch.ivyteam.wf.history.AbstractCaseLazyDataModel</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
     </startMethod>
     <property>
         <name>guid</name>

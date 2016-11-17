@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Apr 01 14:18:51 CEST 2016]
+[>Created: Thu Nov 17 12:18:58 CET 2016]
 13FE10F004F193D4 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
@@ -944,11 +944,11 @@ else
 
 if(in.task.getCase().getName() != "")
 {
-	out.caseName = in.task.getCase().getName();
+	out.caseName = in.task.getCase().getBusinessCase().getName();
 }
 else
 {
-	out.caseName = ivy.cms.co("/labels/history/taskDetails/case") + " " + in.task.getCase().getId();
+	out.caseName = ivy.cms.co("/labels/history/taskDetails/businessCase") + " " + in.task.getCase().getBusinessCase().getId();
 }' #txt
 Ct0 f22 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ct0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

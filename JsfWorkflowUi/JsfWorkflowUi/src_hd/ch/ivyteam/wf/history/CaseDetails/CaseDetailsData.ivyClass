@@ -1,7 +1,5 @@
 CaseDetailsData #class
 ch.ivyteam.wf.history.CaseDetails #namespace
-cases List<ch.ivyteam.ivy.workflow.ICase> #field
-cases PERSISTENT #fieldModifier
 wfCase ch.ivyteam.ivy.workflow.ICase #field
 wfCase PERSISTENT #fieldModifier
 caseId Number #field
@@ -28,3 +26,5 @@ pageArchives List<ch.ivyteam.ivy.workflow.IPageArchive> #field
 pageArchives PERSISTENT #fieldModifier
 showSystemTasks Boolean #field
 showSystemTasks PERSISTENT #fieldModifier
+cases ch.ivyteam.wf.history.CasesOfBusinessCaseLazyDataModel #field
+cases PERSISTENT #fieldModifier

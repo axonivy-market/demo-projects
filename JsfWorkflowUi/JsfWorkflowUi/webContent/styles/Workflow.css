@@ -1,0 +1,28 @@
+#mainArea .ui-datatable {
+  border: none;
+}
+
+#mainArea .ui-datatable-tablewrapper {
+  margin: 5px 0;
+}
+
+#mainArea .ui-toolbar {
+  padding: 0 !important;
+  border: none;
+}
+
+#mainArea .ui-datatable table td, 
+#mainArea .ui-datatable table th {
+  padding: 5px !important;
+  border-right: none;
+  border-left: none;
+}
+
+.ui-datatable .date-column {
+  width: 100px;
+}
+
+.ui-datatable .icon-column {
+  width: 25px;
+  text-align: center;
+}

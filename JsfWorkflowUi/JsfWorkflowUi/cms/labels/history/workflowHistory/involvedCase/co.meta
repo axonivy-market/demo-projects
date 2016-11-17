@@ -1,4 +1,4 @@
-co: name={involvedCase} description={} changed={2014-07-29 15:15:44 CEST} changedby={dje} visualorder={0} guid={147823EF65BE3D1A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={147824324FBD0350} datatype={} isdefault={false} langid={de} description={} validfrom={2014-07-29 15:13:34 CEST} validto={} changed={2014-07-29 15:15:44 CEST} changedby={dje} properties={} id={}
-val: guid={147823EF6D31123F} datatype={} isdefault={true} langid={en} description={} validfrom={2014-07-29 15:11:10 CEST} validto={} changed={2014-07-29 15:15:44 CEST} changedby={dje} properties={} id={}
-val: guid={147824323F7B769B} datatype={} isdefault={false} langid={fr} description={} validfrom={2014-07-29 15:13:32 CEST} validto={} changed={2014-07-29 15:15:44 CEST} changedby={dje} properties={} id={}
+co: name={involvedCase} description={} changed={2016-11-17 14:36:12 CET} changedby={cst} visualorder={0} guid={147823EF65BE3D1A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={147824323F7B769B} datatype={} isdefault={false} langid={fr} description={} validfrom={2014-07-29 15:13:32 CEST} validto={} changed={2016-11-17 14:36:12 CET} changedby={cst} properties={} id={}
+val: guid={147823EF6D31123F} datatype={} isdefault={true} langid={en} description={} validfrom={2014-07-29 15:11:10 CEST} validto={} changed={2016-11-17 14:36:12 CET} changedby={cst} properties={} id={}
+val: guid={147824324FBD0350} datatype={} isdefault={false} langid={de} description={} validfrom={2014-07-29 15:13:34 CEST} validto={} changed={2016-11-17 14:36:12 CET} changedby={cst} properties={} id={}

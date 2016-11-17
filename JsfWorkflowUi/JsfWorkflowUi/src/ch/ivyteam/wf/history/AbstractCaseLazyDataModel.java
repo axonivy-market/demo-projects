@@ -249,7 +249,7 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
     return filter;
   }
 
-  private IPropertyFilter<CaseProperty> addToFilter(IPropertyFilter<CaseProperty> filter,
+  protected static IPropertyFilter<CaseProperty> addToFilter(IPropertyFilter<CaseProperty> filter,
           IPropertyFilter<CaseProperty> additionalFilter)
   {
     if (filter == null)
@@ -296,6 +296,14 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
             permission);
   }
 
+  protected IPropertyFilter<CaseProperty> onlyBusinessCases(IPropertyFilter<CaseProperty> filter)
+  {
+    IPropertyFilter<CaseProperty> categoryPropertyFilter = ivy.wf.createCasePropertyFilter(
+            CaseProperty.BUSINESS_CASE_ID, RelationalOperator.EQUAL, null);
+    filter = addToFilter(filter, categoryPropertyFilter);
+    return filter;
+  }
+  
   protected abstract List<IGroup<ICase>> getCaseGroups(CaseProperty caseProperty);
 
 }

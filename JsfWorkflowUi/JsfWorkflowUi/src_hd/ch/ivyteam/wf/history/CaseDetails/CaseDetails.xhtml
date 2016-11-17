@@ -6,17 +6,17 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:pm="http://primefaces.org/mobile"
-	xmlns:wc="http://java.sun.com/jsf/composite/wf-component">
+	xmlns:wc="http://java.sun.com/jsf/composite/wf-component"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
 <ui:composition template="/layouts/Workflow.xhtml">
+	<ui:param name="centerHeader" value="#{data.wfCase.isBusinessCase() ?
+	ivy.cms.co('/navLabels/businessCaseDetails') : ivy.cms.co('/navLabels/caseDetails')}" />
+	<ui:param name="headerIcon" value="fa fa-folder-open-o"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
-		<h2>
-			<span class="fa fa-folder-open-o" />
-			#{ivy.cms.co('/navLabels/caseDetails')}
-		</h2>
 		<br />
-		#{ivy.cms.co('/labels/history/caseDetails/description')}
+		#{data.wfCase.isBusinessCase() ? ivy.cms.co('/labels/history/businessCaseDetails/description') : ivy.cms.co('/labels/history/caseDetails/description')}
 		<br />
 		<br />
 		<h:form id="formCaseDetails">
@@ -24,7 +24,7 @@
 				<p:toolbar styleClass="ivy-toolbar">
 					<p:toolbarGroup align="left">
 						<p:commandButton id="openDeleteCase"
-							value="#{ivy.cms.co('/labels/history/caseDetails/caseDelete')}"
+							value="#{ivy.cms.co('/labels/common/delete')}"
 							title="#{ivy.cms.co('/labels/history/caseDetails/deleteCaseTooltip')}"
 							icon="fa fa-trash" onclick="PF('confirmDeleteReset').show();"
 							disabled="#{data.deleteCaseLink}" />
@@ -74,29 +74,40 @@
 										timeStyle="short" />
 								</h:outputText></td>
 						</tr>
-						<tr>
-							<th>#{ivy.cms.co('/labels/common/category')}</th>
-							<td><h:outputText value="#{data.wfCase.processCategoryName}" />
-								<h:outputText value=" #{data.wfCase.processCategoryCode}"
-									rendered="#{data.wfCase.processCategoryCode == ''}" /> <h:outputText
-									value=" (#{data.wfCase.processCategoryCode})"
-									rendered="#{data.wfCase.processCategoryCode != ''}" /></td>
-						</tr>
-						<tr>
-							<th>#{ivy.cms.co('/labels/common/process')}</th>
-							<td><h:outputText value="#{data.wfCase.processName}" /> <h:outputText
-									value=" #{data.wfCase.processCode}"
-									rendered="#{data.wfCase.processCode == ''}" /> <h:outputText
-									value=" (#{data.wfCase.processCode})"
-									rendered="#{data.wfCase.processCode != ''}" /></td>
-						</tr>
-						<tr>
-							<th>#{ivy.cms.co('/labels/common/done')}</th>
-							<td><h:outputText value="#{data.wfCase.endTimestamp}">
-									<f:convertDateTime type="both" dateStyle="short"
-										timeStyle="short" />
-								</h:outputText></td>
-						</tr>
+						<ui:fragment rendered="#{data.wfCase.processCategoryName != null}">
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/category')}</th>
+								<td><h:outputText value="#{data.wfCase.processCategoryName}" />
+									<h:outputText value=" #{data.wfCase.processCategoryCode}"
+										rendered="#{data.wfCase.processCategoryCode == ''}" /> <h:outputText
+										value=" (#{data.wfCase.processCategoryCode})"
+										rendered="#{data.wfCase.processCategoryCode != ''}" /></td>
+							</tr>
+						</ui:fragment>
+						<ui:fragment rendered="#{data.wfCase.processName != null}">
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/process')}</th>
+								<td><h:outputText value="#{data.wfCase.processName}" /> <h:outputText
+										value=" #{data.wfCase.processCode}"
+										rendered="#{data.wfCase.processCode == ''}" /> <h:outputText
+										value=" (#{data.wfCase.processCode})"
+										rendered="#{data.wfCase.processCode != ''}" /></td>
+							</tr>
+						</ui:fragment>
+						<ui:fragment rendered="#{data.wfCase.endTimestamp != null}">
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/done')}</th>
+								<td><h:outputText value="#{data.wfCase.endTimestamp}">
+										<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
+									</h:outputText></td>
+							</tr>
+						</ui:fragment>
+						<ui:fragment rendered="#{!data.wfCase.isBusinessCase()}">
+							<th>Business Case</th>
+							<td><a
+								href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{data.wfCase.getBusinessCase().id}"
+								title="Details Case [#{data.wfCase.getBusinessCase().id}]">#{data.wfCase.getBusinessCase().name}</a></td>
+						</ui:fragment>
 						<tr>
 							<th>#{ivy.cms.co('/labels/history/caseDetails/processmodel')}</th>
 							<td>#{data.wfCase.processModel.name}</td>
@@ -223,11 +234,19 @@
 			</p:dataTable>
 
 		</h:form>
+		<br />
+		<br />
+		<h:panelGroup
+			rendered="#{data.wfCase.isBusinessCase()}">
+			<h4>#{ivy.cms.co('/labels/common/cases')}</h4>
+			<ic:ch.ivyteam.wf.components.CaseListComponent cases="#{data.cases}" hideToolbar="true" id="caseListComponent"> 
+			</ic:ch.ivyteam.wf.components.CaseListComponent>
+		</h:panelGroup>
 		<ui:include src="/includes/dialogs/AddNote.xhtml" />
 		<ui:include src="/includes/dialogs/ConfirmDeleteNote.xhtml" />
 		<ui:include src="/includes/dialogs/ConfirmDeleteReset.xhtml">
 			<ui:param name="headerConfirm"
-				value="#{ivy.cms.co('/labels/history/caseDetails/caseDelete')}" />
+				value="#{ivy.cms.co('/labels/common/delete')}" />
 			<ui:param name="description"
 				value="#{ivy.cms.co('/labels/dialogs/confirmDialog/deleteCase')}" />
 		</ui:include>

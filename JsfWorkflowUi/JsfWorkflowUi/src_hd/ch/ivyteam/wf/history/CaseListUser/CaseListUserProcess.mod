@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Dec 16 13:50:06 CET 2015]
+[>Created: Thu Nov 17 10:17:09 CET 2016]
 13F1D8A32C686BDF 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListUserProcess Big #zClass
@@ -24,12 +24,16 @@ Cs0 f0 disableUIEvents true #txt
 Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
+Cs0 f0 inParameterMapAction 'out.cases=new ch.ivyteam.wf.history.UserCaseLazyDataModel();
+' #txt
 Cs0 f0 outParameterDecl '<> result;
 ' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
+        <nameStyle>7,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt

@@ -19,6 +19,7 @@ public class UserCaseLazyDataModel extends AbstractCaseLazyDataModel
   protected IQueryResult<ICase> findCases(int first, int pageSize,
           List<PropertyOrder<CaseProperty>> propertyOrders, IPropertyFilter<CaseProperty> filters)
   {
+    filters = onlyBusinessCases(filters);
     if (isInvolvedCasesMode())
     {
       return ivy.session.findInvolvedCases(filters, propertyOrders, first, pageSize, true);
@@ -32,13 +33,14 @@ public class UserCaseLazyDataModel extends AbstractCaseLazyDataModel
   @Override
   protected List<IGroup<ICase>> getCaseGroups(CaseProperty caseProperty)
   {
+    IPropertyFilter<CaseProperty> filters = onlyBusinessCases(null);
     if (isInvolvedCasesMode())
     {
-      return ivy.session.findInvolvedCasesCategories(null, caseProperty, OrderDirection.ASCENDING);
+      return ivy.session.findInvolvedCasesCategories(filters, caseProperty, OrderDirection.ASCENDING);
     }
     else
     {
-      return ivy.session.findStartedCaseCategories(null, caseProperty, OrderDirection.ASCENDING);
+      return ivy.session.findStartedCaseCategories(filters, caseProperty, OrderDirection.ASCENDING);
     }
   }
 

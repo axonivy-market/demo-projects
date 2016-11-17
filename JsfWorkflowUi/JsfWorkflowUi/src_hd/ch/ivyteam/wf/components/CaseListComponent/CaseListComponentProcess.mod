@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 19 15:34:07 CEST 2016]
+[>Created: Thu Nov 17 10:15:12 CET 2016]
 1518C122914A55FA 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListComponentProcess Big #zClass
@@ -26,25 +26,26 @@ Cs0 @PushWFArc f3 '' #zField
 >Proto Cs0 Cs0 CaseListComponentProcess #zField
 Cs0 f0 guid 13F1D8A32D5EA95D #txt
 Cs0 f0 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
-Cs0 f0 method start(String) #txt
+Cs0 f0 method start(String,ch.ivyteam.wf.history.AbstractCaseLazyDataModel) #txt
 Cs0 f0 disableUIEvents true #txt
 Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String caseListMode> param = methodEvent.getInputArguments();
+<java.lang.String caseListMode,ch.ivyteam.wf.history.AbstractCaseLazyDataModel cases> param = methodEvent.getInputArguments();
 ' #txt
 Cs0 f0 inParameterMapAction 'out.caseListMode=param.caseListMode;
+out.cases=param.cases;
 ' #txt
 Cs0 f0 outParameterDecl '<> result;
 ' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(String)</name>
-        <nameStyle>13,5,7
+        <name>start(String,LazyDataModel)</name>
+        <nameStyle>27,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f0 51 51 26 26 -32 15 #rect
+Cs0 f0 51 51 26 26 -61 26 #rect
 Cs0 f0 @|RichDialogInitStartIcon #fIcon
 Cs0 f0 -1|-1|-9671572 #nodeStyle
 Cs0 f2 guid 13F75D933E4D0972 #txt
@@ -84,14 +85,6 @@ Cs0 f19 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
 import ch.ivyteam.wf.history.AdminCaseLazyDataModel;
 import ch.ivyteam.wf.history.UserCaseLazyDataModel;
 
-if(in.caseListMode.equalsIgnoreCase("my_cases"))
-{
-	in.cases = new UserCaseLazyDataModel();
-}
-else
-{
-	in.cases = new AdminCaseLazyDataModel();
-}
 in.cases.setDataTableId("caseListCompontent:caseListForm:caseTable");
 
 out.states = CaseState.values();
@@ -102,20 +95,19 @@ Cs0 f19 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #t
 Cs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>determine LazyDataModel
-set returnUrl</name>
-        <nameStyle>37,7
+        <name>set returnUrl</name>
+        <nameStyle>13,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f19 120 42 176 44 -67 -16 #rect
+Cs0 f19 152 42 112 44 -40 -7 #rect
 Cs0 f19 @|StepIcon #fIcon
 Cs0 f19 -1|-1|-9671572 #nodeStyle
 Cs0 f25 expr out #txt
-Cs0 f25 296 64 339 64 #arcP
+Cs0 f25 264 64 339 64 #arcP
 Cs0 f5 expr out #txt
-Cs0 f5 77 64 120 64 #arcP
+Cs0 f5 77 64 152 64 #arcP
 Cs0 f1 actionDecl 'ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData out;
 ' #txt
 Cs0 f1 actionTable 'out=in;

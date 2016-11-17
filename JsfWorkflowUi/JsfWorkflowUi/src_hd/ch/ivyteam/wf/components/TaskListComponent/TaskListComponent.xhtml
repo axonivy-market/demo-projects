@@ -115,13 +115,9 @@
 					</f:facet>
 				<c:choose>
 					<c:when test="#{data.mode ne 'admin'}">
-						
 					<a
 						href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}"
-						id="taskLinkRow_#{row}"><span class="fa fa-play-circle startIconButton"/></a>
-						<a
-							href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.id}"
-							title="Details Task [#{task.id}]">#{task.name}</a>
+						id="taskLinkRow_#{row}"><span class="fa fa-play-circle startIconButton"/>#{task.name}</a>
 					</c:when>
 					<c:otherwise>
 						<a

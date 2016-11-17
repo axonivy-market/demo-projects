@@ -10,17 +10,15 @@
 	xmlns:wc="http://java.sun.com/jsf/composite/wf-component">
 
 <ui:composition template="/layouts/Workflow.xhtml">
+	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/taskDetails')}" />
+	<ui:param name="headerIcon" value="fa fa-file-text-o"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
-		<c:if test="#{!(data.task eq null)}">
-			<h2>
-				<span class="fa fa-file-text-o" />
-				#{ivy.cms.co('/navLabels/taskDetails')}
-			</h2>
-			<br />
+		<br />
 		#{ivy.cms.co('/labels/history/taskDetails/description')}
 		<br />
-			<br />
+		<br />
+		<c:if test="#{data.task != null}">
 			<h:form id="formTaskDetails">
 				<h:panelGrid columns="1">
 					<p:toolbar styleClass="ivy-toolbar">
@@ -129,9 +127,9 @@
 								</td>
 							</tr>
 							<tr>
-								<th>#{ivy.cms.co('/labels/history/taskDetails/case')}</th>
+								<th>#{ivy.cms.co('/labels/history/taskDetails/businessCase')}</th>
 								<td><a
-									href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{data.task.case.id}"
+									href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{data.task.case.getBusinessCase().id}"
 									id="buttonCaseDetail">#{data.caseName}</a></td>
 							</tr>
 							<tr>
@@ -253,11 +251,11 @@
 				</h:panelGrid>
 				<br />
 				<br />
+				<h4>
 				<h:outputText
 					value="#{ivy.cms.co('/labels/history/taskDetails/events')}"
 					style="font-weight:bold;" rendered="#{data.isHistory}" />
-				<br />
-				<br />
+				</h4>
 				<p:dataTable id="taskEventTable" var="event"
 					value="#{data.taskEvents}"
 					emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}"

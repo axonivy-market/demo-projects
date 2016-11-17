@@ -16,7 +16,7 @@
 		<br />
 		#{ivy.cms.co('/labels/history/workflowHistory/description')}
 		<br /><br />
-		<ic:ch.ivyteam.wf.components.CaseListComponent caseListMode="my_cases" id="caseListComponent"/>
+		<ic:ch.ivyteam.wf.components.CaseListComponent cases="#{data.cases}" caseListMode="my_cases" id="caseListComponent" />
 	</ui:define>
 </ui:composition>
 </html>
