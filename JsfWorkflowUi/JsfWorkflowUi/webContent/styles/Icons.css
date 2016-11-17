@@ -19,7 +19,7 @@
 }
 
 .task-state-joining {
-	color: blue;
+	color: #337ab7;
 }
 
 .task-state-join-failed {
@@ -35,7 +35,7 @@
 }
 
 .task-state-resumed {
-	color: blue;
+	color: #337ab7;
 }
 
 .task-state-suspended {

@@ -88,7 +88,7 @@
 					</f:facet>
 					<span class="bpm-signal_sent" />
 				</p:column >
-				<p:column style="width:120px;" sortBy="#{fired.signalCode}">
+				<p:column sortBy="#{fired.signalCode}">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/code')}
 					</f:facet>
@@ -102,7 +102,7 @@
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="medium" />
 					</h:outputText>
 				</p:column>
-				<p:column style="width:100px;">
+				<p:column>
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/sentBy')}
 					</f:facet>

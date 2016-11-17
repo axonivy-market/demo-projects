@@ -79,7 +79,7 @@
 			emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}"
 			rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}"
 			paginatorPosition="bottom" rows="50" lazy="true"
-			sortOrder="DESCENDING">
+			sortOrder="DESCENDING" sortBy="#{ID}">
 			<p:column style="width:21px; text-align: center;" sortBy="#{ID}">
 				<f:facet name="header" />
 				<c:choose>
@@ -118,7 +118,7 @@
 					<a
 						href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}"
 						id="taskLinkRow_#{row}"
-						title="#{ivy.cms.co('/labels/common/taskResumeTooltip')}"><span class="fa fa-play-circle startIconButton"/>#{task.name}</a>
+						title="#{ivy.cms.co('/labels/common/taskResumeTooltip')}"><span class="fa fa-play-circle startIconButton"/> #{task.name}</a>
 					</c:when>
 					<c:otherwise>
 						<a

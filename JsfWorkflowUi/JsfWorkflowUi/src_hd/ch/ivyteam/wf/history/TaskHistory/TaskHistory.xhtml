@@ -44,21 +44,17 @@
 			</p:toolbar>
 			<p:growl id="growl" showDetail="true" />
    			<p:dataTable value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}"  rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}"
-   						 paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING" id="taskHistoryTable">
-      			<p:column style="width:25px; text-align: center;" sortBy="#{ID}">  
+   						 paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING" id="taskHistoryTable" sortBy="#{ID}">
+      			<p:column styleClass="icon-column" sortBy="#{ID}">  
            			<f:facet name="header"/>  
            			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskHistoryDetail_#{row}" title="Details Task [#{task.id}]">
            				<span class="fa fa-file-text-o"/>
            			</a>
         		</p:column>
-       			<p:column style="width:25px; text-align: center;" sortBy="#{PRIORITY}">
-					<f:facet name="header">
-					</f:facet>
+       			<p:column styleClass="icon-column" sortBy="#{PRIORITY}">
 					<wc:PriorityIcon priority="#{task.priority}"/>
 				</p:column>
-       			<p:column style="width:25px; text-align: center;" sortBy="#{STATE}">
-					<f:facet name="header">
-					</f:facet>
+       			<p:column styleClass="icon-column" sortBy="#{STATE}">
 					<wc:TaskStateIcon state="#{task.state}" />
 				</p:column>	
        			<p:column sortBy="#{NAME}" styleClass="taskHistoryNameColumn">  

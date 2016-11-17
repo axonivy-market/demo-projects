@@ -105,7 +105,7 @@
 							<th>Business Case</th>
 							<td><a
 								href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{data.wfCase.getBusinessCase().id}"
-								title="Details Case [#{data.wfCase.getBusinessCase().id}]">#{data.wfCase.getBusinessCase().name}</a></td>
+								title="Details Case [#{data.wfCase.getBusinessCase().id}]"><span class="fa fa-folder-open-o" /> #{data.wfCase.getBusinessCase().name}</a></td>
 						</ui:fragment>
 						<tr>
 							<th>#{ivy.cms.co('/labels/history/caseDetails/processmodel')}</th>
@@ -117,13 +117,13 @@
 						</tr>
 					</table>
 				</h:column>
-				<p:spacer width="100px" />
+				<p:spacer width="50px" />
 				<h:column>
 				<ui:fragment rendered="#{data.wfCase.hasNotes()}">
-				<h2>
+				<h4>
 					<span class="fa fa-comment-o fa-fw"/>
-					<h:outputText value="#{ivy.cms.co('/labels/common/caseNotes')}" />
-				</h2>
+					<h:outputText value=" #{ivy.cms.co('/labels/common/caseNotes')}" />
+				</h4>
 				</ui:fragment>
 					<p:dataList value="#{data.notes}" var="caseNote" itemType="none"
 						rendered="#{data.wfCase.hasNotes()}" styleClass="dataListNotes">
@@ -161,8 +161,7 @@
 		<br />
 		<h:form id="formTaskList">
 			<h4>
-				<h:outputText value="#{ivy.cms.co('/labels/common/tasks')}"
-					style="font-weight:bold;" />
+				<h:outputText value="#{ivy.cms.co('/labels/common/tasks')}" />
 			</h4>
 			<p:dataTable id="taskTable" value="#{data.tasks}" var="task"
 				emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}"

@@ -17,7 +17,7 @@
 		#{ivy.cms.co('/labels/history/taskDetails/description')}
 		<br />
 		<br />
-		<c:if test="#{data.task != null}">
+		<ui:fragment rendered="#{data.task != null}">
 			<h:form id="formTaskDetails">
 				<h:panelGrid columns="1">
 					<p:toolbar styleClass="ivy-toolbar">
@@ -83,53 +83,59 @@
 								<th>#{ivy.cms.co('/labels/common/name')}</th>
 								<td>#{data.task.name}</td>
 							</tr>
-							<tr>
-								<th>#{ivy.cms.co('/labels/common/description')}</th>
-								<td>#{data.task.description}</td>
-							</tr>
+							<ui:fragment rendered="#{!data.task.description.isEmpty()}">
+								<tr>
+									<th>#{ivy.cms.co('/labels/common/description')}</th>
+									<td>#{data.task.description}</td>
+								</tr>
+							</ui:fragment>
 							<tr>
 								<th>#{ivy.cms.co('/labels/common/state')}</th>
 							<td><wc:TaskStateIconAndText
 									state="#{data.task.state}" withText="true" /></td>
 							</tr>
-							<c:if test="#{data.signal.isSignaled()}">
+							<ui:fragment rendered="#{data.signal.isSignaled()}">
 								<tr>
 									<th>#{ivy.cms.co('/labels/common/Signal')}</th>
 									<td>
 									<span class="bpm-#{data.signal.signalIconName}"/>
 									<p:spacer width="2px" /> 
-									<c:if test="#{data.signal.wasStartedByASignal()}">
+									<ui:fragment rendered="#{data.signal.wasStartedByASignal()}">
 										<h:outputText value="#{data.signal.getStarterMessage()}" />
-									</c:if> 
-									<c:if test="#{data.signal.isOrWasListeningForSignals()}">
+									</ui:fragment>
+									<ui:fragment rendered="#{data.signal.isOrWasListeningForSignals()}">
 										<h:outputText value="#{data.signal.getReceiverMessage()}" />
-									</c:if>
+									</ui:fragment>
 									</td>
 								</tr>
-							</c:if>
+							</ui:fragment>
 							<tr>
 								<th>#{ivy.cms.co('/labels/history/taskDetails/priority')}</th>
 								<td><wc:PriorityIconAndText
 										priority="#{data.task.priority}" withText="true" /></td>
 							</tr>
-							<tr>
-								<th>#{ivy.cms.co('/labels/common/user')}</th>
-								<td><wc:MemberDetail member="#{data.task.workerUser}" /></td>
-							</tr>
-							<tr>
-								<th>#{ivy.cms.co('/labels/common/responsible')}</th>
-								<td><wc:MemberDetail member="#{data.task.activator}" /></td>
-							</tr>
-							<tr>
-								<th>#{ivy.cms.co('/labels/history/taskDetails/responsibleEx')}</th>
-								<td><wc:MemberDetail member="#{data.task.expiryActivator}" />
-								</td>
-							</tr>
+							<ui:fragment rendered="#{data.task.workerUser != null}">
+								<tr>
+									<th>#{ivy.cms.co('/labels/common/user')}</th>
+									<td><wc:MemberDetail member="#{data.task.workerUser}" /></td>
+								</tr>
+							</ui:fragment>
+								<tr>
+									<th>#{ivy.cms.co('/labels/common/responsible')}</th>
+									<td><wc:MemberDetail member="#{data.task.activator}" /></td>
+								</tr>
+							<ui:fragment rendered="#{data.task.expiryActivator != null}">
+								<tr>
+									<th>#{ivy.cms.co('/labels/history/taskDetails/responsibleEx')}</th>
+									<td><wc:MemberDetail member="#{data.task.expiryActivator}" />
+									</td>
+								</tr>
+							</ui:fragment>
 							<tr>
 								<th>#{ivy.cms.co('/labels/history/taskDetails/businessCase')}</th>
 								<td><a
 									href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{data.task.case.getBusinessCase().id}"
-									id="buttonCaseDetail">#{data.caseName}</a></td>
+									id="buttonCaseDetail"><span class="fa fa-folder-open-o" /> #{data.caseName}</a></td>
 							</tr>
 							<tr>
 								<th>#{ivy.cms.co('/labels/common/start')}</th>
@@ -138,45 +144,51 @@
 											timeStyle="short" />
 									</h:outputText></td>
 							</tr>
-							<tr>
-								<th>#{ivy.cms.co('/labels/common/expiry')}</th>
-								<td><h:outputText value="#{data.task.expiryTimestamp}">
-										<f:convertDateTime type="both" dateStyle="short"
-											timeStyle="short" />
-									</h:outputText> <p:spacer width="10" /> <p:commandLink
-										value="#{ivy.cms.co('/labels/dialogs/confirmDialog/expiryTitle')}"
-										onclick="PF('confirmExpiryNow').show();"
-										update=":formTaskDetails"
-										rendered="#{data.isExpiryDateLower and !data.changeExpiryLink}" />
-								</td>
-							</tr>
-							<tr>
-								<th>#{ivy.cms.co('/labels/history/taskDetails/delay')}</th>
-								<td><h:outputText value="#{data.task.delayTimestamp}">
-										<f:convertDateTime type="both" dateStyle="short"
-											timeStyle="short" />
-									</h:outputText> <p:spacer width="10" /> <p:commandLink
-										value="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}"
-										onclick="PF('confirmDelayNow').show();"
-										update=":formTaskDetails" rendered="#{data.isDelayDateLower}" />
-								</td>
-							</tr>
-							<tr>
-								<th>#{ivy.cms.co('/labels/common/done')}</th>
-								<td><h:outputText value="#{data.task.endTimestamp}">
-										<f:convertDateTime type="both" dateStyle="short"
-											timeStyle="short" />
-									</h:outputText></td>
-							</tr>
+							<ui:fragment rendered="#{data.task.expiryTimestamp != null}">
+								<tr>
+									<th>#{ivy.cms.co('/labels/common/expiry')}</th>
+									<td><h:outputText value="#{data.task.expiryTimestamp}">
+											<f:convertDateTime type="both" dateStyle="short"
+												timeStyle="short" />
+										</h:outputText> <p:spacer width="10" /> <p:commandLink
+											value="#{ivy.cms.co('/labels/dialogs/confirmDialog/expiryTitle')}"
+											onclick="PF('confirmExpiryNow').show();"
+											update=":formTaskDetails"
+											rendered="#{data.isExpiryDateLower and !data.changeExpiryLink}" />
+									</td>
+								</tr>
+							</ui:fragment>
+							<ui:fragment rendered="#{data.task.delayTimestamp != null}">
+								<tr>
+									<th>#{ivy.cms.co('/labels/history/taskDetails/delay')}</th>
+									<td><h:outputText value="#{data.task.delayTimestamp}">
+											<f:convertDateTime type="both" dateStyle="short"
+												timeStyle="short" />
+										</h:outputText> <p:spacer width="10" /> <p:commandLink
+											value="#{ivy.cms.co('/labels/dialogs/confirmDialog/delayTitle')}"
+											onclick="PF('confirmDelayNow').show();"
+											update=":formTaskDetails" rendered="#{data.isDelayDateLower}" />
+									</td>
+								</tr>
+							</ui:fragment>
+							<ui:fragment rendered="#{data.task.endTimestamp != null}">
+								<tr>
+									<th>#{ivy.cms.co('/labels/common/done')}</th>
+									<td><h:outputText value="#{data.task.endTimestamp}">
+											<f:convertDateTime type="both" dateStyle="short"
+												timeStyle="short" />
+										</h:outputText></td>
+								</tr>
+							</ui:fragment>
 						</table>
 					</h:column>
-					<p:spacer width="100px" />
+					<p:spacer width="50px" />
 					<h:column>
 						<ui:fragment rendered="#{data.task.hasNotes()}">
-							<h2>
-								<span style="margin-left: 5px;" class="fa fa-comment-o fa-fw" />
-								<h:outputText value="#{ivy.cms.co('/labels/common/taskNotes')}" />
-							</h2>
+							<h4>
+								<span class="fa fa-comment-o fa-fw" />
+								<h:outputText value=" #{ivy.cms.co('/labels/common/taskNotes')}" />
+							</h4>
 						</ui:fragment>
 						<p:dataList value="#{data.notes}" var="taskNote" itemType="none"
 							rendered="#{data.task.hasNotes()}" styleClass="dataListNotes">
@@ -206,14 +218,11 @@
 								</p:commandButton>
 							</h:panelGrid>
 						</p:dataList>
-						<c:if test="#{data.task.hasNotes() and data.task.case.hasNotes()}">
-							<br />
-						</c:if>
 						<ui:fragment rendered="#{data.task.case.hasNotes()}">
-							<h2>
+							<h4>
 								<span class="fa fa-comment-o fa-fw" />
-								<h:outputText value="#{ivy.cms.co('/labels/common/caseNotes')}" />
-							</h2>
+								<h:outputText value=" #{ivy.cms.co('/labels/common/caseNotes')}" />
+							</h4>
 						</ui:fragment>
 						<p:dataList value="#{data.caseNotes}" var="caseNote"
 							itemType="none" rendered="#{data.task.case.hasNotes()}"
@@ -252,8 +261,7 @@
 				<br />
 				<h4>
 				<h:outputText
-					value="#{ivy.cms.co('/labels/history/taskDetails/events')}"
-					style="font-weight:bold;" rendered="#{data.isHistory}" />
+					value="#{ivy.cms.co('/labels/history/taskDetails/events')}" rendered="#{data.isHistory}" />
 				</h4>
 				<p:dataTable id="taskEventTable" var="event"
 					value="#{data.taskEvents}"
@@ -303,7 +311,7 @@
 			<ui:include src="/includes/dialogs/ChangePriority.xhtml" />
 			<ui:include src="/includes/dialogs/AddNote.xhtml" />
 			<ui:include src="/includes/dialogs/Archive.xhtml" />
-		</c:if>
+		</ui:fragment>
 	</ui:define>
 </ui:composition>
 </html>
