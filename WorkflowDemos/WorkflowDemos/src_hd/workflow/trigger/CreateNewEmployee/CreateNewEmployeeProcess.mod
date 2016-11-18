@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jan 18 14:04:09 CET 2016]
+[>Created: Fri Nov 18 15:44:13 CET 2016]
 15254CFABE5EF2E5 3.18 #module
 >Proto >Proto Collection #zClass
 Es0 CreateNewEmployeeProcess Big #zClass
@@ -30,6 +30,7 @@ Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 <workflow.trigger.NewEmployeeData newEmployeeData> param = methodEvent.getInputArguments();
 ' #txt
 Es0 f0 inParameterMapAction 'out.newEmployeeData=param.newEmployeeData;
+out.newEmployeeData.needsParkingLot=true;
 ' #txt
 Es0 f0 outParameterDecl '<workflow.trigger.NewEmployeeData newEmployeeData> result;
 ' #txt
