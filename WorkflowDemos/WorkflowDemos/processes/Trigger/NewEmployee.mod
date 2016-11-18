@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 01 14:52:19 CEST 2016]
+[>Created: Fri Nov 18 15:55:05 CET 2016]
 15254CF1CE56AE72 3.18 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
@@ -21,11 +21,13 @@ Tr0 @EMail f10 '' #zField
 Tr0 @PushWFArc f2 '' #zField
 Tr0 @PushWFArc f12 '' #zField
 Tr0 @PushWFArc f6 '' #zField
-Tr0 @PushWFArc f8 '' #zField
 Tr0 @InfoButton f9 '' #zField
 Tr0 @Trigger f13 '' #zField
 Tr0 @PushWFArc f14 '' #zField
 Tr0 @PushWFArc f4 '' #zField
+Tr0 @GridStep f3 '' #zField
+Tr0 @PushWFArc f11 '' #zField
+Tr0 @PushWFArc f8 '' #zField
 >Proto Tr0 Tr0 NewEmployee #zField
 Tr0 f0 outLink start.ivp #txt
 Tr0 f0 type workflow.trigger.NewEmployeeData #txt
@@ -94,7 +96,7 @@ personal data</name>
 Tr0 f5 176 202 144 44 -53 -16 #rect
 Tr0 f5 @|RichDialogIcon #fIcon
 Tr0 f1 type workflow.trigger.NewEmployeeData #txt
-Tr0 f1 801 209 30 30 0 15 #rect
+Tr0 f1 977 209 30 30 0 15 #rect
 Tr0 f1 @|EndIcon #fIcon
 Tr0 f7 type workflow.trigger.NewEmployeeData #txt
 Tr0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -106,7 +108,7 @@ Tr0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tr0 f7 384 208 32 32 -52 18 #rect
+Tr0 f7 560 208 32 32 -52 18 #rect
 Tr0 f7 @|AlternativeIcon #fIcon
 Tr0 f10 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/welcomeHeader\\"")%> <%=in.name%>!""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Emails/welcomeMail\\"")%>\\n</html>""/emailAttachments * }"' #txt
 Tr0 f10 type workflow.trigger.NewEmployeeData #txt
@@ -121,10 +123,10 @@ Tr0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tr0 f10 624 202 128 44 -54 -8 #rect
+Tr0 f10 800 202 128 44 -54 -8 #rect
 Tr0 f10 @|EMailIcon #fIcon
 Tr0 f2 expr out #txt
-Tr0 f2 752 224 801 224 #arcP
+Tr0 f2 928 224 977 224 #arcP
 Tr0 f12 expr in #txt
 Tr0 f12 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -135,14 +137,12 @@ Tr0 f12 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tr0 f12 400 208 688 202 #arcP
-Tr0 f12 1 400 160 #addKink
-Tr0 f12 2 688 160 #addKink
+Tr0 f12 576 208 864 202 #arcP
+Tr0 f12 1 576 160 #addKink
+Tr0 f12 2 864 160 #addKink
 Tr0 f12 1 0.3888888888888889 0 -9 #arcLabel
 Tr0 f6 expr out #txt
 Tr0 f6 103 224 176 224 #arcP
-Tr0 f8 expr out #txt
-Tr0 f8 320 224 384 224 #arcP
 Tr0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -178,7 +178,7 @@ Tr0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tr0 f13 480 202 112 44 -53 -8 #rect
+Tr0 f13 656 202 112 44 -53 -8 #rect
 Tr0 f13 @|TriggerIcon #fIcon
 Tr0 f14 expr in #txt
 Tr0 f14 outCond in.needsParkingLot #txt
@@ -191,10 +191,31 @@ Tr0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Tr0 f14 416 224 480 224 #arcP
+Tr0 f14 592 224 656 224 #arcP
 Tr0 f14 0 0.46875 0 -6 #arcLabel
 Tr0 f4 expr out #txt
-Tr0 f4 592 224 624 224 #arcP
+Tr0 f4 768 224 800 224 #arcP
+Tr0 f3 actionDecl 'workflow.trigger.NewEmployeeData out;
+' #txt
+Tr0 f3 actionTable 'out=in;
+' #txt
+Tr0 f3 actionCode 'ivy.case.getBusinessCase().setName("4: New Employee: " + in.name);' #txt
+Tr0 f3 type workflow.trigger.NewEmployeeData #txt
+Tr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Set Business Case Name</name>
+        <nameStyle>22
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Tr0 f3 352 200 160 48 -69 -7 #rect
+Tr0 f3 @|StepIcon #fIcon
+Tr0 f11 expr out #txt
+Tr0 f11 320 224 352 224 #arcP
+Tr0 f8 expr out #txt
+Tr0 f8 512 224 560 224 #arcP
 >Proto Tr0 .type workflow.trigger.NewEmployeeData #txt
 >Proto Tr0 .processKind NORMAL #txt
 >Proto Tr0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -221,10 +242,12 @@ Tr0 f2 head f1 mainIn #connect
 Tr0 f12 head f10 mainIn #connect
 Tr0 f0 mainOut f6 tail #connect
 Tr0 f6 head f5 mainIn #connect
-Tr0 f5 mainOut f8 tail #connect
-Tr0 f8 head f7 in #connect
 Tr0 f7 out f14 tail #connect
 Tr0 f14 head f13 mainIn #connect
 Tr0 f7 out f12 tail #connect
 Tr0 f13 mainOut f4 tail #connect
 Tr0 f4 head f10 mainIn #connect
+Tr0 f5 mainOut f11 tail #connect
+Tr0 f11 head f3 mainIn #connect
+Tr0 f3 mainOut f8 tail #connect
+Tr0 f8 head f7 in #connect

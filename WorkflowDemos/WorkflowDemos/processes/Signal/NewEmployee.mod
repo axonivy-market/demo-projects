@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 09 08:12:03 CET 2016]
+[>Created: Fri Nov 18 15:53:07 CET 2016]
 151CA0D8CBDD2DEC 3.18 #module
 >Proto >Proto Collection #zClass
 cr0 NewEmployee Big #zClass
@@ -338,6 +338,8 @@ cr0 f30 actionTable 'out=in;
 ' #txt
 cr0 f30 actionCode 'import com.google.gson.Gson;
 import ch.ivyteam.ivy.process.model.value.SignalCode;
+
+ivy.case.getBusinessCase().setName("3.1: New Employee: " + in.user.name + " [" + in.user.userKey + "]");
 
 // send signal with json payload
 String jsonSerializedPayload = new Gson().toJson(in.user);
