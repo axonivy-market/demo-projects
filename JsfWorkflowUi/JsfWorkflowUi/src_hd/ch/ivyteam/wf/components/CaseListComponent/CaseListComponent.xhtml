@@ -101,13 +101,13 @@
 					href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{case.id}"
 					id="caseLinkRow" title="Details Case [#{case.id}]">#{case.name}</a>
 			</p:column>
-			<p:column style="width:100px" sortBy="#{PROCESS_CATEGORY_CODE}">
+			<p:column sortBy="#{PROCESS_CATEGORY_CODE}">
 				<f:facet name="header">
                			#{ivy.cms.co('/labels/common/category')}
            			</f:facet>
            			#{case.processCategoryCode}
        			</p:column>
-			<p:column style="width:100px" sortBy="#{PROCESS_CODE}">
+			<p:column sortBy="#{PROCESS_CODE}">
 				<f:facet name="header">
                			#{ivy.cms.co('/labels/common/process')}
            			</f:facet>

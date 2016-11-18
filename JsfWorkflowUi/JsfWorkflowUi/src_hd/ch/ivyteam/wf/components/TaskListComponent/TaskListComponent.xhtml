@@ -80,7 +80,7 @@
 			rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}"
 			paginatorPosition="bottom" rows="50" lazy="true"
 			sortOrder="DESCENDING" sortBy="#{ID}">
-			<p:column style="width:21px; text-align: center;" sortBy="#{ID}">
+			<p:column styleClass="icon-column" sortBy="#{ID}">
 				<f:facet name="header" />
 				<c:choose>
 					<c:when test="#{data.mode ne 'admin'}">
@@ -99,12 +99,12 @@
 					</c:otherwise>
 				</c:choose>
 			</p:column>
-			<p:column style="width:21px; text-align: center;"
+			<p:column styleClass="icon-column"
 				sortBy="#{PRIORITY}">
 				<f:facet name="header" />
 				<wc:PriorityIcon priority="#{task.priority}" />
 			</p:column>
-			<p:column style="width:21px; text-align: center;" sortBy="#{STATE}" styleClass="taskPriorityColumn">
+			<p:column sortBy="#{STATE}" styleClass="icon-column taskPriorityColumn">
 				<f:facet name="header">
 				</f:facet>
 				<wc:TaskStateIcon state="#{task.state}" />
@@ -141,8 +141,8 @@
 					</ui:fragment>
 				</c:if>
 			</p:column>
-			<p:column style="width:100px; text-align: center;"
-				sortBy="#{START_TIMESTAMP}" styleClass="taskCreatedColumn">
+			<p:column
+				sortBy="#{START_TIMESTAMP}" styleClass="date-column taskCreatedColumn">
 				<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskStart')}
 					</f:facet>
@@ -150,7 +150,7 @@
 					<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 				</h:outputText>
 			</p:column>
-			<p:column style="width:100px; text-align: center;"
+			<p:column styleClass="date-column"
 				sortBy="#{EXPIRY_TIMESTAMP}">
 				<f:facet name="header">
 						#{ivy.cms.co('/labels/common/expiry')}

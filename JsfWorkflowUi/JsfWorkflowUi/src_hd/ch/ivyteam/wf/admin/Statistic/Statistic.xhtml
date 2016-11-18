@@ -42,11 +42,6 @@
 			</p:toolbar>
    			<p:dataTable id="caseStatisticTable" var="case" value="#{data.cases}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.cases.size() >= 50}" paginatorPosition="bottom" rows="50" sortOrder="DESCENDING">
    				<p:columnGroup type="header">
-		            <!-- <p:row>
-		            	<p:column colspan="1" headerText="" style="width:15pt" />
-		                <p:column colspan="3" headerText="" />
-		                <p:column colspan="3" headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/throughputTime')}" style="width:300pt" />
-		            </p:row> -->
 		            <p:row>
 		                <p:column headerText="#" styleClass="icon-column"/>
 		                <p:column headerText="#{ivy.cms.co('/labels/common/process')}" sortBy="#{case.PROCESSCODE}" />

@@ -23,7 +23,7 @@
 				rowIndexVar="row"
 				paginator="#{data.signalService.boundaryTasks.size() > 20}"
 				paginatorPosition="bottom" rows="20">
-				<p:column style="width:15px">
+				<p:column styleClass="icon-column">
 				<f:facet name="header">
 					#
 				</f:facet>
@@ -55,7 +55,7 @@
 				rowIndexVar="row" 
 				paginator="#{data.signalService.starts.size() > 20}"
 				paginatorPosition="bottom" rows="20">
-				<p:column style="width:15px">
+				<p:column styleClass="icon-column">
 					<f:facet name="header">
 						#
 					</f:facet>
@@ -82,7 +82,7 @@
 				emptyMessage="#{ivy.cms.co('/labels/common/noSignalsFired')}" rowIndexVar="row"
 				paginator="#{data.signalService.firedSignal.size() > 20}"
 				paginatorPosition="bottom" rows="20">
-				<p:column style="width:15px;">
+				<p:column styleClass="icon-column">
 					<f:facet name="header">
 						#
 					</f:facet>

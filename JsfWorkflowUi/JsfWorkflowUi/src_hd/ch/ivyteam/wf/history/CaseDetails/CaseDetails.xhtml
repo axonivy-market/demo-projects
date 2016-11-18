@@ -166,7 +166,7 @@
 			<p:dataTable id="taskTable" value="#{data.tasks}" var="task"
 				emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}"
 				rowIndexVar="row">
-				<p:column id="absenceStart" style="width:12px">
+				<p:column id="absenceStart" styleClass="icon-column">
 					<f:facet name="header">  
                			#
            			</f:facet>
@@ -176,16 +176,10 @@
 						class="fa fa-file-text-o" />
 					</a>
 				</p:column>
-				<p:column style="width:40px; text-align: center;">
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/taskPrio')}
-					</f:facet>
+				<p:column styleClass="icon-column">
 					<wc:PriorityIcon priority="#{task.priority}" />
 				</p:column>
-				<p:column style="width:40px; text-align: center;">
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/taskState')}
-					</f:facet>
+				<p:column styleClass="icon-column">
 					<wc:TaskStateIcon state="#{task.state}" />
 				</p:column>
 				<p:column>
@@ -202,7 +196,7 @@
 					</f:facet>
 					<wc:MemberDetail member="#{task.activator}" />
 				</p:column>
-				<p:column>
+				<p:column styleClass="date-column">
 					<f:facet name="header">
 						#{ivy.cms.co('/labels/common/taskStart')}
 					</f:facet>
@@ -210,7 +204,7 @@
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
 				</p:column>
-				<p:column>
+				<p:column styleClass="date-column">
 					<f:facet name="header">  
                			#{ivy.cms.co('/labels/common/done')}  
            			</f:facet>
