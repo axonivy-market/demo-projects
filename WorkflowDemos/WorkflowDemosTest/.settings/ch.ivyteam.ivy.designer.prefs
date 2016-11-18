@@ -1,4 +1,4 @@
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=workflow.demos.test.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=workflow.demos.test
-ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=64100
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=63000
 eclipse.preferences.version=1
