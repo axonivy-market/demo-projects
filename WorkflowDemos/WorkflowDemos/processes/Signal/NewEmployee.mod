@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Nov 18 15:53:07 CET 2016]
+[>Created: Mon Nov 21 12:38:29 CET 2016]
 151CA0D8CBDD2DEC 3.18 #module
 >Proto >Proto Collection #zClass
 cr0 NewEmployee Big #zClass
@@ -85,7 +85,9 @@ cr0 f11 responseActionDecl 'workflow.signal.CreateUserProcess out;
 cr0 f11 responseMappingAction 'out=in;
 ' #txt
 cr0 f11 outLinks "TaskA.ivp" #txt
-cr0 f11 taskData 'TaskA.DESC=<%\=ivy.cms.co("/TaskDescriptions/prepareOfficeKeyDesc")%> <%\=in.user.name%> [<%\=in.user.userKey%>]
+cr0 f11 caseData case.category=Office/Key/Assignment #txt
+cr0 f11 taskData 'TaskA.CATEGORY=Assign/OfficeKey
+TaskA.DESC=<%\=ivy.cms.co("/TaskDescriptions/prepareOfficeKeyDesc")%> <%\=in.user.name%> [<%\=in.user.userKey%>]
 TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
@@ -198,7 +200,9 @@ cr0 f8 responseActionDecl 'workflow.signal.CreateUserProcess out;
 cr0 f8 responseMappingAction 'out.user=result.user;
 ' #txt
 cr0 f8 outLinks "TaskA.ivp" #txt
-cr0 f8 taskData 'TaskA.DESC=<%\=ivy.cms.co("/TaskDescriptions/setupWorkstationDesc")%> <%\=in.user.name%> [<%\=in.user.userKey%>]
+cr0 f8 caseData case.category=IT/Workstation/Setup #txt
+cr0 f8 taskData 'TaskA.CATEGORY=Setup/Workstation
+TaskA.DESC=<%\=ivy.cms.co("/TaskDescriptions/setupWorkstationDesc")%> <%\=in.user.name%> [<%\=in.user.userKey%>]
 TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
@@ -376,10 +380,12 @@ cr0 f0 startName '3.1: <%=ivy.cms.co("/ProcessDescriptions/createUserProcess")%>
 cr0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/signalCreateUserDescription")%> #txt
 cr0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
+TaskTriggered.CATEGORY=Input/Employee
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
+cr0 f0 caseData case.category=HR/Employee/Entry #txt
 cr0 f0 showInStartList 1 #txt
 cr0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();

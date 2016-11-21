@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 01 14:52:19 CEST 2016]
+[>Created: Mon Nov 21 12:38:29 CET 2016]
 151CA1EFC1542D87 3.18 #module
 >Proto >Proto Collection #zClass
 qr0 QuitEmployee Big #zClass
@@ -38,10 +38,12 @@ qr0 f0 startName '3.2: <%=ivy.cms.co("/ProcessDescriptions/quitUserProcess")%> (
 qr0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/SignalQuitUserDescription")%> #txt
 qr0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
+TaskTriggered.CATEGORY=Leave/Employee
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
+qr0 f0 caseData case.category=HR/Employee/Leave #txt
 qr0 f0 showInStartList 1 #txt
 qr0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();

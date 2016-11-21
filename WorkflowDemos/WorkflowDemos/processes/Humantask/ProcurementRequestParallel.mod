@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 01 14:52:19 CEST 2016]
+[>Created: Mon Nov 21 12:23:30 CET 2016]
 15254DC87A1B183B 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestParallel Big #zClass
@@ -82,11 +82,13 @@ Pt0 f0 persist false #txt
 Pt0 f0 startName '2.2: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%> (<%=ivy.cms.co("/ProcessDescriptions/parallelTaskExample")%>)' #txt
 Pt0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/procurementRequestParallelDescription")%> #txt
 Pt0 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.CATEGORY=Input/Procurement
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
+Pt0 f0 caseData case.category=Procurement/Request #txt
 Pt0 f0 showInStartList 1 #txt
 Pt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
@@ -121,6 +123,7 @@ out.dataOkTeamLeader=in1.dataOkTeamLeader;
 ' #txt
 Pt0 f7 outTypes "workflow.humantask.ProcurementRequest" #txt
 Pt0 f7 outLinks "TaskB.ivp" #txt
+Pt0 f7 caseData case.category=System #txt
 Pt0 f7 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
@@ -185,7 +188,8 @@ Pt0 f2 actionTable 'out=in1;
 ' #txt
 Pt0 f2 outTypes "workflow.humantask.ProcurementRequest","workflow.humantask.ProcurementRequest" #txt
 Pt0 f2 outLinks "TaskA.ivp","TaskB.ivp" #txt
-Pt0 f2 taskData 'TaskA.EXPRI=2
+Pt0 f2 taskData 'TaskA.CATEGORY=Review/Procurement
+TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
 TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/verifyRequest")%>\: <%\=in1.amount%> <%\=ivy.cms.co("/Dialogs/procurementRequest/piecesOf")%>  ''<%\=in1.description%>'' <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in1.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
@@ -193,6 +197,7 @@ TaskA.PRI=2
 TaskA.ROL=Teamleader
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0
+TaskB.CATEGORY=Review/Procurement
 TaskB.EXPRI=2
 TaskB.EXROL=Everybody
 TaskB.EXTYPE=0
@@ -398,7 +403,8 @@ Pt0 f26 actionTable 'out=in1;
 ' #txt
 Pt0 f26 outTypes "workflow.humantask.ProcurementRequest" #txt
 Pt0 f26 outLinks "TaskA.ivp" #txt
-Pt0 f26 taskData 'TaskA.EXPRI=2
+Pt0 f26 taskData 'TaskA.CATEGORY=Accept/Procurement
+TaskA.EXPRI=2
 TaskA.EXROL=Executive Manager
 TaskA.EXTYPE=0
 TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/acceptRequest")%>\: <%\=in1.amount%> <%\=ivy.cms.co("/Dialogs/procurementRequest/piecesOf")%> ''<%\=in1.description%>'' <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in1.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 01 14:52:19 CEST 2016]
+[>Created: Mon Nov 21 12:23:30 CET 2016]
 15254DCE818AD7A2 3.18 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
@@ -45,10 +45,12 @@ Pt0 f0 startName '2.1: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%
 Pt0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/procurementRequestUserTaskDescription")%> #txt
 Pt0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
+TaskTriggered.CATEGORY=Input/Procurement
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
+Pt0 f0 caseData case.category=Procurement/Request #txt
 Pt0 f0 showInStartList 1 #txt
 Pt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
@@ -115,7 +117,8 @@ out.activityLog=in.activityLog.add(result.logEntry);
 out.dataOkManager=result.dataOk;
 ' #txt
 Pt0 f5 outLinks "TaskA.ivp" #txt
-Pt0 f5 taskData 'TaskA.EXPRI=2
+Pt0 f5 taskData 'TaskA.CATEGORY=Review/Procurement
+TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
 TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/verifyRequest")%>\: <%\=in.amount%> <%\=ivy.cms.co("/Dialogs/procurementRequest/piecesOf")%> ''<%\=in.description%>'' <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>
@@ -153,7 +156,8 @@ out.accepted=result.accepted;
 out.activityLog=in.activityLog.add(result.logEntry);
 ' #txt
 Pt0 f7 outLinks "TaskA.ivp" #txt
-Pt0 f7 taskData 'TaskA.EXPRI=2
+Pt0 f7 taskData 'TaskA.CATEGORY=Accept/Procurement
+TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
 TaskA.NAM=<%\=ivy.cms.co("/TaskDescriptions/acceptRequest")%>\: <%\=in.amount%> <%\=ivy.cms.co("/Dialogs/procurementRequest/piecesOf")%> ''<%\=in.description%>'' <%\=ivy.cms.co("/Dialogs/procurementRequest/forTotal")%> <%\=in.totalPrice%><%\=ivy.cms.co("/TaskDescriptions/currencySymbol")%>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Sep 05 09:34:16 CEST 2016]
+[>Created: Mon Nov 21 12:17:53 CET 2016]
 156E5D9AA7D41BAA 3.18 #module
 >Proto >Proto Collection #zClass
 Vn0 VerificationProcess Big #zClass
@@ -154,11 +154,13 @@ Vn0 f19 callSignature verifyDossier(String) #txt
 Vn0 f19 persist false #txt
 Vn0 f19 startName 'Verify Dossier Process' #txt
 Vn0 f19 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.CATEGORY=Review/Dossier
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
+Vn0 f19 caseData case.category=Dossier/Verify #txt
 Vn0 f19 showInStartList 0 #txt
 Vn0 f19 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Nov 18 15:55:05 CET 2016]
+[>Created: Mon Nov 21 12:38:29 CET 2016]
 15254CF1CE56AE72 3.18 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
@@ -42,11 +42,13 @@ Tr0 f0 persist false #txt
 Tr0 f0 startName '4: <%=ivy.cms.co("/ProcessDescriptions/newEmployee")%> (<%=ivy.cms.co("/ProcessDescriptions/triggerExample")%>)' #txt
 Tr0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/triggerDescription")%> #txt
 Tr0 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.CATEGORY=Input/Employee
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
+Tr0 f0 caseData case.category=HR/Employee/Entry #txt
 Tr0 f0 showInStartList 1 #txt
 Tr0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();

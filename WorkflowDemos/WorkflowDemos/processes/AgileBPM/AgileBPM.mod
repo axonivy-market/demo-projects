@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 01 14:49:59 CEST 2016]
+[>Created: Mon Nov 21 12:20:27 CET 2016]
 15255056043EE914 3.18 #module
 >Proto >Proto Collection #zClass
 AF0 AgileBPM Big #zClass
@@ -119,15 +119,17 @@ AF0 f0 callSignature start() #txt
 AF0 f0 persist false #txt
 AF0 f0 startName '1: <%=ivy.cms.co("/ProcessDescriptions/SelfServiceBPM")%> (<%=ivy.cms.co("/ProcessDescriptions/AdHocName")%>)' #txt
 AF0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/AdHocDescription")%> #txt
-AF0 f0 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.KINDC=CREATOR
+AF0 f0 taskData 'TaskTriggered.EXTYPE=0
+TaskTriggered.CATEGORY=Input/Adhoc
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
+TaskTriggered.EXPRI=2
+TaskTriggered.KINDC=CREATOR
 TaskTriggered.NAM=Self Service Workflow
+TaskTriggered.ROL=Everybody
 TaskTriggered.EXROL=Everybody' #txt
-AF0 f0 caseData 'processCategory.code=Self Service WF
+AF0 f0 caseData 'case.category=AdHoc
+processCategory.code=Self Service WF
 processCategory.name=Self Service WF' #txt
 AF0 f0 wfuser 1 #txt
 AF0 f0 showInStartList 1 #txt
@@ -401,36 +403,7 @@ out.nextTask.setSubject(in.caseInfo.subject);
 ' #txt
 1b1 f13 outTypes "workflow.agileBPM.Data" #txt
 1b1 f13 outLinks "TaskA.ivp" #txt
-1b1 f13 caseData '#
-#Mon Jan 19 16:07:27 CET 2015
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
-1b1 f13 taskData '#
-#Mon Jan 19 16:07:27 CET 2015
+1b1 f13 taskData 'TaskA.CATEGORY=System/Mail
 TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
@@ -438,8 +411,7 @@ TaskA.NAM=SYSTEM Send <%\=in1.caseInfo.kind%> Mail
 TaskA.PRI=2
 TaskA.ROL=SYSTEM
 TaskA.SKIP_TASK_LIST=false
-TaskA.TYPE=0
-' #txt
+TaskA.TYPE=0' #txt
 1b1 f13 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
 List<TaskDefinition> taskDefinitions;
 TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
@@ -460,7 +432,7 @@ taskDefinitions.add(taskDef);
 <elementInfo>
     <language>
         <name>SYSTEM</name>
-        <nameStyle>6
+        <nameStyle>6,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -648,36 +620,7 @@ Ct0 f2 actionTable 'out=in1;
 ' #txt
 Ct0 f2 outTypes "workflow.agileBPM.Data","workflow.agileBPM.Data" #txt
 Ct0 f2 outLinks "TaskA.ivp","TaskB.ivp" #txt
-Ct0 f2 caseData '#
-#Fri Feb 06 14:02:55 CET 2015
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
-Ct0 f2 taskData '#
-#Fri Feb 06 14:02:55 CET 2015
+Ct0 f2 taskData 'TaskA.CATEGORY=System/Split
 TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
@@ -686,6 +629,7 @@ TaskA.PRI=2
 TaskA.ROL=SYSTEM
 TaskA.SKIP_TASK_LIST=true
 TaskA.TYPE=0
+TaskB.CATEGORY=System/CreateUserTask
 TaskB.EXPRI=2
 TaskB.EXROL=Everybody
 TaskB.EXTYPE=0
@@ -693,8 +637,7 @@ TaskB.NAM=Split Usertask
 TaskB.PRI=2
 TaskB.ROL=SYSTEM
 TaskB.SKIP_TASK_LIST=false
-TaskB.TYPE=0
-' #txt
+TaskB.TYPE=0' #txt
 Ct0 f2 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
 List<TaskDefinition> taskDefinitions;
 TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
@@ -724,7 +667,7 @@ Ct0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>SYSTEM spilt</name>
-        <nameStyle>12
+        <nameStyle>12,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -738,36 +681,7 @@ out.definedTasks=in2.definedTasks;
 ' #txt
 Ct0 f4 outTypes "workflow.agileBPM.Data" #txt
 Ct0 f4 outLinks "TaskA.ivp" #txt
-Ct0 f4 caseData '#
-#Fri Feb 06 15:02:22 CET 2015
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
-Ct0 f4 taskData '#
-#Fri Feb 06 15:02:22 CET 2015
+Ct0 f4 taskData 'TaskA.CATEGORY=System/Join
 TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
@@ -775,8 +689,7 @@ TaskA.NAM=SYSTEM join
 TaskA.PRI=2
 TaskA.ROL=SYSTEM
 TaskA.SKIP_TASK_LIST=false
-TaskA.TYPE=0
-' #txt
+TaskA.TYPE=0' #txt
 Ct0 f4 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
 List<TaskDefinition> taskDefinitions;
 TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
@@ -797,7 +710,7 @@ Ct0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>SYSTEM join</name>
-        <nameStyle>11
+        <nameStyle>11,7
 </nameStyle>
     </language>
 </elementInfo>

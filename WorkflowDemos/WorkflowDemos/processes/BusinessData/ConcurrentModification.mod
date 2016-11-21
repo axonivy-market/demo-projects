@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 21 12:03:31 CET 2016]
+[>Created: Mon Nov 21 12:38:29 CET 2016]
 156DB84CCE78254F 3.18 #module
 >Proto >Proto Collection #zClass
 Cn0 ConcurrentModification Big #zClass
@@ -51,7 +51,7 @@ Cn0 f0 startDescription 'This use case handles the problematic of concurrent mod
 of the same business data values.' #txt
 Cn0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.CATEGORY=Acquisition/Address
+TaskTriggered.CATEGORY=Input/Address
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2

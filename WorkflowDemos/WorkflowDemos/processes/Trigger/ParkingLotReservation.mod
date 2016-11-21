@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 01 14:52:19 CEST 2016]
+[>Created: Mon Nov 21 12:38:29 CET 2016]
 15254CF47A16DEA1 3.18 #module
 >Proto >Proto Collection #zClass
 Pn0 ParkingLotReservation Big #zClass
@@ -38,11 +38,13 @@ Pn0 f0 callSignature start(workflow.trigger.NewEmployeeData) #txt
 Pn0 f0 persist false #txt
 Pn0 f0 taskData 'TaskTriggered.ROL=Facility Manager
 TaskTriggered.EXTYPE=0
+TaskTriggered.CATEGORY=Assign/ParkingLot
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.NAM=<%\=ivy.cms.co("/TaskDescriptions/reserveParkingLotFor")%> <%\=param.newEmployeeData.name%>' #txt
+Pn0 f0 caseData case.category=Facility/ParkingLot/Reservation #txt
 Pn0 f0 showInStartList 1 #txt
 Pn0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();

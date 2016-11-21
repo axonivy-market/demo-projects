@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 01 14:52:19 CEST 2016]
+[>Created: Mon Nov 21 12:38:29 CET 2016]
 1523FF963044280C 3.18 #module
 >Proto >Proto Collection #zClass
 ft0 KeyCardDelivery Big #zClass
@@ -76,7 +76,9 @@ ft0 f8 responseActionDecl 'workflow.signal.FacilityManagementData out;
 ft0 f8 responseMappingAction 'out=in;
 ' #txt
 ft0 f8 outLinks "TaskA.ivp" #txt
-ft0 f8 taskData 'TaskA.DESC=<%\=ivy.cms.co("/TaskDescriptions/DeliverKeyCardDesc")%><%\=in.user.name%> [<%\=in.user.userKey%>]
+ft0 f8 caseData case.category=Facility/ParkingLot/Reservation #txt
+ft0 f8 taskData 'TaskA.CATEGORY=Assign/ParkingLot
+TaskA.DESC=<%\=ivy.cms.co("/TaskDescriptions/DeliverKeyCardDesc")%><%\=in.user.name%> [<%\=in.user.userKey%>]
 TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
