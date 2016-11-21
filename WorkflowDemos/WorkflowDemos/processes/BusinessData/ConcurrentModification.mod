@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Sep 01 16:10:20 CEST 2016]
+[>Created: Mon Nov 21 12:03:31 CET 2016]
 156DB84CCE78254F 3.18 #module
 >Proto >Proto Collection #zClass
 Cn0 ConcurrentModification Big #zClass
@@ -51,10 +51,12 @@ Cn0 f0 startDescription 'This use case handles the problematic of concurrent mod
 of the same business data values.' #txt
 Cn0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
+TaskTriggered.CATEGORY=Acquisition/Address
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
+Cn0 f0 caseData case.category=Customer/Onboarding #txt
 Cn0 f0 showInStartList 1 #txt
 Cn0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
 ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
@@ -83,7 +85,8 @@ Cn0 f2 actionTable 'out=in1;
 ' #txt
 Cn0 f2 outTypes "workflow.businessdata.Data","workflow.businessdata.Data" #txt
 Cn0 f2 outLinks "TaskA.ivp","TaskB.ivp" #txt
-Cn0 f2 taskData 'TaskA.EXPRI=2
+Cn0 f2 taskData 'TaskA.CATEGORY=Modification/Address
+TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
 TaskA.NAM=Modify country of address
@@ -91,6 +94,7 @@ TaskA.PRI=2
 TaskA.ROL=Everybody
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0
+TaskB.CATEGORY=Modification/Address
 TaskB.EXPRI=2
 TaskB.EXROL=Everybody
 TaskB.EXTYPE=0
@@ -132,7 +136,8 @@ Cn0 f1 actionTable 'out=in1;
 ' #txt
 Cn0 f1 outTypes "workflow.businessdata.Data" #txt
 Cn0 f1 outLinks "TaskA.ivp" #txt
-Cn0 f1 taskData 'TaskA.EXPRI=2
+Cn0 f1 taskData 'TaskA.CATEGORY=Review/Address
+TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
 TaskA.NAM=View merged address data
