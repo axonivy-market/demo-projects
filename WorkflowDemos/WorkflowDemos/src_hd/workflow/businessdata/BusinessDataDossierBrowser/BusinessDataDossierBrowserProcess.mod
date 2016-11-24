@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Sep 28 13:39:35 CEST 2016]
+[>Created: Thu Nov 24 10:27:59 CET 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -97,9 +97,10 @@ Bs0 f11 actionCode 'import workflow.businessdata.Dossier;
 
 										
 in.searchResult = ivy.repo.search(Dossier.class)
-													.allFields()
-													.containsAllWordPatterns(in.searchText)
-													.orderBy().textField("name")
+													.score()
+													.allTextFields()
+													.query(in.searchText)
+													.orderBy().score()
 													.limit(in.limit)
 													.execute();
 													
@@ -310,7 +311,7 @@ Bs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 Bs0 f0 inParameterMapAction 'out.lastEditedId=param.lastId;
 out.limit=param.showAll ? 1000 : 5;
-out.searchType="FullText";
+out.searchType=param.showAll ? "LastName" :  "FullText";
 ' #txt
 Bs0 f0 outParameterDecl '<> result;
 ' #txt

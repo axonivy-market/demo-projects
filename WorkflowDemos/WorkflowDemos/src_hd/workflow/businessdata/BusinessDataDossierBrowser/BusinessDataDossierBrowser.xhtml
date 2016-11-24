@@ -25,7 +25,7 @@
 				    <f:selectItem itemLabel="Name (equals ignore case)" itemValue="Equals"/>
 				    <p:ajax update="searchBox"/>
 				  </p:selectOneRadio>
-				  <p:panelGrid columns="2" id="searchBox">
+				  <p:panelGrid columns="3" id="searchBox">
 					<p:inputText value="#{data.searchText}" placeholder="Ask me anything" size="40" rendered="#{data.searchType=='FullText' || data.searchType=='LastName' || data.searchType=='Equals'}"/>
 					<p:panelGrid columns="4" id="DateRange" rendered="#{data.searchType=='BirthDate'}">
 						<p:outputLabel value="From:" for="fromDate"/>
@@ -39,8 +39,33 @@
 		 				</p:calendar>
 					</p:panelGrid>
 				    <p:commandButton value="Search" actionListener="#{logic.search}" update=":dossierTable :resultCount" />
+				    <p:commandButton value="Help" onclick="PF('help#{data.searchType}').show();"/>
 				 </p:panelGrid>
 				</p:panelGrid>
+				<p:dialog header="Help" widgetVar="helpFullText" minHeight="80">
+    				<h:outputText value="Shows dossiers that contain any of the words in the search box. Dossiers are ordered by relevance (score)." />
+    				<br/>
+    				<h:outputText value="Query Syntax:"/> 
+    				<table>
+   						<tr><td>+</td><td>The value should contain the word.</td><td><code>+Euler +Switzerland</code></td></tr>
+   						<tr><td>|</td><td>Or operation. The value should contain at least one of the words.</td><td><code>Switzerland | Germany</code></td></tr>
+   						<tr><td>-</td><td>Not operation. Negates the following expression.</td><td><code>-Switzerland</code></td></tr>
+   						<tr><td>""</td><td>The value should contain all words in the quotes and they should stand adjacent.</td><td><code>"EULER CH"</code></td></tr>
+   						<tr><td>*</td><td>The value should contain a word that starts with the given prefix.</td><td><code>Lo*</code></td></tr>
+   						<tr><td>()</td><td>Defines precedence.</td><td><code>+Euler +(Switzerland | Germany)</code></td></tr>
+   						<tr><td>~N</td><td>The value should contain the word. Also misspelled words are matched.<br />The number defines how many characters can be misspelled.</td><td><code>Levelace~1</code></td></tr>
+   						<tr><td>~N</td><td>Defines the distance the given words in the phrase can be separate from each other.</td><td><code>"London Ada"~5</code></td></tr>
+   					</table>
+				</p:dialog>
+   				<p:dialog header="Help" widgetVar="helpLastName" minHeight="80">	
+	   				<h:outputText value="Shows dossiers with the given prefix in the last name. Dossiers are ordered by dossier name." />
+				</p:dialog>
+   				<p:dialog header="Help" widgetVar="helpBirthDate" minHeight="80">	
+    				<h:outputText value="Shows dossiers with the birthdate between the given dates. Dossiers are ordered by dossier name."/>
+				</p:dialog>
+   				<p:dialog header="Help" widgetVar="helpEquals" minHeight="80">	
+    				<h:outputText value="Shows dossiers with the given dossier name. Dossiers are ordered by dossier name." />
+				</p:dialog>
 		  	</h:form>
 
 			<p:dataTable var="dossier" value="#{data.dossiers}" rowIndexVar="rowIndex" id="dossierTable">
@@ -90,7 +115,6 @@
 							href="#{ivy.html.startref('155BB4328F79B2D5/browse.ivp')}?showAll=true" /></td>
 				</tr>
 			</table>
-
 		</ui:define>
 	</ui:composition>
 </h:body>
