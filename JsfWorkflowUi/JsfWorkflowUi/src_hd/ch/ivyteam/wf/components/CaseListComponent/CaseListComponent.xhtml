@@ -97,9 +97,7 @@
 				<f:facet name="header">
                			#{ivy.cms.co('/labels/common/name')}
            			</f:facet>
-				<a
-					href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{case.id}"
-					id="caseLinkRow" title="Details Case [#{case.id}]">#{case.name}</a>
+				<wc:CaseNameAndLink case="#{case}" />
 			</p:column>
 			<p:column sortBy="#{PROCESS_CATEGORY_CODE}">
 				<f:facet name="header">

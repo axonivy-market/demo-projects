@@ -103,9 +103,7 @@
 						</ui:fragment>
 						<ui:fragment rendered="#{!data.wfCase.isBusinessCase()}">
 							<th>Business Case</th>
-							<td><a
-								href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{data.wfCase.getBusinessCase().id}"
-								title="Details Case [#{data.wfCase.getBusinessCase().id}]"><span class="fa fa-folder-open-o" /> #{data.wfCase.getBusinessCase().name}</a></td>
+							<td><wc:CaseNameAndLink case="#{data.wfCase.getBusinessCase()}" showIcon="true"/></td>
 						</ui:fragment>
 						<tr>
 							<th>#{ivy.cms.co('/labels/history/caseDetails/processmodel')}</th>
@@ -213,17 +211,13 @@
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
 				</p:column>
-				<f:facet name="footer">
-
-					<p:selectBooleanCheckbox value="#{data.showSystemTasks}"
-						id="showSystemTasks"
-						style="float: left; margin-left: 6px; margin-top: -12px;">
-						<p:ajax update="taskTable" listener="#{logic.update}" />
-					</p:selectBooleanCheckbox>
-					<h:outputLabel for="showSystemTasks"
-						style="float: left; color: #656565; margin-top: -9px;">#{ivy.cms.co("/labels/history/caseDetails/showSYSTEMtasks")}</h:outputLabel>
-				</f:facet>
 			</p:dataTable>
+			<h:panelGrid columns="2">
+				<p:selectBooleanCheckbox value="#{data.showSystemTasks}" id="showSystemTasks">
+					<p:ajax update="taskTable" listener="#{logic.update}" />
+				</p:selectBooleanCheckbox>
+				<h:outputLabel for="showSystemTasks" value="#{ivy.cms.co('/labels/history/caseDetails/showSYSTEMtasks')}" />
+			</h:panelGrid>
 
 		</h:form>
 		<br />
