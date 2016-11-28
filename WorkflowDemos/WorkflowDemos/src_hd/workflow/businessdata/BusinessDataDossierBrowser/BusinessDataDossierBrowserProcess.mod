@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Nov 24 10:27:59 CET 2016]
+[>Created: Mon Nov 28 09:38:42 CET 2016]
 155BB5BDEDF19356 3.18 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
@@ -311,7 +311,7 @@ Bs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 Bs0 f0 inParameterMapAction 'out.lastEditedId=param.lastId;
 out.limit=param.showAll ? 1000 : 5;
-out.searchType=param.showAll ? "LastName" :  "FullText";
+out.searchType="LastName";
 ' #txt
 Bs0 f0 outParameterDecl '<> result;
 ' #txt
