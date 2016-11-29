@@ -83,6 +83,12 @@
 								<th>#{ivy.cms.co('/labels/common/name')}</th>
 								<td>#{data.task.name}</td>
 							</tr>
+							<ui:fragment rendered="#{!data.task.category.path.isEmpty()}">
+								<tr>
+									<th>#{ivy.cms.co('/labels/common/category')}</th>
+									<td>#{data.task.category.path}</td>
+								</tr>
+							</ui:fragment>
 							<ui:fragment rendered="#{!data.task.description.isEmpty()}">
 								<tr>
 									<th>#{ivy.cms.co('/labels/common/description')}</th>

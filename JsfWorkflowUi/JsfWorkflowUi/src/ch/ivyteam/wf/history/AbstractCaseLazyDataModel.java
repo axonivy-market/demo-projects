@@ -1,11 +1,8 @@
 package ch.ivyteam.wf.history;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -16,15 +13,15 @@ import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 
 import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.ivy.persistence.IGroup;
 import ch.ivyteam.ivy.persistence.IQueryResult;
 import ch.ivyteam.ivy.persistence.OrderDirection;
-import ch.ivyteam.ivy.security.IPermission;
 import ch.ivyteam.ivy.workflow.CaseProperty;
 import ch.ivyteam.ivy.workflow.CaseState;
 import ch.ivyteam.ivy.workflow.ICase;
 import ch.ivyteam.ivy.workflow.IPropertyFilter;
 import ch.ivyteam.ivy.workflow.PropertyOrder;
+import ch.ivyteam.ivy.workflow.category.CategoryTree;
+import ch.ivyteam.ivy.workflow.query.CaseQuery;
 import ch.ivyteam.logicalexpression.RelationalOperator;
 
 public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
@@ -36,7 +33,6 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
 
   public boolean filterChanged;
   private String searchFilter;
-  private String processFilter;
   private String categoryFilter;
   private CaseState stateFilter;
 
@@ -148,22 +144,6 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
     this.filterChanged = true;
   }
 
-  public String getProcessFilter()
-  {
-    return processFilter;
-  }
-
-  public void setProcessFilter(String newProcessFilter)
-  {
-    if (Objects.equals(processFilter, newProcessFilter))
-    {
-      return;
-    }
-
-    this.processFilter = newProcessFilter;
-    this.filterChanged = true;
-  }
-
   public String getCaseUserMode()
   {
     return caseUserMode;
@@ -177,6 +157,7 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
     }
 
     this.caseUserMode = newCaseUserMode;
+    this.categoryFilter = ""; //clear because may be not in chooser any more!
     this.filterChanged = true;
   }
 
@@ -194,7 +175,6 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
   {
     IPropertyFilter<CaseProperty> filter = createNameFilter(null);
     filter = createCategoryFilter(filter);
-    filter = createProcessFilter(filter);
     filter = createStateFilter(filter);
     return filter;
   }
@@ -219,21 +199,9 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
     if (StringUtils.isNotEmpty(categoryFilter))
     {
       IPropertyFilter<CaseProperty> categoryPropertyFilter = ivy.wf.createCasePropertyFilter(
-              CaseProperty.PROCESS_CATEGORY_CODE,
-              RelationalOperator.EQUAL, categoryFilter);
+              CaseProperty.CATEGORY,
+              RelationalOperator.LIKE, categoryFilter + "%");
       filter = addToFilter(filter, categoryPropertyFilter);
-    }
-    return filter;
-  }
-
-  private IPropertyFilter<CaseProperty> createProcessFilter(IPropertyFilter<CaseProperty> filter)
-  {
-    if (StringUtils.isNotEmpty(processFilter))
-    {
-      IPropertyFilter<CaseProperty> processPropertyFilter = ivy.wf.createCasePropertyFilter(
-              CaseProperty.PROCESS_CODE,
-              RelationalOperator.EQUAL, processFilter);
-      filter = addToFilter(filter, processPropertyFilter);
     }
     return filter;
   }
@@ -264,37 +232,14 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
     this.dataTableId = dataTableId;
   }
 
-  public List<String> getCaseCategories()
+  public List<CategoryTree> getCaseCategories()
   {
-    return getCaseGroups(CaseProperty.PROCESS_CATEGORY_CODE,
-            group -> group.getFirstObjectInGroup().getProcessCategoryCode());
+    CategoryTree categoryTree = CategoryTree.createFor(getCaseQuery());
+    List<CategoryTree> children = categoryTree.getAllChildren();
+    return children;
   }
 
-  public List<String> getCaseProcesses()
-  {
-    return getCaseGroups(CaseProperty.PROCESS_CODE, group -> group.getFirstObjectInGroup().getProcessCode());
-  }
-
-  private List<String> getCaseGroups(CaseProperty caseProperty,
-          Function<IGroup<ICase>, String> caseGroupToStringFunction)
-  {
-    if (!hasPermission(IPermission.CASE_CATEGORY_READ_ALL))
-    {
-      return Collections.emptyList();
-    }
-
-    List<IGroup<ICase>> caseProcessCodeGroups = getCaseGroups(caseProperty);
-    return caseProcessCodeGroups.stream().map(caseGroupToStringFunction)
-            .filter(group -> StringUtils.isNotEmpty(group))
-            .collect(Collectors.toList());
-  }
-
-  private boolean hasPermission(IPermission permission)
-  {
-    return ivy.session.getSecurityContext().hasPermission(
-            ivy.request.getApplication().getSecurityDescriptor(),
-            permission);
-  }
+  protected abstract CaseQuery getCaseQuery();
 
   protected IPropertyFilter<CaseProperty> onlyBusinessCases(IPropertyFilter<CaseProperty> filter)
   {
@@ -303,7 +248,5 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
     filter = addToFilter(filter, categoryPropertyFilter);
     return filter;
   }
-  
-  protected abstract List<IGroup<ICase>> getCaseGroups(CaseProperty caseProperty);
 
 }

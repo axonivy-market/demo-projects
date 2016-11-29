@@ -6,6 +6,10 @@
   margin: 5px 0;
 }
 
+#mainArea .ui-datatable thead th, .ui-datatable tfoot td {
+  text-align: left;
+}
+
 #mainArea .ui-toolbar {
   padding: 0 !important;
   border: none;
@@ -26,7 +30,6 @@
 
 .ui-datatable .date-column {
   width: 120px;
-  text-align: center;
 }
 
 .ui-datatable .icon-column {
@@ -68,4 +71,10 @@
 	padding-right: 2pt;
 	padding-top: 3pt;
 	width: 7px;
+}
+
+.searchFilter {
+  margin-top:1px;
+  margin-bottom:1px;
+  width:100px;
 }

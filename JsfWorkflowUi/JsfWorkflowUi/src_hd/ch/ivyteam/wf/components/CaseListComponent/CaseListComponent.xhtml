@@ -33,29 +33,18 @@
 			<p:toolbarGroup align="right">
 				<h:panelGrid columns="12">
 				<h:outputText value="#{ivy.cms.co('/labels/common/search')}: "/> 
-						<p:inputText id="SearchTxt" value="#{data.cases.searchFilter}" style="margin-top:1px;margin-bottom:1px">
+						<p:inputText id="SearchTxt" value="#{data.cases.searchFilter}" styleClass="searchFilter">
 						<p:ajax event="keyup" delay="300" update="caseTable" listener="#{logic.update}"/>
 						</p:inputText>
 						<p:spacer width="8"/>
 					<h:outputText value="#{ivy.cms.co('/labels/common/category')}: " />
 					<p:selectOneMenu id="categoryFilter" value="#{data.cases.categoryFilter}"
-						styleClass="ivy-toolbar-selectMenu">
+						styleClass="ivy-toolbar-selectMenu" filter="true" filterMatchMode="contains">
 						<f:selectItem
 							itemLabel="#{ivy.cms.co('/labels/common/filterAll')}"
 							itemValue="" />
-						<f:selectItems value="#{data.categories}" var="categorie"
-							itemLabel="#{categorie}" itemValue="#{categorie}" />
-						<p:ajax update="caseListForm" listener="#{logic.update}" />
-					</p:selectOneMenu>
-					<p:spacer width="8" />
-					<h:outputText value="#{ivy.cms.co('/labels/common/process')}: " />
-					<p:selectOneMenu id="processFilter" value="#{data.cases.processFilter}"
-						styleClass="ivy-toolbar-selectMenu">
-						<f:selectItem
-							itemLabel="#{ivy.cms.co('/labels/common/filterAll')}"
-							itemValue="" />
-						<f:selectItems value="#{data.processesList}" var="processe"
-							itemLabel="#{processe}" itemValue="#{processe}" />
+						<f:selectItems value="#{data.categories}" var="categoryNode"
+							itemLabel="#{categoryNode.category.path}" itemValue="#{categoryNode.rawPath}" />
 						<p:ajax update="caseListForm" listener="#{logic.update}" />
 					</p:selectOneMenu>
 					<p:spacer width="8" />
@@ -99,18 +88,9 @@
            			</f:facet>
 				<wc:CaseNameAndLink case="#{case}" />
 			</p:column>
-			<p:column sortBy="#{PROCESS_CATEGORY_CODE}">
-				<f:facet name="header">
-               			#{ivy.cms.co('/labels/common/category')}
-           			</f:facet>
-           			#{case.processCategoryCode}
-       			</p:column>
-			<p:column sortBy="#{PROCESS_CODE}">
-				<f:facet name="header">
-               			#{ivy.cms.co('/labels/common/process')}
-           			</f:facet>
-           			#{case.processCode}
-       			</p:column>
+			<p:column sortBy="#{CATEGORY}" headerText="Category">
+           		<h:outputText value="#{case.category.path}" />
+       		</p:column>
 			<p:column sortBy="#{START_TIMESTAMP}" styleClass="caseCreatedColumn date-column">
 				<f:facet name="header">
                			#{ivy.cms.co('/labels/common/start')}

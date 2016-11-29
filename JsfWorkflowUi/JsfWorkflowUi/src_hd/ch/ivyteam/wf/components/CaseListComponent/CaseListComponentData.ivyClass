@@ -2,11 +2,9 @@ CaseListComponentData #class
 ch.ivyteam.wf.components.CaseListComponent #namespace
 caseListMode String #field
 caseListMode PERSISTENT #fieldModifier
-categories List<String> #field
+categories List<ch.ivyteam.ivy.workflow.category.CategoryTree> #field
 categories PERSISTENT #fieldModifier
 states List<ch.ivyteam.ivy.workflow.CaseState> #field
 states PERSISTENT #fieldModifier
 cases ch.ivyteam.wf.history.AbstractCaseLazyDataModel #field
 cases PERSISTENT #fieldModifier
-processesList List<String> #field
-processesList PERSISTENT #fieldModifier

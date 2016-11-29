@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Nov 17 10:15:12 CET 2016]
-1518C122914A55FA 3.18 #module
+[>Created: Tue Nov 29 14:37:31 CET 2016]
+1518C122914A55FA 3.19 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListComponentProcess Big #zClass
 Cs0 RD #cInfo
@@ -112,21 +112,18 @@ Cs0 f1 actionDecl 'ch.ivyteam.wf.components.CaseListComponent.CaseListComponentD
 ' #txt
 Cs0 f1 actionTable 'out=in;
 out.categories=in.cases.getCaseCategories();
-out.processesList=in.cases.getCaseProcesses();
 ' #txt
 Cs0 f1 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
 Cs0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>get categories
-get processes</name>
-        <nameStyle>15,7
-13,7
+        <name>get categories</name>
+        <nameStyle>14,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f1 152 138 112 44 -39 -16 #rect
+Cs0 f1 152 138 112 44 -46 -7 #rect
 Cs0 f1 @|StepIcon #fIcon
 Cs0 f4 expr out #txt
 Cs0 f4 264 160 339 160 #arcP

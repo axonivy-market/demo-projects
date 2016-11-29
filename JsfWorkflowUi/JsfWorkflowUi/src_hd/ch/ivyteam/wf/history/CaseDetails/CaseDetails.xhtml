@@ -56,6 +56,12 @@
 							<th>#{ivy.cms.co('/labels/common/description')}</th>
 							<td>#{data.wfCase.description}</td>
 						</tr>
+						<ui:fragment rendered="#{!data.wfCase.category.path.isEmpty()}">
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/category')}</th>
+								<td><h:outputText value="#{data.wfCase.category.path}" /></td>
+							</tr>
+						</ui:fragment>
 						<tr>
 							<th>#{ivy.cms.co('/labels/common/state')}</th>
 							<td><wc:CaseStateIconAndText state="#{data.wfCase.state}"
@@ -73,26 +79,6 @@
 										timeStyle="short" />
 								</h:outputText></td>
 						</tr>
-						<ui:fragment rendered="#{data.wfCase.processCategoryName != null}">
-							<tr>
-								<th>#{ivy.cms.co('/labels/common/category')}</th>
-								<td><h:outputText value="#{data.wfCase.processCategoryName}" />
-									<h:outputText value=" #{data.wfCase.processCategoryCode}"
-										rendered="#{data.wfCase.processCategoryCode == ''}" /> <h:outputText
-										value=" (#{data.wfCase.processCategoryCode})"
-										rendered="#{data.wfCase.processCategoryCode != ''}" /></td>
-							</tr>
-						</ui:fragment>
-						<ui:fragment rendered="#{data.wfCase.processName != null}">
-							<tr>
-								<th>#{ivy.cms.co('/labels/common/process')}</th>
-								<td><h:outputText value="#{data.wfCase.processName}" /> <h:outputText
-										value=" #{data.wfCase.processCode}"
-										rendered="#{data.wfCase.processCode == ''}" /> <h:outputText
-										value=" (#{data.wfCase.processCode})"
-										rendered="#{data.wfCase.processCode != ''}" /></td>
-							</tr>
-						</ui:fragment>
 						<ui:fragment rendered="#{data.wfCase.endTimestamp != null}">
 							<tr>
 								<th>#{ivy.cms.co('/labels/common/done')}</th>
@@ -102,7 +88,7 @@
 							</tr>
 						</ui:fragment>
 						<ui:fragment rendered="#{!data.wfCase.isBusinessCase()}">
-							<th>Business Case</th>
+							<th>#{ivy.cms.co('/labels/history/taskDetails/businessCase')}</th>
 							<td><wc:CaseNameAndLink case="#{data.wfCase.getBusinessCase()}" showIcon="true"/></td>
 						</ui:fragment>
 						<tr>
@@ -182,7 +168,7 @@
 				</p:column>
 				<p:column>
 					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/task')}
+						#{ivy.cms.co('/labels/common/name')}
 					</f:facet>
 					<a
 						href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}"
