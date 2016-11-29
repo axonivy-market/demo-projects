@@ -19,10 +19,10 @@
 	        <h:form>
 				<p:panelGrid columns="1">
 				  <p:selectOneRadio id="search" value="#{data.searchType}" >
-				    <f:selectItem itemLabel="Full Text" itemValue="FullText"/>
-				    <f:selectItem itemLabel="Last Name" itemValue="LastName"/>
-				    <f:selectItem itemLabel="Birth Date" itemValue="BirthDate"/>
-				    <f:selectItem itemLabel="Name (equals ignore case)" itemValue="Equals"/>
+				    <f:selectItem itemLabel="Full Text (scored query)" itemValue="FullText"/>
+				    <f:selectItem itemLabel="Last Name (contains word pattern)" itemValue="LastName"/>
+				    <f:selectItem itemLabel="Birth Date (in range)" itemValue="BirthDate"/>
+				    <f:selectItem itemLabel="Name (fuzzy, contains any word)" itemValue="Equals"/>
 				    <p:ajax update="searchBox"/>
 				  </p:selectOneRadio>
 				  <p:panelGrid columns="3" id="searchBox">

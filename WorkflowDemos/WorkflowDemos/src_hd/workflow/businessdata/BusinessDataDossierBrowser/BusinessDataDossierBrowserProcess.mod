@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Nov 28 09:38:42 CET 2016]
-155BB5BDEDF19356 3.18 #module
+[>Created: Tue Nov 29 14:48:40 CET 2016]
+155BB5BDEDF19356 3.19 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
 Bs0 RD #cInfo
@@ -337,7 +337,7 @@ Bs0 f37 actionCode 'import workflow.businessdata.Dossier;
 
 in.searchResult = ivy.repo.search(Dossier.class)
 													.textField("name")
-													.isEqualToIgnoringCase(in.searchText)
+													.containsAnyWordsFuzzy(in.searchText)
 													.orderBy().textField("name")
 													.limit(in.limit)
 													.execute();
