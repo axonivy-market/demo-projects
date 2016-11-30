@@ -24,25 +24,16 @@
 				paginator="#{data.signalService.boundaryTasks.size() > 20}"
 				paginatorPosition="bottom" rows="20">
 				<p:column styleClass="icon-column">
-				<f:facet name="header">
-					#
-				</f:facet>
 					<span class="bpm-signal_receiver"/>
 				</p:column>
-				<p:column sortBy="#{receiver.signalPattern}">
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/signalPattern')}
-					</f:facet>
-						#{receiver.getSignalPattern().getRawCode()}
+				<p:column headerText="#{ivy.cms.co('/labels/common/signalPattern')}" sortBy="#{receiver.signalPattern}">
+					<h:outputText value="#{receiver.signalPattern.rawCode}"/>
 				</p:column>
-				<p:column>
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/task')}
-					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/common/task')}">
 					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{receiver.getWaitingTask().getId()}"
 							title="TaskId: #{receiver.getWaitingTask().getId()}">						
 					<span class="fa fa-file-text-o"/>
-					#{receiver.getWaitingTask().getName()}
+					<h:outputText value="#{receiver.waitingTask.name}" />
 					</a>
 				</p:column>
 			</p:dataTable>
@@ -56,22 +47,13 @@
 				paginator="#{data.signalService.starts.size() > 20}"
 				paginatorPosition="bottom" rows="20">
 				<p:column styleClass="icon-column">
-					<f:facet name="header">
-						#
-					</f:facet>
 					<span class="bpm-signal_receiver"/>
 				</p:column>
-				<p:column sortBy="#{start.signalPattern}">
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/signalPattern')}
-					</f:facet>
-					#{start.getSignalPattern().getRawCode()}
+				<p:column headerText="#{ivy.cms.co('/labels/common/signalPattern')}" sortBy="#{start.signalPattern}">
+					<h:outputText value="#{start.signalPattern.rawCode}"/>
 				</p:column>
-				<p:column>
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/startLink')}
-					</f:facet>
-					#{start.getUserFriendlyRequestPath()}
+				<p:column headerText="#{ivy.cms.co('/labels/common/startLink')}">
+					<h:outputText value="#{start.userFriendlyRequestPath}"/>
 				</p:column>
 			</p:dataTable>
 
@@ -83,29 +65,17 @@
 				paginator="#{data.signalService.firedSignal.size() > 20}"
 				paginatorPosition="bottom" rows="20">
 				<p:column styleClass="icon-column">
-					<f:facet name="header">
-						#
-					</f:facet>
 					<span class="bpm-signal_sent" />
 				</p:column >
-				<p:column sortBy="#{fired.signalCode}">
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/code')}
-					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/common/code')}" sortBy="#{fired.signalCode}">
 					#{fired.signalCode}
 				</p:column>
-				<p:column style="width:150px;" sortBy="#{fired.sentTimestamp}">
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/date')}
-					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/common/date')}" style="width:150px;" sortBy="#{fired.sentTimestamp}">
 					<h:outputText value="#{fired.sentTimestamp}">
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="medium" />
 					</h:outputText>
 				</p:column>
-				<p:column>
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/sentBy')}
-					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/common/sentBy')}">
 					<p:spacer rendered="#{fired.sentByUserName ne null}">
 						<span class="fa fa-user"/>
 						#{fired.sentByUserName}
@@ -118,10 +88,7 @@
 						</a>
 					</p:spacer>
 				</p:column>
-				<p:column>
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/destroyedTasks')}
-					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/common/destroyedTasks')}">
 					<ui:repeat var="task" value="#{fired.destroyedTasks}">
 					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.Id}"	title="TaskId: #{task.id}">
 						<span class="fa fa-file-text-o"/>
@@ -130,10 +97,7 @@
 					</a>
 					</ui:repeat>
 				</p:column>
-				<p:column>
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/createdTasks')}
-					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/common/createdTasks')}">
 					<ui:repeat var="task" value="#{fired.createdTasks}">
 					<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskDetails.ivp')}?detailTaskId=#{task.Id}"	title="TaskId: #{task.id}">
 						<span class="fa fa-file-text-o"/>

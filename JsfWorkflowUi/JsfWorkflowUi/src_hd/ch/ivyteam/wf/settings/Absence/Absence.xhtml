@@ -55,32 +55,20 @@
 	      		</p:toolbarGroup>
 			</p:toolbar>
    			<p:dataTable id="tableAbsence" value="#{data.absences}" var="absence"  emptyMessage="#{ivy.cms.co('/labels/common/noAbsences')}">
-       			<p:column id="absenceStart" sortBy="#{absence.startTimestamp}" style="width: 150px;">
-           			<f:facet name="header">
-              			#{ivy.cms.co('/labels/settings/absence/absenceStart')}
-           			</f:facet>
+       			<p:column headerText="#{ivy.cms.co('/labels/settings/absence/absenceStart')}" id="absenceStart" sortBy="#{absence.startTimestamp}" style="width: 150px;">
                  	<h:outputText value="#{absence.startTimestamp}">
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
       			</p:column>
-       			<p:column sortBy="#{absence.stopTimestamp}" style="width: 150px; ">
-           			<f:facet name="header">
-               			#{ivy.cms.co('/labels/settings/absence/absenceStop')}
-           			</f:facet>
+       			<p:column headerText="#{ivy.cms.co('/labels/settings/absence/absenceStop')}" sortBy="#{absence.stopTimestamp}" style="width: 150px; ">
                    	<h:outputText value="#{absence.stopTimestamp}">
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
        			</p:column>
-       			<p:column>
-           			<f:facet name="header">
-               			#{ivy.cms.co('/labels/common/description')}
-           			</f:facet>
-           			#{absence.description}
+       			<p:column headerText="#{ivy.cms.co('/labels/common/description')}">
+           			<h:outputText value="#{absence.description}"/>
        			</p:column>
-       			<p:column style="width: 264px; text-align: center;">
-           			<f:facet name="header">
-               			#{ivy.cms.co('/labels/settings/absence/absenceControls')}
-           			</f:facet>
+       			<p:column headerText="#{ivy.cms.co('/labels/settings/absence/absenceControls')}" style="width: 264px; text-align: center;">
                     <p:commandButton id="editButton" update=":dialogEditAbsence" oncomplete="PF('editAbsence').show();" icon="fa fa-edit" style="width:128px;" value="#{ivy.cms.co('/labels/common/edit')}">
                			<f:setPropertyActionListener value="#{absence.description}" target="#{data.absenceDescription}" />
                			<f:setPropertyActionListener value="#{absence.startTimestamp}" target="#{data.startDateTime}" />

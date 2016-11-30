@@ -81,7 +81,6 @@
 			paginatorPosition="bottom" rows="50" lazy="true"
 			sortOrder="DESCENDING" sortBy="#{ID}">
 			<p:column styleClass="icon-column" sortBy="#{ID}">
-				<f:facet name="header" />
 				<c:choose>
 					<c:when test="#{data.mode ne 'admin'}">
 						<a
@@ -99,20 +98,13 @@
 					</c:otherwise>
 				</c:choose>
 			</p:column>
-			<p:column styleClass="icon-column"
-				sortBy="#{PRIORITY}">
-				<f:facet name="header" />
+			<p:column styleClass="icon-column" sortBy="#{PRIORITY}">
 				<wc:PriorityIcon priority="#{task.priority}" />
 			</p:column>
 			<p:column sortBy="#{STATE}" styleClass="icon-column taskPriorityColumn">
-				<f:facet name="header">
-				</f:facet>
 				<wc:TaskStateIcon state="#{task.state}" />
 			</p:column>
-			<p:column sortBy="#{NAME}" styleClass="taskNameColumn" >
-				<f:facet name="header">
-						#{ivy.cms.co('/labels/common/task')}
-					</f:facet>
+			<p:column headerText="#{ivy.cms.co('/labels/common/name')}" sortBy="#{NAME}" styleClass="taskNameColumn" >
 				<c:choose>
 					<c:when test="#{data.mode ne 'admin'}">
 					<a
@@ -127,10 +119,7 @@
 					</c:otherwise>
 				</c:choose>
 			</p:column>
-			<p:column style="width:180px;" sortBy="#{ACTIVATOR_NAME}">
-				<f:facet name="header">
-						#{ivy.cms.co('/labels/common/responsible')}
-					</f:facet>
+			<p:column headerText="#{ivy.cms.co('/labels/common/responsible')}" style="width:180px;" sortBy="#{ACTIVATOR_NAME}">
 				<wc:MemberDetail member="#{task.activator}" />
 				<c:if test="#{data.mode ne 'admin'}">
 					<ui:param name="isSubstitute"
@@ -141,20 +130,14 @@
 					</ui:fragment>
 				</c:if>
 			</p:column>
-			<p:column
+			<p:column headerText="#{ivy.cms.co('/labels/common/taskStart')}"
 				sortBy="#{START_TIMESTAMP}" styleClass="date-column taskCreatedColumn">
-				<f:facet name="header">
-						#{ivy.cms.co('/labels/common/taskStart')}
-					</f:facet>
 				<h:outputText value="#{task.startTimestamp}">
 					<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 				</h:outputText>
 			</p:column>
-			<p:column styleClass="date-column"
+			<p:column headerText="#{ivy.cms.co('/labels/common/expiry')}" styleClass="date-column"
 				sortBy="#{EXPIRY_TIMESTAMP}">
-				<f:facet name="header">
-						#{ivy.cms.co('/labels/common/expiry')}
-					</f:facet>
 				<h:outputText value="#{task.expiryTimestamp}">
 					<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 				</h:outputText>

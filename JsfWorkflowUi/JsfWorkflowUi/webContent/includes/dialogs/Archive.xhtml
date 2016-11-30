@@ -12,36 +12,21 @@
 	<p:dialog id="modalDialogFormArchive" header="#{ivy.cms.co('/labels/common/formArchive')}" widgetVar="formArchive" width="900" modal="true" appendTo="@(body)">
 		<h:form id="formArchivePage">
    			<p:dataTable id="dataTableFormArchive" value="#{data.pageArchives}" var="archive" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row">
-      			<p:column id="absenceStart" style="width:30px">  
-           			<f:facet name="header">  
-               			#
-           			</f:facet>
+      			<p:column id="absenceStart" style="width:30px">
 					<a href="#{ivy.html.pageArchiveRef(archive)}" target="_blank">
 						<span class="fa fa-list-alt"/>
 					</a>
         		</p:column>
-       			<p:column sortBy="#{archive.name}">  
-           			<f:facet name="header">  
-               			#{ivy.cms.co('/labels/common/page')}
-           			</f:facet> 
+       			<p:column headerText="#{ivy.cms.co('/labels/common/page')}" sortBy="#{archive.name}">
        				<a href="#{ivy.html.pageArchiveRef(archive)}" target="_blank">#{archive.name}</a>
        			</p:column>
-       			<p:column sortBy="#{archive.task.name}">  
-           			<f:facet name="header">  
-               			#{ivy.cms.co('/labels/common/task')}
-           			</f:facet> 
-       				#{archive.task.name}
+       			<p:column headerText="#{ivy.cms.co('/labels/common/task')}" sortBy="#{archive.task.name}">
+       				<h:outputText value="#{archive.task.name}"/>
        			</p:column>
-       			<p:column sortBy="#{archive.userName}">  
-           			<f:facet name="header">  
-               			#{ivy.cms.co('/labels/common/user')}
-           			</f:facet>
+       			<p:column headerText="#{ivy.cms.co('/labels/common/user')}" sortBy="#{archive.userName}">
 					<wc:MemberDetail member="#{archive.user}" />
        			</p:column>
-       			<p:column sortBy="#{archive.submitTimestamp}">  
-           			<f:facet name="header">  
-               			#{ivy.cms.co('/labels/common/submitOn')}
-           			</f:facet> 
+       			<p:column headerText="#{ivy.cms.co('/labels/common/submitOn')}" sortBy="#{archive.submitTimestamp}">
        				<h:outputText value="#{archive.submitTimestamp}">
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>

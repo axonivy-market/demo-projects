@@ -45,8 +45,7 @@
 			<p:growl id="growl" showDetail="true" />
    			<p:dataTable value="#{data.tasks}" var="task" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}"  rowIndexVar="row" paginator="#{data.tasks.rowCount >= 50}"
    						 paginatorPosition="bottom" rows="50" lazy="true" sortOrder="DESCENDING" id="taskHistoryTable" sortBy="#{ID}">
-      			<p:column styleClass="icon-column" sortBy="#{ID}">  
-           			<f:facet name="header"/>  
+      			<p:column styleClass="icon-column" sortBy="#{ID}">
            			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" id="buttonTaskHistoryDetail_#{row}" title="Details Task [#{task.id}]">
            				<span class="fa fa-file-text-o"/>
            			</a>
@@ -57,38 +56,23 @@
        			<p:column styleClass="icon-column" sortBy="#{STATE}">
 					<wc:TaskStateIcon state="#{task.state}" />
 				</p:column>	
-       			<p:column sortBy="#{NAME}" styleClass="taskHistoryNameColumn">  
-           			<f:facet name="header">  
-               			#{ivy.cms.co('/labels/common/name')}  
-           			</f:facet>
+       			<p:column headerText="#{ivy.cms.co('/labels/common/name')}" sortBy="#{NAME}" styleClass="taskHistoryNameColumn">
            			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" title="Details Task [#{task.id}]">#{task.name}</a>
        			</p:column>
-       			<p:column style="width:150px" sortBy="#{ACTIVATOR_NAME}" id="taskLinkRow_#{row}">
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/responsible')}
-					</f:facet>
+       			<p:column headerText="#{ivy.cms.co('/labels/common/responsible')}" style="width:150px" sortBy="#{ACTIVATOR_NAME}" id="taskLinkRow_#{row}">
 					<wc:MemberDetail member="#{task.activator}" />
 				</p:column>
-       			<p:column style="width:110px" sortBy="#{START_TIMESTAMP}" styleClass="taskHistoryCreatedColumn">  
-           			<f:facet name="header">  
-               			#{ivy.cms.co('/labels/common/taskStart')}
-           			</f:facet>
+       			<p:column headerText="#{ivy.cms.co('/labels/common/taskStart')}" style="width:110px" sortBy="#{START_TIMESTAMP}" styleClass="taskHistoryCreatedColumn">
            			<h:outputText value="#{task.startTimestamp.getYear().toString() == 1 ? '' : task.startTimestamp}">
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
        			</p:column>
-       			<p:column style="width:110px" sortBy="#{EXPIRY_TIMESTAMP}">  
-           			<f:facet name="header">  
-               			#{ivy.cms.co('/labels/common/expiry')}
-           			</f:facet>
+       			<p:column headerText="#{ivy.cms.co('/labels/common/expiry')}" style="width:110px" sortBy="#{EXPIRY_TIMESTAMP}">
            			<h:outputText value="#{task.expiryTimestamp.getYear().toString() == 1 ? '' : task.expiryTimestamp}">
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
        			</p:column>
-       			<p:column style="width:110px" sortBy="#{END_TIMESTAMP}">  
-           			<f:facet name="header">  
-               			#{ivy.cms.co('/labels/common/done')}  
-           			</f:facet>
+       			<p:column headerText="#{ivy.cms.co('/labels/common/done')}" style="width:110px" sortBy="#{END_TIMESTAMP}">
            			<h:outputText value="#{task.endTimestamp.getYear().toString() == 1 ? '' : task.endTimestamp}">
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>

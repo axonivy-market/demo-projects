@@ -18,28 +18,16 @@
 		<h:form id="LoggedInUserForm">
 			<p:dataTable id="userTable" widgetVar="userTable" var="user" value="#{data.userListLoggedIn}" emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}" rowIndexVar="row" paginator="#{data.showPaginationLoggedIn}" paginatorPosition="bottom" rows="20">
 				<p:column styleClass="icon-column">
-					<f:facet name="header">
-						#
-					</f:facet>
 					<span class="fa fa-user logged-in-user" title="#{ivy.cms.co('/labels/admin/loggedInUser/loggedOn')}" />
 				</p:column>
-				<p:column sortBy="#{user.getName()}">
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/name')}
-					</f:facet>
-					#{user.name}
+				<p:column headerText="#{ivy.cms.co('/labels/common/name')}" sortBy="#{user.name}">
+					<h:outputText value="#{user.name}"/>
 				</p:column>
-				<p:column sortBy="#{user.fullName}">
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/admin/loggedInUser/fullName')}
-					</f:facet>
-					#{user.fullName}
+				<p:column headerText="#{ivy.cms.co('/labels/admin/loggedInUser/fullName')}" sortBy="#{user.fullName}">
+					<h:outputText value="#{user.fullName}"/>
 				</p:column>
-				<p:column>
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/email')}
-					</f:facet>
-					#{user.getEMailAddress()}
+				<p:column headerText="#{ivy.cms.co('/labels/common/email')}">
+					<h:outputText value="#{user.EMailAddress}"/>
 				</p:column>
 			</p:dataTable>
 		</h:form>

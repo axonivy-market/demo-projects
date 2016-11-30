@@ -151,9 +151,6 @@
 				emptyMessage="#{ivy.cms.co('/labels/common/noTasks')}"
 				rowIndexVar="row">
 				<p:column id="absenceStart" styleClass="icon-column">
-					<f:facet name="header">  
-               			#
-           			</f:facet>
 					<a
 						href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}"
 						id="buttonTaskDetail" title="Details Task [#{task.id}]"> <span
@@ -166,32 +163,20 @@
 				<p:column styleClass="icon-column">
 					<wc:TaskStateIcon state="#{task.state}" />
 				</p:column>
-				<p:column>
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/name')}
-					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/common/name')}">
 					<a
 						href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}"
 						title="Details Task [#{task.id}]"> #{task.name} </a>
 				</p:column>
-				<p:column>
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/responsible')}
-					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/common/responsible')}">
 					<wc:MemberDetail member="#{task.activator}" />
 				</p:column>
-				<p:column styleClass="date-column">
-					<f:facet name="header">
-						#{ivy.cms.co('/labels/common/taskStart')}
-					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/common/taskStart')}" styleClass="date-column">
 					<h:outputText value="#{task.startTimestamp}">
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 					</h:outputText>
 				</p:column>
-				<p:column styleClass="date-column">
-					<f:facet name="header">  
-               			#{ivy.cms.co('/labels/common/done')}  
-           			</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/common/done')}" styleClass="date-column">
 					<h:outputText
 						value="#{task.endTimestamp.getYear().toString() == 1 ? '' : task.endTimestamp}">
 						<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />

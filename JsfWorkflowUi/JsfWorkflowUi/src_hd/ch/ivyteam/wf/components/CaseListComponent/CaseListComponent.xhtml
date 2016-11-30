@@ -69,8 +69,6 @@
 			paginatorPosition="bottom" rows="50" lazy="true"
 			sortOrder="DESCENDING" sortBy="#{ID}">
 			<p:column styleClass="icon-column" sortBy="#{ID}">
-				<f:facet name="header">
-				</f:facet>
 				<a
 					href="#{ivy.html.startref('13FE81B1A4AD784C/CaseDetails.ivp')}?detailCaseId=#{case.id}"
 					id="buttonCaseDetail" title="Details Case [#{case.id}]"> <span
@@ -78,23 +76,15 @@
 				</a>
 			</p:column>
 			<p:column styleClass="icon-column" sortBy="#{STATE}">
-				<f:facet name="header">
-				</f:facet>
 				<wc:CaseStateIconAndText state="#{case.state}" />
 			</p:column>
-			<p:column sortBy="#{NAME}" styleClass="caseNameColumn">
-				<f:facet name="header">
-               			#{ivy.cms.co('/labels/common/name')}
-           			</f:facet>
+			<p:column headerText="#{ivy.cms.co('/labels/common/name')}" sortBy="#{NAME}" styleClass="caseNameColumn">
 				<wc:CaseNameAndLink case="#{case}" />
 			</p:column>
-			<p:column sortBy="#{CATEGORY}" headerText="Category">
+			<p:column headerText="#{ivy.cms.co('/labels/common/category')}" sortBy="#{CATEGORY}">
            		<h:outputText value="#{case.category.path}" />
        		</p:column>
-			<p:column sortBy="#{START_TIMESTAMP}" styleClass="caseCreatedColumn date-column">
-				<f:facet name="header">
-               			#{ivy.cms.co('/labels/common/start')}
-           			</f:facet>
+			<p:column headerText="#{ivy.cms.co('/labels/common/start')}" sortBy="#{START_TIMESTAMP}" styleClass="caseCreatedColumn date-column">
 				<h:outputText value="#{case.startTimestamp}">
 					<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />
 				</h:outputText>

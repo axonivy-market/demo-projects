@@ -274,31 +274,19 @@
 					emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}"
 					rowIndexVar="row" sortOrder="DESCENDING"
 					rendered="#{data.isHistory}">
-					<p:column styleClass="date-column">
-						<f:facet name="header">
-               			#{ivy.cms.co('/labels/history/taskDetails/eventTime')}
-           			</f:facet>
+					<p:column headerText="#{ivy.cms.co('/labels/history/taskDetails/eventTime')}" styleClass="date-column">
 						<h:outputText value="#{event.eventTimestamp}">
 							<f:convertDateTime type="both" dateStyle="short"
 								timeStyle="short" />
 						</h:outputText>
 					</p:column>
-					<p:column>
-						<f:facet name="header">
-               			#{ivy.cms.co('/labels/history/taskDetails/event')}
-           			</f:facet>
-						<h:outputText id="eventKind" value="#{event.getEventKind()}" />
+					<p:column headerText="#{ivy.cms.co('/labels/history/taskDetails/event')}">
+						<h:outputText id="eventKind" value="#{event.eventKind}" />
 					</p:column>
-					<p:column>
-						<f:facet name="header">
-               			#{ivy.cms.co('/labels/common/user')}
-           			</f:facet>
+					<p:column headerText="#{ivy.cms.co('/labels/common/user')}">
            			#{event.getUserName()}
-        		</p:column>
-					<p:column>
-						<f:facet name="header">
-           				#{ivy.cms.co('/labels/common/info')}
-           			</f:facet>
+        			</p:column>
+					<p:column headerText="#{ivy.cms.co('/labels/common/info')}">
            			#{event.getAdditionalInfo().toString().replace("[", "").replace("]", "")}
         		</p:column>
 				</p:dataTable>

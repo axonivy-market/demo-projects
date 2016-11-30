@@ -43,7 +43,7 @@
    			<p:dataTable id="caseStatisticTable" var="case" value="#{data.cases}" emptyMessage="#{ivy.cms.co('/labels/common/noItemsFound')}" rowIndexVar="row" paginator="#{data.cases.size() >= 50}" paginatorPosition="bottom" rows="50" sortOrder="DESCENDING">
    				<p:columnGroup type="header">
 		            <p:row>
-		                <p:column headerText="#" styleClass="icon-column"/>
+		                <p:column styleClass="icon-column"/>
 		                <p:column headerText="#{ivy.cms.co('/labels/common/process')}" sortBy="#{case.PROCESSCODE}" />
 		                <p:column headerText="#{ivy.cms.co('/labels/common/category')}" sortBy="#{case.MAXPROCESSCATEGORYCODE}" />
 		                <p:column headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/runs')}" sortBy="#{case.COUNT}" />

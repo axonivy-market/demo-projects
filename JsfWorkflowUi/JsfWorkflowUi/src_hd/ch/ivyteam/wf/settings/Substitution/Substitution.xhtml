@@ -34,28 +34,16 @@
 	      		</p:toolbarGroup>
 			</p:toolbar>
 			<p:dataTable id="tableSubstitute" value="#{data.substitutes}" var="substitute" emptyMessage="#{ivy.cms.co('/labels/common/noSubstitutions')}">
-				<p:column sortBy="#{substitute.substituteUser.fullName}" style="width: 220px;">
-   					<f:facet name="header">  
-      					#{ivy.cms.co('/labels/settings/substitute/substituteUser')}
-   					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/settings/substitute/substituteUser')}" sortBy="#{substitute.substituteUser.fullName}" style="width: 220px;">
    					<wc:MemberDetail member="#{substitute.substituteUser}" />
 				</p:column>
-				<p:column style="width: 220px;">  
-   					<f:facet name="header">  
-       					#{ivy.cms.co('/labels/settings/substitute/substituteFor')}
-   					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/settings/substitute/substituteFor')}" style="width: 220px;">
 					<wc:MemberDetailText member="#{substitute.substitutionRole}" nulltext="#{ivy.cms.co('/labels/settings/substitute/substituteUserTasks')}"/>
    				</p:column>
-				<p:column>  
-   					<f:facet name="header">  
-       					#{ivy.cms.co('/labels/common/description')}
-   					</f:facet>  
-   					#{substitute.description}
+				<p:column headerText="#{ivy.cms.co('/labels/common/description')}">
+   					<h:outputText value="#{substitute.description}"/>
 				</p:column>
-				<p:column style="width: 100px; text-align: center;">
-   					<f:facet name="header">
-       					#{ivy.cms.co('/labels/settings/substitute/substituteControls')}
-   					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/settings/substitute/substituteControls')}" style="width: 100px; text-align: center;">
    					<p:commandButton id="removeButton" actionListener="#{logic.removeSubstitute(substitute.id)}" update=":formSubstitute" icon="fa fa-trash" value="#{ivy.cms.co('/labels/common/delete')}" ajax="false" />
 				</p:column>
 			</p:dataTable>
@@ -69,23 +57,14 @@
 		<br />
 		<h:form id="formMySubstitutions">
 			<p:dataTable id="tableMySubstitutions" value="#{data.substiutions}" var="substitution" emptyMessage="#{ivy.cms.co('/labels/common/nothingToSubstitute')}">
-				<p:column sortBy="#{substitution.user.name}">  
-   					<f:facet name="header">  
-      					#{ivy.cms.co('/labels/settings/substitute/substitutionFor')} #{ivy.cms.co('/labels/common/user')}
-   					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/settings/substitute/substitutionFor')} #{ivy.cms.co('/labels/common/user')}" sortBy="#{substitution.user.name}">  
 					<wc:MemberDetail member="#{substitution.user}" />
   				</p:column>
-				<p:column>
-   					<f:facet name="header">
-      					#{ivy.cms.co('/labels/settings/substitute/substituteFor')}
-   					</f:facet>
+				<p:column headerText="#{ivy.cms.co('/labels/settings/substitute/substituteFor')}">
 					<wc:MemberDetailText member="#{substitution.substitutionRole}" nulltext="#{ivy.cms.co('/labels/settings/substitute/substituteUserTasks')}"/>
   				</p:column>
-   				<p:column>
-   					<f:facet name="header">
-   						#{ivy.cms.co('/labels/settings/substitute/currentState')}
-   					</f:facet>
-       				#{substitution.user.isAbsent() ? ivy.cms.co('/labels/settings/absence/currentlyAbsent') : ivy.cms.co('/labels/settings/absence/notAbsent')}
+   				<p:column headerText="#{ivy.cms.co('/labels/settings/substitute/currentState')}">
+       				<h:outputText value="#{substitution.user.isAbsent() ? ivy.cms.co('/labels/settings/absence/currentlyAbsent') : ivy.cms.co('/labels/settings/absence/notAbsent')}"/>
    				</p:column>
 			</p:dataTable>
 		</h:form>
