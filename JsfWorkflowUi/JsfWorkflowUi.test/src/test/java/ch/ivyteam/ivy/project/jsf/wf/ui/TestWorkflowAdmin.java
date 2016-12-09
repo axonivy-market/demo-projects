@@ -16,10 +16,10 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   {
     createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
     navigate().caseList();
-    checkIfCaseIsInList("category1", "process1");
+    checkIfCaseIsInList("category1");
     createTaskWithCategory("caseForFilter2", "case list2", 2, "category2", "process2");
     navigate().caseList();
-    checkIfCaseIsInList("category2", "process2");
+    checkIfCaseIsInList("category2");
     closeTask();
     closeTask();
     navigate().home();
@@ -67,15 +67,15 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   {
     createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
     navigate().caseList();
-    checkIfCaseIsInList("category1", "process1");
+    checkIfCaseIsInList("category1");
     
     createTaskWithCategory("caseForFilter2", "case list2", 2, "category2", "process2");
     navigate().caseList();
-    checkIfCaseIsInList("category2", "process2");
+    checkIfCaseIsInList("category2");
     
     createTaskWithCategory("caseForFilter3", "case list3", 3, "category3", "process3");
     navigate().caseList();
-    checkIfCaseIsInList("category3", "process3");
+    checkIfCaseIsInList("category3");
     closeTask();
     closeTask();
     closeTask();
@@ -100,11 +100,11 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   public void testCaseAdmin() throws Exception
   {
     login("user1", "user1");
-    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4", "process4");
+    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4");
    
     login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
     navigate().caseAdmin();
-    checkIfCaseIsInList("category4", "process4");
+    checkIfCaseIsInList("category4");
     
     login("user1", "user1");
     closeTask();
@@ -158,13 +158,12 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
             .doesNotContain(process);
   }
 
-  private void checkIfCaseIsInList(String category, String process)
+  private void checkIfCaseIsInList(String category)
   {
     String tableId = "caseListComponent:caseListForm:caseTable";
     
     await(ExpectedConditions.textToBePresentInElementLocated(By.id(tableId), "Test Workflow Jsf"));
     await(ExpectedConditions.textToBePresentInElementLocated(By.id(tableId), category));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id(tableId), process));
   }
 
   private void checkIfTaskIsInList(String name)
