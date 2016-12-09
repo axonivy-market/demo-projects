@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Jun 04 08:25:54 CEST 2014]
-13F3D94E5C99F06F 3.17 #module
+[>Created: Fri Dec 09 16:04:51 CET 2016]
+13F3D94E5C99F06F 3.19 #module
 >Proto >Proto Collection #zClass
 Wf0 WfJsf Big #zClass
 Wf0 B #cInfo
@@ -72,17 +72,6 @@ type.code=
 type.name=
 ' #txt
 Wf0 f0 showInStartList 1 #txt
-Wf0 f0 taskAndCaseSetupAction 'ivy.case.setName(engine.expandMacros("Test Workflow Jsf"));
-import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setName(engine.expandMacros("Test Workflow Jsf"));
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Wf0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -102,37 +91,10 @@ Wf0 f1 actionTable 'out=in1;
 ' #txt
 Wf0 f1 outTypes "ch.ivyteam.wf.test.Data" #txt
 Wf0 f1 outLinks "TaskA.ivp" #txt
-Wf0 f1 caseData '#
-#Wed Jun 04 08:25:52 CEST 2014
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
+Wf0 f1 caseData 'case.category=<%\=in1.category%>
 process.code=<%\=in1.process%>
-process.name=
-processCategory.code=<%\=in1.category%>
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
-Wf0 f1 taskData '#
-#Wed Jun 04 08:25:52 CEST 2014
-TaskA.DESC=<%\=in1.description%>
+processCategory.code=<%\=in1.category%>' #txt
+Wf0 f1 taskData 'TaskA.DESC=<%\=in1.description%>
 TaskA.EXP=in1.expiryDate.getDurationFromNow()
 TaskA.EXPRI=2
 TaskA.EXTYPE=-1
@@ -140,26 +102,7 @@ TaskA.NAM=JSF <%\=in1.caption%>
 TaskA.PRI=in1.prio
 TaskA.ROL=Everybody
 TaskA.SKIP_TASK_LIST=false
-TaskA.TYPE=0
-' #txt
-Wf0 f1 taskAction 'ivy.case.setProcessCategory(engine.expandMacros("<%=in1.category%>"), engine.expandMacros(""));
-ivy.case.setProcess(engine.expandMacros("<%=in1.process%>"), engine.expandMacros(""));
-import ch.ivyteam.ivy.workflow.TaskDefinition;
-List<TaskDefinition> taskDefinitions;
-TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskDef = new TaskDefinition();
-taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("JSF <%=in1.caption%>"));
-taskDef.setDescription(engine.expandMacros("<%=in1.description%>"));
-taskDef.setAutoStartTask(false);
-taskDef.setActivator("Everybody");
-taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(in1.prio));
-taskDef.setExpiryPeriod(1000 * (in1.expiryDate.getDurationFromNow()).toNumber());
-taskDef.setExpiryActivator(null);
-taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDefinitions.add(taskDef);
-' #txt
+TaskA.TYPE=0' #txt
 Wf0 f1 type ch.ivyteam.wf.test.Data #txt
 Wf0 f1 template "" #txt
 Wf0 f1 337 49 30 30 0 16 #rect

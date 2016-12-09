@@ -19,27 +19,27 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   @Test
   public void testCaseFilter() throws Exception
   {
-    createTaskWithCategory("something4", "this tests the search", 1, "category5", "random Process 8");
+    createTaskWithCategory("something4", "this tests the search", 1, "category5");
     createHtmlTask("new Case with Html", "random description");
 
-    createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
+    createTaskWithCategory("caseForFilter1", "case list1", 1, "category1");
     navigate().caseList();
-    checkIfCaseIsInList("category1", "process1");
+    checkIfCaseIsInList("category1");
 
-    createTaskWithCategory("caseForFilter2", "case list2", 2, "category2", "process2");
+    createTaskWithCategory("caseForFilter2", "case list2", 2, "category2");
     navigate().caseList();
-    checkIfCaseIsInList("category2", "process2");
+    checkIfCaseIsInList("category2");
 
-    createTaskWithCategory("caseForFilter3", "case list3", 3, "category3", "process3");
+    createTaskWithCategory("caseForFilter3", "case list3", 3, "category3");
     navigate().caseList();
-    checkIfCaseIsInList("category3", "process3");
+    checkIfCaseIsInList("category3");
 
-    checkIfFilterIsApplied("category1", "process1");
-    doesNotContain("category2", "process2");
-    checkIfFilterIsApplied("category2", "process2");
-    doesNotContain("category3", "process3");
-    checkIfFilterIsApplied("category3", "process3");
-    doesNotContain("category1", "process1");
+    checkIfFilterIsApplied("category1");
+    doesNotContain("category2");
+    checkIfFilterIsApplied("category2");
+    doesNotContain("category3");
+    checkIfFilterIsApplied("category3");
+    doesNotContain("category1");
     closeTask();
     closeTask();
     closeTask();
@@ -55,26 +55,25 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   public void testStartedAndInvolvedCases() throws Exception
   {
     login("user1", "user1");
-    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4", "process4");
+    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4");
 
     navigate().caseList();
-    checkIfCaseIsInList("category4", "process4");
+    checkIfCaseIsInList("category4");
 
     login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
     navigate().caseList();
-    doesNotContain("category4", "process4");
+    doesNotContain("category4");
 
     switchInvolvedWorkflowList();
-    checkIfCaseIsInList("category4", "process4");
+    checkIfCaseIsInList("category4");
 
     login("user1", "user1");
     closeTask();
   }
 
-  private void checkIfCaseIsInList(final String category, String process)
+  private void checkIfCaseIsInList(final String category)
   {
     checkIfCaseIsInListInteral(category);
-    checkIfCaseIsInListInteral(process);
   }
 
   private void checkIfCaseIsInListInteral(final String checkAttribute)
@@ -102,23 +101,18 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
             "caseListComponent:caseListForm:caseOption:1");
   }
 
-  private void checkIfFilterIsApplied(String filterForCategory, String filterForProcess)
+  private void checkIfFilterIsApplied(String filterForCategory)
   {
     navigate().caseList();
     SelectOneMenu menu = prime().selectOne(By.id("caseListComponent:caseListForm:categoryFilter"));
     menu.selectItemByLabel(filterForCategory);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForCategory);
-    menu = prime().selectOne(By.id("caseListComponent:caseListForm:processFilter"));
-    menu.selectItemByLabel(filterForProcess);
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForProcess);
   }
 
-  private void doesNotContain(String category, String process)
+  private void doesNotContain(String category)
   {
     await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
             By.id("caseListComponent:caseListForm:caseTable_data"), category)));
-    await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("caseListComponent:caseListForm:caseTable_data"), process)));
   }
 
   @Test
@@ -167,7 +161,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
     closeTask();
 
-    createTaskWithCategory("new Task", "this is a new Task", 2, "random category", "whatever process");
+    createTaskWithCategory("new Task", "this is a new Task", 2, "random category");
     navigate().taskList();
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("taskListComponent:taskListForm:taskTable_data"), "new Task"));

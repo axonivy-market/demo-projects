@@ -85,6 +85,18 @@ public class BaseJsfWorkflowUiTest
     driverHelper.clickAndWaitForAjax(By.id("submit"));
   }
 
+  protected void createTaskWithCategory(String title, String description, int priority, String category)
+  {
+    navigate().processList();
+    driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
+    driverHelper.findElementById("formRequest:caption").sendKeys(title);
+    prime().selectOne(By.id("formRequest:taskPriority"))
+    .selectItemByLabel(PRIORITIES[priority]);
+    driverHelper.findElementById("formRequest:description").sendKeys(description);
+    driverHelper.findElementById("formRequest:category").sendKeys(category);
+    driverHelper.clickAndWaitForAjax(By.id("formRequest:submitJsf"));
+  }
+  
   protected void createTaskWithCategory(String title, String description, int priority, String category,
           String process)
   {
