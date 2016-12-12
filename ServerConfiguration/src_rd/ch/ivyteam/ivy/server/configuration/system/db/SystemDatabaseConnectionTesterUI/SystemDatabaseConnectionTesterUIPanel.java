@@ -100,6 +100,10 @@ private RLabel connectionStateLabel = null;
 			    		 		refreshButton.setIconUri("<%=ivy.cms.cr(\"/Icons/connectionstates/fail\")%>");
 			    		 		stateTextArea.setText("<%=ivy.cms.co(\"/labels/connectionstates/noTables\")%>");
 			    		 		break;
+			    		 	case CONNECTED_NO_DATABASE_OR_SCHEMA:
+			    		 		refreshButton.setIconUri("<%=ivy.cms.cr(\"/Icons/connectionstates/fail\")%>");
+			    		 		stateTextArea.setText("<%=ivy.cms.co(\"/labels/connectionstates/noDatabaseOrSchema\")%>");
+			    		 		break;
 			    		 	case CONNECTED_WRONG_OLDER_VERSION:
 			    		 	case CONNECTED_WRONG_NEWER_VERSION:
 			    		 		refreshButton.setIconUri("<%=ivy.cms.cr(\"/Icons/connectionstates/fail\")%>");

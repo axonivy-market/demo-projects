@@ -9,6 +9,7 @@ import ch.ivyteam.ivy.richdialog.rdpanels.RichDialogGridBagPanel;
 import ch.ivyteam.ivy.richdialog.widgets.components.RButton;
 import ch.ivyteam.ivy.richdialog.widgets.components.RComboBox;
 import ch.ivyteam.ivy.richdialog.widgets.components.RLabel;
+import ch.ivyteam.ivy.richdialog.widgets.components.RPasswordField;
 import ch.ivyteam.ivy.richdialog.widgets.components.RTextField;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridBagLayoutPane;
 import ch.ivyteam.ivy.richdialog.widgets.containers.RGridLayoutPane;
@@ -16,6 +17,8 @@ import ch.ivyteam.ivy.scripting.objects.List;
 
 import com.ulcjava.base.application.GridBagConstraints;
 import com.ulcjava.base.application.ULCComponent;
+import com.ulcjava.base.application.ULCTextComponent;
+import com.ulcjava.base.application.ULCTextField;
 import com.ulcjava.base.application.util.Insets;
 
 /**
@@ -111,12 +114,12 @@ public class DatabaseCreationParameterUIPanel extends RichDialogGridBagPanel
 	 * @param databaseCreationParameters the database creation parameters
 	 * @param connectionProperties the connection properties
 	 */
-	public void setDatabaseCreationParameters(DatabaseCreationParameter[] databaseCreationParameters, Map<ConnectionProperty, String> connectionProperties)
+	public void setDatabaseCreationParameters(List<DatabaseCreationParameter> databaseCreationParameters, Map<ConnectionProperty, String> connectionProperties)
 	{
 		RLabel noParameterslabel;
 		String defaultValue;
 		int pos = 1;
-		if ((databaseCreationParameters != null)&&(databaseCreationParameters.length>0))
+		if (!databaseCreationParameters.isEmpty())
 		{
 			for (DatabaseCreationParameter parameter : databaseCreationParameters)
 			{
@@ -142,9 +145,9 @@ public class DatabaseCreationParameterUIPanel extends RichDialogGridBagPanel
 		for (ULCComponent component : databaseCreationParametersPane.getComponents())
 		{
 			value = null;
-			if (component instanceof RTextField)
+			if (component instanceof ULCTextField)
 			{
-				value = ((RTextField)component).getText();
+				value = ((ULCTextField)component).getText();
 			}	
 			else if (component instanceof RComboBox)
 			{
@@ -175,7 +178,7 @@ public class DatabaseCreationParameterUIPanel extends RichDialogGridBagPanel
 	private void initComponentsFor(DatabaseCreationParameter parameter, int pos, String defaultValue)
 	{
 		RLabel label;
-		final RTextField textField;
+		final ULCTextField textField;
 		final RComboBox comboBox;
 
 		label = new RLabel();
@@ -191,7 +194,15 @@ public class DatabaseCreationParameterUIPanel extends RichDialogGridBagPanel
 		}
 		else
 		{
-			textField = new RTextField();
+			ConnectionProperty property = parameter.getConnectionPropertyThatHoldsDefaultValue();
+			if (property != null && property.isConfidential())
+			{
+				textField = new RPasswordField();
+			}
+			else
+			{
+				textField = new RTextField();
+			}
 			if (defaultValue != null && !defaultValue.trim().isEmpty())
 			{
 				textField.setText(defaultValue);
