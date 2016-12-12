@@ -59,7 +59,6 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     driverHelper.findElementById("workflowStatistic").click();
     driverHelper.clickAndWaitForAjax(By.id("linkStatisticAverage_0"));
     await(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id='mainArea']/h2"), "Average statistic"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("formChartCases:chartForCases"), "Processing time of the cases"));
   }
 	
   @Test
