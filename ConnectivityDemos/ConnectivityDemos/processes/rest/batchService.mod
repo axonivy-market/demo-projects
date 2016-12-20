@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Oct 11 12:50:05 CEST 2016]
-157B33AB7587F1F1 3.18 #module
+[>Created: Tue Dec 20 15:37:01 CET 2016]
+157B33AB7587F1F1 3.19 #module
 >Proto >Proto Collection #zClass
 be0 batchService Big #zClass
 be0 B #cInfo
@@ -15,11 +15,11 @@ be0 @TextInP .xml .xml #zField
 be0 @TextInP .responsibility .responsibility #zField
 be0 @StartRequest f0 '' #zField
 be0 @EndTask f1 '' #zField
-be0 @GridStep f3 '' #zField
-be0 @PushWFArc f4 '' #zField
-be0 @PushWFArc f2 '' #zField
 be0 @InfoButton f5 '' #zField
-be0 @AnnotationArc f7 '' #zField
+be0 @RestClientCall f6 '' #zField
+be0 @PushWFArc f2 '' #zField
+be0 @PushWFArc f3 '' #zField
+be0 @AnnotationArc f4 '' #zField
 >Proto be0 be0 batchService #zField
 be0 f0 outLink callLongRunningBatch.ivp #txt
 be0 f0 type com.axonivy.connectivity.Data #txt
@@ -39,15 +39,6 @@ TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
 be0 f0 showInStartList 1 #txt
-be0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 be0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -63,30 +54,6 @@ be0 f0 @|StartRequestIcon #fIcon
 be0 f1 type com.axonivy.connectivity.Data #txt
 be0 f1 369 49 30 30 0 15 #rect
 be0 f1 @|EndIcon #fIcon
-be0 f3 actionDecl 'com.axonivy.connectivity.Data out;
-' #txt
-be0 f3 actionTable 'out=in;
-' #txt
-be0 f3 actionCode 'String entity = ivy.rest.client("batchService").request().get()
-									 .readEntity(String.class) as String;
-									
-ivy.log.info("batch service returned: "+entity);' #txt
-be0 f3 type com.axonivy.connectivity.Data #txt
-be0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>call batch</name>
-        <nameStyle>10,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-be0 f3 200 42 112 44 -26 -8 #rect
-be0 f3 @|StepIcon #fIcon
-be0 f4 expr out #txt
-be0 f4 143 64 200 64 #arcP
-be0 f2 expr out #txt
-be0 f2 312 64 369 64 #arcP
 be0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -109,8 +76,26 @@ jersey.config.client.connectTimeout=1''000
 ' #txt
 be0 f5 200 122 320 156 -155 -73 #rect
 be0 f5 @|IBIcon #fIcon
-be0 f7 360 122 256 86 #arcP
-be0 f7 0 0.4435848068666603 0 0 #arcLabel
+be0 f6 clientId b0a5f371-e479-444d-b71c-af1fff4c084d #txt
+be0 f6 clientCode 'String entity = client.request().get()
+									 .readEntity(String.class) as String;
+									
+ivy.log.info("batch service returned: "+entity);' #txt
+be0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>call batch</name>
+        <nameStyle>10,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+be0 f6 200 42 112 44 -26 -8 #rect
+be0 f6 @|RestClientCallIcon #fIcon
+be0 f2 expr out #txt
+be0 f2 143 64 200 64 #arcP
+be0 f3 312 64 369 64 #arcP
+be0 f4 360 122 256 86 #arcP
 >Proto be0 .type com.axonivy.connectivity.Data #txt
 >Proto be0 .processKind NORMAL #txt
 >Proto be0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -127,9 +112,9 @@ be0 f7 0 0.4435848068666603 0 0 #arcLabel
 ' #txt
 >Proto be0 0 0 32 24 18 0 #rect
 >Proto be0 @|BIcon #fIcon
-be0 f0 mainOut f4 tail #connect
-be0 f4 head f3 mainIn #connect
-be0 f3 mainOut f2 tail #connect
-be0 f2 head f1 mainIn #connect
-be0 f5 ao f7 tail #connect
-be0 f7 head f3 @CG|ai #connect
+be0 f0 mainOut f2 tail #connect
+be0 f2 head f6 mainIn #connect
+be0 f6 mainOut f3 tail #connect
+be0 f3 head f1 mainIn #connect
+be0 f5 ao f4 tail #connect
+be0 f4 head f6 @CG|ai #connect

@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu May 12 12:00:09 CEST 2016]
-1549FE9E911A1812 3.18 #module
+[>Created: Tue Dec 20 15:34:30 CET 2016]
+1549FE9E911A1812 3.19 #module
 >Proto >Proto Collection #zClass
 al0 approval Big #zClass
 al0 B #cInfo
@@ -22,11 +22,11 @@ al0 @EndTask f6 '' #zField
 al0 @RichDialog f10 '' #zField
 al0 @PushWFArc f11 '' #zField
 al0 @PushWFArc f2 '' #zField
-al0 @PushWFArc f7 '' #zField
-al0 @PushWFArc f9 '' #zField
-al0 @GridStep f8 '' #zField
 al0 @InfoButton f12 '' #zField
 al0 @AnnotationArc f13 '' #zField
+al0 @RestClientCall f14 '' #zField
+al0 @PushWFArc f7 '' #zField
+al0 @PushWFArc f8 '' #zField
 >Proto al0 al0 approval #zField
 al0 f0 outLink approve.ivp #txt
 al0 f0 type com.axonivy.connectivity.rest.Approval #txt
@@ -49,17 +49,6 @@ TaskTriggered.DESC=<%\=param.approval.title%>
 TaskTriggered.EXROL=Everybody
 TaskTriggered.NAM=Approve request from <%\=param.approval.requestedBy%>' #txt
 al0 f0 showInStartList 1 #txt
-al0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setName(engine.expandMacros("Approve request from <%=param.approval.requestedBy%>"));
-taskUpdDef.setDescription(engine.expandMacros("<%=param.approval.title%>"));
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -108,15 +97,6 @@ TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
 al0 f5 showInStartList 1 #txt
-al0 f5 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 al0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -164,41 +144,6 @@ al0 f11 expr out #txt
 al0 f11 143 224 200 224 #arcP
 al0 f2 expr out #txt
 al0 f2 312 224 369 224 #arcP
-al0 f7 expr out #txt
-al0 f7 312 128 369 128 #arcP
-al0 f9 expr out #txt
-al0 f9 143 128 200 128 #arcP
-al0 f8 actionDecl 'com.axonivy.connectivity.rest.Approval out;
-' #txt
-al0 f8 actionTable 'out=in;
-' #txt
-al0 f8 actionCode 'import javax.ws.rs.client.Entity;
-import com.fasterxml.jackson.databind.JsonNode;
-import javax.ws.rs.core.MultivaluedHashMap;
-import javax.ws.rs.core.MultivaluedMap;
-
-MultivaluedMap map = new MultivaluedHashMap();
-map.add("title","I need a new car");
-map.add("description", "really, I''m sick of my old Fiat Punto");
-
-JsonNode result = ivy.rest.client("approvalService").request()
-	.put(Entity.form(map))
-	.readEntity(JsonNode.class) as JsonNode;
-	
-ivy.log.info(result);' #txt
-al0 f8 type com.axonivy.connectivity.rest.Approval #txt
-al0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>REST client:
-create approval</name>
-        <nameStyle>28,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-al0 f8 200 104 112 48 -41 -16 #rect
-al0 f8 @|StepIcon #fIcon
 al0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -215,6 +160,36 @@ al0 f12 @|IBIcon #fIcon
 al0 f13 224 62 128 113 #arcP
 al0 f13 1 128 88 #addKink
 al0 f13 0 0.6265821825077568 0 0 #arcLabel
+al0 f14 clientId e61c6d1f-106e-46ea-8327-fe18e4c1d912 #txt
+al0 f14 clientCode 'import javax.ws.rs.client.Entity;
+import com.fasterxml.jackson.databind.JsonNode;
+import javax.ws.rs.core.MultivaluedHashMap;
+import javax.ws.rs.core.MultivaluedMap;
+
+MultivaluedMap map = new MultivaluedHashMap();
+map.add("title","I need a new car");
+map.add("description", "really, I''m sick of my old Fiat Punto");
+
+JsonNode result = client.request()
+	.put(Entity.form(map))
+	.readEntity(JsonNode.class) as JsonNode;
+	
+ivy.log.info(result);' #txt
+al0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>REST client:
+create approval</name>
+        <nameStyle>28,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+al0 f14 192 106 128 44 -41 -16 #rect
+al0 f14 @|RestClientCallIcon #fIcon
+al0 f7 expr out #txt
+al0 f7 143 128 192 128 #arcP
+al0 f8 320 128 369 128 #arcP
 >Proto al0 .type com.axonivy.connectivity.rest.Approval #txt
 >Proto al0 .processKind NORMAL #txt
 >Proto al0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -233,13 +208,13 @@ al0 f13 0 0.6265821825077568 0 0 #arcLabel
 >Proto al0 @|BIcon #fIcon
 al0 f3 ao f4 tail #connect
 al0 f4 head f0 @CG|ai #connect
-al0 f5 mainOut f9 tail #connect
-al0 f9 head f8 mainIn #connect
-al0 f8 mainOut f7 tail #connect
-al0 f7 head f6 mainIn #connect
 al0 f0 mainOut f11 tail #connect
 al0 f11 head f10 mainIn #connect
 al0 f10 mainOut f2 tail #connect
 al0 f2 head f1 mainIn #connect
 al0 f12 ao f13 tail #connect
 al0 f13 head f5 @CG|ai #connect
+al0 f5 mainOut f7 tail #connect
+al0 f7 head f14 mainIn #connect
+al0 f14 mainOut f8 tail #connect
+al0 f8 head f6 mainIn #connect

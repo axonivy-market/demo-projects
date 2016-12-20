@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu May 12 11:58:22 CEST 2016]
-154616078A1D629D 3.18 #module
+[>Created: Tue Dec 20 15:40:44 CET 2016]
+154616078A1D629D 3.19 #module
 >Proto >Proto Collection #zClass
 ce0 callOwnPersonRestService Big #zClass
 ce0 B #cInfo
@@ -15,18 +15,18 @@ ce0 @TextInP .xml .xml #zField
 ce0 @TextInP .responsibility .responsibility #zField
 ce0 @StartRequest f0 '' #zField
 ce0 @EndTask f1 '' #zField
-ce0 @GridStep f3 '' #zField
-ce0 @PushWFArc f4 '' #zField
-ce0 @PushWFArc f2 '' #zField
 ce0 @StartRequest f5 '' #zField
 ce0 @EndTask f6 '' #zField
 ce0 @RichDialog f8 '' #zField
 ce0 @PushWFArc f9 '' #zField
 ce0 @PushWFArc f7 '' #zField
 ce0 @InfoButton f10 '' #zField
-ce0 @AnnotationArc f11 '' #zField
 ce0 @InfoButton f12 '' #zField
 ce0 @AnnotationArc f13 '' #zField
+ce0 @RestClientCall f14 '' #zField
+ce0 @AnnotationArc f15 '' #zField
+ce0 @PushWFArc f11 '' #zField
+ce0 @PushWFArc f4 '' #zField
 >Proto ce0 ce0 callOwnPersonRestService #zField
 ce0 f0 outLink listPersons.ivp #txt
 ce0 f0 type com.axonivy.connectivity.Data #txt
@@ -46,15 +46,6 @@ TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
 ce0 f0 showInStartList 1 #txt
-ce0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 ce0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -70,33 +61,6 @@ ce0 f0 @|StartRequestIcon #fIcon
 ce0 f1 type com.axonivy.connectivity.Data #txt
 ce0 f1 337 113 30 30 0 15 #rect
 ce0 f1 @|EndIcon #fIcon
-ce0 f3 actionDecl 'com.axonivy.connectivity.Data out;
-' #txt
-ce0 f3 actionTable 'out=in;
-' #txt
-ce0 f3 actionCode 'import java.util.UUID;
-import com.axonivy.connectivity.Person;
-import ch.ivyteam.ivy.rest.client.GenericTypes;
-
-List<Person> persons = ivy.rest.client("personService")
-	.request().get(GenericTypes.listOf(Person.class)) as List<Person>;
-ivy.log.info(persons);' #txt
-ce0 f3 type com.axonivy.connectivity.Data #txt
-ce0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Call PersonService</name>
-        <nameStyle>18,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-ce0 f3 168 106 112 44 -52 -8 #rect
-ce0 f3 @|StepIcon #fIcon
-ce0 f4 expr out #txt
-ce0 f4 111 128 168 128 #arcP
-ce0 f2 expr out #txt
-ce0 f2 280 128 337 128 #arcP
 ce0 f5 outLink personManager.ivp #txt
 ce0 f5 type com.axonivy.connectivity.Data #txt
 ce0 f5 inParamDecl '<> param;' #txt
@@ -115,15 +79,6 @@ TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
 ce0 f5 showInStartList 1 #txt
-ce0 f5 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 ce0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -183,8 +138,6 @@ and log it''s response</name>
 ' #txt
 ce0 f10 344 42 192 44 -87 -16 #rect
 ce0 f10 @|IBIcon #fIcon
-ce0 f11 344 64 265 106 #arcP
-ce0 f11 0 0.7097590884517753 0 0 #arcLabel
 ce0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -199,19 +152,43 @@ as backend for a PersonManger dialog</name>
 ce0 f12 344 178 256 44 -121 -16 #rect
 ce0 f12 @|IBIcon #fIcon
 ce0 f13 344 200 264 248 #arcP
+ce0 f14 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
+ce0 f14 clientCode 'import java.util.UUID;
+import com.axonivy.connectivity.Person;
+import ch.ivyteam.ivy.rest.client.GenericTypes;
+
+List<Person> persons = client
+	.request().get(GenericTypes.listOf(Person.class)) as List<Person>;
+ivy.log.info(persons);' #txt
+ce0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Call PersonService</name>
+        <nameStyle>18,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+ce0 f14 168 106 112 44 -52 -8 #rect
+ce0 f14 @|RestClientCallIcon #fIcon
+ce0 f15 344 64 265 106 #arcP
+ce0 f15 0 0.7097590884517754 0 0 #arcLabel
+ce0 f11 expr out #txt
+ce0 f11 111 128 168 128 #arcP
+ce0 f4 280 128 337 128 #arcP
 >Proto ce0 .type com.axonivy.connectivity.Data #txt
 >Proto ce0 .processKind NORMAL #txt
 >Proto ce0 0 0 32 24 18 0 #rect
 >Proto ce0 @|BIcon #fIcon
-ce0 f0 mainOut f4 tail #connect
-ce0 f4 head f3 mainIn #connect
-ce0 f3 mainOut f2 tail #connect
-ce0 f2 head f1 mainIn #connect
 ce0 f5 mainOut f9 tail #connect
 ce0 f9 head f8 mainIn #connect
 ce0 f8 mainOut f7 tail #connect
 ce0 f7 head f6 mainIn #connect
-ce0 f10 ao f11 tail #connect
-ce0 f11 head f3 @CG|ai #connect
 ce0 f12 ao f13 tail #connect
 ce0 f13 head f8 @CG|ai #connect
+ce0 f10 ao f15 tail #connect
+ce0 f15 head f14 @CG|ai #connect
+ce0 f0 mainOut f11 tail #connect
+ce0 f11 head f14 mainIn #connect
+ce0 f14 mainOut f4 tail #connect
+ce0 f4 head f1 mainIn #connect
