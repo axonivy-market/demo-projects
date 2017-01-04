@@ -1,13 +1,13 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
-Contexts: _oxqloD3gEeadqZIC2MODiA,_uTeBUD3gEeadqZIC2MODiA,_CfW5kD3mEeadqZIC2MODiA,_vNHwsD3hEeadqZIC2MODiA,_iWGD0D31EeadqZIC2MODiA,_j1ZYwD4IEea1-MPAK3G86w
+Contexts: _oxqloD3gEeadqZIC2MODiA,_EFdg4NJ0EeaR9M6EuzThAQ,_uTeBUD3gEeadqZIC2MODiA,_CfW5kD3mEeadqZIC2MODiA,_vNHwsD3hEeadqZIC2MODiA,_iWGD0D31EeadqZIC2MODiA,_j1ZYwD4IEea1-MPAK3G86w
 Element-Name: ExecuteRest
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _ZJY28D3lEeadqZIC2MODiA
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 6/29/16 5:33 PM
+Save-Time: 1/4/17 2:26 PM
 Testcase-Type: ecl
 Verifications: _SbgVwD39EeadqZIC2MODiA,_8ojBwD3mEeadqZIC2MODiA
 
@@ -19,5 +19,6 @@ importArchive -directory "applications/samples" -projectName "ConnectivityDemos"
 unpackIar -projectName "ConnectivityDemos"
 startEngines
 startBpmProcess -projectName "ConnectivityDemos" -ivpPath "rest\\/callOwnPersonRestService\\/listPersons.ivp"
-assertRuntimeLogMsg "Person(id=0, firstname=Bruno, lastname=Bütler)"
+assertRuntimeLogMsg "Person(id=0, firstname=Bruno, lastname=B"
+
 ------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
