@@ -99,7 +99,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   public void testCaseAdmin() throws Exception
   {
     login("user1", "user1");
-    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4");
+    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4", "process4");
    
     login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
     navigate().caseAdmin();
