@@ -1,6 +1,5 @@
 package ch.ivyteam.ivy.server.test;
 
-import java.io.File;
 import java.text.MessageFormat;
 import java.util.concurrent.TimeUnit;
 
@@ -13,8 +12,6 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,13 +29,10 @@ public class IvyWebDriverHelper
 
   public IvyWebDriverHelper()
   {
-    FirefoxProfile profile = new FirefoxProfile();//FixVersionFirefox.loadFirefoxProfile();
+    FirefoxProfile profile = FixVersionFirefox.loadFirefoxProfile();
     profile.setPreference("intl.accept_languages", "en");
-//    driver = FixVersionFirefox.createWebDriver(profile);
-
-    System.setProperty("webdriver.gecko.driver", "/home/cst/tmp/geckodriver/geckodriver");
-    FirefoxBinary binary =  new FirefoxBinary(new File("/usr/bin/firefox"));
-    driver =  new FirefoxDriver(binary, profile);
+    driver = FixVersionFirefox.createWebDriver(profile);
+    
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     hideBrowserFromDesktop();
   }
@@ -73,7 +67,6 @@ public class IvyWebDriverHelper
 
   public WebElement findElement(By by)
   {
-    waitUntilEnabled(by);
     try
     {
       return driver.findElement(by);
