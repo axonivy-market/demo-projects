@@ -19,18 +19,18 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   @Test
   public void testCaseFilter() throws Exception
   {
-    createTaskWithCategory("something4", "this tests the search", 1, "category5");
+    createTaskWithCategory("something4", "this tests the search", 1, "category5", "process5");
     createHtmlTask("new Case with Html", "random description");
 
-    createTaskWithCategory("caseForFilter1", "case list1", 1, "category1");
+    createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
     navigate().caseList();
     checkIfCaseIsInList("category1");
 
-    createTaskWithCategory("caseForFilter2", "case list2", 2, "category2");
+    createTaskWithCategory("caseForFilter2", "case list2", 2, "category2", "process2");
     navigate().caseList();
     checkIfCaseIsInList("category2");
 
-    createTaskWithCategory("caseForFilter3", "case list3", 3, "category3");
+    createTaskWithCategory("caseForFilter3", "case list3", 3, "category3", "process3");
     navigate().caseList();
     checkIfCaseIsInList("category3");
 
@@ -55,7 +55,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   public void testStartedAndInvolvedCases() throws Exception
   {
     login("user1", "user1");
-    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4");
+    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4", "process4");
 
     navigate().caseList();
     checkIfCaseIsInList("category4");
@@ -161,7 +161,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
     closeTask();
 
-    createTaskWithCategory("new Task", "this is a new Task", 2, "random category");
+    createTaskWithCategory("new Task", "this is a new Task", 2, "random category", "process5");
     navigate().taskList();
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("taskListComponent:taskListForm:taskTable_data"), "new Task"));
