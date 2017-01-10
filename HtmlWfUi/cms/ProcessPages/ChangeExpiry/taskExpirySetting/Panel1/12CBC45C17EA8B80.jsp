@@ -7,8 +7,15 @@
 	if(task  !=null && task.getState()==TaskState.DELAYED)
 	{ 
 %>
-<SCRIPT language="Javascript">
+    <SCRIPT language="Javascript">
 	document.formLinkA.tmpTaskDetail$delay.disabled=false;	
-</SCRIPT>
+     </SCRIPT>
+<% } 
+       if(task  !=null && task.isExpired())
+	{ 
+%>
+     <SCRIPT language="Javascript">
+	document.formLinkA.tmpTaskDetail$exp.disabled=true;	
+      </SCRIPT>
 <% } %>
 <!--/ivyjsp -->

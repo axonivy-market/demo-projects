@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu May 03 16:01:14 CEST 2012]
-12CBC43B6E19D1BD 3.17 #module
+[>Created: Tue Jan 10 14:52:59 CET 2017]
+12CBC43B6E19D1BD 3.19 #module
 >Proto >Proto Collection #zClass
 Cy0 ChangeExpiry Big #zClass
 Cy0 B #cInfo
@@ -80,6 +80,10 @@ if(in.tmpTaskDetail.delay.toNumber()>0)
 }
 if(in.tmpTaskDetail.exp.toNumber()>0)
 {
+	if(in.tmpTask.getExpiryActivator() == null )
+	{
+		out.tmpTask.setExpiryActivator(out.tmpTask.getActivator());
+	}	
 	out.tmpTask.setExpiryTimestamp(in.tmpTaskDetail.exp);
 }' #txt
 Cy0 f7 type htmlwfui.Data #txt
