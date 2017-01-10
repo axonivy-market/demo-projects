@@ -9,7 +9,7 @@
 
 <h:body>
 <ui:composition>
-	<p:dialog id="modalDialogChangeExpiry" header="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" widgetVar="changeExpiry" modal="true" visible="#{data.changeExpiryWrong}" appendTo="@(body)" width="400px">  
+	<p:dialog id="modalDialogChangeExpiry" header="#{ivy.cms.co('/labels/history/taskDetails/changeExpiry')}" widgetVar="changeExpiry" modal="true" visible="#{data.changeExpiryWrong}" appendTo="@(body)" width="410px">  
   		<h:form id="formDetailsChangeExpiry">
   			<p:messages id="message" />
   			<h:panelGrid columns="1">
@@ -19,7 +19,7 @@
 	           			<f:convertDateTime pattern="dd.MM.yyyy" />
 	           		</p:calendar>
 	           		<p:spacer width="10" />
-					<pe:timePicker id="expiryTime" value="#{data.expiryTime}" mode="popup" widgetVar="popupBtnTimeWidget" label="Time" disabled="#{data.canChangeExpiry}">
+					<pe:timePicker id="expiryTime" value="#{data.expiryTime}" mode="popup" widgetVar="popupBtnETimeWidget" label="Time" disabled="#{data.canChangeExpiry}">
 						<f:convertDateTime pattern="HH:mm" />
 					</pe:timePicker>
 					<p:commandButton type="button" icon="ui-icon-clock" onclick="selectTimePickerExpiryTime()" styleClass="ui-datepicker-trigger" disabled="#{data.canChangeExpiry}" />
@@ -39,7 +39,7 @@
 	           			<f:convertDateTime pattern="dd.MM.yyyy" />
 	           		</p:calendar>
 	           		<p:spacer width="10" />
-					<pe:timePicker id="delayTime" value="#{data.delayTime}" mode="popup" widgetVar="popupBtnTimeWidget" label="Time" disabled="#{data.task.state != 'DELAYED'}">
+					<pe:timePicker id="delayTime" value="#{data.delayTime}" mode="popup" widgetVar="popupBtnDTimeWidget" label="Time" disabled="#{data.task.state != 'DELAYED'}">
 						<f:convertDateTime pattern="HH:mm" />
 					</pe:timePicker>
 					<p:commandButton type="button" icon="ui-icon-clock" onclick="selectTimePickerDelayTime()" disabled="#{data.task.state != 'DELAYED'}" styleClass="ui-datepicker-trigger" />

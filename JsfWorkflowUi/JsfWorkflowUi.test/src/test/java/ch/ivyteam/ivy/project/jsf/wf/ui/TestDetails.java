@@ -118,10 +118,13 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").sendKeys("15.07.2013");
     driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").click();
     driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").clear();
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").sendKeys("10:10");
+    driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").sendKeys("11:11");
     driverHelper.clickAndWaitForAjax(By.id("formDetailsChangeExpiry:saveChangeExpiry"));
     navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("JSF taskForChangeExpiryOlderDate");
+    //assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("JSF taskForChangeExpiryOlderDate");
+    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("7/15/13 11:11 AM");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Responsible after expiry");   
   }
   
   @Test

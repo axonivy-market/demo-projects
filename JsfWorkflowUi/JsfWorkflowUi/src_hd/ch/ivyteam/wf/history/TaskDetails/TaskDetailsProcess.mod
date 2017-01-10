@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Nov 17 12:18:58 CET 2016]
-13FE10F004F193D4 3.18 #module
+[>Created: Tue Jan 10 14:15:08 CET 2017]
+13FE10F004F193D4 3.19 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
 Ts0 RD #cInfo
@@ -355,20 +355,25 @@ Ts0 f15 actionCode 'if(in.expiryDate.toNumber() > 0)
 {
 	DateTime expiry = new DateTime(in.expiryDate.getYear(), in.expiryDate.getMonth(), in.expiryDate.getDay(), 
 		in.expiryTime.getHours(), in.expiryTime.getMinutes(), 0);
+	
+	if(out.task.getExpiryActivator() == null)
+	{
+		out.task.setExpiryActivator(out.task.getActivator());
+	}	
+	
 	out.task.setExpiryTimestamp(expiry);
 }' #txt
 Ts0 f15 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>change expiry
-and delay</name>
-        <nameStyle>23,7
+        <name>change expiry</name>
+        <nameStyle>13,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ts0 f15 168 458 112 44 -37 -16 #rect
+Ts0 f15 168 458 112 44 -37 -8 #rect
 Ts0 f15 @|StepIcon #fIcon
 Ts0 f15 -1|-1|-9671572 #nodeStyle
 Ts0 f16 expr out #txt
@@ -582,7 +587,15 @@ Ts0 f49 actionTable 'out=in;
 Ts0 f49 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowPriority;
 
 WorkflowPriority wfPriority = Enum.valueOf(WorkflowPriority.class, in.priority) as WorkflowPriority;
-out.task.setOriginalPriority(wfPriority);' #txt
+
+if(out.task.isExpired())
+{
+	out.task.setExpiryPriority(wfPriority);
+}	
+else
+{
+	out.task.setOriginalPriority(wfPriority);
+}' #txt
 Ts0 f49 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ts0 f49 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -901,7 +914,7 @@ else
 	out.isExpiryDateLower = in.task.getExpiryTimestamp().toIvyDate() >= currentDate;
 }
 
-in.canChangeExpiry = in.expiryDate == null || !in.isExpiryDateLower;
+in.canChangeExpiry = in.task.isExpired();
 ' #txt
 Ct0 f5 type ch.ivyteam.wf.history.TaskDetails.TaskDetailsData #txt
 Ct0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
