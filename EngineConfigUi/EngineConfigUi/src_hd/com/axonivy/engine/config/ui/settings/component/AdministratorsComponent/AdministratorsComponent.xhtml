@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+<cc:interface componentType="IvyComponent" />
+
+<cc:implementation>
+	<h:panelGrid columns="2" cellpadding="20" cellspacing="20">
+		<p:fieldset id="databaseFieldSet" legend="Administrators Overview">
+			<h:panelGrid columns="2" cellpadding="1">
+				<p:dataTable value="#{data.administratorManager.administrators}"
+					var="administrator" rowIndexVar="row"
+					paginator="#{data.administratorManager.administrators.size >= 25}"
+					paginatorPosition="bottom" rows="25" sortOrder="DESCENDING">
+					<p:column style="text-align:center" sortBy="#{administrator.name}">
+						<f:facet name="header">
+							Name
+						</f:facet>
+						<h:outputText value="#{administrator.name}" />
+					</p:column>
+					<p:column style="text-align:center">
+						<f:facet name="header">
+							Fullname
+						</f:facet>
+						<h:outputText value="#{administrator.fullName}" />
+					</p:column>
+					<p:column style="text-align:center">
+						<f:facet name="header">
+							Email Addess
+						</f:facet>
+						<h:outputText value="#{administrator.EMailAddress}" />
+					</p:column>
+				</p:dataTable>
+			</h:panelGrid>
+		</p:fieldset>
+	</h:panelGrid>
+</cc:implementation>
+</html>

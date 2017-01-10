@@ -1,0 +1,116 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+<cc:interface componentType="IvyComponent" />
+
+<cc:implementation>
+	<p:growl id="growl" showDetail="true" sticky="true" />
+	<h:panelGrid columns="2" cellpadding="20" cellspacing="20">
+		<p:fieldset id="databaseFieldSet" legend="Database">
+			<h:panelGrid columns="2" cellpadding="1">
+				<p:outputLabel for="databaseTypeDropdown" id="databaseTypeLabel"
+					value="Database: " />
+				<p:selectOneMenu id="databaseTypeDropdown"
+					value="#{data.configData.product}" converter="ivy.ListItem">
+					<f:selectItems value="#{data.databaseProducts}" var="database"
+						itemLabel="#{database.name}" itemValue="#{database}" />
+					<p:ajax update="databaseDriverDropdown" listener="#{logic.update}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel for="databaseDriverDropdown" id="databaseDriverLabel"
+					value="Driver: " />
+				<p:selectOneMenu id="databaseDriverDropdown"
+					value="#{data.configData.driver}" converter="ivy.ListItem">
+					<f:selectItems value="#{data.databaseDrivers}" var="driver"
+						itemLabel="#{driver.name}" itemValue="#{driver}" />
+
+				</p:selectOneMenu>
+				<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
+				<p:inputText id="hostInput" value="#{data.configData.host}" />
+				<p:outputLabel for="portInput" id="portLabel" value="Port:" />
+				<h:column>
+					<p:inputText id="portInput" style="width: 70px;"
+						value="#{data.configData.port}" disabled="#{data.defaultPort}" />
+					<p:selectBooleanCheckbox id="defaultPortCheckbox"
+						style="margin-left: 5px; margin-top: 3px" itemLabel="Default"
+						value="#{data.defaultPort}">
+						<p:ajax listener="#{logic.setDefaultPort}"
+							update="form:accordionPanel:systemDatabaseComponent:portInput" />
+					</p:selectBooleanCheckbox>
+				</h:column>
+				<p:outputLabel for="databaseNameInput" id="databaseNameLabel"
+					value="Databasename:" />
+				<p:inputText id="databaseNameInput"
+					value="#{data.configData.databaseName}" />
+				<p:outputLabel for="usernameInput" id="usernameLabel"
+					value="Username:" />
+				<p:inputText id="usernameInput" value="#{data.configData.username}" />
+				<p:outputLabel for="passwordInput" id="passwordLabel"
+					value="Password:" />
+				<p:inputText id="passwordInput" value="#{data.configData.password}"
+					type="password" />
+			</h:panelGrid>
+		</p:fieldset>
+
+		<p:fieldset id="connectionsStateFieldSet" legend="Connection State">
+			<h:panelGrid columns="1" cellpadding="10">
+				<p:commandButton id="checkConnectionButton" value="Check Connection"
+					icon="fa fa-database" actionListener="#{logic.checkConnection}"
+					update="form" />
+				<p:commandButton id="createDatabaseButton" value="Create Database"
+					icon="fa fa-database" onclick="PF('createDatabaseDialog').show();" />
+			</h:panelGrid>
+		</p:fieldset>
+		<p:commandButton icon="fa fa-save" value="Save Configuration"
+			actionListener="#{logic.saveConfig}" />
+	</h:panelGrid>
+
+	<p:dialog id="createDatabaseDialog" widgetVar="createDatabaseDialog"
+		header="Create System Database" modal="true">
+		<h:outputText
+			value="Enter the required parameters for your System Database configuration:" />
+		<br />
+		<h:panelGrid columns="2" cellpadding="1">
+			<p:outputLabel for="databaseNameCreationParam"
+				value="Database Name: " />
+			<p:inputText id="databaseNameCreationParam"
+				value="#{data.configData.creationParameters['databaseName']}" />
+		</h:panelGrid>
+		<p:commandButton value="Create Database"
+			actionListener="#{logic.createDatabase}"
+			update="createDatabaseDialog,doUpdate"
+			onsuccess="PF('creatingDatabaseDialog').show()" />
+	</p:dialog>
+
+	<p:dialog id="creatingDatabaseDialog"
+		widgetVar="creatingDatabaseDialog" header="Creating System Database"
+		dynamic="true" modal="true" onShow="PF('creatingOutputPoll').start()">
+
+		<p:poll autoStart="false" id="creatingOutputPoll"
+			widgetVar="creatingOutputPoll" update="doUpdate" interval="1"
+			stop="#{!data.progressAction.running}" />
+		<h:panelGrid id="doUpdate" columns="1" style="width:100%;">
+
+			<h:outputText value="Your database is being created..." />
+
+			<p:progressBar id="progressbar" widgetVar="progressbar"
+				value="#{data.progressAction.progress/(data.progressAction.maxProgress/100)}" />
+			<br />
+			<br />
+			<h:outputText id="errorMessage"
+				value="#{data.progressAction.error.message}"
+				rendered="#{data.progressAction.error != null}" style="color: red;" />
+			<h:outputText id="finishMessage" value="Succesfully Finished!"
+				rendered="#{!data.progressAction.running and data.progressAction.error == null}"
+				style="font-weight:bold;" />
+		</h:panelGrid>
+	</p:dialog>
+</cc:implementation>
+</html>

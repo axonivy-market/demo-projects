@@ -1,0 +1,12 @@
+SystemDatabaseComponentData #class
+com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent #namespace
+databaseProducts List<ch.ivyteam.db.jdbc.DatabaseProduct> #field
+databaseProducts PERSISTENT #fieldModifier
+databaseDrivers List<ch.ivyteam.db.jdbc.JdbcDriver> #field
+databaseDrivers PERSISTENT #fieldModifier
+defaultPort Boolean #field
+defaultPort PERSISTENT #fieldModifier
+configData com.axonivy.engine.config.ui.settings.ConfigData #field
+configData PERSISTENT #fieldModifier
+progressAction ch.ivyteam.ivy.server.configuration.system.db.AbstractProgressAction #field
+progressAction PERSISTENT #fieldModifier

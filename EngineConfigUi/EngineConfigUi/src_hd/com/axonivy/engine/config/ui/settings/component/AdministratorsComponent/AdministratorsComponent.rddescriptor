@@ -4,22 +4,10 @@
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>
-        <inputParameter>
-            <name>data</name>
-            <description></description>
-            <parameterType>engine.config.ui.test.Data</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-        <outputParameter>
-            <name>data</name>
-            <description></description>
-            <parameterType>engine.config.ui.test.Data</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>
-        <value>157DC482A8B38B30</value>
+        <value>157E7BB4142BE5A5</value>
         <readOnly>true</readOnly>
     </property>
     <property>

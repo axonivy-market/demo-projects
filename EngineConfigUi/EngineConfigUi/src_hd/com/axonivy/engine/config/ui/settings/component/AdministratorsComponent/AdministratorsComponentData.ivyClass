@@ -1,0 +1,6 @@
+AdministratorsComponentData #class
+com.axonivy.engine.config.ui.settings.component.AdministratorsComponent #namespace
+administratorManager ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager #field
+administratorManager PERSISTENT #fieldModifier
+selectedAdministrator ch.ivyteam.ivy.security.Administrator #field
+selectedAdministrator PERSISTENT #fieldModifier

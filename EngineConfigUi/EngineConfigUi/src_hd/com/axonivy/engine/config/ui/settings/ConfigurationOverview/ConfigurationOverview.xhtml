@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">systemDatabase</ui:define>
+		<ui:define name="content">
+			<h3>Engine Configuration</h3>
+
+			<h:form id="form">
+				<h:panelGrid columns="2">
+					<f:facet name="header" />
+					<br />
+					<p:accordionPanel id="accordionPanel"
+						style="width: 1000px !important">
+						<p:tab id="systemDatabaseTab">
+							<f:facet name="title">
+								<h:outputText value="System Database " />
+								<i class="fa fa-database" />
+							</f:facet>
+							<ic:com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent
+								id="systemDatabaseComponent"/>
+						</p:tab>
+					</p:accordionPanel>
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
