@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.ivy.project</groupId>
 	<artifactId>workflowdemos.modules</artifactId>
-	<version>6.4.0-SNAPSHOT</version>
+	<version>6.5.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
