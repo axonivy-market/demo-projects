@@ -46,7 +46,7 @@
 	</distributionManagement>
 
 	<properties>
-		<engine.directory>${java.io.tmpdir}ivyEngine</engine.directory>
+		<engine.directory>${java.io.tmpdir}/ivyEngine</engine.directory>
 	</properties>
 
 	<build>

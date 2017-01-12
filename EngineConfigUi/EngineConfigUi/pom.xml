@@ -15,21 +15,34 @@
 	<version>6.5.0-SNAPSHOT</version>
 	<packaging>iar</packaging>
 
+	<properties>
+		<ivy.version>6.4.1-SNAPSHOT</ivy.version>
+		<tycho.version>0.23.1</tycho.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>ivy.sprint.release</id>
+			<layout>p2</layout>
+			<url>http://developer.axonivy.com/dev-releases/ivy/sprint-release/p2</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>ch.ivyteam.ivy</groupId>
 			<artifactId>ch.ivyteam.ivy.server.configuration</artifactId>
-			<version>${project.version}</version>
+			<version>${ivy.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.ivyteam.ivy</groupId>
 			<artifactId>ch.ivyteam.ivy.job</artifactId>
-			<version>${project.version}</version>
+			<version>${ivy.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.ivyteam.ivy</groupId>
 			<artifactId>ch.ivyteam.commons.lib</artifactId>
-			<version>${project.version}</version>
+			<version>${ivy.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.jayway.awaitility</groupId>
@@ -56,6 +69,12 @@
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
 				<extensions>true</extensions>
 			</plugin>
 		</plugins>
