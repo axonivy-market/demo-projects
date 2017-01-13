@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Nov 21 12:38:29 CET 2016]
-1523FF963044280C 3.18 #module
+[>Created: Thu Jan 12 12:56:09 CET 2017]
+1523FF963044280C 3.19 #module
 >Proto >Proto Collection #zClass
 ft0 KeyCardDelivery Big #zClass
 ft0 B #cInfo
@@ -55,6 +55,7 @@ ft0 f28 actionCode 'ivy.case.setBusinessObjectCode(out.user.userKey);
 ivy.case.setBusinessObjectName(out.user.name);' #txt
 ft0 f28 type workflow.signal.FacilityManagementData #txt
 ft0 f28 signalCode user:createdV2 #txt
+ft0 f28 attachToBusinessCase true #txt
 ft0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
