@@ -4,3 +4,11 @@ administratorManager ch.ivyteam.ivy.server.configuration.system.db.Administrator
 administratorManager PERSISTENT #fieldModifier
 selectedAdministrator ch.ivyteam.ivy.security.Administrator #field
 selectedAdministrator PERSISTENT #fieldModifier
+newPassword String #field
+newPassword PERSISTENT #fieldModifier
+newEMailAddress String #field
+newEMailAddress PERSISTENT #fieldModifier
+newName String #field
+newName PERSISTENT #fieldModifier
+newFullName String #field
+newFullName PERSISTENT #fieldModifier

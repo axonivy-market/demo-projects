@@ -10,34 +10,49 @@
 <cc:interface componentType="IvyComponent" />
 
 <cc:implementation>
-	<h:panelGrid columns="2" cellpadding="20" cellspacing="20">
-		<p:fieldset id="databaseFieldSet" legend="Administrators Overview">
-			<h:panelGrid columns="2" cellpadding="1">
-				<p:dataTable value="#{data.administratorManager.administrators}"
-					var="administrator" rowIndexVar="row"
-					paginator="#{data.administratorManager.administrators.size >= 25}"
-					paginatorPosition="bottom" rows="25" sortOrder="DESCENDING">
-					<p:column style="text-align:center" sortBy="#{administrator.name}">
-						<f:facet name="header">
-							Name
-						</f:facet>
-						<h:outputText value="#{administrator.name}" />
-					</p:column>
-					<p:column style="text-align:center">
-						<f:facet name="header">
-							Fullname
-						</f:facet>
-						<h:outputText value="#{administrator.fullName}" />
-					</p:column>
-					<p:column style="text-align:center">
-						<f:facet name="header">
-							Email Addess
-						</f:facet>
-						<h:outputText value="#{administrator.EMailAddress}" />
-					</p:column>
-				</p:dataTable>
-			</h:panelGrid>
-		</p:fieldset>
+	<h:panelGrid columns="1" cellpadding="1">
+		<p:dataTable id="adminDataTable"
+			value="#{data.administratorManager.administrators}"
+			var="administrator" rowIndexVar="row" rowKey="#{administrator.name}"
+			sortOrder="DESCENDING" selectionMode="single"
+			selection="#{data.selectedAdministrator}" style="border: none;">
+			<p:column headerText="Name" sortBy="#{administrator.name}">
+				<h:outputText value="#{administrator.name}" />
+			</p:column>
+			<p:column headerText="Fullname" sortBy="#{administrator.fullName}">
+				<h:outputText value="#{administrator.fullName}" />
+			</p:column>
+			<p:column headerText="Email Address"
+				sortBy="#{administrator.EMailAddress}">
+				<h:outputText value="#{administrator.EMailAddress}" />
+			</p:column>
+		</p:dataTable>
+		<h:column>
+			<p:commandButton icon="fa fa-save" value="Save List"
+				actionListener="#{logic.saveList}" update="form" />
+			<p:commandButton icon="fa fa-plus-circle" value="Add Administrator"
+				onclick="PF('addAdminDialog').show()" />
+			<p:commandButton icon="fa fa-minus-circle"
+				value="Remove Selected Administrator"
+				actionListener="#{logic.removeAdmin}" update="form" />
+		</h:column>
 	</h:panelGrid>
+	<p:dialog widgetVar="addAdminDialog" id="addAdminDialog"
+		header="New Administrator" modal="true">
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Name :" for="newName" />
+			<h:inputText id="newName" value="#{data.newName}" />
+			<h:outputLabel value="Fullname :" for="newFullname" />
+			<h:inputText id="newFullname" value="#{data.newFullName}" />
+			<h:outputLabel value="Email Address :" for="newEmail" />
+			<h:inputText id="newEmail" value="#{data.newEMailAddress}" />
+			<h:outputLabel value="Password :" for="newPassword" />
+			<h:inputSecret id="newPassword" value="#{data.newPassword}" />
+		</h:panelGrid>
+		<br />
+		<p:commandButton value="Add new Administrator" id="addAdmin"
+			icon="fa fa-plus-circle" actionListener="#{logic.addNewAdmin}"
+			update="form:accordionPanel:administratorsComponent:adminDataTable, addAdminDialog" />
+	</p:dialog>
 </cc:implementation>
 </html>

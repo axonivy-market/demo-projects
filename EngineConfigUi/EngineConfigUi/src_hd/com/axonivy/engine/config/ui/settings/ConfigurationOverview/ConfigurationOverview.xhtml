@@ -18,17 +18,26 @@
 					<f:facet name="header" />
 					<br />
 					<p:accordionPanel id="accordionPanel"
-						style="width: 1000px !important">
+						style="width: 1000px !important" dynamic="true">
 						<p:tab id="systemDatabaseTab">
 							<f:facet name="title">
 								<h:outputText value="System Database " />
 								<i class="fa fa-database" />
 							</f:facet>
 							<ic:com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent
-								id="systemDatabaseComponent"/>
+								id="systemDatabaseComponent" />
+						</p:tab>
+						<p:tab id="administratorsTab">
+							<f:facet name="title">
+								<h:outputText value="Administrators " />
+								<i class="fa fa-user-secret" />
+							</f:facet>
+							<ic:com.axonivy.engine.config.ui.settings.component.AdministratorsComponent
+								id="administratorsComponent" />
 						</p:tab>
 					</p:accordionPanel>
 				</h:panelGrid>
+<!-- 				<p:defaultCommand target="placeholder" /> <p:commandButton id="placeholder" value="a" rendered="false"/> -->
 			</h:form>
 		</ui:define>
 	</ui:composition>
