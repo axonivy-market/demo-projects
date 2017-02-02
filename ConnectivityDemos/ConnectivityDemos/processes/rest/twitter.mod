@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Dec 20 15:50:59 CET 2016]
-1547634C396BBB3A 3.19 #module
+[>Created: Thu Feb 02 14:01:22 CET 2017]
+1547634C396BBB3A 3.20 #module
 >Proto >Proto Collection #zClass
 ct0 twitter Big #zClass
 ct0 B #cInfo
@@ -153,18 +153,13 @@ and returns a complex result</name>
 ct0 f11 312 34 208 60 -101 -24 #rect
 ct0 f11 @|IBIcon #fIcon
 ct0 f13 clientId 066a1b8c-f787-4540-9496-f1f2ecc9a1b1 #txt
-ct0 f13 clientCode 'import ch.ivyteam.ivy.rest.client.GenericTypes;
-import com.twitter.status.gson.UserTimeline;
-import javax.ws.rs.core.Response;
-
-Response response = client
-			.path("statuses/user_timeline.json")
-			.queryParam("screen_name","Axonivy")
-			.request().get();
-			
-ivy.log.info(response);
-out.userTimelines = response
-	.readEntity(GenericTypes.listOf(UserTimeline.class)) as List<UserTimeline>;' #txt
+ct0 f13 path statuses/user_timeline.json #txt
+ct0 f13 queryParams 'screen_name="AxonIvy";
+' #txt
+ct0 f13 method GET #txt
+ct0 f13 resultType java.util.List<com.twitter.status.gson.UserTimeline> #txt
+ct0 f13 responseCode 'ivy.log.info(response);
+out.userTimelines = result;' #txt
 ct0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

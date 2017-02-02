@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Dec 20 15:37:01 CET 2016]
-157B33AB7587F1F1 3.19 #module
+[>Created: Thu Feb 02 13:53:25 CET 2017]
+157B33AB7587F1F1 3.20 #module
 >Proto >Proto Collection #zClass
 be0 batchService Big #zClass
 be0 B #cInfo
@@ -77,10 +77,9 @@ jersey.config.client.connectTimeout=1''000
 be0 f5 200 122 320 156 -155 -73 #rect
 be0 f5 @|IBIcon #fIcon
 be0 f6 clientId b0a5f371-e479-444d-b71c-af1fff4c084d #txt
-be0 f6 clientCode 'String entity = client.request().get()
-									 .readEntity(String.class) as String;
-									
-ivy.log.info("batch service returned: "+entity);' #txt
+be0 f6 method GET #txt
+be0 f6 resultType java.lang.String #txt
+be0 f6 responseCode 'ivy.log.info("batch service returned: "+result);' #txt
 be0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

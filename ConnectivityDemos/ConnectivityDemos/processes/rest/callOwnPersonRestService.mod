@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Dec 20 15:40:44 CET 2016]
-154616078A1D629D 3.19 #module
+[>Created: Thu Feb 02 13:58:23 CET 2017]
+154616078A1D629D 3.20 #module
 >Proto >Proto Collection #zClass
 ce0 callOwnPersonRestService Big #zClass
 ce0 B #cInfo
@@ -153,13 +153,9 @@ ce0 f12 344 178 256 44 -121 -16 #rect
 ce0 f12 @|IBIcon #fIcon
 ce0 f13 344 200 264 248 #arcP
 ce0 f14 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
-ce0 f14 clientCode 'import java.util.UUID;
-import com.axonivy.connectivity.Person;
-import ch.ivyteam.ivy.rest.client.GenericTypes;
-
-List<Person> persons = client
-	.request().get(GenericTypes.listOf(Person.class)) as List<Person>;
-ivy.log.info(persons);' #txt
+ce0 f14 method GET #txt
+ce0 f14 resultType java.util.List<com.axonivy.connectivity.Person> #txt
+ce0 f14 responseCode ivy.log.info(result); #txt
 ce0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
