@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Feb 02 15:24:36 CET 2016]
-15254DF5837F8B00 3.18 #module
+[>Created: Tue Feb 07 10:11:10 CET 2017]
+15254DF5837F8B00 3.20 #module
 >Proto >Proto Collection #zClass
 Es0 EnterRequestProcess Big #zClass
 Es0 RD #cInfo
@@ -78,8 +78,14 @@ Es0 f6 actionDecl 'workflow.humantask.EnterRequest.EnterRequestData out;
 Es0 f6 actionTable 'out=in;
 out.procurementRequestData=new workflow.humantask.ProcurementRequest();
 out.procurementRequestData.requester.email=ivy.session.getSessionUser().eMailAddress;
-out.procurementRequestData.requester.fullname=ivy.session.getSessionUser().fullName;
 ' #txt
+Es0 f6 actionCode 'import org.apache.commons.lang3.StringUtils;
+
+
+if (StringUtils.isBlank(out.procurementRequestData.requester.email))
+{
+	out.procurementRequestData.requester.email = "developer@axonivy.com";
+}' #txt
 Es0 f6 type workflow.humantask.EnterRequest.EnterRequestData #txt
 Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
