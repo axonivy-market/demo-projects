@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Mon Jan 16 15:16:59 CET 2017]
-157E7BB4142F9EFB 3.19 #module
+[>Created: Tue Feb 14 14:29:35 CET 2017]
+157E7BB4142F9EFB 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 AdministratorsComponentProcess Big #zClass
 Ss0 RD #cInfo
@@ -18,8 +18,6 @@ Ss0 @TextInP .responsibility .responsibility #zField
 Ss0 @RichDialogInitStart f0 '' #zField
 Ss0 @RichDialogProcessEnd f1 '' #zField
 Ss0 @GridStep f6 '' #zField
-Ss0 @PushWFArc f7 '' #zField
-Ss0 @PushWFArc f2 '' #zField
 Ss0 @RichDialogProcessStart f11 '' #zField
 Ss0 @RichDialogProcessEnd f12 '' #zField
 Ss0 @GridStep f14 '' #zField
@@ -35,6 +33,11 @@ Ss0 @RichDialogProcessEnd f25 '' #zField
 Ss0 @GridStep f27 '' #zField
 Ss0 @PushWFArc f28 '' #zField
 Ss0 @PushWFArc f26 '' #zField
+Ss0 @RichDialogMethodStart f3 '' #zField
+Ss0 @RichDialogProcessEnd f4 '' #zField
+Ss0 @PushWFArc f8 '' #zField
+Ss0 @PushWFArc f5 '' #zField
+Ss0 @PushWFArc f7 '' #zField
 >Proto Ss0 Ss0 AdministratorsComponentProcess #zField
 Ss0 f0 guid 157E7518F76CF891 #txt
 Ss0 f0 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
@@ -60,24 +63,43 @@ Ss0 f1 @|RichDialogProcessEndIcon #fIcon
 Ss0 f6 actionDecl 'com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData out;
 ' #txt
 Ss0 f6 actionTable 'out=in;
-out.administratorManager=com.axon.ivy.engine.config.SystemDatabaseSettings.getSystemDb().getAdministratorManager();
 ' #txt
+Ss0 f6 actionCode 'import com.axonivy.engine.config.ui.settings.ConfigData;
+import com.axon.ivy.engine.config.SystemDatabaseConnecting;
+import com.axon.ivy.engine.config.SystemDatabaseSettings;
+
+ConfigData configData = SystemDatabaseSettings.loadConfigData();
+
+if (configData != in.currentConfigData)
+{
+  ivy.log.debug("updated");
+	out.currentConfigData = configData;
+	try
+	{
+		out.administratorManager = SystemDatabaseSettings.getAdministratorManager();
+		out.connectionOK = true;
+	}
+	catch(Exception ex)
+	{
+		out.connectionOK = false;	
+	}
+}
+else
+{
+  ivy.log.debug("NOT updated");
+}' #txt
 Ss0 f6 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
 Ss0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Init</name>
-        <nameStyle>4,7
+        <name>Init </name>
+        <nameStyle>5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f6 168 42 112 44 -8 -8 #rect
+Ss0 f6 168 426 112 44 -9 -8 #rect
 Ss0 f6 @|StepIcon #fIcon
-Ss0 f7 expr out #txt
-Ss0 f7 109 64 168 64 #arcP
-Ss0 f2 expr out #txt
-Ss0 f2 280 64 339 64 #arcP
 Ss0 f11 guid 159A6B937AA7C399 #txt
 Ss0 f11 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
 Ss0 f11 actionDecl 'com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData out;
@@ -192,14 +214,37 @@ Ss0 f28 expr out #txt
 Ss0 f28 109 360 168 360 #arcP
 Ss0 f26 expr out #txt
 Ss0 f26 280 360 339 360 #arcP
+Ss0 f3 guid 15A3CC677B53EC3D #txt
+Ss0 f3 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
+Ss0 f3 method update(javax.faces.event.ComponentSystemEvent) #txt
+Ss0 f3 disableUIEvents false #txt
+Ss0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<javax.faces.event.ComponentSystemEvent event> param = methodEvent.getInputArguments();
+' #txt
+Ss0 f3 outParameterDecl '<> result;
+' #txt
+Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>update(ComponentSystemEvent)</name>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f3 83 435 26 26 -91 12 #rect
+Ss0 f3 @|RichDialogMethodStartIcon #fIcon
+Ss0 f4 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
+Ss0 f4 339 435 26 26 0 12 #rect
+Ss0 f4 @|RichDialogProcessEndIcon #fIcon
+Ss0 f8 expr out #txt
+Ss0 f8 109 448 168 448 #arcP
+Ss0 f5 expr out #txt
+Ss0 f5 109 64 339 64 #arcP
+Ss0 f7 expr out #txt
+Ss0 f7 280 448 339 448 #arcP
 >Proto Ss0 .type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
 >Proto Ss0 '' #fIcon
-Ss0 f0 mainOut f7 tail #connect
-Ss0 f7 head f6 mainIn #connect
-Ss0 f6 mainOut f2 tail #connect
-Ss0 f2 head f1 mainIn #connect
 Ss0 f11 mainOut f15 tail #connect
 Ss0 f15 head f14 mainIn #connect
 Ss0 f14 mainOut f13 tail #connect
@@ -212,3 +257,9 @@ Ss0 f24 mainOut f28 tail #connect
 Ss0 f28 head f27 mainIn #connect
 Ss0 f27 mainOut f26 tail #connect
 Ss0 f26 head f25 mainIn #connect
+Ss0 f3 mainOut f8 tail #connect
+Ss0 f8 head f6 mainIn #connect
+Ss0 f0 mainOut f5 tail #connect
+Ss0 f5 head f1 mainIn #connect
+Ss0 f6 mainOut f7 tail #connect
+Ss0 f7 head f4 mainIn #connect

@@ -10,12 +10,15 @@
 <cc:interface componentType="IvyComponent" />
 
 <cc:implementation>
-	<h:panelGrid columns="1" cellpadding="1">
+  <f:event type="preRenderView" listener="#{logic.update}"/>
+	<h:panelGrid columns="1" cellpadding="1"
+		rendered="#{data.connectionOK}">
 		<p:dataTable id="adminDataTable"
 			value="#{data.administratorManager.administrators}"
 			var="administrator" rowIndexVar="row" rowKey="#{administrator.name}"
 			sortOrder="DESCENDING" selectionMode="single"
-			selection="#{data.selectedAdministrator}" style="border: none;">
+			selection="#{data.selectedAdministrator}" style="border: none;"
+			emptyMessage="No Administrators found!">
 			<p:column headerText="Name" sortBy="#{administrator.name}">
 				<h:outputText value="#{administrator.name}" />
 			</p:column>
@@ -37,6 +40,11 @@
 				actionListener="#{logic.removeAdmin}" update="form" />
 		</h:column>
 	</h:panelGrid>
+
+	<h:outputText rendered="#{!data.connectionOK}">
+		Please insert a valid System-Db-Connection!!
+	</h:outputText>
+
 	<p:dialog widgetVar="addAdminDialog" id="addAdminDialog"
 		header="New Administrator" modal="true">
 		<h:panelGrid columns="2">

@@ -1,6 +1,7 @@
 package com.axon.ivy.engine.config;
 
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import ch.ivyteam.ivy.server.configuration.system.db.IConnectionListener;
@@ -16,7 +17,13 @@ public class SystemDatabaseConnecting
   {
     BlockingListener listener = new BlockingListener();
     SystemDatabaseConnectionTester tester = SystemDatabaseSettings.testConnection(configData, listener);
-    WaitUtil.await(() -> listener.gotResult, 20, TimeUnit.SECONDS);
+    try{      
+      WaitUtil.await(() -> listener.gotResult, 10, TimeUnit.SECONDS);
+    }
+    catch(TimeoutException ex)
+    {
+      return ConnectionState.CONNECTION_FAILED;
+    }
     return tester.getConnectionState();
   }
 

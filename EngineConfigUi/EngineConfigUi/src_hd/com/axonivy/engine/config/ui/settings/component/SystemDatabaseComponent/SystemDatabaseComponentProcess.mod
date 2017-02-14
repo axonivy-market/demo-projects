@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Jan 10 16:51:52 CET 2017]
-157E7518F66E24A9 3.19 #module
+[>Created: Tue Feb 14 14:03:21 CET 2017]
+157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
 Ss0 RD #cInfo
@@ -45,6 +45,16 @@ Ss0 @PushWFArc f35 '' #zField
 Ss0 @GridStep f40 '' #zField
 Ss0 @PushWFArc f41 '' #zField
 Ss0 @PushWFArc f42 '' #zField
+Ss0 @RichDialogProcessStart f3 '' #zField
+Ss0 @RichDialogProcessEnd f4 '' #zField
+Ss0 @GridStep f20 '' #zField
+Ss0 @PushWFArc f21 '' #zField
+Ss0 @PushWFArc f5 '' #zField
+Ss0 @RichDialogProcessStart f27 '' #zField
+Ss0 @RichDialogProcessEnd f38 '' #zField
+Ss0 @GridStep f39 '' #zField
+Ss0 @PushWFArc f43 '' #zField
+Ss0 @PushWFArc f44 '' #zField
 >Proto Ss0 Ss0 SystemDatabaseComponentProcess #zField
 Ss0 f0 guid 157E7518F76CF891 #txt
 Ss0 f0 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
@@ -204,12 +214,10 @@ Ss0 f31 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 Ss0 f31 actionTable 'out=in;
 ' #txt
 Ss0 f31 actionCode 'import ch.ivyteam.db.jdbc.JdbcDriver;
-ivy.log.fatal(in.configData.driver);
 for(ch.ivyteam.db.jdbc.ConnectionProperty prop : in.configData.driver.getConnectionConfigurator().getDatabaseConnectionProperties())
 {
 	if(prop.getName()=="ch.ivyteam.jdbc.Port")
 	{	
-		ivy.log.debug(prop.getDefaultValue());
 		in.configData.port = prop.getDefaultValue();
 	}
 }' #txt
@@ -257,7 +265,9 @@ Ss0 f40 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 Ss0 f40 actionTable 'out=in;
 ' #txt
 Ss0 f40 actionCode 'import com.axon.ivy.engine.config.SystemDatabaseSettings;
-in.progressAction = SystemDatabaseSettings.createDatabase(in.configData);' #txt
+ivy.log.debug(in.configData.creationParameters);
+in.progressAction = SystemDatabaseSettings.createDatabase(in.configData);
+ivy.log.debug(in.configData.creationParameters);' #txt
 Ss0 f40 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f40 168 330 112 44 0 -8 #rect
 Ss0 f40 @|StepIcon #fIcon
@@ -265,6 +275,70 @@ Ss0 f41 expr out #txt
 Ss0 f41 109 352 168 352 #arcP
 Ss0 f42 expr out #txt
 Ss0 f42 280 352 339 352 #arcP
+Ss0 f3 guid 159A7F2D3C4139E2 #txt
+Ss0 f3 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f3 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f3 actionTable 'out=in;
+' #txt
+Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>convertDb</name>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f3 83 627 26 26 -27 12 #rect
+Ss0 f3 @|RichDialogProcessStartIcon #fIcon
+Ss0 f4 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f4 339 627 26 26 0 12 #rect
+Ss0 f4 @|RichDialogProcessEndIcon #fIcon
+Ss0 f20 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f20 actionTable 'out=in;
+' #txt
+Ss0 f20 actionCode 'import com.axon.ivy.engine.config.SystemDatabaseSettings;
+SystemDatabaseSettings.convertDatabase(SystemDatabaseSettings.loadConfigData());' #txt
+Ss0 f20 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f20 168 618 112 44 0 -8 #rect
+Ss0 f20 @|StepIcon #fIcon
+Ss0 f21 expr out #txt
+Ss0 f21 109 640 168 640 #arcP
+Ss0 f5 expr out #txt
+Ss0 f5 280 640 339 640 #arcP
+Ss0 f27 guid 15A3800DE41A8545 #txt
+Ss0 f27 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f27 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f27 actionTable 'out=in;
+' #txt
+Ss0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>applyProperties</name>
+        <nameStyle>15,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f27 83 724 26 26 -43 15 #rect
+Ss0 f27 @|RichDialogProcessStartIcon #fIcon
+Ss0 f38 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f38 339 724 26 26 0 12 #rect
+Ss0 f38 @|RichDialogProcessEndIcon #fIcon
+Ss0 f39 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f39 actionTable 'out=in;
+' #txt
+Ss0 f39 actionCode 'out.configData.creationParameters.remove("databaseName");
+out.configData.creationParameters.put("databaseName", in.configData.databaseName);' #txt
+Ss0 f39 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f39 168 715 112 44 0 -8 #rect
+Ss0 f39 @|StepIcon #fIcon
+Ss0 f43 expr out #txt
+Ss0 f43 280 737 339 737 #arcP
+Ss0 f44 expr out #txt
+Ss0 f44 109 737 168 737 #arcP
 >Proto Ss0 .type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -293,3 +367,11 @@ Ss0 f41 head f40 mainIn #connect
 Ss0 f42 head f19 mainIn #connect
 Ss0 f18 mainOut f41 tail #connect
 Ss0 f40 mainOut f42 tail #connect
+Ss0 f3 mainOut f21 tail #connect
+Ss0 f21 head f20 mainIn #connect
+Ss0 f20 mainOut f5 tail #connect
+Ss0 f5 head f4 mainIn #connect
+Ss0 f27 mainOut f44 tail #connect
+Ss0 f44 head f39 mainIn #connect
+Ss0 f39 mainOut f43 tail #connect
+Ss0 f43 head f38 mainIn #connect

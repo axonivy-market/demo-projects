@@ -65,11 +65,16 @@
 					icon="fa fa-database" actionListener="#{logic.checkConnection}"
 					update="form" />
 				<p:commandButton id="createDatabaseButton" value="Create Database"
-					icon="fa fa-database" onclick="PF('createDatabaseDialog').show();" />
+					actionListener="#{logic.applyProperties}"
+					oncomplete="PF('createDatabaseDialog').show()"
+					icon="fa fa-database" update="form"/>
+				<p:commandButton id="convertDbButton" value="Convert Database"
+					icon="fa fa-database" actionListener="#{logic.convertDb}"
+					update="form" />
 			</h:panelGrid>
 		</p:fieldset>
 		<p:commandButton icon="fa fa-save" value="Save Configuration"
-			actionListener="#{logic.saveConfig}" />
+			actionListener="#{logic.saveConfig}" update="form"/>
 	</h:panelGrid>
 
 	<p:dialog id="createDatabaseDialog" widgetVar="createDatabaseDialog"
@@ -86,7 +91,7 @@
 		<p:commandButton value="Create Database"
 			actionListener="#{logic.createDatabase}"
 			update="createDatabaseDialog,doUpdate"
-			onsuccess="PF('creatingDatabaseDialog').show()" />
+			onsuccess="PF('creatingDatabaseDialog').show()" id="dialogCreateDbButton"/>
 	</p:dialog>
 
 	<p:dialog id="creatingDatabaseDialog"

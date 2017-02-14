@@ -12,3 +12,7 @@ newName String #field
 newName PERSISTENT #fieldModifier
 newFullName String #field
 newFullName PERSISTENT #fieldModifier
+connectionOK Boolean #field
+connectionOK PERSISTENT #fieldModifier
+currentConfigData com.axonivy.engine.config.ui.settings.ConfigData #field
+currentConfigData PERSISTENT #fieldModifier

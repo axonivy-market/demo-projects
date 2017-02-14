@@ -11,11 +11,15 @@ import ch.ivyteam.db.jdbc.ConnectionProperty;
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
 import ch.ivyteam.db.jdbc.JdbcDriver;
 import ch.ivyteam.ivy.persistence.db.DatabaseCreationParameter;
+import ch.ivyteam.ivy.persistence.db.DatabasePersistencyService;
 import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
 import ch.ivyteam.ivy.server.configuration.Configuration;
+import ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager;
+import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import ch.ivyteam.ivy.server.configuration.system.db.IConnectionListener;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabase;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConnectionTester;
+import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConverter;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 
 import com.axonivy.engine.config.ui.settings.ConfigData;
@@ -57,8 +61,8 @@ public class SystemDatabaseSettings
   public static SystemDatabaseCreator createDatabase(ConfigData configData)
           throws Exception
   {
-      DatabaseConnectionConfiguration currentConfig = createConfiguration(configData);
-      return startSystemDatabaseCreation(currentConfig, configData.getCreationParameters());
+    DatabaseConnectionConfiguration currentConfig = createConfiguration(configData);
+    return startSystemDatabaseCreation(currentConfig, configData.getCreationParameters());
   }
 
   private static SystemDatabaseCreator startSystemDatabaseCreation(
@@ -91,7 +95,23 @@ public class SystemDatabaseSettings
     return creator;
   }
 
-  private static SystemDatabase getSystemDb()
+  public static SystemDatabaseConverter convertDatabase(ConfigData configData)
+          throws Exception
+  {
+    DatabaseConnectionConfiguration currentConfig = createConfiguration(configData);
+    return startSystemDatabaseConversion(currentConfig, DatabasePersistencyService.DATABASE_VERSION);
+  }
+
+  private static SystemDatabaseConverter startSystemDatabaseConversion(
+          DatabaseConnectionConfiguration dbConfig, int dbVersion)
+  {
+    SystemDatabaseConverter converter = SystemDatabaseConverter.createSystemDatabaseConverter(dbConfig,
+            dbVersion);
+    converter.start();
+    return converter;
+  }
+
+  public static SystemDatabase getSystemDb()
   {
     if (systemDatabase != null)
     {
@@ -203,5 +223,17 @@ public class SystemDatabaseSettings
     List<DatabaseCreationParameter> dbCreationParameters = DatabasePersistencyServiceFactory
             .createDatabaseCreator(currentConfig).getDatabaseCreationParameters();
     return dbCreationParameters;
+  }
+
+  public static AdministratorManager getAdministratorManager() throws Exception
+  {
+    if (SystemDatabaseConnecting.testConnection(loadConfigData()).equals(ConnectionState.CONNECTED))
+    {
+      return SystemDatabase.getSystemDatabase().getAdministratorManager();
+    }
+    else
+    {
+      throw new Exception("Not connected");
+    }
   }
 }
