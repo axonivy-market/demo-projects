@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import mockit.NonStrictExpectations;
 
+import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,6 +21,8 @@ import com.axonivy.engine.config.ui.settings.ConfigData;
 
 public class TestSystemDatabaseSettings
 {
+
+  private static String DBName;
 
   @Before
   public void setUp()
@@ -44,7 +47,7 @@ public class TestSystemDatabaseSettings
             ConnectionState.CONNECTION_FAILED);
 
     Properties properties = new Properties();
-    properties.put("databaseName", "temp_dhu_axivy_6.4.1_53127_testing_123");
+    properties.put("databaseName", DBName);
     configData.setCreationParameters(properties);
     SystemDatabaseConnecting.createDatabase(configData);
     assertThat(SystemDatabaseConnecting.testConnection(configData)).isEqualTo(ConnectionState.CONNECTED);
@@ -56,7 +59,7 @@ public class TestSystemDatabaseSettings
   {
     ConfigData configData = getLocalMySqlSettings();
     Properties properties = new Properties();
-    properties.put("databaseName", "temp_dhu_axivy_6.4.1_53127_testing");
+    properties.put("databaseName", DBName + "_newCreation");
     configData.setCreationParameters(properties);
     SystemDatabaseConnecting.createDatabase(configData);
   }
@@ -71,11 +74,12 @@ public class TestSystemDatabaseSettings
   {
     ConfigData configData = new ConfigData();
     configData.setProduct(DatabaseProduct.MYSQL);
-    configData.setHost("localhost");
-    configData.setUsername("tstuser");
-    configData.setPassword("X.ivyi1.k");
+    configData.setHost("zugtstdbsmys");
+    configData.setUsername("admin");
+    configData.setPassword("nimda");
     configData.setPort("3306");
-    configData.setDatabaseName("temp_dhu_axivy_6.4.1_53127_testing_123");
+    DBName= "tmp_engineConfigUi_testing_"+ ((Integer)RandomUtils.nextInt()).toString();
+    configData.setDatabaseName(DBName);
     JdbcDriver[] jdbcDriversForDriverName = JdbcDriver.getJdbcDriversForDriverName("com.mysql.jdbc.Driver");
     configData.setDriver(jdbcDriversForDriverName[0]);
     return configData;
