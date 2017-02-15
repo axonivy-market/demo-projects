@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Dec 20 15:34:30 CET 2016]
-1549FE9E911A1812 3.19 #module
+[>Created: Tue Feb 14 14:14:16 CET 2017]
+1549FE9E911A1812 3.20 #module
 >Proto >Proto Collection #zClass
 al0 approval Big #zClass
 al0 B #cInfo
@@ -161,20 +161,13 @@ al0 f13 224 62 128 113 #arcP
 al0 f13 1 128 88 #addKink
 al0 f13 0 0.6265821825077568 0 0 #arcLabel
 al0 f14 clientId e61c6d1f-106e-46ea-8327-fe18e4c1d912 #txt
-al0 f14 clientCode 'import javax.ws.rs.client.Entity;
-import com.fasterxml.jackson.databind.JsonNode;
-import javax.ws.rs.core.MultivaluedHashMap;
-import javax.ws.rs.core.MultivaluedMap;
-
-MultivaluedMap map = new MultivaluedHashMap();
-map.add("title","I need a new car");
-map.add("description", "really, I''m sick of my old Fiat Punto");
-
-JsonNode result = client.request()
-	.put(Entity.form(map))
-	.readEntity(JsonNode.class) as JsonNode;
-	
-ivy.log.info(result);' #txt
+al0 f14 method PUT #txt
+al0 f14 bodyInputType FORM #txt
+al0 f14 bodyForm 'title="I need a new car";
+description="really, I''m sick of my old Fiat Punto";
+' #txt
+al0 f14 resultType com.fasterxml.jackson.databind.JsonNode #txt
+al0 f14 responseCode ivy.log.info(result); #txt
 al0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
