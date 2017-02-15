@@ -10,3 +10,5 @@ configData com.axonivy.engine.config.ui.settings.ConfigData #field
 configData PERSISTENT #fieldModifier
 progressAction ch.ivyteam.ivy.server.configuration.system.db.AbstractProgressAction #field
 progressAction PERSISTENT #fieldModifier
+convertionAvailable Boolean #field
+convertionAvailable PERSISTENT #fieldModifier

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 14 14:03:21 CET 2017]
+[>Created: Wed Feb 15 10:53:53 CET 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -80,6 +80,7 @@ Ss0 f1 @|RichDialogProcessEndIcon #fIcon
 Ss0 f6 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
 ' #txt
 Ss0 f6 actionTable 'out=in;
+out.convertionAvailable=false;
 ' #txt
 Ss0 f6 actionCode 'import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
@@ -165,7 +166,16 @@ import com.axon.ivy.engine.config.SystemDatabaseConnecting;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 
 ConnectionState state = SystemDatabaseConnecting.testConnection(in.configData);
-UiModder.updateUiPopUp(state);' #txt
+UiModder.updateUiPopUp(state);
+if ((ConnectionState.CONNECTED_WRONG_OLDER_VERSION.toString().equalsIgnoreCase(state.toString())) || 
+			(ConnectionState.CONNECTED_WRONG_NEWER_VERSION.toString().equalsIgnoreCase(state.toString())))
+{
+	out.convertionAvailable = true;
+}
+else
+{
+	out.convertionAvailable = false;
+}' #txt
 Ss0 f16 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f16 168 234 112 44 0 -8 #rect
 Ss0 f16 @|StepIcon #fIcon
@@ -296,9 +306,10 @@ Ss0 f4 @|RichDialogProcessEndIcon #fIcon
 Ss0 f20 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
 ' #txt
 Ss0 f20 actionTable 'out=in;
+out.convertionAvailable=false;
 ' #txt
 Ss0 f20 actionCode 'import com.axon.ivy.engine.config.SystemDatabaseSettings;
-SystemDatabaseSettings.convertDatabase(SystemDatabaseSettings.loadConfigData());' #txt
+in.progressAction = SystemDatabaseSettings.convertDatabase(SystemDatabaseSettings.loadConfigData());' #txt
 Ss0 f20 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f20 168 618 112 44 0 -8 #rect
 Ss0 f20 @|StepIcon #fIcon
