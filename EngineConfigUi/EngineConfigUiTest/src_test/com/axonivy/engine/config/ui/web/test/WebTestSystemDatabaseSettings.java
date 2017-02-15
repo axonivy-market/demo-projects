@@ -37,6 +37,7 @@ public class WebTestSystemDatabaseSettings
     prime = new PrimeUi(driver);
     ajax = new AjaxHelper(driver);
     String processStartLink = getProcessStartLink("EngineConfigUi/157E64657EEBDD9C/start.ivp");
+    System.out.println("ProcessStartlink: " + processStartLink);
     driver.get(processStartLink);
   }
 
@@ -44,7 +45,6 @@ public class WebTestSystemDatabaseSettings
   public void tearDown() throws Exception
   {
     driver.quit();
-    dropDatabase();
   }
 
   @Test
@@ -55,6 +55,8 @@ public class WebTestSystemDatabaseSettings
 
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("form:accordionPanel:systemDatabaseComponent:finishMessage"), "Succesfully Finished!"));
+    
+    dropDatabase();
   }
 
   @Test
@@ -70,10 +72,13 @@ public class WebTestSystemDatabaseSettings
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("form:accordionPanel:systemDatabaseComponent:growl_container"),
             "Connection was established"));
+    
+    dropDatabase();
   }
 
   private void setConfig()
   {
+    System.out.println(driver.getPageSource());
     prime.selectOne(By.id("form:accordionPanel:systemDatabaseComponent:databaseTypeDropdown"))
             .selectItemByLabel("MySQL");
     prime.selectOne(By.id("form:accordionPanel:systemDatabaseComponent:databaseDriverDropdown"))
