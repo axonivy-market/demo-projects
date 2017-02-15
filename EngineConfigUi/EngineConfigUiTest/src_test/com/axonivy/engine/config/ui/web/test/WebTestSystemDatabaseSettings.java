@@ -1,6 +1,14 @@
 package com.axonivy.engine.config.ui.web.test;
 
+import static com.axonivy.engine.config.ui.web.test.ServerControl.getProcessStartLink;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import org.apache.commons.lang.math.RandomUtils;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -14,9 +22,13 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 
 public class WebTestSystemDatabaseSettings
 {
+  private static String DBNAME;
   private WebDriver driver;
   private PrimeUi prime;
   private AjaxHelper ajax;
+  private String USERNAME = "admin";
+  private String PASSWORD = "nimda";
+  private String connectionUrl = "jdbc:mysql://zugtstdbsmys:3306/";
 
   @Before
   public void setUp()
@@ -24,11 +36,19 @@ public class WebTestSystemDatabaseSettings
     driver = new HtmlUnitDriver(true);
     prime = new PrimeUi(driver);
     ajax = new AjaxHelper(driver);
-    driver.get("http://localhost:8081/ivy/pro/designer/EngineConfigUi/157E64657EEBDD9C/start.ivp");
+    String processStartLink = getProcessStartLink("EngineConfigUi/157E64657EEBDD9C/start.ivp");
+    driver.get(processStartLink);
+  }
+
+  @After
+  public void tearDown() throws Exception
+  {
+    driver.quit();
+    dropDatabase();
   }
 
   @Test
-  public void testSystemDbCreation()
+  public void testSystemDbCreation() throws Exception
   {
     setConfig();
     createSysDb();
@@ -38,7 +58,7 @@ public class WebTestSystemDatabaseSettings
   }
 
   @Test
-  public void testSystemDbConnection()
+  public void testSystemDbConnection() throws Exception
   {
     setConfig();
     createSysDb();
@@ -66,17 +86,27 @@ public class WebTestSystemDatabaseSettings
             By.id("form:accordionPanel:systemDatabaseComponent:defaultPortCheckbox_input"))
             .setChecked();
 
+    DBNAME = "tmp_engineConfigUi_testing_" + ((Integer) RandomUtils.nextInt()).toString();
     clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:databaseNameInput"),
-            "tmp_engineConfigUi_testing_" + ((Integer) RandomUtils.nextInt()).toString());
+            DBNAME);
 
-    clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:usernameInput"), "admin");
-    clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:passwordInput"), "nimda");
+    clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:usernameInput"), USERNAME);
+    clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:passwordInput"), PASSWORD);
   }
 
   private void clearAndSend(By by, String string)
   {
     driver.findElement(by).clear();
     driver.findElement(by).sendKeys(string);
+  }
+
+  private void dropDatabase() throws SQLException
+  {
+    String command = "DROP DATABASE " + DBNAME;
+    Connection con = DriverManager.getConnection(connectionUrl, USERNAME, PASSWORD);
+    Statement stmt = con.createStatement();
+    stmt.executeUpdate(command);
+    con.close();
   }
 
   private void createSysDb()
