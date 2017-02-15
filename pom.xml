@@ -16,7 +16,7 @@
 		<module>ServerConfiguration</module>
 		<module>WorkflowDemos</module>
 		<module>ConnectivityDemos</module>
-		<!-- <module>EngineConfigUi</module> -->
+		<module>EngineConfigUi/EngineConfigUi</module>
 
 		<!-- workflow: -->
 		<module>JsfWorkflowUi</module>
