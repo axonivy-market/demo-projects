@@ -22,9 +22,9 @@ public class BaseWebTest
   private static final String PASSWORD = "nimda";
   private static final String connectionUrl = "jdbc:mysql://zugtstdbsmys:3306/";
 
-  protected String DBNAME;
+  private String DBNAME;
   protected WebDriver driver;
-  private PrimeUi prime;
+  protected PrimeUi prime;
   private AjaxHelper ajax;
 
   @Before
@@ -94,6 +94,18 @@ public class BaseWebTest
 
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("form:accordionPanel:systemDatabaseComponent:finishMessage"), "Succesfully Finished!"));
+    driver.findElement(
+            By.xpath("//*[@id='form:accordionPanel:systemDatabaseComponent:creatingDatabaseDialog']/div[1]/a"))
+            .click();
+  }
+  
+  protected void testConnection()
+  {
+    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:checkConnectionButton")).click();
+    await(ExpectedConditions
+            .textToBePresentInElementLocated(
+                    By.xpath("//*[@id='form:accordionPanel:systemDatabaseComponent:growl_container']/div/div/div[2]/p"),
+                    "established"));
   }
 
   protected <T> T await(ExpectedCondition<T> condition)

@@ -31,11 +31,11 @@
 			</p:column>
 		</p:dataTable>
 		<h:column>
-			<p:commandButton icon="fa fa-save" value="Save List"
+			<p:commandButton id="saveListButton" icon="fa fa-save" value="Save List"
 				actionListener="#{logic.saveList}" update="form" />
-			<p:commandButton icon="fa fa-plus-circle" value="Add Administrator"
-				onclick="PF('addAdminDialog').show()" />
-			<p:commandButton icon="fa fa-minus-circle"
+			<p:commandButton id="addAdminButton" icon="fa fa-plus-circle" value="Add Administrator"
+				onclick="PF('addAdminDialog').show()"/>
+			<p:commandButton id="removeAdminButton" icon="fa fa-minus-circle"
 				value="Remove Selected Administrator"
 				actionListener="#{logic.removeAdmin}" update="form" />
 		</h:column>
@@ -58,7 +58,7 @@
 			<h:inputSecret id="newPassword" value="#{data.newPassword}" />
 		</h:panelGrid>
 		<br />
-		<p:commandButton value="Add new Administrator" id="addAdmin"
+		<p:commandButton id="addAdminDialogButton" value="Add new Administrator"
 			icon="fa fa-plus-circle" actionListener="#{logic.addNewAdmin}"
 			update="form:accordionPanel:administratorsComponent:adminDataTable, addAdminDialog" />
 	</p:dialog>
