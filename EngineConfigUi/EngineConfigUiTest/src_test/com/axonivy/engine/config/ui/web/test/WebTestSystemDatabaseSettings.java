@@ -1,13 +1,11 @@
 package com.axonivy.engine.config.ui.web.test;
 
-import static com.axonivy.engine.config.ui.web.test.ServerControl.getProcessStartLink;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.apache.commons.lang.math.RandomUtils;
+import org.apache.commons.lang3.RandomUtils;
+import org.apache.commons.lang3.time.StopWatch;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,13 +20,14 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 
 public class WebTestSystemDatabaseSettings
 {
-  private static String DBNAME;
+  private static final String USERNAME = "admin";
+  private static final String PASSWORD = "nimda";
+  private static final String connectionUrl = "jdbc:mysql://zugtstdbsmys:3306/";
+
+  private String DBNAME;
   private WebDriver driver;
   private PrimeUi prime;
   private AjaxHelper ajax;
-  private String USERNAME = "admin";
-  private String PASSWORD = "nimda";
-  private String connectionUrl = "jdbc:mysql://zugtstdbsmys:3306/";
 
   @Before
   public void setUp()
@@ -36,7 +35,12 @@ public class WebTestSystemDatabaseSettings
     driver = new HtmlUnitDriver(true);
     prime = new PrimeUi(driver);
     ajax = new AjaxHelper(driver);
-    String processStartLink = getProcessStartLink("EngineConfigUi/157E64657EEBDD9C/start.ivp");
+    openConfigUi();
+  }
+
+  private void openConfigUi()
+  {
+    String processStartLink = EngineUrl.process() + "/EngineConfigUi/157E64657EEBDD9C/start.ivp";
     System.out.println("ProcessStartlink: " + processStartLink);
     driver.get(processStartLink);
   }
@@ -52,10 +56,6 @@ public class WebTestSystemDatabaseSettings
   {
     setConfig();
     createSysDb();
-
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("form:accordionPanel:systemDatabaseComponent:finishMessage"), "Succesfully Finished!"));
-    
     dropDatabase();
   }
 
@@ -65,20 +65,46 @@ public class WebTestSystemDatabaseSettings
     setConfig();
     createSysDb();
 
+    StopWatch sw = new StopWatch();
+    sw.start();
+    try
+    {
+      testConnection(sw);
+    }
+    catch (Exception ex)
+    {
+      throwNotConnected(sw);
+    }
+    finally
+    {
+      dropDatabase();
+    }
+  }
+
+  private void throwNotConnected(StopWatch sw) throws Exception
+  {
+    System.out.println("Could not connect to db after " + sw.getNanoTime() + " nanoseconds");
+    String messageBoxMessage = driver.findElement(By.xpath
+            ("//*[@id='form:accordionPanel:systemDatabaseComponent:growl_container']/div/div/div[2]/p"))
+            .getText();
+    throw new Exception("Expected connection to be established but was: '" + messageBoxMessage + "'");
+  }
+
+  private void testConnection(StopWatch sw)
+  {
     driver.findElement(
             By.xpath("//*[@id='form:accordionPanel:systemDatabaseComponent:creatingDatabaseDialog']/div[1]/a"))
             .click();
     driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:checkConnectionButton")).click();
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("form:accordionPanel:systemDatabaseComponent:growl_container"),
-            "Connection was established"));
-    
-    dropDatabase();
+    await(ExpectedConditions
+            .textToBePresentInElementLocated(
+                    By.xpath("//*[@id='form:accordionPanel:systemDatabaseComponent:growl_container']/div/div/div[2]/p"),
+                    "established"));
+    System.out.println("Connected after " + sw.getNanoTime() + " nanoseconds");
   }
 
   private void setConfig()
   {
-    System.out.println(driver.getPageSource());
     prime.selectOne(By.id("form:accordionPanel:systemDatabaseComponent:databaseTypeDropdown"))
             .selectItemByLabel("MySQL");
     prime.selectOne(By.id("form:accordionPanel:systemDatabaseComponent:databaseDriverDropdown"))
@@ -91,9 +117,8 @@ public class WebTestSystemDatabaseSettings
             By.id("form:accordionPanel:systemDatabaseComponent:defaultPortCheckbox_input"))
             .setChecked();
 
-    DBNAME = "tmp_engineConfigUi_testing_" + ((Integer) RandomUtils.nextInt()).toString();
-    clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:databaseNameInput"),
-            DBNAME);
+    DBNAME = "tmp_engineConfigUi_testing_" + RandomUtils.nextInt(11, Integer.MAX_VALUE);
+    clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:databaseNameInput"), DBNAME);
 
     clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:usernameInput"), USERNAME);
     clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:passwordInput"), PASSWORD);
@@ -105,7 +130,7 @@ public class WebTestSystemDatabaseSettings
     driver.findElement(by).sendKeys(string);
   }
 
-  private void dropDatabase() throws SQLException
+  private void dropDatabase() throws Exception
   {
     String command = "DROP DATABASE " + DBNAME;
     Connection con = DriverManager.getConnection(connectionUrl, USERNAME, PASSWORD);
@@ -120,6 +145,9 @@ public class WebTestSystemDatabaseSettings
     await(ExpectedConditions.elementToBeClickable(By
             .id("form:accordionPanel:systemDatabaseComponent:dialogCreateDbButton")));
     driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:dialogCreateDbButton")).click();
+
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("form:accordionPanel:systemDatabaseComponent:finishMessage"), "Succesfully Finished!"));
   }
 
   private <T> T await(ExpectedCondition<T> condition)
