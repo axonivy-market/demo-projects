@@ -219,14 +219,14 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void setMailNotification()
   {
-    checkBooleanBox("formMailNotification:onTask_input");
-    checkBooleanBox("formMailNotification:checkMonday_input");
-    checkBooleanBox("formMailNotification:checkTuesday_input");
-    checkBooleanBox("formMailNotification:checkWednesday_input");
-    checkBooleanBox("formMailNotification:checkThursday_input");
-    checkBooleanBox("formMailNotification:checkFriday_input");
-    checkBooleanBox("formMailNotification:checkSaturday_input");
-    checkBooleanBox("formMailNotification:checkSunday_input");
+    checkBooleanBox("formMailNotification:onTask");
+    checkBooleanBox("formMailNotification:checkMonday");
+    checkBooleanBox("formMailNotification:checkTuesday");
+    checkBooleanBox("formMailNotification:checkWednesday");
+    checkBooleanBox("formMailNotification:checkThursday");
+    checkBooleanBox("formMailNotification:checkFriday");
+    checkBooleanBox("formMailNotification:checkSaturday");
+    checkBooleanBox("formMailNotification:checkSunday");
     driverHelper.clickAndWaitForAjax(By.id("formMailNotification:saveMailNotification"));
   }
 
