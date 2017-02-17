@@ -16,6 +16,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="var" path="SERVER_CONFIG_CLASSES"/>
+	<classpathentry exported="true" kind="var" path="SERVER_CONFIG_CLASSES" sourcepath="/SERVER_CONFIG_SRC"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
