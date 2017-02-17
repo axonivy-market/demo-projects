@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Feb 17 13:34:47 CET 2017]
+[>Created: Fri Feb 17 14:02:48 CET 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -82,23 +82,17 @@ Ss0 f6 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabas
 Ss0 f6 actionTable 'out=in;
 out.convertionAvailable=false;
 ' #txt
-Ss0 f6 actionCode 'import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
+Ss0 f6 actionCode 'import com.axon.ivy.engine.config.ConfigHelper;
+import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
-import ch.ivyteam.db.jdbc.JdbcDriver;
 
 out.databaseProducts = DatabasePersistencyServiceFactory.getSupportedDatabases();
 out.configData = SystemDatabaseSettings.loadConfigData();
 out.databaseDrivers = ch.ivyteam.db.jdbc.JdbcDriver.getInstalledJdbcDrivers(out.configData.product, ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory.getSupportedJdbcDrivers());
 
-for(ch.ivyteam.db.jdbc.ConnectionProperty prop : in.configData.driver.getConnectionConfigurator().getDatabaseConnectionProperties())
+if(in.configData.port == ConfigHelper.getDefaultPort(in.configData.driver))
 {
-	if(prop.getName()=="ch.ivyteam.jdbc.Port")
-	{	
-		if(in.configData.port == prop.getDefaultValue())
-		{
-			in.defaultPort=true;
-		}
-	}
+	in.defaultPort=true;
 }' #txt
 Ss0 f6 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -235,14 +229,7 @@ Ss0 f31 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 ' #txt
 Ss0 f31 actionTable 'out=in;
 ' #txt
-Ss0 f31 actionCode 'import ch.ivyteam.db.jdbc.JdbcDriver;
-for(ch.ivyteam.db.jdbc.ConnectionProperty prop : in.configData.driver.getConnectionConfigurator().getDatabaseConnectionProperties())
-{
-	if(prop.getName()=="ch.ivyteam.jdbc.Port")
-	{	
-		in.configData.port = prop.getDefaultValue();
-	}
-}' #txt
+Ss0 f31 actionCode 'in.configData.port = com.axon.ivy.engine.config.ConfigHelper.getDefaultPort(in.configData.driver);' #txt
 Ss0 f31 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f31 168 418 112 44 0 -8 #rect
 Ss0 f31 @|StepIcon #fIcon
