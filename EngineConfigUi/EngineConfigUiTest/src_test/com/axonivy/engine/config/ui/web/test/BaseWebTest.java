@@ -60,7 +60,7 @@ public class BaseWebTest
 
     driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:portInput")).clear();
     prime.selectBooleanCheckbox(
-            By.id("form:accordionPanel:systemDatabaseComponent:defaultPortCheckbox_input"))
+            By.id("form:accordionPanel:systemDatabaseComponent:defaultPortCheckbox"))
             .setChecked();
 
     DBNAME = "tmp_engineConfigUi_testing_" + RandomUtils.nextInt(11, Integer.MAX_VALUE);
