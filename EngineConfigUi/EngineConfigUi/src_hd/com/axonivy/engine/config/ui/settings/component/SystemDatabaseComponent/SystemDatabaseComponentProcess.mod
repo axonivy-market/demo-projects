@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Feb 15 10:53:53 CET 2017]
+[>Created: Fri Feb 17 13:34:47 CET 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -84,10 +84,22 @@ out.convertionAvailable=false;
 ' #txt
 Ss0 f6 actionCode 'import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
+import ch.ivyteam.db.jdbc.JdbcDriver;
 
 out.databaseProducts = DatabasePersistencyServiceFactory.getSupportedDatabases();
 out.configData = SystemDatabaseSettings.loadConfigData();
-out.databaseDrivers = ch.ivyteam.db.jdbc.JdbcDriver.getInstalledJdbcDrivers(out.configData.product, ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory.getSupportedJdbcDrivers());' #txt
+out.databaseDrivers = ch.ivyteam.db.jdbc.JdbcDriver.getInstalledJdbcDrivers(out.configData.product, ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory.getSupportedJdbcDrivers());
+
+for(ch.ivyteam.db.jdbc.ConnectionProperty prop : in.configData.driver.getConnectionConfigurator().getDatabaseConnectionProperties())
+{
+	if(prop.getName()=="ch.ivyteam.jdbc.Port")
+	{	
+		if(in.configData.port == prop.getDefaultValue())
+		{
+			in.defaultPort=true;
+		}
+	}
+}' #txt
 Ss0 f6 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
