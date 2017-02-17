@@ -58,7 +58,6 @@ public class BaseWebTest
 
     clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:hostInput"), "zugtstdbsmys");
 
-    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:portInput")).clear();
     prime.selectBooleanCheckbox(
             By.id("form:accordionPanel:systemDatabaseComponent:defaultPortCheckbox"))
             .setChecked();
