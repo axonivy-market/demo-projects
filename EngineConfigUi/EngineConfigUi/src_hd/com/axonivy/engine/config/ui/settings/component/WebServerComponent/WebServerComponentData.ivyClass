@@ -2,3 +2,5 @@ WebServerComponentData #class
 com.axonivy.engine.config.ui.settings.component.WebServerComponent #namespace
 webServerConfig com.axonivy.engine.config.ui.settings.WebServerConfig #field
 webServerConfig PERSISTENT #fieldModifier
+connectionInfo com.axon.ivy.engine.config.ConnectionInfo #field
+connectionInfo PERSISTENT #fieldModifier

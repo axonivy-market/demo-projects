@@ -46,6 +46,7 @@ public class SystemDatabaseConnecting
     @Override
     public void connectionStateChanged(ConnectionState newState)
     {
+      ConnectionInfo.getConnectionInfo().setConnectionState(newState);
       if (newState != ConnectionState.CONNECTING)
       {
         gotResult = true;

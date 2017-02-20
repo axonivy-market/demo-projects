@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 20 11:50:41 CET 2017]
+[>Created: Mon Feb 20 15:15:54 CET 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -82,13 +82,15 @@ Ss0 f6 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabas
 Ss0 f6 actionTable 'out=in;
 out.convertionAvailable=false;
 ' #txt
-Ss0 f6 actionCode 'import com.axon.ivy.engine.config.ConfigHelper;
+Ss0 f6 actionCode 'import com.axon.ivy.engine.config.ConnectionInfo;
+import com.axon.ivy.engine.config.ConfigHelper;
 import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
 
 out.databaseProducts = DatabasePersistencyServiceFactory.getSupportedDatabases();
 out.configData = SystemDatabaseSettings.loadConfigData();
 out.databaseDrivers = ch.ivyteam.db.jdbc.JdbcDriver.getInstalledJdbcDrivers(out.configData.product, ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory.getSupportedJdbcDrivers());
+out.connectionInfo = ConnectionInfo.getConnectionInfo();
 
 if(in.configData.port == ConfigHelper.getDefaultPort(in.configData.driver))
 {
@@ -168,14 +170,12 @@ Ss0 f16 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 ' #txt
 Ss0 f16 actionTable 'out=in;
 ' #txt
-Ss0 f16 actionCode 'import com.axon.ivy.engine.config.ConfigurationBean;
-import com.axon.ivy.engine.config.UiModder;
+Ss0 f16 actionCode 'import com.axon.ivy.engine.config.UiModder;
 import com.axon.ivy.engine.config.SystemDatabaseConnecting;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 
 ConnectionState state = SystemDatabaseConnecting.testConnection(in.configData);
 UiModder.updateUiPopUp(state);
-ConfigurationBean.setConnectionState(state);
 if ((ConnectionState.CONNECTED_WRONG_OLDER_VERSION.toString().equalsIgnoreCase(state.toString())) || 
 			(ConnectionState.CONNECTED_WRONG_NEWER_VERSION.toString().equalsIgnoreCase(state.toString())))
 {
@@ -263,7 +263,7 @@ Ss0 f36 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 Ss0 f36 actionTable 'out=in;
 ' #txt
 Ss0 f36 actionCode 'import com.axon.ivy.engine.config.SystemDatabaseSettings;
-SystemDatabaseSettings.updateDbConfig(SystemDatabaseSettings.createConfiguration(in.configData));
+SystemDatabaseSettings.updateDbConfig(in.configData);
 SystemDatabaseSettings.saveSystemDb();' #txt
 Ss0 f36 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f36 168 514 112 44 0 -8 #rect
@@ -277,10 +277,9 @@ Ss0 f40 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 Ss0 f40 actionTable 'out=in;
 ' #txt
 Ss0 f40 actionCode 'import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
-import com.axon.ivy.engine.config.ConfigurationBean;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
 in.progressAction = SystemDatabaseSettings.createDatabase(in.configData);
-ConfigurationBean.setConnectionState(ConnectionState.CONNECTED);' #txt
+in.connectionInfo.setConnectionState(ConnectionState.CONNECTED);' #txt
 Ss0 f40 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f40 168 330 112 44 0 -8 #rect
 Ss0 f40 @|StepIcon #fIcon
@@ -312,13 +311,12 @@ Ss0 f20 actionTable 'out=in;
 out.convertionAvailable=false;
 ' #txt
 Ss0 f20 actionCode 'import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
-import com.axon.ivy.engine.config.ConfigurationBean;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
 in.progressAction = SystemDatabaseSettings.convertDatabase(SystemDatabaseSettings.loadConfigData());
 
 if(!in.progressAction.running)
 {
-	ConfigurationBean.setConnectionState(ConnectionState.CONNECTED);
+	in.connectionInfo.setConnectionState(ConnectionState.CONNECTED);
 }' #txt
 Ss0 f20 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f20 168 618 112 44 0 -8 #rect

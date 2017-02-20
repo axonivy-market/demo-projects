@@ -13,7 +13,7 @@
 <cc:implementation>
   <f:event type="preRenderView" listener="#{logic.update}"/>
 	<h:panelGrid columns="3" cellpadding="20" cellspacing="20"
-		rendered="#{configurationBean.connectionOK}">
+		rendered="#{data.connectionInfo.connectionOK}">
 		<p:fieldset id="HTTPFieldSet" legend="HTTP Connector">
 			<h:panelGrid columns="2" cellpadding="5" cellspacing="10">
 				<p:outputLabel for="HTTPEnabledCheckbox" id="HTTPEnabledLabel"
@@ -58,7 +58,7 @@
 		</p:fieldset>
 		<p:commandButton id="savePortsButton" icon="fa fa-save" value="Save Ports" actionListener="#{logic.save}"/>
 	</h:panelGrid>
-	<h:outputText rendered="#{!configurationBean.connectionOK}">
+	<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
 		Please insert a valid System-Db-Connection!!
 	</h:outputText>
 </cc:implementation>

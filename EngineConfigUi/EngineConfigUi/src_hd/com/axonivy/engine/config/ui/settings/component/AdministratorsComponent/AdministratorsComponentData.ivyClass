@@ -16,3 +16,5 @@ connectionOK Boolean #field
 connectionOK PERSISTENT #fieldModifier
 currentConfigData com.axonivy.engine.config.ui.settings.ConfigData #field
 currentConfigData PERSISTENT #fieldModifier
+connectionInfo com.axon.ivy.engine.config.ConnectionInfo #field
+connectionInfo PERSISTENT #fieldModifier
