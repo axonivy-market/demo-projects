@@ -12,7 +12,7 @@
 <cc:implementation>
   <f:event type="preRenderView" listener="#{logic.update}"/>
 	<h:panelGrid columns="1" cellpadding="1"
-		rendered="#{data.connectionOK}">
+		rendered="#{configurationBean.connectionOK}">
 		<p:dataTable id="adminDataTable"
 			value="#{data.administratorManager.administrators}"
 			var="administrator" rowIndexVar="row" rowKey="#{administrator.name}"
@@ -39,7 +39,7 @@
 		</h:column>
 	</h:panelGrid>
 
-	<h:outputText rendered="#{!data.connectionOK}">
+	<h:outputText rendered="#{!configurationBean.connectionOK}">
 		Please insert a valid System-Db-Connection!!
 	</h:outputText>
 

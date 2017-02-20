@@ -21,7 +21,7 @@
 					value="#{data.configData.product}" converter="ivy.ListItem">
 					<f:selectItems value="#{data.databaseProducts}" var="database"
 						itemLabel="#{database.name}" itemValue="#{database}" />
-					<p:ajax update="databaseDriverDropdown" listener="#{logic.update}" />
+					<p:ajax update="databaseDriverDropdown, portInput" listener="#{logic.update}" />
 				</p:selectOneMenu>
 
 				<p:outputLabel for="databaseDriverDropdown" id="databaseDriverLabel"
@@ -30,7 +30,8 @@
 					value="#{data.configData.driver}" converter="ivy.ListItem">
 					<f:selectItems value="#{data.databaseDrivers}" var="driver"
 						itemLabel="#{driver.name}" itemValue="#{driver}" />
-
+					<p:ajax event="change" update="portInput"
+						listener="#{logic.setDefaultPort}" />
 				</p:selectOneMenu>
 				<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
 				<p:inputText id="hostInput" value="#{data.configData.host}" />
@@ -67,15 +68,15 @@
 				<p:commandButton id="createDatabaseButton" value="Create Database"
 					actionListener="#{logic.applyProperties}"
 					oncomplete="PF('createDatabaseDialog').show()"
-					icon="fa fa-database" update="form"/>
+					icon="fa fa-database" update="form" />
 				<p:commandButton id="convertDbButton" value="Convert Database"
 					icon="fa fa-database" actionListener="#{logic.convertDb}"
-					onclick="PF('convertDatabaseDialog').show()" disabled="#{!data.convertionAvailable}"
-					update="form" />
+					onclick="PF('convertDatabaseDialog').show()"
+					disabled="#{!data.convertionAvailable}" update="form" />
 			</h:panelGrid>
 		</p:fieldset>
 		<p:commandButton icon="fa fa-save" value="Save Configuration"
-			actionListener="#{logic.saveConfig}" update="form"/>
+			actionListener="#{logic.saveConfig}" update="form" />
 	</h:panelGrid>
 
 	<p:dialog id="createDatabaseDialog" widgetVar="createDatabaseDialog"
@@ -92,7 +93,8 @@
 		<p:commandButton value="Create Database"
 			actionListener="#{logic.createDatabase}"
 			update="createDatabaseDialog,doUpdate"
-			onsuccess="PF('creatingDatabaseDialog').show()" id="dialogCreateDbButton"/>
+			onsuccess="PF('creatingDatabaseDialog').show()"
+			id="dialogCreateDbButton" />
 	</p:dialog>
 
 	<p:dialog id="creatingDatabaseDialog"
@@ -119,25 +121,27 @@
 		</h:panelGrid>
 	</p:dialog>
 
-	<p:dialog id="convertDatabaseDialog"
-		widgetVar="convertDatabaseDialog" header="Converting System Database"
-		dynamic="true" modal="true" onShow="PF('convertingOutputPoll').start()">
+	<p:dialog id="convertDatabaseDialog" widgetVar="convertDatabaseDialog"
+		header="Converting System Database" dynamic="true" modal="true"
+		onShow="PF('convertingOutputPoll').start()">
 
 		<p:poll autoStart="false" id="convertingOutputPoll"
-			widgetVar="convertingOutputPoll" update="doUpdateConvertion" interval="1"
-			stop="#{!data.progressAction.running}" />
+			widgetVar="convertingOutputPoll" update="doUpdateConvertion"
+			interval="1" stop="#{!data.progressAction.running}" />
 		<h:panelGrid id="doUpdateConvertion" columns="1" style="width:100%;">
 
 			<h:outputText value="Your database is being converted..." />
 
-			<p:progressBar id="progressbarConvertion" widgetVar="progressbarConvertion"
+			<p:progressBar id="progressbarConvertion"
+				widgetVar="progressbarConvertion"
 				value="#{data.progressAction.progress/(data.progressAction.maxProgress/100)}" />
 			<br />
 			<br />
 			<h:outputText id="errorMessageConvertion"
 				value="#{data.progressAction.error.message}"
 				rendered="#{data.progressAction.error != null}" style="color: red;" />
-			<h:outputText id="finishMessageConvertion" value="Succesfully Finished!"
+			<h:outputText id="finishMessageConvertion"
+				value="Succesfully Finished!"
 				rendered="#{!data.progressAction.running and data.progressAction.error == null}"
 				style="font-weight:bold;" />
 		</h:panelGrid>

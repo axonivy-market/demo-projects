@@ -27,6 +27,7 @@
 							<ic:com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent
 								id="systemDatabaseComponent" />
 						</p:tab>
+						
 						<p:tab id="administratorsTab">
 							<f:facet name="title">
 								<h:outputText value="Administrators " />
@@ -35,9 +36,17 @@
 							<ic:com.axonivy.engine.config.ui.settings.component.AdministratorsComponent
 								id="administratorsComponent" />
 						</p:tab>
+						
+						<p:tab id="webServerTab">
+							<f:facet name="title">
+								<h:outputText value="WebServer " />
+								<i class="fa fa-server" />
+							</f:facet>
+							<ic:com.axonivy.engine.config.ui.settings.component.WebServerComponent
+								id="webServerComponent" />
+						</p:tab>
 					</p:accordionPanel>
 				</h:panelGrid>
-<!-- 				<p:defaultCommand target="placeholder" /> <p:commandButton id="placeholder" value="a" rendered="false"/> -->
 			</h:form>
 		</ui:define>
 	</ui:composition>

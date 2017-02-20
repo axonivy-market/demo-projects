@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Accordion;
 
 public class BaseWebTest
 {
@@ -36,7 +37,7 @@ public class BaseWebTest
     openConfigUi();
   }
 
-  private void openConfigUi()
+  protected void openConfigUi()
   {
     String processStartLink = EngineUrl.process() + "/EngineConfigUi/157E64657EEBDD9C/start.ivp";
     System.out.println("ProcessStartlink: " + processStartLink);
@@ -110,5 +111,11 @@ public class BaseWebTest
   protected <T> T await(ExpectedCondition<T> condition)
   {
     return ajax.await(condition);
+  }
+
+  protected void toggleTab(String tabName)
+  {
+    Accordion accordion = prime.accordion(By.id("form:accordionPanel"));
+    accordion.toggleTab(tabName);
   }
 }

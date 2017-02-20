@@ -4,7 +4,6 @@ import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Accordion;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
@@ -76,7 +75,6 @@ public class WebTestAdministratorManager extends BaseWebTest
 
   private void openAdminTab()
   {
-    Accordion accordion = prime.accordion(By.id("form:accordionPanel"));
-    accordion.toggleTab("Administrators");
+    toggleTab("Administrators");
   }
 }

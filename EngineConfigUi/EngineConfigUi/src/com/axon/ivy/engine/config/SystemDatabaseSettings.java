@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.commons.lang3.BooleanUtils;
+
 import ch.ivyteam.db.jdbc.ConnectionConfigurator;
 import ch.ivyteam.db.jdbc.ConnectionProperty;
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
@@ -21,16 +23,24 @@ import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabase;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConnectionTester;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConverter;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
+import ch.ivyteam.util.Property;
 
 import com.axonivy.engine.config.ui.settings.ConfigData;
+import com.axonivy.engine.config.ui.settings.WebServerConfig;
 
 @SuppressWarnings("restriction")
 public class SystemDatabaseSettings
 {
+  private static final String WEB_SERVER_AJP_PORT = "WebServer.AJP.Port";
+  private static final String WEB_SERVER_AJP_ENABLED = "WebServer.AJP.Enabled";
+  private static final String WEB_SERVER_HTTPS_PORT = "WebServer.HTTPS.Port";
+  private static final String WEB_SERVER_HTTPS_ENABLED = "WebServer.HTTPS.Enabled";
+  private static final String WEB_SERVER_HTTP_PORT = "WebServer.HTTP.Port";
+  private static final String WEB_SERVER_HTTP_ENABLED = "WebServer.HTTP.Enabled";
   private static final String HOST = "ch.ivyteam.jdbc.Host";
   private static final String PORT = "ch.ivyteam.jdbc.Port";
   private static final String DB_NAME = "ch.ivyteam.jdbc.DbName";
-  
+
   private static final Configuration configuration = loadOrCreateConfig();
   private static SystemDatabase systemDatabase;
 
@@ -234,6 +244,68 @@ public class SystemDatabaseSettings
     else
     {
       throw new Exception("Not connected");
+    }
+  }
+
+  public static void setWebServerSettings(WebServerConfig config)
+  {
+    AdministratorManager adminManager = SystemDatabaseSettings.getSystemDb().getAdministratorManager();
+    setProperty(adminManager, WEB_SERVER_HTTP_ENABLED, config.getHttpEnabled().toString());
+    setProperty(adminManager, WEB_SERVER_HTTP_PORT, config.getHttpPort());
+    setProperty(adminManager, WEB_SERVER_HTTPS_ENABLED, config.getHttpsEnabled().toString());
+    setProperty(adminManager, WEB_SERVER_HTTPS_PORT, config.getHttpsPort());
+    setProperty(adminManager, WEB_SERVER_AJP_ENABLED, config.getAjpEnabled().toString());
+    setProperty(adminManager, WEB_SERVER_AJP_PORT, config.getAjpPort());
+    adminManager.storeSystemProperties();
+  }
+
+  private static void setProperty(AdministratorManager adminManager, String key, String value)
+  {
+    Property systemProperty = adminManager.getSystemProperty(key);
+    if (systemProperty == null)
+    {
+      Property property = new Property(key, value);
+      adminManager.getSystemProperties().add(property);
+    }
+    else
+    {
+      systemProperty.setValue(value);
+    }
+  }
+
+  public static WebServerConfig getWebServerSettings()
+  {
+    AdministratorManager adminManager = SystemDatabaseSettings.getSystemDb().getAdministratorManager();
+    WebServerConfig webServerConfig = new WebServerConfig();
+    webServerConfig.setHttpEnabled(getPropertyAsBoolean(adminManager, WEB_SERVER_HTTP_ENABLED));
+    webServerConfig.setHttpPort(getProperty(adminManager, WEB_SERVER_HTTP_PORT));
+    webServerConfig.setHttpsEnabled(getPropertyAsBoolean(adminManager, WEB_SERVER_HTTPS_ENABLED));
+    webServerConfig.setHttpsPort(getProperty(adminManager, WEB_SERVER_HTTPS_PORT));
+    webServerConfig.setAjpEnabled(getPropertyAsBoolean(adminManager, WEB_SERVER_AJP_ENABLED));
+    webServerConfig.setAjpPort(getProperty(adminManager, WEB_SERVER_AJP_PORT));
+    return webServerConfig;
+  }
+
+  private static boolean getPropertyAsBoolean(AdministratorManager adminManager, String key)
+  {
+    String property = getProperty(adminManager, key);
+    if (property.isEmpty())
+    {
+      return false;
+    }
+    return BooleanUtils.toBooleanObject(property);
+  }
+
+  private static String getProperty(AdministratorManager adminManager, String key)
+  {
+    Property systemProperty = adminManager.getSystemProperty(key);
+    if (systemProperty == null)
+    {
+      return "";
+    }
+    else
+    {
+      return systemProperty.getValue();
     }
   }
 }

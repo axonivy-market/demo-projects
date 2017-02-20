@@ -1,0 +1,14 @@
+WebServerConfig #class
+com.axonivy.engine.config.ui.settings #namespace
+httpsPort String #field
+httpsPort PERSISTENT #fieldModifier
+httpsEnabled Boolean #field
+httpsEnabled PERSISTENT #fieldModifier
+httpPort String #field
+httpPort PERSISTENT #fieldModifier
+httpEnabled Boolean #field
+httpEnabled PERSISTENT #fieldModifier
+ajpEnabled Boolean #field
+ajpEnabled PERSISTENT #fieldModifier
+ajpPort String #field
+ajpPort PERSISTENT #fieldModifier
