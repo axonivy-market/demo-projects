@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 14 14:14:16 CET 2017]
+[>Created: Mon Feb 20 14:43:10 CET 2017]
 1549FE9E911A1812 3.20 #module
 >Proto >Proto Collection #zClass
 al0 approval Big #zClass
@@ -161,6 +161,7 @@ al0 f13 224 62 128 113 #arcP
 al0 f13 1 128 88 #addKink
 al0 f13 0 0.6265821825077568 0 0 #arcLabel
 al0 f14 clientId e61c6d1f-106e-46ea-8327-fe18e4c1d912 #txt
+al0 f14 accept application/json #txt
 al0 f14 method PUT #txt
 al0 f14 bodyInputType FORM #txt
 al0 f14 bodyForm 'title="I need a new car";
