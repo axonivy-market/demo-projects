@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 02 14:01:22 CET 2017]
+[>Created: Mon Feb 20 12:29:42 CET 2017]
 1547634C396BBB3A 3.20 #module
 >Proto >Proto Collection #zClass
 ct0 twitter Big #zClass
@@ -195,13 +195,13 @@ ct0 f8 actionCode 'import com.axonivy.connectivity.rest.client.filter.TwitterOAu
 import org.glassfish.jersey.client.oauth1.OAuth1AuthorizationFlow;
 out.authorizationFlow = error.getAttribute(TwitterOAuthFilter.AUTHORIZATION_FLOW) as OAuth1AuthorizationFlow;' #txt
 ct0 f8 type com.axonivy.connectivity.rest.TwitterData #txt
-ct0 f8 errorCode ivy:error:rest:client #txt
+ct0 f8 errorCode twitter:authorization:required #txt
 ct0 f8 attachedToRef 1547634C396BBB3A-f13 #txt
 ct0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>ivy:error:rest:client</name>
-        <nameStyle>21,7
+        <name>twitter:authorization:required</name>
+        <nameStyle>30,7
 </nameStyle>
     </language>
 </elementInfo>
