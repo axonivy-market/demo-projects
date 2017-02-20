@@ -9,7 +9,6 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectBooleanCheckbox;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
@@ -224,9 +223,8 @@ public class WebTestOutput extends BaseWebTest
 
   private void selectAndValidatePerson(int checkboxposition)
   {
-    SelectBooleanCheckbox booleanCheckbox = prime().selectBooleanCheckbox(
-            By.id("demoForm:manyCheckboxes:" + checkboxposition));
-    booleanCheckbox.setChecked();
+    driver.findElement(By.xpath("//*[@id='demoForm:manyCheckboxes:" + checkboxposition + "']/../../div[2]"))
+            .click();
     driver.findElement(By.id("demoForm:sendButton")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:outputSelectedPersons"),
             driver.findElement(By.xpath("//label[@for='demoForm:manyCheckboxes:" + checkboxposition + "']"))
