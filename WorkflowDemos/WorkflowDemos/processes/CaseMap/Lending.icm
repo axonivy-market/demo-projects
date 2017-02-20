@@ -1,0 +1,84 @@
+{
+  "uuid" : "25099c02-721a-42ac-a3de-ff78e93a52b4",
+  "stages" : [ {
+    "id" : "1",
+    "name" : "Identification",
+    "description" : "",
+    "processes" : [ {
+      "id" : "1",
+      "name" : "Collect personal data",
+      "description" : "",
+      "autoStart" : true,
+      "processToExecute" : "WorkflowDemos:15A5AC9A4F755A3B/start.ivp"
+    }, {
+      "id" : "2",
+      "name" : "Verify personal data",
+      "description" : "",
+      "autoStart" : true,
+      "processToExecute" : null
+    } ]
+  }, {
+    "id" : "2",
+    "name" : "Credit standing",
+    "description" : "",
+    "processes" : [ {
+      "id" : "4",
+      "name" : "Check company register",
+      "description" : "",
+      "autoStart" : true,
+      "processToExecute" : null
+    }, {
+      "id" : "3",
+      "name" : "Internal solvency check",
+      "description" : "",
+      "autoStart" : true,
+      "processToExecute" : null
+    }, {
+      "id" : "5",
+      "name" : "External solvency service",
+      "description" : "",
+      "autoStart" : false,
+      "processToExecute" : null
+    } ]
+  }, {
+    "id" : "3",
+    "name" : "Approval",
+    "description" : "",
+    "processes" : [ {
+      "id" : "6",
+      "name" : "Approve Level 1",
+      "description" : "",
+      "autoStart" : true,
+      "processToExecute" : null
+    }, {
+      "id" : "7",
+      "name" : "Approve Level 2",
+      "description" : "",
+      "autoStart" : true,
+      "processToExecute" : null
+    }, {
+      "id" : "8",
+      "name" : "Contract creation",
+      "description" : "",
+      "autoStart" : true,
+      "processToExecute" : null
+    } ]
+  }, {
+    "id" : "4",
+    "name" : "Request postponed",
+    "description" : "",
+    "processes" : [ {
+      "id" : "8",
+      "name" : "Resume request",
+      "description" : "",
+      "autoStart" : true,
+      "processToExecute" : null
+    }, {
+      "id" : "9",
+      "name" : "Abort request",
+      "description" : "",
+      "autoStart" : false,
+      "processToExecute" : null
+    } ]
+  } ]
+}
