@@ -18,9 +18,7 @@ import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
 import ch.ivyteam.ivy.server.configuration.Configuration;
 import ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
-import ch.ivyteam.ivy.server.configuration.system.db.IConnectionListener;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabase;
-import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConnectionTester;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConverter;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 import ch.ivyteam.util.Property;
@@ -54,18 +52,6 @@ public class SystemDatabaseSettings
     {
       return Configuration.createNewConfiguration();
     }
-  }
-
-  public static SystemDatabaseConnectionTester testConnection(
-          ConfigData configData, IConnectionListener listener)
-          throws Exception
-  {
-    updateDbConfig(createConfiguration(configData));
-    SystemDatabaseConnectionTester tester = getSystemDb().getConnectionTester();
-    tester.reset();
-    tester.addConnectionListener(listener);
-    tester.configurationChanged();
-    return tester;
   }
 
   public static SystemDatabaseCreator createDatabase(ConfigData configData)
@@ -132,8 +118,9 @@ public class SystemDatabaseSettings
     return systemDatabase;
   }
 
-  public static void updateDbConfig(DatabaseConnectionConfiguration dbConfig)
+  public static void updateDbConfig(ConfigData configData)
   {
+    DatabaseConnectionConfiguration dbConfig = createConfiguration(configData);
     configuration.setSystemDatabaseConnectionConfiguration(dbConfig);
   }
 
