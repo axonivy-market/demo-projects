@@ -11,9 +11,9 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 @XmlRootElement(name = "person")
 public class Person
 {
-  private transient java.lang.Integer id;
-  private transient java.lang.String firstname;
-  private transient java.lang.String lastname;
+  private java.lang.Integer id;
+  private java.lang.String firstname;
+  private java.lang.String lastname;
 
   @XmlElement
   public java.lang.Integer getId()
