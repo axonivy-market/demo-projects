@@ -1,5 +1,0 @@
-Person #class
-com.axonivy.connectivity #namespace
-id Integer #field
-firstname String #field
-lastname String #field

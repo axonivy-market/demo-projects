@@ -79,7 +79,7 @@ public class PersonService {
 	}
 	
 	@GET @Path("/{personId}")
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public Response getPerson(@PathParam("personId") int personId)
 	{
 		try

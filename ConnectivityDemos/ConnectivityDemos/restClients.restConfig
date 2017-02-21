@@ -97,4 +97,15 @@
             </feature>
         </configuration>
     </restClient>
+    <restClient>
+        <uuid>449e7581-aa1e-4e3b-931a-903253491b50</uuid>
+        <name>testService</name>
+        <description>A free to use test service with fixed data</description>
+        <configuration>
+            <uri>https://jsonplaceholder.typicode.com/</uri>
+            <feature>
+                <class>ch.ivyteam.ivy.rest.client.mapper.JsonFeature</class>
+            </feature>
+        </configuration>
+    </restClient>
 </restClients>
