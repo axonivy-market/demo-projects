@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.sql.SQLException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import mockit.NonStrictExpectations;
 
@@ -16,7 +17,9 @@ import ch.ivyteam.db.jdbc.DatabaseProduct;
 import ch.ivyteam.db.jdbc.DatabaseUtil;
 import ch.ivyteam.db.jdbc.JdbcDriver;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
+import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 import ch.ivyteam.licence.SignedLicence;
+import ch.ivyteam.util.WaitUtil;
 
 import com.axon.ivy.engine.config.SystemDatabaseConnecting;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
@@ -72,7 +75,13 @@ public class TestSystemDatabaseSettings
     Properties properties = new Properties();
     properties.put("databaseName", DBName);
     configData.setCreationParameters(properties);
-    SystemDatabaseConnecting.createDatabase(configData);
+  
+    SystemDatabaseCreator createDatabase = SystemDatabaseSettings.createDatabase(configData);
+    WaitUtil.await(() -> createDatabase.isRunning() == false, 60, TimeUnit.SECONDS);
+    if (createDatabase.getError() != null)
+    {
+      throw new RuntimeException("Could not create database", createDatabase.getError());
+    }
   }
 
   private void dropDatabase(ConfigData configData) throws SQLException
