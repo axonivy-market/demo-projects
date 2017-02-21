@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: _j1ZYwD4IEea1-MPAK3G86w
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 1/4/17 2:01 PM
+Save-Time: 2/21/17 2:46 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -14,14 +14,10 @@ Entry-Name: .ecl.context
 
 proc "assertRuntimeLogMsg" [val containedText]
 {
-	with [get-view "Runtime Log (5)"] 
+	with [get-view "Runtime Log.*"] 
 	{
-		// filter user logs
-		get-button "Filter logs on level or category" | click -arrow
-			get-menu "Show only user logs" | click
-			
-		// assert message
-	    get-table | get-items | foreach 
+		// assert message of first entry
+	    get-table | get-item
 	    {
 	    	let [val item -input] 
 	    	{
@@ -33,4 +29,26 @@ proc "assertRuntimeLogMsg" [val containedText]
 	    }
 	}
 }
+
+proc "showOnlyUserRuntimeLog"
+{
+	with [get-view "Runtime Log.*"] 
+	{
+		with [get-button "Filter.*" | click -arrow | get-menu "Show only user logs"]
+		{
+			if 
+				-condition [get-property selected | equals false] 
+				-then click
+		}
+	}
+}
+
+proc "clearRuntimeLog"
+{
+	with [get-view "Runtime Log.*"] 
+	{
+		get-button "Clear all.*" | click
+	}
+}
+
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
