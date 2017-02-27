@@ -13,7 +13,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -73,8 +72,7 @@ public class WebTestTwitterRestClient
   @Before
   public void setUp()
   {
-    driver = new HtmlUnitDriver(true);
-//    driver = createDriver();
+    driver = createDriver();
   }
 
   @After
