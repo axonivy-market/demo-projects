@@ -3,10 +3,17 @@ package ch.ivyteam.htmldialog.demo;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestOther extends BaseWebTest
 {
+  @Override
+  public void setUp()
+  {
+    super.driver = new HtmlUnitDriver(true);
+  }
+  
   @Test
   public void testHtmlJsfDemo()
   {
@@ -67,7 +74,7 @@ public class WebTestOther extends BaseWebTest
     openAndValidate(managedBeanPoperty);
     driver.quit();
 
-    driver = createDriver();
+    driver = new HtmlUnitDriver(true);
     openAndValidate(managedBeanPoperty);
   }
 
