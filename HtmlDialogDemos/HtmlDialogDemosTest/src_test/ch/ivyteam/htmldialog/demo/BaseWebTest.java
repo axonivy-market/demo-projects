@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -77,6 +76,6 @@ public abstract class BaseWebTest
   protected void clearInput(By inputLocator)
   {
     await(ExpectedConditions.visibilityOfElementLocated(inputLocator));
-    driver.findElement(inputLocator).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
+    driver.findElement(inputLocator).clear();
   }
 }

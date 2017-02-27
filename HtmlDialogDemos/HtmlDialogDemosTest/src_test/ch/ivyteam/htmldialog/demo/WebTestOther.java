@@ -2,6 +2,7 @@ package ch.ivyteam.htmldialog.demo;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestOther extends BaseWebTest
@@ -27,7 +28,8 @@ public class WebTestOther extends BaseWebTest
     startProcess("145D1862CF17F2C9/Html5BootstrapDemo.ivp");
     driver.findElement(By.id("Form:Name")).sendKeys("name");
     driver.findElement(By.id("Form:Email")).sendKeys("email@ivyteam.ch");
-    driver.findElement(By.id("Form:Birthdate")).sendKeys("2016-01-01");
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+    js.executeScript("document.getElementById('Form:Birthdate').setAttribute('value', '2016-01-01')");
     driver.findElement(By.id("Form:Captcha")).sendKeys("21");
     driver.findElement(By.id("Submit")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("captchaError"),
