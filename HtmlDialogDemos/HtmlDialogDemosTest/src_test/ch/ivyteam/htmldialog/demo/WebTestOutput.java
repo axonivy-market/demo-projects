@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,6 +14,12 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
 public class WebTestOutput extends BaseWebTest
 {
+  @Override
+  public void setUp()
+  {
+    super.driver = new HtmlUnitDriver(true);
+  }
+  
   @Test
   public void testDataTable() throws Exception
   {
@@ -171,7 +177,8 @@ public class WebTestOutput extends BaseWebTest
     SelectOneMenu menu = prime().selectOne(By.id("demoForm:basic"));
     menu.selectItemByLabel("Reguel Wermelinger");
 
-    driver.findElement(By.id("demoForm:advance")).click();
+    driver.findElement(By.id("demoForm:advance_label")).click();
+    await(ExpectedConditions.visibilityOfElementLocated(By.id("demoForm:advance_filter")));
     driver.findElement(By.id("demoForm:advance_filter")).sendKeys("Mich");
     await(ExpectedConditions.attributeContains(By.id("demoForm:advance_9"), "style",
             "display: none;"));
@@ -189,7 +196,7 @@ public class WebTestOutput extends BaseWebTest
   }
 
   @Test
-  public void testAutoComplete()
+  public void testAutoComplete() throws Exception
   {
     startProcess("145D180807C60B4B/AutoCompleteDemo.ivp");
 
@@ -198,8 +205,9 @@ public class WebTestOutput extends BaseWebTest
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:event_panel"), "xzyz98"));
     searchAndExpect("yt69", "xzyt69", "xzyz98");
 
-    driver.findElement(By.id("Form:event_input")).sendKeys(Keys.ENTER);
-    driver.findElement(By.id("Form:event_input")).sendKeys(Keys.ENTER);
+    clearInput(By.id("Form:event_input"));
+    driver.findElement(By.id("Form:event_input")).sendKeys("xzyt69");
+    driver.findElement(By.id("Form:j_id_1u")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:msgs_container"), "xzyt69"));
   }
 
