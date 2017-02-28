@@ -21,7 +21,7 @@ import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 import ch.ivyteam.licence.SignedLicence;
 import ch.ivyteam.util.WaitUtil;
 
-import com.axon.ivy.engine.config.SystemDatabaseConnecting;
+import com.axon.ivy.engine.config.ConfigHelper;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
 import com.axonivy.engine.config.ui.settings.ConfigData;
 
@@ -39,7 +39,7 @@ public class TestSystemDatabaseSettings
   @Test
   public void testLoadConfigData() throws Exception
   {
-    ConfigData loadConfigData = SystemDatabaseSettings.loadConfigData();
+    ConfigData loadConfigData = SystemDatabaseSettings.create().getConfigData();
 
     assertThat(loadConfigData.getDriver()).isNotNull();
     assertThat(loadConfigData.getProduct()).isNotNull();
@@ -48,15 +48,16 @@ public class TestSystemDatabaseSettings
   @Test
   public void testConnecting() throws Exception
   {
-    ConfigData configData = getLocalMySqlSettings();
-    assertThat(SystemDatabaseConnecting.testConnection(configData)).isEqualTo(
+    SystemDatabaseSettings settings = SystemDatabaseSettings.create();
+    changeConfigToMySqlSettings(settings.getConfigData());
+    assertThat(settings.testConnection()).isEqualTo(
             ConnectionState.CONNECTION_FAILED);
 
-    createDatabase(configData);
+    settings.createDatabase();
     
-    assertThat(SystemDatabaseConnecting.testConnection(configData)).isEqualTo(ConnectionState.CONNECTED);
+    assertThat(settings.testConnection()).isEqualTo(ConnectionState.CONNECTED);
     
-    dropDatabase(configData);
+    dropDatabase(settings.getConfigData());
   }
 
 
@@ -76,7 +77,7 @@ public class TestSystemDatabaseSettings
     properties.put("databaseName", DBName);
     configData.setCreationParameters(properties);
   
-    SystemDatabaseCreator createDatabase = SystemDatabaseSettings.createDatabase(configData);
+    SystemDatabaseCreator createDatabase = ConfigHelper.createDatabase(configData);
     WaitUtil.await(() -> createDatabase.isRunning() == false, 60, TimeUnit.SECONDS);
     if (createDatabase.getError() != null)
     {
@@ -86,19 +87,24 @@ public class TestSystemDatabaseSettings
 
   private void dropDatabase(ConfigData configData) throws SQLException
   {
-    DatabaseConnectionConfiguration dbConnectionConfig = SystemDatabaseSettings.createConfiguration(configData);
+    if(DBName == null)
+    {
+      System.out.println("DBName was null!");
+      return;
+    }
+    DatabaseConnectionConfiguration dbConnectionConfig = ConfigHelper.createConfiguration(configData);
     DatabaseUtil.dropDatabase(DBName, dbConnectionConfig);
-  }
-
-  @Test
-  public void testConvertDb() throws Exception
-  {
-    ConfigData configData = getLocalMySqlSettings();
   }
 
   private static ConfigData getLocalMySqlSettings()
   {
     ConfigData configData = new ConfigData();
+    changeConfigToMySqlSettings(configData);
+    return configData;
+  }
+
+  private static void changeConfigToMySqlSettings(ConfigData configData)
+  {
     configData.setProduct(DatabaseProduct.MYSQL);
     configData.setHost("zugtstdbsmys");
     configData.setUsername("admin");
@@ -108,7 +114,6 @@ public class TestSystemDatabaseSettings
     configData.setDatabaseName(DBName);
     JdbcDriver[] jdbcDriversForDriverName = JdbcDriver.getJdbcDriversForDriverName("com.mysql.jdbc.Driver");
     configData.setDriver(jdbcDriversForDriverName[0]);
-    return configData;
   }
 
   @SuppressWarnings("unused")

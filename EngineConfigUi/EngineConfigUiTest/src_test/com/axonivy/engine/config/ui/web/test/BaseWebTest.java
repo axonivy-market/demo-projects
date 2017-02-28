@@ -78,6 +78,12 @@ public class BaseWebTest
 
   protected void dropDatabase() throws Exception
   {
+    if(DBNAME == null)
+    {
+      System.out.println("DBName was null!");
+      return;
+    }
+    
     String command = "DROP DATABASE " + DBNAME;
     Connection con = DriverManager.getConnection(connectionUrl, USERNAME, PASSWORD);
     Statement stmt = con.createStatement();

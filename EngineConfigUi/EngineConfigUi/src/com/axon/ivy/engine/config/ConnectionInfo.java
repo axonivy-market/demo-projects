@@ -4,24 +4,19 @@ import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 
 public class ConnectionInfo 
 {
-  private static ConnectionInfo info = new ConnectionInfo();
   private Boolean connectionOK = false;
   private ConnectionState connectionState = ConnectionState.NOT_CONNECTED;
   
   private ConnectionInfo()
   {  
   }
-  
-  public static ConnectionInfo getConnectionInfo()
+
+  public static ConnectionInfo create()
   {
-    return info;
+    return new ConnectionInfo();
   }
 
   public Boolean getConnectionOK()
-  {
-    return connectionOK;
-  }
-  public Boolean checkConnectionOK()
   {
     return connectionOK;
   }

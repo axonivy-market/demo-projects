@@ -25,6 +25,7 @@
 								<i class="fa fa-database" />
 							</f:facet>
 							<ic:com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent
+								settings="#{data.databaseSettings}"
 								id="systemDatabaseComponent" />
 						</p:tab>
 						
@@ -34,6 +35,7 @@
 								<i class="fa fa-user-secret" />
 							</f:facet>
 							<ic:com.axonivy.engine.config.ui.settings.component.AdministratorsComponent
+								settings="#{data.databaseSettings}"
 								id="administratorsComponent" />
 						</p:tab>
 						
@@ -43,6 +45,7 @@
 								<i class="fa fa-server" />
 							</f:facet>
 							<ic:com.axonivy.engine.config.ui.settings.component.WebServerComponent
+								settings="#{data.databaseSettings}"
 								id="webServerComponent" />
 						</p:tab>
 					</p:accordionPanel>

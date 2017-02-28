@@ -10,7 +10,6 @@
 <cc:interface componentType="IvyComponent" />
 
 <cc:implementation>
-  <f:event type="preRenderView" listener="#{logic.update}"/>
 	<h:panelGrid columns="1" cellpadding="1"
 		rendered="#{data.connectionInfo.connectionOK}">
 		<p:dataTable id="adminDataTable"

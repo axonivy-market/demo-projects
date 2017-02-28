@@ -1,2 +1,4 @@
 ConfigurationOverviewData #class
 com.axonivy.engine.config.ui.settings.ConfigurationOverview #namespace
+databaseSettings com.axon.ivy.engine.config.SystemDatabaseSettings #field
+databaseSettings PERSISTENT #fieldModifier

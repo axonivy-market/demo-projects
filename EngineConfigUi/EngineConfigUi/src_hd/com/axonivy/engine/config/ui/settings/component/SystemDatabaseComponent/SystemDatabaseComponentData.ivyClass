@@ -14,3 +14,5 @@ convertionAvailable Boolean #field
 convertionAvailable PERSISTENT #fieldModifier
 connectionInfo com.axon.ivy.engine.config.ConnectionInfo #field
 connectionInfo PERSISTENT #fieldModifier
+settings com.axon.ivy.engine.config.SystemDatabaseSettings #field
+settings PERSISTENT #fieldModifier
