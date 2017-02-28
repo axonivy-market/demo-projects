@@ -21,7 +21,8 @@
 					value="#{data.configData.product}" converter="ivy.ListItem">
 					<f:selectItems value="#{data.databaseProducts}" var="database"
 						itemLabel="#{database.name}" itemValue="#{database}" />
-					<p:ajax update="databaseDriverDropdown, portInput" listener="#{logic.update}" />
+					<p:ajax update="databaseDriverDropdown, portInput"
+						listener="#{logic.update}" />
 				</p:selectOneMenu>
 
 				<p:outputLabel for="databaseDriverDropdown" id="databaseDriverLabel"
@@ -34,7 +35,9 @@
 						listener="#{logic.setDefaultPort}" />
 				</p:selectOneMenu>
 				<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
-				<p:inputText id="hostInput" value="#{data.configData.host}" />
+				<p:inputText id="hostInput" value="#{data.configData.host}">
+					<p:ajax event="change" update="form:accordionPanel:administratorsTab" listener="#{logic.change}" />
+				</p:inputText>
 				<p:outputLabel for="portInput" id="portLabel" value="Port:" />
 				<h:column>
 					<p:inputText id="portInput" style="width: 70px;"
@@ -49,14 +52,20 @@
 				<p:outputLabel for="databaseNameInput" id="databaseNameLabel"
 					value="Databasename:" />
 				<p:inputText id="databaseNameInput"
-					value="#{data.configData.databaseName}" />
+					value="#{data.configData.databaseName}">
+					<p:ajax event="change" update="form" listener="#{logic.change}" />
+				</p:inputText>
 				<p:outputLabel for="usernameInput" id="usernameLabel"
 					value="Username:" />
-				<p:inputText id="usernameInput" value="#{data.configData.username}" />
+				<p:inputText id="usernameInput" value="#{data.configData.username}">
+					<p:ajax event="change" update="form" listener="#{logic.change}" />
+				</p:inputText>
 				<p:outputLabel for="passwordInput" id="passwordLabel"
 					value="Password:" />
 				<p:inputText id="passwordInput" value="#{data.configData.password}"
-					type="password" />
+					type="password">
+					<p:ajax event="change" update="form" listener="#{logic.change}" />
+				</p:inputText>
 			</h:panelGrid>
 		</p:fieldset>
 
@@ -75,7 +84,7 @@
 					disabled="#{!data.convertionAvailable}" update="form" />
 			</h:panelGrid>
 		</p:fieldset>
-		<p:commandButton icon="fa fa-save" value="Save Configuration"
+		<p:commandButton id="saveConfigButton" icon="fa fa-save" value="Save Configuration"
 			actionListener="#{logic.saveConfig}" update="form" />
 	</h:panelGrid>
 

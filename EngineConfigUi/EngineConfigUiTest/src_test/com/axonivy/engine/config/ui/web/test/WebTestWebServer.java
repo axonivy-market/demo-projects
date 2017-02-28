@@ -8,6 +8,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestWebServer extends BaseWebTest
 {
+  @Override
+  public void tearDown() throws Exception
+  {
+    super.tearDown();
+    dropDatabase();
+  }
+
   @Test
   public void testConfigStays() throws Exception
   {
@@ -28,7 +35,5 @@ public class WebTestWebServer extends BaseWebTest
     openConfigUi();
     toggleTab("WebServer");
     await(ExpectedConditions.textToBePresentInElementValue(portInputLocator, "1234"));
-
-    dropDatabase();
   }
 }

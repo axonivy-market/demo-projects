@@ -27,6 +27,7 @@ public class BaseWebTest
   protected WebDriver driver;
   protected PrimeUi prime;
   private AjaxHelper ajax;
+  private boolean dbCreated = false;
 
   @Before
   public void setUp()
@@ -63,27 +64,33 @@ public class BaseWebTest
             By.id("form:accordionPanel:systemDatabaseComponent:defaultPortCheckbox"))
             .setChecked();
 
+    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:saveConfigButton")).click();
     DBNAME = "tmp_engineConfigUi_testing_" + RandomUtils.nextInt(11, Integer.MAX_VALUE);
     clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:databaseNameInput"), DBNAME);
-
+    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:saveConfigButton")).click();
+    
     clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:usernameInput"), USERNAME);
     clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:passwordInput"), PASSWORD);
+
+    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:saveConfigButton")).click();
   }
 
   private void clearAndSend(By by, String string)
   {
+    await(ExpectedConditions.not(ExpectedConditions.stalenessOf(driver.findElement(by))));
     driver.findElement(by).clear();
+    await(ExpectedConditions.not(ExpectedConditions.stalenessOf(driver.findElement(by))));
     driver.findElement(by).sendKeys(string);
   }
 
   protected void dropDatabase() throws Exception
   {
-    if(DBNAME == null)
+    if (!dbCreated)
     {
-      System.out.println("DBName was null!");
+      System.out.println("DB wasn't created and therefore also not dropped.");
       return;
     }
-    
+
     String command = "DROP DATABASE " + DBNAME;
     Connection con = DriverManager.getConnection(connectionUrl, USERNAME, PASSWORD);
     Statement stmt = con.createStatement();
@@ -93,18 +100,22 @@ public class BaseWebTest
 
   protected void createSysDb()
   {
-    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:createDatabaseButton")).click();
     await(ExpectedConditions.elementToBeClickable(By
+            .id("form:accordionPanel:systemDatabaseComponent:createDatabaseButton")));
+    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:createDatabaseButton")).click();
+    await(ExpectedConditions.visibilityOfElementLocated(By
             .id("form:accordionPanel:systemDatabaseComponent:dialogCreateDbButton")));
     driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:dialogCreateDbButton")).click();
 
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("form:accordionPanel:systemDatabaseComponent:finishMessage"), "Succesfully Finished!"));
+    dbCreated = true;
+
     driver.findElement(
             By.xpath("//*[@id='form:accordionPanel:systemDatabaseComponent:creatingDatabaseDialog']/div[1]/a"))
             .click();
   }
-  
+
   protected void testConnection()
   {
     driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:checkConnectionButton")).click();

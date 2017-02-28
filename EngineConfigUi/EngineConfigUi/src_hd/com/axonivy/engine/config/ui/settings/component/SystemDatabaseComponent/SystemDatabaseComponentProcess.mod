@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 28 13:56:44 CET 2017]
+[>Created: Tue Feb 28 14:23:27 CET 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -55,6 +55,11 @@ Ss0 @RichDialogProcessEnd f38 '' #zField
 Ss0 @GridStep f39 '' #zField
 Ss0 @PushWFArc f43 '' #zField
 Ss0 @PushWFArc f44 '' #zField
+Ss0 @RichDialogProcessStart f22 '' #zField
+Ss0 @RichDialogProcessEnd f23 '' #zField
+Ss0 @GridStep f25 '' #zField
+Ss0 @PushWFArc f26 '' #zField
+Ss0 @PushWFArc f24 '' #zField
 >Proto Ss0 Ss0 SystemDatabaseComponentProcess #zField
 Ss0 f0 guid 157E7518F76CF891 #txt
 Ss0 f0 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
@@ -362,6 +367,36 @@ Ss0 f43 expr out #txt
 Ss0 f43 280 737 339 737 #arcP
 Ss0 f44 expr out #txt
 Ss0 f44 109 737 168 737 #arcP
+Ss0 f22 guid 15A84E378EAACF83 #txt
+Ss0 f22 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f22 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f22 actionTable 'out=in;
+' #txt
+Ss0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>change</name>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f22 83 819 26 26 -20 12 #rect
+Ss0 f22 @|RichDialogProcessStartIcon #fIcon
+Ss0 f23 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f23 339 819 26 26 0 12 #rect
+Ss0 f23 @|RichDialogProcessEndIcon #fIcon
+Ss0 f25 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f25 actionTable 'out=in;
+' #txt
+Ss0 f25 actionCode in.connectionInfo.setConnectionState(ch.ivyteam.ivy.server.configuration.system.db.ConnectionState.NOT_CONNECTED); #txt
+Ss0 f25 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f25 168 810 112 44 0 -8 #rect
+Ss0 f25 @|StepIcon #fIcon
+Ss0 f26 expr out #txt
+Ss0 f26 109 832 168 832 #arcP
+Ss0 f24 expr out #txt
+Ss0 f24 280 832 339 832 #arcP
 >Proto Ss0 .type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -398,3 +433,7 @@ Ss0 f27 mainOut f44 tail #connect
 Ss0 f44 head f39 mainIn #connect
 Ss0 f39 mainOut f43 tail #connect
 Ss0 f43 head f38 mainIn #connect
+Ss0 f22 mainOut f26 tail #connect
+Ss0 f26 head f25 mainIn #connect
+Ss0 f25 mainOut f24 tail #connect
+Ss0 f24 head f23 mainIn #connect
