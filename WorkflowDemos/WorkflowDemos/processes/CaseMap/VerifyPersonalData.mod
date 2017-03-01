@@ -1,8 +1,8 @@
 [Ivy]
-[>Created: Wed Mar 01 12:14:48 CET 2017]
-15A5AC9A4F755A3B 3.20 #module
+[>Created: Wed Mar 01 12:14:53 CET 2017]
+15A849250AA78F65 3.20 #module
 >Proto >Proto Collection #zClass
-Ca0 CollectPersonalData Big #zClass
+Ca0 VerifyPersonalData Big #zClass
 Ca0 B #cInfo
 Ca0 #process
 Ca0 @TextInP .resExport .resExport #zField
@@ -18,7 +18,7 @@ Ca0 @EndTask f1 '' #zField
 Ca0 @GridStep f3 '' #zField
 Ca0 @PushWFArc f2 '' #zField
 Ca0 @PushWFArc f4 '' #zField
->Proto Ca0 Ca0 CollectPersonalData #zField
+>Proto Ca0 Ca0 VerifyPersonalData #zField
 Ca0 f0 outLink start.ivp #txt
 Ca0 f0 type workflow.humantask.Data #txt
 Ca0 f0 inParamDecl '<> param;' #txt
@@ -34,7 +34,7 @@ TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.NAM=Collect Task
+TaskTriggered.NAM=Verify Task
 TaskTriggered.EXROL=Everybody' #txt
 Ca0 f0 caseData businessCase.attach=true #txt
 Ca0 f0 showInStartList 1 #txt
@@ -51,7 +51,7 @@ Ca0 f0 @C|.responsibility Everybody #txt
 Ca0 f0 81 49 30 30 -21 17 #rect
 Ca0 f0 @|StartRequestIcon #fIcon
 Ca0 f1 type workflow.humantask.Data #txt
-Ca0 f1 345 49 30 30 0 15 #rect
+Ca0 f1 337 49 30 30 0 15 #rect
 Ca0 f1 @|EndIcon #fIcon
 Ca0 f3 actionDecl 'workflow.humantask.Data out;
 ' #txt
@@ -69,17 +69,17 @@ Ca0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ca0 f3 176 42 112 44 -25 -8 #rect
+Ca0 f3 162 42 112 44 -25 -8 #rect
 Ca0 f3 @|StepIcon #fIcon
 Ca0 f2 expr out #txt
-Ca0 f2 288 64 345 64 #arcP
+Ca0 f2 111 64 162 64 #arcP
 Ca0 f4 expr out #txt
-Ca0 f4 111 64 176 64 #arcP
+Ca0 f4 274 64 337 64 #arcP
 >Proto Ca0 .type workflow.humantask.Data #txt
 >Proto Ca0 .processKind NORMAL #txt
 >Proto Ca0 0 0 32 24 18 0 #rect
 >Proto Ca0 @|BIcon #fIcon
-Ca0 f3 mainOut f2 tail #connect
-Ca0 f2 head f1 mainIn #connect
-Ca0 f0 mainOut f4 tail #connect
-Ca0 f4 head f3 mainIn #connect
+Ca0 f0 mainOut f2 tail #connect
+Ca0 f2 head f3 mainIn #connect
+Ca0 f3 mainOut f4 tail #connect
+Ca0 f4 head f1 mainIn #connect

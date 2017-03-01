@@ -1,84 +1,84 @@
 {
   "uuid" : "25099c02-721a-42ac-a3de-ff78e93a52b4",
   "stages" : [ {
-    "id" : "1",
+    "id" : "identification",
     "name" : "Identification",
     "description" : "",
     "processes" : [ {
-      "id" : "1",
+      "id" : "collect_personal_data",
       "name" : "Collect personal data",
       "description" : "",
       "autoStart" : true,
       "processToExecute" : "WorkflowDemos:15A5AC9A4F755A3B/start.ivp"
     }, {
-      "id" : "2",
+      "id" : "verify_personal_data",
       "name" : "Verify personal data",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : null
+      "processToExecute" : "WorkflowDemos:15A849250AA78F65/start.ivp"
     } ]
   }, {
-    "id" : "2",
-    "name" : "Credit standing",
+    "id" : "credit_rating",
+    "name" : "Credit rating",
     "description" : "",
     "processes" : [ {
-      "id" : "4",
+      "id" : "check_company_register",
       "name" : "Check company register",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : null
+      "processToExecute" : "WorkflowDemos:15A8492F526C14B3/start.ivp"
     }, {
-      "id" : "3",
+      "id" : "internal_solvency_check",
       "name" : "Internal solvency check",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : null
+      "processToExecute" : "WorkflowDemos:15A89953E2D3784F/start.ivp"
     }, {
-      "id" : "5",
+      "id" : "external_solvency_service",
       "name" : "External solvency service",
       "description" : "",
       "autoStart" : false,
-      "processToExecute" : null
+      "processToExecute" : "WorkflowDemos:15A8995AA29B442B/start.ivp"
     } ]
   }, {
-    "id" : "3",
+    "id" : "approval",
     "name" : "Approval",
     "description" : "",
     "processes" : [ {
-      "id" : "6",
+      "id" : "approve_level_1",
       "name" : "Approve Level 1",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : null
+      "processToExecute" : "WorkflowDemos:15A852737BAA2982/start.ivp"
     }, {
-      "id" : "7",
+      "id" : "approve_level_2",
       "name" : "Approve Level 2",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : null
+      "processToExecute" : "WorkflowDemos:15A89963C015F70D/start.ivp"
     }, {
-      "id" : "8",
+      "id" : "contract_creation",
       "name" : "Contract creation",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : null
+      "processToExecute" : "WorkflowDemos:15A89966729CE3FC/start.ivp"
     } ]
   }, {
-    "id" : "4",
+    "id" : "request_postponed",
     "name" : "Request postponed",
     "description" : "",
     "processes" : [ {
-      "id" : "8",
+      "id" : "resume_request",
       "name" : "Resume request",
       "description" : "",
-      "autoStart" : true,
-      "processToExecute" : null
+      "autoStart" : false,
+      "processToExecute" : "WorkflowDemos:015A8996ACC13882/start.ivp"
     }, {
-      "id" : "9",
+      "id" : "abort_request",
       "name" : "Abort request",
       "description" : "",
       "autoStart" : false,
-      "processToExecute" : null
+      "processToExecute" : "WorkflowDemos:15A8996D261A1DFE/start.ivp"
     } ]
   } ]
 }
