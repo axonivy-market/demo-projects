@@ -36,7 +36,7 @@
 				</p:selectOneMenu>
 				<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
 				<p:inputText id="hostInput" value="#{data.configData.host}">
-					<p:ajax event="change" update="form:accordionPanel:administratorsTab" listener="#{logic.change}" />
+					<p:ajax event="change" update="form:accordionPanel:administratorsTab, form:accordionPanel:webServerTab" listener="#{logic.change}" />
 				</p:inputText>
 				<p:outputLabel for="portInput" id="portLabel" value="Port:" />
 				<h:column>
@@ -53,18 +53,18 @@
 					value="Databasename:" />
 				<p:inputText id="databaseNameInput"
 					value="#{data.configData.databaseName}">
-					<p:ajax event="change" update="form" listener="#{logic.change}" />
+					<p:ajax event="change" update="form:accordionPanel:administratorsTab, form:accordionPanel:webServerTab" listener="#{logic.change}" />
 				</p:inputText>
 				<p:outputLabel for="usernameInput" id="usernameLabel"
 					value="Username:" />
 				<p:inputText id="usernameInput" value="#{data.configData.username}">
-					<p:ajax event="change" update="form" listener="#{logic.change}" />
+					<p:ajax event="change" update="form:accordionPanel:administratorsTab, form:accordionPanel:webServerTab" listener="#{logic.change}" />
 				</p:inputText>
 				<p:outputLabel for="passwordInput" id="passwordLabel"
 					value="Password:" />
 				<p:inputText id="passwordInput" value="#{data.configData.password}"
 					type="password">
-					<p:ajax event="change" update="form" listener="#{logic.change}" />
+					<p:ajax event="change" update="form:accordionPanel:administratorsTab, form:accordionPanel:webServerTab" listener="#{logic.change}" />
 				</p:inputText>
 			</h:panelGrid>
 		</p:fieldset>
