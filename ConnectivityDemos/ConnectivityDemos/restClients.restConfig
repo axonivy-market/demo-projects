@@ -103,6 +103,11 @@
         <description>A free to use test service with fixed data</description>
         <configuration>
             <uri>https://jsonplaceholder.typicode.com/</uri>
+            <property>
+                <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
+                <value>false</value>
+                <password>false</password>
+            </property>
             <feature>
                 <class>ch.ivyteam.ivy.rest.client.mapper.JsonFeature</class>
             </feature>

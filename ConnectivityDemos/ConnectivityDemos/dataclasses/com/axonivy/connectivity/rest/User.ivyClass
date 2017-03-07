@@ -1,0 +1,5 @@
+User #class
+com.axonivy.connectivity.rest #namespace
+name String #field
+email String #field
+phone String #field
