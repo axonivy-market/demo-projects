@@ -10,54 +10,59 @@
 <cc:interface componentType="IvyComponent" />
 
 <cc:implementation>
-	<h:panelGrid columns="1" cellpadding="1"
-		rendered="#{data.connectionInfo.connectionOK}">
-		<p:dataTable id="adminDataTable"
-			value="#{data.administratorManager.administrators}"
-			var="administrator" rowIndexVar="row" rowKey="#{administrator.name}"
-			sortOrder="DESCENDING" selectionMode="single"
-			selection="#{data.selectedAdministrator}" style="border: none;"
-			emptyMessage="No Administrators found!">
-			<p:column headerText="Name" sortBy="#{administrator.name}">
-				<h:outputText value="#{administrator.name}" />
-			</p:column>
-			<p:column headerText="Fullname" sortBy="#{administrator.fullName}">
-				<h:outputText value="#{administrator.fullName}" />
-			</p:column>
-			<p:column headerText="Email Address"
-				sortBy="#{administrator.EMailAddress}">
-				<h:outputText value="#{administrator.EMailAddress}" />
-			</p:column>
-		</p:dataTable>
-		<h:column>
-			<p:commandButton id="addAdminButton" icon="fa fa-plus-circle" value="Add Administrator"
-				onclick="PF('addAdminDialog').show()"/>
-			<p:commandButton id="removeAdminButton" icon="fa fa-minus-circle"
-				value="Remove Selected Administrator"
-				actionListener="#{logic.removeAdmin}" update="form" />
-		</h:column>
-	</h:panelGrid>
-
+	<h:form id="adminManagerForm">
+		<h:panelGrid columns="1" cellpadding="1"
+			rendered="#{data.connectionInfo.connectionOK}">
+			<p:dataTable id="adminDataTable"
+				value="#{data.administratorManager.administrators}"
+				var="administrator" rowIndexVar="row" rowKey="#{administrator.name}"
+				sortOrder="DESCENDING" selectionMode="single"
+				selection="#{data.selectedAdministrator}" style="border: none;"
+				emptyMessage="No Administrators found!">
+				<p:column headerText="Name" sortBy="#{administrator.name}">
+					<h:outputText value="#{administrator.name}" />
+				</p:column>
+				<p:column headerText="Fullname" sortBy="#{administrator.fullName}">
+					<h:outputText value="#{administrator.fullName}" />
+				</p:column>
+				<p:column headerText="Email Address"
+					sortBy="#{administrator.EMailAddress}">
+					<h:outputText value="#{administrator.EMailAddress}" />
+				</p:column>
+			</p:dataTable>
+			<h:column>
+				<p:commandButton id="addAdminButton" icon="fa fa-plus-circle"
+					value="Add Administrator" onclick="PF('addAdminDialog').show()" />
+				<p:commandButton id="removeAdminButton" icon="fa fa-minus-circle"
+					value="Remove Selected Administrator"
+					actionListener="#{logic.removeAdmin}"
+					update=":#{cc.clientId}:adminManagerForm" />
+			</h:column>
+		</h:panelGrid>
+	</h:form>
 	<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
 		Please insert a valid System-Db-Connection!!
 	</h:outputText>
 
 	<p:dialog widgetVar="addAdminDialog" id="addAdminDialog"
 		header="New Administrator" modal="true">
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Name :" for="newName" />
-			<h:inputText id="newName" value="#{data.newName}" />
-			<h:outputLabel value="Fullname :" for="newFullname" />
-			<h:inputText id="newFullname" value="#{data.newFullName}" />
-			<h:outputLabel value="Email Address :" for="newEmail" />
-			<h:inputText id="newEmail" value="#{data.newEMailAddress}" />
-			<h:outputLabel value="Password :" for="newPassword" />
-			<h:inputSecret id="newPassword" value="#{data.newPassword}" />
-		</h:panelGrid>
-		<br />
-		<p:commandButton id="addAdminDialogButton" value="Add new Administrator"
-			icon="fa fa-plus-circle" actionListener="#{logic.addNewAdmin}"
-			update="form:accordionPanel:administratorsComponent:adminDataTable, addAdminDialog" />
+		<h:form id="addAdminForm">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Name :" for="newName" />
+				<h:inputText id="newName" value="#{data.newName}" />
+				<h:outputLabel value="Fullname :" for="newFullname" />
+				<h:inputText id="newFullname" value="#{data.newFullName}" />
+				<h:outputLabel value="Email Address :" for="newEmail" />
+				<h:inputText id="newEmail" value="#{data.newEMailAddress}" />
+				<h:outputLabel value="Password :" for="newPassword" />
+				<h:inputSecret id="newPassword" value="#{data.newPassword}" />
+			</h:panelGrid>
+			<br />
+			<p:commandButton id="addAdminDialogButton"
+				value="Add new Administrator" icon="fa fa-plus-circle"
+				actionListener="#{logic.addNewAdmin}"
+				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:addAdminDialog" />
+		</h:form>
 	</p:dialog>
 </cc:implementation>
 </html>

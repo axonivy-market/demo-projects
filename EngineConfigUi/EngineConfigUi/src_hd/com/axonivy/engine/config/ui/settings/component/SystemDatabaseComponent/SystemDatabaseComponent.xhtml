@@ -12,148 +12,167 @@
 
 <cc:implementation>
 	<p:growl id="growl" showDetail="true" sticky="true" />
-	<h:panelGrid columns="2" cellpadding="20" cellspacing="20">
-		<p:fieldset id="databaseFieldSet" legend="Database">
-			<h:panelGrid columns="2" cellpadding="1">
-				<p:outputLabel for="databaseTypeDropdown" id="databaseTypeLabel"
-					value="Database: " />
-				<p:selectOneMenu id="databaseTypeDropdown"
-					value="#{data.configData.product}" converter="ivy.ListItem">
-					<f:selectItems value="#{data.databaseProducts}" var="database"
-						itemLabel="#{database.name}" itemValue="#{database}" />
-					<p:ajax update="databaseDriverDropdown, portInput"
-						listener="#{logic.update}" />
-				</p:selectOneMenu>
+	<h:form id="systemDatabaseForm">
+		<h:panelGrid columns="2" cellpadding="20" cellspacing="20">
+			<p:fieldset id="databaseFieldSet" legend="Database">
+				<h:panelGrid columns="2" cellpadding="1">
+					<p:outputLabel for="databaseTypeDropdown" id="databaseTypeLabel"
+						value="Database: " />
+					<p:selectOneMenu id="databaseTypeDropdown"
+						value="#{data.configData.product}" converter="ivy.ListItem">
+						<f:selectItems value="#{data.databaseProducts}" var="database"
+							itemLabel="#{database.name}" itemValue="#{database}" />
+						<p:ajax update="databaseDriverDropdown, portInput"
+							listener="#{logic.update}" />
+					</p:selectOneMenu>
 
-				<p:outputLabel for="databaseDriverDropdown" id="databaseDriverLabel"
-					value="Driver: " />
-				<p:selectOneMenu id="databaseDriverDropdown"
-					value="#{data.configData.driver}" converter="ivy.ListItem">
-					<f:selectItems value="#{data.databaseDrivers}" var="driver"
-						itemLabel="#{driver.name}" itemValue="#{driver}" />
-					<p:ajax event="change" update="portInput"
-						listener="#{logic.setDefaultPort}" />
-				</p:selectOneMenu>
-				<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
-				<p:inputText id="hostInput" value="#{data.configData.host}">
-					<p:ajax event="change" update="form:accordionPanel:administratorsTab, form:accordionPanel:webServerTab" listener="#{logic.change}" />
-				</p:inputText>
-				<p:outputLabel for="portInput" id="portLabel" value="Port:" />
-				<h:column>
-					<p:inputText id="portInput" style="width: 70px;"
-						value="#{data.configData.port}" disabled="#{data.defaultPort}" />
-					<p:selectBooleanCheckbox id="defaultPortCheckbox"
-						style="margin-left: 5px; margin-top: 3px" itemLabel="Default"
-						value="#{data.defaultPort}">
-						<p:ajax listener="#{logic.setDefaultPort}"
-							update="form:accordionPanel:systemDatabaseComponent:portInput" />
-					</p:selectBooleanCheckbox>
-				</h:column>
-				<p:outputLabel for="databaseNameInput" id="databaseNameLabel"
-					value="Databasename:" />
-				<p:inputText id="databaseNameInput"
-					value="#{data.configData.databaseName}">
-					<p:ajax event="change" update="form:accordionPanel:administratorsTab, form:accordionPanel:webServerTab" listener="#{logic.change}" />
-				</p:inputText>
-				<p:outputLabel for="usernameInput" id="usernameLabel"
-					value="Username:" />
-				<p:inputText id="usernameInput" value="#{data.configData.username}">
-					<p:ajax event="change" update="form:accordionPanel:administratorsTab, form:accordionPanel:webServerTab" listener="#{logic.change}" />
-				</p:inputText>
-				<p:outputLabel for="passwordInput" id="passwordLabel"
-					value="Password:" />
-				<p:inputText id="passwordInput" value="#{data.configData.password}"
-					type="password">
-					<p:ajax event="change" update="form:accordionPanel:administratorsTab, form:accordionPanel:webServerTab" listener="#{logic.change}" />
-				</p:inputText>
-			</h:panelGrid>
-		</p:fieldset>
+					<p:outputLabel for="databaseDriverDropdown"
+						id="databaseDriverLabel" value="Driver: " />
+					<p:selectOneMenu id="databaseDriverDropdown"
+						value="#{data.configData.driver}" converter="ivy.ListItem">
+						<f:selectItems value="#{data.databaseDrivers}" var="driver"
+							itemLabel="#{driver.name}" itemValue="#{driver}" />
+						<p:ajax event="change" update="portInput"
+							listener="#{logic.setDefaultPort}" />
+					</p:selectOneMenu>
+					<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
+					<p:inputText id="hostInput" value="#{data.configData.host}">
+						<p:ajax event="change"
+							update="accordionPanel:administratorsTab, accordionPanel:webServerTab, accordionPanel:clusterTab"
+							listener="#{logic.change}" />
+					</p:inputText>
+					<p:outputLabel for="portInput" id="portLabel" value="Port:" />
+					<h:column>
+						<p:inputText id="portInput" style="width: 70px;"
+							value="#{data.configData.port}" disabled="#{data.defaultPort}" />
+						<p:selectBooleanCheckbox id="defaultPortCheckbox"
+							style="margin-left: 5px; margin-top: 3px" itemLabel="Default"
+							value="#{data.defaultPort}">
+							<p:ajax listener="#{logic.setDefaultPort}"
+								update=":#{cc.clientId}:systemDatabaseForm:portInput" />
+						</p:selectBooleanCheckbox>
+					</h:column>
+					<p:outputLabel for="databaseNameInput" id="databaseNameLabel"
+						value="Databasename:" />
+					<p:inputText id="databaseNameInput"
+						value="#{data.configData.databaseName}">
+						<p:ajax event="change" update=":accordionPanel"
+							listener="#{logic.change}" />
+					</p:inputText>
+					<p:outputLabel for="usernameInput" id="usernameLabel"
+						value="Username:" />
+					<p:inputText id="usernameInput" value="#{data.configData.username}">
+						<p:ajax event="change" update=":accordionPanel"
+							listener="#{logic.change}" />
+					</p:inputText>
+					<p:outputLabel for="passwordInput" id="passwordLabel"
+						value="Password:" />
+					<p:inputText id="passwordInput" value="#{data.configData.password}"
+						type="password">
+						<p:ajax event="change" update=":accordionPanel"
+							listener="#{logic.change}" />
+					</p:inputText>
+				</h:panelGrid>
+			</p:fieldset>
 
-		<p:fieldset id="connectionsStateFieldSet" legend="Connection State">
-			<h:panelGrid columns="1" cellpadding="10">
-				<p:commandButton id="checkConnectionButton" value="Check Connection"
-					icon="fa fa-database" actionListener="#{logic.checkConnection}"
-					update="form" />
-				<p:commandButton id="createDatabaseButton" value="Create Database"
-					actionListener="#{logic.applyProperties}"
-					oncomplete="PF('createDatabaseDialog').show()"
-					icon="fa fa-database" update="form" />
-				<p:commandButton id="convertDbButton" value="Convert Database"
-					icon="fa fa-database" actionListener="#{logic.convertDb}"
-					onclick="PF('convertDatabaseDialog').show()"
-					disabled="#{!data.convertionAvailable}" update="form" />
-			</h:panelGrid>
-		</p:fieldset>
-		<p:commandButton id="saveConfigButton" icon="fa fa-save" value="Save Configuration"
-			actionListener="#{logic.saveConfig}" update="form" />
-	</h:panelGrid>
+			<p:fieldset id="connectionsStateFieldSet" legend="Connection State">
+				<h:panelGrid columns="1" cellpadding="10">
+					<p:commandButton id="checkConnectionButton"
+						value="Check Connection" icon="fa fa-database"
+						actionListener="#{logic.checkConnection}"
+						update=":#{cc.clientId}:growl, :accordionPanel" />
+					<p:commandButton id="createDatabaseButton" value="Create Database"
+						actionListener="#{logic.applyProperties}" 
+						oncomplete="PF('createDatabaseDialog').show()"
+						icon="fa fa-database"
+						update=":#{cc.clientId}:createDatabaseDialog" />
+					<p:commandButton id="convertDbButton" value="Convert Database"
+						icon="fa fa-database" actionListener="#{logic.convertDb}"
+						onclick="PF('convertDatabaseDialog').show()"
+						disabled="#{!data.convertionAvailable}"
+						update=":#{cc.clientId}:convertDatabaseDialog, :accordionPanel" />
+				</h:panelGrid>
+			</p:fieldset>
+			<p:commandButton id="saveConfigButton" icon="fa fa-save"
+				value="Save Configuration" actionListener="#{logic.saveConfig}"
+				update=":#{cc.clientId}:systemDatabaseForm" />
+		</h:panelGrid>
+	</h:form>
 
 	<p:dialog id="createDatabaseDialog" widgetVar="createDatabaseDialog"
 		header="Create System Database" modal="true">
-		<h:outputText
-			value="Enter the required parameters for your System Database configuration:" />
-		<br />
-		<h:panelGrid columns="2" cellpadding="1">
-			<p:outputLabel for="databaseNameCreationParam"
-				value="Database Name: " />
-			<p:inputText id="databaseNameCreationParam"
-				value="#{data.configData.creationParameters['databaseName']}" />
-		</h:panelGrid>
-		<p:commandButton value="Create Database"
-			actionListener="#{logic.createDatabase}"
-			update="createDatabaseDialog,doUpdate"
-			onsuccess="PF('creatingDatabaseDialog').show()"
-			id="dialogCreateDbButton" />
+		<h:form id="createDatabaseForm">
+			<h:outputText
+				value="Enter the required parameters for your System Database configuration:" />
+			<br />
+			<h:panelGrid columns="2" cellpadding="1">
+				<p:outputLabel for="databaseNameCreationParam"
+					value="Database Name: " />
+				<p:inputText id="databaseNameCreationParam"
+					value="#{data.configData.creationParameters['databaseName']}" />
+			</h:panelGrid>
+			<p:commandButton value="Create Database"
+				actionListener="#{logic.createDatabase}"
+				update=":#{cc.clientId}:createDatabaseDialog, :#{cc.clientId}:creatingDatabaseForm:doUpdate"
+				onsuccess="PF('creatingDatabaseDialog').show()"
+				id="dialogCreateDbButton" />
+		</h:form>
 	</p:dialog>
 
 	<p:dialog id="creatingDatabaseDialog"
 		widgetVar="creatingDatabaseDialog" header="Creating System Database"
 		dynamic="true" modal="true" onShow="PF('creatingOutputPoll').start()">
 
-		<p:poll autoStart="false" id="creatingOutputPoll"
-			widgetVar="creatingOutputPoll" update="doUpdate" interval="1"
-			stop="#{!data.progressAction.running}" />
-		<h:panelGrid id="doUpdate" columns="1" style="width:100%;">
+		<h:form id="creatingDatabaseForm">
+			<p:poll autoStart="false" id="creatingOutputPoll"
+				widgetVar="creatingOutputPoll"
+				update="creatingDatabaseForm:doUpdate" interval="1"
+				stop="#{!data.progressAction.running}" />
+			<h:panelGrid id="doUpdate" columns="1" style="width:100%;">
 
-			<h:outputText value="Your database is being created..." />
+				<h:outputText value="Your database is being created..." />
 
-			<p:progressBar id="progressbar" widgetVar="progressbar"
-				value="#{data.progressAction.progress/(data.progressAction.maxProgress/100)}" />
-			<br />
-			<br />
-			<h:outputText id="errorMessage"
-				value="#{data.progressAction.error.message}"
-				rendered="#{data.progressAction.error != null}" style="color: red;" />
-			<h:outputText id="finishMessage" value="Succesfully Finished!"
-				rendered="#{!data.progressAction.running and data.progressAction.error == null}"
-				style="font-weight:bold;" />
-		</h:panelGrid>
+				<p:progressBar id="progressbar" widgetVar="progressbar"
+					value="#{data.progressAction.progress/(data.progressAction.maxProgress/100)}" />
+				<br />
+				<br />
+				<h:outputText id="errorMessage"
+					value="#{data.progressAction.error.message}"
+					rendered="#{data.progressAction.error != null}" style="color: red;" />
+				<h:outputText id="finishMessage" value="Succesfully Finished!"
+					rendered="#{!data.progressAction.running and data.progressAction.error == null}"
+					style="font-weight:bold;" />
+			</h:panelGrid>
+		</h:form>
 	</p:dialog>
 
 	<p:dialog id="convertDatabaseDialog" widgetVar="convertDatabaseDialog"
 		header="Converting System Database" dynamic="true" modal="true"
 		onShow="PF('convertingOutputPoll').start()">
 
-		<p:poll autoStart="false" id="convertingOutputPoll"
-			widgetVar="convertingOutputPoll" update="doUpdateConvertion"
-			interval="1" stop="#{!data.progressAction.running}" />
-		<h:panelGrid id="doUpdateConvertion" columns="1" style="width:100%;">
+		<h:form id="convertDatabaseForm">
+			<p:poll autoStart="false" id="convertingOutputPoll"
+				widgetVar="convertingOutputPoll"
+				update="convertDatabaseForm:doUpdateConvertion" interval="1"
+				stop="#{!data.progressAction.running}" />
+			<h:panelGrid id="doUpdateConvertion" columns="1" style="width:100%;">
 
-			<h:outputText value="Your database is being converted..." />
+				<h:outputText value="Your database is being converted..." />
 
-			<p:progressBar id="progressbarConvertion"
-				widgetVar="progressbarConvertion"
-				value="#{data.progressAction.progress/(data.progressAction.maxProgress/100)}" />
-			<br />
-			<br />
-			<h:outputText id="errorMessageConvertion"
-				value="#{data.progressAction.error.message}"
-				rendered="#{data.progressAction.error != null}" style="color: red;" />
-			<h:outputText id="finishMessageConvertion"
-				value="Successfully Finished!"
-				rendered="#{!data.progressAction.running and data.progressAction.error == null}"
-				style="font-weight:bold;" />
-		</h:panelGrid>
+				<p:progressBar id="progressbarConvertion"
+					widgetVar="progressbarConvertion"
+					value="#{data.progressAction.progress/(data.progressAction.maxProgress/100)}" />
+				<br />
+				<br />
+				<h:outputText id="errorMessageConvertion"
+					value="#{data.progressAction.error.message}"
+					rendered="#{data.progressAction.error != null}" style="color: red;" />
+				<h:outputText id="finishMessageConvertion"
+					value="Successfully Finished!"
+					rendered="#{!data.progressAction.running and data.progressAction.error == null}"
+					style="font-weight:bold;" />
+			</h:panelGrid>
+		</h:form>
 	</p:dialog>
 </cc:implementation>
 </html>

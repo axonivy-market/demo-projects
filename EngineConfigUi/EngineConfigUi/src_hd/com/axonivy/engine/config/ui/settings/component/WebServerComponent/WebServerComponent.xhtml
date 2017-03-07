@@ -11,55 +11,59 @@
 <cc:interface componentType="IvyComponent" />
 
 <cc:implementation>
-  <f:event type="preRenderView" listener="#{logic.update}"/>
-	<h:panelGrid columns="3" cellpadding="20" cellspacing="20"
-		rendered="#{data.connectionInfo.connectionOK}">
-		<p:fieldset id="HTTPFieldSet" legend="HTTP Connector">
-			<h:panelGrid columns="2" cellpadding="5" cellspacing="10">
-				<p:outputLabel for="HTTPEnabledCheckbox" id="HTTPEnabledLabel"
-					value="Enabled: " />
-				<p:selectBooleanCheckbox id="HTTPEnabledCheckbox"
-					style="margin-left: 5px; margin-top: 3px"
-					value="#{data.webServerConfig.httpEnabled}" />
+	<f:event type="preRenderView" listener="#{logic.update}" />
+	<h:form id="webServerForm">
+		<h:panelGrid columns="3" cellpadding="20" cellspacing="20"
+			rendered="#{data.connectionInfo.connectionOK}">
+			<p:fieldset id="HTTPFieldSet" legend="HTTP Connector">
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="10">
+					<p:outputLabel for="HTTPEnabledCheckbox" id="HTTPEnabledLabel"
+						value="Enabled: " />
+					<p:selectBooleanCheckbox id="HTTPEnabledCheckbox"
+						style="margin-left: 5px; margin-top: 3px"
+						value="#{data.webServerConfig.httpEnabled}" />
 
-				<p:outputLabel for="HTTPPortInput" id="HTTPPortLabel" value="Port: " />
-				<p:inputText id="HTTPPortInput" style="width: 70px;"
-					value="#{data.webServerConfig.httpPort}" />
-			</h:panelGrid>
-		</p:fieldset>
+					<p:outputLabel for="HTTPPortInput" id="HTTPPortLabel"
+						value="Port: " />
+					<p:inputText id="HTTPPortInput" style="width: 70px;"
+						value="#{data.webServerConfig.httpPort}" />
+				</h:panelGrid>
+			</p:fieldset>
 
-		<p:fieldset id="HTTPSFieldSet" legend="HTTPS Connector">
-			<h:panelGrid columns="2" cellpadding="5" cellspacing="10">
-				<p:outputLabel for="HTTPSEnabledCheckbox" id="HTTPSEnabledLabel"
-					value="Enabled: " />
-				<p:selectBooleanCheckbox id="HTTPSEnabledCheckbox"
-					style="margin-left: 5px; margin-top: 3px"
-					value="#{data.webServerConfig.httpsEnabled}" />
+			<p:fieldset id="HTTPSFieldSet" legend="HTTPS Connector">
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="10">
+					<p:outputLabel for="HTTPSEnabledCheckbox" id="HTTPSEnabledLabel"
+						value="Enabled: " />
+					<p:selectBooleanCheckbox id="HTTPSEnabledCheckbox"
+						style="margin-left: 5px; margin-top: 3px"
+						value="#{data.webServerConfig.httpsEnabled}" />
 
-				<p:outputLabel for="HTTPSPortInput" id="HTTPSPortLabel"
-					value="Port: " />
-				<p:inputText id="HTTPSPortInput" style="width: 70px;"
-					value="#{data.webServerConfig.httpsPort}" />
-			</h:panelGrid>
-		</p:fieldset>
+					<p:outputLabel for="HTTPSPortInput" id="HTTPSPortLabel"
+						value="Port: " />
+					<p:inputText id="HTTPSPortInput" style="width: 70px;"
+						value="#{data.webServerConfig.httpsPort}" />
+				</h:panelGrid>
+			</p:fieldset>
 
-		<p:fieldset id="AJPFieldSet" legend="AJP Connector">
-			<h:panelGrid columns="2" cellpadding="5" cellspacing="10">
-				<p:outputLabel for="AJPEnabledCheckbox" id="AJPEnabledLabel"
-					value="Enabled: " />
-				<p:selectBooleanCheckbox id="AJPEnabledCheckbox"
-					style="margin-left: 5px; margin-top: 3px"
-					value="#{data.webServerConfig.ajpEnabled}" />
+			<p:fieldset id="AJPFieldSet" legend="AJP Connector">
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="10">
+					<p:outputLabel for="AJPEnabledCheckbox" id="AJPEnabledLabel"
+						value="Enabled: " />
+					<p:selectBooleanCheckbox id="AJPEnabledCheckbox"
+						style="margin-left: 5px; margin-top: 3px"
+						value="#{data.webServerConfig.ajpEnabled}" />
 
-				<p:outputLabel for="AJPPortInput" id="AJPPortLabel" value="Port: " />
-				<p:inputText id="AJPPortInput" style="width: 70px;"
-					value="#{data.webServerConfig.ajpPort}" />
-			</h:panelGrid>
-		</p:fieldset>
-		<p:commandButton id="savePortsButton" icon="fa fa-save" value="Save Ports" actionListener="#{logic.save}"/>
-	</h:panelGrid>
-	<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
+					<p:outputLabel for="AJPPortInput" id="AJPPortLabel" value="Port: " />
+					<p:inputText id="AJPPortInput" style="width: 70px;"
+						value="#{data.webServerConfig.ajpPort}" />
+				</h:panelGrid>
+			</p:fieldset>
+			<p:commandButton id="savePortsButton" icon="fa fa-save"
+				value="Save Ports" actionListener="#{logic.save}" />
+		</h:panelGrid>
+		<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
 		Please insert a valid System-Db-Connection!!
 	</h:outputText>
+	</h:form>
 </cc:implementation>
 </html>

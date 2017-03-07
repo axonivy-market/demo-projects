@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+<cc:interface componentType="IvyComponent" />
+
+<cc:implementation>
+	<f:event type="preRenderView" listener="#{logic.checkExists()}" />
+	<h:form id="clusterNodeForm">
+		<h:panelGrid columns="1" cellpadding="1"
+			rendered="#{data.connectionInfo.connectionOK}">
+			<p:dataTable id="clusterNodesDataTable"
+				value="#{data.adminManager.clusterNodes}" var="cluster"
+				rowIndexVar="row" rowKey="#{cluster.hostName}"
+				sortOrder="DESCENDING" selectionMode="single"
+				selection="#{data.selectedCluster}" style="border: none;"
+				emptyMessage="No Cluster Node found!">
+				<p:column headerText="Host" sortBy="#{cluster.hostName}">
+					<h:outputText value="#{cluster.hostName}" />
+				</p:column>
+				<p:column headerText="Local Identifier"
+					sortBy="#{cluster.localIdentifier}">
+					<h:outputText value="#{cluster.localIdentifier}" />
+				</p:column>
+				<p:column headerText="IP Port" sortBy="#{cluster.ipPort}">
+					<h:outputText value="#{cluster.ipPort}" />
+				</p:column>
+				<p:column headerText="IP Address" sortBy="#{cluster.ipAddress}">
+					<h:outputText value="#{cluster.ipAddress}" />
+				</p:column>
+			</p:dataTable>
+			<h:column>
+				<p:commandButton id="addLocalNodeButton" icon="fa fa-plus-circle"
+					value="Add Local Node" onclick="PF('addLocalNodeDialog').show()"
+					disabled="#{data.exists}" />
+				<p:commandButton id="removeLocalNodenButton"
+					icon="fa fa-minus-circle" actionListener="#{logic.removeLocalNode}"
+					value="Remove Selected Node"
+					update=":#{cc.clientId}:clusterNodeForm" />
+			</h:column>
+		</h:panelGrid>
+	</h:form>
+
+	<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
+		Please insert a valid System-Db-Connection!!
+	</h:outputText>
+
+	<p:dialog widgetVar="addLocalNodeDialog" id="addLocalNodeDialog"
+		header="New Local Node" modal="true" appendTo="@(body)">
+		<h:form id="addLocalNodeForm">
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Host :" for="newHost" />
+				<p:inputText id="newHost" value="#{data.newClusterNode.hostName}"
+					disabled="true" />
+				<p:outputLabel value="Local Identifier :" for="newLocalIdentifier" />
+				<p:inputText id="newLocalIdentifier"
+					value="#{data.newClusterNode.localIdentifier}" disabled="true" />
+				<p:outputLabel value="IP Port :" for="newIPPort" />
+				<p:inputText id="newIPPort" value="#{data.newClusterNode.ipPort}" />
+				<p:outputLabel value="IP Address :" for="newIPAddress" />
+				<p:inputText id="newIPAddress"
+					value="#{data.newClusterNode.ipAddress}" />
+			</h:panelGrid>
+			<br />
+			<p:commandButton id="addLocalNodeDialogButton"
+				actionListener="#{logic.addLocalNode}" value="Add new Local Node"
+				icon="fa fa-plus-circle"
+				update=":#{cc.clientId}:clusterNodeForm, :#{cc.clientId}:addLocalNodeDialog" />
+		</h:form>
+	</p:dialog>
+</cc:implementation>
+</html>

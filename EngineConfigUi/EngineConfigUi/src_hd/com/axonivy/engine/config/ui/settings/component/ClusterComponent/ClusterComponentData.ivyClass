@@ -1,0 +1,18 @@
+ClusterComponentData #class
+com.axonivy.engine.config.ui.settings.component.ClusterComponent #namespace
+adminManager ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager #field
+adminManager PERSISTENT #fieldModifier
+connectionInfo com.axon.ivy.engine.config.ConnectionInfo #field
+connectionInfo PERSISTENT #fieldModifier
+selectedCluster ch.ivyteam.ivy.server.configuration.system.db.ClusterNode #field
+selectedCluster PERSISTENT #fieldModifier
+localHostName String #field
+localHostName PERSISTENT #fieldModifier
+localIdentifier Integer #field
+localIdentifier PERSISTENT #fieldModifier
+newClusterNode ch.ivyteam.ivy.server.configuration.system.db.ClusterNode #field
+newClusterNode PERSISTENT #fieldModifier
+settings com.axon.ivy.engine.config.SystemDatabaseSettings #field
+settings PERSISTENT #fieldModifier
+exists Boolean #field
+exists PERSISTENT #fieldModifier

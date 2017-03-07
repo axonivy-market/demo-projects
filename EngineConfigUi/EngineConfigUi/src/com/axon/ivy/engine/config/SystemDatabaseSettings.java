@@ -111,6 +111,11 @@ public class SystemDatabaseSettings
   {
     configuration.saveConfiguration();
   }
+  
+  public Configuration getConfiguration()
+  {
+    return configuration;
+  }
 
   public AdministratorManager getAdministratorManager()
   {
