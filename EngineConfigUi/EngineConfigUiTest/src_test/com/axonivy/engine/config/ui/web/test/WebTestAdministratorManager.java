@@ -27,7 +27,7 @@ public class WebTestAdministratorManager extends BaseWebTest
     testConnection();
     openAdminTab();
 
-    Table table = prime.table(By.id("form:accordionPanel:administratorsComponent:adminDataTable"));
+    Table table = prime.table(By.id("accordionPanel:administratorsComponent:adminManagerForm:adminDataTable"));
     table.contains("No Administrators found!");
     addAdmin();
     table.contains(newName);
@@ -42,34 +42,34 @@ public class WebTestAdministratorManager extends BaseWebTest
 
   private void removeAdmin() throws Exception
   {
-    Table table = prime.table(By.id("form:accordionPanel:administratorsComponent:adminDataTable"));
+    Table table = prime.table(By.id("accordionPanel:administratorsComponent:adminManagerForm:adminDataTable"));
     table.contains(newName);
     table.select(newName);
 
-    driver.findElement(By.id("form:accordionPanel:administratorsComponent:removeAdminButton")).click();
+    driver.findElement(By.id("accordionPanel:administratorsComponent:adminManagerForm:removeAdminButton")).click();
     table.containsNot(newName);
   }
 
   private void addAdmin()
   {
-    driver.findElement(By.id("form:accordionPanel:administratorsComponent:addAdminButton")).click();
+    driver.findElement(By.id("accordionPanel:administratorsComponent:adminManagerForm:addAdminButton")).click();
 
-    Dialog dialog = prime.dialog(By.id("form:accordionPanel:administratorsComponent:addAdminDialog"));
+    Dialog dialog = prime.dialog(By.id("accordionPanel:administratorsComponent:addAdminDialog"));
     dialog.waitForVisibility(true);
 
-    driver.findElement(By.id("form:accordionPanel:administratorsComponent:newName"))
+    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newName"))
             .sendKeys(newName);
 
-    driver.findElement(By.id("form:accordionPanel:administratorsComponent:newFullname"))
+    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newFullname"))
             .sendKeys("AXONIVY");
 
-    driver.findElement(By.id("form:accordionPanel:administratorsComponent:newEmail"))
+    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"))
             .sendKeys("support@ivyteam.ch");
 
-    driver.findElement(By.id("form:accordionPanel:administratorsComponent:newPassword"))
+    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"))
             .sendKeys("password");
 
-    driver.findElement(By.id("form:accordionPanel:administratorsComponent:addAdminDialogButton")).click();
+    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton")).click();
     dialog.waitToBeClosedOrError();
   }
 

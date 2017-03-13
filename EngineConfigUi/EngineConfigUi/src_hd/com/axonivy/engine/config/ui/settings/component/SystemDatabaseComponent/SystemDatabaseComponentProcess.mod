@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 28 14:23:27 CET 2017]
+[>Created: Mon Mar 13 13:56:25 CET 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -20,11 +20,6 @@ Ss0 @RichDialogProcessEnd f1 '' #zField
 Ss0 @GridStep f6 '' #zField
 Ss0 @PushWFArc f7 '' #zField
 Ss0 @PushWFArc f2 '' #zField
-Ss0 @RichDialogProcessStart f8 '' #zField
-Ss0 @RichDialogProcessEnd f9 '' #zField
-Ss0 @GridStep f11 '' #zField
-Ss0 @PushWFArc f12 '' #zField
-Ss0 @PushWFArc f10 '' #zField
 Ss0 @RichDialogProcessStart f13 '' #zField
 Ss0 @RichDialogProcessEnd f14 '' #zField
 Ss0 @GridStep f16 '' #zField
@@ -60,6 +55,11 @@ Ss0 @RichDialogProcessEnd f23 '' #zField
 Ss0 @GridStep f25 '' #zField
 Ss0 @PushWFArc f26 '' #zField
 Ss0 @PushWFArc f24 '' #zField
+Ss0 @GridStep f11 '' #zField
+Ss0 @PushWFArc f10 '' #zField
+Ss0 @RichDialogProcessEnd f9 '' #zField
+Ss0 @PushWFArc f12 '' #zField
+Ss0 @RichDialogProcessStart f8 '' #zField
 >Proto Ss0 Ss0 SystemDatabaseComponentProcess #zField
 Ss0 f0 guid 157E7518F76CF891 #txt
 Ss0 f0 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
@@ -121,40 +121,6 @@ Ss0 f7 expr out #txt
 Ss0 f7 109 64 168 64 #arcP
 Ss0 f2 expr out #txt
 Ss0 f2 280 64 339 64 #arcP
-Ss0 f8 guid 157E7AAB0D9991DD #txt
-Ss0 f8 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
-Ss0 f8 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
-' #txt
-Ss0 f8 actionTable 'out=in;
-' #txt
-Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>update</name>
-        <nameStyle>6,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f8 83 147 26 26 -19 15 #rect
-Ss0 f8 @|RichDialogProcessStartIcon #fIcon
-Ss0 f9 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
-Ss0 f9 339 147 26 26 0 12 #rect
-Ss0 f9 @|RichDialogProcessEndIcon #fIcon
-Ss0 f11 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
-' #txt
-Ss0 f11 actionTable 'out=in;
-' #txt
-Ss0 f11 actionCode 'in.databaseDrivers = ch.ivyteam.db.jdbc.JdbcDriver.getInstalledJdbcDrivers(in.configData.product, ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory.getSupportedJdbcDrivers());
-in.configData.driver = in.databaseDrivers.get(0);
-in.configData.port = com.axon.ivy.engine.config.ConfigHelper.getDefaultPort(in.configData.driver);' #txt
-Ss0 f11 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
-Ss0 f11 168 138 112 44 0 -8 #rect
-Ss0 f11 @|StepIcon #fIcon
-Ss0 f12 expr out #txt
-Ss0 f12 109 160 168 160 #arcP
-Ss0 f10 expr out #txt
-Ss0 f10 280 160 339 160 #arcP
 Ss0 f13 guid 157F5AD035A5DAA8 #txt
 Ss0 f13 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f13 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
@@ -207,14 +173,18 @@ Ss0 f18 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 ' #txt
 Ss0 f18 actionTable 'out=in;
 ' #txt
+Ss0 f18 actionCode '
+ivy.log.debug(in.configData);' #txt
 Ss0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>createDatabase</name>
+        <nameStyle>14,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f18 83 339 26 26 -44 12 #rect
+Ss0 f18 83 339 26 26 -44 15 #rect
 Ss0 f18 @|RichDialogProcessStartIcon #fIcon
 Ss0 f19 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f19 339 339 26 26 0 12 #rect
@@ -273,7 +243,9 @@ Ss0 f36 actionTable 'out=in;
 ' #txt
 Ss0 f36 actionCode 'import com.axon.ivy.engine.config.SystemDatabaseSettings;
 in.settings.updateDbConfig();
-in.settings.saveSystemDb();' #txt
+in.settings.saveSystemDb();
+
+System.out.println("Save!!!!!" + in.settings.getConfigData().getUsername());' #txt
 Ss0 f36 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f36 168 514 112 44 0 -8 #rect
 Ss0 f36 @|StepIcon #fIcon
@@ -397,6 +369,40 @@ Ss0 f26 expr out #txt
 Ss0 f26 109 832 168 832 #arcP
 Ss0 f24 expr out #txt
 Ss0 f24 280 832 339 832 #arcP
+Ss0 f11 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f11 actionTable 'out=in;
+' #txt
+Ss0 f11 actionCode 'in.databaseDrivers = ch.ivyteam.db.jdbc.JdbcDriver.getInstalledJdbcDrivers(in.configData.product, ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory.getSupportedJdbcDrivers());
+in.configData.driver = in.databaseDrivers.get(0);
+in.configData.port = com.axon.ivy.engine.config.ConfigHelper.getDefaultPort(in.configData.driver);' #txt
+Ss0 f11 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f11 168 138 112 44 0 -8 #rect
+Ss0 f11 @|StepIcon #fIcon
+Ss0 f10 expr out #txt
+Ss0 f10 280 160 339 160 #arcP
+Ss0 f9 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f9 339 147 26 26 0 12 #rect
+Ss0 f9 @|RichDialogProcessEndIcon #fIcon
+Ss0 f12 expr out #txt
+Ss0 f12 109 160 168 160 #arcP
+Ss0 f8 guid 157E7AAB0D9991DD #txt
+Ss0 f8 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f8 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f8 actionTable 'out=in;
+' #txt
+Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>update</name>
+        <nameStyle>6,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f8 83 147 26 26 -19 15 #rect
+Ss0 f8 @|RichDialogProcessStartIcon #fIcon
 >Proto Ss0 .type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect

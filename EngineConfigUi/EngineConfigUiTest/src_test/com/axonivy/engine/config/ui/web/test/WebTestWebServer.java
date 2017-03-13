@@ -24,14 +24,14 @@ public class WebTestWebServer extends BaseWebTest
 
     toggleTab("WebServer");
     assertThat(prime.selectBooleanCheckbox(By.id(
-            "form:accordionPanel:webServerComponent:HTTPEnabledCheckbox")).isChecked())
+            "accordionPanel:webServerComponent:webServerForm:HTTPEnabledCheckbox")).isChecked())
             .isTrue();
-    By portInputLocator = By.id("form:accordionPanel:webServerComponent:HTTPPortInput");
+    By portInputLocator = By.id("accordionPanel:webServerComponent:webServerForm:HTTPPortInput");
     await(ExpectedConditions.textToBePresentInElementValue(
             portInputLocator, "8080"));
 
     driver.findElement(portInputLocator).sendKeys("1234");
-    driver.findElement(By.id("form:accordionPanel:webServerComponent:savePortsButton")).click();
+    driver.findElement(By.id("accordionPanel:webServerComponent:webServerForm:savePortsButton")).click();
     openConfigUi();
     testConnection();
     toggleTab("WebServer");

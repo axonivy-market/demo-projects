@@ -12,7 +12,7 @@
 
 <cc:implementation>
 	<p:growl id="growl" showDetail="true" sticky="true" />
-	<h:form id="systemDatabaseForm">
+	<h:form id="systemDatabaseForm" >
 		<h:panelGrid columns="2" cellpadding="20" cellspacing="20">
 			<p:fieldset id="databaseFieldSet" legend="Database">
 				<h:panelGrid columns="2" cellpadding="1">
@@ -37,8 +37,7 @@
 					</p:selectOneMenu>
 					<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
 					<p:inputText id="hostInput" value="#{data.configData.host}">
-						<p:ajax event="change"
-							update="accordionPanel:administratorsTab, accordionPanel:webServerTab, accordionPanel:clusterTab"
+						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
 					</p:inputText>
 					<p:outputLabel for="portInput" id="portLabel" value="Port:" />
@@ -56,20 +55,20 @@
 						value="Databasename:" />
 					<p:inputText id="databaseNameInput"
 						value="#{data.configData.databaseName}">
-						<p:ajax event="change" update=":accordionPanel"
+						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
 					</p:inputText>
 					<p:outputLabel for="usernameInput" id="usernameLabel"
 						value="Username:" />
 					<p:inputText id="usernameInput" value="#{data.configData.username}">
-						<p:ajax event="change" update=":accordionPanel"
+						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
 					</p:inputText>
 					<p:outputLabel for="passwordInput" id="passwordLabel"
 						value="Password:" />
 					<p:inputText id="passwordInput" value="#{data.configData.password}"
 						type="password">
-						<p:ajax event="change" update=":accordionPanel"
+						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
 					</p:inputText>
 				</h:panelGrid>
@@ -80,9 +79,9 @@
 					<p:commandButton id="checkConnectionButton"
 						value="Check Connection" icon="fa fa-database"
 						actionListener="#{logic.checkConnection}"
-						update=":#{cc.clientId}:growl, :accordionPanel" />
+						update=":#{cc.clientId}:growl, @(.configChanged)" />
 					<p:commandButton id="createDatabaseButton" value="Create Database"
-						actionListener="#{logic.applyProperties}" 
+						actionListener="#{logic.applyProperties}"
 						oncomplete="PF('createDatabaseDialog').show()"
 						icon="fa fa-database"
 						update=":#{cc.clientId}:createDatabaseDialog" />
@@ -90,10 +89,10 @@
 						icon="fa fa-database" actionListener="#{logic.convertDb}"
 						onclick="PF('convertDatabaseDialog').show()"
 						disabled="#{!data.convertionAvailable}"
-						update=":#{cc.clientId}:convertDatabaseDialog, :accordionPanel" />
+						update=":#{cc.clientId}:convertDatabaseDialog, @(.configChanged)" />
 				</h:panelGrid>
 			</p:fieldset>
-			<p:commandButton id="saveConfigButton" icon="fa fa-save"
+			<p:commandButton id="saveConfigButton" icon="fa fa-save" ajax="true"
 				value="Save Configuration" actionListener="#{logic.saveConfig}"
 				update=":#{cc.clientId}:systemDatabaseForm" />
 		</h:panelGrid>
@@ -139,7 +138,7 @@
 				<h:outputText id="errorMessage"
 					value="#{data.progressAction.error.message}"
 					rendered="#{data.progressAction.error != null}" style="color: red;" />
-				<h:outputText id="finishMessage" value="Succesfully Finished!"
+				<h:outputText id="finishMessage" value="Successfully Finished!"
 					rendered="#{!data.progressAction.running and data.progressAction.error == null}"
 					style="font-weight:bold;" />
 			</h:panelGrid>

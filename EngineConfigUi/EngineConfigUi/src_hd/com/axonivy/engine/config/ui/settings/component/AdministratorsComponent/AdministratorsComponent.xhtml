@@ -10,7 +10,7 @@
 <cc:interface componentType="IvyComponent" />
 
 <cc:implementation>
-	<h:form id="adminManagerForm">
+	<h:form id="adminManagerForm" styleClass="configChanged">
 		<h:panelGrid columns="1" cellpadding="1"
 			rendered="#{data.connectionInfo.connectionOK}">
 			<p:dataTable id="adminDataTable"
@@ -39,10 +39,10 @@
 					update=":#{cc.clientId}:adminManagerForm" />
 			</h:column>
 		</h:panelGrid>
-	</h:form>
 	<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
 		Please insert a valid System-Db-Connection!!
 	</h:outputText>
+	</h:form>
 
 	<p:dialog widgetVar="addAdminDialog" id="addAdminDialog"
 		header="New Administrator" modal="true">

@@ -41,7 +41,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   {
     System.out.println("Could not connect to db after " + sw.getNanoTime() + " nanoseconds");
     String messageBoxMessage = driver.findElement(By.xpath
-            ("//*[@id='form:accordionPanel:systemDatabaseComponent:growl_container']/div/div/div[2]/p"))
+            ("//*[@id='accordionPanel:systemDatabaseComponent:growl_container']/div/div/div[2]/p"))
             .getText();
     throw new Exception("Expected connection to be established but was: '" + messageBoxMessage + "'");
   }

@@ -12,7 +12,7 @@
 
 <cc:implementation>
 	<f:event type="preRenderView" listener="#{logic.update}" />
-	<h:form id="webServerForm">
+	<h:form id="webServerForm" styleClass="configChanged">
 		<h:panelGrid columns="3" cellpadding="20" cellspacing="20"
 			rendered="#{data.connectionInfo.connectionOK}">
 			<p:fieldset id="HTTPFieldSet" legend="HTTP Connector">

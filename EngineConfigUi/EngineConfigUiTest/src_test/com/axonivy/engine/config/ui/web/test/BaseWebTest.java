@@ -53,34 +53,42 @@ public class BaseWebTest
 
   protected void setConfig()
   {
-    prime.selectOne(By.id("form:accordionPanel:systemDatabaseComponent:databaseTypeDropdown"))
+    prime.selectOne(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseTypeDropdown"))
             .selectItemByLabel("MySQL");
-    prime.selectOne(By.id("form:accordionPanel:systemDatabaseComponent:databaseDriverDropdown"))
-            .selectItemByLabel("mySQL");
 
-    clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:hostInput"), "zugtstdbsmys");
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "zugtstdbsmys");
 
     prime.selectBooleanCheckbox(
-            By.id("form:accordionPanel:systemDatabaseComponent:defaultPortCheckbox"))
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:defaultPortCheckbox"))
             .setChecked();
 
-    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:saveConfigButton")).click();
     DBNAME = "tmp_engineConfigUi_testing_" + RandomUtils.nextInt(11, Integer.MAX_VALUE);
-    clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:databaseNameInput"), DBNAME);
-    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:saveConfigButton")).click();
-    
-    clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:usernameInput"), USERNAME);
-    clearAndSend(By.id("form:accordionPanel:systemDatabaseComponent:passwordInput"), PASSWORD);
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"), DBNAME);
+    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:saveConfigButton"))
+            .click();
 
-    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:saveConfigButton")).click();
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:usernameInput"), USERNAME);
+    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:saveConfigButton"))
+            .click();
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:passwordInput"), PASSWORD);
+
+    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:saveConfigButton"))
+            .click();
   }
 
   private void clearAndSend(By by, String string)
   {
-    await(ExpectedConditions.not(ExpectedConditions.stalenessOf(driver.findElement(by))));
-    driver.findElement(by).clear();
-    await(ExpectedConditions.not(ExpectedConditions.stalenessOf(driver.findElement(by))));
-    driver.findElement(by).sendKeys(string);
+    boolean notCorrect = true;
+    while (notCorrect)
+    {
+      await(ExpectedConditions.not(ExpectedConditions.stalenessOf(driver.findElement(by))));
+      driver.findElement(by).clear();
+      driver.findElement(by).sendKeys(string);
+      System.out.println(driver.findElement(by).getAttribute("value"));
+
+      if (driver.findElement(by).getAttribute("value").equals(string))
+        notCorrect = false;
+    }
   }
 
   protected void dropDatabase() throws Exception
@@ -100,28 +108,35 @@ public class BaseWebTest
 
   protected void createSysDb()
   {
+    driver.findElement(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")).click();
     await(ExpectedConditions.elementToBeClickable(By
-            .id("form:accordionPanel:systemDatabaseComponent:createDatabaseButton")));
-    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:createDatabaseButton")).click();
-    await(ExpectedConditions.visibilityOfElementLocated(By
-            .id("form:accordionPanel:systemDatabaseComponent:dialogCreateDbButton")));
-    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:dialogCreateDbButton")).click();
+            .id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton")));
+    driver.findElement(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton")).click();
+
+    await(ExpectedConditions.elementToBeClickable(By
+            .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")));
+    driver.findElement(
+            By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")).click();
 
     await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("form:accordionPanel:systemDatabaseComponent:finishMessage"), "Successfully Finished!"));
+            By.id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:finishMessage"),
+            "Successfully Finished!"));
     dbCreated = true;
 
     driver.findElement(
-            By.xpath("//*[@id='form:accordionPanel:systemDatabaseComponent:creatingDatabaseDialog']/div[1]/a"))
+            By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:creatingDatabaseDialog']/div[1]/a"))
             .click();
   }
 
   protected void testConnection()
   {
-    driver.findElement(By.id("form:accordionPanel:systemDatabaseComponent:checkConnectionButton")).click();
+    driver.findElement(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")).click();
     await(ExpectedConditions
             .textToBePresentInElementLocated(
-                    By.xpath("//*[@id='form:accordionPanel:systemDatabaseComponent:growl_container']/div/div/div[2]/p"),
+                    By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:growl_container']/div/div/div[2]/p"),
                     "established"));
   }
 
@@ -132,7 +147,7 @@ public class BaseWebTest
 
   protected void toggleTab(String tabName)
   {
-    Accordion accordion = prime.accordion(By.id("form:accordionPanel"));
+    Accordion accordion = prime.accordion(By.id("accordionPanel"));
     accordion.toggleTab(tabName);
   }
 }

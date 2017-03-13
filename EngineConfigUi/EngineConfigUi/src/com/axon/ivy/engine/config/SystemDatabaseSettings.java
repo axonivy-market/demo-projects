@@ -30,17 +30,16 @@ public class SystemDatabaseSettings
   private static final String WEB_SERVER_HTTPS_ENABLED = "WebServer.HTTPS.Enabled";
   private static final String WEB_SERVER_HTTP_PORT = "WebServer.HTTP.Port";
   private static final String WEB_SERVER_HTTP_ENABLED = "WebServer.HTTP.Enabled";
-  
 
   private final Configuration configuration = loadOrCreateConfig();
   private final SystemDatabase systemDatabase = createSystemDb(configuration);
   private final ConfigData configData = ConfigHelper.loadConfigData(configuration);
   private final ConnectionInfo info = ConnectionInfo.create();
-  
+
   private SystemDatabaseSettings()
   {
   }
-  
+
   public static SystemDatabaseSettings create()
   {
     return new SystemDatabaseSettings();
@@ -57,13 +56,13 @@ public class SystemDatabaseSettings
       return Configuration.createNewConfiguration();
     }
   }
-  
+
   private static SystemDatabase createSystemDb(Configuration config)
   {
     SystemDatabase.initialize(config);
     return SystemDatabase.getSystemDatabase();
   }
-  
+
   public SystemDatabaseCreator createDatabase()
           throws Exception
   {
@@ -90,7 +89,7 @@ public class SystemDatabaseSettings
   {
     return systemDatabase;
   }
-  
+
   public ConfigData getConfigData()
   {
     return configData;
@@ -111,7 +110,7 @@ public class SystemDatabaseSettings
   {
     configuration.saveConfiguration();
   }
-  
+
   public Configuration getConfiguration()
   {
     return configuration;
@@ -183,7 +182,7 @@ public class SystemDatabaseSettings
       return systemProperty.getValue();
     }
   }
-  
+
   public ConnectionState testConnection() throws Exception
   {
     BlockingListener listener = new BlockingListener();
@@ -198,7 +197,7 @@ public class SystemDatabaseSettings
     }
     return tester.getConnectionState();
   }
-  
+
   private SystemDatabaseConnectionTester testConnection(IConnectionListener listener)
           throws Exception
   {
