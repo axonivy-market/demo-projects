@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 21 10:08:36 CET 2017]
+[>Created: Mon Mar 13 14:13:56 CET 2017]
 15470DE765DF45FC 3.20 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonManagerProcess Big #zClass
@@ -28,9 +28,6 @@ Ps0 @RichDialogProcessStart f9 '' #zField
 Ps0 @RichDialogProcessEnd f10 '' #zField
 Ps0 @RichDialogProcessStart f14 '' #zField
 Ps0 @RichDialogProcessEnd f15 '' #zField
-Ps0 @GridStep f17 '' #zField
-Ps0 @PushWFArc f18 '' #zField
-Ps0 @PushWFArc f16 '' #zField
 Ps0 @RichDialogMethodStart f19 '' #zField
 Ps0 @RichDialogProcessEnd f21 '' #zField
 Ps0 @RichDialogMethodStart f22 '' #zField
@@ -42,6 +39,9 @@ Ps0 @PushWFArc f13 '' #zField
 Ps0 @RestClientCall f11 '' #zField
 Ps0 @PushWFArc f12 '' #zField
 Ps0 @PushWFArc f20 '' #zField
+Ps0 @RestClientCall f27 '' #zField
+Ps0 @PushWFArc f28 '' #zField
+Ps0 @PushWFArc f16 '' #zField
 >Proto Ps0 Ps0 PersonManagerProcess #zField
 Ps0 f0 guid 15470DE767CB62E5 #txt
 Ps0 f0 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
@@ -156,28 +156,6 @@ Ps0 f14 @|RichDialogProcessStartIcon #fIcon
 Ps0 f15 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
 Ps0 f15 339 403 26 26 0 12 #rect
 Ps0 f15 @|RichDialogProcessEndIcon #fIcon
-Ps0 f17 actionDecl 'com.axonivy.connectivity.rest.PersonManager.PersonManagerData out;
-' #txt
-Ps0 f17 actionTable 'out=in;
-' #txt
-Ps0 f17 actionCode 'import com.axonivy.connectivity.rest.client.PersonClient;
-out.response = PersonClient.update(in.editPerson);' #txt
-Ps0 f17 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
-Ps0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>PersonClient.update(.)</name>
-        <nameStyle>22,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ps0 f17 160 394 128 44 -61 -8 #rect
-Ps0 f17 @|StepIcon #fIcon
-Ps0 f18 expr out #txt
-Ps0 f18 109 416 160 416 #arcP
-Ps0 f16 expr out #txt
-Ps0 f16 288 416 339 416 #arcP
 Ps0 f19 guid 154756E891F20C23 #txt
 Ps0 f19 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
 Ps0 f19 method update() #txt
@@ -243,11 +221,11 @@ Ps0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f25 160 330 128 44 -58 -7 #rect
+Ps0 f25 152 330 144 44 -58 -7 #rect
 Ps0 f25 @|RestClientCallIcon #fIcon
 Ps0 f26 expr out #txt
-Ps0 f26 109 352 160 352 #arcP
-Ps0 f13 288 352 339 352 #arcP
+Ps0 f26 109 352 152 352 #arcP
+Ps0 f13 296 352 339 352 #arcP
 Ps0 f11 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 Ps0 f11 resultType java.util.List<com.axonivy.connectivity.Person> #txt
 Ps0 f11 responseCode 'out.persons = result;' #txt
@@ -260,11 +238,33 @@ Ps0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f11 160 266 128 44 -58 -7 #rect
+Ps0 f11 152 266 144 44 -58 -7 #rect
 Ps0 f11 @|RestClientCallIcon #fIcon
 Ps0 f12 expr out #txt
-Ps0 f12 109 288 160 288 #arcP
-Ps0 f20 288 288 339 288 #arcP
+Ps0 f12 109 288 152 288 #arcP
+Ps0 f20 296 288 339 288 #arcP
+Ps0 f27 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
+Ps0 f27 path {person.id} #txt
+Ps0 f27 templateParams 'person.id=in.editPerson.id;
+' #txt
+Ps0 f27 method POST #txt
+Ps0 f27 bodyInputType ENTITY #txt
+Ps0 f27 bodyEntity in.editPerson #txt
+Ps0 f27 responseCode 'out.response = response;' #txt
+Ps0 f27 clientErrorCode ivy:error:rest:client #txt
+Ps0 f27 statusErrorCode ivy:error:rest:client #txt
+Ps0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>PersonService.POST</name>
+    </language>
+</elementInfo>
+' #txt
+Ps0 f27 152 394 144 44 -62 -7 #rect
+Ps0 f27 @|RestClientCallIcon #fIcon
+Ps0 f28 expr out #txt
+Ps0 f28 109 416 152 416 #arcP
+Ps0 f16 296 416 339 416 #arcP
 >Proto Ps0 .type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
 >Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -276,7 +276,7 @@ Ps0 f20 288 288 339 288 #arcP
     <swimlaneSize>288</swimlaneSize>
     <swimlaneColor gradient="false">-3342388</swimlaneColor>
     <swimlaneType>LANE</swimlaneType>
-    <swimlaneSpaceBefore>256</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>248</swimlaneSpaceBefore>
 </elementInfo>
 ' #txt
 >Proto Ps0 -8 -8 16 16 16 26 #rect
@@ -287,10 +287,6 @@ Ps0 f3 mainOut f5 tail #connect
 Ps0 f5 head f4 mainIn #connect
 Ps0 f6 mainOut f8 tail #connect
 Ps0 f8 head f7 mainIn #connect
-Ps0 f14 mainOut f18 tail #connect
-Ps0 f18 head f17 mainIn #connect
-Ps0 f17 mainOut f16 tail #connect
-Ps0 f16 head f15 mainIn #connect
 Ps0 f22 mainOut f24 tail #connect
 Ps0 f24 head f23 mainIn #connect
 Ps0 f9 mainOut f26 tail #connect
@@ -301,3 +297,7 @@ Ps0 f19 mainOut f12 tail #connect
 Ps0 f12 head f11 mainIn #connect
 Ps0 f11 mainOut f20 tail #connect
 Ps0 f20 head f21 mainIn #connect
+Ps0 f14 mainOut f28 tail #connect
+Ps0 f28 head f27 mainIn #connect
+Ps0 f27 mainOut f16 tail #connect
+Ps0 f16 head f15 mainIn #connect
