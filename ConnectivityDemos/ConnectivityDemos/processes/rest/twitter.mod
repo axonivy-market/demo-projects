@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 20 14:43:48 CET 2017]
+[>Created: Tue Mar 14 14:25:47 CET 2017]
 1547634C396BBB3A 3.20 #module
 >Proto >Proto Collection #zClass
 ct0 twitter Big #zClass
@@ -155,6 +155,8 @@ ct0 f11 @|IBIcon #fIcon
 ct0 f13 clientId 066a1b8c-f787-4540-9496-f1f2ecc9a1b1 #txt
 ct0 f13 path statuses/user_timeline.json #txt
 ct0 f13 queryParams 'screen_name="AxonIvy";
+' #txt
+ct0 f13 templateParams 'api.version="1.1";
 ' #txt
 ct0 f13 accept application/json #txt
 ct0 f13 method GET #txt
