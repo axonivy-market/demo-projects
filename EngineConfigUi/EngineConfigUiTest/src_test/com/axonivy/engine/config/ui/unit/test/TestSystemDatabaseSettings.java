@@ -16,6 +16,7 @@ import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
 import ch.ivyteam.db.jdbc.DatabaseProduct;
 import ch.ivyteam.db.jdbc.DatabaseUtil;
 import ch.ivyteam.db.jdbc.JdbcDriver;
+import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 import ch.ivyteam.licence.SignedLicence;
 import ch.ivyteam.util.WaitUtil;
@@ -47,26 +48,15 @@ public class TestSystemDatabaseSettings
   @Test
   public void testConnecting() throws Exception
   {
-    /*
-     * not working yet, system database doesn't close
     SystemDatabaseSettings settings = SystemDatabaseSettings.create();
-    changeConfigToMySqlSettings(settings.getConfigData());
-    assertThat(settings.testConnection()).isEqualTo(
-            ConnectionState.CONNECTION_FAILED);
-
-    SystemDatabaseCreator systemDatabaseCreator = settings.createDatabase();
-
-    while (systemDatabaseCreator.getMaxProgress() > systemDatabaseCreator.getProgress())
-    {
-      System.out.println(systemDatabaseCreator.getProgress());
-      System.out.println(systemDatabaseCreator.getProgressText());
-      if (!nullValue().equals(systemDatabaseCreator.getError()))
-        systemDatabaseCreator.getError();
-    }
+    ConfigData configData = settings.getConfigData();
+    changeConfigToMySqlSettings(configData);
+    assertThat(settings.testConnection()).isEqualTo(ConnectionState.CONNECTION_FAILED);
     
+    createDatabase(configData);
     assertThat(settings.testConnection()).isEqualTo(ConnectionState.CONNECTED);
 
-    dropDatabase(settings.getConfigData());*/
+    dropDatabase(configData);
   }
 
   @Test
