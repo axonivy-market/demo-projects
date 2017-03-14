@@ -44,11 +44,11 @@
 					update=":#{cc.clientId}:clusterNodeForm" />
 			</h:column>
 		</h:panelGrid>
-	</h:form>
-
-	<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
+		<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
 		Please insert a valid System-Db-Connection!!
 	</h:outputText>
+	</h:form>
+
 
 	<p:dialog widgetVar="addLocalNodeDialog" id="addLocalNodeDialog"
 		header="New Local Node" modal="true" appendTo="@(body)">
