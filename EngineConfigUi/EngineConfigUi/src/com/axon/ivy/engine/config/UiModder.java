@@ -45,6 +45,12 @@ public class UiModder
     }
   }
 
+  public static void configurationSaved()
+  {
+    addMessage(FacesMessage.SEVERITY_INFO, "Saved!",
+            "Your configuration settings were saved!");
+  }
+  
   public static void connectionEstablished()
   {
     addMessage(FacesMessage.SEVERITY_INFO, "Successful",

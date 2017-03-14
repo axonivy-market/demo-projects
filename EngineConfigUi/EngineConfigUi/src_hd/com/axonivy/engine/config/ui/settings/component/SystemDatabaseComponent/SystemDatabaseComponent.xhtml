@@ -12,7 +12,7 @@
 
 <cc:implementation>
 	<p:growl id="growl" showDetail="true" sticky="true" />
-	<h:form id="systemDatabaseForm" >
+	<h:form id="systemDatabaseForm">
 		<h:panelGrid columns="2" cellpadding="20" cellspacing="20">
 			<p:fieldset id="databaseFieldSet" legend="Database">
 				<h:panelGrid columns="2" cellpadding="1">
@@ -94,7 +94,7 @@
 			</p:fieldset>
 			<p:commandButton id="saveConfigButton" icon="fa fa-save" ajax="true"
 				value="Save Configuration" actionListener="#{logic.saveConfig}"
-				update=":#{cc.clientId}:systemDatabaseForm" />
+				update=":#{cc.clientId}:growl" />
 		</h:panelGrid>
 	</h:form>
 
