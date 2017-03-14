@@ -66,11 +66,11 @@
 					</p:inputText>
 					<p:outputLabel for="passwordInput" id="passwordLabel"
 						value="Password:" />
-					<p:inputText id="passwordInput" value="#{data.configData.password}"
-						type="password">
+					<p:password id="passwordInput" value="#{data.configData.password}"
+						redisplay="true">
 						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
-					</p:inputText>
+					</p:password>
 				</h:panelGrid>
 			</p:fieldset>
 
