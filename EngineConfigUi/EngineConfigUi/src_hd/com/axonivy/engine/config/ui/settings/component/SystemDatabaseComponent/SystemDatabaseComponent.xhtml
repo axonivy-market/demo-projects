@@ -104,12 +104,24 @@
 			<h:outputText
 				value="Enter the required parameters for your System Database configuration:" />
 			<br />
-			<h:panelGrid columns="2" cellpadding="1">
-				<p:outputLabel for="databaseNameCreationParam"
-					value="Database Name: " />
-				<p:inputText id="databaseNameCreationParam"
-					value="#{data.configData.creationParameters['databaseName']}" />
-			</h:panelGrid>
+			<br />
+			<p:panelGrid>
+				<ui:repeat var="parameter" value="#{data.requiredParameters}"
+					varStatus="status">
+					<p:row>
+						<p:column>
+							<p:outputLabel for="creationParam" value="#{parameter.name}: " />
+						</p:column>
+						<p:column>
+							<p:inputText
+								value="#{data.configData.creationParameters[parameter.name]}"
+								id="creationParam"
+								disabled="#{parameter.name.equalsIgnoreCase('enginetype')}" />
+						</p:column>
+					</p:row>
+				</ui:repeat>
+			</p:panelGrid>
+			<br />
 			<p:commandButton value="Create Database"
 				actionListener="#{logic.createDatabase}"
 				update=":#{cc.clientId}:createDatabaseDialog, :#{cc.clientId}:creatingDatabaseForm:doUpdate"
