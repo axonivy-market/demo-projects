@@ -110,7 +110,8 @@
 					varStatus="status">
 					<p:row>
 						<p:column>
-							<p:outputLabel for="creationParam" value="#{parameter.name}: " />
+							<p:outputLabel for="creationParam"
+								value="#{ivy.cms.co('/com.axonivy.engineconfig.ui/creationParameters/' += parameter.name)}: " />
 						</p:column>
 						<p:column>
 							<p:inputText
