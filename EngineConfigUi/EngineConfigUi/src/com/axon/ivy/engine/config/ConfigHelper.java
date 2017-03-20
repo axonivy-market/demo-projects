@@ -44,8 +44,13 @@ public class ConfigHelper
   public static ConfigData loadConfigData(Configuration configuration)
   {
     ConfigData configData = new ConfigData();
-
     DatabaseConnectionConfiguration dbConfig = configuration.getSystemDatabaseConnectionConfiguration();
+    updateConfigData(configData, dbConfig);
+    return configData;
+  }
+
+  public static void updateConfigData(ConfigData configData, DatabaseConnectionConfiguration dbConfig)
+  {
     configData.setUsername(dbConfig.getUserName());
     configData.setPassword(dbConfig.getPassword());
 
@@ -80,7 +85,6 @@ public class ConfigHelper
     }
 
     configData.setCreationParameters(new java.util.Properties());
-    return configData;
   }
   
   public static DatabaseConnectionConfiguration createConfiguration(

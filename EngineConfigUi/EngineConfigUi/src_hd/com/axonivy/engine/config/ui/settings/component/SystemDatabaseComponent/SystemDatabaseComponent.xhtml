@@ -11,7 +11,7 @@
 <cc:interface componentType="IvyComponent" />
 
 <cc:implementation>
-	<p:growl id="growl" showDetail="true" sticky="true" />
+	<p:growl id="growl" showDetail="true" />
 	<h:form id="systemDatabaseForm">
 		<h:panelGrid columns="2" cellpadding="20" cellspacing="20">
 			<p:fieldset id="databaseFieldSet" legend="Database">
@@ -154,6 +154,12 @@
 				<h:outputText id="finishMessage" value="Successfully Finished!"
 					rendered="#{!data.progressAction.running and data.progressAction.error == null}"
 					style="font-weight:bold;" />
+				<br />
+				<p:commandButton value="Save and connect"
+					actionListener="#{logic.updateAndCheckConnection}"
+					update=":#{cc.clientId}:growl, @(.configChanged), :#{cc.clientId}:creatingDatabaseDialog,
+					 :#{cc.clientId}:systemDatabaseForm"
+					disabled="#{data.progressAction.running}" />
 			</h:panelGrid>
 		</h:form>
 	</p:dialog>

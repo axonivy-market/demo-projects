@@ -84,6 +84,13 @@ public class SystemDatabaseSettings
     converter.start();
     return converter;
   }
+  
+  public void updateConfig(SystemDatabaseCreator creator)
+  {
+    DatabaseConnectionConfiguration dbConfig = creator.getCreatedDatabaseConnectionConfiguration();
+    configuration.setSystemDatabaseConnectionConfiguration(dbConfig);
+    ConfigHelper.updateConfigData(configData, dbConfig);
+  }
 
   public SystemDatabase getSystemDb()
   {

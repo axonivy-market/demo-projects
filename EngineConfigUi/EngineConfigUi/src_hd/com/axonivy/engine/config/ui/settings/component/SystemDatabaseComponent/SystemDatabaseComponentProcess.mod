@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Mar 14 15:55:52 CET 2017]
+[>Created: Mon Mar 20 14:31:25 CET 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -60,6 +60,11 @@ Ss0 @PushWFArc f10 '' #zField
 Ss0 @RichDialogProcessEnd f9 '' #zField
 Ss0 @PushWFArc f12 '' #zField
 Ss0 @RichDialogProcessStart f8 '' #zField
+Ss0 @RichDialogProcessStart f45 '' #zField
+Ss0 @RichDialogProcessEnd f46 '' #zField
+Ss0 @GridStep f48 '' #zField
+Ss0 @PushWFArc f49 '' #zField
+Ss0 @PushWFArc f47 '' #zField
 >Proto Ss0 Ss0 SystemDatabaseComponentProcess #zField
 Ss0 f0 guid 157E7518F76CF891 #txt
 Ss0 f0 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
@@ -420,6 +425,41 @@ Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ss0 f8 83 147 26 26 -19 15 #rect
 Ss0 f8 @|RichDialogProcessStartIcon #fIcon
+Ss0 f45 guid 15AEBE0597FC5FCB #txt
+Ss0 f45 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f45 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f45 actionTable 'out=in;
+' #txt
+Ss0 f45 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>updateAndCheckConnection</name>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f45 83 915 26 26 -78 12 #rect
+Ss0 f45 @|RichDialogProcessStartIcon #fIcon
+Ss0 f46 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f46 339 915 26 26 0 12 #rect
+Ss0 f46 @|RichDialogProcessEndIcon #fIcon
+Ss0 f48 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f48 actionTable 'out=in;
+' #txt
+Ss0 f48 actionCode 'import com.axon.ivy.engine.config.UiModder;
+import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
+
+in.settings.updateConfig(in.progressAction as SystemDatabaseCreator);
+in.settings.saveSystemDb();
+UiModder.updateUiPopUp(in.settings.testConnection());' #txt
+Ss0 f48 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f48 168 906 112 44 0 -8 #rect
+Ss0 f48 @|StepIcon #fIcon
+Ss0 f49 expr out #txt
+Ss0 f49 109 928 168 928 #arcP
+Ss0 f47 expr out #txt
+Ss0 f47 280 928 339 928 #arcP
 >Proto Ss0 .type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -460,3 +500,7 @@ Ss0 f22 mainOut f26 tail #connect
 Ss0 f26 head f25 mainIn #connect
 Ss0 f25 mainOut f24 tail #connect
 Ss0 f24 head f23 mainIn #connect
+Ss0 f45 mainOut f49 tail #connect
+Ss0 f49 head f48 mainIn #connect
+Ss0 f48 mainOut f47 tail #connect
+Ss0 f47 head f46 mainIn #connect
