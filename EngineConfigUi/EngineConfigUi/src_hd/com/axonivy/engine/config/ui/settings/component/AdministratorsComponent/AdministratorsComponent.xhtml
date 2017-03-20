@@ -45,23 +45,25 @@
 	</h:form>
 
 	<p:dialog widgetVar="addAdminDialog" id="addAdminDialog"
-		header="New Administrator" modal="true">
+		header="New Administrator" modal="true" >
 		<h:form id="addAdminForm">
+        <p:messages autoUpdate="true"/>
 			<h:panelGrid columns="2">
-				<h:outputLabel value="Name :" for="newName" />
-				<h:inputText id="newName" value="#{data.newName}" />
-				<h:outputLabel value="Fullname :" for="newFullname" />
-				<h:inputText id="newFullname" value="#{data.newFullName}" />
-				<h:outputLabel value="Email Address :" for="newEmail" />
-				<h:inputText id="newEmail" value="#{data.newEMailAddress}" />
-				<h:outputLabel value="Password :" for="newPassword" />
-				<h:inputSecret id="newPassword" value="#{data.newPassword}" />
+				<p:outputLabel value="Name :" for="newName" />
+				<p:inputText id="newName" value="#{data.newName}" required="true"/>
+				<p:outputLabel value="Fullname :" for="newFullname" />
+				<p:inputText id="newFullname" value="#{data.newFullName}" required="true"/>
+				<p:outputLabel value="Email Address :" for="newEmail" />
+				<p:inputText id="newEmail" value="#{data.newEMailAddress}" required="true"/>
+				<p:outputLabel value="Password :" for="newPassword" />
+				<p:inputText id="newPassword" value="#{data.newPassword}" required="true"/>
 			</h:panelGrid>
 			<br />
 			<p:commandButton id="addAdminDialogButton"
 				value="Add new Administrator" icon="fa fa-plus-circle"
+				oncomplete="if(args &amp;&amp; !args.validationFailed) PF('addAdminDialog').hide();"
 				actionListener="#{logic.addNewAdmin}"
-				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:addAdminDialog" />
+				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:addAdminForm" />
 		</h:form>
 	</p:dialog>
 </cc:implementation>
