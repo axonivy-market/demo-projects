@@ -12,14 +12,14 @@ public class WebTestWebServer extends BaseWebTest
   public void tearDown() throws Exception
   {
     super.tearDown();
-    dropDatabase();
+    dropMySqlDatabase();
   }
 
   @Test
   public void testConfigStays() throws Exception
   {
-    setConfig();
-    createSysDb();
+    setMySqlConfig();
+    createMySqlSysDb();
     testConnection();
 
     toggleTab("WebServer");

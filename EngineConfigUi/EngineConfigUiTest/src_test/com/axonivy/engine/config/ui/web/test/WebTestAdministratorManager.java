@@ -15,15 +15,15 @@ public class WebTestAdministratorManager extends BaseWebTest
   @Override
   public void tearDown() throws Exception
   {
-    dropDatabase();
+    dropMySqlDatabase();
     driver.quit();
   }
 
   @Test
   public void testAddAdmin() throws Exception
   {
-    setConfig();
-    createSysDb();
+    setMySqlConfig();
+    createMySqlSysDb();
     testConnection();
     openAdminTab();
 

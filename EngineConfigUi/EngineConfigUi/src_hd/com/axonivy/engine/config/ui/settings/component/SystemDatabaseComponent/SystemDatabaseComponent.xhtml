@@ -156,6 +156,7 @@
 					style="font-weight:bold;" />
 				<br />
 				<p:commandButton value="Save and connect"
+				id="saveAndConnectButton"
 					actionListener="#{logic.updateAndCheckConnection}"
 					update=":#{cc.clientId}:growl, @(.configChanged), :#{cc.clientId}:creatingDatabaseDialog,
 					 :#{cc.clientId}:systemDatabaseForm"
