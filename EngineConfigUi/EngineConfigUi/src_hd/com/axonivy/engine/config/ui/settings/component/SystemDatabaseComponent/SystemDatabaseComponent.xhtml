@@ -22,7 +22,7 @@
 						value="#{data.configData.product}" converter="ivy.ListItem">
 						<f:selectItems value="#{data.databaseProducts}" var="database"
 							itemLabel="#{database.name}" itemValue="#{database}" />
-						<p:ajax update="databaseDriverDropdown, portInput"
+						<p:ajax update="databaseDriverDropdown, portInput, databaseNameLabel"
 							listener="#{logic.update}" />
 					</p:selectOneMenu>
 
@@ -52,7 +52,7 @@
 						</p:selectBooleanCheckbox>
 					</h:column>
 					<p:outputLabel for="databaseNameInput" id="databaseNameLabel"
-						value="Databasename:" />
+						value="#{ivy.cms.co('/com.axonivy.engineconfig.ui/nameLabel/' += data.configData.product)}:" />
 					<p:inputText id="databaseNameInput"
 						value="#{data.configData.databaseName}">
 						<p:ajax event="change" update="@(.configChanged)"

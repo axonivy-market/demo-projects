@@ -25,6 +25,8 @@ public class ConfigHelper
     String HOST = "ch.ivyteam.jdbc.Host";
     String PORT = "ch.ivyteam.jdbc.Port";
     String DB_NAME = "ch.ivyteam.jdbc.DbName";
+    String ORACLE_SERVICE_ID = "ch.ivyteam.jdbc.OracleServiceId";
+    String SCHEMA_NAME = "ch.ivyteam.jdbc.SchemaName";
   }
   private static final String PORT_PROPERTY_NAME = "ch.ivyteam.jdbc.Port";
 
@@ -76,6 +78,8 @@ public class ConfigHelper
           break;
 
         case JdbcProperties.DB_NAME:
+        case JdbcProperties.ORACLE_SERVICE_ID:
+        case JdbcProperties.SCHEMA_NAME:
           configData.setDatabaseName(entry.getValue());
           break;
 
@@ -108,6 +112,8 @@ public class ConfigHelper
           break;
 
         case JdbcProperties.DB_NAME:
+        case JdbcProperties.ORACLE_SERVICE_ID:
+        case JdbcProperties.SCHEMA_NAME:
           dbProps.put(prop, configData.getDatabaseName());
           break;
 
