@@ -63,6 +63,16 @@
 				<extensions>true</extensions>
 				<executions>
 					<execution>
+						<id>start.test.engine</id>
+						<goals>
+							<goal>start-test-engine</goal>
+						</goals>
+						<phase>pre-integration-test</phase>
+						<configuration>
+							<additionalVmOptions>-Dch.ivyteam.ivy.server.configuration.development.cluster=true</additionalVmOptions>
+						</configuration>
+					</execution>
+					<execution>
 						<id>deploy.project.under.test</id>
 						<goals>
 							<goal>deploy-iar</goal>
