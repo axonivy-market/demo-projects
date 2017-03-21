@@ -117,7 +117,7 @@
 							<p:inputText
 								value="#{data.configData.creationParameters[parameter.name]}"
 								id="creationParam"
-								disabled="#{parameter.name.equalsIgnoreCase('enginetype')}" />
+								disabled="#{parameter.name.equalsIgnoreCase('enginetype')}" required="true" />
 						</p:column>
 					</p:row>
 				</ui:repeat>
