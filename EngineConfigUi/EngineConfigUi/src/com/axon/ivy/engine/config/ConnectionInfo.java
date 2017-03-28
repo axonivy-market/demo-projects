@@ -50,16 +50,10 @@ public class ConnectionInfo
 
   public boolean getIsCluster()
   {
-    if (getIsLicenceValid())
-    {
-      boolean isClusterLicence =
-              LicenceConstants.VAL_LICENCE_TYPE_ENTERPRISE.equals(SignedLicence.getParam(
-                      ch.ivyteam.licence.LicenceConstants.PARAM_LICENCE_TYPE))
-                      || StringUtils.isNotEmpty(
-                              System.getProperty("ch.ivyteam.ivy.server.configuration.development.cluster"));
-      return isClusterLicence;
-    }
-    return false;
+    return LicenceConstants.VAL_LICENCE_TYPE_ENTERPRISE.equals(SignedLicence.getParam(
+            ch.ivyteam.licence.LicenceConstants.PARAM_LICENCE_TYPE))
+            || StringUtils.isNotEmpty(
+                    System.getProperty("ch.ivyteam.ivy.server.configuration.development.cluster"));
   }
 
   public Boolean getIsLicenceValid()
