@@ -3,7 +3,6 @@ package com.axon.ivy.engine.config;
 import org.apache.commons.lang.StringUtils;
 
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
-import ch.ivyteam.licence.LicenceConstants;
 import ch.ivyteam.licence.SignedLicence;
 
 public class ConnectionInfo
@@ -50,8 +49,7 @@ public class ConnectionInfo
 
   public boolean getIsCluster()
   {
-    return LicenceConstants.VAL_LICENCE_TYPE_ENTERPRISE.equals(SignedLicence.getParam(
-            ch.ivyteam.licence.LicenceConstants.PARAM_LICENCE_TYPE))
+    return LicenceUtil.isCluster()
             || StringUtils.isNotEmpty(
                     System.getProperty("ch.ivyteam.ivy.server.configuration.development.cluster"));
   }
