@@ -18,6 +18,16 @@
 				<br />
 				<p:accordionPanel id="accordionPanel"
 					style="width: 1000px !important" dynamic="true" multiple="true">
+					
+					<p:tab id="licenceInfoTab">
+						<f:facet name="title">
+							<h:outputText value="Licence Informations " />
+							<i class="fa fa-info-circle" />
+						</f:facet>
+						<ic:com.axonivy.engine.config.ui.settings.component.LicenceComponent
+							id="licenceComponent" />
+					</p:tab>
+					
 					<p:tab id="systemDatabaseTab">
 						<f:facet name="title">
 							<h:outputText value="System Database " />

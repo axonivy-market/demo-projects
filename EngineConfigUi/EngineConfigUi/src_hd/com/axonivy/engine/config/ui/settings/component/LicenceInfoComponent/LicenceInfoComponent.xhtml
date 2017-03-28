@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+<cc:interface componentType="IvyComponent" />
+
+<cc:implementation>
+	<h:form id="licenceInfoForm">
+		<h:panelGrid columns="2">
+			<h:panelGrid columns="1">
+				<h:column>
+					<h:outputText value="Owner" style="font-size: 80%" />
+				</h:column>
+				<h:column>
+					<h:outputText id="Organisation"
+						value="#{licenceBean.getValueFromProperty('licencee.organisation')}" />
+					(<h:outputText id="Individual"
+						value="#{licenceBean.getValueFromProperty('licencee.individual')}" />)
+				</h:column>
+
+				<h:column>
+					<h:outputText value="Product" style="font-size: 80%" />
+				</h:column>
+				<h:column>
+					<h:outputText id="Product"
+						value="#{licenceBean.getValueFromProperty('product.name')}" />
+					(<h:outputText id="LicenceType"
+						value="#{licenceBean.getValueFromProperty('licence.type')}" />)
+				</h:column>
+
+				<h:column>
+					<h:outputText value="Expires" style="font-size: 80%" />
+				</h:column>
+				<h:column>
+					<h:outputText id="ExpiryDate"
+						value="#{licenceBean.getValueFromProperty('licence.valid.until') 
+							eq ''?
+							'Never' 
+							: licenceBean.getValueFromProperty('licence.valid.until')}" />
+				</h:column>
+				<h:column rendered="#{licenceBean.cluster}">
+					<h:outputText value="Limit Session / Named User"
+						style="font-size: 80%" />
+				</h:column>
+				<h:column rendered="#{licenceBean.cluster}">
+					<h:outputText id="LimitServerSessions"
+						value="#{licenceBean.getValueFromProperty('server.sessions.limit')
+							 eq '0'?
+							 'Unlimited'
+							 : licenceBean.getValueFromProperty('server.sessions.limit')}" />
+					/
+					<h:outputText id="LimitNamedUsers"
+						value="#{licenceBean.getValueFromProperty('server.users.limit')
+							 eq '0'?
+							 'Unlimited'
+							 : licenceBean.getValueFromProperty('server.users.limit')}" />
+				</h:column>
+			</h:panelGrid>
+		</h:panelGrid>
+	</h:form>
+</cc:implementation>
+</html>

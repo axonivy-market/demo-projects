@@ -1,0 +1,8 @@
+LicenceUploadComponentData #class
+com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent #namespace
+newLicence org.primefaces.model.UploadedFile #field
+newLicence PERSISTENT #fieldModifier
+originalLicence java.io.File #field
+originalLicence PERSISTENT #fieldModifier
+newLicenceFile java.io.File #field
+newLicenceFile PERSISTENT #fieldModifier
