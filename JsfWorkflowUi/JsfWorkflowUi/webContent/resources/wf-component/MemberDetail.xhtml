@@ -18,6 +18,6 @@ For a user: [user-icon] full name (name)
 </cc:interface>
 <cc:implementation>
 	<wc:IconAndText iconName="#{cc.attrs.member == null ? '' : cc.attrs.member.isUser() ? 'fa fa-user' : 'fa fa-users'}" 
-		iconDescription="#{cc.attrs.member == null ? '-' : cc.attrs.member.getDisplayName().length() ne 0 ? cc.attrs.member.getDisplayName() : cc.attrs.member.getName()}" />
+		iconDescription="#{cc.attrs.member == null ? '-' : cc.attrs.member.getDisplayName()}" />
 </cc:implementation>
 </html> 

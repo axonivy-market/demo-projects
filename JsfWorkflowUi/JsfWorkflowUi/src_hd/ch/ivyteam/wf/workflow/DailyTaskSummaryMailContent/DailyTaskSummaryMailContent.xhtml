@@ -28,7 +28,7 @@
 				<p:column headerText="#{ivy.cms.co('/labels/common/responsible')}" style="width:200px;">
 					<p:outputPanel>
 						<h:graphicImage name="#{task.activator == null ? '' : task.activator.isUser() ? 'images/details/faUser' : 'images/details/faRole'}.png" alt="#{task.activator}"/>
-						#{task.activator.name}
+						 #{task.activator.displayName}
 					</p:outputPanel>
 				</p:column>
 				<p:column headerText="#{ivy.cms.co('/labels/common/taskStart')}" style="width:130px;">
