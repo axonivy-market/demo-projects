@@ -9,15 +9,13 @@
       "name" : "Collect personal data",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A5AC9A4F755A3B/start.ivp",
-      "preCondition" : null
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A5AC9A4F755A3B/start.ivp"
     }, {
       "id" : "verify_personal_data",
       "name" : "Verify personal data",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A849250AA78F65/start.ivp",
-      "preCondition" : null
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A849250AA78F65/start.ivp"
     } ],
     "sidesteps" : [ ]
   }, {
@@ -29,22 +27,19 @@
       "name" : "Check company register",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A8492F526C14B3/start.ivp",
-      "preCondition" : null
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A8492F526C14B3/start.ivp"
     }, {
       "id" : "internal_solvency_check",
       "name" : "Internal solvency check",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89953E2D3784F/start.ivp",
-      "preCondition" : null
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89953E2D3784F/start.ivp"
     }, {
       "id" : "external_solvency_service",
       "name" : "External solvency service",
       "description" : "",
       "autoStart" : false,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A8995AA29B442B/start.ivp",
-      "preCondition" : null
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A8995AA29B442B/start.ivp"
     } ],
     "sidesteps" : [ ]
   }, {
@@ -56,22 +51,19 @@
       "name" : "Approve Level 1",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A852737BAA2982/start.ivp",
-      "preCondition" : null
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A852737BAA2982/start.ivp"
     }, {
       "id" : "approve_level_2",
       "name" : "Approve Level 2",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89963C015F70D/start.ivp",
-      "preCondition" : null
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89963C015F70D/start.ivp"
     }, {
       "id" : "contract_creation",
       "name" : "Contract creation",
       "description" : "",
       "autoStart" : true,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89966729CE3FC/start.ivp",
-      "preCondition" : null
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89966729CE3FC/start.ivp"
     } ],
     "sidesteps" : [ ]
   }, {
@@ -83,15 +75,13 @@
       "name" : "Resume request",
       "description" : "",
       "autoStart" : false,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:015A8996ACC13882/start.ivp",
-      "preCondition" : null
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:015A8996ACC13882/start.ivp"
     }, {
       "id" : "abort_request",
       "name" : "Abort request",
       "description" : "",
       "autoStart" : false,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A8996D261A1DFE/start.ivp",
-      "preCondition" : null
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A8996D261A1DFE/start.ivp"
     } ],
     "sidesteps" : [ ]
   } ]
