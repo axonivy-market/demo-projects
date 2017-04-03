@@ -53,6 +53,7 @@ public class BaseWebTest
 
   protected void setMySqlConfig()
   {
+    prime.accordion(By.id("accordionPanel")).toggleTab("System Database");
     prime.selectOne(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseTypeDropdown"))
             .selectItemByLabel("MySQL");
 
