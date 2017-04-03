@@ -53,13 +53,12 @@ public class BaseWebTest
 
   protected void setMySqlConfig()
   {
-    prime.accordion(By.id("accordionPanel")).toggleTab("System Database");
+    setConfigInternal();
+
     prime.selectOne(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseTypeDropdown"))
             .selectItemByLabel("MySQL");
 
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "zugtstdbsmys");
-
-    setConfigInternal();
 
     driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:saveConfigButton"))
             .click();
@@ -70,7 +69,7 @@ public class BaseWebTest
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")).click();
     openDbCreationDialog();
-  
+
     createAndValidateDb();
   }
 
@@ -81,7 +80,7 @@ public class BaseWebTest
       System.out.println("DB wasn't created and therefore also not dropped.");
       return;
     }
-  
+
     String command = "DROP DATABASE " + DBNAME;
     Connection con = DriverManager.getConnection(connectionUrl, USERNAME, PASSWORD);
     Statement stmt = con.createStatement();
@@ -103,12 +102,12 @@ public class BaseWebTest
             .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")));
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")).click();
-  
+
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:finishMessage"),
             "Successfully Finished!"));
     dbCreated = true;
-  
+
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:saveAndConnectButton"))
             .click();
@@ -116,15 +115,16 @@ public class BaseWebTest
 
   protected void setConfigInternal()
   {
+    toggleTab("System Database");
     prime.selectBooleanCheckbox(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:defaultPortCheckbox"))
             .setChecked();
-  
+
     DBNAME = "tmp_engineConfigUi_testing_" + RandomUtils.nextInt(11, Integer.MAX_VALUE);
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"), DBNAME);
     driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:saveConfigButton"))
             .click();
-  
+
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:usernameInput"), USERNAME);
     driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:saveConfigButton"))
             .click();
