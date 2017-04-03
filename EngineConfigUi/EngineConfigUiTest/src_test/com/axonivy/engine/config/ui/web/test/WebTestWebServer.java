@@ -33,6 +33,7 @@ public class WebTestWebServer extends BaseWebTest
     driver.findElement(portInputLocator).sendKeys("1234");
     driver.findElement(By.id("accordionPanel:webServerComponent:webServerForm:savePortsButton")).click();
     openConfigUi();
+    toggleTab("System Database");
     testConnection();
     toggleTab("WebServer");
     await(ExpectedConditions.textToBePresentInElementValue(portInputLocator, "1234"));
