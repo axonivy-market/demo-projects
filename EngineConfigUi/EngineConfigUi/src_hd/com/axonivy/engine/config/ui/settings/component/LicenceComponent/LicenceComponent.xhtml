@@ -12,12 +12,20 @@
 </cc:interface>
 
 <cc:implementation>
-	<ic:com.axonivy.engine.config.ui.settings.component.LicenceInfoComponent
-		id="licenceInfosComponent" />
-
-	<br />
-
-	<ic:com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent
-		id="licenceUploadComponent" />
+	<h:panelGrid columns="2" columnClasses="column1, column2">
+			<ic:com.axonivy.engine.config.ui.settings.component.LicenceInfoComponent
+				id="licenceInfosComponent" />
+			<p:commandButton value="Details" icon="fa fa-info"
+				onclick="PF('licenceDetails').show()" />
+		<h:column>
+			<ic:com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent
+				id="licenceUploadComponent" />
+		</h:column>
+	</h:panelGrid>
+	<p:dialog widgetVar="licenceDetails" modal="true" closeOnEscape="true"
+		header="Details">
+		<ic:com.axonivy.engine.config.ui.settings.component.LicenceDetailComponent
+			id="licenceDetailComponent" />
+	</p:dialog>
 </cc:implementation>
 </html>
