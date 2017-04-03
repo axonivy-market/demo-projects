@@ -12,59 +12,54 @@
 		<ui:define name="title">systemDatabase</ui:define>
 		<ui:define name="content">
 			<h3>Engine Configuration</h3>
+			<p:accordionPanel  id="accordionPanel"
+				style="width: 100% !important" dynamic="true">
+				
+				<p:tab id="licenceInfoTab">
+					<f:facet name="title">
+						<h:outputText value="Licence Informations " />
+						<i class="fa fa-info-circle" />
+					</f:facet>
+					<ic:com.axonivy.engine.config.ui.settings.component.LicenceComponent
+						id="licenceComponent" />
+				</p:tab>
+				
+				<p:tab id="systemDatabaseTab">
+					<f:facet name="title">
+						<h:outputText value="System Database " />
+						<i class="fa fa-database" />
+					</f:facet>
+					<ic:com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent
+						settings="#{data.databaseSettings}" id="systemDatabaseComponent" />
+				</p:tab>
 
-			<h:panelGrid columns="2">
-				<f:facet name="header" />
-				<br />
-				<p:accordionPanel id="accordionPanel"
-					style="width: 1000px !important" dynamic="true" multiple="true">
-					
-					<p:tab id="licenceInfoTab">
-						<f:facet name="title">
-							<h:outputText value="Licence Informations " />
-							<i class="fa fa-info-circle" />
-						</f:facet>
-						<ic:com.axonivy.engine.config.ui.settings.component.LicenceComponent
-							id="licenceComponent" />
-					</p:tab>
-					
-					<p:tab id="systemDatabaseTab">
-						<f:facet name="title">
-							<h:outputText value="System Database " />
-							<i class="fa fa-database" />
-						</f:facet>
-						<ic:com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent
-							settings="#{data.databaseSettings}" id="systemDatabaseComponent" />
-					</p:tab>
+				<p:tab id="administratorsTab">
+					<f:facet name="title">
+						<h:outputText value="Administrators " />
+						<i class="fa fa-user-secret" />
+					</f:facet>
+					<ic:com.axonivy.engine.config.ui.settings.component.AdministratorsComponent
+						settings="#{data.databaseSettings}" id="administratorsComponent" />
+				</p:tab>
 
-					<p:tab id="administratorsTab">
-						<f:facet name="title">
-							<h:outputText value="Administrators " />
-							<i class="fa fa-user-secret" />
-						</f:facet>
-						<ic:com.axonivy.engine.config.ui.settings.component.AdministratorsComponent
-							settings="#{data.databaseSettings}" id="administratorsComponent" />
-					</p:tab>
+				<p:tab id="webServerTab">
+					<f:facet name="title">
+						<h:outputText value="WebServer " />
+						<i class="fa fa-server" />
+					</f:facet>
+					<ic:com.axonivy.engine.config.ui.settings.component.WebServerComponent
+						settings="#{data.databaseSettings}" id="webServerComponent" />
+				</p:tab>
 
-					<p:tab id="webServerTab">
-						<f:facet name="title">
-							<h:outputText value="WebServer " />
-							<i class="fa fa-server" />
-						</f:facet>
-						<ic:com.axonivy.engine.config.ui.settings.component.WebServerComponent
-							settings="#{data.databaseSettings}" id="webServerComponent" />
-					</p:tab>
-
-					<p:tab id="clusterTab" rendered="#{data.databaseSettings.connectionInfo.isCluster}">
-						<f:facet name="title">
-							<h:outputText value="Cluster " />
-							<i class="fa fa-cubes" />
-						</f:facet>
-						<ic:com.axonivy.engine.config.ui.settings.component.ClusterComponent
-							settings="#{data.databaseSettings}" id="clusterComponent" />
-					</p:tab>
-				</p:accordionPanel>
-			</h:panelGrid>
+				<p:tab id="clusterTab" rendered="#{data.databaseSettings.connectionInfo.isCluster}">
+					<f:facet name="title">
+						<h:outputText value="Cluster " />
+						<i class="fa fa-cubes" />
+					</f:facet>
+					<ic:com.axonivy.engine.config.ui.settings.component.ClusterComponent
+						settings="#{data.databaseSettings}" id="clusterComponent" />
+				</p:tab>
+			</p:accordionPanel>
 		</ui:define>
 	</ui:composition>
 </h:body>
