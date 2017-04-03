@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Mar 14 14:25:47 CET 2017]
+[>Created: Fri Mar 31 14:35:34 CEST 2017]
 1547634C396BBB3A 3.20 #module
 >Proto >Proto Collection #zClass
 ct0 twitter Big #zClass
@@ -158,7 +158,8 @@ ct0 f13 queryParams 'screen_name="AxonIvy";
 ' #txt
 ct0 f13 templateParams 'api.version="1.1";
 ' #txt
-ct0 f13 accept application/json #txt
+ct0 f13 headers 'Accept=application/json;
+' #txt
 ct0 f13 method GET #txt
 ct0 f13 resultType java.util.List<com.twitter.status.gson.UserTimeline> #txt
 ct0 f13 responseCode 'ivy.log.info(response);

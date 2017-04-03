@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Feb 20 14:43:30 CET 2017]
+[>Created: Fri Mar 31 14:35:39 CEST 2017]
 154616078A1D629D 3.20 #module
 >Proto >Proto Collection #zClass
 ce0 callOwnPersonRestService Big #zClass
@@ -153,7 +153,8 @@ ce0 f12 344 178 256 44 -121 -16 #rect
 ce0 f12 @|IBIcon #fIcon
 ce0 f13 344 200 264 248 #arcP
 ce0 f14 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
-ce0 f14 accept application/json #txt
+ce0 f14 headers 'Accept=application/json;
+' #txt
 ce0 f14 method GET #txt
 ce0 f14 resultType java.util.List<com.axonivy.connectivity.Person> #txt
 ce0 f14 responseCode ivy.log.info(result); #txt

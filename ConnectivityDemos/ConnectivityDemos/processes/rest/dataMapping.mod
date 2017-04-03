@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Mar 06 17:37:57 CET 2017]
+[>Created: Fri Mar 31 14:35:09 CEST 2017]
 15A60076034F7437 3.20 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
@@ -91,7 +91,8 @@ dg0 f1 529 137 30 30 0 15 #rect
 dg0 f1 @|EndIcon #fIcon
 dg0 f3 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f3 path posts #txt
-dg0 f3 accept application/json #txt
+dg0 f3 headers 'Accept=application/json;
+' #txt
 dg0 f3 method POST #txt
 dg0 f3 bodyInputType RAW #txt
 dg0 f3 bodyRaw '{
@@ -202,7 +203,8 @@ dg0 f9 529 305 30 30 0 15 #rect
 dg0 f9 @|EndIcon #fIcon
 dg0 f10 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f10 path posts #txt
-dg0 f10 accept application/json #txt
+dg0 f10 headers 'Accept=application/json;
+' #txt
 dg0 f10 method POST #txt
 dg0 f10 bodyInputType ENTITY #txt
 dg0 f10 bodyRaw '{
@@ -237,7 +239,8 @@ dg0 f14 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f14 path posts #txt
 dg0 f14 queryParams 'userId=in.userId.toString();
 ' #txt
-dg0 f14 accept application/json #txt
+dg0 f14 headers 'Accept=application/json;
+' #txt
 dg0 f14 method GET #txt
 dg0 f14 bodyInputType ENTITY #txt
 dg0 f14 bodyRaw '{
@@ -324,7 +327,8 @@ dg0 f17 expr out #txt
 dg0 f17 280 512 332 512 #arcP
 dg0 f21 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 dg0 f21 path 1 #txt
-dg0 f21 accept application/json #txt
+dg0 f21 headers 'Accept=application/json;
+' #txt
 dg0 f21 method GET #txt
 dg0 f21 bodyInputType ENTITY #txt
 dg0 f21 bodyRaw '{
@@ -387,7 +391,8 @@ dg0 f24 expr out #txt
 dg0 f24 111 608 168 608 #arcP
 dg0 f25 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 dg0 f25 path 1 #txt
-dg0 f25 accept application/xml #txt
+dg0 f25 headers 'Accept=application/xml;
+' #txt
 dg0 f25 method GET #txt
 dg0 f25 bodyInputType ENTITY #txt
 dg0 f25 bodyRaw '{
@@ -445,7 +450,8 @@ dg0 f28 81 225 30 30 -39 17 #rect
 dg0 f28 @|StartRequestIcon #fIcon
 dg0 f29 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f29 path posts #txt
-dg0 f29 accept application/json #txt
+dg0 f29 headers 'Accept=application/json;
+' #txt
 dg0 f29 method POST #txt
 dg0 f29 bodyInputType FORM #txt
 dg0 f29 bodyRaw '{
@@ -520,7 +526,8 @@ dg0 f35 128 26 320 44 -156 -15 #rect
 dg0 f35 @|IBIcon #fIcon
 dg0 f36 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f36 path users/1 #txt
-dg0 f36 accept application/json #txt
+dg0 f36 headers 'Accept=application/json;
+' #txt
 dg0 f36 method GET #txt
 dg0 f36 bodyInputType ENTITY #txt
 dg0 f36 bodyRaw '{
