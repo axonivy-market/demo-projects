@@ -7,15 +7,13 @@
 <cc:interface componentType="IvyComponent" />
 
 <cc:implementation>
-	<p:growl id="licenceGrowl" showDetail="true"/>
+	<p:growl id="licenceGrowl" showDetail="true" />
 	<h:form id="licenceUploadForm" enctype="multipart/form-data">
-		<h:panelGrid columns="1">
-			<p:fileUpload id="fileUploader" fileUploadListener="#{logic.fileUploadEvent}"
-				mode="advanced" dragDropSupport="true"
-				update=":accordionPanel"
-				sizeLimit="10000" allowTypes="/(\.|\/)(lic)$/" accept=".lic"
-				required="true" value="#{data.newLicence}" auto="true" />
-		</h:panelGrid>
+		<p:fileUpload id="fileUploader"
+			fileUploadListener="#{logic.fileUploadEvent}" mode="advanced"
+			dragDropSupport="true" update=":accordionPanel" sizeLimit="10000"
+			allowTypes="/(\.|\/)(lic)$/" accept=".lic" required="true"
+			value="#{data.newLicence}" auto="true" label="Choose new Licence" />
 	</h:form>
 </cc:implementation>
 </html>
