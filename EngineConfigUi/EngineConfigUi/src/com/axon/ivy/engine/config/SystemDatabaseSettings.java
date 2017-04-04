@@ -226,6 +226,8 @@ public class SystemDatabaseSettings
       getConnectionInfo().setConnectionState(newState);
       if (newState != ConnectionState.CONNECTING)
       {
+        Throwable connectionError = getSystemDb().getConnectionTester().getConnectionError();
+        getConnectionInfo().setConnectionError(connectionError);
         gotResult = true;
       }
     }

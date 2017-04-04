@@ -80,7 +80,7 @@
 					<p:commandButton id="checkConnectionButton"
 						value="Check Connection" icon="fa fa-database"
 						actionListener="#{logic.checkConnection}"
-						update=":#{cc.clientId}:growl, @(.configChanged)" />
+						update="@(.configChanged)" />
 					<p:commandButton id="createDatabaseButton" value="Create Database"
 						actionListener="#{logic.applyProperties}"
 						oncomplete="PF('createDatabaseDialog').show()"
@@ -165,7 +165,7 @@
 				<br />
 				<p:commandButton value="Save and connect" id="saveAndConnectButton"
 					actionListener="#{logic.updateAndCheckConnection}"
-					update=":#{cc.clientId}:growl, @(.configChanged), :#{cc.clientId}:creatingDatabaseDialog,
+					update="@(.configChanged), :#{cc.clientId}:creatingDatabaseDialog,
 					 :#{cc.clientId}:systemDatabaseForm"
 					disabled="#{data.progressAction.running}" />
 			</h:panelGrid>

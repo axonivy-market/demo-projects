@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Mar 20 14:31:25 CET 2017]
+[>Created: Tue Apr 04 15:36:54 CEST 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -151,11 +151,9 @@ Ss0 f16 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 Ss0 f16 actionTable 'out=in;
 ' #txt
 Ss0 f16 actionCode 'import com.axon.ivy.engine.config.SystemDatabaseSettings;
-import com.axon.ivy.engine.config.UiModder;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 
 ConnectionState state = in.settings.testConnection();
-UiModder.updateUiPopUp(state);
 if ((ConnectionState.CONNECTED_WRONG_OLDER_VERSION.toString().equalsIgnoreCase(state.toString())) || 
 			(ConnectionState.CONNECTED_WRONG_NEWER_VERSION.toString().equalsIgnoreCase(state.toString())))
 {
@@ -447,12 +445,10 @@ Ss0 f48 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 ' #txt
 Ss0 f48 actionTable 'out=in;
 ' #txt
-Ss0 f48 actionCode 'import com.axon.ivy.engine.config.UiModder;
-import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
+Ss0 f48 actionCode 'import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 
 in.settings.updateConfig(in.progressAction as SystemDatabaseCreator);
-in.settings.saveSystemDb();
-UiModder.updateUiPopUp(in.settings.testConnection());' #txt
+in.settings.saveSystemDb();' #txt
 Ss0 f48 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f48 168 906 112 44 0 -8 #rect
 Ss0 f48 @|StepIcon #fIcon

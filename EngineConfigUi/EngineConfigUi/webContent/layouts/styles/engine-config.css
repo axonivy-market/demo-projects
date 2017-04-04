@@ -37,3 +37,22 @@ Own Classes
 .important-sysdb-input {
 	width: 200px;
 }
+
+.connection-panel {
+	margin-bottom: 20px;
+	border-radius: 4px;
+}
+
+.connection-panel .alert {
+	margin-bottom: 0;
+}
+
+.connection-state {
+	padding-bottom: 10px;
+}
+
+.connection-state h4 {
+	font-weight: bold;
+	margin-top: 0.4em;
+	margin-bottom: 0.4em;
+}
