@@ -87,9 +87,10 @@
 						icon="fa fa-database"
 						update=":#{cc.clientId}:createDatabaseDialog" />
 					<p:commandButton id="convertDbButton" value="Convert Database"
+					    styleClass="configChanged"
 						icon="fa fa-database" actionListener="#{logic.convertDb}"
 						onclick="PF('convertDatabaseDialog').show()"
-						disabled="#{!data.convertionAvailable}"
+						disabled="#{!data.settings.connectionInfo.canConvert()}"
 						update=":#{cc.clientId}:convertDatabaseDialog, @(.configChanged)" />
 				</h:panelGrid>
 			</p:fieldset>

@@ -146,4 +146,9 @@ public class ConnectionInfo
   {
     return connectionError;
   }
+  
+  public boolean canConvert()
+  {
+    return connectionState == ConnectionState.CONNECTED_WRONG_OLDER_VERSION;
+  }
 }

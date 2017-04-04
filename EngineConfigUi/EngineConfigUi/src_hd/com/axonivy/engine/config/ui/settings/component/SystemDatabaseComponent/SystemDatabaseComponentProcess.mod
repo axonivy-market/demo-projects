@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 04 15:36:54 CEST 2017]
+[>Created: Tue Apr 04 16:53:15 CEST 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -96,7 +96,6 @@ Ss0 f1 @|RichDialogProcessEndIcon #fIcon
 Ss0 f6 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
 ' #txt
 Ss0 f6 actionTable 'out=in;
-out.convertionAvailable=false;
 ' #txt
 Ss0 f6 actionCode 'import com.axon.ivy.engine.config.ConnectionInfo;
 import com.axon.ivy.engine.config.ConfigHelper;
@@ -150,19 +149,7 @@ Ss0 f16 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 ' #txt
 Ss0 f16 actionTable 'out=in;
 ' #txt
-Ss0 f16 actionCode 'import com.axon.ivy.engine.config.SystemDatabaseSettings;
-import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
-
-ConnectionState state = in.settings.testConnection();
-if ((ConnectionState.CONNECTED_WRONG_OLDER_VERSION.toString().equalsIgnoreCase(state.toString())) || 
-			(ConnectionState.CONNECTED_WRONG_NEWER_VERSION.toString().equalsIgnoreCase(state.toString())))
-{
-	out.convertionAvailable = true;
-}
-else
-{
-	out.convertionAvailable = false;
-}' #txt
+Ss0 f16 actionCode in.settings.testConnection(); #txt
 Ss0 f16 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f16 168 234 112 44 0 -8 #rect
 Ss0 f16 @|StepIcon #fIcon
@@ -294,7 +281,6 @@ Ss0 f4 @|RichDialogProcessEndIcon #fIcon
 Ss0 f20 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
 ' #txt
 Ss0 f20 actionTable 'out=in;
-out.convertionAvailable=false;
 ' #txt
 Ss0 f20 actionCode 'import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
