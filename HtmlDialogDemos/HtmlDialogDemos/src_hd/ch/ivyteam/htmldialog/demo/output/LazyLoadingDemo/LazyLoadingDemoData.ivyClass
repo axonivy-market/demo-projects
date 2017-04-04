@@ -1,0 +1,5 @@
+LazyLoadingDemoData #class
+ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo #namespace
+lazyModel org.primefaces.model.LazyDataModel #field
+lazyModel 'Model is lazy loaded' #fieldComment
+lazyModel PERSISTENT #fieldModifier
