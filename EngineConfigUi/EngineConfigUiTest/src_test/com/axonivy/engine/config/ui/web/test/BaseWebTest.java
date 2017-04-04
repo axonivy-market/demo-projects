@@ -149,11 +149,11 @@ public class BaseWebTest
   protected void testConnection()
   {
     driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")).click();
+            By.id("connectionStateComponent:checkConnectionButton")).click();
     await(ExpectedConditions
             .textToBePresentInElementLocated(
-                    By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:growl_container']/div/div/div[2]/p"),
-                    "established"));
+                    By.id("connectionStateComponent:connectionState"),
+                    "Connected"));
   }
 
   protected <T> T await(ExpectedCondition<T> condition)
