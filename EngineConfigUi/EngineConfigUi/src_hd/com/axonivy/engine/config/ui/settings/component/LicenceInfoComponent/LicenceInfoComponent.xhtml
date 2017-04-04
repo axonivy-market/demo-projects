@@ -11,7 +11,7 @@
 		<h:panelGrid columns="2">
 			<h:panelGrid columns="1">
 				<h:column>
-					<h:outputText value="Owner" style="font-size: 80%" />
+					<h:outputText value="Owner" styleClass="licence-info-label" />
 				</h:column>
 				<h:column>
 					<h:outputText id="Organisation"
@@ -21,7 +21,7 @@
 				</h:column>
 
 				<h:column>
-					<h:outputText value="Product" style="font-size: 80%" />
+					<h:outputText value="Product" styleClass="licence-info-label" />
 				</h:column>
 				<h:column>
 					<h:outputText id="Product"
@@ -31,7 +31,7 @@
 				</h:column>
 
 				<h:column>
-					<h:outputText value="Expires" style="font-size: 80%" />
+					<h:outputText value="Expires" styleClass="licence-info-label" />
 				</h:column>
 				<h:column>
 					<h:outputText id="ExpiryDate"
@@ -42,7 +42,7 @@
 				</h:column>
 				<h:column rendered="#{licenceBean.cluster}">
 					<h:outputText value="Limit Session / Named User"
-						style="font-size: 80%" />
+						styleClass="licence-info-label" />
 				</h:column>
 				<h:column rendered="#{licenceBean.cluster}">
 					<h:outputText id="LimitServerSessions"

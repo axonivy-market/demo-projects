@@ -20,12 +20,12 @@
 					<p:outputLabel for="HTTPEnabledCheckbox" id="HTTPEnabledLabel"
 						value="Enabled: " />
 					<p:selectBooleanCheckbox id="HTTPEnabledCheckbox"
-						style="margin-left: 5px; margin-top: 3px"
+						styleClass="webserver-checkbox"
 						value="#{data.webServerConfig.httpEnabled}" />
 
 					<p:outputLabel for="HTTPPortInput" id="HTTPPortLabel"
 						value="Port: " />
-					<p:inputText id="HTTPPortInput" style="width: 70px;"
+					<p:inputText id="HTTPPortInput" styleClass="port-input"
 						value="#{data.webServerConfig.httpPort}" />
 				</h:panelGrid>
 			</p:fieldset>
@@ -35,12 +35,12 @@
 					<p:outputLabel for="HTTPSEnabledCheckbox" id="HTTPSEnabledLabel"
 						value="Enabled: " />
 					<p:selectBooleanCheckbox id="HTTPSEnabledCheckbox"
-						style="margin-left: 5px; margin-top: 3px"
+						styleClass="webserver-checkbox"
 						value="#{data.webServerConfig.httpsEnabled}" />
 
 					<p:outputLabel for="HTTPSPortInput" id="HTTPSPortLabel"
 						value="Port: " />
-					<p:inputText id="HTTPSPortInput" style="width: 70px;"
+					<p:inputText id="HTTPSPortInput" styleClass="port-input"
 						value="#{data.webServerConfig.httpsPort}" />
 				</h:panelGrid>
 			</p:fieldset>
@@ -50,11 +50,11 @@
 					<p:outputLabel for="AJPEnabledCheckbox" id="AJPEnabledLabel"
 						value="Enabled: " />
 					<p:selectBooleanCheckbox id="AJPEnabledCheckbox"
-						style="margin-left: 5px; margin-top: 3px"
+						styleClass="webserver-checkbox"
 						value="#{data.webServerConfig.ajpEnabled}" />
 
 					<p:outputLabel for="AJPPortInput" id="AJPPortLabel" value="Port: " />
-					<p:inputText id="AJPPortInput" style="width: 70px;"
+					<p:inputText id="AJPPortInput" styleClass="port-input"
 						value="#{data.webServerConfig.ajpPort}" />
 				</h:panelGrid>
 			</p:fieldset>

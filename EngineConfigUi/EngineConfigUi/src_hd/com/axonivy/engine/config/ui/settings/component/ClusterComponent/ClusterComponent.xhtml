@@ -18,7 +18,7 @@
 				value="#{data.adminManager.clusterNodes}" var="cluster"
 				rowIndexVar="row" rowKey="#{cluster.hostName}"
 				sortOrder="DESCENDING" selectionMode="single"
-				selection="#{data.selectedCluster}" style="border: none;"
+				selection="#{data.selectedCluster}" styleClass="no-border"
 				emptyMessage="No Cluster Node found!">
 				<p:column headerText="Host" sortBy="#{cluster.hostName}">
 					<h:outputText value="#{cluster.hostName}" />

@@ -17,7 +17,7 @@
 				value="#{data.administratorManager.administrators}"
 				var="administrator" rowIndexVar="row" rowKey="#{administrator.name}"
 				sortOrder="DESCENDING" selectionMode="single"
-				selection="#{data.selectedAdministrator}" style="border: none;"
+				selection="#{data.selectedAdministrator}" styleClass="no-border"
 				emptyMessage="No Administrators found!">
 				<p:column headerText="Name" sortBy="#{administrator.name}">
 					<h:outputText value="#{administrator.name}" />

@@ -1,3 +1,39 @@
+/* 
+Classes overriding primefaces' css
+*/
 .ui-fileupload-buttonbar {
 	padding-left: 0;
+}
+
+/* 
+Own Classes
+*/
+.no-border {
+	border: none;
+}
+
+.licence-info-label {
+	font-size: 80%;
+}
+
+.port-input {
+	width: 70px;
+}
+
+.port-checkbox {
+	margin-left: 5px;
+	margin-top: 3px;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.webserver-checkbox {
+	margin-left: 5px;
+	margin-top: 3px;
+}
+
+.important-sysdb-input {
+	width: 200px;
 }

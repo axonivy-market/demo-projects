@@ -19,10 +19,11 @@
 					<p:outputLabel for="databaseTypeDropdown" id="databaseTypeLabel"
 						value="Database: " />
 					<p:selectOneMenu id="databaseTypeDropdown"
-						value="#{data.configData.product}" converter="ivy.ListItem">
+						value="#{data.configData.product}" converter="ivy.ListItem" >
 						<f:selectItems value="#{data.databaseProducts}" var="database"
 							itemLabel="#{database.name}" itemValue="#{database}" />
-						<p:ajax update="databaseDriverDropdown, portInput, databaseNameLabel"
+						<p:ajax
+							update="databaseDriverDropdown, portInput, databaseNameLabel"
 							listener="#{logic.update}" />
 					</p:selectOneMenu>
 
@@ -36,16 +37,16 @@
 							listener="#{logic.setDefaultPort}" />
 					</p:selectOneMenu>
 					<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
-					<p:inputText id="hostInput" value="#{data.configData.host}">
+					<p:inputText id="hostInput" value="#{data.configData.host}" styleClass="important-sysdb-input">
 						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
 					</p:inputText>
 					<p:outputLabel for="portInput" id="portLabel" value="Port:" />
 					<h:column>
-						<p:inputText id="portInput" style="width: 70px;"
+						<p:inputText id="portInput" styleClass="port-input"
 							value="#{data.configData.port}" disabled="#{data.defaultPort}" />
 						<p:selectBooleanCheckbox id="defaultPortCheckbox"
-							style="margin-left: 5px; margin-top: 3px" itemLabel="Default"
+							styleClass="port-checkbox" itemLabel="Default"
 							value="#{data.defaultPort}">
 							<p:ajax listener="#{logic.setDefaultPort}"
 								update=":#{cc.clientId}:systemDatabaseForm:portInput" />
@@ -54,20 +55,20 @@
 					<p:outputLabel for="databaseNameInput" id="databaseNameLabel"
 						value="#{ivy.cms.co('/com.axonivy.engineconfig.ui/nameLabel/' += data.configData.product)}:" />
 					<p:inputText id="databaseNameInput"
-						value="#{data.configData.databaseName}">
+						value="#{data.configData.databaseName}" styleClass="important-sysdb-input">
 						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
 					</p:inputText>
 					<p:outputLabel for="usernameInput" id="usernameLabel"
 						value="Username:" />
-					<p:inputText id="usernameInput" value="#{data.configData.username}">
+					<p:inputText id="usernameInput" value="#{data.configData.username}" >
 						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
 					</p:inputText>
 					<p:outputLabel for="passwordInput" id="passwordLabel"
 						value="Password:" />
 					<p:password id="passwordInput" value="#{data.configData.password}"
-						redisplay="true">
+						redisplay="true" >
 						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
 					</p:password>
@@ -117,7 +118,8 @@
 							<p:inputText
 								value="#{data.configData.creationParameters[parameter.name]}"
 								id="creationParam"
-								disabled="#{parameter.name.equalsIgnoreCase('enginetype')}" required="true" />
+								disabled="#{parameter.name.equalsIgnoreCase('enginetype')}"
+								required="true" />
 						</p:column>
 					</p:row>
 				</ui:repeat>
@@ -140,7 +142,7 @@
 				widgetVar="creatingOutputPoll"
 				update="creatingDatabaseForm:doUpdate" interval="1"
 				stop="#{!data.progressAction.running}" />
-			<h:panelGrid id="doUpdate" columns="1" style="width:100%;">
+			<h:panelGrid id="doUpdate" columns="1" styleClass="full-width">
 
 				<h:outputText value="Your database is being created..." />
 
@@ -148,15 +150,20 @@
 					value="#{data.progressAction.progress/(data.progressAction.maxProgress/100)}" />
 				<br />
 				<br />
-				<h:outputText id="errorMessage"
-					value="#{data.progressAction.error.message}"
-					rendered="#{data.progressAction.error != null}" style="color: red;" />
-				<h:outputText id="finishMessage" value="Successfully Finished!"
+				<p:outputPanel rendered="#{data.progressAction.error != null}"
+					styleClass="alert alert-danger">
+					<strong><h:outputText id="errorMessage"
+							value="#{data.progressAction.error.message}" /></strong>
+				</p:outputPanel>
+
+				<p:outputPanel
 					rendered="#{!data.progressAction.running and data.progressAction.error == null}"
-					style="font-weight:bold;" />
+					styleClass="alert alert-success">
+					<strong><h:outputText id="finishMessage"
+							value="Successfully Finished!" /></strong>
+				</p:outputPanel>
 				<br />
-				<p:commandButton value="Save and connect"
-				id="saveAndConnectButton"
+				<p:commandButton value="Save and connect" id="saveAndConnectButton"
 					actionListener="#{logic.updateAndCheckConnection}"
 					update=":#{cc.clientId}:growl, @(.configChanged), :#{cc.clientId}:creatingDatabaseDialog,
 					 :#{cc.clientId}:systemDatabaseForm"
@@ -174,7 +181,8 @@
 				widgetVar="convertingOutputPoll"
 				update="convertDatabaseForm:doUpdateConvertion" interval="1"
 				stop="#{!data.progressAction.running}" />
-			<h:panelGrid id="doUpdateConvertion" columns="1" style="width:100%;">
+			<h:panelGrid id="doUpdateConvertion" columns="1"
+				styleClass="full-width">
 
 				<h:outputText value="Your database is being converted..." />
 
@@ -183,13 +191,18 @@
 					value="#{data.progressAction.progress/(data.progressAction.maxProgress/100)}" />
 				<br />
 				<br />
-				<h:outputText id="errorMessageConvertion"
-					value="#{data.progressAction.error.message}"
-					rendered="#{data.progressAction.error != null}" style="color: red;" />
-				<h:outputText id="finishMessageConvertion"
-					value="Successfully Finished!"
+				<p:outputPanel rendered="#{data.progressAction.error != null}"
+					styleClass="alert alert-danger">
+					<strong><h:outputText id="errorMessageConvertion"
+							value="#{data.progressAction.error.message}" /></strong>
+				</p:outputPanel>
+
+				<p:outputPanel
 					rendered="#{!data.progressAction.running and data.progressAction.error == null}"
-					style="font-weight:bold;" />
+					styleClass="alert alert-success">
+					<strong><h:outputText id="finishMessageConvertion"
+							value="Successfully Finished!" /></strong>
+				</p:outputPanel>
 			</h:panelGrid>
 		</h:form>
 	</p:dialog>
