@@ -1,0 +1,10 @@
+CreditRequest #class
+workflow.credit #namespace
+amount Number #field
+amount PERSISTENT #fieldModifier
+reason String #field
+reason PERSISTENT #fieldModifier
+salery Number #field
+salery PERSISTENT #fieldModifier
+amountOfOtherCredits Number #field
+amountOfOtherCredits PERSISTENT #fieldModifier

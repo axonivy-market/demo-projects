@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 01 12:15:22 CET 2017]
+[>Created: Tue Apr 04 12:00:20 CEST 2017]
 15A8492F526C14B3 3.20 #module
 >Proto >Proto Collection #zClass
 Cr0 CheckCompanyRegister Big #zClass
@@ -28,11 +28,22 @@ Cr0 f0 guid 15A8492F5293B55D #txt
 Cr0 f0 requestEnabled true #txt
 Cr0 f0 triggerEnabled false #txt
 Cr0 f0 callSignature start() #txt
+Cr0 f0 persist false #txt
+Cr0 f0 startName 'Check company register' #txt
+Cr0 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
 Cr0 f0 caseData businessCase.attach=true #txt
+Cr0 f0 showInStartList 1 #txt
 Cr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
+        <nameStyle>9,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt

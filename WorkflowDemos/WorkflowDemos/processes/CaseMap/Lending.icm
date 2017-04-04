@@ -3,86 +3,75 @@
   "stages" : [ {
     "id" : "identification",
     "name" : "Identification",
-    "description" : "",
     "processes" : [ {
       "id" : "collect_personal_data",
       "name" : "Collect personal data",
-      "description" : "",
-      "autoStart" : true,
       "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A5AC9A4F755A3B/start.ivp"
     }, {
       "id" : "verify_personal_data",
       "name" : "Verify personal data",
-      "description" : "",
-      "autoStart" : true,
       "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A849250AA78F65/start.ivp"
-    } ],
-    "sidesteps" : [ ]
+    } ]
   }, {
     "id" : "credit_rating",
     "name" : "Credit rating",
-    "description" : "",
     "processes" : [ {
       "id" : "check_company_register",
       "name" : "Check company register",
-      "description" : "",
-      "autoStart" : true,
       "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A8492F526C14B3/start.ivp"
     }, {
       "id" : "internal_solvency_check",
       "name" : "Internal solvency check",
-      "description" : "",
-      "autoStart" : true,
       "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89953E2D3784F/start.ivp"
-    }, {
+    } ],
+    "sidesteps" : [ {
       "id" : "external_solvency_service",
       "name" : "External solvency service",
-      "description" : "",
-      "autoStart" : false,
       "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A8995AA29B442B/start.ivp"
-    } ],
-    "sidesteps" : [ ]
+    } ]
   }, {
     "id" : "approval",
     "name" : "Approval",
-    "description" : "",
     "processes" : [ {
       "id" : "approve_level_1",
       "name" : "Approve Level 1",
-      "description" : "",
-      "autoStart" : true,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A852737BAA2982/start.ivp"
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A852737BAA2982/start.ivp",
+      "preCondition" : {
+        "script" : "dossier.decision.needsLevel1Approval",
+        "label" : "needsApprovalLevel1"
+      }
     }, {
       "id" : "approve_level_2",
       "name" : "Approve Level 2",
-      "description" : "",
-      "autoStart" : true,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89963C015F70D/start.ivp"
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89963C015F70D/start.ivp",
+      "preCondition" : {
+        "script" : "dossier.decision.needsLevel2Approval",
+        "label" : "needsApprovalLevel2"
+      }
     }, {
       "id" : "contract_creation",
       "name" : "Contract creation",
-      "description" : "",
-      "autoStart" : true,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89966729CE3FC/start.ivp"
-    } ],
-    "sidesteps" : [ ]
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89966729CE3FC/start.ivp",
+      "preCondition" : {
+        "script" : "(!dossier.decision.needsLevel1Approval || (dossier.decision.needsLevel1Approval && dossier.decision.level1Approved ))\n&&\n(!dossier.decision.needsLevel2Approval || (dossier.decision.needsLevel2Approval && dossier.decision.level2Approved ))",
+        "label" : "notRejected"
+      }
+    } ]
   }, {
     "id" : "request_postponed",
     "name" : "Request postponed",
-    "description" : "",
-    "processes" : [ {
+    "sidesteps" : [ {
       "id" : "resume_request",
       "name" : "Resume request",
-      "description" : "",
-      "autoStart" : false,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:015A8996ACC13882/start.ivp"
+      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A8996D261A1DFE/start.ivp"
     }, {
       "id" : "abort_request",
       "name" : "Abort request",
-      "description" : "",
-      "autoStart" : false,
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A8996D261A1DFE/start.ivp"
-    } ],
-    "sidesteps" : [ ]
+      "processToExecute" : "WorkflowDemos:15A8996D261A1DFE/start.ivp"
+    } ]
+  } ],
+  "variables" : [ {
+    "name" : "dossier",
+    "type" : "workflow.credit.CreditDossier"
   } ]
 }

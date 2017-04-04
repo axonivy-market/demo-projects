@@ -1,0 +1,4 @@
+CollectPersonDataData #class
+workflow.credit.CollectPersonData #namespace
+dossier workflow.credit.CreditDossier #field
+dossier PERSISTENT #fieldModifier

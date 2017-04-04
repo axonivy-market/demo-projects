@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 01 12:16:59 CET 2017]
+[>Created: Tue Apr 04 11:59:19 CEST 2017]
 15A89966729CE3FC 3.20 #module
 >Proto >Proto Collection #zClass
 Cn0 ContractCreation Big #zClass
@@ -26,11 +26,22 @@ Cn0 f0 guid 15A8996672BEF006 #txt
 Cn0 f0 requestEnabled true #txt
 Cn0 f0 triggerEnabled false #txt
 Cn0 f0 callSignature start() #txt
+Cn0 f0 persist false #txt
+Cn0 f0 startName 'Create Contract ' #txt
+Cn0 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
 Cn0 f0 caseData businessCase.attach=true #txt
+Cn0 f0 showInStartList 1 #txt
 Cn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
+        <nameStyle>9,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -40,6 +51,7 @@ Cn0 f0 @|StartRequestIcon #fIcon
 Cn0 f1 type workflow.humantask.Data #txt
 Cn0 f1 337 49 30 30 0 15 #rect
 Cn0 f1 @|EndIcon #fIcon
+Cn0 f2 expr out #txt
 Cn0 f2 111 64 337 64 #arcP
 >Proto Cn0 .type workflow.humantask.Data #txt
 >Proto Cn0 .processKind NORMAL #txt

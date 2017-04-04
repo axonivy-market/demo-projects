@@ -1,0 +1,12 @@
+Person #class
+workflow.credit #namespace
+name String #field
+name PERSISTENT #fieldModifier
+surname String #field
+surname PERSISTENT #fieldModifier
+birthDate Date #field
+birthDate PERSISTENT #fieldModifier
+isMale Boolean #field
+isMale PERSISTENT #fieldModifier
+address workflow.credit.Address #field
+address PERSISTENT #fieldModifier
