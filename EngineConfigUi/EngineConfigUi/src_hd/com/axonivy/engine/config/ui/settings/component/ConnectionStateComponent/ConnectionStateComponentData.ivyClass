@@ -1,0 +1,4 @@
+ConnectionStateComponentData #class
+com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent #namespace
+settings com.axon.ivy.engine.config.SystemDatabaseSettings #field
+settings PERSISTENT #fieldModifier

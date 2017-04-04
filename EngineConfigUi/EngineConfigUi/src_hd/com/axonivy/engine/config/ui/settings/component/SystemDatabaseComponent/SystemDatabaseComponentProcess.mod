@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 04 16:53:15 CEST 2017]
+[>Created: Tue Apr 04 17:19:22 CEST 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -163,8 +163,6 @@ Ss0 f18 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 ' #txt
 Ss0 f18 actionTable 'out=in;
 ' #txt
-Ss0 f18 actionCode '
-ivy.log.debug(in.configData);' #txt
 Ss0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

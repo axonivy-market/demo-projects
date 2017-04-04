@@ -48,11 +48,18 @@ Own Classes
 }
 
 .connection-state {
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 }
 
 .connection-state h4 {
 	font-weight: bold;
 	margin-top: 0.4em;
 	margin-bottom: 0.4em;
+}
+
+.check-connection {
+    position: relative;
+    float: right;
+    top: 15px;
+    right: 15px;
 }

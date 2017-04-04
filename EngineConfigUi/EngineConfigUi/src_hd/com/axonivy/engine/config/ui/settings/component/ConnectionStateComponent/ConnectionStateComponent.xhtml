@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<cc:interface componentType="IvyComponent">
+</cc:interface>
+
+<cc:implementation>
+	<p:outputPanel id="connectionPanel" styleClass="connection-panel">
+		<p:commandButton value="Check Connection" id="checkConnectionButton"
+			icon="fa fa-check" styleClass="check-connection"
+			actionListener="#{logic.checkConnection}" update="@(.configChanged)" />
+		<p:outputPanel id="connection"
+			styleClass="alert #{data.settings.connectionInfo.stateCssValue} connection-state configChanged">
+			<h4>
+				<i class="fa fa-plug fa-fw" />
+				<h:outputText value="#{data.settings.connectionInfo.stateTitle}"
+					id="connectionState" />
+			</h4>
+			<p>
+				<h:outputText value="#{data.settings.connectionInfo.stateMessage}" />
+			</p>
+		</p:outputPanel>
+	</p:outputPanel>
+	<p:sticky target="connectionPanel" />
+
+</cc:implementation>
+</html>

@@ -12,22 +12,8 @@
 		<ui:define name="title">systemDatabase</ui:define>
 		<ui:define name="content">
 			<h3>Engine Configuration</h3>
-			<p:outputPanel id="connectionPanel" styleClass="connection-panel">
-				<p:outputPanel id="connection"
-					styleClass="alert #{data.databaseSettings.connectionInfo.stateCssValue} connection-state configChanged">
-					<h4>
-						<i class="fa fa-plug fa-fw" />
-						<h:outputText
-							value="#{data.databaseSettings.connectionInfo.stateTitle}"
-							id="connectionState" />
-					</h4>
-					<p>
-						<h:outputText
-							value="#{data.databaseSettings.connectionInfo.stateMessage}" />
-					</p>
-				</p:outputPanel>
-			</p:outputPanel>
-			<p:sticky target="connectionPanel" />
+			<ic:com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent
+				id="connectionStateComponent" settings="#{data.databaseSettings}" />
 
 			<p:accordionPanel id="accordionPanel" styleClass="full-width"
 				dynamic="true">
