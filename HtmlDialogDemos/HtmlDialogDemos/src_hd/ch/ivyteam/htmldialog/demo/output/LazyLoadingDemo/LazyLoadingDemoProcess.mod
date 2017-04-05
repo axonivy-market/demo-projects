@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 22 15:10:38 CET 2017]
+[>Created: Tue Apr 04 11:54:09 CEST 2017]
 15AEFE76879218F9 3.20 #module
 >Proto >Proto Collection #zClass
 Ds0 LazyLoadingDemoProcess Big #zClass
@@ -72,13 +72,12 @@ Ds0 f6 actionDecl 'ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo.LazyLoading
 ' #txt
 Ds0 f6 actionTable 'out=in;
 ' #txt
-Ds0 f6 actionCode 'import ch.ivyteam.htmldialog.demo.helper.DataGenerator;
+Ds0 f6 actionCode 'import ch.ivyteam.htmldialog.demo.data.*;
 import ch.ivyteam.htmldialog.demo.component.PersonLazyDataModel;
 import ch.ivyteam.htmldialog.demo.Person;
 
-java.util.List<Person> persons = DataGenerator.generatePersons(100000);
-
-out.lazyModel = new PersonLazyDataModel(persons);' #txt
+DataSource source = new DataSource(123456);
+out.lazyModel = new PersonLazyDataModel(source);' #txt
 Ds0 f6 type ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo.LazyLoadingDemoData #txt
 Ds0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

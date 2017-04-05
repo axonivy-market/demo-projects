@@ -1,4 +1,4 @@
-package ch.ivyteam.htmldialog.demo.helper;
+package ch.ivyteam.htmldialog.demo.data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,8 @@ public class DataGenerator {
 	                                      "Zora", "Zacharias"};
 	private static final String[] lastNames = {"Müller", "Meier", "Huber", "Moser", "Frei", "Fink", "Meyer", "Berger", "Tanner",
 										 "Simpson", "Richter", "Dettling", "Arquint", "Frisch", "Johnson", "Thaler", "Smith",
-										 "Schmid", "Keller", "Miller", "Jackson"};
+										 "Schmid", "Keller", "Miller", "Jackson", "Abeggler", "Künzi", "Held", "Jung", "Zimmermann",
+										 "Lustig", "Muster", "Lang"};
 	
 	public static List<Person> generatePersons(int count)
 	{	
