@@ -39,7 +39,7 @@ public class WebTestOutput extends BaseWebTest
     table.firstRowContains("Birgit");
     clearInput(By.id("form:theTable:scorePointFilter:filter"));
 
-    await(ExpectedConditions.visibilityOfElementLocated(By.id("form:theTable:6:j_id_29")));
+    await(ExpectedConditions.visibilityOfElementLocated(By.id("form:theTable:6:j_id_2a")));
     driver.findElement(By.xpath("//tbody[@id='form:theTable_data']/tr[1]/td/div")).click();
     clearInput(By.id("form:theTable:0:name"));
     driver.findElement(By.id("form:theTable:0:name")).sendKeys("testPerson");
@@ -155,7 +155,7 @@ public class WebTestOutput extends BaseWebTest
     searchAndValidate("Renat", "none");
     searchAndValidate("Bru", "list-item");
 
-    driver.findElement(By.id("personListForm:j_id_1t")).click();
+    driver.findElement(By.id("personListForm:j_id_1u")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.xpath("//*[@id='personListForm:resultPanel']/tbody/tr[2]/td[2]"),
             "name=Stalder, firstname=Renato"));
@@ -207,7 +207,7 @@ public class WebTestOutput extends BaseWebTest
 
     clearInput(By.id("Form:event_input"));
     driver.findElement(By.id("Form:event_input")).sendKeys("xzyt69");
-    driver.findElement(By.id("Form:j_id_1u")).click();
+    driver.findElement(By.id("Form:j_id_1v")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:msgs_container"), "xzyt69"));
   }
 
