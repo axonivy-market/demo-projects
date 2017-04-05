@@ -24,7 +24,9 @@
 					<p:inputText id="surname" value="#{data.dossier.customer.surname}"/>
 
 					<p:outputLabel for="birthdate" value="Birthdate" />
-					<p:calendar id="birthdate" value="#{data.dossier.customer.birthDate}"/>
+					<p:calendar id="birthdate" value="#{data.dossier.customer.birthDate}" pattern="dd.MM.yyyy">
+					  <f:convertDateTime pattern="dd.MM.yyyy" />
+					</p:calendar>
 
 					<p:outputLabel for="gender" value="Gender" />
 					<p:selectOneRadio id="gender" value="#{data.dossier.customer.isMale}">

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 04 11:39:37 CEST 2017]
+[>Created: Wed Apr 05 15:36:41 CEST 2017]
 15B3845CC368FEC8 3.20 #module
 >Proto >Proto Collection #zClass
 As0 ApproveLevel1Process Big #zClass
@@ -119,6 +119,7 @@ As0 f10 actionDecl 'workflow.credit.ApproveLevel1.ApproveLevel1Data out;
 ' #txt
 As0 f10 actionTable 'out=in;
 out.dossier.decision.level1Approved=false;
+out.dossier.decision.needsLevel2Approval=false;
 ' #txt
 As0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
