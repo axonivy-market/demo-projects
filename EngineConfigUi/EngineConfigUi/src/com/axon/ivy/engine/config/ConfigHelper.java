@@ -28,6 +28,7 @@ public class ConfigHelper
     String ORACLE_SERVICE_ID = "ch.ivyteam.jdbc.OracleServiceId";
     String SCHEMA_NAME = "ch.ivyteam.jdbc.SchemaName";
   }
+
   private static final String PORT_PROPERTY_NAME = "ch.ivyteam.jdbc.Port";
 
   public static String getDefaultPort(JdbcDriver driver)
@@ -42,7 +43,7 @@ public class ConfigHelper
     }
     return "";
   }
-  
+
   public static ConfigData loadConfigData(Configuration configuration)
   {
     ConfigData configData = new ConfigData();
@@ -53,11 +54,7 @@ public class ConfigHelper
 
   public static void updateConfigData(ConfigData configData, DatabaseConnectionConfiguration dbConfig)
   {
-    configData.setUsername(dbConfig.getUserName());
-    configData.setPassword(dbConfig.getPassword());
-
     JdbcDriver jdbcDriver = JdbcDriver.getJdbcDriverForConnectionConfiguration(dbConfig);
-
     configData.setDriver(jdbcDriver);
     configData.setProduct(jdbcDriver.getDatabaseProduct());
 
@@ -88,9 +85,12 @@ public class ConfigHelper
       }
     }
 
+    configData.setUsername(dbConfig.getUserName());
+    configData.setPassword(dbConfig.getPassword());
+    configData.setAdditionalProperties(dbConfig.getProperties());
     configData.setCreationParameters(new java.util.Properties());
   }
-  
+
   public static DatabaseConnectionConfiguration createConfiguration(
           ConfigData configData)
   {
@@ -126,9 +126,10 @@ public class ConfigHelper
 
     currentConfig.setPassword(configData.getPassword());
     currentConfig.setUserName(configData.getUsername());
+    currentConfig.setProperties(configData.getAdditionalProperties());
     return currentConfig;
   }
-  
+
   public static List<DatabaseCreationParameter> getDatabaseCreationParametersNeeded(
           ConfigData configData) throws Exception
   {
@@ -143,7 +144,7 @@ public class ConfigHelper
             .createDatabaseCreator(currentConfig).getDatabaseCreationParameters();
     return dbCreationParameters;
   }
-  
+
   public static SystemDatabaseCreator createDatabase(ConfigData configData)
           throws Exception
   {

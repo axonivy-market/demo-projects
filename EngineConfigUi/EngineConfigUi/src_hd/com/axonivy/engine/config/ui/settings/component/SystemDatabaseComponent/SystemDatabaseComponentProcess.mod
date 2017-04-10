@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Apr 10 10:32:01 CEST 2017]
+[>Created: Mon Apr 10 16:20:28 CEST 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -65,6 +65,14 @@ Ss0 @RichDialogProcessEnd f46 '' #zField
 Ss0 @GridStep f48 '' #zField
 Ss0 @PushWFArc f49 '' #zField
 Ss0 @PushWFArc f47 '' #zField
+Ss0 @RichDialogProcessStart f50 '' #zField
+Ss0 @RichDialogProcessEnd f51 '' #zField
+Ss0 @GridStep f53 '' #zField
+Ss0 @PushWFArc f54 '' #zField
+Ss0 @PushWFArc f52 '' #zField
+Ss0 @RichDialogMethodStart f55 '' #zField
+Ss0 @RichDialogProcessEnd f56 '' #zField
+Ss0 @PushWFArc f57 '' #zField
 >Proto Ss0 Ss0 SystemDatabaseComponentProcess #zField
 Ss0 f0 guid 157E7518F76CF891 #txt
 Ss0 f0 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
@@ -441,6 +449,64 @@ Ss0 f49 expr out #txt
 Ss0 f49 109 928 168 928 #arcP
 Ss0 f47 expr out #txt
 Ss0 f47 280 928 339 928 #arcP
+Ss0 f50 guid 15B57DBD3A356631 #txt
+Ss0 f50 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f50 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f50 actionTable 'out=in;
+' #txt
+Ss0 f50 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>addNewProperty</name>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f50 83 1011 26 26 -45 12 #rect
+Ss0 f50 @|RichDialogProcessStartIcon #fIcon
+Ss0 f51 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f51 339 1011 26 26 0 12 #rect
+Ss0 f51 @|RichDialogProcessEndIcon #fIcon
+Ss0 f53 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f53 actionTable 'out=in;
+' #txt
+Ss0 f53 actionCode 'in.configData.additionalProperties.setProperty(in.newPropertyKey, in.newPropertyValue);
+
+out.newPropertyKey = "";
+out.newPropertyValue = "";' #txt
+Ss0 f53 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f53 168 1002 112 44 0 -8 #rect
+Ss0 f53 @|StepIcon #fIcon
+Ss0 f54 expr out #txt
+Ss0 f54 109 1024 168 1024 #arcP
+Ss0 f52 expr out #txt
+Ss0 f52 280 1024 339 1024 #arcP
+Ss0 f55 guid 15B57EC9C5D8E3B6 #txt
+Ss0 f55 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f55 method removeProperty(String) #txt
+Ss0 f55 disableUIEvents false #txt
+Ss0 f55 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<java.lang.String propertyKey> param = methodEvent.getInputArguments();
+' #txt
+Ss0 f55 inActionCode 'ivy.log.debug(param.propertyKey);
+out.configData.additionalProperties.remove(param.propertyKey);' #txt
+Ss0 f55 outParameterDecl '<> result;
+' #txt
+Ss0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>removeProperty(String)</name>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f55 83 1107 26 26 -63 15 #rect
+Ss0 f55 @|RichDialogMethodStartIcon #fIcon
+Ss0 f56 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f56 339 1107 26 26 0 12 #rect
+Ss0 f56 @|RichDialogProcessEndIcon #fIcon
+Ss0 f57 expr out #txt
+Ss0 f57 109 1120 339 1120 #arcP
 >Proto Ss0 .type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -485,3 +551,9 @@ Ss0 f45 mainOut f49 tail #connect
 Ss0 f49 head f48 mainIn #connect
 Ss0 f48 mainOut f47 tail #connect
 Ss0 f47 head f46 mainIn #connect
+Ss0 f50 mainOut f54 tail #connect
+Ss0 f54 head f53 mainIn #connect
+Ss0 f53 mainOut f52 tail #connect
+Ss0 f52 head f51 mainIn #connect
+Ss0 f55 mainOut f57 tail #connect
+Ss0 f57 head f56 mainIn #connect

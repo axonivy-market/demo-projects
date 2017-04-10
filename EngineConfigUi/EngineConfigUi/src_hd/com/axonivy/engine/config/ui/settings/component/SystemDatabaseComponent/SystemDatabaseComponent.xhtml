@@ -19,7 +19,7 @@
 					<p:outputLabel for="databaseTypeDropdown" id="databaseTypeLabel"
 						value="Database: " />
 					<p:selectOneMenu id="databaseTypeDropdown"
-						value="#{data.configData.product}" converter="ivy.ListItem" >
+						value="#{data.configData.product}" converter="ivy.ListItem">
 						<f:selectItems value="#{data.databaseProducts}" var="database"
 							itemLabel="#{database.name}" itemValue="#{database}" />
 						<p:ajax
@@ -37,7 +37,8 @@
 							listener="#{logic.setDefaultPort}" />
 					</p:selectOneMenu>
 					<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
-					<p:inputText id="hostInput" value="#{data.configData.host}" styleClass="important-sysdb-input">
+					<p:inputText id="hostInput" value="#{data.configData.host}"
+						styleClass="important-sysdb-input">
 						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
 					</p:inputText>
@@ -55,24 +56,28 @@
 					<p:outputLabel for="databaseNameInput" id="databaseNameLabel"
 						value="#{ivy.cms.co('/com.axonivy.engineconfig.ui/nameLabel/' += data.configData.product)}:" />
 					<p:inputText id="databaseNameInput"
-						value="#{data.configData.databaseName}" styleClass="important-sysdb-input">
+						value="#{data.configData.databaseName}"
+						styleClass="important-sysdb-input">
 						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
 					</p:inputText>
 					<p:outputLabel for="usernameInput" id="usernameLabel"
 						value="Username:" />
-					<p:inputText id="usernameInput" value="#{data.configData.username}" >
+					<p:inputText id="usernameInput" value="#{data.configData.username}">
 						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
 					</p:inputText>
 					<p:outputLabel for="passwordInput" id="passwordLabel"
 						value="Password:" />
 					<p:password id="passwordInput" value="#{data.configData.password}"
-						redisplay="true" >
+						redisplay="true">
 						<p:ajax event="change" update="@(.configChanged)"
 							listener="#{logic.change}" />
 					</p:password>
 				</h:panelGrid>
+				<br/>
+				<p:commandButton value="Additional Properties" icon="fa fa-plus-circle"
+				onclick="PF('additionalPropertiesDialog').show()" />
 			</p:fieldset>
 
 			<p:fieldset id="connectionsStateFieldSet" legend="Connection State">
@@ -80,15 +85,15 @@
 					<p:commandButton id="checkConnectionButton"
 						value="Check Connection" icon="fa fa-check"
 						actionListener="#{logic.checkConnection}"
-						update="@(.configChanged)" />
+						update="@(.configChanged)"  />
 					<p:commandButton id="createDatabaseButton" value="Create Database"
 						actionListener="#{logic.applyProperties}"
 						oncomplete="PF('createDatabaseDialog').show()"
 						icon="fa fa-database"
 						update=":#{cc.clientId}:createDatabaseDialog" />
 					<p:commandButton id="convertDbButton" value="Convert Database"
-					    styleClass="configChanged"
-						icon="fa fa-database" actionListener="#{logic.convertDb}"
+						styleClass="configChanged" icon="fa fa-database"
+						actionListener="#{logic.convertDb}"
 						onclick="PF('convertDatabaseDialog').show()"
 						disabled="#{!data.settings.connectionInfo.canConvert()}"
 						update=":#{cc.clientId}:convertDatabaseDialog, @(.configChanged)" />
@@ -98,6 +103,7 @@
 				value="Save Configuration" actionListener="#{logic.saveConfig}"
 				update=":#{cc.clientId}:growl" />
 		</h:panelGrid>
+		<p:defaultCommand target="saveConfigButton"/>
 	</h:form>
 
 	<p:dialog id="createDatabaseDialog" widgetVar="createDatabaseDialog"
@@ -205,6 +211,45 @@
 							value="Successfully Finished!" /></strong>
 				</p:outputPanel>
 			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
+	<p:dialog widgetVar="additionalPropertiesDialog"
+		id="additionalPropertiesDialog" closable="true" closeOnEscape="true"
+		modal="true" width="50%" header="Additional Properties"
+		styleClass="configChanged">
+		<p:messages id="messages" />
+		<h:form id="propertiesForm">
+			<h:panelGrid columns="2" id="newPropertyPanelGrid">
+				<p:outputLabel value="Key: " for="newPropertyKey" />
+				<p:inputText value="#{data.newPropertyKey}" id="newPropertyKey"
+					required="true" />
+				<p:outputLabel value="Value: " for="newPropertyValue" />
+				<p:inputText value="#{data.newPropertyValue}" id="newPropertyValue"
+					required="true" />
+				<br />
+				<p:commandButton value="Add" icon="fa fa-plus-circle"
+					actionListener="#{logic.addNewProperty}"
+					update=":#{cc.clientId}:listForm:propertiesTable, newPropertyPanelGrid" />
+			</h:panelGrid>
+		</h:form>
+		<br />
+		<h:form id="listForm">
+			<p:dataTable id="propertiesTable"
+				value="#{data.configData.additionalProperties.entrySet().toArray()}"
+				var="property">
+				<p:column headerText="Key">
+					<h:outputText value="#{property.key}" />
+				</p:column>
+				<p:column headerText="Value">
+					<h:outputText value="#{property.value}" />
+				</p:column>
+				<p:column>
+					<p:commandButton icon="fa fa-times" value="Remove"
+						actionListener="#{logic.removeProperty(property.key)}"
+						update=":#{cc.clientId}:listForm:propertiesTable" />
+				</p:column>
+			</p:dataTable>
 		</h:form>
 	</p:dialog>
 </cc:implementation>

@@ -16,3 +16,5 @@ password String #field
 password PERSISTENT #fieldModifier
 creationParameters java.util.Properties #field
 creationParameters PERSISTENT #fieldModifier
+additionalProperties java.util.Properties #field
+additionalProperties PERSISTENT #fieldModifier

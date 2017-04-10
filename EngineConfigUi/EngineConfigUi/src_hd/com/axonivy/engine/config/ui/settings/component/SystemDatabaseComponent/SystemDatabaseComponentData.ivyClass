@@ -16,3 +16,7 @@ settings com.axon.ivy.engine.config.SystemDatabaseSettings #field
 settings PERSISTENT #fieldModifier
 requiredParameters List<ch.ivyteam.ivy.persistence.db.DatabaseCreationParameter> #field
 requiredParameters PERSISTENT #fieldModifier
+newPropertyKey String #field
+newPropertyKey PERSISTENT #fieldModifier
+newPropertyValue String #field
+newPropertyValue PERSISTENT #fieldModifier
