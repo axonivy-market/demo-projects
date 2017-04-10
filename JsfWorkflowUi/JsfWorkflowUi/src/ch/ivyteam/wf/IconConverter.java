@@ -3,6 +3,7 @@ package ch.ivyteam.wf;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
+import ch.ivyteam.ivy.security.ISecurityMember;
 import ch.ivyteam.ivy.workflow.CaseState;
 import ch.ivyteam.ivy.workflow.TaskState;
 import ch.ivyteam.ivy.workflow.WorkflowPriority;
@@ -11,6 +12,15 @@ import ch.ivyteam.ivy.workflow.WorkflowPriority;
 @ApplicationScoped
 public class IconConverter 
 {
+	public String getSecurityMemberIcon(ISecurityMember member) {
+		if (member == null) {
+			return "";
+		}
+		if (member.isUser()) {
+			return "fa fa-user";
+		}
+		return "fa fa-users";
+	}
 
 	public String getCaseIcon(CaseState state)
 	{
