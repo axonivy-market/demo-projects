@@ -14,7 +14,7 @@
 		<h:panelGrid columns="2">
 		<span class="fa fa-user"/>
 	    <p:selectOneMenu id="substituteUser" value="#{data.substituteUser}" filter="true" filterMatchMode="contains" converter="ivy.ListItem">
-	    	<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{user.getDisplayName().length() ne 0 ? user.getDisplayName() : user.getName()}" />
+	    	<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{securityMemberFormatter.formatFull(user)}" />
 	    </p:selectOneMenu>
 	    </h:panelGrid>
 	    #{ivy.cms.co('/labels/settings/substitute/substituteFor')}:
@@ -33,7 +33,7 @@
 		   		<h:outputLabel for="optRole" value="#{ivy.cms.co('/labels/settings/substitute/substituteRole')}:" />
 		   		<span class="fa fa-users"/>
 		        <p:selectCheckboxMenu id="roleSelection" value="#{data.selectedRoles}" label="#{ivy.cms.co('/labels/settings/substitute/substituteRole')}" panelStyle="width:220px" converter="ivy.ListItem" disabled="#{data.isPersonally}">  
-	        		<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{role.getDisplayName().length() ne 0 ? role.getDisplayName() : role.getName()}" itemValue="#{role}"/>
+	        		<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{securityMemberFormatter.formatFull(role)}" itemValue="#{role}"/>
 	    		</p:selectCheckboxMenu> 
     		</h:panelGrid>
 		</h:panelGrid>

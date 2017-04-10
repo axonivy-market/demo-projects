@@ -13,11 +13,15 @@ Displays an icon and name of a user or a role.
 For a role: [role-icon] display name (name)
 For a user: [user-icon] full name (name)
 -->
-<cc:interface shortDescription="Displays an icon and name of a user or a role">
-	<cc:attribute name="member" type="ch.ivyteam.ivy.security.ISecurityMember" shortDescription="A user or a role" />
-</cc:interface>
-<cc:implementation>
-	<wc:IconAndText iconName="#{cc.attrs.member == null ? '' : cc.attrs.member.isUser() ? 'fa fa-user' : 'fa fa-users'}" 
-		iconDescription="#{cc.attrs.member == null ? '-' : cc.attrs.member.getDisplayName()}" />
-</cc:implementation>
-</html> 
+	<cc:interface shortDescription="Displays an icon and name of a user or a role">
+		<cc:attribute name="member" type="ch.ivyteam.ivy.security.ISecurityMember" shortDescription="A user or a role" />
+		<cc:attribute name="format" type="java.lang.String" shortDescription="Formatting of the security member. short|full" default="full" />
+	</cc:interface>
+	
+	<cc:implementation>
+		<wc:IconAndText 
+			iconName="#{iconConverter.getSecurityMemberIcon(cc.attrs.member)}" 
+			iconDescription="#{cc.attrs.format == 'full' ? securityMemberFormatter.formatFull(cc.attrs.member) : securityMemberFormatter.formatShort(cc.attrs.member)}"
+		/>
+	</cc:implementation>
+</html>

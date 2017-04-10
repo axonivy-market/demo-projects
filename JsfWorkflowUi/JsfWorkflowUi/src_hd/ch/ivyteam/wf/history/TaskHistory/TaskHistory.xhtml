@@ -60,7 +60,7 @@
            			<a href="#{ivy.html.startref('13FE81AF3A82F57F/TaskHistoryDetails.ivp')}?detailTaskId=#{task.id}" title="Details Task [#{task.id}]">#{task.name}</a>
        			</p:column>
        			<p:column headerText="#{ivy.cms.co('/labels/common/responsible')}" style="width:150px" sortBy="#{ACTIVATOR_NAME}" id="taskLinkRow_#{row}">
-					<wc:MemberDetail member="#{task.activator}" />
+					<wc:MemberDetail member="#{task.activator}" format="short" />
 				</p:column>
        			<p:column headerText="#{ivy.cms.co('/labels/common/taskStart')}" style="width:110px" sortBy="#{START_TIMESTAMP}" styleClass="taskHistoryCreatedColumn">
            			<h:outputText value="#{task.startTimestamp.getYear().toString() == 1 ? '' : task.startTimestamp}">

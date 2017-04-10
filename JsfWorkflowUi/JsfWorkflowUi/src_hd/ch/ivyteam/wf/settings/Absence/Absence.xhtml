@@ -43,7 +43,7 @@
 		   				<c:if test="#{adminBean.hasAbsencePermission()}">
 		 					<h:outputText value="#{ivy.cms.co('/labels/common/user')}: " />
 					   		<p:selectOneMenu id="userSelection" value="#{data.absenceFor}" filter="true" filterMatchMode="contains" converter="ivy.ListItem" styleClass="ivy-toolbar-selectMenu">
-					       		<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{user.getDisplayName().length() ne 0 ? user.getDisplayName() : user.getName()}" />
+					       		<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{securityMemberFormatter.formatFull(user)}" />
 					       		<p:ajax update=":userAbsentOutput :formAbsence" listener="#{logic.update()}" />
 					   		</p:selectOneMenu>
 				   			<p:spacer width="30" />

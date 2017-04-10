@@ -169,7 +169,7 @@
 						title="Details Task [#{task.id}]"> #{task.name} </a>
 				</p:column>
 				<p:column headerText="#{ivy.cms.co('/labels/common/responsible')}">
-					<wc:MemberDetail member="#{task.activator}" />
+					<wc:MemberDetail member="#{task.activator}" format="short" />
 				</p:column>
 				<p:column headerText="#{ivy.cms.co('/labels/common/taskStart')}" styleClass="date-column">
 					<h:outputText value="#{task.startTimestamp}">

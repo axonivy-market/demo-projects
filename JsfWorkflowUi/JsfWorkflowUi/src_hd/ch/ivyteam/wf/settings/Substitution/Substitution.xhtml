@@ -24,7 +24,7 @@
 		   				<c:if test="#{adminBean.hasSubstitutePermission()}">
 		 					<h:outputText value="#{ivy.cms.co('/labels/common/user')}: " />
 					   		<p:selectOneMenu id="userSelection" value="#{data.user}" filter="true" filterMatchMode="contains" converter="ivy.ListItem" styleClass="ivy-toolbar-selectMenu">
-					       		<f:selectItems value="#{data.forUserList}" var="user" itemValue="#{user}" itemLabel="#{user.getDisplayName().length() ne 0 ? user.getDisplayName() : user.getName()}" />
+					       		<f:selectItems value="#{data.forUserList}" var="user" itemValue="#{user}" itemLabel="#{securityMemberFormatter.formatFull(user)}" />
 					       		<p:ajax update=":formSubstitute :formMySubstitutions" listener="#{logic.update()}" />
 					   		</p:selectOneMenu>
 				   			<p:spacer width="30" />
