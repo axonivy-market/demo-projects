@@ -133,7 +133,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     SelectOneMenu menu = prime().selectOne(By.id("taskListComponent:taskListForm:priorityFilter"));
     menu.selectItemByLabel("LOW");
     menu = prime().selectOne(By.id("taskListComponent:taskListForm:responsibleFilter"));
-    menu.selectItemByLabel("Top level role");
+    menu.selectItemByLabel("Everybody");
     driverHelper.getWebDriver().navigate().refresh();
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow"));
@@ -144,7 +144,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     menu = prime().selectOne(By.id("taskListComponent:taskListForm:priorityFilter"));
     menu.selectItemByLabel("HIGH");
     menu = prime().selectOne(By.id("taskListComponent:taskListForm:responsibleFilter"));
-    menu.selectItemByLabel("Top level role");
+    menu.selectItemByLabel("Everybody");
     driverHelper.getWebDriver().navigate().refresh();
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
@@ -156,7 +156,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     // test responsible
     navigate().taskList();
     menu = prime().selectOne(By.id("taskListComponent:taskListForm:responsibleFilter"));
-    menu.selectItemByLabel("Top level role");
+    menu.selectItemByLabel("Everybody");
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
     closeTask();
@@ -212,7 +212,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     delegateTaskToUser1(taskLowResponsibleFilter);
 
     filterCheckDataTable(taskLowResponsibleFilter, taskHighResponsibleFilter, filterId, dataTable,
-            "Top level role");
+            "Everybody");
 
     filterCheckDataTable(taskHighResponsibleFilter, taskLowResponsibleFilter, filterId, dataTable,
             "Test User 1 (user1)");
