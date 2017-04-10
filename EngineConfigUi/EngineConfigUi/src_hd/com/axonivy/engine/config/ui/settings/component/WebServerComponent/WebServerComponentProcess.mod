@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 28 13:52:07 CET 2017]
+[>Created: Mon Apr 10 11:17:30 CEST 2017]
 15A4C3312F0A8B48 3.20 #module
 >Proto >Proto Collection #zClass
 Ws0 WebServerComponentProcess Big #zClass
@@ -89,14 +89,7 @@ Ws0 f3 actionDecl 'com.axonivy.engine.config.ui.settings.component.WebServerComp
 ' #txt
 Ws0 f3 actionTable 'out=in;
 ' #txt
-Ws0 f3 actionCode 'import com.axon.ivy.engine.config.ConfigHelper;
-import com.axon.ivy.engine.config.SystemDatabaseSettings;
-
-if(in.connectionInfo.getConnectionOK())
-{
-	out.webServerConfig = in.settings.getWebServerSettings();
-}	
-' #txt
+Ws0 f3 actionCode 'out.webServerConfig = in.settings.getWebServerSettings();' #txt
 Ws0 f3 type com.axonivy.engine.config.ui.settings.component.WebServerComponent.WebServerComponentData #txt
 Ws0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

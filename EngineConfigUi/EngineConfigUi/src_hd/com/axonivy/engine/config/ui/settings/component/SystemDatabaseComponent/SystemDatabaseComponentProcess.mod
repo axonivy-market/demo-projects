@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 04 17:19:22 CEST 2017]
+[>Created: Mon Apr 10 10:32:01 CEST 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -432,7 +432,8 @@ Ss0 f48 actionTable 'out=in;
 Ss0 f48 actionCode 'import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 
 in.settings.updateConfig(in.progressAction as SystemDatabaseCreator);
-in.settings.saveSystemDb();' #txt
+in.settings.saveSystemDb();
+in.settings.testConnection();' #txt
 Ss0 f48 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f48 168 906 112 44 0 -8 #rect
 Ss0 f48 @|StepIcon #fIcon
