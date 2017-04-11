@@ -58,8 +58,12 @@ Own Classes
 }
 
 .check-connection {
-    position: relative;
-    float: right;
-    top: 15px;
-    right: 15px;
+	position: relative;
+	float: right;
+	top: 15px;
+	right: 15px;
+}
+
+.action-column {
+	text-align: center;
 }
