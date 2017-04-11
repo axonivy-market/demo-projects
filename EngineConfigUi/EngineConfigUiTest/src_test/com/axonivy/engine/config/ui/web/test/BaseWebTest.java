@@ -102,7 +102,7 @@ public class BaseWebTest
 
   protected void createAndValidateDb()
   {
-    await(ExpectedConditions.elementToBeClickable(By
+    await(ExpectedConditions.visibilityOfElementLocated(By
             .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")));
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")).click();
