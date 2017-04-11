@@ -79,6 +79,9 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
             .selectItemByLabel("Microsoft SQL Server");
 
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "ZugTstDbsMss");
+    
+    driver.findElement(
+            By.id("connectionForm:connectionStateComponent:checkConnectionButton")).click();
   }
 
   private void createSysDbMSSQL()

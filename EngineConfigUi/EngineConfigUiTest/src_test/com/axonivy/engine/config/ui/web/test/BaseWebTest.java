@@ -67,10 +67,10 @@ public class BaseWebTest
   protected void createMySqlSysDb()
   {
     driver.findElement(
-            By.id("connectionStateComponent:checkConnectionButton")).click();
+            By.id("connectionForm:connectionStateComponent:checkConnectionButton")).click();
     await(ExpectedConditions
             .textToBePresentInElementLocated(
-                    By.id("connectionStateComponent:connectionState"),
+                    By.id("connectionForm:connectionStateComponent:connectionState"),
                     "failed"));
     openDbCreationDialog();
 
@@ -153,10 +153,10 @@ public class BaseWebTest
   protected void testConnection()
   {
     driver.findElement(
-            By.id("connectionStateComponent:checkConnectionButton")).click();
+            By.id("connectionForm:connectionStateComponent:checkConnectionButton")).click();
     await(ExpectedConditions
             .textToBePresentInElementLocated(
-                    By.id("connectionStateComponent:connectionState"),
+                    By.id("connectionForm:connectionStateComponent:connectionState"),
                     "Connected"));
   }
 
