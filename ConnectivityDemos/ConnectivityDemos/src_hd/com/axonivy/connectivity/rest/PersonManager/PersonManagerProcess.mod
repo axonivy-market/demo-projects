@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Mar 13 14:13:56 CET 2017]
+[>Created: Tue Apr 11 11:42:22 CEST 2017]
 15470DE765DF45FC 3.20 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonManagerProcess Big #zClass
@@ -32,7 +32,6 @@ Ps0 @RichDialogMethodStart f19 '' #zField
 Ps0 @RichDialogProcessEnd f21 '' #zField
 Ps0 @RichDialogMethodStart f22 '' #zField
 Ps0 @RichDialogProcessEnd f23 '' #zField
-Ps0 @PushWFArc f24 '' #zField
 Ps0 @RestClientCall f25 '' #zField
 Ps0 @PushWFArc f26 '' #zField
 Ps0 @PushWFArc f13 '' #zField
@@ -42,6 +41,9 @@ Ps0 @PushWFArc f20 '' #zField
 Ps0 @RestClientCall f27 '' #zField
 Ps0 @PushWFArc f28 '' #zField
 Ps0 @PushWFArc f16 '' #zField
+Ps0 @RestClientCall f17 '' #zField
+Ps0 @PushWFArc f18 '' #zField
+Ps0 @PushWFArc f24 '' #zField
 >Proto Ps0 Ps0 PersonManagerProcess #zField
 Ps0 f0 guid 15470DE767CB62E5 #txt
 Ps0 f0 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
@@ -186,7 +188,8 @@ Ps0 f22 disableUIEvents false #txt
 Ps0 f22 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Integer id> param = methodEvent.getInputArguments();
 ' #txt
-Ps0 f22 inActionCode 'out.response = com.axonivy.connectivity.rest.client.PersonClient.delete(param.id);' #txt
+Ps0 f22 inParameterMapAction 'out.editPerson.id=param.id;
+' #txt
 Ps0 f22 outParameterDecl '<> result;
 ' #txt
 Ps0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -203,8 +206,6 @@ Ps0 f22 @|RichDialogMethodStartIcon #fIcon
 Ps0 f23 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
 Ps0 f23 339 467 26 26 0 12 #rect
 Ps0 f23 @|RichDialogProcessEndIcon #fIcon
-Ps0 f24 expr out #txt
-Ps0 f24 109 480 339 480 #arcP
 Ps0 f25 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 Ps0 f25 method PUT #txt
 Ps0 f25 bodyInputType FORM #txt
@@ -265,6 +266,28 @@ Ps0 f27 @|RestClientCallIcon #fIcon
 Ps0 f28 expr out #txt
 Ps0 f28 109 416 152 416 #arcP
 Ps0 f16 296 416 339 416 #arcP
+Ps0 f17 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
+Ps0 f17 path {person.id} #txt
+Ps0 f17 templateParams 'person.id=in.editPerson.id;
+' #txt
+Ps0 f17 method DELETE #txt
+Ps0 f17 bodyInputType ENTITY #txt
+Ps0 f17 bodyEntity in.editPerson #txt
+Ps0 f17 responseCode 'out.response = response;' #txt
+Ps0 f17 clientErrorCode ivy:error:rest:client #txt
+Ps0 f17 statusErrorCode ivy:error:rest:client #txt
+Ps0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>PersonService.DELETE</name>
+    </language>
+</elementInfo>
+' #txt
+Ps0 f17 153 458 144 44 -69 -7 #rect
+Ps0 f17 @|RestClientCallIcon #fIcon
+Ps0 f18 expr out #txt
+Ps0 f18 109 480 153 480 #arcP
+Ps0 f24 297 480 339 480 #arcP
 >Proto Ps0 .type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
 >Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -287,8 +310,6 @@ Ps0 f3 mainOut f5 tail #connect
 Ps0 f5 head f4 mainIn #connect
 Ps0 f6 mainOut f8 tail #connect
 Ps0 f8 head f7 mainIn #connect
-Ps0 f22 mainOut f24 tail #connect
-Ps0 f24 head f23 mainIn #connect
 Ps0 f9 mainOut f26 tail #connect
 Ps0 f26 head f25 mainIn #connect
 Ps0 f25 mainOut f13 tail #connect
@@ -301,3 +322,7 @@ Ps0 f14 mainOut f28 tail #connect
 Ps0 f28 head f27 mainIn #connect
 Ps0 f27 mainOut f16 tail #connect
 Ps0 f16 head f15 mainIn #connect
+Ps0 f22 mainOut f18 tail #connect
+Ps0 f18 head f17 mainIn #connect
+Ps0 f17 mainOut f24 tail #connect
+Ps0 f24 head f23 mainIn #connect
