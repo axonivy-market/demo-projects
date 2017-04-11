@@ -124,6 +124,15 @@ public class ConnectionInfo
     }
   }
 
+  public String getConnectionIcon()
+  {
+    if (connectionState == ConnectionState.CONNECTING)
+    {
+      return "fa fa-plug fa-fw fa-pulse";
+    }
+    return "fa fa-plug fa-fw";
+  }
+
   public boolean getIsCluster()
   {
     return LicenceUtil.isCluster()
