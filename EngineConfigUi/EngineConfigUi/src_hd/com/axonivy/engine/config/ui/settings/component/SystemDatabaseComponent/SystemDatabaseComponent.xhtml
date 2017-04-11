@@ -24,8 +24,8 @@
 							<f:selectItems value="#{data.databaseProducts}" var="database"
 								itemLabel="#{database.name}" itemValue="#{database}" />
 							<p:ajax
-								update="databaseDriverDropdown, portInput, databaseNameLabel"
-								listener="#{logic.update}" />
+								update="databaseDriverDropdown, portInput, databaseNameLabel, @(.configChanged)"
+								listener="#{logic.updateProduct}" />
 						</p:selectOneMenu>
 
 						<p:outputLabel for="databaseDriverDropdown"
@@ -34,8 +34,8 @@
 							value="#{data.configData.driver}" converter="ivy.ListItem">
 							<f:selectItems value="#{data.databaseDrivers}" var="driver"
 								itemLabel="#{driver.name}" itemValue="#{driver}" />
-							<p:ajax event="change" update="portInput"
-								listener="#{logic.setDefaultPort}" />
+							<p:ajax event="change" update="portInput, @(.configChanged)"
+								listener="#{logic.updateDriver}" />
 						</p:selectOneMenu>
 						<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
 						<p:inputText id="hostInput" value="#{data.configData.host}"
@@ -51,7 +51,7 @@
 								styleClass="port-checkbox" itemLabel="Default"
 								value="#{data.defaultPort}">
 								<p:ajax listener="#{logic.setDefaultPort}"
-									update=":#{cc.clientId}:systemDatabaseForm:portInput" />
+									update=":#{cc.clientId}:systemDatabaseForm:portInput, @(.configChanged)" />
 							</p:selectBooleanCheckbox>
 						</h:column>
 						<p:outputLabel for="databaseNameInput" id="databaseNameLabel"
