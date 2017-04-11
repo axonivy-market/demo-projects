@@ -67,7 +67,7 @@ public class BaseWebTest
   protected void createMySqlSysDb()
   {
     driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")).click();
+            By.id("connectionStateComponent:checkConnectionButton")).click();
     openDbCreationDialog();
 
     createAndValidateDb();
