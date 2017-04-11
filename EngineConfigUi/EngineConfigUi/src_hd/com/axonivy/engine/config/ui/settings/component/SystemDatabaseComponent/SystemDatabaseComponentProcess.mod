@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 11 14:30:03 CEST 2017]
+[>Created: Tue Apr 11 15:03:16 CEST 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -440,10 +440,13 @@ Ss0 f53 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 ' #txt
 Ss0 f53 actionTable 'out=in;
 ' #txt
-Ss0 f53 actionCode 'in.configData.additionalProperties.setProperty(in.newPropertyKey, in.newPropertyValue);
+Ss0 f53 actionCode 'import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
+in.configData.additionalProperties.setProperty(in.newPropertyKey, in.newPropertyValue);
 
 out.newPropertyKey = "";
-out.newPropertyValue = "";' #txt
+out.newPropertyValue = "";
+
+in.settings.getConnectionInfo().connectionState = ConnectionState.NOT_CONNECTED;' #txt
 Ss0 f53 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f53 168 682 112 44 0 -8 #rect
 Ss0 f53 @|StepIcon #fIcon
@@ -458,7 +461,10 @@ Ss0 f55 disableUIEvents false #txt
 Ss0 f55 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.String propertyKey> param = methodEvent.getInputArguments();
 ' #txt
-Ss0 f55 inActionCode out.configData.additionalProperties.remove(param.propertyKey); #txt
+Ss0 f55 inActionCode 'import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
+out.configData.additionalProperties.remove(param.propertyKey);
+
+out.settings.getConnectionInfo().connectionState = ConnectionState.NOT_CONNECTED;' #txt
 Ss0 f55 outParameterDecl '<> result;
 ' #txt
 Ss0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

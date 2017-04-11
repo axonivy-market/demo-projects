@@ -217,8 +217,7 @@
 
 	<p:dialog widgetVar="additionalPropertiesDialog"
 		id="additionalPropertiesDialog" closable="true" closeOnEscape="true"
-		modal="true" width="50%" header="Additional Properties"
-		styleClass="configChanged">
+		modal="true" width="50%" header="Additional Properties" >
 		<p:messages id="messages" />
 		<h:form id="propertiesForm">
 			<h:panelGrid columns="2" id="newPropertyPanelGrid">
@@ -231,7 +230,8 @@
 				<br />
 				<p:commandButton value="Add" icon="fa fa-plus-circle"
 					actionListener="#{logic.addNewProperty}"
-					update=":#{cc.clientId}:listForm:propertiesTable, newPropertyPanelGrid, :#{cc.clientId}:systemDatabaseForm:additionalPropertiesButton" />
+					update=":#{cc.clientId}:listForm:propertiesTable, newPropertyPanelGrid, 
+					:#{cc.clientId}:systemDatabaseForm:additionalPropertiesButton, @(.configChanged)" />
 			</h:panelGrid>
 		</h:form>
 		<br />
@@ -249,7 +249,8 @@
 				<p:column width="15" styleClass="action-column">
 					<p:commandLink
 						actionListener="#{logic.removeProperty(property.key)}"
-						update=":#{cc.clientId}:listForm:propertiesTable, :#{cc.clientId}:systemDatabaseForm:additionalPropertiesButton"
+						update=":#{cc.clientId}:listForm:propertiesTable, 
+						:#{cc.clientId}:systemDatabaseForm:additionalPropertiesButton, @(.configChanged)"
 						title="Remove property">
 						<i class="fa fa-times" />
 					</p:commandLink>

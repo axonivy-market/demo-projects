@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 28 12:05:02 CET 2017]
+[>Created: Tue Apr 11 15:09:34 CEST 2017]
 157E7BB4142F9EFB 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 AdministratorsComponentProcess Big #zClass
@@ -78,7 +78,7 @@ Ss0 f14 actionDecl 'com.axonivy.engine.config.ui.settings.component.Administrato
 ' #txt
 Ss0 f14 actionTable 'out=in;
 ' #txt
-Ss0 f14 actionCode out.administratorManager.removeAdministrator(in.selectedAdministrator); #txt
+Ss0 f14 actionCode 'out.administratorManager.removeAdministrator(in.#selectedAdministrator);' #txt
 Ss0 f14 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
 Ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
