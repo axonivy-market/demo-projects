@@ -66,7 +66,14 @@ public class BaseWebTest
 
   protected void createMySqlSysDb()
   {
+    driver.findElement(
+            By.id("connectionStateComponent:checkConnectionButton")).click();
+    await(ExpectedConditions
+            .textToBePresentInElementLocated(
+                    By.id("connectionStateComponent:connectionState"),
+                    "failed"));
     openDbCreationDialog();
+
     createAndValidateDb();
   }
 
