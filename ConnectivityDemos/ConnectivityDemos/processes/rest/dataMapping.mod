@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 31 14:35:09 CEST 2017]
+[>Created: Wed Apr 12 09:00:09 CEST 2017]
 15A60076034F7437 3.20 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
@@ -54,6 +54,13 @@ dg0 @StartRequest f38 '' #zField
 dg0 @EndTask f41 '' #zField
 dg0 @PushWFArc f42 '' #zField
 dg0 @PushWFArc f37 '' #zField
+dg0 @EndTask f39 '' #zField
+dg0 @RestClientCall f43 '' #zField
+dg0 @StartRequest f44 '' #zField
+dg0 @GridStep f48 '' #zField
+dg0 @PushWFArc f40 '' #zField
+dg0 @PushWFArc f45 '' #zField
+dg0 @PushWFArc f46 '' #zField
 >Proto dg0 dg0 dataMapping #zField
 dg0 f0 outLink rawJSON.ivp #txt
 dg0 f0 type com.axonivy.connectivity.rest.DataMappingData #txt
@@ -349,7 +356,7 @@ as JSON</name>
     </language>
 </elementInfo>
 ' #txt
-dg0 f21 168 586 112 44 -38 -15 #rect
+dg0 f21 168 666 112 44 -38 -15 #rect
 dg0 f21 @|RestClientCallIcon #fIcon
 dg0 f22 outLink acceptType.ivp #txt
 dg0 f22 type com.axonivy.connectivity.rest.DataMappingData #txt
@@ -363,7 +370,7 @@ dg0 f22 requestEnabled true #txt
 dg0 f22 triggerEnabled false #txt
 dg0 f22 callSignature acceptType() #txt
 dg0 f22 persist false #txt
-dg0 f22 startName '6.6 accept type header' #txt
+dg0 f22 startName '6.7 accept type header' #txt
 dg0 f22 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -382,13 +389,13 @@ dg0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f22 @C|.responsibility Everybody #txt
-dg0 f22 81 593 30 30 -46 17 #rect
+dg0 f22 81 673 30 30 -46 17 #rect
 dg0 f22 @|StartRequestIcon #fIcon
 dg0 f23 type com.axonivy.connectivity.rest.DataMappingData #txt
-dg0 f23 529 593 30 30 0 15 #rect
+dg0 f23 529 673 30 30 0 15 #rect
 dg0 f23 @|EndIcon #fIcon
 dg0 f24 expr out #txt
-dg0 f24 111 608 168 608 #arcP
+dg0 f24 111 688 168 688 #arcP
 dg0 f25 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 dg0 f25 path 1 #txt
 dg0 f25 headers 'Accept=application/xml;
@@ -413,10 +420,10 @@ as XML</name>
     </language>
 </elementInfo>
 ' #txt
-dg0 f25 352 586 112 44 -38 -15 #rect
+dg0 f25 352 666 112 44 -38 -15 #rect
 dg0 f25 @|RestClientCallIcon #fIcon
-dg0 f26 280 608 352 608 #arcP
-dg0 f27 464 608 529 608 #arcP
+dg0 f26 280 688 352 688 #arcP
+dg0 f27 464 688 529 688 #arcP
 dg0 f28 outLink formData.ivp #txt
 dg0 f28 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f28 inParamDecl '<> param;' #txt
@@ -615,6 +622,92 @@ dg0 f41 @|EndIcon #fIcon
 dg0 f42 483 434 527 434 #arcP
 dg0 f37 expr out #txt
 dg0 f37 114 434 339 434 #arcP
+dg0 f39 type com.axonivy.connectivity.rest.DataMappingData #txt
+dg0 f39 528 588 30 30 0 15 #rect
+dg0 f39 @|EndIcon #fIcon
+dg0 f43 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
+dg0 f43 path {in.userId} #txt
+dg0 f43 templateParams 'in.userId=in.userId;
+' #txt
+dg0 f43 headers 'Accept=application/json;
+' #txt
+dg0 f43 method GET #txt
+dg0 f43 bodyInputType ENTITY #txt
+dg0 f43 bodyRaw '{
+  "name": "hey there",
+  "email": "<%= in.myPost.email %>",
+  "body": "this is my test comment"
+}' #txt
+dg0 f43 bodyEntity in.myPost #txt
+dg0 f43 resultType java.lang.String #txt
+dg0 f43 responseCode ivy.log.info(result); #txt
+dg0 f43 clientErrorCode ivy:error:rest:client #txt
+dg0 f43 statusErrorCode ivy:error:rest:client #txt
+dg0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Get Persons
+as JSON</name>
+    </language>
+</elementInfo>
+' #txt
+dg0 f43 351 581 112 44 -38 -15 #rect
+dg0 f43 @|RestClientCallIcon #fIcon
+dg0 f44 outLink pathParameters.ivp #txt
+dg0 f44 type com.axonivy.connectivity.rest.DataMappingData #txt
+dg0 f44 inParamDecl '<> param;' #txt
+dg0 f44 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
+' #txt
+dg0 f44 guid 15B60F22C0AD01F5 #txt
+dg0 f44 requestEnabled true #txt
+dg0 f44 triggerEnabled false #txt
+dg0 f44 callSignature pathParameters() #txt
+dg0 f44 persist false #txt
+dg0 f44 startName '6.6 path parameters' #txt
+dg0 f44 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+dg0 f44 caseData businessCase.attach=true #txt
+dg0 f44 showInStartList 1 #txt
+dg0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>pathParameters.ivp</name>
+        <nameStyle>18,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+dg0 f44 @C|.responsibility Everybody #txt
+dg0 f44 80 588 30 30 -61 17 #rect
+dg0 f44 @|StartRequestIcon #fIcon
+dg0 f48 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
+' #txt
+dg0 f48 actionTable 'out=in;
+' #txt
+dg0 f48 actionCode 'import org.apache.commons.lang3.RandomUtils;
+
+out.userId = RandomUtils.nextInt(1,4);' #txt
+dg0 f48 type com.axonivy.connectivity.rest.DataMappingData #txt
+dg0 f48 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Random UserId</name>
+        <nameStyle>13,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+dg0 f48 165 581 112 44 -47 -7 #rect
+dg0 f48 @|StepIcon #fIcon
+dg0 f40 463 603 528 603 #arcP
+dg0 f45 expr out #txt
+dg0 f45 110 603 165 603 #arcP
+dg0 f46 expr out #txt
+dg0 f46 277 603 351 603 #arcP
 >Proto dg0 .type com.axonivy.connectivity.rest.DataMappingData #txt
 >Proto dg0 .processKind NORMAL #txt
 >Proto dg0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -665,3 +758,9 @@ dg0 f36 mainOut f42 tail #connect
 dg0 f42 head f41 mainIn #connect
 dg0 f38 mainOut f37 tail #connect
 dg0 f37 head f36 mainIn #connect
+dg0 f43 mainOut f40 tail #connect
+dg0 f40 head f39 mainIn #connect
+dg0 f44 mainOut f45 tail #connect
+dg0 f45 head f48 mainIn #connect
+dg0 f48 mainOut f46 tail #connect
+dg0 f46 head f43 mainIn #connect
