@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Apr 12 09:00:09 CEST 2017]
+[>Created: Wed Apr 12 12:03:19 CEST 2017]
 15A60076034F7437 3.20 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
@@ -244,7 +244,7 @@ dg0 f13 expr out #txt
 dg0 f13 280 320 332 320 #arcP
 dg0 f14 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f14 path posts #txt
-dg0 f14 queryParams 'userId=in.userId.toString();
+dg0 f14 queryParams 'userId=in.userId;
 ' #txt
 dg0 f14 headers 'Accept=application/json;
 ' #txt
