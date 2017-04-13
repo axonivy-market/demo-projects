@@ -7,7 +7,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _ZJY28D3lEeadqZIC2MODiA
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 3/7/17 3:06 PM
+Save-Time: 4/13/17 2:15 PM
 Testcase-Type: ecl
 Verifications: _SbgVwD39EeadqZIC2MODiA
 
@@ -48,6 +48,9 @@ let [val project "ConnectivityDemos"]
 	
 	startMappingProcess "queryParameters.ivp"
 	assertRuntimeLogMsg "resolved 10 posts from user with id"
+	
+	startMappingProcess "pathParameters.ivp"
+	assertRuntimeLogMsg "{\"id\":"
 	
 	startMappingProcess "acceptType.ivp"
 	assertRuntimeLogMsg "{\"id\":1,\"firstname\":\"Reto\",\"lastname\":\"Weiss\"}"
