@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Mar 01 12:17:17 CET 2017]
+[>Created: Tue Apr 25 14:43:28 CEST 2017]
 015A8996ACC13882 3.20 #module
 >Proto >Proto Collection #zClass
 Rt0 ResumeRequest Big #zClass
@@ -26,11 +26,22 @@ Rt0 f0 guid 15A8996ACC382C97 #txt
 Rt0 f0 requestEnabled true #txt
 Rt0 f0 triggerEnabled false #txt
 Rt0 f0 callSignature start() #txt
+Rt0 f0 persist false #txt
+Rt0 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.NAM=Resume Request
+TaskTriggered.EXROL=Everybody' #txt
 Rt0 f0 caseData businessCase.attach=true #txt
+Rt0 f0 showInStartList 1 #txt
 Rt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start.ivp</name>
+        <nameStyle>9,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -40,6 +51,7 @@ Rt0 f0 @|StartRequestIcon #fIcon
 Rt0 f1 type workflow.humantask.Data #txt
 Rt0 f1 337 49 30 30 0 15 #rect
 Rt0 f1 @|EndIcon #fIcon
+Rt0 f2 expr out #txt
 Rt0 f2 111 64 337 64 #arcP
 >Proto Rt0 .type workflow.humantask.Data #txt
 >Proto Rt0 .processKind NORMAL #txt

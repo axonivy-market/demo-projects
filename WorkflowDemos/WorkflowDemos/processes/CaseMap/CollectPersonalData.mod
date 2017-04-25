@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 04 10:12:36 CEST 2017]
+[>Created: Tue Apr 25 14:42:47 CEST 2017]
 15A5AC9A4F755A3B 3.20 #module
 >Proto >Proto Collection #zClass
 Ca0 CollectPersonalData Big #zClass
@@ -36,8 +36,8 @@ TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody
-TaskTriggered.NAM=Collect Task' #txt
+TaskTriggered.NAM=Collect Personal Data
+TaskTriggered.EXROL=Everybody' #txt
 Ca0 f0 caseData businessCase.attach=true #txt
 Ca0 f0 wfuser 1 #txt
 Ca0 f0 showInStartList 1 #txt

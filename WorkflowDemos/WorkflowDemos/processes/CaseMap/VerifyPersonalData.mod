@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 04 11:59:19 CEST 2017]
+[>Created: Tue Apr 25 14:44:19 CEST 2017]
 15A849250AA78F65 3.20 #module
 >Proto >Proto Collection #zClass
 Ca0 VerifyPersonalData Big #zClass
@@ -36,7 +36,7 @@ TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
-TaskTriggered.NAM=Verify Task' #txt
+TaskTriggered.NAM=Verify Personal Data' #txt
 Ca0 f0 caseData businessCase.attach=true #txt
 Ca0 f0 showInStartList 1 #txt
 Ca0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

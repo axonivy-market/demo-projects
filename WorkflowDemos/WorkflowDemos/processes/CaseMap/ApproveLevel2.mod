@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 04 11:58:26 CEST 2017]
+[>Created: Tue Apr 25 14:43:54 CEST 2017]
 15A89963C015F70D 3.20 #module
 >Proto >Proto Collection #zClass
 A20 ApproveLevel2 Big #zClass
@@ -35,6 +35,7 @@ TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
+TaskTriggered.NAM=Approve Level 2
 TaskTriggered.EXROL=Everybody' #txt
 A20 f0 caseData businessCase.attach=true #txt
 A20 f0 showInStartList 1 #txt

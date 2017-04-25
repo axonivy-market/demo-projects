@@ -41,7 +41,7 @@
       "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A852737BAA2982/start.ivp",
       "preCondition" : {
         "script" : "creditDossier.decision.needsLevel1Approval",
-        "label" : "needsApprovalLevel1"
+        "label" : "Needs approval level 1?"
       }
     }, {
       "id" : "approve_level_2",
@@ -49,7 +49,7 @@
       "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89963C015F70D/start.ivp",
       "preCondition" : {
         "script" : "creditDossier.decision.needsLevel2Approval",
-        "label" : "needsApprovalLevel2"
+        "label" : "Needs approval level 2?"
       }
     }, {
       "id" : "contract_creation",
@@ -57,7 +57,7 @@
       "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A89966729CE3FC/start.ivp",
       "preCondition" : {
         "script" : "(!creditDossier.decision.needsLevel1Approval || (creditDossier.decision.needsLevel1Approval && creditDossier.decision.level1Approved ))\n&&\n(!creditDossier.decision.needsLevel2Approval || (creditDossier.decision.needsLevel2Approval && creditDossier.decision.level2Approved ))",
-        "label" : "notRejected"
+        "label" : "Is approved?"
       }
     } ]
   }, {

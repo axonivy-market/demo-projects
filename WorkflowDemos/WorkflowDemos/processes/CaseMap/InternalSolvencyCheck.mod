@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 04 11:59:19 CEST 2017]
+[>Created: Tue Apr 25 14:43:15 CEST 2017]
 15A89953E2D3784F 3.20 #module
 >Proto >Proto Collection #zClass
 Ik0 InternalSolvencyCheck Big #zClass
@@ -35,6 +35,7 @@ TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
+TaskTriggered.NAM=Internal Solvency Check
 TaskTriggered.EXROL=Everybody' #txt
 Ik0 f0 caseData businessCase.attach=true #txt
 Ik0 f0 showInStartList 1 #txt
