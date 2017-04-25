@@ -4,6 +4,7 @@ import workflow.businessdata.Address;
 import workflow.businessdata.Dossier;
 import workflow.businessdata.Person;
 import ch.ivyteam.ivy.business.data.store.BusinessDataRepository;
+import ch.ivyteam.ivy.business.data.store.search.Result;
 import ch.ivyteam.ivy.scripting.objects.Date;
 
 public class DemoDataCreator {
@@ -25,24 +26,33 @@ public class DemoDataCreator {
 			createDemoDossier("EULER CH", "Leonhard", "Euler", new Date(1707, 04, 15), "4000", "Basel", "Switzerland");
 			createDemoDossier("VOLTA IT", "Alessandro", "Volta", new Date(1745, 02, 18), "22100", "Como", "Italy");
 			createDemoDossier("NEUMANN HU", "John", "von Neumann", new Date(1903, 12, 28), "1011", "Budapest", "Hungary");
-			dossierCount = countDossier(repo);
-			while (dossierCount < 10)
-			{
-			  try 
-			  {
-				Thread.sleep(500);
-			  } 
-			  catch (InterruptedException e) 
-			  {
-			  }
-			  dossierCount = countDossier(repo);
-			}
+			waitForDossierCount(repo, 10);
+		}
+	}
+
+	private static void waitForDossierCount(BusinessDataRepository repo, int count) {
+		long dossierCount;
+		dossierCount = countDossier(repo);
+		while (dossierCount < count)
+		{
+		  try 
+		  {
+			Thread.sleep(500);
+		  } 
+		  catch (InterruptedException e) 
+		  {
+		  }
+		  dossierCount = countDossier(repo);
 		}
 	}
 
 	private static long countDossier(BusinessDataRepository repo) 
 	{
-		return repo.search(Dossier.class).execute().count();
+		return getDossiers(repo).count();
+	}
+
+	private static Result<Dossier> getDossiers(BusinessDataRepository repo) {
+		return repo.search(Dossier.class).execute();
 	}
 	
 	private static void createDemoDossier(String dossierName, String firstName, String lastName, Date birthdate, String zip, String city, String country) 
@@ -65,5 +75,15 @@ public class DemoDataCreator {
 		
 		BusinessDataRepository repo = BusinessDataRepository.get();
 		repo.save(dossier);
+	}
+	
+	public static void clearDemoData()
+	{
+		BusinessDataRepository repo = BusinessDataRepository.get();
+		for(Dossier info : getDossiers(repo).getAll())
+		{
+			repo.delete(info);
+		}
+		waitForDossierCount(repo, 0);
 	}
 }

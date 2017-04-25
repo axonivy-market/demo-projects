@@ -1,32 +1,67 @@
 package workflow.businessdata;
 
+import java.util.concurrent.Callable;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import test.web.BaseWebTest;
+import test.web.EngineUrl;
+
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
 public class WebTestBusinessData extends BaseWebTest {
 	private static final String BROWSE_DOSSIERS_LINK = "155BB4328F79B2D5/browse.ivp";
 	
+	@Before
+	public void setUp() throws Exception
+	{
+		super.setUp();
+		driver.get(EngineUrl.process() + "/WorkflowDemosTest/1537FF3C3382D47F/clearDemoDossiers.ivp");
+	}
+	
+	
 	@Test
 	public void testBrowseBusinessData() throws Exception {
-		startProcess(BROWSE_DOSSIERS_LINK);
-		assertPersonIsDisplayed("Euler");
+		wait(()->{
+			startProcess(BROWSE_DOSSIERS_LINK);
+			dossierTable().contains("Euler");
+			return Boolean.TRUE;
+		});
 	}
 	
 	@Test
 	public void createBusinessData() throws Exception {
-		startProcess("155BB4328F79B2D5/create.ivp");
-		createPersonDossier("Bernoulli");
-		Thread.sleep(1500); // index of Elasticsearch has to be updated
-		startProcess(BROWSE_DOSSIERS_LINK); // load again
-		assertPersonIsDisplayed("Bernoulli");
+		wait(()->{
+			startProcess(BROWSE_DOSSIERS_LINK);
+			dossierTable().containsNot("Bernoulli");
+			return Boolean.TRUE;
+		});
+		
+		wait(()->{
+			startProcess("155BB4328F79B2D5/create.ivp");
+			createPersonDossier("Bernoulli");
+			return Boolean.TRUE;
+		});
 	}
 	
-	private void assertPersonIsDisplayed(String name) {
-		await(ExpectedConditions.textToBePresentInElementLocated(
-				By.xpath("//*[@id='dossierTable']"), name));
+	private void wait(Callable<?> condition)
+	{
+		ajax().await(driver -> {
+			try
+			{
+			  return condition.call();
+			}
+			catch (Exception ex)
+			{
+			  return null; // retry: index of Elasticsearch has to be updated
+			}
+		});
+	}
+	
+	private Table dossierTable() {
+		return prime().table(By.id("dossierTable"));
 	}
 	
 	private void createPersonDossier(String name) {
