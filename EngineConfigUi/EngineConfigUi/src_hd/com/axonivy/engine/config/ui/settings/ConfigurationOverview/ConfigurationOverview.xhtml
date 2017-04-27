@@ -24,8 +24,8 @@
 
 				<p:tab id="licenceInfoTab">
 					<f:facet name="title">
-						<h:outputText value="Licence Informations " />
 						<i class="fa fa-info-circle" />
+						<h:outputText value=" Licence Informations" />
 					</f:facet>
 					<ic:com.axonivy.engine.config.ui.settings.component.LicenceComponent
 						id="licenceComponent" />
@@ -33,8 +33,8 @@
 
 				<p:tab id="systemDatabaseTab">
 					<f:facet name="title">
-						<h:outputText value="System Database " />
 						<i class="fa fa-database" />
+						<h:outputText value=" System Database" />
 					</f:facet>
 					<ic:com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent
 						settings="#{data.databaseSettings}" id="systemDatabaseComponent" />
@@ -42,8 +42,8 @@
 
 				<p:tab id="administratorsTab">
 					<f:facet name="title">
-						<h:outputText value="Administrators " />
 						<i class="fa fa-user-secret" />
+						<h:outputText value=" Administrators" />
 					</f:facet>
 					<ic:com.axonivy.engine.config.ui.settings.component.AdministratorsComponent
 						settings="#{data.databaseSettings}" id="administratorsComponent" />
@@ -51,8 +51,8 @@
 
 				<p:tab id="webServerTab">
 					<f:facet name="title">
-						<h:outputText value="WebServer " />
 						<i class="fa fa-server" />
+						<h:outputText value=" WebServer" />
 					</f:facet>
 					<ic:com.axonivy.engine.config.ui.settings.component.WebServerComponent
 						settings="#{data.databaseSettings}" id="webServerComponent" />
@@ -61,8 +61,8 @@
 				<p:tab id="clusterTab"
 					rendered="#{data.databaseSettings.connectionInfo.isCluster}">
 					<f:facet name="title">
-						<h:outputText value="Cluster " />
 						<i class="fa fa-cubes" />
+						<h:outputText value=" Cluster" />
 					</f:facet>
 					<ic:com.axonivy.engine.config.ui.settings.component.ClusterComponent
 						settings="#{data.databaseSettings}" id="clusterComponent" />
