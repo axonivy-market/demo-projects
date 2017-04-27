@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Mar 28 15:28:54 CEST 2017]
+[>Created: Thu Apr 27 15:34:53 CEST 2017]
 015B14256823DE3D 3.20 #module
 >Proto >Proto Collection #zClass
 Ls0 LicenceUploadComponentProcess Big #zClass
@@ -126,7 +126,16 @@ FacesContext context = FacesContext.getCurrentInstance();
 context.addMessage(null ,new FacesMessage(FacesMessage.SEVERITY_ERROR, "Licence is not valid!", "Please choose a valid Licence!"));
 
 in.newLicenceFile.delete();
-LicenceUtil.installAndVerify(in.originalLicence);' #txt
+if(in.#originalLicence != null)
+{
+	// Reinstall old licence
+	LicenceUtil.installAndVerify(in.originalLicence);
+}
+else
+{
+	// Reinstall demo licence
+	LicenceUtil.installAndVerify(LicenceUtil.getInstalledLic());
+}' #txt
 Ls0 f10 type com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent.LicenceUploadComponentData #txt
 Ls0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -150,7 +159,10 @@ Ls0 f9 actionDecl 'com.axonivy.engine.config.ui.settings.component.LicenceUpload
 ' #txt
 Ls0 f9 actionTable 'out=in;
 ' #txt
-Ls0 f9 actionCode com.axon.ivy.engine.config.LicenceUtil.backupOld(in.originalLicence); #txt
+Ls0 f9 actionCode 'if(in.#originalLicence != null)
+{
+	com.axon.ivy.engine.config.LicenceUtil.backupOld(in.originalLicence);
+}' #txt
 Ls0 f9 type com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent.LicenceUploadComponentData #txt
 Ls0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

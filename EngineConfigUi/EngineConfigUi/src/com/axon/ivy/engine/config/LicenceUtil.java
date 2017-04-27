@@ -9,9 +9,12 @@ import java.io.InputStream;
 import org.apache.commons.io.IOUtils;
 import org.primefaces.model.UploadedFile;
 
+import ch.ivyteam.di.restricted.DiCore;
+import ch.ivyteam.ivy.config.IFileAccess;
 import ch.ivyteam.licence.LicenceConstants;
 import ch.ivyteam.licence.SignedLicence;
 
+@SuppressWarnings("restriction")
 public class LicenceUtil
 {
   private static final File CONFIG_DIR = new File("configuration");
@@ -55,5 +58,10 @@ public class LicenceUtil
   {
     return LicenceConstants.VAL_LICENCE_TYPE_ENTERPRISE.equals(SignedLicence.getParam(
             ch.ivyteam.licence.LicenceConstants.PARAM_LICENCE_TYPE));
+  }
+  
+  public static File getInstalledLic()
+  {
+    return DiCore.getGlobalInjector().getInstance(IFileAccess.class).getLicenceFile();
   }
 }
