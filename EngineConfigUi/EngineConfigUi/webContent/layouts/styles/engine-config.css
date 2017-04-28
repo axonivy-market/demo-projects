@@ -67,3 +67,7 @@ Own Classes
 .action-column {
 	text-align: center;
 }
+
+.iconOnlyLink:hover {
+	text-decoration: none;
+}

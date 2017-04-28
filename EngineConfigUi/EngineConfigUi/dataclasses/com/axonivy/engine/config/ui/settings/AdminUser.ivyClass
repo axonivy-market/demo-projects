@@ -1,0 +1,10 @@
+AdminUser #class
+com.axonivy.engine.config.ui.settings #namespace
+name String #field
+name PERSISTENT #fieldModifier
+email String #field
+email PERSISTENT #fieldModifier
+fullname String #field
+fullname PERSISTENT #fieldModifier
+password String #field
+password PERSISTENT #fieldModifier

@@ -13,11 +13,14 @@
 	<h:form id="adminManagerForm" styleClass="configChanged">
 		<h:panelGrid columns="1" cellpadding="1"
 			rendered="#{data.connectionInfo.connectionOK}">
+			<h:column>
+				<p:commandButton id="addAdminButton" icon="fa fa-plus-circle"
+					value="Add Administrator" onclick="PF('addAdminDialog').show()" />
+			</h:column>
 			<p:dataTable id="adminDataTable"
 				value="#{data.administratorManager.administrators}"
 				var="administrator" rowIndexVar="row" rowKey="#{administrator.name}"
-				sortOrder="DESCENDING" selectionMode="single"
-				selection="#{data.selectedAdministrator}" styleClass="no-border"
+				sortOrder="DESCENDING" styleClass="no-border"
 				emptyMessage="No Administrators found!">
 				<p:column headerText="Name" sortBy="#{administrator.name}">
 					<h:outputText value="#{administrator.name}" />
@@ -25,38 +28,51 @@
 				<p:column headerText="Fullname" sortBy="#{administrator.fullName}">
 					<h:outputText value="#{administrator.fullName}" />
 				</p:column>
-				<p:column headerText="Email Address"
-					sortBy="#{administrator.EMailAddress}">
+				<p:column headerText="Email" sortBy="#{administrator.EMailAddress}">
 					<h:outputText value="#{administrator.EMailAddress}" />
+				</p:column>
+				<p:column width="30" styleClass="action-column">
+					<p:commandLink id="editAdminButton"
+						actionListener="#{logic.editAdministrator(administrator)}"
+						oncomplete="PF('editAdminDialog').show()"
+						update=":#{cc.clientId}:editAdminForm" title="Edit administrator"
+						styleClass="iconOnlyLink">
+						<i class="fa fa-pencil" />
+					</p:commandLink>
+					<p:commandLink id="removeAdminButton"
+						actionListener="#{logic.removeAdmin(administrator)}"
+						update=":#{cc.clientId}:adminManagerForm"
+						title="Remove administrator" styleClass="iconOnlyLink">
+						<i class="fa fa-times" />
+					</p:commandLink>
 				</p:column>
 			</p:dataTable>
 			<h:column>
-				<p:commandButton id="addAdminButton" icon="fa fa-plus-circle"
-					value="Add Administrator" onclick="PF('addAdminDialog').show()" />
-				<p:commandButton id="removeAdminButton" icon="fa fa-minus-circle"
-					value="Remove Selected Administrator"
-					actionListener="#{logic.removeAdmin}"
+				<p:commandButton id="saveAdminsButton" icon="fa fa-save"
+					value="Save" actionListener="#{logic.saveAdmins}"
 					update=":#{cc.clientId}:adminManagerForm" />
 			</h:column>
 		</h:panelGrid>
-	<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
+		<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
 		Please insert a valid System-Db-Connection!!
 	</h:outputText>
 	</h:form>
 
 	<p:dialog widgetVar="addAdminDialog" id="addAdminDialog"
-		header="New Administrator" modal="true" >
+		header="New Administrator" modal="true" closeOnEscape="true">
 		<h:form id="addAdminForm">
-        <p:messages autoUpdate="true"/>
+			<p:messages autoUpdate="true" />
 			<h:panelGrid columns="2">
-				<p:outputLabel value="Name :" for="newName" />
-				<p:inputText id="newName" value="#{data.newName}" required="true"/>
-				<p:outputLabel value="Fullname :" for="newFullname" />
-				<p:inputText id="newFullname" value="#{data.newFullName}" />
-				<p:outputLabel value="Email Address :" for="newEmail" />
-				<p:inputText id="newEmail" value="#{data.newEMailAddress}" />
-				<p:outputLabel value="Password :" for="newPassword" />
-				<p:password id="newPassword" value="#{data.newPassword}" required="true"/>
+				<p:outputLabel value="Name:" for="newName" />
+				<p:inputText id="newName" value="#{data.newAdmin.name}"
+					required="true" />
+				<p:outputLabel value="Fullname:" for="newFullname" />
+				<p:inputText id="newFullname" value="#{data.newAdmin.fullname}" />
+				<p:outputLabel value="Email:" for="newEmail" />
+				<p:inputText id="newEmail" value="#{data.newAdmin.email}" />
+				<p:outputLabel value="Password:" for="newPassword" />
+				<p:password id="newPassword" value="#{data.newAdmin.password}"
+					required="true" />
 			</h:panelGrid>
 			<br />
 			<p:commandButton id="addAdminDialogButton"
@@ -64,6 +80,30 @@
 				oncomplete="if(args &amp;&amp; !args.validationFailed) PF('addAdminDialog').hide();"
 				actionListener="#{logic.addNewAdmin}"
 				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:addAdminForm" />
+		</h:form>
+	</p:dialog>
+
+	<p:dialog widgetVar="editAdminDialog" id="editAdminDialog"
+		header="Edit Administrator" modal="true" closeOnEscape="true">
+		<h:form id="editAdminForm">
+			<p:messages autoUpdate="true" />
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Name:" for="newName" />
+				<p:inputText id="newName" value="#{data.editAdmin.name}"
+					disabled="true" />
+				<p:outputLabel value="Fullname:" for="newFullname" />
+				<p:inputText id="newFullname" value="#{data.editAdmin.fullname}" />
+				<p:outputLabel value="Email:" for="newEmail" />
+				<p:inputText id="newEmail" value="#{data.editAdmin.email}" />
+				<p:outputLabel value="New Password:" for="newPassword" />
+				<p:password id="newPassword" value="#{data.editAdmin.password}" />
+			</h:panelGrid>
+			<br />
+			<p:commandButton id="saveAdminDialogButton"
+				value="Change Administrator" icon="fa fa-save"
+				oncomplete="if(args &amp;&amp; !args.validationFailed) PF('addAdminDialog').hide();"
+				actionListener="#{logic.saveEditedAdmin}"
+				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:editAdminDialog" />
 		</h:form>
 	</p:dialog>
 </cc:implementation>
