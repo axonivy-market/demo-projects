@@ -11,6 +11,7 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">systemDatabase</ui:define>
 		<ui:define name="content">
+			<p:growl id="growl" showDetail="true" />
 			<h3>Engine Configuration</h3>
 			<h:form id="connectionForm">
 				<ic:com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent

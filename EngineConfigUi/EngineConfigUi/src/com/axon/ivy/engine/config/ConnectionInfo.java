@@ -39,7 +39,7 @@ public class ConnectionInfo
 
   private void updateConnection()
   {
-    if (ConnectionState.CONNECTED.equals(connectionState))
+    if (connectionState == ConnectionState.CONNECTED)
     {
       connectionOK = true;
     }

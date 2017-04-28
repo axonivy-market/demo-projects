@@ -24,6 +24,7 @@ import com.axonivy.engine.config.ui.settings.WebServerConfig;
 @SuppressWarnings("restriction")
 public class SystemDatabaseSettings
 {
+  private static final int CONNETION_TEST_TIMEOUT = 15;
   private static final String WEB_SERVER_AJP_PORT = "WebServer.AJP.Port";
   private static final String WEB_SERVER_AJP_ENABLED = "WebServer.AJP.Enabled";
   private static final String WEB_SERVER_HTTPS_PORT = "WebServer.HTTPS.Port";
@@ -35,9 +36,14 @@ public class SystemDatabaseSettings
   private final SystemDatabase systemDatabase = createSystemDb(configuration);
   private final ConfigData configData = ConfigHelper.loadConfigData(configuration);
   private final ConnectionInfo info = ConnectionInfo.create();
+  private final WebServerConfig webServerConfig = new WebServerConfig();
+  
+  private final SystemDatabaseConnectionTester tester = getSystemDb().getConnectionTester();
+  private final BlockingListener connectionListener = new BlockingListener();
 
   private SystemDatabaseSettings()
   {
+    tester.addConnectionListener(connectionListener);
   }
 
   public static SystemDatabaseSettings create()
@@ -84,7 +90,7 @@ public class SystemDatabaseSettings
     converter.start();
     return converter;
   }
-  
+
   public void updateConfig(SystemDatabaseCreator creator)
   {
     DatabaseConnectionConfiguration dbConfig = creator.getCreatedDatabaseConnectionConfiguration();
@@ -128,15 +134,20 @@ public class SystemDatabaseSettings
     return getSystemDb().getAdministratorManager();
   }
 
-  public void setWebServerSettings(WebServerConfig config)
+  public WebServerConfig getWebServerConfig()
+  {
+    return webServerConfig;
+  }
+
+  public void storeWebServerConfig()
   {
     AdministratorManager adminManager = getAdministratorManager();
-    setProperty(adminManager, WEB_SERVER_HTTP_ENABLED, config.getHttpEnabled().toString());
-    setProperty(adminManager, WEB_SERVER_HTTP_PORT, config.getHttpPort());
-    setProperty(adminManager, WEB_SERVER_HTTPS_ENABLED, config.getHttpsEnabled().toString());
-    setProperty(adminManager, WEB_SERVER_HTTPS_PORT, config.getHttpsPort());
-    setProperty(adminManager, WEB_SERVER_AJP_ENABLED, config.getAjpEnabled().toString());
-    setProperty(adminManager, WEB_SERVER_AJP_PORT, config.getAjpPort());
+    setProperty(adminManager, WEB_SERVER_HTTP_ENABLED, webServerConfig.getHttpEnabled().toString());
+    setProperty(adminManager, WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
+    setProperty(adminManager, WEB_SERVER_HTTPS_ENABLED, webServerConfig.getHttpsEnabled().toString());
+    setProperty(adminManager, WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
+    setProperty(adminManager, WEB_SERVER_AJP_ENABLED, webServerConfig.getAjpEnabled().toString());
+    setProperty(adminManager, WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
     adminManager.storeSystemProperties();
   }
 
@@ -154,17 +165,15 @@ public class SystemDatabaseSettings
     }
   }
 
-  public WebServerConfig getWebServerSettings()
+  private void updateWebServerConfig()
   {
     AdministratorManager adminManager = getAdministratorManager();
-    WebServerConfig webServerConfig = new WebServerConfig();
     webServerConfig.setHttpEnabled(getPropertyAsBoolean(adminManager, WEB_SERVER_HTTP_ENABLED));
     webServerConfig.setHttpPort(getProperty(adminManager, WEB_SERVER_HTTP_PORT));
     webServerConfig.setHttpsEnabled(getPropertyAsBoolean(adminManager, WEB_SERVER_HTTPS_ENABLED));
     webServerConfig.setHttpsPort(getProperty(adminManager, WEB_SERVER_HTTPS_PORT));
     webServerConfig.setAjpEnabled(getPropertyAsBoolean(adminManager, WEB_SERVER_AJP_ENABLED));
     webServerConfig.setAjpPort(getProperty(adminManager, WEB_SERVER_AJP_PORT));
-    return webServerConfig;
   }
 
   private static boolean getPropertyAsBoolean(AdministratorManager adminManager, String key)
@@ -192,28 +201,22 @@ public class SystemDatabaseSettings
 
   public ConnectionState testConnection() throws Exception
   {
-    BlockingListener listener = new BlockingListener();
-    SystemDatabaseConnectionTester tester = testConnection(listener);
+    updateDbConfig();
+    tester.reset();
+    connectionListener.gotResult = false;
+    tester.configurationChanged();
     try
     {
-      WaitUtil.await(() -> listener.gotResult, 10, TimeUnit.SECONDS);
+      WaitUtil.await(() -> connectionListener.gotResult, CONNETION_TEST_TIMEOUT, TimeUnit.SECONDS);
     }
     catch (TimeoutException ex)
     {
+      getConnectionInfo().setConnectionState(ConnectionState.CONNECTION_FAILED);
+      String msg = "Could not connect to database within " + CONNETION_TEST_TIMEOUT + " Seconds";
+      getConnectionInfo().setConnectionError(new TimeoutException(msg));
       return ConnectionState.CONNECTION_FAILED;
     }
     return tester.getConnectionState();
-  }
-
-  private SystemDatabaseConnectionTester testConnection(IConnectionListener listener)
-          throws Exception
-  {
-    updateDbConfig();
-    SystemDatabaseConnectionTester tester = getSystemDb().getConnectionTester();
-    tester.reset();
-    tester.addConnectionListener(listener);
-    tester.configurationChanged();
-    return tester;
   }
 
   private class BlockingListener implements IConnectionListener
@@ -229,6 +232,11 @@ public class SystemDatabaseSettings
         Throwable connectionError = getSystemDb().getConnectionTester().getConnectionError();
         getConnectionInfo().setConnectionError(connectionError);
         gotResult = true;
+      }
+
+      if (newState == ConnectionState.CONNECTED)
+      {
+        updateWebServerConfig();
       }
     }
   }

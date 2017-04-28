@@ -11,7 +11,6 @@
 <cc:interface componentType="IvyComponent" />
 
 <cc:implementation>
-	<p:growl id="growl" showDetail="true" />
 	<h:form id="systemDatabaseForm">
 		<div class="container-fluid">
 			<div class="row">
@@ -34,7 +33,7 @@
 							value="#{data.configData.driver}" converter="ivy.ListItem">
 							<f:selectItems value="#{data.databaseDrivers}" var="driver"
 								itemLabel="#{driver.name}" itemValue="#{driver}" />
-							<p:ajax event="keyup" update="portInput, @(.configChanged)"
+							<p:ajax update="portInput, @(.configChanged)"
 								listener="#{logic.updateDriver}" />
 						</p:selectOneMenu>
 						<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
@@ -90,9 +89,9 @@
 			</div>
 			<br />
 			<div class="row">
-				<p:commandButton id="saveConfigButton" icon="fa fa-save" ajax="true"
-					value="Save Configuration" actionListener="#{logic.saveConfig}"
-					update=":#{cc.clientId}:growl" />
+				<p:commandButton id="saveConfigButton" icon="fa fa-save"
+					value="Save" actionListener="#{logic.saveConfig}"
+					update="growl" />
 				<p:commandButton id="createDatabaseButton" value="Create Database"
 					actionListener="#{logic.applyProperties}"
 					oncomplete="PF('createDatabaseDialog').show()"

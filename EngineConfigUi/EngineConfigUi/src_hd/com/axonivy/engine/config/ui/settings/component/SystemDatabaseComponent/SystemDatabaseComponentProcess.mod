@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 11 15:03:16 CEST 2017]
+[>Created: Fri Apr 28 15:29:45 CEST 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -212,7 +212,7 @@ import com.axon.ivy.engine.config.SystemDatabaseSettings;
 in.settings.updateDbConfig();
 in.settings.saveSystemDb();
 
-UiModder.configurationSaved();' #txt
+UiModder.systemDatabaseConfigSaved();' #txt
 Ss0 f36 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f36 168 362 112 44 0 -8 #rect
 Ss0 f36 @|StepIcon #fIcon

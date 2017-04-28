@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Apr 28 15:01:38 CEST 2017]
+[>Created: Fri Apr 28 15:48:47 CEST 2017]
 157E7BB4142F9EFB 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 AdministratorsComponentProcess Big #zClass
@@ -27,17 +27,15 @@ Ss0 @PushWFArc f3 '' #zField
 Ss0 @RichDialogProcessStart f4 '' #zField
 Ss0 @PushWFArc f7 '' #zField
 Ss0 @RichDialogMethodStart f5 '' #zField
-Ss0 @GridStep f13 '' #zField
-Ss0 @PushWFArc f17 '' #zField
 Ss0 @RichDialogProcessStart f6 '' #zField
 Ss0 @RichDialogMethodStart f14 '' #zField
 Ss0 @RichDialogProcessEnd f15 '' #zField
 Ss0 @PushWFArc f18 '' #zField
 Ss0 @GridStep f22 '' #zField
 Ss0 @PushWFArc f23 '' #zField
-Ss0 @PushWFArc f8 '' #zField
 Ss0 @PushWFArc f11 '' #zField
 Ss0 @PushWFArc f10 '' #zField
+Ss0 @PushWFArc f8 '' #zField
 >Proto Ss0 Ss0 AdministratorsComponentProcess #zField
 Ss0 f0 guid 157E7518F76CF891 #txt
 Ss0 f0 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
@@ -112,7 +110,10 @@ Ss0 f2 actionDecl 'com.axonivy.engine.config.ui.settings.component.Administrator
 ' #txt
 Ss0 f2 actionTable 'out=in;
 ' #txt
-Ss0 f2 actionCode in.administratorManager.storeAdministrators(); #txt
+Ss0 f2 actionCode 'import com.axon.ivy.engine.config.UiModder;
+
+in.administratorManager.storeAdministrators();
+UiModder.adminsSaved();' #txt
 Ss0 f2 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
 Ss0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -156,8 +157,7 @@ Ss0 f5 disableUIEvents false #txt
 Ss0 f5 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <ch.ivyteam.ivy.security.Administrator selectedAdmin> param = methodEvent.getInputArguments();
 ' #txt
-Ss0 f5 inParameterMapAction 'out.selectedAdministrator=param.selectedAdmin;
-' #txt
+Ss0 f5 inActionCode out.administratorManager.removeAdministrator(param.selectedAdmin); #txt
 Ss0 f5 outParameterDecl '<> result;
 ' #txt
 Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -171,25 +171,6 @@ Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ss0 f5 83 115 26 26 -78 15 #rect
 Ss0 f5 @|RichDialogMethodStartIcon #fIcon
-Ss0 f13 actionDecl 'com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData out;
-' #txt
-Ss0 f13 actionTable 'out=in;
-' #txt
-Ss0 f13 actionCode 'out.administratorManager.removeAdministrator(in.#selectedAdministrator);' #txt
-Ss0 f13 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
-Ss0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Remove administrator</name>
-        <nameStyle>20,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f13 160 106 128 44 -61 -8 #rect
-Ss0 f13 @|StepIcon #fIcon
-Ss0 f17 expr out #txt
-Ss0 f17 109 128 160 128 #arcP
 Ss0 f6 guid 15BB412320FE8D41 #txt
 Ss0 f6 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
 Ss0 f6 actionDecl 'com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData out;
@@ -259,10 +240,6 @@ Ss0 f22 152 298 144 44 -69 -8 #rect
 Ss0 f22 @|StepIcon #fIcon
 Ss0 f23 expr out #txt
 Ss0 f23 109 320 152 320 #arcP
-Ss0 f8 expr out #txt
-Ss0 f8 288 128 352 211 #arcP
-Ss0 f8 1 352 128 #addKink
-Ss0 f8 0 0.7435699274302391 0 0 #arcLabel
 Ss0 f11 expr out #txt
 Ss0 f11 288 192 352 211 #arcP
 Ss0 f11 1 352 192 #addKink
@@ -271,6 +248,10 @@ Ss0 f10 expr out #txt
 Ss0 f10 296 320 352 237 #arcP
 Ss0 f10 1 352 320 #addKink
 Ss0 f10 0 0.8150402304412877 0 0 #arcLabel
+Ss0 f8 expr out #txt
+Ss0 f8 109 128 352 211 #arcP
+Ss0 f8 1 352 128 #addKink
+Ss0 f8 0 0.6707818930041153 0 0 #arcLabel
 >Proto Ss0 .type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -283,15 +264,13 @@ Ss0 f0 mainOut f3 tail #connect
 Ss0 f3 head f1 mainIn #connect
 Ss0 f4 mainOut f7 tail #connect
 Ss0 f7 head f2 mainIn #connect
-Ss0 f5 mainOut f17 tail #connect
-Ss0 f17 head f13 mainIn #connect
 Ss0 f14 mainOut f18 tail #connect
 Ss0 f18 head f15 mainIn #connect
 Ss0 f6 mainOut f23 tail #connect
 Ss0 f23 head f22 mainIn #connect
-Ss0 f13 mainOut f8 tail #connect
-Ss0 f8 head f12 mainIn #connect
 Ss0 f19 mainOut f11 tail #connect
 Ss0 f11 head f12 mainIn #connect
 Ss0 f22 mainOut f10 tail #connect
 Ss0 f10 head f12 mainIn #connect
+Ss0 f5 mainOut f8 tail #connect
+Ss0 f8 head f12 mainIn #connect

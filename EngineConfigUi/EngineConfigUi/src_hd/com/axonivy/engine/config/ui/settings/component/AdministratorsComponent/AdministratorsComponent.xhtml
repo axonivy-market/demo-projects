@@ -50,7 +50,7 @@
 			<h:column>
 				<p:commandButton id="saveAdminsButton" icon="fa fa-save"
 					value="Save" actionListener="#{logic.saveAdmins}"
-					update=":#{cc.clientId}:adminManagerForm" />
+					update="growl" />
 			</h:column>
 		</h:panelGrid>
 		<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
