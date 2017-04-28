@@ -6,10 +6,29 @@ import javax.faces.context.FacesContext;
 
 public class UiModder
 {
-  public static void configurationSaved()
+  public static void systemDatabaseConfigSaved()
   {
-    addMessage(FacesMessage.SEVERITY_INFO, "Saved!",
-            "Your configuration settings were saved!");
+    addSavedMessage("Your System Database settings were saved");
+  }
+
+  public static void adminsSaved()
+  {
+    addSavedMessage("Your Administrators settings were saved");
+  }
+
+  public static void webserverConfigSaved()
+  {
+    addSavedMessage("Your WebServer settings were saved");
+  }
+
+  public static void clusterConfigSaved()
+  {
+    addSavedMessage("Your Cluster settings were saved");
+  }
+
+  public static void addSavedMessage(String detail)
+  {
+    addMessage(FacesMessage.SEVERITY_INFO, "Successfully Saved", detail);
   }
 
   private static void addMessage(Severity severity, String summary, String detail)

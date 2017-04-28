@@ -4,8 +4,6 @@ adminManager ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager 
 adminManager PERSISTENT #fieldModifier
 connectionInfo com.axon.ivy.engine.config.ConnectionInfo #field
 connectionInfo PERSISTENT #fieldModifier
-selectedCluster ch.ivyteam.ivy.server.configuration.system.db.ClusterNode #field
-selectedCluster PERSISTENT #fieldModifier
 localHostName String #field
 localHostName PERSISTENT #fieldModifier
 localIdentifier Integer #field

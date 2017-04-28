@@ -14,34 +14,41 @@
 	<h:form id="clusterNodeForm" styleClass="configChanged">
 		<h:panelGrid columns="1" cellpadding="1"
 			rendered="#{data.connectionInfo.connectionOK}">
-			<p:dataTable id="clusterNodesDataTable"
-				value="#{data.adminManager.clusterNodes}" var="cluster"
-				rowIndexVar="row" rowKey="#{cluster.hostName}"
-				sortOrder="DESCENDING" selectionMode="single"
-				selection="#{data.selectedCluster}" styleClass="no-border"
-				emptyMessage="No Cluster Node found!">
-				<p:column headerText="Host" sortBy="#{cluster.hostName}">
-					<h:outputText value="#{cluster.hostName}" />
-				</p:column>
-				<p:column headerText="Local Identifier"
-					sortBy="#{cluster.localIdentifier}">
-					<h:outputText value="#{cluster.localIdentifier}" />
-				</p:column>
-				<p:column headerText="IP Port" sortBy="#{cluster.ipPort}">
-					<h:outputText value="#{cluster.ipPort}" />
-				</p:column>
-				<p:column headerText="IP Address" sortBy="#{cluster.ipAddress}">
-					<h:outputText value="#{cluster.ipAddress}" />
-				</p:column>
-			</p:dataTable>
 			<h:column>
 				<p:commandButton id="addLocalNodeButton" icon="fa fa-plus-circle"
 					value="Add Local Node" onclick="PF('addLocalNodeDialog').show()"
 					disabled="#{data.exists}" />
-				<p:commandButton id="removeLocalNodenButton"
-					icon="fa fa-minus-circle" actionListener="#{logic.removeLocalNode}"
-					value="Remove Selected Node"
-					update=":#{cc.clientId}:clusterNodeForm" />
+			</h:column>
+			<p:dataTable id="clusterNodesDataTable"
+				value="#{data.adminManager.clusterNodes}" var="node"
+				rowIndexVar="row" rowKey="#{cluster.hostName}"
+				sortOrder="DESCENDING" styleClass="no-border"
+				emptyMessage="No Cluster Node found!">
+				<p:column headerText="Host" sortBy="#{node.hostName}">
+					<h:outputText value="#{node.hostName}" />
+				</p:column>
+				<p:column headerText="Local Identifier"
+					sortBy="#{node.localIdentifier}">
+					<h:outputText value="#{node.localIdentifier}" />
+				</p:column>
+				<p:column headerText="IP Port" sortBy="#{node.ipPort}">
+					<h:outputText value="#{node.ipPort}" />
+				</p:column>
+				<p:column headerText="IP Address" sortBy="#{node.ipAddress}">
+					<h:outputText value="#{node.ipAddress}" />
+				</p:column>
+				<p:column width="15" styleClass="action-column">
+					<p:commandLink id="removeNodeButton"
+						actionListener="#{logic.removeNode(node)}"
+						update=":#{cc.clientId}:clusterNodeForm" title="Remove Node"
+						styleClass="iconOnlyLink">
+						<i class="fa fa-times" />
+					</p:commandLink>
+				</p:column>
+			</p:dataTable>
+			<h:column>
+				<p:commandButton id="saveClusterButton" icon="fa fa-save"
+					value="Save" actionListener="#{logic.save}" update="growl" />
 			</h:column>
 		</h:panelGrid>
 		<h:outputText rendered="#{!data.connectionInfo.connectionOK}">

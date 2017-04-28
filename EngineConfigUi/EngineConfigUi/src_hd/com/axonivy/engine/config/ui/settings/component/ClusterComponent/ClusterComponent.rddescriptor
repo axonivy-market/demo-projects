@@ -5,6 +5,16 @@
         <name>checkExists</name>
         <description></description>
     </method>
+    <method>
+        <name>removeNode</name>
+        <description></description>
+        <inputParameter>
+            <name>node</name>
+            <description></description>
+            <parameterType>ch.ivyteam.ivy.server.configuration.system.db.ClusterNode</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>
