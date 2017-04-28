@@ -1,6 +1,7 @@
 package com.axon.ivy.engine.config;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import ch.ivyteam.licence.SignedLicence;
@@ -115,13 +116,30 @@ public class ConnectionInfo
       case CONNECTING:
         return "Trying to connect with Database...";
       case CONNECTION_FAILED:
-        String msg = connectionError != null ? connectionError.getCause().getMessage() : "";
+        Throwable th = getCauseIfAvailable(connectionError);
+        String msg = ExceptionUtils.getMessage(th);
         return "Error occured: " + msg;
       case NOT_CONNECTED:
         return "Please check the connection to the Database.";
       default:
         return "";
     }
+  }
+
+  private static Throwable getCauseIfAvailable(Throwable th)
+  {
+    if (th == null)
+    {
+      return null;
+    }
+
+    Throwable cause = th.getCause();
+    if (cause != null)
+    {
+      return cause;
+    }
+
+    return th;
   }
 
   public String getConnectionIcon()
@@ -155,7 +173,7 @@ public class ConnectionInfo
   {
     return connectionError;
   }
-  
+
   public boolean canConvert()
   {
     return connectionState == ConnectionState.CONNECTED_WRONG_OLDER_VERSION;
