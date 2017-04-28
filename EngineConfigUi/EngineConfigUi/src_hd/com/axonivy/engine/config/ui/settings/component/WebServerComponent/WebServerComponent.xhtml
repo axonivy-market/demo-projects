@@ -21,12 +21,16 @@
 						value="Enabled: " />
 					<p:selectBooleanCheckbox id="HTTPEnabledCheckbox"
 						styleClass="webserver-checkbox"
-						value="#{data.webServerConfig.httpEnabled}" />
+						value="#{data.webServerConfig.httpEnabled}">
+						<p:ajax />
+					</p:selectBooleanCheckbox>
 
 					<p:outputLabel for="HTTPPortInput" id="HTTPPortLabel"
 						value="Port: " />
 					<p:inputText id="HTTPPortInput" styleClass="port-input"
-						value="#{data.webServerConfig.httpPort}" />
+						value="#{data.webServerConfig.httpPort}">
+						<p:ajax event="keyup" />
+					</p:inputText>
 				</h:panelGrid>
 			</p:fieldset>
 
@@ -36,12 +40,16 @@
 						value="Enabled: " />
 					<p:selectBooleanCheckbox id="HTTPSEnabledCheckbox"
 						styleClass="webserver-checkbox"
-						value="#{data.webServerConfig.httpsEnabled}" />
+						value="#{data.webServerConfig.httpsEnabled}">
+						<p:ajax />
+					</p:selectBooleanCheckbox>
 
 					<p:outputLabel for="HTTPSPortInput" id="HTTPSPortLabel"
 						value="Port: " />
 					<p:inputText id="HTTPSPortInput" styleClass="port-input"
-						value="#{data.webServerConfig.httpsPort}" />
+						value="#{data.webServerConfig.httpsPort}">
+						<p:ajax event="keyup" />
+					</p:inputText>
 				</h:panelGrid>
 			</p:fieldset>
 
@@ -51,15 +59,19 @@
 						value="Enabled: " />
 					<p:selectBooleanCheckbox id="AJPEnabledCheckbox"
 						styleClass="webserver-checkbox"
-						value="#{data.webServerConfig.ajpEnabled}" />
+						value="#{data.webServerConfig.ajpEnabled}">
+						<p:ajax />
+					</p:selectBooleanCheckbox>
 
 					<p:outputLabel for="AJPPortInput" id="AJPPortLabel" value="Port: " />
 					<p:inputText id="AJPPortInput" styleClass="port-input"
-						value="#{data.webServerConfig.ajpPort}" />
+						value="#{data.webServerConfig.ajpPort}">
+						<p:ajax event="keyup" />
+					</p:inputText>
 				</h:panelGrid>
 			</p:fieldset>
-			<p:commandButton id="savePortsButton" icon="fa fa-save"
-				value="Save" actionListener="#{logic.save}" />
+			<p:commandButton id="savePortsButton" icon="fa fa-save" value="Save"
+				actionListener="#{logic.save}" />
 		</h:panelGrid>
 		<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
 		Please insert a valid System-Db-Connection!!

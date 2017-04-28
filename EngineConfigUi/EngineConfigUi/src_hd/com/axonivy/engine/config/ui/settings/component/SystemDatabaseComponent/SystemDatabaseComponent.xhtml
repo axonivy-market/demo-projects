@@ -34,19 +34,22 @@
 							value="#{data.configData.driver}" converter="ivy.ListItem">
 							<f:selectItems value="#{data.databaseDrivers}" var="driver"
 								itemLabel="#{driver.name}" itemValue="#{driver}" />
-							<p:ajax event="change" update="portInput, @(.configChanged)"
+							<p:ajax event="keyup" update="portInput, @(.configChanged)"
 								listener="#{logic.updateDriver}" />
 						</p:selectOneMenu>
 						<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
 						<p:inputText id="hostInput" value="#{data.configData.host}"
 							styleClass="important-sysdb-input">
-							<p:ajax event="change" update="@(.configChanged)"
+							<p:ajax event="keyup" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:inputText>
 						<p:outputLabel for="portInput" id="portLabel" value="Port:" />
 						<h:column>
 							<p:inputText id="portInput" styleClass="port-input"
-								value="#{data.configData.port}" disabled="#{data.defaultPort}" />
+								value="#{data.configData.port}" disabled="#{data.defaultPort}">
+								<p:ajax event="keyup" update="@(.configChanged)"
+									listener="#{logic.change}" />
+							</p:inputText>
 							<p:selectBooleanCheckbox id="defaultPortCheckbox"
 								styleClass="port-checkbox" itemLabel="Default"
 								value="#{data.defaultPort}">
@@ -59,21 +62,21 @@
 						<p:inputText id="databaseNameInput"
 							value="#{data.configData.databaseName}"
 							styleClass="important-sysdb-input">
-							<p:ajax event="change" update="@(.configChanged)"
+							<p:ajax event="keyup" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:inputText>
 						<p:outputLabel for="usernameInput" id="usernameLabel"
 							value="Username:" />
 						<p:inputText id="usernameInput"
 							value="#{data.configData.username}">
-							<p:ajax event="change" update="@(.configChanged)"
+							<p:ajax event="keyup" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:inputText>
 						<p:outputLabel for="passwordInput" id="passwordLabel"
 							value="Password:" />
 						<p:password id="passwordInput" value="#{data.configData.password}"
 							redisplay="true">
-							<p:ajax event="change" update="@(.configChanged)"
+							<p:ajax event="keyup" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:password>
 					</h:panelGrid>
@@ -217,7 +220,7 @@
 
 	<p:dialog widgetVar="additionalPropertiesDialog"
 		id="additionalPropertiesDialog" closable="true" closeOnEscape="true"
-		modal="true" width="50%" header="Additional Properties" >
+		modal="true" width="50%" header="Additional Properties">
 		<p:messages id="messages" />
 		<h:form id="propertiesForm">
 			<h:panelGrid columns="2" id="newPropertyPanelGrid">
