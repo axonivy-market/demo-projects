@@ -30,8 +30,10 @@ public class WebTestWebServer extends BaseWebTest
     await(ExpectedConditions.textToBePresentInElementValue(
             portInputLocator, "8080"));
 
-    driver.findElement(portInputLocator).sendKeys("1234");
+    clearAndSend(portInputLocator, "1234");
     driver.findElement(By.id("accordionPanel:webServerComponent:webServerForm:savePortsButton")).click();
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id("growl_container"),
+            "WebServer config was saved"));
     openConfigUi();
     toggleTab("System Database");
     testConnection();

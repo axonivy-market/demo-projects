@@ -1,5 +1,6 @@
 package com.axonivy.engine.config.ui.web.test;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -9,7 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -32,7 +33,9 @@ public class BaseWebTest
   @Before
   public void setUp()
   {
-    driver = new HtmlUnitDriver(true);
+    File geckodriver = new File("geckodriver/geckodriver.exe");
+    System.setProperty("webdriver.gecko.driver", geckodriver.getAbsolutePath());
+    driver = new FirefoxDriver();
     prime = new PrimeUi(driver);
     ajax = new AjaxHelper(driver);
     openConfigUi();
@@ -94,10 +97,14 @@ public class BaseWebTest
 
   protected void openDbCreationDialog()
   {
+    await(ExpectedConditions.presenceOfElementLocated(By
+            .id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton")));
+
     await(ExpectedConditions.elementToBeClickable(By
             .id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton")));
     driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton")).click();
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton"))
+            .click();
   }
 
   protected void createAndValidateDb()
