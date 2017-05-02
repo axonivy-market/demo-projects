@@ -68,7 +68,7 @@ public class TestSystemDatabaseSettings
     System.out.println(DBName);
     dropDatabase(configData);
   }
-
+  
   private void createDatabase(ConfigData configData) throws Exception
   {
     Properties properties = new Properties();
@@ -95,7 +95,7 @@ public class TestSystemDatabaseSettings
     System.out.println("dropped DB!");
   }
 
-  private static ConfigData getLocalMySqlSettings()
+  public static ConfigData getLocalMySqlSettings()
   {
     ConfigData configData = new ConfigData();
     changeConfigToMySqlSettings(configData);

@@ -4,20 +4,103 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.time.StopWatch;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
+import ch.ivyteam.util.WaitUtil;
+
+import com.axon.ivy.engine.config.ConfigHelper;
+import com.axonivy.engine.config.ui.settings.ConfigData;
+import com.axonivy.engine.config.ui.unit.test.TestSystemDatabaseSettings;
 
 public class WebTestSystemDatabaseSettings extends BaseWebTest
 {
+  private static final String OLD_DB_NAME = "tmp_engineConfigUi_testing_oldDb_version44";
+
   @Test
   public void testSystemDbCreation() throws Exception
   {
     setMySqlConfig();
     createMySqlSysDb();
     dropMySqlDatabase();
+  }
+
+  @Test
+  public void testSystemDbConvertion() throws Exception
+  {
+    ConfigData configData = TestSystemDatabaseSettings.getLocalMySqlSettings();
+    configData.setDatabaseName(OLD_DB_NAME);
+    tryCreatingOldDb(configData);
+
+    setOldDbConfigUi();
+    testConnectionOldDb();
+    convertDb();
+    testConnection();
+    dropMySqlDatabase();
+  }
+
+  private void convertDb()
+  {
+    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:convertDbButton"))
+            .click();
+    await(ExpectedConditions
+            .textToBePresentInElementLocated(
+                    By.id("accordionPanel:systemDatabaseComponent:convertDatabaseDialog:convertDatabaseForm:doUpdateConvertion:finishMessageConvertion"),
+                    "Successfully Finished"));
+    driver.findElement(
+            By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:convertDatabaseDialog']/div[1]/a"))
+            .click();
+  }
+
+  private void testConnectionOldDb()
+  {
+    driver.findElement(
+            By.id("connectionForm:connectionStateComponent:checkConnectionButton")).click();
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("connectionForm:connectionStateComponent:connectionState"), "Database too old"));
+  }
+
+  private void setOldDbConfigUi()
+  {
+    setMySqlConfig();
+    super.DBNAME = OLD_DB_NAME;
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"), DBNAME);
+    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:saveConfigButton"))
+            .click();
+  }
+
+  private void tryCreatingOldDb(ConfigData configData) throws Exception
+  {
+    try
+    {
+      createOldDatabase(configData);
+    }
+    finally
+    {
+      dropMySqlDatabase();
+    }
+  }
+
+  private void createOldDatabase(ConfigData configData) throws Exception
+  {
+    Properties properties = new Properties();
+    properties.put("databaseName", OLD_DB_NAME);
+    configData.setCreationParameters(properties);
+
+    SystemDatabaseCreator createDatabase = ConfigHelper.createDatabase(configData, 44);
+    WaitUtil.await(() -> createDatabase.isRunning() == false, 60, TimeUnit.SECONDS);
+    if (createDatabase.getError() != null)
+    {
+      throw new RuntimeException("Could not create database", createDatabase.getError());
+    }
+    super.dbCreated = true;
   }
 
   @Test
@@ -79,7 +162,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
             .selectItemByLabel("Microsoft SQL Server");
 
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "ZugTstDbsMss");
-    
+
     driver.findElement(
             By.id("connectionForm:connectionStateComponent:checkConnectionButton")).click();
   }
