@@ -1,8 +1,5 @@
 package com.axonivy.engine.config.ui.web.test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,7 +25,7 @@ public class WebTestCluster extends BaseWebTest
     toggleTab("Cluster");
   }
 
-  @Test @Ignore
+  @Test
   public void testAddLocalNode()
   {
     await(ExpectedConditions.textToBePresentInElementLocated(
@@ -38,11 +35,11 @@ public class WebTestCluster extends BaseWebTest
     addLocalNode();
   }
 
-  @Test @Ignore
+  @Test
   public void testRemoveLocalNode()
   {
     testAddLocalNode();
-
+    driver.findElement(By.id("accordionPanel:clusterComponent:clusterNodeForm:saveClusterButton")).click();
     removeLocalNode();
   }
 
@@ -53,27 +50,33 @@ public class WebTestCluster extends BaseWebTest
 
     await(ExpectedConditions.elementToBeClickable(By
             .id("accordionPanel:clusterComponent:addLocalNodeForm:addLocalNodeDialogButton")));
-    driver.findElement(By.id("accordionPanel:clusterComponent:addLocalNodeForm:addLocalNodeDialogButton"))
-            .click();
-    assertThat(
-            driver.findElement(By.id("accordionPanel:clusterComponent:addLocalNodeForm:newLocalIdentifier"))
-                    .getText()).isEqualTo("0");
     String ipAddress = driver.findElement(
             By.id("accordionPanel:clusterComponent:addLocalNodeForm:newIPAddress")).getText();
+    driver.findElement(By.id("accordionPanel:clusterComponent:addLocalNodeForm:addLocalNodeDialogButton"))
+            .click();
 
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("accordionPanel:clusterComponent:clusterNodeForm:clusterNodesDataTable_data"), ipAddress));
-    await(ExpectedConditions.not(ExpectedConditions.elementToBeSelected(addNodeButtonLocator)));
+    Table table = prime.table(By.id("accordionPanel:clusterComponent:clusterNodeForm:clusterNodesDataTable"));
+    table.contains("0");
+    table.contains(ipAddress);
+    
+    await(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(addNodeButtonLocator)));
   }
 
   private void removeLocalNode()
   {
     Table table = prime.table(By.id("accordionPanel:clusterComponent:clusterNodeForm:clusterNodesDataTable"));
-    table.select("0");
+    table.contains("0");
 
-    driver.findElement(By.id("accordionPanel:clusterComponent:clusterNodeForm:removeLocalNodeButton"))
-            .click();
+    removeNode(0);
     table.containsNot("0");
     table.contains("No Cluster Node found!");
+  }
+
+  private void removeNode(int localIdentifier)
+  {
+    driver.findElement(
+            By.id("accordionPanel:clusterComponent:clusterNodeForm:clusterNodesDataTable:" + localIdentifier
+                    + ":removeNodeButton"))
+            .click();
   }
 }
