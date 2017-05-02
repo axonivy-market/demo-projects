@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Apr 28 15:48:47 CEST 2017]
+[>Created: Mon May 01 12:14:46 CEST 2017]
 157E7BB4142F9EFB 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 AdministratorsComponentProcess Big #zClass
@@ -46,6 +46,7 @@ Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodE
 ' #txt
 Ss0 f0 inParameterMapAction 'out.administratorManager=param.settings.getAdministratorManager();
 out.connectionInfo=param.settings.getConnectionInfo();
+out.settings=param.settings;
 ' #txt
 Ss0 f0 outParameterDecl '<> result;
 ' #txt
@@ -110,10 +111,7 @@ Ss0 f2 actionDecl 'com.axonivy.engine.config.ui.settings.component.Administrator
 ' #txt
 Ss0 f2 actionTable 'out=in;
 ' #txt
-Ss0 f2 actionCode 'import com.axon.ivy.engine.config.UiModder;
-
-in.administratorManager.storeAdministrators();
-UiModder.adminsSaved();' #txt
+Ss0 f2 actionCode in.settings.saveAdmins(); #txt
 Ss0 f2 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
 Ss0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

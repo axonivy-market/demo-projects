@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Apr 28 16:24:56 CEST 2017]
+[>Created: Mon May 01 12:09:31 CEST 2017]
 15A4C3312F0A8B48 3.20 #module
 >Proto >Proto Collection #zClass
 Ws0 WebServerComponentProcess Big #zClass
@@ -53,10 +53,7 @@ Ws0 f6 actionDecl 'com.axonivy.engine.config.ui.settings.component.WebServerComp
 ' #txt
 Ws0 f6 actionTable 'out=in;
 ' #txt
-Ws0 f6 actionCode 'import com.axon.ivy.engine.config.UiModder;
-
-in.settings.storeWebServerConfig();
-UiModder.webserverConfigSaved();' #txt
+Ws0 f6 actionCode in.settings.saveWebServerConfig(); #txt
 Ws0 f6 type com.axonivy.engine.config.ui.settings.component.WebServerComponent.WebServerComponentData #txt
 Ws0 f6 168 138 112 44 0 -8 #rect
 Ws0 f6 @|StepIcon #fIcon

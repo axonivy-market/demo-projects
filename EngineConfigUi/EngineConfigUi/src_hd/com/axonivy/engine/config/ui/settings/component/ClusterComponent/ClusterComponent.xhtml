@@ -48,7 +48,7 @@
 			</p:dataTable>
 			<h:column>
 				<p:commandButton id="saveClusterButton" icon="fa fa-save"
-					value="Save" actionListener="#{logic.save}" update="growl" />
+					value="Save to Database" actionListener="#{logic.save}" update="growl" />
 			</h:column>
 		</h:panelGrid>
 		<h:outputText rendered="#{!data.connectionInfo.connectionOK}">

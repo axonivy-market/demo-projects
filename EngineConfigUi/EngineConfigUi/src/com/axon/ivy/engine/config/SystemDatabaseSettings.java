@@ -6,7 +6,6 @@ import java.util.concurrent.TimeoutException;
 import org.apache.commons.lang3.BooleanUtils;
 
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
-import ch.ivyteam.ivy.persistence.db.DatabasePersistencyService;
 import ch.ivyteam.ivy.server.configuration.Configuration;
 import ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
@@ -21,7 +20,6 @@ import ch.ivyteam.util.WaitUtil;
 import com.axonivy.engine.config.ui.settings.ConfigData;
 import com.axonivy.engine.config.ui.settings.WebServerConfig;
 
-@SuppressWarnings("restriction")
 public class SystemDatabaseSettings
 {
   private static final int CONNETION_TEST_TIMEOUT = 15;
@@ -37,7 +35,7 @@ public class SystemDatabaseSettings
   private final ConfigData configData = ConfigHelper.loadConfigData(configuration);
   private final ConnectionInfo info = ConnectionInfo.create();
   private final WebServerConfig webServerConfig = new WebServerConfig();
-  
+
   private final SystemDatabaseConnectionTester tester = getSystemDb().getConnectionTester();
   private final BlockingListener connectionListener = new BlockingListener();
 
@@ -79,7 +77,8 @@ public class SystemDatabaseSettings
           throws Exception
   {
     DatabaseConnectionConfiguration currentConfig = ConfigHelper.createConfiguration(configData);
-    return startSystemDatabaseConversion(currentConfig, DatabasePersistencyService.DATABASE_VERSION);
+    int systemDatabaseVersion = getSystemDb().getConnectionTester().getSystemDatabaseVersion();
+    return startSystemDatabaseConversion(currentConfig, systemDatabaseVersion);
   }
 
   private SystemDatabaseConverter startSystemDatabaseConversion(
@@ -119,9 +118,17 @@ public class SystemDatabaseSettings
     configuration.setSystemDatabaseConnectionConfiguration(dbConfig);
   }
 
-  public void saveSystemDb() throws Exception
+  public void saveSystemDb()
   {
-    configuration.saveConfiguration();
+    try
+    {
+      configuration.saveConfiguration();
+      UiModder.systemDatabaseConfigSaved();
+    }
+    catch (Exception ex)
+    {
+      UiModder.systemDatabaseConfigNotSaved(ex);
+    }
   }
 
   public Configuration getConfiguration()
@@ -134,25 +141,65 @@ public class SystemDatabaseSettings
     return getSystemDb().getAdministratorManager();
   }
 
+  public void saveAdmins()
+  {
+    AdministratorManager adminManager = getAdministratorManager();
+    if (!adminManager.isConnected())
+    {
+      return;
+    }
+    try
+    {
+      if(adminManager.storeAdministrators())
+      {
+        UiModder.adminsSaved();
+      }
+    }
+    catch (Exception ex)
+    {
+      UiModder.adminsNotSaved(ex);
+    }
+  }
+
   public WebServerConfig getWebServerConfig()
   {
     return webServerConfig;
   }
 
-  public void storeWebServerConfig()
+  public void saveWebServerConfig()
   {
     AdministratorManager adminManager = getAdministratorManager();
-    setProperty(adminManager, WEB_SERVER_HTTP_ENABLED, webServerConfig.getHttpEnabled().toString());
-    setProperty(adminManager, WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
-    setProperty(adminManager, WEB_SERVER_HTTPS_ENABLED, webServerConfig.getHttpsEnabled().toString());
-    setProperty(adminManager, WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
-    setProperty(adminManager, WEB_SERVER_AJP_ENABLED, webServerConfig.getAjpEnabled().toString());
-    setProperty(adminManager, WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
-    adminManager.storeSystemProperties();
+    if (!adminManager.isConnected())
+    {
+      return;
+    }
+    try
+    {
+      setProperty(adminManager, WEB_SERVER_HTTP_ENABLED,
+              BooleanUtils.toStringTrueFalse(webServerConfig.getHttpEnabled()));
+      setProperty(adminManager, WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
+      setProperty(adminManager, WEB_SERVER_HTTPS_ENABLED,
+              BooleanUtils.toStringTrueFalse(webServerConfig.getHttpsEnabled()));
+      setProperty(adminManager, WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
+      setProperty(adminManager, WEB_SERVER_AJP_ENABLED,
+              BooleanUtils.toStringTrueFalse(webServerConfig.getAjpEnabled()));
+      setProperty(adminManager, WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
+
+      adminManager.storeSystemProperties();
+      UiModder.webserverConfigSaved();
+    }
+    catch (Exception ex)
+    {
+      UiModder.webserverConfigNotSaved(ex);
+    }
   }
 
   private static void setProperty(AdministratorManager adminManager, String key, String value)
   {
+    if (value == null)
+    {
+      return;
+    }
     Property systemProperty = adminManager.getSystemProperty(key);
     if (systemProperty == null)
     {
@@ -199,6 +246,32 @@ public class SystemDatabaseSettings
     }
   }
 
+  public void saveClusterNodes()
+  {
+    if (!LicenceUtil.isCluster())
+    {
+      return;
+    }
+
+    AdministratorManager adminManager = getAdministratorManager();
+    if (!adminManager.isConnected())
+    {
+      return;
+    }
+
+    try
+    {
+      if(adminManager.storeClusterNodes())
+      {
+        UiModder.clusterConfigSaved();
+      }
+    }
+    catch (Exception ex)
+    {
+      UiModder.clusterConfigNotSaved(ex);
+    }
+  }
+
   public ConnectionState testConnection() throws Exception
   {
     updateDbConfig();
@@ -217,6 +290,20 @@ public class SystemDatabaseSettings
       return ConnectionState.CONNECTION_FAILED;
     }
     return tester.getConnectionState();
+  }
+
+  public void saveAll()
+  {
+    saveSystemDb();
+    if (!getAdministratorManager().isConnected())
+    {
+      UiModder.notConnected();
+      return;
+    }
+
+    saveAdmins();
+    saveWebServerConfig();
+    saveClusterNodes();
   }
 
   private class BlockingListener implements IConnectionListener

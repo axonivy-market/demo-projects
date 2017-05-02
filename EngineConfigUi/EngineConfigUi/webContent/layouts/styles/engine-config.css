@@ -5,6 +5,29 @@ Classes overriding primefaces' css
 	padding-left: 0;
 }
 
+.ui-growl-item-container {
+    opacity: 0.95 !important;
+    filter: alpha(opacity=95) !important;
+}
+
+.ui-growl-icon-close {
+	top: 7px;
+	right: 7px;
+}
+
+.ui-growl-item {
+	padding: 15px 15px !important;
+}
+
+.ui-growl-title {
+	padding: 0;
+}
+
+.ui-growl-message {
+	width: 230px;
+	padding: 0;
+}
+
 /* 
 Own Classes
 */

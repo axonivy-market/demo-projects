@@ -69,7 +69,7 @@
 					</p:inputText>
 				</h:panelGrid>
 			</p:fieldset>
-			<p:commandButton id="savePortsButton" icon="fa fa-save" value="Save"
+			<p:commandButton id="savePortsButton" icon="fa fa-save" value="Save to Database"
 				actionListener="#{logic.save}" update="growl" />
 		</h:panelGrid>
 		<h:outputText rendered="#{!data.settings.connectionInfo.connectionOK}">

@@ -4,31 +4,68 @@ import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
+
 public class UiModder
 {
+  public static void notConnected()
+  {
+    addMessage(FacesMessage.SEVERITY_WARN, "Not Connected",
+            "Could not save Administrators and Webserver settings because there is no open"
+                    + " connection to the system database");
+  }
+
   public static void systemDatabaseConfigSaved()
   {
-    addSavedMessage("Your System Database settings were saved");
+    addMessage(FacesMessage.SEVERITY_INFO, "System Database config saved",
+            "Your System Database config were saved to configuration/serverconfig.xml");
+  }
+
+  public static void systemDatabaseConfigNotSaved(Exception ex)
+  {
+    String msg = ExceptionUtils.getRootCauseMessage(ex);
+    addNotSavedMessage("Your System Database settings could not be saved because: " + msg);
   }
 
   public static void adminsSaved()
   {
-    addSavedMessage("Your Administrators settings were saved");
+    addMessage(FacesMessage.SEVERITY_INFO, "Administrators config saved",
+            "Your Administrators config were saved to the system database");
+  }
+
+  public static void adminsNotSaved(Exception ex)
+  {
+    String msg = ExceptionUtils.getRootCauseMessage(ex);
+    addNotSavedMessage("Your Administrators settings could not be saved because: " + msg);
   }
 
   public static void webserverConfigSaved()
   {
-    addSavedMessage("Your WebServer settings were saved");
+    addMessage(FacesMessage.SEVERITY_INFO, "WebServer config saved",
+            "Your WebServer config was saved to the system database");
+  }
+
+  public static void webserverConfigNotSaved(Exception ex)
+  {
+    String msg = ExceptionUtils.getRootCauseMessage(ex);
+    addNotSavedMessage("Your WebServer settings could not be saved because: " + msg);
   }
 
   public static void clusterConfigSaved()
   {
-    addSavedMessage("Your Cluster settings were saved");
+    addMessage(FacesMessage.SEVERITY_INFO, "Cluster config saved",
+            "Your Cluster config was saved to the system database");
   }
 
-  public static void addSavedMessage(String detail)
+  public static void clusterConfigNotSaved(Exception ex)
   {
-    addMessage(FacesMessage.SEVERITY_INFO, "Successfully Saved", detail);
+    String msg = ExceptionUtils.getRootCauseMessage(ex);
+    addNotSavedMessage("Your Cluster settings could not be saved because: " + msg);
+  }
+
+  private static void addNotSavedMessage(String detail)
+  {
+    addMessage(FacesMessage.SEVERITY_FATAL, "Failed To Save", detail);
   }
 
   private static void addMessage(Severity severity, String summary, String detail)

@@ -14,3 +14,5 @@ newAdmin com.axonivy.engine.config.ui.settings.AdminUser #field
 newAdmin PERSISTENT #fieldModifier
 editAdmin com.axonivy.engine.config.ui.settings.AdminUser #field
 editAdmin PERSISTENT #fieldModifier
+settings com.axon.ivy.engine.config.SystemDatabaseSettings #field
+settings PERSISTENT #fieldModifier

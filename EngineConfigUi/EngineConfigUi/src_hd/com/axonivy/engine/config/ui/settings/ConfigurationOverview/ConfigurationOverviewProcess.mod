@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 11 12:41:15 CEST 2017]
+[>Created: Mon May 01 13:39:54 CEST 2017]
 157E2C1BEC4930AC 3.20 #module
 >Proto >Proto Collection #zClass
 ss0 ConfigurationOverviewProcess Big #zClass
@@ -23,6 +23,9 @@ ss0 @PushWFArc f2 '' #zField
 ss0 @RichDialogProcessStart f5 '' #zField
 ss0 @RichDialogProcessEnd f6 '' #zField
 ss0 @PushWFArc f7 '' #zField
+ss0 @RichDialogProcessStart f8 '' #zField
+ss0 @RichDialogProcessEnd f9 '' #zField
+ss0 @PushWFArc f10 '' #zField
 >Proto ss0 ss0 ConfigurationOverviewProcess #zField
 ss0 f0 guid 157E2C1BEDF33419 #txt
 ss0 f0 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
@@ -93,6 +96,28 @@ ss0 f6 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.Configur
 ss0 f6 211 147 26 26 0 12 #rect
 ss0 f6 @|RichDialogProcessEndIcon #fIcon
 ss0 f7 109 160 211 160 #arcP
+ss0 f8 guid 15BC386770BD0A74 #txt
+ss0 f8 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f8 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
+' #txt
+ss0 f8 actionTable 'out=in;
+' #txt
+ss0 f8 actionCode out.databaseSettings.saveAll(); #txt
+ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>saveAll</name>
+        <nameStyle>7,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+ss0 f8 83 243 26 26 -19 15 #rect
+ss0 f8 @|RichDialogProcessStartIcon #fIcon
+ss0 f9 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f9 211 243 26 26 0 12 #rect
+ss0 f9 @|RichDialogProcessEndIcon #fIcon
+ss0 f10 109 256 211 256 #arcP
 >Proto ss0 .type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 >Proto ss0 .processKind HTML_DIALOG #txt
 >Proto ss0 -8 -8 16 16 16 26 #rect
@@ -103,3 +128,5 @@ ss0 f3 mainOut f2 tail #connect
 ss0 f2 head f1 mainIn #connect
 ss0 f5 mainOut f7 tail #connect
 ss0 f7 head f6 mainIn #connect
+ss0 f8 mainOut f10 tail #connect
+ss0 f10 head f9 mainIn #connect

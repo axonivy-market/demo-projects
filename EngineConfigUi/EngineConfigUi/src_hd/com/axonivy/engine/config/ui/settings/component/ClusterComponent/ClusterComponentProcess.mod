@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Apr 28 15:45:55 CEST 2017]
+[>Created: Mon May 01 12:11:25 CEST 2017]
 15AA3C30A9139F49 3.20 #module
 >Proto >Proto Collection #zClass
 Cs0 ClusterComponentProcess Big #zClass
@@ -158,10 +158,7 @@ Cs0 f5 actionDecl 'com.axonivy.engine.config.ui.settings.component.ClusterCompon
 ' #txt
 Cs0 f5 actionTable 'out=in;
 ' #txt
-Cs0 f5 actionCode 'import com.axon.ivy.engine.config.UiModder;
-
-out.adminManager.storeClusterNodes();
-UiModder.clusterConfigSaved();' #txt
+Cs0 f5 actionCode in.settings.saveClusterNodes(); #txt
 Cs0 f5 type com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData #txt
 Cs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

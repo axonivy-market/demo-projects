@@ -148,13 +148,19 @@ public class ConfigHelper
   public static SystemDatabaseCreator createDatabase(ConfigData configData)
           throws Exception
   {
+    return createDatabase(configData, -1);
+  }
+  
+  public static SystemDatabaseCreator createDatabase(ConfigData configData, int systemDatabaseVersion)
+          throws Exception
+  {
     DatabaseConnectionConfiguration currentConfig = ConfigHelper.createConfiguration(configData);
-    return startSystemDatabaseCreation(currentConfig, configData.getCreationParameters());
+    return startSystemDatabaseCreation(currentConfig, configData.getCreationParameters(), systemDatabaseVersion);
   }
 
   private static SystemDatabaseCreator startSystemDatabaseCreation(
           DatabaseConnectionConfiguration dbConfig,
-          Properties dbCreationParameters) throws Exception
+          Properties dbCreationParameters, int systemDatabaseVersion) throws Exception
   {
     List<DatabaseCreationParameter> creationParameters = ConfigHelper.getCreationParameters(dbConfig);
 
@@ -177,7 +183,7 @@ public class ConfigHelper
       dbCreationParamList.add(value);
     }
     SystemDatabaseCreator creator = SystemDatabaseCreator
-            .createSystemDatabaseCreator(dbConfig, dbCreationParamList);
+            .createSystemDatabaseCreator(dbConfig, dbCreationParamList, systemDatabaseVersion);
     creator.start();
     return creator;
   }
