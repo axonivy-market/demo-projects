@@ -90,18 +90,17 @@
 			<br />
 			<div class="row">
 				<p:commandButton id="saveConfigButton" icon="fa fa-save"
-					value="Save" actionListener="#{logic.saveConfig}"
-					update="growl" />
+					value="Save" actionListener="#{logic.saveConfig}" update="growl" />
 				<p:commandButton id="createDatabaseButton" value="Create Database"
 					actionListener="#{logic.applyProperties}"
 					oncomplete="PF('createDatabaseDialog').show()"
 					icon="fa fa-database" update=":#{cc.clientId}:createDatabaseDialog"
 					styleClass="configChanged"
-					disabled="#{data.settings.connectionInfo.connectionOK}" />
+					disabled="#{data.settings.connectionInfo.connectionOK || data.settings.connectionInfo.canConvert()}" />
 				<p:commandButton id="convertDbButton" value="Convert Database"
 					styleClass="configChanged" icon="fa fa-database"
 					actionListener="#{logic.convertDb}"
-					onclick="PF('convertDatabaseDialog').show()"
+					oncomplete="PF('convertDatabaseDialog').show()"
 					disabled="#{!data.settings.connectionInfo.canConvert()}"
 					update=":#{cc.clientId}:convertDatabaseDialog, @(.configChanged)" />
 			</div>
