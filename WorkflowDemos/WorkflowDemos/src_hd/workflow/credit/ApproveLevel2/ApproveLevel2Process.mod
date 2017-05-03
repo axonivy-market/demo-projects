@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 04 11:56:11 CEST 2017]
+[>Created: Wed May 03 09:06:57 CEST 2017]
 15B38634B19A78ED 3.20 #module
 >Proto >Proto Collection #zClass
 As0 ApproveLevel2Process Big #zClass
@@ -80,8 +80,8 @@ As0 f6 type workflow.credit.ApproveLevel2.ApproveLevel2Data #txt
 As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Load dosssier</name>
-        <nameStyle>13,7
+        <name>Load dossier</name>
+        <nameStyle>12,7
 </nameStyle>
     </language>
 </elementInfo>
