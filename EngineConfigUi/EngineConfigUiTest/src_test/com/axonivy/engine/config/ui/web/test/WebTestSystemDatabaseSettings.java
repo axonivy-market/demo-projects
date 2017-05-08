@@ -35,15 +35,21 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   @Test
   public void testSystemDbConvertion() throws Exception
   {
-    ConfigData configData = TestSystemDatabaseSettings.getLocalMySqlSettings();
-    configData.setDatabaseName(OLD_DB_NAME);
-    tryCreatingOldDb(configData);
+    try
+    {
+      ConfigData configData = TestSystemDatabaseSettings.getLocalMySqlSettings();
+      configData.setDatabaseName(OLD_DB_NAME);
+      tryCreatingOldDb(configData);
 
-    setOldDbConfigUi();
-    testConnectionOldDb();
-    convertDb();
-    testConnection();
-    dropMySqlDatabase();
+      setOldDbConfigUi();
+      testConnectionOldDb();
+      convertDb();
+      testConnection();
+    }
+    finally
+    {
+      dropMySqlDatabase();
+    }
   }
 
   private void convertDb()
@@ -52,7 +58,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
             .click();
     await(ExpectedConditions
             .textToBePresentInElementLocated(
-                    By.id("accordionPanel:systemDatabaseComponent:convertDatabaseDialog:convertDatabaseForm:doUpdateConvertion:finishMessageConvertion"),
+                    By.id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:finishMessageConvertion"),
                     "Successfully Finished"));
     driver.findElement(
             By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:convertDatabaseDialog']/div[1]/a"))
@@ -82,7 +88,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     {
       createOldDatabase(configData);
     }
-    finally
+    catch (Exception ex)
     {
       dropMySqlDatabase();
     }
