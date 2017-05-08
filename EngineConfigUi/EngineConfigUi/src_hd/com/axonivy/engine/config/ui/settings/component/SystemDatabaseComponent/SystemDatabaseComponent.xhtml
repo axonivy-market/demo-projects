@@ -109,7 +109,7 @@
 	</h:form>
 
 	<p:dialog id="createDatabaseDialog" widgetVar="createDatabaseDialog"
-		header="Create System Database" modal="true">
+		header="Create System Database" modal="true" closeOnEscape="true">
 		<h:form id="createDatabaseForm">
 			<h:outputText
 				value="Enter the required parameters for your System Database configuration:" />
@@ -144,7 +144,7 @@
 
 	<p:dialog id="creatingDatabaseDialog"
 		widgetVar="creatingDatabaseDialog" header="Creating System Database"
-		dynamic="true" modal="true" onShow="PF('creatingOutputPoll').start()">
+		dynamic="true" modal="true" onShow="PF('creatingOutputPoll').start()" closeOnEscape="true">
 
 		<h:form id="creatingDatabaseForm">
 			<p:poll autoStart="false" id="creatingOutputPoll"
@@ -183,7 +183,7 @@
 
 	<p:dialog id="convertDatabaseDialog" widgetVar="convertDatabaseDialog"
 		header="Converting System Database" dynamic="true" modal="true"
-		onShow="PF('convertingOutputPoll').start()">
+		onShow="PF('convertingOutputPoll').start()" closeOnEscape="true">
 
 		<h:form id="convertDatabaseForm">
 			<p:poll autoStart="false" id="convertingOutputPoll"
@@ -217,8 +217,8 @@
 	</p:dialog>
 
 	<p:dialog widgetVar="additionalPropertiesDialog"
-		id="additionalPropertiesDialog" closable="true" closeOnEscape="true"
-		modal="true" width="50%" header="Additional Properties">
+		id="additionalPropertiesDialog" closable="true"
+		modal="true" width="50%" header="Additional Properties" closeOnEscape="true">
 		<p:messages id="messages" />
 		<h:form id="propertiesForm">
 			<h:panelGrid columns="2" id="newPropertyPanelGrid">
