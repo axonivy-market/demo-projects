@@ -12,7 +12,7 @@
 
 <cc:implementation>
 	<h:form id="licenceInfoForm">
-		<p:panelGrid>
+		<p:panelGrid id="detailsList">
 			<ui:repeat var="property"
 				value="#{licenceBean.licenceProperties.entrySet().toArray()}">
 				<p:row>
