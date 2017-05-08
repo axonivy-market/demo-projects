@@ -19,7 +19,6 @@ public class WebTestLicence extends BaseWebTest
     driver.findElement(By.id("accordionPanel:licenceComponent:details")).click();
 
     valueInList("Axon.ivy Engine");
-    valueInList("Never");
     valueInList("Demo");
   }
 
