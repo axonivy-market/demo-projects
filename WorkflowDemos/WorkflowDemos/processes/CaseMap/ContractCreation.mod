@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 25 14:42:57 CEST 2017]
+[>Created: Wed May 10 15:35:42 CEST 2017]
 15A89966729CE3FC 3.20 #module
 >Proto >Proto Collection #zClass
 Cn0 ContractCreation Big #zClass
@@ -33,10 +33,10 @@ TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.NAM=Create Contract
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.EXROL=Everybody
+TaskTriggered.NAM=Create Contract' #txt
 Cn0 f0 caseData businessCase.attach=true #txt
-Cn0 f0 showInStartList 1 #txt
+Cn0 f0 showInStartList 0 #txt
 Cn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

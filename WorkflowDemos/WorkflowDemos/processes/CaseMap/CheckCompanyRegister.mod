@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 25 14:43:43 CEST 2017]
+[>Created: Wed May 10 15:35:25 CEST 2017]
 15A8492F526C14B3 3.20 #module
 >Proto >Proto Collection #zClass
 Cr0 CheckCompanyRegister Big #zClass
@@ -35,10 +35,10 @@ TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.NAM=Check Company Register
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.EXROL=Everybody
+TaskTriggered.NAM=Check Company Register' #txt
 Cr0 f0 caseData businessCase.attach=true #txt
-Cr0 f0 showInStartList 1 #txt
+Cr0 f0 showInStartList 0 #txt
 Cr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

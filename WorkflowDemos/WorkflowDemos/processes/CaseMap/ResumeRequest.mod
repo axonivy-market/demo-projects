@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 25 14:43:28 CEST 2017]
+[>Created: Wed May 10 15:36:04 CEST 2017]
 015A8996ACC13882 3.20 #module
 >Proto >Proto Collection #zClass
 Rt0 ResumeRequest Big #zClass
@@ -32,10 +32,10 @@ TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.NAM=Resume Request
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.EXROL=Everybody
+TaskTriggered.NAM=Resume Request' #txt
 Rt0 f0 caseData businessCase.attach=true #txt
-Rt0 f0 showInStartList 1 #txt
+Rt0 f0 showInStartList 0 #txt
 Rt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Apr 25 14:43:54 CEST 2017]
+[>Created: Wed May 10 15:35:17 CEST 2017]
 15A89963C015F70D 3.20 #module
 >Proto >Proto Collection #zClass
 A20 ApproveLevel2 Big #zClass
@@ -35,10 +35,10 @@ TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.NAM=Approve Level 2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.EXROL=Everybody
+TaskTriggered.NAM=Approve Level 2' #txt
 A20 f0 caseData businessCase.attach=true #txt
-A20 f0 showInStartList 1 #txt
+A20 f0 showInStartList 0 #txt
 A20 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
