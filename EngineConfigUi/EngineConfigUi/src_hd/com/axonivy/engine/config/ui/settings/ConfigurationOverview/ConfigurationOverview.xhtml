@@ -11,23 +11,17 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">systemDatabase</ui:define>
 		<ui:define name="content">
-			<p:growl id="growl" showDetail="true" showSummary="false" autoUpdate="true"/>
+			<p:growl id="growl" showDetail="true" showSummary="false"
+				autoUpdate="true" />
 			<h3>Engine Configuration</h3>
-			<h:form id="connectionForm">
-				<ic:com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent
-					id="connectionStateComponent" settings="#{data.databaseSettings}" styleClass="updateSaveAll"/>
-				<p:remoteCommand name="preCheckConnection"
-					update="@(.configChanged)" async="true" delay="20" />
-			</h:form>
-			<p:accordionPanel id="accordionPanel" styleClass="full-width">
-				<p:ajax event="tabChange" async="true"
-					listener="#{logic.checkConnection}" update="@(.configChanged)"
-					onstart="preCheckConnection()" />
+			<p:accordionPanel id="accordionPanel" styleClass="full-width"
+				widgetVar="accordionPanel" activeIndex="#{data.activeTabIndex}">
+				<p:ajax event="tabChange" listener="#{logic.tabChange}" />
 
 				<p:tab id="licenceInfoTab">
 					<f:facet name="title">
 						<i class="fa fa-info-circle" />
-						<h:outputText value=" Licence Informations" />
+						<h:outputText value=" Licence" />
 					</f:facet>
 					<ic:com.axonivy.engine.config.ui.settings.component.LicenceComponent
 						id="licenceComponent" styleClass="updateSaveAll" />
@@ -39,7 +33,8 @@
 						<h:outputText value=" System Database" />
 					</f:facet>
 					<ic:com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent
-						settings="#{data.databaseSettings}" id="systemDatabaseComponent" styleClass="updateSaveAll" />
+						settings="#{data.databaseSettings}" id="systemDatabaseComponent"
+						styleClass="updateSaveAll" />
 				</p:tab>
 
 				<p:tab id="administratorsTab">
@@ -48,16 +43,18 @@
 						<h:outputText value=" Administrators" />
 					</f:facet>
 					<ic:com.axonivy.engine.config.ui.settings.component.AdministratorsComponent
-						settings="#{data.databaseSettings}" id="administratorsComponent" styleClass="updateSaveAll" />
+						settings="#{data.databaseSettings}" id="administratorsComponent"
+						styleClass="updateSaveAll" />
 				</p:tab>
 
 				<p:tab id="webServerTab">
 					<f:facet name="title">
 						<i class="fa fa-server" />
-						<h:outputText value=" WebServer" />
+						<h:outputText value=" Web Server" />
 					</f:facet>
 					<ic:com.axonivy.engine.config.ui.settings.component.WebServerComponent
-						settings="#{data.databaseSettings}" id="webServerComponent" styleClass="updateSaveAll" />
+						settings="#{data.databaseSettings}" id="webServerComponent"
+						styleClass="updateSaveAll" />
 				</p:tab>
 
 				<p:tab id="clusterTab"
@@ -67,7 +64,18 @@
 						<h:outputText value=" Cluster" />
 					</f:facet>
 					<ic:com.axonivy.engine.config.ui.settings.component.ClusterComponent
-						settings="#{data.databaseSettings}" id="clusterComponent" styleClass="updateSaveAll" />
+						settings="#{data.databaseSettings}" id="clusterComponent"
+						styleClass="updateSaveAll" />
+				</p:tab>
+
+				<p:tab id="summaryTab">
+					<f:facet name="title">
+						<i class="fa fa-list-alt" />
+						<h:outputText value=" Summary" />
+					</f:facet>
+					<ic:com.axonivy.engine.config.ui.settings.component.SummaryComponent
+						settings="#{data.databaseSettings}" id="summaryComponent"
+						styleClass="updateSaveAll" />
 				</p:tab>
 			</p:accordionPanel>
 			<br />

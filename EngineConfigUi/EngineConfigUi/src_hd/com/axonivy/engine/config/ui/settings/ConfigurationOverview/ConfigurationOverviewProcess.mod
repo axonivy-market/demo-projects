@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon May 01 13:39:54 CEST 2017]
+[>Created: Tue May 16 10:43:07 CEST 2017]
 157E2C1BEC4930AC 3.20 #module
 >Proto >Proto Collection #zClass
 ss0 ConfigurationOverviewProcess Big #zClass
@@ -26,6 +26,9 @@ ss0 @PushWFArc f7 '' #zField
 ss0 @RichDialogProcessStart f8 '' #zField
 ss0 @RichDialogProcessEnd f9 '' #zField
 ss0 @PushWFArc f10 '' #zField
+ss0 @RichDialogMethodStart f11 '' #zField
+ss0 @RichDialogProcessEnd f12 '' #zField
+ss0 @PushWFArc f13 '' #zField
 >Proto ss0 ss0 ConfigurationOverviewProcess #zField
 ss0 f0 guid 157E2C1BEDF33419 #txt
 ss0 f0 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
@@ -51,6 +54,7 @@ ss0 f1 @|RichDialogProcessEndIcon #fIcon
 ss0 f3 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
 ' #txt
 ss0 f3 actionTable 'out=in;
+out.activeTabIndex=0;
 out.databaseSettings=com.axon.ivy.engine.config.SystemDatabaseSettings.create();
 ' #txt
 ss0 f3 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
@@ -118,6 +122,37 @@ ss0 f9 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.Configur
 ss0 f9 211 243 26 26 0 12 #rect
 ss0 f9 @|RichDialogProcessEndIcon #fIcon
 ss0 f10 109 256 211 256 #arcP
+ss0 f11 guid 15C0B18249EAF4B3 #txt
+ss0 f11 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f11 method tabChange(org.primefaces.event.TabChangeEvent) #txt
+ss0 f11 disableUIEvents false #txt
+ss0 f11 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<org.primefaces.event.TabChangeEvent event> param = methodEvent.getInputArguments();
+' #txt
+ss0 f11 inActionCode 'import org.primefaces.component.accordionpanel.AccordionPanel;
+import org.primefaces.component.tabview.TabView;
+import org.primefaces.event.TabChangeEvent;
+
+TabChangeEvent event = param.event as TabChangeEvent;
+AccordionPanel tv = event.getComponent() as AccordionPanel;     
+out.activeTabIndex = tv.getChildren().indexOf(event.getTab());' #txt
+ss0 f11 outParameterDecl '<> result;
+' #txt
+ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>tabChange(Event)</name>
+        <nameStyle>16,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+ss0 f11 83 339 26 26 -49 15 #rect
+ss0 f11 @|RichDialogMethodStartIcon #fIcon
+ss0 f12 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f12 211 339 26 26 0 12 #rect
+ss0 f12 @|RichDialogProcessEndIcon #fIcon
+ss0 f13 109 352 211 352 #arcP
 >Proto ss0 .type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 >Proto ss0 .processKind HTML_DIALOG #txt
 >Proto ss0 -8 -8 16 16 16 26 #rect
@@ -130,3 +165,5 @@ ss0 f5 mainOut f7 tail #connect
 ss0 f7 head f6 mainIn #connect
 ss0 f8 mainOut f10 tail #connect
 ss0 f10 head f9 mainIn #connect
+ss0 f11 mainOut f13 tail #connect
+ss0 f13 head f12 mainIn #connect

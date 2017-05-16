@@ -69,12 +69,21 @@
 					</p:inputText>
 				</h:panelGrid>
 			</p:fieldset>
-			<p:commandButton id="savePortsButton" icon="fa fa-save" value="Save to Database"
-				actionListener="#{logic.save}" update="growl" />
 		</h:panelGrid>
-		<h:outputText rendered="#{!data.settings.connectionInfo.connectionOK}">
-		Please insert a valid System-Db-Connection!!
-	</h:outputText>
+		<br/>
+		
+		<p:commandButton id="savePortsButton" icon="fa fa-save"
+			value="Save to Database" actionListener="#{logic.save}"
+			update="growl"
+			rendered="#{data.settings.connectionInfo.connectionOK}" />
+		<p:commandButton id="webServerTabNextButton" value="Next"
+			rendered="#{data.settings.connectionInfo.connectionOK}"
+			icon="fa fa-arrow-circle-right" styleClass="next-button"
+			onclick="PF('accordionPanel').select(4);" />
+		
+		<ic:com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent
+					id="connectionStateComponent" settings="#{data.settings}"
+					rendered="#{!data.settings.connectionInfo.connectionOK}"/>
 	</h:form>
 </cc:implementation>
 </html>

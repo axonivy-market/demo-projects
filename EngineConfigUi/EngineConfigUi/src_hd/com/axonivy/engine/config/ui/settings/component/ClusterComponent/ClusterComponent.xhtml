@@ -48,7 +48,12 @@
 			</p:dataTable>
 			<h:column>
 				<p:commandButton id="saveClusterButton" icon="fa fa-save"
-					value="Save to Database" actionListener="#{logic.save}" update="growl" />
+					value="Save to Database" actionListener="#{logic.save}"
+					update="growl" />
+				<p:commandButton id="clusterTabNextButton" value="Next"
+					disabled="#{empty data.adminManager.clusterNodes}"
+					icon="fa fa-arrow-circle-right" styleClass="next-button"
+					onclick="PF('accordionPanel').select(5);" />
 			</h:column>
 		</h:panelGrid>
 		<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
@@ -58,7 +63,8 @@
 
 
 	<p:dialog widgetVar="addLocalNodeDialog" id="addLocalNodeDialog"
-		header="New Local Node" modal="true" appendTo="@(body)" closeOnEscape="true">
+		header="New Local Node" modal="true" appendTo="@(body)"
+		closeOnEscape="true">
 		<h:form id="addLocalNodeForm">
 			<h:panelGrid columns="2">
 				<p:outputLabel value="Host :" for="newHost" />

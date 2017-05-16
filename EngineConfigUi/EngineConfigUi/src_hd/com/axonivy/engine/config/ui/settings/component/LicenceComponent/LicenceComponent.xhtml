@@ -14,16 +14,26 @@
 <cc:implementation>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-4 col-sm-4">
+			<div class="col-xs-6">
 				<ic:com.axonivy.engine.config.ui.settings.component.LicenceInfoComponent
 					id="licenceInfosComponent" />
 			</div>
-			<div class="col-md-3 col-sm-3">
+			<div class="col-xs-4">
 				<br />
 				<p:commandButton id="details" value="Details" icon="fa fa-info"
-					onclick="PF('licenceDetails').show()" />
+					onclick="PF('licenceDetails').show()"
+					disabled="#{licenceBean.demo}" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-5">
 				<ic:com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent
 					id="licenceUploadComponent" />
+			</div>
+			<div class="col-xs-5" style="float: right">
+				<p:commandButton id="systemDatabaseTabNextButton" value="Next"
+					icon="fa fa-arrow-circle-right" styleClass="next-button"
+					onclick="PF('accordionPanel').select(1);" />
 			</div>
 		</div>
 	</div>

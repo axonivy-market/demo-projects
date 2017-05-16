@@ -51,12 +51,30 @@
 				<p:commandButton id="saveAdminsButton" icon="fa fa-save"
 					value="Save to Database" actionListener="#{logic.saveAdmins}"
 					update="growl" />
+				<p:commandButton id="adminsTabNextButton" value="Next"
+					icon="fa fa-arrow-circle-right" styleClass="next-button"
+					update=":accordionPanel"
+					oncomplete="if(#{not empty data.administratorManager.administrators})
+					PF('accordionPanel').select(3); else PF('nextStepAdminsDialog').show();" />
 			</h:column>
 		</h:panelGrid>
-		<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
-		Please insert a valid System-Db-Connection!!
-	</h:outputText>
+		<ic:com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent
+					id="connectionStateComponent" settings="#{data.settings}"
+					rendered="#{!data.connectionInfo.connectionOK}"/>
 	</h:form>
+
+	<p:dialog widgetVar="nextStepAdminsDialog" id="nextStepAdminsDialog"
+		header="Administrator required" modal="true"
+		closeOnEscape="true">
+		<h:outputText value="Please configure at least one Administrator"/>
+		<br />
+		<br />
+		<p:commandButton value="Add Administrator" id="addAdminButton"
+			icon="fa fa-plus-circle" update="nextStepAdminsDialog"
+			oncomplete="PF('addAdminDialog').show()" />
+		<p:commandButton value="Cancel" id="cancelAdminButton"
+			icon="fa fa-times" onclick="PF('nextStepAdminsDialog').hide()" />
+	</p:dialog>
 
 	<p:dialog widgetVar="addAdminDialog" id="addAdminDialog"
 		header="New Administrator" modal="true" closeOnEscape="true">
@@ -79,7 +97,8 @@
 				value="Add new Administrator" icon="fa fa-plus-circle"
 				oncomplete="if(args &amp;&amp; !args.validationFailed) PF('addAdminDialog').hide();"
 				actionListener="#{logic.addNewAdmin}"
-				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:addAdminForm" />
+				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:addAdminForm,
+				 :#{cc.clientId}:adminManagerForm:adminsTabNextButton" />
 		</h:form>
 	</p:dialog>
 

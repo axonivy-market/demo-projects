@@ -5,9 +5,13 @@ Classes overriding primefaces' css
 	padding-left: 0;
 }
 
+.ui-fileupload-content {
+	display: none;
+}
+
 .ui-growl-item-container {
-    opacity: 0.95 !important;
-    filter: alpha(opacity=95) !important;
+	opacity: 0.95 !important;
+	filter: alpha(opacity = 95) !important;
 }
 
 .ui-growl-icon-close {
@@ -26,6 +30,10 @@ Classes overriding primefaces' css
 .ui-growl-message {
 	width: 230px;
 	padding: 0;
+}
+
+label {
+	margin-bottom: 0;
 }
 
 /* 
@@ -93,4 +101,13 @@ Own Classes
 
 .iconOnlyLink:hover {
 	text-decoration: none;
+}
+
+.warning-text {
+	color: #9F6000;
+}
+
+.next-button {
+	float: right;
+	right: 10px;
 }

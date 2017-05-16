@@ -12,6 +12,9 @@
 
 <cc:implementation>
 	<h:form id="systemDatabaseForm">
+		<ic:com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent
+					id="connectionStateComponent" settings="#{data.settings}"/>
+	
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-5">
@@ -99,14 +102,42 @@
 					disabled="#{data.settings.connectionInfo.connectionOK || data.settings.connectionInfo.canConvert()}" />
 				<p:commandButton id="convertDbButton" value="Convert Database"
 					styleClass="configChanged" icon="fa fa-database"
-					actionListener="#{logic.convertDb}"
 					oncomplete="PF('convertDatabaseDialog').show()"
 					disabled="#{!data.settings.connectionInfo.canConvert()}"
 					update=":#{cc.clientId}:convertDatabaseDialog, @(.configChanged)" />
+				<p:commandButton id="systemDatabaseTabNextButton" value="Next"
+					icon="fa fa-arrow-circle-right"
+					styleClass="next-button , configChanged"
+					update=":accordionPanel, #{cc.clientId}:nextStepDialog"
+					actionListener="#{nextStepDialogBean.checkNextStepConnectionProblem(data.settings)}"
+					oncomplete="PF('nextStepDialog').show();" />
 			</div>
 		</div>
 		<p:defaultCommand target="saveConfigButton" />
 	</h:form>
+
+	<p:dialog id="nextStepDialog" widgetVar="nextStepDialog"
+		header="#{nextStepDialogBean.title}" modal="true" closeOnEscape="true">
+		<h:outputText value="#{nextStepDialogBean.message}" />
+		<br />
+		<br />
+		<p:commandButton value="Next" icon="fa fa-arrow-circle-right"
+			id="nextButtonCreate" actionListener="#{logic.applyProperties}"
+			oncomplete="PF('nextStepDialog').hide(); PF('createDatabaseDialog').show();"
+			update=":#{cc.clientId}:createDatabaseDialog"
+			rendered="#{nextStepDialogBean.step eq 'createDb'}" />
+		<p:commandButton value="Next" icon="fa fa-arrow-circle-right"
+			id="nextButtonConvert"
+			oncomplete="PF('nextStepDialog').hide(); PF('convertDatabaseDialog').show();"
+			rendered="#{nextStepDialogBean.step eq 'convertDb'}" />
+		<p:commandButton value="Next" icon="fa fa-arrow-circle-right"
+			id="nextButtonWrongConfig" onclick="PF('nextStepDialog').hide();"
+			rendered="#{nextStepDialogBean.step eq 'wrongLogin' or 'noPassword' or 'wrongPassword' or 'wrongHost'}" />
+		<p:commandButton value="Next" icon="fa fa-arrow-circle-right"
+			id="nextButtonConnectionOk"
+			oncomplete="PF('nextStepDialog').hide(); PF('accordionPanel').select(2);"
+			rendered="#{nextStepDialogBean.step eq 'connectionOk'}" />
+	</p:dialog>
 
 	<p:dialog id="createDatabaseDialog" widgetVar="createDatabaseDialog"
 		header="Create System Database" modal="true" closeOnEscape="true">
@@ -137,14 +168,15 @@
 			<p:commandButton value="Create Database"
 				actionListener="#{logic.createDatabase}"
 				update=":#{cc.clientId}:createDatabaseDialog, :#{cc.clientId}:creatingDatabaseForm:doUpdate"
-				onsuccess="PF('creatingDatabaseDialog').show()"
+				oncomplete="if (args &amp;&amp; !args.validationFailed) PF('creatingDatabaseDialog').show()"
 				id="dialogCreateDbButton" />
 		</h:form>
 	</p:dialog>
 
 	<p:dialog id="creatingDatabaseDialog"
 		widgetVar="creatingDatabaseDialog" header="Creating System Database"
-		dynamic="true" modal="true" onShow="PF('creatingOutputPoll').start()" closeOnEscape="true">
+		dynamic="true" modal="true" onShow="PF('creatingOutputPoll').start()"
+		closeOnEscape="true">
 
 		<h:form id="creatingDatabaseForm">
 			<p:poll autoStart="false" id="creatingOutputPoll"
@@ -182,13 +214,27 @@
 	</p:dialog>
 
 	<p:dialog id="convertDatabaseDialog" widgetVar="convertDatabaseDialog"
+		header="Do you really want to convert?" dynamic="true" modal="true"
+		closeOnEscape="true">
+		<h:form id="convertDatabaseForm">
+			<p:commandButton value="Yes, convert" icon="fa fa-refresh"
+				actionListener="#{logic.convertDb}"
+				update="@(.configChanged), :#{cc.clientId}:convertingDatabaseForm:doUpdateConvertion"
+				oncomplete="PF('convertDatabaseDialog').hide(); PF('convertingDatabaseDialog').show();" />
+			<p:commandButton value="Cancel" icon="fa fa-times"
+				oncomplete="PF('convertDatabaseDialog').hide();" />
+		</h:form>
+	</p:dialog>
+
+	<p:dialog id="convertingDatabaseDialog"
+		widgetVar="convertingDatabaseDialog"
 		header="Converting System Database" dynamic="true" modal="true"
 		onShow="PF('convertingOutputPoll').start()" closeOnEscape="true">
 
-		<h:form id="convertDatabaseForm">
+		<h:form id="convertingDatabaseForm">
 			<p:poll autoStart="false" id="convertingOutputPoll"
 				widgetVar="convertingOutputPoll"
-				update="convertDatabaseForm:doUpdateConvertion" interval="1"
+				update="convertingDatabaseForm:doUpdateConvertion" interval="1"
 				stop="#{!data.progressAction.running}" />
 			<h:panelGrid id="doUpdateConvertion" columns="1"
 				styleClass="full-width">
@@ -217,8 +263,8 @@
 	</p:dialog>
 
 	<p:dialog widgetVar="additionalPropertiesDialog"
-		id="additionalPropertiesDialog" closable="true"
-		modal="true" width="50%" header="Additional Properties" closeOnEscape="true">
+		id="additionalPropertiesDialog" closable="true" modal="true"
+		width="50%" header="Additional Properties" closeOnEscape="true">
 		<p:messages id="messages" />
 		<h:form id="propertiesForm">
 			<h:panelGrid columns="2" id="newPropertyPanelGrid">

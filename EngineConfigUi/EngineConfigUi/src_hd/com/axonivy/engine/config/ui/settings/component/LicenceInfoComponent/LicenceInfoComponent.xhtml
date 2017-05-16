@@ -8,7 +8,12 @@
 
 <cc:implementation>
 	<h:form id="licenceInfoForm">
-		<h:panelGrid columns="2">
+		<strong> 
+		<h:outputText rendered="#{licenceBean.demo}"
+				value="This is a demo-licence. Please upload a valid licence."
+				styleClass="warning-text" />
+		</strong>
+		<h:panelGrid columns="2" rendered="#{!licenceBean.demo}">
 			<h:panelGrid columns="1">
 				<h:column>
 					<h:outputText value="Owner" styleClass="licence-info-label" />
