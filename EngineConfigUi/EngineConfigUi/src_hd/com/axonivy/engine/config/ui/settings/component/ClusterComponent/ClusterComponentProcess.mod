@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon May 01 12:11:25 CEST 2017]
+[>Created: Mon May 22 13:42:12 CEST 2017]
 15AA3C30A9139F49 3.20 #module
 >Proto >Proto Collection #zClass
 Cs0 ClusterComponentProcess Big #zClass
@@ -24,10 +24,6 @@ Cs0 @PushWFArc f20 '' #zField
 Cs0 @RichDialogMethodStart f13 '' #zField
 Cs0 @RichDialogProcessEnd f17 '' #zField
 Cs0 @PushWFArc f4 '' #zField
-Cs0 @GridStep f5 '' #zField
-Cs0 @RichDialogProcessStart f6 '' #zField
-Cs0 @PushWFArc f21 '' #zField
-Cs0 @PushWFArc f3 '' #zField
 Cs0 @PushWFArc f7 '' #zField
 Cs0 @RichDialogMethodStart f9 '' #zField
 Cs0 @PushWFArc f18 '' #zField
@@ -148,52 +144,13 @@ Cs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f13 83 179 26 26 -36 15 #rect
 Cs0 f13 @|RichDialogMethodStartIcon #fIcon
 Cs0 f17 type com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData #txt
-Cs0 f17 339 211 26 26 0 12 #rect
+Cs0 f17 339 179 26 26 0 12 #rect
 Cs0 f17 @|RichDialogProcessEndIcon #fIcon
 Cs0 f4 expr out #txt
-Cs0 f4 109 192 352 211 #arcP
-Cs0 f4 1 352 192 #addKink
-Cs0 f4 0 0.6288002244612958 0 0 #arcLabel
-Cs0 f5 actionDecl 'com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData out;
-' #txt
-Cs0 f5 actionTable 'out=in;
-' #txt
-Cs0 f5 actionCode in.settings.saveClusterNodes(); #txt
-Cs0 f5 type com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData #txt
-Cs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Save Local Nodes</name>
-        <nameStyle>16,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Cs0 f5 168 234 112 44 -50 -8 #rect
-Cs0 f5 @|StepIcon #fIcon
-Cs0 f6 guid 15BB4C64C05317B2 #txt
-Cs0 f6 type com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData #txt
-Cs0 f6 actionDecl 'com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData out;
-' #txt
-Cs0 f6 actionTable 'out=in;
-' #txt
-Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>save</name>
-    </language>
-</elementInfo>
-' #txt
-Cs0 f6 83 243 26 26 -13 12 #rect
-Cs0 f6 @|RichDialogProcessStartIcon #fIcon
-Cs0 f21 expr out #txt
-Cs0 f21 109 256 168 256 #arcP
-Cs0 f3 expr out #txt
-Cs0 f3 280 256 352 237 #arcP
-Cs0 f3 1 352 256 #addKink
-Cs0 f3 0 0.8719990986293873 0 0 #arcLabel
+Cs0 f4 109 192 339 192 #arcP
+Cs0 f4 0 0.6211319290410361 0 0 #arcLabel
 Cs0 f7 expr out #txt
-Cs0 f7 291 128 352 211 #arcP
+Cs0 f7 291 128 352 179 #arcP
 Cs0 f7 1 352 128 #addKink
 Cs0 f7 0 0.8300232385369237 0 0 #arcLabel
 Cs0 f9 guid 15BB4CE685E872B1 #txt
@@ -215,11 +172,11 @@ Cs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f9 83 307 26 26 -74 15 #rect
+Cs0 f9 83 243 26 26 -74 15 #rect
 Cs0 f9 @|RichDialogMethodStartIcon #fIcon
 Cs0 f18 expr out #txt
-Cs0 f18 109 320 352 237 #arcP
-Cs0 f18 1 352 320 #addKink
+Cs0 f18 109 256 352 205 #arcP
+Cs0 f18 1 352 256 #addKink
 Cs0 f18 0 0.8067862948632382 0 0 #arcLabel
 >Proto Cs0 .type com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
@@ -231,10 +188,6 @@ Cs0 f16 mainOut f20 tail #connect
 Cs0 f20 head f19 mainIn #connect
 Cs0 f13 mainOut f4 tail #connect
 Cs0 f4 head f17 mainIn #connect
-Cs0 f6 mainOut f21 tail #connect
-Cs0 f21 head f5 mainIn #connect
-Cs0 f5 mainOut f3 tail #connect
-Cs0 f3 head f17 mainIn #connect
 Cs0 f19 mainOut f7 tail #connect
 Cs0 f7 head f17 mainIn #connect
 Cs0 f9 mainOut f18 tail #connect
