@@ -48,9 +48,6 @@
 				</p:column>
 			</p:dataTable>
 			<h:column>
-				<p:commandButton id="saveAdminsButton" icon="fa fa-save"
-					value="Save to Database" actionListener="#{logic.saveAdmins}"
-					update="growl" />
 				<p:commandButton id="adminsTabNextButton" value="Next"
 					icon="fa fa-arrow-circle-right" styleClass="next-button"
 					update=":accordionPanel"
@@ -59,14 +56,14 @@
 			</h:column>
 		</h:panelGrid>
 		<ic:com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent
-					id="connectionStateComponent" settings="#{data.settings}"
-					rendered="#{!data.connectionInfo.connectionOK}"/>
+			id="connectionStateComponent" settings="#{data.settings}"
+			rendered="#{!data.connectionInfo.connectionOK}" />
+		<p:defaultCommand target="adminsTabNextButton" />
 	</h:form>
 
 	<p:dialog widgetVar="nextStepAdminsDialog" id="nextStepAdminsDialog"
-		header="Administrator required" modal="true"
-		closeOnEscape="true">
-		<h:outputText value="Please configure at least one Administrator"/>
+		header="Administrator required" modal="true" closeOnEscape="true">
+		<h:outputText value="Please configure at least one Administrator" />
 		<br />
 		<br />
 		<p:commandButton value="Add Administrator" id="addAdminButton"

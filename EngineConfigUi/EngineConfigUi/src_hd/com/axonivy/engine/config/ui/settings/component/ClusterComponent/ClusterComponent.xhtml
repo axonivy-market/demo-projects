@@ -47,9 +47,6 @@
 				</p:column>
 			</p:dataTable>
 			<h:column>
-				<p:commandButton id="saveClusterButton" icon="fa fa-save"
-					value="Save to Database" actionListener="#{logic.save}"
-					update="growl" />
 				<p:commandButton id="clusterTabNextButton" value="Next"
 					disabled="#{empty data.adminManager.clusterNodes}"
 					icon="fa fa-arrow-circle-right" styleClass="next-button"
@@ -59,7 +56,8 @@
 		</h:panelGrid>
 		<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
 		Please insert a valid System-Db-Connection!!
-	</h:outputText>
+		</h:outputText>
+		<p:defaultCommand target="clusterTabNextButton" />
 	</h:form>
 
 	<p:dialog widgetVar="nextStepClusterDialog" id="nextStepClusterDialog"

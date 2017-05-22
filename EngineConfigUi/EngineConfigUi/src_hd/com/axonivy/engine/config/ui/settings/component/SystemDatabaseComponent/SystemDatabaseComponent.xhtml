@@ -92,8 +92,6 @@
 			</div>
 			<br />
 			<div class="row">
-				<p:commandButton id="saveConfigButton" icon="fa fa-save"
-					value="Save" actionListener="#{logic.saveConfig}" update="growl" />
 				<p:commandButton id="createDatabaseButton" value="Create Database"
 					actionListener="#{logic.applyProperties}"
 					oncomplete="PF('createDatabaseDialog').show()"
@@ -114,7 +112,7 @@
 					 else PF('nextStepDialog').show();" />
 			</div>
 		</div>
-		<p:defaultCommand target="saveConfigButton" />
+		<p:defaultCommand target="systemDatabaseTabNextButton" />
 	</h:form>
 
 	<p:dialog id="nextStepDialog" widgetVar="nextStepDialog"
