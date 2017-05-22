@@ -13,8 +13,8 @@
 <cc:implementation>
 	<h:form id="systemDatabaseForm">
 		<ic:com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent
-					id="connectionStateComponent" settings="#{data.settings}"/>
-	
+			id="connectionStateComponent" settings="#{data.settings}" />
+
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-5">
@@ -110,7 +110,8 @@
 					styleClass="next-button , configChanged"
 					update=":accordionPanel, #{cc.clientId}:nextStepDialog"
 					actionListener="#{nextStepDialogBean.checkNextStepConnectionProblem(data.settings)}"
-					oncomplete="PF('nextStepDialog').show();" />
+					oncomplete="if(#{data.settings.connectionInfo.connectionOK})PF('accordionPanel').select(2);
+					 else PF('nextStepDialog').show();" />
 			</div>
 		</div>
 		<p:defaultCommand target="saveConfigButton" />

@@ -53,7 +53,8 @@
 				<p:commandButton id="clusterTabNextButton" value="Next"
 					disabled="#{empty data.adminManager.clusterNodes}"
 					icon="fa fa-arrow-circle-right" styleClass="next-button"
-					onclick="PF('accordionPanel').select(5);" />
+					onclick="if(#{empty data.adminManager.clusterNodes}) PF('nextStepClusterDialog').show();
+					 else PF('accordionPanel').select(5);" />
 			</h:column>
 		</h:panelGrid>
 		<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
@@ -61,6 +62,17 @@
 	</h:outputText>
 	</h:form>
 
+	<p:dialog widgetVar="nextStepClusterDialog" id="nextStepClusterDialog"
+		header="Node required" modal="true" closeOnEscape="true">
+		<h:outputText value="Please configure at least one Node" />
+		<br />
+		<br />
+		<p:commandButton value="Add Node" id="addNodeButton"
+			icon="fa fa-plus-circle" update="nextStepAdminsDialog"
+			oncomplete="PF('addLocalNodeDialog').show()" />
+		<p:commandButton value="Cancel" id="cancelClusterButton"
+			icon="fa fa-times" onclick="PF('nextStepClusterDialog').hide()" />
+	</p:dialog>
 
 	<p:dialog widgetVar="addLocalNodeDialog" id="addLocalNodeDialog"
 		header="New Local Node" modal="true" appendTo="@(body)"
