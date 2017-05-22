@@ -22,7 +22,7 @@ public class WebTestWebServer extends BaseWebTest
     createMySqlSysDb();
     testConnection();
 
-    toggleTab("WebServer");
+    toggleTab("Web Server");
     assertThat(prime.selectBooleanCheckbox(By.id(
             "accordionPanel:webServerComponent:webServerForm:HTTPEnabledCheckbox")).isChecked())
             .isTrue();
@@ -31,13 +31,13 @@ public class WebTestWebServer extends BaseWebTest
             portInputLocator, "8080"));
 
     clearAndSend(portInputLocator, "1234");
-    driver.findElement(By.id("accordionPanel:webServerComponent:webServerForm:savePortsButton")).click();
+    driver.findElement(By.id("saveAll")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("growl_container"),
             "WebServer config was saved"));
     openConfigUi();
     toggleTab("System Database");
     testConnection();
-    toggleTab("WebServer");
+    toggleTab("Web Server");
     await(ExpectedConditions.textToBePresentInElementValue(portInputLocator, "1234"));
   }
 }

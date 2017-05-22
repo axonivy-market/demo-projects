@@ -68,9 +68,12 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   private void testConnectionOldDb()
   {
     driver.findElement(
-            By.id("connectionForm:connectionStateComponent:checkConnectionButton")).click();
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("connectionForm:connectionStateComponent:connectionState"), "Database too old"));
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
+            .click();
+    await(ExpectedConditions
+            .textToBePresentInElementLocated(
+                    By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:connectionState"),
+                    "Database too old"));
   }
 
   private void setOldDbConfigUi()
@@ -78,8 +81,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     setMySqlConfig();
     super.DBNAME = OLD_DB_NAME;
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"), DBNAME);
-    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:saveConfigButton"))
-            .click();
+    driver.findElement(By.id("saveAll")).click();
   }
 
   private void tryCreatingOldDb(ConfigData configData) throws Exception
@@ -170,7 +172,8 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "ZugTstDbsMss");
 
     driver.findElement(
-            By.id("connectionForm:connectionStateComponent:checkConnectionButton")).click();
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
+            .click();
   }
 
   private void createSysDbMSSQL()
@@ -239,8 +242,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
             .setChecked();
     DBNAME = "zugtstdbsora";
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"), DBNAME);
-    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:saveConfigButton"))
-            .click();
+    driver.findElement(By.id("saveAll")).click();
   }
 
   private void createSysDbOracle()

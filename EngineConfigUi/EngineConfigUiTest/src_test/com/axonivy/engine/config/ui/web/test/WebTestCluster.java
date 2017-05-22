@@ -39,7 +39,7 @@ public class WebTestCluster extends BaseWebTest
   public void testRemoveLocalNode()
   {
     testAddLocalNode();
-    driver.findElement(By.id("accordionPanel:clusterComponent:clusterNodeForm:saveClusterButton")).click();
+    driver.findElement(By.id("saveAll")).click();
     removeLocalNode();
   }
 

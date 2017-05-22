@@ -63,17 +63,17 @@ public class BaseWebTest
 
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "zugtstdbsmys");
 
-    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:saveConfigButton"))
-            .click();
+    driver.findElement(By.id("saveAll")).click();
   }
 
   protected void createMySqlSysDb()
   {
     driver.findElement(
-            By.id("connectionForm:connectionStateComponent:checkConnectionButton")).click();
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
+            .click();
     await(ExpectedConditions
             .textToBePresentInElementLocated(
-                    By.id("connectionForm:connectionStateComponent:connectionState"),
+                    By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:connection"),
                     "failed"));
     openDbCreationDialog();
 
@@ -133,12 +133,11 @@ public class BaseWebTest
 
     DBNAME = "tmp_engineConfigUi_testing_" + RandomUtils.nextInt(11, Integer.MAX_VALUE);
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"), DBNAME);
-    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:saveConfigButton"))
+    driver.findElement(By.id("saveAll"))
             .click();
 
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:usernameInput"), USERNAME);
-    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:saveConfigButton"))
-            .click();
+    driver.findElement(By.id("saveAll")).click();
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:passwordInput"), PASSWORD);
   }
 
@@ -159,12 +158,24 @@ public class BaseWebTest
 
   protected void testConnection()
   {
+    openTab("System Database");
     driver.findElement(
-            By.id("connectionForm:connectionStateComponent:checkConnectionButton")).click();
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
+            .click();
     await(ExpectedConditions
             .textToBePresentInElementLocated(
-                    By.id("connectionForm:connectionStateComponent:connectionState"),
+                    By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:connectionState"),
                     "Connected"));
+  }
+
+  protected void openTab(String tabName)
+  {
+    Accordion accordion = prime.accordion(By.id("accordionPanel"));
+    if (accordion.isTabOpen(tabName))
+    {
+      return;
+    }
+    accordion.toggleTab(tabName);
   }
 
   protected <T> T await(ExpectedCondition<T> condition)

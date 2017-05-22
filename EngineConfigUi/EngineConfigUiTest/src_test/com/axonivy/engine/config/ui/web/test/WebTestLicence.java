@@ -1,11 +1,13 @@
 package com.axonivy.engine.config.ui.web.test;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestLicence extends BaseWebTest
 {
+  @Ignore
   @Test
   public void testLicenceDetails() throws Exception
   {

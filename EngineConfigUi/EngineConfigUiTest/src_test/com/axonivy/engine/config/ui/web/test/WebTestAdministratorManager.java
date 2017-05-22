@@ -81,8 +81,7 @@ public class WebTestAdministratorManager extends BaseWebTest
 
   private void saveAdmins()
   {
-    driver.findElement(By.id("accordionPanel:administratorsComponent:adminManagerForm:saveAdminsButton"))
-            .click();
+    driver.findElement(By.id("saveAll")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("growl_container"),
             "Administrators config were saved"));
   }
