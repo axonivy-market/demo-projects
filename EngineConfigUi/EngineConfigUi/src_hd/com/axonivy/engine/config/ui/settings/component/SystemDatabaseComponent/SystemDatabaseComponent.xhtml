@@ -20,7 +20,7 @@
 				<div class="col-md-5">
 					<h:panelGrid columns="2" cellpadding="1">
 						<p:outputLabel for="databaseTypeDropdown" id="databaseTypeLabel"
-							value="Database: " />
+							value="Database" />
 						<p:selectOneMenu id="databaseTypeDropdown"
 							value="#{data.configData.product}" converter="ivy.ListItem">
 							<f:selectItems value="#{data.databaseProducts}" var="database"
@@ -31,7 +31,7 @@
 						</p:selectOneMenu>
 
 						<p:outputLabel for="databaseDriverDropdown"
-							id="databaseDriverLabel" value="Driver: " />
+							id="databaseDriverLabel" value="Driver" />
 						<p:selectOneMenu id="databaseDriverDropdown"
 							value="#{data.configData.driver}" converter="ivy.ListItem">
 							<f:selectItems value="#{data.databaseDrivers}" var="driver"
@@ -39,13 +39,13 @@
 							<p:ajax update="portInput, @(.configChanged)"
 								listener="#{logic.updateDriver}" />
 						</p:selectOneMenu>
-						<p:outputLabel for="hostInput" id="hostLabel" value="Host:" />
+						<p:outputLabel for="hostInput" id="hostLabel" value="Host" />
 						<p:inputText id="hostInput" value="#{data.configData.host}"
 							styleClass="important-sysdb-input">
 							<p:ajax event="keyup" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:inputText>
-						<p:outputLabel for="portInput" id="portLabel" value="Port:" />
+						<p:outputLabel for="portInput" id="portLabel" value="Port" />
 						<h:column>
 							<p:inputText id="portInput" styleClass="port-input"
 								value="#{data.configData.port}" disabled="#{data.defaultPort}">
@@ -60,7 +60,7 @@
 							</p:selectBooleanCheckbox>
 						</h:column>
 						<p:outputLabel for="databaseNameInput" id="databaseNameLabel"
-							value="#{ivy.cms.co('/com.axonivy.engineconfig.ui/nameLabel/' += data.configData.product)}:" />
+							value="#{ivy.cms.co('/com.axonivy.engineconfig.ui/nameLabel/' += data.configData.product)}" />
 						<p:inputText id="databaseNameInput"
 							value="#{data.configData.databaseName}"
 							styleClass="important-sysdb-input">
@@ -68,14 +68,14 @@
 								listener="#{logic.change}" />
 						</p:inputText>
 						<p:outputLabel for="usernameInput" id="usernameLabel"
-							value="Username:" />
+							value="Username" />
 						<p:inputText id="usernameInput"
 							value="#{data.configData.username}">
 							<p:ajax event="keyup" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:inputText>
 						<p:outputLabel for="passwordInput" id="passwordLabel"
-							value="Password:" />
+							value="Password" />
 						<p:password id="passwordInput" value="#{data.configData.password}"
 							redisplay="true">
 							<p:ajax event="keyup" update="@(.configChanged)"
@@ -152,7 +152,7 @@
 					<p:row>
 						<p:column>
 							<p:outputLabel for="creationParam"
-								value="#{ivy.cms.co('/com.axonivy.engineconfig.ui/creationParameters/' += parameter.name)}: " />
+								value="#{ivy.cms.co('/com.axonivy.engineconfig.ui/creationParameters/' += parameter.name)}" />
 						</p:column>
 						<p:column>
 							<p:inputText
@@ -167,8 +167,8 @@
 			<br />
 			<p:commandButton value="Create Database"
 				actionListener="#{logic.createDatabase}"
-				update=":#{cc.clientId}:createDatabaseDialog, :#{cc.clientId}:creatingDatabaseForm:doUpdate"
-				oncomplete="if (args &amp;&amp; !args.validationFailed) PF('creatingDatabaseDialog').show()"
+				update="createDatabaseForm, :#{cc.clientId}:creatingDatabaseForm:doUpdate"
+				oncomplete="if (args &amp;&amp; !args.validationFailed) {PF('createDatabaseDialog').hide(); PF('creatingDatabaseDialog').show();}"
 				id="dialogCreateDbButton" />
 		</h:form>
 	</p:dialog>
@@ -217,8 +217,8 @@
 		header="Do you really want to convert?" dynamic="true" modal="true"
 		closeOnEscape="true">
 		<h:form id="convertDatabaseForm">
-			<p:commandButton id="confirmConvertButton" value="Yes, convert" icon="fa fa-refresh"
-				actionListener="#{logic.convertDb}"
+			<p:commandButton id="confirmConvertButton" value="Yes, convert"
+				icon="fa fa-refresh" actionListener="#{logic.convertDb}"
 				update="@(.configChanged), :#{cc.clientId}:convertingDatabaseForm:doUpdateConvertion"
 				oncomplete="PF('convertDatabaseDialog').hide(); PF('convertingDatabaseDialog').show();" />
 			<p:commandButton value="Cancel" icon="fa fa-times"
@@ -268,10 +268,10 @@
 		<p:messages id="messages" />
 		<h:form id="propertiesForm">
 			<h:panelGrid columns="2" id="newPropertyPanelGrid">
-				<p:outputLabel value="Key: " for="newPropertyKey" />
+				<p:outputLabel value="Key" for="newPropertyKey" />
 				<p:inputText value="#{data.newPropertyKey}" id="newPropertyKey"
 					required="true" styleClass="important-sysdb-input" />
-				<p:outputLabel value="Value: " for="newPropertyValue" />
+				<p:outputLabel value="Value" for="newPropertyValue" />
 				<p:inputText value="#{data.newPropertyValue}" id="newPropertyValue"
 					required="true" styleClass="important-sysdb-input" />
 				<br />

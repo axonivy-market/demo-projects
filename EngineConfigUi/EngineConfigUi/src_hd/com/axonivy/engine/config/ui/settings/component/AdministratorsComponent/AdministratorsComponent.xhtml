@@ -62,9 +62,10 @@
 	<p:dialog widgetVar="addAdminDialog" id="addAdminDialog"
 		header="New Administrator" modal="true" closeOnEscape="true">
 		<h:form id="addAdminForm">
-			<p:messages autoUpdate="true" />
-			<p><h:outputText value="Please add at least one administrator" 
-				rendered="#{empty data.administratorManager.administrators}" /></p>
+			<p>
+				<h:outputText value="Please add at least one administrator"
+					rendered="#{empty data.administratorManager.administrators}" />
+			</p>
 			<h:panelGrid columns="2">
 				<p:outputLabel value="Name:" for="newName" />
 				<p:inputText id="newName" value="#{data.newAdmin.name}"
@@ -78,8 +79,8 @@
 					required="true" />
 			</h:panelGrid>
 			<br />
-			<p:commandButton id="addAdminDialogButton"
-				value="Add Administrator" icon="fa fa-plus-circle"
+			<p:commandButton id="addAdminDialogButton" value="Add Administrator"
+				icon="fa fa-plus-circle"
 				oncomplete="if(args &amp;&amp; !args.validationFailed) PF('addAdminDialog').hide();"
 				actionListener="#{logic.addNewAdmin}"
 				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:addAdminForm,
