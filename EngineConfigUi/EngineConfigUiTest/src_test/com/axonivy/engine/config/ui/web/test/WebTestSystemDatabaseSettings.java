@@ -57,6 +57,11 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:convertDbButton"))
             .click();
     await(ExpectedConditions
+            .elementToBeClickable(By
+                    .id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:confirmConvertButton")));
+    driver.findElement(
+            By.id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:confirmConvertButton")).click();
+    await(ExpectedConditions
             .textToBePresentInElementLocated(
                     By.id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:finishMessageConvertion"),
                     "Successfully Finished"));
