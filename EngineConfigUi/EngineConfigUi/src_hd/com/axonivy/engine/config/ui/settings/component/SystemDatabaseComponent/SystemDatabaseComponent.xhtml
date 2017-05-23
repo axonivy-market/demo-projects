@@ -84,7 +84,7 @@
 					</h:panelGrid>
 					<br />
 					<p:commandButton
-						value="Additional Properties 
+						value="Additional Properties  
 						#{helperBean.getPropertiesSize(data.configData.additionalProperties)}"
 						id="additionalPropertiesButton" icon="fa fa-plus-circle"
 						onclick="PF('additionalPropertiesDialog').show()" />
@@ -120,18 +120,19 @@
 		<h:outputText value="#{nextStepDialogBean.message}" />
 		<br />
 		<br />
-		<p:commandButton value="Next" icon="fa fa-arrow-circle-right"
+		<p:commandButton value="Create" icon="fa fa-arrow-circle-right"
 			id="nextButtonCreate" actionListener="#{logic.applyProperties}"
 			oncomplete="PF('nextStepDialog').hide(); PF('createDatabaseDialog').show();"
 			update=":#{cc.clientId}:createDatabaseDialog"
 			rendered="#{nextStepDialogBean.step eq 'createDb'}" />
-		<p:commandButton value="Next" icon="fa fa-arrow-circle-right"
+		<p:commandButton value="Convert" icon="fa fa-arrow-circle-right"
 			id="nextButtonConvert"
 			oncomplete="PF('nextStepDialog').hide(); PF('convertDatabaseDialog').show();"
 			rendered="#{nextStepDialogBean.step eq 'convertDb'}" />
-		<p:commandButton value="Next" icon="fa fa-arrow-circle-right"
+		<p:commandButton value="Correct" icon="fa fa-arrow-circle-right"
 			id="nextButtonWrongConfig" onclick="PF('nextStepDialog').hide();"
-			rendered="#{nextStepDialogBean.step eq 'wrongLogin' or 'noPassword' or 'wrongPassword' or 'wrongHost'}" />
+			rendered="#{nextStepDialogBean.step eq 'wrongLogin' or nextStepDialogBean.step eq 'noPassword' 
+				or nextStepDialogBean.step eq 'wrongPassword' or nextStepDialogBean.step eq 'wrongHost'}" />
 		<p:commandButton value="Next" icon="fa fa-arrow-circle-right"
 			id="nextButtonConnectionOk"
 			oncomplete="PF('nextStepDialog').hide(); PF('accordionPanel').select(2);"
@@ -216,7 +217,7 @@
 		header="Do you really want to convert?" dynamic="true" modal="true"
 		closeOnEscape="true">
 		<h:form id="convertDatabaseForm">
-			<p:commandButton value="Yes, convert" icon="fa fa-refresh"
+			<p:commandButton id="confirmConvertButton" value="Yes, convert" icon="fa fa-refresh"
 				actionListener="#{logic.convertDb}"
 				update="@(.configChanged), :#{cc.clientId}:convertingDatabaseForm:doUpdateConvertion"
 				oncomplete="PF('convertDatabaseDialog').hide(); PF('convertingDatabaseDialog').show();" />

@@ -13,24 +13,19 @@
 
 <cc:implementation>
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-6">
-				<ic:com.axonivy.engine.config.ui.settings.component.LicenceInfoComponent
-					id="licenceInfosComponent" />
-			</div>
-			<div class="col-xs-4">
-				<br />
-				<p:commandButton id="details" value="Details" icon="fa fa-info"
+		<ic:com.axonivy.engine.config.ui.settings.component.LicenceInfoComponent
+			id="licenceInfosComponent" />
+			<br/>
+			<p>
+				<p:commandLink id="details" value="Show Licence Details"
 					onclick="PF('licenceDetails').show()"
-					disabled="#{licenceBean.demo}" />
-			</div>
-		</div>
+					rendered="#{!licenceBean.demo}" /></p>
 		<div class="row">
-			<div class="col-xs-5">
+			<div class="col-xs-3">
 				<ic:com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent
 					id="licenceUploadComponent" />
 			</div>
-			<div class="col-xs-5" style="float: right">
+			<div class="col-xs-3" style="float: right">
 				<p:commandButton id="systemDatabaseTabNextButton" value="Next"
 					icon="fa fa-arrow-circle-right" styleClass="next-button"
 					onclick="if(#{licenceBean.demo}) PF('nextStepLicenceDialog').show(); else PF('accordionPanel').select(1);" />
@@ -46,14 +41,17 @@
 	<p:dialog widgetVar="nextStepLicenceDialog" id="nextStepLicenceDialog"
 		header="Licence required" modal="true" closeOnEscape="true">
 		<h:outputText
-			value="If you don't upload a valid licence, you can't use this ivy-server in production." />
+			value="You can't use this ivy-server in production, if you don't upload a valid licence." />
 		<br />
 		<br />
-		<p:commandButton value="Upload licence" id="uploadLicenceButton"
-			icon="fa fa-plus-circle" update="nextStepLicenceDialog"
-			oncomplete="PF('nextStepClusterDialog').hide()" />
-		<p:commandButton value="Cancel" id="cancelLicenceButton"
-			icon="fa fa-times" onclick="PF('nextStepLicenceDialog').hide()" />
+		<h:form>
+			<h:panelGrid columns="3">
+				<ic:com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent
+					id="licenceDialogUploadComponent" />
+				<p:commandButton value="Cancel" id="cancelLicenceButton"
+					icon="fa fa-times" onclick="PF('nextStepLicenceDialog').hide()" />
+			</h:panelGrid>
+		</h:form>
 	</p:dialog>
 </cc:implementation>
 </html>

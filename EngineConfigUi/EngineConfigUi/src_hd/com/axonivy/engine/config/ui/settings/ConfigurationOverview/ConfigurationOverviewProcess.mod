@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 16 10:43:07 CEST 2017]
+[>Created: Mon May 22 15:55:47 CEST 2017]
 157E2C1BEC4930AC 3.20 #module
 >Proto >Proto Collection #zClass
 ss0 ConfigurationOverviewProcess Big #zClass
@@ -28,6 +28,8 @@ ss0 @RichDialogProcessEnd f9 '' #zField
 ss0 @PushWFArc f10 '' #zField
 ss0 @RichDialogMethodStart f11 '' #zField
 ss0 @RichDialogProcessEnd f12 '' #zField
+ss0 @GridStep f14 '' #zField
+ss0 @PushWFArc f15 '' #zField
 ss0 @PushWFArc f13 '' #zField
 >Proto ss0 ss0 ConfigurationOverviewProcess #zField
 ss0 f0 guid 157E2C1BEDF33419 #txt
@@ -94,12 +96,12 @@ ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-ss0 f5 83 147 26 26 -47 15 #rect
+ss0 f5 83 115 26 26 -47 15 #rect
 ss0 f5 @|RichDialogProcessStartIcon #fIcon
 ss0 f6 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f6 211 147 26 26 0 12 #rect
+ss0 f6 339 115 26 26 0 12 #rect
 ss0 f6 @|RichDialogProcessEndIcon #fIcon
-ss0 f7 109 160 211 160 #arcP
+ss0 f7 109 128 339 128 #arcP
 ss0 f8 guid 15BC386770BD0A74 #txt
 ss0 f8 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f8 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
@@ -116,12 +118,12 @@ ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-ss0 f8 83 243 26 26 -19 15 #rect
+ss0 f8 83 179 26 26 -19 15 #rect
 ss0 f8 @|RichDialogProcessStartIcon #fIcon
 ss0 f9 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f9 211 243 26 26 0 12 #rect
+ss0 f9 339 179 26 26 0 12 #rect
 ss0 f9 @|RichDialogProcessEndIcon #fIcon
-ss0 f10 109 256 211 256 #arcP
+ss0 f10 109 192 339 192 #arcP
 ss0 f11 guid 15C0B18249EAF4B3 #txt
 ss0 f11 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f11 method tabChange(org.primefaces.event.TabChangeEvent) #txt
@@ -129,13 +131,15 @@ ss0 f11 disableUIEvents false #txt
 ss0 f11 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <org.primefaces.event.TabChangeEvent event> param = methodEvent.getInputArguments();
 ' #txt
-ss0 f11 inActionCode 'import org.primefaces.component.accordionpanel.AccordionPanel;
+ss0 f11 inActionCode 'import org.primefaces.context.RequestContext;
+import org.primefaces.component.accordionpanel.AccordionPanel;
 import org.primefaces.component.tabview.TabView;
 import org.primefaces.event.TabChangeEvent;
 
 TabChangeEvent event = param.event as TabChangeEvent;
-AccordionPanel tv = event.getComponent() as AccordionPanel;     
-out.activeTabIndex = tv.getChildren().indexOf(event.getTab());' #txt
+AccordionPanel tv = event.getComponent() as AccordionPanel;
+out.activeTabIndex = tv.getChildren().indexOf(event.getTab());
+out.tabChangeEvent = event;' #txt
 ss0 f11 outParameterDecl '<> result;
 ' #txt
 ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -147,12 +151,45 @@ ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-ss0 f11 83 339 26 26 -49 15 #rect
+ss0 f11 83 243 26 26 -49 15 #rect
 ss0 f11 @|RichDialogMethodStartIcon #fIcon
 ss0 f12 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f12 211 339 26 26 0 12 #rect
+ss0 f12 339 243 26 26 0 12 #rect
 ss0 f12 @|RichDialogProcessEndIcon #fIcon
-ss0 f13 109 352 211 352 #arcP
+ss0 f14 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
+' #txt
+ss0 f14 actionTable 'out=in;
+' #txt
+ss0 f14 actionCode 'import org.primefaces.context.RequestContext;
+
+boolean connectionOk = out.databaseSettings.getConnectionInfo().getConnectionOK();
+RequestContext context = RequestContext.getCurrentInstance();
+
+if(connectionOk && in.tabChangeEvent.tab.id.contains("administratorsTab") && out.databaseSettings.getAdministratorManager().getAdministrators().isEmpty())
+{
+	context.execute("PF(''addAdminDialog'').show();");
+}
+
+if(connectionOk && in.tabChangeEvent.tab.id.contains("clusterTab") && out.databaseSettings.getAdministratorManager().getClusterNodes().isEmpty())
+{
+	context.execute("PF(''addLocalNodeDialog'').show();");
+}	' #txt
+ss0 f14 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>open Dialogs for empty tabs</name>
+        <nameStyle>27,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+ss0 f14 144 234 160 44 -77 -8 #rect
+ss0 f14 @|StepIcon #fIcon
+ss0 f15 expr out #txt
+ss0 f15 109 256 144 256 #arcP
+ss0 f13 expr out #txt
+ss0 f13 304 256 339 256 #arcP
 >Proto ss0 .type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 >Proto ss0 .processKind HTML_DIALOG #txt
 >Proto ss0 -8 -8 16 16 16 26 #rect
@@ -165,5 +202,7 @@ ss0 f5 mainOut f7 tail #connect
 ss0 f7 head f6 mainIn #connect
 ss0 f8 mainOut f10 tail #connect
 ss0 f10 head f9 mainIn #connect
-ss0 f11 mainOut f13 tail #connect
+ss0 f11 mainOut f15 tail #connect
+ss0 f15 head f14 mainIn #connect
+ss0 f14 mainOut f13 tail #connect
 ss0 f13 head f12 mainIn #connect

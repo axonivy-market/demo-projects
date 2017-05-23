@@ -14,16 +14,11 @@
 	<h:form id="clusterNodeForm" styleClass="configChanged">
 		<h:panelGrid columns="1" cellpadding="1"
 			rendered="#{data.connectionInfo.connectionOK}">
-			<h:column>
-				<p:commandButton id="addLocalNodeButton" icon="fa fa-plus-circle"
-					value="Add Local Node" onclick="PF('addLocalNodeDialog').show()"
-					disabled="#{data.exists}" />
-			</h:column>
 			<p:dataTable id="clusterNodesDataTable"
 				value="#{data.adminManager.clusterNodes}" var="node"
 				rowIndexVar="row" rowKey="#{cluster.hostName}"
 				sortOrder="DESCENDING" styleClass="no-border"
-				emptyMessage="No Cluster Node found!">
+				emptyMessage="No Cluster Node found. Please add your local Node.">
 				<p:column headerText="Host" sortBy="#{node.hostName}">
 					<h:outputText value="#{node.hostName}" />
 				</p:column>
@@ -47,35 +42,29 @@
 				</p:column>
 			</p:dataTable>
 			<h:column>
+				<p:commandButton id="addLocalNodeButton" icon="fa fa-plus-circle"
+					value="Add local Node" onclick="PF('addLocalNodeDialog').show()"
+					disabled="#{data.exists}" />
 				<p:commandButton id="clusterTabNextButton" value="Next"
-					disabled="#{empty data.adminManager.clusterNodes}"
 					icon="fa fa-arrow-circle-right" styleClass="next-button"
-					onclick="if(#{empty data.adminManager.clusterNodes}) PF('nextStepClusterDialog').show();
+					update=":accordionPanel"
+					oncomplete="if(#{empty data.adminManager.clusterNodes}) PF('addLocalNodeDialog').show();
 					 else PF('accordionPanel').select(5);" />
 			</h:column>
 		</h:panelGrid>
-		<h:outputText rendered="#{!data.connectionInfo.connectionOK}">
-		Please insert a valid System-Db-Connection!!
-		</h:outputText>
+		<ic:com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent
+			id="connectionStateComponent" settings="#{data.settings}"
+			rendered="#{!data.connectionInfo.connectionOK}" />
 		<p:defaultCommand target="clusterTabNextButton" />
 	</h:form>
-
-	<p:dialog widgetVar="nextStepClusterDialog" id="nextStepClusterDialog"
-		header="Node required" modal="true" closeOnEscape="true">
-		<h:outputText value="Please configure at least one Node" />
-		<br />
-		<br />
-		<p:commandButton value="Add Node" id="addNodeButton"
-			icon="fa fa-plus-circle" update="nextStepAdminsDialog"
-			oncomplete="PF('addLocalNodeDialog').show()" />
-		<p:commandButton value="Cancel" id="cancelClusterButton"
-			icon="fa fa-times" onclick="PF('nextStepClusterDialog').hide()" />
-	</p:dialog>
 
 	<p:dialog widgetVar="addLocalNodeDialog" id="addLocalNodeDialog"
 		header="New Local Node" modal="true" appendTo="@(body)"
 		closeOnEscape="true">
 		<h:form id="addLocalNodeForm">
+			<p>
+				<h:outputText value="Please add your local Node." />
+			</p>
 			<h:panelGrid columns="2">
 				<p:outputLabel value="Host :" for="newHost" />
 				<p:inputText id="newHost" value="#{data.newClusterNode.hostName}"
@@ -91,7 +80,7 @@
 			</h:panelGrid>
 			<br />
 			<p:commandButton id="addLocalNodeDialogButton"
-				actionListener="#{logic.addLocalNode}" value="Add new Local Node"
+				actionListener="#{logic.addLocalNode}" value="Add local Node"
 				icon="fa fa-plus-circle"
 				update=":#{cc.clientId}:clusterNodeForm, :#{cc.clientId}:addLocalNodeDialog" />
 		</h:form>

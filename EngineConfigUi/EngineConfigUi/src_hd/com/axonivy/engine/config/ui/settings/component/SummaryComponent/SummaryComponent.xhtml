@@ -20,6 +20,15 @@
 					value="#{licenceBean.getValueFromProperty('product.name').concat(' ')
 				.concat(licenceBean.getValueFromProperty('licence.type'))}" />
 			</h:column>
+			<h:column>
+				<h:outputText value="Expiry Date" styleClass="licence-info-label" />
+			</h:column>
+			<h:column>
+				<h:outputText
+					value="#{empty licenceBean.getValueFromProperty('licence.valid.until') ?
+					 'Never' : licenceBean.getValueFromProperty('licence.valid.until')}" />
+			</h:column>
+
 			<br />
 			<h:column>
 				<h:outputText value="Database Product"

@@ -8,11 +8,11 @@
 
 <cc:implementation>
 	<h:form id="licenceInfoForm">
-		<strong> 
-		<h:outputText rendered="#{licenceBean.demo}"
-				value="This is a demo-licence. Please upload a valid licence."
-				styleClass="warning-text" />
-		</strong>
+		<p:outputPanel id="demo-licence" styleClass="alert alert-warning"
+			rendered="#{licenceBean.demo}">
+			<h:outputText
+				value="No licence installed. Please upload a valid licence." />
+		</p:outputPanel>
 		<h:panelGrid columns="2" rendered="#{!licenceBean.demo}">
 			<h:panelGrid columns="1">
 				<h:column>

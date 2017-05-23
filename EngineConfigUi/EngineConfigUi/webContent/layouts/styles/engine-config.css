@@ -36,6 +36,10 @@ label {
 	margin-bottom: 0;
 }
 
+.ui-datatable-tablewrapper {
+	margin-left: 0;
+}
+
 /* 
 Own Classes
 */

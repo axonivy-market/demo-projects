@@ -13,15 +13,11 @@
 	<h:form id="adminManagerForm" styleClass="configChanged">
 		<h:panelGrid columns="1" cellpadding="1"
 			rendered="#{data.connectionInfo.connectionOK}">
-			<h:column>
-				<p:commandButton id="addAdminButton" icon="fa fa-plus-circle"
-					value="Add Administrator" onclick="PF('addAdminDialog').show()" />
-			</h:column>
 			<p:dataTable id="adminDataTable"
 				value="#{data.administratorManager.administrators}"
 				var="administrator" rowIndexVar="row" rowKey="#{administrator.name}"
 				sortOrder="DESCENDING" styleClass="no-border"
-				emptyMessage="No Administrators found!">
+				emptyMessage="No Administrators found. Please add one.">
 				<p:column headerText="Name" sortBy="#{administrator.name}">
 					<h:outputText value="#{administrator.name}" />
 				</p:column>
@@ -48,11 +44,13 @@
 				</p:column>
 			</p:dataTable>
 			<h:column>
+				<p:commandButton id="addAdminButton" icon="fa fa-plus-circle"
+					value="Add Administrator" onclick="PF('addAdminDialog').show()" />
 				<p:commandButton id="adminsTabNextButton" value="Next"
 					icon="fa fa-arrow-circle-right" styleClass="next-button"
 					update=":accordionPanel"
 					oncomplete="if(#{not empty data.administratorManager.administrators})
-					PF('accordionPanel').select(3); else PF('nextStepAdminsDialog').show();" />
+					PF('accordionPanel').select(3); else PF('addAdminDialog').show();" />
 			</h:column>
 		</h:panelGrid>
 		<ic:com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent
@@ -61,22 +59,12 @@
 		<p:defaultCommand target="adminsTabNextButton" />
 	</h:form>
 
-	<p:dialog widgetVar="nextStepAdminsDialog" id="nextStepAdminsDialog"
-		header="Administrator required" modal="true" closeOnEscape="true">
-		<h:outputText value="Please configure at least one Administrator" />
-		<br />
-		<br />
-		<p:commandButton value="Add Administrator" id="addAdminButton"
-			icon="fa fa-plus-circle" update="nextStepAdminsDialog"
-			oncomplete="PF('addAdminDialog').show()" />
-		<p:commandButton value="Cancel" id="cancelAdminButton"
-			icon="fa fa-times" onclick="PF('nextStepAdminsDialog').hide()" />
-	</p:dialog>
-
 	<p:dialog widgetVar="addAdminDialog" id="addAdminDialog"
 		header="New Administrator" modal="true" closeOnEscape="true">
 		<h:form id="addAdminForm">
 			<p:messages autoUpdate="true" />
+			<p><h:outputText value="Please add at least one administrator" 
+				rendered="#{empty data.administratorManager.administrators}" /></p>
 			<h:panelGrid columns="2">
 				<p:outputLabel value="Name:" for="newName" />
 				<p:inputText id="newName" value="#{data.newAdmin.name}"
@@ -91,7 +79,7 @@
 			</h:panelGrid>
 			<br />
 			<p:commandButton id="addAdminDialogButton"
-				value="Add new Administrator" icon="fa fa-plus-circle"
+				value="Add Administrator" icon="fa fa-plus-circle"
 				oncomplete="if(args &amp;&amp; !args.validationFailed) PF('addAdminDialog').hide();"
 				actionListener="#{logic.addNewAdmin}"
 				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:addAdminForm,
