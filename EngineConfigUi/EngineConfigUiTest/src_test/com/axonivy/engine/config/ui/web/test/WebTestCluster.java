@@ -22,16 +22,11 @@ public class WebTestCluster extends BaseWebTest
     setMySqlConfig();
     createMySqlSysDb();
     testConnection();
-    toggleTab("Cluster");
   }
 
   @Test
   public void testAddLocalNode()
   {
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("accordionPanel:clusterComponent:clusterNodeForm:clusterNodesDataTable_data"),
-            "No Cluster Node found!"));
-
     addLocalNode();
   }
 
@@ -45,8 +40,8 @@ public class WebTestCluster extends BaseWebTest
 
   private void addLocalNode()
   {
+    openTab(" Cluster Nodes");
     By addNodeButtonLocator = By.id("accordionPanel:clusterComponent:clusterNodeForm:addLocalNodeButton");
-    driver.findElement(addNodeButtonLocator).click();
 
     await(ExpectedConditions.elementToBeClickable(By
             .id("accordionPanel:clusterComponent:addLocalNodeForm:addLocalNodeDialogButton")));
@@ -58,7 +53,7 @@ public class WebTestCluster extends BaseWebTest
     Table table = prime.table(By.id("accordionPanel:clusterComponent:clusterNodeForm:clusterNodesDataTable"));
     table.contains("0");
     table.contains(ipAddress);
-    
+
     await(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(addNodeButtonLocator)));
   }
 
@@ -69,7 +64,7 @@ public class WebTestCluster extends BaseWebTest
 
     removeNode(0);
     table.containsNot("0");
-    table.contains("No Cluster Node found!");
+    table.contains("No Cluster Node found");
   }
 
   private void removeNode(int localIdentifier)

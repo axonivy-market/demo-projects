@@ -63,7 +63,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
             By.id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:confirmConvertButton")).click();
     await(ExpectedConditions
             .textToBePresentInElementLocated(
-                    By.id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:finishMessageConvertion"),
+                    By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:finishMessageConvertion"),
                     "Successfully Finished"));
     driver.findElement(
             By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:convertDatabaseDialog']/div[1]/a"))

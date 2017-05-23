@@ -26,11 +26,11 @@ public class WebTestAdministratorManager extends BaseWebTest
     setMySqlConfig();
     createMySqlSysDb();
     testConnection();
-    openAdminTab();
+    openTab("Administrators");
 
     Table table = prime
             .table(By.id("accordionPanel:administratorsComponent:adminManagerForm:adminDataTable"));
-    table.contains("No Administrators found!");
+    table.contains("No Administrators found");
     addAdmin();
     table.contains(newName);
   }
@@ -84,10 +84,5 @@ public class WebTestAdministratorManager extends BaseWebTest
     driver.findElement(By.id("saveAll")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("growl_container"),
             "Administrators config were saved"));
-  }
-
-  private void openAdminTab()
-  {
-    toggleTab("Administrators");
   }
 }

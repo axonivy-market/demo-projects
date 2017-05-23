@@ -62,18 +62,19 @@ public class BaseWebTest
             .selectItemByLabel("MySQL");
 
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "zugtstdbsmys");
-
-    driver.findElement(By.id("saveAll")).click();
   }
 
   protected void createMySqlSysDb()
   {
+    await(ExpectedConditions
+            .elementToBeClickable(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton")));
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
             .click();
     await(ExpectedConditions
             .textToBePresentInElementLocated(
-                    By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:connection"),
+                    By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:connectionState"),
                     "failed"));
     openDbCreationDialog();
 
@@ -126,7 +127,7 @@ public class BaseWebTest
 
   protected void setConfigInternal()
   {
-    toggleTab("System Database");
+    openTab("System Database");
     prime.selectBooleanCheckbox(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:defaultPortCheckbox"))
             .setChecked();
@@ -181,11 +182,5 @@ public class BaseWebTest
   protected <T> T await(ExpectedCondition<T> condition)
   {
     return ajax.await(condition);
-  }
-
-  protected void toggleTab(String tabName)
-  {
-    Accordion accordion = prime.accordion(By.id("accordionPanel"));
-    accordion.toggleTab(tabName);
   }
 }
