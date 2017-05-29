@@ -44,6 +44,8 @@ public class WebTestAdministratorManager extends BaseWebTest
 
   private void removeAdmin() throws Exception
   {
+    await(ExpectedConditions.not(ExpectedConditions.visibilityOfAllElementsLocatedBy(By
+            .xpath("//*[@id='growl_container']/div[1]/div/div[2]"))));
     Table table = prime
             .table(By.id("accordionPanel:administratorsComponent:adminManagerForm:adminDataTable"));
     table.contains(newName);
