@@ -75,6 +75,9 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
             .click();
+    driver.findElement(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
+            .click();
     await(ExpectedConditions
             .textToBePresentInElementLocated(
                     By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:connectionState"),
