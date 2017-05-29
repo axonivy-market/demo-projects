@@ -32,7 +32,7 @@ public class EngineGuideScreenshots extends BaseWebTest
     openTab("Licence");
     await(ExpectedConditions.visibilityOfElementLocated(By
             .id("accordionPanel:licenceComponent:systemDatabaseTabNextButton")));
-    takeScreenshot("Licence.png", new Dimension(780, 790));
+    takeScreenshot("Licence.png", new Dimension(780, 670));
   }
 
   @Test
@@ -40,6 +40,7 @@ public class EngineGuideScreenshots extends BaseWebTest
   {
     openTab("System");
     setExampleConfigruration();
+    Thread.sleep(9000);
     takeScreenshot("SystemDatabase.png", new Dimension(780, 1030));
   }
 

@@ -72,9 +72,6 @@ public class BaseWebTest
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
             .click();
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
-            .click();
     await(ExpectedConditions
             .textToBePresentInElementLocated(
                     By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:connectionState"),
@@ -137,11 +134,8 @@ public class BaseWebTest
 
     DBNAME = "tmp_engineConfigUi_testing_" + RandomUtils.nextInt(11, Integer.MAX_VALUE);
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"), DBNAME);
-    driver.findElement(By.id("saveAll"))
-            .click();
 
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:usernameInput"), USERNAME);
-    driver.findElement(By.id("saveAll")).click();
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:passwordInput"), PASSWORD);
   }
 
