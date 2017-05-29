@@ -11,7 +11,7 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">systemDatabase</ui:define>
 		<ui:define name="content">
-			<p:growl id="growl" showDetail="true" showSummary="false"/>
+			<p:growl id="growl" showDetail="true" showSummary="false" />
 			<p:accordionPanel id="accordionPanel" styleClass="full-width"
 				widgetVar="accordionPanel" activeIndex="#{data.activeTabIndex}">
 				<p:ajax event="tabChange" listener="#{logic.tabChange}" />
@@ -77,8 +77,10 @@
 				</p:tab>
 			</p:accordionPanel>
 			<br />
-			<p:commandButton id="saveAll" value="Save All" icon="fa fa-save"
-				actionListener="#{logic.saveAll}" update="growl, @(.updateSaveAll)" />
+				<p:commandButton id="saveAll" value="Save" icon="fa fa-save"
+					actionListener="#{logic.saveAll}" update="growl, @(.updateSaveAll)" />
+				<p:button id="discardChanges" value="Discard Changes"
+					icon="fa fa-undo" href="#{ivy.html.startref('157E64657EEBDD9C/start.ivp')}" />
 		</ui:define>
 	</ui:composition>
 </h:body>
