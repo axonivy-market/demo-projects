@@ -14,16 +14,9 @@
 			
 			<h:form id="form">
 			    <h4>Person</h4>
-			    <h:outputText value="#{data.dossier.customer.isMale?'Mister':'Madame'} #{data.dossier.customer.surname} #{data.dossier.customer.name}"/>
+			    <h:outputText value="#{data.dossier.customer.isMale?'Mister':'Madame'} #{data.dossier.customer.firstName} #{data.dossier.customer.name}"/>
 			    <br/>
 			    <h:outputText value="#{data.dossier.customer.birthDate}"/>
-			    <br/>
-			    <br/>
-			    <h:outputText value="#{data.dossier.customer.address.street}"/>
-			    <br/>
-			    <h:outputText value="#{data.dossier.customer.address.zip} #{data.dossier.customer.address.city}"/>
-			    <br/>
-			    <h:outputText value="#{data.dossier.customer.address.state}"/>
 			    <br/>
 			    <h:outputText value="#{data.dossier.customer.address.country}"/>			    
 			    <h4>Request</h4>
@@ -45,9 +38,9 @@
 					</f:facet>
 					<p:outputLabel for="reason" value="Reject Reason" />
 					<p:inputTextarea id="reason" value="#{data.dossier.decision.rejectReason}" />
-					<p:commandButton actionListener="#{logic.approved}" value="Approved"
+					<p:commandButton actionListener="#{logic.approved}" value="Approve"
 						update="form" icon="ui-icon-check" />
-					<p:commandButton actionListener="#{logic.rejected}" value="Rejected" update="form" icon="ui-icon-circle-close" />
+					<p:commandButton actionListener="#{logic.rejected}" value="Reject" update="form" icon="ui-icon-circle-close" />
 				</h:panelGrid>
 			</h:form>
 			

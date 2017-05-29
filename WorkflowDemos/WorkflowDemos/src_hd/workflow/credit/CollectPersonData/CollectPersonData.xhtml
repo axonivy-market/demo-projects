@@ -20,8 +20,8 @@
 					<p:outputLabel for="name" value="Name" />
 					<p:inputText required="true" id="name" value="#{data.dossier.customer.name}"/>
 
-					<p:outputLabel for="surname" value="Surname" />
-					<p:inputText id="surname" value="#{data.dossier.customer.surname}"/>
+					<p:outputLabel for="firstName" value="First name" />
+					<p:inputText id="firstName" value="#{data.dossier.customer.firstName}"/>
 
 					<p:outputLabel for="birthdate" value="Birthdate" />
 					<p:calendar id="birthdate" value="#{data.dossier.customer.birthDate}" pattern="dd.MM.yyyy">
@@ -38,19 +38,6 @@
 				<h4>Address</h4>
 
 				<h:panelGrid columns="2">
-
-					<p:outputLabel for="street" value="Street" />
-					<p:inputText id="street" value="#{data.dossier.customer.address.street}"/>
-					
-					<p:outputLabel for="zip" value="Zip" />
-					<p:inputText id="zip" value="#{data.dossier.customer.address.zip}"/>
-					
-					<p:outputLabel for="city" value="City" />
-					<p:inputText id="city" value="#{data.dossier.customer.address.city}"/>
-					
-					<p:outputLabel for="state" value="State" />
-					<p:inputText id="state" value="#{data.dossier.customer.address.state}"/>
-					
 					<p:outputLabel for="country" value="Country" />
 					<p:inputText required="true" id="country" value="#{data.dossier.customer.address.country}"/>
 				</h:panelGrid>
@@ -68,7 +55,7 @@
 					<p:outputLabel for="salery" value="Yearly salary" />
 					<p:inputText required="true" id="salery" value="#{data.dossier.request.salery}"/>
 					
-					<p:outputLabel for="amountOfOtherCredits" value="Amout of other open credits (SFr.)" />
+					<p:outputLabel for="amountOfOtherCredits" value="Amount of other open credits (SFr.)" />
 					<p:inputText required="true" id="amountOfOtherCredits" value="#{data.dossier.request.amountOfOtherCredits}"/>
 				</h:panelGrid>
 

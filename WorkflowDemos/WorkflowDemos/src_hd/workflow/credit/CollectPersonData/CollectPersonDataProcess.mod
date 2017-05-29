@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed May 03 09:08:17 CEST 2017]
+[>Created: Mon May 29 16:38:06 CEST 2017]
 15B37CDEFA487D01 3.20 #module
 >Proto >Proto Collection #zClass
 Cs0 CollectPersonDataProcess Big #zClass
@@ -71,9 +71,9 @@ Cs0 f6 actionDecl 'workflow.credit.CollectPersonData.CollectPersonDataData out;
 Cs0 f6 actionTable 'out=in;
 out.dossier=ivy.repo.get(workflow.credit.CreditDossier.class) as workflow.credit.CreditDossier;
 out.dossier.customer.address.country="USA";
+out.dossier.customer.firstName="John";
 out.dossier.customer.isMale=true;
 out.dossier.customer.name="Doe";
-out.dossier.customer.surname="John";
 out.dossier.request.amount=20000;
 out.dossier.request.amountOfOtherCredits=1000000;
 out.dossier.request.reason="To buy a new car";
