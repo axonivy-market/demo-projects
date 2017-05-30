@@ -66,7 +66,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
                     By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:finishMessageConvertion"),
                     "Successfully Finished"));
     driver.findElement(
-            By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:convertDatabaseDialog']/div[1]/a"))
+            By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:saveAndConnectConvertionButton"))
             .click();
   }
 

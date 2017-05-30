@@ -258,6 +258,13 @@
 					<strong><h:outputText id="finishMessageConvertion"
 							value="Successfully Finished!" /></strong>
 				</p:outputPanel>
+				<br />
+				<p:commandButton value="Save and connect"
+					id="saveAndConnectConvertionButton"
+					actionListener="#{logic.checkConnection}"
+					update="@(.configChanged), :#{cc.clientId}:convertingDatabaseDialog,
+					 :#{cc.clientId}:systemDatabaseForm"
+					disabled="#{data.progressAction.running}" />
 			</h:panelGrid>
 		</h:form>
 	</p:dialog>
