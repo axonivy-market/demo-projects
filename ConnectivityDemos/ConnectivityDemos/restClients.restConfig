@@ -100,7 +100,12 @@
     <restClient>
         <uuid>449e7581-aa1e-4e3b-931a-903253491b50</uuid>
         <name>jsonPlaceholder</name>
-        <description>A free to use test service with fixed data</description>
+        <description>A free to use test service with fixed data. 
+
+To run this service locally:
+1. run 'npm install -g gson-server'
+2. download 'https://raw.githubusercontent.com/typicode/jsonplaceholder/master/data.json'
+3. start in cmd 'gson-server data.json'</description>
         <configuration>
             <uri>https://jsonplaceholder.typicode.com/</uri>
             <property>
