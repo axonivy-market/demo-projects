@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Apr 27 15:34:53 CEST 2017]
+[>Created: Tue May 30 10:19:44 CEST 2017]
 015B14256823DE3D 3.20 #module
 >Proto >Proto Collection #zClass
 Ls0 LicenceUploadComponentProcess Big #zClass
@@ -125,17 +125,7 @@ import javax.faces.context.FacesContext;
 FacesContext context = FacesContext.getCurrentInstance();
 context.addMessage(null ,new FacesMessage(FacesMessage.SEVERITY_ERROR, "Licence is not valid!", "Please choose a valid Licence!"));
 
-in.newLicenceFile.delete();
-if(in.#originalLicence != null)
-{
-	// Reinstall old licence
-	LicenceUtil.installAndVerify(in.originalLicence);
-}
-else
-{
-	// Reinstall demo licence
-	LicenceUtil.installAndVerify(LicenceUtil.getInstalledLic());
-}' #txt
+in.newLicenceFile.delete();' #txt
 Ls0 f10 type com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent.LicenceUploadComponentData #txt
 Ls0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
