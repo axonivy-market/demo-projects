@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Apr 12 12:03:19 CEST 2017]
+[>Created: Tue May 30 11:54:09 CEST 2017]
 15A60076034F7437 3.20 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
@@ -98,8 +98,6 @@ dg0 f1 529 137 30 30 0 15 #rect
 dg0 f1 @|EndIcon #fIcon
 dg0 f3 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f3 path posts #txt
-dg0 f3 headers 'Accept=application/json;
-' #txt
 dg0 f3 method POST #txt
 dg0 f3 bodyInputType RAW #txt
 dg0 f3 bodyRaw '{
@@ -210,8 +208,6 @@ dg0 f9 529 305 30 30 0 15 #rect
 dg0 f9 @|EndIcon #fIcon
 dg0 f10 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f10 path posts #txt
-dg0 f10 headers 'Accept=application/json;
-' #txt
 dg0 f10 method POST #txt
 dg0 f10 bodyInputType ENTITY #txt
 dg0 f10 bodyRaw '{
@@ -245,8 +241,6 @@ dg0 f13 280 320 332 320 #arcP
 dg0 f14 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f14 path posts #txt
 dg0 f14 queryParams 'userId=in.userId;
-' #txt
-dg0 f14 headers 'Accept=application/json;
 ' #txt
 dg0 f14 method GET #txt
 dg0 f14 bodyInputType ENTITY #txt
@@ -457,8 +451,6 @@ dg0 f28 81 225 30 30 -39 17 #rect
 dg0 f28 @|StartRequestIcon #fIcon
 dg0 f29 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f29 path posts #txt
-dg0 f29 headers 'Accept=application/json;
-' #txt
 dg0 f29 method POST #txt
 dg0 f29 bodyInputType FORM #txt
 dg0 f29 bodyRaw '{
@@ -533,8 +525,6 @@ dg0 f35 128 26 320 44 -156 -15 #rect
 dg0 f35 @|IBIcon #fIcon
 dg0 f36 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f36 path users/1 #txt
-dg0 f36 headers 'Accept=application/json;
-' #txt
 dg0 f36 method GET #txt
 dg0 f36 bodyInputType ENTITY #txt
 dg0 f36 bodyRaw '{
@@ -628,8 +618,6 @@ dg0 f39 @|EndIcon #fIcon
 dg0 f43 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 dg0 f43 path {in.userId} #txt
 dg0 f43 templateParams 'in.userId=in.userId;
-' #txt
-dg0 f43 headers 'Accept=application/json;
 ' #txt
 dg0 f43 method GET #txt
 dg0 f43 bodyInputType ENTITY #txt
