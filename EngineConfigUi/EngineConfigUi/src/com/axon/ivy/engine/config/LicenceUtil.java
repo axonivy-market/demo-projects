@@ -38,8 +38,20 @@ public class LicenceUtil
 
   public static void installAndVerify(File newLicence) throws Exception
   {
-    SignedLicence.installLicence(newLicence);
-    SignedLicence.verifyLicence();
+    try
+    {
+      verify(newLicence);
+      SignedLicence.installLicence(newLicence);
+    }
+    catch (IOException ex)
+    {
+      return;
+    }
+  }
+
+  public static void verify(File newLicence) throws Exception
+  {
+    SignedLicence.verifyLicence(newLicence);
   }
 
   public static File uploadFile(UploadedFile uploadedFile) throws IOException, FileNotFoundException
@@ -59,7 +71,7 @@ public class LicenceUtil
     return LicenceConstants.VAL_LICENCE_TYPE_ENTERPRISE.equals(SignedLicence.getParam(
             ch.ivyteam.licence.LicenceConstants.PARAM_LICENCE_TYPE));
   }
-  
+
   public static File getInstalledLic()
   {
     return DiCore.getGlobalInjector().getInstance(IFileAccess.class).getLicenceFile();
