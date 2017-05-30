@@ -14,7 +14,7 @@
 			<p:growl id="growl" showDetail="true" showSummary="false" />
 			<p:accordionPanel id="accordionPanel" styleClass="full-width"
 				widgetVar="accordionPanel" activeIndex="#{data.activeTabIndex}">
-				<p:ajax event="tabChange" listener="#{logic.tabChange}" />
+				<p:ajax event="tabChange" listener="#{logic.tabChange}" update="@(.configChanged)"/>
 
 				<p:tab id="licenceInfoTab">
 					<f:facet name="title">

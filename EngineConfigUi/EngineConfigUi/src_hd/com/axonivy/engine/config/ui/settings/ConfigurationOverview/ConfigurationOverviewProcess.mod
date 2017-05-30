@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon May 22 15:55:47 CEST 2017]
+[>Created: Tue May 30 09:29:08 CEST 2017]
 157E2C1BEC4930AC 3.20 #module
 >Proto >Proto Collection #zClass
 ss0 ConfigurationOverviewProcess Big #zClass
@@ -30,6 +30,8 @@ ss0 @RichDialogMethodStart f11 '' #zField
 ss0 @RichDialogProcessEnd f12 '' #zField
 ss0 @GridStep f14 '' #zField
 ss0 @PushWFArc f15 '' #zField
+ss0 @GridStep f16 '' #zField
+ss0 @PushWFArc f17 '' #zField
 ss0 @PushWFArc f13 '' #zField
 >Proto ss0 ss0 ConfigurationOverviewProcess #zField
 ss0 f0 guid 157E2C1BEDF33419 #txt
@@ -154,7 +156,7 @@ ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ss0 f11 83 243 26 26 -49 15 #rect
 ss0 f11 @|RichDialogMethodStartIcon #fIcon
 ss0 f12 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f12 339 243 26 26 0 12 #rect
+ss0 f12 531 243 26 26 0 12 #rect
 ss0 f12 @|RichDialogProcessEndIcon #fIcon
 ss0 f14 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
 ' #txt
@@ -188,8 +190,32 @@ ss0 f14 144 234 160 44 -77 -8 #rect
 ss0 f14 @|StepIcon #fIcon
 ss0 f15 expr out #txt
 ss0 f15 109 256 144 256 #arcP
+ss0 f16 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
+' #txt
+ss0 f16 actionTable 'out=in;
+' #txt
+ss0 f16 actionCode 'import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
+
+if(in.databaseSettings.getConnectionInfo().connectionState == ConnectionState.NOT_CONNECTED)
+{
+	in.databaseSettings.testConnection();
+}' #txt
+ss0 f16 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Check Connection</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+ss0 f16 360 234 112 44 -50 -8 #rect
+ss0 f16 @|StepIcon #fIcon
+ss0 f17 expr out #txt
+ss0 f17 304 256 360 256 #arcP
 ss0 f13 expr out #txt
-ss0 f13 304 256 339 256 #arcP
+ss0 f13 472 256 531 256 #arcP
 >Proto ss0 .type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 >Proto ss0 .processKind HTML_DIALOG #txt
 >Proto ss0 -8 -8 16 16 16 26 #rect
@@ -204,5 +230,7 @@ ss0 f8 mainOut f10 tail #connect
 ss0 f10 head f9 mainIn #connect
 ss0 f11 mainOut f15 tail #connect
 ss0 f15 head f14 mainIn #connect
-ss0 f14 mainOut f13 tail #connect
+ss0 f14 mainOut f17 tail #connect
+ss0 f17 head f16 mainIn #connect
+ss0 f16 mainOut f13 tail #connect
 ss0 f13 head f12 mainIn #connect
