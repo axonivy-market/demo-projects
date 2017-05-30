@@ -257,16 +257,12 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   {
     openDbCreationDialog();
 
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:j_id_1l:0:creationParam"))
-            .sendKeys("INTGRTST");
-
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:j_id_1l:1:creationParam"))
-            .sendKeys("newUser");
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:j_id_1l:2:creationParam"))
-            .sendKeys("newPassword");
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:j_id_1l:0:creationParam"),
+            "INTGRTST");
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:j_id_1l:1:creationParam"),
+            "newUser");
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:j_id_1l:2:creationParam"),
+            "newPassword");
 
     createAndValidateDb();
   }

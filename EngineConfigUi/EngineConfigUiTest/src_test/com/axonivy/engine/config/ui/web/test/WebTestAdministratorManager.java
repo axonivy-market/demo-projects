@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
 public class WebTestAdministratorManager extends BaseWebTest
@@ -31,7 +30,7 @@ public class WebTestAdministratorManager extends BaseWebTest
     Table table = prime
             .table(By.id("accordionPanel:administratorsComponent:adminManagerForm:adminDataTable"));
     table.contains("No Administrators found");
-    addAdmin();
+    addAdmin(newName);
     table.contains(newName);
   }
 
@@ -53,31 +52,6 @@ public class WebTestAdministratorManager extends BaseWebTest
             By.id("accordionPanel:administratorsComponent:adminManagerForm:adminDataTable:0:removeAdminButton"))
             .click();
     table.containsNot(newName);
-    saveAdmins();
-  }
-
-  private void addAdmin()
-  {
-    Dialog dialog = prime.dialog(By.id("accordionPanel:administratorsComponent:addAdminDialog"));
-    driver.findElement(By.id("accordionPanel:administratorsComponent:adminManagerForm:addAdminButton"))
-            .click();
-    dialog.waitForVisibility(true);
-
-    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newName"))
-            .sendKeys(newName);
-
-    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newFullname"))
-            .sendKeys("AXONIVY");
-
-    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"))
-            .sendKeys("support@ivyteam.ch");
-
-    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"))
-            .sendKeys("password");
-
-    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton"))
-            .click();
-    dialog.waitToBeClosedOrError();
     saveAdmins();
   }
 

@@ -70,14 +70,10 @@ public class EngineGuideScreenshots extends BaseWebTest
     Dialog dialog = prime.dialog(By.id("accordionPanel:administratorsComponent:addAdminDialog"));
     dialog.waitForVisibility(true);
 
-    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newName"))
-            .sendKeys("admin");
-    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newFullname"))
-            .sendKeys("admin");
-    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"))
-            .sendKeys("admin@ivyteam.ch");
-    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"))
-            .sendKeys("password");
+    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newName"), "admin");
+    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newFullname"), "admin");
+    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"), "admin@ivyteam.ch");
+    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"), "password");
     driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton"))
             .click();
     dialog.waitToBeClosedOrError();

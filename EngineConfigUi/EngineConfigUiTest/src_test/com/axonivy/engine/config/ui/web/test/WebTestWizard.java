@@ -48,21 +48,10 @@ public class WebTestWizard extends BaseWebTest
             .click();
     await(ExpectedConditions.textToBePresentInElementLocated(By
             .id("accordionPanel:administratorsComponent:addAdminDialog"), "at least one"));
-    addAdmin();
+    addAdmin("AXON");
     Thread.sleep(500);
     await(ExpectedConditions.visibilityOfElementLocated(By
             .id("accordionPanel:administratorsComponent:adminManagerForm:adminsTabNextButton")))
-            .click();
-  }
-
-  private void addAdmin()
-  {
-    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newName"), "AXON");
-    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newFullname"), "AXONIVY");
-    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"), "support@ivyteam.ch");
-    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"), "password");
-
-    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton"))
             .click();
   }
 

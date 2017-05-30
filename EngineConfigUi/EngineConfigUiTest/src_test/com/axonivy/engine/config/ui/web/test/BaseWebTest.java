@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Accordion;
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
 
 public class BaseWebTest
 {
@@ -166,6 +167,21 @@ public class BaseWebTest
                     "Connected"));
   }
 
+  protected void addAdmin(String name)
+  {
+    Dialog dialog = prime.dialog(By.id("accordionPanel:administratorsComponent:addAdminDialog"));
+    dialog.waitForVisibility(true);
+
+    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newName"), name);
+    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newFullname"), "AXONIVY");
+    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"), "support@ivyteam.ch");
+    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"), "password");
+
+    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton"))
+            .click();
+    dialog.waitToBeClosedOrError();
+  }
+
   protected void openTab(String tabName)
   {
     Accordion accordion = prime.accordion(By.id("accordionPanel"));
@@ -175,5 +191,10 @@ public class BaseWebTest
   protected <T> T await(ExpectedCondition<T> condition)
   {
     return ajax.await(condition);
+  }
+
+  public void saveAll()
+  {
+    driver.findElement(By.id("saveAll")).click();
   }
 }
