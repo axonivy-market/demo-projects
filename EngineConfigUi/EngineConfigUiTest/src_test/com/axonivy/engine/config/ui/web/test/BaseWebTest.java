@@ -169,11 +169,7 @@ public class BaseWebTest
   protected void openTab(String tabName)
   {
     Accordion accordion = prime.accordion(By.id("accordionPanel"));
-    if (accordion.isTabOpen(tabName))
-    {
-      return;
-    }
-    accordion.toggleTab(tabName);
+    accordion.openTab(tabName);
   }
 
   protected <T> T await(ExpectedCondition<T> condition)
