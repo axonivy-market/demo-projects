@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Mar 31 14:35:39 CEST 2017]
+[>Created: Tue May 30 15:37:00 CEST 2017]
 154616078A1D629D 3.20 #module
 >Proto >Proto Collection #zClass
 ce0 callOwnPersonRestService Big #zClass
@@ -27,6 +27,13 @@ ce0 @RestClientCall f14 '' #zField
 ce0 @AnnotationArc f15 '' #zField
 ce0 @PushWFArc f11 '' #zField
 ce0 @PushWFArc f4 '' #zField
+ce0 @StartRequest f2 '' #zField
+ce0 @EndTask f3 '' #zField
+ce0 @RestClientCall f17 '' #zField
+ce0 @PushWFArc f18 '' #zField
+ce0 @PushWFArc f16 '' #zField
+ce0 @InfoButton f19 '' #zField
+ce0 @AnnotationArc f20 '' #zField
 >Proto ce0 ce0 callOwnPersonRestService #zField
 ce0 f0 outLink listPersons.ivp #txt
 ce0 f0 type com.axonivy.connectivity.Data #txt
@@ -38,13 +45,14 @@ ce0 f0 requestEnabled true #txt
 ce0 f0 triggerEnabled false #txt
 ce0 f0 callSignature listPersons() #txt
 ce0 f0 persist false #txt
-ce0 f0 startName '1. List REST result in the runtime log' #txt
+ce0 f0 startName '1.1 List REST result in the runtime log' #txt
 ce0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
+ce0 f0 caseData businessCase.attach=false #txt
 ce0 f0 showInStartList 1 #txt
 ce0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -71,13 +79,14 @@ ce0 f5 requestEnabled true #txt
 ce0 f5 triggerEnabled false #txt
 ce0 f5 callSignature personManager() #txt
 ce0 f5 persist false #txt
-ce0 f5 startName '2. Accesses own REST service' #txt
+ce0 f5 startName '1.2 Accesses own REST service' #txt
 ce0 f5 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
+ce0 f5 caseData businessCase.attach=false #txt
 ce0 f5 showInStartList 1 #txt
 ce0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -174,6 +183,73 @@ ce0 f15 0 0.7097590884517754 0 0 #arcLabel
 ce0 f11 expr out #txt
 ce0 f11 111 128 168 128 #arcP
 ce0 f4 280 128 337 128 #arcP
+ce0 f2 outLink listServiceOptions.ivp #txt
+ce0 f2 type com.axonivy.connectivity.Data #txt
+ce0 f2 inParamDecl '<> param;' #txt
+ce0 f2 actionDecl 'com.axonivy.connectivity.Data out;
+' #txt
+ce0 f2 guid 15C58CD57646AEA7 #txt
+ce0 f2 requestEnabled true #txt
+ce0 f2 triggerEnabled false #txt
+ce0 f2 callSignature listServiceOptions() #txt
+ce0 f2 persist false #txt
+ce0 f2 startName '1.3 Print REST service options' #txt
+ce0 f2 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+ce0 f2 caseData businessCase.attach=true #txt
+ce0 f2 showInStartList 1 #txt
+ce0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>listServiceOptions.ivp</name>
+        <nameStyle>22,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+ce0 f2 @C|.responsibility Everybody #txt
+ce0 f2 81 393 30 30 -66 17 #rect
+ce0 f2 @|StartRequestIcon #fIcon
+ce0 f3 type com.axonivy.connectivity.Data #txt
+ce0 f3 337 393 30 30 0 15 #rect
+ce0 f3 @|EndIcon #fIcon
+ce0 f17 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
+ce0 f17 method OPTIONS #txt
+ce0 f17 resultType java.lang.String #txt
+ce0 f17 responseCode ivy.log.info(result); #txt
+ce0 f17 clientErrorCode ivy:error:rest:client #txt
+ce0 f17 statusErrorCode ivy:error:rest:client #txt
+ce0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Log 
+REST resources</name>
+        <desc>Shows how to get API documentation for ivy REST services</desc>
+    </language>
+</elementInfo>
+' #txt
+ce0 f17 160 386 128 44 -44 -15 #rect
+ce0 f17 @|RestClientCallIcon #fIcon
+ce0 f18 expr out #txt
+ce0 f18 111 408 160 408 #arcP
+ce0 f16 288 408 337 408 #arcP
+ce0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Exposes the REST API description 
+of my own PersonService implementation</name>
+        <nameStyle>72
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+ce0 f19 344 330 272 44 -128 -15 #rect
+ce0 f19 @|IBIcon #fIcon
+ce0 f20 344 352 271 386 #arcP
 >Proto ce0 .type com.axonivy.connectivity.Data #txt
 >Proto ce0 .processKind NORMAL #txt
 >Proto ce0 0 0 32 24 18 0 #rect
@@ -190,3 +266,9 @@ ce0 f0 mainOut f11 tail #connect
 ce0 f11 head f14 mainIn #connect
 ce0 f14 mainOut f4 tail #connect
 ce0 f4 head f1 mainIn #connect
+ce0 f2 mainOut f18 tail #connect
+ce0 f18 head f17 mainIn #connect
+ce0 f17 mainOut f16 tail #connect
+ce0 f16 head f3 mainIn #connect
+ce0 f19 ao f20 tail #connect
+ce0 f20 head f17 @CG|ai #connect

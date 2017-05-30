@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 30 11:54:09 CEST 2017]
+[>Created: Tue May 30 14:19:49 CEST 2017]
 15A60076034F7437 3.20 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
@@ -61,6 +61,16 @@ dg0 @GridStep f48 '' #zField
 dg0 @PushWFArc f40 '' #zField
 dg0 @PushWFArc f45 '' #zField
 dg0 @PushWFArc f46 '' #zField
+dg0 @StartRequest f47 '' #zField
+dg0 @EndTask f49 '' #zField
+dg0 @RestClientCall f51 '' #zField
+dg0 @PushWFArc f52 '' #zField
+dg0 @PushWFArc f50 '' #zField
+dg0 @RestClientCall f53 '' #zField
+dg0 @StartRequest f54 '' #zField
+dg0 @PushWFArc f55 '' #zField
+dg0 @EndTask f56 '' #zField
+dg0 @PushWFArc f57 '' #zField
 >Proto dg0 dg0 dataMapping #zField
 dg0 f0 outLink rawJSON.ivp #txt
 dg0 f0 type com.axonivy.connectivity.rest.DataMappingData #txt
@@ -72,7 +82,7 @@ dg0 f0 requestEnabled true #txt
 dg0 f0 triggerEnabled false #txt
 dg0 f0 callSignature rawJSON() #txt
 dg0 f0 persist false #txt
-dg0 f0 startName '6.1 raw JSON' #txt
+dg0 f0 startName '6.1.1 send raw JSON' #txt
 dg0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -91,10 +101,10 @@ dg0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f0 @C|.responsibility Everybody #txt
-dg0 f0 81 137 30 30 -36 17 #rect
+dg0 f0 80 137 30 30 -36 17 #rect
 dg0 f0 @|StartRequestIcon #fIcon
 dg0 f1 type com.axonivy.connectivity.rest.DataMappingData #txt
-dg0 f1 529 137 30 30 0 15 #rect
+dg0 f1 527 137 30 30 0 15 #rect
 dg0 f1 @|EndIcon #fIcon
 dg0 f3 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f3 path posts #txt
@@ -125,7 +135,7 @@ RAW JSON</name>
 ' #txt
 dg0 f3 332 128 152 48 -54 -15 #rect
 dg0 f3 @|RestClientCallIcon #fIcon
-dg0 f2 484 152 529 152 #arcP
+dg0 f2 484 152 527 152 #arcP
 dg0 f5 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
 ' #txt
 dg0 f5 actionTable 'out=in;
@@ -147,7 +157,7 @@ dg0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f5 168 130 112 44 -42 -7 #rect
 dg0 f5 @|StepIcon #fIcon
 dg0 f6 expr out #txt
-dg0 f6 111 152 168 152 #arcP
+dg0 f6 110 152 168 152 #arcP
 dg0 f4 expr out #txt
 dg0 f4 280 152 332 152 #arcP
 dg0 f7 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
@@ -182,7 +192,7 @@ dg0 f8 requestEnabled true #txt
 dg0 f8 triggerEnabled false #txt
 dg0 f8 callSignature complexObject() #txt
 dg0 f8 persist false #txt
-dg0 f8 startName '6.3 complex Object' #txt
+dg0 f8 startName '6.1.3 send complex Object' #txt
 dg0 f8 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -201,10 +211,10 @@ dg0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f8 @C|.responsibility Everybody #txt
-dg0 f8 81 305 30 30 -56 17 #rect
+dg0 f8 80 305 30 30 -56 17 #rect
 dg0 f8 @|StartRequestIcon #fIcon
 dg0 f9 type com.axonivy.connectivity.rest.DataMappingData #txt
-dg0 f9 529 305 30 30 0 15 #rect
+dg0 f9 527 305 30 30 0 15 #rect
 dg0 f9 @|EndIcon #fIcon
 dg0 f10 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f10 path posts #txt
@@ -233,9 +243,9 @@ Java Object</name>
 ' #txt
 dg0 f10 332 296 152 48 -54 -15 #rect
 dg0 f10 @|RestClientCallIcon #fIcon
-dg0 f11 484 320 529 320 #arcP
+dg0 f11 484 320 527 320 #arcP
 dg0 f12 expr out #txt
-dg0 f12 111 320 168 320 #arcP
+dg0 f12 110 320 168 320 #arcP
 dg0 f13 expr out #txt
 dg0 f13 280 320 332 320 #arcP
 dg0 f14 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
@@ -264,7 +274,7 @@ as query parameter</name>
     </language>
 </elementInfo>
 ' #txt
-dg0 f14 332 488 152 48 -54 -15 #rect
+dg0 f14 332 704 152 48 -54 -15 #rect
 dg0 f14 @|RestClientCallIcon #fIcon
 dg0 f15 outLink queryParameters.ivp #txt
 dg0 f15 type com.axonivy.connectivity.rest.DataMappingData #txt
@@ -276,7 +286,7 @@ dg0 f15 requestEnabled true #txt
 dg0 f15 triggerEnabled false #txt
 dg0 f15 callSignature queryParameters() #txt
 dg0 f15 persist false #txt
-dg0 f15 startName '6.5 query parameters' #txt
+dg0 f15 startName '6.3.1 query parameters' #txt
 dg0 f15 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -295,12 +305,12 @@ dg0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f15 @C|.responsibility Everybody #txt
-dg0 f15 81 497 30 30 -64 17 #rect
+dg0 f15 80 713 30 30 -64 17 #rect
 dg0 f15 @|StartRequestIcon #fIcon
 dg0 f16 type com.axonivy.connectivity.rest.DataMappingData #txt
-dg0 f16 529 497 30 30 0 15 #rect
+dg0 f16 527 713 30 30 0 15 #rect
 dg0 f16 @|EndIcon #fIcon
-dg0 f18 484 512 529 512 #arcP
+dg0 f18 484 728 527 728 #arcP
 dg0 f19 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
 ' #txt
 dg0 f19 actionTable 'out=in;
@@ -320,12 +330,12 @@ dg0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-dg0 f19 168 490 112 44 -47 -7 #rect
+dg0 f19 168 706 112 44 -47 -7 #rect
 dg0 f19 @|StepIcon #fIcon
 dg0 f20 expr out #txt
-dg0 f20 111 512 168 512 #arcP
+dg0 f20 110 728 168 728 #arcP
 dg0 f17 expr out #txt
-dg0 f17 280 512 332 512 #arcP
+dg0 f17 280 728 332 728 #arcP
 dg0 f21 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 dg0 f21 path 1 #txt
 dg0 f21 headers 'Accept=application/json;
@@ -350,7 +360,7 @@ as JSON</name>
     </language>
 </elementInfo>
 ' #txt
-dg0 f21 168 666 112 44 -38 -15 #rect
+dg0 f21 168 866 112 44 -38 -15 #rect
 dg0 f21 @|RestClientCallIcon #fIcon
 dg0 f22 outLink acceptType.ivp #txt
 dg0 f22 type com.axonivy.connectivity.rest.DataMappingData #txt
@@ -364,7 +374,7 @@ dg0 f22 requestEnabled true #txt
 dg0 f22 triggerEnabled false #txt
 dg0 f22 callSignature acceptType() #txt
 dg0 f22 persist false #txt
-dg0 f22 startName '6.7 accept type header' #txt
+dg0 f22 startName '6.3.3 accept type header' #txt
 dg0 f22 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -383,13 +393,13 @@ dg0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f22 @C|.responsibility Everybody #txt
-dg0 f22 81 673 30 30 -46 17 #rect
+dg0 f22 80 873 30 30 -46 17 #rect
 dg0 f22 @|StartRequestIcon #fIcon
 dg0 f23 type com.axonivy.connectivity.rest.DataMappingData #txt
-dg0 f23 529 673 30 30 0 15 #rect
+dg0 f23 527 873 30 30 0 15 #rect
 dg0 f23 @|EndIcon #fIcon
 dg0 f24 expr out #txt
-dg0 f24 111 688 168 688 #arcP
+dg0 f24 110 888 168 888 #arcP
 dg0 f25 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 dg0 f25 path 1 #txt
 dg0 f25 headers 'Accept=application/xml;
@@ -414,10 +424,10 @@ as XML</name>
     </language>
 </elementInfo>
 ' #txt
-dg0 f25 352 666 112 44 -38 -15 #rect
+dg0 f25 352 866 112 44 -38 -15 #rect
 dg0 f25 @|RestClientCallIcon #fIcon
-dg0 f26 280 688 352 688 #arcP
-dg0 f27 464 688 529 688 #arcP
+dg0 f26 280 888 352 888 #arcP
+dg0 f27 464 888 527 888 #arcP
 dg0 f28 outLink formData.ivp #txt
 dg0 f28 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f28 inParamDecl '<> param;' #txt
@@ -428,7 +438,7 @@ dg0 f28 requestEnabled true #txt
 dg0 f28 triggerEnabled false #txt
 dg0 f28 callSignature formData() #txt
 dg0 f28 persist false #txt
-dg0 f28 startName '6.2 form data' #txt
+dg0 f28 startName '6.1.2 send form data' #txt
 dg0 f28 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -447,7 +457,7 @@ dg0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f28 @C|.responsibility Everybody #txt
-dg0 f28 81 225 30 30 -39 17 #rect
+dg0 f28 80 225 30 30 -39 17 #rect
 dg0 f28 @|StartRequestIcon #fIcon
 dg0 f29 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
 dg0 f29 path posts #txt
@@ -503,13 +513,13 @@ dg0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f30 168 218 112 44 -42 -7 #rect
 dg0 f30 @|StepIcon #fIcon
 dg0 f31 type com.axonivy.connectivity.rest.DataMappingData #txt
-dg0 f31 529 225 30 30 0 15 #rect
+dg0 f31 527 225 30 30 0 15 #rect
 dg0 f31 @|EndIcon #fIcon
 dg0 f32 expr out #txt
-dg0 f32 111 240 168 240 #arcP
+dg0 f32 110 240 168 240 #arcP
 dg0 f33 expr out #txt
 dg0 f33 280 240 332 240 #arcP
-dg0 f34 484 240 529 240 #arcP
+dg0 f34 484 240 527 240 #arcP
 dg0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -575,7 +585,7 @@ Sample JSON returned by the service:
     </language>
 </elementInfo>
 ' #txt
-dg0 f36 339 412 144 44 -51 -15 #rect
+dg0 f36 347 412 128 44 -51 -15 #rect
 dg0 f36 @|RestClientCallIcon #fIcon
 dg0 f38 outLink readPartialObject.ivp #txt
 dg0 f38 type com.axonivy.connectivity.rest.DataMappingData #txt
@@ -587,7 +597,7 @@ dg0 f38 requestEnabled true #txt
 dg0 f38 triggerEnabled false #txt
 dg0 f38 callSignature readPartialObject() #txt
 dg0 f38 persist false #txt
-dg0 f38 startName '6.4 partially read complex object' #txt
+dg0 f38 startName '6.2.1 read complex object partially to DataClass' #txt
 dg0 f38 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -600,20 +610,22 @@ dg0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>readPartialObject.ivp</name>
+        <nameStyle>21,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
 dg0 f38 @C|.responsibility Everybody #txt
-dg0 f38 84 419 30 30 -65 17 #rect
+dg0 f38 80 419 30 30 -65 17 #rect
 dg0 f38 @|StartRequestIcon #fIcon
 dg0 f41 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f41 527 419 30 30 0 15 #rect
 dg0 f41 @|EndIcon #fIcon
-dg0 f42 483 434 527 434 #arcP
+dg0 f42 475 434 527 434 #arcP
 dg0 f37 expr out #txt
-dg0 f37 114 434 339 434 #arcP
+dg0 f37 110 434 347 434 #arcP
 dg0 f39 type com.axonivy.connectivity.rest.DataMappingData #txt
-dg0 f39 528 588 30 30 0 15 #rect
+dg0 f39 527 793 30 30 0 15 #rect
 dg0 f39 @|EndIcon #fIcon
 dg0 f43 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 dg0 f43 path {in.userId} #txt
@@ -639,7 +651,7 @@ as JSON</name>
     </language>
 </elementInfo>
 ' #txt
-dg0 f43 351 581 112 44 -38 -15 #rect
+dg0 f43 352 786 112 44 -38 -15 #rect
 dg0 f43 @|RestClientCallIcon #fIcon
 dg0 f44 outLink pathParameters.ivp #txt
 dg0 f44 type com.axonivy.connectivity.rest.DataMappingData #txt
@@ -651,7 +663,7 @@ dg0 f44 requestEnabled true #txt
 dg0 f44 triggerEnabled false #txt
 dg0 f44 callSignature pathParameters() #txt
 dg0 f44 persist false #txt
-dg0 f44 startName '6.6 path parameters' #txt
+dg0 f44 startName '6.3.2 path parameters' #txt
 dg0 f44 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -670,7 +682,7 @@ dg0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 dg0 f44 @C|.responsibility Everybody #txt
-dg0 f44 80 588 30 30 -61 17 #rect
+dg0 f44 80 793 30 30 -61 17 #rect
 dg0 f44 @|StartRequestIcon #fIcon
 dg0 f48 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
 ' #txt
@@ -689,25 +701,217 @@ dg0 f48 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-dg0 f48 165 581 112 44 -47 -7 #rect
+dg0 f48 168 786 112 44 -47 -7 #rect
 dg0 f48 @|StepIcon #fIcon
-dg0 f40 463 603 528 603 #arcP
+dg0 f40 464 808 527 808 #arcP
 dg0 f45 expr out #txt
-dg0 f45 110 603 165 603 #arcP
+dg0 f45 110 808 168 808 #arcP
 dg0 f46 expr out #txt
-dg0 f46 277 603 351 603 #arcP
+dg0 f46 280 808 352 808 #arcP
+dg0 f47 outLink readGenerated.ivp #txt
+dg0 f47 type com.axonivy.connectivity.rest.DataMappingData #txt
+dg0 f47 inParamDecl '<> param;' #txt
+dg0 f47 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
+' #txt
+dg0 f47 guid 15C591CA21C1E630 #txt
+dg0 f47 requestEnabled true #txt
+dg0 f47 triggerEnabled false #txt
+dg0 f47 callSignature readGenerated() #txt
+dg0 f47 persist false #txt
+dg0 f47 startName '6.2.2 read complex object to GeneratedClass' #txt
+dg0 f47 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+dg0 f47 caseData businessCase.attach=true #txt
+dg0 f47 showInStartList 1 #txt
+dg0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>readGenerated.ivp</name>
+        <nameStyle>17,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+dg0 f47 @C|.responsibility Everybody #txt
+dg0 f47 80 497 30 30 -58 17 #rect
+dg0 f47 @|StartRequestIcon #fIcon
+dg0 f49 type com.axonivy.connectivity.rest.DataMappingData #txt
+dg0 f49 527 497 30 30 0 15 #rect
+dg0 f49 @|EndIcon #fIcon
+dg0 f51 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
+dg0 f51 path users/1 #txt
+dg0 f51 method GET #txt
+dg0 f51 bodyInputType ENTITY #txt
+dg0 f51 bodyRaw '{
+  "name": "hey there",
+  "email": "<%= in.myPost.email %>",
+  "body": "this is my test comment"
+}' #txt
+dg0 f51 bodyEntity in.myPost #txt
+dg0 f51 resultType com.typicode.jsonplaceholder.User #txt
+dg0 f51 responseCode 'out.userGenerated = result;
+
+ivy.log.info("got user = "+result);' #txt
+dg0 f51 clientErrorCode ivy:error:rest:client #txt
+dg0 f51 statusErrorCode ivy:error:rest:client #txt
+dg0 f51 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Consume to
+generated class</name>
+        <desc>The called service returns a complex JSON object with many fields. 
+We read it into a perfect matching class that was generated with: http://www.jsonschema2pojo.org/
+See com.typicode.jsonplaceholder.User
+
+Sample JSON returned by the service:
+{
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  },
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }
+}</desc>
+    </language>
+</elementInfo>
+' #txt
+dg0 f51 351 490 128 44 -45 -15 #rect
+dg0 f51 @|RestClientCallIcon #fIcon
+dg0 f52 expr out #txt
+dg0 f52 110 512 351 512 #arcP
+dg0 f50 479 512 527 512 #arcP
+dg0 f53 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
+dg0 f53 path users/1 #txt
+dg0 f53 method GET #txt
+dg0 f53 bodyInputType ENTITY #txt
+dg0 f53 bodyRaw '{
+  "name": "hey there",
+  "email": "<%= in.myPost.email %>",
+  "body": "this is my test comment"
+}' #txt
+dg0 f53 bodyEntity in.myPost #txt
+dg0 f53 resultType com.fasterxml.jackson.databind.JsonNode #txt
+dg0 f53 responseCode 'out.user.name = result.get("name").asText();
+out.user.phone = result.get("phone").asText();
+out.user.email = result.get("email").asText();
+
+ivy.log.info("got user = "+out.user);' #txt
+dg0 f53 clientErrorCode ivy:error:rest:client #txt
+dg0 f53 statusErrorCode ivy:error:rest:client #txt
+dg0 f53 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Consume nodes
+manually</name>
+        <desc>The called service returns a complex JSON object with many fields. 
+
+Sample JSON returned by the service:
+{
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  },
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }
+}</desc>
+    </language>
+</elementInfo>
+' #txt
+dg0 f53 349 568 128 44 -45 -15 #rect
+dg0 f53 @|RestClientCallIcon #fIcon
+dg0 f54 outLink readJsonNode.ivp #txt
+dg0 f54 type com.axonivy.connectivity.rest.DataMappingData #txt
+dg0 f54 inParamDecl '<> param;' #txt
+dg0 f54 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
+' #txt
+dg0 f54 guid 15C591F9517EE2E2 #txt
+dg0 f54 requestEnabled true #txt
+dg0 f54 triggerEnabled false #txt
+dg0 f54 callSignature readJsonNode() #txt
+dg0 f54 persist false #txt
+dg0 f54 startName '6.2.3 read complex object partially as JsonNode' #txt
+dg0 f54 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+dg0 f54 caseData businessCase.attach=true #txt
+dg0 f54 showInStartList 1 #txt
+dg0 f54 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>readJsonNode.ivp</name>
+        <nameStyle>16,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+dg0 f54 @C|.responsibility Everybody #txt
+dg0 f54 80 575 30 30 -54 17 #rect
+dg0 f54 @|StartRequestIcon #fIcon
+dg0 f55 expr out #txt
+dg0 f55 110 590 349 590 #arcP
+dg0 f56 type com.axonivy.connectivity.rest.DataMappingData #txt
+dg0 f56 527 575 30 30 0 15 #rect
+dg0 f56 @|EndIcon #fIcon
+dg0 f57 477 590 527 590 #arcP
 >Proto dg0 .type com.axonivy.connectivity.rest.DataMappingData #txt
 >Proto dg0 .processKind NORMAL #txt
 >Proto dg0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <swimlaneLabel>Body Payload Types</swimlaneLabel>
+        <swimlaneLabel>Body payload types</swimlaneLabel>
+        <swimlaneLabel>Read JSON response to Java</swimlaneLabel>
+        <swimlaneLabel>Parameterize request</swimlaneLabel>
     </language>
     <swimlaneOrientation>false</swimlaneOrientation>
     <swimlaneSize>280</swimlaneSize>
+    <swimlaneSize>288</swimlaneSize>
+    <swimlaneSize>288</swimlaneSize>
+    <swimlaneColor gradient="false">-1</swimlaneColor>
+    <swimlaneColor gradient="false">-1</swimlaneColor>
     <swimlaneColor gradient="false">-1</swimlaneColor>
     <swimlaneType>LANE</swimlaneType>
+    <swimlaneType>LANE</swimlaneType>
+    <swimlaneType>LANE</swimlaneType>
     <swimlaneSpaceBefore>96</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
 </elementInfo>
 ' #txt
 >Proto dg0 0 0 32 24 18 0 #rect
@@ -752,3 +956,11 @@ dg0 f44 mainOut f45 tail #connect
 dg0 f45 head f48 mainIn #connect
 dg0 f48 mainOut f46 tail #connect
 dg0 f46 head f43 mainIn #connect
+dg0 f47 mainOut f52 tail #connect
+dg0 f52 head f51 mainIn #connect
+dg0 f51 mainOut f50 tail #connect
+dg0 f50 head f49 mainIn #connect
+dg0 f54 mainOut f55 tail #connect
+dg0 f55 head f53 mainIn #connect
+dg0 f53 mainOut f57 tail #connect
+dg0 f57 head f56 mainIn #connect

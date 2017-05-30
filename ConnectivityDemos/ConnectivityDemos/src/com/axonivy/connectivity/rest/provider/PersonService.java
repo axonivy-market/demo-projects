@@ -51,18 +51,13 @@ public class PersonService {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getPersons(@QueryParam("name") String name)
+	public List<Person> getPersons(@QueryParam("name") String name)
 	{
 		if (StringUtils.isBlank(name))
 		{
-			return Response.status(Status.OK)
-					.entity(persons)
-					.build();
+			return persons;
 		}
-		
-		return Response.status(Status.OK)
-				.entity(findPersons(name))
-				.build();
+		return findPersons(name);
 	}
 
 	private List<Person> findPersons(String name) {

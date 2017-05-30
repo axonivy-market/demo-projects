@@ -4,3 +4,4 @@ myPost com.axonivy.connectivity.rest.Post #field
 userId Number #field
 posts java.util.List<com.axonivy.connectivity.rest.Post> #field
 user com.axonivy.connectivity.rest.User #field
+userGenerated com.typicode.jsonplaceholder.User #field
