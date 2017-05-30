@@ -261,7 +261,7 @@
 				<br />
 				<p:commandButton value="Save and connect"
 					id="saveAndConnectConvertionButton"
-					actionListener="#{logic.checkConnection}"
+					actionListener="#{logic.saveAndCheckConnection}"
 					update="@(.configChanged), :#{cc.clientId}:convertingDatabaseDialog,
 					 :#{cc.clientId}:systemDatabaseForm"
 					disabled="#{data.progressAction.running}" />

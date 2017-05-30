@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 30 08:49:03 CEST 2017]
+[>Created: Tue May 30 09:15:42 CEST 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -466,11 +466,13 @@ Ss0 f9 actionTable 'out=in;
 Ss0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>checkConnection</name>
+        <name>saveAndCheckConnection</name>
+        <nameStyle>22,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f9 83 755 26 26 -47 12 #rect
+Ss0 f9 83 755 26 26 -72 15 #rect
 Ss0 f9 @|RichDialogProcessStartIcon #fIcon
 Ss0 f10 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f10 339 755 26 26 0 12 #rect
@@ -479,7 +481,8 @@ Ss0 f17 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 ' #txt
 Ss0 f17 actionTable 'out=in;
 ' #txt
-Ss0 f17 actionCode in.settings.testConnection(); #txt
+Ss0 f17 actionCode 'in.settings.saveSystemDb();
+in.settings.testConnection();' #txt
 Ss0 f17 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f17 168 746 112 44 0 -8 #rect
 Ss0 f17 @|StepIcon #fIcon
