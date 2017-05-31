@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 30 15:37:00 CEST 2017]
+[>Created: Wed May 31 14:18:21 CEST 2017]
 154616078A1D629D 3.20 #module
 >Proto >Proto Collection #zClass
 ce0 callOwnPersonRestService Big #zClass
@@ -218,6 +218,8 @@ ce0 f3 type com.axonivy.connectivity.Data #txt
 ce0 f3 337 393 30 30 0 15 #rect
 ce0 f3 @|EndIcon #fIcon
 ce0 f17 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
+ce0 f17 headers 'Accept=application/vnd.sun.wadl+xml;
+' #txt
 ce0 f17 method OPTIONS #txt
 ce0 f17 resultType java.lang.String #txt
 ce0 f17 responseCode ivy.log.info(result); #txt
