@@ -36,7 +36,7 @@ public class HelperBean
     return !demoLicence;
   }
 
-  private boolean isNotAuthenticated()
+  public boolean isNotAuthenticated()
   {
     return Ivy.session().isSessionUserUnknown();
   }

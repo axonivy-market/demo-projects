@@ -118,4 +118,11 @@ Own Classes
 
 .help-button {
 	float: right;
+	margin-right: 15px;
+}
+
+.logged-in-user {
+	float: right;
+	margin-top: 20px;
+	margin-right: 15px;
 }

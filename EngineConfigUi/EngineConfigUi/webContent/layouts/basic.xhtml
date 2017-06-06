@@ -28,23 +28,7 @@
 <h:body>
 	<h:outputStylesheet name="layouts/styles/engine-config.css" />
 	<ui:insert name="header">
-		<div class="navbar navbar-top">
-			<div class="container" id="headerdiv">
-				<div class="navbar-header">
-					<a class="ivy-logo"
-						href="#{ivy.html.startref('157E64657EEBDD9C/start.ivp')}"> <h:graphicImage
-							name="layouts/images/axon_ivy_6_logo.png" alt="Axon.ivy" />
-					</a>
-				</div>
-				<div class="navbar">
-					<h3>Engine Configuration</h3>
-					<p:link target="_blank" styleClass="help-button"
-						href="http://developer.axonivy.com/doc/latest/EngineGuideHtml/configuration.html#configuration-properties">
-						<i class="fa fa-question-circle" /> Help
-							</p:link>
-				</div>
-			</div>
-		</div>
+		<ui:include src="includes/Header.xhtml" />
 	</ui:insert>
 
 	<div id="content" class="container">
