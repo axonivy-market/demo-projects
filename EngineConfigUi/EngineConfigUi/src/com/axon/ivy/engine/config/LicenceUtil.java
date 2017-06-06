@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.primefaces.model.UploadedFile;
 
 import ch.ivyteam.di.restricted.DiCore;
@@ -70,6 +71,20 @@ public class LicenceUtil
   {
     return LicenceConstants.VAL_LICENCE_TYPE_ENTERPRISE.equals(SignedLicence.getParam(
             ch.ivyteam.licence.LicenceConstants.PARAM_LICENCE_TYPE));
+  }
+  
+  public static boolean isDemo()
+  {
+    if (StringUtils.isNotEmpty(System
+            .getProperty("ch.ivyteam.ivy.server.configuration.development")))
+    {
+      return false;
+    }
+    if (SignedLicence.isDemo())
+    {
+      return true;
+    }
+    return false;
   }
 
   public static File getInstalledLic()

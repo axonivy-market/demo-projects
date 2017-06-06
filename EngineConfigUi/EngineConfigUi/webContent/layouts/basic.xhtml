@@ -49,9 +49,17 @@
 	</ui:insert>
 
 	<div id="content" class="container">
-		<ui:insert name="content">
-        default content
-      </ui:insert>
+		<c:choose>
+			<c:when test="#{helperBean.mustAuthenticate()}">
+				<ic:com.axonivy.engine.config.ui.settings.component.LoginPageComponent
+					id="loginPageComponent" />
+			</c:when>
+			<c:otherwise>
+				<ui:insert name="content">
+     			default content
+				</ui:insert>
+			</c:otherwise>
+		</c:choose>
 
 		<ui:insert name="footer">
 			<hr />

@@ -1,0 +1,6 @@
+LoginPageComponentData #class
+com.axonivy.engine.config.ui.settings.component.LoginPageComponent #namespace
+username String #field
+username PERSISTENT #fieldModifier
+password String #field
+password PERSISTENT #fieldModifier

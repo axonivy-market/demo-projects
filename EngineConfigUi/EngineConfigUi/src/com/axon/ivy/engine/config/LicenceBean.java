@@ -5,8 +5,6 @@ import java.util.Properties;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
-import org.apache.commons.lang.StringUtils;
-
 import ch.ivyteam.licence.SignedLicence;
 
 @ManagedBean
@@ -30,15 +28,6 @@ public class LicenceBean
 
   public boolean isDemo()
   {
-    if (StringUtils.isNotEmpty(System
-            .getProperty("ch.ivyteam.ivy.server.configuration.development")))
-    {
-      return false;
-    }
-    if (SignedLicence.isDemo())
-    {
-      return true;
-    }
-    return false;
+    return LicenceUtil.isDemo();
   }
 }

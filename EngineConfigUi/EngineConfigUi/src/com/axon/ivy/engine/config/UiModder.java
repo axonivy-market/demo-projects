@@ -68,6 +68,21 @@ public class UiModder
     addMessage(FacesMessage.SEVERITY_FATAL, "Failed To Save", detail);
   }
 
+  public static void addInfoMessage(String summary, String detail)
+  {
+    addMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+  }
+
+  public static void addWarningMessage(String summary, String detail)
+  {
+    addMessage(FacesMessage.SEVERITY_WARN, summary, detail);
+  }
+
+  public static void addErrorMessage(String summary, String detail)
+  {
+    addMessage(FacesMessage.SEVERITY_ERROR, summary, detail);
+  }
+
   private static void addMessage(Severity severity, String summary, String detail)
   {
     FacesContext context = FacesContext.getCurrentInstance();
