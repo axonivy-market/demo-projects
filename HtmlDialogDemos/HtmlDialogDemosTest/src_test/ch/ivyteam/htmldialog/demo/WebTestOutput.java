@@ -78,17 +78,17 @@ public class WebTestOutput extends BaseWebTest
     startProcess("145D180807C60B4B/EditableTableDemo.ivp");
 
     Table table = prime().table(By.id("form:personTable"));
-    editTable(By.xpath("//*[@id='form:personTable:0:rowEditor']/span[2]"), 0, "firstName", "lastName");
+    editTable(By.xpath("//*[@id='form:personTable:0:rowEditor']/a[2]"), 0, "firstName", "lastName");
     editableTableContains(table);
 
-    editTable(By.xpath("//*[@id='form:personTable:0:rowEditor']/span[3]"), 0, "firstName", "lastName");
+    editTable(By.xpath("//*[@id='form:personTable:0:rowEditor']/a[3]"), 0, "firstName", "lastName");
     editableTableContains(table);
 
     driver.findElement(By.xpath("//*[@id='form:personTable:4:deleteButton']/span")).click();
     table.containsNot("Dänzer");
 
     driver.findElement(By.xpath("//*[@id='form:personTable:addButton']/span")).click();
-    editTable(By.xpath("//*[@id='form:personTable:5:rowEditor']/span[2]"), 5, "testfirstName", "testLastName");
+    editTable(By.xpath("//*[@id='form:personTable:5:rowEditor']/a[2]"), 5, "testfirstName", "testLastName");
     table.contains("testfirstName");
     table.contains("testLastName");
   }
@@ -103,7 +103,7 @@ public class WebTestOutput extends BaseWebTest
 
   private void editTable(By confirmLocator, int rowPosition, String firstName, String lastName)
   {
-    driver.findElement(By.xpath("//*[@id='form:personTable:" + rowPosition + ":rowEditor']/span[1]"))
+    driver.findElement(By.xpath("//*[@id='form:personTable:" + rowPosition + ":rowEditor']/a[1]"))
             .click();
     clearInput(By.id("form:personTable:" + rowPosition + ":inputName"));
     driver.findElement(By.id("form:personTable:" + rowPosition + ":inputName")).sendKeys(lastName);
