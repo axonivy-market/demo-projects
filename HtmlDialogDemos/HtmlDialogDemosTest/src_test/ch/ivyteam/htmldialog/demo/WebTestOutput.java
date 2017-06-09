@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -15,9 +16,9 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 public class WebTestOutput extends BaseWebTest
 {
   @Override
-  public void setUp()
+  protected WebDriver createDriver()
   {
-    super.driver = new HtmlUnitDriver(true);
+    return new HtmlUnitDriver(true);
   }
   
   @Test

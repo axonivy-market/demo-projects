@@ -28,7 +28,7 @@ public abstract class BaseWebTest
     driver = createDriver();
   }
 
-  protected final WebDriver createDriver()
+  protected WebDriver createDriver()
   {
     FirefoxProfile profile = FixVersionFirefox.loadFirefoxProfile();
     configureBrowserProfile(profile);
