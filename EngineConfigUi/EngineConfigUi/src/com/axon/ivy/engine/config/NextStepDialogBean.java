@@ -40,7 +40,7 @@ public class NextStepDialogBean
         return "Your database has a wrong version";
       case UNKNOWN:
       default:
-        return "A unknown Error occured";
+        return "";
     }
   }
 
@@ -122,6 +122,10 @@ public class NextStepDialogBean
     if (stateMessage.contains("Connection was established"))
     {
       return CONNECTION_OK;
+    }
+    if (stateMessage.contains("Missing system application"))
+    {
+      return UNKNOWN;
     }
     return null;
   }
