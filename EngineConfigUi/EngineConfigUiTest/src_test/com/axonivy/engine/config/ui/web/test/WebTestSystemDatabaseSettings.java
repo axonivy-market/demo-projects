@@ -35,21 +35,14 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   @Test
   public void testSystemDbConvertion() throws Exception
   {
-    try
-    {
-      ConfigData configData = TestSystemDatabaseSettings.getLocalMySqlSettings();
-      configData.setDatabaseName(OLD_DB_NAME);
-      tryCreatingOldDb(configData);
+    ConfigData configData = TestSystemDatabaseSettings.getLocalMySqlSettings();
+    configData.setDatabaseName(OLD_DB_NAME);
+    tryCreatingOldDb(configData);
 
-      setOldDbConfigUi();
-      testConnectionOldDb();
-      convertDb();
-      testConnection();
-    }
-    finally
-    {
-      dropMySqlDatabase();
-    }
+    setOldDbConfigUi();
+    testConnectionOldDb();
+    convertDb();
+    testConnection();
   }
 
   private void convertDb()
@@ -135,10 +128,6 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     catch (Exception ex)
     {
       throwNotConnected(sw);
-    }
-    finally
-    {
-      dropMySqlDatabase();
     }
   }
 
