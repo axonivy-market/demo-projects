@@ -17,7 +17,7 @@
 	<p:outputPanel id="connectionPanel" styleClass="connection-panel">
 		<p:commandButton value="Check Connection" id="checkConnectionButton"
 			icon="fa fa-check" styleClass="check-connection"
-			actionListener="#{logic.checkConnection}" update="@(.configChanged)"
+			actionListener="#{nextStepDialogBean.checkNextStepConnectionProblem(data.settings)}" update="@(.configChanged)"
 			onstart="updateConnectionPanel()" />
 		<p:outputPanel id="connection"
 			styleClass="alert #{data.settings.connectionInfo.stateCssValue} connection-state configChanged">
@@ -28,6 +28,9 @@
 			</h4>
 			<p>
 				<h:outputText value="#{data.settings.connectionInfo.stateMessage}" />
+			</p>
+			<p>
+				<h:outputText value="#{nextStepDialogBean.message}"/>
 			</p>
 		</p:outputPanel>
 	</p:outputPanel>
