@@ -32,17 +32,16 @@
 	</ui:insert>
 
 	<div id="content" class="container">
-		<c:choose>
-			<c:when test="#{helperBean.mustAuthenticate()}">
-				<ic:com.axonivy.engine.config.ui.settings.component.LoginPageComponent
-					id="loginPageComponent" />
-			</c:when>
-			<c:otherwise>
-				<ui:insert name="content">
+		<ui:fragment rendered="#{helperBean.mustAuthenticate()}">
+			<ic:com.axonivy.engine.config.ui.settings.component.LoginPageComponent
+				id="loginPageComponent" />
+		</ui:fragment>
+		
+		<ui:fragment rendered="#{!helperBean.mustAuthenticate()}">
+			<ui:insert name="content">
      			default content
-				</ui:insert>
-			</c:otherwise>
-		</c:choose>
+			</ui:insert>
+		</ui:fragment>
 
 		<ui:insert name="footer">
 			<hr />

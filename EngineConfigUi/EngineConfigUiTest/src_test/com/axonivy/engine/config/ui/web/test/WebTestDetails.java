@@ -5,21 +5,18 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import ch.ivyteam.ivy.environment.Ivy;
+
 public class WebTestDetails extends BaseWebTest
 {
   private final By summaryForm = By.id("accordionPanel:summaryComponent:summaryForm");
 
-  @Override
-  public void setUp()
-  {
-    super.setUp();
-    setMySqlConfig();
-    createMySqlSysDb();
-  }
-
   @Test
   public void testSummary() throws Exception
   {
+    setMySqlConfig();
+    createMySqlSysDb();
+
     Thread.sleep(1000);
     openTab(" Summary");
     summaryContains("MySQL");
@@ -36,11 +33,10 @@ public class WebTestDetails extends BaseWebTest
 
     openTab(" Summary");
     await(ExpectedConditions.textToBePresentInElementLocated(summaryForm, "AXON"));
-//    summaryContains("AXON");
+    // summaryContains("AXON");
     summaryContains("Teamivy");
     summaryContains("IVYAXON");
   }
-
 
   private void openDialogAndAddAdmin(String name)
   {
@@ -54,4 +50,29 @@ public class WebTestDetails extends BaseWebTest
     Assert.assertTrue(driver.findElement(summaryForm).getText().contains(value));
   }
 
+  @Test
+  public void testLoginLogout() throws Exception
+  {
+    System.out.println(driver.findElement(By.xpath("//*[@id='headerdiv']/div[2]/p[1]")).getText());
+    Assert.assertTrue(driver.findElement(By.xpath("//*[@id='headerdiv']/div[2]/p[1]")).getText()
+            .contains(Ivy.session().getSessionUserName()));
+
+    logout();
+    login("Developer", "Developer");
+    testConnection();
+  }
+
+  private void logout()
+  {
+    driver.findElement(By.id("logoutButton")).click();
+  }
+
+  private void login(String username, String password)
+  {
+    await(ExpectedConditions.visibilityOfElementLocated(By.id("loginPageComponent:loginForm:username")));
+    driver.findElement(By.id("loginPageComponent:loginForm:username")).sendKeys(username);
+    driver.findElement(By.id("loginPageComponent:loginForm:password")).sendKeys(password);
+    driver.findElement(By.id("loginPageComponent:loginForm:loginButton")).click();
+    await(ExpectedConditions.visibilityOfElementLocated(By.id("accordionPanel")));
+  }
 }

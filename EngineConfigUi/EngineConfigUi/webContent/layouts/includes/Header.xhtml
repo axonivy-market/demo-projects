@@ -16,14 +16,14 @@
 					</a>
 				</div>
 				<div class="navbar">
-					<c:if test="#{!helperBean.notAuthenticated}">
+					<ui:fragment rendered="#{!helperBean.notAuthenticated}">
 						<p class="navbar-text logged-in-user">
 							Logged in as: #{ivy.session.getSessionUserName()} | <a
 								id="logoutButton"
 								href="#{ivy.html.startref('157E64657EEBDD9C/Logout.ivp')}"
 								class="navbar-link">Logout</a>
 						</p>
-					</c:if>
+					</ui:fragment>
 					<h3>Engine Configuration</h3>
 					<p>
 						<p:link target="_blank" styleClass="help-button"
