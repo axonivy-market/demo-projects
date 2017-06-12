@@ -1,6 +1,5 @@
 package com.axonivy.engine.config.ui.web.test;
 
-import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,14 +9,6 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 public class WebTestAdministratorManager extends BaseWebTest
 {
   private final String newName = "AXON";
-
-  @After
-  @Override
-  public void tearDown() throws Exception
-  {
-    dropMySqlDatabase();
-    driver.quit();
-  }
 
   @Test
   public void testAddAdmin() throws Exception

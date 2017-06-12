@@ -19,13 +19,6 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EngineGuideScreenshots extends BaseWebTest
 {
-  @Override
-  public void tearDown() throws Exception
-  {
-    dropMySqlDatabase();
-    super.tearDown();
-  }
-
   @Test
   public void a_licenceTab() throws Exception
   {

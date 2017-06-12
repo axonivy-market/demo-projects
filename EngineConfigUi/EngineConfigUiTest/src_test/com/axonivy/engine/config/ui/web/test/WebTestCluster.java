@@ -8,12 +8,6 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
 public class WebTestCluster extends BaseWebTest
 {
-  @Override
-  public void tearDown() throws Exception
-  {
-    super.tearDown();
-    dropMySqlDatabase();
-  }
 
   @Override
   public void setUp()

@@ -7,13 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestWizard extends BaseWebTest
 {
-  @Override
-  public void tearDown() throws Exception
-  {
-    super.tearDown();
-    dropMySqlDatabase();
-  }
-
   @Test
   public void testingAll() throws Exception
   {

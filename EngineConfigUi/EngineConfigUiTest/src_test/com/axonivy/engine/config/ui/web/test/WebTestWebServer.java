@@ -8,13 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestWebServer extends BaseWebTest
 {
-  @Override
-  public void tearDown() throws Exception
-  {
-    super.tearDown();
-    dropMySqlDatabase();
-  }
-
   @Test
   public void testConfigStays() throws Exception
   {

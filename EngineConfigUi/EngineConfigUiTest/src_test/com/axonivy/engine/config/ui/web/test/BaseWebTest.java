@@ -52,6 +52,7 @@ public class BaseWebTest
   @After
   public void tearDown() throws Exception
   {
+    dropMySqlDatabase();
     driver.quit();
   }
 
