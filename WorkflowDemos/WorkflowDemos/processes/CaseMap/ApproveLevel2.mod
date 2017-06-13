@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed May 10 15:35:17 CEST 2017]
+[>Created: Mon Jun 12 16:52:22 CEST 2017]
 15A89963C015F70D 3.20 #module
 >Proto >Proto Collection #zClass
 A20 ApproveLevel2 Big #zClass
@@ -30,13 +30,14 @@ A20 f0 triggerEnabled false #txt
 A20 f0 callSignature start() #txt
 A20 f0 persist false #txt
 A20 f0 startName 'Approve Level 2' #txt
-A20 f0 taskData 'TaskTriggered.ROL=Everybody
+A20 f0 taskData 'TaskTriggered.EXP=new Duration("8h")
+TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody
-TaskTriggered.NAM=Approve Level 2' #txt
+TaskTriggered.NAM=Approve Level 2
+TaskTriggered.EXROL=Everybody' #txt
 A20 f0 caseData businessCase.attach=true #txt
 A20 f0 showInStartList 0 #txt
 A20 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

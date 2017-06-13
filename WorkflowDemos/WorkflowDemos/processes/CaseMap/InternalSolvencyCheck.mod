@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed May 10 15:35:57 CEST 2017]
+[>Created: Mon Jun 12 16:51:31 CEST 2017]
 15A89953E2D3784F 3.20 #module
 >Proto >Proto Collection #zClass
 Ik0 InternalSolvencyCheck Big #zClass
@@ -30,13 +30,14 @@ Ik0 f0 triggerEnabled false #txt
 Ik0 f0 callSignature start() #txt
 Ik0 f0 persist false #txt
 Ik0 f0 startName 'Internal Solvency Check' #txt
-Ik0 f0 taskData 'TaskTriggered.ROL=Everybody
+Ik0 f0 taskData 'TaskTriggered.EXP=new Duration("20h")
+TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody
-TaskTriggered.NAM=Internal Solvency Check' #txt
+TaskTriggered.NAM=Internal Solvency Check
+TaskTriggered.EXROL=Everybody' #txt
 Ik0 f0 caseData businessCase.attach=true #txt
 Ik0 f0 showInStartList 0 #txt
 Ik0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

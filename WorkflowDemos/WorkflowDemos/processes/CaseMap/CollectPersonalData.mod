@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue May 30 14:04:39 CEST 2017]
+[>Created: Thu Jun 08 11:29:16 CEST 2017]
 15A5AC9A4F755A3B 3.20 #module
 >Proto >Proto Collection #zClass
 Ca0 CollectPersonalData Big #zClass
@@ -34,10 +34,11 @@ Ca0 f0 triggerEnabled false #txt
 Ca0 f0 callSignature start() #txt
 Ca0 f0 persist true #txt
 Ca0 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXP=new Duration("33h")
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
+TaskTriggered.EXPRI=1
 TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+TaskTriggered.PRI=1
 TaskTriggered.NAM=Collect Personal Data
 TaskTriggered.EXROL=Everybody' #txt
 Ca0 f0 caseData 'case.name=Lending
