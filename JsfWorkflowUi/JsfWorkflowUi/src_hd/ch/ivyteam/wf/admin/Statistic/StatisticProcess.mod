@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Jun 03 15:25:51 CEST 2014]
-144631CE64C7434D 3.17 #module
+[>Created: Tue Jun 13 10:26:50 CEST 2017]
+144631CE64C7434D 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 StatisticProcess Big #zClass
 Ss0 RD #cInfo
@@ -108,7 +108,8 @@ Duration lastMonth = new Duration(60 * 60 * 24 * 30);
 
 in.catFilter = "all";
 in.dateToFilter = currentDate;
-in.dateFromFilter = currentDate.minus(lastMonth);' #txt
+in.dateFromFilter = currentDate.minus(lastMonth);
+in.dateNow = currentDate;' #txt
 Ss0 f8 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
 Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

@@ -8,5 +8,7 @@ dateFromFilter Date #field
 dateFromFilter PERSISTENT #fieldModifier
 dateToFilter Date #field
 dateToFilter PERSISTENT #fieldModifier
+dateNow Date #field
+dateNow PERSISTENT #fieldModifier
 cases Recordset #field
 cases PERSISTENT #fieldModifier

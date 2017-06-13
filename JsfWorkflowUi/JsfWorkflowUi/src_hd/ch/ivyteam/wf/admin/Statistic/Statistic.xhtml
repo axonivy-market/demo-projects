@@ -33,7 +33,7 @@
 						</p:calendar>
 						<p:spacer width="8" />
 	        			<h:outputText value="#{ivy.cms.co('/labels/common/to')}: "/>
-	 					<p:calendar id="dateToFilter" maxdate="PF('calwidget').today()" widgetVar="calwidget" pattern="dd.MM.yyyy" value="#{data.dateToFilter}">
+	 					<p:calendar id="dateToFilter" maxdate="#{data.dateNow}" widgetVar="calwidget" pattern="dd.MM.yyyy" value="#{data.dateToFilter}">
 							<f:convertDateTime pattern="dd.MM.yyyy" />
 							<p:ajax event="dateSelect" listener="#{logic.setFilter}" update=":caseStatisticForm" />
 						</p:calendar>
