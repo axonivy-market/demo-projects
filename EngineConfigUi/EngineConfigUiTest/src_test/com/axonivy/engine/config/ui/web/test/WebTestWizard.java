@@ -17,23 +17,37 @@ public class WebTestWizard extends BaseWebTest
     checkWebServerTab();
   }
 
-  private void checkWebServerTab()
+  private void checkLicenceTab()
   {
-    awaitTabIsOpen(By.xpath("//*[@id='accordionPanel']/h3[4]"));
-    driver.findElement(By.id("accordionPanel:webServerComponent:webServerForm:webServerTabNextButton"))
-            .click();
-    awaitTabIsOpen(By.xpath("//*[@id='accordionPanel']/h3[5]"));
+    await(ExpectedConditions.elementToBeClickable(By
+                    .id("accordionPanel:licenceComponent:systemDatabaseTabNextButton"))).click();
+    await(ExpectedConditions.visibilityOfElementLocated(By
+            .id("accordionPanel:licenceComponent:nextStepLicenceDialogForm:cancelLicenceButton"))).click();
   }
 
-  private void awaitTabIsOpen(By locator)
+  private void checkSysDbTab() throws Exception
   {
-    await(ExpectedConditions.attributeToBe(locator, "aria-selected",
-            "true"));
+    setMySqlConfig();
+    await(ExpectedConditions.elementToBeClickable(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton")))
+            .click();
+    await(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton'][contains(@class, 'ui-state-warn')]")))
+            .click();
+    await(ExpectedConditions.elementToBeClickable(By
+            .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton"))).click();
+    await(ExpectedConditions.elementToBeClickable(By
+            .id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:saveAndConnectButton"))).click();
+    super.dbCreated = true;
+    Thread.sleep(500);
+    driver.findElement(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton"))
+            .click();
   }
 
   private void checkAdminsTab() throws Exception
   {
-    await(ExpectedConditions.visibilityOfElementLocated(By
+    await(ExpectedConditions.elementToBeClickable(By
             .id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton")));
     driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newName")).sendKeys(
             Keys.ESCAPE);
@@ -42,34 +56,23 @@ public class WebTestWizard extends BaseWebTest
     await(ExpectedConditions.textToBePresentInElementLocated(By
             .id("accordionPanel:administratorsComponent:addAdminDialog"), "at least one"));
     addAdmin("AXON");
-    Thread.sleep(500);
+    // Thread.sleep(500);
     await(ExpectedConditions.visibilityOfElementLocated(By
             .id("accordionPanel:administratorsComponent:adminManagerForm:adminsTabNextButton")))
             .click();
   }
 
-  private void checkLicenceTab()
+  private void checkWebServerTab()
   {
-    driver.findElement(By.id("accordionPanel:licenceComponent:systemDatabaseTabNextButton")).click();
-    await(ExpectedConditions.visibilityOfElementLocated(By
-            .id("accordionPanel:licenceComponent:nextStepLicenceDialogForm:cancelLicenceButton"))).click();
+    awaitTabIsOpen(By.xpath("//*[@id='accordionPanel']/div[7]"));
+    driver.findElement(By.id("accordionPanel:webServerComponent:webServerForm:webServerTabNextButton"))
+            .click();
+    awaitTabIsOpen(By.xpath("//*[@id='accordionPanel']/div[9]"));
   }
 
-  private void checkSysDbTab() throws Exception
+  private void awaitTabIsOpen(By locator)
   {
-    setMySqlConfig();
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton"))
-            .click();
-    await(ExpectedConditions.visibilityOfElementLocated(By
-            .id("accordionPanel:systemDatabaseComponent:nextButtonCreate"))).click();
-    await(ExpectedConditions.visibilityOfElementLocated(By
-            .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton"))).click();
-    await(ExpectedConditions.elementToBeClickable(By
-            .id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:saveAndConnectButton"))).click();
-    Thread.sleep(500);
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton"))
-            .click();
+    await(ExpectedConditions.attributeToBe(locator, "aria-selected",
+            "true"));
   }
 }

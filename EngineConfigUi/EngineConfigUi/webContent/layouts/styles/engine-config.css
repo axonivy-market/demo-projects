@@ -126,3 +126,8 @@ Own Classes
 	margin-top: 20px;
 	margin-right: 15px;
 }
+
+button.ui-state-warn {
+	font-weight: bold;
+	background-color: #FFA500;
+}

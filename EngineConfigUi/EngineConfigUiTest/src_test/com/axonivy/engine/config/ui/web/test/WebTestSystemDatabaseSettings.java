@@ -29,7 +29,6 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   {
     setMySqlConfig();
     createMySqlSysDb();
-    dropMySqlDatabase();
   }
 
   @Test
@@ -162,15 +161,10 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   private void setConfigMSSQL()
   {
     setConfigInternal();
-
     prime.selectOne(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseTypeDropdown"))
             .selectItemByLabel("Microsoft SQL Server");
-
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "ZugTstDbsMss");
-
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
-            .click();
+    checkConnection();
   }
 
   private void createSysDbMSSQL()

@@ -12,9 +12,27 @@
 
 <cc:implementation>
 	<h:form id="systemDatabaseForm">
-		<ic:com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent
-			id="connectionStateComponent" settings="#{data.settings}" />
-
+		<p:remoteCommand name="updateConnectionPanel" update="connection"
+			async="true" delay="20" />
+		<p:outputPanel id="connectionPanel" styleClass="connection-panel">
+			<p:commandButton value="Check Connection" id="checkConnectionButton"
+				icon="fa fa-check" styleClass="check-connection"
+				actionListener="#{logic.validateConfig}"
+				update="@(.configChanged), systemDatabaseForm"
+				onstart="updateConnectionPanel()" />
+			<p:outputPanel id="connection"
+				styleClass="alert #{data.settings.connectionInfo.stateCssValue} connection-state configChanged">
+				<h4>
+					<i class="#{data.settings.connectionInfo.connectionIcon}" />
+					<h:outputText value="#{data.settings.connectionInfo.stateTitle}"
+						id="connectionState" styleClass="configChanged" />
+				</h4>
+				<p>
+					<h:outputText value="#{data.settings.connectionInfo.stateMessage}"
+						styleClass="configChanged" />
+				</p>
+			</p:outputPanel>
+		</p:outputPanel>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-5">
@@ -105,39 +123,13 @@
 					update=":#{cc.clientId}:convertDatabaseDialog, @(.configChanged)" />
 				<p:commandButton id="systemDatabaseTabNextButton" value="Next"
 					icon="fa fa-arrow-circle-right"
-					styleClass="next-button , configChanged"
-					update=":accordionPanel, #{cc.clientId}:nextStepDialog"
-					actionListener="#{nextStepDialogBean.checkNextStepConnectionProblem(data.settings)}"
-					oncomplete="if(#{data.settings.connectionInfo.connectionOK})PF('accordionPanel').select(2);
-					 else PF('nextStepDialog').show();" />
+					styleClass="next-button , configChanged" update=":accordionPanel"
+					actionListener="#{logic.validateConfig}"
+					oncomplete="if(#{data.settings.connectionInfo.connectionOK})PF('accordionPanel').select(2);" />
 			</div>
 		</div>
 		<p:defaultCommand target="systemDatabaseTabNextButton" />
 	</h:form>
-
-	<p:dialog id="nextStepDialog" widgetVar="nextStepDialog"
-		header="#{nextStepDialogBean.title}" modal="true" closeOnEscape="true">
-		<h:outputText value="#{nextStepDialogBean.message}" />
-		<br />
-		<br />
-		<p:commandButton value="Create" icon="fa fa-arrow-circle-right"
-			id="nextButtonCreate" actionListener="#{logic.applyProperties}"
-			oncomplete="PF('nextStepDialog').hide(); PF('createDatabaseDialog').show();"
-			update=":#{cc.clientId}:createDatabaseDialog"
-			rendered="#{nextStepDialogBean.step eq 'createDb'}" />
-		<p:commandButton value="Convert" icon="fa fa-arrow-circle-right"
-			id="nextButtonConvert"
-			oncomplete="PF('nextStepDialog').hide(); PF('convertDatabaseDialog').show();"
-			rendered="#{nextStepDialogBean.step eq 'convertDb'}" />
-		<p:commandButton value="Correct" icon="fa fa-arrow-circle-right"
-			id="nextButtonWrongConfig" onclick="PF('nextStepDialog').hide();"
-			rendered="#{nextStepDialogBean.step eq 'wrongLogin' or nextStepDialogBean.step eq 'noPassword' 
-				or nextStepDialogBean.step eq 'wrongPassword' or nextStepDialogBean.step eq 'wrongHost'}" />
-		<p:commandButton value="Next" icon="fa fa-arrow-circle-right"
-			id="nextButtonConnectionOk"
-			oncomplete="PF('nextStepDialog').hide(); PF('accordionPanel').select(2);"
-			rendered="#{nextStepDialogBean.step eq 'connectionOk'}" />
-	</p:dialog>
 
 	<p:dialog id="createDatabaseDialog" widgetVar="createDatabaseDialog"
 		header="Create System Database" modal="true" closeOnEscape="true">

@@ -3,6 +3,7 @@ package com.axonivy.engine.config.ui.web.test;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.apache.commons.lang3.RandomUtils;
@@ -52,32 +53,33 @@ public class BaseWebTest
   @After
   public void tearDown() throws Exception
   {
-    dropMySqlDatabase();
+    try
+    {
+      dropMySqlDatabase();
+    }
+    catch (SQLException ex)
+    {
+      System.err.println("DB '" + DBNAME + "' could not be dropped!");
+    }
     driver.quit();
   }
 
   protected void setMySqlConfig()
   {
     setConfigInternal();
-
     prime.selectOne(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseTypeDropdown"))
             .selectItemByLabel("MySQL");
-
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "zugtstdbsmys");
   }
 
   protected void createMySqlSysDb()
   {
-    await(ExpectedConditions
-            .elementToBeClickable(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton")));
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
+    await(ExpectedConditions.elementToBeClickable(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton")))
             .click();
-    await(ExpectedConditions
-            .textToBePresentInElementLocated(
-                    By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:connectionState"),
-                    "failed"));
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
+            "doesn't exist"));
     openDbCreationDialog();
 
     createAndValidateDb();
@@ -100,13 +102,8 @@ public class BaseWebTest
 
   protected void openDbCreationDialog()
   {
-    await(ExpectedConditions.presenceOfElementLocated(By
-            .id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton")));
-
     await(ExpectedConditions.elementToBeClickable(By
-            .id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton")));
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton"))
+            .id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton")))
             .click();
   }
 
@@ -159,13 +156,17 @@ public class BaseWebTest
   protected void testConnection()
   {
     openTab("System Database");
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
+    checkConnection();
+    await(ExpectedConditions.textToBePresentInElementLocated(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
+            "Connected"));
+  }
+
+  protected void checkConnection()
+  {
+    await(ExpectedConditions.elementToBeClickable(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
             .click();
-    await(ExpectedConditions
-            .textToBePresentInElementLocated(
-                    By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:connectionState"),
-                    "Connected"));
   }
 
   protected void addAdmin(String name)

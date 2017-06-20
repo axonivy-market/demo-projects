@@ -24,16 +24,13 @@
 			<h4>
 				<i class="#{data.settings.connectionInfo.connectionIcon}" />
 				<h:outputText value="#{data.settings.connectionInfo.stateTitle}"
-					id="connectionState" />
+					id="connectionState" styleClass="configChanged" />
 			</h4>
 			<p>
-				<h:outputText value="#{data.settings.connectionInfo.stateMessage}" />
-			</p>
-			<p>
-				<h:outputText value="#{nextStepDialogBean.message}"/>
+				<h:outputText value="#{data.settings.connectionInfo.stateMessage}"
+					styleClass="configChanged" />
 			</p>
 		</p:outputPanel>
 	</p:outputPanel>
-
 </cc:implementation>
 </html>

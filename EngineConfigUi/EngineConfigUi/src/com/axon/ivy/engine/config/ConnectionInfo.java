@@ -3,6 +3,7 @@ package com.axon.ivy.engine.config;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
+import ch.ivyteam.db.jdbc.DatabaseProduct;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import ch.ivyteam.licence.SignedLicence;
 
@@ -11,6 +12,7 @@ public class ConnectionInfo
   private Boolean connectionOK = false;
   private ConnectionState connectionState = ConnectionState.NOT_CONNECTED;
   private Throwable connectionError;
+  private SystemDatabaseConnectionState detailedState = SystemDatabaseConnectionState.UNKNOWN;
 
   private ConnectionInfo()
   {
@@ -31,14 +33,16 @@ public class ConnectionInfo
     return connectionState;
   }
 
+  public void updateConnectionStates(ConnectionState cs, Throwable error, DatabaseProduct product)
+  {
+    setConnectionState(cs);
+    connectionError = error;
+    detailedState = SystemDatabaseAdvice.getAdvice(product, connectionError);
+  }
+
   public void setConnectionState(ConnectionState cs)
   {
     connectionState = cs;
-    updateConnection();
-  }
-
-  private void updateConnection()
-  {
     if (connectionState == ConnectionState.CONNECTED)
     {
       connectionOK = true;
@@ -47,6 +51,11 @@ public class ConnectionInfo
     {
       connectionOK = false;
     }
+  }
+
+  public SystemDatabaseConnectionState getDetailedState()
+  {
+    return detailedState;
   }
 
   public String getStateCssValue()
@@ -91,7 +100,20 @@ public class ConnectionInfo
       case CONNECTING:
         return "Connecting...";
       case CONNECTION_FAILED:
-        return "Connection failed";
+        switch (detailedState)
+        {
+          case WRONG_HOST:
+            return "Incorrect host/port";
+          case WRONG_PASSWORD:
+            return "Incorrect Password";
+          case WRONG_LOGIN:
+            return "Incorrect Login";
+          case CREATE_DB:
+            return "Database doesn't exist";
+          case UNKNOWN:
+          default:
+            return "Connection failed";
+        }
       case NOT_CONNECTED:
         return "Connection state unknown";
       default:
@@ -116,9 +138,22 @@ public class ConnectionInfo
       case CONNECTING:
         return "Trying to connect with Database...";
       case CONNECTION_FAILED:
-        Throwable th = getCauseIfAvailable(connectionError);
-        String msg = ExceptionUtils.getMessage(th);
-        return "Error occured: " + msg;
+        switch (detailedState)
+        {
+          case WRONG_HOST:
+            return "Please check your host or port.";
+          case WRONG_PASSWORD:
+            return "Please check your password.";
+          case WRONG_LOGIN:
+            return "Please check your username and password.";
+          case CREATE_DB:
+            return "Your referenced database seems to not exist. Please create a database.";
+          case UNKNOWN:
+          default:
+            Throwable th = getCauseIfAvailable(connectionError);
+            String msg = ExceptionUtils.getMessage(th);
+            return "Error occured: " + msg;
+        }
       case NOT_CONNECTED:
         return "Please check the connection to the Database.";
       default:
@@ -162,11 +197,6 @@ public class ConnectionInfo
   {
     return SignedLicence.isServer() && !SignedLicence.isDemo() || StringUtils.isNotEmpty(System
             .getProperty("ch.ivyteam.ivy.server.configuration.development"));
-  }
-
-  protected void setConnectionError(Throwable connectionError)
-  {
-    this.connectionError = connectionError;
   }
 
   public Throwable getConnectionError()

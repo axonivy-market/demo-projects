@@ -150,7 +150,7 @@ public class SystemDatabaseSettings
     }
     try
     {
-      if(adminManager.storeAdministrators())
+      if (adminManager.storeAdministrators())
       {
         UiModder.adminsSaved();
       }
@@ -261,7 +261,7 @@ public class SystemDatabaseSettings
 
     try
     {
-      if(adminManager.storeClusterNodes())
+      if (adminManager.storeClusterNodes())
       {
         UiModder.clusterConfigSaved();
       }
@@ -272,7 +272,7 @@ public class SystemDatabaseSettings
     }
   }
 
-  public ConnectionState testConnection() throws Exception
+  public ConnectionState testConnection()
   {
     updateDbConfig();
     tester.reset();
@@ -284,9 +284,9 @@ public class SystemDatabaseSettings
     }
     catch (TimeoutException ex)
     {
-      getConnectionInfo().setConnectionState(ConnectionState.CONNECTION_FAILED);
       String msg = "Could not connect to database within " + CONNETION_TEST_TIMEOUT + " Seconds";
-      getConnectionInfo().setConnectionError(new TimeoutException(msg));
+      getConnectionInfo().updateConnectionStates(ConnectionState.CONNECTION_FAILED, new TimeoutException(msg),
+              getConfigData().getProduct());
       return ConnectionState.CONNECTION_FAILED;
     }
     return tester.getConnectionState();
@@ -313,11 +313,10 @@ public class SystemDatabaseSettings
     @Override
     public void connectionStateChanged(ConnectionState newState)
     {
-      getConnectionInfo().setConnectionState(newState);
+      Throwable connectionError = getSystemDb().getConnectionTester().getConnectionError();
+      getConnectionInfo().updateConnectionStates(newState, connectionError, getConfigData().getProduct());
       if (newState != ConnectionState.CONNECTING)
       {
-        Throwable connectionError = getSystemDb().getConnectionTester().getConnectionError();
-        getConnectionInfo().setConnectionError(connectionError);
         gotResult = true;
       }
 

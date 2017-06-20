@@ -32,7 +32,6 @@ public class WebTestDetails extends BaseWebTest
 
     openTab(" Summary");
     await(ExpectedConditions.textToBePresentInElementLocated(summaryForm, "AXON"));
-    // summaryContains("AXON");
     summaryContains("Teamivy");
     summaryContains("IVYAXON");
   }
@@ -59,7 +58,6 @@ public class WebTestDetails extends BaseWebTest
 
     logout();
     login("Developer", "Developer");
-    testConnection();
   }
 
   private void logout()
