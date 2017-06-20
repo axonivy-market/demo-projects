@@ -65,14 +65,14 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   private void testConnectionOldDb()
   {
     driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton"))
             .click();
     driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:checkConnectionButton"))
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton"))
             .click();
     await(ExpectedConditions
             .textToBePresentInElementLocated(
-                    By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionStateComponent:connectionState"),
+                    By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
                     "Database too old"));
   }
 
