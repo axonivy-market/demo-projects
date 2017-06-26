@@ -169,7 +169,7 @@ public class BaseWebTest
             .click();
   }
 
-  protected void addAdmin(String name)
+  protected void addAdmin(String name) throws Exception
   {
     Dialog dialog = prime.dialog(By.id("accordionPanel:administratorsComponent:addAdminDialog"));
     dialog.waitForVisibility(true);
@@ -179,6 +179,7 @@ public class BaseWebTest
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"), "support@ivyteam.ch");
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"), "password");
 
+    Thread.sleep(1000);
     await(ExpectedConditions.elementToBeClickable(By
             .id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton")))
             .click();

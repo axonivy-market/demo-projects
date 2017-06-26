@@ -36,7 +36,7 @@ public class WebTestDetails extends BaseWebTest
     summaryContains("IVYAXON");
   }
 
-  private void openDialogAndAddAdmin(String name)
+  private void openDialogAndAddAdmin(String name) throws Exception
   {
     driver.findElement(By.id("accordionPanel:administratorsComponent:adminManagerForm:addAdminButton"))
             .click();
