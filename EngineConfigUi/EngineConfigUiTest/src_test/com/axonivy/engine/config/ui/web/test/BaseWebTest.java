@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -37,10 +38,19 @@ public class BaseWebTest
   {
     File geckodriver = new File("geckodriver/geckodriver.exe");
     System.setProperty("webdriver.gecko.driver", geckodriver.getAbsolutePath());
-    driver = new FirefoxDriver();
+    FirefoxProfile profile = getFirefoxProfile();
+    driver = new FirefoxDriver(profile);
     prime = new PrimeUi(driver);
     ajax = new AjaxHelper(driver);
     openConfigUi();
+  }
+
+  private FirefoxProfile getFirefoxProfile()
+  {
+    FirefoxProfile profile = new FirefoxProfile();
+    profile.setPreference("security.insecure_password.ui.enabled", false);
+    profile.setPreference("security.insecure_field_warning.contextual.enabled", false);
+    return profile;
   }
 
   protected void openConfigUi()
