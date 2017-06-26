@@ -20,7 +20,7 @@ public class WebTestWizard extends BaseWebTest
   private void checkLicenceTab()
   {
     await(ExpectedConditions.elementToBeClickable(By
-                    .id("accordionPanel:licenceComponent:systemDatabaseTabNextButton"))).click();
+            .id("accordionPanel:licenceComponent:systemDatabaseTabNextButton"))).click();
     await(ExpectedConditions.visibilityOfElementLocated(By
             .id("accordionPanel:licenceComponent:nextStepLicenceDialogForm:cancelLicenceButton"))).click();
   }
@@ -31,7 +31,8 @@ public class WebTestWizard extends BaseWebTest
     await(ExpectedConditions.elementToBeClickable(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton")))
             .click();
-    await(ExpectedConditions.elementToBeClickable(
+    await(
+            ExpectedConditions.elementToBeClickable(
                     By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton'][contains(@class, 'ui-state-warn')]")))
             .click();
     await(ExpectedConditions.elementToBeClickable(By
