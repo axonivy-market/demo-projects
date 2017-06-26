@@ -179,7 +179,8 @@ public class BaseWebTest
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"), "support@ivyteam.ch");
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"), "password");
 
-    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton"))
+    await(ExpectedConditions.elementToBeClickable(By
+            .id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton")))
             .click();
     dialog.waitToBeClosedOrError();
   }

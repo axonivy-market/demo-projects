@@ -56,7 +56,6 @@ public class WebTestWizard extends BaseWebTest
     await(ExpectedConditions.textToBePresentInElementLocated(By
             .id("accordionPanel:administratorsComponent:addAdminDialog"), "at least one"));
     addAdmin("AXON");
-    // Thread.sleep(500);
     await(ExpectedConditions.visibilityOfElementLocated(By
             .id("accordionPanel:administratorsComponent:adminManagerForm:adminsTabNextButton")))
             .click();

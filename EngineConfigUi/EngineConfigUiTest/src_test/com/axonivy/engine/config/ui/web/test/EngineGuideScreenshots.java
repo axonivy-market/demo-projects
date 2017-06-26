@@ -67,7 +67,8 @@ public class EngineGuideScreenshots extends BaseWebTest
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newFullname"), "admin");
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"), "admin@ivyteam.ch");
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"), "password");
-    driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton"))
+    await(ExpectedConditions.elementToBeClickable(
+            By.id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton")))
             .click();
     dialog.waitToBeClosedOrError();
   }
