@@ -84,6 +84,9 @@
 			<p:column headerText="#{ivy.cms.co('/labels/common/category')}" sortBy="#{CATEGORY}">
            		<h:outputText value="#{case.category.path}" />
        		</p:column>
+       		<p:column headerText="#{ivy.cms.co('/labels/common/stage')}" sortBy="#{STAGE}">
+       				<h:outputText value="#{case.getBusinessCase().stage.name}" />
+  			</p:column>
 			<p:column headerText="#{ivy.cms.co('/labels/common/start')}" sortBy="#{START_TIMESTAMP}" styleClass="caseCreatedColumn date-column">
 				<h:outputText value="#{case.startTimestamp}">
 					<f:convertDateTime type="both" dateStyle="short" timeStyle="short" />

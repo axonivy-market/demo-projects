@@ -1,0 +1,4 @@
+co: name={stage} description={} changed={2017-06-29 13:40:38 CEST} changedby={pes} visualorder={0} guid={15CF3A2988093F1D} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={15CF3A2988D9B47F} datatype={} isdefault={true} langid={en} description={} validfrom={2017-06-29 13:35:38 CEST} validto={} changed={2017-06-29 13:35:38 CEST} changedby={pes} properties={} id={}
+val: guid={15CF3A72B54654E7} datatype={} isdefault={false} langid={de} description={} validfrom={2017-06-29 13:39:46 CEST} validto={} changed={2017-06-29 13:40:38 CEST} changedby={pes} properties={} id={}
+val: guid={15CF3A72C5046467} datatype={} isdefault={false} langid={fr} description={} validfrom={2017-06-29 13:39:50 CEST} validto={} changed={2017-06-29 13:40:38 CEST} changedby={pes} properties={} id={}

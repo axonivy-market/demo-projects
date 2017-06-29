@@ -67,6 +67,14 @@
 							<td><wc:CaseStateIconAndText state="#{data.wfCase.state}"
 									withText="true" /></td>
 						</tr>
+						
+						<ui:fragment rendered="#{data.wfCase.isBusinessCase()}">
+							<tr>
+								<th>#{ivy.cms.co('/labels/common/stage')}</th>
+								<td><h:outputText value="#{data.wfCase.getBusinessCase().stage.name}" /></td>
+							</tr>
+						</ui:fragment>
+						
 						<tr>
 							<th>#{ivy.cms.co('/labels/common/creator')}</th>
 							<td><wc:MemberDetail member="#{data.wfCase.creatorUser}" />
