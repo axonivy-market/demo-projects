@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Jul 23 11:37:23 CEST 2014]
-13EAD85D34683BAF 3.17 #module
+[>Created: Thu Jun 29 12:21:48 CEST 2017]
+13EAD85D34683BAF 3.20 #module
 >Proto >Proto Collection #zClass
 Hs0 HomeProcess Big #zClass
 Hs0 RD #cInfo
@@ -49,7 +49,9 @@ Hs0 f3 actionDecl 'ch.ivyteam.wf.workflow.Home.HomeData out;
 ' #txt
 Hs0 f3 actionTable 'out=in;
 ' #txt
-Hs0 f3 actionCode 'import ch.ivyteam.ivy.security.ISecurityMember;
+Hs0 f3 actionCode 'import ch.ivyteam.wf.common.ProcessListUtil;
+import ch.ivyteam.ivy.workflow.start.IWebStartable;
+import ch.ivyteam.ivy.security.ISecurityMember;
 import java.util.EnumSet;
 import ch.ivyteam.ivy.workflow.PropertyOrder;
 import ch.ivyteam.ivy.workflow.TaskState;
@@ -57,7 +59,6 @@ import ch.ivyteam.ivy.workflow.TaskProperty;
 import ch.ivyteam.ivy.persistence.OrderDirection;
 import ch.ivyteam.ivy.persistence.IQueryResult;
 import ch.ivyteam.ivy.workflow.ITask;
-import ch.ivyteam.ivy.workflow.IProcessStart;
 
 IQueryResult queryResult  = ivy.session.findWorkTasks(null, PropertyOrder.create(TaskProperty.ID, OrderDirection.DESCENDING), 
           0, 0, true, EnumSet.of(TaskState.SUSPENDED, TaskState.RESUMED, TaskState.PARKED));
@@ -66,9 +67,9 @@ int taskCount = queryResult.getAllCount();
 out.tasks = taskCount == 1 ? taskCount.toString() + " " + ivy.cms.co("/labels/common/task") : taskCount.toString() + " " + ivy.cms.co("/labels/common/tasks");
 
 int count = 0;
-for(IProcessStart processStart : ivy.session.getStartableProcessStarts())
+for(IWebStartable startable : ivy.session.getStartables())
 {
-	if(processStart.getName() != "Workflow Home")
+	if(!ProcessListUtil.IsWorkflowHome(startable))
 	{
 		count++;
 	}

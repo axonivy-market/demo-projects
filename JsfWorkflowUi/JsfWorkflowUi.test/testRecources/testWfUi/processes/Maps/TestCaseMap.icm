@@ -1,0 +1,13 @@
+{
+  "uuid" : "9e465261-d286-40c0-bb7c-686250ed3e4a",
+  "stages" : [ {
+    "id" : "testmap",
+    "name" : "TestMap",
+    "icon" : "css:fa fa-eyedropper",
+    "processes" : [ {
+      "id" : "test_process",
+      "name" : "Test Process",
+      "processToExecute" : "ch.ivyteam.ivy.project:jsfworkflowui.testdata:15CF34492194250C/start.ivp"
+    } ]
+  } ]
+}

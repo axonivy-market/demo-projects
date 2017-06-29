@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Dec 10 10:13:43 CET 2015]
-13ED18A804435D54 3.18 #module
+[>Created: Thu Jun 29 12:20:58 CEST 2017]
+13ED18A804435D54 3.20 #module
 >Proto >Proto Collection #zClass
 Ps0 ProcessListProcess Big #zClass
 Ps0 RD #cInfo
@@ -51,14 +51,15 @@ Ps0 f3 actionDecl 'ch.ivyteam.wf.workflow.ProcessList.ProcessListData out;
 ' #txt
 Ps0 f3 actionTable 'out=in;
 ' #txt
-Ps0 f3 actionCode 'import ch.ivyteam.ivy.workflow.IProcessStart;
+Ps0 f3 actionCode 'import ch.ivyteam.wf.common.ProcessListUtil;
+import ch.ivyteam.ivy.workflow.start.IWebStartable;
 
-for(IProcessStart processStart : ivy.session.getStartableProcessStarts())
+for(IWebStartable startable : ivy.session.getStartables())
 {
-	if(processStart.getName() != "Workflow Home")
+	if(!ProcessListUtil.IsWorkflowHome(startable))
 	{
-		out.starts.add(processStart);
-		out.myStarts.add(processStart);
+		out.starts.add(startable);
+		out.myStarts.add(startable);
 	}
 }
 
@@ -70,7 +71,7 @@ Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>collect processstarts
 set returnUrl</name>
-        <nameStyle>35
+        <nameStyle>35,7
 </nameStyle>
     </language>
 </elementInfo>
@@ -89,8 +90,8 @@ Ps0 f8 actionDecl 'ch.ivyteam.wf.workflow.ProcessList.ProcessListData out;
 ' #txt
 Ps0 f8 actionTable 'out=in;
 ' #txt
-Ps0 f8 actionCode 'import org.apache.commons.lang3.StringUtils;
-import ch.ivyteam.ivy.workflow.IProcessStart;
+Ps0 f8 actionCode 'import ch.ivyteam.ivy.workflow.start.IWebStartable;
+import org.apache.commons.lang3.StringUtils;
 
 out.myStarts.clear();
 if(in.filterTxt.length()==0)
@@ -99,12 +100,12 @@ if(in.filterTxt.length()==0)
 }
 else
 {
-	for(IProcessStart processStart : in.starts)
+	for(IWebStartable startable : in.starts)
 	{
-			if(StringUtils.containsIgnoreCase(processStart.getName(), in.filterTxt) 
-				|| StringUtils.containsIgnoreCase(processStart.getDescription(), in.filterTxt))
+			if(StringUtils.containsIgnoreCase(startable.getDisplayName(), in.filterTxt) 
+				|| StringUtils.containsIgnoreCase(startable.getDescription(), in.filterTxt))
 			{
-				out.myStarts.add(processStart);
+				out.myStarts.add(startable);
 			}
 	}
 }' #txt

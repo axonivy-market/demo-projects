@@ -1,8 +1,8 @@
 ProcessListData #class
 ch.ivyteam.wf.workflow.ProcessList #namespace
-starts List<ch.ivyteam.ivy.workflow.IProcessStart> #field
+starts List<ch.ivyteam.ivy.workflow.start.IWebStartable> #field
 starts PERSISTENT #fieldModifier
 filterTxt String #field
 filterTxt PERSISTENT #fieldModifier
-myStarts List<ch.ivyteam.ivy.workflow.IProcessStart> #field
+myStarts List<ch.ivyteam.ivy.workflow.start.IWebStartable> #field
 myStarts PERSISTENT #fieldModifier

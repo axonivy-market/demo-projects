@@ -27,10 +27,10 @@
 	      		</p:toolbarGroup>
 			</p:toolbar>
 		<p:dataTable id="datatable" var="start" value="#{data.myStarts}" rowIndexVar="row" paginator="#{data.myStarts.size() >= 50}" paginatorPosition="bottom" rows="50"
-			emptyMessage="#{ivy.cms.co('/labels/common/noProcesses')}" sortBy="#{start.name.toUpperCase()}}" sortOrder="ASCENDING">
-			<p:column headerText="#{ivy.cms.co('/labels/common/name')}" style="width:30%" sortBy="#{start.name.toUpperCase()}">
-				<a href="#{facesContext.externalContext.requestContextPath}/pro/#{start.fullRequestPath}" id="#{start.requestPath}" title="Start Process: #{start.name}">
-					#{start.name.isEmpty() ? start.userFriendlyRequestPath : start.name}</a>
+			emptyMessage="#{ivy.cms.co('/labels/common/noProcesses')}" sortBy="#{start.displayName.toUpperCase()}}" sortOrder="ASCENDING">
+			<p:column headerText="#{ivy.cms.co('/labels/common/name')}" style="width:30%" sortBy="#{start.displayName.toUpperCase()}">
+				<a href="#{start.link.relative}" id="#{start.link.relative}" title="Start Process: #{start.name}">
+					#{start.displayName}</a>
 				<!--  <br />
 				<h:outputText value="#{start.description}" style="font-size:8pt;" />
 				-->

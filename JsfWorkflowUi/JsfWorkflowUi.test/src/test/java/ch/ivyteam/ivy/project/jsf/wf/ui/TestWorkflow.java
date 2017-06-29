@@ -42,6 +42,7 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     searchDataTable("processlistform:SearchTxt", "test workflow js");
     Table dataTable = prime().table(By.id("processlistform:datatable"));
     dataTable.firstRowContains("Test Workflow Jsf");
+    dataTable.contains("TestCaseMap");
     
     // Test processlist searchbar with process description
     navigate().processList();
