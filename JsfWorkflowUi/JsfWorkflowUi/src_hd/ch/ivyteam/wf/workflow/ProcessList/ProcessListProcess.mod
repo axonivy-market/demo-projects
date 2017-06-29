@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 29 12:20:58 CEST 2017]
+[>Created: Thu Jun 29 14:12:16 CEST 2017]
 13ED18A804435D54 3.20 #module
 >Proto >Proto Collection #zClass
 Ps0 ProcessListProcess Big #zClass
@@ -56,7 +56,7 @@ import ch.ivyteam.ivy.workflow.start.IWebStartable;
 
 for(IWebStartable startable : ivy.session.getStartables())
 {
-	if(!ProcessListUtil.IsWorkflowHome(startable))
+	if(!ProcessListUtil.isWorkflowHome(startable))
 	{
 		out.starts.add(startable);
 		out.myStarts.add(startable);

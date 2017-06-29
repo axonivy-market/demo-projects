@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 29 12:21:48 CEST 2017]
+[>Created: Thu Jun 29 14:12:07 CEST 2017]
 13EAD85D34683BAF 3.20 #module
 >Proto >Proto Collection #zClass
 Hs0 HomeProcess Big #zClass
@@ -69,7 +69,7 @@ out.tasks = taskCount == 1 ? taskCount.toString() + " " + ivy.cms.co("/labels/co
 int count = 0;
 for(IWebStartable startable : ivy.session.getStartables())
 {
-	if(!ProcessListUtil.IsWorkflowHome(startable))
+	if(!ProcessListUtil.isWorkflowHome(startable))
 	{
 		count++;
 	}

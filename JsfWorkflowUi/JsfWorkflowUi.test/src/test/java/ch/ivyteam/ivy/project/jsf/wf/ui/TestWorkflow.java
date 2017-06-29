@@ -34,7 +34,7 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   {
     navigate().processList();
     //Start home process
-    driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
+    driverHelper.findElementById(WF_JSF_LINK_ID).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainLayoutUnit"), "Request event"));
     
     // Test processlist searchbar with process name

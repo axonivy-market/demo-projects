@@ -24,6 +24,7 @@ public class BaseJsfWorkflowUiTest
 {
   public static final String WEB_TEST_SERVER_ADMIN_USER;
   public static final String WEB_TEST_SERVER_ADMIN_PASSWORD;
+  public static final String WF_JSF_LINK_ID = "/ivy/pro/designer/testWfUi/13F3D94E5C99F06F/WfJsf.ivp";
   private static final String[] PRIORITIES = {"EXCEPTION", "HIGH", "NORMAL", "LOW"};
 
   @Rule
@@ -63,7 +64,7 @@ public class BaseJsfWorkflowUiTest
   protected void createTask(String title, String description, int priority, String expiryDate)
   {
     navigate().processList();
-    driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
+    driverHelper.findElementById(WF_JSF_LINK_ID).click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
     prime().selectOne(By.id("formRequest:taskPriority"))
       .selectItemByLabel(PRIORITIES[priority]);
@@ -89,7 +90,7 @@ public class BaseJsfWorkflowUiTest
           String process)
   {
     navigate().processList();
-    driverHelper.findElementById("13F3D94E5C99F06F/WfJsf.ivp").click();
+    driverHelper.findElementById(WF_JSF_LINK_ID).click();
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
     prime().selectOne(By.id("formRequest:taskPriority"))
     .selectItemByLabel(PRIORITIES[priority]);
