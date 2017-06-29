@@ -25,6 +25,7 @@ public class BaseJsfWorkflowUiTest
   public static final String WEB_TEST_SERVER_ADMIN_USER;
   public static final String WEB_TEST_SERVER_ADMIN_PASSWORD;
   public static final String WF_JSF_LINK_ID = "/ivy/pro/Portal/testWfUi/13F3D94E5C99F06F/WfJsf.ivp";
+  public static final String WF_HTML_LINK_ID = "/ivy/pro/Portal/testWfUi/13F3D94AF2F236BF/WfHtml.ivp";
   private static final String[] PRIORITIES = {"EXCEPTION", "HIGH", "NORMAL", "LOW"};
 
   @Rule
@@ -80,7 +81,7 @@ public class BaseJsfWorkflowUiTest
   protected void createHtmlTask(String title, String description)
   {
     navigate().processList();
-    driverHelper.findElementById("13F3D94AF2F236BF/WfHtml.ivp").click();
+    driverHelper.findElementById(WF_HTML_LINK_ID).click();
     driverHelper.findElementById("caption").sendKeys(title);
     driverHelper.findElementById("description").sendKeys(description);
     driverHelper.clickAndWaitForAjax(By.id("submit"));
