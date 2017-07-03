@@ -8,3 +8,5 @@ states List<ch.ivyteam.ivy.workflow.CaseState> #field
 states PERSISTENT #fieldModifier
 cases ch.ivyteam.wf.history.AbstractCaseLazyDataModel #field
 cases PERSISTENT #fieldModifier
+stages List<ch.ivyteam.ivy.workflow.businesscase.BusinessCaseStage> #field
+stages PERSISTENT #fieldModifier

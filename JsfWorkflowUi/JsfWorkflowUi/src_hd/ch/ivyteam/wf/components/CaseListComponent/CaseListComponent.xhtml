@@ -31,7 +31,7 @@
 				</p:toolbarGroup>
 			</c:if>
 			<p:toolbarGroup align="right">
-				<h:panelGrid columns="12">
+				<h:panelGrid columns="11">
 				<h:outputText value="#{ivy.cms.co('/labels/common/search')}: "/> 
 						<p:inputText id="SearchTxt" value="#{data.cases.searchFilter}" styleClass="searchFilter">
 						<p:ajax event="keyup" delay="300" update="caseTable" listener="#{logic.update}"/>
@@ -57,6 +57,13 @@
 						<f:selectItems value="#{data.states}" var="state"
 							itemLabel="#{state}" itemValue="#{state}" />
 						<p:ajax update="caseListForm" listener="#{logic.update}" />
+					</p:selectOneMenu>
+					<p:spacer width="8"/>
+					<h:outputText value="#{ivy.cms.co('/labels/common/stage')}: " />
+					<p:selectOneMenu id="stageFilter" value="#{data.cases.stageFilter}" styleClass="ivy-toolbar-selectMenu">
+						<f:selectItem itemLabel="All" noSelectionOption="true" />
+						<f:selectItems value="#{data.stages}" var="stage" itemLabel="#{stage.name}" itemValue="#{stage.id}" />
+						<p:ajax update="caseListForm" />
 					</p:selectOneMenu>
 				</h:panelGrid>
 			</p:toolbarGroup>

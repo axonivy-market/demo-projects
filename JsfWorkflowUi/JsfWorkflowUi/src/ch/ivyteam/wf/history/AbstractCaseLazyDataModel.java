@@ -1,8 +1,10 @@
 package ch.ivyteam.wf.history;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -20,6 +22,7 @@ import ch.ivyteam.ivy.workflow.CaseState;
 import ch.ivyteam.ivy.workflow.ICase;
 import ch.ivyteam.ivy.workflow.IPropertyFilter;
 import ch.ivyteam.ivy.workflow.PropertyOrder;
+import ch.ivyteam.ivy.workflow.businesscase.BusinessCaseStage;
 import ch.ivyteam.ivy.workflow.category.CategoryTree;
 import ch.ivyteam.ivy.workflow.query.CaseQuery;
 import ch.ivyteam.logicalexpression.RelationalOperator;
@@ -35,6 +38,7 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
   private String searchFilter;
   private String categoryFilter;
   private CaseState stateFilter;
+  private String stageFilter;
 
   @Override
   public List<ICase> load(int first, int pageSize, String sortField,
@@ -127,6 +131,21 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
     this.stateFilter = newState;
     this.filterChanged = true;
   }
+  
+  public String getStageFilter()
+  {
+    return stageFilter;
+  }
+
+  public void setStageFilter(String newStageFilter)
+  {
+    if (StringUtils.equals(this.stageFilter, newStageFilter))
+    {
+      return;
+    }
+    this.stageFilter = newStageFilter;
+    this.filterChanged = true;
+  }
 
   public String getCategoryFilter()
   {
@@ -176,6 +195,7 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
     IPropertyFilter<CaseProperty> filter = createNameFilter(null);
     filter = createCategoryFilter(filter);
     filter = createStateFilter(filter);
+    filter = createStageFilter(filter);
     return filter;
   }
 
@@ -216,6 +236,17 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
     }
     return filter;
   }
+  
+  private IPropertyFilter<CaseProperty> createStageFilter(IPropertyFilter<CaseProperty> filter)
+  {
+    if (StringUtils.isNotBlank(stageFilter))
+    {
+      IPropertyFilter<CaseProperty> stagePropertyFilter = ivy.wf.createCasePropertyFilter(CaseProperty.STAGE,
+              RelationalOperator.EQUAL, stageFilter);
+      filter = addToFilter(filter, stagePropertyFilter);
+    }
+    return filter;
+  }
 
   protected static IPropertyFilter<CaseProperty> addToFilter(IPropertyFilter<CaseProperty> filter,
           IPropertyFilter<CaseProperty> additionalFilter)
@@ -237,6 +268,16 @@ public abstract class AbstractCaseLazyDataModel extends LazyDataModel<ICase>
     CategoryTree categoryTree = CategoryTree.createFor(getCaseQuery());
     List<CategoryTree> children = categoryTree.getAllChildren();
     return children;
+  }
+  
+  public List<BusinessCaseStage> getCaseStages()
+  {
+    List<ICase> cases = getCaseQuery().executor().results();
+    return cases.stream()
+      .map(caze -> caze.getBusinessCase().getStage())
+      .distinct()
+      .sorted(Comparator.comparing(BusinessCaseStage::getName))
+      .collect(Collectors.toList());
   }
 
   protected abstract CaseQuery getCaseQuery();

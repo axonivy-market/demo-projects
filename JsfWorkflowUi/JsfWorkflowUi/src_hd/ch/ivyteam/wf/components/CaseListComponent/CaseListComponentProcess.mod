@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Tue Nov 29 14:37:31 CET 2016]
-1518C122914A55FA 3.19 #module
+[>Created: Mon Jul 03 14:53:33 CEST 2017]
+1518C122914A55FA 3.20 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListComponentProcess Big #zClass
 Cs0 RD #cInfo
@@ -112,23 +112,25 @@ Cs0 f1 actionDecl 'ch.ivyteam.wf.components.CaseListComponent.CaseListComponentD
 ' #txt
 Cs0 f1 actionTable 'out=in;
 out.categories=in.cases.getCaseCategories();
+out.stages=in.cases.getCaseStages();
 ' #txt
+Cs0 f1 security system #txt
 Cs0 f1 type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
 Cs0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>get categories</name>
-        <nameStyle>14,7
+        <name>get categories and stages</name>
+        <nameStyle>25,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f1 152 138 112 44 -46 -7 #rect
+Cs0 f1 128 138 160 44 -71 -8 #rect
 Cs0 f1 @|StepIcon #fIcon
 Cs0 f4 expr out #txt
-Cs0 f4 264 160 339 160 #arcP
+Cs0 f4 288 160 339 160 #arcP
 Cs0 f3 expr out #txt
-Cs0 f3 77 160 152 160 #arcP
+Cs0 f3 77 160 128 160 #arcP
 >Proto Cs0 .type ch.ivyteam.wf.components.CaseListComponent.CaseListComponentData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
