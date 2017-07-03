@@ -10,6 +10,8 @@ import org.apache.commons.lang3.RandomUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -34,7 +36,7 @@ public class BaseWebTest
   protected boolean dbCreated = false;
 
   @Before
-  public void setUp()
+  public void setUp() throws Exception
   {
     File geckodriver = new File("geckodriver/geckodriver.exe");
     System.setProperty("webdriver.gecko.driver", geckodriver.getAbsolutePath());
@@ -163,7 +165,7 @@ public class BaseWebTest
     }
   }
 
-  protected void testConnection()
+  protected void testConnection() throws Exception
   {
     openTab("System Database");
     checkConnection();
@@ -172,11 +174,11 @@ public class BaseWebTest
             "Connected"));
   }
 
-  protected void checkConnection()
+  protected void checkConnection() throws Exception
   {
     await(ExpectedConditions.elementToBeClickable(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
-            .click();
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")));
+    trytoClickButton(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton"));
   }
 
   protected void addAdmin(String name) throws Exception
@@ -200,6 +202,42 @@ public class BaseWebTest
   {
     Accordion accordion = prime.accordion(By.id("accordionPanel"));
     accordion.openTab(tabName);
+  }
+
+  protected void trytoClickButton(By locator) throws Exception
+  {
+    int attempts = 0;
+    Exception exception = new Exception();
+    try
+    {
+      await(ExpectedConditions.elementToBeClickable(locator)).click();
+    }
+    catch (Exception ex)
+    {
+      while (attempts < 10)
+      {
+        try
+        {
+          await(ExpectedConditions.elementToBeClickable(locator)).click();
+        }
+        catch (StaleElementReferenceException e)
+        {
+          exception = e;
+        }
+        catch (ElementNotInteractableException e)
+        {
+          exception = e;
+        }
+        finally
+        {
+          attempts++;
+        }
+      }
+      if (!exception.getMessage().isEmpty())
+      {
+        throw exception;
+      }
+    }
   }
 
   protected <T> T await(ExpectedCondition<T> condition)

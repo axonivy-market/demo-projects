@@ -10,7 +10,7 @@ public class WebTestCluster extends BaseWebTest
 {
 
   @Override
-  public void setUp()
+  public void setUp() throws Exception
   {
     super.setUp();
     setMySqlConfig();

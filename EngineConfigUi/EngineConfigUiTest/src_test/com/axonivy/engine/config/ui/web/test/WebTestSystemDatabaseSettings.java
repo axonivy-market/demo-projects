@@ -152,13 +152,13 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     }
   }
 
-  private void configAndCreateMSSQL()
+  private void configAndCreateMSSQL() throws Exception
   {
     setConfigMSSQL();
     createSysDbMSSQL();
   }
 
-  private void setConfigMSSQL()
+  private void setConfigMSSQL() throws Exception
   {
     setConfigInternal();
     prime.selectOne(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseTypeDropdown"))
