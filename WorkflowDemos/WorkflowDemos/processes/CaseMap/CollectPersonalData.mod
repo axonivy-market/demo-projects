@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Jun 08 11:29:16 CEST 2017]
+[>Created: Mon Jul 03 13:57:47 CEST 2017]
 15A5AC9A4F755A3B 3.20 #module
 >Proto >Proto Collection #zClass
 Ca0 CollectPersonalData Big #zClass
@@ -99,6 +99,7 @@ Ca0 f7 actionDecl 'workflow.humantask.Data out;
 Ca0 f7 actionTable 'out=in;
 ' #txt
 Ca0 f7 actionCode ivy.case.getBusinessCase().setName("Lending"); #txt
+Ca0 f7 security system #txt
 Ca0 f7 type workflow.humantask.Data #txt
 Ca0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
