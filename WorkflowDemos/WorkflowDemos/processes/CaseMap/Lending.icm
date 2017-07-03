@@ -35,6 +35,7 @@
     "id" : "approval",
     "name" : "Approval",
     "icon" : "css:fa fa-check",
+    "isTerminating" : true,
     "processes" : [ {
       "id" : "approve_level_1",
       "name" : "Approve Level 1",
