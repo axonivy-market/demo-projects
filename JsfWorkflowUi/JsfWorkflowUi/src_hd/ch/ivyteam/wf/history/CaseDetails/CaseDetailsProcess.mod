@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Thu Nov 17 13:21:08 CET 2016]
-13FE666253A103EF 3.18 #module
+[>Created: Mon Jul 03 10:48:10 CEST 2017]
+13FE666253A103EF 3.20 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetailsProcess Big #zClass
 Cs0 RD #cInfo
@@ -20,17 +20,14 @@ Cs0 @GridStep f7 '' #zField
 Cs0 @GridStep f9 '' #zField
 Cs0 @PushWFArc f10 '' #zField
 Cs0 @RichDialogProcessEnd f15 '' #zField
-Cs0 @PushWFArc f11 '' #zField
 Cs0 @GridStep f5 '' #zField
 Cs0 @RichDialogMethodStart f12 '' #zField
-Cs0 @PushWFArc f17 '' #zField
 Cs0 @RichDialogProcessStart f4 '' #zField
 Cs0 @GridStep f18 '' #zField
 Cs0 @PushWFArc f19 '' #zField
 Cs0 @PushWFArc f20 '' #zField
 Cs0 @GridStep f13 '' #zField
 Cs0 @PushWFArc f21 '' #zField
-Cs0 @PushWFArc f16 '' #zField
 Cs0 @RichDialogProcessStart f22 '' #zField
 Cs0 @GridStep f23 '' #zField
 Cs0 @PushWFArc f24 '' #zField
@@ -44,6 +41,9 @@ Cs0 @RichDialogProcessEnd f25 '' #zField
 Cs0 @PushWFArc f38 '' #zField
 Cs0 @RichDialogProcessStart f8 '' #zField
 Cs0 @PushWFArc f31 '' #zField
+Cs0 @PushWFArc f6 '' #zField
+Cs0 @PushWFArc f14 '' #zField
+Cs0 @PushWFArc f16 '' #zField
 >Proto Cs0 Cs0 CaseDetailsProcess #zField
 Cs0 f0 guid 13FE66625592A530 #txt
 Cs0 f0 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
@@ -70,7 +70,7 @@ Cs0 f0 83 51 26 26 -38 15 #rect
 Cs0 f0 @|RichDialogInitStartIcon #fIcon
 Cs0 f0 -1|-1|-9671572 #nodeStyle
 Cs0 f1 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
-Cs0 f1 339 51 26 26 0 12 #rect
+Cs0 f1 515 51 26 26 0 12 #rect
 Cs0 f1 @|RichDialogProcessEndIcon #fIcon
 Cs0 f1 -1|-1|-9671572 #nodeStyle
 Cs0 f3 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
@@ -118,7 +118,7 @@ Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f3 168 138 112 44 -52 -8 #rect
+Cs0 f3 336 42 112 44 -52 -8 #rect
 Cs0 f3 @|StepIcon #fIcon
 Cs0 f3 -1|-1|-9671572 #nodeStyle
 Cs0 f7 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
@@ -162,7 +162,7 @@ links</name>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f7 328 138 112 44 -40 -16 #rect
+Cs0 f7 168 138 112 44 -40 -16 #rect
 Cs0 f7 @|StepIcon #fIcon
 Cs0 f7 -1|-1|-9671572 #nodeStyle
 Cs0 f9 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
@@ -185,17 +185,15 @@ Cs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f9 488 138 112 44 -25 -8 #rect
+Cs0 f9 336 138 112 44 -25 -8 #rect
 Cs0 f9 @|StepIcon #fIcon
 Cs0 f9 -1|-1|-9671572 #nodeStyle
 Cs0 f10 expr out #txt
-Cs0 f10 440 160 488 160 #arcP
+Cs0 f10 280 160 336 160 #arcP
 Cs0 f15 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f15 339 275 26 26 0 12 #rect
 Cs0 f15 @|RichDialogProcessEndIcon #fIcon
 Cs0 f15 -1|-1|-9671572 #nodeStyle
-Cs0 f11 expr out #txt
-Cs0 f11 280 160 328 160 #arcP
 Cs0 f5 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
 ' #txt
 Cs0 f5 actionTable 'out=in;
@@ -233,8 +231,6 @@ Cs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f12 83 147 26 26 -23 12 #rect
 Cs0 f12 @|RichDialogMethodStartIcon #fIcon
 Cs0 f12 -1|-1|-9671572 #nodeStyle
-Cs0 f17 expr out #txt
-Cs0 f17 109 160 168 160 #arcP
 Cs0 f4 guid 13FF07A3BF7D12B4 #txt
 Cs0 f4 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f4 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
@@ -300,8 +296,6 @@ Cs0 f13 @|StepIcon #fIcon
 Cs0 f13 -1|-1|-9671572 #nodeStyle
 Cs0 f21 expr out #txt
 Cs0 f21 109 64 168 64 #arcP
-Cs0 f16 expr out #txt
-Cs0 f16 280 64 339 64 #arcP
 Cs0 f22 guid 13FF5A5B4E12C9B7 #txt
 Cs0 f22 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f22 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
@@ -382,18 +376,18 @@ Cs0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f26 648 138 112 44 -48 -8 #rect
+Cs0 f26 496 138 112 44 -48 -8 #rect
 Cs0 f26 @|StepIcon #fIcon
 Cs0 f26 -1|-1|-9671572 #nodeStyle
 Cs0 f27 expr out #txt
-Cs0 f27 600 160 648 160 #arcP
+Cs0 f27 448 160 496 160 #arcP
 Cs0 f27 0 0.18806928460277236 0 0 #arcLabel
 Cs0 f28 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
-Cs0 f28 819 147 26 26 0 12 #rect
+Cs0 f28 667 147 26 26 0 12 #rect
 Cs0 f28 @|RichDialogProcessEndIcon #fIcon
 Cs0 f28 -1|-1|-9671572 #nodeStyle
 Cs0 f29 expr out #txt
-Cs0 f29 760 160 819 160 #arcP
+Cs0 f29 608 160 667 160 #arcP
 Cs0 f29 0 0.08304032259233607 0 0 #arcLabel
 Cs0 f2 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f2 339 211 26 26 0 12 #rect
@@ -428,24 +422,25 @@ Cs0 f8 83 339 26 26 -30 15 #rect
 Cs0 f8 @|RichDialogProcessStartIcon #fIcon
 Cs0 f31 expr out #txt
 Cs0 f31 109 352 168 352 #arcP
+Cs0 f6 expr out #txt
+Cs0 f6 280 64 336 64 #arcP
+Cs0 f14 expr out #txt
+Cs0 f14 109 160 168 160 #arcP
+Cs0 f14 0 0.5000000000000001 0 0 #arcLabel
+Cs0 f16 expr out #txt
+Cs0 f16 448 64 515 64 #arcP
 >Proto Cs0 .type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
 >Proto Cs0 '' #fIcon
 Cs0 f7 mainOut f10 tail #connect
 Cs0 f10 head f9 mainIn #connect
-Cs0 f3 mainOut f11 tail #connect
-Cs0 f11 head f7 mainIn #connect
-Cs0 f12 mainOut f17 tail #connect
-Cs0 f17 head f3 mainIn #connect
 Cs0 f18 mainOut f19 tail #connect
 Cs0 f19 head f15 mainIn #connect
 Cs0 f4 mainOut f20 tail #connect
 Cs0 f20 head f18 mainIn #connect
 Cs0 f0 mainOut f21 tail #connect
 Cs0 f21 head f13 mainIn #connect
-Cs0 f13 mainOut f16 tail #connect
-Cs0 f16 head f1 mainIn #connect
 Cs0 f22 mainOut f24 tail #connect
 Cs0 f24 head f23 mainIn #connect
 Cs0 f9 mainOut f27 tail #connect
@@ -458,3 +453,9 @@ Cs0 f5 mainOut f38 tail #connect
 Cs0 f38 head f25 mainIn #connect
 Cs0 f8 mainOut f31 tail #connect
 Cs0 f31 head f5 mainIn #connect
+Cs0 f13 mainOut f6 tail #connect
+Cs0 f6 head f3 mainIn #connect
+Cs0 f12 mainOut f14 tail #connect
+Cs0 f14 head f7 mainIn #connect
+Cs0 f3 mainOut f16 tail #connect
+Cs0 f16 head f1 mainIn #connect
