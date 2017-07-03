@@ -26,15 +26,15 @@
   font-size: 28px;
 }
 
-.stages-chain .process-step[type="current"] i {
+.stages-chain .current i {
   color: #afca05;
 }
 
-.stages-chain .process-step[type="visited"] i {
+.stages-chain .visited i {
   color: #555555;
 }
 
-.stages-chain .process-step[type="waiting"] i {
+.stages-chain .waiting i {
   color: #cccccc;
 }
 
@@ -54,14 +54,14 @@
   text-align: center;	
 }
 
-.stages-chain .process-flow .flow-txt hr[type="visible"] { 
+.stages-chain .process-flow .flow-txt .visible { 
     width: 100%;
     height: 2px; 
     margin: 0 auto;
     background: #cccccc;
 }
 
-.stages-chain .process-flow .flow-txt hr[type="none"] { 
+.stages-chain .process-flow .flow-txt .none { 
     width: 2px;
     height: 2px; 
     margin: 0 auto;
@@ -69,7 +69,7 @@
 }
 
 
-.stages-chain .process-step[type="current"] .step-title {
+.stages-chain .current .step-title {
   position: relative;
   margin-top: -18px !important;
   float: left;
@@ -78,7 +78,7 @@
 }
 
 
-.stages-chain .process-step[type="visited"] .step-title {
+.stages-chain .visited .step-title {
   position: relative;
   top: -18px;
   float: left;
@@ -87,7 +87,7 @@
 }
 
 
-.stages-chain .process-step[type="waiting"] .step-title {
+.stages-chain .waiting .step-title {
   position: relative;
   top: -18px;
   float: left;
