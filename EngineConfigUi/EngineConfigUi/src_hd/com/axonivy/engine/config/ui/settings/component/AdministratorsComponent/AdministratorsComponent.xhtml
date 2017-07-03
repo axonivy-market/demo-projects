@@ -60,7 +60,8 @@
 	</h:form>
 
 	<p:dialog widgetVar="addAdminDialog" id="addAdminDialog"
-		header="New Administrator" modal="true" closeOnEscape="true">
+		header="New Administrator" modal="true" closeOnEscape="true" focus="addAdminForm:newName">
+		<p:ajax event="close" listener="#{logic.resetFocus}" />
 		<h:form id="addAdminForm">
 			<p>
 				<h:outputText value="Please add at least one administrator"
@@ -85,6 +86,7 @@
 				actionListener="#{logic.addNewAdmin}"
 				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:addAdminForm,
 				 :#{cc.clientId}:adminManagerForm:adminsTabNextButton" />
+			<p:defaultCommand target="addAdminDialogButton" />
 		</h:form>
 	</p:dialog>
 
@@ -109,6 +111,7 @@
 				oncomplete="if(args &amp;&amp; !args.validationFailed) PF('addAdminDialog').hide();"
 				actionListener="#{logic.saveEditedAdmin}"
 				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:editAdminDialog" />
+			<p:defaultCommand target="saveAdminDialogButton" />
 		</h:form>
 	</p:dialog>
 </cc:implementation>

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon May 22 13:42:12 CEST 2017]
+[>Created: Mon Jul 03 10:03:08 CEST 2017]
 15AA3C30A9139F49 3.20 #module
 >Proto >Proto Collection #zClass
 Cs0 ClusterComponentProcess Big #zClass
@@ -23,10 +23,10 @@ Cs0 @GridStep f19 '' #zField
 Cs0 @PushWFArc f20 '' #zField
 Cs0 @RichDialogMethodStart f13 '' #zField
 Cs0 @RichDialogProcessEnd f17 '' #zField
-Cs0 @PushWFArc f4 '' #zField
 Cs0 @PushWFArc f7 '' #zField
 Cs0 @RichDialogMethodStart f9 '' #zField
 Cs0 @PushWFArc f18 '' #zField
+Cs0 @PushWFArc f3 '' #zField
 >Proto Cs0 Cs0 ClusterComponentProcess #zField
 Cs0 f0 guid 15AA3C30ABD6928D #txt
 Cs0 f0 type com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData #txt
@@ -106,7 +106,10 @@ Cs0 f19 actionDecl 'com.axonivy.engine.config.ui.settings.component.ClusterCompo
 ' #txt
 Cs0 f19 actionTable 'out=in;
 ' #txt
-Cs0 f19 actionCode in.adminManager.addClusterNode(in.newClusterNode); #txt
+Cs0 f19 actionCode 'import com.axon.ivy.engine.config.FocusSetter;
+
+in.adminManager.addClusterNode(in.newClusterNode);
+FocusSetter.setFocusOnClusterTabNextStepButton();' #txt
 Cs0 f19 type com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData #txt
 Cs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -117,10 +120,10 @@ Cs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f19 163 106 128 44 -56 -8 #rect
+Cs0 f19 187 106 128 44 -56 -8 #rect
 Cs0 f19 @|StepIcon #fIcon
 Cs0 f20 expr out #txt
-Cs0 f20 112 128 163 128 #arcP
+Cs0 f20 112 128 187 128 #arcP
 Cs0 f13 guid 15AA8278F6969095 #txt
 Cs0 f13 type com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData #txt
 Cs0 f13 method checkExists() #txt
@@ -144,14 +147,11 @@ Cs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f13 83 179 26 26 -36 15 #rect
 Cs0 f13 @|RichDialogMethodStartIcon #fIcon
 Cs0 f17 type com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData #txt
-Cs0 f17 339 179 26 26 0 12 #rect
+Cs0 f17 395 179 26 26 0 12 #rect
 Cs0 f17 @|RichDialogProcessEndIcon #fIcon
-Cs0 f4 expr out #txt
-Cs0 f4 109 192 339 192 #arcP
-Cs0 f4 0 0.6211319290410361 0 0 #arcLabel
 Cs0 f7 expr out #txt
-Cs0 f7 291 128 352 179 #arcP
-Cs0 f7 1 352 128 #addKink
+Cs0 f7 315 128 408 179 #arcP
+Cs0 f7 1 408 128 #addKink
 Cs0 f7 0 0.8300232385369237 0 0 #arcLabel
 Cs0 f9 guid 15BB4CE685E872B1 #txt
 Cs0 f9 type com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData #txt
@@ -175,9 +175,11 @@ Cs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f9 83 243 26 26 -74 15 #rect
 Cs0 f9 @|RichDialogMethodStartIcon #fIcon
 Cs0 f18 expr out #txt
-Cs0 f18 109 256 352 205 #arcP
-Cs0 f18 1 352 256 #addKink
+Cs0 f18 109 256 408 205 #arcP
+Cs0 f18 1 408 256 #addKink
 Cs0 f18 0 0.8067862948632382 0 0 #arcLabel
+Cs0 f3 expr out #txt
+Cs0 f3 109 192 395 192 #arcP
 >Proto Cs0 .type com.axonivy.engine.config.ui.settings.component.ClusterComponent.ClusterComponentData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
@@ -186,9 +188,9 @@ Cs0 f0 mainOut f2 tail #connect
 Cs0 f2 head f1 mainIn #connect
 Cs0 f16 mainOut f20 tail #connect
 Cs0 f20 head f19 mainIn #connect
-Cs0 f13 mainOut f4 tail #connect
-Cs0 f4 head f17 mainIn #connect
 Cs0 f19 mainOut f7 tail #connect
 Cs0 f7 head f17 mainIn #connect
 Cs0 f9 mainOut f18 tail #connect
 Cs0 f18 head f17 mainIn #connect
+Cs0 f13 mainOut f3 tail #connect
+Cs0 f3 head f17 mainIn #connect

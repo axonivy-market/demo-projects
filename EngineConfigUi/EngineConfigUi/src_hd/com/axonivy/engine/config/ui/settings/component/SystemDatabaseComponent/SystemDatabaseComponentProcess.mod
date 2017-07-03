@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jun 20 16:08:50 CEST 2017]
+[>Created: Mon Jul 03 16:04:44 CEST 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -27,9 +27,6 @@ Ss0 @RichDialogProcessEnd f29 '' #zField
 Ss0 @GridStep f31 '' #zField
 Ss0 @PushWFArc f32 '' #zField
 Ss0 @PushWFArc f30 '' #zField
-Ss0 @GridStep f40 '' #zField
-Ss0 @PushWFArc f41 '' #zField
-Ss0 @PushWFArc f42 '' #zField
 Ss0 @RichDialogProcessStart f3 '' #zField
 Ss0 @RichDialogProcessEnd f4 '' #zField
 Ss0 @GridStep f20 '' #zField
@@ -74,6 +71,9 @@ Ss0 @RichDialogProcessEnd f35 '' #zField
 Ss0 @GridStep f37 '' #zField
 Ss0 @PushWFArc f58 '' #zField
 Ss0 @PushWFArc f36 '' #zField
+Ss0 @PushWFArc f42 '' #zField
+Ss0 @PushWFArc f41 '' #zField
+Ss0 @GridStep f40 '' #zField
 >Proto Ss0 Ss0 SystemDatabaseComponentProcess #zField
 Ss0 f0 guid 157E7518F76CF891 #txt
 Ss0 f0 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
@@ -189,21 +189,6 @@ Ss0 f32 expr out #txt
 Ss0 f32 109 248 168 248 #arcP
 Ss0 f30 expr out #txt
 Ss0 f30 280 248 339 248 #arcP
-Ss0 f40 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
-' #txt
-Ss0 f40 actionTable 'out=in;
-' #txt
-Ss0 f40 actionCode 'import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
-import com.axon.ivy.engine.config.SystemDatabaseSettings;
-in.progressAction = in.settings.createDatabase();
-in.connectionInfo.setConnectionState(ConnectionState.CONNECTED);' #txt
-Ss0 f40 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
-Ss0 f40 168 298 112 44 0 -8 #rect
-Ss0 f40 @|StepIcon #fIcon
-Ss0 f41 expr out #txt
-Ss0 f41 109 320 168 320 #arcP
-Ss0 f42 expr out #txt
-Ss0 f42 280 320 339 320 #arcP
 Ss0 f3 guid 159A7F2D3C4139E2 #txt
 Ss0 f3 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f3 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
@@ -533,6 +518,21 @@ Ss0 f58 expr out #txt
 Ss0 f58 109 832 168 832 #arcP
 Ss0 f36 expr out #txt
 Ss0 f36 280 832 339 832 #arcP
+Ss0 f42 expr out #txt
+Ss0 f42 280 320 339 320 #arcP
+Ss0 f41 expr out #txt
+Ss0 f41 109 320 168 320 #arcP
+Ss0 f40 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
+' #txt
+Ss0 f40 actionTable 'out=in;
+' #txt
+Ss0 f40 actionCode 'import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
+import com.axon.ivy.engine.config.SystemDatabaseSettings;
+in.progressAction = in.settings.createDatabase();
+in.connectionInfo.setConnectionState(ConnectionState.CONNECTED);' #txt
+Ss0 f40 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
+Ss0 f40 168 298 112 44 0 -8 #rect
+Ss0 f40 @|StepIcon #fIcon
 >Proto Ss0 .type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect

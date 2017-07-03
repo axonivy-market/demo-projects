@@ -12,6 +12,7 @@
 
 <cc:implementation>
 	<h:form id="webServerForm" styleClass="configChanged">
+		<p:focus for="HTTPPortInput" />
 		<h:panelGrid columns="3" cellpadding="20" cellspacing="20"
 			rendered="#{data.settings.connectionInfo.connectionOK}">
 			<p:fieldset id="HTTPFieldSet" legend="HTTP Connector">

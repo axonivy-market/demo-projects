@@ -7,7 +7,8 @@
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:pm="http://primefaces.org/mobile"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-	xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <cc:interface componentType="IvyComponent" />
 
 <cc:implementation>
@@ -60,14 +61,14 @@
 						<p:outputLabel for="hostInput" id="hostLabel" value="Host" />
 						<p:inputText id="hostInput" value="#{data.configData.host}"
 							styleClass="important-sysdb-input">
-							<p:ajax event="keyup" update="@(.configChanged)"
+							<p:ajax event="keypress" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:inputText>
 						<p:outputLabel for="portInput" id="portLabel" value="Port" />
 						<h:column>
 							<p:inputText id="portInput" styleClass="port-input"
 								value="#{data.configData.port}" disabled="#{data.defaultPort}">
-								<p:ajax event="keyup" update="@(.configChanged)"
+								<p:ajax event="keypress" update="@(.configChanged)"
 									listener="#{logic.change}" />
 							</p:inputText>
 							<p:selectBooleanCheckbox id="defaultPortCheckbox"
@@ -82,21 +83,21 @@
 						<p:inputText id="databaseNameInput"
 							value="#{data.configData.databaseName}"
 							styleClass="important-sysdb-input">
-							<p:ajax event="keyup" update="@(.configChanged)"
+							<p:ajax event="keypress" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:inputText>
 						<p:outputLabel for="usernameInput" id="usernameLabel"
 							value="Username" />
 						<p:inputText id="usernameInput"
 							value="#{data.configData.username}">
-							<p:ajax event="keyup" update="@(.configChanged)"
+							<p:ajax event="keypress" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:inputText>
 						<p:outputLabel for="passwordInput" id="passwordLabel"
 							value="Password" />
 						<p:password id="passwordInput" value="#{data.configData.password}"
 							redisplay="true">
-							<p:ajax event="keyup" update="@(.configChanged)"
+							<p:ajax event="keypress" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:password>
 					</h:panelGrid>
@@ -162,6 +163,7 @@
 				update="createDatabaseForm, :#{cc.clientId}:creatingDatabaseForm:doUpdate"
 				oncomplete="if (args &amp;&amp; !args.validationFailed) {PF('createDatabaseDialog').hide(); PF('creatingDatabaseDialog').show();}"
 				id="dialogCreateDbButton" />
+			<p:defaultCommand target="dialogCreateDbButton" />
 		</h:form>
 	</p:dialog>
 
@@ -169,15 +171,15 @@
 		widgetVar="creatingDatabaseDialog" header="Creating System Database"
 		dynamic="true" modal="true" onShow="PF('creatingOutputPoll').start()"
 		closeOnEscape="true">
-
 		<h:form id="creatingDatabaseForm">
 			<p:poll autoStart="false" id="creatingOutputPoll"
 				widgetVar="creatingOutputPoll"
 				update="creatingDatabaseForm:doUpdate" interval="1"
 				stop="#{!data.progressAction.running}" />
 			<h:panelGrid id="doUpdate" columns="1" styleClass="full-width">
-
+				<p:focus context="doUpdate" />
 				<h:outputText value="Your database is being created..." />
+				<p:inputText type="hidden" />
 
 				<p:progressBar id="progressbar" widgetVar="progressbar"
 					value="#{data.progressAction.progress/(data.progressAction.maxProgress/100)}" />
@@ -200,8 +202,10 @@
 					actionListener="#{logic.updateAndCheckConnection}"
 					update="@(.configChanged), :#{cc.clientId}:creatingDatabaseDialog,
 					 :#{cc.clientId}:systemDatabaseForm"
-					disabled="#{data.progressAction.running}" />
+					rendered="#{!data.progressAction.running}"
+					widgetVar="saveAndConnectionButton" />
 			</h:panelGrid>
+			<p:defaultCommand target="saveAndConnectButton" />
 		</h:form>
 	</p:dialog>
 
@@ -215,6 +219,7 @@
 				oncomplete="PF('convertDatabaseDialog').hide(); PF('convertingDatabaseDialog').show();" />
 			<p:commandButton value="Cancel" icon="fa fa-times"
 				oncomplete="PF('convertDatabaseDialog').hide();" />
+			<p:defaultCommand target="confirmConvertButton" />
 		</h:form>
 	</p:dialog>
 
@@ -230,8 +235,9 @@
 				stop="#{!data.progressAction.running}" />
 			<h:panelGrid id="doUpdateConvertion" columns="1"
 				styleClass="full-width">
-
+				<p:focus context="doUpdateConvertion" />
 				<h:outputText value="Your database is being converted..." />
+				<p:inputText type="hidden" />
 
 				<p:progressBar id="progressbarConvertion"
 					widgetVar="progressbarConvertion"
@@ -256,8 +262,9 @@
 					actionListener="#{logic.saveAndCheckConnection}"
 					update="@(.configChanged), :#{cc.clientId}:convertingDatabaseDialog,
 					 :#{cc.clientId}:systemDatabaseForm"
-					disabled="#{data.progressAction.running}" />
+					rendered="#{!data.progressAction.running}" />
 			</h:panelGrid>
+			<p:defaultCommand target="saveAndConnectConvertionButton" />
 		</h:form>
 	</p:dialog>
 
@@ -274,11 +281,12 @@
 				<p:inputText value="#{data.newPropertyValue}" id="newPropertyValue"
 					required="true" styleClass="important-sysdb-input" />
 				<br />
-				<p:commandButton value="Add" icon="fa fa-plus-circle"
-					actionListener="#{logic.addNewProperty}"
+				<p:commandButton id="addAdditionalAttributeButton" value="Add"
+					icon="fa fa-plus-circle" actionListener="#{logic.addNewProperty}"
 					update=":#{cc.clientId}:listForm:propertiesTable, newPropertyPanelGrid, 
 					:#{cc.clientId}:systemDatabaseForm:additionalPropertiesButton, @(.configChanged)" />
 			</h:panelGrid>
+			<p:defaultCommand target="addAdditionalAttributeButton" />
 		</h:form>
 		<br />
 		<h:form id="listForm">

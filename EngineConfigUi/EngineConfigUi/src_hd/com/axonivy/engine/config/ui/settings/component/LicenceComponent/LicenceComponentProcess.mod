@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Mar 28 15:34:30 CEST 2017]
+[>Created: Mon Jul 03 10:03:29 CEST 2017]
 15B1423713D828E3 3.20 #module
 >Proto >Proto Collection #zClass
 Ls0 LicenceComponentProcess Big #zClass
@@ -26,12 +26,16 @@ Ls0 f0 disableUIEvents true #txt
 Ls0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
+Ls0 f0 inActionCode 'import com.axon.ivy.engine.config.FocusSetter;
+FocusSetter.setFocusOnLicenceTabNextStepButton();' #txt
 Ls0 f0 outParameterDecl '<> result;
 ' #txt
 Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
+        <nameStyle>7,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt

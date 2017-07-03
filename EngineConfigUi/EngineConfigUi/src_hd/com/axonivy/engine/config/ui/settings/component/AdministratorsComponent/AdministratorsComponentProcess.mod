@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon May 22 13:41:55 CEST 2017]
+[>Created: Mon Jul 03 10:03:18 CEST 2017]
 157E7BB4142F9EFB 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 AdministratorsComponentProcess Big #zClass
@@ -32,6 +32,9 @@ Ss0 @PushWFArc f23 '' #zField
 Ss0 @PushWFArc f11 '' #zField
 Ss0 @PushWFArc f10 '' #zField
 Ss0 @PushWFArc f8 '' #zField
+Ss0 @RichDialogProcessStart f2 '' #zField
+Ss0 @RichDialogProcessEnd f4 '' #zField
+Ss0 @PushWFArc f7 '' #zField
 >Proto Ss0 Ss0 AdministratorsComponentProcess #zField
 Ss0 f0 guid 157E7518F76CF891 #txt
 Ss0 f0 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
@@ -88,7 +91,8 @@ in.administratorManager.addAdministrator(new Administrator(in.newAdmin.name, in.
 in.newAdmin.email ="";
 in.newAdmin.fullname ="";
 in.newAdmin.name ="";
-in.newAdmin.password ="";' #txt
+in.newAdmin.password ="";
+' #txt
 Ss0 f19 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
 Ss0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -206,6 +210,29 @@ Ss0 f8 expr out #txt
 Ss0 f8 109 128 352 179 #arcP
 Ss0 f8 1 352 128 #addKink
 Ss0 f8 0 0.6707818930041153 0 0 #arcLabel
+Ss0 f2 guid 15CE94BD234931BC #txt
+Ss0 f2 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
+Ss0 f2 actionDecl 'com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData out;
+' #txt
+Ss0 f2 actionTable 'out=in;
+' #txt
+Ss0 f2 actionCode 'import com.axon.ivy.engine.config.FocusSetter;
+FocusSetter.setFocusOnAdministratorsTabNextStepButton();' #txt
+Ss0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>resetFocus</name>
+        <nameStyle>10,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f2 83 403 26 26 -31 15 #rect
+Ss0 f2 @|RichDialogProcessStartIcon #fIcon
+Ss0 f4 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
+Ss0 f4 211 403 26 26 0 12 #rect
+Ss0 f4 @|RichDialogProcessEndIcon #fIcon
+Ss0 f7 109 416 211 416 #arcP
 >Proto Ss0 .type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -224,3 +251,5 @@ Ss0 f22 mainOut f10 tail #connect
 Ss0 f10 head f12 mainIn #connect
 Ss0 f5 mainOut f8 tail #connect
 Ss0 f8 head f12 mainIn #connect
+Ss0 f2 mainOut f7 tail #connect
+Ss0 f7 head f4 mainIn #connect

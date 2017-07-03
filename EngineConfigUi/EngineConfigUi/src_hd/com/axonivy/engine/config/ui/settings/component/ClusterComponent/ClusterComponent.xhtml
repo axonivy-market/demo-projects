@@ -60,7 +60,8 @@
 
 	<p:dialog widgetVar="addLocalNodeDialog" id="addLocalNodeDialog"
 		header="New Local Node" modal="true" appendTo="@(body)"
-		closeOnEscape="true">
+		closeOnEscape="true"
+		onShow="PrimeFaces.focus(null, 'accordionPanel:clusterComponent:addLocalNodeDialog');">
 		<h:form id="addLocalNodeForm">
 			<p>
 				<h:outputText value="Please add your local Node." />
@@ -83,6 +84,7 @@
 				actionListener="#{logic.addLocalNode}" value="Add local Node"
 				icon="fa fa-plus-circle"
 				update=":#{cc.clientId}:clusterNodeForm, :#{cc.clientId}:addLocalNodeDialog" />
+			<p:defaultCommand target="addLocalNodeDialogButton" />
 		</h:form>
 	</p:dialog>
 </cc:implementation>

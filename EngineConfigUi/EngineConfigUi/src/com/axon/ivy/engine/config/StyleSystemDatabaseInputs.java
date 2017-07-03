@@ -24,21 +24,26 @@ public class StyleSystemDatabaseInputs
       case CREATE_DB:
         String createDbButtonStyleClass = createDbButton.getStyleClass();
         createDbButton.setStyleClass(createDbButtonStyleClass + " ui-state-warn");
+        FocusSetter.setFocusOnCreateDbButton();
         break;
       case WRONG_HOST:
         hostInput.setValid(false);
         portInput.setValid(false);
+        FocusSetter.setFocusOnHostInput();
         break;
       case WRONG_LOGIN:
       case WRONG_PASSWORD:
         usernameInput.setValid(false);
         passwordInput.setValid(false);
+        FocusSetter.setFocusOnUsernameInput();
         break;
       case CONVERT_DB:
         String convertDbButtonStyleClass = convertDbButton.getStyleClass();
         convertDbButton.setStyleClass(convertDbButtonStyleClass + " ui-state-warn");
+        FocusSetter.setFocusOnConvertDbButton();
         break;
       default:
+        FocusSetter.setFocusOnSystemDatabaseTabNextStepButton();
         break;
     }
   }
