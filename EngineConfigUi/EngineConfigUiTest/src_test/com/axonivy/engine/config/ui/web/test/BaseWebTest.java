@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.After;
@@ -84,11 +85,10 @@ public class BaseWebTest
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "zugtstdbsmys");
   }
 
-  protected void createMySqlSysDb()
+  protected void createMySqlSysDb() throws Exception
   {
-    await(ExpectedConditions.elementToBeClickable(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton")))
-            .click();
+    trytoClickButton(By
+            .id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton"));
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
             "doesn't exist"));
@@ -126,7 +126,7 @@ public class BaseWebTest
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")).click();
 
-    await(ExpectedConditions.textToBePresentInElementLocated(
+    await(20, ExpectedConditions.textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:finishMessage"),
             "Successfully Finished!"));
     dbCreated = true;
@@ -238,6 +238,11 @@ public class BaseWebTest
         throw exception;
       }
     }
+  }
+
+  protected <T> T await(int seconds, ExpectedCondition<T> condition)
+  {
+    return ajax.waitAtMost(seconds, TimeUnit.SECONDS, condition);
   }
 
   protected <T> T await(ExpectedCondition<T> condition)
