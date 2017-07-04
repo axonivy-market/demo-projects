@@ -49,6 +49,11 @@ public class HelperBean
 
   private boolean isNotServerConfigurationApplicaton()
   {
-    return Ivy.wf().getApplication().getName() != "ServerConfiguration";
+    return !isServerConfigurationApplicaton();
+  }
+
+  public boolean isServerConfigurationApplicaton()
+  {
+    return Ivy.wf().getApplication().getName().equals("ServerConfiguration");
   }
 }

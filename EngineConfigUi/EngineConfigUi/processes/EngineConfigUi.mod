@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jun 06 16:03:02 CEST 2017]
+[>Created: Tue Jul 04 14:31:06 CEST 2017]
 157E64657EEBDD9C 3.20 #module
 >Proto >Proto Collection #zClass
 Ei0 EngineConfigUi Big #zClass
@@ -21,7 +21,9 @@ Ei0 @EndTask f6 '' #zField
 Ei0 @GridStep f8 '' #zField
 Ei0 @PushWFArc f9 '' #zField
 Ei0 @PushWFArc f1 '' #zField
-Ei0 @PushWFArc f2 '' #zField
+Ei0 @PushWFArc f10 '' #zField
+Ei0 @RichDialog f11 '' #zField
+Ei0 @PushWFArc f13 '' #zField
 >Proto Ei0 Ei0 EngineConfigUi #zField
 Ei0 f0 outLink start.ivp #txt
 Ei0 f0 type engine.config.ui.test.Data #txt
@@ -100,7 +102,7 @@ Ei0 f5 @C|.responsibility Everybody #txt
 Ei0 f5 81 113 30 30 -28 17 #rect
 Ei0 f5 @|StartRequestIcon #fIcon
 Ei0 f6 type engine.config.ui.test.Data #txt
-Ei0 f6 337 49 30 30 0 15 #rect
+Ei0 f6 569 49 30 30 0 15 #rect
 Ei0 f6 @|EndIcon #fIcon
 Ei0 f8 actionDecl 'engine.config.ui.test.Data out;
 ' #txt
@@ -114,9 +116,36 @@ Ei0 f9 expr out #txt
 Ei0 f9 111 128 168 128 #arcP
 Ei0 f1 expr out #txt
 Ei0 f1 224 106 224 86 #arcP
-Ei0 f2 expr out #txt
-Ei0 f2 280 64 337 64 #arcP
-Ei0 f2 0 0.7107175366338164 0 0 #arcLabel
+Ei0 f10 expr out #txt
+Ei0 f10 480 64 569 64 #arcP
+Ei0 f10 0 0.53541896773038 0 0 #arcLabel
+Ei0 f11 targetWindow NEW #txt
+Ei0 f11 targetDisplay TOP #txt
+Ei0 f11 richDialogId com.axonivy.engine.config.ui.settings.ExitPage #txt
+Ei0 f11 startMethod start() #txt
+Ei0 f11 type engine.config.ui.test.Data #txt
+Ei0 f11 requestActionDecl '<> param;' #txt
+Ei0 f11 responseActionDecl 'engine.config.ui.test.Data out;
+' #txt
+Ei0 f11 responseMappingAction 'out=in;
+' #txt
+Ei0 f11 isAsynch false #txt
+Ei0 f11 isInnerRd false #txt
+Ei0 f11 userContext '* ' #txt
+Ei0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Exit Page</name>
+        <nameStyle>9,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ei0 f11 368 42 112 44 -25 -8 #rect
+Ei0 f11 @|RichDialogIcon #fIcon
+Ei0 f13 expr out #txt
+Ei0 f13 280 64 368 64 #arcP
+Ei0 f13 0 0.7107175366338164 0 0 #arcLabel
 >Proto Ei0 .type engine.config.ui.test.Data #txt
 >Proto Ei0 .processKind NORMAL #txt
 >Proto Ei0 0 0 32 24 18 0 #rect
@@ -127,5 +156,7 @@ Ei0 f5 mainOut f9 tail #connect
 Ei0 f9 head f8 mainIn #connect
 Ei0 f8 mainOut f1 tail #connect
 Ei0 f1 head f3 mainIn #connect
-Ei0 f3 mainOut f2 tail #connect
-Ei0 f2 head f6 mainIn #connect
+Ei0 f11 mainOut f10 tail #connect
+Ei0 f10 head f6 mainIn #connect
+Ei0 f3 mainOut f13 tail #connect
+Ei0 f13 head f11 mainIn #connect

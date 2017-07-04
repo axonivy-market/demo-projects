@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 03 15:35:05 CEST 2017]
+[>Created: Tue Jul 04 14:32:21 CEST 2017]
 157E2C1BEC4930AC 3.20 #module
 >Proto >Proto Collection #zClass
 ss0 ConfigurationOverviewProcess Big #zClass
@@ -25,7 +25,6 @@ ss0 @RichDialogProcessEnd f6 '' #zField
 ss0 @PushWFArc f7 '' #zField
 ss0 @RichDialogProcessStart f8 '' #zField
 ss0 @RichDialogProcessEnd f9 '' #zField
-ss0 @PushWFArc f10 '' #zField
 ss0 @RichDialogMethodStart f11 '' #zField
 ss0 @RichDialogProcessEnd f12 '' #zField
 ss0 @GridStep f14 '' #zField
@@ -35,6 +34,14 @@ ss0 @PushWFArc f20 '' #zField
 ss0 @PushWFArc f17 '' #zField
 ss0 @PushWFArc f15 '' #zField
 ss0 @PushWFArc f13 '' #zField
+ss0 @RichDialogEnd f19 '' #zField
+ss0 @RichDialogProcessStart f21 '' #zField
+ss0 @GridStep f22 '' #zField
+ss0 @PushWFArc f23 '' #zField
+ss0 @PushWFArc f24 '' #zField
+ss0 @GridStep f25 '' #zField
+ss0 @PushWFArc f26 '' #zField
+ss0 @PushWFArc f10 '' #zField
 >Proto ss0 ss0 ConfigurationOverviewProcess #zField
 ss0 f0 guid 157E2C1BEDF33419 #txt
 ss0 f0 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
@@ -55,7 +62,7 @@ ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ss0 f0 83 51 26 26 -16 15 #rect
 ss0 f0 @|RichDialogInitStartIcon #fIcon
 ss0 f1 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f1 339 51 26 26 0 12 #rect
+ss0 f1 371 51 26 26 0 12 #rect
 ss0 f1 @|RichDialogProcessEndIcon #fIcon
 ss0 f3 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
 ' #txt
@@ -78,7 +85,7 @@ ss0 f3 @|StepIcon #fIcon
 ss0 f4 expr out #txt
 ss0 f4 109 64 168 64 #arcP
 ss0 f2 expr out #txt
-ss0 f2 280 64 339 64 #arcP
+ss0 f2 280 64 371 64 #arcP
 ss0 f5 guid 15B5C5DB30A4F328 #txt
 ss0 f5 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f5 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
@@ -103,16 +110,15 @@ ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ss0 f5 83 115 26 26 -47 15 #rect
 ss0 f5 @|RichDialogProcessStartIcon #fIcon
 ss0 f6 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f6 339 115 26 26 0 12 #rect
+ss0 f6 371 115 26 26 0 12 #rect
 ss0 f6 @|RichDialogProcessEndIcon #fIcon
-ss0 f7 109 128 339 128 #arcP
+ss0 f7 109 128 371 128 #arcP
 ss0 f8 guid 15BC386770BD0A74 #txt
 ss0 f8 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f8 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
 ' #txt
 ss0 f8 actionTable 'out=in;
 ' #txt
-ss0 f8 actionCode out.databaseSettings.saveAll(); #txt
 ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -125,9 +131,8 @@ ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ss0 f8 83 179 26 26 -19 15 #rect
 ss0 f8 @|RichDialogProcessStartIcon #fIcon
 ss0 f9 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f9 339 179 26 26 0 12 #rect
+ss0 f9 371 179 26 26 0 12 #rect
 ss0 f9 @|RichDialogProcessEndIcon #fIcon
-ss0 f10 109 192 339 192 #arcP
 ss0 f11 guid 15C0B18249EAF4B3 #txt
 ss0 f11 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f11 method tabChange(org.primefaces.event.TabChangeEvent) #txt
@@ -254,6 +259,67 @@ ss0 f15 expr out #txt
 ss0 f15 664 256 723 256 #arcP
 ss0 f13 expr out #txt
 ss0 f13 496 256 552 256 #arcP
+ss0 f19 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f19 guid 15D0D93DAB2ED91F #txt
+ss0 f19 371 307 26 26 0 12 #rect
+ss0 f19 @|RichDialogEndIcon #fIcon
+ss0 f21 guid 15D0D947790DFC73 #txt
+ss0 f21 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f21 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
+' #txt
+ss0 f21 actionTable 'out=in;
+' #txt
+ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>close</name>
+    </language>
+</elementInfo>
+' #txt
+ss0 f21 83 307 26 26 -15 12 #rect
+ss0 f21 @|RichDialogProcessStartIcon #fIcon
+ss0 f22 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
+' #txt
+ss0 f22 actionTable 'out=in;
+' #txt
+ss0 f22 actionCode out.databaseSettings.saveAll(); #txt
+ss0 f22 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Save all</name>
+        <nameStyle>8,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+ss0 f22 168 298 112 44 -21 -8 #rect
+ss0 f22 @|StepIcon #fIcon
+ss0 f23 expr out #txt
+ss0 f23 109 320 168 320 #arcP
+ss0 f24 expr out #txt
+ss0 f24 280 320 371 320 #arcP
+ss0 f25 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
+' #txt
+ss0 f25 actionTable 'out=in;
+' #txt
+ss0 f25 actionCode out.databaseSettings.saveAll(); #txt
+ss0 f25 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Save all</name>
+        <nameStyle>8,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+ss0 f25 168 170 112 44 -21 -8 #rect
+ss0 f25 @|StepIcon #fIcon
+ss0 f26 expr out #txt
+ss0 f26 109 192 168 192 #arcP
+ss0 f10 expr out #txt
+ss0 f10 280 192 371 192 #arcP
 >Proto ss0 .type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 >Proto ss0 .processKind HTML_DIALOG #txt
 >Proto ss0 -8 -8 16 16 16 26 #rect
@@ -264,8 +330,6 @@ ss0 f3 mainOut f2 tail #connect
 ss0 f2 head f1 mainIn #connect
 ss0 f5 mainOut f7 tail #connect
 ss0 f7 head f6 mainIn #connect
-ss0 f8 mainOut f10 tail #connect
-ss0 f10 head f9 mainIn #connect
 ss0 f11 mainOut f20 tail #connect
 ss0 f20 head f14 mainIn #connect
 ss0 f14 mainOut f17 tail #connect
@@ -274,3 +338,11 @@ ss0 f18 mainOut f15 tail #connect
 ss0 f15 head f12 mainIn #connect
 ss0 f16 mainOut f13 tail #connect
 ss0 f13 head f18 mainIn #connect
+ss0 f21 mainOut f23 tail #connect
+ss0 f23 head f22 mainIn #connect
+ss0 f22 mainOut f24 tail #connect
+ss0 f24 head f19 mainIn #connect
+ss0 f8 mainOut f26 tail #connect
+ss0 f26 head f25 mainIn #connect
+ss0 f25 mainOut f10 tail #connect
+ss0 f10 head f9 mainIn #connect

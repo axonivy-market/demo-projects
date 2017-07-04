@@ -131,3 +131,7 @@ button.ui-state-warn {
 	font-weight: bold;
 	background-color: #FFA500;
 }
+
+.save-and-exit-button {
+	float: right;
+}

@@ -81,6 +81,8 @@
 					actionListener="#{logic.saveAll}" update="growl, @(.updateSaveAll)" />
 				<p:button id="discardChanges" value="Discard Changes"
 					icon="fa fa-undo" href="#{ivy.html.startref('157E64657EEBDD9C/start.ivp')}" />
+				<p:commandButton id="exit" value="Save and Exit" rendered="#{helperBean.serverConfigurationApplicaton}"
+					icon="fa fa-sign-out" actionListener="#{logic.close}" styleClass="save-and-exit-button"/>
 		</ui:define>
 	</ui:composition>
 </h:body>
