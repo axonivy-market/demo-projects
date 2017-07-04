@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 03 16:04:44 CEST 2017]
+[>Created: Mon Jul 03 16:17:22 CEST 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -509,7 +509,10 @@ Ss0 f37 actionTable 'out=in;
 Ss0 f37 actionCode 'import org.primefaces.context.RequestContext;
 import com.axon.ivy.engine.config.StyleSystemDatabaseInputs;
 
-in.settings.testConnection();
+if(!in.connectionInfo.getConnectionOK())
+{	
+	in.settings.testConnection();
+}
 StyleSystemDatabaseInputs.setIncorrectInputs(in.connectionInfo.getDetailedState());' #txt
 Ss0 f37 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f37 168 810 112 44 0 -8 #rect
