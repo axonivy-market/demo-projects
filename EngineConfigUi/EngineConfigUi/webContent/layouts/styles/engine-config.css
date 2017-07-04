@@ -38,6 +38,29 @@ label {
 
 .ui-datatable-tablewrapper {
 	margin-left: 0;
+	margin-right: 0;
+}
+
+.ui-datatable {
+	border: none;
+}
+
+.ui-datatable thead th, .ui-datatable tfoot td {
+	text-align: left;
+}
+
+.ui-accordion-content .ui-datatable table td, .ui-accordion-content .ui-datatable table th
+	{
+	border-right: none;
+	border-left: none;
+}
+
+.ui-accordion-header {
+	padding: .8em .8em .8em 2.2em !important;
+}
+
+.ui-accordion {
+	border: 0 !important;
 }
 
 /* 
@@ -113,7 +136,6 @@ Own Classes
 
 .next-button {
 	float: right;
-	right: 10px;
 }
 
 .help-button {
