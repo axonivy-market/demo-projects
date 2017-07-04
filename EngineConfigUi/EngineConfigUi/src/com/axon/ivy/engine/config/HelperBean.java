@@ -24,11 +24,17 @@ public class HelperBean
 
   public boolean mustAuthenticate()
   {
-    if (isNotDemoLicence() && isNotAuthenticated() && isNotServerConfigurationApplicaton())
+    if (isNotDemoLicence() && isNotAuthenticated() && isNotServerConfigurationApplicaton() && hasAtLeastOneAdmin())
     {
       return true;
     }
     return false;
+  }
+
+  private boolean hasAtLeastOneAdmin()
+  {
+    // There is always one System user
+    return Ivy.session().getSecurityContext().getUsers().size()>1;
   }
 
   private boolean isNotDemoLicence()
