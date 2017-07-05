@@ -18,7 +18,7 @@ public class CaseDetailsBean {
 		if (wfCase == null) {
 			return Collections.emptyList();
 		}
-		return ICaseMapService.get(wfCase.getBusinessCase()).findCaseMap().getStages();
+		return ICaseMapService.get(wfCase.getBusinessCase(), null).findCaseMap().getStages();
 	}
 
 	public int getIndexOfCurrentStage(ICase wfCase) {
@@ -27,7 +27,7 @@ public class CaseDetailsBean {
 		}
 
 		return getStages(wfCase).indexOf(
-				ICaseMapService.get(wfCase.getBusinessCase())
+				ICaseMapService.get(wfCase.getBusinessCase(), null)
 						.findCurrentStage());
 	}
 }
