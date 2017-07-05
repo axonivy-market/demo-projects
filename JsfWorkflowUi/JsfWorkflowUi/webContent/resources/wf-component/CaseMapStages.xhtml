@@ -16,7 +16,7 @@
 		<c:forEach items="#{cc.attrs.stages}" var="stage" varStatus="counter">
 		  <div
 		    class="process-step #{cc.attrs.currentIndex eq counter.index ? 'current' :  cc.attrs.currentIndex > counter.index ? 'visited' : 'waiting'}">
-		    <span class="step-title"><i class="#{stage.icon.cssClass}" /><br/>#{stage.name}</span>
+		    <span class="step-title"><i class="#{stage.icon.cssClass eq '' ? 'fa fa-square' : stage.icon.cssClass}" /><br/>#{stage.name}</span>
 		  </div>
 		  <c:if test="#{cc.attrs.stages.size() gt counter.index+1}">
 		  	<div
