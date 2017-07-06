@@ -8,6 +8,7 @@ import javax.faces.bean.ViewScoped;
 
 import ch.ivyteam.ivy.casemap.runtime.ICaseMapService;
 import ch.ivyteam.ivy.casemap.runtime.model.IStage;
+import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.workflow.ICase;
 
 @ManagedBean
@@ -18,16 +19,17 @@ public class CaseDetailsBean {
 		if (wfCase == null) {
 			return Collections.emptyList();
 		}
-		return ICaseMapService.get(wfCase.getBusinessCase(), null).findCaseMap().getStages();
+		return getCaseMapService(wfCase.getBusinessCase()).findCaseMap().getStages();
 	}
 
 	public int getIndexOfCurrentStage(ICase wfCase) {
 		if (wfCase == null) {
 			return -1;
 		}
+		return getStages(wfCase).indexOf(getCaseMapService(wfCase).findCurrentStage());
+	}
 
-		return getStages(wfCase).indexOf(
-				ICaseMapService.get(wfCase.getBusinessCase(), null)
-						.findCurrentStage());
+	private ICaseMapService getCaseMapService(ICase wfCase) {
+		return Ivy.get(ICaseMapService.class).getCaseMapService(wfCase.getBusinessCase());
 	}
 }
