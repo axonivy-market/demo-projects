@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import ch.ivyteam.ivy.casemap.runtime.ICaseMapService;
+import ch.ivyteam.ivy.casemap.runtime.model.ICaseMap;
 import ch.ivyteam.ivy.casemap.runtime.model.IStage;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.workflow.ICase;
@@ -19,7 +20,12 @@ public class CaseDetailsBean {
 		if (wfCase == null) {
 			return Collections.emptyList();
 		}
-		return getCaseMapService(wfCase.getBusinessCase()).findCaseMap().getStages();
+		ICaseMap caseMap = getCaseMapService(wfCase.getBusinessCase()).findCaseMap();
+		if (caseMap == null) {
+			return Collections.emptyList();
+		}
+		
+		return caseMap.getStages();
 	}
 
 	public int getIndexOfCurrentStage(ICase wfCase) {
