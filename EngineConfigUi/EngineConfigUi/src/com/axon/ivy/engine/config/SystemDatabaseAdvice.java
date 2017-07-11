@@ -4,24 +4,29 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import ch.ivyteam.db.jdbc.DatabaseProduct;
+import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 
 public class SystemDatabaseAdvice
 {
-  public static SystemDatabaseConnectionState whatsIncorrect(SystemDatabaseSettings settings)
+  public static FailedConnectionState whatsIncorrect(SystemDatabaseSettings settings)
           throws Exception
   {
-    settings.testConnection();
-    return getAdvice(settings.getConfigData().getProduct(), settings.getConnectionInfo().getConnectionError());
+    ConnectionState newState = settings.testConnection();
+    return getAdvice(newState, settings.getConfigData().getProduct(), settings.getConnectionInfo()
+            .getConnectionError());
   }
 
-  public static SystemDatabaseConnectionState getAdvice(DatabaseProduct product, Throwable error)
+  public static FailedConnectionState getAdvice(ConnectionState cs, DatabaseProduct product,
+          Throwable error)
   {
     String errorMessage = ExceptionUtils.getMessage(error);
 
-    if (getGeneralAdvice(errorMessage) != null)
+    FailedConnectionState advice = getGeneralAdvice(cs);
+    if (advice != null)
     {
-      return getGeneralAdvice(errorMessage);
+      return advice;
     }
+
     switch (product)
     {
       case AS400:
@@ -39,157 +44,146 @@ public class SystemDatabaseAdvice
       default:
         break;
     }
-    return SystemDatabaseConnectionState.UNKNOWN;
+    return FailedConnectionState.UNKNOWN;
   }
 
-  private static SystemDatabaseConnectionState getGeneralAdvice(String errorMessage)
+  private static FailedConnectionState getGeneralAdvice(ConnectionState cs)
   {
-    if (StringUtils.containsIgnoreCase(errorMessage, "older version"))
+    switch (cs)
     {
-      return SystemDatabaseConnectionState.CONVERT_DB;
-    }
-    if (StringUtils.containsIgnoreCase(errorMessage, "Wrong system database version"))
-    {
-      return SystemDatabaseConnectionState.WRONG_DB_VERSION;
-    }
-    if (StringUtils.containsIgnoreCase(errorMessage, "Connection was established"))
-    {
-      return SystemDatabaseConnectionState.CONNECTION_OK;
-    }
-    if (StringUtils.containsIgnoreCase(errorMessage, "Missing system application"))
-    {
-      return SystemDatabaseConnectionState.UNKNOWN;
+      case CONNECTED:
+      case CONNECTED_WRONG_NEWER_VERSION:
+      case CONNECTED_WRONG_OLDER_VERSION:
+      case CONNECTING:
+      case CONNECTION_FAILED:
+      case NOT_CONNECTED:
+        break;
+      case CONNECTED_NO_DATABASE_OR_SCHEMA:
+      case CONNECTED_NO_TABLES:
+        return FailedConnectionState.CREATE_DB;
     }
     return null;
   }
 
-  private static SystemDatabaseConnectionState getHsqlDbAdvice(String errorMessage)
+  private static FailedConnectionState getHsqlDbAdvice(String errorMessage)
   {
     if (StringUtils.containsIgnoreCase(errorMessage, "SOO10 Invalid argument in JDBC call"))
     {
-      return SystemDatabaseConnectionState.CREATE_DB;
-    }
-    if (StringUtils.containsIgnoreCase(errorMessage, "No ivy tables"))
-    {
-      return SystemDatabaseConnectionState.CREATE_DB;
+      return FailedConnectionState.CREATE_DB;
     }
     if (StringUtils.containsIgnoreCase(errorMessage, "User not found"))
     {
-      return SystemDatabaseConnectionState.WRONG_LOGIN;
+      return FailedConnectionState.WRONG_LOGIN;
     }
-    return SystemDatabaseConnectionState.UNKNOWN;
+    return FailedConnectionState.UNKNOWN;
   }
 
-  private static SystemDatabaseConnectionState getPostgreSqlAdvice(String errorMessage)
+  private static FailedConnectionState getPostgreSqlAdvice(String errorMessage)
   {
     if (StringUtils.containsIgnoreCase(errorMessage, "The connection attempt failed"))
     {
-      return SystemDatabaseConnectionState.WRONG_HOST;
+      return FailedConnectionState.WRONG_HOST;
     }
     if (errorMessage
             .contains("The server requested password-based authentication, but no password was provided"))
     {
-      return SystemDatabaseConnectionState.WRONG_PASSWORD;
+      return FailedConnectionState.WRONG_PASSWORD;
     }
     if (StringUtils.containsIgnoreCase(errorMessage, "password authentication failed for user"))
     {
-      return SystemDatabaseConnectionState.WRONG_PASSWORD;
+      return FailedConnectionState.WRONG_PASSWORD;
     }
     if (StringUtils.containsIgnoreCase(errorMessage, "does not exist"))
     {
-      return SystemDatabaseConnectionState.CREATE_DB;
+      return FailedConnectionState.CREATE_DB;
     }
-    return SystemDatabaseConnectionState.UNKNOWN;
+    return FailedConnectionState.UNKNOWN;
   }
 
-  private static SystemDatabaseConnectionState getOracleAdvice(String errorMessage)
+  private static FailedConnectionState getOracleAdvice(String errorMessage)
   {
     if (StringUtils.containsIgnoreCase(errorMessage, "The Network Adapter could not establish"))
     {
-      return SystemDatabaseConnectionState.WRONG_HOST;
+      return FailedConnectionState.WRONG_HOST;
     }
     if (StringUtils.containsIgnoreCase(errorMessage, "Access denied for user"))
     {
       if (StringUtils.containsIgnoreCase(errorMessage, "using password: NO"))
       {
-        return SystemDatabaseConnectionState.WRONG_PASSWORD;
+        return FailedConnectionState.WRONG_PASSWORD;
       }
       else
       {
-        return SystemDatabaseConnectionState.WRONG_LOGIN;
+        return FailedConnectionState.WRONG_LOGIN;
       }
     }
     if (StringUtils.containsIgnoreCase(errorMessage, "Unknown database"))
     {
-      return SystemDatabaseConnectionState.CREATE_DB;
+      return FailedConnectionState.CREATE_DB;
     }
-    return SystemDatabaseConnectionState.UNKNOWN;
+    return FailedConnectionState.UNKNOWN;
   }
 
-  private static SystemDatabaseConnectionState getMysqlAdvice(String errorMessage)
+  private static FailedConnectionState getMysqlAdvice(String errorMessage)
   {
     if (StringUtils.containsIgnoreCase(errorMessage,
             "The driver has not received any packets from the server"))
     {
-      return SystemDatabaseConnectionState.WRONG_HOST;
+      return FailedConnectionState.WRONG_HOST;
     }
     if (StringUtils.containsIgnoreCase(errorMessage, "Access denied for user"))
     {
       if (StringUtils.containsIgnoreCase(errorMessage, "using password: NO"))
       {
-        return SystemDatabaseConnectionState.WRONG_PASSWORD;
+        return FailedConnectionState.WRONG_PASSWORD;
       }
       else
       {
-        return SystemDatabaseConnectionState.WRONG_LOGIN;
+        return FailedConnectionState.WRONG_LOGIN;
       }
     }
     if (StringUtils.containsIgnoreCase(errorMessage, "Unknown database"))
     {
-      return SystemDatabaseConnectionState.CREATE_DB;
+      return FailedConnectionState.CREATE_DB;
     }
-    return SystemDatabaseConnectionState.UNKNOWN;
+    return FailedConnectionState.UNKNOWN;
   }
 
-  private static SystemDatabaseConnectionState getMssqlAdvice(String errorMessage)
+  private static FailedConnectionState getMssqlAdvice(String errorMessage)
   {
     if (StringUtils.containsIgnoreCase(errorMessage, "unknown server host name"))
     {
-      return SystemDatabaseConnectionState.WRONG_HOST;
+      return FailedConnectionState.WRONG_HOST;
     }
     if (StringUtils.containsIgnoreCase(errorMessage, "SSO Failed: Native SSPI library not loaded"))
     {
-      return SystemDatabaseConnectionState.WRONG_LOGIN;
+      return FailedConnectionState.WRONG_LOGIN;
     }
     if (StringUtils.containsIgnoreCase(errorMessage, "Login failed for user"))
     {
-      return SystemDatabaseConnectionState.WRONG_LOGIN;
+      return FailedConnectionState.WRONG_LOGIN;
     }
     if (StringUtils.containsIgnoreCase(errorMessage, "Cannot open database"))
     {
-      return SystemDatabaseConnectionState.CREATE_DB;
+      return FailedConnectionState.CREATE_DB;
     }
-    return SystemDatabaseConnectionState.UNKNOWN;
+    return FailedConnectionState.UNKNOWN;
   }
 
-  private static SystemDatabaseConnectionState getAs400Advice(String errorMessage)
+  private static FailedConnectionState getAs400Advice(String errorMessage)
   {
     if (StringUtils.containsIgnoreCase(errorMessage, "The application requester cannot establish"))
     {
-      return SystemDatabaseConnectionState.WRONG_HOST;
+      return FailedConnectionState.WRONG_HOST;
     }
     if (StringUtils.containsIgnoreCase(errorMessage, "The application server rejected"))
     {
       if (StringUtils.containsIgnoreCase(errorMessage, "Password is incorrect"))
       {
-        return SystemDatabaseConnectionState.WRONG_PASSWORD;
+        return FailedConnectionState.WRONG_PASSWORD;
       }
-      return SystemDatabaseConnectionState.WRONG_LOGIN;
+      return FailedConnectionState.WRONG_LOGIN;
     }
-    if (StringUtils.containsIgnoreCase(errorMessage, "Database/Schema is missing"))
-    {
-      return SystemDatabaseConnectionState.CREATE_DB;
-    }
-    return SystemDatabaseConnectionState.UNKNOWN;
+    return FailedConnectionState.UNKNOWN;
   }
 }

@@ -92,7 +92,6 @@ public class BaseWebTest
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
             "doesn't exist"));
-    openDbCreationDialog();
 
     createAndValidateDb();
   }

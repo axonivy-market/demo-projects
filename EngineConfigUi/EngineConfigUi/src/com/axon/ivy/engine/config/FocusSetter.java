@@ -24,16 +24,6 @@ public class FocusSetter
     focus("accordionPanel:clusterComponent:clusterNodeForm:clusterTabNextButton");
   }
 
-  public static void setFocusOnCreateDbButton()
-  {
-    focus("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton");
-  }
-
-  public static void setFocusOnConvertDbButton()
-  {
-    focus("accordionPanel:systemDatabaseComponent:systemDatabaseForm:convertDbButton");
-  }
-
   public static void setFocusOnHostInput()
   {
     focus("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput");

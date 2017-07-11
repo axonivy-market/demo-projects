@@ -12,7 +12,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 public class HelperBean
 {
   boolean demoLicence = LicenceUtil.isDemo();
-  
+
   public String getPropertiesSize(Properties properties)
   {
     if (properties.isEmpty())
@@ -22,9 +22,19 @@ public class HelperBean
     return "(" + properties.size() + ")";
   }
 
+  public void validateConfig(SystemDatabaseSettings settings)
+  {
+    if (!settings.getConnectionInfo().getConnectionOK())
+    {
+      settings.testConnection();
+    }
+    StyleSystemDatabaseInputs.setIncorrectInputs(settings.getConnectionInfo());
+  }
+
   public boolean mustAuthenticate()
   {
-    if (isNotDemoLicence() && isNotAuthenticated() && isNotServerConfigurationApplicaton() && hasAtLeastOneAdmin())
+    if (isNotDemoLicence() && isNotAuthenticated() && isNotServerConfigurationApplicaton()
+            && hasAtLeastOneAdmin())
     {
       return true;
     }
@@ -34,7 +44,7 @@ public class HelperBean
   private boolean hasAtLeastOneAdmin()
   {
     // There is always one System user
-    return Ivy.session().getSecurityContext().getUsers().size()>1;
+    return Ivy.session().getSecurityContext().getUsers().size() > 1;
   }
 
   private boolean isNotDemoLicence()

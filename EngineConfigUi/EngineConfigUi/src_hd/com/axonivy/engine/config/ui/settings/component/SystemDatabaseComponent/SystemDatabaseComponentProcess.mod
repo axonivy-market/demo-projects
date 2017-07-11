@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 03 16:17:22 CEST 2017]
+[>Created: Tue Jul 11 17:32:09 CEST 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -66,11 +66,6 @@ Ss0 @RichDialogProcessEnd f10 '' #zField
 Ss0 @GridStep f17 '' #zField
 Ss0 @PushWFArc f33 '' #zField
 Ss0 @PushWFArc f16 '' #zField
-Ss0 @RichDialogProcessStart f34 '' #zField
-Ss0 @RichDialogProcessEnd f35 '' #zField
-Ss0 @GridStep f37 '' #zField
-Ss0 @PushWFArc f58 '' #zField
-Ss0 @PushWFArc f36 '' #zField
 Ss0 @PushWFArc f42 '' #zField
 Ss0 @PushWFArc f41 '' #zField
 Ss0 @GridStep f40 '' #zField
@@ -353,7 +348,7 @@ import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 in.settings.updateConfig(in.progressAction as SystemDatabaseCreator);
 in.settings.saveSystemDb();
 in.settings.testConnection();
-StyleSystemDatabaseInputs.setIncorrectInputs(in.connectionInfo.getDetailedState());' #txt
+StyleSystemDatabaseInputs.setIncorrectInputs(in.connectionInfo);' #txt
 Ss0 f48 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f48 168 554 112 44 0 -8 #rect
 Ss0 f48 @|StepIcon #fIcon
@@ -473,8 +468,10 @@ Ss0 f17 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDataba
 ' #txt
 Ss0 f17 actionTable 'out=in;
 ' #txt
-Ss0 f17 actionCode 'in.settings.saveSystemDb();
-in.settings.testConnection();' #txt
+Ss0 f17 actionCode 'import com.axon.ivy.engine.config.StyleSystemDatabaseInputs;
+in.settings.saveSystemDb();
+in.settings.testConnection();
+StyleSystemDatabaseInputs.setIncorrectInputs(in.connectionInfo);' #txt
 Ss0 f17 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f17 168 746 112 44 0 -8 #rect
 Ss0 f17 @|StepIcon #fIcon
@@ -482,45 +479,6 @@ Ss0 f33 expr out #txt
 Ss0 f33 109 768 168 768 #arcP
 Ss0 f16 expr out #txt
 Ss0 f16 280 768 339 768 #arcP
-Ss0 f34 guid 15CA0E0697091C18 #txt
-Ss0 f34 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
-Ss0 f34 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
-' #txt
-Ss0 f34 actionTable 'out=in;
-' #txt
-Ss0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>validateConfig</name>
-        <nameStyle>14,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f34 83 819 26 26 -39 15 #rect
-Ss0 f34 @|RichDialogProcessStartIcon #fIcon
-Ss0 f35 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
-Ss0 f35 339 819 26 26 0 12 #rect
-Ss0 f35 @|RichDialogProcessEndIcon #fIcon
-Ss0 f37 actionDecl 'com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData out;
-' #txt
-Ss0 f37 actionTable 'out=in;
-' #txt
-Ss0 f37 actionCode 'import org.primefaces.context.RequestContext;
-import com.axon.ivy.engine.config.StyleSystemDatabaseInputs;
-
-if(!in.connectionInfo.getConnectionOK())
-{	
-	in.settings.testConnection();
-}
-StyleSystemDatabaseInputs.setIncorrectInputs(in.connectionInfo.getDetailedState());' #txt
-Ss0 f37 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
-Ss0 f37 168 810 112 44 0 -8 #rect
-Ss0 f37 @|StepIcon #fIcon
-Ss0 f58 expr out #txt
-Ss0 f58 109 832 168 832 #arcP
-Ss0 f36 expr out #txt
-Ss0 f36 280 832 339 832 #arcP
 Ss0 f42 expr out #txt
 Ss0 f42 280 320 339 320 #arcP
 Ss0 f41 expr out #txt
@@ -584,7 +542,3 @@ Ss0 f9 mainOut f33 tail #connect
 Ss0 f33 head f17 mainIn #connect
 Ss0 f17 mainOut f16 tail #connect
 Ss0 f16 head f10 mainIn #connect
-Ss0 f34 mainOut f58 tail #connect
-Ss0 f58 head f37 mainIn #connect
-Ss0 f37 mainOut f36 tail #connect
-Ss0 f36 head f35 mainIn #connect

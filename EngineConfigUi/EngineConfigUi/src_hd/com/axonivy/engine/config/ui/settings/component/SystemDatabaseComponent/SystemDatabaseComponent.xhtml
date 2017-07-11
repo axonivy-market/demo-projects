@@ -125,8 +125,11 @@
 				<p:commandButton id="systemDatabaseTabNextButton" value="Next"
 					icon="fa fa-arrow-circle-right"
 					styleClass="next-button , configChanged" update=":accordionPanel"
-					actionListener="#{logic.validateConfig}"
-					oncomplete="if(#{data.settings.connectionInfo.connectionOK})PF('accordionPanel').select(2);" />
+					actionListener="#{logic.applyProperties}"
+					oncomplete="if(#{data.connectionInfo.connectionOK})PF('accordionPanel').select(2);">
+					<f:actionListener
+						binding="#{helperBean.validateConfig(data.settings)}" />
+				</p:commandButton>
 			</div>
 		</div>
 		<p:defaultCommand target="systemDatabaseTabNextButton" />

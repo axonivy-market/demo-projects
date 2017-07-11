@@ -46,8 +46,6 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
 
   private void convertDb()
   {
-    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:convertDbButton"))
-            .click();
     await(ExpectedConditions
             .elementToBeClickable(By
                     .id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:confirmConvertButton")));

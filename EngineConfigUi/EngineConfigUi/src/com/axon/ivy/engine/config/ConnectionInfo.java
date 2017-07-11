@@ -12,7 +12,7 @@ public class ConnectionInfo
   private Boolean connectionOK = false;
   private ConnectionState connectionState = ConnectionState.NOT_CONNECTED;
   private Throwable connectionError;
-  private SystemDatabaseConnectionState detailedState = SystemDatabaseConnectionState.UNKNOWN;
+  private FailedConnectionState failedConnectionState = FailedConnectionState.UNKNOWN;
 
   private ConnectionInfo()
   {
@@ -37,7 +37,7 @@ public class ConnectionInfo
   {
     setConnectionState(cs);
     connectionError = error;
-    detailedState = SystemDatabaseAdvice.getAdvice(product, connectionError);
+    failedConnectionState = SystemDatabaseAdvice.getAdvice(cs, product, connectionError);
   }
 
   public void setConnectionState(ConnectionState cs)
@@ -53,9 +53,9 @@ public class ConnectionInfo
     }
   }
 
-  public SystemDatabaseConnectionState getDetailedState()
+  public FailedConnectionState getFailedState()
   {
-    return detailedState;
+    return failedConnectionState;
   }
 
   public String getStateCssValue()
@@ -100,7 +100,7 @@ public class ConnectionInfo
       case CONNECTING:
         return "Connecting...";
       case CONNECTION_FAILED:
-        switch (detailedState)
+        switch (failedConnectionState)
         {
           case WRONG_HOST:
             return "Incorrect host/port";
@@ -111,14 +111,13 @@ public class ConnectionInfo
           case CREATE_DB:
             return "Database doesn't exist";
           case UNKNOWN:
-          default:
             return "Connection failed";
         }
+        return "";
       case NOT_CONNECTED:
         return "Connection state unknown";
-      default:
-        return "";
     }
+    return "";
   }
 
   public String getStateMessage()
@@ -138,7 +137,7 @@ public class ConnectionInfo
       case CONNECTING:
         return "Trying to connect with Database...";
       case CONNECTION_FAILED:
-        switch (detailedState)
+        switch (failedConnectionState)
         {
           case WRONG_HOST:
             return "Please check your host or port.";
@@ -149,16 +148,15 @@ public class ConnectionInfo
           case CREATE_DB:
             return "Your referenced database seems to not exist. Please create a database.";
           case UNKNOWN:
-          default:
             Throwable th = getCauseIfAvailable(connectionError);
             String msg = ExceptionUtils.getMessage(th);
             return "Error occured: " + msg;
         }
+        return "";
       case NOT_CONNECTED:
         return "Please check the connection to the Database.";
-      default:
-        return "";
     }
+    return "";
   }
 
   private static Throwable getCauseIfAvailable(Throwable th)

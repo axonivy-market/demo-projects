@@ -5,10 +5,11 @@ import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.component.commandbutton.CommandButton;
+import org.primefaces.context.RequestContext;
 
 public class StyleSystemDatabaseInputs
 {
-  public static void setIncorrectInputs(SystemDatabaseConnectionState state)
+  public static void setIncorrectInputs(ConnectionInfo connectionInfo)
   {
     UIInput hostInput = getComponent("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput");
     UIInput portInput = getComponent("accordionPanel:systemDatabaseComponent:systemDatabaseForm:portInput");
@@ -19,33 +20,52 @@ public class StyleSystemDatabaseInputs
 
     resetInputs(createDbButton, convertDbButton, hostInput, portInput, usernameInput, passwordInput);
 
-    switch (state)
+    switch (connectionInfo.getConnectionState())
     {
-      case CREATE_DB:
-        String createDbButtonStyleClass = createDbButton.getStyleClass();
-        createDbButton.setStyleClass(createDbButtonStyleClass + " ui-state-warn");
-        FocusSetter.setFocusOnCreateDbButton();
+      case CONNECTED_NO_DATABASE_OR_SCHEMA:
+      case CONNECTED_NO_TABLES:
+        openCreateDialog(createDbButton);
         break;
-      case WRONG_HOST:
-        hostInput.setValid(false);
-        portInput.setValid(false);
-        FocusSetter.setFocusOnHostInput();
-        break;
-      case WRONG_LOGIN:
-      case WRONG_PASSWORD:
-        usernameInput.setValid(false);
-        passwordInput.setValid(false);
-        FocusSetter.setFocusOnUsernameInput();
-        break;
-      case CONVERT_DB:
-        String convertDbButtonStyleClass = convertDbButton.getStyleClass();
-        convertDbButton.setStyleClass(convertDbButtonStyleClass + " ui-state-warn");
-        FocusSetter.setFocusOnConvertDbButton();
-        break;
-      default:
+      case CONNECTED:
+      case CONNECTED_WRONG_NEWER_VERSION:
+      case CONNECTING:
+      case NOT_CONNECTED:
         FocusSetter.setFocusOnSystemDatabaseTabNextStepButton();
         break;
+      case CONNECTED_WRONG_OLDER_VERSION:
+        String convertDbButtonStyleClass = convertDbButton.getStyleClass();
+        convertDbButton.setStyleClass(convertDbButtonStyleClass + " ui-state-warn");
+        RequestContext.getCurrentInstance().execute("PF('convertDatabaseDialog').show();");
+        break;
+      case CONNECTION_FAILED:
+        switch (connectionInfo.getFailedState())
+        {
+          case CREATE_DB:
+            openCreateDialog(createDbButton);
+            break;
+          case WRONG_HOST:
+            hostInput.setValid(false);
+            portInput.setValid(false);
+            FocusSetter.setFocusOnHostInput();
+            break;
+          case WRONG_LOGIN:
+          case WRONG_PASSWORD:
+            usernameInput.setValid(false);
+            passwordInput.setValid(false);
+            FocusSetter.setFocusOnUsernameInput();
+            break;
+          case UNKNOWN:
+            FocusSetter.setFocusOnSystemDatabaseTabNextStepButton();
+            break;
+        }
     }
+  }
+
+  private static void openCreateDialog(CommandButton createDbButton)
+  {
+    String createDbButtonStyleClass = createDbButton.getStyleClass();
+    createDbButton.setStyleClass(createDbButtonStyleClass + " ui-state-warn");
+    RequestContext.getCurrentInstance().execute("PF('createDatabaseDialog').show();");
   }
 
   @SuppressWarnings("unchecked")
