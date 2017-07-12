@@ -18,7 +18,7 @@
 		<p:outputPanel id="connectionPanel" styleClass="connection-panel">
 			<p:commandButton value="Check Connection" id="checkConnectionButton"
 				icon="fa fa-check" styleClass="check-connection"
-				actionListener="#{logic.validateConfig}"
+				actionListener="#{helperBean.validateConfig(data.settings)}"
 				update="@(.configChanged), systemDatabaseForm"
 				onstart="updateConnectionPanel()" />
 			<p:outputPanel id="connection"
