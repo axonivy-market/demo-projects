@@ -141,24 +141,14 @@ public class SystemDatabaseSettings
     return getSystemDb().getAdministratorManager();
   }
 
-  public void saveAdmins()
+  private boolean saveAdmins()
   {
     AdministratorManager adminManager = getAdministratorManager();
     if (!adminManager.isConnected())
     {
-      return;
+      return false;
     }
-    try
-    {
-      if (adminManager.storeAdministrators())
-      {
-        UiModder.adminsSaved();
-      }
-    }
-    catch (Exception ex)
-    {
-      UiModder.adminsNotSaved(ex);
-    }
+    return adminManager.storeAdministrators();
   }
 
   public WebServerConfig getWebServerConfig()
@@ -166,32 +156,24 @@ public class SystemDatabaseSettings
     return webServerConfig;
   }
 
-  public void saveWebServerConfig()
+  private boolean saveWebServerConfig()
   {
     AdministratorManager adminManager = getAdministratorManager();
     if (!adminManager.isConnected())
     {
-      return;
+      return false;
     }
-    try
-    {
-      setProperty(adminManager, WEB_SERVER_HTTP_ENABLED,
-              BooleanUtils.toStringTrueFalse(webServerConfig.getHttpEnabled()));
-      setProperty(adminManager, WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
-      setProperty(adminManager, WEB_SERVER_HTTPS_ENABLED,
-              BooleanUtils.toStringTrueFalse(webServerConfig.getHttpsEnabled()));
-      setProperty(adminManager, WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
-      setProperty(adminManager, WEB_SERVER_AJP_ENABLED,
-              BooleanUtils.toStringTrueFalse(webServerConfig.getAjpEnabled()));
-      setProperty(adminManager, WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
+    setProperty(adminManager, WEB_SERVER_HTTP_ENABLED,
+            BooleanUtils.toStringTrueFalse(webServerConfig.getHttpEnabled()));
+    setProperty(adminManager, WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
+    setProperty(adminManager, WEB_SERVER_HTTPS_ENABLED,
+            BooleanUtils.toStringTrueFalse(webServerConfig.getHttpsEnabled()));
+    setProperty(adminManager, WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
+    setProperty(adminManager, WEB_SERVER_AJP_ENABLED,
+            BooleanUtils.toStringTrueFalse(webServerConfig.getAjpEnabled()));
+    setProperty(adminManager, WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
 
-      adminManager.storeSystemProperties();
-      UiModder.webserverConfigSaved();
-    }
-    catch (Exception ex)
-    {
-      UiModder.webserverConfigNotSaved(ex);
-    }
+    return adminManager.storeSystemProperties();
   }
 
   private static void setProperty(AdministratorManager adminManager, String key, String value)
@@ -246,30 +228,14 @@ public class SystemDatabaseSettings
     }
   }
 
-  public void saveClusterNodes()
+  private boolean saveClusterNodes()
   {
-    if (!LicenceUtil.isCluster())
-    {
-      return;
-    }
-
     AdministratorManager adminManager = getAdministratorManager();
     if (!adminManager.isConnected())
     {
-      return;
+      return false;
     }
-
-    try
-    {
-      if (adminManager.storeClusterNodes())
-      {
-        UiModder.clusterConfigSaved();
-      }
-    }
-    catch (Exception ex)
-    {
-      UiModder.clusterConfigNotSaved(ex);
-    }
+    return adminManager.storeClusterNodes();
   }
 
   public ConnectionState testConnection()
@@ -285,7 +251,8 @@ public class SystemDatabaseSettings
     catch (TimeoutException ex)
     {
       String msg = "Could not connect to database within " + CONNETION_TEST_TIMEOUT + " Seconds";
-      getConnectionInfo().updateConnectionStates(ConnectionState.CONNECTION_FAILED, new TimeoutException(msg),
+      getConnectionInfo().updateConnectionStates(ConnectionState.CONNECTION_FAILED,
+              new TimeoutException(msg),
               getConfigData().getProduct());
       return ConnectionState.CONNECTION_FAILED;
     }
@@ -295,15 +262,32 @@ public class SystemDatabaseSettings
   public void saveAll()
   {
     saveSystemDb();
+
     if (!getAdministratorManager().isConnected())
     {
       UiModder.notConnected();
       return;
     }
 
-    saveAdmins();
+    try
+    {
+      saveAllToDB();
+      UiModder.savedAllToDatabase();
+    }
+    catch (Exception ex)
+    {
+      UiModder.allNotSaved(ex);
+    }
+  }
+
+  private void saveAllToDB()
+  {
     saveWebServerConfig();
-    saveClusterNodes();
+    saveAdmins();
+    if (LicenceUtil.isCluster())
+    {
+      saveClusterNodes();
+    }
   }
 
   private class BlockingListener implements IConnectionListener

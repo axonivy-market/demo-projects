@@ -11,7 +11,7 @@ public class UiModder
   public static void notConnected()
   {
     addMessage(FacesMessage.SEVERITY_WARN, "Not Connected",
-            "Could not save Administrators and Webserver settings because there is no open"
+            "Could not save " + getAvailableConfigs() + " settings because there is no open"
                     + " connection to the system database");
   }
 
@@ -27,40 +27,17 @@ public class UiModder
     addNotSavedMessage("Your System Database settings could not be saved because: " + msg);
   }
 
-  public static void adminsSaved()
+  public static void savedAllToDatabase()
   {
-    addMessage(FacesMessage.SEVERITY_INFO, "Administrators config saved",
-            "Your Administrators config were saved to the system database");
+    addMessage(FacesMessage.SEVERITY_INFO, "Saved All",
+            getAvailableConfigs() + " were saved to the database");
   }
 
-  public static void adminsNotSaved(Exception ex)
+  public static void allNotSaved(Exception ex)
   {
-    String msg = ExceptionUtils.getRootCauseMessage(ex);
-    addNotSavedMessage("Your Administrators settings could not be saved because: " + msg);
-  }
-
-  public static void webserverConfigSaved()
-  {
-    addMessage(FacesMessage.SEVERITY_INFO, "WebServer config saved",
-            "Your WebServer config was saved to the system database");
-  }
-
-  public static void webserverConfigNotSaved(Exception ex)
-  {
-    String msg = ExceptionUtils.getRootCauseMessage(ex);
-    addNotSavedMessage("Your WebServer settings could not be saved because: " + msg);
-  }
-
-  public static void clusterConfigSaved()
-  {
-    addMessage(FacesMessage.SEVERITY_INFO, "Cluster config saved",
-            "Your Cluster config was saved to the system database");
-  }
-
-  public static void clusterConfigNotSaved(Exception ex)
-  {
-    String msg = ExceptionUtils.getRootCauseMessage(ex);
-    addNotSavedMessage("Your Cluster settings could not be saved because: " + msg);
+    String exMessage = ExceptionUtils.getRootCauseMessage(ex);
+    addNotSavedMessage(getAvailableConfigs() + " could not be saved to the database: "
+            + exMessage);
   }
 
   private static void addNotSavedMessage(String detail)
@@ -87,5 +64,14 @@ public class UiModder
   {
     FacesContext context = FacesContext.getCurrentInstance();
     context.addMessage(null, new FacesMessage(severity, summary, detail));
+  }
+
+  private static String getAvailableConfigs()
+  {
+    if (LicenceUtil.isCluster())
+    {
+      return "Administrators, Web Server and Cluster Nodes";
+    }
+    return "Administrators and WebServer";
   }
 }
