@@ -16,6 +16,8 @@ public class WebTestWebServer extends BaseWebTest
     testConnection();
 
     openTab("Web Server");
+    await(ExpectedConditions.visibilityOfAllElementsLocatedBy(By
+            .id("accordionPanel:webServerComponent:webServerForm:HTTPEnabledCheckbox")));
     assertThat(prime.selectBooleanCheckbox(By.id(
             "accordionPanel:webServerComponent:webServerForm:HTTPEnabledCheckbox")).isChecked())
             .isTrue();
@@ -26,7 +28,7 @@ public class WebTestWebServer extends BaseWebTest
     clearAndSend(portInputLocator, "1234");
     driver.findElement(By.id("saveAll")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("growl_container"),
-            "Administrators, Web Server and Cluster Nodes were saved to the database"));
+            " were saved to the database"));
     openConfigUi();
     openTab("System Database");
     testConnection();
