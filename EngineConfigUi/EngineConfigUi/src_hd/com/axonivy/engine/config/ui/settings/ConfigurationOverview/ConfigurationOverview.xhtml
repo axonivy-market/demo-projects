@@ -76,6 +76,8 @@
 						styleClass="updateSaveAll" />
 				</p:tab>
 			</p:accordionPanel>
+			<h:outputText value="You have to restart the Engine for changes to take effect." styleClass="error-text"/>
+			<br />
 			<br />
 				<p:commandButton id="saveAll" value="Save" icon="fa fa-save"
 					actionListener="#{logic.saveAll}" update="growl, @(.updateSaveAll)" />
