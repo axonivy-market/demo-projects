@@ -26,7 +26,7 @@ public class WebTestWebServer extends BaseWebTest
     clearAndSend(portInputLocator, "1234");
     driver.findElement(By.id("saveAll")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("growl_container"),
-            "WebServer config was saved"));
+            "Administrators, Web Server and Cluster Nodes were saved to the database"));
     openConfigUi();
     openTab("System Database");
     testConnection();

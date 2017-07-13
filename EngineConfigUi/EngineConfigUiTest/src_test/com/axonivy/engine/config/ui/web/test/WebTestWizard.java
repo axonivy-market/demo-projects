@@ -28,9 +28,7 @@ public class WebTestWizard extends BaseWebTest
   private void checkSysDbTab() throws Exception
   {
     setMySqlConfig();
-    await(ExpectedConditions.elementToBeClickable(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton")))
-            .click();
+    trytoClickButton(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton"));
     await(
             ExpectedConditions.elementToBeClickable(
                     By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton'][contains(@class, 'ui-state-warn')]")))
