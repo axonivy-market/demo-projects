@@ -6,6 +6,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.server.ServerOsgiApplication;
 
 @ManagedBean
 @ApplicationScoped
@@ -39,6 +40,11 @@ public class HelperBean
       return true;
     }
     return false;
+  }
+  
+  public boolean engineIsRunning()
+  {
+    return ServerOsgiApplication.isRunning();
   }
 
   private boolean hasAtLeastOneAdmin()

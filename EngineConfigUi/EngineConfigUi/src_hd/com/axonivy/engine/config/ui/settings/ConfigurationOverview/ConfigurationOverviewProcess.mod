@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jul 04 14:32:21 CEST 2017]
+[>Created: Fri Jul 14 15:42:20 CEST 2017]
 157E2C1BEC4930AC 3.20 #module
 >Proto >Proto Collection #zClass
 ss0 ConfigurationOverviewProcess Big #zClass
@@ -42,6 +42,8 @@ ss0 @PushWFArc f24 '' #zField
 ss0 @GridStep f25 '' #zField
 ss0 @PushWFArc f26 '' #zField
 ss0 @PushWFArc f10 '' #zField
+ss0 @RichDialogProcessStart f28 '' #zField
+ss0 @PushWFArc f27 '' #zField
 >Proto ss0 ss0 ConfigurationOverviewProcess #zField
 ss0 f0 guid 157E2C1BEDF33419 #txt
 ss0 f0 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
@@ -56,10 +58,12 @@ ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
+        <nameStyle>7,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-ss0 f0 83 51 26 26 -16 15 #rect
+ss0 f0 82 51 26 26 -16 15 #rect
 ss0 f0 @|RichDialogInitStartIcon #fIcon
 ss0 f1 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f1 371 51 26 26 0 12 #rect
@@ -83,7 +87,7 @@ ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ss0 f3 168 42 112 44 -8 -8 #rect
 ss0 f3 @|StepIcon #fIcon
 ss0 f4 expr out #txt
-ss0 f4 109 64 168 64 #arcP
+ss0 f4 108 64 168 64 #arcP
 ss0 f2 expr out #txt
 ss0 f2 280 64 371 64 #arcP
 ss0 f5 guid 15B5C5DB30A4F328 #txt
@@ -107,12 +111,12 @@ ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-ss0 f5 83 115 26 26 -47 15 #rect
+ss0 f5 82 115 26 26 -47 15 #rect
 ss0 f5 @|RichDialogProcessStartIcon #fIcon
 ss0 f6 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f6 371 115 26 26 0 12 #rect
 ss0 f6 @|RichDialogProcessEndIcon #fIcon
-ss0 f7 109 128 371 128 #arcP
+ss0 f7 108 128 371 128 #arcP
 ss0 f8 guid 15BC386770BD0A74 #txt
 ss0 f8 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f8 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
@@ -128,7 +132,7 @@ ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-ss0 f8 83 179 26 26 -19 15 #rect
+ss0 f8 82 179 26 26 -19 15 #rect
 ss0 f8 @|RichDialogProcessStartIcon #fIcon
 ss0 f9 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f9 371 179 26 26 0 12 #rect
@@ -160,7 +164,7 @@ ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-ss0 f11 83 243 26 26 -49 15 #rect
+ss0 f11 82 243 26 26 -49 15 #rect
 ss0 f11 @|RichDialogMethodStartIcon #fIcon
 ss0 f12 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f12 723 243 26 26 0 12 #rect
@@ -252,7 +256,7 @@ ss0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ss0 f18 552 234 112 44 -27 -8 #rect
 ss0 f18 @|StepIcon #fIcon
 ss0 f20 expr out #txt
-ss0 f20 109 256 152 256 #arcP
+ss0 f20 108 256 152 256 #arcP
 ss0 f17 expr out #txt
 ss0 f17 312 256 384 256 #arcP
 ss0 f15 expr out #txt
@@ -261,7 +265,7 @@ ss0 f13 expr out #txt
 ss0 f13 496 256 552 256 #arcP
 ss0 f19 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f19 guid 15D0D93DAB2ED91F #txt
-ss0 f19 371 307 26 26 0 12 #rect
+ss0 f19 371 339 26 26 0 12 #rect
 ss0 f19 @|RichDialogEndIcon #fIcon
 ss0 f21 guid 15D0D947790DFC73 #txt
 ss0 f21 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
@@ -269,14 +273,18 @@ ss0 f21 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.
 ' #txt
 ss0 f21 actionTable 'out=in;
 ' #txt
+ss0 f21 actionCode 'import com.axon.ivy.engine.config.SystemUtil;
+SystemUtil.restart = false;' #txt
 ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>close</name>
+        <nameStyle>5,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-ss0 f21 83 307 26 26 -15 12 #rect
+ss0 f21 82 307 26 26 -15 15 #rect
 ss0 f21 @|RichDialogProcessStartIcon #fIcon
 ss0 f22 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
 ' #txt
@@ -293,12 +301,14 @@ ss0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-ss0 f22 168 298 112 44 -21 -8 #rect
+ss0 f22 172 330 112 44 -21 -8 #rect
 ss0 f22 @|StepIcon #fIcon
 ss0 f23 expr out #txt
-ss0 f23 109 320 168 320 #arcP
+ss0 f23 107 323 172 352 #arcP
+ss0 f23 0 0.31220825344279884 0 0 #arcLabel
 ss0 f24 expr out #txt
-ss0 f24 280 320 371 320 #arcP
+ss0 f24 284 352 371 352 #arcP
+ss0 f24 0 0.2788417630134049 0 0 #arcLabel
 ss0 f25 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
 ' #txt
 ss0 f25 actionTable 'out=in;
@@ -317,9 +327,31 @@ ss0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ss0 f25 168 170 112 44 -21 -8 #rect
 ss0 f25 @|StepIcon #fIcon
 ss0 f26 expr out #txt
-ss0 f26 109 192 168 192 #arcP
+ss0 f26 108 192 168 192 #arcP
 ss0 f10 expr out #txt
 ss0 f10 280 192 371 192 #arcP
+ss0 f28 guid 15D2B778B0F804E4 #txt
+ss0 f28 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f28 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
+' #txt
+ss0 f28 actionTable 'out=in;
+' #txt
+ss0 f28 actionCode 'import com.axon.ivy.engine.config.SystemUtil;
+SystemUtil.restart = true;' #txt
+ss0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>restart</name>
+        <nameStyle>7,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+ss0 f28 82 370 26 26 -17 15 #rect
+ss0 f28 @|RichDialogProcessStartIcon #fIcon
+ss0 f27 expr out #txt
+ss0 f27 107 380 172 352 #arcP
+ss0 f27 0 0.701248093100824 0 0 #arcLabel
 >Proto ss0 .type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 >Proto ss0 .processKind HTML_DIALOG #txt
 >Proto ss0 -8 -8 16 16 16 26 #rect
@@ -346,3 +378,5 @@ ss0 f8 mainOut f26 tail #connect
 ss0 f26 head f25 mainIn #connect
 ss0 f25 mainOut f10 tail #connect
 ss0 f10 head f9 mainIn #connect
+ss0 f28 mainOut f27 tail #connect
+ss0 f27 head f22 mainIn #connect

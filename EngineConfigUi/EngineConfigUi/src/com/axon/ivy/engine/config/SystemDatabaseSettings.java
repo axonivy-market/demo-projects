@@ -278,6 +278,7 @@ public class SystemDatabaseSettings
     {
       UiModder.allNotSaved(ex);
     }
+    UiModder.restartHint();
   }
 
   private void saveAllToDB()

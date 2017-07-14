@@ -40,6 +40,11 @@ public class UiModder
             + exMessage);
   }
 
+  public static void restartHint()
+  {
+    addWarningMessage("Please restart", "You have to restart the Engine for the changes to take effect.");
+  }
+
   private static void addNotSavedMessage(String detail)
   {
     addMessage(FacesMessage.SEVERITY_FATAL, "Failed To Save", detail);
