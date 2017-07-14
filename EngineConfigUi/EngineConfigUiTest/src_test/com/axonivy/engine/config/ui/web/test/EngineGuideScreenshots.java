@@ -14,8 +14,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EngineGuideScreenshots extends BaseWebTest
 {
@@ -52,25 +50,10 @@ public class EngineGuideScreenshots extends BaseWebTest
   public void adminTab() throws Exception
   {
     openTab("Administrators");
-    addAdmin();
+    addAdmin("admin");
     await(ExpectedConditions.visibilityOfElementLocated(By
             .id("accordionPanel:administratorsComponent:adminManagerForm:adminsTabNextButton")));
     takeScreenshot("Administrators.png", new Dimension(780, 670));
-  }
-
-  private void addAdmin()
-  {
-    Dialog dialog = prime.dialog(By.id("accordionPanel:administratorsComponent:addAdminDialog"));
-    dialog.waitForVisibility(true);
-
-    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newName"), "admin");
-    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newFullname"), "admin");
-    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"), "admin@ivyteam.ch");
-    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"), "password");
-    await(ExpectedConditions.elementToBeClickable(
-            By.id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton")))
-            .click();
-    dialog.waitToBeClosedOrError();
   }
 
   public void webServerTab() throws Exception

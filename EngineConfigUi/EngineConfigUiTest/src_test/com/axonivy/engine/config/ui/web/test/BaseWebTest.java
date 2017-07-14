@@ -189,6 +189,7 @@ public class BaseWebTest
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newFullname"), "AXONIVY");
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"), "support@ivyteam.ch");
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"), "password");
+    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:confimrNewPassword"), "password");
 
     Thread.sleep(1000);
     await(ExpectedConditions.elementToBeClickable(By
