@@ -60,7 +60,8 @@
 	</h:form>
 
 	<p:dialog widgetVar="addAdminDialog" id="addAdminDialog"
-		header="New Administrator" modal="true" closeOnEscape="true" focus="addAdminForm:newName">
+		header="New Administrator" modal="true" closeOnEscape="true"
+		focus="addAdminForm:newName">
 		<p:ajax event="close" listener="#{logic.resetFocus}" />
 		<h:form id="addAdminForm">
 			<p>
@@ -77,7 +78,10 @@
 				<p:inputText id="newEmail" value="#{data.newAdmin.email}" />
 				<p:outputLabel value="Password:" for="newPassword" />
 				<p:password id="newPassword" value="#{data.newAdmin.password}"
-					required="true" />
+					match="confirmNewPassword" required="true" />
+				<p:outputLabel value="Repeat Password:" for="confirmNewPassword" />
+				<p:password id="confirmNewPassword"
+					value="#{data.newAdmin.password}" required="true" />
 			</h:panelGrid>
 			<br />
 			<p:commandButton id="addAdminDialogButton" value="Add Administrator"
