@@ -64,18 +64,5 @@
         "label" : "Is approved?"
       }
     } ]
-  }, {
-    "id" : "request_postponed",
-    "name" : "Request postponed",
-    "icon" : "css:fa fa-play",
-    "sidesteps" : [ {
-      "id" : "resume_request",
-      "name" : "Resume request",
-      "processToExecute" : "ch.ivyteam.ivy.project.demo:WorkflowDemos:15A8996D261A1DFE/start.ivp"
-    }, {
-      "id" : "abort_request",
-      "name" : "Abort request",
-      "processToExecute" : "WorkflowDemos:15A8996D261A1DFE/start.ivp"
-    } ]
   } ]
 }
