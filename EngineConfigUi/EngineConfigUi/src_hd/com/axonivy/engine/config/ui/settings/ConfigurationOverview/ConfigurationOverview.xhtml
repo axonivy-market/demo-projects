@@ -83,9 +83,6 @@
 			<p:button id="discardChanges" value="Discard Changes"
 				icon="fa fa-undo"
 				href="#{ivy.html.startref('157E64657EEBDD9C/start.ivp')}" />
-			<p:commandButton id="restart" value="Save and Restart"
-				rendered="#{helperBean.engineIsRunning()}" icon="fa fa-sign-out"
-				actionListener="#{logic.restart}" styleClass="save-and-exit-button" />
 			<p:commandButton id="exit" value="Save and Exit"
 				rendered="#{helperBean.serverConfigurationApplicaton}"
 				icon="fa fa-sign-out" actionListener="#{logic.close}"

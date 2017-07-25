@@ -13,7 +13,7 @@
 		<ui:define name="content">
 			<h:form>
 				<p:remoteCommand autoRun="true"
-					actionListener="#{logic.exit}" />
+					actionListener="#{helperBean.shutdown()}" />
 				<h3>Your Engine was shut down</h3>
 			</h:form>
 		</ui:define>

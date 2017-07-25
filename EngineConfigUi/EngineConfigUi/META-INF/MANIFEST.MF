@@ -4,7 +4,6 @@ Bundle-Name: EngineConfigUi
 Bundle-SymbolicName: EngineConfigUi
 Bundle-Version: 1.0.0.qualifier
 Export-Package: com.axon.ivy.engine.config,
- com.axonivy.engine.config.ui.settings,
  com.axonivy.engine.config.ui.settings.ConfigurationOverview,
  com.axonivy.engine.config.ui.settings.ExitPage,
  com.axonivy.engine.config.ui.settings.component.AdministratorsComponent,
@@ -17,6 +16,6 @@ Export-Package: com.axon.ivy.engine.config,
  com.axonivy.engine.config.ui.settings.component.LoginPageComponent,
  com.axonivy.engine.config.ui.settings.component.SummaryComponent,
  com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent,
- com.axonivy.engine.config.ui.settings.component.WebServerComponent,
- engine.config.ui.test
-Require-Bundle: ch.ivyteam.ivy.server.exec;bundle-version="6.6.2"
+ com.axonivy.engine.config.ui.settings.component.WebServerComponent
+Require-Bundle: ch.ivyteam.ivy.server.exec;bundle-version="6.6.2",
+ ch.ivyteam.ivy.server.configuration;bundle-version="6.7.0"

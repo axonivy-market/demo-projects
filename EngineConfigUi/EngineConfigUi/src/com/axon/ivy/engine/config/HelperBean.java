@@ -6,7 +6,6 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
 import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.ivy.server.ServerOsgiApplication;
 
 @ManagedBean
 @ApplicationScoped
@@ -29,22 +28,23 @@ public class HelperBean
     {
       settings.testConnection();
     }
-    StyleSystemDatabaseInputs.setIncorrectInputs(settings.getConnectionInfo());
+    StyleSystemDatabaseInputs.setIncorrectInputs(settings
+            .getConnectionInfo());
   }
 
   public boolean mustAuthenticate()
   {
-    if (isNotDemoLicence() && isNotAuthenticated() && isNotServerConfigurationApplicaton()
-            && hasAtLeastOneAdmin())
+    if (isNotDemoLicence() && isNotAuthenticated()
+            && isNotServerConfigurationApplicaton() && hasAtLeastOneAdmin())
     {
       return true;
     }
     return false;
   }
-  
-  public boolean engineIsRunning()
+
+  public void shutdown()
   {
-    return ServerOsgiApplication.isRunning();
+    System.exit(-1);
   }
 
   private boolean hasAtLeastOneAdmin()
@@ -70,6 +70,7 @@ public class HelperBean
 
   public boolean isServerConfigurationApplicaton()
   {
-    return Ivy.wf().getApplication().getName().equals("ServerConfiguration");
+    return Ivy.wf().getApplication().getName()
+            .equals("ServerConfiguration");
   }
 }
