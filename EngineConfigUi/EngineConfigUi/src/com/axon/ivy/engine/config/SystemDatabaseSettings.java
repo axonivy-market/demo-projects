@@ -283,12 +283,12 @@ public class SystemDatabaseSettings
 
   private void saveAllToDB()
   {
-    saveWebServerConfig();
     saveAdmins();
     if (LicenceUtil.isCluster())
     {
       saveClusterNodes();
     }
+    saveWebServerConfig();
   }
 
   private class BlockingListener implements IConnectionListener
