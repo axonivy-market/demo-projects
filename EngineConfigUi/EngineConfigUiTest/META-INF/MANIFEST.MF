@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EngineConfigUiTest
+Bundle-SymbolicName: EngineConfigUiTest
+Bundle-Version: 1.0.0.qualifier
+Export-Package: ch.ivyteam.ivy.persistence.db.mysql,
+ com.axonivy.engine.config.ui.unit.test,
+ com.axonivy.engine.config.ui.web.test,
+ engine.config.ui.test
+Require-Bundle: ch.ivyteam.ivy.server.configuration;bundle-version="6.7.0"
