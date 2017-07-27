@@ -54,6 +54,9 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<workingDirectory>${engine.directory}</workingDirectory>
+				</configuration>
 				<executions>
 					<execution>
 						<id>selenium.screenshots</id>

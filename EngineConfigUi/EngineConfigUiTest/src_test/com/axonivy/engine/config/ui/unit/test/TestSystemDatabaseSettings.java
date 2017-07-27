@@ -27,7 +27,6 @@ import com.axonivy.engine.config.ui.settings.ConfigData;
 
 public class TestSystemDatabaseSettings
 {
-
   private static String DBName;
 
   @Before
@@ -52,23 +51,34 @@ public class TestSystemDatabaseSettings
     ConfigData configData = settings.getConfigData();
     changeConfigToMySqlSettings(configData);
     assertThat(settings.testConnection()).isEqualTo(ConnectionState.CONNECTION_FAILED);
-    
-    createDatabase(configData);
-    assertThat(settings.testConnection()).isEqualTo(ConnectionState.CONNECTED);
 
-    dropDatabase(configData);
+    try
+    {
+      createDatabase(configData);
+      settings.setConfigData(configData);
+      assertThat(settings.testConnection()).isEqualTo(ConnectionState.CONNECTED);
+    }
+    finally
+    {
+      dropDatabase(configData);
+    }
   }
 
   @Test
   public void testCreating() throws Exception
   {
     ConfigData configData = getLocalMySqlSettings();
-
-    createDatabase(configData);
-    System.out.println(DBName);
-    dropDatabase(configData);
+    try
+    {
+      createDatabase(configData);
+      System.out.println(DBName);
+    }
+    finally
+    {
+      dropDatabase(configData);
+    }
   }
-  
+
   private void createDatabase(ConfigData configData) throws Exception
   {
     Properties properties = new Properties();

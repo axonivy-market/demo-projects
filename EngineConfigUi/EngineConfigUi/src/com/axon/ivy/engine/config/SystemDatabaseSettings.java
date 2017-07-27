@@ -32,7 +32,7 @@ public class SystemDatabaseSettings
 
   private final Configuration configuration = loadOrCreateConfig();
   private final SystemDatabase systemDatabase = createSystemDb(configuration);
-  private final ConfigData configData = ConfigHelper.loadConfigData(configuration);
+  private ConfigData configData = ConfigHelper.loadConfigData(configuration);
   private final ConnectionInfo info = ConnectionInfo.create();
   private final WebServerConfig webServerConfig = new WebServerConfig();
 
@@ -105,6 +105,11 @@ public class SystemDatabaseSettings
   public ConfigData getConfigData()
   {
     return configData;
+  }
+  
+  public void setConfigData(ConfigData configData)
+  {
+    this.configData = configData;
   }
 
   public ConnectionInfo getConnectionInfo()
