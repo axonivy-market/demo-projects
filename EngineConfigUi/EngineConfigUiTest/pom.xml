@@ -54,9 +54,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<workingDirectory>${engine.directory}</workingDirectory>
-				</configuration>
 				<executions>
 					<execution>
 						<id>selenium.screenshots</id>
@@ -69,6 +66,18 @@
 							<includes>
 								<include>**/*Screenshots.java</include>
 							</includes>
+							<argLine>-Dtest.engine.url=${test.engine.url}
+								-Dtest.engine.app=Portal</argLine>
+						</configuration>
+					</execution>
+					<execution>
+						<id>default-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<workingDirectory>${engine.directory}</workingDirectory>
 							<argLine>-Dtest.engine.url=${test.engine.url}
 								-Dtest.engine.app=Portal</argLine>
 						</configuration>
