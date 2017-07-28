@@ -18,6 +18,7 @@ import ch.ivyteam.db.jdbc.DatabaseUtil;
 import ch.ivyteam.db.jdbc.JdbcDriver;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
+import ch.ivyteam.licence.LicenceConstants;
 import ch.ivyteam.licence.SignedLicence;
 import ch.ivyteam.util.WaitUtil;
 
@@ -38,7 +39,8 @@ public class TestSystemDatabaseSettings
   @Test
   public void testLoadConfigData() throws Exception
   {
-    ConfigData loadConfigData = SystemDatabaseSettings.create().getConfigData();
+    ConfigData loadConfigData = SystemDatabaseSettings.create()
+            .getConfigData();
 
     assertThat(loadConfigData.getDriver()).isNotNull();
     assertThat(loadConfigData.getProduct()).isNotNull();
@@ -50,13 +52,14 @@ public class TestSystemDatabaseSettings
     SystemDatabaseSettings settings = SystemDatabaseSettings.create();
     ConfigData configData = settings.getConfigData();
     changeConfigToMySqlSettings(configData);
-    assertThat(settings.testConnection()).isEqualTo(ConnectionState.CONNECTION_FAILED);
-
+    assertThat(settings.testConnection()).isEqualTo(
+            ConnectionState.CONNECTION_FAILED);
     try
     {
       createDatabase(configData);
       settings.setConfigData(configData);
-      assertThat(settings.testConnection()).isEqualTo(ConnectionState.CONNECTED);
+      assertThat(settings.testConnection()).isEqualTo(
+              ConnectionState.CONNECTED);
     }
     finally
     {
@@ -85,11 +88,14 @@ public class TestSystemDatabaseSettings
     properties.put("databaseName", DBName);
     configData.setCreationParameters(properties);
 
-    SystemDatabaseCreator createDatabase = ConfigHelper.createDatabase(configData);
-    WaitUtil.await(() -> createDatabase.isRunning() == false, 60, TimeUnit.SECONDS);
+    SystemDatabaseCreator createDatabase = ConfigHelper
+            .createDatabase(configData);
+    WaitUtil.await(() -> createDatabase.isRunning() == false, 60,
+            TimeUnit.SECONDS);
     if (createDatabase.getError() != null)
     {
-      throw new RuntimeException("Could not create database", createDatabase.getError());
+      throw new RuntimeException("Could not create database",
+              createDatabase.getError());
     }
   }
 
@@ -100,7 +106,8 @@ public class TestSystemDatabaseSettings
       System.out.println("DBName was null!");
       return;
     }
-    DatabaseConnectionConfiguration dbConnectionConfig = ConfigHelper.createConfiguration(configData);
+    DatabaseConnectionConfiguration dbConnectionConfig = ConfigHelper
+            .createConfiguration(configData);
     DatabaseUtil.dropDatabase(DBName, dbConnectionConfig);
     System.out.println("dropped DB!");
   }
@@ -119,9 +126,11 @@ public class TestSystemDatabaseSettings
     configData.setUsername("admin");
     configData.setPassword("nimda");
     configData.setPort("3306");
-    DBName = "tmp_engineConfigUi_testing_" + ((Integer) RandomUtils.nextInt()).toString();
+    DBName = "tmp_engineConfigUi_testing_"
+            + ((Integer) RandomUtils.nextInt()).toString();
     configData.setDatabaseName(DBName);
-    JdbcDriver[] jdbcDriversForDriverName = JdbcDriver.getJdbcDriversForDriverName("com.mysql.jdbc.Driver");
+    JdbcDriver[] jdbcDriversForDriverName = JdbcDriver
+            .getJdbcDriversForDriverName("com.mysql.jdbc.Driver");
     configData.setDriver(jdbcDriversForDriverName[0]);
   }
 
@@ -135,6 +144,10 @@ public class TestSystemDatabaseSettings
           result = false;
           SignedLicence.isInstalled();
           result = true;
+          SignedLicence.isParamDefined(LicenceConstants.PARAM_SRV_CLUSTER_LOCAL_NODE_ID);
+          result = true;
+          SignedLicence.getIntParam(LicenceConstants.PARAM_SRV_CLUSTER_LOCAL_NODE_ID);
+          result = 0;
         }
       };
     assertThat(SignedLicence.isDemo()).isFalse();
