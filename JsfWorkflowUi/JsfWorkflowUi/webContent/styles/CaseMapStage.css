@@ -9,7 +9,7 @@
 }
 
 .stages-chain .process-step {
-  width: 100px;
+  width: 85px;
   height: 50px;
   display: inline-block;
   margin: 0px;
@@ -39,7 +39,7 @@
 }
 
 .stages-chain .process-flow {
-  width: 60px;
+  width: 45px;
   height: 50px;
   display: inline-block;
   margin-left: -25px;
@@ -62,10 +62,7 @@
 }
 
 .stages-chain .process-flow .flow-txt .none { 
-    width: 2px;
-    height: 2px; 
-    margin: 0 auto;
-    background: #cccccc;
+   display: none;
 }
 
 
@@ -95,5 +92,12 @@
   text-align: center;
 }
 
+.step-title .stage-name {
+  margin: 0 auto;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
   
  

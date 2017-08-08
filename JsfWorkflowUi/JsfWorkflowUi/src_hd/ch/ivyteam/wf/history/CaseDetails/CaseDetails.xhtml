@@ -23,7 +23,7 @@
 			<ui:fragment rendered="#{data.wfCase.isBusinessCase()}">
 				<wc:CaseMapStages id="caseMapStages"
 					currentIndex="#{caseDetailsBean.getIndexOfCurrentStage(data.wfCase)}"
-					stages="#{caseDetailsBean.getStages(data.wfCase)}" />
+					stages="#{caseDetailsBean.getStagesBaseOnCurrentStage(data.wfCase)}" />
 			</ui:fragment>
 
 			<h:panelGrid columns="1">
