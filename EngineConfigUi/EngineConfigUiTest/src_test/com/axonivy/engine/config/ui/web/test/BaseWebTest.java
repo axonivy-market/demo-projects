@@ -125,7 +125,7 @@ public class BaseWebTest
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")).click();
 
-    await(20, ExpectedConditions.textToBePresentInElementLocated(
+    await(40, ExpectedConditions.textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:finishMessage"),
             "Successfully Finished!"));
     dbCreated = true;
