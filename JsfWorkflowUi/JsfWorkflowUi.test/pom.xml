@@ -112,7 +112,7 @@
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
-				<version>6.5.1-SNAPSHOT</version>
+				<version>6.7.1</version>
 				<executions>
 					<execution>
 						<id>start.test.engine</id>
