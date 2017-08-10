@@ -35,7 +35,7 @@ public class WebTestWizard extends BaseWebTest
             .click();
     await(ExpectedConditions.elementToBeClickable(By
             .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton"))).click();
-    await(ExpectedConditions.elementToBeClickable(By
+    await(40, ExpectedConditions.elementToBeClickable(By
             .id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:saveAndConnectButton"))).click();
     super.dbCreated = true;
     Thread.sleep(500);
