@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.RandomUtils;
+import org.apache.commons.lang3.time.StopWatch;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
@@ -125,9 +126,21 @@ public class BaseWebTest
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")).click();
 
-    await(40, ExpectedConditions.textToBePresentInElementLocated(
-            By.id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:finishMessage"),
-            "Successfully Finished!"));
+    StopWatch sw = new StopWatch();
+    sw.start();
+    try
+    {
+      await(40, ExpectedConditions.textToBePresentInElementLocated(
+              By.id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:finishMessage"),
+              "Successfully Finished!"));
+      System.out.println("Created db after " + sw.getNanoTime() + " nanoseconds");
+    }
+    catch (Exception ex)
+    {
+      System.out.println("Could not create after " + sw.getNanoTime() + " nanoseconds");
+      throw ex;
+    }
+    
     dbCreated = true;
 
     driver.findElement(
