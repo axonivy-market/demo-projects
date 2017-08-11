@@ -261,10 +261,6 @@ public class SystemDatabaseSettings
               getConfigData().getProduct());
       return ConnectionState.CONNECTION_FAILED;
     }
-    finally
-    {
-      tester.stop();
-    }
     return tester.getConnectionState();
   }
 
