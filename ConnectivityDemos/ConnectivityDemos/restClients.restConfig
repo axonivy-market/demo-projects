@@ -118,4 +118,20 @@ To run this service locally:
             </feature>
         </configuration>
     </restClient>
+    <restClient>
+        <uuid>65f8e5a4-768d-4a68-813a-e6d569cda522</uuid>
+        <name>odataService</name>
+        <description>The OData demo service</description>
+        <configuration>
+            <uri>http://services.odata.org/TripPinRESTierService/(S(5jklwgt1fhflbw1mxbymqdqe))</uri>
+            <property>
+                <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
+                <value>false</value>
+                <password>false</password>
+            </property>
+            <feature>
+                <class>com.axonivy.connectivity.rest.json.OdataJsonFeature</class>
+            </feature>
+        </configuration>
+    </restClient>
 </restClients>

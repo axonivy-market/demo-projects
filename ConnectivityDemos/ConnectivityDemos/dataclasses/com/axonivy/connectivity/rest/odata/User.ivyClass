@@ -1,0 +1,10 @@
+User #class
+com.axonivy.connectivity.rest.odata #namespace
+UserName String #field
+UserName PERSISTENT #fieldModifier
+FirstName String #field
+FirstName PERSISTENT #fieldModifier
+LastName String #field
+LastName PERSISTENT #fieldModifier
+Gender String #field
+Gender PERSISTENT #fieldModifier
