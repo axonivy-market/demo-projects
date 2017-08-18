@@ -11,6 +11,15 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">Engine Configuration</ui:define>
 		<ui:define name="content">
+			<script type="text/javascript">
+				function submitConfigForm() {
+					PrimeFaces.ajax.Request.handle({
+						formId : "systemDatabaseForm",
+						source : "systemDatabaseForm",
+						process : "systemDatabaseForm"
+					});
+				}
+			</script>
 			<p:growl id="growl" showDetail="true" showSummary="false" />
 			<p:accordionPanel id="accordionPanel" styleClass="full-width"
 				widgetVar="accordionPanel" activeIndex="#{data.activeTabIndex}">
@@ -79,14 +88,15 @@
 			</p:accordionPanel>
 			<br />
 			<p:commandButton id="saveAll" value="Save" icon="fa fa-save"
-				actionListener="#{logic.saveAll}" update="growl, @(.updateSaveAll)" />
+				actionListener="#{logic.saveAll}" update="growl, @(.updateSaveAll)"
+				onclick="submitConfigForm();" />
 			<p:button id="discardChanges" value="Discard Changes"
 				icon="fa fa-undo"
 				href="#{ivy.html.startref('157E64657EEBDD9C/start.ivp')}" />
 			<p:commandButton id="exit" value="Save and Exit"
 				rendered="#{helperBean.serverConfigurationApplicaton}"
 				icon="fa fa-sign-out" actionListener="#{logic.close}"
-				styleClass="save-and-exit-button" />
+				styleClass="save-and-exit-button" onclick="submitConfigForm();" />
 		</ui:define>
 	</ui:composition>
 </h:body>

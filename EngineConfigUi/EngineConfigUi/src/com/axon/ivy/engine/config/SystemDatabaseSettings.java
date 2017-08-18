@@ -127,6 +127,7 @@ public class SystemDatabaseSettings
   {
     try
     {
+      updateDbConfig();
       configuration.saveConfiguration();
       UiModder.systemDatabaseConfigSaved();
     }
