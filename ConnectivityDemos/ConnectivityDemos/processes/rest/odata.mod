@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Aug 17 11:50:28 CEST 2017]
+[>Created: Tue Aug 22 17:01:44 CEST 2017]
 15DEF1BE5B9E5A42 3.20 #module
 >Proto >Proto Collection #zClass
 oa0 odata Big #zClass
@@ -146,18 +146,21 @@ oa0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <language>
         <name>Demonstrates how to interact with OData services:
 - OData is a simple REST protocol that is widely adopted by Microsoft services. 
-- The magice widely hapens in a special JSON serializer implementation: 
-  see com.axonivy.connectivity.rest.json.OdataJsonFeature
+- The magic happens in a special JSON serializer implementation: 
+See com.axonivy.connectivity.rest.json.OdataJsonFeature
 http://www.odata.org</name>
-        <nameStyle>49,0,8
-161
-51,3
-21
+        <nameStyle>49,0,5,7
+1,5,7
+147,5,7
+4,5,7
+51,3,7
+1,5,7
+20,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-oa0 f10 48 34 496 92 -245 -39 #rect
+oa0 f10 56 26 448 92 -215 -40 #rect
 oa0 f10 @|IBIcon #fIcon
 >Proto oa0 .type com.axonivy.connectivity.rest.odata.OData #txt
 >Proto oa0 .processKind NORMAL #txt
