@@ -4,7 +4,7 @@ amount Number #field
 amount PERSISTENT #fieldModifier
 reason String #field
 reason PERSISTENT #fieldModifier
-salery Number #field
-salery PERSISTENT #fieldModifier
+salary Number #field
+salary PERSISTENT #fieldModifier
 amountOfOtherCredits Number #field
 amountOfOtherCredits PERSISTENT #fieldModifier

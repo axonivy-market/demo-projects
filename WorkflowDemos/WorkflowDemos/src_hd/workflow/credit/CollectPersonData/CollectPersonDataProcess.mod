@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon May 29 16:38:06 CEST 2017]
+[>Created: Wed Aug 23 15:51:30 CEST 2017]
 15B37CDEFA487D01 3.20 #module
 >Proto >Proto Collection #zClass
 Cs0 CollectPersonDataProcess Big #zClass
@@ -77,7 +77,7 @@ out.dossier.customer.name="Doe";
 out.dossier.request.amount=20000;
 out.dossier.request.amountOfOtherCredits=1000000;
 out.dossier.request.reason="To buy a new car";
-out.dossier.request.salery=80000;
+out.dossier.request.salary=80000;
 ' #txt
 Cs0 f6 type workflow.credit.CollectPersonData.CollectPersonDataData #txt
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
