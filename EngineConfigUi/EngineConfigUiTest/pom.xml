@@ -19,6 +19,63 @@
 		<application>Portal</application>
 	</properties>
 
+
+	<profiles>
+		<profile>
+			<id>screenshots</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>selenium.screenshots</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>test</goal>
+								</goals>
+								<configuration>
+									<forkCount>1</forkCount>
+									<includes>
+										<include>**/*Screenshots.java</include>
+									</includes>
+									<argLine>-Dtest.engine.url=${test.engine.url}
+										-Dtest.engine.app=Portal</argLine>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>ch.ivyteam.ivy</groupId>
+						<artifactId>image-dpi-plugin</artifactId>
+						<version>0.0.1-SNAPSHOT</version>
+						<executions>
+							<execution>
+								<id>change.dpi</id>
+								<goals>
+									<goal>change-png-dpi</goal>
+								</goals>
+								<phase>integration-test</phase>
+								<configuration>
+									<fileSet>
+										<directory>${project.build.directory}/screenshots/images</directory>
+										<includes>
+											<include>
+												Configuration/*.png
+											</include>
+										</includes>
+									</fileSet>
+									<dpiValue>150</dpiValue>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.axonivy.ivy.supplements</groupId>
@@ -56,21 +113,6 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>selenium.screenshots</id>
-						<phase>pre-integration-test</phase>
-						<goals>
-							<goal>test</goal>
-						</goals>
-						<configuration>
-							<forkCount>1</forkCount>
-							<includes>
-								<include>**/*Screenshots.java</include>
-							</includes>
-							<argLine>-Dtest.engine.url=${test.engine.url}
-								-Dtest.engine.app=Portal</argLine>
-						</configuration>
-					</execution>
-					<execution>
 						<id>default-test</id>
 						<phase>test</phase>
 						<goals>
@@ -80,31 +122,6 @@
 							<workingDirectory>${engine.directory}</workingDirectory>
 							<argLine>-Dtest.engine.url=${test.engine.url}
 								-Dtest.engine.app=Portal</argLine>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>ch.ivyteam.ivy</groupId>
-				<artifactId>image-dpi-plugin</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-				<executions>
-					<execution>
-						<id>change.dpi</id>
-						<goals>
-							<goal>change-png-dpi</goal>
-						</goals>
-						<phase>integration-test</phase>
-						<configuration>
-							<fileSet>
-								<directory>${project.build.directory}/screenshots/images</directory>
-								<includes>
-									<include>
-										Configuration/*.png
-									</include>
-								</includes>
-							</fileSet>
-							<dpiValue>150</dpiValue>
 						</configuration>
 					</execution>
 				</executions>
