@@ -38,7 +38,7 @@ import javax.ws.rs.core.Response.Status;
  * @since 6.4.0
  */
 @Singleton
-@Path("{applicationName}/admin")
+@Path("admin")
 public class SecureService {
 	
 	private List<String> entries = new ArrayList<>(Arrays.asList("Hello world"));

@@ -7,7 +7,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-@Path("{applicationName}/batch")
+@Path("batch")
 public class BatchService {
 
 	@GET

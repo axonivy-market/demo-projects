@@ -19,7 +19,7 @@ import ch.ivyteam.ivy.workflow.ITask;
  * 
  * <p>A sample request can be fired with the process start: <b>approval/createApprovalViaREST.ivp</b></p>
  */
-@Path("{applicationName}/approve")
+@Path("approve")
 public class ApprovalService {
 
 	/**
