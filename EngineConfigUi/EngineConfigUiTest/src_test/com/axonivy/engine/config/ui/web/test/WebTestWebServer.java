@@ -8,15 +8,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestWebServer extends BaseWebTest
 {
-  @Test
-  public void testConfigStays() throws Exception
+  @Override
+  public void setUp() throws Exception
   {
+    super.setUp();
     setMySqlConfig();
     createMySqlSysDb();
     testConnection();
+  }
 
+  @Test
+  public void testConfigStays() throws Exception
+  {
     openTab("Web Server");
-    await(ExpectedConditions.visibilityOfAllElementsLocatedBy(By
+    await(ExpectedConditions.visibilityOfElementLocated(By
             .id("accordionPanel:webServerComponent:webServerForm:HTTPEnabledCheckbox")));
     assertThat(prime.selectBooleanCheckbox(By.id(
             "accordionPanel:webServerComponent:webServerForm:HTTPEnabledCheckbox")).isChecked())
@@ -34,5 +39,54 @@ public class WebTestWebServer extends BaseWebTest
     testConnection();
     openTab("Web Server");
     await(ExpectedConditions.textToBePresentInElementValue(portInputLocator, "1234"));
+  }
+
+  @Test
+  public void testWebServerSystemProperties() throws Exception
+  {
+    openSystemPropertiesDialog();
+
+    String newValue = "120000";
+    String editedRow = editProperty("4", "number", newValue);
+    driver.findElement(
+            By.xpath("//*[@id='accordionPanel:webServerComponent:advancedSystemPropertiesDialog']/div[1]/a/span"))
+            .click();
+    saveAll();
+
+    openConfigUi();
+    openSystemPropertiesDialog();
+    await(ExpectedConditions.textToBePresentInElementLocated(By.id(editedRow + ":cellEditor"), newValue));
+  }
+
+  private void openSystemPropertiesDialog() throws Exception
+  {
+    openTab("Web Server");
+    By advancedSystemPropsButtonLocator = By
+            .id("accordionPanel:webServerComponent:webServerForm:advancedSystemPropertiesButton");
+    await(ExpectedConditions.visibilityOfElementLocated(advancedSystemPropsButtonLocator));
+
+    trytoClickButton(advancedSystemPropsButtonLocator);
+    By advancedSystemPropsTable = By
+            .id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable_data");
+    await(ExpectedConditions.textToBePresentInElementLocated(advancedSystemPropsTable,
+            "WebServer.AJP.Enabled"));
+  }
+
+  private String editProperty(String row, String type, String newValue)
+  {
+    String rowId = "accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable:" + row;
+    driver.findElement(
+            By.id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable:" + row
+                    + ":rowEditor"))
+            .click();
+    clearAndSend(
+            By.id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable:" + row
+                    + ":" + type + "_input"),
+            newValue);
+    driver.findElement(
+            By.xpath("//*[@id='accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable:"
+                    + row + ":rowEditor']/a[2]"))
+            .click();
+    return rowId;
   }
 }

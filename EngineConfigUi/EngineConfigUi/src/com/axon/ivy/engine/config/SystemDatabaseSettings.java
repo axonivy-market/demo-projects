@@ -1,11 +1,16 @@
 package com.axon.ivy.engine.config;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
+import ch.ivyteam.ivy.server.ServerFactory;
 import ch.ivyteam.ivy.server.configuration.Configuration;
 import ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
@@ -14,12 +19,16 @@ import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabase;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConnectionTester;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConverter;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
+import ch.ivyteam.ivy.system.ISystemProperty;
+import ch.ivyteam.ivy.system.UserInterfaceFormat;
 import ch.ivyteam.util.Property;
 import ch.ivyteam.util.WaitUtil;
 
 import com.axonivy.engine.config.ui.settings.ConfigData;
+import com.axonivy.engine.config.ui.settings.SystemProperty;
 import com.axonivy.engine.config.ui.settings.WebServerConfig;
 
+@SuppressWarnings("restriction")
 public class SystemDatabaseSettings
 {
   private static final int CONNETION_TEST_TIMEOUT = 15;
@@ -35,6 +44,7 @@ public class SystemDatabaseSettings
   private ConfigData configData = ConfigHelper.loadConfigData(configuration);
   private final ConnectionInfo info = ConnectionInfo.create();
   private final WebServerConfig webServerConfig = new WebServerConfig();
+  private final List<SystemProperty> systemProperties = new ArrayList<SystemProperty>();
 
   private final SystemDatabaseConnectionTester tester = getSystemDb().getConnectionTester();
   private final BlockingListener connectionListener = new BlockingListener();
@@ -234,6 +244,76 @@ public class SystemDatabaseSettings
     }
   }
 
+  public void updateWebServerSystemProperties()
+  {
+    try
+    {
+      ServerFactory.getServer().getSecurityManager()
+              .executeAsSystem(() -> updateWebServerSystemPropertiesAsSystem());
+    }
+    catch (Exception ex)
+    {
+      throw new RuntimeException("Could not update Web Server System Properties", ex);
+    }
+  }
+
+  private Object updateWebServerSystemPropertiesAsSystem()
+  {
+    systemProperties.clear();
+    List<ISystemProperty> systemProps = ServerFactory.getServer()
+            .getApplicationConfigurationManager()
+            .getSystemProps();
+    for (ISystemProperty property : systemProps)
+    {
+      if (!property.getUserInterfaceFormat().equals(UserInterfaceFormat.INVISIBLE)
+              && StringUtils.startsWith(property.getName(), "WebServer"))
+      {
+        SystemProperty sysProperty = createNewSystemProperty(property);
+        systemProperties.add(sysProperty);
+      }
+    }
+    return null;
+  }
+
+  private SystemProperty createNewSystemProperty(ISystemProperty property)
+  {
+    String value = getAdministratorManager().getProperty(property.getName());
+    SystemProperty sysProperty = new SystemProperty();
+    sysProperty.setName(property.getName());
+    sysProperty.setDefaultValue(property.getDefaultValue());
+    sysProperty.setDescription(property.getDescription());
+    sysProperty.setValue(value);
+    sysProperty.setUserInterfaceFormat(property.getUserInterfaceFormat());
+    if (property.getUserInterfaceFormat().equals(UserInterfaceFormat.ENUMERATION))
+    {
+      sysProperty.setEnumerationValues(Arrays.asList(property.getEnumerationValues()));
+    }
+    return sysProperty;
+  }
+
+  public List<SystemProperty> getWebServerSystemProperties()
+  {
+    return systemProperties;
+  }
+
+  public void saveWebServerSystemProperties() throws Exception
+  {
+    AdministratorManager adminManager = getAdministratorManager();
+    if (!adminManager.isConnected())
+    {
+      return;
+    }
+    for (SystemProperty systemProperty : systemProperties)
+    {
+      String systemValue = StringUtils.defaultIfEmpty(systemProperty.getValue(), "");
+      String dbValue = StringUtils.defaultIfEmpty(adminManager.getProperty(systemProperty.getName()), "");
+      if (!StringUtils.equals(dbValue, systemValue))
+      {
+        adminManager.storeProperty(systemProperty.getName(), systemValue);
+      }
+    }
+  }
+
   private boolean saveClusterNodes()
   {
     AdministratorManager adminManager = getAdministratorManager();
@@ -287,13 +367,14 @@ public class SystemDatabaseSettings
     UiModder.restartHint();
   }
 
-  private void saveAllToDB()
+  private void saveAllToDB() throws Exception
   {
     saveAdmins();
     if (LicenceUtil.isCluster())
     {
       saveClusterNodes();
     }
+    saveWebServerSystemProperties();
     saveWebServerConfig();
   }
 
@@ -314,6 +395,7 @@ public class SystemDatabaseSettings
       if (newState == ConnectionState.CONNECTED)
       {
         updateWebServerConfig();
+        updateWebServerSystemProperties();
       }
     }
   }

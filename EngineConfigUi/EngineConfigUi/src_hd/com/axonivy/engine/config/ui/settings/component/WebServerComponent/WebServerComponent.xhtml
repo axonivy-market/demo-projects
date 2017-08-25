@@ -71,6 +71,10 @@
 				</h:panelGrid>
 			</p:fieldset>
 		</h:panelGrid>
+		<p:commandButton id="advancedSystemPropertiesButton" value="Advanced"
+			icon="fa fa-cogs"
+			rendered="#{data.settings.connectionInfo.connectionOK}"
+			onclick="PF('advancedSystemPropertiesDialog').show();" />
 		<p:commandButton id="webServerTabNextButton" value="Next"
 			rendered="#{data.settings.connectionInfo.connectionOK}"
 			icon="fa fa-arrow-circle-right" styleClass="next-button"
@@ -82,5 +86,58 @@
 
 		<p:defaultCommand target="webServerTabNextButton" />
 	</h:form>
+
+	<p:dialog widgetVar="advancedSystemPropertiesDialog"
+		id="advancedSystemPropertiesDialog" header="Web Server System Properties"
+		closeOnEscape="true" modal="true" width="1000px"
+		styleClass="configChanged">
+		<h:form id="advancedSystemPropertiesForm">
+			<p:outputLabel
+				value="These are all the system properties of the Web Server." />
+			<br />
+			<br />
+			<p:dataTable id="propertiesTable" editable="true" editMode="row"
+				value="#{data.properties}" var="property" scrollable="true"
+				scrollHeight="500">
+				<p:column headerText="Key" width="30%">
+					<strong> 
+						<h:outputText value="#{property.name}" />
+					</strong>
+					<br />
+					<h:outputText value="#{property.description}" />
+				</p:column>
+				<p:column headerText="Default" width="20%">
+					<h:outputText value="#{property.defaultValue}" />
+				</p:column>
+				<p:column headerText="Value" width="20%">
+					<p:cellEditor id="cellEditor">
+						<f:facet name="output">
+							<h:outputText value="#{property.value eq null ? property.defaultValue : property.value}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText id="string" value="#{property.value}"
+								rendered="#{property.userInterfaceFormat eq 'STRING'}" />
+							<p:inputNumber id="number" value="#{property.value}"
+								rendered="#{property.userInterfaceFormat eq 'NUMBER'}"
+								decimalPlaces="0" thousandSeparator="" />
+							<p:selectBooleanCheckbox id="boolCheckBox" value="#{property.value}"
+								rendered="#{property.userInterfaceFormat eq 'TRUE_FALSE'
+								or property.userInterfaceFormat eq 'YES_NO'}"
+								converter="booleanToStringConverter" />
+							<p:password id="password" value="#{property.value}"
+								rendered="#{property.userInterfaceFormat eq 'PASSWORD'}" />
+							<p:selectOneMenu id="enumMenu" value="#{property.value}"
+								rendered="#{property.userInterfaceFormat eq 'ENUMERATION'}">
+								<f:selectItems value="#{property.enumerationValues}" />
+							</p:selectOneMenu>
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column style="width:15px">
+					<p:rowEditor id="rowEditor" saveTitle="Save" cancelTitle="Cancel" editTitle="Edit"/>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</p:dialog>
 </cc:implementation>
 </html>
