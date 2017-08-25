@@ -72,13 +72,11 @@ public class WebTestWebServer extends BaseWebTest
             "WebServer.AJP.Enabled"));
   }
 
-  private String editProperty(String row, String type, String newValue)
+  private String editProperty(String row, String type, String newValue) throws Exception
   {
     String rowId = "accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable:" + row;
-    driver.findElement(
-            By.id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable:" + row
-                    + ":rowEditor"))
-            .click();
+    System.out.println(rowId + ":rowEditor");
+    driver.findElement(By.xpath("//*[@id='" + rowId + ":rowEditor']/a[1]")).click();
     clearAndSend(
             By.id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable:" + row
                     + ":" + type + "_input"),
