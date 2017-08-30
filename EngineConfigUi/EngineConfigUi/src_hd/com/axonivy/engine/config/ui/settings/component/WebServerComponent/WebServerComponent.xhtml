@@ -112,7 +112,11 @@
 				<p:column headerText="Value" width="20%">
 					<p:cellEditor id="cellEditor">
 						<f:facet name="output">
-							<h:outputText value="#{property.value eq null ? property.defaultValue : property.value}" />
+							<h:outputText
+								value="#{property.value eq null ? property.defaultValue : property.value}"
+								rendered="#{property.userInterfaceFormat ne 'PASSWORD'}" />
+							<h:outputText value="********"
+								rendered="#{property.userInterfaceFormat eq 'PASSWORD'}" />
 						</f:facet>
 						<f:facet name="input">
 							<p:inputText id="string" value="#{property.value}"
