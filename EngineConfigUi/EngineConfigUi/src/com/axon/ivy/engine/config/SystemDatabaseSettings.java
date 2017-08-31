@@ -172,7 +172,23 @@ public class SystemDatabaseSettings
     return webServerConfig;
   }
 
-  private boolean saveWebServerConfig()
+  public void updateSystemPropsFromWebServerConfig()
+  {
+    replaceProperty(WEB_SERVER_AJP_ENABLED, webServerConfig.getAjpEnabled().toString());
+    replaceProperty(WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
+    replaceProperty(WEB_SERVER_HTTP_ENABLED, webServerConfig.getHttpEnabled().toString());
+    replaceProperty(WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
+    replaceProperty(WEB_SERVER_HTTPS_ENABLED, webServerConfig.getHttpsEnabled().toString());
+    replaceProperty(WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
+  }
+
+  private void replaceProperty(String propertyName, String value)
+  {
+    systemProperties.stream().filter(x -> x.getName().equalsIgnoreCase(propertyName)).findFirst()
+            .get().setValue(value);
+  }
+
+  public boolean saveWebServerConfig()
   {
     AdministratorManager adminManager = getAdministratorManager();
     if (!adminManager.isConnected())
