@@ -188,6 +188,34 @@ public class SystemDatabaseSettings
             .get().setValue(value);
   }
 
+  public void updateWebServerConfigFromSystemProps() throws Exception
+  {
+    AdministratorManager adminManager = getAdministratorManager();
+    setWebServerProperty(adminManager, WEB_SERVER_AJP_ENABLED, "ajpEnabled");
+    setWebServerProperty(adminManager, WEB_SERVER_AJP_PORT, "ajpPort");
+    setWebServerProperty(adminManager, WEB_SERVER_HTTP_ENABLED, "httpEnabled");
+    setWebServerProperty(adminManager, WEB_SERVER_HTTP_PORT, "httpPort");
+    setWebServerProperty(adminManager, WEB_SERVER_HTTPS_ENABLED, "httpsEnabled");
+    setWebServerProperty(adminManager, WEB_SERVER_HTTPS_PORT, "httpsPort");
+  }
+
+  private void setWebServerProperty(AdministratorManager adminManager, String propertyName,
+          String webServerFieldName) throws Exception
+  {
+    String value = systemProperties.stream().filter(x -> x.getName().equals(propertyName)).findFirst()
+            .get().getValue();
+    setProperty(adminManager, propertyName, value);
+    if (propertyName.contains("Enabled"))
+    {
+      boolean booleanValue = BooleanUtils.toBoolean(value);
+      webServerConfig.set(webServerFieldName, booleanValue);
+    }
+    else
+    {
+      webServerConfig.set(webServerFieldName, value);
+    }
+  }
+
   public boolean saveWebServerConfig()
   {
     AdministratorManager adminManager = getAdministratorManager();

@@ -99,6 +99,8 @@
 			<p:dataTable id="propertiesTable" editable="true" editMode="row"
 				value="#{data.properties}" var="property" scrollable="true"
 				scrollHeight="500">
+				<p:ajax event="rowEdit" listener="#{logic.saveSystemProps}"
+					update="accordionPanel:webServerComponent:webServerForm" />
 				<p:column headerText="Key" width="30%">
 					<strong> 
 						<h:outputText value="#{property.name}" />
@@ -138,7 +140,7 @@
 					</p:cellEditor>
 				</p:column>
 				<p:column style="width:15px">
-					<p:rowEditor id="rowEditor" saveTitle="Save" cancelTitle="Cancel" editTitle="Edit"/>
+					<p:rowEditor id="rowEditor" saveTitle="Save" cancelTitle="Cancel" editTitle="Edit" />
 				</p:column>
 			</p:dataTable>
 		</h:form>
