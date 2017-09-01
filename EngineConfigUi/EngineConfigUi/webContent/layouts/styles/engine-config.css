@@ -14,6 +14,11 @@ Classes overriding primefaces' css
 	filter: alpha(opacity = 95) !important;
 }
 
+.ui-growl-image-info+.ui-growl-message, .ui-growl-image-warn+.ui-growl-message,
+	.ui-growl-image-error+.ui-growl-message {
+	color: gray !important;
+}
+
 .ui-growl-icon-close {
 	top: 7px;
 	right: 7px;
@@ -30,6 +35,36 @@ Classes overriding primefaces' css
 .ui-growl-message {
 	width: 230px;
 	padding: 0;
+}
+
+.ui-growl-info .ui-growl-item {
+	background-color: #9AD6E3;
+}
+
+.ui-growl-warn .ui-growl-item {
+	background-color: #F9BF08;
+}
+
+.ui-growl-error .ui-growl-item {
+	background-color: #f56666;
+}
+
+.ui-growl-image-info {
+	background-image:
+		url("/ivy/faces/javax.faces.resource/images/info-gray.svg?ln=primefaces-modena-ivy")
+		!important;
+}
+
+.ui-growl-image-warn {
+	background-image:
+		url("/ivy/faces/javax.faces.resource/images/warn-gray.svg?ln=primefaces-modena-ivy")
+		!important;
+}
+
+.ui-growl-image-error {
+	background-image:
+		url("/ivy/faces/javax.faces.resource/images/delete-gray.svg?ln=primefaces-modena-ivy")
+		!important;
 }
 
 label {
