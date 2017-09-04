@@ -3,7 +3,6 @@ package com.axonivy.connectivity.rest.provider;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Link;
 import javax.ws.rs.core.MediaType;
@@ -33,8 +32,7 @@ public class ApprovalService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response create(
 			@FormParam("title") String title,
-			@FormParam("description") String description, 
-			@PathParam("applicationName") String app)
+			@FormParam("description") String description)
 	{
 		ITask task = SubProcessCall.withPath("rest/createApproval")
 				.withParam("title", title)
@@ -45,7 +43,8 @@ public class ApprovalService {
 		String appRelativeUri = "workflow/task/{id}";
 		Link createdLink = Link.fromPath(appRelativeUri).rel("approvalTask").build(task.getId());
 		return Response.status(Status.CREATED)
-					.location(UriBuilder.fromPath("{applicationName}/"+appRelativeUri).build(app, task.getId()))
+					.location(UriBuilder.fromPath("{applicationName}/"+appRelativeUri)
+							.build(task.getApplication().getName(), task.getId()))
 					.links(createdLink)
 					.entity(new TaskMeta(task))
 					.build();
