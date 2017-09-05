@@ -1,6 +1,6 @@
 [Ivy]
-[>Created: Wed Oct 07 14:51:22 CEST 2015]
-145D1862CF17F2C9 3.18 #module
+[>Created: Tue Sep 05 15:15:23 CEST 2017]
+145D1862CF17F2C9 3.20 #module
 >Proto >Proto Collection #zClass
 Or0 Other Big #zClass
 Or0 B #cInfo
@@ -35,6 +35,11 @@ Or0 @PushWFArc f107 '' #zField
 Or0 @PushWFArc f108 '' #zField
 Or0 @PushWFArc f113 '' #zField
 Or0 @PushWFArc f111 '' #zField
+Or0 @StartRequest f0 '' #zField
+Or0 @RichDialog f1 '' #zField
+Or0 @EndTask f2 '' #zField
+Or0 @PushWFArc f3 '' #zField
+Or0 @PushWFArc f4 '' #zField
 >Proto Or0 Or0 Other #zField
 Or0 f104 targetWindow NEW:card: #txt
 Or0 f104 targetDisplay TOP #txt
@@ -119,15 +124,6 @@ type.code=
 type.name=
 ' #txt
 Or0 f109 showInStartList 1 #txt
-Or0 f109 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Or0 f109 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -215,15 +211,6 @@ type.code=
 type.name=
 ' #txt
 Or0 f106 showInStartList 1 #txt
-Or0 f106 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Or0 f106 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -255,15 +242,6 @@ TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
 Or0 f42 showInStartList 1 #txt
-Or0 f42 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Or0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -369,15 +347,6 @@ type.code=
 type.name=
 ' #txt
 Or0 f39 showInStartList 1 #txt
-Or0 f39 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Or0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -409,6 +378,60 @@ Or0 f113 expr out #txt
 Or0 f113 143 160 248 160 #arcP
 Or0 f111 expr out #txt
 Or0 f111 360 160 465 160 #arcP
+Or0 f0 outLink ErrorHandlingDemo.ivp #txt
+Or0 f0 type htmlDialogDemos.Data #txt
+Or0 f0 inParamDecl '<> param;' #txt
+Or0 f0 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Or0 f0 guid 15E5191316065060 #txt
+Or0 f0 requestEnabled true #txt
+Or0 f0 triggerEnabled false #txt
+Or0 f0 callSignature ErrorHandlingDemo() #txt
+Or0 f0 persist false #txt
+Or0 f0 startName ErrorHandlingDemo #txt
+Or0 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+Or0 f0 caseData businessCase.attach=true #txt
+Or0 f0 showInStartList 1 #txt
+Or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>ErrorHandlingDemo.ivp</name>
+        <nameStyle>21,5,7
+</nameStyle>
+        <desc>ErrorHandling Demo</desc>
+    </language>
+</elementInfo>
+' #txt
+Or0 f0 @C|.responsibility Everybody #txt
+Or0 f0 113 433 30 30 -64 17 #rect
+Or0 f0 @|StartRequestIcon #fIcon
+Or0 f1 targetWindow NEW #txt
+Or0 f1 targetDisplay TOP #txt
+Or0 f1 richDialogId ch.ivyteam.htmldialog.demo.other.ErrorHandling #txt
+Or0 f1 startMethod start() #txt
+Or0 f1 type htmlDialogDemos.Data #txt
+Or0 f1 requestActionDecl '<> param;' #txt
+Or0 f1 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Or0 f1 responseMappingAction 'out=in;
+' #txt
+Or0 f1 isAsynch false #txt
+Or0 f1 isInnerRd false #txt
+Or0 f1 userContext '* ' #txt
+Or0 f1 248 426 112 44 0 -8 #rect
+Or0 f1 @|RichDialogIcon #fIcon
+Or0 f2 type htmlDialogDemos.Data #txt
+Or0 f2 465 433 30 30 0 15 #rect
+Or0 f2 @|EndIcon #fIcon
+Or0 f3 expr out #txt
+Or0 f3 143 448 248 448 #arcP
+Or0 f4 expr out #txt
+Or0 f4 360 448 465 448 #arcP
 >Proto Or0 .type htmlDialogDemos.Data #txt
 >Proto Or0 .processKind NORMAL #txt
 >Proto Or0 0 0 32 24 18 0 #rect
@@ -431,3 +454,7 @@ Or0 f109 mainOut f113 tail #connect
 Or0 f113 head f112 mainIn #connect
 Or0 f112 mainOut f111 tail #connect
 Or0 f111 head f110 mainIn #connect
+Or0 f0 mainOut f3 tail #connect
+Or0 f3 head f1 mainIn #connect
+Or0 f1 mainOut f4 tail #connect
+Or0 f4 head f2 mainIn #connect
