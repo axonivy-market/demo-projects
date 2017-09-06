@@ -200,9 +200,6 @@ public class WebTestOutput extends BaseWebTest
   public void testAutoComplete() throws Exception
   {
     startProcess("145D180807C60B4B/AutoCompleteDemo.ivp");
-
-    System.out.println("waiting");
-    Thread.sleep(100000);
     
     searchAndExpect("xzyt", "xzyt69", "xzyz99");
     searchAndExpect("xzyz", "xzyz99", "xzyt69");
@@ -211,7 +208,7 @@ public class WebTestOutput extends BaseWebTest
 
     clearInput(By.id("Form:event_input"));
     driver.findElement(By.id("Form:event_input")).sendKeys("xzyt69");
-    driver.findElement(By.id("Form:j_id_1v")).click();
+    driver.findElement(By.id("Form:sendButton")).click();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:msgs_container"), "xzyt69"));
   }
 
