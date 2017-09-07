@@ -7,40 +7,42 @@
   xmlns:p="http://primefaces.org/ui"
   xmlns:pe="http://primefaces.org/ui/extensions"
   xmlns:pm="http://primefaces.org/mobile">
-<body>
-  <ui:composition>
-  
-    <p:ajaxExceptionHandler 
-    type="javax.faces.application.ViewExpiredException" 
-    update="viewExpiredExceptionDialog" 
-    onexception="PF('viewExpiredExceptionDialog').show();"/>
+  <body>
+    <ui:composition>
+      <!-- Exception Handler for ViewExpiredExceptions --> 
+      <p:ajaxExceptionHandler 
+        type="javax.faces.application.ViewExpiredException" 
+        update="viewExpiredExceptionDialog" 
+        onexception="PF('viewExpiredExceptionDialog').show();"/>
     
-  <p:dialog id="viewExpiredExceptionDialog" header="View or Session Expired" widgetVar="viewExpiredExceptionDialog" height="50px">
-    <b><h:outputText value="Custom Exception Handling for ViewExpiredException"/></b>
-    <br/>
-    <h:outputText value="The view or session has expired."/>
-    <br/>
-    <h:outputLink value="#{ivy.html.loginRef()}">Please login again.</h:outputLink> 
-  </p:dialog>
+      <!-- Error Dialog shown if a view or session has expired -->
+      <p:dialog id="viewExpiredExceptionDialog" 
+        header="View or Session Expired" 
+        widgetVar="viewExpiredExceptionDialog" 
+        height="150px" 
+        modal="true">
+      <b><h:outputText value="Custom Exception Handling for ViewExpiredException"/></b>
+      <br/>
+      <h1><h:outputText value="The view or session has expired."/></h1>
+      <br/>
+      <h:outputLink value="#{ivy.html.loginRef()}">Please login again.</h:outputLink> 
+    </p:dialog>
   
-  <p:ajaxExceptionHandler 
-    update="ajaxExceptionDialog" 
-    onexception="PF('ajaxExceptionDialog').show();"/>
+    <!--  Exception Handler for any other Exception -->
+    <p:ajaxExceptionHandler 
+      update="ajaxExceptionDialog" 
+      onexception="PF('ajaxExceptionDialog').show();"/>
    
-  <p:dialog id="ajaxExceptionDialog" header="Error" widgetVar="ajaxExceptionDialog" height="400px">
-    <b><h:outputText value="Custom Exception Handling for Throwable"/></b>
-	<br/>
-    <h:outputText value="Error Id: #{errorPage.exceptionId}"/>
-	<br/>
-   	<c:if test="#{errorPage.showDetails}">
-      <h:outputText value="Message: #{errorPage.message}"/>
-	  <br/>
-	  <h:outputText value="StackTrace: "/>
-	  <br />
-	  <pre><code>#{errorPage.getStackTrace()}</code></pre>
-	</c:if>	  
-  </p:dialog>  
+    <!-- Error Dialog to show Exceptions -->
+    <p:dialog id="ajaxExceptionDialog" header="Error" 
+      widgetVar="ajaxExceptionDialog" 
+      height="400px" 
+      modal="true">
+      <b><h:outputText value="Custom Exception Handling for Throwable"/></b>
+      <br/>
+      <ui:include src="exception-details.xhtml"/>
+    </p:dialog>  
 
-  </ui:composition>
-</body>
+    </ui:composition>
+  </body>
 </html>
