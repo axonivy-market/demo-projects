@@ -26,6 +26,7 @@ import com.axon.ivy.engine.config.ConfigHelper;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
 import com.axonivy.engine.config.ui.settings.ConfigData;
 
+@SuppressWarnings("restriction")
 public class TestSystemDatabaseSettings
 {
   private static String DBName;
@@ -49,13 +50,15 @@ public class TestSystemDatabaseSettings
   @Test
   public void testConnecting() throws Exception
   {
+    InMemoryEngineController inMemoryEngineController = new InMemoryEngineController();
+    inMemoryEngineController.start();
     SystemDatabaseSettings settings = SystemDatabaseSettings.create();
     ConfigData configData = settings.getConfigData();
-    changeConfigToMySqlSettings(configData);
-    assertThat(settings.testConnection()).isEqualTo(
-            ConnectionState.CONNECTION_FAILED);
     try
     {
+      changeConfigToMySqlSettings(configData);
+      assertThat(settings.testConnection()).isEqualTo(
+              ConnectionState.CONNECTION_FAILED);
       createDatabase(configData);
       settings.setConfigData(configData);
       assertThat(settings.testConnection()).isEqualTo(
@@ -64,6 +67,7 @@ public class TestSystemDatabaseSettings
     finally
     {
       dropDatabase(configData);
+      inMemoryEngineController.stop();
     }
   }
 
