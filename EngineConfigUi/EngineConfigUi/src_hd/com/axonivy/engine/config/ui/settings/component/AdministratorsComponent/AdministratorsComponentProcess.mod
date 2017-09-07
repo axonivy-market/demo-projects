@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 03 10:03:18 CEST 2017]
+[>Created: Fri Sep 01 15:14:21 CEST 2017]
 157E7BB4142F9EFB 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 AdministratorsComponentProcess Big #zClass
@@ -179,11 +179,14 @@ Ss0 f22 actionDecl 'com.axonivy.engine.config.ui.settings.component.Administrato
 ' #txt
 Ss0 f22 actionTable 'out=in;
 ' #txt
-Ss0 f22 actionCode 'in.selectedAdministrator.setEMailAddress(in.editAdmin.email);
-in.selectedAdministrator.setFullName(in.editAdmin.fullname);
-if(in.editAdmin.password != "")
+Ss0 f22 actionCode 'if(in.#selectedAdministrator != null)
 {
-	in.selectedAdministrator.changePassword(in.editAdmin.password);
+	in.selectedAdministrator.setEMailAddress(in.editAdmin.email);
+	in.selectedAdministrator.setFullName(in.editAdmin.fullname);
+	if(in.editAdmin.password != "")
+	{
+		in.selectedAdministrator.changePassword(in.editAdmin.password);
+	}
 }' #txt
 Ss0 f22 type com.axonivy.engine.config.ui.settings.component.AdministratorsComponent.AdministratorsComponentData #txt
 Ss0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
