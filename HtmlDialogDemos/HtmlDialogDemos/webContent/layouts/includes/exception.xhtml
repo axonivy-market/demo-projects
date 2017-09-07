@@ -36,7 +36,7 @@
     <!-- Error Dialog to show Exceptions -->
     <p:dialog id="ajaxExceptionDialog" header="Error" 
       widgetVar="ajaxExceptionDialog" 
-      height="400px" 
+      height="#{errorPage.showDetails == true ? '400px' : '170px'}" 
       modal="true">
       <b><h:outputText value="Custom Exception Handling for Throwable"/></b>
       <br/>

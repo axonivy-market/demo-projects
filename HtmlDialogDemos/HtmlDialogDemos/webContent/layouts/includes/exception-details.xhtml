@@ -7,6 +7,10 @@
   xmlns:pm="http://primefaces.org/mobile"
   xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
+  <ui:fragment rendered="#{!errorPage.showDetails}">
+    <h:outputText value="An unexpected error has occured:"/>
+  </ui:fragment>
+
   <h1 class="bg-warning">
     <h:outputText value="#{errorPage.message}" />
   </h1>
