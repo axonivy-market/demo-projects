@@ -92,8 +92,10 @@ public class TestSystemDatabaseSettings
     properties.put("databaseName", DBName);
     configData.setCreationParameters(properties);
 
+    SystemDatabaseSettings settings = SystemDatabaseSettings.create();
+    settings.setConfigData(configData);
     SystemDatabaseCreator createDatabase = ConfigHelper
-            .createDatabase(configData);
+            .createDatabase(configData, settings.getConfiguration());
     WaitUtil.await(() -> createDatabase.isRunning() == false, 60,
             TimeUnit.SECONDS);
     if (createDatabase.getError() != null)
@@ -110,8 +112,11 @@ public class TestSystemDatabaseSettings
       System.out.println("DBName was null!");
       return;
     }
+
+    SystemDatabaseSettings settings = SystemDatabaseSettings.create();
+    settings.setConfigData(configData);
     DatabaseConnectionConfiguration dbConnectionConfig = ConfigHelper
-            .createConfiguration(configData);
+            .createConfiguration(configData, settings.getConfiguration());
     DatabaseUtil.dropDatabase(DBName, dbConnectionConfig);
     System.out.println("dropped DB!");
   }

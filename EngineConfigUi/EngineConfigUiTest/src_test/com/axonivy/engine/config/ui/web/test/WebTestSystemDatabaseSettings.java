@@ -17,6 +17,7 @@ import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 import ch.ivyteam.util.WaitUtil;
 
 import com.axon.ivy.engine.config.ConfigHelper;
+import com.axon.ivy.engine.config.SystemDatabaseSettings;
 import com.axonivy.engine.config.ui.settings.ConfigData;
 import com.axonivy.engine.config.ui.unit.test.TestSystemDatabaseSettings;
 
@@ -100,7 +101,9 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     properties.put("databaseName", OLD_DB_NAME);
     configData.setCreationParameters(properties);
 
-    SystemDatabaseCreator createDatabase = ConfigHelper.createDatabase(configData, 44);
+    SystemDatabaseSettings settings = SystemDatabaseSettings.create();
+    settings.setConfigData(configData);
+    SystemDatabaseCreator createDatabase = ConfigHelper.createDatabase(configData, 44, settings.getConfiguration());
     WaitUtil.await(() -> createDatabase.isRunning() == false, 60, TimeUnit.SECONDS);
     if (createDatabase.getError() != null)
     {
