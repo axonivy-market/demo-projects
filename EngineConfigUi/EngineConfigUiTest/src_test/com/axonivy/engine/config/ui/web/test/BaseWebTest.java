@@ -231,6 +231,7 @@ public class BaseWebTest
       {
         try
         {
+          System.out.println("Driver: " + driver);
           await(ExpectedConditions.elementToBeClickable(locator)).click();
         }
         catch (StaleElementReferenceException e)
