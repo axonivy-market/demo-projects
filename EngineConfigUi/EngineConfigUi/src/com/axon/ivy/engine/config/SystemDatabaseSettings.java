@@ -80,13 +80,13 @@ public class SystemDatabaseSettings
   public SystemDatabaseCreator createDatabase()
           throws Exception
   {
-    return ConfigHelper.createDatabase(configData);
+    return ConfigHelper.createDatabase(configData, configuration);
   }
 
   public SystemDatabaseConverter convertDatabase()
           throws Exception
   {
-    DatabaseConnectionConfiguration currentConfig = ConfigHelper.createConfiguration(configData);
+    DatabaseConnectionConfiguration currentConfig = ConfigHelper.createConfiguration(configData, configuration);
     int systemDatabaseVersion = getSystemDb().getConnectionTester().getSystemDatabaseVersion();
     return startSystemDatabaseConversion(currentConfig, systemDatabaseVersion);
   }
@@ -129,7 +129,7 @@ public class SystemDatabaseSettings
 
   public void updateDbConfig()
   {
-    DatabaseConnectionConfiguration dbConfig = ConfigHelper.createConfiguration(configData);
+    DatabaseConnectionConfiguration dbConfig = ConfigHelper.createConfiguration(configData, configuration);
     configuration.setSystemDatabaseConnectionConfiguration(dbConfig);
   }
 

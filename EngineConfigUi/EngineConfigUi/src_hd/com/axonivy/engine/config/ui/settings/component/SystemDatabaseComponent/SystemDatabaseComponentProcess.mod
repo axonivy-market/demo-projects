@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Jul 11 17:32:09 CEST 2017]
+[>Created: Fri Sep 08 15:35:27 CEST 2017]
 157E7518F66E24A9 3.20 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
@@ -247,8 +247,8 @@ Ss0 f39 actionTable 'out=in;
 ' #txt
 Ss0 f39 actionCode 'import com.axon.ivy.engine.config.ConfigHelper;
 
-in.requiredParameters = ConfigHelper.getDatabaseCreationParametersNeeded(in.configData);
-out.configData.creationParameters = ConfigHelper.getCreationParametersDefaultValues(in.configData);' #txt
+in.requiredParameters = ConfigHelper.getDatabaseCreationParametersNeeded(in.configData, in.settings.getConfiguration());
+out.configData.creationParameters = ConfigHelper.getCreationParametersDefaultValues(in.configData, in.settings.getConfiguration());' #txt
 Ss0 f39 type com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent.SystemDatabaseComponentData #txt
 Ss0 f39 168 427 112 44 0 -8 #rect
 Ss0 f39 @|StepIcon #fIcon

@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.commons.lang3.StringUtils;
+
 import ch.ivyteam.db.jdbc.ConnectionConfigurator;
 import ch.ivyteam.db.jdbc.ConnectionProperty;
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
@@ -86,13 +88,14 @@ public class ConfigHelper
     }
 
     configData.setUsername(dbConfig.getUserName());
-    configData.setPassword(dbConfig.getPassword());
+    String fakedPassword = StringUtils.leftPad("", dbConfig.getPassword().length(), '*'); 
+    configData.setPassword(fakedPassword);
     configData.setAdditionalProperties(dbConfig.getProperties());
     configData.setCreationParameters(new java.util.Properties());
   }
 
   public static DatabaseConnectionConfiguration createConfiguration(
-          ConfigData configData)
+          ConfigData configData, Configuration configuration)
   {
     ConnectionConfigurator configurator = configData.getDriver()
             .getConnectionConfigurator();
@@ -121,19 +124,29 @@ public class ConfigHelper
           break;
       }
     }
-    DatabaseConnectionConfiguration currentConfig = configurator
-            .getDatabaseConnectionConfiguration(dbProps);
 
-    currentConfig.setPassword(configData.getPassword());
+    DatabaseConnectionConfiguration tempConfig = configurator
+            .getDatabaseConnectionConfiguration(dbProps);
+    DatabaseConnectionConfiguration currentConfig = configuration.getSystemDatabaseConnectionConfiguration();
+    currentConfig.setConnectionUrl(tempConfig.getConnectionUrl());
+    currentConfig.setDriverName(tempConfig.getDriverName());
+
+    String configDataPw = configData.getPassword();
+    String fakedPassword = StringUtils.leftPad("", currentConfig.getPassword().length(), '*'); 
+    
+    if (!StringUtils.equals(configDataPw, fakedPassword))
+    {
+      currentConfig.setPassword(configData.getPassword());
+    }
     currentConfig.setUserName(configData.getUsername());
     currentConfig.setProperties(configData.getAdditionalProperties());
     return currentConfig;
   }
 
   public static List<DatabaseCreationParameter> getDatabaseCreationParametersNeeded(
-          ConfigData configData) throws Exception
+          ConfigData configData, Configuration configuration) throws Exception
   {
-    DatabaseConnectionConfiguration currentConfig = createConfiguration(configData);
+    DatabaseConnectionConfiguration currentConfig = createConfiguration(configData, configuration);
     return getCreationParameters(currentConfig);
   }
 
@@ -145,16 +158,16 @@ public class ConfigHelper
     return dbCreationParameters;
   }
 
-  public static SystemDatabaseCreator createDatabase(ConfigData configData)
+  public static SystemDatabaseCreator createDatabase(ConfigData configData, Configuration configuration)
           throws Exception
   {
-    return createDatabase(configData, -1);
+    return createDatabase(configData, -1, configuration);
   }
 
-  public static SystemDatabaseCreator createDatabase(ConfigData configData, int systemDatabaseVersion)
+  public static SystemDatabaseCreator createDatabase(ConfigData configData, int systemDatabaseVersion, Configuration configuration)
           throws Exception
   {
-    DatabaseConnectionConfiguration currentConfig = ConfigHelper.createConfiguration(configData);
+    DatabaseConnectionConfiguration currentConfig = ConfigHelper.createConfiguration(configData, configuration);
     return startSystemDatabaseCreation(currentConfig, configData.getCreationParameters(),
             systemDatabaseVersion);
   }
@@ -189,11 +202,11 @@ public class ConfigHelper
     return creator;
   }
   
-  public static Properties getCreationParametersDefaultValues(ConfigData configData) throws Exception
+  public static Properties getCreationParametersDefaultValues(ConfigData configData, Configuration configuration) throws Exception
   {
     Properties creationParameters = new Properties();
     List<DatabaseCreationParameter> requiredParameters = ConfigHelper
-            .getDatabaseCreationParametersNeeded(configData);
+            .getDatabaseCreationParametersNeeded(configData, configuration);
 
     for (DatabaseCreationParameter param : requiredParameters)
     {
