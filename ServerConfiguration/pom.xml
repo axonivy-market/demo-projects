@@ -5,14 +5,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.ivy.project.system</groupId>
 	<artifactId>server.configuration</artifactId>
-	<version>6.7.0-SNAPSHOT</version>
+	<version>7.0.0-SNAPSHOT</version>
 	<packaging>iar</packaging>
 	<name>ServerConfiguration</name>
 
 	<parent>
 		<groupId>ch.ivyteam.ivy.project</groupId>
 		<artifactId>build.maven.iar</artifactId>
-		<version>6.7.0-SNAPSHOT</version>
+		<version>7.0.0-SNAPSHOT</version>
 		<relativePath>../build.maven/iar</relativePath>
 	</parent>
 
