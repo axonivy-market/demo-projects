@@ -9,6 +9,7 @@ import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import com.axon.ivy.engine.config.ConnectionInfo;
 import com.axon.ivy.engine.config.FailedConnectionState;
 
+@SuppressWarnings("restriction")
 public class TestSystemDatabaseAdvice
 {
   @Test
