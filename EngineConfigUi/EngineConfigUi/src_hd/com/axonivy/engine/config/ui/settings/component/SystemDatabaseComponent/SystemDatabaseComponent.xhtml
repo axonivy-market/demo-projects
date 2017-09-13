@@ -20,7 +20,8 @@
 				icon="fa fa-check" styleClass="check-connection"
 				actionListener="#{logic.applyProperties}"
 				update="@(.configChanged), systemDatabaseForm, :#{cc.clientId}:createDatabaseDialog"
-				onstart="updateConnectionPanel()">
+				onstart="PF('loadingDialog').show(); updateConnectionPanel();"
+				oncomplete="PF('loadingDialog').hide();">
 				<f:actionListener
 					binding="#{helperBean.validateConfig(data.settings)}" />
 			</p:commandButton>
@@ -317,6 +318,13 @@
 				</p:column>
 			</p:dataTable>
 		</h:form>
+	</p:dialog>
+
+	<p:dialog widgetVar="loadingDialog" id="loadingDialog"
+		closeOnEscape="false" closable="false" modal="true" draggable="false"
+		resizable="false" styleClass="loaderDialog">
+		<h:graphicImage name="layouts/images/ajax-loader.gif" alt="Loading" styleClass="loadingSpinner"/>
+		<h:outputText value="Testing connection..." />
 	</p:dialog>
 </cc:implementation>
 </html>

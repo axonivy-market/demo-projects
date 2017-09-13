@@ -194,3 +194,12 @@ button.ui-state-warn {
 .save-and-exit-button {
 	float: right;
 }
+
+.loadingSpinner {
+    display: block;
+	margin: auto;
+}
+
+.loaderDialog .ui-dialog-titlebar {
+   display: none !important;
+}
