@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import ch.ivyteam.ivy.Advisor;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 import ch.ivyteam.util.WaitUtil;
 
@@ -21,6 +22,7 @@ import com.axon.ivy.engine.config.SystemDatabaseSettings;
 import com.axonivy.engine.config.ui.settings.ConfigData;
 import com.axonivy.engine.config.ui.unit.test.TestSystemDatabaseSettings;
 
+@SuppressWarnings("restriction")
 public class WebTestSystemDatabaseSettings extends BaseWebTest
 {
   private static final String OLD_DB_NAME = "tmp_engineConfigUi_testing_oldDb_version44";
@@ -97,6 +99,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
 
   private void createOldDatabase(ConfigData configData) throws Exception
   {
+    Advisor.getAdvisor().setServer(true);
     Properties properties = new Properties();
     properties.put("databaseName", OLD_DB_NAME);
     configData.setCreationParameters(properties);
