@@ -88,7 +88,11 @@ public class ConfigHelper
     }
 
     configData.setUsername(dbConfig.getUserName());
-    String fakedPassword = StringUtils.leftPad("", dbConfig.getPassword().length(), '*'); 
+    String fakedPassword = "";
+    if (StringUtils.isNotEmpty(dbConfig.getPassword()))
+    {
+      fakedPassword = StringUtils.leftPad("", dbConfig.getPassword().length(), '*'); 
+    }
     configData.setPassword(fakedPassword);
     configData.setAdditionalProperties(dbConfig.getProperties());
     configData.setCreationParameters(new java.util.Properties());
@@ -131,12 +135,14 @@ public class ConfigHelper
     currentConfig.setConnectionUrl(tempConfig.getConnectionUrl());
     currentConfig.setDriverName(tempConfig.getDriverName());
 
-    String configDataPw = configData.getPassword();
-    String fakedPassword = StringUtils.leftPad("", currentConfig.getPassword().length(), '*'); 
+    String configDataPw = StringUtils.defaultString(configData.getPassword());
+    
+    String currentConfigPw = StringUtils.defaultString(currentConfig.getPassword());
+    String fakedPassword = StringUtils.leftPad("", currentConfigPw.length(), '*'); 
     
     if (!StringUtils.equals(configDataPw, fakedPassword))
     {
-      currentConfig.setPassword(configData.getPassword());
+      currentConfig.setPassword(configDataPw);
     }
     currentConfig.setUserName(configData.getUsername());
     currentConfig.setProperties(configData.getAdditionalProperties());

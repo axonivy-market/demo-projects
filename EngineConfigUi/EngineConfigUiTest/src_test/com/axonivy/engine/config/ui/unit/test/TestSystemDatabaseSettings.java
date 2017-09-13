@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 import mockit.NonStrictExpectations;
 
 import org.apache.commons.lang.math.RandomUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,6 +17,7 @@ import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
 import ch.ivyteam.db.jdbc.DatabaseProduct;
 import ch.ivyteam.db.jdbc.DatabaseUtil;
 import ch.ivyteam.db.jdbc.JdbcDriver;
+import ch.ivyteam.ivy.server.configuration.Configuration;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 import ch.ivyteam.licence.LicenceConstants;
@@ -45,6 +47,40 @@ public class TestSystemDatabaseSettings
 
     assertThat(loadConfigData.getDriver()).isNotNull();
     assertThat(loadConfigData.getProduct()).isNotNull();
+  }
+  
+  @Test
+  public void testLoadConfigs() throws Exception
+  {
+    SystemDatabaseSettings settings = SystemDatabaseSettings.create();
+    ConfigData configData = settings.getConfigData();
+    Configuration configuration = settings.getConfiguration();
+    DatabaseConnectionConfiguration dbConnectionConfig = ConfigHelper.createConfiguration(
+            configData, configuration);
+    modifyConfiguration(configuration, dbConnectionConfig);
+    ConfigData loadedConfigData = ConfigHelper.loadConfigData(configuration);
+
+    assertThat(StringUtils.equals(loadedConfigData.getUsername(), "user"));
+    assertThat(StringUtils.equals(loadedConfigData.getPassword(), "********"));
+
+    DatabaseConnectionConfiguration modifiedDbConfig = getModifiedDbConfig(configData, configuration);
+
+    assertThat(StringUtils.equals(modifiedDbConfig.getPassword(), "********"));
+  }
+
+  private DatabaseConnectionConfiguration getModifiedDbConfig(ConfigData configData,
+          Configuration configuration)
+  {
+    configData.setPassword("password");
+    return ConfigHelper.createConfiguration(configData, configuration);
+  }
+
+  private void modifyConfiguration(Configuration configuration,
+          DatabaseConnectionConfiguration dbConnectionConfig)
+  {
+    dbConnectionConfig.setPassword("password");
+    dbConnectionConfig.setUserName("user");
+    configuration.setSystemDatabaseConnectionConfiguration(dbConnectionConfig);
   }
 
   @Test
