@@ -28,7 +28,8 @@ public class WebTestWizard extends BaseWebTest
   private void checkSysDbTab() throws Exception
   {
     setMySqlConfig();
-    trytoClickButton(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton"));
+    await(ExpectedConditions.elementToBeClickable(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton"))).click();
     await(
             ExpectedConditions.elementToBeClickable(
                     By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton'][contains(@class, 'ui-state-warn')]")))
@@ -63,8 +64,8 @@ public class WebTestWizard extends BaseWebTest
   private void checkWebServerTab()
   {
     awaitTabIsOpen(By.xpath("//*[@id='accordionPanel']/div[7]"));
-    driver.findElement(By.id("accordionPanel:webServerComponent:webServerForm:webServerTabNextButton"))
-            .click();
+    await(ExpectedConditions.elementToBeClickable(
+            By.id("accordionPanel:webServerComponent:webServerForm:webServerTabNextButton"))).click();
     awaitTabIsOpen(By.xpath("//*[@id='accordionPanel']/div[9]"));
   }
 

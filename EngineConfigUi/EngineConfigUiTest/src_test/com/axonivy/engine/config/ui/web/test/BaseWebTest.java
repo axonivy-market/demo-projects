@@ -12,7 +12,7 @@ import org.apache.commons.lang3.time.StopWatch;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -88,8 +88,7 @@ public class BaseWebTest
 
   protected void createMySqlSysDb() throws Exception
   {
-    trytoClickButton(By
-            .id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton"));
+	driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput")).sendKeys(Keys.ENTER);
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
             "doesn't exist"));
@@ -114,6 +113,21 @@ public class BaseWebTest
 
   protected void openDbCreationDialog()
   {
+    try
+    {
+      clickDbCreateButton();
+    }
+    catch(StaleElementReferenceException ex)
+    {
+      System.out.println(ex);
+      System.out.println("Retry to open DB Creation Dialog");
+      clickDbCreateButton();
+      System.out.println("Sucessfully opened DB Creation Dialog");
+    }
+  }
+
+  private void clickDbCreateButton()
+  {
     await(ExpectedConditions.elementToBeClickable(By
             .id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton")))
             .click();
@@ -123,8 +137,7 @@ public class BaseWebTest
   {
     await(ExpectedConditions.visibilityOfElementLocated(By
             .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")));
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")).click();
+    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:j_id_4c:0:creationParam")).sendKeys(Keys.ENTER);
 
     StopWatch sw = new StopWatch();
     sw.start();
@@ -190,7 +203,7 @@ public class BaseWebTest
   {
     await(ExpectedConditions.elementToBeClickable(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")));
-    trytoClickButton(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton"));
+    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")).click();
   }
 
   protected void addAdmin(String name) throws Exception
@@ -215,43 +228,6 @@ public class BaseWebTest
   {
     Accordion accordion = prime.accordion(By.id("accordionPanel"));
     accordion.openTab(tabName);
-  }
-
-  protected void trytoClickButton(By locator) throws Exception
-  {
-    int attempts = 0;
-    Exception exception = new Exception();
-    try
-    {
-      await(ExpectedConditions.elementToBeClickable(locator)).click();
-    }
-    catch (Exception ex)
-    {
-      while (attempts < 10)
-      {
-        try
-        {
-          System.out.println("Driver: " + driver);
-          await(ExpectedConditions.elementToBeClickable(locator)).click();
-        }
-        catch (StaleElementReferenceException e)
-        {
-          exception = e;
-        }
-        catch (ElementNotInteractableException e)
-        {
-          exception = e;
-        }
-        finally
-        {
-          attempts++;
-        }
-      }
-      if (!exception.getMessage().isEmpty())
-      {
-        throw exception;
-      }
-    }
   }
 
   protected <T> T await(int seconds, ExpectedCondition<T> condition)

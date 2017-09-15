@@ -65,7 +65,7 @@ public class WebTestWebServer extends BaseWebTest
             .id("accordionPanel:webServerComponent:webServerForm:advancedSystemPropertiesButton");
     await(ExpectedConditions.visibilityOfElementLocated(advancedSystemPropsButtonLocator));
 
-    trytoClickButton(advancedSystemPropsButtonLocator);
+    driver.findElement(advancedSystemPropsButtonLocator).click();
     By advancedSystemPropsTable = By
             .id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable_data");
     await(ExpectedConditions.textToBePresentInElementLocated(advancedSystemPropsTable,
