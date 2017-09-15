@@ -3,18 +3,10 @@ package ch.ivyteam.htmldialog.demo;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestOther extends BaseWebTest
 {
-  @Override
-  protected WebDriver createDriver()
-  {
-    return new HtmlUnitDriver(true);
-  }
-  
   @Test
   public void testHtmlJsfDemo()
   {
@@ -75,7 +67,7 @@ public class WebTestOther extends BaseWebTest
     openAndValidate(managedBeanPoperty);
     driver.quit();
 
-    driver = new HtmlUnitDriver(true);
+    driver = createDriver();
     openAndValidate(managedBeanPoperty);
   }
 
@@ -85,4 +77,5 @@ public class WebTestOther extends BaseWebTest
     await(ExpectedConditions.visibilityOfElementLocated(By
             .xpath("//*[@id='beanForm:descriptionProperty'][@value='" + managedBeanPoperty + "']")));
   }
+
 }
