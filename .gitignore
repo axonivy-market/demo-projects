@@ -64,13 +64,6 @@ RichDialogDemos/classes
 RichDialogDemos/logs
 RichDialogDemos/src_dataClasses/*
 RichDialogDemos/target
-ServerConfiguration/*.log
-ServerConfiguration/classes
-ServerConfiguration/javac.classpath
-ServerConfiguration/lib
-ServerConfiguration/logs
-ServerConfiguration/src_dataClasses
-ServerConfiguration/target
 WebTestsDemos/target
 WorkflowDemos/WorkflowDemos/classes
 WorkflowDemos/WorkflowDemos/deploy

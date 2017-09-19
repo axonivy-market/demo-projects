@@ -1,4 +1,0 @@
-DatabaseCreationProgressUIData #class
-ch.ivyteam.ivy.server.configuration.DatabaseCreationProgressUI #namespace
-databaseConnectionConfiguration ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration #field
-creationParameters List<String> #field

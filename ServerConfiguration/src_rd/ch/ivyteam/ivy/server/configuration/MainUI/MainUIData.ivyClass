@@ -1,6 +1,0 @@
-MainUIData #class
-ch.ivyteam.ivy.server.configuration.MainUI #namespace
-configuration ch.ivyteam.ivy.server.configuration.Configuration #field
-canSave Boolean #field
-isLicenceOk Boolean #field
-isClusterLicense Boolean #field

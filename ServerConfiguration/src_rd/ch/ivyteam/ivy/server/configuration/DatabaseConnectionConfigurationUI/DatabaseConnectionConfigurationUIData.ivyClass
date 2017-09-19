@@ -1,6 +1,0 @@
-DatabaseConnectionConfigurationUIData #class
-ch.ivyteam.ivy.server.configuration.DatabaseConnectionConfigurationUI #namespace
-jdbcDrivers List<ch.ivyteam.db.jdbc.JdbcDriver> #field
-jdbcDriver ch.ivyteam.db.jdbc.JdbcDriver #field
-connectionProperties java.util.HashMap #field
-serverConfiguration ch.ivyteam.ivy.server.configuration.Configuration #field

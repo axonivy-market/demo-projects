@@ -1,2 +1,0 @@
-co: name={connectionFailed} description={} changed={2007-11-23 15:24:00 GMT} changedby={rwei} visualorder={0} guid={1166D1BB3934CA2C} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
-val: guid={1166D1BB661A20A6} datatype={} isdefault={true} langid={en} description={} validfrom={2007-11-23 15:24:00 GMT} validto={} changed={2007-11-23 15:24:34 GMT} changedby={rwei} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@17fc6c} id={}

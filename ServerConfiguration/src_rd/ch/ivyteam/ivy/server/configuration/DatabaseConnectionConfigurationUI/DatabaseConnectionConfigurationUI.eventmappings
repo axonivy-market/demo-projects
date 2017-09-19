@@ -1,7 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2008-02-14 16:50:53 | 4.0.0.15100 | 1.0
-~@RD_METHODCALL[configurationChanged()]--->ch.ivyteam.ivy.process.ProcessStart:1167C2F462F45532/116C8B03CCCE9605
-~@RD_METHODCALL[setJdbcDriver(ch.ivyteam.db.jdbc.JdbcDriver)]--->ch.ivyteam.ivy.process.ProcessStart:1167C2F462F45532/1167C59F88B46628
-~@RD_METHODCALL[getJdbcDriver()]--->ch.ivyteam.ivy.process.ProcessStart:1167C2F462F45532/1167C5B04975D271
-~@RD_METHODCALL[setServerConfiguration(ch.ivyteam.ivy.server.configuration.Configuration)]--->ch.ivyteam.ivy.process.ProcessStart:1167C2F462F45532/1167C5B7C22650DE
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:1167C2F462F45532/1167C3611081445E

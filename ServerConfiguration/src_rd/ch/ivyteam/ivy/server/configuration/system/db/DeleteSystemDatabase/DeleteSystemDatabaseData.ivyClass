@@ -1,3 +1,0 @@
-DeleteSystemDatabaseData #class
-ch.ivyteam.ivy.server.configuration.system.db.DeleteSystemDatabase #namespace
-databaseConnectionConfiguration ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration #field

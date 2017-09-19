@@ -1,4 +1,0 @@
-DatabaseCreationParameterUIData #class
-ch.ivyteam.ivy.server.configuration.DatabaseCreationParameterUI #namespace
-databaseConnectionConfiguration ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration #field
-creationParameters List<String> #field

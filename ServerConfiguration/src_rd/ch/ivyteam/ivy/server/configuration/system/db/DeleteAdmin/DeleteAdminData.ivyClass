@@ -1,3 +1,0 @@
-DeleteAdminData #class
-ch.ivyteam.ivy.server.configuration.system.db.DeleteAdmin #namespace
-result Boolean #field

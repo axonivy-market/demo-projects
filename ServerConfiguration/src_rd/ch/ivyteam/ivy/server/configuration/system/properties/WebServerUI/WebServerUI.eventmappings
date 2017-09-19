@@ -1,6 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2008-07-21 14:18:51 | 4.0.0.15100 | 1.0
-~@RD_METHODCALL[save()]--->ch.ivyteam.ivy.process.ProcessStart:118EAA94FAC3CD92/118EF5C5F9FDCA27
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:118EAA94FAC3CD92/11B458ECEFBE2B21
-~@RD_METHODCALL[start(ch.ivyteam.ivy.server.configuration.Configuration)]--->ch.ivyteam.ivy.process.ProcessStart:118EAA94FAC3CD92/118EABDBEB66569C
-~@RD_BROADCAST[connectionStateChanged]--->ch.ivyteam.ivy.process.ProcessStart:118EAA94FAC3CD92/118EF49C77926B6C

@@ -1,2 +1,0 @@
-co: name={deleteSysDb} description={} changed={2007-11-23 15:30:30 GMT} changedby={rwei} visualorder={0} guid={1166D21A9BB2D69D} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
-val: guid={1166D21AC99785A0} datatype={} isdefault={true} langid={en} description={} validfrom={2007-11-23 15:30:31 GMT} validto={} changed={2007-11-23 15:30:52 GMT} changedby={rwei} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@d8c5} id={}

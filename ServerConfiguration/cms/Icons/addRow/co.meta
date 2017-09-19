@@ -1,2 +1,0 @@
-co: name={addRow} description={} changed={2007-11-26 10:47:24 GMT} changedby={rwei} visualorder={0} guid={1167B918ABEFA33D} parentguid={} typeguid={E6AFEA1F8A858C25} id={} parentid={} typeid={}
-val: guid={1167B918D5E3835C} datatype={} isdefault={true} langid={en} description={} validfrom={2007-11-26 10:47:24 GMT} validto={} changed={2007-11-26 10:49:02 GMT} changedby={rwei} properties={ch.ivyteam.ivy.cm.PropertyStringAdapter@d08f} id={}

@@ -1,8 +1,0 @@
-ClusterDetailPanelData #class
-ch.ivyteam.ivy.server.configuration.cluster.ClusterDetailPanel #namespace
-ipAddresses List<String> #field
-ipAddresses PERSISTENT #fieldModifier
-clusterNode ch.ivyteam.ivy.server.configuration.system.db.ClusterNode #field
-clusterNode PERSISTENT #fieldModifier
-canceled Boolean #field
-canceled PERSISTENT #fieldModifier

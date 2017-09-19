@@ -1,1 +1,0 @@
-{/description "Validates an email address"/validationMessage "Invalid email address"/datatypeConfig {/validationExpression "[A-Za-z0-9\\-&amp;\\._]+\\@[A-Za-z0-9\\-&amp;]+\\.[A-Za-z0-9\\-&amp;]+"}}
