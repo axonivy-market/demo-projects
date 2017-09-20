@@ -13,7 +13,6 @@
 		<module>ErrorHandlingDemos</module>
 		<module>RichDialogDemos</module>
 		<module>QuickStartTutorial</module>
-		<module>ServerConfiguration</module>
 		<module>WorkflowDemos</module>
 		<module>ConnectivityDemos</module>
 		<module>EngineConfigUi/EngineConfigUi</module>
