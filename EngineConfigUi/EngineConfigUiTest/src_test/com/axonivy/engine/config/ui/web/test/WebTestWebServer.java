@@ -54,6 +54,7 @@ public class WebTestWebServer extends BaseWebTest
     saveAll();
 
     openConfigUi();
+    testConnection();
     openSystemPropertiesDialog();
     await(ExpectedConditions.textToBePresentInElementLocated(By.id(editedRow + ":cellEditor"), newValue));
   }
