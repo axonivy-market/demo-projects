@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 24 17:44:02 CEST 2017]
+[>Created: Fri Sep 15 14:40:12 CEST 2017]
 157E2C1BEC4930AC 3.20 #module
 >Proto >Proto Collection #zClass
 ss0 ConfigurationOverviewProcess Big #zClass
@@ -28,12 +28,9 @@ ss0 @RichDialogProcessEnd f9 '' #zField
 ss0 @RichDialogMethodStart f11 '' #zField
 ss0 @RichDialogProcessEnd f12 '' #zField
 ss0 @GridStep f14 '' #zField
-ss0 @GridStep f16 '' #zField
 ss0 @GridStep f18 '' #zField
 ss0 @PushWFArc f20 '' #zField
-ss0 @PushWFArc f17 '' #zField
 ss0 @PushWFArc f15 '' #zField
-ss0 @PushWFArc f13 '' #zField
 ss0 @RichDialogEnd f19 '' #zField
 ss0 @RichDialogProcessStart f21 '' #zField
 ss0 @GridStep f22 '' #zField
@@ -42,6 +39,7 @@ ss0 @PushWFArc f24 '' #zField
 ss0 @GridStep f25 '' #zField
 ss0 @PushWFArc f26 '' #zField
 ss0 @PushWFArc f10 '' #zField
+ss0 @PushWFArc f13 '' #zField
 >Proto ss0 ss0 ConfigurationOverviewProcess #zField
 ss0 f0 guid 157E2C1BEDF33419 #txt
 ss0 f0 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
@@ -165,7 +163,7 @@ ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ss0 f11 82 243 26 26 -49 15 #rect
 ss0 f11 @|RichDialogMethodStartIcon #fIcon
 ss0 f12 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f12 723 243 26 26 0 12 #rect
+ss0 f12 539 243 26 26 0 12 #rect
 ss0 f12 @|RichDialogProcessEndIcon #fIcon
 ss0 f14 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
 ' #txt
@@ -197,28 +195,6 @@ ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ss0 f14 152 234 160 44 -77 -8 #rect
 ss0 f14 @|StepIcon #fIcon
-ss0 f16 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
-' #txt
-ss0 f16 actionTable 'out=in;
-' #txt
-ss0 f16 actionCode 'import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
-
-if(in.databaseSettings.getConnectionInfo().connectionState == ConnectionState.NOT_CONNECTED)
-{
-	in.databaseSettings.testConnection();
-}' #txt
-ss0 f16 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Check Connection</name>
-        <nameStyle>16,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-ss0 f16 384 234 112 44 -50 -8 #rect
-ss0 f16 @|StepIcon #fIcon
 ss0 f18 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
 ' #txt
 ss0 f18 actionTable 'out=in;
@@ -251,16 +227,12 @@ ss0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-ss0 f18 552 234 112 44 -27 -8 #rect
+ss0 f18 368 234 112 44 -27 -8 #rect
 ss0 f18 @|StepIcon #fIcon
 ss0 f20 expr out #txt
 ss0 f20 108 256 152 256 #arcP
-ss0 f17 expr out #txt
-ss0 f17 312 256 384 256 #arcP
 ss0 f15 expr out #txt
-ss0 f15 664 256 723 256 #arcP
-ss0 f13 expr out #txt
-ss0 f13 496 256 552 256 #arcP
+ss0 f15 480 256 539 256 #arcP
 ss0 f19 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f19 guid 15D0D93DAB2ED91F #txt
 ss0 f19 371 307 26 26 0 12 #rect
@@ -326,6 +298,8 @@ ss0 f26 expr out #txt
 ss0 f26 108 192 168 192 #arcP
 ss0 f10 expr out #txt
 ss0 f10 280 192 371 192 #arcP
+ss0 f13 expr out #txt
+ss0 f13 312 256 368 256 #arcP
 >Proto ss0 .type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 >Proto ss0 .processKind HTML_DIALOG #txt
 >Proto ss0 -8 -8 16 16 16 26 #rect
@@ -338,12 +312,8 @@ ss0 f5 mainOut f7 tail #connect
 ss0 f7 head f6 mainIn #connect
 ss0 f11 mainOut f20 tail #connect
 ss0 f20 head f14 mainIn #connect
-ss0 f14 mainOut f17 tail #connect
-ss0 f17 head f16 mainIn #connect
 ss0 f18 mainOut f15 tail #connect
 ss0 f15 head f12 mainIn #connect
-ss0 f16 mainOut f13 tail #connect
-ss0 f13 head f18 mainIn #connect
 ss0 f21 mainOut f23 tail #connect
 ss0 f23 head f22 mainIn #connect
 ss0 f22 mainOut f24 tail #connect
@@ -352,3 +322,5 @@ ss0 f8 mainOut f26 tail #connect
 ss0 f26 head f25 mainIn #connect
 ss0 f25 mainOut f10 tail #connect
 ss0 f10 head f9 mainIn #connect
+ss0 f14 mainOut f13 tail #connect
+ss0 f13 head f18 mainIn #connect

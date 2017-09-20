@@ -97,6 +97,13 @@
 				rendered="#{helperBean.serverConfigurationApplicaton}"
 				icon="fa fa-sign-out" actionListener="#{logic.close}"
 				styleClass="save-and-exit-button" onclick="submitConfigForm();" />
+			<p:dialog widgetVar="loadingDialog" id="loadingDialog"
+				closeOnEscape="false" closable="false" modal="true"
+				draggable="false" resizable="false" styleClass="loaderDialog">
+				<h:graphicImage name="layouts/images/ajax-loader.gif" alt="Loading"
+					styleClass="loadingSpinner" />
+				<h:outputText value="Testing connection..." />
+			</p:dialog>
 		</ui:define>
 	</ui:composition>
 </h:body>

@@ -24,12 +24,17 @@ public class HelperBean
 
   public void validateConfig(SystemDatabaseSettings settings)
   {
+    testConnection(settings);
+    StyleSystemDatabaseInputs.setIncorrectInputs(settings
+            .getConnectionInfo());
+  }
+
+  public void testConnection(SystemDatabaseSettings settings)
+  {
     if (!settings.getConnectionInfo().getConnectionOK())
     {
       settings.testConnection();
     }
-    StyleSystemDatabaseInputs.setIncorrectInputs(settings
-            .getConnectionInfo());
   }
 
   public boolean mustAuthenticate()
