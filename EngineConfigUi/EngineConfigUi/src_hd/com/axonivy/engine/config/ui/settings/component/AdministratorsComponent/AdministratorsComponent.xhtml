@@ -75,13 +75,13 @@
 				<p:outputLabel value="Fullname:" for="newFullname" />
 				<p:inputText id="newFullname" value="#{data.newAdmin.fullname}" />
 				<p:outputLabel value="Email:" for="newEmail" />
-				<p:inputText id="newEmail" value="#{data.newAdmin.email}" />
+				<p:inputText id="newEmail" value="#{data.newAdmin.email}" autocomplete="off"/>
 				<p:outputLabel value="Password:" for="newPassword" />
 				<p:password id="newPassword" value="#{data.newAdmin.password}"
-					match="confirmNewPassword" required="true" />
+					match="confirmNewPassword" required="true" autocomplete="off"/>
 				<p:outputLabel value="Repeat Password:" for="confirmNewPassword" />
 				<p:password id="confirmNewPassword"
-					value="#{data.newAdmin.password}" required="true" />
+					value="#{data.newAdmin.password}" required="true" autocomplete="off"/>
 			</h:panelGrid>
 			<br />
 			<p:commandButton id="addAdminDialogButton" value="Add Administrator"
@@ -90,7 +90,6 @@
 				actionListener="#{logic.addNewAdmin}"
 				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:addAdminForm,
 				 :#{cc.clientId}:adminManagerForm:adminsTabNextButton" />
-			<p:defaultCommand target="addAdminDialogButton" />
 		</h:form>
 	</p:dialog>
 
@@ -103,11 +102,11 @@
 				<p:inputText id="newName" value="#{data.editAdmin.name}"
 					disabled="true" />
 				<p:outputLabel value="Fullname:" for="newFullname" />
-				<p:inputText id="newFullname" value="#{data.editAdmin.fullname}" />
+				<p:inputText id="newFullname" value="#{data.editAdmin.fullname}"/>
 				<p:outputLabel value="Email:" for="newEmail" />
-				<p:inputText id="newEmail" value="#{data.editAdmin.email}" />
+				<p:inputText id="newEmail" value="#{data.editAdmin.email}" autocomplete="off"/>
 				<p:outputLabel value="New Password:" for="newPassword" />
-				<p:password id="newPassword" value="#{data.editAdmin.password}" />
+				<p:password id="newPassword" value="#{data.editAdmin.password}" autocomplete="off"/>
 			</h:panelGrid>
 			<br />
 			<p:commandButton id="saveAdminDialogButton"
@@ -115,7 +114,6 @@
 				oncomplete="if(args &amp;&amp; !args.validationFailed) PF('addAdminDialog').hide();"
 				actionListener="#{logic.saveEditedAdmin}"
 				update=":#{cc.clientId}:adminManagerForm:adminDataTable, :#{cc.clientId}:editAdminDialog" />
-			<p:defaultCommand target="saveAdminDialogButton" />
 		</h:form>
 	</p:dialog>
 </cc:implementation>

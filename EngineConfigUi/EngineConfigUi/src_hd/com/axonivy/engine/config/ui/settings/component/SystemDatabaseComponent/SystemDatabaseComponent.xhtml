@@ -93,14 +93,14 @@
 						<p:outputLabel for="usernameInput" id="usernameLabel"
 							value="Username" />
 						<p:inputText id="usernameInput"
-							value="#{data.configData.username}">
+							value="#{data.configData.username}" autocomplete="off">
 							<p:ajax event="keydown" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:inputText>
 						<p:outputLabel for="passwordInput" id="passwordLabel"
 							value="Password" />
 						<p:password id="passwordInput" value="#{data.configData.password}"
-							redisplay="true">
+							redisplay="true" autocomplete="off">
 							<p:ajax event="keydown" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:password>
@@ -136,7 +136,6 @@
 				</p:commandButton>
 			</div>
 		</div>
-		<p:defaultCommand target="systemDatabaseTabNextButton" />
 	</h:form>
 
 	<p:dialog id="createDatabaseDialog" widgetVar="createDatabaseDialog"

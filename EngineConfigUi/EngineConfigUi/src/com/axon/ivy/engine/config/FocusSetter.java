@@ -46,6 +46,7 @@ public class FocusSetter
 
   private static void focus(String id)
   {
-    RequestContext.getCurrentInstance().execute("document.getElementById('" + id + "').focus();");
+    RequestContext.getCurrentInstance().execute(
+            "var element = document.getElementById('" + id + "');if(element){element.focus();}");
   }
 }
