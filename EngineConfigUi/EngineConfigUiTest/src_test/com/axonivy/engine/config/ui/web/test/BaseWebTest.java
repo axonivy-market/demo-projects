@@ -137,7 +137,7 @@ public class BaseWebTest
   {
     await(ExpectedConditions.visibilityOfElementLocated(By
             .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")));
-    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:j_id_4c:0:creationParam")).sendKeys(Keys.ENTER);
+    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:uiRepeat:0:creationParam")).sendKeys(Keys.ENTER);
 
     StopWatch sw = new StopWatch();
     sw.start();

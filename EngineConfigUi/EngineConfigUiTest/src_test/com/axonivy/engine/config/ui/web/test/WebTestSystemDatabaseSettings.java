@@ -244,11 +244,11 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   {
     openDbCreationDialog();
 
-    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:j_id_1l:0:creationParam"),
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:uiRepeat:0:creationParam"),
             "INTGRTST");
-    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:j_id_1l:1:creationParam"),
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:uiRepeat:1:creationParam"),
             "newUser");
-    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:j_id_1l:2:creationParam"),
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:uiRepeat:2:creationParam"),
             "newPassword");
 
     createAndValidateDb();
