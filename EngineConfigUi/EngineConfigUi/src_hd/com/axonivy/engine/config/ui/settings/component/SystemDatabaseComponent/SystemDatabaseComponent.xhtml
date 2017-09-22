@@ -130,7 +130,9 @@
 					icon="fa fa-arrow-circle-right"
 					styleClass="next-button , configChanged" update=":accordionPanel"
 					actionListener="#{logic.applyProperties}"
-					oncomplete="if(#{data.connectionInfo.connectionOK})PF('accordionPanel').select(2);">
+					onstart="if(#{!data.connectionInfo.connectionOK})PF('loadingDialog').show();"
+					oncomplete="if(PF('loadingDialog').isVisible()){PF('loadingDialog').hide()}; 
+					if(#{data.connectionInfo.connectionOK})PF('accordionPanel').select(2);">
 					<f:actionListener
 						binding="#{helperBean.validateConfig(data.settings)}" />
 				</p:commandButton>
