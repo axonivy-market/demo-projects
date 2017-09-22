@@ -78,10 +78,10 @@
 				<p:inputText id="newEmail" value="#{data.newAdmin.email}" autocomplete="off"/>
 				<p:outputLabel value="Password:" for="newPassword" />
 				<p:password id="newPassword" value="#{data.newAdmin.password}"
-					match="confirmNewPassword" required="true" autocomplete="off"/>
+					match="confirmNewPassword" required="true" autocomplete="new-password"/>
 				<p:outputLabel value="Repeat Password:" for="confirmNewPassword" />
 				<p:password id="confirmNewPassword"
-					value="#{data.newAdmin.password}" required="true" autocomplete="off"/>
+					value="#{data.newAdmin.password}" required="true" autocomplete="new-password"/>
 			</h:panelGrid>
 			<br />
 			<p:commandButton id="addAdminDialogButton" value="Add Administrator"
@@ -106,7 +106,7 @@
 				<p:outputLabel value="Email:" for="newEmail" />
 				<p:inputText id="newEmail" value="#{data.editAdmin.email}" autocomplete="off"/>
 				<p:outputLabel value="New Password:" for="newPassword" />
-				<p:password id="newPassword" value="#{data.editAdmin.password}" autocomplete="off"/>
+				<p:password id="newPassword" value="#{data.editAdmin.password}" autocomplete="new-password"/>
 			</h:panelGrid>
 			<br />
 			<p:commandButton id="saveAdminDialogButton"

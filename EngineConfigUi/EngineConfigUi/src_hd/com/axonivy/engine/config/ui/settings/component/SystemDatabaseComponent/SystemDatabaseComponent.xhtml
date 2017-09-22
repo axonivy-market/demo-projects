@@ -100,7 +100,7 @@
 						<p:outputLabel for="passwordInput" id="passwordLabel"
 							value="Password" />
 						<p:password id="passwordInput" value="#{data.configData.password}"
-							redisplay="true" autocomplete="off">
+							redisplay="true" autocomplete="new-password">
 							<p:ajax event="keydown" update="@(.configChanged)"
 								listener="#{logic.change}" />
 						</p:password>
