@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 21 12:23:30 CET 2016]
-15254DCE818AD7A2 3.18 #module
+15254DCE818AD7A2 3.20 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
 Pt0 B #cInfo
@@ -52,15 +51,6 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
 Pt0 f0 caseData case.category=Procurement/Request #txt
 Pt0 f0 showInStartList 1 #txt
-Pt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -242,7 +232,7 @@ Pt0 f13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Pt0 f13 512 304 744 192 #arcP
 Pt0 f13 1 512 192 #addKink
-Pt0 f13 1 0.16810344827586207 0 9 #arcLabel
+Pt0 f13 1 0.0603448275862069 0 13 #arcLabel
 Pt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
