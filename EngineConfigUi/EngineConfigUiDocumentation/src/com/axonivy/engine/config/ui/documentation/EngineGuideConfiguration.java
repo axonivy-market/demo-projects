@@ -1,22 +1,19 @@
-package com.axonivy.engine.config.ui.web.test;
+package com.axonivy.engine.config.ui.documentation;
 
-import java.io.File;
 import java.io.IOException;
 
-import org.apache.commons.io.FileUtils;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class EngineGuideScreenshots extends BaseWebTest
+public class EngineGuideConfiguration extends BaseScreenshots
 {
+  private static final String CONFIGURATION_LOCATION = "Configuration/images/Configuration";
+
   @Test
   public void a_licenceTab() throws Exception
   {
@@ -83,20 +80,7 @@ public class EngineGuideScreenshots extends BaseWebTest
 
   private void takeScreenshot(String fileName, Dimension size) throws IOException
   {
-    resizeBrowser(size);
-    JavascriptExecutor jse = (JavascriptExecutor) driver;
-    jse.executeScript("scroll(0,0);");
-
-    byte[] pngImageBytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-
-    File configDir = new File("target/screenshots/images/Configuration");
-    File licenceScreenshot = new File(configDir, fileName);
-    FileUtils.writeByteArrayToFile(licenceScreenshot, pngImageBytes);
-  }
-
-  private void resizeBrowser(Dimension size)
-  {
-    driver.manage().window().setSize(size);
+    takeScreenshot(fileName, size, CONFIGURATION_LOCATION);
   }
 
   private void setExampleConfigruration()

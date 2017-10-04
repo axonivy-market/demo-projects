@@ -29,7 +29,7 @@ public class BaseWebTest
 {
   protected static final String USERNAME = "admin";
   protected static final String PASSWORD = "nimda";
-  private static final String connectionUrl = "jdbc:mysql://zugtstdbsmys:3306/";
+  protected static final String connectionUrl = "jdbc:mysql://zugtstdbsmys:3306/";
 
   protected String DBNAME;
   protected WebDriver driver;

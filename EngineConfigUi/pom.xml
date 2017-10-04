@@ -11,6 +11,7 @@
 	<modules>
 		<module>EngineConfigUi</module>
 		<module>EngineConfigUiTest</module>
+		<module>EngineConfigUiDocumentation</module>
 	</modules>
 
 	<build>
