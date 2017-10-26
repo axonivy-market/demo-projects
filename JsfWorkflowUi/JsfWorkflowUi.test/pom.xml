@@ -112,7 +112,7 @@
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
-				<version>6.7.1</version>
+				<version>7.1.0-SNAPSHOT</version>
 				<executions>
 					<execution>
 						<id>start.test.engine</id>
@@ -124,21 +124,22 @@
 					<execution>
 						<id>deploy.workflowui.under.test.to.memory.engine</id>
 						<goals>
-							<goal>deploy-iar</goal>
+							<goal>deploy-to-engine</goal>
 						</goals>
 						<phase>pre-integration-test</phase>
 						<configuration>
-							<deployIarFile>${ch.ivyteam.ivy.project.wf:JsfWorkflowUi:iar}</deployIarFile>
+							<deployFile>${ch.ivyteam.ivy.project.wf:JsfWorkflowUi:iar}</deployFile>
 						</configuration>
 					</execution>
 					<execution>
 						<id>deploy.testdata.under.test.to.memory.engine</id>
 						<goals>
-							<goal>deploy-iar</goal>
+							<goal>deploy-to-engine</goal>
 						</goals>
 						<phase>pre-integration-test</phase>
 						<configuration>
-							<deployIarFile>${ch.ivyteam.ivy.project:jsfworkflowui.testdata:iar}</deployIarFile>
+							<deployFile>${ch.ivyteam.ivy.project:jsfworkflowui.testdata:iar}</deployFile>
+							<optionsFile>${basedir}/JsfWorkflowUi.options</optionsFile>
 						</configuration>
 					</execution>
 					<execution>
