@@ -30,6 +30,9 @@ public class BaseScreenshots extends BaseWebTest
       System.err.println("DB '" + DBNAME + "' could not be dropped!");
     }
     driver.quit();
+    
+    String command = "taskkill /im geckodriver.exe";
+    Runtime.getRuntime().exec(command);
   }
   
   private void dropPostgresDatabase() throws Exception

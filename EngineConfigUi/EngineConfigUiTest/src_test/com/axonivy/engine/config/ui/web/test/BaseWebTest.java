@@ -76,6 +76,9 @@ public class BaseWebTest
       System.err.println("DB '" + DBNAME + "' could not be dropped!");
     }
     driver.quit();
+    
+    String command = "taskkill /im geckodriver.exe";
+    Runtime.getRuntime().exec(command);
   }
 
   protected void setMySqlConfig()
@@ -88,7 +91,7 @@ public class BaseWebTest
 
   protected void createMySqlSysDb() throws Exception
   {
-	driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput")).sendKeys(Keys.ENTER);
+        driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput")).sendKeys(Keys.ENTER);
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
             "doesn't exist"));
@@ -202,8 +205,7 @@ public class BaseWebTest
   protected void checkConnection() throws Exception
   {
     await(ExpectedConditions.elementToBeClickable(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")));
-    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")).click();
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton"))).click();
   }
 
   protected void addAdmin(String name) throws Exception
@@ -213,7 +215,7 @@ public class BaseWebTest
 
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newName"), name);
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newFullname"), "AXONIVY");
-    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"), "support@ivyteam.ch");
+    clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newEmail"), "support@axonivy.com");
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"), "password");
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:confirmNewPassword"), "password");
 
