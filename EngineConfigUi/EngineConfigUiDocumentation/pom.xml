@@ -59,10 +59,10 @@
 								<phase>integration-test</phase>
 								<configuration>
 									<fileSet>
-										<directory>${project.build.directory}/screenshots/</directory>
+										<directory>${project.build.directory}</directory>
 										<includes>
 											<include>
-												EngineGuide/**/*.png
+												**/EngineGuide/**/*.png
 											</include>
 										</includes>
 									</fileSet>
