@@ -47,6 +47,8 @@ public class BaseWebTest
     driver = new FirefoxDriver(profile);
     prime = new PrimeUi(driver);
     ajax = new AjaxHelper(driver);
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    
     openConfigUi();
   }
 
