@@ -42,6 +42,7 @@ public class BaseWebTest
   {
     File geckodriver = new File("geckodriver/geckodriver.exe");
     System.setProperty("webdriver.gecko.driver", geckodriver.getAbsolutePath());
+    System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"null");
     FirefoxProfile profile = getFirefoxProfile();
     driver = new FirefoxDriver(profile);
     prime = new PrimeUi(driver);
