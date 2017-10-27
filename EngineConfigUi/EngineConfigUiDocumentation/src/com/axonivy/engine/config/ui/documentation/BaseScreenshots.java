@@ -31,8 +31,8 @@ public class BaseScreenshots extends BaseWebTest
     }
     driver.quit();
     
-    String command = "taskkill /im geckodriver.exe";
-    Runtime.getRuntime().exec(command);
+//    String command = "taskkill /im geckodriver.exe";
+//    Runtime.getRuntime().exec(command);
   }
   
   private void dropPostgresDatabase() throws Exception

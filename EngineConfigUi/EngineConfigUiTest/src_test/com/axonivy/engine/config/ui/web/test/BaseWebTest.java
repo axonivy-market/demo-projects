@@ -80,8 +80,8 @@ public class BaseWebTest
     }
     driver.quit();
     
-    String command = "taskkill /im geckodriver.exe";
-    Runtime.getRuntime().exec(command);
+//    String command = "taskkill /im geckodriver.exe";
+//    Runtime.getRuntime().exec(command);
   }
 
   protected void setMySqlConfig()
