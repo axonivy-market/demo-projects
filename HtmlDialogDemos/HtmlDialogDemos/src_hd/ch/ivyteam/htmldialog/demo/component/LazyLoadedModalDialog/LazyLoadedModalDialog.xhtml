@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/HtmlDemo.xhtml">
+		<ui:define name="title">Lazy loaded Modal Dialog</ui:define>
+		<ui:define name="content">
+			<p>Shows how content can be loaded on demand, when the user accesses an initially hidden part of the UI such as this modal address dialog.</p>
+			
+			<h3>Motivation</h3>
+			<p>Application centric dialogs with many tabs and modal dialogs could use a lot of memory on the engine. As JSF keeps the full state of the dialog in its memory. 
+			UI parts that are initially not rendered, use almost no memory on the engine. Besides the spared memory on the engine, the view should also be rendered much quicker on the client side.
+			</p>
+			
+			<h4>Solution</h4>
+			<p>Use the <code>rendered</code> attribute to completely disable the rendering of large optional UI parts.  </p>
+			
+<h:form id="form">
+	<p:outputPanel id="address">
+		<p:commandButton value="Add Address" icon="fa fa-list-alt"
+			actionListener="#{logic.showAddress(true)}" oncomplete="PF('addressDialog').show()"
+			update="form:address" />
+		<p:dialog id="dialog" widgetVar="addressDialog" 
+			header="Large sample component" 
+			modal="true" visible="true" rendered="#{data.showAddress}" closable="false" dynamic="true">
+				<ic:ch.ivyteam.htmldialog.demo.component.AddressComponent id="input" >
+					<p:commandButton value="close" 
+					actionListener="#{logic.showAddress(false)}" onclick="PF('addressDialog').hide()"
+					update="form:address"/>
+					<br/>
+				</ic:ch.ivyteam.htmldialog.demo.component.AddressComponent>
+		</p:dialog>
+	</p:outputPanel>
+</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

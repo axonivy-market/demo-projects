@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Tue May 06 14:31:56 CEST 2014]
-145D1849FACF0EAA 3.17 #module
+145D1849FACF0EAA 3.20 #module
 >Proto >Proto Collection #zClass
 Ct0 Component Big #zClass
 Ct0 B #cInfo
@@ -38,9 +37,14 @@ Ct0 @PushWFArc f85 '' #zField
 Ct0 @PushWFArc f86 '' #zField
 Ct0 @PushWFArc f100 '' #zField
 Ct0 @PushWFArc f101 '' #zField
+Ct0 @StartRequest f0 '' #zField
+Ct0 @EndTask f1 '' #zField
+Ct0 @RichDialog f3 '' #zField
+Ct0 @PushWFArc f4 '' #zField
+Ct0 @PushWFArc f2 '' #zField
 >Proto Ct0 Ct0 Component #zField
 Ct0 f48 type htmlDialogDemos.Data #txt
-Ct0 f48 465 49 30 30 0 15 #rect
+Ct0 f48 441 49 30 30 0 15 #rect
 Ct0 f48 @|EndIcon #fIcon
 Ct0 f48 -1|-1|-9671572 #nodeStyle
 Ct0 f20 outLink PartialUpdateDemo.ivp #txt
@@ -92,15 +96,6 @@ type.code=
 type.name=
 ' #txt
 Ct0 f20 showInStartList 1 #txt
-Ct0 f20 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ct0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -115,7 +110,7 @@ Ct0 f20 113 433 30 30 -63 15 #rect
 Ct0 f20 @|StartRequestIcon #fIcon
 Ct0 f20 -1|-1|-9671572 #nodeStyle
 Ct0 f22 type htmlDialogDemos.Data #txt
-Ct0 f22 465 433 30 30 0 15 #rect
+Ct0 f22 441 433 30 30 0 15 #rect
 Ct0 f22 @|EndIcon #fIcon
 Ct0 f22 -1|-1|-9671572 #nodeStyle
 Ct0 f47 outLink ComponentDemo.ivp #txt
@@ -167,15 +162,6 @@ type.code=
 type.name=
 ' #txt
 Ct0 f47 showInStartList 1 #txt
-Ct0 f47 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ct0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -236,15 +222,6 @@ type.code=
 type.name=
 ' #txt
 Ct0 f82 showInStartList 1 #txt
-Ct0 f82 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ct0 f82 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -273,7 +250,7 @@ Ct0 f58 windowConfiguration '* ' #txt
 Ct0 f58 isAsynch false #txt
 Ct0 f58 isInnerRd false #txt
 Ct0 f58 userContext '* ' #txt
-Ct0 f58 248 138 112 44 58 -2 #rect
+Ct0 f58 232 138 112 44 58 -2 #rect
 Ct0 f58 @|RichDialogIcon #fIcon
 Ct0 f58 -1|-1|-9671572 #nodeStyle
 Ct0 f84 targetWindow NEW:card: #txt
@@ -290,7 +267,7 @@ Ct0 f84 windowConfiguration '* ' #txt
 Ct0 f84 isAsynch false #txt
 Ct0 f84 isInnerRd false #txt
 Ct0 f84 userContext '* ' #txt
-Ct0 f84 248 330 112 44 58 -2 #rect
+Ct0 f84 232 330 112 44 58 -2 #rect
 Ct0 f84 @|RichDialogIcon #fIcon
 Ct0 f84 -1|-1|-9671572 #nodeStyle
 Ct0 f99 targetWindow NEW:card: #txt
@@ -307,15 +284,15 @@ Ct0 f99 windowConfiguration '* ' #txt
 Ct0 f99 isAsynch false #txt
 Ct0 f99 isInnerRd false #txt
 Ct0 f99 userContext '* ' #txt
-Ct0 f99 248 234 112 44 58 -2 #rect
+Ct0 f99 232 234 112 44 58 -2 #rect
 Ct0 f99 @|RichDialogIcon #fIcon
 Ct0 f99 -1|-1|-9671572 #nodeStyle
 Ct0 f59 type htmlDialogDemos.Data #txt
-Ct0 f59 465 145 30 30 0 15 #rect
+Ct0 f59 441 145 30 30 0 15 #rect
 Ct0 f59 @|EndIcon #fIcon
 Ct0 f59 -1|-1|-9671572 #nodeStyle
 Ct0 f98 type htmlDialogDemos.Data #txt
-Ct0 f98 465 241 30 30 0 15 #rect
+Ct0 f98 441 241 30 30 0 15 #rect
 Ct0 f98 @|EndIcon #fIcon
 Ct0 f98 -1|-1|-9671572 #nodeStyle
 Ct0 f21 targetWindow NEW:card: #txt
@@ -332,7 +309,7 @@ Ct0 f21 windowConfiguration '* ' #txt
 Ct0 f21 isAsynch false #txt
 Ct0 f21 isInnerRd false #txt
 Ct0 f21 userContext '* ' #txt
-Ct0 f21 248 426 112 44 58 -2 #rect
+Ct0 f21 232 426 112 44 58 -2 #rect
 Ct0 f21 @|RichDialogIcon #fIcon
 Ct0 f21 -1|-1|-9671572 #nodeStyle
 Ct0 f49 targetWindow NEW:card: #txt
@@ -349,7 +326,7 @@ Ct0 f49 windowConfiguration '* ' #txt
 Ct0 f49 isAsynch false #txt
 Ct0 f49 isInnerRd false #txt
 Ct0 f49 userContext '* ' #txt
-Ct0 f49 248 42 112 44 58 -2 #rect
+Ct0 f49 232 42 112 44 58 -2 #rect
 Ct0 f49 @|RichDialogIcon #fIcon
 Ct0 f49 -1|-1|-9671572 #nodeStyle
 Ct0 f57 outLink ComponentCustomizingDemo.ivp #txt
@@ -401,15 +378,6 @@ type.code=
 type.name=
 ' #txt
 Ct0 f57 showInStartList 1 #txt
-Ct0 f57 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ct0 f57 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -425,7 +393,7 @@ Ct0 f57 113 145 30 30 -51 15 #rect
 Ct0 f57 @|StartRequestIcon #fIcon
 Ct0 f57 -1|-1|-9671572 #nodeStyle
 Ct0 f83 type htmlDialogDemos.Data #txt
-Ct0 f83 465 337 30 30 0 15 #rect
+Ct0 f83 441 337 30 30 0 15 #rect
 Ct0 f83 @|EndIcon #fIcon
 Ct0 f83 -1|-1|-9671572 #nodeStyle
 Ct0 f97 outLink JsfCompositeComponent.ivp #txt
@@ -477,15 +445,6 @@ type.code=
 type.name=
 ' #txt
 Ct0 f97 showInStartList 1 #txt
-Ct0 f97 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ct0 f97 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -500,25 +459,78 @@ Ct0 f97 113 241 30 30 -80 15 #rect
 Ct0 f97 @|StartRequestIcon #fIcon
 Ct0 f97 -1|-1|-9671572 #nodeStyle
 Ct0 f23 expr out #txt
-Ct0 f23 143 448 248 448 #arcP
+Ct0 f23 143 448 232 448 #arcP
 Ct0 f24 expr out #txt
-Ct0 f24 360 448 465 448 #arcP
+Ct0 f24 344 448 441 448 #arcP
 Ct0 f50 expr out #txt
-Ct0 f50 143 64 248 64 #arcP
+Ct0 f50 143 64 232 64 #arcP
 Ct0 f51 expr out #txt
-Ct0 f51 360 64 465 64 #arcP
+Ct0 f51 344 64 441 64 #arcP
 Ct0 f60 expr out #txt
-Ct0 f60 143 160 248 160 #arcP
+Ct0 f60 143 160 232 160 #arcP
 Ct0 f61 expr out #txt
-Ct0 f61 360 160 465 160 #arcP
+Ct0 f61 344 160 441 160 #arcP
 Ct0 f85 expr out #txt
-Ct0 f85 143 352 248 352 #arcP
+Ct0 f85 143 352 232 352 #arcP
 Ct0 f86 expr out #txt
-Ct0 f86 360 352 465 352 #arcP
+Ct0 f86 344 352 441 352 #arcP
 Ct0 f100 expr out #txt
-Ct0 f100 143 256 248 256 #arcP
+Ct0 f100 143 256 232 256 #arcP
 Ct0 f101 expr out #txt
-Ct0 f101 360 256 465 256 #arcP
+Ct0 f101 344 256 441 256 #arcP
+Ct0 f0 outLink lazyLoadComponent.ivp #txt
+Ct0 f0 type htmlDialogDemos.Data #txt
+Ct0 f0 inParamDecl '<> param;' #txt
+Ct0 f0 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Ct0 f0 guid 15FB525A69D42AC1 #txt
+Ct0 f0 requestEnabled true #txt
+Ct0 f0 triggerEnabled false #txt
+Ct0 f0 callSignature lazyLoadComponent() #txt
+Ct0 f0 persist false #txt
+Ct0 f0 startName 'Lazy loaded UI parts' #txt
+Ct0 f0 taskData 'TaskTriggered.ROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.EXPRI=2
+TaskTriggered.TYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody' #txt
+Ct0 f0 caseData businessCase.attach=true #txt
+Ct0 f0 showInStartList 1 #txt
+Ct0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>LazyLoadComponent.ivp</name>
+        <nameStyle>21,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ct0 f0 @C|.responsibility Everybody #txt
+Ct0 f0 113 529 30 30 -74 17 #rect
+Ct0 f0 @|StartRequestIcon #fIcon
+Ct0 f1 type htmlDialogDemos.Data #txt
+Ct0 f1 441 529 30 30 0 15 #rect
+Ct0 f1 @|EndIcon #fIcon
+Ct0 f3 targetWindow NEW #txt
+Ct0 f3 targetDisplay TOP #txt
+Ct0 f3 richDialogId ch.ivyteam.htmldialog.demo.component.LazyLoadedModalDialog #txt
+Ct0 f3 startMethod start() #txt
+Ct0 f3 type htmlDialogDemos.Data #txt
+Ct0 f3 requestActionDecl '<> param;' #txt
+Ct0 f3 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Ct0 f3 responseMappingAction 'out=in;
+' #txt
+Ct0 f3 isAsynch false #txt
+Ct0 f3 isInnerRd false #txt
+Ct0 f3 userContext '* ' #txt
+Ct0 f3 232 522 112 44 0 -7 #rect
+Ct0 f3 @|RichDialogIcon #fIcon
+Ct0 f4 expr out #txt
+Ct0 f4 143 544 232 544 #arcP
+Ct0 f2 expr out #txt
+Ct0 f2 344 544 441 544 #arcP
 >Proto Ct0 .type htmlDialogDemos.Data #txt
 >Proto Ct0 .processKind NORMAL #txt
 >Proto Ct0 0 0 32 24 18 0 #rect
@@ -543,3 +555,7 @@ Ct0 f97 mainOut f100 tail #connect
 Ct0 f100 head f99 mainIn #connect
 Ct0 f99 mainOut f101 tail #connect
 Ct0 f101 head f98 mainIn #connect
+Ct0 f0 mainOut f4 tail #connect
+Ct0 f4 head f3 mainIn #connect
+Ct0 f3 mainOut f2 tail #connect
+Ct0 f2 head f1 mainIn #connect

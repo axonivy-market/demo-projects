@@ -1,5 +1,4 @@
 [Ivy]
-[>Created: Tue Mar 21 09:20:49 CET 2017]
 145D180807C60B4B 3.20 #module
 >Proto >Proto Collection #zClass
 Ot0 Output Big #zClass
@@ -825,7 +824,7 @@ Ot0 f35 requestEnabled true #txt
 Ot0 f35 triggerEnabled false #txt
 Ot0 f35 callSignature LazyLoadingDemo() #txt
 Ot0 f35 persist false #txt
-Ot0 f35 startName 'Lazy Loading Demo' #txt
+Ot0 f35 startName 'Lazy Table-Loading Demo' #txt
 Ot0 f35 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2

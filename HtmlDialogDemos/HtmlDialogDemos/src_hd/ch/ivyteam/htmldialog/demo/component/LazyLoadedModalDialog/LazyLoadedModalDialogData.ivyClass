@@ -1,0 +1,4 @@
+LazyLoadedModalDialogData #class
+ch.ivyteam.htmldialog.demo.component.LazyLoadedModalDialog #namespace
+showAddress Boolean #field
+showAddress PERSISTENT #fieldModifier
