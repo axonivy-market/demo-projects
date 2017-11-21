@@ -40,7 +40,7 @@ public class WebTestOutput extends BaseWebTest
     table.firstRowContains("Birgit");
     clearInput(By.id("form:theTable:scorePointFilter:filter"));
 
-    await(ExpectedConditions.visibilityOfElementLocated(By.id("form:theTable:6:j_id_2b")));
+    await(ExpectedConditions.visibilityOfElementLocated(By.id("form:theTable:6:colName")));
     driver.findElement(By.xpath("//tbody[@id='form:theTable_data']/tr[1]/td/div")).click();
     clearInput(By.id("form:theTable:0:name"));
     driver.findElement(By.id("form:theTable:0:name")).sendKeys("testPerson");
@@ -85,7 +85,7 @@ public class WebTestOutput extends BaseWebTest
     editableTableContains(table);
 
     driver.findElement(By.xpath("//*[@id='form:personTable:4:deleteButton']/span")).click();
-    table.containsNot("Dänzer");
+    table.containsNot("Dï¿½nzer");
 
     driver.findElement(By.xpath("//*[@id='form:personTable:addButton']/span")).click();
     editTable(By.xpath("//*[@id='form:personTable:5:rowEditor']/a[2]"), 5, "testfirstName", "testLastName");
@@ -166,7 +166,7 @@ public class WebTestOutput extends BaseWebTest
   {
     clearInput(By.id("personListForm:pickList_source_filter"));
     driver.findElement(By.id("personListForm:pickList_source_filter")).sendKeys(searchValue);
-    await(ExpectedConditions.attributeContains(By.xpath("//li[@data-item-label='Bütler Bruno']"), "style",
+    await(ExpectedConditions.attributeContains(By.xpath("//li[@data-item-label='Bï¿½tler Bruno']"), "style",
             "display: " + displayValue));
   }
 
