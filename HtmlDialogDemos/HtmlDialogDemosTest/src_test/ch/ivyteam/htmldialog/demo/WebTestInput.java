@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.concurrent.TimeUnit;
 
@@ -129,7 +130,7 @@ public class WebTestInput extends BaseWebTest
     File tempFile = File.createTempFile("tempTextFile", ".txt");
     tempFile.deleteOnExit();
     String testContent = "this is a test for the Simple File Up- and Download";
-    FileUtils.write(tempFile, testContent);
+    FileUtils.write(tempFile, testContent, Charset.defaultCharset());
 
     driver.findElement(By.id("demoForm:fileUpload")).sendKeys(tempFile.getAbsolutePath());
     driver.findElement(By.id("demoForm:fileUploadButton")).click();
@@ -139,7 +140,7 @@ public class WebTestInput extends BaseWebTest
     File downloadedFile = new File(ffDownloadDir, tempFile.getName());
     Awaitility.await("Expecting File to contain: " + testContent).atMost(10, TimeUnit.SECONDS).until(() ->
     {
-      return FileUtils.readFileToString(downloadedFile).equalsIgnoreCase(testContent);
+      return FileUtils.readFileToString(downloadedFile, Charset.defaultCharset()).equalsIgnoreCase(testContent);
     });
   }
 
