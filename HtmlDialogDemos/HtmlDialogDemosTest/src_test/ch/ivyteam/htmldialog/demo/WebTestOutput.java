@@ -85,7 +85,7 @@ public class WebTestOutput extends BaseWebTest
     editableTableContains(table);
 
     driver.findElement(By.xpath("//*[@id='form:personTable:4:deleteButton']/span")).click();
-    table.containsNot("Dï¿½nzer");
+    table.containsNot("Dänzer");
 
     driver.findElement(By.xpath("//*[@id='form:personTable:addButton']/span")).click();
     editTable(By.xpath("//*[@id='form:personTable:5:rowEditor']/a[2]"), 5, "testfirstName", "testLastName");
