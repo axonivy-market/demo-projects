@@ -166,7 +166,7 @@ public class WebTestOutput extends BaseWebTest
   {
     clearInput(By.id("personListForm:pickList_source_filter"));
     driver.findElement(By.id("personListForm:pickList_source_filter")).sendKeys(searchValue);
-    await(ExpectedConditions.attributeContains(By.xpath("//li[@data-item-label='Bï¿½tler Bruno']"), "style",
+    await(ExpectedConditions.attributeContains(By.xpath("//li[@data-item-label='Bütler Bruno']"), "style",
             "display: " + displayValue));
   }
 
