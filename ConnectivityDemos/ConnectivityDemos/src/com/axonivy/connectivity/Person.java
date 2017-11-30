@@ -1,5 +1,7 @@
 package com.axonivy.connectivity;
 
+import java.util.UUID;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -11,17 +13,17 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 @XmlRootElement(name = "person")
 public class Person
 {
-  private java.lang.Integer id;
+  private UUID id;
   private java.lang.String firstname;
   private java.lang.String lastname;
 
   @XmlElement
-  public java.lang.Integer getId()
+  public UUID getId()
   {
     return id;
   }
 
-  public void setId(java.lang.Integer _id)
+  public void setId(UUID _id)
   {
     id = _id;
   }
@@ -86,5 +88,4 @@ public class Person
   {
     return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
   }
-
 }

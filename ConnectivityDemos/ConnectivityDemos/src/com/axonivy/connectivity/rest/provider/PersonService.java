@@ -2,7 +2,10 @@ package com.axonivy.connectivity.rest.provider;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import javax.inject.Singleton;
 import javax.ws.rs.Consumes;
@@ -42,7 +45,7 @@ import com.axonivy.connectivity.Person;
 @Path("persons")
 public class PersonService {
 
-	private List<Person> persons = new ArrayList<>();
+	private Map<UUID, Person> persons = new HashMap<UUID, Person>();
 	
 	public PersonService()
 	{
@@ -56,16 +59,21 @@ public class PersonService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Person> getPersons(@QueryParam("name") String name)
 	{
+		List<Person> result;
 		if (StringUtils.isBlank(name))
 		{
-			return persons;
+			result = new ArrayList<>(persons.values());
 		}
-		return findPersons(name);
+		else
+		{
+			result = findPersons(name);
+		}
+		return result;
 	}
 
 	private List<Person> findPersons(String name) {
 		List<Person> matches = new ArrayList<>();
-		for(Person candidate : persons)
+		for(Person candidate : persons.values())
 		{
 			if (candidate.getFirstname().contains(name) ||
 				candidate.getLastname().contains(name))
@@ -78,7 +86,7 @@ public class PersonService {
 	
 	@GET @Path("/{personId}")
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-	public Response getPerson(@PathParam("personId") int personId)
+	public Response getPerson(@PathParam("personId") UUID personId)
 	{
 		try
 		{
@@ -107,12 +115,12 @@ public class PersonService {
 	
 	public static class CreatedPersonMeta
 	{
-		public final int id;
+		public final UUID id;
 		public final Calendar createdAt;
 		
-		private CreatedPersonMeta(int id)
+		private CreatedPersonMeta(UUID uuid)
 		{
-			this.id = id;
+			this.id = uuid;
 			this.createdAt = Calendar.getInstance();
 		}
 	}
@@ -120,7 +128,7 @@ public class PersonService {
 	
 	@DELETE @Path("/{personId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response deletePerson(@PathParam("personId") int personId)
+	public Response deletePerson(@PathParam("personId") UUID personId)
 	{
 		try
 		{
@@ -137,12 +145,12 @@ public class PersonService {
 	
 	@POST @Path("/{personId}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response update(@PathParam("personId") int personId, Person person)
+	public Response update(@PathParam("personId") UUID personId, Person person)
 	{
 		try
 		{
 			Person existing = persons.get(personId);
-			persons.set(existing.getId(), person);
+			persons.replace(existing.getId(), person);
 			return Response.status(Status.OK)
 					.build();
 		} 
@@ -154,15 +162,13 @@ public class PersonService {
 		}
 	}
 	
-	
-	
 	private Person addNewPerson(String firstname, String lastname) 
 	{
 		Person person = new Person();
 		person.setFirstname(firstname);
 		person.setLastname(lastname);
-		person.setId(persons.size());
-		persons.add(person);
+		person.setId(UUID.randomUUID());
+		persons.put(person.getId(), person);
 		return person;
 	}
 }

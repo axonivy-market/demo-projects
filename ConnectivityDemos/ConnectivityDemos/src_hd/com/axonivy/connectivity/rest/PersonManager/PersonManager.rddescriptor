@@ -21,7 +21,7 @@
         <inputParameter>
             <name>id</name>
             <description></description>
-            <parameterType>java.lang.Integer</parameterType>
+            <parameterType>java.util.UUID</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>

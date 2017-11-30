@@ -15,6 +15,7 @@ import javax.ws.rs.core.Link;
 import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.apache.http.HttpStatus;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
@@ -22,8 +23,8 @@ import org.glassfish.jersey.filter.LoggingFilter;
 import org.junit.Test;
 
 import com.axonivy.connectivity.Person;
+import com.axonivy.connectivity.rest.provider.PersonService;
 import com.fasterxml.jackson.databind.JsonNode;
-import javax.ws.rs.core.Response.Status;
 
 
 /**
@@ -32,6 +33,7 @@ import javax.ws.rs.core.Response.Status;
 public class IntegrationTestRestfulPersonService 
 {
 	public static final String REST_USER = "restUser";
+	private static final String UUID_PATTERN = "([a-f0-9]{8}(-[a-f0-9]{4}){3}-[a-f0-9]{11})";
 	
 	@Test
 	public void getListOfEntities()
@@ -57,7 +59,7 @@ public class IntegrationTestRestfulPersonService
 	    assertThat(response.getStatus()).isEqualTo(HttpStatus.SC_CREATED);
 	    assertThat(response.getLink("createdPerson")).isNotNull();
 	    JsonNode node = response.readEntity(JsonNode.class);
-	    assertThat(node.get("id").asInt()).isEqualTo(4);
+	    assertThat(node.get("id").asText()).containsPattern(UUID_PATTERN);
 	}
 
 	private Entity<Form> createFormPerson() {
@@ -71,13 +73,18 @@ public class IntegrationTestRestfulPersonService
 	@Test
 	public void updateEntity()
 	{
-		Person person = new Person();
-		person.setId(2);
-		person.setFirstname("Junit");
-		person.setLastname("Test");
-		Entity<Person> entity = Entity.json(person);
+		Link personLink = getPersonsClient().request().put(createFormPerson()).getLink("createdPerson");
+		assertThat(personLink).isNotNull();
+
+		Person person = createAuthenticatedClient().target(personLink).request().get(Person.class);
 		
-	    Response response = getPersonsClient().path(String.valueOf(person.getId()))
+		Person updatePerson = new Person();
+		updatePerson.setId(person.getId());
+		updatePerson.setFirstname("Junit");
+		updatePerson.setLastname("Test");
+		Entity<Person> entity = Entity.json(updatePerson);
+		
+		Response response = getPersonsClient().path(person.getId().toString())
 	    		.request().post(entity);
 	    assertThat(response.getStatus()).isEqualTo(Status.OK.getStatusCode());
 	}

@@ -1,5 +1,4 @@
 [Ivy]
-[>Created: Tue Apr 11 11:42:22 CEST 2017]
 15470DE765DF45FC 3.20 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonManagerProcess Big #zClass
@@ -183,10 +182,10 @@ Ps0 f21 339 275 26 26 0 12 #rect
 Ps0 f21 @|RichDialogProcessEndIcon #fIcon
 Ps0 f22 guid 154996947DF8D2D2 #txt
 Ps0 f22 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
-Ps0 f22 method delete(java.lang.Integer) #txt
+Ps0 f22 method delete(java.util.UUID) #txt
 Ps0 f22 disableUIEvents false #txt
 Ps0 f22 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.Integer id> param = methodEvent.getInputArguments();
+<java.util.UUID id> param = methodEvent.getInputArguments();
 ' #txt
 Ps0 f22 inParameterMapAction 'out.editPerson.id=param.id;
 ' #txt
@@ -195,13 +194,13 @@ Ps0 f22 outParameterDecl '<> result;
 Ps0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>delete(Integer)</name>
-        <nameStyle>15,5,7
+        <name>delete(UUID)</name>
+        <nameStyle>12,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ps0 f22 83 467 26 26 -40 15 #rect
+Ps0 f22 83 467 26 26 -36 15 #rect
 Ps0 f22 @|RichDialogMethodStartIcon #fIcon
 Ps0 f23 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
 Ps0 f23 339 467 26 26 0 12 #rect
