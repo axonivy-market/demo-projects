@@ -20,7 +20,7 @@
 		<!-- workflow: -->
 		<module>JsfWorkflowUi</module>
 		<module>WorkflowUI</module>
-		<module>HtmlWFUI</module>
+		<module>HtmlWfUi</module>
 
 		<!-- parent config poms: -->
 		<module>build.maven</module>
