@@ -1,0 +1,37 @@
+--- RCPTT testcase ---
+Format-Version: 1.0
+Contexts: _oxqloD3gEeadqZIC2MODiA,_aaETQPhDEeaBd7rbMJob0A,_EFdg4NJ0EeaR9M6EuzThAQ,_uTeBUD3gEeadqZIC2MODiA,_CfW5kD3mEeadqZIC2MODiA,_vNHwsD3hEeadqZIC2MODiA,_iWGD0D31EeadqZIC2MODiA,_j1ZYwD4IEea1-MPAK3G86w
+Element-Name: ExecuteWsClient
+Element-Type: testcase
+Element-Version: 3.0
+External-Reference: 
+Id: _kcK58OGpEeeXn4UcxfcCuQ
+Runtime-Version: 2.1.0.201606221726
+Save-Time: 12/15/17 4:13 PM
+Testcase-Type: ecl
+Verifications: _SbgVwD39EeadqZIC2MODiA
+
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac
+Content-Type: text/ecl
+Entry-Name: .content
+
+proc "startMappingProcess" [val processName]
+{
+	clearRuntimeLog
+	let[val proc [format "soap\\/client\\/dataMapping\\/%s" $processName]]
+	{
+		startBpmProcess -projectName $project -ivpPath $proc
+	}
+}
+
+let [val project "ConnectivityDemos"]
+{
+	// setup
+	importArchive -directory "applications/samples" -projectName $project
+	showOnlyUserRuntimeLog
+	startEngines
+
+	startMappingProcess "resolveToCache.ivp"
+	assertRuntimeLogMsg "Switzerland"
+}
+------=_.content-0a7243a0-75d3-3d5f-9791-539de0e5b7ac--
