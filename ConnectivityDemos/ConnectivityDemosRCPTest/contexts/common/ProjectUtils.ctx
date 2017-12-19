@@ -1,12 +1,12 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
 Context-Type: org.eclipse.rcptt.ctx.ecl
-Element-Name: ImportIvyArchive
+Element-Name: ProjectUtils
 Element-Type: context
 Element-Version: 2.0
 Id: _uTeBUD3gEeadqZIC2MODiA
 Runtime-Version: 2.1.0.201606221726
-Save-Time: 6/29/16 12:37 PM
+Save-Time: 12/19/17 3:33 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -28,8 +28,39 @@ proc "importArchive" [val directory] [val projectName]
 		        get-item $item | check
 	    	}
 	    }
+	    get-button "Copy projects into workspace" | check
 	    get-button Finish | click
 	}
 }
 
+proc "unpackIar" [val projectName]
+{
+	with [get-view "Axon.ivy Projects" | get-tree] 
+	{
+    	select $projectName | get-menu "Unpack Project (*.iar)" | click
+	}
+}
+
+proc "closeProject" [val projectName]
+{
+	with [get-view "Axon.ivy Projects" | get-tree] {
+		get-item ConnectivityDemos | click
+	    select $projectName | get-menu "Close Project" | click
+	}
+}
+
+proc "removeProject" [val projectName] [val removeFromDisk]
+{
+	with [get-view "Axon.ivy Projects" | get-tree] {
+	    get-item $projectName | click
+	    key-type Del
+	}
+	with [get-window Refactoring] {
+		if [ $removeFromDisk | eq true]
+		{
+		    get-button "Delete project contents on disk (cannot be undone)" | check
+		}
+		get-button Finish | click
+	}
+}
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
