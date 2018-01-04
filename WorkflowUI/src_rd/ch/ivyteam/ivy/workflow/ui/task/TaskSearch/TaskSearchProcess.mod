@@ -2717,7 +2717,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getId().intValue())
+	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getId())
 	{
 		// task has been already loaded
 		selectedTabbedDisplay.setSelectedComponent(currentComponent);
@@ -2971,7 +2971,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getId().intValue())
+	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getId())
 	{
 		// task has been already loaded
 		selectedTabbedDisplay.setSelectedComponent(currentComponent);
@@ -4817,7 +4817,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof CaseDisplayPanel && (currentComponent as CaseDisplayPanel).getCaseIdentifier() == in.selectedTask.getCase().getId().intValue())
+	if (currentComponent instanceof CaseDisplayPanel && (currentComponent as CaseDisplayPanel).getCaseIdentifier() == in.selectedTask.getCase().getId())
 	{
 		// case has been already loaded
 		// it should be selected and refresh

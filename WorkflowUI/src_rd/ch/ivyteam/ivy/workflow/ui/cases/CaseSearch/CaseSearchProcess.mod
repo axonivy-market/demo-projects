@@ -3074,7 +3074,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof CaseDisplayPanel && (currentComponent as CaseDisplayPanel).getCaseIdentifier() == in.selectedCase.getId().intValue())
+	if (currentComponent instanceof CaseDisplayPanel && (currentComponent as CaseDisplayPanel).getCaseIdentifier() == in.selectedCase.getId())
 	{
 		// task has been already loaded
 		// it should be selected and refresh

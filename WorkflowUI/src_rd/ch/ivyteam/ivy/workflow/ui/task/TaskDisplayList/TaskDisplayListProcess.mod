@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 09 13:48:47 CET 2015]
-1168625F1BC1155F 3.18 #module
+1168625F1BC1155F 3.20 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDisplayListProcess Big #zClass
 Ts0 RD #cInfo
@@ -1154,7 +1153,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getId().intValue())
+	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getId())
 	{
 		// task has been already loaded
 		selectedTabbedDisplay.setSelectedComponent(currentComponent);
@@ -1230,7 +1229,7 @@ for (int i=0; i< componentsList.size(); i++)
 {
 	ULCComponent currentComponent = componentsList.get(i);
 	
-	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getId().intValue())
+	if (currentComponent instanceof TaskDisplayPanel && (currentComponent as TaskDisplayPanel).getTaskIdentifier() == in.selectedTask.getId())
 	{
 		// task has been already loaded
 		// it should be selected and refresh
@@ -3821,7 +3820,7 @@ Ts0 f75 3294 220 36 24 20 -2 #rect
 Ts0 f75 @|RichDialogProcessStepIcon #fIcon
 Ts0 f276 expr in #txt
 Ts0 f276 outCond 'in.#selectedTask is initialized &&
-in.broadcastedTaskIdentifiers.contains(in.selectedTask.getId().intValue()) &&
+in.broadcastedTaskIdentifiers.contains(in.selectedTask.getId()) &&
 (in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.DONE) == 0  || in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.READY_FOR_JOIN) == 0 || 
 in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.PARKED) == 0 || in.selectedTask.getState().compareTo(ch.ivyteam.ivy.workflow.TaskState.SUSPENDED) == 0) ' #txt
 Ts0 f276 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
