@@ -1,4 +1,0 @@
-co: name={taskBlockedUntilTimestamp} description={} changed={2010-06-10 17:54:59 CEST} changedby={tirib} visualorder={0} guid={11B7F3266E716061} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1208567FC782A647} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-08 13:06:05 CEST} validto={} changed={2009-04-08 13:06:17 CEST} changedby={bb} properties={} id={}
-val: guid={11B7F3266E7B114D} datatype={} isdefault={true} langid={en} description={} validfrom={2008-08-01 18:55:54 CEST} validto={} changed={2010-06-10 17:54:59 CEST} changedby={tirib} properties={} id={}
-val: guid={11B7F329F7CEE4D3} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-08-01 18:56:08 CEST} validto={} changed={2010-06-10 17:54:59 CEST} changedby={tirib} properties={} id={}

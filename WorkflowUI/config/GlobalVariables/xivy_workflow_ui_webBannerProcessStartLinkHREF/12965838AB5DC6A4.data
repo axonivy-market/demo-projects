@@ -1,1 +1,0 @@
-{/value ""/description "The process start link HREF that load Rich Dialog dynamically as the \"web banner\" of the WorkflowUI. \nIt will be placed at north area of WorkflowUI.\n\nEx: customWebBanner.ivp\nRemark: \nThe size of the image in the Rich Dialog should be 1024x40."/environments * }

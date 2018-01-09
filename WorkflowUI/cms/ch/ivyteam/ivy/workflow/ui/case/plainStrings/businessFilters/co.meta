@@ -1,4 +1,0 @@
-co: name={businessFilters} description={} changed={2009-05-13 15:31:22 GMT} changedby={bb} visualorder={0} guid={11B07DD586F513A4} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B6F5CF84989D3E} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 15:08:28 GMT} validto={} changed={2008-07-29 15:08:35 GMT} changedby={tistc} properties={} id={}
-val: guid={11B07DD588E46381} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-09 12:48:11 GMT} validto={} changed={2009-05-05 13:56:13 GMT} changedby={bb} properties={} id={}
-val: guid={11B69A3D2633AB75} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 12:28:08 GMT} validto={} changed={2009-05-13 15:31:22 GMT} changedby={bb} properties={} id={}

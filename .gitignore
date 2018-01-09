@@ -79,13 +79,6 @@ WorkflowDemos/classes
 WorkflowDemos/deploy
 WorkflowDemos/logs
 WorkflowDemos/target
-WorkflowUI/classes
-WorkflowUI/classes/*
-WorkflowUI/logs
-WorkflowUI/src_dataClasses
-WorkflowUI/src_dataClasses/*
-WorkflowUI/src_dataClasses/ch
-WorkflowUI/target
 academy/PracticeJSF.test/target
 academy/PracticeJSF/classes
 academy/PracticeJSF/src_dataClasses/*

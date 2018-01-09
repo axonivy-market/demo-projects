@@ -1,4 +1,0 @@
-co: name={unsubtypedCases} description={} changed={2009-04-07 14:06:10 GMT} changedby={bb} visualorder={0} guid={12080DAB8E386C95} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12080DAB9023F1CA} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:06:26 GMT} validto={} changed={2009-04-07 13:59:19 GMT} changedby={bb} properties={} id={}
-val: guid={12080DAB8E3118A9} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-06-23 16:27:35 GMT} validto={} changed={2009-04-07 13:56:08 GMT} changedby={bb} properties={} id={}
-val: guid={12080DAB8F26DC23} datatype={} isdefault={true} langid={en} description={} validfrom={2008-06-23 16:27:03 GMT} validto={} changed={2009-04-07 14:06:10 GMT} changedby={bb} properties={} id={}

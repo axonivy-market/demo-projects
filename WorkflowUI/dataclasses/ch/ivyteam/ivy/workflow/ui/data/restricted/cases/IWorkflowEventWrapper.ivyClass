@@ -1,4 +1,0 @@
-IWorkflowEventWrapper #class
-ch.ivyteam.ivy.workflow.ui.data.restricted.cases #namespace
-workflowEvent ch.ivyteam.ivy.workflow.IWorkflowEvent #field
-eventTimestamp java.util.Date #field

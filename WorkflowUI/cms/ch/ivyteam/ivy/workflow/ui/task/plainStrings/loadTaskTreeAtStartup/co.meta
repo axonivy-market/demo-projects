@@ -1,3 +1,0 @@
-co: name={loadTaskTreeAtStartup} description={} changed={2011-11-03 17:31:09 CET} changedby={tirib} visualorder={0} guid={1336A3E7D6F3647C} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1336A3E7D78765E5} datatype={} isdefault={true} langid={en} description={} validfrom={2011-11-03 17:24:00 CET} validto={} changed={2011-11-03 17:25:48 CET} changedby={tirib} properties={} id={}
-val: guid={1336A3F1116D73B8} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-11-03 17:24:16 CET} validto={} changed={2011-11-03 17:31:09 CET} changedby={tirib} properties={} id={}

@@ -1,5 +1,0 @@
-CaseDetailsDisplayData #class
-ch.ivyteam.ivy.workflow.ui.cases.CaseDetailsDisplay #namespace
-fCase ch.ivyteam.ivy.workflow.ICase #field
-hasWfAdministratorPermissions Boolean #field
-customFieldsLabels ch.ivyteam.ivy.workflow.ui.data.restricted.common.CustomFieldsLabels #field

@@ -1,4 +1,0 @@
-co: name={startableProcessesShortDesc} description={} changed={2010-11-23 15:36:32 CET} changedby={rwei} visualorder={0} guid={11AE403A336D0AEB} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B7383528951329} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 12:28:50 CEST} validto={} changed={2010-05-27 10:25:47 CEST} changedby={tirib} properties={} id={}
-val: guid={11AE403A336BDA12} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 15:43:41 CEST} validto={} changed={2010-11-23 15:36:32 CET} changedby={rwei} properties={} id={}
-val: guid={11B69D11934DACA4} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:17:35 CEST} validto={} changed={2010-11-23 15:36:32 CET} changedby={rwei} properties={} id={}

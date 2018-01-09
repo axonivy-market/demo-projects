@@ -1,4 +1,0 @@
-co: name={findTaskLongDesc} description={} changed={2010-11-23 15:01:57 CET} changedby={rwei} visualorder={0} guid={11AE8D645ADB883A} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={11B739874EF9F205} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 12:51:56 CEST} validto={} changed={2008-07-30 12:52:34 CEST} changedby={tistc} properties={} id={}
-val: guid={11AE8D645AD4CDA9} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-03 14:12:14 CEST} validto={} changed={2008-07-03 14:12:36 CEST} changedby={tirib} properties={} id={}
-val: guid={11B6DA100C99294D} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 09:03:32 CEST} validto={} changed={2010-11-23 15:01:56 CET} changedby={rwei} properties={} id={}

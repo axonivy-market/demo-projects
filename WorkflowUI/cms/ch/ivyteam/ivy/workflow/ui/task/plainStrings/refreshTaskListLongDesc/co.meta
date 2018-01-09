@@ -1,4 +1,0 @@
-co: name={refreshTaskListLongDesc} description={} changed={2010-08-02 13:53:05 CEST} changedby={tirib} visualorder={0} guid={11AE3D3673081CBC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11AE3D3673028CFF} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 14:01:31 CEST} validto={} changed={2010-08-02 13:53:05 CEST} changedby={tirib} properties={} id={}
-val: guid={11B6DA58527596E1} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 09:08:28 CEST} validto={} changed={2010-08-02 13:53:05 CEST} changedby={tirib} properties={} id={}
-val: guid={11B73A0A34B9605D} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 13:00:52 CEST} validto={} changed={2010-08-02 13:53:05 CEST} changedby={tirib} properties={} id={}

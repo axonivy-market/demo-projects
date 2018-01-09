@@ -1,3 +1,0 @@
-co: name={managingRoles} description={} changed={2010-08-05 22:55:09 CEST} changedby={tirib} visualorder={0} guid={12A4408CA87830FD} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12A4408CA8C5AA2F} datatype={} isdefault={true} langid={en} description={} validfrom={2010-08-05 22:54:41 CEST} validto={} changed={2010-08-05 22:54:56 CEST} changedby={tirib} properties={} id={}
-val: guid={12A44090626EF7A8} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-08-05 22:54:56 CEST} validto={} changed={2010-08-05 22:55:09 CEST} changedby={tirib} properties={} id={}

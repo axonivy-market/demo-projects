@@ -19,7 +19,6 @@
 
 		<!-- workflow: -->
 		<module>JsfWorkflowUi</module>
-		<module>WorkflowUI</module>
 		<module>HtmlWfUi</module>
 
 		<!-- parent config poms: -->

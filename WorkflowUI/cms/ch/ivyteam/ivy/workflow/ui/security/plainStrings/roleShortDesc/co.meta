@@ -1,4 +1,0 @@
-co: name={roleShortDesc} description={} changed={2008-07-30 10:37:35 GMT} changedby={tistc} visualorder={0} guid={11AE40D1BF56EAA1} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B738B4514D395D} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:37:31 GMT} validto={} changed={2008-07-30 10:37:35 GMT} changedby={tistc} properties={} id={}
-val: guid={11B69D2EBBD2F965} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:19:35 GMT} validto={} changed={2008-07-28 13:19:40 GMT} changedby={cb} properties={} id={}
-val: guid={11AE40D1C0439647} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 13:54:01 GMT} validto={} changed={2008-07-02 13:54:43 GMT} changedby={tirib} properties={} id={}

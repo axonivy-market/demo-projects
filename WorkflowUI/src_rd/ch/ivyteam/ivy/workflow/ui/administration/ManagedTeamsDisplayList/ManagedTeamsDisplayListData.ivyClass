@@ -1,6 +1,0 @@
-ManagedTeamsDisplayListData #class
-ch.ivyteam.ivy.workflow.ui.administration.ManagedTeamsDisplayList #namespace
-usersManagedTeamsList List<ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams> #field
-usersManagedTeamsFilteredList List<ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams> #field
-nameCriteria String #field
-selectedUserManagedTeams ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams #field

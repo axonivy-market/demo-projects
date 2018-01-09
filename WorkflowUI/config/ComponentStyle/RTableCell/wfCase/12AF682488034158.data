@@ -1,5 +1,0 @@
-#Tue Mar 29 14:59:39 CEST 2011
-color=\#Tue Mar 29 14\:59\:39 CEST 2011\r\nmacro\=<%\\\= IF ((entry as ch.ivyteam.ivy.workflow.ICase).getBusinessMilestoneTimestamp() is initialized && (entry as ch.ivyteam.ivy.workflow.ICase).getBusinessMilestoneTimestamp().getDate().compareTo(new Date()) \\\=\\\= -1, \\n\\t\\t\\t\\t\\t"\\\#FF0000", \\n\\t\\t\\t\\t\\tIF((entry as ch.ivyteam.ivy.workflow.ICase).getBusinessMilestoneTimestamp() is initialized && ((entry as ch.ivyteam.ivy.workflow.ICase).getBusinessMilestoneTimestamp().getDate().compareTo(new Date()) \\\=\\\= 0 || (entry as ch.ivyteam.ivy.workflow.ICase).getBusinessMilestoneTimestamp().getDate().compareTo(new Date().add(new Duration(0,0,1,0,0,0))) \\\=\\\= 0), "\\\#FF8C00", null)) %>\r\n
-size=11
-family=TAHOMA
-style=BOLD

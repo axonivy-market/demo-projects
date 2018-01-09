@@ -1,3 +1,0 @@
-co: name={taskEndTimestamp} description={} changed={2011-01-12 11:29:27 CET} changedby={tirib} visualorder={0} guid={12D79C4B6E0C9BCC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12D79C4B6E9E41B5} datatype={} isdefault={true} langid={en} description={} validfrom={2011-01-12 11:28:11 CET} validto={} changed={2011-01-12 11:28:41 CET} changedby={tirib} properties={} id={}
-val: guid={12D79C52F16EDC4F} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-01-12 11:28:25 CET} validto={} changed={2011-01-12 11:28:41 CET} changedby={tirib} properties={} id={}

@@ -1,5 +1,0 @@
-CaseFilterProperty #class
-ch.ivyteam.ivy.workflow.ui.data.cases #namespace
-property ch.ivyteam.ivy.workflow.CaseProperty #field
-relationalOperator ch.ivyteam.logicalexpression.RelationalOperator #field
-value Object #field

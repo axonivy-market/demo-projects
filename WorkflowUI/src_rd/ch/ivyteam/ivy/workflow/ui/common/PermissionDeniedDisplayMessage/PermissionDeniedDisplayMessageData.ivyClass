@@ -1,3 +1,0 @@
-PermissionDeniedDisplayMessageData #class
-ch.ivyteam.ivy.workflow.ui.common.PermissionDeniedDisplayMessage #namespace
-permissionDeniedDisplayMessage ch.ivyteam.ivy.workflow.ui.data.common.PermissionDeniedDisplayMessage #field

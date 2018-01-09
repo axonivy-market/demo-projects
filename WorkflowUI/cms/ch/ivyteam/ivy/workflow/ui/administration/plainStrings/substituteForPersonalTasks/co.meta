@@ -1,4 +1,0 @@
-co: name={substituteForPersonalTasks} description={} changed={2010-11-23 15:48:09 CET} changedby={rwei} visualorder={0} guid={12A3747403E2F7A0} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12A3747E3CD6CB5E} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-08-03 11:28:32 CEST} validto={} changed={2010-11-23 15:48:09 CET} changedby={rwei} properties={} id={}
-val: guid={12A3747404256F45} datatype={} isdefault={true} langid={en} description={} validfrom={2010-08-03 11:27:50 CEST} validto={} changed={2010-11-23 15:48:09 CET} changedby={rwei} properties={} id={}
-val: guid={12C793318A890DBB} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 15:46:20 CET} validto={} changed={2010-11-23 15:46:59 CET} changedby={rwei} properties={} id={}

@@ -1,8 +1,0 @@
-PermissionDeniedDisplayMessage #class
-ch.ivyteam.ivy.workflow.ui.data.common #namespace
-permission ch.ivyteam.ivy.security.IPermission #field
-permission 'the permission that user does not have and on which the information message will be based' #fieldComment
-title String #field
-title 'title to display on infromation dialog' #fieldComment
-text String #field
-text 'text to display on infromation dialog' #fieldComment

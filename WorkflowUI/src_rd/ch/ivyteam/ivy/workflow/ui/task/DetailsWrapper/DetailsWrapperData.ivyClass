@@ -1,6 +1,0 @@
-DetailsWrapperData #class
-ch.ivyteam.ivy.workflow.ui.task.DetailsWrapper #namespace
-task ch.ivyteam.ivy.workflow.ITask #field
-hasWfAdministratorPermissions Boolean #field
-taskIdentifier Number #field
-detailTree Tree #field

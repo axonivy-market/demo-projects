@@ -1,4 +1,0 @@
-SettingsEditData #class
-ch.ivyteam.ivy.workflow.ui.administration.SettingsEdit #namespace
-error String #field
-windowTitle String #field

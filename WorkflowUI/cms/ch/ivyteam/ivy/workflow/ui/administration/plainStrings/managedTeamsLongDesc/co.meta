@@ -1,4 +1,0 @@
-co: name={managedTeamsLongDesc} description={} changed={2011-01-17 17:15:00 CET} changedby={tirib} visualorder={0} guid={12A4727A5272FD93} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={12A4727A52CBB67B} datatype={} isdefault={true} langid={en} description={} validfrom={2010-08-06 13:27:14 CEST} validto={} changed={2011-01-17 17:14:59 CET} changedby={tirib} properties={} id={}
-val: guid={12C7937FFDE1C6FB} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 15:51:41 CET} validto={} changed={2011-01-17 17:14:59 CET} changedby={tirib} properties={} id={}
-val: guid={12A4727B58EDFDCD} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-08-06 13:27:18 CEST} validto={} changed={2011-01-17 17:15:00 CET} changedby={tirib} properties={} id={}

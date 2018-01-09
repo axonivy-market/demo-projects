@@ -1,4 +1,0 @@
-co: name={JOINING} description={} changed={2010-11-23 16:17:19 CET} changedby={rwei} visualorder={0} guid={128DFEC950D1DB47} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={128DFEC950D71C3E} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-28 18:32:59 CEST} validto={} changed={2010-05-28 19:19:03 CEST} changedby={tirib} properties={} id={}
-val: guid={12C794F4A1189AB3} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 16:17:08 CET} validto={} changed={2010-11-23 16:17:19 CET} changedby={rwei} properties={} id={}
-val: guid={128DFEC950DDCBF8} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-28 18:32:44 CEST} validto={} changed={2010-05-28 19:19:03 CEST} changedby={tirib} properties={} id={}

@@ -1,4 +1,0 @@
-co: name={uncontactCases} description={} changed={2009-04-07 13:58:44 GMT} changedby={bb} visualorder={0} guid={12080DAAC22A8259} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12080DAAC22513FA} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-06-23 16:27:35 GMT} validto={} changed={2009-04-07 13:58:44 GMT} changedby={bb} properties={} id={}
-val: guid={12080DAAC311460A} datatype={} isdefault={true} langid={en} description={} validfrom={2008-06-23 16:27:03 GMT} validto={} changed={2009-04-07 13:58:44 GMT} changedby={bb} properties={} id={}
-val: guid={12080DAAC41FB4BF} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:06:26 GMT} validto={} changed={2009-04-07 13:58:44 GMT} changedby={bb} properties={} id={}

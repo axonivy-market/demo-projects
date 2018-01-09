@@ -1,4 +1,0 @@
-co: name={taskDisplayMode0ShortDesc} description={} changed={2010-05-27 15:04:07 CEST} changedby={tirib} visualorder={0} guid={11B0DAC57F7F41BC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B0DAC5807F5A35} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 13:30:41 CEST} validto={} changed={2010-05-27 15:04:06 CEST} changedby={tirib} properties={} id={}
-val: guid={11B73ADED369087B} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 13:15:23 CEST} validto={} changed={2010-05-27 15:04:07 CEST} changedby={tirib} properties={} id={}
-val: guid={11B69E646F71CA36} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:40:43 CEST} validto={} changed={2010-05-27 15:04:07 CEST} changedby={tirib} properties={} id={}

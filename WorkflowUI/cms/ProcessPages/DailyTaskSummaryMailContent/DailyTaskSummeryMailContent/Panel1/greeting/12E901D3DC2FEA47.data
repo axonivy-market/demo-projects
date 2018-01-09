@@ -1,1 +1,0 @@
-Hallo <%=ivy.html.get("in.user.fullName")%>

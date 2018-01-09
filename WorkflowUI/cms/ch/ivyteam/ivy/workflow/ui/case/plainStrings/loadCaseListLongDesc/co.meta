@@ -1,4 +1,0 @@
-co: name={loadCaseListLongDesc} description={} changed={2010-09-06 13:08:06 CEST} changedby={tirib} visualorder={0} guid={11ADE82A638454CD} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11ADE82A647DE5D2} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 14:04:41 CEST} validto={} changed={2010-09-06 13:08:06 CEST} changedby={tirib} properties={} id={}
-val: guid={11B6D91604DD85E9} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 08:46:28 CEST} validto={} changed={2010-08-02 13:50:52 CEST} changedby={tirib} properties={} id={}
-val: guid={11B73088140EF317} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:14:41 CEST} validto={} changed={2010-09-06 13:08:06 CEST} changedby={tirib} properties={} id={}

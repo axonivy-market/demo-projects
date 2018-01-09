@@ -1,4 +1,0 @@
-co: name={startTaskShortDesc} description={} changed={2010-11-23 14:35:12 CET} changedby={rwei} visualorder={0} guid={11AE3D8778453123} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B73AAE1EA2DC16} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 13:12:03 CEST} validto={} changed={2010-08-02 10:56:48 CEST} changedby={tirib} properties={} id={}
-val: guid={11B69E4D71EC9CEC} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:39:09 CEST} validto={} changed={2010-11-23 14:35:12 CET} changedby={rwei} properties={} id={}
-val: guid={11AE3D87784D5EDA} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 14:56:31 CEST} validto={} changed={2010-08-02 10:56:48 CEST} changedby={tirib} properties={} id={}

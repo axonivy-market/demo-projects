@@ -1,9 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2011-08-19 16:46:06 | 4.2.0.37004 | 1.0
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:131DD00091F5DBBB/131DCAEF03270660
-~.okButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:131DD00091F5DBBB/131DD4DD41641D9E
-~.managedTeamsTableTree@TREE_LOAD[]--->ch.ivyteam.ivy.process.ProcessStart:131DD00091F5DBBB/131DD092D15C6786
-~@RD_METHODCALL[start(ch.ivyteam.ivy.security.IRole,ch.ivyteam.ivy.workflow.ui.data.administration.UserManagedTeams)]--->ch.ivyteam.ivy.process.ProcessStart:131DD00091F5DBBB/131DD01F94761B74
-~.cancelButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:131DD00091F5DBBB/131DD4E2468C109E
-~.removeButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:131DD00091F5DBBB/131DD4CF3BF10E54
-~.addButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:131DD00091F5DBBB/131DD4CB745D8E1F

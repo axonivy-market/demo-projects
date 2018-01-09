@@ -1,4 +1,0 @@
-co: name={finishedCaseDisplayMode2ShortDesc} description={} changed={2010-09-07 14:00:39 CEST} changedby={tirib} visualorder={0} guid={12AEC1103BA465AF} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12AEC1103BFE9BC9} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 13:30:59 CEST} validto={} changed={2010-09-07 14:00:39 CEST} changedby={tirib} properties={} id={}
-val: guid={12AEC1103CC685B5} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 09:45:16 CEST} validto={} changed={2010-09-07 14:00:39 CEST} changedby={tirib} properties={} id={}
-val: guid={12AEC1103DA8F117} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 14:37:39 CEST} validto={} changed={2010-09-07 13:59:52 CEST} changedby={tirib} properties={} id={}

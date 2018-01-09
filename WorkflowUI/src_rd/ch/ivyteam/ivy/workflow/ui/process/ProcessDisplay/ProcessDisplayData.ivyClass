@@ -1,9 +1,0 @@
-ProcessDisplayData #class
-ch.ivyteam.ivy.workflow.ui.process.ProcessDisplay #namespace
-broadcastedTaskIdentifiers List<Number> #field
-broadcastedTaskIdentifiers 'The task identifiers of tasks that changed their state.' #fieldComment
-processStart ch.ivyteam.ivy.workflow.IProcessStart #field
-processStart 'The process to start' #fieldComment
-startedTask ch.ivyteam.ivy.workflow.ITask #field
-rdPanel ch.ivyteam.ivy.richdialog.exec.panel.IRichDialogPanel #field
-rdPanel PERSISTENT #fieldModifier

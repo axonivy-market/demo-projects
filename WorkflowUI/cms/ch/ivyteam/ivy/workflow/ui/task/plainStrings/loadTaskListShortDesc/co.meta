@@ -1,4 +1,0 @@
-co: name={loadTaskListShortDesc} description={} changed={2010-09-06 13:05:32 CEST} changedby={tirib} visualorder={0} guid={11AE3AFAB2EC10A5} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11AE3AFAB3D6B975} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 14:28:25 CEST} validto={} changed={2010-09-06 13:05:32 CEST} changedby={tirib} properties={} id={}
-val: guid={11B739BBD8325F42} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 12:55:31 CEST} validto={} changed={2010-09-06 13:05:32 CEST} changedby={tirib} properties={} id={}
-val: guid={11B69E0DC0CAD688} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:34:48 CEST} validto={} changed={2010-09-06 13:05:32 CEST} changedby={tirib} properties={} id={}

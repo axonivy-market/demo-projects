@@ -1,4 +1,0 @@
-co: name={sendNever} description={} changed={2011-01-11 15:28:37 CET} changedby={tirib} visualorder={0} guid={1297E1B1833EA6BC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12984611149E5F59} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-06-29 17:44:00 CEST} validto={} changed={2010-06-30 08:52:24 CEST} changedby={cst} properties={} id={}
-val: guid={1297E202FCD4EFF4} datatype={} isdefault={false} langid={de} description={} validfrom={2010-06-28 12:34:52 CEST} validto={} changed={2010-06-29 12:57:39 CEST} changedby={cst} properties={} id={}
-val: guid={1297E1B18373463F} datatype={} isdefault={true} langid={en} description={} validfrom={2010-06-28 12:29:51 CEST} validto={} changed={2010-06-29 12:57:40 CEST} changedby={cst} properties={} id={}

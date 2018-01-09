@@ -1,3 +1,0 @@
-SubstituteDisplayListData #class
-ch.ivyteam.ivy.workflow.ui.administration.SubstituteDisplayList #namespace
-selectedUser ch.ivyteam.ivy.security.IUser #field

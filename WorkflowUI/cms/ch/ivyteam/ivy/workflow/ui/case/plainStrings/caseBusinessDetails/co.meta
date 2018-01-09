@@ -1,4 +1,0 @@
-co: name={caseBusinessDetails} description={} changed={2008-07-29 15:34:22 GMT} changedby={tistc} visualorder={0} guid={11B07CB9A42389D9} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B07CB9A4266E9D} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-09 12:28:48 GMT} validto={} changed={2008-07-09 12:29:26 GMT} changedby={tirib} properties={} id={}
-val: guid={11B69A63F769265E} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 12:30:47 GMT} validto={} changed={2008-07-28 12:30:56 GMT} changedby={cb} properties={} id={}
-val: guid={11B6F74799F3E16F} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 15:34:09 GMT} validto={} changed={2008-07-29 15:34:22 GMT} changedby={tistc} properties={} id={}

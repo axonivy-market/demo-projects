@@ -1,3 +1,0 @@
-co: name={usersPermissionsShortDesc} description={} changed={2009-04-24 14:35:55 GMT} changedby={tirib} visualorder={0} guid={120D88A0074E6D3E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={120D88A00945CF8E} datatype={} isdefault={true} langid={en} description={} validfrom={2009-04-24 14:31:44 GMT} validto={} changed={2009-04-24 14:34:10 GMT} changedby={tirib} properties={} id={}
-val: guid={120D88C3E6EBB8E1} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-04-24 14:34:10 GMT} validto={} changed={2009-04-24 14:34:24 GMT} changedby={tirib} properties={} id={}

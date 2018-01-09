@@ -1,4 +1,0 @@
-co: name={enableTaskFilters} description={} changed={2008-08-01 13:26:48 GMT} changedby={tirib} visualorder={0} guid={11B085F240880EDA} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B69DDF40DDCBE2} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 13:31:38 GMT} validto={} changed={2008-07-28 13:31:53 GMT} changedby={cb} properties={} id={}
-val: guid={11B085F2418E2C71} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-09 15:09:57 GMT} validto={} changed={2008-08-01 13:26:48 GMT} changedby={tirib} properties={} id={}
-val: guid={11B73980136A9B10} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:51:26 GMT} validto={} changed={2008-07-30 10:51:26 GMT} changedby={tistc} properties={} id={}

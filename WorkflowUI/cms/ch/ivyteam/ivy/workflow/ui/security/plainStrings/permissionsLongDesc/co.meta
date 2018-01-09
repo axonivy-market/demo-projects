@@ -1,4 +1,0 @@
-co: name={permissionsLongDesc} description={} changed={2011-01-26 17:51:22 CET} changedby={tirib} visualorder={0} guid={11AE40D82AD5DABF} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={11AE40D82AD364F5} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 15:54:28 CEST} validto={} changed={2011-01-26 17:51:22 CET} changedby={tirib} properties={} id={}
-val: guid={11B738AFB88CF49B} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 12:37:12 CEST} validto={} changed={2011-01-26 17:51:22 CET} changedby={tirib} properties={} id={}
-val: guid={11B69D1872FD4466} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:18:04 CEST} validto={} changed={2011-01-26 17:51:22 CET} changedby={tirib} properties={} id={}

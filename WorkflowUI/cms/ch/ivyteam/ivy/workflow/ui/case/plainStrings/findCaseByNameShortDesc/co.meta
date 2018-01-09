@@ -1,4 +1,0 @@
-co: name={findCaseByNameShortDesc} description={} changed={2010-11-23 15:33:02 CET} changedby={rwei} visualorder={0} guid={11E36E934F5915BB} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11E36E934F5DD064} datatype={} isdefault={true} langid={en} description={} validfrom={2008-12-14 20:11:39 CET} validto={} changed={2010-08-02 11:51:27 CEST} changedby={tirib} properties={} id={}
-val: guid={121875995668A12D} datatype={} isdefault={false} langid={de} description={} validfrom={2009-05-28 15:12:23 CEST} validto={} changed={2010-11-23 15:33:02 CET} changedby={rwei} properties={} id={}
-val: guid={11E36EA794CD3296} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-12-14 20:13:02 CET} validto={} changed={2010-08-02 11:51:27 CEST} changedby={tirib} properties={} id={}

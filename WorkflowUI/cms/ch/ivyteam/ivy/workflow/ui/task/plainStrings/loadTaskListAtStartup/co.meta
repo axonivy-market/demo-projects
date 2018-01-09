@@ -1,3 +1,0 @@
-co: name={loadTaskListAtStartup} description={} changed={2011-11-03 17:31:04 CET} changedby={tirib} visualorder={0} guid={1336A3E4175EEDAC} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1336A3FA3788E94E} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-11-03 17:24:47 CET} validto={} changed={2011-11-03 17:31:04 CET} changedby={tirib} properties={} id={}
-val: guid={1336A3E4181E1E36} datatype={} isdefault={true} langid={en} description={} validfrom={2011-11-03 17:23:44 CET} validto={} changed={2011-11-03 17:25:15 CET} changedby={tirib} properties={} id={}

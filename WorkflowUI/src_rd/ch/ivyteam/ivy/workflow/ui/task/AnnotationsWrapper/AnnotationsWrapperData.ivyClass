@@ -1,7 +1,0 @@
-AnnotationsWrapperData #class
-ch.ivyteam.ivy.workflow.ui.task.AnnotationsWrapper #namespace
-task ch.ivyteam.ivy.workflow.ITask #field
-broadcastedTaskIdentifier Number #field
-broadcastedTaskIdentifier 'The task identifier that could be recieved from RD Events' #fieldComment
-broadcastedCaseIdentifier Number #field
-broadcastedCaseIdentifier 'The case identifier that could be recieved from RD Events' #fieldComment

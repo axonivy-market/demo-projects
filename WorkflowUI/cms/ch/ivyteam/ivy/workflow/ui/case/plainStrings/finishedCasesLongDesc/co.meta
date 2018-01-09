@@ -1,4 +1,0 @@
-co: name={finishedCasesLongDesc} description={} changed={2011-01-17 17:13:29 CET} changedby={tirib} visualorder={0} guid={11AE3FFBAD8D5F2A} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B73064F8BA2AF1} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:12:18 CEST} validto={} changed={2011-01-17 17:13:28 CET} changedby={tirib} properties={} id={}
-val: guid={11AE3FFBAD8B328F} datatype={} isdefault={true} langid={en} description={} validfrom={2008-05-01 13:04:29 CEST} validto={} changed={2011-01-17 17:13:29 CET} changedby={tirib} properties={} id={}
-val: guid={11B6D8E5903C4C48} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 08:43:10 CEST} validto={} changed={2011-01-17 17:13:29 CET} changedby={tirib} properties={} id={}

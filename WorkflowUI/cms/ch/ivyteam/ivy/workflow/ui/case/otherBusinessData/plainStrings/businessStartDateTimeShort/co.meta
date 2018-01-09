@@ -1,4 +1,0 @@
-co: name={businessStartDateTimeShort} description={} changed={2010-06-10 14:06:30 CEST} changedby={tirib} visualorder={0} guid={12921BBF1108FCC0} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12921BBF110E5C23} datatype={} isdefault={true} langid={en} description={} validfrom={2008-02-15 10:21:57 CET} validto={} changed={2010-06-10 14:00:52 CEST} changedby={tirib} properties={} id={}
-val: guid={12921BBF110CADDD} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 17:33:17 CEST} validto={} changed={2010-06-10 14:00:51 CEST} changedby={tirib} properties={} id={}
-val: guid={12921BBF110F735B} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 14:29:10 CEST} validto={} changed={2010-06-10 14:00:51 CEST} changedby={tirib} properties={} id={}

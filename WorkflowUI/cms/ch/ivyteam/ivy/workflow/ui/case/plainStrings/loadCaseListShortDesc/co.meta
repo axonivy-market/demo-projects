@@ -1,4 +1,0 @@
-co: name={loadCaseListShortDesc} description={} changed={2010-11-23 15:27:16 CET} changedby={rwei} visualorder={0} guid={11ADE985E5639CEE} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B7309ED0512FB1} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 10:16:15 CEST} validto={} changed={2010-09-06 13:07:41 CEST} changedby={tirib} properties={} id={}
-val: guid={011ADE985E6635D0} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-01 14:28:25 CEST} validto={} changed={2010-09-06 13:07:42 CEST} changedby={tirib} properties={} id={}
-val: guid={11B69C45AFAAAF75} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 15:03:40 CEST} validto={} changed={2010-11-23 15:27:16 CET} changedby={rwei} properties={} id={}

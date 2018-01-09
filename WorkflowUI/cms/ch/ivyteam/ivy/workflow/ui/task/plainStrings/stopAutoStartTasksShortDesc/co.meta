@@ -1,3 +1,0 @@
-co: name={stopAutoStartTasksShortDesc} description={} changed={2010-09-02 11:08:31 CEST} changedby={tirib} visualorder={0} guid={1296488A5565FE6C} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1296488A5D31BF87} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-05-31 14:51:13 CEST} validto={} changed={2010-09-02 11:08:31 CEST} changedby={tirib} properties={} id={}
-val: guid={1296488A585EC502} datatype={} isdefault={true} langid={en} description={} validfrom={2010-05-31 14:51:08 CEST} validto={} changed={2010-09-02 11:08:31 CEST} changedby={tirib} properties={} id={}

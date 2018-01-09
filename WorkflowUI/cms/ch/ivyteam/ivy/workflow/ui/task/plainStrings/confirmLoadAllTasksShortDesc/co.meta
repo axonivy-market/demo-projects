@@ -1,4 +1,0 @@
-co: name={confirmLoadAllTasksShortDesc} description={} changed={2009-04-08 12:16:49 GMT} changedby={bb} visualorder={0} guid={11B7E118C113D4EA} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11B7E118C11859E4} datatype={} isdefault={true} langid={en} description={} validfrom={2008-08-01 11:40:23 GMT} validto={} changed={2008-08-01 11:40:50 GMT} changedby={tirib} properties={} id={}
-val: guid={12085A7EB14A60A6} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-08 12:15:55 GMT} validto={} changed={2009-04-08 12:16:49 GMT} changedby={bb} properties={} id={}
-val: guid={11B7E11F4CD8FD5C} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-08-01 11:40:50 GMT} validto={} changed={2008-08-01 12:54:58 GMT} changedby={tirib} properties={} id={}

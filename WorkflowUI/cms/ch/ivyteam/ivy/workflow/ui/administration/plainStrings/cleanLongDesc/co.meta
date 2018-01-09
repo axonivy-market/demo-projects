@@ -1,4 +1,0 @@
-co: name={cleanLongDesc} description={} changed={2009-04-02 14:21:19 GMT} changedby={bb} visualorder={0} guid={11AE40BA39D80529} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={11B6F09A700578A1} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 13:37:28 GMT} validto={} changed={2008-07-29 13:37:35 GMT} changedby={tistc} properties={} id={}
-val: guid={11AE40BA3ACD2D8B} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 13:52:25 GMT} validto={} changed={2008-07-02 13:53:16 GMT} changedby={tirib} properties={} id={}
-val: guid={11B6993AFB817471} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-28 12:10:31 GMT} validto={} changed={2009-04-02 14:21:19 GMT} changedby={bb} properties={} id={}

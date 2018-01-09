@@ -1,4 +1,0 @@
-co: name={managedTeamsShortDesc} description={} changed={2010-11-23 14:28:10 CET} changedby={rwei} visualorder={0} guid={12A46965F37D6D6F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12C78E9CE9FC4BC9} datatype={} isdefault={false} langid={de} description={} validfrom={2010-11-23 14:26:17 CET} validto={} changed={2010-11-23 14:28:10 CET} changedby={rwei} properties={} id={}
-val: guid={12A46967F071C1EA} datatype={} isdefault={false} langid={fr} description={} validfrom={2010-08-06 10:48:42 CEST} validto={} changed={2010-08-06 11:01:45 CEST} changedby={tirib} properties={} id={}
-val: guid={12A46965F66DDB98} datatype={} isdefault={true} langid={en} description={} validfrom={2010-08-06 10:48:34 CEST} validto={} changed={2010-08-06 10:50:08 CEST} changedby={tirib} properties={} id={}

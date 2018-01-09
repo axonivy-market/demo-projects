@@ -1,4 +1,0 @@
-co: name={startTaskLongDesc} description={} changed={2010-08-02 13:53:42 CEST} changedby={tirib} visualorder={0} guid={11AE3D899E147379} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={11B6DAC2900DD02C} datatype={} isdefault={false} langid={de} description={} validfrom={2008-07-29 09:15:44 CEST} validto={} changed={2010-08-02 13:53:42 CEST} changedby={tirib} properties={} id={}
-val: guid={11B73AA4934A23B4} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-30 13:11:24 CEST} validto={} changed={2010-08-02 13:53:42 CEST} changedby={tirib} properties={} id={}
-val: guid={11AE3D899E12843D} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-02 14:56:40 CEST} validto={} changed={2010-08-02 13:53:42 CEST} changedby={tirib} properties={} id={}

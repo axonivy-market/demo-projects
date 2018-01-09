@@ -1,4 +1,0 @@
-co: name={changePassword} description={} changed={2009-04-02 14:21:00 GMT} changedby={bb} visualorder={0} guid={11CE72150C8FABDA} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={11CE7215106F3445} datatype={} isdefault={true} langid={en} description={} validfrom={2008-07-29 19:12:09 GMT} validto={} changed={2008-10-10 14:20:32 GMT} changedby={tirib} properties={} id={}
-val: guid={120673425B37663B} datatype={} isdefault={false} langid={de} description={} validfrom={2009-04-02 14:20:52 GMT} validto={} changed={2009-04-02 14:21:00 GMT} changedby={bb} properties={} id={}
-val: guid={11CE72150D7E13BE} datatype={} isdefault={false} langid={fr} description={} validfrom={2008-07-29 19:12:23 GMT} validto={} changed={2008-10-10 14:20:32 GMT} changedby={tirib} properties={} id={}

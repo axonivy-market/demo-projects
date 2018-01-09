@@ -1,6 +1,0 @@
-ICaseWrapper #class
-'It helps to configure the case list and sorting on java.util.Date columns which are normally "read only" if accessed from ICase reference and could not be set on Field column of RTable Widget Configuration View, like for example: wfCase.getBusinessMilestoneTimestamp()' #classComment
-ch.ivyteam.ivy.workflow.ui.data.restricted.cases #namespace
-wfCase ch.ivyteam.ivy.workflow.ICase #field
-businessStartTimestamp java.util.Date #field
-businessMilestoneTimestamp java.util.Date #field

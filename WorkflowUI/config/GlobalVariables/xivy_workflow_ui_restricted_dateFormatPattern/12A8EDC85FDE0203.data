@@ -1,1 +1,0 @@
-{/value "dd.MM.yyyy"/description "Date pattern used in order to format Java dates that WorkflowUI shows to the end user.\nIt could business milestone timestamp, etc."/environments * }
