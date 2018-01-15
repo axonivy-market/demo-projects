@@ -16,6 +16,7 @@
 		<src.job.name>Trunk_All</src.job.name>
 		<antrun.version>1.7</antrun.version>
 		<project.build.plugin.version>7.1.0-SNAPSHOT</project.build.plugin.version>
+		<maven.dependency.plugin.version>3.0.2</maven.dependency.plugin.version>
 	</properties>
 
 	<dependencies>
@@ -113,6 +114,30 @@
 							</configuration>
 						</execution>
 					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${maven.dependency.plugin.version}</version>
+					<executions>
+						<execution>
+							<id>thirdparty.libs</id>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>copy-dependencies</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>lib</outputDirectory>
+							</configuration>
+						</execution>
+					</executions>
+					<configuration>
+						<overWriteReleases>false</overWriteReleases>
+						<overWriteSnapshots>false</overWriteSnapshots>
+						<overWriteIfNewer>false</overWriteIfNewer>
+						<stripVersion>false</stripVersion>
+						<excludeArtifactIds>${project.artifactId},${project.artifactId}.source</excludeArtifactIds>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
