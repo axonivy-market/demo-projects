@@ -1,9 +1,0 @@
-Company #class
-'A Company Class used for the docFactory reporting demo.' #classComment
-ch.ivyteam.ivy.demo.docfactory.reporting #namespace
-name String #field
-name 'Name of the company' #fieldComment
-address String #field
-address 'Address of the company' #fieldComment
-departmentsList List<ch.ivyteam.ivy.demo.docfactory.reporting.Department> #field
-departmentsList 'List of its departments' #fieldComment

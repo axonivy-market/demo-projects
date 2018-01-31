@@ -1,6 +1,0 @@
-PortalDemoData #class
-ch.ivyteam.ivy.demo.portaldisplay.PortalDemo #namespace
-simpleCounter Number #field
-simpleCounter PERSISTENT #fieldModifier
-advancedCounter Number #field
-advancedCounter PERSISTENT #fieldModifier

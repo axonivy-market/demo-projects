@@ -1,8 +1,0 @@
-ProgrammingLanguagePopularity #class
-ch.ivyteam.ivy.demo.charts #namespace
-name String #field
-name PERSISTENT #fieldModifier
-percentageNew Number #field
-percentageNew PERSISTENT #fieldModifier
-percentageOld Number #field
-percentageOld PERSISTENT #fieldModifier

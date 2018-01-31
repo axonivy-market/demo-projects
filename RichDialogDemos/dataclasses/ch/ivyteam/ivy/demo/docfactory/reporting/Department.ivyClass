@@ -1,7 +1,0 @@
-Department #class
-'A Department Class used for the docFactory reporting demo.
-It contains a list of employees' #classComment
-ch.ivyteam.ivy.demo.docfactory.reporting #namespace
-name String #field
-location String #field
-employeesList List<ch.ivyteam.ivy.demo.docfactory.reporting.Employee> #field

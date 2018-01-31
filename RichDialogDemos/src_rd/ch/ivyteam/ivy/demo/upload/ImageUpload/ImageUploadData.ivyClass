@@ -1,7 +1,0 @@
-ImageUploadData #class
-ch.ivyteam.ivy.demo.upload.ImageUpload #namespace
-uploadResult Boolean #field
-message String #field
-uploadedTempFile File #field
-statusIconUri String #field
-createdIcon com.ulcjava.base.application.util.ULCIcon #field

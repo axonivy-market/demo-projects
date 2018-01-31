@@ -1,5 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2011-05-06 12:12:49 | 4.2.0.35989 | 1.0
-~.Button@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:130542743C9D264A/12FC4CB558CC2C51 # OrderBusinessCardsProcess.mod/OK
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:130542743C9D264A/12FC4C8B3837EF12
-~@RD_METHODCALL[order(String,String,String)]--->ch.ivyteam.ivy.process.ProcessStart:130542743C9D264A/12FC4CACCB1423D0

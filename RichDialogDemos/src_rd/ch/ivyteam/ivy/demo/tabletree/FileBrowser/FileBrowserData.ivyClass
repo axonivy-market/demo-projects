@@ -1,4 +1,0 @@
-FileBrowserData #class
-ch.ivyteam.ivy.demo.tabletree.FileBrowser #namespace
-rootDir Tree #field
-drives List<java.io.File> #field

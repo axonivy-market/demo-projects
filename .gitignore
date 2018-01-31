@@ -62,10 +62,6 @@ ProjectTestDemos/target
 QuickStartTutorial/classes/*
 QuickStartTutorial/logs
 QuickStartTutorial/target
-RichDialogDemos/classes
-RichDialogDemos/logs
-RichDialogDemos/src_dataClasses/*
-RichDialogDemos/target
 WebTestsDemos/target
 WorkflowDemos/WorkflowDemos/classes
 WorkflowDemos/WorkflowDemos/deploy

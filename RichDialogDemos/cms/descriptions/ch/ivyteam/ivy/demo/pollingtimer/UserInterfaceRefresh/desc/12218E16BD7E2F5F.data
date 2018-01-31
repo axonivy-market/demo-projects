@@ -1,5 +1,0 @@
-A simple demo application that shows how to use the UI Synchronization process element inside a long running process to update the GUI, e.g. to show a progress bar. 
-
-This demo also demonstrates the usage of ivy.rd.clickDeferred(hiddenButton) to immediately start another (event) process after a return to the client. 
-
-Furthermore the usage of the PollingTimerUtils class (an utility from the IvyAddOn project) is explained, e.g. to update an UI periodically periodically, if data is changing in the background (e.g. if some database tables are updated by an external process).

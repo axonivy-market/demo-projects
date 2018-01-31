@@ -1,1 +1,0 @@
-Shows how to use asynchronous key events to continuously filter and update a list with values. At the same time the GUI is prevented from freezing (due to fast typing).

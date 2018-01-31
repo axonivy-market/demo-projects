@@ -1,1 +1,0 @@
-A simple timer/clock application that demonstrates the usage of ULCPollingTimer objects to continuously update an application's GUI, even without user activity.

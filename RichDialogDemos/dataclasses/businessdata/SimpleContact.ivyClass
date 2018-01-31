@@ -1,8 +1,0 @@
-SimpleContact #class
-businessdata #namespace
-title String #field
-firstName String #field
-lastName String #field
-address businessdata.Address #field
-secondaryAddress businessdata.Address #field
-children List<businessdata.Child> #field

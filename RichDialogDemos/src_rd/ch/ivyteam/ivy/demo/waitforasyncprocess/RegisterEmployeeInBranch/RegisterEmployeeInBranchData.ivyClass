@@ -1,8 +1,0 @@
-RegisterEmployeeInBranchData #class
-ch.ivyteam.ivy.demo.waitforasyncprocess.RegisterEmployeeInBranch #namespace
-name String #field
-name PERSISTENT #fieldModifier
-branch String #field
-branch PERSISTENT #fieldModifier
-list List<String> #field
-list PERSISTENT #fieldModifier

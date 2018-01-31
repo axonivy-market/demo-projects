@@ -1,4 +1,0 @@
-Data #class
-ivydemos #namespace
-demos List<String> #field
-demos 'List of demo Rich Dialog id''s.' #fieldComment

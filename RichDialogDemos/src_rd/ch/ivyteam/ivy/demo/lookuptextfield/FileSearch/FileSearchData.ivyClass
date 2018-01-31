@@ -1,4 +1,0 @@
-FileSearchData #class
-ch.ivyteam.ivy.demo.lookuptextfield.FileSearch #namespace
-files List<java.io.File> #field
-path String #field

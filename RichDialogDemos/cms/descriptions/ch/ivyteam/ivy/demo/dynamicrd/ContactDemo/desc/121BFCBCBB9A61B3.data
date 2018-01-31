@@ -1,5 +1,0 @@
-Demonstrates the usage of DynamicDialog from the ivyAddOns project. 
-
-Dialogs of this type can be used to dynamically display input/edit masks for business objects. Their appearance can be configured according to a static configuration that is stored in the CMS (a so-called CmsContext). 
-
-The demo allows you to start two DynamicDialog instances for the same SimpleContact business object, but with two different CmsContext configurations.

@@ -1,1 +1,0 @@
-{/description "Validate a swiss zip code"/validationMessage "A swiss zip must contain exactly 4 digits."/datatypeConfig {/max "9999"/min "1000"/format "zip"}}

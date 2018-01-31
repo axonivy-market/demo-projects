@@ -1,6 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2013-07-03 14:46:10 | 0.0.0.15100 | 1.0
-~.btnLoad@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13F9FE2E4E816406/13FA4801B00F2E1A # PdfViewerProcess.mod/load document
-~.ckbStatusBar@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13F9FE2E4E816406/13ED033E92D75443
-~.ckbToolBar@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13F9FE2E4E816406/13ED033DF8790B11
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:13F9FE2E4E816406/13DC4D57813D91D3

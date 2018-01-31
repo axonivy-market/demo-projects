@@ -1,4 +1,0 @@
-co: name={EmptyMergeFields} description={} changed={2009-10-28 06:09:56 GMT} changedby={ec} visualorder={0} guid={12499C10E373BEBD} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={12499C11E54B86FB} datatype={} isdefault={false} langid={fr} description={} validfrom={2009-10-28 06:07:00 GMT} validto={} changed={2009-10-28 06:09:55 GMT} changedby={ec} properties={} id={}
-val: guid={12499C10E473D4BA} datatype={} isdefault={true} langid={en} description={} validfrom={2009-10-28 06:06:56 GMT} validto={} changed={2009-10-28 06:09:56 GMT} changedby={ec} properties={} id={}
-val: guid={12499C12663DC240} datatype={} isdefault={false} langid={de} description={} validfrom={2009-10-28 06:07:02 GMT} validto={} changed={2009-10-28 06:09:56 GMT} changedby={ec} properties={} id={}

@@ -1,4 +1,0 @@
-ChartsDemoData #class
-ch.ivyteam.ivy.demo.charts.ChartsDemo #namespace
-data List<ch.ivyteam.ivy.demo.charts.ProgrammingLanguagePopularity> #field
-data PERSISTENT #fieldModifier

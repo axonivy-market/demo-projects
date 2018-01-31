@@ -1,8 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2013-02-28 14:59:13 | 4.4.0.42221 | 1.0
-~.cancelBttn@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13D1A0CFEC0DDE67/13D1FA4B3C551483
-~.loadButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13D1A0CFEC0DDE67/13D1AD8942B76F2E
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:13D1A0CFEC0DDE67/13D1A0CFEE346EF6
-~@RD_METHODCALL[timerForUploading()]--->ch.ivyteam.ivy.process.ProcessStart:13D1A0CFEC0DDE67/13D1EEFE8AE3902B
-~@RD_METHODCALL[updateChoosedFilePath(String)]--->ch.ivyteam.ivy.process.ProcessStart:13D1A0CFEC0DDE67/13D1EAE6B77A651F
-~@RD_METHODCALL[uploadFile(String)]--->ch.ivyteam.ivy.process.ProcessStart:13D1A0CFEC0DDE67/13D1EC0A21D39A69

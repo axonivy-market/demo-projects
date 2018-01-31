@@ -1,6 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2008-09-26 16:03:14 | 4.0.0.15100 | 1.0
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:11BBB6B788730578/11BBB264FF9749BA
-~@RD_METHODCALL[iconCreated(Boolean,com.ulcjava.base.application.util.ULCIcon,String)]--->ch.ivyteam.ivy.process.ProcessStart:11BBB6B788730578/11BBB26508623D99
-~.loadButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:11BBB6B788730578/11BBB265038EBA26
-~@RD_METHODCALL[fileUploaded(Boolean,File,String)]--->ch.ivyteam.ivy.process.ProcessStart:11BBB6B788730578/11BBB26503848BC1

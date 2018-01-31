@@ -1,4 +1,0 @@
-ClockData #class
-ch.ivyteam.ivy.demo.pollingtimer.Clock #namespace
-interval Number #field
-interval 'interval of the timer in milliseconds' #fieldComment

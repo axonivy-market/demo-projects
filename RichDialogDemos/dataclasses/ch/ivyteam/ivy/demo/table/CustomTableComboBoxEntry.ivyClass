@@ -1,9 +1,0 @@
-CustomTableComboBoxEntry #class
-ch.ivyteam.ivy.demo.table #namespace
-CustomTableComboBoxEntry #dbTableName
-key Number #field
-key PERSISTENT #fieldModifier
-title String #field
-title PERSISTENT #fieldModifier
-description String #field
-description PERSISTENT #fieldModifier

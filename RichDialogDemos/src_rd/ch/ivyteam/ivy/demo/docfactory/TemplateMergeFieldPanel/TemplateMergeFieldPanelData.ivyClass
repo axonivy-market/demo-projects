@@ -1,8 +1,0 @@
-TemplateMergeFieldPanelData #class
-ch.ivyteam.ivy.demo.docfactory.TemplateMergeFieldPanel #namespace
-mergeField ch.ivyteam.ivy.addons.docfactory.TemplateMergeField #field
-mergeField 'The Merge Field represented in this RDC' #fieldComment
-mergeField PERSISTENT #fieldModifier
-isTextMultiline Boolean #field
-isTextMultiline 'if true, the textArea will be displayed, else the textField' #fieldComment
-isTextMultiline PERSISTENT #fieldModifier

@@ -1,6 +1,0 @@
-# Xpert.ivy RichDialog Event-Mapping Data
-# 2013-07-03 15:20:48 | 0.0.0.15100 | 1.0
-~.advancedPortletButton@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13F5B2C4BCDDC181/13F62002882681A4
-~.Button@ACTION[]--->ch.ivyteam.ivy.process.ProcessStart:13F5B2C4BCDDC181/13F5B314A0EE5FF1
-~@DISPLAY[LOAD]--->ch.ivyteam.ivy.process.ProcessStart:13F5B2C4BCDDC181/13FA4AF737BFED60 # PortalDemoProcess.mod/RD Load
-~@RD_METHODCALL[start()]--->ch.ivyteam.ivy.process.ProcessStart:13F5B2C4BCDDC181/13F5B2C4BEC63625

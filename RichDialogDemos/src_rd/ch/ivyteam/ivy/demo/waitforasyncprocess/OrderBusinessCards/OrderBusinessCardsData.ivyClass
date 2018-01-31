@@ -1,8 +1,0 @@
-OrderBusinessCardsData #class
-ch.ivyteam.ivy.demo.waitforasyncprocess.OrderBusinessCards #namespace
-name String #field
-name PERSISTENT #fieldModifier
-email String #field
-email PERSISTENT #fieldModifier
-branch String #field
-branch PERSISTENT #fieldModifier
