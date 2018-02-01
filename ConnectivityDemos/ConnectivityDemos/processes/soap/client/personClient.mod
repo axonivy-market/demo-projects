@@ -148,6 +148,7 @@ pt0 f8 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
 ' #txt
 pt0 f8 actionTable 'out=in;
 ' #txt
+pt0 f8 actionCode 'ivy.log.info("delete Richelieu");' #txt
 pt0 f8 timeout 0 #txt
 pt0 f8 beanConfig "" #txt
 pt0 f8 clientId 16150E44A158D09C #txt
@@ -209,6 +210,7 @@ pt0 f12 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
 ' #txt
 pt0 f12 actionTable 'out=in;
 ' #txt
+pt0 f12 actionCode 'ivy.log.info("add Richelieu");' #txt
 pt0 f12 timeout 0 #txt
 pt0 f12 beanConfig "" #txt
 pt0 f12 clientId 16150E44A158D09C #txt
