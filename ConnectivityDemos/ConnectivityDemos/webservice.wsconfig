@@ -4,7 +4,6 @@
         <name>ipService</name>
         <id>1605A52F0401B7DA</id>
         <wsdlUrl>http://www.webservicex.net/geoipservice.asmx?WSDL</wsdlUrl>
-        <transportSession>false</transportSession>
         <wsCallLibrary>CXF</wsCallLibrary>
         <service>
             <serviceClass>net.webservicex.ip.GeoIPService</serviceClass>
@@ -89,6 +88,66 @@
                         <name>Body</name>
                         <type>net.webservicex.ip.GeoIP</type>
                     </returnParameter>
+                </operation>
+            </portType>
+        </service>
+        <webServiceVersion/>
+    </webServiceConfig>
+    <webServiceConfig>
+        <name>personService</name>
+        <id>16150E44A158D09C</id>
+        <wsdlUrl>http://127.0.0.1:8081/ivy/ws/designer/ConnectivityDemos/16150E1D07E8CA18?WSDL</wsdlUrl>
+        <wsCallLibrary>CXF</wsCallLibrary>
+        <property>
+            <name>username</name>
+            <value>theBoss</value>
+            <password>false</password>
+        </property>
+        <property>
+            <name>password</name>
+            <value>\u007B\u0012\u0012\u0075\u002F\u0017\u00D1\u0083\u00C4\u009C\u0094\u00B0\u009A\u00B2\u00ED\u006B\u00AE\u000D\u005A\u0007\u0032\u009C\u0070\u00D6\u006F\u0027\u0008\u0080\u0085\u00CA\u005F\u00B5\u0094\u006C\u0091\u002D\u001A\u00F9\u0082\u0013\u004E\u00C4\u00C0\u0099\u00DA\u003B\u00C4\u0074</value>
+            <password>true</password>
+        </property>
+        <feature>
+            <class>ch.ivyteam.ivy.webservice.exec.cxf.feature.HttpBasicAuthenticationFeature</class>
+        </feature>
+        <service>
+            <serviceClass>com.axonivy.connectivity.soap.service.client.PersonServiceService</serviceClass>
+            <port>
+                <name>PersonServicePort</name>
+                <portType>PersonService</portType>
+                <locationUri>&lt;%=in.serverUri%&gt;/ivy/ws/designer/ConnectivityDemos/16150E1D07E8CA18</locationUri>
+            </port>
+            <portType>
+                <name>PersonService</name>
+                <operation>
+                    <name>addPerson</name>
+                    <returnParameter>
+                        <name>return</name>
+                        <type>void</type>
+                    </returnParameter>
+                    <inputParameter>
+                        <name>name</name>
+                        <type>java.lang.String</type>
+                    </inputParameter>
+                </operation>
+                <operation>
+                    <name>getPersons</name>
+                    <returnParameter>
+                        <name>person_003e</name>
+                        <type>java.util.List&lt;com.axonivy.connectivity.soap.service.client.Person&gt;</type>
+                    </returnParameter>
+                </operation>
+                <operation>
+                    <name>deletePerson</name>
+                    <returnParameter>
+                        <name>return</name>
+                        <type>void</type>
+                    </returnParameter>
+                    <inputParameter>
+                        <name>name</name>
+                        <type>java.lang.String</type>
+                    </inputParameter>
                 </operation>
             </portType>
         </service>

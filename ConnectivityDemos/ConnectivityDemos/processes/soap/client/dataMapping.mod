@@ -1,5 +1,5 @@
 [Ivy]
-1605A38503199ADB 3.20 #module
+1605A38503199ADB 3.21 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
 dg0 B #cInfo
@@ -66,12 +66,12 @@ out.ip=wsResponse;
 ' #txt
 dg0 f3 cache '{/cache true /invalidation false /scope 2 /groupname "\"geoip\""/invalidation_time_group ""/lifetime_group "0"/identifier "\"local\""/invalidation_time_entry ""/lifetime_entry "0"}' #txt
 dg0 f3 timeout 0 #txt
-dg0 f3 beanConfig 'KEY_REQUEST_PARAMETER_MAPPINGS_OPTIONS_MAP_NULL_VALUES=false
-KEY_AXIS_CSL_PARAMETER_DATA=
-KEY_WEBSERVICECONFIG_ID=1605A52F0401B7DA
-KEY_AXIS_PORTNAME=GeoIPServiceSoap
-KEY_OPERATION=GetGeoIPContext
-KEY_REQUEST_PARAMETER_MAPPINGS_OPTIONS_AUTO_INITIALIZE_FIRST_LEVEL_FIELDS=true' #txt
+dg0 f3 clientId 1605A52F0401B7DA #txt
+dg0 f3 port GeoIPServiceSoap #txt
+dg0 f3 operation GetGeoIPContext #txt
+dg0 f3 properties 'AXIS.mapNullValues=false;
+AXIS2.autoInitFirstLevelFields=true;
+' #txt
 dg0 f3 returningObjectList '[]' #txt
 dg0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -99,7 +99,7 @@ dg0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-dg0 f5 328 42 112 44 -17 -7 #rect
+dg0 f5 328 44 112 40 -17 -7 #rect
 dg0 f5 @|StepIcon #fIcon
 dg0 f6 expr out #txt
 dg0 f6 280 64 328 64 #arcP

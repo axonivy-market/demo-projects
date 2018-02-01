@@ -1,0 +1,6 @@
+PersonServiceData #class
+com.axonivy.connectivity.soap.service #namespace
+persons List<com.axonivy.connectivity.soap.service.Person> #field
+persons PERSISTENT #fieldModifier
+name String #field
+name PERSISTENT #fieldModifier
