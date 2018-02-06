@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Tue Jan 10 14:15:08 CET 2017]
-13FE10F004F193D4 3.19 #module
+13FE10F004F193D4 3.20 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
 Ts0 RD #cInfo
@@ -356,7 +355,7 @@ Ts0 f15 actionCode 'if(in.expiryDate.toNumber() > 0)
 	DateTime expiry = new DateTime(in.expiryDate.getYear(), in.expiryDate.getMonth(), in.expiryDate.getDay(), 
 		in.expiryTime.getHours(), in.expiryTime.getMinutes(), 0);
 	
-	if(out.task.getExpiryActivator() == null)
+	if(out.task.getExpiryActivator() == null && !(out.task.getExpiryTimestamp() is initialized))
 	{
 		out.task.setExpiryActivator(out.task.getActivator());
 	}	
