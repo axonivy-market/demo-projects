@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Fri Dec 09 16:04:51 CET 2016]
-13F3D94E5C99F06F 3.19 #module
+13F3D94E5C99F06F 3.20 #module
 >Proto >Proto Collection #zClass
 Wf0 WfJsf Big #zClass
 Wf0 B #cInfo
@@ -91,13 +90,14 @@ Wf0 f1 actionTable 'out=in1;
 ' #txt
 Wf0 f1 outTypes "ch.ivyteam.wf.test.Data" #txt
 Wf0 f1 outLinks "TaskA.ivp" #txt
-Wf0 f1 caseData 'case.category=<%\=in1.category%>
-process.code=<%\=in1.process%>
-processCategory.code=<%\=in1.category%>' #txt
+Wf0 f1 caseData 'processCategory.code=<%\=in1.category%>
+case.category=<%\=in1.category%>
+process.code=<%\=in1.process%>' #txt
 Wf0 f1 taskData 'TaskA.DESC=<%\=in1.description%>
 TaskA.EXP=in1.expiryDate.getDurationFromNow()
 TaskA.EXPRI=2
-TaskA.EXTYPE=-1
+TaskA.EXROL=Everybody
+TaskA.EXTYPE=0
 TaskA.NAM=JSF <%\=in1.caption%>
 TaskA.PRI=in1.prio
 TaskA.ROL=Everybody
