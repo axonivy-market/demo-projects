@@ -123,11 +123,11 @@ public class WebTestOutput extends BaseWebTest
 
   private void editList(int elementPosition, int buttonPosition, String expectedName, String notExpectedName)
   {
-    driver.findElement(
-            By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[" + elementPosition + "]"))
-            .click();
-    driver.findElement(
-            By.xpath("//*[@id='personListForm:personsList']/div/div[2]/button[" + buttonPosition + "]"))
+    await(ExpectedConditions.elementToBeClickable(By
+            .xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li["
+                    + elementPosition + "]"))).click();
+    await(ExpectedConditions.elementToBeClickable(
+            By.xpath("//*[@id='personListForm:personsList']/div/div[2]/button[" + buttonPosition + "]")))
             .click();
     await(ExpectedConditions.textToBePresentInElementLocated(
             By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[1]"), expectedName));
