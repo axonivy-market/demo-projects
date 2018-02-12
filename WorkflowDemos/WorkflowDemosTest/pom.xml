@@ -9,16 +9,16 @@
 		<version>7.1.0-SNAPSHOT</version>
 		<relativePath>../../build.maven/iar/web.test</relativePath>
 	</parent>
-	
+
 	<groupId>ch.ivyteam.ivy.project.demo</groupId>
 	<artifactId>WorkflowDemosTest</artifactId>
 	<version>7.1.0-SNAPSHOT</version>
 	<packaging>iar</packaging>
-	
+
 	<properties>
 		<selenium.version>2.48.1</selenium.version>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
@@ -27,7 +27,7 @@
 			<type>iar</type>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -35,23 +35,27 @@
 				<artifactId>project-build-plugin</artifactId>
 				<extensions>true</extensions>
 				<executions>
-		        	<execution>
-		        		<id>deploy.workflowdemos.under.test.to.memory.engine</id>
-		        		<goals><goal>deploy-iar</goal></goals>
-		        		<phase>integration-test</phase>
-		        		<configuration>
-		        			<deployIarFile>${ch.ivyteam.ivy.project.demo:WorkflowDemos:iar}</deployIarFile>
-		        		</configuration>
-		        	</execution>
-		        	 <execution>
-		        		<id>deploy.workflowdemos.test.to.memory.engine</id>
-		        		<goals><goal>deploy-iar</goal></goals>
-		        		<phase>integration-test</phase>
-		        		<configuration>
-		        			<deployIarFile>${ch.ivyteam.ivy.project.demo:WorkflowDemosTest:iar}</deployIarFile>
-		        		</configuration>
-		        	</execution>
-		        </executions>
+					<execution>
+						<id>deploy.workflowdemos.under.test.to.memory.engine</id>
+						<goals>
+							<goal>deploy-to-engine</goal>
+						</goals>
+						<phase>integration-test</phase>
+						<configuration>
+							<deployIarFile>${ch.ivyteam.ivy.project.demo:WorkflowDemos:iar}</deployIarFile>
+						</configuration>
+					</execution>
+					<execution>
+						<id>deploy.workflowdemos.test.to.memory.engine</id>
+						<goals>
+							<goal>deploy-to-engine</goal>
+						</goals>
+						<phase>integration-test</phase>
+						<configuration>
+							<deployIarFile>${ch.ivyteam.ivy.project.demo:WorkflowDemosTest:iar}</deployIarFile>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

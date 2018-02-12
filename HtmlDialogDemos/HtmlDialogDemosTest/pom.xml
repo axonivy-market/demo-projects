@@ -48,7 +48,7 @@
 					<execution>
 						<id>deploy.htmlDialogDemos.under.test.to.memory.engine</id>
 						<goals>
-							<goal>deploy-iar</goal>
+							<goal>deploy-to-engine</goal>
 						</goals>
 						<phase>pre-integration-test</phase>
 						<configuration>
