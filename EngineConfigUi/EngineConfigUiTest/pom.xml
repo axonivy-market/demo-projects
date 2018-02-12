@@ -99,13 +99,13 @@
 						</goals>
 						<phase>pre-integration-test</phase>
 						<configuration>
-							<deployIarFile>${com.axonivy.system:engine-config-ui:iar}</deployIarFile>
+							<deployFile>${com.axonivy.system:engine-config-ui:iar}</deployFile>
 						</configuration>
 					</execution>
 					<execution>
 						<id>deploy.myself</id>
 						<goals>
-							<goal>deploy-iar</goal>
+							<goal>deploy-to-engine</goal>
 						</goals>
 						<phase>pre-integration-test</phase>
 					</execution>

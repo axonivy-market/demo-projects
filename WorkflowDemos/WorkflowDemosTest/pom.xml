@@ -52,7 +52,7 @@
 						</goals>
 						<phase>integration-test</phase>
 						<configuration>
-							<deployIarFile>${ch.ivyteam.ivy.project.demo:WorkflowDemosTest:iar}</deployIarFile>
+							<deployFile>${ch.ivyteam.ivy.project.demo:WorkflowDemosTest:iar}</deployFile>
 						</configuration>
 					</execution>
 				</executions>
