@@ -1,5 +1,5 @@
 [Ivy]
-15470DE765DF45FC 3.20 #module
+15470DE765DF45FC 3.22 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonManagerProcess Big #zClass
 Ps0 RD #cInfo
@@ -206,6 +206,9 @@ Ps0 f23 type com.axonivy.connectivity.rest.PersonManager.PersonManagerData #txt
 Ps0 f23 339 467 26 26 0 12 #rect
 Ps0 f23 @|RichDialogProcessEndIcon #fIcon
 Ps0 f25 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
+Ps0 f25 headers 'Accept=*/*;
+X-Requested-By="ivy";
+' #txt
 Ps0 f25 method PUT #txt
 Ps0 f25 bodyInputType FORM #txt
 Ps0 f25 bodyForm 'firstname=in.firstName;
@@ -247,6 +250,9 @@ Ps0 f27 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 Ps0 f27 path {person.id} #txt
 Ps0 f27 templateParams 'person.id=in.editPerson.id;
 ' #txt
+Ps0 f27 headers 'Accept=*/*;
+X-Requested-By="ivy";
+' #txt
 Ps0 f27 method POST #txt
 Ps0 f27 bodyInputType ENTITY #txt
 Ps0 f27 bodyEntity in.editPerson #txt
@@ -268,6 +274,9 @@ Ps0 f16 296 416 339 416 #arcP
 Ps0 f17 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
 Ps0 f17 path {person.id} #txt
 Ps0 f17 templateParams 'person.id=in.editPerson.id;
+' #txt
+Ps0 f17 headers 'Accept=*/*;
+X-Requested-By="ivy";
 ' #txt
 Ps0 f17 method DELETE #txt
 Ps0 f17 bodyInputType ENTITY #txt
