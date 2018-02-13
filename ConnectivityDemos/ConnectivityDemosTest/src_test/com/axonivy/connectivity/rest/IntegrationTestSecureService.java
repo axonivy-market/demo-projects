@@ -35,6 +35,7 @@ public class IntegrationTestSecureService
 	{
 		Response noAuthResponse = createClient()
 			.target(adminServiceUri).request()
+			.header("X-Requested-By", "ivy")
 			.put(Entity.entity("my new entry", MediaType.TEXT_PLAIN));
 		assertThat(noAuthResponse.getStatus()).isEqualTo(Status.UNAUTHORIZED.getStatusCode());
 		
@@ -49,17 +50,20 @@ public class IntegrationTestSecureService
 	{
 		Response noAuthResponse = createClient()
 			.target(adminServiceUri).path("/0").request()
+			.header("X-Requested-By", "ivy")
 			.post(Entity.entity("my new entry", MediaType.TEXT_PLAIN));
 		assertThat(noAuthResponse.getStatus()).isEqualTo(Status.UNAUTHORIZED.getStatusCode());
 		
 		Response response = createAuthenticatedClient()
 			.target(adminServiceUri).path("/0").request()
+			.header("X-Requested-By", "ivy")
 			.post(Entity.entity("my new entry", MediaType.TEXT_PLAIN));
 		assertThat(response.getStatus()).isEqualTo(Status.FORBIDDEN.getStatusCode());
 
 		Response wrongRoleResponse = createClient()
 			.register(HttpAuthenticationFeature.basic("theBoss", "theBoss"))
 			.target(adminServiceUri).path("/0").request()
+			.header("X-Requested-By", "ivy")
 			.post(Entity.entity("my new entry", MediaType.TEXT_PLAIN));
 		assertThat(wrongRoleResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
 		
@@ -70,6 +74,7 @@ public class IntegrationTestSecureService
 	{
 		Response response = createAuthenticatedClient()
 			.target(adminServiceUri+"/0").request()
+			.header("X-Requested-By", "ivy")
 			.delete();
 		assertThat(response.getStatus()).isEqualTo(Status.FORBIDDEN.getStatusCode());
 	}
