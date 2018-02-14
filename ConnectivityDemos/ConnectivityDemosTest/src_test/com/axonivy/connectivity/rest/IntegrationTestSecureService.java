@@ -41,6 +41,7 @@ public class IntegrationTestSecureService
 		
 		Response response = createAuthenticatedClient()
 			.target(adminServiceUri).request()
+			.header("X-Requested-By", "ivy")
 			.put(Entity.entity("my new entry", MediaType.TEXT_PLAIN));
 		assertThat(response.getStatus()).isEqualTo(Status.OK.getStatusCode());
 	}

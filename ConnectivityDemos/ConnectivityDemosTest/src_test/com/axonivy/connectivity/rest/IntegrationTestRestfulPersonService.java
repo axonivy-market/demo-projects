@@ -55,7 +55,7 @@ public class IntegrationTestRestfulPersonService
 	public void putNewEntity()
 	{
 		Entity<Form> entity = createFormPerson(); 
-	    Response response = getPersonsClient().request().put(entity);
+	    Response response = getPersonsClient().request().header("X-Requested-By", "ivy").put(entity);
 	    assertThat(response.getStatus()).isEqualTo(HttpStatus.SC_CREATED);
 	    assertThat(response.getLink("createdPerson")).isNotNull();
 	    JsonNode node = response.readEntity(JsonNode.class);
@@ -73,7 +73,7 @@ public class IntegrationTestRestfulPersonService
 	@Test
 	public void updateEntity()
 	{
-		Link personLink = getPersonsClient().request().put(createFormPerson()).getLink("createdPerson");
+		Link personLink = getPersonsClient().request().header("X-Requested-By", "ivy").put(createFormPerson()).getLink("createdPerson");
 		assertThat(personLink).isNotNull();
 
 		Person person = createAuthenticatedClient().target(personLink).request().get(Person.class);
@@ -92,7 +92,7 @@ public class IntegrationTestRestfulPersonService
 	@Test
 	public void deleteEntity()
 	{
-		Link personLink = getPersonsClient().request().put(createFormPerson()).getLink("createdPerson");
+		Link personLink = getPersonsClient().request().header("X-Requested-By", "ivy").put(createFormPerson()).getLink("createdPerson");
 		assertThat(personLink).isNotNull();
 		
 		Person createdPerson = createAuthenticatedClient().target(personLink).request().get(Person.class);

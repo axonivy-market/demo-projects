@@ -33,7 +33,7 @@ public class IntegrationTestRestfulApprovalService
 	public void putNewEntity()
 	{
 		Entity<Form> entity = createApproval("I need a break", "really i'm working really hard");
-	    Response response = getApprovalClient().request().put(entity);
+	    Response response = getApprovalClient().request().header("X-Requested-By", "ivy").put(entity);
 	    assertThat(response.getStatus()).isEqualTo(Response.Status.CREATED.getStatusCode());
 	    assertThat(response.getLocation().toString()).startsWith(EngineUrl.rest()+"/workflow/task/");
 	    
