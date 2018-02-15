@@ -85,7 +85,9 @@ public class IntegrationTestRestfulPersonService
 		Entity<Person> entity = Entity.json(updatePerson);
 		
 		Response response = getPersonsClient().path(person.getId().toString())
-	    		.request().post(entity);
+	    		.request()
+	    		.header("X-Requested-By", "ivy")
+	    		.post(entity);
 	    assertThat(response.getStatus()).isEqualTo(Status.OK.getStatusCode());
 	}
 	
@@ -97,7 +99,10 @@ public class IntegrationTestRestfulPersonService
 		
 		Person createdPerson = createAuthenticatedClient().target(personLink).request().get(Person.class);
 		
-		Response response = getPersonsClient().path(String.valueOf(createdPerson.getId())).request().delete();
+		Response response = getPersonsClient().path(String.valueOf(createdPerson.getId()))
+		        .request()
+		        .header("X-Requested-By", "ivy")
+		        .delete();
 		assertThat(response.readEntity(Person.class)).isNotNull();
 	}
 
