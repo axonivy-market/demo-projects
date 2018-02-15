@@ -2,8 +2,13 @@ package ch.ivyteam.htmldialog.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.interactions.Action;
@@ -15,11 +20,11 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
 public class WebTestOutput extends BaseWebTest
 {
-  @Override
-  protected WebDriver createDriver()
-  {
-    return new HtmlUnitDriver(true);
-  }
+//  @Override
+//  protected WebDriver createDriver()
+//  {
+//    return new HtmlUnitDriver(true);
+//  }
   
   @Test
   public void testDataTable() throws Exception
@@ -117,8 +122,17 @@ public class WebTestOutput extends BaseWebTest
   {
     startProcess("145D180807C60B4B/OrderListDemo.ivp");
 
+		
+    try {
     editList(1, 3, "Bruno", "Renato");
     editList(6, 2, "Michael", "Bruno");
+    } catch (Exception e) {
+    	File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+    	// Now you can do whatever you need to do with it, for example copy somewhere
+    	System.out.println("testOrderList failed");
+    	FileUtils.copyFile(scrFile, new File("c:\\temp\\testOrderfail_screenshot.png"));
+    	throw e;
+    }
   }
 
   private void editList(int elementPosition, int buttonPosition, String expectedName, String notExpectedName)
