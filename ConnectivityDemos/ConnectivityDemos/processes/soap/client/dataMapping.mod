@@ -69,9 +69,6 @@ dg0 f3 timeout 0 #txt
 dg0 f3 clientId 1605A52F0401B7DA #txt
 dg0 f3 port GeoIPServiceSoap #txt
 dg0 f3 operation GetGeoIPContext #txt
-dg0 f3 properties 'AXIS.mapNullValues=false;
-AXIS2.autoInitFirstLevelFields=true;
-' #txt
 dg0 f3 returningObjectList '[]' #txt
 dg0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
