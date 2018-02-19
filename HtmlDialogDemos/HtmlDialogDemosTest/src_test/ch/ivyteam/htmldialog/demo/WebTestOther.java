@@ -1,9 +1,14 @@
 package ch.ivyteam.htmldialog.demo;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
+
 
 public class WebTestOther extends BaseWebTest
 {
@@ -11,15 +16,14 @@ public class WebTestOther extends BaseWebTest
   public void testHtmlJsfDemo()
   {
     startProcess("145D1862CF17F2C9/Html5Demo.ivp");
-    await(ExpectedConditions.visibilityOfElementLocated(By
+    await(visibilityOfElementLocated(By
             .xpath("//input[@id='passthrough:email'][contains(@placeholder,'Enter your email')]")));
-    await(ExpectedConditions.visibilityOfElementLocated(By
+    await(visibilityOfElementLocated(By
             .xpath("//input[@id='passthrough:name'][contains(@placeholder,'Enter your name')]")));
 
     driver.findElement(By.id("paintHtml:name")).sendKeys("paintHtml");
-    driver.findElement(By.id("paintHtml:buttonShow")).click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("paintHtml:growl_container"),
-            "Hello paintHtml"));
+    await(elementToBeClickable(By.id("paintHtml:buttonShow"))).click();
+    await(textToBePresentInElementLocated(By.id("paintHtml:growl_container"), "Hello paintHtml"));
   }
 
   @Test
@@ -32,13 +36,13 @@ public class WebTestOther extends BaseWebTest
     js.executeScript("document.getElementById('Form:Birthdate').setAttribute('value', '2016-01-01')");
     driver.findElement(By.id("Form:Captcha")).sendKeys("21");
     driver.findElement(By.id("Submit")).click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("captchaError"),
+    await(textToBePresentInElementLocated(By.id("captchaError"),
             "Error!"));
 
     clearInput(By.id("Form:Captcha"));
     driver.findElement(By.id("Form:Captcha")).sendKeys("42");
     driver.findElement(By.id("Submit")).click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("messageSent"),
+    await(textToBePresentInElementLocated(By.id("messageSent"),
             "Hey name! Your message has been sent."));
   }
 
@@ -48,10 +52,10 @@ public class WebTestOther extends BaseWebTest
     startProcess("145D1862CF17F2C9/MethodCallWithAjaxDemo.ivp");
     driver.findElement(By.id("hello")).click();
 
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("result"), "Welcome World"));
+    await(textToBePresentInElementLocated(By.id("result"), "Welcome World"));
 
     driver.findElement(By.id("closeDialog")).click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("welcomeText"),
+    await(textToBePresentInElementLocated(By.id("welcomeText"),
             "Welcome to Axon.ivy Html Dialog Demos"));
   }
 
@@ -74,7 +78,7 @@ public class WebTestOther extends BaseWebTest
   private void openAndValidate(String managedBeanPoperty)
   {
     startProcess("145D1862CF17F2C9/ManagedBeanDemo.ivp");
-    await(ExpectedConditions.visibilityOfElementLocated(By
+    await(visibilityOfElementLocated(By
             .xpath("//*[@id='beanForm:descriptionProperty'][@value='" + managedBeanPoperty + "']")));
   }
 
