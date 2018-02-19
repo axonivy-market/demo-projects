@@ -1,6 +1,10 @@
 package ch.ivyteam.htmldialog.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import static org.openqa.selenium.support.ui.ExpectedConditions.not;
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -19,7 +23,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.jayway.awaitility.Awaitility;
 
@@ -75,16 +78,14 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(By.id("Form:Country_input")).sendKeys("Switzerland");
     driver.findElement(By.id("Form:Country_input")).sendKeys(Keys.ENTER);
     driver.findElement(By.id("Form:SendButton")).click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:msgs"), "Value is required"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:msgs"), "First Name"));
+    await(textToBePresentInElementLocated(By.id("Form:msgs"), "Value is required"));
+    await(textToBePresentInElementLocated(By.id("Form:msgs"), "First Name"));
 
     driver.findElement(By.id("Form:Firstname")).sendKeys("ivy");
     driver.findElement(By.id("Form:SendButton")).click();
 
-    await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:msgs"),
-            "Value is required")));
-    await(ExpectedConditions
-            .textToBePresentInElementLocated(By.id("outputData"), "name=team, firstname=ivy"));
+    await(not(textToBePresentInElementLocated(By.id("Form:msgs"), "Value is required")));
+    await(textToBePresentInElementLocated(By.id("outputData"), "name=team, firstname=ivy"));
   }
 
   @Test
@@ -93,7 +94,7 @@ public class WebTestInput extends BaseWebTest
     startProcess("145D18298A3E81CF/FormDemo.ivp");
     By mailLocator = By.id("Form:Mail");
     driver.findElement(mailLocator).sendKeys("notValidMail[at]test.ch");
-    await(ExpectedConditions.elementToBeClickable(mailLocator)).submit();
+    await(elementToBeClickable(mailLocator)).submit();
 
     WebElement errorIcon = findMessageInErrorState(By.id("Form:MailMessage"));
     assertThat(errorIcon).as("Message Icon should show a mail validation error").isNotNull();
@@ -134,7 +135,7 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(By.id("demoForm:fileUpload")).sendKeys(tempFile.getAbsolutePath());
     driver.findElement(By.id("demoForm:fileUploadButton")).click();
     driver.findElement(By.id("demoForm:showFileButton")).click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("demoForm:textAreaLabel"), testContent));
+    await(textToBePresentInElementLocated(By.id("demoForm:textAreaLabel"), testContent));
     driver.findElement(By.id("demoForm:downloadFileButton")).click();
     File downloadedFile = new File(ffDownloadDir, tempFile.getName());
     Awaitility.await("Expecting File to contain: " + testContent).atMost(10, TimeUnit.SECONDS).until(() ->
@@ -159,8 +160,7 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(By.id("pictureGalleryForm:fileUpload_input")).sendKeys(
             tempImage.getAbsolutePath());
 
-    await(ExpectedConditions
-            .visibilityOfElementLocated(By
+    await(visibilityOfElementLocated(By
                     .xpath("//*[@id='pictureGalleryForm:pictureGallery']/div[1]/ul/li[1]/div/img[contains(@src,'tempImageFile')]")));
   }
 
@@ -173,7 +173,7 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(By.id("myForm:FirstName")).sendKeys("testFirstName");
     driver.findElement(By.id("myForm:nextButton")).click();
 
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("myForm:panel"), "Payment - Invoice"));
+    await(textToBePresentInElementLocated(By.id("myForm:panel"), "Payment - Invoice"));
     driver.findElement(By.id("myForm:Address")).sendKeys("Baarerstrasse 13");
     driver.findElement(By.id("myForm:finishButton")).click();
 
@@ -190,13 +190,13 @@ public class WebTestInput extends BaseWebTest
     prime().selectOneRadio(By.id("myForm:options")).selectItemByValue("CreditCard");
     driver.findElement(By.id("myForm:nextButton")).click();
 
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("myForm:panel"), "Payment - Credit Card"));
+    await(textToBePresentInElementLocated(By.id("myForm:panel"), "Payment - Credit Card"));
     driver.findElement(By.id("myForm:CreditCardNumber")).sendKeys("1234567891234567");
     driver.findElement(By.id("myForm:CreditCardNumber")).sendKeys(Keys.ENTER);
 
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("myForm:panel"),
+    await(textToBePresentInElementLocated(By.id("myForm:panel"),
             "Payment - Credit Card Processing"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("myForm:confirmVerification"),
+    await(textToBePresentInElementLocated(By.id("myForm:confirmVerification"),
             "Credit card verified!"));
     driver.findElement(By.id("myForm:finishButton")).click();
 
@@ -205,9 +205,8 @@ public class WebTestInput extends BaseWebTest
 
   private void waitForSummary(String name, String firstName)
   {
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("myForm:panel"), "Payment - Summary"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("myForm:outputSummary"), firstName + " "
-            + name));
+    await(textToBePresentInElementLocated(By.id("myForm:panel"), "Payment - Summary"));
+    await(textToBePresentInElementLocated(By.id("myForm:outputSummary"), firstName + " " + name));
   }
   
 }
