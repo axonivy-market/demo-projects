@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 import org.apache.commons.lang3.StringUtils;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class GeckoFirefox
 {
@@ -15,7 +16,7 @@ public class GeckoFirefox
     if (geckoBinary != null)
     {
       System.setProperty("webdriver.gecko.driver", geckoBinary.getAbsolutePath());
-      System.out.println("registered gecko: "+geckoBinary);
+      System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, new File("target/marionette.log").toString());
     }
     else
     {

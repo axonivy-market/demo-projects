@@ -1,6 +1,7 @@
 package ch.ivyteam.htmldialog.demo;
 
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,6 +10,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,7 +36,11 @@ public abstract class BaseWebTest
     GeckoFirefox.register();
     FirefoxProfile profile = new FirefoxProfile();
     configureBrowserProfile(profile);
-    WebDriver localDriver = new FirefoxDriver(profile);
+    FirefoxOptions opts = new FirefoxOptions()
+      .setLogLevel(Level.SEVERE)
+      .setProfile(profile);
+    
+    WebDriver localDriver = new FirefoxDriver(opts);
 
     localDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
