@@ -29,6 +29,8 @@ HtmlDialogDemos/HtmlDialogDemos/classes
 HtmlDialogDemos/HtmlDialogDemos/src_dataClasses/ch
 HtmlDialogDemos/HtmlDialogDemos/src_dataClasses/htmlDialogDemos
 HtmlDialogDemos/HtmlDialogDemosTest/classes
+HtmlDialogDemos/HtmlDialogDemosTest/drivers
+HtmlDialogDemos/HtmlDialogDemosTest/lib
 HtmlDialogDemos/HtmlDialogDemosTest/src_dataClasses/*
 HtmlDialogDemos/HtmlDialogDemosTest/src_ws/*
 HtmlDialogDemos/HtmlDialogDemosTest/src_wsproc/*
