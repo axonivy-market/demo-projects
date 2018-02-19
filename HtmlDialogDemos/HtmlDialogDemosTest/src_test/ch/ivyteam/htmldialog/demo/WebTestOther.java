@@ -21,7 +21,7 @@ public class WebTestOther extends BaseWebTest
     await(visibilityOfElementLocated(By
             .xpath("//input[@id='passthrough:name'][contains(@placeholder,'Enter your name')]")));
 
-    driver.findElement(By.id("paintHtml:name")).sendKeys("paintHtml");
+    await(visibilityOfElementLocated(By.id("paintHtml:name"))).sendKeys("paintHtml");
     await(elementToBeClickable(By.id("paintHtml:buttonShow"))).click();
     await(textToBePresentInElementLocated(By.id("paintHtml:growl_container"), "Hello paintHtml"));
   }
