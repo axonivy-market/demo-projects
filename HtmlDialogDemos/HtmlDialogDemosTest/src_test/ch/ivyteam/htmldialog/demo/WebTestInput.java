@@ -68,7 +68,6 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(By.id("Form:Birthday_input")).sendKeys("14.07.2016");
     driver.findElement(By.id("Form:Birthday_input")).sendKeys(Keys.TAB);
     driver.findElement(By.id("Form:Mail")).sendKeys("support@axonivy.com");
-    driver.findElement(By.id("Form:PhoneNumber")).click();
     driver.findElement(By.id("Form:PhoneNumber")).sendKeys("41586663455");
     driver.findElement(By.id("Form:Address")).sendKeys("Baarerstrasse 12");
     driver.findElement(By.id("Form:ZipCode")).sendKeys("6300");
@@ -192,7 +191,6 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(By.id("myForm:nextButton")).click();
 
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("myForm:panel"), "Payment - Credit Card"));
-    driver.findElement(By.id("myForm:CreditCardNumber")).click();
     driver.findElement(By.id("myForm:CreditCardNumber")).sendKeys("1234567891234567");
     driver.findElement(By.id("myForm:CreditCardNumber")).sendKeys(Keys.ENTER);
 
@@ -211,4 +209,5 @@ public class WebTestInput extends BaseWebTest
     await(ExpectedConditions.textToBePresentInElementLocated(By.id("myForm:outputSummary"), firstName + " "
             + name));
   }
+  
 }

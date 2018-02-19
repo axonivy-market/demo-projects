@@ -58,7 +58,7 @@ public class WebTestComponent extends BaseWebTest
     catch (Exception ex)
     {
       File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-      FileUtils.copyFile(scrFile, new File("C:\\tmp\\screenshot.png"));
+      FileUtils.copyFile(scrFile, new File("target/failureScreenshot.png"));
     }
   }
 

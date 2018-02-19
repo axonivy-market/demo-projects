@@ -8,12 +8,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import ch.ivyteam.htmldialog.server.test.EngineUrl;
-import ch.ivyteam.htmldialog.server.test.FixVersionFirefox;
+import ch.ivyteam.htmldialog.server.test.GeckoFirefox;
 
 import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
@@ -30,9 +31,10 @@ public abstract class BaseWebTest
 
   protected WebDriver createDriver()
   {
-    FirefoxProfile profile = FixVersionFirefox.loadFirefoxProfile();
+    GeckoFirefox.register();
+    FirefoxProfile profile = new FirefoxProfile();
     configureBrowserProfile(profile);
-    WebDriver localDriver = FixVersionFirefox.createWebDriver(profile);
+    WebDriver localDriver = new FirefoxDriver(profile);
 
     localDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
