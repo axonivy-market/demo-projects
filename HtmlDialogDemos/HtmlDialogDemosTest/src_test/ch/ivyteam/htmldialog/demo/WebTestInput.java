@@ -91,11 +91,11 @@ public class WebTestInput extends BaseWebTest
   public void testForm_customProjectValidator()
   {
     startProcess("145D18298A3E81CF/FormDemo.ivp");
-    WebElement mailInputField = driver.findElement(By.id("Form:Mail"));
-    mailInputField.sendKeys("notValidMail[at]test.ch");
-    mailInputField.submit();
+    By mailLocator = By.id("Form:Mail");
+    driver.findElement(mailLocator).sendKeys("notValidMail[at]test.ch");
+    await(ExpectedConditions.elementToBeClickable(mailLocator)).submit();
 
-    WebElement errorIcon = findMessageInErrorState(By.id("Form:MailMessage")).findElement(By.tagName("span"));
+    WebElement errorIcon = findMessageInErrorState(By.id("Form:MailMessage"));
     assertThat(errorIcon).as("Message Icon should show a mail validation error").isNotNull();
     String errorTitle = errorIcon.getAttribute("title");
     assertThat(errorTitle).startsWith("E-mail validation failed");
@@ -113,7 +113,7 @@ public class WebTestInput extends BaseWebTest
           {
             if (message.getAttribute("class").contains("ui-message-error"))
             {
-              return message;
+              return message.findElement(By.tagName("span"));
             }
           }
           return null;
