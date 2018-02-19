@@ -91,7 +91,6 @@
                 </operation>
             </portType>
         </service>
-        <webServiceVersion/>
     </webServiceConfig>
     <webServiceConfig>
         <name>personService</name>
@@ -139,6 +138,13 @@
                     </returnParameter>
                 </operation>
                 <operation>
+                    <name>longRunningBatchOperation</name>
+                    <returnParameter>
+                        <name>string</name>
+                        <type>java.lang.String</type>
+                    </returnParameter>
+                </operation>
+                <operation>
                     <name>deletePerson</name>
                     <returnParameter>
                         <name>return</name>
@@ -151,6 +157,5 @@
                 </operation>
             </portType>
         </service>
-        <webServiceVersion/>
     </webServiceConfig>
 </webServiceConfigurationNode>
