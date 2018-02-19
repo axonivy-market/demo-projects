@@ -1,5 +1,7 @@
 package ch.ivyteam.htmldialog.demo;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+
 import java.io.File;
 
 import org.apache.commons.io.FileUtils;
@@ -9,7 +11,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestComponent extends BaseWebTest
 {
@@ -20,8 +21,7 @@ public class WebTestComponent extends BaseWebTest
 
     driver.findElement(By.id("demoForm:personComponent:firstname")).sendKeys("testFirstName");
     driver.findElement(By.id("demoForm:personComponent:lastname")).sendKeys("testName" + Keys.ENTER);
-    await(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id='demoForm:panel']/table"),
-            "test"));
+    await(textToBePresentInElementLocated(By.xpath("//*[@id='demoForm:panel']/table"), "test"));
 
     fillAddressComponent("delivery");
     fillAddressComponent("billing");
@@ -33,8 +33,7 @@ public class WebTestComponent extends BaseWebTest
             prefix + "Street");
     driver.findElement(By.id("demoForm:personComponent:" + prefix + "AddressComponent:country")).sendKeys(
             prefix + "Country" + Keys.ENTER);
-    await(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id='demoForm:panel']/table"),
-            prefix));
+    await(textToBePresentInElementLocated(By.xpath("//*[@id='demoForm:panel']/table"), prefix));
   }
 
   @Test
@@ -45,14 +44,14 @@ public class WebTestComponent extends BaseWebTest
       startProcess("145D1849FACF0EAA/ComponentEventListenerDemo.ivp");
 
       retryingFindClick(By.xpath("//*[@id='componentForm:detailListComponent:personsTable_data']/tr[2]"));
-      await(ExpectedConditions.textToBePresentInElementLocated(
+      await(textToBePresentInElementLocated(
               By.id("componentForm:selectionResult_container"), "Person selected"));
-      await(ExpectedConditions.textToBePresentInElementLocated(
+      await(textToBePresentInElementLocated(
               By.id("componentForm:selectionResult_container"), "Peter"));
 
       retryingFindClick(By.xpath("//*[@id='componentForm:detailListComponent:personsTable_data']/tr[4]"));
       retryingFindClick(By.id("componentForm:detailListComponent:fireEventButton"));
-      await(ExpectedConditions.textToBePresentInElementLocated(
+      await(textToBePresentInElementLocated(
               By.id("componentForm:selectionResult_container"), "Fire event!"));
     }
     catch (Exception ex)
@@ -85,9 +84,9 @@ public class WebTestComponent extends BaseWebTest
 
   private void assertPanelValue(Integer expectedValueA, Integer ExpectedValueB)
   {
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:counterPanel_1_content"),
+    await(textToBePresentInElementLocated(By.id("Form:counterPanel_1_content"),
             expectedValueA.toString()));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("Form:counterPanel_2_content"),
+    await(textToBePresentInElementLocated(By.id("Form:counterPanel_2_content"),
             ExpectedValueB.toString()));
   }
 
