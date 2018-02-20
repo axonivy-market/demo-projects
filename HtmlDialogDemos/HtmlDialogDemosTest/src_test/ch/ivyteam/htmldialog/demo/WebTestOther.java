@@ -1,6 +1,5 @@
 package ch.ivyteam.htmldialog.demo;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
@@ -12,19 +11,6 @@ import org.openqa.selenium.JavascriptExecutor;
 
 public class WebTestOther extends BaseWebTest
 {
-  @Test
-  public void testHtmlJsfDemo()
-  {
-    startProcess("145D1862CF17F2C9/Html5Demo.ivp");
-    await(visibilityOfElementLocated(By
-            .xpath("//input[@id='passthrough:email'][contains(@placeholder,'Enter your email')]")));
-    await(visibilityOfElementLocated(By
-            .xpath("//input[@id='passthrough:name'][contains(@placeholder,'Enter your name')]")));
-
-    await(visibilityOfElementLocated(By.id("paintHtml:name"))).sendKeys("paintHtml");
-    await(elementToBeClickable(By.id("paintHtml:buttonShow"))).click();
-    await(textToBePresentInElementLocated(By.id("paintHtml:growl_container"), "Hello paintHtml"));
-  }
 
   @Test
   public void testHtmlBootstrapDemo() throws Exception
