@@ -55,6 +55,9 @@ public class WebTestInput extends BaseWebTest
     assertThat(errorTitle).startsWith("E-mail validation failed");
   }
 
+  /**
+   * TODO should be expressed as XPATH statement. This code is vulnerable for StaleElement exceptions!
+   */
   private WebElement findMessageInErrorState(By by)
   {
     return await(new ExpectedCondition<WebElement>()
