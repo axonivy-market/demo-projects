@@ -24,7 +24,7 @@ public abstract class BaseWebTest
 
   protected final WebDriver createDriver()
   {
-	  return new HtmlUnitDriver(true);
+    return new HtmlUnitDriver(true);
   }
 
   @After
@@ -51,7 +51,7 @@ public abstract class BaseWebTest
   protected void startProcess(String pathToIvp)
   {
     driver.get(EngineUrl.process() + "/WorkflowDemos/" + pathToIvp);
-    
+
   }
 
   protected void clearInput(By inputLocator)

@@ -16,7 +16,7 @@
 	<packaging>iar</packaging>
 
 	<properties>
-		<selenium.version>2.48.1</selenium.version>
+		<selenium.version>3.4.0</selenium.version>
 	</properties>
 
 	<dependencies>
