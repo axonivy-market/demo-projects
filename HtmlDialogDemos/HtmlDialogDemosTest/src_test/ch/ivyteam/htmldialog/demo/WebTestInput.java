@@ -1,16 +1,13 @@
 package ch.ivyteam.htmldialog.demo;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.not;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 
 public class WebTestInput extends BaseWebTest
 {
@@ -49,33 +46,10 @@ public class WebTestInput extends BaseWebTest
     driver.findElement(mailLocator).sendKeys("notValidMail[at]test.ch");
     await(elementToBeClickable(mailLocator)).submit();
 
-    WebElement errorIcon = findMessageInErrorState(By.id("Form:MailMessage"));
-    assertThat(errorIcon).as("Message Icon should show a mail validation error").isNotNull();
-    String errorTitle = errorIcon.getAttribute("title");
-    assertThat(errorTitle).startsWith("E-mail validation failed");
-  }
-
-  /**
-   * TODO should be expressed as XPATH statement. This code is vulnerable for StaleElement exceptions!
-   */
-  private WebElement findMessageInErrorState(By by)
-  {
-    return await(new ExpectedCondition<WebElement>()
-      {
-        @Override
-        public WebElement apply(WebDriver localDriver)
-        {
-          WebElement message = localDriver.findElement(by);
-          if (message != null)
-          {
-            if (message.getAttribute("class").contains("ui-message-error"))
-            {
-              return message.findElement(By.tagName("span"));
-            }
-          }
-          return null;
-        }
-      });
+    By mailErrorLocator = By
+            .xpath("//*[@id='Form:MailMessage' and contains(@class,'ui-message-error')]"
+                 + "//span[starts-with(@title,'E-mail validation failed')]");
+    await(visibilityOfElementLocated(mailErrorLocator));
   }
 
   @Test
