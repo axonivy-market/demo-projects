@@ -58,4 +58,27 @@ public class WebTestHtmlDriver extends BaseWebTest
             "name=Stalder, firstname=Renato"));
   }
   
+  @Test
+  public void testOrderList() throws Exception
+  {
+    startProcess("145D180807C60B4B/OrderListDemo.ivp");
+
+    editList(1, 3, "Bruno", "Renato");
+    editList(6, 2, "Michael", "Bruno");
+  }
+
+  private void editList(int elementPosition, int buttonPosition, String expectedName, String notExpectedName)
+  {
+    await(elementToBeClickable(By
+            .xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li["
+                    + elementPosition + "]"))).click();
+    await(elementToBeClickable(
+            By.xpath("//*[@id='personListForm:personsList']/div/div[2]/button[" + buttonPosition + "]")))
+            .click();
+    await(textToBePresentInElementLocated(
+            By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[1]"), expectedName));
+    await(not(textToBePresentInElementLocated(
+            By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[1]"), notExpectedName)));
+  }
+  
 }
