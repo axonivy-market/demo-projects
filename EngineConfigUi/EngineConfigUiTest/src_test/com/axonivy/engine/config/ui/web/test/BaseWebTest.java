@@ -48,7 +48,7 @@ public class BaseWebTest
     createDriver();
     prime = new PrimeUi(driver);
     ajax = new AjaxHelper(driver);
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     
     openConfigUi();
   }
@@ -166,9 +166,8 @@ public class BaseWebTest
     }
     
     dbCreated = true;
-
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:saveAndConnectButton"))
+    await(elementToBeClickable(
+            By.id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:saveAndConnectButton")))
             .click();
   }
 
