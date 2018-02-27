@@ -48,7 +48,7 @@ public class BaseWebTest
     createDriver();
     prime = new PrimeUi(driver);
     ajax = new AjaxHelper(driver);
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     
     openConfigUi();
   }
