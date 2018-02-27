@@ -1,6 +1,5 @@
 package com.axonivy.engine.config.ui.web.test;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -20,6 +19,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.axonivy.engine.config.ui.web.test.geckodriver.GeckoFirefox;
 import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Accordion;
@@ -40,16 +40,19 @@ public class BaseWebTest
   @Before
   public void setUp() throws Exception
   {
-    File geckodriver = new File("geckodriver/geckodriver.exe");
-    System.setProperty("webdriver.gecko.driver", geckodriver.getAbsolutePath());
-    System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"null");
-    FirefoxProfile profile = getFirefoxProfile();
-    driver = new FirefoxDriver(profile);
+    createDriver();
     prime = new PrimeUi(driver);
     ajax = new AjaxHelper(driver);
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     
     openConfigUi();
+  }
+  
+  private void createDriver()
+  {
+    GeckoFirefox.register();
+    FirefoxProfile profile = getFirefoxProfile();
+    driver = new FirefoxDriver(profile);
   }
 
   private FirefoxProfile getFirefoxProfile()
@@ -79,9 +82,6 @@ public class BaseWebTest
       System.err.println("DB '" + DBNAME + "' could not be dropped!");
     }
     driver.quit();
-    
-//    String command = "taskkill /im geckodriver.exe";
-//    Runtime.getRuntime().exec(command);
   }
 
   protected void setMySqlConfig()

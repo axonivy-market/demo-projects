@@ -16,7 +16,8 @@
 	<packaging>iar</packaging>
 
 	<properties>
-		<application>Portal</application>
+		<application>Portal</application>	
+		<selenium.version>3.4.0</selenium.version>
 	</properties>
 
 	<dependencies>
@@ -31,11 +32,6 @@
 			<artifactId>engine-config-ui</artifactId>
 			<version>[6.5.0-SNAPSHOT,)</version>
 			<type>iar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.4.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jmockit</groupId>
