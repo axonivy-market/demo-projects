@@ -1,5 +1,11 @@
 package com.axonivy.engine.config.ui.web.test;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import static org.openqa.selenium.support.ui.ExpectedConditions.not;
+import static org.openqa.selenium.support.ui.ExpectedConditions.stalenessOf;
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,7 +23,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.axonivy.engine.config.ui.web.test.geckodriver.GeckoFirefox;
 import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
@@ -95,7 +100,7 @@ public class BaseWebTest
   protected void createMySqlSysDb() throws Exception
   {
         driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput")).sendKeys(Keys.ENTER);
-    await(ExpectedConditions.textToBePresentInElementLocated(
+    await(textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
             "doesn't exist"));
 
@@ -134,14 +139,14 @@ public class BaseWebTest
 
   private void clickDbCreateButton()
   {
-    await(ExpectedConditions.elementToBeClickable(By
+    await(elementToBeClickable(By
             .id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton")))
             .click();
   }
 
   protected void createAndValidateDb()
   {
-    await(ExpectedConditions.visibilityOfElementLocated(By
+    await(visibilityOfElementLocated(By
             .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")));
     driver.findElement(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:uiRepeat:0:creationParam")).sendKeys(Keys.ENTER);
 
@@ -149,7 +154,7 @@ public class BaseWebTest
     sw.start();
     try
     {
-      await(40, ExpectedConditions.textToBePresentInElementLocated(
+      await(40, textToBePresentInElementLocated(
               By.id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:finishMessage"),
               "Successfully Finished!"));
       System.out.println("Created db after " + sw.getNanoTime() + " nanoseconds");
@@ -186,7 +191,7 @@ public class BaseWebTest
     boolean notCorrect = true;
     while (notCorrect)
     {
-      await(ExpectedConditions.not(ExpectedConditions.stalenessOf(driver.findElement(by))));
+      await(not(stalenessOf(driver.findElement(by))));
       driver.findElement(by).clear();
       driver.findElement(by).sendKeys(string);
       System.out.println(driver.findElement(by).getAttribute("value"));
@@ -200,14 +205,14 @@ public class BaseWebTest
   {
     openTab("System Database");
     checkConnection();
-    await(ExpectedConditions.textToBePresentInElementLocated(
+    await(textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
             "Connected"));
   }
 
   protected void checkConnection() throws Exception
   {
-    await(ExpectedConditions.elementToBeClickable(
+    await(elementToBeClickable(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton"))).click();
   }
 
@@ -223,7 +228,7 @@ public class BaseWebTest
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:confirmNewPassword"), "password");
 
     Thread.sleep(1000);
-    await(ExpectedConditions.elementToBeClickable(By
+    await(elementToBeClickable(By
             .id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton")))
             .click();
     dialog.waitToBeClosedOrError();

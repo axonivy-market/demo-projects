@@ -1,9 +1,10 @@
 package com.axonivy.engine.config.ui.web.test;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestLicence extends BaseWebTest
 {
@@ -11,10 +12,10 @@ public class WebTestLicence extends BaseWebTest
   @Test
   public void testLicenceDetails() throws Exception
   {
-    await(ExpectedConditions.textToBePresentInElementLocated(
+    await(textToBePresentInElementLocated(
             By.id("accordionPanel:licenceComponent:licenceInfosComponent:licenceInfoForm:Individual"),
             "Demo"));
-    await(ExpectedConditions.textToBePresentInElementLocated(
+    await(textToBePresentInElementLocated(
             By.id("accordionPanel:licenceComponent:licenceInfosComponent:licenceInfoForm:ExpiryDate"),
             "Never"));
 
@@ -26,7 +27,7 @@ public class WebTestLicence extends BaseWebTest
 
   private void valueInList(String value)
   {
-    await(ExpectedConditions.textToBePresentInElementLocated(
+    await(textToBePresentInElementLocated(
             By.id("accordionPanel:licenceComponent:licenceDetailComponent:licenceInfoForm:detailsList"),
             value));
   }

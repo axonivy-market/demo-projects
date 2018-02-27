@@ -1,10 +1,12 @@
 package com.axonivy.engine.config.ui.web.test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementValue;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestWebServer extends BaseWebTest
 {
@@ -21,24 +23,24 @@ public class WebTestWebServer extends BaseWebTest
   public void testConfigStays() throws Exception
   {
     openTab("Web Server");
-    await(ExpectedConditions.visibilityOfElementLocated(By
+    await(visibilityOfElementLocated(By
             .id("accordionPanel:webServerComponent:webServerForm:HTTPEnabledCheckbox")));
     assertThat(prime.selectBooleanCheckbox(By.id(
             "accordionPanel:webServerComponent:webServerForm:HTTPEnabledCheckbox")).isChecked())
             .isTrue();
     By portInputLocator = By.id("accordionPanel:webServerComponent:webServerForm:HTTPPortInput");
-    await(ExpectedConditions.textToBePresentInElementValue(
+    await(textToBePresentInElementValue(
             portInputLocator, "8080"));
 
     clearAndSend(portInputLocator, "1234");
     driver.findElement(By.id("saveAll")).click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("growl_container"),
+    await(textToBePresentInElementLocated(By.id("growl_container"),
             " were saved to the database"));
     openConfigUi();
     openTab("System Database");
     testConnection();
     openTab("Web Server");
-    await(ExpectedConditions.textToBePresentInElementValue(portInputLocator, "1234"));
+    await(textToBePresentInElementValue(portInputLocator, "1234"));
   }
 
   @Test
@@ -56,7 +58,7 @@ public class WebTestWebServer extends BaseWebTest
     openConfigUi();
     testConnection();
     openSystemPropertiesDialog();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id(editedRow + ":cellEditor"), newValue));
+    await(textToBePresentInElementLocated(By.id(editedRow + ":cellEditor"), newValue));
   }
 
   private void openSystemPropertiesDialog() throws Exception
@@ -64,12 +66,12 @@ public class WebTestWebServer extends BaseWebTest
     openTab("Web Server");
     By advancedSystemPropsButtonLocator = By
             .id("accordionPanel:webServerComponent:webServerForm:advancedSystemPropertiesButton");
-    await(ExpectedConditions.visibilityOfElementLocated(advancedSystemPropsButtonLocator));
+    await(visibilityOfElementLocated(advancedSystemPropsButtonLocator));
 
     driver.findElement(advancedSystemPropsButtonLocator).click();
     By advancedSystemPropsTable = By
             .id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable_data");
-    await(ExpectedConditions.textToBePresentInElementLocated(advancedSystemPropsTable,
+    await(textToBePresentInElementLocated(advancedSystemPropsTable,
             "WebServer.AJP.Enabled"));
   }
 

@@ -1,5 +1,8 @@
 package com.axonivy.engine.config.ui.web.test;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,7 +14,6 @@ import org.apache.commons.lang3.time.StopWatch;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import ch.ivyteam.ivy.Advisor;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
@@ -49,13 +51,11 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
 
   private void convertDb()
   {
-    await(ExpectedConditions
-            .elementToBeClickable(By
+    await(elementToBeClickable(By
                     .id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:confirmConvertButton")));
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:confirmConvertButton")).click();
-    await(ExpectedConditions
-            .textToBePresentInElementLocated(
+    await(textToBePresentInElementLocated(
                     By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:finishMessageConvertion"),
                     "Successfully Finished"));
     driver.findElement(
@@ -71,8 +71,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton"))
             .click();
-    await(ExpectedConditions
-            .textToBePresentInElementLocated(
+    await(textToBePresentInElementLocated(
                     By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
                     "Database too old"));
   }

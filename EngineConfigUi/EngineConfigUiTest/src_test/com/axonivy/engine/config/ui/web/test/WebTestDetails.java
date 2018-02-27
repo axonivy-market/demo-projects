@@ -1,10 +1,12 @@
 package com.axonivy.engine.config.ui.web.test;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestDetails extends BaseWebTest
 {
@@ -31,7 +33,7 @@ public class WebTestDetails extends BaseWebTest
     saveAll();
 
     openTab(" Summary");
-    await(ExpectedConditions.textToBePresentInElementLocated(summaryForm, "AXON"));
+    await(textToBePresentInElementLocated(summaryForm, "AXON"));
     summaryContains("Teamivy");
     summaryContains("IVYAXON");
   }
@@ -67,10 +69,10 @@ public class WebTestDetails extends BaseWebTest
 
   private void login(String username, String password)
   {
-    await(ExpectedConditions.visibilityOfElementLocated(By.id("loginPageComponent:loginForm:username")));
+    await(visibilityOfElementLocated(By.id("loginPageComponent:loginForm:username")));
     driver.findElement(By.id("loginPageComponent:loginForm:username")).sendKeys(username);
     driver.findElement(By.id("loginPageComponent:loginForm:password")).sendKeys(password);
     driver.findElement(By.id("loginPageComponent:loginForm:loginButton")).click();
-    await(ExpectedConditions.visibilityOfElementLocated(By.id("accordionPanel")));
+    await(visibilityOfElementLocated(By.id("accordionPanel")));
   }
 }

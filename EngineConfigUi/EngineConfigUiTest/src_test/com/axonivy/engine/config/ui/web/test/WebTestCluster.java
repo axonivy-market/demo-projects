@@ -1,5 +1,7 @@
 package com.axonivy.engine.config.ui.web.test;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -37,7 +39,7 @@ public class WebTestCluster extends BaseWebTest
     openTab(" Cluster Nodes");
     By addNodeButtonLocator = By.id("accordionPanel:clusterComponent:clusterNodeForm:addLocalNodeButton");
 
-    await(ExpectedConditions.elementToBeClickable(By
+    await(elementToBeClickable(By
             .id("accordionPanel:clusterComponent:addLocalNodeForm:addLocalNodeDialogButton")));
     String ipAddress = driver.findElement(
             By.id("accordionPanel:clusterComponent:addLocalNodeForm:newIPAddress")).getText();
@@ -48,7 +50,7 @@ public class WebTestCluster extends BaseWebTest
     table.contains("0");
     table.contains(ipAddress);
 
-    await(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(addNodeButtonLocator)));
+    await(ExpectedConditions.not(elementToBeClickable(addNodeButtonLocator)));
   }
 
   private void removeLocalNode()

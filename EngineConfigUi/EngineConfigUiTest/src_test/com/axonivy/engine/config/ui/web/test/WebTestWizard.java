@@ -1,9 +1,13 @@
 package com.axonivy.engine.config.ui.web.test;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.attributeToBe;
+import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestWizard extends BaseWebTest
 {
@@ -19,44 +23,42 @@ public class WebTestWizard extends BaseWebTest
 
   private void checkLicenceTab()
   {
-    await(ExpectedConditions.elementToBeClickable(By
+    await(elementToBeClickable(By
             .id("accordionPanel:licenceComponent:systemDatabaseTabNextButton"))).click();
-    await(ExpectedConditions.visibilityOfElementLocated(By
+    await(visibilityOfElementLocated(By
             .id("accordionPanel:licenceComponent:nextStepLicenceDialogForm:cancelLicenceButton"))).click();
   }
 
   private void checkSysDbTab() throws Exception
   {
     setMySqlConfig();
-    await(ExpectedConditions.elementToBeClickable(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton"))).click();
-    await(
-            ExpectedConditions.elementToBeClickable(
-                    By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton'][contains(@class, 'ui-state-warn')]")))
+    By nextButtonLocator = By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton");
+    await(elementToBeClickable(nextButtonLocator)).click();
+    await(elementToBeClickable(
+            By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton'][contains(@class, 'ui-state-warn')]")))
             .click();
-    await(ExpectedConditions.elementToBeClickable(By
+    await(elementToBeClickable(By
             .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton"))).click();
-    await(40, ExpectedConditions.elementToBeClickable(By
+    await(40, elementToBeClickable(By
             .id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:saveAndConnectButton"))).click();
     super.dbCreated = true;
     Thread.sleep(500);
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton"))
-            .click();
+    await(elementToBeClickable(nextButtonLocator));
+    driver.findElement(nextButtonLocator).click();
   }
 
   private void checkAdminsTab() throws Exception
   {
-    await(ExpectedConditions.elementToBeClickable(By
+    await(elementToBeClickable(By
             .id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton")));
     driver.findElement(By.id("accordionPanel:administratorsComponent:addAdminForm:newName")).sendKeys(
             Keys.ESCAPE);
     driver.findElement(By.id("accordionPanel:administratorsComponent:adminManagerForm:adminsTabNextButton"))
             .click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By
+    await(textToBePresentInElementLocated(By
             .id("accordionPanel:administratorsComponent:addAdminDialog"), "at least one"));
     addAdmin("AXON");
-    await(ExpectedConditions.visibilityOfElementLocated(By
+    await(visibilityOfElementLocated(By
             .id("accordionPanel:administratorsComponent:adminManagerForm:adminsTabNextButton")))
             .click();
   }
@@ -64,14 +66,14 @@ public class WebTestWizard extends BaseWebTest
   private void checkWebServerTab()
   {
     awaitTabIsOpen(By.xpath("//*[@id='accordionPanel']/div[7]"));
-    await(ExpectedConditions.elementToBeClickable(
+    await(elementToBeClickable(
             By.id("accordionPanel:webServerComponent:webServerForm:webServerTabNextButton"))).click();
     awaitTabIsOpen(By.xpath("//*[@id='accordionPanel']/div[9]"));
   }
 
   private void awaitTabIsOpen(By locator)
   {
-    await(ExpectedConditions.attributeToBe(locator, "aria-selected",
+    await(attributeToBe(locator, "aria-selected",
             "true"));
   }
 }
