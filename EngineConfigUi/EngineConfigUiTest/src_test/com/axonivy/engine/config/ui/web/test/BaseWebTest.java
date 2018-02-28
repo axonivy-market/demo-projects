@@ -1,15 +1,20 @@
 package com.axonivy.engine.config.ui.web.test;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOfElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.not;
 import static org.openqa.selenium.support.ui.ExpectedConditions.stalenessOf;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.RandomUtils;
@@ -18,8 +23,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -49,10 +57,10 @@ public class BaseWebTest
     prime = new PrimeUi(driver);
     ajax = new AjaxHelper(driver);
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    
+
     openConfigUi();
   }
-  
+
   private void createDriver()
   {
     GeckoFirefox.register();
@@ -99,7 +107,8 @@ public class BaseWebTest
 
   protected void createMySqlSysDb() throws Exception
   {
-        driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput")).sendKeys(Keys.ENTER);
+    driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"))
+            .sendKeys(Keys.ENTER);
     await(textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
             "doesn't exist"));
@@ -128,7 +137,7 @@ public class BaseWebTest
     {
       clickDbCreateButton();
     }
-    catch(StaleElementReferenceException ex)
+    catch (StaleElementReferenceException ex)
     {
       System.out.println(ex);
       System.out.println("Retry to open DB Creation Dialog");
@@ -144,7 +153,7 @@ public class BaseWebTest
             .click();
   }
 
-  protected void createAndValidateDb()
+  protected void createAndValidateDb() throws WebDriverException, IOException
   {
     await(visibilityOfElementLocated(By
             .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")));
@@ -166,9 +175,24 @@ public class BaseWebTest
     }
     
     dbCreated = true;
-    await(elementToBeClickable(
-            By.id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:saveAndConnectButton")))
-            .click();
+    By saveAndConnectButton = By
+            .id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:saveAndConnectButton");
+    
+    try
+    {
+      await(visibilityOfElementLocated(saveAndConnectButton));
+      await(elementToBeClickable(saveAndConnectButton)).click();
+      await(invisibilityOfElementLocated(saveAndConnectButton));
+    }
+    catch (Exception ex)
+    {
+      try (FileOutputStream outputStream = new FileOutputStream(new File("target/screenshot "
+              + new Date().getTime() + ".png")))
+      {
+        outputStream.write(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
+      }
+      throw ex;
+    }
   }
 
   protected void setConfigInternal()
@@ -212,7 +236,8 @@ public class BaseWebTest
   protected void checkConnection() throws Exception
   {
     await(elementToBeClickable(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton"))).click();
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
+            .click();
   }
 
   protected void addAdmin(String name) throws Exception
@@ -226,7 +251,6 @@ public class BaseWebTest
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:newPassword"), "password");
     clearAndSend(By.id("accordionPanel:administratorsComponent:addAdminForm:confirmNewPassword"), "password");
 
-    Thread.sleep(1000);
     await(elementToBeClickable(By
             .id("accordionPanel:administratorsComponent:addAdminForm:addAdminDialogButton")))
             .click();

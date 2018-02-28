@@ -3,6 +3,7 @@ package com.axonivy.engine.config.ui.web.test;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,6 +15,7 @@ import org.apache.commons.lang3.time.StopWatch;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriverException;
 
 import ch.ivyteam.ivy.Advisor;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
@@ -170,7 +172,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     checkConnection();
   }
 
-  private void createSysDbMSSQL()
+  private void createSysDbMSSQL() throws WebDriverException, IOException
   {
     openDbCreationDialog();
 
@@ -216,7 +218,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     }
   }
 
-  private void configAndCreateOracle()
+  private void configAndCreateOracle() throws Exception
   {
     setConfigOracle();
 
@@ -239,7 +241,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     driver.findElement(By.id("saveAll")).click();
   }
 
-  private void createSysDbOracle()
+  private void createSysDbOracle() throws Exception
   {
     openDbCreationDialog();
 
