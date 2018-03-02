@@ -18,6 +18,8 @@ EngineConfigUi/EngineConfigUiDocumentation/src_dataClasses/*
 EngineConfigUi/EngineConfigUiDocumentation/src_wsproc/*
 EngineConfigUi/EngineConfigUiDocumentation/target
 EngineConfigUi/EngineConfigUiTest/classes/*
+EngineConfigUi/EngineConfigUiTest/drivers
+EngineConfigUi/EngineConfigUiTest/lib
 EngineConfigUi/EngineConfigUiTest/src_dataClasses/*
 EngineConfigUi/EngineConfigUiTest/src_wsproc/*
 EngineConfigUi/EngineConfigUiTest/target
