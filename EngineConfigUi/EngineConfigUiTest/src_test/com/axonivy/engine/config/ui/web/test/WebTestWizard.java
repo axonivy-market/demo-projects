@@ -2,12 +2,14 @@ package com.axonivy.engine.config.ui.web.test;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.attributeToBe;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
+import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOfElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 
 public class WebTestWizard extends BaseWebTest
 {
@@ -33,16 +35,20 @@ public class WebTestWizard extends BaseWebTest
   {
     setMySqlConfig();
     By nextButtonLocator = By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:systemDatabaseTabNextButton");
-    await(elementToBeClickable(nextButtonLocator)).click();
-    await(elementToBeClickable(
-            By.xpath("//*[@id='accordionPanel:systemDatabaseComponent:systemDatabaseForm:createDatabaseButton'][contains(@class, 'ui-state-warn')]")))
-            .click();
+    await(elementToBeClickable(nextButtonLocator));
+    retryingFindClick(nextButtonLocator);
+
     await(elementToBeClickable(By
-            .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton"))).click();
-    await(40, elementToBeClickable(By
-            .id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:saveAndConnectButton"))).click();
+            .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")));
+    retryingFindClick(By
+            .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton"));
+    By saveAndConnectButton = By
+            .id("accordionPanel:systemDatabaseComponent:creatingDatabaseForm:saveAndConnectButton");
+	await(40, elementToBeClickable(saveAndConnectButton));
+	driver.findElement(saveAndConnectButton).click();
+	await(invisibilityOfElementLocated(saveAndConnectButton));
+	
     super.dbCreated = true;
-    Thread.sleep(500);
     await(elementToBeClickable(nextButtonLocator));
     driver.findElement(nextButtonLocator).click();
   }
@@ -75,5 +81,23 @@ public class WebTestWizard extends BaseWebTest
   {
     await(attributeToBe(locator, "aria-selected",
             "true"));
+  }
+  
+  private void retryingFindClick(By locator) throws StaleElementReferenceException
+  {
+    int attempts = 0;
+    while (attempts < 5)
+    {
+      try
+      {
+        driver.findElement(locator).click();
+        break;
+      }
+      catch (StaleElementReferenceException e)
+      {
+      }
+      attempts++;
+    }
+    return;
   }
 }

@@ -3,7 +3,6 @@ package com.axonivy.engine.config.ui.web.test;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -15,7 +14,7 @@ import org.apache.commons.lang3.time.StopWatch;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import ch.ivyteam.ivy.Advisor;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
@@ -60,9 +59,11 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     await(textToBePresentInElementLocated(
                     By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:finishMessageConvertion"),
                     "Successfully Finished"));
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:saveAndConnectConvertionButton"))
-            .click();
+    By saveAndConnectBtn = By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:saveAndConnectConvertionButton");
+	await(elementToBeClickable(saveAndConnectBtn));
+	driver.findElement(saveAndConnectBtn).click();
+	await(ExpectedConditions.invisibilityOfElementLocated(saveAndConnectBtn));
+	openTab("Summary");
   }
 
   private void testConnectionOldDb()
@@ -160,7 +161,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   private void configAndCreateMSSQL() throws Exception
   {
     setConfigMSSQL();
-    createSysDbMSSQL();
+    createAndValidateDb();
   }
 
   private void setConfigMSSQL() throws Exception
@@ -170,13 +171,6 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
             .selectItemByLabel("Microsoft SQL Server");
     clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "ZugTstDbsMss");
     checkConnection();
-  }
-
-  private void createSysDbMSSQL() throws WebDriverException, IOException
-  {
-    openDbCreationDialog();
-
-    createAndValidateDb();
   }
 
   private void dropMSSQLDatabase() throws Exception
