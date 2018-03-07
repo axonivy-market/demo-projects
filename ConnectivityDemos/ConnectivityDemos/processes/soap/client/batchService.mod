@@ -21,9 +21,11 @@ be0 @InfoButton f5 '' #zField
 be0 @AnnotationArc f6 '' #zField
 >Proto be0 be0 batchService #zField
 be0 f0 outLink callLongRunningBatchOperation.ivp #txt
-be0 f0 type com.axonivy.connectivity.Data #txt
+be0 f0 type com.axonivy.connectivity.soap.PersonClientData #txt
 be0 f0 inParamDecl '<> param;' #txt
-be0 f0 actionDecl 'com.axonivy.connectivity.Data out;
+be0 f0 inParamTable 'out.serverUri=com.axonivy.connectivity.soap.client.ServerUriHelper.getCurrentServer();
+' #txt
+be0 f0 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
 ' #txt
 be0 f0 guid 161AE4E4ED459B8C #txt
 be0 f0 requestEnabled true #txt
@@ -50,11 +52,11 @@ be0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 be0 f0 @C|.responsibility Everybody #txt
 be0 f0 97 65 30 30 -98 17 #rect
 be0 f0 @|StartRequestIcon #fIcon
-be0 f1 type com.axonivy.connectivity.Data #txt
+be0 f1 type com.axonivy.connectivity.soap.PersonClientData #txt
 be0 f1 449 65 30 30 0 15 #rect
 be0 f1 @|EndIcon #fIcon
-be0 f3 type com.axonivy.connectivity.Data #txt
-be0 f3 actionDecl 'com.axonivy.connectivity.Data out;
+be0 f3 type com.axonivy.connectivity.soap.PersonClientData #txt
+be0 f3 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
 ' #txt
 be0 f3 actionTable 'out=in;
 ' #txt
@@ -101,8 +103,13 @@ javax.xml.ws.client.connectionTimeout=1''000
 be0 f5 240 162 320 156 -155 -72 #rect
 be0 f5 @|IBIcon #fIcon
 be0 f6 400 162 304 102 #arcP
->Proto be0 .type com.axonivy.connectivity.Data #txt
+>Proto be0 .type com.axonivy.connectivity.soap.PersonClientData #txt
 >Proto be0 .processKind NORMAL #txt
+>Proto be0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language/>
+</elementInfo>
+' #txt
 >Proto be0 0 0 32 24 18 0 #rect
 >Proto be0 @|BIcon #fIcon
 be0 f0 mainOut f4 tail #connect
