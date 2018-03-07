@@ -51,6 +51,7 @@
 						<phase>pre-integration-test</phase>
 						<configuration>
 							<deployFile>${ch.ivyteam.ivy.project.demo:HtmlDialogDemos:iar}</deployFile>
+                            <deployTargetFileFormat>EXPANDED</deployTargetFileFormat>
 						</configuration>
 					</execution>
 					<execution>
