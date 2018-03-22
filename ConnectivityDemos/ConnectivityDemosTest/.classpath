@@ -45,5 +45,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_1624D62D6426F325.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

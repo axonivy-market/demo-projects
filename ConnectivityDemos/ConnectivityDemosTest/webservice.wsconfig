@@ -1,2 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<webServiceConfigurationNode/>
+<webServiceConfigurationNode>
+    <webServiceConfig>
+        <name>createOrderService</name>
+        <id>1624D62D6426F325</id>
+        <wsdlUrl>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/162492A1649E72DF?WSDL</wsdlUrl>
+        <wsCallLibrary>CXF</wsCallLibrary>
+        <service>
+            <serviceClass>com.axonivy.connectivity.creatorder.client.CreateOrderService</serviceClass>
+            <port>
+                <name>CreateOrderPort</name>
+                <portType>createOrder</portType>
+                <locationUri>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/162492A1649E72DF</locationUri>
+            </port>
+            <portType>
+                <name>createOrder</name>
+                <operation>
+                    <name>call</name>
+                    <returnParameter>
+                        <name>_long</name>
+                        <type>java.lang.Long</type>
+                    </returnParameter>
+                    <inputParameter>
+                        <name>order</name>
+                        <type>com.axonivy.connectivity.creatorder.client.Order</type>
+                    </inputParameter>
+                </operation>
+            </portType>
+        </service>
+    </webServiceConfig>
+</webServiceConfigurationNode>
