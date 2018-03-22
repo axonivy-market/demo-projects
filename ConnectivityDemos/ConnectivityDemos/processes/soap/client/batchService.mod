@@ -32,6 +32,7 @@ be0 f0 requestEnabled true #txt
 be0 f0 triggerEnabled false #txt
 be0 f0 callSignature callLongRunningBatchOperation() #txt
 be0 f0 persist false #txt
+be0 f0 startName '9.3 Increase timeout properties for long running requests ' #txt
 be0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2

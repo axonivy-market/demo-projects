@@ -50,5 +50,6 @@
 	<classpathentry kind="lib" path="lib/oauth1-signature-2.22.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_1605A52F0401B7DA.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_16150E44A158D09C.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_1624D42B214263C5.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

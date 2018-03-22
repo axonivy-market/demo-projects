@@ -2,3 +2,5 @@ DataMappingData #class
 com.axonivy.connectivity.soap #namespace
 ip net.webservicex.ip.GeoIP #field
 ip PERSISTENT #fieldModifier
+sunrise net.webservicex.sunset.client.LatLonDate #field
+sunrise PERSISTENT #fieldModifier
