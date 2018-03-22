@@ -6,10 +6,11 @@ import javax.xml.ws.BindingProvider;
 
 import org.junit.Test;
 
-import com.axonivy.connectivity.creatorder.client.CreateOrder;
-import com.axonivy.connectivity.creatorder.client.CreateOrderService;
-import com.axonivy.connectivity.creatorder.client.Order;
-import com.axonivy.connectivity.creatorder.client.WebServiceProcessTechnicalException;
+import com.axonivy.connectivity.createorder.client.CreateOrder;
+import com.axonivy.connectivity.createorder.client.CreateOrderService;
+import com.axonivy.connectivity.createorder.client.Order;
+import com.axonivy.connectivity.createorder.client.Task;
+import com.axonivy.connectivity.createorder.client.WebServiceProcessTechnicalException;
 import com.axonivy.connectivity.rest.EngineUrl;
 
 public class IntegrationTestSoapCreateOrderService 
@@ -18,16 +19,16 @@ public class IntegrationTestSoapCreateOrderService
 	public void createOrder_lowerThan10() throws WebServiceProcessTechnicalException
 	{
 		Order order = createOrder(1);
-		Long taskId = callCreateOrderService(order);
-		assertThat(taskId).isNotNull().isGreaterThan(0);
+		Task task = callCreateOrderService(order);
+		assertTask(task, "Employee");
 	}
-	
+
 	@Test
 	public void createOrder_greaterThan10() throws WebServiceProcessTechnicalException
 	{
 		Order order = createOrder(100);
-		Long taskId = callCreateOrderService(order);
-		assertThat(taskId).isNotNull().isGreaterThan(0);
+		Task task = callCreateOrderService(order);
+		assertTask(task, "Manager");
 	}
 
 	private static Order createOrder(int amount) {
@@ -39,14 +40,19 @@ public class IntegrationTestSoapCreateOrderService
 		return order;
 	}
 	
-	private static Long callCreateOrderService(Order order) throws WebServiceProcessTechnicalException {
+	private static Task callCreateOrderService(Order order) throws WebServiceProcessTechnicalException {
 		CreateOrderService service = new CreateOrderService();
 		CreateOrder port = service.getCreateOrderPort();
 		routeToCurrentEngine(port);
-		Long taskId = port.call(order);
-		return taskId;
+		return port.call(order);
 	}
 
+	private void assertTask(Task task, String activator) {
+		assertThat(task).isNotNull();
+		assertThat(task.getId()).isGreaterThan(0);
+		assertThat(task.getActivator()).isEqualTo(activator);
+	}
+	
 	private static void routeToCurrentEngine(CreateOrder port) {
 		String url = EngineUrl.soap() + "/ConnectivityDemos/162492A1649E72DF";
 		((BindingProvider) port).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, url);

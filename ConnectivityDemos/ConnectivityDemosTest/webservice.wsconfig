@@ -6,7 +6,7 @@
         <wsdlUrl>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/162492A1649E72DF?WSDL</wsdlUrl>
         <wsCallLibrary>CXF</wsCallLibrary>
         <service>
-            <serviceClass>com.axonivy.connectivity.creatorder.client.CreateOrderService</serviceClass>
+            <serviceClass>com.axonivy.connectivity.createorder.client.CreateOrderService</serviceClass>
             <port>
                 <name>CreateOrderPort</name>
                 <portType>createOrder</portType>
@@ -17,12 +17,12 @@
                 <operation>
                     <name>call</name>
                     <returnParameter>
-                        <name>_long</name>
-                        <type>java.lang.Long</type>
+                        <name>task</name>
+                        <type>com.axonivy.connectivity.createorder.client.Task</type>
                     </returnParameter>
                     <inputParameter>
                         <name>order</name>
-                        <type>com.axonivy.connectivity.creatorder.client.Order</type>
+                        <type>com.axonivy.connectivity.createorder.client.Order</type>
                     </inputParameter>
                 </operation>
             </portType>
