@@ -1,0 +1,6 @@
+CreateOrderServiceData #class
+com.axonivy.connectivity.soap.service #namespace
+order com.axonivy.connectivity.soap.service.Order #field
+order PERSISTENT #fieldModifier
+createdTaskId Long #field
+createdTaskId PERSISTENT #fieldModifier

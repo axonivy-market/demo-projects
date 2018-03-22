@@ -1,0 +1,10 @@
+Order #class
+com.axonivy.connectivity.soap.service #namespace
+product String #field
+product PERSISTENT #fieldModifier
+amount Integer #field
+amount PERSISTENT #fieldModifier
+requester String #field
+requester PERSISTENT #fieldModifier
+unitPrice Double #field
+unitPrice PERSISTENT #fieldModifier
