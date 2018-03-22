@@ -1,0 +1,8 @@
+Task #class
+com.axonivy.connectivity.soap.service #namespace
+id Long #field
+id PERSISTENT #fieldModifier
+name String #field
+name PERSISTENT #fieldModifier
+activator String #field
+activator PERSISTENT #fieldModifier

@@ -30,9 +30,9 @@ ce0 @PushWFArc f8 '' #zField
 ce0 ws0 inParamDecl '<com.axonivy.connectivity.soap.service.Order order> param;' #txt
 ce0 ws0 inParamTable 'out.order=param.order;
 ' #txt
-ce0 ws0 outParamDecl '<java.lang.Long taskId> result;
+ce0 ws0 outParamDecl '<com.axonivy.connectivity.soap.service.Task task> result;
 ' #txt
-ce0 ws0 outParamTable 'result.taskId=in.createdTaskId;
+ce0 ws0 outParamTable 'result.task=in.task;
 ' #txt
 ce0 ws0 actionDecl 'com.axonivy.connectivity.soap.service.CreateOrderServiceData out;
 ' #txt
@@ -66,7 +66,9 @@ param.responsibleRole="Manager";
 ce0 f1 responseActionDecl 'com.axonivy.connectivity.soap.service.CreateOrderServiceData out;
 ' #txt
 ce0 f1 responseMappingAction 'out=in;
-out.createdTaskId=triggeredTask.getId();
+out.task.activator=triggeredTask.getActivatorName();
+out.task.id=triggeredTask.getId();
+out.task.name=triggeredTask.getName();
 ' #txt
 ce0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -125,7 +127,9 @@ param.responsibleRole="Employee";
 ce0 f6 responseActionDecl 'com.axonivy.connectivity.soap.service.CreateOrderServiceData out;
 ' #txt
 ce0 f6 responseMappingAction 'out=in;
-out.createdTaskId=triggeredTask.getId();
+out.task.activator=triggeredTask.getActivatorName();
+out.task.id=triggeredTask.getId();
+out.task.name=triggeredTask.getName();
 ' #txt
 ce0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
