@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _kcK58OGpEeeXn4UcxfcCuQ
-Runtime-Version: 2.1.0.201606221726
-Save-Time: 12/19/17 3:33 PM
+Runtime-Version: 2.2.0.201706152316
+Save-Time: 3/22/18 1:51 PM
 Testcase-Type: ecl
 Verifications: _SbgVwD39EeadqZIC2MODiA
 
@@ -33,6 +33,9 @@ let [val project "ConnectivityDemos"]
 
 	startMappingProcess "resolveToCache.ivp"
 	assertRuntimeLogMsg "Switzerland"
+	
+	startMappingProcess "mapComplexData.ivp"
+	assertRuntimeLogMsg "Sunrise time in Zug, Switzerland:"
 	
 	//finally
 	closeProject -projectName $project
