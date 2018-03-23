@@ -32,6 +32,15 @@
 			<version>2.22.2</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- hack to add the cxf client to the maven classpath -->
+		<dependency>
+    		<groupId>com.axonivy.webservice.client.lib</groupId>
+    		<artifactId>cxf-client</artifactId>
+    		<version>0.0.1</version>
+    		<scope>system</scope>
+    		<systemPath>${project.basedir}/lib_ws/client/cxfClient_1624D62D6426F325.jar</systemPath>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -53,13 +62,8 @@
 						</configuration>
 					</execution>
 				</executions>
-				<configuration>
-					<additionalClasspathElements>
-						<additionalClasspathElement>${basedir}/lib_ws/client/*.jar</additionalClasspathElement>
-					</additionalClasspathElements>
-				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
