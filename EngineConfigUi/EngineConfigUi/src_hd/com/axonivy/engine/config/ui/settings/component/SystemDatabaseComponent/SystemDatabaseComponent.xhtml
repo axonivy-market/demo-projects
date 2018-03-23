@@ -187,7 +187,7 @@
 			<h:panelGrid id="doUpdate" columns="1" styleClass="full-width">
 				<p:focus context="doUpdate" />
 				<h:outputText value="Your database is being created..." />
-				<p:inputText type="hidden" />
+				<p:inputText id="hiddenInputText" type="hidden" required="false" value="#{cc.id}" />
 
 				<p:progressBar id="progressbar" widgetVar="progressbar"
 					value="#{data.progressAction.progress/(data.progressAction.maxProgress/100)}" />
