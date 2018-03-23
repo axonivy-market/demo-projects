@@ -50,11 +50,16 @@
 							<includes>
 								<include>**/IntegrationTest*.java</include>
 							</includes>
-							
 						</configuration>
 					</execution>
 				</executions>
+				<configuration>
+					<additionalClasspathElements>
+						<additionalClasspathElement>${basedir}/lib_ws/client/*.jar</additionalClasspathElement>
+					</additionalClasspathElements>
+				</configuration>
 			</plugin>
+			
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
 				<artifactId>project-build-plugin</artifactId>
