@@ -17,16 +17,9 @@
 
 	<properties>
 		<application>Portal</application>	
-		<selenium.version>3.4.0</selenium.version>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.axonivy.ivy.supplements</groupId>
-			<artifactId>primeui-tester</artifactId>
-			<version>0.0.4-SNAPSHOT</version>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>com.axonivy.system</groupId>
 			<artifactId>engine-config-ui</artifactId>

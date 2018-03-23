@@ -13,7 +13,7 @@
 	</parent>
 
 	<properties>
-		<selenium.version>2.53.0</selenium.version>
+		<selenium.version>3.4.0</selenium.version>
 		<test.application>Portal</test.application>
 		<gecko.driver.dir>${basedir}/drivers</gecko.driver.dir>
 	</properties>
