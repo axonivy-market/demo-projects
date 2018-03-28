@@ -4,3 +4,5 @@ persons List<com.axonivy.connectivity.soap.service.client.Person> #field
 persons PERSISTENT #fieldModifier
 serverUri String #field
 serverUri PERSISTENT #fieldModifier
+appName String #field
+appName PERSISTENT #fieldModifier

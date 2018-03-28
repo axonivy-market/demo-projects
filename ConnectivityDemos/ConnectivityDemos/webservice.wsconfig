@@ -116,7 +116,7 @@
             <port>
                 <name>PersonServicePort</name>
                 <portType>PersonService</portType>
-                <locationUri>&lt;%=in.serverUri%&gt;/ivy/ws/designer/ConnectivityDemos/16150E1D07E8CA18</locationUri>
+                <locationUri>&lt;%=in.serverUri%&gt;/ivy/ws/&lt;%=in.appName%&gt;/ConnectivityDemos/16150E1D07E8CA18</locationUri>
             </port>
             <portType>
                 <name>PersonService</name>
