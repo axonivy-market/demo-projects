@@ -92,6 +92,32 @@
                 </operation>
             </portType>
         </service>
+        <environmentConfigurations>
+            <environment>dev-axonivy</environment>
+            <service>
+                <serviceClass>net.webservicex.ip.GeoIPService</serviceClass>
+                <port>
+                    <name>GeoIPServiceSoap</name>
+                    <portType>GeoIPServiceSoap</portType>
+                    <locationUri>http://ZUGTSTWEB:7077/mockedPublicServices</locationUri>
+                </port>
+                <port>
+                    <name>GeoIPServiceSoap12</name>
+                    <portType>GeoIPServiceSoap</portType>
+                    <locationUri>http://www.webservicex.net/geoipservice.asmx</locationUri>
+                </port>
+                <port>
+                    <name>GeoIPServiceHttpGet</name>
+                    <portType>GeoIPServiceHttpGet</portType>
+                    <locationUri></locationUri>
+                </port>
+                <port>
+                    <name>GeoIPServiceHttpPost</name>
+                    <portType>GeoIPServiceHttpPost</portType>
+                    <locationUri></locationUri>
+                </port>
+            </service>
+        </environmentConfigurations>
     </webServiceConfig>
     <webServiceConfig>
         <name>personService</name>
@@ -208,5 +234,31 @@
                 </operation>
             </portType>
         </service>
+        <environmentConfigurations>
+            <environment>dev-axonivy</environment>
+            <service>
+                <serviceClass>net.webservicex.sunset.client.SunSetRiseService</serviceClass>
+                <port>
+                    <name>SunSetRiseServiceSoap12</name>
+                    <portType>SunSetRiseServiceSoap</portType>
+                    <locationUri>http://ZUGTSTWEB:7077/mockedPublicServices</locationUri>
+                </port>
+                <port>
+                    <name>SunSetRiseServiceSoap</name>
+                    <portType>SunSetRiseServiceSoap</portType>
+                    <locationUri>http://www.webservicex.net/sunsetriseservice.asmx</locationUri>
+                </port>
+                <port>
+                    <name>SunSetRiseServiceHttpGet</name>
+                    <portType>SunSetRiseServiceHttpGet</portType>
+                    <locationUri>http://www.webservicex.net/sunsetriseservice.asmx</locationUri>
+                </port>
+                <port>
+                    <name>SunSetRiseServiceHttpPost</name>
+                    <portType>SunSetRiseServiceHttpPost</portType>
+                    <locationUri>http://www.webservicex.net/sunsetriseservice.asmx</locationUri>
+                </port>
+            </service>
+        </environmentConfigurations>
     </webServiceConfig>
 </webServiceConfigurationNode>
