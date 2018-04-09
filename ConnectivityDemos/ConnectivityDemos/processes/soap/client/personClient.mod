@@ -70,7 +70,7 @@ pt0 f2 type com.axonivy.connectivity.soap.PersonClientData #txt
 pt0 f2 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
 ' #txt
 pt0 f2 actionTable 'out=in;
-out.persons=wsResponse;
+out.persons=wsResponse.getPersons();
 ' #txt
 pt0 f2 beanConfig "" #txt
 pt0 f2 clientId 16150E44A158D09C #txt
@@ -219,7 +219,7 @@ pt0 f12 beanConfig "" #txt
 pt0 f12 clientId 16150E44A158D09C #txt
 pt0 f12 port PersonServicePort #txt
 pt0 f12 operation addPerson #txt
-pt0 f12 inputParams 'name="Richelieu";
+pt0 f12 inputParams 'parameters.name="Richelieu";
 ' #txt
 pt0 f12 returningObjectList '[]' #txt
 pt0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

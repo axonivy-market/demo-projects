@@ -149,37 +149,45 @@
                 <operation>
                     <name>addPerson</name>
                     <returnParameter>
-                        <name>return</name>
-                        <type>void</type>
+                        <name>parameters</name>
+                        <type>com.axonivy.connectivity.soap.service.client.AddPersonResponse</type>
                     </returnParameter>
                     <inputParameter>
-                        <name>name</name>
-                        <type>java.lang.String</type>
+                        <name>parameters</name>
+                        <type>com.axonivy.connectivity.soap.service.client.AddPerson</type>
                     </inputParameter>
                 </operation>
                 <operation>
                     <name>getPersons</name>
                     <returnParameter>
-                        <name>person_003e</name>
-                        <type>java.util.List&lt;com.axonivy.connectivity.soap.service.client.Person&gt;</type>
+                        <name>parameters</name>
+                        <type>com.axonivy.connectivity.soap.service.client.GetPersonsResponse</type>
                     </returnParameter>
+                    <inputParameter>
+                        <name>parameters</name>
+                        <type>com.axonivy.connectivity.soap.service.client.GetPersons</type>
+                    </inputParameter>
                 </operation>
                 <operation>
                     <name>longRunningBatchOperation</name>
                     <returnParameter>
-                        <name>string</name>
-                        <type>java.lang.String</type>
+                        <name>parameters</name>
+                        <type>com.axonivy.connectivity.soap.service.client.LongRunningBatchOperationResponse</type>
                     </returnParameter>
+                    <inputParameter>
+                        <name>parameters</name>
+                        <type>com.axonivy.connectivity.soap.service.client.LongRunningBatchOperation</type>
+                    </inputParameter>
                 </operation>
                 <operation>
                     <name>deletePerson</name>
                     <returnParameter>
-                        <name>return</name>
-                        <type>void</type>
+                        <name>parameters</name>
+                        <type>com.axonivy.connectivity.soap.service.client.DeletePersonResponse</type>
                     </returnParameter>
                     <inputParameter>
-                        <name>name</name>
-                        <type>java.lang.String</type>
+                        <name>parameters</name>
+                        <type>com.axonivy.connectivity.soap.service.client.DeletePerson</type>
                     </inputParameter>
                 </operation>
             </portType>
