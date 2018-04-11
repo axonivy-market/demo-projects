@@ -46,5 +46,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_1624D62D6426F325.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_162AF1AE2B935160.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

@@ -1,0 +1,6 @@
+GreeterPolicyData #class
+com.axonivy.connectivity.test #namespace
+error ch.ivyteam.ivy.bpm.error.BpmError #field
+error PERSISTENT #fieldModifier
+greetResponse String #field
+greetResponse PERSISTENT #fieldModifier

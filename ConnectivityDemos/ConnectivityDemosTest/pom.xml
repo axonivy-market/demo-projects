@@ -17,6 +17,7 @@
 
 	<properties>
 		<selenium.version>2.48.1</selenium.version>
+		<wss4j.version>2.2.1</wss4j.version>
 	</properties>
 
 	<dependencies>
@@ -31,6 +32,26 @@
 			<artifactId>jersey-client</artifactId>
 			<version>2.22.2</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.wss4j</groupId>
+			<artifactId>wss4j-ws-security-stax</artifactId>
+			<version>${wss4j.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>opensaml-saml-impl</artifactId>
+					<groupId>org.opensaml</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>opensaml-xacml-impl</artifactId>
+					<groupId>org.opensaml</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>opensaml-xacml-saml-impl</artifactId>
+					<groupId>org.opensaml</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		
 		<!-- hack to add the cxf client to the maven classpath -->
