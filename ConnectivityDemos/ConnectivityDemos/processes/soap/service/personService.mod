@@ -61,7 +61,9 @@ pe0 ws1 @|EndWSIcon #fIcon
 pe0 f1 inParamDecl '<com.axonivy.connectivity.Person person> param;' #txt
 pe0 f1 inParamTable 'out.person=param.person;
 ' #txt
-pe0 f1 outParamDecl '<> result;
+pe0 f1 outParamDecl '<com.axonivy.connectivity.Person created> result;
+' #txt
+pe0 f1 outParamTable 'result.created=in.person;
 ' #txt
 pe0 f1 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;
 ' #txt
@@ -140,7 +142,7 @@ pe0 f9 actionTable 'out=in;
 ' #txt
 pe0 f9 actionCode 'import com.axonivy.connectivity.soap.service.PersonRepository;
 
-PersonRepository.getInstance().addPerson(in.person);
+out.person = PersonRepository.getInstance().addPerson(in.person);
 ' #txt
 pe0 f9 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 pe0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

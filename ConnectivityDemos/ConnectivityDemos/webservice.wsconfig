@@ -23,7 +23,7 @@
             <port>
                 <name>PersonServicePort</name>
                 <portType>PersonService</portType>
-                <locationUri>&lt;%=in.serverUri%&gt;/ivy/ws/&lt;%=in.appName%&gt;/ConnectivityDemos/16150E1D07E8CA18</locationUri>
+                <locationUri>&lt;%=in.context.uri%&gt;/ivy/ws/&lt;%=in.context.app%&gt;/ConnectivityDemos/16150E1D07E8CA18</locationUri>
             </port>
             <portType>
                 <name>PersonService</name>
@@ -64,82 +64,6 @@
         </service>
     </webServiceConfig>
     <webServiceConfig>
-        <name>sunsetService</name>
-        <id>1624D42B214263C5</id>
-        <description>http://www.webservicex.net/New/Home/ServiceDetail/65</description>
-        <wsdlUrl>http://www.webservicex.net/sunsetriseservice.asmx?WSDL</wsdlUrl>
-        <wsCallLibrary>CXF</wsCallLibrary>
-        <service>
-            <serviceClass>net.webservicex.sunset.client.SunSetRiseService</serviceClass>
-            <port>
-                <name>SunSetRiseServiceSoap12</name>
-                <portType>SunSetRiseServiceSoap</portType>
-                <locationUri>http://www.webservicex.net/sunsetriseservice.asmx</locationUri>
-            </port>
-            <port>
-                <name>SunSetRiseServiceSoap</name>
-                <portType>SunSetRiseServiceSoap</portType>
-                <locationUri>http://www.webservicex.net/sunsetriseservice.asmx</locationUri>
-            </port>
-            <port>
-                <name>SunSetRiseServiceHttpGet</name>
-                <portType>SunSetRiseServiceHttpGet</portType>
-                <locationUri>http://www.webservicex.net/sunsetriseservice.asmx</locationUri>
-            </port>
-            <port>
-                <name>SunSetRiseServiceHttpPost</name>
-                <portType>SunSetRiseServiceHttpPost</portType>
-                <locationUri>http://www.webservicex.net/sunsetriseservice.asmx</locationUri>
-            </port>
-            <portType>
-                <name>SunSetRiseServiceHttpGet</name>
-            </portType>
-            <portType>
-                <name>SunSetRiseServiceHttpPost</name>
-            </portType>
-            <portType>
-                <name>SunSetRiseServiceSoap</name>
-                <operation>
-                    <name>GetSunSetRiseTime</name>
-                    <returnParameter>
-                        <name>latLonDate</name>
-                        <type>net.webservicex.sunset.client.LatLonDate</type>
-                    </returnParameter>
-                    <inputParameter>
-                        <name>l</name>
-                        <type>net.webservicex.sunset.client.LatLonDate</type>
-                    </inputParameter>
-                </operation>
-            </portType>
-        </service>
-        <environmentConfigurations>
-            <environment>dev-axonivy</environment>
-            <service>
-                <serviceClass>net.webservicex.sunset.client.SunSetRiseService</serviceClass>
-                <port>
-                    <name>SunSetRiseServiceSoap12</name>
-                    <portType>SunSetRiseServiceSoap</portType>
-                    <locationUri>http://ZUGTSTWEB:7077/mockedPublicServices</locationUri>
-                </port>
-                <port>
-                    <name>SunSetRiseServiceSoap</name>
-                    <portType>SunSetRiseServiceSoap</portType>
-                    <locationUri>http://www.webservicex.net/sunsetriseservice.asmx</locationUri>
-                </port>
-                <port>
-                    <name>SunSetRiseServiceHttpGet</name>
-                    <portType>SunSetRiseServiceHttpGet</portType>
-                    <locationUri>http://www.webservicex.net/sunsetriseservice.asmx</locationUri>
-                </port>
-                <port>
-                    <name>SunSetRiseServiceHttpPost</name>
-                    <portType>SunSetRiseServiceHttpPost</portType>
-                    <locationUri>http://www.webservicex.net/sunsetriseservice.asmx</locationUri>
-                </port>
-            </service>
-        </environmentConfigurations>
-    </webServiceConfig>
-    <webServiceConfig>
         <name>technicalBackend</name>
         <id>162B962523BAAB85</id>
         <wsdlUrl>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/162B95BB70C3178E?WSDL</wsdlUrl>
@@ -149,7 +73,7 @@
             <port>
                 <name>TechnicalBackendServicePort</name>
                 <portType>technicalBackendService</portType>
-                <locationUri>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/162B95BB70C3178E</locationUri>
+                <locationUri>&lt;%=in.context.uri%&gt;/ivy/ws/&lt;%=in.context.app%&gt;/ConnectivityDemos/162B95BB70C3178E</locationUri>
             </port>
             <portType>
                 <name>technicalBackendService</name>

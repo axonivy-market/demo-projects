@@ -13,10 +13,17 @@ import ch.ivyteam.ivy.request.IHttpProcessModelVersionRequest;
  */
 public class ServerUriHelper {
 	
-	public static final String getCurrentServer() throws MalformedURLException
+	public static final String getCurrentServer()
 	{
-		URL fullRequestUrl = getFullRequestUrl();
-		return extractServerUrl(fullRequestUrl);
+		try
+		{
+			URL fullRequestUrl = getFullRequestUrl();
+			return extractServerUrl(fullRequestUrl);
+		}
+		catch (Exception ex)
+		{
+			throw new RuntimeException("Failed to resolve server uri", ex);
+		}
 	}
 
 	private static String extractServerUrl(URL url) {

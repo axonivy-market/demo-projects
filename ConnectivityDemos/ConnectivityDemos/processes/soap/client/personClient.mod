@@ -32,8 +32,7 @@ pt0 @InfoButton f15 '' #zField
 pt0 f0 outLink read.ivp #txt
 pt0 f0 type com.axonivy.connectivity.soap.PersonClientData #txt
 pt0 f0 inParamDecl '<> param;' #txt
-pt0 f0 inParamTable 'out.appName=ivy.wf.getApplication().getName();
-out.serverUri=com.axonivy.connectivity.soap.client.ServerUriHelper.getCurrentServer();
+pt0 f0 inParamTable 'out.context=com.axonivy.connectivity.soap.client.ServiceContext.create();
 ' #txt
 pt0 f0 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
 ' #txt
@@ -115,8 +114,7 @@ pt0 f4 0 0.558359006007981 0 0 #arcLabel
 pt0 f7 outLink delete.ivp #txt
 pt0 f7 type com.axonivy.connectivity.soap.PersonClientData #txt
 pt0 f7 inParamDecl '<> param;' #txt
-pt0 f7 inParamTable 'out.appName=ivy.wf.getApplication().getName();
-out.serverUri=com.axonivy.connectivity.soap.client.ServerUriHelper.getCurrentServer();
+pt0 f7 inParamTable 'out.context=com.axonivy.connectivity.soap.client.ServiceContext.create();
 ' #txt
 pt0 f7 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
 ' #txt
@@ -180,8 +178,7 @@ pt0 f10 0 0.48020749781656163 0 0 #arcLabel
 pt0 f11 outLink add.ivp #txt
 pt0 f11 type com.axonivy.connectivity.soap.PersonClientData #txt
 pt0 f11 inParamDecl '<> param;' #txt
-pt0 f11 inParamTable 'out.appName=ivy.wf.getApplication().getName();
-out.serverUri=com.axonivy.connectivity.soap.client.ServerUriHelper.getCurrentServer();
+pt0 f11 inParamTable 'out.context=com.axonivy.connectivity.soap.client.ServiceContext.create();
 ' #txt
 pt0 f11 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
 ' #txt

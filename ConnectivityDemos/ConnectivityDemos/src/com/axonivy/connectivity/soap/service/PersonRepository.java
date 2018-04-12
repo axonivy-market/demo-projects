@@ -40,7 +40,7 @@ public class PersonRepository {
 		return new ArrayList<>(persons);
 	}
 
-	public void addPerson(Person person) {
+	public Person addPerson(Person person) {
 		if (person == null)
 		{
 			throw new IllegalArgumentException("person must not be null");
@@ -54,6 +54,7 @@ public class PersonRepository {
 			person.setId(UUID.randomUUID());
 		}
 		persons.add(person);
+		return person;
 	}
 
 	/**

@@ -111,6 +111,8 @@ dg0 f2 440 64 497 64 #arcP
 dg0 f7 outLink mapComplexData.ivp #txt
 dg0 f7 type com.axonivy.connectivity.soap.DataMappingData #txt
 dg0 f7 inParamDecl '<> param;' #txt
+dg0 f7 inParamTable 'out.context=com.axonivy.connectivity.soap.client.ServiceContext.create();
+' #txt
 dg0 f7 actionDecl 'com.axonivy.connectivity.soap.DataMappingData out;
 ' #txt
 dg0 f7 guid 1624D3C2479A8CBB #txt
@@ -133,6 +135,8 @@ dg0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>mapComplexData.ivp</name>
         <nameStyle>18,5,7
 </nameStyle>
+        <desc>sends and consumes complex objects:
+- for demo reasons, the remote service is also provided with axon.ivy tooling.</desc>
     </language>
 </elementInfo>
 ' #txt
@@ -143,25 +147,26 @@ dg0 f8 type com.axonivy.connectivity.soap.DataMappingData #txt
 dg0 f8 actionDecl 'com.axonivy.connectivity.soap.DataMappingData out;
 ' #txt
 dg0 f8 actionTable 'out=in;
-out.sunrise=wsResponse;
+out.person=wsResponse;
 ' #txt
+dg0 f8 actionCode '// mapping is done in the attribute table: where ''wsReponse'' is assigned to out.person!' #txt
 dg0 f8 timeout 0 #txt
 dg0 f8 beanConfig "" #txt
-dg0 f8 clientId 1624D42B214263C5 #txt
-dg0 f8 port SunSetRiseServiceSoap12 #txt
-dg0 f8 operation GetSunSetRiseTime #txt
-dg0 f8 inputParams 'l.latitude=47.166167;
-l.longitude=8.515495;
+dg0 f8 clientId 16150E44A158D09C #txt
+dg0 f8 port PersonServicePort #txt
+dg0 f8 operation addPerson #txt
+dg0 f8 inputParams 'parameters.person.firstname="Diana";
+parameters.person.lastname="Larsen";
 ' #txt
 dg0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>get sunrise time&#xD;
-for Zug, Switzerland</name>
+        <name>addPerson
+to own service</name>
     </language>
 </elementInfo>
 ' #txt
-dg0 f8 160 130 128 44 -46 -16 #rect
+dg0 f8 160 130 128 44 -42 -15 #rect
 dg0 f8 @|WebServiceIcon #fIcon
 dg0 f9 expr out #txt
 dg0 f9 111 152 160 152 #arcP
@@ -172,29 +177,16 @@ dg0 f12 actionDecl 'com.axonivy.connectivity.soap.DataMappingData out;
 ' #txt
 dg0 f12 actionTable 'out=in;
 ' #txt
-dg0 f12 actionCode 'import java.text.SimpleDateFormat;
-import java.util.TimeZone;
-import java.util.Calendar;
-
-Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-calendar.set(Calendar.HOUR_OF_DAY, 0);
-calendar.add(Calendar.HOUR_OF_DAY, in.sunrise.sunRiseTime as Integer);
-calendar.set(Calendar.MINUTE, (in.sunrise.sunRiseTime * 60) % 60);
-calendar.set(Calendar.SECOND, (in.sunrise.sunRiseTime * 3600) % 3600);
-
-SimpleDateFormat fmt = new SimpleDateFormat();
-fmt.setTimeZone(TimeZone.getTimeZone("Europe/Paris")); 
-
-ivy.log.info("Sunrise time in Zug, Switzerland: " + fmt.format(calendar.getTime() as java.util.Date));' #txt
+dg0 f12 actionCode 'ivy.log.info("created person with id "+in.person.id);' #txt
 dg0 f12 type com.axonivy.connectivity.soap.DataMappingData #txt
 dg0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>log sunrise time</name>
+        <name>log uuid</name>
     </language>
 </elementInfo>
 ' #txt
-dg0 f12 328 130 112 44 -44 -8 #rect
+dg0 f12 328 130 112 44 -25 -7 #rect
 dg0 f12 @|StepIcon #fIcon
 dg0 f13 expr out #txt
 dg0 f13 288 152 328 152 #arcP
