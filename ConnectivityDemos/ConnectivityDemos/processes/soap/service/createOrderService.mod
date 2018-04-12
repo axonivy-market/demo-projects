@@ -48,6 +48,10 @@ ce0 ws0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>call(Order)</name>
         <nameStyle>11,5,7
 </nameStyle>
+        <tool>
+            <toolName>wsdl</toolName>
+            <url>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/162492A1649E72DF?WSDL</url>
+        </tool>
     </language>
 </elementInfo>
 ' #txt
