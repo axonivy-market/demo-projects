@@ -1,0 +1,4 @@
+TechnicalBackendServiceData #class
+com.axonivy.connectivity.soap.service #namespace
+startTimeMillis Long #field
+startTimeMillis PERSISTENT #fieldModifier

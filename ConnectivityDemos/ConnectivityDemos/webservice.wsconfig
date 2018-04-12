@@ -269,4 +269,32 @@
             </service>
         </environmentConfigurations>
     </webServiceConfig>
+    <webServiceConfig>
+        <name>technicalBackend</name>
+        <id>162B962523BAAB85</id>
+        <wsdlUrl>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/162B95BB70C3178E?WSDL</wsdlUrl>
+        <wsCallLibrary>CXF</wsCallLibrary>
+        <service>
+            <serviceClass>com.axonivy.connectivity.backend.technical.client.TechnicalBackendServiceService</serviceClass>
+            <port>
+                <name>TechnicalBackendServicePort</name>
+                <portType>technicalBackendService</portType>
+                <locationUri>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/162B95BB70C3178E</locationUri>
+            </port>
+            <portType>
+                <name>technicalBackendService</name>
+                <operation>
+                    <name>longRunningBatchOperation</name>
+                    <returnParameter>
+                        <name>parameters</name>
+                        <type>com.axonivy.connectivity.backend.technical.client.LongRunningBatchOperationResponse</type>
+                    </returnParameter>
+                    <inputParameter>
+                        <name>parameters</name>
+                        <type>com.axonivy.connectivity.backend.technical.client.LongRunningBatchOperation</type>
+                    </inputParameter>
+                </operation>
+            </portType>
+        </service>
+    </webServiceConfig>
 </webServiceConfigurationNode>

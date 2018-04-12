@@ -1,7 +1,7 @@
 [Ivy]
 161AE4E4EC67C8FD 3.23 #module
 >Proto >Proto Collection #zClass
-be0 batchService Big #zClass
+be0 batchServiceClient Big #zClass
 be0 B #cInfo
 be0 #process
 be0 @TextInP .resExport .resExport #zField
@@ -19,7 +19,7 @@ be0 @PushWFArc f4 '' #zField
 be0 @PushWFArc f2 '' #zField
 be0 @InfoButton f5 '' #zField
 be0 @AnnotationArc f6 '' #zField
->Proto be0 be0 batchService #zField
+>Proto be0 be0 batchServiceClient #zField
 be0 f0 outLink callLongRunningBatchOperation.ivp #txt
 be0 f0 type com.axonivy.connectivity.soap.PersonClientData #txt
 be0 f0 inParamDecl '<> param;' #txt
@@ -66,8 +66,8 @@ be0 f3 actionTable 'out=in;
 be0 f3 actionCode ivy.log.info(wsResponse); #txt
 be0 f3 timeout 0 #txt
 be0 f3 beanConfig "" #txt
-be0 f3 clientId 16150E44A158D09C #txt
-be0 f3 port PersonServicePort #txt
+be0 f3 clientId 162B962523BAAB85 #txt
+be0 f3 port TechnicalBackendServicePort #txt
 be0 f3 operation longRunningBatchOperation #txt
 be0 f3 properties 'javax.xml.ws.client.connectionTimeout=1000;
 javax.xml.ws.client.receiveTimeout=70000;

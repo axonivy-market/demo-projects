@@ -31,11 +31,6 @@ pe0 @GridStep f11 '' #zField
 pe0 @PushWFArc f12 '' #zField
 pe0 @PushWFArc f6 '' #zField
 pe0 @InfoButton f13 '' #zField
-pe0 @StartWS f14 '' #zField
-pe0 @GridStep f15 '' #zField
-pe0 @PushWFArc f16 '' #zField
-pe0 @EndWS f17 '' #zField
-pe0 @PushWFArc f18 '' #zField
 >Proto pe0 pe0 personService #zField
 pe0 ws0 inParamDecl '<> param;' #txt
 pe0 ws0 outParamDecl '<List<com.axonivy.connectivity.soap.service.Person> persons> result;' #txt
@@ -190,58 +185,6 @@ All accesses are protected by HTTP_BASIC.</name>
 ' #txt
 pe0 f13 56 26 400 44 -197 -16 #rect
 pe0 f13 @|IBIcon #fIcon
-pe0 f14 outParamDecl '<java.lang.String message> result;
-' #txt
-pe0 f14 outParamTable 'result.message="batch processed";
-' #txt
-pe0 f14 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;
-' #txt
-pe0 f14 callSignature longRunningBatchOperation() #txt
-pe0 f14 useUserDefinedException false #txt
-pe0 f14 taskData TaskTriggered.PRI=2 #txt
-pe0 f14 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
-pe0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>longRunningBatchOperation()</name>
-        <nameStyle>27,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-pe0 f14 @C|.responsibility Everybody #txt
-pe0 f14 73 369 30 30 -82 17 #rect
-pe0 f14 @|StartWSIcon #fIcon
-pe0 f15 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;
-' #txt
-pe0 f15 actionTable 'out=in;
-' #txt
-pe0 f15 actionCode 'import com.axonivy.connectivity.soap.service.PersonRepository;
-
-in.persons = PersonRepository.getInstance().findAll();
-
-try {
-	Thread.sleep(65000);
-} catch (Exception ex) {
-	ex.printStackTrace();
-}' #txt
-pe0 f15 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
-pe0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>long running batch operation (65 seconds)</name>
-    </language>
-</elementInfo>
-' #txt
-pe0 f15 152 362 240 44 -116 -8 #rect
-pe0 f15 @|StepIcon #fIcon
-pe0 f16 expr out #txt
-pe0 f16 103 384 152 384 #arcP
-pe0 f17 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
-pe0 f17 417 369 30 30 0 15 #rect
-pe0 f17 @|EndWSIcon #fIcon
-pe0 f18 expr out #txt
-pe0 f18 392 384 417 384 #arcP
 >Proto pe0 .webServiceName com.axonivy.connectivity.soap.service.PersonService #txt
 >Proto pe0 .authenticationType 'HTTP Basic' #txt
 >Proto pe0 .type com.axonivy.connectivity.soap.service.PersonServiceData #txt
@@ -265,7 +208,3 @@ pe0 f2 mainOut f12 tail #connect
 pe0 f12 head f11 mainIn #connect
 pe0 f11 mainOut f6 tail #connect
 pe0 f6 head f4 mainIn #connect
-pe0 f14 mainOut f16 tail #connect
-pe0 f16 head f15 mainIn #connect
-pe0 f15 mainOut f18 tail #connect
-pe0 f18 head f17 mainIn #connect
