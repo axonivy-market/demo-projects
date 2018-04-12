@@ -69,22 +69,22 @@ dg0 f3 type com.axonivy.connectivity.soap.DataMappingData #txt
 dg0 f3 actionDecl 'com.axonivy.connectivity.soap.DataMappingData out;
 ' #txt
 dg0 f3 actionTable 'out=in;
-out.ip=wsResponse;
+out.time=wsResponse;
 ' #txt
-dg0 f3 cache '{/cache true /invalidation false /scope 2 /groupname "\"geoip\""/invalidation_time_group ""/lifetime_group "0"/identifier "\"local\""/invalidation_time_entry ""/lifetime_entry "0"}' #txt
-dg0 f3 clientId 1605A52F0401B7DA #txt
-dg0 f3 port GeoIPServiceSoap #txt
-dg0 f3 operation GetGeoIPContext #txt
+dg0 f3 cache '{/cache true /invalidation false /scope 2 /groupname "\"remoteTime\""/invalidation_time_group ""/lifetime_group "0"/identifier "\"local\""/invalidation_time_entry ""/lifetime_entry "0"}' #txt
+dg0 f3 clientId 162B97C859B22CA3 #txt
+dg0 f3 port SampleWebServiceSoap12 #txt
+dg0 f3 operation GetCurrentTime #txt
 dg0 f3 returningObjectList '[]' #txt
 dg0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>resolve 
-Geo IP</name>
+remote time</name>
     </language>
 </elementInfo>
 ' #txt
-dg0 f3 168 42 112 44 -24 -15 #rect
+dg0 f3 168 42 112 44 -38 -15 #rect
 dg0 f3 @|WebServiceIcon #fIcon
 dg0 f4 expr out #txt
 dg0 f4 111 64 168 64 #arcP
@@ -92,17 +92,17 @@ dg0 f5 actionDecl 'com.axonivy.connectivity.soap.DataMappingData out;
 ' #txt
 dg0 f5 actionTable 'out=in;
 ' #txt
-dg0 f5 actionCode 'ivy.log.info("your IP address "+in.ip.iP+" is in "+in.ip.countryName);
+dg0 f5 actionCode 'ivy.log.info("the time on the remote system is "+in.time);
 ' #txt
 dg0 f5 type com.axonivy.connectivity.soap.DataMappingData #txt
 dg0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>log IP</name>
+        <name>log time</name>
     </language>
 </elementInfo>
 ' #txt
-dg0 f5 328 44 112 40 -17 -7 #rect
+dg0 f5 328 42 112 44 -25 -7 #rect
 dg0 f5 @|StepIcon #fIcon
 dg0 f6 expr out #txt
 dg0 f6 280 64 328 64 #arcP
