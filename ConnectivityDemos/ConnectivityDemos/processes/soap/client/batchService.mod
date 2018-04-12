@@ -45,14 +45,15 @@ be0 f0 showInStartList 1 #txt
 be0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>callLongRunningBatchOperation.ivp</name>
-        <nameStyle>33,5,7
+        <name>callLongRunning
+BatchOperation.ivp</name>
+        <nameStyle>34,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
 be0 f0 @C|.responsibility Everybody #txt
-be0 f0 97 65 30 30 -98 17 #rect
+be0 f0 97 65 30 30 -58 -47 #rect
 be0 f0 @|StartRequestIcon #fIcon
 be0 f1 type com.axonivy.connectivity.soap.PersonClientData #txt
 be0 f1 449 65 30 30 0 15 #rect
@@ -91,25 +92,40 @@ be0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <name>SOAP requests are aborted by default 
 if the remote service does not answer within 60 seconds!
 
-This batch client overrides the default settings 
-and waits 70 seconds for a result 
-and 1 seconds for a connection by setting:
+This batch client overrides the default settings with properties:
+// waits 70 seconds for a result 
 javax.xml.ws.client.receiveTimeout=70''000
+// wait 1 second for a connection time out
 javax.xml.ws.client.connectionTimeout=1''000
 </name>
-        <nameStyle>310,7
+        <nameStyle>83,7
+2,3,7
+1,3,7
+110,7
+42,3,7
+42,4,7
+44,3,7
+1,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-be0 f5 240 162 320 156 -155 -72 #rect
+be0 f5 104 162 400 140 -197 -67 #rect
 be0 f5 @|IBIcon #fIcon
-be0 f6 400 162 304 102 #arcP
+be0 f6 304 162 304 102 #arcP
+be0 f6 0 0.37994037265054 0 0 #arcLabel
 >Proto be0 .type com.axonivy.connectivity.soap.PersonClientData #txt
 >Proto be0 .processKind NORMAL #txt
 >Proto be0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
-    <language/>
+    <language>
+        <swimlaneLabel>Timeout Properties</swimlaneLabel>
+    </language>
+    <swimlaneOrientation>false</swimlaneOrientation>
+    <swimlaneSize>344</swimlaneSize>
+    <swimlaneColor gradient="false">-1</swimlaneColor>
+    <swimlaneType>LANE</swimlaneType>
+    <swimlaneSpaceBefore>0</swimlaneSpaceBefore>
 </elementInfo>
 ' #txt
 >Proto be0 0 0 32 24 18 0 #rect
