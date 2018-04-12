@@ -4,6 +4,8 @@ ConnectivityDemos/ConnectivityDemos/src_wsproc/*
 ConnectivityDemos/ConnectivityDemos/target
 ConnectivityDemos/ConnectivityDemosRCPTest/target
 ConnectivityDemos/ConnectivityDemosTest/classes
+ConnectivityDemos/ConnectivityDemosTest/drivers
+ConnectivityDemos/ConnectivityDemosTest/lib
 ConnectivityDemos/ConnectivityDemosTest/src_dataClasses/*
 ConnectivityDemos/ConnectivityDemosTest/src_wsproc/*
 ConnectivityDemos/ConnectivityDemosTest/target
