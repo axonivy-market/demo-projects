@@ -6,7 +6,10 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Helper class to simulate a storage for Web Service Process Process/soap/service/personService
+ * Helper class to simulate a storage for Web Service Process 
+ * <code>Process/soap/service/personService</code>
+ * 
+ * @since 7.1
  */
 public class PersonRepository {
 

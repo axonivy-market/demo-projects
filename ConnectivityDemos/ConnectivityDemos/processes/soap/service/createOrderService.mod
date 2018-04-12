@@ -26,6 +26,8 @@ ce0 @EndWS f5 '' #zField
 ce0 @Trigger f6 '' #zField
 ce0 @PushWFArc f7 '' #zField
 ce0 @PushWFArc f8 '' #zField
+ce0 @InfoButton f9 '' #zField
+ce0 @AnnotationArc f10 '' #zField
 >Proto ce0 ce0 createOrderService #zField
 ce0 ws0 inParamDecl '<com.axonivy.connectivity.soap.service.Order order> param;' #txt
 ce0 ws0 inParamTable 'out.order=param.order;
@@ -50,7 +52,7 @@ ce0 ws0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ce0 ws0 @C|.responsibility Everybody #txt
-ce0 ws0 57 137 30 30 -29 17 #rect
+ce0 ws0 57 137 30 30 -27 -33 #rect
 ce0 ws0 @|StartWSIcon #fIcon
 ce0 ws1 type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt
 ce0 ws1 441 73 30 30 0 15 #rect
@@ -158,6 +160,26 @@ ce0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ce0 f8 176 168 272 218 #arcP
 ce0 f8 1 176 218 #addKink
 ce0 f8 1 0.2097585593558301 0 -11 #arcLabel
+ce0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Web Service Endpoint: 
+- allows third party system to start this process via SOAP 
+- for service definition WSDL, see link in engine ''Overview'' Web Browser.</name>
+        <nameStyle>156
+</nameStyle>
+        <tool>
+            <toolName>wsdl</toolName>
+            <url>http://127.0.0.1:8081/ivy/ws/designer/ConnectivityDemos/162492A1649E72DF?WSDL</url>
+        </tool>
+    </language>
+</elementInfo>
+' #txt
+ce0 f9 88 298 448 60 -221 -22 #rect
+ce0 f9 @|IBIcon #fIcon
+ce0 f10 88 328 72 167 #arcP
+ce0 f10 1 72 328 #addKink
+ce0 f10 1 0.4012420937466449 0 0 #arcLabel
 >Proto ce0 .webServiceName com.axonivy.connectivity.createOrder #txt
 >Proto ce0 .authenticationType 'None or Container' #txt
 >Proto ce0 .type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt
@@ -174,3 +196,5 @@ ce0 f6 mainOut f7 tail #connect
 ce0 f7 head f5 mainIn #connect
 ce0 f3 out f8 tail #connect
 ce0 f8 head f6 mainIn #connect
+ce0 f9 ao f10 tail #connect
+ce0 f10 head ws0 @CG|ai #connect
