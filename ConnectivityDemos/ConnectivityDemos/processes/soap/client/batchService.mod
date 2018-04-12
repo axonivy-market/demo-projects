@@ -23,7 +23,8 @@ be0 @AnnotationArc f6 '' #zField
 be0 f0 outLink callLongRunningBatchOperation.ivp #txt
 be0 f0 type com.axonivy.connectivity.soap.PersonClientData #txt
 be0 f0 inParamDecl '<> param;' #txt
-be0 f0 inParamTable 'out.serverUri=com.axonivy.connectivity.soap.client.ServerUriHelper.getCurrentServer();
+be0 f0 inParamTable 'out.appName=ivy.wf.getApplication().getName();
+out.serverUri=com.axonivy.connectivity.soap.client.ServerUriHelper.getCurrentServer();
 ' #txt
 be0 f0 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
 ' #txt

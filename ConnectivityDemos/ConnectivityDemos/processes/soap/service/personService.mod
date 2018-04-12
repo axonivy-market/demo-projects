@@ -192,6 +192,8 @@ pe0 f13 56 26 400 44 -197 -16 #rect
 pe0 f13 @|IBIcon #fIcon
 pe0 f14 outParamDecl '<java.lang.String message> result;
 ' #txt
+pe0 f14 outParamTable 'result.message="batch processed";
+' #txt
 pe0 f14 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;
 ' #txt
 pe0 f14 callSignature longRunningBatchOperation() #txt
