@@ -136,6 +136,7 @@ or0 f10 actionDecl 'com.axonivy.connectivity.soap.service.CreateOrderServiceData
 ' #txt
 or0 f10 actionTable 'out=in;
 ' #txt
+or0 f10 actionCode '// sample: no real code here!' #txt
 or0 f10 type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt
 or0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
