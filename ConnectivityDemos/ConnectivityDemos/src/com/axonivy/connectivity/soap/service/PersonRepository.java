@@ -1,9 +1,11 @@
 package com.axonivy.connectivity.soap.service;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
+
+import com.axonivy.connectivity.Person;
 
 /**
  * Helper class to simulate a storage for Web Service Process 
@@ -42,7 +44,7 @@ public class PersonRepository {
 		Iterator<Person> iterator = persons.iterator();
 		while (iterator.hasNext()) {
 			Person p = iterator.next();
-			if (p.getName().equals(name)) {
+			if (p.getFirstname().equals(name)) {
 				iterator.remove();
 			}
 		}
@@ -50,16 +52,9 @@ public class PersonRepository {
 
 	private Person createPerson(String name) {
 		Person p = new Person();
-		p.setId(createId());
-		p.setName(name);
+		p.setId(UUID.randomUUID());
+		p.setFirstname(name);
 		return p;
 	}
 	
-	private Long createId() {
-		Long maxId = persons.stream()
-				.map(p -> p.getId())
-				.max(Comparator.naturalOrder())
-				.orElse(0L);
-		return maxId + 1;
-	}
 }

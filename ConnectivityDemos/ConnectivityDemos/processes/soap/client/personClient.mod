@@ -70,7 +70,7 @@ pt0 f2 type com.axonivy.connectivity.soap.PersonClientData #txt
 pt0 f2 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
 ' #txt
 pt0 f2 actionTable 'out=in;
-out.persons=wsResponse.getPersons();
+out.persons=wsResponse;
 ' #txt
 pt0 f2 beanConfig "" #txt
 pt0 f2 clientId 16150E44A158D09C #txt
@@ -94,7 +94,7 @@ pt0 f5 actionTable 'out=in;
 ' #txt
 pt0 f5 actionCode 'for (int i = 0; i < in.persons.size(); i++)
 {
-	ivy.log.info(""+ in.persons.get(i).id + " " + in.persons.get(i).name);
+	ivy.log.info(""+ in.persons.get(i).id + " " + in.persons.get(i).firstname);
 }' #txt
 pt0 f5 type com.axonivy.connectivity.soap.PersonClientData #txt
 pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -156,7 +156,7 @@ pt0 f8 beanConfig "" #txt
 pt0 f8 clientId 16150E44A158D09C #txt
 pt0 f8 port PersonServicePort #txt
 pt0 f8 operation deletePerson #txt
-pt0 f8 inputParams 'name="Richelieu";
+pt0 f8 inputParams 'parameters.name="Richelieu";
 ' #txt
 pt0 f8 returningObjectList '[]' #txt
 pt0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

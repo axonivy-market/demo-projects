@@ -50,17 +50,6 @@
                     </inputParameter>
                 </operation>
                 <operation>
-                    <name>longRunningBatchOperation</name>
-                    <returnParameter>
-                        <name>parameters</name>
-                        <type>com.axonivy.connectivity.soap.service.client.LongRunningBatchOperationResponse</type>
-                    </returnParameter>
-                    <inputParameter>
-                        <name>parameters</name>
-                        <type>com.axonivy.connectivity.soap.service.client.LongRunningBatchOperation</type>
-                    </inputParameter>
-                </operation>
-                <operation>
                     <name>deletePerson</name>
                     <returnParameter>
                         <name>parameters</name>

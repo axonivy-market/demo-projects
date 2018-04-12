@@ -33,7 +33,8 @@ pe0 @PushWFArc f6 '' #zField
 pe0 @InfoButton f13 '' #zField
 >Proto pe0 pe0 personService #zField
 pe0 ws0 inParamDecl '<> param;' #txt
-pe0 ws0 outParamDecl '<List<com.axonivy.connectivity.soap.service.Person> persons> result;' #txt
+pe0 ws0 outParamDecl '<java.util.List<com.axonivy.connectivity.Person> persons> result;
+' #txt
 pe0 ws0 outParamTable 'result.persons=in.persons;
 ' #txt
 pe0 ws0 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;
