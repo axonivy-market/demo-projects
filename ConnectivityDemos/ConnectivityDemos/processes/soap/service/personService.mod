@@ -58,20 +58,21 @@ pe0 ws0 @|StartWSIcon #fIcon
 pe0 ws1 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 pe0 ws1 417 113 30 30 0 15 #rect
 pe0 ws1 @|EndWSIcon #fIcon
-pe0 f1 inParamDecl '<java.lang.String name> param;' #txt
-pe0 f1 inParamTable 'out.name=param.name;
+pe0 f1 inParamDecl '<com.axonivy.connectivity.Person person> param;' #txt
+pe0 f1 inParamTable 'out.person=param.person;
 ' #txt
-pe0 f1 outParamDecl '<> result;' #txt
+pe0 f1 outParamDecl '<> result;
+' #txt
 pe0 f1 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;
 ' #txt
-pe0 f1 callSignature addPerson(String) #txt
+pe0 f1 callSignature addPerson(com.axonivy.connectivity.Person) #txt
 pe0 f1 useUserDefinedException false #txt
 pe0 f1 taskData TaskTriggered.PRI=2 #txt
 pe0 f1 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 pe0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>addPerson(String)</name>
+        <name>addPerson(Person)</name>
         <nameStyle>17,5,7
 </nameStyle>
     </language>
@@ -80,20 +81,23 @@ pe0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 pe0 f1 @C|.responsibility Everybody #txt
 pe0 f1 73 193 30 30 -50 17 #rect
 pe0 f1 @|StartWSIcon #fIcon
-pe0 f2 inParamDecl '<java.lang.String name> param;' #txt
-pe0 f2 inParamTable 'out.name=param.name;
+pe0 f2 inParamDecl '<com.axonivy.connectivity.Person person> param;' #txt
+pe0 f2 inParamTable 'out.person=param.person;
 ' #txt
-pe0 f2 outParamDecl '<> result;' #txt
+pe0 f2 outParamDecl '<com.axonivy.connectivity.Person deleted> result;
+' #txt
+pe0 f2 outParamTable 'result.deleted=in.person;
+' #txt
 pe0 f2 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;
 ' #txt
-pe0 f2 callSignature deletePerson(String) #txt
+pe0 f2 callSignature deletePerson(com.axonivy.connectivity.Person) #txt
 pe0 f2 useUserDefinedException false #txt
 pe0 f2 taskData TaskTriggered.PRI=2 #txt
 pe0 f2 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 pe0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>deletePerson(String)</name>
+        <name>deletePerson(Person)</name>
         <nameStyle>20,5,7
 </nameStyle>
     </language>
@@ -136,7 +140,7 @@ pe0 f9 actionTable 'out=in;
 ' #txt
 pe0 f9 actionCode 'import com.axonivy.connectivity.soap.service.PersonRepository;
 
-PersonRepository.getInstance().addPerson(in.name);
+PersonRepository.getInstance().addPerson(in.person);
 ' #txt
 pe0 f9 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 pe0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -158,7 +162,7 @@ pe0 f11 actionTable 'out=in;
 ' #txt
 pe0 f11 actionCode 'import com.axonivy.connectivity.soap.service.PersonRepository;
 
-PersonRepository.getInstance().delete(in.name);
+out.person = PersonRepository.getInstance().delete(in.person);
 ' #txt
 pe0 f11 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 pe0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

@@ -94,7 +94,7 @@ pt0 f5 actionTable 'out=in;
 ' #txt
 pt0 f5 actionCode 'for (int i = 0; i < in.persons.size(); i++)
 {
-	ivy.log.info(""+ in.persons.get(i).id + " " + in.persons.get(i).firstname);
+	ivy.log.info(""+ in.persons.get(i));
 }' #txt
 pt0 f5 type com.axonivy.connectivity.soap.PersonClientData #txt
 pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -151,29 +151,31 @@ pt0 f8 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
 ' #txt
 pt0 f8 actionTable 'out=in;
 ' #txt
-pt0 f8 actionCode 'ivy.log.info("delete Richelieu");' #txt
+pt0 f8 actionCode 'ivy.log.info("deleted "+wsResponse);
+' #txt
 pt0 f8 beanConfig "" #txt
 pt0 f8 clientId 16150E44A158D09C #txt
 pt0 f8 port PersonServicePort #txt
 pt0 f8 operation deletePerson #txt
-pt0 f8 inputParams 'parameters.name="Richelieu";
+pt0 f8 inputParams 'parameters.person.firstname="Joshua";
+parameters.person.lastname="Bloch";
 ' #txt
 pt0 f8 returningObjectList '[]' #txt
 pt0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>deletePerson Richelieu</name>
+        <name>deletePerson Mr. Bloch</name>
     </language>
 </elementInfo>
 ' #txt
-pt0 f8 184 322 144 44 -64 -8 #rect
+pt0 f8 176 322 160 44 -72 -7 #rect
 pt0 f8 @|WebServiceIcon #fIcon
 pt0 f9 expr out #txt
-pt0 f9 328 344 384 174 #arcP
+pt0 f9 336 344 384 174 #arcP
 pt0 f9 1 384 344 #addKink
 pt0 f9 0 0.49422078281463927 0 0 #arcLabel
 pt0 f10 expr out #txt
-pt0 f10 133 344 184 344 #arcP
+pt0 f10 133 344 176 344 #arcP
 pt0 f10 0 0.48020749781656163 0 0 #arcLabel
 pt0 f11 outLink add.ivp #txt
 pt0 f11 type com.axonivy.connectivity.soap.PersonClientData #txt
@@ -214,27 +216,28 @@ pt0 f12 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
 ' #txt
 pt0 f12 actionTable 'out=in;
 ' #txt
-pt0 f12 actionCode 'ivy.log.info("add Richelieu");' #txt
+pt0 f12 actionCode 'ivy.log.info("person added");' #txt
 pt0 f12 beanConfig "" #txt
 pt0 f12 clientId 16150E44A158D09C #txt
 pt0 f12 port PersonServicePort #txt
 pt0 f12 operation addPerson #txt
-pt0 f12 inputParams 'parameters.name="Richelieu";
+pt0 f12 inputParams 'parameters.person.firstname="Joshua";
+parameters.person.lastname="Bloch";
 ' #txt
 pt0 f12 returningObjectList '[]' #txt
 pt0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>addPerson Richelieu</name>
+        <name>addPerson Mr. Bloch</name>
     </language>
 </elementInfo>
 ' #txt
-pt0 f12 192 234 128 44 -58 -8 #rect
+pt0 f12 184 234 144 44 -64 -7 #rect
 pt0 f12 @|WebServiceIcon #fIcon
 pt0 f13 expr out #txt
-pt0 f13 135 256 192 256 #arcP
+pt0 f13 135 256 184 256 #arcP
 pt0 f14 expr out #txt
-pt0 f14 320 256 384 174 #arcP
+pt0 f14 328 256 384 174 #arcP
 pt0 f14 1 384 256 #addKink
 pt0 f14 1 0.41076014139365474 0 0 #arcLabel
 pt0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
