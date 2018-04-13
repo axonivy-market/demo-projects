@@ -5,8 +5,8 @@ Element-Name: ProjectUtils
 Element-Type: context
 Element-Version: 2.0
 Id: _uTeBUD3gEeadqZIC2MODiA
-Runtime-Version: 2.1.0.201606221726
-Save-Time: 12/19/17 3:33 PM
+Runtime-Version: 2.2.0.201706152316
+Save-Time: 4/13/18 2:44 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -14,28 +14,37 @@ Entry-Name: .ecl.context
 
 proc "importArchive" [val directory] [val projectName]
 {
-	get-menu "File/Import..." | click
-	with [get-window Import] {
-	    get-tree | select "Axon.ivy/Ivy Archive \\(\\*.iar\\)"
-	    get-button "Next >" | click
+	try
+	{
+		get-view "Axon.ivy Projects" | get-tree | get-item -path ConnectivityDemos
+		log -message "skipping import, project already exists"
+		// already exists. do nothing...
 	}
-	set-dialog-result Folder $directory
-	with [get-window "Import ivy Archives (*.iar)"] {
-	    get-button "Browse ..." | click
-	    with [get-tree] {
-	    	let [val item [format "%s \\(%s.iar\\)" $projectName $projectName]]
-	    	{
-		        get-item $item | check
-	    	}
-	    }
-	    get-button "Copy projects into workspace" | check
-	    get-button Finish | click
+	-catch
+	{
+		get-menu "File/Import..." | click
+		with [get-window Import] {
+		    get-tree | select "Axon.ivy/Ivy Archive \\(\\*.iar\\)"
+		    get-button "Next >" | click
+		}
+		set-dialog-result Folder $directory
+		with [get-window "Import ivy Archives (*.iar)"] {
+		    get-button "Browse ..." | click
+		    with [get-tree] {
+		    	let [val item [format "%s \\(%s.iar\\)" $projectName $projectName]]
+		    	{
+			        get-item $item | check
+		    	}
+		    }
+		    get-button "Copy projects into workspace" | check
+		    get-button Finish | click
+		}
 	}
 }
 
 proc "unpackIar" [val projectName]
 {
-	with [get-view "Axon.ivy Projects" | get-tree] 
+	with [get-view "Axon.ivy Projects" | get-tree]
 	{
     	select $projectName | get-menu "Unpack Project (*.iar)" | click
 	}
