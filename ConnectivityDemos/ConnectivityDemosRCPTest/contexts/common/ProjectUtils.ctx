@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: _uTeBUD3gEeadqZIC2MODiA
 Runtime-Version: 2.2.0.201706152316
-Save-Time: 4/13/18 2:51 PM
+Save-Time: 4/13/18 2:54 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -53,7 +53,6 @@ proc "unpackIar" [val projectName]
 proc "closeProject" [val projectName]
 {
 	with [get-view "Axon.ivy Projects" | get-tree] {
-		get-item ConnectivityDemos | click
 	    select $projectName | get-menu "Close Project" | click
 	}
 }
