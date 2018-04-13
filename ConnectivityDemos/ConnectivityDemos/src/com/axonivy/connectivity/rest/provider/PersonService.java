@@ -84,12 +84,13 @@ public class PersonService {
 		return matches;
 	}
 	
-	@GET @Path("/{personId}")
+	@GET @Path("/{entryNo}")
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-	public Response getPerson(@PathParam("personId") UUID personId)
+	public Response getPerson(@PathParam("entryNo") int entryNo)
 	{
 		try
 		{
+			UUID personId = new ArrayList<>(persons.keySet()).get(entryNo);
 			return Response.status(Status.OK)
 						.entity(persons.get(personId))
 						.build();

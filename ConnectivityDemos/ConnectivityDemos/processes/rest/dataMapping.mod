@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Tue May 30 14:19:49 CEST 2017]
-15A60076034F7437 3.20 #module
+15A60076034F7437 3.23 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
 dg0 B #cInfo
@@ -349,7 +348,7 @@ dg0 f21 bodyRaw '{
 }' #txt
 dg0 f21 bodyEntity in.myPost #txt
 dg0 f21 resultType java.lang.String #txt
-dg0 f21 responseCode ivy.log.info(result); #txt
+dg0 f21 responseCode ivy.log.info("JSON:"+result); #txt
 dg0 f21 clientErrorCode ivy:error:rest:client #txt
 dg0 f21 statusErrorCode ivy:error:rest:client #txt
 dg0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -413,7 +412,7 @@ dg0 f25 bodyRaw '{
 }' #txt
 dg0 f25 bodyEntity in.myPost #txt
 dg0 f25 resultType java.lang.String #txt
-dg0 f25 responseCode ivy.log.info(result); #txt
+dg0 f25 responseCode ivy.log.info("XML:"+result); #txt
 dg0 f25 clientErrorCode ivy:error:rest:client #txt
 dg0 f25 statusErrorCode ivy:error:rest:client #txt
 dg0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -640,7 +639,7 @@ dg0 f43 bodyRaw '{
 }' #txt
 dg0 f43 bodyEntity in.myPost #txt
 dg0 f43 resultType java.lang.String #txt
-dg0 f43 responseCode ivy.log.info(result); #txt
+dg0 f43 responseCode ivy.log.info("JSON:"+result); #txt
 dg0 f43 clientErrorCode ivy:error:rest:client #txt
 dg0 f43 statusErrorCode ivy:error:rest:client #txt
 dg0 f43 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
