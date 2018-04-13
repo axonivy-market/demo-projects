@@ -1,13 +1,13 @@
 --- RCPTT testcase ---
 Format-Version: 1.0
 Contexts: _oxqloD3gEeadqZIC2MODiA,_aaETQPhDEeaBd7rbMJob0A,_EFdg4NJ0EeaR9M6EuzThAQ,_uTeBUD3gEeadqZIC2MODiA,_vNHwsD3hEeadqZIC2MODiA,_iWGD0D31EeadqZIC2MODiA,_j1ZYwD4IEea1-MPAK3G86w
-Element-Name: ExecuteWsClient
+Element-Name: ExecuteDataMappingWsClient
 Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _kcK58OGpEeeXn4UcxfcCuQ
 Runtime-Version: 2.2.0.201706152316
-Save-Time: 3/22/18 1:51 PM
+Save-Time: 4/13/18 12:02 PM
 Testcase-Type: ecl
 Verifications: _SbgVwD39EeadqZIC2MODiA
 
@@ -32,11 +32,11 @@ let [val project "ConnectivityDemos"]
 	startEngines
 
 	startMappingProcess "resolveToCache.ivp"
-	assertRuntimeLogMsg "Switzerland"
-	
+	assertRuntimeLogMsg "the time on the remote system is 20" // e.g. 2018-MM-DD ...
+
 	startMappingProcess "mapComplexData.ivp"
-	assertRuntimeLogMsg "Sunrise time in Zug, Switzerland:"
-	
+	assertRuntimeLogMsg "created person with id " // UUID
+
 	//finally
 	closeProject -projectName $project
 	removeProject -projectName $project -removeFromDisk true

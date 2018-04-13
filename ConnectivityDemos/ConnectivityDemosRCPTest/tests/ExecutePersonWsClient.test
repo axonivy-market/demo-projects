@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _swDyIAdNEei7FLWRFUERCQ
-Runtime-Version: 2.1.0.201606221726
-Save-Time: 2/1/18 2:12 PM
+Runtime-Version: 2.2.0.201706152316
+Save-Time: 4/13/18 11:55 AM
 Testcase-Type: ecl
 Verifications: _SbgVwD39EeadqZIC2MODiA
 
@@ -32,15 +32,14 @@ let [val project "ConnectivityDemos"]
 	startEngines
 
 	startReadProcess "read.ivp"
-	assertRuntimeLogMsg "1 Athos"
-	
+	assertRuntimeLogMsg "Person[firstname=Bruno,"
+
 	startReadProcess "add.ivp"
-	assertRuntimeLogMsg "addddd Richelieu"
-	assertRuntimeLogMsg "4 Richelieu"
-	
+	assertRuntimeLogMsg "person added"
+
 	startReadProcess "delete.ivp"
-	assertRuntimeLogMsg "delete Richelieu"
-	
+	assertRuntimeLogMsg "deleted Person[firstname=Joshua"
+
 	//finally
 	closeProject -projectName $project
 	removeProject -projectName $project -removeFromDisk true

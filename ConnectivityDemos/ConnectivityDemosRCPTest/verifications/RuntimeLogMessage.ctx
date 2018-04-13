@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: _j1ZYwD4IEea1-MPAK3G86w
 Runtime-Version: 2.2.0.201706152316
-Save-Time: 3/22/18 1:51 PM
+Save-Time: 4/13/18 12:03 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -14,38 +14,34 @@ Entry-Name: .ecl.context
 
 proc "assertRuntimeLogMsg" [val containedText]
 {
-	with [get-view "Runtime Log.*"] 
-	{
-		// assert message of first entry
-	    get-table | get-item
-	    {
-	    	let [val item -input] 
-	    	{
-	    		select-item $item
-			        | get-property "columns[5]" // 5=message
-			        | contains $containedText  
-			        | verify-true
-	    	}
-	    }
-	}
+	// assert first runtime log message
+	get-view "Runtime Log.*" | get-table
+		| get-item -path ".*" -column Request
+        | get-property "columns[5]" // 5=message
+        | contains $containedText
+        | verify-true
 }
 
 proc "showOnlyUserRuntimeLog"
 {
-	with [get-view "Runtime Log.*"] 
+	with [get-view "Runtime Log.*" | get-button "Filter logs on level or category"]
 	{
-		with [get-button "Filter.*" | click -arrow | get-menu "Show only user logs"]
+		click -arrow true
+		with [get-menu -path "Show only user logs" ]
 		{
-			if 
-				-condition [get-property selected | equals false] 
+			if
+				-condition [get-property "getSelection()" -raw | equals false]
 				-then click
 		}
 	}
+	// verify with log that stats is as expected!
+	log [format "only user logs? %s"  [get-view "Runtime Log.*" | get-button "Filter logs on level or category"
+	| click -arrow true | get-menu -path "Show only user logs" | get-property "getSelection()" -raw ]]
 }
 
 proc "clearRuntimeLog"
 {
-	with [get-view "Runtime Log.*"] 
+	with [get-view "Runtime Log.*"]
 	{
 		get-button "Clear all.*" | click
 	}
