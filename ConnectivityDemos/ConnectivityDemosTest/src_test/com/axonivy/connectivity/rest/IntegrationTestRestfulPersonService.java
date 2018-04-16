@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -11,7 +12,6 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.Link;
 import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
@@ -73,18 +73,17 @@ public class IntegrationTestRestfulPersonService
 	@Test
 	public void updateEntity()
 	{
-		Link personLink = getPersonsClient().request().header("X-Requested-By", "ivy").put(createFormPerson()).getLink("createdPerson");
-		assertThat(personLink).isNotNull();
-
-		Person person = createAuthenticatedClient().target(personLink).request().get(Person.class);
+		Response response = getPersonsClient().request().header("X-Requested-By", "ivy").put(createFormPerson());
+	        JsonNode node = response.readEntity(JsonNode.class);
+	        String id = node.get("id").asText();
 		
 		Person updatePerson = new Person();
-		updatePerson.setId(person.getId());
+		updatePerson.setId(UUID.fromString(id));
 		updatePerson.setFirstname("Junit");
 		updatePerson.setLastname("Test");
 		Entity<Person> entity = Entity.json(updatePerson);
 		
-		Response response = getPersonsClient().path(person.getId().toString())
+		response = getPersonsClient().path(updatePerson.getId().toString())
 	    		.request()
 	    		.header("X-Requested-By", "ivy")
 	    		.post(entity);
@@ -94,12 +93,11 @@ public class IntegrationTestRestfulPersonService
 	@Test
 	public void deleteEntity()
 	{
-		Link personLink = getPersonsClient().request().header("X-Requested-By", "ivy").put(createFormPerson()).getLink("createdPerson");
-		assertThat(personLink).isNotNull();
+		Response response = getPersonsClient().request().header("X-Requested-By", "ivy").put(createFormPerson());
+                JsonNode node = response.readEntity(JsonNode.class);
+                String id = node.get("id").asText();
 		
-		Person createdPerson = createAuthenticatedClient().target(personLink).request().get(Person.class);
-		
-		Response response = getPersonsClient().path(String.valueOf(createdPerson.getId()))
+		response = getPersonsClient().path(id)
 		        .request()
 		        .header("X-Requested-By", "ivy")
 		        .delete();
