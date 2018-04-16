@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: _uTeBUD3gEeadqZIC2MODiA
 Runtime-Version: 2.2.0.201706152316
-Save-Time: 4/13/18 2:54 PM
+Save-Time: 4/16/18 3:08 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -69,6 +69,15 @@ proc "removeProject" [val projectName] [val removeFromDisk]
 		    get-button "Delete project contents on disk (cannot be undone)" | check
 		}
 		get-button Finish | click
+	}
+}
+
+proc "simulationSelected" [val isSelected]
+{
+	with [get-button "Suppress simulation and animation in general."] {
+	    if [get-property selected | not-eq isSelected] {
+	    	click
+	    }
 	}
 }
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
