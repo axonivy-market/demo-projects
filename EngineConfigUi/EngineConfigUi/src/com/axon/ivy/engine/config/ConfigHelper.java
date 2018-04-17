@@ -216,7 +216,7 @@ public class ConfigHelper
 
     for (DatabaseCreationParameter param : requiredParameters)
     {
-      if (param.getName() == "databaseName")
+      if ("databaseName".equals(param.getName()))
       {
         creationParameters.put(param.getName(), configData.getDatabaseName());
       }
