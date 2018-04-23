@@ -29,16 +29,18 @@
 									class="caret"></span>
 							</a>
 								<ul class="dropdown-menu">
-								<c:if test="#{adminBean.hasAbsencePermission()}">
+									<c:if test="#{adminBean.hasAnyAbsencePermission()}">
 									<li class="#{navigation.getStyle('Absence')}"><a
 										id="absence"
 										href="#{ivy.html.startref('13F3C911395912D4/Absence.ivp')}"><span class="fa fa-user-times"/> #{ivy.cms.co('/navLabels/absence')}</a></li>
-										</c:if>
-									<c:if test="#{adminBean.hasSubstitutePermission()}">
+									</c:if>
+
+									<c:if test="#{adminBean.hasAnySubstitutePermission()}">
 									<li class="#{navigation.getStyle('Substitution')}"><a
 										id="substitution"
 										href="#{ivy.html.startref('13F5720218D18BA2/Substitution.ivp')}"><span class="fa fa-users"/> #{ivy.cms.co('/navLabels/substitution')}</a></li>
 									</c:if>
+
 									<li class="#{navigation.getStyle('MailNotification')}"><a
 										id="mailSettings"
 										href="#{ivy.html.startref('13F51835BF0FECEF/MailNotificationSettings.ivp')}"><span class="fa fa-envelope-o"/> #{ivy.cms.co('/navLabels/mailSettings')}</a></li>
