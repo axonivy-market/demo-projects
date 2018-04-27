@@ -146,7 +146,7 @@ public class ConnectionInfo
           case WRONG_LOGIN:
             return "Please check your username and password.";
           case CREATE_DB:
-            return "Your referenced database seems to not exist. Please create a database.";
+            return "Your referenced database doesn't seem to exist. Please create a database.";
           case UNKNOWN:
             Throwable th = getCauseIfAvailable(connectionError);
             String msg = ExceptionUtils.getMessage(th);
