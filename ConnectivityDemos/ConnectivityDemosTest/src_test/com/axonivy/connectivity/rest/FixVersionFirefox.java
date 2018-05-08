@@ -58,6 +58,7 @@ public class FixVersionFirefox
       File firefoxBinaryFile = new File(FIREFOX_PORTABLE_DIR, "App/Firefox/firefox.exe");
       System.out.println("Using Firefox portable binary " + firefoxBinaryFile);
       FirefoxBinary ffBinary = new FirefoxBinary(firefoxBinaryFile);
+	  ffBinary.addCommandLineOptions("--headless");
       return new FirefoxDriver(ffBinary, profile);
     }
     return new FirefoxDriver(profile);
