@@ -18,6 +18,11 @@ pipeline {
           maven cmd: "clean verify -e -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource} -Dfirefox.portable.path=/opt/firefox-53.0 -Dch.ivyteam.ivy.server.configuration.development.cluster=true"
         }
       }
+      post {
+        always {
+          junit '**/target/surefire-reports/**/*.xml'
+        }
+      }
     }
   }
 }
