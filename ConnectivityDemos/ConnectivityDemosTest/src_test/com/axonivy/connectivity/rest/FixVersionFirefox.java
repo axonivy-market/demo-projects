@@ -61,6 +61,8 @@ public class FixVersionFirefox
 	  ffBinary.addCommandLineOptions("--headless");
       return new FirefoxDriver(ffBinary, profile);
     }
-    return new FirefoxDriver(profile);
+    FirefoxBinary ffBinary = new FirefoxBinary();
+	ffBinary.addCommandLineOptions("--headless");
+    return new FirefoxDriver(ffBinary, profile);
   }
 }
