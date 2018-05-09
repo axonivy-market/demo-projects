@@ -44,8 +44,9 @@ public class WebTestTwitterRestClient
     String ivyAuthWindowHandle = driver.getWindowHandle();
     driver.findElement(By.id("authLink")).click();
     List<String> handles = new ArrayList<>(driver.getWindowHandles());
-    assertThat(handles.size()).isEqualTo(2);
-    handles.remove(ivyAuthWindowHandle);
+    if (handles.size() > 1) {
+    	handles.remove(ivyAuthWindowHandle);
+	}
     String twitterWindowHandle = handles.get(0);
     driver.switchTo().window(twitterWindowHandle);
 
