@@ -22,7 +22,7 @@ public class WebTestTwitterRestClient
   private WebDriver driver;
 
   @Test
-  public void readTwitterTweetsViaRest() 
+  public void readTwitterTweetsViaRest()
   {
     String startUrl = EngineUrl.process() + "/ConnectivityDemos/1547634C396BBB3A/userTimeline.ivp";
     driver.get(startUrl);
@@ -39,14 +39,14 @@ public class WebTestTwitterRestClient
             .isGreaterThan(10);
   }
 
-  private void authenticate() 
+  private void authenticate()
   {
     String ivyAuthWindowHandle = driver.getWindowHandle();
     driver.findElement(By.id("authLink")).click();
+    new WebDriverWait(driver, 10).until(driver -> driver.getWindowHandles().size() > 1);
+
     List<String> handles = new ArrayList<>(driver.getWindowHandles());
-    if (handles.size() > 1) {
-    	handles.remove(ivyAuthWindowHandle);
-	}
+    handles.remove(ivyAuthWindowHandle);
     String twitterWindowHandle = handles.get(0);
     driver.switchTo().window(twitterWindowHandle);
 
@@ -56,7 +56,7 @@ public class WebTestTwitterRestClient
     new WebDriverWait(driver, 10)
             .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@type='password']")));
     driver.findElement(By.xpath("//*[@type='password']")).sendKeys("r2l6AmivZ0q9JgXYg7Fp");
-    
+
     driver.findElement(By.xpath("//*[@type='password']")).submit();
     WebElement pinDiv = driver.findElement(By.id("oauth_pin"));
     String verification = pinDiv.findElement(By.tagName("code")).getText();

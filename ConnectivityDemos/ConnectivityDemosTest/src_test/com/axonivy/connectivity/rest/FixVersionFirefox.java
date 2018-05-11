@@ -5,6 +5,7 @@ import java.io.File;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
 /**
@@ -58,11 +59,13 @@ public class FixVersionFirefox
       File firefoxBinaryFile = new File(FIREFOX_PORTABLE_DIR, "App/Firefox/firefox.exe");
       System.out.println("Using Firefox portable binary " + firefoxBinaryFile);
       FirefoxBinary ffBinary = new FirefoxBinary(firefoxBinaryFile);
-	  ffBinary.addCommandLineOptions("--headless");
-      return new FirefoxDriver(ffBinary, profile);
+      ffBinary.addCommandLineOptions("--headless");
+      FirefoxOptions options = new FirefoxOptions().setBinary(ffBinary).setProfile(profile);
+      return new FirefoxDriver(options);
     }
     FirefoxBinary ffBinary = new FirefoxBinary();
-	ffBinary.addCommandLineOptions("--headless");
-    return new FirefoxDriver(ffBinary, profile);
+    ffBinary.addCommandLineOptions("--headless");
+    FirefoxOptions options = new FirefoxOptions().setBinary(ffBinary).setProfile(profile);
+    return new FirefoxDriver(options);
   }
 }
