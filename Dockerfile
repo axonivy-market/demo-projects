@@ -1,3 +1,3 @@
-FROM selenium/standalone-firefox:3.5.3
+FROM selenium/standalone-firefox:3.10.0
 
 RUN sudo apt-get -y update && sudo apt-get -y install maven
