@@ -1,7 +1,6 @@
 package ch.ivyteam.htmldialog.demo;
 
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,9 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,7 +20,7 @@ import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 
 public abstract class BaseWebTest
-{
+{ 
   protected WebDriver driver;
 
   @Before
