@@ -28,10 +28,10 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
+import com.axonivy.engine.config.ui.web.test.geckodriver.FixVersionFirefox;
 import com.axonivy.engine.config.ui.web.test.geckodriver.GeckoFirefox;
 import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
@@ -64,11 +64,11 @@ public class BaseWebTest
   private void createDriver()
   {
     GeckoFirefox.register();
-    FirefoxProfile profile = getFirefoxProfile();
-    driver = new FirefoxDriver(profile);
+    FirefoxProfile profile = configureBrowserProfile();
+    driver = FixVersionFirefox.createWebDriver(profile);
   }
 
-  private FirefoxProfile getFirefoxProfile()
+  private FirefoxProfile configureBrowserProfile()
   {
     FirefoxProfile profile = new FirefoxProfile();
     profile.setPreference("security.insecure_password.ui.enabled", false);
