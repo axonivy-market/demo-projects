@@ -57,7 +57,6 @@ public class BaseWebTest
     createDriver();
     prime = new PrimeUi(driver);
     ajax = new AjaxHelper(driver);
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     openConfigUi();
   }
@@ -67,7 +66,8 @@ public class BaseWebTest
     GeckoFirefox.register();
     FirefoxProfile profile = configureBrowserProfile();
     driver = FixVersionFirefox.createWebDriver(profile);
-    driver.manage().window().setSize(new Dimension(1280, 1040));
+    driver.manage().window().setSize(new Dimension(1900, 1040));
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
   }
 
   private FirefoxProfile configureBrowserProfile()
