@@ -22,6 +22,7 @@ import org.apache.commons.lang3.time.StopWatch;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -66,6 +67,7 @@ public class BaseWebTest
     GeckoFirefox.register();
     FirefoxProfile profile = configureBrowserProfile();
     driver = FixVersionFirefox.createWebDriver(profile);
+    driver.manage().window().setSize(new Dimension(1280, 1040));
   }
 
   private FirefoxProfile configureBrowserProfile()
@@ -235,7 +237,7 @@ public class BaseWebTest
 
   protected void checkConnection() throws Exception
   {
-    await(elementToBeClickable(
+    await(30, elementToBeClickable(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
             .click();
   }
