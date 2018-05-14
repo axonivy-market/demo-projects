@@ -82,8 +82,9 @@ public class WebTestTwitterRestClient
     driver.close();
   }
 
-  private final WebDriver createDriver()
+  private static WebDriver createDriver()
   {
+    GeckoFirefox.register();
     FirefoxProfile profile = FixVersionFirefox.loadFirefoxProfile();
     WebDriver localDriver = FixVersionFirefox.createWebDriver(profile);
 
