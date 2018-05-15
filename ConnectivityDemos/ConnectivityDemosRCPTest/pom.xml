@@ -7,10 +7,10 @@
 	<packaging>rcpttTest</packaging>
 
 	<parent>
-		<groupId>ch.ivyteam.ivy</groupId>
+		<groupId>ch.ivyteam.ivy.project</groupId>
 		<artifactId>ch.ivyteam.ivy.build.config.test.rcptt</artifactId>
 		<version>7.1.0-SNAPSHOT</version>
-		<relativePath>../../../development/ch.ivyteam.ivy.build.maven/config/test/rcptt</relativePath>
+		<relativePath>../../build.maven/rcptt</relativePath>
 	</parent>
 
 </project>

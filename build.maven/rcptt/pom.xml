@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+		<groupId>ch.ivyteam.ivy.project</groupId>
+	<artifactId>ch.ivyteam.ivy.build.config.test.rcptt</artifactId>
+	<version>7.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<rcptt.version>2.2.0</rcptt.version>
+		<nexus.root.url>http://zugpronexus:8081/nexus</nexus.root.url>
+		<build.job.name>Trunk_All</build.job.name>
+		<build.last.sucess.url>http://zugprobldmas/job/${build.job.name}/lastSuccessfulBuild/</build.last.sucess.url>
+		<designer.os.arch>Windows_x64</designer.os.arch>
+	</properties>
+
+	<pluginRepositories>
+		<!-- Used to install RCPTT plugins -->
+		<pluginRepository>
+			<id>zugpronexus.build-public</id>
+			<name>Internal Plugin Build Integration Repository</name>
+			<url>${nexus.root.url}/content/groups/public/</url>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<profiles>
+		<profile>
+			<id>unix.path</id>
+			<activation>
+				<os>
+					<family>unix</family>
+				</os>
+			</activation>
+			<properties>
+				<designer.os.arch>Linux_x64</designer.os.arch>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.rcptt</groupId>
+				<artifactId>rcptt-maven-plugin</artifactId>
+				<version>${rcptt.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<runner>
+						<version>${rcptt.version}</version>
+					</runner>
+					<aut>
+						<explicit>${aut.url}</explicit>
+					</aut>
+				</configuration>
+				<executions>
+					<execution>
+						<id>default-package</id>
+						<phase>never</phase>
+						<!-- skip as it builds a huge ZIP including our AUT -->
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals><goal>run</goal></goals>
+						<id>setup.designer.version.properties</id>
+						<configuration>
+							<exportAntProperties>true</exportAntProperties>
+							<target>
+								<property name="job.html" value="${project.build.directory}/lastSuccess.html"/>
+								<get src="${build.last.sucess.url}" dest="${job.html}"/>
+								<loadfile srcFile="${job.html}" property="designer.zip">
+									<filterchain>
+										<linecontainsregexp>
+											<regexp pattern="products/AxonIvyDesigner[^_]*_${designer.os.arch}\.zip"/>
+										</linecontainsregexp>
+										<striplinebreaks/>
+										<tokenfilter>
+											<replaceregex pattern="(.*)products/(AxonIvyDesigner[^_]*_${designer.os.arch}\.zip)(.*)" replace="\2"/>
+										</tokenfilter>
+									</filterchain>
+								</loadfile>
+								<property name="aut.url">${build.last.sucess.url}artifact/ivy/workspace/ch.ivyteam.ivy.designer.product/target/products/${designer.zip}</property>
+								<echo>target AUT = '${aut.url}'</echo>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+		</plugins>
+	</build>
+</project>
