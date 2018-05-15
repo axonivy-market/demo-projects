@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ch.ivyteam.ivy</groupId>
+	<artifactId>update-ivy-projects-version</artifactId>
+	<version>7.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<description>Adjusts the version of the ivyProjects.</description>
+
+	<properties>
+		<ivy.root.relative>/../../..</ivy.root.relative>
+		<ivy.root.dir>${basedir}${ivy.root.relative}</ivy.root.dir>
+		<nexus.root.url>http://zugpronexus:8081/nexus</nexus.root.url>
+	</properties>
+
+	<pluginRepositories>
+		<!-- Used to install ivy maven plugins -->
+		<pluginRepository>
+			<id>zugpronexus.build-plugins</id>
+			<name>Internal Plugin Build Integration Repository</name>
+			<url>${nexus.root.url}/content/groups/build-plugins/</url>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<id>initialize.version.skip.properties</id>
+						<phase>initialize</phase>
+						<goals><goal>run</goal></goals>
+						<configuration>
+							<exportAntProperties>true</exportAntProperties>
+							<target>
+								<script language="javascript">
+									var patchVersion = project.getProperty('new.ivy.version').split('.')[2];
+									echo = project.createTask("echo");
+        							echo.setMessage("patchVersion is "+patchVersion);
+        							echo.perform();
+									
+									project.setProperty('skip.major', patchVersion != 0);
+								 	project.setProperty('skip.minor', patchVersion == 0);
+								</script>
+								<echo>properties initialize</echo>
+								<echo>skip.major = ${skip.major}</echo>
+								<echo>skip.minor = ${skip.minor}</echo>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>ch.ivyteam</groupId>
+				<artifactId>maven-version-plugin</artifactId>
+				<version>2.0.2-SNAPSHOT</version>
+				<configuration>
+					<version>${new.ivy.version}-SNAPSHOT</version>
+				</configuration>
+				<executions>
+					<execution>
+						<id>update.major.artifacts.versions</id>
+						<goals><goal>setMavenAndEclipseVersion</goal></goals>
+						<phase>process-resources</phase>
+						<configuration>
+							<skip>${skip.major}</skip>
+							<pomsToUpdate combine.children="append">
+								<fileset>
+									<directory>${ivy.root.dir}</directory>
+									<includes><include>**/pom.xml</include></includes>
+								</fileset>
+							</pomsToUpdate>
+						</configuration>
+					</execution>
+					<execution>
+						<id>update.minor.artifacts.versions</id>
+						<goals><goal>setMavenAndEclipseVersion</goal></goals>
+						<phase>process-resources</phase>
+						<configuration>
+							<skip>${skip.minor}</skip>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<configuration><skip>true</skip></configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+</project>
