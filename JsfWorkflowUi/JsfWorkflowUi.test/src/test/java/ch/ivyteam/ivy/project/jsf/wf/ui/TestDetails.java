@@ -81,7 +81,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     driverHelper.findElementById("formAddNote:note").sendKeys("This is the description of the new note");
     driverHelper.clickAndWaitForAjax(By.id("formAddNote:saveNote"));
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("This is the description of the new note");
+    await(ExpectedConditions.textToBePresentInElementLocated(By.className("messageNotes"), "This is the description of the new note"));
   }
 
   @Test

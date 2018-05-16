@@ -3,11 +3,9 @@ package ch.ivyteam.ivy.server.test;
 import java.text.MessageFormat;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -16,8 +14,6 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.google.common.base.Predicate;
 
 /**
  * This class Wraps a {@link WebDriver} and provides ivy specific helper
@@ -29,20 +25,11 @@ public class IvyWebDriverHelper
 
   public IvyWebDriverHelper()
   {
-    FirefoxProfile profile = FixVersionFirefox.loadFirefoxProfile();
+    GeckoFirefox.register();
+    FirefoxProfile profile = new FirefoxProfile();
     profile.setPreference("intl.accept_languages", "en");
     driver = FixVersionFirefox.createWebDriver(profile);
-    
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    hideBrowserFromDesktop();
-  }
-  
-  private void hideBrowserFromDesktop()
-  {
-    if (!ServerControl.isDesigner())
-    {
-      driver.manage().window().setPosition(new Point(-2000, 0));
-    }
   }
   
   public void quit()
@@ -131,18 +118,6 @@ public class IvyWebDriverHelper
                 expectedTextContent, pageSourceText);
       }
     });
-  }
-
-  public void waitForEndPage(int timeoutInSeconds)
-  {
-    waitAtLast(timeoutInSeconds).withMessage("Waiting for end page").until(new Predicate<WebDriver>()
-      {
-        @Override
-        public boolean apply(WebDriver drv)
-        {
-          return StringUtils.startsWith(drv.getCurrentUrl(), ServerControl.getEndPageUrl());
-        }
-      });
   }
 
   public void setSessionLocale(String locale)

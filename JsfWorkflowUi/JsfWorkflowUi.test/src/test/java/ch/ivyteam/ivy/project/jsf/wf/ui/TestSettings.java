@@ -4,6 +4,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
@@ -69,8 +70,13 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     addAbsenceForUser("30.07.2012", "09:10", "30.08.2031", "10:10", "Add absence for other test",
             "Test User 2 (user2)");
     driverHelper.clickAndWaitForAjax(By.id("showAbsentUsers"));
-    assertThat(driverHelper.getWebDriver().findElement(By.id("formAbsentUsers")).getText()).contains(
-            "Test User 2 (user2)");
+    WebDriver webDriver = driverHelper.getWebDriver();
+    assertThat(webDriver.findElement(By.id("formAbsentUsers")).getText()).contains("Test User 2 (user2)");
+
+    // Trick to close the popup window with the absent users table.
+    webDriver.findElement(By.id("formAbsentUsers")).submit();
+    await(ExpectedConditions.invisibilityOf(driverHelper.getWebDriver().findElement(By.id("formAbsentUsers"))));
+
     deleteAbsence();
     checkIfAbsenceContains("No absences");
   }
@@ -90,6 +96,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     driverHelper.findElementById("formEditAbsence:absenceStartDate_input").click();
     driverHelper.findElementById("formEditAbsence:absenceStartDate_input").clear();
     driverHelper.findElementById("formEditAbsence:absenceStartDate_input").sendKeys(startDate);
+    driverHelper.findElementById("formEditAbsence:absenceStartTime_input").click();
     driverHelper.findElementById("formEditAbsence:absenceEndTime_input").click();
     driverHelper.findElementById("formEditAbsence:absenceEndTime_input").clear();
     driverHelper.findElementById("formEditAbsence:absenceEndTime_input").sendKeys(endTime);
@@ -110,7 +117,8 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void deleteAbsence()
   {
-    driverHelper.clickAndWaitForAjax(By.id("formAbsence:tableAbsence:0:removeButton"));
+    await(ExpectedConditions.elementToBeClickable(By.id("formAbsence:tableAbsence:0:removeButton"))).click();
+    driverHelper.waitForAjax();
   }
 
   @Test

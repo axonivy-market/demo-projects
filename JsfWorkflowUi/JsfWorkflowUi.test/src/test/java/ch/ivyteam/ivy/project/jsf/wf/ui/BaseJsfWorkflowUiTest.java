@@ -66,6 +66,7 @@ public class BaseJsfWorkflowUiTest
   {
     navigate().processList();
     driverHelper.findElementById(WF_JSF_LINK_ID).click();
+    await(ExpectedConditions.visibilityOfElementLocated(By.id("formRequest:caption")));
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
     prime().selectOne(By.id("formRequest:taskPriority"))
       .selectItemByLabel(PRIORITIES[priority]);
@@ -86,15 +87,15 @@ public class BaseJsfWorkflowUiTest
     driverHelper.findElementById("description").sendKeys(description);
     driverHelper.clickAndWaitForAjax(By.id("submit"));
   }
-  
+
   protected void createTaskWithCategory(String title, String description, int priority, String category,
           String process)
   {
     navigate().processList();
     driverHelper.findElementById(WF_JSF_LINK_ID).click();
+    await(ExpectedConditions.presenceOfElementLocated(By.id("formRequest:caption")));
     driverHelper.findElementById("formRequest:caption").sendKeys(title);
-    prime().selectOne(By.id("formRequest:taskPriority"))
-    .selectItemByLabel(PRIORITIES[priority]);
+    prime().selectOne(By.id("formRequest:taskPriority")).selectItemByLabel(PRIORITIES[priority]);
     driverHelper.findElementById("formRequest:description").sendKeys(description);
     driverHelper.findElementById("formRequest:category").sendKeys(category);
     driverHelper.findElementById("formRequest:process").sendKeys(process);
@@ -105,6 +106,7 @@ public class BaseJsfWorkflowUiTest
   {
     navigate().taskList();
     driverHelper.findElementById("taskLinkRow_0").click();
+    await(ExpectedConditions.elementToBeClickable(By.id("formConfirmation:save")));
     driverHelper.clickAndWaitForAjax(By.id("formConfirmation:save"));
   }
 
@@ -164,6 +166,7 @@ public class BaseJsfWorkflowUiTest
     absenceDialog.waitForVisibility(true);
     clickAndSendKeys("absenceStartTime_input", startTime);
     clickAndSendKeys("absenceStartDate_input", startDate);
+    driverHelper.findElement(By.id("formAddAbsence:absenceStartTime_input")).click();
     clickAndSendKeys("absenceEndTime_input", endTime);
     clickAndSendKeys("absenceEndDate_input", endDate);
     clickAndSendKeys("absenceDescription", description);
