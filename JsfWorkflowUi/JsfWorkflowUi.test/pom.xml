@@ -19,6 +19,7 @@
 
 		<application>Portal</application>
 		<skipDeploy>${maven.test.skip}</skipDeploy>
+		<gecko.driver.dir>${basedir}/drivers</gecko.driver.dir>
 	</properties>
 
 	<dependencies>
@@ -96,6 +97,7 @@
 						-Dserver.test.testApplication=${application}
 						-Dserver.test.isDesigner=false
 						-Dserver.test.baseUrl=${test.engine.url}
+						-Dgecko.driver.dir=${gecko.driver.dir}
 					</argLine>
 				</configuration>
 			</plugin>
@@ -196,10 +198,32 @@
 					<skip>true</skip>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>com.github.webdriverextensions</groupId>
+				<artifactId>webdriverextensions-maven-plugin</artifactId>
+				<version>3.1.3</version>
+				<executions>
+					<execution>
+						<id>install.gecko.driver</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>install-drivers</goal>
+						</goals>
+						<configuration>
+							<drivers>
+								<driver>
+									<name>geckodriver</name>
+									<bit>64</bit>
+									<version>0.20.1</version>
+								</driver>
+							</drivers>
+							<installationDirectory>${gecko.driver.dir}</installationDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
-
-
-
 
 		<pluginManagement>
 			<plugins>
