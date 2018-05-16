@@ -176,7 +176,7 @@ public class BaseJsfWorkflowUiTest
 
   private void clickAndSendKeys(String inputId, String inputValue)
   {
-    driverHelper.findElement(By.id("formAddAbsence:" + inputId)).click();
+    await(ExpectedConditions.elementToBeClickable(By.id("formAddAbsence:" + inputId))).click();
     driverHelper.findElement(By.id("formAddAbsence:" + inputId)).sendKeys(inputValue);
   }
 
