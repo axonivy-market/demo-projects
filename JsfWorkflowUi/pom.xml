@@ -9,7 +9,7 @@
 	<modules>
 		<module>JsfWorkflowUi</module>
 		<module>JsfWorkflowUi.test/testRecources/testWfUi</module>
-		<module>JsfWorkflowUi.test</module>
+		<!--<module>JsfWorkflowUi.test</module>-->
 	</modules>
 	
 	<build>
