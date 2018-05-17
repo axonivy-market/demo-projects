@@ -1,5 +1,7 @@
 package ch.ivyteam.ivy.project.jsf.wf.ui;
 
+import static org.fest.assertions.api.Assertions.assertThat;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
