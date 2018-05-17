@@ -166,7 +166,6 @@ public class BaseJsfWorkflowUiTest
     absenceDialog.waitForVisibility(true);
     clickAndSendKeys("absenceStartTime_input", startTime);
     clickAndSendKeys("absenceStartDate_input", startDate);
-    driverHelper.findElement(By.id("formAddAbsence:absenceStartTime_input")).click();
     clickAndSendKeys("absenceEndTime_input", endTime);
     clickAndSendKeys("absenceEndDate_input", endDate);
     clickAndSendKeys("absenceDescription", description);
@@ -176,6 +175,7 @@ public class BaseJsfWorkflowUiTest
 
   private void clickAndSendKeys(String inputId, String inputValue)
   {
+    driverHelper.findElement(By.id("formAddAbsence:absenceStartTime_input")).click();
     await(ExpectedConditions.elementToBeClickable(By.id("formAddAbsence:" + inputId))).sendKeys(inputValue);
   }
 
