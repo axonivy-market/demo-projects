@@ -1,0 +1,6 @@
+# Conversion log for project 'EngineConfigUiTest' from version 71000 to 72000
+# Created on 14.06.2018 17:02:20
+14.06.2018 17:02:20 : New Task  : Remove Javascript Validator Builder from .project
+14.06.2018 17:02:20 : New Task  : Remove RIA Ressources if not used
+14.06.2018 17:02:20 : New Task  : Update project version to actual version 72000.
+14.06.2018 17:02:20 : New Task  : Finished conversion of project EngineConfigUiTest.
