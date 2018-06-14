@@ -32,6 +32,7 @@ ErrorHandlingDemos/target
 HtmlDialogDemos/HtmlDialogDemos/classes
 HtmlDialogDemos/HtmlDialogDemos/src_dataClasses/ch
 HtmlDialogDemos/HtmlDialogDemos/src_dataClasses/htmlDialogDemos
+HtmlDialogDemos/HtmlDialogDemos/target
 HtmlDialogDemos/HtmlDialogDemosTest/classes
 HtmlDialogDemos/HtmlDialogDemosTest/drivers
 HtmlDialogDemos/HtmlDialogDemosTest/lib
@@ -77,6 +78,7 @@ WorkflowDemos/WorkflowDemosTest/classes
 WorkflowDemos/WorkflowDemosTest/deploy
 WorkflowDemos/WorkflowDemosTest/src_dataClasses/*
 WorkflowDemos/WorkflowDemosTest/target
+WorkflowDemos/WorkflowDemosTest/lib
 WorkflowDemos/classes
 WorkflowDemos/deploy
 WorkflowDemos/logs
@@ -88,3 +90,5 @@ academy/PracticeJSF/src_wsproc/*
 build.maven/iar/ria/target
 build.maven/iar/target
 build.maven/iar/web.test/target
+build.maven/iar/web.test/drivers
+build.maven/iar/web.test/lib
