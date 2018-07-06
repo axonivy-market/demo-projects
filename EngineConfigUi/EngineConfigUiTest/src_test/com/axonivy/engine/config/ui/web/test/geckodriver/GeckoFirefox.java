@@ -39,6 +39,7 @@ public class GeckoFirefox
       {
         return Files.list(driverDir.toPath())
           .filter(child -> child.getFileName().toString().startsWith("geckodriver"))
+          .filter(child -> !child.getFileName().toString().endsWith(".version"))
           .map(path -> path.toFile())
           .findFirst()
           .orElseThrow(()->new RuntimeException("Failed to detect geckodriver in "+geckoDriver));

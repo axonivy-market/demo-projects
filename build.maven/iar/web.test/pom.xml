@@ -48,11 +48,11 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<testSourceDirectory>src_test</testSourceDirectory>
 		<testOutputDirectory>classes</testOutputDirectory>
-		
+
 		<plugins>
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
@@ -129,7 +129,7 @@
 								<driver>
 									<name>geckodriver</name>
 									<bit>64</bit>
-									<version>0.20.1</version>
+									<version>0.21.0</version>
 								</driver>
 							</drivers>
 							<installationDirectory>${gecko.driver.dir}</installationDirectory>
@@ -138,7 +138,7 @@
 				</executions>
 			</plugin>
 		</plugins>
-		
+
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -152,5 +152,38 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	
+
+	<profiles>
+		<profile>
+			<id>ivy.package.deb64</id>
+			<activation>
+				<os>
+					<name>Linux</name>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>exec-maven-plugin</artifactId>
+						<groupId>org.codehaus.mojo</groupId>
+						<version>1.6.0</version>
+						<executions>
+							<execution>
+								<id>make.driver.executable</id>
+								<phase>pre-integration-test</phase>
+								<goals><goal>exec</goal></goals>
+								<configuration>
+									<executable>chmod</executable>
+									<arguments>
+										<argument>+x</argument>
+										<argument>${gecko.driver.dir}/geckodriver-linux-64bit</argument>
+									</arguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
