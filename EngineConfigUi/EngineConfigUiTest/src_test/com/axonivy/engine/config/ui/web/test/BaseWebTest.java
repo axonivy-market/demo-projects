@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.Instant;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -230,20 +231,26 @@ public class BaseWebTest
   protected void testConnection() throws Exception
   {
     openTab("System Database");
-    checkConnection();
-    await(textToBePresentInElementLocated(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
-            "Connected"));
+    try
+    {
+      checkConnection();
+      await(textToBePresentInElementLocated(
+              By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
+              "Connected"));
+    }
+    catch (Exception ex)
+    {
+      File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+      FileUtils.copyFile(scrFile, new File("target/Screenshot_testConnection_" + Instant.now() + ".png"));
+    }
   }
 
   protected void checkConnection() throws Exception
   {
     await(60, elementToBeClickable(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
-            .click();
-    await(60, elementToBeClickable(
-    		By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
-    .click();
+                    .click();
+    await(60, ExpectedConditions.not(ExpectedConditions.visibilityOfElementLocated(By.id("loadingDialog"))));
   }
 
   protected void addAdmin(String name) throws Exception
@@ -266,7 +273,7 @@ public class BaseWebTest
   protected void openTab(String tabName)
   {
     Accordion accordion = prime.accordion(By.id("accordionPanel"));
-    accordion.openTab(tabName);
+    	accordion.openTab(tabName);
   }
 
   protected <T> T await(int seconds, ExpectedCondition<T> condition)
