@@ -17,6 +17,7 @@ import java.sql.Statement;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.junit.After;
@@ -31,6 +32,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.axonivy.engine.config.ui.web.test.geckodriver.FixVersionFirefox;
 import com.axonivy.engine.config.ui.web.test.geckodriver.GeckoFirefox;
@@ -67,7 +69,7 @@ public class BaseWebTest
     FirefoxProfile profile = configureBrowserProfile();
     driver = FixVersionFirefox.createWebDriver(profile);
     driver.manage().window().setSize(new Dimension(1900, 1040));
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
   }
 
   private FirefoxProfile configureBrowserProfile()
@@ -111,10 +113,9 @@ public class BaseWebTest
   {
     driver.findElement(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"))
             .sendKeys(Keys.ENTER);
-    await(textToBePresentInElementLocated(
+    await(30, textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
             "doesn't exist"));
-
     createAndValidateDb();
   }
 
@@ -240,6 +241,9 @@ public class BaseWebTest
     await(30, elementToBeClickable(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
             .click();
+    await(30, elementToBeClickable(
+    		By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
+    .click();
   }
 
   protected void addAdmin(String name) throws Exception
