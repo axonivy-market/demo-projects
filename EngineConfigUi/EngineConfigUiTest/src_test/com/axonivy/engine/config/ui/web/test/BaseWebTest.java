@@ -69,7 +69,7 @@ public class BaseWebTest
     FirefoxProfile profile = configureBrowserProfile();
     driver = FixVersionFirefox.createWebDriver(profile);
     driver.manage().window().setSize(new Dimension(1900, 1040));
-    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   private FirefoxProfile configureBrowserProfile()
@@ -238,10 +238,10 @@ public class BaseWebTest
 
   protected void checkConnection() throws Exception
   {
-    await(30, elementToBeClickable(
+    await(60, elementToBeClickable(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
             .click();
-    await(30, elementToBeClickable(
+    await(60, elementToBeClickable(
     		By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
     .click();
   }
