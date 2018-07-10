@@ -38,7 +38,7 @@ public class WebTestWizard extends BaseWebTest
     await(elementToBeClickable(nextButtonLocator));
     retryingFindClick(nextButtonLocator);
 
-    await(elementToBeClickable(By
+    await(30,elementToBeClickable(By
             .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")));
     retryingFindClick(By
             .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton"));

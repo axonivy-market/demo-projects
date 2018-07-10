@@ -16,14 +16,14 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import ch.ivyteam.ivy.Advisor;
-import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
-import ch.ivyteam.util.WaitUtil;
-
 import com.axon.ivy.engine.config.ConfigHelper;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
 import com.axonivy.engine.config.ui.settings.ConfigData;
 import com.axonivy.engine.config.ui.unit.test.TestSystemDatabaseSettings;
+
+import ch.ivyteam.ivy.Advisor;
+import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
+import ch.ivyteam.util.WaitUtil;
 
 @SuppressWarnings("restriction")
 public class WebTestSystemDatabaseSettings extends BaseWebTest
@@ -60,19 +60,15 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
                     By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:finishMessageConvertion"),
                     "Successfully Finished"));
     By saveAndConnectBtn = By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:saveAndConnectConvertionButton");
-	await(elementToBeClickable(saveAndConnectBtn));
-	driver.findElement(saveAndConnectBtn).click();
-	await(ExpectedConditions.invisibilityOfElementLocated(saveAndConnectBtn));
-	openTab("Summary");
+        await(elementToBeClickable(saveAndConnectBtn));
+        driver.findElement(saveAndConnectBtn).click();
+        await(ExpectedConditions.invisibilityOfElementLocated(saveAndConnectBtn));
+        openTab("Summary");
   }
 
   private void testConnectionOldDb()
   {
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton"))
-            .click();
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton"))
+    await(elementToBeClickable(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
             .click();
     await(textToBePresentInElementLocated(
                     By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),

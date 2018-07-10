@@ -159,7 +159,7 @@ public class BaseWebTest
 
   protected void createAndValidateDb() throws WebDriverException, IOException
   {
-    await(visibilityOfElementLocated(By
+    await(30, visibilityOfElementLocated(By
             .id("accordionPanel:systemDatabaseComponent:createDatabaseForm:dialogCreateDbButton")));
     driver.findElement(By.id("accordionPanel:systemDatabaseComponent:createDatabaseForm:uiRepeat:0:creationParam")).sendKeys(Keys.ENTER);
 
@@ -242,6 +242,8 @@ public class BaseWebTest
     {
       File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
       FileUtils.copyFile(scrFile, new File("target/Screenshot_testConnection_" + Instant.now() + ".png"));
+      System.err.println("Created screenshot");
+      throw ex;
     }
   }
 

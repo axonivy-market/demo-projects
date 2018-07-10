@@ -7,6 +7,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WebTestWebServer extends BaseWebTest
 {
@@ -64,14 +65,12 @@ public class WebTestWebServer extends BaseWebTest
   private void openSystemPropertiesDialog() throws Exception
   {
     openTab("Web Server");
-    By advancedSystemPropsButtonLocator = By
-            .id("accordionPanel:webServerComponent:webServerForm:advancedSystemPropertiesButton");
-    await(visibilityOfElementLocated(advancedSystemPropsButtonLocator));
+    await(ExpectedConditions.elementToBeClickable(By
+            .id("accordionPanel:webServerComponent:webServerForm:advancedSystemPropertiesButton")))
+                    .click();
 
-    driver.findElement(advancedSystemPropsButtonLocator).click();
-    By advancedSystemPropsTable = By
-            .id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable_data");
-    await(textToBePresentInElementLocated(advancedSystemPropsTable,
+    await(30, textToBePresentInElementLocated(By
+            .id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable_data"),
             "WebServer.AJP.Enabled"));
   }
 
