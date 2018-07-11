@@ -252,7 +252,7 @@ public class BaseWebTest
     await(60, elementToBeClickable(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
                     .click();
-    await(60, ExpectedConditions.not(ExpectedConditions.visibilityOfElementLocated(By.id("loadingDialog"))));
+    await(60, ExpectedConditions.invisibilityOfElementLocated(By.id("loadingDialog")));
   }
 
   protected void addAdmin(String name) throws Exception
