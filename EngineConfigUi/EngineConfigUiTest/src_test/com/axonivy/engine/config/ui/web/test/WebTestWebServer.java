@@ -69,7 +69,7 @@ public class WebTestWebServer extends BaseWebTest
             .id("accordionPanel:webServerComponent:webServerForm:advancedSystemPropertiesButton")))
                     .click();
 
-    await(30, textToBePresentInElementLocated(By
+    await(120, textToBePresentInElementLocated(By
             .id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable_data"),
             "WebServer.AJP.Enabled"));
   }
