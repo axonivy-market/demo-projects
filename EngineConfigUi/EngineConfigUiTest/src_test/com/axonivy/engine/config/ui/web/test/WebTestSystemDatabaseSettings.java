@@ -71,7 +71,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     await(elementToBeClickable(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
             .click();
     await(ExpectedConditions.invisibilityOfElementLocated(By.id("loadingDialog")));
-    await(textToBePresentInElementLocated(
+    await(30, textToBePresentInElementLocated(
                     By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
                     "Database too old"));
   }

@@ -46,6 +46,8 @@ public class WebTestCluster extends BaseWebTest
     driver.findElement(By.id("accordionPanel:clusterComponent:addLocalNodeForm:addLocalNodeDialogButton"))
             .click();
 
+    await(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+            By.id("accordionPanel:clusterComponent:clusterNodeForm:clusterNodesDataTable")));
     Table table = prime.table(By.id("accordionPanel:clusterComponent:clusterNodeForm:clusterNodesDataTable"));
     table.contains("0");
     table.contains(ipAddress);
