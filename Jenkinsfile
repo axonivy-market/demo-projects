@@ -11,11 +11,10 @@ pipeline {
   }
 
   stages {
+    try {
       stage('build') {
-       try {
         steps {
           script {
-            def result
             def workspace = pwd()
             maven cmd: "clean deploy -e -fae -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
           }
@@ -26,9 +25,9 @@ pipeline {
             junit '**/target/surefire-reports/**/*.xml'
           }
         }
-      } catch (e) {
-      currentBuild.result = 'UNSTABLE'
       }
+    } catch (e) {
+    currentBuild.result = 'UNSTABLE'
     }
   }
 }
