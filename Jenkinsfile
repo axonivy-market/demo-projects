@@ -26,7 +26,7 @@ pipeline {
             junit '**/target/surefire-reports/**/*.xml'
           }
         }
-      } catch (org.apache.maven.lifecycle.LifecycleExecutionException e) {
+      } catch (e) {
       currentBuild.result = 'UNSTABLE'
       }
     }
