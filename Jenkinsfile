@@ -11,23 +11,19 @@ pipeline {
   }
 
   stages {
-      stage('build') {
-        steps {
-          script {
-            def workspace = pwd()
-            //try {
-              maven cmd: "clean deploy -e -fn -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
-          /*  } catch (e) {
-              currentBuild.result = 'SUCCESS'
-            }*/
-          }
-        }
-        post {
-          always {
-            archiveArtifacts '**/target/*.iar'
-            junit '**/target/surefire-reports/**/*.xml'
-          }
+    stage('build') {
+      steps {
+        script {
+          def workspace = pwd()
+          maven cmd: "clean deploy -e -fn -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
         }
       }
+      post {
+        always {
+          archiveArtifacts '**/target/*.iar'
+          junit '**/target/surefire-reports/**/*.xml'
+        }
+      }
+    }
   }
 }
