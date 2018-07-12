@@ -11,18 +11,23 @@ pipeline {
   }
 
   stages {
-    stage('build') {
-      steps {
-        script {
-          def workspace = pwd()
-          maven cmd: "clean deploy -e -fae -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
+      stage('build') {
+       try {
+        steps {
+          script {
+            def result
+            def workspace = pwd()
+            maven cmd: "clean deploy -e -fae -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
+          }
         }
-      }
-      post {
-        always {
-          archiveArtifacts '**/target/*.iar'
-          junit '**/target/surefire-reports/**/*.xml'
+        post {
+          always {
+            archiveArtifacts '**/target/*.iar'
+            junit '**/target/surefire-reports/**/*.xml'
+          }
         }
+      } catch (org.apache.maven.lifecycle.LifecycleExecutionException e) {
+      currentBuild.result = 'UNSTABLE'
       }
     }
   }
