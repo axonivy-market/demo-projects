@@ -15,11 +15,11 @@ pipeline {
         steps {
           script {
             def workspace = pwd()
-            try {
-              maven cmd: "clean deploy -e -fae -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
-            } catch (e) {
+            //try {
+              maven cmd: "clean deploy -e -fn -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
+          /*  } catch (e) {
               currentBuild.result = 'SUCCESS'
-            }
+            }*/
           }
         }
         post {
