@@ -71,7 +71,7 @@ public class WebTestWebServer extends BaseWebTest
 
     await(120, textToBePresentInElementLocated(By
             .id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable_data"),
-            "WebServer.AJP.Enabled"));
+            "WebServer.HTTPS.ThreadPriority"));
   }
 
   private String editProperty(String row, String type, String newValue) throws Exception
