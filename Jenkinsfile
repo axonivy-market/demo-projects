@@ -11,12 +11,15 @@ pipeline {
   }
 
   stages {
-    try {
       stage('build') {
         steps {
           script {
             def workspace = pwd()
-            maven cmd: "clean deploy -e -fae -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
+            try {
+              maven cmd: "clean deploy -e -fae -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
+            } catch (e) {
+              currentBuild.result = 'UNSTABLE'
+            }
           }
         }
         post {
@@ -26,8 +29,5 @@ pipeline {
           }
         }
       }
-    } catch (e) {
-    currentBuild.result = 'UNSTABLE'
-    }
   }
 }
