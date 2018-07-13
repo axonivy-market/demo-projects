@@ -5,9 +5,12 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentI
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementValue;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
 
 public class WebTestWebServer extends BaseWebTest
 {
@@ -44,6 +47,7 @@ public class WebTestWebServer extends BaseWebTest
     await(textToBePresentInElementValue(portInputLocator, "1234"));
   }
 
+  @Ignore
   @Test
   public void testWebServerSystemProperties() throws Exception
   {
@@ -69,6 +73,9 @@ public class WebTestWebServer extends BaseWebTest
             .id("accordionPanel:webServerComponent:webServerForm:advancedSystemPropertiesButton")))
                     .click();
 
+   Dialog dialog = prime.dialog(By.id("accordionPanel:webServerComponent:advancedSystemPropertiesDialog"));
+   dialog.waitForVisibility(true);
+   
     await(120, textToBePresentInElementLocated(By
             .id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable_data"),
             "WebServer.HTTPS.ThreadPriority"));
