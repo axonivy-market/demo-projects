@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<rcptt.version>2.2.0</rcptt.version>
+		<rcptt.version>2.3.0</rcptt.version>
 		<nexus.root.url>http://zugpronexus:8081/nexus</nexus.root.url>
 		<build.job.name>Trunk_All</build.job.name>
 		<build.last.sucess.url>http://zugprobldmas/job/${build.job.name}/lastSuccessfulBuild/</build.last.sucess.url>
