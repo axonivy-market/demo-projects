@@ -153,8 +153,12 @@ public class TestSystemDatabaseSettings
     settings.setConfigData(configData);
     DatabaseConnectionConfiguration dbConnectionConfig = ConfigHelper
             .createConfiguration(configData, settings.getConfiguration());
-    DatabaseUtil.dropDatabase(DBName, dbConnectionConfig);
-    System.out.println("dropped DB!");
+
+    if (DatabaseUtil.existsDatabase(dbConnectionConfig, DBName))
+    {
+    	DatabaseUtil.dropDatabase(DBName, dbConnectionConfig);
+    	System.out.println("dropped DB!");
+    }
   }
 
   public static ConfigData getLocalMySqlSettings()
