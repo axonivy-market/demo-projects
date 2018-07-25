@@ -94,7 +94,7 @@ public class TestSystemDatabaseSettings
     {
       changeConfigToMySqlSettings(configData);
       assertThat(settings.testConnection()).isEqualTo(
-              ConnectionState.CONNECTION_FAILED);
+              ConnectionState.CONNECTED_NO_DATABASE_OR_SCHEMA);
       createDatabase(configData);
       settings.setConfigData(configData);
       assertThat(settings.testConnection()).isEqualTo(
@@ -153,7 +153,7 @@ public class TestSystemDatabaseSettings
     settings.setConfigData(configData);
     DatabaseConnectionConfiguration dbConnectionConfig = ConfigHelper
             .createConfiguration(configData, settings.getConfiguration());
-
+    
     if (DatabaseUtil.existsDatabase(dbConnectionConfig, DBName))
     {
     	DatabaseUtil.dropDatabase(DBName, dbConnectionConfig);
