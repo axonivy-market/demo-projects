@@ -116,7 +116,7 @@ public class BaseWebTest
             .sendKeys(Keys.ENTER);
     await(30, textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
-            "doesn't exist"));
+            "Missing Database/Schema"));
     createAndValidateDb();
   }
 
