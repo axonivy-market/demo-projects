@@ -116,19 +116,6 @@ public class TestSystemDatabaseAdvice
   }
 
   @Test
-  public void testAS400FailedStates() throws Exception
-  {
-    assertGeneralAdviceFailedConnectionState(DatabaseProduct.AS400);
-    assertFailedConnectionState(ConnectionState.CONNECTION_FAILED, DatabaseProduct.AS400,
-            FailedConnectionState.WRONG_LOGIN, new Throwable("The application server rejected"));
-    assertFailedConnectionState(ConnectionState.CONNECTION_FAILED, DatabaseProduct.AS400,
-            FailedConnectionState.WRONG_PASSWORD, new Throwable(
-                    "The application server rejected : Password is incorrect"));
-    assertFailedConnectionState(ConnectionState.CONNECTION_FAILED, DatabaseProduct.AS400,
-            FailedConnectionState.WRONG_HOST, new Throwable("The application requester cannot establish"));
-  }
-
-  @Test
   public void testHsqlDbFailedStates() throws Exception
   {
     assertGeneralAdviceFailedConnectionState(DatabaseProduct.HSQLDB);

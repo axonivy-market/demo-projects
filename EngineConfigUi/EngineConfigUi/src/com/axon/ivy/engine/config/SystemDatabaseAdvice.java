@@ -29,8 +29,6 @@ public class SystemDatabaseAdvice
 
     switch (product)
     {
-      case AS400:
-        return getAs400Advice(errorMessage);
       case HSQLDB:
         return getHsqlDbAdvice(errorMessage);
       case MICROSOFT_SQL_SERVER:
@@ -166,23 +164,6 @@ public class SystemDatabaseAdvice
     if (StringUtils.containsIgnoreCase(errorMessage, "Cannot open database"))
     {
       return FailedConnectionState.CREATE_DB;
-    }
-    return FailedConnectionState.UNKNOWN;
-  }
-
-  private static FailedConnectionState getAs400Advice(String errorMessage)
-  {
-    if (StringUtils.containsIgnoreCase(errorMessage, "The application requester cannot establish"))
-    {
-      return FailedConnectionState.WRONG_HOST;
-    }
-    if (StringUtils.containsIgnoreCase(errorMessage, "The application server rejected"))
-    {
-      if (StringUtils.containsIgnoreCase(errorMessage, "Password is incorrect"))
-      {
-        return FailedConnectionState.WRONG_PASSWORD;
-      }
-      return FailedConnectionState.WRONG_LOGIN;
     }
     return FailedConnectionState.UNKNOWN;
   }
