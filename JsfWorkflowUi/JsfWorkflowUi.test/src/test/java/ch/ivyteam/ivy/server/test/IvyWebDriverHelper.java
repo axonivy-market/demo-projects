@@ -136,7 +136,7 @@ public class IvyWebDriverHelper
     waitAtLast(10).until(ExpectedConditions.elementToBeClickable(by));
   }
 
-  public void clickAndWaitForAjax(By by) throws IOException
+  public void clickAndWaitForAjax(By by)
   {
 	  try{
 		  findElement(by).click();
@@ -144,7 +144,11 @@ public class IvyWebDriverHelper
 	  catch(Exception ex)
 	  {
 		  File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		  FileUtils.copyFile(scrFile, new File("c:\\temp\\screenshot" + Math.random() + ".png"));
+		  try {
+			FileUtils.copyFile(scrFile, new File("c:\\temp\\screenshot" + Math.random() + ".png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	  }
     waitForAjax();
   }
