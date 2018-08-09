@@ -1,6 +1,6 @@
 @font-face  {
 	font-family: 'bpm';
-	src: url("#{resource['layouts/fonts/bpmFont/bpm.eot");
+	src: url("#{resource['layouts/fonts/bpmFont/bpm.eot']}");
 	src: url("#{resource['layouts/fonts/bpmFont/bpm.eot']}&#iefix") format('embedded-opentype'),
 		 url("#{resource['layouts/fonts/bpmFont/bpm.woff']}") format('woff'), 
 		 url("#{resource['layouts/fonts/bpmFont/bpm.ttf']}") format('truetype'), 
