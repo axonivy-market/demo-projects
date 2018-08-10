@@ -30,7 +30,7 @@ public class FixVersionFirefox
     {
       ffBinary = new FirefoxBinary();
     }
-    ffBinary.addCommandLineOptions("--headless");
+//    ffBinary.addCommandLineOptions("--headless");
     FirefoxOptions options = new FirefoxOptions().setLogLevel(Level.WARNING).setBinary(ffBinary)
             .setProfile(profile);
     return new FirefoxDriver(options);
