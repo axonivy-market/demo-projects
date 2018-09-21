@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Tue May 30 10:19:44 CEST 2017]
-015B14256823DE3D 3.20 #module
+015B14256823DE3D 3.23 #module
 >Proto >Proto Collection #zClass
 Ls0 LicenceUploadComponentProcess Big #zClass
 Ls0 RD #cInfo
@@ -87,7 +86,13 @@ Ls0 f14 actionDecl 'com.axonivy.engine.config.ui.settings.component.LicenceUploa
 ' #txt
 Ls0 f14 actionTable 'out=in;
 ' #txt
-Ls0 f14 actionCode 'import com.axon.ivy.engine.config.LicenceUtil;
+Ls0 f14 actionCode 'import ch.ivyteam.licence.SignedLicence;
+import com.axon.ivy.engine.config.LicenceUtil;
+
+if(in.#originalLicence == null)
+{
+	in.originalLicence = LicenceUtil.getInstalledLic();
+}
 
 in.newLicenceFile = LicenceUtil.uploadFile(in.newLicence);
 LicenceUtil.installAndVerify(in.newLicenceFile);' #txt
