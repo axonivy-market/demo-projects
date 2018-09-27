@@ -11,6 +11,24 @@
 
 <cc:implementation>
 	<h:form id="adminManagerForm" styleClass="configChanged">
+	
+		<p:outputPanel id="adminIvyYamlHintPanel" styleClass="">
+			<p:outputPanel id="adminYamlHint"
+				styleClass="alert alert-success connection-state">
+				<h4>
+					<i class="fa fa-info-circle" />
+					<h:outputText value=" Hint: ivy.yaml" styleClass="configChanged" />
+				</h4>
+				<p>
+					<h:outputText
+						value="You have the possibility to add your administrators directly in the ivy.yaml file. 
+						After an engine restart these admins will override and expand your system database administrators. 
+						If you add one here it will be written to the system database."
+						styleClass="configChanged" />
+				</p>
+			</p:outputPanel>
+		</p:outputPanel>
+	
 		<h:panelGrid columns="1" cellpadding="1"
 			rendered="#{data.connectionInfo.connectionOK}">
 			<p:dataTable id="adminDataTable"

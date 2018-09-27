@@ -13,6 +13,24 @@
 <cc:implementation>
 	<h:form id="webServerForm" styleClass="configChanged">
 		<p:focus for="HTTPPortInput" />
+		
+		<p:outputPanel id="wsIvyYamlHintPanel" styleClass="">
+			<p:outputPanel id="wsYamlHint"
+				styleClass="alert alert-success connection-state">
+				<h4>
+					<i class="fa fa-info-circle" />
+					<h:outputText value=" Hint: ivy.yaml" styleClass="configChanged" />
+				</h4>
+				<p>
+					<h:outputText
+						value="You can override this configuration directly in the ivy.webserver.yaml file. 
+						If you do that, these settings overlay the configurations from the system database. 
+						But every value you see and change here only effect the system database."
+						styleClass="configChanged" />
+				</p>
+			</p:outputPanel>
+		</p:outputPanel>
+		
 		<h:panelGrid columns="3" cellpadding="20" cellspacing="20"
 			rendered="#{data.settings.connectionInfo.connectionOK}">
 			<p:fieldset id="HTTPFieldSet" legend="HTTP Connector">
