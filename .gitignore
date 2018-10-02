@@ -92,3 +92,5 @@ build.maven/iar/target
 build.maven/iar/web.test/target
 build.maven/iar/web.test/drivers
 build.maven/iar/web.test/lib
+
+EngineConfigUi/EngineConfigUiDocumentation/lib/
