@@ -18,7 +18,7 @@ public class UiModder
   public static void systemDatabaseConfigSaved()
   {
     addMessage(FacesMessage.SEVERITY_INFO, "System Database config saved",
-            "Your System Database config were saved to configuration/serverconfig.xml");
+            "Your System Database config were saved to configuration/ivy.yaml");
   }
 
   public static void systemDatabaseConfigNotSaved(Exception ex)
