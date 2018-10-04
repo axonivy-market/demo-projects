@@ -36,8 +36,6 @@ Ls0 f0 disableUIEvents true #txt
 Ls0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
-Ls0 f0 inParameterMapAction 'out.originalLicence=ch.ivyteam.licence.SignedLicence.getLicenceFile();
-' #txt
 Ls0 f0 outParameterDecl '<> result;
 ' #txt
 Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -64,7 +62,6 @@ Ls0 f11 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent method
 <org.primefaces.event.FileUploadEvent fileUploadEvent> param = methodEvent.getInputArguments();
 ' #txt
 Ls0 f11 inParameterMapAction 'out.newLicence=param.fileUploadEvent.getFile();
-out.originalLicence=ch.ivyteam.licence.SignedLicence.getLicenceFile();
 ' #txt
 Ls0 f11 outParameterDecl '<> result;
 ' #txt
@@ -86,16 +83,7 @@ Ls0 f14 actionDecl 'com.axonivy.engine.config.ui.settings.component.LicenceUploa
 ' #txt
 Ls0 f14 actionTable 'out=in;
 ' #txt
-Ls0 f14 actionCode 'import ch.ivyteam.licence.SignedLicence;
-import com.axon.ivy.engine.config.LicenceUtil;
-
-if(in.#originalLicence == null)
-{
-	in.originalLicence = LicenceUtil.getInstalledLic();
-}
-
-in.newLicenceFile = LicenceUtil.uploadFile(in.newLicence);
-LicenceUtil.installAndVerify(in.newLicenceFile);' #txt
+Ls0 f14 actionCode com.axon.ivy.engine.config.LicenceUtil.verifyAndInstall(in.newLicence); #txt
 Ls0 f14 type com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent.LicenceUploadComponentData #txt
 Ls0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -113,6 +101,7 @@ Ls0 f15 109 128 168 128 #arcP
 Ls0 f6 actionDecl 'com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent.LicenceUploadComponentData out;
 ' #txt
 Ls0 f6 actionTable 'out=in;
+out.error=error;
 ' #txt
 Ls0 f6 type com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent.LicenceUploadComponentData #txt
 Ls0 f6 attachedToRef 015B14256823DE3D-f14 #txt
@@ -122,15 +111,24 @@ Ls0 f10 actionDecl 'com.axonivy.engine.config.ui.settings.component.LicenceUploa
 ' #txt
 Ls0 f10 actionTable 'out=in;
 ' #txt
-Ls0 f10 actionCode 'import com.axon.ivy.engine.config.LicenceUtil;
+Ls0 f10 actionCode 'import org.apache.commons.lang3.exception.ExceptionUtils;
+import ch.ivyteam.licence.InvalidLicenceException;
+import com.axon.ivy.engine.config.LicenceUtil;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContextFactory;
 import javax.faces.context.FacesContext;
 
 FacesContext context = FacesContext.getCurrentInstance();
-context.addMessage(null ,new FacesMessage(FacesMessage.SEVERITY_ERROR, "Licence is not valid!", "Please choose a valid Licence!"));
+if (ExceptionUtils.getRootCause(in.error) instanceof InvalidLicenceException)
+{
+  context.addMessage(null ,new FacesMessage(FacesMessage.SEVERITY_ERROR, "Licence is not valid!", "Please choose a valid Licence!"));	
+}
+else
+{
+  context.addMessage(null ,new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error Uploading Licence", in.error.getErrorMessage()));	
+}
 
-in.newLicenceFile.delete();' #txt
+' #txt
 Ls0 f10 type com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent.LicenceUploadComponentData #txt
 Ls0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -154,26 +152,23 @@ Ls0 f9 actionDecl 'com.axonivy.engine.config.ui.settings.component.LicenceUpload
 ' #txt
 Ls0 f9 actionTable 'out=in;
 ' #txt
-Ls0 f9 actionCode 'if(in.#originalLicence != null)
-{
-	com.axon.ivy.engine.config.LicenceUtil.backupOld(in.originalLicence);
-}' #txt
+Ls0 f9 actionCode com.axon.ivy.engine.config.LicenceUtil.backupAllOlds(); #txt
 Ls0 f9 type com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent.LicenceUploadComponentData #txt
 Ls0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Backup old licence</name>
-        <nameStyle>18,7
+        <name>Backup old licences</name>
+        <nameStyle>19,5
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f9 328 106 112 44 -51 -8 #rect
+Ls0 f9 320 106 128 44 -61 -7 #rect
 Ls0 f9 @|StepIcon #fIcon
 Ls0 f16 expr out #txt
-Ls0 f16 280 128 328 128 #arcP
+Ls0 f16 280 128 320 128 #arcP
 Ls0 f13 expr out #txt
-Ls0 f13 440 128 499 128 #arcP
+Ls0 f13 448 128 499 128 #arcP
 >Proto Ls0 .type com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent.LicenceUploadComponentData #txt
 >Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect

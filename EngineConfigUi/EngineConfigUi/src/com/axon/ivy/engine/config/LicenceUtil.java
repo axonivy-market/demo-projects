@@ -10,8 +10,11 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.primefaces.model.UploadedFile;
 
+import com.google.common.io.Files;
+
 import ch.ivyteam.di.restricted.DiCore;
 import ch.ivyteam.ivy.config.IFileAccess;
+import ch.ivyteam.licence.InvalidLicenceException;
 import ch.ivyteam.licence.LicenceConstants;
 import ch.ivyteam.licence.SignedLicence;
 
@@ -20,34 +23,57 @@ public class LicenceUtil
 {
   private static final File CONFIG_DIR = new File("configuration");
   private static final String DEMO_LIC = "demo.lic";
-
-  public static void backupOld(File originalLicence)
+  
+  public static void backupAllOlds()
   {
-    if (!originalLicence.getName().equalsIgnoreCase(DEMO_LIC))
+    File[] files = CONFIG_DIR.listFiles((dir, name) -> name.endsWith(".lic"));
+    for (File license : files)
     {
-      String bakFileName = originalLicence.getAbsolutePath() + ".bak";
-      File bakFile = new File(bakFileName);
-      int index = 1;
-      while (bakFile.exists())
+      if (!license.getName().equalsIgnoreCase(DEMO_LIC) && !license.equals(SignedLicence.getLicenceFile()))
       {
-        bakFile = new File(bakFileName + index);
-        index++;
+        backup(license);
       }
-      originalLicence.renameTo(bakFile);
     }
   }
 
-  public static void installAndVerify(File newLicence) throws Exception
+  private static void backup(File license)
   {
+    File backupFile = new File(license.getAbsolutePath().concat(".bak"));
+    if (backupFile.exists())
+    {
+      backupFile.delete();
+    }
+    license.renameTo(backupFile);
+    if (license.exists())
+    {
+      license.delete();
+    }
+  }
+
+  public static File verifyAndInstall(UploadedFile uploadedFile) throws Exception
+  {
+    File tempLicence = uploadFile(uploadedFile);
     try
     {
-      verify(newLicence);
-      SignedLicence.installLicence(newLicence);
+      verify(tempLicence);
+      return install(tempLicence, uploadedFile.getFileName());
     }
-    catch (IOException ex)
+    finally
     {
-      return;
+      tempLicence.delete();
     }
+  }
+
+  private static File install(File tempLicence, String fileName) throws InvalidLicenceException, IOException
+  {
+    File newLicence = new File(CONFIG_DIR, fileName);
+    if (newLicence.exists())
+    {
+      backup(newLicence);
+    }
+    Files.copy(tempLicence, newLicence);
+    SignedLicence.installLicence(newLicence);
+    return newLicence;
   }
 
   public static void verify(File newLicence) throws Exception
@@ -55,16 +81,15 @@ public class LicenceUtil
     SignedLicence.verifyLicence(newLicence);
   }
 
-  public static File uploadFile(UploadedFile uploadedFile) throws IOException, FileNotFoundException
+  private static File uploadFile(UploadedFile uploadedFile) throws IOException, FileNotFoundException
   {
-    File newLicence = new File(CONFIG_DIR, uploadedFile.getFileName());
-
-    try (FileOutputStream fos = new FileOutputStream(newLicence);
+    File tempLicence = File.createTempFile("temp", uploadedFile.getFileName());
+    try (FileOutputStream fos = new FileOutputStream(tempLicence);
             InputStream is = uploadedFile.getInputstream())
     {
       IOUtils.copy(is, fos);
     }
-    return newLicence;
+    return tempLicence;
   }
 
   public static boolean isCluster()
