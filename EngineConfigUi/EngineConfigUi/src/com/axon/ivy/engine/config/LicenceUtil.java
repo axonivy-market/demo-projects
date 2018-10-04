@@ -11,8 +11,6 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.primefaces.model.UploadedFile;
 
-import com.google.common.io.Files;
-
 import ch.ivyteam.di.restricted.DiCore;
 import ch.ivyteam.ivy.config.IFileAccess;
 import ch.ivyteam.licence.InvalidLicenceException;
