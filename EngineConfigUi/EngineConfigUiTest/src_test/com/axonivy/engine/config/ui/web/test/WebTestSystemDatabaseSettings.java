@@ -86,14 +86,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
 
   private void tryCreatingOldDb(ConfigData configData) throws Exception
   {
-    try
-    {
-      createOldDatabase(configData);
-    }
-    catch (Exception ex)
-    {
-      dropMySqlDatabase();
-    }
+	  createOldDatabase(configData);
   }
 
   private void createOldDatabase(ConfigData configData) throws Exception
