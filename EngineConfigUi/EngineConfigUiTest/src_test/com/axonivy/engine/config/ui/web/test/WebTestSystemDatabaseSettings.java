@@ -98,7 +98,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
 
     SystemDatabaseSettings settings = SystemDatabaseSettings.create();
     settings.setConfigData(configData);
-    SystemDatabaseCreator createDatabase = ConfigHelper.createDatabase(configData, 44, settings.getConfiguration());
+    SystemDatabaseCreator createDatabase = ConfigHelper.createDatabase(configData, 39, settings.getConfiguration());
     WaitUtil.await(() -> createDatabase.isRunning() == false, 60, TimeUnit.SECONDS);
     if (createDatabase.getError() != null)
     {
