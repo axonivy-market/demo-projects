@@ -8,10 +8,12 @@ String tmpMsg=ivy.html.get("in.message");
 	<head> 
 		<title>Axon.ivy Workflow</title>
 		<%
-			if(urlToStart.length()>0) {
+			if(ch.ivyteam.ivy.request.OpenRedirectVulnerabilityUtil.isValid(urlToStart,request)) {
 		%>
 				<meta http-equiv="refresh" content="0; URL=<%=urlToStart%>">
 		<%
+			} else {
+				urlToStart = "";
 			}
 		%>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">

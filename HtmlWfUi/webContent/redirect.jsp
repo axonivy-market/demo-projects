@@ -7,9 +7,11 @@ String tmpMsg=ivy.html.get("in.temp.msg");
 <html>
 <head> 
 <title>Axon.ivy Workflow</title> 
-<%if(urlToStart.length()>0) {%>
+<%if(ch.ivyteam.ivy.request.OpenRedirectVulnerabilityUtil.isValid(urlToStart,request)) {%>
 <META  http-equiv="refresh" content="0; URL=<%=urlToStart%>">
-<%}%>
+<%} else {
+		urlToStart = "";
+}%>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="<%=ivy.cms.cr("/Styles/html_wf")%>"/>
 <title>Axon.ivy Workflow</title>
