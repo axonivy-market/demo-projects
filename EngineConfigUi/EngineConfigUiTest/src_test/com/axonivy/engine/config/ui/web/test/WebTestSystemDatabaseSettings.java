@@ -3,27 +3,36 @@ package com.axonivy.engine.config.ui.web.test;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.Instant;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import com.axon.ivy.engine.config.ConfigHelper;
-import com.axon.ivy.engine.config.SystemDatabaseSettings;
 import com.axonivy.engine.config.ui.settings.ConfigData;
 import com.axonivy.engine.config.ui.unit.test.TestSystemDatabaseSettings;
 
+import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
+import ch.ivyteam.db.jdbc.DatabaseServer;
+import ch.ivyteam.db.jdbc.DatabaseUtil;
 import ch.ivyteam.ivy.Advisor;
-import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
-import ch.ivyteam.util.WaitUtil;
 
 @SuppressWarnings("restriction")
 public class WebTestSystemDatabaseSettings extends BaseWebTest
@@ -42,69 +51,12 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   {
     ConfigData configData = TestSystemDatabaseSettings.getLocalMySqlSettings();
     configData.setDatabaseName(OLD_DB_NAME);
-    tryCreatingOldDb(configData);
+    createOldDatabase(configData);
 
     setOldDbConfigUi();
     testConnectionOldDb();
     convertDb();
     testConnection();
-  }
-
-  private void convertDb()
-  {
-    await(elementToBeClickable(By
-                    .id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:confirmConvertButton")));
-    driver.findElement(
-            By.id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:confirmConvertButton")).click();
-    await(textToBePresentInElementLocated(
-                    By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:finishMessageConvertion"),
-                    "Successfully Finished"));
-    By saveAndConnectBtn = By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:saveAndConnectConvertionButton");
-        await(elementToBeClickable(saveAndConnectBtn));
-        driver.findElement(saveAndConnectBtn).click();
-        await(ExpectedConditions.invisibilityOfElementLocated(saveAndConnectBtn));
-        openTab("Summary");
-  }
-
-  private void testConnectionOldDb()
-  {
-    await(elementToBeClickable(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
-            .click();
-    await(ExpectedConditions.invisibilityOfElementLocated(By.id("loadingDialog")));
-    await(120, textToBePresentInElementLocated(
-                    By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
-                    "Database too old"));
-  }
-
-  private void setOldDbConfigUi()
-  {
-    setMySqlConfig();
-    super.DBNAME = OLD_DB_NAME;
-    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"), DBNAME);
-    driver.findElement(By.id("saveAll")).click();
-  }
-
-  private void tryCreatingOldDb(ConfigData configData) throws Exception
-  {
-	  createOldDatabase(configData);
-  }
-
-  private void createOldDatabase(ConfigData configData) throws Exception
-  {
-    Advisor.getAdvisor().setServer(true);
-    Properties properties = new Properties();
-    properties.put("databaseName", OLD_DB_NAME);
-    configData.setCreationParameters(properties);
-
-    SystemDatabaseSettings settings = SystemDatabaseSettings.create();
-    settings.setConfigData(configData);
-    SystemDatabaseCreator createDatabase = ConfigHelper.createDatabase(configData, 39, settings.getConfiguration());
-    WaitUtil.await(() -> createDatabase.isRunning() == false, 60, TimeUnit.SECONDS);
-    if (createDatabase.getError() != null)
-    {
-      throw new RuntimeException("Could not create database", createDatabase.getError());
-    }
-    super.dbCreated = true;
   }
 
   @Test
@@ -148,6 +100,139 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     }
   }
 
+  private void convertDb() throws IOException
+  {
+    try
+    {
+      await(elementToBeClickable(By
+              .id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:confirmConvertButton")));
+      driver.findElement(
+              By.id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:confirmConvertButton"))
+              .click();
+      await(textToBePresentInElementLocated(
+              By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:finishMessageConvertion"),
+              "Successfully Finished"));
+      By saveAndConnectBtn = By.id(
+              "accordionPanel:systemDatabaseComponent:convertingDatabaseForm:saveAndConnectConvertionButton");
+      await(elementToBeClickable(saveAndConnectBtn));
+      driver.findElement(saveAndConnectBtn).click();
+      await(ExpectedConditions.invisibilityOfElementLocated(saveAndConnectBtn));
+      openTab("Summary");
+    }
+    catch (Exception ex)
+    {
+      File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+      FileUtils.copyFile(scrFile, new File("target/Screenshot_testConnection_" + Instant.now() + ".png"));
+      System.err.println("Created screenshot");
+      throw ex;
+    }
+  }
+
+  private void testConnectionOldDb()
+  {
+    await(elementToBeClickable(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:checkConnectionButton")))
+                    .click();
+    await(ExpectedConditions.invisibilityOfElementLocated(By.id("loadingDialog")));
+    await(120, textToBePresentInElementLocated(
+            By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:connectionState"),
+            "Database too old"));
+  }
+
+  private void setOldDbConfigUi()
+  {
+    setMySqlConfig();
+    super.DBNAME = OLD_DB_NAME;
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"),
+            DBNAME);
+    driver.findElement(By.id("saveAll")).click();
+  }
+
+  private void createOldDatabase(ConfigData configData) throws Exception
+  {
+    Advisor.getAdvisor().setServer(true);
+    Properties properties = new Properties();
+    properties.put("databaseName", OLD_DB_NAME);
+    configData.setCreationParameters(properties);
+  
+    DatabaseConnectionConfiguration dbConnectionConfig = new DatabaseConnectionConfiguration(
+            "jdbc:mysql://zugtstdbsmys:3306/tmp_engineConfigUi_testing_oldDb_version44",
+            "com.mysql.jdbc.Driver", "admin", "nimda");
+    DatabaseServer databaseServer = DatabaseServer.createInstance(dbConnectionConfig);
+  
+    createSystemDb(dbConnectionConfig, databaseServer);
+    fillSystemDb(dbConnectionConfig);
+    super.dbCreated = true;
+  }
+
+  private void createSystemDb(DatabaseConnectionConfiguration dbConnectionConfig,
+          DatabaseServer databaseServer)
+          throws SQLException
+  {
+    try (Connection connection = DatabaseUtil.openConnection(dbConnectionConfig))
+    {
+      Statement stmt = connection.createStatement();
+      stmt.execute("DROP DATABASE " + OLD_DB_NAME);
+    }
+    catch (SQLException ex)
+    {
+    }
+    databaseServer.createDatabase(OLD_DB_NAME);
+  }
+
+  private void fillSystemDb(DatabaseConnectionConfiguration dbConnectionConfig)
+          throws FileNotFoundException, IOException, SQLException
+  {
+    String sqlScriptsLocation = "src_test/com/axonivy/engine/config/ui/web/test/";
+    try (Connection connection = DatabaseUtil.openConnection(dbConnectionConfig))
+    {
+      try (Statement stmt = connection.createStatement())
+      {
+        String sql = IOUtils.toString(
+                new FileInputStream(sqlScriptsLocation + "CreateBaseDatabaseVersion39.sql"), "utf-8");
+        sql = sql + IOUtils.toString(new FileInputStream(sqlScriptsLocation + "CreateDatabaseVersion39.sql"),
+                "utf-8");
+  
+        String[] sqlStatements = sql.split(";");
+        for (String statement : sqlStatements)
+        {
+          if (StringUtils.isWhitespace(statement))
+          {
+            break;
+          }
+          System.out.println(statement);
+          stmt.execute(statement);
+        }
+  
+        sql = IOUtils.toString(new FileInputStream(sqlScriptsLocation + "CreateTriggerDatabaseVersion39.sql"),
+                "utf-8");
+        sqlStatements = sql.split("END;");
+        for (String statement : sqlStatements)
+        {
+          if (StringUtils.isWhitespace(statement))
+          {
+            break;
+          }
+          statement = statement + "END;";
+          stmt.execute(statement);
+        }
+  
+        sql = IOUtils.toString(new FileInputStream(sqlScriptsLocation + "CreateSystemApplication.sql"),
+                "utf-8");
+        sqlStatements = sql.split(";");
+        for (String statement : sqlStatements)
+        {
+          if (StringUtils.isWhitespace(statement))
+          {
+            break;
+          }
+          System.out.println(statement);
+          stmt.execute(statement);
+        }
+      }
+    }
+  }
+
   private void configAndCreateMSSQL() throws Exception
   {
     setConfigMSSQL();
@@ -159,7 +244,8 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     setConfigInternal();
     prime.selectOne(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseTypeDropdown"))
             .selectItemByLabel("Microsoft SQL Server");
-    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "ZugTstDbsMss");
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"),
+            "ZugTstDbsMss");
     checkConnection();
   }
 
@@ -215,13 +301,15 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
     prime.selectOne(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseTypeDropdown"))
             .selectItemByLabel("Oracle");
 
-    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"), "ZugTstDbsOra");
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:hostInput"),
+            "ZugTstDbsOra");
 
     prime.selectBooleanCheckbox(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:defaultPortCheckbox"))
             .setChecked();
     DBNAME = "zugtstdbsora";
-    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"), DBNAME);
+    clearAndSend(By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:databaseNameInput"),
+            DBNAME);
     driver.findElement(By.id("saveAll")).click();
   }
 
@@ -260,8 +348,9 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   private void throwNotConnected(StopWatch sw) throws Exception
   {
     System.out.println("Could not connect to db after " + sw.getNanoTime() + " nanoseconds");
-    String messageBoxMessage = driver.findElement(By.xpath
-            ("//*[@id='accordionPanel:systemDatabaseComponent:growl_container']/div/div/div[2]/p"))
+    String messageBoxMessage = driver
+            .findElement(By.xpath(
+                    "//*[@id='accordionPanel:systemDatabaseComponent:growl_container']/div/div/div[2]/p"))
             .getText();
     throw new Exception("Expected connection to be established but was: '" + messageBoxMessage + "'");
   }
