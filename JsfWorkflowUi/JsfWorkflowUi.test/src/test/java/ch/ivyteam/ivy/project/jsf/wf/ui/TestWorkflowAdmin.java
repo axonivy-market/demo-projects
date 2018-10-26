@@ -23,7 +23,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     closeTask();
     navigate().home();
     awaitToBeClickable(By.linkText("Workflow Admin")).click();
-    awaitToBeClickableAndClick("workflowStatistic").click();
+    awaitToBeClickable("workflowStatistic").click();
     awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "process1");
     awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "process2");
   }
@@ -35,15 +35,15 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     closeTask();
     navigate().home();
     awaitToBeClickable(By.linkText("Workflow Admin")).click();
-    awaitToBeClickableAndClick("workflowStatistic").click();
+    awaitToBeClickable("workflowStatistic").click();
     awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "category1");
-    awaitToBeClickableAndClick("linkStatisticDetailMin_0").click();
+    awaitToBeClickable("linkStatisticDetailMin_0").click();
     awaitTextToBePresentIn(By.xpath("//*[@id='mainArea']/h2"), "Detailed Statistic");
     awaitTextToBePresentIn(By.id("formChartTasks:chartForTasks"), "Processing time of the tasks");
     navigate().home();
     awaitToBeClickable(By.linkText("Workflow Admin")).click();
-    awaitToBeClickableAndClick("workflowStatistic").click();
-    awaitToBeClickableAndClick("linkStatisticDetailMax_0").click();
+    awaitToBeClickable("workflowStatistic").click();
+    awaitToBeClickable("linkStatisticDetailMax_0").click();
     awaitTextToBePresentIn(By.xpath("//*[@id='mainArea']/h2"), "Detailed Statistic");
     awaitTextToBePresentIn(By.id("formChartTasks:chartForTasks"), "Processing time of the tasks");
   }
@@ -55,8 +55,8 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     closeTask();
     navigate().home();
     awaitToBeClickable(By.linkText("Workflow Admin")).click();
-    awaitToBeClickableAndClick("workflowStatistic").click();
-    awaitToBeClickableAndClick("linkStatisticAverage_0").click();
+    awaitToBeClickable("workflowStatistic").click();
+    awaitToBeClickable("linkStatisticAverage_0").click();
     awaitTextToBePresentIn(By.xpath("//*[@id='mainArea']/h2"), "Average statistic");
   }
 	
@@ -130,7 +130,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   {
     navigate().home();
     awaitToBeClickable(By.linkText("Workflow Admin")).click();
-    awaitToBeClickableAndClick("workflowStatistic").click();
+    awaitToBeClickable("workflowStatistic").click();
     SelectOneMenu menu = prime().selectOne(By.id("caseStatisticForm:categoryFilter"));
     menu.selectItemByLabel(filterForCategory);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForCategory);
@@ -140,10 +140,10 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   {
     navigate().home();
     awaitToBeClickable(By.linkText("Workflow Admin")).click();
-    awaitToBeClickableAndClick("workflowStatistic").click();
-    awaitToBeClickableAndClick("caseStatisticForm:dateToFilter_input").click();
-    awaitToBeClickableAndClick("caseStatisticForm:dateToFilter_input").clear();
-    awaitToBeClickableAndClick("caseStatisticForm:dateToFilter_input").sendKeys("15.04.2000");
+    awaitToBeClickable("workflowStatistic").click();
+    awaitToBeClickable("caseStatisticForm:dateToFilter_input").click();
+    awaitToBeClickable("caseStatisticForm:dateToFilter_input").clear();
+    awaitToBeClickable("caseStatisticForm:dateToFilter_input").sendKeys("15.04.2000");
     awaitToBeClickable(By.linkText("1")).click();
     driverHelper.waitForAjax();
   }

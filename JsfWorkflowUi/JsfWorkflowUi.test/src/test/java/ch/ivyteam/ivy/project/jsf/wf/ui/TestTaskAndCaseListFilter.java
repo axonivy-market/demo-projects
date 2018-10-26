@@ -224,12 +224,12 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     Table dataTable = prime().table(By.id("taskListComponent:taskListForm:taskTable_data"));
     dataTable.contains(taskName);
 
-    awaitToBeClickableAndClick("buttonTaskDetail").click();
-    awaitToBeClickableAndClick("formTaskDetails:openDelegateTask").click();
+    awaitToBeClickable("buttonTaskDetail").click();
+    awaitToBeClickable("formTaskDetails:openDelegateTask").click();
     SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfUser"));
     menu.selectItemByLabel(
             "Test User 1 (user1)");
-    awaitToBeClickableAndClick("formDelegateTask:saveDelegateTask").click();
+    awaitToBeClickable("formDelegateTask:saveDelegateTask").click();
   }
 
   @Test
@@ -250,7 +250,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     dataTable.contains(taskLowPrio);
 
     navigate().taskList();
-    awaitToBeClickableAndClick("taskLinkRow_0").click();
+    awaitToBeClickable("taskLinkRow_0").click();
 
     filterCheckDataTable(taskLowPrio, taskHighPrio, filterId, dataTable, "SUSPENDED");
 

@@ -18,13 +18,13 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   public void testHome() throws Exception
   {
     navigate().home();
-    assertThat(awaitToBeClickableAndClick("mainArea").getText()).contains("Home");
+    assertThat(awaitToBeClickable("mainArea").getText()).contains("Home");
     
-    awaitToBeClickableAndClick("ProcessListLink").click();
+    awaitToBeClickable("ProcessListLink").click();
     driverHelper.assertAjaxElementContains(By.id("mainArea"), "Process List");
     
     navigate().home();
-    awaitToBeClickableAndClick("TaskListLink").click();
+    awaitToBeClickable("TaskListLink").click();
     driverHelper.assertAjaxElementContains(By.id("mainArea"), "Task List");
   }
   
@@ -33,7 +33,7 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   {
     navigate().processList();
     //Start home process
-    awaitToBeClickableAndClick(WF_JSF_LINK_ID).click();
+    awaitToBeClickable(WF_JSF_LINK_ID).click();
     awaitTextToBePresentIn(By.id("mainLayoutUnit"), "Request event");
     
     // Test processlist searchbar with process name
@@ -108,12 +108,12 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   {
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(taskName);
-    awaitToBeClickableAndClick("buttonTaskDetail").click();
-    awaitToBeClickableAndClick("formTaskDetails:openDelegateTask").click();
+    awaitToBeClickable("buttonTaskDetail").click();
+    awaitToBeClickable("formTaskDetails:openDelegateTask").click();
     prime().dialog(By.id("modalDialogDelegateTask")).waitForVisibility(true);
     SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfUser"));
     menu.selectItemByLabel(user);
-    awaitToBeClickableAndClick("formDelegateTask:saveDelegateTask").click();
+    awaitToBeClickable("formDelegateTask:saveDelegateTask").click();
     prime().dialog(By.id("modalDialogDelegateTask")).waitToBeClosedOrError();
   }
   
@@ -121,13 +121,13 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   {
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(taskName);
-    awaitToBeClickableAndClick("buttonTaskDetail").click();
-    awaitToBeClickableAndClick("formTaskDetails:openDelegateTask").click();
+    awaitToBeClickable("buttonTaskDetail").click();
+    awaitToBeClickable("formTaskDetails:openDelegateTask").click();
     prime().dialog(By.id("modalDialogDelegateTask")).waitForVisibility(true);
     prime().selectOneRadio(By.id("formDelegateTask")).selectItemById("formDelegateTask:delegateOptions:1_clone");
     SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfRole"));
     menu.selectItemByLabel(role);
-    awaitToBeClickableAndClick("formDelegateTask:saveDelegateTask").click();
+    awaitToBeClickable("formDelegateTask:saveDelegateTask").click();
     prime().dialog(By.id("modalDialogDelegateTask")).waitToBeClosedOrError();
   }
 
@@ -136,14 +136,14 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     navigate().substitution();
     SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
     menu.selectItemByLabel(user);
-    awaitToBeClickableAndClick("formSubstitute:addSubstitute").click();
+    awaitToBeClickable("formSubstitute:addSubstitute").click();
     prime().dialog(By.id("dialogAddSubstitute")).waitForVisibility(true);
     menu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
     menu.selectItemByLabel(TEST_USER_1);
-    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").click();
-    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").clear();
-    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
-    awaitToBeClickableAndClick("formAddSubstitute:saveSubstitution").click();
+    awaitToBeClickable("formAddSubstitute:substituteDescription").click();
+    awaitToBeClickable("formAddSubstitute:substituteDescription").clear();
+    awaitToBeClickable("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
+    awaitToBeClickable("formAddSubstitute:saveSubstitution").click();
     prime().dialog(By.id("dialogAddSubstitute")).waitToBeClosedOrError();
   }
 
@@ -153,17 +153,17 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
     menu.selectItemByLabel(user);
     awaitToBePresent("formSubstitute:addSubstitute");
-    awaitToBeClickableAndClick("formSubstitute:addSubstitute").click();
+    awaitToBeClickable("formSubstitute:addSubstitute").click();
     prime().dialog(By.id("dialogAddSubstitute")).waitForVisibility(true);
     menu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
     menu.selectItemByLabel(TEST_USER_1);
     prime().selectOneRadio(By.id("formAddSubstitute")).selectItemById("formAddSubstitute:options:1_clone");
     
     prime().selectCheckboxMenu(By.id("formAddSubstitute:roleSelection")).selectAllItems();
-    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").click();
-    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").clear();
-    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
-    awaitToBeClickableAndClick("formAddSubstitute:saveSubstitution").click();
+    awaitToBeClickable("formAddSubstitute:substituteDescription").click();
+    awaitToBeClickable("formAddSubstitute:substituteDescription").clear();
+    awaitToBeClickable("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
+    awaitToBeClickable("formAddSubstitute:saveSubstitution").click();
     prime().dialog(By.id("dialogAddSubstitute")).waitToBeClosedOrError();
   }
 }

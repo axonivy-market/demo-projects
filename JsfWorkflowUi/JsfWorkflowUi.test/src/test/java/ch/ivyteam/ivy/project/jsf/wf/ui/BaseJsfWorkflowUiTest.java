@@ -65,57 +65,56 @@ public class BaseJsfWorkflowUiTest
   protected void createTask(String title, String description, int priority, String expiryDate)
   {
     navigate().processList();
-    awaitToBeClickableAndClick(WF_JSF_LINK_ID).click();
+    awaitToBeClickable(WF_JSF_LINK_ID).click();
     await(ExpectedConditions.visibilityOfElementLocated(By.id("formRequest:caption")));
-    awaitToBeClickableAndClick("formRequest:caption").sendKeys(title);
+    awaitToBeClickable("formRequest:caption").sendKeys(title);
     prime().selectOne(By.id("formRequest:taskPriority"))
       .selectItemByLabel(PRIORITIES[priority]);
-    awaitToBeClickableAndClick("formRequest:description").sendKeys(description);
+    awaitToBeClickable("formRequest:description").sendKeys(description);
     if (expiryDate != null)
     {
-      awaitToBeClickableAndClick("formRequest:expiryDate_input").click();
-      awaitToBeClickableAndClick("formRequest:expiryDate_input").sendKeys(expiryDate);
+      awaitToBeClickable("formRequest:expiryDate_input").click();
+      awaitToBeClickable("formRequest:expiryDate_input").sendKeys(expiryDate);
     }
-    awaitToBeClickableAndClick("formRequest:submitJsf").click();
+    awaitToBeClickable("formRequest:submitJsf").click();
   }
 
   protected void createHtmlTask(String title, String description)
   {
     navigate().processList();
-    awaitToBeClickableAndClick(WF_HTML_LINK_ID).click();
-    awaitToBeClickableAndClick("caption").sendKeys(title);
-    awaitToBeClickableAndClick("description").sendKeys(description);
-    awaitToBeClickableAndClick("submit").click();
+    awaitToBeClickable(WF_HTML_LINK_ID).click();
+    awaitToBeClickable("caption").sendKeys(title);
+    awaitToBeClickable("description").sendKeys(description);
+    awaitToBeClickable("submit").click();
   }
 
   protected void createTaskWithCategory(String title, String description, int priority, String category,
           String process)
   {
     navigate().processList();
-    awaitToBeClickableAndClick(WF_JSF_LINK_ID).click();
+    awaitToBeClickable(WF_JSF_LINK_ID).click();
     awaitToBePresent("formRequest:caption");
-    awaitToBeClickableAndClick("formRequest:caption").sendKeys(title);
+    awaitToBeClickable("formRequest:caption").sendKeys(title);
     prime().selectOne(By.id("formRequest:taskPriority")).selectItemByLabel(PRIORITIES[priority]);
-    awaitToBeClickableAndClick("formRequest:description").sendKeys(description);
-    awaitToBeClickableAndClick("formRequest:category").sendKeys(category);
-    awaitToBeClickableAndClick("formRequest:process").sendKeys(process);
-    awaitToBeClickableAndClick("formRequest:submitJsf").click();
+    awaitToBeClickable("formRequest:description").sendKeys(description);
+    awaitToBeClickable("formRequest:category").sendKeys(category);
+    awaitToBeClickable("formRequest:process").sendKeys(process);
+    awaitToBeClickable("formRequest:submitJsf").click();
   }
 
   protected void closeTask()
   {
     navigate().taskList();
-    awaitToBeClickableAndClick("taskLinkRow_0").click();
-    awaitToBeClickableAndClick("formConfirmation:save");
-    awaitToBeClickableAndClick("formConfirmation:save").click();
+    awaitToBeClickable("taskLinkRow_0").click();
+    awaitToBeClickable("formConfirmation:save").click();
   }
 
   protected void closeHtmlTask()
   {
     navigate().taskList();
-    awaitToBeClickableAndClick("taskLinkRow_0").click();
-    awaitToBeClickableAndClick("ok").click();
-    awaitToBeClickableAndClick("submit").click();
+    awaitToBeClickable("taskLinkRow_0").click();
+    awaitToBeClickable("ok").click();
+    awaitToBeClickable("submit").click();
   }
 
   protected final void clickAdminElement(WebElement button, String failMessage)
@@ -161,7 +160,7 @@ public class BaseJsfWorkflowUiTest
   public void addAbsence(String startDate, String startTime, String endDate, String endTime,
           String description)
   {
-    awaitToBeClickableAndClick("formAbsence:addAbsence").click();
+    awaitToBeClickable("formAbsence:addAbsence").click();
     Dialog absenceDialog = prime().dialog(By.id("dialogAddAbsence"));
     absenceDialog.waitForVisibility(true);
     clickAndSendKeys("absenceStartTime_input", startTime);
@@ -169,15 +168,15 @@ public class BaseJsfWorkflowUiTest
     clickAndSendKeys("absenceEndTime_input", endTime);
     clickAndSendKeys("absenceEndDate_input", endDate);
     clickAndSendKeys("absenceDescription", description);
-    awaitToBeClickableAndClick("formAddAbsence:saveNewAbsence").click();
+    awaitToBeClickable("formAddAbsence:saveNewAbsence").click();
     absenceDialog.waitToBeClosedOrError();
   }
 
   private void clickAndSendKeys(String inputId, String inputValue)
   {
-    awaitToBeClickableAndClick("formAddAbsence:absenceStartTime_input").click();
-    awaitToBeClickableAndClick("formAddAbsence:" + inputId).click();
-    awaitToBeClickableAndClick("formAddAbsence:" + inputId).sendKeys(inputValue);
+    awaitToBeClickable("formAddAbsence:absenceStartTime_input").click();
+    awaitToBeClickable("formAddAbsence:" + inputId).click();
+    awaitToBeClickable("formAddAbsence:" + inputId).sendKeys(inputValue);
   }
 
   protected Boolean awaitTextToBePresentIn(By locator, String text)
@@ -195,7 +194,7 @@ public class BaseJsfWorkflowUiTest
     return ajax().await(ExpectedConditions.presenceOfElementLocated(locator));
   }
 
-  protected WebElement awaitToBeClickableAndClick(String id)
+  protected WebElement awaitToBeClickable(String id)
   {
     return awaitToBeClickable(By.id(id));
   }

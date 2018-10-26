@@ -69,7 +69,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     addAbsenceForUser("30.07.2012", "09:10", "30.08.2031", "10:10", "Add absence for other test",
             "Test User 2 (user2)");
-    awaitToBeClickableAndClick("showAbsentUsers").click();
+    awaitToBeClickable("showAbsentUsers").click();
     WebDriver webDriver = driverHelper.getWebDriver();
     assertThat(webDriver.findElement(By.id("formAbsentUsers")).getText()).contains("Test User 2 (user2)");
 
@@ -89,24 +89,24 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     {
       prime().selectOne(By.id("formAbsence:userSelection")).selectItemByLabel("Test User 2 (user2)");
     }
-    awaitToBeClickableAndClick("formAbsence:tableAbsence:0:editButton").click();
-    awaitToBeClickableAndClick("formEditAbsence:absenceStartTime_input").click();
-    awaitToBeClickableAndClick("formEditAbsence:absenceStartTime_input").clear();
-    awaitToBeClickableAndClick("formEditAbsence:absenceStartTime_input").sendKeys(startTime);
-    awaitToBeClickableAndClick("formEditAbsence:absenceStartDate_input").click();
-    awaitToBeClickableAndClick("formEditAbsence:absenceStartDate_input").clear();
-    awaitToBeClickableAndClick("formEditAbsence:absenceStartDate_input").sendKeys(startDate);
-    awaitToBeClickableAndClick("formEditAbsence:absenceStartTime_input").click();
-    awaitToBeClickableAndClick("formEditAbsence:absenceEndTime_input").click();
-    awaitToBeClickableAndClick("formEditAbsence:absenceEndTime_input").clear();
-    awaitToBeClickableAndClick("formEditAbsence:absenceEndTime_input").sendKeys(endTime);
-    awaitToBeClickableAndClick("formEditAbsence:absenceEndDate_input").click();
-    awaitToBeClickableAndClick("formEditAbsence:absenceEndDate_input").clear();
-    awaitToBeClickableAndClick("formEditAbsence:absenceEndDate_input").sendKeys(endDate);
-    awaitToBeClickableAndClick("formEditAbsence:absenceDescription").click();
-    awaitToBeClickableAndClick("formEditAbsence:absenceDescription").clear();
-    awaitToBeClickableAndClick("formEditAbsence:absenceDescription").sendKeys(description);
-    awaitToBeClickableAndClick("formEditAbsence:saveEditAbsence").click();
+    awaitToBeClickable("formAbsence:tableAbsence:0:editButton").click();
+    awaitToBeClickable("formEditAbsence:absenceStartTime_input").click();
+    awaitToBeClickable("formEditAbsence:absenceStartTime_input").clear();
+    awaitToBeClickable("formEditAbsence:absenceStartTime_input").sendKeys(startTime);
+    awaitToBeClickable("formEditAbsence:absenceStartDate_input").click();
+    awaitToBeClickable("formEditAbsence:absenceStartDate_input").clear();
+    awaitToBeClickable("formEditAbsence:absenceStartDate_input").sendKeys(startDate);
+    awaitToBeClickable("formEditAbsence:absenceStartTime_input").click();
+    awaitToBeClickable("formEditAbsence:absenceEndTime_input").click();
+    awaitToBeClickable("formEditAbsence:absenceEndTime_input").clear();
+    awaitToBeClickable("formEditAbsence:absenceEndTime_input").sendKeys(endTime);
+    awaitToBeClickable("formEditAbsence:absenceEndDate_input").click();
+    awaitToBeClickable("formEditAbsence:absenceEndDate_input").clear();
+    awaitToBeClickable("formEditAbsence:absenceEndDate_input").sendKeys(endDate);
+    awaitToBeClickable("formEditAbsence:absenceDescription").click();
+    awaitToBeClickable("formEditAbsence:absenceDescription").clear();
+    awaitToBeClickable("formEditAbsence:absenceDescription").sendKeys(description);
+    awaitToBeClickable("formEditAbsence:saveEditAbsence").click();
   }
 
   private void checkIfAbsenceContains(String description)
@@ -117,7 +117,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void deleteAbsence()
   {
-    awaitToBeClickableAndClick("formAbsence:tableAbsence:0:removeButton").click();
+    awaitToBeClickable("formAbsence:tableAbsence:0:removeButton").click();
     driverHelper.waitForAjax();
   }
 
@@ -145,7 +145,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     checkIsSubstituteForRolesAdded();
     navigate().substitution();
     selectOneMenu.selectItemByLabel("Test User 1 (user1)");
-    awaitToBeClickableAndClick("formSubstitute:tableSubstitute:0:removeButton").click();
+    awaitToBeClickable("formSubstitute:tableSubstitute:0:removeButton").click();
   }
 
   private void addSubstituteForTasks(String substituteFor)
@@ -162,9 +162,9 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     dialogSubstitute.waitForVisibility(true);
     SelectOneMenu selectOneMenu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
     selectOneMenu.selectItemByLabel("Test User 2 (user2)");
-    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").click();
-    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
-    awaitToBeClickableAndClick("formAddSubstitute:saveSubstitution").click();
+    awaitToBeClickable("formAddSubstitute:substituteDescription").click();
+    awaitToBeClickable("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
+    awaitToBeClickable("formAddSubstitute:saveSubstitution").click();
     dialogSubstitute.waitToBeClosedOrError();
   }
 
@@ -186,28 +186,28 @@ public class TestSettings extends BaseJsfWorkflowUiTest
       SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
       menu.selectItemByLabel("Test User 2 (user2)");
     }
-    awaitToBeClickableAndClick("formSubstitute:addSubstitute").click();
+    awaitToBeClickable("formSubstitute:addSubstitute").click();
     prime().selectOneRadio(By.id("formAddSubstitute")).selectItemById("formAddSubstitute:options:1_clone");
 
     prime().selectCheckboxMenu(By.id("formAddSubstitute:roleSelection")).selectAllItems();
-    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").click();
-    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").clear();
-    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
-    awaitToBeClickableAndClick("formAddSubstitute:saveSubstitution").click();
+    awaitToBeClickable("formAddSubstitute:substituteDescription").click();
+    awaitToBeClickable("formAddSubstitute:substituteDescription").clear();
+    awaitToBeClickable("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
+    awaitToBeClickable("formAddSubstitute:saveSubstitution").click();
   }
 
   private void checkIsSubstituteForRolesAdded()
   {
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Role 1");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Role 2");
-    awaitToBeClickableAndClick("formSubstitute:tableSubstitute:0:removeButton").click();
-    awaitToBeClickableAndClick("formSubstitute:tableSubstitute:0:removeButton").click();
+    awaitToBeClickable("formSubstitute:tableSubstitute:0:removeButton").click();
+    awaitToBeClickable("formSubstitute:tableSubstitute:0:removeButton").click();
   }
 
   private void deleteSubstitute()
   {
     navigate().substitution();
-    awaitToBeClickableAndClick("formSubstitute:tableSubstitute:0:removeButton").click();
+    awaitToBeClickable("formSubstitute:tableSubstitute:0:removeButton").click();
   }
 
   @Test
@@ -222,7 +222,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     checkSetMailNotification();
     // set default
     awaitToBeClickable(By.cssSelector("span.ui-button-text.ui-c")).click();
-    awaitToBeClickableAndClick("formMailNotification:saveMailNotification").click();
+    awaitToBeClickable("formMailNotification:saveMailNotification").click();
   }
 
   private void setMailNotification()
@@ -235,7 +235,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     checkBooleanBox("formMailNotification:checkFriday");
     checkBooleanBox("formMailNotification:checkSaturday");
     checkBooleanBox("formMailNotification:checkSunday");
-    awaitToBeClickableAndClick("formMailNotification:saveMailNotification").click();
+    awaitToBeClickable("formMailNotification:saveMailNotification").click();
   }
 
   private void checkBooleanBox(String id)
@@ -245,17 +245,17 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void checkSetMailNotification()
   {
-    assertThat(awaitToBeClickableAndClick("formMailNotification:onTask_input").isSelected()).isTrue();
-    assertThat(awaitToBeClickableAndClick("formMailNotification:checkMonday_input").isSelected()).isTrue();
-    assertThat(awaitToBeClickableAndClick("formMailNotification:checkTuesday_input").isSelected()).isTrue();
-    assertThat(awaitToBeClickableAndClick("formMailNotification:checkWednesday_input").isSelected())
+    assertThat(awaitToBeClickable("formMailNotification:onTask_input").isSelected()).isTrue();
+    assertThat(awaitToBeClickable("formMailNotification:checkMonday_input").isSelected()).isTrue();
+    assertThat(awaitToBeClickable("formMailNotification:checkTuesday_input").isSelected()).isTrue();
+    assertThat(awaitToBeClickable("formMailNotification:checkWednesday_input").isSelected())
             .isTrue();
-    assertThat(awaitToBeClickableAndClick("formMailNotification:checkThursday_input").isSelected())
+    assertThat(awaitToBeClickable("formMailNotification:checkThursday_input").isSelected())
             .isTrue();
-    assertThat(awaitToBeClickableAndClick("formMailNotification:checkFriday_input").isSelected()).isTrue();
-    assertThat(awaitToBeClickableAndClick("formMailNotification:checkSaturday_input").isSelected())
+    assertThat(awaitToBeClickable("formMailNotification:checkFriday_input").isSelected()).isTrue();
+    assertThat(awaitToBeClickable("formMailNotification:checkSaturday_input").isSelected())
             .isTrue();
-    assertThat(awaitToBeClickableAndClick("formMailNotification:checkSunday_input").isSelected()).isTrue();
+    assertThat(awaitToBeClickable("formMailNotification:checkSunday_input").isSelected()).isTrue();
   }
 
   @Test
@@ -308,7 +308,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
             .findElement(By.id("taskLinkRow_0"))
             .getAttribute("href")
             .substring(
-                    awaitToBeClickableAndClick("taskLinkRow_0").getAttribute("href").indexOf(taskIdPart)
+                    awaitToBeClickable("taskLinkRow_0").getAttribute("href").indexOf(taskIdPart)
                             + taskIdPart.length());
     navigate().logout();
     driverHelper.openProcessLink("testWfUi/13F3D94E5C99F06F/13F3D94E5C99F06F-f1/TaskA.ivp?taskId=" + taskId);
@@ -320,7 +320,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     By passwordLocator = By.id("loginPageComponent:loginForm:password");
     driverHelper.findElement(passwordLocator).clear();
     driverHelper.findElement(passwordLocator).sendKeys(WEB_TEST_SERVER_ADMIN_PASSWORD);
-    awaitToBeClickableAndClick("loginPageComponent:loginForm:loginButton").click();
+    awaitToBeClickable("loginPageComponent:loginForm:loginButton").click();
     awaitTextToBePresentIn(By.id("mainArea"), "Welcome");
     closeTask();
     awaitTextToBePresentIn(By.id("mainArea"), "Task List");
