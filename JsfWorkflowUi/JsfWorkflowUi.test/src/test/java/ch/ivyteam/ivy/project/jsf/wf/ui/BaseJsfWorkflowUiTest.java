@@ -12,13 +12,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import ch.ivyteam.ivy.server.test.ApplicationLogin;
-import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
-import ch.ivyteam.ivy.server.test.WfNavigator;
-
 import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
+
+import ch.ivyteam.ivy.server.test.ApplicationLogin;
+import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
+import ch.ivyteam.ivy.server.test.WfNavigator;
 
 public class BaseJsfWorkflowUiTest
 {
@@ -65,57 +65,57 @@ public class BaseJsfWorkflowUiTest
   protected void createTask(String title, String description, int priority, String expiryDate)
   {
     navigate().processList();
-    driverHelper.findElementById(WF_JSF_LINK_ID).click();
+    awaitToBeClickableAndClick(WF_JSF_LINK_ID).click();
     await(ExpectedConditions.visibilityOfElementLocated(By.id("formRequest:caption")));
-    driverHelper.findElementById("formRequest:caption").sendKeys(title);
+    awaitToBeClickableAndClick("formRequest:caption").sendKeys(title);
     prime().selectOne(By.id("formRequest:taskPriority"))
       .selectItemByLabel(PRIORITIES[priority]);
-    driverHelper.findElementById("formRequest:description").sendKeys(description);
+    awaitToBeClickableAndClick("formRequest:description").sendKeys(description);
     if (expiryDate != null)
     {
-      driverHelper.findElementById("formRequest:expiryDate_input").click();
-      driverHelper.findElementById("formRequest:expiryDate_input").sendKeys(expiryDate);
+      awaitToBeClickableAndClick("formRequest:expiryDate_input").click();
+      awaitToBeClickableAndClick("formRequest:expiryDate_input").sendKeys(expiryDate);
     }
-    driverHelper.clickAndWaitForAjax(By.id("formRequest:submitJsf"));
+    awaitToBeClickableAndClick("formRequest:submitJsf").click();
   }
 
   protected void createHtmlTask(String title, String description)
   {
     navigate().processList();
-    driverHelper.findElementById(WF_HTML_LINK_ID).click();
-    driverHelper.findElementById("caption").sendKeys(title);
-    driverHelper.findElementById("description").sendKeys(description);
-    driverHelper.clickAndWaitForAjax(By.id("submit"));
+    awaitToBeClickableAndClick(WF_HTML_LINK_ID).click();
+    awaitToBeClickableAndClick("caption").sendKeys(title);
+    awaitToBeClickableAndClick("description").sendKeys(description);
+    awaitToBeClickableAndClick("submit").click();
   }
 
   protected void createTaskWithCategory(String title, String description, int priority, String category,
           String process)
   {
     navigate().processList();
-    driverHelper.findElementById(WF_JSF_LINK_ID).click();
-    await(ExpectedConditions.presenceOfElementLocated(By.id("formRequest:caption")));
-    driverHelper.findElementById("formRequest:caption").sendKeys(title);
+    awaitToBeClickableAndClick(WF_JSF_LINK_ID).click();
+    awaitToBePresent("formRequest:caption");
+    awaitToBeClickableAndClick("formRequest:caption").sendKeys(title);
     prime().selectOne(By.id("formRequest:taskPriority")).selectItemByLabel(PRIORITIES[priority]);
-    driverHelper.findElementById("formRequest:description").sendKeys(description);
-    driverHelper.findElementById("formRequest:category").sendKeys(category);
-    driverHelper.findElementById("formRequest:process").sendKeys(process);
-    driverHelper.clickAndWaitForAjax(By.id("formRequest:submitJsf"));
+    awaitToBeClickableAndClick("formRequest:description").sendKeys(description);
+    awaitToBeClickableAndClick("formRequest:category").sendKeys(category);
+    awaitToBeClickableAndClick("formRequest:process").sendKeys(process);
+    awaitToBeClickableAndClick("formRequest:submitJsf").click();
   }
 
   protected void closeTask()
   {
     navigate().taskList();
-    driverHelper.findElementById("taskLinkRow_0").click();
-    await(ExpectedConditions.elementToBeClickable(By.id("formConfirmation:save")));
-    driverHelper.clickAndWaitForAjax(By.id("formConfirmation:save"));
+    awaitToBeClickableAndClick("taskLinkRow_0").click();
+    awaitToBeClickableAndClick("formConfirmation:save");
+    awaitToBeClickableAndClick("formConfirmation:save").click();
   }
 
   protected void closeHtmlTask()
   {
     navigate().taskList();
-    driverHelper.findElementById("taskLinkRow_0").click();
-    driverHelper.findElement(By.name("ok")).click();
-    driverHelper.findElement(By.id("submit")).click();
+    awaitToBeClickableAndClick("taskLinkRow_0").click();
+    awaitToBeClickableAndClick("ok").click();
+    awaitToBeClickableAndClick("submit").click();
   }
 
   protected final void clickAdminElement(WebElement button, String failMessage)
@@ -161,7 +161,7 @@ public class BaseJsfWorkflowUiTest
   public void addAbsence(String startDate, String startTime, String endDate, String endTime,
           String description)
   {
-    await(ExpectedConditions.elementToBeClickable(By.id("formAbsence:addAbsence"))).click();
+    awaitToBeClickableAndClick("formAbsence:addAbsence").click();
     Dialog absenceDialog = prime().dialog(By.id("dialogAddAbsence"));
     absenceDialog.waitForVisibility(true);
     clickAndSendKeys("absenceStartTime_input", startTime);
@@ -169,15 +169,40 @@ public class BaseJsfWorkflowUiTest
     clickAndSendKeys("absenceEndTime_input", endTime);
     clickAndSendKeys("absenceEndDate_input", endDate);
     clickAndSendKeys("absenceDescription", description);
-    driverHelper.findElement(By.id("formAddAbsence:saveNewAbsence")).click();
+    awaitToBeClickableAndClick("formAddAbsence:saveNewAbsence").click();
     absenceDialog.waitToBeClosedOrError();
   }
 
   private void clickAndSendKeys(String inputId, String inputValue)
   {
-    driverHelper.findElement(By.id("formAddAbsence:absenceStartTime_input")).click();
-    await(ExpectedConditions.elementToBeClickable(By.id("formAddAbsence:" + inputId))).click();
-    driverHelper.findElement(By.id("formAddAbsence:" + inputId)).sendKeys(inputValue);
+    awaitToBeClickableAndClick("formAddAbsence:absenceStartTime_input").click();
+    awaitToBeClickableAndClick("formAddAbsence:" + inputId).click();
+    awaitToBeClickableAndClick("formAddAbsence:" + inputId).sendKeys(inputValue);
+  }
+
+  protected Boolean awaitTextToBePresentIn(By locator, String text)
+  {
+    return ajax().await(ExpectedConditions.textToBePresentInElementLocated(locator, text));
+  }
+  
+  protected WebElement awaitToBePresent(String id)
+  {
+    return awaitToBePresent(By.id(id));
+  }
+
+  protected WebElement awaitToBePresent(By locator)
+  {
+    return ajax().await(ExpectedConditions.presenceOfElementLocated(locator));
+  }
+
+  protected WebElement awaitToBeClickableAndClick(String id)
+  {
+    return awaitToBeClickable(By.id(id));
+  }
+  
+  protected WebElement awaitToBeClickable(By locator)
+  {
+    return ajax().await(ExpectedConditions.elementToBeClickable(locator));
   }
 
   protected <T> T await(ExpectedCondition<T> condition)

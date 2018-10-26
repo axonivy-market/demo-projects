@@ -4,7 +4,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
 
@@ -23,10 +22,10 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     closeTask();
     closeTask();
     navigate().home();
-    driverHelper.findElement(By.linkText("Workflow Admin")).click();
-    driverHelper.findElementById("workflowStatistic").click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("caseStatisticForm:caseStatisticTable"), "process1"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("caseStatisticForm:caseStatisticTable"), "process2"));
+    awaitToBeClickable(By.linkText("Workflow Admin")).click();
+    awaitToBeClickableAndClick("workflowStatistic").click();
+    awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "process1");
+    awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "process2");
   }
   
   @Test
@@ -35,18 +34,18 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     createTaskWithCategory("caseStatisticDetails", "Test if shows details", 2, "category1", "process1");
     closeTask();
     navigate().home();
-    driverHelper.findElement(By.linkText("Workflow Admin")).click();
-    driverHelper.clickAndWaitForAjax(By.id("workflowStatistic"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("caseStatisticForm:caseStatisticTable"), "category1"));
-    driverHelper.clickAndWaitForAjax(By.id("linkStatisticDetailMin_0"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id='mainArea']/h2"), "Detailed Statistic"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("formChartTasks:chartForTasks"), "Processing time of the tasks"));
+    awaitToBeClickable(By.linkText("Workflow Admin")).click();
+    awaitToBeClickableAndClick("workflowStatistic").click();
+    awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "category1");
+    awaitToBeClickableAndClick("linkStatisticDetailMin_0").click();
+    awaitTextToBePresentIn(By.xpath("//*[@id='mainArea']/h2"), "Detailed Statistic");
+    awaitTextToBePresentIn(By.id("formChartTasks:chartForTasks"), "Processing time of the tasks");
     navigate().home();
-    driverHelper.findElement(By.linkText("Workflow Admin")).click();
-    driverHelper.findElementById("workflowStatistic").click();
-    driverHelper.clickAndWaitForAjax(By.id("linkStatisticDetailMax_0"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id='mainArea']/h2"), "Detailed Statistic"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("formChartTasks:chartForTasks"), "Processing time of the tasks"));
+    awaitToBeClickable(By.linkText("Workflow Admin")).click();
+    awaitToBeClickableAndClick("workflowStatistic").click();
+    awaitToBeClickableAndClick("linkStatisticDetailMax_0").click();
+    awaitTextToBePresentIn(By.xpath("//*[@id='mainArea']/h2"), "Detailed Statistic");
+    awaitTextToBePresentIn(By.id("formChartTasks:chartForTasks"), "Processing time of the tasks");
   }
   
   @Test
@@ -55,10 +54,10 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     createTaskWithCategory("caseAverageDetails", "Test if shows details", 2, "category1", "process1");
     closeTask();
     navigate().home();
-    driverHelper.findElement(By.linkText("Workflow Admin")).click();
-    driverHelper.findElementById("workflowStatistic").click();
-    driverHelper.clickAndWaitForAjax(By.id("linkStatisticAverage_0"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id='mainArea']/h2"), "Average statistic"));
+    awaitToBeClickable(By.linkText("Workflow Admin")).click();
+    awaitToBeClickableAndClick("workflowStatistic").click();
+    awaitToBeClickableAndClick("linkStatisticAverage_0").click();
+    awaitTextToBePresentIn(By.xpath("//*[@id='mainArea']/h2"), "Average statistic");
   }
 	
   @Test
@@ -130,8 +129,8 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   private void checkIfCategoryFilterIsApplied(String filterForCategory)
   {
     navigate().home();
-    driverHelper.findElement(By.linkText("Workflow Admin")).click();
-    driverHelper.findElementById("workflowStatistic").click();
+    awaitToBeClickable(By.linkText("Workflow Admin")).click();
+    awaitToBeClickableAndClick("workflowStatistic").click();
     SelectOneMenu menu = prime().selectOne(By.id("caseStatisticForm:categoryFilter"));
     menu.selectItemByLabel(filterForCategory);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForCategory);
@@ -140,12 +139,12 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   private void checkIfDateFilterIsApplied()
   {
     navigate().home();
-    driverHelper.findElement(By.linkText("Workflow Admin")).click();
-    driverHelper.findElementById("workflowStatistic").click();
-    driverHelper.findElementById("caseStatisticForm:dateToFilter_input").click();
-    driverHelper.findElementById("caseStatisticForm:dateToFilter_input").clear();
-    driverHelper.findElementById("caseStatisticForm:dateToFilter_input").sendKeys("15.04.2000");
-    driverHelper.findElement(By.linkText("1")).click();
+    awaitToBeClickable(By.linkText("Workflow Admin")).click();
+    awaitToBeClickableAndClick("workflowStatistic").click();
+    awaitToBeClickableAndClick("caseStatisticForm:dateToFilter_input").click();
+    awaitToBeClickableAndClick("caseStatisticForm:dateToFilter_input").clear();
+    awaitToBeClickableAndClick("caseStatisticForm:dateToFilter_input").sendKeys("15.04.2000");
+    awaitToBeClickable(By.linkText("1")).click();
     driverHelper.waitForAjax();
   }
 
@@ -161,8 +160,8 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   {
     String tableId = "caseListComponent:caseListForm:caseTable";
     
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id(tableId), "Test Workflow Jsf"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id(tableId), category));
+    awaitTextToBePresentIn(By.id(tableId), "Test Workflow Jsf");
+    awaitTextToBePresentIn(By.id(tableId), category);
   }
 
   private void checkIfTaskIsInList(String name)

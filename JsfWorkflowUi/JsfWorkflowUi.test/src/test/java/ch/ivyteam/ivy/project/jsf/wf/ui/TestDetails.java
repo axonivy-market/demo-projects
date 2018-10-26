@@ -16,7 +16,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("task","Test if shows details", 2);
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("task");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Test if shows details");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("NORMAL");
@@ -29,7 +29,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("case","Test if shows details", 2);
     navigate().caseList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
+    awaitToBeClickableAndClick("buttonCaseDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Test Workflow Jsf");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Sample WF using Html Dialogs");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF case");
@@ -41,15 +41,15 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("taskForAddNote","Test add note", 2);
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     driverHelper.assertAjaxModifiedPageSourceContains("taskForAddNote");
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openAddNote"));
+    awaitToBeClickableAndClick("formTaskDetails:openAddNote").click();
     addNote();
     
     login("user1","user1");
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.className("messageNotes"), "This is the description of the new note"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
+    awaitTextToBePresentIn(By.className("messageNotes"), "This is the description of the new note");
     await(ExpectedConditions.not(ExpectedConditions.presenceOfAllElementsLocatedBy(By
             .xpath("//*[@id='formTaskDetails:j_id_q_2_3_2a:0:openDeleteCaseNote']"))));
     closeTask();
@@ -60,18 +60,18 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("taskForAddNoteToCase","Test add note", 2);
     navigate().caseList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
+    awaitToBeClickableAndClick("buttonCaseDetail").click();
     driverHelper.assertAjaxModifiedPageSourceContains("taskForAddNoteToCase");
-    driverHelper.clickAndWaitForAjax(By.id("formCaseDetails:openAddNoteCase"));
+    awaitToBeClickableAndClick("formCaseDetails:openAddNoteCase").click();
     addNote();    
     
     login("user1","user1");
     navigate().caseList();
-    await(ExpectedConditions.presenceOfElementLocated(By
-            .xpath("//div[@id='caseListComponent:caseListForm:caseOption']/div[2]/span")));
-    driverHelper.findElement(By.xpath("//div[@id='caseListComponent:caseListForm:caseOption']/div[2]/span")).click();
-    driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.className("messageNotes"), "This is the description of the new note"));
+    awaitToBePresent(By
+            .xpath("//div[@id='caseListComponent:caseListForm:caseOption']/div[2]/span"));
+    awaitToBeClickable(By.xpath("//div[@id='caseListComponent:caseListForm:caseOption']/div[2]/span")).click();
+    awaitToBeClickableAndClick("buttonCaseDetail").click();
+    awaitTextToBePresentIn(By.className("messageNotes"), "This is the description of the new note");
     await(ExpectedConditions.not(ExpectedConditions.presenceOfAllElementsLocatedBy(By
             .xpath("//*[@id='formTaskDetails:j_id_q_2_3_2a:0:openDeleteCaseNote']"))));
     closeTask();
@@ -79,9 +79,9 @@ public class TestDetails extends BaseJsfWorkflowUiTest
 
   private void addNote()
   {
-    driverHelper.findElementById("formAddNote:note").sendKeys("This is the description of the new note");
-    driverHelper.clickAndWaitForAjax(By.id("formAddNote:saveNote"));
-    await(ExpectedConditions.textToBePresentInElementLocated(By.className("messageNotes"), "This is the description of the new note"));
+    awaitToBeClickableAndClick("formAddNote:note").sendKeys("This is the description of the new note");
+    awaitToBeClickableAndClick("formAddNote:saveNote").click();
+    awaitTextToBePresentIn(By.className("messageNotes"), "This is the description of the new note");
   }
 
   @Test
@@ -89,18 +89,18 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("taskForChangeExpiry","Test change expiry", 2, "30.4.2030");
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForChangeExpiry");
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openChangeExpiry"));
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").click();
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").clear();
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").sendKeys("30.04.2030");
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").click();
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").clear();
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").sendKeys("10:10");
-    driverHelper.clickAndWaitForAjax(By.id("formDetailsChangeExpiry:saveChangeExpiry"));
+    awaitToBeClickableAndClick("formTaskDetails:openChangeExpiry").click();
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:expiryDate_input").click();
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:expiryDate_input").clear();
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:expiryDate_input").sendKeys("30.04.2030");
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:expiryTime_input").click();
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:expiryTime_input").clear();
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:expiryTime_input").sendKeys("10:10");
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:saveChangeExpiry").click();
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("4/30/30 10:10 AM");
     closeTask();
   }
@@ -110,19 +110,19 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("taskForChangeExpiryOlderDate","Test change expiry", 2, "30.4.2030");
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForChangeExpiry");
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openChangeExpiry"));
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").click();
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").clear();
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryDate_input").sendKeys("15.07.2013");
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").click();
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").clear();
-    driverHelper.findElementById("formDetailsChangeExpiry:expiryTime_input").sendKeys("11:11");
-    driverHelper.clickAndWaitForAjax(By.id("formDetailsChangeExpiry:saveChangeExpiry"));
+    awaitToBeClickableAndClick("formTaskDetails:openChangeExpiry").click();
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:expiryDate_input").click();
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:expiryDate_input").clear();
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:expiryDate_input").sendKeys("15.07.2013");
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:expiryTime_input").click();
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:expiryTime_input").clear();
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:expiryTime_input").sendKeys("11:11");
+    awaitToBeClickableAndClick("formDetailsChangeExpiry:saveChangeExpiry").click();
     navigate().taskList();
     //assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("JSF taskForChangeExpiryOlderDate");
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("7/15/13 11:11 AM");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Responsible after expiry");   
   }
@@ -134,12 +134,12 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTask");
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTask");
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
+    awaitToBeClickableAndClick("formTaskDetails:openDelegateTask").click();
     SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfUser"));
     menu.selectItemByLabel("Test User 1 (user1)");
-    driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
+    awaitToBeClickableAndClick("formDelegateTask:saveDelegateTask").click();
     
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskDelegateTask");
@@ -147,13 +147,13 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTaskToRole");
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openDelegateTask"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
+    awaitToBeClickableAndClick("formTaskDetails:openDelegateTask").click();
     prime().selectOneRadio(By.id("formDelegateTask")).selectItemById("formDelegateTask:delegateOptions:1_clone");
-    driverHelper.clickAndWaitForAjax(By.id("formDelegateTask:saveDelegateTask"));
+    awaitToBeClickableAndClick("formDelegateTask:saveDelegateTask").click();
     
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Everybody");
     closeTask();
   }
@@ -163,10 +163,10 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("caseDestroyWorkflow","Test destroy workflow", 2);
     navigate().caseList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
+    awaitToBeClickableAndClick("buttonCaseDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("caseDestroyWorkflow");
-    driverHelper.clickAndWaitForAjax(By.id("formCaseDetails:openDeleteCase"));
-    driverHelper.clickAndWaitForAjax(By.id("formConfirmDeleteReset:confirmAction"));
+    awaitToBeClickableAndClick("formCaseDetails:openDeleteCase").click();
+    awaitToBeClickableAndClick("formConfirmDeleteReset:confirmAction").click();
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("JSF caseDestroyWorkflow");
   }
@@ -176,10 +176,10 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("caseCancelDestroyWorkflow","Test destroy workflow", 2);
     navigate().caseList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
+    awaitToBeClickableAndClick("buttonCaseDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("caseCancelDestroyWorkflow");
-    driverHelper.clickAndWaitForAjax(By.id("formCaseDetails:openDeleteCase"));
-    driverHelper.clickAndWaitForAjax(By.id("formConfirmDeleteReset:notConfirmAction"));
+    awaitToBeClickableAndClick("formCaseDetails:openDeleteCase").click();
+    awaitToBeClickableAndClick("formConfirmDeleteReset:notConfirmAction").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("SUSPENDED");
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF caseCancelDestroyWorkflow");
@@ -191,15 +191,15 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("resetTask","Test reset task", 2);
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("taskLinkRow_0"));
+    awaitToBeClickableAndClick("taskLinkRow_0").click();
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("resetTask");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("RESUMED");
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openResetTask"));
-    driverHelper.clickAndWaitForAjax(By.id("formConfirmDeleteReset:confirmAction"));
+    awaitToBeClickableAndClick("formTaskDetails:openResetTask").click();
+    awaitToBeClickableAndClick("formConfirmDeleteReset:confirmAction").click();
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("SUSPENDED");
     closeTask();
   }
@@ -209,14 +209,14 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("parkTask","Test park task", 2);
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("taskLinkRow_0"));
+    awaitToBeClickableAndClick("taskLinkRow_0").click();
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("parkTask");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("RESUMED");
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openParkTask"));
+    awaitToBeClickableAndClick("formTaskDetails:openParkTask").click();
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("PARKED");
     closeTask();
   }
@@ -226,15 +226,15 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createHtmlTask("pageArchive", "Test page archive");
     navigate().caseList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonCaseDetail"));
+    awaitToBeClickableAndClick("buttonCaseDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("A Html Case");
-    driverHelper.clickAndWaitForAjax(By.id("formCaseDetails:openPageArchive"));
+    awaitToBeClickableAndClick("formCaseDetails:openPageArchive").click();
     navigate().taskList();
-    driverHelper.findElementById("taskLinkRow_0").click();
-    driverHelper.clickAndWaitForAjax(By.id("submit"));
+    awaitToBeClickableAndClick("taskLinkRow_0").click();
+    awaitToBeClickableAndClick("submit").click();
     navigate().taskHistory();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskHistoryDetail_0"));
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openPageArchive"));
+    awaitToBeClickableAndClick("buttonTaskHistoryDetail_0").click();
+    awaitToBeClickableAndClick("formTaskDetails:openPageArchive").click();
   }
   
   @Test
@@ -242,14 +242,14 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("changePriorityTask","Test change priority", 2);
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("changePriorityTask");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("NORMAL");
-    driverHelper.clickAndWaitForAjax(By.id("formTaskDetails:openChangePriority"));
+    awaitToBeClickableAndClick("formTaskDetails:openChangePriority").click();
     prime().selectOneRadio(By.id("formDetailsChangePriority")).selectItemById("formDetailsChangePriority:priorityOptions:2_clone");
-    driverHelper.clickAndWaitForAjax(By.id("formDetailsChangePriority:saveChangePriority"));
+    awaitToBeClickableAndClick("formDetailsChangePriority:saveChangePriority").click();
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.id("buttonTaskDetail"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("HIGH");
     closeTask();
   }

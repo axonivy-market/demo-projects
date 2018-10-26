@@ -4,7 +4,6 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
@@ -19,13 +18,13 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   public void testHome() throws Exception
   {
     navigate().home();
-    assertThat(driverHelper.findElementById("mainArea").getText()).contains("Home");
+    assertThat(awaitToBeClickableAndClick("mainArea").getText()).contains("Home");
     
-    driverHelper.findElementById("ProcessListLink").click();
+    awaitToBeClickableAndClick("ProcessListLink").click();
     driverHelper.assertAjaxElementContains(By.id("mainArea"), "Process List");
     
     navigate().home();
-    driverHelper.findElementById("TaskListLink").click();
+    awaitToBeClickableAndClick("TaskListLink").click();
     driverHelper.assertAjaxElementContains(By.id("mainArea"), "Task List");
   }
   
@@ -34,8 +33,8 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   {
     navigate().processList();
     //Start home process
-    driverHelper.findElementById(WF_JSF_LINK_ID).click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainLayoutUnit"), "Request event"));
+    awaitToBeClickableAndClick(WF_JSF_LINK_ID).click();
+    awaitTextToBePresentIn(By.id("mainLayoutUnit"), "Request event");
     
     // Test processlist searchbar with process name
     navigate().processList();
@@ -109,12 +108,12 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   {
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(taskName);
-    driverHelper.findElementById("buttonTaskDetail").click();
-    driverHelper.findElement(By.id("formTaskDetails:openDelegateTask")).click();
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
+    awaitToBeClickableAndClick("formTaskDetails:openDelegateTask").click();
     prime().dialog(By.id("modalDialogDelegateTask")).waitForVisibility(true);
     SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfUser"));
     menu.selectItemByLabel(user);
-    driverHelper.findElement(By.id("formDelegateTask:saveDelegateTask")).click();
+    awaitToBeClickableAndClick("formDelegateTask:saveDelegateTask").click();
     prime().dialog(By.id("modalDialogDelegateTask")).waitToBeClosedOrError();
   }
   
@@ -122,13 +121,13 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   {
     navigate().taskList();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(taskName);
-    driverHelper.findElementById("buttonTaskDetail").click();
-    driverHelper.findElement(By.id("formTaskDetails:openDelegateTask")).click();
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
+    awaitToBeClickableAndClick("formTaskDetails:openDelegateTask").click();
     prime().dialog(By.id("modalDialogDelegateTask")).waitForVisibility(true);
     prime().selectOneRadio(By.id("formDelegateTask")).selectItemById("formDelegateTask:delegateOptions:1_clone");
     SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfRole"));
     menu.selectItemByLabel(role);
-    driverHelper.findElement(By.id("formDelegateTask:saveDelegateTask")).click();
+    awaitToBeClickableAndClick("formDelegateTask:saveDelegateTask").click();
     prime().dialog(By.id("modalDialogDelegateTask")).waitToBeClosedOrError();
   }
 
@@ -137,14 +136,14 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     navigate().substitution();
     SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
     menu.selectItemByLabel(user);
-    await(ExpectedConditions.elementToBeClickable(By.id("formSubstitute:addSubstitute"))).click();
+    awaitToBeClickableAndClick("formSubstitute:addSubstitute").click();
     prime().dialog(By.id("dialogAddSubstitute")).waitForVisibility(true);
     menu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
     menu.selectItemByLabel(TEST_USER_1);
-    driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
-    driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
-    driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
-    driverHelper.findElement(By.id("formAddSubstitute:saveSubstitution")).click();
+    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").click();
+    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").clear();
+    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
+    awaitToBeClickableAndClick("formAddSubstitute:saveSubstitution").click();
     prime().dialog(By.id("dialogAddSubstitute")).waitToBeClosedOrError();
   }
 
@@ -153,18 +152,18 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     navigate().substitution();
     SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
     menu.selectItemByLabel(user);
-    ajax().await(ExpectedConditions.presenceOfElementLocated(By.id("formSubstitute:addSubstitute")));
-    driverHelper.findElement(By.id("formSubstitute:addSubstitute")).click();
+    awaitToBePresent("formSubstitute:addSubstitute");
+    awaitToBeClickableAndClick("formSubstitute:addSubstitute").click();
     prime().dialog(By.id("dialogAddSubstitute")).waitForVisibility(true);
     menu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
     menu.selectItemByLabel(TEST_USER_1);
     prime().selectOneRadio(By.id("formAddSubstitute")).selectItemById("formAddSubstitute:options:1_clone");
     
     prime().selectCheckboxMenu(By.id("formAddSubstitute:roleSelection")).selectAllItems();
-    driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
-    driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
-    driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
-    driverHelper.findElement(By.id("formAddSubstitute:saveSubstitution")).click();
+    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").click();
+    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").clear();
+    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
+    awaitToBeClickableAndClick("formAddSubstitute:saveSubstitution").click();
     prime().dialog(By.id("dialogAddSubstitute")).waitToBeClosedOrError();
   }
 }

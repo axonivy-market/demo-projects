@@ -120,13 +120,13 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   {
     createTask("taskForFilterPrioHigh", "task list", 1);
     navigate().taskList();
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
+    awaitTextToBePresentIn(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh");
 
     createTask("taskForFilterLow", "task list", 3);
     navigate().taskList();
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow"));
+    awaitTextToBePresentIn(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow");
 
     // test prio
     navigate().taskList();
@@ -135,8 +135,8 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     menu = prime().selectOne(By.id("taskListComponent:taskListForm:responsibleFilter"));
     menu.selectItemByLabel("Everybody");
     driverHelper.getWebDriver().navigate().refresh();
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow"));
+    awaitTextToBePresentIn(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow");
     await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh")));
 
@@ -146,8 +146,8 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     menu = prime().selectOne(By.id("taskListComponent:taskListForm:responsibleFilter"));
     menu.selectItemByLabel("Everybody");
     driverHelper.getWebDriver().navigate().refresh();
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
+    awaitTextToBePresentIn(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh");
     await(ExpectedConditions.not(ExpectedConditions.textToBePresentInElementLocated(
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterLow")));
 
@@ -157,14 +157,14 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     navigate().taskList();
     menu = prime().selectOne(By.id("taskListComponent:taskListForm:responsibleFilter"));
     menu.selectItemByLabel("Everybody");
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh"));
+    awaitTextToBePresentIn(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh");
     closeTask();
 
     createTaskWithCategory("new Task", "this is a new Task", 2, "random category", "process5");
     navigate().taskList();
-    await(ExpectedConditions.textToBePresentInElementLocated(
-            By.id("taskListComponent:taskListForm:taskTable_data"), "new Task"));
+    awaitTextToBePresentIn(
+            By.id("taskListComponent:taskListForm:taskTable_data"), "new Task");
 
     // test searchbar
     navigate().taskList();
@@ -184,7 +184,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     createTask("taskHighForFilterPagination", "task pagination", 1);
 
     navigate().taskList();
-    driverHelper.clickAndWaitForAjax(By.cssSelector("span.ui-icon.ui-icon-seek-next"));
+    awaitToBeClickable(By.cssSelector("span.ui-icon.ui-icon-seek-next"));
     SelectOneMenu menu = prime().selectOne(By.id("taskListComponent:taskListForm:priorityFilter"));
     menu.selectItemByLabel("HIGH");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("test");
@@ -224,14 +224,12 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     Table dataTable = prime().table(By.id("taskListComponent:taskListForm:taskTable_data"));
     dataTable.contains(taskName);
 
-    driverHelper.findElementById("buttonTaskDetail").click();
-    driverHelper.clickAndWaitForAjax(By
-            .id("formTaskDetails:openDelegateTask"));
+    awaitToBeClickableAndClick("buttonTaskDetail").click();
+    awaitToBeClickableAndClick("formTaskDetails:openDelegateTask").click();
     SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfUser"));
     menu.selectItemByLabel(
             "Test User 1 (user1)");
-    driverHelper.clickAndWaitForAjax(By
-            .id("formDelegateTask:saveDelegateTask"));
+    awaitToBeClickableAndClick("formDelegateTask:saveDelegateTask").click();
   }
 
   @Test
@@ -252,7 +250,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     dataTable.contains(taskLowPrio);
 
     navigate().taskList();
-    driverHelper.findElementById("taskLinkRow_0").click();
+    awaitToBeClickableAndClick("taskLinkRow_0").click();
 
     filterCheckDataTable(taskLowPrio, taskHighPrio, filterId, dataTable, "SUSPENDED");
 

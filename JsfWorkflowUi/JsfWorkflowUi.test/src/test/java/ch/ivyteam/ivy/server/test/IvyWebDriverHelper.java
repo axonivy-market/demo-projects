@@ -1,17 +1,12 @@
 package ch.ivyteam.ivy.server.test;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -50,11 +45,6 @@ public class IvyWebDriverHelper
   public WebDriver getWebDriver()
   {
     return driver;
-  }
-
-  public WebElement findElementById(String id)
-  {
-    return findElement(By.id(id));
   }
 
   public WebElement findElement(By by)
@@ -134,23 +124,6 @@ public class IvyWebDriverHelper
   public void waitUntilEnabled(By by)
   {
     waitAtLast(10).until(ExpectedConditions.elementToBeClickable(by));
-  }
-
-  public void clickAndWaitForAjax(By by)
-  {
-	  try{
-		  findElement(by).click();
-	  }
-	  catch(Exception ex)
-	  {
-		  File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		  try {
-			FileUtils.copyFile(scrFile, new File("c:\\temp\\screenshot" + Math.random() + ".png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	  }
-    waitForAjax();
   }
 
   public void waitForAjax()

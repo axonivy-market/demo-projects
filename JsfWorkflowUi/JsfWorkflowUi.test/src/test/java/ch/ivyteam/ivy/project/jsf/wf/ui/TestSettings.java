@@ -69,7 +69,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     addAbsenceForUser("30.07.2012", "09:10", "30.08.2031", "10:10", "Add absence for other test",
             "Test User 2 (user2)");
-    driverHelper.clickAndWaitForAjax(By.id("showAbsentUsers"));
+    awaitToBeClickableAndClick("showAbsentUsers").click();
     WebDriver webDriver = driverHelper.getWebDriver();
     assertThat(webDriver.findElement(By.id("formAbsentUsers")).getText()).contains("Test User 2 (user2)");
 
@@ -89,24 +89,24 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     {
       prime().selectOne(By.id("formAbsence:userSelection")).selectItemByLabel("Test User 2 (user2)");
     }
-    driverHelper.clickAndWaitForAjax(By.id("formAbsence:tableAbsence:0:editButton"));
-    driverHelper.findElementById("formEditAbsence:absenceStartTime_input").click();
-    driverHelper.findElementById("formEditAbsence:absenceStartTime_input").clear();
-    driverHelper.findElementById("formEditAbsence:absenceStartTime_input").sendKeys(startTime);
-    driverHelper.findElementById("formEditAbsence:absenceStartDate_input").click();
-    driverHelper.findElementById("formEditAbsence:absenceStartDate_input").clear();
-    driverHelper.findElementById("formEditAbsence:absenceStartDate_input").sendKeys(startDate);
-    driverHelper.findElementById("formEditAbsence:absenceStartTime_input").click();
-    driverHelper.findElementById("formEditAbsence:absenceEndTime_input").click();
-    driverHelper.findElementById("formEditAbsence:absenceEndTime_input").clear();
-    driverHelper.findElementById("formEditAbsence:absenceEndTime_input").sendKeys(endTime);
-    driverHelper.findElementById("formEditAbsence:absenceEndDate_input").click();
-    driverHelper.findElementById("formEditAbsence:absenceEndDate_input").clear();
-    driverHelper.findElementById("formEditAbsence:absenceEndDate_input").sendKeys(endDate);
-    driverHelper.findElementById("formEditAbsence:absenceDescription").click();
-    driverHelper.findElementById("formEditAbsence:absenceDescription").clear();
-    driverHelper.findElementById("formEditAbsence:absenceDescription").sendKeys(description);
-    driverHelper.clickAndWaitForAjax(By.id("formEditAbsence:saveEditAbsence"));
+    awaitToBeClickableAndClick("formAbsence:tableAbsence:0:editButton").click();
+    awaitToBeClickableAndClick("formEditAbsence:absenceStartTime_input").click();
+    awaitToBeClickableAndClick("formEditAbsence:absenceStartTime_input").clear();
+    awaitToBeClickableAndClick("formEditAbsence:absenceStartTime_input").sendKeys(startTime);
+    awaitToBeClickableAndClick("formEditAbsence:absenceStartDate_input").click();
+    awaitToBeClickableAndClick("formEditAbsence:absenceStartDate_input").clear();
+    awaitToBeClickableAndClick("formEditAbsence:absenceStartDate_input").sendKeys(startDate);
+    awaitToBeClickableAndClick("formEditAbsence:absenceStartTime_input").click();
+    awaitToBeClickableAndClick("formEditAbsence:absenceEndTime_input").click();
+    awaitToBeClickableAndClick("formEditAbsence:absenceEndTime_input").clear();
+    awaitToBeClickableAndClick("formEditAbsence:absenceEndTime_input").sendKeys(endTime);
+    awaitToBeClickableAndClick("formEditAbsence:absenceEndDate_input").click();
+    awaitToBeClickableAndClick("formEditAbsence:absenceEndDate_input").clear();
+    awaitToBeClickableAndClick("formEditAbsence:absenceEndDate_input").sendKeys(endDate);
+    awaitToBeClickableAndClick("formEditAbsence:absenceDescription").click();
+    awaitToBeClickableAndClick("formEditAbsence:absenceDescription").clear();
+    awaitToBeClickableAndClick("formEditAbsence:absenceDescription").sendKeys(description);
+    awaitToBeClickableAndClick("formEditAbsence:saveEditAbsence").click();
   }
 
   private void checkIfAbsenceContains(String description)
@@ -117,7 +117,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void deleteAbsence()
   {
-    await(ExpectedConditions.elementToBeClickable(By.id("formAbsence:tableAbsence:0:removeButton"))).click();
+    awaitToBeClickableAndClick("formAbsence:tableAbsence:0:removeButton").click();
     driverHelper.waitForAjax();
   }
 
@@ -145,7 +145,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     checkIsSubstituteForRolesAdded();
     navigate().substitution();
     selectOneMenu.selectItemByLabel("Test User 1 (user1)");
-    driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
+    awaitToBeClickableAndClick("formSubstitute:tableSubstitute:0:removeButton").click();
   }
 
   private void addSubstituteForTasks(String substituteFor)
@@ -158,13 +158,13 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     }
     Dialog dialogSubstitute = prime().dialog(By.id("dialogAddSubstitute"));
     dialogSubstitute.waitForVisibility(false);
-    await(ExpectedConditions.presenceOfElementLocated(By.id("formSubstitute:addSubstitute"))).click();
+    awaitToBePresent("formSubstitute:addSubstitute").click();
     dialogSubstitute.waitForVisibility(true);
     SelectOneMenu selectOneMenu = prime().selectOne(By.id("formAddSubstitute:substituteUser"));
     selectOneMenu.selectItemByLabel("Test User 2 (user2)");
-    driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
-    driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
-    driverHelper.findElement(By.id("formAddSubstitute:saveSubstitution")).click();
+    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").click();
+    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
+    awaitToBeClickableAndClick("formAddSubstitute:saveSubstitution").click();
     dialogSubstitute.waitToBeClosedOrError();
   }
 
@@ -186,28 +186,28 @@ public class TestSettings extends BaseJsfWorkflowUiTest
       SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
       menu.selectItemByLabel("Test User 2 (user2)");
     }
-    driverHelper.clickAndWaitForAjax(By.id("formSubstitute:addSubstitute"));
+    awaitToBeClickableAndClick("formSubstitute:addSubstitute").click();
     prime().selectOneRadio(By.id("formAddSubstitute")).selectItemById("formAddSubstitute:options:1_clone");
 
     prime().selectCheckboxMenu(By.id("formAddSubstitute:roleSelection")).selectAllItems();
-    driverHelper.findElementById("formAddSubstitute:substituteDescription").click();
-    driverHelper.findElementById("formAddSubstitute:substituteDescription").clear();
-    driverHelper.findElementById("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
-    driverHelper.clickAndWaitForAjax(By.id("formAddSubstitute:saveSubstitution"));
+    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").click();
+    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").clear();
+    awaitToBeClickableAndClick("formAddSubstitute:substituteDescription").sendKeys("Add substitution test");
+    awaitToBeClickableAndClick("formAddSubstitute:saveSubstitution").click();
   }
 
   private void checkIsSubstituteForRolesAdded()
   {
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Role 1");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Role 2");
-    driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
-    driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
+    awaitToBeClickableAndClick("formSubstitute:tableSubstitute:0:removeButton").click();
+    awaitToBeClickableAndClick("formSubstitute:tableSubstitute:0:removeButton").click();
   }
 
   private void deleteSubstitute()
   {
     navigate().substitution();
-    driverHelper.clickAndWaitForAjax(By.id("formSubstitute:tableSubstitute:0:removeButton"));
+    awaitToBeClickableAndClick("formSubstitute:tableSubstitute:0:removeButton").click();
   }
 
   @Test
@@ -221,8 +221,8 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     navigate().mailNotificationSettings();
     checkSetMailNotification();
     // set default
-    driverHelper.findElement(By.cssSelector("span.ui-button-text.ui-c")).click();
-    driverHelper.clickAndWaitForAjax(By.id("formMailNotification:saveMailNotification"));
+    awaitToBeClickable(By.cssSelector("span.ui-button-text.ui-c")).click();
+    awaitToBeClickableAndClick("formMailNotification:saveMailNotification").click();
   }
 
   private void setMailNotification()
@@ -235,7 +235,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     checkBooleanBox("formMailNotification:checkFriday");
     checkBooleanBox("formMailNotification:checkSaturday");
     checkBooleanBox("formMailNotification:checkSunday");
-    driverHelper.clickAndWaitForAjax(By.id("formMailNotification:saveMailNotification"));
+    awaitToBeClickableAndClick("formMailNotification:saveMailNotification").click();
   }
 
   private void checkBooleanBox(String id)
@@ -245,17 +245,17 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void checkSetMailNotification()
   {
-    assertThat(driverHelper.findElementById("formMailNotification:onTask_input").isSelected()).isTrue();
-    assertThat(driverHelper.findElementById("formMailNotification:checkMonday_input").isSelected()).isTrue();
-    assertThat(driverHelper.findElementById("formMailNotification:checkTuesday_input").isSelected()).isTrue();
-    assertThat(driverHelper.findElementById("formMailNotification:checkWednesday_input").isSelected())
+    assertThat(awaitToBeClickableAndClick("formMailNotification:onTask_input").isSelected()).isTrue();
+    assertThat(awaitToBeClickableAndClick("formMailNotification:checkMonday_input").isSelected()).isTrue();
+    assertThat(awaitToBeClickableAndClick("formMailNotification:checkTuesday_input").isSelected()).isTrue();
+    assertThat(awaitToBeClickableAndClick("formMailNotification:checkWednesday_input").isSelected())
             .isTrue();
-    assertThat(driverHelper.findElementById("formMailNotification:checkThursday_input").isSelected())
+    assertThat(awaitToBeClickableAndClick("formMailNotification:checkThursday_input").isSelected())
             .isTrue();
-    assertThat(driverHelper.findElementById("formMailNotification:checkFriday_input").isSelected()).isTrue();
-    assertThat(driverHelper.findElementById("formMailNotification:checkSaturday_input").isSelected())
+    assertThat(awaitToBeClickableAndClick("formMailNotification:checkFriday_input").isSelected()).isTrue();
+    assertThat(awaitToBeClickableAndClick("formMailNotification:checkSaturday_input").isSelected())
             .isTrue();
-    assertThat(driverHelper.findElementById("formMailNotification:checkSunday_input").isSelected()).isTrue();
+    assertThat(awaitToBeClickableAndClick("formMailNotification:checkSunday_input").isSelected()).isTrue();
   }
 
   @Test
@@ -263,7 +263,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultHome.ivp");
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Home"));
+    awaitTextToBePresentIn(By.id("mainArea"), "Home");
   }
 
   @Test
@@ -271,7 +271,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultProcesslist.ivp");
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Process List"));
+    awaitTextToBePresentIn(By.id("mainArea"), "Process List");
   }
 
   @Test
@@ -279,7 +279,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     setDefaultPageProcess();
     driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultTaskList.ivp");
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Task List"));
+    awaitTextToBePresentIn(By.id("mainArea"), "Task List");
   }
 
   @Test
@@ -287,7 +287,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     setDefaultPageProcess();
     createTask("titel", "beschreibung", 0);
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Process List"));
+    awaitTextToBePresentIn(By.id("mainArea"), "Process List");
     callDefaultLogin();
   }
 
@@ -296,7 +296,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     driverHelper
             .openProcessLink("testWfUi/13FCD703133237C4/SetDefaultProcess.ivp?processName=ch.ivyteam.ivy.project.wf:JsfWorkflowUi");
     driverHelper.waitForAjax();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Home"));
+    awaitTextToBePresentIn(By.id("mainArea"), "Home");
   }
 
   private void callDefaultLogin()
@@ -305,14 +305,14 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     // get task id
     String taskIdPart = "taskId=";
     String taskId = driverHelper
-            .findElementById("taskLinkRow_0")
+            .findElement(By.id("taskLinkRow_0"))
             .getAttribute("href")
             .substring(
-                    driverHelper.findElementById("taskLinkRow_0").getAttribute("href").indexOf(taskIdPart)
+                    awaitToBeClickableAndClick("taskLinkRow_0").getAttribute("href").indexOf(taskIdPart)
                             + taskIdPart.length());
     navigate().logout();
     driverHelper.openProcessLink("testWfUi/13F3D94E5C99F06F/13F3D94E5C99F06F-f1/TaskA.ivp?taskId=" + taskId);
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Workflow login"));
+    awaitTextToBePresentIn(By.id("mainArea"), "Workflow login");
     // Login
     By usernameLocator = By.id("loginPageComponent:loginForm:username");
     driverHelper.findElement(usernameLocator).clear();
@@ -320,9 +320,9 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     By passwordLocator = By.id("loginPageComponent:loginForm:password");
     driverHelper.findElement(passwordLocator).clear();
     driverHelper.findElement(passwordLocator).sendKeys(WEB_TEST_SERVER_ADMIN_PASSWORD);
-    driverHelper.findElementById("loginPageComponent:loginForm:loginButton").click();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Welcome"));
+    awaitToBeClickableAndClick("loginPageComponent:loginForm:loginButton").click();
+    awaitTextToBePresentIn(By.id("mainArea"), "Welcome");
     closeTask();
-    await(ExpectedConditions.textToBePresentInElementLocated(By.id("mainArea"), "Task List"));
+    awaitTextToBePresentIn(By.id("mainArea"), "Task List");
   }
 }
