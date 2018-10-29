@@ -15,6 +15,7 @@
 		<module>WorkflowDemos</module>
 		<module>ConnectivityDemos</module>
 		<module>EngineConfigUi</module>
+		<module>DemosApp</module>
 
 		<!-- workflow: -->
 		<module>JsfWorkflowUi</module>

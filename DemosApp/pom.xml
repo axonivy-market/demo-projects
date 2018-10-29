@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ch.ivyteam.ivy.project</groupId>
+	<artifactId>IvyDemoApp</artifactId>
+	<version>7.2.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>ch.ivyteam.ivy.project.demo</groupId>
+			<artifactId>connectivity-demos</artifactId>
+			<version>[7.2.0-SNAPSHOT,)</version>
+			<type>iar</type>
+		</dependency>
+		<dependency>
+			<groupId>ch.ivyteam.ivy.project.demo</groupId>
+			<artifactId>WorkflowDemos</artifactId>
+			<version>[7.2.0-SNAPSHOT,)</version>
+			<type>iar</type>
+		</dependency>
+		<dependency>
+			<groupId>ch.ivyteam.ivy.project.demo</groupId>
+			<artifactId>ErrorHandlingDemos</artifactId>
+			<version>[7.2.0-SNAPSHOT,)</version>
+			<type>iar</type>
+		</dependency>
+		<dependency>
+			<groupId>ch.ivyteam.ivy.project.demo</groupId>
+			<artifactId>HtmlDialogDemos</artifactId>
+			<version>[7.2.0-SNAPSHOT,)</version>
+			<type>iar</type>
+		</dependency>
+		<dependency>
+			<groupId>ch.ivyteam.ivy.project.demo</groupId>
+			<artifactId>RuleEngineDemos</artifactId>
+			<version>[7.2.0-SNAPSHOT,)</version>
+			<type>iar</type>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>repo.axonivy.com</id>
+			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>repo.axonivy.com</id>
+			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<descriptors>
+						<descriptor>assembly.xml</descriptor>
+					</descriptors>
+					<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
+				<executions>
+					<execution>
+						<id>create.app</id>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<phase>generate-resources</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
