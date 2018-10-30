@@ -2,12 +2,19 @@ package ch.ivyteam.ivy.project.jsf.wf.ui;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Random;
+
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestRule;
 import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -174,9 +181,26 @@ public class BaseJsfWorkflowUiTest
 
   private void clickAndSendKeys(String inputId, String inputValue)
   {
+    try
+    {
     awaitToBeClickable("formAddAbsence:absenceStartTime_input").click();
     awaitToBeClickable("formAddAbsence:" + inputId).click();
     awaitToBeClickable("formAddAbsence:" + inputId).sendKeys(inputValue);
+    }
+    catch (Exception ex)
+    {
+      File screenshot = ((TakesScreenshot) driverHelper.getWebDriver()).getScreenshotAs(OutputType.FILE);
+      File destFile = new File("target/screenshot" + new Random().nextInt() + ".png");
+      try
+      {
+        FileUtils.copyFile(screenshot, destFile);
+        throw new RuntimeException(ex.getCause());
+      }
+      catch (IOException ex1)
+      {
+        throw new RuntimeException(ex1.getCause());
+      }
+    }
   }
 
   protected Boolean awaitTextToBePresentIn(By locator, String text)
