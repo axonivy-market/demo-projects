@@ -113,7 +113,7 @@ public class BaseJsfWorkflowUiTest
   {
     navigate().taskList();
     awaitToBeClickable("taskLinkRow_0").click();
-    awaitToBeClickable("ok").click();
+    awaitToBeClickable(By.name("ok")).click();
     awaitToBeClickable("submit").click();
   }
 
