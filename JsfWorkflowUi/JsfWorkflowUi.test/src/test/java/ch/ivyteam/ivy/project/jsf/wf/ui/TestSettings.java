@@ -88,21 +88,26 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     if (absenceFor == "other")
     {
       prime().selectOne(By.id("formAbsence:userSelection")).selectItemByLabel("Test User 2 (user2)");
-    }
+    }    
     awaitToBeClickable("formAbsence:tableAbsence:0:editButton").click();
-    awaitToBeClickable("formEditAbsence:absenceStartTime_input").click();
-    awaitToBeClickable("formEditAbsence:absenceStartTime_input").clear();
-    awaitToBeClickable("formEditAbsence:absenceStartTime_input").sendKeys(startTime);
+
     awaitToBeClickable("formEditAbsence:absenceStartDate_input").click();
     awaitToBeClickable("formEditAbsence:absenceStartDate_input").clear();
     awaitToBeClickable("formEditAbsence:absenceStartDate_input").sendKeys(startDate);
+    
     awaitToBeClickable("formEditAbsence:absenceStartTime_input").click();
-    awaitToBeClickable("formEditAbsence:absenceEndTime_input").click();
-    awaitToBeClickable("formEditAbsence:absenceEndTime_input").clear();
-    awaitToBeClickable("formEditAbsence:absenceEndTime_input").sendKeys(endTime);
+    awaitToBeClickable("formEditAbsence:absenceStartTime_input").clear();
+    awaitToBeClickable("formEditAbsence:absenceStartTime_input").sendKeys(startTime);
+    
     awaitToBeClickable("formEditAbsence:absenceEndDate_input").click();
     awaitToBeClickable("formEditAbsence:absenceEndDate_input").clear();
     awaitToBeClickable("formEditAbsence:absenceEndDate_input").sendKeys(endDate);
+    
+    awaitToBeClickable("formEditAbsence:absenceDescription").click();
+    awaitToBeClickable("formEditAbsence:absenceEndTime_input").click();
+    awaitToBeClickable("formEditAbsence:absenceEndTime_input").clear();
+    awaitToBeClickable("formEditAbsence:absenceEndTime_input").sendKeys(endTime);
+    
     awaitToBeClickable("formEditAbsence:absenceDescription").click();
     awaitToBeClickable("formEditAbsence:absenceDescription").clear();
     awaitToBeClickable("formEditAbsence:absenceDescription").sendKeys(description);
@@ -245,17 +250,21 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void checkSetMailNotification()
   {
-    assertThat(awaitToBeClickable("formMailNotification:onTask_input").isSelected()).isTrue();
-    assertThat(awaitToBeClickable("formMailNotification:checkMonday_input").isSelected()).isTrue();
-    assertThat(awaitToBeClickable("formMailNotification:checkTuesday_input").isSelected()).isTrue();
-    assertThat(awaitToBeClickable("formMailNotification:checkWednesday_input").isSelected())
+    assertThat(driverHelper.findElement(By.id("formMailNotification:onTask_input")).isSelected()).isTrue();
+    assertThat(driverHelper.findElement(By.id("formMailNotification:checkMonday_input")).isSelected())
             .isTrue();
-    assertThat(awaitToBeClickable("formMailNotification:checkThursday_input").isSelected())
+    assertThat(driverHelper.findElement(By.id("formMailNotification:checkTuesday_input")).isSelected())
             .isTrue();
-    assertThat(awaitToBeClickable("formMailNotification:checkFriday_input").isSelected()).isTrue();
-    assertThat(awaitToBeClickable("formMailNotification:checkSaturday_input").isSelected())
+    assertThat(driverHelper.findElement(By.id("formMailNotification:checkWednesday_input")).isSelected())
             .isTrue();
-    assertThat(awaitToBeClickable("formMailNotification:checkSunday_input").isSelected()).isTrue();
+    assertThat(driverHelper.findElement(By.id("formMailNotification:checkThursday_input")).isSelected())
+            .isTrue();
+    assertThat(driverHelper.findElement(By.id("formMailNotification:checkFriday_input")).isSelected())
+            .isTrue();
+    assertThat(driverHelper.findElement(By.id("formMailNotification:checkSaturday_input")).isSelected())
+            .isTrue();
+    assertThat(driverHelper.findElement(By.id("formMailNotification:checkSunday_input")).isSelected())
+            .isTrue();
   }
 
   @Test
