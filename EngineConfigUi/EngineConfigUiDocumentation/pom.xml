@@ -133,5 +133,6 @@
 	
 	<build>
 		<testSourceDirectory>src</testSourceDirectory>
+		<testOutputDirectory>target/test-classes</testOutputDirectory>
 	</build>
 </project>
