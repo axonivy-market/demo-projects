@@ -6,13 +6,13 @@
 	<parent>
 		<groupId>ch.ivyteam.ivy.project</groupId>
 		<artifactId>build.maven.iar</artifactId>
-		<version>7.2.0-SNAPSHOT</version>
+		<version>7.3.0-SNAPSHOT</version>
 		<relativePath>../../build.maven/iar</relativePath>
 	</parent>
 
 	<groupId>com.axonivy.system</groupId>
 	<artifactId>engine-config-ui</artifactId>
-	<version>7.2.0-SNAPSHOT</version>
+	<version>7.3.0-SNAPSHOT</version>
 	<packaging>iar</packaging>
 
 	<properties>
