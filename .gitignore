@@ -25,6 +25,7 @@ EngineConfigUi/EngineConfigUiTest/lib
 EngineConfigUi/EngineConfigUiTest/src_dataClasses/*
 EngineConfigUi/EngineConfigUiTest/src_wsproc/*
 EngineConfigUi/EngineConfigUiTest/target
+EngineConfigUi/EngineConfigUiDocumentation/drivers/
 ErrorHandlingDemos/classes
 ErrorHandlingDemos/logs
 ErrorHandlingDemos/src_dataClasses/*
@@ -79,6 +80,7 @@ WorkflowDemos/WorkflowDemosTest/deploy
 WorkflowDemos/WorkflowDemosTest/src_dataClasses/*
 WorkflowDemos/WorkflowDemosTest/target
 WorkflowDemos/WorkflowDemosTest/lib
+WorkflowDemos/WorkflowDemosTest/drivers/
 WorkflowDemos/classes
 WorkflowDemos/deploy
 WorkflowDemos/logs
@@ -97,3 +99,4 @@ EngineConfigUi/EngineConfigUiDocumentation/lib/
 
 DemosApp/target/
 build.maven/job/update-version/target
+
