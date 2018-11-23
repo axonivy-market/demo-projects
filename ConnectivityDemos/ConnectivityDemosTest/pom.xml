@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>ch.ivyteam.ivy.project.demo</groupId>
-	<artifactId>ConnectivityDemosTest</artifactId>
+	<artifactId>connectivity-demos-test</artifactId>
 	<version>7.3.0-SNAPSHOT</version>
 	<packaging>iar</packaging>
 
