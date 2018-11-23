@@ -16,6 +16,7 @@
 		<selenium.version>3.5.3</selenium.version>
 		<test.application>Portal</test.application>
 		<gecko.driver.dir>${basedir}/drivers</gecko.driver.dir>
+		<deploy.skip>true</deploy.skip>
 	</properties>
 
 	<dependencies>

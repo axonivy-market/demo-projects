@@ -36,17 +36,17 @@
 	</repositories>
  
 	<distributionManagement>
-		<!-- Used to deploy artifacts -->
 		<repository>
-			<id>zugpronexus.snapshots</id>
-			<name>Internal Build Integration Repository</name>
-			<url>http://zugpronexus:8081/nexus/content/repositories/build-snapshots/</url>
-			<uniqueVersion>true</uniqueVersion>
+			<id>repo.axonivy.com</id>
+			<layout>default</layout>
+			<name>Public Build Integration Repository</name>
+			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
 		</repository>
 	</distributionManagement>
 
 	<properties>
 		<engine.directory>${java.io.tmpdir}/ivyEngine</engine.directory>
+		<deploy.skip>false</deploy.skip>
 	</properties>
 
 	<build>
@@ -59,6 +59,7 @@
 					<deployAtEnd>false</deployAtEnd>
 					<updateReleaseInfo>true</updateReleaseInfo>
 					<uniqueVersion>true</uniqueVersion>
+					<skip>${deploy.skip}</skip>
 				</configuration>
 			</plugin>
 		</plugins>
