@@ -25,3 +25,7 @@ roleSelectionLabel String #field
 roleSelectionLabel PERSISTENT #fieldModifier
 forUserList List<ch.ivyteam.ivy.security.IUser> #field
 forUserList PERSISTENT #fieldModifier
+substitutionType ch.ivyteam.ivy.security.SubstitutionType #field
+substitutionType PERSISTENT #fieldModifier
+isPermanent Boolean #field
+isPermanent PERSISTENT #fieldModifier

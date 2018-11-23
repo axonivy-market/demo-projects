@@ -6,38 +6,42 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:pe="http://primefaces.org/ui/extensions"
       xmlns:pm="http://primefaces.org/mobile">
- 
 <h:body>
 <ui:composition>
-	<h:panelGrid columns="2">
-		#{ivy.cms.co('/labels/settings/substitute/substituteUser')}:
+	<h:panelGrid columns="1">
+		<h:outputLabel value="#{ivy.cms.co('/labels/settings/substitute/substituteUser')}:"/>
 		<h:panelGrid columns="2">
-		<span class="fa fa-user"/>
 	    <p:selectOneMenu id="substituteUser" value="#{data.substituteUser}" filter="true" filterMatchMode="contains" converter="ivy.ListItem">
 	    	<f:selectItems value="#{data.userList}" var="user" itemValue="#{user}" itemLabel="#{securityMemberFormatter.formatFull(user)}" />
 	    </p:selectOneMenu>
 	    </h:panelGrid>
-	    #{ivy.cms.co('/labels/settings/substitute/substituteFor')}:
+	    <p:separator />
+		<h:outputLabel value="#{ivy.cms.co('/labels/settings/substitute/substituteFor')}:"/>
 	    <h:panelGrid columns="1" id="radio">
 		    <p:selectOneRadio id="options" value="#{data.isPersonally}" layout="custom">
 		      	<f:selectItem itemValue="true" />
 		      	<f:selectItem itemValue="false" />
 		      	<f:ajax render="radio" />
 		 	</p:selectOneRadio>
-			<h:panelGrid columns="2">
+			<h:panelGrid columns="4">
 		   		<p:radioButton id="optMyTasks" for="options" itemIndex="0" />
 		   		<h:outputLabel for="optMyTasks" value="#{ivy.cms.co('/labels/settings/substitute/substituteMyTasks')}" />
-	   		</h:panelGrid>
-	   		<h:panelGrid columns="4">
-		   		<p:radioButton id="optRole" for="options" itemIndex="1" disabled="#{data.roleList.isEmpty()}" />
+		   		<p:selectBooleanCheckbox id="optPermanent" value="#{data.isPermanent}" disabled="#{!data.isPersonally}" style="padding-left: 20px"/>
+				<h:outputLabel id="optPermanentLabel" for="optPermanent" value="#{ivy.cms.co('/labels/settings/absence/permanent')}" /> 
+	   			
+	   			<p:radioButton id="optRole" for="options" itemIndex="1" disabled="#{data.roleList.isEmpty()}" />
 		   		<h:outputLabel for="optRole" value="#{ivy.cms.co('/labels/settings/substitute/substituteRole')}:" />
-		   		<span class="fa fa-users"/>
+		   		<span class="fa fa-users" style="padding-left: 20px"/>
 		        <p:selectCheckboxMenu id="roleSelection" value="#{data.selectedRoles}" label="#{ivy.cms.co('/labels/settings/substitute/substituteRole')}" panelStyle="width:220px" converter="ivy.ListItem" disabled="#{data.isPersonally}">  
-	        		<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{securityMemberFormatter.formatFull(role)}" itemValue="#{role}"/>
+	        	<f:selectItems value="#{data.roleList}" var="role" itemLabel="#{securityMemberFormatter.formatFull(role)}" itemValue="#{role}"/>
 	    		</p:selectCheckboxMenu> 
+	   		</h:panelGrid>
+	   			<p:tooltip for="optPermanentLabel, optPermanent" value="#{ivy.cms.co('/labels/settings/substitute/descriptionPermanentSubstitute')}" position="top"/>
+	   		<h:panelGrid columns="4">
     		</h:panelGrid>
 		</h:panelGrid>
-		#{ivy.cms.co('/labels/common/description')}:
+		<p:separator />
+		<h:outputLabel value="#{ivy.cms.co('/labels/common/description')}:" />
 		<p:inputText id="substituteDescription" value="#{data.description}" style="width: 400px;" />
 	</h:panelGrid>
 	<br />

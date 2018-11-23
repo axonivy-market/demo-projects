@@ -43,6 +43,9 @@
 				<p:column headerText="#{ivy.cms.co('/labels/common/description')}">
    					<h:outputText value="#{substitute.description}"/>
 				</p:column>
+				<p:column headerText="#{ivy.cms.co('/labels/common/type')}">
+					<h:outputText value="#{substitute.substitutionType == 'PERMANENT' ? ivy.cms.co('/labels/settings/absence/permanent') : ivy.cms.co('/labels/settings/absence/onAbsence')}"/>
+				</p:column>
 				<p:column headerText="#{ivy.cms.co('/labels/settings/substitute/substituteControls')}" style="width: 100px; text-align: center;">
    					<p:commandButton id="removeButton" actionListener="#{logic.removeSubstitute(substitute.id)}" update=":formSubstitute" icon="fa fa-trash" value="#{ivy.cms.co('/labels/common/delete')}" ajax="false" />
 				</p:column>
@@ -66,6 +69,9 @@
    				<p:column headerText="#{ivy.cms.co('/labels/settings/substitute/currentState')}">
        				<h:outputText value="#{substitution.user.isAbsent() ? ivy.cms.co('/labels/settings/absence/currentlyAbsent') : ivy.cms.co('/labels/settings/absence/notAbsent')}"/>
    				</p:column>
+   				<p:column headerText="#{ivy.cms.co('/labels/common/type')}">
+					<h:outputText value="#{substitution.substitutionType == 'PERMANENT' ? ivy.cms.co('/labels/settings/absence/permanent') : ivy.cms.co('/labels/settings/absence/onAbsence')}"/>
+				</p:column>
 			</p:dataTable>
 		</h:form>
 		

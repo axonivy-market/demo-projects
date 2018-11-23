@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Fri Jul 25 10:36:35 CEST 2014]
-13F5720787C9F3A0 3.17 #module
+13F5720787C9F3A0 3.23 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstitutionProcess Big #zClass
 Ss0 RD #cInfo
@@ -187,7 +186,8 @@ Ss0 f17 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
 Ss0 f17 actionTable 'out=in;
 ' #txt
-Ss0 f17 actionCode 'import javax.faces.context.FacesContext;
+Ss0 f17 actionCode 'import ch.ivyteam.ivy.security.SubstitutionType;
+import javax.faces.context.FacesContext;
 import javax.faces.application.FacesMessage;
 import ch.ivyteam.ivy.security.IRole;
 import ch.ivyteam.ivy.security.IUser;
@@ -206,7 +206,13 @@ if(in.isPersonally)
 			break;
 		}
 	}
-	in.user.createSubstitute(in.substituteUser, null, description);
+	SubstitutionType type = SubstitutionType.ON_ABSENCE;
+	if(in.isPermanent)
+	{
+		type = SubstitutionType.PERMANENT;
+	}
+	
+	in.user.createSubstitute(in.substituteUser, null, description, type);
 }
 else
 {
@@ -224,7 +230,7 @@ else
 
 	for (IRole role : in.selectedRoles)
 	{
-		in.user.createSubstitute(in.substituteUser, role, description);
+		in.user.createSubstitute(in.substituteUser, role, description, SubstitutionType.ON_ABSENCE);
 	}
 }' #txt
 Ss0 f17 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
@@ -334,6 +340,7 @@ Ss0 f11 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
 ' #txt
 Ss0 f11 actionTable 'out=in;
 out.description="";
+out.isPermanent=false;
 out.isPersonally=true;
 out.selectedRoles=[];
 out.substituteUser=null;
