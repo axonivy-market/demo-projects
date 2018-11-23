@@ -7,35 +7,43 @@
 	<version>7.3.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	
+ 	<parent>
+ 		<!-- here to inherit dependencyManagement in order to verify its actuality -->
+		<groupId>ch.ivyteam.ivy</groupId>
+		<artifactId>ch.ivyteam.ivy.build.config.dependencies</artifactId>
+		<version>7.3.0-SNAPSHOT</version>
+	</parent>
+
 	<dependencies>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
 			<artifactId>connectivity-demos</artifactId>
-			<version>${project.version}</version>
 			<type>iar</type>
 		</dependency>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
 			<artifactId>workflow-demos</artifactId>
-			<version>${project.version}</version>
 			<type>iar</type>
 		</dependency>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
 			<artifactId>error-handling-demos</artifactId>
-			<version>${project.version}</version>
 			<type>iar</type>
 		</dependency>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
 			<artifactId>html-dialog-demos</artifactId>
-			<version>${project.version}</version>
+			<type>iar</type>
+		</dependency>
+		<dependency>
+			<groupId>ch.ivyteam.ivy.project.demo</groupId>
+			<artifactId>quick-start-tutorial</artifactId>
 			<type>iar</type>
 		</dependency>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
 			<artifactId>rule-engine-demos</artifactId>
-			<version>${project.version}</version>
 			<type>iar</type>
 		</dependency>
 	</dependencies>
@@ -53,7 +61,7 @@
 	<distributionManagement>
 		<repository>
 			<id>repo.axonivy.com</id>
-			<url>https://repo.axonivy.com/artifactory/libs-snapshot-local</url>
+			<url>https://repo.axonivy.com/artifactory/libs</url>
 		</repository>
 	</distributionManagement>
 
