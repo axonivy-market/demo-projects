@@ -58,13 +58,6 @@
 		</repository>
 	</repositories>
 
-	<distributionManagement>
-		<repository>
-			<id>repo.axonivy.com</id>
-			<url>https://repo.axonivy.com/artifactory/libs</url>
-		</repository>
-	</distributionManagement>
-
 	<build>
 		<plugins>
 			<plugin>
