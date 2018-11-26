@@ -5,14 +5,14 @@ Element-Name: ProjectUtils
 Element-Type: context
 Element-Version: 2.0
 Id: _uTeBUD3gEeadqZIC2MODiA
-Runtime-Version: 2.2.0.201706152316
-Save-Time: 4/16/18 3:08 PM
+Runtime-Version: 2.3.0.201806262310
+Save-Time: 11/26/18 4:41 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
 Entry-Name: .ecl.context
 
-proc "importArchive" [val directory] [val projectName]
+proc "importArchive" [val section] [val projectName]
 {
 	try
 	{
@@ -24,20 +24,14 @@ proc "importArchive" [val directory] [val projectName]
 	{
 		get-menu "File/Import..." | click
 		with [get-window Import] {
-		    get-tree | select "Axon.ivy/Ivy Archive \\(\\*.iar\\)"
+		    get-tree | select "Axon.ivy/Ivy Sample.*"
 		    get-button "Next >" | click
 		}
-		set-dialog-result Folder $directory
-		with [get-window "Import ivy Archives (*.iar)"] {
-		    get-button "Browse ..." | click
-		    with [get-tree] {
-		    	let [val item [format "%s \\(%s.iar\\)" $projectName $projectName]]
-		    	{
-			        get-item $item | check
-		    	}
-		    }
-		    get-button "Copy projects into workspace" | check
-		    get-button Finish | click
+		with [get-window "Import ivy Archives.*"] {
+			with [get-tree] {
+	        	get-item [format "%s/%s.*" $section $projectName] | check
+	    	}
+	    	get-button Finish | click
 		}
 	}
 }
