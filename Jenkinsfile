@@ -15,7 +15,7 @@ pipeline {
       steps {
         script {
           def workspace = pwd()
-          maven cmd: "clean deploy -e -fn -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
+          maven cmd: "-P repo.axonivy.com clean deploy -e -fn -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
         }
       }
       post {
