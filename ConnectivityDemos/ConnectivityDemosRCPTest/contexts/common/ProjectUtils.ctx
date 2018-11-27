@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: _uTeBUD3gEeadqZIC2MODiA
 Runtime-Version: 2.3.0.201806262310
-Save-Time: 11/26/18 4:41 PM
+Save-Time: 11/27/18 10:00 AM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -29,7 +29,7 @@ proc "importArchive" [val section] [val projectName]
 		}
 		with [get-window "Import ivy Archives.*"] {
 			with [get-tree] {
-	        	get-item [format "%s/%s.*" $section $projectName] | check
+	        	get-item [format "%s.*/%s.*" $section $projectName] | check
 	    	}
 	    	get-button Finish | click
 		}
