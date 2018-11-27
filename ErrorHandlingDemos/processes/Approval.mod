@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Thu Oct 22 15:24:37 CEST 2015]
-14ED397D47F3083D 3.18 #module
+14ED397D47F3083D 3.23 #module
 >Proto >Proto Collection #zClass
 al0 Approval Big #zClass
 al0 B #cInfo
@@ -48,15 +47,6 @@ TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
 al0 f0 wfuser 1 #txt
 al0 f0 showInStartList 1 #txt
-al0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -66,7 +56,7 @@ al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-al0 f0 @C|.responsibility Worker #txt
+al0 f0 @C|.responsibility Team #txt
 al0 f0 81 177 30 30 -21 17 #rect
 al0 f0 @|StartRequestIcon #fIcon
 al0 f1 type error.handling.demo.Approval #txt
@@ -265,7 +255,7 @@ al0 f19 0 0.8002504882268449 0 0 #arcLabel
 >Proto al0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <swimlaneLabel>Worker</swimlaneLabel>
+        <swimlaneLabel>Team</swimlaneLabel>
         <swimlaneLabel>Boss
 </swimlaneLabel>
     </language>
