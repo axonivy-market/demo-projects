@@ -8,6 +8,6 @@
     <user>
         <username>theWorker</username>
         <password>theWorker</password>
-        <role>Worker</role>
+        <role>Team</role>
     </user>
 </userConfig>

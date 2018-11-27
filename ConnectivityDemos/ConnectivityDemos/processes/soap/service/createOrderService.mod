@@ -128,7 +128,7 @@ ce0 f6 doCall true #txt
 ce0 f6 requestActionDecl '<com.axonivy.connectivity.soap.service.Order order,java.lang.String responsibleRole> param;
 ' #txt
 ce0 f6 requestMappingAction 'param.order=in.order;
-param.responsibleRole="Worker";
+param.responsibleRole="Team";
 ' #txt
 ce0 f6 responseActionDecl 'com.axonivy.connectivity.soap.service.CreateOrderServiceData out;
 ' #txt
@@ -141,13 +141,13 @@ ce0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>approve
-by worker</name>
-        <nameStyle>17,5
+by team</name>
+        <nameStyle>15,5
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-ce0 f6 272 196 112 44 -30 -15 #rect
+ce0 f6 272 196 112 44 -25 -15 #rect
 ce0 f6 @|TriggerIcon #fIcon
 ce0 f7 expr out #txt
 ce0 f7 384 218 441 218 #arcP
