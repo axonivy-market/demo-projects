@@ -66,7 +66,7 @@ al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-al0 f0 @C|.responsibility Employee #txt
+al0 f0 @C|.responsibility Worker #txt
 al0 f0 81 177 30 30 -21 17 #rect
 al0 f0 @|StartRequestIcon #fIcon
 al0 f1 type error.handling.demo.Approval #txt
@@ -265,7 +265,7 @@ al0 f19 0 0.8002504882268449 0 0 #arcLabel
 >Proto al0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <swimlaneLabel>Employee</swimlaneLabel>
+        <swimlaneLabel>Worker</swimlaneLabel>
         <swimlaneLabel>Boss
 </swimlaneLabel>
     </language>

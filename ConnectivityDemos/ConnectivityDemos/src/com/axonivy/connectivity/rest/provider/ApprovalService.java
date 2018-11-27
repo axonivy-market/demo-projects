@@ -22,7 +22,7 @@ import ch.ivyteam.ivy.workflow.ITask;
 public class ApprovalService {
 
 	/**
-	 * Runs a callable SubProcess to create new Task for a manager. 
+	 * Runs a callable SubProcess to create new Task for a boss. 
 	 * 
 	 * @param title
 	 * @param description

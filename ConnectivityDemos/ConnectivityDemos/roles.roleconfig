@@ -2,9 +2,9 @@
 <role>
     <identifier>Everybody</identifier>
     <role>
-        <identifier>Manager</identifier>
+        <identifier>Boss</identifier>
     </role>
     <role>
-        <identifier>Employee</identifier>
+        <identifier>Worker</identifier>
     </role>
 </role>

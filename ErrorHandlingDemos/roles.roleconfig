@@ -5,6 +5,6 @@
         <identifier>Boss</identifier>
     </role>
     <role>
-        <identifier>Employee</identifier>
+        <identifier>Worker</identifier>
     </role>
 </role>

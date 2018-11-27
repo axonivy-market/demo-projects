@@ -20,7 +20,7 @@ public class IntegrationTestSoapCreateOrderService
 	{
 		Order order = createOrder(1);
 		Task task = callCreateOrderService(order);
-		assertTask(task, "Employee");
+		assertTask(task, "Worker");
 	}
 
 	@Test
@@ -28,7 +28,7 @@ public class IntegrationTestSoapCreateOrderService
 	{
 		Order order = createOrder(100);
 		Task task = callCreateOrderService(order);
-		assertTask(task, "Manager");
+		assertTask(task, "Boss");
 	}
 
 	private static Order createOrder(int amount) {

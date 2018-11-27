@@ -3,11 +3,11 @@
     <user>
         <username>theBoss</username>
         <password>theBoss</password>
-        <role>Manager</role>
+        <role>Boss</role>
     </user>
     <user>
-        <username>theEmployee</username>
-        <password>theEmployee</password>
-        <role>Employee</role>
+        <username>theWorker</username>
+        <password>theWorker</password>
+        <role>Worker</role>
     </user>
 </userConfig>

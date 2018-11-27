@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Fri May 13 14:19:27 CEST 2016]
-1549FEEB682EF158 3.18 #module
+1549FEEB682EF158 3.23 #module
 >Proto >Proto Collection #zClass
 cl0 createApproval Big #zClass
 cl0 B #cInfo
@@ -64,13 +63,13 @@ cl0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>approve by
-manager</name>
-        <nameStyle>18,5,7
+boss</name>
+        <nameStyle>15,5
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-cl0 f3 200 74 112 44 -29 -16 #rect
+cl0 f3 200 74 112 44 -34 -15 #rect
 cl0 f3 @|TriggerIcon #fIcon
 cl0 f4 expr out #txt
 cl0 f4 143 96 200 96 #arcP

@@ -70,10 +70,10 @@ public class SecureService {
 	}
 	
 	/** 
-	 * {@link RolesAllowed}: only HTTP-BASIC authenticated users which own the role 'Manager' are allowed to call this method. 
+	 * {@link RolesAllowed}: only HTTP-BASIC authenticated users which own the role 'Boss' are allowed to call this method. 
 	 */
 	@POST @Path("/{entryId}")
-	@RolesAllowed("Manager")
+	@RolesAllowed("Boss")
 	public Response updateEntry(@PathParam("entryId") int id, String newEntry)
 	{
 		entries.set(id, newEntry);

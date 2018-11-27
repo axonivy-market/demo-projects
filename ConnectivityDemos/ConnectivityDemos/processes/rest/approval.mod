@@ -39,7 +39,7 @@ al0 f0 requestEnabled false #txt
 al0 f0 triggerEnabled true #txt
 al0 f0 callSignature approve(com.axonivy.connectivity.rest.Approval) #txt
 al0 f0 persist false #txt
-al0 f0 taskData 'TaskTriggered.ROL=Manager
+al0 f0 taskData 'TaskTriggered.ROL=Boss
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0

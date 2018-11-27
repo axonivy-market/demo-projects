@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <userConfig>
     <user>
-        <username>Employee</username>
-        <password>Employee</password>
-        <role>Employee</role>
+        <username>Worker</username>
+        <password>Worker</password>
+        <role>Worker</role>
     </user>
     <user>
         <username>Boss</username>
         <password>Boss</password>
         <role>Boss</role>
-        <role>Employee</role>
     </user>
 </userConfig>

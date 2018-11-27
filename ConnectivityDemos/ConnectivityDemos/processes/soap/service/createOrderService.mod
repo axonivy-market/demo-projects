@@ -67,7 +67,7 @@ ce0 f1 doCall true #txt
 ce0 f1 requestActionDecl '<com.axonivy.connectivity.soap.service.Order order,java.lang.String responsibleRole> param;
 ' #txt
 ce0 f1 requestMappingAction 'param.order=in.order;
-param.responsibleRole="Manager";
+param.responsibleRole="Boss";
 ' #txt
 ce0 f1 responseActionDecl 'com.axonivy.connectivity.soap.service.CreateOrderServiceData out;
 ' #txt
@@ -80,13 +80,13 @@ ce0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>approve
-by manager</name>
-        <nameStyle>18,7
+by boss</name>
+        <nameStyle>15,5
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-ce0 f1 272 66 112 44 -32 -16 #rect
+ce0 f1 272 66 112 44 -25 -15 #rect
 ce0 f1 @|TriggerIcon #fIcon
 ce0 f0 expr out #txt
 ce0 f0 384 88 441 88 #arcP
@@ -128,7 +128,7 @@ ce0 f6 doCall true #txt
 ce0 f6 requestActionDecl '<com.axonivy.connectivity.soap.service.Order order,java.lang.String responsibleRole> param;
 ' #txt
 ce0 f6 requestMappingAction 'param.order=in.order;
-param.responsibleRole="Employee";
+param.responsibleRole="Worker";
 ' #txt
 ce0 f6 responseActionDecl 'com.axonivy.connectivity.soap.service.CreateOrderServiceData out;
 ' #txt
@@ -141,13 +141,13 @@ ce0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>approve
-by employee</name>
-        <nameStyle>19,7
+by worker</name>
+        <nameStyle>17,5
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-ce0 f6 272 196 112 44 -34 -16 #rect
+ce0 f6 272 196 112 44 -30 -15 #rect
 ce0 f6 @|TriggerIcon #fIcon
 ce0 f7 expr out #txt
 ce0 f7 384 218 441 218 #arcP

@@ -58,7 +58,7 @@ or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-or0 f0 @C|.responsibility Employee #txt
+or0 f0 @C|.responsibility Worker #txt
 or0 f0 41 49 30 30 -23 -36 #rect
 or0 f0 @|StartRequestIcon #fIcon
 or0 f0 -1|-1|-13016147 #nodeStyle
