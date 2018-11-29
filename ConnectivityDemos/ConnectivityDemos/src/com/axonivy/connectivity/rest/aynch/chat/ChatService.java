@@ -1,0 +1,93 @@
+package com.axonivy.connectivity.rest.aynch.chat;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.security.RolesAllowed;
+import javax.inject.Singleton;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.container.AsyncResponse;
+import javax.ws.rs.container.Suspended;
+import javax.ws.rs.core.MediaType;
+
+import ch.ivyteam.ivy.environment.Ivy;
+
+/**
+ * Demonstrates asynchronous REST communication:
+ * 
+ * <ul>
+ *   <li>Users that join the chat fire an asynchronous (@GET) request and wait for new messages.</li>
+ * 	 <li>New messages are sent synchronous (@Post) and will be distributed to asynchronous listeners.</li>
+ * </ul>
+ * 
+ * @author rew
+ * @since 7.3.0
+ */
+@Path("chat")
+@Singleton
+public class ChatService{
+
+	private Map<String, AsyncResponse> responses = new HashMap<>();
+	private Map<String, List<ChatMessage>> offlineMessages = new HashMap<>();
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+    public synchronized void read(@Suspended AsyncResponse response) 
+	{
+    	String listener = Ivy.session().getSessionUserName();
+    	Ivy.log().debug("@"+listener+" is online");
+    	
+    	if (offlineMessages.containsKey(listener))
+    	{
+    		List<ChatMessage> messages = offlineMessages.remove(listener);
+    		Ivy.log().debug("sending messages collected as user was offline: "+messages);
+			response.resume(messages);
+    		return;
+    	}
+    	responses.put(listener, response);
+    }
+	
+	@POST
+	@Path("/{receiverName}")
+	@Consumes("text/plain")
+    public synchronized void writePrivate(String messageText, @PathParam("receiverName") String receiver)
+    {
+		String sender = Ivy.session().getSessionUserName();
+		ChatMessage message = new ChatMessage(sender, receiver, messageText);
+		
+		AsyncResponse onlineReceiver = responses.remove(receiver);
+		if (onlineReceiver != null && onlineReceiver.isSuspended())
+		{
+			Ivy.log().debug("send online:"+message);
+			onlineReceiver.resume(Arrays.asList(message));
+			return;
+		}
+		
+		Ivy.log().debug("store offline:"+message);
+		offlineMessages.putIfAbsent(receiver, new LinkedList<>());
+		offlineMessages.get(receiver).add(message);
+    }
+	
+	@POST
+	@Consumes("text/plain")
+	@RolesAllowed("Boss")
+    public synchronized void writePublic(String messageText)
+    {
+		String sender = Ivy.session().getSessionUserName();
+		ChatMessage message = new ChatMessage(sender, "ALL", messageText);
+    	Ivy.log().debug("send to ("+responses.size()+") clients: "+message);
+    	
+		for (AsyncResponse response : responses.values()) {
+			response.resume(Arrays.asList(message));
+		}
+    }
+	
+}
