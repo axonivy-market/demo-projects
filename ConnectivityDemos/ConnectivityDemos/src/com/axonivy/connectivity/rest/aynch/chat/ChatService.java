@@ -1,11 +1,15 @@
 package com.axonivy.connectivity.rest.aynch.chat;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
+import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Singleton;
 import javax.ws.rs.Consumes;
@@ -35,7 +39,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 @Singleton
 public class ChatService{
 
-	private Map<String, AsyncResponse> responses = new HashMap<>();
+	private Map<String, AsyncResponse> responses = new ConcurrentHashMap<>();
 	private Map<String, List<ChatMessage>> offlineMessages = new HashMap<>();
 	
 	@GET
@@ -43,8 +47,6 @@ public class ChatService{
     public synchronized void read(@Suspended AsyncResponse response) 
 	{
     	String listener = Ivy.session().getSessionUserName();
-    	Ivy.log().debug("@"+listener+" is online");
-    	
     	if (offlineMessages.containsKey(listener))
     	{
     		List<ChatMessage> messages = offlineMessages.remove(listener);
@@ -85,9 +87,18 @@ public class ChatService{
 		ChatMessage message = new ChatMessage(sender, "ALL", messageText);
     	Ivy.log().debug("send to ("+responses.size()+") clients: "+message);
     	
-		for (AsyncResponse response : responses.values()) {
+		Collection<AsyncResponse> clients = new ArrayList<>(responses.values());
+		for (AsyncResponse response : clients) {
 			response.resume(Arrays.asList(message));
 		}
     }
+	
+	@GET
+	@Path("/count")
+	@PermitAll
+	public int countClients()
+	{
+		return responses.size();
+	}
 	
 }
