@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.annotation.security.PermitAll;
@@ -92,6 +93,14 @@ public class ChatService{
 			response.resume(Arrays.asList(message));
 		}
     }
+	
+	@GET
+	@Path("/users")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Set<String> onlineUsers()
+	{
+		return responses.keySet();
+	}
 	
 	@GET
 	@Path("/count")
