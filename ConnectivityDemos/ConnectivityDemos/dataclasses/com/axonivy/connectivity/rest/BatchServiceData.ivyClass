@@ -1,0 +1,3 @@
+BatchServiceData #class
+com.axonivy.connectivity.rest #namespace
+result String #field
