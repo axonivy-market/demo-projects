@@ -50,7 +50,7 @@ cc0 f0 requestEnabled true #txt
 cc0 f0 triggerEnabled false #txt
 cc0 f0 callSignature chatAsync() #txt
 cc0 f0 persist false #txt
-cc0 f0 startName '5.2 chat async with JS client for REST' #txt
+cc0 f0 startName '5.3 chat async with JS client for REST' #txt
 cc0 f0 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
@@ -251,6 +251,7 @@ cc0 f5 requestEnabled true #txt
 cc0 f5 triggerEnabled false #txt
 cc0 f5 callSignature restCallback() #txt
 cc0 f5 persist false #txt
+cc0 f5 startName '5.2 invoke async with JS callback' #txt
 cc0 f5 taskData 'TaskTriggered.ROL=Everybody
 TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
