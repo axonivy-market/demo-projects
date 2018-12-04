@@ -83,7 +83,7 @@ cc0 f3 responseMappingAction 'out=in;
 cc0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>javascript chat 
+        <name>JavaScript chat 
 with REST backend </name>
     </language>
 </elementInfo>
@@ -269,6 +269,7 @@ cc0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 cc0 f5 @C|.responsibility Everybody #txt
 cc0 f5 81 145 30 30 -49 17 #rect
 cc0 f5 @|StartRequestIcon #fIcon
+cc0 f6 richDialogId com.axonivy.connectivity.rest.AsyncUiInvoker #txt
 cc0 f6 startMethod start() #txt
 cc0 f6 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 cc0 f6 requestActionDecl '<> param;' #txt
@@ -276,15 +277,23 @@ cc0 f6 responseActionDecl 'com.axonivy.connectivity.rest.AsyncInvocationData out
 ' #txt
 cc0 f6 responseMappingAction 'out=in;
 ' #txt
-cc0 f6 168 138 112 44 0 -7 #rect
+cc0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>UI with  async
+JavaScript callback</name>
+    </language>
+</elementInfo>
+' #txt
+cc0 f6 168 138 144 44 -53 -15 #rect
 cc0 f6 @|RichDialogIcon #fIcon
 cc0 f21 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
-cc0 f21 337 145 30 30 0 15 #rect
+cc0 f21 353 145 30 30 0 15 #rect
 cc0 f21 @|EndIcon #fIcon
 cc0 f23 expr out #txt
 cc0 f23 111 160 168 160 #arcP
 cc0 f24 expr out #txt
-cc0 f24 280 160 337 160 #arcP
+cc0 f24 312 160 353 160 #arcP
 cc0 f25 424 318 320 346 #arcP
 cc0 f26 80 584 145 472 #arcP
 cc0 f26 1 72 584 #addKink
