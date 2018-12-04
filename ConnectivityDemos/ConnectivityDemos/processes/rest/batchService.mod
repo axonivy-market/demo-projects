@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 02 13:53:25 CET 2017]
-157B33AB7587F1F1 3.20 #module
+157B33AB7587F1F1 3.23 #module
 >Proto >Proto Collection #zClass
 be0 batchService Big #zClass
 be0 B #cInfo
@@ -22,9 +21,9 @@ be0 @PushWFArc f3 '' #zField
 be0 @AnnotationArc f4 '' #zField
 >Proto be0 be0 batchService #zField
 be0 f0 outLink callLongRunningBatch.ivp #txt
-be0 f0 type com.axonivy.connectivity.Data #txt
+be0 f0 type com.axonivy.connectivity.rest.BatchServiceData #txt
 be0 f0 inParamDecl '<> param;' #txt
-be0 f0 actionDecl 'com.axonivy.connectivity.Data out;
+be0 f0 actionDecl 'com.axonivy.connectivity.rest.BatchServiceData out;
 ' #txt
 be0 f0 guid 157B33AB7A4D35AD #txt
 be0 f0 requestEnabled true #txt
@@ -38,6 +37,7 @@ TaskTriggered.EXPRI=2
 TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
+be0 f0 caseData businessCase.attach=true #txt
 be0 f0 showInStartList 1 #txt
 be0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -51,7 +51,7 @@ be0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 be0 f0 @C|.responsibility Everybody #txt
 be0 f0 113 49 30 30 -71 17 #rect
 be0 f0 @|StartRequestIcon #fIcon
-be0 f1 type com.axonivy.connectivity.Data #txt
+be0 f1 type com.axonivy.connectivity.rest.BatchServiceData #txt
 be0 f1 369 49 30 30 0 15 #rect
 be0 f1 @|EndIcon #fIcon
 be0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -95,7 +95,7 @@ be0 f2 expr out #txt
 be0 f2 143 64 200 64 #arcP
 be0 f3 312 64 369 64 #arcP
 be0 f4 360 122 256 86 #arcP
->Proto be0 .type com.axonivy.connectivity.Data #txt
+>Proto be0 .type com.axonivy.connectivity.rest.BatchServiceData #txt
 >Proto be0 .processKind NORMAL #txt
 >Proto be0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

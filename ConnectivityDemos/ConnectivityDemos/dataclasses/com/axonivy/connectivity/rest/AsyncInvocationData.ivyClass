@@ -1,0 +1,4 @@
+AsyncInvocationData #class
+com.axonivy.connectivity.rest #namespace
+result String #field
+result PERSISTENT #fieldModifier

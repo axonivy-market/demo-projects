@@ -1,0 +1,96 @@
+[Ivy]
+16764B1AE13CC212 3.23 #module
+>Proto >Proto Collection #zClass
+Cs0 ChatClientProcess Big #zClass
+Cs0 RD #cInfo
+Cs0 #process
+Cs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
+Cs0 @TextInP .rdData2UIAction .rdData2UIAction #zField
+Cs0 @TextInP .resExport .resExport #zField
+Cs0 @TextInP .type .type #zField
+Cs0 @TextInP .processKind .processKind #zField
+Cs0 @AnnotationInP-0n ai ai #zField
+Cs0 @MessageFlowInP-0n messageIn messageIn #zField
+Cs0 @MessageFlowOutP-0n messageOut messageOut #zField
+Cs0 @TextInP .xml .xml #zField
+Cs0 @TextInP .responsibility .responsibility #zField
+Cs0 @RichDialogInitStart f0 '' #zField
+Cs0 @RichDialogProcessEnd f1 '' #zField
+Cs0 @PushWFArc f2 '' #zField
+Cs0 @RichDialogProcessStart f3 '' #zField
+Cs0 @RichDialogEnd f4 '' #zField
+Cs0 @PushWFArc f5 '' #zField
+Cs0 @InfoButton f6 '' #zField
+>Proto Cs0 Cs0 ChatClientProcess #zField
+Cs0 f0 guid 16764B1AE2FA7A37 #txt
+Cs0 f0 type com.axonivy.connectivity.rest.ChatClient.ChatClientData #txt
+Cs0 f0 method start() #txt
+Cs0 f0 disableUIEvents true #txt
+Cs0 f0 inParameterDecl 'com.axonivy.connectivity.Data out;
+' #txt
+Cs0 f0 outParameterDecl '<> result;
+' #txt
+Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>start()</name>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f0 83 51 26 26 -20 15 #rect
+Cs0 f0 @|RichDialogInitStartIcon #fIcon
+Cs0 f1 type com.axonivy.connectivity.rest.ChatClient.ChatClientData #txt
+Cs0 f1 211 51 26 26 0 12 #rect
+Cs0 f1 @|RichDialogProcessEndIcon #fIcon
+Cs0 f2 expr out #txt
+Cs0 f2 109 64 211 64 #arcP
+Cs0 f3 guid 16764B1AE4D38241 #txt
+Cs0 f3 type com.axonivy.connectivity.rest.ChatClient.ChatClientData #txt
+Cs0 f3 actionDecl 'com.axonivy.connectivity.rest.ChatClient.ChatClientData out;
+' #txt
+Cs0 f3 actionTable 'out=in;
+' #txt
+Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>close</name>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f3 83 147 26 26 -16 12 #rect
+Cs0 f3 @|RichDialogProcessStartIcon #fIcon
+Cs0 f4 type com.axonivy.connectivity.rest.ChatClient.ChatClientData #txt
+Cs0 f4 guid 16764B1AE4DB9A3A #txt
+Cs0 f4 211 147 26 26 0 12 #rect
+Cs0 f4 @|RichDialogEndIcon #fIcon
+Cs0 f5 expr out #txt
+Cs0 f5 109 160 211 160 #arcP
+Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>All in JavaScript
+
+Not much is going on in here:
+- within this demo no server side processing is done with JSF
+- data is requested and shown via JavaScript directly within the client browser
+- see resources/chat.js and the ChatClient View for details</name>
+        <nameStyle>17,0,8
+180
+17,1
+9
+15,1
+12
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f6 72 226 496 108 -242 -47 #rect
+Cs0 f6 @|IBIcon #fIcon
+>Proto Cs0 .type com.axonivy.connectivity.rest.ChatClient.ChatClientData #txt
+>Proto Cs0 .processKind HTML_DIALOG #txt
+>Proto Cs0 -8 -8 16 16 16 26 #rect
+>Proto Cs0 '' #fIcon
+Cs0 f0 mainOut f2 tail #connect
+Cs0 f2 head f1 mainIn #connect
+Cs0 f3 mainOut f5 tail #connect
+Cs0 f5 head f4 mainIn #connect
