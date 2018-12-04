@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
@@ -60,8 +60,9 @@ public class ChatService{
 	
 	@POST
 	@Path("/{receiverName}")
-	@Consumes("text/plain")
-    public synchronized void writePrivate(String messageText, @PathParam("receiverName") String receiver)
+	@Consumes(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
+    public synchronized ChatMessage writePrivate(String messageText, @PathParam("receiverName") String receiver)
     {
 		String sender = Ivy.session().getSessionUserName();
 		ChatMessage message = new ChatMessage(sender, receiver, messageText);
@@ -71,12 +72,14 @@ public class ChatService{
 		{
 			Ivy.log().debug("send online:"+message);
 			onlineReceiver.resume(Arrays.asList(message));
-			return;
 		}
-		
-		Ivy.log().debug("store offline:"+message);
-		offlineMessages.putIfAbsent(receiver, new LinkedList<>());
-		offlineMessages.get(receiver).add(message);
+		else
+		{
+			Ivy.log().debug("store offline:"+message);
+			offlineMessages.putIfAbsent(receiver, new LinkedList<>());
+			offlineMessages.get(receiver).add(message);
+		}
+		return message;
     }
 	
 	@POST
@@ -97,9 +100,12 @@ public class ChatService{
 	@GET
 	@Path("/users")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Set<String> onlineUsers()
+	public List<String> onlineUsers()
 	{
-		return responses.keySet();
+		String myself = Ivy.session().getSessionUserName();
+		return responses.keySet().stream()
+				.filter(user -> !myself.equals(user))
+				.collect(Collectors.toList());
 	}
 	
 	@GET

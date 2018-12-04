@@ -36,7 +36,8 @@ function Chat(uri) {
 		    headers: {'X-Requested-By': 'ivy'},
 		    body: message
 		});
-	    return;
+		const result = await response.json();
+	    return result;
 	}
 }
 

@@ -14,6 +14,7 @@
 			<ul>
 				<li>Client is written in plain JavaScript to avoid JSF Client/Server roundtrips</li>
 				<li>The backend is implemented as REST resource (see ChatService)</li>
+				<li>This JavaScript implementation only works with modern Browsers!</li>
 			</ul>
 			<h:outputScript library="ivy-dialog" name="chat.js" target="head" />
 			
@@ -26,7 +27,7 @@
 					chat.users(view.renderUsers);
 					chat.listen(view.renderMessages);
 					
-					function send()
+					async function send()
 					{
 						var text = document.getElementById('form:sendMsg');
 						var users = document.getElementById('users');
@@ -38,7 +39,8 @@
 						}
 						else
 						{
-							chat.send(receiver, text.value);
+							msg = await chat.send(receiver, text.value);
+							view.renderMessages([msg])
 						}
 						text.value='';
 					}
