@@ -7,7 +7,7 @@ pipeline {
   }
 
   parameters {
-    choice(choices: 'Linux_Trunk_DesignerAndServer\nTrunk_DesignerAndServer\nTrunk_All', description: 'Engine to use for build', name: 'engineSource')
+    choice(choices: 'Trunk_All\nLinux_Trunk_DesignerAndServer\nTrunk_DesignerAndServer', description: 'Engine to use for build', name: 'engineSource')
   }
 
   stages {
@@ -15,7 +15,7 @@ pipeline {
       steps {
         script {
           def workspace = pwd()
-          maven cmd: "-P repo.axonivy.com clean deploy -e -fn -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
+          maven cmd: "-P repo.axonivy.com clean deploy -e -fae -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
         }
       }
       post {
