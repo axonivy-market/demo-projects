@@ -212,7 +212,7 @@ if(in.isPersonally)
 		type = SubstitutionType.PERMANENT;
 	}
 	
-	in.user.createSubstitute(in.substituteUser, null, description, type);
+	in.user.createSubstitute(in.substituteUser, description, type);
 }
 else
 {
@@ -230,7 +230,7 @@ else
 
 	for (IRole role : in.selectedRoles)
 	{
-		in.user.createSubstitute(in.substituteUser, role, description, SubstitutionType.ON_ABSENCE);
+		in.user.createSubstitute(in.substituteUser, role, description);
 	}
 }' #txt
 Ss0 f17 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
