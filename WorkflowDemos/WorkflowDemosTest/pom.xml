@@ -25,6 +25,8 @@
 	</dependencies>
 
 	<build>
+		<outputDirectory>classes</outputDirectory>
+	
 		<plugins>
 			<plugin>
 				<groupId>com.axonivy.ivy.ci</groupId>
