@@ -11,12 +11,13 @@
 		<ui:define name="title">AsyncUiInvoker</ui:define>
 		<ui:define name="content">
 			<h3>Async backend call</h3>
+			<p>Demonstrates a RESTful remote method call without any JSF client-server roundtrip but with JavaScript.</p>
 			
 			<h:outputScript library="ivy-webcontent" name="js/ivy.js" target="head" />
 			<script type="text/javascript">
 				async function restCall(uri, callback)
 				{
-					const response = await fetch(uri+"?blockSeconds=3");
+					const response = await fetch(uri);
 				    callback(response.ok); // update UI
 				    return;
 				}
@@ -29,8 +30,8 @@
 				
 				function invokeAsync()
 				{
-					var resource = new IvyUri().rest()+"/batch/async";
-					restCall(resource, show);
+					var resource = new IvyUri().rest()+"/batch/async?blockSeconds="+PF('timeout').getValue();
+					restCall(resource, show); // show is reference to expose the result!
 					show("awaiting response");
 				}
 			</script>
