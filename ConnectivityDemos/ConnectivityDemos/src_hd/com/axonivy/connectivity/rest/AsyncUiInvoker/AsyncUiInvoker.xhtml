@@ -13,10 +13,13 @@
 			<h3>Async backend call</h3>
 			
 			<h:outputScript library="ivy-webcontent" name="js/ivy.js" target="head" />
-			<h:outputScript library="ivy-dialog" name="serviceClient.js" target="head" />
 			<script type="text/javascript">
-				var resource = new IvyUri().rest()+"/batch/async";
-				var client = new ServiceClient(resource);
+				async function restCall(uri, callback)
+				{
+					const response = await fetch(uri+"?blockSeconds=3");
+				    callback(response.ok); // update UI
+				    return;
+				}
 				
 				function show(state)
 				{
@@ -26,8 +29,8 @@
 				
 				function invokeAsync()
 				{
-					show("call remote batch");
-					client.batch(show);
+					var resource = new IvyUri().rest()+"/batch/async";
+					restCall(resource, show);
 					show("awaiting response");
 				}
 			</script>
