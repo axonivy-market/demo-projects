@@ -16,4 +16,10 @@
 			</includes>
 		</dependencySet>
 	</dependencySets>
+	
+	<files>
+		<file>
+			<source>deploy.options.yaml</source>
+		</file>
+	</files>
 </assembly>
