@@ -20,7 +20,7 @@ pipeline {
       }
       post {
         always {
-          archiveArtifacts '**/target/*.iar'
+          archiveArtifacts '**/target/*.iar,**/target/*.zip'
           junit '**/target/surefire-reports/**/*.xml'
         }
       }
