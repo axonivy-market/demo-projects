@@ -106,17 +106,7 @@ Fe0 f8 actionDecl 'ch.ivyteam.wf.FrameData out;
 ' #txt
 Fe0 f8 actionTable 'out=in;
 ' #txt
-Fe0 f8 actionCode 'import ch.ivyteam.ivy.request.IHttpRequest;
-
-if (ivy.request instanceof IHttpRequest)
-{
-    IHttpRequest httpRequest = ivy.request as IHttpRequest;
-    //httpRequest.getHttpServletRequest().getHeader("blah");
-    String url = httpRequest.getHttpServletRequest().getContextPath();
-    
-    url += "/pro/" + in.task.getFullRequestPath() + "?taskId=" + in.taskId;
-    out.url = url;
-}' #txt
+Fe0 f8 actionCode 'out.url = ivy.html.taskstartref(in.task);' #txt
 Fe0 f8 type ch.ivyteam.wf.FrameData #txt
 Fe0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
