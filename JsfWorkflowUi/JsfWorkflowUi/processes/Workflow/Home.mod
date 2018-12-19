@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Wed Dec 16 11:59:26 CET 2015]
-13EACA2A989BCC3D 3.18 #module
+13EACA2A989BCC3D 3.23 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
 He0 B #cInfo
@@ -24,7 +23,6 @@ He0 @PushWFArc f17 '' #zField
 He0 @Alternative f12 '' #zField
 He0 @PushWFArc f18 '' #zField
 He0 @PushWFArc f20 '' #zField
-He0 @PushWFArc f5 '' #zField
 He0 @PushWFArc f3 '' #zField
 He0 @EndTask f2 '' #zField
 He0 @RichDialog f10 '' #zField
@@ -37,6 +35,9 @@ He0 @PushWFArc f28 '' #zField
 He0 @PushWFArc f9 '' #zField
 He0 @PushWFArc f21 '' #zField
 He0 @PushWFArc f29 '' #zField
+He0 @GridStep f15 '' #zField
+He0 @PushWFArc f22 '' #zField
+He0 @PushWFArc f5 '' #zField
 >Proto He0 He0 Home #zField
 He0 f1 outLink DefaultApplicationHomePage.ivp #txt
 He0 f1 type ch.ivyteam.wf.Data #txt
@@ -59,44 +60,8 @@ TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
 ' #txt
-He0 f1 caseData '#
-#Thu May 08 11:29:43 CEST 2014
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+He0 f1 caseData businessCase.attach=true #txt
 He0 f1 showInStartList 1 #txt
-He0 f1 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 He0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -136,7 +101,7 @@ He0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f4 392 106 112 44 -16 -8 #rect
+He0 f4 504 106 112 44 -16 -8 #rect
 He0 f4 @|RichDialogIcon #fIcon
 He0 f4 -1|-1|-9671572 #nodeStyle
 He0 f0 outLink Logout.ivp #txt
@@ -188,15 +153,6 @@ type.code=
 type.name=
 ' #txt
 He0 f0 showInStartList 0 #txt
-He0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 He0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -225,14 +181,14 @@ He0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f6 168 42 112 44 -17 -8 #rect
+He0 f6 280 42 112 44 -17 -8 #rect
 He0 f6 @|StepIcon #fIcon
 He0 f6 -1|-1|-9671572 #nodeStyle
 He0 f7 expr out #txt
-He0 f7 111 64 168 64 #arcP
+He0 f7 111 64 280 64 #arcP
 He0 f8 expr out #txt
-He0 f8 280 64 448 106 #arcP
-He0 f8 1 448 64 #addKink
+He0 f8 392 64 560 106 #arcP
+He0 f8 1 560 64 #addKink
 He0 f8 0 0.8502556853112283 0 0 #arcLabel
 He0 f11 outLink DefaultEndPage.ivp #txt
 He0 f11 type ch.ivyteam.wf.Data #txt
@@ -285,15 +241,6 @@ type.code=
 type.name=
 ' #txt
 He0 f11 showInStartList 0 #txt
-He0 f11 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 He0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -319,7 +266,7 @@ He0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f13 176 176 32 32 7 8 #rect
+He0 f13 288 176 32 32 7 8 #rect
 He0 f13 @|AlternativeIcon #fIcon
 He0 f13 -1|-1|-9671572 #nodeStyle
 He0 f14 actionDecl 'ch.ivyteam.wf.Data out;
@@ -362,11 +309,11 @@ finished msg</name>
     </language>
 </elementInfo>
 ' #txt
-He0 f14 264 170 128 44 -41 -16 #rect
+He0 f14 376 170 128 44 -41 -16 #rect
 He0 f14 @|StepIcon #fIcon
 He0 f14 -1|-1|-9671572 #nodeStyle
 He0 f17 expr out #txt
-He0 f17 111 192 176 192 #arcP
+He0 f17 111 192 288 192 #arcP
 He0 f17 0 0.4726186798232986 0 0 #arcLabel
 He0 f12 type ch.ivyteam.wf.Data #txt
 He0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -378,21 +325,18 @@ He0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f12 432 176 32 32 8 7 #rect
+He0 f12 544 176 32 32 8 7 #rect
 He0 f12 @|AlternativeIcon #fIcon
 He0 f12 -1|-1|-9671572 #nodeStyle
 He0 f18 expr in #txt
 He0 f18 outCond !ivy.session.isSessionUserUnknown() #txt
-He0 f18 208 192 264 192 #arcP
+He0 f18 320 192 376 192 #arcP
 He0 f20 expr out #txt
-He0 f20 392 192 432 192 #arcP
-He0 f5 expr out #txt
-He0 f5 111 128 392 128 #arcP
-He0 f5 0 0.5694760965118373 0 0 #arcLabel
+He0 f20 504 192 544 192 #arcP
 He0 f3 expr out #txt
-He0 f3 504 128 561 128 #arcP
+He0 f3 616 128 673 128 #arcP
 He0 f2 type ch.ivyteam.wf.Data #txt
-He0 f2 561 113 30 30 0 15 #rect
+He0 f2 673 113 30 30 0 15 #rect
 He0 f2 @|EndIcon #fIcon
 He0 f2 -1|-1|-9671572 #nodeStyle
 He0 f10 targetWindow NEW:card: #txt
@@ -418,7 +362,7 @@ He0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f10 520 298 112 44 -32 -8 #rect
+He0 f10 632 298 112 44 -32 -8 #rect
 He0 f10 @|RichDialogIcon #fIcon
 He0 f10 -1|-1|-9671572 #nodeStyle
 He0 f16 outLink DefaultProcessStartListPage.ivp #txt
@@ -471,15 +415,6 @@ type.code=
 type.name=
 ' #txt
 He0 f16 showInStartList 0 #txt
-He0 f16 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 He0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -497,7 +432,7 @@ He0 f16 81 305 30 30 -85 22 #rect
 He0 f16 @|StartRequestIcon #fIcon
 He0 f16 -1|-1|-9671572 #nodeStyle
 He0 f19 expr out #txt
-He0 f19 111 320 520 320 #arcP
+He0 f19 111 320 632 320 #arcP
 He0 f23 targetWindow NEW:card: #txt
 He0 f23 targetDisplay TOP #txt
 He0 f23 richDialogId ch.ivyteam.wf.workflow.TaskListUser #txt
@@ -521,7 +456,7 @@ He0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-He0 f23 616 394 112 44 -35 -8 #rect
+He0 f23 728 394 112 44 -35 -8 #rect
 He0 f23 @|RichDialogIcon #fIcon
 He0 f23 -1|-1|-9671572 #nodeStyle
 He0 f24 outLink DefaultTaskListPage.ivp #txt
@@ -543,15 +478,6 @@ TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody' #txt
 He0 f24 showInStartList 0 #txt
-He0 f24 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 He0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -569,25 +495,47 @@ He0 f24 81 401 30 30 -66 17 #rect
 He0 f24 @|StartRequestIcon #fIcon
 He0 f24 -1|-1|-9671572 #nodeStyle
 He0 f26 expr out #txt
-He0 f26 111 416 616 416 #arcP
+He0 f26 111 416 728 416 #arcP
 He0 f26 0 0.3958072023316056 0 0 #arcLabel
 He0 f28 expr in #txt
-He0 f28 192 176 392 128 #arcP
-He0 f28 1 192 128 #addKink
+He0 f28 304 176 504 128 #arcP
+He0 f28 1 304 128 #addKink
 He0 f28 1 0.23341846466911037 0 0 #arcLabel
 He0 f9 expr in #txt
 He0 f9 outCond in.url.equals("ivy.html.DefaultProcessStartListPage") #txt
-He0 f9 448 208 576 298 #arcP
-He0 f9 1 448 256 #addKink
-He0 f9 2 576 256 #addKink
+He0 f9 560 208 688 298 #arcP
+He0 f9 1 560 256 #addKink
+He0 f9 2 688 256 #addKink
 He0 f9 0 0.012919371425973719 0 0 #arcLabel
 He0 f21 expr in #txt
 He0 f21 outCond in.url.equals("ivy.html.DefaultTaskListPage") #txt
-He0 f21 464 192 672 394 #arcP
-He0 f21 1 672 192 #addKink
+He0 f21 576 192 784 394 #arcP
+He0 f21 1 784 192 #addKink
 He0 f21 1 0.6311126072960193 0 0 #arcLabel
 He0 f29 expr in #txt
-He0 f29 448 176 448 150 #arcP
+He0 f29 560 176 560 150 #arcP
+He0 f15 actionDecl 'ch.ivyteam.wf.Data out;
+' #txt
+He0 f15 actionTable 'out=in;
+' #txt
+He0 f15 actionCode 'import ch.ivyteam.ivy.environment.Ivy;
+Ivy.session().setAttribute("jsf.primefaces.theme", "serenity-lime");' #txt
+He0 f15 type ch.ivyteam.wf.Data #txt
+He0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>set serenity theme</name>
+    </language>
+</elementInfo>
+' #txt
+He0 f15 160 106 128 44 -59 -7 #rect
+He0 f15 @|StepIcon #fIcon
+He0 f22 expr out #txt
+He0 f22 111 128 160 128 #arcP
+He0 f22 0 0.5694760965118373 0 0 #arcLabel
+He0 f5 expr out #txt
+He0 f5 288 128 504 128 #arcP
+He0 f5 0 0.5694760965118373 0 0 #arcLabel
 >Proto He0 .type ch.ivyteam.wf.Data #txt
 >Proto He0 .processKind NORMAL #txt
 >Proto He0 0 0 32 24 18 0 #rect
@@ -604,8 +552,6 @@ He0 f13 out f18 tail #connect
 He0 f18 head f14 mainIn #connect
 He0 f14 mainOut f20 tail #connect
 He0 f20 head f12 in #connect
-He0 f1 mainOut f5 tail #connect
-He0 f5 head f4 mainIn #connect
 He0 f16 mainOut f19 tail #connect
 He0 f19 head f10 mainIn #connect
 He0 f24 mainOut f26 tail #connect
@@ -618,3 +564,7 @@ He0 f12 out f21 tail #connect
 He0 f21 head f23 mainIn #connect
 He0 f12 out f29 tail #connect
 He0 f29 head f4 mainIn #connect
+He0 f1 mainOut f22 tail #connect
+He0 f22 head f15 mainIn #connect
+He0 f15 mainOut f5 tail #connect
+He0 f5 head f4 mainIn #connect

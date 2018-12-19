@@ -1,0 +1,55 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/serenity"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <div class="layout-sidebar #{guestPreferences.darkMenu ? 'layout-sidebar-dark' : ''}">
+        <div class="sidebar-logo">
+            <a href="dashboard.xhtml">
+                <p:graphicImage name="layouts/images/axon_ivy_logo_small.png" />
+                <span class="app-name"></span>
+            </a>
+            <a href="#" class="sidebar-anchor" title="Toggle Menu"></a>
+        </div>
+
+        <div class="nano">
+            <div class="nano-content sidebar-scroll-content">
+                <div class="layout-menu-container">
+                    <h:form id="menuform">
+                        <pm:menu>
+                            <p:menuitem id="taskListUser" value="#{ivy.cms.co('/navLabels/taskList')}" icon="fa fa-file-text-o" url="#{ivy.html.startref('1518CA28D86B5794/TaskListUser.ivp')}"/>
+                            <p:menuitem id="processList" value="#{ivy.cms.co('/navLabels/processList')}" icon="fa fa-list" url="#{ivy.html.startref('13EACA2A989BCC3D/DefaultProcessStartListPage.ivp')}"/>
+                            <p:menuitem id="caseListUser" value="#{ivy.cms.co('/navLabels/caseHistory')}" icon="fa fa-folder-open-o" url="#{ivy.html.startref('13EACA2A989BCC3D/DefaultProcessStartListPage.ivp')}"/>
+                            <p:menuitem id="taskHistory" value="#{ivy.cms.co('/navLabels/taskHistory')}" icon="fa fa-check-square-o" url="#{ivy.html.startref('13EACA2A989BCC3D/DefaultProcessStartListPage.ivp')}"/>
+                            <p:submenu id="settingsDropDown" label="#{ivy.cms.co('/navLabels/settings')}" icon="fa fa-gear">
+                            	<c:if test="#{adminBean.hasAnyAbsencePermission()}">
+                            		<p:menuitem id="absence" value="#{ivy.cms.co('/navLabels/absence')}" icon="fa fa-user-times" url="#{ivy.html.startref('13F3C911395912D4/Absence.ivp')}"/>
+	                            </c:if>
+	                            <c:if test="#{adminBean.hasAnySubstitutePermission()}">
+	                            	<p:menuitem id="substitution" value="#{ivy.cms.co('/navLabels/substitution')}" icon="fa fa-users" url="#{ivy.html.startref('13F5720218D18BA2/Substitution.ivp')}"/>
+	                            </c:if>
+	                            <p:menuitem id="mailSettings" value="#{ivy.cms.co('/navLabels/mailSettings')}" icon="fa fa-envelope-o" url="#{ivy.html.startref('13F51835BF0FECEF/MailNotificationSettings.ivp')}"/>
+	                        </p:submenu>
+	                        <c:if test="#{adminBean.isWorkflowAdmin()}">
+	                            <p:submenu id="workflowAdminDropDown" label="#{ivy.cms.co('/navLabels/admin')}" icon="fa fa-user-secret">
+	                                <p:menuitem id="caseListAdmin" value="#{ivy.cms.co('/navLabels/caseAdmin')}" icon="fa fa-folder-open-o" url="#{ivy.html.startref('1518C1BDAE6D978C/CaseListAdmin.ivp')}"/>
+	                                <p:menuitem id="taskListAdmin" value="#{ivy.cms.co('/navLabels/taskAdmin')}" icon="fa fa-file-text-o" url="#{ivy.html.startref('1518C6953618322C/TaskListAdmin.ivp')}"/>
+	                                <p:menuitem id="signalListAdmin" value="#{ivy.cms.co('/navLabels/signalListAdmin')}" icon="" url="#{ivy.html.startref('1533BAFD7EB49EC6/SignalListAdmin.ivp')}"/>
+	                                <p:menuitem id="workflowStatistic" value="#{ivy.cms.co('/navLabels/workflowStatistic')}" icon="fa fa-bar-chart-o" url="#{ivy.html.startref('1446317E486F5562/WorkflowStatistic.ivp')}"/>
+	                                <c:if test="#{adminBean.hasSessionReadAllPermission()}">
+	                                	<p:menuitem id="loggedInUser" value="#{ivy.cms.co('/navLabels/loggedInUser')}" icon="fa fa-users" url="#{ivy.html.startref('1477BA1CD7421F55/LoggedInUser.ivp')}"/>
+	                            	</c:if>
+	                            </p:submenu>
+                            </c:if>
+                        </pm:menu>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ui:composition>

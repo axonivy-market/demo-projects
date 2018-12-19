@@ -1,0 +1,111 @@
+/*Navigation*/
+.layout-topbar .app-name {
+	color: #2f2b08;
+	vertical-align: middle;
+	font-size: 26px;
+}
+@media (max-width: 1024px) {
+	.layout-topbar-menu-wrapper .app-name {
+		display: none;
+	}
+}
+
+/*Dashboard*/
+.dashboard-card button {
+	margin-top: -25px;
+	margin-right: 10px;
+	float: right;
+}
+.dashboard .ui-grid-col-5 label {
+	font-style: italic;
+}
+.dashboard-card .ui-panel {
+	min-height: 240px;
+	border: 0 none;
+	-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.14);
+	-moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.14);
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.14);
+}
+
+/*Application*/
+.applications .ui-inputswitch.ui-inputswitch-checked {
+    background-color: #9CCC65;
+    border-color: #9CCC65; 
+}
+.applications .ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-handle {
+	background-color: #7CB342;
+	color: #ffffff;
+}
+.applications .ui-treetable td:not(:first-child) {
+	text-align: center;
+}
+
+/*Users / Roles*/
+.ui-datatable .table-search-icon {
+	float: left;
+}
+.ui-datatable .table-search-input-withicon {
+	width: calc(100% - 24px);
+}
+.roles .ui-tree {
+	width: auto;
+}
+.roles .ui-tree .ui-treenode-leaf-icon {
+	width: 20px;
+}
+
+/*AdvancedConf*/
+.card .default-values-switch {
+	position: relative;
+	top: 24px;
+}
+
+/*UserDetail*/
+.user-detail .dashboard-card .ui-panel {
+	min-height: 460px;
+}
+
+/*Engine-Cockpit global*/
+.ui-fluid .tab-view-card {
+	border: 0px;
+}
+.ui-fluid .tableControlButtons button {
+	max-width: 200px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
+.ui-fluid .ui-column-filter {
+	display: none;
+}
+.ui-fluid .ui-inputswitch.ui-inputswitch-checked {
+    background-color: #9CCC65;
+    border-color: #9CCC65; 
+}
+.ui-fluid .ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-handle {
+	background-color: #7CB342;
+	color: #ffffff;
+}
+.card-title-icon {
+	position: relative;
+	top: 3px;
+	margin-right: 10px;
+}
+.ui-datatable .table-icon, 
+.ui-treetable .table-icon {
+	position: relative;
+	top: 3px;
+	font-size: 17px;
+	margin-right: 5px;
+}
+
+.ui-datatable .table-control-btn,
+.ui-treetable .table-control-btn {
+	margin-top: 0;
+}
+
+.floatTableColumn .ui-grid-row {
+	display: block;
+}
+.floatTableColumn .ui-grid-row > div{
+	float: left;
+}

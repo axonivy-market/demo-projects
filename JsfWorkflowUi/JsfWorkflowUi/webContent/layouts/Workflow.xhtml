@@ -13,10 +13,10 @@
 		href="#{resource['ivy-webcontent:layouts/images/ivy_favicon_48.png']}" />
 
 	<!-- You can also load bootstrap from an external CDN: //http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
-	<h:outputStylesheet	name="layouts/styles/bootstrap-modified-for-jsf.css" />
-	<h:outputStylesheet	name="layouts/styles/bootstrap-reset.css" />
-	<h:outputStylesheet name="layouts/styles/ivy-common-6.css" />
-	<h:outputStylesheet name="layouts/styles/bpm-font.css" />
+	<!-- <h:outputStylesheet	name="layouts/styles/bootstrap-modified-for-jsf.css" /> -->
+	<!-- <h:outputStylesheet	name="layouts/styles/bootstrap-reset.css" /> -->
+	<!-- <h:outputStylesheet name="layouts/styles/ivy-common-6.css" /> -->
+	<!-- <h:outputStylesheet name="layouts/styles/bpm-font.css" /> -->
 
 	<h:outputStylesheet name="styles/Workflow.css" />
 	<h:outputStylesheet name="styles/Icons.css" />
@@ -25,6 +25,9 @@
     <h:outputStylesheet name="styles/Notes.css"/>
 	
 	<h:outputScript name="layouts/js/bootstrap.min.js"/>
+	<h:outputScript name="js/nanoscroller.js" library="serenity-layout" />
+	<h:outputScript name="js/layout.js" library="serenity-layout" />
+	<h:outputScript name="js/ripple.js" library="serenity-layout" />
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -33,26 +36,58 @@
   <![endif]-->
 </h:head>
 <h:body>
-	<ui:insert name="header">
-		<ui:include src="includes/Header.xhtml" />
-		<ui:include src="includes/Navigation.xhtml" />
-	</ui:insert>
+	<div
+		class="layout-wrapper #{guestPreferences.orientationRTL ? 'layout-rtl' : null} #{guestPreferences.horizontal ? 'layout-menu-horizontal' : null}">
+		<ui:include src="./includes/sidebar.xhtml" />
 
-	<div id="mainArea" class="container">
-		<c:choose>
-			<c:when
-				test="#{ivy.wf.securityContext.currentSession.sessionUserUnknown}">
-				<h2>#{ivy.cms.co('/navLabels/login')}</h2>
-				<ic:ch.ivyteam.wf.login.Login id="loginPageComponent" />
-			</c:when>
-			<c:otherwise>
-				<p:messages id="message" showDetail="true" closable="true" />
-				<h2><span class="#{headerIcon}"/><h:graphicImage library="ivy-webcontent" name="#{headerImage}" style="#{headerImageStyle}" /> #{centerHeader}</h2>
-				<ui:insert name="center" />
-			</c:otherwise>
-		</c:choose>
+		<div class="layout-main">
+			<ui:include src="./includes/topbar.xhtml" />
 
-		<ui:include src="includes/Footer.xhtml" />
+			<div class="layout-breadcrumb">
+				<ul>
+					<li><a href="#{ivy.html.startref('Workflow/Home/DefaultApplicationHomePage.ivp')}"><i class="material-icons">home</i></a></li>
+					<li>/</li>
+					<ui:insert name="breadcrumb" />
+				</ul>
+			</div>
+
+			<div class="layout-content">
+				<div id="mainArea" class="container">
+					<c:choose>
+						<c:when
+							test="#{ivy.wf.securityContext.currentSession.sessionUserUnknown}">
+							<h2>#{ivy.cms.co('/navLabels/login')}</h2>
+							<ic:ch.ivyteam.wf.login.Login id="loginPageComponent" />
+						</c:when>
+						<c:otherwise>
+							<p:messages id="message" showDetail="true" closable="true" />
+							<h2><span class="#{headerIcon}"/><h:graphicImage library="ivy-webcontent" name="#{headerImage}" style="#{headerImageStyle}" /> #{centerHeader}</h2>
+							<ui:insert name="center" />
+						</c:otherwise>
+					</c:choose>
+			
+				</div>
+				<!-- <ui:insert name="content" /> -->
+			</div>
+
+			<div class="layout-main-mask"></div>
+		</div>
 	</div>
+	
+	<p:ajaxStatus style="width:32px;height:32px;position:fixed;right:7px;bottom:7px">
+		<f:facet name="start">
+			<i class="fa fa-circle-o-notch fa-spin ajax-loader"
+				aria-hidden="true"></i>
+		</f:facet>
+
+		<f:facet name="complete">
+			<h:outputText value="" />
+		</f:facet>
+	</p:ajaxStatus>
+	
+	<h:outputStylesheet name="css/nanoscroller.css" library="serenity-layout" />
+	<h:outputStylesheet name="css/ripple.css" library="serenity-layout" />
+	<h:outputStylesheet name="css/layout-#{guestPreferences.layout}.css" library="serenity-layout" />
+	<h:outputStylesheet name="layouts/styles/ivy-serenity.css" />
 </h:body>
 </html>
