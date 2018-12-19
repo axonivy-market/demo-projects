@@ -18,9 +18,9 @@ Fe0 @StartRequest f5 '' #zField
 Fe0 @PushWFArc f2 '' #zField
 Fe0 @PushWFArc f4 '' #zField
 Fe0 @RichDialog f3 '' #zField
-Fe0 @RichDialog f6 '' #zField
-Fe0 @PushWFArc f10 '' #zField
+Fe0 @GridStep f8 '' #zField
 Fe0 @PushWFArc f7 '' #zField
+Fe0 @PushWFArc f9 '' #zField
 >Proto Fe0 Fe0 Frame #zField
 Fe0 f0 outLink FrameWithUrl.ivp #txt
 Fe0 f0 type ch.ivyteam.wf.FrameData #txt
@@ -53,7 +53,7 @@ Fe0 f0 @C|.responsibility Everybody #txt
 Fe0 f0 81 49 30 30 -51 21 #rect
 Fe0 f0 @|StartRequestIcon #fIcon
 Fe0 f1 type ch.ivyteam.wf.FrameData #txt
-Fe0 f1 497 49 30 30 0 15 #rect
+Fe0 f1 553 49 30 30 0 15 #rect
 Fe0 f1 @|EndIcon #fIcon
 Fe0 f5 outLink FrameWithTaskId.ivp #txt
 Fe0 f5 type ch.ivyteam.wf.FrameData #txt
@@ -87,7 +87,7 @@ Fe0 f5 @C|.responsibility Everybody #txt
 Fe0 f5 81 145 30 30 -54 28 #rect
 Fe0 f5 @|StartRequestIcon #fIcon
 Fe0 f2 expr out #txt
-Fe0 f2 280 64 497 64 #arcP
+Fe0 f2 280 64 553 64 #arcP
 Fe0 f4 expr out #txt
 Fe0 f4 111 64 168 64 #arcP
 Fe0 f3 richDialogId ch.ivyteam.wf.workflow.IFrame #txt
@@ -102,25 +102,35 @@ Fe0 f3 responseMappingAction 'out=in;
 ' #txt
 Fe0 f3 168 42 112 44 0 -7 #rect
 Fe0 f3 @|RichDialogIcon #fIcon
-Fe0 f6 richDialogId ch.ivyteam.wf.workflow.IFrame #txt
-Fe0 f6 startMethod start(ch.ivyteam.ivy.workflow.ITask,Number) #txt
-Fe0 f6 type ch.ivyteam.wf.FrameData #txt
-Fe0 f6 requestActionDecl '<ch.ivyteam.ivy.workflow.ITask task, Number taskId> param;' #txt
-Fe0 f6 requestMappingAction 'param.task=in.task;
-param.taskId=in.taskId;
+Fe0 f8 actionDecl 'ch.ivyteam.wf.FrameData out;
 ' #txt
-Fe0 f6 responseActionDecl 'ch.ivyteam.wf.FrameData out;
+Fe0 f8 actionTable 'out=in;
 ' #txt
-Fe0 f6 responseMappingAction 'out=in;
+Fe0 f8 actionCode 'import ch.ivyteam.ivy.request.IHttpRequest;
+
+if (ivy.request instanceof IHttpRequest)
+{
+    IHttpRequest httpRequest = ivy.request as IHttpRequest;
+    //httpRequest.getHttpServletRequest().getHeader("blah");
+    String url = httpRequest.getHttpServletRequest().getContextPath();
+    
+    url += "/pro/" + in.task.getFullRequestPath() + "?taskId=" + in.taskId;
+    out.url = url;
+}' #txt
+Fe0 f8 type ch.ivyteam.wf.FrameData #txt
+Fe0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>build iframe url</name>
+    </language>
+</elementInfo>
 ' #txt
-Fe0 f6 168 138 112 44 0 -7 #rect
-Fe0 f6 @|RichDialogIcon #fIcon
-Fe0 f10 expr out #txt
-Fe0 f10 280 160 512 79 #arcP
-Fe0 f10 1 512 160 #addKink
-Fe0 f10 0 0.700151628122753 0 0 #arcLabel
+Fe0 f8 168 138 112 44 -46 -7 #rect
+Fe0 f8 @|StepIcon #fIcon
 Fe0 f7 expr out #txt
 Fe0 f7 111 160 168 160 #arcP
+Fe0 f9 expr out #txt
+Fe0 f9 224 138 224 86 #arcP
 >Proto Fe0 .type ch.ivyteam.wf.FrameData #txt
 >Proto Fe0 .processKind NORMAL #txt
 >Proto Fe0 0 0 32 24 18 0 #rect
@@ -129,7 +139,7 @@ Fe0 f0 mainOut f4 tail #connect
 Fe0 f4 head f3 mainIn #connect
 Fe0 f3 mainOut f2 tail #connect
 Fe0 f2 head f1 mainIn #connect
-Fe0 f6 mainOut f10 tail #connect
-Fe0 f10 head f1 mainIn #connect
 Fe0 f5 mainOut f7 tail #connect
-Fe0 f7 head f6 mainIn #connect
+Fe0 f7 head f8 mainIn #connect
+Fe0 f8 mainOut f9 tail #connect
+Fe0 f9 head f3 mainIn #connect

@@ -11,22 +11,6 @@
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </startMethod>
-    <startMethod>
-        <name>start</name>
-        <description></description>
-        <inputParameter>
-            <name>task</name>
-            <description></description>
-            <parameterType>ch.ivyteam.ivy.workflow.ITask</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-        <inputParameter>
-            <name>taskId</name>
-            <description></description>
-            <parameterType>Number</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </startMethod>
     <property>
         <name>guid</name>
         <value>167C5ADE729D975C</value>

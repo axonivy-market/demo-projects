@@ -20,9 +20,6 @@ Is0 @PushWFArc f2 '' #zField
 Is0 @RichDialogProcessStart f3 '' #zField
 Is0 @RichDialogEnd f4 '' #zField
 Is0 @PushWFArc f5 '' #zField
-Is0 @RichDialogInitStart f6 '' #zField
-Is0 @RichDialogProcessEnd f7 '' #zField
-Is0 @PushWFArc f8 '' #zField
 >Proto Is0 Is0 IFrameProcess #zField
 Is0 f0 guid 167C5ADE72C8683F #txt
 Is0 f0 type ch.ivyteam.wf.workflow.IFrame.IFrameData #txt
@@ -69,31 +66,6 @@ Is0 f4 211 147 26 26 0 12 #rect
 Is0 f4 @|RichDialogEndIcon #fIcon
 Is0 f5 expr out #txt
 Is0 f5 109 160 211 160 #arcP
-Is0 f6 guid 167C627ED8D3EEE8 #txt
-Is0 f6 type ch.ivyteam.wf.workflow.IFrame.IFrameData #txt
-Is0 f6 method start(ch.ivyteam.ivy.workflow.ITask,Number) #txt
-Is0 f6 disableUIEvents true #txt
-Is0 f6 inParameterDecl 'ch.ivyteam.wf.workflow.IFrame.IFrameData out;
-' #txt
-Is0 f6 inParameterMapAction 'out.task=param.task;
-out.taskId=param.taskId;
-' #txt
-Is0 f6 outParameterDecl '<> result;
-' #txt
-Is0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>start(ITask,Number)</name>
-    </language>
-</elementInfo>
-' #txt
-Is0 f6 83 243 26 26 -62 15 #rect
-Is0 f6 @|RichDialogInitStartIcon #fIcon
-Is0 f7 type ch.ivyteam.wf.workflow.IFrame.IFrameData #txt
-Is0 f7 211 243 26 26 0 12 #rect
-Is0 f7 @|RichDialogProcessEndIcon #fIcon
-Is0 f8 expr out #txt
-Is0 f8 109 256 211 256 #arcP
 >Proto Is0 .type ch.ivyteam.wf.workflow.IFrame.IFrameData #txt
 >Proto Is0 .processKind HTML_DIALOG #txt
 >Proto Is0 -8 -8 16 16 16 26 #rect
@@ -102,5 +74,3 @@ Is0 f0 mainOut f2 tail #connect
 Is0 f2 head f1 mainIn #connect
 Is0 f3 mainOut f5 tail #connect
 Is0 f5 head f4 mainIn #connect
-Is0 f6 mainOut f8 tail #connect
-Is0 f8 head f7 mainIn #connect
