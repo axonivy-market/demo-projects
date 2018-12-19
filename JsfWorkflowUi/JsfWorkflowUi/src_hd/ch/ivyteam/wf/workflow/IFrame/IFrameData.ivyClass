@@ -1,0 +1,4 @@
+IFrameData #class
+ch.ivyteam.wf.workflow.IFrame #namespace
+url String #field
+url PERSISTENT #fieldModifier
