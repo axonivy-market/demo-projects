@@ -1,6 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:ic="http://ivyteam.ch/jsf/component"
 	xmlns:p="http://primefaces.org/ui"
@@ -8,14 +9,23 @@
 	xmlns:pm="http://primefaces.org/mobile">
 
 <ui:composition template="/layouts/Workflow.xhtml">
-	<!-- <ui:param name="centerHeader"
-		value="#{ivy.cms.co('/navLabels/processList')}" />
-	<ui:param name="headerIcon" value="fa fa-list"/> -->
 	<ui:define name="center">
-		<iframe id="iFrame" src="#{data.url}" onload="checkUrl(document.getElementById('iFrame').contentWindow.location.href)" style="height: 100%; width: 100%; border: 0;"></iframe>
+		<style>
+		#mainArea.container {
+			width: 100%;
+		}
+		</style>
+		<c:choose>
+			<c:when test="#{not empty data.url}">
+				<iframe id="iFrame" src="#{data.url}" onload="checkUrl(document.getElementById('iFrame').contentWindow.location.href)" style="height: 100%; width: 100%; border: 0;"></iframe>
+			</c:when>
+			<c:otherwise>
+				<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/taskDetails')}" />
+				<iframe id="iFrame" src="#{facesContext.externalContext.requestContextPath}/pro/#{data.task.fullRequestPath}?taskId=#{data.taskId}" onload="checkUrl(document.getElementById('iFrame').contentWindow.location.href)" style="height: 100%; width: 100%; border: 0;"></iframe>
+			</c:otherwise>
+		</c:choose>
 		<script>
 		function checkUrl(url) {
-			//console.log(url);
 			if (!url.startsWith("http://localhost:8081/ivy/faces")) {
 				window.location = "#{ivy.html.startref('1518CA28D86B5794/TaskListUser.ivp')}";
 			}

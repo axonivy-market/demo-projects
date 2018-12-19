@@ -108,7 +108,7 @@
 				<c:choose>
 					<c:when test="#{data.mode ne 'admin'}">
 					<a
-						href="#{ivy.html.startref('167C5AFF5317B2A7/ProcessStartIFrame.ivp')}?url=#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}"
+						href="#{ivy.html.startref('167C61A86526BDE9/FrameWithTaskId.ivp')}?detailTaskId=#{task.id}"
 						id="taskLinkRow_#{row}"
 						title="#{ivy.cms.co('/labels/common/taskResumeTooltip')}"><span class="fa fa-play-circle startIconButton"/> #{task.name}</a>
 					</c:when>
