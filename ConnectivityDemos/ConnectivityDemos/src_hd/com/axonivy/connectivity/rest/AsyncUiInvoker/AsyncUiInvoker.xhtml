@@ -12,14 +12,29 @@
 		<ui:define name="content">
 			<h3>Async backend call</h3>
 			<p>Demonstrates a RESTful remote method call without any JSF client-server roundtrip but with JavaScript.</p>
+			<p>Legacy aware: this demo was written with classic JavaScript that also work on Internet Explorer.<br/>
+			If not, please disable the 'compatibility' mode for local intranet sites in your IE. </p>
 			
 			<h:outputScript library="ivy-webcontent" name="js/ivy.js" target="head" />
 			<script type="text/javascript">
-				async function restCall(uri, callback)
+				function restCall(uri, callback)
 				{
-					const response = await fetch(uri);
-				    callback(response.ok); // update UI
-				    return;
+					var xhr = new XMLHttpRequest();
+					xhr.open("GET", uri, true);
+					xhr.onload = function(e) {
+						if (xhr.readyState === 4) {
+							if (xhr.status === 200) {
+								callback(xhr.responseText);
+							} else {
+								alert("async request failed with HTTP status "+xhr.status)
+							}
+						}
+					};
+					xhr.onerror = function(e) {
+						console.error(xhr.statusText);
+					};
+					xhr.send(null);
+					return;
 				}
 				
 				function show(state)
