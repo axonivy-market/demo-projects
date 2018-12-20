@@ -21,11 +21,19 @@ function Chat(uri) {
 	
 	this.broadcast = async function(message)
 	{
-		const response = await fetch(uri, {
-		    method: 'POST',
-		    headers: {'X-Requested-By': 'ivy'},
-		    body: message
+		let response = await fetch(uri, {
+			method: 'POST',
+			headers: {'X-Requested-By': 'ivy'},
+			body: message
 		});
+		if (response.status == 403)
+		{
+			alert("Forbidden: You must own the role 'Boss' to send broadcast messages!")
+		}
+		else if (!response.ok) //check 2XX family
+		{
+			alert("@All failed with HTTP status: "+response.status);
+		}
 	    return;
 	}
 	
