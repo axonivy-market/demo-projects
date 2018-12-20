@@ -9,7 +9,7 @@
 	xmlns:pm="http://primefaces.org/mobile">
 
 <ui:composition template="/layouts/Workflow.xhtml">
-	<ui:param name="headerIcon" value="bpm-signal_receiver"/>
+	<ui:param name="headerIcon" value="fa fa-signal"/>
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/signals')}" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{data.signalService.clean()}" />
@@ -47,7 +47,7 @@
 				paginator="#{data.signalService.starts.size() > 20}"
 				paginatorPosition="bottom" rows="20">
 				<p:column styleClass="icon-column">
-					<span class="bpm-signal_receiver"/>
+					<span class="fa fa-signal"/>
 				</p:column>
 				<p:column headerText="#{ivy.cms.co('/labels/common/signalPattern')}" sortBy="#{start.signalPattern}">
 					<h:outputText value="#{start.signalPattern.rawCode}"/>
