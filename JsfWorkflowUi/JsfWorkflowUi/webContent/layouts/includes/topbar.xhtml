@@ -8,7 +8,7 @@
     xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <div class="layout-topbar">
-		<span class="app-name mobile-logo">Engine-Cockpit</span>
+		<span class="app-name mobile-logo">JSF Workflow UI</span>
 
         <a href="#" class="menu-btn">
             <i class="material-icons">&#xE5D2;</i>
@@ -55,6 +55,33 @@
 			                            <i class="material-icons">&#xE892;</i>
 		                                <span>Dark Menu</span>
 		                                <p:ajax event="click" listener="#{guestPreferences.setDarkMenu(true)}" onsuccess="javascript:window.location.reload()"/>
+									</h:form>
+	                            </a>
+	                        </li>
+	                        <li role="menuitem">
+	                            <a href="#">
+		                            <h:form>
+			                            <i class="material-icons">language</i>
+		                                <span>English</span>
+		                                <p:ajax event="click" listener="#{languageBean.languageEnglish}" update="@all"/>
+									</h:form>
+	                            </a>
+	                        </li>
+	                        <li role="menuitem">
+	                            <a href="#">
+		                            <h:form>
+			                            <i class="material-icons">language</i>
+		                                <span>Deutsch</span>
+		                                <p:ajax event="click" listener="#{languageBean.languageGerman}" update="@all"/>
+									</h:form>
+	                            </a>
+	                        </li>
+	                        <li role="menuitem">
+	                            <a href="#">
+		                            <h:form>
+			                            <i class="material-icons">language</i>
+		                                <span>Français</span>
+		                                <p:ajax event="click" listener="#{languageBean.languageFrench}" update="@all"/>
 									</h:form>
 	                            </a>
 	                        </li>
