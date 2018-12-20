@@ -19,8 +19,6 @@
 #mainArea .ui-datatable table td, 
 #mainArea .ui-datatable table th {
   padding: 5px !important;
-  border-right: none;
-  border-left: none;
 }
 
 #mainArea .ui-datatable table thead tr .ui-state-active .ui-icon-triangle-1-s,
@@ -83,7 +81,16 @@
 html, body {
 	height: 100%;
 }
-
 #mainArea {
 	height: calc(100% - 133px);
+}
+.workflowui .ui-buttonset .ui-button {
+    margin-left: 0;
+    margin-right: 0;
+}
+.workflowui .ui-chkbox {
+	width: inherit;
+}
+.workflowui #formMailNotification .ui-button {
+	width: inherit;
 }

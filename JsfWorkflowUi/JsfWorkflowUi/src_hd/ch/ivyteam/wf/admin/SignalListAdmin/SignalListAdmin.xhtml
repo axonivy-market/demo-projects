@@ -47,7 +47,7 @@
 				paginator="#{data.signalService.starts.size() > 20}"
 				paginatorPosition="bottom" rows="20">
 				<p:column styleClass="icon-column">
-					<span class="bpm-signal_receiver"/>
+					<span class="fa fa-signal"/>
 				</p:column>
 				<p:column headerText="#{ivy.cms.co('/labels/common/signalPattern')}" sortBy="#{start.signalPattern}">
 					<h:outputText value="#{start.signalPattern.rawCode}"/>
