@@ -35,8 +35,6 @@ He0 @PushWFArc f28 '' #zField
 He0 @PushWFArc f9 '' #zField
 He0 @PushWFArc f21 '' #zField
 He0 @PushWFArc f29 '' #zField
-He0 @GridStep f15 '' #zField
-He0 @PushWFArc f22 '' #zField
 He0 @PushWFArc f5 '' #zField
 >Proto He0 He0 Home #zField
 He0 f1 outLink DefaultApplicationHomePage.ivp #txt
@@ -514,28 +512,8 @@ He0 f21 1 784 192 #addKink
 He0 f21 1 0.6311126072960193 0 0 #arcLabel
 He0 f29 expr in #txt
 He0 f29 560 176 560 150 #arcP
-He0 f15 actionDecl 'ch.ivyteam.wf.Data out;
-' #txt
-He0 f15 actionTable 'out=in;
-' #txt
-He0 f15 actionCode 'import ch.ivyteam.ivy.environment.Ivy;
-Ivy.session().setAttribute("jsf.primefaces.theme", "serenity-lime");' #txt
-He0 f15 type ch.ivyteam.wf.Data #txt
-He0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>set serenity theme</name>
-    </language>
-</elementInfo>
-' #txt
-He0 f15 160 106 128 44 -59 -7 #rect
-He0 f15 @|StepIcon #fIcon
-He0 f22 expr out #txt
-He0 f22 111 128 160 128 #arcP
-He0 f22 0 0.5694760965118373 0 0 #arcLabel
 He0 f5 expr out #txt
-He0 f5 288 128 504 128 #arcP
-He0 f5 0 0.5694760965118373 0 0 #arcLabel
+He0 f5 111 128 504 128 #arcP
 >Proto He0 .type ch.ivyteam.wf.Data #txt
 >Proto He0 .processKind NORMAL #txt
 >Proto He0 0 0 32 24 18 0 #rect
@@ -564,7 +542,5 @@ He0 f12 out f21 tail #connect
 He0 f21 head f23 mainIn #connect
 He0 f12 out f29 tail #connect
 He0 f29 head f4 mainIn #connect
-He0 f1 mainOut f22 tail #connect
-He0 f22 head f15 mainIn #connect
-He0 f15 mainOut f5 tail #connect
+He0 f1 mainOut f5 tail #connect
 He0 f5 head f4 mainIn #connect
