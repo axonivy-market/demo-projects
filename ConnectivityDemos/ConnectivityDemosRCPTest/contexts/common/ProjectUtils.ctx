@@ -6,7 +6,7 @@ Element-Type: context
 Element-Version: 2.0
 Id: _uTeBUD3gEeadqZIC2MODiA
 Runtime-Version: 2.3.0.201806262310
-Save-Time: 11/27/18 10:00 AM
+Save-Time: 12/21/18 4:32 PM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -68,10 +68,9 @@ proc "removeProject" [val projectName] [val removeFromDisk]
 
 proc "simulationSelected" [val isSelected]
 {
-	with [get-button "Suppress simulation and animation in general."] {
-	    if [get-property selected | not-eq isSelected] {
-	    	click
-	    }
-	}
+    if [get-menu -path "Axon.ivy/Engine/Do not Simulate.*" | get-property selection -raw | contains $isSelected] {
+
+    	get-menu -path "Axon.ivy/Engine/Do not Simulate.*" | click
+    }
 }
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998--
