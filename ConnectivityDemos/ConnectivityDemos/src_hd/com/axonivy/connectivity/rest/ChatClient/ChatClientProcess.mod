@@ -21,6 +21,7 @@ Cs0 @RichDialogProcessStart f3 '' #zField
 Cs0 @RichDialogEnd f4 '' #zField
 Cs0 @PushWFArc f5 '' #zField
 Cs0 @InfoButton f6 '' #zField
+Cs0 @InfoButton f7 '' #zField
 >Proto Cs0 Cs0 ChatClientProcess #zField
 Cs0 f0 guid 16764B1AE2FA7A37 #txt
 Cs0 f0 type com.axonivy.connectivity.rest.ChatClient.ChatClientData #txt
@@ -68,24 +69,44 @@ Cs0 f5 109 160 211 160 #arcP
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>All in JavaScript
+        <name>Client Side in JavaScript
 
 Not much is going on in here:
 - within this demo no server side processing is done with JSF
 - data is requested and shown via JavaScript directly within the client browser
 - see resources/chat.js and the ChatClient View for details</name>
-        <nameStyle>17,0,8
-180
-17,1
-9
-15,1
-12
+        <nameStyle>25,0,8
+180,7
+17,1,7
+9,7
+15,1,7
+12,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f6 72 226 496 108 -242 -47 #rect
+Cs0 f6 72 226 432 108 -210 -50 #rect
 Cs0 f6 @|IBIcon #fIcon
+Cs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Server Side in Java
+
+The REST endpoint called by this demo is implemented in the Java class: 
+
+com.axonivy.connectivity.rest.aynch.chat.ChatService
+
+The Java class uses asynchronous request processing so that no 
+request thread is blocked while waiting for new chat messages.</name>
+        <nameStyle>19,0,8
+75,7
+181,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f7 72 346 416 140 -202 -66 #rect
+Cs0 f7 @|IBIcon #fIcon
 >Proto Cs0 .type com.axonivy.connectivity.rest.ChatClient.ChatClientData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
