@@ -35,7 +35,7 @@
 
 		<script>
 		function checkUrl(url) {
-			if ((url.indexOf("/Default") > 0 &amp;&amp; url.indexOf("Page.ivp") > 0) || url.indexOf("#{facesContext.externalContext.requestContextPath}/wf/") > 0) {
+			if ((url.indexOf("/Default") > 0 &amp;&amp; url.indexOf("Page.ivp") > 0) || url.indexOf("#{facesContext.externalContext.requestContextPath}/wf/") > 0 || url.endsWith("PortalHome.xhtml")) {
 				window.location = "#{ivy.html.startref('1518CA28D86B5794/TaskListUser.ivp')}";
 			}
 		}
