@@ -7,7 +7,7 @@ Element-Version: 3.0
 External-Reference: 
 Id: _mJdm0P7NEeix8aNAfN3REA
 Runtime-Version: 2.3.0.201806262310
-Save-Time: 12/21/18 4:32 PM
+Save-Time: 1/8/19 2:33 PM
 Testcase-Type: ecl
 Verifications: _SbgVwD39EeadqZIC2MODiA
 
@@ -25,7 +25,7 @@ let [val project "ConnectivityDemos"]
 
 	startBpmProcess -projectName $project -ivpPath "rest\\/asyncInvocation\\/callBatchAsync.ivp"
 
-    wait 3200 // async op should finish after 3 secs
+    wait 6400 // async op should finish after 3 secs
 	assertRuntimeLogMsg "Sorry for the slow processing!"
 
 	simulationSelected true
