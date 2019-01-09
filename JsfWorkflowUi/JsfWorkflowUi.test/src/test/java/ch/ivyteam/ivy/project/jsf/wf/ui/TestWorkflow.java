@@ -34,7 +34,9 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     navigate().processList();
     //Start home process
     awaitToBeClickable(WF_JSF_LINK_ID).click();
+    switchToIFrame();
     awaitTextToBePresentIn(By.id("mainLayoutUnit"), "Request event");
+    switchToDefaultContent();
     
     // Test processlist searchbar with process name
     navigate().processList();
