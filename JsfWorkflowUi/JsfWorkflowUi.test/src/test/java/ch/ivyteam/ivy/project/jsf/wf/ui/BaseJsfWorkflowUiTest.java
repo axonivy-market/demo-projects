@@ -66,10 +66,11 @@ public class BaseJsfWorkflowUiTest
   {
     navigate().processList();
     awaitToBeClickable(WF_JSF_LINK_ID).click();
+    switchToIFrame();
     await(ExpectedConditions.visibilityOfElementLocated(By.id("formRequest:caption")));
     awaitToBeClickable("formRequest:caption").sendKeys(title);
     prime().selectOne(By.id("formRequest:taskPriority"))
-      .selectItemByLabel(PRIORITIES[priority]);
+            .selectItemByLabel(PRIORITIES[priority]);
     awaitToBeClickable("formRequest:description").sendKeys(description);
     if (expiryDate != null)
     {
@@ -77,15 +78,18 @@ public class BaseJsfWorkflowUiTest
       awaitToBeClickable("formRequest:expiryDate_input").sendKeys(expiryDate);
     }
     awaitToBeClickable("formRequest:submitJsf").click();
+    switchToDefaultContent();
   }
 
   protected void createHtmlTask(String title, String description)
   {
     navigate().processList();
     awaitToBeClickable(WF_HTML_LINK_ID).click();
+    switchToIFrame();
     awaitToBeClickable("caption").sendKeys(title);
     awaitToBeClickable("description").sendKeys(description);
     awaitToBeClickable("submit").click();
+    switchToDefaultContent();
   }
 
   protected void createTaskWithCategory(String title, String description, int priority, String category,
@@ -93,6 +97,7 @@ public class BaseJsfWorkflowUiTest
   {
     navigate().processList();
     awaitToBeClickable(WF_JSF_LINK_ID).click();
+    switchToIFrame();
     awaitToBePresent("formRequest:caption");
     awaitToBeClickable("formRequest:caption").sendKeys(title);
     prime().selectOne(By.id("formRequest:taskPriority")).selectItemByLabel(PRIORITIES[priority]);
@@ -100,6 +105,7 @@ public class BaseJsfWorkflowUiTest
     awaitToBeClickable("formRequest:category").sendKeys(category);
     awaitToBeClickable("formRequest:process").sendKeys(process);
     awaitToBeClickable("formRequest:submitJsf").click();
+    switchToDefaultContent();
   }
 
   protected void closeTask()
@@ -123,6 +129,16 @@ public class BaseJsfWorkflowUiTest
             .as("Missing administration rights! " + failMessage)
             .isTrue();
     button.click();
+  }
+
+  public void switchToDefaultContent()
+  {
+    driverHelper.getWebDriver().switchTo().defaultContent();
+  }
+
+  public void switchToIFrame()
+  {
+    driverHelper.getWebDriver().switchTo().frame("iFrame");
   }
 
   public WfNavigator navigate()
@@ -183,7 +199,7 @@ public class BaseJsfWorkflowUiTest
   {
     return ajax().await(ExpectedConditions.textToBePresentInElementLocated(locator, text));
   }
-  
+
   protected WebElement awaitToBePresent(String id)
   {
     return awaitToBePresent(By.id(id));
@@ -198,7 +214,7 @@ public class BaseJsfWorkflowUiTest
   {
     return awaitToBeClickable(By.id(id));
   }
-  
+
   protected WebElement awaitToBeClickable(By locator)
   {
     return ajax().await(ExpectedConditions.elementToBeClickable(locator));
