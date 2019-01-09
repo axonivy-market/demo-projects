@@ -1,5 +1,6 @@
 pipeline {
   triggers {
+    pollSCM 'H/5 * * * *'
     cron '@midnight'
   }
   agent {
@@ -7,7 +8,7 @@ pipeline {
   }
 
   parameters {
-    choice(choices: 'Linux_Trunk_DesignerAndServer\nTrunk_DesignerAndServer\nTrunk_All', description: 'Engine to use for build', name: 'engineSource')
+    choice(choices: 'Trunk_DesignerAndServer\nTrunk_All', description: 'Engine to use for build', name: 'engineSource')
   }
 
   stages {
@@ -20,7 +21,7 @@ pipeline {
       }
       post {
         always {
-          archiveArtifacts '**/target/*.iar'
+          archiveArtifacts '**/target/*.iar,**/target/*.zip'
           junit '**/target/surefire-reports/**/*.xml'
         }
       }

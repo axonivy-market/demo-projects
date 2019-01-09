@@ -1,0 +1,99 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pa="http://primefaces.org/serenity"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <div class="layout-topbar">
+		<span class="app-name mobile-logo">JSF Workflow UI</span>
+
+        <a href="#" class="menu-btn">
+            <i class="material-icons">&#xE5D2;</i>
+        </a>
+		
+        <a href="#" class="topbar-menu-btn">
+            <i class="material-icons">&#xE853;</i>
+        </a>
+
+        <div class="layout-topbar-menu-wrapper">
+            <ul class="topbar-menu animated">
+            	
+                <c:if test="#{! ivy.wf.securityContext.currentSession.sessionUserUnknown}">
+	                <li class="profile-item">
+	                
+	                    <a href="#">       
+	                        <span class="profile-image-wrapper">
+	                            <p:graphicImage name="layouts/images/axon_ivy_logo_square_#{guestPreferences.darkMenu ? 'dark_' : ''}2.png" />
+	                        </span>                     
+	                        <span class="topbar-item-name profile-name">#{ivy.session.getSessionUserName()}</span>
+	                    </a>
+	
+	                    <ul class="animated">
+	                    	<li role="menuitem">
+	                            <a href="#">
+	                                <i class="material-icons">help</i>
+	                                <span>Help</span>
+	                            </a>
+	                        </li>
+	                        <li role="menuitem">
+	                            <a href="#{ivy.html.startref('13EACA2A989BCC3D/Logout.ivp')}">
+	                                <i class="material-icons">&#xE8AC;</i>
+	                                <span>#{ivy.cms.co('/labels/template/header/logout')}</span>
+	                            </a>
+	                        </li>
+	                        <li role="menuitem">
+	                            <a href="#">
+		                            <h:form rendered="#{guestPreferences.darkMenu}">
+			                            <i class="material-icons">&#xE893;</i>
+		                                <span>Light Menu</span>
+		                                <p:ajax event="click" listener="#{guestPreferences.setDarkMenu(false)}" onsuccess="javascript:window.location.reload()"/>
+									</h:form>
+									<h:form rendered="#{guestPreferences.darkMenu eq false}">
+			                            <i class="material-icons">&#xE892;</i>
+		                                <span>Dark Menu</span>
+		                                <p:ajax event="click" listener="#{guestPreferences.setDarkMenu(true)}" onsuccess="javascript:window.location.reload()"/>
+									</h:form>
+	                            </a>
+	                        </li>
+	                        <li role="menuitem">
+	                            <a href="#">
+		                            <h:form>
+			                            <i class="material-icons">language</i>
+		                                <span>English</span>
+		                                <p:ajax event="click" listener="#{languageBean.languageEnglish}" update="@all"/>
+									</h:form>
+	                            </a>
+	                        </li>
+	                        <li role="menuitem">
+	                            <a href="#">
+		                            <h:form>
+			                            <i class="material-icons">language</i>
+		                                <span>Deutsch</span>
+		                                <p:ajax event="click" listener="#{languageBean.languageGerman}" update="@all"/>
+									</h:form>
+	                            </a>
+	                        </li>
+	                        <li role="menuitem">
+	                            <a href="#">
+		                            <h:form>
+			                            <i class="material-icons">language</i>
+		                                <span>Français</span>
+		                                <p:ajax event="click" listener="#{languageBean.languageFrench}" update="@all"/>
+									</h:form>
+	                            </a>
+	                        </li>
+	                    </ul>
+	                </li>
+                </c:if>
+                
+                <li>
+                	<span class="app-name">JSF Workflow UI</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</ui:composition>

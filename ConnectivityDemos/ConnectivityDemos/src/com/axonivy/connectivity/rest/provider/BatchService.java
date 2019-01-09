@@ -9,12 +9,18 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.container.AsyncResponse;
 import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import org.glassfish.jersey.server.ManagedAsync;
+
+import ch.ivyteam.ivy.environment.Ivy;
 
 /**
  * Simulates a slow remote service that takes seconds to deliver a result.
  * 
  * <p>See <b>Processes/rest/batchService</b> for usage samples</p>
  */
+@SuppressWarnings("restriction")
 @Path("batch")
 public class BatchService {
 
@@ -31,24 +37,32 @@ public class BatchService {
 	 * Clients can continue immediately and react on the response when it is available.
 	 * 
 	 * @param secondsToBlock simulates slow processing time
-	 * @param response asynchronous client request
+	 * @param asyncResponse asynchronous client request
 	 * @throws InterruptedException
 	 * @since 7.3.0
 	 */
 	@GET
 	@Path("/async")
 	@Produces(MediaType.TEXT_PLAIN)
-	public void executeAsync(@QueryParam("blockSeconds") Integer secondsToBlock, @Suspended AsyncResponse response) throws InterruptedException
+	@ManagedAsync // auto executes method body in a separate thread pool!
+	public void executeAsync( 
+			@Suspended AsyncResponse asyncResponse,
+			@QueryParam("blockSeconds") Integer secondsToBlock
+	)
 	{
-		new Thread(()->
-		{
-		    try {
-		    	simulateLongRunningExecution(secondsToBlock);
-		    	response.resume("Sorry for the slow processing!");
-			} catch (InterruptedException ex) {
-				response.resume(ex);
-			}
-		}).start();
+	    try {
+	    	simulateLongRunningExecution(secondsToBlock);
+	    	
+	    	Response result = Response.status(200)
+	    			.entity("Sorry for the slow processing!")
+	    			.header("responseThread", Thread.currentThread().getName())
+	    			.header("sessionUser", Ivy.session().getSessionUserName())
+	                .build();
+	    	
+	    	asyncResponse.resume(result);
+		} catch (InterruptedException ex) {
+			asyncResponse.resume(ex); // propagate exception async
+		}
 	}
 	
 	private void simulateLongRunningExecution(Integer secondsToBlock) throws InterruptedException {

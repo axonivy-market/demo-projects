@@ -88,7 +88,7 @@
 										</tokenfilter>
 									</filterchain>
 								</loadfile>
-								<property name="aut.url">${build.last.sucess.url}artifact/ivy/workspace/ch.ivyteam.ivy.designer.product/target/products/${designer.zip}</property>
+								<property name="aut.url">${build.last.sucess.url}artifact/workspace/ch.ivyteam.ivy.designer.product/target/products/${designer.zip}</property>
 								<echo>target AUT = '${aut.url}'</echo>
 							</target>
 						</configuration>

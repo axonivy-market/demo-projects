@@ -1,0 +1,8 @@
+FrameData #class
+ch.ivyteam.wf #namespace
+url String #field
+url PERSISTENT #fieldModifier
+taskId Number #field
+taskId PERSISTENT #fieldModifier
+task ch.ivyteam.ivy.workflow.ITask #field
+task PERSISTENT #fieldModifier

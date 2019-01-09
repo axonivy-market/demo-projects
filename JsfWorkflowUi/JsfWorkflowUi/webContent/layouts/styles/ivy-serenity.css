@@ -1,0 +1,40 @@
+/*Navigation*/
+.layout-topbar .app-name {
+	color: #2f2b08;
+	vertical-align: middle;
+	font-size: 26px;
+}
+@media (max-width: 1024px) {
+	.layout-topbar-menu-wrapper .app-name {
+		display: none;
+	}
+}
+
+.dashboard-card button {
+	margin-top: -25px;
+	margin-right: 10px;
+	float: right;
+}
+.dashboard-card .ui-panel {
+	min-height: 240px;
+	border: 0 none;
+	-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.14);
+	-moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.14);
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.14);
+}
+
+.ui-fluid .ui-inputswitch.ui-inputswitch-checked {
+    background-color: #9CCC65;
+    border-color: #9CCC65; 
+}
+.ui-fluid .ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-handle {
+	background-color: #7CB342;
+	color: #ffffff;
+}
+.ui-datatable .table-icon, 
+.ui-treetable .table-icon {
+	position: relative;
+	top: 3px;
+	font-size: 17px;
+	margin-right: 5px;
+}
