@@ -187,7 +187,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
     awaitToBeClickable(By.xpath("//*[@id='taskListComponent:taskListForm:taskTable_paginator_bottom']/a[3]"));
     SelectOneMenu menu = prime().selectOne(By.id("taskListComponent:taskListForm:priorityFilter"));
     menu.selectItemByLabel("HIGH");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("test");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskHighForFilterPagination");
 
     driverHelper.openProcessLink("testWfUi/1466BC6311E70117/DestroyTasks.ivp");
   }
