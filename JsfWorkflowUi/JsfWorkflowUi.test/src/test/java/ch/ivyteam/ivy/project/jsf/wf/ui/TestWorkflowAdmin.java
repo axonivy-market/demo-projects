@@ -127,9 +127,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
 
   private void checkIfCategoryFilterIsApplied(String filterForCategory)
   {
-    navigate().home();
-    awaitToBeClickable(By.linkText("Workflow Admin")).click();
-    awaitToBeClickable("workflowStatistic").click();
+    openStatistics();
     SelectOneMenu menu = prime().selectOne(By.id("caseStatisticForm:categoryFilter"));
     menu.selectItemByLabel(filterForCategory);
     assertThat(driverHelper.getWebDriver().getPageSource()).contains(filterForCategory);
@@ -137,9 +135,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   
   private void checkIfDateFilterIsApplied()
   {
-    navigate().home();
-    awaitToBeClickable(By.linkText("Workflow Admin")).click();
-    awaitToBeClickable("workflowStatistic").click();
+    openStatistics();
     awaitToBeClickable("caseStatisticForm:dateToFilter_input").click();
     awaitToBeClickable("caseStatisticForm:dateToFilter_input").clear();
     awaitToBeClickable("caseStatisticForm:dateToFilter_input").sendKeys("15.04.2000");
