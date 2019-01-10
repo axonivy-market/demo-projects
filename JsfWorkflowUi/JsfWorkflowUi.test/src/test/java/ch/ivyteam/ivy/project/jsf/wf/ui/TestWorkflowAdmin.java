@@ -21,9 +21,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     checkIfCaseIsInList("category2");
     closeTask();
     closeTask();
-    navigate().home();
-    awaitToBeClickable(By.linkText("Workflow Admin")).click();
-    awaitToBeClickable("workflowStatistic").click();
+    openStatistics();
     awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "process1");
     awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "process2");
   }
@@ -33,16 +31,12 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   {
     createTaskWithCategory("caseStatisticDetails", "Test if shows details", 2, "category1", "process1");
     closeTask();
-    navigate().home();
-    awaitToBeClickable(By.linkText("Workflow Admin")).click();
-    awaitToBeClickable("workflowStatistic").click();
+    openStatistics();
     awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "category1");
     awaitToBeClickable("linkStatisticDetailMin_0").click();
     awaitTextToBePresentIn(By.xpath("//*[@id='mainArea']/h2"), "Detailed Statistic");
     awaitTextToBePresentIn(By.id("formChartTasks:chartForTasks"), "Processing time of the tasks");
-    navigate().home();
-    awaitToBeClickable(By.linkText("Workflow Admin")).click();
-    awaitToBeClickable("workflowStatistic").click();
+    openStatistics();
     awaitToBeClickable("linkStatisticDetailMax_0").click();
     awaitTextToBePresentIn(By.xpath("//*[@id='mainArea']/h2"), "Detailed Statistic");
     awaitTextToBePresentIn(By.id("formChartTasks:chartForTasks"), "Processing time of the tasks");
@@ -53,9 +47,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   {
     createTaskWithCategory("caseAverageDetails", "Test if shows details", 2, "category1", "process1");
     closeTask();
-    navigate().home();
-    awaitToBeClickable(By.linkText("Workflow Admin")).click();
-    awaitToBeClickable("workflowStatistic").click();
+    openStatistics();
     awaitToBeClickable("linkStatisticAverage_0").click();
     awaitTextToBePresentIn(By.xpath("//*[@id='mainArea']/h2"), "Average statistic");
   }
@@ -124,6 +116,13 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
     navigate().taskAdmin();
     checkIfTaskIsInList("taskAdmin");
+  }
+  
+  private void openStatistics()
+  {
+    navigate().home();
+    awaitToBeClickable("menuform:workflowAdminDropDown").click();
+    awaitToBeClickable("menuform:workflowStatistic").click();
   }
 
   private void checkIfCategoryFilterIsApplied(String filterForCategory)
