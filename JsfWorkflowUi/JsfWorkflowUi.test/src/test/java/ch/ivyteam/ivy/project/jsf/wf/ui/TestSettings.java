@@ -335,6 +335,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     awaitToBeClickable("loginPageComponent:loginForm:loginButton").click();
     awaitTextToBePresentIn(By.id("mainArea"), "Welcome");
     closeTask();
+    navigate().taskList();
     awaitTextToBePresentIn(By.id("mainArea"), "Task List");
   }
 }
