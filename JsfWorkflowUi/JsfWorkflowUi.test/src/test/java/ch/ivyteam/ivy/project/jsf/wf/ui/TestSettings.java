@@ -296,6 +296,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     setDefaultPageProcess();
     createTask("titel", "beschreibung", 0);
+    navigate().processList();
     awaitTextToBePresentIn(By.id("mainArea"), "Process List");
     callDefaultLogin();
   }
