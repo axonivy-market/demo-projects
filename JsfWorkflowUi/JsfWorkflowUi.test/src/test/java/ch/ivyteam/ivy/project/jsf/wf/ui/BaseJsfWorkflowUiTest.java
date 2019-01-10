@@ -112,7 +112,9 @@ public class BaseJsfWorkflowUiTest
   {
     navigate().taskList();
     awaitToBeClickable("taskLinkRow_0").click();
+    switchToIFrame();
     awaitToBeClickable("formConfirmation:save").click();
+    switchToDefaultContent();
   }
 
   protected void closeHtmlTask()

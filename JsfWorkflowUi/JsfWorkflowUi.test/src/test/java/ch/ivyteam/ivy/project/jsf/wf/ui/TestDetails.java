@@ -102,7 +102,9 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     navigate().taskList();
     awaitToBeClickable("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("4/30/30 10:10 AM");
+    switchToIFrame();
     closeTask();
+    switchToDefaultContent();
   }
 
   @Test
@@ -233,7 +235,9 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     awaitToBeClickable("formCaseDetails:openPageArchive").click();
     navigate().taskList();
     awaitToBeClickable("taskLinkRow_0").click();
+    switchToIFrame();
     awaitToBeClickable("submit").click();
+    switchToDefaultContent();
     navigate().taskHistory();
     awaitToBeClickable("buttonTaskHistoryDetail_0").click();
     awaitToBeClickable("formTaskDetails:openPageArchive").click();

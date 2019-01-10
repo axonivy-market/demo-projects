@@ -10,7 +10,8 @@ public class TestTemplate extends BaseJsfWorkflowUiTest
   public void testLogoutLogin() throws Exception
   {
     navigate().home();
-    awaitToBeClickable("logoutButton").click();
+    awaitToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[1]/div/ul/li[1]/a")).click();
+    awaitToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[1]/div/ul/li[1]/ul/li[2]/a")).click();
     driverHelper.assertAjaxElementContains(By.id("mainArea"), "Workflow login");
     login("user1", "user1");
     driverHelper.assertAjaxElementContains(By.id("message"), "Welcome");
