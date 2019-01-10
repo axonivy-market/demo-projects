@@ -6,6 +6,10 @@ pipeline {
   agent {
     dockerfile true
   }
+  
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '60', artifactNumToKeepStr: '2'))
+  }
 
   parameters {
     choice(choices: 'Trunk_DesignerAndServer\nTrunk_All', description: 'Engine to use for build', name: 'engineSource')
