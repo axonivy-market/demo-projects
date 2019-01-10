@@ -313,7 +313,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     navigate().taskList();
     // get task id
-    String taskIdPart = "taskId=";
+    String taskIdPart = "detailTaskId=";
     String taskId = driverHelper
             .findElement(By.id("taskLinkRow_0"))
             .getAttribute("href")
