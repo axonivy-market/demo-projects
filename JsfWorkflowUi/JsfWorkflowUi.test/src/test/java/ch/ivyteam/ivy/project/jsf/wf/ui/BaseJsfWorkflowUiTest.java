@@ -121,8 +121,10 @@ public class BaseJsfWorkflowUiTest
   {
     navigate().taskList();
     awaitToBeClickable("taskLinkRow_0").click();
+    switchToIFrame();
     awaitToBeClickable(By.name("ok")).click();
     awaitToBeClickable("submit").click();
+    switchToDefaultContent();
   }
 
   protected final void clickAdminElement(WebElement button, String failMessage)

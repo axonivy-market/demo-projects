@@ -102,9 +102,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     navigate().taskList();
     awaitToBeClickable("buttonTaskDetail").click();
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("4/30/30 10:10 AM");
-    switchToIFrame();
     closeTask();
-    switchToDefaultContent();
   }
 
   @Test
