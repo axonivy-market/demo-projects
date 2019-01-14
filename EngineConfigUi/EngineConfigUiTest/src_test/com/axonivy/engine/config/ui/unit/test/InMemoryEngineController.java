@@ -16,7 +16,6 @@ import ch.ivyteam.job.JobCompositeAction;
 import ch.ivyteam.job.JobException;
 import ch.ivyteam.licence.SignedLicence;
 import ch.ivyteam.util.Data;
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 @SuppressWarnings("restriction")
 public class InMemoryEngineController
@@ -35,7 +34,6 @@ public class InMemoryEngineController
     engine.start(null);
   }
 
-  @SuppressFBWarnings(justification = "equals() call with null is valid as it installs the public key silently", value = {"EC_NULL_ARG"})
   private static void installLicence() throws Exception
   {
     IFileAccess fileAccess = DiCore.getGlobalInjector().getInstance(IFileAccess.class);
