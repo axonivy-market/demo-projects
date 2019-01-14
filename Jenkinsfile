@@ -13,8 +13,8 @@ pipeline {
 
   parameters {
     choice(
-       name: 'engineListUrl'
-       description: 'Engine to use for build'
+       name: 'engineListUrl',
+       description: 'Engine to use for build',
        choices: ['http://zugprojenkins/job/ivy-core_product/job/master/lastSuccessfulBuild/',
                 'http://zugprobldmas/job/Trunk_All/lastSuccessfulBuild/']
     )
