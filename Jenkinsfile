@@ -12,7 +12,12 @@ pipeline {
   }
 
   parameters {
-    choice(choices: 'Trunk_DesignerAndServer\nTrunk_All', description: 'Engine to use for build', name: 'engineSource')
+    choice(
+       name: 'engineListUrl'
+       description: 'Engine to use for build'
+       choices: ['http://zugprojenkins/job/ivy-core_product/job/master/lastSuccessfulBuild/',
+                'http://zugprobldmas/job/Trunk_All/lastSuccessfulBuild/']
+    )
   }
 
   stages {
@@ -20,7 +25,9 @@ pipeline {
       steps {
         script {
           def workspace = pwd()
-          maven cmd: "-P repo.axonivy.com clean deploy -e -fae -Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine -Dsrc.job.name=${params.engineSource}"
+          maven cmd: "-P repo.axonivy.com clean deploy -e -fae " + 
+                     "-Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine " +
+                     "-Divy.engine.list.url=${params.engineListUrl} "
         }
       }
       post {
