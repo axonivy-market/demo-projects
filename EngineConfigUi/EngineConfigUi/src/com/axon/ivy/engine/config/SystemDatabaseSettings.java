@@ -1,5 +1,6 @@
 package com.axon.ivy.engine.config;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +10,12 @@ import java.util.concurrent.TimeoutException;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import com.axonivy.engine.config.ui.settings.ConfigData;
+import com.axonivy.engine.config.ui.settings.SystemProperty;
+import com.axonivy.engine.config.ui.settings.WebServerConfig;
+
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
+import ch.ivyteam.ivy.security.exec.Sudo;
 import ch.ivyteam.ivy.server.ServerFactory;
 import ch.ivyteam.ivy.server.configuration.Configuration;
 import ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager;
@@ -21,23 +27,18 @@ import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConverter;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 import ch.ivyteam.ivy.system.ISystemProperty;
 import ch.ivyteam.ivy.system.UserInterfaceFormat;
-import ch.ivyteam.util.Property;
 import ch.ivyteam.util.WaitUtil;
-
-import com.axonivy.engine.config.ui.settings.ConfigData;
-import com.axonivy.engine.config.ui.settings.SystemProperty;
-import com.axonivy.engine.config.ui.settings.WebServerConfig;
 
 @SuppressWarnings("restriction")
 public class SystemDatabaseSettings
 {
   private static final int CONNETION_TEST_TIMEOUT = 15;
-  private static final String WEB_SERVER_AJP_PORT = "WebServer.AJP.Port";
-  private static final String WEB_SERVER_AJP_ENABLED = "WebServer.AJP.Enabled";
-  private static final String WEB_SERVER_HTTPS_PORT = "WebServer.HTTPS.Port";
-  private static final String WEB_SERVER_HTTPS_ENABLED = "WebServer.HTTPS.Enabled";
-  private static final String WEB_SERVER_HTTP_PORT = "WebServer.HTTP.Port";
-  private static final String WEB_SERVER_HTTP_ENABLED = "WebServer.HTTP.Enabled";
+  private static final String WEB_SERVER_AJP_PORT = "Connector.AJP.Port";
+  private static final String WEB_SERVER_AJP_ENABLED = "Connector.AJP.Enabled";
+  private static final String WEB_SERVER_HTTPS_PORT = "Connector.HTTPS.Port";
+  private static final String WEB_SERVER_HTTPS_ENABLED = "Connector.HTTPS.Enabled";
+  private static final String WEB_SERVER_HTTP_PORT = "Connector.HTTP.Port";
+  private static final String WEB_SERVER_HTTP_ENABLED = "Connector.HTTP.Enabled";
 
   private final Configuration configuration = loadOrCreateConfig();
   private final SystemDatabase systemDatabase = createSystemDb(configuration);
@@ -52,6 +53,9 @@ public class SystemDatabaseSettings
   private SystemDatabaseSettings()
   {
     tester.addConnectionListener(connectionListener);
+
+    updateWebServerConfig();
+    updateWebServerSystemProperties();
   }
 
   public static SystemDatabaseSettings create()
@@ -133,18 +137,10 @@ public class SystemDatabaseSettings
     configuration.setSystemDatabaseConnectionConfiguration(dbConfig);
   }
 
-  public void saveSystemDb()
+  public void saveSystemDb() throws IOException
   {
-    try
-    {
-      updateDbConfig();
-      configuration.saveConfiguration();
-      UiModder.systemDatabaseConfigSaved();
-    }
-    catch (Exception ex)
-    {
-      UiModder.systemDatabaseConfigNotSaved(ex);
-    }
+    updateDbConfig();
+    configuration.saveConfiguration();
   }
 
   public Configuration getConfiguration()
@@ -190,21 +186,18 @@ public class SystemDatabaseSettings
 
   public void updateWebServerConfigFromSystemProps() throws Exception
   {
-    AdministratorManager adminManager = getAdministratorManager();
-    setWebServerProperty(adminManager, WEB_SERVER_AJP_ENABLED, "ajpEnabled");
-    setWebServerProperty(adminManager, WEB_SERVER_AJP_PORT, "ajpPort");
-    setWebServerProperty(adminManager, WEB_SERVER_HTTP_ENABLED, "httpEnabled");
-    setWebServerProperty(adminManager, WEB_SERVER_HTTP_PORT, "httpPort");
-    setWebServerProperty(adminManager, WEB_SERVER_HTTPS_ENABLED, "httpsEnabled");
-    setWebServerProperty(adminManager, WEB_SERVER_HTTPS_PORT, "httpsPort");
+    setWebServerProperty(WEB_SERVER_AJP_ENABLED, "ajpEnabled");
+    setWebServerProperty(WEB_SERVER_AJP_PORT, "ajpPort");
+    setWebServerProperty(WEB_SERVER_HTTP_ENABLED, "httpEnabled");
+    setWebServerProperty(WEB_SERVER_HTTP_PORT, "httpPort");
+    setWebServerProperty(WEB_SERVER_HTTPS_ENABLED, "httpsEnabled");
+    setWebServerProperty(WEB_SERVER_HTTPS_PORT, "httpsPort");
   }
 
-  private void setWebServerProperty(AdministratorManager adminManager, String propertyName,
-          String webServerFieldName) throws Exception
+  private void setWebServerProperty(String propertyName, String webServerFieldName) throws Exception
   {
     String value = systemProperties.stream().filter(x -> x.getName().equals(propertyName)).findFirst()
             .get().getValue();
-    setProperty(adminManager, propertyName, value);
     if (propertyName.contains("Enabled"))
     {
       boolean booleanValue = BooleanUtils.toBoolean(value);
@@ -216,58 +209,38 @@ public class SystemDatabaseSettings
     }
   }
 
-  public boolean saveWebServerConfig()
+  public void saveWebServerConfig()
   {
-    AdministratorManager adminManager = getAdministratorManager();
-    if (!adminManager.isConnected())
-    {
-      return false;
-    }
-    setProperty(adminManager, WEB_SERVER_HTTP_ENABLED,
+    setProperty(WEB_SERVER_HTTP_ENABLED,
             BooleanUtils.toStringTrueFalse(webServerConfig.getHttpEnabled()));
-    setProperty(adminManager, WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
-    setProperty(adminManager, WEB_SERVER_HTTPS_ENABLED,
+    setProperty(WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
+    setProperty(WEB_SERVER_HTTPS_ENABLED,
             BooleanUtils.toStringTrueFalse(webServerConfig.getHttpsEnabled()));
-    setProperty(adminManager, WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
-    setProperty(adminManager, WEB_SERVER_AJP_ENABLED,
+    setProperty(WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
+    setProperty(WEB_SERVER_AJP_ENABLED,
             BooleanUtils.toStringTrueFalse(webServerConfig.getAjpEnabled()));
-    setProperty(adminManager, WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
-
-    return adminManager.storeSystemProperties();
+    setProperty(WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
   }
 
-  private static void setProperty(AdministratorManager adminManager, String key, String value)
+  private static void setProperty(String key, String value)
   {
-    if (value == null)
-    {
-      return;
-    }
-    Property systemProperty = adminManager.getSystemProperty(key);
-    if (systemProperty == null)
-    {
-      Property property = new Property(key, value);
-      adminManager.getSystemProperties().add(property);
-    }
-    else
-    {
-      systemProperty.setValue(value);
-    }
+    Sudo.exec(() -> ServerFactory.getServer().getApplicationConfigurationManager()
+            .getSystemProp(key).setValue(value));
   }
 
   private void updateWebServerConfig()
   {
-    AdministratorManager adminManager = getAdministratorManager();
-    webServerConfig.setHttpEnabled(getPropertyAsBoolean(adminManager, WEB_SERVER_HTTP_ENABLED));
-    webServerConfig.setHttpPort(getProperty(adminManager, WEB_SERVER_HTTP_PORT));
-    webServerConfig.setHttpsEnabled(getPropertyAsBoolean(adminManager, WEB_SERVER_HTTPS_ENABLED));
-    webServerConfig.setHttpsPort(getProperty(adminManager, WEB_SERVER_HTTPS_PORT));
-    webServerConfig.setAjpEnabled(getPropertyAsBoolean(adminManager, WEB_SERVER_AJP_ENABLED));
-    webServerConfig.setAjpPort(getProperty(adminManager, WEB_SERVER_AJP_PORT));
+    webServerConfig.setHttpEnabled(getPropertyAsBoolean(WEB_SERVER_HTTP_ENABLED));
+    webServerConfig.setHttpPort(getProperty(WEB_SERVER_HTTP_PORT));
+    webServerConfig.setHttpsEnabled(getPropertyAsBoolean(WEB_SERVER_HTTPS_ENABLED));
+    webServerConfig.setHttpsPort(getProperty(WEB_SERVER_HTTPS_PORT));
+    webServerConfig.setAjpEnabled(getPropertyAsBoolean(WEB_SERVER_AJP_ENABLED));
+    webServerConfig.setAjpPort(getProperty(WEB_SERVER_AJP_PORT));
   }
 
-  private static boolean getPropertyAsBoolean(AdministratorManager adminManager, String key)
+  private static boolean getPropertyAsBoolean(String key)
   {
-    String property = getProperty(adminManager, key);
+    String property = getProperty(key);
     if (property.isEmpty())
     {
       return false;
@@ -275,30 +248,15 @@ public class SystemDatabaseSettings
     return BooleanUtils.toBooleanObject(property);
   }
 
-  private static String getProperty(AdministratorManager adminManager, String key)
+  private static String getProperty(String key)
   {
-    Property systemProperty = adminManager.getSystemProperty(key);
-    if (systemProperty == null)
-    {
-      return "";
-    }
-    else
-    {
-      return systemProperty.getValue();
-    }
+    return Sudo.exec(() -> ServerFactory.getServer().getApplicationConfigurationManager()
+            .getSystemProp(key).getValue());
   }
 
   public void updateWebServerSystemProperties()
   {
-    try
-    {
-      ServerFactory.getServer().getSecurityManager()
-              .executeAsSystem(() -> updateWebServerSystemPropertiesAsSystem());
-    }
-    catch (Exception ex)
-    {
-      throw new RuntimeException("Could not update Web Server System Properties", ex);
-    }
+    Sudo.exec(() -> updateWebServerSystemPropertiesAsSystem());
   }
 
   private Object updateWebServerSystemPropertiesAsSystem()
@@ -310,7 +268,7 @@ public class SystemDatabaseSettings
     for (ISystemProperty property : systemProps)
     {
       if (!property.getUserInterfaceFormat().equals(UserInterfaceFormat.INVISIBLE)
-              && StringUtils.startsWith(property.getName(), "WebServer"))
+              && StringUtils.startsWith(property.getName(), "Connector"))
       {
         SystemProperty sysProperty = createNewSystemProperty(property);
         systemProperties.add(sysProperty);
@@ -321,12 +279,11 @@ public class SystemDatabaseSettings
 
   private SystemProperty createNewSystemProperty(ISystemProperty property)
   {
-    String value = getAdministratorManager().getProperty(property.getName());
     SystemProperty sysProperty = new SystemProperty();
     sysProperty.setName(property.getName());
     sysProperty.setDefaultValue(property.getDefaultValue());
     sysProperty.setDescription(property.getDescription());
-    sysProperty.setValue(value);
+    sysProperty.setValue(property.getValue());
     sysProperty.setUserInterfaceFormat(property.getUserInterfaceFormat());
     if (property.getUserInterfaceFormat().equals(UserInterfaceFormat.ENUMERATION))
     {
@@ -340,21 +297,11 @@ public class SystemDatabaseSettings
     return systemProperties;
   }
 
-  public void saveWebServerSystemProperties() throws Exception
+  public void saveWebServerSystemProperties()
   {
-    AdministratorManager adminManager = getAdministratorManager();
-    if (!adminManager.isConnected())
-    {
-      return;
-    }
     for (SystemProperty systemProperty : systemProperties)
     {
-      String systemValue = StringUtils.defaultIfEmpty(systemProperty.getValue(), "");
-      String dbValue = StringUtils.defaultIfEmpty(adminManager.getProperty(systemProperty.getName()), "");
-      if (!StringUtils.equals(dbValue, systemValue))
-      {
-        adminManager.storeProperty(systemProperty.getName(), systemValue);
-      }
+      setProperty(systemProperty.getName(), systemProperty.getValue());
     }
   }
 
@@ -391,7 +338,7 @@ public class SystemDatabaseSettings
 
   public void saveAll()
   {
-    saveSystemDb();
+    saveToYaml();
 
     if (!getAdministratorManager().isConnected())
     {
@@ -411,6 +358,21 @@ public class SystemDatabaseSettings
     UiModder.restartHint();
   }
 
+  private void saveToYaml()
+  {
+    try
+    {
+      saveSystemDb();
+      saveWebServerSystemProperties();
+      saveWebServerConfig();
+      UiModder.yamlConfigSaved();
+    }
+    catch (Exception ex)
+    {
+      UiModder.yamlConfigNotSaved(ex);
+    }
+  }
+
   private void saveAllToDB() throws Exception
   {
     saveAdmins();
@@ -418,8 +380,6 @@ public class SystemDatabaseSettings
     {
       saveClusterNodes();
     }
-    saveWebServerSystemProperties();
-    saveWebServerConfig();
   }
 
   private class BlockingListener implements IConnectionListener
@@ -434,12 +394,6 @@ public class SystemDatabaseSettings
       if (newState != ConnectionState.CONNECTING)
       {
         gotResult = true;
-      }
-
-      if (newState == ConnectionState.CONNECTED)
-      {
-        updateWebServerConfig();
-        updateWebServerSystemProperties();
       }
     }
   }

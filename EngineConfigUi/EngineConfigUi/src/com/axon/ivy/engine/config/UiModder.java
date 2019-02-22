@@ -15,16 +15,16 @@ public class UiModder
                     + " connection to the system database");
   }
 
-  public static void systemDatabaseConfigSaved()
+  public static void yamlConfigSaved()
   {
-    addMessage(FacesMessage.SEVERITY_INFO, "System Database config saved",
+    addMessage(FacesMessage.SEVERITY_INFO, "System Database and Webserver config saved",
             "Your System Database config were saved to configuration/ivy.yaml");
   }
 
-  public static void systemDatabaseConfigNotSaved(Exception ex)
+  public static void yamlConfigNotSaved(Exception ex)
   {
     String msg = ExceptionUtils.getRootCauseMessage(ex);
-    addNotSavedMessage("Your System Database settings could not be saved because: " + msg);
+    addNotSavedMessage("Your System Database and Webserver settings could not be saved because: " + msg);
   }
 
   public static void savedAllToDatabase()
@@ -75,8 +75,8 @@ public class UiModder
   {
     if (LicenceUtil.isCluster())
     {
-      return "Administrators, Web Server and Cluster Nodes";
+      return "Administrators and Cluster Nodes";
     }
-    return "Administrators and WebServer";
+    return "Administrators";
   }
 }
