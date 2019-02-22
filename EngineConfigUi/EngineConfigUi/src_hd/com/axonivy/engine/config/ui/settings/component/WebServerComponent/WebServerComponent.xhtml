@@ -14,25 +14,7 @@
 	<h:form id="webServerForm" styleClass="configChanged">
 		<p:focus for="HTTPPortInput" />
 		
-		<p:outputPanel id="wsIvyYamlHintPanel" styleClass="">
-			<p:outputPanel id="wsYamlHint"
-				styleClass="alert alert-success connection-state">
-				<h4>
-					<i class="fa fa-info-circle" />
-					<h:outputText value=" Hint: ivy.yaml" styleClass="configChanged" />
-				</h4>
-				<p>
-					<h:outputText
-						value="This configruation can also be defined in the ivy.yaml file. 
-						Configruation defined here will be written to the system database.
-						The definitions in the ivy.yaml file will override the settings in the system database."
-						styleClass="configChanged" />
-				</p>
-			</p:outputPanel>
-		</p:outputPanel>
-		
-		<h:panelGrid columns="3" cellpadding="20" cellspacing="20"
-			rendered="#{data.settings.connectionInfo.connectionOK}">
+		<h:panelGrid columns="3" cellpadding="20" cellspacing="20">
 			<p:fieldset id="HTTPFieldSet" legend="HTTP Connector">
 				<h:panelGrid columns="2" cellpadding="5" cellspacing="10">
 					<p:outputLabel for="HTTPEnabledCheckbox" id="HTTPEnabledLabel"
@@ -91,16 +73,10 @@
 		</h:panelGrid>
 		<p:commandButton id="advancedSystemPropertiesButton" value="Advanced"
 			icon="fa fa-cogs"
-			rendered="#{data.settings.connectionInfo.connectionOK}"
 			onclick="PF('advancedSystemPropertiesDialog').show();" />
 		<p:commandButton id="webServerTabNextButton" value="Next"
-			rendered="#{data.settings.connectionInfo.connectionOK}"
 			icon="fa fa-arrow-circle-right" styleClass="next-button"
 			onclick="PF('accordionPanel').select(4);" />
-
-		<ic:com.axonivy.engine.config.ui.settings.component.ConnectionStateComponent
-			id="connectionStateComponent" settings="#{data.settings}"
-			rendered="#{!data.settings.connectionInfo.connectionOK}" />
 
 		<p:defaultCommand target="webServerTabNextButton" />
 	</h:form>
