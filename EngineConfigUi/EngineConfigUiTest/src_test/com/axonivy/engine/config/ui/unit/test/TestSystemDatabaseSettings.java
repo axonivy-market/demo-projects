@@ -11,6 +11,7 @@ import mockit.NonStrictExpectations;
 import org.apache.commons.lang.math.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
@@ -39,7 +40,7 @@ public class TestSystemDatabaseSettings
     installFakeLicense();
   }
 
-  @Test
+  @Test @Ignore
   public void testLoadConfigData() throws Exception
   {
     ConfigData loadConfigData = SystemDatabaseSettings.create()
@@ -49,7 +50,7 @@ public class TestSystemDatabaseSettings
     assertThat(loadConfigData.getProduct()).isNotNull();
   }
   
-  @Test
+  @Test @Ignore
   public void testLoadConfigs() throws Exception
   {
     SystemDatabaseSettings settings = SystemDatabaseSettings.create();
@@ -107,7 +108,7 @@ public class TestSystemDatabaseSettings
     }
   }
 
-  @Test
+  @Test @Ignore
   public void testCreating() throws Exception
   {
     ConfigData configData = getLocalMySqlSettings();
