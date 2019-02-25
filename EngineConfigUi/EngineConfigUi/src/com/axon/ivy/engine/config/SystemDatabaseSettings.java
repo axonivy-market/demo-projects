@@ -15,8 +15,9 @@ import com.axonivy.engine.config.ui.settings.SystemProperty;
 import com.axonivy.engine.config.ui.settings.WebServerConfig;
 
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
+import ch.ivyteam.di.restricted.DiCore;
+import ch.ivyteam.ivy.application.IApplicationConfigurationManager;
 import ch.ivyteam.ivy.security.exec.Sudo;
-import ch.ivyteam.ivy.server.ServerFactory;
 import ch.ivyteam.ivy.server.configuration.Configuration;
 import ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
@@ -224,7 +225,7 @@ public class SystemDatabaseSettings
 
   private static void setProperty(String key, String value)
   {
-    Sudo.exec(() -> ServerFactory.getServer().getApplicationConfigurationManager()
+    Sudo.exec(() -> DiCore.getGlobalInjector().getInstance(IApplicationConfigurationManager.class)
             .getSystemProp(key).setValue(value));
   }
 
@@ -250,7 +251,7 @@ public class SystemDatabaseSettings
 
   private static String getProperty(String key)
   {
-    return Sudo.exec(() -> ServerFactory.getServer().getApplicationConfigurationManager()
+    return Sudo.exec(() -> DiCore.getGlobalInjector().getInstance(IApplicationConfigurationManager.class)
             .getSystemProp(key).getValue());
   }
 
@@ -262,8 +263,8 @@ public class SystemDatabaseSettings
   private Object updateWebServerSystemPropertiesAsSystem()
   {
     systemProperties.clear();
-    List<ISystemProperty> systemProps = ServerFactory.getServer()
-            .getApplicationConfigurationManager()
+    List<ISystemProperty> systemProps = DiCore.getGlobalInjector()
+    		.getInstance(IApplicationConfigurationManager.class)
             .getSystemProps();
     for (ISystemProperty property : systemProps)
     {
