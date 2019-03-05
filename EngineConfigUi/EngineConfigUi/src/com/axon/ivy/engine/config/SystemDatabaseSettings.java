@@ -101,8 +101,18 @@ public class SystemDatabaseSettings
   {
     SystemDatabaseConverter converter = SystemDatabaseConverter.createSystemDatabaseConverter(dbConfig,
             dbVersion);
+    converter.addObserver((observable, arg) -> updateWebServer(converter));
     converter.start();
     return converter;
+  }
+  
+  private void updateWebServer(SystemDatabaseConverter converter)
+  {
+    if (!converter.isRunning())
+    {
+      updateWebServerSystemProperties();
+      updateWebServerConfig();
+    }
   }
 
   public void updateConfig(SystemDatabaseCreator creator)
