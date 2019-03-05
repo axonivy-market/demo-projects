@@ -134,4 +134,32 @@ To run this service locally:
             </feature>
         </configuration>
     </restClient>
+    <restClient>
+        <uuid>4c6a6601-805b-4225-86f4-9c2d99ee9a8b</uuid>
+        <name>fileUpload</name>
+        <configuration>
+            <uri>http://localhost:{ivy.engine.http.port}/ivy/api/designer/fileUpload</uri>
+            <property>
+                <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
+                <value>false</value>
+                <password>false</password>
+            </property>
+            <property>
+                <name>username</name>
+                <value>Developer</value>
+                <password>false</password>
+            </property>
+            <property>
+                <name>password</name>
+                <value>\u004D\u00B2\u0089\u0039\u00D7\u00A3\u0042\u0004\u00BD\u00B4\u0090\u008F\u0030\u00C7\u00A6\u001F\u0019\u00C6\u00DE\u0005\u00C0\u005E\u000C\u0064\u00FC\u00CC\u00BE\u00D2\u001E\u00D8\u00C7\u0008\u00E8\u008F\u0034\u0040\u000B\u0059\u009C\u00A0\u0071\u00F8\u0021\u0085\u007C\u00C0\u0074\u00C1\u002C\u006E\u005E\u008B\u004A\u00AA\u0082\u0057\u00EF\u000A\u0089\u00E1\u0080\u004E\u0072\u0065</value>
+                <password>true</password>
+            </property>
+            <feature>
+                <class>ch.ivyteam.ivy.rest.client.mapper.JsonFeature</class>
+            </feature>
+            <feature>
+                <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
+            </feature>
+        </configuration>
+    </restClient>
 </restClients>

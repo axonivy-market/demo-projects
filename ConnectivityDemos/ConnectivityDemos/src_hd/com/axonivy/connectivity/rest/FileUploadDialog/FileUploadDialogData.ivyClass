@@ -1,0 +1,6 @@
+FileUploadDialogData #class
+com.axonivy.connectivity.rest.FileUploadDialog #namespace
+data com.axonivy.connectivity.Data #field
+data PERSISTENT #fieldModifier
+file String #field
+file PERSISTENT #fieldModifier
