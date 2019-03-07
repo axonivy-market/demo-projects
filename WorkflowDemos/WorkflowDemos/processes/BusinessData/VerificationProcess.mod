@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 21 12:17:53 CET 2016]
-156E5D9AA7D41BAA 3.18 #module
+156E5D9AA7D41BAA 3.25 #module
 >Proto >Proto Collection #zClass
 Vn0 VerificationProcess Big #zClass
 Vn0 B #cInfo
@@ -110,20 +109,6 @@ TaskA.PRI=2
 TaskA.ROL=Everybody
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
-Vn0 f31 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
-List<TaskDefinition> taskDefinitions;
-TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskDef = new TaskDefinition();
-taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("Verification of Person <%=ivy.repo.find(in1.id, workflow.businessdata.Dossier.class).name%>"));
-taskDef.setAutoStartTask(false);
-taskDef.setActivator("Everybody");
-taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDef.setExpiryActivator("Everybody");
-taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDefinitions.add(taskDef);
-' #txt
 Vn0 f31 type workflow.businessdata.Data #txt
 Vn0 f31 template "" #txt
 Vn0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -153,24 +138,15 @@ Vn0 f19 triggerEnabled false #txt
 Vn0 f19 callSignature verifyDossier(String) #txt
 Vn0 f19 persist false #txt
 Vn0 f19 startName 'Verify Dossier Process' #txt
-Vn0 f19 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.CATEGORY=Review/Dossier
-TaskTriggered.EXTYPE=0
+Vn0 f19 taskData 'TaskTriggered.CATEGORY=Review/Dossier
 TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Vn0 f19 caseData case.category=Dossier/Verify #txt
 Vn0 f19 showInStartList 0 #txt
-Vn0 f19 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Vn0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Wed May 10 15:36:13 CEST 2017]
-15A849250AA78F65 3.20 #module
+15A849250AA78F65 3.25 #module
 >Proto >Proto Collection #zClass
 Ca0 VerifyPersonalData Big #zClass
 Ca0 B #cInfo
@@ -30,13 +29,13 @@ Ca0 f0 triggerEnabled false #txt
 Ca0 f0 callSignature start() #txt
 Ca0 f0 persist false #txt
 Ca0 f0 startName 'Verify Personal Data' #txt
-Ca0 f0 taskData 'TaskTriggered.ROL=Everybody
+Ca0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
 TaskTriggered.NAM=Verify Personal Data
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ca0 f0 caseData businessCase.attach=true #txt
 Ca0 f0 showInStartList 0 #txt
 Ca0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

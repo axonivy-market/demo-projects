@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Mon Jul 03 13:57:47 CEST 2017]
-15A5AC9A4F755A3B 3.20 #module
+15A5AC9A4F755A3B 3.25 #module
 >Proto >Proto Collection #zClass
 Ca0 CollectPersonalData Big #zClass
 Ca0 B #cInfo
@@ -33,16 +32,16 @@ Ca0 f0 requestEnabled true #txt
 Ca0 f0 triggerEnabled false #txt
 Ca0 f0 callSignature start() #txt
 Ca0 f0 persist true #txt
-Ca0 f0 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.EXP=new Duration("33h")
-TaskTriggered.EXTYPE=0
+Ca0 f0 taskData 'TaskTriggered.EXP=new Duration("33h")
 TaskTriggered.EXPRI=1
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=1
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
 TaskTriggered.NAM=Collect Personal Data
-TaskTriggered.EXROL=Everybody' #txt
-Ca0 f0 caseData 'case.name=Lending
-businessCase.attach=true' #txt
+TaskTriggered.PRI=1
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
+Ca0 f0 caseData 'businessCase.attach=true
+case.name=Lending' #txt
 Ca0 f0 wfuser 1 #txt
 Ca0 f0 showInStartList 0 #txt
 Ca0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

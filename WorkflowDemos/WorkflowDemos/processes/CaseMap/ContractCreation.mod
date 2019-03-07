@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Mon Jun 12 16:52:48 CEST 2017]
-15A89966729CE3FC 3.20 #module
+15A89966729CE3FC 3.25 #module
 >Proto >Proto Collection #zClass
 Cn0 ContractCreation Big #zClass
 Cn0 B #cInfo
@@ -29,13 +28,13 @@ Cn0 f0 callSignature start() #txt
 Cn0 f0 persist false #txt
 Cn0 f0 startName 'Create Contract ' #txt
 Cn0 f0 taskData 'TaskTriggered.EXP=new Duration("4h")
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
 TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
 TaskTriggered.NAM=Create Contract
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Cn0 f0 caseData businessCase.attach=true #txt
 Cn0 f0 showInStartList 0 #txt
 Cn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

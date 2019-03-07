@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 21 12:20:27 CET 2016]
-15255056043EE914 3.18 #module
+15255056043EE914 3.25 #module
 >Proto >Proto Collection #zClass
 AF0 AgileBPM Big #zClass
 AF0 B #cInfo
@@ -119,32 +118,20 @@ AF0 f0 callSignature start() #txt
 AF0 f0 persist false #txt
 AF0 f0 startName '1: <%=ivy.cms.co("/ProcessDescriptions/SelfServiceBPM")%> (<%=ivy.cms.co("/ProcessDescriptions/AdHocName")%>)' #txt
 AF0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/AdHocDescription")%> #txt
-AF0 f0 taskData 'TaskTriggered.EXTYPE=0
-TaskTriggered.CATEGORY=Input/Adhoc
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+AF0 f0 taskData 'TaskTriggered.CATEGORY=Input/Adhoc
 TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
 TaskTriggered.KINDC=CREATOR
 TaskTriggered.NAM=Self Service Workflow
+TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.TYPE=0' #txt
 AF0 f0 caseData 'case.category=AdHoc
 processCategory.code=Self Service WF
 processCategory.name=Self Service WF' #txt
 AF0 f0 wfuser 1 #txt
 AF0 f0 showInStartList 1 #txt
-AF0 f0 taskAndCaseSetupAction 'ivy.case.setProcessCategory(engine.expandMacros("Self Service WF"), engine.expandMacros("Self Service WF"));
-import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setName(engine.expandMacros("Self Service Workflow"));
-taskUpdDef.setKindCode(engine.expandMacros("CREATOR"));
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 AF0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -412,20 +399,6 @@ TaskA.PRI=2
 TaskA.ROL=SYSTEM
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
-1b1 f13 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
-List<TaskDefinition> taskDefinitions;
-TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskDef = new TaskDefinition();
-taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("SYSTEM Send <%=in1.caseInfo.kind%> Mail"));
-taskDef.setAutoStartTask(false);
-taskDef.setActivator("SYSTEM");
-taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDef.setExpiryActivator("Everybody");
-taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDefinitions.add(taskDef);
-' #txt
 1b1 f13 type workflow.agileBPM.Data #txt
 1b1 f13 template "" #txt
 1b1 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -533,23 +506,6 @@ TaskA.PRI=2
 TaskA.ROL=in1.nextTask.actoruser
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=3' #txt
-Ct0 f9 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
-List<TaskDefinition> taskDefinitions;
-TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskDef = new TaskDefinition();
-taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("<%=in1.nextTask.kind%> <%=in1.nextTask.subject%>"));
-taskDef.setDescription(engine.expandMacros("<%=in1.nextTask.description%>"));
-taskDef.setKindCode(engine.expandMacros("<%=in1.nextTask.kind%>"));
-taskDef.setAutoStartTask(false);
-taskDef.setActivator("#" + in1.nextTask.actoruser);
-taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDef.setExpiryPeriod(1000 * (in1.nextTask.until!=null ? in1.nextTask.until - new DateTime() : null).toNumber());
-taskDef.setExpiryActivator("#" + in1.nextTask.actoruser);
-taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(0));
-taskDefinitions.add(taskDef);
-' #txt
 Ct0 f9 type workflow.agileBPM.Data #txt
 Ct0 f9 template "" #txt
 Ct0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -638,29 +594,6 @@ TaskB.PRI=2
 TaskB.ROL=SYSTEM
 TaskB.SKIP_TASK_LIST=false
 TaskB.TYPE=0' #txt
-Ct0 f2 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
-List<TaskDefinition> taskDefinitions;
-TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskDef = new TaskDefinition();
-taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("Split SYSTEM"));
-taskDef.setAutoStartTask(true);
-taskDef.setActivator("SYSTEM");
-taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDef.setExpiryActivator("Everybody");
-taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDefinitions.add(taskDef);
-taskDef = new TaskDefinition();
-taskDef.setStartRequestPath("TaskB.ivp");
-taskDef.setName(engine.expandMacros("Split Usertask"));
-taskDef.setAutoStartTask(false);
-taskDef.setActivator("SYSTEM");
-taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDef.setExpiryActivator("Everybody");
-taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDefinitions.add(taskDef);
-' #txt
 Ct0 f2 type workflow.agileBPM.Data #txt
 Ct0 f2 template "" #txt
 Ct0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -690,20 +623,6 @@ TaskA.PRI=2
 TaskA.ROL=SYSTEM
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
-Ct0 f4 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
-List<TaskDefinition> taskDefinitions;
-TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskDef = new TaskDefinition();
-taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("SYSTEM join"));
-taskDef.setAutoStartTask(false);
-taskDef.setActivator("SYSTEM");
-taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDef.setExpiryActivator("Everybody");
-taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDefinitions.add(taskDef);
-' #txt
 Ct0 f4 type workflow.agileBPM.Data #txt
 Ct0 f4 template "" #txt
 Ct0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Wed May 10 15:35:25 CEST 2017]
-15A8492F526C14B3 3.20 #module
+15A8492F526C14B3 3.25 #module
 >Proto >Proto Collection #zClass
 Cr0 CheckCompanyRegister Big #zClass
 Cr0 B #cInfo
@@ -30,13 +29,13 @@ Cr0 f0 triggerEnabled true #txt
 Cr0 f0 callSignature start() #txt
 Cr0 f0 persist false #txt
 Cr0 f0 startName 'Check company register' #txt
-Cr0 f0 taskData 'TaskTriggered.ROL=SYSTEM
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Cr0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-TaskTriggered.NAM=Check Company Register' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.NAM=Check Company Register
+TaskTriggered.PRI=2
+TaskTriggered.ROL=SYSTEM
+TaskTriggered.TYPE=0' #txt
 Cr0 f0 caseData businessCase.attach=true #txt
 Cr0 f0 showInStartList 0 #txt
 Cr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
