@@ -101,14 +101,14 @@ Vn0 f31 actionTable 'out=in1;
 ' #txt
 Vn0 f31 outTypes "workflow.businessdata.Data" #txt
 Vn0 f31 outLinks "TaskA.ivp" #txt
-Vn0 f31 taskData 'TaskA.EXPRI=2
-TaskA.EXROL=Everybody
-TaskA.EXTYPE=0
-TaskA.NAM=Verification of Person <%\=ivy.repo.find(in1.id, workflow.businessdata.Dossier.class).name%>
-TaskA.PRI=2
-TaskA.ROL=Everybody
+Vn0 f31 taskData 'TaskA.TYPE=0
 TaskA.SKIP_TASK_LIST=false
-TaskA.TYPE=0' #txt
+TaskA.ROL=Everybody
+TaskA.EXTYPE=0
+TaskA.EXPRI=2
+TaskA.PRI=2
+TaskA.EXROL=Everybody
+TaskA.NAM=Verification of Person <%\=(ivy.repo.find(in1.id, workflow.businessdata.Dossier.class) as workflow.businessdata.Dossier).name%>' #txt
 Vn0 f31 type workflow.businessdata.Data #txt
 Vn0 f31 template "" #txt
 Vn0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
