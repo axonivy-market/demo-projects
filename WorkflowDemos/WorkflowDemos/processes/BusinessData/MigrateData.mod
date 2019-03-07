@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Tue Aug 08 10:27:23 CEST 2017]
-15DC0CCB70274584 3.20 #module
+15DC0CCB70274584 3.25 #module
 >Proto >Proto Collection #zClass
 Ma0 MigrateData Big #zClass
 Ma0 B #cInfo
@@ -34,12 +33,12 @@ Ma0 f0 persist false #txt
 Ma0 f0 startName '5.3 Migrate BusinessData format' #txt
 Ma0 f0 startDescription 'Starts the migration of the internal Business Data JSON format. 
 This is an administrative tasks, that should not be made accessible to worklow users.' #txt
-Ma0 f0 taskData 'TaskTriggered.ROL=Everybody
+Ma0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ma0 f0 caseData businessCase.attach=true #txt
 Ma0 f0 showInStartList 1 #txt
 Ma0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

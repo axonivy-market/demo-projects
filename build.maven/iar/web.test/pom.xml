@@ -73,6 +73,7 @@
 				</executions>
 				<configuration>
 					<deployToEngineApplication>${test.application}</deployToEngineApplication>
+					<skipScriptValidation>true</skipScriptValidation><!-- yet not working here: dependency to classes under tests are ususal -->
 				</configuration>
 			</plugin>
 			<plugin>

@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 21 12:38:29 CET 2016]
-15254CF1CE56AE72 3.18 #module
+15254CF1CE56AE72 3.25 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
 Tr0 B #cInfo
@@ -41,24 +40,15 @@ Tr0 f0 callSignature start() #txt
 Tr0 f0 persist false #txt
 Tr0 f0 startName '4: <%=ivy.cms.co("/ProcessDescriptions/newEmployee")%> (<%=ivy.cms.co("/ProcessDescriptions/triggerExample")%>)' #txt
 Tr0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/triggerDescription")%> #txt
-Tr0 f0 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.CATEGORY=Input/Employee
-TaskTriggered.EXTYPE=0
+Tr0 f0 taskData 'TaskTriggered.CATEGORY=Input/Employee
 TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Tr0 f0 caseData case.category=HR/Employee/Entry #txt
 Tr0 f0 showInStartList 1 #txt
-Tr0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Tr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

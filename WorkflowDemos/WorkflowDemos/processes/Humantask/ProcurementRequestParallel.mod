@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 21 12:23:30 CET 2016]
-15254DC87A1B183B 3.18 #module
+15254DC87A1B183B 3.25 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestParallel Big #zClass
 Pt0 B #cInfo
@@ -81,24 +80,15 @@ Pt0 f0 callSignature start() #txt
 Pt0 f0 persist false #txt
 Pt0 f0 startName '2.2: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%> (<%=ivy.cms.co("/ProcessDescriptions/parallelTaskExample")%>)' #txt
 Pt0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/procurementRequestParallelDescription")%> #txt
-Pt0 f0 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.CATEGORY=Input/Procurement
-TaskTriggered.EXTYPE=0
+Pt0 f0 taskData 'TaskTriggered.CATEGORY=Input/Procurement
 TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Pt0 f0 caseData case.category=Procurement/Request #txt
 Pt0 f0 showInStartList 1 #txt
-Pt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -138,19 +128,6 @@ TaskB.PRI=2
 TaskB.ROL=SYSTEM
 TaskB.SKIP_TASK_LIST=true
 TaskB.TYPE=0' #txt
-Pt0 f7 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
-List<TaskDefinition> taskDefinitions;
-TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskDef = new TaskDefinition();
-taskDef.setStartRequestPath("TaskB.ivp");
-taskDef.setAutoStartTask(true);
-taskDef.setActivator("SYSTEM");
-taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDef.setExpiryActivator("Everybody");
-taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDefinitions.add(taskDef);
-' #txt
 Pt0 f7 type workflow.humantask.ProcurementRequest #txt
 Pt0 f7 template "" #txt
 Pt0 f7 512 288 32 32 0 16 #rect
@@ -206,29 +183,6 @@ TaskB.PRI=2
 TaskB.ROL=Manager
 TaskB.SKIP_TASK_LIST=false
 TaskB.TYPE=0' #txt
-Pt0 f2 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
-List<TaskDefinition> taskDefinitions;
-TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskDef = new TaskDefinition();
-taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%>  ''<%=in1.description%>'' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>"));
-taskDef.setAutoStartTask(false);
-taskDef.setActivator("Teamleader");
-taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDef.setExpiryActivator("Everybody");
-taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDefinitions.add(taskDef);
-taskDef = new TaskDefinition();
-taskDef.setStartRequestPath("TaskB.ivp");
-taskDef.setName(engine.expandMacros("<%=ivy.cms.co(\"/TaskDescriptions/verifyRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> ''<%=in1.description%>'' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>"));
-taskDef.setAutoStartTask(false);
-taskDef.setActivator("Manager");
-taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDef.setExpiryActivator("Everybody");
-taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDefinitions.add(taskDef);
-' #txt
 Pt0 f2 type workflow.humantask.ProcurementRequest #txt
 Pt0 f2 template "" #txt
 Pt0 f2 296 288 32 32 0 16 #rect
@@ -412,20 +366,6 @@ TaskA.PRI=2
 TaskA.ROL=Executive Manager
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
-Pt0 f26 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
-List<TaskDefinition> taskDefinitions;
-TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskDef = new TaskDefinition();
-taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setName(engine.expandMacros("<%=ivy.cms.co(\"/TaskDescriptions/acceptRequest\")%>: <%=in1.amount%> <%=ivy.cms.co(\"/Dialogs/procurementRequest/piecesOf\")%> ''<%=in1.description%>'' <%=ivy.cms.co(\"/Dialogs/procurementRequest/forTotal\")%> <%=in1.totalPrice%><%=ivy.cms.co(\"/TaskDescriptions/currencySymbol\")%>"));
-taskDef.setAutoStartTask(false);
-taskDef.setActivator("Executive Manager");
-taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDef.setExpiryActivator("Executive Manager");
-taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDefinitions.add(taskDef);
-' #txt
 Pt0 f26 type workflow.humantask.ProcurementRequest #txt
 Pt0 f26 template "" #txt
 Pt0 f26 577 521 30 30 0 16 #rect

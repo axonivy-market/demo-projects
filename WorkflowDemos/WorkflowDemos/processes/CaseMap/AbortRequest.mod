@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Wed May 10 15:35:01 CEST 2017]
-15A8996D261A1DFE 3.20 #module
+15A8996D261A1DFE 3.25 #module
 >Proto >Proto Collection #zClass
 At0 AbortRequest Big #zClass
 At0 B #cInfo
@@ -27,13 +26,13 @@ At0 f0 requestEnabled true #txt
 At0 f0 triggerEnabled false #txt
 At0 f0 callSignature start() #txt
 At0 f0 persist false #txt
-At0 f0 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+At0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-TaskTriggered.NAM=Abort Request' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.NAM=Abort Request
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 At0 f0 caseData businessCase.attach=true #txt
 At0 f0 showInStartList 0 #txt
 At0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Wed May 10 15:35:50 CEST 2017]
-15A8995AA29B442B 3.20 #module
+15A8995AA29B442B 3.25 #module
 >Proto >Proto Collection #zClass
 Ek0 ExternalSolvencyService Big #zClass
 Ek0 B #cInfo
@@ -27,13 +26,13 @@ Ek0 f0 requestEnabled true #txt
 Ek0 f0 triggerEnabled false #txt
 Ek0 f0 callSignature start() #txt
 Ek0 f0 persist false #txt
-Ek0 f0 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Ek0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-TaskTriggered.NAM=External Solvency Check' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.NAM=External Solvency Check
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ek0 f0 caseData businessCase.attach=true #txt
 Ek0 f0 showInStartList 0 #txt
 Ek0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

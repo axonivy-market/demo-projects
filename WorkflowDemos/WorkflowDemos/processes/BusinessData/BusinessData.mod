@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Mon Nov 21 12:20:27 CET 2016]
-155BB4328F79B2D5 3.18 #module
+155BB4328F79B2D5 3.25 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
 Ba0 B #cInfo
@@ -52,24 +51,15 @@ Ba0 f0 triggerEnabled false #txt
 Ba0 f0 callSignature create() #txt
 Ba0 f0 persist false #txt
 Ba0 f0 startName 'Create new Dossier' #txt
-Ba0 f0 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.CATEGORY=Input/Dossier
+Ba0 f0 taskData 'TaskTriggered.CATEGORY=Input/Dossier
 TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ba0 f0 caseData case.category=Dossier/Create #txt
 Ba0 f0 showInStartList 0 #txt
-Ba0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ba0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -124,24 +114,15 @@ Ba0 f7 triggerEnabled false #txt
 Ba0 f7 callSignature edit(String) #txt
 Ba0 f7 persist false #txt
 Ba0 f7 startName 'Edit Dossier' #txt
-Ba0 f7 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.CATEGORY=Modification/Dossier
-TaskTriggered.EXTYPE=0
+Ba0 f7 taskData 'TaskTriggered.CATEGORY=Modification/Dossier
 TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ba0 f7 caseData case.category=Dossier/Edit #txt
 Ba0 f7 showInStartList 0 #txt
-Ba0 f7 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ba0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -169,24 +150,15 @@ Ba0 f10 callSignature browse(Boolean) #txt
 Ba0 f10 persist false #txt
 Ba0 f10 startName '5.1: Browse Dossiers (Business Data)' #txt
 Ba0 f10 startDescription 'Business Data Store Demo. Manage dossier objects in the Business Data Repository' #txt
-Ba0 f10 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.CATEGORY=View/Dossier
+Ba0 f10 taskData 'TaskTriggered.CATEGORY=View/Dossier
 TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ba0 f10 caseData case.category=Dossier/Browse #txt
 Ba0 f10 showInStartList 1 #txt
-Ba0 f10 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ba0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -320,24 +292,15 @@ Ba0 f4 triggerEnabled false #txt
 Ba0 f4 callSignature delete(String) #txt
 Ba0 f4 persist false #txt
 Ba0 f4 startName 'Delete Dossier' #txt
-Ba0 f4 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.CATEGORY=Deletion/Dossier
-TaskTriggered.EXTYPE=0
+Ba0 f4 taskData 'TaskTriggered.CATEGORY=Deletion/Dossier
 TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ba0 f4 caseData case.category=Dossier/Delete #txt
 Ba0 f4 showInStartList 0 #txt
-Ba0 f4 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ba0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -391,24 +354,15 @@ Ba0 f17 callSignature browseLazy() #txt
 Ba0 f17 persist false #txt
 Ba0 f17 startName '5.1: Browse Dossiers (Business Data)' #txt
 Ba0 f17 startDescription 'Business Data Store Demo. Manage dossier objects in the Business Data Repository' #txt
-Ba0 f17 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.CATEGORY=View/Dossier
-TaskTriggered.EXTYPE=0
+Ba0 f17 taskData 'TaskTriggered.CATEGORY=View/Dossier
 TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ba0 f17 caseData case.category=Dossier/Browse #txt
 Ba0 f17 showInStartList 1 #txt
-Ba0 f17 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ba0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

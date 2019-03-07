@@ -75,6 +75,7 @@
 							<iarExclude>pom.xml</iarExclude><!-- remove full pom.xml -->
 						</iarExcludes>
 						<skipDeploy>${maven.test.skip}</skipDeploy>
+                        <skipScriptValidation>false</skipScriptValidation><!-- ivyScripts in processes -->
 					</configuration>
 				</plugin>
 				<plugin>

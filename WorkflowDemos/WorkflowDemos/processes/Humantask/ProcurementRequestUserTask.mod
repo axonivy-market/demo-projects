@@ -1,5 +1,5 @@
 [Ivy]
-15254DCE818AD7A2 3.20 #module
+15254DCE818AD7A2 3.25 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestUserTask Big #zClass
 Pt0 B #cInfo
@@ -42,13 +42,13 @@ Pt0 f0 callSignature start() #txt
 Pt0 f0 persist false #txt
 Pt0 f0 startName '2.1: <%=ivy.cms.co("/ProcessDescriptions/procurementRequest")%> (<%=ivy.cms.co("/ProcessDescriptions/userTaskExample")%>)' #txt
 Pt0 f0 startDescription <%=ivy.cms.co("/ProcessDescriptions/procurementRequestUserTaskDescription")%> #txt
-Pt0 f0 taskData 'TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.CATEGORY=Input/Procurement
+Pt0 f0 taskData 'TaskTriggered.CATEGORY=Input/Procurement
 TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Pt0 f0 caseData case.category=Procurement/Request #txt
 Pt0 f0 showInStartList 1 #txt
 Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
