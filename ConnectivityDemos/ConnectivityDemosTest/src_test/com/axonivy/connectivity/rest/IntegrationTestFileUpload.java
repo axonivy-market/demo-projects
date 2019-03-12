@@ -22,12 +22,12 @@ import org.junit.Test;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
-public class FileUploadTest
+public class IntegrationTestFileUpload
 {
   private final InputStream target = this.getClass().getResourceAsStream("test.pdf");
   private final String file = this.getClass().getResource("test.pdf").getFile();
 
-  private String uri = "http://localhost:8082/ivy/api/designer/fileUpload";
+  private String uri = EngineUrl.getServletUrl("api") + "/fileUpload"; 
 
   @Test
   public void sendPdfFile() throws IOException
@@ -44,6 +44,7 @@ public class FileUploadTest
               .header("X-Requested-By", "ivy")
               .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
       assertThat(pdfResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
+      assertThat(pdfResponse.readEntity(String.class)).endsWith("test.pdf");
     }
   }
   

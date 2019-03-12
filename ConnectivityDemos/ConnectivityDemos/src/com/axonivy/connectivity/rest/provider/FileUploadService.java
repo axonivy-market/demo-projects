@@ -22,7 +22,7 @@ import ch.ivyteam.api.API;
 @Path("fileUpload")
 public class FileUploadService
 {
-  String uri = "http://localhost:8081/ivy/api/designer/fileUpload";
+  private String uri = "http://localhost:8081/ivy/api/designer/fileUpload";
 
   @PUT
   @Produces(MediaType.APPLICATION_JSON)
@@ -30,27 +30,12 @@ public class FileUploadService
   public Response uploadFile(@FormDataParam("file") InputStream fileUploadStream,
           @FormDataParam("file") FormDataContentDisposition fileUploadDetail)
   {
-    checkExtension(fileUploadDetail.getFileName()); //checks if your file type/extension is right
+    String fileLocation = new JFileChooser().getFileSystemView().getDefaultDirectory().toString()
+            + "/Documents/createdDocuments/" + fileUploadDetail.getFileName();
+    checkExtension(fileUploadDetail.getFileName()); // checks if your file
+                                                    // type/extension is right
     API.checkNotNull(fileUploadDetail, "fileUploadDetail");
-    
-    String fileLocation = new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "/Documents/createdDocuments/" + fileUploadDetail.getFileName();
-    try //create file
-    {
-      FileOutputStream out = new FileOutputStream(new File(fileLocation));
-      int read = 0;
-      byte[] bytes = new byte[1024];
-      out = new FileOutputStream(new File(fileLocation));
-      while ((read = fileUploadStream.read(bytes)) != -1)
-      {
-        out.write(bytes, 0, read);
-      }
-      out.flush();
-      out.close();
-    }
-    catch (Exception ex)
-    {
-      ex.printStackTrace();
-    }
+    createFile(fileUploadStream, fileLocation);
     String result = "File was uploaded succesfully to: " + fileLocation;
     return Response.status(200).entity(result).build();
   }
@@ -63,6 +48,26 @@ public class FileUploadService
                                                // than .pdf
     {
       throw new IllegalArgumentException("The file is not a '.pdf'! Your file is: '." + extension + "'");
+    }
+  }
+
+  private void createFile(InputStream fileUploadStream, String fileLocation)
+  {
+    try // create file
+    {
+      int read = 0;
+      byte[] bytes = new byte[1024];
+      FileOutputStream out = new FileOutputStream(new File(fileLocation));
+      while ((read = fileUploadStream.read(bytes)) != -1)
+      {
+        out.write(bytes, 0, read);
+      }
+      out.flush();
+      out.close();
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace();
     }
   }
 }
