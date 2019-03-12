@@ -3,7 +3,6 @@ package com.axonivy.engine.config.ui.web.test;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
@@ -60,7 +59,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
             .id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:confirmConvertButton")));
     driver.findElement(
             By.id("accordionPanel:systemDatabaseComponent:convertDatabaseForm:confirmConvertButton")).click();
-    await(textToBePresentInElementLocated(
+    await(60, textToBePresentInElementLocated(
             By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:finishMessageConvertion"),
             "Successfully Finished"));
     By saveAndConnectBtn = By.id("accordionPanel:systemDatabaseComponent:convertingDatabaseForm:saveAndConnectConvertionButton");
