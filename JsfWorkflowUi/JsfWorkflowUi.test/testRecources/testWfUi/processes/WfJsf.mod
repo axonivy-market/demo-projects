@@ -1,5 +1,5 @@
 [Ivy]
-13F3D94E5C99F06F 3.20 #module
+13F3D94E5C99F06F 3.26 #module
 >Proto >Proto Collection #zClass
 Wf0 WfJsf Big #zClass
 Wf0 B #cInfo
@@ -32,44 +32,14 @@ Wf0 f0 callSignature WfJsf() #txt
 Wf0 f0 persist false #txt
 Wf0 f0 startName 'Test Workflow Jsf' #txt
 Wf0 f0 startDescription 'Sample WF using Html Dialogs' #txt
-Wf0 f0 taskData '#
-#Tue May 27 16:08:06 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
-TaskTriggered.NAM=Test Workflow Jsf
+Wf0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Wf0 f0 caseData '#
-#Tue May 27 16:08:06 CEST 2014
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=Test Workflow Jsf
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.NAM=Test Workflow Jsf
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
+Wf0 f0 caseData 'case.name=Test Workflow Jsf' #txt
 Wf0 f0 showInStartList 1 #txt
 Wf0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -90,9 +60,7 @@ Wf0 f1 actionTable 'out=in1;
 ' #txt
 Wf0 f1 outTypes "ch.ivyteam.wf.test.Data" #txt
 Wf0 f1 outLinks "TaskA.ivp" #txt
-Wf0 f1 caseData 'processCategory.code=<%\=in1.category%>
-case.category=<%\=in1.category%>
-process.code=<%\=in1.process%>' #txt
+Wf0 f1 caseData case.category=<%\=in1.category%> #txt
 Wf0 f1 taskData 'TaskA.DESC=<%\=in1.description%>
 TaskA.EXP=in1.expiryDate.getDurationFromNow()
 TaskA.EXPRI=2

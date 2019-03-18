@@ -13,10 +13,10 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   @Test
   public void testWorkflowStatistic() throws Exception
   {
-    createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
+    createTaskWithCategory("caseForFilter1", "case list1", 1, "category1");
     navigate().caseList();
     checkIfCaseIsInList("category1");
-    createTaskWithCategory("caseForFilter2", "case list2", 2, "category2", "process2");
+    createTaskWithCategory("caseForFilter2", "case list2", 2, "category2");
     navigate().caseList();
     checkIfCaseIsInList("category2");
     closeTask();
@@ -29,7 +29,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   @Test
   public void testStatisticDetails() throws Exception
   {
-    createTaskWithCategory("caseStatisticDetails", "Test if shows details", 2, "category1", "process1");
+    createTaskWithCategory("caseStatisticDetails", "Test if shows details", 2, "category1");
     closeTask();
     openStatistics();
     awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "category1");
@@ -45,7 +45,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   @Test
   public void testAverageDetails() throws Exception
   {
-    createTaskWithCategory("caseAverageDetails", "Test if shows details", 2, "category1", "process1");
+    createTaskWithCategory("caseAverageDetails", "Test if shows details", 2, "category1");
     closeTask();
     openStatistics();
     awaitToBeClickable("linkStatisticAverage_0").click();
@@ -55,15 +55,15 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   @Test
   public void testStatisticFilter() throws Exception
   {
-    createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
+    createTaskWithCategory("caseForFilter1", "case list1", 1, "category1");
     navigate().caseList();
     checkIfCaseIsInList("category1");
     
-    createTaskWithCategory("caseForFilter2", "case list2", 2, "category2", "process2");
+    createTaskWithCategory("caseForFilter2", "case list2", 2, "category2");
     navigate().caseList();
     checkIfCaseIsInList("category2");
     
-    createTaskWithCategory("caseForFilter3", "case list3", 3, "category3", "process3");
+    createTaskWithCategory("caseForFilter3", "case list3", 3, "category3");
     navigate().caseList();
     checkIfCaseIsInList("category3");
     closeTask();
@@ -90,7 +90,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   public void testCaseAdmin() throws Exception
   {
     login("user1", "user1");
-    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4", "process4");
+    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4");
    
     login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
     navigate().caseAdmin();
@@ -104,7 +104,7 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
   public void testTaskAdmin() throws Exception
   {
     login("user1", "user1");
-    createTaskWithCategory("taskAdmin", "task list5", 1, "category5", "process5");
+    createTaskWithCategory("taskAdmin", "task list5", 1, "category5");
    
     login(WEB_TEST_SERVER_ADMIN_USER, WEB_TEST_SERVER_ADMIN_PASSWORD);
     navigate().taskAdmin();

@@ -19,18 +19,18 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   @Test
   public void testCaseFilter() throws Exception
   {
-    createTaskWithCategory("something4", "this tests the search", 1, "category5", "process5");
+    createTaskWithCategory("something4", "this tests the search", 1, "category5");
     createHtmlTask("new Case with Html", "random description");
 
-    createTaskWithCategory("caseForFilter1", "case list1", 1, "category1", "process1");
+    createTaskWithCategory("caseForFilter1", "case list1", 1, "category1");
     navigate().caseList();
     checkIfCaseIsInList("category1");
 
-    createTaskWithCategory("caseForFilter2", "case list2", 2, "category2", "process2");
+    createTaskWithCategory("caseForFilter2", "case list2", 2, "category2");
     navigate().caseList();
     checkIfCaseIsInList("category2");
 
-    createTaskWithCategory("caseForFilter3", "case list3", 3, "category3", "process3");
+    createTaskWithCategory("caseForFilter3", "case list3", 3, "category3");
     navigate().caseList();
     checkIfCaseIsInList("category3");
 
@@ -55,7 +55,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
   public void testStartedAndInvolvedCases() throws Exception
   {
     login("user1", "user1");
-    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4", "process4");
+    createTaskWithCategory("caseForFilter4", "case list4", 1, "category4");
 
     navigate().caseList();
     checkIfCaseIsInList("category4");
@@ -161,7 +161,7 @@ public class TestTaskAndCaseListFilter extends BaseJsfWorkflowUiTest
             By.id("taskListComponent:taskListForm:taskTable_data"), "taskForFilterPrioHigh");
     closeTask();
 
-    createTaskWithCategory("new Task", "this is a new Task", 2, "random category", "process5");
+    createTaskWithCategory("new Task", "this is a new Task", 2, "random category");
     navigate().taskList();
     awaitTextToBePresentIn(
             By.id("taskListComponent:taskListForm:taskTable_data"), "new Task");

@@ -92,22 +92,20 @@ public class BaseJsfWorkflowUiTest
     switchToDefaultContent();
   }
 
-  protected void createTaskWithCategory(String title, String description, int priority, String category,
-          String process)
+  protected void createTaskWithCategory(String title, String description, int priority, String category)
   {
-    navigate().processList();
-    awaitToBeClickable(WF_JSF_LINK_ID).click();
-    switchToIFrame();
-    awaitToBePresent("formRequest:caption");
-    awaitToBeClickable("formRequest:caption").sendKeys(title);
-    prime().selectOne(By.id("formRequest:taskPriority")).selectItemByLabel(PRIORITIES[priority]);
-    awaitToBeClickable("formRequest:description").sendKeys(description);
-    awaitToBeClickable("formRequest:category").sendKeys(category);
-    awaitToBeClickable("formRequest:process").sendKeys(process);
+	navigate().processList();
+	awaitToBeClickable(WF_JSF_LINK_ID).click();
+	switchToIFrame();
+	awaitToBePresent("formRequest:caption");
+	awaitToBeClickable("formRequest:caption").sendKeys(title);
+	prime().selectOne(By.id("formRequest:taskPriority")).selectItemByLabel(PRIORITIES[priority]);
+	awaitToBeClickable("formRequest:description").sendKeys(description);
+	awaitToBeClickable("formRequest:category").sendKeys(category);
     awaitToBeClickable("formRequest:submitJsf").click();
     switchToDefaultContent();
   }
-
+  
   protected void closeTask()
   {
     navigate().taskList();
