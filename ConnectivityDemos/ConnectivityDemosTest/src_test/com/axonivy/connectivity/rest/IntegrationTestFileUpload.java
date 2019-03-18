@@ -23,52 +23,43 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 public class IntegrationTestFileUpload
 {
-
-  private String uri = EngineUrl.getServletUrl("api") + "/fileUpload"; 
-
   @Test
   public void sendPdfFile() throws IOException
   {
-    // tests if can send file "test.pdf"
-    try (FormDataMultiPart formDataMultiPart = new FormDataMultiPart())
-    {
-      File createWrongEmptyFile = createWrongEmptyFile("test", ".pdf");
-      FileDataBodyPart filePart = new FileDataBodyPart("file", createWrongEmptyFile);
-      FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart
-              .field("file", createWrongEmptyFile, MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
-
-      Response pdfResponse = createAuthenticatedClient()
-              .target(uri).request()
-              .header("X-Requested-By", "ivy")
-              .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
-      assertThat(pdfResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
-      assertThat(pdfResponse.readEntity(String.class)).endsWith(createWrongEmptyFile.getName());
-    }
+    File createWrongEmptyFile = createTempFile("test", ".pdf");
+    Response pdfResponse = uploadPdf(createWrongEmptyFile);
+    assertThat(pdfResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
+    assertThat(pdfResponse.readEntity(String.class)).endsWith(createWrongEmptyFile.getName());
   }
-  
+
   @Test
   public void fileNotPdf() throws IOException
   {
- // tests if can send file that is not .pdf
+    File createWrongEmptyFile = createTempFile("empty", ".txt");
+    Response notPdfResponse = uploadPdf(createWrongEmptyFile);
+    assertThat(notPdfResponse.getStatus()).isEqualTo(Status.INTERNAL_SERVER_ERROR.getStatusCode());
+  }
+
+  private static Response uploadPdf(File createWrongEmptyFile) throws IOException
+  {
+    String uri = EngineUrl.getServletUrl("api") + "/fileUpload";
+    FormDataMultiPart multipart;
     try (FormDataMultiPart formDataMultiPart = new FormDataMultiPart())
     {
-      File createWrongEmptyFile = createWrongEmptyFile("empty",".txt");
       FileDataBodyPart filePart = new FileDataBodyPart("file", createWrongEmptyFile);
-      FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart
+      multipart = (FormDataMultiPart) formDataMultiPart
               .field("file", createWrongEmptyFile, MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
-
-      Response notPdfResponse = createAuthenticatedClient()
-              .target(uri).request()
-              .header("X-Requested-By", "ivy")
-              .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
-      assertThat(notPdfResponse.getStatus()).isEqualTo(Status.INTERNAL_SERVER_ERROR.getStatusCode());
     }
+    Response pdfResponse = createAuthenticatedClient()
+            .target(uri).request()
+            .header("X-Requested-By", "ivy")
+            .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
+    return pdfResponse;
   }
-  
-  public File createWrongEmptyFile(String fileName, String extension) throws IOException
+
+  private static File createTempFile(String fileName, String extension) throws IOException
   {
-    File empty = java.nio.file.Files.createTempFile(fileName, extension).toFile();
-    return empty;
+    return java.nio.file.Files.createTempFile(fileName, extension).toFile();
   }
 
   private static final String login = "admin";
