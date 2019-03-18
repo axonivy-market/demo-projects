@@ -22,8 +22,8 @@ public class TestWorkflowAdmin extends BaseJsfWorkflowUiTest
     closeTask();
     closeTask();
     openStatistics();
-    awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "process1");
-    awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "process2");
+    awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "category1");
+    awaitTextToBePresentIn(By.id("caseStatisticForm:caseStatisticTable"), "category2");
   }
   
   @Test
