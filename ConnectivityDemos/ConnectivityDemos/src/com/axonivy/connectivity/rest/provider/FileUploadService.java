@@ -57,7 +57,7 @@ public class FileUploadService
     }
   }
 
-  private void checkIsPdf(String fileName)
+  private static void checkIsPdf(String fileName)
   {
     String extension = FilenameUtils.getExtension(fileName); 
     if (!StringUtils.equals(extension, "pdf")) 
