@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Wed Jun 04 10:10:19 CEST 2014]
-1447289CE234B167 3.17 #module
+1447289CE234B167 3.26 #module
 >Proto >Proto Collection #zClass
 Se0 StatisticAverage Big #zClass
 Se0 B #cInfo
@@ -19,71 +18,28 @@ Se0 @PushWFArc f2 '' #zField
 >Proto Se0 Se0 StatisticAverage #zField
 Se0 f0 outLink StatisticAverage.ivp #txt
 Se0 f0 type ch.ivyteam.wf.Data #txt
-Se0 f0 inParamDecl '<java.lang.String categoryCode,java.lang.String processCode> param;' #txt
-Se0 f0 inParamTable 'out.categoryCode=param.categoryCode;
-out.processCode=param.processCode;
+Se0 f0 inParamDecl '<java.lang.String category> param;' #txt
+Se0 f0 inParamTable 'out.category=param.category;
 ' #txt
 Se0 f0 actionDecl 'ch.ivyteam.wf.Data out;
 ' #txt
 Se0 f0 guid 144728AB334D5703 #txt
 Se0 f0 requestEnabled true #txt
 Se0 f0 triggerEnabled false #txt
-Se0 f0 callSignature StatisticAverage(String,String) #txt
+Se0 f0 callSignature StatisticAverage(String) #txt
 Se0 f0 persist false #txt
 Se0 f0 startName StatisticAverage #txt
-Se0 f0 taskData '#
-#Tue Jun 03 09:05:26 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Se0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Se0 f0 caseData '#
-#Tue Jun 03 09:05:26 CEST 2014
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Se0 f0 showInStartList 0 #txt
-Se0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Se0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>StatisticAverage.ivp</name>
-        <nameStyle>20,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -94,11 +50,10 @@ Se0 f0 -1|-1|-9671572 #nodeStyle
 Se0 f1 targetWindow NEW:card: #txt
 Se0 f1 targetDisplay TOP #txt
 Se0 f1 richDialogId ch.ivyteam.wf.admin.StatisticAverage #txt
-Se0 f1 startMethod start(String,String) #txt
+Se0 f1 startMethod start(String) #txt
 Se0 f1 type ch.ivyteam.wf.Data #txt
-Se0 f1 requestActionDecl '<String processCode, String categoryCode> param;' #txt
-Se0 f1 requestMappingAction 'param.processCode=in.processCode;
-param.categoryCode=in.categoryCode;
+Se0 f1 requestActionDecl '<String category> param;' #txt
+Se0 f1 requestMappingAction 'param.category=in.category;
 ' #txt
 Se0 f1 responseActionDecl 'ch.ivyteam.wf.Data out;
 ' #txt

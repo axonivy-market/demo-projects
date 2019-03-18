@@ -6,10 +6,8 @@ tasks Recordset #field
 tasks PERSISTENT #fieldModifier
 chart org.primefaces.model.chart.CartesianChartModel #field
 chart PERSISTENT #fieldModifier
-processCode String #field
-processCode PERSISTENT #fieldModifier
-categoryCode String #field
-categoryCode PERSISTENT #fieldModifier
+category String #field
+category PERSISTENT #fieldModifier
 mode String #field
 mode PERSISTENT #fieldModifier
 caseId Number #field

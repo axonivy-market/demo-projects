@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Wed Nov 26 16:38:42 CET 2014]
-144728B11565E706 3.17 #module
+144728B11565E706 3.26 #module
 >Proto >Proto Collection #zClass
 Ss0 StatisticAverageProcess Big #zClass
 Ss0 RD #cInfo
@@ -30,22 +29,20 @@ Ss0 @PushWFArc f6 '' #zField
 >Proto Ss0 Ss0 StatisticAverageProcess #zField
 Ss0 f0 guid 144728B116AEAD78 #txt
 Ss0 f0 type ch.ivyteam.wf.admin.StatisticAverage.StatisticAverageData #txt
-Ss0 f0 method start(String,String) #txt
+Ss0 f0 method start(String) #txt
 Ss0 f0 disableUIEvents true #txt
-Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String processCode,java.lang.String categoryCode> param = methodEvent.getInputArguments();
+Ss0 f0 inParameterDecl 'ch.ivyteam.wf.admin.StatisticAverage.StatisticAverageData out;
 ' #txt
 Ss0 f0 inParameterMapAction 'out.casesSize=0;
-out.categoryCode=param.categoryCode;
-out.processCode=param.processCode;
+out.category=param.category;
 ' #txt
 Ss0 f0 outParameterDecl '<> result;
 ' #txt
 Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(String,String)</name>
-        <nameStyle>20,5,7
+        <name>start(String)</name>
+        <nameStyle>13,5
 </nameStyle>
     </language>
 </elementInfo>
@@ -67,23 +64,16 @@ import ch.ivyteam.ivy.workflow.query.CaseQuery;
 
 CaseQuery caseQuery = CaseQuery.create();
 caseQuery.where().state().isEqual(CaseState.DONE);
-if(in.categoryCode.length()>0)
+if(in.category.length()>0)
 {
-		caseQuery.where().processCategoryCode().isEqual(in.categoryCode);
+		caseQuery.where().category().isEqual(in.category);
 }
 else
 {
-		caseQuery.where().processCategoryCode().isEqual(null);
+		caseQuery.where().category().isEqual(null);
 }
-if(in.processCode.length()>0)
-{
-		caseQuery.where().processCode().isEqual(in.processCode);
-}
-else
-{
-		caseQuery.where().processCode().isEqual(null);
-}
-caseQuery.aggregate().minBusinessRuntime().avgBusinessRuntime().minWorkingTime().maxProcessCategoryCode().maxProcessName().maxProcessCode().groupBy().caseId().name();
+
+caseQuery.aggregate().minBusinessRuntime().avgBusinessRuntime().minWorkingTime().groupBy().caseId().name();
 
 Recordset cases = ivy.wf.getCaseQueryExecutor().getRecordset(caseQuery);
 

@@ -32,9 +32,6 @@
 				<p:outputLabel value="#{ivy.cms.co('/labels/category')}" for="category" />
 				<p:inputText name="caption" value="#{data.data.category}" id="category" />
 				<br />
-				<p:outputLabel value="#{ivy.cms.co('/labels/process')}" for="process" />
-				<p:inputText name="caption" value="#{data.data.process}" id="process" />
-				<br />
 				<p:outputLabel value="#{ivy.cms.co('/labels/expiry')}" for="expiryDate" />
 				<p:calendar id="expiryDate" value="#{data.data.expiryDate}" showOn="button" pattern="dd.MM.yyyy" showButtonPanel="true">
            			<f:convertDateTime pattern="dd.MM.yyyy" />

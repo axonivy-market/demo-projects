@@ -1,9 +1,7 @@
 StatisticAverageData #class
 ch.ivyteam.wf.admin.StatisticAverage #namespace
-processCode String #field
-processCode PERSISTENT #fieldModifier
-categoryCode String #field
-categoryCode PERSISTENT #fieldModifier
+category String #field
+category PERSISTENT #fieldModifier
 cases Recordset #field
 cases PERSISTENT #fieldModifier
 chart org.primefaces.model.chart.CartesianChartModel #field

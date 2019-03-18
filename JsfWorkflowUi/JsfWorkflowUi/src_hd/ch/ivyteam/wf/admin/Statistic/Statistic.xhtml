@@ -44,8 +44,7 @@
    				<p:columnGroup type="header">
 		            <p:row>
 		                <p:column styleClass="icon-column"/>
-		                <p:column headerText="#{ivy.cms.co('/labels/common/process')}" sortBy="#{case.PROCESSCODE}" />
-		                <p:column headerText="#{ivy.cms.co('/labels/common/category')}" sortBy="#{case.MAXPROCESSCATEGORYCODE}" />
+		                <p:column headerText="#{ivy.cms.co('/labels/common/category')}" sortBy="#{case.CATEGORY}" />
 		                <p:column headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/runs')}" sortBy="#{case.COUNT}" />
 		                <p:column headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/min')}" sortBy="#{case.MINBUSINESSRUNTIME}" />
 		                <p:column headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/max')}" sortBy="#{case.MAXBUSINESSRUNTIME}" />
@@ -54,31 +53,28 @@
 		        </p:columnGroup>
    				
    				<p:column>
-           			<a href="#{ivy.html.startref('1447289CE234B167/StatisticAverage.ivp')}?processCode=#{case.PROCESSCODE}&amp;categoryCode=#{case.MAXPROCESSCATEGORYCODE}" title="#{ivy.cms.co('/navLabels/averageStatistic')}">
+           			<a href="#{ivy.html.startref('1447289CE234B167/StatisticAverage.ivp')}?category=#{case.CATEGORY}" title="#{ivy.cms.co('/navLabels/averageStatistic')}">
            			<span class="fa fa-bar-chart-o" />
            			</a>
         		</p:column>
        			<p:column>
-           			#{case.MAXPROCESSNAME == '' ? case.PROCESSCODE : case.MAXPROCESSNAME}
-       			</p:column>
-       			<p:column>
-       				#{case.MAXPROCESSCATEGORYNAME == '' ? case.MAXPROCESSCATEGORYCODE : case.MAXPROCESSCATEGORYNAME}
+           			#{case.CATEGORY}
        			</p:column>
        			<p:column>
            			#{case.COUNT}
        			</p:column>
        			<p:column>
-				    <a href="#{ivy.html.startref('144697C904B165C8/StatisticDetailsMin.ivp')}?processCode=#{case.PROCESSCODE}&amp;categoryCode=#{case.MAXPROCESSCATEGORYCODE}" id="linkStatisticDetailMin_#{row}" title="#{ivy.cms.co('/navLabels/detailsStatistic')}">
+				    <a href="#{ivy.html.startref('144697C904B165C8/StatisticDetailsMin.ivp')}?category=#{case.CATEGORY}" id="linkStatisticDetailMin_#{row}" title="#{ivy.cms.co('/navLabels/detailsStatistic')}">
 				    	#{case.formatedOutputMin}
 				    </a>
        			</p:column>
        			<p:column>
-           			<a href="#{ivy.html.startref('144697C904B165C8/StatisticDetailsMax.ivp')}?processCode=#{case.PROCESSCODE}&amp;categoryCode=#{case.MAXPROCESSCATEGORYCODE}" id="linkStatisticDetailMax_#{row}" title="#{ivy.cms.co('/navLabels/detailsStatistic')}">
+           			<a href="#{ivy.html.startref('144697C904B165C8/StatisticDetailsMax.ivp')}?category=#{case.CATEGORY}" id="linkStatisticDetailMax_#{row}" title="#{ivy.cms.co('/navLabels/detailsStatistic')}">
            				#{case.formatedOutputMax}
            			</a>
        			</p:column>
        			<p:column>
-           			<a href="#{ivy.html.startref('1447289CE234B167/StatisticAverage.ivp')}?processCode=#{case.PROCESSCODE}&amp;categoryCode=#{case.MAXPROCESSCATEGORYCODE}" id="linkStatisticAverage_#{row}" title="#{ivy.cms.co('/navLabels/averageStatistic')}">
+           			<a href="#{ivy.html.startref('1447289CE234B167/StatisticAverage.ivp')}?category=#{case.CATEGORY}" id="linkStatisticAverage_#{row}" title="#{ivy.cms.co('/navLabels/averageStatistic')}">
            				#{case.formatedOutputAvg}
            			</a>
        			</p:column>

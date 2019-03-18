@@ -7,15 +7,9 @@
     </method>
     <startMethod>
         <name>start</name>
-        <description>Default dialog start method.</description>
+        <description></description>
         <inputParameter>
-            <name>process</name>
-            <description></description>
-            <parameterType>String</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-        <inputParameter>
-            <name>categoryCode</name>
+            <name>category</name>
             <description></description>
             <parameterType>String</parameterType>
             <nullPermitted>false</nullPermitted>
