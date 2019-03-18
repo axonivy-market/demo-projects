@@ -22,6 +22,7 @@ import ch.ivyteam.api.API;
 @Path("fileUpload")
 public class FileUploadService
 {
+  @SuppressWarnings("unused")
   private String uri = "http://localhost:8081/ivy/api/designer/fileUpload";
 
   @PUT
@@ -35,24 +36,6 @@ public class FileUploadService
     checkExtension(fileUploadDetail.getFileName()); // checks if your file
                                                     // type/extension is right
     API.checkNotNull(fileUploadDetail, "fileUploadDetail");
-    createFile(fileUploadStream, fileLocation);
-    String result = "File was uploaded succesfully to: " + fileLocation;
-    return Response.status(200).entity(result).build();
-  }
-
-  private void checkExtension(String fileName)
-  {
-    String extension = FilenameUtils.getExtension(fileName); // check file
-                                                             // extension
-    if (!StringUtils.equals(extension, "pdf")) // deny if extension is other
-                                               // than .pdf
-    {
-      throw new IllegalArgumentException("The file is not a '.pdf'! Your file is: '." + extension + "'");
-    }
-  }
-
-  private void createFile(InputStream fileUploadStream, String fileLocation)
-  {
     try // create file
     {
       int read = 0;
@@ -68,6 +51,19 @@ public class FileUploadService
     catch (Exception ex)
     {
       ex.printStackTrace();
+    }
+    String result = "File was uploaded succesfully to: " + fileLocation;
+    return Response.status(200).entity(result).build();
+  }
+
+  private void checkExtension(String fileName)
+  {
+    String extension = FilenameUtils.getExtension(fileName); // check file
+                                                             // extension
+    if (!StringUtils.equals(extension, "pdf")) // deny if extension is other
+                                               // than .pdf
+    {
+      throw new IllegalArgumentException("The file is not a '.pdf'! Your file is: '." + extension + "'");
     }
   }
 }

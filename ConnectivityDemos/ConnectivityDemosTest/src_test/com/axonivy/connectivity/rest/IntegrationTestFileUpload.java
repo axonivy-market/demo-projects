@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -24,8 +23,6 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 public class IntegrationTestFileUpload
 {
-  private final InputStream target = this.getClass().getResourceAsStream("test.pdf");
-  private final String file = this.getClass().getResource("test.pdf").getFile();
 
   private String uri = EngineUrl.getServletUrl("api") + "/fileUpload"; 
 
@@ -35,16 +32,17 @@ public class IntegrationTestFileUpload
     // tests if can send file "test.pdf"
     try (FormDataMultiPart formDataMultiPart = new FormDataMultiPart())
     {
-      FileDataBodyPart filePart = new FileDataBodyPart("file", new File(file));
+      File createWrongEmptyFile = createWrongEmptyFile("test", ".pdf");
+      FileDataBodyPart filePart = new FileDataBodyPart("file", createWrongEmptyFile);
       FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart
-              .field("file", target, MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
+              .field("file", createWrongEmptyFile, MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
 
       Response pdfResponse = createAuthenticatedClient()
               .target(uri).request()
               .header("X-Requested-By", "ivy")
               .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
       assertThat(pdfResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
-      assertThat(pdfResponse.readEntity(String.class)).endsWith("test.pdf");
+      assertThat(pdfResponse.readEntity(String.class)).endsWith(createWrongEmptyFile.getName());
     }
   }
   
@@ -54,9 +52,10 @@ public class IntegrationTestFileUpload
  // tests if can send file that is not .pdf
     try (FormDataMultiPart formDataMultiPart = new FormDataMultiPart())
     {
-      FileDataBodyPart filePart = new FileDataBodyPart("file", createWrongEmptyFile());
+      File createWrongEmptyFile = createWrongEmptyFile("empty",".txt");
+      FileDataBodyPart filePart = new FileDataBodyPart("file", createWrongEmptyFile);
       FormDataMultiPart multipart = (FormDataMultiPart) formDataMultiPart
-              .field("file", createWrongEmptyFile(), MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
+              .field("file", createWrongEmptyFile, MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
 
       Response notPdfResponse = createAuthenticatedClient()
               .target(uri).request()
@@ -66,10 +65,9 @@ public class IntegrationTestFileUpload
     }
   }
   
-  public File createWrongEmptyFile() throws IOException
+  public File createWrongEmptyFile(String fileName, String extension) throws IOException
   {
-    File empty = new File("src_test/com/axonivy/connectivity/rest/empty.txt");
-    empty.createNewFile();
+    File empty = java.nio.file.Files.createTempFile(fileName, extension).toFile();
     return empty;
   }
 
