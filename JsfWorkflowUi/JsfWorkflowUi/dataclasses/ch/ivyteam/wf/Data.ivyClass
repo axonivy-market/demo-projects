@@ -10,7 +10,5 @@ message String #field
 message PERSISTENT #fieldModifier
 caseId Number #field
 caseId PERSISTENT #fieldModifier
-processCode String #field
-processCode PERSISTENT #fieldModifier
-categoryCode String #field
-categoryCode PERSISTENT #fieldModifier
+category String #field
+category PERSISTENT #fieldModifier

@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Wed Nov 26 16:49:44 CET 2014]
-1446978B0F659AB0 3.17 #module
+1446978B0F659AB0 3.26 #module
 >Proto >Proto Collection #zClass
 Ss0 StatisticDetailsProcess Big #zClass
 Ss0 RD #cInfo
@@ -32,22 +31,20 @@ Ss0 @PushWFArc f10 '' #zField
 >Proto Ss0 Ss0 StatisticDetailsProcess #zField
 Ss0 f0 guid 1446978B1157DF7E #txt
 Ss0 f0 type ch.ivyteam.wf.admin.StatisticDetails.StatisticDetailsData #txt
-Ss0 f0 method start(String,String,String,Number) #txt
+Ss0 f0 method start(String,String,Number) #txt
 Ss0 f0 disableUIEvents true #txt
-Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String process,java.lang.String categoryCode,java.lang.String mode,java.lang.Number caseId> param = methodEvent.getInputArguments();
+Ss0 f0 inParameterDecl 'ch.ivyteam.wf.admin.StatisticDetails.StatisticDetailsData out;
 ' #txt
 Ss0 f0 inParameterMapAction 'out.caseId=param.caseId;
-out.categoryCode=param.categoryCode;
+out.category=param.category;
 out.mode=param.mode;
-out.processCode=param.process;
 ' #txt
 Ss0 f0 outParameterDecl '<> result;
 ' #txt
 Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(String,String,String,Number)</name>
+        <name>start(String,String,Number)</name>
     </language>
 </elementInfo>
 ' #txt
@@ -127,30 +124,22 @@ else
 {
 	String column = in.mode == "min" ? "MINBUSINESSRUNTIME" : "MAXBUSINESSRUNTIME";
 	caseQuery.where().state().isEqual(CaseState.DONE);
-	if(in.categoryCode.length()>0)
+	if(in.category.length()>0)
 	{
-		caseQuery.where().processCategoryCode().isEqual(in.categoryCode);
+		caseQuery.where().category().isEqual(in.category);
 	}
 	else
 	{
-		caseQuery.where().processCategoryCode().isEqual(null);
+		caseQuery.where().category().isEqual(null);
 	}
-	if(in.processCode.length()>0)
-	{
-		caseQuery.where().processCode().isEqual(in.processCode);
-	}
-	else
-	{
-		caseQuery.where().processCode().isEqual(null);
-	}
-	caseQuery.aggregate().countRows().minBusinessRuntime().maxBusinessRuntime().avgBusinessRuntime().maxProcessCategoryCode().maxProcessName().groupBy().processCode();
+
+	caseQuery.aggregate().countRows().minBusinessRuntime().maxBusinessRuntime().avgBusinessRuntime().groupBy().category();
 	
 	Recordset cases = ivy.wf.getCaseQueryExecutor().getRecordset(caseQuery);
 	if(cases.size() >0)
 	{
 		caseFilter = ivy.wf.createCasePropertyFilter(CaseProperty.BUSINESS_RUNTIME, RelationalOperator.EQUAL, cases.getAt(0).getField(column));
-		caseFilter.and(CaseProperty.PROCESS_CODE, RelationalOperator.EQUAL, cases.getAt(0).getField("PROCESSCODE"));
-		caseFilter.and(CaseProperty.PROCESS_CATEGORY_CODE, RelationalOperator.EQUAL, cases.getAt(0).getField("MAXPROCESSCATEGORYCODE"));
+		caseFilter.and(CaseProperty.CATEGORY, RelationalOperator.EQUAL, cases.getAt(0).getField("CATEGORY"));
 		IQueryResult queryResult = ivy.wf.findCases(caseFilter, PropertyOrder.create(CaseProperty.ID, OrderDirection.DESCENDING),
 			0, 1 ,true);
 		
@@ -185,7 +174,7 @@ TaskQuery taskQuery = TaskQuery.create();
 if(in.wfCase !=null)
 {
 taskQuery.where().caseId().isEqual(in.wfCase.getId()).
-aggregate().minWorkingTime().minBusinessRuntime().avgBusinessRuntime().maxProcessCategoryCode().maxName().groupBy().taskId();
+aggregate().minWorkingTime().minBusinessRuntime().avgBusinessRuntime().maxName().groupBy().taskId();
 
 Recordset tasks = ivy.wf.getTaskQueryExecutor().getRecordset(taskQuery);
 
