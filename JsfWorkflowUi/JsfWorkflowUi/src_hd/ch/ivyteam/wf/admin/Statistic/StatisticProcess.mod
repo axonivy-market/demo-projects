@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Tue Jun 13 10:26:50 CEST 2017]
-144631CE64C7434D 3.20 #module
+144631CE64C7434D 3.26 #module
 >Proto >Proto Collection #zClass
 Ss0 StatisticProcess Big #zClass
 Ss0 RD #cInfo
@@ -141,11 +140,10 @@ Duration endOfDay = new Duration(60 * 60 * 24);
 caseQuery.where().state().isEqual(CaseState.DONE);
 if(in.catFilter != "all")
 {
-	caseQuery.where().processCategoryCode().isEqual(in.catFilter);
+	caseQuery.where().category().isEqual(in.catFilter);
 }
 caseQuery.where().endTimestamp().isGreaterOrEqualThan(in.dateFromFilter).where().endTimestamp().isLowerOrEqualThan(in.dateToFilter + endOfDay).
-aggregate().countRows().minBusinessRuntime().maxBusinessRuntime().avgBusinessRuntime().maxProcessCategoryCode().maxProcessCategoryName().
-maxProcessName().groupBy().processCode();
+aggregate().countRows().minBusinessRuntime().maxBusinessRuntime().avgBusinessRuntime().groupBy().category();
 
 in.cases = ivy.wf.getCaseQueryExecutor().getRecordset(caseQuery);' #txt
 Ss0 f10 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
@@ -182,21 +180,14 @@ if(in.catFilter == "all")
 		Boolean existsCategory = false;
 		for(String category : in.categories.getColumn("categoryCode"))
 		{
-			if(category == in.cases.getAt(count).getField("MAXPROCESSCATEGORYCODE").toString())
+			if(category == in.cases.getAt(count).getField("CATEGORY").toString())
 			{
 				existsCategory = true;
 			}
 		}
 		if(!existsCategory)
 		{
-			if(in.cases.getAt(count).getField("MAXPROCESSCATEGORYNAME").toString() == "")
-			{
-				in.categories.add([in.cases.getAt(count).getField("MAXPROCESSCATEGORYCODE").toString(), in.cases.getAt(count).getField("MAXPROCESSCATEGORYCODE").toString()]);
-			}
-			else
-			{
-				in.categories.add([in.cases.getAt(count).getField("MAXPROCESSCATEGORYCODE").toString(), in.cases.getAt(count).getField("MAXPROCESSCATEGORYNAME").toString()]);
-			}
+			in.categories.add([in.cases.getAt(count).getField("CATEGORY").toString(), in.cases.getAt(count).getField("CATEGORY").toString()]);
 		}
 	}
 }' #txt

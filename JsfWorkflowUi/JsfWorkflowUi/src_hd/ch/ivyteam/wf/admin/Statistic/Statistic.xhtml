@@ -44,8 +44,7 @@
    				<p:columnGroup type="header">
 		            <p:row>
 		                <p:column styleClass="icon-column"/>
-		                <p:column headerText="#{ivy.cms.co('/labels/common/process')}" sortBy="#{case.PROCESSCODE}" />
-		                <p:column headerText="#{ivy.cms.co('/labels/common/category')}" sortBy="#{case.MAXPROCESSCATEGORYCODE}" />
+		                <p:column headerText="#{ivy.cms.co('/labels/common/category')}" sortBy="#{case.CATEGORY}" />
 		                <p:column headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/runs')}" sortBy="#{case.COUNT}" />
 		                <p:column headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/min')}" sortBy="#{case.MINBUSINESSRUNTIME}" />
 		                <p:column headerText="#{ivy.cms.co('/labels/admin/workflowStatistic/max')}" sortBy="#{case.MAXBUSINESSRUNTIME}" />
@@ -59,10 +58,7 @@
            			</a>
         		</p:column>
        			<p:column>
-           			#{case.MAXPROCESSNAME == '' ? case.PROCESSCODE : case.MAXPROCESSNAME}
-       			</p:column>
-       			<p:column>
-       				#{case.MAXPROCESSCATEGORYNAME == '' ? case.MAXPROCESSCATEGORYCODE : case.MAXPROCESSCATEGORYNAME}
+           			#{case.CATEGORY}
        			</p:column>
        			<p:column>
            			#{case.COUNT}
