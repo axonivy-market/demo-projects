@@ -20,7 +20,6 @@ import ch.ivyteam.ivy.environment.Ivy;
  * 
  * <p>See <b>Processes/rest/batchService</b> for usage samples</p>
  */
-@SuppressWarnings("restriction")
 @Path("batch")
 public class BatchService {
 

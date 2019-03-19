@@ -21,18 +21,11 @@
 	
 	<!-- Maven dependencies are not available on engine runtime!
 	So the relevant JARs we're copied into the /lib directory.  -->
-	<dependencies>
 	<!--	<dependency>
 		    <groupId>org.glassfish.jersey.security</groupId>
 		    <artifactId>oauth1-client</artifactId>
 		    <version>2.22.2</version>
 		</dependency> -->
-		<dependency>
-			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-multipart</artifactId>
-			<version>${jersey.version}</version>
-		</dependency>
-	</dependencies> 
 	
 	
 	<build>
