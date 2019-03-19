@@ -124,7 +124,7 @@ else
 {
 	String column = in.mode == "min" ? "MINBUSINESSRUNTIME" : "MAXBUSINESSRUNTIME";
 	caseQuery.where().state().isEqual(CaseState.DONE);
-	if(in.category.length()>0)
+	if(in.category != null)
 	{
 		caseQuery.where().category().isEqual(in.category);
 	}
