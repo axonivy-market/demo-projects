@@ -64,14 +64,8 @@ import ch.ivyteam.ivy.workflow.query.CaseQuery;
 
 CaseQuery caseQuery = CaseQuery.create();
 caseQuery.where().state().isEqual(CaseState.DONE);
-if(in.category != null)
-{
-		caseQuery.where().category().isEqual(in.category);
-}
-else
-{
-		caseQuery.where().category().isEqual(null);
-}
+
+caseQuery.where().category().isEqual(in.category);
 
 caseQuery.aggregate().minBusinessRuntime().avgBusinessRuntime().minWorkingTime().groupBy().caseId().name();
 
