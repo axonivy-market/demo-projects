@@ -62,7 +62,7 @@ public class IntegrationTestFileUpload
     return java.nio.file.Files.createTempFile(fileName, extension).toFile();
   }
 
-  private static final String login = "admin";
+  private static final String login = "restUser";
 
   private static Client createAuthenticatedClient()
   {
