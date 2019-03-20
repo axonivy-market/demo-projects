@@ -15,18 +15,16 @@
 		<relativePath>../../build.maven/iar</relativePath>
 	</parent>
 
-	 <properties>
-		<jersey.version>2.22.2</jersey.version>
-	</properties>
-	
-	<!-- Maven dependencies are not available on engine runtime!
-	So the relevant JARs we're copied into the /lib directory.  -->
-	<!--	<dependency>
+	<!-- 
+	Maven dependencies are not available on engine runtime!
+	So the relevant JARs we're copied into the /lib directory.
+	<dependencies>
+		<dependency>
 		    <groupId>org.glassfish.jersey.security</groupId>
 		    <artifactId>oauth1-client</artifactId>
 		    <version>2.22.2</version>
-		</dependency> -->
-	
+		</dependency>
+	</dependencies> -->
 	
 	<build>
 		<plugins>
