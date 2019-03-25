@@ -10,11 +10,15 @@
 <h:body>
 <ui:composition template="/layouts/HtmlDemo.xhtml">
 
-  <ui:define name="title">Static EndPage</ui:define>
+  <ui:define name="title">Static Jsf EndPage</ui:define>
   <ui:define name="content">
     <h:form>
       <h:panelGroup layout="block" id="panel">
-        <h:outputText value="This is a static xhtml page. It's loaded directly from the webContent Folder. 
+        <h3>
+          <h:outputText value="#{ivy.cms.co('/ch.ivyteam.htmldialog.demo/Static/Welcome')} "/>
+          <h:outputText value="#{ivy.session.sessionUserName}"/>
+        </h3>
+        <h:outputText value="This is a static Jsf page. It's loaded directly from the webContent Folder. 
           This means it has nothing to do with a task or a process."/>
         <br />
         <h:outputText value="But it's a normal jsf page which means it can interact with beans:" />
