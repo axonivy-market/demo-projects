@@ -1,23 +1,30 @@
 package com.axonivy.connectivity.rest.provider;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
+import java.io.OutputStream;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.StreamingOutput;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 
 import ch.ivyteam.api.API;
+import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.File;
 
 /**
@@ -34,7 +41,7 @@ public class FileUploadService
           @FormDataParam("file") FormDataContentDisposition fileUploadDetail) throws IOException
   {
     String fileName = fileUploadDetail.getFileName();
-    checkIsPdf(fileName);
+    checkExtension(fileName);
     API.checkNotNull(fileUploadDetail, "fileUploadDetail");
     File ivyFile = createIvyFile(fileUploadStream, fileName);
     String result = "File was uploaded succesfully to: " + ivyFile.getAbsolutePath();
@@ -44,25 +51,63 @@ public class FileUploadService
   private static File createIvyFile(InputStream fileUploadStream, String fileName)
           throws IOException
   {
-    try
+    File ivyFile = new File("restDemo/" + fileName);
+    try (OutputStream os = new FileOutputStream(ivyFile.getJavaFile()))
     {
-      File ivyFile = new File("restDemo/"+fileName);
-      String fileContent = IOUtils.toString(fileUploadStream, StandardCharsets.UTF_8);
-      ivyFile.write(fileContent);
+      IOUtils.copy(fileUploadStream, os);
       return ivyFile;
     }
     catch (IOException ex)
     {
-      throw new IOException("File could not be uploaded: "+fileName);
+      throw new IOException("File could not be uploaded: " + fileName);
     }
   }
 
-  private static void checkIsPdf(String fileName)
+  private static void checkExtension(String fileName)
   {
-    String extension = FilenameUtils.getExtension(fileName); 
-    if (!StringUtils.equals(extension, "pdf")) 
+    String extension = FilenameUtils.getExtension(fileName);
+    if (checkIfStringContainsList(extension))
     {
-      throw new IllegalArgumentException("The file is not a '.pdf'! Your file is: '." + extension + "'");
+      throw new IllegalArgumentException("The file is not allowed! Your file is: '." + extension + "'");
     }
   }
+
+  private static List<String> whitelistedExtensions = Arrays.asList("pdf", "txt", "jpg");
+  
+  @SuppressWarnings("unlikely-arg-type")
+  private static boolean checkIfStringContainsList(String extension)
+  {
+    return Arrays.asList(whitelistedExtensions).contains(extension);
+  }
+
+  @GET
+  @Path("/{fileName}")
+  public Response downloadPdfFile(@PathParam("fileName") String fileName) throws IOException
+  {
+    File ivyFile = new File("restDemo/" + fileName);
+    byte[] data = ivyFile.readBinary().toByteArray();
+    Ivy.log().fatal(ivyFile.exists());
+    Ivy.log().fatal("data: " + data);
+    StreamingOutput fileStream = new StreamingOutput()
+      {
+        @Override
+        public void write(java.io.OutputStream output) throws IOException, WebApplicationException
+        {
+          try
+          {
+            output.write(data);
+            output.flush();
+          }
+          catch (Exception e)
+          {
+            throw new WebApplicationException("File Not Found !!", e);
+          }
+        }
+      };
+    return Response
+            .ok(fileStream, MediaType.APPLICATION_OCTET_STREAM)
+            .header("content-disposition", "attachment; filename = " + fileName)
+            .build();
+  }
+
 }
