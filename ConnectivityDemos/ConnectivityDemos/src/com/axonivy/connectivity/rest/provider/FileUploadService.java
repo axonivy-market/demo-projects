@@ -50,7 +50,7 @@ public class FileUploadService
   private static File createIvyFile(InputStream fileUploadStream, String fileName)
           throws IOException
   {
-    File ivyFile = new File("restDemo/" + fileName);
+    File ivyFile = new File(fileName);
     try (OutputStream os = new FileOutputStream(ivyFile.getJavaFile()))
     {
       IOUtils.copy(fileUploadStream, os);
@@ -83,7 +83,7 @@ public class FileUploadService
   @Path("/{fileName}")
   public Response downloadPdfFile(@PathParam("fileName") String fileName) throws IOException
   {
-    File ivyFile = new File("restDemo/" + fileName);
+    File ivyFile = new File(fileName);
     byte[] data = ivyFile.readBinary().toByteArray();
     StreamingOutput fileStream = new StreamingOutput()
       {
