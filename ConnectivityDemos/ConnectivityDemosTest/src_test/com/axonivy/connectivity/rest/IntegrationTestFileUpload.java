@@ -3,8 +3,10 @@ package com.axonivy.connectivity.rest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -26,26 +28,33 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 public class IntegrationTestFileUpload
 {
   String fileName = "test.pdf";
-  
+
   @Test
   public void checkingRealPdf() throws IOException
   {
-    String pdf = this.getClass().getResource(fileName).getFile();
-    File realPdf = new File(pdf);
+    File realPdf = new File(fileName);
+    try (InputStream pdf = this.getClass().getResourceAsStream(fileName);
+         OutputStream os = new FileOutputStream(realPdf))
+    {
+      IOUtils.copy(pdf, os);
+    }
     Response pdfResponse = uploadPdf(realPdf);
     assertThat(pdfResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
-    
-    String uri = EngineUrl.getServletUrl("api") + "/fileUpload/"+fileName;
-    InputStream target = this.getClass().getResourceAsStream(fileName);
+
+    String uri = EngineUrl.getServletUrl("api") + "/fileUpload/" + fileName;
     Response downloadResponse = createAuthenticatedClient()
             .target(uri)
             .request().accept(MediaType.APPLICATION_OCTET_STREAM).get();
     assertThat(downloadResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
-    byte[] received = IOUtils.toByteArray(downloadResponse.readEntity(InputStream.class));
-    byte[] expected = IOUtils.toByteArray(target);
-    assertThat(received).isEqualTo(expected); 
+    try(InputStream target = this.getClass().getResourceAsStream(fileName); 
+        InputStream restStream = downloadResponse.readEntity(InputStream.class))
+    {
+      byte[] received = IOUtils.toByteArray(restStream);
+      byte[] expected = IOUtils.toByteArray(target);
+      assertThat(received).isEqualTo(expected);
+    }
   }
-  
+
   @Test
   public void sendPdfFile() throws IOException
   {
