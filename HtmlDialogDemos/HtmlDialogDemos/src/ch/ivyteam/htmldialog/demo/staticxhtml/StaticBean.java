@@ -3,6 +3,8 @@ package ch.ivyteam.htmldialog.demo.staticxhtml;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import ch.ivyteam.ivy.environment.Ivy;
+
 @ManagedBean
 @RequestScoped
 public class StaticBean
@@ -16,6 +18,6 @@ public class StaticBean
   
   public void buttonAction()
   {
-    text = "You clicked the button.";
+    text = Ivy.session().getSessionUserName() + " clicked the button in application '" + Ivy.wf().getApplication().getName() + "'.";
   }
 }
