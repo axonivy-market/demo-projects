@@ -58,9 +58,10 @@ public class FileUploadService
     }
     catch (IOException ex)
     {
-      throw new IOException("File could not be uploaded: " + fileName);
+      throw new IOException("File could not be uploaded: " + fileName, ex);
     }
   }
+  
 
   private static void checkExtension(String fileName)
   {
