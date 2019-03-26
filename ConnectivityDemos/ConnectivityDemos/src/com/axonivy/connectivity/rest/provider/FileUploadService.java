@@ -24,7 +24,6 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 
 import ch.ivyteam.api.API;
-import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.File;
 
 /**
@@ -66,7 +65,7 @@ public class FileUploadService
   private static void checkExtension(String fileName)
   {
     String extension = FilenameUtils.getExtension(fileName);
-    if (checkIfStringContainsList(extension))
+    if (!checkIfStringContainsList(extension))
     {
       throw new IllegalArgumentException("The file is not allowed! Your file is: '." + extension + "'");
     }
@@ -74,20 +73,17 @@ public class FileUploadService
 
   private static List<String> whitelistedExtensions = Arrays.asList("pdf", "txt", "jpg");
   
-  @SuppressWarnings("unlikely-arg-type")
   private static boolean checkIfStringContainsList(String extension)
   {
-    return Arrays.asList(whitelistedExtensions).contains(extension);
+    return whitelistedExtensions.contains(extension);
   }
 
   @GET
   @Path("/{fileName}")
   public Response downloadPdfFile(@PathParam("fileName") String fileName) throws IOException
   {
-    File ivyFile = new File("restDemo/" + fileName);
+    File ivyFile = new File("restDemo/usableFiles/" + fileName);
     byte[] data = ivyFile.readBinary().toByteArray();
-    Ivy.log().fatal(ivyFile.exists());
-    Ivy.log().fatal("data: " + data);
     StreamingOutput fileStream = new StreamingOutput()
       {
         @Override
