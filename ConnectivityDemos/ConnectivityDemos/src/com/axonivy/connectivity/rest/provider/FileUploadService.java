@@ -82,7 +82,7 @@ public class FileUploadService
   @Path("/{fileName}")
   public Response downloadPdfFile(@PathParam("fileName") String fileName) throws IOException
   {
-    File ivyFile = new File("restDemo/usableFiles/" + fileName);
+    File ivyFile = new File("restDemo/" + fileName);
     byte[] data = ivyFile.readBinary().toByteArray();
     StreamingOutput fileStream = new StreamingOutput()
       {
@@ -94,9 +94,9 @@ public class FileUploadService
             output.write(data);
             output.flush();
           }
-          catch (Exception e)
+          catch (IOException e)
           {
-            throw new WebApplicationException("File Not Found !!", e);
+            throw new WebApplicationException("Could not Find the file: '"+fileName+"'", e);
           }
         }
       };
