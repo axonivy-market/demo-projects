@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">FileUpload</ui:define>
+		<ui:define name="content">
+			<h3>
+			This is an HTML Dialog for file upload
+			</h3>
+			
+			<h:form id="form" enctype="multipart/form-data">
+				<h:panelGrid columns="1">
+					<f:facet name="header">
+					</f:facet>
+					<h:outputText value="File:" style="font-size: 14pt;"/>
+				</h:panelGrid>
+				<h:panelGrid columns="3">	
+				<p:fileUpload value="#{data.file}" mode="simple"/>
+				<!-- <p:selectOneMenu value="#{data.fileName}">
+					<f:selectItem itemLabel="PDF" itemValue="test.pdf"/>
+					<f:selectItem itemLabel="TXT" itemValue="test.txt"/>
+					<f:selectItem itemLabel="JPG" itemValue="test.jpg"/> 
+				</p:selectOneMenu>  -->
+				<br/>
+				<p:commandButton value="Download File" ajax="false" disabled="#{data.file == null}" actionListener="#{logic.downloadFile}">
+					<p:fileDownload value="#{data.fileDownload}"/>
+				</p:commandButton>
+				<p:commandButton value="Upload file" actionListener="#{logic.uploadFile}" ajax="false"/>
+				</h:panelGrid>
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

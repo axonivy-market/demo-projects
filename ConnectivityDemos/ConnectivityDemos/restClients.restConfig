@@ -134,4 +134,32 @@ To run this service locally:
             </feature>
         </configuration>
     </restClient>
+    <restClient>
+        <uuid>4d9a8b09-9968-4476-a8ac-b71a94d25e94</uuid>
+        <name>fileUpload</name>
+        <configuration>
+            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/fileUpload</uri>
+            <property>
+                <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
+                <value>false</value>
+                <password>false</password>
+            </property>
+            <property>
+                <name>username</name>
+                <value>restUser</value>
+                <password>false</password>
+            </property>
+            <property>
+                <name>password</name>
+                <value>\u0047\u0065\u0043\u004F\u00F4\u00DE\u0091\u003C\u0035\u0018\u005F\u00F2\u0066\u0026\u00F7\u0002\u00D1\u008C\u0057\u00AF\u00B8\u004F\u00CD\u0034\u00C3\u00AF\u00C2\u00F8\u001E\u002C\u008C\u006A\u0084\u0095\u00CF\u0065\u0005\u00CB\u006E\u00BB\u004F\u000C\u00E9\u00C6\u0031\u00F7\u0083\u002A\u00F4\u0006\u001F\u00E5\u0084\u00A7\u00CB\u0092\u00E6\u0058\u00E2\u00D9\u0091\u00CC\u00B5\u00DE</value>
+                <password>true</password>
+            </property>
+            <feature>
+                <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
+            </feature>
+            <feature>
+                <class>org.glassfish.jersey.media.multipart.MultiPartFeature</class>
+            </feature>
+        </configuration>
+    </restClient>
 </restClients>
