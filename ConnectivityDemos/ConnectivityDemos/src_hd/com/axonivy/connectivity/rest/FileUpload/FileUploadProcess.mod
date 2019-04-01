@@ -101,20 +101,20 @@ Fs0 f7 actionDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData out;
 Fs0 f7 actionTable 'out=in;
 ' #txt
 Fs0 f7 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
-Fs0 f7 168 298 112 44 0 -7 #rect
+Fs0 f7 152 298 112 44 0 -7 #rect
 Fs0 f7 @|StepIcon #fIcon
 Fs0 f8 expr out #txt
-Fs0 f8 109 320 168 320 #arcP
+Fs0 f8 109 320 152 320 #arcP
 Fs0 f9 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 Fs0 f9 499 307 26 26 0 12 #rect
 Fs0 f9 @|RichDialogProcessEndIcon #fIcon
 Fs0 f14 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
-Fs0 f14 523 227 26 26 0 12 #rect
+Fs0 f14 315 227 26 26 0 12 #rect
 Fs0 f14 @|RichDialogProcessEndIcon #fIcon
 Fs0 f16 328 298 112 44 0 -7 #rect
 Fs0 f16 @|RestClientCallIcon #fIcon
 Fs0 f17 expr out #txt
-Fs0 f17 280 320 328 320 #arcP
+Fs0 f17 264 320 328 320 #arcP
 Fs0 f10 440 320 499 320 #arcP
 Fs0 f11 guid 169B4F370251BEAE #txt
 Fs0 f11 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
@@ -147,7 +147,7 @@ Fs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Fs0 f12 83 147 26 26 -27 14 #rect
 Fs0 f12 @|RichDialogProcessStartIcon #fIcon
 Fs0 f13 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
-Fs0 f13 499 147 26 26 0 12 #rect
+Fs0 f13 315 147 26 26 0 12 #rect
 Fs0 f13 @|RichDialogProcessEndIcon #fIcon
 Fs0 f19 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 Fs0 f19 path /{in.fileName} #txt
@@ -184,13 +184,29 @@ Fs0 f20 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 Fs0 f20 method JAX_RS #txt
 Fs0 f20 bodyInputType FORM #txt
 Fs0 f20 bodyMediaType multipart/form-data #txt
-Fs0 f20 clientCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
+Fs0 f20 clientCode 'import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
+import java.io.IOException;
 
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import org.glassfish.jersey.media.multipart.FormDataMultiPart;
+import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 java.io.File file = in.file.getJavaFile();
 
-FileUpload.upload(client, file);
+  FormDataMultiPart multipart;
+  FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
+  FileDataBodyPart filePart = new FileDataBodyPart("file", file);
+  multipart = formDataMultiPart.field("file", file, MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart) as FormDataMultiPart;
+	Response jaxrsresponse = client.request().header("X-Requested-By", "ivy")
+   .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
+    
+  ivy.log.info(jaxrsresponse);
+	//FileUpload.upload(client, file);
 
-out.fileName = file.getName();' #txt
+	out.fileName = file.getName();' #txt
 Fs0 f20 clientErrorCode ivy:error:rest:client #txt
 Fs0 f20 statusErrorCode ivy:error:rest:client #txt
 Fs0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -204,10 +220,10 @@ Fs0 f20 152 138 112 44 -24 -7 #rect
 Fs0 f20 @|RestClientCallIcon #fIcon
 Fs0 f22 expr out #txt
 Fs0 f22 109 240 152 240 #arcP
-Fs0 f21 264 240 523 240 #arcP
+Fs0 f21 264 240 315 240 #arcP
 Fs0 f24 expr out #txt
 Fs0 f24 109 160 152 160 #arcP
-Fs0 f25 264 160 499 160 #arcP
+Fs0 f25 264 160 315 160 #arcP
 >Proto Fs0 .type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 >Proto Fs0 .processKind HTML_DIALOG #txt
 >Proto Fs0 -8 -8 16 16 16 26 #rect
