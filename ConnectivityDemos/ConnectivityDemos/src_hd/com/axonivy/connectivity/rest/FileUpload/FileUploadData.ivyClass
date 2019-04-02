@@ -4,7 +4,5 @@ fileName String #field
 fileName PERSISTENT #fieldModifier
 file File #field
 file PERSISTENT #fieldModifier
-filePath String #field
-filePath PERSISTENT #fieldModifier
 fileDownload org.primefaces.model.StreamedContent #field
 fileDownload PERSISTENT #fieldModifier

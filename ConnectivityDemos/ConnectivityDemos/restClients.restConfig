@@ -140,11 +140,6 @@ To run this service locally:
         <configuration>
             <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/fileUpload</uri>
             <property>
-                <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
-                <value>false</value>
-                <password>false</password>
-            </property>
-            <property>
                 <name>username</name>
                 <value>restUser</value>
                 <password>false</password>

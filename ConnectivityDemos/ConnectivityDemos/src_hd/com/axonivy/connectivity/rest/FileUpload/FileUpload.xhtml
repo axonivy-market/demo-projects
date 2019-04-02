@@ -10,31 +10,34 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">FileUpload</ui:define>
 		<ui:define name="content">
-			<h3>
-			This is an HTML Dialog for file upload
-			</h3>
-			
+			<h3>This is an HTML Dialog for Rest file upload</h3>
+
 			<h:form id="form" enctype="multipart/form-data">
+				<h:outputText
+					value="1. Choose file you want to upload (allowed file extensions/types are in FileUplaodService.java)" />
 				<h:panelGrid columns="1">
 					<f:facet name="header">
 					</f:facet>
-					<h:outputText value="File:" style="font-size: 14pt;"/>
-				</h:panelGrid>
-				<h:panelGrid columns="3">	
-				<p:fileUpload value="#{data.file}" mode="simple"/>
-				<!-- <p:selectOneMenu value="#{data.fileName}">
-					<f:selectItem itemLabel="PDF" itemValue="test.pdf"/>
-					<f:selectItem itemLabel="TXT" itemValue="test.txt"/>
-					<f:selectItem itemLabel="JPG" itemValue="test.jpg"/> 
-				</p:selectOneMenu>  -->
-				<br/>
-				<p:commandButton value="Download File" ajax="false" disabled="#{data.file == null}" actionListener="#{logic.downloadFile}">
-					<p:fileDownload value="#{data.fileDownload}"/>
-				</p:commandButton>
-				<p:commandButton value="Upload file" actionListener="#{logic.uploadFile}" ajax="false"/>
+					<p:fileUpload value="#{data.file}" mode="simple" skinSimple="true" />
+					<br />
+					<h:outputText
+						value="2. Upload file via Rest Service Call in Process Logic" />
+					<h:panelGrid columns="2">
+						<p:commandButton value="Upload file in Rest"
+							actionListener="#{logic.uploadFileRest}" ajax="false" />
+						<p:commandButton value="Upload file Rest to Java"
+							actionListener="#{logic.uploadFileJava}" ajax="false" />
+					</h:panelGrid>
+					<br />
+					<h:outputText value="3. Download File" />
+					<p:commandButton value="Download File" ajax="false"
+						disabled="#{data.file == null}"
+						actionListener="#{logic.downloadFile}">
+						<p:fileDownload value="#{data.fileDownload}" />
+					</p:commandButton>
 				</h:panelGrid>
 			</h:form>
-			
+
 		</ui:define>
 	</ui:composition>
 </h:body>
