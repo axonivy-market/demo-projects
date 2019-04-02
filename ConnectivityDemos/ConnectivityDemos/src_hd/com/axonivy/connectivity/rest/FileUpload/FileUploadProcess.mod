@@ -167,8 +167,7 @@ java.io.File file = in.file.getJavaFile();
    .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
     
   ivy.log.info(jaxrsresponse);
-	//FileUpload.upload(client, file);
-
+  
 	out.fileName = file.getName();' #txt
 Fs0 f20 clientErrorCode ivy:error:rest:client #txt
 Fs0 f20 statusErrorCode ivy:error:rest:client #txt
