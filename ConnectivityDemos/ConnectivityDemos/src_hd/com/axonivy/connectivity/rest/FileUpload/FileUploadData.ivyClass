@@ -1,8 +1,12 @@
 FileUploadData #class
 com.axonivy.connectivity.rest.FileUpload #namespace
-fileName String #field
-fileName PERSISTENT #fieldModifier
+resourceName String #field
+resourceName PERSISTENT #fieldModifier
 file File #field
 file PERSISTENT #fieldModifier
 fileDownload org.primefaces.model.StreamedContent #field
 fileDownload PERSISTENT #fieldModifier
+listFile java.util.List<String> #field
+listFile PERSISTENT #fieldModifier
+downloadName String #field
+downloadName PERSISTENT #fieldModifier

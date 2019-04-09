@@ -34,7 +34,7 @@ public class IntegrationTestFileUpload
   {
     File realPdf = new File(fileName);
     try (InputStream pdf = this.getClass().getResourceAsStream(fileName);
-         OutputStream os = new FileOutputStream(realPdf))
+            OutputStream os = new FileOutputStream(realPdf))
     {
       IOUtils.copy(pdf, os);
     }
@@ -46,8 +46,8 @@ public class IntegrationTestFileUpload
             .target(uri)
             .request().accept(MediaType.APPLICATION_OCTET_STREAM).get();
     assertThat(downloadResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
-    try(InputStream target = this.getClass().getResourceAsStream(fileName); 
-        InputStream restStream = downloadResponse.readEntity(InputStream.class))
+    try(InputStream target = this.getClass().getResourceAsStream(fileName);
+            InputStream restStream = downloadResponse.readEntity(InputStream.class))
     {
       byte[] received = IOUtils.toByteArray(restStream);
       byte[] expected = IOUtils.toByteArray(target);

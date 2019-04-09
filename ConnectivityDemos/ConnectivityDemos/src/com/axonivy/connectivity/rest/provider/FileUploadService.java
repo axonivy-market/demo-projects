@@ -61,8 +61,8 @@ public class FileUploadService
       throw new IOException("File could not be uploaded: " + fileName, ex);
     }
   }
-  
 
+  
   private static void checkExtension(String fileName)
   {
     String extension = FilenameUtils.getExtension(fileName);
@@ -73,7 +73,7 @@ public class FileUploadService
   }
 
   private static List<String> whitelistedExtensions = Arrays.asList("pdf", "txt", "jpg");
-  
+
   private static boolean checkIfStringContainsList(String extension)
   {
     return whitelistedExtensions.contains(extension);
@@ -106,5 +106,5 @@ public class FileUploadService
             .header("content-disposition", "attachment; filename = " + fileName)
             .build();
   }
-
+  
 }

@@ -31,6 +31,7 @@ fd0 f0 requestEnabled true #txt
 fd0 f0 triggerEnabled false #txt
 fd0 f0 callSignature start() #txt
 fd0 f0 persist false #txt
+fd0 f0 startName '10. Upload file with Rest client call service' #txt
 fd0 f0 caseData businessCase.attach=true #txt
 fd0 f0 showInStartList 1 #txt
 fd0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
