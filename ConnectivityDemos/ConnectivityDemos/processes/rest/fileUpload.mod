@@ -18,7 +18,6 @@ fd0 @RichDialog f3 '' #zField
 fd0 @PushWFArc f4 '' #zField
 fd0 @PushWFArc f2 '' #zField
 fd0 @InfoButton f5 '' #zField
-fd0 @AnnotationArc f6 '' #zField
 fd0 @InfoButton f23 '' #zField
 >Proto fd0 fd0 fileUpload #zField
 fd0 f0 outLink fileClient.ivp #txt
@@ -42,10 +41,10 @@ fd0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fd0 f0 @C|.responsibility Everybody #txt
-fd0 f0 81 49 30 30 -25 17 #rect
+fd0 f0 81 105 30 30 -25 17 #rect
 fd0 f0 @|StartRequestIcon #fIcon
 fd0 f1 type com.axonivy.connectivity.Data #txt
-fd0 f1 337 49 30 30 0 15 #rect
+fd0 f1 337 105 30 30 0 15 #rect
 fd0 f1 @|EndIcon #fIcon
 fd0 f3 richDialogId com.axonivy.connectivity.rest.FileUpload #txt
 fd0 f3 startMethod start(com.axonivy.connectivity.Data) #txt
@@ -58,37 +57,36 @@ fd0 f3 responseMappingAction 'out=in;
 fd0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>File Upload User Dialog</name>
+        <name>File Upload Form</name>
     </language>
 </elementInfo>
 ' #txt
-fd0 f3 144 42 160 44 -72 -7 #rect
+fd0 f3 168 98 112 44 -52 -7 #rect
 fd0 f3 @|RichDialogIcon #fIcon
 fd0 f4 expr out #txt
-fd0 f4 111 64 144 64 #arcP
+fd0 f4 111 120 168 120 #arcP
 fd0 f2 expr out #txt
-fd0 f2 304 64 337 64 #arcP
+fd0 f2 280 120 337 120 #arcP
 fd0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>This Demo uses Rest Service Call to upload a File</name>
+        <name>This Demo uses a Rest Service Call to upload a File</name>
     </language>
 </elementInfo>
 ' #txt
-fd0 f5 64 137 320 30 -153 -7 #rect
+fd0 f5 56 17 336 30 -159 -7 #rect
 fd0 f5 @|IBIcon #fIcon
-fd0 f6 224 137 224 86 #arcP
 fd0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>The most tricky part of this if you want to do something similar 
-is that you need to set "jersey.client.connectorProvider" to 
+        <name>The most tricky part is that you need to set 
+the property "jersey.client.connectorProvider" to 
 "org.glassfish.jersey.client.HttpUrlConnectorProvider" in 
-Rest Client Editor or else it won''t work.</name>
+Rest Client Definition.</name>
     </language>
 </elementInfo>
 ' #txt
-fd0 f23 32 178 400 60 -197 -30 #rect
+fd0 f23 48 178 368 60 -176 -30 #rect
 fd0 f23 @|IBIcon #fIcon
 >Proto fd0 .type com.axonivy.connectivity.Data #txt
 >Proto fd0 .processKind NORMAL #txt
@@ -98,5 +96,3 @@ fd0 f0 mainOut f4 tail #connect
 fd0 f4 head f3 mainIn #connect
 fd0 f3 mainOut f2 tail #connect
 fd0 f2 head f1 mainIn #connect
-fd0 f5 ao f6 tail #connect
-fd0 f6 head f3 @CG|ai #connect

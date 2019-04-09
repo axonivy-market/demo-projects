@@ -27,14 +27,13 @@ public class FileUpload
 
   public static Response upload(WebTarget target, IFile resource) throws IOException
   {
-    Ivy.log().fatal(resource);
     finishedFile = toTempIoFile(resource);
     Response response = upload(target, finishedFile);
     finishedFile.delete();
     return response;
   }
 
-  private static File toTempIoFile(IFile resource) throws IOException
+  public static File toTempIoFile(IFile resource) throws IOException
   {
     String name = StringUtils.substringBeforeLast(resource.getName(), ".");
     String extension = "." + resource.getFileExtension();
@@ -45,7 +44,7 @@ public class FileUpload
     }
     catch (CoreException ex)
     {
-      ex.printStackTrace();
+      System.out.println("There was some problem while creating tempFile: "+ex);
     }
     return tempFile;
   }

@@ -25,7 +25,6 @@ Fs0 @RichDialogProcessEnd f13 '' #zField
 Fs0 @RestClientCall f20 '' #zField
 Fs0 @PushWFArc f24 '' #zField
 Fs0 @InfoButton f15 '' #zField
-Fs0 @AnnotationArc f18 '' #zField
 Fs0 @RestClientCall f23 '' #zField
 Fs0 @RichDialogProcessStart f26 '' #zField
 Fs0 @PushWFArc f9 '' #zField
@@ -125,18 +124,8 @@ java.io.File file;
 
 if(in.file.readBinary().length() == 0)
 {
-	String dialogId = "com.axonivy.connectivity.rest.FileUpload.resources";
-	IProject eclipseProject = Ivy.request().getProject().getProject();
-	    String dialogPath = dialogId.replace(".", "/");
-	    
-	    IFolder dialogDir = eclipseProject.getFolder("src_hd").getFolder(dialogPath);
-	    IFile resource = dialogDir.getFile(in.resourceName);
-	
-	String name = StringUtils.substringBeforeLast(resource.getName(), ".");
-	String extension = "."+resource.getFileExtension();
-	
-	file = Files.createTempFile(name, extension).toFile();
-	IOUtils.copy(resource.getContents(), new FileOutputStream(file));
+	IFile resource = FileUpload.getHdResource("com.axonivy.connectivity.rest.FileUpload.resources", in.resourceName);
+	file = FileUpload.toTempIoFile(resource);
 }
 else
 {
@@ -152,7 +141,7 @@ else
 	Response jaxrsresponse = client.request().header("X-Requested-By", "ivy")
    .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
    
-   in.listFile.add(file.getName());' #txt
+   in.listFile.add(file.getName());	' #txt
 Fs0 f20 clientErrorCode ivy:error:rest:client #txt
 Fs0 f20 statusErrorCode ivy:error:rest:client #txt
 Fs0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -170,16 +159,12 @@ Fs0 f24 109 160 144 160 #arcP
 Fs0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Gets ivyFile from HTML Page then converts it to Java File 
-so that it can be used as multipart in Response and sent to target.</name>
+        <name>The files are transfered as MediaType.MULTIPART_FORM_DATA into Response.</name>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f15 288 90 432 44 -211 -15 #rect
+Fs0 f15 352 177 496 30 -241 -7 #rect
 Fs0 f15 @|IBIcon #fIcon
-Fs0 f18 288 112 208 138 #arcP
-Fs0 f18 1 256 112 #addKink
-Fs0 f18 0 0.7708618037879631 0 0 #arcLabel
 Fs0 f23 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 Fs0 f23 method JAX_RS #txt
 Fs0 f23 bodyInputType FORM #txt
@@ -191,18 +176,15 @@ import org.eclipse.core.resources.IFile;
 
 if(in.file.readBinary().length() == 0)
 {
-IFile resource = FileUpload.getHdResource("com.axonivy.connectivity.rest.FileUpload.resources", in.resourceName);
-FileUpload.upload(client, resource);
-in.downloadName = FileUpload.getFilename();
-ivy.log.fatal("resource");
+	IFile resource = FileUpload.getHdResource("com.axonivy.connectivity.rest.FileUpload.resources", in.resourceName);
+	FileUpload.upload(client, resource);
+	in.downloadName = FileUpload.getFilename();
 }
 else
 {
-FileUpload.upload(client, in.file.getJavaFile());
-in.downloadName = in.file.getName();
-ivy.log.fatal("java file");
+	FileUpload.upload(client, in.file.getJavaFile());
+	in.downloadName = in.file.getName();
 }
-ivy.log.fatal(in.file.readBinary().length());
 out.file = null;
 in.listFile.add(in.downloadName);
 
@@ -214,12 +196,12 @@ Fs0 f23 statusErrorCode ivy:error:rest:client #txt
 Fs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>      PUT File 
-delegate to Java</name>
+        <name>PUT File 
+with Java</name>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f23 144 202 128 44 -45 -15 #rect
+Fs0 f23 152 202 112 44 -27 -15 #rect
 Fs0 f23 @|RestClientCallIcon #fIcon
 Fs0 f26 guid 169DD5240BB13E40 #txt
 Fs0 f26 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
@@ -236,7 +218,7 @@ Fs0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Fs0 f26 83 211 26 26 -35 17 #rect
 Fs0 f26 @|RichDialogProcessStartIcon #fIcon
-Fs0 f9 272 205 307 193 #arcP
+Fs0 f9 264 224 307 195 #arcP
 Fs0 f21 264 312 307 312 #arcP
 Fs0 f19 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 Fs0 f19 path /{in.downloadName} #txt
@@ -264,7 +246,7 @@ Fs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Fs0 f19 152 292 112 40 -24 -7 #rect
 Fs0 f19 @|RestClientCallIcon #fIcon
 Fs0 f7 expr out #txt
-Fs0 f7 109 224 144 224 #arcP
+Fs0 f7 109 224 152 224 #arcP
 Fs0 f8 272 178 307 188 #arcP
 Fs0 f2 expr out #txt
 Fs0 f2 109 64 307 64 #arcP
@@ -299,8 +281,6 @@ Fs0 f19 mainOut f21 tail #connect
 Fs0 f21 head f14 mainIn #connect
 Fs0 f12 mainOut f24 tail #connect
 Fs0 f24 head f20 mainIn #connect
-Fs0 f15 ao f18 tail #connect
-Fs0 f18 head f20 @CG|ai #connect
 Fs0 f23 mainOut f9 tail #connect
 Fs0 f9 head f13 mainIn #connect
 Fs0 f26 mainOut f7 tail #connect
