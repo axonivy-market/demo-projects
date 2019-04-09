@@ -173,12 +173,13 @@ Fs0 f23 clientCode 'import ch.ivyteam.ivy.scripting.objects.util.IvyDefaultValue
 import ch.ivyteam.ivy.cm.IContentObject;
 import com.axonivy.connectivity.rest.client.file.FileUpload;
 import org.eclipse.core.resources.IFile;
+import javax.ws.rs.core.Response;
 
 if(in.file.readBinary().length() == 0)
 {
 	IFile resource = FileUpload.getHdResource("com.axonivy.connectivity.rest.FileUpload.resources", in.resourceName);
-	FileUpload.upload(client, resource);
-	in.downloadName = FileUpload.getFilename();
+	Response response = FileUpload.upload(client, resource);
+	in.downloadName = response.getHeaderString("uploadedFile");
 }
 else
 {

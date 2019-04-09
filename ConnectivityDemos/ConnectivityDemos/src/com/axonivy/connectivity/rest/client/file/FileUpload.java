@@ -23,11 +23,9 @@ import ch.ivyteam.ivy.environment.Ivy;
 
 public class FileUpload
 {
-  private static File finishedFile;
-
   public static Response upload(WebTarget target, IFile resource) throws IOException
   {
-    finishedFile = toTempIoFile(resource);
+    File finishedFile = toTempIoFile(resource);
     Response response = upload(target, finishedFile);
     finishedFile.delete();
     return response;
@@ -78,8 +76,4 @@ public class FileUpload
     return resource;
   }
 
-  public static String getFilename()
-  {
-    return finishedFile.getName();
-  }
 }
