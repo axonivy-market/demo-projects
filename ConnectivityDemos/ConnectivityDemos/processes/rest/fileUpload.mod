@@ -21,7 +21,7 @@ fd0 @InfoButton f5 '' #zField
 fd0 @AnnotationArc f6 '' #zField
 fd0 @InfoButton f23 '' #zField
 >Proto fd0 fd0 fileUpload #zField
-fd0 f0 outLink start.ivp #txt
+fd0 f0 outLink fileClient.ivp #txt
 fd0 f0 type com.axonivy.connectivity.Data #txt
 fd0 f0 inParamDecl '<> param;' #txt
 fd0 f0 actionDecl 'com.axonivy.connectivity.Data out;
@@ -29,15 +29,15 @@ fd0 f0 actionDecl 'com.axonivy.connectivity.Data out;
 fd0 f0 guid 169B3B7F5F71BFFC #txt
 fd0 f0 requestEnabled true #txt
 fd0 f0 triggerEnabled false #txt
-fd0 f0 callSignature start() #txt
+fd0 f0 callSignature fileClient() #txt
 fd0 f0 persist false #txt
-fd0 f0 startName '10. Upload file with Rest client call service' #txt
+fd0 f0 startName '6.4 Send and receive files' #txt
 fd0 f0 caseData businessCase.attach=true #txt
 fd0 f0 showInStartList 1 #txt
 fd0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start.ivp</name>
+        <name>fileClient.ivp</name>
     </language>
 </elementInfo>
 ' #txt

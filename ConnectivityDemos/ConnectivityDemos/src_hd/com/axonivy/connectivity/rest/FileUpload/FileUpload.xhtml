@@ -10,11 +10,11 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">FileUpload</ui:define>
 		<ui:define name="content">
-			<h3>This is an HTML Dialog for Rest file upload</h3>
+			<h3>Rest file Client</h3>
 
 			<h:form id="form" enctype="multipart/form-data">
 				<h:outputText
-					value="1. Choose file you want to upload (allowed file extensions/types are in FileUploadService.java)" />
+					value="1. Choose file you want to upload (.pdf, .jpeg, .txt)" />
 				<h:panelGrid columns="1">
 					<f:facet name="header">
 					</f:facet>
@@ -40,7 +40,7 @@
 					<br />
 					<h:outputText value="3. Download File from Rest Service" />
 					<p:dataTable var="file" value="#{data.listFile}"
-						style="width: 500px">
+						style="width: 500px" emptyMessage="No files were uploaded yet.">
 						<p:column headerText="Uploaded Files">
 							<p:outputLabel value="#{file}" />
 						</p:column>
