@@ -10,3 +10,5 @@ listFile java.util.List<String> #field
 listFile PERSISTENT #fieldModifier
 downloadName String #field
 downloadName PERSISTENT #fieldModifier
+ownFiles Boolean #field
+ownFiles PERSISTENT #fieldModifier

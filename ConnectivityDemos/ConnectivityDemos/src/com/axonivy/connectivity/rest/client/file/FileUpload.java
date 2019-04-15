@@ -1,6 +1,7 @@
 package com.axonivy.connectivity.rest.client.file;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,8 +22,29 @@ import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 
 import ch.ivyteam.ivy.environment.Ivy;
 
+/**
+ * <p>
+ * See <b>Processes/rest/fileUpload/fileClient.ivp</b> for a demo</p>
+ *
+ * @author jla
+ * @since 7.4.0
+ */
 public class FileUpload
 {
+  public static Response upload(WebTarget target, java.io.File file) throws IOException
+  {
+    FormDataMultiPart multipart;
+    try (FormDataMultiPart formDataMultiPart = new FormDataMultiPart())
+    {
+      FileDataBodyPart filePart = new FileDataBodyPart("file", file);
+      multipart = (FormDataMultiPart) formDataMultiPart.field("file", file,
+              MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
+    }
+    Response response = target.request().header("X-Requested-By", "ivy")
+            .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
+    return response;
+  }
+
   public static Response upload(WebTarget target, IFile resource) throws IOException
   {
     File finishedFile = toTempIoFile(resource);
@@ -42,36 +64,32 @@ public class FileUpload
     }
     catch (CoreException ex)
     {
-      System.out.println("There was some problem while creating tempFile: "+ex);
+      throw new IOException("There was some problem while creating tempFile", ex);
     }
     return tempFile;
   }
 
-  public static Response upload(WebTarget target, java.io.File file) throws IOException
-  {
-    FormDataMultiPart multipart;
-    try (FormDataMultiPart formDataMultiPart = new FormDataMultiPart())
-    {
-      FileDataBodyPart filePart = new FileDataBodyPart("file", file);
-      multipart = (FormDataMultiPart) formDataMultiPart.field("file", file,
-              MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
-    }
-    Response response = target.request().header("X-Requested-By", "ivy")
-            .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
-    return response;
-  }
-
-  public static IFile getHdResource(String dialogId, String fileName)
+  /**
+   * Files from an IvyProject must be read with the eclipse resource layer to
+   * support packed and bare projects.
+   *
+   * @param dialogId dot separated user dialog identifier (e.g.
+   *          com.axonivy.MyDialog)
+   * @param pathToFileInDialog path to a file in the html dialog (e.g.
+   *          resources/myGif.gif)
+   * @return an {@link IFile} resource
+   */
+  public static IFile getHdResource(String dialogId, String pathToFileInDialog) throws FileNotFoundException
   {
     @SuppressWarnings("restriction")
     IProject eclipseProject = Ivy.request().getProject().getProject();
     String dialogPath = dialogId.replace(".", "/");
 
     IFolder dialogDir = eclipseProject.getFolder("src_hd").getFolder(dialogPath);
-    IFile resource = dialogDir.getFile(fileName);
+    IFile resource = dialogDir.getFile(pathToFileInDialog);
     if (!resource.exists())
     {
-      throw new RuntimeException("File " + fileName + " does not exist in " + dialogId);
+      throw new FileNotFoundException("File " + pathToFileInDialog + " does not exist in " + dialogId);
     }
     return resource;
   }
