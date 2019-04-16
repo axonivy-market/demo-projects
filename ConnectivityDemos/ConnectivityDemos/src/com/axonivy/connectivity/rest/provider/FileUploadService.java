@@ -44,7 +44,10 @@ public class FileUploadService
     API.checkNotNull(fileUploadDetail, "fileUploadDetail");
     File ivyFile = createIvyFile(fileUploadStream, fileName);
     String result = "File was uploaded succesfully to: " + ivyFile.getAbsolutePath();
-    return Response.status(200).entity(result).build();
+    return Response.status(200)
+            .header("uploadedFile", fileName)
+            .entity(result)
+            .build();
   }
 
   private static File createIvyFile(InputStream fileUploadStream, String fileName)
@@ -61,7 +64,7 @@ public class FileUploadService
       throw new IOException("File could not be uploaded: " + fileName, ex);
     }
   }
-  
+
 
   private static void checkExtension(String fileName)
   {
@@ -73,7 +76,7 @@ public class FileUploadService
   }
 
   private static List<String> whitelistedExtensions = Arrays.asList("pdf", "txt", "jpg");
-  
+
   private static boolean checkIfStringContainsList(String extension)
   {
     return whitelistedExtensions.contains(extension);
@@ -86,21 +89,21 @@ public class FileUploadService
     File ivyFile = new File(fileName);
     byte[] data = ivyFile.readBinary().toByteArray();
     StreamingOutput fileStream = new StreamingOutput()
+    {
+      @Override
+      public void write(java.io.OutputStream output) throws IOException, WebApplicationException
       {
-        @Override
-        public void write(java.io.OutputStream output) throws IOException, WebApplicationException
+        try
         {
-          try
-          {
-            output.write(data);
-            output.flush();
-          }
-          catch (IOException e)
-          {
-            throw new WebApplicationException("Could not Find the file: '"+fileName+"'", e);
-          }
+          output.write(data);
+          output.flush();
         }
-      };
+        catch (IOException e)
+        {
+          throw new WebApplicationException("Could not Find the file: '"+fileName+"'", e);
+        }
+      }
+    };
     return Response
             .ok(fileStream, MediaType.APPLICATION_OCTET_STREAM)
             .header("content-disposition", "attachment; filename = " + fileName)
