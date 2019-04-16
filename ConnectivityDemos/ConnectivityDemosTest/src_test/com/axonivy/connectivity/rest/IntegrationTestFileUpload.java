@@ -27,11 +27,11 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 public class IntegrationTestFileUpload
 {
-  String fileName = "test.pdf";
 
   @Test
   public void checkingRealPdf() throws IOException
   {
+    String fileName = "test.pdf";
     File realPdf = new File(fileName);
     try (InputStream pdf = this.getClass().getResourceAsStream(fileName);
             OutputStream os = new FileOutputStream(realPdf))

@@ -17,9 +17,7 @@
 				<script type="text/javascript">
 			function uploadFileJS() {
 				var form = new FormData();
-				if (#{data.file}.readBinary().length() == 0) {
-					return;
-				}
+				
 				form.append("file", #{data.file});
 				
 				var settings = {

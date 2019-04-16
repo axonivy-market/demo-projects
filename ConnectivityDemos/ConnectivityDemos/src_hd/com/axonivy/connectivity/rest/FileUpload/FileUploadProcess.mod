@@ -123,7 +123,6 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IFolder;
 import ch.ivyteam.ivy.environment.Ivy;
 
-
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 
@@ -147,9 +146,9 @@ multipart = formDataMultiPart.field("file", file, MediaType.MULTIPART_FORM_DATA_
 
 Response jaxrsresponse = client.request().header("X-Requested-By", "ivy")
  .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
- 
-in.listFile.add(file.getName());
- 
+
+String entityName = jaxrsresponse.readEntity(String.class) as String;
+in.listFile.add(StringUtils.substringAfterLast(entityName, "/"));
 ' #txt
 Fs0 f20 clientErrorCode ivy:error:rest:client #txt
 Fs0 f20 statusErrorCode ivy:error:rest:client #txt
@@ -284,16 +283,12 @@ Fs0 f11 actionDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData out;
 ' #txt
 Fs0 f11 actionTable 'out=in;
 ' #txt
-Fs0 f11 actionCode 'ivy.log.info(in.file.getName());
-if(!in.file.getName().contains("."))
-{
-
-}
-else 
+Fs0 f11 actionCode 'if(in.file.getName().contains("."))
 {
 in.listFile.add(in.file.getName());
 out.file = null;
-}' #txt
+}
+in.ownFiles = false;' #txt
 Fs0 f11 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
