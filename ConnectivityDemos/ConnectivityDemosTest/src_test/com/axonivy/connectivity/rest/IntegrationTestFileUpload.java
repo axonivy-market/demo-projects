@@ -16,8 +16,12 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import org.apache.commons.io.IOUtils;
+import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
+import org.glassfish.jersey.client.ClientConfig;
+import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.glassfish.jersey.filter.LoggingFilter;
+import org.glassfish.jersey.media.multipart.Boundary;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
@@ -56,6 +60,59 @@ public class IntegrationTestFileUpload
   }
 
   @Test
+  public void apacheConnectorProvider() throws IOException
+  {
+    String fileName = "test.pdf";
+    String uri = EngineUrl.getServletUrl("api") + "/fileUpload";
+
+    File realPdf = new File(fileName);
+    try (InputStream pdf = this.getClass().getResourceAsStream(fileName);
+            OutputStream os = new FileOutputStream(realPdf))
+    {
+      IOUtils.copy(pdf, os);
+    }
+
+    ClientConfig clientConfig = new ClientConfig();
+    clientConfig.connectorProvider(new ApacheConnectorProvider());
+    Client client = createClientCustom(clientConfig);
+    
+    MediaType contentType = MediaType.MULTIPART_FORM_DATA_TYPE;
+    contentType = Boundary.addBoundary(contentType);
+    
+    Response apacheConnectorResponse = client
+            .target(uri).request()
+            .header("X-Requested-By", "ivy")
+            .header("Content-type", "multipart/form-data")
+            .put(Entity.entity(createMultipart(realPdf), contentType));
+    System.out.println("apache response is: "+apacheConnectorResponse);
+    assertThat(apacheConnectorResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
+  }
+
+  @Test
+  public void httpUrlConnectorProvider() throws IOException
+  {
+    String fileName = "test.pdf";
+    String uri = EngineUrl.getServletUrl("api") + "/fileUpload";
+
+    File realPdf = new File(fileName);
+    try (InputStream pdf = this.getClass().getResourceAsStream(fileName);
+            OutputStream os = new FileOutputStream(realPdf))
+    {
+      IOUtils.copy(pdf, os);
+    }
+
+    ClientConfig clientConfig = new ClientConfig();
+    clientConfig.connectorProvider(new HttpUrlConnectorProvider());
+    Client client = createClientCustom(clientConfig);
+    
+    Response httpUrlConnectorResponse = client
+            .target(uri).request()
+            .header("X-Requested-By", "ivy")
+            .put(Entity.entity(createMultipart(realPdf), MediaType.MULTIPART_FORM_DATA_TYPE));
+    assertThat(httpUrlConnectorResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
+  }
+
+  @Test
   public void sendPdfFile() throws IOException
   {
     java.io.File createWrongEmptyFile = createTempFile("test", ".pdf");
@@ -75,6 +132,15 @@ public class IntegrationTestFileUpload
   private static Response uploadPdf(java.io.File createWrongEmptyFile) throws IOException
   {
     String uri = EngineUrl.getServletUrl("api") + "/fileUpload";
+    Response pdfResponse = createAuthenticatedClient()
+            .target(uri).request()
+            .header("X-Requested-By", "ivy")
+            .put(Entity.entity(createMultipart(createWrongEmptyFile), MediaType.MULTIPART_FORM_DATA_TYPE));
+    return pdfResponse;
+  }
+
+  private static FormDataMultiPart createMultipart(java.io.File createWrongEmptyFile) throws IOException
+  {
     FormDataMultiPart multipart;
     try (FormDataMultiPart formDataMultiPart = new FormDataMultiPart())
     {
@@ -82,11 +148,7 @@ public class IntegrationTestFileUpload
       multipart = (FormDataMultiPart) formDataMultiPart
               .field("file", createWrongEmptyFile, MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
     }
-    Response pdfResponse = createAuthenticatedClient()
-            .target(uri).request()
-            .header("X-Requested-By", "ivy")
-            .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
-    return pdfResponse;
+    return multipart;
   }
 
   private static java.io.File createTempFile(String fileName, String extension) throws IOException
@@ -109,6 +171,16 @@ public class IntegrationTestFileUpload
     httpClient.register(JacksonJsonProvider.class);
     httpClient.register(MultiPartFeature.class);
     httpClient.register(new LoggingFilter());
+    return httpClient;
+  }
+
+  private static Client createClientCustom(ClientConfig config)
+  {
+    Client httpClient = ClientBuilder.newClient(config);
+    httpClient.register(JacksonJsonProvider.class);
+    httpClient.register(MultiPartFeature.class);
+    httpClient.register(new LoggingFilter());
+    httpClient.register(HttpAuthenticationFeature.basic(login, login));
     return httpClient;
   }
 }
