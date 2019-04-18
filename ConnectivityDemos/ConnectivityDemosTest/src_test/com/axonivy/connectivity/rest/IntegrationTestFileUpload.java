@@ -45,6 +45,7 @@ public class IntegrationTestFileUpload
     Response pdfResponse = uploadPdf(realPdf);
     assertThat(pdfResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
 
+    realPdf.delete();
     String uri = EngineUrl.getServletUrl("api") + "/fileUpload/" + fileName;
     Response downloadResponse = createAuthenticatedClient()
             .target(uri)
@@ -75,17 +76,17 @@ public class IntegrationTestFileUpload
     ClientConfig clientConfig = new ClientConfig();
     clientConfig.connectorProvider(new ApacheConnectorProvider());
     Client client = createClientCustom(clientConfig);
-    
+
     MediaType contentType = MediaType.MULTIPART_FORM_DATA_TYPE;
     contentType = Boundary.addBoundary(contentType);
-    
+
     Response apacheConnectorResponse = client
             .target(uri).request()
             .header("X-Requested-By", "ivy")
-            .header("Content-type", "multipart/form-data")
             .put(Entity.entity(createMultipart(realPdf), contentType));
     System.out.println("apache response is: "+apacheConnectorResponse);
     assertThat(apacheConnectorResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
+    realPdf.delete();
   }
 
   @Test
@@ -104,12 +105,13 @@ public class IntegrationTestFileUpload
     ClientConfig clientConfig = new ClientConfig();
     clientConfig.connectorProvider(new HttpUrlConnectorProvider());
     Client client = createClientCustom(clientConfig);
-    
+
     Response httpUrlConnectorResponse = client
             .target(uri).request()
             .header("X-Requested-By", "ivy")
             .put(Entity.entity(createMultipart(realPdf), MediaType.MULTIPART_FORM_DATA_TYPE));
     assertThat(httpUrlConnectorResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
+    realPdf.delete();
   }
 
   @Test
