@@ -44,7 +44,7 @@ public class FileUploadService
     API.checkNotNull(fileUploadDetail, "fileUploadDetail");
     File ivyFile = createIvyFile(fileUploadStream, fileName);
     String result = "File was uploaded succesfully to: " + ivyFile.getAbsolutePath();
-    return Response.status(200)
+    return Response.status(201)
             .header("uploadedFile", fileName)
             .entity(result)
             .build();

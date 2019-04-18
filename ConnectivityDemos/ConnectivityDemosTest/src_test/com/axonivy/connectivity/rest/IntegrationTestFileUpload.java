@@ -43,7 +43,7 @@ public class IntegrationTestFileUpload
       IOUtils.copy(pdf, os);
     }
     Response pdfResponse = uploadPdf(realPdf);
-    assertThat(pdfResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
+    assertThat(pdfResponse.getStatus()).isEqualTo(Status.CREATED.getStatusCode());
 
     realPdf.delete();
     String uri = EngineUrl.getServletUrl("api") + "/fileUpload/" + fileName;
@@ -85,7 +85,7 @@ public class IntegrationTestFileUpload
             .header("X-Requested-By", "ivy")
             .put(Entity.entity(createMultipart(realPdf), contentType));
     System.out.println("apache response is: "+apacheConnectorResponse);
-    assertThat(apacheConnectorResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
+    assertThat(apacheConnectorResponse.getStatus()).isEqualTo(Status.CREATED.getStatusCode());
     realPdf.delete();
   }
 
@@ -110,7 +110,7 @@ public class IntegrationTestFileUpload
             .target(uri).request()
             .header("X-Requested-By", "ivy")
             .put(Entity.entity(createMultipart(realPdf), MediaType.MULTIPART_FORM_DATA_TYPE));
-    assertThat(httpUrlConnectorResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
+    assertThat(httpUrlConnectorResponse.getStatus()).isEqualTo(Status.CREATED.getStatusCode());
     realPdf.delete();
   }
 
@@ -119,7 +119,7 @@ public class IntegrationTestFileUpload
   {
     java.io.File createWrongEmptyFile = createTempFile("test", ".pdf");
     Response pdfResponse = uploadPdf(createWrongEmptyFile);
-    assertThat(pdfResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
+    assertThat(pdfResponse.getStatus()).isEqualTo(Status.CREATED.getStatusCode());
     assertThat(pdfResponse.readEntity(String.class)).endsWith(createWrongEmptyFile.getName());
   }
 
