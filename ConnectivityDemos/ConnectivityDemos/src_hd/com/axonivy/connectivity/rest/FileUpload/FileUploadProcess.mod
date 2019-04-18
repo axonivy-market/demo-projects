@@ -123,6 +123,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IFolder;
 import ch.ivyteam.ivy.environment.Ivy;
 
+import org.glassfish.jersey.media.multipart.Boundary;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 
@@ -141,11 +142,14 @@ else
 FormDataMultiPart multipart;
 FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
 
+MediaType contentType = MediaType.MULTIPART_FORM_DATA_TYPE;
+    contentType = Boundary.addBoundary(contentType);
+
 FileDataBodyPart filePart = new FileDataBodyPart("file", file);
 multipart = formDataMultiPart.field("file", file, MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart) as FormDataMultiPart;
 
 Response jaxrsresponse = client.request().header("X-Requested-By", "ivy")
- .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
+ .put(Entity.entity(multipart, contentType));
 
 String entityName = jaxrsresponse.readEntity(String.class) as String;
 in.listFile.add(StringUtils.substringAfterLast(entityName, "/"));

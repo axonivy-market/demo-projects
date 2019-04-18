@@ -18,7 +18,6 @@ fd0 @RichDialog f3 '' #zField
 fd0 @PushWFArc f4 '' #zField
 fd0 @PushWFArc f2 '' #zField
 fd0 @InfoButton f5 '' #zField
-fd0 @InfoButton f23 '' #zField
 >Proto fd0 fd0 fileUpload #zField
 fd0 f0 outLink fileClient.ivp #txt
 fd0 f0 type com.axonivy.connectivity.Data #txt
@@ -76,18 +75,6 @@ fd0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 fd0 f5 56 17 336 30 -159 -7 #rect
 fd0 f5 @|IBIcon #fIcon
-fd0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>The most tricky part is that you need to set 
-the property "jersey.client.connectorProvider" to 
-"org.glassfish.jersey.client.HttpUrlConnectorProvider" in 
-Rest Client Definition.</name>
-    </language>
-</elementInfo>
-' #txt
-fd0 f23 48 178 368 60 -176 -30 #rect
-fd0 f23 @|IBIcon #fIcon
 >Proto fd0 .type com.axonivy.connectivity.Data #txt
 >Proto fd0 .processKind NORMAL #txt
 >Proto fd0 0 0 32 24 18 0 #rect

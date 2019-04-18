@@ -17,6 +17,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
+import org.glassfish.jersey.media.multipart.Boundary;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 
@@ -40,8 +41,11 @@ public class FileUpload
       multipart = (FormDataMultiPart) formDataMultiPart.field("file", file,
               MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
     }
+    MediaType contentType = MediaType.MULTIPART_FORM_DATA_TYPE;
+    contentType = Boundary.addBoundary(contentType);
+    
     Response response = target.request().header("X-Requested-By", "ivy")
-            .put(Entity.entity(multipart, MediaType.MULTIPART_FORM_DATA));
+            .put(Entity.entity(multipart, contentType));
     return response;
   }
 
