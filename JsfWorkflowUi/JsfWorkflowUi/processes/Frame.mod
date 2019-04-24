@@ -1,5 +1,5 @@
 [Ivy]
-167C61A86526BDE9 3.23 #module
+167C61A86526BDE9 3.26 #module
 >Proto >Proto Collection #zClass
 Fe0 Frame Big #zClass
 Fe0 B #cInfo
@@ -21,6 +21,8 @@ Fe0 @RichDialog f3 '' #zField
 Fe0 @GridStep f8 '' #zField
 Fe0 @PushWFArc f7 '' #zField
 Fe0 @PushWFArc f9 '' #zField
+Fe0 @StartRequest f6 '' #zField
+Fe0 @PushWFArc f10 '' #zField
 >Proto Fe0 Fe0 Frame #zField
 Fe0 f0 outLink FrameWithUrl.ivp #txt
 Fe0 f0 type ch.ivyteam.wf.FrameData #txt
@@ -34,12 +36,12 @@ Fe0 f0 requestEnabled true #txt
 Fe0 f0 triggerEnabled false #txt
 Fe0 f0 callSignature FrameWithUrl(String) #txt
 Fe0 f0 persist false #txt
-Fe0 f0 taskData 'TaskTriggered.ROL=Everybody
+Fe0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Fe0 f0 caseData businessCase.attach=true #txt
 Fe0 f0 showInStartList 0 #txt
 Fe0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -53,7 +55,7 @@ Fe0 f0 @C|.responsibility Everybody #txt
 Fe0 f0 81 49 30 30 -51 21 #rect
 Fe0 f0 @|StartRequestIcon #fIcon
 Fe0 f1 type ch.ivyteam.wf.FrameData #txt
-Fe0 f1 553 49 30 30 0 15 #rect
+Fe0 f1 337 49 30 30 0 15 #rect
 Fe0 f1 @|EndIcon #fIcon
 Fe0 f5 outLink FrameWithTaskId.ivp #txt
 Fe0 f5 type ch.ivyteam.wf.FrameData #txt
@@ -68,12 +70,12 @@ Fe0 f5 requestEnabled true #txt
 Fe0 f5 triggerEnabled false #txt
 Fe0 f5 callSignature FrameWithTaskId(Number) #txt
 Fe0 f5 persist false #txt
-Fe0 f5 taskData 'TaskTriggered.ROL=Everybody
+Fe0 f5 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Fe0 f5 caseData businessCase.attach=true #txt
 Fe0 f5 showInStartList 0 #txt
 Fe0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -84,10 +86,10 @@ Fe0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fe0 f5 @C|.responsibility Everybody #txt
-Fe0 f5 81 145 30 30 -54 28 #rect
+Fe0 f5 81 241 30 30 -54 28 #rect
 Fe0 f5 @|StartRequestIcon #fIcon
 Fe0 f2 expr out #txt
-Fe0 f2 280 64 553 64 #arcP
+Fe0 f2 280 64 337 64 #arcP
 Fe0 f4 expr out #txt
 Fe0 f4 111 64 168 64 #arcP
 Fe0 f3 richDialogId ch.ivyteam.wf.workflow.IFrame #txt
@@ -115,12 +117,40 @@ Fe0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fe0 f8 168 138 112 44 -46 -7 #rect
+Fe0 f8 168 234 112 44 -46 -7 #rect
 Fe0 f8 @|StepIcon #fIcon
 Fe0 f7 expr out #txt
-Fe0 f7 111 160 168 160 #arcP
+Fe0 f7 111 256 168 256 #arcP
 Fe0 f9 expr out #txt
-Fe0 f9 224 138 224 86 #arcP
+Fe0 f9 224 234 224 86 #arcP
+Fe0 f6 outLink OpenTaskUi.ivp #txt
+Fe0 f6 type ch.ivyteam.wf.FrameData #txt
+Fe0 f6 inParamDecl '<java.lang.String taskUiUrl,java.lang.Number runningTaskId> param;' #txt
+Fe0 f6 inParamTable 'out.url=param.taskUiUrl;
+' #txt
+Fe0 f6 actionDecl 'ch.ivyteam.wf.FrameData out;
+' #txt
+Fe0 f6 guid 16A4F4141BFBA6E9 #txt
+Fe0 f6 requestEnabled true #txt
+Fe0 f6 triggerEnabled false #txt
+Fe0 f6 callSignature OpenTaskUi(String,Number) #txt
+Fe0 f6 persist false #txt
+Fe0 f6 caseData businessCase.attach=true #txt
+Fe0 f6 showInStartList 0 #txt
+Fe0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>OpenTaskUi.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+Fe0 f6 @C|.responsibility Everybody #txt
+Fe0 f6 81 145 30 30 -25 17 #rect
+Fe0 f6 @|StartRequestIcon #fIcon
+Fe0 f10 expr out #txt
+Fe0 f10 111 160 224 86 #arcP
+Fe0 f10 1 224 160 #addKink
+Fe0 f10 0 0.8153078287483635 0 0 #arcLabel
 >Proto Fe0 .type ch.ivyteam.wf.FrameData #txt
 >Proto Fe0 .processKind NORMAL #txt
 >Proto Fe0 0 0 32 24 18 0 #rect
@@ -133,3 +163,5 @@ Fe0 f5 mainOut f7 tail #connect
 Fe0 f7 head f8 mainIn #connect
 Fe0 f8 mainOut f9 tail #connect
 Fe0 f9 head f3 mainIn #connect
+Fe0 f6 mainOut f10 tail #connect
+Fe0 f10 head f3 mainIn #connect
