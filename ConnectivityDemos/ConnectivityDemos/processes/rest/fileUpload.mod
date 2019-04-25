@@ -34,7 +34,7 @@ fd0 f0 requestEnabled true #txt
 fd0 f0 triggerEnabled false #txt
 fd0 f0 callSignature fileClient() #txt
 fd0 f0 persist false #txt
-fd0 f0 startName '6.4 Send and receive files' #txt
+fd0 f0 startName '6.4.2 Upload file UI' #txt
 fd0 f0 caseData businessCase.attach=true #txt
 fd0 f0 showInStartList 1 #txt
 fd0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -90,7 +90,7 @@ fd0 f6 requestEnabled true #txt
 fd0 f6 triggerEnabled false #txt
 fd0 f6 callSignature callFileUpload() #txt
 fd0 f6 persist false #txt
-fd0 f6 startName '6.4.1 Call file upload method' #txt
+fd0 f6 startName '6.4.1 Upload file simple ' #txt
 fd0 f6 caseData businessCase.attach=true #txt
 fd0 f6 showInStartList 1 #txt
 fd0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
