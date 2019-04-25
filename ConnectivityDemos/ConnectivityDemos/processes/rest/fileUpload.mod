@@ -117,7 +117,7 @@ java.io.File tempFile = Files.createTempFile("test", ".txt").toFile();
 
 Response response = FileUpload.upload(client, tempFile);
 
-
+ivy.log.info(response.readEntity(String.class));' #txt
 
 
 
