@@ -149,10 +149,13 @@ FileDataBodyPart filePart = new FileDataBodyPart("file", file);
 multipart = formDataMultiPart.field("file", file, MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart) as FormDataMultiPart;
 
 Response jaxrsresponse = client.request().header("X-Requested-By", "ivy")
+ .header("MIME-Version", "1.0")
  .put(Entity.entity(multipart, contentType));
 
-String entityName = jaxrsresponse.readEntity(String.class) as String;
-in.listFile.add(StringUtils.substringAfterLast(entityName, "/"));
+in.listFile.add(jaxrsresponse.getHeaderString("uploadedFile"));
+in.file.delete();
+in.ownFiles = false;
+
 ' #txt
 Fs0 f20 clientErrorCode ivy:error:rest:client #txt
 Fs0 f20 statusErrorCode ivy:error:rest:client #txt
@@ -198,9 +201,11 @@ else
 {
 	FileUpload.upload(client, in.file.getJavaFile());
 	in.downloadName = in.file.getName();
+	in.file.delete();
 }
 out.file = null;
 in.listFile.add(in.downloadName);
+in.ownFiles = false;
 
 
 

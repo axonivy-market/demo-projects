@@ -47,7 +47,7 @@
 						<p:radioButton id="opt1" for="customRadio" itemIndex="0" />
 						<h:outputLabel for="opt1" value="Own Files" />
 						<p:fileUpload disabled="#{!data.ownFiles}" value="#{data.file}"
-							mode="simple" skinSimple="true" />
+							mode="simple" skinSimple="true" accept=".pdf,.jpg,.txt"/>
 
 						<p:radioButton id="opt2" for="customRadio" itemIndex="1" />
 						<h:outputLabel for="opt2" value="Sample Files" />
