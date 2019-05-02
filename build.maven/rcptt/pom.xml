@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<rcptt.version>2.3.0</rcptt.version>
+		<rcptt.version>2.4.2-SNAPSHOT</rcptt.version>
 		<nexus.root.url>http://zugpronexus:8081/nexus</nexus.root.url>		
 		<designer.os.arch>Windows_x64</designer.os.arch>
 		<deploy.skip>true</deploy.skip>
@@ -22,6 +22,15 @@
 			<snapshots>
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
+		</pluginRepository>
+
+		<pluginRepository> 
+			<id>rcptt-snapshots</id> 
+			<name>RCPTT Maven Snapshots repository</name> 
+			<snapshots> 
+				<updatePolicy>always</updatePolicy> 
+			</snapshots> 
+			<url>https://repo.eclipse.org/content/repositories/rcptt-snapshots/</url> 
 		</pluginRepository>
 	</pluginRepositories>
 
