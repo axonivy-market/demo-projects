@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Thu Feb 17 09:23:20 CET 2011]
-12CBAFAC42B5C5F5 3.15 #module
+12CBAFAC42B5C5F5 3.26 #module
 >Proto >Proto Collection #zClass
 Ae0 AddNote Big #zClass
 Ae0 B #cInfo
@@ -21,8 +20,6 @@ Ae0 @PushWFArc f19 '' #zField
 Ae0 @PushWFArc f20 '' #zField
 Ae0 @PushWFArc f2 '' #zField
 Ae0 @PushWFArc f3 '' #zField
-Ae0 @StartSub f4 '' #zField
-Ae0 @EndSub f5 '' #zField
 >Proto Ae0 Ae0 AddNote #zField
 Ae0 f0 inParamDecl '<htmlwfui.Data in> param;' #txt
 Ae0 f0 inParamTable 'out=param.in;
@@ -54,7 +51,7 @@ Ae0 f18 98 226 28 28 14 0 #rect
 Ae0 f18 @|AlternativeIcon #fIcon
 Ae0 f11 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 Ae0 f11 outLinks "LinkA.ivp","LinkB.ivp" #txt
-Ae0 f11 template "taskNote.ivc" #txt
+Ae0 f11 template "/ProcessPages/AddNote/taskNote.ivc" #txt
 Ae0 f11 type htmlwfui.Data #txt
 Ae0 f11 skipLink skip.ivp #txt
 Ae0 f11 sortLink sort.ivp #txt
@@ -109,24 +106,6 @@ Ae0 f2 expr out #txt
 Ae0 f2 112 61 112 92 #arcP
 Ae0 f3 expr in #txt
 Ae0 f3 112 254 112 291 #arcP
-Ae0 f4 outParamDecl '<> result;
-' #txt
-Ae0 f4 actionDecl 'htmlwfui.Data out;
-' #txt
-Ae0 f4 callSignature call() #txt
-Ae0 f4 type htmlwfui.Data #txt
-Ae0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>call()</name>
-    </language>
-</elementInfo>
-' #txt
-Ae0 f4 1043 523 26 26 14 0 #rect
-Ae0 f4 @|StartSubIcon #fIcon
-Ae0 f5 type htmlwfui.Data #txt
-Ae0 f5 1043 595 26 26 14 0 #rect
-Ae0 f5 @|EndSubIcon #fIcon
 >Proto Ae0 .type htmlwfui.Data #txt
 >Proto Ae0 .processKind CALLABLE_SUB #txt
 >Proto Ae0 0 0 32 24 18 0 #rect
