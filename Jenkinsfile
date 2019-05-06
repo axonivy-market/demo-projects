@@ -25,7 +25,7 @@ pipeline {
       steps {
         script {
           def workspace = pwd()
-          maven cmd: "-P repo.axonivy.com clean deploy -e -fae " + 
+          maven cmd: "-P repo.axonivy.com clean deploy -e -Dmaven.test.failure.ignore=true  " + 
                      "-Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine " +
                      "-Divy.engine.list.url=${params.engineListUrl} "
         }
