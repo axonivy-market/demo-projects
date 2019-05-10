@@ -27,10 +27,10 @@
 
 					<p:outputLabel for="HTTPPortInput" id="HTTPPortLabel"
 						value="Port: " />
-					<p:inputText id="HTTPPortInput" styleClass="port-input"
-						value="#{data.settings.webServerConfig.httpPort}">
+					<p:inputNumber id="HTTPPortInput" styleClass="port-input"
+						value="#{data.settings.webServerConfig.httpPort}" minValue="-1" maxValue="1000000" thousandSeparator="'">
 						<p:ajax event="keyup" listener="#{logic.saveEasyProps}"/>
-					</p:inputText>
+					</p:inputNumber>
 				</h:panelGrid>
 			</p:fieldset>
 
@@ -46,10 +46,10 @@
 
 					<p:outputLabel for="HTTPSPortInput" id="HTTPSPortLabel"
 						value="Port: " />
-					<p:inputText id="HTTPSPortInput" styleClass="port-input"
-						value="#{data.settings.webServerConfig.httpsPort}">
+					<p:inputNumber id="HTTPSPortInput" styleClass="port-input"
+						value="#{data.settings.webServerConfig.httpsPort}" minValue="-1" maxValue="1000000" thousandSeparator="'">
 						<p:ajax event="keyup" listener="#{logic.saveEasyProps}"/>
-					</p:inputText>
+					</p:inputNumber>
 				</h:panelGrid>
 			</p:fieldset>
 
@@ -64,10 +64,10 @@
 					</p:selectBooleanCheckbox>
 
 					<p:outputLabel for="AJPPortInput" id="AJPPortLabel" value="Port: " />
-					<p:inputText id="AJPPortInput" styleClass="port-input"
-						value="#{data.settings.webServerConfig.ajpPort}">
+					<p:inputNumber id="AJPPortInput" styleClass="port-input"
+						value="#{data.settings.webServerConfig.ajpPort}" minValue="-1" maxValue="1000000" thousandSeparator="'">
 						<p:ajax event="keyup" listener="#{logic.saveEasyProps}"/>
-					</p:inputText>
+					</p:inputNumber>
 				</h:panelGrid>
 			</p:fieldset>
 		</h:panelGrid>

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
@@ -17,6 +18,7 @@ import com.axonivy.engine.config.ui.settings.WebServerConfig;
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
 import ch.ivyteam.di.restricted.DiCore;
 import ch.ivyteam.ivy.application.IApplicationConfigurationManager;
+import ch.ivyteam.ivy.configuration.restricted.IConfiguration;
 import ch.ivyteam.ivy.security.exec.Sudo;
 import ch.ivyteam.ivy.server.configuration.Configuration;
 import ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager;
@@ -222,21 +224,37 @@ public class SystemDatabaseSettings
 
   public void saveWebServerConfig()
   {
-    setProperty(WEB_SERVER_HTTP_ENABLED,
-            BooleanUtils.toStringTrueFalse(webServerConfig.getHttpEnabled()));
-    setProperty(WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
-    setProperty(WEB_SERVER_HTTPS_ENABLED,
-            BooleanUtils.toStringTrueFalse(webServerConfig.getHttpsEnabled()));
-    setProperty(WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
-    setProperty(WEB_SERVER_AJP_ENABLED,
-            BooleanUtils.toStringTrueFalse(webServerConfig.getAjpEnabled()));
-    setProperty(WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
+    setProperty(WEB_SERVER_HTTP_ENABLED, webServerConfig.getHttpEnabled());
+    setPort(WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
+    setProperty(WEB_SERVER_HTTPS_ENABLED, webServerConfig.getHttpsEnabled());
+    setPort(WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
+    setProperty(WEB_SERVER_AJP_ENABLED, webServerConfig.getAjpEnabled());
+    setPort(WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
+  }
+  
+  private static void setPort(String key, String uiValue)
+  {
+    try
+    {
+      int port = Integer.parseInt(uiValue);
+      setProperty(key, port);
+    }
+    catch (NumberFormatException ex)
+    {
+    }
   }
 
-  private static void setProperty(String key, String value)
+  private static void setProperty(String key, Object value)
   {
-    Sudo.exec(() -> DiCore.getGlobalInjector().getInstance(IApplicationConfigurationManager.class)
-            .getSystemProp(key).setValue(value));
+    IConfiguration config = IConfiguration.get();
+    if (!Objects.equals(config.getMetadata(key).getDefaultValue(), value.toString()))
+    {
+    	config.set(key, value);
+    }
+    else
+    {
+    	config.remove(key);
+    }
   }
 
   private void updateWebServerConfig()
