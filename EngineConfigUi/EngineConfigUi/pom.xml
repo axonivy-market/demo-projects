@@ -1,53 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>ch.ivyteam.ivy.project</groupId>
-		<artifactId>build.maven.iar</artifactId>
-		<version>7.3.0-SNAPSHOT</version>
-		<relativePath>../../build.maven/iar</relativePath>
-	</parent>
-
-	<groupId>com.axonivy.system</groupId>
-	<artifactId>engine-config-ui</artifactId>
-	<version>7.3.0-SNAPSHOT</version>
-	<packaging>iar</packaging>
-
-	<properties>
-		<ivy.version>6.5.1-SNAPSHOT</ivy.version>
-	</properties>
-
-	<dependencies>
-		<dependency>
-			<groupId>com.jayway.awaitility</groupId>
-			<artifactId>awaitility</artifactId>
-			<version>1.5.0</version>
-			<scope>test</scope>
-			<exclusions>
-				<!-- exclude hamcrest-core as it is already available as plugin -->
-				<exclusion>
-					<artifactId>hamcrest-core</artifactId>
-					<groupId>org.hamcrest</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-web-api</artifactId>
-			<version>6.0</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>com.axonivy.ivy.ci</groupId>
-				<artifactId>project-build-plugin</artifactId>
-				<extensions>true</extensions>
-			</plugin>
-		</plugins>
-	</build>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>ch.ivyteam.ivy.project</groupId>
+    <artifactId>build.maven.iar</artifactId>
+    <version>7.3.0-SNAPSHOT</version>
+    <relativePath>../../build.maven/iar</relativePath>
+  </parent>
+  <groupId>com.axonivy.system</groupId>
+  <artifactId>engine-config-ui</artifactId>
+  <version>7.4.0-SNAPSHOT</version>
+  <packaging>iar</packaging>
+  <properties>
+    <ivy.version>6.5.1-SNAPSHOT</ivy.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>com.jayway.awaitility</groupId>
+      <artifactId>awaitility</artifactId>
+      <version>1.5.0</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>hamcrest-core</artifactId>
+          <groupId>org.hamcrest</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-web-api</artifactId>
+      <version>6.0</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.axonivy.ivy.ci</groupId>
+        <artifactId>project-build-plugin</artifactId>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

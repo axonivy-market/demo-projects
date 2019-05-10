@@ -6,6 +6,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import ch.ivyteam.db.jdbc.DatabaseProduct;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 
+@SuppressWarnings("restriction")
 public class SystemDatabaseAdvice
 {
   public static FailedConnectionState whatsIncorrect(SystemDatabaseSettings settings)

@@ -2,13 +2,12 @@ package com.axon.ivy.engine.config;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import org.apache.commons.lang3.BooleanUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import com.axonivy.engine.config.ui.settings.ConfigData;
 import com.axonivy.engine.config.ui.settings.SystemProperty;
@@ -17,6 +16,7 @@ import com.axonivy.engine.config.ui.settings.WebServerConfig;
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
 import ch.ivyteam.di.restricted.DiCore;
 import ch.ivyteam.ivy.application.IApplicationConfigurationManager;
+import ch.ivyteam.ivy.configuration.restricted.IConfiguration;
 import ch.ivyteam.ivy.security.exec.Sudo;
 import ch.ivyteam.ivy.server.configuration.Configuration;
 import ch.ivyteam.ivy.server.configuration.system.db.AdministratorManager;
@@ -26,8 +26,6 @@ import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabase;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConnectionTester;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConverter;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
-import ch.ivyteam.ivy.system.ISystemProperty;
-import ch.ivyteam.ivy.system.UserInterfaceFormat;
 import ch.ivyteam.util.WaitUtil;
 
 @SuppressWarnings("restriction")
@@ -54,9 +52,7 @@ public class SystemDatabaseSettings
   private SystemDatabaseSettings()
   {
     tester.addConnectionListener(connectionListener);
-
     updateWebServerConfig();
-    updateWebServerSystemProperties();
   }
 
   public static SystemDatabaseSettings create()
@@ -110,7 +106,6 @@ public class SystemDatabaseSettings
   {
     if (!converter.isRunning())
     {
-      updateWebServerSystemProperties();
       updateWebServerConfig();
     }
   }
@@ -179,22 +174,6 @@ public class SystemDatabaseSettings
     return webServerConfig;
   }
 
-  public void updateSystemPropsFromWebServerConfig()
-  {
-    replaceProperty(WEB_SERVER_AJP_ENABLED, webServerConfig.getAjpEnabled().toString());
-    replaceProperty(WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
-    replaceProperty(WEB_SERVER_HTTP_ENABLED, webServerConfig.getHttpEnabled().toString());
-    replaceProperty(WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
-    replaceProperty(WEB_SERVER_HTTPS_ENABLED, webServerConfig.getHttpsEnabled().toString());
-    replaceProperty(WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
-  }
-
-  private void replaceProperty(String propertyName, String value)
-  {
-    systemProperties.stream().filter(x -> x.getName().equalsIgnoreCase(propertyName)).findFirst()
-            .get().setValue(value);
-  }
-
   public void updateWebServerConfigFromSystemProps() throws Exception
   {
     setWebServerProperty(WEB_SERVER_AJP_ENABLED, "ajpEnabled");
@@ -222,21 +201,37 @@ public class SystemDatabaseSettings
 
   public void saveWebServerConfig()
   {
-    setProperty(WEB_SERVER_HTTP_ENABLED,
-            BooleanUtils.toStringTrueFalse(webServerConfig.getHttpEnabled()));
-    setProperty(WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
-    setProperty(WEB_SERVER_HTTPS_ENABLED,
-            BooleanUtils.toStringTrueFalse(webServerConfig.getHttpsEnabled()));
-    setProperty(WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
-    setProperty(WEB_SERVER_AJP_ENABLED,
-            BooleanUtils.toStringTrueFalse(webServerConfig.getAjpEnabled()));
-    setProperty(WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
+    setProperty(WEB_SERVER_HTTP_ENABLED, webServerConfig.getHttpEnabled());
+    setPort(WEB_SERVER_HTTP_PORT, webServerConfig.getHttpPort());
+    setProperty(WEB_SERVER_HTTPS_ENABLED, webServerConfig.getHttpsEnabled());
+    setPort(WEB_SERVER_HTTPS_PORT, webServerConfig.getHttpsPort());
+    setProperty(WEB_SERVER_AJP_ENABLED, webServerConfig.getAjpEnabled());
+    setPort(WEB_SERVER_AJP_PORT, webServerConfig.getAjpPort());
+  }
+  
+  private static void setPort(String key, String uiValue)
+  {
+    try
+    {
+      int port = Integer.parseInt(uiValue);
+      setProperty(key, port);
+    }
+    catch (NumberFormatException ex)
+    {
+    }
   }
 
-  private static void setProperty(String key, String value)
+  private static void setProperty(String key, Object value)
   {
-    Sudo.exec(() -> DiCore.getGlobalInjector().getInstance(IApplicationConfigurationManager.class)
-            .getSystemProp(key).setValue(value));
+    IConfiguration config = IConfiguration.get();
+    if (!Objects.equals(config.getMetadata(key).getDefaultValue(), value.toString()))
+    {
+    	config.set(key, value);
+    }
+    else
+    {
+    	config.remove(key);
+    }
   }
 
   private void updateWebServerConfig()
@@ -263,57 +258,6 @@ public class SystemDatabaseSettings
   {
     return Sudo.exec(() -> DiCore.getGlobalInjector().getInstance(IApplicationConfigurationManager.class)
             .getSystemProp(key).getValue());
-  }
-
-  public void updateWebServerSystemProperties()
-  {
-    Sudo.exec(() -> updateWebServerSystemPropertiesAsSystem());
-  }
-
-  private Object updateWebServerSystemPropertiesAsSystem()
-  {
-    systemProperties.clear();
-    List<ISystemProperty> systemProps = DiCore.getGlobalInjector()
-    		.getInstance(IApplicationConfigurationManager.class)
-            .getSystemProps();
-    for (ISystemProperty property : systemProps)
-    {
-      if (!property.getUserInterfaceFormat().equals(UserInterfaceFormat.INVISIBLE)
-              && StringUtils.startsWith(property.getName(), "Connector"))
-      {
-        SystemProperty sysProperty = createNewSystemProperty(property);
-        systemProperties.add(sysProperty);
-      }
-    }
-    return null;
-  }
-
-  private SystemProperty createNewSystemProperty(ISystemProperty property)
-  {
-    SystemProperty sysProperty = new SystemProperty();
-    sysProperty.setName(property.getName());
-    sysProperty.setDefaultValue(property.getDefaultValue());
-    sysProperty.setDescription(property.getDescription());
-    sysProperty.setValue(property.getValue());
-    sysProperty.setUserInterfaceFormat(property.getUserInterfaceFormat());
-    if (property.getUserInterfaceFormat().equals(UserInterfaceFormat.ENUMERATION))
-    {
-      sysProperty.setEnumerationValues(Arrays.asList(property.getEnumerationValues()));
-    }
-    return sysProperty;
-  }
-
-  public List<SystemProperty> getWebServerSystemProperties()
-  {
-    return systemProperties;
-  }
-
-  public void saveWebServerSystemProperties()
-  {
-    for (SystemProperty systemProperty : systemProperties)
-    {
-      setProperty(systemProperty.getName(), systemProperty.getValue());
-    }
   }
 
   private boolean saveClusterNodes()
@@ -374,7 +318,6 @@ public class SystemDatabaseSettings
     try
     {
       saveSystemDb();
-      saveWebServerSystemProperties();
       saveWebServerConfig();
       UiModder.yamlConfigSaved();
     }

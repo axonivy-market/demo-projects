@@ -1,4 +1,7 @@
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=engine.config.ui.test.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=engine.config.ui.test
+ch.ivyteam.ivy.designer.preferences.IvyScriptPreferencePage\:DEFAULT_ACTION_TABLE_INSCRIPTION=ACTION_INSCRIPTION_IN
+ch.ivyteam.ivy.designer.preferences.IvyScriptPreferencePage\:VISIBILITY_LEVEL=EXPERT
+ch.ivyteam.ivy.designer.preferences.IvyScriptPreferencePage\:useProjectSettings=true
 ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=72000
 eclipse.preferences.version=1

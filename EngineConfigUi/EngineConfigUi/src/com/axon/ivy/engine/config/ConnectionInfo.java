@@ -7,6 +7,7 @@ import ch.ivyteam.db.jdbc.DatabaseProduct;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import ch.ivyteam.licence.SignedLicence;
 
+@SuppressWarnings("restriction")
 public class ConnectionInfo
 {
   private Boolean connectionOK = false;

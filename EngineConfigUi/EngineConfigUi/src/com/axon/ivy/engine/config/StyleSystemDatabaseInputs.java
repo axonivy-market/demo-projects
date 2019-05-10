@@ -7,6 +7,7 @@ import javax.faces.context.FacesContext;
 import org.primefaces.component.commandbutton.CommandButton;
 import org.primefaces.context.RequestContext;
 
+@SuppressWarnings("restriction")
 public class StyleSystemDatabaseInputs
 {
   public static void setIncorrectInputs(ConnectionInfo connectionInfo)

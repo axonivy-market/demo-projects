@@ -5,12 +5,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentI
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementValue;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
 
 public class WebTestWebServer extends BaseWebTest
 {
@@ -46,54 +42,5 @@ public class WebTestWebServer extends BaseWebTest
     openTab("Web Server");
     await(textToBePresentInElementValue(portInputLocator, "1234"));
   }
-
-  @Ignore
-  @Test
-  public void testWebServerSystemProperties() throws Exception
-  {
-    openSystemPropertiesDialog();
-
-    String newValue = "120000";
-    String editedRow = editProperty("4", "number", newValue);
-    driver.findElement(
-            By.xpath("//*[@id='accordionPanel:webServerComponent:advancedSystemPropertiesDialog']/div[1]/a/span"))
-            .click();
-    saveAll();
-
-    openConfigUi();
-    testConnection();
-    openSystemPropertiesDialog();
-    await(textToBePresentInElementLocated(By.id(editedRow + ":cellEditor"), newValue));
-  }
-
-  private void openSystemPropertiesDialog() throws Exception
-  {
-    openTab("Web Server");
-    await(ExpectedConditions.elementToBeClickable(By
-            .id("accordionPanel:webServerComponent:webServerForm:advancedSystemPropertiesButton")))
-                    .click();
-
-   Dialog dialog = prime.dialog(By.id("accordionPanel:webServerComponent:advancedSystemPropertiesDialog"));
-   dialog.waitForVisibility(true);
-   
-    await(120, textToBePresentInElementLocated(By
-            .id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable_data"),
-            "WebServer.HTTPS.ThreadPriority"));
-  }
-
-  private String editProperty(String row, String type, String newValue) throws Exception
-  {
-    String rowId = "accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable:" + row;
-    System.out.println(rowId + ":rowEditor");
-    driver.findElement(By.xpath("//*[@id='" + rowId + ":rowEditor']/a[1]")).click();
-    clearAndSend(
-            By.id("accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable:" + row
-                    + ":" + type + "_input"),
-            newValue);
-    driver.findElement(
-            By.xpath("//*[@id='accordionPanel:webServerComponent:advancedSystemPropertiesForm:propertiesTable:"
-                    + row + ":rowEditor']/a[2]"))
-            .click();
-    return rowId;
-  }
+ 
 }
