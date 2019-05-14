@@ -47,8 +47,6 @@ Fs0 f0 method start(com.axonivy.connectivity.Data) #txt
 Fs0 f0 disableUIEvents true #txt
 Fs0 f0 inParameterDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData out;
 ' #txt
-Fs0 f0 inParameterMapAction 'out.ownFiles=false;
-' #txt
 Fs0 f0 outParameterDecl '<com.axonivy.connectivity.Data data> result;
 ' #txt
 Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -129,15 +127,8 @@ import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 
 java.io.File file;
 
-if(in.file.readBinary().length() == 0)
-{
-	IFile resource = FileUpload.getHdResource("com.axonivy.connectivity.rest.FileUpload","resources/"+in.resourceName);
-	file = FileUpload.toTempIoFile(resource);
-}
-else
-{
-	file = in.file.getJavaFile();
-}
+IFile resource = FileUpload.getHdResource("com.axonivy.connectivity.rest.FileUpload","resources/"+in.resourceName);
+file = FileUpload.toTempIoFile(resource);
 
 FormDataMultiPart multipart;
 FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
@@ -152,9 +143,8 @@ Response jaxrsresponse = client.request().header("X-Requested-By", "ivy")
  .header("MIME-Version", "1.0")
  .put(Entity.entity(multipart, contentType));
 
+in.downloadName = jaxrsresponse.getHeaderString("uploadedFile");
 in.listFile.add(jaxrsresponse.getHeaderString("uploadedFile"));
-in.file.delete();
-in.ownFiles = false;
 
 ' #txt
 Fs0 f20 clientErrorCode ivy:error:rest:client #txt
@@ -190,22 +180,11 @@ import com.axonivy.connectivity.rest.client.file.FileUpload;
 import org.eclipse.core.resources.IFile;
 import javax.ws.rs.core.Response;
 
-if(in.file.readBinary().length() == 0)
-{
-	IFile resource = FileUpload.getHdResource("com.axonivy.connectivity.rest.FileUpload", 
+IFile resource = FileUpload.getHdResource("com.axonivy.connectivity.rest.FileUpload", 
 		"resources/"+in.resourceName);
-	Response response = FileUpload.upload(client, resource);
-	in.downloadName = response.getHeaderString("uploadedFile");
-}
-else
-{
-	FileUpload.upload(client, in.file.getJavaFile());
-	in.downloadName = in.file.getName();
-	in.file.delete();
-}
-out.file = null;
+Response response = FileUpload.upload(client, resource);
+in.downloadName = response.getHeaderString("uploadedFile");
 in.listFile.add(in.downloadName);
-in.ownFiles = false;
 
 
 
@@ -246,9 +225,10 @@ Fs0 f19 headers 'Accept=application/octet-stream;
 ' #txt
 Fs0 f19 method GET #txt
 Fs0 f19 resultType java.io.InputStream #txt
-Fs0 f19 responseCode 'import org.primefaces.model.DefaultStreamedContent;
+Fs0 f19 responseCode 'import ch.ivyteam.ivy.process.extension.beans.Wait;
+import org.primefaces.model.DefaultStreamedContent;
 
-out.fileDownload = new DefaultStreamedContent(result, "text/txt", in.downloadName);
+out.fileDownload = new DefaultStreamedContent(result, "text/plain", in.downloadName);
 
 
 ' #txt
@@ -294,10 +274,9 @@ Fs0 f11 actionTable 'out=in;
 ' #txt
 Fs0 f11 actionCode 'if(in.file.getName().contains("."))
 {
+ivy.log.info(in.file.getName());
 in.listFile.add(in.file.getName());
-out.file = null;
-}
-in.ownFiles = false;' #txt
+}' #txt
 Fs0 f11 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
