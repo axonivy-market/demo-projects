@@ -28,7 +28,7 @@
 					<p:outputLabel for="HTTPPortInput" id="HTTPPortLabel"
 						value="Port: " />
 					<p:inputNumber id="HTTPPortInput" styleClass="port-input"
-						value="#{data.settings.webServerConfig.httpPort}" minValue="-1" maxValue="1000000" thousandSeparator="'">
+						value="#{data.settings.webServerConfig.httpPort}" minValue="-1" maxValue="1000000" thousandSeparator="">
 						<p:ajax event="keyup" listener="#{logic.saveEasyProps}"/>
 					</p:inputNumber>
 				</h:panelGrid>
@@ -47,7 +47,7 @@
 					<p:outputLabel for="HTTPSPortInput" id="HTTPSPortLabel"
 						value="Port: " />
 					<p:inputNumber id="HTTPSPortInput" styleClass="port-input"
-						value="#{data.settings.webServerConfig.httpsPort}" minValue="-1" maxValue="1000000" thousandSeparator="'">
+						value="#{data.settings.webServerConfig.httpsPort}" minValue="-1" maxValue="1000000" thousandSeparator="">
 						<p:ajax event="keyup" listener="#{logic.saveEasyProps}"/>
 					</p:inputNumber>
 				</h:panelGrid>
@@ -65,7 +65,7 @@
 
 					<p:outputLabel for="AJPPortInput" id="AJPPortLabel" value="Port: " />
 					<p:inputNumber id="AJPPortInput" styleClass="port-input"
-						value="#{data.settings.webServerConfig.ajpPort}" minValue="-1" maxValue="1000000" thousandSeparator="'">
+						value="#{data.settings.webServerConfig.ajpPort}" minValue="-1" maxValue="1000000" thousandSeparator="">
 						<p:ajax event="keyup" listener="#{logic.saveEasyProps}"/>
 					</p:inputNumber>
 				</h:panelGrid>
