@@ -28,7 +28,7 @@ public class WebTestWebServer extends BaseWebTest
     assertThat(prime.selectBooleanCheckbox(By.id(
             "accordionPanel:webServerComponent:webServerForm:HTTPEnabledCheckbox")).isChecked())
             .isTrue();
-    By portInputLocator = By.id("accordionPanel:webServerComponent:webServerForm:HTTPPortInput");
+    By portInputLocator = By.id("accordionPanel:webServerComponent:webServerForm:HTTPPortInput_input");
     await(textToBePresentInElementValue(
             portInputLocator, "8080"));
 
