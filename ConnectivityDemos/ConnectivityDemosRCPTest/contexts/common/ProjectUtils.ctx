@@ -5,8 +5,8 @@ Element-Name: ProjectUtils
 Element-Type: context
 Element-Version: 2.0
 Id: _uTeBUD3gEeadqZIC2MODiA
-Runtime-Version: 2.3.0.201806262310
-Save-Time: 12/21/18 4:32 PM
+Runtime-Version: 2.4.2.201904290004
+Save-Time: 5/15/19 9:06 AM
 
 ------=_.ecl.context-718f04b4-ed39-33e3-af62-0995e4561998
 Content-Type: text/ecl
@@ -24,10 +24,10 @@ proc "importArchive" [val section] [val projectName]
 	{
 		get-menu "File/Import..." | click
 		with [get-window Import] {
-		    get-tree | select "Axon.ivy/Ivy Sample.*"
+		    get-tree | select "Axon.ivy/Ivy Projects.*"
 		    get-button "Next >" | click
 		}
-		with [get-window "Import ivy Archives.*"] {
+		with [get-window "Ivy Projects Import"] {
 			with [get-tree] {
 	        	get-item [format "%s.*/%s.*" $section $projectName] | check
 	    	}
