@@ -6,8 +6,8 @@ Element-Type: testcase
 Element-Version: 3.0
 External-Reference: 
 Id: _mJdm0P7NEeix8aNAfN3REA
-Runtime-Version: 2.3.0.201806262310
-Save-Time: 1/8/19 2:33 PM
+Runtime-Version: 2.4.2.201904290004
+Save-Time: 5/15/19 8:14 AM
 Testcase-Type: ecl
 Verifications: _SbgVwD39EeadqZIC2MODiA
 
@@ -18,7 +18,7 @@ Entry-Name: .content
 let [val project "ConnectivityDemos"]
 {
 	// setup
-	importArchive -section "Demo" -projectName $project
+	importArchive -section "Samples" -projectName $project
 	showOnlyUserRuntimeLog
 	startEngines
 	simulationSelected false
