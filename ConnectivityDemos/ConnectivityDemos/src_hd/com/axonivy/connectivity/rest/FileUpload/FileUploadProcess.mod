@@ -36,10 +36,8 @@ Fs0 @PushWFArc f10 '' #zField
 Fs0 @PushWFArc f8 '' #zField
 Fs0 @PushWFArc f9 '' #zField
 Fs0 @RichDialogMethodStart f11 '' #zField
-Fs0 @GridStep f16 '' #zField
-Fs0 @PushWFArc f17 '' #zField
 Fs0 @RichDialogProcessEnd f18 '' #zField
-Fs0 @PushWFArc f22 '' #zField
+Fs0 @PushWFArc f16 '' #zField
 >Proto Fs0 Fs0 FileUploadProcess #zField
 Fs0 f0 guid 169B3B8EB3CCFDE2 #txt
 Fs0 f0 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
@@ -279,6 +277,14 @@ Fs0 f11 inParameterDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData
 ' #txt
 Fs0 f11 inParameterMapAction 'out.fileName=param.fileName;
 ' #txt
+Fs0 f11 inActionCode 'import java.util.Arrays;
+import org.apache.commons.io.FilenameUtils;
+String extension = FilenameUtils.getExtension(out.fileName);
+List<String> allowed = Arrays.asList("pdf","txt","jpg");
+if(allowed.contains(extension))
+{
+out.listFile.add(out.fileName);
+}' #txt
 Fs0 f11 outParameterDecl '<java.lang.String result> result;
 ' #txt
 Fs0 f11 outParameterMapAction 'result.result=in.fileName;
@@ -292,28 +298,11 @@ Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Fs0 f11 84 244 24 24 -34 16 #rect
 Fs0 f11 @|RichDialogMethodStartIcon #fIcon
-Fs0 f16 actionDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData out;
-' #txt
-Fs0 f16 actionTable 'out=in;
-' #txt
-Fs0 f16 actionCode 'import java.util.Arrays;
-import org.apache.commons.io.FilenameUtils;
-String extension = FilenameUtils.getExtension(in.fileName);
-List<String> allowed = Arrays.asList("pdf","txt","jpg");
-if(allowed.contains(extension))
-{
-in.listFile.add(in.fileName);
-}' #txt
-Fs0 f16 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
-Fs0 f16 152 234 112 44 0 -7 #rect
-Fs0 f16 @|StepIcon #fIcon
-Fs0 f17 expr out #txt
-Fs0 f17 108 256 152 256 #arcP
 Fs0 f18 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 Fs0 f18 307 243 26 26 0 12 #rect
 Fs0 f18 @|RichDialogProcessEndIcon #fIcon
-Fs0 f22 expr out #txt
-Fs0 f22 264 256 307 256 #arcP
+Fs0 f16 expr out #txt
+Fs0 f16 108 256 307 256 #arcP
 >Proto Fs0 .type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 >Proto Fs0 .processKind HTML_DIALOG #txt
 >Proto Fs0 -8 -8 16 16 16 26 #rect
@@ -334,7 +323,5 @@ Fs0 f23 mainOut f8 tail #connect
 Fs0 f8 head f13 mainIn #connect
 Fs0 f20 mainOut f9 tail #connect
 Fs0 f9 head f13 mainIn #connect
-Fs0 f11 mainOut f17 tail #connect
-Fs0 f17 head f16 mainIn #connect
-Fs0 f16 mainOut f22 tail #connect
-Fs0 f22 head f18 mainIn #connect
+Fs0 f11 mainOut f16 tail #connect
+Fs0 f16 head f18 mainIn #connect
