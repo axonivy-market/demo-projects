@@ -84,7 +84,6 @@ public class IntegrationTestFileUpload
             .target(uri).request()
             .header("X-Requested-By", "ivy")
             .put(Entity.entity(createMultipart(realPdf), contentType));
-    System.out.println("apache response is: "+apacheConnectorResponse);
     assertThat(apacheConnectorResponse.getStatus()).isEqualTo(Status.CREATED.getStatusCode());
     realPdf.delete();
   }
@@ -137,6 +136,7 @@ public class IntegrationTestFileUpload
     Response pdfResponse = createAuthenticatedClient()
             .target(uri).request()
             .header("X-Requested-By", "ivy")
+            .header("MIME-Version", "1.0")
             .put(Entity.entity(createMultipart(createWrongEmptyFile), MediaType.MULTIPART_FORM_DATA_TYPE));
     return pdfResponse;
   }

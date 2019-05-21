@@ -91,8 +91,7 @@ public class FileUploadService
     @SuppressWarnings("unused")
     java.net.URL uri = Thread.currentThread().getContextClassLoader().getResource("");
     File ivyFile = new File(fileName);
-    java.io.File file = new java.io.File(ivyFile.getAbsolutePath());
-    InputStream fis = new FileInputStream(file);
+    InputStream fis = new FileInputStream(ivyFile.getJavaFile());
     return Response
             .ok(fis, MediaType.APPLICATION_OCTET_STREAM)
             .header("content-disposition", "attachment; filename = " + fileName)

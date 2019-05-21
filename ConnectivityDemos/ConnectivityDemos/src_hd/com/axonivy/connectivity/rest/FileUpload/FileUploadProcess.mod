@@ -33,12 +33,12 @@ Fs0 @PushWFArc f7 '' #zField
 Fs0 @PushWFArc f2 '' #zField
 Fs0 @RichDialogMethodStart f6 '' #zField
 Fs0 @PushWFArc f10 '' #zField
-Fs0 @GridStep f11 '' #zField
-Fs0 @RichDialogProcessStart f17 '' #zField
-Fs0 @PushWFArc f18 '' #zField
 Fs0 @PushWFArc f8 '' #zField
 Fs0 @PushWFArc f9 '' #zField
-Fs0 @RichDialogProcessEnd f16 '' #zField
+Fs0 @RichDialogMethodStart f11 '' #zField
+Fs0 @GridStep f16 '' #zField
+Fs0 @PushWFArc f17 '' #zField
+Fs0 @RichDialogProcessEnd f18 '' #zField
 Fs0 @PushWFArc f22 '' #zField
 >Proto Fs0 Fs0 FileUploadProcess #zField
 Fs0 f0 guid 169B3B8EB3CCFDE2 #txt
@@ -74,16 +74,16 @@ Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f3 83 379 26 26 -16 12 #rect
+Fs0 f3 83 371 26 26 -16 12 #rect
 Fs0 f3 @|RichDialogProcessStartIcon #fIcon
 Fs0 f4 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 Fs0 f4 guid 169B3B8EB465835E #txt
-Fs0 f4 211 379 26 26 0 12 #rect
+Fs0 f4 211 371 26 26 0 12 #rect
 Fs0 f4 @|RichDialogEndIcon #fIcon
 Fs0 f5 expr out #txt
-Fs0 f5 109 392 211 392 #arcP
+Fs0 f5 109 384 211 384 #arcP
 Fs0 f14 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
-Fs0 f14 307 315 26 26 0 12 #rect
+Fs0 f14 307 307 26 26 0 12 #rect
 Fs0 f14 @|RichDialogProcessEndIcon #fIcon
 Fs0 f12 guid 169BA65449CB5C7A #txt
 Fs0 f12 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
@@ -199,7 +199,7 @@ with Java</name>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f23 152 178 112 44 -27 -15 #rect
+Fs0 f23 152 170 112 44 -27 -15 #rect
 Fs0 f23 @|RestClientCallIcon #fIcon
 Fs0 f26 guid 169DD5240BB13E40 #txt
 Fs0 f26 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
@@ -214,9 +214,9 @@ Fs0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f26 83 187 26 26 -35 17 #rect
+Fs0 f26 83 179 26 26 -35 17 #rect
 Fs0 f26 @|RichDialogProcessStartIcon #fIcon
-Fs0 f21 264 328 307 328 #arcP
+Fs0 f21 264 320 307 320 #arcP
 Fs0 f19 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 Fs0 f19 path /{in.downloadName} #txt
 Fs0 f19 templateParams 'in.downloadName=in.downloadName;
@@ -241,10 +241,10 @@ Fs0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f19 152 308 112 40 -24 -7 #rect
+Fs0 f19 152 300 112 40 -24 -7 #rect
 Fs0 f19 @|RestClientCallIcon #fIcon
 Fs0 f7 expr out #txt
-Fs0 f7 109 200 152 200 #arcP
+Fs0 f7 109 192 152 192 #arcP
 Fs0 f2 expr out #txt
 Fs0 f2 109 64 307 64 #arcP
 Fs0 f6 guid 169FD080F277361F #txt
@@ -264,54 +264,56 @@ Fs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f6 83 315 26 26 -53 15 #rect
+Fs0 f6 83 307 26 26 -53 15 #rect
 Fs0 f6 @|RichDialogMethodStartIcon #fIcon
 Fs0 f10 expr out #txt
-Fs0 f10 109 328 152 328 #arcP
-Fs0 f11 actionDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData out;
-' #txt
-Fs0 f11 actionTable 'out=in;
-' #txt
-Fs0 f11 actionCode 'if(in.file.getName().contains("."))
-{
-ivy.log.info(in.file.getName());
-in.listFile.add(in.file.getName());
-}' #txt
+Fs0 f10 109 320 152 320 #arcP
+Fs0 f8 264 192 307 170 #arcP
+Fs0 f8 0 0.5115946062226181 0 0 #arcLabel
+Fs0 f9 270 150 307 163 #arcP
+Fs0 f11 guid 16AD5002D41CB6BC #txt
 Fs0 f11 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
+Fs0 f11 method addJsToList(String) #txt
+Fs0 f11 disableUIEvents false #txt
+Fs0 f11 inParameterDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData out;
+' #txt
+Fs0 f11 inParameterMapAction 'out.fileName=param.fileName;
+' #txt
+Fs0 f11 outParameterDecl '<java.lang.String result> result;
+' #txt
+Fs0 f11 outParameterMapAction 'result.result=in.fileName;
+' #txt
 Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Add file to the list</name>
+        <name>addJsToList(String)</name>
     </language>
 </elementInfo>
 ' #txt
-Fs0 f11 144 242 128 44 -55 -7 #rect
-Fs0 f11 @|StepIcon #fIcon
-Fs0 f17 guid 16A01931E14F1BF1 #txt
-Fs0 f17 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
-Fs0 f17 actionDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData out;
+Fs0 f11 84 244 24 24 -34 16 #rect
+Fs0 f11 @|RichDialogMethodStartIcon #fIcon
+Fs0 f16 actionDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData out;
 ' #txt
-Fs0 f17 actionTable 'out=in;
+Fs0 f16 actionTable 'out=in;
 ' #txt
-Fs0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>jsList</name>
-    </language>
-</elementInfo>
-' #txt
-Fs0 f17 83 251 26 26 -18 16 #rect
-Fs0 f17 @|RichDialogProcessStartIcon #fIcon
-Fs0 f18 expr out #txt
-Fs0 f18 109 264 144 264 #arcP
-Fs0 f8 264 200 307 171 #arcP
-Fs0 f8 0 0.5115946062226181 0 0 #arcLabel
-Fs0 f9 270 150 307 163 #arcP
+Fs0 f16 actionCode 'import java.util.Arrays;
+import org.apache.commons.io.FilenameUtils;
+String extension = FilenameUtils.getExtension(in.fileName);
+List<String> allowed = Arrays.asList("pdf","txt","jpg");
+if(allowed.contains(extension))
+{
+in.listFile.add(in.fileName);
+}' #txt
 Fs0 f16 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
-Fs0 f16 307 251 26 26 0 12 #rect
-Fs0 f16 @|RichDialogProcessEndIcon #fIcon
+Fs0 f16 152 234 112 44 0 -7 #rect
+Fs0 f16 @|StepIcon #fIcon
+Fs0 f17 expr out #txt
+Fs0 f17 108 256 152 256 #arcP
+Fs0 f18 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
+Fs0 f18 307 243 26 26 0 12 #rect
+Fs0 f18 @|RichDialogProcessEndIcon #fIcon
 Fs0 f22 expr out #txt
-Fs0 f22 272 264 307 264 #arcP
+Fs0 f22 264 256 307 256 #arcP
 >Proto Fs0 .type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 >Proto Fs0 .processKind HTML_DIALOG #txt
 >Proto Fs0 -8 -8 16 16 16 26 #rect
@@ -328,11 +330,11 @@ Fs0 f0 mainOut f2 tail #connect
 Fs0 f2 head f1 mainIn #connect
 Fs0 f6 mainOut f10 tail #connect
 Fs0 f10 head f19 mainIn #connect
-Fs0 f17 mainOut f18 tail #connect
-Fs0 f18 head f11 mainIn #connect
 Fs0 f23 mainOut f8 tail #connect
 Fs0 f8 head f13 mainIn #connect
 Fs0 f20 mainOut f9 tail #connect
 Fs0 f9 head f13 mainIn #connect
-Fs0 f11 mainOut f22 tail #connect
-Fs0 f22 head f16 mainIn #connect
+Fs0 f11 mainOut f17 tail #connect
+Fs0 f17 head f16 mainIn #connect
+Fs0 f16 mainOut f22 tail #connect
+Fs0 f22 head f18 mainIn #connect

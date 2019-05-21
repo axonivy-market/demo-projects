@@ -10,14 +10,14 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">FileUpload</ui:define>
 		<ui:define name="content">
+		<h:form id="form" enctype="multipart/form-data">
 		<script type="text/javascript">
 			function uploadFileJS(file) 
 			{
 				var form = new FormData();
-				var filename = file[0];
+				var filename = file[0].name;
 				
-				console.log(file[0]);
-				form.append("file", file[0]);	
+				form.append("file", file[0]);
 				
 				var settings = {
 			      "async": true,
@@ -31,18 +31,53 @@
 			      "data": form
 			    };
 			
+			    addToTable(filename);
+			    
+			    jsf.ajax.request(this, event,{
+                             render: 'form:dataTable ',
+                             'CLIENT_BEHAVIOR_RENDERING_MODE': 'UNOBSTRUSIVE'
+                         });
+			    
+			    
 			    return $.ajax(settings).done(function (response) {
 			      console.log(response);
 			    });
 		    }
+		    
+		    var logic = {
+				addJsToList : function (data, callback) {
+					$.ajax({
+						  url: "rest/method/addJsToList",
+						  type: "POST",
+						  dataType: 'json',
+						  data:  JSON.stringify(data),
+						  success:  function(data) {
+			        					if (data.ivyRedirectUrl) {
+			            					window.location.replace(data.ivyRedirectUrl);
+			        					} else {
+			        						return callback(data);
+			        					}
+			        				}
+						}).error(function() { alert("Server error when calling method addJsToList"); });
+				},
+				loaded: true	
+			};
+			
+		    function addToTable(fileName) {
+		    	logic.addJsToList(
+			    	{"fileName": fileName},
+			    	function(returnData){});
+		    	};
+			
 			</script>
 			
 			<h3>Rest file Client</h3>
-			<h:form id="form" enctype="multipart/form-data">
 				<h:panelGrid columns="1">
-				<h:outputText value="1.1 Upload via JavaScript." />
+				<h:outputText value="1.1 Upload via JavaScript (pdf, txt, jpg)." />
 					<p:outputPanel id="customPanel">
-						<h:inputFile id="inputtest" onchange="uploadFileJS(this.files)"/>
+						<h:inputFile id="fileUpload" onchange="uploadFileJS(this.files);">
+							<f:ajax render="dataTable"/>
+						</h:inputFile>
 					</p:outputPanel>
 				</h:panelGrid>
 				<br />
@@ -58,27 +93,29 @@
 					<p:spacer width="10px"/>
 					<p:commandButton value="Upload Ivy Script"
 						icon=" ui-icon-arrowthickstop-1-n"
-						actionListener="#{logic.uploadIvyScript}" ajax="false" />
+						actionListener="#{logic.uploadIvyScript}" ajax="false" update="@all"/>
 							or
 						<p:commandButton value="Upload Java"
-						icon=" ui-icon-arrowthickstop-1-n"
-						actionListener="#{logic.uploadJava}" ajax="false" />
+						icon="ui-icon-arrowthickstop-1-n"
+						actionListener="#{logic.uploadJava}" ajax="false" update="@all">
+						</p:commandButton>
 				</h:panelGrid>
 				<br />
 				<h:outputText value="2. Download File from Rest Service" />
-				<p:dataTable id="dataTable" var="file" value="#{data.listFile}"
+				<p:dataTable value="#{data.listFile}" widgetVar="dlFiles" var="file" id="dataTable"
 					style="width: 500px" emptyMessage="No files were uploaded yet.">
 					<p:column headerText="Uploaded Files">
 						<p:outputLabel value="#{file}" />
 					</p:column>
 					<p:column headerText="Download" style="width: 120px">
-						<p:commandButton value="Download" ajax="false"
+						<p:commandButton id="dl" value="Download" ajax="false"
 							actionListener="#{logic.download(file)}"
 							icon="ui-icon-arrowthickstop-1-s">
 							<p:fileDownload value="#{data.fileDownload}" />
 						</p:commandButton>
 					</p:column>
 				</p:dataTable>
+				<h:outputText style="font-size: 8pt;" value="*if animations are enabled there will be timeout while downloading"/>
 			</h:form>
 
 		</ui:define>
