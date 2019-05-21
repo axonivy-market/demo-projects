@@ -32,12 +32,12 @@ Fs0 @RestClientCall f19 '' #zField
 Fs0 @PushWFArc f7 '' #zField
 Fs0 @PushWFArc f2 '' #zField
 Fs0 @RichDialogMethodStart f6 '' #zField
-Fs0 @PushWFArc f10 '' #zField
 Fs0 @PushWFArc f8 '' #zField
 Fs0 @PushWFArc f9 '' #zField
 Fs0 @RichDialogMethodStart f11 '' #zField
 Fs0 @RichDialogProcessEnd f18 '' #zField
 Fs0 @PushWFArc f16 '' #zField
+Fs0 @PushWFArc f10 '' #zField
 >Proto Fs0 Fs0 FileUploadProcess #zField
 Fs0 f0 guid 169B3B8EB3CCFDE2 #txt
 Fs0 f0 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
@@ -264,8 +264,6 @@ Fs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Fs0 f6 83 307 26 26 -53 15 #rect
 Fs0 f6 @|RichDialogMethodStartIcon #fIcon
-Fs0 f10 expr out #txt
-Fs0 f10 109 320 152 320 #arcP
 Fs0 f8 264 192 307 170 #arcP
 Fs0 f8 0 0.5115946062226181 0 0 #arcLabel
 Fs0 f9 270 150 307 163 #arcP
@@ -277,10 +275,11 @@ Fs0 f11 inParameterDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData
 ' #txt
 Fs0 f11 inParameterMapAction 'out.fileName=param.fileName;
 ' #txt
-Fs0 f11 inActionCode 'import java.util.Arrays;
+Fs0 f11 inActionCode 'import com.axonivy.connectivity.rest.provider.FileUploadService;
+import java.util.Arrays;
 import org.apache.commons.io.FilenameUtils;
 String extension = FilenameUtils.getExtension(out.fileName);
-List<String> allowed = Arrays.asList("pdf","txt","jpg");
+List<String> allowed = FileUploadService.whitelistedExtensions;
 if(allowed.contains(extension))
 {
 out.listFile.add(out.fileName);
@@ -303,6 +302,8 @@ Fs0 f18 307 243 26 26 0 12 #rect
 Fs0 f18 @|RichDialogProcessEndIcon #fIcon
 Fs0 f16 expr out #txt
 Fs0 f16 108 256 307 256 #arcP
+Fs0 f10 expr out #txt
+Fs0 f10 109 320 152 320 #arcP
 >Proto Fs0 .type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 >Proto Fs0 .processKind HTML_DIALOG #txt
 >Proto Fs0 -8 -8 16 16 16 26 #rect
@@ -317,11 +318,11 @@ Fs0 f26 mainOut f7 tail #connect
 Fs0 f7 head f23 mainIn #connect
 Fs0 f0 mainOut f2 tail #connect
 Fs0 f2 head f1 mainIn #connect
-Fs0 f6 mainOut f10 tail #connect
-Fs0 f10 head f19 mainIn #connect
 Fs0 f23 mainOut f8 tail #connect
 Fs0 f8 head f13 mainIn #connect
 Fs0 f20 mainOut f9 tail #connect
 Fs0 f9 head f13 mainIn #connect
 Fs0 f11 mainOut f16 tail #connect
 Fs0 f16 head f18 mainIn #connect
+Fs0 f6 mainOut f10 tail #connect
+Fs0 f10 head f19 mainIn #connect

@@ -72,11 +72,12 @@ public class FileUploadService
     String extension = FilenameUtils.getExtension(fileName);
     if (!checkIfStringContainsList(extension))
     {
-      throw new IllegalArgumentException("The file is not allowed! Your file is: '." + extension + "'" + fileName);
+      Ivy.log().fatal("The file is not allowed! Your file is: '." + extension + "'");
+      throw new IllegalArgumentException("The file is not allowed! Your file is: '." + extension + "'");
     }
   }
 
-  private static List<String> whitelistedExtensions = Arrays.asList("pdf", "txt", "jpg");
+  public static List<String> whitelistedExtensions = Arrays.asList("pdf", "txt", "jpg", "jpeg");
 
   private static boolean checkIfStringContainsList(String extension)
   {
@@ -88,8 +89,6 @@ public class FileUploadService
   @Produces(MediaType.APPLICATION_OCTET_STREAM)
   public Response downloadFile(@PathParam("fileName") String fileName) throws IOException
   {
-    @SuppressWarnings("unused")
-    java.net.URL uri = Thread.currentThread().getContextClassLoader().getResource("");
     File ivyFile = new File(fileName);
     InputStream fis = new FileInputStream(ivyFile.getJavaFile());
     return Response
