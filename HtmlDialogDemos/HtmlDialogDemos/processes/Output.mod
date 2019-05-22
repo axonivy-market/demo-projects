@@ -1,5 +1,5 @@
 [Ivy]
-145D180807C60B4B 3.20 #module
+145D180807C60B4B 3.26 #module
 >Proto >Proto Collection #zClass
 Ot0 Output Big #zClass
 Ot0 B #cInfo
@@ -62,6 +62,11 @@ Ot0 @RichDialog f36 '' #zField
 Ot0 @EndTask f37 '' #zField
 Ot0 @PushWFArc f38 '' #zField
 Ot0 @PushWFArc f39 '' #zField
+Ot0 @StartRequest f40 '' #zField
+Ot0 @EndTask f41 '' #zField
+Ot0 @RichDialog f42 '' #zField
+Ot0 @PushWFArc f43 '' #zField
+Ot0 @PushWFArc f44 '' #zField
 >Proto Ot0 Ot0 Output #zField
 Ot0 f94 outLink SelectManyCheckboxDemo.ivp #txt
 Ot0 f94 type htmlDialogDemos.Data #txt
@@ -74,43 +79,12 @@ Ot0 f94 triggerEnabled false #txt
 Ot0 f94 callSignature SelectManyCheckboxDemo() #txt
 Ot0 f94 persist false #txt
 Ot0 f94 startName 'Select Many Checkbox Demo' #txt
-Ot0 f94 taskData '#
-#Tue May 06 14:27:29 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Ot0 f94 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Ot0 f94 caseData '#
-#Thu Jun 20 13:56:20 CEST 2013
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ot0 f94 showInStartList 1 #txt
 Ot0 f94 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -136,43 +110,12 @@ Ot0 f87 triggerEnabled false #txt
 Ot0 f87 callSignature SelectOneMenuDemo() #txt
 Ot0 f87 persist false #txt
 Ot0 f87 startName 'Select One Menu Demo' #txt
-Ot0 f87 taskData '#
-#Tue May 06 14:27:29 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Ot0 f87 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Ot0 f87 caseData '#
-#Thu Jun 13 11:26:19 CEST 2013
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ot0 f87 showInStartList 1 #txt
 Ot0 f87 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -219,43 +162,12 @@ Ot0 f25 triggerEnabled false #txt
 Ot0 f25 callSignature PickListDemo() #txt
 Ot0 f25 persist false #txt
 Ot0 f25 startName 'PickList Demo' #txt
-Ot0 f25 taskData '#
-#Tue May 06 14:27:29 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Ot0 f25 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Ot0 f25 caseData '#
-#Mon Sep 24 16:28:19 CEST 2012
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ot0 f25 showInStartList 1 #txt
 Ot0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -348,43 +260,12 @@ Ot0 f5 triggerEnabled false #txt
 Ot0 f5 callSignature OrderListDemo() #txt
 Ot0 f5 persist false #txt
 Ot0 f5 startName OrderListDemo #txt
-Ot0 f5 taskData '#
-#Tue May 06 14:27:29 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Ot0 f5 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Ot0 f5 caseData '#
-#Thu Jun 13 09:30:45 CEST 2013
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ot0 f5 showInStartList 1 #txt
 Ot0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -414,43 +295,12 @@ Ot0 f30 triggerEnabled false #txt
 Ot0 f30 callSignature ResourceDemo() #txt
 Ot0 f30 persist false #txt
 Ot0 f30 startName 'Resource Demo' #txt
-Ot0 f30 taskData '#
-#Tue May 06 14:27:29 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Ot0 f30 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Ot0 f30 caseData '#
-#Thu Sep 27 09:07:48 CEST 2012
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ot0 f30 showInStartList 1 #txt
 Ot0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -508,43 +358,12 @@ Ot0 f10 triggerEnabled false #txt
 Ot0 f10 callSignature EditableTableDemo() #txt
 Ot0 f10 persist false #txt
 Ot0 f10 startName 'Editable Table Demo' #txt
-Ot0 f10 taskData '#
-#Tue May 06 14:27:29 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Ot0 f10 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Ot0 f10 caseData '#
-#Thu Sep 20 15:31:19 CEST 2012
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ot0 f10 showInStartList 1 #txt
 Ot0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -617,43 +436,12 @@ Ot0 f0 triggerEnabled false #txt
 Ot0 f0 callSignature ChartDemo() #txt
 Ot0 f0 persist false #txt
 Ot0 f0 startName 'Chart Demo' #txt
-Ot0 f0 taskData '#
-#Fri May 16 16:11:41 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Ot0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Ot0 f0 caseData '#
-#Fri May 16 16:11:41 CEST 2014
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ot0 f0 showInStartList 1 #txt
 Ot0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -681,43 +469,12 @@ Ot0 f20 triggerEnabled false #txt
 Ot0 f20 callSignature AutoCompleteDemo() #txt
 Ot0 f20 persist false #txt
 Ot0 f20 startName 'Auto Complete Demo' #txt
-Ot0 f20 taskData '#
-#Wed Jun 11 15:21:38 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Ot0 f20 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Ot0 f20 caseData '#
-#Wed Jun 11 12:50:45 CEST 2014
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ot0 f20 showInStartList 1 #txt
 Ot0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -789,12 +546,12 @@ Ot0 f17 triggerEnabled false #txt
 Ot0 f17 callSignature DataTableDemo() #txt
 Ot0 f17 persist false #txt
 Ot0 f17 startName 'DataTable Demo' #txt
-Ot0 f17 taskData 'TaskTriggered.ROL=Everybody
+Ot0 f17 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ot0 f17 caseData businessCase.attach=false #txt
 Ot0 f17 showInStartList 1 #txt
 Ot0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -825,12 +582,12 @@ Ot0 f35 triggerEnabled false #txt
 Ot0 f35 callSignature LazyLoadingDemo() #txt
 Ot0 f35 persist false #txt
 Ot0 f35 startName 'Lazy Table-Loading Demo' #txt
-Ot0 f35 taskData 'TaskTriggered.ROL=Everybody
+Ot0 f35 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ot0 f35 caseData businessCase.attach=true #txt
 Ot0 f35 showInStartList 1 #txt
 Ot0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -867,6 +624,57 @@ Ot0 f38 expr out #txt
 Ot0 f38 143 928 248 928 #arcP
 Ot0 f39 expr out #txt
 Ot0 f39 360 928 465 928 #arcP
+Ot0 f40 outLink ExportExcelDemo.ivp #txt
+Ot0 f40 type htmlDialogDemos.Data #txt
+Ot0 f40 inParamDecl '<> param;' #txt
+Ot0 f40 actionDecl 'htmlDialogDemos.Data out;
+' #txt
+Ot0 f40 guid 16ADE89400B7FD80 #txt
+Ot0 f40 requestEnabled true #txt
+Ot0 f40 triggerEnabled false #txt
+Ot0 f40 callSignature ExportExcelDemo() #txt
+Ot0 f40 persist false #txt
+Ot0 f40 startName 'Export Excel Demo' #txt
+Ot0 f40 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
+Ot0 f40 caseData businessCase.attach=true #txt
+Ot0 f40 showInStartList 1 #txt
+Ot0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>ExportExcelDemo.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+Ot0 f40 @C|.responsibility Everybody #txt
+Ot0 f40 113 1009 30 30 -60 17 #rect
+Ot0 f40 @|StartRequestIcon #fIcon
+Ot0 f41 type htmlDialogDemos.Data #txt
+Ot0 f41 465 1009 30 30 0 15 #rect
+Ot0 f41 @|EndIcon #fIcon
+Ot0 f42 targetWindow NEW #txt
+Ot0 f42 targetDisplay TOP #txt
+Ot0 f42 richDialogId ch.ivyteam.htmldialog.demo.output.ExportExcelDemo #txt
+Ot0 f42 startMethod start() #txt
+Ot0 f42 type htmlDialogDemos.Data #txt
+Ot0 f42 requestActionDecl '<> param;' #txt
+Ot0 f42 responseActionDecl 'htmlDialogDemos.Data out;
+' #txt
+Ot0 f42 responseMappingAction 'out=in;
+' #txt
+Ot0 f42 isAsynch false #txt
+Ot0 f42 isInnerRd false #txt
+Ot0 f42 userContext '* ' #txt
+Ot0 f42 248 1002 112 44 0 -8 #rect
+Ot0 f42 @|RichDialogIcon #fIcon
+Ot0 f43 expr out #txt
+Ot0 f43 360 1024 465 1024 #arcP
+Ot0 f44 expr out #txt
+Ot0 f44 143 1024 248 1024 #arcP
 >Proto Ot0 .type htmlDialogDemos.Data #txt
 >Proto Ot0 .processKind NORMAL #txt
 >Proto Ot0 0 0 32 24 18 0 #rect
@@ -911,3 +719,7 @@ Ot0 f35 mainOut f38 tail #connect
 Ot0 f38 head f36 mainIn #connect
 Ot0 f36 mainOut f39 tail #connect
 Ot0 f39 head f37 mainIn #connect
+Ot0 f40 mainOut f44 tail #connect
+Ot0 f44 head f42 mainIn #connect
+Ot0 f42 mainOut f43 tail #connect
+Ot0 f43 head f41 mainIn #connect

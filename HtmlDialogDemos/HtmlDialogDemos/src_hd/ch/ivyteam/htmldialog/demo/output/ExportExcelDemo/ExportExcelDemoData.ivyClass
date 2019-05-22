@@ -1,0 +1,6 @@
+ExportExcelDemoData #class
+ch.ivyteam.htmldialog.demo.output.ExportExcelDemo #namespace
+recordset Recordset #field
+recordset PERSISTENT #fieldModifier
+persons List<ch.ivyteam.htmldialog.demo.Person> #field
+persons PERSISTENT #fieldModifier
