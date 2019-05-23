@@ -1,6 +1,7 @@
 package ch.ivyteam.htmldialog.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.not;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
@@ -9,10 +10,16 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.StringJoiner;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.SystemUtils;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -25,6 +32,14 @@ import com.jayway.awaitility.Awaitility;
 public class WebTestOutput extends BaseWebTest
 {
   private File tempDownloadDir;
+  
+  @After
+  @Override
+  public void tearDown() throws Exception
+  {
+    super.tearDown();
+    FileUtils.deleteDirectory(tempDownloadDir);
+  }
   
   @Test
   public void testDataTable() throws Exception
@@ -192,13 +207,36 @@ public class WebTestOutput extends BaseWebTest
     startProcess("145D180807C60B4B/ExportExcelDemo.ivp");
     driver.findElement(By.id("form:exportBtn")).click();
 
-    Awaitility.await("Expecting File Persons.xml to exist").atMost(10, TimeUnit.SECONDS).until(() ->
+    File excel = new File(tempDownloadDir.getAbsolutePath() + SystemUtils.FILE_SEPARATOR + "Persons.xls");
+
+    Awaitility.await().atMost(20, TimeUnit.SECONDS).until(() ->
     {
-      assertThat(new File(tempDownloadDir.getAbsolutePath() + SystemUtils.FILE_SEPARATOR + "Persons.xls")).exists();
+      assertThat(excel).exists();
+      assertThat(readExcel(excel)).contains("Name", "Weiss", "Reto");
     });
-    
-    super.tearDown();
-    FileUtils.deleteDirectory(tempDownloadDir);
+  }
+  
+  private String readExcel(File excel)
+  {
+    StringJoiner stringJoiner = new StringJoiner(" ");
+    try (Workbook workbook = WorkbookFactory.create(excel))
+    {
+      DataFormatter dataFormatter = new DataFormatter();
+      Sheet sheet = workbook.getSheetAt(0);
+      
+      sheet.forEach(row -> {
+        row.forEach(cell -> {
+          String cellValue = dataFormatter.formatCellValue(cell);
+          stringJoiner.add(cellValue);
+        });
+      });
+    }
+    catch (Exception ex)
+    {
+      fail("reading excel file failed");
+    }
+
+    return stringJoiner.toString();
   }
   
   @Override
