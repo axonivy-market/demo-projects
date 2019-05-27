@@ -7,7 +7,7 @@ function uploadFileJS(file) {
 	var settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "http://localhost:"+window.location.port+"/ivy/api/designer/fileUpload",
+		"url": "http://"+window.location.hostname+":"+window.location.port+"/ivy/api/designer/fileUpload",
 		"method": "PUT",
 		"headers": { "X-Requested-By": "ivy" },
 		"processData": false,
@@ -16,16 +16,14 @@ function uploadFileJS(file) {
 		"data": form
 	};
 
-	addToTable(filename);
-
-	jsf.ajax.request(this, event, {
-		render: 'form:dataTable ',
-		'CLIENT_BEHAVIOR_RENDERING_MODE': 'UNOBSTRUSIVE'
-	});
-
-
 	return $.ajax(settings).done(function (response) {
 		console.log(response);
+		addToTable(filename);
+	
+		jsf.ajax.request(this, event, {
+			render: 'form:dataTable ',
+			'CLIENT_BEHAVIOR_RENDERING_MODE': 'UNOBSTRUSIVE'
+		});
 	});
 }
 
