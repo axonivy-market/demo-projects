@@ -17,7 +17,7 @@
 				<h:outputText value="1.1 Upload via JavaScript (pdf, txt, jpg)." />
 					<p:outputPanel id="customPanel">
 						<h:inputFile id="fileUpload" onchange="uploadFileJS(this.files);"> 
-							<f:ajax render="dataTable"/>
+							<f:ajax render="@all"/>
 						</h:inputFile>
 					</p:outputPanel>
 				</h:panelGrid>
