@@ -10,90 +10,53 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">FileUpload</ui:define>
 		<ui:define name="content">
+		<h:form id="form" enctype="multipart/form-data">
+		<h:outputScript name="fileUploadScript.js" target="head" library="ivy-dialog"/>
 			<h3>Rest file Client</h3>
-
-			<h:form id="form" enctype="multipart/form-data">
-
-				<script type="text/javascript">
-			function uploadFileJS() {
-				var form = new FormData();
-				
-				form.append("file", #{data.file});
-				
-				var settings = {
-				  "url": "http://localhost:8081/ivy/api/designer/fileUpload",
-				  "method": "PUT",
-				  "headers": {"X-Requested-By": "ivy"},
-				  "mimeType": "multipart/form-data",
-				  "data": form
-				}
-				
-				return $.ajax(settings).done(function (response) {
-				  console.log(response);
-				});
-			}
-			</script>
-
-				<h:outputText value="1. Choose what you want to use." />
-				<p:outputPanel id="customPanel">
-					<p:selectOneRadio id="customRadio" value="#{data.ownFiles}"
-						layout="custom" required="true">
-						<f:selectItem itemLabel="Own Files" itemValue="true" />
-						<f:selectItem itemLabel="Sample Files" itemValue="false"/>
-						<p:ajax update="customPanel JS" />
-					</p:selectOneRadio>
-
-					<h:panelGrid columns="3" cellpadding="5">
-						<p:radioButton id="opt1" for="customRadio" itemIndex="0" />
-						<h:outputLabel for="opt1" value="Own Files" />
-						<p:fileUpload disabled="#{!data.ownFiles}" value="#{data.file}"
-							mode="simple" skinSimple="true" accept=".pdf,.jpg,.txt"/>
-
-						<p:radioButton id="opt2" for="customRadio" itemIndex="1" />
-						<h:outputLabel for="opt2" value="Sample Files" />
-						<p:selectOneMenu value="#{data.resourceName}"
-							disabled="#{data.ownFiles}">
-							<f:selectItem itemLabel="test.jpg" itemValue="test.jpg" />
-							<f:selectItem itemLabel="test.pdf" itemValue="test.pdf" />
-							<f:selectItem itemLabel="test.txt" itemValue="test.txt" />
-						</p:selectOneMenu>
-					</h:panelGrid>
-				</p:outputPanel>
-				<br />
-				<h:outputText
-					value="2.1 Upload file via Rest Service Call in Process Logic" />
-				<h:panelGrid id="upload" columns="3">
-					<p:commandButton value="Upload Ivy Script"
-						icon=" ui-icon-arrowthickstop-1-n"
-						actionListener="#{logic.uploadIvyScript}" ajax="false" />
-							or
-						<p:commandButton value="Upload Java"
-						icon=" ui-icon-arrowthickstop-1-n"
-						actionListener="#{logic.uploadJava}" ajax="false" />
+				<h:panelGrid columns="1">
+				<h:outputText value="1.1 Upload via JavaScript (pdf, txt, jpg)." />
+					<p:outputPanel id="customPanel">
+						<h:inputFile id="fileUpload" onchange="uploadFileJS(this.files);"> 
+							<f:ajax render="@all"/>
+						</h:inputFile>
+					</p:outputPanel>
 				</h:panelGrid>
 				<br />
-				<h:outputText value="2.2 Upload file via JavaScript" />
+				
+				<h:outputText
+					value="1.2 Upload sample file via Rest Service Call in Process Logic" />
+				<h:panelGrid columns="5">
+					<p:selectOneMenu value="#{data.resourceName}">
+						<f:selectItem itemLabel="test.jpg" itemValue="test.jpg" />
+						<f:selectItem itemLabel="test.pdf" itemValue="test.pdf" />
+						<f:selectItem itemLabel="test.txt" itemValue="test.txt" />
+					</p:selectOneMenu>
+					<p:spacer width="10px"/>
+					<p:commandButton value="Upload Ivy Script"
+						icon=" ui-icon-arrowthickstop-1-n"
+						actionListener="#{logic.uploadIvyScript}" ajax="false" update="@all"/>
+							or
+						<p:commandButton value="Upload Java"
+						icon="ui-icon-arrowthickstop-1-n"
+						actionListener="#{logic.uploadJava}" ajax="false" update="@all">
+						</p:commandButton>
+				</h:panelGrid>
 				<br />
-				<p:commandButton id="JS" value="Upload JavaScript"
-					onclick="uploadFileJS()" actionListener="#{logic.jsList}"
-					update="form" icon="ui-icon-arrowthickstop-1-n"
-					disabled="#{!data.ownFiles}" />
-				<br />
-				<br />
-				<h:outputText value="3. Download File from Rest Service" />
-				<p:dataTable var="file" value="#{data.listFile}"
+				<h:outputText value="2. Download File from Rest Service" />
+				<p:dataTable value="#{data.listFile}" widgetVar="dlFiles" var="file" id="dataTable"
 					style="width: 500px" emptyMessage="No files were uploaded yet.">
 					<p:column headerText="Uploaded Files">
 						<p:outputLabel value="#{file}" />
 					</p:column>
 					<p:column headerText="Download" style="width: 120px">
-						<p:commandButton value="Download" ajax="false"
+						<p:commandButton id="dl" value="Download" ajax="false"
 							actionListener="#{logic.download(file)}"
 							icon="ui-icon-arrowthickstop-1-s">
 							<p:fileDownload value="#{data.fileDownload}" />
 						</p:commandButton>
 					</p:column>
 				</p:dataTable>
+				<h:outputText style="font-size: 8pt;" value="*if animations are enabled there will be a timeout while downloading"/>
 			</h:form>
 
 		</ui:define>

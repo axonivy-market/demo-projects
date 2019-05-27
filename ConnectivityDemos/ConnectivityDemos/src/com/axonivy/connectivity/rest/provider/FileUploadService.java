@@ -1,5 +1,6 @@
 package com.axonivy.connectivity.rest.provider;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,10 +14,8 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.StreamingOutput;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
@@ -24,6 +23,7 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 
 import ch.ivyteam.api.API;
+import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.File;
 
 /**
@@ -53,7 +53,7 @@ public class FileUploadService
   private static File createIvyFile(InputStream fileUploadStream, String fileName)
           throws IOException
   {
-    File ivyFile = new File(fileName);
+    File ivyFile = new File(fileName, false);
     try (OutputStream os = new FileOutputStream(ivyFile.getJavaFile()))
     {
       IOUtils.copy(fileUploadStream, os);
@@ -61,6 +61,7 @@ public class FileUploadService
     }
     catch (IOException ex)
     {
+      Ivy.log().fatal("File could not be uploaded: " + fileName, ex);
       throw new IOException("File could not be uploaded: " + fileName, ex);
     }
   }
@@ -71,11 +72,12 @@ public class FileUploadService
     String extension = FilenameUtils.getExtension(fileName);
     if (!checkIfStringContainsList(extension))
     {
+      Ivy.log().fatal("The file is not allowed! Your file is: '." + extension + "'");
       throw new IllegalArgumentException("The file is not allowed! Your file is: '." + extension + "'");
     }
   }
 
-  private static List<String> whitelistedExtensions = Arrays.asList("pdf", "txt", "jpg");
+  public static List<String> whitelistedExtensions = Arrays.asList("pdf", "txt", "jpg", "jpeg");
 
   private static boolean checkIfStringContainsList(String extension)
   {
@@ -84,30 +86,16 @@ public class FileUploadService
 
   @GET
   @Path("/{fileName}")
-  public Response downloadPdfFile(@PathParam("fileName") String fileName) throws IOException
+  @Produces(MediaType.APPLICATION_OCTET_STREAM)
+  public Response downloadFile(@PathParam("fileName") String fileName) throws IOException
   {
     File ivyFile = new File(fileName);
-    byte[] data = ivyFile.readBinary().toByteArray();
-    StreamingOutput fileStream = new StreamingOutput()
-    {
-      @Override
-      public void write(java.io.OutputStream output) throws IOException, WebApplicationException
-      {
-        try
-        {
-          output.write(data);
-          output.flush();
-        }
-        catch (IOException e)
-        {
-          throw new WebApplicationException("Could not Find the file: '"+fileName+"'", e);
-        }
-      }
-    };
+    InputStream fis = new FileInputStream(ivyFile.getJavaFile());
     return Response
-            .ok(fileStream, MediaType.APPLICATION_OCTET_STREAM)
+            .ok(fis, MediaType.APPLICATION_OCTET_STREAM)
             .header("content-disposition", "attachment; filename = " + fileName)
             .build();
+    
   }
 
 }
