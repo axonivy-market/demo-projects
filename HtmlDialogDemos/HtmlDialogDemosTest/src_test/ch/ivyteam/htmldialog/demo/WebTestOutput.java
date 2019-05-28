@@ -1,45 +1,20 @@
 package ch.ivyteam.htmldialog.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.fail;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 import static org.openqa.selenium.support.ui.ExpectedConditions.not;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.StringJoiner;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.SystemUtils;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.firefox.FirefoxProfile;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
-import org.awaitility.Awaitility;
 
 public class WebTestOutput extends BaseWebTest
 {
-  private File tempDownloadDir;
-  
-  @After
-  @Override
-  public void tearDown() throws Exception
-  {
-    super.tearDown();
-    FileUtils.deleteDirectory(tempDownloadDir);
-  }
-  
   @Test
   public void testDataTable() throws Exception
   {
@@ -199,69 +174,4 @@ public class WebTestOutput extends BaseWebTest
     assertThat(driver.findElement(By.id("form:comboChart"))).isNotNull();
     assertThat(driver.findElement(By.id("form:pieChart"))).isNotNull();
   }
-  
-  @Test
-  public void testExcelExport() throws Exception
-  {
-    startProcess("145D180807C60B4B/ExportExcelDemo.ivp");
-    driver.findElement(By.id("form:exportBtn")).click();
-
-    File excel = new File(tempDownloadDir.getAbsolutePath() + SystemUtils.FILE_SEPARATOR + "Persons.xls");
-
-    Awaitility.await().untilAsserted(() ->
-    {
-      assertThat(excel).exists();
-      assertThat(readExcel(excel)).contains("Name", "Weiss", "Reto");
-    });
-  }
-  
-  private String readExcel(File excel)
-  {
-    StringJoiner stringJoiner = new StringJoiner(" ");
-    try (Workbook workbook = WorkbookFactory.create(excel))
-    {
-      DataFormatter dataFormatter = new DataFormatter();
-      Sheet sheet = workbook.getSheetAt(0);
-      
-      sheet.forEach(row -> {
-        row.forEach(cell -> {
-          String cellValue = dataFormatter.formatCellValue(cell);
-          stringJoiner.add(cellValue);
-        });
-      });
-    }
-    catch (Exception ex)
-    {
-      fail("reading excel file failed");
-    }
-
-    return stringJoiner.toString();
-  }
-  
-  @Override
-  protected void configureBrowserProfile(FirefoxProfile profile)
-  {
-    super.configureBrowserProfile(profile);
-    enableAutoDownload(profile);
-  }
-  
-  private void enableAutoDownload(FirefoxProfile profile)
-  {
-    profile.setPreference("browser.download.folderList", 2);
-    try
-    {
-      tempDownloadDir = Files.createTempDirectory("tempDownload").toFile();
-    }
-    catch (IOException ex)
-    {
-      throw new RuntimeException(ex);
-    }
-    profile.setPreference("browser.download.folderList", 2);
-    profile.setPreference("browser.download.dir", tempDownloadDir.getAbsolutePath());
-    profile.setPreference("browser.download.useDownloadDir", true);
-    profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/x-msexcel,application/excel,application/x-excel,"
-            + "application/excel,application/x-excel,application/excel,application/vnd.ms-excel,application/x-excel,application/x-msexcel\"");
-    profile.setPreference("browser.download.panel.shown", true);
-  }
-   
 }
