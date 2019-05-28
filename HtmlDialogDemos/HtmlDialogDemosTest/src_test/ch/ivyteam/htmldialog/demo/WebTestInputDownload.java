@@ -13,11 +13,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.awaitility.Awaitility;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxProfile;
-
-import com.jayway.awaitility.Awaitility;
 
 public class WebTestInputDownload extends BaseWebTest
 {

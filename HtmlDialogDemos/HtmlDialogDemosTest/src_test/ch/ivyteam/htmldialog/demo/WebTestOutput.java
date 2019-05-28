@@ -15,7 +15,6 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
 public class WebTestOutput extends BaseWebTest
 {
-  
   @Test
   public void testDataTable() throws Exception
   {
@@ -81,7 +80,7 @@ public class WebTestOutput extends BaseWebTest
     editableTableContains(table);
 
     driver.findElement(By.xpath("//*[@id='form:personTable:4:deleteButton']/span")).click();
-    table.containsNot("Dänzer");
+    table.containsNot("Dï¿½nzer");
 
     driver.findElement(By.xpath("//*[@id='form:personTable:addButton']/span")).click();
     editTable(By.xpath("//*[@id='form:personTable:5:rowEditor']/a[2]"), 5, "testfirstName", "testLastName");
@@ -175,5 +174,4 @@ public class WebTestOutput extends BaseWebTest
     assertThat(driver.findElement(By.id("form:comboChart"))).isNotNull();
     assertThat(driver.findElement(By.id("form:pieChart"))).isNotNull();
   }
-  
 }
