@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.StringJoiner;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.SystemUtils;
@@ -27,7 +26,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
-import com.jayway.awaitility.Awaitility;
+import org.awaitility.Awaitility;
 
 public class WebTestOutput extends BaseWebTest
 {
@@ -209,7 +208,7 @@ public class WebTestOutput extends BaseWebTest
 
     File excel = new File(tempDownloadDir.getAbsolutePath() + SystemUtils.FILE_SEPARATOR + "Persons.xls");
 
-    Awaitility.await().atMost(20, TimeUnit.SECONDS).until(() ->
+    Awaitility.await().untilAsserted(() ->
     {
       assertThat(excel).exists();
       assertThat(readExcel(excel)).contains("Name", "Weiss", "Reto");
