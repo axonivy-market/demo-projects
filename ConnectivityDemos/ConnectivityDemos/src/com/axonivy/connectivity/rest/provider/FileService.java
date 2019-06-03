@@ -34,7 +34,6 @@ import ch.ivyteam.ivy.scripting.objects.File;
 public class FileService
 {
   @PUT
-  @Path("/upload")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.MULTIPART_FORM_DATA)
   public Response uploadFile(@FormDataParam("file") InputStream fileUploadStream,
@@ -86,7 +85,7 @@ public class FileService
   }
 
   @GET
-  @Path("/download/{fileName}")
+  @Path("/{fileName}")
   @Produces(MediaType.APPLICATION_OCTET_STREAM)
   public Response downloadFile(@PathParam("fileName") String fileName) throws IOException
   {

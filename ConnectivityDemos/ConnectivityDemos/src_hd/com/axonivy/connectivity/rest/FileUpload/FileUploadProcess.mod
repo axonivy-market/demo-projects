@@ -102,7 +102,6 @@ Fs0 f13 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 Fs0 f13 307 155 26 26 0 12 #rect
 Fs0 f13 @|RichDialogProcessEndIcon #fIcon
 Fs0 f20 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
-Fs0 f20 path /upload #txt
 Fs0 f20 method JAX_RS #txt
 Fs0 f20 bodyInputType FORM #txt
 Fs0 f20 bodyMediaType multipart/form-data #txt
@@ -159,7 +158,6 @@ Fs0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Fs0 f15 344 153 496 30 -241 -7 #rect
 Fs0 f15 @|IBIcon #fIcon
 Fs0 f23 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
-Fs0 f23 path /upload #txt
 Fs0 f23 method JAX_RS #txt
 Fs0 f23 bodyInputType FORM #txt
 Fs0 f23 bodyMediaType multipart/form-data #txt
@@ -205,7 +203,7 @@ Fs0 f26 83 179 26 26 -35 17 #rect
 Fs0 f26 @|RichDialogProcessStartIcon #fIcon
 Fs0 f21 264 320 307 320 #arcP
 Fs0 f19 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
-Fs0 f19 path /download/{in.downloadName} #txt
+Fs0 f19 path /{in.downloadName} #txt
 Fs0 f19 templateParams 'in.downloadName=in.downloadName;
 ' #txt
 Fs0 f19 headers 'Accept=application/octet-stream;
