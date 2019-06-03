@@ -46,7 +46,7 @@ public class IntegrationTestFileUpload
     assertThat(pdfResponse.getStatus()).isEqualTo(Status.CREATED.getStatusCode());
 
     realPdf.delete();
-    String uri = EngineUrl.getServletUrl("api") + "/fileUpload/" + fileName;
+    String uri = EngineUrl.getServletUrl("api") + "/file/" + fileName;
     Response downloadResponse = createAuthenticatedClient()
             .target(uri)
             .request().accept(MediaType.APPLICATION_OCTET_STREAM).get();
@@ -64,7 +64,7 @@ public class IntegrationTestFileUpload
   public void apacheConnectorProvider() throws IOException
   {
     String fileName = "test.pdf";
-    String uri = EngineUrl.getServletUrl("api") + "/fileUpload";
+    String uri = EngineUrl.getServletUrl("api") + "/file";
 
     File realPdf = new File(fileName);
     try (InputStream pdf = this.getClass().getResourceAsStream(fileName);
@@ -92,7 +92,7 @@ public class IntegrationTestFileUpload
   public void httpUrlConnectorProvider() throws IOException
   {
     String fileName = "test.pdf";
-    String uri = EngineUrl.getServletUrl("api") + "/fileUpload";
+    String uri = EngineUrl.getServletUrl("api") + "/file";
 
     File realPdf = new File(fileName);
     try (InputStream pdf = this.getClass().getResourceAsStream(fileName);
@@ -132,7 +132,7 @@ public class IntegrationTestFileUpload
 
   private static Response uploadPdf(java.io.File createWrongEmptyFile) throws IOException
   {
-    String uri = EngineUrl.getServletUrl("api") + "/fileUpload";
+    String uri = EngineUrl.getServletUrl("api") + "/file";
     Response pdfResponse = createAuthenticatedClient()
             .target(uri).request()
             .header("X-Requested-By", "ivy")
