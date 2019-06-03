@@ -1,2 +1,6 @@
 LicenceComponentData #class
 com.axonivy.engine.config.ui.settings.component.LicenceComponent #namespace
+renewEmail String #field
+renewEmail PERSISTENT #fieldModifier
+settings com.axon.ivy.engine.config.SystemDatabaseSettings #field
+settings PERSISTENT #fieldModifier

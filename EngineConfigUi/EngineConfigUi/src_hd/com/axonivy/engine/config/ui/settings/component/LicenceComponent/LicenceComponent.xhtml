@@ -30,12 +30,30 @@
 					icon="fa fa-arrow-circle-right" styleClass="next-button"
 					onclick="if(#{licenceBean.demo}) PF('nextStepLicenceDialog').show(); else PF('accordionPanel').select(1);" />
 			</div>
+			<div>
+				<p:commandButton id="renew" value="Renew Licence"
+					oncomplete="PF('renewLicence').show()" rendered="#{!licenceBean.demo}" 
+					actionListener="#{logic.setAdmin}" update="renewLicenceWindow"/>
 		</div>
+	</div>
 	</div>
 	<p:dialog widgetVar="licenceDetails" modal="true" closeOnEscape="true"
 		header="Details">
 		<ic:com.axonivy.engine.config.ui.settings.component.LicenceDetailComponent
 			id="licenceDetailComponent" />
+	</p:dialog>
+
+	<p:dialog id="renewLicenceWindow" widgetVar="renewLicence" closeOnEscape="true"
+		header="Renew Licence" modal="true" resizable="false">
+		<h:form>
+			<h:panelGrid>
+				<p:outputLabel value="Where do you want to send the Licence to?" />
+				<br />
+				<p:inputText value="#{data.renewEmail}" type="email" placeholder="E-Mail"/>
+				<br />
+				<p:commandButton value="Send request" actionListener="#{logic.renewLicence}" oncomplete="PF('renewLicence').hide(); alert('Your request has been sent'); "/>
+			</h:panelGrid>
+		</h:form>
 	</p:dialog>
 
 	<p:dialog widgetVar="nextStepLicenceDialog" id="nextStepLicenceDialog"
