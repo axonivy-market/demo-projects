@@ -105,28 +105,17 @@ Fs0 f20 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 Fs0 f20 method JAX_RS #txt
 Fs0 f20 bodyInputType FORM #txt
 Fs0 f20 bodyMediaType multipart/form-data #txt
-Fs0 f20 clientCode 'import org.apache.commons.io.IOUtils;
-import java.io.FileOutputStream;
-import com.axonivy.connectivity.rest.client.file.FileUpload;
-import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
+Fs0 f20 clientCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
 import org.eclipse.core.resources.IFile;
-import java.nio.file.Files;
-import org.apache.commons.lang.StringUtils;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IFolder;
-import ch.ivyteam.ivy.environment.Ivy;
-
 import org.glassfish.jersey.media.multipart.Boundary;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 
-java.io.File file;
-
 IFile resource = FileUpload.getHdResource("com.axonivy.connectivity.rest.FileUpload","resources/"+in.resourceName);
-file = FileUpload.toTempIoFile(resource);
+java.io.File file = FileUpload.toTempIoFile(resource);
 
 FormDataMultiPart multipart;
 FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
@@ -172,9 +161,7 @@ Fs0 f23 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
 Fs0 f23 method JAX_RS #txt
 Fs0 f23 bodyInputType FORM #txt
 Fs0 f23 bodyMediaType multipart/form-data #txt
-Fs0 f23 clientCode 'import ch.ivyteam.ivy.scripting.objects.util.IvyDefaultValues;
-import ch.ivyteam.ivy.cm.IContentObject;
-import com.axonivy.connectivity.rest.client.file.FileUpload;
+Fs0 f23 clientCode 'import com.axonivy.connectivity.rest.client.file.FileUpload;
 import org.eclipse.core.resources.IFile;
 import javax.ws.rs.core.Response;
 
@@ -223,8 +210,7 @@ Fs0 f19 headers 'Accept=application/octet-stream;
 ' #txt
 Fs0 f19 method GET #txt
 Fs0 f19 resultType java.io.InputStream #txt
-Fs0 f19 responseCode 'import ch.ivyteam.ivy.process.extension.beans.Wait;
-import org.primefaces.model.DefaultStreamedContent;
+Fs0 f19 responseCode 'import org.primefaces.model.DefaultStreamedContent;
 
 out.fileDownload = new DefaultStreamedContent(result, "text/plain", in.downloadName);
 
