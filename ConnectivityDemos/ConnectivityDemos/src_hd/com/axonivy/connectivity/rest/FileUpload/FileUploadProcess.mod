@@ -203,7 +203,7 @@ Fs0 f26 83 179 26 26 -35 17 #rect
 Fs0 f26 @|RichDialogProcessStartIcon #fIcon
 Fs0 f21 264 320 307 320 #arcP
 Fs0 f19 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
-Fs0 f19 path /{in.downloadName} #txt
+Fs0 f19 path /download/{in.downloadName} #txt
 Fs0 f19 templateParams 'in.downloadName=in.downloadName;
 ' #txt
 Fs0 f19 headers 'Accept=application/octet-stream;

@@ -85,7 +85,7 @@ public class FileUploadService
   }
 
   @GET
-  @Path("/{fileName}")
+  @Path("/download/{fileName}")
   @Produces(MediaType.APPLICATION_OCTET_STREAM)
   public Response downloadFile(@PathParam("fileName") String fileName) throws IOException
   {
