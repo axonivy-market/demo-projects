@@ -102,6 +102,7 @@ Fs0 f13 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 Fs0 f13 307 155 26 26 0 12 #rect
 Fs0 f13 @|RichDialogProcessEndIcon #fIcon
 Fs0 f20 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
+Fs0 f20 path /upload #txt
 Fs0 f20 method JAX_RS #txt
 Fs0 f20 bodyInputType FORM #txt
 Fs0 f20 bodyMediaType multipart/form-data #txt
@@ -158,6 +159,7 @@ Fs0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Fs0 f15 344 153 496 30 -241 -7 #rect
 Fs0 f15 @|IBIcon #fIcon
 Fs0 f23 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt
+Fs0 f23 path /upload #txt
 Fs0 f23 method JAX_RS #txt
 Fs0 f23 bodyInputType FORM #txt
 Fs0 f23 bodyMediaType multipart/form-data #txt
@@ -261,11 +263,11 @@ Fs0 f11 inParameterDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData
 ' #txt
 Fs0 f11 inParameterMapAction 'out.fileName=param.fileName;
 ' #txt
-Fs0 f11 inActionCode 'import com.axonivy.connectivity.rest.provider.FileUploadService;
+Fs0 f11 inActionCode 'import com.axonivy.connectivity.rest.provider.FileService;
 import java.util.Arrays;
 import org.apache.commons.io.FilenameUtils;
 String extension = FilenameUtils.getExtension(out.fileName);
-List<String> allowed = FileUploadService.whitelistedExtensions;
+List<String> allowed = FileService.whitelistedExtensions;
 if(allowed.contains(extension))
 {
 out.listFile.add(out.fileName);

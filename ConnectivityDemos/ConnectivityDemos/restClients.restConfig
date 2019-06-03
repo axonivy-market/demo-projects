@@ -136,9 +136,9 @@ To run this service locally:
     </restClient>
     <restClient>
         <uuid>4d9a8b09-9968-4476-a8ac-b71a94d25e94</uuid>
-        <name>fileUpload</name>
+        <name>file</name>
         <configuration>
-            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/fileUpload</uri>
+            <uri>http://{ivy.engine.host}:{ivy.engine.http.port}/{ivy.engine.context}/api/{ivy.request.application}/file</uri>
             <property>
                 <name>username</name>
                 <value>theWorker</value>

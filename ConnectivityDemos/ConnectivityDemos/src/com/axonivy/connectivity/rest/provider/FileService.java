@@ -27,13 +27,14 @@ import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.scripting.objects.File;
 
 /**
- * URI for file upload: http://localhost:8081/ivy/api/designer/fileUpload
+ * URI for file upload: http://localhost:8081/ivy/api/designer/file
  * @since 7.3.0
  */
-@Path("fileUpload")
-public class FileUploadService
+@Path("file")
+public class FileService
 {
   @PUT
+  @Path("/upload")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.MULTIPART_FORM_DATA)
   public Response uploadFile(@FormDataParam("file") InputStream fileUploadStream,
