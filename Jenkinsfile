@@ -15,8 +15,7 @@ pipeline {
     choice(
        name: 'engineListUrl',
        description: 'Engine to use for build',
-       choices: ['http://zugprojenkins/job/ivy-core_product/job/master/lastSuccessfulBuild/',
-                'http://zugprobldmas/job/Trunk_All/lastSuccessfulBuild/']
+       choices: ['https://zugprojenkins/job/ivy-core_product/job/feature%252FXIVY-3171_java-11/lastSuccessfulBuild/']
     )
   }
 
@@ -25,7 +24,7 @@ pipeline {
       steps {
         script {
           def workspace = pwd()
-          maven cmd: "-P repo.axonivy.com clean deploy -e -Dmaven.test.failure.ignore=true  " + 
+          maven cmd: "-P repo.axonivy.com clean install -e -Dmaven.test.failure.ignore=true  " + 
                      "-Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine " +
                      "-Divy.engine.list.url=${params.engineListUrl} "
         }
