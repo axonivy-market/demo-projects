@@ -15,7 +15,7 @@ pipeline {
     choice(
        name: 'engineListUrl',
        description: 'Engine to use for build',
-       choices: ['https://zugprojenkins/job/ivy-core_product/job/feature%252FXIVY-3171_java-11/lastSuccessfulBuild/']
+       choices: ['http://zugprojenkins/job/ivy-core_product/job/feature%252FXIVY-3171_java-11/lastSuccessfulBuild/']
     )
   }
 
