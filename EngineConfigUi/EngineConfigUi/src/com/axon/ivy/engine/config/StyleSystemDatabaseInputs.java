@@ -4,8 +4,8 @@ import javax.faces.component.UIInput;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.PrimeFaces;
 import org.primefaces.component.commandbutton.CommandButton;
-import org.primefaces.context.RequestContext;
 
 @SuppressWarnings("restriction")
 public class StyleSystemDatabaseInputs
@@ -36,7 +36,7 @@ public class StyleSystemDatabaseInputs
       case CONNECTED_WRONG_OLDER_VERSION:
         String convertDbButtonStyleClass = convertDbButton.getStyleClass();
         convertDbButton.setStyleClass(convertDbButtonStyleClass + " ui-state-warn");
-        RequestContext.getCurrentInstance().execute("PF('convertDatabaseDialog').show();");
+        PrimeFaces.current().executeScript("PF('convertDatabaseDialog').show();");
         break;
       case CONNECTION_FAILED:
         switch (connectionInfo.getFailedState())
@@ -66,7 +66,7 @@ public class StyleSystemDatabaseInputs
   {
     String createDbButtonStyleClass = createDbButton.getStyleClass();
     createDbButton.setStyleClass(createDbButtonStyleClass + " ui-state-warn");
-    RequestContext.getCurrentInstance().execute("PF('createDatabaseDialog').show();");
+    PrimeFaces.current().executeScript("PF('createDatabaseDialog').show();");
   }
 
   @SuppressWarnings("unchecked")

@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 
-import org.primefaces.context.RequestContext;
+import org.primefaces.PrimeFaces;
 import org.primefaces.event.ItemSelectEvent;
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
-import org.primefaces.model.chart.BarChartModel; 
+import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.BarChartSeries;
 import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.LineChartSeries;
@@ -100,7 +100,7 @@ public class ChartBean implements Serializable {
         String caseId = ChartBean.barId[index];
         String statisticDetailsUri = Ivy.html().startref("144697C904B165C8/StatisticDetailsAvg.ivp");
         
-        RequestContext.getCurrentInstance().execute("window.open('" + statisticDetailsUri + "?caseId=" + caseId + "','_self')");
+        PrimeFaces.current().executeScript("window.open('" + statisticDetailsUri + "?caseId=" + caseId + "','_self')");
     }
     
     public void itemSelectTask(ItemSelectEvent event) {
@@ -108,6 +108,6 @@ public class ChartBean implements Serializable {
         String taskId = ChartBean.barId[index];
         String taskHistoryUri = Ivy.html().startref("13FE81AF3A82F57F/TaskHistoryDetails.ivp");
         
-        RequestContext.getCurrentInstance().execute("window.open('" + taskHistoryUri + "?detailTaskId=" + taskId + "','_self')");
+        PrimeFaces.current().executeScript("window.open('" + taskHistoryUri + "?detailTaskId=" + taskId + "','_self')");
     }
 }  

@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Fri Sep 15 14:40:12 CEST 2017]
-157E2C1BEC4930AC 3.20 #module
+157E2C1BEC4930AC 3.26 #module
 >Proto >Proto Collection #zClass
 ss0 ConfigurationOverviewProcess Big #zClass
 ss0 RD #cInfo
@@ -137,11 +136,9 @@ ss0 f11 guid 15C0B18249EAF4B3 #txt
 ss0 f11 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f11 method tabChange(org.primefaces.event.TabChangeEvent) #txt
 ss0 f11 disableUIEvents false #txt
-ss0 f11 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<org.primefaces.event.TabChangeEvent event> param = methodEvent.getInputArguments();
+ss0 f11 inParameterDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
 ' #txt
-ss0 f11 inActionCode 'import org.primefaces.context.RequestContext;
-import org.primefaces.component.accordionpanel.AccordionPanel;
+ss0 f11 inActionCode 'import org.primefaces.component.accordionpanel.AccordionPanel;
 import org.primefaces.component.tabview.TabView;
 import org.primefaces.event.TabChangeEvent;
 
@@ -169,20 +166,20 @@ ss0 f14 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.
 ' #txt
 ss0 f14 actionTable 'out=in;
 ' #txt
-ss0 f14 actionCode 'import org.primefaces.context.RequestContext;
+ss0 f14 actionCode 'import org.primefaces.PrimeFaces;
 
 boolean connectionOk = out.databaseSettings.getConnectionInfo().getConnectionOK();
-RequestContext context = RequestContext.getCurrentInstance();
 
-if(connectionOk && in.tabChangeEvent.tab.id.contains("administratorsTab") && out.databaseSettings.getAdministratorManager().getAdministrators().isEmpty())
-{
-	context.execute("PF(''addAdminDialog'').show();");
-}
+ivy.log.warn("connectionOk={0}, in.tabChangeEvent.tab.id={1}", connectionOk, in.tabChangeEvent.tab.id);
+//if(connectionOk && in.tabChangeEvent.tab.id.contains("administratorsTab") && out.databaseSettings.getAdministratorManager().getAdministrators().isEmpty())
+//{
+	PrimeFaces.current().executeScript("PF(''addAdminDialog'').show();");
+//}
 
-if(connectionOk && in.tabChangeEvent.tab.id.contains("clusterTab") && out.databaseSettings.getAdministratorManager().getClusterNodes().isEmpty())
-{
-	context.execute("PF(''addLocalNodeDialog'').show();");
-}	' #txt
+//if(connectionOk && in.tabChangeEvent.tab.id.contains("clusterTab") && out.databaseSettings.getAdministratorManager().getClusterNodes().isEmpty())
+//{
+//	PrimeFaces.current().executeScript("PF(''addLocalNodeDialog'').show();");
+//}	' #txt
 ss0 f14 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
