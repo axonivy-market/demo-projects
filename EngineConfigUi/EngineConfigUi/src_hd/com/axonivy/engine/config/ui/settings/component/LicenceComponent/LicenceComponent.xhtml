@@ -31,9 +31,11 @@
 					onclick="if(#{licenceBean.demo}) PF('nextStepLicenceDialog').show(); else PF('accordionPanel').select(1);" />
 			</div>
 			<div>
-				<p:commandButton id="renew" value="Renew Licence"
+				<p:commandButton id="renew" value="Renew Licence" disabled="#{data.renewDelayBool}"
 					oncomplete="PF('renewLicence').show()" rendered="#{!licenceBean.demo}" 
-					actionListener="#{logic.setAdmin}" update="renewLicenceWindow"/>
+					actionListener="#{logic.setAdmin}" update="renewLicenceWindow" style="background-color: #{data.licenceWarning}"/>
+				<p:spacer width="10px"/>
+				<h:outputLabel rendered="#{data.daysLeft lt 30}" style="color: #{data.licenceWarning}" value="Your license expires in #{data.daysLeft} days"/>
 		</div>
 	</div>
 	</div>
@@ -49,9 +51,9 @@
 			<h:panelGrid>
 				<p:outputLabel value="Where do you want to send the Licence to?" />
 				<br />
-				<p:inputText value="#{data.renewEmail}" type="email" placeholder="E-Mail"/>
+				<p:inputText value="#{data.renewEmail}" type="email" placeholder="E-Mail" required="true" requiredMessage="Put Email"/>
 				<br />
-				<p:commandButton value="Send request" actionListener="#{logic.renewLicence}" oncomplete="PF('renewLicence').hide(); alert('Your request has been sent'); "/>
+				<p:commandButton type="submit" value="Send request" actionListener="#{logic.renewLicence}" onclick="PF('renewLicence').hide();" update=":responseGrowl, accordionPanel:licenceComponent:renew"/>
 			</h:panelGrid>
 		</h:form>
 	</p:dialog>

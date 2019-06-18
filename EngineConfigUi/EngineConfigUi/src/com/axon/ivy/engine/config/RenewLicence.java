@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 
-import javax.ws.rs.BadRequestException;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
@@ -48,7 +47,7 @@ public class RenewLicence
     }
     catch (Exception ex)
     {
-      throw new BadRequestException("There was problem with requesting response");
+      return Response.status(400).entity("There was problem with requesting response").build();
     }
     return response;
   }

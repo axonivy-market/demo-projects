@@ -36,11 +36,32 @@ Ls0 f0 inParameterDecl 'com.axonivy.engine.config.ui.settings.component.LicenceC
 ' #txt
 Ls0 f0 inParameterMapAction 'out.settings=param.settings;
 ' #txt
-Ls0 f0 inActionCode 'import com.axon.ivy.engine.config.FocusSetter;
+Ls0 f0 inActionCode 'import ch.ivyteam.licence.SignedLicence;
+import com.axon.ivy.engine.config.FocusSetter;
 FocusSetter.setFocusOnLicenceTabNextStepButton();
 
+Date date = new Date();
+
+if(out.renewDelay >= date.toNumber())
+{
+	out.renewDelayBool = true;
+}
+else 
+{
+	out.renewDelayBool = false;	
+}
+
+if(SignedLicence.isInstalled() & !SignedLicence.isDemo())
+{
+	out.daysLeft = (SignedLicence.getValidUntil().getDate().toNumber() - date.toNumber())/86400;
+	if(out.daysLeft <= 30)
+	{
+		out.licenceWarning = "#e09494";
+	}
+} 
+
 if(param.settings.getAdministratorManager().getAdministrators().size() != 0){
-out.renewEmail = param.settings.getAdministratorManager().getAdministrators().get(0).getEMailAddress();
+	out.renewEmail = param.settings.getAdministratorManager().getAdministrators().get(0).getEMailAddress();
 }' #txt
 Ls0 f0 outParameterDecl '<> result;
 ' #txt
@@ -81,35 +102,57 @@ Ls0 f4 @|RichDialogProcessEndIcon #fIcon
 Ls0 f5 clientId b2bf970e-6e13-4762-a66a-a164dc2d10fd #txt
 Ls0 f5 method JAX_RS #txt
 Ls0 f5 bodyInputType ENTITY #txt
-Ls0 f5 clientCode 'import ch.ivyteam.licence.SignedLicence;
-import com.axon.ivy.engine.config.LicenceBean;
-import com.axon.ivy.engine.config.RenewLicence;
+Ls0 f5 clientCode 'import com.axon.ivy.engine.config.RenewLicence;
+import com.axon.ivy.engine.config.UiModder;
+import ch.ivyteam.licence.SignedLicence;
 import javax.ws.rs.core.Response;
-import java.net.URL;
 import java.io.FileOutputStream;
-import org.apache.commons.io.IOUtils;
-import org.eclipse.core.resources.IFile;
-import java.nio.file.Files;
+import java.util.Calendar;
 
 java.io.File tempFile = new java.io.File("test.lic");
-FileOutputStream fos = new FileOutputStream(tempFile);
 
+FileOutputStream fos = new FileOutputStream(tempFile);
 fos.write(SignedLicence.getLicenceContent().getBytes());
 fos.flush();
 fos.close();
 
 Response response = RenewLicence.upload(client, tempFile, in.renewEmail);
 
+if (response.getStatus() == 200)
+{
+	in.renewResponse = "Your request has been sent successfully";
+	UiModder.addInfoMessage("Message", in.renewResponse);
+	Calendar c = Calendar.getInstance().setTime(new Date()).add(Calendar.DATE, 4);
+	in.renewDelay = c.time.toNumber();
+	in.renewDelayBool = true;
+}
+else if (response.getStatus() == 500)
+{
+	in.renewResponse = "There was some problem with the server. Please try again in a few minutes.";
+	UiModder.addWarningMessage("Message", in.renewResponse);
+}
+else
+{
+ in.renewResponse = "There was some problem sending your request. ";
+ UiModder.addErrorMessage("Message", in.renewResponse);
+}
 
-
-
-
+tempFile.delete();' #txt
+Ls0 f5 resultType java.lang.String #txt
+Ls0 f5 clientErrorCode ivy:error:rest:client #txt
+Ls0 f5 statusErrorCode ivy:error:rest:client #txt
+Ls0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>request renew Licence</name>
+    </language>
+</elementInfo>
 ' #txt
-Ls0 f5 152 234 112 44 0 -7 #rect
+Ls0 f5 128 234 160 44 -71 -7 #rect
 Ls0 f5 @|RestClientCallIcon #fIcon
 Ls0 f6 expr out #txt
-Ls0 f6 109 256 152 256 #arcP
-Ls0 f7 264 256 307 256 #arcP
+Ls0 f6 109 256 128 256 #arcP
+Ls0 f7 288 256 307 256 #arcP
 Ls0 f8 guid 16AF92E90D5AD8A8 #txt
 Ls0 f8 type com.axonivy.engine.config.ui.settings.component.LicenceComponent.LicenceComponentData #txt
 Ls0 f8 actionDecl 'com.axonivy.engine.config.ui.settings.component.LicenceComponent.LicenceComponentData out;
@@ -129,22 +172,31 @@ Ls0 f9 actionDecl 'com.axonivy.engine.config.ui.settings.component.LicenceCompon
 ' #txt
 Ls0 f9 actionTable 'out=in;
 ' #txt
-Ls0 f9 actionCode 'import ch.ivyteam.ivy.security.Administrator;
+Ls0 f9 actionCode 'import ch.ivyteam.licence.SignedLicence;
+import ch.ivyteam.ivy.security.Administrator;
 
 if(in.settings.getAdministratorManager().getAdministrators().size() != 0)
 {
 in.renewEmail = in.settings.getAdministratorManager().getAdministrators().get(0).eMailAddress;
-}' #txt
+}
+' #txt
 Ls0 f9 type com.axonivy.engine.config.ui.settings.component.LicenceComponent.LicenceComponentData #txt
-Ls0 f9 152 136 112 48 0 -7 #rect
+Ls0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>get mail from admin</name>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f9 144 138 128 44 -61 -7 #rect
 Ls0 f9 @|StepIcon #fIcon
 Ls0 f10 type com.axonivy.engine.config.ui.settings.component.LicenceComponent.LicenceComponentData #txt
 Ls0 f10 307 147 26 26 0 12 #rect
 Ls0 f10 @|RichDialogProcessEndIcon #fIcon
 Ls0 f11 expr out #txt
-Ls0 f11 109 160 152 160 #arcP
+Ls0 f11 109 160 144 160 #arcP
 Ls0 f12 expr out #txt
-Ls0 f12 264 160 307 160 #arcP
+Ls0 f12 272 160 307 160 #arcP
 >Proto Ls0 .type com.axonivy.engine.config.ui.settings.component.LicenceComponent.LicenceComponentData #txt
 >Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect
