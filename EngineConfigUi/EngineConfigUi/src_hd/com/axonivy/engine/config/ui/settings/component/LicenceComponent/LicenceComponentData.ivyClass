@@ -4,13 +4,9 @@ renewEmail String #field
 renewEmail PERSISTENT #fieldModifier
 settings com.axon.ivy.engine.config.SystemDatabaseSettings #field
 settings PERSISTENT #fieldModifier
-licenceWarning String #field
-licenceWarning PERSISTENT #fieldModifier
 daysLeft Integer #field
 daysLeft PERSISTENT #fieldModifier
-renewResponse String #field
-renewResponse PERSISTENT #fieldModifier
+licenceWarning String #field
+licenceWarning PERSISTENT #fieldModifier
 renewDelayBool Boolean #field
 renewDelayBool PERSISTENT #fieldModifier
-renewDelay Integer #field
-renewDelay PERSISTENT #fieldModifier

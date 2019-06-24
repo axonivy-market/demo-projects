@@ -12,7 +12,7 @@
             </property>
             <property>
                 <name>username</name>
-                <value>TestAdmin</value>
+                <value></value>
                 <password>false</password>
             </property>
             <property>
@@ -22,9 +22,6 @@
             </property>
             <feature>
                 <class>org.glassfish.jersey.media.multipart.MultiPartFeature</class>
-            </feature>
-            <feature>
-                <class>ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature</class>
             </feature>
         </configuration>
     </restClient>

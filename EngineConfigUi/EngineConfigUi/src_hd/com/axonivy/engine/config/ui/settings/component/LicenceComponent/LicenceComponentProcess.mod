@@ -40,20 +40,11 @@ Ls0 f0 inActionCode 'import ch.ivyteam.licence.SignedLicence;
 import com.axon.ivy.engine.config.FocusSetter;
 FocusSetter.setFocusOnLicenceTabNextStepButton();
 
-Date date = new Date();
+int inDays = 86400;
 
-if(out.renewDelay >= date.toNumber())
+if(SignedLicence.isInstalled() && !SignedLicence.isDemo())
 {
-	out.renewDelayBool = true;
-}
-else 
-{
-	out.renewDelayBool = false;	
-}
-
-if(SignedLicence.isInstalled() & !SignedLicence.isDemo())
-{
-	out.daysLeft = (SignedLicence.getValidUntil().getDate().toNumber() - date.toNumber())/86400;
+	out.daysLeft = (SignedLicence.getValidUntil().getDate().toNumber() - new Date().toNumber())/inDays;
 	if(out.daysLeft <= 30)
 	{
 		out.licenceWarning = "#e09494";
@@ -120,21 +111,17 @@ Response response = RenewLicence.upload(client, tempFile, in.renewEmail);
 
 if (response.getStatus() == 200)
 {
-	in.renewResponse = "Your request has been sent successfully";
-	UiModder.addInfoMessage("Message", in.renewResponse);
+	UiModder.addInfoMessage("Message", "Your request has been sent successfully");
 	Calendar c = Calendar.getInstance().setTime(new Date()).add(Calendar.DATE, 4);
-	in.renewDelay = c.time.toNumber();
 	in.renewDelayBool = true;
 }
 else if (response.getStatus() == 500)
 {
-	in.renewResponse = "There was some problem with the server. Please try again in a few minutes.";
-	UiModder.addWarningMessage("Message", in.renewResponse);
+	UiModder.addWarningMessage("Message", "There was some problem with the server. Please try again in a few minutes.");
 }
 else
 {
- in.renewResponse = "There was some problem sending your request. ";
- UiModder.addErrorMessage("Message", in.renewResponse);
+ UiModder.addErrorMessage("Message", "There was some problem sending your request.");
 }
 
 tempFile.delete();' #txt

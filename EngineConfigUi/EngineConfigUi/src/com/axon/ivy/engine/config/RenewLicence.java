@@ -1,7 +1,6 @@
 package com.axon.ivy.engine.config;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,14 +13,10 @@ import javax.ws.rs.core.Response;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.glassfish.jersey.media.multipart.Boundary;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
-
-import ch.ivyteam.ivy.environment.Ivy;
 
 public class RenewLicence
 {
@@ -74,20 +69,5 @@ public class RenewLicence
       throw new IOException("There was some problem while creating tempFile", ex);
     }
     return tempFile;
-  }
-  
-  public static IFile getHdResource(String dialogId, String pathToFileInDialog) throws FileNotFoundException
-  {
-    @SuppressWarnings("restriction")
-    IProject eclipseProject = Ivy.request().getProject().getProject();
-    String dialogPath = dialogId.replace(".", "/");
-
-    IFolder dialogDir = eclipseProject.getFolder("src_hd").getFolder(dialogPath);
-    IFile resource = dialogDir.getFile(pathToFileInDialog);
-    if (!resource.exists())
-    {
-      throw new FileNotFoundException("File " + pathToFileInDialog + " does not exist in " + dialogId);
-    }
-    return resource;
   }
 }
