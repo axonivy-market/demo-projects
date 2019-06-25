@@ -65,7 +65,7 @@ public class WebTestHtmlDriver extends BaseWebTest
     await(elementToBeClickable(By
             .xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li["
                     + elementPosition + "]"))).click();
-    Thread.currentThread().wait(10000);
+
     await(elementToBeClickable(
             By.xpath("//*[@id='personListForm:personsList']/div/div[2]/button[" + buttonPosition + "]")))
             .click();
