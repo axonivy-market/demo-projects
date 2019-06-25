@@ -13,7 +13,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 public class WebTestHtmlDriver extends BaseWebTest
-{  
+{
   @Test
   public void testHtmlJsfDemo()
   {
@@ -69,6 +69,11 @@ public class WebTestHtmlDriver extends BaseWebTest
     await(elementToBeClickable(
             By.xpath("//*[@id='personListForm:personsList']/div/div[2]/button[" + buttonPosition + "]")))
             .click();
+
+    // Click on first list element to give the move-down some time.
+    await(elementToBeClickable(
+    		By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[1]"))).click();
+
     await(textToBePresentInElementLocated(
             By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[1]"), expectedName));
     await(not(textToBePresentInElementLocated(
