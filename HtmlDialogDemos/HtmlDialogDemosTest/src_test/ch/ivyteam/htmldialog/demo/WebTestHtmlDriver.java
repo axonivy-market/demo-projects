@@ -13,14 +13,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 public class WebTestHtmlDriver extends BaseWebTest
-{
-  
-  @Override
-  protected WebDriver createDriver()
-  {
-    return new HtmlUnitDriver(true);
-  }
-  
+{  
   @Test
   public void testHtmlJsfDemo()
   {
@@ -67,11 +60,12 @@ public class WebTestHtmlDriver extends BaseWebTest
     editList(6, 2, "Michael", "Bruno");
   }
 
-  private void editList(int elementPosition, int buttonPosition, String expectedName, String notExpectedName)
+  private void editList(int elementPosition, int buttonPosition, String expectedName, String notExpectedName) throws Exception
   {
     await(elementToBeClickable(By
             .xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li["
                     + elementPosition + "]"))).click();
+    Thread.currentThread().wait(10000);
     await(elementToBeClickable(
             By.xpath("//*[@id='personListForm:personsList']/div/div[2]/button[" + buttonPosition + "]")))
             .click();
@@ -80,5 +74,4 @@ public class WebTestHtmlDriver extends BaseWebTest
     await(not(textToBePresentInElementLocated(
             By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[1]"), notExpectedName)));
   }
-  
 }
