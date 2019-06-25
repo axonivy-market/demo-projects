@@ -28,12 +28,7 @@ public class WebTestOutput extends BaseWebTest
     SelectOneMenu menu = prime().selectOne(By.id("form:theTable:nameFilter"));
     menu.selectItemByLabel("Achmed");
     table.firstRowContains("Achmed");
-
-    driver.findElement(By.xpath("//div[@id='form:theTable:nameFilter_panel']/div/ul/li[@data-label='All'][text()='All']")).click();
-    // Currently, this does not work on second selectItemByLabel() call
-    // One ugly workaround would be to add a Thread.sleep(300); in SelectOneMenu.expandSelectableItems(),
-    // before awaitItemsCollapsed(false). For the other workaround see code line above.
-    //menu.selectItemByLabel("All");
+    menu.selectItemByLabel("All");
 
     driver.findElement(By.id("form:theTable:scorePointFilter:filter")).sendKeys("6");
     table.firstRowContains("Birgit");
