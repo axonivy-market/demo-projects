@@ -107,23 +107,30 @@ fos.write(SignedLicence.getLicenceContent().getBytes());
 fos.flush();
 fos.close();
 
-Response response = RenewLicence.upload(client, tempFile, in.renewLicenceData.renewEmail);
-
-if (response.getStatus() == 200)
+int licVersion = Integer.parseInt(SignedLicence.getLicenceParameters().get("licence.keyversion").toString().replaceAll("[\\D]", ""));
+if(licVersion < 7000)
 {
-	UiModder.addInfoMessage("Message", "Your request has been sent successfully");
-	Calendar c = Calendar.getInstance().setTime(new Date()).add(Calendar.DATE, 4);
-	in.renewLicenceData.renewDelayBool = true;
+ UiModder.addErrorMessage("Message", "Sorry your licence version is too low to renew.");
 }
-else if (response.getStatus() == 500)
+else 
 {
-	UiModder.addWarningMessage("Message", "There was some problem with the server. Please try again in a few minutes.");
+	Response response = RenewLicence.upload(client, tempFile, in.renewLicenceData.renewEmail);
+	if (response.getStatus() == 200)
+	{
+		UiModder.addInfoMessage("Message", "Your request has been sent successfully");
+		Calendar c = Calendar.getInstance().setTime(new Date()).add(Calendar.DATE, 4);
+		in.renewLicenceData.renewDelayBool = true;
+	}
+	else if (response.getStatus() == 500)
+	{
+		UiModder.addWarningMessage("Message", "There was some problem with the server. Please try again in a few minutes.");
+	}
+	else
+	{
+	 UiModder.addErrorMessage("Message", "There was some problem sending your request.");
+	}
+	
 }
-else
-{
- UiModder.addErrorMessage("Message", "There was some problem sending your request.");
-}
-
 tempFile.delete();' #txt
 Ls0 f5 resultType java.lang.String #txt
 Ls0 f5 clientErrorCode ivy:error:rest:client #txt
