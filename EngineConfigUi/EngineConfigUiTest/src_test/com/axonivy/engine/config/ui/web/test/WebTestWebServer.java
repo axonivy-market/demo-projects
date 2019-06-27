@@ -10,18 +10,10 @@ import org.openqa.selenium.By;
 
 public class WebTestWebServer extends BaseWebTest
 {
-  @Override
-  public void setUp() throws Exception
-  {
-    super.setUp();
-    setMySqlConfig();
-    createMySqlSysDb();
-    testConnection();
-  }
-
   @Test
   public void testConfigStays() throws Exception
   {
+    setupMySql();
     openTab("Web Server");
     await(visibilityOfElementLocated(By
             .id("accordionPanel:webServerComponent:webServerForm:HTTPEnabledCheckbox")));

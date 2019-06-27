@@ -81,6 +81,13 @@ public class BaseWebTest
     return profile;
   }
 
+  protected void setupMySql() throws Exception
+  {
+	setMySqlConfig();
+    createMySqlSysDb();
+    testConnection();
+  }
+
   protected void openConfigUi()
   {
     String processStartLink = EngineUrl.process() + "/EngineConfigUi/157E64657EEBDD9C/start.ivp";
