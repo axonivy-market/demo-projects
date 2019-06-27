@@ -29,6 +29,7 @@ public class WebTestWebServer extends BaseWebTest
     await(textToBePresentInElementLocated(By.id("growl_container"),
             " were saved to the database"));
     openConfigUi();
+    openTab("Licence");
     openTab("System Database");
     testConnection();
     openTab("Web Server");
