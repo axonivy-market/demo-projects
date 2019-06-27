@@ -208,6 +208,7 @@ public class BaseWebTest
 
   protected void setConfigInternal()
   {
+	openTab("Licence");
     openTab("System Database");
     prime.selectBooleanCheckbox(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:defaultPortCheckbox"))
