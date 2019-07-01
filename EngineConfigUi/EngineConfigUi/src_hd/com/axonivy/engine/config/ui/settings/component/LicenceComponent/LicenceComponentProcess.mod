@@ -93,7 +93,8 @@ Ls0 f4 @|RichDialogProcessEndIcon #fIcon
 Ls0 f5 clientId b2bf970e-6e13-4762-a66a-a164dc2d10fd #txt
 Ls0 f5 method JAX_RS #txt
 Ls0 f5 bodyInputType ENTITY #txt
-Ls0 f5 clientCode 'import java.util.Map;
+Ls0 f5 clientCode 'import org.apache.commons.lang3.StringUtils;
+import java.util.Map;
 import com.axon.ivy.engine.config.RenewLicence;
 import com.axon.ivy.engine.config.UiModder;
 import ch.ivyteam.licence.SignedLicence;
@@ -126,7 +127,7 @@ else if (response.getStatus() == 406)
 else
 {
 	String str = response.readEntity(String.class) as String;
-	String result = str.substring(str.indexOf("errorMessage")+14, str.indexOf("statusCode")-2);
+	String result = StringUtils.substringBetween(str, "errorMessage", "statusCode");
 	UiModder.addErrorMessage("Message", "There was some problem sending your request: "+result);
 }
 tempFile.delete();' #txt
