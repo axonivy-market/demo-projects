@@ -93,43 +93,41 @@ Ls0 f4 @|RichDialogProcessEndIcon #fIcon
 Ls0 f5 clientId b2bf970e-6e13-4762-a66a-a164dc2d10fd #txt
 Ls0 f5 method JAX_RS #txt
 Ls0 f5 bodyInputType ENTITY #txt
-Ls0 f5 clientCode 'import com.axon.ivy.engine.config.RenewLicence;
+Ls0 f5 clientCode 'import java.util.Map;
+import com.axon.ivy.engine.config.RenewLicence;
 import com.axon.ivy.engine.config.UiModder;
 import ch.ivyteam.licence.SignedLicence;
 import javax.ws.rs.core.Response;
 import java.io.FileOutputStream;
 import java.util.Calendar;
 
-java.io.File tempFile = new java.io.File("test.lic");
+java.io.File tempFile = java.nio.file.Files.createTempFile("test", ".lic").toFile();
 
 FileOutputStream fos = new FileOutputStream(tempFile);
 fos.write(SignedLicence.getLicenceContent().getBytes());
 fos.flush();
 fos.close();
 
-int licVersion = Integer.parseInt(SignedLicence.getLicenceParameters().get("licence.keyversion").toString().replaceAll("[\\D]", ""));
-if(licVersion < 7000)
+Response response = RenewLicence.upload(client, tempFile, in.renewLicenceData.renewEmail);
+if (response.getStatus() == 200)
 {
- UiModder.addErrorMessage("Message", "Sorry your licence version is too low to renew.");
+	UiModder.addInfoMessage("Message", "Your request has been sent successfully");
+	Calendar c = Calendar.getInstance().setTime(new Date()).add(Calendar.DATE, 4);
+	in.renewLicenceData.renewDelayBool = true;
 }
-else 
+else if (response.getStatus() == 500)
 {
-	Response response = RenewLicence.upload(client, tempFile, in.renewLicenceData.renewEmail);
-	if (response.getStatus() == 200)
-	{
-		UiModder.addInfoMessage("Message", "Your request has been sent successfully");
-		Calendar c = Calendar.getInstance().setTime(new Date()).add(Calendar.DATE, 4);
-		in.renewLicenceData.renewDelayBool = true;
-	}
-	else if (response.getStatus() == 500)
-	{
-		UiModder.addWarningMessage("Message", "There was some problem with the server. Please try again in a few minutes.");
-	}
-	else
-	{
-	 UiModder.addErrorMessage("Message", "There was some problem sending your request.");
-	}
-	
+	UiModder.addWarningMessage("Message", "There was some problem with the server. Please try again in a few minutes.");
+}
+else if (response.getStatus() == 406)
+{
+  UiModder.addErrorMessage("Message", "Sorry, your request already exists.");
+}
+else
+{
+	String str = response.readEntity(String.class) as String;
+	String result = str.substring(str.indexOf("errorMessage")+14, str.indexOf("statusCode")-2);
+	UiModder.addErrorMessage("Message", "There was some problem sending your request: "+result);
 }
 tempFile.delete();' #txt
 Ls0 f5 resultType java.lang.String #txt
