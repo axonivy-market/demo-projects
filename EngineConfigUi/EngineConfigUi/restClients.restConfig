@@ -1,2 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<restClients/>
+<restClients>
+    <restClient>
+        <uuid>b2bf970e-6e13-4762-a66a-a164dc2d10fd</uuid>
+        <name>renewLicence</name>
+        <configuration>
+            <uri>http://license-order.axonivy.io/ivy/api/LicenseOrder/renewLicense</uri>
+            <property>
+                <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
+                <value>false</value>
+                <password>false</password>
+            </property>
+            <property>
+                <name>username</name>
+                <value></value>
+                <password>false</password>
+            </property>
+            <property>
+                <name>password</name>
+                <value></value>
+                <password>true</password>
+            </property>
+            <feature>
+                <class>org.glassfish.jersey.media.multipart.MultiPartFeature</class>
+            </feature>
+        </configuration>
+    </restClient>
+</restClients>

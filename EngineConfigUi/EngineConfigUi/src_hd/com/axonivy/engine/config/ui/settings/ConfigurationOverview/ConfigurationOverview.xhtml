@@ -20,6 +20,7 @@
 					});
 				}
 			</script>
+			<p:growl id="responseGrowl" showDetail="true" sticky="true"/>
 			<p:growl id="growl" showDetail="true" showSummary="false" />
 			<p:accordionPanel id="accordionPanel" styleClass="full-width"
 				widgetVar="accordionPanel" activeIndex="#{data.activeTabIndex}">
@@ -32,7 +33,7 @@
 						<h:outputText value=" Licence" />
 					</f:facet>
 					<ic:com.axonivy.engine.config.ui.settings.component.LicenceComponent
-						id="licenceComponent" styleClass="updateSaveAll" />
+						id="licenceComponent" styleClass="updateSaveAll" settings="#{data.databaseSettings}" />
 				</p:tab>
 
 				<p:tab id="systemDatabaseTab">
