@@ -47,7 +47,6 @@
 	<properties>
 		<engine.directory>${java.io.tmpdir}/ivyEngine</engine.directory>
 		<deploy.skip>false</deploy.skip>
-		<project.build.plugin.version>7.4.0-SNAPSHOT</project.build.plugin.version>
 	</properties>
 
 	<build>
