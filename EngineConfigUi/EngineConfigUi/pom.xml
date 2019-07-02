@@ -41,6 +41,9 @@
         <groupId>com.axonivy.ivy.ci</groupId>
         <artifactId>project-build-plugin</artifactId>
         <extensions>true</extensions>
+        <configuration>
+        	<skipScriptValidation>true</skipScriptValidation>
+        </configuration>
       </plugin>
     </plugins>
   </build>
