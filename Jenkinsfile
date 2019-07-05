@@ -15,7 +15,7 @@ pipeline {
     string(
        name: 'engineListUrl',
        description: 'Engine to use for build',
-       defaultValue: 'http://zugprojenkins/job/ivy-core_product/job/master/lastSuccessfulBuild/']
+       defaultValue: 'http://zugprojenkins/job/ivy-core_product/job/master/lastSuccessfulBuild/'
     )
   }
 
