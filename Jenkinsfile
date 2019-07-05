@@ -12,10 +12,10 @@ pipeline {
   }
 
   parameters {
-    choice(
+    string(
        name: 'engineListUrl',
        description: 'Engine to use for build',
-       choices: ['http://zugprojenkins/job/ivy-core_product/job/feature%252FXIVY-3171_java-11/lastSuccessfulBuild/']
+       defaultValue: 'http://zugprojenkins/job/ivy-core_product/job/master/lastSuccessfulBuild/']
     )
   }
 
