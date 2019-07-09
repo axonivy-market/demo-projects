@@ -61,6 +61,7 @@
 					<version>[6.2.0,)</version>
 					<extensions>true</extensions>
 					<configuration>
+						<skipScriptValidation>true</skipScriptValidation>
 						<ivyVersion>[6.1.1,]</ivyVersion>
 						<engineDirectory>${engine.directory}</engineDirectory>
 						<iarFileSets>
