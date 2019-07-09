@@ -46,9 +46,6 @@
 				<artifactId>project-build-plugin</artifactId>
 				<version>${project.build.plugin.version}</version>
 				<extensions>true</extensions>
-				<configuration>
-				<skipScriptValidation>true</skipScriptValidation>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -64,6 +61,7 @@
 					<version>[6.2.0,)</version>
 					<extensions>true</extensions>
 					<configuration>
+						<skipScriptValidation>true</skipScriptValidation>
 						<ivyVersion>[6.1.1,]</ivyVersion>
 						<engineDirectory>${engine.directory}</engineDirectory>
 						<iarFileSets>
