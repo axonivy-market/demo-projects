@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Tue Feb 02 14:33:45 CET 2016]
-152A20DB2213CEE4 3.18 #module
+152A20DB2213CEE4 3.26 #module
 >Proto >Proto Collection #zClass
 Rs0 RequestLogProcess Big #zClass
 Rs0 RD #cInfo
@@ -29,7 +28,7 @@ Rs0 f0 disableUIEvents true #txt
 Rs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <workflow.humantask.ProcurementRequest activityLog> param = methodEvent.getInputArguments();
 ' #txt
-Rs0 f0 inParameterMapAction 'out.procurementRequest=param.procurementRequest;
+Rs0 f0 inParameterMapAction 'out.procurementRequest=param.activityLog;
 ' #txt
 Rs0 f0 outParameterDecl '<> result;
 ' #txt

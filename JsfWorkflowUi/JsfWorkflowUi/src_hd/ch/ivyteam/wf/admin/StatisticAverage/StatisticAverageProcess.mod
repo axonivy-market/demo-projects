@@ -31,13 +31,11 @@ Ss0 f0 guid 144728B116AEAD78 #txt
 Ss0 f0 type ch.ivyteam.wf.admin.StatisticAverage.StatisticAverageData #txt
 Ss0 f0 method start(String) #txt
 Ss0 f0 disableUIEvents true #txt
-Ss0 f0 inParameterDecl 'ch.ivyteam.wf.admin.StatisticAverage.StatisticAverageData out;
-' #txt
+Ss0 f0 inParameterDecl '<java.lang.String category> param;' #txt
 Ss0 f0 inParameterMapAction 'out.casesSize=0;
 out.category=param.category;
 ' #txt
-Ss0 f0 outParameterDecl '<> result;
-' #txt
+Ss0 f0 outParameterDecl '<> result;' #txt
 Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

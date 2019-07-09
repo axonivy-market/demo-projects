@@ -33,14 +33,12 @@ Ss0 f0 guid 1446978B1157DF7E #txt
 Ss0 f0 type ch.ivyteam.wf.admin.StatisticDetails.StatisticDetailsData #txt
 Ss0 f0 method start(String,String,Number) #txt
 Ss0 f0 disableUIEvents true #txt
-Ss0 f0 inParameterDecl 'ch.ivyteam.wf.admin.StatisticDetails.StatisticDetailsData out;
-' #txt
+Ss0 f0 inParameterDecl '<java.lang.String category,java.lang.String mode,java.lang.Number caseId> param;' #txt
 Ss0 f0 inParameterMapAction 'out.caseId=param.caseId;
 out.category=param.category;
 out.mode=param.mode;
 ' #txt
-Ss0 f0 outParameterDecl '<> result;
-' #txt
+Ss0 f0 outParameterDecl '<> result;' #txt
 Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
