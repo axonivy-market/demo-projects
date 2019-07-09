@@ -32,8 +32,7 @@ Ls0 f0 guid 15B14237163914A7 #txt
 Ls0 f0 type com.axonivy.engine.config.ui.settings.component.LicenceComponent.LicenceComponentData #txt
 Ls0 f0 method start(com.axon.ivy.engine.config.SystemDatabaseSettings) #txt
 Ls0 f0 disableUIEvents true #txt
-Ls0 f0 inParameterDecl 'com.axonivy.engine.config.ui.settings.component.LicenceComponent.LicenceComponentData out;
-' #txt
+Ls0 f0 inParameterDecl '<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param;' #txt
 Ls0 f0 inParameterMapAction 'out.renewLicenceData.settings=param.settings;
 ' #txt
 Ls0 f0 inActionCode 'import ch.ivyteam.licence.SignedLicence;
@@ -54,8 +53,7 @@ if(SignedLicence.isInstalled() && !SignedLicence.isDemo())
 if(param.settings.getAdministratorManager().getAdministrators().size() != 0){
 	out.renewLicenceData.renewEmail = param.settings.getAdministratorManager().getAdministrators().get(0).getEMailAddress();
 }' #txt
-Ls0 f0 outParameterDecl '<> result;
-' #txt
+Ls0 f0 outParameterDecl '<> result;' #txt
 Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

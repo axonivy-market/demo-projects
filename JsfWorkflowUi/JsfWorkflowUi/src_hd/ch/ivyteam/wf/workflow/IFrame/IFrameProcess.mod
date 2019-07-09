@@ -1,5 +1,5 @@
 [Ivy]
-167C5ADE7248B984 3.23 #module
+167C5ADE7248B984 3.26 #module
 >Proto >Proto Collection #zClass
 Is0 IFrameProcess Big #zClass
 Is0 RD #cInfo
@@ -25,12 +25,10 @@ Is0 f0 guid 167C5ADE72C8683F #txt
 Is0 f0 type ch.ivyteam.wf.workflow.IFrame.IFrameData #txt
 Is0 f0 method start(String) #txt
 Is0 f0 disableUIEvents true #txt
-Is0 f0 inParameterDecl 'ch.ivyteam.wf.workflow.IFrame.IFrameData out;
-' #txt
+Is0 f0 inParameterDecl '<java.lang.String url> param;' #txt
 Is0 f0 inParameterMapAction 'out.url=param.url;
 ' #txt
-Is0 f0 outParameterDecl '<> result;
-' #txt
+Is0 f0 outParameterDecl '<> result;' #txt
 Is0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

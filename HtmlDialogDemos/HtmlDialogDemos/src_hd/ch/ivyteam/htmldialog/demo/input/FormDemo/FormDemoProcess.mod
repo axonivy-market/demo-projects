@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Thu May 08 16:07:46 CEST 2014]
-139E30EF308FD0DC 3.17 #module
+139E30EF308FD0DC 3.26 #module
 >Proto >Proto Collection #zClass
 Fs0 FormDemoProcess Big #zClass
 Fs0 RD #cInfo
@@ -143,13 +142,10 @@ Fs0 f9 guid 139E37250FA7DB14 #txt
 Fs0 f9 type ch.ivyteam.htmldialog.demo.input.FormDemo.FormDemoData #txt
 Fs0 f9 method completeCountry(String) #txt
 Fs0 f9 disableUIEvents false #txt
-Fs0 f9 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String countryPartialString> param = methodEvent.getInputArguments();
-' #txt
+Fs0 f9 inParameterDecl '<java.lang.String countryPartialString> param;' #txt
 Fs0 f9 inParameterMapAction 'out.country=param.countryPartialString;
 ' #txt
-Fs0 f9 outParameterDecl '<List<java.lang.String> matchingCountries> result;
-' #txt
+Fs0 f9 outParameterDecl '<List<java.lang.String> matchingCountries> result;' #txt
 Fs0 f9 outParameterMapAction 'result.matchingCountries=in.matchingCountries;
 ' #txt
 Fs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
