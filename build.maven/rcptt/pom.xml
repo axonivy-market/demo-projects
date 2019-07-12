@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 		<groupId>ch.ivyteam.ivy.project</groupId>
 	<artifactId>ch.ivyteam.ivy.build.config.test.rcptt</artifactId>
-	<version>7.3.0-SNAPSHOT</version>
+	<version>7.4.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
