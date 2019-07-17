@@ -38,14 +38,14 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/jersey-common-2.22.2.jar"/>
-	<classpathentry kind="lib" path="lib/oauth1-client-2.22.2.jar"/>
-	<classpathentry kind="lib" path="lib/oauth1-signature-2.22.2.jar"/>
+	<classpathentry kind="lib" path="lib/oauth1-client-2.28.jar"/>
+	<classpathentry kind="lib" path="lib/oauth1-signature-2.28.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_16150E44A158D09C.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_162B962523BAAB85.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_162B97C859B22CA3.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
 		<attributes>
+			<attribute name="module" value="true"/>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>

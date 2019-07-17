@@ -6,13 +6,14 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import mockit.NonStrictExpectations;
-
 import org.apache.commons.lang.math.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import com.axon.ivy.engine.config.ConfigHelper;
+import com.axon.ivy.engine.config.SystemDatabaseSettings;
+import com.axonivy.engine.config.ui.settings.ConfigData;
 
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
 import ch.ivyteam.db.jdbc.DatabaseProduct;
@@ -21,24 +22,12 @@ import ch.ivyteam.db.jdbc.JdbcDriver;
 import ch.ivyteam.ivy.server.configuration.Configuration;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
-import ch.ivyteam.licence.LicenceConstants;
-import ch.ivyteam.licence.SignedLicence;
 import ch.ivyteam.util.WaitUtil;
-
-import com.axon.ivy.engine.config.ConfigHelper;
-import com.axon.ivy.engine.config.SystemDatabaseSettings;
-import com.axonivy.engine.config.ui.settings.ConfigData;
 
 @SuppressWarnings("restriction")
 public class TestSystemDatabaseSettings
 {
   private static String DBName;
-
-  @Before
-  public void setUp()
-  {
-    installFakeLicense();
-  }
 
   @Test @Ignore
   public void testLoadConfigData() throws Exception
@@ -182,24 +171,5 @@ public class TestSystemDatabaseSettings
     JdbcDriver[] jdbcDriversForDriverName = JdbcDriver
             .getJdbcDriversForDriverName("com.mysql.jdbc.Driver");
     configData.setDriver(jdbcDriversForDriverName[0]);
-  }
-
-  @SuppressWarnings("unused")
-  private static void installFakeLicense()
-  {
-    new NonStrictExpectations(SignedLicence.class)
-      {
-        {
-          SignedLicence.isDemo();
-          result = false;
-          SignedLicence.isInstalled();
-          result = true;
-          SignedLicence.isParamDefined(LicenceConstants.PARAM_SRV_CLUSTER_LOCAL_NODE_ID);
-          result = true;
-          SignedLicence.getIntParam(LicenceConstants.PARAM_SRV_CLUSTER_LOCAL_NODE_ID);
-          result = 0;
-        }
-      };
-    assertThat(SignedLicence.isDemo()).isFalse();
   }
 }
