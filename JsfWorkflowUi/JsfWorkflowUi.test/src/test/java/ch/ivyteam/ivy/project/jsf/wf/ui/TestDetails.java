@@ -101,7 +101,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     awaitToBeClickable("formDetailsChangeExpiry:saveChangeExpiry").click();
     navigate().taskList();
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("4/30/30 10:10 AM");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("4/30/30, 10:10 AM");
     closeTask();
   }
 
@@ -124,7 +124,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     // assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("JSF
     // taskForChangeExpiryOlderDate");
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("7/15/13 11:11 AM");
+    assertThat(driverHelper.getWebDriver().getPageSource()).contains("7/15/13, 11:11 AM");
     assertThat(driverHelper.getWebDriver().getPageSource()).contains("Responsible after expiry");
   }
 
