@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 		<groupId>ch.ivyteam.ivy.project</groupId>
 	<artifactId>ch.ivyteam.ivy.build.config.test.rcptt</artifactId>
-	<version>7.3.0-SNAPSHOT</version>
+	<version>7.4.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
-		<rcptt.version>2.4.2</rcptt.version>
+		<rcptt.version>2.5.0-SNAPSHOT</rcptt.version>
 		<nexus.root.url>http://zugpronexus:8081/nexus</nexus.root.url>		
 		<designer.os.arch>Windows_x64</designer.os.arch>
 		<deploy.skip>true</deploy.skip>

@@ -8,13 +8,13 @@
 	<parent>
 		<groupId>ch.ivyteam.ivy.project</groupId>
 		<artifactId>build.maven</artifactId>
-		<version>7.3.0-SNAPSHOT</version>
+		<version>7.4.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 
 	<properties>
 		<antrun.version>1.7</antrun.version>
-		<project.build.plugin.version>7.3.0</project.build.plugin.version>
+		<project.build.plugin.version>7.4.0-SNAPSHOT</project.build.plugin.version>
 		<maven.dependency.plugin.version>3.0.2</maven.dependency.plugin.version>
 	</properties>
 
@@ -61,6 +61,7 @@
 					<version>[6.2.0,)</version>
 					<extensions>true</extensions>
 					<configuration>
+						<skipScriptValidation>true</skipScriptValidation>
 						<ivyVersion>[6.1.1,]</ivyVersion>
 						<engineDirectory>${engine.directory}</engineDirectory>
 						<iarFileSets>

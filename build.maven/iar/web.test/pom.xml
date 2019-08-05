@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>ch.ivyteam.ivy.project</groupId>
 		<artifactId>build.maven.iar</artifactId>
-		<version>7.3.0-SNAPSHOT</version>
+		<version>7.4.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 
@@ -79,7 +79,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
+				<version>2.22.2</version>
 				<executions>
 					<execution>
 						<id>selenium.web.tests</id>

@@ -235,12 +235,10 @@ Fs0 f6 guid 169FD080F277361F #txt
 Fs0 f6 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 Fs0 f6 method download(String) #txt
 Fs0 f6 disableUIEvents false #txt
-Fs0 f6 inParameterDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData out;
-' #txt
+Fs0 f6 inParameterDecl '<java.lang.String fileName> param;' #txt
 Fs0 f6 inParameterMapAction 'out.downloadName=param.fileName;
 ' #txt
-Fs0 f6 outParameterDecl '<> result;
-' #txt
+Fs0 f6 outParameterDecl '<> result;' #txt
 Fs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -257,8 +255,7 @@ Fs0 f11 guid 16AD5002D41CB6BC #txt
 Fs0 f11 type com.axonivy.connectivity.rest.FileUpload.FileUploadData #txt
 Fs0 f11 method addJsToList(String) #txt
 Fs0 f11 disableUIEvents false #txt
-Fs0 f11 inParameterDecl 'com.axonivy.connectivity.rest.FileUpload.FileUploadData out;
-' #txt
+Fs0 f11 inParameterDecl '<java.lang.String fileName> param;' #txt
 Fs0 f11 inParameterMapAction 'out.fileName=param.fileName;
 ' #txt
 Fs0 f11 inActionCode 'import com.axonivy.connectivity.rest.provider.FileService;
@@ -270,8 +267,7 @@ if(allowed.contains(extension))
 {
 out.listFile.add(out.fileName);
 }' #txt
-Fs0 f11 outParameterDecl '<java.lang.String result> result;
-' #txt
+Fs0 f11 outParameterDecl '<java.lang.String result> result;' #txt
 Fs0 f11 outParameterMapAction 'result.result=in.fileName;
 ' #txt
 Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

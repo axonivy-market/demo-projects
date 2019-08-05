@@ -10,6 +10,14 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '60', artifactNumToKeepStr: '2'))
   }
 
+  parameters {
+    string(
+       name: 'engineListUrl',
+       description: 'Engine to use for build',
+       defaultValue: 'http://zugprojenkins/job/ivy-core_product/job/master/lastSuccessfulBuild/'
+    )
+  }
+
   stages {
     stage('build') {
       steps {
