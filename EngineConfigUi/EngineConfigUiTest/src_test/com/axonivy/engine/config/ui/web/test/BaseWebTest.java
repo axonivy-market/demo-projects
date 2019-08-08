@@ -208,6 +208,7 @@ public class BaseWebTest
 
   protected void setConfigInternal()
   {
+	openConfigUi();
 	openTab("Licence");
     openTab("System Database");
     prime.selectBooleanCheckbox(
