@@ -14,7 +14,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 
 public class WebTestHtmlDriver extends BaseWebTest
 {
-  //@Test
+  @Test
   public void testHtmlJsfDemo()
   {
     startProcess("145D1862CF17F2C9/Html5Demo.ivp");
@@ -53,7 +53,7 @@ public class WebTestHtmlDriver extends BaseWebTest
             "name=Stalder, firstname=Renato"));
   }
 
-  //@Test
+  @Test
   public void testOrderList() throws Exception
   {
     startProcess("145D180807C60B4B/OrderListDemo.ivp");
