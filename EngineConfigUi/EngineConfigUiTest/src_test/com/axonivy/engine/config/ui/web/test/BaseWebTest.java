@@ -81,6 +81,13 @@ public class BaseWebTest
     return profile;
   }
 
+  protected void setupMySql() throws Exception
+  {
+	setMySqlConfig();
+    createMySqlSysDb();
+    testConnection();
+  }
+
   protected void openConfigUi()
   {
     String processStartLink = EngineUrl.process() + "/EngineConfigUi/157E64657EEBDD9C/start.ivp";
@@ -201,6 +208,8 @@ public class BaseWebTest
 
   protected void setConfigInternal()
   {
+	openConfigUi();
+	openTab("Licence");
     openTab("System Database");
     prime.selectBooleanCheckbox(
             By.id("accordionPanel:systemDatabaseComponent:systemDatabaseForm:defaultPortCheckbox"))

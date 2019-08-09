@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Mon Jun 29 15:42:50 CEST 2015]
-13D39CF289ACE89B 3.17 #module
+13D39CF289ACE89B 3.26 #module
 >Proto >Proto Collection #zClass
 Ps0 PrimefacesProcess Big #zClass
 Ps0 RD #cInfo
@@ -50,7 +49,7 @@ Ps0 f3 actionDecl 'ch.ivyteam.htmldialog.primefaces.Primefaces.PrimefacesData ou
 Ps0 f3 actionTable 'out=in;
 ' #txt
 Ps0 f3 actionCode 'import org.primefaces.context.RequestContext;
-in.primefacesVersion = RequestContext.getCurrentInstance().getApplicationContext().getConfig().getBuildVersion();' #txt
+in.primefacesVersion = RequestContext.getCurrentInstance().getApplicationContext().getEnvironment().getBuildVersion();' #txt
 Ps0 f3 type ch.ivyteam.htmldialog.primefaces.Primefaces.PrimefacesData #txt
 Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

@@ -1,6 +1,6 @@
 package com.axon.ivy.engine.config;
 
-import org.primefaces.context.RequestContext;
+import org.primefaces.PrimeFaces;
 
 public class FocusSetter
 {
@@ -46,7 +46,7 @@ public class FocusSetter
 
   private static void focus(String id)
   {
-    RequestContext.getCurrentInstance().execute(
+	  PrimeFaces.current().executeScript(
             "var element = document.getElementById('" + id + "');if(element){element.focus();}");
   }
 }

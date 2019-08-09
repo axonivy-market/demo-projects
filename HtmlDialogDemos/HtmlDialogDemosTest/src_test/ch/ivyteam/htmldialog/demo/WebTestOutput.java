@@ -20,6 +20,8 @@ public class WebTestOutput extends BaseWebTest
   {
     startProcess("145D180807C60B4B/DataTableDemo.ivp");
 
+    await(textToBePresentInElementLocated(By.id("form:theTable"), "Daisy"));
+
     driver.findElement(By.id("form:theTable:globalFilter")).sendKeys("Dais");
     Table table = prime().table(By.id("form:theTable"));
     table.firstRowContains("Daisy");

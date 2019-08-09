@@ -7,20 +7,13 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
+import ch.ivyteam.ivy.environment.Ivy;
+
 public class WebTestHtmlDriver extends BaseWebTest
 {
-  
-  @Override
-  protected WebDriver createDriver()
-  {
-    return new HtmlUnitDriver(true);
-  }
-  
   @Test
   public void testHtmlJsfDemo()
   {
@@ -34,16 +27,18 @@ public class WebTestHtmlDriver extends BaseWebTest
     await(elementToBeClickable(By.id("paintHtml:buttonShow"))).click();
     await(textToBePresentInElementLocated(By.id("paintHtml:growl_container"), "Hello paintHtml"));
   }
-  
+
   @Test
   public void testPickList() throws Exception
   {
     startProcess("145D180807C60B4B/PickListDemo.ivp");
 
+    await(elementToBeClickable(
+            By.xpath("//*[@id='personListForm:pickList']/div[2]/ul/li[1]")));
+
     Action dragAndDropRenato = new Actions(driver)
             .clickAndHold(driver.findElement(By.xpath("//*[@id='personListForm:pickList']/div[2]/ul/li[1]")))
-            .moveToElement(driver.findElement(By.xpath("//*[@id='personListForm:pickList']/div[4]/ul")))
-            .release(driver.findElement(By.xpath("//*[@id='personListForm:pickList']/div[2]/ul/li[1]")))
+            .release(driver.findElement(By.xpath("//*[@id='personListForm:pickList']/div[4]/ul")))
             .build();
     dragAndDropRenato.perform();
 
@@ -57,7 +52,7 @@ public class WebTestHtmlDriver extends BaseWebTest
             By.xpath("//*[@id='personListForm:resultPanel']/tbody/tr[2]/td[2]"),
             "name=Stalder, firstname=Renato"));
   }
-  
+
   @Test
   public void testOrderList() throws Exception
   {
@@ -67,18 +62,23 @@ public class WebTestHtmlDriver extends BaseWebTest
     editList(6, 2, "Michael", "Bruno");
   }
 
-  private void editList(int elementPosition, int buttonPosition, String expectedName, String notExpectedName)
+  private void editList(int elementPosition, int buttonPosition, String expectedName, String notExpectedName) throws Exception
   {
     await(elementToBeClickable(By
             .xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li["
                     + elementPosition + "]"))).click();
+
     await(elementToBeClickable(
             By.xpath("//*[@id='personListForm:personsList']/div/div[2]/button[" + buttonPosition + "]")))
             .click();
+
+    // Click on first list element to give the move-down some time.
+    await(elementToBeClickable(
+    		By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[1]"))).click();
+
     await(textToBePresentInElementLocated(
             By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[1]"), expectedName));
     await(not(textToBePresentInElementLocated(
             By.xpath("//*[@id='personListForm:personsList']/div/div[1]/ul/li[1]"), notExpectedName)));
   }
-  
 }

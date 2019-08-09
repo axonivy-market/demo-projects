@@ -4,8 +4,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:ic="http://ivyteam.ch/jsf/component"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions"
-	xmlns:pm="http://primefaces.org/mobile">
+	xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">BusinessDataDossierBrowser</ui:define>
@@ -54,13 +53,13 @@
 				</p:column>
 				<p:column headerText="Operations">
 					<p:link value="edit"
-						href="#{ivy.html.startref('155BB4328F79B2D5/edit.ivp')}?id=#{ivy.repo.getId(dossier)} " />
+						href="#{ivy.html.startref('155BB4328F79B2D5/edit.ivp')}?id=#{ivy.repo.getId(dossier)}" />
 					<br />
 					<p:link value="delete"
-						href="#{ivy.html.startref('155BB4328F79B2D5/delete.ivp')}?id=#{ivy.repo.getId(dossier)} " />
+						href="#{ivy.html.startref('155BB4328F79B2D5/delete.ivp')}?id=#{ivy.repo.getId(dossier)}" />
 					<br />
 					<p:link value="verification process"
-						href="#{ivy.html.startref('156E5D9AA7D41BAA/verifyDossier.ivp')}?id=#{ivy.repo.getId(dossier)} " />
+						href="#{ivy.html.startref('156E5D9AA7D41BAA/verifyDossier.ivp')}?id=#{ivy.repo.getId(dossier)}" />
 				</p:column>
 
 			</p:dataTable>

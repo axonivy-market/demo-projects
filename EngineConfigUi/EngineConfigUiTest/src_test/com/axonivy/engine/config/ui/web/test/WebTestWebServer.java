@@ -10,18 +10,10 @@ import org.openqa.selenium.By;
 
 public class WebTestWebServer extends BaseWebTest
 {
-  @Override
-  public void setUp() throws Exception
-  {
-    super.setUp();
-    setMySqlConfig();
-    createMySqlSysDb();
-    testConnection();
-  }
-
   @Test
   public void testConfigStays() throws Exception
   {
+    setupMySql();
     openTab("Web Server");
     await(visibilityOfElementLocated(By
             .id("accordionPanel:webServerComponent:webServerForm:HTTPEnabledCheckbox")));
@@ -37,6 +29,7 @@ public class WebTestWebServer extends BaseWebTest
     await(textToBePresentInElementLocated(By.id("growl_container"),
             " were saved to the database"));
     openConfigUi();
+    openTab("Licence");
     openTab("System Database");
     testConnection();
     openTab("Web Server");

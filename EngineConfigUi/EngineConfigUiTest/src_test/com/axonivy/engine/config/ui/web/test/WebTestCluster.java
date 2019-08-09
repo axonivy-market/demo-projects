@@ -10,26 +10,18 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
 public class WebTestCluster extends BaseWebTest
 {
-
-  @Override
-  public void setUp() throws Exception
-  {
-    super.setUp();
-    setMySqlConfig();
-    createMySqlSysDb();
-    testConnection();
-  }
-
   @Test
-  public void testAddLocalNode()
+  public void testAddLocalNode() throws Exception
   {
+    setupMySql();
     addLocalNode();
   }
 
   @Test
-  public void testRemoveLocalNode()
+  public void testRemoveLocalNode() throws Exception
   {
-    testAddLocalNode();
+    setupMySql();
+    addLocalNode();
     driver.findElement(By.id("saveAll")).click();
     removeLocalNode();
   }

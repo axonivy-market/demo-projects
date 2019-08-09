@@ -12,9 +12,7 @@ public class WebTestAdministratorManager extends BaseWebTest
   @Test
   public void testAddAdmin() throws Exception
   {
-    setMySqlConfig();
-    createMySqlSysDb();
-    testConnection();
+	setupMySql();
     openTab("Administrators");
 
     Table table = prime
