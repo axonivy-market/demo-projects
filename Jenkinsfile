@@ -37,8 +37,10 @@ pipeline {
       }
     }
     stage('cleanup') {
-      dir('HtmlDialogDemos/HtmlDialogsDemos/target/ivyEngine') {
-        deleteDir()
+      steps {
+        dir('HtmlDialogDemos/HtmlDialogsDemos/target/ivyEngine') {
+          deleteDir()
+        }
       }
     }
   }
