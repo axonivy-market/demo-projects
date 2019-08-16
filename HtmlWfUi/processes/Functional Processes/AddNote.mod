@@ -1,10 +1,9 @@
 [Ivy]
-12CBAFAC42B5C5F5 3.26 #module
+12CBAFAC42B5C5F5 3.28 #module
 >Proto >Proto Collection #zClass
 Ae0 AddNote Big #zClass
 Ae0 B #cInfo
 Ae0 #process
-Ae0 @TextInP .resExport .resExport #zField
 Ae0 @TextInP .type .type #zField
 Ae0 @TextInP .processKind .processKind #zField
 Ae0 @AnnotationInP-0n ai ai #zField
@@ -28,10 +27,7 @@ Ae0 f0 outParamDecl '<htmlwfui.Data out> result;
 ' #txt
 Ae0 f0 outParamTable 'result.out=in;
 ' #txt
-Ae0 f0 actionDecl 'htmlwfui.Data out;
-' #txt
 Ae0 f0 callSignature call(htmlwfui.Data) #txt
-Ae0 f0 type htmlwfui.Data #txt
 Ae0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -43,10 +39,8 @@ Ae0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ae0 f0 99 35 26 26 14 0 #rect
 Ae0 f0 @|StartSubIcon #fIcon
-Ae0 f1 type htmlwfui.Data #txt
 Ae0 f1 99 291 26 26 14 0 #rect
 Ae0 f1 @|EndSubIcon #fIcon
-Ae0 f18 type htmlwfui.Data #txt
 Ae0 f18 98 226 28 28 14 0 #rect
 Ae0 f18 @|AlternativeIcon #fIcon
 Ae0 f11 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
@@ -72,8 +66,6 @@ hinzufügen</name>
 Ae0 f11 @C|.responsibility Everybody #txt
 Ae0 f11 94 92 36 24 23 -2 #rect
 Ae0 f11 @|PageIcon #fIcon
-Ae0 f12 actionDecl 'htmlwfui.Data out;
-' #txt
 Ae0 f12 actionTable 'out=in.clone();
 ' #txt
 Ae0 f12 actionCode 'if(in.note.trim().length()>0)
@@ -84,7 +76,6 @@ Ae0 f12 actionCode 'if(in.note.trim().length()>0)
 		in.tempCase.createNote(in.wfSession,in.note);
 	}
 }' #txt
-Ae0 f12 type htmlwfui.Data #txt
 Ae0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>

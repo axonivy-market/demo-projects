@@ -1,10 +1,9 @@
 [Ivy]
-145D180807C60B4B 3.26 #module
+145D180807C60B4B 3.28 #module
 >Proto >Proto Collection #zClass
 Ot0 Output Big #zClass
 Ot0 B #cInfo
 Ot0 #process
-Ot0 @TextInP .resExport .resExport #zField
 Ot0 @TextInP .type .type #zField
 Ot0 @TextInP .processKind .processKind #zField
 Ot0 @AnnotationInP-0n ai ai #zField
@@ -14,21 +13,21 @@ Ot0 @TextInP .xml .xml #zField
 Ot0 @TextInP .responsibility .responsibility #zField
 Ot0 @StartRequest f94 '' #zField
 Ot0 @StartRequest f87 '' #zField
-Ot0 @RichDialog f11 '' #zField
+Ot0 @UserDialog f11 '' #zField
 Ot0 @EndTask f26 '' #zField
 Ot0 @StartRequest f25 '' #zField
 Ot0 @EndTask f93 '' #zField
 Ot0 @EndTask f31 '' #zField
 Ot0 @EndTask f89 '' #zField
-Ot0 @RichDialog f88 '' #zField
+Ot0 @UserDialog f88 '' #zField
 Ot0 @EndTask f13 '' #zField
-Ot0 @RichDialog f27 '' #zField
-Ot0 @RichDialog f32 '' #zField
+Ot0 @UserDialog f27 '' #zField
+Ot0 @UserDialog f32 '' #zField
 Ot0 @StartRequest f5 '' #zField
 Ot0 @EndTask f8 '' #zField
 Ot0 @StartRequest f30 '' #zField
-Ot0 @RichDialog f6 '' #zField
-Ot0 @RichDialog f92 '' #zField
+Ot0 @UserDialog f6 '' #zField
+Ot0 @UserDialog f92 '' #zField
 Ot0 @StartRequest f10 '' #zField
 Ot0 @PushWFArc f7 '' #zField
 Ot0 @PushWFArc f9 '' #zField
@@ -43,37 +42,33 @@ Ot0 @PushWFArc f91 '' #zField
 Ot0 @PushWFArc f95 '' #zField
 Ot0 @PushWFArc f96 '' #zField
 Ot0 @EndTask f1 '' #zField
-Ot0 @RichDialog f2 '' #zField
+Ot0 @UserDialog f2 '' #zField
 Ot0 @PushWFArc f4 '' #zField
 Ot0 @StartRequest f0 '' #zField
 Ot0 @PushWFArc f3 '' #zField
 Ot0 @StartRequest f20 '' #zField
-Ot0 @RichDialog f21 '' #zField
+Ot0 @UserDialog f21 '' #zField
 Ot0 @EndTask f22 '' #zField
 Ot0 @PushWFArc f23 '' #zField
 Ot0 @PushWFArc f24 '' #zField
 Ot0 @EndTask f15 '' #zField
-Ot0 @RichDialog f16 '' #zField
+Ot0 @UserDialog f16 '' #zField
 Ot0 @StartRequest f17 '' #zField
 Ot0 @PushWFArc f18 '' #zField
 Ot0 @PushWFArc f19 '' #zField
 Ot0 @StartRequest f35 '' #zField
-Ot0 @RichDialog f36 '' #zField
+Ot0 @UserDialog f36 '' #zField
 Ot0 @EndTask f37 '' #zField
 Ot0 @PushWFArc f38 '' #zField
 Ot0 @PushWFArc f39 '' #zField
 Ot0 @StartRequest f40 '' #zField
 Ot0 @EndTask f41 '' #zField
-Ot0 @RichDialog f42 '' #zField
+Ot0 @UserDialog f42 '' #zField
 Ot0 @PushWFArc f43 '' #zField
 Ot0 @PushWFArc f44 '' #zField
 >Proto Ot0 Ot0 Output #zField
 Ot0 f94 outLink SelectManyCheckboxDemo.ivp #txt
-Ot0 f94 type htmlDialogDemos.Data #txt
 Ot0 f94 inParamDecl '<> param;' #txt
-Ot0 f94 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Ot0 f94 guid 145D180C91A7FDF9 #txt
 Ot0 f94 requestEnabled true #txt
 Ot0 f94 triggerEnabled false #txt
 Ot0 f94 callSignature SelectManyCheckboxDemo() #txt
@@ -100,11 +95,7 @@ Ot0 f94 113 529 30 30 -75 15 #rect
 Ot0 f94 @|StartRequestIcon #fIcon
 Ot0 f94 -1|-1|-9671572 #nodeStyle
 Ot0 f87 outLink SelectOneMenuDemo.ivp #txt
-Ot0 f87 type htmlDialogDemos.Data #txt
 Ot0 f87 inParamDecl '<> param;' #txt
-Ot0 f87 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Ot0 f87 guid 145D180C91AD23E2 #txt
 Ot0 f87 requestEnabled true #txt
 Ot0 f87 triggerEnabled false #txt
 Ot0 f87 callSignature SelectOneMenuDemo() #txt
@@ -130,33 +121,21 @@ Ot0 f87 @C|.responsibility Everybody #txt
 Ot0 f87 113 433 30 30 -60 15 #rect
 Ot0 f87 @|StartRequestIcon #fIcon
 Ot0 f87 -1|-1|-9671572 #nodeStyle
-Ot0 f11 targetWindow NEW:card: #txt
-Ot0 f11 targetDisplay TOP #txt
-Ot0 f11 richDialogId ch.ivyteam.htmldialog.demo.output.EditableTableDemo #txt
+Ot0 f11 dialogId ch.ivyteam.htmldialog.demo.output.EditableTableDemo #txt
 Ot0 f11 startMethod start() #txt
-Ot0 f11 type htmlDialogDemos.Data #txt
 Ot0 f11 requestActionDecl '<> param;' #txt
 Ot0 f11 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Ot0 f11 responseMappingAction 'out=in;
 ' #txt
-Ot0 f11 windowConfiguration '* ' #txt
-Ot0 f11 isAsynch false #txt
-Ot0 f11 isInnerRd false #txt
-Ot0 f11 userContext '* ' #txt
 Ot0 f11 248 42 112 44 58 -2 #rect
-Ot0 f11 @|RichDialogIcon #fIcon
+Ot0 f11 @|UserDialogIcon #fIcon
 Ot0 f11 -1|-1|-9671572 #nodeStyle
-Ot0 f26 type htmlDialogDemos.Data #txt
 Ot0 f26 465 337 30 30 0 15 #rect
 Ot0 f26 @|EndIcon #fIcon
 Ot0 f26 -1|-1|-9671572 #nodeStyle
 Ot0 f25 outLink PickListDemo.ivp #txt
-Ot0 f25 type htmlDialogDemos.Data #txt
 Ot0 f25 inParamDecl '<> param;' #txt
-Ot0 f25 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Ot0 f25 guid 145D180C91AFE2F8 #txt
 Ot0 f25 requestEnabled true #txt
 Ot0 f25 triggerEnabled false #txt
 Ot0 f25 callSignature PickListDemo() #txt
@@ -182,79 +161,50 @@ Ot0 f25 @C|.responsibility Everybody #txt
 Ot0 f25 113 337 30 30 -47 15 #rect
 Ot0 f25 @|StartRequestIcon #fIcon
 Ot0 f25 -1|-1|-9671572 #nodeStyle
-Ot0 f93 type htmlDialogDemos.Data #txt
 Ot0 f93 465 529 30 30 0 15 #rect
 Ot0 f93 @|EndIcon #fIcon
 Ot0 f93 -1|-1|-9671572 #nodeStyle
-Ot0 f31 type htmlDialogDemos.Data #txt
 Ot0 f31 465 145 30 30 0 15 #rect
 Ot0 f31 @|EndIcon #fIcon
 Ot0 f31 -1|-1|-9671572 #nodeStyle
-Ot0 f89 type htmlDialogDemos.Data #txt
 Ot0 f89 465 433 30 30 0 15 #rect
 Ot0 f89 @|EndIcon #fIcon
 Ot0 f89 -1|-1|-9671572 #nodeStyle
-Ot0 f88 targetWindow NEW:card: #txt
-Ot0 f88 targetDisplay TOP #txt
-Ot0 f88 richDialogId ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo #txt
+Ot0 f88 dialogId ch.ivyteam.htmldialog.demo.output.SelectOneMenuDemo #txt
 Ot0 f88 startMethod start() #txt
-Ot0 f88 type htmlDialogDemos.Data #txt
 Ot0 f88 requestActionDecl '<> param;' #txt
 Ot0 f88 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Ot0 f88 responseMappingAction 'out=in;
 ' #txt
-Ot0 f88 windowConfiguration '* ' #txt
-Ot0 f88 isAsynch false #txt
-Ot0 f88 isInnerRd false #txt
-Ot0 f88 userContext '* ' #txt
 Ot0 f88 248 426 112 44 58 -2 #rect
-Ot0 f88 @|RichDialogIcon #fIcon
+Ot0 f88 @|UserDialogIcon #fIcon
 Ot0 f88 -1|-1|-9671572 #nodeStyle
-Ot0 f13 type htmlDialogDemos.Data #txt
 Ot0 f13 465 49 30 30 0 15 #rect
 Ot0 f13 @|EndIcon #fIcon
 Ot0 f13 -1|-1|-9671572 #nodeStyle
-Ot0 f27 targetWindow NEW:card: #txt
-Ot0 f27 targetDisplay TOP #txt
-Ot0 f27 richDialogId ch.ivyteam.htmldialog.demo.output.PickListDemo #txt
+Ot0 f27 dialogId ch.ivyteam.htmldialog.demo.output.PickListDemo #txt
 Ot0 f27 startMethod start() #txt
-Ot0 f27 type htmlDialogDemos.Data #txt
 Ot0 f27 requestActionDecl '<> param;' #txt
 Ot0 f27 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Ot0 f27 responseMappingAction 'out=in;
 ' #txt
-Ot0 f27 windowConfiguration '* ' #txt
-Ot0 f27 isAsynch false #txt
-Ot0 f27 isInnerRd false #txt
-Ot0 f27 userContext '* ' #txt
 Ot0 f27 248 330 112 44 58 -2 #rect
-Ot0 f27 @|RichDialogIcon #fIcon
+Ot0 f27 @|UserDialogIcon #fIcon
 Ot0 f27 -1|-1|-9671572 #nodeStyle
-Ot0 f32 targetWindow NEW:card: #txt
-Ot0 f32 targetDisplay TOP #txt
-Ot0 f32 richDialogId ch.ivyteam.htmldialog.demo.output.ResourceDemo #txt
+Ot0 f32 dialogId ch.ivyteam.htmldialog.demo.output.ResourceDemo #txt
 Ot0 f32 startMethod start() #txt
-Ot0 f32 type htmlDialogDemos.Data #txt
 Ot0 f32 requestActionDecl '<> param;' #txt
 Ot0 f32 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Ot0 f32 responseMappingAction 'out=in;
 ' #txt
-Ot0 f32 windowConfiguration '* ' #txt
-Ot0 f32 isAsynch false #txt
-Ot0 f32 isInnerRd false #txt
-Ot0 f32 userContext '* ' #txt
 Ot0 f32 248 138 112 44 58 -2 #rect
-Ot0 f32 @|RichDialogIcon #fIcon
+Ot0 f32 @|UserDialogIcon #fIcon
 Ot0 f32 -1|-1|-9671572 #nodeStyle
 Ot0 f5 outLink OrderListDemo.ivp #txt
-Ot0 f5 type htmlDialogDemos.Data #txt
 Ot0 f5 inParamDecl '<> param;' #txt
-Ot0 f5 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Ot0 f5 guid 145D180C91039564 #txt
 Ot0 f5 requestEnabled true #txt
 Ot0 f5 triggerEnabled false #txt
 Ot0 f5 callSignature OrderListDemo() #txt
@@ -280,16 +230,11 @@ Ot0 f5 @C|.responsibility Everybody #txt
 Ot0 f5 113 241 30 30 -51 15 #rect
 Ot0 f5 @|StartRequestIcon #fIcon
 Ot0 f5 -1|-1|-9671572 #nodeStyle
-Ot0 f8 type htmlDialogDemos.Data #txt
 Ot0 f8 465 241 30 30 0 15 #rect
 Ot0 f8 @|EndIcon #fIcon
 Ot0 f8 -1|-1|-9671572 #nodeStyle
 Ot0 f30 outLink ResourceDemo.ivp #txt
-Ot0 f30 type htmlDialogDemos.Data #txt
 Ot0 f30 inParamDecl '<> param;' #txt
-Ot0 f30 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Ot0 f30 guid 145D180C910EF669 #txt
 Ot0 f30 requestEnabled true #txt
 Ot0 f30 triggerEnabled false #txt
 Ot0 f30 callSignature ResourceDemo() #txt
@@ -313,46 +258,28 @@ Ot0 f30 @C|.responsibility Everybody #txt
 Ot0 f30 113 145 30 30 -53 15 #rect
 Ot0 f30 @|StartRequestIcon #fIcon
 Ot0 f30 -1|-1|-9671572 #nodeStyle
-Ot0 f6 targetWindow NEW:card: #txt
-Ot0 f6 targetDisplay TOP #txt
-Ot0 f6 richDialogId ch.ivyteam.htmldialog.demo.output.OrderListDemo #txt
+Ot0 f6 dialogId ch.ivyteam.htmldialog.demo.output.OrderListDemo #txt
 Ot0 f6 startMethod start() #txt
-Ot0 f6 type htmlDialogDemos.Data #txt
 Ot0 f6 requestActionDecl '<> param;' #txt
 Ot0 f6 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Ot0 f6 responseMappingAction 'out=in;
 ' #txt
-Ot0 f6 windowConfiguration '* ' #txt
-Ot0 f6 isAsynch false #txt
-Ot0 f6 isInnerRd false #txt
-Ot0 f6 userContext '* ' #txt
 Ot0 f6 248 234 112 44 58 -2 #rect
-Ot0 f6 @|RichDialogIcon #fIcon
+Ot0 f6 @|UserDialogIcon #fIcon
 Ot0 f6 -1|-1|-9671572 #nodeStyle
-Ot0 f92 targetWindow NEW:card: #txt
-Ot0 f92 targetDisplay TOP #txt
-Ot0 f92 richDialogId ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo #txt
+Ot0 f92 dialogId ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo #txt
 Ot0 f92 startMethod start() #txt
-Ot0 f92 type htmlDialogDemos.Data #txt
 Ot0 f92 requestActionDecl '<> param;' #txt
 Ot0 f92 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Ot0 f92 responseMappingAction 'out=in;
 ' #txt
-Ot0 f92 windowConfiguration '* ' #txt
-Ot0 f92 isAsynch false #txt
-Ot0 f92 isInnerRd false #txt
-Ot0 f92 userContext '* ' #txt
 Ot0 f92 248 522 112 44 58 -2 #rect
-Ot0 f92 @|RichDialogIcon #fIcon
+Ot0 f92 @|UserDialogIcon #fIcon
 Ot0 f92 -1|-1|-9671572 #nodeStyle
 Ot0 f10 outLink EditableTableDemo.ivp #txt
-Ot0 f10 type htmlDialogDemos.Data #txt
 Ot0 f10 inParamDecl '<> param;' #txt
-Ot0 f10 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Ot0 f10 guid 145D180C910E9D3F #txt
 Ot0 f10 requestEnabled true #txt
 Ot0 f10 triggerEnabled false #txt
 Ot0 f10 callSignature EditableTableDemo() #txt
@@ -402,35 +329,23 @@ Ot0 f95 expr out #txt
 Ot0 f95 143 544 248 544 #arcP
 Ot0 f96 expr out #txt
 Ot0 f96 360 544 465 544 #arcP
-Ot0 f1 type htmlDialogDemos.Data #txt
 Ot0 f1 465 625 30 30 0 15 #rect
 Ot0 f1 @|EndIcon #fIcon
 Ot0 f1 -1|-1|-9671572 #nodeStyle
-Ot0 f2 targetWindow NEW:card: #txt
-Ot0 f2 targetDisplay TOP #txt
-Ot0 f2 richDialogId ch.ivyteam.htmldialog.demo.output.ChartDemo #txt
+Ot0 f2 dialogId ch.ivyteam.htmldialog.demo.output.ChartDemo #txt
 Ot0 f2 startMethod start() #txt
-Ot0 f2 type htmlDialogDemos.Data #txt
 Ot0 f2 requestActionDecl '<> param;' #txt
 Ot0 f2 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Ot0 f2 responseMappingAction 'out=in;
 ' #txt
-Ot0 f2 windowConfiguration '* ' #txt
-Ot0 f2 isAsynch false #txt
-Ot0 f2 isInnerRd false #txt
-Ot0 f2 userContext '* ' #txt
 Ot0 f2 248 618 112 44 58 -2 #rect
-Ot0 f2 @|RichDialogIcon #fIcon
+Ot0 f2 @|UserDialogIcon #fIcon
 Ot0 f2 -1|-1|-9671572 #nodeStyle
 Ot0 f4 expr out #txt
 Ot0 f4 360 640 465 640 #arcP
 Ot0 f0 outLink ChartDemo.ivp #txt
-Ot0 f0 type htmlDialogDemos.Data #txt
 Ot0 f0 inParamDecl '<> param;' #txt
-Ot0 f0 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Ot0 f0 guid 1460535DE5033FE1 #txt
 Ot0 f0 requestEnabled true #txt
 Ot0 f0 triggerEnabled false #txt
 Ot0 f0 callSignature ChartDemo() #txt
@@ -459,11 +374,7 @@ Ot0 f0 -1|-1|-9671572 #nodeStyle
 Ot0 f3 expr out #txt
 Ot0 f3 143 640 248 640 #arcP
 Ot0 f20 outLink AutoCompleteDemo.ivp #txt
-Ot0 f20 type htmlDialogDemos.Data #txt
 Ot0 f20 inParamDecl '<> param;' #txt
-Ot0 f20 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Ot0 f20 guid 1468B174CE38CA96 #txt
 Ot0 f20 requestEnabled true #txt
 Ot0 f20 triggerEnabled false #txt
 Ot0 f20 callSignature AutoCompleteDemo() #txt
@@ -489,24 +400,16 @@ Ot0 f20 @C|.responsibility Everybody #txt
 Ot0 f20 113 721 30 30 -65 17 #rect
 Ot0 f20 @|StartRequestIcon #fIcon
 Ot0 f20 -1|-1|-9671572 #nodeStyle
-Ot0 f21 targetWindow NEW:card: #txt
-Ot0 f21 targetDisplay TOP #txt
-Ot0 f21 richDialogId ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo #txt
+Ot0 f21 dialogId ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo #txt
 Ot0 f21 startMethod start() #txt
-Ot0 f21 type htmlDialogDemos.Data #txt
 Ot0 f21 requestActionDecl '<> param;' #txt
 Ot0 f21 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Ot0 f21 responseMappingAction 'out=in;
 ' #txt
-Ot0 f21 windowConfiguration '* ' #txt
-Ot0 f21 isAsynch false #txt
-Ot0 f21 isInnerRd false #txt
-Ot0 f21 userContext '* ' #txt
 Ot0 f21 248 714 112 44 0 -8 #rect
-Ot0 f21 @|RichDialogIcon #fIcon
+Ot0 f21 @|UserDialogIcon #fIcon
 Ot0 f21 -1|-1|-9671572 #nodeStyle
-Ot0 f22 type htmlDialogDemos.Data #txt
 Ot0 f22 465 721 30 30 0 15 #rect
 Ot0 f22 @|EndIcon #fIcon
 Ot0 f22 -1|-1|-9671572 #nodeStyle
@@ -514,33 +417,21 @@ Ot0 f23 expr out #txt
 Ot0 f23 143 736 248 736 #arcP
 Ot0 f24 expr out #txt
 Ot0 f24 360 736 465 736 #arcP
-Ot0 f15 type htmlDialogDemos.Data #txt
 Ot0 f15 465 817 30 30 0 15 #rect
 Ot0 f15 @|EndIcon #fIcon
 Ot0 f15 -1|-1|-9671572 #nodeStyle
-Ot0 f16 targetWindow NEW:card: #txt
-Ot0 f16 targetDisplay TOP #txt
-Ot0 f16 richDialogId ch.ivyteam.htmldialog.demo.output.DataTableDemo #txt
+Ot0 f16 dialogId ch.ivyteam.htmldialog.demo.output.DataTableDemo #txt
 Ot0 f16 startMethod start() #txt
-Ot0 f16 type htmlDialogDemos.Data #txt
 Ot0 f16 requestActionDecl '<> param;' #txt
 Ot0 f16 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Ot0 f16 responseMappingAction 'out=in;
 ' #txt
-Ot0 f16 windowConfiguration '* ' #txt
-Ot0 f16 isAsynch false #txt
-Ot0 f16 isInnerRd false #txt
-Ot0 f16 userContext '* ' #txt
 Ot0 f16 248 810 112 44 0 -8 #rect
-Ot0 f16 @|RichDialogIcon #fIcon
+Ot0 f16 @|UserDialogIcon #fIcon
 Ot0 f16 -1|-1|-9671572 #nodeStyle
 Ot0 f17 outLink DataTableDemo.ivp #txt
-Ot0 f17 type htmlDialogDemos.Data #txt
 Ot0 f17 inParamDecl '<> param;' #txt
-Ot0 f17 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Ot0 f17 guid 153D1DFF48C60126 #txt
 Ot0 f17 requestEnabled true #txt
 Ot0 f17 triggerEnabled false #txt
 Ot0 f17 callSignature DataTableDemo() #txt
@@ -572,11 +463,7 @@ Ot0 f18 143 832 248 832 #arcP
 Ot0 f19 expr out #txt
 Ot0 f19 360 832 465 832 #arcP
 Ot0 f35 outLink LazyLoadingDemo.ivp #txt
-Ot0 f35 type htmlDialogDemos.Data #txt
 Ot0 f35 inParamDecl '<> param;' #txt
-Ot0 f35 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Ot0 f35 guid 15AEFF1D31F765C5 #txt
 Ot0 f35 requestEnabled true #txt
 Ot0 f35 triggerEnabled false #txt
 Ot0 f35 callSignature LazyLoadingDemo() #txt
@@ -602,22 +489,15 @@ Ot0 f35 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ot0 f35 @C|.responsibility Everybody #txt
 Ot0 f35 113 913 30 30 -60 17 #rect
 Ot0 f35 @|StartRequestIcon #fIcon
-Ot0 f36 targetWindow NEW #txt
-Ot0 f36 targetDisplay TOP #txt
-Ot0 f36 richDialogId ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo #txt
+Ot0 f36 dialogId ch.ivyteam.htmldialog.demo.output.LazyLoadingDemo #txt
 Ot0 f36 startMethod start() #txt
-Ot0 f36 type htmlDialogDemos.Data #txt
 Ot0 f36 requestActionDecl '<> param;' #txt
 Ot0 f36 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Ot0 f36 responseMappingAction 'out=in;
 ' #txt
-Ot0 f36 isAsynch false #txt
-Ot0 f36 isInnerRd false #txt
-Ot0 f36 userContext '* ' #txt
 Ot0 f36 248 906 112 44 0 -8 #rect
-Ot0 f36 @|RichDialogIcon #fIcon
-Ot0 f37 type htmlDialogDemos.Data #txt
+Ot0 f36 @|UserDialogIcon #fIcon
 Ot0 f37 465 913 30 30 0 15 #rect
 Ot0 f37 @|EndIcon #fIcon
 Ot0 f38 expr out #txt
@@ -625,11 +505,7 @@ Ot0 f38 143 928 248 928 #arcP
 Ot0 f39 expr out #txt
 Ot0 f39 360 928 465 928 #arcP
 Ot0 f40 outLink ExportExcelDemo.ivp #txt
-Ot0 f40 type htmlDialogDemos.Data #txt
 Ot0 f40 inParamDecl '<> param;' #txt
-Ot0 f40 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Ot0 f40 guid 16ADE89400B7FD80 #txt
 Ot0 f40 requestEnabled true #txt
 Ot0 f40 triggerEnabled false #txt
 Ot0 f40 callSignature ExportExcelDemo() #txt
@@ -653,24 +529,17 @@ Ot0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ot0 f40 @C|.responsibility Everybody #txt
 Ot0 f40 113 1009 30 30 -60 17 #rect
 Ot0 f40 @|StartRequestIcon #fIcon
-Ot0 f41 type htmlDialogDemos.Data #txt
 Ot0 f41 465 1009 30 30 0 15 #rect
 Ot0 f41 @|EndIcon #fIcon
-Ot0 f42 targetWindow NEW #txt
-Ot0 f42 targetDisplay TOP #txt
-Ot0 f42 richDialogId ch.ivyteam.htmldialog.demo.output.ExportExcelDemo #txt
+Ot0 f42 dialogId ch.ivyteam.htmldialog.demo.output.ExportExcelDemo #txt
 Ot0 f42 startMethod start() #txt
-Ot0 f42 type htmlDialogDemos.Data #txt
 Ot0 f42 requestActionDecl '<> param;' #txt
 Ot0 f42 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Ot0 f42 responseMappingAction 'out=in;
 ' #txt
-Ot0 f42 isAsynch false #txt
-Ot0 f42 isInnerRd false #txt
-Ot0 f42 userContext '* ' #txt
 Ot0 f42 248 1002 112 44 0 -8 #rect
-Ot0 f42 @|RichDialogIcon #fIcon
+Ot0 f42 @|UserDialogIcon #fIcon
 Ot0 f43 expr out #txt
 Ot0 f43 360 1024 465 1024 #arcP
 Ot0 f44 expr out #txt

@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Wed Oct 14 16:11:11 CEST 2015]
-14ECFC90CDE278D0 3.18 #module
+14ECFC90CDE278D0 3.28 #module
 >Proto >Proto Collection #zClass
 or0 Order Big #zClass
 or0 B #cInfo
@@ -11,7 +10,6 @@ Ct1 Component Big #zClass
 Ct1 B #cInfo
 Bk0 BpmnScriptTask Big #zClass
 Bk0 BpmnScriptTask #cInfo
-or0 @TextInP .resExport .resExport #zField
 or0 @TextInP .type .type #zField
 or0 @TextInP .processKind .processKind #zField
 or0 @AnnotationInP-0n ai ai #zField
@@ -21,13 +19,13 @@ or0 @TextInP .xml .xml #zField
 or0 @TextInP .responsibility .responsibility #zField
 or0 @StartRequest f0 '' #zField
 or0 @EndTask f1 '' #zField
-or0 @RichDialog f3 '' #zField
+or0 @UserDialog f3 '' #zField
 or0 Ct0 S10 'Sub 1' #zField
 or0 @PushWFArc f5 '' #zField
 or0 @ErrorBoundaryEvent Et1 ErrorBoundaryEvent #zField
 or0 Ct1 S20 'Sub 2' #zField
 or0 @PushWFArc f12 '' #zField
-or0 @RichDialog f2 '' #zField
+or0 @UserDialog f2 '' #zField
 or0 @PushWFArc f6 '' #zField
 or0 @PushWFArc f7 '' #zField
 or0 @InfoButton f16 '' #zField
@@ -36,7 +34,6 @@ or0 @PushWFArc f4 '' #zField
 or0 @PushWFArc f8 '' #zField
 or0 @PushWFArc f10 '' #zField
 >Proto or0 or0 Order #zField
-Ct0 @TextInP .resExport .resExport #zField
 Ct0 @TextInP .type .type #zField
 Ct0 @TextInP .processKind .processKind #zField
 Ct0 @AnnotationInP-0n ai ai #zField
@@ -58,7 +55,6 @@ Ct0 @DBStep f8 '' #zField
 Ct0 @PushWFArc f9 '' #zField
 Ct0 @PushWFArc f0 '' #zField
 >Proto Ct0 Ct0 Component #zField
-Ct1 @TextInP .resExport .resExport #zField
 Ct1 @TextInP .type .type #zField
 Ct1 @TextInP .processKind .processKind #zField
 Ct1 @AnnotationInP-0n ai ai #zField
@@ -74,7 +70,6 @@ Ct1 @DBStep f3 '' #zField
 Ct1 @PushWFArc f4 '' #zField
 Ct1 @PushWFArc f2 '' #zField
 >Proto Ct1 Ct1 Component #zField
-Bk0 @TextInP .resExport .resExport #zField
 Bk0 @TextInP .type .type #zField
 Bk0 @TextInP .processKind .processKind #zField
 Bk0 @AnnotationInP-0n ai ai #zField
@@ -99,32 +94,19 @@ Bk0 @PushWFArc f9 '' #zField
 Bk0 @PushWFArc f11 '' #zField
 >Proto Bk0 Bk0 BpmnScriptTask #zField
 or0 f0 outLink start.ivp #txt
-or0 f0 type error.handling.demo.Data #txt
 or0 f0 inParamDecl '<> param;' #txt
-or0 f0 actionDecl 'error.handling.demo.Data out;
-' #txt
-or0 f0 guid 14ECFC90D00F051F #txt
 or0 f0 requestEnabled true #txt
 or0 f0 triggerEnabled false #txt
 or0 f0 callSignature start() #txt
 or0 f0 persist false #txt
 or0 f0 startName 'Due to a Business Error the process can not continue' #txt
-or0 f0 taskData 'TaskTriggered.ROL=Everybody
+or0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 or0 f0 showInStartList 1 #txt
-or0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -137,7 +119,6 @@ or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 or0 f0 @C|.responsibility Everybody #txt
 or0 f0 81 113 30 30 -21 17 #rect
 or0 f0 @|StartRequestIcon #fIcon
-or0 f1 type error.handling.demo.Data #txt
 or0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -149,20 +130,13 @@ or0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 or0 f1 881 113 30 30 -24 17 #rect
 or0 f1 @|EndIcon #fIcon
-or0 f3 targetWindow NEW:card: #txt
-or0 f3 targetDisplay TOP #txt
-or0 f3 richDialogId error.handling.demo.RegisterOrder #txt
+or0 f3 dialogId error.handling.demo.RegisterOrder #txt
 or0 f3 startMethod start() #txt
-or0 f3 type error.handling.demo.Data #txt
 or0 f3 requestActionDecl '<> param;' #txt
 or0 f3 responseActionDecl 'error.handling.demo.Data out;
 ' #txt
 or0 f3 responseMappingAction 'out.order=result.order;
 ' #txt
-or0 f3 windowConfiguration '* ' #txt
-or0 f3 isAsynch false #txt
-or0 f3 isInnerRd false #txt
-or0 f3 userContext '* ' #txt
 or0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -173,8 +147,7 @@ or0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 f3 344 106 112 44 -40 -8 #rect
-or0 f3 @|RichDialogIcon #fIcon
-or0 S10 .resExport export #txt
+or0 f3 @|UserDialogIcon #fIcon
 or0 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -189,8 +162,6 @@ or0 S10 @|BIcon #fIcon
 or0 S10 g2 -56 0 #fFoot
 or0 f5 expr out #txt
 or0 f5 456 128 536 128 #arcP
-or0 Et1 actionDecl 'error.handling.demo.Data out;
-' #txt
 or0 Et1 actionTable 'out=in;
 ' #txt
 or0 Et1 errorCode out_of_stock #txt
@@ -206,7 +177,6 @@ or0 Et1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 or0 Et1 633 145 30 30 17 6 #rect
 or0 Et1 @|ErrorBoundaryEventIcon #fIcon
-or0 S20 .resExport export #txt
 or0 S20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -223,20 +193,13 @@ or0 S20 g1 -56 1 #fFoot
 or0 f12 648 175 616 225 #arcP
 or0 f12 1 648 225 #addKink
 or0 f12 0 0.16823393704149303 0 0 #arcLabel
-or0 f2 targetWindow NEW:card: #txt
-or0 f2 targetDisplay TOP #txt
-or0 f2 richDialogId error.handling.demo.OrderShipped #txt
+or0 f2 dialogId error.handling.demo.OrderShipped #txt
 or0 f2 startMethod start(error.handling.demo.Order) #txt
-or0 f2 type error.handling.demo.Data #txt
 or0 f2 requestActionDecl '<error.handling.demo.Order order> param;' #txt
 or0 f2 requestMappingAction 'param.order=in.order;
 ' #txt
 or0 f2 responseActionDecl 'error.handling.demo.Data out;
 ' #txt
-or0 f2 windowConfiguration '* ' #txt
-or0 f2 isAsynch false #txt
-or0 f2 isInnerRd false #txt
-or0 f2 userContext '* ' #txt
 or0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -247,7 +210,7 @@ or0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 or0 f2 720 106 112 44 -52 -8 #rect
-or0 f2 @|RichDialogIcon #fIcon
+or0 f2 @|UserDialogIcon #fIcon
 or0 f6 648 128 720 128 #arcP
 or0 f7 expr out #txt
 or0 f7 832 128 881 128 #arcP
@@ -267,7 +230,6 @@ The process can not continue because of an out_of_stock  error</name>
 or0 f16 56 26 368 44 -181 -19 #rect
 or0 f16 @|IBIcon #fIcon
 or0 f16 -1|-1|-65536 #nodeStyle
-or0 S30 .resExport export #txt
 or0 S30 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -322,7 +284,6 @@ Ct0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ct0 f1 128 234 128 44 -58 -8 #rect
 Ct0 f1 @|DBStepIcon #fIcon
 Ct0 f2 45 256 128 256 #arcP
-Ct0 f3 type error.handling.demo.Data #txt
 Ct0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -584,11 +545,8 @@ Bk0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Bk0 f1 160 234 128 44 -60 -7 #rect
 Bk0 f1 @|DBStepIcon #fIcon
 Bk0 f2 77 256 160 256 #arcP
-Bk0 Et0 actionDecl 'error.handling.demo.Data out;
-' #txt
 Bk0 Et0 actionTable 'out=in;
 ' #txt
-Bk0 Et0 type error.handling.demo.Data #txt
 Bk0 Et0 errorCode ivy:error:database #txt
 Bk0 Et0 attachedToRef 14ECFC90CDE278D0-S30-f1 #txt
 Bk0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -605,7 +563,6 @@ Bk0 Et0 @|ErrorBoundaryEventIcon #fIcon
 Bk0 f0 264 303 408 320 #arcP
 Bk0 f0 1 264 320 #addKink
 Bk0 f0 1 0.3850489905746746 0 0 #arcLabel
-Bk0 f10 type error.handling.demo.Data #txt
 Bk0 f10 880 240 32 32 0 16 #rect
 Bk0 f10 @|AlternativeIcon #fIcon
 Bk0 f4 expr in #txt

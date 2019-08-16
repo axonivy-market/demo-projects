@@ -1,10 +1,9 @@
 [Ivy]
-15A89953E2D3784F 3.25 #module
+15A89953E2D3784F 3.28 #module
 >Proto >Proto Collection #zClass
 Ik0 InternalSolvencyCheck Big #zClass
 Ik0 B #cInfo
 Ik0 #process
-Ik0 @TextInP .resExport .resExport #zField
 Ik0 @TextInP .type .type #zField
 Ik0 @TextInP .processKind .processKind #zField
 Ik0 @AnnotationInP-0n ai ai #zField
@@ -19,11 +18,7 @@ Ik0 @PushWFArc f4 '' #zField
 Ik0 @PushWFArc f2 '' #zField
 >Proto Ik0 Ik0 InternalSolvencyCheck #zField
 Ik0 f0 outLink start.ivp #txt
-Ik0 f0 type workflow.humantask.Data #txt
 Ik0 f0 inParamDecl '<> param;' #txt
-Ik0 f0 actionDecl 'workflow.humantask.Data out;
-' #txt
-Ik0 f0 guid 15A89953E42DD914 #txt
 Ik0 f0 requestEnabled true #txt
 Ik0 f0 triggerEnabled false #txt
 Ik0 f0 callSignature start() #txt
@@ -51,11 +46,8 @@ Ik0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ik0 f0 @C|.responsibility Everybody #txt
 Ik0 f0 81 49 30 30 -21 17 #rect
 Ik0 f0 @|StartRequestIcon #fIcon
-Ik0 f1 type workflow.humantask.Data #txt
 Ik0 f1 337 49 30 30 0 15 #rect
 Ik0 f1 @|EndIcon #fIcon
-Ik0 f3 actionDecl 'workflow.humantask.Data out;
-' #txt
 Ik0 f3 actionTable 'out=in;
 ' #txt
 Ik0 f3 actionCode 'import workflow.credit.CreditDossier;
@@ -69,7 +61,6 @@ ivy.rules.engine.createRuleBase().loadRulesFromNamespace("workflow.credit").crea
 
 // Save dossier
 ivy.repo.save(dossier);' #txt
-Ik0 f3 type workflow.humantask.Data #txt
 Ik0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

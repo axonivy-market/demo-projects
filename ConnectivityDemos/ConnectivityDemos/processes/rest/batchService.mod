@@ -1,10 +1,9 @@
 [Ivy]
-157B33AB7587F1F1 3.23 #module
+157B33AB7587F1F1 3.28 #module
 >Proto >Proto Collection #zClass
 be0 batchService Big #zClass
 be0 B #cInfo
 be0 #process
-be0 @TextInP .resExport .resExport #zField
 be0 @TextInP .type .type #zField
 be0 @TextInP .processKind .processKind #zField
 be0 @AnnotationInP-0n ai ai #zField
@@ -21,22 +20,18 @@ be0 @PushWFArc f3 '' #zField
 be0 @AnnotationArc f4 '' #zField
 >Proto be0 be0 batchService #zField
 be0 f0 outLink callLongRunningBatch.ivp #txt
-be0 f0 type com.axonivy.connectivity.rest.BatchServiceData #txt
 be0 f0 inParamDecl '<> param;' #txt
-be0 f0 actionDecl 'com.axonivy.connectivity.rest.BatchServiceData out;
-' #txt
-be0 f0 guid 157B33AB7A4D35AD #txt
 be0 f0 requestEnabled true #txt
 be0 f0 triggerEnabled false #txt
 be0 f0 callSignature callLongRunningBatch() #txt
 be0 f0 persist false #txt
 be0 f0 startName '5. Increase timeout properties for long running requests' #txt
-be0 f0 taskData 'TaskTriggered.ROL=Everybody
+be0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 be0 f0 caseData businessCase.attach=true #txt
 be0 f0 showInStartList 1 #txt
 be0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -51,7 +46,6 @@ be0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 be0 f0 @C|.responsibility Everybody #txt
 be0 f0 113 49 30 30 -71 17 #rect
 be0 f0 @|StartRequestIcon #fIcon
-be0 f1 type com.axonivy.connectivity.rest.BatchServiceData #txt
 be0 f1 369 49 30 30 0 15 #rect
 be0 f1 @|EndIcon #fIcon
 be0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

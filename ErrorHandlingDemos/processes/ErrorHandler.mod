@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Tue Sep 29 15:04:28 CEST 2015]
-150148B81ACE3E1E 3.18 #module
+150148B81ACE3E1E 3.28 #module
 >Proto >Proto Collection #zClass
 Er0 ErrorHandler Big #zClass
 Er0 B #cInfo
 Er0 #process
-Er0 @TextInP .resExport .resExport #zField
 Er0 @TextInP .type .type #zField
 Er0 @TextInP .processKind .processKind #zField
 Er0 @AnnotationInP-0n ai ai #zField
@@ -18,18 +16,14 @@ Er0 @EndTask f1 '' #zField
 Er0 @InfoButton f3 '' #zField
 Er0 @AnnotationArc f4 '' #zField
 Er0 @InfoButton f5 '' #zField
-Er0 @RichDialog f6 '' #zField
+Er0 @UserDialog f6 '' #zField
 Er0 @PushWFArc f7 '' #zField
 Er0 @PushWFArc f2 '' #zField
 >Proto Er0 Er0 ErrorHandler #zField
-Er0 f0 .resExport export #txt
-Er0 f0 actionDecl 'error.handling.demo.ErrorHandler out;
-' #txt
 Er0 f0 actionTable 'out=in;
 out.errorCode=error.getErrorCode();
 out.errorText=error.getErrorMessage();
 ' #txt
-Er0 f0 type error.handling.demo.ErrorHandler #txt
 Er0 f0 errorCode ivy:error #txt
 Er0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -42,7 +36,6 @@ Er0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Er0 f0 65 161 30 30 -24 17 #rect
 Er0 f0 @|ExceptionIcon #fIcon
-Er0 f1 type error.handling.demo.ErrorHandler #txt
 Er0 f1 321 161 30 30 0 15 #rect
 Er0 f1 @|EndIcon #fIcon
 Er0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -76,11 +69,8 @@ Error Start Events in a global error process catch uncaught errors in the whole 
 Er0 f5 64 34 480 60 -233 -26 #rect
 Er0 f5 @|IBIcon #fIcon
 Er0 f5 -1|-1|-65536 #nodeStyle
-Er0 f6 targetWindow NEW:card: #txt
-Er0 f6 targetDisplay TOP #txt
-Er0 f6 richDialogId error.handling.demo.GlobalError #txt
+Er0 f6 dialogId error.handling.demo.GlobalError #txt
 Er0 f6 startMethod start(String,String) #txt
-Er0 f6 type error.handling.demo.ErrorHandler #txt
 Er0 f6 requestActionDecl '<String errorCode, String errorText> param;' #txt
 Er0 f6 requestMappingAction 'param.errorCode=in.errorCode;
 param.errorText=in.errorText;
@@ -89,10 +79,6 @@ Er0 f6 responseActionDecl 'error.handling.demo.ErrorHandler out;
 ' #txt
 Er0 f6 responseMappingAction 'out=in;
 ' #txt
-Er0 f6 windowConfiguration '* ' #txt
-Er0 f6 isAsynch false #txt
-Er0 f6 isInnerRd false #txt
-Er0 f6 userContext '* ' #txt
 Er0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -103,7 +89,7 @@ Er0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Er0 f6 152 154 112 44 -37 -7 #rect
-Er0 f6 @|RichDialogIcon #fIcon
+Er0 f6 @|UserDialogIcon #fIcon
 Er0 f7 expr out #txt
 Er0 f7 95 176 152 176 #arcP
 Er0 f2 expr out #txt

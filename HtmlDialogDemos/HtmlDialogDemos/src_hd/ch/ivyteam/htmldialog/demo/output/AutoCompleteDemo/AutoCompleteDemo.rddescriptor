@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
-    <method>
-        <name>searchUsers</name>
-        <description></description>
-        <inputParameter>
-            <name>searchText</name>
-            <description></description>
-            <parameterType>String</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-        <outputParameter>
-            <name>foundUsers</name>
-            <description></description>
-            <parameterType>List&lt;ch.ivyteam.ivy.security.IUser&gt;</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </outputParameter>
-    </method>
-    <startMethod>
-        <name>start</name>
-        <description>Default dialog start method.</description>
-    </startMethod>
     <property>
         <name>guid</name>
         <value>1468B1441615D842</value>

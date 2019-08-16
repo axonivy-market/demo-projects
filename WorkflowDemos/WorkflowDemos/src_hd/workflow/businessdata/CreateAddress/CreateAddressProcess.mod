@@ -1,13 +1,9 @@
 [Ivy]
-[>Created: Thu Sep 01 15:59:53 CEST 2016]
-156DF88423ED9C68 3.18 #module
+156DF88423ED9C68 3.28 #module
 >Proto >Proto Collection #zClass
 Cs0 CreateAddressProcess Big #zClass
 Cs0 RD #cInfo
 Cs0 #process
-Cs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Cs0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Cs0 @TextInP .resExport .resExport #zField
 Cs0 @TextInP .type .type #zField
 Cs0 @TextInP .processKind .processKind #zField
 Cs0 @AnnotationInP-0n ai ai #zField
@@ -15,10 +11,10 @@ Cs0 @MessageFlowInP-0n messageIn messageIn #zField
 Cs0 @MessageFlowOutP-0n messageOut messageOut #zField
 Cs0 @TextInP .xml .xml #zField
 Cs0 @TextInP .responsibility .responsibility #zField
-Cs0 @RichDialogProcessEnd f1 '' #zField
-Cs0 @RichDialogProcessStart f3 '' #zField
-Cs0 @RichDialogEnd f4 '' #zField
-Cs0 @RichDialogInitStart f6 '' #zField
+Cs0 @UdProcessEnd f1 '' #zField
+Cs0 @UdEvent f3 '' #zField
+Cs0 @UdExitEnd f4 '' #zField
+Cs0 @UdInit f6 '' #zField
 Cs0 @GridStep f0 '' #zField
 Cs0 @PushWFArc f2 '' #zField
 Cs0 @PushWFArc f5 '' #zField
@@ -26,13 +22,9 @@ Cs0 @GridStep f8 '' #zField
 Cs0 @PushWFArc f9 '' #zField
 Cs0 @PushWFArc f7 '' #zField
 >Proto Cs0 Cs0 CreateAddressProcess #zField
-Cs0 f1 type workflow.businessdata.CreateAddress.CreateAddressData #txt
 Cs0 f1 339 51 26 26 0 12 #rect
-Cs0 f1 @|RichDialogProcessEndIcon #fIcon
+Cs0 f1 @|UdProcessEndIcon #fIcon
 Cs0 f3 guid 156DF8842532A875 #txt
-Cs0 f3 type workflow.businessdata.CreateAddress.CreateAddressData #txt
-Cs0 f3 actionDecl 'workflow.businessdata.CreateAddress.CreateAddressData out;
-' #txt
 Cs0 f3 actionTable 'out=in;
 ' #txt
 Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -43,15 +35,11 @@ Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f3 83 147 26 26 -14 12 #rect
-Cs0 f3 @|RichDialogProcessStartIcon #fIcon
-Cs0 f4 type workflow.businessdata.CreateAddress.CreateAddressData #txt
-Cs0 f4 guid 156DF884253F38D6 #txt
+Cs0 f3 @|UdEventIcon #fIcon
 Cs0 f4 339 147 26 26 0 12 #rect
-Cs0 f4 @|RichDialogEndIcon #fIcon
+Cs0 f4 @|UdExitEndIcon #fIcon
 Cs0 f6 guid 156DF890A0821117 #txt
-Cs0 f6 type workflow.businessdata.CreateAddress.CreateAddressData #txt
 Cs0 f6 method start() #txt
-Cs0 f6 disableUIEvents true #txt
 Cs0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -69,13 +57,10 @@ Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f6 83 51 26 26 -17 15 #rect
-Cs0 f6 @|RichDialogInitStartIcon #fIcon
-Cs0 f0 actionDecl 'workflow.businessdata.CreateAddress.CreateAddressData out;
-' #txt
+Cs0 f6 @|UdInitIcon #fIcon
 Cs0 f0 actionTable 'out=in;
 ' #txt
 Cs0 f0 actionCode 'in.id = ivy.repo.save(in.address).getId();' #txt
-Cs0 f0 type workflow.businessdata.CreateAddress.CreateAddressData #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -92,12 +77,9 @@ Cs0 f2 expr out #txt
 Cs0 f2 109 160 160 160 #arcP
 Cs0 f5 expr out #txt
 Cs0 f5 288 160 339 160 #arcP
-Cs0 f8 actionDecl 'workflow.businessdata.CreateAddress.CreateAddressData out;
-' #txt
 Cs0 f8 actionTable 'out=in;
 ' #txt
 Cs0 f8 actionCode in.address; #txt
-Cs0 f8 type workflow.businessdata.CreateAddress.CreateAddressData #txt
 Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,13 +1,9 @@
 [Ivy]
-[>Created: Thu Sep 11 09:56:02 CEST 2014]
-146052EC6B2ADB68 3.17 #module
+146052EC6B2ADB68 3.28 #module
 >Proto >Proto Collection #zClass
 Cs0 ChartDemoProcess Big #zClass
 Cs0 RD #cInfo
 Cs0 #process
-Cs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Cs0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Cs0 @TextInP .resExport .resExport #zField
 Cs0 @TextInP .type .type #zField
 Cs0 @TextInP .processKind .processKind #zField
 Cs0 @AnnotationInP-0n ai ai #zField
@@ -15,24 +11,22 @@ Cs0 @MessageFlowInP-0n messageIn messageIn #zField
 Cs0 @MessageFlowOutP-0n messageOut messageOut #zField
 Cs0 @TextInP .xml .xml #zField
 Cs0 @TextInP .responsibility .responsibility #zField
-Cs0 @RichDialogInitStart f0 '' #zField
-Cs0 @RichDialogProcessEnd f1 '' #zField
+Cs0 @UdInit f0 '' #zField
+Cs0 @UdProcessEnd f1 '' #zField
 Cs0 @GridStep f6 '' #zField
 Cs0 @PushWFArc f7 '' #zField
-Cs0 @RichDialogMethodStart f8 '' #zField
-Cs0 @RichDialogProcessEnd f9 '' #zField
+Cs0 @UdMethod f8 '' #zField
+Cs0 @UdProcessEnd f9 '' #zField
 Cs0 @PushWFArc f10 '' #zField
 Cs0 @GridStep f11 '' #zField
 Cs0 @PushWFArc f12 '' #zField
 Cs0 @PushWFArc f2 '' #zField
-Cs0 @RichDialogMethodStart f13 '' #zField
-Cs0 @RichDialogProcessEnd f14 '' #zField
+Cs0 @UdMethod f13 '' #zField
+Cs0 @UdProcessEnd f14 '' #zField
 Cs0 @PushWFArc f15 '' #zField
 >Proto Cs0 Cs0 ChartDemoProcess #zField
 Cs0 f0 guid 146052EC6FEF2D5C #txt
-Cs0 f0 type ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData #txt
 Cs0 f0 method start() #txt
-Cs0 f0 disableUIEvents true #txt
 Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -46,14 +40,11 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f0 51 51 26 26 -20 15 #rect
-Cs0 f0 @|RichDialogInitStartIcon #fIcon
+Cs0 f0 @|UdInitIcon #fIcon
 Cs0 f0 -1|-1|-9671572 #nodeStyle
-Cs0 f1 type ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData #txt
 Cs0 f1 451 51 26 26 0 12 #rect
-Cs0 f1 @|RichDialogProcessEndIcon #fIcon
+Cs0 f1 @|UdProcessEndIcon #fIcon
 Cs0 f1 -1|-1|-9671572 #nodeStyle
-Cs0 f6 actionDecl 'ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData out;
-' #txt
 Cs0 f6 actionTable 'out=in;
 ' #txt
 Cs0 f6 actionCode 'import org.primefaces.model.chart.LinearAxis;
@@ -114,7 +105,6 @@ chartModel.setDatatipFormat("%2$$s");
 chartModel.setExtender("ext");
 
 out.comboChartModel = chartModel;' #txt
-Cs0 f6 type ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData #txt
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -132,9 +122,7 @@ Cs0 f6 -1|-1|-9671572 #nodeStyle
 Cs0 f7 expr out #txt
 Cs0 f7 77 64 136 64 #arcP
 Cs0 f8 guid 1460568243F99D79 #txt
-Cs0 f8 type ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData #txt
 Cs0 f8 method itemSelected(org.primefaces.event.ItemSelectEvent) #txt
-Cs0 f8 disableUIEvents false #txt
 Cs0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <org.primefaces.event.ItemSelectEvent event> param = methodEvent.getInputArguments();
 ' #txt
@@ -158,16 +146,13 @@ Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f8 51 147 26 26 -52 15 #rect
-Cs0 f8 @|RichDialogMethodStartIcon #fIcon
+Cs0 f8 @|UdMethodIcon #fIcon
 Cs0 f8 -1|-1|-9671572 #nodeStyle
-Cs0 f9 type ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData #txt
 Cs0 f9 179 147 26 26 0 12 #rect
-Cs0 f9 @|RichDialogProcessEndIcon #fIcon
+Cs0 f9 @|UdProcessEndIcon #fIcon
 Cs0 f9 -1|-1|-9671572 #nodeStyle
 Cs0 f10 expr out #txt
 Cs0 f10 77 160 179 160 #arcP
-Cs0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData out;
-' #txt
 Cs0 f11 actionTable 'out=in;
 ' #txt
 Cs0 f11 actionCode 'import org.primefaces.model.chart.PieChartModel;
@@ -192,7 +177,6 @@ model.setExtender("ext");
 out.pieChartModel = model;
 
 ' #txt
-Cs0 f11 type ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData #txt
 Cs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -212,9 +196,7 @@ Cs0 f12 248 64 296 64 #arcP
 Cs0 f2 expr out #txt
 Cs0 f2 408 64 451 64 #arcP
 Cs0 f13 guid 14623C0E2748E74C #txt
-Cs0 f13 type ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData #txt
 Cs0 f13 method sliceSelected(org.primefaces.event.ItemSelectEvent) #txt
-Cs0 f13 disableUIEvents false #txt
 Cs0 f13 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <org.primefaces.event.ItemSelectEvent event> param = methodEvent.getInputArguments();
 ' #txt
@@ -237,11 +219,10 @@ Cs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f13 51 211 26 26 -52 15 #rect
-Cs0 f13 @|RichDialogMethodStartIcon #fIcon
+Cs0 f13 @|UdMethodIcon #fIcon
 Cs0 f13 -1|-1|-9671572 #nodeStyle
-Cs0 f14 type ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData #txt
 Cs0 f14 179 211 26 26 0 12 #rect
-Cs0 f14 @|RichDialogProcessEndIcon #fIcon
+Cs0 f14 @|UdProcessEndIcon #fIcon
 Cs0 f14 -1|-1|-9671572 #nodeStyle
 Cs0 f15 77 224 179 224 #arcP
 >Proto Cs0 .type ch.ivyteam.htmldialog.demo.output.ChartDemo.ChartDemoData #txt

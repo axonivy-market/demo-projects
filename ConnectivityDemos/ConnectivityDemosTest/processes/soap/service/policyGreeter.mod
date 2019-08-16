@@ -1,10 +1,9 @@
 [Ivy]
-162AFFB8ACCCB74C 3.23 #module
+162AFFB8ACCCB74C 3.28 #module
 >Proto >Proto Collection #zClass
 pr0 policyGreeter Big #zClass
 pr0 B #cInfo
 pr0 #process
-pr0 @TextInP .resExport .resExport #zField
 pr0 @TextInP .type .type #zField
 pr0 @TextInP .processKind .processKind #zField
 pr0 @AnnotationInP-0n ai ai #zField
@@ -27,21 +26,17 @@ pr0 @GridStep f11 '' #zField
 pr0 @PushWFArc f1 '' #zField
 >Proto pr0 pr0 policyGreeter #zField
 pr0 f0 outLink greeterPoliciesDisabled.ivp #txt
-pr0 f0 type com.axonivy.connectivity.test.GreeterPolicyData #txt
 pr0 f0 inParamDecl '<> param;' #txt
-pr0 f0 actionDecl 'com.axonivy.connectivity.test.GreeterPolicyData out;
-' #txt
-pr0 f0 guid 162AFFB8AEBE5785 #txt
 pr0 f0 requestEnabled true #txt
 pr0 f0 triggerEnabled false #txt
 pr0 f0 callSignature greeterPoliciesDisabled() #txt
 pr0 f0 persist false #txt
-pr0 f0 taskData 'TaskTriggered.ROL=Everybody
+pr0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 pr0 f0 caseData businessCase.attach=true #txt
 pr0 f0 showInStartList 1 #txt
 pr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -56,12 +51,9 @@ pr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 pr0 f0 @C|.responsibility Everybody #txt
 pr0 f0 81 49 30 30 -75 17 #rect
 pr0 f0 @|StartRequestIcon #fIcon
-pr0 f18 actionDecl 'com.axonivy.connectivity.test.GreeterPolicyData out;
-' #txt
 pr0 f18 actionTable 'out=in;
 ' #txt
 pr0 f18 actionCode ivy.session.setActiveEnvironment("dev-axonivy"); #txt
-pr0 f18 type com.axonivy.connectivity.test.GreeterPolicyData #txt
 pr0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -74,29 +66,23 @@ pr0 f18 166 42 192 44 -75 -16 #rect
 pr0 f18 @|StepIcon #fIcon
 pr0 f3 expr out #txt
 pr0 f3 111 64 166 64 #arcP
-pr0 f2 type com.axonivy.connectivity.test.GreeterPolicyData #txt
-pr0 f2 actionDecl 'com.axonivy.connectivity.test.GreeterPolicyData out;
-' #txt
 pr0 f2 actionTable 'out=in;
 out.greetResponse=wsResponse;
 ' #txt
-pr0 f2 timeout 0 #txt
-pr0 f2 beanConfig "" #txt
 pr0 f2 clientId 162AF1AE2B935160 #txt
 pr0 f2 port SecureGreetPolicyServicePort #txt
 pr0 f2 operation greet #txt
 pr0 f2 inputParams 'parameters.greet="Hello Greeter!";
 ' #txt
+pr0 f2 beanConfig "" #txt
+pr0 f2 timeout 0 #txt
 pr0 f2 424 42 112 44 0 -8 #rect
 pr0 f2 @|WebServiceIcon #fIcon
 pr0 f4 expr out #txt
 pr0 f4 358 64 424 64 #arcP
-pr0 f14 actionDecl 'com.axonivy.connectivity.test.GreeterPolicyData out;
-' #txt
 pr0 f14 actionTable 'out=in;
 ' #txt
 pr0 f14 actionCode ivy.session.setActiveEnvironment(null); #txt
-pr0 f14 type com.axonivy.connectivity.test.GreeterPolicyData #txt
 pr0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -108,32 +94,25 @@ pr0 f14 584 42 112 44 -32 -7 #rect
 pr0 f14 @|StepIcon #fIcon
 pr0 f6 expr out #txt
 pr0 f6 536 64 584 64 #arcP
-pr0 f7 actionDecl 'com.axonivy.connectivity.test.GreeterPolicyData out;
-' #txt
 pr0 f7 actionTable 'out=in;
 out.error=error;
 ' #txt
-pr0 f7 type com.axonivy.connectivity.test.GreeterPolicyData #txt
 pr0 f7 attachedToRef 162AFFB8ACCCB74C-f2 #txt
 pr0 f7 497 81 30 30 0 15 #rect
 pr0 f7 @|ErrorBoundaryEventIcon #fIcon
 pr0 f8 526 92 584 64 #arcP
 pr0 f9 outLink greeterPoliciesNotDisabled.ivp #txt
-pr0 f9 type com.axonivy.connectivity.test.GreeterPolicyData #txt
 pr0 f9 inParamDecl '<> param;' #txt
-pr0 f9 actionDecl 'com.axonivy.connectivity.test.GreeterPolicyData out;
-' #txt
-pr0 f9 guid 162B00948CE16DDA #txt
 pr0 f9 requestEnabled true #txt
 pr0 f9 triggerEnabled false #txt
 pr0 f9 callSignature greeterPoliciesNotDisabled() #txt
 pr0 f9 persist false #txt
-pr0 f9 taskData 'TaskTriggered.ROL=Everybody
+pr0 f9 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 pr0 f9 caseData businessCase.attach=true #txt
 pr0 f9 showInStartList 1 #txt
 pr0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -152,15 +131,12 @@ pr0 f10 expr out #txt
 pr0 f10 111 160 480 86 #arcP
 pr0 f10 1 440 160 #addKink
 pr0 f10 0 0.6278403698772832 0 0 #arcLabel
-pr0 f11 actionDecl 'com.axonivy.connectivity.test.GreeterPolicyData out;
-' #txt
 pr0 f11 actionTable 'out=in;
 ' #txt
 pr0 f11 actionCode 'import ch.ivyteam.ivy.environment.Ivy;
 import com.axonivy.connectivity.soap.WSResponseWriter;
 Throwable cause = in.error.getCause();
 WSResponseWriter.sendAsResponse(cause.getClass().getName() + ": " + cause.getMessage());' #txt
-pr0 f11 type com.axonivy.connectivity.test.GreeterPolicyData #txt
 pr0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

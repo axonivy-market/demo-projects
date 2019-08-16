@@ -1,10 +1,9 @@
 [Ivy]
-167C61A86526BDE9 3.26 #module
+167C61A86526BDE9 3.28 #module
 >Proto >Proto Collection #zClass
 Fe0 Frame Big #zClass
 Fe0 B #cInfo
 Fe0 #process
-Fe0 @TextInP .resExport .resExport #zField
 Fe0 @TextInP .type .type #zField
 Fe0 @TextInP .processKind .processKind #zField
 Fe0 @AnnotationInP-0n ai ai #zField
@@ -17,7 +16,7 @@ Fe0 @EndTask f1 '' #zField
 Fe0 @StartRequest f5 '' #zField
 Fe0 @PushWFArc f2 '' #zField
 Fe0 @PushWFArc f4 '' #zField
-Fe0 @RichDialog f3 '' #zField
+Fe0 @UserDialog f3 '' #zField
 Fe0 @GridStep f8 '' #zField
 Fe0 @PushWFArc f7 '' #zField
 Fe0 @PushWFArc f9 '' #zField
@@ -25,13 +24,9 @@ Fe0 @StartRequest f6 '' #zField
 Fe0 @PushWFArc f10 '' #zField
 >Proto Fe0 Fe0 Frame #zField
 Fe0 f0 outLink FrameWithUrl.ivp #txt
-Fe0 f0 type ch.ivyteam.wf.FrameData #txt
 Fe0 f0 inParamDecl '<java.lang.String url> param;' #txt
 Fe0 f0 inParamTable 'out.url=param.url;
 ' #txt
-Fe0 f0 actionDecl 'ch.ivyteam.wf.FrameData out;
-' #txt
-Fe0 f0 guid 167C61A865880B19 #txt
 Fe0 f0 requestEnabled true #txt
 Fe0 f0 triggerEnabled false #txt
 Fe0 f0 callSignature FrameWithUrl(String) #txt
@@ -54,18 +49,13 @@ Fe0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Fe0 f0 @C|.responsibility Everybody #txt
 Fe0 f0 81 49 30 30 -51 21 #rect
 Fe0 f0 @|StartRequestIcon #fIcon
-Fe0 f1 type ch.ivyteam.wf.FrameData #txt
 Fe0 f1 337 49 30 30 0 15 #rect
 Fe0 f1 @|EndIcon #fIcon
 Fe0 f5 outLink FrameWithTaskId.ivp #txt
-Fe0 f5 type ch.ivyteam.wf.FrameData #txt
 Fe0 f5 inParamDecl '<java.lang.Number detailTaskId> param;' #txt
 Fe0 f5 inParamTable 'out.task=ivy.wf.findTask(param.detailTaskId);
 out.taskId=param.detailTaskId;
 ' #txt
-Fe0 f5 actionDecl 'ch.ivyteam.wf.FrameData out;
-' #txt
-Fe0 f5 guid 167C61CF6C5F07F5 #txt
 Fe0 f5 requestEnabled true #txt
 Fe0 f5 triggerEnabled false #txt
 Fe0 f5 callSignature FrameWithTaskId(Number) #txt
@@ -92,9 +82,8 @@ Fe0 f2 expr out #txt
 Fe0 f2 280 64 337 64 #arcP
 Fe0 f4 expr out #txt
 Fe0 f4 111 64 168 64 #arcP
-Fe0 f3 richDialogId ch.ivyteam.wf.workflow.IFrame #txt
+Fe0 f3 dialogId ch.ivyteam.wf.workflow.IFrame #txt
 Fe0 f3 startMethod start(String) #txt
-Fe0 f3 type ch.ivyteam.wf.FrameData #txt
 Fe0 f3 requestActionDecl '<String url> param;' #txt
 Fe0 f3 requestMappingAction 'param.url=in.url;
 ' #txt
@@ -103,13 +92,10 @@ Fe0 f3 responseActionDecl 'ch.ivyteam.wf.FrameData out;
 Fe0 f3 responseMappingAction 'out=in;
 ' #txt
 Fe0 f3 168 42 112 44 0 -7 #rect
-Fe0 f3 @|RichDialogIcon #fIcon
-Fe0 f8 actionDecl 'ch.ivyteam.wf.FrameData out;
-' #txt
+Fe0 f3 @|UserDialogIcon #fIcon
 Fe0 f8 actionTable 'out=in;
 ' #txt
 Fe0 f8 actionCode 'out.url = ivy.html.taskstartref(in.task);' #txt
-Fe0 f8 type ch.ivyteam.wf.FrameData #txt
 Fe0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -124,13 +110,9 @@ Fe0 f7 111 256 168 256 #arcP
 Fe0 f9 expr out #txt
 Fe0 f9 224 234 224 86 #arcP
 Fe0 f6 outLink OpenTaskUi.ivp #txt
-Fe0 f6 type ch.ivyteam.wf.FrameData #txt
 Fe0 f6 inParamDecl '<java.lang.String taskUiUrl,java.lang.Number runningTaskId> param;' #txt
 Fe0 f6 inParamTable 'out.url=param.taskUiUrl;
 ' #txt
-Fe0 f6 actionDecl 'ch.ivyteam.wf.FrameData out;
-' #txt
-Fe0 f6 guid 16A4F4141BFBA6E9 #txt
 Fe0 f6 requestEnabled true #txt
 Fe0 f6 triggerEnabled false #txt
 Fe0 f6 callSignature OpenTaskUi(String,Number) #txt

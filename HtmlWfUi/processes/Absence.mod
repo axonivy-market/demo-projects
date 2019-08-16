@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Wed Dec 19 15:44:10 CET 2012]
-1367E046117353D3 3.17 #module
+1367E046117353D3 3.28 #module
 >Proto >Proto Collection #zClass
 Ae0 Absence Big #zClass
 Ae0 B #cInfo
 Ae0 #process
-Ae0 @TextInP .resExport .resExport #zField
 Ae0 @TextInP .type .type #zField
 Ae0 @TextInP .processKind .processKind #zField
 Ae0 @AnnotationInP-0n ai ai #zField
@@ -31,62 +29,18 @@ Ae0 @PushWFArc f16 '' #zField
 Ae0 @PushWFArc f12 '' #zField
 >Proto Ae0 Ae0 Absence #zField
 Ae0 f0 outLink start.ivp #txt
-Ae0 f0 type htmlwfui.Data #txt
 Ae0 f0 inParamDecl '<> param;' #txt
-Ae0 f0 actionDecl 'htmlwfui.Data out;
-' #txt
-Ae0 f0 guid 1367E04CFA6ECF77 #txt
 Ae0 f0 requestEnabled true #txt
 Ae0 f0 triggerEnabled false #txt
 Ae0 f0 callSignature start() #txt
 Ae0 f0 persist false #txt
-Ae0 f0 taskData '#
-#Fri Apr 27 14:44:09 CEST 2012
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Ae0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Ae0 f0 caseData '#
-#Fri Apr 27 14:44:09 CEST 2012
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ae0 f0 showInStartList 0 #txt
-Ae0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ae0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -99,9 +53,7 @@ Ae0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ae0 f0 @C|.responsibility Everybody #txt
 Ae0 f0 147 51 26 26 14 0 #rect
 Ae0 f0 @|StartRequestIcon #fIcon
-Ae0 f8 type htmlwfui.Data #txt
 Ae0 f8 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Ae0 f8 doCall true #txt
 Ae0 f8 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Ae0 f8 requestMappingAction 'param.in=in;
@@ -121,16 +73,12 @@ Ae0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ae0 f8 142 108 36 24 20 -2 #rect
 Ae0 f8 @|CallSubIcon #fIcon
-Ae0 f5 type htmlwfui.Data #txt
 Ae0 f5 51 243 26 26 14 0 #rect
 Ae0 f5 @|EndIcon #fIcon
-Ae0 f20 actionDecl 'htmlwfui.Data out;
-' #txt
 Ae0 f20 actionTable 'out=in;
 out.absence.absences=ivy.session.getSessionUser().getAbsences();
 out.temp.msg=ivy.session.getSessionUser().isAbsent() ? ivy.cms.co("/labels/currentlyAbsent") : "";
 ' #txt
-Ae0 f20 type htmlwfui.Data #txt
 Ae0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -195,8 +143,6 @@ Ae0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ae0 f11 @C|.responsibility Everybody #txt
 Ae0 f11 238 324 36 24 21 1 #rect
 Ae0 f11 @|PageIcon #fIcon
-Ae0 f4 actionDecl 'htmlwfui.Data out;
-' #txt
 Ae0 f4 actionTable 'out=in;
 ' #txt
 Ae0 f4 actionCode 'import ch.ivyteam.ivy.security.IUser;
@@ -223,7 +169,6 @@ if(in.absence.start is initialized)
 			in.absence.descr.trim().length() > 0 ? (new Date()).format("short") +" "+in.absence.descr : "");
 	}
 }' #txt
-Ae0 f4 type htmlwfui.Data #txt
 Ae0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -248,8 +193,6 @@ Ae0 f9 274 336 178 256 #arcP
 Ae0 f9 1 384 336 #addKink
 Ae0 f9 2 384 256 #addKink
 Ae0 f9 2 0.1202617719219589 0 0 #arcLabel
-Ae0 f13 actionDecl 'htmlwfui.Data out;
-' #txt
 Ae0 f13 actionTable 'out=in;
 ' #txt
 Ae0 f13 actionCode 'import ch.ivyteam.ivy.security.IUserAbsence;
@@ -264,7 +207,6 @@ for(IUserAbsence absence:absences)
 }
 
 ' #txt
-Ae0 f13 type htmlwfui.Data #txt
 Ae0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

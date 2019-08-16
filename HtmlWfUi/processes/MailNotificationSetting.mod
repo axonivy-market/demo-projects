@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Thu May 03 10:27:49 CEST 2012]
-136F4341B49EA302 3.17 #module
+136F4341B49EA302 3.28 #module
 >Proto >Proto Collection #zClass
 Mg0 MailNotificationSetting Big #zClass
 Mg0 B #cInfo
 Mg0 #process
-Mg0 @TextInP .resExport .resExport #zField
 Mg0 @TextInP .type .type #zField
 Mg0 @TextInP .processKind .processKind #zField
 Mg0 @AnnotationInP-0n ai ai #zField
@@ -25,62 +23,18 @@ Mg0 @PushWFArc f10 '' #zField
 Mg0 @PushWFArc f11 '' #zField
 >Proto Mg0 Mg0 MailNotificationSetting #zField
 Mg0 f0 outLink start.ivp #txt
-Mg0 f0 type htmlwfui.Data #txt
 Mg0 f0 inParamDecl '<> param;' #txt
-Mg0 f0 actionDecl 'htmlwfui.Data out;
-' #txt
-Mg0 f0 guid 136F4343BDF2121D #txt
 Mg0 f0 requestEnabled true #txt
 Mg0 f0 triggerEnabled false #txt
 Mg0 f0 callSignature start() #txt
 Mg0 f0 persist false #txt
-Mg0 f0 taskData '#
-#Wed May 02 17:11:02 CEST 2012
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Mg0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Mg0 f0 caseData '#
-#Wed May 02 17:11:02 CEST 2012
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Mg0 f0 showInStartList 0 #txt
-Mg0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Mg0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -93,8 +47,6 @@ Mg0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Mg0 f0 @C|.responsibility Everybody #txt
 Mg0 f0 195 51 26 26 14 0 #rect
 Mg0 f0 @|StartRequestIcon #fIcon
-Mg0 f3 actionDecl 'htmlwfui.Data out;
-' #txt
 Mg0 f3 actionTable 'out=in;
 ' #txt
 Mg0 f3 actionCode 'import java.util.Locale;
@@ -128,7 +80,6 @@ else
 		}
 	}
 }	' #txt
-Mg0 f3 type htmlwfui.Data #txt
 Mg0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -140,9 +91,7 @@ Mg0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Mg0 f3 190 316 36 24 8 16 #rect
 Mg0 f3 @|StepIcon #fIcon
-Mg0 f8 type htmlwfui.Data #txt
 Mg0 f8 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Mg0 f8 doCall true #txt
 Mg0 f8 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Mg0 f8 requestMappingAction 'param.in=in;
@@ -184,8 +133,6 @@ Mg0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Mg0 f1 @C|.responsibility Everybody #txt
 Mg0 f1 190 244 36 24 24 -9 #rect
 Mg0 f1 @|PageIcon #fIcon
-Mg0 f16 actionDecl 'htmlwfui.Data out;
-' #txt
 Mg0 f16 actionTable 'out=in;
 out.temp.url=ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp");
 ' #txt
@@ -264,7 +211,6 @@ if(defaultSettings.isSendDailyTaskSummaryOnDay(ch.ivyteam.util.date.Weekday.SUND
 }
 sb.append(")");
 out.settings.defaultData = sb.toString();' #txt
-Mg0 f16 type htmlwfui.Data #txt
 Mg0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -285,7 +231,6 @@ Mg0 f4 outCond ivp=="LinkA.ivp" #txt
 Mg0 f4 208 268 208 316 #arcP
 Mg0 f2 expr out #txt
 Mg0 f2 208 188 208 244 #arcP
-Mg0 f6 type htmlwfui.Data #txt
 Mg0 f6 template "redirect.jsp" #txt
 Mg0 f6 99 243 26 26 14 0 #rect
 Mg0 f6 @|EndRequestIcon #fIcon

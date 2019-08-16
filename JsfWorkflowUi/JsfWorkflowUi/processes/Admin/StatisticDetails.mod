@@ -1,10 +1,9 @@
 [Ivy]
-144697C904B165C8 3.26 #module
+144697C904B165C8 3.28 #module
 >Proto >Proto Collection #zClass
 Ss0 StatisticDetails Big #zClass
 Ss0 B #cInfo
 Ss0 #process
-Ss0 @TextInP .resExport .resExport #zField
 Ss0 @TextInP .type .type #zField
 Ss0 @TextInP .processKind .processKind #zField
 Ss0 @AnnotationInP-0n ai ai #zField
@@ -13,7 +12,7 @@ Ss0 @MessageFlowOutP-0n messageOut messageOut #zField
 Ss0 @TextInP .xml .xml #zField
 Ss0 @TextInP .responsibility .responsibility #zField
 Ss0 @StartRequest f0 '' #zField
-Ss0 @RichDialog f1 '' #zField
+Ss0 @UserDialog f1 '' #zField
 Ss0 @PushWFArc f2 '' #zField
 Ss0 @StartRequest f3 '' #zField
 Ss0 @PushWFArc f4 '' #zField
@@ -21,14 +20,10 @@ Ss0 @StartRequest f5 '' #zField
 Ss0 @PushWFArc f6 '' #zField
 >Proto Ss0 Ss0 StatisticDetails #zField
 Ss0 f0 outLink StatisticDetailsMin.ivp #txt
-Ss0 f0 type ch.ivyteam.wf.Data #txt
 Ss0 f0 inParamDecl '<java.lang.String category> param;' #txt
 Ss0 f0 inParamTable 'out.category=param.category;
 out.mode="min";
 ' #txt
-Ss0 f0 actionDecl 'ch.ivyteam.wf.Data out;
-' #txt
-Ss0 f0 guid 144697CA254E5FF7 #txt
 Ss0 f0 requestEnabled true #txt
 Ss0 f0 triggerEnabled false #txt
 Ss0 f0 callSignature StatisticDetailsMin(String) #txt
@@ -52,11 +47,8 @@ Ss0 f0 @C|.responsibility Everybody #txt
 Ss0 f0 81 177 30 30 -59 15 #rect
 Ss0 f0 @|StartRequestIcon #fIcon
 Ss0 f0 -1|-1|-9671572 #nodeStyle
-Ss0 f1 targetWindow NEW:card: #txt
-Ss0 f1 targetDisplay TOP #txt
-Ss0 f1 richDialogId ch.ivyteam.wf.admin.StatisticDetails #txt
+Ss0 f1 dialogId ch.ivyteam.wf.admin.StatisticDetails #txt
 Ss0 f1 startMethod start(String,String,Number) #txt
-Ss0 f1 type ch.ivyteam.wf.Data #txt
 Ss0 f1 requestActionDecl '<String category,String mode,Number caseId> param;' #txt
 Ss0 f1 requestMappingAction 'param.category=in.category;
 param.mode=in.mode;
@@ -66,10 +58,6 @@ Ss0 f1 responseActionDecl 'ch.ivyteam.wf.Data out;
 ' #txt
 Ss0 f1 responseMappingAction 'out=in;
 ' #txt
-Ss0 f1 windowConfiguration '* ' #txt
-Ss0 f1 isAsynch false #txt
-Ss0 f1 isInnerRd false #txt
-Ss0 f1 userContext '* ' #txt
 Ss0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -80,21 +68,17 @@ Ss0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f1 168 106 112 44 -41 -8 #rect
-Ss0 f1 @|RichDialogIcon #fIcon
+Ss0 f1 @|UserDialogIcon #fIcon
 Ss0 f1 -1|-1|-9671572 #nodeStyle
 Ss0 f2 expr out #txt
 Ss0 f2 111 192 224 150 #arcP
 Ss0 f2 1 224 192 #addKink
 Ss0 f2 0 0.7017184678752515 0 0 #arcLabel
 Ss0 f3 outLink StatisticDetailsMax.ivp #txt
-Ss0 f3 type ch.ivyteam.wf.Data #txt
 Ss0 f3 inParamDecl '<java.lang.String category> param;' #txt
 Ss0 f3 inParamTable 'out.category=param.category;
 out.mode="max";
 ' #txt
-Ss0 f3 actionDecl 'ch.ivyteam.wf.Data out;
-' #txt
-Ss0 f3 guid 144732C025B674FA #txt
 Ss0 f3 requestEnabled true #txt
 Ss0 f3 triggerEnabled false #txt
 Ss0 f3 callSignature StatisticDetailsMax(String) #txt
@@ -121,14 +105,10 @@ Ss0 f3 -1|-1|-9671572 #nodeStyle
 Ss0 f4 expr out #txt
 Ss0 f4 111 128 168 128 #arcP
 Ss0 f5 outLink StatisticDetailsAvg.ivp #txt
-Ss0 f5 type ch.ivyteam.wf.Data #txt
 Ss0 f5 inParamDecl '<java.lang.String caseId> param;' #txt
 Ss0 f5 inParamTable 'out.caseId=param.caseId.toNumber();
 out.mode="avg";
 ' #txt
-Ss0 f5 actionDecl 'ch.ivyteam.wf.Data out;
-' #txt
-Ss0 f5 guid 14619A451C316BC1 #txt
 Ss0 f5 requestEnabled true #txt
 Ss0 f5 triggerEnabled false #txt
 Ss0 f5 callSignature StatisticDetailsAvg(String) #txt

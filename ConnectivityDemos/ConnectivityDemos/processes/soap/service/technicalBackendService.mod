@@ -1,5 +1,5 @@
 [Ivy]
-162B95BB70C3178E 3.23 #module
+162B95BB70C3178E 3.28 #module
 >Proto >Proto Collection #zClass
 te0 technicalBackendService Big #zClass
 te0 WS #cInfo
@@ -7,7 +7,6 @@ te0 #process
 te0 @TextInP .webServiceName .webServiceName #zField
 te0 @TextInP .implementationClassName .implementationClassName #zField
 te0 @TextInP .authenticationType .authenticationType #zField
-te0 @TextInP .resExport .resExport #zField
 te0 @TextInP .type .type #zField
 te0 @TextInP .processKind .processKind #zField
 te0 @AnnotationInP-0n ai ai #zField
@@ -23,8 +22,6 @@ te0 @PushWFArc f18 '' #zField
 te0 @InfoButton f0 '' #zField
 te0 @AnnotationArc f1 '' #zField
 >Proto te0 te0 technicalBackendService #zField
-te0 f15 actionDecl 'com.axonivy.connectivity.soap.service.TechnicalBackendServiceData out;
-' #txt
 te0 f15 actionTable 'out=in;
 ' #txt
 te0 f15 actionCode 'try {
@@ -33,7 +30,6 @@ te0 f15 actionCode 'try {
 } catch (Exception ex) {
 	ex.printStackTrace();
 }' #txt
-te0 f15 type com.axonivy.connectivity.soap.service.TechnicalBackendServiceData #txt
 te0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -67,7 +63,6 @@ te0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 te0 f14 @C|.responsibility Everybody #txt
 te0 f14 116 83 30 30 -80 -40 #rect
 te0 f14 @|StartWSIcon #fIcon
-te0 f17 type com.axonivy.connectivity.soap.service.TechnicalBackendServiceData #txt
 te0 f17 492 83 30 30 0 15 #rect
 te0 f17 @|EndWSIcon #fIcon
 te0 f16 expr out #txt

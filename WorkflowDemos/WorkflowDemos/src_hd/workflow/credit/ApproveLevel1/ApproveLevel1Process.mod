@@ -1,13 +1,9 @@
 [Ivy]
-[>Created: Wed May 03 09:07:06 CEST 2017]
-15B3845CC368FEC8 3.20 #module
+15B3845CC368FEC8 3.28 #module
 >Proto >Proto Collection #zClass
 As0 ApproveLevel1Process Big #zClass
 As0 RD #cInfo
 As0 #process
-As0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-As0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-As0 @TextInP .resExport .resExport #zField
 As0 @TextInP .type .type #zField
 As0 @TextInP .processKind .processKind #zField
 As0 @AnnotationInP-0n ai ai #zField
@@ -15,23 +11,21 @@ As0 @MessageFlowInP-0n messageIn messageIn #zField
 As0 @MessageFlowOutP-0n messageOut messageOut #zField
 As0 @TextInP .xml .xml #zField
 As0 @TextInP .responsibility .responsibility #zField
-As0 @RichDialogInitStart f0 '' #zField
-As0 @RichDialogProcessEnd f1 '' #zField
-As0 @RichDialogProcessStart f3 '' #zField
-As0 @RichDialogEnd f4 '' #zField
+As0 @UdInit f0 '' #zField
+As0 @UdProcessEnd f1 '' #zField
+As0 @UdEvent f3 '' #zField
+As0 @UdExitEnd f4 '' #zField
 As0 @GridStep f6 '' #zField
 As0 @PushWFArc f7 '' #zField
 As0 @PushWFArc f2 '' #zField
 As0 @GridStep f8 '' #zField
 As0 @PushWFArc f9 '' #zField
 As0 @PushWFArc f5 '' #zField
-As0 @RichDialogProcessStart f10 '' #zField
+As0 @UdEvent f10 '' #zField
 As0 @PushWFArc f11 '' #zField
 >Proto As0 As0 ApproveLevel1Process #zField
 As0 f0 guid 15B3845CC516F9AE #txt
-As0 f0 type workflow.credit.ApproveLevel1.ApproveLevel1Data #txt
 As0 f0 method start() #txt
-As0 f0 disableUIEvents true #txt
 As0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -45,14 +39,10 @@ As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f0 83 51 26 26 -16 15 #rect
-As0 f0 @|RichDialogInitStartIcon #fIcon
-As0 f1 type workflow.credit.ApproveLevel1.ApproveLevel1Data #txt
+As0 f0 @|UdInitIcon #fIcon
 As0 f1 339 51 26 26 0 12 #rect
-As0 f1 @|RichDialogProcessEndIcon #fIcon
+As0 f1 @|UdProcessEndIcon #fIcon
 As0 f3 guid 15B3845CC6181BED #txt
-As0 f3 type workflow.credit.ApproveLevel1.ApproveLevel1Data #txt
-As0 f3 actionDecl 'workflow.credit.ApproveLevel1.ApproveLevel1Data out;
-' #txt
 As0 f3 actionTable 'out=in;
 out.dossier.decision.level1Approved=true;
 ' #txt
@@ -66,17 +56,12 @@ As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f3 83 147 26 26 -25 15 #rect
-As0 f3 @|RichDialogProcessStartIcon #fIcon
-As0 f4 type workflow.credit.ApproveLevel1.ApproveLevel1Data #txt
-As0 f4 guid 15B3845CC619C48B #txt
+As0 f3 @|UdEventIcon #fIcon
 As0 f4 339 147 26 26 0 12 #rect
-As0 f4 @|RichDialogEndIcon #fIcon
-As0 f6 actionDecl 'workflow.credit.ApproveLevel1.ApproveLevel1Data out;
-' #txt
+As0 f4 @|UdExitEndIcon #fIcon
 As0 f6 actionTable 'out=in;
 out.dossier=ivy.repo.get(workflow.credit.CreditDossier.class) as workflow.credit.CreditDossier;
 ' #txt
-As0 f6 type workflow.credit.ApproveLevel1.ApproveLevel1Data #txt
 As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -92,12 +77,9 @@ As0 f7 expr out #txt
 As0 f7 109 64 168 64 #arcP
 As0 f2 expr out #txt
 As0 f2 280 64 339 64 #arcP
-As0 f8 actionDecl 'workflow.credit.ApproveLevel1.ApproveLevel1Data out;
-' #txt
 As0 f8 actionTable 'out=in;
 ' #txt
 As0 f8 actionCode ivy.repo.save(in.dossier); #txt
-As0 f8 type workflow.credit.ApproveLevel1.ApproveLevel1Data #txt
 As0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -114,9 +96,6 @@ As0 f9 109 160 168 160 #arcP
 As0 f5 expr out #txt
 As0 f5 280 160 339 160 #arcP
 As0 f10 guid 15B3852F3A0CCC17 #txt
-As0 f10 type workflow.credit.ApproveLevel1.ApproveLevel1Data #txt
-As0 f10 actionDecl 'workflow.credit.ApproveLevel1.ApproveLevel1Data out;
-' #txt
 As0 f10 actionTable 'out=in;
 out.dossier.decision.level1Approved=false;
 out.dossier.decision.needsLevel2Approval=false;
@@ -131,7 +110,7 @@ As0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f10 81 224 26 26 -22 15 #rect
-As0 f10 @|RichDialogProcessStartIcon #fIcon
+As0 f10 @|UdEventIcon #fIcon
 As0 f11 expr out #txt
 As0 f11 107 237 224 182 #arcP
 As0 f11 1 224 237 #addKink

@@ -1,10 +1,9 @@
 [Ivy]
-151CA0D8CBDD2DEC 3.25 #module
+151CA0D8CBDD2DEC 3.28 #module
 >Proto >Proto Collection #zClass
 cr0 NewEmployee Big #zClass
 cr0 B #cInfo
 cr0 #process
-cr0 @TextInP .resExport .resExport #zField
 cr0 @TextInP .type .type #zField
 cr0 @TextInP .processKind .processKind #zField
 cr0 @AnnotationInP-0n ai ai #zField
@@ -34,7 +33,7 @@ cr0 @PushWFArc f24 '' #zField
 cr0 @TkArc f29 '' #zField
 cr0 @SignalBoundaryEvent St0 SignalBoundaryEvent #zField
 cr0 @EndTask f34 '' #zField
-cr0 @RichDialog f3 '' #zField
+cr0 @UserDialog f3 '' #zField
 cr0 @GridStep f30 '' #zField
 cr0 @StartRequest f0 '' #zField
 cr0 @PushWFArc f4 '' #zField
@@ -74,7 +73,7 @@ and not completed User Task is destroyed. </name>
 ' #txt
 cr0 f27 536 66 528 300 -260 -144 #rect
 cr0 f27 @|IBIcon #fIcon
-cr0 f11 richDialogId workflow.signal.TaskForm #txt
+cr0 f11 dialogId workflow.signal.TaskForm #txt
 cr0 f11 startMethod start(workflow.signal.User) #txt
 cr0 f11 requestActionDecl '<workflow.signal.User user> param;' #txt
 cr0 f11 requestMappingAction 'param.user=in.user;
@@ -83,7 +82,6 @@ cr0 f11 responseActionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
 cr0 f11 responseMappingAction 'out=in;
 ' #txt
-cr0 f11 outLinks "TaskA.ivp" #txt
 cr0 f11 caseData case.category=Office/Key/Assignment #txt
 cr0 f11 taskData 'TaskA.CATEGORY=Assign/OfficeKey
 TaskA.DESC=<%\=ivy.cms.co("/TaskDescriptions/prepareOfficeKeyDesc")%> <%\=in.user.name%> [<%\=in.user.userKey%>]
@@ -95,7 +93,6 @@ TaskA.PRI=2
 TaskA.ROL=Office Manager
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
-cr0 f11 type workflow.signal.CreateUserProcess #txt
 cr0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -107,15 +104,11 @@ cr0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cr0 f11 168 458 112 44 -44 -8 #rect
 cr0 f11 @|UserTaskIcon #fIcon
-cr0 f10 type workflow.signal.CreateUserProcess #txt
 cr0 f10 345 465 30 30 0 15 #rect
 cr0 f10 @|EndIcon #fIcon
-cr0 f21 actionDecl 'workflow.signal.CreateUserProcess out;
-' #txt
 cr0 f21 actionTable 'out=in;
 ' #txt
 cr0 f21 actionCode 'ivy.log.debug("setup of office key prepration cancelled for user " + in.user.toString() + ", reason: " + in.quitUserEvent.toString());' #txt
-cr0 f21 type workflow.signal.CreateUserProcess #txt
 cr0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -127,8 +120,6 @@ cr0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cr0 f21 304 554 112 44 -38 -8 #rect
 cr0 f21 @|StepIcon #fIcon
-cr0 f32 actionDecl 'workflow.signal.CreateUserProcess out;
-' #txt
 cr0 f32 actionCode 'import workflow.signal.User;
 import com.google.gson.Gson;
 
@@ -136,7 +127,6 @@ out.user = new Gson().fromJson(signal.getSignalData() as String, User.class) as 
 
 ivy.case.setBusinessObjectCode(out.user.userKey);
 ivy.case.setBusinessObjectName(out.user.name);' #txt
-cr0 f32 type workflow.signal.CreateUserProcess #txt
 cr0 f32 signalCode user:created #txt
 cr0 f32 attachToBusinessCase true #txt
 cr0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -150,7 +140,6 @@ cr0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cr0 f32 81 465 30 30 -34 17 #rect
 cr0 f32 @|SignalStartEventIcon #fIcon
-cr0 f25 type workflow.signal.CreateUserProcess #txt
 cr0 f25 457 561 30 30 0 15 #rect
 cr0 f25 @|EndIcon #fIcon
 cr0 f14 expr data #txt
@@ -166,8 +155,6 @@ cr0 f33 expr out #txt
 cr0 f33 type workflow.signal.CreateUserProcess #txt
 cr0 f33 var in2 #txt
 cr0 f33 111 480 168 480 #arcP
-cr0 St1 actionDecl 'workflow.signal.CreateUserProcess out;
-' #txt
 cr0 St1 actionTable 'out=in;
 ' #txt
 cr0 St1 actionCode 'import workflow.signal.QuitUserEvent;
@@ -176,7 +163,6 @@ import com.google.gson.Gson;
 out.quitUserEvent = new Gson().fromJson(signal.getSignalData() as String, QuitUserEvent.class) as QuitUserEvent;
 
 ivy.task.setName("CANCEL TASK: " + ivy.task.getName());' #txt
-cr0 St1 type workflow.signal.CreateUserProcess #txt
 cr0 St1 signalCode admin:quit:<%=in.user.userKey%> #txt
 cr0 St1 attachedToRef 151CA0D8CBDD2DEC-f11 #txt
 cr0 St1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -190,7 +176,7 @@ cr0 St1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cr0 St1 241 497 30 30 11 9 #rect
 cr0 St1 @|SignalBoundaryEventIcon #fIcon
-cr0 f8 richDialogId workflow.signal.TaskForm #txt
+cr0 f8 dialogId workflow.signal.TaskForm #txt
 cr0 f8 startMethod start(workflow.signal.User) #txt
 cr0 f8 requestActionDecl '<workflow.signal.User user> param;' #txt
 cr0 f8 requestMappingAction 'param.user=in.user;
@@ -199,7 +185,6 @@ cr0 f8 responseActionDecl 'workflow.signal.CreateUserProcess out;
 ' #txt
 cr0 f8 responseMappingAction 'out.user=result.user;
 ' #txt
-cr0 f8 outLinks "TaskA.ivp" #txt
 cr0 f8 caseData case.category=IT/Workstation/Setup #txt
 cr0 f8 taskData 'TaskA.CATEGORY=Setup/Workstation
 TaskA.DESC=<%\=ivy.cms.co("/TaskDescriptions/setupWorkstationDesc")%> <%\=in.user.name%> [<%\=in.user.userKey%>]
@@ -211,7 +196,6 @@ TaskA.PRI=2
 TaskA.ROL=IT Manager
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
-cr0 f8 type workflow.signal.CreateUserProcess #txt
 cr0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -223,12 +207,9 @@ cr0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cr0 f8 168 266 112 44 -50 -8 #rect
 cr0 f8 @|UserTaskIcon #fIcon
-cr0 f19 actionDecl 'workflow.signal.CreateUserProcess out;
-' #txt
 cr0 f19 actionTable 'out=in;
 ' #txt
 cr0 f19 actionCode 'ivy.log.debug("setup of workstation cancelled for user " + in.user.toString() + ", reason: " + in.quitUserEvent.toString());' #txt
-cr0 f19 type workflow.signal.CreateUserProcess #txt
 cr0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -240,8 +221,6 @@ cr0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cr0 f19 304 362 112 44 -38 -8 #rect
 cr0 f19 @|StepIcon #fIcon
-cr0 f28 actionDecl 'workflow.signal.CreateUserProcess out;
-' #txt
 cr0 f28 actionCode 'import workflow.signal.User;
 import com.google.gson.Gson;
 
@@ -249,7 +228,6 @@ out.user = new Gson().fromJson(signal.getSignalData() as String, User.class) as 
 
 ivy.case.setBusinessObjectCode(out.user.userKey);
 ivy.case.setBusinessObjectName(out.user.name);' #txt
-cr0 f28 type workflow.signal.CreateUserProcess #txt
 cr0 f28 signalCode user:created #txt
 cr0 f28 attachToBusinessCase true #txt
 cr0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -263,10 +241,8 @@ cr0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cr0 f28 81 273 30 30 -34 17 #rect
 cr0 f28 @|SignalStartEventIcon #fIcon
-cr0 f23 type workflow.signal.CreateUserProcess #txt
 cr0 f23 457 369 30 30 0 15 #rect
 cr0 f23 @|EndIcon #fIcon
-cr0 f6 type workflow.signal.CreateUserProcess #txt
 cr0 f6 337 273 30 30 0 15 #rect
 cr0 f6 @|EndIcon #fIcon
 cr0 f7 expr data #txt
@@ -282,8 +258,6 @@ cr0 f29 expr out #txt
 cr0 f29 type workflow.signal.CreateUserProcess #txt
 cr0 f29 var in2 #txt
 cr0 f29 111 288 168 288 #arcP
-cr0 St0 actionDecl 'workflow.signal.CreateUserProcess out;
-' #txt
 cr0 St0 actionTable 'out=in;
 ' #txt
 cr0 St0 actionCode 'import workflow.signal.QuitUserEvent;
@@ -292,7 +266,6 @@ import com.google.gson.Gson;
 out.quitUserEvent = new Gson().fromJson(signal.getSignalData() as String, QuitUserEvent.class) as QuitUserEvent;
 
 ivy.task.setName("CANCEL TASK: " + ivy.task.getName());' #txt
-cr0 St0 type workflow.signal.CreateUserProcess #txt
 cr0 St0 signalCode admin:quit:<%=in.user.userKey%> #txt
 cr0 St0 attachedToRef 151CA0D8CBDD2DEC-f8 #txt
 cr0 St0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -306,14 +279,10 @@ cr0 St0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cr0 St0 241 305 30 30 11 7 #rect
 cr0 St0 @|SignalBoundaryEventIcon #fIcon
-cr0 f34 type workflow.signal.CreateUserProcess #txt
 cr0 f34 457 81 30 30 0 15 #rect
 cr0 f34 @|EndIcon #fIcon
-cr0 f3 targetWindow NEW:card: #txt
-cr0 f3 targetDisplay TOP #txt
-cr0 f3 richDialogId workflow.signal.CreateUser #txt
+cr0 f3 dialogId workflow.signal.CreateUser #txt
 cr0 f3 startMethod start(workflow.signal.User) #txt
-cr0 f3 type workflow.signal.CreateUserProcess #txt
 cr0 f3 requestActionDecl '<workflow.signal.User user> param;' #txt
 cr0 f3 requestMappingAction 'param.user=in.user;
 ' #txt
@@ -322,10 +291,6 @@ cr0 f3 responseActionDecl 'workflow.signal.CreateUserProcess out;
 cr0 f3 responseMappingAction 'out=in;
 out.user=result.user;
 ' #txt
-cr0 f3 windowConfiguration '* ' #txt
-cr0 f3 isAsynch false #txt
-cr0 f3 isInnerRd false #txt
-cr0 f3 userContext '* ' #txt
 cr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -336,9 +301,7 @@ cr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 cr0 f3 168 74 112 44 -38 -8 #rect
-cr0 f3 @|RichDialogIcon #fIcon
-cr0 f30 actionDecl 'workflow.signal.CreateUserProcess out;
-' #txt
+cr0 f3 @|UserDialogIcon #fIcon
 cr0 f30 actionTable 'out=in;
 ' #txt
 cr0 f30 actionCode 'import com.google.gson.Gson;
@@ -352,7 +315,6 @@ ivy.wf.signals().send(new SignalCode("user:created"), jsonSerializedPayload);
 
 // send signal with data class payload (only applicable within same project or dependent projects)
 ivy.wf.signals().send(new SignalCode("user:createdV2"), in.user);' #txt
-cr0 f30 type workflow.signal.CreateUserProcess #txt
 cr0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -366,13 +328,9 @@ cr0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 cr0 f30 304 74 128 44 -41 -15 #rect
 cr0 f30 @|StepIcon #fIcon
 cr0 f0 outLink addUser.ivp #txt
-cr0 f0 type workflow.signal.CreateUserProcess #txt
 cr0 f0 inParamDecl '<> param;' #txt
 cr0 f0 inParamTable 'out.user.userKey=(new DateTime()).getMinutes().toString() + (new DateTime()).getSeconds().toString();
 ' #txt
-cr0 f0 actionDecl 'workflow.signal.CreateUserProcess out;
-' #txt
-cr0 f0 guid 152EE99E0CCCC847 #txt
 cr0 f0 requestEnabled true #txt
 cr0 f0 triggerEnabled false #txt
 cr0 f0 callSignature addUser() #txt

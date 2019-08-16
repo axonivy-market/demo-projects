@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Mon Dec 06 10:54:48 CET 2010]
-12CBB189CAE5A324 3.14 #module
+12CBB189CAE5A324 3.28 #module
 >Proto >Proto Collection #zClass
 Dk0 DelegateTask Big #zClass
 Dk0 B #cInfo
 Dk0 #process
-Dk0 @TextInP .resExport .resExport #zField
 Dk0 @TextInP .type .type #zField
 Dk0 @TextInP .processKind .processKind #zField
 Dk0 @AnnotationInP-0n ai ai #zField
@@ -29,10 +27,7 @@ Dk0 f0 outParamDecl '<htmlwfui.Data out> result;
 ' #txt
 Dk0 f0 outParamTable 'result.out=in;
 ' #txt
-Dk0 f0 actionDecl 'htmlwfui.Data out;
-' #txt
 Dk0 f0 callSignature call(htmlwfui.Data) #txt
-Dk0 f0 type htmlwfui.Data #txt
 Dk0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -44,15 +39,13 @@ Dk0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Dk0 f0 99 35 26 26 14 0 #rect
 Dk0 f0 @|StartSubIcon #fIcon
-Dk0 f1 type htmlwfui.Data #txt
 Dk0 f1 99 291 26 26 14 0 #rect
 Dk0 f1 @|EndSubIcon #fIcon
-Dk0 f18 type htmlwfui.Data #txt
 Dk0 f18 98 226 28 28 14 0 #rect
 Dk0 f18 @|AlternativeIcon #fIcon
 Dk0 f4 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 Dk0 f4 outLinks "LinkA.ivp","LinkB.ivp" #txt
-Dk0 f4 template "taskDelegate.ivd" #txt
+Dk0 f4 template "/ProcessPages/DelegateTask/taskDelegate.ivc" #txt
 Dk0 f4 type htmlwfui.Data #txt
 Dk0 f4 skipLink skip.ivp #txt
 Dk0 f4 sortLink sort.ivp #txt
@@ -73,8 +66,6 @@ setzen</name>
 Dk0 f4 @C|.responsibility Everybody #txt
 Dk0 f4 94 100 36 24 18 19 #rect
 Dk0 f4 @|PageIcon #fIcon
-Dk0 f8 actionDecl 'htmlwfui.Data out;
-' #txt
 Dk0 f8 actionTable 'out=in.clone();
 ' #txt
 Dk0 f8 actionCode 'import ch.ivyteam.ivy.security.IUser;
@@ -86,7 +77,6 @@ if(in.delegateType.equals("role")){
 	IUser user = ivy.wf.getSecurityContext().findUser(in.delegateUser);
 	out.tmpTask.setActivator(user);
 }' #txt
-Dk0 f8 type htmlwfui.Data #txt
 Dk0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>

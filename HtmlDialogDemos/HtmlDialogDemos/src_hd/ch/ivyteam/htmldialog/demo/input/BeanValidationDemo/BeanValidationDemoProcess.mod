@@ -1,32 +1,26 @@
 [Ivy]
-[>Created: Thu Nov 05 12:42:53 CET 2015]
-13C3DAFB89BB3EB0 3.18 #module
+13C3DAFB89BB3EB0 3.28 #module
 >Proto >Proto Collection #zClass
 Bs0 BeanValidationDemoProcess Big #zClass
 Bs0 RD #cInfo
 Bs0 #process
-Bs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Bs0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Bs0 @TextInP .resExport .resExport #zField
 Bs0 @TextInP .type .type #zField
 Bs0 @TextInP .processKind .processKind #zField
 Bs0 @AnnotationInP-0n ai ai #zField
 Bs0 @TextInP .xml .xml #zField
 Bs0 @TextInP .responsibility .responsibility #zField
-Bs0 @RichDialogInitStart f0 '' #zField
-Bs0 @RichDialogProcessEnd f1 '' #zField
+Bs0 @UdInit f0 '' #zField
+Bs0 @UdProcessEnd f1 '' #zField
 Bs0 @PushWFArc f2 '' #zField
-Bs0 @RichDialogProcessStart f3 '' #zField
-Bs0 @RichDialogProcessEnd f4 '' #zField
+Bs0 @UdEvent f3 '' #zField
+Bs0 @UdProcessEnd f4 '' #zField
 Bs0 @PushWFArc f5 '' #zField
-Bs0 @RichDialogProcessStart f6 '' #zField
-Bs0 @RichDialogEnd f9 '' #zField
+Bs0 @UdEvent f6 '' #zField
+Bs0 @UdExitEnd f9 '' #zField
 Bs0 @PushWFArc f10 '' #zField
 >Proto Bs0 Bs0 BeanValidationDemoProcess #zField
 Bs0 f0 guid 13C3DAFB8BAE8F79 #txt
-Bs0 f0 type ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData #txt
 Bs0 f0 method start() #txt
-Bs0 f0 disableUIEvents true #txt
 Bs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -34,7 +28,6 @@ Bs0 f0 inParameterMapAction 'out.person.name="";
 ' #txt
 Bs0 f0 outParameterDecl '<> result;
 ' #txt
-Bs0 f0 embeddedRdInitializations '* ' #txt
 Bs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -45,18 +38,14 @@ Bs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bs0 f0 83 83 26 26 -16 12 #rect
-Bs0 f0 @|RichDialogInitStartIcon #fIcon
+Bs0 f0 @|UdInitIcon #fIcon
 Bs0 f0 -1|-1|-9671572 #nodeStyle
-Bs0 f1 type ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData #txt
 Bs0 f1 211 83 26 26 0 12 #rect
-Bs0 f1 @|RichDialogProcessEndIcon #fIcon
+Bs0 f1 @|UdProcessEndIcon #fIcon
 Bs0 f1 -1|-1|-9671572 #nodeStyle
 Bs0 f2 expr out #txt
 Bs0 f2 109 96 211 96 #arcP
 Bs0 f3 guid 13C3DC3DE517B556 #txt
-Bs0 f3 type ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData #txt
-Bs0 f3 actionDecl 'ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData out;
-' #txt
 Bs0 f3 actionTable 'out=in;
 ' #txt
 Bs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -67,17 +56,13 @@ Bs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bs0 f3 83 243 26 26 -14 12 #rect
-Bs0 f3 @|RichDialogProcessStartIcon #fIcon
+Bs0 f3 @|UdEventIcon #fIcon
 Bs0 f3 -1|-1|-9671572 #nodeStyle
-Bs0 f4 type ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData #txt
 Bs0 f4 211 243 26 26 0 12 #rect
-Bs0 f4 @|RichDialogProcessEndIcon #fIcon
+Bs0 f4 @|UdProcessEndIcon #fIcon
 Bs0 f4 -1|-1|-9671572 #nodeStyle
 Bs0 f5 109 256 211 256 #arcP
 Bs0 f6 guid 13C3DD5BB26CE572 #txt
-Bs0 f6 type ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData #txt
-Bs0 f6 actionDecl 'ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData out;
-' #txt
 Bs0 f6 actionTable 'out=in;
 ' #txt
 Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -88,12 +73,10 @@ Bs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Bs0 f6 83 339 26 26 -15 12 #rect
-Bs0 f6 @|RichDialogProcessStartIcon #fIcon
+Bs0 f6 @|UdEventIcon #fIcon
 Bs0 f6 -1|-1|-9671572 #nodeStyle
-Bs0 f9 type ch.ivyteam.htmldialog.demo.input.BeanValidationDemo.BeanValidationDemoData #txt
-Bs0 f9 guid 13C3DD6902FF1272 #txt
 Bs0 f9 211 339 26 26 0 12 #rect
-Bs0 f9 @|RichDialogEndIcon #fIcon
+Bs0 f9 @|UdExitEndIcon #fIcon
 Bs0 f9 -1|-1|-9671572 #nodeStyle
 Bs0 f10 expr out #txt
 Bs0 f10 109 352 211 352 #arcP

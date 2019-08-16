@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Tue May 06 12:05:42 CEST 2014]
-139D97A1E15DE439 3.17 #module
+139D97A1E15DE439 3.28 #module
 >Proto >Proto Collection #zClass
 Is0 InitPersons Big #zClass
 Is0 B #cInfo
 Is0 #process
-Is0 @TextInP .resExport .resExport #zField
 Is0 @TextInP .type .type #zField
 Is0 @TextInP .processKind .processKind #zField
 Is0 @AnnotationInP-0n ai ai #zField
@@ -21,10 +19,7 @@ Is0 f0 outParamDecl '<List<ch.ivyteam.htmldialog.demo.Person> persons> result;
 ' #txt
 Is0 f0 outParamTable 'result.persons=in.persons;
 ' #txt
-Is0 f0 actionDecl 'ch.ivyteam.htmldialog.demo.InitPersonsData out;
-' #txt
 Is0 f0 callSignature initPerson() #txt
-Is0 f0 type ch.ivyteam.htmldialog.demo.InitPersonsData #txt
 Is0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -37,12 +32,9 @@ Is0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Is0 f0 81 49 30 30 -32 15 #rect
 Is0 f0 @|StartSubIcon #fIcon
 Is0 f0 -1|-1|-9671572 #nodeStyle
-Is0 f1 type ch.ivyteam.htmldialog.demo.InitPersonsData #txt
 Is0 f1 401 49 30 30 0 15 #rect
 Is0 f1 @|EndSubIcon #fIcon
 Is0 f1 -1|-1|-9671572 #nodeStyle
-Is0 f2 actionDecl 'ch.ivyteam.htmldialog.demo.InitPersonsData out;
-' #txt
 Is0 f2 actionTable 'out=in;
 ' #txt
 Is0 f2 actionCode 'import ch.ivyteam.htmldialog.demo.Person;
@@ -76,7 +68,6 @@ person = new Person();
 person.name = "Dänzer";
 person.firstname = "Michael";
 out.persons.add(person);' #txt
-Is0 f2 type ch.ivyteam.htmldialog.demo.InitPersonsData #txt
 Is0 f2 192 42 112 44 58 -2 #rect
 Is0 f2 @|StepIcon #fIcon
 Is0 f2 -1|-1|-9671572 #nodeStyle

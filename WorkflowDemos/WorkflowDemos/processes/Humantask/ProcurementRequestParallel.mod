@@ -1,10 +1,9 @@
 [Ivy]
-15254DC87A1B183B 3.25 #module
+15254DC87A1B183B 3.28 #module
 >Proto >Proto Collection #zClass
 Pt0 ProcurementRequestParallel Big #zClass
 Pt0 B #cInfo
 Pt0 #process
-Pt0 @TextInP .resExport .resExport #zField
 Pt0 @TextInP .type .type #zField
 Pt0 @TextInP .processKind .processKind #zField
 Pt0 @AnnotationInP-0n ai ai #zField
@@ -12,20 +11,20 @@ Pt0 @MessageFlowInP-0n messageIn messageIn #zField
 Pt0 @MessageFlowOutP-0n messageOut messageOut #zField
 Pt0 @TextInP .xml .xml #zField
 Pt0 @TextInP .responsibility .responsibility #zField
-Pt0 @RichDialog f6 '' #zField
+Pt0 @UserDialog f6 '' #zField
 Pt0 @StartRequest f0 '' #zField
 Pt0 @EndTask f1 '' #zField
 Pt0 @TaskSwitch f7 '' #zField
-Pt0 @RichDialog f3 '' #zField
+Pt0 @UserDialog f3 '' #zField
 Pt0 @TaskSwitch f2 '' #zField
-Pt0 @RichDialog f5 '' #zField
+Pt0 @UserDialog f5 '' #zField
 Pt0 @EMail f8 '' #zField
 Pt0 @PushWFArc f4 '' #zField
 Pt0 @TkArc f9 '' #zField
 Pt0 @PushWFArc f10 '' #zField
 Pt0 @PushWFArc f11 '' #zField
 Pt0 @PushWFArc f15 '' #zField
-Pt0 @RichDialog f16 '' #zField
+Pt0 @UserDialog f16 '' #zField
 Pt0 @PushWFArc f17 '' #zField
 Pt0 @Alternative f19 '' #zField
 Pt0 @PushWFArc f20 '' #zField
@@ -39,11 +38,8 @@ Pt0 @TaskSwitchSimple f26 '' #zField
 Pt0 @TkArc f27 '' #zField
 Pt0 @PushWFArc f18 '' #zField
 >Proto Pt0 Pt0 ProcurementRequestParallel #zField
-Pt0 f6 targetWindow NEW:card: #txt
-Pt0 f6 targetDisplay TOP #txt
-Pt0 f6 richDialogId workflow.humantask.VerifyRequest #txt
+Pt0 f6 dialogId workflow.humantask.VerifyRequest #txt
 Pt0 f6 startMethod start(workflow.humantask.ProcurementRequest) #txt
-Pt0 f6 type workflow.humantask.ProcurementRequest #txt
 Pt0 f6 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequest> param;' #txt
 Pt0 f6 requestMappingAction 'param.procurementRequest=in;
 ' #txt
@@ -53,10 +49,6 @@ Pt0 f6 responseMappingAction 'out=in;
 out.activityLog=in.activityLog.add(result.logEntry);
 out.dataOkManager=result.dataOk;
 ' #txt
-Pt0 f6 windowConfiguration '* ' #txt
-Pt0 f6 isAsynch false #txt
-Pt0 f6 isInnerRd false #txt
-Pt0 f6 userContext '* ' #txt
 Pt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -67,13 +59,9 @@ Pt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f6 360 402 112 44 -39 -8 #rect
-Pt0 f6 @|RichDialogIcon #fIcon
+Pt0 f6 @|UserDialogIcon #fIcon
 Pt0 f0 outLink start.ivp #txt
-Pt0 f0 type workflow.humantask.ProcurementRequest #txt
 Pt0 f0 inParamDecl '<> param;' #txt
-Pt0 f0 actionDecl 'workflow.humantask.ProcurementRequest out;
-' #txt
-Pt0 f0 guid 1501DA0247919A53 #txt
 Pt0 f0 requestEnabled true #txt
 Pt0 f0 triggerEnabled false #txt
 Pt0 f0 callSignature start() #txt
@@ -101,17 +89,13 @@ Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Pt0 f0 @C|.responsibility Employee #txt
 Pt0 f0 65 169 30 30 -21 17 #rect
 Pt0 f0 @|StartRequestIcon #fIcon
-Pt0 f1 type workflow.humantask.ProcurementRequest #txt
 Pt0 f1 857 169 30 30 0 15 #rect
 Pt0 f1 @|EndIcon #fIcon
-Pt0 f7 actionDecl 'workflow.humantask.ProcurementRequest out;
-' #txt
 Pt0 f7 actionTable 'out=in1;
 out.activityLog=in1.activityLog.removeAll(in2.activityLog).addAll(in2.activityLog);
 out.dataOkManager=in2.dataOkManager;
 out.dataOkTeamLeader=in1.dataOkTeamLeader;
 ' #txt
-Pt0 f7 outTypes "workflow.humantask.ProcurementRequest" #txt
 Pt0 f7 outLinks "TaskB.ivp" #txt
 Pt0 f7 caseData case.category=System #txt
 Pt0 f7 taskData 'TaskA.EXPRI=2
@@ -128,15 +112,11 @@ TaskB.PRI=2
 TaskB.ROL=SYSTEM
 TaskB.SKIP_TASK_LIST=true
 TaskB.TYPE=0' #txt
-Pt0 f7 type workflow.humantask.ProcurementRequest #txt
 Pt0 f7 template "" #txt
 Pt0 f7 512 288 32 32 0 16 #rect
 Pt0 f7 @|TaskSwitchIcon #fIcon
-Pt0 f3 targetWindow NEW:card: #txt
-Pt0 f3 targetDisplay TOP #txt
-Pt0 f3 richDialogId workflow.humantask.EnterRequest #txt
+Pt0 f3 dialogId workflow.humantask.EnterRequest #txt
 Pt0 f3 startMethod start() #txt
-Pt0 f3 type workflow.humantask.ProcurementRequest #txt
 Pt0 f3 requestActionDecl '<> param;' #txt
 Pt0 f3 responseActionDecl 'workflow.humantask.ProcurementRequest out;
 ' #txt
@@ -144,10 +124,6 @@ Pt0 f3 responseMappingAction 'out=result.procurementRequestData;
 out.activityLog=in.activityLog.add(result.logEntry);
 out.totalPrice=result.procurementRequestData.amount * result.procurementRequestData.pricePerUnit;
 ' #txt
-Pt0 f3 windowConfiguration '* ' #txt
-Pt0 f3 isAsynch false #txt
-Pt0 f3 isInnerRd false #txt
-Pt0 f3 userContext '* ' #txt
 Pt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -158,12 +134,9 @@ Pt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f3 152 162 112 44 -39 -8 #rect
-Pt0 f3 @|RichDialogIcon #fIcon
-Pt0 f2 actionDecl 'workflow.humantask.ProcurementRequest out;
-' #txt
+Pt0 f3 @|UserDialogIcon #fIcon
 Pt0 f2 actionTable 'out=in1;
 ' #txt
-Pt0 f2 outTypes "workflow.humantask.ProcurementRequest","workflow.humantask.ProcurementRequest" #txt
 Pt0 f2 outLinks "TaskA.ivp","TaskB.ivp" #txt
 Pt0 f2 taskData 'TaskA.CATEGORY=Review/Procurement
 TaskA.EXPRI=2
@@ -183,15 +156,11 @@ TaskB.PRI=2
 TaskB.ROL=Manager
 TaskB.SKIP_TASK_LIST=false
 TaskB.TYPE=0' #txt
-Pt0 f2 type workflow.humantask.ProcurementRequest #txt
 Pt0 f2 template "" #txt
 Pt0 f2 296 288 32 32 0 16 #rect
 Pt0 f2 @|TaskSwitchIcon #fIcon
-Pt0 f5 targetWindow NEW:card: #txt
-Pt0 f5 targetDisplay TOP #txt
-Pt0 f5 richDialogId workflow.humantask.VerifyRequest #txt
+Pt0 f5 dialogId workflow.humantask.VerifyRequest #txt
 Pt0 f5 startMethod start(workflow.humantask.ProcurementRequest) #txt
-Pt0 f5 type workflow.humantask.ProcurementRequest #txt
 Pt0 f5 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequest> param;' #txt
 Pt0 f5 requestMappingAction 'param.procurementRequest=in;
 ' #txt
@@ -201,10 +170,6 @@ Pt0 f5 responseMappingAction 'out=in;
 out.activityLog=in.activityLog.add(result.logEntry);
 out.dataOkTeamLeader=result.dataOk;
 ' #txt
-Pt0 f5 windowConfiguration '* ' #txt
-Pt0 f5 isAsynch false #txt
-Pt0 f5 isInnerRd false #txt
-Pt0 f5 userContext '* ' #txt
 Pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -215,7 +180,7 @@ Pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f5 360 282 112 44 -39 -8 #rect
-Pt0 f5 @|RichDialogIcon #fIcon
+Pt0 f5 @|UserDialogIcon #fIcon
 Pt0 f8 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/yourRequestHasBeen\\"")%> <%=(in.accepted ? ivy.cms.co(\\""/Emails/accepted\\"") : ivy.cms.co(\\""/Emails/declined\\""))%>: <%=in.amount%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/piecesOf\\"")%>  \\''<%=in.description%>\\'' <%=ivy.cms.co(\\""/Dialogs/procurementRequest/forTotal\\"")%> <%=in.totalPrice%> <%=ivy.cms.co(\\""/Dialogs/procurementRequest/currencySymbol\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.requester.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\n\\t<%=ivy.cms.co(\\""/Emails/procurementRequestNotification\\"")%>\\n</html>""/emailAttachments * }"' #txt
 Pt0 f8 type workflow.humantask.ProcurementRequest #txt
 Pt0 f8 timeout 0 #txt
@@ -250,11 +215,8 @@ Pt0 f11 1 312 424 #addKink
 Pt0 f11 1 0.13308345915844264 0 0 #arcLabel
 Pt0 f15 expr out #txt
 Pt0 f15 824 184 857 184 #arcP
-Pt0 f16 targetWindow NEW:card: #txt
-Pt0 f16 targetDisplay TOP #txt
-Pt0 f16 richDialogId workflow.humantask.AcceptRequest #txt
+Pt0 f16 dialogId workflow.humantask.AcceptRequest #txt
 Pt0 f16 startMethod start(workflow.humantask.ProcurementRequest) #txt
-Pt0 f16 type workflow.humantask.ProcurementRequest #txt
 Pt0 f16 requestActionDecl '<workflow.humantask.ProcurementRequest procurementRequest> param;' #txt
 Pt0 f16 requestMappingAction 'param.procurementRequest=in;
 ' #txt
@@ -264,10 +226,6 @@ Pt0 f16 responseMappingAction 'out=in;
 out.accepted=result.accepted;
 out.activityLog=in.activityLog.add(result.logEntry);
 ' #txt
-Pt0 f16 windowConfiguration '* ' #txt
-Pt0 f16 isAsynch false #txt
-Pt0 f16 isInnerRd false #txt
-Pt0 f16 userContext '* ' #txt
 Pt0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -278,12 +236,11 @@ Pt0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pt0 f16 632 514 112 44 -43 -8 #rect
-Pt0 f16 @|RichDialogIcon #fIcon
+Pt0 f16 @|UserDialogIcon #fIcon
 Pt0 f17 expr out #txt
 Pt0 f17 744 536 768 206 #arcP
 Pt0 f17 1 768 536 #addKink
 Pt0 f17 1 0.4192986443384443 0 0 #arcLabel
-Pt0 f19 type workflow.humantask.ProcurementRequest #txt
 Pt0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -351,11 +308,8 @@ will be problems with the session handling.</name>
 Pt0 f24 96 506 352 76 -168 -32 #rect
 Pt0 f24 @|IBIcon #fIcon
 Pt0 f25 272 506 304 312 #arcP
-Pt0 f26 actionDecl 'workflow.humantask.ProcurementRequest out;
-' #txt
 Pt0 f26 actionTable 'out=in1;
 ' #txt
-Pt0 f26 outTypes "workflow.humantask.ProcurementRequest" #txt
 Pt0 f26 outLinks "TaskA.ivp" #txt
 Pt0 f26 taskData 'TaskA.CATEGORY=Accept/Procurement
 TaskA.EXPRI=2
@@ -366,7 +320,6 @@ TaskA.PRI=2
 TaskA.ROL=Executive Manager
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
-Pt0 f26 type workflow.humantask.ProcurementRequest #txt
 Pt0 f26 template "" #txt
 Pt0 f26 577 521 30 30 0 16 #rect
 Pt0 f26 @|TaskSwitchSimpleIcon #fIcon

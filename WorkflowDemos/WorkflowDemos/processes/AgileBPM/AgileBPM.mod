@@ -1,5 +1,5 @@
 [Ivy]
-15255056043EE914 3.25 #module
+15255056043EE914 3.28 #module
 >Proto >Proto Collection #zClass
 AF0 AgileBPM Big #zClass
 AF0 B #cInfo
@@ -9,7 +9,6 @@ AF0 #process
 Ct0 Component Big #zClass
 Ct0 B #cInfo
 AF0 1b1 1b0 '1 Sub' #zField
-AF0 @TextInP .resExport .resExport #zField
 AF0 @TextInP .type .type #zField
 AF0 @TextInP .processKind .processKind #zField
 AF0 @AnnotationInP-0n ai ai #zField
@@ -18,7 +17,7 @@ AF0 @MessageFlowOutP-0n messageOut messageOut #zField
 AF0 @TextInP .xml .xml #zField
 AF0 @TextInP .responsibility .responsibility #zField
 AF0 @StartRequest f0 '' #zField
-AF0 @RichDialog f1 '' #zField
+AF0 @UserDialog f1 '' #zField
 AF0 @PushWFArc f2 '' #zField
 AF0 @Alternative f5 '' #zField
 AF0 @PushWFArc f6 '' #zField
@@ -30,7 +29,6 @@ AF0 @PushWFArc f3 '' #zField
 AF0 @InfoButton f10 '' #zField
 >Proto AF0 AF0 AgileBPM #zField
 1b1 Ct0 S10 'Sub 1' #zField
-1b1 @TextInP .resExport .resExport #zField
 1b1 @TextInP .type .type #zField
 1b1 @TextInP .processKind .processKind #zField
 1b1 @AnnotationInP-0n ai ai #zField
@@ -57,7 +55,6 @@ AF0 @InfoButton f10 '' #zField
 1b1 @PushWFArc f19 '' #zField
 1b1 @PushWFArc f20 '' #zField
 >Proto 1b1 1b0 '1 Sub' #zField
-Ct0 @TextInP .resExport .resExport #zField
 Ct0 @TextInP .type .type #zField
 Ct0 @TextInP .processKind .processKind #zField
 Ct0 @AnnotationInP-0n ai ai #zField
@@ -66,7 +63,7 @@ Ct0 @MessageFlowOutP-0n messageOut messageOut #zField
 Ct0 @TextInP .xml .xml #zField
 Ct0 @TextInP .responsibility .responsibility #zField
 Ct0 @TaskSwitchSimple f9 '' #zField
-Ct0 @RichDialog f11 '' #zField
+Ct0 @UserDialog f11 '' #zField
 Ct0 @PushWFArc f12 '' #zField
 Ct0 @PushTrueWFInG-01 g0 '' #zField
 Ct0 @PushTrueWFOutG-01 g1 '' #zField
@@ -94,7 +91,6 @@ Ct0 @PushWFArc f21 '' #zField
 Ct0 @TkArc f5 '' #zField
 Ct0 @TkArc f16 '' #zField
 >Proto Ct0 Ct0 Component #zField
-AF0 1b0 .resExport export #txt
 AF0 1b0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -107,11 +103,7 @@ AF0 1b0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 AF0 1b0 392 170 112 44 -40 -8 #rect
 AF0 1b0 @|BIcon #fIcon
 AF0 f0 outLink start.ivp #txt
-AF0 f0 type workflow.agileBPM.Data #txt
 AF0 f0 inParamDecl '<> param;' #txt
-AF0 f0 actionDecl 'workflow.agileBPM.Data out;
-' #txt
-AF0 f0 guid 14232C40032FD3B8 #txt
 AF0 f0 requestEnabled true #txt
 AF0 f0 triggerEnabled false #txt
 AF0 f0 callSignature start() #txt
@@ -122,14 +114,14 @@ AF0 f0 taskData 'TaskTriggered.CATEGORY=Input/Adhoc
 TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.KINDC=CREATOR
 TaskTriggered.NAM=Self Service Workflow
 TaskTriggered.PRI=2
 TaskTriggered.ROL=Everybody
-TaskTriggered.TYPE=0' #txt
+TaskTriggered.TYPE=0
+TaskTriggered.customFields.STRING.KindCode="CREATOR"' #txt
 AF0 f0 caseData 'case.category=AdHoc
-processCategory.code=Self Service WF
-processCategory.name=Self Service WF' #txt
+customFields.STRING.ProcessCategoryCode="Self Service WF"
+customFields.STRING.ProcessCategoryName="Self Service WF"' #txt
 AF0 f0 wfuser 1 #txt
 AF0 f0 showInStartList 1 #txt
 AF0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -144,21 +136,14 @@ AF0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 AF0 f0 @C|.responsibility Employee #txt
 AF0 f0 83 179 26 26 -21 15 #rect
 AF0 f0 @|StartRequestIcon #fIcon
-AF0 f1 targetWindow NEW:card: #txt
-AF0 f1 targetDisplay TOP #txt
-AF0 f1 richDialogId workflow.agileBPM.define_WF #txt
+AF0 f1 dialogId workflow.agileBPM.define_WF #txt
 AF0 f1 startMethod start() #txt
-AF0 f1 type workflow.agileBPM.Data #txt
 AF0 f1 requestActionDecl '<> param;' #txt
 AF0 f1 responseActionDecl 'workflow.agileBPM.Data out;
 ' #txt
 AF0 f1 responseMappingAction 'out.caseInfo=result.caseInfo;
 out.definedTasks=result.definedTasks;
 ' #txt
-AF0 f1 windowConfiguration '* ' #txt
-AF0 f1 isAsynch false #txt
-AF0 f1 isInnerRd false #txt
-AF0 f1 userContext '* ' #txt
 AF0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -169,11 +154,10 @@ AF0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 AF0 f1 168 170 112 44 -47 -8 #rect
-AF0 f1 @|RichDialogIcon #fIcon
+AF0 f1 @|UserDialogIcon #fIcon
 AF0 f2 expr out #txt
 AF0 f2 109 192 168 192 #arcP
 AF0 f2 0 0.5643877852180716 0 0 #arcLabel
-AF0 f5 type workflow.agileBPM.Data #txt
 AF0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -200,7 +184,6 @@ AF0 f4 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 AF0 f4 350 192 392 192 #arcP
 AF0 f4 0 0.5 0 -8 #arcLabel
-AF0 f7 type workflow.agileBPM.Data #txt
 AF0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -225,7 +208,6 @@ AF0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 AF0 f8 336 206 563 256 #arcP
 AF0 f8 1 336 256 #addKink
 AF0 f8 1 0.3832599118942731 0 -6 #arcLabel
-AF0 f9 type workflow.agileBPM.Data #txt
 AF0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -265,7 +247,6 @@ AF0 f10 @|IBIcon #fIcon
 ' #txt
 >Proto AF0 0 0 32 24 18 0 #rect
 >Proto AF0 @|BIcon #fIcon
-1b1 S10 .resExport export #txt
 1b1 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -277,7 +258,6 @@ AF0 f10 @|IBIcon #fIcon
 ' #txt
 1b1 S10 520 202 112 44 -28 -8 #rect
 1b1 S10 @|BIcon #fIcon
-1b1 f6 type workflow.agileBPM.Data #txt
 1b1 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -322,8 +302,6 @@ AF0 f10 @|IBIcon #fIcon
 1b1 f1 128 238 243 416 #arcP
 1b1 f1 1 128 416 #addKink
 1b1 f1 0 0.2752808988764045 12 0 #arcLabel
-1b1 f5 actionDecl 'workflow.agileBPM.Data out;
-' #txt
 1b1 f5 actionTable 'out=in;
 ' #txt
 1b1 f5 actionCode 'out.nextTask = in.definedTasks.removeGet(0);
@@ -332,7 +310,6 @@ out.nextTask.setSubject(in.caseInfo.subject);
 
 
 ' #txt
-1b1 f5 type workflow.agileBPM.Data #txt
 1b1 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -370,7 +347,6 @@ out.nextTask.setSubject(in.caseInfo.subject);
 ' #txt
 1b1 f3 680 298 112 44 -26 -8 #rect
 1b1 f3 @|EMailIcon #fIcon
-1b1 f8 type workflow.agileBPM.Data #txt
 1b1 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -384,11 +360,8 @@ out.nextTask.setSubject(in.caseInfo.subject);
 1b1 f8 @|AlternativeIcon #fIcon
 1b1 f10 expr out #txt
 1b1 f10 324 224 368 224 #arcP
-1b1 f13 actionDecl 'workflow.agileBPM.Data out;
-' #txt
 1b1 f13 actionTable 'out=in1;
 ' #txt
-1b1 f13 outTypes "workflow.agileBPM.Data" #txt
 1b1 f13 outLinks "TaskA.ivp" #txt
 1b1 f13 taskData 'TaskA.CATEGORY=System/Mail
 TaskA.EXPRI=2
@@ -399,7 +372,6 @@ TaskA.PRI=2
 TaskA.ROL=SYSTEM
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
-1b1 f13 type workflow.agileBPM.Data #txt
 1b1 f13 template "" #txt
 1b1 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -433,8 +405,6 @@ TaskA.TYPE=0' #txt
 1b1 f16 2 840 144 #addKink
 1b1 f16 3 128 144 #addKink
 1b1 f16 2 0.00843115672759725 0 0 #arcLabel
-1b1 f17 actionDecl 'workflow.agileBPM.Data out;
-' #txt
 1b1 f17 actionTable 'out=in;
 ' #txt
 1b1 f17 actionCode 'import ch.ivyteam.ivy.workflow.INote;
@@ -452,7 +422,6 @@ for(INote note: ivy.case.getNotes())
 out.answer = sb.toString();
 
 ivy.log.debug("Email: {0}", ivy.case.getCreatorUser().getEMailAddress());' #txt
-1b1 f17 type workflow.agileBPM.Data #txt
 1b1 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -489,24 +458,20 @@ ivy.log.debug("Email: {0}", ivy.case.getCreatorUser().getEMailAddress());' #txt
 1b1 f20 2 0.3478475756443725 0 0 #arcLabel
 >Proto 1b0 0 0 32 24 18 0 #rect
 >Proto 1b0 @|BIcon #fIcon
-Ct0 f9 actionDecl 'workflow.agileBPM.Data out;
-' #txt
 Ct0 f9 actionTable 'out=in1;
 ' #txt
-Ct0 f9 outTypes "workflow.agileBPM.Data" #txt
 Ct0 f9 outLinks "TaskA.ivp" #txt
 Ct0 f9 taskData 'TaskA.DESC=<%\=in1.nextTask.description%>
 TaskA.EXP=in1.nextTask.until\!\=null ? in1.nextTask.until - new DateTime() \: null
 TaskA.EXPRI=0
 TaskA.EXROL=in1.nextTask.actoruser
 TaskA.EXTYPE=3
-TaskA.KINDC=<%\=in1.nextTask.kind%>
 TaskA.NAM=<%\=in1.nextTask.kind%> <%\=in1.nextTask.subject%>
 TaskA.PRI=2
 TaskA.ROL=in1.nextTask.actoruser
 TaskA.SKIP_TASK_LIST=false
-TaskA.TYPE=3' #txt
-Ct0 f9 type workflow.agileBPM.Data #txt
+TaskA.TYPE=3
+TaskA.customFields.STRING.KindCode=in1.nextTask.kind' #txt
 Ct0 f9 template "" #txt
 Ct0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -519,11 +484,8 @@ Ct0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ct0 f9 474 250 28 28 -17 20 #rect
 Ct0 f9 @|TaskSwitchSimpleIcon #fIcon
-Ct0 f11 targetWindow NEW:card: #txt
-Ct0 f11 targetDisplay TOP #txt
-Ct0 f11 richDialogId workflow.agileBPM.task_Form #txt
+Ct0 f11 dialogId workflow.agileBPM.task_Form #txt
 Ct0 f11 startMethod start(workflow.agileBPM.CaseDef,workflow.agileBPM.TaskDef,List<workflow.agileBPM.TaskDef>) #txt
-Ct0 f11 type workflow.agileBPM.Data #txt
 Ct0 f11 requestActionDecl '<workflow.agileBPM.CaseDef caseInfo, workflow.agileBPM.TaskDef nextTask, List<workflow.agileBPM.TaskDef> definedTasks> param;' #txt
 Ct0 f11 requestMappingAction 'param.caseInfo=in.caseInfo;
 param.nextTask=in.nextTask;
@@ -534,10 +496,6 @@ Ct0 f11 responseActionDecl 'workflow.agileBPM.Data out;
 Ct0 f11 responseMappingAction 'out=in;
 out.definedTasks=result.definedTasks;
 ' #txt
-Ct0 f11 windowConfiguration '* ' #txt
-Ct0 f11 isAsynch false #txt
-Ct0 f11 isInnerRd false #txt
-Ct0 f11 userContext '* ' #txt
 Ct0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -548,7 +506,7 @@ Ct0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f11 544 242 112 44 -26 -8 #rect
-Ct0 f11 @|RichDialogIcon #fIcon
+Ct0 f11 @|UserDialogIcon #fIcon
 Ct0 f12 expr data #txt
 Ct0 f12 outCond ivp=="TaskA.ivp" #txt
 Ct0 f12 502 264 544 264 #arcP
@@ -570,11 +528,8 @@ Ct0 g1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ct0 g1 979 147 26 26 -16 13 #rect
 Ct0 g1 @|MOGIcon #fIcon
-Ct0 f2 actionDecl 'workflow.agileBPM.Data out;
-' #txt
 Ct0 f2 actionTable 'out=in1;
 ' #txt
-Ct0 f2 outTypes "workflow.agileBPM.Data","workflow.agileBPM.Data" #txt
 Ct0 f2 outLinks "TaskA.ivp","TaskB.ivp" #txt
 Ct0 f2 taskData 'TaskA.CATEGORY=System/Split
 TaskA.EXPRI=2
@@ -594,7 +549,6 @@ TaskB.PRI=2
 TaskB.ROL=SYSTEM
 TaskB.SKIP_TASK_LIST=false
 TaskB.TYPE=0' #txt
-Ct0 f2 type workflow.agileBPM.Data #txt
 Ct0 f2 template "" #txt
 Ct0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -607,12 +561,9 @@ Ct0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ct0 f2 336 144 32 32 9 -32 #rect
 Ct0 f2 @|TaskSwitchIcon #fIcon
-Ct0 f4 actionDecl 'workflow.agileBPM.Data out;
-' #txt
 Ct0 f4 actionTable 'out=in1;
 out.definedTasks=in2.definedTasks;
 ' #txt
-Ct0 f4 outTypes "workflow.agileBPM.Data" #txt
 Ct0 f4 outLinks "TaskA.ivp" #txt
 Ct0 f4 taskData 'TaskA.CATEGORY=System/Join
 TaskA.EXPRI=2
@@ -623,7 +574,6 @@ TaskA.PRI=2
 TaskA.ROL=SYSTEM
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
-Ct0 f4 type workflow.agileBPM.Data #txt
 Ct0 f4 template "" #txt
 Ct0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -636,14 +586,12 @@ Ct0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ct0 f4 720 144 32 32 12 -29 #rect
 Ct0 f4 @|TaskSwitchIcon #fIcon
-Ct0 f6 type workflow.agileBPM.Data #txt
 Ct0 f6 264 144 32 32 0 16 #rect
 Ct0 f6 @|AlternativeIcon #fIcon
 Ct0 f3 expr in #txt
 Ct0 f3 type workflow.agileBPM.Data #txt
 Ct0 f3 var in1 #txt
 Ct0 f3 296 160 336 160 #arcP
-Ct0 f8 type workflow.agileBPM.Data #txt
 Ct0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -665,7 +613,6 @@ Ct0 f0 var in1 #txt
 Ct0 f0 352 176 474 264 #arcP
 Ct0 f0 1 352 264 #addKink
 Ct0 f0 1 0.19818879887184085 0 0 #arcLabel
-Ct0 f14 type workflow.agileBPM.Data #txt
 Ct0 f14 664 144 32 32 0 16 #rect
 Ct0 f14 @|AlternativeIcon #fIcon
 Ct0 f15 expr in #txt
@@ -680,7 +627,6 @@ Ct0 f15 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ct0 f15 504 160 664 160 #arcP
 Ct0 f15 0 0.1625 0 7 #arcLabel
-Ct0 f17 type workflow.agileBPM.Data #txt
 Ct0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -696,8 +642,6 @@ Ct0 f18 expr data #txt
 Ct0 f18 outCond ivp=="TaskA.ivp" #txt
 Ct0 f18 752 160 848 160 #arcP
 Ct0 f18 0 0.06855791962174941 0 0 #arcLabel
-Ct0 f20 actionDecl 'workflow.agileBPM.Data out;
-' #txt
 Ct0 f20 actionTable 'out=in;
 ' #txt
 Ct0 f20 actionCode 'out.nextTask.actorusers.clear();
@@ -717,7 +661,6 @@ out.nextTask.count = out.nextTask.actorusers.size();
 out.nextTask.actoruser = in.nextTask.actorusers.get(out.nextTask.n-1);
 
 ' #txt
-Ct0 f20 type workflow.agileBPM.Data #txt
 Ct0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -731,13 +674,10 @@ Ct0 f20 112 138 112 44 -8 -8 #rect
 Ct0 f20 @|StepIcon #fIcon
 Ct0 f7 expr out #txt
 Ct0 f7 224 160 264 160 #arcP
-Ct0 f22 actionDecl 'workflow.agileBPM.Data out;
-' #txt
 Ct0 f22 actionTable 'out=in;
 out.nextTask.n=in.nextTask.n-1;
 ' #txt
 Ct0 f22 actionCode 'out.nextTask.actoruser = in.nextTask.actorusers.get(out.nextTask.n-1);' #txt
-Ct0 f22 type workflow.agileBPM.Data #txt
 Ct0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -767,12 +707,9 @@ Ct0 f13 expr out #txt
 Ct0 f13 336 88 280 144 #arcP
 Ct0 f13 1 280 88 #addKink
 Ct0 f13 1 0.5969001398703495 0 0 #arcLabel
-Ct0 f24 actionDecl 'workflow.agileBPM.Data out;
-' #txt
 Ct0 f24 actionTable 'out=in;
 out.nextTask.n=in.nextTask.n+1;
 ' #txt
-Ct0 f24 type workflow.agileBPM.Data #txt
 Ct0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
-    <method>
-        <name>edit</name>
-        <description></description>
-        <inputParameter>
-            <name>person</name>
-            <description></description>
-            <parameterType>com.axonivy.connectivity.Person</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </method>
-    <method>
-        <name>update</name>
-        <description></description>
-    </method>
-    <method>
-        <name>delete</name>
-        <description></description>
-        <inputParameter>
-            <name>id</name>
-            <description></description>
-            <parameterType>java.util.UUID</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </method>
-    <startMethod>
-        <name>start</name>
-        <description>Default dialog start method.</description>
-    </startMethod>
     <property>
         <name>guid</name>
         <value>15470DE7670B7663</value>

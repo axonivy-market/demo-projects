@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Mon Dec 20 09:43:25 CET 2010]
-12CBB155A8E655CC 3.15 #module
+12CBB155A8E655CC 3.28 #module
 >Proto >Proto Collection #zClass
 Tl0 TaskDetail Big #zClass
 Tl0 B #cInfo
 Tl0 #process
-Tl0 @TextInP .resExport .resExport #zField
 Tl0 @TextInP .type .type #zField
 Tl0 @TextInP .processKind .processKind #zField
 Tl0 @AnnotationInP-0n ai ai #zField
@@ -37,10 +35,7 @@ Tl0 f0 inParamTable 'out=param.in;
 ' #txt
 Tl0 f0 outParamDecl '<> result;
 ' #txt
-Tl0 f0 actionDecl 'htmlwfui.Data out;
-' #txt
 Tl0 f0 callSignature call(htmlwfui.Data) #txt
-Tl0 f0 type htmlwfui.Data #txt
 Tl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -52,12 +47,9 @@ Tl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Tl0 f0 99 35 26 26 14 0 #rect
 Tl0 f0 @|StartSubIcon #fIcon
-Tl0 f1 type htmlwfui.Data #txt
 Tl0 f1 19 139 26 26 14 0 #rect
 Tl0 f1 @|EndSubIcon #fIcon
-Tl0 f11 type htmlwfui.Data #txt
 Tl0 f11 processCall 'Functional Processes/AddNote:call(htmlwfui.Data)' #txt
-Tl0 f11 doCall true #txt
 Tl0 f11 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Tl0 f11 requestMappingAction 'param.in=in;
@@ -78,9 +70,7 @@ Tl0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Tl0 f11 286 204 36 24 5 17 #rect
 Tl0 f11 @|CallSubIcon #fIcon
-Tl0 f10 type htmlwfui.Data #txt
 Tl0 f10 processCall 'Functional Processes/DelegateTask:call(htmlwfui.Data)' #txt
-Tl0 f10 doCall true #txt
 Tl0 f10 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Tl0 f10 requestMappingAction 'param.in=in;
@@ -102,7 +92,7 @@ Tl0 f10 182 204 36 24 9 16 #rect
 Tl0 f10 @|CallSubIcon #fIcon
 Tl0 f23 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
 Tl0 f23 outLinks "LinkB.ivp","LinkC.ivp","LinkA.ivp","LinkD.ivp","LinkE.ivp","LinkF.ivp" #txt
-Tl0 f23 template "taskDetail.ivc" #txt
+Tl0 f23 template "/ProcessPages/TaskDetail/taskDetail.ivc" #txt
 Tl0 f23 type htmlwfui.Data #txt
 Tl0 f23 skipLink skip.ivp #txt
 Tl0 f23 sortLink sort.ivp #txt
@@ -145,9 +135,7 @@ Tl0 f2 112 61 112 140 #arcP
 Tl0 f3 expr data #txt
 Tl0 f3 outCond ivp=="LinkA.ivp" #txt
 Tl0 f3 94 152 45 152 #arcP
-Tl0 f5 type htmlwfui.Data #txt
 Tl0 f5 processCall 'Functional Processes/ChangeExpiry:call(htmlwfui.Data)' #txt
-Tl0 f5 doCall true #txt
 Tl0 f5 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Tl0 f5 requestMappingAction 'param.in=in;
@@ -176,8 +164,6 @@ Tl0 f7 1 416 288 #addKink
 Tl0 f7 2 664 288 #addKink
 Tl0 f7 3 664 152 #addKink
 Tl0 f7 2 0.24601833214173036 0 0 #arcLabel
-Tl0 f8 actionDecl 'htmlwfui.Data out;
-' #txt
 Tl0 f8 actionTable 'out=in;
 ' #txt
 Tl0 f8 actionCode 'import ch.ivyteam.ivy.workflow.TaskState;
@@ -185,7 +171,6 @@ if(in.#tmpTask!=null && in.tmpTask.getState()==TaskState.RESUMED)
 {
 	in.tmpTask.reset();
 }	' #txt
-Tl0 f8 type htmlwfui.Data #txt
 Tl0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -201,9 +186,7 @@ Tl0 f8 @|StepIcon #fIcon
 Tl0 f9 expr data #txt
 Tl0 f9 outCond ivp=="LinkE.ivp" #txt
 Tl0 f9 112 164 112 204 #arcP
-Tl0 f15 type htmlwfui.Data #txt
 Tl0 f15 processCall 'Functional Processes/PageArchive:call(htmlwfui.Data)' #txt
-Tl0 f15 doCall true #txt
 Tl0 f15 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Tl0 f15 requestMappingAction 'param.in=in;
