@@ -1,46 +1,40 @@
 [Ivy]
-[>Created: Tue May 06 12:30:02 CEST 2014]
-139D96A5734DE195 3.17 #module
+139D96A5734DE195 3.28 #module
 >Proto >Proto Collection #zClass
 Es0 EditableTableDemoProcess Big #zClass
 Es0 RD #cInfo
 Es0 #process
-Es0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Es0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Es0 @TextInP .resExport .resExport #zField
 Es0 @TextInP .type .type #zField
 Es0 @TextInP .processKind .processKind #zField
 Es0 @AnnotationInP-0n ai ai #zField
 Es0 @TextInP .xml .xml #zField
 Es0 @TextInP .responsibility .responsibility #zField
-Es0 @RichDialogInitStart f0 '' #zField
-Es0 @RichDialogProcessEnd f1 '' #zField
+Es0 @UdInit f0 '' #zField
+Es0 @UdProcessEnd f1 '' #zField
 Es0 @CallSub f2 '' #zField
 Es0 @PushWFArc f3 '' #zField
-Es0 @RichDialogProcessStart f5 '' #zField
-Es0 @RichDialogProcessStart f6 '' #zField
-Es0 @RichDialogProcessEnd f7 '' #zField
-Es0 @RichDialogEnd f8 '' #zField
+Es0 @UdEvent f5 '' #zField
+Es0 @UdEvent f6 '' #zField
+Es0 @UdProcessEnd f7 '' #zField
+Es0 @UdExitEnd f8 '' #zField
 Es0 @PushWFArc f9 '' #zField
 Es0 @PushWFArc f10 '' #zField
 Es0 @GridStep f11 '' #zField
 Es0 @PushWFArc f12 '' #zField
 Es0 @PushWFArc f4 '' #zField
-Es0 @RichDialogMethodStart f13 '' #zField
+Es0 @UdMethod f13 '' #zField
 Es0 @GridStep f14 '' #zField
 Es0 @PushWFArc f15 '' #zField
-Es0 @RichDialogProcessEnd f16 '' #zField
+Es0 @UdProcessEnd f16 '' #zField
 Es0 @PushWFArc f17 '' #zField
-Es0 @RichDialogProcessStart f18 '' #zField
-Es0 @RichDialogProcessEnd f19 '' #zField
+Es0 @UdEvent f18 '' #zField
+Es0 @UdProcessEnd f19 '' #zField
 Es0 @GridStep f21 '' #zField
 Es0 @PushWFArc f22 '' #zField
 Es0 @PushWFArc f20 '' #zField
 >Proto Es0 Es0 EditableTableDemoProcess #zField
 Es0 f0 guid 139D96A574FD8C6C #txt
-Es0 f0 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f0 method start() #txt
-Es0 f0 disableUIEvents true #txt
 Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -54,15 +48,12 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f0 83 115 26 26 -16 12 #rect
-Es0 f0 @|RichDialogInitStartIcon #fIcon
+Es0 f0 @|UdInitIcon #fIcon
 Es0 f0 -1|-1|-9671572 #nodeStyle
-Es0 f1 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f1 555 115 26 26 0 12 #rect
-Es0 f1 @|RichDialogProcessEndIcon #fIcon
+Es0 f1 @|UdProcessEndIcon #fIcon
 Es0 f1 -1|-1|-9671572 #nodeStyle
-Es0 f2 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f2 processCall 'Functional Processes/InitPersons:initPerson()' #txt
-Es0 f2 doCall true #txt
 Es0 f2 requestActionDecl '<> param;
 ' #txt
 Es0 f2 responseActionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
@@ -83,9 +74,6 @@ Es0 f2 -1|-1|-9671572 #nodeStyle
 Es0 f3 expr out #txt
 Es0 f3 109 128 168 128 #arcP
 Es0 f5 guid 139D98B6A2951E27 #txt
-Es0 f5 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
-Es0 f5 actionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
-' #txt
 Es0 f5 actionTable 'out=in;
 ' #txt
 Es0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -98,12 +86,9 @@ Es0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f5 83 307 26 26 -14 12 #rect
-Es0 f5 @|RichDialogProcessStartIcon #fIcon
+Es0 f5 @|UdEventIcon #fIcon
 Es0 f5 -1|-1|-9671572 #nodeStyle
 Es0 f6 guid 139D98B7D2CE532C #txt
-Es0 f6 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
-Es0 f6 actionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
-' #txt
 Es0 f6 actionTable 'out=in;
 ' #txt
 Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -116,23 +101,18 @@ Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f6 83 403 26 26 -15 12 #rect
-Es0 f6 @|RichDialogProcessStartIcon #fIcon
+Es0 f6 @|UdEventIcon #fIcon
 Es0 f6 -1|-1|-9671572 #nodeStyle
-Es0 f7 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f7 211 307 26 26 0 12 #rect
-Es0 f7 @|RichDialogProcessEndIcon #fIcon
+Es0 f7 @|UdProcessEndIcon #fIcon
 Es0 f7 -1|-1|-9671572 #nodeStyle
-Es0 f8 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
-Es0 f8 guid 139D98BBD35CC811 #txt
 Es0 f8 211 403 26 26 0 12 #rect
-Es0 f8 @|RichDialogEndIcon #fIcon
+Es0 f8 @|UdExitEndIcon #fIcon
 Es0 f8 -1|-1|-9671572 #nodeStyle
 Es0 f9 expr out #txt
 Es0 f9 109 416 211 416 #arcP
 Es0 f10 expr out #txt
 Es0 f10 109 320 211 320 #arcP
-Es0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
-' #txt
 Es0 f11 actionTable 'out=in;
 ' #txt
 Es0 f11 actionCode 'import ch.ivyteam.htmldialog.demo.Person;
@@ -144,7 +124,6 @@ for (Person person : in.persons)
 {
 	in.recordset.add([person.name, person.firstname]);
 }' #txt
-Es0 f11 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f11 360 106 112 44 58 -2 #rect
 Es0 f11 @|StepIcon #fIcon
 Es0 f11 -1|-1|-9671572 #nodeStyle
@@ -153,9 +132,7 @@ Es0 f12 280 128 360 128 #arcP
 Es0 f4 expr out #txt
 Es0 f4 472 128 555 128 #arcP
 Es0 f13 guid 139DEBA1CB42E47D #txt
-Es0 f13 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f13 method delete(Record) #txt
-Es0 f13 disableUIEvents false #txt
 Es0 f13 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <ch.ivyteam.ivy.scripting.objects.Record deletedRow> param = methodEvent.getInputArguments();
 ' #txt
@@ -173,14 +150,11 @@ Es0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f13 83 659 26 26 -41 12 #rect
-Es0 f13 @|RichDialogMethodStartIcon #fIcon
+Es0 f13 @|UdMethodIcon #fIcon
 Es0 f13 -1|-1|-9671572 #nodeStyle
-Es0 f14 actionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
-' #txt
 Es0 f14 actionTable 'out=in;
 ' #txt
 Es0 f14 actionCode in.recordset.remove(in.selectedPerson); #txt
-Es0 f14 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -195,16 +169,12 @@ Es0 f14 @|StepIcon #fIcon
 Es0 f14 -1|-1|-9671572 #nodeStyle
 Es0 f15 expr out #txt
 Es0 f15 109 672 152 672 #arcP
-Es0 f16 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f16 403 659 26 26 0 12 #rect
-Es0 f16 @|RichDialogProcessEndIcon #fIcon
+Es0 f16 @|UdProcessEndIcon #fIcon
 Es0 f16 -1|-1|-9671572 #nodeStyle
 Es0 f17 expr out #txt
 Es0 f17 328 672 403 672 #arcP
 Es0 f18 guid 139E297CD5890C15 #txt
-Es0 f18 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
-Es0 f18 actionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
-' #txt
 Es0 f18 actionTable 'out=in;
 ' #txt
 Es0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -217,18 +187,14 @@ Es0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f18 83 499 26 26 -10 12 #rect
-Es0 f18 @|RichDialogProcessStartIcon #fIcon
+Es0 f18 @|UdEventIcon #fIcon
 Es0 f18 -1|-1|-9671572 #nodeStyle
-Es0 f19 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f19 403 499 26 26 0 12 #rect
-Es0 f19 @|RichDialogProcessEndIcon #fIcon
+Es0 f19 @|UdProcessEndIcon #fIcon
 Es0 f19 -1|-1|-9671572 #nodeStyle
-Es0 f21 actionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
-' #txt
 Es0 f21 actionTable 'out=in;
 ' #txt
 Es0 f21 actionCode 'in.recordset.add(new Record(in.recordset.getKeys(), ["", ""]));' #txt
-Es0 f21 type ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData #txt
 Es0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

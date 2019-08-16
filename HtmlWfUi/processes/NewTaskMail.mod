@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Fri Mar 04 16:28:53 CET 2011]
-12E7BFEFCD6D0E30 3.16 #module
+12E7BFEFCD6D0E30 3.28 #module
 >Proto >Proto Collection #zClass
 Nt0 NewTaskMail Big #zClass
 Nt0 B #cInfo
 Nt0 #process
-Nt0 @TextInP .resExport .resExport #zField
 Nt0 @TextInP .type .type #zField
 Nt0 @TextInP .processKind .processKind #zField
 Nt0 @AnnotationInP-0n ai ai #zField
@@ -16,61 +14,21 @@ Nt0 @EndRequest f1 '' #zField
 Nt0 @PushWFArc f2 '' #zField
 >Proto Nt0 Nt0 NewTaskMail #zField
 Nt0 f0 outLink MailNotification_NewTask.ivp #txt
-Nt0 f0 type htmlwfui.NewTaskMail #txt
 Nt0 f0 inParamDecl '<java.lang.Number notificationTaskId,java.lang.Number notificationUserId> param;' #txt
 Nt0 f0 inParamTable 'out.task=ivy.wf.findTask(param.notificationTaskId);
 out.user=ivy.wf.getSecurityContext().findUser(param.notificationUserId);
 ' #txt
-Nt0 f0 actionDecl 'htmlwfui.NewTaskMail out;
-' #txt
-Nt0 f0 guid 129CB772CF9658F0 #txt
 Nt0 f0 requestEnabled true #txt
 Nt0 f0 triggerEnabled false #txt
 Nt0 f0 callSignature MailNotification_NewTask(Number,Number) #txt
 Nt0 f0 persist false #txt
-Nt0 f0 taskData '#
-#Fri Mar 04 16:08:51 CET 2011
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Nt0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Nt0 f0 caseData '#
-#Fri Mar 04 16:08:51 CET 2011
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Nt0 f0 showInStartList 0 #txt
-Nt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Nt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -83,8 +41,7 @@ Nt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Nt0 f0 @C|.responsibility Everybody #txt
 Nt0 f0 91 35 26 26 14 0 #rect
 Nt0 f0 @|StartRequestIcon #fIcon
-Nt0 f1 type htmlwfui.NewTaskMail #txt
-Nt0 f1 template "NewTaskMailContent.ivc" #txt
+Nt0 f1 template "/ProcessPages/NewTaskMail/NewTaskMailContent.ivc" #txt
 Nt0 f1 91 107 26 26 14 0 #rect
 Nt0 f1 @|EndRequestIcon #fIcon
 Nt0 f2 expr out #txt

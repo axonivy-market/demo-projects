@@ -1,10 +1,9 @@
 [Ivy]
-1523FF963044280C 3.25 #module
+1523FF963044280C 3.28 #module
 >Proto >Proto Collection #zClass
 ft0 KeyCardDelivery Big #zClass
 ft0 B #cInfo
 ft0 #process
-ft0 @TextInP .resExport .resExport #zField
 ft0 @TextInP .type .type #zField
 ft0 @TextInP .processKind .processKind #zField
 ft0 @AnnotationInP-0n ai ai #zField
@@ -26,12 +25,9 @@ ft0 @InfoButton f0 '' #zField
 ft0 @AnnotationArc f1 '' #zField
 ft0 @InfoButton f2 '' #zField
 >Proto ft0 ft0 KeyCardDelivery #zField
-ft0 f19 actionDecl 'workflow.signal.FacilityManagementData out;
-' #txt
 ft0 f19 actionTable 'out=in;
 ' #txt
 ft0 f19 actionCode 'ivy.log.debug("delivery of keycard cancelled for user " + in.user.toString() + ", reason: " + in.quitUserEvent.toString());' #txt
-ft0 f19 type workflow.signal.FacilityManagementData #txt
 ft0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -43,16 +39,12 @@ ft0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ft0 f19 336 274 112 44 -38 -8 #rect
 ft0 f19 @|StepIcon #fIcon
-ft0 f6 type workflow.signal.FacilityManagementData #txt
 ft0 f6 361 185 30 30 0 15 #rect
 ft0 f6 @|EndIcon #fIcon
-ft0 f28 actionDecl 'workflow.signal.FacilityManagementData out;
-' #txt
 ft0 f28 actionTable 'out.user=signal.getSignalData() as workflow.signal.User;
 ' #txt
 ft0 f28 actionCode 'ivy.case.setBusinessObjectCode(out.user.userKey);
 ivy.case.setBusinessObjectName(out.user.name);' #txt
-ft0 f28 type workflow.signal.FacilityManagementData #txt
 ft0 f28 signalCode user:createdV2 #txt
 ft0 f28 attachToBusinessCase true #txt
 ft0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -66,7 +58,7 @@ ft0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ft0 f28 105 185 30 30 -36 17 #rect
 ft0 f28 @|SignalStartEventIcon #fIcon
-ft0 f8 richDialogId workflow.signal.TaskForm #txt
+ft0 f8 dialogId workflow.signal.TaskForm #txt
 ft0 f8 startMethod start(workflow.signal.User) #txt
 ft0 f8 requestActionDecl '<workflow.signal.User user> param;' #txt
 ft0 f8 requestMappingAction 'param.user=in.user;
@@ -75,7 +67,6 @@ ft0 f8 responseActionDecl 'workflow.signal.FacilityManagementData out;
 ' #txt
 ft0 f8 responseMappingAction 'out=in;
 ' #txt
-ft0 f8 outLinks "TaskA.ivp" #txt
 ft0 f8 caseData case.category=Facility/ParkingLot/Reservation #txt
 ft0 f8 taskData 'TaskA.CATEGORY=Assign/ParkingLot
 TaskA.DESC=<%\=ivy.cms.co("/TaskDescriptions/DeliverKeyCardDesc")%><%\=in.user.name%> [<%\=in.user.userKey%>]
@@ -87,7 +78,6 @@ TaskA.PRI=2
 TaskA.ROL=Facility Manager
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
-ft0 f8 type workflow.signal.FacilityManagementData #txt
 ft0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -99,7 +89,6 @@ ft0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ft0 f8 192 178 112 44 -45 -8 #rect
 ft0 f8 @|UserTaskIcon #fIcon
-ft0 f23 type workflow.signal.FacilityManagementData #txt
 ft0 f23 489 281 30 30 0 15 #rect
 ft0 f23 @|EndIcon #fIcon
 ft0 f7 expr data #txt
@@ -115,13 +104,10 @@ ft0 f29 expr out #txt
 ft0 f29 type workflow.signal.FacilityManagementData #txt
 ft0 f29 var in2 #txt
 ft0 f29 135 200 192 200 #arcP
-ft0 St0 actionDecl 'workflow.signal.FacilityManagementData out;
-' #txt
 ft0 St0 actionTable 'out=in;
 out.quitUserEvent=signal.getSignalData() as workflow.signal.QuitUserEvent;
 ' #txt
 ft0 St0 actionCode 'ivy.task.setName("CANCEL TASK: " + ivy.task.getName());' #txt
-ft0 St0 type workflow.signal.FacilityManagementData #txt
 ft0 St0 signalCode admin:quitV2:<%=in.user.userKey%> #txt
 ft0 St0 attachedToRef 1523FF963044280C-f8 #txt
 ft0 St0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

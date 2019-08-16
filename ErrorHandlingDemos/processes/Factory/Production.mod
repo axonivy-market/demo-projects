@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Wed Oct 14 16:52:49 CEST 2015]
-1500417E1DADBB7C 3.18 #module
+1500417E1DADBB7C 3.28 #module
 >Proto >Proto Collection #zClass
 fy0 Production Big #zClass
 fy0 B #cInfo
 fy0 #process
-fy0 @TextInP .resExport .resExport #zField
 fy0 @TextInP .type .type #zField
 fy0 @TextInP .processKind .processKind #zField
 fy0 @AnnotationInP-0n ai ai #zField
@@ -31,10 +29,7 @@ out.model=param.model;
 ' #txt
 fy0 f0 outParamDecl '<> result;
 ' #txt
-fy0 f0 actionDecl 'error.handling.demo.FactoryData out;
-' #txt
 fy0 f0 callSignature produceShoes(String,Number) #txt
-fy0 f0 type error.handling.demo.FactoryData #txt
 fy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -47,7 +42,6 @@ fy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 fy0 f0 81 209 30 30 -44 17 #rect
 fy0 f0 @|StartSubIcon #fIcon
-fy0 f1 type error.handling.demo.FactoryData #txt
 fy0 f1 577 209 30 30 0 15 #rect
 fy0 f1 @|EndSubIcon #fIcon
 fy0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -95,25 +89,18 @@ fy0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 fy0 f7 376 202 112 44 -31 -8 #rect
 fy0 f7 @|DBStepIcon #fIcon
-fy0 f3 type error.handling.demo.FactoryData #txt
-fy0 f3 actionDecl 'error.handling.demo.FactoryData out;
-' #txt
 fy0 f3 actionTable 'out=in;
 out.newShoes=wsResponse.produceResponse.nikes;
 ' #txt
 fy0 f3 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
-fy0 f3 timeout 1 #txt
-fy0 f3 beanConfig '"KEY_PASSWORD=
-KEY_AXIS_PORTNAME=NikeFactoryPort
-KEY_WEBSERVICECONFIG_ID=15003F91E5C96948
-KEY_DOMAIN=
-KEY_USERNAME=
-KEY_OPERATION=produce
-KEY_AUTHENTICATION_KIND=0
-KEY_HOST=
-KEY_USE_AUTHENTICATION=false
-KEY_AXIS_CSL_PARAMETER_DATA=""arg0.produce.amount__@@__Integer__@@__200"",""arg0.produce.model__@@__String__@@__""""Super Runners"""""""' #txt
-fy0 f3 returningObjectList '[wsResponse]' #txt
+fy0 f3 clientId 15003F91E5C96948 #txt
+fy0 f3 port NikeFactoryPort #txt
+fy0 f3 operation produce #txt
+fy0 f3 properties 'timeout.timeInSeconds=1;
+' #txt
+fy0 f3 inputParams 'arg0.produce.amount=200;
+arg0.produce.model="Super Runners";
+' #txt
 fy0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -133,12 +120,9 @@ fy0 f6 1 256 320 #addKink
 fy0 f6 0 0.8677905155160192 0 0 #arcLabel
 fy0 f8 expr out #txt
 fy0 f8 288 224 376 224 #arcP
-fy0 Et0 actionDecl 'error.handling.demo.FactoryData out;
-' #txt
 fy0 Et0 actionTable 'out=in;
 out.wsError=error;
 ' #txt
-fy0 Et0 type error.handling.demo.FactoryData #txt
 fy0 Et0 errorCode ivy:error #txt
 fy0 Et0 attachedToRef 1500417E1DADBB7C-f3 #txt
 fy0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

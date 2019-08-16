@@ -1,33 +1,27 @@
 [Ivy]
-[>Created: Thu Jan 28 10:17:32 CET 2016]
-1518C56414655E4F 3.18 #module
+1518C56414655E4F 3.28 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListComponentProcess Big #zClass
 Ts0 RD #cInfo
 Ts0 #process
-Ts0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Ts0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Ts0 @TextInP .resExport .resExport #zField
 Ts0 @TextInP .type .type #zField
 Ts0 @TextInP .processKind .processKind #zField
 Ts0 @AnnotationInP-0n ai ai #zField
 Ts0 @TextInP .xml .xml #zField
 Ts0 @TextInP .responsibility .responsibility #zField
-Ts0 @RichDialogInitStart f0 '' #zField
-Ts0 @RichDialogProcessEnd f1 '' #zField
+Ts0 @UdInit f0 '' #zField
+Ts0 @UdProcessEnd f1 '' #zField
 Ts0 @GridStep f4 '' #zField
 Ts0 @PushWFArc f6 '' #zField
-Ts0 @RichDialogProcessEnd f10 '' #zField
-Ts0 @RichDialogMethodStart f3 '' #zField
+Ts0 @UdProcessEnd f10 '' #zField
+Ts0 @UdMethod f3 '' #zField
 Ts0 @PushWFArc f9 '' #zField
 Ts0 @PushWFArc f15 '' #zField
 Ts0 @GridStep f8 '' #zField
 Ts0 @PushWFArc f2 '' #zField
 >Proto Ts0 Ts0 TaskListComponentProcess #zField
 Ts0 f0 guid 13EE9A482C1E853B #txt
-Ts0 f0 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
 Ts0 f0 method start(String) #txt
-Ts0 f0 disableUIEvents true #txt
 Ts0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.String mode> param = methodEvent.getInputArguments();
 ' #txt
@@ -45,14 +39,11 @@ Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ts0 f0 83 51 26 26 -16 12 #rect
-Ts0 f0 @|RichDialogInitStartIcon #fIcon
+Ts0 f0 @|UdInitIcon #fIcon
 Ts0 f0 -1|-1|-9671572 #nodeStyle
-Ts0 f1 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
 Ts0 f1 339 51 26 26 0 12 #rect
-Ts0 f1 @|RichDialogProcessEndIcon #fIcon
+Ts0 f1 @|UdProcessEndIcon #fIcon
 Ts0 f1 -1|-1|-9671572 #nodeStyle
-Ts0 f4 actionDecl 'ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData out;
-' #txt
 Ts0 f4 actionTable 'out=in;
 ' #txt
 Ts0 f4 actionCode 'import ch.ivyteam.wf.common.AdminTaskLazyDataModel;
@@ -76,7 +67,6 @@ out.prios = WorkflowPriority.values();
 
 ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
 r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl", "ivy.html.DefaultTaskListPage");' #txt
-Ts0 f4 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
 Ts0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -92,14 +82,11 @@ Ts0 f4 @|StepIcon #fIcon
 Ts0 f4 -1|-1|-9671572 #nodeStyle
 Ts0 f6 expr out #txt
 Ts0 f6 109 64 168 64 #arcP
-Ts0 f10 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
 Ts0 f10 339 147 26 26 0 12 #rect
-Ts0 f10 @|RichDialogProcessEndIcon #fIcon
+Ts0 f10 @|UdProcessEndIcon #fIcon
 Ts0 f10 -1|-1|-9671572 #nodeStyle
 Ts0 f3 guid 13F61412866CB9E5 #txt
-Ts0 f3 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
 Ts0 f3 method update() #txt
-Ts0 f3 disableUIEvents false #txt
 Ts0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -113,14 +100,12 @@ Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ts0 f3 83 147 26 26 -23 12 #rect
-Ts0 f3 @|RichDialogMethodStartIcon #fIcon
+Ts0 f3 @|UdMethodIcon #fIcon
 Ts0 f3 -1|-1|-9671572 #nodeStyle
 Ts0 f9 expr out #txt
 Ts0 f9 109 160 168 160 #arcP
 Ts0 f15 expr out #txt
 Ts0 f15 280 160 339 160 #arcP
-Ts0 f8 actionDecl 'ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData out;
-' #txt
 Ts0 f8 actionTable 'out=in;
 ' #txt
 Ts0 f8 actionCode 'import ch.ivyteam.ivy.security.IUser;
@@ -154,7 +139,6 @@ if(in.mode.equals("admin"))
 		}
 	}	
 }' #txt
-Ts0 f8 type ch.ivyteam.wf.components.TaskListComponent.TaskListComponentData #txt
 Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

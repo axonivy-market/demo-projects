@@ -1,26 +1,20 @@
 [Ivy]
-[>Created: Tue May 06 12:15:45 CEST 2014]
-14377E60D299F34F 3.17 #module
+14377E60D299F34F 3.28 #module
 >Proto >Proto Collection #zClass
 Es0 JsfCompositeComponentDemoProcess Big #zClass
 Es0 RD #cInfo
 Es0 #process
-Es0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Es0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Es0 @TextInP .resExport .resExport #zField
 Es0 @TextInP .type .type #zField
 Es0 @TextInP .processKind .processKind #zField
 Es0 @AnnotationInP-0n ai ai #zField
 Es0 @TextInP .xml .xml #zField
 Es0 @TextInP .responsibility .responsibility #zField
-Es0 @RichDialogInitStart f0 '' #zField
-Es0 @RichDialogProcessEnd f1 '' #zField
+Es0 @UdInit f0 '' #zField
+Es0 @UdProcessEnd f1 '' #zField
 Es0 @PushWFArc f2 '' #zField
 >Proto Es0 Es0 JsfCompositeComponentDemoProcess #zField
 Es0 f0 guid 139D96A574FD8C6C #txt
-Es0 f0 type ch.ivyteam.htmldialog.demo.component.JsfCompositeComponentDemo.JsfCompositeComponentDemoData #txt
 Es0 f0 method start() #txt
-Es0 f0 disableUIEvents true #txt
 Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -43,11 +37,10 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f0 83 51 26 26 -16 12 #rect
-Es0 f0 @|RichDialogInitStartIcon #fIcon
+Es0 f0 @|UdInitIcon #fIcon
 Es0 f0 -1|-1|-9671572 #nodeStyle
-Es0 f1 type ch.ivyteam.htmldialog.demo.component.JsfCompositeComponentDemo.JsfCompositeComponentDemoData #txt
 Es0 f1 211 51 26 26 0 12 #rect
-Es0 f1 @|RichDialogProcessEndIcon #fIcon
+Es0 f1 @|UdProcessEndIcon #fIcon
 Es0 f1 -1|-1|-9671572 #nodeStyle
 Es0 f2 expr out #txt
 Es0 f2 109 64 211 64 #arcP

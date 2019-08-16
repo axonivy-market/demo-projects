@@ -1,13 +1,9 @@
 [Ivy]
-[>Created: Thu Sep 01 15:52:16 CEST 2016]
-156DBAA5DDFCA84E 3.18 #module
+156DBAA5DDFCA84E 3.28 #module
 >Proto >Proto Collection #zClass
 Vs0 ViewAddressProcess Big #zClass
 Vs0 RD #cInfo
 Vs0 #process
-Vs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Vs0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Vs0 @TextInP .resExport .resExport #zField
 Vs0 @TextInP .type .type #zField
 Vs0 @TextInP .processKind .processKind #zField
 Vs0 @AnnotationInP-0n ai ai #zField
@@ -15,22 +11,18 @@ Vs0 @MessageFlowInP-0n messageIn messageIn #zField
 Vs0 @MessageFlowOutP-0n messageOut messageOut #zField
 Vs0 @TextInP .xml .xml #zField
 Vs0 @TextInP .responsibility .responsibility #zField
-Vs0 @RichDialogProcessEnd f1 '' #zField
-Vs0 @RichDialogProcessStart f3 '' #zField
-Vs0 @RichDialogEnd f4 '' #zField
+Vs0 @UdProcessEnd f1 '' #zField
+Vs0 @UdEvent f3 '' #zField
+Vs0 @UdExitEnd f4 '' #zField
 Vs0 @PushWFArc f5 '' #zField
-Vs0 @RichDialogInitStart f6 '' #zField
+Vs0 @UdInit f6 '' #zField
 Vs0 @GridStep f2 '' #zField
 Vs0 @PushWFArc f7 '' #zField
 Vs0 @PushWFArc f0 '' #zField
 >Proto Vs0 Vs0 ViewAddressProcess #zField
-Vs0 f1 type workflow.businessdata.ViewAddress.ViewAddressData #txt
 Vs0 f1 339 51 26 26 0 12 #rect
-Vs0 f1 @|RichDialogProcessEndIcon #fIcon
+Vs0 f1 @|UdProcessEndIcon #fIcon
 Vs0 f3 guid 156DBAA5E03CA2BA #txt
-Vs0 f3 type workflow.businessdata.ViewAddress.ViewAddressData #txt
-Vs0 f3 actionDecl 'workflow.businessdata.ViewAddress.ViewAddressData out;
-' #txt
 Vs0 f3 actionTable 'out=in;
 ' #txt
 Vs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -41,17 +33,13 @@ Vs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Vs0 f3 83 147 26 26 -14 12 #rect
-Vs0 f3 @|RichDialogProcessStartIcon #fIcon
-Vs0 f4 type workflow.businessdata.ViewAddress.ViewAddressData #txt
-Vs0 f4 guid 156DBAA5E046C99F #txt
+Vs0 f3 @|UdEventIcon #fIcon
 Vs0 f4 211 147 26 26 0 12 #rect
-Vs0 f4 @|RichDialogEndIcon #fIcon
+Vs0 f4 @|UdExitEndIcon #fIcon
 Vs0 f5 expr out #txt
 Vs0 f5 109 160 211 160 #arcP
 Vs0 f6 guid 156DF607CBBFB119 #txt
-Vs0 f6 type workflow.businessdata.ViewAddress.ViewAddressData #txt
 Vs0 f6 method start(String) #txt
-Vs0 f6 disableUIEvents true #txt
 Vs0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.String id> param = methodEvent.getInputArguments();
 ' #txt
@@ -69,15 +57,12 @@ Vs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Vs0 f6 83 51 26 26 -33 15 #rect
-Vs0 f6 @|RichDialogInitStartIcon #fIcon
-Vs0 f2 actionDecl 'workflow.businessdata.ViewAddress.ViewAddressData out;
-' #txt
+Vs0 f6 @|UdInitIcon #fIcon
 Vs0 f2 actionTable 'out=in;
 ' #txt
 Vs0 f2 actionCode 'import workflow.businessdata.Address;
 
 in.address = ivy.repo.find(in.addressId, Address.class) as Address;' #txt
-Vs0 f2 type workflow.businessdata.ViewAddress.ViewAddressData #txt
 Vs0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

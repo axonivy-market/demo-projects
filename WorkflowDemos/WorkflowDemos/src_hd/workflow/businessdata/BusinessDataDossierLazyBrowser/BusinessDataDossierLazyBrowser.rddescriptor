@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
-    <startMethod>
-        <name>start</name>
-        <description></description>
-    </startMethod>
     <property>
         <name>guid</name>
         <value>1576AF3D55E90502</value>

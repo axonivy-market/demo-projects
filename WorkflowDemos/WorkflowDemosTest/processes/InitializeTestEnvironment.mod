@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Tue Apr 25 11:58:48 CEST 2017]
-1537FF3C3382D47F 3.20 #module
+1537FF3C3382D47F 3.28 #module
 >Proto >Proto Collection #zClass
 LO0 InitializeTestEnvironment Big #zClass
 LO0 B #cInfo
 LO0 #process
-LO0 @TextInP .resExport .resExport #zField
 LO0 @TextInP .type .type #zField
 LO0 @TextInP .processKind .processKind #zField
 LO0 @AnnotationInP-0n ai ai #zField
@@ -25,11 +23,7 @@ LO0 @PushWFArc f9 '' #zField
 LO0 @PushWFArc f7 '' #zField
 >Proto LO0 LO0 InitializeTestEnvironment #zField
 LO0 f0 outLink start.ivp #txt
-LO0 f0 type workflow.demos.test.Data #txt
 LO0 f0 inParamDecl '<> param;' #txt
-LO0 f0 actionDecl 'workflow.demos.test.Data out;
-' #txt
-LO0 f0 guid 1537FF3C37670645 #txt
 LO0 f0 requestEnabled true #txt
 LO0 f0 triggerEnabled false #txt
 LO0 f0 callSignature start() #txt
@@ -43,11 +37,8 @@ LO0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 LO0 f0 @C|.responsibility Everybody #txt
 LO0 f0 81 49 30 30 -21 17 #rect
 LO0 f0 @|StartRequestIcon #fIcon
-LO0 f1 type workflow.demos.test.Data #txt
 LO0 f1 433 49 30 30 0 15 #rect
 LO0 f1 @|EndIcon #fIcon
-LO0 f3 actionDecl 'workflow.demos.test.Data out;
-' #txt
 LO0 f3 actionCode 'import ch.ivyteam.ivy.security.*;
 
 ivy.session.loginSessionUser("admin","admin");
@@ -55,7 +46,6 @@ ivy.session.loginSessionUser("admin","admin");
 IRole role = ivy.session.getSecurityContext().findRole("HR Manager");
 ivy.session.assignRole(role);' #txt
 LO0 f3 security system #txt
-LO0 f3 type workflow.demos.test.Data #txt
 LO0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -72,21 +62,17 @@ LO0 f2 400 64 433 64 #arcP
 LO0 f4 expr out #txt
 LO0 f4 111 64 240 64 #arcP
 LO0 f5 outLink clearDemoDossiers.ivp #txt
-LO0 f5 type workflow.demos.test.Data #txt
 LO0 f5 inParamDecl '<> param;' #txt
-LO0 f5 actionDecl 'workflow.demos.test.Data out;
-' #txt
-LO0 f5 guid 15BA48BF853F4C61 #txt
 LO0 f5 requestEnabled true #txt
 LO0 f5 triggerEnabled false #txt
 LO0 f5 callSignature clearDemoDossiers() #txt
 LO0 f5 persist false #txt
-LO0 f5 taskData 'TaskTriggered.ROL=Everybody
+LO0 f5 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 LO0 f5 caseData businessCase.attach=true #txt
 LO0 f5 showInStartList 1 #txt
 LO0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -99,16 +85,12 @@ LO0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 LO0 f5 @C|.responsibility Everybody #txt
 LO0 f5 81 145 30 30 -71 17 #rect
 LO0 f5 @|StartRequestIcon #fIcon
-LO0 f6 type workflow.demos.test.Data #txt
 LO0 f6 433 145 30 30 0 15 #rect
 LO0 f6 @|EndIcon #fIcon
-LO0 f8 actionDecl 'workflow.demos.test.Data out;
-' #txt
 LO0 f8 actionTable 'out=in;
 ' #txt
 LO0 f8 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.DemoDataCreator;
 DemoDataCreator.clearDemoData();' #txt
-LO0 f8 type workflow.demos.test.Data #txt
 LO0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

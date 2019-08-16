@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Wed Oct 14 17:01:57 CEST 2015]
-150047A1589EB0D8 3.18 #module
+150047A1589EB0D8 3.28 #module
 >Proto >Proto Collection #zClass
 or0 Booking Big #zClass
 or0 B #cInfo
 or0 #process
-or0 @TextInP .resExport .resExport #zField
 or0 @TextInP .type .type #zField
 or0 @TextInP .processKind .processKind #zField
 or0 @AnnotationInP-0n ai ai #zField
@@ -14,7 +12,7 @@ or0 @MessageFlowOutP-0n messageOut messageOut #zField
 or0 @TextInP .xml .xml #zField
 or0 @TextInP .responsibility .responsibility #zField
 or0 @StartRequest f0 '' #zField
-or0 @RichDialog f3 '' #zField
+or0 @UserDialog f3 '' #zField
 or0 @PushWFArc f4 '' #zField
 or0 @CallSub f5 '' #zField
 or0 @PushWFArc f6 '' #zField
@@ -34,35 +32,22 @@ or0 @EndRequest f14 '' #zField
 or0 @PushWFArc f15 '' #zField
 >Proto or0 or0 Booking #zField
 or0 f0 outLink start.ivp #txt
-or0 f0 type booking.BookingData #txt
 or0 f0 inParamDecl '<> param;' #txt
 or0 f0 inParamTable 'out.customer.firstname="John";
 out.customer.lastname="Smith";
 ' #txt
-or0 f0 actionDecl 'booking.BookingData out;
-' #txt
-or0 f0 guid 150047A159BBFF10 #txt
 or0 f0 requestEnabled true #txt
 or0 f0 triggerEnabled false #txt
 or0 f0 callSignature start() #txt
 or0 f0 persist false #txt
 or0 f0 startName 'Business Error interrupts the happy path and calls rollback activities' #txt
-or0 f0 taskData 'TaskTriggered.ROL=Everybody
+or0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 or0 f0 showInStartList 1 #txt
-or0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -75,11 +60,8 @@ or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 or0 f0 @C|.responsibility Everybody #txt
 or0 f0 33 113 30 30 -21 17 #rect
 or0 f0 @|StartRequestIcon #fIcon
-or0 f3 targetWindow NEW:card: #txt
-or0 f3 targetDisplay TOP #txt
-or0 f3 richDialogId error.handling.demo.SelectOptions #txt
+or0 f3 dialogId error.handling.demo.SelectOptions #txt
 or0 f3 startMethod start(booking.Customer) #txt
-or0 f3 type booking.BookingData #txt
 or0 f3 requestActionDecl '<booking.Customer customer> param;' #txt
 or0 f3 requestMappingAction 'param.customer=in.customer;
 ' #txt
@@ -89,10 +71,6 @@ or0 f3 responseMappingAction 'out=in;
 out.carSize=result.carSize;
 out.flight=result.flight;
 ' #txt
-or0 f3 windowConfiguration '* ' #txt
-or0 f3 isAsynch false #txt
-or0 f3 isInnerRd false #txt
-or0 f3 userContext '* ' #txt
 or0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -105,12 +83,10 @@ flight &amp; car</name>
 </elementInfo>
 ' #txt
 or0 f3 112 106 112 44 -28 -16 #rect
-or0 f3 @|RichDialogIcon #fIcon
+or0 f3 @|UserDialogIcon #fIcon
 or0 f4 expr out #txt
 or0 f4 63 128 112 128 #arcP
-or0 f5 type booking.BookingData #txt
 or0 f5 processCall Booking/Service/Flight:bookFlight(booking.Flight,booking.Customer) #txt
-or0 f5 doCall true #txt
 or0 f5 requestActionDecl '<booking.Flight flight,booking.Customer customer> param;
 ' #txt
 or0 f5 responseActionDecl 'booking.BookingData out;
@@ -130,9 +106,7 @@ or0 f5 264 106 112 44 -28 -8 #rect
 or0 f5 @|CallSubIcon #fIcon
 or0 f6 expr out #txt
 or0 f6 224 128 264 128 #arcP
-or0 f7 type booking.BookingData #txt
 or0 f7 processCall Booking/Service/Car:bookCar(String) #txt
-or0 f7 doCall true #txt
 or0 f7 requestActionDecl '<java.lang.String size> param;
 ' #txt
 or0 f7 responseActionDecl 'booking.BookingData out;
@@ -152,11 +126,8 @@ or0 f7 424 106 112 44 -23 -8 #rect
 or0 f7 @|CallSubIcon #fIcon
 or0 f8 expr out #txt
 or0 f8 376 128 424 128 #arcP
-or0 Et0 actionDecl 'booking.BookingData out;
-' #txt
 or0 Et0 actionTable 'out=in;
 ' #txt
-or0 Et0 type booking.BookingData #txt
 or0 Et0 errorCode booking:flight:failed #txt
 or0 Et0 attachedToRef 150047A1589EB0D8-f5 #txt
 or0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -170,11 +141,8 @@ or0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 or0 Et0 337 145 30 30 19 0 #rect
 or0 Et0 @|ErrorBoundaryEventIcon #fIcon
-or0 Et1 actionDecl 'booking.BookingData out;
-' #txt
 or0 Et1 actionTable 'out=in;
 ' #txt
-or0 Et1 type booking.BookingData #txt
 or0 Et1 errorCode booking:car:failed #txt
 or0 Et1 attachedToRef 150047A1589EB0D8-f7 #txt
 or0 Et1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -188,7 +156,6 @@ or0 Et1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 or0 Et1 497 145 30 30 18 1 #rect
 or0 Et1 @|ErrorBoundaryEventIcon #fIcon
-or0 f9 type booking.BookingData #txt
 or0 f9 template "" #txt
 or0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -204,9 +171,7 @@ or0 f9 @|EndRequestIcon #fIcon
 or0 f10 352 175 737 288 #arcP
 or0 f10 1 352 288 #addKink
 or0 f10 1 0.30904127690867544 0 0 #arcLabel
-or0 f11 type booking.BookingData #txt
 or0 f11 processCall Booking/Service/Flight:cancelFlight(booking.Flight,booking.Customer) #txt
-or0 f11 doCall true #txt
 or0 f11 requestActionDecl '<booking.Flight flight,booking.Customer customer> param;
 ' #txt
 or0 f11 responseActionDecl 'booking.BookingData out;
@@ -265,7 +230,6 @@ The Happy Path is interrupted and
 or0 f16 64 18 336 60 -158 -26 #rect
 or0 f16 @|IBIcon #fIcon
 or0 f16 -1|-1|-65536 #nodeStyle
-or0 f14 type booking.BookingData #txt
 or0 f14 template "" #txt
 or0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

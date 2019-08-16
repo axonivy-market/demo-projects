@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Mon Sep 28 16:35:05 CEST 2015]
-1500482C30B7492E 3.18 #module
+1500482C30B7492E 3.28 #module
 >Proto >Proto Collection #zClass
 et0 Flight Big #zClass
 et0 B #cInfo
 et0 #process
-et0 @TextInP .resExport .resExport #zField
 et0 @TextInP .type .type #zField
 et0 @TextInP .processKind .processKind #zField
 et0 @AnnotationInP-0n ai ai #zField
@@ -32,10 +30,7 @@ et0 @PushWFArc f12 '' #zField
 et0 f0 inParamDecl '<booking.Flight flight,booking.Customer customer> param;' #txt
 et0 f0 outParamDecl '<> result;
 ' #txt
-et0 f0 actionDecl 'booking.EasyjetData out;
-' #txt
 et0 f0 callSignature bookFlight(booking.Flight,booking.Customer) #txt
-et0 f0 type booking.EasyjetData #txt
 et0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -48,18 +43,11 @@ et0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 et0 f0 81 49 30 30 -48 17 #rect
 et0 f0 @|StartSubIcon #fIcon
-et0 f1 type booking.EasyjetData #txt
 et0 f1 497 49 30 30 0 15 #rect
 et0 f1 @|EndSubIcon #fIcon
-et0 f3 type booking.EasyjetData #txt
-et0 f3 actionDecl 'booking.EasyjetData out;
-' #txt
 et0 f3 actionTable 'out=in;
 ' #txt
 et0 f3 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
-et0 f3 timeout 0 #txt
-et0 f3 beanConfig "" #txt
-et0 f3 returningObjectList '[]' #txt
 et0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -73,15 +61,9 @@ et0 f3 168 42 112 44 -48 -8 #rect
 et0 f3 @|WebServiceIcon #fIcon
 et0 f4 expr out #txt
 et0 f4 111 64 168 64 #arcP
-et0 f5 type booking.EasyjetData #txt
-et0 f5 actionDecl 'booking.EasyjetData out;
-' #txt
 et0 f5 actionTable 'out=in;
 ' #txt
 et0 f5 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
-et0 f5 timeout 0 #txt
-et0 f5 beanConfig "" #txt
-et0 f5 returningObjectList '[]' #txt
 et0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -97,13 +79,9 @@ et0 f6 expr out #txt
 et0 f6 280 64 328 64 #arcP
 et0 f2 expr out #txt
 et0 f2 440 64 497 64 #arcP
-et0 f7 .resExport export #txt
-et0 f7 actionDecl 'booking.EasyjetData out;
-' #txt
 et0 f7 actionTable 'out=in;
 out.wsError=error;
 ' #txt
-et0 f7 type booking.EasyjetData #txt
 et0 f7 errorCode ivy:error:webservice #txt
 et0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -134,10 +112,7 @@ et0 f9 239 160 369 160 #arcP
 et0 f10 inParamDecl '<booking.Flight flight,booking.Customer customer> param;' #txt
 et0 f10 outParamDecl '<> result;
 ' #txt
-et0 f10 actionDecl 'booking.EasyjetData out;
-' #txt
 et0 f10 callSignature cancelFlight(booking.Flight,booking.Customer) #txt
-et0 f10 type booking.EasyjetData #txt
 et0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -150,18 +125,11 @@ et0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 et0 f10 81 273 30 30 -48 17 #rect
 et0 f10 @|StartSubIcon #fIcon
-et0 f11 type booking.EasyjetData #txt
 et0 f11 497 273 30 30 0 15 #rect
 et0 f11 @|EndSubIcon #fIcon
-et0 f13 type booking.EasyjetData #txt
-et0 f13 actionDecl 'booking.EasyjetData out;
-' #txt
 et0 f13 actionTable 'out=in;
 ' #txt
 et0 f13 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
-et0 f13 timeout 0 #txt
-et0 f13 beanConfig "" #txt
-et0 f13 returningObjectList '[]' #txt
 et0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

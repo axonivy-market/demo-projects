@@ -1,10 +1,9 @@
 [Ivy]
-15A852737BAA2982 3.25 #module
+15A852737BAA2982 3.28 #module
 >Proto >Proto Collection #zClass
 A10 ApproveLevel1 Big #zClass
 A10 B #cInfo
 A10 #process
-A10 @TextInP .resExport .resExport #zField
 A10 @TextInP .type .type #zField
 A10 @TextInP .processKind .processKind #zField
 A10 @AnnotationInP-0n ai ai #zField
@@ -16,16 +15,12 @@ A10 @StartRequest f0 '' #zField
 A10 @EndTask f1 '' #zField
 A10 @GridStep f3 '' #zField
 A10 @PushWFArc f2 '' #zField
-A10 @RichDialog f5 '' #zField
+A10 @UserDialog f5 '' #zField
 A10 @PushWFArc f6 '' #zField
 A10 @PushWFArc f4 '' #zField
 >Proto A10 A10 ApproveLevel1 #zField
 A10 f0 outLink start.ivp #txt
-A10 f0 type workflow.humantask.Data #txt
 A10 f0 inParamDecl '<> param;' #txt
-A10 f0 actionDecl 'workflow.humantask.Data out;
-' #txt
-A10 f0 guid 15A852737C247062 #txt
 A10 f0 requestEnabled true #txt
 A10 f0 triggerEnabled false #txt
 A10 f0 callSignature start() #txt
@@ -53,15 +48,11 @@ A10 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 A10 f0 @C|.responsibility Everybody #txt
 A10 f0 81 49 30 30 -21 17 #rect
 A10 f0 @|StartRequestIcon #fIcon
-A10 f1 type workflow.humantask.Data #txt
 A10 f1 505 49 30 30 0 15 #rect
 A10 f1 @|EndIcon #fIcon
-A10 f3 actionDecl 'workflow.humantask.Data out;
-' #txt
 A10 f3 actionTable 'out=in;
 ' #txt
 A10 f3 actionCode 'ivy.log.info("Business Process is in Stage " + ivy.case.getBusinessCase().getStage().getName());' #txt
-A10 f3 type workflow.humantask.Data #txt
 A10 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -75,17 +66,11 @@ A10 f3 328 42 112 44 -25 -8 #rect
 A10 f3 @|StepIcon #fIcon
 A10 f2 expr out #txt
 A10 f2 440 64 505 64 #arcP
-A10 f5 targetWindow NEW #txt
-A10 f5 targetDisplay TOP #txt
-A10 f5 richDialogId workflow.credit.ApproveLevel1 #txt
+A10 f5 dialogId workflow.credit.ApproveLevel1 #txt
 A10 f5 startMethod start() #txt
-A10 f5 type workflow.humantask.Data #txt
 A10 f5 requestActionDecl '<> param;' #txt
 A10 f5 responseActionDecl 'workflow.humantask.Data out;
 ' #txt
-A10 f5 isAsynch false #txt
-A10 f5 isInnerRd false #txt
-A10 f5 userContext '* ' #txt
 A10 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -98,7 +83,7 @@ Level 1</name>
 </elementInfo>
 ' #txt
 A10 f5 168 42 112 44 -22 -16 #rect
-A10 f5 @|RichDialogIcon #fIcon
+A10 f5 @|UserDialogIcon #fIcon
 A10 f6 expr out #txt
 A10 f6 111 64 168 64 #arcP
 A10 f6 0 0.7758833401611239 0 0 #arcLabel

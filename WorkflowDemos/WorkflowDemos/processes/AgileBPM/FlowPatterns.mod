@@ -1,5 +1,5 @@
 [Ivy]
-152551002ABB8DFE 3.25 #module
+152551002ABB8DFE 3.28 #module
 >Proto >Proto Collection #zClass
 To0 FlowPatterns Big #zClass
 To0 B #cInfo
@@ -20,7 +20,6 @@ Bk6 BpmnUserTask Big #zClass
 Bk6 BpmnUserTask #cInfo
 To0 @PushWFArc f2 '' #zField
 To0 Bk4 U31 'User 3' #zField
-To0 @TextInP .resExport .resExport #zField
 To0 @TextInP .type .type #zField
 To0 @TextInP .processKind .processKind #zField
 To0 @AnnotationInP-0n ai ai #zField
@@ -31,13 +30,13 @@ To0 @TextInP .responsibility .responsibility #zField
 To0 @StartRequest f0 '' #zField
 To0 @EndTask f1 '' #zField
 To0 Bk0 U10 'User 1' #zField
-To0 @RichDialog f5 '' #zField
+To0 @UserDialog f5 '' #zField
 To0 @PushWFArc f6 '' #zField
 To0 @PushWFArc f3 '' #zField
 To0 Bk1 U20 'User 2' #zField
 To0 @StartRequest f4 '' #zField
 To0 Bk2 U11 'User 1' #zField
-To0 @RichDialog f7 '' #zField
+To0 @UserDialog f7 '' #zField
 To0 Bk3 U21 'User 2' #zField
 To0 @EndTask f8 '' #zField
 To0 @PushWFArc f9 '' #zField
@@ -48,7 +47,7 @@ To0 @InfoButton f14 '' #zField
 To0 Bk5 U12 'User 1' #zField
 To0 Bk6 U13 'User 1' #zField
 To0 @StartRequest f15 '' #zField
-To0 @RichDialog f16 '' #zField
+To0 @UserDialog f16 '' #zField
 To0 @EndTask f17 '' #zField
 To0 @EMail f18 '' #zField
 To0 @PushWFArc f19 '' #zField
@@ -62,7 +61,6 @@ To0 @PushWFArc f10 '' #zField
 To0 @PushWFArc f26 '' #zField
 To0 @InfoButton f27 '' #zField
 >Proto To0 To0 FlowPatterns #zField
-Bk4 @TextInP .resExport .resExport #zField
 Bk4 @TextInP .type .type #zField
 Bk4 @TextInP .processKind .processKind #zField
 Bk4 @AnnotationInP-0n ai ai #zField
@@ -75,7 +73,6 @@ Bk4 @EndTask f1 '' #zField
 Bk4 @PushWFArc f2 '' #zField
 Bk4 @InfoButton f3 '' #zField
 >Proto Bk4 Bk0 BpmnUserTask #zField
-Bk0 @TextInP .resExport .resExport #zField
 Bk0 @TextInP .type .type #zField
 Bk0 @TextInP .processKind .processKind #zField
 Bk0 @AnnotationInP-0n ai ai #zField
@@ -88,7 +85,6 @@ Bk0 @PushTrueWFOutG-01 g1 '' #zField
 Bk0 @PushWFArc f0 '' #zField
 Bk0 @InfoButton f3 '' #zField
 >Proto Bk0 Bk1 BpmnUserTask #zField
-Bk1 @TextInP .resExport .resExport #zField
 Bk1 @TextInP .type .type #zField
 Bk1 @TextInP .processKind .processKind #zField
 Bk1 @AnnotationInP-0n ai ai #zField
@@ -101,7 +97,6 @@ Bk1 @EndTask f0 '' #zField
 Bk1 @PushWFArc f1 '' #zField
 Bk1 @InfoButton f3 '' #zField
 >Proto Bk1 Bk2 BpmnUserTask #zField
-Bk2 @TextInP .resExport .resExport #zField
 Bk2 @TextInP .type .type #zField
 Bk2 @TextInP .processKind .processKind #zField
 Bk2 @AnnotationInP-0n ai ai #zField
@@ -114,7 +109,6 @@ Bk2 @PushTrueWFOutG-01 g1 '' #zField
 Bk2 @PushWFArc f0 '' #zField
 Bk2 @InfoButton f3 '' #zField
 >Proto Bk2 Bk3 BpmnUserTask #zField
-Bk3 @TextInP .resExport .resExport #zField
 Bk3 @TextInP .type .type #zField
 Bk3 @TextInP .processKind .processKind #zField
 Bk3 @AnnotationInP-0n ai ai #zField
@@ -131,7 +125,6 @@ Bk3 @PushWFArc f0 '' #zField
 Bk3 @PushWFArc f3 '' #zField
 Bk3 @InfoButton f4 '' #zField
 >Proto Bk3 Bk4 BpmnUserTask #zField
-Bk5 @TextInP .resExport .resExport #zField
 Bk5 @TextInP .type .type #zField
 Bk5 @TextInP .processKind .processKind #zField
 Bk5 @AnnotationInP-0n ai ai #zField
@@ -144,7 +137,6 @@ Bk5 @StartRequest f0 '' #zField
 Bk5 @PushWFArc f2 '' #zField
 Bk5 @InfoButton f3 '' #zField
 >Proto Bk5 Bk5 BpmnUserTask #zField
-Bk6 @TextInP .resExport .resExport #zField
 Bk6 @TextInP .type .type #zField
 Bk6 @TextInP .processKind .processKind #zField
 Bk6 @AnnotationInP-0n ai ai #zField
@@ -158,7 +150,6 @@ Bk6 @PushWFArc f0 '' #zField
 Bk6 @InfoButton f3 '' #zField
 >Proto Bk6 Bk6 BpmnUserTask #zField
 To0 f2 408 208 457 208 #arcP
-To0 U31 .resExport export #txt
 To0 U31 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -173,11 +164,7 @@ To0 U31 304 194 112 44 -28 -16 #rect
 To0 U31 @|BpmnUserTaskIcon #fIcon
 To0 U31 -1|-1|-13016147 #nodeStyle
 To0 f0 outLink start.ivp #txt
-To0 f0 type workflow.agileBPM.Data #txt
 To0 f0 inParamDecl '<> param;' #txt
-To0 f0 actionDecl 'workflow.agileBPM.Data out;
-' #txt
-To0 f0 guid 14ACEFC7EEC1F2D9 #txt
 To0 f0 requestEnabled true #txt
 To0 f0 triggerEnabled false #txt
 To0 f0 callSignature start() #txt
@@ -200,10 +187,8 @@ start.ivp</name>
 To0 f0 @C|.responsibility Everybody #txt
 To0 f0 81 193 30 30 -21 17 #rect
 To0 f0 @|StartRequestIcon #fIcon
-To0 f1 type workflow.agileBPM.Data #txt
 To0 f1 457 193 30 30 0 15 #rect
 To0 f1 @|EndIcon #fIcon
-To0 U10 .resExport export #txt
 To0 U10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -217,20 +202,13 @@ ToDo task</name>
 To0 U10 296 186 112 44 -28 -16 #rect
 To0 U10 @|BpmnUserTaskIcon #fIcon
 To0 U10 -1|-1|-13016147 #nodeStyle
-To0 f5 targetWindow NEW:card: #txt
-To0 f5 targetDisplay TOP #txt
-To0 f5 richDialogId workflow.agileBPM.test #txt
+To0 f5 dialogId workflow.agileBPM.test #txt
 To0 f5 startMethod start(String) #txt
-To0 f5 type workflow.agileBPM.Data #txt
 To0 f5 requestActionDecl '<String answer> param;' #txt
 To0 f5 responseActionDecl 'workflow.agileBPM.Data out;
 ' #txt
 To0 f5 responseMappingAction 'out=in;
 ' #txt
-To0 f5 windowConfiguration '* ' #txt
-To0 f5 isAsynch false #txt
-To0 f5 isInnerRd false #txt
-To0 f5 userContext '* ' #txt
 To0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -242,12 +220,11 @@ Request Form</name>
 </elementInfo>
 ' #txt
 To0 f5 152 186 112 44 -39 -16 #rect
-To0 f5 @|RichDialogIcon #fIcon
+To0 f5 @|UserDialogIcon #fIcon
 To0 f6 expr out #txt
 To0 f6 111 208 152 208 #arcP
 To0 f3 expr out #txt
 To0 f3 264 208 296 208 #arcP
-To0 U20 .resExport export #txt
 To0 U20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -263,11 +240,7 @@ To0 U20 @|BpmnUserTaskIcon #fIcon
 To0 U20 g0 -9 -22 #fFoot
 To0 U20 -1|-1|-13016147 #nodeStyle
 To0 f4 outLink start2.ivp #txt
-To0 f4 type workflow.agileBPM.Data #txt
 To0 f4 inParamDecl '<> param;' #txt
-To0 f4 actionDecl 'workflow.agileBPM.Data out;
-' #txt
-To0 f4 guid 14AE30C1C766C5AC #txt
 To0 f4 requestEnabled false #txt
 To0 f4 triggerEnabled false #txt
 To0 f4 callSignature start2() #txt
@@ -291,7 +264,6 @@ To0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 To0 f4 @C|.responsibility Everybody #txt
 To0 f4 81 425 30 30 -3 17 #rect
 To0 f4 @|StartRequestIcon #fIcon
-To0 U11 .resExport export #txt
 To0 U11 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -304,20 +276,13 @@ get response</name>
 ' #txt
 To0 U11 496 418 112 44 -36 -16 #rect
 To0 U11 @|BpmnUserTaskIcon #fIcon
-To0 f7 targetWindow NEW:card: #txt
-To0 f7 targetDisplay TOP #txt
-To0 f7 richDialogId workflow.agileBPM.test #txt
+To0 f7 dialogId workflow.agileBPM.test #txt
 To0 f7 startMethod start(String) #txt
-To0 f7 type workflow.agileBPM.Data #txt
 To0 f7 requestActionDecl '<String answer> param;' #txt
 To0 f7 responseActionDecl 'workflow.agileBPM.Data out;
 ' #txt
 To0 f7 responseMappingAction 'out=in;
 ' #txt
-To0 f7 windowConfiguration '* ' #txt
-To0 f7 isAsynch false #txt
-To0 f7 isInnerRd false #txt
-To0 f7 userContext '* ' #txt
 To0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -329,8 +294,7 @@ Question Form</name>
 </elementInfo>
 ' #txt
 To0 f7 152 418 128 44 -40 -16 #rect
-To0 f7 @|RichDialogIcon #fIcon
-To0 U21 .resExport export #txt
+To0 f7 @|UserDialogIcon #fIcon
 To0 U21 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -344,7 +308,6 @@ answer question</name>
 To0 U21 312 418 128 44 -43 -16 #rect
 To0 U21 @|BpmnUserTaskIcon #fIcon
 To0 U21 -1|-1|-13016147 #nodeStyle
-To0 f8 type workflow.agileBPM.Data #txt
 To0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -383,7 +346,6 @@ To0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 To0 f14 16 385 112 30 -49 -8 #rect
 To0 f14 @|IBIcon #fIcon
-To0 U12 .resExport export #txt
 To0 U12 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -397,7 +359,6 @@ approve request</name>
 To0 U12 312 306 128 44 -42 -16 #rect
 To0 U12 @|BpmnUserTaskIcon #fIcon
 To0 U12 -1|-1|-13016147 #nodeStyle
-To0 U13 .resExport export #txt
 To0 U13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">
@@ -412,11 +373,7 @@ To0 U13 304 298 128 44 -42 -16 #rect
 To0 U13 @|BpmnUserTaskIcon #fIcon
 To0 U13 -1|-1|-13016147 #nodeStyle
 To0 f15 outLink start22.ivp #txt
-To0 f15 type workflow.agileBPM.Data #txt
 To0 f15 inParamDecl '<> param;' #txt
-To0 f15 actionDecl 'workflow.agileBPM.Data out;
-' #txt
-To0 f15 guid 14AE30D74C352CB4 #txt
 To0 f15 requestEnabled false #txt
 To0 f15 triggerEnabled false #txt
 To0 f15 callSignature start22() #txt
@@ -440,20 +397,13 @@ To0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 To0 f15 @C|.responsibility Everybody #txt
 To0 f15 81 305 30 30 -3 17 #rect
 To0 f15 @|StartRequestIcon #fIcon
-To0 f16 targetWindow NEW:card: #txt
-To0 f16 targetDisplay TOP #txt
-To0 f16 richDialogId workflow.agileBPM.test #txt
+To0 f16 dialogId workflow.agileBPM.test #txt
 To0 f16 startMethod start(String) #txt
-To0 f16 type workflow.agileBPM.Data #txt
 To0 f16 requestActionDecl '<String answer> param;' #txt
 To0 f16 responseActionDecl 'workflow.agileBPM.Data out;
 ' #txt
 To0 f16 responseMappingAction 'out=in;
 ' #txt
-To0 f16 windowConfiguration '* ' #txt
-To0 f16 isAsynch false #txt
-To0 f16 isInnerRd false #txt
-To0 f16 userContext '* ' #txt
 To0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -465,8 +415,7 @@ Request Form</name>
 </elementInfo>
 ' #txt
 To0 f16 152 298 112 44 -39 -16 #rect
-To0 f16 @|RichDialogIcon #fIcon
-To0 f17 type workflow.agileBPM.Data #txt
+To0 f16 @|UserDialogIcon #fIcon
 To0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -511,7 +460,6 @@ To0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 To0 f23 16 265 64 30 -25 -8 #rect
 To0 f23 @|IBIcon #fIcon
-To0 f24 type workflow.agileBPM.Data #txt
 To0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -557,11 +505,7 @@ To0 f27 @|IBIcon #fIcon
 >Proto To0 0 0 32 24 18 0 #rect
 >Proto To0 @|BIcon #fIcon
 Bk4 f0 outLink dummy.ivp #txt
-Bk4 f0 type workflow.agileBPM.Data #txt
 Bk4 f0 inParamDecl '<> param;' #txt
-Bk4 f0 actionDecl 'workflow.agileBPM.Data out;
-' #txt
-Bk4 f0 guid 1530E8C5636932AD #txt
 Bk4 f0 requestEnabled false #txt
 Bk4 f0 triggerEnabled false #txt
 Bk4 f0 callSignature dummy() #txt
@@ -583,7 +527,6 @@ Bk4 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Bk4 f0 @C|.responsibility Everybody #txt
 Bk4 f0 17 225 30 30 0 17 #rect
 Bk4 f0 @|StartRequestIcon #fIcon
-Bk4 f1 type workflow.agileBPM.Data #txt
 Bk4 f1 561 225 30 30 0 15 #rect
 Bk4 f1 @|EndIcon #fIcon
 Bk4 f2 expr out #txt
@@ -621,7 +564,6 @@ Bk0 f3 @|IBIcon #fIcon
 >Proto Bk1 '' #fIcon
 Bk1 g0 38 211 26 26 0 5 #rect
 Bk1 g0 @|MIGIcon #fIcon
-Bk1 f0 type workflow.agileBPM.Data #txt
 Bk1 f0 353 209 30 30 0 15 #rect
 Bk1 f0 @|EndIcon #fIcon
 Bk1 f1 64 224 353 224 #arcP
@@ -662,7 +604,6 @@ Bk3 g1 563 243 26 26 0 5 #rect
 Bk3 g1 @|MOGIcon #fIcon
 Bk3 g2 339 147 26 26 -63 28 #rect
 Bk3 g2 @|MIGIcon #fIcon
-Bk3 f1 type workflow.agileBPM.Data #txt
 Bk3 f1 336 240 32 32 0 16 #rect
 Bk3 f1 @|AlternativeIcon #fIcon
 Bk3 f2 77 256 336 256 #arcP
@@ -682,15 +623,10 @@ Bk3 f4 56 185 128 30 -57 -8 #rect
 Bk3 f4 @|IBIcon #fIcon
 >Proto Bk4 0 0 32 24 18 0 #rect
 >Proto Bk4 @|BpmnUserTaskIcon #fIcon
-Bk5 f1 type workflow.agileBPM.Data #txt
 Bk5 f1 569 273 30 30 0 15 #rect
 Bk5 f1 @|EndIcon #fIcon
 Bk5 f0 outLink dummy2.ivp #txt
-Bk5 f0 type workflow.agileBPM.Data #txt
 Bk5 f0 inParamDecl '<> param;' #txt
-Bk5 f0 actionDecl 'workflow.agileBPM.Data out;
-' #txt
-Bk5 f0 guid 1530E8DD16CC624B #txt
 Bk5 f0 requestEnabled false #txt
 Bk5 f0 triggerEnabled false #txt
 Bk5 f0 callSignature dummy2() #txt

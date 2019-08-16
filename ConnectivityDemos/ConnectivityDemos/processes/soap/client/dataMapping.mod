@@ -1,10 +1,9 @@
 [Ivy]
-1605A38503199ADB 3.23 #module
+1605A38503199ADB 3.28 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
 dg0 B #cInfo
 dg0 #process
-dg0 @TextInP .resExport .resExport #zField
 dg0 @TextInP .type .type #zField
 dg0 @TextInP .processKind .processKind #zField
 dg0 @AnnotationInP-0n ai ai #zField
@@ -28,23 +27,19 @@ dg0 @PushWFArc f13 '' #zField
 dg0 @PushWFArc f11 '' #zField
 >Proto dg0 dg0 dataMapping #zField
 dg0 f0 outLink resolveToCache.ivp #txt
-dg0 f0 type com.axonivy.connectivity.soap.DataMappingData #txt
 dg0 f0 inParamDecl '<> param;' #txt
-dg0 f0 actionDecl 'com.axonivy.connectivity.soap.DataMappingData out;
-' #txt
-dg0 f0 guid 1605A38503C283B0 #txt
 dg0 f0 requestEnabled true #txt
 dg0 f0 triggerEnabled false #txt
 dg0 f0 callSignature resolveToCache() #txt
 dg0 f0 persist false #txt
 dg0 f0 startName '9.1.1 read remote result to cache' #txt
 dg0 f0 startDescription 'Caches the result of a WebService invocation as the we do not expect the value to change.' #txt
-dg0 f0 taskData 'TaskTriggered.ROL=Everybody
+dg0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 dg0 f0 caseData businessCase.attach=true #txt
 dg0 f0 showInStartList 1 #txt
 dg0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -62,12 +57,8 @@ Follow up executions will simply consume the first result from the cache.</desc>
 dg0 f0 @C|.responsibility Everybody #txt
 dg0 f0 81 49 30 30 -60 17 #rect
 dg0 f0 @|StartRequestIcon #fIcon
-dg0 f1 type com.axonivy.connectivity.soap.DataMappingData #txt
 dg0 f1 497 49 30 30 0 15 #rect
 dg0 f1 @|EndIcon #fIcon
-dg0 f3 type com.axonivy.connectivity.soap.DataMappingData #txt
-dg0 f3 actionDecl 'com.axonivy.connectivity.soap.DataMappingData out;
-' #txt
 dg0 f3 actionTable 'out=in;
 out.time=wsResponse;
 ' #txt
@@ -75,7 +66,6 @@ dg0 f3 cache '{/cache true /invalidation false /scope 2 /groupname "\"remoteTime
 dg0 f3 clientId 162B97C859B22CA3 #txt
 dg0 f3 port SampleWebServiceSoap12 #txt
 dg0 f3 operation GetCurrentTime #txt
-dg0 f3 returningObjectList '[]' #txt
 dg0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -88,13 +78,10 @@ dg0 f3 168 42 112 44 -38 -15 #rect
 dg0 f3 @|WebServiceIcon #fIcon
 dg0 f4 expr out #txt
 dg0 f4 111 64 168 64 #arcP
-dg0 f5 actionDecl 'com.axonivy.connectivity.soap.DataMappingData out;
-' #txt
 dg0 f5 actionTable 'out=in;
 ' #txt
 dg0 f5 actionCode 'ivy.log.info("the time on the remote system is "+in.time);
 ' #txt
-dg0 f5 type com.axonivy.connectivity.soap.DataMappingData #txt
 dg0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -109,24 +96,20 @@ dg0 f6 280 64 328 64 #arcP
 dg0 f2 expr out #txt
 dg0 f2 440 64 497 64 #arcP
 dg0 f7 outLink mapComplexData.ivp #txt
-dg0 f7 type com.axonivy.connectivity.soap.DataMappingData #txt
 dg0 f7 inParamDecl '<> param;' #txt
 dg0 f7 inParamTable 'out.context=com.axonivy.connectivity.soap.client.ServiceContext.create();
 ' #txt
-dg0 f7 actionDecl 'com.axonivy.connectivity.soap.DataMappingData out;
-' #txt
-dg0 f7 guid 1624D3C2479A8CBB #txt
 dg0 f7 requestEnabled true #txt
 dg0 f7 triggerEnabled false #txt
 dg0 f7 callSignature mapComplexData() #txt
 dg0 f7 persist false #txt
 dg0 f7 startName '9.1.2 map complex data' #txt
-dg0 f7 taskData 'TaskTriggered.ROL=Everybody
+dg0 f7 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 dg0 f7 caseData businessCase.attach=true #txt
 dg0 f7 showInStartList 1 #txt
 dg0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -143,21 +126,18 @@ dg0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f7 @C|.responsibility Everybody #txt
 dg0 f7 81 137 30 30 -59 17 #rect
 dg0 f7 @|StartRequestIcon #fIcon
-dg0 f8 type com.axonivy.connectivity.soap.DataMappingData #txt
-dg0 f8 actionDecl 'com.axonivy.connectivity.soap.DataMappingData out;
-' #txt
 dg0 f8 actionTable 'out=in;
 out.person=wsResponse;
 ' #txt
 dg0 f8 actionCode '// mapping is done in the attribute table: where ''wsReponse'' is assigned to out.person!' #txt
-dg0 f8 timeout 0 #txt
-dg0 f8 beanConfig "" #txt
 dg0 f8 clientId 16150E44A158D09C #txt
 dg0 f8 port PersonServicePort #txt
 dg0 f8 operation addPerson #txt
 dg0 f8 inputParams 'parameters.person.firstname="Diana";
 parameters.person.lastname="Larsen";
 ' #txt
+dg0 f8 beanConfig "" #txt
+dg0 f8 timeout 0 #txt
 dg0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -170,15 +150,11 @@ dg0 f8 160 130 128 44 -42 -15 #rect
 dg0 f8 @|WebServiceIcon #fIcon
 dg0 f9 expr out #txt
 dg0 f9 111 152 160 152 #arcP
-dg0 f10 type com.axonivy.connectivity.soap.DataMappingData #txt
 dg0 f10 497 137 30 30 0 15 #rect
 dg0 f10 @|EndIcon #fIcon
-dg0 f12 actionDecl 'com.axonivy.connectivity.soap.DataMappingData out;
-' #txt
 dg0 f12 actionTable 'out=in;
 ' #txt
 dg0 f12 actionCode 'ivy.log.info("created person with id "+in.person.id);' #txt
-dg0 f12 type com.axonivy.connectivity.soap.DataMappingData #txt
 dg0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

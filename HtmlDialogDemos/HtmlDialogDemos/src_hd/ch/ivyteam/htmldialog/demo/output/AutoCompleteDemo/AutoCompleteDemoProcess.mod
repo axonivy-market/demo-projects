@@ -1,13 +1,9 @@
 [Ivy]
-[>Created: Fri Jun 13 10:07:22 CEST 2014]
-1468B144151F2C82 3.17 #module
+1468B144151F2C82 3.28 #module
 >Proto >Proto Collection #zClass
 As0 AutoCompleteDemoProcess Big #zClass
 As0 RD #cInfo
 As0 #process
-As0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-As0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-As0 @TextInP .resExport .resExport #zField
 As0 @TextInP .type .type #zField
 As0 @TextInP .processKind .processKind #zField
 As0 @AnnotationInP-0n ai ai #zField
@@ -15,16 +11,16 @@ As0 @MessageFlowInP-0n messageIn messageIn #zField
 As0 @MessageFlowOutP-0n messageOut messageOut #zField
 As0 @TextInP .xml .xml #zField
 As0 @TextInP .responsibility .responsibility #zField
-As0 @RichDialogInitStart f0 '' #zField
-As0 @RichDialogProcessEnd f1 '' #zField
+As0 @UdInit f0 '' #zField
+As0 @UdProcessEnd f1 '' #zField
 As0 @PushWFArc f2 '' #zField
-As0 @RichDialogMethodStart f8 '' #zField
-As0 @RichDialogProcessEnd f9 '' #zField
+As0 @UdMethod f8 '' #zField
+As0 @UdProcessEnd f9 '' #zField
 As0 @GridStep f11 '' #zField
 As0 @PushWFArc f12 '' #zField
 As0 @PushWFArc f10 '' #zField
-As0 @RichDialogProcessEnd f18 '' #zField
-As0 @RichDialogProcessStart f19 '' #zField
+As0 @UdProcessEnd f18 '' #zField
+As0 @UdEvent f19 '' #zField
 As0 @GridStep f13 '' #zField
 As0 @PushWFArc f15 '' #zField
 As0 @GridStep f16 '' #zField
@@ -32,9 +28,7 @@ As0 @PushWFArc f20 '' #zField
 As0 @PushWFArc f14 '' #zField
 >Proto As0 As0 AutoCompleteDemoProcess #zField
 As0 f0 guid 1468B144171FC46C #txt
-As0 f0 type ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData #txt
 As0 f0 method start() #txt
-As0 f0 disableUIEvents true #txt
 As0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -48,18 +42,15 @@ As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f0 83 51 26 26 -16 15 #rect
-As0 f0 @|RichDialogInitStartIcon #fIcon
+As0 f0 @|UdInitIcon #fIcon
 As0 f0 -1|-1|-9671572 #nodeStyle
-As0 f1 type ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData #txt
 As0 f1 211 51 26 26 0 12 #rect
-As0 f1 @|RichDialogProcessEndIcon #fIcon
+As0 f1 @|UdProcessEndIcon #fIcon
 As0 f1 -1|-1|-9671572 #nodeStyle
 As0 f2 expr out #txt
 As0 f2 109 64 211 64 #arcP
 As0 f8 guid 1468B1E4E5D48D18 #txt
-As0 f8 type ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData #txt
 As0 f8 method searchUsers(String) #txt
-As0 f8 disableUIEvents false #txt
 As0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.String searchText> param = methodEvent.getInputArguments();
 ' #txt
@@ -77,14 +68,11 @@ As0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f8 83 147 26 26 -56 15 #rect
-As0 f8 @|RichDialogMethodStartIcon #fIcon
+As0 f8 @|UdMethodIcon #fIcon
 As0 f8 -1|-1|-9671572 #nodeStyle
-As0 f9 type ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData #txt
 As0 f9 339 147 26 26 0 12 #rect
-As0 f9 @|RichDialogProcessEndIcon #fIcon
+As0 f9 @|UdProcessEndIcon #fIcon
 As0 f9 -1|-1|-9671572 #nodeStyle
-As0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData out;
-' #txt
 As0 f11 actionTable 'out=in;
 ' #txt
 As0 f11 actionCode 'import ch.ivyteam.ivy.security.IUser;
@@ -100,7 +88,6 @@ for(IUser user : allUsers) {
 }
 
 in.searchResult = result;' #txt
-As0 f11 type ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData #txt
 As0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -117,14 +104,10 @@ As0 f12 expr out #txt
 As0 f12 109 160 168 160 #arcP
 As0 f10 expr out #txt
 As0 f10 280 160 339 160 #arcP
-As0 f18 type ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData #txt
 As0 f18 515 243 26 26 0 12 #rect
-As0 f18 @|RichDialogProcessEndIcon #fIcon
+As0 f18 @|UdProcessEndIcon #fIcon
 As0 f18 -1|-1|-9671572 #nodeStyle
 As0 f19 guid 1468B41F73969E32 #txt
-As0 f19 type ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData #txt
-As0 f19 actionDecl 'ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData out;
-' #txt
 As0 f19 actionTable 'out=in;
 ' #txt
 As0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -137,10 +120,8 @@ As0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 As0 f19 83 243 26 26 -14 12 #rect
-As0 f19 @|RichDialogProcessStartIcon #fIcon
+As0 f19 @|UdEventIcon #fIcon
 As0 f19 -1|-1|-9671572 #nodeStyle
-As0 f13 actionDecl 'ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData out;
-' #txt
 As0 f13 actionTable 'out=in;
 ' #txt
 As0 f13 actionCode 'import javax.faces.context.FacesContext;
@@ -163,7 +144,6 @@ if(in.selectedUserViaFacesConverter != null)
 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("User Selected via AJAX event", userViaAjax));
 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("User Selected via FacesConverter", userViaFacesConverter));
 ' #txt
-As0 f13 type ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData #txt
 As0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -179,8 +159,6 @@ As0 f13 @|StepIcon #fIcon
 As0 f13 -1|-1|-9671572 #nodeStyle
 As0 f15 expr out #txt
 As0 f15 464 256 515 256 #arcP
-As0 f16 actionDecl 'ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData out;
-' #txt
 As0 f16 actionTable 'out=in;
 ' #txt
 As0 f16 actionCode 'in.userViaAjax = null;
@@ -188,7 +166,6 @@ if(in.searchText != 0)
 {
 	in.userViaAjax = ivy.wf.getSecurityContext().findUser(in.selectedUserId);
 }' #txt
-As0 f16 type ch.ivyteam.htmldialog.demo.output.AutoCompleteDemo.AutoCompleteDemoData #txt
 As0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

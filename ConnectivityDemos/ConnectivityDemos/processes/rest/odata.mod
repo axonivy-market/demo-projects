@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Tue Aug 22 17:01:44 CEST 2017]
-15DEF1BE5B9E5A42 3.20 #module
+15DEF1BE5B9E5A42 3.28 #module
 >Proto >Proto Collection #zClass
 oa0 odata Big #zClass
 oa0 B #cInfo
 oa0 #process
-oa0 @TextInP .resExport .resExport #zField
 oa0 @TextInP .type .type #zField
 oa0 @TextInP .processKind .processKind #zField
 oa0 @AnnotationInP-0n ai ai #zField
@@ -26,22 +24,18 @@ oa0 @PushWFArc f7 '' #zField
 oa0 @InfoButton f10 '' #zField
 >Proto oa0 oa0 odata #zField
 oa0 f0 outLink readCollection.ivp #txt
-oa0 f0 type com.axonivy.connectivity.rest.odata.OData #txt
 oa0 f0 inParamDecl '<> param;' #txt
-oa0 f0 actionDecl 'com.axonivy.connectivity.rest.odata.OData out;
-' #txt
-oa0 f0 guid 15DEF1BE5CB7D8C3 #txt
 oa0 f0 requestEnabled true #txt
 oa0 f0 triggerEnabled false #txt
 oa0 f0 callSignature readCollection() #txt
 oa0 f0 persist false #txt
 oa0 f0 startName '7.1 OData read collection' #txt
-oa0 f0 taskData 'TaskTriggered.ROL=Everybody
+oa0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 oa0 f0 caseData businessCase.attach=true #txt
 oa0 f0 showInStartList 1 #txt
 oa0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -60,7 +54,6 @@ oa0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 oa0 f0 @C|.responsibility Everybody #txt
 oa0 f0 81 177 30 30 -55 17 #rect
 oa0 f0 @|StartRequestIcon #fIcon
-oa0 f1 type com.axonivy.connectivity.rest.odata.OData #txt
 oa0 f1 337 177 30 30 0 15 #rect
 oa0 f1 @|EndIcon #fIcon
 oa0 f3 clientId 65f8e5a4-768d-4a68-813a-e6d569cda522 #txt
@@ -84,22 +77,18 @@ oa0 f4 expr out #txt
 oa0 f4 111 192 168 192 #arcP
 oa0 f2 280 192 337 192 #arcP
 oa0 f5 outLink readById.ivp #txt
-oa0 f5 type com.axonivy.connectivity.rest.odata.OData #txt
 oa0 f5 inParamDecl '<> param;' #txt
-oa0 f5 actionDecl 'com.axonivy.connectivity.rest.odata.OData out;
-' #txt
-oa0 f5 guid 15DEF21EED8773DC #txt
 oa0 f5 requestEnabled true #txt
 oa0 f5 triggerEnabled false #txt
 oa0 f5 callSignature readById() #txt
 oa0 f5 persist false #txt
 oa0 f5 startName '7.2 OData read single object' #txt
-oa0 f5 taskData 'TaskTriggered.ROL=Everybody
+oa0 f5 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 oa0 f5 caseData businessCase.attach=true #txt
 oa0 f5 showInStartList 1 #txt
 oa0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -118,7 +107,6 @@ oa0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 oa0 f5 @C|.responsibility Everybody #txt
 oa0 f5 81 273 30 30 -37 17 #rect
 oa0 f5 @|StartRequestIcon #fIcon
-oa0 f6 type com.axonivy.connectivity.rest.odata.OData #txt
 oa0 f6 337 273 30 30 0 15 #rect
 oa0 f6 @|EndIcon #fIcon
 oa0 f8 clientId 65f8e5a4-768d-4a68-813a-e6d569cda522 #txt

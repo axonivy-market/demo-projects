@@ -1,10 +1,9 @@
 [Ivy]
-16764B07C0329FC8 3.23 #module
+16764B07C0329FC8 3.28 #module
 >Proto >Proto Collection #zClass
 cc0 asyncInvocation Big #zClass
 cc0 B #cInfo
 cc0 #process
-cc0 @TextInP .resExport .resExport #zField
 cc0 @TextInP .type .type #zField
 cc0 @TextInP .processKind .processKind #zField
 cc0 @AnnotationInP-0n ai ai #zField
@@ -14,7 +13,7 @@ cc0 @TextInP .xml .xml #zField
 cc0 @TextInP .responsibility .responsibility #zField
 cc0 @StartRequest f0 '' #zField
 cc0 @EndTask f1 '' #zField
-cc0 @RichDialog f3 '' #zField
+cc0 @UserDialog f3 '' #zField
 cc0 @PushWFArc f4 '' #zField
 cc0 @PushWFArc f2 '' #zField
 cc0 @RestClientCall f10 '' #zField
@@ -33,7 +32,7 @@ cc0 @PushWFArc f9 '' #zField
 cc0 @PushWFArc f15 '' #zField
 cc0 @ErrorEnd f19 '' #zField
 cc0 @StartRequest f5 '' #zField
-cc0 @RichDialog f6 '' #zField
+cc0 @UserDialog f6 '' #zField
 cc0 @EndTask f21 '' #zField
 cc0 @PushWFArc f23 '' #zField
 cc0 @PushWFArc f24 '' #zField
@@ -41,22 +40,18 @@ cc0 @AnnotationArc f25 '' #zField
 cc0 @AnnotationArc f26 '' #zField
 >Proto cc0 cc0 asyncInvocation #zField
 cc0 f0 outLink chatAsync.ivp #txt
-cc0 f0 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 cc0 f0 inParamDecl '<> param;' #txt
-cc0 f0 actionDecl 'com.axonivy.connectivity.rest.AsyncInvocationData out;
-' #txt
-cc0 f0 guid 16764B07C16394B2 #txt
 cc0 f0 requestEnabled true #txt
 cc0 f0 triggerEnabled false #txt
 cc0 f0 callSignature chatAsync() #txt
 cc0 f0 persist false #txt
 cc0 f0 startName '5.3 chat async with JS client for REST' #txt
-cc0 f0 taskData 'TaskTriggered.ROL=Everybody
+cc0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 cc0 f0 caseData businessCase.attach=true #txt
 cc0 f0 showInStartList 1 #txt
 cc0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -69,12 +64,10 @@ cc0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 cc0 f0 @C|.responsibility Everybody #txt
 cc0 f0 81 49 30 30 -42 17 #rect
 cc0 f0 @|StartRequestIcon #fIcon
-cc0 f1 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 cc0 f1 353 49 30 30 0 15 #rect
 cc0 f1 @|EndIcon #fIcon
-cc0 f3 richDialogId com.axonivy.connectivity.rest.ChatClient #txt
+cc0 f3 dialogId com.axonivy.connectivity.rest.ChatClient #txt
 cc0 f3 startMethod start() #txt
-cc0 f3 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 cc0 f3 requestActionDecl '<> param;' #txt
 cc0 f3 responseActionDecl 'com.axonivy.connectivity.rest.AsyncInvocationData out;
 ' #txt
@@ -89,7 +82,7 @@ with REST backend </name>
 </elementInfo>
 ' #txt
 cc0 f3 168 42 144 44 -54 -15 #rect
-cc0 f3 @|RichDialogIcon #fIcon
+cc0 f3 @|UserDialogIcon #fIcon
 cc0 f4 expr out #txt
 cc0 f4 111 64 168 64 #arcP
 cc0 f2 expr out #txt
@@ -115,11 +108,8 @@ operation</name>
 ' #txt
 cc0 f10 256 346 128 44 -45 -15 #rect
 cc0 f10 @|RestClientCallIcon #fIcon
-cc0 f12 actionDecl 'com.axonivy.connectivity.rest.AsyncInvocationData out;
-' #txt
 cc0 f12 actionTable 'out.result=signal.getSignalData() as String;
 ' #txt
-cc0 f12 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 cc0 f12 signalCode rest:batch:result:ok #txt
 cc0 f12 attachToBusinessCase true #txt
 cc0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -131,9 +121,6 @@ cc0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cc0 f12 145 457 30 30 -62 17 #rect
 cc0 f12 @|SignalStartEventIcon #fIcon
-cc0 f17 actionDecl 'com.axonivy.connectivity.rest.AsyncInvocationData out;
-' #txt
-cc0 f17 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 cc0 f17 signalCode ivy:error:rest:client #txt
 cc0 f17 attachToBusinessCase true #txt
 cc0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -171,15 +158,11 @@ takes up to 3 seconds</name>
 ' #txt
 cc0 f18 296 258 256 60 -121 -22 #rect
 cc0 f18 @|IBIcon #fIcon
-cc0 f13 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 cc0 f13 465 457 30 30 0 15 #rect
 cc0 f13 @|EndIcon #fIcon
-cc0 f14 actionDecl 'com.axonivy.connectivity.rest.AsyncInvocationData out;
-' #txt
 cc0 f14 actionTable 'out=in;
 ' #txt
 cc0 f14 actionCode 'ivy.log.info("result availble: "+in.result);' #txt
-cc0 f14 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 cc0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -189,26 +172,21 @@ cc0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cc0 f14 264 450 112 44 -45 -7 #rect
 cc0 f14 @|StepIcon #fIcon
-cc0 f8 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 cc0 f8 465 353 30 30 0 15 #rect
 cc0 f8 @|EndIcon #fIcon
 cc0 f7 outLink callBatchAsync.ivp #txt
-cc0 f7 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 cc0 f7 inParamDecl '<> param;' #txt
-cc0 f7 actionDecl 'com.axonivy.connectivity.rest.AsyncInvocationData out;
-' #txt
-cc0 f7 guid 1677890C7EA77383 #txt
 cc0 f7 requestEnabled true #txt
 cc0 f7 triggerEnabled false #txt
 cc0 f7 callSignature callBatchAsync() #txt
 cc0 f7 persist false #txt
 cc0 f7 startName '5.1 call long running operation async' #txt
-cc0 f7 taskData 'TaskTriggered.ROL=Everybody
+cc0 f7 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 cc0 f7 caseData businessCase.attach=true #txt
 cc0 f7 showInStartList 1 #txt
 cc0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -242,22 +220,18 @@ cc0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 cc0 f19 465 553 30 30 -31 17 #rect
 cc0 f19 @|ErrorEndIcon #fIcon
 cc0 f5 outLink restCallback.ivp #txt
-cc0 f5 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 cc0 f5 inParamDecl '<> param;' #txt
-cc0 f5 actionDecl 'com.axonivy.connectivity.rest.AsyncInvocationData out;
-' #txt
-cc0 f5 guid 16778910436578A7 #txt
 cc0 f5 requestEnabled true #txt
 cc0 f5 triggerEnabled false #txt
 cc0 f5 callSignature restCallback() #txt
 cc0 f5 persist false #txt
 cc0 f5 startName '5.2 invoke async with JS callback' #txt
-cc0 f5 taskData 'TaskTriggered.ROL=Everybody
+cc0 f5 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 cc0 f5 caseData businessCase.attach=true #txt
 cc0 f5 showInStartList 1 #txt
 cc0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -270,9 +244,8 @@ cc0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 cc0 f5 @C|.responsibility Everybody #txt
 cc0 f5 81 145 30 30 -49 17 #rect
 cc0 f5 @|StartRequestIcon #fIcon
-cc0 f6 richDialogId com.axonivy.connectivity.rest.AsyncUiInvoker #txt
+cc0 f6 dialogId com.axonivy.connectivity.rest.AsyncUiInvoker #txt
 cc0 f6 startMethod start() #txt
-cc0 f6 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
 cc0 f6 requestActionDecl '<> param;' #txt
 cc0 f6 responseActionDecl 'com.axonivy.connectivity.rest.AsyncInvocationData out;
 ' #txt
@@ -287,8 +260,7 @@ JavaScript callback</name>
 </elementInfo>
 ' #txt
 cc0 f6 168 138 144 44 -53 -15 #rect
-cc0 f6 @|RichDialogIcon #fIcon
-cc0 f21 type com.axonivy.connectivity.rest.AsyncInvocationData #txt
+cc0 f6 @|UserDialogIcon #fIcon
 cc0 f21 353 145 30 30 0 15 #rect
 cc0 f21 @|EndIcon #fIcon
 cc0 f23 expr out #txt

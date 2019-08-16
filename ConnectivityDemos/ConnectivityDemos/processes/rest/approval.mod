@@ -1,10 +1,9 @@
 [Ivy]
-1549FE9E911A1812 3.22 #module
+1549FE9E911A1812 3.28 #module
 >Proto >Proto Collection #zClass
 al0 approval Big #zClass
 al0 B #cInfo
 al0 #process
-al0 @TextInP .resExport .resExport #zField
 al0 @TextInP .type .type #zField
 al0 @TextInP .processKind .processKind #zField
 al0 @AnnotationInP-0n ai ai #zField
@@ -18,7 +17,7 @@ al0 @InfoButton f3 '' #zField
 al0 @AnnotationArc f4 '' #zField
 al0 @StartRequest f5 '' #zField
 al0 @EndTask f6 '' #zField
-al0 @RichDialog f10 '' #zField
+al0 @UserDialog f10 '' #zField
 al0 @PushWFArc f11 '' #zField
 al0 @PushWFArc f2 '' #zField
 al0 @InfoButton f12 '' #zField
@@ -28,25 +27,21 @@ al0 @PushWFArc f7 '' #zField
 al0 @PushWFArc f8 '' #zField
 >Proto al0 al0 approval #zField
 al0 f0 outLink approve.ivp #txt
-al0 f0 type com.axonivy.connectivity.rest.Approval #txt
 al0 f0 inParamDecl '<com.axonivy.connectivity.rest.Approval approval> param;' #txt
 al0 f0 inParamTable 'out=param.approval;
 ' #txt
-al0 f0 actionDecl 'com.axonivy.connectivity.rest.Approval out;
-' #txt
-al0 f0 guid 1549FE9E921E2BD8 #txt
 al0 f0 requestEnabled false #txt
 al0 f0 triggerEnabled true #txt
 al0 f0 callSignature approve(com.axonivy.connectivity.rest.Approval) #txt
 al0 f0 persist false #txt
-al0 f0 taskData 'TaskTriggered.ROL=Boss
-TaskTriggered.EXTYPE=0
+al0 f0 taskData 'TaskTriggered.DESC=<%\=param.approval.title%>
 TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
-TaskTriggered.DESC=<%\=param.approval.title%>
 TaskTriggered.EXROL=Everybody
-TaskTriggered.NAM=Approve request from <%\=param.approval.requestedBy%>' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.NAM=Approve request from <%\=param.approval.requestedBy%>
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Boss
+TaskTriggered.TYPE=0' #txt
 al0 f0 showInStartList 1 #txt
 al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -61,7 +56,6 @@ al0 f0 @C|.responsibility Everybody #txt
 al0 f0 113 209 30 30 -49 17 #rect
 al0 f0 @|StartRequestIcon #fIcon
 al0 f0 -993312|-1|-16777216 #nodeStyle
-al0 f1 type com.axonivy.connectivity.rest.Approval #txt
 al0 f1 369 209 30 30 0 15 #rect
 al0 f1 @|EndIcon #fIcon
 al0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -79,22 +73,18 @@ al0 f4 168 280 128 239 #arcP
 al0 f4 1 128 264 #addKink
 al0 f4 0 0.8379706169640114 0 0 #arcLabel
 al0 f5 outLink createApprovalViaREST.ivp #txt
-al0 f5 type com.axonivy.connectivity.rest.Approval #txt
 al0 f5 inParamDecl '<> param;' #txt
-al0 f5 actionDecl 'com.axonivy.connectivity.rest.Approval out;
-' #txt
-al0 f5 guid 1549FF63BAC8DC1C #txt
 al0 f5 requestEnabled true #txt
 al0 f5 triggerEnabled false #txt
 al0 f5 callSignature createApprovalViaREST() #txt
 al0 f5 persist false #txt
 al0 f5 startName '3. Calls a BPM process from REST service' #txt
-al0 f5 taskData 'TaskTriggered.ROL=Everybody
+al0 f5 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 al0 f5 showInStartList 1 #txt
 al0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -109,14 +99,10 @@ viaREST.ivp</name>
 al0 f5 @C|.responsibility Everybody #txt
 al0 f5 113 113 30 30 -40 17 #rect
 al0 f5 @|StartRequestIcon #fIcon
-al0 f6 type com.axonivy.connectivity.rest.Approval #txt
 al0 f6 369 113 30 30 0 15 #rect
 al0 f6 @|EndIcon #fIcon
-al0 f10 targetWindow NEW:card: #txt
-al0 f10 targetDisplay TOP #txt
-al0 f10 richDialogId com.axonivy.connectivity.rest.ApprovalDialog #txt
+al0 f10 dialogId com.axonivy.connectivity.rest.ApprovalDialog #txt
 al0 f10 startMethod start(com.axonivy.connectivity.rest.Approval) #txt
-al0 f10 type com.axonivy.connectivity.rest.Approval #txt
 al0 f10 requestActionDecl '<com.axonivy.connectivity.rest.Approval approval> param;' #txt
 al0 f10 requestMappingAction 'param.approval=in;
 ' #txt
@@ -124,10 +110,6 @@ al0 f10 responseActionDecl 'com.axonivy.connectivity.rest.Approval out;
 ' #txt
 al0 f10 responseMappingAction 'out=in;
 ' #txt
-al0 f10 windowConfiguration '* ' #txt
-al0 f10 isAsynch false #txt
-al0 f10 isInnerRd false #txt
-al0 f10 userContext '* ' #txt
 al0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -138,7 +120,7 @@ al0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 al0 f10 200 202 112 44 -42 -8 #rect
-al0 f10 @|RichDialogIcon #fIcon
+al0 f10 @|UserDialogIcon #fIcon
 al0 f11 expr out #txt
 al0 f11 143 224 200 224 #arcP
 al0 f2 expr out #txt

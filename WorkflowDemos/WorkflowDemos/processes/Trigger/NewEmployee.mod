@@ -1,10 +1,9 @@
 [Ivy]
-15254CF1CE56AE72 3.25 #module
+15254CF1CE56AE72 3.28 #module
 >Proto >Proto Collection #zClass
 Tr0 NewEmployee Big #zClass
 Tr0 B #cInfo
 Tr0 #process
-Tr0 @TextInP .resExport .resExport #zField
 Tr0 @TextInP .type .type #zField
 Tr0 @TextInP .processKind .processKind #zField
 Tr0 @AnnotationInP-0n ai ai #zField
@@ -13,7 +12,7 @@ Tr0 @MessageFlowOutP-0n messageOut messageOut #zField
 Tr0 @TextInP .xml .xml #zField
 Tr0 @TextInP .responsibility .responsibility #zField
 Tr0 @StartRequest f0 '' #zField
-Tr0 @RichDialog f5 '' #zField
+Tr0 @UserDialog f5 '' #zField
 Tr0 @EndTask f1 '' #zField
 Tr0 @Alternative f7 '' #zField
 Tr0 @EMail f10 '' #zField
@@ -29,11 +28,7 @@ Tr0 @PushWFArc f11 '' #zField
 Tr0 @PushWFArc f8 '' #zField
 >Proto Tr0 Tr0 NewEmployee #zField
 Tr0 f0 outLink start.ivp #txt
-Tr0 f0 type workflow.trigger.NewEmployeeData #txt
 Tr0 f0 inParamDecl '<> param;' #txt
-Tr0 f0 actionDecl 'workflow.trigger.NewEmployeeData out;
-' #txt
-Tr0 f0 guid 1501DB8A8DDD836E #txt
 Tr0 f0 requestEnabled true #txt
 Tr0 f0 triggerEnabled false #txt
 Tr0 f0 callSignature start() #txt
@@ -61,20 +56,13 @@ Tr0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Tr0 f0 @C|.responsibility 'HR Manager' #txt
 Tr0 f0 73 209 30 30 -21 17 #rect
 Tr0 f0 @|StartRequestIcon #fIcon
-Tr0 f5 targetWindow NEW:card: #txt
-Tr0 f5 targetDisplay TOP #txt
-Tr0 f5 richDialogId workflow.trigger.CreateNewEmployee #txt
+Tr0 f5 dialogId workflow.trigger.CreateNewEmployee #txt
 Tr0 f5 startMethod start(workflow.trigger.NewEmployeeData) #txt
-Tr0 f5 type workflow.trigger.NewEmployeeData #txt
 Tr0 f5 requestActionDecl '<workflow.trigger.NewEmployeeData newEmployeeData> param;' #txt
 Tr0 f5 responseActionDecl 'workflow.trigger.NewEmployeeData out;
 ' #txt
 Tr0 f5 responseMappingAction 'out=result.newEmployeeData;
 ' #txt
-Tr0 f5 windowConfiguration '* ' #txt
-Tr0 f5 isAsynch false #txt
-Tr0 f5 isInnerRd false #txt
-Tr0 f5 userContext '* ' #txt
 Tr0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -86,11 +74,9 @@ personal data</name>
 </elementInfo>
 ' #txt
 Tr0 f5 176 202 144 44 -53 -16 #rect
-Tr0 f5 @|RichDialogIcon #fIcon
-Tr0 f1 type workflow.trigger.NewEmployeeData #txt
+Tr0 f5 @|UserDialogIcon #fIcon
 Tr0 f1 977 209 30 30 0 15 #rect
 Tr0 f1 @|EndIcon #fIcon
-Tr0 f7 type workflow.trigger.NewEmployeeData #txt
 Tr0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -150,9 +136,7 @@ If a new employee needs a parking lot the Parking Lot Reservation process is sta
 ' #txt
 Tr0 f9 64 26 544 44 -264 -16 #rect
 Tr0 f9 @|IBIcon #fIcon
-Tr0 f13 type workflow.trigger.NewEmployeeData #txt
 Tr0 f13 processCall Trigger/ParkingLotReservation:start(workflow.trigger.NewEmployeeData) #txt
-Tr0 f13 doCall true #txt
 Tr0 f13 requestActionDecl '<workflow.trigger.NewEmployeeData newEmployeeData> param;
 ' #txt
 Tr0 f13 requestMappingAction 'param.newEmployeeData=in;
@@ -187,12 +171,9 @@ Tr0 f14 592 224 656 224 #arcP
 Tr0 f14 0 0.46875 0 -6 #arcLabel
 Tr0 f4 expr out #txt
 Tr0 f4 768 224 800 224 #arcP
-Tr0 f3 actionDecl 'workflow.trigger.NewEmployeeData out;
-' #txt
 Tr0 f3 actionTable 'out=in;
 ' #txt
 Tr0 f3 actionCode 'ivy.case.getBusinessCase().setName("4: New Employee: " + in.name);' #txt
-Tr0 f3 type workflow.trigger.NewEmployeeData #txt
 Tr0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

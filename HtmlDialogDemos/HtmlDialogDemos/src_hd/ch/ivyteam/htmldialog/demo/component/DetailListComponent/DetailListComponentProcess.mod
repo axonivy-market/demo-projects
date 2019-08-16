@@ -1,26 +1,20 @@
 [Ivy]
-[>Created: Tue May 06 12:12:52 CEST 2014]
-13EF084DCC4BDEAE 3.17 #module
+13EF084DCC4BDEAE 3.28 #module
 >Proto >Proto Collection #zClass
 Ds0 DetailListComponentProcess Big #zClass
 Ds0 RD #cInfo
 Ds0 #process
-Ds0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Ds0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Ds0 @TextInP .resExport .resExport #zField
 Ds0 @TextInP .type .type #zField
 Ds0 @TextInP .processKind .processKind #zField
 Ds0 @AnnotationInP-0n ai ai #zField
 Ds0 @TextInP .xml .xml #zField
 Ds0 @TextInP .responsibility .responsibility #zField
-Ds0 @RichDialogInitStart f0 '' #zField
-Ds0 @RichDialogProcessEnd f1 '' #zField
+Ds0 @UdInit f0 '' #zField
+Ds0 @UdProcessEnd f1 '' #zField
 Ds0 @PushWFArc f2 '' #zField
 >Proto Ds0 Ds0 DetailListComponentProcess #zField
 Ds0 f0 guid 13EF084DCD4FB354 #txt
-Ds0 f0 type ch.ivyteam.htmldialog.demo.component.DetailListComponent.DetailListComponentData #txt
 Ds0 f0 method start(java.util.List<ch.ivyteam.htmldialog.demo.Person>) #txt
-Ds0 f0 disableUIEvents true #txt
 Ds0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.util.List<ch.ivyteam.htmldialog.demo.Person> persons> param = methodEvent.getInputArguments();
 ' #txt
@@ -38,11 +32,10 @@ Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ds0 f0 83 51 26 26 -39 12 #rect
-Ds0 f0 @|RichDialogInitStartIcon #fIcon
+Ds0 f0 @|UdInitIcon #fIcon
 Ds0 f0 -1|-1|-9671572 #nodeStyle
-Ds0 f1 type ch.ivyteam.htmldialog.demo.component.DetailListComponent.DetailListComponentData #txt
 Ds0 f1 211 51 26 26 0 12 #rect
-Ds0 f1 @|RichDialogProcessEndIcon #fIcon
+Ds0 f1 @|UdProcessEndIcon #fIcon
 Ds0 f1 -1|-1|-9671572 #nodeStyle
 Ds0 f2 expr out #txt
 Ds0 f2 109 64 211 64 #arcP

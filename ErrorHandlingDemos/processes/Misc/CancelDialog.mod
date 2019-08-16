@@ -1,13 +1,11 @@
 [Ivy]
-[>Created: Mon Feb 29 15:51:24 CET 2016]
-1508AE543CAEEEC1 3.18 #module
+1508AE543CAEEEC1 3.28 #module
 >Proto >Proto Collection #zClass
 Ct0 CancelDialog Big #zClass
 Ct0 B #cInfo
 Ct0 #process
 Bk1 BpmnSendTask Big #zClass
 Bk1 BpmnSendTask #cInfo
-Ct0 @TextInP .resExport .resExport #zField
 Ct0 @TextInP .type .type #zField
 Ct0 @TextInP .processKind .processKind #zField
 Ct0 @AnnotationInP-0n ai ai #zField
@@ -17,7 +15,7 @@ Ct0 @TextInP .xml .xml #zField
 Ct0 @TextInP .responsibility .responsibility #zField
 Ct0 @StartRequest f0 '' #zField
 Ct0 @EndTask f1 '' #zField
-Ct0 @RichDialog f3 '' #zField
+Ct0 @UserDialog f3 '' #zField
 Ct0 @PushWFArc f4 '' #zField
 Ct0 @EndTask f5 '' #zField
 Ct0 @ErrorBoundaryEvent Et0 ErrorBoundaryEvent #zField
@@ -27,7 +25,6 @@ Ct0 @PushWFArc f7 '' #zField
 Ct0 @PushWFArc f2 '' #zField
 Ct0 @InfoButton f8 '' #zField
 >Proto Ct0 Ct0 CancelDialog #zField
-Bk1 @TextInP .resExport .resExport #zField
 Bk1 @TextInP .type .type #zField
 Bk1 @TextInP .processKind .processKind #zField
 Bk1 @AnnotationInP-0n ai ai #zField
@@ -40,11 +37,7 @@ Bk1 @PushTrueWFOutG-01 g1 '' #zField
 Bk1 @PushWFArc f0 '' #zField
 >Proto Bk1 Bk0 BpmnSendTask #zField
 Ct0 f0 outLink start.ivp #txt
-Ct0 f0 type misc.CancelStartData #txt
 Ct0 f0 inParamDecl '<> param;' #txt
-Ct0 f0 actionDecl 'misc.CancelStartData out;
-' #txt
-Ct0 f0 guid 1508AE543CDBE13A #txt
 Ct0 f0 requestEnabled true #txt
 Ct0 f0 triggerEnabled false #txt
 Ct0 f0 callSignature start() #txt
@@ -58,14 +51,10 @@ Ct0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ct0 f0 @C|.responsibility Everybody #txt
 Ct0 f0 57 145 30 30 -23 17 #rect
 Ct0 f0 @|StartRequestIcon #fIcon
-Ct0 f1 type misc.CancelStartData #txt
 Ct0 f1 505 145 30 30 0 15 #rect
 Ct0 f1 @|EndIcon #fIcon
-Ct0 f3 targetWindow NEW:card: #txt
-Ct0 f3 targetDisplay TOP #txt
-Ct0 f3 richDialogId error.handling.demo.misc.CancelStart #txt
+Ct0 f3 dialogId error.handling.demo.misc.CancelStart #txt
 Ct0 f3 startMethod start(String) #txt
-Ct0 f3 type misc.CancelStartData #txt
 Ct0 f3 requestActionDecl '<String email> param;' #txt
 Ct0 f3 requestMappingAction 'param.email=in.email;
 ' #txt
@@ -74,10 +63,6 @@ Ct0 f3 responseActionDecl 'misc.CancelStartData out;
 Ct0 f3 responseMappingAction 'out=in;
 out.email=result.email;
 ' #txt
-Ct0 f3 windowConfiguration '* ' #txt
-Ct0 f3 isAsynch false #txt
-Ct0 f3 isInnerRd false #txt
-Ct0 f3 userContext '* ' #txt
 Ct0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -88,17 +73,13 @@ Ct0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ct0 f3 144 138 112 44 -27 -7 #rect
-Ct0 f3 @|RichDialogIcon #fIcon
+Ct0 f3 @|UserDialogIcon #fIcon
 Ct0 f4 expr out #txt
 Ct0 f4 87 160 144 160 #arcP
-Ct0 f5 type misc.CancelStartData #txt
 Ct0 f5 505 241 30 30 0 15 #rect
 Ct0 f5 @|EndIcon #fIcon
-Ct0 Et0 actionDecl 'misc.CancelStartData out;
-' #txt
 Ct0 Et0 actionTable 'out=in;
 ' #txt
-Ct0 Et0 type misc.CancelStartData #txt
 Ct0 Et0 errorCode start:cancelled #txt
 Ct0 Et0 attachedToRef 1508AE543CAEEEC1-f3 #txt
 Ct0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -114,7 +95,6 @@ Ct0 f6 expr out #txt
 Ct0 f6 232 207 505 256 #arcP
 Ct0 f6 1 232 256 #addKink
 Ct0 f6 1 0.1570028297149824 0 0 #arcLabel
-Ct0 S10 .resExport export #txt
 Ct0 S10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language lang="en">

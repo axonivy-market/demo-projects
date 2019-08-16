@@ -1,19 +1,16 @@
 [Ivy]
-16ADE8E3AB9D5207 3.26 #module
+16ADE8E3AB9D5207 3.28 #module
 >Proto >Proto Collection #zClass
 Es0 ExportExcelDemoProcess Big #zClass
 Es0 RD #cInfo
 Es0 #process
-Es0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Es0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Es0 @TextInP .resExport .resExport #zField
 Es0 @TextInP .type .type #zField
 Es0 @TextInP .processKind .processKind #zField
 Es0 @AnnotationInP-0n ai ai #zField
 Es0 @TextInP .xml .xml #zField
 Es0 @TextInP .responsibility .responsibility #zField
-Es0 @RichDialogInitStart f0 '' #zField
-Es0 @RichDialogProcessEnd f1 '' #zField
+Es0 @UdInit f0 '' #zField
+Es0 @UdProcessEnd f1 '' #zField
 Es0 @CallSub f2 '' #zField
 Es0 @PushWFArc f3 '' #zField
 Es0 @GridStep f11 '' #zField
@@ -21,9 +18,7 @@ Es0 @PushWFArc f12 '' #zField
 Es0 @PushWFArc f4 '' #zField
 >Proto Es0 Es0 ExportExcelDemoProcess #zField
 Es0 f0 guid 139D96A574FD8C6C #txt
-Es0 f0 type ch.ivyteam.htmldialog.demo.output.ExportExcelDemo.ExportExcelDemoData #txt
 Es0 f0 method start() #txt
-Es0 f0 disableUIEvents true #txt
 Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -37,15 +32,12 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Es0 f0 83 115 26 26 -16 12 #rect
-Es0 f0 @|RichDialogInitStartIcon #fIcon
+Es0 f0 @|UdInitIcon #fIcon
 Es0 f0 -1|-1|-9671572 #nodeStyle
-Es0 f1 type ch.ivyteam.htmldialog.demo.output.ExportExcelDemo.ExportExcelDemoData #txt
 Es0 f1 555 115 26 26 0 12 #rect
-Es0 f1 @|RichDialogProcessEndIcon #fIcon
+Es0 f1 @|UdProcessEndIcon #fIcon
 Es0 f1 -1|-1|-9671572 #nodeStyle
-Es0 f2 type ch.ivyteam.htmldialog.demo.output.ExportExcelDemo.ExportExcelDemoData #txt
 Es0 f2 processCall 'Functional Processes/InitPersons:initPerson()' #txt
-Es0 f2 doCall true #txt
 Es0 f2 requestActionDecl '<> param;
 ' #txt
 Es0 f2 responseActionDecl 'ch.ivyteam.htmldialog.demo.output.ExportExcelDemo.ExportExcelDemoData out;
@@ -65,8 +57,6 @@ Es0 f2 @|CallSubIcon #fIcon
 Es0 f2 -1|-1|-9671572 #nodeStyle
 Es0 f3 expr out #txt
 Es0 f3 109 128 168 128 #arcP
-Es0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.output.ExportExcelDemo.ExportExcelDemoData out;
-' #txt
 Es0 f11 actionTable 'out=in;
 ' #txt
 Es0 f11 actionCode 'import ch.ivyteam.htmldialog.demo.Person;
@@ -78,7 +68,6 @@ for (Person person : in.persons)
 {
 	in.recordset.add([person.name, person.firstname]);
 }' #txt
-Es0 f11 type ch.ivyteam.htmldialog.demo.output.ExportExcelDemo.ExportExcelDemoData #txt
 Es0 f11 360 106 112 44 58 -2 #rect
 Es0 f11 @|StepIcon #fIcon
 Es0 f11 -1|-1|-9671572 #nodeStyle

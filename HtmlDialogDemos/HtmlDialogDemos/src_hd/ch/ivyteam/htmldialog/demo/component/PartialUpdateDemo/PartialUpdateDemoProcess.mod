@@ -1,31 +1,25 @@
 [Ivy]
-[>Created: Tue May 06 12:44:25 CEST 2014]
-139E3EF5C6DBC97F 3.17 #module
+139E3EF5C6DBC97F 3.28 #module
 >Proto >Proto Collection #zClass
 Ps0 PartialUpdateDemoProcess Big #zClass
 Ps0 RD #cInfo
 Ps0 #process
-Ps0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Ps0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Ps0 @TextInP .resExport .resExport #zField
 Ps0 @TextInP .type .type #zField
 Ps0 @TextInP .processKind .processKind #zField
 Ps0 @AnnotationInP-0n ai ai #zField
 Ps0 @TextInP .xml .xml #zField
 Ps0 @TextInP .responsibility .responsibility #zField
-Ps0 @RichDialogInitStart f0 '' #zField
-Ps0 @RichDialogProcessEnd f1 '' #zField
+Ps0 @UdInit f0 '' #zField
+Ps0 @UdProcessEnd f1 '' #zField
 Ps0 @PushWFArc f2 '' #zField
-Ps0 @RichDialogProcessStart f3 '' #zField
-Ps0 @RichDialogProcessEnd f4 '' #zField
+Ps0 @UdEvent f3 '' #zField
+Ps0 @UdProcessEnd f4 '' #zField
 Ps0 @GridStep f5 '' #zField
 Ps0 @PushWFArc f6 '' #zField
 Ps0 @PushWFArc f7 '' #zField
 >Proto Ps0 Ps0 PartialUpdateDemoProcess #zField
 Ps0 f0 guid 0139E3EF5C8EF75C #txt
-Ps0 f0 type ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData #txt
 Ps0 f0 method start() #txt
-Ps0 f0 disableUIEvents true #txt
 Ps0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -33,7 +27,6 @@ Ps0 f0 inParameterMapAction 'out.counter=0;
 ' #txt
 Ps0 f0 outParameterDecl '<> result;
 ' #txt
-Ps0 f0 embeddedRdInitializations '* ' #txt
 Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -44,18 +37,14 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ps0 f0 83 83 26 26 -16 12 #rect
-Ps0 f0 @|RichDialogInitStartIcon #fIcon
+Ps0 f0 @|UdInitIcon #fIcon
 Ps0 f0 -1|-1|-9671572 #nodeStyle
-Ps0 f1 type ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData #txt
 Ps0 f1 211 83 26 26 0 12 #rect
-Ps0 f1 @|RichDialogProcessEndIcon #fIcon
+Ps0 f1 @|UdProcessEndIcon #fIcon
 Ps0 f1 -1|-1|-9671572 #nodeStyle
 Ps0 f2 expr out #txt
 Ps0 f2 109 96 211 96 #arcP
 Ps0 f3 guid 139E3F86899BF38A #txt
-Ps0 f3 type ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData #txt
-Ps0 f3 actionDecl 'ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData out;
-' #txt
 Ps0 f3 actionTable 'out=in;
 ' #txt
 Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -68,18 +57,14 @@ Ps0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ps0 f3 83 307 26 26 -46 12 #rect
-Ps0 f3 @|RichDialogProcessStartIcon #fIcon
+Ps0 f3 @|UdEventIcon #fIcon
 Ps0 f3 -1|-1|-9671572 #nodeStyle
-Ps0 f4 type ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData #txt
 Ps0 f4 403 307 26 26 0 12 #rect
-Ps0 f4 @|RichDialogProcessEndIcon #fIcon
+Ps0 f4 @|UdProcessEndIcon #fIcon
 Ps0 f4 -1|-1|-9671572 #nodeStyle
-Ps0 f5 actionDecl 'ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData out;
-' #txt
 Ps0 f5 actionTable 'out=in;
 out.counter=in.counter+1;
 ' #txt
-Ps0 f5 type ch.ivyteam.htmldialog.demo.component.PartialUpdateDemo.PartialUpdateDemoData #txt
 Ps0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
