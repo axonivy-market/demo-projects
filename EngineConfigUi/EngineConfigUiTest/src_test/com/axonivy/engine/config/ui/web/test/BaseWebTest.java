@@ -21,8 +21,9 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.time.StopWatch;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
@@ -31,19 +32,31 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.FirefoxBinary;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import com.axonivy.engine.config.ui.web.test.geckodriver.FixVersionFirefox;
-import com.axonivy.engine.config.ui.web.test.geckodriver.GeckoFirefox;
 import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Accordion;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
 
+import io.github.bonigarcia.seljup.Options;
+import io.github.bonigarcia.seljup.SeleniumExtension;
+
+@ExtendWith(SeleniumExtension.class)
 public class BaseWebTest
 {
+  @Options
+  FirefoxOptions firefoxOptions = new FirefoxOptions();
+  {
+    FirefoxBinary binary = new FirefoxBinary();
+    binary.addCommandLineOptions("--headless");
+    firefoxOptions.setBinary(binary);
+  }
+  
   protected static final String USERNAME = "admin";
   protected static final String PASSWORD = "nimda";
   protected static final String connectionUrl = "jdbc:mysql://zugtstdbsmys:3306/";
@@ -54,31 +67,16 @@ public class BaseWebTest
   private AjaxHelper ajax;
   protected boolean dbCreated = false;
 
-  @Before
-  public void setUp() throws Exception
+  @BeforeEach
+  public void setUp(FirefoxDriver driver) throws Exception
   {
-    createDriver();
+    this.driver = driver;
+    driver.manage().window().setSize(new Dimension(1900, 1040));
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     prime = new PrimeUi(driver);
     ajax = new AjaxHelper(driver);
 
     openConfigUi();
-  }
-
-  private void createDriver()
-  {
-    GeckoFirefox.register();
-    FirefoxProfile profile = configureBrowserProfile();
-    driver = FixVersionFirefox.createWebDriver(profile);
-    driver.manage().window().setSize(new Dimension(1900, 1040));
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
-
-  private FirefoxProfile configureBrowserProfile()
-  {
-    FirefoxProfile profile = new FirefoxProfile();
-    profile.setPreference("security.insecure_password.ui.enabled", false);
-    profile.setPreference("security.insecure_field_warning.contextual.enabled", false);
-    return profile;
   }
 
   protected void setupMySql() throws Exception
@@ -95,7 +93,7 @@ public class BaseWebTest
     driver.get(processStartLink);
   }
 
-  @After
+  @AfterEach
   public void tearDown() throws Exception
   {
     try

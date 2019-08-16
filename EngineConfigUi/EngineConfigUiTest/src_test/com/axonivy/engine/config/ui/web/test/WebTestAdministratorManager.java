@@ -1,6 +1,6 @@
 package com.axonivy.engine.config.ui.web.test;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
@@ -12,7 +12,7 @@ public class WebTestAdministratorManager extends BaseWebTest
   @Test
   public void testAddAdmin() throws Exception
   {
-	setupMySql();
+    setupMySql();
     openTab("Administrators");
 
     Table table = prime

@@ -1,13 +1,13 @@
 package com.axonivy.engine.config.ui.unit.test;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
-
-import ch.ivyteam.db.jdbc.DatabaseProduct;
-import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
+import org.junit.jupiter.api.Test;
 
 import com.axon.ivy.engine.config.ConnectionInfo;
 import com.axon.ivy.engine.config.FailedConnectionState;
+
+import ch.ivyteam.db.jdbc.DatabaseProduct;
+import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 
 @SuppressWarnings("restriction")
 public class TestSystemDatabaseAdvice
