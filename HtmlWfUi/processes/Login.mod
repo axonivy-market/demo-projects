@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Wed Nov 16 10:04:26 CET 2011]
-12E2EFDD83CB2D4C 3.17 #module
+12E2EFDD83CB2D4C 3.28 #module
 >Proto >Proto Collection #zClass
 Ln0 Login Big #zClass
 Ln0 B #cInfo
 Ln0 #process
-Ln0 @TextInP .resExport .resExport #zField
 Ln0 @TextInP .type .type #zField
 Ln0 @TextInP .processKind .processKind #zField
 Ln0 @AnnotationInP-0n ai ai #zField
@@ -22,61 +20,21 @@ Ln0 @EndTask f7 '' #zField
 Ln0 @PushWFArc f8 '' #zField
 >Proto Ln0 Ln0 Login #zField
 Ln0 f0 outLink DefaultLoginPage.ivp #txt
-Ln0 f0 type htmlwfui.Data #txt
 Ln0 f0 inParamDecl '<java.lang.String originalUrl> param;' #txt
 Ln0 f0 inParamTable 'out.temp.url=param.originalUrl;
 ' #txt
-Ln0 f0 actionDecl 'htmlwfui.Data out;
-' #txt
-Ln0 f0 guid 12E2EFDE42259A1E #txt
 Ln0 f0 requestEnabled true #txt
 Ln0 f0 triggerEnabled false #txt
 Ln0 f0 callSignature DefaultLoginPage(String) #txt
 Ln0 f0 persist false #txt
 Ln0 f0 startName 'WF Login' #txt
-Ln0 f0 taskData '#
-#Wed Nov 16 10:04:24 CET 2011
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Ln0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Ln0 f0 caseData '#
-#Wed Nov 16 10:04:24 CET 2011
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ln0 f0 showInStartList 0 #txt
-Ln0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ln0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -92,9 +50,7 @@ This process is called whenever a login is required.</desc>
 Ln0 f0 @C|.responsibility Everybody #txt
 Ln0 f0 115 43 26 26 18 -9 #rect
 Ln0 f0 @|StartRequestIcon #fIcon
-Ln0 f5 type htmlwfui.Data #txt
 Ln0 f5 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Ln0 f5 doCall true #txt
 Ln0 f5 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Ln0 f5 requestMappingAction 'param.in=in;
@@ -114,7 +70,6 @@ Ln0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ln0 f5 110 100 36 24 21 -6 #rect
 Ln0 f5 @|CallSubIcon #fIcon
-Ln0 f2 type htmlwfui.Data #txt
 Ln0 f2 template "redirect.jsp" #txt
 Ln0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -130,7 +85,6 @@ Ln0 f2 @|EndRequestIcon #fIcon
 Ln0 f1 expr out #txt
 Ln0 f1 128 69 128 100 #arcP
 Ln0 f1 0 0.48896339077831585 0 0 #arcLabel
-Ln0 f4 type htmlwfui.Data #txt
 Ln0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -147,7 +101,6 @@ Ln0 f6 128 124 128 154 #arcP
 Ln0 f3 expr in #txt
 Ln0 f3 outCond in.temp.url.length()>0 #txt
 Ln0 f3 121 175 80 222 #arcP
-Ln0 f7 type htmlwfui.Data #txt
 Ln0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

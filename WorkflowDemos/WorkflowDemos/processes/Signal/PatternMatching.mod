@@ -1,10 +1,9 @@
 [Ivy]
-16AC5A6319BD9D86 3.26 #module
+16AC5A6319BD9D86 3.28 #module
 >Proto >Proto Collection #zClass
 Pg0 PatternMatching Big #zClass
 Pg0 B #cInfo
 Pg0 #process
-Pg0 @TextInP .resExport .resExport #zField
 Pg0 @TextInP .type .type #zField
 Pg0 @TextInP .processKind .processKind #zField
 Pg0 @AnnotationInP-0n ai ai #zField
@@ -39,11 +38,7 @@ Pg0 @InfoButton f23 '' #zField
 Pg0 @InfoButton f24 '' #zField
 >Proto Pg0 Pg0 PatternMatching #zField
 Pg0 f0 outLink start.ivp #txt
-Pg0 f0 type workflow.humantask.Data #txt
 Pg0 f0 inParamDecl '<> param;' #txt
-Pg0 f0 actionDecl 'workflow.humantask.Data out;
-' #txt
-Pg0 f0 guid 16AC5A631F0AE991 #txt
 Pg0 f0 requestEnabled true #txt
 Pg0 f0 triggerEnabled false #txt
 Pg0 f0 callSignature start() #txt
@@ -60,7 +55,6 @@ Pg0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Pg0 f0 @C|.responsibility Everybody #txt
 Pg0 f0 81 49 30 30 -25 17 #rect
 Pg0 f0 @|StartRequestIcon #fIcon
-Pg0 f1 type workflow.humantask.Data #txt
 Pg0 f1 457 49 30 30 0 15 #rect
 Pg0 f1 @|EndIcon #fIcon
 Pg0 f3 signalCode airport:passenger:boarding:3424 #txt
@@ -74,12 +68,9 @@ Pg0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Pg0 f3 81 145 30 30 -13 16 #rect
 Pg0 f3 @|SignalStartEventIcon #fIcon
-Pg0 f4 actionDecl 'workflow.humantask.Data out;
-' #txt
 Pg0 f4 actionTable 'out=in;
 ' #txt
 Pg0 f4 actionCode ivy.wf.signals().send("airport:passenger:boarding:3424"); #txt
-Pg0 f4 type workflow.humantask.Data #txt
 Pg0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -97,7 +88,6 @@ Pg0 f5 expr out #txt
 Pg0 f5 111 64 160 64 #arcP
 Pg0 f2 expr out #txt
 Pg0 f2 400 64 457 64 #arcP
-Pg0 f6 type workflow.humantask.Data #txt
 Pg0 f6 465 145 30 30 0 15 #rect
 Pg0 f6 @|EndIcon #fIcon
 Pg0 f7 111 160 465 160 #arcP
@@ -161,7 +151,6 @@ Pg0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Pg0 f16 81 497 30 30 -13 16 #rect
 Pg0 f16 @|SignalStartEventIcon #fIcon
-Pg0 f18 type workflow.humantask.Data #txt
 Pg0 f18 465 497 30 30 0 15 #rect
 Pg0 f18 @|EndIcon #fIcon
 Pg0 f19 111 512 465 512 #arcP

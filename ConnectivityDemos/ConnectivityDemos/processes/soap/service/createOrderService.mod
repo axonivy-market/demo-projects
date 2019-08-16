@@ -1,5 +1,5 @@
 [Ivy]
-162492A1649E72DF 3.23 #module
+162492A1649E72DF 3.28 #module
 >Proto >Proto Collection #zClass
 ce0 createOrderService Big #zClass
 ce0 WS #cInfo
@@ -7,7 +7,6 @@ ce0 #process
 ce0 @TextInP .webServiceName .webServiceName #zField
 ce0 @TextInP .implementationClassName .implementationClassName #zField
 ce0 @TextInP .authenticationType .authenticationType #zField
-ce0 @TextInP .resExport .resExport #zField
 ce0 @TextInP .type .type #zField
 ce0 @TextInP .processKind .processKind #zField
 ce0 @AnnotationInP-0n ai ai #zField
@@ -58,12 +57,9 @@ ce0 ws0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ce0 ws0 @C|.responsibility Everybody #txt
 ce0 ws0 57 137 30 30 -27 -33 #rect
 ce0 ws0 @|StartWSIcon #fIcon
-ce0 ws1 type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt
 ce0 ws1 441 73 30 30 0 15 #rect
 ce0 ws1 @|EndWSIcon #fIcon
-ce0 f1 type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt
 ce0 f1 processCall soap/service/order:approveOrder(com.axonivy.connectivity.soap.service.Order,String) #txt
-ce0 f1 doCall true #txt
 ce0 f1 requestActionDecl '<com.axonivy.connectivity.soap.service.Order order,java.lang.String responsibleRole> param;
 ' #txt
 ce0 f1 requestMappingAction 'param.order=in.order;
@@ -90,7 +86,6 @@ ce0 f1 272 66 112 44 -25 -15 #rect
 ce0 f1 @|TriggerIcon #fIcon
 ce0 f0 expr out #txt
 ce0 f0 384 88 441 88 #arcP
-ce0 f3 type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt
 ce0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -119,12 +114,9 @@ ce0 f2 6 #arcStyle
 ce0 f2 176 136 272 88 #arcP
 ce0 f2 1 176 88 #addKink
 ce0 f2 1 0.19155493663523251 1 9 #arcLabel
-ce0 f5 type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt
 ce0 f5 441 203 30 30 0 15 #rect
 ce0 f5 @|EndWSIcon #fIcon
-ce0 f6 type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt
 ce0 f6 processCall soap/service/order:approveOrder(com.axonivy.connectivity.soap.service.Order,String) #txt
-ce0 f6 doCall true #txt
 ce0 f6 requestActionDecl '<com.axonivy.connectivity.soap.service.Order order,java.lang.String responsibleRole> param;
 ' #txt
 ce0 f6 requestMappingAction 'param.order=in.order;

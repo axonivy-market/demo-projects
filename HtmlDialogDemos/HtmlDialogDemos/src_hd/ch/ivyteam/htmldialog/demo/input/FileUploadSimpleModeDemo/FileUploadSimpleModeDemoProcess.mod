@@ -1,41 +1,35 @@
 [Ivy]
-[>Created: Thu Jun 12 14:48:36 CEST 2014]
-13D440F293AA05F8 3.17 #module
+13D440F293AA05F8 3.28 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadSimpleModeDemoProcess Big #zClass
 Fs0 RD #cInfo
 Fs0 #process
-Fs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Fs0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Fs0 @TextInP .resExport .resExport #zField
 Fs0 @TextInP .type .type #zField
 Fs0 @TextInP .processKind .processKind #zField
 Fs0 @AnnotationInP-0n ai ai #zField
 Fs0 @TextInP .xml .xml #zField
 Fs0 @TextInP .responsibility .responsibility #zField
-Fs0 @RichDialogInitStart f0 '' #zField
-Fs0 @RichDialogProcessEnd f1 '' #zField
-Fs0 @RichDialogProcessStart f11 '' #zField
-Fs0 @RichDialogProcessEnd f12 '' #zField
+Fs0 @UdInit f0 '' #zField
+Fs0 @UdProcessEnd f1 '' #zField
+Fs0 @UdEvent f11 '' #zField
+Fs0 @UdProcessEnd f12 '' #zField
 Fs0 @GridStep f8 '' #zField
 Fs0 @PushWFArc f9 '' #zField
 Fs0 @PushWFArc f10 '' #zField
-Fs0 @RichDialogProcessStart f3 '' #zField
-Fs0 @RichDialogProcessEnd f4 '' #zField
+Fs0 @UdEvent f3 '' #zField
+Fs0 @UdProcessEnd f4 '' #zField
 Fs0 @GridStep f6 '' #zField
 Fs0 @PushWFArc f7 '' #zField
 Fs0 @PushWFArc f5 '' #zField
-Fs0 @RichDialogProcessStart f13 '' #zField
-Fs0 @RichDialogProcessEnd f14 '' #zField
+Fs0 @UdEvent f13 '' #zField
+Fs0 @UdProcessEnd f14 '' #zField
 Fs0 @GridStep f16 '' #zField
 Fs0 @PushWFArc f17 '' #zField
 Fs0 @PushWFArc f15 '' #zField
 Fs0 @PushWFArc f20 '' #zField
 >Proto Fs0 Fs0 FileUploadSimpleModeDemoProcess #zField
 Fs0 f0 guid 13CF812673B64819 #txt
-Fs0 f0 type ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData #txt
 Fs0 f0 method start() #txt
-Fs0 f0 disableUIEvents true #txt
 Fs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -51,16 +45,12 @@ Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f0 83 51 26 26 -16 12 #rect
-Fs0 f0 @|RichDialogInitStartIcon #fIcon
+Fs0 f0 @|UdInitIcon #fIcon
 Fs0 f0 -1|-1|-9671572 #nodeStyle
-Fs0 f1 type ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData #txt
 Fs0 f1 243 51 26 26 0 12 #rect
-Fs0 f1 @|RichDialogProcessEndIcon #fIcon
+Fs0 f1 @|UdProcessEndIcon #fIcon
 Fs0 f1 -1|-1|-9671572 #nodeStyle
 Fs0 f11 guid 13D016515EC7C69A #txt
-Fs0 f11 type ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData #txt
-Fs0 f11 actionDecl 'ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData out;
-' #txt
 Fs0 f11 actionTable 'out=in;
 ' #txt
 Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -73,18 +63,14 @@ Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f11 83 243 26 26 -36 12 #rect
-Fs0 f11 @|RichDialogProcessStartIcon #fIcon
+Fs0 f11 @|UdEventIcon #fIcon
 Fs0 f11 -1|-1|-9671572 #nodeStyle
-Fs0 f12 type ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData #txt
 Fs0 f12 403 243 26 26 0 12 #rect
-Fs0 f12 @|RichDialogProcessEndIcon #fIcon
+Fs0 f12 @|UdProcessEndIcon #fIcon
 Fs0 f12 -1|-1|-9671572 #nodeStyle
-Fs0 f8 actionDecl 'ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData out;
-' #txt
 Fs0 f8 actionTable 'out=in;
 out.showContent=true;
 ' #txt
-Fs0 f8 type ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData #txt
 Fs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -102,9 +88,6 @@ Fs0 f9 109 256 200 256 #arcP
 Fs0 f10 expr out #txt
 Fs0 f10 312 256 403 256 #arcP
 Fs0 f3 guid 1468FB4A3B3BAF3D #txt
-Fs0 f3 type ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData #txt
-Fs0 f3 actionDecl 'ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData out;
-' #txt
 Fs0 f3 actionTable 'out=in;
 ' #txt
 Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -115,14 +98,11 @@ Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f3 83 339 26 26 -36 12 #rect
-Fs0 f3 @|RichDialogProcessStartIcon #fIcon
+Fs0 f3 @|UdEventIcon #fIcon
 Fs0 f3 -1|-1|-9671572 #nodeStyle
-Fs0 f4 type ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData #txt
 Fs0 f4 403 339 26 26 0 12 #rect
-Fs0 f4 @|RichDialogProcessEndIcon #fIcon
+Fs0 f4 @|UdProcessEndIcon #fIcon
 Fs0 f4 -1|-1|-9671572 #nodeStyle
-Fs0 f6 actionDecl 'ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData out;
-' #txt
 Fs0 f6 actionTable 'out=in;
 ' #txt
 Fs0 f6 actionCode 'import java.io.FileInputStream;
@@ -139,7 +119,6 @@ in.fileDownload = new DefaultStreamedContent(stream, "text/txt", in.fileName);
 
 
 ' #txt
-Fs0 f6 type ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData #txt
 Fs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -157,9 +136,6 @@ Fs0 f7 109 352 184 352 #arcP
 Fs0 f5 expr out #txt
 Fs0 f5 328 352 403 352 #arcP
 Fs0 f13 guid 1469001EB7423E79 #txt
-Fs0 f13 type ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData #txt
-Fs0 f13 actionDecl 'ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData out;
-' #txt
 Fs0 f13 actionTable 'out=in;
 ' #txt
 Fs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -170,21 +146,17 @@ Fs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Fs0 f13 83 147 26 26 -28 12 #rect
-Fs0 f13 @|RichDialogProcessStartIcon #fIcon
+Fs0 f13 @|UdEventIcon #fIcon
 Fs0 f13 -1|-1|-9671572 #nodeStyle
-Fs0 f14 type ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData #txt
 Fs0 f14 403 147 26 26 0 12 #rect
-Fs0 f14 @|RichDialogProcessEndIcon #fIcon
+Fs0 f14 @|UdProcessEndIcon #fIcon
 Fs0 f14 -1|-1|-9671572 #nodeStyle
-Fs0 f16 actionDecl 'ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData out;
-' #txt
 Fs0 f16 actionTable 'out=in;
 out.showContent=false;
 ' #txt
 Fs0 f16 actionCode 'in.textContent = in.ivyFile.read();
 in.fileName = in.ivyFile.getName();
 in.filePath = in.ivyFile.getAbsolutePath();' #txt
-Fs0 f16 type ch.ivyteam.htmldialog.demo.input.FileUploadSimpleModeDemo.FileUploadSimpleModeDemoData #txt
 Fs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

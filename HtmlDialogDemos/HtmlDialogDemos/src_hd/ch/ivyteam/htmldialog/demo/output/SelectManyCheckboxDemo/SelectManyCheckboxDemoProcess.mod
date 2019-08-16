@@ -1,34 +1,28 @@
 [Ivy]
-[>Created: Tue May 06 12:35:02 CEST 2014]
-13F613EA00B31DDD 3.17 #module
+13F613EA00B31DDD 3.28 #module
 >Proto >Proto Collection #zClass
 Ss0 SelectManyCheckboxDemoProcess Big #zClass
 Ss0 RD #cInfo
 Ss0 #process
-Ss0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Ss0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Ss0 @TextInP .resExport .resExport #zField
 Ss0 @TextInP .type .type #zField
 Ss0 @TextInP .processKind .processKind #zField
 Ss0 @AnnotationInP-0n ai ai #zField
 Ss0 @TextInP .xml .xml #zField
 Ss0 @TextInP .responsibility .responsibility #zField
-Ss0 @RichDialogInitStart f0 '' #zField
-Ss0 @RichDialogProcessEnd f1 '' #zField
+Ss0 @UdInit f0 '' #zField
+Ss0 @UdProcessEnd f1 '' #zField
 Ss0 @CallSub f3 '' #zField
 Ss0 @PushWFArc f4 '' #zField
-Ss0 @RichDialogProcessEnd f6 '' #zField
-Ss0 @RichDialogProcessStart f7 '' #zField
-Ss0 @RichDialogEnd f8 '' #zField
-Ss0 @RichDialogProcessStart f5 '' #zField
+Ss0 @UdProcessEnd f6 '' #zField
+Ss0 @UdEvent f7 '' #zField
+Ss0 @UdExitEnd f8 '' #zField
+Ss0 @UdEvent f5 '' #zField
 Ss0 @PushWFArc f9 '' #zField
 Ss0 @PushWFArc f10 '' #zField
 Ss0 @PushWFArc f2 '' #zField
 >Proto Ss0 Ss0 SelectManyCheckboxDemoProcess #zField
 Ss0 f0 guid 13F3C7335762710A #txt
-Ss0 f0 type ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo.SelectManyCheckboxDemoData #txt
 Ss0 f0 method start() #txt
-Ss0 f0 disableUIEvents true #txt
 Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -44,15 +38,12 @@ Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f0 83 115 26 26 -16 12 #rect
-Ss0 f0 @|RichDialogInitStartIcon #fIcon
+Ss0 f0 @|UdInitIcon #fIcon
 Ss0 f0 -1|-1|-9671572 #nodeStyle
-Ss0 f1 type ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo.SelectManyCheckboxDemoData #txt
 Ss0 f1 419 115 26 26 0 12 #rect
-Ss0 f1 @|RichDialogProcessEndIcon #fIcon
+Ss0 f1 @|UdProcessEndIcon #fIcon
 Ss0 f1 -1|-1|-9671572 #nodeStyle
-Ss0 f3 type ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo.SelectManyCheckboxDemoData #txt
 Ss0 f3 processCall 'Functional Processes/InitPersons:initPerson()' #txt
-Ss0 f3 doCall true #txt
 Ss0 f3 requestActionDecl '<> param;
 ' #txt
 Ss0 f3 responseActionDecl 'ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo.SelectManyCheckboxDemoData out;
@@ -72,14 +63,10 @@ Ss0 f3 @|CallSubIcon #fIcon
 Ss0 f3 -1|-1|-9671572 #nodeStyle
 Ss0 f4 expr out #txt
 Ss0 f4 109 128 200 128 #arcP
-Ss0 f6 type ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo.SelectManyCheckboxDemoData #txt
 Ss0 f6 211 307 26 26 0 12 #rect
-Ss0 f6 @|RichDialogProcessEndIcon #fIcon
+Ss0 f6 @|UdProcessEndIcon #fIcon
 Ss0 f6 -1|-1|-9671572 #nodeStyle
 Ss0 f7 guid 13F3C7C4AAA7A1A5 #txt
-Ss0 f7 type ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo.SelectManyCheckboxDemoData #txt
-Ss0 f7 actionDecl 'ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo.SelectManyCheckboxDemoData out;
-' #txt
 Ss0 f7 actionTable 'out=in;
 ' #txt
 Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -92,17 +79,12 @@ Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f7 83 403 26 26 -15 12 #rect
-Ss0 f7 @|RichDialogProcessStartIcon #fIcon
+Ss0 f7 @|UdEventIcon #fIcon
 Ss0 f7 -1|-1|-9671572 #nodeStyle
-Ss0 f8 type ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo.SelectManyCheckboxDemoData #txt
-Ss0 f8 guid 139D43768BEC3366 #txt
 Ss0 f8 211 403 26 26 0 12 #rect
-Ss0 f8 @|RichDialogEndIcon #fIcon
+Ss0 f8 @|UdExitEndIcon #fIcon
 Ss0 f8 -1|-1|-9671572 #nodeStyle
 Ss0 f5 guid 13F3C7C4AA97821B #txt
-Ss0 f5 type ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo.SelectManyCheckboxDemoData #txt
-Ss0 f5 actionDecl 'ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo.SelectManyCheckboxDemoData out;
-' #txt
 Ss0 f5 actionTable 'out=in;
 ' #txt
 Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -115,7 +97,7 @@ Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f5 83 307 26 26 -14 12 #rect
-Ss0 f5 @|RichDialogProcessStartIcon #fIcon
+Ss0 f5 @|UdEventIcon #fIcon
 Ss0 f5 -1|-1|-9671572 #nodeStyle
 Ss0 f9 expr out #txt
 Ss0 f9 109 416 211 416 #arcP

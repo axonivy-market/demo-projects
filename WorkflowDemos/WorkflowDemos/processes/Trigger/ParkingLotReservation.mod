@@ -1,10 +1,9 @@
 [Ivy]
-15254CF47A16DEA1 3.25 #module
+15254CF47A16DEA1 3.28 #module
 >Proto >Proto Collection #zClass
 Pn0 ParkingLotReservation Big #zClass
 Pn0 B #cInfo
 Pn0 #process
-Pn0 @TextInP .resExport .resExport #zField
 Pn0 @TextInP .type .type #zField
 Pn0 @TextInP .processKind .processKind #zField
 Pn0 @AnnotationInP-0n ai ai #zField
@@ -14,7 +13,7 @@ Pn0 @TextInP .xml .xml #zField
 Pn0 @TextInP .responsibility .responsibility #zField
 Pn0 @StartRequest f0 '' #zField
 Pn0 @EndTask f1 '' #zField
-Pn0 @RichDialog f3 '' #zField
+Pn0 @UserDialog f3 '' #zField
 Pn0 @PushWFArc f4 '' #zField
 Pn0 @EMail f5 '' #zField
 Pn0 @PushWFArc f6 '' #zField
@@ -24,13 +23,9 @@ Pn0 @AnnotationArc f8 '' #zField
 Pn0 @InfoButton f9 '' #zField
 >Proto Pn0 Pn0 ParkingLotReservation #zField
 Pn0 f0 outLink start.ivp #txt
-Pn0 f0 type workflow.trigger.NewEmployeeData #txt
 Pn0 f0 inParamDecl '<workflow.trigger.NewEmployeeData newEmployeeData> param;' #txt
 Pn0 f0 inParamTable 'out=param.newEmployeeData;
 ' #txt
-Pn0 f0 actionDecl 'workflow.trigger.NewEmployeeData out;
-' #txt
-Pn0 f0 guid 150380834F3ACA57 #txt
 Pn0 f0 requestEnabled false #txt
 Pn0 f0 triggerEnabled true #txt
 Pn0 f0 callSignature start(workflow.trigger.NewEmployeeData) #txt
@@ -57,14 +52,10 @@ Pn0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Pn0 f0 @C|.responsibility Everybody #txt
 Pn0 f0 97 249 30 30 -69 17 #rect
 Pn0 f0 @|StartRequestIcon #fIcon
-Pn0 f1 type workflow.trigger.NewEmployeeData #txt
 Pn0 f1 553 249 30 30 0 15 #rect
 Pn0 f1 @|EndIcon #fIcon
-Pn0 f3 targetWindow NEW:card: #txt
-Pn0 f3 targetDisplay TOP #txt
-Pn0 f3 richDialogId workflow.trigger.ReserveParkingLot #txt
+Pn0 f3 dialogId workflow.trigger.ReserveParkingLot #txt
 Pn0 f3 startMethod start(workflow.trigger.NewEmployeeData) #txt
-Pn0 f3 type workflow.trigger.NewEmployeeData #txt
 Pn0 f3 requestActionDecl '<workflow.trigger.NewEmployeeData employee> param;' #txt
 Pn0 f3 requestMappingAction 'param.employee=in;
 ' #txt
@@ -72,10 +63,6 @@ Pn0 f3 responseActionDecl 'workflow.trigger.NewEmployeeData out;
 ' #txt
 Pn0 f3 responseMappingAction 'out=result.employee;
 ' #txt
-Pn0 f3 windowConfiguration '* ' #txt
-Pn0 f3 isAsynch false #txt
-Pn0 f3 isInnerRd false #txt
-Pn0 f3 userContext '* ' #txt
 Pn0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -86,7 +73,7 @@ Pn0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Pn0 f3 184 242 112 44 -53 -8 #rect
-Pn0 f3 @|RichDialogIcon #fIcon
+Pn0 f3 @|UserDialogIcon #fIcon
 Pn0 f4 expr out #txt
 Pn0 f4 127 264 184 264 #arcP
 Pn0 f5 beanConfig '"{/emailSubject ""<%=ivy.cms.co(\\""/Emails/parkingLotReservationHeader\\"")%>""/emailFrom ""<%=ivy.cms.co(\\""/Emails/senderMail\\"")%>""/emailReplyTo """"/emailTo ""<%=in.email%>""/emailCC """"/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage "" <html> \\n\\t<style type=\\""text/css\\"">\\n     \\t\\t<%=ivy.cms.co(\\""/Styles/Classic\\"")%>\\n\\t</style>\\n\\t\\n\\t<%=ivy.cms.co(\\""/Images/Logo\\"")%>\\n\\n\\t<%=ivy.cms.co(\\""/Emails/confirmParkingLot\\"")%>\\n</html>""/emailAttachments * }"' #txt

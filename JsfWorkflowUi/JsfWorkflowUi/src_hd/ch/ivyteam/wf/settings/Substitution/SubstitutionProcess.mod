@@ -1,28 +1,25 @@
 [Ivy]
-13F5720787C9F3A0 3.23 #module
+13F5720787C9F3A0 3.28 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstitutionProcess Big #zClass
 Ss0 RD #cInfo
 Ss0 #process
-Ss0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Ss0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Ss0 @TextInP .resExport .resExport #zField
 Ss0 @TextInP .type .type #zField
 Ss0 @TextInP .processKind .processKind #zField
 Ss0 @AnnotationInP-0n ai ai #zField
 Ss0 @TextInP .xml .xml #zField
 Ss0 @TextInP .responsibility .responsibility #zField
-Ss0 @RichDialogInitStart f0 '' #zField
-Ss0 @RichDialogProcessEnd f1 '' #zField
+Ss0 @UdInit f0 '' #zField
+Ss0 @UdProcessEnd f1 '' #zField
 Ss0 @GridStep f3 '' #zField
 Ss0 @GridStep f5 '' #zField
 Ss0 @GridStep f10 '' #zField
-Ss0 @RichDialogProcessStart f14 '' #zField
+Ss0 @UdEvent f14 '' #zField
 Ss0 @GridStep f17 '' #zField
 Ss0 @PushWFArc f18 '' #zField
-Ss0 @RichDialogMethodStart f7 '' #zField
+Ss0 @UdMethod f7 '' #zField
 Ss0 @PushWFArc f15 '' #zField
-Ss0 @RichDialogMethodStart f4 '' #zField
+Ss0 @UdMethod f4 '' #zField
 Ss0 @GridStep f8 '' #zField
 Ss0 @PushWFArc f13 '' #zField
 Ss0 @PushWFArc f12 '' #zField
@@ -30,18 +27,16 @@ Ss0 @GridStep f11 '' #zField
 Ss0 @PushWFArc f19 '' #zField
 Ss0 @PushWFArc f20 '' #zField
 Ss0 @PushWFArc f21 '' #zField
-Ss0 @RichDialogProcessEnd f16 '' #zField
+Ss0 @UdProcessEnd f16 '' #zField
 Ss0 @PushWFArc f22 '' #zField
-Ss0 @RichDialogProcessEnd f2 '' #zField
+Ss0 @UdProcessEnd f2 '' #zField
 Ss0 @PushWFArc f23 '' #zField
 Ss0 @GridStep f9 '' #zField
 Ss0 @PushWFArc f24 '' #zField
 Ss0 @PushWFArc f6 '' #zField
 >Proto Ss0 Ss0 SubstitutionProcess #zField
 Ss0 f0 guid 13F5720789611B9E #txt
-Ss0 f0 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f0 method start() #txt
-Ss0 f0 disableUIEvents true #txt
 Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -55,14 +50,11 @@ Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f0 83 51 26 26 -16 12 #rect
-Ss0 f0 @|RichDialogInitStartIcon #fIcon
+Ss0 f0 @|UdInitIcon #fIcon
 Ss0 f0 -1|-1|-9671572 #nodeStyle
-Ss0 f1 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f1 499 51 26 26 0 12 #rect
-Ss0 f1 @|RichDialogProcessEndIcon #fIcon
+Ss0 f1 @|UdProcessEndIcon #fIcon
 Ss0 f1 -1|-1|-9671572 #nodeStyle
-Ss0 f3 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
-' #txt
 Ss0 f3 actionTable 'out=in;
 ' #txt
 Ss0 f3 actionCode 'import ch.ivyteam.ivy.security.IRole;
@@ -92,7 +84,6 @@ for(IRole role: roles)
 		out.roleList.add(role);
 	}
 }' #txt
-Ss0 f3 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -105,8 +96,6 @@ Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ss0 f3 168 202 112 44 -43 -8 #rect
 Ss0 f3 @|StepIcon #fIcon
 Ss0 f3 -1|-1|-9671572 #nodeStyle
-Ss0 f5 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
-' #txt
 Ss0 f5 actionTable 'out=in;
 ' #txt
 Ss0 f5 actionCode 'import ch.ivyteam.ivy.security.IUserSubstitute;
@@ -124,7 +113,6 @@ for (IUserSubstitute substitution : substitutions)
 {
 	out.substiutions.add(substitution);
 }' #txt
-Ss0 f5 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -138,8 +126,6 @@ my substitutions</name>
 Ss0 f5 328 202 112 44 -42 -16 #rect
 Ss0 f5 @|StepIcon #fIcon
 Ss0 f5 -1|-1|-9671572 #nodeStyle
-Ss0 f10 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
-' #txt
 Ss0 f10 actionTable 'out=in;
 ' #txt
 Ss0 f10 actionCode 'import ch.ivyteam.ivy.security.IUserSubstitute;
@@ -153,7 +139,6 @@ for(IUserSubstitute substitute:substitutes)
 			break;
 	}	
 }' #txt
-Ss0 f10 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -167,9 +152,6 @@ Ss0 f10 168 266 112 44 -49 -8 #rect
 Ss0 f10 @|StepIcon #fIcon
 Ss0 f10 -1|-1|-9671572 #nodeStyle
 Ss0 f14 guid 13F5773B6B9B6604 #txt
-Ss0 f14 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
-Ss0 f14 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
-' #txt
 Ss0 f14 actionTable 'out=in;
 ' #txt
 Ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -180,10 +162,8 @@ Ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f14 83 147 26 26 -38 12 #rect
-Ss0 f14 @|RichDialogProcessStartIcon #fIcon
+Ss0 f14 @|UdEventIcon #fIcon
 Ss0 f14 -1|-1|-9671572 #nodeStyle
-Ss0 f17 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
-' #txt
 Ss0 f17 actionTable 'out=in;
 ' #txt
 Ss0 f17 actionCode 'import ch.ivyteam.ivy.security.SubstitutionType;
@@ -233,7 +213,6 @@ else
 		in.user.createSubstitute(in.substituteUser, role, description);
 	}
 }' #txt
-Ss0 f17 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -249,9 +228,7 @@ Ss0 f17 -1|-1|-9671572 #nodeStyle
 Ss0 f18 expr out #txt
 Ss0 f18 109 160 168 160 #arcP
 Ss0 f7 guid 13F7509B1EEE5E13 #txt
-Ss0 f7 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f7 method removeSubstitute(Number) #txt
-Ss0 f7 disableUIEvents false #txt
 Ss0 f7 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Number substituteId> param = methodEvent.getInputArguments();
 ' #txt
@@ -269,14 +246,12 @@ Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f7 83 275 26 26 -74 12 #rect
-Ss0 f7 @|RichDialogMethodStartIcon #fIcon
+Ss0 f7 @|UdMethodIcon #fIcon
 Ss0 f7 -1|-1|-9671572 #nodeStyle
 Ss0 f15 expr out #txt
 Ss0 f15 109 288 168 288 #arcP
 Ss0 f4 guid 13F75DF4EC85730E #txt
-Ss0 f4 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f4 method update() #txt
-Ss0 f4 disableUIEvents false #txt
 Ss0 f4 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -290,10 +265,8 @@ Ss0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f4 83 211 26 26 -23 12 #rect
-Ss0 f4 @|RichDialogMethodStartIcon #fIcon
+Ss0 f4 @|UdMethodIcon #fIcon
 Ss0 f4 -1|-1|-9671572 #nodeStyle
-Ss0 f8 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
-' #txt
 Ss0 f8 actionTable 'out=in;
 ' #txt
 Ss0 f8 actionCode 'import ch.ivyteam.ivy.security.IRole;
@@ -317,7 +290,6 @@ else
 {
 	out.roleSelectionLabel = ivy.cms.co("/labels/settings/substitute/roles");
 }' #txt
-Ss0 f8 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -336,8 +308,6 @@ Ss0 f13 440 224 488 224 #arcP
 Ss0 f13 0 0.5905648529193468 0 0 #arcLabel
 Ss0 f12 expr out #txt
 Ss0 f12 280 224 328 224 #arcP
-Ss0 f11 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
-' #txt
 Ss0 f11 actionTable 'out=in;
 out.description="";
 out.isPermanent=false;
@@ -345,7 +315,6 @@ out.isPersonally=true;
 out.selectedRoles=[];
 out.substituteUser=null;
 ' #txt
-Ss0 f11 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -366,26 +335,21 @@ Ss0 f21 expr out #txt
 Ss0 f21 280 160 384 86 #arcP
 Ss0 f21 1 384 160 #addKink
 Ss0 f21 0 0.7521726954430944 0 0 #arcLabel
-Ss0 f16 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f16 339 275 26 26 0 12 #rect
-Ss0 f16 @|RichDialogProcessEndIcon #fIcon
+Ss0 f16 @|UdProcessEndIcon #fIcon
 Ss0 f16 -1|-1|-9671572 #nodeStyle
 Ss0 f22 expr out #txt
 Ss0 f22 280 288 339 288 #arcP
 Ss0 f22 0 0.7008534867332892 0 0 #arcLabel
-Ss0 f2 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f2 659 211 26 26 0 12 #rect
-Ss0 f2 @|RichDialogProcessEndIcon #fIcon
+Ss0 f2 @|UdProcessEndIcon #fIcon
 Ss0 f2 -1|-1|-9671572 #nodeStyle
 Ss0 f23 expr out #txt
 Ss0 f23 600 224 659 224 #arcP
 Ss0 f23 0 0.581626613541889 0 0 #arcLabel
-Ss0 f9 actionDecl 'ch.ivyteam.wf.settings.Substitution.SubstitutionData out;
-' #txt
 Ss0 f9 actionTable 'out=in;
 out.user=ivy.session.getSessionUser();
 ' #txt
-Ss0 f9 type ch.ivyteam.wf.settings.Substitution.SubstitutionData #txt
 Ss0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

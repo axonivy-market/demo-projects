@@ -1,24 +1,20 @@
 [Ivy]
-[>Created: Tue May 06 12:31:36 CEST 2014]
-139D3B8894867715 3.17 #module
+139D3B8894867715 3.28 #module
 >Proto >Proto Collection #zClass
 Os0 OrderListDemoProcess Big #zClass
 Os0 RD #cInfo
 Os0 #process
-Os0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Os0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Os0 @TextInP .resExport .resExport #zField
 Os0 @TextInP .type .type #zField
 Os0 @TextInP .processKind .processKind #zField
 Os0 @AnnotationInP-0n ai ai #zField
 Os0 @TextInP .xml .xml #zField
 Os0 @TextInP .responsibility .responsibility #zField
-Os0 @RichDialogInitStart f0 '' #zField
-Os0 @RichDialogProcessEnd f1 '' #zField
-Os0 @RichDialogProcessStart f5 '' #zField
-Os0 @RichDialogProcessEnd f6 '' #zField
-Os0 @RichDialogProcessStart f7 '' #zField
-Os0 @RichDialogEnd f8 '' #zField
+Os0 @UdInit f0 '' #zField
+Os0 @UdProcessEnd f1 '' #zField
+Os0 @UdEvent f5 '' #zField
+Os0 @UdProcessEnd f6 '' #zField
+Os0 @UdEvent f7 '' #zField
+Os0 @UdExitEnd f8 '' #zField
 Os0 @PushWFArc f9 '' #zField
 Os0 @PushWFArc f10 '' #zField
 Os0 @CallSub f2 '' #zField
@@ -26,15 +22,12 @@ Os0 @PushWFArc f3 '' #zField
 Os0 @PushWFArc f4 '' #zField
 >Proto Os0 Os0 OrderListDemoProcess #zField
 Os0 f0 guid 139D3B8895B6832C #txt
-Os0 f0 type ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData #txt
 Os0 f0 method start() #txt
-Os0 f0 disableUIEvents true #txt
 Os0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
 Os0 f0 outParameterDecl '<> result;
 ' #txt
-Os0 f0 embeddedRdInitializations '* ' #txt
 Os0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -45,16 +38,12 @@ Os0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Os0 f0 83 83 26 26 -16 12 #rect
-Os0 f0 @|RichDialogInitStartIcon #fIcon
+Os0 f0 @|UdInitIcon #fIcon
 Os0 f0 -1|-1|-9671572 #nodeStyle
-Os0 f1 type ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData #txt
 Os0 f1 427 83 26 26 0 12 #rect
-Os0 f1 @|RichDialogProcessEndIcon #fIcon
+Os0 f1 @|UdProcessEndIcon #fIcon
 Os0 f1 -1|-1|-9671572 #nodeStyle
 Os0 f5 guid 139D43609EB4FFE9 #txt
-Os0 f5 type ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData #txt
-Os0 f5 actionDecl 'ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData out;
-' #txt
 Os0 f5 actionTable 'out=in;
 ' #txt
 Os0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -67,16 +56,12 @@ Os0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Os0 f5 83 243 26 26 -14 12 #rect
-Os0 f5 @|RichDialogProcessStartIcon #fIcon
+Os0 f5 @|UdEventIcon #fIcon
 Os0 f5 -1|-1|-9671572 #nodeStyle
-Os0 f6 type ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData #txt
 Os0 f6 211 243 26 26 0 12 #rect
-Os0 f6 @|RichDialogProcessEndIcon #fIcon
+Os0 f6 @|UdProcessEndIcon #fIcon
 Os0 f6 -1|-1|-9671572 #nodeStyle
 Os0 f7 guid 139D4375C5912100 #txt
-Os0 f7 type ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData #txt
-Os0 f7 actionDecl 'ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData out;
-' #txt
 Os0 f7 actionTable 'out=in;
 ' #txt
 Os0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -89,20 +74,16 @@ Os0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Os0 f7 83 339 26 26 -15 12 #rect
-Os0 f7 @|RichDialogProcessStartIcon #fIcon
+Os0 f7 @|UdEventIcon #fIcon
 Os0 f7 -1|-1|-9671572 #nodeStyle
-Os0 f8 type ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData #txt
-Os0 f8 guid 139D43768BEC3366 #txt
 Os0 f8 211 339 26 26 0 12 #rect
-Os0 f8 @|RichDialogEndIcon #fIcon
+Os0 f8 @|UdExitEndIcon #fIcon
 Os0 f8 -1|-1|-9671572 #nodeStyle
 Os0 f9 expr out #txt
 Os0 f9 109 352 211 352 #arcP
 Os0 f10 expr out #txt
 Os0 f10 109 256 211 256 #arcP
-Os0 f2 type ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData #txt
 Os0 f2 processCall 'Functional Processes/InitPersons:initPerson()' #txt
-Os0 f2 doCall true #txt
 Os0 f2 requestActionDecl '<> param;
 ' #txt
 Os0 f2 responseActionDecl 'ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData out;

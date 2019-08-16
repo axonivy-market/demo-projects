@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Fri Mar 31 14:35:34 CEST 2017]
-1547634C396BBB3A 3.20 #module
+1547634C396BBB3A 3.28 #module
 >Proto >Proto Collection #zClass
 ct0 twitter Big #zClass
 ct0 B #cInfo
 ct0 #process
-ct0 @TextInP .resExport .resExport #zField
 ct0 @TextInP .type .type #zField
 ct0 @TextInP .processKind .processKind #zField
 ct0 @AnnotationInP-0n ai ai #zField
@@ -15,8 +13,8 @@ ct0 @TextInP .xml .xml #zField
 ct0 @TextInP .responsibility .responsibility #zField
 ct0 @StartRequest f0 '' #zField
 ct0 @EndTask f1 '' #zField
-ct0 @RichDialog f4 '' #zField
-ct0 @RichDialog f7 '' #zField
+ct0 @UserDialog f4 '' #zField
+ct0 @UserDialog f7 '' #zField
 ct0 @PushWFArc f2 '' #zField
 ct0 @InfoButton f9 '' #zField
 ct0 @AnnotationArc f10 '' #zField
@@ -30,22 +28,18 @@ ct0 @ErrorBoundaryEvent f8 '' #zField
 ct0 @PushWFArc f15 '' #zField
 >Proto ct0 ct0 twitter #zField
 ct0 f0 outLink userTimeline.ivp #txt
-ct0 f0 type com.axonivy.connectivity.rest.TwitterData #txt
 ct0 f0 inParamDecl '<> param;' #txt
-ct0 f0 actionDecl 'com.axonivy.connectivity.rest.TwitterData out;
-' #txt
-ct0 f0 guid 1547634C3961853F #txt
 ct0 f0 requestEnabled true #txt
 ct0 f0 triggerEnabled false #txt
 ct0 f0 callSignature userTimeline() #txt
 ct0 f0 persist false #txt
 ct0 f0 startName '4. Uses twitter REST api to display tweets' #txt
-ct0 f0 taskData 'TaskTriggered.ROL=Everybody
+ct0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 ct0 f0 showInStartList 1 #txt
 ct0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -59,14 +53,10 @@ ct0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ct0 f0 @C|.responsibility Everybody #txt
 ct0 f0 81 145 30 30 -45 17 #rect
 ct0 f0 @|StartRequestIcon #fIcon
-ct0 f1 type com.axonivy.connectivity.rest.TwitterData #txt
 ct0 f1 593 145 30 30 0 15 #rect
 ct0 f1 @|EndIcon #fIcon
-ct0 f4 targetWindow NEW:card: #txt
-ct0 f4 targetDisplay TOP #txt
-ct0 f4 richDialogId com.axonivy.connectivity.rest.TwitterAuthorization #txt
+ct0 f4 dialogId com.axonivy.connectivity.rest.TwitterAuthorization #txt
 ct0 f4 startMethod start(String) #txt
-ct0 f4 type com.axonivy.connectivity.rest.TwitterData #txt
 ct0 f4 requestActionDecl '<String authUri> param;' #txt
 ct0 f4 requestMappingAction 'param.authUri=in.authorizationFlow.start();
 ' #txt
@@ -79,10 +69,6 @@ import com.axonivy.connectivity.rest.client.filter.TwitterOAuthFilter;
 
 AccessToken token = in.authorizationFlow.finish(result.verification);
 TwitterOAuthFilter.storeToken(token);' #txt
-ct0 f4 windowConfiguration '* ' #txt
-ct0 f4 isAsynch false #txt
-ct0 f4 isInnerRd false #txt
-ct0 f4 userContext '* ' #txt
 ct0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -93,12 +79,9 @@ ct0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ct0 f4 224 274 112 44 -33 -8 #rect
-ct0 f4 @|RichDialogIcon #fIcon
-ct0 f7 targetWindow NEW:card: #txt
-ct0 f7 targetDisplay TOP #txt
-ct0 f7 richDialogId com.axonivy.connectivity.rest.TwitterUserTimeline #txt
+ct0 f4 @|UserDialogIcon #fIcon
+ct0 f7 dialogId com.axonivy.connectivity.rest.TwitterUserTimeline #txt
 ct0 f7 startMethod start(List<com.twitter.status.gson.UserTimeline>) #txt
-ct0 f7 type com.axonivy.connectivity.rest.TwitterData #txt
 ct0 f7 requestActionDecl '<List<com.twitter.status.gson.UserTimeline> userTimelines> param;' #txt
 ct0 f7 requestMappingAction 'param.userTimelines=in.userTimelines;
 ' #txt
@@ -106,10 +89,6 @@ ct0 f7 responseActionDecl 'com.axonivy.connectivity.rest.TwitterData out;
 ' #txt
 ct0 f7 responseMappingAction 'out=in;
 ' #txt
-ct0 f7 windowConfiguration '* ' #txt
-ct0 f7 isAsynch false #txt
-ct0 f7 isInnerRd false #txt
-ct0 f7 userContext '* ' #txt
 ct0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -122,7 +101,7 @@ timeline</name>
 </elementInfo>
 ' #txt
 ct0 f7 424 138 112 44 -22 -16 #rect
-ct0 f7 @|RichDialogIcon #fIcon
+ct0 f7 @|UserDialogIcon #fIcon
 ct0 f2 expr out #txt
 ct0 f2 536 160 593 160 #arcP
 ct0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -191,14 +170,11 @@ ct0 f3 1 160 296 #addKink
 ct0 f3 2 160 192 #addKink
 ct0 f3 0 0.7177292825587079 0 0 #arcLabel
 ct0 f6 304 160 424 160 #arcP
-ct0 f8 actionDecl 'com.axonivy.connectivity.rest.TwitterData out;
-' #txt
 ct0 f8 actionTable 'out=in;
 ' #txt
 ct0 f8 actionCode 'import com.axonivy.connectivity.rest.client.filter.TwitterOAuthFilter;
 import org.glassfish.jersey.client.oauth1.OAuth1AuthorizationFlow;
 out.authorizationFlow = error.getAttribute(TwitterOAuthFilter.AUTHORIZATION_FLOW) as OAuth1AuthorizationFlow;' #txt
-ct0 f8 type com.axonivy.connectivity.rest.TwitterData #txt
 ct0 f8 errorCode twitter:authorization:required #txt
 ct0 f8 attachedToRef 1547634C396BBB3A-f13 #txt
 ct0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

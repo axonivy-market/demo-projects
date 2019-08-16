@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Fri Apr 27 15:33:34 CEST 2012]
-1270ADF72FF4AFF3 3.17 #module
+1270ADF72FF4AFF3 3.28 #module
 >Proto >Proto Collection #zClass
 Pt0 Processlist Big #zClass
 Pt0 B #cInfo
 Pt0 #process
-Pt0 @TextInP .resExport .resExport #zField
 Pt0 @TextInP .type .type #zField
 Pt0 @TextInP .processKind .processKind #zField
 Pt0 @AnnotationInP-0n ai ai #zField
@@ -24,61 +22,21 @@ Pt0 @PushWFArc f5 '' #zField
 Pt0 @PushWFArc f6 '' #zField
 >Proto Pt0 Pt0 Processlist #zField
 Pt0 f0 outLink DefaultProcessStartListPage.ivp #txt
-Pt0 f0 type htmlwfui.Data #txt
 Pt0 f0 inParamDecl '<> param;' #txt
-Pt0 f0 actionDecl 'htmlwfui.Data out;
-' #txt
 Pt0 f0 requestEnabled true #txt
 Pt0 f0 triggerEnabled false #txt
 Pt0 f0 callSignature DefaultProcessStartListPage() #txt
 Pt0 f0 persist false #txt
 Pt0 f0 startName DefaultProcessStartListPage #txt
 Pt0 f0 startDescription 'This is used to overwrite the default process start list.' #txt
-Pt0 f0 taskData '#
-#Wed Nov 16 10:01:21 CET 2011
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
+Pt0 f0 taskData '.NAM=Start Processlist
 TaskTriggered.EXPRI=2
-.DESC=
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
 TaskTriggered.EXROL=Everybody
-.NAM=Start Processlist
-' #txt
-Pt0 f0 caseData '#
-#Wed Nov 16 10:01:21 CET 2011
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Pt0 f0 showInStartList 0 #txt
-Pt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -112,11 +70,8 @@ Pt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Pt0 f1 @C|.responsibility Everybody #txt
 Pt0 f1 134 228 36 24 20 -2 #rect
 Pt0 f1 @|PageIcon #fIcon
-Pt0 f2 type htmlwfui.Data #txt
 Pt0 f2 139 315 26 26 14 0 #rect
 Pt0 f2 @|EndIcon #fIcon
-Pt0 f20 actionDecl 'htmlwfui.Data out;
-' #txt
 Pt0 f20 actionTable 'out=in;
 ' #txt
 Pt0 f20 actionCode 'out.starts = ivy.session.getStartableProcessStarts();
@@ -130,7 +85,6 @@ Object msg = r.getHttpServletRequest().getSession().getAttribute("ch.ivy.wfui.re
 
 
 ' #txt
-Pt0 f20 type htmlwfui.Data #txt
 Pt0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -148,9 +102,7 @@ Pt0 f3 152 180 152 228 #arcP
 Pt0 f4 expr data #txt
 Pt0 f4 outCond ivp=="LinkA.ivp" #txt
 Pt0 f4 152 252 152 315 #arcP
-Pt0 f14 type htmlwfui.Data #txt
 Pt0 f14 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Pt0 f14 doCall true #txt
 Pt0 f14 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Pt0 f14 requestMappingAction 'param.in=in;

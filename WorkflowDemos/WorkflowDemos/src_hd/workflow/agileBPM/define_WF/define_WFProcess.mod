@@ -1,13 +1,9 @@
 [Ivy]
-[>Created: Tue Jan 26 16:41:42 CET 2016]
-1525503525CD0CCC 3.18 #module
+1525503525CD0CCC 3.28 #module
 >Proto >Proto Collection #zClass
 ds0 define_WFProcess Big #zClass
 ds0 RD #cInfo
 ds0 #process
-ds0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-ds0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-ds0 @TextInP .resExport .resExport #zField
 ds0 @TextInP .type .type #zField
 ds0 @TextInP .processKind .processKind #zField
 ds0 @AnnotationInP-0n ai ai #zField
@@ -15,61 +11,59 @@ ds0 @MessageFlowInP-0n messageIn messageIn #zField
 ds0 @MessageFlowOutP-0n messageOut messageOut #zField
 ds0 @TextInP .xml .xml #zField
 ds0 @TextInP .responsibility .responsibility #zField
-ds0 @RichDialogInitStart f0 '' #zField
-ds0 @RichDialogProcessEnd f1 '' #zField
-ds0 @RichDialogEnd f4 '' #zField
-ds0 @RichDialogProcessStart f28 '' #zField
+ds0 @UdInit f0 '' #zField
+ds0 @UdProcessEnd f1 '' #zField
+ds0 @UdExitEnd f4 '' #zField
+ds0 @UdEvent f28 '' #zField
 ds0 @GridStep f3 '' #zField
 ds0 @PushWFArc f5 '' #zField
 ds0 @PushWFArc f10 '' #zField
 ds0 @PushWFArc f14 '' #zField
 ds0 @GridStep f11 '' #zField
-ds0 @RichDialogProcessStart f8 '' #zField
-ds0 @RichDialogProcessEnd f9 '' #zField
+ds0 @UdEvent f8 '' #zField
+ds0 @UdProcessEnd f9 '' #zField
 ds0 @GridStep f7 '' #zField
 ds0 @PushWFArc f12 '' #zField
 ds0 @PushWFArc f2 '' #zField
-ds0 @RichDialogMethodStart f13 '' #zField
-ds0 @RichDialogProcessEnd f15 '' #zField
+ds0 @UdMethod f13 '' #zField
+ds0 @UdProcessEnd f15 '' #zField
 ds0 @PushWFArc f16 '' #zField
-ds0 @RichDialogProcessEnd f17 '' #zField
+ds0 @UdProcessEnd f17 '' #zField
 ds0 @GridStep f18 '' #zField
-ds0 @RichDialogProcessStart f19 '' #zField
+ds0 @UdEvent f19 '' #zField
 ds0 @PushWFArc f20 '' #zField
 ds0 @PushWFArc f21 '' #zField
 ds0 @Alternative f22 '' #zField
 ds0 @PushWFArc f23 '' #zField
 ds0 @PushWFArc f6 '' #zField
-ds0 @RichDialogProcessEnd f24 '' #zField
+ds0 @UdProcessEnd f24 '' #zField
 ds0 @GridStep f26 '' #zField
 ds0 @PushWFArc f27 '' #zField
 ds0 @PushWFArc f25 '' #zField
-ds0 @RichDialogProcessStart f29 '' #zField
+ds0 @UdEvent f29 '' #zField
 ds0 @GridStep f32 '' #zField
 ds0 @PushWFArc f33 '' #zField
 ds0 @PushWFArc f31 '' #zField
-ds0 @RichDialogProcessEnd f30 '' #zField
-ds0 @RichDialogProcessStart f34 '' #zField
-ds0 @RichDialogProcessEnd f35 '' #zField
+ds0 @UdProcessEnd f30 '' #zField
+ds0 @UdEvent f34 '' #zField
+ds0 @UdProcessEnd f35 '' #zField
 ds0 @GridStep f37 '' #zField
 ds0 @PushWFArc f38 '' #zField
 ds0 @PushWFArc f36 '' #zField
 ds0 @GridStep f39 '' #zField
-ds0 @RichDialogProcessEnd f40 '' #zField
+ds0 @UdProcessEnd f40 '' #zField
 ds0 @PushWFArc f43 '' #zField
-ds0 @RichDialogMethodStart f44 '' #zField
+ds0 @UdMethod f44 '' #zField
 ds0 @PushWFArc f41 '' #zField
-ds0 @RichDialogMethodStart f47 '' #zField
-ds0 @RichDialogProcessEnd f48 '' #zField
+ds0 @UdMethod f47 '' #zField
+ds0 @UdProcessEnd f48 '' #zField
 ds0 @PushWFArc f49 '' #zField
-ds0 @RichDialogProcessStart f50 '' #zField
-ds0 @RichDialogProcessEnd f51 '' #zField
+ds0 @UdEvent f50 '' #zField
+ds0 @UdProcessEnd f51 '' #zField
 ds0 @PushWFArc f52 '' #zField
 >Proto ds0 ds0 define_WFProcess #zField
 ds0 f0 guid 144633F67BB43F5D #txt
-ds0 f0 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f0 method start() #txt
-ds0 f0 disableUIEvents true #txt
 ds0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -88,18 +82,12 @@ ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f0 51 51 26 26 -54 23 #rect
-ds0 f0 @|RichDialogInitStartIcon #fIcon
-ds0 f1 type workflow.agileBPM.define_WF.define_WFData #txt
+ds0 f0 @|UdInitIcon #fIcon
 ds0 f1 275 51 26 26 0 12 #rect
-ds0 f1 @|RichDialogProcessEndIcon #fIcon
-ds0 f4 type workflow.agileBPM.define_WF.define_WFData #txt
-ds0 f4 guid 144633F67BB99807 #txt
+ds0 f1 @|UdProcessEndIcon #fIcon
 ds0 f4 531 147 26 26 0 12 #rect
-ds0 f4 @|RichDialogEndIcon #fIcon
+ds0 f4 @|UdExitEndIcon #fIcon
 ds0 f28 guid 14913CDEFB31F084 #txt
-ds0 f28 type workflow.agileBPM.define_WF.define_WFData #txt
-ds0 f28 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
 ds0 f28 actionTable 'out=in;
 ' #txt
 ds0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -112,9 +100,7 @@ ds0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f28 51 147 26 26 -7 15 #rect
-ds0 f28 @|RichDialogProcessStartIcon #fIcon
-ds0 f3 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
+ds0 f28 @|UdEventIcon #fIcon
 ds0 f3 actionTable 'out=in;
 ' #txt
 ds0 f3 actionCode 'import ch.ivyteam.ivy.SystemDo;
@@ -151,7 +137,6 @@ if(out.errormsg.length() == 0)
 	ivy.case.createNote(ivy.session,"Started");
 }
 ' #txt
-ds0 f3 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -169,8 +154,6 @@ ds0 f10 expr out #txt
 ds0 f10 240 256 275 256 #arcP
 ds0 f14 expr out #txt
 ds0 f14 77 256 112 256 #arcP
-ds0 f11 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
 ds0 f11 actionTable 'out=in;
 ' #txt
 ds0 f11 actionCode 'workflow.agileBPM.TaskDef newTask = new workflow.agileBPM.TaskDef();
@@ -195,7 +178,6 @@ else
 }	
 out.definedTasks.add(newTask);
 ' #txt
-ds0 f11 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -208,9 +190,6 @@ ds0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ds0 f11 112 234 128 44 -56 -8 #rect
 ds0 f11 @|StepIcon #fIcon
 ds0 f8 guid 144689B5E8531C29 #txt
-ds0 f8 type workflow.agileBPM.define_WF.define_WFData #txt
-ds0 f8 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
 ds0 f8 actionTable 'out=in;
 ' #txt
 ds0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -221,12 +200,9 @@ ds0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f8 51 243 26 26 -33 12 #rect
-ds0 f8 @|RichDialogProcessStartIcon #fIcon
-ds0 f9 type workflow.agileBPM.define_WF.define_WFData #txt
+ds0 f8 @|UdEventIcon #fIcon
 ds0 f9 275 243 26 26 0 12 #rect
-ds0 f9 @|RichDialogProcessEndIcon #fIcon
-ds0 f7 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
+ds0 f9 @|UdProcessEndIcon #fIcon
 ds0 f7 actionTable 'out=in;
 out.caseInfo.kind="TODO";
 out.started=new DateTime();
@@ -265,7 +241,6 @@ for(IUser user : users)
 }
 out.userList = Helper.sortUsers(out.userList);' #txt
 ds0 f7 security system #txt
-ds0 f7 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -282,9 +257,7 @@ ds0 f12 77 64 120 64 #arcP
 ds0 f2 expr out #txt
 ds0 f2 232 64 275 64 #arcP
 ds0 f13 guid 14ADE4A40F9E30A6 #txt
-ds0 f13 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f13 method deleteTask(workflow.agileBPM.TaskDef) #txt
-ds0 f13 disableUIEvents false #txt
 ds0 f13 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <workflow.agileBPM.TaskDef taskdef> param = methodEvent.getInputArguments();
 ' #txt
@@ -301,17 +274,13 @@ ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f13 51 387 26 26 -57 15 #rect
-ds0 f13 @|RichDialogMethodStartIcon #fIcon
-ds0 f15 type workflow.agileBPM.define_WF.define_WFData #txt
+ds0 f13 @|UdMethodIcon #fIcon
 ds0 f15 275 387 26 26 0 12 #rect
-ds0 f15 @|RichDialogProcessEndIcon #fIcon
+ds0 f15 @|UdProcessEndIcon #fIcon
 ds0 f16 expr out #txt
 ds0 f16 77 400 275 400 #arcP
-ds0 f17 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f17 275 315 26 26 0 12 #rect
-ds0 f17 @|RichDialogProcessEndIcon #fIcon
-ds0 f18 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
+ds0 f17 @|UdProcessEndIcon #fIcon
 ds0 f18 actionTable 'out=in;
 ' #txt
 ds0 f18 actionCode 'out.definedTasks.clear();
@@ -353,7 +322,6 @@ else
 	// AD-HOC
 }
 ' #txt
-ds0 f18 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -366,9 +334,6 @@ ds0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ds0 f18 120 306 112 44 -44 -8 #rect
 ds0 f18 @|StepIcon #fIcon
 ds0 f19 guid 14AEE59B893711B7 #txt
-ds0 f19 type workflow.agileBPM.define_WF.define_WFData #txt
-ds0 f19 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
 ds0 f19 actionTable 'out=in;
 ' #txt
 ds0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -381,12 +346,11 @@ ds0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f19 51 315 26 26 -31 15 #rect
-ds0 f19 @|RichDialogProcessStartIcon #fIcon
+ds0 f19 @|UdEventIcon #fIcon
 ds0 f20 expr out #txt
 ds0 f20 232 328 275 328 #arcP
 ds0 f21 expr out #txt
 ds0 f21 77 328 120 328 #arcP
-ds0 f22 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -413,11 +377,8 @@ ds0 f6 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ds0 f6 304 160 531 160 #arcP
 ds0 f6 0 0.4977973568281938 0 7 #arcLabel
-ds0 f24 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f24 531 99 26 26 0 12 #rect
-ds0 f24 @|RichDialogProcessEndIcon #fIcon
-ds0 f26 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
+ds0 f24 @|UdProcessEndIcon #fIcon
 ds0 f26 actionTable 'out=in;
 ' #txt
 ds0 f26 actionCode 'import javax.faces.application.FacesMessage;
@@ -426,7 +387,6 @@ import javax.faces.context.FacesContext;
 FacesContext.getCurrentInstance().addMessage(null,
 	new FacesMessage(FacesMessage.SEVERITY_ERROR,
 	in.errormsg, "Task assignmemt not valid."));' #txt
-ds0 f26 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -455,9 +415,6 @@ ds0 f25 expr out #txt
 ds0 f25 472 112 531 112 #arcP
 ds0 f25 0 0.3735742203768011 0 0 #arcLabel
 ds0 f29 guid 14BE55BAABBA28CB #txt
-ds0 f29 type workflow.agileBPM.define_WF.define_WFData #txt
-ds0 f29 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
 ds0 f29 actionTable 'out=in;
 ' #txt
 ds0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -470,9 +427,7 @@ ds0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f29 51 467 26 26 -22 15 #rect
-ds0 f29 @|RichDialogProcessStartIcon #fIcon
-ds0 f32 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
+ds0 f29 @|UdEventIcon #fIcon
 ds0 f32 actionTable 'out=in;
 ' #txt
 ds0 f32 actionCode 'if(in.user.length()>0)
@@ -480,7 +435,6 @@ ds0 f32 actionCode 'if(in.user.length()>0)
 	in.editTask.setActor(in.user);
 }	
 out.userSelection.clear();' #txt
-ds0 f32 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -496,13 +450,9 @@ ds0 f33 expr out #txt
 ds0 f33 77 480 120 480 #arcP
 ds0 f31 expr out #txt
 ds0 f31 232 480 275 480 #arcP
-ds0 f30 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f30 275 467 26 26 0 12 #rect
-ds0 f30 @|RichDialogProcessEndIcon #fIcon
+ds0 f30 @|UdProcessEndIcon #fIcon
 ds0 f34 guid 14BEECEBE2A5DE80 #txt
-ds0 f34 type workflow.agileBPM.define_WF.define_WFData #txt
-ds0 f34 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
 ds0 f34 actionTable 'out=in;
 ' #txt
 ds0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -515,12 +465,9 @@ ds0 f34 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f34 51 563 26 26 -42 15 #rect
-ds0 f34 @|RichDialogProcessStartIcon #fIcon
-ds0 f35 type workflow.agileBPM.define_WF.define_WFData #txt
+ds0 f34 @|UdEventIcon #fIcon
 ds0 f35 275 563 26 26 0 12 #rect
-ds0 f35 @|RichDialogProcessEndIcon #fIcon
-ds0 f37 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
+ds0 f35 @|UdProcessEndIcon #fIcon
 ds0 f37 actionTable 'out=in;
 ' #txt
 ds0 f37 actionCode 'out.user="";
@@ -530,7 +477,6 @@ for(IUser u: in.userSelection)
 	out.user = out.user+", "+u.getName();	
 }	
 out.user = out.user.replaceFirst(", ","");' #txt
-ds0 f37 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f37 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -546,8 +492,6 @@ ds0 f38 expr out #txt
 ds0 f38 77 576 120 576 #arcP
 ds0 f36 expr out #txt
 ds0 f36 232 576 275 576 #arcP
-ds0 f39 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
 ds0 f39 actionTable 'out=in;
 ' #txt
 ds0 f39 actionCode 'List<String> users = in.editTask.actor.split(",");
@@ -560,7 +504,6 @@ if(users.size()>1)
 		out.userSelection.add(ivy.session.getSecurityContext().findUser(u.trim()));
 	}	
 }' #txt
-ds0 f39 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -572,15 +515,12 @@ ds0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ds0 f39 120 650 112 44 -25 -8 #rect
 ds0 f39 @|StepIcon #fIcon
-ds0 f40 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f40 275 659 26 26 0 12 #rect
-ds0 f40 @|RichDialogProcessEndIcon #fIcon
+ds0 f40 @|UdProcessEndIcon #fIcon
 ds0 f43 expr out #txt
 ds0 f43 232 672 275 672 #arcP
 ds0 f44 guid 14BEF560D05EF4D6 #txt
-ds0 f44 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f44 method initUserList(workflow.agileBPM.TaskDef) #txt
-ds0 f44 disableUIEvents false #txt
 ds0 f44 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <workflow.agileBPM.TaskDef taskDef> param = methodEvent.getInputArguments();
 ' #txt
@@ -599,13 +539,11 @@ ds0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f44 51 659 26 26 -58 15 #rect
-ds0 f44 @|RichDialogMethodStartIcon #fIcon
+ds0 f44 @|UdMethodIcon #fIcon
 ds0 f41 expr out #txt
 ds0 f41 77 672 120 672 #arcP
 ds0 f47 guid 150143FB91A313FB #txt
-ds0 f47 type workflow.agileBPM.define_WF.define_WFData #txt
 ds0 f47 method editTaskDescription(workflow.agileBPM.TaskDef) #txt
-ds0 f47 disableUIEvents false #txt
 ds0 f47 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <workflow.agileBPM.TaskDef taskDef> param = methodEvent.getInputArguments();
 ' #txt
@@ -624,15 +562,11 @@ ds0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f47 51 755 26 26 -82 15 #rect
-ds0 f47 @|RichDialogMethodStartIcon #fIcon
-ds0 f48 type workflow.agileBPM.define_WF.define_WFData #txt
+ds0 f47 @|UdMethodIcon #fIcon
 ds0 f48 179 755 26 26 0 12 #rect
-ds0 f48 @|RichDialogProcessEndIcon #fIcon
+ds0 f48 @|UdProcessEndIcon #fIcon
 ds0 f49 77 768 179 768 #arcP
 ds0 f50 guid 150144175FAED33C #txt
-ds0 f50 type workflow.agileBPM.define_WF.define_WFData #txt
-ds0 f50 actionDecl 'workflow.agileBPM.define_WF.define_WFData out;
-' #txt
 ds0 f50 actionTable 'out=in;
 out.editTask.description=in.taskDescription.length() == 0 ? "..." : in.taskDescription;
 ' #txt
@@ -646,10 +580,9 @@ ds0 f50 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ds0 f50 51 851 26 26 -53 15 #rect
-ds0 f50 @|RichDialogProcessStartIcon #fIcon
-ds0 f51 type workflow.agileBPM.define_WF.define_WFData #txt
+ds0 f50 @|UdEventIcon #fIcon
 ds0 f51 179 851 26 26 0 12 #rect
-ds0 f51 @|RichDialogProcessEndIcon #fIcon
+ds0 f51 @|UdProcessEndIcon #fIcon
 ds0 f52 77 864 179 864 #arcP
 >Proto ds0 .type workflow.agileBPM.define_WF.define_WFData #txt
 >Proto ds0 .processKind HTML_DIALOG #txt

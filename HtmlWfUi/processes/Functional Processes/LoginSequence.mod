@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Wed Nov 16 09:43:39 CET 2011]
-127AF01D1868F1B6 3.17 #module
+127AF01D1868F1B6 3.28 #module
 >Proto >Proto Collection #zClass
 Le0 LoginSequence Big #zClass
 Le0 B #cInfo
@@ -8,7 +7,6 @@ Le0 #process
 Le0 @TextInP .xml .xml #zField
 Le0 @TextInP .responsibility .responsibility #zField
 Le0 @AnnotationInP-0n ai ai #zField
-Le0 @TextInP .resExport .resExport #zField
 Le0 @TextInP .type .type #zField
 Le0 @TextInP .processKind .processKind #zField
 Le0 @MessageFlowInP-0n messageIn messageIn #zField
@@ -35,10 +33,7 @@ Le0 f0 outParamDecl '<htmlwfui.Data out> result;
 ' #txt
 Le0 f0 outParamTable 'result.out=in;
 ' #txt
-Le0 f0 actionDecl 'htmlwfui.Data out;
-' #txt
 Le0 f0 callSignature check_Login(htmlwfui.Data) #txt
-Le0 f0 type htmlwfui.Data #txt
 Le0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -50,15 +45,11 @@ Le0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Le0 f0 219 35 26 26 14 0 #rect
 Le0 f0 @|StartSubIcon #fIcon
-Le0 f1 type htmlwfui.Data #txt
 Le0 f1 219 347 26 26 14 0 #rect
 Le0 f1 @|EndSubIcon #fIcon
-Le0 f21 actionDecl 'htmlwfui.Data out;
-' #txt
 Le0 f21 actionTable 'out=in.clone();
 ' #txt
 Le0 f21 actionCode 'ivy.session.loginSessionUser(in.username, in.password);' #txt
-Le0 f21 type htmlwfui.Data #txt
 Le0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -70,7 +61,6 @@ Le0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Le0 f21 134 244 36 24 -22 15 #rect
 Le0 f21 @|StepIcon #fIcon
-Le0 f14 type htmlwfui.Data #txt
 Le0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
@@ -78,7 +68,6 @@ Le0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Le0 f14 218 194 28 28 14 0 #rect
 Le0 f14 @|AlternativeIcon #fIcon
-Le0 f19 type htmlwfui.Data #txt
 Le0 f19 51 283 26 26 14 0 #rect
 Le0 f19 @|EndIcon #fIcon
 Le0 f16 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
@@ -114,15 +103,12 @@ Le0 f18 170 245 223 213 #arcP
 Le0 f3 expr in #txt
 Le0 f3 outCond '! ivy.session.isSessionUserUnknown()' #txt
 Le0 f3 232 222 232 347 #arcP
-Le0 f4 actionDecl 'htmlwfui.Data out;
-' #txt
 Le0 f4 actionTable 'out=in;
 out.appname=ivy.wf.getApplication().getName();
 out.request=ivy.request;
 out.username=ivy.session.isSessionUserUnknown() ? "" : ivy.session.getSessionUserName();
 out.wfSession=ivy.session;
 ' #txt
-Le0 f4 type htmlwfui.Data #txt
 Le0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Tue Sep 05 15:15:23 CEST 2017]
-145D1862CF17F2C9 3.20 #module
+145D1862CF17F2C9 3.28 #module
 >Proto >Proto Collection #zClass
 Or0 Other Big #zClass
 Or0 B #cInfo
 Or0 #process
-Or0 @TextInP .resExport .resExport #zField
 Or0 @TextInP .type .type #zField
 Or0 @TextInP .processKind .processKind #zField
 Or0 @AnnotationInP-0n ai ai #zField
@@ -13,18 +11,18 @@ Or0 @MessageFlowInP-0n messageIn messageIn #zField
 Or0 @MessageFlowOutP-0n messageOut messageOut #zField
 Or0 @TextInP .xml .xml #zField
 Or0 @TextInP .responsibility .responsibility #zField
-Or0 @RichDialog f104 '' #zField
-Or0 @RichDialog f44 '' #zField
+Or0 @UserDialog f104 '' #zField
+Or0 @UserDialog f44 '' #zField
 Or0 @StartRequest f109 '' #zField
-Or0 @RichDialog f38 '' #zField
+Or0 @UserDialog f38 '' #zField
 Or0 @EndTask f105 '' #zField
 Or0 @EndTask f37 '' #zField
 Or0 @StartRequest f106 '' #zField
 Or0 @StartRequest f42 '' #zField
-Or0 @RichDialog f102 '' #zField
+Or0 @UserDialog f102 '' #zField
 Or0 @EndTask f110 '' #zField
 Or0 @EndTask f43 '' #zField
-Or0 @RichDialog f112 '' #zField
+Or0 @UserDialog f112 '' #zField
 Or0 @StartRequest f39 '' #zField
 Or0 @PushWFArc f40 '' #zField
 Or0 @PushWFArc f46 '' #zField
@@ -36,93 +34,44 @@ Or0 @PushWFArc f108 '' #zField
 Or0 @PushWFArc f113 '' #zField
 Or0 @PushWFArc f111 '' #zField
 Or0 @StartRequest f0 '' #zField
-Or0 @RichDialog f1 '' #zField
+Or0 @UserDialog f1 '' #zField
 Or0 @EndTask f2 '' #zField
 Or0 @PushWFArc f3 '' #zField
 Or0 @PushWFArc f4 '' #zField
 >Proto Or0 Or0 Other #zField
-Or0 f104 targetWindow NEW:card: #txt
-Or0 f104 targetDisplay TOP #txt
-Or0 f104 richDialogId ch.ivyteam.htmldialog.demo.other.Html5Demo #txt
+Or0 f104 dialogId ch.ivyteam.htmldialog.demo.other.Html5Demo #txt
 Or0 f104 startMethod start() #txt
-Or0 f104 type htmlDialogDemos.Data #txt
 Or0 f104 requestActionDecl '<> param;' #txt
 Or0 f104 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Or0 f104 responseMappingAction 'out=in;
 ' #txt
-Or0 f104 windowConfiguration '* ' #txt
-Or0 f104 isAsynch false #txt
-Or0 f104 isInnerRd false #txt
-Or0 f104 userContext '* ' #txt
 Or0 f104 248 42 112 44 58 -2 #rect
-Or0 f104 @|RichDialogIcon #fIcon
+Or0 f104 @|UserDialogIcon #fIcon
 Or0 f104 -1|-1|-9671572 #nodeStyle
-Or0 f44 targetWindow NEW:card: #txt
-Or0 f44 targetDisplay TOP #txt
-Or0 f44 richDialogId ch.ivyteam.htmldialog.demo.other.ManagedBeanDemo #txt
+Or0 f44 dialogId ch.ivyteam.htmldialog.demo.other.ManagedBeanDemo #txt
 Or0 f44 startMethod start() #txt
-Or0 f44 type htmlDialogDemos.Data #txt
 Or0 f44 requestActionDecl '<> param;' #txt
 Or0 f44 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Or0 f44 responseMappingAction 'out=in;
 ' #txt
-Or0 f44 windowConfiguration '* ' #txt
-Or0 f44 isAsynch false #txt
-Or0 f44 isInnerRd false #txt
-Or0 f44 userContext '* ' #txt
 Or0 f44 248 330 112 44 58 -2 #rect
-Or0 f44 @|RichDialogIcon #fIcon
+Or0 f44 @|UserDialogIcon #fIcon
 Or0 f44 -1|-1|-9671572 #nodeStyle
 Or0 f109 outLink Html5BootstrapDemo.ivp #txt
-Or0 f109 type htmlDialogDemos.Data #txt
 Or0 f109 inParamDecl '<> param;' #txt
-Or0 f109 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Or0 f109 guid 145D1865E65260A9 #txt
 Or0 f109 requestEnabled true #txt
 Or0 f109 triggerEnabled false #txt
 Or0 f109 callSignature Html5BootstrapDemo() #txt
 Or0 f109 persist false #txt
 Or0 f109 startName 'Html 5 Bootstrap Demo' #txt
-Or0 f109 taskData '#
-#Tue May 06 14:33:35 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Or0 f109 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Or0 f109 caseData '#
-#Fri Mar 28 15:29:45 CET 2014
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Or0 f109 showInStartList 1 #txt
 Or0 f109 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -137,79 +86,35 @@ Or0 f109 @C|.responsibility Everybody #txt
 Or0 f109 113 145 30 30 -69 15 #rect
 Or0 f109 @|StartRequestIcon #fIcon
 Or0 f109 -1|-1|-9671572 #nodeStyle
-Or0 f38 targetWindow NEW:card: #txt
-Or0 f38 targetDisplay TOP #txt
-Or0 f38 richDialogId ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo #txt
+Or0 f38 dialogId ch.ivyteam.htmldialog.demo.other.AjaxMethodCallDemo #txt
 Or0 f38 startMethod start() #txt
-Or0 f38 type htmlDialogDemos.Data #txt
 Or0 f38 requestActionDecl '<> param;' #txt
 Or0 f38 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Or0 f38 responseMappingAction 'out=in;
 ' #txt
-Or0 f38 windowConfiguration '* ' #txt
-Or0 f38 isAsynch false #txt
-Or0 f38 isInnerRd false #txt
-Or0 f38 userContext '* ' #txt
 Or0 f38 248 234 112 44 58 -2 #rect
-Or0 f38 @|RichDialogIcon #fIcon
+Or0 f38 @|UserDialogIcon #fIcon
 Or0 f38 -1|-1|-9671572 #nodeStyle
-Or0 f105 type htmlDialogDemos.Data #txt
 Or0 f105 465 49 30 30 0 15 #rect
 Or0 f105 @|EndIcon #fIcon
 Or0 f105 -1|-1|-9671572 #nodeStyle
-Or0 f37 type htmlDialogDemos.Data #txt
 Or0 f37 697 241 30 30 0 15 #rect
 Or0 f37 @|EndIcon #fIcon
 Or0 f37 -1|-1|-9671572 #nodeStyle
 Or0 f106 outLink Html5Demo.ivp #txt
-Or0 f106 type htmlDialogDemos.Data #txt
 Or0 f106 inParamDecl '<> param;' #txt
-Or0 f106 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Or0 f106 guid 145D1865E659E45C #txt
 Or0 f106 requestEnabled true #txt
 Or0 f106 triggerEnabled false #txt
 Or0 f106 callSignature Html5Demo() #txt
 Or0 f106 persist false #txt
 Or0 f106 startName 'Html 5 Demo' #txt
-Or0 f106 taskData '#
-#Tue May 06 14:33:35 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Or0 f106 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Or0 f106 caseData '#
-#Fri Mar 28 15:29:28 CET 2014
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Or0 f106 showInStartList 1 #txt
 Or0 f106 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -225,22 +130,18 @@ Or0 f106 113 49 30 30 -42 15 #rect
 Or0 f106 @|StartRequestIcon #fIcon
 Or0 f106 -1|-1|-9671572 #nodeStyle
 Or0 f42 outLink ManagedBeanDemo.ivp #txt
-Or0 f42 type htmlDialogDemos.Data #txt
 Or0 f42 inParamDecl '<> param;' #txt
-Or0 f42 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Or0 f42 guid 145D1865E6566884 #txt
 Or0 f42 requestEnabled true #txt
 Or0 f42 triggerEnabled false #txt
 Or0 f42 callSignature ManagedBeanDemo() #txt
 Or0 f42 persist false #txt
 Or0 f42 startName 'ManagedBean Demo' #txt
-Or0 f42 taskData 'TaskTriggered.ROL=Everybody
+Or0 f42 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Or0 f42 showInStartList 1 #txt
 Or0 f42 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -256,96 +157,45 @@ Or0 f42 @C|.responsibility Everybody #txt
 Or0 f42 113 337 30 30 -66 15 #rect
 Or0 f42 @|StartRequestIcon #fIcon
 Or0 f42 -1|-1|-9671572 #nodeStyle
-Or0 f102 targetWindow NEW:card: #txt
-Or0 f102 targetDisplay TOP #txt
-Or0 f102 richDialogId ch.ivyteam.htmldialog.demo.Main #txt
+Or0 f102 dialogId ch.ivyteam.htmldialog.demo.Main #txt
 Or0 f102 startMethod start() #txt
-Or0 f102 type htmlDialogDemos.Data #txt
 Or0 f102 requestActionDecl '<> param;' #txt
 Or0 f102 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Or0 f102 responseMappingAction 'out=in;
 ' #txt
-Or0 f102 windowConfiguration '* ' #txt
-Or0 f102 isAsynch false #txt
-Or0 f102 isInnerRd false #txt
-Or0 f102 userContext '* ' #txt
 Or0 f102 472 234 112 44 58 -2 #rect
-Or0 f102 @|RichDialogIcon #fIcon
+Or0 f102 @|UserDialogIcon #fIcon
 Or0 f102 -1|-1|-9671572 #nodeStyle
-Or0 f110 type htmlDialogDemos.Data #txt
 Or0 f110 465 145 30 30 0 15 #rect
 Or0 f110 @|EndIcon #fIcon
 Or0 f110 -1|-1|-9671572 #nodeStyle
-Or0 f43 type htmlDialogDemos.Data #txt
 Or0 f43 465 337 30 30 0 15 #rect
 Or0 f43 @|EndIcon #fIcon
 Or0 f43 -1|-1|-9671572 #nodeStyle
-Or0 f112 targetWindow NEW:card: #txt
-Or0 f112 targetDisplay TOP #txt
-Or0 f112 richDialogId ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo #txt
+Or0 f112 dialogId ch.ivyteam.htmldialog.demo.other.Html5BootstrapDemo #txt
 Or0 f112 startMethod start() #txt
-Or0 f112 type htmlDialogDemos.Data #txt
 Or0 f112 requestActionDecl '<> param;' #txt
 Or0 f112 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Or0 f112 responseMappingAction 'out=in;
 ' #txt
-Or0 f112 windowConfiguration '* ' #txt
-Or0 f112 isAsynch false #txt
-Or0 f112 isInnerRd false #txt
-Or0 f112 userContext '* ' #txt
 Or0 f112 248 138 112 44 58 -2 #rect
-Or0 f112 @|RichDialogIcon #fIcon
+Or0 f112 @|UserDialogIcon #fIcon
 Or0 f112 -1|-1|-9671572 #nodeStyle
 Or0 f39 outLink MethodCallWithAjaxDemo.ivp #txt
-Or0 f39 type htmlDialogDemos.Data #txt
 Or0 f39 inParamDecl '<> param;' #txt
-Or0 f39 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Or0 f39 guid 145D1865E651C086 #txt
 Or0 f39 requestEnabled true #txt
 Or0 f39 triggerEnabled false #txt
 Or0 f39 callSignature MethodCallWithAjaxDemo() #txt
 Or0 f39 persist false #txt
 Or0 f39 startName 'Method call with Ajax' #txt
-Or0 f39 taskData '#
-#Tue May 06 14:33:35 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Or0 f39 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Or0 f39 caseData '#
-#Wed Nov 14 11:52:04 CET 2012
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Or0 f39 showInStartList 1 #txt
 Or0 f39 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -379,22 +229,18 @@ Or0 f113 143 160 248 160 #arcP
 Or0 f111 expr out #txt
 Or0 f111 360 160 465 160 #arcP
 Or0 f0 outLink ErrorHandlingDemo.ivp #txt
-Or0 f0 type htmlDialogDemos.Data #txt
 Or0 f0 inParamDecl '<> param;' #txt
-Or0 f0 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Or0 f0 guid 15E5191316065060 #txt
 Or0 f0 requestEnabled true #txt
 Or0 f0 triggerEnabled false #txt
 Or0 f0 callSignature ErrorHandlingDemo() #txt
 Or0 f0 persist false #txt
 Or0 f0 startName ErrorHandlingDemo #txt
-Or0 f0 taskData 'TaskTriggered.ROL=Everybody
+Or0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Or0 f0 caseData businessCase.attach=true #txt
 Or0 f0 showInStartList 1 #txt
 Or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -410,22 +256,15 @@ Or0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Or0 f0 @C|.responsibility Everybody #txt
 Or0 f0 113 433 30 30 -64 17 #rect
 Or0 f0 @|StartRequestIcon #fIcon
-Or0 f1 targetWindow NEW #txt
-Or0 f1 targetDisplay TOP #txt
-Or0 f1 richDialogId ch.ivyteam.htmldialog.demo.other.ErrorHandling #txt
+Or0 f1 dialogId ch.ivyteam.htmldialog.demo.other.ErrorHandling #txt
 Or0 f1 startMethod start() #txt
-Or0 f1 type htmlDialogDemos.Data #txt
 Or0 f1 requestActionDecl '<> param;' #txt
 Or0 f1 responseActionDecl 'htmlDialogDemos.Data out;
 ' #txt
 Or0 f1 responseMappingAction 'out=in;
 ' #txt
-Or0 f1 isAsynch false #txt
-Or0 f1 isInnerRd false #txt
-Or0 f1 userContext '* ' #txt
 Or0 f1 248 426 112 44 0 -8 #rect
-Or0 f1 @|RichDialogIcon #fIcon
-Or0 f2 type htmlDialogDemos.Data #txt
+Or0 f1 @|UserDialogIcon #fIcon
 Or0 f2 465 433 30 30 0 15 #rect
 Or0 f2 @|EndIcon #fIcon
 Or0 f3 expr out #txt

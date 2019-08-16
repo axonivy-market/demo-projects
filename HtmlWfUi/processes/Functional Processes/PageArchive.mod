@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Wed Dec 19 15:32:20 CET 2012]
-12E298DC97ADC471 3.17 #module
+12E298DC97ADC471 3.28 #module
 >Proto >Proto Collection #zClass
 Cy0 PageArchive Big #zClass
 Cy0 B #cInfo
 Cy0 #process
-Cy0 @TextInP .resExport .resExport #zField
 Cy0 @TextInP .type .type #zField
 Cy0 @TextInP .processKind .processKind #zField
 Cy0 @AnnotationInP-0n ai ai #zField
@@ -29,10 +27,7 @@ Cy0 f0 inParamTable 'out=param.in;
 ' #txt
 Cy0 f0 outParamDecl '<> result;
 ' #txt
-Cy0 f0 actionDecl 'htmlwfui.Data out;
-' #txt
 Cy0 f0 callSignature call(htmlwfui.Data) #txt
-Cy0 f0 type htmlwfui.Data #txt
 Cy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -44,10 +39,8 @@ Cy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cy0 f0 87 37 26 26 14 0 #rect
 Cy0 f0 @|StartSubIcon #fIcon
-Cy0 f1 type htmlwfui.Data #txt
 Cy0 f1 91 339 26 26 14 0 #rect
 Cy0 f1 @|EndSubIcon #fIcon
-Cy0 f18 type htmlwfui.Data #txt
 Cy0 f18 86 282 28 28 14 0 #rect
 Cy0 f18 @|AlternativeIcon #fIcon
 Cy0 f4 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
@@ -72,8 +65,6 @@ Cy0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cy0 f4 @C|.responsibility Everybody #txt
 Cy0 f4 82 156 36 24 24 1 #rect
 Cy0 f4 @|PageIcon #fIcon
-Cy0 f8 actionDecl 'htmlwfui.Data out;
-' #txt
 Cy0 f8 actionTable 'out=in.clone();
 ' #txt
 Cy0 f8 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowPriority;
@@ -87,7 +78,6 @@ if(in.tmpTaskDetail.exp.toNumber()>0)
 {
 	out.tmpTask.setExpiryTimestamp(in.tmpTaskDetail.exp);
 }' #txt
-Cy0 f8 type htmlwfui.Data #txt
 Cy0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
@@ -105,8 +95,6 @@ Cy0 f21 outCond ivp=="LinkB.ivp" #txt
 Cy0 f21 90 180 94 288 #arcP
 Cy0 f21 1 48 232 #addKink
 Cy0 f21 0 0.9888850792258391 0 0 #arcLabel
-Cy0 f5 actionDecl 'htmlwfui.Data out;
-' #txt
 Cy0 f5 actionTable 'out=in;
 ' #txt
 Cy0 f5 actionCode 'import htmlwfui.ArchivePageDetail;
@@ -139,7 +127,6 @@ for(int i = 0; i < tasks.size(); i++)
 }	
 
 ' #txt
-Cy0 f5 type htmlwfui.Data #txt
 Cy0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

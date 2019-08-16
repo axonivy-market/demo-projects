@@ -1,12 +1,9 @@
 [Ivy]
-144631CE64C7434D 3.26 #module
+144631CE64C7434D 3.28 #module
 >Proto >Proto Collection #zClass
 Ss0 StatisticProcess Big #zClass
 Ss0 RD #cInfo
 Ss0 #process
-Ss0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Ss0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Ss0 @TextInP .resExport .resExport #zField
 Ss0 @TextInP .type .type #zField
 Ss0 @TextInP .processKind .processKind #zField
 Ss0 @AnnotationInP-0n ai ai #zField
@@ -14,11 +11,11 @@ Ss0 @MessageFlowInP-0n messageIn messageIn #zField
 Ss0 @MessageFlowOutP-0n messageOut messageOut #zField
 Ss0 @TextInP .xml .xml #zField
 Ss0 @TextInP .responsibility .responsibility #zField
-Ss0 @RichDialogInitStart f0 '' #zField
-Ss0 @RichDialogProcessEnd f1 '' #zField
-Ss0 @RichDialogMethodStart f6 '' #zField
-Ss0 @RichDialogProcessStart f3 '' #zField
-Ss0 @RichDialogProcessEnd f4 '' #zField
+Ss0 @UdInit f0 '' #zField
+Ss0 @UdProcessEnd f1 '' #zField
+Ss0 @UdMethod f6 '' #zField
+Ss0 @UdEvent f3 '' #zField
+Ss0 @UdProcessEnd f4 '' #zField
 Ss0 @GridStep f8 '' #zField
 Ss0 @PushWFArc f9 '' #zField
 Ss0 @PushWFArc f2 '' #zField
@@ -31,13 +28,11 @@ Ss0 @PushWFArc f14 '' #zField
 Ss0 @GridStep f15 '' #zField
 Ss0 @PushWFArc f17 '' #zField
 Ss0 @PushWFArc f13 '' #zField
-Ss0 @RichDialogProcessEnd f18 '' #zField
+Ss0 @UdProcessEnd f18 '' #zField
 Ss0 @PushWFArc f19 '' #zField
 >Proto Ss0 Ss0 StatisticProcess #zField
 Ss0 f0 guid 144631CE6605F2F4 #txt
-Ss0 f0 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
 Ss0 f0 method start() #txt
-Ss0 f0 disableUIEvents true #txt
 Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -53,16 +48,13 @@ Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f0 83 51 26 26 -16 13 #rect
-Ss0 f0 @|RichDialogInitStartIcon #fIcon
+Ss0 f0 @|UdInitIcon #fIcon
 Ss0 f0 -1|-1|-9671572 #nodeStyle
-Ss0 f1 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
 Ss0 f1 339 51 26 26 0 13 #rect
-Ss0 f1 @|RichDialogProcessEndIcon #fIcon
+Ss0 f1 @|UdProcessEndIcon #fIcon
 Ss0 f1 -1|-1|-9671572 #nodeStyle
 Ss0 f6 guid 14463265CF5F1424 #txt
-Ss0 f6 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
 Ss0 f6 method update() #txt
-Ss0 f6 disableUIEvents false #txt
 Ss0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -76,12 +68,9 @@ Ss0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f6 83 147 26 26 -23 13 #rect
-Ss0 f6 @|RichDialogMethodStartIcon #fIcon
+Ss0 f6 @|UdMethodIcon #fIcon
 Ss0 f6 -1|-1|-9671572 #nodeStyle
 Ss0 f3 guid 1446330963F48459 #txt
-Ss0 f3 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
-Ss0 f3 actionDecl 'ch.ivyteam.wf.admin.Statistic.StatisticData out;
-' #txt
 Ss0 f3 actionTable 'out=in;
 ' #txt
 Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -92,14 +81,11 @@ Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ss0 f3 83 211 26 26 -22 13 #rect
-Ss0 f3 @|RichDialogProcessStartIcon #fIcon
+Ss0 f3 @|UdEventIcon #fIcon
 Ss0 f3 -1|-1|-9671572 #nodeStyle
-Ss0 f4 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
 Ss0 f4 211 211 26 26 0 13 #rect
-Ss0 f4 @|RichDialogProcessEndIcon #fIcon
+Ss0 f4 @|UdProcessEndIcon #fIcon
 Ss0 f4 -1|-1|-9671572 #nodeStyle
-Ss0 f8 actionDecl 'ch.ivyteam.wf.admin.Statistic.StatisticData out;
-' #txt
 Ss0 f8 actionTable 'out=in;
 ' #txt
 Ss0 f8 actionCode 'Date currentDate = new Date() as Date;
@@ -109,7 +95,6 @@ in.catFilter = "all";
 in.dateToFilter = currentDate;
 in.dateFromFilter = currentDate.minus(lastMonth);
 in.dateNow = currentDate;' #txt
-Ss0 f8 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
 Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -126,8 +111,6 @@ Ss0 f9 expr out #txt
 Ss0 f9 109 64 168 64 #arcP
 Ss0 f2 expr out #txt
 Ss0 f2 280 64 339 64 #arcP
-Ss0 f10 actionDecl 'ch.ivyteam.wf.admin.Statistic.StatisticData out;
-' #txt
 Ss0 f10 actionTable 'out=in;
 ' #txt
 Ss0 f10 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
@@ -146,7 +129,6 @@ caseQuery.where().endTimestamp().isGreaterOrEqualThan(in.dateFromFilter).where()
 aggregate().countRows().minBusinessRuntime().maxBusinessRuntime().avgBusinessRuntime().groupBy().category();
 
 in.cases = ivy.wf.getCaseQueryExecutor().getRecordset(caseQuery);' #txt
-Ss0 f10 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
 Ss0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -162,8 +144,6 @@ Ss0 f10 -1|-1|-9671572 #nodeStyle
 Ss0 f11 expr out #txt
 Ss0 f11 109 160 168 160 #arcP
 Ss0 f11 0 0.5122111850472089 0 0 #arcLabel
-Ss0 f12 actionDecl 'ch.ivyteam.wf.admin.Statistic.StatisticData out;
-' #txt
 Ss0 f12 actionTable 'out=in;
 ' #txt
 Ss0 f12 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
@@ -191,7 +171,6 @@ if(in.catFilter == "all")
 		}
 	}
 }' #txt
-Ss0 f12 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
 Ss0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -206,8 +185,6 @@ Ss0 f12 @|StepIcon #fIcon
 Ss0 f12 -1|-1|-9671572 #nodeStyle
 Ss0 f16 expr out #txt
 Ss0 f16 109 224 211 224 #arcP
-Ss0 f5 actionDecl 'ch.ivyteam.wf.admin.Statistic.StatisticData out;
-' #txt
 Ss0 f5 actionTable 'out=in;
 ' #txt
 Ss0 f5 actionCode 'List<String> forColumn = ["MINBUSINESSRUNTIME", "MAXBUSINESSRUNTIME", "AVGBUSINESSRUNTIME"];
@@ -224,7 +201,6 @@ for(int forCount = 0; forCount < forColumn.size(); forCount++)
 	}
 	in.cases.addColumn(newColumn.get(forCount),formated);
 }' #txt
-Ss0 f5 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
 Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -240,8 +216,6 @@ Ss0 f5 -1|-1|-9671572 #nodeStyle
 Ss0 f14 expr out #txt
 Ss0 f14 280 160 328 160 #arcP
 Ss0 f14 0 0.5897946004898639 0 0 #arcLabel
-Ss0 f15 actionDecl 'ch.ivyteam.wf.admin.Statistic.StatisticData out;
-' #txt
 Ss0 f15 actionTable 'out=in;
 ' #txt
 Ss0 f15 actionCode 'List<String> forColumn = ["FormatedMin", "FormatedMax", "FormatedAvg"];
@@ -278,7 +252,6 @@ for(int forCount = 0; forCount < forColumn.size(); forCount++)
 	}
 	in.cases.addColumn(newColumn.get(forCount), outputTime);
 }' #txt
-Ss0 f15 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
 Ss0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -295,9 +268,8 @@ Ss0 f17 expr out #txt
 Ss0 f17 440 160 488 160 #arcP
 Ss0 f13 expr out #txt
 Ss0 f13 600 160 648 160 #arcP
-Ss0 f18 type ch.ivyteam.wf.admin.Statistic.StatisticData #txt
 Ss0 f18 819 147 26 26 0 12 #rect
-Ss0 f18 @|RichDialogProcessEndIcon #fIcon
+Ss0 f18 @|UdProcessEndIcon #fIcon
 Ss0 f18 -1|-1|-9671572 #nodeStyle
 Ss0 f19 expr out #txt
 Ss0 f19 760 160 819 160 #arcP

@@ -1,13 +1,9 @@
 [Ivy]
-[>Created: Wed Feb 17 15:54:05 CET 2016]
-15254DF8F30D6949 3.18 #module
+15254DF8F30D6949 3.28 #module
 >Proto >Proto Collection #zClass
 Vs0 VerifyRequestProcess Big #zClass
 Vs0 RD #cInfo
 Vs0 #process
-Vs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Vs0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Vs0 @TextInP .resExport .resExport #zField
 Vs0 @TextInP .type .type #zField
 Vs0 @TextInP .processKind .processKind #zField
 Vs0 @AnnotationInP-0n ai ai #zField
@@ -15,24 +11,22 @@ Vs0 @MessageFlowInP-0n messageIn messageIn #zField
 Vs0 @MessageFlowOutP-0n messageOut messageOut #zField
 Vs0 @TextInP .xml .xml #zField
 Vs0 @TextInP .responsibility .responsibility #zField
-Vs0 @RichDialogInitStart f0 '' #zField
-Vs0 @RichDialogProcessEnd f1 '' #zField
-Vs0 @RichDialogEnd f4 '' #zField
+Vs0 @UdInit f0 '' #zField
+Vs0 @UdProcessEnd f1 '' #zField
+Vs0 @UdExitEnd f4 '' #zField
 Vs0 @PushWFArc f2 '' #zField
 Vs0 @GridStep f6 '' #zField
 Vs0 @PushWFArc f5 '' #zField
-Vs0 @RichDialogProcessStart f8 '' #zField
-Vs0 @RichDialogProcessStart f11 '' #zField
+Vs0 @UdEvent f8 '' #zField
+Vs0 @UdEvent f11 '' #zField
 Vs0 @PushWFArc f9 '' #zField
-Vs0 @RichDialogEnd f3 '' #zField
+Vs0 @UdExitEnd f3 '' #zField
 Vs0 @GridStep f10 '' #zField
 Vs0 @PushWFArc f12 '' #zField
 Vs0 @PushWFArc f7 '' #zField
 >Proto Vs0 Vs0 VerifyRequestProcess #zField
 Vs0 f0 guid 14FAE07217F2117A #txt
-Vs0 f0 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
 Vs0 f0 method start(workflow.humantask.ProcurementRequest) #txt
-Vs0 f0 disableUIEvents true #txt
 Vs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <workflow.humantask.ProcurementRequest procurementRequest> param = methodEvent.getInputArguments();
 ' #txt
@@ -53,25 +47,19 @@ Vs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Vs0 f0 83 51 26 26 -75 15 #rect
-Vs0 f0 @|RichDialogInitStartIcon #fIcon
-Vs0 f1 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
+Vs0 f0 @|UdInitIcon #fIcon
 Vs0 f1 339 51 26 26 0 12 #rect
-Vs0 f1 @|RichDialogProcessEndIcon #fIcon
-Vs0 f4 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
-Vs0 f4 guid 14FAE0721B237A55 #txt
+Vs0 f1 @|UdProcessEndIcon #fIcon
 Vs0 f4 339 147 26 26 0 12 #rect
-Vs0 f4 @|RichDialogEndIcon #fIcon
+Vs0 f4 @|UdExitEndIcon #fIcon
 Vs0 f2 expr out #txt
 Vs0 f2 109 64 339 64 #arcP
-Vs0 f6 actionDecl 'workflow.humantask.VerifyRequest.VerifyRequestData out;
-' #txt
 Vs0 f6 actionTable 'out=in;
 out.logEntry.activity=ivy.cms.co("/Dialogs/procurementRequest/verifiedBy");
 out.logEntry.timestamp=new DateTime();
 out.logEntry.user.fullName=ivy.session.getSessionUser().fullName;
 out.logEntry.user.role=ivy.task.activator.getMemberName();
 ' #txt
-Vs0 f6 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
 Vs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -86,9 +74,6 @@ Vs0 f6 @|StepIcon #fIcon
 Vs0 f5 expr out #txt
 Vs0 f5 280 160 339 160 #arcP
 Vs0 f8 guid 152A1A71D5D17CAC #txt
-Vs0 f8 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
-Vs0 f8 actionDecl 'workflow.humantask.VerifyRequest.VerifyRequestData out;
-' #txt
 Vs0 f8 actionTable 'out=in;
 out.ok=false;
 ' #txt
@@ -102,11 +87,8 @@ Vs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Vs0 f8 59 211 26 26 -20 15 #rect
-Vs0 f8 @|RichDialogProcessStartIcon #fIcon
+Vs0 f8 @|UdEventIcon #fIcon
 Vs0 f11 guid 152A1A7AEA3D662F #txt
-Vs0 f11 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
-Vs0 f11 actionDecl 'workflow.humantask.VerifyRequest.VerifyRequestData out;
-' #txt
 Vs0 f11 actionTable 'out=in;
 out.ok=true;
 ' #txt
@@ -120,22 +102,17 @@ Vs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Vs0 f11 59 147 26 26 -13 15 #rect
-Vs0 f11 @|RichDialogProcessStartIcon #fIcon
+Vs0 f11 @|UdEventIcon #fIcon
 Vs0 f9 expr out #txt
 Vs0 f9 85 160 168 160 #arcP
-Vs0 f3 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
-Vs0 f3 guid 152A616D74FCB0D8 #txt
 Vs0 f3 339 211 26 26 0 12 #rect
-Vs0 f3 @|RichDialogEndIcon #fIcon
-Vs0 f10 actionDecl 'workflow.humantask.VerifyRequest.VerifyRequestData out;
-' #txt
+Vs0 f3 @|UdExitEndIcon #fIcon
 Vs0 f10 actionTable 'out=in;
 out.logEntry.activity=ivy.cms.co("/Dialogs/procurementRequest/declinedBy");
 out.logEntry.timestamp=new DateTime();
 out.logEntry.user.fullName=ivy.session.getSessionUser().fullName;
 out.logEntry.user.role=ivy.task.activator.getMemberName();
 ' #txt
-Vs0 f10 type workflow.humantask.VerifyRequest.VerifyRequestData #txt
 Vs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

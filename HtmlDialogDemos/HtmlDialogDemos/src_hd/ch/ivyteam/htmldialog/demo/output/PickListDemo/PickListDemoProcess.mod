@@ -1,31 +1,25 @@
 [Ivy]
-[>Created: Tue May 06 12:32:39 CEST 2014]
-139E3427D3640FBC 3.17 #module
+139E3427D3640FBC 3.28 #module
 >Proto >Proto Collection #zClass
 Ps0 PickListDemoProcess Big #zClass
 Ps0 RD #cInfo
 Ps0 #process
-Ps0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Ps0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Ps0 @TextInP .resExport .resExport #zField
 Ps0 @TextInP .type .type #zField
 Ps0 @TextInP .processKind .processKind #zField
 Ps0 @AnnotationInP-0n ai ai #zField
 Ps0 @TextInP .xml .xml #zField
 Ps0 @TextInP .responsibility .responsibility #zField
-Ps0 @RichDialogInitStart f0 '' #zField
-Ps0 @RichDialogProcessEnd f1 '' #zField
+Ps0 @UdInit f0 '' #zField
+Ps0 @UdProcessEnd f1 '' #zField
 Ps0 @CallSub f3 '' #zField
 Ps0 @PushWFArc f4 '' #zField
-Ps0 @RichDialogProcessStart f7 '' #zField
-Ps0 @RichDialogProcessEnd f8 '' #zField
+Ps0 @UdEvent f7 '' #zField
+Ps0 @UdProcessEnd f8 '' #zField
 Ps0 @PushWFArc f10 '' #zField
 Ps0 @PushWFArc f2 '' #zField
 >Proto Ps0 Ps0 PickListDemoProcess #zField
 Ps0 f0 guid 139E3427D4C19817 #txt
-Ps0 f0 type ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData #txt
 Ps0 f0 method start() #txt
-Ps0 f0 disableUIEvents true #txt
 Ps0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -39,15 +33,12 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ps0 f0 83 83 26 26 -16 12 #rect
-Ps0 f0 @|RichDialogInitStartIcon #fIcon
+Ps0 f0 @|UdInitIcon #fIcon
 Ps0 f0 -1|-1|-9671572 #nodeStyle
-Ps0 f1 type ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData #txt
 Ps0 f1 403 83 26 26 0 12 #rect
-Ps0 f1 @|RichDialogProcessEndIcon #fIcon
+Ps0 f1 @|UdProcessEndIcon #fIcon
 Ps0 f1 -1|-1|-9671572 #nodeStyle
-Ps0 f3 type ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData #txt
 Ps0 f3 processCall 'Functional Processes/InitPersons:initPerson()' #txt
-Ps0 f3 doCall true #txt
 Ps0 f3 requestActionDecl '<> param;
 ' #txt
 Ps0 f3 responseActionDecl 'ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData out;
@@ -71,9 +62,6 @@ Ps0 f4 expr out #txt
 Ps0 f4 109 96 200 96 #arcP
 Ps0 f4 0 0.5468358763761675 0 0 #arcLabel
 Ps0 f7 guid 139E38F62BA66372 #txt
-Ps0 f7 type ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData #txt
-Ps0 f7 actionDecl 'ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData out;
-' #txt
 Ps0 f7 actionTable 'out=in;
 ' #txt
 Ps0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -86,11 +74,10 @@ Ps0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ps0 f7 83 275 26 26 -14 12 #rect
-Ps0 f7 @|RichDialogProcessStartIcon #fIcon
+Ps0 f7 @|UdEventIcon #fIcon
 Ps0 f7 -1|-1|-9671572 #nodeStyle
-Ps0 f8 type ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData #txt
 Ps0 f8 211 275 26 26 0 12 #rect
-Ps0 f8 @|RichDialogProcessEndIcon #fIcon
+Ps0 f8 @|UdProcessEndIcon #fIcon
 Ps0 f8 -1|-1|-9671572 #nodeStyle
 Ps0 f10 expr out #txt
 Ps0 f10 109 288 211 288 #arcP

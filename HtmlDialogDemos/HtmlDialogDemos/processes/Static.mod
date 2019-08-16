@@ -1,10 +1,9 @@
 [Ivy]
-1698080EFEC9C585 3.26 #module
+1698080EFEC9C585 3.28 #module
 >Proto >Proto Collection #zClass
 Sc0 Static Big #zClass
 Sc0 B #cInfo
 Sc0 #process
-Sc0 @TextInP .resExport .resExport #zField
 Sc0 @TextInP .type .type #zField
 Sc0 @TextInP .processKind .processKind #zField
 Sc0 @AnnotationInP-0n ai ai #zField
@@ -17,11 +16,7 @@ Sc0 @EndRequest f1 '' #zField
 Sc0 @PushWFArc f2 '' #zField
 >Proto Sc0 Sc0 Static #zField
 Sc0 f0 outLink StaticEndPage.ivp #txt
-Sc0 f0 type htmlDialogDemos.Data #txt
 Sc0 f0 inParamDecl '<> param;' #txt
-Sc0 f0 actionDecl 'htmlDialogDemos.Data out;
-' #txt
-Sc0 f0 guid 1698080EFF975D89 #txt
 Sc0 f0 requestEnabled true #txt
 Sc0 f0 triggerEnabled false #txt
 Sc0 f0 callSignature StaticEndPage() #txt
@@ -39,7 +34,6 @@ Sc0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Sc0 f0 @C|.responsibility Everybody #txt
 Sc0 f0 81 49 30 30 -25 17 #rect
 Sc0 f0 @|StartRequestIcon #fIcon
-Sc0 f1 type htmlDialogDemos.Data #txt
 Sc0 f1 template "static.xhtml" #txt
 Sc0 f1 305 49 30 30 0 15 #rect
 Sc0 f1 @|EndRequestIcon #fIcon

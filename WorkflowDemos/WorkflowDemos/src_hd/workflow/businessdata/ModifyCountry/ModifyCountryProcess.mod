@@ -1,13 +1,9 @@
 [Ivy]
-[>Created: Thu Sep 01 15:54:12 CEST 2016]
-156DB995D6C6D132 3.18 #module
+156DB995D6C6D132 3.28 #module
 >Proto >Proto Collection #zClass
 Ms0 ModifyCountryProcess Big #zClass
 Ms0 RD #cInfo
 Ms0 #process
-Ms0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Ms0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Ms0 @TextInP .resExport .resExport #zField
 Ms0 @TextInP .type .type #zField
 Ms0 @TextInP .processKind .processKind #zField
 Ms0 @AnnotationInP-0n ai ai #zField
@@ -15,10 +11,10 @@ Ms0 @MessageFlowInP-0n messageIn messageIn #zField
 Ms0 @MessageFlowOutP-0n messageOut messageOut #zField
 Ms0 @TextInP .xml .xml #zField
 Ms0 @TextInP .responsibility .responsibility #zField
-Ms0 @RichDialogProcessEnd f1 '' #zField
-Ms0 @RichDialogProcessStart f3 '' #zField
-Ms0 @RichDialogEnd f4 '' #zField
-Ms0 @RichDialogInitStart f6 '' #zField
+Ms0 @UdProcessEnd f1 '' #zField
+Ms0 @UdEvent f3 '' #zField
+Ms0 @UdExitEnd f4 '' #zField
+Ms0 @UdInit f6 '' #zField
 Ms0 @GridStep f2 '' #zField
 Ms0 @PushWFArc f7 '' #zField
 Ms0 @PushWFArc f0 '' #zField
@@ -26,13 +22,9 @@ Ms0 @GridStep f8 '' #zField
 Ms0 @PushWFArc f9 '' #zField
 Ms0 @PushWFArc f5 '' #zField
 >Proto Ms0 Ms0 ModifyCountryProcess #zField
-Ms0 f1 type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
 Ms0 f1 339 51 26 26 0 12 #rect
-Ms0 f1 @|RichDialogProcessEndIcon #fIcon
+Ms0 f1 @|UdProcessEndIcon #fIcon
 Ms0 f3 guid 156DB995D7DE260B #txt
-Ms0 f3 type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
-Ms0 f3 actionDecl 'workflow.businessdata.ModifyCountry.ModifyCountryData out;
-' #txt
 Ms0 f3 actionTable 'out=in;
 ' #txt
 Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -43,15 +35,11 @@ Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f3 83 147 26 26 -14 12 #rect
-Ms0 f3 @|RichDialogProcessStartIcon #fIcon
-Ms0 f4 type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
-Ms0 f4 guid 156DB995D7ED9819 #txt
+Ms0 f3 @|UdEventIcon #fIcon
 Ms0 f4 339 147 26 26 0 12 #rect
-Ms0 f4 @|RichDialogEndIcon #fIcon
+Ms0 f4 @|UdExitEndIcon #fIcon
 Ms0 f6 guid 156DBA4F86F4C0B3 #txt
-Ms0 f6 type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
 Ms0 f6 method start(String) #txt
-Ms0 f6 disableUIEvents true #txt
 Ms0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.String id> param = methodEvent.getInputArguments();
 ' #txt
@@ -69,15 +57,12 @@ Ms0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ms0 f6 83 51 26 26 -33 15 #rect
-Ms0 f6 @|RichDialogInitStartIcon #fIcon
-Ms0 f2 actionDecl 'workflow.businessdata.ModifyCountry.ModifyCountryData out;
-' #txt
+Ms0 f6 @|UdInitIcon #fIcon
 Ms0 f2 actionTable 'out=in;
 ' #txt
 Ms0 f2 actionCode 'import workflow.businessdata.Address;
 
 in.address = ivy.repo.find(in.addressId, Address.class) as Address;' #txt
-Ms0 f2 type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
 Ms0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -93,12 +78,9 @@ Ms0 f7 expr out #txt
 Ms0 f7 109 64 168 64 #arcP
 Ms0 f0 expr out #txt
 Ms0 f0 280 64 339 64 #arcP
-Ms0 f8 actionDecl 'workflow.businessdata.ModifyCountry.ModifyCountryData out;
-' #txt
 Ms0 f8 actionTable 'out=in;
 ' #txt
 Ms0 f8 actionCode 'ivy.repo.overwrite(in.address, "country");' #txt
-Ms0 f8 type workflow.businessdata.ModifyCountry.ModifyCountryData #txt
 Ms0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

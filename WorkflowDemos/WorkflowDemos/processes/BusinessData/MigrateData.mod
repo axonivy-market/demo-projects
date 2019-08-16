@@ -1,10 +1,9 @@
 [Ivy]
-15DC0CCB70274584 3.25 #module
+15DC0CCB70274584 3.28 #module
 >Proto >Proto Collection #zClass
 Ma0 MigrateData Big #zClass
 Ma0 B #cInfo
 Ma0 #process
-Ma0 @TextInP .resExport .resExport #zField
 Ma0 @TextInP .type .type #zField
 Ma0 @TextInP .processKind .processKind #zField
 Ma0 @AnnotationInP-0n ai ai #zField
@@ -21,11 +20,7 @@ Ma0 @InfoButton f5 '' #zField
 Ma0 @AnnotationArc f6 '' #zField
 >Proto Ma0 Ma0 MigrateData #zField
 Ma0 f0 outLink migrate.ivp #txt
-Ma0 f0 type workflow.humantask.Data #txt
 Ma0 f0 inParamDecl '<> param;' #txt
-Ma0 f0 actionDecl 'workflow.humantask.Data out;
-' #txt
-Ma0 f0 guid 15DC0CCB71A504C2 #txt
 Ma0 f0 requestEnabled true #txt
 Ma0 f0 triggerEnabled false #txt
 Ma0 f0 callSignature migrate() #txt
@@ -53,17 +48,13 @@ Ma0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ma0 f0 @C|.responsibility Everybody #txt
 Ma0 f0 81 49 30 30 -34 17 #rect
 Ma0 f0 @|StartRequestIcon #fIcon
-Ma0 f1 type workflow.humantask.Data #txt
 Ma0 f1 305 49 30 30 0 15 #rect
 Ma0 f1 @|EndIcon #fIcon
-Ma0 f3 actionDecl 'workflow.humantask.Data out;
-' #txt
 Ma0 f3 actionTable 'out=in;
 ' #txt
 Ma0 f3 actionCode 'import ch.ivyteam.ivy.business.data.store.migration.BusinessDataJsonFormatMigrator;
 boolean isDryRun = true;
 BusinessDataJsonFormatMigrator.migrate(workflow.businessdata.Dossier.class, isDryRun);' #txt
-Ma0 f3 type workflow.humantask.Data #txt
 Ma0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

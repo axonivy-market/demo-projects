@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
-    <startMethod>
-        <name>start</name>
-        <description></description>
-        <inputParameter>
-            <name>persons</name>
-            <description>Persons to display within a table widget</description>
-            <parameterType>java.util.List&lt;ch.ivyteam.htmldialog.demo.Person&gt;</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </startMethod>
     <property>
         <name>guid</name>
         <value>13EF084DCC428DF5</value>

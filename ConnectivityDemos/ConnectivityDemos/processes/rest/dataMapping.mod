@@ -1,10 +1,9 @@
 [Ivy]
-15A60076034F7437 3.23 #module
+15A60076034F7437 3.28 #module
 >Proto >Proto Collection #zClass
 dg0 dataMapping Big #zClass
 dg0 B #cInfo
 dg0 #process
-dg0 @TextInP .resExport .resExport #zField
 dg0 @TextInP .type .type #zField
 dg0 @TextInP .processKind .processKind #zField
 dg0 @AnnotationInP-0n ai ai #zField
@@ -72,22 +71,18 @@ dg0 @EndTask f56 '' #zField
 dg0 @PushWFArc f57 '' #zField
 >Proto dg0 dg0 dataMapping #zField
 dg0 f0 outLink rawJSON.ivp #txt
-dg0 f0 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f0 inParamDecl '<> param;' #txt
-dg0 f0 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
-dg0 f0 guid 15A60076042637A5 #txt
 dg0 f0 requestEnabled true #txt
 dg0 f0 triggerEnabled false #txt
 dg0 f0 callSignature rawJSON() #txt
 dg0 f0 persist false #txt
 dg0 f0 startName '6.1.1 send raw JSON' #txt
-dg0 f0 taskData 'TaskTriggered.ROL=Everybody
+dg0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 dg0 f0 caseData businessCase.attach=true #txt
 dg0 f0 showInStartList 1 #txt
 dg0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -102,7 +97,6 @@ dg0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f0 @C|.responsibility Everybody #txt
 dg0 f0 80 137 30 30 -36 17 #rect
 dg0 f0 @|StartRequestIcon #fIcon
-dg0 f1 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f1 527 137 30 30 0 15 #rect
 dg0 f1 @|EndIcon #fIcon
 dg0 f3 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
@@ -135,15 +129,12 @@ RAW JSON</name>
 dg0 f3 332 128 152 48 -54 -15 #rect
 dg0 f3 @|RestClientCallIcon #fIcon
 dg0 f2 484 152 527 152 #arcP
-dg0 f5 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
 dg0 f5 actionTable 'out=in;
 ' #txt
 dg0 f5 actionCode 'import org.apache.commons.lang3.RandomUtils;
 
 int no = RandomUtils.nextInt(0,100);
 out.myPost.email = "tester_"+no+"@ivy-community.com";' #txt
-dg0 f5 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -159,8 +150,6 @@ dg0 f6 expr out #txt
 dg0 f6 110 152 168 152 #arcP
 dg0 f4 expr out #txt
 dg0 f4 280 152 332 152 #arcP
-dg0 f7 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
 dg0 f7 actionTable 'out=in;
 out.myPost.body="I have something to say";
 out.myPost.name="Mr. Smith";
@@ -169,7 +158,6 @@ dg0 f7 actionCode 'import org.apache.commons.lang3.RandomUtils;
 
 int no = RandomUtils.nextInt(0,100);
 out.myPost.email = "tester_"+no+"@ivy-community.com";' #txt
-dg0 f7 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -182,22 +170,18 @@ dg0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f7 168 298 112 44 -42 -7 #rect
 dg0 f7 @|StepIcon #fIcon
 dg0 f8 outLink complexObject.ivp #txt
-dg0 f8 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f8 inParamDecl '<> param;' #txt
-dg0 f8 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
-dg0 f8 guid 15A602D99A04B6CA #txt
 dg0 f8 requestEnabled true #txt
 dg0 f8 triggerEnabled false #txt
 dg0 f8 callSignature complexObject() #txt
 dg0 f8 persist false #txt
 dg0 f8 startName '6.1.3 send complex Object' #txt
-dg0 f8 taskData 'TaskTriggered.ROL=Everybody
+dg0 f8 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 dg0 f8 caseData businessCase.attach=true #txt
 dg0 f8 showInStartList 1 #txt
 dg0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -212,7 +196,6 @@ dg0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f8 @C|.responsibility Everybody #txt
 dg0 f8 80 305 30 30 -56 17 #rect
 dg0 f8 @|StartRequestIcon #fIcon
-dg0 f9 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f9 527 305 30 30 0 15 #rect
 dg0 f9 @|EndIcon #fIcon
 dg0 f10 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
@@ -276,22 +259,18 @@ as query parameter</name>
 dg0 f14 332 704 152 48 -54 -15 #rect
 dg0 f14 @|RestClientCallIcon #fIcon
 dg0 f15 outLink queryParameters.ivp #txt
-dg0 f15 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f15 inParamDecl '<> param;' #txt
-dg0 f15 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
-dg0 f15 guid 15A6032A5F855451 #txt
 dg0 f15 requestEnabled true #txt
 dg0 f15 triggerEnabled false #txt
 dg0 f15 callSignature queryParameters() #txt
 dg0 f15 persist false #txt
 dg0 f15 startName '6.3.1 query parameters' #txt
-dg0 f15 taskData 'TaskTriggered.ROL=Everybody
+dg0 f15 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 dg0 f15 caseData businessCase.attach=true #txt
 dg0 f15 showInStartList 1 #txt
 dg0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -306,12 +285,9 @@ dg0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f15 @C|.responsibility Everybody #txt
 dg0 f15 80 713 30 30 -64 17 #rect
 dg0 f15 @|StartRequestIcon #fIcon
-dg0 f16 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f16 527 713 30 30 0 15 #rect
 dg0 f16 @|EndIcon #fIcon
 dg0 f18 484 728 527 728 #arcP
-dg0 f19 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
 dg0 f19 actionTable 'out=in;
 out.myPost.body="I have something to say";
 out.myPost.name="Mr. Smith";
@@ -319,7 +295,6 @@ out.myPost.name="Mr. Smith";
 dg0 f19 actionCode 'import org.apache.commons.lang3.RandomUtils;
 
 out.userId = RandomUtils.nextInt(1,10);' #txt
-dg0 f19 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -362,24 +337,20 @@ as JSON</name>
 dg0 f21 168 866 112 44 -38 -15 #rect
 dg0 f21 @|RestClientCallIcon #fIcon
 dg0 f22 outLink acceptType.ivp #txt
-dg0 f22 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f22 inParamDecl '<> param;' #txt
 dg0 f22 inParamTable 'out.userId=1;
 ' #txt
-dg0 f22 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
-dg0 f22 guid 15A603B761FB316C #txt
 dg0 f22 requestEnabled true #txt
 dg0 f22 triggerEnabled false #txt
 dg0 f22 callSignature acceptType() #txt
 dg0 f22 persist false #txt
 dg0 f22 startName '6.3.3 accept type header' #txt
-dg0 f22 taskData 'TaskTriggered.ROL=Everybody
+dg0 f22 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 dg0 f22 caseData businessCase.attach=true #txt
 dg0 f22 showInStartList 1 #txt
 dg0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -394,7 +365,6 @@ dg0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f22 @C|.responsibility Everybody #txt
 dg0 f22 80 873 30 30 -46 17 #rect
 dg0 f22 @|StartRequestIcon #fIcon
-dg0 f23 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f23 527 873 30 30 0 15 #rect
 dg0 f23 @|EndIcon #fIcon
 dg0 f24 expr out #txt
@@ -428,22 +398,18 @@ dg0 f25 @|RestClientCallIcon #fIcon
 dg0 f26 280 888 352 888 #arcP
 dg0 f27 464 888 527 888 #arcP
 dg0 f28 outLink formData.ivp #txt
-dg0 f28 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f28 inParamDecl '<> param;' #txt
-dg0 f28 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
-dg0 f28 guid 15A60996CB734CA0 #txt
 dg0 f28 requestEnabled true #txt
 dg0 f28 triggerEnabled false #txt
 dg0 f28 callSignature formData() #txt
 dg0 f28 persist false #txt
 dg0 f28 startName '6.1.2 send form data' #txt
-dg0 f28 taskData 'TaskTriggered.ROL=Everybody
+dg0 f28 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 dg0 f28 caseData businessCase.attach=true #txt
 dg0 f28 showInStartList 1 #txt
 dg0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -489,8 +455,6 @@ Form with Strings</name>
 ' #txt
 dg0 f29 332 216 152 48 -46 -15 #rect
 dg0 f29 @|RestClientCallIcon #fIcon
-dg0 f30 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
 dg0 f30 actionTable 'out=in;
 out.myPost.body="I have something to say";
 out.myPost.name="Mr. Smith";
@@ -499,7 +463,6 @@ dg0 f30 actionCode 'import org.apache.commons.lang3.RandomUtils;
 
 int no = RandomUtils.nextInt(0,100);
 out.myPost.email = "tester_"+no+"@ivy-community.com";' #txt
-dg0 f30 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -511,7 +474,6 @@ dg0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 dg0 f30 168 218 112 44 -42 -7 #rect
 dg0 f30 @|StepIcon #fIcon
-dg0 f31 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f31 527 225 30 30 0 15 #rect
 dg0 f31 @|EndIcon #fIcon
 dg0 f32 expr out #txt
@@ -587,22 +549,18 @@ Sample JSON returned by the service:
 dg0 f36 347 412 128 44 -51 -15 #rect
 dg0 f36 @|RestClientCallIcon #fIcon
 dg0 f38 outLink readPartialObject.ivp #txt
-dg0 f38 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f38 inParamDecl '<> param;' #txt
-dg0 f38 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
-dg0 f38 guid 15AA416FEBC2F167 #txt
 dg0 f38 requestEnabled true #txt
 dg0 f38 triggerEnabled false #txt
 dg0 f38 callSignature readPartialObject() #txt
 dg0 f38 persist false #txt
 dg0 f38 startName '6.2.1 read complex object partially to DataClass' #txt
-dg0 f38 taskData 'TaskTriggered.ROL=Everybody
+dg0 f38 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 dg0 f38 caseData businessCase.attach=true #txt
 dg0 f38 showInStartList 1 #txt
 dg0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -617,13 +575,11 @@ dg0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f38 @C|.responsibility Everybody #txt
 dg0 f38 80 419 30 30 -65 17 #rect
 dg0 f38 @|StartRequestIcon #fIcon
-dg0 f41 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f41 527 419 30 30 0 15 #rect
 dg0 f41 @|EndIcon #fIcon
 dg0 f42 475 434 527 434 #arcP
 dg0 f37 expr out #txt
 dg0 f37 110 434 347 434 #arcP
-dg0 f39 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f39 527 793 30 30 0 15 #rect
 dg0 f39 @|EndIcon #fIcon
 dg0 f43 clientId e00c9735-7733-4da8-85c8-6413c6fb2cd3 #txt
@@ -653,22 +609,18 @@ as JSON</name>
 dg0 f43 352 786 112 44 -38 -15 #rect
 dg0 f43 @|RestClientCallIcon #fIcon
 dg0 f44 outLink pathParameters.ivp #txt
-dg0 f44 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f44 inParamDecl '<> param;' #txt
-dg0 f44 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
-dg0 f44 guid 15B60F22C0AD01F5 #txt
 dg0 f44 requestEnabled true #txt
 dg0 f44 triggerEnabled false #txt
 dg0 f44 callSignature pathParameters() #txt
 dg0 f44 persist false #txt
 dg0 f44 startName '6.3.2 path parameters' #txt
-dg0 f44 taskData 'TaskTriggered.ROL=Everybody
+dg0 f44 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 dg0 f44 caseData businessCase.attach=true #txt
 dg0 f44 showInStartList 1 #txt
 dg0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -683,14 +635,11 @@ dg0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f44 @C|.responsibility Everybody #txt
 dg0 f44 80 793 30 30 -61 17 #rect
 dg0 f44 @|StartRequestIcon #fIcon
-dg0 f48 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
 dg0 f48 actionTable 'out=in;
 ' #txt
 dg0 f48 actionCode 'import org.apache.commons.lang3.RandomUtils;
 
 out.userId = RandomUtils.nextInt(1,4);' #txt
-dg0 f48 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f48 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -708,22 +657,18 @@ dg0 f45 110 808 168 808 #arcP
 dg0 f46 expr out #txt
 dg0 f46 280 808 352 808 #arcP
 dg0 f47 outLink readGenerated.ivp #txt
-dg0 f47 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f47 inParamDecl '<> param;' #txt
-dg0 f47 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
-dg0 f47 guid 15C591CA21C1E630 #txt
 dg0 f47 requestEnabled true #txt
 dg0 f47 triggerEnabled false #txt
 dg0 f47 callSignature readGenerated() #txt
 dg0 f47 persist false #txt
 dg0 f47 startName '6.2.2 read complex object to GeneratedClass' #txt
-dg0 f47 taskData 'TaskTriggered.ROL=Everybody
+dg0 f47 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 dg0 f47 caseData businessCase.attach=true #txt
 dg0 f47 showInStartList 1 #txt
 dg0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -738,7 +683,6 @@ dg0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 dg0 f47 @C|.responsibility Everybody #txt
 dg0 f47 80 497 30 30 -58 17 #rect
 dg0 f47 @|StartRequestIcon #fIcon
-dg0 f49 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f49 527 497 30 30 0 15 #rect
 dg0 f49 @|EndIcon #fIcon
 dg0 f51 clientId 449e7581-aa1e-4e3b-931a-903253491b50 #txt
@@ -853,22 +797,18 @@ Sample JSON returned by the service:
 dg0 f53 349 568 128 44 -45 -15 #rect
 dg0 f53 @|RestClientCallIcon #fIcon
 dg0 f54 outLink readJsonNode.ivp #txt
-dg0 f54 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f54 inParamDecl '<> param;' #txt
-dg0 f54 actionDecl 'com.axonivy.connectivity.rest.DataMappingData out;
-' #txt
-dg0 f54 guid 15C591F9517EE2E2 #txt
 dg0 f54 requestEnabled true #txt
 dg0 f54 triggerEnabled false #txt
 dg0 f54 callSignature readJsonNode() #txt
 dg0 f54 persist false #txt
 dg0 f54 startName '6.2.3 read complex object partially as JsonNode' #txt
-dg0 f54 taskData 'TaskTriggered.ROL=Everybody
+dg0 f54 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 dg0 f54 caseData businessCase.attach=true #txt
 dg0 f54 showInStartList 1 #txt
 dg0 f54 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -885,7 +825,6 @@ dg0 f54 80 575 30 30 -54 17 #rect
 dg0 f54 @|StartRequestIcon #fIcon
 dg0 f55 expr out #txt
 dg0 f55 110 590 349 590 #arcP
-dg0 f56 type com.axonivy.connectivity.rest.DataMappingData #txt
 dg0 f56 527 575 30 30 0 15 #rect
 dg0 f56 @|EndIcon #fIcon
 dg0 f57 477 590 527 590 #arcP

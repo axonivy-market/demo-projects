@@ -1,10 +1,9 @@
 [Ivy]
-155BB4328F79B2D5 3.25 #module
+155BB4328F79B2D5 3.28 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
 Ba0 B #cInfo
 Ba0 #process
-Ba0 @TextInP .resExport .resExport #zField
 Ba0 @TextInP .type .type #zField
 Ba0 @TextInP .processKind .processKind #zField
 Ba0 @AnnotationInP-0n ai ai #zField
@@ -13,10 +12,10 @@ Ba0 @MessageFlowOutP-0n messageOut messageOut #zField
 Ba0 @TextInP .xml .xml #zField
 Ba0 @TextInP .responsibility .responsibility #zField
 Ba0 @StartRequest f0 '' #zField
-Ba0 @RichDialog f5 '' #zField
+Ba0 @UserDialog f5 '' #zField
 Ba0 @StartRequest f7 '' #zField
 Ba0 @StartRequest f10 '' #zField
-Ba0 @RichDialog f11 '' #zField
+Ba0 @UserDialog f11 '' #zField
 Ba0 @EndTask f12 '' #zField
 Ba0 @PushWFArc f14 '' #zField
 Ba0 @InfoButton f2 '' #zField
@@ -30,7 +29,7 @@ Ba0 @PushWFArc f9 '' #zField
 Ba0 @PushWFArc f16 '' #zField
 Ba0 @StartRequest f4 '' #zField
 Ba0 @PushWFArc f1 '' #zField
-Ba0 @RichDialog f8 '' #zField
+Ba0 @UserDialog f8 '' #zField
 Ba0 @StartRequest f17 '' #zField
 Ba0 @EndTask f18 '' #zField
 Ba0 @GridStep f19 '' #zField
@@ -39,13 +38,9 @@ Ba0 @PushWFArc f21 '' #zField
 Ba0 @PushWFArc f22 '' #zField
 >Proto Ba0 Ba0 BusinessData #zField
 Ba0 f0 outLink create.ivp #txt
-Ba0 f0 type workflow.businessdata.Data #txt
 Ba0 f0 inParamDecl '<> param;' #txt
 Ba0 f0 inParamTable 'out.id="";
 ' #txt
-Ba0 f0 actionDecl 'workflow.businessdata.Data out;
-' #txt
-Ba0 f0 guid 155BB4329582E3C6 #txt
 Ba0 f0 requestEnabled true #txt
 Ba0 f0 triggerEnabled false #txt
 Ba0 f0 callSignature create() #txt
@@ -72,11 +67,8 @@ Ba0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ba0 f0 @C|.responsibility Everybody #txt
 Ba0 f0 81 241 30 30 -31 17 #rect
 Ba0 f0 @|StartRequestIcon #fIcon
-Ba0 f5 targetWindow NEW:card: #txt
-Ba0 f5 targetDisplay TOP #txt
-Ba0 f5 richDialogId workflow.businessdata.BusinessDataDossierModifier #txt
+Ba0 f5 dialogId workflow.businessdata.BusinessDataDossierModifier #txt
 Ba0 f5 startMethod start(String,String) #txt
-Ba0 f5 type workflow.businessdata.Data #txt
 Ba0 f5 requestActionDecl '<String businessDataId, String title> param;' #txt
 Ba0 f5 requestMappingAction 'param.businessDataId=in.id;
 param.title="Person Dossier";
@@ -86,10 +78,6 @@ Ba0 f5 responseActionDecl 'workflow.businessdata.Data out;
 Ba0 f5 responseMappingAction 'out=in;
 out.id=result.id;
 ' #txt
-Ba0 f5 windowConfiguration '* ' #txt
-Ba0 f5 isAsynch false #txt
-Ba0 f5 isInnerRd false #txt
-Ba0 f5 userContext '* ' #txt
 Ba0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -100,15 +88,11 @@ Ba0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ba0 f5 248 266 112 44 -20 -7 #rect
-Ba0 f5 @|RichDialogIcon #fIcon
+Ba0 f5 @|UserDialogIcon #fIcon
 Ba0 f7 outLink edit.ivp #txt
-Ba0 f7 type workflow.businessdata.Data #txt
 Ba0 f7 inParamDecl '<java.lang.String id> param;' #txt
 Ba0 f7 inParamTable 'out.id=param.id;
 ' #txt
-Ba0 f7 actionDecl 'workflow.businessdata.Data out;
-' #txt
-Ba0 f7 guid 155BB4329582E3C6 #txt
 Ba0 f7 requestEnabled true #txt
 Ba0 f7 triggerEnabled false #txt
 Ba0 f7 callSignature edit(String) #txt
@@ -136,14 +120,10 @@ Ba0 f7 @C|.responsibility Everybody #txt
 Ba0 f7 81 306 30 30 -33 17 #rect
 Ba0 f7 @|StartRequestIcon #fIcon
 Ba0 f10 outLink browse.ivp #txt
-Ba0 f10 type workflow.businessdata.Data #txt
 Ba0 f10 inParamDecl '<java.lang.Boolean showAll> param;' #txt
 Ba0 f10 inParamTable 'out.id="";
 out.showAll=param.showAll;
 ' #txt
-Ba0 f10 actionDecl 'workflow.businessdata.Data out;
-' #txt
-Ba0 f10 guid 155BB4329582E3C6 #txt
 Ba0 f10 requestEnabled true #txt
 Ba0 f10 triggerEnabled false #txt
 Ba0 f10 callSignature browse(Boolean) #txt
@@ -171,11 +151,8 @@ Ba0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ba0 f10 @C|.responsibility Everybody #txt
 Ba0 f10 82 145 30 30 -33 17 #rect
 Ba0 f10 @|StartRequestIcon #fIcon
-Ba0 f11 targetWindow NEW:card: #txt
-Ba0 f11 targetDisplay TOP #txt
-Ba0 f11 richDialogId workflow.businessdata.BusinessDataDossierBrowser #txt
+Ba0 f11 dialogId workflow.businessdata.BusinessDataDossierBrowser #txt
 Ba0 f11 startMethod start(String,Boolean) #txt
-Ba0 f11 type workflow.businessdata.Data #txt
 Ba0 f11 requestActionDecl '<String lastId, Boolean showAll> param;' #txt
 Ba0 f11 requestMappingAction 'param.lastId=in.id;
 param.showAll=in.showAll;
@@ -184,10 +161,6 @@ Ba0 f11 responseActionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f11 responseMappingAction 'out=in;
 ' #txt
-Ba0 f11 windowConfiguration '* ' #txt
-Ba0 f11 isAsynch false #txt
-Ba0 f11 isInnerRd false #txt
-Ba0 f11 userContext '* ' #txt
 Ba0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -198,8 +171,7 @@ Ba0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ba0 f11 360 138 112 44 -22 -7 #rect
-Ba0 f11 @|RichDialogIcon #fIcon
-Ba0 f12 type workflow.businessdata.Data #txt
+Ba0 f11 @|UserDialogIcon #fIcon
 Ba0 f12 529 145 30 30 0 15 #rect
 Ba0 f12 @|EndIcon #fIcon
 Ba0 f14 expr out #txt
@@ -218,8 +190,6 @@ Ba0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ba0 f2 64 18 384 60 -187 -24 #rect
 Ba0 f2 @|IBIcon #fIcon
-Ba0 f3 actionDecl 'workflow.businessdata.Data out;
-' #txt
 Ba0 f3 actionTable 'out=in;
 ' #txt
 Ba0 f3 actionCode 'import workflow.businessdata.Dossier;
@@ -228,7 +198,6 @@ ivy.repo.delete(ivy.repo.find(in.id, Dossier.class));
 out.id="";
 
 ' #txt
-Ba0 f3 type workflow.businessdata.Data #txt
 Ba0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -242,14 +211,11 @@ Ba0 f3 168 394 112 44 -20 -7 #rect
 Ba0 f3 @|StepIcon #fIcon
 Ba0 f6 expr out #txt
 Ba0 f6 110 416 168 416 #arcP
-Ba0 f25 actionDecl 'workflow.businessdata.Data out;
-' #txt
 Ba0 f25 actionTable 'out=in;
 ' #txt
 Ba0 f25 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.DemoDataCreator;
 
 DemoDataCreator.createDemoDataIfNotExist();' #txt
-Ba0 f25 type workflow.businessdata.Data #txt
 Ba0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -280,13 +246,9 @@ Ba0 f16 360 288 416 182 #arcP
 Ba0 f16 1 416 288 #addKink
 Ba0 f16 0 0.8664662612862978 0 0 #arcLabel
 Ba0 f4 outLink delete.ivp #txt
-Ba0 f4 type workflow.businessdata.Data #txt
 Ba0 f4 inParamDecl '<java.lang.String id> param;' #txt
 Ba0 f4 inParamTable 'out.id=param.id;
 ' #txt
-Ba0 f4 actionDecl 'workflow.businessdata.Data out;
-' #txt
-Ba0 f4 guid 155BB4329582E3C6 #txt
 Ba0 f4 requestEnabled true #txt
 Ba0 f4 triggerEnabled false #txt
 Ba0 f4 callSignature delete(String) #txt
@@ -317,20 +279,13 @@ Ba0 f1 expr out #txt
 Ba0 f1 280 416 416 182 #arcP
 Ba0 f1 1 416 416 #addKink
 Ba0 f1 1 0.2094017094017094 0 0 #arcLabel
-Ba0 f8 targetWindow NEW:card: #txt
-Ba0 f8 targetDisplay TOP #txt
-Ba0 f8 richDialogId workflow.businessdata.BusinessDataDossierLazyBrowser #txt
+Ba0 f8 dialogId workflow.businessdata.BusinessDataDossierLazyBrowser #txt
 Ba0 f8 startMethod start() #txt
-Ba0 f8 type workflow.businessdata.Data #txt
 Ba0 f8 requestActionDecl '<> param;' #txt
 Ba0 f8 responseActionDecl 'workflow.businessdata.Data out;
 ' #txt
 Ba0 f8 responseMappingAction 'out=in;
 ' #txt
-Ba0 f8 windowConfiguration '* ' #txt
-Ba0 f8 isAsynch false #txt
-Ba0 f8 isInnerRd false #txt
-Ba0 f8 userContext '* ' #txt
 Ba0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -341,13 +296,9 @@ Ba0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ba0 f8 364 490 112 44 -35 -7 #rect
-Ba0 f8 @|RichDialogIcon #fIcon
+Ba0 f8 @|UserDialogIcon #fIcon
 Ba0 f17 outLink browseLazy.ivp #txt
-Ba0 f17 type workflow.businessdata.Data #txt
 Ba0 f17 inParamDecl '<> param;' #txt
-Ba0 f17 actionDecl 'workflow.businessdata.Data out;
-' #txt
-Ba0 f17 guid 155BB4329582E3C6 #txt
 Ba0 f17 requestEnabled true #txt
 Ba0 f17 triggerEnabled false #txt
 Ba0 f17 callSignature browseLazy() #txt
@@ -375,17 +326,13 @@ Ba0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ba0 f17 @C|.responsibility Everybody #txt
 Ba0 f17 86 497 30 30 -45 17 #rect
 Ba0 f17 @|StartRequestIcon #fIcon
-Ba0 f18 type workflow.businessdata.Data #txt
 Ba0 f18 533 497 30 30 0 15 #rect
 Ba0 f18 @|EndIcon #fIcon
-Ba0 f19 actionDecl 'workflow.businessdata.Data out;
-' #txt
 Ba0 f19 actionTable 'out=in;
 ' #txt
 Ba0 f19 actionCode 'import ch.ivyteam.ivy.wfdemo.businessdata.DemoDataCreator;
 
 DemoDataCreator.createDemoDataIfNotExist();' #txt
-Ba0 f19 type workflow.businessdata.Data #txt
 Ba0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

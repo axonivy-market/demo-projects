@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Fri Feb 04 16:40:56 CET 2011]
-12E298D0CEC8AC33 3.15 #module
+12E298D0CEC8AC33 3.28 #module
 >Proto >Proto Collection #zClass
 Cl0 CaseDetail Big #zClass
 Cl0 B #cInfo
 Cl0 #process
-Cl0 @TextInP .resExport .resExport #zField
 Cl0 @TextInP .type .type #zField
 Cl0 @TextInP .processKind .processKind #zField
 Cl0 @AnnotationInP-0n ai ai #zField
@@ -39,10 +37,7 @@ Cl0 f0 inParamTable 'out=param.in;
 ' #txt
 Cl0 f0 outParamDecl '<> result;
 ' #txt
-Cl0 f0 actionDecl 'htmlwfui.Data out;
-' #txt
 Cl0 f0 callSignature call(htmlwfui.Data) #txt
-Cl0 f0 type htmlwfui.Data #txt
 Cl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -52,10 +47,8 @@ Cl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cl0 f0 163 35 26 26 14 0 #rect
 Cl0 f0 @|StartSubIcon #fIcon
-Cl0 f1 type htmlwfui.Data #txt
 Cl0 f1 67 123 26 26 14 0 #rect
 Cl0 f1 @|EndSubIcon #fIcon
-Cl0 f24 type htmlwfui.Data #txt
 Cl0 f24 66 330 28 28 14 0 #rect
 Cl0 f24 @|AlternativeIcon #fIcon
 Cl0 f23 outTypes "htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data","htmlwfui.Data" #txt
@@ -80,9 +73,7 @@ Cl0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cl0 f23 @C|.responsibility Everybody #txt
 Cl0 f23 158 124 36 24 21 -13 #rect
 Cl0 f23 @|PageIcon #fIcon
-Cl0 f30 type htmlwfui.Data #txt
 Cl0 f30 processCall 'Functional Processes/TaskDetail:call(htmlwfui.Data)' #txt
-Cl0 f30 doCall true #txt
 Cl0 f30 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Cl0 f30 requestMappingAction 'param.in=in;
@@ -104,9 +95,7 @@ Cl0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cl0 f30 518 212 36 24 16 9 #rect
 Cl0 f30 @|CallSubIcon #fIcon
-Cl0 f31 type htmlwfui.Data #txt
 Cl0 f31 processCall 'Functional Processes/AddNote:call(htmlwfui.Data)' #txt
-Cl0 f31 doCall true #txt
 Cl0 f31 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Cl0 f31 requestMappingAction 'param.in=in;
@@ -127,9 +116,7 @@ Cl0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cl0 f31 374 212 36 24 12 6 #rect
 Cl0 f31 @|CallSubIcon #fIcon
-Cl0 f37 type htmlwfui.Data #txt
 Cl0 f37 processCall 'Functional Processes/PageArchive:call(htmlwfui.Data)' #txt
-Cl0 f37 doCall true #txt
 Cl0 f37 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Cl0 f37 requestMappingAction 'param.in=in;
@@ -152,7 +139,7 @@ Cl0 f37 246 212 36 24 16 8 #rect
 Cl0 f37 @|CallSubIcon #fIcon
 Cl0 f18 outTypes "htmlwfui.Data","htmlwfui.Data" #txt
 Cl0 f18 outLinks "LinkA.ivp","LinkB.ivp" #txt
-Cl0 f18 template "confirmDeleteCase.ivc" #txt
+Cl0 f18 template "/ProcessPages/CaseDetail/confirmDeleteCase.ivc" #txt
 Cl0 f18 type htmlwfui.Data #txt
 Cl0 f18 skipLink skip.ivp #txt
 Cl0 f18 sortLink sort.ivp #txt
@@ -172,8 +159,6 @@ Cl0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cl0 f18 @C|.responsibility Everybody #txt
 Cl0 f18 62 188 36 24 20 -2 #rect
 Cl0 f18 @|PageIcon #fIcon
-Cl0 f21 actionDecl 'htmlwfui.Data out;
-' #txt
 Cl0 f21 actionTable 'out=in;
 ' #txt
 Cl0 f21 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
@@ -186,7 +171,6 @@ if(case.getState()==CaseState.DESTROYED)
 	out.temp.msg = "DESTROYED";
 }
 ' #txt
-Cl0 f21 type htmlwfui.Data #txt
 Cl0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
