@@ -2,60 +2,53 @@ package ch.ivyteam.htmldialog.demo;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import ch.ivyteam.htmldialog.server.test.EngineUrl;
-import ch.ivyteam.htmldialog.server.test.FixVersionFirefox;
-import ch.ivyteam.htmldialog.server.test.GeckoFirefox;
-
 import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 
+import ch.ivyteam.htmldialog.server.test.EngineUrl;
+import io.github.bonigarcia.seljup.Options;
+import io.github.bonigarcia.seljup.SeleniumExtension;
+
+@ExtendWith(SeleniumExtension.class)
 public abstract class BaseWebTest
 { 
+  @Options
+  FirefoxOptions firefoxOptions = new FirefoxOptions();
+  {
+    FirefoxBinary binary = new FirefoxBinary();
+    binary.addCommandLineOptions("--headless");
+    firefoxOptions.setBinary(binary);
+    firefoxOptions.setProfile(configureBrowserProfile());
+  }
+  
   protected WebDriver driver;
 
-  @Before
-  public void setUp() throws Exception
+  @BeforeEach
+  public void setUp(FirefoxDriver driver) throws Exception
   {
-    driver = createDriver();
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    this.driver = driver;
   }
 
-  protected WebDriver createDriver()
+  protected FirefoxProfile configureBrowserProfile() 
   {
-    GeckoFirefox.register();
     FirefoxProfile profile = new FirefoxProfile();
-    configureBrowserProfile(profile);
-    WebDriver localDriver = FixVersionFirefox.createWebDriver(profile);
-
-    localDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-    if (!EngineUrl.isDesigner())
-    {
-      localDriver.manage().window().setPosition(new Point(-2000, 0));
-    }
-    return localDriver;
-  }
-
-  protected void configureBrowserProfile(FirefoxProfile profile)
-  {
-    profile.setPreference("intl.accept_languages", "en");
-  }
-
-  @After
-  public void tearDown() throws Exception
-  {
-    driver.quit();
-  }
-
+    profile.setPreference("intl.accept_languages", "en"); 
+    return profile;
+  } 
+  
   public AjaxHelper ajax()
   {
     return new AjaxHelper(driver);

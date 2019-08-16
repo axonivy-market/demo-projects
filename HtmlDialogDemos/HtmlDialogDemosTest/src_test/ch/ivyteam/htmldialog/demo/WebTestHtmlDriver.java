@@ -5,12 +5,10 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.not;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-
-import ch.ivyteam.ivy.environment.Ivy;
 
 public class WebTestHtmlDriver extends BaseWebTest
 {

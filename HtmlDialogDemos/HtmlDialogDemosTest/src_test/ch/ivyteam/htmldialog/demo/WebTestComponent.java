@@ -5,7 +5,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentI
 import java.io.File;
 
 import org.apache.commons.io.FileUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
