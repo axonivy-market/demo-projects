@@ -1,12 +1,15 @@
 package ch.ivyteam.ivy.project.jsf.wf.ui;
 
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
+
+import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
+import ch.ivyteam.ivy.server.test.WfNavigator;
 
 public class TestDetails extends BaseJsfWorkflowUiTest
 {
@@ -14,12 +17,12 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   public void testTaskDetails() throws Exception
   {
     createTask("task", "Test if shows details", 2);
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("task");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Test if shows details");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("NORMAL");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("SUSPENDED");
+    assertThat(driver.getPageSource()).contains("task");
+    assertThat(driver.getPageSource()).contains("Test if shows details");
+    assertThat(driver.getPageSource()).contains("NORMAL");
+    assertThat(driver.getPageSource()).contains("SUSPENDED");
     closeTask();
   }
 
@@ -27,11 +30,11 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   public void testCaseDetails() throws Exception
   {
     createTask("case", "Test if shows details", 2);
-    navigate().caseList();
+    WfNavigator.caseList(driver);
     awaitToBeClickable("buttonCaseDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Test Workflow Jsf");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Sample WF using Html Dialogs");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF case");
+    assertThat(driver.getPageSource()).contains("Test Workflow Jsf");
+    assertThat(driver.getPageSource()).contains("Sample WF using Html Dialogs");
+    assertThat(driver.getPageSource()).contains("JSF case");
     closeTask();
   }
 
@@ -39,14 +42,14 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   public void testAddNoteToTask() throws Exception
   {
     createTask("taskForAddNote", "Test add note", 2);
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
-    driverHelper.assertAjaxModifiedPageSourceContains("taskForAddNote");
+    IvyWebDriverHelper.assertAjaxModifiedPageSourceContains(driver, "taskForAddNote");
     awaitToBeClickable("formTaskDetails:openAddNote").click();
     addNote();
 
     login("user1", "user1");
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
     awaitTextToBePresentIn(By.className("messageNotes"), "This is the description of the new note");
     await(ExpectedConditions.not(ExpectedConditions.presenceOfAllElementsLocatedBy(By
@@ -58,14 +61,14 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   public void testAddNoteToCase() throws Exception
   {
     createTask("taskForAddNoteToCase", "Test add note", 2);
-    navigate().caseList();
+    WfNavigator.caseList(driver);
     awaitToBeClickable("buttonCaseDetail").click();
-    driverHelper.assertAjaxModifiedPageSourceContains("taskForAddNoteToCase");
+    IvyWebDriverHelper.assertAjaxModifiedPageSourceContains(driver, "taskForAddNoteToCase");
     awaitToBeClickable("formCaseDetails:openAddNoteCase").click();
     addNote();
 
     login("user1", "user1");
-    navigate().caseList();
+    WfNavigator.caseList(driver);
     awaitToBePresent(By
             .xpath("//div[@id='caseListComponent:caseListForm:caseOption']/div[2]/span"));
     awaitToBeClickable(By.xpath("//div[@id='caseListComponent:caseListForm:caseOption']/div[2]/span"))
@@ -88,9 +91,9 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   public void testChangeExpiryToFuture() throws Exception
   {
     createTask("taskForChangeExpiry", "Test change expiry", 2, "30.4.2030");
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForChangeExpiry");
+    assertThat(driver.getPageSource()).contains("taskForChangeExpiry");
     awaitToBeClickable("formTaskDetails:openChangeExpiry").click();
     awaitToBeClickable("formDetailsChangeExpiry:expiryDate_input").click();
     awaitToBeClickable("formDetailsChangeExpiry:expiryDate_input").clear();
@@ -99,9 +102,9 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     awaitToBeClickable("formDetailsChangeExpiry:expiryTime_input").clear();
     awaitToBeClickable("formDetailsChangeExpiry:expiryTime_input").sendKeys("10:10");
     awaitToBeClickable("formDetailsChangeExpiry:saveChangeExpiry").click();
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("4/30/30, 10:10 AM");
+    assertThat(driver.getPageSource()).contains("4/30/30, 10:10 AM");
     closeTask();
   }
 
@@ -109,9 +112,9 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   public void testChangeExpiryToPast() throws Exception
   {
     createTask("taskForChangeExpiryOlderDate", "Test change expiry", 2, "30.4.2030");
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskForChangeExpiry");
+    assertThat(driver.getPageSource()).contains("taskForChangeExpiry");
     awaitToBeClickable("formTaskDetails:openChangeExpiry").click();
     awaitToBeClickable("formDetailsChangeExpiry:expiryDate_input").click();
     awaitToBeClickable("formDetailsChangeExpiry:expiryDate_input").clear();
@@ -120,12 +123,12 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     awaitToBeClickable("formDetailsChangeExpiry:expiryTime_input").clear();
     awaitToBeClickable("formDetailsChangeExpiry:expiryTime_input").sendKeys("11:11");
     awaitToBeClickable("formDetailsChangeExpiry:saveChangeExpiry").click();
-    navigate().taskList();
-    // assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("JSF
+    WfNavigator.taskList(driver);
+    // assertThat(driver.getPageSource()).doesNotContain("JSF
     // taskForChangeExpiryOlderDate");
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("7/15/13, 11:11 AM");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Responsible after expiry");
+    assertThat(driver.getPageSource()).contains("7/15/13, 11:11 AM");
+    assertThat(driver.getPageSource()).contains("Responsible after expiry");
   }
 
   @Test
@@ -133,30 +136,30 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   {
     createTask("taskDelegateTask", "Test change expiry", 2);
 
-    navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTask");
+    WfNavigator.taskList(driver);
+    assertThat(driver.getPageSource()).contains("taskDelegateTask");
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTask");
+    assertThat(driver.getPageSource()).contains("taskDelegateTask");
     awaitToBeClickable("formTaskDetails:openDelegateTask").click();
     SelectOneMenu menu = prime().selectOne(By.id("formDelegateTask:selectionOfUser"));
     menu.selectItemByLabel("Test User 1 (user1)");
     awaitToBeClickable("formDelegateTask:saveDelegateTask").click();
 
-    navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("taskDelegateTask");
+    WfNavigator.taskList(driver);
+    assertThat(driver.getPageSource()).doesNotContain("taskDelegateTask");
     createTask("taskDelegateTaskToRole", "Test delegate to role", 2);
 
-    navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("taskDelegateTaskToRole");
+    WfNavigator.taskList(driver);
+    assertThat(driver.getPageSource()).contains("taskDelegateTaskToRole");
     awaitToBeClickable("buttonTaskDetail").click();
     awaitToBeClickable("formTaskDetails:openDelegateTask").click();
     prime().selectOneRadio(By.id("formDelegateTask"))
             .selectItemById("formDelegateTask:delegateOptions:1_clone");
     awaitToBeClickable("formDelegateTask:saveDelegateTask").click();
 
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Everybody");
+    assertThat(driver.getPageSource()).contains("Everybody");
     closeTask();
   }
 
@@ -164,27 +167,27 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   public void testDestroyWorkflow() throws Exception
   {
     createTask("caseDestroyWorkflow", "Test destroy workflow", 2);
-    navigate().caseList();
+    WfNavigator.caseList(driver);
     awaitToBeClickable("buttonCaseDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("caseDestroyWorkflow");
+    assertThat(driver.getPageSource()).contains("caseDestroyWorkflow");
     awaitToBeClickable("formCaseDetails:openDeleteCase").click();
     awaitToBeClickable("formConfirmDeleteReset:confirmAction").click();
-    navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("JSF caseDestroyWorkflow");
+    WfNavigator.taskList(driver);
+    assertThat(driver.getPageSource()).doesNotContain("JSF caseDestroyWorkflow");
   }
 
   @Test
   public void testCancelDestroyWorkflow() throws Exception
   {
     createTask("caseCancelDestroyWorkflow", "Test destroy workflow", 2);
-    navigate().caseList();
+    WfNavigator.caseList(driver);
     awaitToBeClickable("buttonCaseDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("caseCancelDestroyWorkflow");
+    assertThat(driver.getPageSource()).contains("caseCancelDestroyWorkflow");
     awaitToBeClickable("formCaseDetails:openDeleteCase").click();
     awaitToBeClickable("formConfirmDeleteReset:notConfirmAction").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("SUSPENDED");
-    navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF caseCancelDestroyWorkflow");
+    assertThat(driver.getPageSource()).contains("SUSPENDED");
+    WfNavigator.taskList(driver);
+    assertThat(driver.getPageSource()).contains("JSF caseCancelDestroyWorkflow");
     closeTask();
   }
 
@@ -192,17 +195,17 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   public void testResetTask() throws Exception
   {
     createTask("resetTask", "Test reset task", 2);
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("taskLinkRow_0").click();
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("resetTask");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("RESUMED");
+    assertThat(driver.getPageSource()).contains("resetTask");
+    assertThat(driver.getPageSource()).contains("RESUMED");
     awaitToBeClickable("formTaskDetails:openResetTask").click();
     awaitToBeClickable("formConfirmDeleteReset:confirmAction").click();
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("SUSPENDED");
+    assertThat(driver.getPageSource()).contains("SUSPENDED");
     closeTask();
   }
 
@@ -210,16 +213,16 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   public void testParkTask() throws Exception
   {
     createTask("parkTask", "Test park task", 2);
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("taskLinkRow_0").click();
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("parkTask");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("RESUMED");
+    assertThat(driver.getPageSource()).contains("parkTask");
+    assertThat(driver.getPageSource()).contains("RESUMED");
     awaitToBeClickable("formTaskDetails:openParkTask").click();
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("PARKED");
+    assertThat(driver.getPageSource()).contains("PARKED");
     closeTask();
   }
 
@@ -227,16 +230,16 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   public void testPageArchive() throws Exception
   {
     createHtmlTask("pageArchive", "Test page archive");
-    navigate().caseList();
+    WfNavigator.caseList(driver);
     awaitToBeClickable("buttonCaseDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("A Html Case");
+    assertThat(driver.getPageSource()).contains("A Html Case");
     awaitToBeClickable("formCaseDetails:openPageArchive").click();
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("taskLinkRow_0").click();
     switchToIFrame();
     awaitToBeClickable("submit").click();
     switchToDefaultContent();
-    navigate().taskHistory();
+    WfNavigator.taskHistory(driver);
     awaitToBeClickable("buttonTaskHistoryDetail_0").click();
     awaitToBeClickable("formTaskDetails:openPageArchive").click();
   }
@@ -245,17 +248,17 @@ public class TestDetails extends BaseJsfWorkflowUiTest
   public void testChangePriority() throws Exception
   {
     createTask("changePriorityTask", "Test change priority", 2);
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("changePriorityTask");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("NORMAL");
+    assertThat(driver.getPageSource()).contains("changePriorityTask");
+    assertThat(driver.getPageSource()).contains("NORMAL");
     awaitToBeClickable("formTaskDetails:openChangePriority").click();
     prime().selectOneRadio(By.id("formDetailsChangePriority"))
             .selectItemById("formDetailsChangePriority:priorityOptions:2_clone");
     awaitToBeClickable("formDetailsChangePriority:saveChangePriority").click();
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitToBeClickable("buttonTaskDetail").click();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("HIGH");
+    assertThat(driver.getPageSource()).contains("HIGH");
     closeTask();
   }
 }

@@ -1,12 +1,15 @@
 package ch.ivyteam.ivy.project.jsf.wf.ui;
 
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
+
+import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
+import ch.ivyteam.ivy.server.test.WfNavigator;
 
 public class TestWorkflow extends BaseJsfWorkflowUiTest
 {
@@ -17,21 +20,21 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   @Test
   public void testHome() throws Exception
   {
-    navigate().home();
+    WfNavigator.home(driver);
     assertThat(awaitToBeClickable("mainArea").getText()).contains("Home");
     
     awaitToBeClickable("ProcessListLink").click();
-    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Process List");
+    IvyWebDriverHelper.assertAjaxElementContains(driver, By.id("mainArea"), "Process List");
     
-    navigate().home();
+    WfNavigator.home(driver);
     awaitToBeClickable("TaskListLink").click();
-    driverHelper.assertAjaxElementContains(By.id("mainArea"), "Task List");
+    IvyWebDriverHelper.assertAjaxElementContains(driver, By.id("mainArea"), "Task List");
   }
   
   @Test
   public void testProcesslist() throws Exception
   {
-    navigate().processList();
+    WfNavigator.processList(driver);
     //Start home process
     awaitToBeClickable(WF_JSF_LINK_ID).click();
     switchToIFrame();
@@ -39,7 +42,7 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     switchToDefaultContent();
     
     // Test processlist searchbar with process name
-    navigate().processList();
+    WfNavigator.processList(driver);
     
     Table dataTable = prime().table(By.id("processlistform:datatable"));
     dataTable.contains("TestCaseMap");
@@ -49,7 +52,7 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     dataTable.firstRowContains("Test Workflow Jsf");
     
     // Test processlist searchbar with process description
-    navigate().processList();
+    WfNavigator.processList(driver);
     searchDataTable("processlistform:SearchTxt", "Web pages");
     dataTable.firstRowContains("Test Workflow Html");
   }
@@ -75,8 +78,8 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     addSubstitutionForUserPersonalTasks(TEST_USER_2);
     
     login("user1", "user1");
-    navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF taskForUser2");
+    WfNavigator.taskList(driver);
+    assertThat(driver.getPageSource()).contains("JSF taskForUser2");
   }
 
   @Test
@@ -89,27 +92,27 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
     addSubstitutionForAllRolesOfUser(TEST_USER_2);
     
     login("user1", "user1");
-    navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF taskForRole3");
+    WfNavigator.taskList(driver);
+    assertThat(driver.getPageSource()).contains("JSF taskForRole3");
   }
 
   private void checkIsTaskCreated()
   {
-    navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("JSF titel");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Priority EXCEPTION");
+    WfNavigator.taskList(driver);
+    assertThat(driver.getPageSource()).contains("JSF titel");
+    assertThat(driver.getPageSource()).contains("Priority EXCEPTION");
   }
 
   private void checkIsTaskClosed()
   {
-    navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).doesNotContain("JSF titel");
+    WfNavigator.taskList(driver);
+    assertThat(driver.getPageSource()).doesNotContain("JSF titel");
   }
 
   private void delegateTaskToUser(String taskName, String user)
   {
-    navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains(taskName);
+    WfNavigator.taskList(driver);
+    assertThat(driver.getPageSource()).contains(taskName);
     awaitToBeClickable("buttonTaskDetail").click();
     awaitToBeClickable("formTaskDetails:openDelegateTask").click();
     prime().dialog(By.id("modalDialogDelegateTask")).waitForVisibility(true);
@@ -121,8 +124,8 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
   
   private void delegateTaskToRole(String taskName, String role)
   {
-    navigate().taskList();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains(taskName);
+    WfNavigator.taskList(driver);
+    assertThat(driver.getPageSource()).contains(taskName);
     awaitToBeClickable("buttonTaskDetail").click();
     awaitToBeClickable("formTaskDetails:openDelegateTask").click();
     prime().dialog(By.id("modalDialogDelegateTask")).waitForVisibility(true);
@@ -135,7 +138,7 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
 
   private void addSubstitutionForUserPersonalTasks(String user)
   {
-    navigate().substitution();
+    WfNavigator.substitution(driver);
     SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
     menu.selectItemByLabel(user);
     awaitToBeClickable("formSubstitute:addSubstitute").click();
@@ -151,7 +154,7 @@ public class TestWorkflow extends BaseJsfWorkflowUiTest
 
   private void addSubstitutionForAllRolesOfUser(String user)
   {
-    navigate().substitution();
+    WfNavigator.substitution(driver);
     SelectOneMenu menu = prime().selectOne(By.id("formSubstitute:userSelection"));
     menu.selectItemByLabel(user);
     awaitToBePresent("formSubstitute:addSubstitute");

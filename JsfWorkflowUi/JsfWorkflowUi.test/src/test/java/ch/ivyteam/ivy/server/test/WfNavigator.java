@@ -7,84 +7,78 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 
 public class WfNavigator
 {
-  private WebDriver driver;
 
-  public WfNavigator(WebDriver driver)
-  {
-    this.driver = driver;
-  }
-
-  public void openProcessLink(String processLink)
+  public static void openProcessLink(WebDriver driver, String processLink)
   {
     driver.get(ServerControl.getProcessStartLink(processLink));
   }
 
-  public void home()
+  public static void home(WebDriver driver)
   {
-    openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
+    openProcessLink(driver, "JsfWorkflowUi/13EACA2A989BCC3D/DefaultApplicationHomePage.ivp");
   }
 
-  public void processList()
+  public static void processList(WebDriver driver)
   {
-    openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultProcessStartListPage.ivp");
+    openProcessLink(driver, "JsfWorkflowUi/13EACA2A989BCC3D/DefaultProcessStartListPage.ivp");
   }
 
-  public void taskList()
+  public static void taskList(WebDriver driver)
   {
-    openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/DefaultTaskListPage.ivp");
+    openProcessLink(driver, "JsfWorkflowUi/13EACA2A989BCC3D/DefaultTaskListPage.ivp");
   }
 
-  public void caseList()
+  public static void caseList(WebDriver driver)
   {
-    openProcessLink("JsfWorkflowUi/13F1D890C62823FF/CaseListUser.ivp");
+    openProcessLink(driver, "JsfWorkflowUi/13F1D890C62823FF/CaseListUser.ivp");
   }
 
-  public void taskHistory()
+  public static void taskHistory(WebDriver driver)
   {
-    openProcessLink("JsfWorkflowUi/13F2E007FE178DD4/TaskHistory.ivp");
+    openProcessLink(driver, "JsfWorkflowUi/13F2E007FE178DD4/TaskHistory.ivp");
   }
 
-  public void absence()
+  public static void absence(WebDriver driver)
   {
-    openProcessLink("JsfWorkflowUi/13F3C911395912D4/Absence.ivp");
+    openProcessLink(driver, "JsfWorkflowUi/13F3C911395912D4/Absence.ivp");
   }
 
-  public void substitution()
+  public static void substitution(WebDriver driver)
   {
-    openProcessLink("JsfWorkflowUi/13F5720218D18BA2/Substitution.ivp");
+    openProcessLink(driver, "JsfWorkflowUi/13F5720218D18BA2/Substitution.ivp");
   }
 
-  public void mailNotificationSettings()
+  public static void mailNotificationSettings(WebDriver driver)
   {
-    openProcessLink("JsfWorkflowUi/13F51835BF0FECEF/MailNotificationSettings.ivp");
+    openProcessLink(driver, "JsfWorkflowUi/13F51835BF0FECEF/MailNotificationSettings.ivp");
   }
 
-  public void caseAdmin()
+  public static void caseAdmin(WebDriver driver)
   {
-    openProcessLink("JsfWorkflowUi/1518C1BDAE6D978C/CaseListAdmin.ivp");
+    openProcessLink(driver, "JsfWorkflowUi/1518C1BDAE6D978C/CaseListAdmin.ivp");
   }
 
-  public void taskAdmin()
+  public static void taskAdmin(WebDriver driver)
   {
-    openProcessLink("JsfWorkflowUi/1518C6953618322C/TaskListAdmin.ivp");
+    openProcessLink(driver, "JsfWorkflowUi/1518C6953618322C/TaskListAdmin.ivp");
 
     PrimeUi prime = new PrimeUi(driver);
     prime.selectOne(By.id("taskListComponent:taskListForm:responsibleFilter")).waitForLabel("All");
     prime.selectOne(By.id("taskListComponent:taskListForm:stateFilter")).waitForLabel("All");
   }
 
-  public void logout()
+  public static void logout(WebDriver driver)
   {
-    openProcessLink("JsfWorkflowUi/13EACA2A989BCC3D/Logout.ivp");
+    openProcessLink(driver, "JsfWorkflowUi/13EACA2A989BCC3D/Logout.ivp");
   }
 
-  public void loggedInUser()
+  public static void loggedInUser(WebDriver driver)
   {
-    openProcessLink("JsfWorkflowUi/1477BA1CD7421F55/LoggedInUser.ivp");
+    openProcessLink(driver, "JsfWorkflowUi/1477BA1CD7421F55/LoggedInUser.ivp");
   }
 
-  public void grantAdminRights()
+  public static void grantAdminRights(WebDriver driver)
   {
-    openProcessLink("testWfUi/143F856F4E029A48/SetAdminUser.ivp");
+    openProcessLink(driver, "testWfUi/143F856F4E029A48/SetAdminUser.ivp");
   }
 }
