@@ -1,36 +1,39 @@
 package test.web;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 
+import io.github.bonigarcia.seljup.Options;
+import io.github.bonigarcia.seljup.SeleniumExtension;
+
+@ExtendWith(SeleniumExtension.class)
 public abstract class BaseWebTest
 {
+  @Options
+  FirefoxOptions firefoxOptions = new FirefoxOptions();
+  {
+    FirefoxBinary binary = new FirefoxBinary();
+    binary.addCommandLineOptions("--headless");
+    firefoxOptions.setBinary(binary);
+  }
+  
   protected WebDriver driver;
 
-  @Before
-  public void setUp() throws Exception
+  @BeforeEach
+  public void setUp(FirefoxDriver driver) throws Exception
   {
-    driver = createDriver();
-  }
-
-  protected final WebDriver createDriver()
-  {
-    return new HtmlUnitDriver(true);
-  }
-
-  @After
-  public void tearDown() throws Exception
-  {
-    driver.quit();
+    this.driver = driver;
   }
 
   public AjaxHelper ajax()

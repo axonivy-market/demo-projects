@@ -2,7 +2,7 @@ package workflow.trigger;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
@@ -13,7 +13,7 @@ public class WebTestCreateNewEmployee extends BaseWebTest
 {
 
   @Test
-  public void test()
+  void test()
   {
     driver.get(EngineUrl.base());
     assertThat(driver.getTitle().contains("ivy"));
