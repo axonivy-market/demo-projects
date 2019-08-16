@@ -1,7 +1,7 @@
 pipeline {
   triggers {
-    pollSCM 'H/5 * * * *'
-    cron '0 3 * * *'
+    pollSCM '@hourly'
+    cron '@midnight'
   }
   agent {
     dockerfile true
