@@ -36,5 +36,10 @@ pipeline {
         }
       }
     }
+    stage('cleanup') {
+      dir('HtmlDialogDemos/HtmlDialogsDemos/target/ivyEngine') {
+        deleteDir()
+      }
+    }
   }
 }
