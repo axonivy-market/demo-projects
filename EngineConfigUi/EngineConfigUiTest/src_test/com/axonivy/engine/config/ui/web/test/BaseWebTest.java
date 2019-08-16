@@ -81,7 +81,7 @@ public class BaseWebTest
 
   protected void setupMySql() throws Exception
   {
-	setMySqlConfig();
+    setMySqlConfig();
     createMySqlSysDb();
     testConnection();
   }

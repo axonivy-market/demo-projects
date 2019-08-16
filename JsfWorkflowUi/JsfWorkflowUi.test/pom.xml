@@ -6,9 +6,9 @@
 
 	<parent>
 		<groupId>ch.ivyteam.ivy.project</groupId>
-		<artifactId>build.maven</artifactId>
+		<artifactId>build.maven.iar.web.test</artifactId>
 		<version>7.4.0-SNAPSHOT</version>
-		<relativePath>../../build.maven</relativePath>
+		<relativePath>../../build.maven/iar/web.test</relativePath>
 	</parent>
 
 	<properties>
@@ -19,8 +19,8 @@
 		<application>Portal</application>
 		<skipDeploy>${maven.test.skip}</skipDeploy>
 		<selenium.version>3.141.59</selenium.version>
-    <junit.engine.version>5.3.2</junit.engine.version>
-    <maven.surefire.version>3.0.0-M3</maven.surefire.version>
+		<junit.engine.version>5.3.2</junit.engine.version>
+		<maven.surefire.version>3.0.0-M3</maven.surefire.version>
 	</properties>
 
 	<dependencies>
@@ -35,43 +35,6 @@
 			<artifactId>jsfworkflowui.testdata</artifactId>
 			<version>${project.version}</version>
 			<type>iar</type>
-		</dependency>
-
-		<!-- Test Dependencies: -->
-		<dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>selenium-jupiter</artifactId>
-      <version>3.0.0</version>
-    </dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>${selenium.version}</version>
-		</dependency>
-		<dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>${junit.engine.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-migrationsupport</artifactId>
-      <version>${junit.engine.version}</version>
-    </dependency>
-		<dependency>
-			<groupId>org.apache.maven.surefire</groupId>
-			<artifactId>surefire-junit4</artifactId>
-			<version>2.22.2</version>
-		</dependency>
-		<dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>3.11.1</version>
-    </dependency>
-		<dependency>
-			<groupId>com.axonivy.ivy.supplements</groupId>
-			<artifactId>primeui-tester</artifactId>
-			<version>0.0.4-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
