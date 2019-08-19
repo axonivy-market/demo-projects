@@ -21,6 +21,7 @@ import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
 
 import ch.ivyteam.ivy.server.test.ApplicationLogin;
+import ch.ivyteam.ivy.server.test.ServerControl;
 import ch.ivyteam.ivy.server.test.WfNavigator;
 import io.github.bonigarcia.seljup.Options;
 import io.github.bonigarcia.seljup.SeleniumExtension;
@@ -39,10 +40,11 @@ public class BaseJsfWorkflowUiTest
     firefoxOptions.setProfile(profile);
   }
   
+  public static final String APP = ServerControl.isDesigner() ? "designer" : "Portal";
   public static final String WEB_TEST_SERVER_ADMIN_USER;
   public static final String WEB_TEST_SERVER_ADMIN_PASSWORD;
-  public static final String WF_JSF_LINK_ID = "/ivy/pro/Portal/testWfUi/13F3D94E5C99F06F/WfJsf.ivp";
-  public static final String WF_HTML_LINK_ID = "/ivy/pro/Portal/testWfUi/13F3D94AF2F236BF/WfHtml.ivp";
+  public static final String WF_JSF_LINK_ID = "/ivy/pro/" + APP + "/testWfUi/13F3D94E5C99F06F/WfJsf.ivp";
+  public static final String WF_HTML_LINK_ID = "/ivy/pro/" + APP + "/testWfUi/13F3D94AF2F236BF/WfHtml.ivp";
   private static final String[] PRIORITIES = {"EXCEPTION", "HIGH", "NORMAL", "LOW"};
 
   static
@@ -150,7 +152,7 @@ public class BaseJsfWorkflowUiTest
 
   public void switchToIFrame()
   {
-    driver.switchTo().frame("iFrame");
+    driver.switchTo().frame(((FirefoxDriver) driver).findElement(By.id("iFrame")));
   }
 
   public PrimeUi prime()
