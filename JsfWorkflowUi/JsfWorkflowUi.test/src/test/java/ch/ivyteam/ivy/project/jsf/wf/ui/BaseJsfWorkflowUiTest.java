@@ -221,6 +221,7 @@ public class BaseJsfWorkflowUiTest
 
   protected WebElement awaitToBeClickable(String id)
   {
+    Awaitility.await().until(() -> driver.findElement(By.id(id)).isDisplayed());
     return awaitToBeClickable(By.id(id));
   }
 
