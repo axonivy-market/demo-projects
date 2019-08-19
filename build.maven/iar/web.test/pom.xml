@@ -13,40 +13,52 @@
 	</parent>
 
 	<properties>
-		<selenium.version>3.5.3</selenium.version>
+		<selenium.version>3.141.59</selenium.version>
+		<junit.engine.version>5.5.1</junit.engine.version>
+		<maven.surefire.version>3.0.0-M3</maven.surefire.version>
 		<test.application>Portal</test.application>
-		<gecko.driver.dir>${basedir}/drivers</gecko.driver.dir>
 		<deploy.skip>true</deploy.skip>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<!-- required: test framework used by the maven-surefire-plugin to run tests -->
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>selenium-jupiter</artifactId>
+			<version>3.3.0</version>
 		</dependency>
 		<dependency>
 			<!-- required: for web browser based testing -->
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>${selenium.version}</version>
-			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.engine.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-migrationsupport</artifactId>
+			<version>${junit.engine.version}</version>
 		</dependency>
 		<dependency>
 			<!-- fluid junit assertions -->
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
-			<version>3.5.1</version>
-			<scope>test</scope>
+			<version>3.11.1</version>
 		</dependency>
 		<dependency>
 			<!-- simplify primefaces component tests -->
 			<groupId>com.axonivy.ivy.supplements</groupId>
 			<artifactId>primeui-tester</artifactId>
 			<version>0.0.4-SNAPSHOT</version>
-			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.awaitility</groupId>
+			<artifactId>awaitility</artifactId>
+			<version>3.1.5</version>
 		</dependency>
 	</dependencies>
 
@@ -79,7 +91,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.2</version>
+				<version>${maven.surefire.version}</version>
 				<executions>
 					<execution>
 						<id>selenium.web.tests</id>
@@ -96,7 +108,6 @@
 					<argLine>
 						-Dtest.engine.url=${test.engine.url}
 						-Dtest.engine.app=${test.application}
-						-Dgecko.driver.dir=${gecko.driver.dir}
 					</argLine>
 				</configuration>
 			</plugin>
@@ -111,31 +122,6 @@
 						<goals>
 							<goal>properties</goal>
 						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>com.github.webdriverextensions</groupId>
-				<artifactId>webdriverextensions-maven-plugin</artifactId>
-				<version>3.1.3</version>
-				<executions>
-					<execution>
-						<id>install.gecko.driver</id>
-						<phase>pre-integration-test</phase>
-						<goals>
-							<goal>install-drivers</goal>
-						</goals>
-						<configuration>
-							<drivers>
-								<driver>
-									<name>geckodriver</name>
-									<bit>64</bit>
-									<version>0.21.0</version>
-								</driver>
-							</drivers>
-							<installationDirectory>${gecko.driver.dir}</installationDirectory>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -154,38 +140,4 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>ivy.package.deb64</id>
-			<activation>
-				<os>
-					<name>Linux</name>
-				</os>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>exec-maven-plugin</artifactId>
-						<groupId>org.codehaus.mojo</groupId>
-						<version>1.6.0</version>
-						<executions>
-							<execution>
-								<id>make.driver.executable</id>
-								<phase>pre-integration-test</phase>
-								<goals><goal>exec</goal></goals>
-								<configuration>
-									<executable>chmod</executable>
-									<arguments>
-										<argument>+x</argument>
-										<argument>${gecko.driver.dir}/geckodriver-linux-64bit</argument>
-									</arguments>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 </project>

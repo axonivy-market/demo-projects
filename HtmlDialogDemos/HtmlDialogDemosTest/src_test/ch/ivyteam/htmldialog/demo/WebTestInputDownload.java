@@ -14,7 +14,8 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.awaitility.Awaitility;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
@@ -23,14 +24,9 @@ public class WebTestInputDownload extends BaseWebTest
   private File ffDownloadDir;
 
   @Override
-  protected void configureBrowserProfile(FirefoxProfile profile)
+  protected FirefoxProfile configureBrowserProfile()
   {
-    super.configureBrowserProfile(profile);
-    enableAutoDownload(profile);
-  }
-
-  private void enableAutoDownload(FirefoxProfile profile)
-  {
+    FirefoxProfile profile = super.configureBrowserProfile();
     profile.setPreference("browser.download.folderList", 2);
     try
     {
@@ -45,12 +41,12 @@ public class WebTestInputDownload extends BaseWebTest
     profile.setPreference("browser.download.useDownloadDir", true);
     profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "image/jpeg;text/txt");
     profile.setPreference("browser.download.panel.shown", true);
+    return profile;
   }
 
-  @Override
+  @AfterEach
   public void tearDown() throws Exception
   {
-    super.tearDown();
     FileUtils.deleteDirectory(ffDownloadDir);
   }
 

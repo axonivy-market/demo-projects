@@ -20,7 +20,7 @@ import javax.ws.rs.core.Response.Status;
 import org.apache.http.HttpStatus;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.glassfish.jersey.filter.LoggingFilter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.Person;
 import com.axonivy.connectivity.rest.provider.PersonService;

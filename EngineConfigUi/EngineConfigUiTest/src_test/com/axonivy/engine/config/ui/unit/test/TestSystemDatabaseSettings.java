@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang.math.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import com.axon.ivy.engine.config.ConfigHelper;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
@@ -29,7 +29,7 @@ public class TestSystemDatabaseSettings
 {
   private static String DBName;
 
-  @Test @Ignore
+  @Test @Disabled
   public void testLoadConfigData() throws Exception
   {
     ConfigData loadConfigData = SystemDatabaseSettings.create()
@@ -39,7 +39,7 @@ public class TestSystemDatabaseSettings
     assertThat(loadConfigData.getProduct()).isNotNull();
   }
   
-  @Test @Ignore
+  @Test @Disabled
   public void testLoadConfigs() throws Exception
   {
     SystemDatabaseSettings settings = SystemDatabaseSettings.create();
@@ -97,7 +97,7 @@ public class TestSystemDatabaseSettings
     }
   }
 
-  @Test @Ignore
+  @Test @Disabled
   public void testCreating() throws Exception
   {
     ConfigData configData = getLocalMySqlSettings();

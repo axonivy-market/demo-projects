@@ -14,8 +14,8 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.awaitility.Awaitility;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
@@ -23,11 +23,9 @@ public class WebTestExcelExport extends BaseWebTest
 {
   private File tempDownloadDir;
 
-  @After
-  @Override
+  @AfterEach
   public void tearDown() throws Exception
   {
-    super.tearDown();
     FileUtils.deleteDirectory(tempDownloadDir);
   }
 
@@ -65,14 +63,9 @@ public class WebTestExcelExport extends BaseWebTest
   }
 
   @Override
-  protected void configureBrowserProfile(FirefoxProfile profile)
+  protected FirefoxProfile configureBrowserProfile()
   {
-    super.configureBrowserProfile(profile);
-    enableAutoDownload(profile);
-  }
-
-  private void enableAutoDownload(FirefoxProfile profile)
-  {
+    FirefoxProfile profile = super.configureBrowserProfile();
     try
     {
       tempDownloadDir = Files.createTempDirectory("tempDownload").toFile();
@@ -87,6 +80,7 @@ public class WebTestExcelExport extends BaseWebTest
             "application/x-msexcel,application/excel,application/x-excel,application/excel,application/x-excel," +
             "application/excel,application/vnd.ms-excel,application/x-excel,application/x-msexcel\"");
     profile.setPreference("browser.download.panel.shown", true);
+    return profile;
   }
 
 }

@@ -22,7 +22,7 @@ public class ApplicationLogin
 
   public void login(final String username, final String password)
   {
-    new WfNavigator(driver).logout();
+    WfNavigator.logout(driver);
     ajax.await(ExpectedConditions.visibilityOfElementLocated(By
             .id("loginPageComponent:loginForm")));
 

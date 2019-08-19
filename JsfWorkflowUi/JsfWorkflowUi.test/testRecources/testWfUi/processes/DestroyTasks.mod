@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Thu Jun 05 13:26:54 CEST 2014]
-1466BC6311E70117 3.17 #module
+1466BC6311E70117 3.28 #module
 >Proto >Proto Collection #zClass
 Ds0 DestroyTasks Big #zClass
 Ds0 B #cInfo
 Ds0 #process
-Ds0 @TextInP .resExport .resExport #zField
 Ds0 @TextInP .type .type #zField
 Ds0 @TextInP .processKind .processKind #zField
 Ds0 @AnnotationInP-0n ai ai #zField
@@ -20,63 +18,19 @@ Ds0 @PushWFArc f2 '' #zField
 Ds0 @PushWFArc f4 '' #zField
 >Proto Ds0 Ds0 DestroyTasks #zField
 Ds0 f0 outLink DestroyTasks.ivp #txt
-Ds0 f0 type ch.ivyteam.wf.test.Data #txt
 Ds0 f0 inParamDecl '<> param;' #txt
-Ds0 f0 actionDecl 'ch.ivyteam.wf.test.Data out;
-' #txt
-Ds0 f0 guid 1466BC64E5ED2937 #txt
 Ds0 f0 requestEnabled true #txt
 Ds0 f0 triggerEnabled false #txt
 Ds0 f0 callSignature DestroyTasks() #txt
 Ds0 f0 persist false #txt
 Ds0 f0 startName DestroyTasks #txt
-Ds0 f0 taskData '#
-#Thu Jun 05 13:26:08 CEST 2014
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Ds0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Ds0 f0 caseData '#
-#Thu Jun 05 13:26:08 CEST 2014
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Ds0 f0 showInStartList 1 #txt
-Ds0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -88,12 +42,9 @@ Ds0 f0 @C|.responsibility Everybody #txt
 Ds0 f0 81 49 30 30 -47 17 #rect
 Ds0 f0 @|StartRequestIcon #fIcon
 Ds0 f0 -1|-1|-9671572 #nodeStyle
-Ds0 f1 type ch.ivyteam.wf.test.Data #txt
 Ds0 f1 337 49 30 30 0 15 #rect
 Ds0 f1 @|EndIcon #fIcon
 Ds0 f1 -1|-1|-9671572 #nodeStyle
-Ds0 f3 actionDecl 'ch.ivyteam.wf.test.Data out;
-' #txt
 Ds0 f3 actionTable 'out=in;
 ' #txt
 Ds0 f3 actionCode 'import ch.ivyteam.ivy.environment.Ivy;
@@ -114,7 +65,6 @@ for(ITask task : tasks)
 {
 	task.destroy();
 }' #txt
-Ds0 f3 type ch.ivyteam.wf.test.Data #txt
 Ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,14 +1,16 @@
 package ch.ivyteam.ivy.project.jsf.wf.ui;
 
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Dialog;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
+
+import ch.ivyteam.ivy.server.test.IvyWebDriverHelper;
+import ch.ivyteam.ivy.server.test.WfNavigator;
 
 public class TestSettings extends BaseJsfWorkflowUiTest
 {
@@ -17,8 +19,8 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   public void testAddAbsence() throws Exception
   {
     addAbsenceForMe("31.31.2030", "32:32", "31.31.2031", "40:40", "Add absence test");
-    driverHelper.waitUntilEnabled(By.id("formAddAbsence:saveNewAbsence"));
-    driverHelper.assertAjaxElementContains(By.id("formAddAbsence:absenceMessage"),
+    IvyWebDriverHelper.waitUntilEnabled(driver, By.id("formAddAbsence:saveNewAbsence"));
+    IvyWebDriverHelper.assertAjaxElementContains(driver, By.id("formAddAbsence:absenceMessage"),
             "could not be understood as a date");
     checkIfAbsenceContains("No absences");
     addAbsenceForMe("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence test");
@@ -43,8 +45,8 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     addAbsenceForMe("30.04.2030", "09:10", "30.04.2031", "10:10", "Add absence test");
     checkIfAbsenceContains("Add absence test");
     editAbsence("31.31.2030", "32:32", "31.31.2031", "40:40", "Edit absence test", "me");
-    driverHelper.waitUntilEnabled(By.id("formEditAbsence:saveEditAbsence"));
-    driverHelper.assertAjaxElementContains(By.id("formEditAbsence:absenceMessage"),
+    IvyWebDriverHelper.waitUntilEnabled(driver, By.id("formEditAbsence:saveEditAbsence"));
+    IvyWebDriverHelper.assertAjaxElementContains(driver, By.id("formEditAbsence:absenceMessage"),
             "could not be understood as a date");
     checkIfAbsenceContains("Add absence test");
     editAbsence("15.04.2030", "11:11", "16.04.2031", "09:09", "Edit absence test", "me");
@@ -70,12 +72,11 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     addAbsenceForUser("30.07.2012", "09:10", "30.08.2031", "10:10", "Add absence for other test",
             "Test User 2 (user2)");
     awaitToBeClickable("showAbsentUsers").click();
-    WebDriver webDriver = driverHelper.getWebDriver();
-    assertThat(webDriver.findElement(By.id("formAbsentUsers")).getText()).contains("Test User 2 (user2)");
+    assertThat(driver.findElement(By.id("formAbsentUsers")).getText()).contains("Test User 2 (user2)");
 
     // Trick to close the popup window with the absent users table.
-    webDriver.findElement(By.id("formAbsentUsers")).submit();
-    await(ExpectedConditions.invisibilityOf(driverHelper.getWebDriver().findElement(By.id("formAbsentUsers"))));
+    driver.findElement(By.id("formAbsentUsers")).submit();
+    await(ExpectedConditions.invisibilityOf(driver.findElement(By.id("formAbsentUsers"))));
 
     deleteAbsence();
     checkIfAbsenceContains("No absences");
@@ -84,7 +85,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   private void editAbsence(String startDate, String startTime, String endDate, String endTime,
           String description, String absenceFor)
   {
-    navigate().absence();
+    WfNavigator.absence(driver);
     if (absenceFor == "other")
     {
       prime().selectOne(By.id("formAbsence:userSelection")).selectItemByLabel("Test User 2 (user2)");
@@ -116,14 +117,14 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void checkIfAbsenceContains(String description)
   {
-    navigate().absence();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains(description);
+    WfNavigator.absence(driver);
+    assertThat(driver.getPageSource()).contains(description);
   }
 
   private void deleteAbsence()
   {
     awaitToBeClickable("formAbsence:tableAbsence:0:removeButton").click();
-    driverHelper.waitForAjax();
+    IvyWebDriverHelper.waitForAjax(driver);
   }
 
   @Test
@@ -145,17 +146,17 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     addSubstituteForTasks("other");
     SelectOneMenu selectOneMenu = prime().selectOne(By.id("formSubstitute:userSelection"));
     selectOneMenu.selectItemByLabel("Test User 2 (user2)");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("user1");
+    assertThat(driver.getPageSource()).contains("user1");
     addSubstitutesForRoles("other");
     checkIsSubstituteForRolesAdded();
-    navigate().substitution();
+    WfNavigator.substitution(driver);
     selectOneMenu.selectItemByLabel("Test User 1 (user1)");
     awaitToBeClickable("formSubstitute:tableSubstitute:0:removeButton").click();
   }
 
   private void addSubstituteForTasks(String substituteFor)
   {
-    navigate().substitution();
+    WfNavigator.substitution(driver);
     if (substituteFor == "other")
     {
       SelectOneMenu selectOneMenu = prime().selectOne(By.id("formSubstitute:userSelection"));
@@ -175,13 +176,13 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void checkIsSubstituteForTasksAdded()
   {
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("user2");
+    assertThat(driver.getPageSource()).contains("user2");
   }
 
   private void checkIsMySubstitutionAdded()
   {
-    navigate().substitution();
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains(WEB_TEST_SERVER_ADMIN_USER);
+    WfNavigator.substitution(driver);
+    assertThat(driver.getPageSource()).contains(WEB_TEST_SERVER_ADMIN_USER);
   }
 
   private void addSubstitutesForRoles(String substituteFor)
@@ -203,27 +204,27 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void checkIsSubstituteForRolesAdded()
   {
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Role 1");
-    assertThat(driverHelper.getWebDriver().getPageSource()).contains("Role 2");
+    assertThat(driver.getPageSource()).contains("Role 1");
+    assertThat(driver.getPageSource()).contains("Role 2");
     awaitToBeClickable("formSubstitute:tableSubstitute:0:removeButton").click();
     awaitToBeClickable("formSubstitute:tableSubstitute:0:removeButton").click();
   }
 
   private void deleteSubstitute()
   {
-    navigate().substitution();
+    WfNavigator.substitution(driver);
     awaitToBeClickable("formSubstitute:tableSubstitute:0:removeButton").click();
   }
 
   @Test
   public void testMailNotification() throws Exception
   {
-    navigate().mailNotificationSettings();
+    WfNavigator.mailNotificationSettings(driver);
     // set User specific
     By oneRadioBy = By.id("formMailNotification:appDefault");
     prime().selectOneRadio(oneRadioBy).selectItemById("formMailNotification:appDefault:1");
     setMailNotification();
-    navigate().mailNotificationSettings();
+    WfNavigator.mailNotificationSettings(driver);
     checkSetMailNotification();
     // set default
     awaitToBeClickable(By.cssSelector("span.ui-button-text.ui-c")).click();
@@ -250,20 +251,20 @@ public class TestSettings extends BaseJsfWorkflowUiTest
 
   private void checkSetMailNotification()
   {
-    assertThat(driverHelper.findElement(By.id("formMailNotification:onTask_input")).isSelected()).isTrue();
-    assertThat(driverHelper.findElement(By.id("formMailNotification:checkMonday_input")).isSelected())
+    assertThat(driver.findElement(By.id("formMailNotification:onTask_input")).isSelected()).isTrue();
+    assertThat(driver.findElement(By.id("formMailNotification:checkMonday_input")).isSelected())
             .isTrue();
-    assertThat(driverHelper.findElement(By.id("formMailNotification:checkTuesday_input")).isSelected())
+    assertThat(driver.findElement(By.id("formMailNotification:checkTuesday_input")).isSelected())
             .isTrue();
-    assertThat(driverHelper.findElement(By.id("formMailNotification:checkWednesday_input")).isSelected())
+    assertThat(driver.findElement(By.id("formMailNotification:checkWednesday_input")).isSelected())
             .isTrue();
-    assertThat(driverHelper.findElement(By.id("formMailNotification:checkThursday_input")).isSelected())
+    assertThat(driver.findElement(By.id("formMailNotification:checkThursday_input")).isSelected())
             .isTrue();
-    assertThat(driverHelper.findElement(By.id("formMailNotification:checkFriday_input")).isSelected())
+    assertThat(driver.findElement(By.id("formMailNotification:checkFriday_input")).isSelected())
             .isTrue();
-    assertThat(driverHelper.findElement(By.id("formMailNotification:checkSaturday_input")).isSelected())
+    assertThat(driver.findElement(By.id("formMailNotification:checkSaturday_input")).isSelected())
             .isTrue();
-    assertThat(driverHelper.findElement(By.id("formMailNotification:checkSunday_input")).isSelected())
+    assertThat(driver.findElement(By.id("formMailNotification:checkSunday_input")).isSelected())
             .isTrue();
   }
 
@@ -271,7 +272,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   public void testDefaultHome() throws Exception
   {
     setDefaultPageProcess();
-    driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultHome.ivp");
+    WfNavigator.openProcessLink(driver, "testWfUi/13FCD703133237C4/testDefaultHome.ivp");
     awaitTextToBePresentIn(By.id("mainArea"), "Home");
   }
 
@@ -279,7 +280,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   public void testDefaultProcessList() throws Exception
   {
     setDefaultPageProcess();
-    driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultProcesslist.ivp");
+    WfNavigator.openProcessLink(driver, "testWfUi/13FCD703133237C4/testDefaultProcesslist.ivp");
     awaitTextToBePresentIn(By.id("mainArea"), "Process List");
   }
 
@@ -287,7 +288,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   public void testDefaultTaskList() throws Exception
   {
     setDefaultPageProcess();
-    driverHelper.openProcessLink("testWfUi/13FCD703133237C4/testDefaultTaskList.ivp");
+    WfNavigator.openProcessLink(driver, "testWfUi/13FCD703133237C4/testDefaultTaskList.ivp");
     awaitTextToBePresentIn(By.id("mainArea"), "Task List");
   }
 
@@ -296,46 +297,45 @@ public class TestSettings extends BaseJsfWorkflowUiTest
   {
     setDefaultPageProcess();
     createTask("titel", "beschreibung", 0);
-    navigate().processList();
+    WfNavigator.processList(driver);
     awaitTextToBePresentIn(By.id("mainArea"), "Process List");
     callDefaultLogin();
   }
 
   private void setDefaultPageProcess()
   {
-    driverHelper
-            .openProcessLink("testWfUi/13FCD703133237C4/SetDefaultProcess.ivp?processName=ch.ivyteam.ivy.project.wf:JsfWorkflowUi");
-    driverHelper.waitForAjax();
+    WfNavigator.openProcessLink(driver,
+            "testWfUi/13FCD703133237C4/SetDefaultProcess.ivp?processName=ch.ivyteam.ivy.project.wf:JsfWorkflowUi");
+    IvyWebDriverHelper.waitForAjax(driver);
     awaitTextToBePresentIn(By.id("mainArea"), "Home");
   }
 
   private void callDefaultLogin()
   {
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     // get task id
     String taskIdPart = "detailTaskId=";
-    String taskId = driverHelper
-            .findElement(By.id("taskLinkRow_0"))
+    String taskId = driver.findElement(By.id("taskLinkRow_0"))
             .getAttribute("href")
             .substring(
                     awaitToBeClickable("taskLinkRow_0").getAttribute("href").indexOf(taskIdPart)
                             + taskIdPart.length());
-    navigate().logout();
+    WfNavigator.logout(driver);
     System.out.println("taskId: " + taskId);
-    driverHelper.openProcessLink("testWfUi/13F3D94E5C99F06F/13F3D94E5C99F06F-f1/TaskA.ivp?taskId=" + taskId);
-    System.out.println("link: " + driverHelper.getWebDriver().getCurrentUrl());
+    WfNavigator.openProcessLink(driver, "testWfUi/13F3D94E5C99F06F/13F3D94E5C99F06F-f1/TaskA.ivp?taskId=" + taskId);
+    System.out.println("link: " + driver.getCurrentUrl());
     awaitTextToBePresentIn(By.id("mainArea"), "Workflow login");
     // Login
     By usernameLocator = By.id("loginPageComponent:loginForm:username");
-    driverHelper.findElement(usernameLocator).clear();
-    driverHelper.findElement(usernameLocator).sendKeys(WEB_TEST_SERVER_ADMIN_USER);
+    driver.findElement(usernameLocator).clear();
+    driver.findElement(usernameLocator).sendKeys(WEB_TEST_SERVER_ADMIN_USER);
     By passwordLocator = By.id("loginPageComponent:loginForm:password");
-    driverHelper.findElement(passwordLocator).clear();
-    driverHelper.findElement(passwordLocator).sendKeys(WEB_TEST_SERVER_ADMIN_PASSWORD);
+    driver.findElement(passwordLocator).clear();
+    driver.findElement(passwordLocator).sendKeys(WEB_TEST_SERVER_ADMIN_PASSWORD);
     awaitToBeClickable("loginPageComponent:loginForm:loginButton").click();
     awaitTextToBePresentIn(By.id("mainArea"), "Welcome");
     closeTask();
-    navigate().taskList();
+    WfNavigator.taskList(driver);
     awaitTextToBePresentIn(By.id("mainArea"), "Task List");
   }
 }

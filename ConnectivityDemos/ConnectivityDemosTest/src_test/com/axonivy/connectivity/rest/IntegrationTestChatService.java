@@ -30,7 +30,7 @@ import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.glassfish.jersey.client.filter.CsrfProtectionFilter;
 import org.glassfish.jersey.filter.LoggingFilter;
 import org.hamcrest.core.IsNull;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.rest.aynch.chat.ChatMessage;
 import com.axonivy.connectivity.rest.provider.SecureService;

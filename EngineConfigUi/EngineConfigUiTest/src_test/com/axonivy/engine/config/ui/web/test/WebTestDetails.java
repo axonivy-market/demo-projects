@@ -1,11 +1,11 @@
 package com.axonivy.engine.config.ui.web.test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 public class WebTestDetails extends BaseWebTest
@@ -47,15 +47,15 @@ public class WebTestDetails extends BaseWebTest
 
   private void summaryContains(String value)
   {
-    Assert.assertTrue(driver.findElement(summaryForm).getText().contains(value));
+    assertThat(driver.findElement(summaryForm).getText().contains(value));
   }
 
-  @Ignore
+  @Disabled
   @Test
   public void testLoginLogout() throws Exception
   {
     System.out.println(driver.findElement(By.xpath("//*[@id='headerdiv']/div[2]/p[1]")).getText());
-    Assert.assertTrue(driver.findElement(By.xpath("//*[@id='headerdiv']/div[2]/p[1]")).getText()
+    assertThat(driver.findElement(By.xpath("//*[@id='headerdiv']/div[2]/p[1]")).getText()
             .contains("Developer"));
 
     logout();

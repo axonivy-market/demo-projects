@@ -3,11 +3,9 @@ package ch.ivyteam.htmldialog.demo;
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-
-
 
 public class WebTestOther extends BaseWebTest
 {
@@ -55,9 +53,7 @@ public class WebTestOther extends BaseWebTest
     driver.findElement(By.id("beanForm:buttonSend")).click();
 
     openAndValidate(managedBeanPoperty);
-    driver.quit();
-
-    driver = createDriver();
+    driver.navigate().refresh();
     openAndValidate(managedBeanPoperty);
   }
 

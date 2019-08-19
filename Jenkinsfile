@@ -1,7 +1,7 @@
 pipeline {
   triggers {
-    pollSCM 'H/5 * * * *'
-    cron '0 3 * * *'
+    pollSCM '@hourly'
+    cron '@midnight'
   }
   agent {
     dockerfile true
@@ -33,6 +33,13 @@ pipeline {
         always {
           archiveArtifacts '**/target/*.iar,**/target/*.zip'
           junit '**/target/surefire-reports/**/*.xml'
+        }
+      }
+    }
+    stage('cleanup') {
+      steps {
+        dir('HtmlDialogDemos/HtmlDialogsDemos/target/ivyEngine') {
+          deleteDir()
         }
       }
     }

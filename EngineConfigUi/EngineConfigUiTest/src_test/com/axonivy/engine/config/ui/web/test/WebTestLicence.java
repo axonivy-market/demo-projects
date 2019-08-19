@@ -2,13 +2,13 @@ package com.axonivy.engine.config.ui.web.test;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 public class WebTestLicence extends BaseWebTest
 {
-  @Ignore
+  @Disabled
   @Test
   public void testLicenceDetails() throws Exception
   {
