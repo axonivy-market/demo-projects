@@ -14,7 +14,7 @@
 
 	<properties>
 		<selenium.version>3.141.59</selenium.version>
-		<junit.engine.version>5.3.2</junit.engine.version>
+		<junit.engine.version>5.5.1</junit.engine.version>
 		<maven.surefire.version>3.0.0-M3</maven.surefire.version>
 		<test.application>Portal</test.application>
 		<deploy.skip>true</deploy.skip>
@@ -24,7 +24,7 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>selenium-jupiter</artifactId>
-			<version>3.0.0</version>
+			<version>3.3.0</version>
 		</dependency>
 		<dependency>
 			<!-- required: for web browser based testing -->

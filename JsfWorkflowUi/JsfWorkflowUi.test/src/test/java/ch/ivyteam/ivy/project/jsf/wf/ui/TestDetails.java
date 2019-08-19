@@ -153,6 +153,7 @@ public class TestDetails extends BaseJsfWorkflowUiTest
     assertThat(driver.getPageSource()).contains("taskDelegateTaskToRole");
     awaitToBeClickable("buttonTaskDetail").click();
     awaitToBeClickable("formTaskDetails:openDelegateTask").click();
+    awaitToBePresent(By.id("formDelegateTask:delegateOptions:1_clone"));
     prime().selectOneRadio(By.id("formDelegateTask"))
             .selectItemById("formDelegateTask:delegateOptions:1_clone");
     awaitToBeClickable("formDelegateTask:saveDelegateTask").click();
