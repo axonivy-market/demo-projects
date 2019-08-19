@@ -14,6 +14,7 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -153,7 +154,7 @@ public class BaseJsfWorkflowUiTest
 
   public void switchToIFrame()
   {
-    driver.switchTo().frame(((FirefoxDriver) driver).findElement(By.id("iFrame")));
+    driver.switchTo().frame(((RemoteWebDriver) driver).findElement(By.id("iFrame")));
   }
 
   public PrimeUi prime()
