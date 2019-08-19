@@ -28,12 +28,9 @@ pipeline {
                      "-Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine " +
                      "-Divy.engine.list.url=${params.engineListUrl} "
         }
-      }
-      post {
-        always {
-          archiveArtifacts '**/target/*.iar,**/target/*.zip'
-          junit '**/target/surefire-reports/**/*.xml'
-        }
+        archiveArtifacts '**/target/*.iar,**/target/*.zip'
+        recordIssues tools: [eclipse()], unstableTotalAll: 1
+        junit '**/target/surefire-reports/**/*.xml'          
       }
     }
     stage('cleanup') {
