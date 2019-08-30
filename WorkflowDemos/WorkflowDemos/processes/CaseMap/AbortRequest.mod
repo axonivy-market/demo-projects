@@ -1,10 +1,9 @@
 [Ivy]
-15A8996D261A1DFE 3.25 #module
+15A8996D261A1DFE 3.28 #module
 >Proto >Proto Collection #zClass
 At0 AbortRequest Big #zClass
 At0 B #cInfo
 At0 #process
-At0 @TextInP .resExport .resExport #zField
 At0 @TextInP .type .type #zField
 At0 @TextInP .processKind .processKind #zField
 At0 @AnnotationInP-0n ai ai #zField
@@ -17,11 +16,7 @@ At0 @EndTask f1 '' #zField
 At0 @PushWFArc f2 '' #zField
 >Proto At0 At0 AbortRequest #zField
 At0 f0 outLink start.ivp #txt
-At0 f0 type workflow.humantask.Data #txt
 At0 f0 inParamDecl '<> param;' #txt
-At0 f0 actionDecl 'workflow.humantask.Data out;
-' #txt
-At0 f0 guid 15A8996D2636B8F8 #txt
 At0 f0 requestEnabled true #txt
 At0 f0 triggerEnabled false #txt
 At0 f0 callSignature start() #txt
@@ -47,7 +42,6 @@ At0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 At0 f0 @C|.responsibility Everybody #txt
 At0 f0 81 49 30 30 -21 17 #rect
 At0 f0 @|StartRequestIcon #fIcon
-At0 f1 type workflow.humantask.Data #txt
 At0 f1 337 49 30 30 0 15 #rect
 At0 f1 @|EndIcon #fIcon
 At0 f2 expr out #txt

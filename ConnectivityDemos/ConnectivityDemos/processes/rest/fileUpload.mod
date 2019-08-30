@@ -1,10 +1,9 @@
 [Ivy]
-169B3B7F5EF38D8F 3.26 #module
+169B3B7F5EF38D8F 3.28 #module
 >Proto >Proto Collection #zClass
 fd0 fileUpload Big #zClass
 fd0 B #cInfo
 fd0 #process
-fd0 @TextInP .resExport .resExport #zField
 fd0 @TextInP .type .type #zField
 fd0 @TextInP .processKind .processKind #zField
 fd0 @AnnotationInP-0n ai ai #zField
@@ -14,7 +13,7 @@ fd0 @TextInP .xml .xml #zField
 fd0 @TextInP .responsibility .responsibility #zField
 fd0 @StartRequest f0 '' #zField
 fd0 @EndTask f1 '' #zField
-fd0 @RichDialog f3 '' #zField
+fd0 @UserDialog f3 '' #zField
 fd0 @PushWFArc f4 '' #zField
 fd0 @PushWFArc f2 '' #zField
 fd0 @InfoButton f5 '' #zField
@@ -25,11 +24,7 @@ fd0 @PushWFArc f9 '' #zField
 fd0 @PushWFArc f10 '' #zField
 >Proto fd0 fd0 fileUpload #zField
 fd0 f0 outLink fileClient.ivp #txt
-fd0 f0 type com.axonivy.connectivity.Data #txt
 fd0 f0 inParamDecl '<> param;' #txt
-fd0 f0 actionDecl 'com.axonivy.connectivity.Data out;
-' #txt
-fd0 f0 guid 169B3B7F5F71BFFC #txt
 fd0 f0 requestEnabled true #txt
 fd0 f0 triggerEnabled false #txt
 fd0 f0 callSignature fileClient() #txt
@@ -47,12 +42,10 @@ fd0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 fd0 f0 @C|.responsibility Everybody #txt
 fd0 f0 81 105 30 30 -25 17 #rect
 fd0 f0 @|StartRequestIcon #fIcon
-fd0 f1 type com.axonivy.connectivity.Data #txt
 fd0 f1 337 105 30 30 0 15 #rect
 fd0 f1 @|EndIcon #fIcon
-fd0 f3 richDialogId com.axonivy.connectivity.rest.FileUpload #txt
+fd0 f3 dialogId com.axonivy.connectivity.rest.FileUpload #txt
 fd0 f3 startMethod start(com.axonivy.connectivity.Data) #txt
-fd0 f3 type com.axonivy.connectivity.Data #txt
 fd0 f3 requestActionDecl '<com.axonivy.connectivity.Data data> param;' #txt
 fd0 f3 responseActionDecl 'com.axonivy.connectivity.Data out;
 ' #txt
@@ -66,7 +59,7 @@ fd0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 fd0 f3 168 98 112 44 -52 -7 #rect
-fd0 f3 @|RichDialogIcon #fIcon
+fd0 f3 @|UserDialogIcon #fIcon
 fd0 f4 expr out #txt
 fd0 f4 111 120 168 120 #arcP
 fd0 f2 expr out #txt
@@ -81,11 +74,7 @@ fd0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 fd0 f5 56 17 336 30 -159 -7 #rect
 fd0 f5 @|IBIcon #fIcon
 fd0 f6 outLink callFileUpload.ivp #txt
-fd0 f6 type com.axonivy.connectivity.Data #txt
 fd0 f6 inParamDecl '<> param;' #txt
-fd0 f6 actionDecl 'com.axonivy.connectivity.Data out;
-' #txt
-fd0 f6 guid 16A534BE3DA2A07D #txt
 fd0 f6 requestEnabled true #txt
 fd0 f6 triggerEnabled false #txt
 fd0 f6 callSignature callFileUpload() #txt
@@ -103,7 +92,6 @@ fd0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 fd0 f6 @C|.responsibility Everybody #txt
 fd0 f6 81 209 30 30 -38 17 #rect
 fd0 f6 @|StartRequestIcon #fIcon
-fd0 f7 type com.axonivy.connectivity.Data #txt
 fd0 f7 337 209 30 30 0 15 #rect
 fd0 f7 @|EndIcon #fIcon
 fd0 f8 clientId 4d9a8b09-9968-4476-a8ac-b71a94d25e94 #txt

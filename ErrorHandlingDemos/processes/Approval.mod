@@ -1,10 +1,9 @@
 [Ivy]
-14ED397D47F3083D 3.23 #module
+14ED397D47F3083D 3.28 #module
 >Proto >Proto Collection #zClass
 al0 Approval Big #zClass
 al0 B #cInfo
 al0 #process
-al0 @TextInP .resExport .resExport #zField
 al0 @TextInP .type .type #zField
 al0 @TextInP .processKind .processKind #zField
 al0 @AnnotationInP-0n ai ai #zField
@@ -29,22 +28,18 @@ al0 @PushWFArc f10 '' #zField
 al0 @TkArc f19 '' #zField
 >Proto al0 al0 Approval #zField
 al0 f0 outLink start.ivp #txt
-al0 f0 type error.handling.demo.Approval #txt
 al0 f0 inParamDecl '<> param;' #txt
-al0 f0 actionDecl 'error.handling.demo.Approval out;
-' #txt
-al0 f0 guid 14ED397D4997BDFB #txt
 al0 f0 requestEnabled true #txt
 al0 f0 triggerEnabled false #txt
 al0 f0 callSignature start() #txt
 al0 f0 persist false #txt
 al0 f0 startName 'Business Error initiates an alternative flow' #txt
-al0 f0 taskData 'TaskTriggered.ROL=Everybody
+al0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 al0 f0 wfuser 1 #txt
 al0 f0 showInStartList 1 #txt
 al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -59,10 +54,8 @@ al0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 al0 f0 @C|.responsibility Team #txt
 al0 f0 81 177 30 30 -21 17 #rect
 al0 f0 @|StartRequestIcon #fIcon
-al0 f1 type error.handling.demo.Approval #txt
 al0 f1 753 241 30 30 0 15 #rect
 al0 f1 @|EndIcon #fIcon
-al0 f6 type error.handling.demo.Approval #txt
 al0 f6 753 177 30 30 0 15 #rect
 al0 f6 @|EndIcon #fIcon
 al0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -83,14 +76,13 @@ The error approval:declined  initiates an alternative flow</name>
 al0 f16 80 34 336 44 -163 -19 #rect
 al0 f16 @|IBIcon #fIcon
 al0 f16 -1|-1|-65536 #nodeStyle
-al0 f3 richDialogId error.handling.demo.approval.RequestForm #txt
+al0 f3 dialogId error.handling.demo.approval.RequestForm #txt
 al0 f3 startMethod start() #txt
 al0 f3 requestActionDecl '<> param;' #txt
 al0 f3 responseActionDecl 'error.handling.demo.Approval out;
 ' #txt
 al0 f3 responseMappingAction 'out=result.approval;
 ' #txt
-al0 f3 outLinks "TaskA.ivp" #txt
 al0 f3 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
@@ -98,7 +90,6 @@ TaskA.PRI=2
 TaskA.ROL=Everybody
 TaskA.SKIP_TASK_LIST=true
 TaskA.TYPE=0' #txt
-al0 f3 type error.handling.demo.Approval #txt
 al0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -114,7 +105,7 @@ al0 f9 expr out #txt
 al0 f9 type error.handling.demo.Approval #txt
 al0 f9 var in1 #txt
 al0 f9 111 192 168 192 #arcP
-al0 f11 richDialogId error.handling.demo.approval.RequestApproval #txt
+al0 f11 dialogId error.handling.demo.approval.RequestApproval #txt
 al0 f11 startMethod start(error.handling.demo.Approval) #txt
 al0 f11 requestActionDecl '<error.handling.demo.Approval approval> param;' #txt
 al0 f11 requestMappingAction 'param.approval=in;
@@ -123,7 +114,6 @@ al0 f11 responseActionDecl 'error.handling.demo.Approval out;
 ' #txt
 al0 f11 responseMappingAction 'out=in;
 ' #txt
-al0 f11 outLinks "TaskA.ivp" #txt
 al0 f11 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
@@ -132,7 +122,6 @@ TaskA.PRI=2
 TaskA.ROL=Boss
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=0' #txt
-al0 f11 type error.handling.demo.Approval #txt
 al0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -144,7 +133,7 @@ al0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 al0 f11 336 362 112 44 -22 -8 #rect
 al0 f11 @|UserTaskIcon #fIcon
-al0 f12 richDialogId error.handling.demo.approval.RequestApproved #txt
+al0 f12 dialogId error.handling.demo.approval.RequestApproved #txt
 al0 f12 startMethod start(error.handling.demo.Approval) #txt
 al0 f12 requestActionDecl '<error.handling.demo.Approval approval> param;' #txt
 al0 f12 requestMappingAction 'param.approval=in;
@@ -153,7 +142,6 @@ al0 f12 responseActionDecl 'error.handling.demo.Approval out;
 ' #txt
 al0 f12 responseMappingAction 'out=in;
 ' #txt
-al0 f12 outLinks "TaskA.ivp" #txt
 al0 f12 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
@@ -162,7 +150,6 @@ TaskA.PRI=2
 TaskA.ROL=ivy.case.getCreatorUser().getName()
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=3' #txt
-al0 f12 type error.handling.demo.Approval #txt
 al0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -182,12 +169,9 @@ al0 f13 448 384 584 256 #arcP
 al0 f13 1 544 384 #addKink
 al0 f13 2 544 256 #addKink
 al0 f13 1 0.05459785214852457 0 0 #arcLabel
-al0 Et0 actionDecl 'error.handling.demo.Approval out;
-' #txt
 al0 Et0 actionTable 'out=in;
 ' #txt
 al0 Et0 actionCode 'out.declineReason = error.getAttribute("declineReason") as String;' #txt
-al0 Et0 type error.handling.demo.Approval #txt
 al0 Et0 errorCode approval:declined #txt
 al0 Et0 attachedToRef 14ED397D47F3083D-f11 #txt
 al0 Et0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -211,7 +195,7 @@ al0 f14 0 0.9744908376711137 0 0 #arcLabel
 al0 f15 expr data #txt
 al0 f15 outCond ivp=="TaskA.ivp" #txt
 al0 f15 696 256 753 256 #arcP
-al0 f17 richDialogId error.handling.demo.approval.RequestDeclined #txt
+al0 f17 dialogId error.handling.demo.approval.RequestDeclined #txt
 al0 f17 startMethod start(error.handling.demo.Approval) #txt
 al0 f17 requestActionDecl '<error.handling.demo.Approval approval> param;' #txt
 al0 f17 requestMappingAction 'param.approval=in;
@@ -220,7 +204,6 @@ al0 f17 responseActionDecl 'error.handling.demo.Approval out;
 ' #txt
 al0 f17 responseMappingAction 'out=in;
 ' #txt
-al0 f17 outLinks "TaskA.ivp" #txt
 al0 f17 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
@@ -229,7 +212,6 @@ TaskA.PRI=2
 TaskA.ROL=ivy.case.getCreatorUserName()
 TaskA.SKIP_TASK_LIST=false
 TaskA.TYPE=3' #txt
-al0 f17 type error.handling.demo.Approval #txt
 al0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

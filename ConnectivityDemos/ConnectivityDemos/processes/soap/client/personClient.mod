@@ -1,10 +1,9 @@
 [Ivy]
-16150E26E34D4339 3.23 #module
+16150E26E34D4339 3.28 #module
 >Proto >Proto Collection #zClass
 pt0 personClient Big #zClass
 pt0 B #cInfo
 pt0 #process
-pt0 @TextInP .resExport .resExport #zField
 pt0 @TextInP .type .type #zField
 pt0 @TextInP .processKind .processKind #zField
 pt0 @AnnotationInP-0n ai ai #zField
@@ -30,24 +29,20 @@ pt0 @PushWFArc f14 '' #zField
 pt0 @InfoButton f15 '' #zField
 >Proto pt0 pt0 personClient #zField
 pt0 f0 outLink read.ivp #txt
-pt0 f0 type com.axonivy.connectivity.soap.PersonClientData #txt
 pt0 f0 inParamDecl '<> param;' #txt
 pt0 f0 inParamTable 'out.context=com.axonivy.connectivity.soap.client.ServiceContext.create();
 ' #txt
-pt0 f0 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
-' #txt
-pt0 f0 guid 16150E26E3CC8DCF #txt
 pt0 f0 requestEnabled true #txt
 pt0 f0 triggerEnabled false #txt
 pt0 f0 callSignature read() #txt
 pt0 f0 persist false #txt
 pt0 f0 startName '9.2.1 read data' #txt
-pt0 f0 taskData 'TaskTriggered.ROL=Everybody
+pt0 f0 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 pt0 f0 caseData businessCase.attach=true #txt
 pt0 f0 showInStartList 1 #txt
 pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -62,20 +57,15 @@ pt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 pt0 f0 @C|.responsibility Everybody #txt
 pt0 f0 241 137 30 30 -21 17 #rect
 pt0 f0 @|StartRequestIcon #fIcon
-pt0 f1 type com.axonivy.connectivity.soap.PersonClientData #txt
 pt0 f1 657 137 30 30 0 15 #rect
 pt0 f1 @|EndIcon #fIcon
-pt0 f2 type com.axonivy.connectivity.soap.PersonClientData #txt
-pt0 f2 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
-' #txt
 pt0 f2 actionTable 'out=in;
 out.persons=wsResponse;
 ' #txt
-pt0 f2 beanConfig "" #txt
 pt0 f2 clientId 16150E44A158D09C #txt
 pt0 f2 port PersonServicePort #txt
 pt0 f2 operation getPersons #txt
-pt0 f2 returningObjectList '[]' #txt
+pt0 f2 beanConfig "" #txt
 pt0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -87,15 +77,12 @@ pt0 f2 328 130 112 44 -32 -8 #rect
 pt0 f2 @|WebServiceIcon #fIcon
 pt0 f3 expr out #txt
 pt0 f3 271 152 328 152 #arcP
-pt0 f5 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
-' #txt
 pt0 f5 actionTable 'out=in;
 ' #txt
 pt0 f5 actionCode 'for (int i = 0; i < in.persons.size(); i++)
 {
 	ivy.log.info(""+ in.persons.get(i));
 }' #txt
-pt0 f5 type com.axonivy.connectivity.soap.PersonClientData #txt
 pt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -112,24 +99,20 @@ pt0 f4 expr out #txt
 pt0 f4 600 152 657 152 #arcP
 pt0 f4 0 0.558359006007981 0 0 #arcLabel
 pt0 f7 outLink delete.ivp #txt
-pt0 f7 type com.axonivy.connectivity.soap.PersonClientData #txt
 pt0 f7 inParamDecl '<> param;' #txt
 pt0 f7 inParamTable 'out.context=com.axonivy.connectivity.soap.client.ServiceContext.create();
 ' #txt
-pt0 f7 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
-' #txt
-pt0 f7 guid 1615102F6BD3BAD6 #txt
 pt0 f7 requestEnabled true #txt
 pt0 f7 triggerEnabled false #txt
 pt0 f7 callSignature delete() #txt
 pt0 f7 persist false #txt
 pt0 f7 startName '9.2.3 delete data' #txt
-pt0 f7 taskData 'TaskTriggered.ROL=Everybody
+pt0 f7 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 pt0 f7 caseData businessCase.attach=true #txt
 pt0 f7 showInStartList 1 #txt
 pt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -144,21 +127,17 @@ pt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 pt0 f7 @C|.responsibility Everybody #txt
 pt0 f7 103 329 30 30 -26 17 #rect
 pt0 f7 @|StartRequestIcon #fIcon
-pt0 f8 type com.axonivy.connectivity.soap.PersonClientData #txt
-pt0 f8 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
-' #txt
 pt0 f8 actionTable 'out=in;
 ' #txt
 pt0 f8 actionCode 'ivy.log.info("deleted "+wsResponse);
 ' #txt
-pt0 f8 beanConfig "" #txt
 pt0 f8 clientId 16150E44A158D09C #txt
 pt0 f8 port PersonServicePort #txt
 pt0 f8 operation deletePerson #txt
 pt0 f8 inputParams 'parameters.person.firstname="Joshua";
 parameters.person.lastname="Bloch";
 ' #txt
-pt0 f8 returningObjectList '[]' #txt
+pt0 f8 beanConfig "" #txt
 pt0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -176,24 +155,20 @@ pt0 f10 expr out #txt
 pt0 f10 133 344 176 344 #arcP
 pt0 f10 0 0.48020749781656163 0 0 #arcLabel
 pt0 f11 outLink add.ivp #txt
-pt0 f11 type com.axonivy.connectivity.soap.PersonClientData #txt
 pt0 f11 inParamDecl '<> param;' #txt
 pt0 f11 inParamTable 'out.context=com.axonivy.connectivity.soap.client.ServiceContext.create();
 ' #txt
-pt0 f11 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
-' #txt
-pt0 f11 guid 1615103F266C3A4F #txt
 pt0 f11 requestEnabled true #txt
 pt0 f11 triggerEnabled false #txt
 pt0 f11 callSignature add() #txt
 pt0 f11 persist false #txt
 pt0 f11 startName '9.2.2 add data' #txt
-pt0 f11 taskData 'TaskTriggered.ROL=Everybody
+pt0 f11 taskData 'TaskTriggered.EXPRI=2
+TaskTriggered.EXROL=Everybody
 TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
 TaskTriggered.PRI=2
-TaskTriggered.EXROL=Everybody' #txt
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 pt0 f11 caseData businessCase.attach=true #txt
 pt0 f11 showInStartList 1 #txt
 pt0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -208,20 +183,16 @@ pt0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 pt0 f11 @C|.responsibility Everybody #txt
 pt0 f11 105 241 30 30 -19 17 #rect
 pt0 f11 @|StartRequestIcon #fIcon
-pt0 f12 type com.axonivy.connectivity.soap.PersonClientData #txt
-pt0 f12 actionDecl 'com.axonivy.connectivity.soap.PersonClientData out;
-' #txt
 pt0 f12 actionTable 'out=in;
 ' #txt
 pt0 f12 actionCode 'ivy.log.info("person added");' #txt
-pt0 f12 beanConfig "" #txt
 pt0 f12 clientId 16150E44A158D09C #txt
 pt0 f12 port PersonServicePort #txt
 pt0 f12 operation addPerson #txt
 pt0 f12 inputParams 'parameters.person.firstname="Joshua";
 parameters.person.lastname="Bloch";
 ' #txt
-pt0 f12 returningObjectList '[]' #txt
+pt0 f12 beanConfig "" #txt
 pt0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

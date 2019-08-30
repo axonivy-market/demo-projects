@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Fri May 04 16:00:02 CEST 2012]
-12E297F287736665 3.17 #module
+12E297F287736665 3.28 #module
 >Proto >Proto Collection #zClass
 Rt0 TaskHistory Big #zClass
 Rt0 B #cInfo
 Rt0 #process
-Rt0 @TextInP .resExport .resExport #zField
 Rt0 @TextInP .type .type #zField
 Rt0 @TextInP .processKind .processKind #zField
 Rt0 @AnnotationInP-0n ai ai #zField
@@ -30,8 +28,6 @@ Rt0 @CallSub f4 '' #zField
 Rt0 @PushWFArc f5 '' #zField
 Rt0 @PushWFArc f12 '' #zField
 >Proto Rt0 Rt0 TaskHistory #zField
-Rt0 f20 actionDecl 'htmlwfui.Data out;
-' #txt
 Rt0 f20 actionTable 'out=in;
 ' #txt
 Rt0 f20 actionCode 'import java.util.EnumSet;
@@ -91,7 +87,6 @@ for(ICase case: queryResult.getResultList())
 */
 out.temp.processesCombo = out.temp.processes.clone();
 ' #txt
-Rt0 f20 type htmlwfui.Data #txt
 Rt0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -128,58 +123,18 @@ Rt0 f1 @|PageIcon #fIcon
 Rt0 f3 expr out #txt
 Rt0 f3 96 292 96 340 #arcP
 Rt0 f0 outLink start1.ivp #txt
-Rt0 f0 type htmlwfui.Data #txt
 Rt0 f0 inParamDecl '<> param;' #txt
-Rt0 f0 actionDecl 'htmlwfui.Data out;
-' #txt
-Rt0 f0 guid 12C97DD6D7C6E230 #txt
 Rt0 f0 requestEnabled true #txt
 Rt0 f0 triggerEnabled false #txt
 Rt0 f0 callSignature start1() #txt
 Rt0 f0 persist false #txt
-Rt0 f0 taskData '#
-#Tue Feb 15 15:54:20 CET 2011
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Rt0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Rt0 f0 caseData '#
-#Tue Feb 15 15:54:20 CET 2011
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Rt0 f0 showInStartList 0 #txt
-Rt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Rt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -192,9 +147,7 @@ Rt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Rt0 f0 @C|.responsibility Everybody #txt
 Rt0 f0 83 19 26 26 14 0 #rect
 Rt0 f0 @|StartRequestIcon #fIcon
-Rt0 f30 type htmlwfui.Data #txt
 Rt0 f30 processCall 'Functional Processes/TaskDetail:call(htmlwfui.Data)' #txt
-Rt0 f30 doCall true #txt
 Rt0 f30 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Rt0 f30 requestMappingAction 'param.in=in;
@@ -216,7 +169,6 @@ Rt0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Rt0 f30 78 452 36 24 16 9 #rect
 Rt0 f30 @|CallSubIcon #fIcon
-Rt0 f33 type htmlwfui.Data #txt
 Rt0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -228,8 +180,6 @@ Rt0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Rt0 f33 82 210 28 28 19 -12 #rect
 Rt0 f33 @|AlternativeIcon #fIcon
-Rt0 f38 actionDecl 'htmlwfui.Data out;
-' #txt
 Rt0 f38 actionTable 'out=in;
 out.temp.caption="my_tasks";
 ' #txt
@@ -244,7 +194,6 @@ out.temp.processes.addColumn("Code",["Alle"]).addColumn("Name",["Alle"]).addColu
 out.temp.processesCombo.addColumn("Code",["Alle"]).addColumn("Name",["Alle"]).addColumn("Cat",["Alle"]);
 out.temp.states = ["Alle", TaskState.DONE.toString()];
 ' #txt
-Rt0 f38 type htmlwfui.Data #txt
 Rt0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -268,8 +217,6 @@ Rt0 f15 1 0.18116225130813152 0 0 #arcLabel
 Rt0 f2 expr in #txt
 Rt0 f2 outCond in.temp.caption=="my_tasks" #txt
 Rt0 f2 96 238 96 268 #arcP
-Rt0 f7 actionDecl 'htmlwfui.Data out;
-' #txt
 Rt0 f7 actionTable 'out=in;
 ' #txt
 Rt0 f7 actionCode 'if(in.temp.catFilter=="Alle")
@@ -287,7 +234,6 @@ else
 		}	
 	}
 }' #txt
-Rt0 f7 type htmlwfui.Data #txt
 Rt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -313,9 +259,7 @@ Rt0 f9 114 464 114 352 #arcP
 Rt0 f9 1 256 464 #addKink
 Rt0 f9 2 256 352 #addKink
 Rt0 f9 1 0.5 0 0 #arcLabel
-Rt0 f4 type htmlwfui.Data #txt
 Rt0 f4 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Rt0 f4 doCall true #txt
 Rt0 f4 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Rt0 f4 requestMappingAction 'param.in=in;

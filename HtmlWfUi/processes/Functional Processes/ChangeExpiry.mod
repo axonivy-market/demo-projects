@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Tue Jan 10 14:52:59 CET 2017]
-12CBC43B6E19D1BD 3.19 #module
+12CBC43B6E19D1BD 3.28 #module
 >Proto >Proto Collection #zClass
 Cy0 ChangeExpiry Big #zClass
 Cy0 B #cInfo
 Cy0 #process
-Cy0 @TextInP .resExport .resExport #zField
 Cy0 @TextInP .type .type #zField
 Cy0 @TextInP .processKind .processKind #zField
 Cy0 @AnnotationInP-0n ai ai #zField
@@ -22,7 +20,6 @@ Cy0 @PushWFArc f14 '' #zField
 Cy0 @PushWFArc f15 '' #zField
 Cy0 @PushWFArc f16 '' #zField
 >Proto Cy0 Cy0 ChangeExpiry #zField
-Cy0 f5 type htmlwfui.Data #txt
 Cy0 f5 67 291 26 26 14 0 #rect
 Cy0 f5 @|EndSubIcon #fIcon
 Cy0 f6 inParamDecl '<htmlwfui.Data in> param;' #txt
@@ -36,10 +33,7 @@ Cy0 f6 outParamDecl '<htmlwfui.Data out> result;
 ' #txt
 Cy0 f6 outParamTable 'result.out=in;
 ' #txt
-Cy0 f6 actionDecl 'htmlwfui.Data out;
-' #txt
 Cy0 f6 callSignature call(htmlwfui.Data) #txt
-Cy0 f6 type htmlwfui.Data #txt
 Cy0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -51,8 +45,6 @@ Cy0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cy0 f6 67 43 26 26 14 0 #rect
 Cy0 f6 @|StartSubIcon #fIcon
-Cy0 f7 actionDecl 'htmlwfui.Data out;
-' #txt
 Cy0 f7 actionTable 'out=in.clone();
 ' #txt
 Cy0 f7 actionCode 'import ch.ivyteam.ivy.workflow.WorkflowPriority;
@@ -86,7 +78,6 @@ if(in.tmpTaskDetail.exp.toNumber()>0)
 	}	
 	out.tmpTask.setExpiryTimestamp(in.tmpTaskDetail.exp);
 }' #txt
-Cy0 f7 type htmlwfui.Data #txt
 Cy0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language/>
@@ -94,7 +85,6 @@ Cy0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cy0 f7 62 172 36 24 20 -2 #rect
 Cy0 f7 @|StepIcon #fIcon
-Cy0 f10 type htmlwfui.Data #txt
 Cy0 f10 66 234 28 28 14 0 #rect
 Cy0 f10 @|AlternativeIcon #fIcon
 Cy0 f11 outTypes "htmlwfui.Data","htmlwfui.Data" #txt

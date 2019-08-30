@@ -1,11 +1,10 @@
 [Ivy]
-156E5D9AA7D41BAA 3.25 #module
+156E5D9AA7D41BAA 3.28 #module
 >Proto >Proto Collection #zClass
 Vn0 VerificationProcess Big #zClass
 Vn0 B #cInfo
 Vn0 #process
 Vn0 @AnnotationArc f1 '' #zField
-Vn0 @TextInP .resExport .resExport #zField
 Vn0 @TextInP .type .type #zField
 Vn0 @TextInP .processKind .processKind #zField
 Vn0 @AnnotationInP-0n ai ai #zField
@@ -14,7 +13,7 @@ Vn0 @MessageFlowOutP-0n messageOut messageOut #zField
 Vn0 @TextInP .xml .xml #zField
 Vn0 @TextInP .responsibility .responsibility #zField
 Vn0 @InfoButton f30 '' #zField
-Vn0 @RichDialog f21 '' #zField
+Vn0 @UserDialog f21 '' #zField
 Vn0 @TaskSwitchSimple f31 '' #zField
 Vn0 @EndTask f23 '' #zField
 Vn0 @StartRequest f19 '' #zField
@@ -66,11 +65,8 @@ the Business Data from the process data is used, without loading it before:
 ' #txt
 Vn0 f30 64 198 576 396 -279 -190 #rect
 Vn0 f30 @|IBIcon #fIcon
-Vn0 f21 targetWindow NEW:card: #txt
-Vn0 f21 targetDisplay TOP #txt
-Vn0 f21 richDialogId workflow.businessdata.BusinessDataDossierModifier #txt
+Vn0 f21 dialogId workflow.businessdata.BusinessDataDossierModifier #txt
 Vn0 f21 startMethod start(String,String) #txt
-Vn0 f21 type workflow.businessdata.Data #txt
 Vn0 f21 requestActionDecl '<String businessDataId, String title> param;' #txt
 Vn0 f21 requestMappingAction 'param.businessDataId=in.id;
 param.title="Dossier Verification";
@@ -79,10 +75,6 @@ Vn0 f21 responseActionDecl 'workflow.businessdata.Data out;
 ' #txt
 Vn0 f21 responseMappingAction 'out=in;
 ' #txt
-Vn0 f21 windowConfiguration '* ' #txt
-Vn0 f21 isAsynch false #txt
-Vn0 f21 isInnerRd false #txt
-Vn0 f21 userContext '* ' #txt
 Vn0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -94,22 +86,18 @@ verification</name>
 </elementInfo>
 ' #txt
 Vn0 f21 232 106 112 44 -29 -16 #rect
-Vn0 f21 @|RichDialogIcon #fIcon
-Vn0 f31 actionDecl 'workflow.businessdata.Data out;
-' #txt
+Vn0 f21 @|UserDialogIcon #fIcon
 Vn0 f31 actionTable 'out=in1;
 ' #txt
-Vn0 f31 outTypes "workflow.businessdata.Data" #txt
 Vn0 f31 outLinks "TaskA.ivp" #txt
-Vn0 f31 taskData 'TaskA.TYPE=0
-TaskA.SKIP_TASK_LIST=false
-TaskA.ROL=Everybody
-TaskA.EXTYPE=0
-TaskA.EXPRI=2
-TaskA.PRI=2
+Vn0 f31 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
-TaskA.NAM=Verification of Person <%\=(ivy.repo.find(in1.id, workflow.businessdata.Dossier.class) as workflow.businessdata.Dossier).name%>' #txt
-Vn0 f31 type workflow.businessdata.Data #txt
+TaskA.EXTYPE=0
+TaskA.NAM=Verification of Person <%\=(ivy.repo.find(in1.id, workflow.businessdata.Dossier.class) as workflow.businessdata.Dossier).name%>
+TaskA.PRI=2
+TaskA.ROL=Everybody
+TaskA.SKIP_TASK_LIST=false
+TaskA.TYPE=0' #txt
 Vn0 f31 template "" #txt
 Vn0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -122,17 +110,12 @@ Vn0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Vn0 f31 161 113 30 30 -43 -41 #rect
 Vn0 f31 @|TaskSwitchSimpleIcon #fIcon
-Vn0 f23 type workflow.businessdata.Data #txt
 Vn0 f23 425 113 30 30 0 15 #rect
 Vn0 f23 @|EndIcon #fIcon
 Vn0 f19 outLink verifyDossier.ivp #txt
-Vn0 f19 type workflow.businessdata.Data #txt
 Vn0 f19 inParamDecl '<java.lang.String id> param;' #txt
 Vn0 f19 inParamTable 'out.id=param.id;
 ' #txt
-Vn0 f19 actionDecl 'workflow.businessdata.Data out;
-' #txt
-Vn0 f19 guid 156E5D9E086A56B4 #txt
 Vn0 f19 requestEnabled true #txt
 Vn0 f19 triggerEnabled false #txt
 Vn0 f19 callSignature verifyDossier(String) #txt

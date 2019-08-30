@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Thu Jun 29 11:52:56 CEST 2017]
-15CF34492194250C 3.20 #module
+15CF34492194250C 3.28 #module
 >Proto >Proto Collection #zClass
 Ts0 TestProcess Big #zClass
 Ts0 B #cInfo
 Ts0 #process
-Ts0 @TextInP .resExport .resExport #zField
 Ts0 @TextInP .type .type #zField
 Ts0 @TextInP .processKind .processKind #zField
 Ts0 @AnnotationInP-0n ai ai #zField
@@ -18,11 +16,7 @@ Ts0 @EndTask f1 '' #zField
 Ts0 @PushWFArc f2 '' #zField
 >Proto Ts0 Ts0 TestProcess #zField
 Ts0 f0 outLink start.ivp #txt
-Ts0 f0 type ch.ivyteam.wf.test.Data #txt
 Ts0 f0 inParamDecl '<> param;' #txt
-Ts0 f0 actionDecl 'ch.ivyteam.wf.test.Data out;
-' #txt
-Ts0 f0 guid 15CF3449220E4782 #txt
 Ts0 f0 requestEnabled true #txt
 Ts0 f0 triggerEnabled false #txt
 Ts0 f0 callSignature start() #txt
@@ -37,7 +31,6 @@ Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ts0 f0 @C|.responsibility Everybody #txt
 Ts0 f0 51 83 26 26 14 0 #rect
 Ts0 f0 @|StartRequestIcon #fIcon
-Ts0 f1 type ch.ivyteam.wf.test.Data #txt
 Ts0 f1 51 339 26 26 14 0 #rect
 Ts0 f1 @|EndIcon #fIcon
 Ts0 f2 64 109 64 339 #arcP

@@ -1,6 +1,5 @@
 [Ivy]
-[>Created: Fri Apr 27 15:07:24 CEST 2012]
-127AE76143E89C91 3.17 #module
+127AE76143E89C91 3.28 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
 He0 B #cInfo
@@ -9,7 +8,6 @@ He0 @TextInP .xml .xml #zField
 He0 @TextInP .responsibility .responsibility #zField
 He0 @MessageFlowInP-0n messageIn messageIn #zField
 He0 @MessageFlowOutP-0n messageOut messageOut #zField
-He0 @TextInP .resExport .resExport #zField
 He0 @TextInP .type .type #zField
 He0 @TextInP .processKind .processKind #zField
 He0 @AnnotationInP-0n ai ai #zField
@@ -57,19 +55,15 @@ He0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 He0 f1 @C|.responsibility Everybody #txt
 He0 f1 286 332 36 24 21 0 #rect
 He0 f1 @|PageIcon #fIcon
-He0 f2 type htmlwfui.Data #txt
 He0 f2 291 467 26 26 14 0 #rect
 He0 f2 @|EndIcon #fIcon
 He0 f4 expr data #txt
 He0 f4 outCond ivp=="LinkA.ivp" #txt
 He0 f4 304 356 304 467 #arcP
-He0 f11 actionDecl 'htmlwfui.Data out;
-' #txt
 He0 f11 actionTable 'out=in;
 ' #txt
 He0 f11 actionCode 'ch.ivyteam.ivy.request.impl.HttpProcessRequest r = ivy.request as ch.ivyteam.ivy.request.impl.HttpProcessRequest;
 r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.returnUrl", ivy.html.startref("127AE76143E89C91/DefaultApplicationHomePage.ivp"));' #txt
-He0 f11 type htmlwfui.Data #txt
 He0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -84,61 +78,21 @@ He0 f11 @|StepIcon #fIcon
 He0 f3 expr out #txt
 He0 f3 304 276 304 332 #arcP
 He0 f7 outLink DefaultEndPage.ivp #txt
-He0 f7 type htmlwfui.Data #txt
 He0 f7 inParamDecl '<java.lang.Number endedTaskId> param;' #txt
 He0 f7 inParamTable 'out.tmpTaskId=param.endedTaskId;
 ' #txt
-He0 f7 actionDecl 'htmlwfui.Data out;
-' #txt
-He0 f7 guid 12E2F5E4FE51B562 #txt
 He0 f7 requestEnabled true #txt
 He0 f7 triggerEnabled false #txt
 He0 f7 callSignature DefaultEndPage(Number) #txt
 He0 f7 persist false #txt
 He0 f7 startName DefaultEndPage #txt
-He0 f7 taskData '#
-#Wed Nov 16 10:03:19 CET 2011
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+He0 f7 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-He0 f7 caseData '#
-#Wed Nov 16 10:03:19 CET 2011
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 He0 f7 showInStartList 0 #txt
-He0 f7 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 He0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -153,7 +107,6 @@ It will be called whenever process/task ends without a defined page.</desc>
 He0 f7 @C|.responsibility Everybody #txt
 He0 f7 131 51 26 26 17 -4 #rect
 He0 f7 @|StartRequestIcon #fIcon
-He0 f6 type htmlwfui.Data #txt
 He0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -165,8 +118,6 @@ He0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 He0 f6 130 250 28 28 14 -18 #rect
 He0 f6 @|AlternativeIcon #fIcon
-He0 f20 actionDecl 'htmlwfui.Data out;
-' #txt
 He0 f20 actionTable 'out=in;
 ' #txt
 He0 f20 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
@@ -195,7 +146,6 @@ if(ivy.session.getSecurityContext().hasPermission(ivy.request.getApplication().g
 
 r.getHttpServletRequest().getSession().setAttribute("ch.ivy.wfui.redirectMsg", out.temp.msg);
 ' #txt
-He0 f20 type htmlwfui.Data #txt
 He0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -210,7 +160,6 @@ He0 f20 126 188 36 24 22 -16 #rect
 He0 f20 @|StepIcon #fIcon
 He0 f13 expr out #txt
 He0 f13 144 212 144 250 #arcP
-He0 f14 type htmlwfui.Data #txt
 He0 f14 template "redirect.jsp" #txt
 He0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -227,64 +176,20 @@ He0 f15 expr in #txt
 He0 f15 outCond in.temp.url.length()>0 #txt
 He0 f15 144 278 144 315 #arcP
 He0 f16 outLink DefaultApplicationHomePage.ivp #txt
-He0 f16 type htmlwfui.Data #txt
 He0 f16 inParamDecl '<> param;' #txt
-He0 f16 actionDecl 'htmlwfui.Data out;
-' #txt
-He0 f16 guid 12E3344F408D0C73 #txt
 He0 f16 requestEnabled true #txt
 He0 f16 triggerEnabled false #txt
 He0 f16 callSignature DefaultApplicationHomePage() #txt
 He0 f16 persist false #txt
 He0 f16 startName 'WF Home' #txt
 He0 f16 startDescription 'Workflow Startpage' #txt
-He0 f16 taskData '#
-#Fri Apr 27 15:07:14 CEST 2012
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+He0 f16 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-He0 f16 caseData '#
-#Fri Apr 27 15:07:14 CEST 2012
-businessCalendarName=
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 He0 f16 showInStartList 1 #txt
-He0 f16 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();
-import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 He0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -300,9 +205,7 @@ ivy.html.applicationHomeRef() will return a link to this process.</desc>
 He0 f16 @C|.responsibility Everybody #txt
 He0 f16 291 51 26 26 19 -4 #rect
 He0 f16 @|StartRequestIcon #fIcon
-He0 f17 type htmlwfui.Data #txt
 He0 f17 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-He0 f17 doCall true #txt
 He0 f17 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 He0 f17 requestMappingAction 'param.in=in;
@@ -326,7 +229,6 @@ He0 f18 expr out #txt
 He0 f18 304 77 304 132 #arcP
 He0 f19 expr out #txt
 He0 f19 304 156 304 252 #arcP
-He0 f25 type htmlwfui.Data #txt
 He0 f25 template "/ProcessPages/Home/AnonymousEndpage.ivc" #txt
 He0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -339,7 +241,6 @@ He0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 He0 f25 19 115 26 26 -26 15 #rect
 He0 f25 @|EndRequestIcon #fIcon
-He0 f5 type htmlwfui.Data #txt
 He0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

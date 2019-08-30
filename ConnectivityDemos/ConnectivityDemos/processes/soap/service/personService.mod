@@ -1,5 +1,5 @@
 [Ivy]
-16150E1D07E8CA18 3.23 #module
+16150E1D07E8CA18 3.28 #module
 >Proto >Proto Collection #zClass
 pe0 personService Big #zClass
 pe0 WS #cInfo
@@ -7,7 +7,6 @@ pe0 #process
 pe0 @TextInP .webServiceName .webServiceName #zField
 pe0 @TextInP .implementationClassName .implementationClassName #zField
 pe0 @TextInP .authenticationType .authenticationType #zField
-pe0 @TextInP .resExport .resExport #zField
 pe0 @TextInP .type .type #zField
 pe0 @TextInP .processKind .processKind #zField
 pe0 @AnnotationInP-0n ai ai #zField
@@ -55,7 +54,6 @@ pe0 ws0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 pe0 ws0 @C|.responsibility Everybody #txt
 pe0 ws0 73 113 30 30 -36 17 #rect
 pe0 ws0 @|StartWSIcon #fIcon
-pe0 ws1 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 pe0 ws1 417 113 30 30 0 15 #rect
 pe0 ws1 @|EndWSIcon #fIcon
 pe0 f1 inParamDecl '<com.axonivy.connectivity.Person person> param;' #txt
@@ -108,21 +106,16 @@ pe0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 pe0 f2 @C|.responsibility Everybody #txt
 pe0 f2 73 273 30 30 -57 17 #rect
 pe0 f2 @|StartWSIcon #fIcon
-pe0 f3 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 pe0 f3 417 193 30 30 0 15 #rect
 pe0 f3 @|EndWSIcon #fIcon
-pe0 f4 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 pe0 f4 417 273 30 30 0 15 #rect
 pe0 f4 @|EndWSIcon #fIcon
-pe0 f0 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;
-' #txt
 pe0 f0 actionTable 'out=in;
 ' #txt
 pe0 f0 actionCode 'import com.axonivy.connectivity.soap.service.PersonRepository;
 
 in.persons = PersonRepository.getInstance().findAll();
 ' #txt
-pe0 f0 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 pe0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -136,15 +129,12 @@ pe0 f7 expr out #txt
 pe0 f7 103 128 216 128 #arcP
 pe0 f8 expr out #txt
 pe0 f8 328 128 417 128 #arcP
-pe0 f9 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;
-' #txt
 pe0 f9 actionTable 'out=in;
 ' #txt
 pe0 f9 actionCode 'import com.axonivy.connectivity.soap.service.PersonRepository;
 
 out.person = PersonRepository.getInstance().addPerson(in.person);
 ' #txt
-pe0 f9 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 pe0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -158,15 +148,12 @@ pe0 f10 expr out #txt
 pe0 f10 103 208 216 208 #arcP
 pe0 f5 expr out #txt
 pe0 f5 328 208 417 208 #arcP
-pe0 f11 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;
-' #txt
 pe0 f11 actionTable 'out=in;
 ' #txt
 pe0 f11 actionCode 'import com.axonivy.connectivity.soap.service.PersonRepository;
 
 out.person = PersonRepository.getInstance().delete(in.person);
 ' #txt
-pe0 f11 type com.axonivy.connectivity.soap.service.PersonServiceData #txt
 pe0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -2,30 +2,22 @@ package workflow.businessdata;
 
 import java.util.concurrent.Callable;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
 import test.web.BaseWebTest;
 import test.web.EngineUrl;
-
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
 
 public class WebTestBusinessData extends BaseWebTest
 {
   private static final String BROWSE_DOSSIERS_LINK = "155BB4328F79B2D5/browse.ivp";
 
-  @Override
-  @Before
-  public void setUp() throws Exception
-  {
-    super.setUp();
-    driver.get(EngineUrl.process() + "/WorkflowDemosTest/1537FF3C3382D47F/clearDemoDossiers.ivp");
-  }
-
   @Test
   public void testBrowseBusinessData() throws Exception
   {
+    driver.get(EngineUrl.process() + "/WorkflowDemosTest/1537FF3C3382D47F/clearDemoDossiers.ivp");
     wait(() -> {
       startProcess(BROWSE_DOSSIERS_LINK);
       dossierTable().contains("Euler");
@@ -36,6 +28,7 @@ public class WebTestBusinessData extends BaseWebTest
   @Test
   public void createBusinessData() throws Exception
   {
+    driver.get(EngineUrl.process() + "/WorkflowDemosTest/1537FF3C3382D47F/clearDemoDossiers.ivp");
     wait(() -> {
       startProcess(BROWSE_DOSSIERS_LINK);
       dossierTable().containsNot("Bernoulli");

@@ -1,10 +1,9 @@
 [Ivy]
-15A849250AA78F65 3.25 #module
+15A849250AA78F65 3.28 #module
 >Proto >Proto Collection #zClass
 Ca0 VerifyPersonalData Big #zClass
 Ca0 B #cInfo
 Ca0 #process
-Ca0 @TextInP .resExport .resExport #zField
 Ca0 @TextInP .type .type #zField
 Ca0 @TextInP .processKind .processKind #zField
 Ca0 @AnnotationInP-0n ai ai #zField
@@ -19,11 +18,7 @@ Ca0 @PushWFArc f2 '' #zField
 Ca0 @PushWFArc f4 '' #zField
 >Proto Ca0 Ca0 VerifyPersonalData #zField
 Ca0 f0 outLink start.ivp #txt
-Ca0 f0 type workflow.humantask.Data #txt
 Ca0 f0 inParamDecl '<> param;' #txt
-Ca0 f0 actionDecl 'workflow.humantask.Data out;
-' #txt
-Ca0 f0 guid 15A5AC9A50D3751B #txt
 Ca0 f0 requestEnabled true #txt
 Ca0 f0 triggerEnabled false #txt
 Ca0 f0 callSignature start() #txt
@@ -50,16 +45,12 @@ Ca0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ca0 f0 @C|.responsibility Everybody #txt
 Ca0 f0 81 49 30 30 -21 17 #rect
 Ca0 f0 @|StartRequestIcon #fIcon
-Ca0 f1 type workflow.humantask.Data #txt
 Ca0 f1 337 49 30 30 0 15 #rect
 Ca0 f1 @|EndIcon #fIcon
-Ca0 f3 actionDecl 'workflow.humantask.Data out;
-' #txt
 Ca0 f3 actionTable 'out=in;
 ' #txt
 Ca0 f3 actionCode 'ivy.log.info("Business Process is in Stage " + ivy.case.getBusinessCase().getStage().getName());
 ' #txt
-Ca0 f3 type workflow.humantask.Data #txt
 Ca0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

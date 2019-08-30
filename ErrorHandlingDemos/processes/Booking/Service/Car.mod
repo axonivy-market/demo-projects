@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Mon Sep 28 16:22:29 CEST 2015]
-1500483191BD4791 3.18 #module
+1500483191BD4791 3.28 #module
 >Proto >Proto Collection #zClass
 hz0 Car Big #zClass
 hz0 B #cInfo
 hz0 #process
-hz0 @TextInP .resExport .resExport #zField
 hz0 @TextInP .type .type #zField
 hz0 @TextInP .processKind .processKind #zField
 hz0 @AnnotationInP-0n ai ai #zField
@@ -22,10 +20,7 @@ hz0 @PushWFArc f2 '' #zField
 hz0 f0 inParamDecl '<java.lang.String size> param;' #txt
 hz0 f0 outParamDecl '<> result;
 ' #txt
-hz0 f0 actionDecl 'booking.HertzData out;
-' #txt
 hz0 f0 callSignature bookCar(String) #txt
-hz0 f0 type booking.HertzData #txt
 hz0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -35,20 +30,13 @@ hz0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 hz0 f0 81 49 30 30 -43 17 #rect
 hz0 f0 @|StartSubIcon #fIcon
-hz0 f1 type booking.HertzData #txt
 hz0 f1 337 49 30 30 0 15 #rect
 hz0 f1 @|EndSubIcon #fIcon
-hz0 f3 type booking.HertzData #txt
-hz0 f3 actionDecl 'booking.HertzData out;
-' #txt
 hz0 f3 actionTable 'out=in;
 ' #txt
 hz0 f3 actionCode 'import ch.ivyteam.ivy.bpm.error.BpmError;
 BpmError.create("booking:car:failed:unavailable").throwError();' #txt
 hz0 f3 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
-hz0 f3 timeout 0 #txt
-hz0 f3 beanConfig "" #txt
-hz0 f3 returningObjectList '[]' #txt
 hz0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

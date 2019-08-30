@@ -15,8 +15,8 @@ import java.util.Properties;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.StopWatch;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -222,7 +222,7 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
   }
 
   @Test
-  @Ignore
+  @Disabled
   public void testSystemDbConnectionOracle() throws Exception
   {
     configAndCreateOracle();

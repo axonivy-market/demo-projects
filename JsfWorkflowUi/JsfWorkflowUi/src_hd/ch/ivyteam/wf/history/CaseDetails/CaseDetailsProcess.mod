@@ -1,54 +1,48 @@
 [Ivy]
-[>Created: Mon Jul 03 10:48:10 CEST 2017]
-13FE666253A103EF 3.20 #module
+13FE666253A103EF 3.28 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetailsProcess Big #zClass
 Cs0 RD #cInfo
 Cs0 #process
-Cs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-Cs0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-Cs0 @TextInP .resExport .resExport #zField
 Cs0 @TextInP .type .type #zField
 Cs0 @TextInP .processKind .processKind #zField
 Cs0 @AnnotationInP-0n ai ai #zField
 Cs0 @TextInP .xml .xml #zField
 Cs0 @TextInP .responsibility .responsibility #zField
-Cs0 @RichDialogInitStart f0 '' #zField
-Cs0 @RichDialogProcessEnd f1 '' #zField
+Cs0 @UdInit f0 '' #zField
+Cs0 @UdProcessEnd f1 '' #zField
 Cs0 @GridStep f3 '' #zField
 Cs0 @GridStep f7 '' #zField
 Cs0 @GridStep f9 '' #zField
 Cs0 @PushWFArc f10 '' #zField
-Cs0 @RichDialogProcessEnd f15 '' #zField
+Cs0 @UdProcessEnd f15 '' #zField
 Cs0 @GridStep f5 '' #zField
-Cs0 @RichDialogMethodStart f12 '' #zField
-Cs0 @RichDialogProcessStart f4 '' #zField
+Cs0 @UdMethod f12 '' #zField
+Cs0 @UdEvent f4 '' #zField
 Cs0 @GridStep f18 '' #zField
 Cs0 @PushWFArc f19 '' #zField
 Cs0 @PushWFArc f20 '' #zField
 Cs0 @GridStep f13 '' #zField
 Cs0 @PushWFArc f21 '' #zField
-Cs0 @RichDialogProcessStart f22 '' #zField
+Cs0 @UdEvent f22 '' #zField
 Cs0 @GridStep f23 '' #zField
 Cs0 @PushWFArc f24 '' #zField
 Cs0 @GridStep f26 '' #zField
 Cs0 @PushWFArc f27 '' #zField
-Cs0 @RichDialogProcessEnd f28 '' #zField
+Cs0 @UdProcessEnd f28 '' #zField
 Cs0 @PushWFArc f29 '' #zField
-Cs0 @RichDialogProcessEnd f2 '' #zField
+Cs0 @UdProcessEnd f2 '' #zField
 Cs0 @PushWFArc f30 '' #zField
-Cs0 @RichDialogProcessEnd f25 '' #zField
+Cs0 @UdProcessEnd f25 '' #zField
 Cs0 @PushWFArc f38 '' #zField
-Cs0 @RichDialogProcessStart f8 '' #zField
+Cs0 @UdEvent f8 '' #zField
 Cs0 @PushWFArc f31 '' #zField
 Cs0 @PushWFArc f6 '' #zField
 Cs0 @PushWFArc f14 '' #zField
 Cs0 @PushWFArc f16 '' #zField
 >Proto Cs0 Cs0 CaseDetailsProcess #zField
 Cs0 f0 guid 13FE66625592A530 #txt
-Cs0 f0 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f0 method start(Number) #txt
-Cs0 f0 disableUIEvents true #txt
 Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <java.lang.Number caseId> param = methodEvent.getInputArguments();
 ' #txt
@@ -67,14 +61,11 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f0 83 51 26 26 -38 15 #rect
-Cs0 f0 @|RichDialogInitStartIcon #fIcon
+Cs0 f0 @|UdInitIcon #fIcon
 Cs0 f0 -1|-1|-9671572 #nodeStyle
-Cs0 f1 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f1 515 51 26 26 0 12 #rect
-Cs0 f1 @|RichDialogProcessEndIcon #fIcon
+Cs0 f1 @|UdProcessEndIcon #fIcon
 Cs0 f1 -1|-1|-9671572 #nodeStyle
-Cs0 f3 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
-' #txt
 Cs0 f3 actionTable 'out=in;
 out.noteDescription="";
 out.noteFor=null;
@@ -108,7 +99,6 @@ else
 		out.tasks = CaseDetailUtil.filterTasksOfCase(out.wfCase.getTasks(), in.showSystemTasks);
 	}
 }' #txt
-Cs0 f3 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -121,8 +111,6 @@ Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f3 336 42 112 44 -52 -8 #rect
 Cs0 f3 @|StepIcon #fIcon
 Cs0 f3 -1|-1|-9671572 #nodeStyle
-Cs0 f7 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
-' #txt
 Cs0 f7 actionTable 'out=in;
 ' #txt
 Cs0 f7 actionCode 'import ch.ivyteam.ivy.workflow.ICase;
@@ -151,7 +139,6 @@ import ch.ivyteam.ivy.workflow.IWorkflowSession;
 		} else { 
 			in.archiveLink = true;
 		}' #txt
-Cs0 f7 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -165,8 +152,6 @@ links</name>
 Cs0 f7 168 138 112 44 -40 -16 #rect
 Cs0 f7 @|StepIcon #fIcon
 Cs0 f7 -1|-1|-9671572 #nodeStyle
-Cs0 f9 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
-' #txt
 Cs0 f9 actionTable 'out=in;
 ' #txt
 Cs0 f9 actionCode 'import ch.ivyteam.ivy.workflow.INote;
@@ -175,7 +160,6 @@ import ch.ivyteam.ivy.workflow.ICase;
 if(in.wfCase!=null && in.wfCase.hasNotes()){
 	out.notes = in.wfCase.getNotes();
 }' #txt
-Cs0 f9 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -190,16 +174,12 @@ Cs0 f9 @|StepIcon #fIcon
 Cs0 f9 -1|-1|-9671572 #nodeStyle
 Cs0 f10 expr out #txt
 Cs0 f10 280 160 336 160 #arcP
-Cs0 f15 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f15 339 275 26 26 0 12 #rect
-Cs0 f15 @|RichDialogProcessEndIcon #fIcon
+Cs0 f15 @|UdProcessEndIcon #fIcon
 Cs0 f15 -1|-1|-9671572 #nodeStyle
-Cs0 f5 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
-' #txt
 Cs0 f5 actionTable 'out=in;
 ' #txt
 Cs0 f5 actionCode in.wfCase.deleteNote(in.note); #txt
-Cs0 f5 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -213,9 +193,7 @@ Cs0 f5 168 330 112 44 -30 -8 #rect
 Cs0 f5 @|StepIcon #fIcon
 Cs0 f5 -1|-1|-9671572 #nodeStyle
 Cs0 f12 guid 13FF05ADA3C442A3 #txt
-Cs0 f12 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f12 method update() #txt
-Cs0 f12 disableUIEvents false #txt
 Cs0 f12 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -229,12 +207,9 @@ Cs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f12 83 147 26 26 -23 12 #rect
-Cs0 f12 @|RichDialogMethodStartIcon #fIcon
+Cs0 f12 @|UdMethodIcon #fIcon
 Cs0 f12 -1|-1|-9671572 #nodeStyle
 Cs0 f4 guid 13FF07A3BF7D12B4 #txt
-Cs0 f4 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
-Cs0 f4 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
-' #txt
 Cs0 f4 actionTable 'out=in;
 ' #txt
 Cs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -247,17 +222,14 @@ Cs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f4 83 275 26 26 -23 12 #rect
-Cs0 f4 @|RichDialogProcessStartIcon #fIcon
+Cs0 f4 @|UdEventIcon #fIcon
 Cs0 f4 -1|-1|-9671572 #nodeStyle
-Cs0 f18 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
-' #txt
 Cs0 f18 actionTable 'out=in;
 ' #txt
 Cs0 f18 actionCode 'if(in.noteDescription.trim().length()>0)
 {
 		in.wfCase.createNote(ivy.session, in.noteDescription);
 }' #txt
-Cs0 f18 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -276,12 +248,9 @@ Cs0 f19 0 0.47750611241354257 0 0 #arcLabel
 Cs0 f20 expr out #txt
 Cs0 f20 109 288 168 288 #arcP
 Cs0 f20 0 0.8922639160053057 0 0 #arcLabel
-Cs0 f13 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
-' #txt
 Cs0 f13 actionTable 'out=in;
 out.showNoteSelection=false;
 ' #txt
-Cs0 f13 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -297,9 +266,6 @@ Cs0 f13 -1|-1|-9671572 #nodeStyle
 Cs0 f21 expr out #txt
 Cs0 f21 109 64 168 64 #arcP
 Cs0 f22 guid 13FF5A5B4E12C9B7 #txt
-Cs0 f22 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
-Cs0 f22 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
-' #txt
 Cs0 f22 actionTable 'out=in;
 ' #txt
 Cs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -312,10 +278,8 @@ Cs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f22 83 211 26 26 -37 12 #rect
-Cs0 f22 @|RichDialogProcessStartIcon #fIcon
+Cs0 f22 @|UdEventIcon #fIcon
 Cs0 f22 -1|-1|-9671572 #nodeStyle
-Cs0 f23 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
-' #txt
 Cs0 f23 actionTable 'out=in;
 ' #txt
 Cs0 f23 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
@@ -323,7 +287,6 @@ import ch.ivyteam.ivy.workflow.ICase;
 
 ICase case =in.wfCase.destroy();
 ' #txt
-Cs0 f23 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -338,8 +301,6 @@ Cs0 f23 @|StepIcon #fIcon
 Cs0 f23 -1|-1|-9671572 #nodeStyle
 Cs0 f24 expr out #txt
 Cs0 f24 109 224 168 224 #arcP
-Cs0 f26 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
-' #txt
 Cs0 f26 actionTable 'out=in;
 ' #txt
 Cs0 f26 actionCode 'import ch.ivyteam.ivy.workflow.IPageArchive;
@@ -366,7 +327,6 @@ if(hasPageArchivePermission)
 	}
 }
 ' #txt
-Cs0 f26 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -382,31 +342,25 @@ Cs0 f26 -1|-1|-9671572 #nodeStyle
 Cs0 f27 expr out #txt
 Cs0 f27 448 160 496 160 #arcP
 Cs0 f27 0 0.18806928460277236 0 0 #arcLabel
-Cs0 f28 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f28 667 147 26 26 0 12 #rect
-Cs0 f28 @|RichDialogProcessEndIcon #fIcon
+Cs0 f28 @|UdProcessEndIcon #fIcon
 Cs0 f28 -1|-1|-9671572 #nodeStyle
 Cs0 f29 expr out #txt
 Cs0 f29 608 160 667 160 #arcP
 Cs0 f29 0 0.08304032259233607 0 0 #arcLabel
-Cs0 f2 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f2 339 211 26 26 0 12 #rect
-Cs0 f2 @|RichDialogProcessEndIcon #fIcon
+Cs0 f2 @|UdProcessEndIcon #fIcon
 Cs0 f2 -1|-1|-9671572 #nodeStyle
 Cs0 f30 expr out #txt
 Cs0 f30 280 224 339 224 #arcP
 Cs0 f30 0 0.7461382242081771 0 0 #arcLabel
-Cs0 f25 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
 Cs0 f25 339 339 26 26 0 12 #rect
-Cs0 f25 @|RichDialogProcessEndIcon #fIcon
+Cs0 f25 @|UdProcessEndIcon #fIcon
 Cs0 f25 -1|-1|-9671572 #nodeStyle
 Cs0 f38 expr out #txt
 Cs0 f38 280 352 339 352 #arcP
 Cs0 f38 0 0.5053612370219435 0 0 #arcLabel
 Cs0 f8 guid 147D3806D8237F2B #txt
-Cs0 f8 type ch.ivyteam.wf.history.CaseDetails.CaseDetailsData #txt
-Cs0 f8 actionDecl 'ch.ivyteam.wf.history.CaseDetails.CaseDetailsData out;
-' #txt
 Cs0 f8 actionTable 'out=in;
 ' #txt
 Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -419,7 +373,7 @@ Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Cs0 f8 83 339 26 26 -30 15 #rect
-Cs0 f8 @|RichDialogProcessStartIcon #fIcon
+Cs0 f8 @|UdEventIcon #fIcon
 Cs0 f31 expr out #txt
 Cs0 f31 109 352 168 352 #arcP
 Cs0 f6 expr out #txt

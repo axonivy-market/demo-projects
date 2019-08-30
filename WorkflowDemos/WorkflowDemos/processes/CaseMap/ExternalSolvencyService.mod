@@ -1,10 +1,9 @@
 [Ivy]
-15A8995AA29B442B 3.25 #module
+15A8995AA29B442B 3.28 #module
 >Proto >Proto Collection #zClass
 Ek0 ExternalSolvencyService Big #zClass
 Ek0 B #cInfo
 Ek0 #process
-Ek0 @TextInP .resExport .resExport #zField
 Ek0 @TextInP .type .type #zField
 Ek0 @TextInP .processKind .processKind #zField
 Ek0 @AnnotationInP-0n ai ai #zField
@@ -17,11 +16,7 @@ Ek0 @EndTask f1 '' #zField
 Ek0 @PushWFArc f2 '' #zField
 >Proto Ek0 Ek0 ExternalSolvencyService #zField
 Ek0 f0 outLink start.ivp #txt
-Ek0 f0 type workflow.humantask.Data #txt
 Ek0 f0 inParamDecl '<> param;' #txt
-Ek0 f0 actionDecl 'workflow.humantask.Data out;
-' #txt
-Ek0 f0 guid 15A8995AA2CEEB00 #txt
 Ek0 f0 requestEnabled true #txt
 Ek0 f0 triggerEnabled false #txt
 Ek0 f0 callSignature start() #txt
@@ -47,7 +42,6 @@ Ek0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ek0 f0 @C|.responsibility Everybody #txt
 Ek0 f0 81 49 30 30 -21 17 #rect
 Ek0 f0 @|StartRequestIcon #fIcon
-Ek0 f1 type workflow.humantask.Data #txt
 Ek0 f1 337 49 30 30 0 15 #rect
 Ek0 f1 @|EndIcon #fIcon
 Ek0 f2 expr out #txt

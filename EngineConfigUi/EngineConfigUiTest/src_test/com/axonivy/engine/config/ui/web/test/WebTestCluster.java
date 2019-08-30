@@ -2,7 +2,7 @@ package com.axonivy.engine.config.ui.web.test;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 

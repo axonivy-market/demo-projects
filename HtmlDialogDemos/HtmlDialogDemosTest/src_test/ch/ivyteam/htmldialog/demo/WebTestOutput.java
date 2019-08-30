@@ -173,7 +173,7 @@ public class WebTestOutput extends BaseWebTest
   public void testChart()
   {
     startProcess("145D180807C60B4B/ChartDemo.ivp");
-    assertThat(driver.findElement(By.id("form:comboChart"))).isNotNull();
-    assertThat(driver.findElement(By.id("form:pieChart"))).isNotNull();
+    assertThat(driver.findElement(By.id("form:comboChart")).isDisplayed()).isTrue();
+    assertThat(driver.findElement(By.id("form:pieChart")).isDisplayed()).isTrue();
   }
 }

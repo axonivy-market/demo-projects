@@ -1,11 +1,9 @@
 [Ivy]
-[>Created: Mon Nov 09 14:40:49 CET 2015]
-12C97DB1B1EA5971 3.18 #module
+12C97DB1B1EA5971 3.28 #module
 >Proto >Proto Collection #zClass
 Rt0 CaseList Big #zClass
 Rt0 B #cInfo
 Rt0 #process
-Rt0 @TextInP .resExport .resExport #zField
 Rt0 @TextInP .type .type #zField
 Rt0 @TextInP .processKind .processKind #zField
 Rt0 @AnnotationInP-0n ai ai #zField
@@ -56,8 +54,6 @@ Rt0 @PushWFArc f43 '' #zField
 Rt0 @PushWFArc f44 '' #zField
 Rt0 @PushWFArc f48 '' #zField
 >Proto Rt0 Rt0 CaseList #zField
-Rt0 f20 actionDecl 'htmlwfui.Data out;
-' #txt
 Rt0 f20 actionTable 'out=in;
 ' #txt
 Rt0 f20 actionCode 'import java.util.EnumSet;
@@ -125,7 +121,6 @@ for(ICase case: queryResult.getResultList())
 }
 out.temp.processesCombo = out.temp.processes.clone();
 ' #txt
-Rt0 f20 type htmlwfui.Data #txt
 Rt0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -159,9 +154,7 @@ Rt0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Rt0 f1 @C|.responsibility Everybody #txt
 Rt0 f1 166 268 36 24 11 12 #rect
 Rt0 f1 @|PageIcon #fIcon
-Rt0 f6 type htmlwfui.Data #txt
 Rt0 f6 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Rt0 f6 doCall true #txt
 Rt0 f6 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Rt0 f6 requestMappingAction 'param.in=in;
@@ -184,58 +177,18 @@ Rt0 f6 @|CallSubIcon #fIcon
 Rt0 f3 expr out #txt
 Rt0 f3 121 236 167 268 #arcP
 Rt0 f0 outLink start1.ivp #txt
-Rt0 f0 type htmlwfui.Data #txt
 Rt0 f0 inParamDecl '<> param;' #txt
-Rt0 f0 actionDecl 'htmlwfui.Data out;
-' #txt
-Rt0 f0 guid 12C97DD6D7C6E230 #txt
 Rt0 f0 requestEnabled true #txt
 Rt0 f0 triggerEnabled false #txt
 Rt0 f0 callSignature start1() #txt
 Rt0 f0 persist false #txt
-Rt0 f0 taskData '#
-#Mon Feb 14 09:59:10 CET 2011
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Rt0 f0 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Rt0 f0 caseData '#
-#Mon Feb 14 09:59:10 CET 2011
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Rt0 f0 showInStartList 0 #txt
-Rt0 f0 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Rt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -276,14 +229,11 @@ Rt0 f9 166 416 166 288 #arcP
 Rt0 f9 1 128 416 #addKink
 Rt0 f9 2 128 304 #addKink
 Rt0 f9 1 0.6385186210179533 0 0 #arcLabel
-Rt0 f10 actionDecl 'htmlwfui.Data out;
-' #txt
 Rt0 f10 actionTable 'out=in;
 ' #txt
 Rt0 f10 actionCode 'import ch.ivyteam.ivy.workflow.ICase;
 out.tempCase = in.cases.get(in.temp.n);
 out.tasks = out.tempCase.getTasks();' #txt
-Rt0 f10 type htmlwfui.Data #txt
 Rt0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -301,58 +251,18 @@ Rt0 f11 184 292 184 332 #arcP
 Rt0 f8 expr out #txt
 Rt0 f8 184 356 184 404 #arcP
 Rt0 f12 outLink start2.ivp #txt
-Rt0 f12 type htmlwfui.Data #txt
 Rt0 f12 inParamDecl '<> param;' #txt
-Rt0 f12 actionDecl 'htmlwfui.Data out;
-' #txt
-Rt0 f12 guid 12CBAD990D2F8EFA #txt
 Rt0 f12 requestEnabled true #txt
 Rt0 f12 triggerEnabled false #txt
 Rt0 f12 callSignature start2() #txt
 Rt0 f12 persist false #txt
-Rt0 f12 taskData '#
-#Mon Feb 14 09:59:24 CET 2011
-TaskTriggered.ROL=Everybody
-TaskTriggered.EXTYPE=0
-TaskTriggered.EXPRI=2
-TaskTriggered.TYPE=0
-TaskTriggered.PRI=2
+Rt0 f12 taskData 'TaskTriggered.EXPRI=2
 TaskTriggered.EXROL=Everybody
-' #txt
-Rt0 f12 caseData '#
-#Mon Feb 14 09:59:24 CET 2011
-businessCreator.user=
-businessMilestone.timestamp=
-businessObject.code=
-businessObject.docDb.code=
-businessObject.folder.id=
-businessObject.name=
-businessPriority=
-businessStart.timestamp=
-case.description=
-case.name=
-correspondent.id=
-mainContact.docDb.code=
-mainContact.folder.id=
-mainContact.id=
-mainContact.name=
-mainContact.type=
-process.code=
-process.name=
-processCategory.code=
-processCategory.name=
-subType.code=
-subType.name=
-type.code=
-type.name=
-' #txt
+TaskTriggered.EXTYPE=0
+TaskTriggered.PRI=2
+TaskTriggered.ROL=Everybody
+TaskTriggered.TYPE=0' #txt
 Rt0 f12 showInStartList 0 #txt
-Rt0 f12 taskAndCaseSetupAction 'import ch.ivyteam.ivy.workflow.TaskUpdateDefinition;
-ch.ivyteam.ivy.workflow.TaskUpdateDefinition taskUpdDef = new ch.ivyteam.ivy.workflow.TaskUpdateDefinition();taskUpdDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskUpdDef.setExpiryActivator("Everybody");
-taskUpdDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-engine.updateCurrentTask(taskUpdDef);
-' #txt
 Rt0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -365,8 +275,6 @@ Rt0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Rt0 f12 @C|.responsibility Everybody #txt
 Rt0 f12 259 27 26 26 14 0 #rect
 Rt0 f12 @|StartRequestIcon #fIcon
-Rt0 f13 actionDecl 'htmlwfui.Data out;
-' #txt
 Rt0 f13 actionTable 'out=in;
 ' #txt
 Rt0 f13 actionCode 'import ch.ivyteam.ivy.workflow.IPropertyFilter;
@@ -517,7 +425,6 @@ out.temp.processesCombo = out.temp.processes.clone();
 
 
 ' #txt
-Rt0 f13 type htmlwfui.Data #txt
 Rt0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -558,8 +465,6 @@ Rt0 f18 @|PageIcon #fIcon
 Rt0 f19 expr data #txt
 Rt0 f19 outCond ivp=="LinkB.ivp" #txt
 Rt0 f19 166 428 106 468 #arcP
-Rt0 f21 actionDecl 'htmlwfui.Data out;
-' #txt
 Rt0 f21 actionTable 'out=in;
 ' #txt
 Rt0 f21 actionCode 'import ch.ivyteam.ivy.workflow.CaseState;
@@ -572,7 +477,6 @@ if(case.getState()==CaseState.DESTROYED)
 	out.temp.msg = "DESTROYED";
 }
 ' #txt
-Rt0 f21 type htmlwfui.Data #txt
 Rt0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -584,7 +488,6 @@ Rt0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Rt0 f21 70 540 36 24 20 -2 #rect
 Rt0 f21 @|StepIcon #fIcon
-Rt0 f24 type htmlwfui.Data #txt
 Rt0 f24 74 610 28 28 14 0 #rect
 Rt0 f24 @|AlternativeIcon #fIcon
 Rt0 f25 expr out #txt
@@ -598,9 +501,7 @@ Rt0 f26 70 480 74 624 #arcP
 Rt0 f26 1 40 480 #addKink
 Rt0 f26 2 40 624 #addKink
 Rt0 f26 1 0.07729854326440172 0 0 #arcLabel
-Rt0 f31 type htmlwfui.Data #txt
 Rt0 f31 processCall 'Functional Processes/AddNote:call(htmlwfui.Data)' #txt
-Rt0 f31 doCall true #txt
 Rt0 f31 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Rt0 f31 requestMappingAction 'param.in=in;
@@ -628,9 +529,7 @@ Rt0 f32 0 0.4568671957714201 0 0 #arcLabel
 Rt0 f34 expr out #txt
 Rt0 f34 382 497 202 423 #arcP
 Rt0 f34 0 0.3298838642993683 0 0 #arcLabel
-Rt0 f30 type htmlwfui.Data #txt
 Rt0 f30 processCall 'Functional Processes/TaskDetail:call(htmlwfui.Data)' #txt
-Rt0 f30 doCall true #txt
 Rt0 f30 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Rt0 f30 requestMappingAction 'param.in=in;
@@ -658,9 +557,7 @@ Rt0 f35 202 420 526 500 #arcP
 Rt0 f36 expr out #txt
 Rt0 f36 526 500 202 420 #arcP
 Rt0 f36 0 0.3294303582455013 0 0 #arcLabel
-Rt0 f37 type htmlwfui.Data #txt
 Rt0 f37 processCall 'Functional Processes/PageArchive:call(htmlwfui.Data)' #txt
-Rt0 f37 doCall true #txt
 Rt0 f37 requestActionDecl '<htmlwfui.Data in> param;
 ' #txt
 Rt0 f37 requestMappingAction 'param.in=in;
@@ -687,7 +584,6 @@ Rt0 f28 196 428 260 492 #arcP
 Rt0 f29 expr out #txt
 Rt0 f29 260 492 196 428 #arcP
 Rt0 f29 0 0.22539243841503825 0 0 #arcLabel
-Rt0 f33 type htmlwfui.Data #txt
 Rt0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -699,8 +595,6 @@ Rt0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Rt0 f33 170 162 28 28 19 -12 #rect
 Rt0 f33 @|AlternativeIcon #fIcon
-Rt0 f38 actionDecl 'htmlwfui.Data out;
-' #txt
 Rt0 f38 actionTable 'out=in;
 out.temp.caption="my_cases";
 ' #txt
@@ -715,7 +609,6 @@ out.temp.processes.addColumn("Code",[ivy.cms.co("/labels/all")]).addColumn("Name
 out.temp.processesCombo.addColumn("Code",[ivy.cms.co("/labels/all")]).addColumn("Name",[ivy.cms.co("/labels/all")]).addColumn("Cat",[ivy.cms.co("/labels/all")]);
 out.temp.states = [ivy.cms.co("/labels/all"), CaseState.RUNNING.toString(),CaseState.DONE.toString(), CaseState.DESTROYED.toString(), CaseState.ZOMBIE.toString()];
 ' #txt
-Rt0 f38 type htmlwfui.Data #txt
 Rt0 f38 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -730,8 +623,6 @@ Rt0 f38 @|StepIcon #fIcon
 Rt0 f39 expr out #txt
 Rt0 f39 80 53 80 76 #arcP
 Rt0 f39 0 0.6514195840404282 0 0 #arcLabel
-Rt0 f40 actionDecl 'htmlwfui.Data out;
-' #txt
 Rt0 f40 actionTable 'out=in;
 out.temp.caption="admin_cases";
 ' #txt
@@ -745,7 +636,6 @@ out.temp.categories = [ivy.cms.co("/labels/all")];
 out.temp.processes.addColumn("Code",[ivy.cms.co("/labels/all")]).addColumn("Name",[ivy.cms.co("/labels/all")]).addColumn("Cat",[ivy.cms.co("/labels/all")]);
 out.temp.processesCombo.addColumn("Code",[ivy.cms.co("/labels/all")]).addColumn("Name",[ivy.cms.co("/labels/all")]).addColumn("Cat",[ivy.cms.co("/labels/all")]);
 out.temp.states = [ivy.cms.co("/labels/all"), CaseState.RUNNING.toString(),CaseState.DONE.toString(), CaseState.DESTROYED.toString(), CaseState.ZOMBIE.toString()];' #txt
-Rt0 f40 type htmlwfui.Data #txt
 Rt0 f40 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -775,8 +665,6 @@ Rt0 f2 outCond in.temp.caption=="my_cases" #txt
 Rt0 f2 175 181 122 213 #arcP
 Rt0 f4 expr in #txt
 Rt0 f4 194 180 254 208 #arcP
-Rt0 f7 actionDecl 'htmlwfui.Data out;
-' #txt
 Rt0 f7 actionTable 'out=in;
 ' #txt
 Rt0 f7 actionCode 'if(in.temp.catFilter==ivy.cms.co("/labels/all"))
@@ -794,7 +682,6 @@ else
 		}	
 	}
 }' #txt
-Rt0 f7 type htmlwfui.Data #txt
 Rt0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

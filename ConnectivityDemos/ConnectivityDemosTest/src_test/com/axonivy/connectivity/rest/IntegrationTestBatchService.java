@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.glassfish.jersey.filter.LoggingFilter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.rest.provider.BatchService;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;

@@ -1,10 +1,9 @@
 [Ivy]
-1549FEEB682EF158 3.23 #module
+1549FEEB682EF158 3.28 #module
 >Proto >Proto Collection #zClass
 cl0 createApproval Big #zClass
 cl0 B #cInfo
 cl0 #process
-cl0 @TextInP .resExport .resExport #zField
 cl0 @TextInP .type .type #zField
 cl0 @TextInP .processKind .processKind #zField
 cl0 @AnnotationInP-0n ai ai #zField
@@ -29,10 +28,7 @@ cl0 f0 outParamDecl '<ch.ivyteam.ivy.workflow.ITask approvalTask> result;
 ' #txt
 cl0 f0 outParamTable 'result.approvalTask=in.approvalTask;
 ' #txt
-cl0 f0 actionDecl 'com.axonivy.connectivity.rest.CreateApprovalData out;
-' #txt
 cl0 f0 callSignature call(String,String) #txt
-cl0 f0 type com.axonivy.connectivity.rest.CreateApprovalData #txt
 cl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -44,12 +40,9 @@ cl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 cl0 f0 113 81 30 30 -47 17 #rect
 cl0 f0 @|StartSubIcon #fIcon
-cl0 f1 type com.axonivy.connectivity.rest.CreateApprovalData #txt
 cl0 f1 369 81 30 30 0 15 #rect
 cl0 f1 @|EndSubIcon #fIcon
-cl0 f3 type com.axonivy.connectivity.rest.CreateApprovalData #txt
 cl0 f3 processCall rest/approval:approve(com.axonivy.connectivity.rest.Approval) #txt
-cl0 f3 doCall true #txt
 cl0 f3 requestActionDecl '<com.axonivy.connectivity.rest.Approval approval> param;
 ' #txt
 cl0 f3 requestMappingAction 'param.approval=in.approval;

@@ -1,12 +1,9 @@
 [Ivy]
-157E2C1BEC4930AC 3.26 #module
+157E2C1BEC4930AC 3.28 #module
 >Proto >Proto Collection #zClass
 ss0 ConfigurationOverviewProcess Big #zClass
 ss0 RD #cInfo
 ss0 #process
-ss0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
-ss0 @TextInP .rdData2UIAction .rdData2UIAction #zField
-ss0 @TextInP .resExport .resExport #zField
 ss0 @TextInP .type .type #zField
 ss0 @TextInP .processKind .processKind #zField
 ss0 @AnnotationInP-0n ai ai #zField
@@ -14,24 +11,24 @@ ss0 @MessageFlowInP-0n messageIn messageIn #zField
 ss0 @MessageFlowOutP-0n messageOut messageOut #zField
 ss0 @TextInP .xml .xml #zField
 ss0 @TextInP .responsibility .responsibility #zField
-ss0 @RichDialogInitStart f0 '' #zField
-ss0 @RichDialogProcessEnd f1 '' #zField
+ss0 @UdInit f0 '' #zField
+ss0 @UdProcessEnd f1 '' #zField
 ss0 @GridStep f3 '' #zField
 ss0 @PushWFArc f4 '' #zField
 ss0 @PushWFArc f2 '' #zField
-ss0 @RichDialogProcessStart f5 '' #zField
-ss0 @RichDialogProcessEnd f6 '' #zField
+ss0 @UdEvent f5 '' #zField
+ss0 @UdProcessEnd f6 '' #zField
 ss0 @PushWFArc f7 '' #zField
-ss0 @RichDialogProcessStart f8 '' #zField
-ss0 @RichDialogProcessEnd f9 '' #zField
-ss0 @RichDialogMethodStart f11 '' #zField
-ss0 @RichDialogProcessEnd f12 '' #zField
+ss0 @UdEvent f8 '' #zField
+ss0 @UdProcessEnd f9 '' #zField
+ss0 @UdMethod f11 '' #zField
+ss0 @UdProcessEnd f12 '' #zField
 ss0 @GridStep f14 '' #zField
 ss0 @GridStep f18 '' #zField
 ss0 @PushWFArc f20 '' #zField
 ss0 @PushWFArc f15 '' #zField
-ss0 @RichDialogEnd f19 '' #zField
-ss0 @RichDialogProcessStart f21 '' #zField
+ss0 @UdExitEnd f19 '' #zField
+ss0 @UdEvent f21 '' #zField
 ss0 @GridStep f22 '' #zField
 ss0 @PushWFArc f23 '' #zField
 ss0 @PushWFArc f24 '' #zField
@@ -41,9 +38,7 @@ ss0 @PushWFArc f10 '' #zField
 ss0 @PushWFArc f13 '' #zField
 >Proto ss0 ss0 ConfigurationOverviewProcess #zField
 ss0 f0 guid 157E2C1BEDF33419 #txt
-ss0 f0 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f0 method start() #txt
-ss0 f0 disableUIEvents true #txt
 ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
@@ -59,17 +54,13 @@ ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ss0 f0 82 51 26 26 -16 15 #rect
-ss0 f0 @|RichDialogInitStartIcon #fIcon
-ss0 f1 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f0 @|UdInitIcon #fIcon
 ss0 f1 371 51 26 26 0 12 #rect
-ss0 f1 @|RichDialogProcessEndIcon #fIcon
-ss0 f3 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
-' #txt
+ss0 f1 @|UdProcessEndIcon #fIcon
 ss0 f3 actionTable 'out=in;
 out.activeTabIndex=0;
 out.databaseSettings=com.axon.ivy.engine.config.SystemDatabaseSettings.create();
 ' #txt
-ss0 f3 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -86,9 +77,6 @@ ss0 f4 108 64 168 64 #arcP
 ss0 f2 expr out #txt
 ss0 f2 280 64 371 64 #arcP
 ss0 f5 guid 15B5C5DB30A4F328 #txt
-ss0 f5 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f5 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
-' #txt
 ss0 f5 actionTable 'out=in;
 ' #txt
 ss0 f5 actionCode 'import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
@@ -107,15 +95,11 @@ ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ss0 f5 82 115 26 26 -47 15 #rect
-ss0 f5 @|RichDialogProcessStartIcon #fIcon
-ss0 f6 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f5 @|UdEventIcon #fIcon
 ss0 f6 371 115 26 26 0 12 #rect
-ss0 f6 @|RichDialogProcessEndIcon #fIcon
+ss0 f6 @|UdProcessEndIcon #fIcon
 ss0 f7 108 128 371 128 #arcP
 ss0 f8 guid 15BC386770BD0A74 #txt
-ss0 f8 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f8 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
-' #txt
 ss0 f8 actionTable 'out=in;
 ' #txt
 ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -128,14 +112,11 @@ ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ss0 f8 82 179 26 26 -19 15 #rect
-ss0 f8 @|RichDialogProcessStartIcon #fIcon
-ss0 f9 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f8 @|UdEventIcon #fIcon
 ss0 f9 371 179 26 26 0 12 #rect
-ss0 f9 @|RichDialogProcessEndIcon #fIcon
+ss0 f9 @|UdProcessEndIcon #fIcon
 ss0 f11 guid 15C0B18249EAF4B3 #txt
-ss0 f11 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f11 method tabChange(org.primefaces.event.TabChangeEvent) #txt
-ss0 f11 disableUIEvents false #txt
 ss0 f11 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <org.primefaces.event.TabChangeEvent event> param = methodEvent.getInputArguments();
 ' #txt
@@ -160,12 +141,9 @@ ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ss0 f11 82 243 26 26 -49 15 #rect
-ss0 f11 @|RichDialogMethodStartIcon #fIcon
-ss0 f12 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
+ss0 f11 @|UdMethodIcon #fIcon
 ss0 f12 539 243 26 26 0 12 #rect
-ss0 f12 @|RichDialogProcessEndIcon #fIcon
-ss0 f14 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
-' #txt
+ss0 f12 @|UdProcessEndIcon #fIcon
 ss0 f14 actionTable 'out=in;
 ' #txt
 ss0 f14 actionCode 'import org.primefaces.context.RequestContext;
@@ -182,7 +160,6 @@ if(connectionOk && in.tabChangeEvent.tab.id.contains("clusterTab") && out.databa
 {
 	context.execute("PF(''addLocalNodeDialog'').show();");
 }	' #txt
-ss0 f14 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -194,8 +171,6 @@ ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 ss0 f14 152 234 160 44 -77 -8 #rect
 ss0 f14 @|StepIcon #fIcon
-ss0 f18 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
-' #txt
 ss0 f18 actionTable 'out=in;
 ' #txt
 ss0 f18 actionCode 'import java.util.concurrent.TimeUnit;
@@ -216,7 +191,6 @@ if(in.tabChangeEvent.tab.id.contains("clusterTab") && !in.databaseSettings.getAd
 	TimeUnit.MILLISECONDS.sleep(240);
 	FocusSetter.setFocusOnClusterTabNextStepButton();
 }' #txt
-ss0 f18 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -232,14 +206,9 @@ ss0 f20 expr out #txt
 ss0 f20 108 256 152 256 #arcP
 ss0 f15 expr out #txt
 ss0 f15 480 256 539 256 #arcP
-ss0 f19 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f19 guid 15D0D93DAB2ED91F #txt
 ss0 f19 371 307 26 26 0 12 #rect
-ss0 f19 @|RichDialogEndIcon #fIcon
+ss0 f19 @|UdExitEndIcon #fIcon
 ss0 f21 guid 15D0D947790DFC73 #txt
-ss0 f21 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
-ss0 f21 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
-' #txt
 ss0 f21 actionTable 'out=in;
 ' #txt
 ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -252,13 +221,10 @@ ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 ss0 f21 82 307 26 26 -15 15 #rect
-ss0 f21 @|RichDialogProcessStartIcon #fIcon
-ss0 f22 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
-' #txt
+ss0 f21 @|UdEventIcon #fIcon
 ss0 f22 actionTable 'out=in;
 ' #txt
 ss0 f22 actionCode out.databaseSettings.saveAll(); #txt
-ss0 f22 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -276,12 +242,9 @@ ss0 f23 0 0.31220825344279884 0 0 #arcLabel
 ss0 f24 expr out #txt
 ss0 f24 284 320 371 320 #arcP
 ss0 f24 0 0.2788417630134049 0 0 #arcLabel
-ss0 f25 actionDecl 'com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData out;
-' #txt
 ss0 f25 actionTable 'out=in;
 ' #txt
 ss0 f25 actionCode out.databaseSettings.saveAll(); #txt
-ss0 f25 type com.axonivy.engine.config.ui.settings.ConfigurationOverview.ConfigurationOverviewData #txt
 ss0 f25 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
