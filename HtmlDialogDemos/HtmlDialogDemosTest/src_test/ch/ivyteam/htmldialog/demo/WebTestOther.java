@@ -6,9 +6,6 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-
-import ch.ivyteam.htmldialog.server.test.EngineUrl;
 
 public class WebTestOther extends BaseWebTest
 {
@@ -78,31 +75,10 @@ public class WebTestOther extends BaseWebTest
             "Welcome to Axon.ivy Html Dialog Demos"));
   }
 
-  private void login()
-  {
-	String loginURL = null;
-	if (EngineUrl.isDesigner())
-	{
-		loginURL = EngineUrl.base() + "wf/login.jsp";
-	}
-	else
-	{
-		loginURL = EngineUrl.getServletUrl("wf") + "/login";
-	}
-	driver.get(loginURL);
-	await(visibilityOfElementLocated(By.name("username")));
-	driver.findElement(By.name("username")).sendKeys("demoUser1");
-	WebElement passwordElement = driver.findElement(By.name("password"));
-	passwordElement.sendKeys("demoUser1");
-	passwordElement.submit();
-	await(textToBePresentInElementLocated(By.id("Caption"), "Home"));
-  }
-
   private void openAndValidate(String managedBeanPoperty)
   {
     startProcess("145D1862CF17F2C9/ManagedBeanDemo.ivp");
     await(visibilityOfElementLocated(By
             .xpath("//*[@id='beanForm:descriptionProperty'][@value='" + managedBeanPoperty + "']")));
   }
-
 }
