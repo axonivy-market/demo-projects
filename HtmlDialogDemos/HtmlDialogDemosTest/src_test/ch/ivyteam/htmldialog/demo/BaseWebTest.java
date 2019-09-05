@@ -32,7 +32,7 @@ public abstract class BaseWebTest
   FirefoxOptions firefoxOptions = new FirefoxOptions();
   {
     FirefoxBinary binary = new FirefoxBinary();
-    binary.addCommandLineOptions("--headless");
+    binary.addCommandLineOptions(System.getProperty("firefox.options","--headless"));
     firefoxOptions.setBinary(binary);
     firefoxOptions.setProfile(configureBrowserProfile());
   }
