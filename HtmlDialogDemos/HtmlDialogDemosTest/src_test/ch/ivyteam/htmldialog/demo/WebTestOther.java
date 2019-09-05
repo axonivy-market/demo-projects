@@ -63,5 +63,4 @@ public class WebTestOther extends BaseWebTest
     await(visibilityOfElementLocated(By
             .xpath("//*[@id='beanForm:descriptionProperty'][@value='" + managedBeanPoperty + "']")));
   }
-
 }

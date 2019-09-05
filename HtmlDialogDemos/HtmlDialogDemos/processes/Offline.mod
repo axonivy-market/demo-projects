@@ -22,6 +22,9 @@ Oe0 f5 433 81 30 30 0 15 #rect
 Oe0 f5 @|EndRequestIcon #fIcon
 Oe0 f0 outLink ClientSideValidationDemo.ivp #txt
 Oe0 f0 inParamDecl '<> param;' #txt
+Oe0 f0 actionCode 'if (ivy.session.isSessionUserUnknown()) {
+  ivy.session.loginSessionUser("demoUser1", "demoUser1");
+}' #txt
 Oe0 f0 requestEnabled true #txt
 Oe0 f0 triggerEnabled false #txt
 Oe0 f0 callSignature ClientSideValidationDemo() #txt
@@ -38,8 +41,6 @@ Oe0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>ClientSideValidationDemo.ivp</name>
-        <nameStyle>28,5,7
-</nameStyle>
     </language>
 </elementInfo>
 ' #txt
