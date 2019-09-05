@@ -60,13 +60,12 @@ public class WebTestOther extends BaseWebTest
   @Test
   public void testClientSideValidation()
   {
-	login();
     startProcess("150425B095B4FB54/ClientSideValidationDemo.ivp");
     driver.findElement(By.id("form:firstName")).sendKeys("Someone");
     driver.findElement(By.id("form:personName")).sendKeys("Else");
     driver.findElement(By.id("form:personDateOfBirth")).sendKeys("1990-01-01");
     driver.findElement(By.id("form:addressZip")).sendKeys("8000");
-    driver.findElement(By.id("form:addressCity")).sendKeys("Zürich");
+    driver.findElement(By.id("form:addressCity")).sendKeys("Zï¿½rich");
     driver.findElement(By.id("form:addressCountry")).sendKeys("CH");
     driver.findElement(By.id("form:email")).sendKeys("someone.else@admin.ch");
     driver.findElement(By.id("form:timeOfArrival")).sendKeys("13:15");
