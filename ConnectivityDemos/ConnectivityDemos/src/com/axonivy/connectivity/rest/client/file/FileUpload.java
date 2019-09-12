@@ -38,8 +38,7 @@ public class FileUpload
     try (FormDataMultiPart formDataMultiPart = new FormDataMultiPart())
     {
       FileDataBodyPart filePart = new FileDataBodyPart("file", file);
-      multipart = (FormDataMultiPart) formDataMultiPart.field("file", file,
-              MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
+      multipart = (FormDataMultiPart) formDataMultiPart.bodyPart(filePart);
     }
     MediaType contentType = MediaType.MULTIPART_FORM_DATA_TYPE;
     contentType = Boundary.addBoundary(contentType);

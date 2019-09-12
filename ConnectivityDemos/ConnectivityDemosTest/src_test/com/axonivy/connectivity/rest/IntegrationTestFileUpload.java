@@ -147,8 +147,7 @@ public class IntegrationTestFileUpload
     try (FormDataMultiPart formDataMultiPart = new FormDataMultiPart())
     {
       FileDataBodyPart filePart = new FileDataBodyPart("file", createWrongEmptyFile);
-      multipart = (FormDataMultiPart) formDataMultiPart
-              .field("file", createWrongEmptyFile, MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
+      multipart = (FormDataMultiPart) formDataMultiPart.bodyPart(filePart);
     }
     return multipart;
   }
