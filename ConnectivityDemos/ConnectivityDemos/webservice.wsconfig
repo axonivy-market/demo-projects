@@ -179,4 +179,32 @@
             </portType>
         </service>
     </webServiceConfig>
+    <webServiceConfig>
+        <name>interceptedService</name>
+        <id>16D2A643A3A25C52</id>
+        <wsdlUrl>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/16D29AE50A7A6E34?WSDL</wsdlUrl>
+        <wsCallLibrary>CXF</wsCallLibrary>
+        <service>
+            <serviceClass>com.axonivy.connectivity.soap.interceptor.client.ServiceWithExceptionService</serviceClass>
+            <port>
+                <name>ServiceWithExceptionPort</name>
+                <portType>serviceWithException</portType>
+                <locationUri>http://localhost:8081/ivy/ws/designer/ConnectivityDemos/16D29AE50A7A6E34</locationUri>
+            </port>
+            <portType>
+                <name>serviceWithException</name>
+                <operation>
+                    <name>call</name>
+                    <returnParameter>
+                        <name>parameters</name>
+                        <type>com.axonivy.connectivity.soap.interceptor.client.CallResponse</type>
+                    </returnParameter>
+                    <inputParameter>
+                        <name>parameters</name>
+                        <type>com.axonivy.connectivity.soap.interceptor.client.Call</type>
+                    </inputParameter>
+                </operation>
+            </portType>
+        </service>
+    </webServiceConfig>
 </webServiceConfigurationNode>
