@@ -41,9 +41,11 @@
 					</h:outputText>
 				</p:column>
 				<p:column headerText="Start" style="width:40px; text-align: center;">
-					<a href="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}?taskId=#{task.id}" id="taskLinkRow_#{row}">
-						<h:graphicImage name="images/actions/faStart.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResumeTooltip')} [#{task.id}]" />
-					</a> 
+          <h:outputLink value="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}">
+            <f:param name="taskId" value="#{task.id}"/>
+            <f:param name="embedInFrame" />
+            <h:graphicImage name="images/actions/faStart.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResumeTooltip')} [#{task.id}]" />
+          </h:outputLink>
 				</p:column>
 			</p:dataTable>
 		</h:form>
