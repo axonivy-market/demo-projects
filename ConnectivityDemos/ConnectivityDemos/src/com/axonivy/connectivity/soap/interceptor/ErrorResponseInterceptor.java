@@ -21,6 +21,8 @@ public class ErrorResponseInterceptor extends AbstractSoapInterceptor
   @Override
   public void handleMessage(SoapMessage soapMessage) throws Fault
   {
+    // Make sure to set "org.apache.cxf.transport.process_fault_on_http_400" to "true" in your WebService Call Activity properties
+    // To see the status code check the "Runtime Log View"
     soapMessage.put(Message.RESPONSE_CODE, 400);
   }
 }
