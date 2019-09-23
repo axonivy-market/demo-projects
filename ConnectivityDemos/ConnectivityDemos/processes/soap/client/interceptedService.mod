@@ -13,6 +13,7 @@ ie0 @EndTask f1 '' #zField
 ie0 @WSElement f2 '' #zField
 ie0 @PushWFArc f3 '' #zField
 ie0 @PushWFArc f4 '' #zField
+ie0 @InfoButton f5 '' #zField
 >Proto ie0 ie0 interceptedService #zField
 ie0 f0 outLink interceptException.ivp #txt
 ie0 f0 inParamDecl '<> param;' #txt
@@ -56,6 +57,18 @@ ie0 f2 168 42 112 44 0 -7 #rect
 ie0 f2 @|WebServiceIcon #fIcon
 ie0 f3 111 64 168 64 #arcP
 ie0 f4 280 64 337 64 #arcP
+ie0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>1) Generate the Web Service like normally via Definitions &gt; Web Service Client, see the Designer Guide for more information
+2) Move the generated Java class from "src_wsproc" to the "src" folder, keep the package name the same
+3) Annotate the generated class with "@org.apache.cxf.interceptor.OutFaultInterceptors(classes= {YourInterceptorClass.class})"
+4) Implement "YourInterceptorClass" e.g. ErrorResponseInterceptor</name>
+    </language>
+</elementInfo>
+' #txt
+ie0 f5 64 116 832 88 -408 -30 #rect
+ie0 f5 @|IBIcon #fIcon
 >Proto ie0 .type com.axonivy.connectivity.soap.service.ExceptionData #txt
 >Proto ie0 .processKind NORMAL #txt
 >Proto ie0 0 0 32 24 18 0 #rect
