@@ -41,9 +41,7 @@
 					</h:outputText>
 				</p:column>
 				<p:column headerText="Start" style="width:40px; text-align: center;">
-          <h:outputLink value="#{facesContext.externalContext.requestContextPath}/pro/#{task.fullRequestPath}">
-            <f:param name="taskId" value="#{task.id}"/>
-            <f:param name="embedInFrame" />
+          <h:outputLink value="#{ivy.html.taskstartrefiframe(data.task)}">
             <h:graphicImage name="images/actions/faStart.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResumeTooltip')} [#{task.id}]" />
           </h:outputLink>
 				</p:column>
