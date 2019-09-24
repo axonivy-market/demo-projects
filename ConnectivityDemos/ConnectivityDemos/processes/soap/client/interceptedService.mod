@@ -14,6 +14,7 @@ ie0 @WSElement f2 '' #zField
 ie0 @PushWFArc f3 '' #zField
 ie0 @PushWFArc f4 '' #zField
 ie0 @InfoButton f5 '' #zField
+ie0 @AnnotationArc f6 '' #zField
 >Proto ie0 ie0 interceptedService #zField
 ie0 f0 outLink interceptException.ivp #txt
 ie0 f0 inParamDecl '<> param;' #txt
@@ -60,15 +61,14 @@ ie0 f4 280 64 337 64 #arcP
 ie0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>1) Generate the Web Service like normally via Definitions &gt; Web Service Client, see the Designer Guide for more information
-2) Move the generated Java class from "src_wsproc" to the "src" folder, keep the package name the same
-3) Annotate the generated class with "@org.apache.cxf.interceptor.OutFaultInterceptors(classes= {YourInterceptorClass.class})"
-4) Implement "YourInterceptorClass" e.g. ErrorResponseInterceptor</name>
+        <name>This Web Service Call Activity is being intercepted by an OutFaultInterceptor
+have a look at the service: Processes &gt; soap &gt; service &gt; serviceWithException</name>
     </language>
 </elementInfo>
 ' #txt
-ie0 f5 64 116 832 88 -408 -30 #rect
+ie0 f5 80 122 512 44 -248 -15 #rect
 ie0 f5 @|IBIcon #fIcon
+ie0 f6 336 122 184 86 #arcP
 >Proto ie0 .type com.axonivy.connectivity.soap.service.ExceptionData #txt
 >Proto ie0 .processKind NORMAL #txt
 >Proto ie0 0 0 32 24 18 0 #rect
@@ -77,3 +77,5 @@ ie0 f0 mainOut f3 tail #connect
 ie0 f3 head f2 mainIn #connect
 ie0 f2 mainOut f4 tail #connect
 ie0 f4 head f1 mainIn #connect
+ie0 f5 ao f6 tail #connect
+ie0 f6 head f2 @CG|ai #connect

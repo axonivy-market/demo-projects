@@ -14,6 +14,7 @@ sn0 @TextInP .responsibility .responsibility #zField
 sn0 @StartWS f0 '' #zField
 sn0 @EndWS f1 '' #zField
 sn0 @PushWFArc f2 '' #zField
+sn0 @InfoButton f5 '' #zField
 >Proto sn0 sn0 serviceWithException #zField
 sn0 f0 inParamDecl '<java.lang.Boolean throwException,java.lang.String exceptionMessage> param;' #txt
 sn0 f0 inParamTable 'out.exceptionMessage=param.exceptionMessage;
@@ -39,6 +40,18 @@ sn0 f0 @|StartWSIcon #fIcon
 sn0 f1 337 49 30 30 0 15 #rect
 sn0 f1 @|EndWSIcon #fIcon
 sn0 f2 111 64 337 64 #arcP
+sn0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>1) Generate the Web Service like normally via Definitions &gt; Web Service Client, see the Designer Guide for more information
+2) Move the generated Java class from "src_wsproc" to the "src" folder, keep the package name the same
+3) Annotate the generated class with "@org.apache.cxf.interceptor.OutFaultInterceptors(classes= {YourInterceptorClass.class})"
+4) Implement "YourInterceptorClass" e.g. ErrorResponseInterceptor</name>
+    </language>
+</elementInfo>
+' #txt
+sn0 f5 80 116 832 88 -408 -30 #rect
+sn0 f5 @|IBIcon #fIcon
 >Proto sn0 .webServiceName com.axonivy.connectivity.soap.interceptor.serviceWithException #txt
 >Proto sn0 .authenticationType 'None or Container' #txt
 >Proto sn0 .type com.axonivy.connectivity.soap.service.ExceptionData #txt
