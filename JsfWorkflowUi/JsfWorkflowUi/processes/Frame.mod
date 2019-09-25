@@ -85,7 +85,8 @@ Fe0 f3 startMethod start(String) #txt
 Fe0 f3 requestActionDecl '<String url> param;' #txt
 Fe0 f3 requestActionCode 'import java.net.URI;
 //Only support relative urls (security)
-param.url = new URI(in.url).getPath();' #txt
+URI path = new URI(in.url);
+param.url = path.getPath() + "?" + path.getQuery();' #txt
 Fe0 f3 responseActionDecl 'ch.ivyteam.wf.FrameData out;
 ' #txt
 Fe0 f3 responseMappingAction 'out=in;
