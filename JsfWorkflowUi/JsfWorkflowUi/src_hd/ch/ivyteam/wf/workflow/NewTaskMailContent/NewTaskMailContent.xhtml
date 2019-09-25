@@ -48,20 +48,10 @@
 				</tr>
 			</table>
 			<br />
-			<table id="startTask">
-				<tr>
-				    <td>
-				    	<a href="#{facesContext.externalContext.requestContextPath}/pro/#{data.task.fullRequestPath}?taskId=#{data.task.id}" id="taskStartImageLink">
-				    		<h:graphicImage name="images/actions/faStart.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResumeTooltip')} [#{data.task.id}]" style="border:0;"/>
-				    	</a>
-				    </td>
-					<th>
-						<a href="#{facesContext.externalContext.requestContextPath}/pro/#{data.task.fullRequestPath}?taskId=#{data.task.id}" id="taskStartLink">
-							#{ivy.cms.co('/labels/common/taskResume')}
-						</a>
-					</th>
-				</tr>
-			</table>
+			<h:outputLink value="#{ivy.html.taskstartinframeref(data.task)}">
+				<h:graphicImage name="images/actions/faStart.png" alt="start" title="#{ivy.cms.co('/labels/common/taskResumeTooltip')} [#{data.task.id}]" style="border:0;"/>
+				<h:outputText value="#{ivy.cms.co('/labels/common/taskResume')}"/>
+			</h:outputLink>
 		</h:form>
    	</ui:define>
 </ui:composition>
