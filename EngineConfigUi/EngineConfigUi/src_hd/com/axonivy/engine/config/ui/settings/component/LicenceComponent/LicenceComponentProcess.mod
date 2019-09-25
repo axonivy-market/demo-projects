@@ -36,7 +36,7 @@ FocusSetter.setFocusOnLicenceTabNextStepButton();
 
 int inDays = 86400;
 
-if(SignedLicence.isInstalled() && !SignedLicence.isDemo())
+if(SignedLicence.isInstalled() && !SignedLicence.isDemo() && !SignedLicence.getValidUntil().toString().equals(""))
 {
 	out.renewLicenceData.daysLeft = (SignedLicence.getValidUntil().getDate().toNumber() - new Date().toNumber())/inDays;
 	if(out.renewLicenceData.daysLeft <= 30)
