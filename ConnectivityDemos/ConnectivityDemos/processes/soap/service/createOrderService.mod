@@ -37,7 +37,7 @@ ce0 ws0 outParamTable 'result.task=in.task;
 ' #txt
 ce0 ws0 actionDecl 'com.axonivy.connectivity.soap.service.CreateOrderServiceData out;
 ' #txt
-ce0 ws0 callSignature call(com.axonivy.connectivity.soap.service.Order) #txt
+ce0 ws0 callSignature call(Order) #txt
 ce0 ws0 useUserDefinedException false #txt
 ce0 ws0 taskData TaskTriggered.PRI=2 #txt
 ce0 ws0 type com.axonivy.connectivity.soap.service.CreateOrderServiceData #txt
