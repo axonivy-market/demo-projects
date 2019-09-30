@@ -112,6 +112,31 @@
 					<skipDeploy>${skipDeploy}</skipDeploy>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>copy-ivy-yaml</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${engine.directory}/configuration</outputDirectory>
+							<resources>
+								<resource>
+									<directory>engine-configuration</directory>
+								</resource>
+							</resources>
+							<encoding>UTF-8</encoding>
+							<overwrite>true</overwrite>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
