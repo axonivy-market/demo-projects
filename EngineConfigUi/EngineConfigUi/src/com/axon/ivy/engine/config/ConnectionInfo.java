@@ -195,7 +195,6 @@ public class ConnectionInfo
 
   public Boolean getIsLicenceValid()
   {
-    
     return Advisor.getAdvisor().isServer() && !SignedLicence.isDemo() || StringUtils.isNotEmpty(System
             .getProperty("ch.ivyteam.ivy.server.configuration.development"));
   }
