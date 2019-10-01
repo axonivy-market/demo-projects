@@ -11,13 +11,10 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.primefaces.model.UploadedFile;
 
-import ch.ivyteam.di.restricted.DiCore;
-import ch.ivyteam.ivy.config.IFileAccess;
 import ch.ivyteam.licence.InvalidLicenceException;
 import ch.ivyteam.licence.LicenceConstants;
 import ch.ivyteam.licence.SignedLicence;
 
-@SuppressWarnings("restriction")
 public class LicenceUtil
 {
   private static final File CONFIG_DIR = new File("configuration");
@@ -103,10 +100,5 @@ public class LicenceUtil
       return true;
     }
     return false;
-  }
-
-  public static File getInstalledLic()
-  {
-    return DiCore.getGlobalInjector().getInstance(IFileAccess.class).getLicenceFile();
   }
 }

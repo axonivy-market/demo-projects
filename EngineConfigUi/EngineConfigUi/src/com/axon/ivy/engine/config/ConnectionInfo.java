@@ -4,6 +4,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import ch.ivyteam.db.jdbc.DatabaseProduct;
+import ch.ivyteam.ivy.Advisor;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import ch.ivyteam.licence.SignedLicence;
 
@@ -194,7 +195,8 @@ public class ConnectionInfo
 
   public Boolean getIsLicenceValid()
   {
-    return SignedLicence.isServer() && !SignedLicence.isDemo() || StringUtils.isNotEmpty(System
+    
+    return Advisor.getAdvisor().isServer() && !SignedLicence.isDemo() || StringUtils.isNotEmpty(System
             .getProperty("ch.ivyteam.ivy.server.configuration.development"));
   }
 
