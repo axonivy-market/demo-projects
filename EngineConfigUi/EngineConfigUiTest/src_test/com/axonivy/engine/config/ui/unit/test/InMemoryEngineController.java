@@ -1,13 +1,9 @@
 package com.axonivy.engine.config.ui.unit.test;
 
-import java.io.File;
-
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
 import ch.ivyteam.db.jdbc.DatabaseUtil;
-import ch.ivyteam.di.restricted.DiCore;
 import ch.ivyteam.ivy.Advisor;
 import ch.ivyteam.ivy.config.IFileAccess;
-import ch.ivyteam.ivy.persistence.PersistencyException;
 import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
 import ch.ivyteam.ivy.server.IServer;
 import ch.ivyteam.ivy.server.ServerFactory;
@@ -36,22 +32,17 @@ public class InMemoryEngineController
 
   private static void installLicence() throws Exception
   {
-    IFileAccess fileAccess = DiCore.getGlobalInjector().getInstance(IFileAccess.class);
-    File dataFile = fileAccess.getLicenceFile();
-    Data data = new Data(dataFile, null, 10);
+    String content = IFileAccess.get().getLicence();
+    Data data = new Data(content, null, 10);
     data.equals(null); // install key
-    data.toString(); // install licence & verify, request quit after 10 sec if
-                     // licence is corrupt
-    SignedLicence.installLicence(dataFile);
+    data.toString();   // install licence, verify and quit after timeout if licence is corrupt
+    SignedLicence.installLicence(content);
   }
 
-  private DatabaseConnectionConfiguration createMemorySystemDatabase(String dbName)
-          throws PersistencyException, JobException
+  private DatabaseConnectionConfiguration createMemorySystemDatabase(String dbName) throws JobException
   {
-    DatabaseConnectionConfiguration config = new DatabaseConnectionConfiguration(
-            "jdbc:hsqldb:mem:" + dbName, "org.hsqldb.jdbcDriver");
-    JobCompositeAction dbCreatorJob = DatabasePersistencyServiceFactory
-            .createDatabaseCreator(config).createDatabaseCreationJob(null);
+    DatabaseConnectionConfiguration config = new DatabaseConnectionConfiguration("jdbc:hsqldb:mem:" + dbName, "org.hsqldb.jdbcDriver");
+    JobCompositeAction dbCreatorJob = DatabasePersistencyServiceFactory.createDatabaseCreator(config).createDatabaseCreationJob(null);
     createExecutor().execute(dbCreatorJob);
     return config;
   }
