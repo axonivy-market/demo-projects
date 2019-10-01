@@ -1,7 +1,5 @@
 package com.axonivy.engine.config.ui.unit.test;
 
-import java.io.File;
-
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
 import ch.ivyteam.db.jdbc.DatabaseUtil;
 import ch.ivyteam.di.restricted.DiCore;
@@ -37,7 +35,7 @@ public class InMemoryEngineController
   private static void installLicence() throws Exception
   {
     IFileAccess fileAccess = DiCore.getGlobalInjector().getInstance(IFileAccess.class);
-    File dataFile = fileAccess.getLicenceFile();
+    String dataFile = fileAccess.getLicence();
     Data data = new Data(dataFile, null, 10);
     data.equals(null); // install key
     data.toString(); // install licence & verify, request quit after 10 sec if

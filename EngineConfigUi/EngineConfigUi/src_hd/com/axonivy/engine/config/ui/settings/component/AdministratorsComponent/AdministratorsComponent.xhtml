@@ -114,7 +114,9 @@
 	<p:dialog widgetVar="editAdminDialog" id="editAdminDialog"
 		header="Edit Administrator" modal="true" closeOnEscape="true">
 		<h:form id="editAdminForm">
-			<p:messages autoUpdate="true" />
+			<p:messages>
+        <p:autoUpdate/>
+      </p:messages>
 			<h:panelGrid columns="2">
 				<p:outputLabel value="Name:" for="newName" />
 				<p:inputText id="newName" value="#{data.editAdmin.name}"
