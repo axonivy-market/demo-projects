@@ -30,15 +30,16 @@ Ls0 f0 method start(com.axon.ivy.engine.config.SystemDatabaseSettings) #txt
 Ls0 f0 inParameterDecl '<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param;' #txt
 Ls0 f0 inParameterMapAction 'out.renewLicenceData.settings=param.settings;
 ' #txt
-Ls0 f0 inActionCode 'import ch.ivyteam.licence.SignedLicence;
+Ls0 f0 inActionCode 'import com.axon.ivy.engine.config.DateCalculatorAPI;
+import ch.ivyteam.licence.SignedLicence;
 import com.axon.ivy.engine.config.FocusSetter;
 FocusSetter.setFocusOnLicenceTabNextStepButton();
 
 int inDays = 86400;
 
-if(SignedLicence.isInstalled() && !SignedLicence.isDemo() && SignedLicence.getValidUntil().toString() != "")
+if(SignedLicence.isInstalled() && !SignedLicence.isDemo() && DateCalculatorAPI.isUnixTime(SignedLicence.getValidUntil()))
 {
-	out.renewLicenceData.daysLeft = (SignedLicence.getValidUntil().getDate().toNumber() - new Date().toNumber())/inDays;
+	out.renewLicenceData.daysLeft = DateCalculatorAPI.daysLeft(SignedLicence.getValidUntil());
 	if(out.renewLicenceData.daysLeft <= 30)
 	{
 		out.renewLicenceData.licenceWarning = "#e09494";
@@ -106,16 +107,24 @@ if (response.getStatus() == 200)
 }
 else if (response.getStatus() == 500)
 {
-	UiModder.addWarningMessage("Message", "There was some problem with the server. Please try again in a few minutes.");
+	UiModder.addWarningMessage("Message", "There was some problem with the server. Please try again in a few minutes. "+response.readEntity(String.class).toString());
 }
 else if (response.getStatus() == 406)
 {
   UiModder.addErrorMessage("Message", "Sorry, your request already exists.");
 }
+else if (response.getStatus() == 409)
+{
+	UiModder.addErrorMessage("Message", response.readEntity(String.class).toString());
+}
 else
 {
 	String str = response.readEntity(String.class) as String;
 	String result = StringUtils.substringBetween(str, "errorMessage", "statusCode");
+	if (result.isEmpty())
+	{
+	result = str;
+	}
 	UiModder.addErrorMessage("Message", "There was some problem sending your request: "+result);
 }
 tempFile.delete();' #txt

@@ -19,8 +19,7 @@ public class RenewLicence
     try (FormDataMultiPart formDataMultiPart = new FormDataMultiPart())
     {
       FileDataBodyPart filePart = new FileDataBodyPart("oldLicense", licence);
-      multipart = (FormDataMultiPart) formDataMultiPart.field("oldLicense", licence,
-              MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
+      multipart = (FormDataMultiPart) formDataMultiPart.bodyPart(filePart);
     }
     
     multipart.setMediaType(Boundary.addBoundary(MediaType.MULTIPART_FORM_DATA_TYPE));

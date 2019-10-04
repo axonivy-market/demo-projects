@@ -31,7 +31,7 @@
 			</div>
 			<div>
 				<p:commandButton id="renew" value="Renew Licence" disabled="#{data.renewLicenceData.renewDelayBool}"
-					oncomplete="PF('renewLicence').show()" rendered="#{!licenceBean.demo}" 
+					oncomplete="PF('renewLicence').show()" rendered="#{!licenceBean.demo and data.renewLicenceData.daysLeft gt 0}" 
 					actionListener="#{logic.setAdmin}" update="renewLicenceWindow" style="background-color: #{data.renewLicenceData.licenceWarning}"/>
 				<p:spacer width="10px"/>
 				<h:outputLabel rendered="#{data.renewLicenceData.daysLeft lt 30}" style="color: #{data.renewLicenceData.licenceWarning}" value="Your license expires in #{data.renewLicenceData.daysLeft} days"/>
@@ -46,13 +46,13 @@
 
 	<p:dialog id="renewLicenceWindow" widgetVar="renewLicence" closeOnEscape="true"
 		header="Renew Licence" modal="true" resizable="false">
-		<h:form>
+		<h:form id="renewLicenceForm">
 			<h:panelGrid>
 				<p:outputLabel value="Where do you want to send the Licence to?" />
 				<br />
-				<p:inputText value="#{data.renewLicenceData.renewEmail}" type="email" placeholder="E-Mail" required="true" requiredMessage="Put Email"/>
+				<p:inputText id="emailInput" value="#{data.renewLicenceData.renewEmail}" type="email" placeholder="E-Mail" required="true" requiredMessage="Put Email"/>
 				<br />
-				<p:commandButton type="submit" value="Send request" actionListener="#{logic.renewLicence}" onclick="PF('renewLicence').hide();" update=":responseGrowl, accordionPanel:licenceComponent:renew"/>
+				<p:commandButton id="sendRenewButton" type="submit" value="Send request" actionListener="#{logic.renewLicence}" onclick="PF('renewLicence').hide();" update=":responseGrowl, accordionPanel:licenceComponent:renew"/>
 			</h:panelGrid>
 		</h:form>
 	</p:dialog>
