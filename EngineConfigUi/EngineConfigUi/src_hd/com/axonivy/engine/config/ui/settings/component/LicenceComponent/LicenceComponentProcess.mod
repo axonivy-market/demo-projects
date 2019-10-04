@@ -82,7 +82,9 @@ Ls0 f4 @|UdProcessEndIcon #fIcon
 Ls0 f5 clientId b2bf970e-6e13-4762-a66a-a164dc2d10fd #txt
 Ls0 f5 method JAX_RS #txt
 Ls0 f5 bodyInputType ENTITY #txt
-Ls0 f5 clientCode 'import org.apache.commons.lang3.StringUtils;
+Ls0 f5 clientCode 'import javax.ws.rs.core.Response.Status.Family;
+import javax.ws.rs.core.Response.Status;
+import org.apache.commons.lang3.StringUtils;
 import java.util.Map;
 import com.axon.ivy.engine.config.RenewLicence;
 import com.axon.ivy.engine.config.UiModder;
@@ -99,29 +101,17 @@ fos.flush();
 fos.close();
 
 Response response = RenewLicence.upload(client, tempFile, in.renewLicenceData.renewEmail);
-if (response.getStatus() == 200)
+if (response.getStatusInfo().getFamily() == Family.SUCCESSFUL)
 {
-	UiModder.addInfoMessage("Message", "Your request has been sent successfully");
+	UiModder.addInfoMessage("Message", response.readEntity(String.class).toString());
 	Calendar c = Calendar.getInstance().setTime(new Date()).add(Calendar.DATE, 4);
 	in.renewLicenceData.renewDelayBool = true;
-}
-else if (response.getStatus() == 500)
-{
-	UiModder.addWarningMessage("Message", "There was some problem with the server. Please try again in a few minutes.");
-}
-else if (response.getStatus() == 406)
-{
-  UiModder.addErrorMessage("Message", "Sorry, your request already exists.");
-}
-else if (response.getStatus() == 409)
-{
-	UiModder.addErrorMessage("Message", response.readEntity(String.class).toString());
 }
 else
 {
 	String str = response.readEntity(String.class) as String;
 	String result = StringUtils.substringBetween(str, "errorMessage", "statusCode");
-	if (result.isEmpty())
+	if (StringUtils.isEmpty(result))
 	{
 	result = str;
 	}

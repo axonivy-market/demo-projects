@@ -18,10 +18,6 @@ public class DateCalculatorAPI
 
   public static boolean isUnixTime(Date date)
   {
-    if (date.getTime() < 0)
-    {
-      return false;
-    }
-    return true;
+    return date.getTime() >= 0;
   }
 }
