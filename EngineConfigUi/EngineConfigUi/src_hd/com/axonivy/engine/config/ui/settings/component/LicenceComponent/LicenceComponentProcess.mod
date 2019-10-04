@@ -107,7 +107,7 @@ if (response.getStatus() == 200)
 }
 else if (response.getStatus() == 500)
 {
-	UiModder.addWarningMessage("Message", "There was some problem with the server. Please try again in a few minutes. "+response.readEntity(String.class).toString());
+	UiModder.addWarningMessage("Message", "There was some problem with the server. Please try again in a few minutes.");
 }
 else if (response.getStatus() == 406)
 {
