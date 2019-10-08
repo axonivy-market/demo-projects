@@ -22,10 +22,15 @@ Fe0 f1 @|EndIcon #fIcon
 Fe0 f11 dialogId ch.ivyteam.wf.workflow.Frame #txt
 Fe0 f11 startMethod start(String) #txt
 Fe0 f11 requestActionDecl '<String url> param;' #txt
-Fe0 f11 requestActionCode 'import java.net.URI;
-//Only support relative urls (security)
-URI path = new URI(in.url);
-param.url = path.getPath() + "?" + path.getQuery();' #txt
+Fe0 f11 requestActionCode 'import ch.ivyteam.ivy.bpm.error.BpmError;
+if (in.url.startsWith("/ivy/"))
+{
+  param.url = in.url;
+}
+else 
+{
+  BpmError.create("frame:unsupported:url").withMessage("only relative urls are supported (security reasons)").throwError();
+}' #txt
 Fe0 f11 responseMappingAction 'out=in;
 ' #txt
 Fe0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -47,7 +52,7 @@ Fe0 f13 requestEnabled true #txt
 Fe0 f13 triggerEnabled false #txt
 Fe0 f13 callSignature DefaultFramePage(String,Number) #txt
 Fe0 f13 caseData businessCase.attach=true #txt
-Fe0 f13 showInStartList 0 #txt
+Fe0 f13 showInStartList 1 #txt
 Fe0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
