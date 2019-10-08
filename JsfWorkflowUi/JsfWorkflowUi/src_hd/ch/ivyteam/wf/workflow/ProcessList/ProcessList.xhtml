@@ -28,7 +28,7 @@
 		<p:dataTable id="datatable" var="start" value="#{data.myStarts}" rowIndexVar="row" paginator="#{data.myStarts.size() >= 50}" paginatorPosition="bottom" rows="50"
 			emptyMessage="#{ivy.cms.co('/labels/common/noProcesses')}" sortBy="#{start.displayName.toUpperCase()}}" sortOrder="ASCENDING">
 			<p:column headerText="#{ivy.cms.co('/labels/common/name')}" style="width:30%" sortBy="#{start.displayName.toUpperCase()}">
-				<a href="#{start.link.relative}?embedInFrame" id="#{start.link.relative}" title="Start Process: #{start.name}">
+				<a href="#{ivy.html.startref('167C61A86526BDE9/DefaultFramePage.ivp')}?relativeUrl=#{start.link.relative}" id="#{start.link.relative}" title="Start Process: #{start.name}">
 					#{start.displayName}</a>
 			</p:column>
 			<p:column headerText="#{ivy.cms.co('/labels/common/description')}" sortBy="#{start.description}">

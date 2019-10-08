@@ -52,7 +52,7 @@ Fe0 f13 requestEnabled true #txt
 Fe0 f13 triggerEnabled false #txt
 Fe0 f13 callSignature DefaultFramePage(String,Number) #txt
 Fe0 f13 caseData businessCase.attach=true #txt
-Fe0 f13 showInStartList 1 #txt
+Fe0 f13 showInStartList 0 #txt
 Fe0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
