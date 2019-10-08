@@ -1,7 +1,7 @@
 [Ivy]
-167C5ADE7248B984 3.28 #module
+16DAA82D59369B64 3.28 #module
 >Proto >Proto Collection #zClass
-Is0 IFrameProcess Big #zClass
+Is0 FrameProcess Big #zClass
 Is0 RD #cInfo
 Is0 #process
 Is0 @TextInP .type .type #zField
@@ -17,7 +17,7 @@ Is0 @PushWFArc f2 '' #zField
 Is0 @UdEvent f3 '' #zField
 Is0 @UdExitEnd f4 '' #zField
 Is0 @PushWFArc f5 '' #zField
->Proto Is0 Is0 IFrameProcess #zField
+>Proto Is0 Is0 FrameProcess #zField
 Is0 f0 guid 167C5ADE72C8683F #txt
 Is0 f0 method start(String) #txt
 Is0 f0 inParameterDecl '<java.lang.String url> param;' #txt
@@ -53,7 +53,7 @@ Is0 f4 211 147 26 26 0 12 #rect
 Is0 f4 @|UdExitEndIcon #fIcon
 Is0 f5 expr out #txt
 Is0 f5 109 160 211 160 #arcP
->Proto Is0 .type ch.ivyteam.wf.workflow.IFrame.IFrameData #txt
+>Proto Is0 .type ch.ivyteam.wf.workflow.Frame.FrameData #txt
 >Proto Is0 .processKind HTML_DIALOG #txt
 >Proto Is0 -8 -8 16 16 16 26 #rect
 >Proto Is0 '' #fIcon

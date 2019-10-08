@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
+    <description>asdf</description>
     <autoScreenshot>true</autoScreenshot>
     <property>
         <name>guid</name>
-        <value>167C5ADE729D975C</value>
+        <value>16DAA82D593C0A03</value>
         <readOnly>true</readOnly>
     </property>
     <property>
