@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<ui:composition template="/layouts/Workflow.xhtml">
+	<ui:define name="center">
+		<style>
+		#mainArea.container {
+			width: 100%;
+			padding: 0;
+		}
+		#mainArea > h2 {
+			display: none;
+		}
+		#mainArea > footer,
+		#mainArea > hr {
+			display: none;
+		}
+		.layout-wrapper, 
+		.layout-main {
+			height: 100%;
+		}
+		.layout-content {
+			height: calc(100% - 147px);
+		}
+		</style>
+		
+		<iframe id="iFrame" src="#{data.url}" onload="checkUrl(this)" style="height: 100%; width: 100%; border: 0;"></iframe>
+
+		<script>
+		function checkUrl(iFrame) {
+			if (iFrame.contentWindow.location.pathname.match("/default/end.xhtml$")) {
+				window.location = "#{ivy.html.startref('1518CA28D86B5794/TaskListUser.ivp')}";
+			}
+		}
+		window.addEventListener("resize", resizeIFrame);
+		resizeIFrame();
+
+		function resizeIFrame() {
+		  var iframe = document.getElementById('iFrame');
+		  var content = document.getElementById('content')
+		  iframe.style.height = (parseInt(content.offsetHeight) - 100) + "px";
+		}
+		</script>
+	</ui:define>
+</ui:composition>
+</html>
