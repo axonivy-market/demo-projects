@@ -95,7 +95,7 @@
 				<c:choose>
 					<c:when test="#{data.mode ne 'admin'}">
 					<a
-						href="#{ivy.html.taskStartInFrameRef(task)}"
+						href="#{ivy.html.startref('167C61A86526BDE9/FrameWithTaskId.ivp')}?detailTaskId=#{task.id}"
 						id="taskLinkRow_#{row}"
 						title="#{ivy.cms.co('/labels/common/taskResumeTooltip')}"><span class="fa fa-play-circle startIconButton"/> #{task.name}</a>
 					</c:when>
