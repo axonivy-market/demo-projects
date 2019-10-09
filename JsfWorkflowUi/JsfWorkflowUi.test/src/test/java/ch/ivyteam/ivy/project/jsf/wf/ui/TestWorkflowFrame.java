@@ -19,6 +19,6 @@ public class TestWorkflowFrame extends BaseJsfWorkflowUiTest
     
     WfNavigator.openProcessLink(driver, "testWfUi/13F3D94E5C99F06F/WfJsf.ivp?embedInFrame");
     awaitToBePresent(By.id("iFrame"));
-    assertThat(driver.getCurrentUrl()).endsWith("IFrame.xhtml");
+    assertThat(driver.getCurrentUrl()).endsWith("Frame.xhtml");
   }
 }
