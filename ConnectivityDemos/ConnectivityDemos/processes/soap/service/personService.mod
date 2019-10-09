@@ -1,5 +1,5 @@
 [Ivy]
-16150E1D07E8CA18 3.28 #module
+16150E1D07E8CA18 7.5.0 #module
 >Proto >Proto Collection #zClass
 pe0 personService Big #zClass
 pe0 WS #cInfo
@@ -32,8 +32,7 @@ pe0 @PushWFArc f6 '' #zField
 pe0 @InfoButton f13 '' #zField
 >Proto pe0 pe0 personService #zField
 pe0 ws0 inParamDecl '<> param;' #txt
-pe0 ws0 outParamDecl '<java.util.List<com.axonivy.connectivity.Person> persons> result;
-' #txt
+pe0 ws0 outParamDecl '<java.util.List<com.axonivy.connectivity.Person> persons> result;' #txt
 pe0 ws0 outParamTable 'result.persons=in.persons;
 ' #txt
 pe0 ws0 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;
@@ -59,8 +58,7 @@ pe0 ws1 @|EndWSIcon #fIcon
 pe0 f1 inParamDecl '<com.axonivy.connectivity.Person person> param;' #txt
 pe0 f1 inParamTable 'out.person=param.person;
 ' #txt
-pe0 f1 outParamDecl '<com.axonivy.connectivity.Person created> result;
-' #txt
+pe0 f1 outParamDecl '<com.axonivy.connectivity.Person created> result;' #txt
 pe0 f1 outParamTable 'result.created=in.person;
 ' #txt
 pe0 f1 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;
@@ -84,8 +82,7 @@ pe0 f1 @|StartWSIcon #fIcon
 pe0 f2 inParamDecl '<com.axonivy.connectivity.Person person> param;' #txt
 pe0 f2 inParamTable 'out.person=param.person;
 ' #txt
-pe0 f2 outParamDecl '<com.axonivy.connectivity.Person deleted> result;
-' #txt
+pe0 f2 outParamDecl '<com.axonivy.connectivity.Person deleted> result;' #txt
 pe0 f2 outParamTable 'result.deleted=in.person;
 ' #txt
 pe0 f2 actionDecl 'com.axonivy.connectivity.soap.service.PersonServiceData out;

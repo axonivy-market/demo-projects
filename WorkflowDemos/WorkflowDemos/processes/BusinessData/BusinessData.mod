@@ -1,5 +1,5 @@
 [Ivy]
-155BB4328F79B2D5 3.28 #module
+155BB4328F79B2D5 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ba0 BusinessData Big #zClass
 Ba0 B #cInfo
@@ -69,7 +69,7 @@ Ba0 f0 81 241 30 30 -31 17 #rect
 Ba0 f0 @|StartRequestIcon #fIcon
 Ba0 f5 dialogId workflow.businessdata.BusinessDataDossierModifier #txt
 Ba0 f5 startMethod start(String,String) #txt
-Ba0 f5 requestActionDecl '<String businessDataId, String title> param;' #txt
+Ba0 f5 requestActionDecl '<String businessDataId,String title> param;' #txt
 Ba0 f5 requestMappingAction 'param.businessDataId=in.id;
 param.title="Person Dossier";
 ' #txt
@@ -90,7 +90,7 @@ Ba0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ba0 f5 248 266 112 44 -20 -7 #rect
 Ba0 f5 @|UserDialogIcon #fIcon
 Ba0 f7 outLink edit.ivp #txt
-Ba0 f7 inParamDecl '<java.lang.String id> param;' #txt
+Ba0 f7 inParamDecl '<String id> param;' #txt
 Ba0 f7 inParamTable 'out.id=param.id;
 ' #txt
 Ba0 f7 requestEnabled true #txt
@@ -120,7 +120,7 @@ Ba0 f7 @C|.responsibility Everybody #txt
 Ba0 f7 81 306 30 30 -33 17 #rect
 Ba0 f7 @|StartRequestIcon #fIcon
 Ba0 f10 outLink browse.ivp #txt
-Ba0 f10 inParamDecl '<java.lang.Boolean showAll> param;' #txt
+Ba0 f10 inParamDecl '<Boolean showAll> param;' #txt
 Ba0 f10 inParamTable 'out.id="";
 out.showAll=param.showAll;
 ' #txt
@@ -153,7 +153,7 @@ Ba0 f10 82 145 30 30 -33 17 #rect
 Ba0 f10 @|StartRequestIcon #fIcon
 Ba0 f11 dialogId workflow.businessdata.BusinessDataDossierBrowser #txt
 Ba0 f11 startMethod start(String,Boolean) #txt
-Ba0 f11 requestActionDecl '<String lastId, Boolean showAll> param;' #txt
+Ba0 f11 requestActionDecl '<String lastId,Boolean showAll> param;' #txt
 Ba0 f11 requestMappingAction 'param.lastId=in.id;
 param.showAll=in.showAll;
 ' #txt
@@ -246,7 +246,7 @@ Ba0 f16 360 288 416 182 #arcP
 Ba0 f16 1 416 288 #addKink
 Ba0 f16 0 0.8664662612862978 0 0 #arcLabel
 Ba0 f4 outLink delete.ivp #txt
-Ba0 f4 inParamDecl '<java.lang.String id> param;' #txt
+Ba0 f4 inParamDecl '<String id> param;' #txt
 Ba0 f4 inParamTable 'out.id=param.id;
 ' #txt
 Ba0 f4 requestEnabled true #txt

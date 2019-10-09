@@ -1,5 +1,5 @@
 [Ivy]
-152EF97FE4494BDB 3.28 #module
+152EF97FE4494BDB 7.5.0 #module
 >Proto >Proto Collection #zClass
 Qs0 QuitSignalSentProcess Big #zClass
 Qs0 RD #cInfo
@@ -20,11 +20,8 @@ Qs0 @PushWFArc f5 '' #zField
 >Proto Qs0 Qs0 QuitSignalSentProcess #zField
 Qs0 f0 guid 152EF97FE70F90C5 #txt
 Qs0 f0 method start() #txt
-Qs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Qs0 f0 outParameterDecl '<> result;
-' #txt
+Qs0 f0 inParameterDecl '<> param;' #txt
+Qs0 f0 outParameterDecl '<> result;' #txt
 Qs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,5 +1,5 @@
 [Ivy]
-148655EC6EF98127 3.28 #module
+148655EC6EF98127 7.5.0 #module
 >Proto >Proto Collection #zClass
 Es0 EnterProductProcess Big #zClass
 Es0 RD #cInfo
@@ -20,13 +20,10 @@ Es0 @PushWFArc f5 '' #zField
 >Proto Es0 Es0 EnterProductProcess #zField
 Es0 f0 guid 148655EC7054ADE6 #txt
 Es0 f0 method start(quickStartTutorial.Data) #txt
-Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<quickStartTutorial.Data data> param = methodEvent.getInputArguments();
-' #txt
+Es0 f0 inParameterDecl '<quickStartTutorial.Data data> param;' #txt
 Es0 f0 inParameterMapAction 'out.data=param.data;
 ' #txt
-Es0 f0 outParameterDecl '<quickStartTutorial.Data data> result;
-' #txt
+Es0 f0 outParameterDecl '<quickStartTutorial.Data data> result;' #txt
 Es0 f0 outParameterMapAction 'result.data=in.data;
 ' #txt
 Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

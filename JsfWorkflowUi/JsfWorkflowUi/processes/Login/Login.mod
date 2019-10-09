@@ -1,5 +1,5 @@
 [Ivy]
-13FC3AE417DDEE27 3.28 #module
+13FC3AE417DDEE27 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ln0 Login Big #zClass
 Ln0 B #cInfo
@@ -24,7 +24,7 @@ Ln0 f8 352 80 401 128 #arcP
 Ln0 f8 1 352 128 #addKink
 Ln0 f8 1 0.2510580757222466 0 0 #arcLabel
 Ln0 f0 outLink DefaultLoginPage.ivp #txt
-Ln0 f0 inParamDecl '<java.lang.String originalUrl> param;' #txt
+Ln0 f0 inParamDecl '<String originalUrl> param;' #txt
 Ln0 f0 inParamTable 'out.url=param.originalUrl;
 ' #txt
 Ln0 f0 requestEnabled true #txt

@@ -1,5 +1,5 @@
 [Ivy]
-150047A1589EB0D8 3.28 #module
+150047A1589EB0D8 7.5.0 #module
 >Proto >Proto Collection #zClass
 or0 Booking Big #zClass
 or0 B #cInfo
@@ -87,8 +87,7 @@ or0 f3 @|UserDialogIcon #fIcon
 or0 f4 expr out #txt
 or0 f4 63 128 112 128 #arcP
 or0 f5 processCall Booking/Service/Flight:bookFlight(booking.Flight,booking.Customer) #txt
-or0 f5 requestActionDecl '<booking.Flight flight,booking.Customer customer> param;
-' #txt
+or0 f5 requestActionDecl '<booking.Flight flight,booking.Customer customer> param;' #txt
 or0 f5 responseActionDecl 'booking.BookingData out;
 ' #txt
 or0 f5 responseMappingAction 'out=in;
@@ -107,8 +106,7 @@ or0 f5 @|CallSubIcon #fIcon
 or0 f6 expr out #txt
 or0 f6 224 128 264 128 #arcP
 or0 f7 processCall Booking/Service/Car:bookCar(String) #txt
-or0 f7 requestActionDecl '<java.lang.String size> param;
-' #txt
+or0 f7 requestActionDecl '<String size> param;' #txt
 or0 f7 responseActionDecl 'booking.BookingData out;
 ' #txt
 or0 f7 responseMappingAction 'out=in;
@@ -172,8 +170,7 @@ or0 f10 352 175 737 288 #arcP
 or0 f10 1 352 288 #addKink
 or0 f10 1 0.30904127690867544 0 0 #arcLabel
 or0 f11 processCall Booking/Service/Flight:cancelFlight(booking.Flight,booking.Customer) #txt
-or0 f11 requestActionDecl '<booking.Flight flight,booking.Customer customer> param;
-' #txt
+or0 f11 requestActionDecl '<booking.Flight flight,booking.Customer customer> param;' #txt
 or0 f11 responseActionDecl 'booking.BookingData out;
 ' #txt
 or0 f11 responseMappingAction 'out=in;

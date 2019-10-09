@@ -1,5 +1,5 @@
 [Ivy]
-12E298DC97ADC471 3.28 #module
+12E298DC97ADC471 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cy0 PageArchive Big #zClass
 Cy0 B #cInfo
@@ -25,8 +25,7 @@ Cy0 @PushWFArc f3 '' #zField
 Cy0 f0 inParamDecl '<htmlwfui.Data in> param;' #txt
 Cy0 f0 inParamTable 'out=param.in;
 ' #txt
-Cy0 f0 outParamDecl '<> result;
-' #txt
+Cy0 f0 outParamDecl '<> result;' #txt
 Cy0 f0 callSignature call(htmlwfui.Data) #txt
 Cy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

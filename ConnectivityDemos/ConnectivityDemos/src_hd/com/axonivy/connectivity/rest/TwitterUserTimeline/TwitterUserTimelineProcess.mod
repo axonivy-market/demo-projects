@@ -1,5 +1,5 @@
 [Ivy]
-1547689760AB76A9 3.28 #module
+1547689760AB76A9 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ts0 TwitterUserTimelineProcess Big #zClass
 Ts0 RD #cInfo
@@ -20,13 +20,10 @@ Ts0 @PushWFArc f5 '' #zField
 >Proto Ts0 Ts0 TwitterUserTimelineProcess #zField
 Ts0 f0 guid 15476897629E898E #txt
 Ts0 f0 method start(List<com.twitter.status.gson.UserTimeline>) #txt
-Ts0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<List<com.twitter.status.gson.UserTimeline> userTimelines> param = methodEvent.getInputArguments();
-' #txt
+Ts0 f0 inParameterDecl '<List<com.twitter.status.gson.UserTimeline> userTimelines> param;' #txt
 Ts0 f0 inParameterMapAction 'out.userTimelines=param.userTimelines;
 ' #txt
-Ts0 f0 outParameterDecl '<> result;
-' #txt
+Ts0 f0 outParameterDecl '<> result;' #txt
 Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

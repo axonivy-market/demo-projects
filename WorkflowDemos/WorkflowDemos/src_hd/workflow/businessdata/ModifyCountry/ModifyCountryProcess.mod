@@ -1,5 +1,5 @@
 [Ivy]
-156DB995D6C6D132 3.28 #module
+156DB995D6C6D132 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ms0 ModifyCountryProcess Big #zClass
 Ms0 RD #cInfo
@@ -40,13 +40,10 @@ Ms0 f4 339 147 26 26 0 12 #rect
 Ms0 f4 @|UdExitEndIcon #fIcon
 Ms0 f6 guid 156DBA4F86F4C0B3 #txt
 Ms0 f6 method start(String) #txt
-Ms0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String id> param = methodEvent.getInputArguments();
-' #txt
+Ms0 f6 inParameterDecl '<String id> param;' #txt
 Ms0 f6 inParameterMapAction 'out.addressId=param.id;
 ' #txt
-Ms0 f6 outParameterDecl '<> result;
-' #txt
+Ms0 f6 outParameterDecl '<> result;' #txt
 Ms0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,5 +1,5 @@
 [Ivy]
-127AF01D1868F1B6 3.28 #module
+127AF01D1868F1B6 7.5.0 #module
 >Proto >Proto Collection #zClass
 Le0 LoginSequence Big #zClass
 Le0 B #cInfo
@@ -29,8 +29,7 @@ Le0 @PushWFArc f6 '' #zField
 Le0 f0 inParamDecl '<htmlwfui.Data in> param;' #txt
 Le0 f0 inParamTable 'out=param.in;
 ' #txt
-Le0 f0 outParamDecl '<htmlwfui.Data out> result;
-' #txt
+Le0 f0 outParamDecl '<htmlwfui.Data out> result;' #txt
 Le0 f0 outParamTable 'result.out=in;
 ' #txt
 Le0 f0 callSignature check_Login(htmlwfui.Data) #txt

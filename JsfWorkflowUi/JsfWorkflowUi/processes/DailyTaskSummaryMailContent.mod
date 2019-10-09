@@ -1,5 +1,5 @@
 [Ivy]
-1478CBF817011BDA 3.28 #module
+1478CBF817011BDA 7.5.0 #module
 >Proto >Proto Collection #zClass
 Dt0 DailyTaskSummaryMailContent Big #zClass
 Dt0 B #cInfo
@@ -16,7 +16,7 @@ Dt0 @UserDialog f1 '' #zField
 Dt0 @PushWFArc f2 '' #zField
 >Proto Dt0 Dt0 DailyTaskSummaryMailContent #zField
 Dt0 f0 outLink MailNotification_DailyTaskSummary.ivp #txt
-Dt0 f0 inParamDecl '<java.lang.Number notificationUserId> param;' #txt
+Dt0 f0 inParamDecl '<Number notificationUserId> param;' #txt
 Dt0 f0 inParamTable 'out.tasks=ivy.wf.findWorkTasks(ivy.wf.getSecurityContext().findUser(param.notificationUserId), 0, -1).getResultList();
 out.user=ivy.wf.getSecurityContext().findUser(param.notificationUserId);
 ' #txt
@@ -45,7 +45,7 @@ Dt0 f0 113 49 30 30 -107 17 #rect
 Dt0 f0 @|StartRequestIcon #fIcon
 Dt0 f1 dialogId ch.ivyteam.wf.workflow.DailyTaskSummaryMailContent #txt
 Dt0 f1 startMethod start(ch.ivyteam.ivy.security.IUser,List<ch.ivyteam.ivy.workflow.ITask>) #txt
-Dt0 f1 requestActionDecl '<ch.ivyteam.ivy.security.IUser user, List<ch.ivyteam.ivy.workflow.ITask> tasks> param;' #txt
+Dt0 f1 requestActionDecl '<ch.ivyteam.ivy.security.IUser user,List<ch.ivyteam.ivy.workflow.ITask> tasks> param;' #txt
 Dt0 f1 requestMappingAction 'param.user=in.user;
 param.tasks=in.tasks;
 ' #txt

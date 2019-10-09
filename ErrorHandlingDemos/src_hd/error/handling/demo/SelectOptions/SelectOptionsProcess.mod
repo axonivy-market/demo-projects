@@ -1,5 +1,5 @@
 [Ivy]
-15004A488FF27022 3.28 #module
+15004A488FF27022 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ss0 SelectOptionsProcess Big #zClass
 Ss0 RD #cInfo
@@ -20,14 +20,11 @@ Ss0 @PushWFArc f5 '' #zField
 >Proto Ss0 Ss0 SelectOptionsProcess #zField
 Ss0 f0 guid 15004A489138060F #txt
 Ss0 f0 method start(booking.Customer) #txt
-Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<booking.Customer customer> param = methodEvent.getInputArguments();
-' #txt
+Ss0 f0 inParameterDecl '<booking.Customer customer> param;' #txt
 Ss0 f0 inParameterMapAction 'out.customer=param.customer;
 ' #txt
 Ss0 f0 inActionCode 'out.flight; // init' #txt
-Ss0 f0 outParameterDecl '<booking.Flight flight,java.lang.String carSize> result;
-' #txt
+Ss0 f0 outParameterDecl '<booking.Flight flight,String carSize> result;' #txt
 Ss0 f0 outParameterMapAction 'result.flight=in.flight;
 result.carSize=in.carSize;
 ' #txt

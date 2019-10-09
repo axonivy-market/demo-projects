@@ -1,5 +1,5 @@
 [Ivy]
-12E2EFDD83CB2D4C 3.28 #module
+12E2EFDD83CB2D4C 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ln0 Login Big #zClass
 Ln0 B #cInfo
@@ -20,7 +20,7 @@ Ln0 @EndTask f7 '' #zField
 Ln0 @PushWFArc f8 '' #zField
 >Proto Ln0 Ln0 Login #zField
 Ln0 f0 outLink DefaultLoginPage.ivp #txt
-Ln0 f0 inParamDecl '<java.lang.String originalUrl> param;' #txt
+Ln0 f0 inParamDecl '<String originalUrl> param;' #txt
 Ln0 f0 inParamTable 'out.temp.url=param.originalUrl;
 ' #txt
 Ln0 f0 requestEnabled true #txt
@@ -51,8 +51,7 @@ Ln0 f0 @C|.responsibility Everybody #txt
 Ln0 f0 115 43 26 26 18 -9 #rect
 Ln0 f0 @|StartRequestIcon #fIcon
 Ln0 f5 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Ln0 f5 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Ln0 f5 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Ln0 f5 requestMappingAction 'param.in=in;
 ' #txt
 Ln0 f5 responseActionDecl 'htmlwfui.Data out;

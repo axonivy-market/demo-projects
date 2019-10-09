@@ -1,5 +1,5 @@
 [Ivy]
-1531DF45ECF11CAA 3.28 #module
+1531DF45ECF11CAA 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ls0 SignalListAdminProcess Big #zClass
 Ls0 RD #cInfo
@@ -17,13 +17,10 @@ Ls0 @PushWFArc f2 '' #zField
 >Proto Ls0 Ls0 SignalListAdminProcess #zField
 Ls0 f0 guid 1477BA395ABF4887 #txt
 Ls0 f0 method start() #txt
-Ls0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
+Ls0 f0 inParameterDecl '<> param;' #txt
 Ls0 f0 inActionCode 'import ch.ivyteam.wf.signal.SignalService;
 out.signalService = new SignalService();' #txt
-Ls0 f0 outParameterDecl '<> result;
-' #txt
+Ls0 f0 outParameterDecl '<> result;' #txt
 Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

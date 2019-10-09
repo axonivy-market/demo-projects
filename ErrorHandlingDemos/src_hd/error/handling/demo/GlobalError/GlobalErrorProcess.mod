@@ -1,5 +1,5 @@
 [Ivy]
-15014A15C1CA5451 3.28 #module
+15014A15C1CA5451 7.5.0 #module
 >Proto >Proto Collection #zClass
 Gs0 GlobalErrorProcess Big #zClass
 Gs0 RD #cInfo
@@ -20,14 +20,11 @@ Gs0 @PushWFArc f5 '' #zField
 >Proto Gs0 Gs0 GlobalErrorProcess #zField
 Gs0 f0 guid 15014A15C2CFD098 #txt
 Gs0 f0 method start(String,String) #txt
-Gs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String errorCode,java.lang.String errorText> param = methodEvent.getInputArguments();
-' #txt
+Gs0 f0 inParameterDecl '<String errorCode,String errorText> param;' #txt
 Gs0 f0 inParameterMapAction 'out.errorCode=param.errorCode;
 out.errorText=param.errorText;
 ' #txt
-Gs0 f0 outParameterDecl '<> result;
-' #txt
+Gs0 f0 outParameterDecl '<> result;' #txt
 Gs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

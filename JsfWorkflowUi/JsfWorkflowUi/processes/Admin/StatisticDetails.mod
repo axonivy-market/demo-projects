@@ -1,5 +1,5 @@
 [Ivy]
-144697C904B165C8 3.28 #module
+144697C904B165C8 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ss0 StatisticDetails Big #zClass
 Ss0 B #cInfo
@@ -20,7 +20,7 @@ Ss0 @StartRequest f5 '' #zField
 Ss0 @PushWFArc f6 '' #zField
 >Proto Ss0 Ss0 StatisticDetails #zField
 Ss0 f0 outLink StatisticDetailsMin.ivp #txt
-Ss0 f0 inParamDecl '<java.lang.String category> param;' #txt
+Ss0 f0 inParamDecl '<String category> param;' #txt
 Ss0 f0 inParamTable 'out.category=param.category;
 out.mode="min";
 ' #txt
@@ -75,7 +75,7 @@ Ss0 f2 111 192 224 150 #arcP
 Ss0 f2 1 224 192 #addKink
 Ss0 f2 0 0.7017184678752515 0 0 #arcLabel
 Ss0 f3 outLink StatisticDetailsMax.ivp #txt
-Ss0 f3 inParamDecl '<java.lang.String category> param;' #txt
+Ss0 f3 inParamDecl '<String category> param;' #txt
 Ss0 f3 inParamTable 'out.category=param.category;
 out.mode="max";
 ' #txt
@@ -105,7 +105,7 @@ Ss0 f3 -1|-1|-9671572 #nodeStyle
 Ss0 f4 expr out #txt
 Ss0 f4 111 128 168 128 #arcP
 Ss0 f5 outLink StatisticDetailsAvg.ivp #txt
-Ss0 f5 inParamDecl '<java.lang.String caseId> param;' #txt
+Ss0 f5 inParamDecl '<String caseId> param;' #txt
 Ss0 f5 inParamTable 'out.caseId=param.caseId.toNumber();
 out.mode="avg";
 ' #txt

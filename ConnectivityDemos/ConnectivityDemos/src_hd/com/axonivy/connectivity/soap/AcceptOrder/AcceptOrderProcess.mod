@@ -1,5 +1,5 @@
 [Ivy]
-162494137FBEE605 3.28 #module
+162494137FBEE605 7.5.0 #module
 >Proto >Proto Collection #zClass
 As0 AcceptOrderProcess Big #zClass
 As0 RD #cInfo
@@ -23,13 +23,10 @@ As0 @PushWFArc f8 '' #zField
 >Proto As0 As0 AcceptOrderProcess #zField
 As0 f0 guid 16249413814F1B4C #txt
 As0 f0 method start(com.axonivy.connectivity.soap.service.Order) #txt
-As0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<com.axonivy.connectivity.soap.service.Order order> param = methodEvent.getInputArguments();
-' #txt
+As0 f0 inParameterDecl '<com.axonivy.connectivity.soap.service.Order order> param;' #txt
 As0 f0 inParameterMapAction 'out.order=param.order;
 ' #txt
-As0 f0 outParameterDecl '<> result;
-' #txt
+As0 f0 outParameterDecl '<> result;' #txt
 As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

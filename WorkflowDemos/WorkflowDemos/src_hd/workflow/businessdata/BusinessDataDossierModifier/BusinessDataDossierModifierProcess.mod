@@ -1,5 +1,5 @@
 [Ivy]
-155BB4D0A6771B1B 3.28 #module
+155BB4D0A6771B1B 7.5.0 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierModifierProcess Big #zClass
 Bs0 RD #cInfo
@@ -123,14 +123,11 @@ Bs0 f15 expr out #txt
 Bs0 f15 376 192 435 192 #arcP
 Bs0 f16 guid 156D6BFA70854D75 #txt
 Bs0 f16 method start(String,String) #txt
-Bs0 f16 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String businessDataId,java.lang.String title> param = methodEvent.getInputArguments();
-' #txt
+Bs0 f16 inParameterDecl '<String businessDataId,String title> param;' #txt
 Bs0 f16 inParameterMapAction 'out.id=param.businessDataId;
 out.title=param.title;
 ' #txt
-Bs0 f16 outParameterDecl '<java.lang.String id> result;
-' #txt
+Bs0 f16 outParameterDecl '<String id> result;' #txt
 Bs0 f16 outParameterMapAction 'result.id=in.id;
 ' #txt
 Bs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

@@ -1,5 +1,5 @@
 [Ivy]
-13FE666253A103EF 3.28 #module
+13FE666253A103EF 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetailsProcess Big #zClass
 Cs0 RD #cInfo
@@ -43,14 +43,11 @@ Cs0 @PushWFArc f16 '' #zField
 >Proto Cs0 Cs0 CaseDetailsProcess #zField
 Cs0 f0 guid 13FE66625592A530 #txt
 Cs0 f0 method start(Number) #txt
-Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.Number caseId> param = methodEvent.getInputArguments();
-' #txt
+Cs0 f0 inParameterDecl '<Number caseId> param;' #txt
 Cs0 f0 inParameterMapAction 'out.caseId=param.caseId;
 out.cases=new ch.ivyteam.wf.history.CasesOfBusinessCaseLazyDataModel(param.caseId);
 ' #txt
-Cs0 f0 outParameterDecl '<> result;
-' #txt
+Cs0 f0 outParameterDecl '<> result;' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -194,11 +191,8 @@ Cs0 f5 @|StepIcon #fIcon
 Cs0 f5 -1|-1|-9671572 #nodeStyle
 Cs0 f12 guid 13FF05ADA3C442A3 #txt
 Cs0 f12 method update() #txt
-Cs0 f12 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Cs0 f12 outParameterDecl '<> result;
-' #txt
+Cs0 f12 inParameterDecl '<> param;' #txt
+Cs0 f12 outParameterDecl '<> result;' #txt
 Cs0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

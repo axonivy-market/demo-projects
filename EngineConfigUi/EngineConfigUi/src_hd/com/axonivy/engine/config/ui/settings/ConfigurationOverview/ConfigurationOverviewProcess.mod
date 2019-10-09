@@ -1,5 +1,5 @@
 [Ivy]
-157E2C1BEC4930AC 3.28 #module
+157E2C1BEC4930AC 7.5.0 #module
 >Proto >Proto Collection #zClass
 ss0 ConfigurationOverviewProcess Big #zClass
 ss0 RD #cInfo
@@ -39,11 +39,8 @@ ss0 @PushWFArc f13 '' #zField
 >Proto ss0 ss0 ConfigurationOverviewProcess #zField
 ss0 f0 guid 157E2C1BEDF33419 #txt
 ss0 f0 method start() #txt
-ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-ss0 f0 outParameterDecl '<> result;
-' #txt
+ss0 f0 inParameterDecl '<> param;' #txt
+ss0 f0 outParameterDecl '<> result;' #txt
 ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -117,9 +114,7 @@ ss0 f9 371 179 26 26 0 12 #rect
 ss0 f9 @|UdProcessEndIcon #fIcon
 ss0 f11 guid 15C0B18249EAF4B3 #txt
 ss0 f11 method tabChange(org.primefaces.event.TabChangeEvent) #txt
-ss0 f11 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<org.primefaces.event.TabChangeEvent event> param = methodEvent.getInputArguments();
-' #txt
+ss0 f11 inParameterDecl '<org.primefaces.event.TabChangeEvent event> param;' #txt
 ss0 f11 inActionCode 'import org.primefaces.context.RequestContext;
 import org.primefaces.component.accordionpanel.AccordionPanel;
 import org.primefaces.component.tabview.TabView;
@@ -129,8 +124,7 @@ TabChangeEvent event = param.event as TabChangeEvent;
 AccordionPanel tv = event.getComponent() as AccordionPanel;
 out.activeTabIndex = tv.getChildren().indexOf(event.getTab());
 out.tabChangeEvent = event;' #txt
-ss0 f11 outParameterDecl '<> result;
-' #txt
+ss0 f11 outParameterDecl '<> result;' #txt
 ss0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

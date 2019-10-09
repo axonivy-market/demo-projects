@@ -1,5 +1,5 @@
 [Ivy]
-13D39CF289ACE89B 3.28 #module
+13D39CF289ACE89B 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ps0 PrimefacesProcess Big #zClass
 Ps0 RD #cInfo
@@ -20,11 +20,8 @@ Ps0 @PushWFArc f7 '' #zField
 >Proto Ps0 Ps0 PrimefacesProcess #zField
 Ps0 f0 guid 13D39CF28B9D0EB7 #txt
 Ps0 f0 method start() #txt
-Ps0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ps0 f0 outParameterDecl '<> result;
-' #txt
+Ps0 f0 inParameterDecl '<> param;' #txt
+Ps0 f0 outParameterDecl '<> result;' #txt
 Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -55,11 +52,8 @@ Ps0 f3 168 138 112 44 -31 -8 #rect
 Ps0 f3 @|StepIcon #fIcon
 Ps0 f5 guid 14E3F8D0750EC6BD #txt
 Ps0 f5 method getVersion() #txt
-Ps0 f5 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ps0 f5 outParameterDecl '<> result;
-' #txt
+Ps0 f5 inParameterDecl '<> param;' #txt
+Ps0 f5 outParameterDecl '<> result;' #txt
 Ps0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

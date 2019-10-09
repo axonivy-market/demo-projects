@@ -1,5 +1,5 @@
 [Ivy]
-150148B81ACE3E1E 3.28 #module
+150148B81ACE3E1E 7.5.0 #module
 >Proto >Proto Collection #zClass
 Er0 ErrorHandler Big #zClass
 Er0 B #cInfo
@@ -71,7 +71,7 @@ Er0 f5 @|IBIcon #fIcon
 Er0 f5 -1|-1|-65536 #nodeStyle
 Er0 f6 dialogId error.handling.demo.GlobalError #txt
 Er0 f6 startMethod start(String,String) #txt
-Er0 f6 requestActionDecl '<String errorCode, String errorText> param;' #txt
+Er0 f6 requestActionDecl '<String errorCode,String errorText> param;' #txt
 Er0 f6 requestMappingAction 'param.errorCode=in.errorCode;
 param.errorText=in.errorText;
 ' #txt

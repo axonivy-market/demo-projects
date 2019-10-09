@@ -1,5 +1,5 @@
 [Ivy]
-1367DCC9EAB32A2E 3.28 #module
+1367DCC9EAB32A2E 7.5.0 #module
 >Proto >Proto Collection #zClass
 Sn0 Substitution Big #zClass
 Sn0 B #cInfo
@@ -132,8 +132,7 @@ Sn0 f3 @|StepIcon #fIcon
 Sn0 f5 51 259 26 26 14 0 #rect
 Sn0 f5 @|EndIcon #fIcon
 Sn0 f8 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Sn0 f8 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Sn0 f8 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Sn0 f8 requestMappingAction 'param.in=in;
 ' #txt
 Sn0 f8 responseActionDecl 'htmlwfui.Data out;

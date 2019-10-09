@@ -1,5 +1,5 @@
 [Ivy]
-1576AF3D55F99A36 3.28 #module
+1576AF3D55F99A36 7.5.0 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierLazyBrowserProcess Big #zClass
 Bs0 RD #cInfo
@@ -38,13 +38,10 @@ Bs0 f5 expr out #txt
 Bs0 f5 109 160 211 160 #arcP
 Bs0 f0 guid 156FE96D5274976E #txt
 Bs0 f0 method start() #txt
-Bs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
+Bs0 f0 inParameterDecl '<> param;' #txt
 Bs0 f0 inParameterMapAction 'out.dossierModel=new ch.ivyteam.ivy.wfdemo.businessdata.DossierLazyDataModel();
 ' #txt
-Bs0 f0 outParameterDecl '<> result;
-' #txt
+Bs0 f0 outParameterDecl '<> result;' #txt
 Bs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

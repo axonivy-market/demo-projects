@@ -1,5 +1,5 @@
 [Ivy]
-12E297F287736665 3.28 #module
+12E297F287736665 7.5.0 #module
 >Proto >Proto Collection #zClass
 Rt0 TaskHistory Big #zClass
 Rt0 B #cInfo
@@ -148,8 +148,7 @@ Rt0 f0 @C|.responsibility Everybody #txt
 Rt0 f0 83 19 26 26 14 0 #rect
 Rt0 f0 @|StartRequestIcon #fIcon
 Rt0 f30 processCall 'Functional Processes/TaskDetail:call(htmlwfui.Data)' #txt
-Rt0 f30 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Rt0 f30 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Rt0 f30 requestMappingAction 'param.in=in;
 param.in.tmpTask=in.tasks.get(in.temp.n);
 ' #txt
@@ -260,8 +259,7 @@ Rt0 f9 1 256 464 #addKink
 Rt0 f9 2 256 352 #addKink
 Rt0 f9 1 0.5 0 0 #arcLabel
 Rt0 f4 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Rt0 f4 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Rt0 f4 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Rt0 f4 requestMappingAction 'param.in=in;
 ' #txt
 Rt0 f4 responseActionDecl 'htmlwfui.Data out;

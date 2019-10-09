@@ -1,5 +1,5 @@
 [Ivy]
-13FE81AF3A82F57F 3.28 #module
+13FE81AF3A82F57F 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetails Big #zClass
 Ts0 B #cInfo
@@ -16,7 +16,7 @@ Ts0 @StartRequest f3 '' #zField
 Ts0 @PushWFArc f4 '' #zField
 >Proto Ts0 Ts0 TaskDetails #zField
 Ts0 f0 outLink TaskDetails.ivp #txt
-Ts0 f0 inParamDecl '<java.lang.Number detailTaskId> param;' #txt
+Ts0 f0 inParamDecl '<Number detailTaskId> param;' #txt
 Ts0 f0 inParamTable 'out.isHistory=false;
 out.taskId=param.detailTaskId;
 ' #txt
@@ -47,7 +47,7 @@ Ts0 f0 @|StartRequestIcon #fIcon
 Ts0 f0 -1|-1|-9671572 #nodeStyle
 Ts0 f1 dialogId ch.ivyteam.wf.history.TaskDetails #txt
 Ts0 f1 startMethod start(Number,Boolean) #txt
-Ts0 f1 requestActionDecl '<Number taskId, Boolean isHistory> param;' #txt
+Ts0 f1 requestActionDecl '<Number taskId,Boolean isHistory> param;' #txt
 Ts0 f1 requestMappingAction 'param.taskId=in.taskId;
 param.isHistory=in.isHistory;
 ' #txt
@@ -72,7 +72,7 @@ Ts0 f2 111 192 224 150 #arcP
 Ts0 f2 1 224 192 #addKink
 Ts0 f2 0 0.9518306578755212 0 0 #arcLabel
 Ts0 f3 outLink TaskHistoryDetails.ivp #txt
-Ts0 f3 inParamDecl '<java.lang.Number detailTaskId> param;' #txt
+Ts0 f3 inParamDecl '<Number detailTaskId> param;' #txt
 Ts0 f3 inParamTable 'out.isHistory=true;
 out.taskId=param.detailTaskId;
 ' #txt

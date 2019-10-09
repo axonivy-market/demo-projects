@@ -1,5 +1,5 @@
 [Ivy]
-157E7518F66E24A9 3.28 #module
+157E7518F66E24A9 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ss0 SystemDatabaseComponentProcess Big #zClass
 Ss0 RD #cInfo
@@ -68,15 +68,12 @@ Ss0 @GridStep f40 '' #zField
 >Proto Ss0 Ss0 SystemDatabaseComponentProcess #zField
 Ss0 f0 guid 157E7518F76CF891 #txt
 Ss0 f0 method start(com.axon.ivy.engine.config.SystemDatabaseSettings) #txt
-Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param = methodEvent.getInputArguments();
-' #txt
+Ss0 f0 inParameterDecl '<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param;' #txt
 Ss0 f0 inParameterMapAction 'out.configData=param.settings.getConfigData();
 out.connectionInfo=param.settings.getConnectionInfo();
 out.settings=param.settings;
 ' #txt
-Ss0 f0 outParameterDecl '<> result;
-' #txt
+Ss0 f0 outParameterDecl '<> result;' #txt
 Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -332,15 +329,12 @@ Ss0 f52 expr out #txt
 Ss0 f52 280 640 339 640 #arcP
 Ss0 f55 guid 15B57EC9C5D8E3B6 #txt
 Ss0 f55 method removeProperty(String) #txt
-Ss0 f55 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String propertyKey> param = methodEvent.getInputArguments();
-' #txt
+Ss0 f55 inParameterDecl '<String propertyKey> param;' #txt
 Ss0 f55 inActionCode 'import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 out.configData.additionalProperties.remove(param.propertyKey);
 
 out.settings.getConnectionInfo().connectionState = ConnectionState.NOT_CONNECTED;' #txt
-Ss0 f55 outParameterDecl '<> result;
-' #txt
+Ss0 f55 outParameterDecl '<> result;' #txt
 Ss0 f55 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,5 +1,5 @@
 [Ivy]
-144BBF8074075C50 3.28 #module
+144BBF8074075C50 7.5.0 #module
 >Proto >Proto Collection #zClass
 Hs0 Html5DemoProcess Big #zClass
 Hs0 RD #cInfo
@@ -25,11 +25,8 @@ Hs0 @PushWFArc f8 '' #zField
 >Proto Hs0 Hs0 Html5DemoProcess #zField
 Hs0 f0 guid 144BBF809571B810 #txt
 Hs0 f0 method start() #txt
-Hs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Hs0 f0 outParameterDecl '<> result;
-' #txt
+Hs0 f0 inParameterDecl '<> param;' #txt
+Hs0 f0 outParameterDecl '<> result;' #txt
 Hs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

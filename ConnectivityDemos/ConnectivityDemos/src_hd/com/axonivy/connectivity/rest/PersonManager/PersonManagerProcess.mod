@@ -1,5 +1,5 @@
 [Ivy]
-15470DE765DF45FC 3.28 #module
+15470DE765DF45FC 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonManagerProcess Big #zClass
 Ps0 RD #cInfo
@@ -43,12 +43,9 @@ Ps0 @PushWFArc f24 '' #zField
 >Proto Ps0 Ps0 PersonManagerProcess #zField
 Ps0 f0 guid 15470DE767CB62E5 #txt
 Ps0 f0 method start() #txt
-Ps0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
+Ps0 f0 inParameterDecl '<> param;' #txt
 Ps0 f0 inActionCode 'out.editPerson; //init' #txt
-Ps0 f0 outParameterDecl '<> result;
-' #txt
+Ps0 f0 outParameterDecl '<> result;' #txt
 Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -82,13 +79,10 @@ Ps0 f5 expr out #txt
 Ps0 f5 109 192 211 192 #arcP
 Ps0 f6 guid 154714B11193C26B #txt
 Ps0 f6 method edit(com.axonivy.connectivity.Person) #txt
-Ps0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<com.axonivy.connectivity.Person person> param = methodEvent.getInputArguments();
-' #txt
+Ps0 f6 inParameterDecl '<com.axonivy.connectivity.Person person> param;' #txt
 Ps0 f6 inParameterMapAction 'out.editPerson=param.person;
 ' #txt
-Ps0 f6 outParameterDecl '<> result;
-' #txt
+Ps0 f6 outParameterDecl '<> result;' #txt
 Ps0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -137,11 +131,8 @@ Ps0 f15 339 403 26 26 0 12 #rect
 Ps0 f15 @|UdProcessEndIcon #fIcon
 Ps0 f19 guid 154756E891F20C23 #txt
 Ps0 f19 method update() #txt
-Ps0 f19 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ps0 f19 outParameterDecl '<> result;
-' #txt
+Ps0 f19 inParameterDecl '<> param;' #txt
+Ps0 f19 outParameterDecl '<> result;' #txt
 Ps0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -157,13 +148,10 @@ Ps0 f21 339 275 26 26 0 12 #rect
 Ps0 f21 @|UdProcessEndIcon #fIcon
 Ps0 f22 guid 154996947DF8D2D2 #txt
 Ps0 f22 method delete(java.util.UUID) #txt
-Ps0 f22 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.util.UUID id> param = methodEvent.getInputArguments();
-' #txt
+Ps0 f22 inParameterDecl '<java.util.UUID id> param;' #txt
 Ps0 f22 inParameterMapAction 'out.editPerson.id=param.id;
 ' #txt
-Ps0 f22 outParameterDecl '<> result;
-' #txt
+Ps0 f22 outParameterDecl '<> result;' #txt
 Ps0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

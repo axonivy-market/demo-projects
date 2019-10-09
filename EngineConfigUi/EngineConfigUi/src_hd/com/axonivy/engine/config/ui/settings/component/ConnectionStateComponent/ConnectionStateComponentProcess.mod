@@ -1,5 +1,5 @@
 [Ivy]
-15B397D1FF06EDCD 3.28 #module
+15B397D1FF06EDCD 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cs0 ConnectionStateComponentProcess Big #zClass
 Cs0 RD #cInfo
@@ -17,13 +17,10 @@ Cs0 @PushWFArc f2 '' #zField
 >Proto Cs0 Cs0 ConnectionStateComponentProcess #zField
 Cs0 f0 guid 15B397D20182FD54 #txt
 Cs0 f0 method start(com.axon.ivy.engine.config.SystemDatabaseSettings) #txt
-Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param = methodEvent.getInputArguments();
-' #txt
+Cs0 f0 inParameterDecl '<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param;' #txt
 Cs0 f0 inParameterMapAction 'out.settings=param.settings;
 ' #txt
-Cs0 f0 outParameterDecl '<> result;
-' #txt
+Cs0 f0 outParameterDecl '<> result;' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

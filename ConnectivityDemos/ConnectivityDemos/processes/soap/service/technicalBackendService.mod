@@ -1,5 +1,5 @@
 [Ivy]
-162B95BB70C3178E 3.28 #module
+162B95BB70C3178E 7.5.0 #module
 >Proto >Proto Collection #zClass
 te0 technicalBackendService Big #zClass
 te0 WS #cInfo
@@ -41,8 +41,7 @@ te0 f15 227 76 240 44 -116 -8 #rect
 te0 f15 @|StepIcon #fIcon
 te0 f14 inParamTable 'out.startTimeMillis=System.currentTimeMillis();
 ' #txt
-te0 f14 outParamDecl '<java.lang.String message> result;
-' #txt
+te0 f14 outParamDecl '<String message> result;' #txt
 te0 f14 outParamTable 'result.message="batch processed in "+(System.currentTimeMillis()-in.startTimeMillis)+ " [ms]";
 ' #txt
 te0 f14 actionDecl 'com.axonivy.connectivity.soap.service.TechnicalBackendServiceData out;

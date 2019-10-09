@@ -1,5 +1,5 @@
 [Ivy]
-14377E60D299F34F 3.28 #module
+14377E60D299F34F 7.5.0 #module
 >Proto >Proto Collection #zClass
 Es0 JsfCompositeComponentDemoProcess Big #zClass
 Es0 RD #cInfo
@@ -15,9 +15,7 @@ Es0 @PushWFArc f2 '' #zField
 >Proto Es0 Es0 JsfCompositeComponentDemoProcess #zField
 Es0 f0 guid 139D96A574FD8C6C #txt
 Es0 f0 method start() #txt
-Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
+Es0 f0 inParameterDecl '<> param;' #txt
 Es0 f0 inParameterMapAction 'out.person.billingAddress.country="Switzerland";
 out.person.billingAddress.street="Bahnhofstrasse";
 out.person.deliveryAddress.country="Germany";
@@ -25,8 +23,7 @@ out.person.deliveryAddress.street="Landstrasse";
 out.person.firstname="Hans";
 out.person.name="Muster";
 ' #txt
-Es0 f0 outParameterDecl '<> result;
-' #txt
+Es0 f0 outParameterDecl '<> result;' #txt
 Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

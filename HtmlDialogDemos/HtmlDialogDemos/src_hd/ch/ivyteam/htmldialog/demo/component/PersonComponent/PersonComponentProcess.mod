@@ -1,5 +1,5 @@
 [Ivy]
-13B69F6612D62493 3.28 #module
+13B69F6612D62493 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ps0 PersonComponentProcess Big #zClass
 Ps0 RD #cInfo
@@ -15,13 +15,10 @@ Ps0 @PushWFArc f2 '' #zField
 >Proto Ps0 Ps0 PersonComponentProcess #zField
 Ps0 f0 guid 13B69F6613C66357 #txt
 Ps0 f0 method start(ch.ivyteam.htmldialog.demo.Person) #txt
-Ps0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.htmldialog.demo.Person person> param = methodEvent.getInputArguments();
-' #txt
+Ps0 f0 inParameterDecl '<ch.ivyteam.htmldialog.demo.Person person> param;' #txt
 Ps0 f0 inParameterMapAction 'out.person=param.person;
 ' #txt
-Ps0 f0 outParameterDecl '<ch.ivyteam.htmldialog.demo.Person person> result;
-' #txt
+Ps0 f0 outParameterDecl '<ch.ivyteam.htmldialog.demo.Person person> result;' #txt
 Ps0 f0 outParameterMapAction 'result.person=in.person;
 ' #txt
 Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

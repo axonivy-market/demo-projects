@@ -1,5 +1,5 @@
 [Ivy]
-15B37CDEFA487D01 3.28 #module
+15B37CDEFA487D01 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cs0 CollectPersonDataProcess Big #zClass
 Cs0 RD #cInfo
@@ -24,11 +24,8 @@ Cs0 @PushWFArc f5 '' #zField
 >Proto Cs0 Cs0 CollectPersonDataProcess #zField
 Cs0 f0 guid 15B37CDEFFB42101 #txt
 Cs0 f0 method start() #txt
-Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Cs0 f0 outParameterDecl '<> result;
-' #txt
+Cs0 f0 inParameterDecl '<> param;' #txt
+Cs0 f0 outParameterDecl '<> result;' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

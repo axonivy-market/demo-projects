@@ -1,5 +1,5 @@
 [Ivy]
-150850F930AF7EA6 3.28 #module
+150850F930AF7EA6 7.5.0 #module
 >Proto >Proto Collection #zClass
 Rs0 RequestApprovalProcess Big #zClass
 Rs0 RD #cInfo
@@ -23,13 +23,10 @@ Rs0 @PushWFArc f8 '' #zField
 >Proto Rs0 Rs0 RequestApprovalProcess #zField
 Rs0 f0 guid 150850F931993F87 #txt
 Rs0 f0 method start(error.handling.demo.Approval) #txt
-Rs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<error.handling.demo.Approval approval> param = methodEvent.getInputArguments();
-' #txt
+Rs0 f0 inParameterDecl '<error.handling.demo.Approval approval> param;' #txt
 Rs0 f0 inParameterMapAction 'out.approval=param.approval;
 ' #txt
-Rs0 f0 outParameterDecl '<> result;
-' #txt
+Rs0 f0 outParameterDecl '<> result;' #txt
 Rs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
