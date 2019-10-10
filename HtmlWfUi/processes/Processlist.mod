@@ -1,5 +1,5 @@
 [Ivy]
-1270ADF72FF4AFF3 3.28 #module
+1270ADF72FF4AFF3 7.5.0 #module
 >Proto >Proto Collection #zClass
 Pt0 Processlist Big #zClass
 Pt0 B #cInfo
@@ -103,8 +103,7 @@ Pt0 f4 expr data #txt
 Pt0 f4 outCond ivp=="LinkA.ivp" #txt
 Pt0 f4 152 252 152 315 #arcP
 Pt0 f14 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Pt0 f14 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Pt0 f14 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Pt0 f14 requestMappingAction 'param.in=in;
 ' #txt
 Pt0 f14 responseActionDecl 'htmlwfui.Data out;

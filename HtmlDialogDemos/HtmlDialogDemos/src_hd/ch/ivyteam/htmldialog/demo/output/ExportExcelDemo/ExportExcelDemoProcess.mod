@@ -1,5 +1,5 @@
 [Ivy]
-16ADE8E3AB9D5207 3.28 #module
+16ADE8E3AB9D5207 7.5.0 #module
 >Proto >Proto Collection #zClass
 Es0 ExportExcelDemoProcess Big #zClass
 Es0 RD #cInfo
@@ -19,11 +19,8 @@ Es0 @PushWFArc f4 '' #zField
 >Proto Es0 Es0 ExportExcelDemoProcess #zField
 Es0 f0 guid 139D96A574FD8C6C #txt
 Es0 f0 method start() #txt
-Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Es0 f0 outParameterDecl '<> result;
-' #txt
+Es0 f0 inParameterDecl '<> param;' #txt
+Es0 f0 outParameterDecl '<> result;' #txt
 Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -38,8 +35,7 @@ Es0 f1 555 115 26 26 0 12 #rect
 Es0 f1 @|UdProcessEndIcon #fIcon
 Es0 f1 -1|-1|-9671572 #nodeStyle
 Es0 f2 processCall 'Functional Processes/InitPersons:initPerson()' #txt
-Es0 f2 requestActionDecl '<> param;
-' #txt
+Es0 f2 requestActionDecl '<> param;' #txt
 Es0 f2 responseActionDecl 'ch.ivyteam.htmldialog.demo.output.ExportExcelDemo.ExportExcelDemoData out;
 ' #txt
 Es0 f2 responseMappingAction 'out=in;

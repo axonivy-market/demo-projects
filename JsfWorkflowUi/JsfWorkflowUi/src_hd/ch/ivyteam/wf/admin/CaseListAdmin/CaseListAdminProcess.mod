@@ -1,5 +1,5 @@
 [Ivy]
-1518C18A7E9C1E10 3.28 #module
+1518C18A7E9C1E10 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListAdminProcess Big #zClass
 Cs0 RD #cInfo
@@ -20,13 +20,10 @@ Cs0 @PushWFArc f5 '' #zField
 >Proto Cs0 Cs0 CaseListAdminProcess #zField
 Cs0 f0 guid 1518C18A8047F85A #txt
 Cs0 f0 method start() #txt
-Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
+Cs0 f0 inParameterDecl '<> param;' #txt
 Cs0 f0 inParameterMapAction 'out.cases=new ch.ivyteam.wf.history.AdminCaseLazyDataModel();
 ' #txt
-Cs0 f0 outParameterDecl '<> result;
-' #txt
+Cs0 f0 outParameterDecl '<> result;' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

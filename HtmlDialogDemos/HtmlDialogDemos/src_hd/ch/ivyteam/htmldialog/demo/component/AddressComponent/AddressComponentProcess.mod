@@ -1,5 +1,5 @@
 [Ivy]
-13B69F6D60FCC080 3.28 #module
+13B69F6D60FCC080 7.5.0 #module
 >Proto >Proto Collection #zClass
 As0 AddressComponentProcess Big #zClass
 As0 RD #cInfo
@@ -15,13 +15,10 @@ As0 @PushWFArc f2 '' #zField
 >Proto As0 As0 AddressComponentProcess #zField
 As0 f0 guid 13B69F6D63DF676C #txt
 As0 f0 method start(ch.ivyteam.htmldialog.demo.Address) #txt
-As0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.htmldialog.demo.Address address> param = methodEvent.getInputArguments();
-' #txt
+As0 f0 inParameterDecl '<ch.ivyteam.htmldialog.demo.Address address> param;' #txt
 As0 f0 inParameterMapAction 'out.address=param.address.clone();
 ' #txt
-As0 f0 outParameterDecl '<ch.ivyteam.htmldialog.demo.Address address> result;
-' #txt
+As0 f0 outParameterDecl '<ch.ivyteam.htmldialog.demo.Address address> result;' #txt
 As0 f0 outParameterMapAction 'result.address=in.address;
 ' #txt
 As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

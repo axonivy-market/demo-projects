@@ -1,5 +1,5 @@
 [Ivy]
-154763536E1136A3 3.28 #module
+154763536E1136A3 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ts0 TwitterAuthorizationProcess Big #zClass
 Ts0 RD #cInfo
@@ -20,13 +20,10 @@ Ts0 @PushWFArc f5 '' #zField
 >Proto Ts0 Ts0 TwitterAuthorizationProcess #zField
 Ts0 f0 guid 15476353701A9ED0 #txt
 Ts0 f0 method start(String) #txt
-Ts0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String authUri> param = methodEvent.getInputArguments();
-' #txt
+Ts0 f0 inParameterDecl '<String authUri> param;' #txt
 Ts0 f0 inParameterMapAction 'out.uri=param.authUri;
 ' #txt
-Ts0 f0 outParameterDecl '<java.lang.String verification> result;
-' #txt
+Ts0 f0 outParameterDecl '<String verification> result;' #txt
 Ts0 f0 outParameterMapAction 'result.verification=in.verification;
 ' #txt
 Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

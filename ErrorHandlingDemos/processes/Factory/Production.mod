@@ -1,5 +1,5 @@
 [Ivy]
-1500417E1DADBB7C 3.28 #module
+1500417E1DADBB7C 7.5.0 #module
 >Proto >Proto Collection #zClass
 fy0 Production Big #zClass
 fy0 B #cInfo
@@ -23,12 +23,11 @@ fy0 @ErrorEnd f5 '' #zField
 fy0 @PushWFArc f4 '' #zField
 fy0 @PushWFArc f2 '' #zField
 >Proto fy0 fy0 Production #zField
-fy0 f0 inParamDecl '<java.lang.String model,java.lang.Number amount> param;' #txt
+fy0 f0 inParamDecl '<String model,Number amount> param;' #txt
 fy0 f0 inParamTable 'out.amount=param.amount;
 out.model=param.model;
 ' #txt
-fy0 f0 outParamDecl '<> result;
-' #txt
+fy0 f0 outParamDecl '<> result;' #txt
 fy0 f0 callSignature produceShoes(String,Number) #txt
 fy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

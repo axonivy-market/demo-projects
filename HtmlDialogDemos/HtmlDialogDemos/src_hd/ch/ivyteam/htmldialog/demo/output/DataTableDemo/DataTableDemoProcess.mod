@@ -1,5 +1,5 @@
 [Ivy]
-153D1CC01F460F8B 3.28 #module
+153D1CC01F460F8B 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ds0 DataTableDemoProcess Big #zClass
 Ds0 RD #cInfo
@@ -27,11 +27,8 @@ Ds0 @UdEvent f8 '' #zField
 >Proto Ds0 Ds0 DataTableDemoProcess #zField
 Ds0 f0 guid 153D1CC021F1C2E7 #txt
 Ds0 f0 method start() #txt
-Ds0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ds0 f0 outParameterDecl '<> result;
-' #txt
+Ds0 f0 inParameterDecl '<> param;' #txt
+Ds0 f0 outParameterDecl '<> result;' #txt
 Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

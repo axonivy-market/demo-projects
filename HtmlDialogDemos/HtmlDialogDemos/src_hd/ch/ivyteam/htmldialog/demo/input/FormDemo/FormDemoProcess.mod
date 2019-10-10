@@ -1,5 +1,5 @@
 [Ivy]
-139E30EF308FD0DC 3.28 #module
+139E30EF308FD0DC 7.5.0 #module
 >Proto >Proto Collection #zClass
 Fs0 FormDemoProcess Big #zClass
 Fs0 RD #cInfo
@@ -26,11 +26,8 @@ Fs0 @PushWFArc f12 '' #zField
 >Proto Fs0 Fs0 FormDemoProcess #zField
 Fs0 f0 guid 139E30EF3229D74F #txt
 Fs0 f0 method start() #txt
-Fs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Fs0 f0 outParameterDecl '<> result;
-' #txt
+Fs0 f0 inParameterDecl '<> param;' #txt
+Fs0 f0 outParameterDecl '<> result;' #txt
 Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -121,10 +118,10 @@ Fs0 f13 expr out #txt
 Fs0 f13 352 512 435 512 #arcP
 Fs0 f9 guid 139E37250FA7DB14 #txt
 Fs0 f9 method completeCountry(String) #txt
-Fs0 f9 inParameterDecl '<java.lang.String countryPartialString> param;' #txt
+Fs0 f9 inParameterDecl '<String countryPartialString> param;' #txt
 Fs0 f9 inParameterMapAction 'out.country=param.countryPartialString;
 ' #txt
-Fs0 f9 outParameterDecl '<List<java.lang.String> matchingCountries> result;' #txt
+Fs0 f9 outParameterDecl '<List<String> matchingCountries> result;' #txt
 Fs0 f9 outParameterMapAction 'result.matchingCountries=in.matchingCountries;
 ' #txt
 Fs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

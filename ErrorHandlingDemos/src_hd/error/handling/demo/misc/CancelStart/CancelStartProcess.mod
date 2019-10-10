@@ -1,5 +1,5 @@
 [Ivy]
-1508AEC47C4FFEA2 3.28 #module
+1508AEC47C4FFEA2 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cs0 CancelStartProcess Big #zClass
 Cs0 RD #cInfo
@@ -23,13 +23,10 @@ Cs0 @PushWFArc f10 '' #zField
 >Proto Cs0 Cs0 CancelStartProcess #zField
 Cs0 f0 guid 1508AEC47E153D81 #txt
 Cs0 f0 method start(String) #txt
-Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String email> param = methodEvent.getInputArguments();
-' #txt
+Cs0 f0 inParameterDecl '<String email> param;' #txt
 Cs0 f0 inParameterMapAction 'out.email=param.email;
 ' #txt
-Cs0 f0 outParameterDecl '<java.lang.String email> result;
-' #txt
+Cs0 f0 outParameterDecl '<String email> result;' #txt
 Cs0 f0 outParameterMapAction 'result.email=in.email;
 ' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

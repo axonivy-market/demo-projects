@@ -1,5 +1,5 @@
 [Ivy]
-156E5D9AA7D41BAA 3.28 #module
+156E5D9AA7D41BAA 7.5.0 #module
 >Proto >Proto Collection #zClass
 Vn0 VerificationProcess Big #zClass
 Vn0 B #cInfo
@@ -67,7 +67,7 @@ Vn0 f30 64 198 576 396 -279 -190 #rect
 Vn0 f30 @|IBIcon #fIcon
 Vn0 f21 dialogId workflow.businessdata.BusinessDataDossierModifier #txt
 Vn0 f21 startMethod start(String,String) #txt
-Vn0 f21 requestActionDecl '<String businessDataId, String title> param;' #txt
+Vn0 f21 requestActionDecl '<String businessDataId,String title> param;' #txt
 Vn0 f21 requestMappingAction 'param.businessDataId=in.id;
 param.title="Dossier Verification";
 ' #txt
@@ -113,7 +113,7 @@ Vn0 f31 @|TaskSwitchSimpleIcon #fIcon
 Vn0 f23 425 113 30 30 0 15 #rect
 Vn0 f23 @|EndIcon #fIcon
 Vn0 f19 outLink verifyDossier.ivp #txt
-Vn0 f19 inParamDecl '<java.lang.String id> param;' #txt
+Vn0 f19 inParamDecl '<String id> param;' #txt
 Vn0 f19 inParamTable 'out.id=param.id;
 ' #txt
 Vn0 f19 requestEnabled true #txt

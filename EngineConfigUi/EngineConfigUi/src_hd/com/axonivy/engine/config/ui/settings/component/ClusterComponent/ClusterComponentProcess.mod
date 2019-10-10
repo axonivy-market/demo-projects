@@ -1,5 +1,5 @@
 [Ivy]
-15AA3C30A9139F49 3.28 #module
+15AA3C30A9139F49 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cs0 ClusterComponentProcess Big #zClass
 Cs0 RD #cInfo
@@ -26,9 +26,7 @@ Cs0 @PushWFArc f3 '' #zField
 >Proto Cs0 Cs0 ClusterComponentProcess #zField
 Cs0 f0 guid 15AA3C30ABD6928D #txt
 Cs0 f0 method start(com.axon.ivy.engine.config.SystemDatabaseSettings) #txt
-Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param = methodEvent.getInputArguments();
-' #txt
+Cs0 f0 inParameterDecl '<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param;' #txt
 Cs0 f0 inParameterMapAction 'out.adminManager=param.settings.getAdministratorManager();
 out.connectionInfo=param.settings.getConnectionInfo();
 out.settings=param.settings;
@@ -61,8 +59,7 @@ out.newClusterNode = new ClusterNode(
 	null, out.localHostName, out.localIdentifier, 
 	InetAddress.getLocalHost().getHostAddress(),
 	6800);' #txt
-Cs0 f0 outParameterDecl '<> result;
-' #txt
+Cs0 f0 outParameterDecl '<> result;' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -113,13 +110,10 @@ Cs0 f20 expr out #txt
 Cs0 f20 112 128 187 128 #arcP
 Cs0 f13 guid 15AA8278F6969095 #txt
 Cs0 f13 method checkExists() #txt
-Cs0 f13 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
+Cs0 f13 inParameterDecl '<> param;' #txt
 Cs0 f13 inParameterMapAction 'out.exists=out.adminManager.existsClusterNode(out.newClusterNode);
 ' #txt
-Cs0 f13 outParameterDecl '<> result;
-' #txt
+Cs0 f13 outParameterDecl '<> result;' #txt
 Cs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -139,12 +133,9 @@ Cs0 f7 1 408 128 #addKink
 Cs0 f7 0 0.8300232385369237 0 0 #arcLabel
 Cs0 f9 guid 15BB4CE685E872B1 #txt
 Cs0 f9 method removeNode(ch.ivyteam.ivy.server.configuration.system.db.ClusterNode) #txt
-Cs0 f9 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.ivy.server.configuration.system.db.ClusterNode node> param = methodEvent.getInputArguments();
-' #txt
+Cs0 f9 inParameterDecl '<ch.ivyteam.ivy.server.configuration.system.db.ClusterNode node> param;' #txt
 Cs0 f9 inActionCode out.adminManager.removeClusterNode(param.node); #txt
-Cs0 f9 outParameterDecl '<> result;
-' #txt
+Cs0 f9 outParameterDecl '<> result;' #txt
 Cs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

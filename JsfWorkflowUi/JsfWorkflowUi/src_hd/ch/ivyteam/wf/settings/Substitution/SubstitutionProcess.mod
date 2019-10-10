@@ -1,5 +1,5 @@
 [Ivy]
-13F5720787C9F3A0 3.28 #module
+13F5720787C9F3A0 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ss0 SubstitutionProcess Big #zClass
 Ss0 RD #cInfo
@@ -37,11 +37,8 @@ Ss0 @PushWFArc f6 '' #zField
 >Proto Ss0 Ss0 SubstitutionProcess #zField
 Ss0 f0 guid 13F5720789611B9E #txt
 Ss0 f0 method start() #txt
-Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ss0 f0 outParameterDecl '<> result;
-' #txt
+Ss0 f0 inParameterDecl '<> param;' #txt
+Ss0 f0 outParameterDecl '<> result;' #txt
 Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -229,13 +226,10 @@ Ss0 f18 expr out #txt
 Ss0 f18 109 160 168 160 #arcP
 Ss0 f7 guid 13F7509B1EEE5E13 #txt
 Ss0 f7 method removeSubstitute(Number) #txt
-Ss0 f7 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.Number substituteId> param = methodEvent.getInputArguments();
-' #txt
+Ss0 f7 inParameterDecl '<Number substituteId> param;' #txt
 Ss0 f7 inParameterMapAction 'out.deleteId=param.substituteId;
 ' #txt
-Ss0 f7 outParameterDecl '<> result;
-' #txt
+Ss0 f7 outParameterDecl '<> result;' #txt
 Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -252,11 +246,8 @@ Ss0 f15 expr out #txt
 Ss0 f15 109 288 168 288 #arcP
 Ss0 f4 guid 13F75DF4EC85730E #txt
 Ss0 f4 method update() #txt
-Ss0 f4 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ss0 f4 outParameterDecl '<> result;
-' #txt
+Ss0 f4 inParameterDecl '<> param;' #txt
+Ss0 f4 outParameterDecl '<> result;' #txt
 Ss0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

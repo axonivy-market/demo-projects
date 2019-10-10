@@ -1,5 +1,5 @@
 [Ivy]
-15254CFABE5EF2E5 3.28 #module
+15254CFABE5EF2E5 7.5.0 #module
 >Proto >Proto Collection #zClass
 Es0 CreateNewEmployeeProcess Big #zClass
 Es0 RD #cInfo
@@ -20,14 +20,11 @@ Es0 @PushWFArc f5 '' #zField
 >Proto Es0 Es0 CreateNewEmployeeProcess #zField
 Es0 f0 guid 1508AB08E1F988C2 #txt
 Es0 f0 method start(workflow.trigger.NewEmployeeData) #txt
-Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<workflow.trigger.NewEmployeeData newEmployeeData> param = methodEvent.getInputArguments();
-' #txt
+Es0 f0 inParameterDecl '<workflow.trigger.NewEmployeeData newEmployeeData> param;' #txt
 Es0 f0 inParameterMapAction 'out.newEmployeeData=param.newEmployeeData;
 out.newEmployeeData.needsParkingLot=true;
 ' #txt
-Es0 f0 outParameterDecl '<workflow.trigger.NewEmployeeData newEmployeeData> result;
-' #txt
+Es0 f0 outParameterDecl '<workflow.trigger.NewEmployeeData newEmployeeData> result;' #txt
 Es0 f0 outParameterMapAction 'result.newEmployeeData=in.newEmployeeData;
 ' #txt
 Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

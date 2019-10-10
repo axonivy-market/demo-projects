@@ -1,5 +1,5 @@
 [Ivy]
-15FB50542D237D38 3.28 #module
+15FB50542D237D38 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ls0 LazyLoadedModalDialogProcess Big #zClass
 Ls0 RD #cInfo
@@ -23,11 +23,8 @@ Ls0 @UdProcessEnd f7 '' #zField
 >Proto Ls0 Ls0 LazyLoadedModalDialogProcess #zField
 Ls0 f0 guid 15FB50542FA41B51 #txt
 Ls0 f0 method start() #txt
-Ls0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ls0 f0 outParameterDecl '<> result;
-' #txt
+Ls0 f0 inParameterDecl '<> param;' #txt
+Ls0 f0 outParameterDecl '<> result;' #txt
 Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -59,13 +56,10 @@ Ls0 f5 expr out #txt
 Ls0 f5 109 160 211 160 #arcP
 Ls0 f6 guid 15FB5D7D51549A5F #txt
 Ls0 f6 method showAddress(Boolean) #txt
-Ls0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.Boolean show> param = methodEvent.getInputArguments();
-' #txt
+Ls0 f6 inParameterDecl '<Boolean show> param;' #txt
 Ls0 f6 inParameterMapAction 'out.showAddress=param.show;
 ' #txt
-Ls0 f6 outParameterDecl '<> result;
-' #txt
+Ls0 f6 outParameterDecl '<> result;' #txt
 Ls0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

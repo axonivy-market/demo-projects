@@ -1,5 +1,5 @@
 [Ivy]
-13EAD85D34683BAF 3.28 #module
+13EAD85D34683BAF 7.5.0 #module
 >Proto >Proto Collection #zClass
 Hs0 HomeProcess Big #zClass
 Hs0 RD #cInfo
@@ -20,11 +20,8 @@ Hs0 @PushWFArc f6 '' #zField
 >Proto Hs0 Hs0 HomeProcess #zField
 Hs0 f0 guid 13EAD85D35A2754E #txt
 Hs0 f0 method start() #txt
-Hs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Hs0 f0 outParameterDecl '<> result;
-' #txt
+Hs0 f0 inParameterDecl '<> param;' #txt
+Hs0 f0 outParameterDecl '<> result;' #txt
 Hs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -88,11 +85,8 @@ Hs0 f3 @|StepIcon #fIcon
 Hs0 f3 -1|-1|-9671572 #nodeStyle
 Hs0 f4 guid 13F619D2D5C1D228 #txt
 Hs0 f4 method update() #txt
-Hs0 f4 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Hs0 f4 outParameterDecl '<> result;
-' #txt
+Hs0 f4 inParameterDecl '<> param;' #txt
+Hs0 f4 outParameterDecl '<> result;' #txt
 Hs0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

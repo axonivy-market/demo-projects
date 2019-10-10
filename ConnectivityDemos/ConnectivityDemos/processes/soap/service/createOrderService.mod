@@ -1,5 +1,5 @@
 [Ivy]
-162492A1649E72DF 3.28 #module
+162492A1649E72DF 7.5.0 #module
 >Proto >Proto Collection #zClass
 ce0 createOrderService Big #zClass
 ce0 WS #cInfo
@@ -31,8 +31,7 @@ ce0 @AnnotationArc f10 '' #zField
 ce0 ws0 inParamDecl '<com.axonivy.connectivity.soap.service.Order order> param;' #txt
 ce0 ws0 inParamTable 'out.order=param.order;
 ' #txt
-ce0 ws0 outParamDecl '<com.axonivy.connectivity.soap.service.Task task> result;
-' #txt
+ce0 ws0 outParamDecl '<com.axonivy.connectivity.soap.service.Task task> result;' #txt
 ce0 ws0 outParamTable 'result.task=in.task;
 ' #txt
 ce0 ws0 actionDecl 'com.axonivy.connectivity.soap.service.CreateOrderServiceData out;
@@ -60,8 +59,7 @@ ce0 ws0 @|StartWSIcon #fIcon
 ce0 ws1 441 73 30 30 0 15 #rect
 ce0 ws1 @|EndWSIcon #fIcon
 ce0 f1 processCall soap/service/order:approveOrder(com.axonivy.connectivity.soap.service.Order,String) #txt
-ce0 f1 requestActionDecl '<com.axonivy.connectivity.soap.service.Order order,java.lang.String responsibleRole> param;
-' #txt
+ce0 f1 requestActionDecl '<com.axonivy.connectivity.soap.service.Order order,String responsibleRole> param;' #txt
 ce0 f1 requestMappingAction 'param.order=in.order;
 param.responsibleRole="Boss";
 ' #txt
@@ -117,8 +115,7 @@ ce0 f2 1 0.19155493663523251 1 9 #arcLabel
 ce0 f5 441 203 30 30 0 15 #rect
 ce0 f5 @|EndWSIcon #fIcon
 ce0 f6 processCall soap/service/order:approveOrder(com.axonivy.connectivity.soap.service.Order,String) #txt
-ce0 f6 requestActionDecl '<com.axonivy.connectivity.soap.service.Order order,java.lang.String responsibleRole> param;
-' #txt
+ce0 f6 requestActionDecl '<com.axonivy.connectivity.soap.service.Order order,String responsibleRole> param;' #txt
 ce0 f6 requestMappingAction 'param.order=in.order;
 param.responsibleRole="Team";
 ' #txt

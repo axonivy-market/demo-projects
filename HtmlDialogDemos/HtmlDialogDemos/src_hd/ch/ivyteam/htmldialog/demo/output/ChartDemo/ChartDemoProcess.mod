@@ -1,5 +1,5 @@
 [Ivy]
-146052EC6B2ADB68 3.28 #module
+146052EC6B2ADB68 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cs0 ChartDemoProcess Big #zClass
 Cs0 RD #cInfo
@@ -27,11 +27,8 @@ Cs0 @PushWFArc f15 '' #zField
 >Proto Cs0 Cs0 ChartDemoProcess #zField
 Cs0 f0 guid 146052EC6FEF2D5C #txt
 Cs0 f0 method start() #txt
-Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Cs0 f0 outParameterDecl '<> result;
-' #txt
+Cs0 f0 inParameterDecl '<> param;' #txt
+Cs0 f0 outParameterDecl '<> result;' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -123,9 +120,7 @@ Cs0 f7 expr out #txt
 Cs0 f7 77 64 136 64 #arcP
 Cs0 f8 guid 1460568243F99D79 #txt
 Cs0 f8 method itemSelected(org.primefaces.event.ItemSelectEvent) #txt
-Cs0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<org.primefaces.event.ItemSelectEvent event> param = methodEvent.getInputArguments();
-' #txt
+Cs0 f8 inParameterDecl '<org.primefaces.event.ItemSelectEvent event> param;' #txt
 Cs0 f8 inActionCode 'import javax.faces.context.FacesContext;
 import javax.faces.application.FacesMessage;
 
@@ -134,8 +129,7 @@ FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
 ", Series Index:" + param.event.getSeriesIndex());
 
 FacesContext.getCurrentInstance().addMessage(null, msg);' #txt
-Cs0 f8 outParameterDecl '<> result;
-' #txt
+Cs0 f8 outParameterDecl '<> result;' #txt
 Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -197,9 +191,7 @@ Cs0 f2 expr out #txt
 Cs0 f2 408 64 451 64 #arcP
 Cs0 f13 guid 14623C0E2748E74C #txt
 Cs0 f13 method sliceSelected(org.primefaces.event.ItemSelectEvent) #txt
-Cs0 f13 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<org.primefaces.event.ItemSelectEvent event> param = methodEvent.getInputArguments();
-' #txt
+Cs0 f13 inParameterDecl '<org.primefaces.event.ItemSelectEvent event> param;' #txt
 Cs0 f13 inActionCode 'import javax.faces.context.FacesContext;
 import javax.faces.application.FacesMessage;
 
@@ -207,8 +199,7 @@ FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
 "Slice selected", "Index: " + param.event.getItemIndex());
 
 FacesContext.getCurrentInstance().addMessage(null, msg);' #txt
-Cs0 f13 outParameterDecl '<> result;
-' #txt
+Cs0 f13 outParameterDecl '<> result;' #txt
 Cs0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

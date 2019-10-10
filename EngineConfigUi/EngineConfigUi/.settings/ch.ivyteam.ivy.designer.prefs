@@ -3,5 +3,5 @@ ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=e
 ch.ivyteam.ivy.designer.preferences.IvyScriptPreferencePage\:DEFAULT_ACTION_TABLE_INSCRIPTION=ACTION_INSCRIPTION_IN
 ch.ivyteam.ivy.designer.preferences.IvyScriptPreferencePage\:VISIBILITY_LEVEL=EXPERT
 ch.ivyteam.ivy.designer.preferences.IvyScriptPreferencePage\:useProjectSettings=true
-ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=74032
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=74035
 eclipse.preferences.version=1

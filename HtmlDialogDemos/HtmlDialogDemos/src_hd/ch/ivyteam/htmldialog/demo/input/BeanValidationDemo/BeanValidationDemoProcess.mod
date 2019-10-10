@@ -1,5 +1,5 @@
 [Ivy]
-13C3DAFB89BB3EB0 3.28 #module
+13C3DAFB89BB3EB0 7.5.0 #module
 >Proto >Proto Collection #zClass
 Bs0 BeanValidationDemoProcess Big #zClass
 Bs0 RD #cInfo
@@ -21,13 +21,10 @@ Bs0 @PushWFArc f10 '' #zField
 >Proto Bs0 Bs0 BeanValidationDemoProcess #zField
 Bs0 f0 guid 13C3DAFB8BAE8F79 #txt
 Bs0 f0 method start() #txt
-Bs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
+Bs0 f0 inParameterDecl '<> param;' #txt
 Bs0 f0 inParameterMapAction 'out.person.name="";
 ' #txt
-Bs0 f0 outParameterDecl '<> result;
-' #txt
+Bs0 f0 outParameterDecl '<> result;' #txt
 Bs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,5 +1,5 @@
 [Ivy]
-127AE76143E89C91 3.28 #module
+127AE76143E89C91 7.5.0 #module
 >Proto >Proto Collection #zClass
 He0 Home Big #zClass
 He0 B #cInfo
@@ -78,7 +78,7 @@ He0 f11 @|StepIcon #fIcon
 He0 f3 expr out #txt
 He0 f3 304 276 304 332 #arcP
 He0 f7 outLink DefaultEndPage.ivp #txt
-He0 f7 inParamDecl '<java.lang.Number endedTaskId> param;' #txt
+He0 f7 inParamDecl '<Number endedTaskId> param;' #txt
 He0 f7 inParamTable 'out.tmpTaskId=param.endedTaskId;
 ' #txt
 He0 f7 requestEnabled true #txt
@@ -206,8 +206,7 @@ He0 f16 @C|.responsibility Everybody #txt
 He0 f16 291 51 26 26 19 -4 #rect
 He0 f16 @|StartRequestIcon #fIcon
 He0 f17 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-He0 f17 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+He0 f17 requestActionDecl '<htmlwfui.Data in> param;' #txt
 He0 f17 requestMappingAction 'param.in=in;
 ' #txt
 He0 f17 responseActionDecl 'htmlwfui.Data out;

@@ -1,5 +1,5 @@
 [Ivy]
-12E7BFEAB6F56A0A 3.28 #module
+12E7BFEAB6F56A0A 7.5.0 #module
 >Proto >Proto Collection #zClass
 Dt0 DailyTaskSummaryMail Big #zClass
 Dt0 B #cInfo
@@ -14,7 +14,7 @@ Dt0 @EndRequest f1 '' #zField
 Dt0 @PushWFArc f2 '' #zField
 >Proto Dt0 Dt0 DailyTaskSummaryMail #zField
 Dt0 f0 outLink MailNotification_DailyTaskSummary.ivp #txt
-Dt0 f0 inParamDecl '<java.lang.Number notificationUserId> param;' #txt
+Dt0 f0 inParamDecl '<Number notificationUserId> param;' #txt
 Dt0 f0 inParamTable 'out.tasks=ivy.wf.findWorkTasks(ivy.wf.getSecurityContext().findUser(param.notificationUserId), 0, -1).getResultList();
 out.user=ivy.wf.getSecurityContext().findUser(param.notificationUserId);
 ' #txt

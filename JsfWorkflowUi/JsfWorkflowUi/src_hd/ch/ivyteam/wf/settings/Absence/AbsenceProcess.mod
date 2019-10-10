@@ -1,5 +1,5 @@
 [Ivy]
-13F3C90C39342A39 3.28 #module
+13F3C90C39342A39 7.5.0 #module
 >Proto >Proto Collection #zClass
 As0 AbsenceProcess Big #zClass
 As0 RD #cInfo
@@ -40,11 +40,8 @@ As0 @PushWFArc f28 '' #zField
 >Proto As0 As0 AbsenceProcess #zField
 As0 f0 guid 13F3C90C3B26C28B #txt
 As0 f0 method start() #txt
-As0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-As0 f0 outParameterDecl '<> result;
-' #txt
+As0 f0 inParameterDecl '<> param;' #txt
+As0 f0 outParameterDecl '<> result;' #txt
 As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -105,13 +102,10 @@ As0 f3 @|StepIcon #fIcon
 As0 f3 -1|-1|-9671572 #nodeStyle
 As0 f5 guid 13F3D753903E7383 #txt
 As0 f5 method removeAbsence(Number) #txt
-As0 f5 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.Number absenceId> param = methodEvent.getInputArguments();
-' #txt
+As0 f5 inParameterDecl '<Number absenceId> param;' #txt
 As0 f5 inParameterMapAction 'out.deleteId=param.absenceId;
 ' #txt
-As0 f5 outParameterDecl '<> result;
-' #txt
+As0 f5 outParameterDecl '<> result;' #txt
 As0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -247,11 +241,8 @@ As0 f18 expr out #txt
 As0 f18 224 330 224 310 #arcP
 As0 f12 guid 13F75DCD140B871B #txt
 As0 f12 method update() #txt
-As0 f12 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-As0 f12 outParameterDecl '<> result;
-' #txt
+As0 f12 inParameterDecl '<> param;' #txt
+As0 f12 outParameterDecl '<> result;' #txt
 As0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

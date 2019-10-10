@@ -1,5 +1,5 @@
 [Ivy]
-13F613EA00B31DDD 3.28 #module
+13F613EA00B31DDD 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ss0 SelectManyCheckboxDemoProcess Big #zClass
 Ss0 RD #cInfo
@@ -23,11 +23,8 @@ Ss0 @PushWFArc f2 '' #zField
 >Proto Ss0 Ss0 SelectManyCheckboxDemoProcess #zField
 Ss0 f0 guid 13F3C7335762710A #txt
 Ss0 f0 method start() #txt
-Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ss0 f0 outParameterDecl '<> result;
-' #txt
+Ss0 f0 inParameterDecl '<> param;' #txt
+Ss0 f0 outParameterDecl '<> result;' #txt
 Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -44,8 +41,7 @@ Ss0 f1 419 115 26 26 0 12 #rect
 Ss0 f1 @|UdProcessEndIcon #fIcon
 Ss0 f1 -1|-1|-9671572 #nodeStyle
 Ss0 f3 processCall 'Functional Processes/InitPersons:initPerson()' #txt
-Ss0 f3 requestActionDecl '<> param;
-' #txt
+Ss0 f3 requestActionDecl '<> param;' #txt
 Ss0 f3 responseActionDecl 'ch.ivyteam.htmldialog.demo.output.SelectManyCheckboxDemo.SelectManyCheckboxDemoData out;
 ' #txt
 Ss0 f3 responseMappingAction 'out=in;

@@ -1,5 +1,5 @@
 [Ivy]
-15A4C3312F0A8B48 3.28 #module
+15A4C3312F0A8B48 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ws0 WebServerComponentProcess Big #zClass
 Ws0 RD #cInfo
@@ -24,13 +24,10 @@ Ws0 @PushWFArc f7 '' #zField
 >Proto Ws0 Ws0 WebServerComponentProcess #zField
 Ws0 f0 guid 15A4C3313181DD1F #txt
 Ws0 f0 method start(com.axon.ivy.engine.config.SystemDatabaseSettings) #txt
-Ws0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param = methodEvent.getInputArguments();
-' #txt
+Ws0 f0 inParameterDecl '<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param;' #txt
 Ws0 f0 inParameterMapAction 'out.settings=param.settings;
 ' #txt
-Ws0 f0 outParameterDecl '<> result;
-' #txt
+Ws0 f0 outParameterDecl '<> result;' #txt
 Ws0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

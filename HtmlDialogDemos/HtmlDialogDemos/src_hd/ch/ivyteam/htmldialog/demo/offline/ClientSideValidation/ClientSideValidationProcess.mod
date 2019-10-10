@@ -1,5 +1,5 @@
 [Ivy]
-1501480D2E27D9D9 3.28 #module
+1501480D2E27D9D9 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cs0 ClientSideValidationProcess Big #zClass
 Cs0 RD #cInfo
@@ -20,11 +20,8 @@ Cs0 @PushWFArc f5 '' #zField
 >Proto Cs0 Cs0 ClientSideValidationProcess #zField
 Cs0 f0 guid 1501480D2FA9E5B8 #txt
 Cs0 f0 method start() #txt
-Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Cs0 f0 outParameterDecl '<> result;
-' #txt
+Cs0 f0 inParameterDecl '<> param;' #txt
+Cs0 f0 outParameterDecl '<> result;' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,5 +1,5 @@
 [Ivy]
-136F4341B49EA302 3.28 #module
+136F4341B49EA302 7.5.0 #module
 >Proto >Proto Collection #zClass
 Mg0 MailNotificationSetting Big #zClass
 Mg0 B #cInfo
@@ -92,8 +92,7 @@ Mg0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Mg0 f3 190 316 36 24 8 16 #rect
 Mg0 f3 @|StepIcon #fIcon
 Mg0 f8 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Mg0 f8 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Mg0 f8 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Mg0 f8 requestMappingAction 'param.in=in;
 ' #txt
 Mg0 f8 responseActionDecl 'htmlwfui.Data out;

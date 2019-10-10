@@ -1,5 +1,5 @@
 [Ivy]
-12CBB189CAE5A324 3.28 #module
+12CBB189CAE5A324 7.5.0 #module
 >Proto >Proto Collection #zClass
 Dk0 DelegateTask Big #zClass
 Dk0 B #cInfo
@@ -23,8 +23,7 @@ Dk0 @PushWFArc f3 '' #zField
 Dk0 f0 inParamDecl '<htmlwfui.Data in> param;' #txt
 Dk0 f0 inParamTable 'out=param.in;
 ' #txt
-Dk0 f0 outParamDecl '<htmlwfui.Data out> result;
-' #txt
+Dk0 f0 outParamDecl '<htmlwfui.Data out> result;' #txt
 Dk0 f0 outParamTable 'result.out=in;
 ' #txt
 Dk0 f0 callSignature call(htmlwfui.Data) #txt

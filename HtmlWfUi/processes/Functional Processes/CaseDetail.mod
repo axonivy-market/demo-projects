@@ -1,5 +1,5 @@
 [Ivy]
-12E298D0CEC8AC33 3.28 #module
+12E298D0CEC8AC33 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cl0 CaseDetail Big #zClass
 Cl0 B #cInfo
@@ -35,8 +35,7 @@ Cl0 @PushWFArc f3 '' #zField
 Cl0 f0 inParamDecl '<htmlwfui.Data in> param;' #txt
 Cl0 f0 inParamTable 'out=param.in;
 ' #txt
-Cl0 f0 outParamDecl '<> result;
-' #txt
+Cl0 f0 outParamDecl '<> result;' #txt
 Cl0 f0 callSignature call(htmlwfui.Data) #txt
 Cl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -74,8 +73,7 @@ Cl0 f23 @C|.responsibility Everybody #txt
 Cl0 f23 158 124 36 24 21 -13 #rect
 Cl0 f23 @|PageIcon #fIcon
 Cl0 f30 processCall 'Functional Processes/TaskDetail:call(htmlwfui.Data)' #txt
-Cl0 f30 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Cl0 f30 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Cl0 f30 requestMappingAction 'param.in=in;
 param.in.tmpTask=in.tasks.get(in.temp.n);
 ' #txt
@@ -96,8 +94,7 @@ Cl0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cl0 f30 518 212 36 24 16 9 #rect
 Cl0 f30 @|CallSubIcon #fIcon
 Cl0 f31 processCall 'Functional Processes/AddNote:call(htmlwfui.Data)' #txt
-Cl0 f31 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Cl0 f31 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Cl0 f31 requestMappingAction 'param.in=in;
 param.in.noteFor="case";
 ' #txt
@@ -117,8 +114,7 @@ Cl0 f31 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cl0 f31 374 212 36 24 12 6 #rect
 Cl0 f31 @|CallSubIcon #fIcon
 Cl0 f37 processCall 'Functional Processes/PageArchive:call(htmlwfui.Data)' #txt
-Cl0 f37 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Cl0 f37 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Cl0 f37 requestMappingAction 'param.in=in;
 ' #txt
 Cl0 f37 responseActionDecl 'htmlwfui.Data out;

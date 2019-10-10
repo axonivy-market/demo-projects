@@ -1,5 +1,5 @@
 [Ivy]
-139E3EF5C6DBC97F 3.28 #module
+139E3EF5C6DBC97F 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ps0 PartialUpdateDemoProcess Big #zClass
 Ps0 RD #cInfo
@@ -20,13 +20,10 @@ Ps0 @PushWFArc f7 '' #zField
 >Proto Ps0 Ps0 PartialUpdateDemoProcess #zField
 Ps0 f0 guid 0139E3EF5C8EF75C #txt
 Ps0 f0 method start() #txt
-Ps0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
+Ps0 f0 inParameterDecl '<> param;' #txt
 Ps0 f0 inParameterMapAction 'out.counter=0;
 ' #txt
-Ps0 f0 outParameterDecl '<> result;
-' #txt
+Ps0 f0 outParameterDecl '<> result;' #txt
 Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

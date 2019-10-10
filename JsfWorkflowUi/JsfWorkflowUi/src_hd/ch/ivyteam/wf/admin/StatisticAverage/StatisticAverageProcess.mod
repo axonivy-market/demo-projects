@@ -1,5 +1,5 @@
 [Ivy]
-144728B11565E706 3.28 #module
+144728B11565E706 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ss0 StatisticAverageProcess Big #zClass
 Ss0 RD #cInfo
@@ -26,7 +26,7 @@ Ss0 @PushWFArc f6 '' #zField
 >Proto Ss0 Ss0 StatisticAverageProcess #zField
 Ss0 f0 guid 144728B116AEAD78 #txt
 Ss0 f0 method start(String) #txt
-Ss0 f0 inParameterDecl '<java.lang.String category> param;' #txt
+Ss0 f0 inParameterDecl '<String category> param;' #txt
 Ss0 f0 inParameterMapAction 'out.casesSize=0;
 out.category=param.category;
 ' #txt
@@ -108,11 +108,8 @@ Ss0 f10 @|StepIcon #fIcon
 Ss0 f10 -1|-1|-9671572 #nodeStyle
 Ss0 f7 guid 14472A1125F52CDE #txt
 Ss0 f7 method update() #txt
-Ss0 f7 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ss0 f7 outParameterDecl '<> result;
-' #txt
+Ss0 f7 inParameterDecl '<> param;' #txt
+Ss0 f7 outParameterDecl '<> result;' #txt
 Ss0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

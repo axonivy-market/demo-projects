@@ -1,5 +1,5 @@
 [Ivy]
-157E7BB4142F9EFB 3.28 #module
+157E7BB4142F9EFB 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ss0 AdministratorsComponentProcess Big #zClass
 Ss0 RD #cInfo
@@ -34,15 +34,12 @@ Ss0 @PushWFArc f7 '' #zField
 >Proto Ss0 Ss0 AdministratorsComponentProcess #zField
 Ss0 f0 guid 157E7518F76CF891 #txt
 Ss0 f0 method start(com.axon.ivy.engine.config.SystemDatabaseSettings) #txt
-Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param = methodEvent.getInputArguments();
-' #txt
+Ss0 f0 inParameterDecl '<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param;' #txt
 Ss0 f0 inParameterMapAction 'out.administratorManager=param.settings.getAdministratorManager();
 out.connectionInfo=param.settings.getConnectionInfo();
 out.settings=param.settings;
 ' #txt
-Ss0 f0 outParameterDecl '<> result;
-' #txt
+Ss0 f0 outParameterDecl '<> result;' #txt
 Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -97,12 +94,9 @@ Ss0 f3 expr out #txt
 Ss0 f3 109 64 339 64 #arcP
 Ss0 f5 guid 15BB40698B2492D9 #txt
 Ss0 f5 method removeAdmin(ch.ivyteam.ivy.security.Administrator) #txt
-Ss0 f5 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.ivy.security.Administrator selectedAdmin> param = methodEvent.getInputArguments();
-' #txt
+Ss0 f5 inParameterDecl '<ch.ivyteam.ivy.security.Administrator selectedAdmin> param;' #txt
 Ss0 f5 inActionCode out.administratorManager.removeAdministrator(param.selectedAdmin); #txt
-Ss0 f5 outParameterDecl '<> result;
-' #txt
+Ss0 f5 outParameterDecl '<> result;' #txt
 Ss0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -128,17 +122,14 @@ Ss0 f6 83 243 26 26 -48 12 #rect
 Ss0 f6 @|UdEventIcon #fIcon
 Ss0 f14 guid 15BB470138AAAB40 #txt
 Ss0 f14 method editAdministrator(ch.ivyteam.ivy.security.Administrator) #txt
-Ss0 f14 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.ivy.security.Administrator admin> param = methodEvent.getInputArguments();
-' #txt
+Ss0 f14 inParameterDecl '<ch.ivyteam.ivy.security.Administrator admin> param;' #txt
 Ss0 f14 inParameterMapAction 'out.selectedAdministrator=param.admin;
 ' #txt
 Ss0 f14 inActionCode 'out.editAdmin.email=param.admin.eMailAddress;
 out.editAdmin.fullname=param.admin.getFullName();
 out.editAdmin.name=param.admin.getName();
 out.editAdmin.password="";' #txt
-Ss0 f14 outParameterDecl '<> result;
-' #txt
+Ss0 f14 outParameterDecl '<> result;' #txt
 Ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

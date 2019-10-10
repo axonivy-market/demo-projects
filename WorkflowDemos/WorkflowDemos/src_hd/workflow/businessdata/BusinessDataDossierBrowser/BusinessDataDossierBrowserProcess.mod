@@ -1,5 +1,5 @@
 [Ivy]
-155BB5BDEDF19356 3.28 #module
+155BB5BDEDF19356 7.5.0 #module
 >Proto >Proto Collection #zClass
 Bs0 BusinessDataDossierBrowserProcess Big #zClass
 Bs0 RD #cInfo
@@ -248,11 +248,8 @@ Bs0 f32 expr out #txt
 Bs0 f32 288 544 339 544 #arcP
 Bs0 f18 guid 1569CFB6E45ABE22 #txt
 Bs0 f18 method displayMessage() #txt
-Bs0 f18 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Bs0 f18 outParameterDecl '<> result;
-' #txt
+Bs0 f18 inParameterDecl '<> param;' #txt
+Bs0 f18 outParameterDecl '<> result;' #txt
 Bs0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -266,15 +263,12 @@ Bs0 f24 expr out #txt
 Bs0 f24 109 544 160 544 #arcP
 Bs0 f0 guid 156FE96D5274976E #txt
 Bs0 f0 method start(String,Boolean) #txt
-Bs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String lastId,java.lang.Boolean showAll> param = methodEvent.getInputArguments();
-' #txt
+Bs0 f0 inParameterDecl '<String lastId,Boolean showAll> param;' #txt
 Bs0 f0 inParameterMapAction 'out.lastEditedId=param.lastId;
 out.limit=param.showAll ? 1000 : 5;
 out.searchType="LastName";
 ' #txt
-Bs0 f0 outParameterDecl '<> result;
-' #txt
+Bs0 f0 outParameterDecl '<> result;' #txt
 Bs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

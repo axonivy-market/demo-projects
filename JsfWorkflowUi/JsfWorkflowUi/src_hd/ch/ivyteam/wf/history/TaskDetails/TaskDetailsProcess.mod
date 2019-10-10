@@ -1,5 +1,5 @@
 [Ivy]
-13FE10F004F193D4 3.28 #module
+13FE10F004F193D4 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskDetailsProcess Big #zClass
 Ts0 RD #cInfo
@@ -114,14 +114,11 @@ Ts0 S10 @|BIcon #fIcon
 Ts0 S10 -1|-1|-9671572 #nodeStyle
 Ts0 f0 guid 13FE10F005F6798D #txt
 Ts0 f0 method start(Number,Boolean) #txt
-Ts0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.Number taskId,java.lang.Boolean isHistory> param = methodEvent.getInputArguments();
-' #txt
+Ts0 f0 inParameterDecl '<Number taskId,Boolean isHistory> param;' #txt
 Ts0 f0 inParameterMapAction 'out.isHistory=param.isHistory;
 out.taskId=param.taskId;
 ' #txt
-Ts0 f0 outParameterDecl '<> result;
-' #txt
+Ts0 f0 outParameterDecl '<> result;' #txt
 Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -223,11 +220,8 @@ Ts0 f18 expr out #txt
 Ts0 f18 280 224 339 224 #arcP
 Ts0 f26 guid 13FEB4CFA465F013 #txt
 Ts0 f26 method update() #txt
-Ts0 f26 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ts0 f26 outParameterDecl '<> result;
-' #txt
+Ts0 f26 inParameterDecl '<> param;' #txt
+Ts0 f26 outParameterDecl '<> result;' #txt
 Ts0 f26 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

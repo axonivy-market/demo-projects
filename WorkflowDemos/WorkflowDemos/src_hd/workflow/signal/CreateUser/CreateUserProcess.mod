@@ -1,5 +1,5 @@
 [Ivy]
-151CA15592649FFE 3.28 #module
+151CA15592649FFE 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cs0 CreateUserProcess Big #zClass
 Cs0 RD #cInfo
@@ -20,13 +20,10 @@ Cs0 @PushWFArc f5 '' #zField
 >Proto Cs0 Cs0 CreateUserProcess #zField
 Cs0 f0 guid 151CA15597D428A3 #txt
 Cs0 f0 method start(workflow.signal.User) #txt
-Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<workflow.signal.User user> param = methodEvent.getInputArguments();
-' #txt
+Cs0 f0 inParameterDecl '<workflow.signal.User user> param;' #txt
 Cs0 f0 inParameterMapAction 'out.user=param.user;
 ' #txt
-Cs0 f0 outParameterDecl '<workflow.signal.User user> result;
-' #txt
+Cs0 f0 outParameterDecl '<workflow.signal.User user> result;' #txt
 Cs0 f0 outParameterMapAction 'result.user=in.user;
 ' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

@@ -1,5 +1,5 @@
 [Ivy]
-12C97DB1B1EA5971 3.28 #module
+12C97DB1B1EA5971 7.5.0 #module
 >Proto >Proto Collection #zClass
 Rt0 CaseList Big #zClass
 Rt0 B #cInfo
@@ -155,8 +155,7 @@ Rt0 f1 @C|.responsibility Everybody #txt
 Rt0 f1 166 268 36 24 11 12 #rect
 Rt0 f1 @|PageIcon #fIcon
 Rt0 f6 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Rt0 f6 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Rt0 f6 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Rt0 f6 requestMappingAction 'param.in=in;
 ' #txt
 Rt0 f6 responseActionDecl 'htmlwfui.Data out;
@@ -502,8 +501,7 @@ Rt0 f26 1 40 480 #addKink
 Rt0 f26 2 40 624 #addKink
 Rt0 f26 1 0.07729854326440172 0 0 #arcLabel
 Rt0 f31 processCall 'Functional Processes/AddNote:call(htmlwfui.Data)' #txt
-Rt0 f31 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Rt0 f31 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Rt0 f31 requestMappingAction 'param.in=in;
 param.in.noteFor="case";
 ' #txt
@@ -530,8 +528,7 @@ Rt0 f34 expr out #txt
 Rt0 f34 382 497 202 423 #arcP
 Rt0 f34 0 0.3298838642993683 0 0 #arcLabel
 Rt0 f30 processCall 'Functional Processes/TaskDetail:call(htmlwfui.Data)' #txt
-Rt0 f30 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Rt0 f30 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Rt0 f30 requestMappingAction 'param.in=in;
 param.in.tmpTask=in.tasks.get(in.temp.n);
 ' #txt
@@ -558,8 +555,7 @@ Rt0 f36 expr out #txt
 Rt0 f36 526 500 202 420 #arcP
 Rt0 f36 0 0.3294303582455013 0 0 #arcLabel
 Rt0 f37 processCall 'Functional Processes/PageArchive:call(htmlwfui.Data)' #txt
-Rt0 f37 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Rt0 f37 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Rt0 f37 requestMappingAction 'param.in=in;
 ' #txt
 Rt0 f37 responseActionDecl 'htmlwfui.Data out;
