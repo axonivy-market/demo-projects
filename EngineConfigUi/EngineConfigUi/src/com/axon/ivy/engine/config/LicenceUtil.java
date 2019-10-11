@@ -6,29 +6,31 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.filefilter.FalseFileFilter;
+import org.apache.commons.io.filefilter.SuffixFileFilter;
 import org.apache.commons.lang.StringUtils;
 import org.primefaces.model.UploadedFile;
 
+import ch.ivyteam.ivy.config.IFileAccess;
 import ch.ivyteam.licence.InvalidLicenceException;
 import ch.ivyteam.licence.LicenceConstants;
 import ch.ivyteam.licence.SignedLicence;
 
 public class LicenceUtil
 {
-  private static final File CONFIG_DIR = new File("configuration");
-  private static final String DEMO_LIC = "demo.lic";
-  
-  public static void backupAllOlds() throws IOException
+  public static void backupAllOlds(File newLicenceFile) throws IOException
   {
-    File[] files = CONFIG_DIR.listFiles((dir, name) -> name.endsWith(".lic"));
-    for (File license : files)
+    List<File> oldFiles= IFileAccess.get().getConfigurationFiles(new SuffixFileFilter(".lic"), FalseFileFilter.INSTANCE)
+        .stream()
+        .filter(file -> !file.equals(newLicenceFile))
+        .collect(Collectors.toList());
+    for (File oldFile : oldFiles)
     {
-      if (!license.getName().equalsIgnoreCase(DEMO_LIC) && !license.equals(SignedLicence.getLicenceFile()))
-      {
-        backup(license);
-      }
+      backup(oldFile);
     }
   }
 
@@ -56,7 +58,7 @@ public class LicenceUtil
 
   private static File install(File tempLicence, String fileName) throws InvalidLicenceException, IOException
   {
-    File newLicence = new File(CONFIG_DIR, fileName);
+    File newLicence = IFileAccess.get().getConfigurationFile(fileName);
     if (newLicence.exists())
     {
       backup(newLicence);
