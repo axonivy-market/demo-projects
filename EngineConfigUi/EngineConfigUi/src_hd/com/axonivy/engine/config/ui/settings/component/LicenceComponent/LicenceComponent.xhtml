@@ -46,13 +46,13 @@
 
 	<p:dialog id="renewLicenceWindow" widgetVar="renewLicence" closeOnEscape="true"
 		header="Renew Licence" modal="true" resizable="false">
-		<h:form id="renewLicenceForm">
+		<h:form>
 			<h:panelGrid>
 				<p:outputLabel value="Where do you want to send the Licence to?" />
 				<br />
-				<p:inputText id="emailInput" value="#{data.renewLicenceData.renewEmail}" type="email" placeholder="E-Mail" required="true" requiredMessage="Put Email"/>
+				<p:inputText value="#{data.renewLicenceData.renewEmail}" type="email" placeholder="E-Mail" required="true" requiredMessage="Put Email"/>
 				<br />
-				<p:commandButton id="sendRenewButton" type="submit" value="Send request" actionListener="#{logic.renewLicence}" onclick="PF('renewLicence').hide();" update=":responseGrowl, accordionPanel:licenceComponent:renew"/>
+				<p:commandButton type="submit" value="Send request" actionListener="#{logic.renewLicence}" onclick="PF('renewLicence').hide();" update=":responseGrowl, accordionPanel:licenceComponent:renew"/>
 			</h:panelGrid>
 		</h:form>
 	</p:dialog>
