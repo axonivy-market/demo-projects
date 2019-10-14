@@ -5,6 +5,7 @@
 	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
 	xmlns:ic="http://ivyteam.ch/jsf/component"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:pe="http://primefaces.org/ui/extensions">
 
 <cc:interface componentType="IvyComponent">
@@ -14,11 +15,12 @@
 	<div class="container-fluid">
 		<ic:com.axonivy.engine.config.ui.settings.component.LicenceInfoComponent
 			id="licenceInfosComponent" />
-			<br/>
-			<p>
-				<p:commandLink id="details" value="Show Licence Details"
-					onclick="PF('licenceDetails').show()"
-					rendered="#{!licenceBean.demo}" /></p>
+		<br />
+		<p>
+			<p:commandLink id="details" value="Show Licence Details"
+				onclick="PF('licenceDetails').show()"
+				rendered="#{!licenceBean.demo}" />
+		</p>
 		<div class="row">
 			<div class="col-xs-3">
 				<ic:com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent
@@ -29,14 +31,21 @@
 					icon="fa fa-arrow-circle-right" styleClass="next-button"
 					onclick="if(#{licenceBean.demo}) PF('nextStepLicenceDialog').show(); else PF('accordionPanel').select(1);" />
 			</div>
-			<div>
-				<p:commandButton id="renew" value="Renew Licence" disabled="#{data.renewLicenceData.renewDelayBool}"
-					oncomplete="PF('renewLicence').show()" rendered="#{!licenceBean.demo and data.renewLicenceData.daysLeft gt 0}" 
-					actionListener="#{logic.setAdmin}" update="renewLicenceWindow" style="background-color: #{data.renewLicenceData.licenceWarning}"/>
-				<p:spacer width="10px"/>
-				<h:outputLabel rendered="#{data.renewLicenceData.daysLeft lt 30}" style="color: #{data.renewLicenceData.licenceWarning}" value="Your license expires in #{data.renewLicenceData.daysLeft} days"/>
+
+			<c:if
+				test="#{!licenceBean.demo and data.renewLicenceData.showRenewLicence}">
+				<div>
+					<p:commandButton id="renew" value="Renew Licence"
+						oncomplete="PF('renewLicence').show()"
+						actionListener="#{logic.setAdmin}" update="renewLicenceWindow"
+						style="background-color: #{data.renewLicenceData.licenceWarning}" />
+					<p:spacer width="10px" />
+					<h:outputLabel rendered="#{data.renewLicenceData.daysLeft lt 30}"
+						style="color: #{data.renewLicenceData.licenceWarning}"
+						value="Your license expires in #{data.renewLicenceData.daysLeft} days" />
+				</div>
+			</c:if>
 		</div>
-	</div>
 	</div>
 	<p:dialog widgetVar="licenceDetails" modal="true" closeOnEscape="true"
 		header="Details">
@@ -44,15 +53,20 @@
 			id="licenceDetailComponent" />
 	</p:dialog>
 
-	<p:dialog id="renewLicenceWindow" widgetVar="renewLicence" closeOnEscape="true"
-		header="Renew Licence" modal="true" resizable="false">
+	<p:dialog id="renewLicenceWindow" widgetVar="renewLicence"
+		closeOnEscape="true" header="Renew Licence" modal="true"
+		resizable="false">
 		<h:form>
 			<h:panelGrid>
 				<p:outputLabel value="Where do you want to send the Licence to?" />
 				<br />
-				<p:inputText value="#{data.renewLicenceData.renewEmail}" type="email" placeholder="E-Mail" required="true" requiredMessage="Put Email"/>
+				<p:inputText value="#{data.renewLicenceData.renewEmail}"
+					type="email" placeholder="E-Mail" required="true"
+					requiredMessage="Put Email" />
 				<br />
-				<p:commandButton type="submit" value="Send request" actionListener="#{logic.renewLicence}" onclick="PF('renewLicence').hide();" update=":responseGrowl, accordionPanel:licenceComponent:renew"/>
+				<p:commandButton type="submit" value="Send request"
+					actionListener="#{logic.renewLicence}"
+					onclick="PF('renewLicence').hide();" update=":responseGrowl" />
 			</h:panelGrid>
 		</h:form>
 	</p:dialog>

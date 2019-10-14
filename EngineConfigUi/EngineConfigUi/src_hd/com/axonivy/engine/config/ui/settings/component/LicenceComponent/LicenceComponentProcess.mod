@@ -31,24 +31,10 @@ Ls0 f0 inParameterDecl '<com.axon.ivy.engine.config.SystemDatabaseSettings setti
 Ls0 f0 inParameterMapAction 'out.renewLicenceData.settings=param.settings;
 ' #txt
 Ls0 f0 inActionCode 'import com.axon.ivy.engine.config.DateCalculatorAPI;
-import ch.ivyteam.licence.SignedLicence;
 import com.axon.ivy.engine.config.FocusSetter;
 FocusSetter.setFocusOnLicenceTabNextStepButton();
 
-int inDays = 86400;
-
-if(SignedLicence.isInstalled() && !SignedLicence.isDemo() && DateCalculatorAPI.isUnixTime(SignedLicence.getValidUntil()))
-{
-	out.renewLicenceData.daysLeft = DateCalculatorAPI.daysLeft(SignedLicence.getValidUntil());
-	if(out.renewLicenceData.daysLeft <= 30)
-	{
-		out.renewLicenceData.licenceWarning = "#e09494";
-	}
-} 
-
-if(param.settings.getAdministratorManager().getAdministrators().size() != 0){
-	out.renewLicenceData.renewEmail = param.settings.getAdministratorManager().getAdministrators().get(0).getEMailAddress();
-}' #txt
+DateCalculatorAPI.calculateDaysLeftForLicence(out.renewLicenceData);' #txt
 Ls0 f0 outParameterDecl '<> result;' #txt
 Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
