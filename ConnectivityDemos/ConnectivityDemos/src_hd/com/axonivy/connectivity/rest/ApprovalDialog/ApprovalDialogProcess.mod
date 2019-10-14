@@ -1,5 +1,5 @@
 [Ivy]
-154A00644BB7C22B 3.28 #module
+154A00644BB7C22B 7.5.0 #module
 >Proto >Proto Collection #zClass
 As0 ApprovalDialogProcess Big #zClass
 As0 RD #cInfo
@@ -20,13 +20,10 @@ As0 @PushWFArc f5 '' #zField
 >Proto As0 As0 ApprovalDialogProcess #zField
 As0 f0 guid 154A00644DE72ED2 #txt
 As0 f0 method start(com.axonivy.connectivity.rest.Approval) #txt
-As0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<com.axonivy.connectivity.rest.Approval approval> param = methodEvent.getInputArguments();
-' #txt
+As0 f0 inParameterDecl '<com.axonivy.connectivity.rest.Approval approval> param;' #txt
 As0 f0 inParameterMapAction 'out.approval=param.approval;
 ' #txt
-As0 f0 outParameterDecl '<> result;
-' #txt
+As0 f0 outParameterDecl '<> result;' #txt
 As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,5 +1,5 @@
 [Ivy]
-1549FEEB682EF158 3.28 #module
+1549FEEB682EF158 7.5.0 #module
 >Proto >Proto Collection #zClass
 cl0 createApproval Big #zClass
 cl0 B #cInfo
@@ -19,13 +19,12 @@ cl0 @PushWFArc f2 '' #zField
 cl0 @InfoButton f5 '' #zField
 cl0 @AnnotationArc f6 '' #zField
 >Proto cl0 cl0 createApproval #zField
-cl0 f0 inParamDecl '<java.lang.String title,java.lang.String description> param;' #txt
+cl0 f0 inParamDecl '<String title,String description> param;' #txt
 cl0 f0 inParamTable 'out.approval.description=param.description;
 out.approval.requestedBy=ivy.session.getSessionUserName();
 out.approval.title=param.title;
 ' #txt
-cl0 f0 outParamDecl '<ch.ivyteam.ivy.workflow.ITask approvalTask> result;
-' #txt
+cl0 f0 outParamDecl '<ch.ivyteam.ivy.workflow.ITask approvalTask> result;' #txt
 cl0 f0 outParamTable 'result.approvalTask=in.approvalTask;
 ' #txt
 cl0 f0 callSignature call(String,String) #txt
@@ -43,8 +42,7 @@ cl0 f0 @|StartSubIcon #fIcon
 cl0 f1 369 81 30 30 0 15 #rect
 cl0 f1 @|EndSubIcon #fIcon
 cl0 f3 processCall rest/approval:approve(com.axonivy.connectivity.rest.Approval) #txt
-cl0 f3 requestActionDecl '<com.axonivy.connectivity.rest.Approval approval> param;
-' #txt
+cl0 f3 requestActionDecl '<com.axonivy.connectivity.rest.Approval approval> param;' #txt
 cl0 f3 requestMappingAction 'param.approval=in.approval;
 ' #txt
 cl0 f3 responseActionDecl 'com.axonivy.connectivity.rest.CreateApprovalData out;

@@ -1,5 +1,5 @@
 [Ivy]
-015B14256823DE3D 3.28 #module
+015B14256823DE3D 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ls0 LicenceUploadComponentProcess Big #zClass
 Ls0 RD #cInfo
@@ -28,11 +28,8 @@ Ls0 @PushWFArc f13 '' #zField
 >Proto Ls0 Ls0 LicenceUploadComponentProcess #zField
 Ls0 f0 guid 15AF1AE8F3F46A75 #txt
 Ls0 f0 method start() #txt
-Ls0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ls0 f0 outParameterDecl '<> result;
-' #txt
+Ls0 f0 inParameterDecl '<> param;' #txt
+Ls0 f0 outParameterDecl '<> result;' #txt
 Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -50,13 +47,10 @@ Ls0 f2 expr out #txt
 Ls0 f2 109 64 211 64 #arcP
 Ls0 f11 guid 15B0F97F3ADD01AC #txt
 Ls0 f11 method fileUploadEvent(org.primefaces.event.FileUploadEvent) #txt
-Ls0 f11 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<org.primefaces.event.FileUploadEvent fileUploadEvent> param = methodEvent.getInputArguments();
-' #txt
+Ls0 f11 inParameterDecl '<org.primefaces.event.FileUploadEvent fileUploadEvent> param;' #txt
 Ls0 f11 inParameterMapAction 'out.newLicence=param.fileUploadEvent.getFile();
 ' #txt
-Ls0 f11 outParameterDecl '<> result;
-' #txt
+Ls0 f11 outParameterDecl '<> result;' #txt
 Ls0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -72,7 +66,7 @@ Ls0 f12 499 115 26 26 0 12 #rect
 Ls0 f12 @|UdProcessEndIcon #fIcon
 Ls0 f14 actionTable 'out=in;
 ' #txt
-Ls0 f14 actionCode com.axon.ivy.engine.config.LicenceUtil.verifyAndInstall(in.newLicence); #txt
+Ls0 f14 actionCode 'out.licenceFile = com.axon.ivy.engine.config.LicenceUtil.verifyAndInstall(in.newLicence);' #txt
 Ls0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -132,7 +126,7 @@ Ls0 f8 1 512 221 #addKink
 Ls0 f8 0 0.7804177403779172 0 0 #arcLabel
 Ls0 f9 actionTable 'out=in;
 ' #txt
-Ls0 f9 actionCode com.axon.ivy.engine.config.LicenceUtil.backupAllOlds(); #txt
+Ls0 f9 actionCode com.axon.ivy.engine.config.LicenceUtil.backupAllOlds(in.licenceFile); #txt
 Ls0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

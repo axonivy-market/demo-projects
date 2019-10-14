@@ -1,5 +1,5 @@
 [Ivy]
-12E7BFEFCD6D0E30 3.28 #module
+12E7BFEFCD6D0E30 7.5.0 #module
 >Proto >Proto Collection #zClass
 Nt0 NewTaskMail Big #zClass
 Nt0 B #cInfo
@@ -14,7 +14,7 @@ Nt0 @EndRequest f1 '' #zField
 Nt0 @PushWFArc f2 '' #zField
 >Proto Nt0 Nt0 NewTaskMail #zField
 Nt0 f0 outLink MailNotification_NewTask.ivp #txt
-Nt0 f0 inParamDecl '<java.lang.Number notificationTaskId,java.lang.Number notificationUserId> param;' #txt
+Nt0 f0 inParamDecl '<Number notificationTaskId,Number notificationUserId> param;' #txt
 Nt0 f0 inParamTable 'out.task=ivy.wf.findTask(param.notificationTaskId);
 out.user=ivy.wf.getSecurityContext().findUser(param.notificationUserId);
 ' #txt

@@ -1,5 +1,5 @@
 [Ivy]
-12CF4EBAA4A2F24C 3.28 #module
+12CF4EBAA4A2F24C 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ck0 CancelTask Big #zClass
 Ck0 B #cInfo
@@ -16,7 +16,7 @@ Ck0 @PushWFArc f4 '' #zField
 Ck0 @PushWFArc f2 '' #zField
 >Proto Ck0 Ck0 CancelTask #zField
 Ck0 f0 outLink start.ivp #txt
-Ck0 f0 inParamDecl '<java.lang.Number taskId> param;' #txt
+Ck0 f0 inParamDecl '<Number taskId> param;' #txt
 Ck0 f0 inParamTable 'out.tmpTaskId=param.taskId;
 ' #txt
 Ck0 f0 requestEnabled true #txt

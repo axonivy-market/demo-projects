@@ -1,5 +1,5 @@
 [Ivy]
-14ECFF3E4576898B 3.28 #module
+14ECFF3E4576898B 7.5.0 #module
 >Proto >Proto Collection #zClass
 Os0 OrderShippedProcess Big #zClass
 Os0 RD #cInfo
@@ -20,13 +20,10 @@ Os0 @PushWFArc f5 '' #zField
 >Proto Os0 Os0 OrderShippedProcess #zField
 Os0 f0 guid 14ECFF3E46F63B3D #txt
 Os0 f0 method start(error.handling.demo.Order) #txt
-Os0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<error.handling.demo.Order order> param = methodEvent.getInputArguments();
-' #txt
+Os0 f0 inParameterDecl '<error.handling.demo.Order order> param;' #txt
 Os0 f0 inParameterMapAction 'out.order=param.order;
 ' #txt
-Os0 f0 outParameterDecl '<> result;
-' #txt
+Os0 f0 outParameterDecl '<> result;' #txt
 Os0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

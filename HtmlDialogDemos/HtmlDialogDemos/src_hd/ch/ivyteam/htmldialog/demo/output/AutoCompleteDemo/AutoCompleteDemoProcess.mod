@@ -1,5 +1,5 @@
 [Ivy]
-1468B144151F2C82 3.28 #module
+1468B144151F2C82 7.5.0 #module
 >Proto >Proto Collection #zClass
 As0 AutoCompleteDemoProcess Big #zClass
 As0 RD #cInfo
@@ -29,11 +29,8 @@ As0 @PushWFArc f14 '' #zField
 >Proto As0 As0 AutoCompleteDemoProcess #zField
 As0 f0 guid 1468B144171FC46C #txt
 As0 f0 method start() #txt
-As0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-As0 f0 outParameterDecl '<> result;
-' #txt
+As0 f0 inParameterDecl '<> param;' #txt
+As0 f0 outParameterDecl '<> result;' #txt
 As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -51,13 +48,10 @@ As0 f2 expr out #txt
 As0 f2 109 64 211 64 #arcP
 As0 f8 guid 1468B1E4E5D48D18 #txt
 As0 f8 method searchUsers(String) #txt
-As0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String searchText> param = methodEvent.getInputArguments();
-' #txt
+As0 f8 inParameterDecl '<String searchText> param;' #txt
 As0 f8 inParameterMapAction 'out.searchText=param.searchText;
 ' #txt
-As0 f8 outParameterDecl '<List<ch.ivyteam.ivy.security.IUser> foundUsers> result;
-' #txt
+As0 f8 outParameterDecl '<List<ch.ivyteam.ivy.security.IUser> foundUsers> result;' #txt
 As0 f8 outParameterMapAction 'result.foundUsers=in.searchResult;
 ' #txt
 As0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

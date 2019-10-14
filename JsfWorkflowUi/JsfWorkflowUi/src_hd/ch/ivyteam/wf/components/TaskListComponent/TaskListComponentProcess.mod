@@ -1,5 +1,5 @@
 [Ivy]
-1518C56414655E4F 3.28 #module
+1518C56414655E4F 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListComponentProcess Big #zClass
 Ts0 RD #cInfo
@@ -22,13 +22,10 @@ Ts0 @PushWFArc f2 '' #zField
 >Proto Ts0 Ts0 TaskListComponentProcess #zField
 Ts0 f0 guid 13EE9A482C1E853B #txt
 Ts0 f0 method start(String) #txt
-Ts0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String mode> param = methodEvent.getInputArguments();
-' #txt
+Ts0 f0 inParameterDecl '<String mode> param;' #txt
 Ts0 f0 inParameterMapAction 'out.mode=param.mode;
 ' #txt
-Ts0 f0 outParameterDecl '<> result;
-' #txt
+Ts0 f0 outParameterDecl '<> result;' #txt
 Ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -87,11 +84,8 @@ Ts0 f10 @|UdProcessEndIcon #fIcon
 Ts0 f10 -1|-1|-9671572 #nodeStyle
 Ts0 f3 guid 13F61412866CB9E5 #txt
 Ts0 f3 method update() #txt
-Ts0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ts0 f3 outParameterDecl '<> result;
-' #txt
+Ts0 f3 inParameterDecl '<> param;' #txt
+Ts0 f3 outParameterDecl '<> result;' #txt
 Ts0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

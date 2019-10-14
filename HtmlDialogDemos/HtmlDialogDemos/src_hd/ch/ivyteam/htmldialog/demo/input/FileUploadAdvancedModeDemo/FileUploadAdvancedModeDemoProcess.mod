@@ -1,5 +1,5 @@
 [Ivy]
-13D440EE6A78EF1E 3.28 #module
+13D440EE6A78EF1E 7.5.0 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadAdvancedModeDemoProcess Big #zClass
 Fs0 RD #cInfo
@@ -25,9 +25,7 @@ Fs0 @PushWFArc f11 '' #zField
 >Proto Fs0 Fs0 FileUploadAdvancedModeDemoProcess #zField
 Fs0 f0 guid 13CF812673B64819 #txt
 Fs0 f0 method start() #txt
-Fs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
+Fs0 f0 inParameterDecl '<> param;' #txt
 Fs0 f0 inActionCode 'import ch.ivyteam.ivy.cm.IContentObject;
 
 IContentObject co = ivy.cms.findContentObject("/ch.ivyteam.htmldialog.demo/fileUploadImages");
@@ -36,8 +34,7 @@ for(int i = 0; i < children.size(); i++)
 {
  out.images.add((children.get(i) as IContentObject).getName());
 }' #txt
-Fs0 f0 outParameterDecl '<> result;
-' #txt
+Fs0 f0 outParameterDecl '<> result;' #txt
 Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -57,13 +54,10 @@ Fs0 f2 expr out #txt
 Fs0 f2 109 64 211 64 #arcP
 Fs0 f3 guid 13CF8146B1D3BB71 #txt
 Fs0 f3 method uploadFile(org.primefaces.event.FileUploadEvent) #txt
-Fs0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<org.primefaces.event.FileUploadEvent event> param = methodEvent.getInputArguments();
-' #txt
+Fs0 f3 inParameterDecl '<org.primefaces.event.FileUploadEvent event> param;' #txt
 Fs0 f3 inParameterMapAction 'out.fileUploadEvent=param.event;
 ' #txt
-Fs0 f3 outParameterDecl '<> result;
-' #txt
+Fs0 f3 outParameterDecl '<> result;' #txt
 Fs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,5 +1,5 @@
 [Ivy]
-139E3427D3640FBC 3.28 #module
+139E3427D3640FBC 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ps0 PickListDemoProcess Big #zClass
 Ps0 RD #cInfo
@@ -20,11 +20,8 @@ Ps0 @PushWFArc f2 '' #zField
 >Proto Ps0 Ps0 PickListDemoProcess #zField
 Ps0 f0 guid 139E3427D4C19817 #txt
 Ps0 f0 method start() #txt
-Ps0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ps0 f0 outParameterDecl '<> result;
-' #txt
+Ps0 f0 inParameterDecl '<> param;' #txt
+Ps0 f0 outParameterDecl '<> result;' #txt
 Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -39,8 +36,7 @@ Ps0 f1 403 83 26 26 0 12 #rect
 Ps0 f1 @|UdProcessEndIcon #fIcon
 Ps0 f1 -1|-1|-9671572 #nodeStyle
 Ps0 f3 processCall 'Functional Processes/InitPersons:initPerson()' #txt
-Ps0 f3 requestActionDecl '<> param;
-' #txt
+Ps0 f3 requestActionDecl '<> param;' #txt
 Ps0 f3 responseActionDecl 'ch.ivyteam.htmldialog.demo.output.PickListDemo.PickListDemoData out;
 ' #txt
 Ps0 f3 responseMappingAction 'out=in;

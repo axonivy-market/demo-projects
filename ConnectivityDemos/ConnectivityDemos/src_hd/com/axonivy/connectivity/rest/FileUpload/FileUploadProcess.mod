@@ -1,5 +1,5 @@
 [Ivy]
-169B3B8EB21D10D8 3.28 #module
+169B3B8EB21D10D8 7.5.0 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadProcess Big #zClass
 Fs0 RD #cInfo
@@ -212,7 +212,7 @@ Fs0 f2 expr out #txt
 Fs0 f2 109 64 307 64 #arcP
 Fs0 f6 guid 169FD080F277361F #txt
 Fs0 f6 method download(String) #txt
-Fs0 f6 inParameterDecl '<java.lang.String fileName> param;' #txt
+Fs0 f6 inParameterDecl '<String fileName> param;' #txt
 Fs0 f6 inParameterMapAction 'out.downloadName=param.fileName;
 ' #txt
 Fs0 f6 outParameterDecl '<> result;' #txt
@@ -230,7 +230,7 @@ Fs0 f8 0 0.5115946062226181 0 0 #arcLabel
 Fs0 f9 270 150 307 163 #arcP
 Fs0 f11 guid 16AD5002D41CB6BC #txt
 Fs0 f11 method addJsToList(String) #txt
-Fs0 f11 inParameterDecl '<java.lang.String fileName> param;' #txt
+Fs0 f11 inParameterDecl '<String fileName> param;' #txt
 Fs0 f11 inParameterMapAction 'out.fileName=param.fileName;
 ' #txt
 Fs0 f11 inActionCode 'import com.axonivy.connectivity.rest.provider.FileService;
@@ -242,7 +242,7 @@ if(allowed.contains(extension))
 {
 out.listFile.add(out.fileName);
 }' #txt
-Fs0 f11 outParameterDecl '<java.lang.String result> result;' #txt
+Fs0 f11 outParameterDecl '<String result> result;' #txt
 Fs0 f11 outParameterMapAction 'result.result=in.fileName;
 ' #txt
 Fs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

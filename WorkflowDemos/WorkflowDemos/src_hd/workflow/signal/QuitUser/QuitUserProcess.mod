@@ -1,5 +1,5 @@
 [Ivy]
-151CA244D672B3A4 3.28 #module
+151CA244D672B3A4 7.5.0 #module
 >Proto >Proto Collection #zClass
 Qs0 QuitUserProcess Big #zClass
 Qs0 RD #cInfo
@@ -22,13 +22,10 @@ Qs0 @PushWFArc f2 '' #zField
 >Proto Qs0 Qs0 QuitUserProcess #zField
 Qs0 f0 guid 151CA244D8521FFA #txt
 Qs0 f0 method start() #txt
-Qs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
+Qs0 f0 inParameterDecl '<> param;' #txt
 Qs0 f0 inParameterMapAction 'out.quitUserEvent.reason="";
 ' #txt
-Qs0 f0 outParameterDecl '<workflow.signal.QuitUserEvent quitUserEvent> result;
-' #txt
+Qs0 f0 outParameterDecl '<workflow.signal.QuitUserEvent quitUserEvent> result;' #txt
 Qs0 f0 outParameterMapAction 'result.quitUserEvent=in.quitUserEvent;
 ' #txt
 Qs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

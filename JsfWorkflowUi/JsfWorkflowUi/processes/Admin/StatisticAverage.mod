@@ -1,5 +1,5 @@
 [Ivy]
-1447289CE234B167 3.28 #module
+1447289CE234B167 7.5.0 #module
 >Proto >Proto Collection #zClass
 Se0 StatisticAverage Big #zClass
 Se0 B #cInfo
@@ -16,7 +16,7 @@ Se0 @UserDialog f1 '' #zField
 Se0 @PushWFArc f2 '' #zField
 >Proto Se0 Se0 StatisticAverage #zField
 Se0 f0 outLink StatisticAverage.ivp #txt
-Se0 f0 inParamDecl '<java.lang.String category> param;' #txt
+Se0 f0 inParamDecl '<String category> param;' #txt
 Se0 f0 inParamTable 'out.category=param.category;
 ' #txt
 Se0 f0 requestEnabled true #txt

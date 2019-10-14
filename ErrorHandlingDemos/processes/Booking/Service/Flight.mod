@@ -1,5 +1,5 @@
 [Ivy]
-1500482C30B7492E 3.28 #module
+1500482C30B7492E 7.5.0 #module
 >Proto >Proto Collection #zClass
 et0 Flight Big #zClass
 et0 B #cInfo
@@ -28,8 +28,7 @@ et0 @PushWFArc f14 '' #zField
 et0 @PushWFArc f12 '' #zField
 >Proto et0 et0 Flight #zField
 et0 f0 inParamDecl '<booking.Flight flight,booking.Customer customer> param;' #txt
-et0 f0 outParamDecl '<> result;
-' #txt
+et0 f0 outParamDecl '<> result;' #txt
 et0 f0 callSignature bookFlight(booking.Flight,booking.Customer) #txt
 et0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -110,8 +109,7 @@ et0 f8 @|ErrorEndIcon #fIcon
 et0 f9 expr out #txt
 et0 f9 239 160 369 160 #arcP
 et0 f10 inParamDecl '<booking.Flight flight,booking.Customer customer> param;' #txt
-et0 f10 outParamDecl '<> result;
-' #txt
+et0 f10 outParamDecl '<> result;' #txt
 et0 f10 callSignature cancelFlight(booking.Flight,booking.Customer) #txt
 et0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

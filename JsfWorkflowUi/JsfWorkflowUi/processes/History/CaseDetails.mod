@@ -1,5 +1,5 @@
 [Ivy]
-13FE81B1A4AD784C 3.28 #module
+13FE81B1A4AD784C 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseDetails Big #zClass
 Cs0 B #cInfo
@@ -14,7 +14,7 @@ Cs0 @UserDialog f1 '' #zField
 Cs0 @PushWFArc f2 '' #zField
 >Proto Cs0 Cs0 CaseDetails #zField
 Cs0 f0 outLink CaseDetails.ivp #txt
-Cs0 f0 inParamDecl '<java.lang.Number detailCaseId> param;' #txt
+Cs0 f0 inParamDecl '<Number detailCaseId> param;' #txt
 Cs0 f0 inParamTable 'out.caseId=param.detailCaseId;
 ' #txt
 Cs0 f0 requestEnabled true #txt

@@ -1,5 +1,5 @@
 [Ivy]
-1446978B0F659AB0 3.28 #module
+1446978B0F659AB0 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ss0 StatisticDetailsProcess Big #zClass
 Ss0 RD #cInfo
@@ -28,7 +28,7 @@ Ss0 @PushWFArc f10 '' #zField
 >Proto Ss0 Ss0 StatisticDetailsProcess #zField
 Ss0 f0 guid 1446978B1157DF7E #txt
 Ss0 f0 method start(String,String,Number) #txt
-Ss0 f0 inParameterDecl '<java.lang.String category,java.lang.String mode,java.lang.Number caseId> param;' #txt
+Ss0 f0 inParameterDecl '<String category,String mode,Number caseId> param;' #txt
 Ss0 f0 inParameterMapAction 'out.caseId=param.caseId;
 out.category=param.category;
 out.mode=param.mode;
@@ -49,11 +49,8 @@ Ss0 f1 @|UdProcessEndIcon #fIcon
 Ss0 f1 -1|-1|-9671572 #nodeStyle
 Ss0 f6 guid 1446979D73AAECEC #txt
 Ss0 f6 method update() #txt
-Ss0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ss0 f6 outParameterDecl '<> result;
-' #txt
+Ss0 f6 inParameterDecl '<> param;' #txt
+Ss0 f6 outParameterDecl '<> result;' #txt
 Ss0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

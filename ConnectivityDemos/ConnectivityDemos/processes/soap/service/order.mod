@@ -1,5 +1,5 @@
 [Ivy]
-16249376A44F1F8E 3.28 #module
+16249376A44F1F8E 7.5.0 #module
 >Proto >Proto Collection #zClass
 or0 order Big #zClass
 or0 B #cInfo
@@ -27,7 +27,7 @@ or0 @InfoButton f12 '' #zField
 or0 @AnnotationArc f13 '' #zField
 >Proto or0 or0 order #zField
 or0 f0 outLink approveOrder.ivp #txt
-or0 f0 inParamDecl '<com.axonivy.connectivity.soap.service.Order order,java.lang.String responsibleRole> param;' #txt
+or0 f0 inParamDecl '<com.axonivy.connectivity.soap.service.Order order,String responsibleRole> param;' #txt
 or0 f0 inParamTable 'out.order=param.order;
 ' #txt
 or0 f0 requestEnabled false #txt

@@ -1,5 +1,5 @@
 [Ivy]
-139D97A1E15DE439 3.28 #module
+139D97A1E15DE439 7.5.0 #module
 >Proto >Proto Collection #zClass
 Is0 InitPersons Big #zClass
 Is0 B #cInfo
@@ -15,8 +15,7 @@ Is0 @GridStep f2 '' #zField
 Is0 @PushWFArc f3 '' #zField
 Is0 @PushWFArc f4 '' #zField
 >Proto Is0 Is0 InitPersons #zField
-Is0 f0 outParamDecl '<List<ch.ivyteam.htmldialog.demo.Person> persons> result;
-' #txt
+Is0 f0 outParamDecl '<List<ch.ivyteam.htmldialog.demo.Person> persons> result;' #txt
 Is0 f0 outParamTable 'result.persons=in.persons;
 ' #txt
 Is0 f0 callSignature initPerson() #txt

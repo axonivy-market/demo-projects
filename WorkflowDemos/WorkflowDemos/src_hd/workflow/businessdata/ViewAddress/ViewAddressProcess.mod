@@ -1,5 +1,5 @@
 [Ivy]
-156DBAA5DDFCA84E 3.28 #module
+156DBAA5DDFCA84E 7.5.0 #module
 >Proto >Proto Collection #zClass
 Vs0 ViewAddressProcess Big #zClass
 Vs0 RD #cInfo
@@ -40,13 +40,10 @@ Vs0 f5 expr out #txt
 Vs0 f5 109 160 211 160 #arcP
 Vs0 f6 guid 156DF607CBBFB119 #txt
 Vs0 f6 method start(String) #txt
-Vs0 f6 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String id> param = methodEvent.getInputArguments();
-' #txt
+Vs0 f6 inParameterDecl '<String id> param;' #txt
 Vs0 f6 inParameterMapAction 'out.addressId=param.id;
 ' #txt
-Vs0 f6 outParameterDecl '<> result;
-' #txt
+Vs0 f6 outParameterDecl '<> result;' #txt
 Vs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

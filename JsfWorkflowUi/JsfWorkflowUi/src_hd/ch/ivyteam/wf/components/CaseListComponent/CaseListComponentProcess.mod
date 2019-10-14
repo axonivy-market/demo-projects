@@ -1,5 +1,5 @@
 [Ivy]
-1518C122914A55FA 3.28 #module
+1518C122914A55FA 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cs0 CaseListComponentProcess Big #zClass
 Cs0 RD #cInfo
@@ -22,14 +22,11 @@ Cs0 @PushWFArc f3 '' #zField
 >Proto Cs0 Cs0 CaseListComponentProcess #zField
 Cs0 f0 guid 13F1D8A32D5EA95D #txt
 Cs0 f0 method start(String,ch.ivyteam.wf.history.AbstractCaseLazyDataModel) #txt
-Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String caseListMode,ch.ivyteam.wf.history.AbstractCaseLazyDataModel cases> param = methodEvent.getInputArguments();
-' #txt
+Cs0 f0 inParameterDecl '<String caseListMode,ch.ivyteam.wf.history.AbstractCaseLazyDataModel cases> param;' #txt
 Cs0 f0 inParameterMapAction 'out.caseListMode=param.caseListMode;
 out.cases=param.cases;
 ' #txt
-Cs0 f0 outParameterDecl '<> result;
-' #txt
+Cs0 f0 outParameterDecl '<> result;' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -44,11 +41,8 @@ Cs0 f0 @|UdInitIcon #fIcon
 Cs0 f0 -1|-1|-9671572 #nodeStyle
 Cs0 f2 guid 13F75D933E4D0972 #txt
 Cs0 f2 method update() #txt
-Cs0 f2 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Cs0 f2 outParameterDecl '<> result;
-' #txt
+Cs0 f2 inParameterDecl '<> param;' #txt
+Cs0 f2 outParameterDecl '<> result;' #txt
 Cs0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

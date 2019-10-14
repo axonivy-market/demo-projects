@@ -1,5 +1,5 @@
 [Ivy]
-13D440F293AA05F8 3.28 #module
+13D440F293AA05F8 7.5.0 #module
 >Proto >Proto Collection #zClass
 Fs0 FileUploadSimpleModeDemoProcess Big #zClass
 Fs0 RD #cInfo
@@ -30,11 +30,8 @@ Fs0 @PushWFArc f20 '' #zField
 >Proto Fs0 Fs0 FileUploadSimpleModeDemoProcess #zField
 Fs0 f0 guid 13CF812673B64819 #txt
 Fs0 f0 method start() #txt
-Fs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Fs0 f0 outParameterDecl '<> result;
-' #txt
+Fs0 f0 inParameterDecl '<> param;' #txt
+Fs0 f0 outParameterDecl '<> result;' #txt
 Fs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

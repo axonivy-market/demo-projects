@@ -1,5 +1,5 @@
 [Ivy]
-12CBC43B6E19D1BD 3.28 #module
+12CBC43B6E19D1BD 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cy0 ChangeExpiry Big #zClass
 Cy0 B #cInfo
@@ -29,8 +29,7 @@ out.tmpTaskDetail.exp=param.in.tmpTask.getExpiryTimestamp();
 out.tmpTaskDetail.prio=param.in.tmpTask.getOriginalPriority().intValue();
 out.tmpTaskDetail.prioName=param.in.tmpTask.getOriginalPriority().toString();
 ' #txt
-Cy0 f6 outParamDecl '<htmlwfui.Data out> result;
-' #txt
+Cy0 f6 outParamDecl '<htmlwfui.Data out> result;' #txt
 Cy0 f6 outParamTable 'result.out=in;
 ' #txt
 Cy0 f6 callSignature call(htmlwfui.Data) #txt

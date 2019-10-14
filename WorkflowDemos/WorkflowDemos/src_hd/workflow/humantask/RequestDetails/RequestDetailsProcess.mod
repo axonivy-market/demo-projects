@@ -1,5 +1,5 @@
 [Ivy]
-152A20D5EC31358E 3.28 #module
+152A20D5EC31358E 7.5.0 #module
 >Proto >Proto Collection #zClass
 Rs0 RequestDetailsProcess Big #zClass
 Rs0 RD #cInfo
@@ -20,13 +20,10 @@ Rs0 @PushWFArc f5 '' #zField
 >Proto Rs0 Rs0 RequestDetailsProcess #zField
 Rs0 f0 guid 152A20D5EE4A4026 #txt
 Rs0 f0 method start(workflow.humantask.ProcurementRequest) #txt
-Rs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<workflow.humantask.ProcurementRequest procurementRequestData> param = methodEvent.getInputArguments();
-' #txt
+Rs0 f0 inParameterDecl '<workflow.humantask.ProcurementRequest procurementRequestData> param;' #txt
 Rs0 f0 inParameterMapAction 'out.procurementRequestData=param.procurementRequestData;
 ' #txt
-Rs0 f0 outParameterDecl '<> result;
-' #txt
+Rs0 f0 outParameterDecl '<> result;' #txt
 Rs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

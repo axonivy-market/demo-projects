@@ -1,5 +1,5 @@
 [Ivy]
-1500483191BD4791 3.28 #module
+1500483191BD4791 7.5.0 #module
 >Proto >Proto Collection #zClass
 hz0 Car Big #zClass
 hz0 B #cInfo
@@ -17,9 +17,8 @@ hz0 @WSElement f3 '' #zField
 hz0 @PushWFArc f4 '' #zField
 hz0 @PushWFArc f2 '' #zField
 >Proto hz0 hz0 Car #zField
-hz0 f0 inParamDecl '<java.lang.String size> param;' #txt
-hz0 f0 outParamDecl '<> result;
-' #txt
+hz0 f0 inParamDecl '<String size> param;' #txt
+hz0 f0 outParamDecl '<> result;' #txt
 hz0 f0 callSignature bookCar(String) #txt
 hz0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

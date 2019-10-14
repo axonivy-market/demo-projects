@@ -1,5 +1,5 @@
 [Ivy]
-15066B87D449F453 3.28 #module
+15066B87D449F453 7.5.0 #module
 >Proto >Proto Collection #zClass
 Fy0 Factory Big #zClass
 Fy0 B #cInfo
@@ -50,8 +50,7 @@ Fy0 f0 @|StartRequestIcon #fIcon
 Fy0 f1 321 145 30 30 0 15 #rect
 Fy0 f1 @|EndIcon #fIcon
 Fy0 f3 processCall Factory/Production:produceShoes(String,Number) #txt
-Fy0 f3 requestActionDecl '<java.lang.String model,java.lang.Number amount> param;
-' #txt
+Fy0 f3 requestActionDecl '<String model,Number amount> param;' #txt
 Fy0 f3 requestMappingAction 'param.model="Super Runner";
 param.amount=1000;
 ' #txt

@@ -1,5 +1,5 @@
 [Ivy]
-13D0159BD5D40664 3.28 #module
+13D0159BD5D40664 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ms0 MultiViewDemoProcess Big #zClass
 Ms0 RD #cInfo
@@ -71,14 +71,11 @@ Ms0 S10 @|BIcon #fIcon
 Ms0 S10 -1|-1|-9671572 #nodeStyle
 Ms0 f0 guid 13D0159BD8A52D62 #txt
 Ms0 f0 method start() #txt
-Ms0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
+Ms0 f0 inParameterDecl '<> param;' #txt
 Ms0 f0 inParameterMapAction 'out.paymentKind="Invoice";
 out.processing=true;
 ' #txt
-Ms0 f0 outParameterDecl '<> result;
-' #txt
+Ms0 f0 outParameterDecl '<> result;' #txt
 Ms0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -98,13 +95,10 @@ Ms0 f2 expr out #txt
 Ms0 f2 109 64 211 64 #arcP
 Ms0 f3 guid 13D016AD58EF27F9 #txt
 Ms0 f3 method nextView(String) #txt
-Ms0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String currentView> param = methodEvent.getInputArguments();
-' #txt
+Ms0 f3 inParameterDecl '<String currentView> param;' #txt
 Ms0 f3 inParameterMapAction 'out.currentView=param.currentView;
 ' #txt
-Ms0 f3 outParameterDecl '<java.lang.String nextView> result;
-' #txt
+Ms0 f3 outParameterDecl '<String nextView> result;' #txt
 Ms0 f3 outParameterMapAction 'result.nextView=in.nextView;
 ' #txt
 Ms0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -142,13 +136,10 @@ Ms0 f7 expr out #txt
 Ms0 f7 109 160 211 160 #arcP
 Ms0 f27 guid 13D01F2037B4084E #txt
 Ms0 f27 method stopProcessing() #txt
-Ms0 f27 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
+Ms0 f27 inParameterDecl '<> param;' #txt
 Ms0 f27 inParameterMapAction 'out.processing=false;
 ' #txt
-Ms0 f27 outParameterDecl '<> result;
-' #txt
+Ms0 f27 outParameterDecl '<> result;' #txt
 Ms0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

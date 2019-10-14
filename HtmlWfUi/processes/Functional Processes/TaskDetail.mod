@@ -1,5 +1,5 @@
 [Ivy]
-12CBB155A8E655CC 3.28 #module
+12CBB155A8E655CC 7.5.0 #module
 >Proto >Proto Collection #zClass
 Tl0 TaskDetail Big #zClass
 Tl0 B #cInfo
@@ -33,8 +33,7 @@ Tl0 @PushWFArc f18 '' #zField
 Tl0 f0 inParamDecl '<htmlwfui.Data in> param;' #txt
 Tl0 f0 inParamTable 'out=param.in;
 ' #txt
-Tl0 f0 outParamDecl '<> result;
-' #txt
+Tl0 f0 outParamDecl '<> result;' #txt
 Tl0 f0 callSignature call(htmlwfui.Data) #txt
 Tl0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -50,8 +49,7 @@ Tl0 f0 @|StartSubIcon #fIcon
 Tl0 f1 19 139 26 26 14 0 #rect
 Tl0 f1 @|EndSubIcon #fIcon
 Tl0 f11 processCall 'Functional Processes/AddNote:call(htmlwfui.Data)' #txt
-Tl0 f11 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Tl0 f11 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Tl0 f11 requestMappingAction 'param.in=in;
 param.in.noteFor="task";
 ' #txt
@@ -71,8 +69,7 @@ Tl0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Tl0 f11 286 204 36 24 5 17 #rect
 Tl0 f11 @|CallSubIcon #fIcon
 Tl0 f10 processCall 'Functional Processes/DelegateTask:call(htmlwfui.Data)' #txt
-Tl0 f10 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Tl0 f10 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Tl0 f10 requestMappingAction 'param.in=in;
 ' #txt
 Tl0 f10 responseActionDecl 'htmlwfui.Data out;
@@ -136,8 +133,7 @@ Tl0 f3 expr data #txt
 Tl0 f3 outCond ivp=="LinkA.ivp" #txt
 Tl0 f3 94 152 45 152 #arcP
 Tl0 f5 processCall 'Functional Processes/ChangeExpiry:call(htmlwfui.Data)' #txt
-Tl0 f5 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Tl0 f5 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Tl0 f5 requestMappingAction 'param.in=in;
 ' #txt
 Tl0 f5 responseActionDecl 'htmlwfui.Data out;
@@ -187,8 +183,7 @@ Tl0 f9 expr data #txt
 Tl0 f9 outCond ivp=="LinkE.ivp" #txt
 Tl0 f9 112 164 112 204 #arcP
 Tl0 f15 processCall 'Functional Processes/PageArchive:call(htmlwfui.Data)' #txt
-Tl0 f15 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Tl0 f15 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Tl0 f15 requestMappingAction 'param.in=in;
 ' #txt
 Tl0 f15 responseActionDecl 'htmlwfui.Data out;

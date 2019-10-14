@@ -1,5 +1,5 @@
 [Ivy]
-1675F33D16FB90A4 3.28 #module
+1675F33D16FB90A4 7.5.0 #module
 >Proto >Proto Collection #zClass
 cs0 createUsers Big #zClass
 cs0 B #cInfo
@@ -18,7 +18,7 @@ cs0 @PushWFArc f4 '' #zField
 cs0 @PushWFArc f2 '' #zField
 >Proto cs0 cs0 createUsers #zField
 cs0 f0 outLink createTestUsers.ivp #txt
-cs0 f0 inParamDecl '<java.lang.String amount,java.lang.String prefix> param;' #txt
+cs0 f0 inParamDecl '<String amount,String prefix> param;' #txt
 cs0 f0 inParamTable 'out.amount=Integer.valueOf(param.amount);
 out.prefix=param.prefix;
 ' #txt

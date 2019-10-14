@@ -1,5 +1,5 @@
 [Ivy]
-139D3B8894867715 3.28 #module
+139D3B8894867715 7.5.0 #module
 >Proto >Proto Collection #zClass
 Os0 OrderListDemoProcess Big #zClass
 Os0 RD #cInfo
@@ -23,11 +23,8 @@ Os0 @PushWFArc f4 '' #zField
 >Proto Os0 Os0 OrderListDemoProcess #zField
 Os0 f0 guid 139D3B8895B6832C #txt
 Os0 f0 method start() #txt
-Os0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Os0 f0 outParameterDecl '<> result;
-' #txt
+Os0 f0 inParameterDecl '<> param;' #txt
+Os0 f0 outParameterDecl '<> result;' #txt
 Os0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -84,8 +81,7 @@ Os0 f9 109 352 211 352 #arcP
 Os0 f10 expr out #txt
 Os0 f10 109 256 211 256 #arcP
 Os0 f2 processCall 'Functional Processes/InitPersons:initPerson()' #txt
-Os0 f2 requestActionDecl '<> param;
-' #txt
+Os0 f2 requestActionDecl '<> param;' #txt
 Os0 f2 responseActionDecl 'ch.ivyteam.htmldialog.demo.output.OrderListDemo.OrderListDemoData out;
 ' #txt
 Os0 f2 responseMappingAction 'out=in;

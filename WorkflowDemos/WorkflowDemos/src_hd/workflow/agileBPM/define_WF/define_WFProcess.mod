@@ -1,5 +1,5 @@
 [Ivy]
-1525503525CD0CCC 3.28 #module
+1525503525CD0CCC 7.5.0 #module
 >Proto >Proto Collection #zClass
 ds0 define_WFProcess Big #zClass
 ds0 RD #cInfo
@@ -64,11 +64,8 @@ ds0 @PushWFArc f52 '' #zField
 >Proto ds0 ds0 define_WFProcess #zField
 ds0 f0 guid 144633F67BB43F5D #txt
 ds0 f0 method start() #txt
-ds0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-ds0 f0 outParameterDecl '<List<workflow.agileBPM.TaskDef> definedTasks,workflow.agileBPM.CaseDef caseInfo> result;
-' #txt
+ds0 f0 inParameterDecl '<> param;' #txt
+ds0 f0 outParameterDecl '<List<workflow.agileBPM.TaskDef> definedTasks,workflow.agileBPM.CaseDef caseInfo> result;' #txt
 ds0 f0 outParameterMapAction 'result.definedTasks=in.definedTasks;
 result.caseInfo=in.caseInfo;
 ' #txt
@@ -258,12 +255,9 @@ ds0 f2 expr out #txt
 ds0 f2 232 64 275 64 #arcP
 ds0 f13 guid 14ADE4A40F9E30A6 #txt
 ds0 f13 method deleteTask(workflow.agileBPM.TaskDef) #txt
-ds0 f13 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<workflow.agileBPM.TaskDef taskdef> param = methodEvent.getInputArguments();
-' #txt
+ds0 f13 inParameterDecl '<workflow.agileBPM.TaskDef taskdef> param;' #txt
 ds0 f13 inActionCode 'out.definedTasks = out.definedTasks.remove(param.taskdef);' #txt
-ds0 f13 outParameterDecl '<> result;
-' #txt
+ds0 f13 outParameterDecl '<> result;' #txt
 ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -521,14 +515,11 @@ ds0 f43 expr out #txt
 ds0 f43 232 672 275 672 #arcP
 ds0 f44 guid 14BEF560D05EF4D6 #txt
 ds0 f44 method initUserList(workflow.agileBPM.TaskDef) #txt
-ds0 f44 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<workflow.agileBPM.TaskDef taskDef> param = methodEvent.getInputArguments();
-' #txt
+ds0 f44 inParameterDecl '<workflow.agileBPM.TaskDef taskDef> param;' #txt
 ds0 f44 inParameterMapAction 'out.editTask=param.taskDef;
 out.user=param.taskDef.actor;
 ' #txt
-ds0 f44 outParameterDecl '<> result;
-' #txt
+ds0 f44 outParameterDecl '<> result;' #txt
 ds0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -544,14 +535,11 @@ ds0 f41 expr out #txt
 ds0 f41 77 672 120 672 #arcP
 ds0 f47 guid 150143FB91A313FB #txt
 ds0 f47 method editTaskDescription(workflow.agileBPM.TaskDef) #txt
-ds0 f47 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<workflow.agileBPM.TaskDef taskDef> param = methodEvent.getInputArguments();
-' #txt
+ds0 f47 inParameterDecl '<workflow.agileBPM.TaskDef taskDef> param;' #txt
 ds0 f47 inParameterMapAction 'out.editTask=param.taskDef;
 out.taskDescription="...".equals(param.taskDef.description) ? "" : param.taskDef.description;
 ' #txt
-ds0 f47 outParameterDecl '<> result;
-' #txt
+ds0 f47 outParameterDecl '<> result;' #txt
 ds0 f47 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

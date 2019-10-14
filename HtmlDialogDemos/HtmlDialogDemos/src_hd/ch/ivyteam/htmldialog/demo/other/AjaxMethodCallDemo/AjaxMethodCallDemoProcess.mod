@@ -1,5 +1,5 @@
 [Ivy]
-13A3F854E6D3A3F7 3.28 #module
+13A3F854E6D3A3F7 7.5.0 #module
 >Proto >Proto Collection #zClass
 As0 AjaxMethodCallDemoProcess Big #zClass
 As0 RD #cInfo
@@ -23,11 +23,8 @@ As0 @PushWFArc f10 '' #zField
 >Proto As0 As0 AjaxMethodCallDemoProcess #zField
 As0 f0 guid 13A3F854E8424F18 #txt
 As0 f0 method start() #txt
-As0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-As0 f0 outParameterDecl '<> result;
-' #txt
+As0 f0 inParameterDecl '<> param;' #txt
+As0 f0 outParameterDecl '<> result;' #txt
 As0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -45,13 +42,10 @@ As0 f2 expr out #txt
 As0 f2 109 64 211 64 #arcP
 As0 f3 guid 13A3FA51C962D77C #txt
 As0 f3 method helloWorld(String) #txt
-As0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.String name> param = methodEvent.getInputArguments();
-' #txt
+As0 f3 inParameterDecl '<String name> param;' #txt
 As0 f3 inParameterMapAction 'out.name=param.name;
 ' #txt
-As0 f3 outParameterDecl '<java.lang.String result> result;
-' #txt
+As0 f3 outParameterDecl '<String result> result;' #txt
 As0 f3 outParameterMapAction 'result.result=in.welcomeMessage;
 ' #txt
 As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -81,11 +75,8 @@ As0 f6 expr out #txt
 As0 f6 296 160 371 160 #arcP
 As0 f8 guid 1437CC3BEFF4691B #txt
 As0 f8 method closeDialog() #txt
-As0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-As0 f8 outParameterDecl '<> result;
-' #txt
+As0 f8 inParameterDecl '<> param;' #txt
+As0 f8 outParameterDecl '<> result;' #txt
 As0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

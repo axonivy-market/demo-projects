@@ -1,5 +1,5 @@
 [Ivy]
-13ED18A804435D54 3.28 #module
+13ED18A804435D54 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ps0 ProcessListProcess Big #zClass
 Ps0 RD #cInfo
@@ -22,11 +22,8 @@ Ps0 @PushWFArc f9 '' #zField
 >Proto Ps0 Ps0 ProcessListProcess #zField
 Ps0 f0 guid 13ED18A805A7471B #txt
 Ps0 f0 method start() #txt
-Ps0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ps0 f0 outParameterDecl '<> result;
-' #txt
+Ps0 f0 inParameterDecl '<> param;' #txt
+Ps0 f0 outParameterDecl '<> result;' #txt
 Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -113,11 +110,8 @@ Ps0 f7 expr out #txt
 Ps0 f7 304 160 339 160 #arcP
 Ps0 f10 guid 14A0696FEF010E01 #txt
 Ps0 f10 method update() #txt
-Ps0 f10 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ps0 f10 outParameterDecl '<> result;
-' #txt
+Ps0 f10 inParameterDecl '<> param;' #txt
+Ps0 f10 outParameterDecl '<> result;' #txt
 Ps0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

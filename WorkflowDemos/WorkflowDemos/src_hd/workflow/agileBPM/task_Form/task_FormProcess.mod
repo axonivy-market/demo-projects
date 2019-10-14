@@ -1,5 +1,5 @@
 [Ivy]
-152550395446E592 3.28 #module
+152550395446E592 7.5.0 #module
 >Proto >Proto Collection #zClass
 ts0 task_FormProcess Big #zClass
 ts0 RD #cInfo
@@ -57,9 +57,7 @@ ts0 @GridStep f41 '' #zField
 >Proto ts0 ts0 task_FormProcess #zField
 ts0 f0 guid 1492E077AC02C00B #txt
 ts0 f0 method start(workflow.agileBPM.CaseDef,workflow.agileBPM.TaskDef,List<workflow.agileBPM.TaskDef>) #txt
-ts0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<workflow.agileBPM.CaseDef caseInfo,workflow.agileBPM.TaskDef nextTask,List<workflow.agileBPM.TaskDef> definedTasks> param = methodEvent.getInputArguments();
-' #txt
+ts0 f0 inParameterDecl '<workflow.agileBPM.CaseDef caseInfo,workflow.agileBPM.TaskDef nextTask,List<workflow.agileBPM.TaskDef> definedTasks> param;' #txt
 ts0 f0 inParameterMapAction 'out.caseInfo=param.caseInfo;
 out.definedTasks=param.definedTasks;
 out.nextTask=param.nextTask;
@@ -89,8 +87,7 @@ out.addTask.setUntil(ivy.cal.getWorkDayIn(1,new Time()));
 out.addTask.kind = oldTask.kind;
 
 out.caseNotes = ivy.case.getNotes();' #txt
-ts0 f0 outParameterDecl '<List<workflow.agileBPM.TaskDef> definedTasks> result;
-' #txt
+ts0 f0 outParameterDecl '<List<workflow.agileBPM.TaskDef> definedTasks> result;' #txt
 ts0 f0 outParameterMapAction 'result.definedTasks=in.definedTasks;
 ' #txt
 ts0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -271,13 +268,10 @@ ts0 f13 1 512 272 #addKink
 ts0 f13 1 0.4877973440059553 0 0 #arcLabel
 ts0 f20 guid 14B7E1153B0E4196 #txt
 ts0 f20 method done(Boolean) #txt
-ts0 f20 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.lang.Boolean done> param = methodEvent.getInputArguments();
-' #txt
+ts0 f20 inParameterDecl '<Boolean done> param;' #txt
 ts0 f20 inParameterMapAction 'out.done=param.done;
 ' #txt
-ts0 f20 outParameterDecl '<> result;
-' #txt
+ts0 f20 outParameterDecl '<> result;' #txt
 ts0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -439,13 +433,10 @@ ts0 f30 expr out #txt
 ts0 f30 109 352 152 352 #arcP
 ts0 f33 guid 14C46FC6DC345ABA #txt
 ts0 f33 method deleteTask(workflow.agileBPM.TaskDef) #txt
-ts0 f33 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<workflow.agileBPM.TaskDef taskDef> param = methodEvent.getInputArguments();
-' #txt
+ts0 f33 inParameterDecl '<workflow.agileBPM.TaskDef taskDef> param;' #txt
 ts0 f33 inActionCode 'out.definedTasks = out.definedTasks.remove(param.taskDef);
 out.msg = param.taskDef.actor;' #txt
-ts0 f33 outParameterDecl '<> result;
-' #txt
+ts0 f33 outParameterDecl '<> result;' #txt
 ts0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

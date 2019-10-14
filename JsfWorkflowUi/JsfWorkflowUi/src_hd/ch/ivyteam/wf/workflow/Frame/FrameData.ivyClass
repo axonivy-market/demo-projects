@@ -1,5 +1,5 @@
 FrameData #class
-ch.ivyteam.wf #namespace
+ch.ivyteam.wf.workflow.Frame #namespace
 url String #field
 url PERSISTENT #fieldModifier
 taskId Number #field

@@ -1,5 +1,5 @@
 [Ivy]
-139D96A5734DE195 3.28 #module
+139D96A5734DE195 7.5.0 #module
 >Proto >Proto Collection #zClass
 Es0 EditableTableDemoProcess Big #zClass
 Es0 RD #cInfo
@@ -35,11 +35,8 @@ Es0 @PushWFArc f20 '' #zField
 >Proto Es0 Es0 EditableTableDemoProcess #zField
 Es0 f0 guid 139D96A574FD8C6C #txt
 Es0 f0 method start() #txt
-Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Es0 f0 outParameterDecl '<> result;
-' #txt
+Es0 f0 inParameterDecl '<> param;' #txt
+Es0 f0 outParameterDecl '<> result;' #txt
 Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -54,8 +51,7 @@ Es0 f1 555 115 26 26 0 12 #rect
 Es0 f1 @|UdProcessEndIcon #fIcon
 Es0 f1 -1|-1|-9671572 #nodeStyle
 Es0 f2 processCall 'Functional Processes/InitPersons:initPerson()' #txt
-Es0 f2 requestActionDecl '<> param;
-' #txt
+Es0 f2 requestActionDecl '<> param;' #txt
 Es0 f2 responseActionDecl 'ch.ivyteam.htmldialog.demo.output.EditableTableDemo.EditableTableDemoData out;
 ' #txt
 Es0 f2 responseMappingAction 'out=in;
@@ -133,13 +129,10 @@ Es0 f4 expr out #txt
 Es0 f4 472 128 555 128 #arcP
 Es0 f13 guid 139DEBA1CB42E47D #txt
 Es0 f13 method delete(Record) #txt
-Es0 f13 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.ivy.scripting.objects.Record deletedRow> param = methodEvent.getInputArguments();
-' #txt
+Es0 f13 inParameterDecl '<Record deletedRow> param;' #txt
 Es0 f13 inParameterMapAction 'out.selectedPerson=param.deletedRow;
 ' #txt
-Es0 f13 outParameterDecl '<> result;
-' #txt
+Es0 f13 outParameterDecl '<> result;' #txt
 Es0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,5 +1,5 @@
 [Ivy]
-16D29AE50A7A6E34 3.28 #module
+16D29AE50A7A6E34 7.5.0 #module
 >Proto >Proto Collection #zClass
 sn0 serviceWithException Big #zClass
 sn0 WS #cInfo
@@ -16,11 +16,11 @@ sn0 @EndWS f1 '' #zField
 sn0 @PushWFArc f2 '' #zField
 sn0 @InfoButton f5 '' #zField
 >Proto sn0 sn0 serviceWithException #zField
-sn0 f0 inParamDecl '<java.lang.Boolean throwException,java.lang.String exceptionMessage> param;' #txt
+sn0 f0 inParamDecl '<Boolean throwException,String exceptionMessage> param;' #txt
 sn0 f0 inParamTable 'out.exceptionMessage=param.exceptionMessage;
 out.throwException=param.throwException;
 ' #txt
-sn0 f0 outParamDecl '<java.lang.String exceptionMessage> result;' #txt
+sn0 f0 outParamDecl '<String exceptionMessage> result;' #txt
 sn0 f0 outParamTable 'result.exceptionMessage=in.exceptionMessage;
 ' #txt
 sn0 f0 callSignature call(Boolean,String) #txt

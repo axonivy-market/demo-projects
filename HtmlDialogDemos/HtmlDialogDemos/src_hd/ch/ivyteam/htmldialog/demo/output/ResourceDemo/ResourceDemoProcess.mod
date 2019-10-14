@@ -1,5 +1,5 @@
 [Ivy]
-13A0168D09848672 3.28 #module
+13A0168D09848672 7.5.0 #module
 >Proto >Proto Collection #zClass
 Rs0 ResourceDemoProcess Big #zClass
 Rs0 RD #cInfo
@@ -18,11 +18,8 @@ Rs0 @PushWFArc f5 '' #zField
 >Proto Rs0 Rs0 ResourceDemoProcess #zField
 Rs0 f0 guid 13A0168D0B4F1482 #txt
 Rs0 f0 method start() #txt
-Rs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Rs0 f0 outParameterDecl '<> result;
-' #txt
+Rs0 f0 inParameterDecl '<> param;' #txt
+Rs0 f0 outParameterDecl '<> result;' #txt
 Rs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -40,11 +37,8 @@ Rs0 f2 expr out #txt
 Rs0 f2 109 64 211 64 #arcP
 Rs0 f3 guid 14DFBDBFE176800C #txt
 Rs0 f3 method getStreamedImage() #txt
-Rs0 f3 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Rs0 f3 outParameterDecl '<org.primefaces.model.StreamedContent image> result;
-' #txt
+Rs0 f3 inParameterDecl '<> param;' #txt
+Rs0 f3 outParameterDecl '<org.primefaces.model.StreamedContent image> result;' #txt
 Rs0 f3 outActionCode 'import javax.faces.event.PhaseId;
 import javax.faces.context.FacesContext;
 import org.primefaces.model.DefaultStreamedContent;

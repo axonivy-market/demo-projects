@@ -1,5 +1,5 @@
 [Ivy]
-15C7CA0FC7AF3A35 3.28 #module
+15C7CA0FC7AF3A35 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginPageComponentProcess Big #zClass
 Ls0 RD #cInfo
@@ -22,11 +22,8 @@ Ls0 @PushWFArc f10 '' #zField
 >Proto Ls0 Ls0 LoginPageComponentProcess #zField
 Ls0 f0 guid 15C7CA0FD01E4B8A #txt
 Ls0 f0 method start() #txt
-Ls0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ls0 f0 outParameterDecl '<> result;
-' #txt
+Ls0 f0 inParameterDecl '<> param;' #txt
+Ls0 f0 outParameterDecl '<> result;' #txt
 Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

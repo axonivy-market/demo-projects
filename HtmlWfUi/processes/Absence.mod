@@ -1,5 +1,5 @@
 [Ivy]
-1367E046117353D3 3.28 #module
+1367E046117353D3 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ae0 Absence Big #zClass
 Ae0 B #cInfo
@@ -54,8 +54,7 @@ Ae0 f0 @C|.responsibility Everybody #txt
 Ae0 f0 147 51 26 26 14 0 #rect
 Ae0 f0 @|StartRequestIcon #fIcon
 Ae0 f8 processCall 'Functional Processes/LoginSequence:check_Login(htmlwfui.Data)' #txt
-Ae0 f8 requestActionDecl '<htmlwfui.Data in> param;
-' #txt
+Ae0 f8 requestActionDecl '<htmlwfui.Data in> param;' #txt
 Ae0 f8 requestMappingAction 'param.in=in;
 ' #txt
 Ae0 f8 responseActionDecl 'htmlwfui.Data out;

@@ -1,5 +1,5 @@
 [Ivy]
-13EF084DCC4BDEAE 3.28 #module
+13EF084DCC4BDEAE 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ds0 DetailListComponentProcess Big #zClass
 Ds0 RD #cInfo
@@ -15,13 +15,10 @@ Ds0 @PushWFArc f2 '' #zField
 >Proto Ds0 Ds0 DetailListComponentProcess #zField
 Ds0 f0 guid 13EF084DCD4FB354 #txt
 Ds0 f0 method start(java.util.List<ch.ivyteam.htmldialog.demo.Person>) #txt
-Ds0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<java.util.List<ch.ivyteam.htmldialog.demo.Person> persons> param = methodEvent.getInputArguments();
-' #txt
+Ds0 f0 inParameterDecl '<java.util.List<ch.ivyteam.htmldialog.demo.Person> persons> param;' #txt
 Ds0 f0 inActionCode 'import ch.ivyteam.htmldialog.demo.component.PersonListDataModel;
 out.persons = new PersonListDataModel(param.persons);' #txt
-Ds0 f0 outParameterDecl '<> result;
-' #txt
+Ds0 f0 outParameterDecl '<> result;' #txt
 Ds0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,5 +1,5 @@
 [Ivy]
-15254DF8F30D6949 3.28 #module
+15254DF8F30D6949 7.5.0 #module
 >Proto >Proto Collection #zClass
 Vs0 VerifyRequestProcess Big #zClass
 Vs0 RD #cInfo
@@ -27,13 +27,10 @@ Vs0 @PushWFArc f7 '' #zField
 >Proto Vs0 Vs0 VerifyRequestProcess #zField
 Vs0 f0 guid 14FAE07217F2117A #txt
 Vs0 f0 method start(workflow.humantask.ProcurementRequest) #txt
-Vs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<workflow.humantask.ProcurementRequest procurementRequest> param = methodEvent.getInputArguments();
-' #txt
+Vs0 f0 inParameterDecl '<workflow.humantask.ProcurementRequest procurementRequest> param;' #txt
 Vs0 f0 inParameterMapAction 'out.procurementRequest=param.procurementRequest;
 ' #txt
-Vs0 f0 outParameterDecl '<java.lang.Boolean dataOk,workflow.humantask.LogEntry logEntry> result;
-' #txt
+Vs0 f0 outParameterDecl '<Boolean dataOk,workflow.humantask.LogEntry logEntry> result;' #txt
 Vs0 f0 outParameterMapAction 'result.dataOk=in.ok;
 result.logEntry=in.logEntry;
 ' #txt
