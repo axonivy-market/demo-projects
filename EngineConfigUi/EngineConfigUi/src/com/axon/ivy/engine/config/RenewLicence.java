@@ -53,7 +53,8 @@ public class RenewLicence
     {
       UiModder.addInfoMessage("Message", "Your request has been sent successfully");
     }
-    else if (response.getStatus() == 406) {
+    else if (response.getStatus() == 406) 
+    {
       JsonObject json = new JsonParser().parse(response.readEntity(String.class)).getAsJsonObject(); 
       UiModder.addErrorMessage("Message", json.get("errorMessage").getAsString()); 
     }
