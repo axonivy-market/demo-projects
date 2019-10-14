@@ -1,9 +1,6 @@
 package com.axon.ivy.engine.config;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
@@ -12,8 +9,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status.Family;
 
 import org.glassfish.jersey.media.multipart.Boundary;
+import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
-import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -22,13 +19,14 @@ import ch.ivyteam.licence.SignedLicence;
 
 public class RenewLicence
 {
-  private static Response upload(WebTarget target, File licence, String mailTo) throws IOException
+  private static Response upload(WebTarget target, String mailTo) throws IOException
   {
     FormDataMultiPart multipart;
+    String licContent = SignedLicence.getLicenceContent();
     try (FormDataMultiPart formDataMultiPart = new FormDataMultiPart())
     {
-      FileDataBodyPart filePart = new FileDataBodyPart("oldLicense", licence);
-      multipart = (FormDataMultiPart) formDataMultiPart.bodyPart(filePart);
+      FormDataBodyPart bodyPart = new FormDataBodyPart("oldLicense", licContent);
+      multipart = (FormDataMultiPart) formDataMultiPart.bodyPart(bodyPart);
     }
     
     multipart.setMediaType(Boundary.addBoundary(MediaType.MULTIPART_FORM_DATA_TYPE));
@@ -50,14 +48,7 @@ public class RenewLicence
 
   public static void sendRenew(WebTarget client, String renewEmail) throws IOException
   {
-    File tempFile = Files.createTempFile("test", ".lic").toFile();
-
-    FileOutputStream fos = new FileOutputStream(tempFile);
-    fos.write(SignedLicence.getLicenceContent().getBytes());
-    fos.flush();
-    fos.close();
-
-    Response response = upload(client, tempFile, renewEmail);
+    Response response = upload(client, renewEmail);
     if (response.getStatusInfo().getFamily() == Family.SUCCESSFUL)
     {
       UiModder.addInfoMessage("Message", "Your request has been sent successfully");
@@ -70,6 +61,5 @@ public class RenewLicence
     {
       UiModder.addErrorMessage("Message", "There was some problem sending your request: " + response.readEntity(String.class));
     }
-    tempFile.delete();
   }
 }
