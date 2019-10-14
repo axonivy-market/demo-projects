@@ -66,7 +66,7 @@ Ls0 f12 499 115 26 26 0 12 #rect
 Ls0 f12 @|UdProcessEndIcon #fIcon
 Ls0 f14 actionTable 'out=in;
 ' #txt
-Ls0 f14 actionCode com.axon.ivy.engine.config.LicenceUtil.verifyAndInstall(in.newLicence); #txt
+Ls0 f14 actionCode 'out.licenceFile = com.axon.ivy.engine.config.LicenceUtil.verifyAndInstall(in.newLicence);' #txt
 Ls0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -126,7 +126,7 @@ Ls0 f8 1 512 221 #addKink
 Ls0 f8 0 0.7804177403779172 0 0 #arcLabel
 Ls0 f9 actionTable 'out=in;
 ' #txt
-Ls0 f9 actionCode com.axon.ivy.engine.config.LicenceUtil.backupAllOlds(); #txt
+Ls0 f9 actionCode com.axon.ivy.engine.config.LicenceUtil.backupAllOlds(in.licenceFile); #txt
 Ls0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
