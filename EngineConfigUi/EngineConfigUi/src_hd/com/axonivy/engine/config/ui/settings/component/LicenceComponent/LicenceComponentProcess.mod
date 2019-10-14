@@ -82,42 +82,9 @@ Ls0 f4 @|UdProcessEndIcon #fIcon
 Ls0 f5 clientId b2bf970e-6e13-4762-a66a-a164dc2d10fd #txt
 Ls0 f5 method JAX_RS #txt
 Ls0 f5 bodyInputType ENTITY #txt
-Ls0 f5 clientCode 'import javax.ws.rs.core.Response.Status.Family;
-import javax.ws.rs.core.Response.Status;
-import org.apache.commons.lang3.StringUtils;
-import java.util.Map;
-import com.axon.ivy.engine.config.RenewLicence;
-import com.axon.ivy.engine.config.UiModder;
-import ch.ivyteam.licence.SignedLicence;
-import javax.ws.rs.core.Response;
-import java.io.FileOutputStream;
-import java.util.Calendar;
+Ls0 f5 clientCode 'import com.axon.ivy.engine.config.RenewLicence;
 
-java.io.File tempFile = java.nio.file.Files.createTempFile("test", ".lic").toFile();
-
-FileOutputStream fos = new FileOutputStream(tempFile);
-fos.write(SignedLicence.getLicenceContent().getBytes());
-fos.flush();
-fos.close();
-
-Response response = RenewLicence.upload(client, tempFile, in.renewLicenceData.renewEmail);
-if (response.getStatusInfo().getFamily() == Family.SUCCESSFUL)
-{
-	UiModder.addInfoMessage("Message", response.readEntity(String.class).toString());
-	Calendar c = Calendar.getInstance().setTime(new Date()).add(Calendar.DATE, 4);
-	in.renewLicenceData.renewDelayBool = true;
-}
-else
-{
-	String str = response.readEntity(String.class) as String;
-	String result = StringUtils.substringBetween(str, "errorMessage", "statusCode");
-	if (StringUtils.isEmpty(result))
-	{
-	result = str;
-	}
-	UiModder.addErrorMessage("Message", "There was some problem sending your request: "+result);
-}
-tempFile.delete();' #txt
+RenewLicence.sendRenew(client, in.renewLicenceData.renewEmail);' #txt
 Ls0 f5 resultType java.lang.String #txt
 Ls0 f5 clientErrorCode ivy:error:rest:client #txt
 Ls0 f5 statusErrorCode ivy:error:rest:client #txt
