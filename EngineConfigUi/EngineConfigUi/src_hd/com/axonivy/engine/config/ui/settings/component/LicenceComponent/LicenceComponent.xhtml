@@ -38,7 +38,7 @@
 					<p:commandButton id="renew" value="Renew Licence"
 						oncomplete="PF('renewLicence').show()"
 						actionListener="#{logic.setAdmin}" update="renewLicenceWindow"
-						style="background-color: #{data.renewLicenceData.licenceWarning}" />
+						style="#{data.renewLicenceData.licenceWarningStyle}" />
 					<p:spacer width="10px" />
 					<h:outputLabel rendered="#{data.renewLicenceData.daysLeft lt 30}"
 						style="color: #e09494"

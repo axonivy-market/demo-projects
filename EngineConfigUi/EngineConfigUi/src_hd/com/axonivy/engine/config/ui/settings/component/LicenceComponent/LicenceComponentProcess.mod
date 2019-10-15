@@ -30,11 +30,11 @@ Ls0 f0 method start(com.axon.ivy.engine.config.SystemDatabaseSettings) #txt
 Ls0 f0 inParameterDecl '<com.axon.ivy.engine.config.SystemDatabaseSettings settings> param;' #txt
 Ls0 f0 inParameterMapAction 'out.renewLicenceData.settings=param.settings;
 ' #txt
-Ls0 f0 inActionCode 'import com.axon.ivy.engine.config.DateCalculatorAPI;
+Ls0 f0 inActionCode 'import com.axon.ivy.engine.config.DateCalculator;
 import com.axon.ivy.engine.config.FocusSetter;
 FocusSetter.setFocusOnLicenceTabNextStepButton();
 
-DateCalculatorAPI.calculateDaysLeftForLicence(out.renewLicenceData);' #txt
+DateCalculator.calculateDaysLeftForLicence(out.renewLicenceData);' #txt
 Ls0 f0 outParameterDecl '<> result;' #txt
 Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
