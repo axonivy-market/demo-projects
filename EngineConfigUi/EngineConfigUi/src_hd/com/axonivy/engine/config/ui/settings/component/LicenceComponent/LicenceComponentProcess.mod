@@ -100,8 +100,7 @@ Ls0 f8 83 147 26 26 -52 15 #rect
 Ls0 f8 @|UdEventIcon #fIcon
 Ls0 f9 actionTable 'out=in;
 ' #txt
-Ls0 f9 actionCode 'import ch.ivyteam.licence.SignedLicence;
-import ch.ivyteam.ivy.security.Administrator;
+Ls0 f9 actionCode 'import ch.ivyteam.ivy.security.Administrator;
 
 if(in.renewLicenceData.settings.getAdministratorManager().getAdministrators().size() != 0)
 {

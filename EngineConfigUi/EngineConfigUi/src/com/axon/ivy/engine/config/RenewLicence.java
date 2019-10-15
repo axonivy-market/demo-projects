@@ -53,14 +53,22 @@ public class RenewLicence
     {
       UiModder.addInfoMessage("Message", "Your request has been sent successfully");
     }
-    else if (response.getStatus() == 406) 
-    {
-      JsonObject json = new JsonParser().parse(response.readEntity(String.class)).getAsJsonObject(); 
-      UiModder.addErrorMessage("Message", json.get("errorMessage").getAsString()); 
-    }
     else
     {
-      UiModder.addErrorMessage("Message", "There was some problem sending your request: " + response.readEntity(String.class));
+      UiModder.addErrorMessage("Message", "There was some problem sending your request: " + returnErrorMessage(response.readEntity(String.class)));
+    }
+  }
+  
+  private static String returnErrorMessage(String responseEntity)
+  {
+    try
+    {
+      JsonObject json = new JsonParser().parse(responseEntity).getAsJsonObject();
+      return json.get("errorMessage").getAsString(); 
+    }
+    catch (Exception ex)
+    {
+      return responseEntity;
     }
   }
 }

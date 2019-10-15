@@ -21,11 +21,6 @@ public class DateCalculatorAPI
     return daysLeft(futureDate, new Date());
   }
 
-  public static boolean isUnixTime(Date date)
-  {
-    return date.getTime() >= 0;
-  }
-  
   public static void calculateDaysLeftForLicence(RenewLicenceData licData) throws ParseException
   {
     licData.setShowRenewLicence(false);
