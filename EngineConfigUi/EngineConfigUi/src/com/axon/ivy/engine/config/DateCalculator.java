@@ -24,13 +24,13 @@ public class DateCalculator
     }
   }
   
-  private static long daysLeft(Date futureDate, Date now)
+  public static long daysLeft(Date futureDate, Date now)
   {
     long dateInMillieseconds = futureDate.getTime() - now.getTime();
     return TimeUnit.MILLISECONDS.toDays(dateInMillieseconds);
   }
 
-  private static long daysLeft(Date futureDate)
+  public static long daysLeft(Date futureDate)
   {
     return daysLeft(futureDate, new Date());
   }
