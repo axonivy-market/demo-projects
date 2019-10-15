@@ -6,12 +6,13 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.licence.SignedLicence;
 
 @ManagedBean
 @ApplicationScoped
 public class HelperBean
 {
-  boolean demoLicence = LicenceUtil.isDemo();
+  boolean demoLicence = SignedLicence.isDemo();
 
   public String getPropertiesSize(Properties properties)
   {

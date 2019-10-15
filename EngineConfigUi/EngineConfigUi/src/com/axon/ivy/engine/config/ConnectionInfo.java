@@ -188,7 +188,7 @@ public class ConnectionInfo
 
   public boolean getIsCluster()
   {
-    return LicenceUtil.isCluster()
+    return SignedLicence.isEnterprise()
             || StringUtils.isNotEmpty(
                     System.getProperty("ch.ivyteam.ivy.server.configuration.development.cluster"));
   }

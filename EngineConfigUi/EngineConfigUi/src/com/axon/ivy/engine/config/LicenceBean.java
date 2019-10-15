@@ -13,7 +13,7 @@ public class LicenceBean
 {
   public String getValueFromProperty(String key)
   {
-    return getLicenceProperties().getProperty(key);
+    return SignedLicence.getParam(key);
   }
 
   public Properties getLicenceProperties()
@@ -23,11 +23,11 @@ public class LicenceBean
 
   public boolean isCluster()
   {
-    return LicenceUtil.isCluster();
+    return SignedLicence.isEnterprise();
   }
 
   public boolean isDemo()
   {
-    return LicenceUtil.isDemo();
+    return SignedLicence.isDemo();
   }
 }

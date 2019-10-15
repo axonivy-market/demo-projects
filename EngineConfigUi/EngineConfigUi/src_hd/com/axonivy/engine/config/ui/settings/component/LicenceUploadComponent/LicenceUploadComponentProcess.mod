@@ -22,9 +22,7 @@ Ls0 @ErrorBoundaryEvent f6 '' #zField
 Ls0 @GridStep f10 '' #zField
 Ls0 @PushWFArc f7 '' #zField
 Ls0 @PushWFArc f8 '' #zField
-Ls0 @GridStep f9 '' #zField
-Ls0 @PushWFArc f16 '' #zField
-Ls0 @PushWFArc f13 '' #zField
+Ls0 @PushWFArc f3 '' #zField
 >Proto Ls0 Ls0 LicenceUploadComponentProcess #zField
 Ls0 f0 guid 15AF1AE8F3F46A75 #txt
 Ls0 f0 method start() #txt
@@ -66,33 +64,33 @@ Ls0 f12 499 115 26 26 0 12 #rect
 Ls0 f12 @|UdProcessEndIcon #fIcon
 Ls0 f14 actionTable 'out=in;
 ' #txt
-Ls0 f14 actionCode 'out.licenceFile = com.axon.ivy.engine.config.LicenceUtil.verifyAndInstall(in.newLicence);' #txt
+Ls0 f14 actionCode 'import ch.ivyteam.ivy.config.NewLicenceFileInstaller;
+
+out.licenceFile = NewLicenceFileInstaller.install(
+		in.newLicence.getFileName(), 
+		in.newLicence.getInputstream());' #txt
 Ls0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Verify new licence</name>
-        <nameStyle>18,7
-</nameStyle>
+        <name>Install new licence file</name>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f14 168 106 112 44 -48 -8 #rect
+Ls0 f14 240 106 128 44 -60 -8 #rect
 Ls0 f14 @|StepIcon #fIcon
 Ls0 f15 expr out #txt
-Ls0 f15 109 128 168 128 #arcP
+Ls0 f15 109 128 240 128 #arcP
 Ls0 f6 actionTable 'out=in;
 out.error=error;
 ' #txt
 Ls0 f6 attachedToRef 015B14256823DE3D-f14 #txt
-Ls0 f6 241 145 30 30 0 15 #rect
+Ls0 f6 329 145 30 30 0 15 #rect
 Ls0 f6 @|ErrorBoundaryEventIcon #fIcon
 Ls0 f10 actionTable 'out=in;
 ' #txt
 Ls0 f10 actionCode 'import org.apache.commons.lang3.exception.ExceptionUtils;
 import ch.ivyteam.licence.InvalidLicenceException;
-import com.axon.ivy.engine.config.LicenceUtil;
 import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContextFactory;
 import javax.faces.context.FacesContext;
 
 FacesContext context = FacesContext.getCurrentInstance();
@@ -115,33 +113,15 @@ Ls0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f10 295 199 112 44 -35 -8 #rect
+Ls0 f10 287 199 112 44 -35 -8 #rect
 Ls0 f10 @|StepIcon #fIcon
-Ls0 f7 256 175 295 221 #arcP
-Ls0 f7 1 256 221 #addKink
-Ls0 f7 1 0.03286038850212296 0 0 #arcLabel
+Ls0 f7 343 174 343 199 #arcP
+Ls0 f7 0 0.6106321044618936 0 0 #arcLabel
 Ls0 f8 expr out #txt
-Ls0 f8 407 221 512 141 #arcP
+Ls0 f8 399 221 512 141 #arcP
 Ls0 f8 1 512 221 #addKink
 Ls0 f8 0 0.7804177403779172 0 0 #arcLabel
-Ls0 f9 actionTable 'out=in;
-' #txt
-Ls0 f9 actionCode com.axon.ivy.engine.config.LicenceUtil.backupAllOlds(in.licenceFile); #txt
-Ls0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Backup old licences</name>
-        <nameStyle>19,5
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ls0 f9 320 106 128 44 -61 -7 #rect
-Ls0 f9 @|StepIcon #fIcon
-Ls0 f16 expr out #txt
-Ls0 f16 280 128 320 128 #arcP
-Ls0 f13 expr out #txt
-Ls0 f13 448 128 499 128 #arcP
+Ls0 f3 368 128 499 128 #arcP
 >Proto Ls0 .type com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent.LicenceUploadComponentData #txt
 >Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect
@@ -154,7 +134,5 @@ Ls0 f6 mainOut f7 tail #connect
 Ls0 f7 head f10 mainIn #connect
 Ls0 f10 mainOut f8 tail #connect
 Ls0 f8 head f12 mainIn #connect
-Ls0 f14 mainOut f16 tail #connect
-Ls0 f16 head f9 mainIn #connect
-Ls0 f9 mainOut f13 tail #connect
-Ls0 f13 head f12 mainIn #connect
+Ls0 f14 mainOut f3 tail #connect
+Ls0 f3 head f12 mainIn #connect

@@ -6,6 +6,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
+import ch.ivyteam.licence.SignedLicence;
+
 public class UiModder
 {
   public static void notConnected()
@@ -73,7 +75,7 @@ public class UiModder
 
   private static String getAvailableConfigs()
   {
-    if (LicenceUtil.isCluster())
+    if (SignedLicence.isEnterprise())
     {
       return "Administrators and Cluster Nodes";
     }
