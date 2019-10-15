@@ -6,21 +6,27 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status.Family;
 
 import org.glassfish.jersey.media.multipart.Boundary;
+import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
-import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import ch.ivyteam.licence.SignedLicence;
 
 public class RenewLicence
 {
-  public static Response upload(WebTarget target, java.io.File licence, String mailTo) throws IOException
+  private static Response upload(WebTarget target, String mailTo) throws IOException
   {
     FormDataMultiPart multipart;
+    String licContent = SignedLicence.getLicenceContent();
     try (FormDataMultiPart formDataMultiPart = new FormDataMultiPart())
     {
-      FileDataBodyPart filePart = new FileDataBodyPart("oldLicense", licence);
-      multipart = (FormDataMultiPart) formDataMultiPart.field("oldLicense", licence,
-              MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart);
+      FormDataBodyPart bodyPart = new FormDataBodyPart("oldLicense", licContent);
+      multipart = (FormDataMultiPart) formDataMultiPart.bodyPart(bodyPart);
     }
     
     multipart.setMediaType(Boundary.addBoundary(MediaType.MULTIPART_FORM_DATA_TYPE));
@@ -38,5 +44,31 @@ public class RenewLicence
       return Response.status(400).entity("There was problem with requesting response").build();
     }
     return response;
+  }
+
+  public static void sendRenew(WebTarget client, String renewEmail) throws IOException
+  {
+    Response response = upload(client, renewEmail);
+    if (response.getStatusInfo().getFamily() == Family.SUCCESSFUL)
+    {
+      UiModder.addInfoMessage("Message", "Your request has been sent successfully");
+    }
+    else
+    {
+      UiModder.addErrorMessage("Message", "There was some problem sending your request: " + returnErrorMessage(response.readEntity(String.class)));
+    }
+  }
+  
+  private static String returnErrorMessage(String responseEntity)
+  {
+    try
+    {
+      JsonObject json = new JsonParser().parse(responseEntity).getAsJsonObject();
+      return json.get("errorMessage").getAsString(); 
+    }
+    catch (Exception ex)
+    {
+      return responseEntity;
+    }
   }
 }
