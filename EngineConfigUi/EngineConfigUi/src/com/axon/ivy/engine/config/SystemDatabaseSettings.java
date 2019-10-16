@@ -26,6 +26,7 @@ import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabase;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConnectionTester;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseConverter;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
+import ch.ivyteam.licence.SignedLicence;
 import ch.ivyteam.util.WaitUtil;
 
 @SuppressWarnings("restriction")
@@ -330,7 +331,7 @@ public class SystemDatabaseSettings
   private void saveAllToDB() throws Exception
   {
     saveAdmins();
-    if (LicenceUtil.isCluster())
+    if (SignedLicence.isEnterprise())
     {
       saveClusterNodes();
     }
