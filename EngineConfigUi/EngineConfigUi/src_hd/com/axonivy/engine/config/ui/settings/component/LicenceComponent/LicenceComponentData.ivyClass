@@ -1,4 +1,2 @@
 LicenceComponentData #class
 com.axonivy.engine.config.ui.settings.component.LicenceComponent #namespace
-renewLicenceData com.axonivy.engine.config.ui.settings.component.LicenceComponent.RenewLicenceData #field
-renewLicenceData PERSISTENT #fieldModifier
