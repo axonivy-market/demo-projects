@@ -1,49 +1,34 @@
 package com.axon.ivy.engine.config;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
+
+import com.axonivy.engine.config.ui.settings.ConfigData;
 
 import ch.ivyteam.db.jdbc.ConnectionConfigurator;
 import ch.ivyteam.db.jdbc.ConnectionProperty;
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
+import ch.ivyteam.db.jdbc.DatabaseProduct;
 import ch.ivyteam.db.jdbc.JdbcDriver;
 import ch.ivyteam.ivy.persistence.db.DatabaseCreationParameter;
 import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
 import ch.ivyteam.ivy.server.configuration.Configuration;
 import ch.ivyteam.ivy.server.configuration.system.db.SystemDatabaseCreator;
 
-import com.axonivy.engine.config.ui.settings.ConfigData;
-
 @SuppressWarnings("restriction")
 public class ConfigHelper
 {
-  private interface JdbcProperties
-  {
-    String HOST = "ch.ivyteam.jdbc.Host";
-    String PORT = "ch.ivyteam.jdbc.Port";
-    String DB_NAME = "ch.ivyteam.jdbc.DbName";
-    String ORACLE_SERVICE_ID = "ch.ivyteam.jdbc.OracleServiceId";
-    String SCHEMA_NAME = "ch.ivyteam.jdbc.SchemaName";
-  }
-
-  private static final String PORT_PROPERTY_NAME = "ch.ivyteam.jdbc.Port";
-
   public static String getDefaultPort(JdbcDriver driver)
   {
-    for (ConnectionProperty prop : driver.getConnectionConfigurator()
-            .getDatabaseConnectionProperties())
-    {
-      if (prop.getName() == PORT_PROPERTY_NAME)
-      {
-        return prop.getDefaultValue();
-      }
-    }
-    return "";
+    return defaultString(driver.getConnectionConfigurator().getDefaultValue(ConnectionProperty.PORT));
   }
 
   public static ConfigData loadConfigData(Configuration configuration)
@@ -56,89 +41,66 @@ public class ConfigHelper
 
   public static void updateConfigData(ConfigData configData, DatabaseConnectionConfiguration dbConfig)
   {
-    JdbcDriver jdbcDriver = JdbcDriver.getJdbcDriverForConnectionConfiguration(dbConfig);
+    var jdbcDriver = JdbcDriver.forConnectionConfiguration(dbConfig).orElseThrow();
     configData.setDriver(jdbcDriver);
     configData.setProduct(jdbcDriver.getDatabaseProduct());
 
-    Map<ConnectionProperty, String> properties = jdbcDriver.getConnectionConfigurator()
-            .getDatabaseConnectionProperties(dbConfig);
+    Map<ConnectionProperty, String> properties = jdbcDriver.getConnectionConfigurator().getDatabaseConnectionProperties(dbConfig);
 
-    for (Map.Entry<ConnectionProperty, String> entry : properties.entrySet())
-    {
-      ConnectionProperty property = entry.getKey();
-      switch (property.getName())
-      {
-        case JdbcProperties.HOST:
-          configData.setHost(entry.getValue());
-          break;
+    String host = properties.get(ConnectionProperty.HOST);
+    configData.setHost(host);
 
-        case JdbcProperties.PORT:
-          configData.setPort(entry.getValue());
-          break;
+    String port = properties.get(ConnectionProperty.PORT);
+    configData.setPort(port);
 
-        case JdbcProperties.DB_NAME:
-        case JdbcProperties.ORACLE_SERVICE_ID:
-        case JdbcProperties.SCHEMA_NAME:
-          configData.setDatabaseName(entry.getValue());
-          break;
-
-        default:
-          break;
-      }
-    }
+    String dbName = findDatabaseName(properties);
+    configData.setDatabaseName(dbName);
 
     configData.setUsername(dbConfig.getUserName());
     String fakedPassword = "";
     if (StringUtils.isNotEmpty(dbConfig.getPassword()))
     {
-      fakedPassword = StringUtils.leftPad("", dbConfig.getPassword().length(), '*'); 
+      fakedPassword = "*".repeat(dbConfig.getPassword().length()); 
     }
     configData.setPassword(fakedPassword);
     configData.setAdditionalProperties(dbConfig.getProperties());
     configData.setCreationParameters(new java.util.Properties());
   }
 
-  public static DatabaseConnectionConfiguration createConfiguration(
-          ConfigData configData, Configuration configuration)
+  private static String findDatabaseName(Map<ConnectionProperty, String> properties)
   {
-    ConnectionConfigurator configurator = configData.getDriver()
-            .getConnectionConfigurator();
-    Map<ConnectionProperty, String> dbProps = new HashMap<>();
-
-    for (ConnectionProperty prop : configurator
-            .getDatabaseConnectionProperties())
+    String dbName = properties.get(ConnectionProperty.DB_NAME);
+    if (StringUtils.isNotBlank(dbName))
     {
-      switch (prop.getName())
-      {
-        case JdbcProperties.HOST:
-          dbProps.put(prop, configData.getHost());
-          break;
-
-        case JdbcProperties.PORT:
-          dbProps.put(prop, configData.getPort());
-          break;
-
-        case JdbcProperties.DB_NAME:
-        case JdbcProperties.ORACLE_SERVICE_ID:
-        case JdbcProperties.SCHEMA_NAME:
-          dbProps.put(prop, configData.getDatabaseName());
-          break;
-
-        default:
-          break;
-      }
+      return dbName;
     }
+    dbName = properties.get(ConnectionProperty.ORACLE_SERVICE_ID);
+    if (StringUtils.isNotBlank(dbName))
+    {
+      return dbName;
+    }
+    return "";
+  }
 
-    DatabaseConnectionConfiguration tempConfig = configurator
-            .getDatabaseConnectionConfiguration(dbProps);
+  public static DatabaseConnectionConfiguration createConfiguration(ConfigData configData, Configuration configuration)
+  {
+    ConnectionConfigurator configurator = configData.getDriver().getConnectionConfigurator();
+    Map<ConnectionProperty, String> dbProps = new HashMap<>();
+    
+    dbProps.put(ConnectionProperty.HOST, configData.getHost());
+    dbProps.put(ConnectionProperty.PORT, configData.getPort());
+    dbProps.put(ConnectionProperty.DB_NAME, configData.getDatabaseName());
+    dbProps.put(ConnectionProperty.ORACLE_SERVICE_ID, configData.getDatabaseName());
+
+    DatabaseConnectionConfiguration tempConfig = configurator.getDatabaseConnectionConfiguration(dbProps);
     DatabaseConnectionConfiguration currentConfig = configuration.getSystemDatabaseConnectionConfiguration();
     currentConfig.setConnectionUrl(tempConfig.getConnectionUrl());
     currentConfig.setDriverName(tempConfig.getDriverName());
 
-    String configDataPw = StringUtils.defaultString(configData.getPassword());
+    String configDataPw = defaultString(configData.getPassword());
     
-    String currentConfigPw = StringUtils.defaultString(currentConfig.getPassword());
-    String fakedPassword = StringUtils.leftPad("", currentConfigPw.length(), '*'); 
+    String currentConfigPw = defaultString(currentConfig.getPassword());
+    String fakedPassword = "*".repeat(currentConfigPw.length()); 
     
     if (!StringUtils.equals(configDataPw, fakedPassword))
     {
@@ -149,83 +111,73 @@ public class ConfigHelper
     return currentConfig;
   }
 
-  public static List<DatabaseCreationParameter> getDatabaseCreationParametersNeeded(
-          ConfigData configData, Configuration configuration) throws Exception
+  public static List<DatabaseCreationParameter> getDatabaseCreationParametersNeeded(ConfigData configData, Configuration configuration) throws Exception
   {
     DatabaseConnectionConfiguration currentConfig = createConfiguration(configData, configuration);
     return getCreationParameters(currentConfig);
   }
 
-  public static List<DatabaseCreationParameter> getCreationParameters(
-          DatabaseConnectionConfiguration currentConfig)
+  public static List<DatabaseCreationParameter> getCreationParameters(DatabaseConnectionConfiguration currentConfig)
   {
-    List<DatabaseCreationParameter> dbCreationParameters = DatabasePersistencyServiceFactory
-            .createDatabaseCreator(currentConfig).getDatabaseCreationParameters();
+    List<DatabaseCreationParameter> dbCreationParameters = DatabasePersistencyServiceFactory.createDatabaseCreator(currentConfig).getDatabaseCreationParameters();
     return dbCreationParameters;
   }
 
-  public static SystemDatabaseCreator createDatabase(ConfigData configData, Configuration configuration)
-          throws Exception
+  public static SystemDatabaseCreator createDatabase(ConfigData configData, Configuration configuration) throws Exception
   {
     return createDatabase(configData, -1, configuration);
   }
 
-  public static SystemDatabaseCreator createDatabase(ConfigData configData, int systemDatabaseVersion, Configuration configuration)
-          throws Exception
+  public static SystemDatabaseCreator createDatabase(ConfigData configData, int systemDatabaseVersion, Configuration configuration) throws Exception
   {
     DatabaseConnectionConfiguration currentConfig = ConfigHelper.createConfiguration(configData, configuration);
-    return startSystemDatabaseCreation(currentConfig, configData.getCreationParameters(),
-            systemDatabaseVersion);
+    return startSystemDatabaseCreation(currentConfig, configData.getCreationParameters(), systemDatabaseVersion);
   }
 
-  private static SystemDatabaseCreator startSystemDatabaseCreation(
-          DatabaseConnectionConfiguration dbConfig,
-          Properties dbCreationParameters, int systemDatabaseVersion) throws Exception
+  private static SystemDatabaseCreator startSystemDatabaseCreation(DatabaseConnectionConfiguration dbConfig, Properties dbCreationParameters, int systemDatabaseVersion) throws Exception
   {
     List<DatabaseCreationParameter> creationParameters = ConfigHelper.getCreationParameters(dbConfig);
-
     List<String> dbCreationParamList = new ArrayList<>();
     for (DatabaseCreationParameter param : creationParameters)
     {
-      String value = dbCreationParameters != null ? dbCreationParameters.getProperty(param.getName()) : null;
-      if (value == null)
+      String value = dbCreationParameters == null ? null : dbCreationParameters.getProperty(param.getName());
+      if (value == null && param.getValues() != null)
       {
-        ConnectionProperty property = param.getConnectionPropertyThatHoldsDefaultValue();
-        if (property != null)
-        {
-          value = property.getDefaultValue();
-        }
-        else if (param.getValues() != null)
-        {
-          value = param.getValues()[0];
-        }
+        value = param.getValues()[0];
       }
       dbCreationParamList.add(value);
     }
-    SystemDatabaseCreator creator = SystemDatabaseCreator
-            .createSystemDatabaseCreator(dbConfig, dbCreationParamList, systemDatabaseVersion);
+    SystemDatabaseCreator creator = SystemDatabaseCreator.createSystemDatabaseCreator(dbConfig, dbCreationParamList, systemDatabaseVersion);
     creator.start();
     return creator;
   }
-  
+
   public static Properties getCreationParametersDefaultValues(ConfigData configData, Configuration configuration) throws Exception
   {
+    DatabaseConnectionConfiguration systemDbConfig = configuration.getSystemDatabaseConnectionConfiguration();
     Properties creationParameters = new Properties();
-    List<DatabaseCreationParameter> requiredParameters = ConfigHelper
-            .getDatabaseCreationParametersNeeded(configData, configuration);
-
+    List<DatabaseCreationParameter> requiredParameters = getDatabaseCreationParametersNeeded(configData, configuration);
     for (DatabaseCreationParameter param : requiredParameters)
     {
-      if ("databaseName".equals(param.getName()))
+      String value = param.getValue(systemDbConfig.getConnectionUrl());
+      if (StringUtils.isNotBlank(value))
       {
-        creationParameters.put(param.getName(), configData.getDatabaseName());
-      }
-
-      if (param.getValues() != null && param.getValues().length == 1)
-      {
-        creationParameters.put(param.getName(), param.getValues()[0]);
+        creationParameters.put(param.getName(), value);
       }
     }
     return creationParameters;
+  }
+
+  public static List<JdbcDriver> getSupportedJdbcDrivers(DatabaseProduct databaseProduct)
+  {
+    return DatabasePersistencyServiceFactory.getSupportedJdbcDrivers().stream()
+            .filter(JdbcDriver::isInstalled)
+            .filter(driver -> driver.getDatabaseProduct() == databaseProduct)
+            .collect(Collectors.toList());
+  }
+
+  public static List<DatabaseProduct> getSupportedDatabases()
+  {
+    return new ArrayList<>(DatabasePersistencyServiceFactory.getSupportedDatabases());
   }
 }

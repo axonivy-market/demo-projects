@@ -94,13 +94,14 @@ import com.axon.ivy.engine.config.ConfigHelper;
 import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
 import com.axon.ivy.engine.config.SystemDatabaseSettings;
 
-out.databaseProducts = DatabasePersistencyServiceFactory.getSupportedDatabases();
-out.databaseDrivers = ch.ivyteam.db.jdbc.JdbcDriver.getInstalledJdbcDrivers(out.configData.product, ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory.getSupportedJdbcDrivers());
+out.databaseProducts = ConfigHelper.getSupportedDatabases();
+out.databaseDrivers = ConfigHelper.getSupportedJdbcDrivers(out.configData.product);
 
-if(in.configData.port == ConfigHelper.getDefaultPort(in.configData.driver))
+if (in.configData.port == ConfigHelper.getDefaultPort(in.configData.driver))
 {
-	in.defaultPort=true;
-}' #txt
+	in.defaultPort = true;
+}
+' #txt
 Ss0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -243,12 +244,14 @@ Ss0 f24 expr out #txt
 Ss0 f24 280 512 339 512 #arcP
 Ss0 f11 actionTable 'out=in;
 ' #txt
-Ss0 f11 actionCode 'in.databaseDrivers = ch.ivyteam.db.jdbc.JdbcDriver.getInstalledJdbcDrivers(in.configData.product, ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory.getSupportedJdbcDrivers());
+Ss0 f11 actionCode 'import com.axon.ivy.engine.config.ConfigHelper;
+
+in.databaseDrivers = ConfigHelper.getSupportedJdbcDrivers(in.configData.product);
 in.configData.driver = in.databaseDrivers.get(0);
 
-if(in.defaultPort)
+if (in.defaultPort)
 {
-		in.configData.port = com.axon.ivy.engine.config.ConfigHelper.getDefaultPort(in.configData.driver);
+  in.configData.port = ConfigHelper.getDefaultPort(in.configData.driver);
 }
 ' #txt
 Ss0 f11 168 106 112 44 0 -8 #rect
