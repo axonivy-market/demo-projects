@@ -165,11 +165,9 @@ public class TestSystemDatabaseSettings
     configData.setUsername("admin");
     configData.setPassword("nimda");
     configData.setPort("3306");
-    DBName = "tmp_engineConfigUi_testing_"
-            + ((Integer) RandomUtils.nextInt()).toString();
+    DBName = "tmp_engineConfigUi_testing_" + ((Integer) RandomUtils.nextInt()).toString();
     configData.setDatabaseName(DBName);
-    JdbcDriver[] jdbcDriversForDriverName = JdbcDriver
-            .getJdbcDriversForDriverName("com.mysql.jdbc.Driver");
-    configData.setDriver(jdbcDriversForDriverName[0]);
+    var jdbcDrivers = JdbcDriver.forDriverName("com.mysql.jdbc.Driver");
+    configData.setDriver(jdbcDrivers.get(0));
   }
 }

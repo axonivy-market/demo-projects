@@ -1,12 +1,14 @@
 pipeline {
+  
+  agent {
+    dockerfile true
+  }
+
   triggers {
     pollSCM '@hourly'
     cron '@midnight'
   }
-  agent {
-    dockerfile true
-  }
-  
+
   options {
     buildDiscarder(logRotator(numToKeepStr: '60', artifactNumToKeepStr: '2'))
   }
@@ -24,20 +26,14 @@ pipeline {
       steps {
         script {
           def workspace = pwd()
-          maven cmd: "-P repo.axonivy.com clean deploy -e -Dmaven.test.failure.ignore=true  " + 
-                     "-Dengine.directory=$workspace/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine " +
+          def phase = env.BRANCH_NAME == 'master' ? 'deploy' : 'verify'
+          maven cmd: "-P repo.axonivy.com clean ${phase} -Dmaven.test.failure.ignore=true  " + 
+                     "-Dengine.directory=${workspace}/HtmlDialogDemos/HtmlDialogDemos/target/ivyEngine " +
                      "-Divy.engine.list.url=${params.engineListUrl} "
         }
         archiveArtifacts '**/target/*.iar,**/target/*.zip'
         recordIssues tools: [eclipse()], unstableTotalAll: 1
-        junit '**/target/surefire-reports/**/*.xml'          
-      }
-    }
-    stage('cleanup') {
-      steps {
-        dir('HtmlDialogDemos/HtmlDialogsDemos/target/ivyEngine') {
-          deleteDir()
-        }
+        junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/surefire-reports/**/*.xml'          
       }
     }
   }

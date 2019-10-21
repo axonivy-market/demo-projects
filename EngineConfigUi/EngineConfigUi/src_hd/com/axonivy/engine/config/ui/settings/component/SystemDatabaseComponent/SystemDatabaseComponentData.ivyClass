@@ -1,6 +1,6 @@
 SystemDatabaseComponentData #class
 com.axonivy.engine.config.ui.settings.component.SystemDatabaseComponent #namespace
-databaseProducts List<ch.ivyteam.db.jdbc.DatabaseProduct> #field
+databaseProducts java.util.List<ch.ivyteam.db.jdbc.DatabaseProduct> #field
 databaseProducts PERSISTENT #fieldModifier
 databaseDrivers List<ch.ivyteam.db.jdbc.JdbcDriver> #field
 databaseDrivers PERSISTENT #fieldModifier
