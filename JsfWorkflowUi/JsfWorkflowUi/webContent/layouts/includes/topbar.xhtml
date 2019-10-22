@@ -39,24 +39,6 @@
 							</li>
 							<li role="menuitem">
 								<a href="#">
-									<h:form rendered="#{guestPreferences.darkMenu}">
-										<i class="material-icons">&#xE893;</i>
-										<span>Light Menu</span>
-										<p:ajax event="click"
-											listener="#{guestPreferences.setDarkMenu(false)}"
-											onsuccess="javascript:window.location.reload()" />
-									</h:form>
-									<h:form rendered="#{guestPreferences.darkMenu eq false}">
-										<i class="material-icons">&#xE892;</i>
-										<span>Dark Menu</span>
-										<p:ajax event="click"
-											listener="#{guestPreferences.setDarkMenu(true)}"
-											onsuccess="javascript:window.location.reload()" />
-									</h:form>
-								</a>
-							</li>
-							<li role="menuitem">
-								<a href="#">
 									<h:form>
 										<i class="material-icons">language</i>
 										<span>English</span>

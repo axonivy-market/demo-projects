@@ -8,7 +8,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<f:attribute name="primefaces.THEME" value="serenity-#{guestPreferences.layout}"/>
+	<f:attribute name="primefaces.THEME" value="serenity-ivy"/>
 	<title>Axon.ivy Workflow</title>
 	<link rel="shortcut icon"
 		href="#{resource['ivy-webcontent:layouts/images/ivy_favicon_48.png']}" />
@@ -18,15 +18,15 @@
     <h:outputStylesheet name="styles/Responsive.css"/>
     <h:outputStylesheet name="styles/CaseMapStage.css"/>
     <h:outputStylesheet name="styles/Notes.css"/>
-   	<h:outputStylesheet name="css/nanoscroller.css" library="serenity-layout" />
-	<h:outputStylesheet name="css/ripple.css" library="serenity-layout" />
-	<h:outputStylesheet name="css/layout-#{guestPreferences.layout}.css" library="serenity-layout" />
+   	<h:outputStylesheet name="css/nanoscroller.css" library="serenity-layout-ivy" />
+	<h:outputStylesheet name="css/ripple.css" library="serenity-layout-ivy" />
+	<h:outputStylesheet name="css/layout-ivy.css" library="serenity-layout-ivy" />
 	<h:outputStylesheet name="layouts/styles/ivy-serenity.css" />
 	
 	<h:outputScript name="layouts/js/bootstrap.min.js"/>
-	<h:outputScript name="js/nanoscroller.js" library="serenity-layout" />
-	<h:outputScript name="js/layout.js" library="serenity-layout" />
-	<h:outputScript name="js/ripple.js" library="serenity-layout" />
+	<h:outputScript name="js/nanoscroller.js" library="serenity-layout-ivy" />
+	<h:outputScript name="js/layout.js" library="serenity-layout-ivy" />
+	<h:outputScript name="js/ripple.js" library="serenity-layout-ivy" />
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -36,7 +36,7 @@
 </h:head>
 <h:body>
 	<div
-		class="layout-wrapper #{guestPreferences.orientationRTL ? 'layout-rtl' : null} #{guestPreferences.horizontal ? 'layout-menu-horizontal' : null}">
+		class="layout-wrapper layout-wrapper-static">
 		<ui:include src="./includes/sidebar.xhtml" />
 
 		<div class="layout-main">
@@ -52,9 +52,9 @@
 
 			<div class="layout-content" id="content">
 				<div class="ui-fluid workflowui">
-                	<div class="ui-g">
-                    	<div class="ui-g-12">
-	                    	<div class="card card-w-title">
+        	<div class="ui-g">
+          	<div class="ui-g-12">
+            	<div class="card card-w-title">
 								<div id="mainArea" class="container">
 									<c:choose>
 										<c:when
