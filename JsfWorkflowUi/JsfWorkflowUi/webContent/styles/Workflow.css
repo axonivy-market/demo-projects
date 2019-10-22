@@ -11,9 +11,13 @@
 }
 
 #mainArea .ui-toolbar {
-  background-color: #AFB42B;
+  background-color: #D9DADA;
   padding: 0 !important;
   border: none;
+}
+
+#mainArea .ui-toolbar.ui-widget-header {
+  color: #1B1B1B;
 }
 
 #mainArea .ui-datatable table td, 
