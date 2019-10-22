@@ -24,8 +24,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<sourceDirectory>${basedir}/src</sourceDirectory>
-		<outputDirectory>${basedir}/classes</outputDirectory>
+		<sourceDirectory>src</sourceDirectory>
 		
 		<plugins>
 			<plugin>
