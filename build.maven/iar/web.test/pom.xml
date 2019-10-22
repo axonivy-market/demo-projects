@@ -39,11 +39,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-migrationsupport</artifactId>
-			<version>${junit.engine.version}</version>
-		</dependency>
-		<dependency>
 			<!-- fluid junit assertions -->
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
