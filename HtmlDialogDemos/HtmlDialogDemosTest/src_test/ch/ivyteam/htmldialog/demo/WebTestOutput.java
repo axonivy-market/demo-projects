@@ -9,6 +9,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
@@ -28,7 +30,7 @@ public class WebTestOutput extends BaseWebTest
     clearInput(By.id("form:theTable:globalFilter"));
 
     SelectOneMenu menu = prime().selectOne(By.id("form:theTable:nameFilter"));
-    menu.selectItemByLabel("Achmed");
+    menu.selectItemByLabel("Achmed"); 
     table.firstRowContains("Achmed");
     menu.selectItemByLabel("All");
 
@@ -90,7 +92,7 @@ public class WebTestOutput extends BaseWebTest
     table.contains("testLastName");
   }
 
-  private void editableTableContains(Table table)
+  private static void editableTableContains(Table table)
   {
     table.contains("lastName");
     table.containsNot("Weiss");
@@ -107,6 +109,30 @@ public class WebTestOutput extends BaseWebTest
     clearInput(By.id("form:personTable:" + rowPosition + ":inputFirstName"));
     driver.findElement(By.id("form:personTable:" + rowPosition + ":inputFirstName")).sendKeys(firstName);
     driver.findElement(confirmLocator).click();
+  }
+  
+  @Test
+  public void testPickList() throws Exception
+  {
+    startProcess("145D180807C60B4B/PickListDemo.ivp");
+    
+    Actions builder = new Actions(driver);
+    Action dragAndDrop = builder
+            .clickAndHold(await(elementToBeClickable(By.xpath("//*[@id='personListForm:pickList']/div[2]/ul/li[1]"))))
+            .moveToElement(await(visibilityOfElementLocated(By.xpath("//*[@id='personListForm:pickList']/div[4]/ul"))))
+            .release()
+            .build();
+    dragAndDrop.perform();
+
+    await(textToBePresentInElementLocated(
+            By.xpath("//*[@id='personListForm:pickList']/div[4]/ul"), "Renato"));
+    await(not(textToBePresentInElementLocated(
+            By.xpath("//*[@id='personListForm:pickList']/div[2]/ul"), "Renato")));
+
+    driver.findElement(By.id("personListForm:sendButton")).click();
+    await(textToBePresentInElementLocated(
+            By.xpath("//*[@id='personListForm:resultPanel']/tbody/tr[2]/td[2]"),
+            "name=Stalder, firstname=Renato"));
   }
 
   @Test
