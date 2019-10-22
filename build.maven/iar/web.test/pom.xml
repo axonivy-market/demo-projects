@@ -25,17 +25,20 @@
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>selenium-jupiter</artifactId>
 			<version>3.3.0</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<!-- required: for web browser based testing -->
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>${selenium.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>${junit.engine.version}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -43,23 +46,26 @@
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
 			<version>3.11.1</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<!-- simplify primefaces component tests -->
 			<groupId>com.axonivy.ivy.supplements</groupId>
 			<artifactId>primeui-tester</artifactId>
 			<version>0.0.4-SNAPSHOT</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.awaitility</groupId>
 			<artifactId>awaitility</artifactId>
 			<version>3.1.5</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<testSourceDirectory>src_test</testSourceDirectory>
-		<testOutputDirectory>classes</testOutputDirectory>
+		<testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
 
 		<plugins>
 			<plugin>
