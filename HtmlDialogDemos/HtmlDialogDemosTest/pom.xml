@@ -25,7 +25,8 @@
 	</dependencies>
 	<build>
 		<sourceDirectory>${basedir}/src</sourceDirectory>
-		<outputDirectory>${basedir}/classes</outputDirectory>
+		<testSourceDirectory>${basedir}/src_test</testSourceDirectory>
+		<testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
 		
 		<plugins>
 			<plugin>
