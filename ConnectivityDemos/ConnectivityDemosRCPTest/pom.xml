@@ -3,14 +3,34 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.ivy.project.demo</groupId>
 	<artifactId>connectivity-demos-rcptt-test</artifactId>
-	<version>7.4.1-SNAPSHOT</version>
 	<packaging>rcpttTest</packaging>
 
 	<parent>
-		<groupId>ch.ivyteam.ivy.project</groupId>
+		<groupId>ch.ivyteam.ivy</groupId>
 		<artifactId>ch.ivyteam.ivy.build.config.test.rcptt</artifactId>
-		<version>7.4.1-SNAPSHOT</version>
+		<version>7.5.0-SNAPSHOT</version>
 		<relativePath>../../build.maven/rcptt</relativePath>
 	</parent>
+
+	<properties>
+		<rcptt.version>2.5.0-SNAPSHOT</rcptt.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>zugpronexus.build</id>
+			<url>http://zugpronexus:8081/nexus/content/groups/build/</url>
+			<snapshots>
+			<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>rcptt.mirror</id>
+			<url>http://zugpronexus:8081/nexus/content/repositories/eclipse-rcptt-mirror-snapshots/</url>
+		</pluginRepository>
+	</pluginRepositories>
 
 </project>
