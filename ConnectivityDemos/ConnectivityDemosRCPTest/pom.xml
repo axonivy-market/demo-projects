@@ -9,11 +9,10 @@
 		<groupId>ch.ivyteam.ivy</groupId>
 		<artifactId>ch.ivyteam.ivy.build.config.test.rcptt</artifactId>
 		<version>7.5.0-SNAPSHOT</version>
-		<relativePath>../../build.maven/rcptt</relativePath>
 	</parent>
 
 	<properties>
-		<rcptt.version>2.5.0-SNAPSHOT</rcptt.version>
+		<rcptt.version>2.4.3</rcptt.version>
 	</properties>
 
 	<repositories>
@@ -25,12 +24,5 @@
 			</snapshots>
 		</repository>
 	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>rcptt.mirror</id>
-			<url>http://zugpronexus:8081/nexus/content/repositories/eclipse-rcptt-mirror-snapshots/</url>
-		</pluginRepository>
-	</pluginRepositories>
 
 </project>
