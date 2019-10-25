@@ -3,14 +3,26 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.ivy.project.demo</groupId>
 	<artifactId>connectivity-demos-rcptt-test</artifactId>
-	<version>7.4.1-SNAPSHOT</version>
 	<packaging>rcpttTest</packaging>
 
 	<parent>
-		<groupId>ch.ivyteam.ivy.project</groupId>
+		<groupId>ch.ivyteam.ivy</groupId>
 		<artifactId>ch.ivyteam.ivy.build.config.test.rcptt</artifactId>
-		<version>7.4.1-SNAPSHOT</version>
-		<relativePath>../../build.maven/rcptt</relativePath>
+		<version>7.5.0-SNAPSHOT</version>
 	</parent>
+
+	<properties>
+		<rcptt.version>2.4.3</rcptt.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>zugpronexus.build</id>
+			<url>http://zugpronexus:8081/nexus/content/groups/build/</url>
+			<snapshots>
+			<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 </project>
