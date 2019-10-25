@@ -27,7 +27,7 @@ pipeline {
         script {
           dir('ConnectivityDemos/ConnectivityDemosRCPTest')
           {
-            maven cmd: 'clean verify -Divy.engine.list.url=${designerListUrl}'
+            maven cmd: "clean verify -Dbuild.last.sucess.url=${designerListUrl}"
             junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/surefire-reports/**/*.xml'
             archiveArtifacts 'target/aut/logs/,' +
                             'target/results/**'
@@ -36,4 +36,4 @@ pipeline {
       }
     }
   }
-} 
+}
