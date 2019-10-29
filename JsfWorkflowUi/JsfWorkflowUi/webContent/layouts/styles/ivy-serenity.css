@@ -136,6 +136,9 @@ body {
 .ui-fluid .ui-widget-header {
   border: none;
 }
+.ui-fluid .ui-widget-header .ui-inputfield {
+  background-image: linear-gradient(to bottom, #F4F5F5, #F4F5F5), linear-gradient(to bottom, #9C9D9D, #9C9D9D);
+}
 .ui-fluid .ui-paginator .ui-paginator-rpp-options {
   padding: 0 1.4em 0 0.5em;
   border: 1px solid #aaa;
