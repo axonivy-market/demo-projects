@@ -16,7 +16,7 @@
 	<h:form id="taskListForm">
 		<p:toolbar styleClass="ivy-toolbar" >
 			<p:toolbarGroup align="right">
-				<h:panelGrid columns="11">
+				<h:panelGrid columns="#{data.mode eq 'admin' ? '11' : '8'}">
 					<h:outputText value="#{ivy.cms.co('/labels/common/search')}: "/> 
 					<p:inputText id="SearchTxt" value="#{data.tasks.searchFilter}" style="margin-top:1px;margin-bottom:1px">
 						<p:ajax event="keyup" delay="300" update="taskTable" listener="#{logic.update}"/>
