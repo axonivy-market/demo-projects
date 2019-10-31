@@ -54,6 +54,19 @@
 		                    <targetPackage>com.typicode.jsonplaceholder</targetPackage>
 		                    <sourceDirectory>${basedir}/src/com/axonivy/connectivity/rest/sample/typicode</sourceDirectory>
 		                    <sourceType>json</sourceType>
+		                    <useCommonsLang3>true</useCommonsLang3>
+                        </configuration>
+                    </execution>
+                    <execution>
+                    	<id>generate.twitter.service.pojos.from.json</id>
+                        <phase>generate-sources</phase>
+                        <goals><goal>generate</goal></goals>
+                        <configuration>
+		                    <targetPackage>com.twitter.status.gson</targetPackage>
+		                    <sourceDirectory>${basedir}/src/com/axonivy/connectivity/rest/sample/twitter</sourceDirectory>
+		                    <sourceType>json</sourceType>
+		                    <annotationStyle>gson</annotationStyle>
+		                    <useLongIntegers>true</useLongIntegers>
                         </configuration>
                     </execution>
                 </executions>
