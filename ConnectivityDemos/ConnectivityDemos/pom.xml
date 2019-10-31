@@ -36,6 +36,28 @@
 				 	<skipScriptValidation>true</skipScriptValidation>
 				 </configuration>
 			</plugin>
+			
+            <plugin>
+                <groupId>org.jsonschema2pojo</groupId>
+                <artifactId>jsonschema2pojo-maven-plugin</artifactId>
+                <version>1.0.1</version>
+                <configuration>
+                    <outputDirectory>${basedir}/src_generated</outputDirectory>
+                    <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
+                </configuration>
+                <executions>
+                    <execution>
+                    	<id>generate.person.service.pojos.from.json</id>
+                        <phase>generate-sources</phase>
+                        <goals><goal>generate</goal></goals>
+                        <configuration>
+		                    <targetPackage>com.typicode.jsonplaceholder</targetPackage>
+		                    <sourceDirectory>${basedir}/src/com/axonivy/connectivity/rest/sample/typicode</sourceDirectory>
+		                    <sourceType>json</sourceType>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 
