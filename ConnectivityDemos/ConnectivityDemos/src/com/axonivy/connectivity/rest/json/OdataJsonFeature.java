@@ -26,10 +26,14 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
  * This mapper is a <b>sample implementation</b> that covers some often faced field problems while consuming OData services.<br/> 
  * There is no intention that this mapper completely covers all OData specifications.
  * 
- * <p>Sample JSON:</p><pre>{
- * "@odata.context":"http://services.odata.org/TripPinRESTierService/(S(5jklwgt1fhflbw1mxbymqdqe))/$metadata#People",
- * "value":[{"UserName":"russellwhyte","FirstName":"Russell,...},{...}]
+ * <p>Sample JSON input:</p><pre> {
+ *   "@odata.context":"http://services.odata.org/TripPinRESTierService/(S(5jklwgt1fhflbw1mxbymqdqe))/$metadata#People",
+ *   "value":[{"UserName":"russellwhyte","FirstName":"Russell,...},{...}]
  * }"</pre>
+ * 
+ * <p>Sample JSON output:</p><pre>
+ * [{"UserName":"russellwhyte","FirstName":"Russell,...},{...}]
+ * </pre>
  * 
  * <p>Sample service: http://services.odata.org/TripPinRESTierService/(S(5jklwgt1fhflbw1mxbymqdqe))/People</p>
  * @see http://www.odata.org/
@@ -68,28 +72,29 @@ public class OdataJsonFeature extends JsonFeature
 			return super.readFrom(type, genericType, annotations, mediaType, httpHeaders, inputStream);
 		}
 
-		/**
-		 * unwrap collections which store their value array in an internal 'value' field.
-		 */
 		private static InputStream unwrapValueRoot(InputStream entityStream)
 				throws IOException, JsonProcessingException {
 			JsonNode node = rootMapper.readTree(entityStream);
-			if (node.has(Field.VALUE) && node.has(Field.CONTEXT)) {
-				node = node.get(Field.VALUE);
-			}
+			node = manipulateJson(node);
 			String json = rootMapper.writeValueAsString(node);
 			InputStream inputStream = IOUtils.toInputStream(json, Charset.defaultCharset());
 			return inputStream;
 		}
-		
+
 		/**
-		 * Well known OData fields
+		 * unwrap collections which store their value array in an internal 'value' field.
 		 */
-		private interface Field
-		{
+		private static JsonNode manipulateJson(JsonNode node) {
+			if (node.has(Field.VALUE) && node.has(Field.CONTEXT)) {
+				node = node.get(Field.VALUE);
+			}
+			return node;
+		}
+		
+		/** Well known OData fields  */
+		private interface Field{
 			String VALUE = "value";
 			String CONTEXT = "@odata.context";
 		}
 	}
-
 }
