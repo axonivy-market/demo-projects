@@ -34,12 +34,12 @@ out.settings=param.settings;
 Cs0 f0 inActionCode 'import ch.ivyteam.ivy.server.configuration.system.db.ClusterNode;
 import com.axon.ivy.engine.config.ConfigHelper;
 import ch.ivyteam.licence.LicenceConstants;
-import ch.ivyteam.licence.SignedLicence;
+import ch.ivyteam.licence.SystemLicence;
 import java.net.InetAddress;
 
 out.localHostName = InetAddress.getLocalHost().getCanonicalHostName();
 
-int localClusterNodeIdFromLicence = SignedLicence.getIntParam(LicenceConstants.PARAM_SRV_CLUSTER_LOCAL_NODE_ID);
+int localClusterNodeIdFromLicence = SystemLicence.getIntParam(LicenceConstants.PARAM_SRV_CLUSTER_LOCAL_NODE_ID);
 int localClusterNodeIdFromConfig = param.settings.getConfiguration().getLocalClusterNodeIdentifier();
 
 if (localClusterNodeIdFromLicence >= 0)

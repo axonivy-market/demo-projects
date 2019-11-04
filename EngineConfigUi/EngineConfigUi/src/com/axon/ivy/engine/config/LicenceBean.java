@@ -6,6 +6,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
 import ch.ivyteam.licence.SignedLicence;
+import ch.ivyteam.licence.SystemLicence;
 
 @ManagedBean
 @ApplicationScoped
@@ -13,21 +14,21 @@ public class LicenceBean
 {
   public String getValueFromProperty(String key)
   {
-    return SignedLicence.getParam(key);
+    return SystemLicence.getParam(key);
   }
 
   public Properties getLicenceProperties()
   {
-    return SignedLicence.getLicenceParameters();
+    return SystemLicence.getParams();
   }
 
   public boolean isCluster()
   {
-    return SignedLicence.isEnterprise();
+    return SystemLicence.isEnterprise();
   }
 
   public boolean isDemo()
   {
-    return SignedLicence.isDemo();
+    return SystemLicence.isDemo();
   }
 }
