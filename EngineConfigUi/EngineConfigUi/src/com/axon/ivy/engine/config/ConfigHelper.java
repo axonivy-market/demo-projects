@@ -18,7 +18,7 @@ import ch.ivyteam.db.jdbc.ConnectionProperty;
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
 import ch.ivyteam.db.jdbc.DatabaseProduct;
 import ch.ivyteam.db.jdbc.JdbcDriver;
-import ch.ivyteam.ivy.configuration.internal.yaml.ConfigurationPasswordEncryption;
+import ch.ivyteam.ivy.config.ConfigurationPasswordEncryptionUtil;
 import ch.ivyteam.ivy.persistence.db.DatabaseCreationParameter;
 import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
 import ch.ivyteam.ivy.server.configuration.Configuration;
@@ -105,7 +105,7 @@ public class ConfigHelper
     
     if (!StringUtils.equals(configDataPw, fakedPassword))
     {
-      currentConfig.setPassword(ConfigurationPasswordEncryption.addEncryptionTag(configDataPw));
+      currentConfig.setPassword(ConfigurationPasswordEncryptionUtil.addEncryptionTag(configDataPw));
     }
     currentConfig.setUserName(configData.getUsername());
     currentConfig.setProperties(configData.getAdditionalProperties());
