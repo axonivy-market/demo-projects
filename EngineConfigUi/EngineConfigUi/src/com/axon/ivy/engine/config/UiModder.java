@@ -6,7 +6,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
-import ch.ivyteam.licence.SignedLicence;
+import ch.ivyteam.licence.SystemLicence;
 
 public class UiModder
 {
@@ -75,7 +75,7 @@ public class UiModder
 
   private static String getAvailableConfigs()
   {
-    if (SignedLicence.isEnterprise())
+    if (SystemLicence.isEnterprise())
     {
       return "Administrators and Cluster Nodes";
     }

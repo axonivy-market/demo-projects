@@ -6,7 +6,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import ch.ivyteam.db.jdbc.DatabaseProduct;
 import ch.ivyteam.ivy.Advisor;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
-import ch.ivyteam.licence.SignedLicence;
+import ch.ivyteam.licence.SystemLicence;
 
 @SuppressWarnings("restriction")
 public class ConnectionInfo
@@ -188,14 +188,14 @@ public class ConnectionInfo
 
   public boolean getIsCluster()
   {
-    return SignedLicence.isEnterprise()
+    return SystemLicence.isEnterprise()
             || StringUtils.isNotEmpty(
                     System.getProperty("ch.ivyteam.ivy.server.configuration.development.cluster"));
   }
 
   public Boolean getIsLicenceValid()
   {
-    return Advisor.getAdvisor().isServer() && !SignedLicence.isDemo() || StringUtils.isNotEmpty(System
+    return Advisor.getAdvisor().isServer() && !SystemLicence.isDemo() || StringUtils.isNotEmpty(System
             .getProperty("ch.ivyteam.ivy.server.configuration.development"));
   }
 
