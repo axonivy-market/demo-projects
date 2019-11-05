@@ -147,7 +147,7 @@ public class SystemDatabaseSettings
   public void saveSystemDb() throws IOException
   {
     updateDbConfig();
-    configuration.saveConfiguration();
+    configuration.saveConfiguration(true);
   }
 
   public Configuration getConfiguration()
