@@ -14,18 +14,36 @@
 		<version>7.4.1-SNAPSHOT</version>
 		<relativePath>../../build.maven/iar</relativePath>
 	</parent>
+	
+	<properties>
+		<jersey.version>2.29.1</jersey.version>
+	</properties>
 
-	<!-- 
-	Maven dependencies are not available on engine runtime!
-	So the relevant JARs we're copied into the /lib directory.
 	<dependencies>
 		<dependency>
-		    <groupId>org.glassfish.jersey.security</groupId>
-		    <artifactId>oauth1-client</artifactId>
-		    <version>2.22.2</version>
+			<groupId>org.glassfish.jersey.security</groupId>
+			<artifactId>oauth1-client</artifactId>
+			<version>${jersey.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-	</dependencies> -->
-	
+		<dependency>
+			<groupId>org.glassfish.jersey.security</groupId>
+			<artifactId>oauth1-signature</artifactId>
+			<version>${jersey.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -35,6 +53,9 @@
 				 <configuration>
 				 	<skipScriptValidation>true</skipScriptValidation>
 				 </configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
 			</plugin>
 			
             <plugin>
