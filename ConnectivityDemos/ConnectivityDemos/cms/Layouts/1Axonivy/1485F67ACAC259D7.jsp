@@ -11,8 +11,7 @@
   <link rel="shortcut icon" href="../../../shared/images/ivy_favicon_48.png" />
 
   <!-- Bootstrap  -->
-  <link href="../../../shared/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../../../shared/css/ivy-common-6.css" rel="stylesheet"> 
+  <link href="../../../shared/css/ivy-common-8.css" rel="stylesheet"> 
   <link rel="stylesheet" type="text/css" href="<%=ivy.style()%>"/>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -27,7 +26,7 @@
 <div class="navbar navbar-top" role="navigation">
   <div class="container" id="headerdiv">
 	  <a class="ivy-logo" href="<%=ivy.html.applicationHomeRef()%>">
-        <img src="../../../shared/images/axon_ivy_logo.png" alt="Axon.ivy">
+        <img src="../../../shared/images/axon_ivy_logo.svn" alt="Axon.ivy">
       </a>
   </div>
 </div>
