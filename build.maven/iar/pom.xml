@@ -136,7 +136,7 @@
 						<overWriteSnapshots>false</overWriteSnapshots>
 						<overWriteIfNewer>false</overWriteIfNewer>
 						<stripVersion>false</stripVersion>
-						<excludeArtifactIds>${project.artifactId},${project.artifactId}.source</excludeArtifactIds>
+						<excludeArtifactIds>${project.artifactId},${project.artifactId}.source,xmltask</excludeArtifactIds>
 					</configuration>
 				</plugin>
 			</plugins>
