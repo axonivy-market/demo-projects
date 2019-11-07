@@ -94,8 +94,8 @@
 									<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"
 										classpathref="maven.plugin.classpath" />
 									<xmltask source="${project.basedir}/pom.xml" dest="${project.build.directory}/ivy/pom.xml"
-										preserveType="true">
-										<remove path="/:project/:parent" /><!-- Is not available as public resource -->
+										preserveType="true" indent="false">
+										<remove path="/:project/:parent" />
 										<insert path="/:project/:build/:plugins/:plugin[:artifactId/text()='project-build-plugin']" >
 											<![CDATA[
 												<version>${project.build.plugin.version}</version>
