@@ -148,7 +148,7 @@
 											maven-dependency-plugin
 										</artifactId>
 										<versionRange>
-											[3.0.2,)
+											[2.1.0,)
 										</versionRange>
 										<goals>
 											<goal>
