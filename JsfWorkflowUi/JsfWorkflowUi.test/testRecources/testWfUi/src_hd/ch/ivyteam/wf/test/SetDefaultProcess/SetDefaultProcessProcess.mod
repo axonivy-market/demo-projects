@@ -1,5 +1,5 @@
 [Ivy]
-13FCE1265A910E9F 3.28 #module
+13FCE1265A910E9F 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ss0 SetDefaultProcessProcess Big #zClass
 Ss0 RD #cInfo
@@ -20,11 +20,8 @@ Ss0 @PushWFArc f10 '' #zField
 >Proto Ss0 Ss0 SetDefaultProcessProcess #zField
 Ss0 f0 guid 13FCE1265B88CB91 #txt
 Ss0 f0 method start() #txt
-Ss0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Ss0 f0 outParameterDecl '<java.lang.String processName> result;
-' #txt
+Ss0 f0 inParameterDecl '<> param;' #txt
+Ss0 f0 outParameterDecl '<String processName> result;' #txt
 Ss0 f0 outParameterMapAction 'result.processName=in.library;
 ' #txt
 Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

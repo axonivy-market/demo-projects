@@ -21,11 +21,12 @@
 		<module>JsfWorkflowUi</module>
 		<module>HtmlWfUi</module>
 
+		<module>academy</module>
+
 		<!-- parent config poms: -->
 		<module>build.maven</module>
 		<module>build.maven/iar</module>
 		<module>build.maven/iar/web.test</module>
-		<module>build.maven/iar/ria</module>
 	</modules>
 
 	<build>

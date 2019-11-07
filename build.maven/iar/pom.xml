@@ -18,27 +18,6 @@
 		<maven.dependency.plugin.version>3.0.2</maven.dependency.plugin.version>
 	</properties>
 
-	<dependencies>
-		<dependency>
-			<!-- This dependency is not available in a public maven repository: it was manually installed to repository build.integration@zugprobld.
-			     download-location: http://www.oopsconsultancy.com/software/xmltask/
-			     build.integration-installation: use the archiva web interface to add the artifact. [login] -> [upload artifact]
-			       - repositoryId = build.integration
-			       - groupId = com.oopsconsultancy
-			       - artifactId = xmltask
-			       - version = 1.16
-			       - packaging = jar
-			       - generate Maven Pom = true
-			       - choose File -> attach downlaoded JAR from http://www.oopsconsultancy.com/software/xmltask/
-			     local-installation-command : mvn install:install-file -Dfile=xmltask.jar -DgroupId=com.oopsconsultancy -DartifactId=xmltask -Dversion=1.16 -->
-			<groupId>com.oopsconsultancy</groupId>
-			<artifactId>xmltask</artifactId>
-			<version>1.16</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -85,9 +64,22 @@
 					<version>[1.7,)</version>
 					<dependencies>
 						<dependency>
+							<!-- This dependency is not available in a public maven repository: it was manually installed to repository build.integration@zugprobld.
+							     download-location: http://www.oopsconsultancy.com/software/xmltask/
+							     build.integration-installation: use the archiva web interface to add the artifact. [login] -> [upload artifact]
+							       - repositoryId = build.integration
+							       - groupId = com.oopsconsultancy
+							       - artifactId = xmltask
+							       - version = 1.16
+							       - packaging = jar
+							       - generate Maven Pom = true
+							       - choose File -> attach downlaoded JAR from http://www.oopsconsultancy.com/software/xmltask/
+							     local-installation-command : mvn install:install-file -Dfile=xmltask.jar -DgroupId=com.oopsconsultancy -DartifactId=xmltask -Dversion=1.16 -->
 							<groupId>com.oopsconsultancy</groupId>
 							<artifactId>xmltask</artifactId>
 							<version>1.16</version>
+							<type>jar</type>
+							<scope>compile</scope>
 						</dependency>
 					</dependencies>
 					<executions>
@@ -102,8 +94,8 @@
 									<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"
 										classpathref="maven.plugin.classpath" />
 									<xmltask source="${project.basedir}/pom.xml" dest="${project.build.directory}/ivy/pom.xml"
-										preserveType="true">
-										<remove path="/:project/:parent" /><!-- Is not available as public resource -->
+										preserveType="true" indent="false">
+										<remove path="/:project/:parent" />
 										<insert path="/:project/:build/:plugins/:plugin[:artifactId/text()='project-build-plugin']" >
 											<![CDATA[
 												<version>${project.build.plugin.version}</version>
@@ -136,7 +128,43 @@
 						<overWriteSnapshots>false</overWriteSnapshots>
 						<overWriteIfNewer>false</overWriteIfNewer>
 						<stripVersion>false</stripVersion>
-						<excludeArtifactIds>${project.artifactId},${project.artifactId}.source,xmltask</excludeArtifactIds>
+						<excludeArtifactIds>${project.artifactId},${project.artifactId}.source</excludeArtifactIds>
+					</configuration>
+				</plugin>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-dependency-plugin
+										</artifactId>
+										<versionRange>
+											[2.1.0,)
+										</versionRange>
+										<goals>
+											<goal>
+												copy-dependencies
+											</goal>
+											<goal>
+												properties
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
 					</configuration>
 				</plugin>
 			</plugins>

@@ -1,5 +1,5 @@
 [Ivy]
-13FCD703133237C4 3.28 #module
+13FCD703133237C4 7.5.0 #module
 >Proto >Proto Collection #zClass
 Ss0 SetDefaultProcesses Big #zClass
 Ss0 B #cInfo
@@ -55,7 +55,7 @@ Ss0 f1 392 42 112 44 -52 -8 #rect
 Ss0 f1 @|StepIcon #fIcon
 Ss0 f1 -1|-1|-9671572 #nodeStyle
 Ss0 f0 outLink SetDefaultProcess.ivp #txt
-Ss0 f0 inParamDecl '<java.lang.String processName> param;' #txt
+Ss0 f0 inParamDecl '<String processName> param;' #txt
 Ss0 f0 inParamTable 'out.processName=param.processName;
 ' #txt
 Ss0 f0 requestEnabled true #txt
