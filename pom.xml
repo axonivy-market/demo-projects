@@ -21,6 +21,8 @@
 		<module>JsfWorkflowUi</module>
 		<module>HtmlWfUi</module>
 
+		<module>academy</module>
+
 		<!-- parent config poms: -->
 		<module>build.maven</module>
 		<module>build.maven/iar</module>
