@@ -60,7 +60,7 @@ public class HelperBean
 
   private boolean isInProductiveMode()
   {
-    return EngineMode.isAnyOf(EngineMode.STANDARD, EngineMode.ENTERPRISE);
+    return EngineMode.isAnyOf(EngineMode.STANDARD, EngineMode.ENTERPRISE, EngineMode.MAINTENANCE);
   }
 
   public boolean isNotAuthenticated()
