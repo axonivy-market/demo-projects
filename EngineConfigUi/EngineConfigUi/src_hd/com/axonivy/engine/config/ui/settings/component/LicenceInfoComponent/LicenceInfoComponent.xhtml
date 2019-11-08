@@ -13,6 +13,11 @@
 			<h:outputText
 				value="No licence installed. Please upload a valid licence." />
 		</p:outputPanel>
+		<p:outputPanel id="invalid-licence" styleClass="alert alert-warning"
+			rendered="#{licenceBean.invalid}">
+			<h:outputText
+				value="Licence is invalid or expired. Please upload a new valid licence." />
+		</p:outputPanel>		
 		<h:panelGrid columns="2" rendered="#{!licenceBean.demo}">
 			<h:panelGrid columns="1">
 				<h:column>
