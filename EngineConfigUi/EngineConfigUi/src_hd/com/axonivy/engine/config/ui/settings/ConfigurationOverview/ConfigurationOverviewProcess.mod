@@ -27,11 +27,6 @@ ss0 @GridStep f14 '' #zField
 ss0 @GridStep f18 '' #zField
 ss0 @PushWFArc f20 '' #zField
 ss0 @PushWFArc f15 '' #zField
-ss0 @UdExitEnd f19 '' #zField
-ss0 @UdEvent f21 '' #zField
-ss0 @GridStep f22 '' #zField
-ss0 @PushWFArc f23 '' #zField
-ss0 @PushWFArc f24 '' #zField
 ss0 @GridStep f25 '' #zField
 ss0 @PushWFArc f26 '' #zField
 ss0 @PushWFArc f10 '' #zField
@@ -200,42 +195,6 @@ ss0 f20 expr out #txt
 ss0 f20 108 256 152 256 #arcP
 ss0 f15 expr out #txt
 ss0 f15 480 256 539 256 #arcP
-ss0 f19 371 307 26 26 0 12 #rect
-ss0 f19 @|UdExitEndIcon #fIcon
-ss0 f21 guid 15D0D947790DFC73 #txt
-ss0 f21 actionTable 'out=in;
-' #txt
-ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>close</name>
-        <nameStyle>5,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-ss0 f21 82 307 26 26 -15 15 #rect
-ss0 f21 @|UdEventIcon #fIcon
-ss0 f22 actionTable 'out=in;
-' #txt
-ss0 f22 actionCode out.databaseSettings.saveAll(); #txt
-ss0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Save all</name>
-        <nameStyle>8,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-ss0 f22 172 298 112 44 -21 -8 #rect
-ss0 f22 @|StepIcon #fIcon
-ss0 f23 expr out #txt
-ss0 f23 108 320 172 320 #arcP
-ss0 f23 0 0.31220825344279884 0 0 #arcLabel
-ss0 f24 expr out #txt
-ss0 f24 284 320 371 320 #arcP
-ss0 f24 0 0.2788417630134049 0 0 #arcLabel
 ss0 f25 actionTable 'out=in;
 ' #txt
 ss0 f25 actionCode out.databaseSettings.saveAll(); #txt
@@ -270,10 +229,6 @@ ss0 f11 mainOut f20 tail #connect
 ss0 f20 head f14 mainIn #connect
 ss0 f18 mainOut f15 tail #connect
 ss0 f15 head f12 mainIn #connect
-ss0 f21 mainOut f23 tail #connect
-ss0 f23 head f22 mainIn #connect
-ss0 f22 mainOut f24 tail #connect
-ss0 f24 head f19 mainIn #connect
 ss0 f8 mainOut f26 tail #connect
 ss0 f26 head f25 mainIn #connect
 ss0 f25 mainOut f10 tail #connect
