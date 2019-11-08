@@ -2,12 +2,14 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:p="http://primefaces.org/ui"
+    xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+        <ui:param name="centerHeader" value="Html 5 / JSF 2.2 Demo" />
+        <ui:define name="breadcrumb">Other/Html 5 / JSF 2.2 Demo</ui:define>
 
-		<ui:define name="title">Html 5 / JSF 2.2 Demo</ui:define>
 		<ui:define name="content">
 
 			<p>This demo shows how to use Html 5 features with passthrough
@@ -47,7 +49,9 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-1 col-sm-11">
-						<p:commandButton value="subscribe" />
+                      <h:panelGrid>
+                          <p:commandButton  value="subscribe"/>
+                      </h:panelGrid>
 					</div>
 				</div>
 			</h:form>
@@ -71,8 +75,9 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-1 col-sm-11">
-						<p:commandButton value="show" actionListener="#{logic.growlName}"
-							update="growl" id="buttonShow"/>
+                        <h:panelGrid>
+                            <p:commandButton value="show" actionListener="#{logic.growlName}" update="growl" id="buttonShow"/>
+                        </h:panelGrid>
 					</div>
 				</div>
 

@@ -5,14 +5,16 @@
   xmlns:p="http://primefaces.org/ui">
 <h:body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
-    <ui:define name="title">Export Excel Demo</ui:define>
+    <ui:param name="centerHeader" value="Export Excel Demo" />
+    <ui:define name="breadcrumb">Output/Export Excel Demo</ui:define>
+
     <ui:define name="content">
 
       <h:form id="form">
         <h:panelGroup id="persons" layout="block">
           <p>This demo shows the export feature of Primeface's data table.</p>
 
-          <p:dataTable var="person" value="#{data.recordset}" id="personTable">
+          <p:dataTable var="person" value="#{data.recordset}" id="personTable" style="width:900px">
             <p:column headerText="Name">
               <p:outputLabel value="#{person['Name']}" />
             </p:column>
@@ -24,9 +26,11 @@
 
           <br/>
           
-          <p:commandButton id="exportBtn" value="Export" ajax="false">
-              <p:dataExporter type="xls" target="personTable" fileName="Persons"/>
-          </p:commandButton>
+          <h:panelGrid>
+              <p:commandButton id="exportBtn" value="Export" ajax="false">
+                <p:dataExporter type="xls" target="personTable" fileName="Persons"/>
+              </p:commandButton>
+          </h:panelGrid>
 
         </h:panelGroup>
       </h:form>

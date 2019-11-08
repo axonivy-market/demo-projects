@@ -5,9 +5,10 @@
       xmlns:p="http://primefaces.org/ui">      
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+      <ui:param name="centerHeader" value="SelectManyCheckbox Demo" />
+      <ui:define name="breadcrumb">Output/SelectManyCheckbox Demo</ui:define>
 
-	<ui:define name="title">SelectManyCheckbox Demo</ui:define>
-	<ui:define name="content">
+	  <ui:define name="content">
      	<h:form id="demoForm">
 		   	<h:panelGroup layout="block" id="persons">
 		   	<p>This demo explains how Lists can be used on a select many checkbox widget.</p>
@@ -17,13 +18,15 @@
         		</p:selectManyCheckbox> 
 	 			<br/>
 	 			<br/>
-	 			<p:commandButton ajax="false" actionListener="#{logic.send}" value="Send" id="sendButton"/>
+                <h:panelGrid>
+                    <p:commandButton ajax="false" actionListener="#{logic.send}" value="Send" id="sendButton"/>
+                </h:panelGrid>
 	 			<br/>
 	 			<br/>
 	 			<h:outputText value="Selected Persons: #{data.selectedPersons}" id="outputSelectedPersons"/>
 	   		</h:panelGroup>   		
    		</h:form>
-	</ui:define>
+	  </ui:define>
 
 	</ui:composition>
 </h:body>

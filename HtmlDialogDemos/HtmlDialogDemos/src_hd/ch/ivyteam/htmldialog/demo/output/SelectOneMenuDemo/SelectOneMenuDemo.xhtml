@@ -5,9 +5,10 @@
       xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
-
-	<ui:define name="title">SelectOneMenu Demo</ui:define>
-	<ui:define name="content">
+      <ui:param name="centerHeader" value="SelectOneMenu Demo" />
+      <ui:define name="breadcrumb">Output/SelectOneMenu Demo</ui:define>
+      
+	  <ui:define name="content">
      	<h:form id="demoForm">
 		   	<h:panelGroup layout="block" id="persons">
 		   	<p>This demo explains how a select one menu widget can be used with mixed data source items. 
@@ -16,7 +17,7 @@
 	 			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 	 			
 		 			<p:outputLabel for="basic" value="Basic:" />
-		 			<p:selectOneMenu id="basic" value="#{data.selectedPerson}" converter="ivy.ListItem" >  
+		 			<p:selectOneMenu id="basic" value="#{data.selectedPerson}" converter="ivy.ListItem" style="width:180px" >  
 	 		        	<f:selectItem itemLabel="Select One" itemValue="" />  
 		 				<f:selectItems value="#{data.persons}" var="it" itemValue="#{it}" itemLabel="#{it.firstname} #{it.name}"></f:selectItems>
 		 				<f:selectItems value="#{data.morePersons}" var="it" itemValue="#{it}" itemLabel="#{it.firstname} #{it.name}"></f:selectItems>
@@ -33,7 +34,9 @@
 	        		
         		</h:panelGrid>
 	 			<br/>
-	 			<p:commandButton actionListener="#{logic.send}" value="Send" update="persons" id="sendButton"/>
+                  <h:panelGrid>
+                      <p:commandButton actionListener="#{logic.send}" value="Send" update="persons" id="sendButton"/>
+                  </h:panelGrid>
 	 			<br/>
 	 			<br/>
 	 			<h:outputText value="Basic Person: #{data.selectedPerson}" id="outputBasicSelects"/>

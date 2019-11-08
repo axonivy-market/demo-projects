@@ -42,7 +42,9 @@ This attributes can be accessed by the el expression cc.attrs.attributeName.
 					address="#{cc.attrs.person.billingAddress}">
 				</jc:AddressJsfComponent>
 			</h:panelGrid>
-			<p:commandButton value="Submit" update="@all" />
+            <h:panelGrid>
+                <p:commandButton value="Submit" update="@all"/>
+            </h:panelGrid>
 		</h:form>
 	</p:fieldset>
 </cc:implementation>

@@ -4,9 +4,10 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="AJAX Method Call Demo" />
+    <ui:define name="breadcrumb">Other/AJAX Method Call Demo</ui:define>
 
-	<ui:define name="title">AJAX Method Call Demo</ui:define>
 	<ui:define name="content">
 	<h:panelGroup layout="block" id="panel">
 		<p>This demo explains how:</p>

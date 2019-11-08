@@ -7,23 +7,53 @@
 	xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+        <ui:param name="centerHeader" value="Error Handling Demo" />
+        <ui:define name="breadcrumb">Other/Error Handling Demo</ui:define>
 
 		<ui:define name="title">Error Handling Demo</ui:define>
 		<ui:define name="content">
 	   		<h:panelGroup layout="block" id="panel">
 	   			<p>This demo explains how the error handling in JSF Dialogs can be customized.</p>
-	   	 		
-	   			<h:form id="form">
-	   				<h4>HTTP Request</h4>
-	   				<p>If an exception occurs in a <i>non-ajax</i> HTTP request, the user will be redirected to the specified error page. The customization of these error pages are described in the engine guide.</p><p:commandButton actionListener="#{logic.exception}" value="Execute non-ajax HTTP Request" update="form" icon="ui-icon-check" ajax="false"/>
-	   				
-	   				<h4>AJAX Request</h4>
-	   				<p>If an exception occurs in an <i>ajax-based</i> HTTP request, the registered ajax exception handler comes into play. The ajax exception handler is defined in <code>webContent/layouts/includes/exception.xhtml</code> as <code>p:ajaxExceptionHandler</code>.</p><p:commandButton actionListener="#{logic.exception}" value="Execute ajax-based HTTP Request" update="form" icon="ui-icon-check" />
-					
-					<h4>View Expired Exception</h4>
-					<p>If the view or the session of an user expires, there is a possibility to catch that exception with an ajax exception handler. In <code>webContent/layouts/includes/exception.xhtml</code>&#160;is a second&#160;<code>p:ajaxExceptionHandler</code> declared which will catch exceptions of type <code>javax.faces.application.ViewExpiredException</code>.<br /></p><p:commandButton actionListener="#{logic.expireMySession}" value="Expire my session" update="form" icon="ui-icon-check" /><p:commandButton actionListener="#{logic.executeSomething}" value="Execute ajax-based HTTP Request" update="form" icon="ui-icon-check" />
-				</h:form>
-	   		</h:panelGroup>
+
+        <h:form id="form">
+          <h4>HTTP Request</h4>
+          <p>
+            If an exception occurs in a <i>non-ajax</i> HTTP request, the user will be redirected to the specified error page. The customization of
+            these error pages are described in the engine guide.
+          </p>
+          <h:panelGrid>
+            <p:commandButton actionListener="#{logic.exception}" value="Execute non-ajax HTTP Request" update="form" icon="ui-icon-check" ajax="false" />
+          </h:panelGrid>
+
+          <h4>AJAX Request</h4>
+          <p>
+            If an exception occurs in an <i>ajax-based</i> HTTP request, the registered ajax exception handler comes into play. The ajax exception
+            handler is defined in
+            <code>webContent/layouts/includes/exception.xhtml</code>
+            as
+            <code>p:ajaxExceptionHandler</code>
+            .
+          </p>
+          <h:panelGrid>
+            <p:commandButton actionListener="#{logic.exception}" value="Execute ajax-based HTTP Request" update="form" icon="ui-icon-check" />
+          </h:panelGrid>
+
+          <h4>View Expired Exception</h4>
+          <p>
+            If the view or the session of an user expires, there is a possibility to catch that exception with an ajax exception handler. In
+            <code>webContent/layouts/includes/exception.xhtml</code>
+            &#160;is a second&#160;
+            <code>p:ajaxExceptionHandler</code>
+            declared which will catch exceptions of type
+            <code>javax.faces.application.ViewExpiredException</code>
+            .<br />
+          </p>
+          <h:panelGrid columns="2">
+            <p:commandButton actionListener="#{logic.expireMySession}" value="Expire my session" update="form" icon="ui-icon-check" />
+            <p:commandButton actionListener="#{logic.executeSomething}" value="Execute ajax-based HTTP Request" update="form" icon="ui-icon-check" />
+          </h:panelGrid>
+        </h:form>
+      </h:panelGroup>
 		</ui:define>
 
 	</ui:composition>

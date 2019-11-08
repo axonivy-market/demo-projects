@@ -24,6 +24,9 @@ Ds0 @GridStep f11 '' #zField
 Ds0 @PushWFArc f10 '' #zField
 Ds0 @PushWFArc f12 '' #zField
 Ds0 @UdEvent f8 '' #zField
+Ds0 @UdEvent f13 '' #zField
+Ds0 @UdProcessEnd f14 '' #zField
+Ds0 @PushWFArc f15 '' #zField
 >Proto Ds0 Ds0 DataTableDemoProcess #zField
 Ds0 f0 guid 153D1CC021F1C2E7 #txt
 Ds0 f0 method start() #txt
@@ -139,6 +142,21 @@ Ds0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ds0 f8 83 243 26 26 -13 15 #rect
 Ds0 f8 @|UdEventIcon #fIcon
+Ds0 f13 guid 16E46363FE229050 #txt
+Ds0 f13 actionTable 'out=in;
+' #txt
+Ds0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>send</name>
+    </language>
+</elementInfo>
+' #txt
+Ds0 f13 83 339 26 26 -14 15 #rect
+Ds0 f13 @|UdEventIcon #fIcon
+Ds0 f14 339 339 26 26 0 12 #rect
+Ds0 f14 @|UdProcessEndIcon #fIcon
+Ds0 f15 109 352 339 352 #arcP
 >Proto Ds0 .type ch.ivyteam.htmldialog.demo.output.DataTableDemo.DataTableDemoData #txt
 >Proto Ds0 .processKind HTML_DIALOG #txt
 >Proto Ds0 -8 -8 16 16 16 26 #rect
@@ -153,3 +171,5 @@ Ds0 f8 mainOut f12 tail #connect
 Ds0 f12 head f11 mainIn #connect
 Ds0 f11 mainOut f10 tail #connect
 Ds0 f10 head f9 mainIn #connect
+Ds0 f13 mainOut f15 tail #connect
+Ds0 f15 head f14 mainIn #connect

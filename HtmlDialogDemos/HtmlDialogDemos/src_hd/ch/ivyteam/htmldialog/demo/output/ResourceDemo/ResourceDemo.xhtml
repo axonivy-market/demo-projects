@@ -3,10 +3,11 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+      <ui:param name="centerHeader" value="Resources Demo" />
+      <ui:define name="breadcrumb">Output/Resources Demo</ui:define>
 
-	<ui:define name="title">Resource Demo</ui:define>
-	<ui:define name="content">
-	<h:panelGroup layout="block" id="resources">
+	  <ui:define name="content">
+	   <h:panelGroup layout="block" id="resources">
 		<p>This demo explains how Resources from the dialog resources folder, the webContent folder or the CMS can be used.</p>
 		<h4>For using resources use the following code:</h4>
 		<p:panelGrid columns="2" id="resourcesResultPanel">
@@ -24,7 +25,7 @@
 		</p:panelGrid>
 		
 		<h4>Examples:</h4>
-		<p:panelGrid id="resultPanel">
+		<p:panelGrid id="resultPanel" style="width:1000px">
 			<f:facet name="header">
 				<p:row>
 					<p:column>code</p:column>

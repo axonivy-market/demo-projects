@@ -7,24 +7,27 @@
       xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+      <ui:param name="centerHeader" value="Multi View Demo - Credit Card Processing" />
+      <ui:define name="breadcrumb">Input/Multi View Demo/Credit Card Processing</ui:define>
 
-	<ui:define name="title">Multi View Demo</ui:define>
-	<ui:define name="content">
+	  <ui:define name="content">
         <h:form id="myForm">
-	       	<h:panelGroup layout="block" id="panel">
+	       	<h:panelGroup  layout="block" id="panel">
 		        <h3>Payment - Credit Card Processing</h3>
 		        <p:outputPanel rendered="#{data.processing}">
 			        <p:outputLabel value="Verifying credit card. Please wait ..."/><br/>
 			        <p:graphicImage name="images/ajax-loader.gif"/> 
 		        </p:outputPanel>
-		        <p:outputPanel rendered="#{not data.processing}">
-			        <p:outputLabel value="Credit card verified!" id="confirmVerification"/><br/>
-			        <p:commandButton value="Finish" action="#{logic.nextView('CreditCardProcessing')}" id="finishButton"/>
+		        <p:outputPanel  rendered="#{not data.processing}">
+			        <p:outputLabel value="Credit card verified!" id="confirmVerification"/>
+                    <h:panelGrid>
+  			          <p:commandButton value="Finish" action="#{logic.nextView('CreditCardProcessing')}" id="finishButton"/>
+                    </h:panelGrid>
 		        </p:outputPanel>
 		       	<p:poll interval="3" stop="#{not data.processing}" autoStart="true" listener="#{logic.stopProcessing}" update="myForm"/>
 		    </h:panelGroup>
         </h:form>    	
-	</ui:define>
+	  </ui:define>
 
 	</ui:composition>
 </h:body>

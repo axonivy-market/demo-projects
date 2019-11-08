@@ -6,13 +6,14 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+      <ui:param name="centerHeader" value="Component Callback Demo" />
+      <ui:define name="breadcrumb">Component/Component Callback Demo</ui:define>
 	
-	<ui:define name="title">Component Callback Demo</ui:define>
-	<ui:define name="content">
+	  <ui:define name="content">
 		<h:outputStylesheet name="demoStyle.css"/>
 		
 		<h:form id="componentForm">
-		<h:panelGroup layout="block" id="panel">
+		<h:panelGroup layout="block" id="panel" style="width:930px">
 			<p>This demo explains how callbacks can be registered
 			to react on actions within a component.<br /></p>
 			<ul>

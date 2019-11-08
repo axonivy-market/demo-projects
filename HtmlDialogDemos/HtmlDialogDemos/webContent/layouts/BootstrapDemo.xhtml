@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:pm="http://primefaces.org/serenity"
-	xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui">
 <h:head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
   <f:attribute name="primefaces.THEME" value="serenity-ivy" />
-  <title>Html Dialogs Template</title>
+  <title>Bootstrap Template</title>
   <link rel="shortcut icon" href="#{resource['ivy-webcontent:layouts/images/ivy_favicon_48.png']}" />
+
+  <!-- Bootstrap CSS -->
+  <!-- You can also load bootstrap from an external CDN: //http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
+  <h:outputStylesheet name="layouts/styles/bootstrap-modified-for-jsf.css" />
 
   <h:outputStylesheet name="css/nanoscroller.css" library="serenity-layout" />
   <h:outputStylesheet name="css/ripple.css" library="serenity-layout" />
@@ -29,7 +36,7 @@
   <div class="layout-wrapper layout-wrapper-static">
     <ui:include src="./includes/sidebar.xhtml" />
 
-    <div class="layout-main" style="margin-left:300px">
+    <div class="layout-main">
       <ui:include src="./includes/topbar.xhtml" />
       <div class="layout-breadcrumb">
         <ul>

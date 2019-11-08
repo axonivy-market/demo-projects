@@ -4,10 +4,10 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:body>
+	<ui:composition template="/layouts/BootstrapDemo.xhtml">
+        <ui:param name="centerHeader" value="Html 5 Bootstrap Demo" />
+        <ui:define name="breadcrumb">Other/Html 5 Bootstrap Demo</ui:define>
 
-	<!-- See Layout for Bootstrap style inclusion-->
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-		<ui:define name="title">Html 5 Bootstrap Demo</ui:define>
 		<ui:define name="content">
 
 				<div class="row">
@@ -113,11 +113,6 @@
 						</address>
 					</div>
 				</div>
-
-			<!-- Bootstrap JavaScript -->
-			<!-- Placed at the end of the document so the pages load faster -->
-			<script src="#{resource['js/jquery-1.11.0.js']}"></script>
-			<script src="#{resource['js/bootstrap-3.1.1.js']}"></script>
 		</ui:define>
 	</ui:composition>
 </h:body>

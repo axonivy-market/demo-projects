@@ -18,7 +18,7 @@
   </cc:interface>
   
   <cc:implementation>
-    <p:dataTable value="#{data.persons}" var="person" style="margin-top:5px;"
+    <p:dataTable value="#{data.persons}" var="person" style="margin-top:5px;width:900px"
     	selectionMode="single" selection="#{data.selectedPerson}" id="personsTable">
     	
     	<p:ajax event="rowSelect" update="@form" 
@@ -33,8 +33,9 @@
         </p:column>
     </p:dataTable>
     
-    <p:commandButton value="Fire event!" style="margin-top:10px;" 
-    	actionListener="#{cc.attrs.buttonClicked}" update="@form" id="fireEventButton" />
+    <h:panelGrid>
+        <p:commandButton  value="Fire event!" style="margin-top:10px;" actionListener="#{cc.attrs.buttonClicked}" update="@form" id="fireEventButton"/>
+    </h:panelGrid>
   </cc:implementation>
   
 </html> 

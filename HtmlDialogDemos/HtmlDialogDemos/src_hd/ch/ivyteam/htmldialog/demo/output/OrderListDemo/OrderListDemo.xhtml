@@ -5,8 +5,9 @@
       xmlns:p="http://primefaces.org/ui">
 <body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="OrderList Demo" />
+    <ui:define name="breadcrumb">Output/OrderList Demo</ui:define>
 
-	<ui:define name="title">OrderList Demo</ui:define>
 	<ui:define name="content">
      	<h:form id="personListForm">
 		   	<h:panelGroup layout="block" id="persons">
@@ -15,13 +16,15 @@
   Shows a list that can be reordered. 
   Use the ivy.ListItem converter to convert the list items (person) to a string (list index) an vice versa. 
  -->
-   		  		<p:orderList value="#{data.persons}" var="person" effect="clip"  
+   		  		<p:orderList value="#{data.persons}" var="person" responsive="true" style="width:400px"
 	        	            itemValue="#{person}" converter="ivy.ListItem" id="personsList" controlsLocation="right">            	
 	          		<f:facet name="caption">Persons</f:facet>
 	          		<p:column><b>#{person.name}</b> #{person.firstname}</p:column> 
 	 			</p:orderList>  
-	 			<br/>
-	 			<p:commandButton actionListener="#{logic.send}" value="Send" update="persons"/>
+                <br/>
+                <h:panelGrid>
+                    <p:commandButton  actionListener="#{logic.send}" value="Send" update="persons" />
+                </h:panelGrid>
 	 			<br/>
 	 			<br/>
 	 			<h:outputText value="Persons: #{data.persons}"/>

@@ -30,7 +30,9 @@
 				startMethod="start" address="#{data.person.billingAddress}"
 				label="Billing Address" id="billingAddressComponent" />
 		</h:panelGrid>
-		<p:commandButton value="Submit" ajax="false" />
+        <h:panelGrid>
+            <p:commandButton value="Submit" ajax="false"/>
+        </h:panelGrid>
 	</p:fieldset>
 </cc:implementation>
 

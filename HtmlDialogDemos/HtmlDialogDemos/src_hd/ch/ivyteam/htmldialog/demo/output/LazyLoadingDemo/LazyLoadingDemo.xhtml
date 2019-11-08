@@ -7,7 +7,9 @@
 	xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
-		<ui:define name="title">Lazy Loading Table Demo</ui:define>
+        <ui:param name="centerHeader" value="Lazy Loading Table Demo" />
+        <ui:define name="breadcrumb">Output/Lazy Loading Table Demo</ui:define>
+
 		<ui:define name="content">
 			<h:form id="form">
 				<h:panelGroup id="data" layout="block">
@@ -55,10 +57,6 @@
 								<p:outputLabel value="#{person.birthYear}"></p:outputLabel>
 							</p:column>
 						</p:dataTable>
-
-						<br />
-						<p:commandButton actionListener="#{logic.close}" value="Proceed"
-							update="form" icon="fa fa-check" />
 					</h:panelGrid>
 				</h:panelGroup>
 			</h:form>

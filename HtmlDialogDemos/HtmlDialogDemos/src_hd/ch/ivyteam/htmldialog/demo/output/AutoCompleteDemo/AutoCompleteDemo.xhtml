@@ -8,9 +8,10 @@
 
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+      <ui:param name="centerHeader" value="Auto Complete Demo" />
+      <ui:define name="breadcrumb">Output/Auto Complete Demo</ui:define>
 
-	<ui:define name="title">Auto Complete Demo</ui:define>
-	<ui:define name="content">
+	  <ui:define name="content">
 			<h:panelGroup layout="block">
 				<p>This demo explains how to implement an AutoComplete widget. The AutoComplete widget is useful for searching through 
 				datasets where the search result is provided by process logic (e.g. to call a Web Service).
@@ -34,10 +35,12 @@
 				        	
 				    </h:panelGrid> 
 	 			<br/>
-	 			<p:commandButton actionListener="#{logic.send}" value="Send" update="msgs" id="sendButton"/>
+                <h:panelGrid>
+                    <p:commandButton actionListener="#{logic.send}" value="Send" update="msgs" id="sendButton"/>
+                </h:panelGrid>
 				</h:form>
 			</h:panelGroup>
-	</ui:define>
+	  </ui:define>
 
 	</ui:composition>
 </h:body>

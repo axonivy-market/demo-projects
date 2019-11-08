@@ -13,10 +13,12 @@ in the 'webContent/resources' where the JSF Composite Components are defined.
 <h:body>
 
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+        <ui:param name="centerHeader" value="JSF Composite Component Demo" />
+        <ui:define name="breadcrumb">Component/JSF Composite Component Demo</ui:define>
 		<ui:define name="title">JSF Composite Component Demo</ui:define>
 
 		<ui:define name="content">
-				<h:panelGroup layout="block" id="panel">
+				<h:panelGroup layout="block" id="panel" style="width:630px">
 					<p>This demo explains how to use standard JSF Composite
 						Components (without ivy Data and ivy Logic) from the
 						'webContent/resources' folder.</p>
@@ -32,24 +34,24 @@ in the 'webContent/resources' where the JSF Composite Components are defined.
 					 -->
 					<br />
 					<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-						<h:outputText value="First Name" />
+						<h:outputText value="First Name"  style="font-weight:bold"/>
 						<h:outputText value="#{data.person.firstname}" />
-						<h:outputText value="Last Name" />
+						<h:outputText value="Last Name"  style="font-weight:bold"/>
 						<h:outputText value="#{data.person.name}" />
 
-						<h:outputText value="Delivery Address" />
+						<h:outputText value="Delivery Address"  style="font-weight:bold"/>
 						<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-							<h:outputText value="Street" />
+							<h:outputText value="Street" style="font-style:italic"/>
 							<h:outputText value="#{data.person.deliveryAddress.street}" />
-							<h:outputText value="Country" />
+							<h:outputText value="Country" style="font-style:italic"/>
 							<h:outputText value="#{data.person.deliveryAddress.country}" />
 						</h:panelGrid>
 
-						<h:outputText value="Billing Address" />
+						<h:outputText value="Billing Address"  style="font-weight:bold"/>
 						<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-							<h:outputText value="Street" />
+							<h:outputText value="Street" style="font-style:italic"/>
 							<h:outputText value="#{data.person.billingAddress.street}" />
-							<h:outputText value="Country" />
+							<h:outputText value="Country" style="font-style:italic"/>
 							<h:outputText value="#{data.person.billingAddress.country}" />
 						</h:panelGrid>
 					</h:panelGrid>
