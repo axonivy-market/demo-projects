@@ -16,9 +16,9 @@
 			<f:convertDateTime pattern="dd.MM.yyyy" />
 		</p:calendar>
 		<p:spacer width="10" />
-		<pe:timePicker id="absenceStartTime" value="#{data.absenceStartTime}" mode="popup" widgetVar="popupBtnTimeWidget" label="StartTime">
+		<p:calendar id="absenceStartTime" value="#{data.absenceStartTime}" timeOnly="true" pattern="HH:mm" widgetVar="popupBtnTimeWidget" label="StartTime">
 			<f:convertDateTime pattern="HH:mm" />
-		</pe:timePicker>
+		</p:calendar>
 		<p:commandButton type="button" icon="fa fa-clock-o" onclick="#{data.option == 'edit' ? 'selectTimePickerStartEdit()' : 'selectTimePickerStartAdd()'}" style="height: 25px" />
 		<script>
 			function selectTimePickerStartAdd() {
@@ -39,9 +39,9 @@
 			<f:convertDateTime pattern="dd.MM.yyyy" />
 		</p:calendar>
 		<p:spacer width="10" />
-		<pe:timePicker id="absenceEndTime" value="#{data.absenceEndTime}" mode="popup" label="EndTime">
+		<p:calendar id="absenceEndTime" value="#{data.absenceEndTime}" timeOnly="true" pattern="HH:mm" label="EndTime">
 			<f:convertDateTime pattern="HH:mm" />
-		</pe:timePicker>
+		</p:calendar>
 		<p:commandButton type="button" icon="fa fa-clock-o" onclick="#{data.option == 'edit' ? 'selectTimePickerEndEdit()' : 'selectTimePickerEndAdd()'}" style="height: 25px" />
 		<script>
 			function selectTimePickerEndAdd() {
