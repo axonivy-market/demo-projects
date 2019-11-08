@@ -8,7 +8,7 @@
 	xmlns:pe="http://primefaces.org/ui/extensions">
 
 <ui:composition template="/layouts/Workflow.xhtml">
-	<ui:param name="headerIcon" value="fa fa-signal"/>
+	<ui:param name="headerIcon" value="signal_cellular_4_bar"/>
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/signals')}" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{data.signalService.clean()}" />
