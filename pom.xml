@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.ivyteam.ivy.project</groupId>
 	<artifactId>ivyProject.modules</artifactId>
-	<version>7.4.1-SNAPSHOT</version>
+	<version>8.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<description>Contains all ivyProjects as module dependency</description>
 
@@ -21,11 +21,12 @@
 		<module>JsfWorkflowUi</module>
 		<module>HtmlWfUi</module>
 
+		<module>academy</module>
+
 		<!-- parent config poms: -->
 		<module>build.maven</module>
 		<module>build.maven/iar</module>
 		<module>build.maven/iar/web.test</module>
-		<module>build.maven/iar/ria</module>
 	</modules>
 
 	<build>

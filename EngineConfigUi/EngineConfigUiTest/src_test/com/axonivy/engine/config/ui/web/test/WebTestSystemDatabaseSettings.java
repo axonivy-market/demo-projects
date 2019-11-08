@@ -26,9 +26,7 @@ import com.axonivy.engine.config.ui.unit.test.TestSystemDatabaseSettings;
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
 import ch.ivyteam.db.jdbc.DatabaseServer;
 import ch.ivyteam.db.jdbc.DatabaseUtil;
-import ch.ivyteam.ivy.Advisor;
 
-@SuppressWarnings("restriction")
 public class WebTestSystemDatabaseSettings extends BaseWebTest
 {
   private static final String OLD_DB_NAME = "tmp_engineConfigUi_testing_oldDb_version44";
@@ -89,7 +87,6 @@ public class WebTestSystemDatabaseSettings extends BaseWebTest
 
   private void createOldDatabase(ConfigData configData) throws Exception
   {
-    Advisor.getAdvisor().setServer(true);
     Properties properties = new Properties();
     properties.put("databaseName", OLD_DB_NAME);
     configData.setCreationParameters(properties);

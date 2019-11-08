@@ -9,7 +9,7 @@
 
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/absence')}" />
-	<ui:param name="headerIcon" value="fa fa-user-times"/>
+	<ui:param name="headerIcon" value="event_busy"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
 		#{ivy.cms.co('/labels/settings/absence/description')}
@@ -18,7 +18,7 @@
 			<h:panelGrid columns="1">
 				<p:toolbar styleClass="ivy-toolbar">  
     				<p:toolbarGroup align="left">
-   				<p:commandButton id="showAbsentUsers" update=":dialogAbsentUsers" icon="fa fa-users" value="#{ivy.cms.co('/labels/settings/absence/absentUsers')}" title="absent users" oncomplete="PF('formAbsentUsers').show();" />
+   				<p:commandButton id="showAbsentUsers" update=":dialogAbsentUsers" icon="ui-icon-event-busy" value="#{ivy.cms.co('/labels/settings/absence/absentUsers')}" title="absent users" oncomplete="PF('formAbsentUsers').show();" />
 			</p:toolbarGroup>
 			</p:toolbar>
 			</h:panelGrid>

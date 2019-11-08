@@ -1,5 +1,5 @@
 [Ivy]
-13F3DB669CBD2A27 3.28 #module
+13F3DB669CBD2A27 7.5.0 #module
 >Proto >Proto Collection #zClass
 Cs0 ConfirmationDialogProcess Big #zClass
 Cs0 RD #cInfo
@@ -18,13 +18,10 @@ Cs0 @PushWFArc f7 '' #zField
 >Proto Cs0 Cs0 ConfirmationDialogProcess #zField
 Cs0 f0 guid 13F3DB669DB801CF #txt
 Cs0 f0 method start(ch.ivyteam.wf.test.Data) #txt
-Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.wf.test.Data data> param = methodEvent.getInputArguments();
-' #txt
+Cs0 f0 inParameterDecl '<ch.ivyteam.wf.test.Data data> param;' #txt
 Cs0 f0 inParameterMapAction 'out.data=param.data;
 ' #txt
-Cs0 f0 outParameterDecl '<> result;
-' #txt
+Cs0 f0 outParameterDecl '<> result;' #txt
 Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

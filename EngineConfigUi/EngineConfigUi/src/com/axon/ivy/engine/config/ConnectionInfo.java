@@ -4,7 +4,6 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import ch.ivyteam.db.jdbc.DatabaseProduct;
-import ch.ivyteam.ivy.Advisor;
 import ch.ivyteam.ivy.server.configuration.system.db.ConnectionState;
 import ch.ivyteam.licence.SystemLicence;
 
@@ -191,12 +190,6 @@ public class ConnectionInfo
     return SystemLicence.isEnterprise()
             || StringUtils.isNotEmpty(
                     System.getProperty("ch.ivyteam.ivy.server.configuration.development.cluster"));
-  }
-
-  public Boolean getIsLicenceValid()
-  {
-    return Advisor.getAdvisor().isServer() && !SystemLicence.isDemo() || StringUtils.isNotEmpty(System
-            .getProperty("ch.ivyteam.ivy.server.configuration.development"));
   }
 
   public Throwable getConnectionError()

@@ -9,7 +9,7 @@
 	
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/workflowStatistic')}" />
-	<ui:param name="headerIcon" value="fa fa-bar-chart-o"/>
+	<ui:param name="headerIcon" value="insert_chart"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
 		#{ivy.cms.co('/labels/admin/workflowStatistic/description')}

@@ -9,6 +9,7 @@
 
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/home')}" />
+  <ui:param name="headerIcon" value="home" />
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
 		<h:outputText value="#{ivy.cms.co('/Dialogs/ch/ivyteam/wf/workflow/Home/WelcomeInfo')}"

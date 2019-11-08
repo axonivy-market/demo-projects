@@ -5,12 +5,12 @@
 
   <groupId>ch.ivyteam.ivy.project.wf</groupId>
   <artifactId>JsfWorkflowUi</artifactId>
-  <version>7.4.1-SNAPSHOT</version>
+  <version>8.0.0-SNAPSHOT</version>
   <packaging>iar</packaging>
   <parent>
 	<groupId>ch.ivyteam.ivy.project</groupId>
 	<artifactId>build.maven.iar</artifactId>
-	<version>7.4.1-SNAPSHOT</version>
+	<version>8.0.0-SNAPSHOT</version>
 	<relativePath>../../build.maven/iar</relativePath>
   </parent>
   

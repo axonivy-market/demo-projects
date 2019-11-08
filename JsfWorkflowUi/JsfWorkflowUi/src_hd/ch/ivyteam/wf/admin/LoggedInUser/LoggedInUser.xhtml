@@ -9,7 +9,7 @@
 
 <ui:composition template="/layouts/Workflow.xhtml">
 	<ui:param name="centerHeader" value="#{ivy.cms.co('/navLabels/loggedInUser')}" />
-	<ui:param name="headerIcon" value="fa fa-users"/>
+	<ui:param name="headerIcon" value="person"/>
 	<ui:define name="center">
 		<f:event type="preRenderView" listener="#{logic.update()}" />
 		#{ivy.cms.co('/labels/admin/loggedInUser/description')}

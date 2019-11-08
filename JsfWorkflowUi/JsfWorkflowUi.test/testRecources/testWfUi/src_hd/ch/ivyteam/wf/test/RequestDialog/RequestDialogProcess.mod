@@ -1,5 +1,5 @@
 [Ivy]
-13F3DB5D589E405E 3.28 #module
+13F3DB5D589E405E 7.5.0 #module
 >Proto >Proto Collection #zClass
 Rs0 RequestDialogProcess Big #zClass
 Rs0 RD #cInfo
@@ -20,13 +20,10 @@ Rs0 @PushWFArc f2 '' #zField
 >Proto Rs0 Rs0 RequestDialogProcess #zField
 Rs0 f0 guid 13F3DB5D5986E0D4 #txt
 Rs0 f0 method start(ch.ivyteam.wf.test.Data) #txt
-Rs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ch.ivyteam.wf.test.Data data> param = methodEvent.getInputArguments();
-' #txt
+Rs0 f0 inParameterDecl '<ch.ivyteam.wf.test.Data data> param;' #txt
 Rs0 f0 inParameterMapAction 'out.data=param.data;
 ' #txt
-Rs0 f0 outParameterDecl '<ch.ivyteam.wf.test.Data data> result;
-' #txt
+Rs0 f0 outParameterDecl '<ch.ivyteam.wf.test.Data data> result;' #txt
 Rs0 f0 outParameterMapAction 'result.data=in.data;
 ' #txt
 Rs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
