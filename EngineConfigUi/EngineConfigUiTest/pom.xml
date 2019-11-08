@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>com.axonivy.system</groupId>
 			<artifactId>engine-config-ui</artifactId>
-			<version>[6.5.0-SNAPSHOT,)</version>
+			<version>${project.version}</version>
 			<type>iar</type>
 		</dependency>
 		<dependency>
