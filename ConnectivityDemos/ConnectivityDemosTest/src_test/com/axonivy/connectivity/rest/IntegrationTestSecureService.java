@@ -10,7 +10,6 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
-import org.glassfish.jersey.filter.LoggingFilter;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.rest.provider.SecureService;
@@ -93,10 +92,11 @@ public class IntegrationTestSecureService
 		return httpClient;
 	}
 	
+	@SuppressWarnings({ "deprecation", "restriction" })
 	private static Client createClient() {
 		Client httpClient = ClientBuilder.newClient();
 	    httpClient.register(JacksonJsonProvider.class);
-	    httpClient.register(new LoggingFilter());
+	    httpClient.register(new org.glassfish.jersey.filter.LoggingFilter());
 		return httpClient;
 	}
 

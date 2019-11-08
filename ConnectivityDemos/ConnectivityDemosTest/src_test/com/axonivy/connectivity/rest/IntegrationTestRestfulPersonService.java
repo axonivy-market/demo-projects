@@ -19,7 +19,6 @@ import javax.ws.rs.core.Response.Status;
 
 import org.apache.http.HttpStatus;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
-import org.glassfish.jersey.filter.LoggingFilter;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.Person;
@@ -109,12 +108,13 @@ public class IntegrationTestRestfulPersonService
 		return createAuthenticatedClient().target(EngineUrl.rest()+"/persons");
 	}
 
+	@SuppressWarnings({ "restriction", "deprecation" })
 	private static Client createAuthenticatedClient() {
 		Client httpClient = ClientBuilder.newClient();
 	    HttpAuthenticationFeature feature = HttpAuthenticationFeature.basic(REST_USER, REST_USER);
 	    httpClient.register(com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider.class);
 	    httpClient.register(feature);
-	    httpClient.register(new LoggingFilter());
+	    httpClient.register(new org.glassfish.jersey.filter.LoggingFilter());
 		return httpClient;
 	}
 
