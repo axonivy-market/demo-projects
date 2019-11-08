@@ -2,7 +2,6 @@ package com.axonivy.engine.config.ui.unit.test;
 
 import ch.ivyteam.db.jdbc.DatabaseConnectionConfiguration;
 import ch.ivyteam.db.jdbc.DatabaseUtil;
-import ch.ivyteam.ivy.Advisor;
 import ch.ivyteam.ivy.persistence.db.DatabasePersistencyServiceFactory;
 import ch.ivyteam.ivy.server.IServer;
 import ch.ivyteam.ivy.server.ServerFactory;
@@ -20,7 +19,6 @@ public class InMemoryEngineController
 
   public void start() throws Exception
   {
-    Advisor.getAdvisor().setServer(true);
     dbConnConfig = createMemorySystemDatabase(MEMORY_DB_NAME);
     engine = ServerFactory.createUltralightServer(dbConnConfig);
     engine.start(null);

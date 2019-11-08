@@ -6,14 +6,12 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
 import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.licence.SystemLicence;
+import ch.ivyteam.ivy.server.restricted.EngineMode;
 
 @ManagedBean
 @ApplicationScoped
 public class HelperBean
 {
-  boolean demoLicence = SystemLicence.isDemo();
-
   public String getPropertiesSize(Properties properties)
   {
     if (properties.isEmpty())
@@ -40,8 +38,9 @@ public class HelperBean
 
   public boolean mustAuthenticate()
   {
-    if (isNotDemoLicence() && isNotAuthenticated()
-            && isNotServerConfigurationApplicaton() && hasAtLeastOneAdmin())
+    if (isInProductiveMode() && 
+    	isNotAuthenticated() && 
+    	hasAtLeastOneAdmin())
     {
       return true;
     }
@@ -59,24 +58,13 @@ public class HelperBean
     return Ivy.session().getSecurityContext().getUsers().size() > 1;
   }
 
-  private boolean isNotDemoLicence()
+  private boolean isInProductiveMode()
   {
-    return !demoLicence;
+    return EngineMode.isAnyOf(EngineMode.STANDARD, EngineMode.ENTERPRISE, EngineMode.MAINTENANCE);
   }
 
   public boolean isNotAuthenticated()
   {
     return Ivy.session().isSessionUserUnknown();
-  }
-
-  private boolean isNotServerConfigurationApplicaton()
-  {
-    return !isServerConfigurationApplicaton();
-  }
-
-  public boolean isServerConfigurationApplicaton()
-  {
-    return Ivy.wf().getApplication().getName()
-            .equals("ServerConfiguration");
   }
 }
