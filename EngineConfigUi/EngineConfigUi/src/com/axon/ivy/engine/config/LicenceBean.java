@@ -5,7 +5,6 @@ import java.util.Properties;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
-import ch.ivyteam.licence.SignedLicence;
 import ch.ivyteam.licence.SystemLicence;
 
 @ManagedBean
@@ -30,5 +29,10 @@ public class LicenceBean
   public boolean isDemo()
   {
     return SystemLicence.isDemo();
+  }
+  
+  public boolean isInvalid()
+  {
+	return SystemLicence.isInstalled() && !SystemLicence.isValid();
   }
 }
