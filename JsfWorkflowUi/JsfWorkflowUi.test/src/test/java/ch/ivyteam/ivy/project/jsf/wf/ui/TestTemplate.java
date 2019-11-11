@@ -15,9 +15,8 @@ public class TestTemplate extends BaseJsfWorkflowUiTest
     WfNavigator.home(driver);
     awaitToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[1]/div/ul/li[1]/a")).click();
     awaitToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[1]/div/ul/li[1]/ul/li[2]/a")).click();
-    IvyWebDriverHelper.assertAjaxElementContains(driver, By.id("mainArea"), "Workflow login");
+    IvyWebDriverHelper.assertAjaxElementContains(driver, By.id("loginForm"), "Sign-in to JSFWorkflowUI");
     login("user1", "user1");
-    IvyWebDriverHelper.assertAjaxElementContains(driver, By.id("message"), "Welcome");
-    IvyWebDriverHelper.assertAjaxElementContains(driver, By.id("message"), "user1");
+    IvyWebDriverHelper.assertAjaxElementContains(driver, By.id("mainArea"), "Logged in as: user1");
   }
 }

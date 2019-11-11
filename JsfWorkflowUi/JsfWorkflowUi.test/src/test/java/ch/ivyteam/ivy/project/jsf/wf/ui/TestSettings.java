@@ -324,7 +324,7 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     System.out.println("taskId: " + taskId);
     WfNavigator.openProcessLink(driver, "testWfUi/13F3D94E5C99F06F/13F3D94E5C99F06F-f1/TaskA.ivp?taskId=" + taskId);
     System.out.println("link: " + driver.getCurrentUrl());
-    awaitTextToBePresentIn(By.id("mainArea"), "Workflow login");
+    awaitTextToBePresentIn(By.id("loginForm"), "Sign-in to JSFWorkflowUI");
     // Login
     By usernameLocator = By.id("loginPageComponent:loginForm:username");
     driver.findElement(usernameLocator).clear();
