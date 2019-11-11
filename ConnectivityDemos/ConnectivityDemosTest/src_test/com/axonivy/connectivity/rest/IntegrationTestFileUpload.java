@@ -20,7 +20,6 @@ import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
-import org.glassfish.jersey.filter.LoggingFilter;
 import org.glassfish.jersey.media.multipart.Boundary;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
@@ -166,21 +165,23 @@ public class IntegrationTestFileUpload
     return httpClient;
   }
 
+  @SuppressWarnings({ "deprecation", "restriction" })
   private static Client createClient()
   {
     Client httpClient = ClientBuilder.newClient();
     httpClient.register(JacksonJsonProvider.class);
     httpClient.register(MultiPartFeature.class);
-    httpClient.register(new LoggingFilter());
+    httpClient.register(new org.glassfish.jersey.filter.LoggingFilter());
     return httpClient;
   }
 
-  private static Client createClientCustom(ClientConfig config)
+  @SuppressWarnings({ "restriction", "deprecation" })
+private static Client createClientCustom(ClientConfig config)
   {
     Client httpClient = ClientBuilder.newClient(config);
     httpClient.register(JacksonJsonProvider.class);
     httpClient.register(MultiPartFeature.class);
-    httpClient.register(new LoggingFilter());
+    httpClient.register(new org.glassfish.jersey.filter.LoggingFilter());
     httpClient.register(HttpAuthenticationFeature.basic(login, login));
     return httpClient;
   }
