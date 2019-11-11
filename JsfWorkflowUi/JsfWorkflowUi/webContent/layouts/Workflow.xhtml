@@ -6,6 +6,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:ic="http://ivyteam.ch/jsf/component"
 	xmlns:p="http://primefaces.org/ui">
+<f:view beforePhase="#{loginBean.checkLogin()}" />
 
 <h:head>
 	<f:attribute name="primefaces.THEME" value="serenity-ivy"/>
@@ -49,19 +50,9 @@
           	<div class="ui-g-12">
             	<div class="card card-w-title">
 								<div id="mainArea" class="container">
-									<c:choose>
-										<c:when
-											test="#{ivy.wf.securityContext.currentSession.sessionUserUnknown}">
-											<h2>#{ivy.cms.co('/navLabels/login')}</h2>
-											<ic:ch.ivyteam.wf.login.Login id="loginPageComponent" />
-										</c:when>
-										<c:otherwise>
-											<p:messages id="message" showDetail="true" closable="true" />
-											<h2><i class="material-icons header-icon" style="position: relative; top: 4px;">#{headerIcon}</i> #{centerHeader}</h2>
-											<ui:insert name="center" />
-										</c:otherwise>
-									</c:choose>
-							
+									<p:messages id="message" showDetail="true" closable="true" />
+									<h2><i class="material-icons header-icon" style="position: relative; top: 4px;">#{headerIcon}</i> #{centerHeader}</h2>
+									<ui:insert name="center" />
 								</div>
 							</div>
 						</div>
