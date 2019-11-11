@@ -11,7 +11,6 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
-import org.glassfish.jersey.filter.LoggingFilter;
 import org.junit.jupiter.api.Test;
 
 import com.axonivy.connectivity.rest.provider.BatchService;
@@ -44,11 +43,12 @@ public class IntegrationTestBatchService
 			.isEqualTo(REST_USER);
 	}
 
+	@SuppressWarnings({ "restriction", "deprecation" })
 	private static Client createAuthenticatedClient() {
 		Client httpClient = ClientBuilder.newClient();
 	    httpClient.register(JacksonJsonProvider.class);
 	    httpClient.register(HttpAuthenticationFeature.basic(REST_USER, REST_USER));
-	    httpClient.register(new LoggingFilter());
+	    httpClient.register(new org.glassfish.jersey.filter.LoggingFilter());
 		return httpClient;
 	}
 

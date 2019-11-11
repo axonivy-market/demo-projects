@@ -28,7 +28,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.awaitility.Awaitility;
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.glassfish.jersey.client.filter.CsrfProtectionFilter;
-import org.glassfish.jersey.filter.LoggingFilter;
 import org.hamcrest.core.IsNull;
 import org.junit.jupiter.api.Test;
 
@@ -170,8 +169,9 @@ public class IntegrationTestChatService {
 		return createClient().register(HttpAuthenticationFeature.basic(REST_USER, REST_USER));
 	}
 
+	@SuppressWarnings({ "restriction", "deprecation" })
 	private static Client createClient(){
-		return silentClient().register(new LoggingFilter());
+		return silentClient().register(new org.glassfish.jersey.filter.LoggingFilter());
 	}
 	
 	private static Client silentClient(){
