@@ -326,14 +326,14 @@ public class TestSettings extends BaseJsfWorkflowUiTest
     System.out.println("link: " + driver.getCurrentUrl());
     awaitTextToBePresentIn(By.id("loginForm"), "Sign-in to JSFWorkflowUI");
     // Login
-    By usernameLocator = By.id("loginPageComponent:loginForm:username");
+    By usernameLocator = By.id("loginForm:userName");
     driver.findElement(usernameLocator).clear();
     driver.findElement(usernameLocator).sendKeys(WEB_TEST_SERVER_ADMIN_USER);
-    By passwordLocator = By.id("loginPageComponent:loginForm:password");
+    By passwordLocator = By.id("loginForm:password");
     driver.findElement(passwordLocator).clear();
     driver.findElement(passwordLocator).sendKeys(WEB_TEST_SERVER_ADMIN_PASSWORD);
-    awaitToBeClickable("loginPageComponent:loginForm:loginButton").click();
-    awaitTextToBePresentIn(By.id("mainArea"), "Welcome");
+    awaitToBeClickable("loginForm:login").click();
+    awaitTextToBePresentIn(By.id("mainArea"), "Logged in");
     closeTask();
     WfNavigator.taskList(driver);
     awaitTextToBePresentIn(By.id("mainArea"), "Task List");
