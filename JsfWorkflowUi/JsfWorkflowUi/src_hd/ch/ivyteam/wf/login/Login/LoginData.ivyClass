@@ -1,6 +1,0 @@
-LoginData #class
-ch.ivyteam.wf.login.Login #namespace
-username String #field
-username PERSISTENT #fieldModifier
-password String #field
-password PERSISTENT #fieldModifier

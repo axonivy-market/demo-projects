@@ -24,12 +24,12 @@ public class ApplicationLogin
   {
     WfNavigator.logout(driver);
     ajax.await(ExpectedConditions.visibilityOfElementLocated(By
-            .id("loginPageComponent:loginForm")));
+            .id("loginForm:userName")));
 
-    setLoginFieldValue("username", username);
+    setLoginFieldValue("userName", username);
     setLoginFieldValue("password", password);
 
-    loginField("loginButton").click();
+    loginField("login").click();
     ajax.await(ExpectedConditions.textToBePresentInElementLocated(By
             .id("mainArea"), "Home"));
   }
@@ -71,7 +71,7 @@ public class ApplicationLogin
 
   private static By byLogin(final String fieldName)
   {
-    return By.id("loginPageComponent:loginForm:" + fieldName);
+    return By.id("loginForm:" + fieldName);
   }
 
   private static ExpectedCondition<Boolean> formValueContains(final By locator, final String expectedValue)
