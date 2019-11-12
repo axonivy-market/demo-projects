@@ -32,11 +32,11 @@
 					</p:selectOneMenu>
 					<p:spacer width="10px"/>
 					<p:commandButton value="Upload Ivy Script"
-						icon=" ui-icon-arrowthickstop-1-n"
+						icon="ui-icon-cloud-upload"
 						actionListener="#{logic.uploadIvyScript}" ajax="false" update="@all"/>
 							or
 						<p:commandButton value="Upload Java"
-						icon="ui-icon-arrowthickstop-1-n"
+						icon="ui-icon-cloud-upload"
 						actionListener="#{logic.uploadJava}" ajax="false" update="@all">
 						</p:commandButton>
 				</h:panelGrid>
@@ -50,7 +50,7 @@
 					<p:column headerText="Download" style="width: 120px">
 						<p:commandButton id="dl" value="Download" ajax="false"
 							actionListener="#{logic.download(file)}"
-							icon="ui-icon-arrowthickstop-1-s">
+							icon="ui-icon-cloud-download">
 							<p:fileDownload value="#{data.fileDownload}" />
 						</p:commandButton>
 					</p:column>

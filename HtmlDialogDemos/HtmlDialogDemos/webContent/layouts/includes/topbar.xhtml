@@ -19,7 +19,7 @@
             <h:panelGrid columns="2">
               <!-- See Designer Documentation about Themes or the PublicAPI of IvyPrimefacesThemeResolver for more information -->
               <p:outputLabel value="Theme" style="font-weight:bold"/>
-              <p:themeSwitcher id="basic" value="#{ivyPrimefacesThemeResolver.sessionTheme}" style="width: 160px;margin-right:20px">
+              <p:themeSwitcher id="basic" value="#{ivyPrimefacesThemeResolver.sessionTheme}" style="width: 160px;margin-right:20px;color:lightgrey">
                 <f:selectItems value="#{ivyPrimefacesThemeResolver.themes}" var="theme" itemLabel="#{theme}" itemValue="#{theme}" />
                 <p:ajax />
               </p:themeSwitcher>

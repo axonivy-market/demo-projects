@@ -27,7 +27,7 @@
 						<br />
 						<br />
                         <h:panelGrid>
-                            <p:commandButton value="Upload" actionListener="#{logic.fileUpload}" ajax="false" id="fileUploadButton"/>
+                            <p:commandButton value="Upload" actionListener="#{logic.fileUpload}" ajax="false" id="fileUploadButton" icon="ui-icon-cloud-upload"/>
                         </h:panelGrid>
 						<br />
 						<br />
@@ -44,7 +44,7 @@
                         <h:panelGrid columns="3">
                             <p:commandButton value="Show" actionListener="#{logic.showContent}" ajax="false" disabled="#{data.fileName == null}" id="showFileButton"/>
                             <p:outputLabel value="or" />
-                            <p:commandButton value="Download" ajax="false" actionListener="#{logic.fileDownload}" icon="ui-icon-arrowthick-1-s" disabled="#{data.fileName == null}" id="downloadFileButton">
+                            <p:commandButton value="Download" ajax="false" actionListener="#{logic.fileDownload}" icon="ui-icon-cloud-download" disabled="#{data.fileName == null}" id="downloadFileButton">
                                 <p:fileDownload value="#{data.fileDownload}" />
                             </p:commandButton>
                         </h:panelGrid>
