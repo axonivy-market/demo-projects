@@ -99,15 +99,11 @@ import org.glassfish.jersey.media.multipart.file.FileDataBodyPart;
 IFile resource = FileUpload.getHdResource("com.axonivy.connectivity.rest.FileUpload","resources/"+in.resourceName);
 java.io.File file = FileUpload.toTempIoFile(resource);
 
-FormDataMultiPart multipart;
 FormDataMultiPart formDataMultiPart = new FormDataMultiPart();
-
-MediaType contentType = MediaType.MULTIPART_FORM_DATA_TYPE;
-    contentType = Boundary.addBoundary(contentType);
-
 FileDataBodyPart filePart = new FileDataBodyPart("file", file);
-multipart = formDataMultiPart.field("file", file, MediaType.MULTIPART_FORM_DATA_TYPE).bodyPart(filePart) as FormDataMultiPart;
+FormDataMultiPart multipart = formDataMultiPart.bodyPart(filePart) as FormDataMultiPart;
 
+MediaType contentType = Boundary.addBoundary(MediaType.MULTIPART_FORM_DATA_TYPE);
 Response jaxrsresponse = client.request().header("X-Requested-By", "ivy")
  .header("MIME-Version", "1.0")
  .put(Entity.entity(multipart, contentType));
