@@ -1,4 +1,4 @@
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_DATA_CLASS=workflow.humantask.Data
 ch.ivyteam.ivy.designer.preferences.DataClassPreferencePage\:DEFAULT_NAMESPACE=workflow.demo
-ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=74035
+ch.ivyteam.ivy.project.preferences\:PROJECT_VERSION=80000
 eclipse.preferences.version=1
