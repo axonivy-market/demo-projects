@@ -7,6 +7,10 @@
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
   <div class="layout-topbar">
+    <a href="#" class="menu-btn">
+      <i class="material-icons">&#xE5D2;</i>
+    </a>
+
     <div class="layout-topbar-menu-wrapper">
       <ul class="topbar-menu animated">
       </ul>
@@ -14,16 +18,21 @@
 
     <div class="navbar navbar-top">
       <div class="container" id="headerdiv">
-        <div class="pull-right themeswitcher" style="margin-right: 20px;">
+        <div class="pull-right themeswitcher">
           <h:form id="themeswitcher">
             <h:panelGrid columns="2">
               <!-- See Designer Documentation about Themes or the PublicAPI of IvyPrimefacesThemeResolver for more information -->
-              <p:outputLabel value="Theme" style="font-weight:bold"/>
-              <p:themeSwitcher id="basic" value="#{ivyPrimefacesThemeResolver.sessionTheme}" style="width: 160px;margin-right:20px;color:lightgrey">
+              <p:outputLabel value="Theme" style="font-weight:bold; color: #F4F5F5;"/>
+              <p:themeSwitcher id="basic" value="#{ivyPrimefacesThemeResolver.sessionTheme}" style="width: 160px;margin-right:20px;color:#F4F5F5">
                 <f:selectItems value="#{ivyPrimefacesThemeResolver.themes}" var="theme" itemLabel="#{theme}" itemValue="#{theme}" />
                 <p:ajax />
               </p:themeSwitcher>
             </h:panelGrid>
+            <style>
+            .ui-selectonemenu-item {
+              color: black;
+            }
+            </style>
           </h:form>
         </div>
       </div>
