@@ -24,50 +24,50 @@
         <div class="layout-menu-container">
           <h:form id="menuform">
             <pm:menu>
-              <p:submenu id="outputDropDown" label="Output">
-                <p:menuitem value="DataTable" url="#{ivy.html.startref('Output/DataTableDemo.ivp')}"/>
-                <p:menuitem value="Editable Table" url="#{ivy.html.startref('Output/EditableTableDemo.ivp')}" />
-                <p:menuitem value="Lazy Loading" url="#{ivy.html.startref('Output/LazyLoadingDemo.ivp')}" />
-                <p:menuitem value="Export Excel" url="#{ivy.html.startref('Output/ExportExcelDemo.ivp')}" />
-                <p:menuitem value="Resources" url="#{ivy.html.startref('Output/ResourceDemo.ivp')}" />
-                <p:menuitem value="Ordered List" url="#{ivy.html.startref('Output/OrderListDemo.ivp')}" />
-                <p:menuitem value="Pick List" url="#{ivy.html.startref('Output/PickListDemo.ivp')}" />
-                <p:menuitem value="Select One Menu" url="#{ivy.html.startref('Output/SelectOneMenuDemo.ivp')}" />
-                <p:menuitem value="Select Many Checkbox" url="#{ivy.html.startref('Output/SelectManyCheckboxDemo.ivp')}" />
-                <p:menuitem value="Auto Complete" url="#{ivy.html.startref('Output/AutoCompleteDemo.ivp')}" />
-                <p:menuitem value="Charts" url="#{ivy.html.startref('Output/ChartDemo.ivp')}" />
+              <p:submenu icon="trending_up" id="outputDropDown" label="Output">
+                <p:menuitem icon="table_chart" value="DataTable" url="#{ivy.html.startref('Output/DataTableDemo.ivp')}"/>
+                <p:menuitem icon="edit" value="Editable Table" url="#{ivy.html.startref('Output/EditableTableDemo.ivp')}" />
+                <p:menuitem icon="av_timer" value="Lazy Loading" url="#{ivy.html.startref('Output/LazyLoadingDemo.ivp')}" />
+                <p:menuitem icon="attach_file" value="Export Excel" url="#{ivy.html.startref('Output/ExportExcelDemo.ivp')}" />
+                <p:menuitem icon="font_download" value="Resources" url="#{ivy.html.startref('Output/ResourceDemo.ivp')}" />
+                <p:menuitem icon="filter_list" value="Ordered List" url="#{ivy.html.startref('Output/OrderListDemo.ivp')}" />
+                <p:menuitem icon="list" value="Pick List" url="#{ivy.html.startref('Output/PickListDemo.ivp')}" />
+                <p:menuitem icon="arrow_drop_down_circle" value="Select One Menu" url="#{ivy.html.startref('Output/SelectOneMenuDemo.ivp')}" />
+                <p:menuitem icon="check_box" value="Select Many Checkbox" url="#{ivy.html.startref('Output/SelectManyCheckboxDemo.ivp')}" />
+                <p:menuitem icon="input" value="Auto Complete" url="#{ivy.html.startref('Output/AutoCompleteDemo.ivp')}" />
+                <p:menuitem icon="insert_chart" value="Charts" url="#{ivy.html.startref('Output/ChartDemo.ivp')}" />
               </p:submenu>
-              <p:submenu id="inputDropDown" label="Input">
-                <p:menuitem value="Form" url="#{ivy.html.startref('Input/FormDemo.ivp')}" />
-                <p:menuitem value="Bean Validation" url="#{ivy.html.startref('Input/BeanValidationDemo.ivp')}" />
-                <p:menuitem value="Simple File Upload and Download " url="#{ivy.html.startref('Input/FileUploadSimpleModeDemo.ivp')}" />
-                <p:menuitem value="Advanced File Upload" url="#{ivy.html.startref('Input/FileUploadAdvancedModeDemo.ivp')}" />
-                <p:menuitem value="Multi View" url="#{ivy.html.startref('Input/MultiViewDemo.ivp')}" />
+              <p:submenu icon="trending_down" id="inputDropDown" label="Input">
+                <p:menuitem icon="format_align_center" value="Form" url="#{ivy.html.startref('Input/FormDemo.ivp')}" />
+                <p:menuitem icon="check_circle" value="Bean Validation" url="#{ivy.html.startref('Input/BeanValidationDemo.ivp')}" />
+                <p:menuitem icon="cloud_download" value="Simple File Upload and Download " url="#{ivy.html.startref('Input/FileUploadSimpleModeDemo.ivp')}" />
+                <p:menuitem icon="cloud_upload" value="Advanced File Upload" url="#{ivy.html.startref('Input/FileUploadAdvancedModeDemo.ivp')}" />
+                <p:menuitem icon="view_column" value="Multi View" url="#{ivy.html.startref('Input/MultiViewDemo.ivp')}" />
               </p:submenu>
-              <p:submenu id="componentDropDown" label="Component">
-                <p:menuitem value="Component" url="#{ivy.html.startref('Component/ComponentDemo.ivp')}" />
-                <p:menuitem value="Composite Component Customizing" url="#{ivy.html.startref('Component/ComponentCustomizingDemo.ivp')}"/>
-                <p:menuitem value="Component callback" url="#{ivy.html.startref('Component/ComponentEventListenerDemo.ivp')}" />
-                <p:menuitem value="JSF Composite Component" url="#{ivy.html.startref('Component/JsfCompositeComponent.ivp')}" />
-                <p:menuitem value="Partial Update" url="#{ivy.html.startref('Component/PartialUpdateDemo.ivp')}" />
-                <p:menuitem value="Lazy loaded Component" url="#{ivy.html.startref('Component/lazyLoadComponent.ivp')}" />
+              <p:submenu icon="crop_square" id="componentDropDown" label="Component">
+                <p:menuitem icon="crop_square" value="Component" url="#{ivy.html.startref('Component/ComponentDemo.ivp')}" />
+                <p:menuitem icon="crop_free" value="Composite Component Customizing" url="#{ivy.html.startref('Component/ComponentCustomizingDemo.ivp')}"/>
+                <p:menuitem icon="slideshow" value="Component callback" url="#{ivy.html.startref('Component/ComponentEventListenerDemo.ivp')}" />
+                <p:menuitem icon="crop_original" value="JSF Composite Component" url="#{ivy.html.startref('Component/JsfCompositeComponent.ivp')}" />
+                <p:menuitem icon="center_focus_weak" value="Partial Update" url="#{ivy.html.startref('Component/PartialUpdateDemo.ivp')}" />
+                <p:menuitem icon="timelapse" value="Lazy loaded Component" url="#{ivy.html.startref('Component/lazyLoadComponent.ivp')}" />
               </p:submenu>
-              <p:submenu id="offlineDropDown" label="Offline">
-                <p:menuitem value="Client Side Validation" url="#{ivy.html.startref('Offline/ClientSideValidationDemo.ivp')}" />
+              <p:submenu icon="signal_wifi_off" id="offlineDropDown" label="Offline">
+                <p:menuitem icon="person" value="Client Side Validation" url="#{ivy.html.startref('Offline/ClientSideValidationDemo.ivp')}" />
               </p:submenu>
-              <p:submenu id="otherDropDown" label="Other">
-                <p:menuitem value="Html 5 / JSF 2.2" url="#{ivy.html.startref('Other/Html5Demo.ivp')}" />
-                <p:menuitem value="Html 5 &amp; Bootstrap" url="#{ivy.html.startref('Other/Html5BootstrapDemo.ivp')}" />
-                <p:menuitem value="AJAX Method Call" url="#{ivy.html.startref('Other/MethodCallWithAjaxDemo.ivp')}" />
-                <p:menuitem value="Managed Bean" url="#{ivy.html.startref('Other/ManagedBeanDemo.ivp')}" />
-                <p:menuitem value="Error Handling" url="#{ivy.html.startref('Other/ErrorHandlingDemo.ivp')}" />
-                <p:menuitem value="Responsive Grid" url="#{ivy.html.startref('Other/ResponsiveGridDemo.ivp')}" />
+              <p:submenu icon="extension" id="otherDropDown" label="Other">
+                <p:menuitem icon="looks_5" value="Html 5 / JSF 2.2" url="#{ivy.html.startref('Other/Html5Demo.ivp')}" />
+                <p:menuitem icon="assignment" value="Html 5 &amp; Bootstrap" url="#{ivy.html.startref('Other/Html5BootstrapDemo.ivp')}" />
+                <p:menuitem icon="call" value="AJAX Method Call" url="#{ivy.html.startref('Other/MethodCallWithAjaxDemo.ivp')}" />
+                <p:menuitem icon="account_balance" value="Managed Bean" url="#{ivy.html.startref('Other/ManagedBeanDemo.ivp')}" />
+                <p:menuitem icon="error" value="Error Handling" url="#{ivy.html.startref('Other/ErrorHandlingDemo.ivp')}" />
+                <p:menuitem icon="grid_on" value="Responsive Grid" url="#{ivy.html.startref('Other/ResponsiveGridDemo.ivp')}" />
               </p:submenu>
-              <p:submenu id="primefacesDropDown" label="Primefaces">
-                <p:menuitem value="Primefaces" url="#{ivy.html.startref('Primefaces/Primefaces.ivp')}" />
+              <p:submenu icon="filter_vintage" id="primefacesDropDown" label="Primefaces">
+                <p:menuitem icon="filter_vintage" value="Primefaces" url="#{ivy.html.startref('Primefaces/Primefaces.ivp')}" />
               </p:submenu>
-              <p:submenu id="staticDropDown" label="Static">
-                <p:menuitem value="EndPage" url="#{ivy.html.startref('Static/StaticEndPage.ivp')}" />
+              <p:submenu icon="layers" id="staticDropDown" label="Static">
+                <p:menuitem icon="description" value="EndPage" url="#{ivy.html.startref('Static/StaticEndPage.ivp')}" />
               </p:submenu>
             </pm:menu>
           </h:form>
