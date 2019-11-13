@@ -5,9 +5,10 @@
       xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+      <ui:param name="centerHeader" value="Bean Validation (JSR 303) Demo" />
+      <ui:define name="breadcrumb">Input/Bean Validation Demo</ui:define>
 
-	<ui:define name="title">Bean Validation (JSR 303) Demo</ui:define>
-	<ui:define name="content">
+	  <ui:define name="content">
    		<h:panelGroup layout="block" id="panel">
    			<p>This demo explains how the bean validation (JSR 303) could be used.</p>
    	 		<p>The fields of a java class (bean) can be annotated with validation information. The validation information will then be considered by Html Dialogs when the field of the class is bound to a widget.</p>
@@ -43,7 +44,10 @@
 					<p:outputLabel value="Year of Birth" for="yearOfBirth"/><p:inputText value="#{data.person.yearOfBirth}" id="yearOfBirth"/><p:message for="yearOfBirth" display="icon" id="yearOfBirthMessage"/>				
 					<p:outputLabel value="Vehicle license" for="license"/><p:inputText value="#{data.person.vehicleLicense}" id="license"/><p:message for="license" display="icon" id="licenseMessage"/>				
 				</h:panelGrid>
-		    	<p:commandButton actionListener="#{logic.Send}" value="Submit" id="submit" update="person"/><br />
+                <h:panelGrid>
+                    <p:commandButton actionListener="#{logic.Send}" value="Submit" id="submit" update="person"/>
+                </h:panelGrid>
+                <br/>
 		    	<br/>
     	 		<h:outputText>Data: #{data}</h:outputText> 
    			</h:form>

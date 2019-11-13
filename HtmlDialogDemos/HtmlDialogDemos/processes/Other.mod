@@ -38,6 +38,11 @@ Or0 @UserDialog f1 '' #zField
 Or0 @EndTask f2 '' #zField
 Or0 @PushWFArc f3 '' #zField
 Or0 @PushWFArc f4 '' #zField
+Or0 @StartRequest f5 '' #zField
+Or0 @EndTask f6 '' #zField
+Or0 @UserDialog f8 '' #zField
+Or0 @PushWFArc f9 '' #zField
+Or0 @PushWFArc f7 '' #zField
 >Proto Or0 Or0 Other #zField
 Or0 f104 dialogId ch.ivyteam.htmldialog.demo.other.Html5Demo #txt
 Or0 f104 startMethod start() #txt
@@ -271,6 +276,40 @@ Or0 f3 expr out #txt
 Or0 f3 143 448 248 448 #arcP
 Or0 f4 expr out #txt
 Or0 f4 360 448 465 448 #arcP
+Or0 f5 outLink ResponsiveGridDemo.ivp #txt
+Or0 f5 inParamDecl '<> param;' #txt
+Or0 f5 requestEnabled true #txt
+Or0 f5 triggerEnabled false #txt
+Or0 f5 callSignature ResponsiveGridDemo() #txt
+Or0 f5 caseData businessCase.attach=true #txt
+Or0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>ResponsiveGridDemo.ivp</name>
+    </language>
+</elementInfo>
+' #txt
+Or0 f5 @C|.responsibility Everybody #txt
+Or0 f5 113 529 30 30 -66 16 #rect
+Or0 f5 @|StartRequestIcon #fIcon
+Or0 f6 465 529 30 30 0 15 #rect
+Or0 f6 @|EndIcon #fIcon
+Or0 f8 dialogId ch.ivyteam.htmldialog.demo.other.ResponsiveGridDemo #txt
+Or0 f8 startMethod start() #txt
+Or0 f8 requestActionDecl '<> param;' #txt
+Or0 f8 responseMappingAction 'out=in;
+' #txt
+Or0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name></name>
+    </language>
+</elementInfo>
+' #txt
+Or0 f8 248 522 112 44 0 -8 #rect
+Or0 f8 @|UserDialogIcon #fIcon
+Or0 f9 143 544 248 544 #arcP
+Or0 f7 360 544 465 544 #arcP
 >Proto Or0 .type htmlDialogDemos.Data #txt
 >Proto Or0 .processKind NORMAL #txt
 >Proto Or0 0 0 32 24 18 0 #rect
@@ -297,3 +336,7 @@ Or0 f0 mainOut f3 tail #connect
 Or0 f3 head f1 mainIn #connect
 Or0 f1 mainOut f4 tail #connect
 Or0 f4 head f2 mainIn #connect
+Or0 f5 mainOut f9 tail #connect
+Or0 f9 head f8 mainIn #connect
+Or0 f8 mainOut f7 tail #connect
+Or0 f7 head f6 mainIn #connect

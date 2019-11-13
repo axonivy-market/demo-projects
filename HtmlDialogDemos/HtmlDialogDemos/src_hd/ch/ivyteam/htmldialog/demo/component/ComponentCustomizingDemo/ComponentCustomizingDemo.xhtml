@@ -6,10 +6,11 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+      <ui:param name="centerHeader" value="Composite Component Customizing Demo" />
+      <ui:define name="breadcrumb">Component/Composite Component Customizing Demo</ui:define>
 
-	<ui:define name="title">Composite Component Customizing Demo</ui:define>
-	<ui:define name="content">
-	<h:panelGroup id="panel">
+	  <ui:define name="content">
+	   <h:panelGroup id="panel">
 		<p>This demo explains how Html Dialog composite comonents can be customized.</p>
 		<h:form>
 			<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
@@ -43,36 +44,36 @@
 
 				</ic:ch.ivyteam.htmldialog.demo.component.AddressComponent>
 			</h:panelGrid>
-			<p:commandButton value="Submit" actionListener="#{logic.submit}"
-				ajax="false" />
+            <h:panelGrid>
+                <p:commandButton  value="Submit" actionListener="#{logic.submit}" ajax="false"/>
+            </h:panelGrid>
 		</h:form>
 
 		<br />
-		<h:outputText value="Home Address" />
+		<h:outputText value="Home Address" style="font-weight:bold"/>
 		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-			<h:outputText value="Title" />
+			<h:outputText value="Title" style="font-style:italic"/>
 			<h:outputText value="#{data.title}" />
-			<h:outputText value="Name" />
+			<h:outputText value="Name" style="font-style:italic"/>
 			<h:outputText value="#{data.name}" />
-			<h:outputText value="Street" />
+			<h:outputText value="Street" style="font-style:italic"/>
 			<h:outputText value="#{data.homeAddress.street}" />
-			<h:outputText value="Country" />
+			<h:outputText value="Country" style="font-style:italic"/>
 			<h:outputText value="#{data.homeAddress.country}" />
 		</h:panelGrid>
 
 		<br />
-		<h:outputText value="Corporate Address" />
+		<h:outputText value="Corporate Address" style="font-weight:bold"/>
 		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-			<h:outputText value="Company" />
+			<h:outputText value="Company" style="font-style:italic"/>
 			<h:outputText value="#{data.company}" />
-			<h:outputText value="Street" />
+			<h:outputText value="Street" style="font-style:italic"/>
 			<h:outputText value="#{data.corporateAddress.street}" />
-			<h:outputText value="Country" />
+			<h:outputText value="Country" style="font-style:italic"/>
 			<h:outputText value="#{data.corporateAddress.country}" />
 		</h:panelGrid>
-	</h:panelGroup>
-	</ui:define>
-
+	   </h:panelGroup>
+	  </ui:define>
 	</ui:composition>
 </h:body>
 </html>

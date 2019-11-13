@@ -7,9 +7,10 @@
       xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+      <ui:param name="centerHeader" value="Multi View Demo - Invoice" />
+      <ui:define name="breadcrumb">Input/Multi View Demo/Invoice</ui:define>
 
-	<ui:define name="title">Multi View Demo</ui:define>
-	<ui:define name="content">
+	  <ui:define name="content">
 	        <h:form id="myForm">
 	           	<h:panelGroup layout="block" id="panel">
 		    		<h3>Payment - Invoice</h3>
@@ -17,11 +18,13 @@
 		    		<h:panelGrid columns="2">
 			         	<p:outputLabel value="Address" for="Address"/>
 			         	<p:inputText required="true" value="#{data.address}" id="Address"></p:inputText>
-		        	</h:panelGrid>           
-		        	<p:commandButton value="Finish" update="myForm" action="#{logic.nextView('Invoice')}" id="finishButton"/>
+		        	</h:panelGrid>
+                    <h:panelGrid>
+                        <p:commandButton value="Finish" update="myForm" action="#{logic.nextView('Invoice')}" id="finishButton"/>
+                    </h:panelGrid>
 		        </h:panelGroup>
 	        </h:form>    	
-	</ui:define>
+	  </ui:define>
 
 	</ui:composition>
 </h:body>

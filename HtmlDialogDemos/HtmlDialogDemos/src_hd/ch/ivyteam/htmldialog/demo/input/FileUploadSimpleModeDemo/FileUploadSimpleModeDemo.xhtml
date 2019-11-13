@@ -7,8 +7,9 @@
 	xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+        <ui:param name="centerHeader" value="File Upload and Download Demo" />
+        <ui:define name="breadcrumb">Input/File Upload and Download Demo</ui:define>
 
-		<ui:define name="title">File Upload and Download Demo</ui:define>
 		<ui:define name="content">
 				<h:panelGroup layout="block">
 					<p>This demo explains how the content of a uploaded file could
@@ -25,8 +26,9 @@
 						2. Upload the file via process logic and store the file on the file system
 						<br />
 						<br />
-						<p:commandButton value="Upload"
-							actionListener="#{logic.fileUpload}" ajax="false" id="fileUploadButton"/>
+                        <h:panelGrid>
+                            <p:commandButton value="Upload" actionListener="#{logic.fileUpload}" ajax="false" id="fileUploadButton" icon="ui-icon-cloud-upload"/>
+                        </h:panelGrid>
 						<br />
 						<br />
 						<p:outputPanel rendered="#{not empty data.textContent}">
@@ -39,11 +41,13 @@
 						3. Show the file or download it
 						<br />
 						<br />
-						<p:commandButton value="Show" actionListener="#{logic.showContent}" ajax="false" disabled="#{data.fileName == null}" id="showFileButton"/>
-							or
-			            <p:commandButton value="Download" ajax="false" actionListener="#{logic.fileDownload}" icon="ui-icon-arrowthick-1-s" disabled="#{data.fileName == null}" id="downloadFileButton">
-					        <p:fileDownload value="#{data.fileDownload}" />
-					    </p:commandButton>
+                        <h:panelGrid columns="3">
+                            <p:commandButton value="Show" actionListener="#{logic.showContent}" ajax="false" disabled="#{data.fileName == null}" id="showFileButton"/>
+                            <p:outputLabel value="or" />
+                            <p:commandButton value="Download" ajax="false" actionListener="#{logic.fileDownload}" icon="ui-icon-cloud-download" disabled="#{data.fileName == null}" id="downloadFileButton">
+                                <p:fileDownload value="#{data.fileDownload}" />
+                            </p:commandButton>
+                        </h:panelGrid>
 						<br />
 						<br />
 						<p:outputPanel rendered="#{data.showContent}">

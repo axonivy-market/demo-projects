@@ -7,7 +7,9 @@
 	xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
-		<ui:define name="title">Lazy loaded Modal Dialog</ui:define>
+        <ui:param name="centerHeader" value="Lazy loaded Modal Dialog" />
+        <ui:define name="breadcrumb">Component/Lazy loaded Modal Dialog</ui:define>
+
 		<ui:define name="content">
 			<p>Shows how content can be loaded on demand, when the user accesses an initially hidden part of the UI such as this modal address dialog.</p>
 			
@@ -21,9 +23,10 @@
 			
 <h:form id="form">
 	<p:outputPanel id="address">
-		<p:commandButton value="Add Address" icon="fa fa-list-alt"
-			actionListener="#{logic.showAddress(true)}" oncomplete="PF('addressDialog').show()"
-			update="form:address" />
+        <h:panelGrid>
+            <p:commandButton value="Add Address" icon="fa fa-list-alt" actionListener="#{logic.showAddress(true)}"
+                oncomplete="PF('addressDialog').show()" update="form:address"/>
+        </h:panelGrid>
 		<p:dialog id="dialog" widgetVar="addressDialog" 
 			header="Large sample component" 
 			modal="true" visible="true" rendered="#{data.showAddress}" closable="false" dynamic="true">

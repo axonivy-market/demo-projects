@@ -1,0 +1,163 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:ic="http://ivyteam.ch/jsf/component"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+      <ui:param name="centerHeader" value="Responsive Grid Demo" />
+      <ui:define name="breadcrumb">Other/Responsive Grid Demo</ui:define>
+    <ui:define name="content">
+
+      <div class="ui-g">
+        <div class="ui-g-12">
+          This is an example how to create a form based on the Page Responsive Grid view type.<br/>
+          It is using the <a href="https://www.primefaces.org/showcase/ui/panel/grid.xhtml" target="_blank">PrimeFaces Grid CSS</a>, which is a lightweight, responsive layout utility optimized for mobile devices, tablets and desktops.<br/>
+          The demo displays data in the two most popular layouts, a two-column and a four-column table.
+        </div>
+        <h:form id="form">
+          <div class="ui-g-12">
+            <h:outputText value="Two columns:" style="font-weight:bold;"/>
+          </div>
+
+          <div class="ui-g-12 ui-md-8 ui-lg" style="border:1px solid #060606;">
+            
+            <div class="ui-g-12">
+              <div class="ui-g-12 ui-md-3">
+                <p:outputLabel for="responsiveGridDemoDataFirstName" value="First Name"/>
+              </div>
+              <div class="ui-g-12 ui-md-9">
+                <p:inputText id="responsiveGridDemoDataFirstName" value="#{data.firstName}"/>
+              </div>
+            </div>
+            
+            <div class="ui-g-12">
+              <div class="ui-g-12 ui-md-3">
+                <p:outputLabel for="responsiveGridDemoDataLastName" value="Last Name"/>
+              </div>
+              <div class="ui-g-12 ui-md-9">
+                <p:inputText id="responsiveGridDemoDataLastName" value="#{data.lastName}"/>
+              </div>
+            </div>
+
+            <div class="ui-g-12">
+              <div class="ui-g-12 ui-md-3">
+                <p:outputLabel for="responsiveGridDemoDataAddress" value="Address"/>
+              </div>
+              <div class="ui-g-12 ui-md-9">
+                <p:inputText id="responsiveGridDemoDataAddress" value="#{data.address}"/>
+              </div>
+            </div>
+            
+            <div class="ui-g-12">
+              <div class="ui-g-12 ui-md-3">
+                <p:outputLabel for="responsiveGridDemoDataZipCode" value="Zip Code"/>
+              </div>
+              <div class="ui-g-12 ui-md-9">
+                <p:inputText id="responsiveGridDemoDataZipCode" value="#{data.zipCode}"/>
+              </div>
+            </div>
+            
+            <div class="ui-g-12">
+              <div class="ui-g-12 ui-md-3">
+                <p:outputLabel for="responsiveGridDemoDataCity" value="City"/>
+              </div>
+              <div class="ui-g-12 ui-md-9">
+                <p:inputText id="responsiveGridDemoDataCity" value="#{data.city}"/>
+              </div>
+            </div>
+            
+            <div class="ui-g-12">
+              <div class="ui-g-12 ui-md-3">
+                <p:outputLabel for="responsiveGridDemoDataEmail" value="Email"/>
+              </div>
+              <div class="ui-g-12 ui-md-9">
+                <p:inputText id="responsiveGridDemoDataEmail" value="#{data.email}"/>
+              </div>
+            </div>
+            
+            <div class="ui-g-12">
+              <div class="ui-g-12 ui-md-3">
+                <p:outputLabel for="responsiveGridDemoDataBirthday" value="Birthday"/>
+              </div>
+              <div class="ui-g-12 ui-md-9">
+                <p:calendar id="responsiveGridDemoDataBirthday" value="#{data.birthday}" pattern="dd.MM.yyyy">
+                  <f:convertDateTime pattern="dd.MM.yyyy" />
+                </p:calendar>
+              </div>
+            </div>
+            <div class="ui-g-12">
+              <p:commandButton actionListener="#{logic.send}" value="Send" update="form form_4"  style="width:80px"/>
+            </div>
+          </div>
+        </h:form>
+          
+        <div class="ui-g-12">
+          <br />
+          <h:outputText value="Four columns:" style="font-weight:bold;"/>
+        </div>
+          
+        <h:form id="form_4">
+          <div class="ui-g-12" style="border:1px solid #060606;">
+            <div class="ui-g-12 ui-md-3 ui-lg-2">
+              <p:outputLabel for="responsiveGrid4DemoDataFirstName" value="First Name"/>
+            </div>
+            <div class="ui-g-12 ui-md-9 ui-lg-4">
+              <p:inputText id="responsiveGrid4DemoDataFirstName" value="#{data.firstName}"/>
+            </div>
+
+            <div class="ui-g-12 ui-md-3 ui-lg-2">
+              <p:outputLabel for="responsiveGrid4DemoDataLastName" value="Last Name"/>
+            </div>
+            <div class="ui-g-12 ui-md-9 ui-lg-4">
+              <p:inputText id="responsiveGrid4DemoDataLastName" value="#{data.lastName}"/>
+            </div>
+
+            <div class="ui-g-12 ui-md-3 ui-lg-2">
+              <p:outputLabel for="responsiveGrid4DemoDataAddress" value="Address"/>
+            </div>
+            <div class="ui-g-12 ui-md-9 ui-lg-4">
+              <p:inputText id="responsiveGrid4DemoDataAddress" value="#{data.address}"/>
+            </div>
+
+            <div class="ui-g-12 ui-md-3 ui-lg-2">
+              <p:outputLabel for="responsiveGrid4DemoDataBirthday" value="Birthday"/>
+            </div>
+            <div class="ui-g-12 ui-md-9 ui-lg-4">
+              <p:calendar id="responsiveGrid4DemoDataBirthday" value="#{data.birthday}" pattern="dd.MM.yyyy" >
+                <f:convertDateTime pattern="dd. MMMM yyyy" />
+              </p:calendar>
+            </div>
+
+            <div class="ui-g-12 ui-md-3 ui-lg-2">
+              <p:outputLabel for="responsiveGrid4DemoDataZipCode" value="Zip Code"/>
+            </div>
+            <div class="ui-g-12 ui-md-9 ui-lg-4">
+              <p:inputText id="responsiveGrid4DemoDataZipCode" value="#{data.zipCode}"/>
+            </div>
+            
+            <div class="ui-g-12 ui-md-3 ui-lg-2">
+              <p:outputLabel for="responsiveGrid4DemoDataCity" value="City"/>
+            </div>
+            <div class="ui-g-12 ui-md-9 ui-lg-4">
+              <p:inputText id="responsiveGrid4DemoDataCity" value="#{data.city}"/>
+            </div>
+
+            <br />
+            <div class="ui-g-12">
+              <p:commandButton actionListener="#{logic.send}" value="Send" update="form form_4" style="width:80px"/>
+            </div>
+          </div>
+          <div class="ui-g-12">
+            <h:outputText >Data: #{data}</h:outputText>
+          </div>
+        </h:form>
+
+      </div>
+
+    </ui:define>
+  </ui:composition>
+</h:body>
+</html>

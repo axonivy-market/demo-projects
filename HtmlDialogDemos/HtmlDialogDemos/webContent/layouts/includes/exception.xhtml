@@ -18,13 +18,14 @@
       <p:dialog id="viewExpiredExceptionDialog" 
         header="View or Session Expired" 
         widgetVar="viewExpiredExceptionDialog" 
-        height="150px" 
+        height="50px" 
         modal="true">
       <b><h:outputText value="Custom Exception Handling for ViewExpiredException"/></b>
       <br/>
       <h1><h:outputText value="The view or session has expired."/></h1>
       <br/>
-      <h:outputLink value="#{ivy.html.loginRef()}">Please login again.</h:outputLink> 
+      <p:button href="#{ivy.html.loginRef()}" rendered="#{ivy.session.sessionUserUnknown}" value="Please login again" />
+      <p:button href="#{ivy.html.applicationHomeRef()}" rendered="#{!ivy.session.sessionUserUnknown}" value="Please restart" />
     </p:dialog>
   
     <!--  Exception Handler for any other Exception -->
@@ -35,7 +36,7 @@
     <!-- Error Dialog to show Exceptions -->
     <p:dialog id="ajaxExceptionDialog" header="Error" 
       widgetVar="ajaxExceptionDialog" 
-      height="#{errorPage.showDetails == true ? '400px' : '170px'}" 
+      height="#{errorPage.showDetails == true ? '400px' : '150px'}" 
       modal="true">
       <b><h:outputText value="Custom Exception Handling for Throwable"/></b>
       <br/>

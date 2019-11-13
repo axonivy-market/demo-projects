@@ -4,9 +4,10 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="AJAX Method Call Demo" />
+    <ui:define name="breadcrumb">Other/AJAX Method Call Demo</ui:define>
 
-	<ui:define name="title">AJAX Method Call Demo</ui:define>
 	<ui:define name="content">
 	<h:panelGroup layout="block" id="panel">
 		<p>This demo explains how:</p>
@@ -25,7 +26,11 @@
 		<p>
 		If you do not want to integrate a JavaScript Library then you should use the JSF options for asynchronous Requests.   
 		</p>
-		<br /><button id="hello">Say Hello</button><br />
+		<br />
+    <h:panelGrid>
+      <p:commandButton value="Say Hello" id="hello"/>
+    </h:panelGrid>
+    <br />
     	Result: <span id="result"></span>
     	
     	<hr/>
@@ -33,7 +38,11 @@
 		<p>
 		If your dialog logic runs in an exit end, you get redirected to the next page in line. <br/>
 		Click on Close Dialog to get redirected:<br/>
-		<br /><button id="closeDialog">Close Dialog</button><br />
+		<br />
+    <h:panelGrid>
+      <p:commandButton value="Close Dialog" id="closeDialog"/>
+    </h:panelGrid>
+    <br />
 		</p>
     	
 		<!-- This Script is generated for each dialog and simplifies the way to call the method. -->

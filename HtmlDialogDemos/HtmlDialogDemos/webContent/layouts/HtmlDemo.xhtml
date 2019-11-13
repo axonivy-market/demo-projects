@@ -3,78 +3,64 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:pm="http://primefaces.org/serenity"
 	xmlns:p="http://primefaces.org/ui">
-
 <h:head>
-	<title><ui:insert name="title">Html Dialogs Demo</ui:insert></title>
-	<link rel="shortcut icon" href="#{resource['ivy-webcontent:layouts/images/ivy_favicon_48.png']}" />
+  <f:attribute name="primefaces.THEME" value="serenity-ivy" />
+  <title>Html Dialogs Template</title>
+  <link rel="shortcut icon" href="#{resource['ivy-webcontent:layouts/images/ivy_favicon_48.png']}" />
 
-	<!-- Bootstrap CSS -->
-	<!-- You can also load bootstrap from an external CDN: //http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
-	<h:outputStylesheet name="layouts/styles/bootstrap-modified-for-jsf.css" />
-	<h:outputStylesheet name="layouts/styles/bootstrap-reset.css" />
-	<h:outputStylesheet name="layouts/styles/ivy-common-6.css" />
-	<h:outputStylesheet name="layouts/styles/style.css" />
+  <h:outputStylesheet name="css/nanoscroller.css" library="serenity-layout" />
+  <h:outputStylesheet name="css/ripple.css" library="serenity-layout" />
+  <h:outputStylesheet name="css/layout-ivy.css" library="serenity-layout" />
+  <h:outputStylesheet name="layouts/styles/ivy-serenity.css" />
 
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
+  <h:outputScript name="js/nanoscroller.js" library="serenity-layout" />
+  <h:outputScript name="js/layout.js" library="serenity-layout" />
+  <h:outputScript name="js/ripple.js" library="serenity-layout" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.js"></script>
   <![endif]-->
 </h:head>
 <h:body>
-	<div class="navbar navbar-top">
-		<div class="container" id="headerdiv">
-			<div class="navbar-header">
-			  <a class="ivy-logo" href="#{ivy.html.startref('Demo/start.ivp')}">
-		  	    <h:graphicImage name="layouts/images/axon_ivy_logo.png" alt="Axon.ivy" />
-              </a>
-			</div>
-			<div class="pull-right themeswitcher">
-				<h:form id="themeswitcher">
-					<h:panelGrid columns="2">
-						<!-- See Designer Documentation about Themes or the PublicAPI of IvyPrimefacesThemeResolver for more information -->
-						<p:outputLabel value="Theme" />
-						<p:themeSwitcher id="basic"
-							value="#{ivyPrimefacesThemeResolver.sessionTheme}" style="width: 80px;">
-							<f:selectItems value="#{ivyPrimefacesThemeResolver.themes}"
-								var="theme" itemLabel="#{theme}" itemValue="#{theme}" />
-							<p:ajax />
-						</p:themeSwitcher>
-					</h:panelGrid>
-				</h:form>
-			</div>
-		</div>
-	</div>
+  <div class="layout-wrapper layout-wrapper-static">
+    <ui:include src="./includes/sidebar.xhtml" />
 
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 hd-demo-nav">
-				<ui:insert name="menu">
-					<ui:include src="/layouts/includes/menu.xhtml" />
-				</ui:insert>
-			</div>
-			<div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
-				<h2>
-					<ui:insert name="title">Html Dialog Demos</ui:insert>
-				</h2>
-				<ui:insert name="content">
-					<!-- The actual page content is inserted here -->
-				</ui:insert>
-			</div>
-		</div>
-		<ui:insert name="footer">
-			<hr />
-			<footer>
-				Powered by <a href="https://developer.axonivy.com">Axon.ivy</a>
-				Copyright &#169; <a href="https://www.axonivy.com">AXON Ivy AG</a>
-			</footer>
-		</ui:insert>
-	</div>
-	
+    <div class="layout-main" style="margin-left:300px">
+      <ui:include src="./includes/topbar.xhtml" />
+      <div class="layout-breadcrumb">
+        <ul>
+          <li><a href="#{ivy.html.startref('Demo/start.ivp')}"><i class="material-icons">home</i></a></li>
+          <li>/</li>
+          <ui:insert name="breadcrumb" />
+        </ul>
+      </div>
+      <div class="ui-fluid">
+        <div class="ui-g">
+          <div class="ui-g-12">
+            <div class="card card-w-title">
+              <div id="mainArea" class="container">
+                <p:messages id="message" showDetail="true" closable="true" />
+                <h2>
+                  <span class="#{headerIcon}" /> #{centerHeader}
+                </h2>
+                <ui:insert name="content">
+                  <!-- The actual page content is inserted here -->
+                </ui:insert>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <ui:insert name="exception">
     <ui:include src="/layouts/includes/exception.xhtml" />
   </ui:insert>
-	
+
 </h:body>
 </html>

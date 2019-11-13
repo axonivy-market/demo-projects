@@ -7,12 +7,14 @@
 	xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
-		<ui:define name="title">DataTable Demo</ui:define>
+        <ui:param name="centerHeader" value="DataTable Demo" />
+        <ui:define name="breadcrumb">Output/DataTable Demo</ui:define>
+
 		<ui:define name="content">
 			<h:form id="form">
 				<h:panelGroup id="data" layout="block">
 					<p>This demo shows some sort, filter and selection features of a DataTable. For huge datasets you should use a LazyDataModel that provides the data in the load method.</p>
-					<h:panelGrid columns="2">
+
 						<f:facet name="header">
 							<p:messages></p:messages>
 						</f:facet>
@@ -87,7 +89,7 @@
 							<p:column style="width:32px;text-align: center">
 								<p:commandButton update=":detailDialog"
 									oncomplete="PF('detailDialog').show()" icon="fa fa-search"
-									title="Edit" style="height:20px;" id="dialogEditButton">
+									title="Edit" id="dialogEditButton">
 									<f:setPropertyActionListener value="#{score}"
 										target="#{data.selectedScore}" />
 								</p:commandButton>
@@ -95,11 +97,14 @@
 
 						</p:dataTable>
 
-						<br />
-						<p:commandButton actionListener="#{logic.close}" value="Proceed"
-							update="form" icon="fa fa-check" />
-					</h:panelGrid>
+                        <br/>
+                        <h:panelGrid>
+                            <p:commandButton actionListener="#{logic.send}" value="Send" update="form"/>
+                        </h:panelGrid>
+
 				</h:panelGroup>
+                <br/>
+                <h:outputText value="Data: #{data.scores}"/>
 			</h:form>
 
 			<ui:include src="DetailDialog.xhtml"></ui:include>

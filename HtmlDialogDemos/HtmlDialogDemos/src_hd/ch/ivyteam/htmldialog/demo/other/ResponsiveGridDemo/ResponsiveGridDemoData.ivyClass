@@ -1,0 +1,16 @@
+ResponsiveGridDemoData #class
+ch.ivyteam.htmldialog.demo.other.ResponsiveGridDemo #namespace
+lastName String #field
+lastName PERSISTENT #fieldModifier
+firstName String #field
+firstName PERSISTENT #fieldModifier
+email String #field
+email PERSISTENT #fieldModifier
+address String #field
+address PERSISTENT #fieldModifier
+zipCode Number #field
+zipCode PERSISTENT #fieldModifier
+city String #field
+city PERSISTENT #fieldModifier
+birthday Date #field
+birthday PERSISTENT #fieldModifier

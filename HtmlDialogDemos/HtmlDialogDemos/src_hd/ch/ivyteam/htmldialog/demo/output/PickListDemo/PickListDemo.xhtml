@@ -2,8 +2,9 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 	<h:body>
 		<ui:composition template="/layouts/HtmlDemo.xhtml">
-	
-		<ui:define name="title">PickList Demo</ui:define>
+            <ui:param name="centerHeader" value="PickList Demo" />
+            <ui:define name="breadcrumb">Output/PickList Demo</ui:define>
+
 			<ui:define name="content">
 				<h:form id="personListForm">
 					<h:panelGroup layout="block" id="persons">
@@ -21,7 +22,9 @@
 							</p:column>
 						</p:pickList>
 						<br />
-						<p:commandButton actionListener="#{logic.send}" value="Send" update="pickList, resultPanel" id="sendButton"/>
+                        <h:panelGrid>
+                            <p:commandButton  actionListener="#{logic.send}" value="Send" update="pickList, resultPanel" id="sendButton"/>
+                        </h:panelGrid>
 						<br />
 						<br />
 						<p:panelGrid columns="2" id="resultPanel">

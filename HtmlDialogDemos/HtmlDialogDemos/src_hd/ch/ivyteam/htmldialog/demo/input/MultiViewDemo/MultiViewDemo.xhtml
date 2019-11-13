@@ -7,9 +7,10 @@
       xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
 	<ui:composition template="/layouts/HtmlDemo.xhtml">
+      <ui:param name="centerHeader" value="Multi View Demo" />
+      <ui:define name="breadcrumb">Input/Multi View Demo</ui:define>
 
-	<ui:define name="title">Multi View Demo</ui:define>
-	<ui:define name="content">
+	  <ui:define name="content">
         <h:form id="myForm">
         	<h:panelGroup layout="block" id="panel">
         	<p>This demo explains how Html Dialog can be implemented using mutliple View (*.xhtml) files. This allows to hide the complexity of a complex user interaction from the business process. The user interaction is implemented fully in the Html Dialog.</p>
@@ -25,8 +26,10 @@
 						<f:selectItem itemLabel="Invoice" itemValue="Invoice"/>
 						<f:selectItem itemLabel="Credit Card" itemValue="CreditCard"/>
 				   </p:selectOneRadio>  
-	        	</h:panelGrid>           
-	        	<p:commandButton value="Next" update="myForm" action="#{logic.nextView('MultiViewDemo')}" id="nextButton"/>
+	        	</h:panelGrid>
+                <h:panelGrid>
+                    <p:commandButton value="Next" update="myForm" action="#{logic.nextView('MultiViewDemo')}" id="nextButton"/>
+                </h:panelGrid>
 	        </h:panelGroup>
         </h:form>    	
 	</ui:define>
