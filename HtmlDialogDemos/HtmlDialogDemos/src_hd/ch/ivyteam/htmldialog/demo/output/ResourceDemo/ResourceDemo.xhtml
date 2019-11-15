@@ -28,13 +28,13 @@
 		<p:panelGrid id="resultPanel" style="width:1000px">
 			<f:facet name="header">
 				<p:row>
-					<p:column>code</p:column>
+					<p:column style="width:400px">code</p:column>
 					<p:column>result</p:column>
 					<p:column>description</p:column>
 				</p:row>
 			</f:facet>
 			<p:row>
-				<p:column>&lt;h:graphicImage name="images/dialog.png" /></p:column>
+				<p:column>&lt;h:graphicImage name="images/dialog.png"/></p:column>
 				<p:column>
 					<h:graphicImage name="images/dialog.png" alt="Dialog"/>
 				</p:column>
@@ -54,47 +54,47 @@
 				</p:column>
 			</p:row>
 			<p:row>
-				<p:column>&lt;h:graphicImage name="images/webcontent.png" /></p:column>
+				<p:column>&lt;h:graphicImage name="images/webcontent.png"/></p:column>
 				<p:column>
 					<h:graphicImage name="images/webcontent.png" alt="Webcontent"/>
 				</p:column>
 			</p:row>
 			<p:row>
-				<p:column>&lt;h:graphicImage name="images/image.png" /></p:column>
+				<p:column>&lt;h:graphicImage name="images/image.png"/></p:column>
 				<p:column>
 					<h:graphicImage name="images/image.png" alt="Dialog"/>
 				</p:column>
 			</p:row>
 			<p:row>
-				<p:column>&lt;h:graphicImage library="ivy-dialog" name="images/image.png" /></p:column>
+				<p:column>&lt;h:graphicImage library="ivy-dialog" name="images/image.png"/></p:column>
 				<p:column>
 					<h:graphicImage library="ivy-dialog" name="images/image.png" alt="Dialog"/>
 				</p:column>
 				<p:column>With library <strong>ivy-dialog</strong> the resource is always loaded from the Html Dialog resources folder.</p:column>
 			</p:row>
 			<p:row>
-				<p:column>&lt;h:graphicImage library="ivy-webcontent" name="images/image.png" /></p:column>
+				<p:column>&lt;h:graphicImage library="ivy-webcontent" name="images/image.png"/></p:column>
 				<p:column>
 					<h:graphicImage library="ivy-webcontent" name="images/image.png" alt="Webcontent"/>
 				</p:column>
 				<p:column>With library <strong>ivy-webcontent</strong> the resource is always loaded form the webcontent folder.</p:column>
 			</p:row>
 			<p:row>
-				<p:column>&lt;h:graphicImage library="ivy-cms" name="images/image" /></p:column>
+				<p:column>&lt;h:graphicImage library="ivy-cms" name="images/image"/></p:column>
 				<p:column>
 					<h:graphicImage library="ivy-cms" name="images/image" alt="Cms"/>
 				</p:column>
 				<p:column>With library <strong>ivy-cms</strong> the resource is always loaded form the CMS.</p:column>
 			</p:row>
 			<p:row>
-				<p:column>&lt;h:outputLink value="\#{resource['ivy-cms:images/image']}">Link to Image&lt;/h:outputLink></p:column>
+				<p:column>&lt;h:outputLink value="\#{resource['ivy-cms:images/image']}"> Link to Image &lt;/h:outputLink></p:column>
 				<p:column>
 					<h:outputLink value="#{resource['ivy-cms:images/image']}">Link to Image</h:outputLink>
 				</p:column>
 				<p:column>The expression #{resource['library:path']} can be used to get the URL of a resource (can also be used in resources like css files e.g. to reference images).</p:column>
 			</p:row>
 			<p:row>
-				<p:column>&lt;p:graphicImage value="\#{logic.streamedImage}" /></p:column>
+				<p:column>&lt;p:graphicImage value="\#{logic.streamedImage}"/></p:column>
 				<p:column>
 					<p:graphicImage value="#{logic.streamedImage}" />
 				</p:column>
