@@ -37,11 +37,11 @@
 				<plugin>
 					<groupId>com.axonivy.ivy.ci</groupId>
 					<artifactId>project-build-plugin</artifactId>
-					<version>[6.2.0,)</version>
+					<version>[8.0.0,)</version>
 					<extensions>true</extensions>
 					<configuration>
 						<skipScriptValidation>true</skipScriptValidation>
-						<ivyVersion>[6.1.1,]</ivyVersion>
+						<ivyVersion>[8.0.0,]</ivyVersion>
 						<engineDirectory>${engine.directory}</engineDirectory>
 						<iarFileSets>
 							<iarFileSet>
@@ -54,8 +54,10 @@
 						<iarExcludes>
 							<iarExclude>pom.xml</iarExclude><!-- remove full pom.xml -->
 						</iarExcludes>
+						<iarIncludesEmptyDirs>false</iarIncludesEmptyDirs>
+						<compilerWarnings>true</compilerWarnings>
 						<skipDeploy>${maven.test.skip}</skipDeploy>
-                        <skipScriptValidation>false</skipScriptValidation><!-- ivyScripts in processes -->
+						<skipScriptValidation>false</skipScriptValidation><!-- ivyScripts in processes -->
 					</configuration>
 				</plugin>
 				<plugin>

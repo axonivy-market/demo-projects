@@ -50,5 +50,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="lib_ws/client/cxfClient_16D2A643A3A25C52.jar"/>
-	<classpathentry kind="output" path="classes"/>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>
