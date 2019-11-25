@@ -50,10 +50,13 @@
 									<include>pom.xml</include><!-- include modified pom.xml (see antrun below) -->
 								</includes>
 							</iarFileSet>
+							<iarFileSet>
+								<includes>
+									<!-- yet target is default excluded unless explicitly whitelisted -->
+									<include>target/classes/**/*</include>
+								</includes>
+							</iarFileSet>
 						</iarFileSets>
-						<iarExcludes>
-							<iarExclude>pom.xml</iarExclude><!-- remove full pom.xml -->
-						</iarExcludes>
 						<iarIncludesEmptyDirs>false</iarIncludesEmptyDirs>
 						<compilerWarnings>true</compilerWarnings>
 						<skipDeploy>${maven.test.skip}</skipDeploy>
