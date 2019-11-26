@@ -1,4 +1,0 @@
-<P>
-<B><%=ivy.html.get("in.temp.caption")=="my_cases" ? ivy.cms.co("/captions/captionMyCases") : ivy.cms.co("/captions/captionAdminCases")%></B> <BR>
-<%=ivy.html.get("in.temp.caption")=="my_cases" ? ivy.cms.co("/messages/txtMyCases") : ivy.cms.co("/messages/txtAdminCases")%>
-</P>

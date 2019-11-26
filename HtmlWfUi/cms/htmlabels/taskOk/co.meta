@@ -1,4 +1,0 @@
-co: name={taskOk} description={} changed={2011-03-16 14:19:15 CET} changedby={tirib} visualorder={0} guid={1284EC02E6E67372} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12EBED1A0238A2F2} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 14:18:52 CET} validto={} changed={2011-03-16 14:19:15 CET} changedby={tirib} properties={} id={}
-val: guid={12E29369916C6F8E} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 13:05:50 CET} validto={} changed={2011-02-15 13:06:07 CET} changedby={bb} properties={} id={}
-val: guid={1284EC02E6E90C7A} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-09 15:52:19 CET} validto={} changed={2011-02-15 13:06:07 CET} changedby={bb} properties={} id={}

@@ -1,3 +1,0 @@
-co: name={Explain} description={} changed={2011-03-16 17:09:27 CET} changedby={tirib} visualorder={0} guid={127D7C98EBD10226} parentguid={} typeguid={E6AFEA202AFB4911} id={} parentid={} typeid={}
-val: guid={127D7C98EDC52219} datatype={} isdefault={true} langid={en} description={} validfrom={2010-04-07 12:21:03 CEST} validto={} changed={2010-12-20 16:36:56 CET} changedby={powersob} properties={} id={}
-val: guid={12EBF6D2D33C404A} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 17:08:46 CET} validto={} changed={2011-03-16 17:09:27 CET} changedby={tirib} properties={} id={}

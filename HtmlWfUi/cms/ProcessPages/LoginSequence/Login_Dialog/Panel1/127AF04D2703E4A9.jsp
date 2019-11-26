@@ -1,2 +1,0 @@
-<%@ page import="ch.ivyteam.ivy.page.engine.jsp.IvyJSP"%><jsp:useBean id="ivy" class="ch.ivyteam.ivy.page.engine.jsp.IvyJSP" scope="session"/><!--ivyjsp --><%= ivy.html.get("in.username").length()==0 ? "" : ivy.cms.co("Panel1/Text1")%><!--/ivyjsp --><br>
-<%=ivy.cms.co("Panel1/LinkA")%>

@@ -1,4 +1,0 @@
-co: name={taskCancel} description={} changed={2011-03-16 14:17:13 CET} changedby={tirib} visualorder={0} guid={1284EC02E5F8223C} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={12E2935FA9C53F67} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 13:04:40 CET} validto={} changed={2011-02-15 13:05:26 CET} changedby={bb} properties={} id={}
-val: guid={1284EC02E5F1FCC8} datatype={} isdefault={true} langid={en} description={} validfrom={2010-03-09 15:52:59 CET} validto={} changed={2011-02-15 13:05:26 CET} changedby={bb} properties={} id={}
-val: guid={12EBECF9006CD871} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 14:16:37 CET} validto={} changed={2011-03-16 14:17:13 CET} changedby={tirib} properties={} id={}

@@ -1,4 +1,0 @@
-NewTaskMail #class
-htmlwfui #namespace
-user ch.ivyteam.ivy.security.IUser #field
-task ch.ivyteam.ivy.workflow.ITask #field
