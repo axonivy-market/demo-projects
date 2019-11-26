@@ -1,4 +1,0 @@
-co: name={dialogHeaderEdit} description={} changed={2013-07-01 10:20:13 CEST} changedby={locadmin} visualorder={0} guid={13F994D51BB2AB00} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={13F994DA7F5CFD54} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-07-01 10:16:10 CEST} validto={} changed={2013-07-01 10:20:01 CEST} changedby={locadmin} properties={} id={}
-val: guid={13F994DAEA96B2DF} datatype={} isdefault={false} langid={de} description={} validfrom={2013-07-01 10:16:12 CEST} validto={} changed={2013-07-01 10:19:41 CEST} changedby={locadmin} properties={} id={}
-val: guid={13F994D51BB24CB9} datatype={} isdefault={true} langid={en} description={} validfrom={2013-07-01 10:15:48 CEST} validto={} changed={2013-07-01 10:20:13 CEST} changedby={locadmin} properties={} id={}

@@ -1,4 +1,0 @@
-co: name={events} description={} changed={2014-03-03 08:51:57 CET} changedby={dje} visualorder={0} guid={14486EC928E83650} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={14486EC929D39D28} datatype={} isdefault={true} langid={en} description={} validfrom={2014-03-03 08:50:54 CET} validto={} changed={2014-03-03 08:51:57 CET} changedby={dje} properties={} id={}
-val: guid={14486ED85AFC8337} datatype={} isdefault={false} langid={de} description={} validfrom={2014-03-03 08:51:03 CET} validto={} changed={2014-03-03 08:51:57 CET} changedby={dje} properties={} id={}
-val: guid={14486ED84CD7AEBB} datatype={} isdefault={false} langid={fr} description={} validfrom={2014-03-03 08:51:00 CET} validto={} changed={2014-03-03 08:51:56 CET} changedby={dje} properties={} id={}

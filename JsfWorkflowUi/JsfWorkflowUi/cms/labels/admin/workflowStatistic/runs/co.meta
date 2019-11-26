@@ -1,4 +1,0 @@
-co: name={runs} description={} changed={2014-02-25 10:02:23 CET} changedby={dje} visualorder={0} guid={144684756534A484} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1446847D8C0EF17A} datatype={} isdefault={false} langid={de} description={} validfrom={2014-02-25 10:01:58 CET} validto={} changed={2014-02-25 10:02:22 CET} changedby={dje} properties={} id={}
-val: guid={1446847D7DB8F907} datatype={} isdefault={false} langid={fr} description={} validfrom={2014-02-25 10:01:55 CET} validto={} changed={2014-02-25 10:02:22 CET} changedby={dje} properties={} id={}
-val: guid={144684756737E5D3} datatype={} isdefault={true} langid={en} description={} validfrom={2014-02-25 10:01:49 CET} validto={} changed={2014-02-25 10:02:22 CET} changedby={dje} properties={} id={}

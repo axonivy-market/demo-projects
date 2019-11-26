@@ -1,4 +1,0 @@
-co: name={taskResumeTooltip} description={} changed={2016-11-17 16:44:41 CET} changedby={cst} visualorder={0} guid={15872F58C46F423E} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={15872F58C56CCA05} datatype={} isdefault={false} langid={fr} description={} validfrom={2016-11-17 16:44:04 CET} validto={} changed={2016-11-17 16:44:41 CET} changedby={cst} properties={} id={}
-val: guid={15872F58C4F3BD7F} datatype={} isdefault={false} langid={de} description={} validfrom={2016-11-17 16:44:04 CET} validto={} changed={2016-11-17 16:44:29 CET} changedby={cst} properties={} id={}
-val: guid={15872F58C541CCCC} datatype={} isdefault={true} langid={en} description={} validfrom={2016-11-17 16:44:04 CET} validto={} changed={2016-11-17 16:44:04 CET} changedby={cst} properties={} id={}

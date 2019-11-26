@@ -1,1 +1,0 @@
-Powered by <a href="https://developer.axonivy.com/"><%=ch.ivyteam.ivy.Advisor.getAdvisor().getApplicationShortName()%></a> Workflow Copyright © 2001 - <%=(new Date()).getYear().toString()%> <a href="https://www.axonivy.com">AXON Ivy AG</a>

@@ -1,4 +1,0 @@
-ConfirmationDialogData #class
-ch.ivyteam.wf.test.ConfirmationDialog #namespace
-data ch.ivyteam.wf.test.Data #field
-data PERSISTENT #fieldModifier
