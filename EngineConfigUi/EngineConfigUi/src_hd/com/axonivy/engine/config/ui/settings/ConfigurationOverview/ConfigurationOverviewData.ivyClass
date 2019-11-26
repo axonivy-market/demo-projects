@@ -1,8 +1,0 @@
-ConfigurationOverviewData #class
-com.axonivy.engine.config.ui.settings.ConfigurationOverview #namespace
-databaseSettings com.axon.ivy.engine.config.SystemDatabaseSettings #field
-databaseSettings PERSISTENT #fieldModifier
-activeTabIndex Integer #field
-activeTabIndex PERSISTENT #fieldModifier
-tabChangeEvent org.primefaces.event.TabChangeEvent #field
-tabChangeEvent PERSISTENT #fieldModifier

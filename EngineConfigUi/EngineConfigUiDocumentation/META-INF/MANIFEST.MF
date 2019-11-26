@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: EngineConfigUiDocumentation
-Bundle-SymbolicName: EngineConfigUiDocumentation
-Bundle-Version: 1.0.0.qualifier
-Export-Package: com.axonivy.engine.config.ui.documentation
-Require-Bundle: EngineConfigUiTest;bundle-version="1.0.0"
