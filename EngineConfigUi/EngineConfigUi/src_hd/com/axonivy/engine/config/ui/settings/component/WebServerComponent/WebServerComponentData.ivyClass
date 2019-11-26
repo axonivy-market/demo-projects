@@ -1,4 +1,0 @@
-WebServerComponentData #class
-com.axonivy.engine.config.ui.settings.component.WebServerComponent #namespace
-settings com.axon.ivy.engine.config.SystemDatabaseSettings #field
-settings PERSISTENT #fieldModifier

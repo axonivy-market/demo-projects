@@ -1,8 +1,0 @@
-LicenceUploadComponentData #class
-com.axonivy.engine.config.ui.settings.component.LicenceUploadComponent #namespace
-newLicence org.primefaces.model.UploadedFile #field
-newLicence PERSISTENT #fieldModifier
-error ch.ivyteam.ivy.bpm.error.BpmError #field
-error PERSISTENT #fieldModifier
-licenceFile java.io.File #field
-licenceFile PERSISTENT #fieldModifier
