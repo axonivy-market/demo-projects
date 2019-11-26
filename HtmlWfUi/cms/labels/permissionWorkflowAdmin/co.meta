@@ -1,4 +1,0 @@
-co: name={permissionWorkflowAdmin} description={} changed={2012-05-04 16:12:26 CEST} changedby={bb} visualorder={0} guid={137182DCC12C8366} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={137182DCC41F7ADB} datatype={} isdefault={false} langid={en} description={} validfrom={2012-04-27 15:56:28 CEST} validto={} changed={2012-05-04 16:09:43 CEST} changedby={bb} properties={} id={}
-val: guid={137182DCC2275ACA} datatype={} isdefault={true} langid={de} description={} validfrom={2012-04-05 12:34:41 CEST} validto={} changed={2012-05-04 16:09:43 CEST} changedby={bb} properties={} id={}
-val: guid={137182DCC607B5D6} datatype={} isdefault={false} langid={fr} description={} validfrom={2012-04-27 15:56:31 CEST} validto={} changed={2012-05-04 16:09:43 CEST} changedby={bb} properties={} id={}

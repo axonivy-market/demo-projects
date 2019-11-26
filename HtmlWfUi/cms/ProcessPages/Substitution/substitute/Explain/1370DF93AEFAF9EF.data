@@ -1,7 +1,0 @@
-<P>
-<B>Mes suppléants<BR>
-</B>Permet de définir vos suppléants en cas d'absence.
-</P>
-<P>
-<A href="<%=ivy.html.ref("LinkC.ivp")%>">Mes Remplacements »</A>
-</P>

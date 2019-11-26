@@ -1,4 +1,0 @@
-co: name={showFormArchive} description={} changed={2012-04-27 14:51:44 CEST} changedby={bb} visualorder={0} guid={12D8527A2BD57746} parentguid={} typeguid={E6AFEA203ACD23E6} id={} parentid={} typeid={}
-val: guid={12E29C1EDAFAA256} datatype={} isdefault={false} langid={en} description={} validfrom={2011-02-15 15:34:54 CET} validto={} changed={2012-04-27 14:51:44 CEST} changedby={bb} properties={} id={}
-val: guid={12EBF79EB1973774} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 17:21:27 CET} validto={} changed={2012-04-27 14:51:44 CEST} changedby={bb} properties={} id={}
-val: guid={12D8527A2BD7BC35} datatype={} isdefault={true} langid={de} description={} validfrom={2011-01-14 16:32:03 CET} validto={} changed={2012-04-27 14:51:44 CEST} changedby={bb} properties={} id={}

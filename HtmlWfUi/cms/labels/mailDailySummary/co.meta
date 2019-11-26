@@ -1,4 +1,0 @@
-co: name={mailDailySummary} description={} changed={2012-05-02 14:19:25 CEST} changedby={bb} visualorder={0} guid={136F45590338BD04} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={136F4559042B7A5E} datatype={} isdefault={true} langid={de} description={} validfrom={2012-04-05 12:11:33 CEST} validto={} changed={2012-05-02 14:19:25 CEST} changedby={bb} properties={} id={}
-val: guid={136F4559062C86FB} datatype={} isdefault={false} langid={fr} description={} validfrom={2012-04-27 15:47:42 CEST} validto={} changed={2012-05-02 14:19:25 CEST} changedby={bb} properties={} id={}
-val: guid={136F455909189C15} datatype={} isdefault={false} langid={en} description={} validfrom={2012-04-27 15:47:31 CEST} validto={} changed={2012-05-02 14:19:25 CEST} changedby={bb} properties={} id={}

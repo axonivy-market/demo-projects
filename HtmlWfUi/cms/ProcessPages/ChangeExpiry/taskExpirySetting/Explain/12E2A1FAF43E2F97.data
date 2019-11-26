@@ -1,3 +1,0 @@
-<P>
-Ändern Sie die Fristen oder Prio der Workflow Aufgabe[<%=ivy.html.get("in.tmpTask.getId()")%>] <B><%=ivy.html.get("in.tmpTask.name")%></B>.
-</P>

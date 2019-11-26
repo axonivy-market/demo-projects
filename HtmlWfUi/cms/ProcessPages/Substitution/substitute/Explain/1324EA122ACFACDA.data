@@ -1,7 +1,0 @@
-<P>
-<B>Meine Stellvertreter<BR>
-</B>Während meiner Abwesenheit werden Workflow Aufgaben automatisch den definierten Stellvertretern zugeteilt.
-</P>
-<P>
-<A href="<%=ivy.html.ref("LinkC.ivp")%>">Meine Stellvertretungen »</A>
-</P>
