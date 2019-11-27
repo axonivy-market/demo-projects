@@ -17,7 +17,7 @@
 		<module>DemosApp</module>
 
 		<!-- workflow: -->
-		<module>JsfWorkflowUi</module>
+		<module>BasicWorkflowUi</module>
 
 		<module>academy</module>
 

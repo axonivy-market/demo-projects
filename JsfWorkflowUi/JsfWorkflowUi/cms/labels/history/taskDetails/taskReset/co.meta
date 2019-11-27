@@ -1,4 +1,0 @@
-co: name={taskReset} description={} changed={2014-05-08 09:24:38 CEST} changedby={dje} visualorder={0} guid={13FE6D8F6F256C7F} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={13FE6D8F6F2E5EAB} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 16:14:59 CET} validto={} changed={2013-07-16 11:39:06 CEST} changedby={dje} properties={} id={}
-val: guid={13FE6D8F70281B3E} datatype={} isdefault={true} langid={en} description={} validfrom={2011-02-15 15:49:52 CET} validto={} changed={2014-05-08 09:24:38 CEST} changedby={dje} properties={} id={}
-val: guid={13FE6D8F7115D257} datatype={} isdefault={false} langid={de} description={} validfrom={2011-01-14 16:02:41 CET} validto={} changed={2014-05-08 09:24:38 CEST} changedby={dje} properties={} id={}

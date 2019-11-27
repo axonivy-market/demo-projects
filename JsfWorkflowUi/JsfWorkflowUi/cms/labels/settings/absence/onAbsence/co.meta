@@ -1,4 +1,0 @@
-co: name={onAbsence} description={} changed={2018-11-21 15:08:16 CET} changedby={ohe} visualorder={0} guid={1673592B4A965A33} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={1673592B4AAF812D} datatype={} isdefault={false} langid={fr} description={} validfrom={2013-06-14 15:43:03 CEST} validto={} changed={2018-11-21 15:08:16 CET} changedby={ohe} properties={} id={}
-val: guid={1673592B4AD8B359} datatype={} isdefault={false} langid={de} description={} validfrom={2013-06-14 15:43:13 CEST} validto={} changed={2018-11-21 15:08:16 CET} changedby={ohe} properties={} id={}
-val: guid={1673592B4AF446CE} datatype={} isdefault={true} langid={en} description={} validfrom={2013-06-14 15:42:59 CEST} validto={} changed={2018-11-21 15:08:16 CET} changedby={ohe} properties={} id={}

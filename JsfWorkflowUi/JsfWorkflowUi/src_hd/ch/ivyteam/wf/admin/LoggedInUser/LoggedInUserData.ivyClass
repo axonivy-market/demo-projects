@@ -1,6 +1,0 @@
-LoggedInUserData #class
-ch.ivyteam.wf.admin.LoggedInUser #namespace
-userListLoggedIn List<ch.ivyteam.ivy.security.IUser> #field
-userListLoggedIn PERSISTENT #fieldModifier
-showPaginationLoggedIn Boolean #field
-showPaginationLoggedIn PERSISTENT #fieldModifier

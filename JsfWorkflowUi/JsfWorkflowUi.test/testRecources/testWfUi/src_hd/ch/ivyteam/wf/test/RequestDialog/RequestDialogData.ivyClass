@@ -1,4 +1,0 @@
-RequestDialogData #class
-ch.ivyteam.wf.test.RequestDialog #namespace
-data ch.ivyteam.wf.test.Data #field
-data PERSISTENT #fieldModifier

@@ -1,4 +1,0 @@
-co: name={showSYSTEMtasks} description={} changed={2015-04-20 16:06:01 CEST} changedby={bb} visualorder={0} guid={14CD7257E08FD5D3} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={14CD7257E17C30DA} datatype={} isdefault={true} langid={en} description={} validfrom={2015-04-20 16:05:00 CEST} validto={} changed={2015-04-20 16:05:00 CEST} changedby={bb} properties={} id={}
-val: guid={14CD725F642A6333} datatype={} isdefault={false} langid={fr} description={} validfrom={2015-04-20 16:05:07 CEST} validto={} changed={2015-04-20 16:06:01 CEST} changedby={bb} properties={} id={}
-val: guid={14CD725F73C11AED} datatype={} isdefault={false} langid={de} description={} validfrom={2015-04-20 16:05:10 CEST} validto={} changed={2015-04-20 16:05:31 CEST} changedby={bb} properties={} id={}

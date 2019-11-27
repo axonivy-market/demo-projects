@@ -1,6 +1,0 @@
-FrameData #class
-ch.ivyteam.wf #namespace
-url String #field
-url PERSISTENT #fieldModifier
-taskId Number #field
-taskId PERSISTENT #fieldModifier

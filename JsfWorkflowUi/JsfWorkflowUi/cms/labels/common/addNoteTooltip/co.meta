@@ -1,4 +1,0 @@
-co: name={addNoteTooltip} description={} changed={2013-07-22 11:36:30 CEST} changedby={dje} visualorder={0} guid={12D84D263DAA4EC0} parentguid={} typeguid={E6AFEA203ACD23E6} id={} parentid={} typeid={}
-val: guid={12E29B408AE12D96} datatype={} isdefault={false} langid={de} description={} validfrom={2011-02-15 15:21:58 CET} validto={} changed={2013-07-22 11:36:30 CEST} changedby={dje} properties={} id={}
-val: guid={12D84D263EA2404F} datatype={} isdefault={true} langid={en} description={} validfrom={2011-01-14 14:45:13 CET} validto={} changed={2013-07-22 11:36:30 CEST} changedby={dje} properties={} id={}
-val: guid={12EBF7115C1B70C8} datatype={} isdefault={false} langid={fr} description={} validfrom={2011-03-16 17:12:38 CET} validto={} changed={2013-07-22 11:36:30 CEST} changedby={dje} properties={} id={}

@@ -1,6 +1,0 @@
-SetDefaultProcessData #class
-ch.ivyteam.wf.test.SetDefaultProcess #namespace
-libraries List<String> #field
-libraries PERSISTENT #fieldModifier
-library String #field
-library PERSISTENT #fieldModifier

@@ -1,4 +1,0 @@
-co: name={signalStarts} description={} changed={2016-03-11 15:36:20 CET} changedby={bb} visualorder={0} guid={15341969A29C6CC7} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
-val: guid={15341969A341F850} datatype={} isdefault={true} langid={en} description={} validfrom={2016-03-04 13:25:02 CET} validto={} changed={2016-03-04 13:26:15 CET} changedby={dhu} properties={} id={}
-val: guid={15341969A2C2D6EA} datatype={} isdefault={false} langid={de} description={} validfrom={2016-03-04 13:25:02 CET} validto={} changed={2016-03-04 13:26:15 CET} changedby={dhu} properties={} id={}
-val: guid={15341969A3D5BBD7} datatype={} isdefault={false} langid={fr} description={} validfrom={2016-03-04 13:25:02 CET} validto={} changed={2016-03-11 15:36:20 CET} changedby={bb} properties={} id={}

@@ -1,4 +1,0 @@
-CaseListAdminData #class
-ch.ivyteam.wf.admin.CaseListAdmin #namespace
-cases ch.ivyteam.wf.history.AdminCaseLazyDataModel #field
-cases PERSISTENT #fieldModifier
