@@ -189,8 +189,9 @@ public class WebTestOutput extends BaseWebTest
 
   private void selectAndValidatePerson(int checkboxposition)
   {
-    driver.findElement(By.xpath("//*[@id='demoForm:manyCheckboxes:" + checkboxposition + "']/../../div[2]"))
-            .click();
+    By checkbox = By.xpath("//*[@id='demoForm:manyCheckboxes:" + checkboxposition + "']/../../div[2]");
+    await(visibilityOfElementLocated(checkbox));
+    driver.findElement(checkbox).click();
     driver.findElement(By.id("demoForm:sendButton")).click();
     await(textToBePresentInElementLocated(By.id("demoForm:outputSelectedPersons"),
             driver.findElement(By.xpath("//label[@for='demoForm:manyCheckboxes:" + checkboxposition + "']"))
