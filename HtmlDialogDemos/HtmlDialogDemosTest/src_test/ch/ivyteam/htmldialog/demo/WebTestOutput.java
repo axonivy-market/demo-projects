@@ -169,11 +169,13 @@ public class WebTestOutput extends BaseWebTest
   private void searchAndExpect(String searchText, String expectedText, String notExpectedText)
   {
     By inputLocator = By.id("Form:event_input");
+    await(visibilityOfElementLocated(inputLocator));
     driver.findElement(inputLocator).sendKeys(searchText);
     By panelLocator = By.id("Form:event_panel");
     await(visibilityOfElementLocated(panelLocator));
     await(textToBePresentInElementLocated(panelLocator, expectedText));
     await(not(textToBePresentInElementLocated(panelLocator, notExpectedText)));
+    driver.findElement(inputLocator).clear();
   }
 
   @Test
