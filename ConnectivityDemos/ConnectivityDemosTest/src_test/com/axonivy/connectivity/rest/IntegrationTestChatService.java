@@ -159,7 +159,7 @@ public class IntegrationTestChatService {
 		return clients;
 	}
 
-	private final String chatResource = EngineUrl.rest() + "/chat";
+	private final String chatResource = EngineUrl.rest() + "/chatdemo";
 
 	public static final String REST_USER = "restUser";
 
