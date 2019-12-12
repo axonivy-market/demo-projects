@@ -1,5 +1,5 @@
 function Chat(uri) {
-	// current service uri: e.g. "http://localhost:8081/ivy/api/designer/chat"
+	// current service uri: e.g. "http://localhost:8081/ivy/api/designer/chatdemo"
 	this.uri = uri;
 	
 	this.users = async function(callback)

@@ -32,7 +32,7 @@ public class ConsoleClient implements InvocationCallback<List<ChatMessage>>
 	public static WebTarget createJaxRsChatClient() {
 		String port = System.getProperty("ivy.port", "8081");
 		return ClientBuilder.newClient()
-				.target("http://localhost:"+port+"/ivy/api/designer/chat")
+				.target("http://localhost:"+port+"/ivy/api/designer/chatdemo")
 				.register(HttpBasicOrDigestAuthenticationFeature.class)
 				.register(JsonFeature.class)
 				.property("username", "theWorker")

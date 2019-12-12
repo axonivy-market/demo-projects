@@ -36,7 +36,7 @@ import ch.ivyteam.ivy.environment.Ivy;
  * @author rew
  * @since 7.3.0
  */
-@Path("chat")
+@Path("chatdemo")
 @Singleton
 public class ChatService{
 
