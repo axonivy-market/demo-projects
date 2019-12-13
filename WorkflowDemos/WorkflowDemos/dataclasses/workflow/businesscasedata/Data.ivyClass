@@ -1,0 +1,4 @@
+Data #class
+workflow.businesscasedata #namespace
+interview workflow.businesscasedata.Interview #field
+interview PERSISTENT #fieldModifier

@@ -8,6 +8,7 @@
     </user>
     <user>
         <username>hb</username>
+        <password>hb</password>
         <fullName>Hugo Boss</fullName>
         <emailAddress>hugo.boss@axonivy.com</emailAddress>
         <role>Teamleader</role>

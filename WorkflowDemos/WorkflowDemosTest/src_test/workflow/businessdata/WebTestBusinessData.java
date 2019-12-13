@@ -1,11 +1,16 @@
 package workflow.businessdata;
 
-import java.util.concurrent.Callable;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
+import com.codeborne.selenide.Selenide;
 
 import test.web.BaseWebTest;
 import test.web.EngineUrl;
@@ -17,43 +22,31 @@ public class WebTestBusinessData extends BaseWebTest
   @Test
   public void testBrowseBusinessData() throws Exception
   {
-    driver.get(EngineUrl.process() + "/WorkflowDemosTest/1537FF3C3382D47F/clearDemoDossiers.ivp");
-    wait(() -> {
-      startProcess(BROWSE_DOSSIERS_LINK);
-      dossierTable().contains("Euler");
-      return Boolean.TRUE;
-    });
+    cleanAndOpenBrowseDossier();
+    dossierTable().contains("Euler");
   }
 
   @Test
-  public void createBusinessData() throws Exception
+  public void createBusibenessData() throws Exception
   {
-    driver.get(EngineUrl.process() + "/WorkflowDemosTest/1537FF3C3382D47F/clearDemoDossiers.ivp");
-    wait(() -> {
-      startProcess(BROWSE_DOSSIERS_LINK);
-      dossierTable().containsNot("Bernoulli");
-      return Boolean.TRUE;
-    });
-
-    wait(() -> {
-      startProcess("155BB4328F79B2D5/create.ivp");
-      createPersonDossier("Bernoulli");
-      return Boolean.TRUE;
-    });
+    cleanAndOpenBrowseDossier();
+    dossierTable().containsNot("Bernoulli");
+    
+    startProcess("155BB4328F79B2D5/create.ivp");
+    createPersonDossier("Bernoulli");
+    
+    $("#infoGrowl_container").shouldBe(visible, text("Search index might not be immediately up-to-date"));
+    Selenide.sleep(1000); //wait for elasic search
+    $$("button").find(text("Search")).shouldBe(visible, enabled).click();
+    dossierTable().contains("Bernoulli");
   }
 
-  private void wait(Callable<?> condition)
+  private void cleanAndOpenBrowseDossier()
   {
-    ajax().await(theDriver -> {
-      try
-      {
-        return condition.call();
-      }
-      catch (Exception ex)
-      {
-        return null; // retry: index of Elasticsearch has to be updated
-      }
-    });
+    Selenide.open(EngineUrl.process() + "/WorkflowDemosTest/1537FF3C3382D47F/clearDemoDossiers.ivp");
+    checkEndPage();
+    Selenide.sleep(1000); //wait for elasic search
+    startProcess(BROWSE_DOSSIERS_LINK);
   }
 
   private Table dossierTable()
@@ -63,9 +56,9 @@ public class WebTestBusinessData extends BaseWebTest
 
   private void createPersonDossier(String name)
   {
-    driver.findElement(By.id("form:dossierName")).sendKeys(name.toUpperCase());
-    driver.findElement(By.id("form:dossierPersonLastName")).sendKeys(name);
-    driver.findElement(By.id("form:save")).click();
+    $("#form\\:dossierName").shouldBe(visible).sendKeys(name.toUpperCase());
+    $("#form\\:dossierPersonLastName").sendKeys(name);
+    $("#form\\:save").click();
   }
 
 }

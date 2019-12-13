@@ -22,7 +22,7 @@ public class EngineUrl
     return base() + servletContext + "/" + applicationName();
   }
 
-  private static String applicationName()
+  public static String applicationName()
   {
     return System.getProperty("test.engine.app", "designer");
   }

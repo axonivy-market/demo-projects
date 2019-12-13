@@ -1,44 +1,29 @@
 package test.web;
 
+import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Selenide.$;
+
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 
-import io.github.bonigarcia.seljup.Options;
-import io.github.bonigarcia.seljup.SeleniumExtension;
-
-@ExtendWith(SeleniumExtension.class)
 public abstract class BaseWebTest
 {
-  @Options
-  FirefoxOptions firefoxOptions = new FirefoxOptions();
-  {
-    FirefoxBinary binary = new FirefoxBinary();
-    binary.addCommandLineOptions("--headless");
-    firefoxOptions.setBinary(binary);
-  }
-  
-  protected WebDriver driver;
+  protected RemoteWebDriver driver;
 
   @BeforeEach
-  public void setUp(FirefoxDriver driver) throws Exception
+  void initDriver()
   {
-    this.driver = driver;
-  }
-
-  public AjaxHelper ajax()
-  {
-    return new AjaxHelper(driver);
+    Configuration.browser = "firefox";
+    Configuration.headless = true;
+    Configuration.reportsFolder = "target/senenide/reports";
+    Configuration.timeout = 10000;
+    Selenide.open();
+    this.driver = (RemoteWebDriver) WebDriverRunner.getWebDriver();
   }
 
   public PrimeUi prime()
@@ -46,20 +31,33 @@ public abstract class BaseWebTest
     return new PrimeUi(driver);
   }
 
-  protected <T> T await(ExpectedCondition<T> condition)
-  {
-    return ajax().await(condition);
-  }
-
   protected void startProcess(String pathToIvp)
   {
-    driver.get(EngineUrl.process() + "/WorkflowDemos/" + pathToIvp);
-
+    Selenide.open(EngineUrl.process() + "/WorkflowDemos/" + pathToIvp);
   }
-
-  protected void clearInput(By inputLocator)
+  
+  public void checkEndPage()
   {
-    await(ExpectedConditions.visibilityOfElementLocated(inputLocator));
-    driver.findElement(inputLocator).sendKeys(Keys.chord(Keys.CONTROL, "a") + Keys.DELETE);
+    if (EngineUrl.applicationName().equals("designer"))
+    {
+      $("h2").shouldBe(exactText("Personal Task List"));
+    }
+    else
+    {
+      $("h3").shouldBe(exactText("Task End"));
+    }
   }
+  
+  public void checkTaskList()
+  {
+    if (EngineUrl.applicationName().equals("designer"))
+    {
+      $("h2").shouldBe(exactText("Personal Task List"));
+    }
+    else
+    {
+      $("h3").shouldBe(exactText("Task List"));
+    }
+  }
+
 }

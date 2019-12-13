@@ -42,8 +42,8 @@
                 <f:convertDateTime pattern="dd.MM.yyyy" />
               </p:calendar>
             </p:panelGrid>
-            <p:commandButton value="Search" actionListener="#{logic.search}" update=":dossierTable :resultCount"/>
-            <p:commandButton value="Help" onclick="PF('help#{data.searchType}').show();"/>
+            <p:commandButton icon="ui-icon-search" value="Search" actionListener="#{logic.search}" update=":dossierTable :resultCount"/>
+            <p:commandButton icon="ui-icon-help" value="Help" onclick="PF('help#{data.searchType}').show();"/>
           </p:panelGrid>
         </p:panelGrid>
         <p:dialog header="Help" widgetVar="helpFullText" minHeight="80">
