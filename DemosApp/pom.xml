@@ -19,31 +19,37 @@
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
 			<artifactId>connectivity-demos</artifactId>
+			<version>${project.version}</version>
 			<type>iar</type>
 		</dependency>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
 			<artifactId>workflow-demos</artifactId>
+			<version>${project.version}</version>
 			<type>iar</type>
 		</dependency>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
 			<artifactId>error-handling-demos</artifactId>
+			<version>${project.version}</version>
 			<type>iar</type>
 		</dependency>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
 			<artifactId>html-dialog-demos</artifactId>
+			<version>${project.version}</version>
 			<type>iar</type>
 		</dependency>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
 			<artifactId>quick-start-tutorial</artifactId>
+			<version>${project.version}</version>
 			<type>iar</type>
 		</dependency>
 		<dependency>
 			<groupId>ch.ivyteam.ivy.project.demo</groupId>
 			<artifactId>rule-engine-demos</artifactId>
+			<version>${project.version}</version>
 			<type>iar</type>
 		</dependency>
 	</dependencies>
