@@ -30,7 +30,7 @@ public class WebTestBusinessCaseDataWorkflow extends BaseWebTest
     $("#form\\:saveAndPark").click();
     checkTaskList();
     
-    $$("table tr a").find(text("6.1: Save Business Data When Park Task")).click();
+    $$("table tr a").find(text("6.1: Save BusinessCaseData When Park Task")).click();
     $("#form\\:interviewFirstName").shouldBe(visible, exactValue("Hans"));
     $("#form\\:interviewLastName").shouldBe(exactValue("Muster")).sendKeys("mann");
     $("#form\\:interviewConversation").sendKeys("This is an interview");

@@ -21,7 +21,6 @@ public abstract class BaseWebTest
     Configuration.browser = "firefox";
     Configuration.headless = true;
     Configuration.reportsFolder = "target/senenide/reports";
-    Configuration.timeout = 10000;
     Selenide.open();
     this.driver = (RemoteWebDriver) WebDriverRunner.getWebDriver();
   }
@@ -40,11 +39,11 @@ public abstract class BaseWebTest
   {
     if (EngineUrl.applicationName().equals("designer"))
     {
-      $("h2").shouldBe(exactText("Personal Task List"));
+      $("h2").waitUntil(exactText("Personal Task List"), 15000);
     }
     else
     {
-      $("h3").shouldBe(exactText("Task End"));
+      $("h3").waitUntil(exactText("Task End"), 15000);
     }
   }
   
@@ -52,11 +51,11 @@ public abstract class BaseWebTest
   {
     if (EngineUrl.applicationName().equals("designer"))
     {
-      $("h2").shouldBe(exactText("Personal Task List"));
+      $("h2").waitUntil(exactText("Personal Task List"), 15000);
     }
     else
     {
-      $("h3").shouldBe(exactText("Task List"));
+      $("h3").waitUntil(exactText("Task List"), 15000);
     }
   }
 
