@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.codeborne.selenide.Selenide;
@@ -18,6 +19,13 @@ import test.web.EngineUrl;
 public class WebTestBusinessCaseDataWorkflow extends BaseWebTest
 {
 
+  @BeforeEach
+  void cleanElasticSearch()
+  {
+    Selenide.open(EngineUrl.process() + "/WorkflowDemosTest/1537FF3C3382D47F/clearDemoDossiers.ivp");
+    checkEndPage();
+  }
+  
   @Test
   void testInterview()
   {

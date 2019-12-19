@@ -30,6 +30,5 @@ public class WebTestCreateNewEmployee extends BaseWebTest
     $("#form\\:employeeName").click();
     $("#ui-datepicker-div").shouldNotBe(visible);
     $("#form\\:needsParkingLot").click();
-    $("#form\\:submit").click();
   }
 }
