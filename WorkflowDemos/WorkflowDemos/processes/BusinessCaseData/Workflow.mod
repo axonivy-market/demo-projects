@@ -77,6 +77,8 @@ Ww0 f7 424 74 112 44 -43 -7 #rect
 Ww0 f7 @|UserDialogIcon #fIcon
 Ww0 f5 actionTable 'out=in1;
 ' #txt
+Ww0 f5 taskData 'TaskA.DESC=Review the data which was filled in by the first Html Dialog task.
+TaskA.NAM=Review Interview' #txt
 Ww0 f5 337 81 30 30 0 16 #rect
 Ww0 f5 @|TaskSwitchSimpleIcon #fIcon
 Ww0 f8 367 96 424 96 #arcP
@@ -88,7 +90,7 @@ Ww0 f9 inParamDecl '<> param;' #txt
 Ww0 f9 requestEnabled true #txt
 Ww0 f9 triggerEnabled false #txt
 Ww0 f9 callSignature browse() #txt
-Ww0 f9 startName '6.2: Browse Interview Created By 6.1' #txt
+Ww0 f9 startName '6.2: Browse BusinessCaseData Created By 6.1' #txt
 Ww0 f9 startDescription 'BusinessCaseData Worlflow Demo. Browse Interviews created by BusinessCaseData/Workflow/create.ivp' #txt
 Ww0 f9 caseData businessCase.attach=true #txt
 Ww0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -123,9 +125,9 @@ Ww0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>BusinessCaseData Workflow Demo
-This demo shows how to work with BusinessCaseData.
-You can create a new interview start fill you data. If you want to stop your progress simply click on save and park.
-This will save your input to the businessdata repository and reserves the task for you. Now you can pick it up where you left and finish you work later.
+This demo shows how to work with BusinessCaseData workflow.
+You can create a new interview. If you want to stop your progress simply click on save and park.
+This will save your input to the businessdata repository and reserves the task for you. Later you can pick it up and finish your work.
 
 Overall you have the benefits of businessdata:
  - fast search
@@ -133,14 +135,12 @@ Overall you have the benefits of businessdata:
  - business data is saved automaticly to your buiness case
 
 Hints:
- - Your task needs to bee persistent to store businessdata</name>
-        <nameStyle>30,5,0
-584,5
-</nameStyle>
+ - Your task needs to bee persistent to store businessdata
+</name>
     </language>
 </elementInfo>
 ' #txt
-Ww0 f14 56 250 944 188 -467 -90 #rect
+Ww0 f14 112 242 832 204 -410 -97 #rect
 Ww0 f14 @|IBIcon #fIcon
 >Proto Ww0 .type workflow.businesscasedata.Data #txt
 >Proto Ww0 .processKind NORMAL #txt
