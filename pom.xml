@@ -9,7 +9,6 @@
 
 	<modules>
 		<module>HtmlDialogDemos</module>
-		<module>ProjectTestDemos</module>
 		<module>ErrorHandlingDemos</module>
 		<module>QuickStartTutorial</module>
 		<module>WorkflowDemos</module>
@@ -18,8 +17,6 @@
 
 		<!-- workflow: -->
 		<module>BasicWorkflowUi</module>
-
-		<module>academy</module>
 
 		<!-- parent config poms: -->
 		<module>build.maven</module>

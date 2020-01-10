@@ -1,19 +1,22 @@
 package ch.ivyteam.htmldialog.demo;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
-import static org.openqa.selenium.support.ui.ExpectedConditions.not;
-import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.not;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+
+import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.SelectOneMenu;
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
+import com.axonivy.ivy.supplements.primeui.tester.widget.SelectManyCheckbox;
+import com.axonivy.ivy.supplements.primeui.tester.widget.SelectOneMenu;
+import com.axonivy.ivy.supplements.primeui.tester.widget.Table;
 
 public class WebTestOutput extends BaseWebTest
 {
@@ -22,53 +25,49 @@ public class WebTestOutput extends BaseWebTest
   {
     startProcess("145D180807C60B4B/DataTableDemo.ivp");
 
-    await(textToBePresentInElementLocated(By.id("form:theTable"), "Daisy"));
-
-    driver.findElement(By.id("form:theTable:globalFilter")).sendKeys("Dais");
-    Table table = prime().table(By.id("form:theTable"));
+    Table table = PrimeUi.table(By.id("form:theTable"));
+    table.searchGlobal("Dais");
     table.firstRowContains("Daisy");
     clearInput(By.id("form:theTable:globalFilter"));
 
-    SelectOneMenu menu = prime().selectOne(By.id("form:theTable:nameFilter"));
+    SelectOneMenu menu = PrimeUi.selectOne(By.id("form:theTable:nameFilter"));
     menu.selectItemByLabel("Achmed"); 
     table.firstRowContains("Achmed");
     menu.selectItemByLabel("All");
 
-    driver.findElement(By.id("form:theTable:scorePointFilter:filter")).sendKeys("6");
+    $(By.id("form:theTable:scorePointFilter:filter")).sendKeys("6");
     table.firstRowContains("Birgit");
     clearInput(By.id("form:theTable:scorePointFilter:filter"));
-    driver.findElement(By.id("form:theTable:scorePointFilter:filter")).sendKeys(Keys.ENTER);
+    $(By.id("form:theTable:scorePointFilter:filter")).sendKeys(Keys.ENTER);
     
-    await(visibilityOfElementLocated(By.id("form:theTable:6:colName")));
-    driver.findElement(By.xpath("//tbody[@id='form:theTable_data']/tr[1]/td/div")).click();
+    $(By.id("form:theTable:6:colName")).shouldBe(visible);
+    $(By.id("form:theTable_data")).find(".ui-row-toggler").click();
     clearInput(By.id("form:theTable:0:name"));
-    driver.findElement(By.id("form:theTable:0:name")).sendKeys("testPerson");
+    $(By.id("form:theTable:0:name")).sendKeys("testPerson");
     clearInput(By.id("form:theTable:0:points"));
-    driver.findElement(By.id("form:theTable:0:points")).sendKeys("9999");
-    driver.findElement(By.id("form:theTable:0:saveButton")).click();
+    $(By.id("form:theTable:0:points")).sendKeys("9999");
+    $(By.id("form:theTable:0:saveButton")).click();
     table.contains("testPerson");
     table.containsNot("Beni");
     table.contains("9999");
     table.containsNot("2563");
 
-    driver.findElement(By.id("form:theTable:6:dialogEditButton")).click();
-    await(visibilityOfElementLocated(By.id("detailForm:name")));
+    $(By.id("form:theTable:6:dialogEditButton")).click();
     clearInput(By.id("detailForm:name"));
-    driver.findElement(By.id("detailForm:name")).sendKeys("demoUser");
+    $(By.id("detailForm:name")).sendKeys("demoUser");
     clearInput(By.id("detailForm:points"));
-    driver.findElement(By.id("detailForm:points")).sendKeys("2300");
-    driver.findElement(By.id("detailForm:dialogSaveButton")).click();
+    $(By.id("detailForm:points")).sendKeys("2300");
+    $(By.id("detailForm:dialogSaveButton")).click();
 
     table.contains("demoUser");
     table.containsNot("Yvonne");
     table.contains("2300");
     table.containsNot("1324");
 
-    driver.findElement(By.id("form:theTable:scoreId")).click();
+    $(By.id("form:theTable:scoreId")).click();
     Thread.sleep(500);
-    driver.findElement(By.id("form:theTable:scoreId")).click();
+    $(By.id("form:theTable:scoreId")).click();
     table.firstRowContains("Tim");
-
   }
 
   @Test
@@ -76,18 +75,18 @@ public class WebTestOutput extends BaseWebTest
   {
     startProcess("145D180807C60B4B/EditableTableDemo.ivp");
 
-    Table table = prime().table(By.id("form:personTable"));
-    editTable(By.xpath("//*[@id='form:personTable:0:rowEditor']/a[2]"), 0, "firstName", "lastName");
+    Table table = PrimeUi.table(By.id("form:personTable"));
+    editTable(1, 0, "firstName", "lastName");
     editableTableContains(table);
 
-    editTable(By.xpath("//*[@id='form:personTable:0:rowEditor']/a[3]"), 0, "firstName", "lastName");
+    editTable(2, 0, "Reto", "Weiss");
     editableTableContains(table);
 
-    driver.findElement(By.xpath("//*[@id='form:personTable:4:deleteButton']/span")).click();
-    table.containsNot("D�nzer");
+    $(By.id("form:personTable:4:deleteButton")).click();
+    table.containsNot("Michael");
 
-    driver.findElement(By.xpath("//*[@id='form:personTable:addButton']/span")).click();
-    editTable(By.xpath("//*[@id='form:personTable:5:rowEditor']/a[2]"), 5, "testfirstName", "testLastName");
+    $(By.id("form:personTable:addButton")).click();
+    editTable(1, 5, "testfirstName", "testLastName");
     table.contains("testfirstName");
     table.contains("testLastName");
   }
@@ -100,39 +99,49 @@ public class WebTestOutput extends BaseWebTest
     table.containsNot("Reto");
   }
 
-  private void editTable(By confirmLocator, int rowPosition, String firstName, String lastName)
+  private void editTable(int confirm, int rowPosition, String firstName, String lastName)
   {
-    driver.findElement(By.xpath("//*[@id='form:personTable:" + rowPosition + ":rowEditor']/a[1]"))
-            .click();
+    $(By.id("form:personTable:" + rowPosition + ":rowEditor")).find("a", 0).click();
     clearInput(By.id("form:personTable:" + rowPosition + ":inputName"));
-    driver.findElement(By.id("form:personTable:" + rowPosition + ":inputName")).sendKeys(lastName);
+    $(By.id("form:personTable:" + rowPosition + ":inputName")).sendKeys(lastName);
     clearInput(By.id("form:personTable:" + rowPosition + ":inputFirstName"));
-    driver.findElement(By.id("form:personTable:" + rowPosition + ":inputFirstName")).sendKeys(firstName);
-    driver.findElement(confirmLocator).click();
+    $(By.id("form:personTable:" + rowPosition + ":inputFirstName")).sendKeys(firstName);
+    $(By.id("form:personTable:" + rowPosition + ":rowEditor")).find("a", confirm).click();
   }
   
   @Test
   public void testPickList() throws Exception
   {
     startProcess("145D180807C60B4B/PickListDemo.ivp");
+
+    $(By.id("personListForm:pickList")).find(".ui-picklist-source").find("li", 0).shouldBe(visible).click();
+    $(".ui-picklist-button-add").shouldBe(visible, enabled).click();
     
-    Actions builder = new Actions(driver);
-    Action dragAndDrop = builder
-            .clickAndHold(await(elementToBeClickable(By.xpath("//*[@id='personListForm:pickList']/div[2]/ul/li[1]"))))
-            .moveToElement(await(visibilityOfElementLocated(By.xpath("//*[@id='personListForm:pickList']/div[4]/ul"))))
-            .release()
-            .build();
-    dragAndDrop.perform();
+    $(By.id("personListForm:pickList")).find(".ui-picklist-source").shouldNotHave(text("Renato"));
+    $(By.id("personListForm:pickList")).find(".ui-picklist-target").shouldHave(text("Renato"));
+    $(By.id("personListForm:pickList_target")).findAll("option").shouldHave(size(1));
+    
+    $(By.id("personListForm:sendButton")).shouldBe(visible).click();
+    $(By.id("personListForm:resultPanel")).find("tr", 0).shouldNotHave(text("Renato"));
+    $(By.id("personListForm:resultPanel")).find("tr", 1).shouldHave(text("Renato"));
+  }
+  
+  @Test
+  public void testOrderList()
+  {
+    startProcess("145D180807C60B4B/OrderListDemo.ivp");
 
-    await(textToBePresentInElementLocated(
-            By.xpath("//*[@id='personListForm:pickList']/div[4]/ul"), "Renato"));
-    await(not(textToBePresentInElementLocated(
-            By.xpath("//*[@id='personListForm:pickList']/div[2]/ul"), "Renato")));
+    editList(1, 3, "Bruno");
+    editList(5, 0, "Bruno");
+  }
 
-    driver.findElement(By.id("personListForm:sendButton")).click();
-    await(textToBePresentInElementLocated(
-            By.xpath("//*[@id='personListForm:resultPanel']/tbody/tr[2]/td[2]"),
-            "name=Stalder, firstname=Renato"));
+  private void editList(int elementPosition, int buttonPosition, String name)
+  {
+    $(By.id("personListForm:personsList")).find(".ui-orderlist-item", elementPosition)
+            .shouldBe(text(name)).click();
+    $(By.id("personListForm:personsList")).find(".ui-orderlist-controls").find("button", buttonPosition)
+            .shouldBe(visible, enabled).click();
+    $(By.id("personListForm:personsList")).find(".ui-orderlist-item", elementPosition).shouldNotBe(text(name));
   }
 
   @Test
@@ -140,17 +149,16 @@ public class WebTestOutput extends BaseWebTest
   {
     startProcess("145D180807C60B4B/SelectOneMenuDemo.ivp");
 
-    SelectOneMenu menu = prime().selectOne(By.id("demoForm:basic"));
+    SelectOneMenu menu = PrimeUi.selectOne(By.id("demoForm:basic"));
     menu.selectItemByLabel("Reguel Wermelinger");
 
-    driver.findElement(By.id("demoForm:advance_label")).click();
-    await(visibilityOfElementLocated(By.id("demoForm:advance_filter")));
-    driver.findElement(By.id("demoForm:advance_filter")).sendKeys("Flav");
-    await(elementToBeClickable(By.id("demoForm:advance_9"))).click();
+    $(By.id("demoForm:advance_label")).click();
+    $(By.id("demoForm:advance_filter")).shouldBe(visible).sendKeys("Flav");
+    $(By.id("demoForm:advance_9")).shouldBe(visible, enabled).click();
 
-    driver.findElement(By.id("demoForm:sendButton")).click();
-    await(textToBePresentInElementLocated(By.id("demoForm:outputBasicSelects"), "Reguel"));
-    await(textToBePresentInElementLocated(By.id("demoForm:outputAdvancedSelects"), "Flavio"));
+    $(By.id("demoForm:sendButton")).click();
+    $(By.id("demoForm:outputBasicSelects")).shouldHave(text("Reguel"));
+    $(By.id("demoForm:outputAdvancedSelects")).shouldHave(text("Flavio"));
   }
 
   @Test
@@ -168,41 +176,26 @@ public class WebTestOutput extends BaseWebTest
 
   private void searchAndExpect(String searchText, String expectedText, String notExpectedText)
   {
-    By inputLocator = By.id("Form:event_input");
-    await(visibilityOfElementLocated(inputLocator));
-    driver.findElement(inputLocator).sendKeys(searchText);
-    By panelLocator = By.id("Form:event_panel");
-    await(visibilityOfElementLocated(panelLocator));
-    await(textToBePresentInElementLocated(panelLocator, expectedText));
-    await(not(textToBePresentInElementLocated(panelLocator, notExpectedText)));
-    driver.findElement(inputLocator).clear();
+    $(By.id("Form:event_input")).shouldBe(visible).sendKeys(searchText);
+    $(By.id("Form:event_panel")).shouldBe(visible, text(expectedText), not(text(notExpectedText)));
+    $(By.id("Form:event_input")).clear();
   }
 
   @Test
   public void testSelectCheckboxes() throws Exception
   {
     startProcess("145D180807C60B4B/SelectManyCheckboxDemo.ivp");
-    selectAndValidatePerson(4);
-    selectAndValidatePerson(5);
-    await(textToBePresentInElementLocated(By.id("demoForm:outputSelectedPersons"), "Kis"));
-  }
-
-  private void selectAndValidatePerson(int checkboxposition)
-  {
-    By checkbox = By.xpath("//*[@id='demoForm:manyCheckboxes:" + checkboxposition + "']/../../div[2]");
-    await(visibilityOfElementLocated(checkbox));
-    driver.findElement(checkbox).click();
-    driver.findElement(By.id("demoForm:sendButton")).click();
-    await(textToBePresentInElementLocated(By.id("demoForm:outputSelectedPersons"),
-            driver.findElement(By.xpath("//label[@for='demoForm:manyCheckboxes:" + checkboxposition + "']"))
-                    .getText()));
+    SelectManyCheckbox checkbox = PrimeUi.selectManyCheckbox(By.id("demoForm:manyCheckboxes"));
+    checkbox.setCheckboxes(Arrays.asList("Weiss", "Kis"));
+    $(By.id("demoForm:sendButton")).click();
+    $(By.id("demoForm:outputSelectedPersons")).shouldHave(text("Weiss"), text("Kis"));
   }
 
   @Test
   public void testChart()
   {
     startProcess("145D180807C60B4B/ChartDemo.ivp");
-    assertThat(driver.findElement(By.id("form:comboChart")).isDisplayed()).isTrue();
-    assertThat(driver.findElement(By.id("form:pieChart")).isDisplayed()).isTrue();
+    $(By.id("form:comboChart")).shouldBe(visible);
+    $(By.id("form:pieChart")).shouldBe(visible);
   }
 }

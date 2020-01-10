@@ -1,27 +1,26 @@
 package ch.ivyteam.htmldialog.demo;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
 
-import java.io.File;
-
-import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TakesScreenshot;
+
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 
 public class WebTestComponent extends BaseWebTest
 {
   @Test
-  public void testComponentDemo() throws Exception
+  public void testComponentDemo()
   {
     startProcess("145D1849FACF0EAA/ComponentDemo.ivp");
 
-    driver.findElement(By.id("demoForm:personComponent:firstname")).sendKeys("testFirstName");
-    driver.findElement(By.id("demoForm:personComponent:lastname")).sendKeys("testName" + Keys.ENTER);
-    await(textToBePresentInElementLocated(By.xpath("//*[@id='demoForm:panel']/table"), "test"));
+    $(By.id("demoForm:personComponent:firstname")).shouldBe(visible).sendKeys("testFirstName");
+    $(By.id("demoForm:personComponent:lastname")).sendKeys("testName" + Keys.ENTER);
+    PrimeUi.table(By.id("demoForm:result")).contains("test");
 
     fillAddressComponent("delivery");
     fillAddressComponent("billing");
@@ -29,40 +28,28 @@ public class WebTestComponent extends BaseWebTest
 
   private void fillAddressComponent(String prefix)
   {
-    driver.findElement(By.id("demoForm:personComponent:" + prefix + "AddressComponent:street")).sendKeys(
+    $(By.id("demoForm:personComponent:" + prefix + "AddressComponent:street")).sendKeys(
             prefix + "Street");
-    driver.findElement(By.id("demoForm:personComponent:" + prefix + "AddressComponent:country")).sendKeys(
+    $(By.id("demoForm:personComponent:" + prefix + "AddressComponent:country")).sendKeys(
             prefix + "Country" + Keys.ENTER);
-    await(textToBePresentInElementLocated(By.xpath("//*[@id='demoForm:panel']/table"), prefix));
+    PrimeUi.table(By.id("demoForm:result")).contains(prefix);
   }
 
   @Test
-  public void testCallbackDemo() throws Exception
+  public void testCallbackDemo()
   {
-    try
-    {
-      startProcess("145D1849FACF0EAA/ComponentEventListenerDemo.ivp");
+    startProcess("145D1849FACF0EAA/ComponentEventListenerDemo.ivp");
 
-      retryingFindClick(By.xpath("//*[@id='componentForm:detailListComponent:personsTable_data']/tr[2]"));
-      await(textToBePresentInElementLocated(
-              By.id("componentForm:selectionResult_container"), "Person selected"));
-      await(textToBePresentInElementLocated(
-              By.id("componentForm:selectionResult_container"), "Peter"));
-
-      retryingFindClick(By.xpath("//*[@id='componentForm:detailListComponent:personsTable_data']/tr[4]"));
-      retryingFindClick(By.id("componentForm:detailListComponent:fireEventButton"));
-      await(textToBePresentInElementLocated(
-              By.id("componentForm:selectionResult_container"), "Fire event!"));
-    }
-    catch (Exception ex)
-    {
-      File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-      FileUtils.copyFile(scrFile, new File("target/failureScreenshot.png"));
-    }
+    $(By.id("componentForm:detailListComponent:personsTable")).find("tr", 2).shouldBe(visible).click();
+    $(By.id("componentForm:selectionResult_container")).shouldHave(text("Person selected"), text("Peter"));
+    $(By.id("componentForm:detailListComponent:personsTable")).find("tr", 4).shouldBe(visible).click();
+    $(By.id("componentForm:selectionResult_container")).shouldHave(text("Person selected"), text("Bruno"));
+    $(By.id("componentForm:detailListComponent:fireEventButton")).shouldBe(visible, enabled).click();
+    $(By.id("componentForm:selectionResult_container")).shouldHave(text("Fire event!"));
   }
 
   @Test
-  public void testPartialUpdate() throws Exception
+  public void testPartialUpdate()
   {
     startProcess("145D1849FACF0EAA/PartialUpdateDemo.ivp");
 
@@ -70,7 +57,7 @@ public class WebTestComponent extends BaseWebTest
     assertPanelValue(2, 0);
     increaseCounter("B", 1);
     assertPanelValue(2, 3);
-    driver.findElement(By.id("Form:increaseAllButton")).click();
+    $(By.id("Form:increaseAllButton")).click();
     assertPanelValue(4, 4);
   }
 
@@ -78,33 +65,15 @@ public class WebTestComponent extends BaseWebTest
   {
     for (int i = 1; i <= increaseClicks; i++)
     {
-      retryingFindClick(By.id("Form:increaseP" + panel + "Button"));
+      $(By.id("Form:increaseP" + panel + "Button"))
+              .shouldBe(visible, enabled).click();
     }
   }
 
-  private void assertPanelValue(Integer expectedValueA, Integer ExpectedValueB)
+  private void assertPanelValue(Integer expectedValueA, Integer expectedValueB)
   {
-    await(textToBePresentInElementLocated(By.id("Form:counterPanel_1_content"),
-            expectedValueA.toString()));
-    await(textToBePresentInElementLocated(By.id("Form:counterPanel_2_content"),
-            ExpectedValueB.toString()));
+    $(By.id("Form:counterPanel_1_content")).shouldHave(text(expectedValueA.toString()));
+    $(By.id("Form:counterPanel_2_content")).shouldHave(text(expectedValueB.toString()));
   }
 
-  private void retryingFindClick(By locator) throws StaleElementReferenceException
-  {
-    int attempts = 0;
-    while (attempts < 5)
-    {
-      try
-      {
-        driver.findElement(locator).click();
-        break;
-      }
-      catch (StaleElementReferenceException e)
-      {
-      }
-      attempts++;
-    }
-    return;
-  }
 }

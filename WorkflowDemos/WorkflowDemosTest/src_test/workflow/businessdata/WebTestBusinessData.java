@@ -9,7 +9,8 @@ import static com.codeborne.selenide.Selenide.$$;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi.Table;
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
+import com.axonivy.ivy.supplements.primeui.tester.widget.Table;
 import com.codeborne.selenide.Selenide;
 
 import test.web.BaseWebTest;
@@ -51,7 +52,7 @@ public class WebTestBusinessData extends BaseWebTest
 
   private Table dossierTable()
   {
-    return prime().table(By.id("dossierTable"));
+    return PrimeUi.table(By.id("dossierTable"));
   }
 
   private void createPersonDossier(String name)
