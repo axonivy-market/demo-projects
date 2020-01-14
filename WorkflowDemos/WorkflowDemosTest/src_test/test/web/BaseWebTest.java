@@ -6,7 +6,6 @@ import static com.codeborne.selenide.Selenide.$;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
@@ -23,11 +22,6 @@ public abstract class BaseWebTest
     Configuration.reportsFolder = "target/senenide/reports";
     Selenide.open();
     this.driver = (RemoteWebDriver) WebDriverRunner.getWebDriver();
-  }
-
-  public PrimeUi prime()
-  {
-    return new PrimeUi(driver);
   }
 
   protected void startProcess(String pathToIvp)

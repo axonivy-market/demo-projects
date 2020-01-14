@@ -1,69 +1,66 @@
 package ch.ivyteam.htmldialog.demo;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
-import static org.openqa.selenium.support.ui.ExpectedConditions.not;
-import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
+import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
+
 public class WebTestInput extends BaseWebTest
 {
 
   @Test
-  public void testForm() throws Exception
+  public void testForm()
   {
     startProcess("145D18298A3E81CF/FormDemo.ivp");
 
-    driver.findElement(By.id("Form:Name")).sendKeys("team");
-    driver.findElement(By.id("Form:Birthday_input")).sendKeys("14.07.2016");
-    driver.findElement(By.id("Form:Birthday_input")).sendKeys(Keys.TAB);
-    driver.findElement(By.id("Form:Mail")).sendKeys("support@axonivy.com");
-    driver.findElement(By.id("Form:PhoneNumber")).sendKeys("41586663455");
-    driver.findElement(By.id("Form:Address")).sendKeys("Baarerstrasse 12");
-    driver.findElement(By.id("Form:ZipCode")).sendKeys("6300");
-    driver.findElement(By.id("Form:City")).sendKeys("Zug");
-    driver.findElement(By.id("Form:Country_input")).sendKeys("Switzerland");
-    driver.findElement(By.id("Form:Country_input")).sendKeys(Keys.ENTER);
-    driver.findElement(By.id("Form:SendButton")).click();
-    await(textToBePresentInElementLocated(By.id("Form:msgs"), "Value is required"));
-    await(textToBePresentInElementLocated(By.id("Form:msgs"), "First Name"));
+    $(By.id("Form:Name")).shouldBe(visible).sendKeys("team");
+    $(By.id("Form:Birthday_input")).sendKeys("14.07.2016");
+    $(By.id("Form:Birthday_input")).sendKeys(Keys.TAB);
+    $(By.id("Form:Mail")).sendKeys("support@axonivy.com");
+    $(By.id("Form:PhoneNumber")).sendKeys("41586663455");
+    $(By.id("Form:Address")).sendKeys("Baarerstrasse 12");
+    $(By.id("Form:ZipCode")).sendKeys("6300");
+    $(By.id("Form:City")).sendKeys("Zug");
+    $(By.id("Form:Country_input")).sendKeys("Switzerland");
+    $(By.id("Form:Country_input")).sendKeys(Keys.ENTER);
+    $(By.id("Form:SendButton")).click();
+    $(By.id("Form:msgs")).shouldHave(text("Value is required"), text("First Name"));
 
-    driver.findElement(By.id("Form:Firstname")).sendKeys("ivy");
-    driver.findElement(By.id("Form:SendButton")).click();
+    $(By.id("Form:Firstname")).sendKeys("ivy");
+    $(By.id("Form:SendButton")).click();
 
-    await(not(textToBePresentInElementLocated(By.id("Form:msgs"), "Value is required")));
-    await(textToBePresentInElementLocated(By.id("outputData"), "name=team, firstname=ivy"));
+    $(By.id("Form:msgs")).shouldNotHave(text("Value is required"));
+    $(By.id("outputData")).shouldHave(text("name=team, firstname=ivy"));
   }
 
   @Test
   public void testForm_customProjectValidator()
   {
     startProcess("145D18298A3E81CF/FormDemo.ivp");
-    By mailLocator = By.id("Form:Mail");
-    driver.findElement(mailLocator).sendKeys("notValidMail[at]test.ch");
-    await(elementToBeClickable(mailLocator)).submit();
-
-    By mailErrorLocator = By
-            .xpath("//*[@id='Form:MailMessage' and contains(@class,'ui-message-error')]"
-                 + "//span[starts-with(@title,'E-mail validation failed')]");
-    await(visibilityOfElementLocated(mailErrorLocator));
+    $(By.id("Form:Mail")).shouldBe(visible).sendKeys("notValidMail[at]test.ch");
+    $(By.id("Form:Mail")).shouldBe(visible, enabled).submit();
+    $$(".ui-messages-error span").find(text("E-mail validation failed: invalid mail address")).shouldBe(visible);
   }
 
   @Test
-  public void testMultiView_invoice() throws Exception
+  public void testMultiView_invoice()
   {
     startProcess("145D18298A3E81CF/MultiViewDemo.ivp");
 
-    driver.findElement(By.id("myForm:Name")).sendKeys("testName");
-    driver.findElement(By.id("myForm:FirstName")).sendKeys("testFirstName");
-    driver.findElement(By.id("myForm:nextButton")).click();
+    $(By.id("myForm:Name")).shouldBe(visible).sendKeys("testName");
+    $(By.id("myForm:FirstName")).sendKeys("testFirstName");
+    $(By.id("myForm:nextButton")).click();
 
-    await(textToBePresentInElementLocated(By.id("myForm:panel"), "Payment - Invoice"));
-    driver.findElement(By.id("myForm:Address")).sendKeys("Baarerstrasse 13");
-    driver.findElement(By.id("myForm:finishButton")).click();
+    $(By.id("myForm:panel")).shouldHave(text("Payment - Invoice"));
+    $(By.id("myForm:Address")).sendKeys("Baarerstrasse 13");
+    $(By.id("myForm:finishButton")).click();
 
     waitForSummary("testName", "testFirstName");
   }
@@ -73,28 +70,26 @@ public class WebTestInput extends BaseWebTest
   {
     startProcess("145D18298A3E81CF/MultiViewDemo.ivp");
 
-    driver.findElement(By.id("myForm:Name")).sendKeys("team");
-    driver.findElement(By.id("myForm:FirstName")).sendKeys("ivy");
-    prime().selectOneRadio(By.id("myForm:options")).selectItemByValue("CreditCard");
-    driver.findElement(By.id("myForm:nextButton")).click();
+    $(By.id("myForm:Name")).sendKeys("team");
+    $(By.id("myForm:FirstName")).sendKeys("ivy");
+    PrimeUi.selectOneRadio(By.id("myForm:options")).selectItemByValue("Credit Card");
+    $(By.id("myForm:nextButton")).click();
 
-    await(textToBePresentInElementLocated(By.id("myForm:panel"), "Payment - Credit Card"));
-    driver.findElement(By.id("myForm:CreditCardNumber")).sendKeys("1234567891234567");
-    driver.findElement(By.id("myForm:CreditCardNumber")).sendKeys(Keys.ENTER);
+    $(By.id("myForm:panel")).shouldHave(text("Payment - Credit Card"));
+    $(By.id("myForm:CreditCardNumber")).sendKeys("1234567891234567");
+    $(By.id("myForm:CreditCardNumber")).sendKeys(Keys.ENTER);
 
-    await(textToBePresentInElementLocated(By.id("myForm:panel"),
-            "Payment - Credit Card Processing"));
-    await(textToBePresentInElementLocated(By.id("myForm:confirmVerification"),
-            "Credit card verified!"));
-    driver.findElement(By.id("myForm:finishButton")).click();
+    $(By.id("myForm:panel")).shouldHave(text("Payment - Credit Card Processing"));
+    $(By.id("myForm:confirmVerification")).shouldHave(text("Credit card verified!"));
+    $(By.id("myForm:finishButton")).click();
 
     waitForSummary("team", "ivy");
   }
 
   private void waitForSummary(String name, String firstName)
   {
-    await(textToBePresentInElementLocated(By.id("myForm:panel"), "Payment - Summary"));
-    await(textToBePresentInElementLocated(By.id("myForm:outputSummary"), firstName + " " + name));
+    $(By.id("myForm:panel")).shouldHave(text("Payment - Summary"));
+    $(By.id("myForm:outputSummary")).shouldHave(text(firstName + " " + name));
   }
   
 }

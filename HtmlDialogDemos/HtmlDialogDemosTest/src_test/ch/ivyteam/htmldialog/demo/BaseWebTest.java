@@ -1,78 +1,50 @@
 package ch.ivyteam.htmldialog.demo;
 
-import java.util.concurrent.TimeUnit;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.axonivy.ivy.supplements.primeui.tester.AjaxHelper;
-import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.FileDownloadMode;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 
 import ch.ivyteam.htmldialog.server.test.EngineUrl;
-import io.github.bonigarcia.seljup.Options;
-import io.github.bonigarcia.seljup.SeleniumExtension;
 
-@ExtendWith(SeleniumExtension.class)
 public abstract class BaseWebTest
 { 
-  @Options
-  FirefoxOptions firefoxOptions = new FirefoxOptions();
-  {
-    FirefoxBinary binary = new FirefoxBinary();
-    binary.addCommandLineOptions(System.getProperty("firefox.options","--headless"));
-    firefoxOptions.setBinary(binary);
-    firefoxOptions.setProfile(configureBrowserProfile());
-  }
-  
-  protected WebDriver driver;
+  protected RemoteWebDriver driver;
 
   @BeforeEach
-  public void setUp(FirefoxDriver driver) throws Exception
+  public void setUp()
   {
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    this.driver = driver;
+    Configuration.browser = "firefox";
+    Configuration.headless = true;
+    Configuration.reportsFolder = "target/senenide/reports";
+    Configuration.proxyEnabled = true;
+    Configuration.fileDownload = FileDownloadMode.PROXY;
+    Selenide.open();
+    driver = (RemoteWebDriver) WebDriverRunner.getWebDriver();
   }
-
-  protected FirefoxProfile configureBrowserProfile() 
-  {
-    FirefoxProfile profile = new FirefoxProfile();
-    profile.setPreference("intl.accept_languages", "en"); 
-    return profile;
-  } 
   
-  public AjaxHelper ajax()
-  {
-    return new AjaxHelper(driver);
-  }
-
-  public PrimeUi prime()
-  {
-    return new PrimeUi(driver);
-  }
-
-  protected <T> T await(ExpectedCondition<T> condition)
-  {
-    return ajax().await(condition);
-  }
-
   protected void startProcess(String pathToIvp)
   {
-    driver.get(EngineUrl.process() + "/HtmlDialogDemos/" + pathToIvp);
+    Selenide.open(EngineUrl.process() + "/HtmlDialogDemos/" + pathToIvp);
+    if (StringUtils.containsNone(pathToIvp, "ClientSideValidationDemo"))
+    {
+      $(By.id("menuform")).shouldBe(visible);
+    }
   }
 
   protected void clearInput(By inputLocator)
   {
-    await(ExpectedConditions.visibilityOfElementLocated(inputLocator));
-    driver.findElement(inputLocator).clear();
-    driver.findElement(inputLocator).sendKeys(Keys.TAB);
+    $(inputLocator).shouldBe(visible).clear();
+    $(inputLocator).sendKeys(Keys.TAB);
   }
+
 }
