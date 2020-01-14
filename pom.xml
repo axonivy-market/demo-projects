@@ -15,9 +15,6 @@
 		<module>ConnectivityDemos</module>
 		<module>DemosApp</module>
 
-		<!-- workflow: -->
-		<module>BasicWorkflowUi</module>
-
 		<!-- parent config poms: -->
 		<module>build.maven</module>
 		<module>build.maven/iar</module>
