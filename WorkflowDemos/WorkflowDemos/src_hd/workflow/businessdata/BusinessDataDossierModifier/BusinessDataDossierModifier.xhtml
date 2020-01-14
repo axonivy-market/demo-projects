@@ -1,60 +1,45 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title">BusinessDataDossier</ui:define>
-		<ui:define name="content">
-			<h3>
-				#{data.title}
-			</h3>
- 			<p:outputLabel value="#{data.dossierInfo}" />
-			<h:form id="form">
-				<h:panelGrid columns="2">
-					<f:facet name="header">
-						<p:messages></p:messages>
-					</f:facet>
-					<p:outputLabel for="dossierName" value="Dossier Name" />
-					<p:inputText id="dossierName" value="#{data.dossier.name}"></p:inputText>
+  <ui:composition template="/layouts/basic.xhtml">
+    <ui:define name="title">BusinessDataDossier</ui:define>
+    <ui:define name="content">
+      <h3>#{data.title}</h3>
+      <p:outputLabel value="#{data.dossierInfo}" />
+      <h:form id="form">
+        <h:panelGrid columns="2">
+          <f:facet name="header">
+            <p:messages></p:messages>
+          </f:facet>
+          <p:outputLabel for="dossierName" value="Dossier Name" />
+          <p:inputText id="dossierName" value="#{data.dossier.name}"></p:inputText>
 
-					<p:outputLabel for="dossierPersonFirstName" value="First Name" />
-					<p:inputText id="dossierPersonFirstName"
-						value="#{data.dossier.person.firstName}"></p:inputText>
-						
-					<p:outputLabel for="dossierPersonLastName" value="Last Name" />
-					<p:inputText id="dossierPersonLastName"
-						value="#{data.dossier.person.lastName}" required="true"></p:inputText>
-						
-					<p:outputLabel for="dossierPersonBirthDate" value="Birth date"/>
-					<p:calendar id="dossierPersonBirthDate" value="#{data.dossier.person.birthDate}" pattern="dd.MM.yyyy" size="10">
-						<f:convertDateTime pattern="dd.MM.yyyy" />
-					</p:calendar>
+          <p:outputLabel for="dossierPersonFirstName" value="First Name" />
+          <p:inputText id="dossierPersonFirstName" value="#{data.dossier.person.firstName}"></p:inputText>
 
-					<p:outputLabel for="dossierPersonAddressZip" value="Zip" />
-					<p:inputText id="dossierPersonAddressZip"
-						value="#{data.dossier.person.address.zip}"></p:inputText>
+          <p:outputLabel for="dossierPersonLastName" value="Last Name" />
+          <p:inputText id="dossierPersonLastName" value="#{data.dossier.person.lastName}" required="true"></p:inputText>
 
-					<p:outputLabel for="dossierPersonAddressCity" value="City" />
-					<p:inputText id="dossierPersonAddressCity"
-						value="#{data.dossier.person.address.city}"></p:inputText>
+          <p:outputLabel for="dossierPersonBirthDate" value="Birth date" />
+          <p:calendar id="dossierPersonBirthDate" value="#{data.dossier.person.birthDate}" pattern="dd.MM.yyyy" size="10">
+            <f:convertDateTime pattern="dd.MM.yyyy" />
+          </p:calendar>
 
-					<p:outputLabel for="dossierPersonAddressCountry" value="Country" />
-					<p:inputText id="dossierPersonAddressCountry"
-						value="#{data.dossier.person.address.country}"></p:inputText>
-						
-						
-						
-					<br />
-					<p:commandButton actionListener="#{logic.close}" value="Save" id="save"
-						update="form" icon="ui-icon-check" />
-				</h:panelGrid>
-			</h:form>
+          <p:outputLabel for="dossierPersonAddressZip" value="Zip" />
+          <p:inputText id="dossierPersonAddressZip" value="#{data.dossier.person.address.zip}"></p:inputText>
 
-		</ui:define>
-	</ui:composition>
+          <p:outputLabel for="dossierPersonAddressCity" value="City" />
+          <p:inputText id="dossierPersonAddressCity" value="#{data.dossier.person.address.city}"></p:inputText>
+
+          <p:outputLabel for="dossierPersonAddressCountry" value="Country" />
+          <p:inputText id="dossierPersonAddressCountry" value="#{data.dossier.person.address.country}"></p:inputText>
+          <br />
+          <p:commandButton actionListener="#{logic.close}" value="Save" id="save" update="form" icon="ui-icon-check" />
+        </h:panelGrid>
+      </h:form>
+
+    </ui:define>
+  </ui:composition>
 </h:body>
 </html>

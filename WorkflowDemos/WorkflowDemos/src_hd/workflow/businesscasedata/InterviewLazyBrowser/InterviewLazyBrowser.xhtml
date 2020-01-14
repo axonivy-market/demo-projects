@@ -1,57 +1,47 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title">Interview Browser</ui:define>
-		<ui:define name="content">
-			<h3>Browse Interviews (Lazy loaded)</h3>
+  <ui:composition template="/layouts/basic.xhtml">
+    <ui:define name="title">Interview Browser</ui:define>
+    <ui:define name="content">
+      <h3>Browse Interviews (Lazy loaded)</h3>
 
-			<h:form>
-				<h:panelGrid columns="2">
-					<p:outputPanel id="searchBox">
-						<p:inputText value="#{data.interviewModel.wordsFilter}"
-							placeholder="Ask me anything" size="40">
-							<p:ajax event="keyup" delay="200" update=":interviewTable" />
-						</p:inputText>
-					</p:outputPanel>
-					<p:commandButton icon="ui-icon-search" value="Search" update=":interviewTable" />
-				</h:panelGrid>
-			</h:form>
+      <h:form>
+        <h:panelGrid columns="2">
+          <p:outputPanel id="searchBox">
+            <p:inputText value="#{data.interviewModel.wordsFilter}" placeholder="Ask me anything" size="40">
+              <p:ajax event="keyup" delay="200" update=":interviewTable" />
+            </p:inputText>
+          </p:outputPanel>
+          <p:commandButton icon="ui-icon-search" value="Search" update=":interviewTable" />
+        </h:panelGrid>
+      </h:form>
 
-			<p:dataTable var="interview" value="#{data.interviewModel}"
-				rowIndexVar="rowIndex" id="interviewTable" paginator="true"
-				paginatorPosition="bottom" rows="5"
-				paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-				currentPageReportTemplate="{startRecord} - {endRecord} of {totalRecords}"
-				rowsPerPageTemplate="5,10,15,25,50,100" lazy="true"
-				sortBy="#{interview.firstName}">
-				<p:column headerText="First Name" sortBy="#{interview.firstName}">
-					<h:outputText value="#{interview.firstName}" />
-				</p:column>
-				<p:column headerText="Last Name"
-					sortBy="#{interview.lastName}">
-					<h:outputText value="#{interview.lastName} " />
-				</p:column>
-				<p:column headerText="Date"
-					sortBy="#{interview.date}">
-					<h:outputText value="#{interview.date}">
-						<f:convertDateTime type="date" pattern="dd.MM.yyyy"/>
-					</h:outputText>
-				</p:column>
-				<p:column headerText="Conversation"
-					sortBy="#{interview.conversation}">
-					<h:outputText value="#{interview.conversation} " />
-				</p:column>
-			</p:dataTable>
-			
-			<br />
-			<h:outputLink value="#{ivy.html.startref('16EF567002B146F2/create.ivp')}">Create new Interview</h:outputLink>
-		</ui:define>
-	</ui:composition>
+      <p:dataTable var="interview" value="#{data.interviewModel}" rowIndexVar="rowIndex" id="interviewTable" paginator="true"
+        paginatorPosition="bottom" rows="5"
+        paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+        currentPageReportTemplate="{startRecord} - {endRecord} of {totalRecords}" rowsPerPageTemplate="5,10,15,25,50,100" lazy="true"
+        sortBy="#{interview.firstName}">
+        <p:column headerText="First Name" sortBy="#{interview.firstName}">
+          <h:outputText value="#{interview.firstName}" />
+        </p:column>
+        <p:column headerText="Last Name" sortBy="#{interview.lastName}">
+          <h:outputText value="#{interview.lastName} " />
+        </p:column>
+        <p:column headerText="Date" sortBy="#{interview.date}">
+          <h:outputText value="#{interview.date}">
+            <f:convertDateTime type="date" pattern="dd.MM.yyyy" />
+          </h:outputText>
+        </p:column>
+        <p:column headerText="Conversation" sortBy="#{interview.conversation}">
+          <h:outputText value="#{interview.conversation} " />
+        </p:column>
+      </p:dataTable>
+
+      <br />
+      <h:outputLink value="#{ivy.html.startref('16EF567002B146F2/create.ivp')}">Create new Interview</h:outputLink>
+    </ui:define>
+  </ui:composition>
 </h:body>
 </html>
