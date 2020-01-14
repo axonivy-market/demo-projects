@@ -66,7 +66,6 @@ public class FileService
     }
   }
 
-
   private static void checkExtension(String fileName)
   {
     String extension = FilenameUtils.getExtension(fileName);
@@ -95,7 +94,7 @@ public class FileService
             .ok(fis, MediaType.APPLICATION_OCTET_STREAM)
             .header("content-disposition", "attachment; filename = " + fileName)
             .build();
-    
+
   }
 
 }

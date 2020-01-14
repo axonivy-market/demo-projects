@@ -21,57 +21,58 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 import ch.ivyteam.ivy.workflow.TaskState;
 
-
 /**
  * Tests the REST interface of the {@link ApprovalService}.
  */
-public class IntegrationTestRestfulApprovalService 
+public class IntegrationTestRestfulApprovalService
 {
-	public static final String REST_USER = "restUser";
-	
-	@Test
-	public void putNewEntity()
-	{
-		Entity<Form> entity = createApproval("I need a break", "really i'm working really hard");
-	    Response response = getApprovalClient().request().header("X-Requested-By", "ivy").put(entity);
-	    assertThat(response.getStatus()).isEqualTo(Response.Status.CREATED.getStatusCode());
-	    assertThat(response.getLocation().toString()).startsWith(EngineUrl.rest()+"/workflow/task/");
-	    
-	    JsonNode taskMetaNode = response.readEntity(JsonNode.class);
-	    assertThat(taskMetaNode.get("description").textValue()).isEqualTo("I need a break");
-	    
-	    Link taskLink = response.getLink("approvalTask");
-	    assertThat(taskLink).isNotNull();
-	    assertThat(taskLink.getUri()).isEqualTo(response.getLocation());
-	    
-	    Client bossClient = ClientBuilder.newClient();
-	    bossClient.register(JacksonJsonProvider.class);
-	    bossClient.register(HttpAuthenticationFeature.basic("theBoss", "theBoss"));
-	    JsonNode fullTaskNode = bossClient.target(taskLink).request()
-	    		.get().readEntity(JsonNode.class);
-	    assertThat(TaskState.valueOf(fullTaskNode.get("state").asInt()))
-	    	.isEqualTo(TaskState.SUSPENDED);
-	}
+  public static final String REST_USER = "restUser";
 
-	private static Entity<Form> createApproval(String title, String description) {
-		MultivaluedMap<String, String> formData = new MultivaluedHashMap<>();
-		formData.add("title", title);
-		formData.add("description", description);
-		return Entity.form(formData);
-	}
+  @Test
+  public void putNewEntity()
+  {
+    Entity<Form> entity = createApproval("I need a break", "really i'm working really hard");
+    Response response = getApprovalClient().request().header("X-Requested-By", "ivy").put(entity);
+    assertThat(response.getStatus()).isEqualTo(Response.Status.CREATED.getStatusCode());
+    assertThat(response.getLocation().toString()).startsWith(EngineUrl.rest() + "/workflow/task/");
 
-	private static WebTarget getApprovalClient() 
-	{
-		return createAuthenticatedClient().target(EngineUrl.rest()+"/approve");
-	}
+    JsonNode taskMetaNode = response.readEntity(JsonNode.class);
+    assertThat(taskMetaNode.get("description").textValue()).isEqualTo("I need a break");
 
-	@SuppressWarnings({ "restriction", "deprecation" })
-	private static Client createAuthenticatedClient() {
-		Client httpClient = ClientBuilder.newClient();
-	    httpClient.register(JacksonJsonProvider.class);
-	    httpClient.register(HttpAuthenticationFeature.basic(REST_USER, REST_USER));
-	    httpClient.register(new org.glassfish.jersey.filter.LoggingFilter());
-		return httpClient;
-	}
+    Link taskLink = response.getLink("approvalTask");
+    assertThat(taskLink).isNotNull();
+    assertThat(taskLink.getUri()).isEqualTo(response.getLocation());
+
+    Client bossClient = ClientBuilder.newClient();
+    bossClient.register(JacksonJsonProvider.class);
+    bossClient.register(HttpAuthenticationFeature.basic("theBoss", "theBoss"));
+    JsonNode fullTaskNode = bossClient.target(taskLink).request()
+            .get().readEntity(JsonNode.class);
+    assertThat(TaskState.valueOf(fullTaskNode.get("state").asInt()))
+            .isEqualTo(TaskState.SUSPENDED);
+  }
+
+  private static Entity<Form> createApproval(String title, String description)
+  {
+    MultivaluedMap<String, String> formData = new MultivaluedHashMap<>();
+    formData.add("title", title);
+    formData.add("description", description);
+    return Entity.form(formData);
+  }
+
+  private static WebTarget getApprovalClient()
+  {
+    return createAuthenticatedClient().target(EngineUrl.rest() + "/approve");
+  }
+
+  @SuppressWarnings({"restriction", "deprecation"})
+  private static Client createAuthenticatedClient()
+  {
+    Client httpClient = ClientBuilder.newClient();
+    httpClient.register(JacksonJsonProvider.class);
+    httpClient.register(HttpAuthenticationFeature.basic(REST_USER, REST_USER));
+    httpClient.register(new org.glassfish.jersey.filter.LoggingFilter());
+    return httpClient;
+  }
 
 }

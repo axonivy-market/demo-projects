@@ -25,7 +25,8 @@ import ch.ivyteam.ivy.environment.Ivy;
 
 /**
  * <p>
- * See <b>Processes/rest/fileUpload/fileClient.ivp</b> for a demo</p>
+ * See <b>Processes/rest/fileUpload/fileClient.ivp</b> for a demo
+ * </p>
  *
  * @author jla
  * @since 7.4.0
@@ -42,7 +43,7 @@ public class FileUpload
     }
     MediaType contentType = MediaType.MULTIPART_FORM_DATA_TYPE;
     contentType = Boundary.addBoundary(contentType);
-    
+
     Response response = target.request().header("X-Requested-By", "ivy")
             .header("MIME-Version", "1.0")
             .put(Entity.entity(multipart, contentType));

@@ -50,7 +50,7 @@ public class IntegrationTestFileUpload
             .target(uri)
             .request().accept(MediaType.APPLICATION_OCTET_STREAM).get();
     assertThat(downloadResponse.getStatus()).isEqualTo(Status.OK.getStatusCode());
-    try(InputStream target = this.getClass().getResourceAsStream(fileName);
+    try (InputStream target = this.getClass().getResourceAsStream(fileName);
             InputStream restStream = downloadResponse.readEntity(InputStream.class))
     {
       byte[] received = IOUtils.toByteArray(restStream);
@@ -165,7 +165,7 @@ public class IntegrationTestFileUpload
     return httpClient;
   }
 
-  @SuppressWarnings({ "deprecation", "restriction" })
+  @SuppressWarnings({"deprecation", "restriction"})
   private static Client createClient()
   {
     Client httpClient = ClientBuilder.newClient();
@@ -175,8 +175,8 @@ public class IntegrationTestFileUpload
     return httpClient;
   }
 
-  @SuppressWarnings({ "restriction", "deprecation" })
-private static Client createClientCustom(ClientConfig config)
+  @SuppressWarnings({"restriction", "deprecation"})
+  private static Client createClientCustom(ClientConfig config)
   {
     Client httpClient = ClientBuilder.newClient(config);
     httpClient.register(JacksonJsonProvider.class);

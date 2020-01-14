@@ -21,9 +21,11 @@ import io.github.bonigarcia.seljup.SeleniumExtension;
 @ExtendWith(SeleniumExtension.class)
 public class WebTestTwitterRestClient
 {
-  
-  @Options
-  FirefoxOptions firefoxOptions = new FirefoxOptions();
+
+  private WebDriver driver;
+
+  @BeforeEach
+  public void setup()
   {
     FirefoxBinary binary = new FirefoxBinary();
     binary.addCommandLineOptions("--headless");
@@ -66,13 +68,11 @@ public class WebTestTwitterRestClient
             .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@type='password']")));
     driver.findElement(By.xpath("//*[@type='password']")).sendKeys("r2l6AmivZ0q9JgXYg7Fp");
 
-    driver.findElement(By.xpath("//*[@type='password']")).submit();
-    
-    new WebDriverWait(driver, 10)
-            .until(ExpectedConditions.visibilityOfElementLocated(By.id("oauth_pin")));
-    WebElement pinDiv = driver.findElement(By.id("oauth_pin"));
-    String verification = pinDiv.findElement(By.tagName("code")).getText();
-    assertThat(verification).isNotEmpty();
+    $(By.id("username_or_email")).shouldBe(visible).sendKeys("ivyTeamTester");
+    $(By.xpath("//*[@type='password']")).shouldBe(visible).sendKeys("r2l6AmivZ0q9JgXYg7Fp");
+    $(By.xpath("//*[@type='password']")).submit();
+
+    String verification = $(By.id("oauth_pin")).shouldBe(visible).find("code").shouldNotBe(empty).getText();
     driver.close(); // close twitter page
 
     driver.switchTo().window(ivyAuthWindowHandle);

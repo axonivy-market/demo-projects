@@ -1,79 +1,76 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title">AsyncUiInvoker</ui:define>
-		<ui:define name="content">
-			<h3>Async backend call</h3>
-			<p>Demonstrates a RESTful remote method call without any JSF client-server roundtrip but with JavaScript.</p>
-			<p>Legacy aware: this demo was written with classic JavaScript that also work on Internet Explorer.<br/>
-			If not, please disable the 'compatibility' mode for local intranet sites in your IE. </p>
-			
-			<h:outputScript library="ivy-webcontent" name="js/ivy.js" target="head" />
-			<script type="text/javascript">
-				function restCall(uri, callback)
-				{
-					var xhr = new XMLHttpRequest();
-					xhr.open("GET", uri, true);
-					xhr.onload = function(e) {
-						if (xhr.readyState === 4) {
-							if (xhr.status === 200) {
-								callback(xhr.responseText);
-							} else {
-								alert("async request failed with HTTP status "+xhr.status)
-							}
-						}
-					};
-					xhr.onerror = function(e) {
-						console.error(xhr.statusText);
-					};
-					xhr.send(null);
-					return;
-				}
-				
-				function show(state)
-				{
-					var uiResult = document.getElementById("uiResult");
-					uiResult.innerHTML = state;
-				}
-				
-				function invokeAsync()
-				{
-					var resource = new IvyUri().rest()+"/batch/async?blockSeconds="+PF('timeout').getValue();
-					restCall(resource, show); // show is reference to expose the result!
-					show("awaiting response");
-				}
-			</script>
-			
-			<h:form id="form">
-					<f:facet name="header">
-						<p:messages></p:messages>
-					</f:facet>
-				<h:panelGrid columns="2" border="2">
-					
-					<p:fieldset style="border:none;">
-						Timeout to simulate: <br/>
-						<p:knob widgetVar="timeout" max="10" value="3" onchange="alert('update'+timeout)"></p:knob>
-					</p:fieldset>
-					
-					<p:fieldset style="border:none;">
-						<p:commandButton value="Call slow service" onclick="invokeAsync(); return false;" />
-						<div id="uiResult">
-						
-						</div>
-					</p:fieldset>
-					
-				</h:panelGrid>
-					<br />
-				<p:commandButton actionListener="#{logic.close}" value="Close" update="form" icon="ui-icon-check" />
-			</h:form>
-			
-		</ui:define>
-	</ui:composition>
+  <ui:composition template="/layouts/basic.xhtml">
+    <ui:define name="title">AsyncUiInvoker</ui:define>
+    <ui:define name="content">
+      <h3>Async backend call</h3>
+      <p>Demonstrates a RESTful remote method call without any JSF client-server roundtrip but with JavaScript.</p>
+      <p>
+        Legacy aware: this demo was written with classic JavaScript that also work on Internet Explorer.<br /> If not, please disable the
+        'compatibility' mode for local intranet sites in your IE.
+      </p>
+
+      <h:outputScript library="ivy-webcontent" name="js/ivy.js" target="head" />
+      <script type="text/javascript">
+        function restCall(uri, callback) {
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", uri, true);
+          xhr.onload = function(e) {
+            if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                callback(xhr.responseText);
+              } else {
+                alert("async request failed with HTTP status "
+                  + xhr.status)
+              }
+            }
+          };
+          xhr.onerror = function(e) {
+            console.error(xhr.statusText);
+          };
+          xhr.send(null);
+          return;
+        }
+        
+        function show(state) {
+          var uiResult = document
+            .getElementById("uiResult");
+          uiResult.innerHTML = state;
+        }
+        
+        function invokeAsync() {
+          var resource = new IvyUri().rest()
+            + "/batch/async?blockSeconds="
+            + PF('timeout').getValue();
+          restCall(resource, show); // show is reference to expose the result!
+          show("awaiting response");
+        }
+      </script>
+
+      <h:form id="form">
+        <f:facet name="header">
+          <p:messages></p:messages>
+        </f:facet>
+        <h:panelGrid columns="2" border="2">
+
+          <p:fieldset style="border:none;">
+            Timeout to simulate: <br />
+            <p:knob widgetVar="timeout" max="10" value="3" onchange="alert('update'+timeout)"></p:knob>
+          </p:fieldset>
+
+          <p:fieldset style="border:none;">
+            <p:commandButton value="Call slow service" onclick="invokeAsync(); return false;" />
+            <div id="uiResult"></div>
+          </p:fieldset>
+
+        </h:panelGrid>
+        <br />
+        <p:commandButton actionListener="#{logic.close}" value="Close" update="form" icon="ui-icon-check" />
+      </h:form>
+
+    </ui:define>
+  </ui:composition>
 </h:body>
 </html>
