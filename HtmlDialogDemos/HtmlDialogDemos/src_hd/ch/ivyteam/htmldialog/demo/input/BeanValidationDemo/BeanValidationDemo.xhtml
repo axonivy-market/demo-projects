@@ -1,59 +1,75 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"      
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-      <ui:param name="centerHeader" value="Bean Validation (JSR 303) Demo" />
-      <ui:define name="breadcrumb">Input/Bean Validation Demo</ui:define>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="Bean Validation (JSR 303) Demo" />
+    <ui:define name="breadcrumb">Input/Bean Validation Demo</ui:define>
 
-	  <ui:define name="content">
-   		<h:panelGroup layout="block" id="panel">
-   			<p>This demo explains how the bean validation (JSR 303) could be used.</p>
-   	 		<p>The fields of a java class (bean) can be annotated with validation information. The validation information will then be considered by Html Dialogs when the field of the class is bound to a widget.</p>
-   			<p style="margin-top:10px;">The java class <code>ch.ivyteam.htmlDialog.demo.input.beanValidation.Person</code> defines fields annotated with such validation information. The fields of the java class are bound to the widgets in the form bellow. 
-   			There are no validation information given in the *.xhtml file of the Html Dialog itself. However, the Html Dialog uses the information given on the annotations of the fields to validate the user input.</p>
-   			
-   			<h4>Validation Annotations</h4>
-   			<p>All annotations defined in the package javax.validation.constraints are supported. For example:</p>
-   			<p:panelGrid border="1" columns="2">
-				<h:outputText value="@NotNull"/>
-				<h:outputText value="means that a value is required"/>
-				<h:outputText value="@Size"/>
-				<h:outputText value="restricts the length of a string or array or the size of a collection or map"/>
-				<h:outputText value="@Max"/>
-				<h:outputText value="restricts the maximum allowed value"/>
-				<h:outputText value="@Min"/>
-				<h:outputText value="restricts the minimum allowed value"/>
-				<h:outputText value="@Pattern"/>
-				<h:outputText value="restricts a string to a given regular expression"/>
-				<h:outputText value="@Digits"/>
-				<h:outputText value="restricts the maximum number of digits of the integer and faction part"/>
-				<h:outputText value="@Future"/>
-				<h:outputText value="restricts a date to the dates in the future"/>
-				<h:outputText value="@Past"/>
-				<h:outputText value="restricts a date to the dates in the past"/>
-			</p:panelGrid>
-   			<p style="margin-bottom:20px;">There will always be validation requirements, for which these standard annotation won't suffice. For these cases it is possible to create your own annotations. See the <code>@ch.ivyteam.htmldialog.demo.input.beanValidation.LicensePlate</code> annotation for an example.</p>
-   			<h:form id="person">
-   				<p:messages id="msgs"/>
-				<h:panelGrid columns="3">
-					<p:outputLabel value="Name" for="name"/><p:inputText value="#{data.person.name}" id="name"/><p:message for="name" display="icon" id="nameMessage"/>
-					<p:outputLabel value="Social Security Number" for="socialSecurityNumber"/><p:inputText value="#{data.person.socialSecurityNumber}" id="socialSecurityNumber"/><p:message for="socialSecurityNumber" display="icon" id="socialSecurityNumberMessage"/>
-					<p:outputLabel value="Year of Birth" for="yearOfBirth"/><p:inputText value="#{data.person.yearOfBirth}" id="yearOfBirth"/><p:message for="yearOfBirth" display="icon" id="yearOfBirthMessage"/>				
-					<p:outputLabel value="Vehicle license" for="license"/><p:inputText value="#{data.person.vehicleLicense}" id="license"/><p:message for="license" display="icon" id="licenseMessage"/>				
-				</h:panelGrid>
-                <h:panelGrid>
-                    <p:commandButton actionListener="#{logic.Send}" value="Submit" id="submit" update="person"/>
-                </h:panelGrid>
-                <br/>
-		    	<br/>
-    	 		<h:outputText>Data: #{data}</h:outputText> 
-   			</h:form>
-   		</h:panelGroup>
-	</ui:define>
+    <ui:define name="content">
+      <h:panelGroup layout="block" id="panel">
+        <p>This demo explains how the bean validation (JSR 303) could be used.</p>
+        <p>The fields of a java class (bean) can be annotated with validation information. The validation information will then be considered by
+          Html Dialogs when the field of the class is bound to a widget.</p>
+        <p style="margin-top: 10px;">
+          The java class
+          <code>ch.ivyteam.htmlDialog.demo.input.beanValidation.Person</code>
+          defines fields annotated with such validation information. The fields of the java class are bound to the widgets in the form bellow. There
+          are no validation information given in the *.xhtml file of the Html Dialog itself. However, the Html Dialog uses the information given on
+          the annotations of the fields to validate the user input.
+        </p>
 
-	</ui:composition>
+        <h4>Validation Annotations</h4>
+        <p>All annotations defined in the package javax.validation.constraints are supported. For example:</p>
+        <p:panelGrid border="1" columns="2">
+          <h:outputText value="@NotNull" />
+          <h:outputText value="means that a value is required" />
+          <h:outputText value="@Size" />
+          <h:outputText value="restricts the length of a string or array or the size of a collection or map" />
+          <h:outputText value="@Max" />
+          <h:outputText value="restricts the maximum allowed value" />
+          <h:outputText value="@Min" />
+          <h:outputText value="restricts the minimum allowed value" />
+          <h:outputText value="@Pattern" />
+          <h:outputText value="restricts a string to a given regular expression" />
+          <h:outputText value="@Digits" />
+          <h:outputText value="restricts the maximum number of digits of the integer and faction part" />
+          <h:outputText value="@Future" />
+          <h:outputText value="restricts a date to the dates in the future" />
+          <h:outputText value="@Past" />
+          <h:outputText value="restricts a date to the dates in the past" />
+        </p:panelGrid>
+        <p style="margin-bottom: 20px;">
+          There will always be validation requirements, for which these standard annotation won't suffice. For these cases it is possible to create
+          your own annotations. See the
+          <code>@ch.ivyteam.htmldialog.demo.input.beanValidation.LicensePlate</code>
+          annotation for an example.
+        </p>
+        <h:form id="person">
+          <p:messages id="msgs" />
+          <h:panelGrid columns="3">
+            <p:outputLabel value="Name" for="name" />
+            <p:inputText value="#{data.person.name}" id="name" />
+            <p:message for="name" display="icon" id="nameMessage" />
+            <p:outputLabel value="Social Security Number" for="socialSecurityNumber" />
+            <p:inputText value="#{data.person.socialSecurityNumber}" id="socialSecurityNumber" />
+            <p:message for="socialSecurityNumber" display="icon" id="socialSecurityNumberMessage" />
+            <p:outputLabel value="Year of Birth" for="yearOfBirth" />
+            <p:inputText value="#{data.person.yearOfBirth}" id="yearOfBirth" />
+            <p:message for="yearOfBirth" display="icon" id="yearOfBirthMessage" />
+            <p:outputLabel value="Vehicle license" for="license" />
+            <p:inputText value="#{data.person.vehicleLicense}" id="license" />
+            <p:message for="license" display="icon" id="licenseMessage" />
+          </h:panelGrid>
+          <h:panelGrid>
+            <p:commandButton actionListener="#{logic.Send}" value="Submit" id="submit" update="person" />
+          </h:panelGrid>
+          <br />
+          <br />
+          <h:outputText>Data: #{data}</h:outputText>
+        </h:form>
+      </h:panelGroup>
+    </ui:define>
+
+  </ui:composition>
 </h:body>
 </html>

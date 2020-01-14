@@ -3,20 +3,25 @@ package ch.ivyteam.htmldialog.demo.input.beanValidation;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class StartsWithValidator implements ConstraintValidator<StartsWith, String> {
-	private String prefix;
+public class StartsWithValidator implements ConstraintValidator<StartsWith, String>
+{
+  private String prefix;
 
-	public void initialize(StartsWith constraintAnnotation) {
-		prefix = constraintAnnotation.prefix().toUpperCase();
-	}
+  @Override
+  public void initialize(StartsWith constraintAnnotation)
+  {
+    prefix = constraintAnnotation.prefix().toUpperCase();
+  }
 
-	public boolean isValid(String fieldValue,
-			ConstraintValidatorContext constraintContext) {
-		if (fieldValue == null)
-		{
-			return true;
-		}
-		return fieldValue.toUpperCase().startsWith(prefix);
-	}
+  @Override
+  public boolean isValid(String fieldValue,
+          ConstraintValidatorContext constraintContext)
+  {
+    if (fieldValue == null)
+    {
+      return true;
+    }
+    return fieldValue.toUpperCase().startsWith(prefix);
+  }
 
 }

@@ -1,66 +1,58 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-        <ui:param name="centerHeader" value="File Upload and Download Demo" />
-        <ui:define name="breadcrumb">Input/File Upload and Download Demo</ui:define>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="File Upload and Download Demo" />
+    <ui:define name="breadcrumb">Input/File Upload and Download Demo</ui:define>
 
-		<ui:define name="content">
-				<h:panelGroup layout="block">
-					<p>This demo explains how the content of a uploaded file could
-						be displayed and how the file could be downloaded. The Ivy file type is used to store the file
-						temporarily in the process data. This makes the handling of an
-						uploaded file quite simple.</p>
-					<h:form enctype="multipart/form-data" id="demoForm">
-						<h:outputText value="1. Select a text or xml file to show its content:" />
-						<br />
-						<br />
-						<p:fileUpload value="#{data.ivyFile}" mode="simple" style="width:500px" id="fileUpload"/>
-						<br />
-						<br />
-						2. Upload the file via process logic and store the file on the file system
-						<br />
-						<br />
-                        <h:panelGrid>
-                            <p:commandButton value="Upload" actionListener="#{logic.fileUpload}" ajax="false" id="fileUploadButton" icon="ui-icon-cloud-upload"/>
-                        </h:panelGrid>
-						<br />
-						<br />
-						<p:outputPanel rendered="#{not empty data.textContent}">
-							<h:outputText id="fileLinkLabel"
-								value="Link to the uploaded file: "></h:outputText>
-							<a href="#{ivy.html.fileref(data.ivyFile)}">#{data.fileName}</a>
-						</p:outputPanel>
-						<br />
-						<br />
-						3. Show the file or download it
-						<br />
-						<br />
-                        <h:panelGrid columns="3">
-                            <p:commandButton value="Show" actionListener="#{logic.showContent}" ajax="false" disabled="#{data.fileName == null}" id="showFileButton"/>
-                            <p:outputLabel value="or" />
-                            <p:commandButton value="Download" ajax="false" actionListener="#{logic.fileDownload}" icon="ui-icon-cloud-download" disabled="#{data.fileName == null}" id="downloadFileButton">
-                                <p:fileDownload value="#{data.fileDownload}" />
-                            </p:commandButton>
-                        </h:panelGrid>
-						<br />
-						<br />
-						<p:outputPanel rendered="#{data.showContent}">
-							<h:outputText id="fileNameLabel"
-								value="Content of the uploaded file: #{data.fileName}:"></h:outputText>
-							<br />
-							<h:inputTextarea rows="10" cols="80" id="textAreaLabel"
-								value="#{data.textContent}"></h:inputTextarea>
-						</p:outputPanel>
-					</h:form>
-				</h:panelGroup>
-		</ui:define>
+    <ui:define name="content">
+      <h:panelGroup layout="block">
+        <p>This demo explains how the content of a uploaded file could be displayed and how the file could be downloaded. The Ivy file type is
+          used to store the file temporarily in the process data. This makes the handling of an uploaded file quite simple.</p>
+        <h:form enctype="multipart/form-data" id="demoForm">
+          <h:outputText value="1. Select a text or xml file to show its content:" />
+          <br />
+          <br />
+          <p:fileUpload value="#{data.ivyFile}" mode="simple" style="width:500px" id="fileUpload" />
+          <br />
+          <br />
+          2. Upload the file via process logic and store the file on the file system
+          <br />
+          <br />
+          <h:panelGrid>
+            <p:commandButton value="Upload" actionListener="#{logic.fileUpload}" ajax="false" id="fileUploadButton" icon="ui-icon-cloud-upload" />
+          </h:panelGrid>
+          <br />
+          <br />
+          <p:outputPanel rendered="#{not empty data.textContent}">
+            <h:outputText id="fileLinkLabel" value="Link to the uploaded file: "></h:outputText>
+            <a href="#{ivy.html.fileref(data.ivyFile)}">#{data.fileName}</a>
+          </p:outputPanel>
+          <br />
+          <br />
+          3. Show the file or download it
+          <br />
+          <br />
+          <h:panelGrid columns="3">
+            <p:commandButton value="Show" actionListener="#{logic.showContent}" ajax="false" disabled="#{data.fileName == null}" id="showFileButton" />
+            <p:outputLabel value="or" />
+            <p:commandButton value="Download" ajax="false" actionListener="#{logic.fileDownload}" icon="ui-icon-cloud-download"
+              disabled="#{data.fileName == null}" id="downloadFileButton">
+              <p:fileDownload value="#{data.fileDownload}" />
+            </p:commandButton>
+          </h:panelGrid>
+          <br />
+          <br />
+          <p:outputPanel rendered="#{data.showContent}">
+            <h:outputText id="fileNameLabel" value="Content of the uploaded file: #{data.fileName}:"></h:outputText>
+            <br />
+            <h:inputTextarea rows="10" cols="80" id="textAreaLabel" value="#{data.textContent}"></h:inputTextarea>
+          </p:outputPanel>
+        </h:form>
+      </h:panelGroup>
+    </ui:define>
 
-	</ui:composition>
+  </ui:composition>
 </h:body>
 </html>

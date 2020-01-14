@@ -1,33 +1,30 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"      
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">      
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-      <ui:param name="centerHeader" value="SelectManyCheckbox Demo" />
-      <ui:define name="breadcrumb">Output/SelectManyCheckbox Demo</ui:define>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="SelectManyCheckbox Demo" />
+    <ui:define name="breadcrumb">Output/SelectManyCheckbox Demo</ui:define>
 
-	  <ui:define name="content">
-     	<h:form id="demoForm">
-		   	<h:panelGroup layout="block" id="persons">
-		   	<p>This demo explains how Lists can be used on a select many checkbox widget.</p>
-	 			<p:selectManyCheckbox value="#{data.selectedPersons}" id="manyCheckboxes">
-	 				<f:converter converterId="ivy.ListItem" />  
-	 				<f:selectItems value="#{data.persons}" var="it" itemValue="#{it}" itemLabel="#{it.name}"></f:selectItems>
-        		</p:selectManyCheckbox> 
-	 			<br/>
-	 			<br/>
-                <h:panelGrid>
-                    <p:commandButton ajax="false" actionListener="#{logic.send}" value="Send" id="sendButton"/>
-                </h:panelGrid>
-	 			<br/>
-	 			<br/>
-	 			<h:outputText value="Selected Persons: #{data.selectedPersons}" id="outputSelectedPersons"/>
-	   		</h:panelGroup>   		
-   		</h:form>
-	  </ui:define>
+    <ui:define name="content">
+      <h:form id="demoForm">
+        <h:panelGroup layout="block" id="persons">
+          <p>This demo explains how Lists can be used on a select many checkbox widget.</p>
+          <p:selectManyCheckbox value="#{data.selectedPersons}" id="manyCheckboxes">
+            <f:converter converterId="ivy.ListItem" />
+            <f:selectItems value="#{data.persons}" var="it" itemValue="#{it}" itemLabel="#{it.name}"></f:selectItems>
+          </p:selectManyCheckbox>
+          <br />
+          <br />
+          <h:panelGrid>
+            <p:commandButton ajax="false" actionListener="#{logic.send}" value="Send" id="sendButton" />
+          </h:panelGrid>
+          <br />
+          <br />
+          <h:outputText value="Selected Persons: #{data.selectedPersons}" id="outputSelectedPersons" />
+        </h:panelGroup>
+      </h:form>
+    </ui:define>
 
-	</ui:composition>
+  </ui:composition>
 </h:body>
 </html>

@@ -1,61 +1,61 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"      
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-      <ui:param name="centerHeader" value="Partial Update Demo" />
-      <ui:define name="breadcrumb">Component/Partial Update Demo</ui:define>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="Partial Update Demo" />
+    <ui:define name="breadcrumb">Component/Partial Update Demo</ui:define>
 
-	  <ui:define name="content">
-		<h:form id="Form">
-    		<h:panelGroup layout="block" id="panel" style="width:930px">
-        		<p>
-        		This demo explains how panel of a UI can be updated by using AJAX without to reload the whole HTML page.<br/>
-        		The two buttons in the below demo increases the same counter variable, but each panel updates only his own view part.
-        		</p>
-    	 		
-    	 		<p:panel header="Panel A" id="counterPanel_1">
-    	 		  	<h:outputText>Counter:</h:outputText>
-    	 		  	<h:outputText value="#{data.counter}"/>
-    	 		  	<br/>
-    	 		  	<!-- 
-    	 		  	Increases the counter 
-    	 		  	but only updates the panel 'counterPanel_1' 
-    	 		  	without to reload the whole page or update other panels
-    	 		  	  -->
-                    <h:panelGrid>
-                        <p:commandButton value="Increase counter then update 'Panel A'" update="counterPanel_1" actionListener="#{logic.increaseCounter}" id="increasePAButton"/>
-                    </h:panelGrid>
-    	 		</p:panel>
-    	 		<br/>
-    	 		<p:panel header="Panel B" id="counterPanel_2">
-    	 		  	<h:outputText>Counter:</h:outputText>
-    	 		  	<h:outputText value="#{data.counter}"/>
-    	 		  	<br/>
-    	 		  	<!-- 
-    	 		  	Increases the counter 
-    	 		  	but only updates the panel 'counterPanel_2' 
-    	 		  	without to reload the whole page or update other panels
-    	 		  	  -->
-                    <h:panelGrid>
-                        <p:commandButton value="Increase counter then update 'Panel B'" update="counterPanel_2" actionListener="#{logic.increaseCounter}" id="increasePBButton"/>
-                    </h:panelGrid>
-    	 		</p:panel>
-    	 		<br/>
-   	 		  	<!-- 
-   	 		  	Increases the counter 
-   	 		  	and then updates both panels 
-   	 		  	without to reload the whole page
-                -->
-                <h:panelGrid>
-                    <p:commandButton value="Increase counter then update both panels" update="counterPanel_1 counterPanel_2" actionListener="#{logic.increaseCounter}" id="increaseAllButton"/>
-                </h:panelGrid>
-    		</h:panelGroup>	 	
-    	</h:form>
-	  </ui:define>
-	</ui:composition>
+    <ui:define name="content">
+      <h:form id="Form">
+        <h:panelGroup layout="block" id="panel" style="width:930px">
+          <p>
+            This demo explains how panel of a UI can be updated by using AJAX without to reload the whole HTML page.<br /> The two buttons in the
+            below demo increases the same counter variable, but each panel updates only his own view part.
+          </p>
+
+          <p:panel header="Panel A" id="counterPanel_1">
+            <h:outputText>Counter:</h:outputText>
+            <h:outputText value="#{data.counter}" />
+            <br />
+            <!-- 
+            Increases the counter 
+            but only updates the panel 'counterPanel_1' 
+            without to reload the whole page or update other panels
+              -->
+            <h:panelGrid>
+              <p:commandButton value="Increase counter then update 'Panel A'" update="counterPanel_1" actionListener="#{logic.increaseCounter}"
+                id="increasePAButton" />
+            </h:panelGrid>
+          </p:panel>
+          <br />
+          <p:panel header="Panel B" id="counterPanel_2">
+            <h:outputText>Counter:</h:outputText>
+            <h:outputText value="#{data.counter}" />
+            <br />
+            <!-- 
+            Increases the counter 
+            but only updates the panel 'counterPanel_2' 
+            without to reload the whole page or update other panels
+              -->
+            <h:panelGrid>
+              <p:commandButton value="Increase counter then update 'Panel B'" update="counterPanel_2" actionListener="#{logic.increaseCounter}"
+                id="increasePBButton" />
+            </h:panelGrid>
+          </p:panel>
+          <br />
+          <!-- 
+          Increases the counter 
+          and then updates both panels 
+          without to reload the whole page
+              -->
+          <h:panelGrid>
+            <p:commandButton value="Increase counter then update both panels" update="counterPanel_1 counterPanel_2"
+              actionListener="#{logic.increaseCounter}" id="increaseAllButton" />
+          </h:panelGrid>
+        </h:panelGroup>
+      </h:form>
+    </ui:define>
+  </ui:composition>
 </h:body>
 </html>

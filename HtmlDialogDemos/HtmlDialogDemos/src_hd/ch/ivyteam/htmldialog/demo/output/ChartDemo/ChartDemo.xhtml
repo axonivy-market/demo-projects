@@ -1,50 +1,42 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-        <ui:param name="centerHeader" value="Charts Demo" />
-        <ui:define name="breadcrumb">Output/Charts Demo</ui:define>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="Charts Demo" />
+    <ui:define name="breadcrumb">Output/Charts Demo</ui:define>
 
-		<ui:define name="content">
-				<h:form id="form">
-					<p:growl id="growl" showDetail="true" />
-					<br />
-					<p:chart type="line" model="#{data.comboChartModel}"
-						style="width:450px;height:300px;" id="comboChart">
-						
-						<p:ajax event="itemSelect" update="growl"
-							listener="#{logic.itemSelected}" />
-					</p:chart>
-					<br />
-					<br />
-					<p:chart type="pie" model="#{data.pieChartModel}"
-						style="width:450px;height:300px" id="pieChart">
-						
-						<p:ajax event="itemSelect" update="growl"
-							listener="#{logic.sliceSelected}" />
-					</p:chart>
-				</h:form>
+    <ui:define name="content">
+      <h:form id="form">
+        <p:growl id="growl" showDetail="true" />
+        <br />
+        <p:chart type="line" model="#{data.comboChartModel}" style="width:450px;height:300px;" id="comboChart">
 
-			<h:outputScript>
-			function ext() {
-				// this = chart widget instance
-				// this.cfg = options
-				// see http://www.jqplot.com/ for more details
-				this.cfg.grid = {
-				background: '#ffffff',
-				shadow:false,
-				borderWidth:0.4
-				};
-			}			
-			</h:outputScript>
+          <p:ajax event="itemSelect" update="growl" listener="#{logic.itemSelected}" />
+        </p:chart>
+        <br />
+        <br />
+        <p:chart type="pie" model="#{data.pieChartModel}" style="width:450px;height:300px" id="pieChart">
 
-		</ui:define>
+          <p:ajax event="itemSelect" update="growl" listener="#{logic.sliceSelected}" />
+        </p:chart>
+      </h:form>
 
-	</ui:composition>
+      <h:outputScript>
+        function ext() {
+          // this = chart widget instance
+          // this.cfg = options
+          // see http://www.jqplot.com/ for more details
+          this.cfg.grid = {
+            background: '#ffffff',
+            shadow:false,
+            borderWidth:0.4
+          };
+        }
+      </h:outputScript>
+
+    </ui:define>
+
+  </ui:composition>
 </h:body>
 </html>

@@ -1,79 +1,72 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-      <ui:param name="centerHeader" value="Composite Component Customizing Demo" />
-      <ui:define name="breadcrumb">Component/Composite Component Customizing Demo</ui:define>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="Composite Component Customizing Demo" />
+    <ui:define name="breadcrumb">Component/Composite Component Customizing Demo</ui:define>
 
-	  <ui:define name="content">
-	   <h:panelGroup id="panel">
-		<p>This demo explains how Html Dialog composite comonents can be customized.</p>
-		<h:form>
-			<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-				<!--
-				Here the Address Component is included for the home address.
-				-->
-				<ic:ch.ivyteam.htmldialog.demo.component.AddressComponent
-					address="#{data.homeAddress}" label="Home Address">
+    <ui:define name="content">
+      <h:panelGroup id="panel">
+        <p>This demo explains how Html Dialog composite comonents can be customized.</p>
+        <h:form>
+          <h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+            <!--
+            Here the Address Component is included for the home address.
+            -->
+            <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent address="#{data.homeAddress}" label="Home Address">
 
-					<!-- We add an input for the title and name to the Address Component. -->
-					<p:outputLabel value="Title" for="title" />
-					<p:selectOneMenu value="#{data.title}" id="title">
-						<f:selectItem itemLabel="Mrs" itemValue="Mrs" />
-						<f:selectItem itemLabel="Mr" itemValue="Mr" />
-					</p:selectOneMenu>
-					<p:outputLabel value="Name" for="name" />
-					<p:inputText value="#{data.name}" id="name" />
+              <!-- We add an input for the title and name to the Address Component. -->
+              <p:outputLabel value="Title" for="title" />
+              <p:selectOneMenu value="#{data.title}" id="title">
+                <f:selectItem itemLabel="Mrs" itemValue="Mrs" />
+                <f:selectItem itemLabel="Mr" itemValue="Mr" />
+              </p:selectOneMenu>
+              <p:outputLabel value="Name" for="name" />
+              <p:inputText value="#{data.name}" id="name" />
 
-				</ic:ch.ivyteam.htmldialog.demo.component.AddressComponent>
+            </ic:ch.ivyteam.htmldialog.demo.component.AddressComponent>
 
-				<!--
-				Here the Address Component is included for the corporate address.
-				-->
-				<ic:ch.ivyteam.htmldialog.demo.component.AddressComponent
-					startMethod="start" address="#{data.corporateAddress}"
-					label="Corporate Address">
+            <!--
+            Here the Address Component is included for the corporate address.
+            -->
+            <ic:ch.ivyteam.htmldialog.demo.component.AddressComponent startMethod="start" address="#{data.corporateAddress}" label="Corporate Address">
 
-					<!-- We add an input for the company name to the Address Component. -->
-					<p:outputLabel value="Company" for="company" />
-					<p:inputText value="#{data.company}" id="company" />
+              <!-- We add an input for the company name to the Address Component. -->
+              <p:outputLabel value="Company" for="company" />
+              <p:inputText value="#{data.company}" id="company" />
 
-				</ic:ch.ivyteam.htmldialog.demo.component.AddressComponent>
-			</h:panelGrid>
-            <h:panelGrid>
-                <p:commandButton  value="Submit" actionListener="#{logic.submit}" ajax="false"/>
-            </h:panelGrid>
-		</h:form>
+            </ic:ch.ivyteam.htmldialog.demo.component.AddressComponent>
+          </h:panelGrid>
+          <h:panelGrid>
+            <p:commandButton value="Submit" actionListener="#{logic.submit}" ajax="false" />
+          </h:panelGrid>
+        </h:form>
 
-		<br />
-		<h:outputText value="Home Address" style="font-weight:bold"/>
-		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-			<h:outputText value="Title" style="font-style:italic"/>
-			<h:outputText value="#{data.title}" />
-			<h:outputText value="Name" style="font-style:italic"/>
-			<h:outputText value="#{data.name}" />
-			<h:outputText value="Street" style="font-style:italic"/>
-			<h:outputText value="#{data.homeAddress.street}" />
-			<h:outputText value="Country" style="font-style:italic"/>
-			<h:outputText value="#{data.homeAddress.country}" />
-		</h:panelGrid>
+        <br />
+        <h:outputText value="Home Address" style="font-weight:bold" />
+        <h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+          <h:outputText value="Title" style="font-style:italic" />
+          <h:outputText value="#{data.title}" />
+          <h:outputText value="Name" style="font-style:italic" />
+          <h:outputText value="#{data.name}" />
+          <h:outputText value="Street" style="font-style:italic" />
+          <h:outputText value="#{data.homeAddress.street}" />
+          <h:outputText value="Country" style="font-style:italic" />
+          <h:outputText value="#{data.homeAddress.country}" />
+        </h:panelGrid>
 
-		<br />
-		<h:outputText value="Corporate Address" style="font-weight:bold"/>
-		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-			<h:outputText value="Company" style="font-style:italic"/>
-			<h:outputText value="#{data.company}" />
-			<h:outputText value="Street" style="font-style:italic"/>
-			<h:outputText value="#{data.corporateAddress.street}" />
-			<h:outputText value="Country" style="font-style:italic"/>
-			<h:outputText value="#{data.corporateAddress.country}" />
-		</h:panelGrid>
-	   </h:panelGroup>
-	  </ui:define>
-	</ui:composition>
+        <br />
+        <h:outputText value="Corporate Address" style="font-weight:bold" />
+        <h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+          <h:outputText value="Company" style="font-style:italic" />
+          <h:outputText value="#{data.company}" />
+          <h:outputText value="Street" style="font-style:italic" />
+          <h:outputText value="#{data.corporateAddress.street}" />
+          <h:outputText value="Country" style="font-style:italic" />
+          <h:outputText value="#{data.corporateAddress.country}" />
+        </h:panelGrid>
+      </h:panelGroup>
+    </ui:define>
+  </ui:composition>
 </h:body>
 </html>

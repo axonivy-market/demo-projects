@@ -1,10 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:cc="http://xmlns.jcp.org/jsf/composite" xmlns:ic="http://ivyteam.ch/jsf/component"
+  xmlns:p="http://primefaces.org/ui">
 <!--
 This is a standard JSF Composite Component without Data and Logic.
 -->
@@ -13,22 +9,22 @@ In the interface it is possible to define attributes.
 This attributes can be accessed by the el expression cc.attrs.attributeName.
 -->
 <cc:interface>
-	<cc:attribute name="label" />
-	<cc:attribute name="address" type="ch.ivyteam.htmldialog.demo.Address" />
+  <cc:attribute name="label" />
+  <cc:attribute name="address" type="ch.ivyteam.htmldialog.demo.Address" />
 </cc:interface>
 <cc:implementation>
-	<p:fieldset legend="Address JSF Component">
-		<h:outputText>#{cc.attrs.label}</h:outputText>
-		<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+  <p:fieldset legend="Address JSF Component">
+    <h:outputText>#{cc.attrs.label}</h:outputText>
+    <h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
 
-			<!-- Insert the children from the parent where the include of this component is defined -->
-			<cc:insertChildren />
+      <!-- Insert the children from the parent where the include of this component is defined -->
+      <cc:insertChildren />
 
-			<p:outputLabel value="Street" for="street" />
-			<p:inputText value="#{cc.attrs.address.street}" id="street" />
-			<p:outputLabel value="Country" for="country" />
-			<p:inputText value="#{cc.attrs.address.country}" id="country" />
-		</h:panelGrid>
-	</p:fieldset>
+      <p:outputLabel value="Street" for="street" />
+      <p:inputText value="#{cc.attrs.address.street}" id="street" />
+      <p:outputLabel value="Country" for="country" />
+      <p:inputText value="#{cc.attrs.address.country}" id="country" />
+    </h:panelGrid>
+  </p:fieldset>
 </cc:implementation>
 </html>

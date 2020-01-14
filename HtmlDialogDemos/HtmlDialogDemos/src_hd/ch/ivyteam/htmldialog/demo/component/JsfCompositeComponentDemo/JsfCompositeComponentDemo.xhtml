@@ -1,10 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:jc="http://java.sun.com/jsf/composite/demo-jsfcomponents">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:jc="http://java.sun.com/jsf/composite/demo-jsfcomponents">
 <!--
 Note the additional xml namespace (here jc) that sets the location of the JSF composite components. 
 This is 'http://java.sun.com/jsf/composite/' followed by the name of the folder
@@ -12,52 +8,51 @@ in the 'webContent/resources' where the JSF Composite Components are defined.
 -->
 <h:body>
 
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-        <ui:param name="centerHeader" value="JSF Composite Component Demo" />
-        <ui:define name="breadcrumb">Component/JSF Composite Component Demo</ui:define>
-		<ui:define name="title">JSF Composite Component Demo</ui:define>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="JSF Composite Component Demo" />
+    <ui:define name="breadcrumb">Component/JSF Composite Component Demo</ui:define>
+    <ui:define name="title">JSF Composite Component Demo</ui:define>
 
-		<ui:define name="content">
-				<h:panelGroup layout="block" id="panel" style="width:630px">
-					<p>This demo explains how to use standard JSF Composite
-						Components (without ivy Data and ivy Logic) from the
-						'webContent/resources' folder.</p>
-					<!--
-					Insert the Component PersonJsfComponent with the 'jc' xml namespace followed by the file name of the 
-					JSF Composite Component (see 'webContent/resources/demo-jsfcomponents/PersonJsfComponent.xhtml') and set
-					the attribute 'person' for the PersonJsfComponent.
-					 -->
-					<jc:PersonJsfComponent person="#{data.person}" />
+    <ui:define name="content">
+      <h:panelGroup layout="block" id="panel" style="width:630px">
+        <p>This demo explains how to use standard JSF Composite Components (without ivy Data and ivy Logic) from the 'webContent/resources'
+          folder.</p>
+        <!--
+        Insert the Component PersonJsfComponent with the 'jc' xml namespace followed by the file name of the 
+        JSF Composite Component (see 'webContent/resources/demo-jsfcomponents/PersonJsfComponent.xhtml') and set
+        the attribute 'person' for the PersonJsfComponent.
+         -->
+        <jc:PersonJsfComponent person="#{data.person}" />
 
-					<!--
-					Output of the data modified in the PersonJsfComponent.
-					 -->
-					<br />
-					<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-						<h:outputText value="First Name"  style="font-weight:bold"/>
-						<h:outputText value="#{data.person.firstname}" />
-						<h:outputText value="Last Name"  style="font-weight:bold"/>
-						<h:outputText value="#{data.person.name}" />
+        <!--
+        Output of the data modified in the PersonJsfComponent.
+         -->
+        <br />
+        <h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+          <h:outputText value="First Name" style="font-weight:bold" />
+          <h:outputText value="#{data.person.firstname}" />
+          <h:outputText value="Last Name" style="font-weight:bold" />
+          <h:outputText value="#{data.person.name}" />
 
-						<h:outputText value="Delivery Address"  style="font-weight:bold"/>
-						<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-							<h:outputText value="Street" style="font-style:italic"/>
-							<h:outputText value="#{data.person.deliveryAddress.street}" />
-							<h:outputText value="Country" style="font-style:italic"/>
-							<h:outputText value="#{data.person.deliveryAddress.country}" />
-						</h:panelGrid>
+          <h:outputText value="Delivery Address" style="font-weight:bold" />
+          <h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+            <h:outputText value="Street" style="font-style:italic" />
+            <h:outputText value="#{data.person.deliveryAddress.street}" />
+            <h:outputText value="Country" style="font-style:italic" />
+            <h:outputText value="#{data.person.deliveryAddress.country}" />
+          </h:panelGrid>
 
-						<h:outputText value="Billing Address"  style="font-weight:bold"/>
-						<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-							<h:outputText value="Street" style="font-style:italic"/>
-							<h:outputText value="#{data.person.billingAddress.street}" />
-							<h:outputText value="Country" style="font-style:italic"/>
-							<h:outputText value="#{data.person.billingAddress.country}" />
-						</h:panelGrid>
-					</h:panelGrid>
-				</h:panelGroup>
-		</ui:define>
+          <h:outputText value="Billing Address" style="font-weight:bold" />
+          <h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+            <h:outputText value="Street" style="font-style:italic" />
+            <h:outputText value="#{data.person.billingAddress.street}" />
+            <h:outputText value="Country" style="font-style:italic" />
+            <h:outputText value="#{data.person.billingAddress.country}" />
+          </h:panelGrid>
+        </h:panelGrid>
+      </h:panelGroup>
+    </ui:define>
 
-	</ui:composition>
+  </ui:composition>
 </h:body>
 </html>

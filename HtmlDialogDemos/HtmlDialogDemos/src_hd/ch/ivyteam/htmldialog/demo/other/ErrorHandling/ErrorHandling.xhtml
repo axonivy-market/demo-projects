@@ -1,19 +1,15 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-        <ui:param name="centerHeader" value="Error Handling Demo" />
-        <ui:define name="breadcrumb">Other/Error Handling Demo</ui:define>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="Error Handling Demo" />
+    <ui:define name="breadcrumb">Other/Error Handling Demo</ui:define>
 
-		<ui:define name="title">Error Handling Demo</ui:define>
-		<ui:define name="content">
-	   		<h:panelGroup layout="block" id="panel">
-	   			<p>This demo explains how the error handling in JSF Dialogs can be customized.</p>
+    <ui:define name="title">Error Handling Demo</ui:define>
+    <ui:define name="content">
+      <h:panelGroup layout="block" id="panel">
+        <p>This demo explains how the error handling in JSF Dialogs can be customized.</p>
 
         <h:form id="form">
           <h4>HTTP Request</h4>
@@ -22,7 +18,8 @@
             these error pages are described in the engine guide.
           </p>
           <h:panelGrid>
-            <p:commandButton actionListener="#{logic.exception}" value="Execute non-ajax HTTP Request" update="form" icon="ui-icon-check" ajax="false" id="nonAjax"/>
+            <p:commandButton actionListener="#{logic.exception}" value="Execute non-ajax HTTP Request" update="form" icon="ui-icon-check" ajax="false"
+              id="nonAjax" />
           </h:panelGrid>
 
           <h4>AJAX Request</h4>
@@ -35,7 +32,7 @@
             .
           </p>
           <h:panelGrid>
-            <p:commandButton actionListener="#{logic.exception}" value="Execute ajax-based HTTP Request" update="form" icon="ui-icon-check" id="ajax"/>
+            <p:commandButton actionListener="#{logic.exception}" value="Execute ajax-based HTTP Request" update="form" icon="ui-icon-check" id="ajax" />
           </h:panelGrid>
 
           <h4>View Expired Exception</h4>
@@ -49,14 +46,15 @@
             .<br />
           </p>
           <h:panelGrid columns="2">
-            <p:commandButton actionListener="#{logic.expireMySession}" value="Expire my session" update="form" icon="ui-icon-check" id="expireSession"/>
-            <p:commandButton actionListener="#{logic.executeSomething}" value="Execute ajax-based HTTP Request" update="form" icon="ui-icon-check" id="ajaxWithExpiredSession"/>
+            <p:commandButton actionListener="#{logic.expireMySession}" value="Expire my session" update="form" icon="ui-icon-check" id="expireSession" />
+            <p:commandButton actionListener="#{logic.executeSomething}" value="Execute ajax-based HTTP Request" update="form" icon="ui-icon-check"
+              id="ajaxWithExpiredSession" />
           </h:panelGrid>
         </h:form>
       </h:panelGroup>
-		</ui:define>
+    </ui:define>
 
-	</ui:composition>
+  </ui:composition>
 
 </h:body>
 </html>
