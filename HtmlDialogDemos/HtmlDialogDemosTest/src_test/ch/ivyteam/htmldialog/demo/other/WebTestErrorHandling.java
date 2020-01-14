@@ -1,7 +1,9 @@
 package ch.ivyteam.htmldialog.demo.other;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -15,10 +17,10 @@ public class WebTestErrorHandling extends BaseWebTest
   public void ajax_error_dialog()
   {
     startProcess("145D1862CF17F2C9/ErrorHandlingDemo.ivp");
-    driver.findElement(By.id("form:ajax")).click();
+    $(By.id("form:ajax")).shouldBe(visible).click();
 
-    await(textToBePresentInElementLocated(By.id("ajaxExceptionDialog_title"), "Error"));
-    String text = driver.findElement(By.id("ajaxExceptionDialog_content")).getText();
+    $(By.id("ajaxExceptionDialog_title")).shouldHave(text("Error"));
+    String text = $(By.id("ajaxExceptionDialog_content")).getText();
     assertThat(text)
         .contains("ivy:error:script") 
         .contains("Error id") 
@@ -56,10 +58,10 @@ public class WebTestErrorHandling extends BaseWebTest
   public void non_ajax_error_dialog()
   {
     startProcess("145D1862CF17F2C9/ErrorHandlingDemo.ivp");
-    driver.findElement(By.id("form:nonAjax")).click();
+    $(By.id("form:nonAjax")).shouldBe(visible).click();
 
-    await(textToBePresentInElementLocated(By.cssSelector("h1"), "ivy:error:script"));
-    String text = driver.findElement(By.id("content")).getText();
+    $("h1").shouldHave(text("ivy:error:script"));
+    String text = $(By.id("content")).getText();
     assertThat(text)
         .contains("ivy:error:script") 
         .contains("Error id") 
@@ -97,11 +99,11 @@ public class WebTestErrorHandling extends BaseWebTest
   public void session_expired()
   {
     startProcess("145D1862CF17F2C9/ErrorHandlingDemo.ivp");
-    driver.findElement(By.id("form:expireSession")).click();
-    driver.findElement(By.id("form:ajaxWithExpiredSession")).click();
+    $(By.id("form:expireSession")).shouldBe(visible).click();
+    $(By.id("form:ajaxWithExpiredSession")).shouldBe(visible).click();
     
-    await(textToBePresentInElementLocated(By.id("viewExpiredExceptionDialog_title"), "View or Session Expired"));
-    String text = driver.findElement(By.id("viewExpiredExceptionDialog_content")).getText();
+    $(By.id("viewExpiredExceptionDialog_title")).shouldHave(text("View or Session Expired"));
+    String text = $(By.id("viewExpiredExceptionDialog_content")).getText();
     assertThat(text)
         .contains("Custom Exception Handling for ViewExpiredException")
         .contains("The view or session has expired")

@@ -1,24 +1,24 @@
 package com.axonivy.connectivity.rest;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.awaitility.Awaitility;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebDriver;
 
-import io.github.bonigarcia.seljup.Options;
-import io.github.bonigarcia.seljup.SeleniumExtension;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 
-@ExtendWith(SeleniumExtension.class)
 public class WebTestTwitterRestClient
 {
 
@@ -27,46 +27,36 @@ public class WebTestTwitterRestClient
   @BeforeEach
   public void setup()
   {
-    FirefoxBinary binary = new FirefoxBinary();
-    binary.addCommandLineOptions("--headless");
-    firefoxOptions.setBinary(binary);
+    Configuration.browser = "firefox";
+    Configuration.headless = true;
+    Configuration.reportsFolder = "target/senenide/reports";
+    Selenide.open();
+    driver = WebDriverRunner.getWebDriver();
   }
 
   @Test
-  public void readTwitterTweetsViaRest(FirefoxDriver driver)
+  public void readTwitterTweetsViaRest()
   {
-    String startUrl = EngineUrl.process() + "/ConnectivityDemos/1547634C396BBB3A/userTimeline.ivp";
-    driver.get(startUrl);
+    Selenide.open(EngineUrl.process() + "/ConnectivityDemos/1547634C396BBB3A/userTimeline.ivp");
 
-    if (driver.getTitle().equals("TwitterAuthorization"))
+    if (Selenide.title().equals("TwitterAuthorization"))
     {
-      authenticate(driver);
+      authenticate();
     }
 
-    new WebDriverWait(driver, 12).until(ExpectedConditions.titleIs("TwitterUserTimeline"));
-    WebElement tweets = driver.findElement(By.id("form:tweetTable"));
-    assertThat(tweets.findElements(By.tagName("tr")).size())
-            .as("tweets should be displayed")
-            .isGreaterThan(10);
+    $(By.id("form:tweetTable")).shouldBe(visible).findAll("tr").shouldBe(sizeGreaterThan(10));
+    assertThat(Selenide.title()).isEqualTo("TwitterUserTimeline");
   }
 
-  private void authenticate(FirefoxDriver driver)
+  private void authenticate()
   {
     String ivyAuthWindowHandle = driver.getWindowHandle();
-    driver.findElement(By.id("authLink")).click();
-    new WebDriverWait(driver, 10).until(d -> d.getWindowHandles().size() > 1);
-
+    $(By.id("authLink")).shouldBe(visible).click();
+    Awaitility.await().until(() -> driver.getWindowHandles().size() > 1);
     List<String> handles = new ArrayList<>(driver.getWindowHandles());
     handles.remove(ivyAuthWindowHandle);
     String twitterWindowHandle = handles.get(0);
-    driver.switchTo().window(twitterWindowHandle);
-
-    new WebDriverWait(driver, 10)
-            .until(ExpectedConditions.elementToBeClickable(By.id("username_or_email")))
-            .sendKeys("ivyTeamTester");
-    new WebDriverWait(driver, 10)
-            .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@type='password']")));
-    driver.findElement(By.xpath("//*[@type='password']")).sendKeys("r2l6AmivZ0q9JgXYg7Fp");
+    Selenide.switchTo().window(twitterWindowHandle);
 
     $(By.id("username_or_email")).shouldBe(visible).sendKeys("ivyTeamTester");
     $(By.xpath("//*[@type='password']")).shouldBe(visible).sendKeys("r2l6AmivZ0q9JgXYg7Fp");
@@ -75,10 +65,8 @@ public class WebTestTwitterRestClient
     String verification = $(By.id("oauth_pin")).shouldBe(visible).find("code").shouldNotBe(empty).getText();
     driver.close(); // close twitter page
 
-    driver.switchTo().window(ivyAuthWindowHandle);
-    driver.findElement(By.id("form:verificationId")).sendKeys(verification);
-    new WebDriverWait(driver, 10)
-            .until(ExpectedConditions.elementToBeClickable(By.id("form:proceed")))
-            .click();
+    Selenide.switchTo().window(ivyAuthWindowHandle);
+    $(By.id("form:verificationId")).shouldBe(visible).sendKeys(verification);
+    $(By.id("form:proceed")).click();
   }
 }

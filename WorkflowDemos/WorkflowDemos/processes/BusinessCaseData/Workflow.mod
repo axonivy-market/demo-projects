@@ -132,10 +132,10 @@ This will save your input to the businessdata repository and reserves the task f
 Overall you have the benefits of businessdata:
  - fast search
  - modification of past data (can be done like in the business data demo)
- - business data is saved automaticly to your buiness case
+ - business data is saved automatically to your business case
 
 Hints:
- - Your task needs to bee persistent to store businessdata
+ - Your task needs to be persistent to store businessdata
 </name>
     </language>
 </elementInfo>
