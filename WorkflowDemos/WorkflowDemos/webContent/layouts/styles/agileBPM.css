@@ -1,65 +1,68 @@
 @CHARSET "UTF-8";
+
 body, html, td, tr, th, input, textarea, select, form, div {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 9pt;	
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9pt;
 }
+
 .ui-outputlabel {
   display: inline;
 }
+
 .circularImg {
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    overflow:hidden; 
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  overflow: hidden;
 }
 
 .circularGroupImg {
-    width: 60px; 
-    height: 60px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    overflow:hidden; 
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  overflow: hidden;
 }
 
 .flowpanelHot {
-	background-color:#eeeeee;
-	border:1px solid;
-	border-radius: 4px;
-	border-color: rgb(237,0,0);
-	height: 80px
+  background-color: #eeeeee;
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: rgb(237, 0, 0);
+  height: 80px
 }
 
 .flowpanel {
-	background-color:#eeeeee;
-	border:0px solid;
-	border-radius: 4px;
-	border-color: #afca05;
-	height: 80px
+  background-color: #eeeeee;
+  border: 0px solid;
+  border-radius: 4px;
+  border-color: #afca05;
+  height: 80px
 }
 
 .taskpanel {
-	background-color:#eeeeee;
-	border:1px solid;
-	border-color: #afca05;
+  background-color: #eeeeee;
+  border: 1px solid;
+  border-color: #afca05;
 }
 
 .iconButton {
-	border:0px;
+  border: 0px;
 }
 
 .flowpanelButton {
-	border:0px;
+  border: 0px;
 }
 
 .panel {
-	background-color:#eeeeee;
-	-webkit-box-shadow: none;
-    box-shadow: none;
+  background-color: #eeeeee;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .xbutton {
-	background-color:#eeeeee;
+  background-color: #eeeeee;
 }

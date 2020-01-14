@@ -16,40 +16,40 @@ import org.junit.jupiter.api.Test;
 import com.axonivy.connectivity.rest.provider.BatchService;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
-
 /**
  * Tests the REST interface of the {@link BatchService}.
  */
-public class IntegrationTestBatchService 
+public class IntegrationTestBatchService
 {
-	public static final String REST_USER = "restUser";
-	
-	@Test
-	public void async() throws Exception
-	{
-		WebTarget target = createAuthenticatedClient()
-				.target(EngineUrl.rest()+"/batch/async")
-				.queryParam("blockSeconds", 1);
-		Future<Response> future = target.request().async().get();
-		Response asyncResponse = future.get(10, TimeUnit.SECONDS);
-		
-		assertThat(asyncResponse.readEntity(String.class))
-			.isEqualTo("Sorry for the slow processing!");
-		assertThat(asyncResponse.getHeaderString("responseThread"))
-			.as("annotated with @ManagedAsync: should not run in tomcat thread pool.")
-			.startsWith("jersey-server-managed-async-executor-");
-		assertThat(asyncResponse.getHeaderString("sessionUser"))
-			.as("ivy context must be super save restored also in non tomcat thread pools.")
-			.isEqualTo(REST_USER);
-	}
+  public static final String REST_USER = "restUser";
 
-	@SuppressWarnings({ "restriction", "deprecation" })
-	private static Client createAuthenticatedClient() {
-		Client httpClient = ClientBuilder.newClient();
-	    httpClient.register(JacksonJsonProvider.class);
-	    httpClient.register(HttpAuthenticationFeature.basic(REST_USER, REST_USER));
-	    httpClient.register(new org.glassfish.jersey.filter.LoggingFilter());
-		return httpClient;
-	}
+  @Test
+  public void async() throws Exception
+  {
+    WebTarget target = createAuthenticatedClient()
+            .target(EngineUrl.rest() + "/batch/async")
+            .queryParam("blockSeconds", 1);
+    Future<Response> future = target.request().async().get();
+    Response asyncResponse = future.get(10, TimeUnit.SECONDS);
+
+    assertThat(asyncResponse.readEntity(String.class))
+            .isEqualTo("Sorry for the slow processing!");
+    assertThat(asyncResponse.getHeaderString("responseThread"))
+            .as("annotated with @ManagedAsync: should not run in tomcat thread pool.")
+            .startsWith("jersey-server-managed-async-executor-");
+    assertThat(asyncResponse.getHeaderString("sessionUser"))
+            .as("ivy context must be super save restored also in non tomcat thread pools.")
+            .isEqualTo(REST_USER);
+  }
+
+  @SuppressWarnings({"restriction", "deprecation"})
+  private static Client createAuthenticatedClient()
+  {
+    Client httpClient = ClientBuilder.newClient();
+    httpClient.register(JacksonJsonProvider.class);
+    httpClient.register(HttpAuthenticationFeature.basic(REST_USER, REST_USER));
+    httpClient.register(new org.glassfish.jersey.filter.LoggingFilter());
+    return httpClient;
+  }
 
 }

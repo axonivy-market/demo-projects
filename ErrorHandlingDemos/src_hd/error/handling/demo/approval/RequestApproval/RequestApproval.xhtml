@@ -1,44 +1,45 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title">RequestApproval</ui:define>
-		<ui:define name="content">
-			<h2>Approve</h2>
-			<h4>Request from <h:outputLabel value="#{ivy.case.getCreatorUserName()}"/></h4>
-			
-			<h:form id="form">
-				<h:panelGrid columns="2">
-					<f:facet name="header">
-						<p:messages></p:messages>
-					</f:facet>
-					
-					<p:outputLabel value="Description" />
-					<p:outputLabel id="requestDescription" value="#{data.approval.description}" />
-					
-					<p:outputLabel value="Cost" />
-					<p:outputLabel id="cost" value="#{data.approval.cost} CHF" />
-					
-					<p:commandButton actionListener="#{logic.approve}" value="Approve" update="form" icon="ui-icon-check" />
-					
-					<p:commandButton onclick="PF('declineDialog').show();" value="Decline" icon="ui-icon-close"/>
-				</h:panelGrid>
-				
-				<p:dialog header="Decline Reason" widgetVar="declineDialog" minHeight="40" resizable="false">
-					<h:outputText value="Please enter a reason" /><br />
-					<p:inputText id="declineReason" value="#{data.declineReason}" size="60"/><br /><br />
-					<div align="right"><p:commandButton actionListener="#{logic.decline}" value="Decline" update="form" icon="ui-icon-close"/></div>
-				</p:dialog>
-			</h:form>
+  <ui:composition template="/layouts/basic.xhtml">
+    <ui:define name="title">RequestApproval</ui:define>
+    <ui:define name="content">
+      <h2>Approve</h2>
+      <h4>
+        Request from
+        <h:outputLabel value="#{ivy.case.getCreatorUserName()}" />
+      </h4>
 
+      <h:form id="form">
+        <h:panelGrid columns="2">
+          <f:facet name="header">
+            <p:messages></p:messages>
+          </f:facet>
 
+          <p:outputLabel value="Description" />
+          <p:outputLabel id="requestDescription" value="#{data.approval.description}" />
 
-		</ui:define>
-	</ui:composition>
+          <p:outputLabel value="Cost" />
+          <p:outputLabel id="cost" value="#{data.approval.cost} CHF" />
+
+          <p:commandButton actionListener="#{logic.approve}" value="Approve" update="form" icon="ui-icon-check" />
+
+          <p:commandButton onclick="PF('declineDialog').show();" value="Decline" icon="ui-icon-close" />
+        </h:panelGrid>
+
+        <p:dialog header="Decline Reason" widgetVar="declineDialog" minHeight="40" resizable="false">
+          <h:outputText value="Please enter a reason" />
+          <br />
+          <p:inputText id="declineReason" value="#{data.declineReason}" size="60" />
+          <br />
+          <br />
+          <div align="right">
+            <p:commandButton actionListener="#{logic.decline}" value="Decline" update="form" icon="ui-icon-close" />
+          </div>
+        </p:dialog>
+      </h:form>
+    </ui:define>
+  </ui:composition>
 </h:body>
 </html>

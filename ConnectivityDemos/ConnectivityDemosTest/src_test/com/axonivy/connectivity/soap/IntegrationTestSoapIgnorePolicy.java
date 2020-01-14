@@ -18,20 +18,24 @@ public class IntegrationTestSoapIgnorePolicy
   @Test
   public void greetWithPolicyEnabled() throws Exception
   {
-    String url = EngineUrl.process() + "/ConnectivityDemosTest/" + PROCESS_ID + "/greeterPoliciesNotDisabled.ivp";
+    String url = EngineUrl.process() + "/ConnectivityDemosTest/" + PROCESS_ID
+            + "/greeterPoliciesNotDisabled.ivp";
     CloseableHttpClient client = HttpClients.createDefault();
     CloseableHttpResponse response = client.execute(new HttpGet(url));
     String content = EntityUtils.toString(response.getEntity());
-    assertThat(content).isEqualTo("org.apache.cxf.ws.policy.PolicyException: None of the policy alternatives can be satisfied.");
+    assertThat(content).isEqualTo(
+            "org.apache.cxf.ws.policy.PolicyException: None of the policy alternatives can be satisfied.");
   }
 
   @Test
   public void greetWithPolicyDisabled() throws Exception
   {
-    String url = EngineUrl.process() + "/ConnectivityDemosTest/" + PROCESS_ID + "/greeterPoliciesDisabled.ivp";
+    String url = EngineUrl.process() + "/ConnectivityDemosTest/" + PROCESS_ID
+            + "/greeterPoliciesDisabled.ivp";
     CloseableHttpClient client = HttpClients.createDefault();
     CloseableHttpResponse response = client.execute(new HttpGet(url));
     String content = EntityUtils.toString(response.getEntity());
-    assertThat(content).isEqualTo("org.apache.cxf.binding.soap.SoapFault: A security error was encountered when verifying the message");
+    assertThat(content).isEqualTo(
+            "org.apache.cxf.binding.soap.SoapFault: A security error was encountered when verifying the message");
   }
 }

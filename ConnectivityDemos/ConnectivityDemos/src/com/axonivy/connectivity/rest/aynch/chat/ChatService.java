@@ -29,8 +29,10 @@ import ch.ivyteam.ivy.environment.Ivy;
  * Demonstrates asynchronous REST communication:
  * 
  * <ul>
- *   <li>Users that join the chat fire an asynchronous (@GET) request and wait for new messages.</li>
- * 	 <li>New messages are sent synchronous (@Post) and will be distributed to asynchronous listeners.</li>
+ * <li>Users that join the chat fire an asynchronous (@GET) request and wait for
+ * new messages.</li>
+ * <li>New messages are sent synchronous (@Post) and will be distributed to
+ * asynchronous listeners.</li>
  * </ul>
  * 
  * @author rew
@@ -38,82 +40,84 @@ import ch.ivyteam.ivy.environment.Ivy;
  */
 @Path("chatdemo")
 @Singleton
-public class ChatService{
+public class ChatService
+{
 
-	private Map<String, AsyncResponse> responses = new ConcurrentHashMap<>();
-	private Map<String, List<ChatMessage>> offlineMessages = new HashMap<>();
-	
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-    public synchronized void read(@Suspended AsyncResponse response) 
-	{
-    	String listener = Ivy.session().getSessionUserName();
-    	if (offlineMessages.containsKey(listener))
-    	{
-    		List<ChatMessage> messages = offlineMessages.remove(listener);
-    		Ivy.log().debug("sending messages collected as user was offline: "+messages);
-			response.resume(messages);
-    		return;
-    	}
-    	responses.put(listener, response);
-    }
-	
-	@POST
-	@Path("/{receiverName}")
-	@Consumes(MediaType.TEXT_PLAIN)
-	@Produces(MediaType.APPLICATION_JSON)
-    public synchronized ChatMessage writePrivate(String messageText, @PathParam("receiverName") String receiver)
+  private Map<String, AsyncResponse> responses = new ConcurrentHashMap<>();
+  private Map<String, List<ChatMessage>> offlineMessages = new HashMap<>();
+
+  @GET
+  @Produces(MediaType.APPLICATION_JSON)
+  public synchronized void read(@Suspended AsyncResponse response)
+  {
+    String listener = Ivy.session().getSessionUserName();
+    if (offlineMessages.containsKey(listener))
     {
-		String sender = Ivy.session().getSessionUserName();
-		ChatMessage message = new ChatMessage(sender, receiver, messageText);
-		
-		AsyncResponse onlineReceiver = responses.remove(receiver);
-		if (onlineReceiver != null && onlineReceiver.isSuspended())
-		{
-			Ivy.log().debug("send online:"+message);
-			onlineReceiver.resume(Arrays.asList(message));
-		}
-		else
-		{
-			Ivy.log().debug("store offline:"+message);
-			offlineMessages.putIfAbsent(receiver, new LinkedList<>());
-			offlineMessages.get(receiver).add(message);
-		}
-		return message;
+      List<ChatMessage> messages = offlineMessages.remove(listener);
+      Ivy.log().debug("sending messages collected as user was offline: " + messages);
+      response.resume(messages);
+      return;
     }
-	
-	@POST
-	@Consumes("text/plain")
-	@RolesAllowed("Boss")
-    public synchronized void writePublic(String messageText)
+    responses.put(listener, response);
+  }
+
+  @POST
+  @Path("/{receiverName}")
+  @Consumes(MediaType.TEXT_PLAIN)
+  @Produces(MediaType.APPLICATION_JSON)
+  public synchronized ChatMessage writePrivate(String messageText, @PathParam("receiverName") String receiver)
+  {
+    String sender = Ivy.session().getSessionUserName();
+    ChatMessage message = new ChatMessage(sender, receiver, messageText);
+
+    AsyncResponse onlineReceiver = responses.remove(receiver);
+    if (onlineReceiver != null && onlineReceiver.isSuspended())
     {
-		String sender = Ivy.session().getSessionUserName();
-		ChatMessage message = new ChatMessage(sender, "ALL", messageText);
-    	Ivy.log().debug("send to ("+responses.size()+") clients: "+message);
-    	
-		Collection<AsyncResponse> clients = new ArrayList<>(responses.values());
-		for (AsyncResponse response : clients) {
-			response.resume(Arrays.asList(message));
-		}
+      Ivy.log().debug("send online:" + message);
+      onlineReceiver.resume(Arrays.asList(message));
     }
-	
-	@GET
-	@Path("/users")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<String> onlineUsers()
-	{
-		String myself = Ivy.session().getSessionUserName();
-		return responses.keySet().stream()
-				.filter(user -> !myself.equals(user))
-				.collect(Collectors.toList());
-	}
-	
-	@GET
-	@Path("/count")
-	@PermitAll
-	public int countClients()
-	{
-		return responses.size();
-	}
-	
+    else
+    {
+      Ivy.log().debug("store offline:" + message);
+      offlineMessages.putIfAbsent(receiver, new LinkedList<>());
+      offlineMessages.get(receiver).add(message);
+    }
+    return message;
+  }
+
+  @POST
+  @Consumes("text/plain")
+  @RolesAllowed("Boss")
+  public synchronized void writePublic(String messageText)
+  {
+    String sender = Ivy.session().getSessionUserName();
+    ChatMessage message = new ChatMessage(sender, "ALL", messageText);
+    Ivy.log().debug("send to (" + responses.size() + ") clients: " + message);
+
+    Collection<AsyncResponse> clients = new ArrayList<>(responses.values());
+    for (AsyncResponse response : clients)
+    {
+      response.resume(Arrays.asList(message));
+    }
+  }
+
+  @GET
+  @Path("/users")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<String> onlineUsers()
+  {
+    String myself = Ivy.session().getSessionUserName();
+    return responses.keySet().stream()
+            .filter(user -> !myself.equals(user))
+            .collect(Collectors.toList());
+  }
+
+  @GET
+  @Path("/count")
+  @PermitAll
+  public int countClients()
+  {
+    return responses.size();
+  }
+
 }

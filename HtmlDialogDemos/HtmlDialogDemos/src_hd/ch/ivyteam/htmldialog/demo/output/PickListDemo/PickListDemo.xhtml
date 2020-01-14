@@ -1,42 +1,41 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
-	<h:body>
-		<ui:composition template="/layouts/HtmlDemo.xhtml">
-            <ui:param name="centerHeader" value="PickList Demo" />
-            <ui:define name="breadcrumb">Output/PickList Demo</ui:define>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<h:body>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="PickList Demo" />
+    <ui:define name="breadcrumb">Output/PickList Demo</ui:define>
 
-			<ui:define name="content">
-				<h:form id="personListForm">
-					<h:panelGroup layout="block" id="persons">
-					<p>This demo explains how Lists can be used as data for an pick list widget.</p>
-						<p:pickList id="pickList" value="#{data.persons}" var="person" effect="slide"
-							itemLabel="#{person.name} #{person.firstname}" itemValue="#{person}" showSourceControls="true"
-							showTargetControls="true" showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains"
-							converter="ivy.ListItem">
-			
-							<f:facet name="sourceCaption">Available</f:facet>
-							<f:facet name="targetCaption">Selected</f:facet>
-			
-							<p:column>
-								<b>#{person.name}</b> #{person.firstname}
-							</p:column>
-						</p:pickList>
-						<br />
-                        <h:panelGrid>
-                            <p:commandButton  actionListener="#{logic.send}" value="Send" update="pickList, resultPanel" id="sendButton"/>
-                        </h:panelGrid>
-						<br />
-						<br />
-						<p:panelGrid columns="2" id="resultPanel">
-							<h:outputText>Available:</h:outputText>
-							<h:outputText>#{data.persons.source}</h:outputText>
-							
-							<h:outputText>Selected</h:outputText>
-							<h:outputText>#{data.persons.target}</h:outputText>
-						</p:panelGrid>
-					</h:panelGroup>
-				</h:form>
-			</ui:define>
-		</ui:composition>
-	</h:body>
+    <ui:define name="content">
+      <h:form id="personListForm">
+        <h:panelGroup layout="block" id="persons">
+          <p>This demo explains how Lists can be used as data for an pick list widget.</p>
+          <p:pickList id="pickList" value="#{data.persons}" var="person" effect="slide" itemLabel="#{person.name} #{person.firstname}"
+            itemValue="#{person}" showSourceControls="true" showTargetControls="true" showSourceFilter="true" showTargetFilter="true"
+            filterMatchMode="contains" converter="ivy.ListItem">
+
+            <f:facet name="sourceCaption">Available</f:facet>
+            <f:facet name="targetCaption">Selected</f:facet>
+
+            <p:column>
+              <b>#{person.name}</b> #{person.firstname}
+            </p:column>
+          </p:pickList>
+          <br />
+          <h:panelGrid>
+            <p:commandButton actionListener="#{logic.send}" value="Send" update="pickList, resultPanel" id="sendButton" />
+          </h:panelGrid>
+          <br />
+          <br />
+          <p:panelGrid columns="2" id="resultPanel">
+            <h:outputText>Available:</h:outputText>
+            <h:outputText>#{data.persons.source}</h:outputText>
+
+            <h:outputText>Selected</h:outputText>
+            <h:outputText>#{data.persons.target}</h:outputText>
+          </p:panelGrid>
+        </h:panelGroup>
+      </h:form>
+    </ui:define>
+  </ui:composition>
+</h:body>
 </html>

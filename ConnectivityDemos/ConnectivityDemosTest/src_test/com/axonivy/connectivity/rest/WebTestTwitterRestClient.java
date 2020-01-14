@@ -21,7 +21,7 @@ import com.codeborne.selenide.WebDriverRunner;
 
 public class WebTestTwitterRestClient
 {
-  
+
   private WebDriver driver;
 
   @BeforeEach
@@ -61,7 +61,7 @@ public class WebTestTwitterRestClient
     $(By.id("username_or_email")).shouldBe(visible).sendKeys("ivyTeamTester");
     $(By.xpath("//*[@type='password']")).shouldBe(visible).sendKeys("r2l6AmivZ0q9JgXYg7Fp");
     $(By.xpath("//*[@type='password']")).submit();
-    
+
     String verification = $(By.id("oauth_pin")).shouldBe(visible).find("code").shouldNotBe(empty).getText();
     driver.close(); // close twitter page
 

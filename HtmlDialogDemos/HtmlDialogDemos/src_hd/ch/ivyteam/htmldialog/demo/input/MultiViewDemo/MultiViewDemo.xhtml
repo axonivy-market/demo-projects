@@ -1,39 +1,36 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"      
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:ic="http://ivyteam.ch/jsf/component"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="http://primefaces.org/ui/extensions">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-      <ui:param name="centerHeader" value="Multi View Demo" />
-      <ui:define name="breadcrumb">Input/Multi View Demo</ui:define>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="Multi View Demo" />
+    <ui:define name="breadcrumb">Input/Multi View Demo</ui:define>
 
-	  <ui:define name="content">
-        <h:form id="myForm">
-        	<h:panelGroup layout="block" id="panel">
-        	<p>This demo explains how Html Dialog can be implemented using mutliple View (*.xhtml) files. This allows to hide the complexity of a complex user interaction from the business process. The user interaction is implemented fully in the Html Dialog.</p>
-    	 		<h3>Payment</h3>
-    	 		<p:messages id="msgs"/>
-	        	<h:panelGrid columns="2">
-	        	 	<p:outputLabel value="Name" for="Name"/>
-	        	 	<p:inputText required="true" value="#{data.name}" id="Name"></p:inputText>
-	        	 	<p:outputLabel value="First Name" for="FirstName"/>
-	        	 	<p:inputText required="true" value="#{data.firstName}" id="FirstName"></p:inputText>
-	        	 	<p:outputLabel value="Payment Kind" for="options"/>
-	        	 	<p:selectOneRadio id="options" value="#{data.paymentKind}">
-						<f:selectItem itemLabel="Invoice" itemValue="Invoice"/>
-						<f:selectItem itemLabel="Credit Card" itemValue="CreditCard"/>
-				   </p:selectOneRadio>  
-	        	</h:panelGrid>
-                <h:panelGrid>
-                    <p:commandButton value="Next" update="myForm" action="#{logic.nextView('MultiViewDemo')}" id="nextButton"/>
-                </h:panelGrid>
-	        </h:panelGroup>
-        </h:form>    	
-	</ui:define>
+    <ui:define name="content">
+      <h:form id="myForm">
+        <h:panelGroup layout="block" id="panel">
+          <p>This demo explains how Html Dialog can be implemented using mutliple View (*.xhtml) files. This allows to hide the complexity of a
+            complex user interaction from the business process. The user interaction is implemented fully in the Html Dialog.</p>
+          <h3>Payment</h3>
+          <p:messages id="msgs" />
+          <h:panelGrid columns="2">
+            <p:outputLabel value="Name" for="Name" />
+            <p:inputText required="true" value="#{data.name}" id="Name"></p:inputText>
+            <p:outputLabel value="First Name" for="FirstName" />
+            <p:inputText required="true" value="#{data.firstName}" id="FirstName"></p:inputText>
+            <p:outputLabel value="Payment Kind" for="options" />
+            <p:selectOneRadio id="options" value="#{data.paymentKind}">
+              <f:selectItem itemLabel="Invoice" itemValue="Invoice" />
+              <f:selectItem itemLabel="Credit Card" itemValue="CreditCard" />
+            </p:selectOneRadio>
+          </h:panelGrid>
+          <h:panelGrid>
+            <p:commandButton value="Next" update="myForm" action="#{logic.nextView('MultiViewDemo')}" id="nextButton" />
+          </h:panelGrid>
+        </h:panelGroup>
+      </h:form>
+    </ui:define>
 
-	</ui:composition>
+  </ui:composition>
 </h:body>
 </html>

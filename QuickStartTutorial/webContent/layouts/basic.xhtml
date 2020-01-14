@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:f="http://xmlns.jcp.org/jsf/core"
-  xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-  xmlns:ic="http://ivyteam.ch/jsf/component"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component"
   xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -19,8 +15,7 @@
     <div class="navbar navbar-top">
       <div class="container" id="headerdiv">
         <div class="navbar-header">
-		  <a class="ivy-logo" href="https://developer.axonivy.com">
-		  	<h:graphicImage name="layouts/images/axon_ivy_logo.svg" alt="Axon.ivy" />
+          <a class="ivy-logo" href="https://developer.axonivy.com"> <h:graphicImage name="layouts/images/axon_ivy_logo.svg" alt="Axon.ivy" />
           </a>
         </div>
       </div>
@@ -38,10 +33,10 @@
         <ui:include src="/layouts/includes/footer.xhtml" />
       </footer>
     </ui:insert>
-  
-  <ui:insert name="exception">
-    <ui:include src="/layouts/includes/exception.xhtml" />
-  </ui:insert>
+
+    <ui:insert name="exception">
+      <ui:include src="/layouts/includes/exception.xhtml" />
+    </ui:insert>
   </div>
 </h:body>
 </html>

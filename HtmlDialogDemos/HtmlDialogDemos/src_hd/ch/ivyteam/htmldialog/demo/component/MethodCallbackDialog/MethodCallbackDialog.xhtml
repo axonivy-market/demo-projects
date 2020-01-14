@@ -1,39 +1,32 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-      <ui:param name="centerHeader" value="Component Callback Demo" />
-      <ui:define name="breadcrumb">Component/Component Callback Demo</ui:define>
-	
-	  <ui:define name="content">
-		<h:outputStylesheet name="demoStyle.css"/>
-		
-		<h:form id="componentForm">
-		<h:panelGroup layout="block" id="panel" style="width:930px">
-			<p>This demo explains how callbacks can be registered
-			to react on actions within a component.<br /></p>
-			<ul>
-				<li>Click on a person in the list below to trigger a callback.</li>
-				<li>Click on the fire button to trigger a callback.</li>
-			</ul>
-        	<p:fieldset legend="Component with callback">
-	            <ic:ch.ivyteam.htmldialog.demo.component.DetailListComponent 
-	            	startMethod="start"
-	            	persons="#{data.persons}"
-	            	tableRowSelected="#{logic.componentTableRowSelected}"
-	            	buttonClicked="#{logic.componentButtonClicked}" id="detailListComponent"
-	            />
-            </p:fieldset>
-            
-            <!-- Display the selection result: -->
-            <p:growl showDetail="true" id="selectionResult"/>
-	     </h:panelGroup>	
-	     </h:form>
-     </ui:define>
-     </ui:composition>
-    </h:body>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="Component Callback Demo" />
+    <ui:define name="breadcrumb">Component/Component Callback Demo</ui:define>
+
+    <ui:define name="content">
+      <h:outputStylesheet name="demoStyle.css" />
+
+      <h:form id="componentForm">
+        <h:panelGroup layout="block" id="panel" style="width:930px">
+          <p>
+            This demo explains how callbacks can be registered to react on actions within a component.<br />
+          </p>
+          <ul>
+            <li>Click on a person in the list below to trigger a callback.</li>
+            <li>Click on the fire button to trigger a callback.</li>
+          </ul>
+          <p:fieldset legend="Component with callback">
+            <ic:ch.ivyteam.htmldialog.demo.component.DetailListComponent startMethod="start" persons="#{data.persons}"
+              tableRowSelected="#{logic.componentTableRowSelected}" buttonClicked="#{logic.componentButtonClicked}" id="detailListComponent" />
+          </p:fieldset>
+
+          <!-- Display the selection result: -->
+          <p:growl showDetail="true" id="selectionResult" />
+        </h:panelGroup>
+      </h:form>
+    </ui:define>
+  </ui:composition>
+</h:body>
 </html>

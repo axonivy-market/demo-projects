@@ -1,56 +1,60 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"      
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
 
-      <ui:param name="centerHeader" value="Editable Table Demo" />
-      <ui:define name="breadcrumb">Output/Editable Table Demo</ui:define>
-  
-  	  <ui:define name="content">
-     	<h:form id="form">
-		   	<h:panelGroup id="persons" layout="block">
-		   	<p>This demo explains how a Recordset can be used as data for an editable table widget.</p>
-	 			<p:dataTable var="person" value="#{data.recordset}" sortBy="#{person.name}" sortOrder="descending" editable="true" id="personTable" style="width:900px">
-	 			  <p:column headerText="Name" sortBy="#{person.name}">
-	 			    <p:cellEditor>
-	 			      <f:facet name="output"><h:outputText value="#{person['Name']}" style="font-weight:bold" /></f:facet>
-	 			      <f:facet name="input"><h:inputText value="#{person['Name']}" id="inputName" style="color:black;font-weight:bold"/></f:facet>
-	 			    </p:cellEditor>
-	 			  </p:column>
-	 			  <p:column headerText="First Name" sortBy="#{person.firstname}">
-	 			    <p:cellEditor>
-	 			      <f:facet name="output"><h:outputText value="#{person['Firstname']}"/></f:facet>
-	 			      <f:facet name="input"><h:inputText value="#{person['Firstname']}" id="inputFirstName" style="color:black"/></f:facet>
-	 			    </p:cellEditor>
-	 			  </p:column>
-	 			  <p:column headerText="Controls" style="width:5em;">
-	 			    <p:rowEditor id="rowEditor" />
-         			<p:commandLink actionListener="#{logic.delete(person)}"
-                    	update=":form:persons"
-                    	title="Delete" id="deleteButton"> 
-                      <span class="ui-icon ui-icon-trash"/>
- 	                </p:commandLink> 
-	 			  </p:column>
-			      <f:facet name="footer">
-                    <p:outputLabel value="footer" style="color:transparent" />
-         			<p:commandLink title="Add" actionListener="#{logic.add}" update=":form:persons" style="float:right" id="addButton">
-         			  <span class="ui-icon ui-icon-plusthick"/>
-         			</p:commandLink>
-     			  </f:facet>
-	 			</p:dataTable>
-	 			<br/>
-                <h:panelGrid>
-                    <p:commandButton actionListener="#{logic.send}" value="Send" update="persons" />
-                </h:panelGrid>
-	 			<br/>
-	 			<h:outputText value="Data: #{data.recordset}"/>
-	   		</h:panelGroup>	
-   		</h:form>
-	</ui:define>
+    <ui:param name="centerHeader" value="Editable Table Demo" />
+    <ui:define name="breadcrumb">Output/Editable Table Demo</ui:define>
 
-	</ui:composition>
+    <ui:define name="content">
+      <h:form id="form">
+        <h:panelGroup id="persons" layout="block">
+          <p>This demo explains how a Recordset can be used as data for an editable table widget.</p>
+          <p:dataTable var="person" value="#{data.recordset}" sortBy="#{person.name}" sortOrder="descending" editable="true" id="personTable"
+            style="width:900px">
+            <p:column headerText="Name" sortBy="#{person.name}">
+              <p:cellEditor>
+                <f:facet name="output">
+                  <h:outputText value="#{person['Name']}" style="font-weight:bold" />
+                </f:facet>
+                <f:facet name="input">
+                  <h:inputText value="#{person['Name']}" id="inputName" style="color:black;font-weight:bold" />
+                </f:facet>
+              </p:cellEditor>
+            </p:column>
+            <p:column headerText="First Name" sortBy="#{person.firstname}">
+              <p:cellEditor>
+                <f:facet name="output">
+                  <h:outputText value="#{person['Firstname']}" />
+                </f:facet>
+                <f:facet name="input">
+                  <h:inputText value="#{person['Firstname']}" id="inputFirstName" style="color:black" />
+                </f:facet>
+              </p:cellEditor>
+            </p:column>
+            <p:column headerText="Controls" style="width:5em;">
+              <p:rowEditor id="rowEditor" />
+              <p:commandLink actionListener="#{logic.delete(person)}" update=":form:persons" title="Delete" id="deleteButton">
+                <span class="ui-icon ui-icon-trash" />
+              </p:commandLink>
+            </p:column>
+            <f:facet name="footer">
+              <p:outputLabel value="footer" style="color:transparent" />
+              <p:commandLink title="Add" actionListener="#{logic.add}" update=":form:persons" style="float:right" id="addButton">
+                <span class="ui-icon ui-icon-plusthick" />
+              </p:commandLink>
+            </f:facet>
+          </p:dataTable>
+          <br />
+          <h:panelGrid>
+            <p:commandButton actionListener="#{logic.send}" value="Send" update="persons" />
+          </h:panelGrid>
+          <br />
+          <h:outputText value="Data: #{data.recordset}" />
+        </h:panelGroup>
+      </h:form>
+    </ui:define>
+
+  </ui:composition>
 </h:body>
 </html>

@@ -1,11 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:jc="http://java.sun.com/jsf/composite/demo-jsfcomponents">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:cc="http://xmlns.jcp.org/jsf/composite" xmlns:ic="http://ivyteam.ch/jsf/component"
+  xmlns:p="http://primefaces.org/ui" xmlns:jc="http://java.sun.com/jsf/composite/demo-jsfcomponents">
 
 <!--
 This is a standard JSF Composite Component without Data and Logic.
@@ -15,37 +10,35 @@ In the interface it is possible to define attributes for the view.
 This attributes can be accessed by the el expression cc.attrs.attributeName.
 -->
 <cc:interface>
-	<cc:attribute name="person" type="ch.ivyteam.htmldialog.demo.Person"></cc:attribute>
+  <cc:attribute name="person" type="ch.ivyteam.htmldialog.demo.Person"></cc:attribute>
 </cc:interface>
 <cc:implementation>
-	<p:fieldset legend="Person JSF Component">
-		<h:form>
-			<h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
-				<p:outputLabel value="First Name" for="firstname" />
-				<p:inputText value="#{cc.attrs.person.firstname}" id="firstname" />
-				<p:outputLabel value="Last Name" for="lastname" />
-				<p:inputText value="#{cc.attrs.person.name}" id="lastname" />
+  <p:fieldset legend="Person JSF Component">
+    <h:form>
+      <h:panelGrid columns="2" cellpadding="2" columnClasses="label-top">
+        <p:outputLabel value="First Name" for="firstname" />
+        <p:inputText value="#{cc.attrs.person.firstname}" id="firstname" />
+        <p:outputLabel value="Last Name" for="lastname" />
+        <p:inputText value="#{cc.attrs.person.name}" id="lastname" />
 
-				<!--
-				Here a standard JSF Composite Component (AddressJsfComponent) is included for the delivery address. (see 'webContent/resources/demo-jsfcomponents/AddressJsfComponent.xhtml')
-				Attributes 'address' and 'label' for the Address Component are specified.
-				-->
-				<jc:AddressJsfComponent label="Delivery Address"
-					address="#{cc.attrs.person.deliveryAddress}">
-				</jc:AddressJsfComponent>
+        <!--
+        Here a standard JSF Composite Component (AddressJsfComponent) is included for the delivery address. (see 'webContent/resources/demo-jsfcomponents/AddressJsfComponent.xhtml')
+        Attributes 'address' and 'label' for the Address Component are specified.
+        -->
+        <jc:AddressJsfComponent label="Delivery Address" address="#{cc.attrs.person.deliveryAddress}">
+        </jc:AddressJsfComponent>
 
-				<!--
-				Here standard JSF Composite Component (AddressJsfComponent) is included for the billing address.  (see 'webContent/resources/demo-jsfcomponents/AddressJsfComponent.xhtml')
-				Attributes 'address' and 'label' for the Address Component are specified.
-				-->
-				<jc:AddressJsfComponent label="Billing Address"
-					address="#{cc.attrs.person.billingAddress}">
-				</jc:AddressJsfComponent>
-			</h:panelGrid>
-            <h:panelGrid>
-                <p:commandButton value="Submit" update="@all"/>
-            </h:panelGrid>
-		</h:form>
-	</p:fieldset>
+        <!--
+        Here standard JSF Composite Component (AddressJsfComponent) is included for the billing address.  (see 'webContent/resources/demo-jsfcomponents/AddressJsfComponent.xhtml')
+        Attributes 'address' and 'label' for the Address Component are specified.
+        -->
+        <jc:AddressJsfComponent label="Billing Address" address="#{cc.attrs.person.billingAddress}">
+        </jc:AddressJsfComponent>
+      </h:panelGrid>
+      <h:panelGrid>
+        <p:commandButton value="Submit" update="@all" />
+      </h:panelGrid>
+    </h:form>
+  </p:fieldset>
 </cc:implementation>
 </html>

@@ -77,10 +77,10 @@ public class Person
   public int hashCode()
   {
     return new HashCodeBuilder()
-      .append(id)
-      .append(firstname)
-      .append(lastname)
-      .toHashCode();
+            .append(id)
+            .append(firstname)
+            .append(lastname)
+            .toHashCode();
   }
 
   @Override

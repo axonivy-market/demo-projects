@@ -1,70 +1,55 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title">BusinessDataDossierBrowser</ui:define>
-		<ui:define name="content">
-			<h3>Browse Dossiers (Lazy loaded)</h3>
+  <ui:composition template="/layouts/basic.xhtml">
+    <ui:define name="title">BusinessDataDossierBrowser</ui:define>
+    <ui:define name="content">
+      <h3>Browse Dossiers (Lazy loaded)</h3>
 
-			<h:form>
-				<h:panelGrid columns="2">
-					<p:outputPanel id="searchBox">
-						<p:inputText value="#{data.dossierModel.wordsFilter}"
-							placeholder="Ask me anything" size="40">
-							<p:ajax event="keyup" delay="200" update=":dossierTable" />
-						</p:inputText>
-					</p:outputPanel>
-					<p:commandButton icon="ui-icon-search" value="Search" update=":dossierTable" />
-				</h:panelGrid>
-			</h:form>
+      <h:form>
+        <h:panelGrid columns="2">
+          <p:outputPanel id="searchBox">
+            <p:inputText value="#{data.dossierModel.wordsFilter}" placeholder="Ask me anything" size="40">
+              <p:ajax event="keyup" delay="200" update=":dossierTable" />
+            </p:inputText>
+          </p:outputPanel>
+          <p:commandButton icon="ui-icon-search" value="Search" update=":dossierTable" />
+        </h:panelGrid>
+      </h:form>
 
-			<p:dataTable var="dossier" value="#{data.dossierModel}"
-				rowIndexVar="rowIndex" id="dossierTable" paginator="true"
-				paginatorPosition="bottom" rows="5"
-				paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-				currentPageReportTemplate="{startRecord} - {endRecord} of {totalRecords}"
-				rowsPerPageTemplate="5,10,15,25,50,100" lazy="true"
-				sortBy="#{dossier.name.ascii}">
-				<p:column headerText="Dossier Name" sortBy="#{dossier.name.ascii}">
-					<h:outputText value="#{dossier.name}" />
-				</p:column>
-				<p:column headerText="Person"
-					sortBy="#{dossier.person.lastName.ascii}">
-					<h:outputText value="#{dossier.person.firstName} " />
-					<h:outputText value="#{dossier.person.lastName}" />
-				</p:column>
-				<p:column headerText="Birthdate"
-					sortBy="#{dossier.person.birthDate}">
-					<h:outputText value="#{dossier.person.birthDate}" />
-				</p:column>
-				<p:column headerText="Address"
-					sortBy="#{dossier.person.address.city}">
-					<h:outputText value="#{dossier.person.address.zip} " />
-					<h:outputText value="#{dossier.person.address.city}" />
-				</p:column>
-				<p:column headerText="Country"
-					sortBy="#{dossier.person.address.country}">
-					<h:outputText value="#{dossier.person.address.country}" />
-				</p:column>
-				<p:column headerText="Operations">
-					<p:link value="edit"
-						href="#{ivy.html.startref('155BB4328F79B2D5/edit.ivp')}?id=#{ivy.repo.getId(dossier)}" />
-					<br />
-					<p:link value="delete"
-						href="#{ivy.html.startref('155BB4328F79B2D5/delete.ivp')}?id=#{ivy.repo.getId(dossier)}" />
-					<br />
-					<p:link value="verification process"
-						href="#{ivy.html.startref('156E5D9AA7D41BAA/verifyDossier.ivp')}?id=#{ivy.repo.getId(dossier)}" />
-				</p:column>
+      <p:dataTable var="dossier" value="#{data.dossierModel}" rowIndexVar="rowIndex" id="dossierTable" paginator="true" paginatorPosition="bottom"
+        rows="5" paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+        currentPageReportTemplate="{startRecord} - {endRecord} of {totalRecords}" rowsPerPageTemplate="5,10,15,25,50,100" lazy="true"
+        sortBy="#{dossier.name.ascii}">
+        <p:column headerText="Dossier Name" sortBy="#{dossier.name.ascii}">
+          <h:outputText value="#{dossier.name}" />
+        </p:column>
+        <p:column headerText="Person" sortBy="#{dossier.person.lastName.ascii}">
+          <h:outputText value="#{dossier.person.firstName} " />
+          <h:outputText value="#{dossier.person.lastName}" />
+        </p:column>
+        <p:column headerText="Birthdate" sortBy="#{dossier.person.birthDate}">
+          <h:outputText value="#{dossier.person.birthDate}" />
+        </p:column>
+        <p:column headerText="Address" sortBy="#{dossier.person.address.city}">
+          <h:outputText value="#{dossier.person.address.zip} " />
+          <h:outputText value="#{dossier.person.address.city}" />
+        </p:column>
+        <p:column headerText="Country" sortBy="#{dossier.person.address.country}">
+          <h:outputText value="#{dossier.person.address.country}" />
+        </p:column>
+        <p:column headerText="Operations">
+          <p:link value="edit" href="#{ivy.html.startref('155BB4328F79B2D5/edit.ivp')}?id=#{ivy.repo.getId(dossier)}" />
+          <br />
+          <p:link value="delete" href="#{ivy.html.startref('155BB4328F79B2D5/delete.ivp')}?id=#{ivy.repo.getId(dossier)}" />
+          <br />
+          <p:link value="verification process" href="#{ivy.html.startref('156E5D9AA7D41BAA/verifyDossier.ivp')}?id=#{ivy.repo.getId(dossier)}" />
+        </p:column>
 
-			</p:dataTable>
+      </p:dataTable>
 
-		</ui:define>
-	</ui:composition>
+    </ui:define>
+  </ui:composition>
 </h:body>
 </html>

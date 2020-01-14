@@ -1,51 +1,49 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"      
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-      <ui:param name="centerHeader" value="SelectOneMenu Demo" />
-      <ui:define name="breadcrumb">Output/SelectOneMenu Demo</ui:define>
-      
-	  <ui:define name="content">
-     	<h:form id="demoForm">
-		   	<h:panelGroup layout="block" id="persons">
-		   	<p>This demo explains how a select one menu widget can be used with mixed data source items. 
-		   	<br/> 
-		   	If the dataset is huge or does not fully exist at the beginning the <a href="#{ivy.html.startref('Output/AutoCompleteDemo.ivp')}">AutoComplete</a> widget could be a good choice.</p>
-	 			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-	 			
-		 			<p:outputLabel for="basic" value="Basic:" />
-		 			<p:selectOneMenu id="basic" value="#{data.selectedPerson}" converter="ivy.ListItem" style="width:180px" >  
-	 		        	<f:selectItem itemLabel="Select One" itemValue="" />  
-		 				<f:selectItems value="#{data.persons}" var="it" itemValue="#{it}" itemLabel="#{it.firstname} #{it.name}"></f:selectItems>
-		 				<f:selectItems value="#{data.morePersons}" var="it" itemValue="#{it}" itemLabel="#{it.firstname} #{it.name}"></f:selectItems>
-		 				<f:selectItem itemValue="#{data.onePerson}" itemLabel="#{data.onePerson.firstname} #{data.onePerson.name}" ></f:selectItem>
-	        		</p:selectOneMenu>
-	        		
-	        		<p:outputLabel for="advance" value="Advanced:" />
-		 			<p:selectOneMenu id="advance" value="#{data.advanceSelectedPerson}" converter="ivy.ListItem" filter="true" filterMatchMode="contains" >  
-	 		        	<f:selectItem itemLabel="Select One" itemValue="" />  
-		 				<f:selectItems value="#{data.persons}" var="it" itemValue="#{it}" itemLabel="#{it.firstname} #{it.name}"></f:selectItems>
-		 				<f:selectItems value="#{data.morePersons}" var="it" itemValue="#{it}" itemLabel="#{it.firstname} #{it.name}"></f:selectItems>
-		 				<f:selectItem itemValue="#{data.onePerson}" itemLabel="#{data.onePerson.firstname} #{data.onePerson.name}" ></f:selectItem>
-	        		</p:selectOneMenu>
-	        		
-        		</h:panelGrid>
-	 			<br/>
-                  <h:panelGrid>
-                      <p:commandButton actionListener="#{logic.send}" value="Send" update="persons" id="sendButton"/>
-                  </h:panelGrid>
-	 			<br/>
-	 			<br/>
-	 			<h:outputText value="Basic Person: #{data.selectedPerson}" id="outputBasicSelects"/>
-	 			<br/>
-	 			<h:outputText value="Advanced Person: #{data.advanceSelectedPerson}" id="outputAdvancedSelects"/>
-	   		</h:panelGroup>   		
-   		</h:form>
-	</ui:define>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="SelectOneMenu Demo" />
+    <ui:define name="breadcrumb">Output/SelectOneMenu Demo</ui:define>
 
-	</ui:composition>
+    <ui:define name="content">
+      <h:form id="demoForm">
+        <h:panelGroup layout="block" id="persons">
+          <p>
+            This demo explains how a select one menu widget can be used with mixed data source items. <br /> If the dataset is huge or does not fully
+            exist at the beginning the <a href="#{ivy.html.startref('Output/AutoCompleteDemo.ivp')}">AutoComplete</a> widget could be a good choice.
+          </p>
+          <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+            <p:outputLabel for="basic" value="Basic:" />
+            <p:selectOneMenu id="basic" value="#{data.selectedPerson}" converter="ivy.ListItem" style="width:180px">
+              <f:selectItem itemLabel="Select One" itemValue="" />
+              <f:selectItems value="#{data.persons}" var="it" itemValue="#{it}" itemLabel="#{it.firstname} #{it.name}"></f:selectItems>
+              <f:selectItems value="#{data.morePersons}" var="it" itemValue="#{it}" itemLabel="#{it.firstname} #{it.name}"></f:selectItems>
+              <f:selectItem itemValue="#{data.onePerson}" itemLabel="#{data.onePerson.firstname} #{data.onePerson.name}"></f:selectItem>
+            </p:selectOneMenu>
+
+            <p:outputLabel for="advance" value="Advanced:" />
+            <p:selectOneMenu id="advance" value="#{data.advanceSelectedPerson}" converter="ivy.ListItem" filter="true" filterMatchMode="contains">
+              <f:selectItem itemLabel="Select One" itemValue="" />
+              <f:selectItems value="#{data.persons}" var="it" itemValue="#{it}" itemLabel="#{it.firstname} #{it.name}"></f:selectItems>
+              <f:selectItems value="#{data.morePersons}" var="it" itemValue="#{it}" itemLabel="#{it.firstname} #{it.name}"></f:selectItems>
+              <f:selectItem itemValue="#{data.onePerson}" itemLabel="#{data.onePerson.firstname} #{data.onePerson.name}"></f:selectItem>
+            </p:selectOneMenu>
+
+          </h:panelGrid>
+          <br />
+          <h:panelGrid>
+            <p:commandButton actionListener="#{logic.send}" value="Send" update="persons" id="sendButton" />
+          </h:panelGrid>
+          <br />
+          <br />
+          <h:outputText value="Basic Person: #{data.selectedPerson}" id="outputBasicSelects" />
+          <br />
+          <h:outputText value="Advanced Person: #{data.advanceSelectedPerson}" id="outputAdvancedSelects" />
+        </h:panelGroup>
+      </h:form>
+    </ui:define>
+
+  </ui:composition>
 </h:body>
 </html>

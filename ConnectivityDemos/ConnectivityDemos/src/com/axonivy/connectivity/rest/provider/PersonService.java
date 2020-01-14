@@ -28,148 +28,158 @@ import org.apache.commons.lang3.StringUtils;
 import com.axonivy.connectivity.Person;
 
 /**
- * Simple RESTful service. The REST interface is defined by the JAX-RS annotations on the methods and its path.<br/>
+ * Simple RESTful service. The REST interface is defined by the JAX-RS
+ * annotations on the methods and its path.<br/>
  * 
- * <p><b>URL</b><br/>
+ * <p>
+ * <b>URL</b><br/>
  * The simplest external URL of this service will be: <br/>
  * - designer: <code>http://localhost:8081/ivy/api/designer/persons</code><br/>
- * - engine: <code>http://localhost:8081/ivy/api/myApplicationName/persons</code>
+ * - engine:
+ * <code>http://localhost:8081/ivy/api/myApplicationName/persons</code>
  * </p>
  * 
- * <p><b>Authentication</b><br/>
- * - Consumers of this service must be authenticated with HTTP-BASIC. In the Designer any 'Test User' of the application is valid.</p>
+ * <p>
+ * <b>Authentication</b><br/>
+ * - Consumers of this service must be authenticated with HTTP-BASIC. In the
+ * Designer any 'Test User' of the application is valid.
+ * </p>
  * 
  * @since 6.1.1
  */
 @Singleton
 @Path("persons")
-public class PersonService {
+public class PersonService
+{
 
-	private Map<UUID, Person> persons = new HashMap<UUID, Person>();
-	
-	public PersonService()
-	{
-		addNewPerson("Bruno", "Bütler");
-		addNewPerson("Reto", "Weiss");
-		addNewPerson("Renato", "Stalder");
-		addNewPerson("Reguel", "Wermelinger");
-	}
-	
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Person> getPersons(@QueryParam("name") String name)
-	{
-		List<Person> result;
-		if (StringUtils.isBlank(name))
-		{
-			result = new ArrayList<>(persons.values());
-		}
-		else
-		{
-			result = findPersons(name);
-		}
-		return result;
-	}
+  private Map<UUID, Person> persons = new HashMap<UUID, Person>();
 
-	private List<Person> findPersons(String name) {
-		List<Person> matches = new ArrayList<>();
-		for(Person candidate : persons.values())
-		{
-			if (candidate.getFirstname().contains(name) ||
-				candidate.getLastname().contains(name))
-			{
-				matches.add(candidate);
-			}
-		}
-		return matches;
-	}
-	
-	@GET @Path("/{entryNo}")
-	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-	public Response getPerson(@PathParam("entryNo") int entryNo)
-	{
-		try
-		{
-			UUID personId = new ArrayList<>(persons.keySet()).get(entryNo);
-			return Response.status(Status.OK)
-						.entity(persons.get(personId))
-						.build();
-		} 
-		catch (IndexOutOfBoundsException ex)
-		{
-			return Response.status(Status.NOT_FOUND).build();
-		}
-	}
-	
-	@PUT
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response add(@FormParam("firstname") String firstname, @FormParam("lastname") String lastname)
-	{
-		Person person = addNewPerson(firstname, lastname);
-		Link createdLink = Link.fromPath("persons/{id}").rel("createdPerson").build(person.getId());
-		return Response.status(Status.CREATED)
-					.location(createdLink.getUri())
-					.links(createdLink)
-					.entity(new CreatedPersonMeta(person.getId()))
-					.build();
-	}
-	
-	public static class CreatedPersonMeta
-	{
-		public final UUID id;
-		public final Calendar createdAt;
-		
-		private CreatedPersonMeta(UUID uuid)
-		{
-			this.id = uuid;
-			this.createdAt = Calendar.getInstance();
-		}
-	}
-	
-	
-	@DELETE @Path("/{personId}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response deletePerson(@PathParam("personId") UUID personId)
-	{
-		try
-		{
-			Person deleted = persons.remove(personId);
-			return Response.status(Status.OK)
-					.entity(deleted)
-					.build();
-		} 
-		catch (IndexOutOfBoundsException ex)
-		{
-			return Response.status(Status.NOT_FOUND).build();
-		}
-	}
-	
-	@POST @Path("/{personId}")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response update(@PathParam("personId") UUID personId, Person person)
-	{
-		try
-		{
-			Person existing = persons.get(personId);
-			persons.replace(existing.getId(), person);
-			return Response.status(Status.OK)
-					.build();
-		} 
-		catch (IndexOutOfBoundsException ex)
-		{
-			return Response.status(Status.NOT_FOUND)
-					.entity("user with id '"+personId+"' does not exist.")
-					.build();
-		}
-	}
-	
-	private Person addNewPerson(String firstname, String lastname) 
-	{
-		Person person = new Person();
-		person.setFirstname(firstname);
-		person.setLastname(lastname);
-		person.setId(UUID.randomUUID());
-		persons.put(person.getId(), person);
-		return person;
-	}
+  public PersonService()
+  {
+    addNewPerson("Bruno", "Bütler");
+    addNewPerson("Reto", "Weiss");
+    addNewPerson("Renato", "Stalder");
+    addNewPerson("Reguel", "Wermelinger");
+  }
+
+  @GET
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Person> getPersons(@QueryParam("name") String name)
+  {
+    List<Person> result;
+    if (StringUtils.isBlank(name))
+    {
+      result = new ArrayList<>(persons.values());
+    }
+    else
+    {
+      result = findPersons(name);
+    }
+    return result;
+  }
+
+  private List<Person> findPersons(String name)
+  {
+    List<Person> matches = new ArrayList<>();
+    for (Person candidate : persons.values())
+    {
+      if (candidate.getFirstname().contains(name) ||
+              candidate.getLastname().contains(name))
+      {
+        matches.add(candidate);
+      }
+    }
+    return matches;
+  }
+
+  @GET
+  @Path("/{entryNo}")
+  @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+  public Response getPerson(@PathParam("entryNo") int entryNo)
+  {
+    try
+    {
+      UUID personId = new ArrayList<>(persons.keySet()).get(entryNo);
+      return Response.status(Status.OK)
+              .entity(persons.get(personId))
+              .build();
+    }
+    catch (IndexOutOfBoundsException ex)
+    {
+      return Response.status(Status.NOT_FOUND).build();
+    }
+  }
+
+  @PUT
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response add(@FormParam("firstname") String firstname, @FormParam("lastname") String lastname)
+  {
+    Person person = addNewPerson(firstname, lastname);
+    Link createdLink = Link.fromPath("persons/{id}").rel("createdPerson").build(person.getId());
+    return Response.status(Status.CREATED)
+            .location(createdLink.getUri())
+            .links(createdLink)
+            .entity(new CreatedPersonMeta(person.getId()))
+            .build();
+  }
+
+  public static class CreatedPersonMeta
+  {
+    public final UUID id;
+    public final Calendar createdAt;
+
+    private CreatedPersonMeta(UUID uuid)
+    {
+      this.id = uuid;
+      this.createdAt = Calendar.getInstance();
+    }
+  }
+
+  @DELETE
+  @Path("/{personId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response deletePerson(@PathParam("personId") UUID personId)
+  {
+    try
+    {
+      Person deleted = persons.remove(personId);
+      return Response.status(Status.OK)
+              .entity(deleted)
+              .build();
+    }
+    catch (IndexOutOfBoundsException ex)
+    {
+      return Response.status(Status.NOT_FOUND).build();
+    }
+  }
+
+  @POST
+  @Path("/{personId}")
+  @Consumes(MediaType.APPLICATION_JSON)
+  public Response update(@PathParam("personId") UUID personId, Person person)
+  {
+    try
+    {
+      Person existing = persons.get(personId);
+      persons.replace(existing.getId(), person);
+      return Response.status(Status.OK)
+              .build();
+    }
+    catch (IndexOutOfBoundsException ex)
+    {
+      return Response.status(Status.NOT_FOUND)
+              .entity("user with id '" + personId + "' does not exist.")
+              .build();
+    }
+  }
+
+  private Person addNewPerson(String firstname, String lastname)
+  {
+    Person person = new Person();
+    person.setFirstname(firstname);
+    person.setLastname(lastname);
+    person.setId(UUID.randomUUID());
+    persons.put(person.getId(), person);
+    return person;
+  }
 }

@@ -1,47 +1,42 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:ic="http://ivyteam.ch/jsf/component" xmlns:p="http://primefaces.org/ui"
+  xmlns:pe="http://primefaces.org/ui/extensions">
 
 <h:body>
-	<ui:composition template="/layouts/HtmlDemo.xhtml">
-      <ui:param name="centerHeader" value="Auto Complete Demo" />
-      <ui:define name="breadcrumb">Output/Auto Complete Demo</ui:define>
+  <ui:composition template="/layouts/HtmlDemo.xhtml">
+    <ui:param name="centerHeader" value="Auto Complete Demo" />
+    <ui:define name="breadcrumb">Output/Auto Complete Demo</ui:define>
 
-	  <ui:define name="content">
-			<h:panelGroup layout="block">
-				<p>This demo explains how to implement an AutoComplete widget. The AutoComplete widget is useful for searching through 
-				datasets where the search result is provided by process logic (e.g. to call a Web Service).
-				<br/>
-				If the full dataset is available at the beginning the <a href="#{ivy.html.startref('Output/SelectOneMenuDemo.ivp')}">Select One Menu</a> widget could also be a good choice.
-				<br/>
-				<br/>
-				To try out the AutoComplete widget, you can use the demo users. (demoUser1, demoUser2 and demoUser3)</p>
-				<h:form id="Form">
-				    <p:growl id="msgs" showDetail="true" />
-				    <h:panelGrid columns="2" cellpadding="5">
-				    
-				        <p:outputLabel value="Select user via AJAX event:" for="event" />
-				        <p:autoComplete id="event" value="#{data.selectedUserId}" completeMethod="#{logic.searchUsers}" var="user" itemLabel="#{user.name}" itemValue="#{user.id.toString()}" 
-				        	forceSelection="true" dropdown="true">
-				        </p:autoComplete>
-				        
-				        <p:outputLabel value="Select user via FacesConverter:" for="converter" />
-				        <p:autoComplete id="converter" value="#{data.selectedUserViaFacesConverter}" completeMethod="#{logic.searchUsers}" var="user" itemLabel="#{user.name}" itemValue="#{user}" 
-				        	forceSelection="true" converter="userConverter" dropdown="true" dropdownMode="current"/>
-				        	
-				    </h:panelGrid> 
-	 			<br/>
-                <h:panelGrid>
-                    <p:commandButton actionListener="#{logic.send}" value="Send" update="msgs" id="sendButton"/>
-                </h:panelGrid>
-				</h:form>
-			</h:panelGroup>
-	  </ui:define>
+    <ui:define name="content">
+      <h:panelGroup layout="block">
+        <p>
+          This demo explains how to implement an AutoComplete widget. The AutoComplete widget is useful for searching through datasets where the
+          search result is provided by process logic (e.g. to call a Web Service). <br /> If the full dataset is available at the beginning the <a
+            href="#{ivy.html.startref('Output/SelectOneMenuDemo.ivp')}">Select One Menu</a> widget could also be a good choice. <br /> <br /> To try
+          out the AutoComplete widget, you can use the demo users. (demoUser1, demoUser2 and demoUser3)
+        </p>
+        <h:form id="Form">
+          <p:growl id="msgs" showDetail="true" />
+          <h:panelGrid columns="2" cellpadding="5">
 
-	</ui:composition>
+            <p:outputLabel value="Select user via AJAX event:" for="event" />
+            <p:autoComplete id="event" value="#{data.selectedUserId}" completeMethod="#{logic.searchUsers}" var="user" itemLabel="#{user.name}"
+              itemValue="#{user.id.toString()}" forceSelection="true" dropdown="true">
+            </p:autoComplete>
+
+            <p:outputLabel value="Select user via FacesConverter:" for="converter" />
+            <p:autoComplete id="converter" value="#{data.selectedUserViaFacesConverter}" completeMethod="#{logic.searchUsers}" var="user"
+              itemLabel="#{user.name}" itemValue="#{user}" forceSelection="true" converter="userConverter" dropdown="true" dropdownMode="current" />
+
+          </h:panelGrid>
+          <br />
+          <h:panelGrid>
+            <p:commandButton actionListener="#{logic.send}" value="Send" update="msgs" id="sendButton" />
+          </h:panelGrid>
+        </h:form>
+      </h:panelGroup>
+    </ui:define>
+
+  </ui:composition>
 </h:body>
 </html>

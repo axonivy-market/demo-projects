@@ -1,84 +1,73 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
 <h:body>
   <ui:composition template="/layouts/HtmlDemo.xhtml">
     <ui:param name="centerHeader" value="AJAX Method Call Demo" />
     <ui:define name="breadcrumb">Other/AJAX Method Call Demo</ui:define>
 
-	<ui:define name="content">
-	<h:panelGroup layout="block" id="panel">
-		<p>This demo explains how:</p>
-		<ul>
-			<li>Methods of a dialog can be called without using JSF.</li>
-			<li>This can be used to integrate JavaScript libraries like
-			jQuery, D3 or Raphael with the Axon.ivy backend.</li>
-		</ul>
-		<h4>AJAX Method Call</h4>
-		<p>
-		When pressing the "Say Hello" Button the helloWold() Method of the Dialog will be called. The result of the call will be written to in the result element below.
-		</p>
-		<p>
-		This is only a simple example how to use the Ajax Method Call API. We suggest to use this API to integrate client side Ajax Libraries into Axon.ivy.
-		</p>
-		<p>
-		If you do not want to integrate a JavaScript Library then you should use the JSF options for asynchronous Requests.   
-		</p>
-		<br />
-    <h:panelGrid>
-      <p:commandButton value="Say Hello" id="hello"/>
-    </h:panelGrid>
-    <br />
-    	Result: <span id="result"></span>
-    	
-    	<hr/>
-    	<h4>Close Dialog</h4>
-		<p>
-		If your dialog logic runs in an exit end, you get redirected to the next page in line. <br/>
-		Click on Close Dialog to get redirected:<br/>
-		<br />
-    <h:panelGrid>
-      <p:commandButton value="Close Dialog" id="closeDialog"/>
-    </h:panelGrid>
-    <br />
-		</p>
-    	
-		<!-- This Script is generated for each dialog and simplifies the way to call the method. -->
-		<script type="text/javascript" src="rest/ivyajaxapi.js"></script>
-		
-		<script type="text/javascript">
-				// jQuery (included in Primefaces) is used to intercept the click on the Button with id #hello
-				$("#hello").click(function() {
+    <ui:define name="content">
+      <h:panelGroup layout="block" id="panel">
+        <p>This demo explains how:</p>
+        <ul>
+          <li>Methods of a dialog can be called without using JSF.</li>
+          <li>This can be used to integrate JavaScript libraries like jQuery, D3 or Raphael with the Axon.ivy backend.</li>
+        </ul>
+        <h4>AJAX Method Call</h4>
+        <p>When pressing the "Say Hello" Button the helloWold() Method of the Dialog will be called. The result of the call will be written to in
+          the result element below.</p>
+        <p>This is only a simple example how to use the Ajax Method Call API. We suggest to use this API to integrate client side Ajax Libraries
+          into Axon.ivy.</p>
+        <p>If you do not want to integrate a JavaScript Library then you should use the JSF options for asynchronous Requests.</p>
+        <br />
+        <h:panelGrid>
+          <p:commandButton value="Say Hello" id="hello" />
+        </h:panelGrid>
+        <br />
+        Result: <span id="result"></span>
 
-						// The ivyajaxapi.js script provides the logic object, 
-						// which contains a funtion for each method available on the dialogs interface.
-						// If you would like to use the REST API in a more advanced way or without jQuery, 
-						// have a look at the generated ivyajaxapi.js script to see how the REST API is used.
-						logic.helloWorld( 
-							
-							// The first parameter is a data structure, which represents the list of parameters
-							{"name": "World"},
-							
-							// The second parameter is a function, which is called on a successful response.
-							function(returnData)
-							{
-								// returnData is a JavaScript Object containing one field for each Method return value.
-								// returnData.result accesses the return value named result.
-								$("#result").html(returnData.result);
-							});
-		
-				});
-				
-				$("#closeDialog").click(function() {
-					logic.closeDialog();
-				});
-		</script>
+        <hr />
+        <h4>Close Dialog</h4>
+        <p>
+          If your dialog logic runs in an exit end, you get redirected to the next page in line. <br /> Click on Close Dialog to get redirected:<br />
+          <br />
+          <h:panelGrid>
+            <p:commandButton value="Close Dialog" id="closeDialog" />
+          </h:panelGrid>
+          <br />
+        </p>
 
-	</h:panelGroup>
-	</ui:define>
+        <!-- This Script is generated for each dialog and simplifies the way to call the method. -->
+        <script type="text/javascript" src="rest/ivyajaxapi.js"></script>
 
-	</ui:composition>
+        <script type="text/javascript">
+          // jQuery (included in Primefaces) is used to intercept the click on the Button with id #hello
+          $("#hello").click(function() {
+            // The ivyajaxapi.js script provides the logic object, 
+            // which contains a funtion for each method available on the dialogs interface.
+            // If you would like to use the REST API in a more advanced way or without jQuery, 
+            // have a look at the generated ivyajaxapi.js script to see how the REST API is used.
+            logic.helloWorld(
+              // The first parameter is a data structure, which represents the list of parameters
+              {
+                "name" : "World"
+              },
+              // The second parameter is a function, which is called on a successful response.
+              function(returnData) {
+                // returnData is a JavaScript Object containing one field for each Method return value.
+                // returnData.result accesses the return value named result.
+                $("#result").html(returnData.result);
+              }
+            );
+          });
+          
+          $("#closeDialog").click(function() {
+            logic.closeDialog();
+          });
+        </script>
+
+      </h:panelGroup>
+    </ui:define>
+
+  </ui:composition>
 </h:body>
 </html>

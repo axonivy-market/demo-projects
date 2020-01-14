@@ -1,30 +1,34 @@
 package ch.ivyteam.ivy.wfdemo.businessdata;
 
-import workflow.businessdata.Dossier;
 import ch.ivyteam.ivy.business.data.store.search.Filter;
 import ch.ivyteam.ivy.business.data.store.search.Query;
+import workflow.businessdata.Dossier;
 
-public class DossierLazyDataModel extends AbstractBusinessDataLazyDataModel<Dossier> {
+public class DossierLazyDataModel extends AbstractBusinessDataLazyDataModel<Dossier>
+{
 
-	private static final long serialVersionUID = -501730717404259085L;
-	private String wordsFilter = "";
+  private static final long serialVersionUID = -501730717404259085L;
+  private String wordsFilter = "";
 
-	public DossierLazyDataModel() {
-		super(Dossier.class);
-	}
-	
-	@Override
-	protected Filter<Dossier> filter(Query<Dossier> query)
-	{
-		return query.allFields().containsAllWordPatterns(wordsFilter);
-	}
+  public DossierLazyDataModel()
+  {
+    super(Dossier.class);
+  }
 
-	public String getWordsFilter() {
-		return wordsFilter;
-	}
+  @Override
+  protected Filter<Dossier> filter(Query<Dossier> query)
+  {
+    return query.allFields().containsAllWordPatterns(wordsFilter);
+  }
 
-	public void setWordsFilter(String wordsFilter) {
-		this.wordsFilter = wordsFilter;
-	}
+  public String getWordsFilter()
+  {
+    return wordsFilter;
+  }
+
+  public void setWordsFilter(String wordsFilter)
+  {
+    this.wordsFilter = wordsFilter;
+  }
 
 }
