@@ -9,8 +9,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 
 public class WebTestOther extends BaseWebTest
 {
@@ -32,7 +34,8 @@ public class WebTestOther extends BaseWebTest
     startProcess("145D1862CF17F2C9/Html5BootstrapDemo.ivp");
     $(By.id("Form:Name")).shouldBe(visible).sendKeys("name");
     $(By.id("Form:Email")).sendKeys("email@ivyteam.ch");
-    driver.executeScript("document.getElementById('Form:Birthdate').setAttribute('value', '2016-01-01')");
+    ((RemoteWebDriver)WebDriverRunner.getWebDriver())
+            .executeScript("document.getElementById('Form:Birthdate').setAttribute('value', '2016-01-01')");
     $(By.id("Form:Captcha")).sendKeys("21");
     $(By.id("Submit")).click();
     $(By.id("captchaError")).shouldHave(text("Error!"));

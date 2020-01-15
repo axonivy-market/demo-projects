@@ -7,18 +7,15 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.FileDownloadMode;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
 
 import ch.ivyteam.htmldialog.server.test.EngineUrl;
 
 public abstract class BaseWebTest
 { 
-  protected RemoteWebDriver driver;
 
   @BeforeEach
   public void setUp()
@@ -29,7 +26,6 @@ public abstract class BaseWebTest
     Configuration.proxyEnabled = true;
     Configuration.fileDownload = FileDownloadMode.PROXY;
     Selenide.open();
-    driver = (RemoteWebDriver) WebDriverRunner.getWebDriver();
   }
   
   protected void startProcess(String pathToIvp)

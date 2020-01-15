@@ -15,10 +15,11 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.codeborne.selenide.Configuration;
+import com.axonivy.ivy.supplements.IvySelenide;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 
+@IvySelenide
 public class WebTestTwitterRestClient
 {
 
@@ -27,10 +28,6 @@ public class WebTestTwitterRestClient
   @BeforeEach
   public void setup()
   {
-    Configuration.browser = "firefox";
-    Configuration.headless = true;
-    Configuration.reportsFolder = "target/senenide/reports";
-    Selenide.open();
     driver = WebDriverRunner.getWebDriver();
   }
 
