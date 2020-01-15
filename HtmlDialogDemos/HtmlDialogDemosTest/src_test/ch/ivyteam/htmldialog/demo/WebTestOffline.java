@@ -1,6 +1,6 @@
 package ch.ivyteam.htmldialog.demo;
 
-import static ch.ivyteam.htmldialog.server.test.EngineUrl.startProcess;
+import static ch.ivyteam.htmldialog.server.test.EngineUrl.startOfflineProcess;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -18,7 +18,7 @@ public class WebTestOffline
   @Test
   public void testClientSideValidationExists()
   {
-    startProcess("150425B095B4FB54/ClientSideValidationDemo.ivp");
+    startOfflineProcess();
     $(By.id("form:firstName")).shouldBe(visible).sendKeys("Someone");
     $(By.id("form:personName")).sendKeys("Else");
     $(By.id("form:personDateOfBirth")).sendKeys("1990-01-01");
@@ -34,7 +34,7 @@ public class WebTestOffline
   @Test
   public void testClientSideValidationWorks()
   {
-    startProcess("150425B095B4FB54/ClientSideValidationDemo.ivp");
+    startOfflineProcess();
     $(By.id("form:firstName")).shouldBe(visible).sendKeys("Someone");
     $(By.id("form:personName")).sendKeys("El");
     $(By.id("form:personDateOfBirth")).sendKeys("1990-01-01");

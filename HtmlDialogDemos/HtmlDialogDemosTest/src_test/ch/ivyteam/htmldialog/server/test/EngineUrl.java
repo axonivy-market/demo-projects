@@ -3,7 +3,6 @@ package ch.ivyteam.htmldialog.server.test;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
-import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
 import com.codeborne.selenide.Selenide;
@@ -20,7 +19,7 @@ public class EngineUrl
 
   public static String process()
   {
-    return getServletUrl("pro");
+    return getServletUrl("pro/HtmlDialogDemos/");
   }
 
   private static String getServletUrl(String servletContext)
@@ -35,11 +34,13 @@ public class EngineUrl
   
   public static void startProcess(String pathToIvp)
   {
-    Selenide.open(EngineUrl.process() + "/HtmlDialogDemos/" + pathToIvp);
-    if (StringUtils.containsNone(pathToIvp, "ClientSideValidationDemo"))
-    {
-      $(By.id("menuform")).shouldBe(visible);
-    }
+    Selenide.open(EngineUrl.process() + pathToIvp);
+    $(By.id("menuform")).shouldBe(visible);
+  }
+  
+  public static void startOfflineProcess()
+  {
+    Selenide.open(EngineUrl.process() + "150425B095B4FB54/ClientSideValidationDemo.ivp");
   }
 
 }
