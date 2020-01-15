@@ -9,6 +9,7 @@ import org.primefaces.model.SortOrder;
 import ch.ivyteam.htmldialog.demo.Person;
 import ch.ivyteam.htmldialog.demo.data.DataSource;
 
+@SuppressWarnings("serial")
 public class PersonLazyDataModel extends LazyDataModel<Person>
 {
 
