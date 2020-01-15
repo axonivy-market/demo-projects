@@ -1,6 +1,5 @@
 package ch.ivyteam.htmldialog.demo;
 
-import static ch.ivyteam.htmldialog.server.test.EngineUrl.startOfflineProcess;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -11,6 +10,8 @@ import org.openqa.selenium.By;
 import com.axonivy.ivy.supplements.IvySelenide;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+
+import ch.ivyteam.htmldialog.server.test.EngineUrl;
 
 @IvySelenide
 public class WebTestOffline
@@ -47,5 +48,10 @@ public class WebTestOffline
             .shouldHave(text("Length is less than allowable minimum of '3'"));
     Selenide.$$(".ui-message-error").find(Condition.attribute("data-target", "form:addressZip"))
             .shouldHave(text("Specified attribute is not between the expected values of 1000 and 9999."));
+  }
+  
+  public static void startOfflineProcess()
+  {
+    Selenide.open(EngineUrl.process() + "150425B095B4FB54/ClientSideValidationDemo.ivp");
   }
 }
