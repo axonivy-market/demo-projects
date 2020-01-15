@@ -1,5 +1,6 @@
 package ch.ivyteam.htmldialog.demo;
 
+import static ch.ivyteam.htmldialog.server.test.EngineUrl.startProcess;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -7,10 +8,12 @@ import static com.codeborne.selenide.Selenide.$;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import com.axonivy.ivy.supplements.IvySelenide;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 
-public class WebTestOffline extends BaseWebTest
+@IvySelenide
+public class WebTestOffline
 {
   @Test
   public void testClientSideValidationExists()

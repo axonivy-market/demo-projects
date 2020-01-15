@@ -1,5 +1,6 @@
 package ch.ivyteam.htmldialog.demo;
 
+import static ch.ivyteam.htmldialog.server.test.EngineUrl.startProcess;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
@@ -14,11 +15,27 @@ import java.nio.charset.Charset;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-public class WebTestInputDownload extends BaseWebTest
+import com.axonivy.ivy.supplements.IvySelenide;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.FileDownloadMode;
+import com.codeborne.selenide.Selenide;
+
+@IvySelenide
+public class WebTestInputDownload
 {
+  
+  @BeforeAll
+  public static void setUp()
+  {
+    Selenide.close();
+    Configuration.proxyEnabled = true;
+    Configuration.fileDownload = FileDownloadMode.PROXY;
+    Selenide.open();
+  }
 
   @Test
   public void testSimpleFileUpDownload() throws Exception

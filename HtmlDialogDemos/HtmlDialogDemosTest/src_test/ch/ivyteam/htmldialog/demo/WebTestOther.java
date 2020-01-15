@@ -1,5 +1,6 @@
 package ch.ivyteam.htmldialog.demo;
 
+import static ch.ivyteam.htmldialog.server.test.EngineUrl.startProcess;
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.exactValue;
@@ -11,10 +12,12 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import com.axonivy.ivy.supplements.IvySelenide;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 
-public class WebTestOther extends BaseWebTest
+@IvySelenide
+public class WebTestOther
 {
   @Test
   public void testHtmlJsfDemo()
@@ -40,7 +43,7 @@ public class WebTestOther extends BaseWebTest
     $(By.id("Submit")).click();
     $(By.id("captchaError")).shouldHave(text("Error!"));
 
-    clearInput(By.id("Form:Captcha"));
+    $(By.id("Form:Captcha")).shouldBe(visible).clear();
     $(By.id("Form:Captcha")).sendKeys("42");
     $(By.id("Submit")).click();
     $(By.id("messageSent")).shouldHave(text("Hey name! Your message has been sent."));
@@ -63,7 +66,7 @@ public class WebTestOther extends BaseWebTest
   {
     startProcess("145D1862CF17F2C9/ManagedBeanDemo.ivp");
     String managedBeanPoperty = "this is immortal!";
-    clearInput(By.id("beanForm:descriptionProperty"));
+    $(By.id("beanForm:descriptionProperty")).shouldBe(visible).clear();
     $(By.id("beanForm:descriptionProperty")).sendKeys(managedBeanPoperty);
     $(By.id("beanForm:buttonSend")).click();
 

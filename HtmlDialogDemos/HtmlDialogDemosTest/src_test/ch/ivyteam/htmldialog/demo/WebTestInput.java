@@ -1,5 +1,6 @@
 package ch.ivyteam.htmldialog.demo;
 
+import static ch.ivyteam.htmldialog.server.test.EngineUrl.startProcess;
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -10,9 +11,11 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
+import com.axonivy.ivy.supplements.IvySelenide;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 
-public class WebTestInput extends BaseWebTest
+@IvySelenide
+public class WebTestInput
 {
 
   @Test

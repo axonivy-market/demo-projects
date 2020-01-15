@@ -1,5 +1,6 @@
 package ch.ivyteam.htmldialog.demo;
 
+import static ch.ivyteam.htmldialog.server.test.EngineUrl.startProcess;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.not;
@@ -13,12 +14,14 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
+import com.axonivy.ivy.supplements.IvySelenide;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 import com.axonivy.ivy.supplements.primeui.tester.widget.SelectManyCheckbox;
 import com.axonivy.ivy.supplements.primeui.tester.widget.SelectOneMenu;
 import com.axonivy.ivy.supplements.primeui.tester.widget.Table;
 
-public class WebTestOutput extends BaseWebTest
+@IvySelenide
+public class WebTestOutput
 {
   @Test
   public void testDataTable() throws Exception
@@ -197,5 +200,11 @@ public class WebTestOutput extends BaseWebTest
     startProcess("145D180807C60B4B/ChartDemo.ivp");
     $(By.id("form:comboChart")).shouldBe(visible);
     $(By.id("form:pieChart")).shouldBe(visible);
+  }
+  
+  private void clearInput(By inputLocator)
+  {
+    $(inputLocator).shouldBe(visible).clear();
+    $(inputLocator).sendKeys(Keys.TAB);
   }
 }

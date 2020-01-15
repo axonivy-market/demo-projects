@@ -1,18 +1,21 @@
 package ch.ivyteam.htmldialog.server.test;
 
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+
+import org.apache.commons.lang3.StringUtils;
+import org.openqa.selenium.By;
+
+import com.codeborne.selenide.Selenide;
+
 public class EngineUrl
 {
 
   private static final String DESIGNER = "designer";
 
-  public static String base()
+  private static String base()
   {
     return System.getProperty("test.engine.url", "http://localhost:8081/ivy/");
-  }
-
-  public static String rest()
-  {
-    return getServletUrl("api");
   }
 
   public static String process()
@@ -20,7 +23,7 @@ public class EngineUrl
     return getServletUrl("pro");
   }
 
-  public static String getServletUrl(String servletContext)
+  private static String getServletUrl(String servletContext)
   {
     return base() + servletContext + "/" + applicationName();
   }
@@ -29,9 +32,14 @@ public class EngineUrl
   {
     return System.getProperty("test.engine.app", DESIGNER);
   }
-
-  public static Boolean isDesigner()
+  
+  public static void startProcess(String pathToIvp)
   {
-    return Boolean.valueOf(EngineUrl.applicationName() == DESIGNER);
+    Selenide.open(EngineUrl.process() + "/HtmlDialogDemos/" + pathToIvp);
+    if (StringUtils.containsNone(pathToIvp, "ClientSideValidationDemo"))
+    {
+      $(By.id("menuform")).shouldBe(visible);
+    }
   }
+
 }
