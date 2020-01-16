@@ -19,7 +19,7 @@ public class EngineUrl
 
   public static String process()
   {
-    return getServletUrl("pro/HtmlDialogDemos/");
+    return getServletUrl("pro");
   }
 
   private static String getServletUrl(String servletContext)
@@ -34,7 +34,7 @@ public class EngineUrl
   
   public static void startProcess(String pathToIvp)
   {
-    Selenide.open(EngineUrl.process() + pathToIvp);
+    Selenide.open(EngineUrl.process() + "/HtmlDialogDemos/" + pathToIvp);
     $(By.id("menuform")).shouldBe(visible);
   }
   

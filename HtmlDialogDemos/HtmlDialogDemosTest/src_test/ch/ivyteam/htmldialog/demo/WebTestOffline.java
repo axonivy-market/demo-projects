@@ -52,6 +52,6 @@ public class WebTestOffline
   
   public static void startOfflineProcess()
   {
-    Selenide.open(EngineUrl.process() + "150425B095B4FB54/ClientSideValidationDemo.ivp");
+    Selenide.open(EngineUrl.process() + "/HtmlDialogDemos/150425B095B4FB54/ClientSideValidationDemo.ivp");
   }
 }
