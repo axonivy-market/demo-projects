@@ -32,6 +32,7 @@ pipeline {
                      "-Divy.engine.list.url=${params.engineListUrl} "
         }
         archiveArtifacts '**/target/*.iar,**/target/*.zip'
+        archiveArtifacts artifacts: '**/target/selenide/reports/**/*', allowEmptyArchive: true
         recordIssues tools: [eclipse()], unstableTotalAll: 1
         junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: '**/target/surefire-reports/**/*.xml'          
       }
