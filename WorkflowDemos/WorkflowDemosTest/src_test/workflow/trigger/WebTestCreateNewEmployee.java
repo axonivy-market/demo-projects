@@ -7,12 +7,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import com.axonivy.ivy.supplements.IvySelenide;
 import com.codeborne.selenide.Selenide;
 
-import test.web.BaseWebTest;
 import test.web.EngineUrl;
 
-public class WebTestCreateNewEmployee extends BaseWebTest
+@IvySelenide
+public class WebTestCreateNewEmployee
 {
 
   @Test
@@ -20,7 +21,7 @@ public class WebTestCreateNewEmployee extends BaseWebTest
   {
     Selenide.open(EngineUrl.base());
     $(By.linkText("InitializeTestEnvironment/start.ivp")).shouldBe(visible);
-    assertThat(driver.getTitle().contains("ivy"));
+    assertThat(Selenide.title().contains("ivy"));
     $(By.linkText("InitializeTestEnvironment/start.ivp")).click();
     Selenide.open(EngineUrl.process() + "/WorkflowDemos/15254CF1CE56AE72/start.ivp");
     $("#form\\:employeeName").sendKeys("Charlie");

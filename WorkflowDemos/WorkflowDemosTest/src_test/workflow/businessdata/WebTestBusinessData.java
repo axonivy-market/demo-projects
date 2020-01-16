@@ -5,18 +5,21 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static test.web.ProcessUtil.checkEndPage;
+import static test.web.ProcessUtil.startProcess;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import com.axonivy.ivy.supplements.IvySelenide;
 import com.axonivy.ivy.supplements.primeui.tester.PrimeUi;
 import com.axonivy.ivy.supplements.primeui.tester.widget.Table;
 import com.codeborne.selenide.Selenide;
 
-import test.web.BaseWebTest;
 import test.web.EngineUrl;
 
-public class WebTestBusinessData extends BaseWebTest
+@IvySelenide
+public class WebTestBusinessData
 {
   private static final String BROWSE_DOSSIERS_LINK = "155BB4328F79B2D5/browse.ivp";
 

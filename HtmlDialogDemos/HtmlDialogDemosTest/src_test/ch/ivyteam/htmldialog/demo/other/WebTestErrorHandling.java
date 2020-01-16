@@ -1,5 +1,6 @@
 package ch.ivyteam.htmldialog.demo.other;
 
+import static ch.ivyteam.htmldialog.server.test.EngineUrl.startProcess;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -8,10 +9,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import ch.ivyteam.htmldialog.demo.BaseWebTest;
+import com.axonivy.ivy.supplements.IvySelenide;
+
 import ch.ivyteam.htmldialog.server.test.EngineUrl;
 
-public class WebTestErrorHandling extends BaseWebTest
+@IvySelenide
+public class WebTestErrorHandling
 {
   @Test
   public void ajax_error_dialog()

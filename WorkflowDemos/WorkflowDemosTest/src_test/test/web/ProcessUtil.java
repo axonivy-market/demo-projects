@@ -3,33 +3,17 @@ package test.web;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
 
-public abstract class BaseWebTest
+public class ProcessUtil
 {
-  protected RemoteWebDriver driver;
 
-  @BeforeEach
-  void initDriver()
-  {
-    Configuration.browser = "firefox";
-    Configuration.headless = true;
-    Configuration.reportsFolder = "target/senenide/reports";
-    Selenide.open();
-    this.driver = (RemoteWebDriver) WebDriverRunner.getWebDriver();
-  }
-
-  protected void startProcess(String pathToIvp)
+  public static void startProcess(String pathToIvp)
   {
     Selenide.open(EngineUrl.process() + "/WorkflowDemos/" + pathToIvp);
   }
   
-  public void checkEndPage()
+  public static void checkEndPage()
   {
     if (EngineUrl.applicationName().equals("designer"))
     {
@@ -41,7 +25,7 @@ public abstract class BaseWebTest
     }
   }
   
-  public void checkTaskList()
+  public static void checkTaskList()
   {
     if (EngineUrl.applicationName().equals("designer"))
     {

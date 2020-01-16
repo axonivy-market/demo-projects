@@ -1,5 +1,6 @@
 package ch.ivyteam.htmldialog.demo;
 
+import static ch.ivyteam.htmldialog.server.test.EngineUrl.startProcess;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,11 +13,27 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.awaitility.Awaitility;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-public class WebTestExcelExport extends BaseWebTest
+import com.axonivy.ivy.supplements.IvySelenide;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.FileDownloadMode;
+import com.codeborne.selenide.Selenide;
+
+@IvySelenide
+public class WebTestExcelExport
 {
+  
+  @BeforeAll
+  public static void setUp()
+  {
+    Selenide.close();
+    Configuration.proxyEnabled = true;
+    Configuration.fileDownload = FileDownloadMode.PROXY;
+    Selenide.open();
+  }
 
   @Test
   public void testExcelExport() throws Exception

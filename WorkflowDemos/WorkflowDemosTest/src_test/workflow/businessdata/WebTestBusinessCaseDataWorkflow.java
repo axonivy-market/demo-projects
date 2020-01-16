@@ -7,16 +7,20 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static test.web.ProcessUtil.checkEndPage;
+import static test.web.ProcessUtil.checkTaskList;
+import static test.web.ProcessUtil.startProcess;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.axonivy.ivy.supplements.IvySelenide;
 import com.codeborne.selenide.Selenide;
 
-import test.web.BaseWebTest;
 import test.web.EngineUrl;
 
-public class WebTestBusinessCaseDataWorkflow extends BaseWebTest
+@IvySelenide
+public class WebTestBusinessCaseDataWorkflow
 {
 
   @BeforeEach

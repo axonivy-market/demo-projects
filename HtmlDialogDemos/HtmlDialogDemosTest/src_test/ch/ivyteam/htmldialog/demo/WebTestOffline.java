@@ -7,15 +7,19 @@ import static com.codeborne.selenide.Selenide.$;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import com.axonivy.ivy.supplements.IvySelenide;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 
-public class WebTestOffline extends BaseWebTest
+import ch.ivyteam.htmldialog.server.test.EngineUrl;
+
+@IvySelenide
+public class WebTestOffline
 {
   @Test
   public void testClientSideValidationExists()
   {
-    startProcess("150425B095B4FB54/ClientSideValidationDemo.ivp");
+    startOfflineProcess();
     $(By.id("form:firstName")).shouldBe(visible).sendKeys("Someone");
     $(By.id("form:personName")).sendKeys("Else");
     $(By.id("form:personDateOfBirth")).sendKeys("1990-01-01");
@@ -31,7 +35,7 @@ public class WebTestOffline extends BaseWebTest
   @Test
   public void testClientSideValidationWorks()
   {
-    startProcess("150425B095B4FB54/ClientSideValidationDemo.ivp");
+    startOfflineProcess();
     $(By.id("form:firstName")).shouldBe(visible).sendKeys("Someone");
     $(By.id("form:personName")).sendKeys("El");
     $(By.id("form:personDateOfBirth")).sendKeys("1990-01-01");
@@ -44,5 +48,10 @@ public class WebTestOffline extends BaseWebTest
             .shouldHave(text("Length is less than allowable minimum of '3'"));
     Selenide.$$(".ui-message-error").find(Condition.attribute("data-target", "form:addressZip"))
             .shouldHave(text("Specified attribute is not between the expected values of 1000 and 9999."));
+  }
+  
+  public static void startOfflineProcess()
+  {
+    Selenide.open(EngineUrl.process() + "150425B095B4FB54/ClientSideValidationDemo.ivp");
   }
 }
