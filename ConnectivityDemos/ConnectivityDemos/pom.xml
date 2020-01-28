@@ -42,6 +42,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+		    <groupId>io.swagger.core.v3</groupId>
+		    <artifactId>swagger-annotations</artifactId>
+		    <version>2.1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -92,7 +97,68 @@
                     </execution>
                 </executions>
             </plugin>
+            
+            <plugin>
+			    <groupId>io.swagger.codegen.v3</groupId>
+			    <artifactId>swagger-codegen-maven-plugin</artifactId>
+			    <version>3.0.14</version>
+			    <executions>
+				    <execution>
+				    	<id>generate.petjob.pojos.from.openapi</id>
+					    <phase>generate-sources</phase>
+					    <goals><goal>generate</goal></goals>
+					    <configuration>
+						    <configOptions>
+						    	<sourceFolder>src_generated</sourceFolder>
+						    	<dateLibrary>java8</dateLibrary>
+						    </configOptions>
+						    <inputSpec>${basedir}/src/com/axonivy/connectivity/rest/sample/petstore/swagger.json</inputSpec>
+						    <language>java</language>
+						    <library>jersey2</library>
+						    <output>${basedir}</output>
+						    <modelPackage>io.swagger.petstore.openapi</modelPackage>
+						    
+						    <generateApis>false</generateApis>
+						    <generateApiTests>false</generateApiTests>
+						    <generateApiDocumentation>false</generateApiDocumentation>
+						    <generateSupportingFiles>false</generateSupportingFiles>
+						    <generateModelTests>false</generateModelTests>
+						    <generateModelDocumentation>false</generateModelDocumentation>
+					    </configuration>
+				    </execution>
+			    </executions>
+			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>io.swagger.codegen.v3</groupId>
+										<artifactId>swagger-codegen-maven-plugin</artifactId>
+										<versionRange>[3.0.14,)</versionRange>
+										<goals><goal>generate</goal></goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute>
+											<runOnIncremental>false</runOnIncremental>
+											<runOnConfiguration>true</runOnConfiguration>
+										</execute>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 </project>

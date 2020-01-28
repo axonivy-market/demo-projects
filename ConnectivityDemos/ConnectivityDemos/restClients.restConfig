@@ -157,4 +157,19 @@ To run this service locally:
             </feature>
         </configuration>
     </restClient>
+    <restClient>
+        <uuid>ae69ba01-79b7-4dce-9049-900f8f420907</uuid>
+        <name>openApiService</name>
+        <configuration>
+            <uri>https://petstore.swagger.io/v2</uri>
+            <property>
+                <name>JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES</name>
+                <value>false</value>
+                <password>false</password>
+            </property>
+            <feature>
+                <class>ch.ivyteam.ivy.rest.client.mapper.JsonFeature</class>
+            </feature>
+        </configuration>
+    </restClient>
 </restClients>
