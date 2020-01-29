@@ -19,7 +19,7 @@
         <artifactId>project-build-plugin</artifactId>
         <extensions>true</extensions>
         <configuration>
-          <skipScriptValidation>true</skipScriptValidation><!-- yet not working here: false positive! -->
+          <skipScriptValidation>false</skipScriptValidation><!-- yet not working here: false positive! -->
         </configuration>
       </plugin>
     </plugins>

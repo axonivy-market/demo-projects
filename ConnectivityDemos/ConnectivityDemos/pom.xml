@@ -56,7 +56,7 @@
 				<artifactId>project-build-plugin</artifactId>
 				<extensions>true</extensions>
 				 <configuration>
-				 	<skipScriptValidation>true</skipScriptValidation>
+				 	<skipScriptValidation>false</skipScriptValidation>
 				 </configuration>
 			</plugin>
 			<plugin>
