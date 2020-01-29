@@ -6,6 +6,4 @@ eclipse.preferences.version=1
 override=true
 suspend=false
 vals/ch.ivyteam.ivy.datawrapper.internal.validation.ProcessValidator/groups=0107include0107fileext03modT0107exclude0104file147processes/soap/service/serviceWithException.modF03
-vals/ch.ivyteam.ivy.designer.dialog.jsf.validation.view.HtmlDialogViewValidator/global=TT01
-vals/ch.ivyteam.ivy.designer.dialog.jsf.validation.view.HtmlDialogViewValidator/groups=0107include01113projectNature150org.eclipse.wst.common.modulecore.ModuleCoreNature0107include01113projectNature131org.eclipse.jdt.core.javanature0107include0105facet08jst.java0107include0105facet07jst.web0107include0105facet07jst.jsf0107include02111contentType111jsf.faceletF111contentType121jsf.facelet.compositeF0107exclude0104file119PersonManager.xhtmlF01
 vf.version=3
