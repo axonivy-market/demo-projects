@@ -40,7 +40,6 @@
 					<version>[8.0.0,)</version>
 					<extensions>true</extensions>
 					<configuration>
-						<skipScriptValidation>true</skipScriptValidation>
 						<ivyVersion>[8.0.0,]</ivyVersion>
 						<engineDirectory>${engine.directory}</engineDirectory>
 						<iarFileSets>

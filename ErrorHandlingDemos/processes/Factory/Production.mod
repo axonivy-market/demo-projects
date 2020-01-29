@@ -89,16 +89,16 @@ fy0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 fy0 f7 376 202 112 44 -31 -8 #rect
 fy0 f7 @|DBStepIcon #fIcon
 fy0 f3 actionTable 'out=in;
-out.newShoes=wsResponse.produceResponse.nikes;
+out.newShoes=wsResponse.shoes;
 ' #txt
 fy0 f3 cache '{/cache false /invalidation false /scope 0 /groupname ""/lifetime_group "0"/invalidation_time_group ""/identifier ""/lifetime_entry "0"/invalidation_time_entry ""}' #txt
-fy0 f3 clientId 15003F91E5C96948 #txt
+fy0 f3 clientId 16FEC3EAEC5333CC #txt
 fy0 f3 port NikeFactoryPort #txt
 fy0 f3 operation produce #txt
 fy0 f3 properties 'timeout.timeInSeconds=1;
 ' #txt
-fy0 f3 inputParams 'arg0.produce.amount=200;
-arg0.produce.model="Super Runners";
+fy0 f3 inputParams 'parameters.amount=200;
+parameters.model="Super Runners";
 ' #txt
 fy0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
